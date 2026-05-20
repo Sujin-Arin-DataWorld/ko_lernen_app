@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- ─── Sori v3 mini icon (48dp launcher 최적화) ─────────────
+       원본 icon.svg를 단순화:
+       - gradient 제거 (solid colors)
+       - 디테일 (band highlight, body luster) 생략
+       - ㅎ stroke 더 두껍게 (작은 크기에서도 명료)
+  ────────────────────────────────────────────────────── -->
+
+  <!-- Indigo background -->
+  <rect width="512" height="512" rx="112" fill="#2C3E94"/>
+
+  <!-- 갓 챙 -->
+  <ellipse cx="256" cy="384" rx="200" ry="32" fill="#0d0d0d"/>
+
+  <!-- 갓 본체 -->
+  <path d="M 162 162
+           Q 162 140, 256 140
+           Q 350 140, 350 162
+           L 350 358
+           Q 350 374, 256 374
+           Q 162 374, 162 358 Z"
+        fill="#1a1a1a"/>
+
+  <!-- 갓 윗부분 (top ellipse) -->
+  <ellipse cx="256" cy="158" rx="94" ry="12" fill="#252525"/>
+
+  <!-- 갓끈 (gold band) -->
+  <rect x="162" y="346" width="188" height="10" fill="#D4A92F"/>
+
+  <!-- ㅎ (흰색, 두껍게) -->
+  <path d="M 232 188 L 270 222"
+        stroke="#FFFFFF" stroke-width="22"
+        stroke-linecap="round" fill="none"/>
+  <line x1="180" y1="240" x2="332" y2="240"
+        stroke="#FFFFFF" stroke-width="24"
+        stroke-linecap="round"/>
+  <circle cx="256" cy="298" r="42"
+          stroke="#FFFFFF" stroke-width="22"
+          fill="none"/>
+</svg>

@@ -117,14 +117,16 @@ class _CharGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 5×N → 4×N: 셀이 커져 큰 한글(36) + romanization(12) 여유롭게 들어감.
+    // 정사각형 셀(aspect 1.0) — 시각적 안정 + 안드로이드 그리드 표준.
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 5,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        childAspectRatio: 0.95,
+        crossAxisCount: 4,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        childAspectRatio: 1.0,
       ),
       itemCount: chars.length,
       itemBuilder: (ctx, i) {
@@ -140,8 +142,11 @@ class _CharGrid extends StatelessWidget {
       context: ctx,
       backgroundColor: SoriColors.darkSurface,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
+      isScrollControlled: true,   // sheet가 keyboard/landscape에서 잘림 방지
+      useSafeArea: true,          // status bar / notch / gesture bar 회피
+      enableDrag: true,           // swipe-down 닫기 명시
       builder: (_) => _DetailSheet(char: c, color: color),
     );
   }
@@ -159,13 +164,37 @@ class _CharCell extends StatelessWidget {
       variant: SoriCardVariant.compact,
       accent: color,
       onTap: onTap,
-      padding: const EdgeInsets.all(6),
+      padding: const EdgeInsets.all(4),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text(char.letter, style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: color)),
-          const SizedBox(height: 2),
-          Text('[${char.romanization}]', style: const TextStyle(fontSize: 10, color: SoriColors.darkTextMuted, fontStyle: FontStyle.italic)),
+          // FittedBox로 셀 사이즈에 자동 적응 — 어떤 폰에서도 overflow 0
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              char.letter,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 36,
+                fontWeight: FontWeight.w900,
+                color: color,
+                height: 1,
+              ),
+            ),
+          ),
+          const SizedBox(height: 3),
+          Text(
+            char.romanization,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 11,
+              color: color.withValues(alpha: 0.75),
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w600,
+              height: 1,
+            ),
+          ),
         ],
       ),
     );
@@ -446,33 +475,65 @@ class _WriteTabState extends State<_WriteTab> {
           ),
           const SizedBox(height: 14),
 
-          // Demo
-          Column(
-            children: [
-              Text(t.hangulStrokeOrderTitle, style: const TextStyle(fontSize: 12, color: SoriColors.darkTextMuted)),
-              const SizedBox(height: 6),
-              SoriCard(
-                variant: SoriCardVariant.base,
-                accent: SoriColors.info,
-                padding: const EdgeInsets.all(6),
-                child: StrokeCanvas(
-                  letter: c.letter,
-                  strokes: strokes,
-                  size: 220,
-                  color: SoriColors.hangul,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
+          // ── Demo (시범 stroke order) + Practice (사용자 따라쓰기) Side-by-Side ──
+          // 비교 학습 효과 ↑. AspectRatio 1:1로 폰 너비에 적응 (iPhone SE 320pt도 OK).
+          LayoutBuilder(
+            builder: (ctx, constraints) {
+              // 양쪽 canvas 사이 gap 10, 각 Expanded → AspectRatio 1
+              // 한쪽 canvas 실제 size: (width - 10) / 2 - inner SoriCard padding(~12)
+              final canvasSize = ((constraints.maxWidth - 10) / 2 - 12).clamp(120.0, 220.0);
 
-          // Practice
-          Column(
-            children: [
-              Text(t.hangulTraceTitle, style: const TextStyle(fontSize: 12, color: SoriColors.success)),
-              const SizedBox(height: 6),
-              _PracticeCanvas(key: _practiceKey, ghost: c.letter, color: SoriColors.success),
-            ],
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // ── 좌: 시범 stroke animation ──
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(t.hangulStrokeOrderTitle,
+                            style: const TextStyle(fontSize: 11.5, color: SoriColors.darkTextMuted, fontWeight: FontWeight.w700),
+                            textAlign: TextAlign.center),
+                        const SizedBox(height: 6),
+                        SoriCard(
+                          variant: SoriCardVariant.base,
+                          accent: SoriColors.info,
+                          padding: const EdgeInsets.all(6),
+                          child: AspectRatio(
+                            aspectRatio: 1,
+                            child: StrokeCanvas(
+                              letter: c.letter,
+                              strokes: strokes,
+                              size: canvasSize,
+                              color: SoriColors.hangul,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  // ── 우: Practice canvas (사용자 손가락) ──
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(t.hangulTraceTitle,
+                            style: const TextStyle(fontSize: 11.5, color: SoriColors.success, fontWeight: FontWeight.w700),
+                            textAlign: TextAlign.center),
+                        const SizedBox(height: 6),
+                        AspectRatio(
+                          aspectRatio: 1,
+                          child: _PracticeCanvas(
+                            key: _practiceKey,
+                            ghost: c.letter,
+                            color: SoriColors.success,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
           ),
           const SizedBox(height: 10),
           SoriButton.outlined(
@@ -518,7 +579,9 @@ class _WriteTabState extends State<_WriteTab> {
 class _PracticeCanvas extends StatefulWidget {
   final String ghost;
   final Color color;
-  const _PracticeCanvas({super.key, required this.ghost, required this.color});
+  /// 명시적 size. null → 부모 (Expanded/AspectRatio) 가 결정.
+  final double? size;
+  const _PracticeCanvas({super.key, required this.ghost, required this.color, this.size});
 
   @override
   State<_PracticeCanvas> createState() => _PracticeCanvasState();
@@ -540,8 +603,8 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
     return SoriCard(
       variant: SoriCardVariant.base,
       accent: SoriColors.success,
-      width: 220,
-      height: 220,
+      width: widget.size,
+      height: widget.size,
       padding: EdgeInsets.zero,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(SoriRadius.md),

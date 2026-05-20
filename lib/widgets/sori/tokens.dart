@@ -68,17 +68,23 @@ class SoriElevation {
 // COLORS — brand + light + dark
 // ─────────────────────────────────────────────────────────────────────────
 class SoriColors {
-  // ── Brand ────────────────────────────────────────────────────────────
-  static const Color primary     = Color(0xFF7B5CFF);  // Sori Purple
-  static const Color primarySoft = Color(0xFFEFEAFF);  // 밝은 보조 (배지/하이라이트)
-  static const Color primaryDark = Color(0xFF6044DD);  // hover/press
+  // ── Brand v3 (Indigo + Tiger + Gold) ─────────────────────────────────
+  // 단청 청 (Korean indigo) — replaces Sori Purple. 다른 한국어 학습 앱의
+  // 보라색과 차별화 + 호랑이(orange) 마스코트와 보색 조합.
+  static const Color primary     = Color(0xFF2C3E94);  // 단청 청 (남색)
+  static const Color primarySoft = Color(0xFFDBE4FF);  // 옅은 indigo tint
+  static const Color primaryDark = Color(0xFF1E2D7A);  // hover/press
 
-  // ── Accent (제한적 사용) ─────────────────────────────────────────────
+  // ── Cultural accent ──────────────────────────────────────────────────
+  static const Color tiger    = Color(0xFFFF8C42);   // 호랑이 (mascot primary)
+  static const Color gold     = Color(0xFFD4A92F);   // 갓끈 / XP / 별 (gat band)
+
+  // ── Functional accent ────────────────────────────────────────────────
   static const Color hangul   = Color(0xFFEC4899);   // 한국어 강조
   static const Color success  = Color(0xFF22C55E);   // 정답/완료
-  static const Color warning  = Color(0xFFF59E0B);   // 별/streak/주의
+  static const Color warning  = Color(0xFFF59E0B);   // streak/주의
   static const Color danger   = Color(0xFFEF4444);   // 오답/삭제
-  static const Color info     = Color(0xFF3B82F6);   // 정보 (드물게)
+  static const Color info     = Color(0xFF3B82F6);   // 정보 (vocab 등)
 
   // ── Light surfaces & text ───────────────────────────────────────────
   static const Color lightBg          = Color(0xFFFFFFFF);
