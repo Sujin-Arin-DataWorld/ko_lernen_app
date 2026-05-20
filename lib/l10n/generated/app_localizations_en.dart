@@ -669,4 +669,29 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsUserLevelChange => 'Change level';
+
+  @override
+  String get statsXpTitle => 'Scenario progress';
+
+  @override
+  String get statsXp => 'XP';
+
+  @override
+  String statsLevelLabel(int n) {
+    return 'Level $n';
+  }
+
+  @override
+  String statsToNextLevel(int n, int next) {
+    return '$n XP to level $next';
+  }
+
+  @override
+  String get statsScenariosCompleted => 'Scenarios done';
+
+  @override
+  String get statsBadgesTitle => 'Badges';
+
+  @override
+  String get statsNoBadges => 'None yet — finish scenarios! 🚀';
 }

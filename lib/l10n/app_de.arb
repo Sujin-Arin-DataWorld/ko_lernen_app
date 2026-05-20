@@ -251,5 +251,15 @@
   "particlePopExplanation": "Nach Konsonant: 은/이/을 · Nach Vokal: 는/가/를",
 
   "settingsUserLevel": "Mein Level",
-  "settingsUserLevelChange": "Level ändern"
+  "settingsUserLevelChange": "Level ändern",
+
+  "statsXpTitle": "Szenario-Fortschritt",
+  "statsXp": "XP",
+  "statsLevelLabel": "Level {n}",
+  "@statsLevelLabel": { "placeholders": { "n": { "type": "int" } } },
+  "statsToNextLevel": "{n} XP bis Level {next}",
+  "@statsToNextLevel": { "placeholders": { "n": { "type": "int" }, "next": { "type": "int" } } },
+  "statsScenariosCompleted": "Szenarien geschafft",
+  "statsBadgesTitle": "Auszeichnungen",
+  "statsNoBadges": "Noch keine — schließe Szenarien ab! 🚀"
 }

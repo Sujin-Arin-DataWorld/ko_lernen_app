@@ -1332,6 +1332,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Level ändern'**
   String get settingsUserLevelChange;
+
+  /// No description provided for @statsXpTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenario-Fortschritt'**
+  String get statsXpTitle;
+
+  /// No description provided for @statsXp.
+  ///
+  /// In de, this message translates to:
+  /// **'XP'**
+  String get statsXp;
+
+  /// No description provided for @statsLevelLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Level {n}'**
+  String statsLevelLabel(int n);
+
+  /// No description provided for @statsToNextLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} XP bis Level {next}'**
+  String statsToNextLevel(int n, int next);
+
+  /// No description provided for @statsScenariosCompleted.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenarien geschafft'**
+  String get statsScenariosCompleted;
+
+  /// No description provided for @statsBadgesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Auszeichnungen'**
+  String get statsBadgesTitle;
+
+  /// No description provided for @statsNoBadges.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine — schließe Szenarien ab! 🚀'**
+  String get statsNoBadges;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

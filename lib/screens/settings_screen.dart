@@ -8,6 +8,7 @@ import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync.dart';
+import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -57,6 +58,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
             value: 'en',
             groupValue: currentLocale == null ? 'system' : currentLocale.languageCode,
             onChanged: (_) => setState(() => setLocale(const Locale('en'))),
+          ),
+
+          // ── Lernlevel ──
+          _Section(label: t.settingsUserLevel),
+          ListTile(
+            leading: const Icon(Icons.school_outlined, color: AppColors.primary),
+            title: Text(_levelDisplay(t)),
+            subtitle: Text(t.settingsUserLevelChange, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
+            trailing: const Icon(Icons.chevron_right, color: AppColors.textMuted),
+            onTap: _showLevelDialog,
           ),
 
           // ── TTS Speed ──
@@ -163,6 +174,61 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   String _appVersion() => '1.0.0';
+
+  String _levelDisplay(AppL10n t) {
+    final lvl = LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final name = switch (lvl) {
+      LearnerLevel.a1 => t.onboardingLevelA1,
+      LearnerLevel.a2 => t.onboardingLevelA2,
+      LearnerLevel.b1 => t.onboardingLevelB1,
+      LearnerLevel.b2 => t.onboardingLevelB2,
+    };
+    return '${lvl.display} — $name';
+  }
+
+  void _showLevelDialog() {
+    final t = AppL10n.of(context);
+    final current = LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    String _nameFor(LearnerLevel lvl) => switch (lvl) {
+      LearnerLevel.a1 => t.onboardingLevelA1,
+      LearnerLevel.a2 => t.onboardingLevelA2,
+      LearnerLevel.b1 => t.onboardingLevelB1,
+      LearnerLevel.b2 => t.onboardingLevelB2,
+    };
+
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: AppColors.surface,
+        title: Text(t.settingsUserLevel),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: LearnerLevel.values.map((lvl) {
+            return RadioListTile<LearnerLevel>(
+              title: Text('${lvl.display} — ${_nameFor(lvl)}'),
+              value: lvl,
+              groupValue: current,
+              activeColor: AppColors.primary,
+              onChanged: (v) async {
+                if (v == null) return;
+                await Storage.setUserLevelCode(v.code);
+                HapticFeedback.selectionClick();
+                if (!mounted) return;
+                Navigator.pop(ctx);
+                setState(() {});
+              },
+            );
+          }).toList(),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(t.btnCancel),
+          ),
+        ],
+      ),
+    );
+  }
 
   Future<void> _onGoogleTap() async {
     try {
