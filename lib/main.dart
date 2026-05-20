@@ -20,6 +20,7 @@ import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
 import 'screens/onboarding_level_screen.dart';
 import 'screens/scenario_player_screen.dart';
+import 'screens/scenarios_list_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -114,6 +115,7 @@ class KoLernenApp extends StatelessWidget {
           '/wordle':     (_) => const WordleScreen(),
           '/settings':   (_) => const SettingsScreen(),
           '/stats':      (_) => const StatsScreen(),
+          '/scenarios':  (_) => const ScenariosListScreen(),
         },
         onGenerateRoute: (settings) {
           if (settings.name == '/scenario') {

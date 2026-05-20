@@ -69,6 +69,13 @@ class HomeScreen extends StatelessWidget {
               // ── Lernmodule ──
               _Section(t.sectionModules),
               _ModuleCard(
+                title: '🎬  ${t.moduleScenariosTitle}',
+                desc:  t.moduleScenariosDesc,
+                color: AppColors.primary,
+                onTap: () => Navigator.pushNamed(context, '/scenarios'),
+              ),
+              const SizedBox(height: 10),
+              _ModuleCard(
                 title: '🔤  ${t.moduleHangulTitle}',
                 desc:  t.moduleHangulDesc,
                 color: AppColors.hangul,
