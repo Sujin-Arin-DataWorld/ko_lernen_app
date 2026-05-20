@@ -178,7 +178,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
               // Done celebration
               Column(
                 children: [
-                  const Mascot.jieun(emotion: MascotEmotion.celebrate, size: 80),
+                  const Mascot.tiger(emotion: MascotEmotion.celebrate, size: 80),
                   const SizedBox(height: Spacing.sm),
                   Text(
                     t.dailyCharGreatJob,

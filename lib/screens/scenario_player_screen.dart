@@ -560,8 +560,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
         : stars >= 1
             ? MascotEmotion.smile
             : MascotEmotion.worry;
-    // Mascot kind: scenario's sidekick if set, else jieun default
-    final mascotKind = (sc.sidekick == 'minsu') ? MascotKind.minsu : MascotKind.jieun;
+    // Mascot kind: 'kkachi'/'magpie' → magpie (좋은 소식 분위기), else tiger 기본
+    final mascotKind = (sc.sidekick == 'kkachi' || sc.sidekick == 'magpie')
+        ? MascotKind.magpie
+        : MascotKind.tiger;
 
     return _StageScroll(
       child: Column(

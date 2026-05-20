@@ -24,7 +24,7 @@ class MascotPop extends StatefulWidget {
   const MascotPop({
     super.key,
     required this.visible,
-    this.kind = MascotKind.jieun,
+    this.kind = MascotKind.tiger,
     this.size = 56,
     this.emotion = MascotEmotion.celebrate,
   });

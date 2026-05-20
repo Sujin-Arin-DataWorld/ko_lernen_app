@@ -85,7 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // ── Header ──────────────────────────────────────────
-              _Header(svgIcon: 'assets/icons/icon.svg'),
+              // 48×48 컨텍스트 — gold band/gem detail이 묻히는 full icon 대신
+              // mini silhouette (assets/icons/icon-mini.svg). 큰 사이즈 (splash,
+              // launcher) 는 그대로 icon.svg / icon-512.png 사용.
+              _Header(svgIcon: 'assets/icons/icon-mini.svg'),
               const SizedBox(height: Spacing.lg),
 
               // ── Stats peek ──────────────────────────────────────
