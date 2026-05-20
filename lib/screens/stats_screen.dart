@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../theme.dart';
+import '../widgets/sori/tokens.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/chip.dart';
+import '../widgets/sori/progress.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -47,7 +50,7 @@ class StatsScreen extends StatelessWidget {
           _StatCard(
             icon:   Icons.style_outlined,
             title:  t.moduleVocabTitle,
-            color:  AppColors.vocab,
+            color:  SoriColors.info,
             rows: [
               _MetricRow(label: '✅ ${t.statsGotIt}', value: '${Storage.vokCorrect}'),
               _MetricRow(label: '❌ ${t.statsNotGotIt}', value: '${Storage.vokWrong}'),
@@ -62,7 +65,7 @@ class StatsScreen extends StatelessWidget {
           _StatCard(
             icon:   Icons.spellcheck,
             title:  t.gameChosungTitle,
-            color:  AppColors.primary,
+            color:  SoriColors.primary,
             rows: [
               _MetricRow(label: '✅ ${t.statsCorrect}', value: '${Storage.chosungCorrect}'),
               _MetricRow(label: '❌ ${t.statsWrong}',  value: '${Storage.chosungWrong}'),
@@ -75,7 +78,7 @@ class StatsScreen extends StatelessWidget {
           _StatCard(
             icon:   Icons.grid_4x4,
             title:  t.gameWordleTitle,
-            color:  AppColors.listen,
+            color:  SoriColors.success,
             rows: [
               _MetricRow(label: '🏆 ${t.statsWordleWins}', value: '${Storage.wordleWins}'),
               _MetricRow(label: '💔 ${t.statsLosses}', value: '${Storage.wordleLosses}'),
@@ -99,21 +102,16 @@ class _StreakHero extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: const LinearGradient(
-          colors: [Color(0xFFE64980), Color(0xFF845EF7), Color(0xFF339AF0)],
-          begin: Alignment.topLeft, end: Alignment.bottomRight,
-        ),
-      ),
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.warning,
+      tinted: true,
       child: Row(
         children: [
           Container(
             width: 64, height: 64,
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.15),
+              color: SoriColors.warning.withValues(alpha: 0.20),
               borderRadius: BorderRadius.circular(16),
             ),
             alignment: Alignment.center,
@@ -124,10 +122,10 @@ class _StreakHero extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label, style: const TextStyle(color: Colors.white70, fontSize: 12, letterSpacing: 0.5)),
-                Text('$streak', style: const TextStyle(color: Colors.white, fontSize: 38, fontWeight: FontWeight.w900, height: 1.1)),
+                Text(label, style: TextStyle(color: SoriSurfaces.of(context).textMuted, fontSize: 12, letterSpacing: 0.5)),
+                Text('$streak', style: TextStyle(color: SoriSurfaces.of(context).text, fontSize: 38, fontWeight: FontWeight.w900, height: 1.1)),
                 const SizedBox(height: 2),
-                Text('$bestLabel: $best', style: const TextStyle(color: Colors.white70, fontSize: 12)),
+                Text('$bestLabel: $best', style: TextStyle(color: SoriSurfaces.of(context).textMuted, fontSize: 12)),
               ],
             ),
           ),
@@ -146,13 +144,10 @@ class _StatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: color.withValues(alpha: 0.5), width: 1.5),
-      ),
-      padding: const EdgeInsets.all(16),
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      accent: color,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -163,7 +158,7 @@ class _StatCard extends StatelessWidget {
               Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: color)),
             ],
           ),
-          const Divider(height: 18, color: AppColors.surfaceAlt),
+          Divider(height: 18, color: s.surfaceAlt),
           ...rows,
         ],
       ),
@@ -209,33 +204,23 @@ class _XpCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     final progress = ((xp % 100) / 100.0).clamp(0.0, 1.0);
 
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.primary.withValues(alpha: 0.55), width: 1.5),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.primary.withValues(alpha: 0.16),
-            AppColors.hangul.withValues(alpha: 0.06),
-          ],
-        ),
-      ),
-      padding: const EdgeInsets.all(16),
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.primary,
+      tinted: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.bolt_rounded, color: AppColors.primary, size: 22),
+              const Icon(Icons.bolt_rounded, color: SoriColors.primary, size: 22),
               const SizedBox(width: 8),
               Text(
                 title,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: AppColors.primary),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: SoriColors.primary),
               ),
               const Spacer(),
               Text(
@@ -243,68 +228,55 @@ class _XpCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w800,
-                  color: Color.lerp(AppColors.primary, AppColors.text, 0.2),
+                  color: Color.lerp(SoriColors.primary, s.text, 0.2),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 14),
 
-          // XP big number + progress bar
+          // XP big number + scenarios chip
           Row(
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
             children: [
               Text(
                 '$xp',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.w900,
-                  color: AppColors.text,
+                  color: s.text,
                   height: 1,
                   letterSpacing: -1,
                 ),
               ),
               const SizedBox(width: 6),
-              const Text('XP', style: TextStyle(color: AppColors.textMuted, fontWeight: FontWeight.w700, fontSize: 14)),
+              Text('XP', style: TextStyle(color: s.textMuted, fontWeight: FontWeight.w700, fontSize: 14)),
               const Spacer(),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: AppColors.primary.withValues(alpha: 0.18),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  '🎬 $scenariosDone $scenariosLabel',
-                  style: const TextStyle(fontSize: 11, color: AppColors.text, fontWeight: FontWeight.w700),
-                ),
+              SoriChip(
+                label: '🎬 $scenariosDone $scenariosLabel',
+                accent: SoriColors.primary,
+                variant: SoriChipVariant.soft,
+                fontSize: 11,
               ),
             ],
           ),
           const SizedBox(height: 10),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: LinearProgressIndicator(
-              value: progress,
-              minHeight: 6,
-              backgroundColor: AppColors.surfaceAlt,
-              valueColor: const AlwaysStoppedAnimation(AppColors.primary),
-            ),
-          ),
+          SoriProgressBar(value: progress, thickness: 10, animated: true),
           const SizedBox(height: 6),
           Text(
             toNextLabel,
-            style: const TextStyle(fontSize: 11.5, color: AppColors.textMuted),
+            style: TextStyle(fontSize: 11.5, color: s.textMuted),
           ),
-          const Divider(height: 22, color: AppColors.surfaceAlt),
+          Divider(height: 22, color: s.surfaceAlt),
 
           // Badges
           Text(
             badgesTitle,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w800,
-              color: AppColors.textMuted,
+              color: s.textMuted,
               letterSpacing: 0.5,
             ),
           ),
@@ -312,7 +284,7 @@ class _XpCard extends StatelessWidget {
           if (badges.isEmpty)
             Text(
               noBadges,
-              style: const TextStyle(color: AppColors.textDim, fontSize: 13),
+              style: TextStyle(color: s.textDim, fontSize: 13),
             )
           else
             Wrap(
@@ -320,28 +292,11 @@ class _XpCard extends StatelessWidget {
               runSpacing: 8,
               children: badges.map((id) {
                 final meta = _badgeMeta[id] ?? {'emoji': '🏅', 'label': id};
-                return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: AppColors.warning.withValues(alpha: 0.16),
-                    borderRadius: BorderRadius.circular(100),
-                    border: Border.all(color: AppColors.warning.withValues(alpha: 0.5)),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(meta['emoji']!, style: const TextStyle(fontSize: 14)),
-                      const SizedBox(width: 6),
-                      Text(
-                        meta['label']!,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.warning,
-                        ),
-                      ),
-                    ],
-                  ),
+                return SoriChip(
+                  label: '${meta['emoji']} ${meta['label']}',
+                  accent: SoriColors.warning,
+                  variant: SoriChipVariant.soft,
+                  fontSize: 12,
                 );
               }).toList(),
             ),
@@ -359,16 +314,17 @@ class _MetricRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(color: AppColors.text, fontSize: 14)),
+          Text(label, style: TextStyle(color: s.text, fontSize: 14)),
           Text(
             value,
             style: TextStyle(
-              color: accent ? AppColors.primary : AppColors.text,
+              color: accent ? SoriColors.primary : s.text,
               fontSize: accent ? 18 : 15,
               fontWeight: accent ? FontWeight.w800 : FontWeight.w700,
             ),

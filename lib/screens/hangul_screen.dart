@@ -2,7 +2,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../theme.dart';
+import '../widgets/sori/tokens.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/chip.dart';
+import '../widgets/sori/button.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../widgets/flip_card.dart';
@@ -44,9 +47,9 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
         title: Text(t.screenHangulTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
         bottom: TabBar(
           controller: _tabs,
-          indicatorColor: AppColors.hangul,
-          labelColor: AppColors.hangul,
-          unselectedLabelColor: AppColors.textMuted,
+          indicatorColor: SoriColors.hangul,
+          labelColor: SoriColors.hangul,
+          unselectedLabelColor: SoriColors.darkTextMuted,
           tabs: [
             Tab(icon: const Icon(Icons.grid_view_rounded), text: t.hangulTabOverview),
             Tab(icon: const Icon(Icons.style_outlined),    text: t.hangulTabCards),
@@ -80,10 +83,10 @@ class _OverviewTab extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 24),
       children: [
         _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
-        _CharGrid(chars: consonants, color: AppColors.hangul),
+        _CharGrid(chars: consonants, color: SoriColors.hangul),
         const SizedBox(height: 24),
         _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
-        _CharGrid(chars: vowels, color: AppColors.vocab),
+        _CharGrid(chars: vowels, color: SoriColors.info),
         const SizedBox(height: 24),
         _SectionLabel(t.hangulSyllableLabel),
         const _SyllableDemo(),
@@ -101,7 +104,7 @@ class _SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       child: Text(label, style: const TextStyle(
         fontSize: 13, fontWeight: FontWeight.w700,
-        color: AppColors.textMuted, letterSpacing: 0.5,
+        color: SoriColors.darkTextMuted, letterSpacing: 0.5,
       )),
     );
   }
@@ -135,7 +138,7 @@ class _CharGrid extends StatelessWidget {
     HapticFeedback.selectionClick();
     showModalBottomSheet(
       context: ctx,
-      backgroundColor: AppColors.surface,
+      backgroundColor: SoriColors.darkSurface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -152,28 +155,18 @@ class _CharCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: AppColors.surface,
-      borderRadius: BorderRadius.circular(14),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: onTap,
-        splashColor: color.withValues(alpha: 0.2),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: AppColors.surfaceAlt, width: 1.2),
-          ),
-          padding: const EdgeInsets.all(6),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(char.letter, style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: color)),
-              const SizedBox(height: 2),
-              Text('[${char.romanization}]', style: const TextStyle(fontSize: 10, color: AppColors.textMuted, fontStyle: FontStyle.italic)),
-            ],
-          ),
-        ),
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: color,
+      onTap: onTap,
+      padding: const EdgeInsets.all(6),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(char.letter, style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: color)),
+          const SizedBox(height: 2),
+          Text('[${char.romanization}]', style: const TextStyle(fontSize: 10, color: SoriColors.darkTextMuted, fontStyle: FontStyle.italic)),
+        ],
       ),
     );
   }
@@ -191,13 +184,13 @@ class _DetailSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(width: 40, height: 4, decoration: BoxDecoration(color: AppColors.surfaceAlt, borderRadius: BorderRadius.circular(2))),
+          Container(width: 40, height: 4, decoration: BoxDecoration(color: SoriColors.darkSurfaceAlt, borderRadius: BorderRadius.circular(2))),
           const SizedBox(height: 22),
           Text(char.letter, style: TextStyle(fontSize: 92, fontWeight: FontWeight.w800, color: color, height: 1)),
           const SizedBox(height: 6),
           Text('[${char.romanization}]', style: TextStyle(fontSize: 18, color: color.withValues(alpha: 0.85), fontStyle: FontStyle.italic, fontWeight: FontWeight.w600)),
           const SizedBox(height: 16),
-          Text(char.descriptionDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 14, color: AppColors.text, height: 1.5)),
+          Text(char.descriptionDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 14, color: SoriColors.darkText, height: 1.5)),
           const SizedBox(height: 24),
           FilledButton.icon(
             style: FilledButton.styleFrom(backgroundColor: color),
@@ -224,25 +217,21 @@ class _SyllableDemo extends StatelessWidget {
     return Column(
       children: examples.map((e) => Padding(
         padding: const EdgeInsets.only(bottom: 8),
-        child: Container(
+        child: SoriCard(
+          variant: SoriCardVariant.base,
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-          decoration: BoxDecoration(
-            color: AppColors.surface,
-            border: Border.all(color: AppColors.surfaceAlt),
-            borderRadius: BorderRadius.circular(12),
-          ),
           child: Row(
             children: [
-              Text(e.$1, style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800, color: AppColors.vocab)),
+              Text(e.$1, style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800, color: SoriColors.info)),
               const SizedBox(width: 10),
-              const Text('=', style: TextStyle(color: AppColors.textMuted)),
+              const Text('=', style: TextStyle(color: SoriColors.darkTextMuted)),
               const SizedBox(width: 6),
               for (var i = 0; i < e.$2.length; i++) ...[
                 Text(e.$2[i], style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                if (i < e.$2.length - 1) const Text(' + ', style: TextStyle(color: AppColors.textDim)),
+                if (i < e.$2.length - 1) const Text(' + ', style: TextStyle(color: SoriColors.darkTextDim)),
               ],
               const Spacer(),
-              Text(e.$3, style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.w700, fontStyle: FontStyle.italic)),
+              Text(e.$3, style: const TextStyle(color: SoriColors.primary, fontWeight: FontWeight.w700, fontStyle: FontStyle.italic)),
             ],
           ),
         ),
@@ -296,14 +285,14 @@ class _CardsTabState extends State<_CardsTab> {
           Wrap(
             spacing: 8,
             children: [
-              _ModeChip(label: '자음', selected: _mode == 0, onTap: () => _setMode(0)),
-              _ModeChip(label: '모음', selected: _mode == 1, onTap: () => _setMode(1)),
-              _ModeChip(label: '음절', selected: _mode == 2, onTap: () => _setMode(2)),
+              SoriChip(label: '자음', accent: SoriColors.hangul, selected: _mode == 0, onTap: () => _setMode(0)),
+              SoriChip(label: '모음', accent: SoriColors.hangul, selected: _mode == 1, onTap: () => _setMode(1)),
+              SoriChip(label: '음절', accent: SoriColors.hangul, selected: _mode == 2, onTap: () => _setMode(2)),
             ],
           ),
           const SizedBox(height: 12),
           // Counter
-          Text('${_idx + 1} / ${_pool.length}', style: const TextStyle(color: AppColors.textMuted, fontSize: 13)),
+          Text('${_idx + 1} / ${_pool.length}', style: const TextStyle(color: SoriColors.darkTextMuted, fontSize: 13)),
           const SizedBox(height: 8),
 
           Expanded(
@@ -318,12 +307,12 @@ class _CardsTabState extends State<_CardsTab> {
                 onTap: _onFlip,
                 front: _HangulCardFace(
                   gradient: const [Color(0xFF2A1525), Color(0xFF3A1A2C)],
-                  borderColor: AppColors.hangul,
+                  borderColor: SoriColors.hangul,
                   child: Text(c.letter, style: const TextStyle(fontSize: 110, fontWeight: FontWeight.w800, color: Color(0xFFFCC2D7))),
                 ),
                 back: _HangulCardFace(
                   gradient: const [Color(0xFF0F2942), Color(0xFF162E4D)],
-                  borderColor: AppColors.vocab,
+                  borderColor: SoriColors.info,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -333,7 +322,7 @@ class _CardsTabState extends State<_CardsTab> {
                       const SizedBox(height: 12),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: Text(c.descriptionDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 13, color: AppColors.text, height: 1.5)),
+                        child: Text(c.descriptionDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 13, color: SoriColors.darkText, height: 1.5)),
                       ),
                     ],
                   ),
@@ -344,19 +333,20 @@ class _CardsTabState extends State<_CardsTab> {
           const SizedBox(height: 12),
           Row(
             children: [
-              Expanded(child: OutlinedButton.icon(onPressed: _prev, icon: const Icon(Icons.arrow_back, size: 18), label: Text(AppL10n.of(context).btnPrev))),
+              Expanded(child: SoriButton.outlined(label: AppL10n.of(context).btnPrev, icon: Icons.arrow_back, onTap: _prev, fullWidth: true)),
               const SizedBox(width: 8),
-              Expanded(child: OutlinedButton.icon(onPressed: () => TtsService.speak(c.letter), icon: const Icon(Icons.volume_up, size: 18), label: Text(AppL10n.of(context).btnHoeren))),
+              Expanded(child: SoriButton.outlined(label: AppL10n.of(context).btnHoeren, icon: Icons.volume_up, onTap: () => TtsService.speak(c.letter), fullWidth: true)),
               const SizedBox(width: 8),
-              Expanded(child: OutlinedButton.icon(onPressed: _next, icon: const Icon(Icons.arrow_forward, size: 18), label: Text(AppL10n.of(context).btnNext))),
+              Expanded(child: SoriButton.outlined(label: AppL10n.of(context).btnNext, icon: Icons.arrow_forward, onTap: _next, fullWidth: true)),
             ],
           ),
           const SizedBox(height: 6),
-          FilledButton.icon(
-            onPressed: _random,
-            style: FilledButton.styleFrom(backgroundColor: AppColors.hangul),
-            icon: const Icon(Icons.shuffle),
-            label: Text(AppL10n.of(context).btnRandom),
+          SoriButton.filled(
+            label: AppL10n.of(context).btnRandom,
+            icon: Icons.shuffle,
+            accent: SoriColors.hangul,
+            onTap: _random,
+            fullWidth: true,
           ),
         ],
       ),
@@ -364,23 +354,6 @@ class _CardsTabState extends State<_CardsTab> {
   }
 }
 
-class _ModeChip extends StatelessWidget {
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-  const _ModeChip({required this.label, required this.selected, required this.onTap});
-  @override
-  Widget build(BuildContext context) {
-    return ChoiceChip(
-      label: Text(label, style: TextStyle(fontWeight: FontWeight.w700, color: selected ? Colors.white : AppColors.textMuted)),
-      selected: selected,
-      onSelected: (_) => onTap(),
-      selectedColor: AppColors.hangul,
-      backgroundColor: AppColors.surface,
-      side: BorderSide(color: selected ? AppColors.hangul : AppColors.surfaceAlt),
-    );
-  }
-}
 
 class _HangulCardFace extends StatelessWidget {
   final List<Color> gradient;
@@ -390,14 +363,11 @@ class _HangulCardFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: borderColor,
+      tinted: true,
       width: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: gradient, begin: Alignment.topLeft, end: Alignment.bottomRight),
-        border: Border.all(color: borderColor, width: 2),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: borderColor.withValues(alpha: 0.15), blurRadius: 18, offset: const Offset(0, 6))],
-      ),
       child: Center(child: child),
     );
   }
@@ -449,20 +419,17 @@ class _WriteTabState extends State<_WriteTab> {
       child: Column(
         children: [
           // 3 Regeln
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: AppColors.grammar.withValues(alpha: 0.12),
-              border: Border.all(color: AppColors.grammar.withValues(alpha: 0.6)),
-              borderRadius: BorderRadius.circular(12),
-            ),
+          SoriCard(
+            variant: SoriCardVariant.compact,
+            accent: SoriColors.warning,
+            tinted: true,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(t.hangulRulesTitle, style: const TextStyle(fontWeight: FontWeight.w800, color: Color(0xFFFFD43B), fontSize: 13)),
+                Text(t.hangulRulesTitle, style: const TextStyle(fontWeight: FontWeight.w800, color: SoriColors.warning, fontSize: 13)),
                 const SizedBox(height: 6),
                 Text(t.hangulRulesBody,
-                  style: const TextStyle(color: AppColors.textMuted, fontSize: 11.5, height: 1.5)),
+                  style: const TextStyle(color: SoriColors.darkTextMuted, fontSize: 11.5, height: 1.5)),
               ],
             ),
           ),
@@ -472,9 +439,9 @@ class _WriteTabState extends State<_WriteTab> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _ModeChip(label: '자음', selected: _mode == 0, onTap: () => _setMode(0)),
+              SoriChip(label: '자음', accent: SoriColors.hangul, selected: _mode == 0, onTap: () => _setMode(0)),
               const SizedBox(width: 8),
-              _ModeChip(label: '모음', selected: _mode == 1, onTap: () => _setMode(1)),
+              SoriChip(label: '모음', accent: SoriColors.hangul, selected: _mode == 1, onTap: () => _setMode(1)),
             ],
           ),
           const SizedBox(height: 14),
@@ -482,20 +449,17 @@ class _WriteTabState extends State<_WriteTab> {
           // Demo
           Column(
             children: [
-              Text(t.hangulStrokeOrderTitle, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
+              Text(t.hangulStrokeOrderTitle, style: const TextStyle(fontSize: 12, color: SoriColors.darkTextMuted)),
               const SizedBox(height: 6),
-              Container(
-                decoration: BoxDecoration(
-                  color: AppColors.surface,
-                  border: Border.all(color: AppColors.vocab.withValues(alpha: 0.4), width: 2),
-                  borderRadius: BorderRadius.circular(16),
-                ),
+              SoriCard(
+                variant: SoriCardVariant.base,
+                accent: SoriColors.info,
                 padding: const EdgeInsets.all(6),
                 child: StrokeCanvas(
                   letter: c.letter,
                   strokes: strokes,
                   size: 220,
-                  color: AppColors.hangul,
+                  color: SoriColors.hangul,
                 ),
               ),
             ],
@@ -505,40 +469,44 @@ class _WriteTabState extends State<_WriteTab> {
           // Practice
           Column(
             children: [
-              Text(t.hangulTraceTitle, style: const TextStyle(fontSize: 12, color: AppColors.success)),
+              Text(t.hangulTraceTitle, style: const TextStyle(fontSize: 12, color: SoriColors.success)),
               const SizedBox(height: 6),
-              _PracticeCanvas(key: _practiceKey, ghost: c.letter, color: AppColors.success),
+              _PracticeCanvas(key: _practiceKey, ghost: c.letter, color: SoriColors.success),
             ],
           ),
           const SizedBox(height: 10),
-          OutlinedButton.icon(
-            onPressed: () => _practiceKey.currentState?.clear(),
-            icon: const Icon(Icons.delete_outline, color: AppColors.danger),
-            label: Text(t.hangulClearBtn, style: const TextStyle(color: AppColors.danger)),
-            style: OutlinedButton.styleFrom(side: const BorderSide(color: AppColors.danger), minimumSize: const Size(double.infinity, 44)),
+          SoriButton.outlined(
+            label: t.hangulClearBtn,
+            icon: Icons.delete_outline,
+            onTap: () => _practiceKey.currentState?.clear(),
+            destructive: true,
+            fullWidth: true,
           ),
           const SizedBox(height: 12),
 
           // Nav
           Row(
             children: [
-              Expanded(child: OutlinedButton.icon(onPressed: _prev, icon: const Icon(Icons.arrow_back, size: 18), label: Text(t.btnPrev))),
+              Expanded(child: SoriButton.outlined(label: t.btnPrev, icon: Icons.arrow_back, onTap: _prev, fullWidth: true)),
               const SizedBox(width: 8),
-              Container(
+              SoriCard(
+                variant: SoriCardVariant.compact,
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(12)),
-                child: Text('${_idx + 1} / ${_pool.length}', style: const TextStyle(fontWeight: FontWeight.w800, color: AppColors.text)),
+                child: Builder(builder: (ctx) {
+                  final s = SoriSurfaces.of(ctx);
+                  return Text('${_idx + 1} / ${_pool.length}', style: TextStyle(fontWeight: FontWeight.w800, color: s.text));
+                }),
               ),
               const SizedBox(width: 8),
-              Expanded(child: OutlinedButton.icon(onPressed: _next, icon: const Icon(Icons.arrow_forward, size: 18), label: Text(t.btnNext))),
+              Expanded(child: SoriButton.outlined(label: t.btnNext, icon: Icons.arrow_forward, onTap: _next, fullWidth: true)),
             ],
           ),
           const SizedBox(height: 14),
-          OutlinedButton.icon(
-            onPressed: () => TtsService.speak(c.letter),
-            icon: const Icon(Icons.volume_up, size: 18),
-            label: Text(t.hangulPronounceLetter(c.letter)),
-            style: OutlinedButton.styleFrom(minimumSize: const Size(double.infinity, 44)),
+          SoriButton.outlined(
+            label: t.hangulPronounceLetter(c.letter),
+            icon: Icons.volume_up,
+            onTap: () => TtsService.speak(c.letter),
+            fullWidth: true,
           ),
         ],
       ),
@@ -569,15 +537,14 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 220, height: 220,
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        border: Border.all(color: AppColors.success.withValues(alpha: 0.5), width: 2),
-        borderRadius: BorderRadius.circular(16),
-      ),
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      accent: SoriColors.success,
+      width: 220,
+      height: 220,
+      padding: EdgeInsets.zero,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(SoriRadius.md),
         child: GestureDetector(
           onPanStart: (d) {
             setState(() {

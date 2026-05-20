@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../theme.dart';
+import '../widgets/sori/tokens.dart';
+import '../widgets/sori/card.dart';
 import '../models/scenario.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -31,10 +32,10 @@ class OnboardingLevelScreen extends StatelessWidget {
 
   Color _colorFor(LearnerLevel level) {
     switch (level) {
-      case LearnerLevel.a1: return AppColors.success;
-      case LearnerLevel.a2: return AppColors.vocab;
-      case LearnerLevel.b1: return AppColors.grammar;
-      case LearnerLevel.b2: return AppColors.hangul;
+      case LearnerLevel.a1: return SoriColors.success;
+      case LearnerLevel.a2: return SoriColors.primary;
+      case LearnerLevel.b1: return SoriColors.warning;
+      case LearnerLevel.b2: return SoriColors.hangul;
     }
   }
 
@@ -92,7 +93,7 @@ class OnboardingLevelScreen extends StatelessWidget {
               // ── Header ──
               ShaderMask(
                 shaderCallback: (b) => const LinearGradient(
-                  colors: [Color(0xFFE64980), Color(0xFF845EF7), Color(0xFF339AF0)],
+                  colors: [SoriColors.hangul, SoriColors.primary, SoriColors.info],
                 ).createShader(b),
                 child: Text(
                   t.onboardingTitle,
@@ -110,7 +111,7 @@ class OnboardingLevelScreen extends StatelessWidget {
                 t.onboardingSubtitle,
                 style: const TextStyle(
                   fontSize: 13.5,
-                  color: AppColors.textMuted,
+                  color: SoriColors.darkTextMuted,
                   height: 1.5,
                 ),
               ),
@@ -141,14 +142,14 @@ class OnboardingLevelScreen extends StatelessWidget {
               Text(
                 t.onboardingPrompt,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 11.5, color: AppColors.textDim),
+                style: const TextStyle(fontSize: 11.5, color: SoriColors.darkTextDim),
               ),
               const SizedBox(height: 8),
               TextButton(
                 onPressed: () => _skip(context),
                 child: Text(
                   t.onboardingSkip,
-                  style: const TextStyle(color: AppColors.textMuted, fontSize: 13),
+                  style: const TextStyle(color: SoriColors.darkTextMuted, fontSize: 13),
                 ),
               ),
             ],
@@ -182,119 +183,107 @@ class _LevelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(18),
-        splashColor: color.withValues(alpha: 0.15),
-        child: Ink(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: color.withValues(alpha: 0.55), width: 1.5),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [color.withValues(alpha: 0.16), color.withValues(alpha: 0.04)],
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      accent: color,
+      tinted: true,
+      onTap: onTap,
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Level badge
+          Container(
+            width: 52, height: 52,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(14),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              level.display,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w900,
+                fontSize: 18,
+                letterSpacing: 0.5,
+              ),
             ),
           ),
-          padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Level badge
-              Container(
-                width: 52, height: 52,
-                decoration: BoxDecoration(
-                  color: color,
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  level.display,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 18,
-                    letterSpacing: 0.5,
+          const SizedBox(width: 14),
+
+          // Title + desc + example
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 15.5,
+                    fontWeight: FontWeight.w800,
+                    color: Color.lerp(color, s.text, 0.25),
+                    letterSpacing: -0.1,
                   ),
                 ),
-              ),
-              const SizedBox(width: 14),
-
-              // Title + desc + example
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 15.5,
-                        fontWeight: FontWeight.w800,
-                        color: Color.lerp(color, AppColors.text, 0.25),
-                        letterSpacing: -0.1,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      desc,
-                      style: const TextStyle(
-                        fontSize: 12.5,
-                        color: AppColors.textMuted,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    // Example chip — KO + translation
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
-                      decoration: BoxDecoration(
-                        color: AppColors.bg.withValues(alpha: 0.6),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: color.withValues(alpha: 0.25)),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            exampleKo,
-                            style: const TextStyle(
-                              fontSize: 13.5,
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.text,
-                              height: 1.3,
-                            ),
-                          ),
-                          const SizedBox(height: 1),
-                          Text(
-                            '[$romanization]',
-                            style: const TextStyle(
-                              fontSize: 10.5,
-                              color: AppColors.textDim,
-                              fontStyle: FontStyle.italic,
-                              height: 1.2,
-                            ),
-                          ),
-                          const SizedBox(height: 3),
-                          Text(
-                            exampleTrans,
-                            style: const TextStyle(
-                              fontSize: 12,
-                              color: AppColors.textMuted,
-                              height: 1.3,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: 2),
+                Text(
+                  desc,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: s.textMuted,
+                  ),
                 ),
-              ),
-              Icon(Icons.chevron_right, color: color.withValues(alpha: 0.7)),
-            ],
+                const SizedBox(height: 8),
+                // Example chip — KO + translation
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                  decoration: BoxDecoration(
+                    color: s.bg.withValues(alpha: 0.6),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: color.withValues(alpha: 0.25)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        exampleKo,
+                        style: TextStyle(
+                          fontSize: 13.5,
+                          fontWeight: FontWeight.w700,
+                          color: s.text,
+                          height: 1.3,
+                        ),
+                      ),
+                      const SizedBox(height: 1),
+                      Text(
+                        '[$romanization]',
+                        style: TextStyle(
+                          fontSize: 10.5,
+                          color: s.textDim,
+                          fontStyle: FontStyle.italic,
+                          height: 1.2,
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        exampleTrans,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: s.textMuted,
+                          height: 1.3,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+          Icon(Icons.chevron_right, color: color.withValues(alpha: 0.7)),
+        ],
       ),
     );
   }

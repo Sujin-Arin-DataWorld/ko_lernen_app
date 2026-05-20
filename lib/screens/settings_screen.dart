@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../theme.dart';
+import '../widgets/sori/tokens.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/locale_service.dart';
@@ -63,10 +63,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // ── Lernlevel ──
           _Section(label: t.settingsUserLevel),
           ListTile(
-            leading: const Icon(Icons.school_outlined, color: AppColors.primary),
+            leading: const Icon(Icons.school_outlined, color: SoriColors.primary),
             title: Text(_levelDisplay(t)),
-            subtitle: Text(t.settingsUserLevelChange, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
-            trailing: const Icon(Icons.chevron_right, color: AppColors.textMuted),
+            subtitle: Text(t.settingsUserLevelChange, style: const TextStyle(fontSize: 12, color: SoriColors.darkTextMuted)),
+            trailing: const Icon(Icons.chevron_right, color: SoriColors.darkTextMuted),
             onTap: _showLevelDialog,
           ),
 
@@ -93,9 +93,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(t.settingsTtsRateSlow,  style: const TextStyle(fontSize: 11, color: AppColors.textMuted)),
-                    Text(t.settingsTtsRateNormal, style: const TextStyle(fontSize: 11, color: AppColors.textMuted)),
-                    Text(t.settingsTtsRateFast,  style: const TextStyle(fontSize: 11, color: AppColors.textMuted)),
+                    Text(t.settingsTtsRateSlow,  style: const TextStyle(fontSize: 11, color: SoriColors.darkTextMuted)),
+                    Text(t.settingsTtsRateNormal, style: const TextStyle(fontSize: 11, color: SoriColors.darkTextMuted)),
+                    Text(t.settingsTtsRateFast,  style: const TextStyle(fontSize: 11, color: SoriColors.darkTextMuted)),
                   ],
                 ),
               ],
@@ -105,7 +105,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // ── Cloud-Backup (Firebase Auth) ──
           _Section(label: t.settingsCloudSection),
           ListTile(
-            leading: const Icon(Icons.cloud_outlined, color: AppColors.primary),
+            leading: const Icon(Icons.cloud_outlined, color: SoriColors.primary),
             title: Text(AuthService.isGoogleLinked
                 ? t.settingsCloudSignedIn(AuthService.displayName ?? 'Google')
                 : t.settingsCloudSignInPrompt),
@@ -144,20 +144,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _Section(label: t.settingsAdsSection),
           SwitchListTile(
             title: Text(t.settingsShowAds),
-            subtitle: Text(t.settingsShowAdsDesc, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
+            subtitle: Text(t.settingsShowAdsDesc, style: const TextStyle(fontSize: 12, color: SoriColors.darkTextMuted)),
             value: Storage.adsEnabled,
             onChanged: (v) async {
               await Storage.setAdsEnabled(v);
               if (mounted) setState(() {});
             },
-            activeThumbColor: AppColors.primary,
+            activeThumbColor: SoriColors.primary,
           ),
 
           // ── Reset ──
           _Section(label: ''),
           ListTile(
-            leading: const Icon(Icons.delete_outline, color: AppColors.danger),
-            title: Text(t.settingsReset, style: const TextStyle(color: AppColors.danger)),
+            leading: const Icon(Icons.delete_outline, color: SoriColors.danger),
+            title: Text(t.settingsReset, style: const TextStyle(color: SoriColors.danger)),
             onTap: _confirmReset,
           ),
 
@@ -199,7 +199,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: AppColors.surface,
+        backgroundColor: SoriColors.darkSurface,
         title: Text(t.settingsUserLevel),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -208,7 +208,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text('${lvl.display} — ${_nameFor(lvl)}'),
               value: lvl,
               groupValue: current,
-              activeColor: AppColors.primary,
+              activeColor: SoriColors.primary,
               onChanged: (v) async {
                 if (v == null) return;
                 await Storage.setUserLevelCode(v.code);
@@ -254,7 +254,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: AppColors.surface,
+        backgroundColor: SoriColors.darkSurface,
         title: Text(t.settingsReset),
         content: Text(t.settingsResetConfirm),
         actions: [
@@ -263,7 +263,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Text(t.btnCancel),
           ),
           FilledButton(
-            style: FilledButton.styleFrom(backgroundColor: AppColors.danger),
+            style: FilledButton.styleFrom(backgroundColor: SoriColors.danger),
             onPressed: () async {
               await Storage.resetAll();
               DataLoader.reset();
@@ -294,7 +294,7 @@ class _Section extends StatelessWidget {
           fontSize: 11,
           fontWeight: FontWeight.w700,
           letterSpacing: 0.8,
-          color: AppColors.textMuted,
+          color: SoriColors.darkTextMuted,
         ),
       ),
     );
@@ -315,7 +315,7 @@ class _RadioTile<T> extends StatelessWidget {
       value: value,
       groupValue: groupValue,
       onChanged: onChanged,
-      activeColor: AppColors.primary,
+      activeColor: SoriColors.primary,
     );
   }
 }
