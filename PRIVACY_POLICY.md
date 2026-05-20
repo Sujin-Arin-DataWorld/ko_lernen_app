@@ -12,7 +12,7 @@
 >    - **GitHub Pages** (이미 있는 repo) — `docs/privacy.html` 또는 `gh-pages` 브랜치
 >    - **Notion** public page → `Share to web`
 >    - **Vercel/Netlify** 무료
-> 3. URL 받으면 (예: `https://sori.app/privacy`) Play Console + 위 STORE_LISTING.md의 `[YOUR-DOMAIN]` 자리에 삽입
+> 3. URL: `https://hangul-sori.com/privacy` — Cloudflare Pages 무료 호스팅 사용 (도메인 hangul-sori.com 등록 완료)
 
 ---
 
@@ -122,7 +122,7 @@ We may update this Privacy Policy. Changes will be reflected in the "Last Update
 **Data Controller:**
 Sujin Park (Sujin Arin DataWorld)
 Berlin, Germany
-Email: **hangulsori.app@gmail.com**
+Email: **hello@hangul-sori.com**
 
 ---
 
@@ -234,7 +234,7 @@ Wir können diese Datenschutzerklärung aktualisieren. Änderungen werden im Dat
 **Verantwortlicher (Art. 4 Nr. 7 DSGVO):**
 Sujin Park (Sujin Arin DataWorld)
 Berlin, Deutschland
-E-Mail: **hangulsori.app@gmail.com**
+E-Mail: **hello@hangul-sori.com**
 
 ---
 
@@ -248,4 +248,4 @@ E-Mail: **hangulsori.app@gmail.com**
 
 수집하지 않는 것: 위치, 사진, 연락처, 마이크, 광고 ID.
 
-데이터 서버: Frankfurt (EU). 모든 권리(접근, 삭제, 이전) 보장. 문의: hangulsori.app@gmail.com
+데이터 서버: Frankfurt (EU). 모든 권리(접근, 삭제, 이전) 보장. 문의: hello@hangul-sori.com

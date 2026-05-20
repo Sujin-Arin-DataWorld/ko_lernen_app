@@ -84,12 +84,12 @@ Hangul Sori ist kein weiteres überladenes Sprachlern-Tool. Inspiriert vom Köni
 • Keine versteckten Tracker
 • Lerndaten bleiben standardmäßig auf deinem Gerät
 • Cloud-Backup ist freiwillig und Google-Konto-basiert
-• Datenschutzerklärung: https://[YOUR-DOMAIN]/privacy
+• Datenschutzerklärung: https://hangul-sori.com/privacy
 
 📩 FEEDBACK
 
 Wir sind ein winziges Team aus Berlin. Schreib uns:
-hangulsori.app@gmail.com
+hello@hangul-sori.com
 
 Made in Berlin · 안녕하세요!
 ```
@@ -162,12 +162,12 @@ Hangul Sori isn't yet another bloated language learning tool. Inspired by King S
 • No hidden trackers
 • Learning data stays on-device by default
 • Cloud backup is opt-in and tied to your Google account
-• Privacy Policy: https://[YOUR-DOMAIN]/privacy
+• Privacy Policy: https://hangul-sori.com/privacy
 
 📩 FEEDBACK
 
 We're a tiny team based in Berlin. Reach us:
-hangulsori.app@gmail.com
+hello@hangul-sori.com
 
 Made in Berlin · 안녕하세요!
 ```
@@ -220,7 +220,7 @@ Made in Berlin · 안녕하세요!
 🌍 독일어 / 영어 / 한국어 UI
 
 🎁 외국인 친구·연인·자녀에게 선물해 주세요
-📩 피드백: hangulsori.app@gmail.com
+📩 피드백: hello@hangul-sori.com
 
 Made in Berlin · 만든 사람: 한국인 + 독일인 커플 ❤️
 ```

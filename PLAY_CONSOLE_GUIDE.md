@@ -57,7 +57,7 @@
 좌측 메뉴 **"Policy" → "App content"** 에서 각 섹션 완료:
 
 ### 3.1 Privacy Policy
-- URL: `https://[YOUR-HOSTING]/privacy` (Termly 또는 GitHub Pages)
+- URL: `https://hangul-sori.com/privacy` (Cloudflare Pages 호스팅 예정)
 - → `PRIVACY_POLICY.md`를 HTML로 변환 후 호스팅
 
 ### 3.2 App access

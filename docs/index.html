@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hangul Sori (한글소리) — Koreanisch lernen. Hangul, Vokabeln, Grammatik & Spiele. Made in Berlin.">
+<meta property="og:title" content="Hangul Sori — Learn Korean">
+<meta property="og:description" content="Hangul, Vokabeln, Grammatik & Spiele. Made in Berlin.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hangul-sori.com">
+<title>Hangul Sori — Koreanisch lernen</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root {
+    --bg: #0F1419;
+    --bg-card: #1A1F2A;
+    --fg: #E8EAED;
+    --fg-muted: #9AA0A6;
+    --accent: #7B5BFF;
+    --accent-hover: #9077FF;
+    --korean: #FFD700;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+  header {
+    text-align: center;
+    padding: 48px 0;
+  }
+  .crown {
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: var(--korean);
+  }
+  .subtitle {
+    font-size: 18px;
+    color: var(--fg-muted);
+    margin-bottom: 32px;
+  }
+  .tagline {
+    font-size: 20px;
+    color: var(--fg);
+    margin: 32px 0 48px;
+    font-weight: 500;
+  }
+  .cta {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  .cta:hover { background: var(--accent-hover); }
+  .cta.secondary {
+    background: transparent;
+    border: 1px solid var(--fg-muted);
+    color: var(--fg);
+    margin-left: 12px;
+  }
+  .features {
+    margin: 64px 0;
+    display: grid;
+    gap: 16px;
+  }
+  .feature {
+    background: var(--bg-card);
+    padding: 20px 24px;
+    border-radius: 12px;
+    border-left: 3px solid var(--accent);
+  }
+  .feature h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .feature p {
+    color: var(--fg-muted);
+    font-size: 14px;
+  }
+  footer {
+    text-align: center;
+    padding: 64px 0 32px;
+    color: var(--fg-muted);
+    font-size: 14px;
+    border-top: 1px solid #2A2F3A;
+    margin-top: 48px;
+  }
+  footer a {
+    color: var(--fg-muted);
+    text-decoration: none;
+    margin: 0 8px;
+  }
+  footer a:hover { color: var(--accent); }
+  .lang-switch {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+  .lang-switch a {
+    color: var(--fg-muted);
+    text-decoration: none;
+    margin: 0 8px;
+  }
+  .lang-switch a.active { color: var(--accent); }
+  @media (max-width: 480px) {
+    .container { padding: 24px 16px; }
+    h1 { font-size: 36px; }
+    .crown { font-size: 56px; }
+    .cta { display: block; margin: 8px 0; text-align: center; }
+    .cta.secondary { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-switch">
+      <a href="#" class="active" onclick="setLang('de'); return false;">DE</a> ·
+      <a href="#" onclick="setLang('en'); return false;">EN</a> ·
+      <a href="#" onclick="setLang('ko'); return false;">한국어</a>
+    </div>
+
+    <header>
+      <div class="crown">👑</div>
+      <h1>한글소리</h1>
+      <div class="subtitle">Hangul Sori</div>
+      <div class="tagline" data-de="Koreanisch lernen — natürlich, spielerisch, mit Herz."
+                          data-en="Learn Korean the natural way."
+                          data-ko="한국어를 배우는 외국인을 위한 모바일 학습 앱">
+        Koreanisch lernen — natürlich, spielerisch, mit Herz.
+      </div>
+      <a href="#" class="cta" id="cta-store">📱 <span data-de="Demnächst im Play Store" data-en="Coming soon to Play Store" data-ko="곧 Play Store 출시">Demnächst im Play Store</span></a>
+      <a href="privacy.html" class="cta secondary" data-de="Datenschutz" data-en="Privacy" data-ko="개인정보">Datenschutz</a>
+    </header>
+
+    <div class="features">
+      <div class="feature">
+        <h3>📝 <span data-de="Hangul lernen" data-en="Learn Hangul" data-ko="한글 학습">Hangul lernen</span></h3>
+        <p data-de="Animierte Strichreihenfolge für alle 19 Konsonanten & 15 Vokale."
+           data-en="Animated stroke order for all 19 consonants & 15 vowels."
+           data-ko="자음 19개 + 모음 15개, 모든 글자의 획순 애니메이션">
+          Animierte Strichreihenfolge für alle 19 Konsonanten & 15 Vokale.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>📚 <span data-de="Vokabeln A1 – B2" data-en="Vocabulary A1 – B2" data-ko="레벨별 단어장">Vokabeln A1 – B2</span></h3>
+        <p data-de="Flip-Karten mit deutscher Übersetzung & koreanischer Aussprache (TTS). Spaced Repetition (SM-2)."
+           data-en="Flip cards with translation & Korean pronunciation. Built-in spaced repetition (SM-2)."
+           data-ko="플립 카드 + 독일어/영어 번역 + 한국어 TTS. SM-2 간격 반복 알고리즘.">
+          Flip-Karten mit deutscher Übersetzung & koreanischer Aussprache (TTS). Spaced Repetition (SM-2).
+        </p>
+      </div>
+      <div class="feature">
+        <h3>🎮 <span data-de="Lernen durch Spielen" data-en="Learn by playing" data-ko="게임으로 배우기">Lernen durch Spielen</span></h3>
+        <p data-de="Hangul Wordle, Initialkonsonanten-Quiz (초성 퀴즈), Streak-System."
+           data-en="Hangul Wordle, Initial Consonant Quiz (초성 퀴즈), streak system."
+           data-ko="한글 워들, 초성 퀴즈, 스트릭 시스템.">
+          Hangul Wordle, Initialkonsonanten-Quiz (초성 퀴즈), Streak-System.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>☁️ <span data-de="Offline + optionaler Cloud-Sync" data-en="Offline + optional cloud sync" data-ko="오프라인 + 선택적 클라우드 동기화">Offline + optionaler Cloud-Sync</span></h3>
+        <p data-de="Funktioniert ohne Internet. Optional: Google-Login für plattformübergreifende Synchronisation."
+           data-en="Works without internet. Optional Google sign-in for cross-device sync."
+           data-ko="인터넷 없이 작동. 선택적 구글 로그인으로 기기 간 동기화.">
+          Funktioniert ohne Internet. Optional: Google-Login für plattformübergreifende Synchronisation.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Made with ❤️ in Berlin</p>
+      <p style="margin-top: 16px;">
+        <a href="privacy.html" data-de="Datenschutz" data-en="Privacy" data-ko="개인정보">Datenschutz</a> ·
+        <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>
+      </p>
+      <p style="margin-top: 16px; font-size: 12px;">© 2026 Sujin Arin DataWorld</p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-de]').forEach(el => {
+        const text = el.dataset[lang];
+        if (text) el.textContent = text;
+      });
+      document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+    // Auto-detect browser language on first load
+    (function() {
+      const browserLang = (navigator.language || 'de').slice(0, 2);
+      if (['de', 'en', 'ko'].includes(browserLang) && browserLang !== 'de') {
+        document.querySelectorAll('[data-de]').forEach(el => {
+          const text = el.dataset[browserLang];
+          if (text) el.textContent = text;
+        });
+        document.querySelectorAll('.lang-switch a').forEach((a, i) => {
+          a.classList.remove('active');
+          if ((browserLang === 'de' && i === 0) || (browserLang === 'en' && i === 1) || (browserLang === 'ko' && i === 2)) {
+            a.classList.add('active');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
