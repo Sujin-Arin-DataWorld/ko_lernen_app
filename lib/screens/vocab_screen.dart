@@ -13,6 +13,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/pressable.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class VocabScreen extends StatefulWidget {
@@ -35,9 +36,10 @@ class _VocabScreenState extends State<VocabScreen> {
   String _topic = 'Alle';
   bool   _koFirst = true;
 
-  /// 'due' = nur heute fällige Karten (SRS), 'all' = alle.
+  /// 'due' = nur heute fällige Karten (SRS), 'favorites' = ⭐ markierte, 'all' = alle.
   String _mode = 'due';
   Set<String> _dueIds = {};
+  Set<String> _favorites = {};
 
   bool _loading = true;
   bool _loadFailed = false;
@@ -61,6 +63,7 @@ class _VocabScreenState extends State<VocabScreen> {
       setState(() {
         _all = v;
         _dueIds = due;
+        _favorites = Storage.vokFavorites.toSet();
         // Erstanwendung: alle Karten sind "due" → starte im 'due' Modus.
         // Wenn nichts fällig: 'all'.
         _mode = due.isNotEmpty ? 'due' : 'all';
@@ -77,8 +80,27 @@ class _VocabScreenState extends State<VocabScreen> {
       if (_level != 'Alle' && v.level != _level) return false;
       if (_topic != 'Alle' && v.topic != _topic) return false;
       if (_mode == 'due' && !_dueIds.contains(v.korean)) return false;
+      if (_mode == 'favorites' && !_favorites.contains(v.korean)) return false;
       return true;
     }).toList();
+  }
+
+  void _toggleFavorite(String korean) {
+    HapticFeedback.lightImpact();
+    setState(() {
+      if (_favorites.contains(korean)) {
+        _favorites.remove(korean);
+      } else {
+        _favorites.add(korean);
+      }
+      // Im favorites-Modus: re-filter (Karte wurde evtl. entfernt)
+      if (_mode == 'favorites') {
+        _filtered = _filterList();
+        if (_idx >= _filtered.length && _filtered.isNotEmpty) _idx = 0;
+      }
+    });
+    // ignore: discarded_futures
+    Storage.toggleVokFavorite(korean);
   }
 
   void _applyFilters() {
@@ -209,6 +231,17 @@ class _VocabScreenState extends State<VocabScreen> {
           ),
         );
       }
+      // Im 'favorites' Modus: noch keine Sternchen → Hinweis-State.
+      if (_mode == 'favorites') {
+        return Scaffold(
+          appBar: AppBar(title: Text(t.screenVocabTitle)),
+          body: AppEmpty(
+            message: t.vocabEmptyFavorites,
+            actionLabel: t.vocabModeAll,
+            onAction: () => _setMode('all'),
+          ),
+        );
+      }
       return Scaffold(
         appBar: AppBar(title: Text(t.screenVocabTitle)),
         body: AppEmpty(
@@ -234,7 +267,7 @@ class _VocabScreenState extends State<VocabScreen> {
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
-              // Mode chips (SRS Due / Alle)
+              // Mode chips (SRS Due / Favorites / Alle)
               Row(
                 children: [
                   SoriChip(
@@ -243,6 +276,14 @@ class _VocabScreenState extends State<VocabScreen> {
                     selected: _mode == 'due',
                     variant: SoriChipVariant.filled,
                     onTap: () => _setMode('due'),
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                  SoriChip(
+                    label: t.vocabFavoritesBadge(_favorites.length),
+                    accent: SoriColors.warning,
+                    selected: _mode == 'favorites',
+                    variant: SoriChipVariant.filled,
+                    onTap: () => _setMode('favorites'),
                   ),
                   const SizedBox(width: Spacing.sm),
                   SoriChip(
@@ -270,7 +311,7 @@ class _VocabScreenState extends State<VocabScreen> {
               ),
               const SizedBox(height: 10),
 
-              // Card with swipe
+              // Card with swipe + favorite star overlay
               Expanded(
                 child: GestureDetector(
                   onHorizontalDragEnd: (d) {
@@ -278,11 +319,39 @@ class _VocabScreenState extends State<VocabScreen> {
                     if (d.primaryVelocity! < -250) _next();
                     else if (d.primaryVelocity! > 250) _prev();
                   },
-                  child: FlipCard(
-                    flipped: _flipped,
-                    onTap: _onFlip,
-                    front: _Front(v: v, koFirst: _koFirst),
-                    back:  _Back(v: v, koFirst: _koFirst),
+                  child: Stack(
+                    children: [
+                      FlipCard(
+                        flipped: _flipped,
+                        onTap: _onFlip,
+                        front: _Front(v: v, koFirst: _koFirst),
+                        back:  _Back(v: v, koFirst: _koFirst),
+                      ),
+                      Positioned(
+                        top: 12,
+                        right: 12,
+                        child: SoriPressable(
+                          onTap: () => _toggleFavorite(v.korean),
+                          haptic: SoriHaptic.light,
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: SoriSurfaces.of(context).bg.withValues(alpha: 0.4),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              _favorites.contains(v.korean)
+                                  ? Icons.star_rounded
+                                  : Icons.star_outline_rounded,
+                              color: _favorites.contains(v.korean)
+                                  ? SoriColors.warning
+                                  : SoriSurfaces.of(context).textDim,
+                              size: 28,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -320,11 +389,34 @@ class _VocabScreenState extends State<VocabScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: SoriButton.outlined(
-                      label: t.btnHoeren,
-                      icon: Icons.volume_up,
-                      fullWidth: true,
+                    child: SoriPressable(
                       onTap: () => TtsService.speak(v.korean),
+                      onLongPress: () => TtsService.speakSlow(v.korean),
+                      haptic: SoriHaptic.selection,
+                      child: Container(
+                        height: 44,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(SoriRadius.md),
+                          border: Border.all(color: SoriSurfaces.of(context).border, width: 1.5),
+                        ),
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.volume_up, size: 17, color: SoriSurfaces.of(context).text),
+                            const SizedBox(width: Spacing.sm),
+                            Text(
+                              t.btnHoeren,
+                              style: TextStyle(
+                                fontFamily: 'Pretendard',
+                                color: SoriSurfaces.of(context).text,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(width: Spacing.xs + 2),
@@ -346,6 +438,17 @@ class _VocabScreenState extends State<VocabScreen> {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: Spacing.xs),
+              Center(
+                child: Text(
+                  t.vocabSlowHint,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 10.5,
+                    color: SoriSurfaces.of(context).textDim,
+                  ),
+                ),
               ),
             ],
           ),
@@ -505,9 +608,41 @@ class _Back extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 6),
               child: Column(
                 children: [
-                  Text(v.exampleKorean,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: SoriColors.info.withValues(alpha: 0.9))),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          v.exampleKorean,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: SoriColors.info.withValues(alpha: 0.9),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      SoriPressable(
+                        onTap: () => TtsService.speak(v.exampleKorean),
+                        onLongPress: () => TtsService.speakSlow(v.exampleKorean),
+                        haptic: SoriHaptic.selection,
+                        child: Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: SoriColors.info.withValues(alpha: 0.18),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.volume_up_rounded,
+                            color: SoriColors.info,
+                            size: 18,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 4),
                   Text(v.exampleGerman,
                       textAlign: TextAlign.center,

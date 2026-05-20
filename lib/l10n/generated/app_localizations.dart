@@ -1458,6 +1458,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Super!'**
   String get dailyCharGreatJob;
+
+  /// No description provided for @vocabModeFavorites.
+  ///
+  /// In de, this message translates to:
+  /// **'Favoriten'**
+  String get vocabModeFavorites;
+
+  /// No description provided for @vocabFavoritesBadge.
+  ///
+  /// In de, this message translates to:
+  /// **'⭐ {n}'**
+  String vocabFavoritesBadge(int n);
+
+  /// No description provided for @vocabHearExample.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiel hören'**
+  String get vocabHearExample;
+
+  /// No description provided for @vocabSlowHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Lang drücken: langsam'**
+  String get vocabSlowHint;
+
+  /// No description provided for @vocabEmptyFavorites.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Favoriten ⭐\nMarkiere schwierige Wörter mit dem Stern'**
+  String get vocabEmptyFavorites;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

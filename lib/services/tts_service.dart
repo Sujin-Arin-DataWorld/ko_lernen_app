@@ -24,10 +24,27 @@ class TtsService {
     try {
       await _init();
       await _tts.stop();
+      // Re-apply user rate in case slow mode altered it last time.
+      await _tts.setSpeechRate(Storage.ttsRate);
       final result = await _tts.speak(text);
       return result == 1;
     } catch (e) {
       lastError = 'TTS-Wiedergabe fehlgeschlagen: $e';
+      return false;
+    }
+  }
+
+  /// Spricht langsamer (rate 0.30) — Lerner-Hilfe. Beendet danach
+  /// die nächste `speak()` mit normalem rate (siehe oben).
+  static Future<bool> speakSlow(String text) async {
+    try {
+      await _init();
+      await _tts.stop();
+      await _tts.setSpeechRate(0.30);
+      final result = await _tts.speak(text);
+      return result == 1;
+    } catch (e) {
+      lastError = 'TTS slow fehlgeschlagen: $e';
       return false;
     }
   }

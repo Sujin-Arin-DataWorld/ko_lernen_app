@@ -739,4 +739,22 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get dailyCharGreatJob => 'Super!';
+
+  @override
+  String get vocabModeFavorites => 'Favoriten';
+
+  @override
+  String vocabFavoritesBadge(int n) {
+    return '⭐ $n';
+  }
+
+  @override
+  String get vocabHearExample => 'Beispiel hören';
+
+  @override
+  String get vocabSlowHint => 'Lang drücken: langsam';
+
+  @override
+  String get vocabEmptyFavorites =>
+      'Noch keine Favoriten ⭐\nMarkiere schwierige Wörter mit dem Stern';
 }

@@ -72,6 +72,19 @@ class Storage {
     }
   }
 
+  /// Vokabel-Favoriten — Stern-Markierung für gezieltes Wiederholen.
+  static List<String> get vokFavorites => _l('kl_vok_favorites');
+  static bool isVokFavorite(String id) => vokFavorites.contains(id);
+  static Future<void> toggleVokFavorite(String id) async {
+    final list = vokFavorites;
+    if (list.contains(id)) {
+      list.remove(id);
+    } else {
+      list.add(id);
+    }
+    await _sl('kl_vok_favorites', list);
+  }
+
   // ───────── Chosung Quiz ─────────
   static int get chosungCorrect => _i('kl_chosung_correct');
   static int get chosungWrong   => _i('kl_chosung_wrong');

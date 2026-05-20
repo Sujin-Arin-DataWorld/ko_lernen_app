@@ -279,5 +279,12 @@
   "dailyCharFinish": "Done",
   "dailyCharStreak": "{n} days total",
   "@dailyCharStreak": { "placeholders": { "n": { "type": "int" } } },
-  "dailyCharGreatJob": "Nice!"
+  "dailyCharGreatJob": "Nice!",
+
+  "vocabModeFavorites": "Favorites",
+  "vocabFavoritesBadge": "⭐ {n}",
+  "@vocabFavoritesBadge": { "placeholders": { "n": { "type": "int" } } },
+  "vocabHearExample": "Hear example",
+  "vocabSlowHint": "Long press: slow",
+  "vocabEmptyFavorites": "No favorites yet ⭐\nTap the star on hard words"
 }

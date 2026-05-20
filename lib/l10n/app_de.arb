@@ -279,5 +279,12 @@
   "dailyCharFinish": "Fertig",
   "dailyCharStreak": "{n} Tage gesamt",
   "@dailyCharStreak": { "placeholders": { "n": { "type": "int" } } },
-  "dailyCharGreatJob": "Super!"
+  "dailyCharGreatJob": "Super!",
+
+  "vocabModeFavorites": "Favoriten",
+  "vocabFavoritesBadge": "⭐ {n}",
+  "@vocabFavoritesBadge": { "placeholders": { "n": { "type": "int" } } },
+  "vocabHearExample": "Beispiel hören",
+  "vocabSlowHint": "Lang drücken: langsam",
+  "vocabEmptyFavorites": "Noch keine Favoriten ⭐\nMarkiere schwierige Wörter mit dem Stern"
 }
