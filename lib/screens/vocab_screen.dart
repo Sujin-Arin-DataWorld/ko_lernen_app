@@ -2,7 +2,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../theme.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
@@ -10,6 +9,10 @@ import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
+import '../widgets/sori/tokens.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/chip.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class VocabScreen extends StatefulWidget {
@@ -234,31 +237,35 @@ class _VocabScreenState extends State<VocabScreen> {
               // Mode chips (SRS Due / Alle)
               Row(
                 children: [
-                  _VocabModeChip(
+                  SoriChip(
                     label: t.vocabDueBadge(_dueIds.length),
+                    accent: SoriColors.info,
                     selected: _mode == 'due',
+                    variant: SoriChipVariant.filled,
                     onTap: () => _setMode('due'),
                   ),
-                  const SizedBox(width: 8),
-                  _VocabModeChip(
+                  const SizedBox(width: Spacing.sm),
+                  SoriChip(
                     label: t.vocabModeAll,
+                    accent: SoriColors.info,
                     selected: _mode == 'all',
+                    variant: SoriChipVariant.filled,
                     onTap: () => _setMode('all'),
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: Spacing.sm),
 
               // Stat chips
               Row(
                 children: [
-                  _Chip(label: '📚 ${_idx + 1}/${_filtered.length}', color: AppColors.vocab),
-                  const SizedBox(width: 6),
-                  _Chip(label: '✅ $_correct', color: AppColors.success),
-                  const SizedBox(width: 6),
-                  _Chip(label: '❌ $_wrong',   color: AppColors.danger),
-                  const SizedBox(width: 6),
-                  _Chip(label: '⏭ $_skipped', color: AppColors.warning),
+                  SoriChip(label: '📚 ${_idx + 1}/${_filtered.length}', accent: SoriColors.info),
+                  const SizedBox(width: Spacing.xs + 2),
+                  SoriChip(label: '✅ $_correct', accent: SoriColors.success),
+                  const SizedBox(width: Spacing.xs + 2),
+                  SoriChip(label: '❌ $_wrong',   accent: SoriColors.danger),
+                  const SizedBox(width: Spacing.xs + 2),
+                  SoriChip(label: '⏭ $_skipped', accent: SoriColors.warning),
                 ],
               ),
               const SizedBox(height: 10),
@@ -286,54 +293,56 @@ class _VocabScreenState extends State<VocabScreen> {
                 Row(
                   children: [
                     Expanded(
-                      child: FilledButton.icon(
-                        style: FilledButton.styleFrom(backgroundColor: AppColors.success),
-                        onPressed: _gewusst,
-                        icon: const Icon(Icons.check),
-                        label: Text(t.btnGewusst),
+                      child: SoriButton.filled(
+                        label: t.btnGewusst,
+                        icon: Icons.check,
+                        accent: SoriColors.success,
+                        fullWidth: true,
+                        onTap: _gewusst,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: Spacing.sm),
                     Expanded(
-                      child: OutlinedButton.icon(
-                        style: OutlinedButton.styleFrom(
-                          side: const BorderSide(color: AppColors.danger, width: 1.5),
-                          foregroundColor: AppColors.danger,
-                        ),
-                        onPressed: _nichtGewusst,
-                        icon: const Icon(Icons.close, color: AppColors.danger),
-                        label: Text(t.btnNichtGewusst),
+                      child: SoriButton.filled(
+                        label: t.btnNichtGewusst,
+                        icon: Icons.close,
+                        fullWidth: true,
+                        destructive: true,
+                        onTap: _nichtGewusst,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: Spacing.sm),
               ],
 
               // Bottom row
               Row(
                 children: [
                   Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () => TtsService.speak(v.korean),
-                      icon: const Icon(Icons.volume_up, size: 18),
-                      label: Text(t.btnHoeren),
+                    child: SoriButton.outlined(
+                      label: t.btnHoeren,
+                      icon: Icons.volume_up,
+                      fullWidth: true,
+                      onTap: () => TtsService.speak(v.korean),
                     ),
                   ),
-                  const SizedBox(width: 6),
+                  const SizedBox(width: Spacing.xs + 2),
                   Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: _skip,
-                      icon: const Icon(Icons.skip_next, size: 18),
-                      label: Text(t.btnSkip),
+                    child: SoriButton.outlined(
+                      label: t.btnSkip,
+                      icon: Icons.skip_next,
+                      fullWidth: true,
+                      onTap: _skip,
                     ),
                   ),
-                  const SizedBox(width: 6),
+                  const SizedBox(width: Spacing.xs + 2),
                   Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: _random,
-                      icon: const Icon(Icons.shuffle, size: 18),
-                      label: Text(t.btnRandom),
+                    child: SoriButton.outlined(
+                      label: t.btnRandom,
+                      icon: Icons.shuffle,
+                      fullWidth: true,
+                      onTap: _random,
                     ),
                   ),
                 ],
@@ -348,7 +357,7 @@ class _VocabScreenState extends State<VocabScreen> {
   void _showFilterSheet() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppColors.surface,
+      backgroundColor: SoriSurfaces.of(context).surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -363,7 +372,7 @@ class _VocabScreenState extends State<VocabScreen> {
                 Center(
                   child: Container(
                     width: 40, height: 4,
-                    decoration: BoxDecoration(color: AppColors.surfaceAlt, borderRadius: BorderRadius.circular(2)),
+                    decoration: BoxDecoration(color: SoriSurfaces.of(ctx).surfaceAlt, borderRadius: BorderRadius.circular(2)),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -379,16 +388,11 @@ class _VocabScreenState extends State<VocabScreen> {
                   value: _koFirst,
                   onChanged: (b) { setLocal(() => _koFirst = b); _koFirst = b; },
                 ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Expanded(
-                      child: FilledButton(
-                        onPressed: () { _applyFilters(); Navigator.pop(ctx); },
-                        child: Text(AppL10n.of(ctx).btnApply),
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: Spacing.sm),
+                SoriButton.filled(
+                  label: AppL10n.of(ctx).btnApply,
+                  fullWidth: true,
+                  onTap: () { _applyFilters(); Navigator.pop(ctx); },
                 ),
               ],
             ),
@@ -399,20 +403,21 @@ class _VocabScreenState extends State<VocabScreen> {
   }
 
   Widget _dropdown(String label, String value, List<String> items, ValueChanged<String?> onChanged) {
+    final s = SoriSurfaces.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
       decoration: BoxDecoration(
-        color: AppColors.bg,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.surfaceAlt),
+        color: s.bg,
+        borderRadius: BorderRadius.circular(SoriRadius.sm),
+        border: Border.all(color: s.surfaceAlt),
       ),
       child: DropdownButton<String>(
         value: value,
         isExpanded: true,
         underline: const SizedBox.shrink(),
-        dropdownColor: AppColors.surface,
-        hint: Text(label, style: const TextStyle(color: AppColors.textMuted)),
-        items: items.map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
+        dropdownColor: s.surface,
+        hint: Text(label, style: TextStyle(color: s.textMuted)),
+        items: items.map((item) => DropdownMenuItem(value: item, child: Text(item))).toList(),
         onChanged: onChanged,
       ),
     );
@@ -421,67 +426,6 @@ class _VocabScreenState extends State<VocabScreen> {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _VocabModeChip extends StatelessWidget {
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-  const _VocabModeChip({required this.label, required this.selected, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return ChoiceChip(
-      label: Text(label, style: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-        color: selected ? Colors.white : AppColors.textMuted,
-      )),
-      selected: selected,
-      onSelected: (_) => onTap(),
-      selectedColor: AppColors.vocab,
-      backgroundColor: AppColors.surface,
-      side: BorderSide(color: selected ? AppColors.vocab : AppColors.surfaceAlt),
-      visualDensity: VisualDensity.compact,
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-    );
-  }
-}
-
-class _Chip extends StatelessWidget {
-  final String label;
-  final Color color;
-  const _Chip({required this.label, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(100),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w700),
-      ),
-    );
-  }
-}
-
-class _LevelBadge extends StatelessWidget {
-  final String level;
-  final Color color;
-  const _LevelBadge({required this.level, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-      decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(100)),
-      child: Text(level, style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: 0.5)),
-    );
-  }
-}
-
 class _Front extends StatelessWidget {
   final Vocab v;
   final bool koFirst;
@@ -489,32 +433,39 @@ class _Front extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _CardFace(
-      gradient: const [Color(0xFF0F2942), Color(0xFF162E4D)],
-      borderColor: AppColors.vocab,
-      children: [
-        _LevelBadge(level: v.level, color: AppColors.vocab),
-        const SizedBox(height: 14),
-        Text(
-          koFirst ? v.korean : v.german,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: koFirst ? 38 : 28,
-            fontWeight: FontWeight.w800,
-            color: const Color(0xFFA5D8FF),
-            height: 1.15,
-          ),
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.info,
+      width: double.infinity,
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SoriChip(label: v.level, accent: SoriColors.info, variant: SoriChipVariant.filled),
+            const SizedBox(height: 14),
+            Text(
+              koFirst ? v.korean : v.german,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: koFirst ? 38 : 28,
+                fontWeight: FontWeight.w800,
+                color: SoriColors.info,
+                height: 1.15,
+              ),
+            ),
+            if (koFirst) ...[
+              const SizedBox(height: 6),
+              Text('[${v.romanization}]',
+                  style: TextStyle(fontSize: 15, color: SoriColors.info.withValues(alpha: 0.7), fontStyle: FontStyle.italic)),
+            ],
+            const SizedBox(height: Spacing.sm),
+            Text(v.posDe, style: TextStyle(fontSize: 12, color: s.textMuted)),
+            const SizedBox(height: Spacing.lg),
+            Text('👆 Tippen zum Umdrehen', style: TextStyle(fontSize: 11.5, color: s.textDim)),
+          ],
         ),
-        if (koFirst) ...[
-          const SizedBox(height: 6),
-          Text('[${v.romanization}]',
-              style: const TextStyle(fontSize: 15, color: Color(0xFF74C0FC), fontStyle: FontStyle.italic)),
-        ],
-        const SizedBox(height: 8),
-        Text(v.posDe, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
-        const SizedBox(height: 16),
-        const Text('👆 Tippen zum Umdrehen', style: TextStyle(fontSize: 11.5, color: AppColors.textDim)),
-      ],
+      ),
     );
   }
 }
@@ -526,68 +477,45 @@ class _Back extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _CardFace(
-      gradient: const [Color(0xFF0F2A1A), Color(0xFF15321E)],
-      borderColor: AppColors.success,
-      children: [
-        _LevelBadge(level: v.level, color: AppColors.success),
-        const SizedBox(height: 12),
-        Text(
-          koFirst ? v.german : v.korean,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: koFirst ? 28 : 36,
-            fontWeight: FontWeight.w800,
-            color: const Color(0xFFB2F2BB),
-            height: 1.2,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text('${v.posDe} · ${v.topic}', style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
-        const SizedBox(height: 16),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: Column(
-            children: [
-              Text(v.exampleKorean,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFFA5D8FF))),
-              const SizedBox(height: 4),
-              Text(v.exampleGerman,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 13.5, color: AppColors.text)),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _CardFace extends StatelessWidget {
-  final List<Color> gradient;
-  final Color borderColor;
-  final List<Widget> children;
-
-  const _CardFace({required this.gradient, required this.borderColor, required this.children});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.success,
       width: double.infinity,
-      padding: const EdgeInsets.all(22),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: gradient, begin: Alignment.topLeft, end: Alignment.bottomRight),
-        border: Border.all(color: borderColor, width: 2),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(color: borderColor.withOpacity(0.15), blurRadius: 18, offset: const Offset(0, 6)),
-        ],
-      ),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: children,
+          children: [
+            SoriChip(label: v.level, accent: SoriColors.success, variant: SoriChipVariant.filled),
+            const SizedBox(height: 12),
+            Text(
+              koFirst ? v.german : v.korean,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: koFirst ? 28 : 36,
+                fontWeight: FontWeight.w800,
+                color: SoriColors.success,
+                height: 1.2,
+              ),
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text('${v.posDe} · ${v.topic}', style: TextStyle(fontSize: 12, color: s.textMuted)),
+            const SizedBox(height: Spacing.lg),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+              child: Column(
+                children: [
+                  Text(v.exampleKorean,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: SoriColors.info.withValues(alpha: 0.9))),
+                  const SizedBox(height: 4),
+                  Text(v.exampleGerman,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 13.5, color: s.text)),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

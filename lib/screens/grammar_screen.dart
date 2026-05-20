@@ -2,7 +2,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../theme.dart';
 import '../models/grammar.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
@@ -10,6 +9,10 @@ import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
+import '../widgets/sori/tokens.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/chip.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class GrammarScreen extends StatefulWidget {
@@ -127,11 +130,11 @@ class _GrammarScreenState extends State<GrammarScreen> {
             children: [
               // Stats
               Wrap(
-                spacing: 6,
+                spacing: Spacing.xs + 2,
                 children: [
-                  _Chip(label: '📝 ${_idx + 1}/${_filtered.length}', color: AppColors.grammar),
-                  _Chip(label: g.level,    color: AppColors.warning),
-                  _Chip(label: g.typeDe,   color: AppColors.hangul),
+                  SoriChip(label: '📝 ${_idx + 1}/${_filtered.length}', accent: SoriColors.warning),
+                  SoriChip(label: g.level,  accent: SoriColors.warning),
+                  SoriChip(label: g.typeDe, accent: SoriColors.hangul),
                 ],
               ),
               const SizedBox(height: 10),
@@ -158,36 +161,40 @@ class _GrammarScreenState extends State<GrammarScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () => TtsService.speak(g.exampleKorean),
-                      icon: const Icon(Icons.volume_up, size: 18),
-                      label: Text(t.btnHoeren),
+                    child: SoriButton.outlined(
+                      label: t.btnHoeren,
+                      icon: Icons.volume_up,
+                      fullWidth: true,
+                      onTap: () => TtsService.speak(g.exampleKorean),
                     ),
                   ),
-                  const SizedBox(width: 6),
+                  const SizedBox(width: Spacing.xs + 2),
                   Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: _prev,
-                      icon: const Icon(Icons.arrow_back, size: 18),
-                      label: Text(t.btnPrev),
+                    child: SoriButton.outlined(
+                      label: t.btnPrev,
+                      icon: Icons.arrow_back,
+                      fullWidth: true,
+                      onTap: _prev,
                     ),
                   ),
-                  const SizedBox(width: 6),
+                  const SizedBox(width: Spacing.xs + 2),
                   Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: _next,
-                      icon: const Icon(Icons.arrow_forward, size: 18),
-                      label: Text(t.btnNext),
+                    child: SoriButton.outlined(
+                      label: t.btnNext,
+                      icon: Icons.arrow_forward,
+                      fullWidth: true,
+                      onTap: _next,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 6),
-              FilledButton.icon(
-                onPressed: _random,
-                icon: const Icon(Icons.shuffle, size: 18),
-                label: Text(t.btnRandom),
-                style: FilledButton.styleFrom(backgroundColor: AppColors.grammar),
+              const SizedBox(height: Spacing.xs + 2),
+              SoriButton.filled(
+                label: t.btnRandom,
+                icon: Icons.shuffle,
+                accent: SoriColors.warning,
+                fullWidth: true,
+                onTap: _random,
               ),
             ],
           ),
@@ -200,7 +207,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
     final t = AppL10n.of(context);
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppColors.surface,
+      backgroundColor: SoriSurfaces.of(context).surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -212,17 +219,18 @@ class _GrammarScreenState extends State<GrammarScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(child: Container(width: 40, height: 4, decoration: BoxDecoration(color: AppColors.surfaceAlt, borderRadius: BorderRadius.circular(2)))),
-                const SizedBox(height: 16),
+                Center(child: Container(width: 40, height: 4, decoration: BoxDecoration(color: SoriSurfaces.of(ctx).surfaceAlt, borderRadius: BorderRadius.circular(2)))),
+                const SizedBox(height: Spacing.lg),
                 Text(t.filterTitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-                const SizedBox(height: 12),
+                const SizedBox(height: Spacing.md),
                 _dropdown(t.filterLevel, _level, _levels, (v) { setLocal(() => _level = v!); _level = v!; }),
-                const SizedBox(height: 10),
+                const SizedBox(height: Spacing.sm + 2),
                 _dropdown(t.filterType,  _type,  _types,  (v) { setLocal(() => _type  = v!); _type  = v!; }),
-                const SizedBox(height: 16),
-                FilledButton(
-                  onPressed: () { _applyFilters(); Navigator.pop(ctx); },
-                  child: Text(t.btnApply),
+                const SizedBox(height: Spacing.lg),
+                SoriButton.filled(
+                  label: t.btnApply,
+                  fullWidth: true,
+                  onTap: () { _applyFilters(); Navigator.pop(ctx); },
                 ),
               ],
             ),
@@ -233,52 +241,23 @@ class _GrammarScreenState extends State<GrammarScreen> {
   }
 
   Widget _dropdown(String label, String value, List<String> items, ValueChanged<String?> onChanged) {
+    final s = SoriSurfaces.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
       decoration: BoxDecoration(
-        color: AppColors.bg,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.surfaceAlt),
+        color: s.bg,
+        borderRadius: BorderRadius.circular(SoriRadius.sm),
+        border: Border.all(color: s.surfaceAlt),
       ),
       child: DropdownButton<String>(
         value: value,
         isExpanded: true,
         underline: const SizedBox.shrink(),
-        dropdownColor: AppColors.surface,
-        hint: Text(label, style: const TextStyle(color: AppColors.textMuted)),
-        items: items.map((s) => DropdownMenuItem(value: s, child: Text(s, overflow: TextOverflow.ellipsis))).toList(),
+        dropdownColor: s.surface,
+        hint: Text(label, style: TextStyle(color: s.textMuted)),
+        items: items.map((item) => DropdownMenuItem(value: item, child: Text(item, overflow: TextOverflow.ellipsis))).toList(),
         onChanged: onChanged,
       ),
-    );
-  }
-}
-
-class _Chip extends StatelessWidget {
-  final String label;
-  final Color color;
-  const _Chip({required this.label, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(color: color.withOpacity(0.2), borderRadius: BorderRadius.circular(100)),
-      child: Text(label, style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w700)),
-    );
-  }
-}
-
-class _LevelBadge extends StatelessWidget {
-  final String level;
-  final Color color;
-  const _LevelBadge({required this.level, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-      decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(100)),
-      child: Text(level, style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: 0.5)),
     );
   }
 }
@@ -289,22 +268,31 @@ class _Front extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _CardFace(
-      gradient: const [Color(0xFF3A2E0E), Color(0xFF2E2616)],
-      borderColor: AppColors.grammar,
-      children: [
-        _LevelBadge(level: g.level, color: AppColors.grammar),
-        const SizedBox(height: 14),
-        Text(
-          g.pattern,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800, color: Color(0xFFFFD43B), height: 1.15),
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.warning,
+      width: double.infinity,
+      child: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SoriChip(label: g.level, accent: SoriColors.warning, variant: SoriChipVariant.filled),
+              const SizedBox(height: 14),
+              Text(
+                g.pattern,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800, color: SoriColors.warning, height: 1.15),
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(g.typeDe, style: TextStyle(fontSize: 13, color: SoriColors.warning.withValues(alpha: 0.75), fontWeight: FontWeight.w700)),
+              const SizedBox(height: Spacing.lg),
+              Text('👆 Tippen für Erklärung', style: TextStyle(fontSize: 11.5, color: s.textDim)),
+            ],
+          ),
         ),
-        const SizedBox(height: 8),
-        Text(g.typeDe, style: const TextStyle(fontSize: 13, color: Color(0xFFFFA94D), fontWeight: FontWeight.w700)),
-        const SizedBox(height: 16),
-        const Text('👆 Tippen für Erklärung', style: TextStyle(fontSize: 11.5, color: AppColors.textDim)),
-      ],
+      ),
     );
   }
 }
@@ -315,50 +303,33 @@ class _Back extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _CardFace(
-      gradient: const [Color(0xFF2A1525), Color(0xFF3A1A2C)],
-      borderColor: AppColors.hangul,
-      children: [
-        _LevelBadge(level: g.level, color: AppColors.hangul),
-        const SizedBox(height: 10),
-        Text(g.pattern, textAlign: TextAlign.center, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: Color(0xFFFCC2D7))),
-        const SizedBox(height: 8),
-        Text(g.explanationDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 13.5, color: AppColors.text, height: 1.5)),
-        const SizedBox(height: 12),
-        Text(g.exampleKorean, textAlign: TextAlign.center, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFFFCC2D7))),
-        const SizedBox(height: 4),
-        Text(g.exampleGerman, textAlign: TextAlign.center, style: const TextStyle(fontSize: 13, color: AppColors.text, fontStyle: FontStyle.italic)),
-        if (g.note.isNotEmpty) ...[
-          const SizedBox(height: 8),
-          Divider(color: const Color(0xFFFCC2D7).withOpacity(0.3), height: 1),
-          const SizedBox(height: 6),
-          Text(g.note, textAlign: TextAlign.center, style: const TextStyle(fontSize: 11.5, color: AppColors.textMuted, height: 1.4)),
-        ],
-      ],
-    );
-  }
-}
-
-class _CardFace extends StatelessWidget {
-  final List<Color> gradient;
-  final Color borderColor;
-  final List<Widget> children;
-  const _CardFace({required this.gradient, required this.borderColor, required this.children});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.hangul,
       width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: gradient, begin: Alignment.topLeft, end: Alignment.bottomRight),
-        border: Border.all(color: borderColor, width: 2),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: borderColor.withOpacity(0.15), blurRadius: 18, offset: const Offset(0, 6))],
-      ),
       child: SingleChildScrollView(
         child: Center(
-          child: Column(mainAxisSize: MainAxisSize.min, children: children),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SoriChip(label: g.level, accent: SoriColors.hangul, variant: SoriChipVariant.filled),
+              const SizedBox(height: 10),
+              Text(g.pattern, textAlign: TextAlign.center, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: SoriColors.hangul)),
+              const SizedBox(height: Spacing.sm),
+              Text(g.explanationDe, textAlign: TextAlign.center, style: TextStyle(fontSize: 13.5, color: s.text, height: 1.5)),
+              const SizedBox(height: 12),
+              Text(g.exampleKorean, textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: SoriColors.hangul.withValues(alpha: 0.85))),
+              const SizedBox(height: 4),
+              Text(g.exampleGerman, textAlign: TextAlign.center, style: TextStyle(fontSize: 13, color: s.text, fontStyle: FontStyle.italic)),
+              if (g.note.isNotEmpty) ...[
+                const SizedBox(height: Spacing.sm),
+                Divider(color: SoriColors.hangul.withValues(alpha: 0.25), height: 1),
+                const SizedBox(height: Spacing.xs + 2),
+                Text(g.note, textAlign: TextAlign.center, style: TextStyle(fontSize: 11.5, color: s.textMuted, height: 1.4)),
+              ],
+            ],
+          ),
         ),
       ),
     );

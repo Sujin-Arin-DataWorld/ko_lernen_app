@@ -4,7 +4,11 @@ import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/storage_service.dart';
-import '../theme.dart';
+import '../widgets/sori/tokens.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/chip.dart';
+import '../widgets/sori/progress.dart';
 import '../l10n/generated/app_localizations.dart';
 
 const List<String> _chosungTable = [
@@ -161,22 +165,16 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
                 children: ['A1', 'A2', 'B1', 'B2'].map((lvl) {
                   final selected = _level == lvl;
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: ChoiceChip(
-                      label: Text(lvl, style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: selected ? Colors.white : AppColors.textMuted,
-                        fontSize: 13,
-                      )),
+                    padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
+                    child: SoriChip(
+                      label: lvl,
+                      accent: SoriColors.primary,
                       selected: selected,
-                      selectedColor: AppColors.primary,
-                      backgroundColor: AppColors.surface,
-                      side: BorderSide(color: selected ? AppColors.primary : AppColors.surfaceAlt),
-                      onSelected: (_) {
-                        if (!selected) {
-                          setState(() => _level = lvl);
-                          _load();
-                        }
+                      variant: SoriChipVariant.soft,
+                      fontSize: 13,
+                      onTap: selected ? null : () {
+                        setState(() => _level = lvl);
+                        _load();
                       },
                     ),
                   );
@@ -186,11 +184,11 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
 
               // ── 통계 칩 ────────────────────────────────────────────
               Row(children: [
-                _chip('✅  $_correct', AppColors.success),
-                const SizedBox(width: 8),
-                _chip('❌  $_wrong', AppColors.danger),
-                const SizedBox(width: 8),
-                _chip('$pos / $total', AppColors.textMuted),
+                SoriChip(label: '✅  $_correct', accent: SoriColors.success),
+                const SizedBox(width: Spacing.sm),
+                SoriChip(label: '❌  $_wrong',  accent: SoriColors.danger),
+                const SizedBox(width: Spacing.sm),
+                SoriChip(label: '$pos / $total'),
               ]),
               const SizedBox(height: 14),
 
@@ -218,35 +216,27 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
                           autofocus:  true,
                           textAlign:  TextAlign.center,
                           style: const TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.text,
-                          ),
-                          decoration: InputDecoration(
-                            hintText:  t.chosungInputHint,
-                            hintStyle: const TextStyle(color: AppColors.textDim, fontSize: 16),
-                            filled:    true,
-                            fillColor: AppColors.surface,
-                            border:        OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.surfaceAlt)),
-                            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.surfaceAlt)),
-                            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.primary, width: 2)),
+                            fontSize: 22, fontWeight: FontWeight.w700,
                           ),
                           onSubmitted: (_) => _submit(),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: Spacing.sm + 2),
                         Row(children: [
                           Expanded(
                             flex: 3,
-                            child: FilledButton(
-                              onPressed: _submit,
-                              style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
-                              child: Text(t.chosungSubmitBtn, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                            child: SoriButton.filled(
+                              label: t.chosungSubmitBtn,
+                              fullWidth: true,
+                              onTap: _submit,
                             ),
                           ),
-                          const SizedBox(width: 10),
+                          const SizedBox(width: Spacing.sm + 2),
                           Expanded(
                             flex: 2,
-                            child: OutlinedButton(
-                              onPressed: _skip,
-                              child: Text(t.btnSkip),
+                            child: SoriButton.outlined(
+                              label: t.btnSkip,
+                              fullWidth: true,
+                              onTap: _skip,
                             ),
                           ),
                         ]),
@@ -263,14 +253,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
               const Spacer(),
 
               // ── 진행 바 ────────────────────────────────────────────
-              ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: LinearProgressIndicator(
-                  value:           pos / total,
-                  backgroundColor: AppColors.surfaceAlt,
-                  valueColor:      const AlwaysStoppedAnimation(AppColors.primary),
-                  minHeight:       5,
-                ),
+              SoriProgressBar(
+                value: pos / total,
+                thickness: 6,
+                animated: true,
               ),
             ],
           ),
@@ -279,14 +265,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
     );
   }
 
-  Widget _chip(String label, Color color) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-    decoration: BoxDecoration(
-      color:        color.withOpacity(0.15),
-      borderRadius: BorderRadius.circular(100),
-    ),
-    child: Text(label, style: TextStyle(color: color, fontSize: 12.5, fontWeight: FontWeight.w700)),
-  );
 }
 
 // ── 자음 버튼 패널 ──────────────────────────────────────────────────────────────
@@ -297,21 +275,14 @@ class _ConsonantPad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      spacing: 6,
-      runSpacing: 6,
+      spacing: Spacing.xs + 2,
+      runSpacing: Spacing.xs + 2,
       alignment: WrapAlignment.center,
-      children: _consonantPadKeys.map((c) => SizedBox(
-        width: 44,
-        height: 44,
-        child: OutlinedButton(
-          onPressed: () => onTap(c),
-          style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.zero,
-            side: const BorderSide(color: AppColors.surfaceAlt),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          ),
-          child: Text(c, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: AppColors.text)),
-        ),
+      children: _consonantPadKeys.map((c) => SoriChip(
+        label: c,
+        variant: SoriChipVariant.outlined,
+        fontSize: 16,
+        onTap: () => onTap(c),
       )).toList(),
     );
   }
@@ -338,26 +309,19 @@ class _QuizCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final (Color accent, Color bgA, Color bgB) = switch (state) {
-      _State.correct => (AppColors.success, AppColors.success.withOpacity(0.2), AppColors.success.withOpacity(0.04)),
-      _State.wrong   => (AppColors.danger,  AppColors.danger.withOpacity(0.2),  AppColors.danger.withOpacity(0.04)),
-      _State.waiting => (AppColors.primary, AppColors.primary.withOpacity(0.14), AppColors.surface),
+    final s = SoriSurfaces.of(context);
+    final accent = switch (state) {
+      _State.correct => SoriColors.success,
+      _State.wrong   => SoriColors.danger,
+      _State.waiting => SoriColors.primary,
     };
 
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 220),
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: accent,
+      tinted: true,
       width: double.infinity,
-      constraints: const BoxConstraints(minHeight: 170),
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: accent, width: 2),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end:   Alignment.bottomRight,
-          colors: [bgA, bgB],
-        ),
-      ),
+      padding: const EdgeInsets.all(Spacing.xl),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -369,22 +333,21 @@ class _QuizCard extends StatelessWidget {
           switch (state) {
             _State.correct => Text(
                 '✅  $correctWord',
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: AppColors.success),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: SoriColors.success),
               ),
             _State.wrong => Column(children: [
                 Text(t.chosungAnswerLabel(correctWord),
-                    style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: AppColors.danger)),
+                    style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: SoriColors.danger)),
                 const SizedBox(height: 4),
-                Text(german,
-                    style: const TextStyle(fontSize: 14, color: AppColors.textMuted)),
+                Text(german, style: TextStyle(fontSize: 14, color: s.textMuted)),
               ]),
             _State.waiting => hint
-                ? Text(german,
-                    style: const TextStyle(fontSize: 18, color: AppColors.textMuted, fontWeight: FontWeight.w600))
-                : TextButton.icon(
-                    onPressed: onHint,
-                    icon:  const Icon(Icons.lightbulb_outline, size: 16, color: AppColors.warning),
-                    label: Text(t.chosungHintBtn, style: const TextStyle(color: AppColors.warning, fontSize: 13)),
+                ? Text(german, style: TextStyle(fontSize: 18, color: s.textMuted, fontWeight: FontWeight.w600))
+                : SoriChip(
+                    label: t.chosungHintBtn,
+                    icon: Icons.lightbulb_outline,
+                    accent: SoriColors.warning,
+                    onTap: onHint,
                   ),
           },
         ],
