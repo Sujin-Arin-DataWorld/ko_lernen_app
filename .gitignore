@@ -43,3 +43,13 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# ── Release signing — NEVER commit ──────────────────────────
+# Keystore + Passwords. Loss = unable to update Play Store app.
+# Backup separately in password manager + cloud (Drive verschlüsselt).
+**/android/key.properties
+**/android/upload-keystore.jks
+**/android/app/upload-keystore.jks
+**/*.jks
+**/*.keystore
+KEYSTORE_BACKUP.md

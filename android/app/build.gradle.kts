@@ -1,9 +1,23 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     // START: FlutterFire Configuration
     id("com.google.gms.google-services")
     // END: FlutterFire Configuration
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+// ─── Release Keystore laden ──────────────────────────────────
+// android/key.properties (gitignored) enthält Passwörter.
+// Bei fehlender Datei → Release-Build fällt auf Debug-Key zurück
+// (nützlich für CI ohne Secrets, aber nicht für Play Store).
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+val hasReleaseKey = keystorePropertiesFile.exists()
+if (hasReleaseKey) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 android {
@@ -24,10 +38,24 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        if (hasReleaseKey) {
+            create("release") {
+                keyAlias      = keystoreProperties["keyAlias"] as String
+                keyPassword   = keystoreProperties["keyPassword"] as String
+                storeFile     = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // Debug-Key vorerst — Play Store erfordert eigenes Keystore
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = if (hasReleaseKey) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
             isMinifyEnabled  = true
             isShrinkResources = true
             proguardFiles(

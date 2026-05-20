@@ -90,7 +90,7 @@ class KoLernenApp extends StatelessWidget {
     return ValueListenableBuilder<Locale?>(
       valueListenable: localeNotifier,
       builder: (_, locale, __) => MaterialApp(
-        title: 'Koreanisch lernen',
+        title: 'Hangul Sori',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.dark,
         locale: locale,
