@@ -18,6 +18,7 @@ import 'screens/wordle_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
+import 'screens/onboarding_level_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -99,17 +100,19 @@ class KoLernenApp extends StatelessWidget {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: child,
         ),
-        initialRoute: '/',
+        // Erst-Launch: Nutzer hat noch kein Level gewählt → Onboarding.
+        initialRoute: Storage.userLevelCode == null ? '/onboarding' : '/',
         routes: {
-          '/':          (_) => const HomeScreen(),
-          '/vocab':     (_) => const VocabScreen(),
-          '/grammar':   (_) => const GrammarScreen(),
-          '/listening': (ctx) => PlaceholderScreen(title: AppL10n.of(ctx).moduleListenTitle, emoji: '🎧'),
-          '/hangul':    (_) => const HangulScreen(),
-          '/chosung':   (_) => const ChosungQuizScreen(),
-          '/wordle':    (_) => const WordleScreen(),
-          '/settings':  (_) => const SettingsScreen(),
-          '/stats':     (_) => const StatsScreen(),
+          '/':           (_) => const HomeScreen(),
+          '/onboarding': (_) => const OnboardingLevelScreen(),
+          '/vocab':      (_) => const VocabScreen(),
+          '/grammar':    (_) => const GrammarScreen(),
+          '/listening':  (ctx) => PlaceholderScreen(title: AppL10n.of(ctx).moduleListenTitle, emoji: '🎧'),
+          '/hangul':     (_) => const HangulScreen(),
+          '/chosung':    (_) => const ChosungQuizScreen(),
+          '/wordle':     (_) => const WordleScreen(),
+          '/settings':   (_) => const SettingsScreen(),
+          '/stats':      (_) => const StatsScreen(),
         },
       ),
     );

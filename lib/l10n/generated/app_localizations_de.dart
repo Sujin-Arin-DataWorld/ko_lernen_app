@@ -530,4 +530,144 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get statsWinRate => 'Quote';
+
+  @override
+  String get onboardingTitle => 'Was ist dein Level?';
+
+  @override
+  String get onboardingSubtitle =>
+      'Wir fangen bei dir an. Frühere Levels bleiben offen, spätere schaltest du frei.';
+
+  @override
+  String get onboardingLevelA1 => 'Anfänger';
+
+  @override
+  String get onboardingLevelA1Desc => 'Ich fange gerade an';
+
+  @override
+  String get onboardingLevelA2 => 'Grundkenntnisse';
+
+  @override
+  String get onboardingLevelA2Desc => 'Begrüßungen, einfache Bestellungen';
+
+  @override
+  String get onboardingLevelB1 => 'Mittelstufe';
+
+  @override
+  String get onboardingLevelB1Desc => 'Alltagsgespräche möglich';
+
+  @override
+  String get onboardingLevelB2 => 'Fortgeschritten';
+
+  @override
+  String get onboardingLevelB2Desc => 'Fließend, auch Nuancen';
+
+  @override
+  String get onboardingExampleA1Trans => 'Hallo / Guten Tag.';
+
+  @override
+  String get onboardingExampleA2Trans => 'Einen Iced Americano in Tall, bitte.';
+
+  @override
+  String get onboardingExampleB1Trans =>
+      'Gestern war ich mit einem Freund im Kino. Hat richtig Spaß gemacht.';
+
+  @override
+  String get onboardingExampleB2Trans =>
+      'Das Meeting zieht sich, ich komme wohl etwas später.';
+
+  @override
+  String get onboardingSkip => 'Später entscheiden (A1 als Start)';
+
+  @override
+  String get onboardingPrompt =>
+      'Tippe dein Level — du kannst es in den Einstellungen ändern.';
+
+  @override
+  String get scenariosListTitle => 'Szenarien';
+
+  @override
+  String get scenariosListSubtitle => 'Lerne durch echte Situationen';
+
+  @override
+  String scenariosLocked(Object level) {
+    return 'Erreiche $level um freizuschalten';
+  }
+
+  @override
+  String scenariosLevelBadge(Object level) {
+    return 'Stufe $level';
+  }
+
+  @override
+  String get scenariosEmpty => 'Bald verfügbar 🚧';
+
+  @override
+  String get moduleScenariosTitle => 'Szenarien';
+
+  @override
+  String get moduleScenariosDesc =>
+      'Lerne wie ein Koreaner lebt — Café, Flughafen, Vorstellung…';
+
+  @override
+  String get scenarioIntroTitle => 'Einleitung';
+
+  @override
+  String get scenarioVocabTitle => 'Wortschatz';
+
+  @override
+  String get scenarioDialogTitle => 'Dialog';
+
+  @override
+  String get scenarioGrammarTitle => 'Grammatik';
+
+  @override
+  String get scenarioQuestsTitle => 'Mini-Spiele';
+
+  @override
+  String get scenarioCulturalNote => 'Kulturnotiz';
+
+  @override
+  String get scenarioStartBtn => 'Los geht\'s';
+
+  @override
+  String get scenarioNextBtn => 'Weiter';
+
+  @override
+  String get scenarioCompleteBtn => 'Abschließen';
+
+  @override
+  String scenarioXpEarned(int xp) {
+    return '+$xp XP';
+  }
+
+  @override
+  String scenarioStarsLabel(int stars) {
+    return '$stars von 3 Sternen';
+  }
+
+  @override
+  String get questCorrect => 'Richtig!';
+
+  @override
+  String get questWrong => 'Nicht ganz';
+
+  @override
+  String get questNext => 'Weiter';
+
+  @override
+  String get questRetry => 'Nochmal';
+
+  @override
+  String get particlePopHint => 'Zieh die richtige Partikel in den Slot.';
+
+  @override
+  String get particlePopExplanation =>
+      'Nach Konsonant: 은/이/을 · Nach Vokal: 는/가/를';
+
+  @override
+  String get settingsUserLevel => 'Mein Level';
+
+  @override
+  String get settingsUserLevelChange => 'Level ändern';
 }

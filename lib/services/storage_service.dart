@@ -232,6 +232,58 @@ class Storage {
   /// Anzahl aller Karten die jemals reviewed wurden.
   static int srsTotalReviewed() => _loadSrs().length;
 
+  // ───────── Szenarien (Phase 5) ─────────
+  /// Code wie 'a1', 'a2', 'b1', 'b2' — null bedeutet noch nicht gewählt
+  /// (Onboarding-Trigger).
+  static String? get userLevelCode {
+    final v = _s('kl_user_level');
+    return v.isEmpty ? null : v;
+  }
+  static Future<void> setUserLevelCode(String code) => _ss('kl_user_level', code);
+
+  /// XP-Gesamtpunkte. Level = (xp / 100) + 1.
+  static int get xp        => _i('kl_xp');
+  static int get xpLevel   => (xp ~/ 100) + 1;
+  static int get xpToNext  => 100 - (xp % 100);
+  static Future<void> addXp(int amount) => _si('kl_xp', xp + amount);
+
+  /// Sterne pro Szenario (0–3). Speichert nur Verbesserungen.
+  static Map<String, int> get scenarioStars {
+    final raw = _s('kl_scenario_stars');
+    if (raw.isEmpty) return {};
+    try {
+      final m = jsonDecode(raw) as Map<String, dynamic>;
+      return m.map((k, v) => MapEntry(k, (v as num).toInt()));
+    } catch (_) {
+      return {};
+    }
+  }
+  static Future<void> setScenarioStars(String id, int stars) async {
+    final m = scenarioStars;
+    if ((m[id] ?? 0) < stars) {
+      m[id] = stars;
+      await _ss('kl_scenario_stars', jsonEncode(m));
+    }
+  }
+
+  static List<String> get completedScenarios => _l('kl_completed_scenarios');
+  static Future<void> addCompletedScenario(String id) async {
+    final list = completedScenarios;
+    if (!list.contains(id)) {
+      list.add(id);
+      await _sl('kl_completed_scenarios', list);
+    }
+  }
+
+  static List<String> get earnedBadges => _l('kl_earned_badges');
+  static Future<void> earnBadge(String id) async {
+    final list = earnedBadges;
+    if (!list.contains(id)) {
+      list.add(id);
+      await _sl('kl_earned_badges', list);
+    }
+  }
+
   // ───────── Reset ─────────
   static Future<void> resetAll() async {
     final keys = _prefs?.getKeys() ?? <String>{};

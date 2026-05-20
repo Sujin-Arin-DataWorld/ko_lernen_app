@@ -1080,6 +1080,258 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Quote'**
   String get statsWinRate;
+
+  /// No description provided for @onboardingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ist dein Level?'**
+  String get onboardingTitle;
+
+  /// No description provided for @onboardingSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir fangen bei dir an. Frühere Levels bleiben offen, spätere schaltest du frei.'**
+  String get onboardingSubtitle;
+
+  /// No description provided for @onboardingLevelA1.
+  ///
+  /// In de, this message translates to:
+  /// **'Anfänger'**
+  String get onboardingLevelA1;
+
+  /// No description provided for @onboardingLevelA1Desc.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich fange gerade an'**
+  String get onboardingLevelA1Desc;
+
+  /// No description provided for @onboardingLevelA2.
+  ///
+  /// In de, this message translates to:
+  /// **'Grundkenntnisse'**
+  String get onboardingLevelA2;
+
+  /// No description provided for @onboardingLevelA2Desc.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüßungen, einfache Bestellungen'**
+  String get onboardingLevelA2Desc;
+
+  /// No description provided for @onboardingLevelB1.
+  ///
+  /// In de, this message translates to:
+  /// **'Mittelstufe'**
+  String get onboardingLevelB1;
+
+  /// No description provided for @onboardingLevelB1Desc.
+  ///
+  /// In de, this message translates to:
+  /// **'Alltagsgespräche möglich'**
+  String get onboardingLevelB1Desc;
+
+  /// No description provided for @onboardingLevelB2.
+  ///
+  /// In de, this message translates to:
+  /// **'Fortgeschritten'**
+  String get onboardingLevelB2;
+
+  /// No description provided for @onboardingLevelB2Desc.
+  ///
+  /// In de, this message translates to:
+  /// **'Fließend, auch Nuancen'**
+  String get onboardingLevelB2Desc;
+
+  /// No description provided for @onboardingExampleA1Trans.
+  ///
+  /// In de, this message translates to:
+  /// **'Hallo / Guten Tag.'**
+  String get onboardingExampleA1Trans;
+
+  /// No description provided for @onboardingExampleA2Trans.
+  ///
+  /// In de, this message translates to:
+  /// **'Einen Iced Americano in Tall, bitte.'**
+  String get onboardingExampleA2Trans;
+
+  /// No description provided for @onboardingExampleB1Trans.
+  ///
+  /// In de, this message translates to:
+  /// **'Gestern war ich mit einem Freund im Kino. Hat richtig Spaß gemacht.'**
+  String get onboardingExampleB1Trans;
+
+  /// No description provided for @onboardingExampleB2Trans.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Meeting zieht sich, ich komme wohl etwas später.'**
+  String get onboardingExampleB2Trans;
+
+  /// No description provided for @onboardingSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Später entscheiden (A1 als Start)'**
+  String get onboardingSkip;
+
+  /// No description provided for @onboardingPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe dein Level — du kannst es in den Einstellungen ändern.'**
+  String get onboardingPrompt;
+
+  /// No description provided for @scenariosListTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenarien'**
+  String get scenariosListTitle;
+
+  /// No description provided for @scenariosListSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne durch echte Situationen'**
+  String get scenariosListSubtitle;
+
+  /// No description provided for @scenariosLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Erreiche {level} um freizuschalten'**
+  String scenariosLocked(Object level);
+
+  /// No description provided for @scenariosLevelBadge.
+  ///
+  /// In de, this message translates to:
+  /// **'Stufe {level}'**
+  String scenariosLevelBadge(Object level);
+
+  /// No description provided for @scenariosEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Bald verfügbar 🚧'**
+  String get scenariosEmpty;
+
+  /// No description provided for @moduleScenariosTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenarien'**
+  String get moduleScenariosTitle;
+
+  /// No description provided for @moduleScenariosDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne wie ein Koreaner lebt — Café, Flughafen, Vorstellung…'**
+  String get moduleScenariosDesc;
+
+  /// No description provided for @scenarioIntroTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einleitung'**
+  String get scenarioIntroTitle;
+
+  /// No description provided for @scenarioVocabTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortschatz'**
+  String get scenarioVocabTitle;
+
+  /// No description provided for @scenarioDialogTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dialog'**
+  String get scenarioDialogTitle;
+
+  /// No description provided for @scenarioGrammarTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik'**
+  String get scenarioGrammarTitle;
+
+  /// No description provided for @scenarioQuestsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mini-Spiele'**
+  String get scenarioQuestsTitle;
+
+  /// No description provided for @scenarioCulturalNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturnotiz'**
+  String get scenarioCulturalNote;
+
+  /// No description provided for @scenarioStartBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht\'s'**
+  String get scenarioStartBtn;
+
+  /// No description provided for @scenarioNextBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get scenarioNextBtn;
+
+  /// No description provided for @scenarioCompleteBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Abschließen'**
+  String get scenarioCompleteBtn;
+
+  /// No description provided for @scenarioXpEarned.
+  ///
+  /// In de, this message translates to:
+  /// **'+{xp} XP'**
+  String scenarioXpEarned(int xp);
+
+  /// No description provided for @scenarioStarsLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'{stars} von 3 Sternen'**
+  String scenarioStarsLabel(int stars);
+
+  /// No description provided for @questCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig!'**
+  String get questCorrect;
+
+  /// No description provided for @questWrong.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht ganz'**
+  String get questWrong;
+
+  /// No description provided for @questNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get questNext;
+
+  /// No description provided for @questRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Nochmal'**
+  String get questRetry;
+
+  /// No description provided for @particlePopHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Zieh die richtige Partikel in den Slot.'**
+  String get particlePopHint;
+
+  /// No description provided for @particlePopExplanation.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach Konsonant: 은/이/을 · Nach Vokal: 는/가/를'**
+  String get particlePopExplanation;
+
+  /// No description provided for @settingsUserLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Level'**
+  String get settingsUserLevel;
+
+  /// No description provided for @settingsUserLevelChange.
+  ///
+  /// In de, this message translates to:
+  /// **'Level ändern'**
+  String get settingsUserLevelChange;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "_comment": "Szenarien für Phase 5. Schema in lib/models/scenario.dart. Wird befüllt in Sprint 5.2 (☕ Starbucks zuerst).",
+  "scenarios": []
+}

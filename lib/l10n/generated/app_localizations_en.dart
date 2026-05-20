@@ -529,4 +529,144 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get statsWinRate => 'Win rate';
+
+  @override
+  String get onboardingTitle => 'What\'s your level?';
+
+  @override
+  String get onboardingSubtitle =>
+      'We start at your level. Earlier levels stay open, later ones unlock as you progress.';
+
+  @override
+  String get onboardingLevelA1 => 'Beginner';
+
+  @override
+  String get onboardingLevelA1Desc => 'Just starting out';
+
+  @override
+  String get onboardingLevelA2 => 'Basic';
+
+  @override
+  String get onboardingLevelA2Desc => 'Greetings, simple ordering';
+
+  @override
+  String get onboardingLevelB1 => 'Intermediate';
+
+  @override
+  String get onboardingLevelB1Desc => 'Daily conversations';
+
+  @override
+  String get onboardingLevelB2 => 'Advanced';
+
+  @override
+  String get onboardingLevelB2Desc => 'Fluent, including nuance';
+
+  @override
+  String get onboardingExampleA1Trans => 'Hello / Good day.';
+
+  @override
+  String get onboardingExampleA2Trans => 'Iced Americano in tall, please.';
+
+  @override
+  String get onboardingExampleB1Trans =>
+      'Yesterday I watched a movie with a friend. Really fun.';
+
+  @override
+  String get onboardingExampleB2Trans =>
+      'Meeting is running long, I\'ll be a bit late.';
+
+  @override
+  String get onboardingSkip => 'Decide later (A1 default)';
+
+  @override
+  String get onboardingPrompt =>
+      'Tap your level — you can change it in Settings.';
+
+  @override
+  String get scenariosListTitle => 'Scenarios';
+
+  @override
+  String get scenariosListSubtitle => 'Learn by living it';
+
+  @override
+  String scenariosLocked(Object level) {
+    return 'Reach $level to unlock';
+  }
+
+  @override
+  String scenariosLevelBadge(Object level) {
+    return 'Level $level';
+  }
+
+  @override
+  String get scenariosEmpty => 'Coming soon 🚧';
+
+  @override
+  String get moduleScenariosTitle => 'Scenarios';
+
+  @override
+  String get moduleScenariosDesc =>
+      'Learn how Koreans actually live — café, airport, intro…';
+
+  @override
+  String get scenarioIntroTitle => 'Intro';
+
+  @override
+  String get scenarioVocabTitle => 'Vocabulary';
+
+  @override
+  String get scenarioDialogTitle => 'Dialogue';
+
+  @override
+  String get scenarioGrammarTitle => 'Grammar';
+
+  @override
+  String get scenarioQuestsTitle => 'Mini-quests';
+
+  @override
+  String get scenarioCulturalNote => 'Culture note';
+
+  @override
+  String get scenarioStartBtn => 'Let\'s go';
+
+  @override
+  String get scenarioNextBtn => 'Next';
+
+  @override
+  String get scenarioCompleteBtn => 'Complete';
+
+  @override
+  String scenarioXpEarned(int xp) {
+    return '+$xp XP';
+  }
+
+  @override
+  String scenarioStarsLabel(int stars) {
+    return '$stars of 3 stars';
+  }
+
+  @override
+  String get questCorrect => 'Correct!';
+
+  @override
+  String get questWrong => 'Not quite';
+
+  @override
+  String get questNext => 'Next';
+
+  @override
+  String get questRetry => 'Try again';
+
+  @override
+  String get particlePopHint => 'Drag the correct particle into the slot.';
+
+  @override
+  String get particlePopExplanation =>
+      'After consonant: 은/이/을 · After vowel: 는/가/를';
+
+  @override
+  String get settingsUserLevel => 'My level';
+
+  @override
+  String get settingsUserLevelChange => 'Change level';
 }
