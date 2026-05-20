@@ -22,7 +22,9 @@
       "vocab": [
         {
           "korean": "아이스 아메리카노",
-          "aliases": ["아아"],
+          "aliases": [
+            "아아"
+          ],
           "note": {
             "ko": "",
             "de": "Kurzform: 아아. Auch im Winter beliebt — siehe Kulturnotiz '얼죽아'.",
@@ -31,7 +33,12 @@
         },
         {
           "korean": "사이즈",
-          "variants": ["숏", "톨", "그란데", "벤티"],
+          "variants": [
+            "숏",
+            "톨",
+            "그란데",
+            "벤티"
+          ],
           "note": {
             "ko": "",
             "de": "Starbucks-Größen: Short → Tall → Grande → Venti.",
@@ -144,10 +151,22 @@
           "data": {
             "audioKo": "드시고 가세요? 포장이세요?",
             "options": [
-              { "de": "Welche Größe?",            "en": "What size?" },
-              { "de": "Hier oder zum Mitnehmen?", "en": "For here or to go?" },
-              { "de": "Mit Eis?",                 "en": "With ice?" },
-              { "de": "Wie viel kostet das?",     "en": "How much is it?" }
+              {
+                "de": "Welche Größe?",
+                "en": "What size?"
+              },
+              {
+                "de": "Hier oder zum Mitnehmen?",
+                "en": "For here or to go?"
+              },
+              {
+                "de": "Mit Eis?",
+                "en": "With ice?"
+              },
+              {
+                "de": "Wie viel kostet das?",
+                "en": "How much is it?"
+              }
             ],
             "correctIndex": 1
           }
@@ -157,7 +176,14 @@
           "data": {
             "prefix": "아이스 아메리카노 톨 사이즈",
             "suffix": "주세요.",
-            "options": ["으로", "로", "을", "를", "이", "가"],
+            "options": [
+              "으로",
+              "로",
+              "을",
+              "를",
+              "이",
+              "가"
+            ],
             "correctIndex": 1,
             "explanationDe": "톨 endet auf ㄹ → nur 로 (nicht 으로). Bestellpartikel = 'als'.",
             "explanationEn": "톨 ends in ㄹ → just 로 (not 으로). Ordering particle = 'as'."
@@ -169,10 +195,18 @@
             "promptDe": "Für hier oder zum Mitnehmen?",
             "promptEn": "For here or to go?",
             "options": [
-              { "ko": "드시고 가세요? 포장이세요?" },
-              { "ko": "얼마예요?" },
-              { "ko": "진동벨 드릴게요." },
-              { "ko": "빨대 필요하세요?" }
+              {
+                "ko": "드시고 가세요? 포장이세요?"
+              },
+              {
+                "ko": "얼마예요?"
+              },
+              {
+                "ko": "진동벨 드릴게요."
+              },
+              {
+                "ko": "빨대 필요하세요?"
+              }
             ],
             "correctIndex": 0
           }
@@ -191,7 +225,6 @@
         }
       }
     },
-
     {
       "id": "airport_arrival",
       "level": "a1",
@@ -316,10 +349,22 @@
           "data": {
             "audioKo": "한국 처음이세요?",
             "options": [
-              { "de": "Erstes Mal in Korea?",        "en": "First time in Korea?" },
-              { "de": "Wie lange bleiben Sie?",      "en": "How long are you staying?" },
-              { "de": "Wo kommen Sie her?",          "en": "Where are you from?" },
-              { "de": "Sind Sie geschäftlich hier?", "en": "Are you here on business?" }
+              {
+                "de": "Erstes Mal in Korea?",
+                "en": "First time in Korea?"
+              },
+              {
+                "de": "Wie lange bleiben Sie?",
+                "en": "How long are you staying?"
+              },
+              {
+                "de": "Wo kommen Sie her?",
+                "en": "Where are you from?"
+              },
+              {
+                "de": "Sind Sie geschäftlich hier?",
+                "en": "Are you here on business?"
+              }
             ],
             "correctIndex": 0
           }
@@ -328,7 +373,12 @@
           "type": "luecken",
           "data": {
             "sentence": "한국 처음 ___ .",
-            "options": ["이에요", "예요", "이요", "에요"],
+            "options": [
+              "이에요",
+              "예요",
+              "이요",
+              "에요"
+            ],
             "correctIndex": 0
           }
         },
@@ -338,10 +388,18 @@
             "promptDe": "Eine Woche.",
             "promptEn": "A week.",
             "options": [
-              { "ko": "일주일이요." },
-              { "ko": "처음이에요." },
-              { "ko": "관광이에요." },
-              { "ko": "여권이요." }
+              {
+                "ko": "일주일이요."
+              },
+              {
+                "ko": "처음이에요."
+              },
+              {
+                "ko": "관광이에요."
+              },
+              {
+                "ko": "여권이요."
+              }
             ],
             "correctIndex": 0
           }
@@ -360,14 +418,13 @@
         }
       }
     },
-
     {
       "id": "introduce_yourself",
       "level": "a1",
       "emoji": "👋",
       "register": "polite",
       "sidekick": "minsu",
-      "xpReward": 130,
+      "xpReward": 150,
       "title": {
         "ko": "자기소개",
         "de": "Sich vorstellen",
@@ -485,7 +542,14 @@
           "data": {
             "prefix": "저",
             "suffix": "[이름]이에요.",
-            "options": ["은", "는", "이", "가", "을", "를"],
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가",
+              "을",
+              "를"
+            ],
             "correctIndex": 1,
             "explanationDe": "저 endet auf Vokal → Topic-Partikel 는 (nicht 은). Kombination 저는 ist Standard für höfliche Selbstvorstellung.",
             "explanationEn": "저 ends in vowel → topic particle 는 (not 은). 저는 is the standard polite self-intro."
@@ -497,10 +561,18 @@
             "promptDe": "Woher kommen Sie?",
             "promptEn": "Where are you from?",
             "options": [
-              { "ko": "어디서 오셨어요?" },
-              { "ko": "어디에 사세요?" },
-              { "ko": "이름이 뭐예요?" },
-              { "ko": "한국 처음이세요?" }
+              {
+                "ko": "어디서 오셨어요?"
+              },
+              {
+                "ko": "어디에 사세요?"
+              },
+              {
+                "ko": "이름이 뭐예요?"
+              },
+              {
+                "ko": "한국 처음이세요?"
+              }
             ],
             "correctIndex": 0
           }
@@ -510,12 +582,41 @@
           "data": {
             "audioKo": "잘 부탁드립니다.",
             "options": [
-              { "de": "Auf gute Zusammenarbeit / freue mich.",     "en": "Looking forward to working with you." },
-              { "de": "Vielen Dank für alles.",                    "en": "Thank you for everything." },
-              { "de": "Bis bald, tschüss.",                        "en": "See you later." },
-              { "de": "Es tut mir sehr leid.",                     "en": "I'm very sorry." }
+              {
+                "de": "Auf gute Zusammenarbeit / freue mich.",
+                "en": "Looking forward to working with you."
+              },
+              {
+                "de": "Vielen Dank für alles.",
+                "en": "Thank you for everything."
+              },
+              {
+                "de": "Bis bald, tschüss.",
+                "en": "See you later."
+              },
+              {
+                "de": "Es tut mir sehr leid.",
+                "en": "I'm very sorry."
+              }
             ],
             "correctIndex": 0
+          }
+        },
+        {
+          "type": "batchimDrop",
+          "data": {
+            "audioKo": "안녕하세요",
+            "targetWord": "안녕",
+            "targetSyllableIndex": 1,
+            "options": [
+              "ㅇ",
+              "ㄴ",
+              "ㅁ",
+              "ㄹ"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "녕 besteht aus ㄴ + ㅕ + ㅇ. Das ㅇ am Silbenende klingt wie \"ng\" in \"Hong Kong\". Anfang ㅇ ist stumm, am Ende klingt es.",
+            "explanationEn": "녕 is built from ㄴ + ㅕ + ㅇ. The ㅇ at syllable end sounds like \"ng\" in \"Hong Kong\". At onset it's silent, at end it sounds."
           }
         }
       ],
@@ -532,7 +633,6 @@
         }
       }
     },
-
     {
       "id": "warm_encouragement",
       "level": "b1",
@@ -658,10 +758,18 @@
             "promptDe": "Ich bin doch da. (Trost-Phrase)",
             "promptEn": "I'm here, remember? (comfort phrase)",
             "options": [
-              { "ko": "내가 있잖아." },
-              { "ko": "다 그만두고 싶어." },
-              { "ko": "표정 보면 알지." },
-              { "ko": "어떻게 알았어?" }
+              {
+                "ko": "내가 있잖아."
+              },
+              {
+                "ko": "다 그만두고 싶어."
+              },
+              {
+                "ko": "표정 보면 알지."
+              },
+              {
+                "ko": "어떻게 알았어?"
+              }
             ],
             "correctIndex": 0
           }
@@ -670,7 +778,12 @@
           "type": "luecken",
           "data": {
             "sentence": "다 잘 ___ 거야.",
-            "options": ["될", "할", "되는", "한"],
+            "options": [
+              "될",
+              "할",
+              "되는",
+              "한"
+            ],
             "correctIndex": 0
           }
         },
@@ -679,10 +792,22 @@
           "data": {
             "audioKo": "자랑스러워.",
             "options": [
-              { "de": "Ich bin stolz (auf dich).", "en": "I'm proud (of you)." },
-              { "de": "Ich vermisse dich.",         "en": "I miss you." },
-              { "de": "Es tut mir leid.",           "en": "I'm sorry." },
-              { "de": "Bin müde.",                  "en": "I'm tired." }
+              {
+                "de": "Ich bin stolz (auf dich).",
+                "en": "I'm proud (of you)."
+              },
+              {
+                "de": "Ich vermisse dich.",
+                "en": "I miss you."
+              },
+              {
+                "de": "Es tut mir leid.",
+                "en": "I'm sorry."
+              },
+              {
+                "de": "Bin müde.",
+                "en": "I'm tired."
+              }
             ],
             "correctIndex": 0
           }
@@ -701,7 +826,6 @@
         }
       }
     },
-
     {
       "id": "couple_argument",
       "level": "b1",
@@ -827,10 +951,18 @@
             "promptDe": "Mein Fehler. (volle Schuldübernahme)",
             "promptEn": "My fault. (full ownership)",
             "options": [
-              { "ko": "내가 잘못했어." },
-              { "ko": "일부러 그런 거 아니야." },
-              { "ko": "진짜 서운해." },
-              { "ko": "다음부터는 답장할게." }
+              {
+                "ko": "내가 잘못했어."
+              },
+              {
+                "ko": "일부러 그런 거 아니야."
+              },
+              {
+                "ko": "진짜 서운해."
+              },
+              {
+                "ko": "다음부터는 답장할게."
+              }
             ],
             "correctIndex": 0
           }
@@ -840,7 +972,14 @@
           "data": {
             "prefix": "왜 어제 답장",
             "suffix": "했어?",
-            "options": ["안", "도", "만", "이", "는", "을"],
+            "options": [
+              "안",
+              "도",
+              "만",
+              "이",
+              "는",
+              "을"
+            ],
             "correctIndex": 0,
             "explanationDe": "안 vor dem Verb = Verneinung ('nicht'). 안 했어 = 'hast nicht gemacht'. Alternative: V-지 않다 (formaler).",
             "explanationEn": "안 before the verb = negation ('didn't'). 안 했어 = 'didn't do'. Alternative: V-지 않다 (more formal)."
@@ -851,10 +990,22 @@
           "data": {
             "audioKo": "일부러 그런 거 아니야.",
             "options": [
-              { "de": "Das war nicht meine Absicht.",   "en": "I didn't do it on purpose." },
-              { "de": "Ich habe es absichtlich getan.", "en": "I did it on purpose." },
-              { "de": "Es war wirklich schwer.",         "en": "It was really hard." },
-              { "de": "Ich verstehe dich nicht.",       "en": "I don't understand you." }
+              {
+                "de": "Das war nicht meine Absicht.",
+                "en": "I didn't do it on purpose."
+              },
+              {
+                "de": "Ich habe es absichtlich getan.",
+                "en": "I did it on purpose."
+              },
+              {
+                "de": "Es war wirklich schwer.",
+                "en": "It was really hard."
+              },
+              {
+                "de": "Ich verstehe dich nicht.",
+                "en": "I don't understand you."
+              }
             ],
             "correctIndex": 0
           }
