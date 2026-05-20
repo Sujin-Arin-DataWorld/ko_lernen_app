@@ -28,7 +28,12 @@ dependencies:
   google_fonts: ^6.2.1
 
   # ── Werbung ─────────────────────────────────────────────
-  google_mobile_ads: ^5.2.0
+  # ⚠️ google_mobile_ads (5.x) inkompatibel mit aktuellem AGP/Gradle
+  #    ("unknown property 'all' for configuration container").
+  #    Temporär deaktiviert — ad_service.dart und banner_ad.dart sind Stubs.
+  #    Bei Production-Release: Plugin-Update abwarten oder Stub durch
+  #    Plugin ersetzen, sobald kompatible Version verfügbar.
+  # google_mobile_ads: 5.2.0
 
   # ── Firebase + Google Sign-In ───────────────────────────
   firebase_core:    ^3.6.0

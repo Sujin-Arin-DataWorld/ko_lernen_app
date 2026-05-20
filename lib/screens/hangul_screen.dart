@@ -8,6 +8,7 @@ import '../data/hangul_strokes.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
 import '../services/tts_service.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class HangulScreen extends StatefulWidget {
   const HangulScreen({super.key});
@@ -37,18 +38,19 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hangul', style: TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(t.screenHangulTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
         bottom: TabBar(
           controller: _tabs,
           indicatorColor: AppColors.hangul,
           labelColor: AppColors.hangul,
           unselectedLabelColor: AppColors.textMuted,
-          tabs: const [
-            Tab(icon: Icon(Icons.grid_view_rounded), text: 'Übersicht'),
-            Tab(icon: Icon(Icons.style_outlined),    text: 'Karten'),
-            Tab(icon: Icon(Icons.gesture),           text: 'Schreiben'),
+          tabs: [
+            Tab(icon: const Icon(Icons.grid_view_rounded), text: t.hangulTabOverview),
+            Tab(icon: const Icon(Icons.style_outlined),    text: t.hangulTabCards),
+            Tab(icon: const Icon(Icons.gesture),           text: t.hangulTabWrite),
           ],
         ),
       ),
@@ -73,16 +75,17 @@ class _OverviewTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     return ListView(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 24),
       children: [
-        _SectionLabel('자음 · Konsonanten (19)'),
+        _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
         _CharGrid(chars: consonants, color: AppColors.hangul),
         const SizedBox(height: 24),
-        _SectionLabel('모음 · Vokale (15)'),
+        _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
         _CharGrid(chars: vowels, color: AppColors.vocab),
         const SizedBox(height: 24),
-        _SectionLabel('🧩 음절 구조 · Silbenaufbau'),
+        _SectionLabel(t.hangulSyllableLabel),
         const _SyllableDemo(),
       ],
     );
@@ -200,7 +203,7 @@ class _DetailSheet extends StatelessWidget {
             style: FilledButton.styleFrom(backgroundColor: color),
             onPressed: () => TtsService.speak(char.letter),
             icon: const Icon(Icons.volume_up),
-            label: const Text('Aussprechen'),
+            label: Text(AppL10n.of(context).hangulPronounceBtn),
           ),
         ],
       ),
@@ -341,11 +344,11 @@ class _CardsTabState extends State<_CardsTab> {
           const SizedBox(height: 12),
           Row(
             children: [
-              Expanded(child: OutlinedButton.icon(onPressed: _prev, icon: const Icon(Icons.arrow_back, size: 18), label: const Text('Zurück'))),
+              Expanded(child: OutlinedButton.icon(onPressed: _prev, icon: const Icon(Icons.arrow_back, size: 18), label: Text(AppL10n.of(context).btnPrev))),
               const SizedBox(width: 8),
-              Expanded(child: OutlinedButton.icon(onPressed: () => TtsService.speak(c.letter), icon: const Icon(Icons.volume_up, size: 18), label: const Text('Hören'))),
+              Expanded(child: OutlinedButton.icon(onPressed: () => TtsService.speak(c.letter), icon: const Icon(Icons.volume_up, size: 18), label: Text(AppL10n.of(context).btnHoeren))),
               const SizedBox(width: 8),
-              Expanded(child: OutlinedButton.icon(onPressed: _next, icon: const Icon(Icons.arrow_forward, size: 18), label: const Text('Weiter'))),
+              Expanded(child: OutlinedButton.icon(onPressed: _next, icon: const Icon(Icons.arrow_forward, size: 18), label: Text(AppL10n.of(context).btnNext))),
             ],
           ),
           const SizedBox(height: 6),
@@ -353,7 +356,7 @@ class _CardsTabState extends State<_CardsTab> {
             onPressed: _random,
             style: FilledButton.styleFrom(backgroundColor: AppColors.hangul),
             icon: const Icon(Icons.shuffle),
-            label: const Text('Zufällig'),
+            label: Text(AppL10n.of(context).btnRandom),
           ),
         ],
       ),
@@ -437,6 +440,7 @@ class _WriteTabState extends State<_WriteTab> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final c = _current;
     final strokes = hangulStrokes[c.letter] ?? [];
 
@@ -452,13 +456,13 @@ class _WriteTabState extends State<_WriteTab> {
               border: Border.all(color: AppColors.grammar.withValues(alpha: 0.6)),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('✏️ 한글 쓰기 3원칙', style: TextStyle(fontWeight: FontWeight.w800, color: Color(0xFFFFD43B), fontSize: 13)),
-                SizedBox(height: 6),
-                Text('① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts',
-                  style: TextStyle(color: AppColors.textMuted, fontSize: 11.5, height: 1.5)),
+                Text(t.hangulRulesTitle, style: const TextStyle(fontWeight: FontWeight.w800, color: Color(0xFFFFD43B), fontSize: 13)),
+                const SizedBox(height: 6),
+                Text(t.hangulRulesBody,
+                  style: const TextStyle(color: AppColors.textMuted, fontSize: 11.5, height: 1.5)),
               ],
             ),
           ),
@@ -478,7 +482,7 @@ class _WriteTabState extends State<_WriteTab> {
           // Demo
           Column(
             children: [
-              const Text('📽 Strichreihenfolge (tippe für neu)', style: TextStyle(fontSize: 12, color: AppColors.textMuted)),
+              Text(t.hangulStrokeOrderTitle, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
               const SizedBox(height: 6),
               Container(
                 decoration: BoxDecoration(
@@ -501,7 +505,7 @@ class _WriteTabState extends State<_WriteTab> {
           // Practice
           Column(
             children: [
-              const Text('✍️ mit dem Finger nachzeichnen', style: TextStyle(fontSize: 12, color: AppColors.success)),
+              Text(t.hangulTraceTitle, style: const TextStyle(fontSize: 12, color: AppColors.success)),
               const SizedBox(height: 6),
               _PracticeCanvas(key: _practiceKey, ghost: c.letter, color: AppColors.success),
             ],
@@ -510,7 +514,7 @@ class _WriteTabState extends State<_WriteTab> {
           OutlinedButton.icon(
             onPressed: () => _practiceKey.currentState?.clear(),
             icon: const Icon(Icons.delete_outline, color: AppColors.danger),
-            label: const Text('Löschen', style: TextStyle(color: AppColors.danger)),
+            label: Text(t.hangulClearBtn, style: const TextStyle(color: AppColors.danger)),
             style: OutlinedButton.styleFrom(side: const BorderSide(color: AppColors.danger), minimumSize: const Size(double.infinity, 44)),
           ),
           const SizedBox(height: 12),
@@ -518,7 +522,7 @@ class _WriteTabState extends State<_WriteTab> {
           // Nav
           Row(
             children: [
-              Expanded(child: OutlinedButton.icon(onPressed: _prev, icon: const Icon(Icons.arrow_back, size: 18), label: const Text('Zurück'))),
+              Expanded(child: OutlinedButton.icon(onPressed: _prev, icon: const Icon(Icons.arrow_back, size: 18), label: Text(t.btnPrev))),
               const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
@@ -526,14 +530,14 @@ class _WriteTabState extends State<_WriteTab> {
                 child: Text('${_idx + 1} / ${_pool.length}', style: const TextStyle(fontWeight: FontWeight.w800, color: AppColors.text)),
               ),
               const SizedBox(width: 8),
-              Expanded(child: OutlinedButton.icon(onPressed: _next, icon: const Icon(Icons.arrow_forward, size: 18), label: const Text('Weiter'))),
+              Expanded(child: OutlinedButton.icon(onPressed: _next, icon: const Icon(Icons.arrow_forward, size: 18), label: Text(t.btnNext))),
             ],
           ),
           const SizedBox(height: 14),
           OutlinedButton.icon(
             onPressed: () => TtsService.speak(c.letter),
             icon: const Icon(Icons.volume_up, size: 18),
-            label: Text('${c.letter} aussprechen'),
+            label: Text(t.hangulPronounceLetter(c.letter)),
             style: OutlinedButton.styleFrom(minimumSize: const Size(double.infinity, 44)),
           ),
         ],

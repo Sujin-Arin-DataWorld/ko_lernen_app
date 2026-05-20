@@ -10,6 +10,7 @@ import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class GrammarScreen extends StatefulWidget {
   const GrammarScreen({super.key});
@@ -87,12 +88,13 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     if (_loading) {
-      return const Scaffold(body: AppLoading(message: 'Grammatik laden …'));
+      return Scaffold(body: AppLoading(message: t.loadingGrammar));
     }
     if (_loadFailed) {
       return Scaffold(
-        appBar: AppBar(title: const Text('문법')),
+        appBar: AppBar(title: Text(t.screenGrammarTitle)),
         body: AppError(
           message: DataLoader.lastError ?? 'Unbekannter Fehler',
           onRetry: () { DataLoader.reset(); _load(); },
@@ -102,10 +104,10 @@ class _GrammarScreenState extends State<GrammarScreen> {
     final g = _current;
     if (g == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('문법')),
+        appBar: AppBar(title: Text(t.screenGrammarTitle)),
         body: AppEmpty(
-          message: 'Keine Muster für diesen Filter.',
-          actionLabel: 'Filter öffnen',
+          message: t.emptyGrammar,
+          actionLabel: t.filterOpenBtn,
           onAction: _showFilterSheet,
         ),
       );
@@ -113,7 +115,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('문법', style: TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(t.screenGrammarTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
           IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
         ],
@@ -159,7 +161,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
                     child: OutlinedButton.icon(
                       onPressed: () => TtsService.speak(g.exampleKorean),
                       icon: const Icon(Icons.volume_up, size: 18),
-                      label: const Text('Hören'),
+                      label: Text(t.btnHoeren),
                     ),
                   ),
                   const SizedBox(width: 6),
@@ -167,7 +169,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
                     child: OutlinedButton.icon(
                       onPressed: _prev,
                       icon: const Icon(Icons.arrow_back, size: 18),
-                      label: const Text('Zurück'),
+                      label: Text(t.btnPrev),
                     ),
                   ),
                   const SizedBox(width: 6),
@@ -175,7 +177,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
                     child: OutlinedButton.icon(
                       onPressed: _next,
                       icon: const Icon(Icons.arrow_forward, size: 18),
-                      label: const Text('Weiter'),
+                      label: Text(t.btnNext),
                     ),
                   ),
                 ],
@@ -184,7 +186,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
               FilledButton.icon(
                 onPressed: _random,
                 icon: const Icon(Icons.shuffle, size: 18),
-                label: const Text('Zufällig'),
+                label: Text(t.btnRandom),
                 style: FilledButton.styleFrom(backgroundColor: AppColors.grammar),
               ),
             ],
@@ -195,6 +197,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
   }
 
   void _showFilterSheet() {
+    final t = AppL10n.of(context);
     showModalBottomSheet(
       context: context,
       backgroundColor: AppColors.surface,
@@ -211,15 +214,15 @@ class _GrammarScreenState extends State<GrammarScreen> {
               children: [
                 Center(child: Container(width: 40, height: 4, decoration: BoxDecoration(color: AppColors.surfaceAlt, borderRadius: BorderRadius.circular(2)))),
                 const SizedBox(height: 16),
-                const Text('Filter', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                Text(t.filterTitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 12),
-                _dropdown('Level', _level, _levels, (v) { setLocal(() => _level = v!); _level = v!; }),
+                _dropdown(t.filterLevel, _level, _levels, (v) { setLocal(() => _level = v!); _level = v!; }),
                 const SizedBox(height: 10),
-                _dropdown('Typ',   _type,  _types,  (v) { setLocal(() => _type  = v!); _type  = v!; }),
+                _dropdown(t.filterType,  _type,  _types,  (v) { setLocal(() => _type  = v!); _type  = v!; }),
                 const SizedBox(height: 16),
                 FilledButton(
                   onPressed: () { _applyFilters(); Navigator.pop(ctx); },
-                  child: const Text('Übernehmen'),
+                  child: Text(t.btnApply),
                 ),
               ],
             ),

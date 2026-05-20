@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -23,7 +26,7 @@ android {
 
     buildTypes {
         release {
-            // Debug-Key vorerst — Play Store erfordert eigenes Keystore (siehe Anleitung in README)
+            // Debug-Key vorerst — Play Store erfordert eigenes Keystore
             signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled  = true
             isShrinkResources = true
@@ -34,17 +37,10 @@ android {
         }
     }
 
-    // ABI splits: separate APKs pro Architektur (kleinere Downloads).
-    // Für Play Store .aab Upload nicht notwendig (Play handhabt das automatisch),
-    // aber nützlich für direkte APK-Distribution.
-    splits {
-        abi {
-            isEnable  = true
-            reset()
-            include("arm64-v8a", "armeabi-v7a", "x86_64")
-            isUniversalApk = false
-        }
-    }
+    // ABI-Splits entfernt — Flutter Gradle Plugin setzt bereits ndk abiFilters
+    // automatisch, was zu Konflikt führt. Für Play Store: .aab nutzen
+    // (Play generiert ABI-Splits automatisch). Für direkte APK-Distribution:
+    // 'flutter build apk --release' liefert universal APK (~30-40MB).
 }
 
 kotlin {

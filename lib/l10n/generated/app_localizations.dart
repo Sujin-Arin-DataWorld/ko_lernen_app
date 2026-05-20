@@ -642,6 +642,444 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wordle Streak'**
   String get statsWordleStreak;
+
+  /// No description provided for @screenVocabTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokabeln'**
+  String get screenVocabTitle;
+
+  /// No description provided for @screenGrammarTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik'**
+  String get screenGrammarTitle;
+
+  /// No description provided for @screenWordleTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wordle'**
+  String get screenWordleTitle;
+
+  /// No description provided for @screenHangulTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul'**
+  String get screenHangulTitle;
+
+  /// No description provided for @filterOpenBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Filter öffnen'**
+  String get filterOpenBtn;
+
+  /// No description provided for @hangulTabOverview.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersicht'**
+  String get hangulTabOverview;
+
+  /// No description provided for @hangulTabCards.
+  ///
+  /// In de, this message translates to:
+  /// **'Karten'**
+  String get hangulTabCards;
+
+  /// No description provided for @hangulTabWrite.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreiben'**
+  String get hangulTabWrite;
+
+  /// No description provided for @hangulConsonantsLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'자음 · Konsonanten'**
+  String get hangulConsonantsLabel;
+
+  /// No description provided for @hangulVowelsLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'모음 · Vokale'**
+  String get hangulVowelsLabel;
+
+  /// No description provided for @hangulSyllableLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'🧩 음절 구조 · Silbenaufbau'**
+  String get hangulSyllableLabel;
+
+  /// No description provided for @hangulPronounceBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprechen'**
+  String get hangulPronounceBtn;
+
+  /// No description provided for @hangulRulesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'✏️ Hangul-Schreibregeln'**
+  String get hangulRulesTitle;
+
+  /// No description provided for @hangulRulesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts'**
+  String get hangulRulesBody;
+
+  /// No description provided for @hangulStrokeOrderTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'📽 Strichreihenfolge (tippe für neu)'**
+  String get hangulStrokeOrderTitle;
+
+  /// No description provided for @hangulTraceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'✍️ mit dem Finger nachzeichnen'**
+  String get hangulTraceTitle;
+
+  /// No description provided for @hangulClearBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Löschen'**
+  String get hangulClearBtn;
+
+  /// No description provided for @hangulPronounceLetter.
+  ///
+  /// In de, this message translates to:
+  /// **'{letter} aussprechen'**
+  String hangulPronounceLetter(Object letter);
+
+  /// No description provided for @wordleSyllableCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{n}-Silben-Wort · 6 Versuche'**
+  String wordleSyllableCount(int n);
+
+  /// No description provided for @wordleMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung: {german}'**
+  String wordleMeaning(Object german);
+
+  /// No description provided for @wordleAnswerLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort: {target}'**
+  String wordleAnswerLabel(Object target);
+
+  /// No description provided for @wordleInputHint.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Silben eingeben…'**
+  String wordleInputHint(int n);
+
+  /// No description provided for @wordleLegendCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtige Stelle'**
+  String get wordleLegendCorrect;
+
+  /// No description provided for @wordleLegendPresent.
+  ///
+  /// In de, this message translates to:
+  /// **'Falsche Stelle'**
+  String get wordleLegendPresent;
+
+  /// No description provided for @wordleLegendAbsent.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht da'**
+  String get wordleLegendAbsent;
+
+  /// No description provided for @wordleSubmitBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfen'**
+  String get wordleSubmitBtn;
+
+  /// No description provided for @wordleNewWordBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Neues Wort'**
+  String get wordleNewWordBtn;
+
+  /// No description provided for @wordleHelpTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Spielanleitung'**
+  String get wordleHelpTooltip;
+
+  /// No description provided for @wordleShuffleTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Neues Wort'**
+  String get wordleShuffleTooltip;
+
+  /// No description provided for @settingsAdsSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Anzeigen'**
+  String get settingsAdsSection;
+
+  /// No description provided for @settingsShowAds.
+  ///
+  /// In de, this message translates to:
+  /// **'Werbung anzeigen'**
+  String get settingsShowAds;
+
+  /// No description provided for @settingsShowAdsDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Hilft beim Erhalten der App'**
+  String get settingsShowAdsDesc;
+
+  /// No description provided for @placeholderComingSoon.
+  ///
+  /// In de, this message translates to:
+  /// **'Bald verfügbar 🚧'**
+  String get placeholderComingSoon;
+
+  /// No description provided for @chosungSubmitBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestätigen'**
+  String get chosungSubmitBtn;
+
+  /// No description provided for @chosungHintBtn.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweis'**
+  String get chosungHintBtn;
+
+  /// No description provided for @chosungAnswerLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort: {word}'**
+  String chosungAnswerLabel(Object word);
+
+  /// No description provided for @statsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Statistik'**
+  String get statsTitle;
+
+  /// No description provided for @statsSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernfortschritt'**
+  String get statsSubtitle;
+
+  /// No description provided for @statsDays.
+  ///
+  /// In de, this message translates to:
+  /// **'Tage'**
+  String get statsDays;
+
+  /// No description provided for @statsCards.
+  ///
+  /// In de, this message translates to:
+  /// **'Karten'**
+  String get statsCards;
+
+  /// No description provided for @statsPercent.
+  ///
+  /// In de, this message translates to:
+  /// **'Genauigkeit'**
+  String get statsPercent;
+
+  /// No description provided for @statsWins.
+  ///
+  /// In de, this message translates to:
+  /// **'Siege'**
+  String get statsWins;
+
+  /// No description provided for @statsEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Daten — leg los! 🚀'**
+  String get statsEmpty;
+
+  /// No description provided for @statsVokSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokabeln'**
+  String get statsVokSection;
+
+  /// No description provided for @statsGamesSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele'**
+  String get statsGamesSection;
+
+  /// No description provided for @statsStreakSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Streak'**
+  String get statsStreakSection;
+
+  /// No description provided for @statsBestLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Bester: {n}'**
+  String statsBestLabel(int n);
+
+  /// No description provided for @vocabModeAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle'**
+  String get vocabModeAll;
+
+  /// No description provided for @vocabModeDue.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute fällig'**
+  String get vocabModeDue;
+
+  /// No description provided for @vocabDueBadge.
+  ///
+  /// In de, this message translates to:
+  /// **'🔥 {n} fällig'**
+  String vocabDueBadge(int n);
+
+  /// No description provided for @vocabDueEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'🎉 Heute alles erledigt!\nKomm morgen wieder.'**
+  String get vocabDueEmpty;
+
+  /// No description provided for @vocabDueEmptyAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Trotzdem üben'**
+  String get vocabDueEmptyAction;
+
+  /// No description provided for @moduleStatsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Statistik'**
+  String get moduleStatsTitle;
+
+  /// No description provided for @moduleStatsDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Streak, Karten, Genauigkeit'**
+  String get moduleStatsDesc;
+
+  /// No description provided for @settingsCloudSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Backup'**
+  String get settingsCloudSection;
+
+  /// No description provided for @settingsCloudSignedIn.
+  ///
+  /// In de, this message translates to:
+  /// **'Eingeloggt: {name}'**
+  String settingsCloudSignedIn(Object name);
+
+  /// No description provided for @settingsCloudSignInPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Google sichern'**
+  String get settingsCloudSignInPrompt;
+
+  /// No description provided for @settingsCloudSignedInDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Daten werden in der Cloud gesichert'**
+  String get settingsCloudSignedInDesc;
+
+  /// No description provided for @settingsCloudSignInDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Damit überlebt dein Fortschritt einen Handywechsel'**
+  String get settingsCloudSignInDesc;
+
+  /// No description provided for @settingsCloudBackupNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt sichern'**
+  String get settingsCloudBackupNow;
+
+  /// No description provided for @settingsCloudRestore.
+  ///
+  /// In de, this message translates to:
+  /// **'Von Cloud wiederherstellen'**
+  String get settingsCloudRestore;
+
+  /// No description provided for @settingsCloudBackupSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'Backup erfolgreich ✓'**
+  String get settingsCloudBackupSuccess;
+
+  /// No description provided for @settingsCloudRestoreSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederhergestellt ✓'**
+  String get settingsCloudRestoreSuccess;
+
+  /// No description provided for @settingsCloudRestoreEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Cloud-Daten'**
+  String get settingsCloudRestoreEmpty;
+
+  /// No description provided for @settingsCloudAuthFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Anmeldung fehlgeschlagen: {error}'**
+  String settingsCloudAuthFailed(Object error);
+
+  /// No description provided for @statsGotIt.
+  ///
+  /// In de, this message translates to:
+  /// **'Gewusst'**
+  String get statsGotIt;
+
+  /// No description provided for @statsNotGotIt.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gewusst'**
+  String get statsNotGotIt;
+
+  /// No description provided for @statsSkipped.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersprungen'**
+  String get statsSkipped;
+
+  /// No description provided for @statsCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig'**
+  String get statsCorrect;
+
+  /// No description provided for @statsWrong.
+  ///
+  /// In de, this message translates to:
+  /// **'Falsch'**
+  String get statsWrong;
+
+  /// No description provided for @statsLosses.
+  ///
+  /// In de, this message translates to:
+  /// **'Verloren'**
+  String get statsLosses;
+
+  /// No description provided for @statsBestShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Beste'**
+  String get statsBestShort;
+
+  /// No description provided for @statsWinRate.
+  ///
+  /// In de, this message translates to:
+  /// **'Quote'**
+  String get statsWinRate;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

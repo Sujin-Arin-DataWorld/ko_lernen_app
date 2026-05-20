@@ -7,6 +7,7 @@ import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/home_screen.dart';
 import 'screens/vocab_screen.dart';
@@ -39,12 +40,17 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
 
+  // Edge-to-edge (Android 15+ default, ältere Versionen profitieren auch).
+  // Status- und Navigationsleiste werden transparent, App zeichnet darunter.
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
-      systemNavigationBarColor: AppColors.bg,
+      systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.light,
+      systemNavigationBarContrastEnforced: false,
     ),
   );
 
@@ -53,7 +59,9 @@ Future<void> main() async {
 
 Future<void> _initFirebase() async {
   try {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
     await AuthService.ensureSignedIn();
   } catch (e) {
     // google-services.json fehlt → Cloud-Sync deaktiviert, lokale App funktioniert weiter
@@ -96,7 +104,7 @@ class KoLernenApp extends StatelessWidget {
           '/':          (_) => const HomeScreen(),
           '/vocab':     (_) => const VocabScreen(),
           '/grammar':   (_) => const GrammarScreen(),
-          '/listening': (_) => const PlaceholderScreen(title: 'Hören',  emoji: '🎧'),
+          '/listening': (ctx) => PlaceholderScreen(title: AppL10n.of(ctx).moduleListenTitle, emoji: '🎧'),
           '/hangul':    (_) => const HangulScreen(),
           '/chosung':   (_) => const ChosungQuizScreen(),
           '/wordle':    (_) => const WordleScreen(),

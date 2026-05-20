@@ -5,6 +5,7 @@ import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/storage_service.dart';
 import '../theme.dart';
+import '../l10n/generated/app_localizations.dart';
 
 enum _LS { empty, correct, present, absent }
 
@@ -97,37 +98,38 @@ class _WordleScreenState extends State<WordleScreen> {
       .firstOrNull;
 
   void _showHelp() {
+    final t = AppL10n.of(context);
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: const Text('게임 방법', style: TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(t.wordleHowTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              '오늘의 한국어 단어를 6번 안에 맞혀보세요.\n각 시도 후 색상이 단서를 줍니다.',
-              style: TextStyle(color: AppColors.textMuted, fontSize: 13.5, height: 1.5),
+            Text(
+              t.wordleHowIntro,
+              style: const TextStyle(color: AppColors.textMuted, fontSize: 13.5, height: 1.5),
             ),
             const SizedBox(height: 20),
-            _helpRow(AppColors.success, '정확', '이 글자는 정확한 위치에 있어요'),
+            _helpRow(AppColors.success, t.wordleHowExact, t.wordleHowExactDesc),
             const SizedBox(height: 10),
-            _helpRow(AppColors.warning, '다른 위치', '이 글자는 단어에 있지만 위치가 달라요'),
+            _helpRow(AppColors.warning, t.wordleHowWrong, t.wordleHowWrongDesc),
             const SizedBox(height: 10),
-            _helpRow(AppColors.surfaceAlt, '없음', '이 글자는 단어에 없어요'),
+            _helpRow(AppColors.surfaceAlt, t.wordleHowAbsent, t.wordleHowAbsentDesc),
             const SizedBox(height: 20),
-            const Text(
-              '매일 새로운 단어가 출제됩니다.\n셔플 버튼으로 랜덤 단어도 즐길 수 있어요!',
-              style: TextStyle(color: AppColors.textMuted, fontSize: 12.5, height: 1.5),
+            Text(
+              t.wordleHowOutro,
+              style: const TextStyle(color: AppColors.textMuted, fontSize: 12.5, height: 1.5),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: const Text('확인', style: TextStyle(color: AppColors.vocab, fontWeight: FontWeight.w700)),
+            child: Text(t.btnConfirm, style: const TextStyle(color: AppColors.vocab, fontWeight: FontWeight.w700)),
           ),
         ],
       ),
@@ -161,11 +163,11 @@ class _WordleScreenState extends State<WordleScreen> {
     if (input.isEmpty) return;
 
     if (input.length != _target.length) {
-      setState(() => _error = '${_target.length}글자로 입력해주세요!');
+      setState(() => _error = AppL10n.of(context).wordleErrorLength(_target.length));
       return;
     }
     if (!input.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3)) {
-      setState(() => _error = '한국어로만 입력해주세요!');
+      setState(() => _error = AppL10n.of(context).wordleErrorHangul);
       return;
     }
 
@@ -202,6 +204,7 @@ class _WordleScreenState extends State<WordleScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     if (_target.isEmpty) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
@@ -210,7 +213,7 @@ class _WordleScreenState extends State<WordleScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('한글 워들', style: TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(t.screenWordleTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, size: 20),
           onPressed: () => Navigator.pop(context),
@@ -218,12 +221,12 @@ class _WordleScreenState extends State<WordleScreen> {
         actions: [
           IconButton(
             icon:    const Icon(Icons.help_outline_rounded),
-            tooltip: '게임 방법',
+            tooltip: t.wordleHelpTooltip,
             onPressed: _showHelp,
           ),
           IconButton(
             icon:    const Icon(Icons.shuffle_rounded),
-            tooltip: '새 단어',
+            tooltip: t.wordleShuffleTooltip,
             onPressed: () => _load(random: true),
           ),
           const SizedBox(width: 8),
@@ -235,7 +238,7 @@ class _WordleScreenState extends State<WordleScreen> {
           child: Column(
             children: [
               Text(
-                '${n}음절 단어 · 6번 안에 맞혀보세요',
+                t.wordleSyllableCount(n),
                 style: const TextStyle(color: AppColors.textMuted, fontSize: 13),
               ),
               const SizedBox(height: 8),
@@ -252,7 +255,7 @@ class _WordleScreenState extends State<WordleScreen> {
                     children: [
                       const Icon(Icons.lightbulb_outline, color: AppColors.warning, size: 15),
                       const SizedBox(width: 6),
-                      Text('Bedeutung: ${_targetGerman!}',
+                      Text(t.wordleMeaning(_targetGerman!),
                           style: const TextStyle(color: AppColors.warning, fontSize: 13, fontWeight: FontWeight.w600)),
                     ],
                   ),
@@ -261,11 +264,11 @@ class _WordleScreenState extends State<WordleScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _legend(AppColors.success, '정확한 위치'),
+                  _legend(AppColors.success, t.wordleLegendCorrect),
                   const SizedBox(width: 12),
-                  _legend(AppColors.warning, '다른 위치'),
+                  _legend(AppColors.warning, t.wordleLegendPresent),
                   const SizedBox(width: 12),
-                  _legend(AppColors.surfaceAlt, '없음'),
+                  _legend(AppColors.surfaceAlt, t.wordleLegendAbsent),
                 ],
               ),
               const SizedBox(height: 16),
@@ -321,7 +324,7 @@ class _WordleScreenState extends State<WordleScreen> {
                   ),
                   decoration: InputDecoration(
                     counterText: '',
-                    hintText:    '$n글자 입력...',
+                    hintText:    t.wordleInputHint(n),
                     hintStyle:   const TextStyle(color: AppColors.textDim, fontSize: 15, letterSpacing: 0),
                     filled:      true,
                     fillColor:   AppColors.surface,
@@ -338,7 +341,7 @@ class _WordleScreenState extends State<WordleScreen> {
                     backgroundColor: AppColors.vocab,
                     minimumSize:     const Size(double.infinity, 50),
                   ),
-                  child: const Text('제출', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                  child: Text(t.wordleSubmitBtn, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
                 ),
               ],
 
@@ -346,7 +349,7 @@ class _WordleScreenState extends State<WordleScreen> {
               OutlinedButton.icon(
                 onPressed: () => _load(random: true),
                 icon:  const Icon(Icons.shuffle_rounded, size: 16),
-                label: const Text('새 단어'),
+                label: Text(t.wordleNewWordBtn),
               ),
             ],
           ),
@@ -427,6 +430,7 @@ class _ResultCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final color = won ? AppColors.success : AppColors.danger;
     return Container(
       width: double.infinity,
@@ -437,11 +441,11 @@ class _ResultCard extends StatelessWidget {
         border:       Border.all(color: color.withOpacity(0.45)),
       ),
       child: Column(children: [
-        Text(won ? '🎉 정답!' : '😅 아쉬워요!',
+        Text(won ? t.wordleResultWin : t.wordleResultLose,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: color)),
         if (!won && german != null) ...[
           const SizedBox(height: 8),
-          Text('정답: $target',
+          Text(t.wordleAnswerLabel(target),
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: AppColors.text)),
           const SizedBox(height: 2),
           Text(german!,
@@ -451,7 +455,7 @@ class _ResultCard extends StatelessWidget {
         FilledButton.icon(
           onPressed: onNew,
           icon:  const Icon(Icons.shuffle_rounded, size: 18),
-          label: const Text('새 단어', style: TextStyle(fontWeight: FontWeight.w700)),
+          label: Text(t.wordleNewWordBtn, style: const TextStyle(fontWeight: FontWeight.w700)),
           style: FilledButton.styleFrom(backgroundColor: color),
         ),
       ]),

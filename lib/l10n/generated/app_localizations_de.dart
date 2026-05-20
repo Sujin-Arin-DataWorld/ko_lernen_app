@@ -289,4 +289,245 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get statsWordleStreak => 'Wordle Streak';
+
+  @override
+  String get screenVocabTitle => 'Vokabeln';
+
+  @override
+  String get screenGrammarTitle => 'Grammatik';
+
+  @override
+  String get screenWordleTitle => 'Wordle';
+
+  @override
+  String get screenHangulTitle => 'Hangul';
+
+  @override
+  String get filterOpenBtn => 'Filter öffnen';
+
+  @override
+  String get hangulTabOverview => 'Übersicht';
+
+  @override
+  String get hangulTabCards => 'Karten';
+
+  @override
+  String get hangulTabWrite => 'Schreiben';
+
+  @override
+  String get hangulConsonantsLabel => '자음 · Konsonanten';
+
+  @override
+  String get hangulVowelsLabel => '모음 · Vokale';
+
+  @override
+  String get hangulSyllableLabel => '🧩 음절 구조 · Silbenaufbau';
+
+  @override
+  String get hangulPronounceBtn => 'Aussprechen';
+
+  @override
+  String get hangulRulesTitle => '✏️ Hangul-Schreibregeln';
+
+  @override
+  String get hangulRulesBody =>
+      '① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts';
+
+  @override
+  String get hangulStrokeOrderTitle => '📽 Strichreihenfolge (tippe für neu)';
+
+  @override
+  String get hangulTraceTitle => '✍️ mit dem Finger nachzeichnen';
+
+  @override
+  String get hangulClearBtn => 'Löschen';
+
+  @override
+  String hangulPronounceLetter(Object letter) {
+    return '$letter aussprechen';
+  }
+
+  @override
+  String wordleSyllableCount(int n) {
+    return '$n-Silben-Wort · 6 Versuche';
+  }
+
+  @override
+  String wordleMeaning(Object german) {
+    return 'Bedeutung: $german';
+  }
+
+  @override
+  String wordleAnswerLabel(Object target) {
+    return 'Antwort: $target';
+  }
+
+  @override
+  String wordleInputHint(int n) {
+    return '$n Silben eingeben…';
+  }
+
+  @override
+  String get wordleLegendCorrect => 'Richtige Stelle';
+
+  @override
+  String get wordleLegendPresent => 'Falsche Stelle';
+
+  @override
+  String get wordleLegendAbsent => 'Nicht da';
+
+  @override
+  String get wordleSubmitBtn => 'Prüfen';
+
+  @override
+  String get wordleNewWordBtn => 'Neues Wort';
+
+  @override
+  String get wordleHelpTooltip => 'Spielanleitung';
+
+  @override
+  String get wordleShuffleTooltip => 'Neues Wort';
+
+  @override
+  String get settingsAdsSection => 'Anzeigen';
+
+  @override
+  String get settingsShowAds => 'Werbung anzeigen';
+
+  @override
+  String get settingsShowAdsDesc => 'Hilft beim Erhalten der App';
+
+  @override
+  String get placeholderComingSoon => 'Bald verfügbar 🚧';
+
+  @override
+  String get chosungSubmitBtn => 'Bestätigen';
+
+  @override
+  String get chosungHintBtn => 'Hinweis';
+
+  @override
+  String chosungAnswerLabel(Object word) {
+    return 'Antwort: $word';
+  }
+
+  @override
+  String get statsTitle => 'Statistik';
+
+  @override
+  String get statsSubtitle => 'Dein Lernfortschritt';
+
+  @override
+  String get statsDays => 'Tage';
+
+  @override
+  String get statsCards => 'Karten';
+
+  @override
+  String get statsPercent => 'Genauigkeit';
+
+  @override
+  String get statsWins => 'Siege';
+
+  @override
+  String get statsEmpty => 'Noch keine Daten — leg los! 🚀';
+
+  @override
+  String get statsVokSection => 'Vokabeln';
+
+  @override
+  String get statsGamesSection => 'Spiele';
+
+  @override
+  String get statsStreakSection => 'Streak';
+
+  @override
+  String statsBestLabel(int n) {
+    return 'Bester: $n';
+  }
+
+  @override
+  String get vocabModeAll => 'Alle';
+
+  @override
+  String get vocabModeDue => 'Heute fällig';
+
+  @override
+  String vocabDueBadge(int n) {
+    return '🔥 $n fällig';
+  }
+
+  @override
+  String get vocabDueEmpty => '🎉 Heute alles erledigt!\nKomm morgen wieder.';
+
+  @override
+  String get vocabDueEmptyAction => 'Trotzdem üben';
+
+  @override
+  String get moduleStatsTitle => 'Statistik';
+
+  @override
+  String get moduleStatsDesc => 'Streak, Karten, Genauigkeit';
+
+  @override
+  String get settingsCloudSection => 'Cloud-Backup';
+
+  @override
+  String settingsCloudSignedIn(Object name) {
+    return 'Eingeloggt: $name';
+  }
+
+  @override
+  String get settingsCloudSignInPrompt => 'Mit Google sichern';
+
+  @override
+  String get settingsCloudSignedInDesc => 'Daten werden in der Cloud gesichert';
+
+  @override
+  String get settingsCloudSignInDesc =>
+      'Damit überlebt dein Fortschritt einen Handywechsel';
+
+  @override
+  String get settingsCloudBackupNow => 'Jetzt sichern';
+
+  @override
+  String get settingsCloudRestore => 'Von Cloud wiederherstellen';
+
+  @override
+  String get settingsCloudBackupSuccess => 'Backup erfolgreich ✓';
+
+  @override
+  String get settingsCloudRestoreSuccess => 'Wiederhergestellt ✓';
+
+  @override
+  String get settingsCloudRestoreEmpty => 'Keine Cloud-Daten';
+
+  @override
+  String settingsCloudAuthFailed(Object error) {
+    return 'Anmeldung fehlgeschlagen: $error';
+  }
+
+  @override
+  String get statsGotIt => 'Gewusst';
+
+  @override
+  String get statsNotGotIt => 'Nicht gewusst';
+
+  @override
+  String get statsSkipped => 'Übersprungen';
+
+  @override
+  String get statsCorrect => 'Richtig';
+
+  @override
+  String get statsWrong => 'Falsch';
+
+  @override
+  String get statsLosses => 'Verloren';
+
+  @override
+  String get statsBestShort => 'Beste';
+
+  @override
+  String get statsWinRate => 'Quote';
 }

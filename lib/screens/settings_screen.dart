@@ -92,37 +92,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
 
           // ── Cloud-Backup (Firebase Auth) ──
-          _Section(label: 'Cloud-Backup'),
+          _Section(label: t.settingsCloudSection),
           ListTile(
             leading: const Icon(Icons.cloud_outlined, color: AppColors.primary),
             title: Text(AuthService.isGoogleLinked
-                ? 'Eingeloggt: ${AuthService.displayName ?? "Google"}'
-                : 'Mit Google sichern'),
+                ? t.settingsCloudSignedIn(AuthService.displayName ?? 'Google')
+                : t.settingsCloudSignInPrompt),
             subtitle: Text(AuthService.isGoogleLinked
-                ? 'Daten werden in der Cloud gesichert'
-                : 'Damit überlebt dein Fortschritt einen Handywechsel'),
+                ? t.settingsCloudSignedInDesc
+                : t.settingsCloudSignInDesc),
             onTap: _onGoogleTap,
           ),
           if (AuthService.isGoogleLinked) ...[
             ListTile(
               leading: const Icon(Icons.cloud_upload_outlined),
-              title:   const Text('Jetzt sichern'),
+              title:   Text(t.settingsCloudBackupNow),
               onTap: () async {
                 await CloudSync.backup();
                 if (!mounted) return;
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Backup erfolgreich ✓'), duration: Duration(seconds: 2)),
+                  SnackBar(content: Text(t.settingsCloudBackupSuccess), duration: const Duration(seconds: 2)),
                 );
               },
             ),
             ListTile(
               leading: const Icon(Icons.cloud_download_outlined),
-              title:   const Text('Von Cloud wiederherstellen'),
+              title:   Text(t.settingsCloudRestore),
               onTap: () async {
                 final ok = await CloudSync.restore();
                 if (!mounted) return;
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(ok ? 'Wiederhergestellt ✓' : 'Keine Cloud-Daten')),
+                  SnackBar(content: Text(ok ? t.settingsCloudRestoreSuccess : t.settingsCloudRestoreEmpty)),
                 );
                 setState(() {});
               },
@@ -130,10 +130,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ],
 
           // ── Werbung ──
-          _Section(label: 'Anzeigen'),
+          _Section(label: t.settingsAdsSection),
           SwitchListTile(
-            title: const Text('Werbung anzeigen'),
-            subtitle: const Text('Hilft beim Erhalten der App', style: TextStyle(fontSize: 12, color: AppColors.textMuted)),
+            title: Text(t.settingsShowAds),
+            subtitle: Text(t.settingsShowAdsDesc, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
             value: Storage.adsEnabled,
             onChanged: (v) async {
               await Storage.setAdsEnabled(v);
@@ -178,7 +178,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Anmeldung fehlgeschlagen: $e')),
+        SnackBar(content: Text(AppL10n.of(context).settingsCloudAuthFailed(e.toString()))),
       );
     }
   }

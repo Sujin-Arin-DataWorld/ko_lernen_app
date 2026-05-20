@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573567222361",
+    "project_id": "ko-lernen-app",
+    "storage_bucket": "ko-lernen-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573567222361:android:38d26a50001ee64c356748",
+        "android_client_info": {
+          "package_name": "com.sujinarin.ko_lernen_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_opujse33cwt6nOQFxqQJXfgSCW5UkO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

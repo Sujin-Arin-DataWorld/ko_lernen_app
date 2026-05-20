@@ -288,4 +288,245 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get statsWordleStreak => 'Wordle streak';
+
+  @override
+  String get screenVocabTitle => 'Vocabulary';
+
+  @override
+  String get screenGrammarTitle => 'Grammar';
+
+  @override
+  String get screenWordleTitle => 'Wordle';
+
+  @override
+  String get screenHangulTitle => 'Hangul';
+
+  @override
+  String get filterOpenBtn => 'Open filter';
+
+  @override
+  String get hangulTabOverview => 'Overview';
+
+  @override
+  String get hangulTabCards => 'Cards';
+
+  @override
+  String get hangulTabWrite => 'Writing';
+
+  @override
+  String get hangulConsonantsLabel => '자음 · Consonants';
+
+  @override
+  String get hangulVowelsLabel => '모음 · Vowels';
+
+  @override
+  String get hangulSyllableLabel => '🧩 음절 구조 · Syllable composition';
+
+  @override
+  String get hangulPronounceBtn => 'Pronounce';
+
+  @override
+  String get hangulRulesTitle => '✏️ Hangul writing rules';
+
+  @override
+  String get hangulRulesBody =>
+      '① Top → Bottom   ② Horizontal → Vertical   ③ Left → Right';
+
+  @override
+  String get hangulStrokeOrderTitle => '📽 Stroke order (tap to replay)';
+
+  @override
+  String get hangulTraceTitle => '✍️ trace with your finger';
+
+  @override
+  String get hangulClearBtn => 'Clear';
+
+  @override
+  String hangulPronounceLetter(Object letter) {
+    return 'Pronounce $letter';
+  }
+
+  @override
+  String wordleSyllableCount(int n) {
+    return '$n-syllable word · 6 tries';
+  }
+
+  @override
+  String wordleMeaning(Object german) {
+    return 'Meaning: $german';
+  }
+
+  @override
+  String wordleAnswerLabel(Object target) {
+    return 'Answer: $target';
+  }
+
+  @override
+  String wordleInputHint(int n) {
+    return '$n syllables…';
+  }
+
+  @override
+  String get wordleLegendCorrect => 'Right spot';
+
+  @override
+  String get wordleLegendPresent => 'Wrong spot';
+
+  @override
+  String get wordleLegendAbsent => 'Not in word';
+
+  @override
+  String get wordleSubmitBtn => 'Submit';
+
+  @override
+  String get wordleNewWordBtn => 'New word';
+
+  @override
+  String get wordleHelpTooltip => 'How to play';
+
+  @override
+  String get wordleShuffleTooltip => 'New word';
+
+  @override
+  String get settingsAdsSection => 'Ads';
+
+  @override
+  String get settingsShowAds => 'Show ads';
+
+  @override
+  String get settingsShowAdsDesc => 'Helps keep the app running';
+
+  @override
+  String get placeholderComingSoon => 'Coming soon 🚧';
+
+  @override
+  String get chosungSubmitBtn => 'Confirm';
+
+  @override
+  String get chosungHintBtn => 'Hint';
+
+  @override
+  String chosungAnswerLabel(Object word) {
+    return 'Answer: $word';
+  }
+
+  @override
+  String get statsTitle => 'Statistics';
+
+  @override
+  String get statsSubtitle => 'Your learning progress';
+
+  @override
+  String get statsDays => 'Days';
+
+  @override
+  String get statsCards => 'Cards';
+
+  @override
+  String get statsPercent => 'Accuracy';
+
+  @override
+  String get statsWins => 'Wins';
+
+  @override
+  String get statsEmpty => 'No data yet — let\'s go! 🚀';
+
+  @override
+  String get statsVokSection => 'Vocabulary';
+
+  @override
+  String get statsGamesSection => 'Games';
+
+  @override
+  String get statsStreakSection => 'Streak';
+
+  @override
+  String statsBestLabel(int n) {
+    return 'Best: $n';
+  }
+
+  @override
+  String get vocabModeAll => 'All';
+
+  @override
+  String get vocabModeDue => 'Due today';
+
+  @override
+  String vocabDueBadge(int n) {
+    return '🔥 $n due';
+  }
+
+  @override
+  String get vocabDueEmpty => '🎉 All done for today!\nCome back tomorrow.';
+
+  @override
+  String get vocabDueEmptyAction => 'Practice anyway';
+
+  @override
+  String get moduleStatsTitle => 'Statistics';
+
+  @override
+  String get moduleStatsDesc => 'Streak, cards, accuracy';
+
+  @override
+  String get settingsCloudSection => 'Cloud backup';
+
+  @override
+  String settingsCloudSignedIn(Object name) {
+    return 'Signed in: $name';
+  }
+
+  @override
+  String get settingsCloudSignInPrompt => 'Back up with Google';
+
+  @override
+  String get settingsCloudSignedInDesc => 'Your data is backed up to the cloud';
+
+  @override
+  String get settingsCloudSignInDesc =>
+      'So your progress survives a phone change';
+
+  @override
+  String get settingsCloudBackupNow => 'Back up now';
+
+  @override
+  String get settingsCloudRestore => 'Restore from cloud';
+
+  @override
+  String get settingsCloudBackupSuccess => 'Backup successful ✓';
+
+  @override
+  String get settingsCloudRestoreSuccess => 'Restored ✓';
+
+  @override
+  String get settingsCloudRestoreEmpty => 'No cloud data';
+
+  @override
+  String settingsCloudAuthFailed(Object error) {
+    return 'Sign-in failed: $error';
+  }
+
+  @override
+  String get statsGotIt => 'Got it';
+
+  @override
+  String get statsNotGotIt => 'Didn\'t know';
+
+  @override
+  String get statsSkipped => 'Skipped';
+
+  @override
+  String get statsCorrect => 'Correct';
+
+  @override
+  String get statsWrong => 'Wrong';
+
+  @override
+  String get statsLosses => 'Lost';
+
+  @override
+  String get statsBestShort => 'Best';
+
+  @override
+  String get statsWinRate => 'Win rate';
 }

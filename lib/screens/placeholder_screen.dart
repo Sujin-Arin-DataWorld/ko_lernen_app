@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme.dart';
+import '../l10n/generated/app_localizations.dart';
 
 /// Temporärer Platzhalter für noch-nicht-portierte Module.
 class PlaceholderScreen extends StatelessWidget {
@@ -19,9 +20,9 @@ class PlaceholderScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
             const SizedBox(height: 8),
-            const Text(
-              'Bald verfügbar 🚧',
-              style: TextStyle(color: AppColors.textMuted),
+            Text(
+              AppL10n.of(context).placeholderComingSoon,
+              style: const TextStyle(color: AppColors.textMuted),
             ),
           ],
         ),

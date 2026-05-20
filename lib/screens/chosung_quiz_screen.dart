@@ -5,6 +5,7 @@ import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/storage_service.dart';
 import '../theme.dart';
+import '../l10n/generated/app_localizations.dart';
 
 const List<String> _chosungTable = [
   'ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ',
@@ -206,44 +207,53 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
 
               // ── 입력 ───────────────────────────────────────────────
               if (_state == _State.waiting) ...[
-                TextField(
-                  controller: _ctrl,
-                  focusNode:  _focusNode,
-                  autofocus:  true,
-                  textAlign:  TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.text,
-                  ),
-                  decoration: InputDecoration(
-                    hintText:  'Koreanisch eingeben...',
-                    hintStyle: const TextStyle(color: AppColors.textDim, fontSize: 16),
-                    filled:    true,
-                    fillColor: AppColors.surface,
-                    border:        OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.surfaceAlt)),
-                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.surfaceAlt)),
-                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.primary, width: 2)),
-                  ),
-                  onSubmitted: (_) => _submit(),
+                Builder(
+                  builder: (context) {
+                    final t = AppL10n.of(context);
+                    return Column(
+                      children: [
+                        TextField(
+                          controller: _ctrl,
+                          focusNode:  _focusNode,
+                          autofocus:  true,
+                          textAlign:  TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.text,
+                          ),
+                          decoration: InputDecoration(
+                            hintText:  t.chosungInputHint,
+                            hintStyle: const TextStyle(color: AppColors.textDim, fontSize: 16),
+                            filled:    true,
+                            fillColor: AppColors.surface,
+                            border:        OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.surfaceAlt)),
+                            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.surfaceAlt)),
+                            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(14), borderSide: const BorderSide(color: AppColors.primary, width: 2)),
+                          ),
+                          onSubmitted: (_) => _submit(),
+                        ),
+                        const SizedBox(height: 10),
+                        Row(children: [
+                          Expanded(
+                            flex: 3,
+                            child: FilledButton(
+                              onPressed: _submit,
+                              style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
+                              child: Text(t.chosungSubmitBtn, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            flex: 2,
+                            child: OutlinedButton(
+                              onPressed: _skip,
+                              child: Text(t.btnSkip),
+                            ),
+                          ),
+                        ]),
+                      ],
+                    );
+                  },
                 ),
-                const SizedBox(height: 10),
-                Row(children: [
-                  Expanded(
-                    flex: 3,
-                    child: FilledButton(
-                      onPressed: _submit,
-                      style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
-                      child: const Text('Bestätigen', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    flex: 2,
-                    child: OutlinedButton(
-                      onPressed: _skip,
-                      child: const Text('Überspringen'),
-                    ),
-                  ),
-                ]),
                 if (showPad) ...[
                   const SizedBox(height: 12),
                   _ConsonantPad(onTap: _appendConsonant),
@@ -327,6 +337,7 @@ class _QuizCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final (Color accent, Color bgA, Color bgB) = switch (state) {
       _State.correct => (AppColors.success, AppColors.success.withOpacity(0.2), AppColors.success.withOpacity(0.04)),
       _State.wrong   => (AppColors.danger,  AppColors.danger.withOpacity(0.2),  AppColors.danger.withOpacity(0.04)),
@@ -361,7 +372,7 @@ class _QuizCard extends StatelessWidget {
                 style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: AppColors.success),
               ),
             _State.wrong => Column(children: [
-                Text('Antwort: $correctWord',
+                Text(t.chosungAnswerLabel(correctWord),
                     style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: AppColors.danger)),
                 const SizedBox(height: 4),
                 Text(german,
@@ -373,7 +384,7 @@ class _QuizCard extends StatelessWidget {
                 : TextButton.icon(
                     onPressed: onHint,
                     icon:  const Icon(Icons.lightbulb_outline, size: 16, color: AppColors.warning),
-                    label: const Text('Hinweis', style: TextStyle(color: AppColors.warning, fontSize: 13)),
+                    label: Text(t.chosungHintBtn, style: const TextStyle(color: AppColors.warning, fontSize: 13)),
                   ),
           },
         ],

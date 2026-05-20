@@ -10,6 +10,7 @@ import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class VocabScreen extends StatefulWidget {
   const VocabScreen({super.key});
@@ -31,6 +32,10 @@ class _VocabScreenState extends State<VocabScreen> {
   String _topic = 'Alle';
   bool   _koFirst = true;
 
+  /// 'due' = nur heute fällige Karten (SRS), 'all' = alle.
+  String _mode = 'due';
+  Set<String> _dueIds = {};
+
   bool _loading = true;
   bool _loadFailed = false;
 
@@ -49,23 +54,44 @@ class _VocabScreenState extends State<VocabScreen> {
     setState(() { _loading = true; _loadFailed = false; });
     DataLoader.loadVocab().then((v) {
       if (!mounted) return;
+      final due = Storage.dueIds(v.map((e) => e.korean));
       setState(() {
         _all = v;
-        _filtered = v;
+        _dueIds = due;
+        // Erstanwendung: alle Karten sind "due" → starte im 'due' Modus.
+        // Wenn nichts fällig: 'all'.
+        _mode = due.isNotEmpty ? 'due' : 'all';
         _loading = false;
         _loadFailed = v.isEmpty && DataLoader.lastError != null;
+        _filtered = _filterList();
         if (_idx >= _filtered.length) _idx = 0;
       });
     });
   }
 
+  List<Vocab> _filterList() {
+    return _all.where((v) {
+      if (_level != 'Alle' && v.level != _level) return false;
+      if (_topic != 'Alle' && v.topic != _topic) return false;
+      if (_mode == 'due' && !_dueIds.contains(v.korean)) return false;
+      return true;
+    }).toList();
+  }
+
   void _applyFilters() {
     setState(() {
-      _filtered = _all.where((v) {
-        if (_level != 'Alle' && v.level != _level) return false;
-        if (_topic != 'Alle' && v.topic != _topic) return false;
-        return true;
-      }).toList();
+      _filtered = _filterList();
+      _idx = 0;
+      _flipped = false;
+    });
+  }
+
+  void _setMode(String m) {
+    if (_mode == m) return;
+    HapticFeedback.selectionClick();
+    setState(() {
+      _mode = m;
+      _filtered = _filterList();
       _idx = 0;
       _flipped = false;
     });
@@ -81,17 +107,52 @@ class _VocabScreenState extends State<VocabScreen> {
 
   void _gewusst() {
     HapticFeedback.lightImpact();
-    setState(() => _correct++);
+    final cur = _current;
+    setState(() {
+      _correct++;
+      if (cur != null) _dueIds.remove(cur.korean);
+    });
     Storage.setVokCorrect(_correct);
-    if (_current != null) Storage.addVokSeen(_current!.korean);
-    _next();
+    if (cur != null) {
+      Storage.addVokSeen(cur.korean);
+      // SRS: nächste Wiederholung in die Zukunft schieben.
+      // ignore: discarded_futures
+      Storage.srsReview(cur.korean, gotIt: true);
+    }
+    _advanceAfterReview();
   }
 
   void _nichtGewusst() {
     HapticFeedback.mediumImpact();
-    setState(() => _wrong++);
+    final cur = _current;
+    setState(() {
+      _wrong++;
+      // Falsch → morgen wieder fällig, also heute nicht mehr in der due-Liste.
+      if (cur != null) _dueIds.remove(cur.korean);
+    });
     Storage.setVokWrong(_wrong);
-    _next();
+    if (cur != null) {
+      // ignore: discarded_futures
+      Storage.srsReview(cur.korean, gotIt: false);
+    }
+    _advanceAfterReview();
+  }
+
+  /// Nach SRS-Update: im 'due' Modus die Karte aus _filtered entfernen,
+  /// damit sie nicht direkt wieder erscheint.
+  void _advanceAfterReview() {
+    if (_mode == 'due') {
+      setState(() {
+        if (_filtered.isNotEmpty) {
+          _filtered = _filterList();
+          if (_idx >= _filtered.length) _idx = 0;
+          _flipped = false;
+        }
+      });
+      _persistIdx();
+    } else {
+      _next();
+    }
   }
 
   void _skip() {
@@ -118,12 +179,13 @@ class _VocabScreenState extends State<VocabScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     if (_loading) {
-      return const Scaffold(body: AppLoading(message: 'Vokabeln laden …'));
+      return Scaffold(body: AppLoading(message: t.loadingVocab));
     }
     if (_loadFailed) {
       return Scaffold(
-        appBar: AppBar(title: const Text('단어장')),
+        appBar: AppBar(title: Text(t.screenVocabTitle)),
         body: AppError(
           message: DataLoader.lastError ?? 'Unbekannter Fehler',
           onRetry: () { DataLoader.reset(); _load(); },
@@ -133,11 +195,22 @@ class _VocabScreenState extends State<VocabScreen> {
 
     final v = _current;
     if (v == null) {
+      // Im 'due' Modus: heute alles erledigt → eigene Empty-State.
+      if (_mode == 'due') {
+        return Scaffold(
+          appBar: AppBar(title: Text(t.screenVocabTitle)),
+          body: AppEmpty(
+            message: t.vocabDueEmpty,
+            actionLabel: t.vocabDueEmptyAction,
+            onAction: () => _setMode('all'),
+          ),
+        );
+      }
       return Scaffold(
-        appBar: AppBar(title: const Text('단어장')),
+        appBar: AppBar(title: Text(t.screenVocabTitle)),
         body: AppEmpty(
-          message: 'Keine Vokabeln für diesen Filter.\nPasse die Auswahl an.',
-          actionLabel: 'Filter öffnen',
+          message: t.emptyVocab,
+          actionLabel: t.filterOpenBtn,
           onAction: _showFilterSheet,
         ),
       );
@@ -145,7 +218,7 @@ class _VocabScreenState extends State<VocabScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('단어장', style: TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(t.screenVocabTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
           IconButton(
             icon: const Icon(Icons.tune),
@@ -158,6 +231,24 @@ class _VocabScreenState extends State<VocabScreen> {
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
+              // Mode chips (SRS Due / Alle)
+              Row(
+                children: [
+                  _VocabModeChip(
+                    label: t.vocabDueBadge(_dueIds.length),
+                    selected: _mode == 'due',
+                    onTap: () => _setMode('due'),
+                  ),
+                  const SizedBox(width: 8),
+                  _VocabModeChip(
+                    label: t.vocabModeAll,
+                    selected: _mode == 'all',
+                    onTap: () => _setMode('all'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+
               // Stat chips
               Row(
                 children: [
@@ -199,7 +290,7 @@ class _VocabScreenState extends State<VocabScreen> {
                         style: FilledButton.styleFrom(backgroundColor: AppColors.success),
                         onPressed: _gewusst,
                         icon: const Icon(Icons.check),
-                        label: const Text('Gewusst!'),
+                        label: Text(t.btnGewusst),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -211,7 +302,7 @@ class _VocabScreenState extends State<VocabScreen> {
                         ),
                         onPressed: _nichtGewusst,
                         icon: const Icon(Icons.close, color: AppColors.danger),
-                        label: const Text('Nicht gewusst'),
+                        label: Text(t.btnNichtGewusst),
                       ),
                     ),
                   ],
@@ -226,7 +317,7 @@ class _VocabScreenState extends State<VocabScreen> {
                     child: OutlinedButton.icon(
                       onPressed: () => TtsService.speak(v.korean),
                       icon: const Icon(Icons.volume_up, size: 18),
-                      label: const Text('Hören'),
+                      label: Text(t.btnHoeren),
                     ),
                   ),
                   const SizedBox(width: 6),
@@ -234,7 +325,7 @@ class _VocabScreenState extends State<VocabScreen> {
                     child: OutlinedButton.icon(
                       onPressed: _skip,
                       icon: const Icon(Icons.skip_next, size: 18),
-                      label: const Text('Skip'),
+                      label: Text(t.btnSkip),
                     ),
                   ),
                   const SizedBox(width: 6),
@@ -242,7 +333,7 @@ class _VocabScreenState extends State<VocabScreen> {
                     child: OutlinedButton.icon(
                       onPressed: _random,
                       icon: const Icon(Icons.shuffle, size: 18),
-                      label: const Text('Zufall'),
+                      label: Text(t.btnRandom),
                     ),
                   ),
                 ],
@@ -276,15 +367,15 @@ class _VocabScreenState extends State<VocabScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text('Filter', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                Text(AppL10n.of(ctx).filterTitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 12),
-                _dropdown('Level', _level, _levels, (v) { setLocal(() => _level = v!); _level = v!; }),
+                _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) { setLocal(() => _level = v!); _level = v!; }),
                 const SizedBox(height: 10),
-                _dropdown('Thema', _topic, _topics, (v) { setLocal(() => _topic = v!); _topic = v!; }),
+                _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) { setLocal(() => _topic = v!); _topic = v!; }),
                 const SizedBox(height: 16),
                 SwitchListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: const Text('🇰🇷 → 🇩🇪 (Korean zuerst)'),
+                  title: Text(AppL10n.of(ctx).filterDirKoDe),
                   value: _koFirst,
                   onChanged: (b) { setLocal(() => _koFirst = b); _koFirst = b; },
                 ),
@@ -294,7 +385,7 @@ class _VocabScreenState extends State<VocabScreen> {
                     Expanded(
                       child: FilledButton(
                         onPressed: () { _applyFilters(); Navigator.pop(ctx); },
-                        child: const Text('Übernehmen'),
+                        child: Text(AppL10n.of(ctx).btnApply),
                       ),
                     ),
                   ],
@@ -329,6 +420,31 @@ class _VocabScreenState extends State<VocabScreen> {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+
+class _VocabModeChip extends StatelessWidget {
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+  const _VocabModeChip({required this.label, required this.selected, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return ChoiceChip(
+      label: Text(label, style: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w700,
+        color: selected ? Colors.white : AppColors.textMuted,
+      )),
+      selected: selected,
+      onSelected: (_) => onTap(),
+      selectedColor: AppColors.vocab,
+      backgroundColor: AppColors.surface,
+      side: BorderSide(color: selected ? AppColors.vocab : AppColors.surfaceAlt),
+      visualDensity: VisualDensity.compact,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    );
+  }
+}
 
 class _Chip extends StatelessWidget {
   final String label;
