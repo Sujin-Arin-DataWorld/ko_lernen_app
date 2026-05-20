@@ -1374,6 +1374,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Noch keine — schließe Szenarien ab! 🚀'**
   String get statsNoBadges;
+
+  /// No description provided for @homeRecommended.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute empfohlen ✨'**
+  String get homeRecommended;
+
+  /// No description provided for @homeAllDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Szenarien geschafft! 🎉'**
+  String get homeAllDone;
+
+  /// No description provided for @homeNoScenario.
+  ///
+  /// In de, this message translates to:
+  /// **'Bald gibt es Szenarien für dein Level'**
+  String get homeNoScenario;
+
+  /// No description provided for @homeGreetingLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne Koreanisch wie ein Local'**
+  String get homeGreetingLearn;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

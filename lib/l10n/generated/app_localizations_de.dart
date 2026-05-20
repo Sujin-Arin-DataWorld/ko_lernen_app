@@ -695,4 +695,16 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get statsNoBadges => 'Noch keine — schließe Szenarien ab! 🚀';
+
+  @override
+  String get homeRecommended => 'Heute empfohlen ✨';
+
+  @override
+  String get homeAllDone => 'Alle Szenarien geschafft! 🎉';
+
+  @override
+  String get homeNoScenario => 'Bald gibt es Szenarien für dein Level';
+
+  @override
+  String get homeGreetingLearn => 'Lerne Koreanisch wie ein Local';
 }

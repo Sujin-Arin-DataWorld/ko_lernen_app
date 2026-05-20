@@ -261,5 +261,10 @@
   "@statsToNextLevel": { "placeholders": { "n": { "type": "int" }, "next": { "type": "int" } } },
   "statsScenariosCompleted": "Scenarios done",
   "statsBadgesTitle": "Badges",
-  "statsNoBadges": "None yet — finish scenarios! 🚀"
+  "statsNoBadges": "None yet — finish scenarios! 🚀",
+
+  "homeRecommended": "Recommended today ✨",
+  "homeAllDone": "All scenarios done! 🎉",
+  "homeNoScenario": "Scenarios for your level coming soon",
+  "homeGreetingLearn": "Learn Korean like a local"
 }
