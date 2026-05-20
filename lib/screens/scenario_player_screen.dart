@@ -9,6 +9,7 @@ import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tokens.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
@@ -166,6 +167,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
       case 'officer':  return '👮';
       default:         return '💬';
     }
+  }
+
+  /// minsu/jieun이면 [Mascot] 위젯, 그 외엔 이모지 Text 반환.
+  Widget _speakerAvatar(String speaker, {double size = 40, MascotEmotion emotion = MascotEmotion.smile}) {
+    final mascot = Mascot.forSpeaker(speaker, emotion: emotion, size: size);
+    if (mascot != null) return mascot;
+    return Text(_speakerEmoji(speaker), style: TextStyle(fontSize: size * 0.6));
   }
 
   // ─── Stage-Widgets ─────────────────────────────────────────────────────────
@@ -338,10 +346,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
                     isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
                 children: [
                   if (!isUser) ...[
-                    Text(
-                      _speakerEmoji(line.speaker),
-                      style: const TextStyle(fontSize: 24),
-                    ),
+                    _speakerAvatar(line.speaker, size: 40),
                     const SizedBox(width: Spacing.sm),
                   ],
                   Flexible(
@@ -415,10 +420,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
                   ),
                   if (isUser) ...[
                     const SizedBox(width: Spacing.sm),
-                    Text(
-                      _speakerEmoji(line.speaker),
-                      style: const TextStyle(fontSize: 24),
-                    ),
+                    _speakerAvatar(line.speaker, size: 40),
                   ],
                 ],
               ),
@@ -552,10 +554,29 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
                 ? (xpFull ~/ 3)
                 : 0;
 
+    // Mascot emotion based on stars
+    final mascotEmotion = stars == 3
+        ? MascotEmotion.celebrate
+        : stars >= 1
+            ? MascotEmotion.smile
+            : MascotEmotion.worry;
+    // Mascot kind: scenario's sidekick if set, else jieun default
+    final mascotKind = (sc.sidekick == 'minsu') ? MascotKind.minsu : MascotKind.jieun;
+
     return _StageScroll(
       child: Column(
         children: [
           const SizedBox(height: Spacing.xl),
+
+          // Celebrating mascot
+          TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0.0, end: 1.0),
+            duration: const Duration(milliseconds: 600),
+            curve: SoriMotion.celebrate,
+            builder: (_, v, child) => Transform.scale(scale: v, child: child),
+            child: Mascot(kind: mascotKind, emotion: mascotEmotion, size: 120),
+          ),
+          const SizedBox(height: Spacing.lg),
 
           // Sterne (SoriStars + AnimatedScale)
           Row(
@@ -564,10 +585,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
               final filled = i < stars;
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
-                child: AnimatedScale(
-                  scale: filled ? 1.0 : 0.8,
-                  duration: SoriMotion.slow,
+                child: TweenAnimationBuilder<double>(
+                  tween: Tween(begin: 0.0, end: filled ? 1.0 : 0.8),
+                  duration: Duration(milliseconds: 400 + i * 150),
                   curve: SoriMotion.celebrate,
+                  builder: (_, v, child) => Transform.scale(scale: v, child: child),
                   child: Icon(
                     filled ? Icons.star_rounded : Icons.star_outline_rounded,
                     size: 48,
