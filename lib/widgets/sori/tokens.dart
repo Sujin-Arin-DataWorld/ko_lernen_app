@@ -68,12 +68,12 @@ class SoriElevation {
 // COLORS — brand + light + dark
 // ─────────────────────────────────────────────────────────────────────────
 class SoriColors {
-  // ── Brand v3 (Indigo + Tiger + Gold) ─────────────────────────────────
-  // 단청 청 (Korean indigo) — replaces Sori Purple. 다른 한국어 학습 앱의
-  // 보라색과 차별화 + 호랑이(orange) 마스코트와 보색 조합.
-  static const Color primary     = Color(0xFF2C3E94);  // 단청 청 (남색)
-  static const Color primarySoft = Color(0xFFDBE4FF);  // 옅은 indigo tint
-  static const Color primaryDark = Color(0xFF1E2D7A);  // hover/press
+  // ── Brand v3.1 (Teal + Tiger + Gold) ─────────────────────────────────
+  // 청록 (Korean celadon teal) — Tiger(orange) 마스코트와 보색 임팩트.
+  // 보라 학습 앱과 완전 차별화 + 청자 문화 정체성.
+  static const Color primary     = Color(0xFF2AB7A9);  // 청록 (Sori Teal)
+  static const Color primarySoft = Color(0xFFD8F1EE);  // 옅은 teal tint
+  static const Color primaryDark = Color(0xFF1F8F84);  // hover/button bg (contrast)
 
   // ── Cultural accent ──────────────────────────────────────────────────
   static const Color tiger    = Color(0xFFFF8C42);   // 호랑이 (mascot primary)

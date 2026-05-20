@@ -1,15 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- ─── Sori v3 brand icon: 갓 + ㅎ ───────────────────────────
-       Background: Korean indigo (단청 청, SoriColors.primary)
-       Mascot tie-in: 까치호랑이 풍속의 갓을 brand symbol로
-       Inscribed: ㅎ (한글 첫 자음, 한국 발음의 핵심)
+  <!-- ─── Sori v3.1 brand icon: 한 + 갓 (모자처럼 머리 위에) ───────
+       청록 배경 + 흰 한 글자 + 한 위에 작은 갓 (귀여운 모자 느낌)
+       마스코트 까치+갓 풍속과 일관 + 한국 글자 정체성 명료
   ────────────────────────────────────────────────────── -->
 
   <defs>
     <!-- 갓 본체 미세한 luster -->
     <linearGradient id="gatBody" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#262626"/>
-      <stop offset="60%" stop-color="#161616"/>
+      <stop offset="0%"  stop-color="#2a2a2a"/>
+      <stop offset="55%" stop-color="#161616"/>
       <stop offset="100%" stop-color="#0a0a0a"/>
     </linearGradient>
     <!-- 갓끈 (gold band) -->
@@ -19,49 +18,35 @@
     </linearGradient>
   </defs>
 
-  <!-- ─── Indigo background (rounded for adaptive icon) ──── -->
-  <rect width="512" height="512" rx="96" fill="#2C3E94"/>
+  <!-- ─── Teal background (rounded for adaptive icon) ────── -->
+  <rect width="512" height="512" rx="96" fill="#2AB7A9"/>
 
-  <!-- ─── 갓 ─────────────────────────────────────────────────
-       구성: 챙(brim) + 본체(crown cylinder) + 끈(band)
-  ────────────────────────────────────────────────────── -->
+  <!-- ─── 한 글자 (white, ExtraBold) — main brand element ── -->
+  <text x="256" y="430" text-anchor="middle"
+        font-family="Pretendard, 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif"
+        font-size="300" font-weight="900" fill="#FFFFFF"
+        letter-spacing="-6">한</text>
 
-  <!-- 챙 (brim — wide ellipse, 위에서 약간 perspective) -->
-  <ellipse cx="256" cy="382" rx="206" ry="32" fill="#0d0d0d"/>
-  <!-- 챙 윗면 살짝 highlight -->
-  <ellipse cx="256" cy="376" rx="200" ry="6" fill="#1f1f1f" opacity="0.7"/>
+  <!-- ─── 작은 갓 (한 머리 위에 모자처럼) ─────────────────── -->
+  <!-- 챙 (brim — wide ellipse) -->
+  <ellipse cx="256" cy="178" rx="128" ry="13" fill="#0d0d0d"/>
+  <!-- 챙 살짝 highlight -->
+  <ellipse cx="256" cy="173" rx="122" ry="3" fill="#1f1f1f" opacity="0.6"/>
 
   <!-- 본체 (cylinder) -->
-  <path d="M 156 156
-           Q 156 134, 256 134
-           Q 356 134, 356 156
-           L 356 358
-           Q 356 374, 256 374
-           Q 156 374, 156 358 Z"
+  <path d="M 192 95
+           Q 192 76, 256 76
+           Q 320 76, 320 95
+           L 320 168
+           Q 320 175, 256 175
+           Q 192 175, 192 168 Z"
         fill="url(#gatBody)"/>
 
-  <!-- 본체 윗 가장자리 ellipse (top oval - 3D 느낌) -->
-  <ellipse cx="256" cy="156" rx="100" ry="14" fill="#202020"/>
-  <ellipse cx="256" cy="152" rx="92" ry="6" fill="#2e2e2e" opacity="0.7"/>
+  <!-- 본체 윗부분 ellipse (top oval) -->
+  <ellipse cx="256" cy="93" rx="64" ry="8" fill="#252525"/>
+  <ellipse cx="256" cy="90" rx="56" ry="3" fill="#3a3a3a" opacity="0.5"/>
 
-  <!-- 갓끈 (gold band at base of crown) -->
-  <rect x="156" y="346" width="200" height="9" fill="url(#gatBand)"/>
-  <!-- 갓끈 thin highlight -->
-  <rect x="156" y="346" width="200" height="2" fill="#FFE799" opacity="0.6"/>
-
-  <!-- ─── ㅎ (한글 첫 자음, 흰색) ───────────────────────────── -->
-  <!-- Wing (top short slash, slanted) -->
-  <path d="M 234 184 L 268 218"
-        stroke="#FFFFFF" stroke-width="18"
-        stroke-linecap="round" fill="none"/>
-
-  <!-- Horizontal stroke -->
-  <line x1="178" y1="238" x2="334" y2="238"
-        stroke="#FFFFFF" stroke-width="20"
-        stroke-linecap="round"/>
-
-  <!-- Circle (ㅇ component of ㅎ) -->
-  <circle cx="256" cy="298" r="42"
-          stroke="#FFFFFF" stroke-width="18"
-          fill="none"/>
+  <!-- 갓끈 (gold band where body meets brim) -->
+  <rect x="192" y="161" width="128" height="7" fill="url(#gatBand)"/>
+  <rect x="192" y="161" width="128" height="1.5" fill="#FFE799" opacity="0.6"/>
 </svg>
