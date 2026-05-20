@@ -154,9 +154,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
   String _speakerEmoji(String speaker) {
     switch (speaker) {
       case 'minsu':    return '👨🏻‍💼';
-      case 'jieun':   return '👩🏻‍🎓';
+      case 'jieun':    return '👩🏻‍🎓';
       case 'user':     return '🧑';
       case 'narrator': return '📝';
+      case 'partner':  return '💗';
+      case 'officer':  return '👮';
       default:         return '💬';
     }
   }

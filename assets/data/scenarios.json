@@ -190,6 +190,688 @@
           "en": "아아 is short for 아이스 아메리카노 (iced americano). Koreans love abbreviations 🙃. Even in winter, many people drink 아아 — hence the saying '얼죽아' (eol-juk-a), literally 'I'd rather freeze to death than drink hot coffee'. People actually say this."
         }
       }
+    },
+
+    {
+      "id": "airport_arrival",
+      "level": "a1",
+      "emoji": "✈️",
+      "register": "polite",
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "공항에서 입국심사",
+        "de": "Einreise am Flughafen",
+        "en": "Airport immigration"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Du bist gerade in Incheon gelandet. Erste Reise nach Korea. Der Beamte am Schalter blickt auf — was sagst du?",
+        "en": "You just landed at Incheon. First trip to Korea. The officer at the desk looks up — what do you say?"
+      },
+      "vocab": [
+        {
+          "korean": "여권",
+          "note": {
+            "ko": "",
+            "de": "Reisepass. Immer griffbereit haben — wird oft kontrolliert.",
+            "en": "Passport. Keep it handy — frequently checked."
+          }
+        },
+        {
+          "korean": "처음",
+          "note": {
+            "ko": "",
+            "de": "zum ersten Mal. Sehr häufig: 처음이에요 = 'es ist das erste Mal'.",
+            "en": "first time. Common: 처음이에요 = 'it's the first time'."
+          }
+        },
+        {
+          "korean": "관광",
+          "note": {
+            "ko": "",
+            "de": "Tourismus / Sightseeing. Auch: 여행 (Reise).",
+            "en": "tourism / sightseeing. Also: 여행 (trip)."
+          }
+        },
+        {
+          "korean": "며칠",
+          "note": {
+            "ko": "",
+            "de": "wie viele Tage. Wird bei Einreise oft gefragt.",
+            "en": "how many days. Often asked at immigration."
+          }
+        },
+        {
+          "korean": "일주일",
+          "note": {
+            "ko": "",
+            "de": "eine Woche (= 7 Tage). 한 달 = einen Monat.",
+            "en": "a week (7 days). 한 달 = a month."
+          }
+        },
+        {
+          "korean": "여기 있어요",
+          "note": {
+            "ko": "",
+            "de": "Hier, bitte. Wenn man jemandem etwas reicht.",
+            "en": "Here you go. When handing something over."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N + 이에요/예요",
+          "de": "N + 이에요/예요 (Kopula)",
+          "en": "N + 이에요/예요 (copula)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Identitäts-Kopula 'bin/ist/sind'. Nach Vokal: 예요 (학교예요). Nach Konsonant: 이에요 (학생이에요). 처음 endet auf ㅁ → 처음이에요.",
+          "en": "Identity copula 'am/is/are'. After vowel: 예요 (학교예요). After consonant: 이에요 (학생이에요). 처음 ends in ㅁ → 처음이에요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "officer",
+          "ko": "여권 보여주세요.",
+          "de": "Bitte Ihren Pass.",
+          "en": "Passport, please."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 여기 있어요.",
+          "de": "Ja, hier bitte.",
+          "en": "Yes, here you go."
+        },
+        {
+          "speaker": "officer",
+          "ko": "한국 처음이세요?",
+          "de": "Erstes Mal in Korea?",
+          "en": "First time in Korea?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 처음이에요. 관광이에요.",
+          "de": "Ja, erstes Mal. Tourismus.",
+          "en": "Yes, first time. Tourism."
+        },
+        {
+          "speaker": "officer",
+          "ko": "며칠 계세요?",
+          "de": "Wie lange bleiben Sie?",
+          "en": "How long are you staying?"
+        },
+        {
+          "speaker": "user",
+          "ko": "일주일이요.",
+          "de": "Eine Woche.",
+          "en": "A week."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "한국 처음이세요?",
+            "options": [
+              { "de": "Erstes Mal in Korea?",        "en": "First time in Korea?" },
+              { "de": "Wie lange bleiben Sie?",      "en": "How long are you staying?" },
+              { "de": "Wo kommen Sie her?",          "en": "Where are you from?" },
+              { "de": "Sind Sie geschäftlich hier?", "en": "Are you here on business?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "luecken",
+          "data": {
+            "sentence": "한국 처음 ___ .",
+            "options": ["이에요", "예요", "이요", "에요"],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Eine Woche.",
+            "promptEn": "A week.",
+            "options": [
+              { "ko": "일주일이요." },
+              { "ko": "처음이에요." },
+              { "ko": "관광이에요." },
+              { "ko": "여권이요." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "외국인 입국심사",
+          "de": "Einreise als Ausländer",
+          "en": "Immigration as a foreigner"
+        },
+        "body": {
+          "ko": "",
+          "de": "Incheon hat separate Linien für Ausländer (foreigners). Beamte sprechen oft Englisch, aber kurze koreanische Antworten zaubern ein Lächeln. Kurz und höflich = perfekt. Du brauchst keine langen Sätze — '관광이에요. 일주일이요' reicht.",
+          "en": "Incheon has separate lines for foreigners. Officers often speak English, but short Korean answers earn smiles. Brief and polite = perfect. No long sentences needed — '관광이에요. 일주일이요' is enough."
+        }
+      }
+    },
+
+    {
+      "id": "introduce_yourself",
+      "level": "a1",
+      "emoji": "👋",
+      "register": "polite",
+      "sidekick": "minsu",
+      "xpReward": 130,
+      "title": {
+        "ko": "자기소개",
+        "de": "Sich vorstellen",
+        "en": "Introducing yourself"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Erster Arbeitstag in Seoul. Du triffst einen neuen Kollegen, Minsu. Eine kurze Vorstellung steht an — auf Koreanisch.",
+        "en": "First day at work in Seoul. You meet a new coworker, Minsu. A short intro coming up — in Korean."
+      },
+      "vocab": [
+        {
+          "korean": "처음 뵙겠습니다",
+          "note": {
+            "ko": "",
+            "de": "Sehr formelle Erstbegrüßung — wörtlich 'ich sehe Sie zum ersten Mal'. Bei Vorstellungen Pflicht.",
+            "en": "Very formal first greeting — literally 'I see you for the first time'. Essential when introducing yourself."
+          }
+        },
+        {
+          "korean": "저는",
+          "note": {
+            "ko": "",
+            "de": "ich (höflich) + Topic-Partikel 는. Höflicher als 나.",
+            "en": "I (polite) + topic particle 는. More polite than 나."
+          }
+        },
+        {
+          "korean": "어디서 오셨어요",
+          "note": {
+            "ko": "",
+            "de": "Woher kommen Sie? Direkter Klassiker beim Kennenlernen.",
+            "en": "Where are you from? Classic ice-breaker."
+          }
+        },
+        {
+          "korean": "살아요",
+          "note": {
+            "ko": "",
+            "de": "wohne / lebe (von 살다). Mit Ort: 베를린에 살아요.",
+            "en": "live / reside (from 살다). With place: 베를린에 살아요."
+          }
+        },
+        {
+          "korean": "만나서 반갑습니다",
+          "note": {
+            "ko": "",
+            "de": "Freut mich, Sie kennenzulernen. Formell.",
+            "en": "Pleased to meet you. Formal."
+          }
+        },
+        {
+          "korean": "잘 부탁드립니다",
+          "note": {
+            "ko": "",
+            "de": "Wörtlich 'bitte um Ihr Wohlwollen' — kein deutsches Äquivalent. Bei Vorstellungen, neuen Beziehungen, Bitten. Siehe Kulturnotiz.",
+            "en": "Literally 'please treat me kindly' — no English equivalent. Used in intros, new relationships, requests. See culture note."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N은/는 + N이에요/예요",
+          "de": "Thema + Kopula (저는 …이에요)",
+          "en": "Topic + copula (저는 …이에요)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Topic-Partikel: 은 nach Konsonant, 는 nach Vokal. 저 endet auf Vokal → 저는. Kopula folgt der gleichen Regel: 이에요 nach Konsonant, 예요 nach Vokal.",
+          "en": "Topic particle: 은 after consonant, 는 after vowel. 저 ends in vowel → 저는. Copula follows same rule: 이에요 after consonant, 예요 after vowel."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "안녕하세요. 처음 뵙겠습니다.",
+          "de": "Hallo. Freut mich, Sie kennenzulernen.",
+          "en": "Hello. Nice to meet you."
+        },
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 저는 [이름]이에요.",
+          "de": "Hallo. Ich bin [Name].",
+          "en": "Hello. I'm [Name]."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "어디서 오셨어요?",
+          "de": "Woher kommen Sie?",
+          "en": "Where are you from?"
+        },
+        {
+          "speaker": "user",
+          "ko": "독일에서 왔어요. 베를린에 살아요.",
+          "de": "Aus Deutschland. Ich wohne in Berlin.",
+          "en": "From Germany. I live in Berlin."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "만나서 반갑습니다. 잘 부탁드립니다.",
+          "de": "Freut mich. Auf gute Zusammenarbeit.",
+          "en": "Pleased to meet you. Looking forward to working together."
+        },
+        {
+          "speaker": "user",
+          "ko": "저도요. 잘 부탁드립니다.",
+          "de": "Ich mich auch. Bitte um Ihre Unterstützung.",
+          "en": "Likewise. I look forward to your guidance."
+        }
+      ],
+      "quests": [
+        {
+          "type": "particlePop",
+          "data": {
+            "prefix": "저",
+            "suffix": "[이름]이에요.",
+            "options": ["은", "는", "이", "가", "을", "를"],
+            "correctIndex": 1,
+            "explanationDe": "저 endet auf Vokal → Topic-Partikel 는 (nicht 은). Kombination 저는 ist Standard für höfliche Selbstvorstellung.",
+            "explanationEn": "저 ends in vowel → topic particle 는 (not 은). 저는 is the standard polite self-intro."
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Woher kommen Sie?",
+            "promptEn": "Where are you from?",
+            "options": [
+              { "ko": "어디서 오셨어요?" },
+              { "ko": "어디에 사세요?" },
+              { "ko": "이름이 뭐예요?" },
+              { "ko": "한국 처음이세요?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "잘 부탁드립니다.",
+            "options": [
+              { "de": "Auf gute Zusammenarbeit / freue mich.",     "en": "Looking forward to working with you." },
+              { "de": "Vielen Dank für alles.",                    "en": "Thank you for everything." },
+              { "de": "Bis bald, tschüss.",                        "en": "See you later." },
+              { "de": "Es tut mir sehr leid.",                     "en": "I'm very sorry." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "잘 부탁드립니다 — 한국식 관계",
+          "de": "Warum '잘 부탁드립니다'?",
+          "en": "Why '잘 부탁드립니다'?"
+        },
+        "body": {
+          "ko": "",
+          "de": "Wörtlich 'bitte behandelt mich gut' — kein 1:1 Äquivalent. Du sagst es bei Vorstellungen, neuen Jobs, Bitten, manchmal sogar in E-Mails. Spiegelt die koreanische Beziehungskultur: 'Wir sind jetzt verbunden, lass uns gut miteinander umgehen.' Klingt vielleicht übertrieben — aber lass es NICHT weg. Ohne dieses Phrase fehlt etwas.",
+          "en": "Literally 'please treat me well' — no English equivalent. Said at intros, new jobs, requests, even in emails sometimes. Reflects Korean relational culture: 'We're connected now, let's be good to each other.' Might feel excessive — but don't skip it. Without it, something feels missing."
+        }
+      }
+    },
+
+    {
+      "id": "warm_encouragement",
+      "level": "b1",
+      "emoji": "💗",
+      "register": "intimate",
+      "sidekick": "partner",
+      "xpReward": 150,
+      "title": {
+        "ko": "응원의 말",
+        "de": "Warme Aufmunterung",
+        "en": "Warm encouragement"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Dein Partner hatte einen miesen Tag. 'Heute war so hart...' — wie tröstest du auf Koreanisch? Tipp: Koreanisch tröstet anders als Deutsch.",
+        "en": "Your partner had a rough day. 'Today was so hard...' — how do you comfort in Korean? Hint: Korean comforting is different from English."
+      },
+      "vocab": [
+        {
+          "korean": "힘들었지",
+          "note": {
+            "ko": "",
+            "de": "Es war hart für dich, oder? Anerkennung des Leidens. Nicht 'es wird besser' — sondern 'ich sehe dass es schwer war'.",
+            "en": "It was hard for you, wasn't it? Acknowledgment of suffering. Not 'it'll get better' — but 'I see it was tough'."
+          }
+        },
+        {
+          "korean": "괜찮아",
+          "note": {
+            "ko": "",
+            "de": "Es ist ok. Vielseitig — Trost, Ablehnung, 'kein Problem'.",
+            "en": "It's ok. Versatile — comfort, refusal, 'no worries'."
+          }
+        },
+        {
+          "korean": "내가 있잖아",
+          "note": {
+            "ko": "",
+            "de": "Ich bin doch da. 잖아 = 'you know that' / Erinnerung. Klassische Trost-Phrase.",
+            "en": "I'm here, you know? 잖아 = 'remember' / reminder. Classic comfort phrase."
+          }
+        },
+        {
+          "korean": "다 잘 될 거야",
+          "note": {
+            "ko": "",
+            "de": "Alles wird gut werden. 될 거야 = Zukunfts-Vorhersage.",
+            "en": "Everything will be ok. 될 거야 = future prediction."
+          }
+        },
+        {
+          "korean": "안아줄게",
+          "note": {
+            "ko": "",
+            "de": "Ich umarme dich. V-아/어 줄게 = 'ich werde V für dich tun' (Versprechen).",
+            "en": "I'll hug you. V-아/어 줄게 = 'I'll do V for you' (promise)."
+          }
+        },
+        {
+          "korean": "자랑스러워",
+          "note": {
+            "ko": "",
+            "de": "Ich bin stolz (auf dich). Stärkere Variante: 정말 자랑스러워.",
+            "en": "I'm proud (of you). Stronger version: 정말 자랑스러워."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 줄게",
+          "de": "V-아/어 줄게 (Versprechen)",
+          "en": "V-아/어 줄게 (promise)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Wörtlich 'ich werde V für dich tun'. Drückt eine freundliche Zusage aus. ㅏ/ㅗ-Vokal → 아 줄게: 안다 → 안아줄게. Andere Vokale → 어 줄게: 만들다 → 만들어줄게. Sehr warmherzig, oft im intimen Kontext.",
+          "en": "Literally 'I'll do V for you'. Expresses a kind commitment. ㅏ/ㅗ vowel → 아 줄게: 안다 → 안아줄게. Other vowels → 어 줄게: 만들다 → 만들어줄게. Very warm, often intimate."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "partner",
+          "ko": "오늘 정말 힘들었어. 다 그만두고 싶어.",
+          "de": "Heute war so hart. Ich will alles hinschmeißen.",
+          "en": "Today was so hard. I want to quit everything."
+        },
+        {
+          "speaker": "user",
+          "ko": "힘들었지... 이리 와. 안아줄게.",
+          "de": "Du hattest es schwer... Komm her. Ich umarme dich.",
+          "en": "It was tough, right... Come here. Let me hug you."
+        },
+        {
+          "speaker": "partner",
+          "ko": "...고마워. 어떻게 알았어?",
+          "de": "...danke. Woher wusstest du das?",
+          "en": "...thanks. How did you know?"
+        },
+        {
+          "speaker": "user",
+          "ko": "표정 보면 알지. 내가 있잖아. 다 잘 될 거야.",
+          "de": "Ich sehe es an deinem Gesicht. Ich bin doch da. Alles wird gut.",
+          "en": "I can tell from your face. I'm here, remember? Everything will be ok."
+        },
+        {
+          "speaker": "partner",
+          "ko": "사랑해.",
+          "de": "Ich liebe dich.",
+          "en": "I love you."
+        },
+        {
+          "speaker": "user",
+          "ko": "나도. 너무 사랑해. 자랑스러워.",
+          "de": "Ich dich auch. Sehr. Bin stolz auf dich.",
+          "en": "Me too. So much. I'm proud of you."
+        }
+      ],
+      "quests": [
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich bin doch da. (Trost-Phrase)",
+            "promptEn": "I'm here, remember? (comfort phrase)",
+            "options": [
+              { "ko": "내가 있잖아." },
+              { "ko": "다 그만두고 싶어." },
+              { "ko": "표정 보면 알지." },
+              { "ko": "어떻게 알았어?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "luecken",
+          "data": {
+            "sentence": "다 잘 ___ 거야.",
+            "options": ["될", "할", "되는", "한"],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "자랑스러워.",
+            "options": [
+              { "de": "Ich bin stolz (auf dich).", "en": "I'm proud (of you)." },
+              { "de": "Ich vermisse dich.",         "en": "I miss you." },
+              { "de": "Es tut mir leid.",           "en": "I'm sorry." },
+              { "de": "Bin müde.",                  "en": "I'm tired." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "한국식 위로",
+          "de": "Koreanisch trösten",
+          "en": "Comforting Korean-style"
+        },
+        "body": {
+          "ko": "",
+          "de": "Westliche Reaktion auf 'es war hart': 'Du schaffst das!' Koreanische Reaktion: '힘들었지' (es war schwer, oder?) — erst die Schwierigkeit anerkennen, dann Präsenz versichern ('내가 있잖아'). Lösungsvorschläge erst viel später. Empathie vor Lösung. Das ist keine kulturelle Etikette — es ist genuine emotionale Strategie und funktioniert verdammt gut.",
+          "en": "Western reaction to 'it was hard': 'You got this!' Korean reaction: '힘들었지' (it was hard, wasn't it?) — first acknowledge the difficulty, then reassure presence ('내가 있잖아'). Solutions come much later. Empathy before fixing. Not just etiquette — it's genuine emotional strategy that works damn well."
+        }
+      }
+    },
+
+    {
+      "id": "couple_argument",
+      "level": "b1",
+      "emoji": "💢",
+      "register": "intimate",
+      "sidekick": "partner",
+      "xpReward": 150,
+      "title": {
+        "ko": "연인과 다툴 때",
+        "de": "Beim Streit mit dem Partner",
+        "en": "When you argue with your partner"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Dein Partner ist sauer. Du hast gestern nicht geantwortet. Wie navigierst du diese koreanische Streitkultur — anerkennen, entschuldigen, konkret werden?",
+        "en": "Your partner is upset. You didn't reply yesterday. How do you navigate Korean argument culture — acknowledge, apologize, get specific?"
+      },
+      "vocab": [
+        {
+          "korean": "서운해",
+          "note": {
+            "ko": "",
+            "de": "Verletzt / enttäuscht — kein 1:1 deutsches Wort. Schwächer als 화나 (sauer), persönlicher als 슬퍼 (traurig). Sehr koreanisch.",
+            "en": "Hurt / disappointed — no 1:1 English word. Softer than 화나 (angry), more personal than 슬퍼 (sad). Very Korean."
+          }
+        },
+        {
+          "korean": "미안해",
+          "note": {
+            "ko": "",
+            "de": "Es tut mir leid (informell). Stärker: 정말 미안해.",
+            "en": "I'm sorry (informal). Stronger: 정말 미안해."
+          }
+        },
+        {
+          "korean": "내가 잘못했어",
+          "note": {
+            "ko": "",
+            "de": "Ich habe einen Fehler gemacht / Mein Fehler. Konkrete Übernahme der Schuld — wichtiger als bloßes 미안해.",
+            "en": "I made a mistake / My fault. Concrete ownership — more meaningful than just 미안해."
+          }
+        },
+        {
+          "korean": "일부러 그런 거 아니야",
+          "note": {
+            "ko": "",
+            "de": "Das war nicht meine Absicht. 일부러 = absichtlich.",
+            "en": "I didn't do it on purpose. 일부러 = intentionally."
+          }
+        },
+        {
+          "korean": "잠들었어",
+          "note": {
+            "ko": "",
+            "de": "Bin eingeschlafen. Häufige Ausrede :)",
+            "en": "I fell asleep. Common excuse :)"
+          }
+        },
+        {
+          "korean": "다음부터는",
+          "note": {
+            "ko": "",
+            "de": "Von jetzt an / ab dem nächsten Mal. Konkrete Wiedergutmachung.",
+            "en": "From now on / next time. Concrete repair."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄴ 거 아니야",
+          "de": "V-(으)ㄴ 거 아니야 (Verneinung der Absicht)",
+          "en": "V-(으)ㄴ 거 아니야 (denying intent)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Wörtlich 'es ist nicht so, dass ich V getan habe'. Zur Klarstellung der Absicht. Mit Adverb 일부러 (absichtlich): 일부러 그런 거 아니야 = 'das war nicht meine Absicht'. ㄹ-Endung: 만들 + 거 → 만든 거 아니야.",
+          "en": "Literally 'it's not that I did V'. Used to clarify intent. With adverb 일부러 (intentionally): 일부러 그런 거 아니야 = 'I didn't do it on purpose'. ㄹ-ending: 만들 + 거 → 만든 거 아니야."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "partner",
+          "ko": "왜 어제 답장 안 했어? 진짜 서운해.",
+          "de": "Warum hast du gestern nicht geantwortet? Bin echt verletzt.",
+          "en": "Why didn't you reply yesterday? I'm really hurt."
+        },
+        {
+          "speaker": "user",
+          "ko": "미안해... 일부러 그런 거 아니야. 잠들었어.",
+          "de": "Tut mir leid... War nicht meine Absicht. Bin eingeschlafen.",
+          "en": "I'm sorry... Wasn't on purpose. I fell asleep."
+        },
+        {
+          "speaker": "partner",
+          "ko": "그래도 한 번 정도는 답장할 수 있었잖아.",
+          "de": "Aber einmal hättest du doch antworten können.",
+          "en": "Still, you could've replied at least once."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 내가 잘못했어. 다음부터는 자기 전에 답장할게.",
+          "de": "Stimmt. Mein Fehler. Antworte ich nächstes Mal vorm Schlafen.",
+          "en": "You're right. My fault. Next time I'll reply before sleeping."
+        },
+        {
+          "speaker": "partner",
+          "ko": "... 알았어. 미안하다고 했으니까.",
+          "de": "...ok. Du hast dich ja entschuldigt.",
+          "en": "...alright. Since you apologized."
+        },
+        {
+          "speaker": "user",
+          "ko": "정말 미안해. 사랑해.",
+          "de": "Tut mir wirklich leid. Liebe dich.",
+          "en": "Really sorry. I love you."
+        }
+      ],
+      "quests": [
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Mein Fehler. (volle Schuldübernahme)",
+            "promptEn": "My fault. (full ownership)",
+            "options": [
+              { "ko": "내가 잘못했어." },
+              { "ko": "일부러 그런 거 아니야." },
+              { "ko": "진짜 서운해." },
+              { "ko": "다음부터는 답장할게." }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "particlePop",
+          "data": {
+            "prefix": "왜 어제 답장",
+            "suffix": "했어?",
+            "options": ["안", "도", "만", "이", "는", "을"],
+            "correctIndex": 0,
+            "explanationDe": "안 vor dem Verb = Verneinung ('nicht'). 안 했어 = 'hast nicht gemacht'. Alternative: V-지 않다 (formaler).",
+            "explanationEn": "안 before the verb = negation ('didn't'). 안 했어 = 'didn't do'. Alternative: V-지 않다 (more formal)."
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "일부러 그런 거 아니야.",
+            "options": [
+              { "de": "Das war nicht meine Absicht.",   "en": "I didn't do it on purpose." },
+              { "de": "Ich habe es absichtlich getan.", "en": "I did it on purpose." },
+              { "de": "Es war wirklich schwer.",         "en": "It was really hard." },
+              { "de": "Ich verstehe dich nicht.",       "en": "I don't understand you." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "한국식 사과 — 구체적으로",
+          "de": "Koreanisch entschuldigen",
+          "en": "Apologizing Korean-style"
+        },
+        "body": {
+          "ko": "",
+          "de": "Wenn dein koreanischer Partner '괜찮아' sagt, aber Gesicht und Ton sagen das Gegenteil — glaub dem Gesicht. '괜찮아' ist oft höflicher Schutzschild. Was wirklich heilt: anerkennen ('서운했지') + Schuldübernahme ('내가 잘못했어') + konkrete Zukunft ('다음부터는...'). Vage Entschuldigung = leerer Trost. Konkret werden = ernst meinen.",
+          "en": "When your Korean partner says '괜찮아' but face and tone say otherwise — believe the face. '괜찮아' is often a polite shield. What actually heals: acknowledge ('서운했지') + take blame ('내가 잘못했어') + concrete future ('다음부터는...'). Vague apology = empty comfort. Get specific = mean it."
+        }
+      }
     }
   ]
 }
