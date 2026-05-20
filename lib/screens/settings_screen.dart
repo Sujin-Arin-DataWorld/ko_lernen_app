@@ -6,6 +6,8 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
+import '../services/auth_service.dart';
+import '../services/cloud_sync.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -89,6 +91,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
 
+          // ── Cloud-Backup (Firebase Auth) ──
+          _Section(label: 'Cloud-Backup'),
+          ListTile(
+            leading: const Icon(Icons.cloud_outlined, color: AppColors.primary),
+            title: Text(AuthService.isGoogleLinked
+                ? 'Eingeloggt: ${AuthService.displayName ?? "Google"}'
+                : 'Mit Google sichern'),
+            subtitle: Text(AuthService.isGoogleLinked
+                ? 'Daten werden in der Cloud gesichert'
+                : 'Damit überlebt dein Fortschritt einen Handywechsel'),
+            onTap: _onGoogleTap,
+          ),
+          if (AuthService.isGoogleLinked) ...[
+            ListTile(
+              leading: const Icon(Icons.cloud_upload_outlined),
+              title:   const Text('Jetzt sichern'),
+              onTap: () async {
+                await CloudSync.backup();
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Backup erfolgreich ✓'), duration: Duration(seconds: 2)),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.cloud_download_outlined),
+              title:   const Text('Von Cloud wiederherstellen'),
+              onTap: () async {
+                final ok = await CloudSync.restore();
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(ok ? 'Wiederhergestellt ✓' : 'Keine Cloud-Daten')),
+                );
+                setState(() {});
+              },
+            ),
+          ],
+
           // ── Werbung ──
           _Section(label: 'Anzeigen'),
           SwitchListTile(
@@ -123,6 +163,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   String _appVersion() => '1.0.0';
+
+  Future<void> _onGoogleTap() async {
+    try {
+      if (AuthService.isGoogleLinked) {
+        await AuthService.signOut();
+      } else {
+        final user = await AuthService.linkWithGoogle();
+        if (user != null) {
+          await CloudSync.backup();
+        }
+      }
+      if (mounted) setState(() {});
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Anmeldung fehlgeschlagen: $e')),
+      );
+    }
+  }
 
   void _confirmReset() {
     final t = AppL10n.of(context);

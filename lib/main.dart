@@ -5,6 +5,8 @@ import 'theme.dart';
 import 'services/storage_service.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
+import 'services/auth_service.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/home_screen.dart';
 import 'screens/vocab_screen.dart';
@@ -22,6 +24,10 @@ Future<void> main() async {
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
   await Storage.touchStreak();
+
+  // Firebase best-effort — schlägt fehl wenn google-services.json fehlt
+  // ignore: discarded_futures, unawaited_futures
+  _initFirebase();
 
   // AdMob best-effort initialisieren (im Hintergrund)
   // ignore: discarded_futures, unawaited_futures
@@ -43,6 +49,17 @@ Future<void> main() async {
   );
 
   runApp(const KoLernenApp());
+}
+
+Future<void> _initFirebase() async {
+  try {
+    await Firebase.initializeApp();
+    await AuthService.ensureSignedIn();
+  } catch (e) {
+    // google-services.json fehlt → Cloud-Sync deaktiviert, lokale App funktioniert weiter
+    // ignore: avoid_print
+    print('Firebase init skipped: $e');
+  }
 }
 
 Future<void> _initAds() async {
