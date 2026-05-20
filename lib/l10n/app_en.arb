@@ -271,5 +271,13 @@
   "settingsThemeTitle": "Appearance",
   "settingsThemeSystem": "System default",
   "settingsThemeLight": "Light",
-  "settingsThemeDark": "Dark"
+  "settingsThemeDark": "Dark",
+
+  "dailyCharTitle": "Letter of the day",
+  "dailyCharSubtitle": "1-min trace",
+  "dailyCharDoneToday": "Done today ✓",
+  "dailyCharFinish": "Done",
+  "dailyCharStreak": "{n} days total",
+  "@dailyCharStreak": { "placeholders": { "n": { "type": "int" } } },
+  "dailyCharGreatJob": "Nice!"
 }

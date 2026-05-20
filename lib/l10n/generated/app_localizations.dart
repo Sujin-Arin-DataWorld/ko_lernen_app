@@ -1422,6 +1422,42 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dunkel'**
   String get settingsThemeDark;
+
+  /// No description provided for @dailyCharTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchstabe des Tages'**
+  String get dailyCharTitle;
+
+  /// No description provided for @dailyCharSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'1 Min nachzeichnen'**
+  String get dailyCharSubtitle;
+
+  /// No description provided for @dailyCharDoneToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute geschafft ✓'**
+  String get dailyCharDoneToday;
+
+  /// No description provided for @dailyCharFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Fertig'**
+  String get dailyCharFinish;
+
+  /// No description provided for @dailyCharStreak.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Tage gesamt'**
+  String dailyCharStreak(int n);
+
+  /// No description provided for @dailyCharGreatJob.
+  ///
+  /// In de, this message translates to:
+  /// **'Super!'**
+  String get dailyCharGreatJob;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

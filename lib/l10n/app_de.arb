@@ -271,5 +271,13 @@
   "settingsThemeTitle": "Erscheinungsbild",
   "settingsThemeSystem": "Systemvorgabe",
   "settingsThemeLight": "Hell",
-  "settingsThemeDark": "Dunkel"
+  "settingsThemeDark": "Dunkel",
+
+  "dailyCharTitle": "Buchstabe des Tages",
+  "dailyCharSubtitle": "1 Min nachzeichnen",
+  "dailyCharDoneToday": "Heute geschafft ✓",
+  "dailyCharFinish": "Fertig",
+  "dailyCharStreak": "{n} Tage gesamt",
+  "@dailyCharStreak": { "placeholders": { "n": { "type": "int" } } },
+  "dailyCharGreatJob": "Super!"
 }

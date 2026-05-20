@@ -3,8 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/scenario.dart';
+import '../services/daily_char_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
+import 'daily_char_sheet.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/mascot.dart';
@@ -92,6 +94,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 xp: Storage.xp,
                 level: Storage.xpLevel,
                 xpToNext: Storage.xpToNext,
+              ),
+              const SizedBox(height: Spacing.md),
+
+              // ── Daily Calligraphy (오늘의 글자) ─────────────────
+              _DailyCharCard(
+                char: DailyCharService.today(),
+                doneToday: Storage.calligraphyDoneToday,
+                onTap: () => showDailyCharSheet(context).then((_) {
+                  if (mounted) setState(() {});  // refresh "done" state
+                }),
               ),
               const SizedBox(height: Spacing.xl),
 
@@ -564,6 +576,93 @@ class _MiniModuleCard extends StatelessWidget {
 }
 
 // ─── Section Label ───────────────────────────────────────────────────────
+
+/// Daily Calligraphy compact card — char + "오늘의 글자" + status
+class _DailyCharCard extends StatelessWidget {
+  final String char;
+  final bool doneToday;
+  final VoidCallback onTap;
+
+  const _DailyCharCard({required this.char, required this.doneToday, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.hangul,
+      tinted: !doneToday,
+      onTap: onTap,
+      child: Row(
+        children: [
+          // Char display
+          Container(
+            width: 48, height: 48,
+            decoration: BoxDecoration(
+              color: SoriColors.hangul.withValues(alpha: 0.20),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              char,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 26,
+                fontWeight: FontWeight.w900,
+                color: SoriColors.hangul,
+                height: 1,
+              ),
+            ),
+          ),
+          const SizedBox(width: Spacing.md),
+          // Title + subtitle
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  t.dailyCharTitle,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  doneToday ? t.dailyCharDoneToday : t.dailyCharSubtitle,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 11.5,
+                    color: doneToday ? SoriColors.success : s.textMuted,
+                    fontWeight: doneToday ? FontWeight.w700 : FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // Done badge or chevron
+          if (doneToday)
+            Container(
+              padding: const EdgeInsets.all(6),
+              decoration: const BoxDecoration(
+                color: SoriColors.success,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(Icons.check_rounded, color: Colors.white, size: 14),
+            )
+          else
+            Icon(Icons.chevron_right_rounded, color: SoriColors.hangul.withValues(alpha: 0.7)),
+        ],
+      ),
+    );
+  }
+}
 
 /// Hero card avatar — sidekick mascot if known, else emoji tile.
 class _ScenarioAvatar extends StatelessWidget {

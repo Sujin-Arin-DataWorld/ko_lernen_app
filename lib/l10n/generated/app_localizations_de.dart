@@ -719,4 +719,24 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsThemeDark => 'Dunkel';
+
+  @override
+  String get dailyCharTitle => 'Buchstabe des Tages';
+
+  @override
+  String get dailyCharSubtitle => '1 Min nachzeichnen';
+
+  @override
+  String get dailyCharDoneToday => 'Heute geschafft ✓';
+
+  @override
+  String get dailyCharFinish => 'Fertig';
+
+  @override
+  String dailyCharStreak(int n) {
+    return '$n Tage gesamt';
+  }
+
+  @override
+  String get dailyCharGreatJob => 'Super!';
 }

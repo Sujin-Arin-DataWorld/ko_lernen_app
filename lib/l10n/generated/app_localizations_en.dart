@@ -718,4 +718,24 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsThemeDark => 'Dark';
+
+  @override
+  String get dailyCharTitle => 'Letter of the day';
+
+  @override
+  String get dailyCharSubtitle => '1-min trace';
+
+  @override
+  String get dailyCharDoneToday => 'Done today ✓';
+
+  @override
+  String get dailyCharFinish => 'Done';
+
+  @override
+  String dailyCharStreak(int n) {
+    return '$n days total';
+  }
+
+  @override
+  String get dailyCharGreatJob => 'Nice!';
 }

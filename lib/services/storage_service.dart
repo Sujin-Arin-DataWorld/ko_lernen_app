@@ -145,6 +145,18 @@ class Storage {
   static String get themeMode => _s('kl_theme_mode');
   static Future<void> setThemeMode(String v) => _ss('kl_theme_mode', v);
 
+  /// Daily Calligraphy — Liste der ISO-Daten (YYYY-MM-DD) an denen geübt wurde.
+  static List<String> get calligraphyDates => _l('kl_callig_dates');
+  static Future<void> addCalligraphyDate(String iso) async {
+    final list = calligraphyDates;
+    if (!list.contains(iso)) {
+      list.add(iso);
+      await _sl('kl_callig_dates', list);
+    }
+  }
+  static bool get calligraphyDoneToday => calligraphyDates.contains(_today());
+  static int get calligraphyTotalDays => calligraphyDates.length;
+
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 
