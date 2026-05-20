@@ -88,10 +88,10 @@ Hangul Sori ist kein weiteres überladenes Sprachlern-Tool. Inspiriert vom Köni
 
 📩 FEEDBACK
 
-Wir sind ein winziges Team aus Berlin. Schreib uns:
+Wir sind ein winziges Team in Deutschland. Schreib uns:
 hello@hangul-sori.com
 
-Made in Berlin · 안녕하세요!
+Made in Germany · 안녕하세요!
 ```
 **Länge: ~2300/4000** ✓
 
@@ -166,10 +166,10 @@ Hangul Sori isn't yet another bloated language learning tool. Inspired by King S
 
 📩 FEEDBACK
 
-We're a tiny team based in Berlin. Reach us:
+We're a tiny team based in Germany. Reach us:
 hello@hangul-sori.com
 
-Made in Berlin · 안녕하세요!
+Made in Germany · 안녕하세요!
 ```
 
 ### SEO Keywords (en-US)
@@ -191,7 +191,7 @@ Made in Berlin · 안녕하세요!
 ```
 🇰🇷 한글소리 — 한국어를 배우는 외국인을 위한 앱
 
-한글소리는 한국어를 처음 만나는 외국인을 위해 베를린에서 시작된 작은 프로젝트입니다. 독일인 남자친구가 한국어를 배우는 모습을 보며 만든, 진짜로 쓰기 쉬운 학습 도구입니다.
+한글소리는 한국어를 처음 만나는 외국인을 위해 독일에서 시작된 작은 프로젝트입니다. 독일인 남자친구가 한국어를 배우는 모습을 보며 만든, 진짜로 쓰기 쉬운 학습 도구입니다.
 
 ✨ 핵심 기능
 
@@ -222,7 +222,7 @@ Made in Berlin · 안녕하세요!
 🎁 외국인 친구·연인·자녀에게 선물해 주세요
 📩 피드백: hello@hangul-sori.com
 
-Made in Berlin · 만든 사람: 한국인 + 독일인 커플 ❤️
+Made in Germany · 만든 사람: 한국인 + 독일인 커플 ❤️
 ```
 
 ---

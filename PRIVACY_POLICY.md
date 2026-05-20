@@ -20,7 +20,7 @@
 
 ### 1. Introduction
 
-This Privacy Policy describes how **Hangul Sori** ("we", "our", or "the App"), developed by **Sujin Arin DataWorld** (Berlin, Germany), collects, uses, and protects your information when you use our mobile application.
+This Privacy Policy describes how **Hangul Sori** ("we", "our", or "the App"), developed by **Sujin Arin DataWorld** (Frankfurt am Main, Germany), collects, uses, and protects your information when you use our mobile application.
 
 By using Hangul Sori, you agree to the practices described in this policy.
 
@@ -121,7 +121,7 @@ We may update this Privacy Policy. Changes will be reflected in the "Last Update
 
 **Data Controller:**
 Sujin Park (Sujin Arin DataWorld)
-Berlin, Germany
+Frankfurt am Main, Germany
 Email: **hello@hangul-sori.com**
 
 ---
@@ -132,7 +132,7 @@ Email: **hello@hangul-sori.com**
 
 ### 1. Einleitung
 
-Diese Datenschutzerklärung beschreibt, wie **Hangul Sori** ("wir", "uns" oder "die App"), entwickelt von **Sujin Arin DataWorld** (Berlin, Deutschland), Ihre Informationen bei der Nutzung unserer mobilen Anwendung erhebt, verwendet und schützt.
+Diese Datenschutzerklärung beschreibt, wie **Hangul Sori** ("wir", "uns" oder "die App"), entwickelt von **Sujin Arin DataWorld** (Frankfurt am Main, Deutschland), Ihre Informationen bei der Nutzung unserer mobilen Anwendung erhebt, verwendet und schützt.
 
 Durch die Nutzung von Hangul Sori stimmen Sie den in dieser Richtlinie beschriebenen Praktiken zu.
 
@@ -233,7 +233,7 @@ Wir können diese Datenschutzerklärung aktualisieren. Änderungen werden im Dat
 
 **Verantwortlicher (Art. 4 Nr. 7 DSGVO):**
 Sujin Park (Sujin Arin DataWorld)
-Berlin, Deutschland
+Frankfurt am Main, Deutschland
 E-Mail: **hello@hangul-sori.com**
 
 ---
