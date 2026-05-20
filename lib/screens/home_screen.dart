@@ -7,6 +7,7 @@ import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tokens.dart';
@@ -355,15 +356,7 @@ class _TodayScenarioCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Container(
-                width: 56, height: 56,
-                decoration: BoxDecoration(
-                  color: SoriColors.primary.withValues(alpha: 0.18),
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                ),
-                alignment: Alignment.center,
-                child: Text(scenario!.emoji, style: const TextStyle(fontSize: 32)),
-              ),
+              _ScenarioAvatar(emoji: scenario!.emoji, sidekick: scenario!.sidekick),
               const SizedBox(width: Spacing.md),
               Expanded(
                 child: Column(
@@ -571,6 +564,27 @@ class _MiniModuleCard extends StatelessWidget {
 }
 
 // ─── Section Label ───────────────────────────────────────────────────────
+
+/// Hero card avatar — sidekick mascot if known, else emoji tile.
+class _ScenarioAvatar extends StatelessWidget {
+  final String emoji;
+  final String? sidekick;
+  const _ScenarioAvatar({required this.emoji, this.sidekick});
+
+  @override
+  Widget build(BuildContext context) {
+    final mascot = Mascot.forSpeaker(sidekick ?? '', size: 56, emotion: MascotEmotion.smile);
+    return Container(
+      width: 64, height: 64,
+      decoration: BoxDecoration(
+        color: SoriColors.primary.withValues(alpha: 0.18),
+        borderRadius: BorderRadius.circular(SoriRadius.md),
+      ),
+      alignment: Alignment.center,
+      child: mascot ?? Text(emoji, style: const TextStyle(fontSize: 32)),
+    );
+  }
+}
 
 class _SectionLabel extends StatelessWidget {
   final String label;

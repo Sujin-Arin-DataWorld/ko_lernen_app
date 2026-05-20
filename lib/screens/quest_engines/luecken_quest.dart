@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../theme.dart';
+import '../../widgets/sori/mascot_pop.dart';
 import 'quest_models.dart';
 
 /// Lückentext-Quest: Satz mit ___ → 4 Chips tippen, Lücke füllen.
@@ -23,6 +24,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
   int _selected = -1;
   int _tries = 0;
   bool _completed = false;
+  bool _celebrated = false;
   String? _filledWord;
 
   String get _sentence => (widget.data['sentence'] as String?) ?? '';
@@ -45,7 +47,10 @@ class _LueckenQuestState extends State<LueckenQuest> {
 
     if (isCorrect) {
       HapticFeedback.lightImpact();
-      setState(() => _completed = true);
+      setState(() {
+        _completed = true;
+        _celebrated = true;
+      });
       await Future<void>.delayed(const Duration(milliseconds: 1200));
       if (mounted) widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
     } else {
@@ -137,7 +142,9 @@ class _LueckenQuestState extends State<LueckenQuest> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
+      children: [
+        Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // Satz mit Lücke
@@ -185,6 +192,13 @@ class _LueckenQuestState extends State<LueckenQuest> {
               ),
             );
           }).toList(),
+        ),
+      ],
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: MascotPop(visible: _celebrated, size: 56),
         ),
       ],
     );

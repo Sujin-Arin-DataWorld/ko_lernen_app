@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../theme.dart';
+import '../../widgets/sori/mascot_pop.dart';
 import 'quest_models.dart';
 
 /// Übersetzungs-Quest: DE/EN-Prompt → 4 koreanische Optionen.
@@ -23,6 +24,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
   int _selected = -1;
   int _tries = 0;
   bool _completed = false;
+  bool _celebrated = false;
 
   List<Map<String, dynamic>> get _options {
     final raw = widget.data['options'] as List? ?? const [];
@@ -46,7 +48,10 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
 
     if (isCorrect) {
       HapticFeedback.lightImpact();
-      setState(() => _completed = true);
+      setState(() {
+        _completed = true;
+        _celebrated = true;
+      });
       await Future<void>.delayed(const Duration(milliseconds: 1200));
       if (mounted) widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
     } else {
@@ -82,7 +87,9 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
   Widget build(BuildContext context) {
     final langCode = Localizations.localeOf(context).languageCode;
 
-    return Column(
+    return Stack(
+      children: [
+        Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // Prompt-Karte
@@ -164,6 +171,13 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
             ),
           );
         }),
+      ],
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: MascotPop(visible: _celebrated, size: 56),
+        ),
       ],
     );
   }

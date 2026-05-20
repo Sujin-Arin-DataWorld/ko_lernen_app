@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/tts_service.dart';
 import '../../theme.dart';
+import '../../widgets/sori/mascot_pop.dart';
 import 'quest_models.dart';
 
 /// Partikel-Pop Quest: Partikel per Drag & Drop in den Slot ziehen.
@@ -26,6 +27,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   int? _droppedIndex;
   int _tries = 0;
   bool _completed = false;
+  bool _celebrated = false;
   bool _wrongFlash = false;
   bool _showExplanation = false;
   late AnimationController _scaleCtrl;
@@ -80,6 +82,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       setState(() {
         _droppedIndex = idx;
         _completed = true;
+        _celebrated = true;
       });
       // Pulse-Animation
       await _scaleCtrl.forward();
@@ -309,7 +312,9 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
 
-    return Column(
+    return Stack(
+      children: [
+        Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // Hinweis
@@ -357,6 +362,13 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
 
         // Explanation Card
         _buildExplanation(langCode, t),
+      ],
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: MascotPop(visible: _celebrated, size: 56),
+        ),
       ],
     );
   }

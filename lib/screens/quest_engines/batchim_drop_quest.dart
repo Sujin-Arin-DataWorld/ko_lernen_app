@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/tts_service.dart';
 import '../../theme.dart';
+import '../../widgets/sori/mascot_pop.dart';
 import 'quest_models.dart';
 
 /// 받침 드롭 Quest: 빠진 받침을 4개 보기 중 선택.
@@ -38,6 +39,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   int? _selected;
   int _tries = 0;
   bool _completed = false;
+  bool _celebrated = false;
   bool _wrongFlash = false;
   bool _showExplanation = false;
   bool _passed = false;
@@ -118,6 +120,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         _selected = idx;
         _completed = true;
         _passed = true;
+        _celebrated = true;
       });
       await Future<void>.delayed(const Duration(seconds: 1));
       if (mounted) setState(() => _showExplanation = true);
@@ -384,7 +387,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
 
-    return Column(
+    return Stack(
+      children: [
+        Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // TTS 재생 버튼
@@ -448,6 +453,13 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
         // Explanation card
         _buildExplanation(langCode, t),
+      ],
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: MascotPop(visible: _celebrated, size: 56),
+        ),
       ],
     );
   }

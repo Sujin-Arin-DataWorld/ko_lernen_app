@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../services/tts_service.dart';
 import '../../theme.dart';
+import '../../widgets/sori/mascot_pop.dart';
 import 'quest_models.dart';
 
 /// Hörverstehen-Quest: TTS abspielen → 4 Optionen wählen.
@@ -24,6 +25,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   int _selected = -1;
   int _tries = 0;
   bool _completed = false;
+  bool _celebrated = false;
 
   List<Map<String, dynamic>> get _options {
     final raw = widget.data['options'] as List? ?? const [];
@@ -49,7 +51,10 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
 
     if (isCorrect) {
       HapticFeedback.lightImpact();
-      setState(() => _completed = true);
+      setState(() {
+        _completed = true;
+        _celebrated = true;
+      });
       await Future<void>.delayed(const Duration(milliseconds: 1200));
       if (mounted) widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
     } else {
@@ -86,7 +91,9 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   Widget build(BuildContext context) {
     final langCode = Localizations.localeOf(context).languageCode;
 
-    return Column(
+    return Stack(
+      children: [
+        Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // TTS-Button
@@ -174,6 +181,13 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
             ),
           );
         }),
+      ],
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: MascotPop(visible: _celebrated, size: 56),
+        ),
       ],
     );
   }
