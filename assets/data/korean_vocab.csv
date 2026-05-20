@@ -1,0 +1,527 @@
+korean,romanization,german,level,pos_de,example_korean,example_german,topic
+안녕하세요,annyeonghaseyo,Guten Tag / Hallo (formell),A1,Ausdruck,안녕하세요!,Guten Tag!,Begrüßung
+안녕,annyeong,Hallo / Tschüss (informell),A1,Ausdruck,안녕!,Hallo!,Begrüßung
+감사합니다,gamsahamnida,Vielen Dank (sehr formell),A1,Ausdruck,감사합니다!,Vielen Dank!,Höflichkeit
+고마워요,gomawoyo,Danke (informell),A1,Ausdruck,고마워요!,Danke!,Höflichkeit
+죄송합니다,joesonghamnida,Entschuldigung (formell),A1,Ausdruck,죄송합니다.,Entschuldigung.,Höflichkeit
+미안해요,mianhaeyo,Es tut mir leid,A1,Ausdruck,미안해요.,Es tut mir leid.,Höflichkeit
+괜찮아요,gwaenchanayo,Kein Problem / Es ist okay,A1,Ausdruck,괜찮아요?,Ist es okay?,Alltag
+네,ne,Ja,A1,Ausdruck,네 맞아요.,Ja das stimmt.,Alltag
+아니요,aniyo,Nein,A1,Ausdruck,아니요 틀려요.,Nein das ist falsch.,Alltag
+이름,ireum,Name,A1,Nomen,제 이름은 크리스티안이에요.,Mein Name ist Christian.,Person
+나이,nai,Alter,A1,Nomen,나이가 몇 살이에요?,Wie alt bist du?,Person
+나라,nara,Land,A1,Nomen,어느 나라 사람이에요?,Aus welchem Land kommst du?,Geographie
+학생,haksaeng,Student/Schüler,A1,Nomen,저는 학생이에요.,Ich bin Student.,Person
+선생님,seonsaengnim,Lehrer/in,A1,Nomen,선생님 감사합니다.,Danke Lehrerin.,Person
+친구,chingu,Freund/Freundin,A1,Nomen,제 친구예요.,Das ist mein Freund.,Beziehungen
+남자친구,namjachingu,Freund (Beziehung),A1,Nomen,남자친구가 있어요.,Ich habe einen Freund.,Beziehungen
+여자친구,yeojachingu,Freundin (Beziehung),A1,Nomen,여자친구가 있어요.,Ich habe eine Freundin.,Beziehungen
+가족,gajok,Familie,A1,Nomen,가족이 몇 명이에요?,Wie viele Familienmitglieder hast du?,Familie
+집,jip,Haus / Zuhause,A1,Nomen,집에 가요.,Ich gehe nach Hause.,Alltag
+학교,hakgyo,Schule,A1,Nomen,학교에 가요.,Ich gehe zur Schule.,Bildung
+물,mul,Wasser,A1,Nomen,물 주세요.,Wasser bitte.,Essen & Trinken
+밥,bap,Reis / Mahlzeit,A1,Nomen,밥 먹었어요?,Hast du gegessen?,Essen & Trinken
+커피,keopi,Kaffee,A1,Nomen,커피 마셔요.,Ich trinke Kaffee.,Essen & Trinken
+빵,ppang,Brot,A1,Nomen,빵을 먹어요.,Ich esse Brot.,Essen & Trinken
+책,chaek,Buch,A1,Nomen,책을 읽어요.,Ich lese ein Buch.,Bildung
+핸드폰,haendeupon,Handy,A1,Nomen,핸드폰이 있어요?,Hast du ein Handy?,Technologie
+버스,beoseu,Bus,A1,Nomen,버스를 타요.,Ich nehme den Bus.,Verkehr
+지하철,jihacheol,U-Bahn,A1,Nomen,지하철역이 어디예요?,Wo ist die U-Bahn-Station?,Verkehr
+오늘,oneul,heute,A1,Adverb,오늘 뭐 해요?,Was machst du heute?,Zeit
+내일,naeil,morgen,A1,Adverb,내일 만나요.,Wir treffen uns morgen.,Zeit
+어제,eoje,gestern,A1,Adverb,어제 어디 갔어요?,Wo bist du gestern hingegangen?,Zeit
+아버지,abeoji,Vater (formell),A1,Nomen,아버지가 집에 있어요.,Mein Vater ist zuhause.,Familie
+어머니,eomeoni,Mutter (formell),A1,Nomen,어머니한테 전화해요.,Ich rufe meine Mutter an.,Familie
+아빠,appa,Papa (informell),A1,Nomen,아빠 사랑해요.,Ich liebe dich Papa.,Familie
+엄마,eomma,Mama (informell),A1,Nomen,엄마 어디 있어요?,Wo bist du Mama?,Familie
+형,hyeong,älterer Bruder (Sicht des Mannes),A1,Nomen,형이 요리해요.,Mein älterer Bruder kocht.,Familie
+오빠,oppa,älterer Bruder (Sicht der Frau),A1,Nomen,오빠가 멋있어요.,Mein älterer Bruder ist toll.,Familie
+누나,nuna,ältere Schwester (Sicht des Mannes),A1,Nomen,누나가 웃어요.,Meine ältere Schwester lacht.,Familie
+언니,eonni,ältere Schwester (Sicht der Frau),A1,Nomen,언니랑 같이 가요.,Ich gehe mit meiner Schwester.,Familie
+남동생,namdongsaeng,jüngerer Bruder,A1,Nomen,남동생은 학생이에요.,Mein jüngerer Bruder ist Schüler.,Familie
+여동생,yeodongsaeng,jüngere Schwester,A1,Nomen,여동생이 귀여워요.,Meine jüngere Schwester ist süß.,Familie
+남편,nampyeon,Ehemann,A1,Nomen,남편이 요리해요.,Mein Ehemann kocht.,Familie
+아내,anae,Ehefrau,A1,Nomen,아내가 일해요.,Meine Ehefrau arbeitet.,Familie
+머리,meori,Kopf / Haare,A1,Nomen,머리가 아파요.,Mein Kopf tut weh.,Körper
+눈,nun,Auge,A1,Nomen,눈이 피곤해요.,Meine Augen sind müde.,Körper
+코,ko,Nase,A1,Nomen,코가 아파요.,Meine Nase tut weh.,Körper
+입,ip,Mund,A1,Nomen,입을 열어요.,Öffne den Mund.,Körper
+귀,gwi,Ohr,A1,Nomen,귀가 좋아요.,Meine Ohren sind gut.,Körper
+손,son,Hand,A1,Nomen,손을 씻어요.,Ich wasche meine Hände.,Körper
+발,bal,Fuß,A1,Nomen,발이 아파요.,Mein Fuß tut weh.,Körper
+다리,dari,Bein,A1,Nomen,다리가 길어요.,Die Beine sind lang.,Körper
+몸,mom,Körper / Leib,A1,Nomen,몸이 좋지 않아요.,Ich fühle mich nicht gut.,Körper
+빨간색,ppalgan saek,rot,A1,Nomen,빨간색을 좋아해요.,Ich mag die Farbe Rot.,Farben
+파란색,paran saek,blau,A1,Nomen,하늘이 파란색이에요.,Der Himmel ist blau.,Farben
+초록색,chorok saek,grün,A1,Nomen,나뭇잎이 초록색이에요.,Die Blätter sind grün.,Farben
+노란색,noran saek,gelb,A1,Nomen,바나나가 노란색이에요.,Die Banane ist gelb.,Farben
+흰색,hinsaek,weiß,A1,Nomen,흰색 옷을 입어요.,Ich trage weiße Kleidung.,Farben
+검은색,geomeun saek,schwarz,A1,Nomen,검은색 가방이에요.,Das ist eine schwarze Tasche.,Farben
+고기,gogi,Fleisch,A1,Nomen,고기를 먹어요.,Ich esse Fleisch.,Essen & Trinken
+생선,saengseon,Fisch (als Essen),A1,Nomen,생선을 좋아해요?,Magst du Fisch?,Essen & Trinken
+채소,chaeso,Gemüse,A1,Nomen,채소를 많이 먹어요.,Ich esse viel Gemüse.,Essen & Trinken
+과일,gwail,Obst,A1,Nomen,과일이 맛있어요.,Das Obst ist lecker.,Essen & Trinken
+라면,ramyeon,Ramen / Instant-Nudeln,A1,Nomen,라면을 끓여요.,Ich koche Ramen.,Essen & Trinken
+김치,kimchi,Kimchi (fermentierter Kohl),A1,Nomen,김치가 매워요.,Kimchi ist scharf.,Essen & Trinken
+사과,sagwa,Apfel,A1,Nomen,사과를 먹어요.,Ich esse einen Apfel.,Essen & Trinken
+계란,gyeran,Ei,A1,Nomen,계란을 삶아요.,Ich koche ein Ei.,Essen & Trinken
+차,cha,Tee,A1,Nomen,차를 마셔요.,Ich trinke Tee.,Essen & Trinken
+화장실,hwajangsil,Toilette / Badezimmer,A1,Nomen,화장실이 어디예요?,Wo ist die Toilette?,Alltag
+편의점,pyeonijeom,Convenience Store,A1,Nomen,편의점에서 사요.,Ich kaufe im Convenience Store.,Alltag
+공원,gongwon,Park,A1,Nomen,공원에서 산책해요.,Ich gehe im Park spazieren.,Freizeit
+도서관,doseogwan,Bibliothek,A1,Nomen,도서관에서 공부해요.,Ich lerne in der Bibliothek.,Bildung
+방,bang,Zimmer / Raum,A1,Nomen,제 방이 작아요.,Mein Zimmer ist klein.,Alltag
+침대,chimdae,Bett,A1,Nomen,침대에서 자요.,Ich schlafe im Bett.,Alltag
+의자,uija,Stuhl,A1,Nomen,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag
+문,mun,Tür,A1,Nomen,문을 열어요.,Ich öffne die Tür.,Alltag
+옷,ot,Kleidung,A1,Nomen,새 옷을 샀어요.,Ich habe neue Kleidung gekauft.,Alltag
+지금,jigeum,jetzt / gerade,A1,Adverb,지금 뭐 해요?,Was machst du gerade?,Zeit
+아침,achim,Morgen / Frühstück,A1,Nomen,아침을 먹어요.,Ich esse Frühstück.,Zeit
+점심,jeomsim,Mittag / Mittagessen,A1,Nomen,점심 같이 먹어요.,Lass uns zusammen Mittagessen.,Zeit
+저녁,jeonyeok,Abend / Abendessen,A1,Nomen,저녁에 운동해요.,Ich mache abends Sport.,Zeit
+밤,bam,Nacht,A1,Nomen,밤에 자요.,Ich schlafe nachts.,Zeit
+주말,jumal,Wochenende,A1,Nomen,주말에 뭐 해요?,Was machst du am Wochenende?,Zeit
+매일,maeil,jeden Tag / täglich,A1,Adverb,매일 운동해요.,Ich mache jeden Tag Sport.,Zeit
+항상,hangsang,immer,A1,Adverb,항상 감사해요.,Ich bin immer dankbar.,Alltag
+가끔,gakkeum,manchmal / gelegentlich,A1,Adverb,가끔 영화를 봐요.,Ich schaue manchmal Filme.,Alltag
+빨리,ppalli,schnell / beeile dich,A1,Adverb,빨리 와요.,Komm schnell.,Alltag
+가다,gada,gehen,A1,Verb,학교에 가요.,Ich gehe zur Schule.,Bewegung
+오다,oda,kommen,A1,Verb,집에 와요.,Ich komme nach Hause.,Bewegung
+먹다,meokda,essen,A1,Verb,밥을 먹어요.,Ich esse Reis.,Essen & Trinken
+마시다,masida,trinken,A1,Verb,커피를 마셔요.,Ich trinke Kaffee.,Essen & Trinken
+있다,itda,sein / haben (existieren),A1,Verb,집에 있어요.,Ich bin zuhause.,Alltag
+없다,eopda,nicht haben / nicht sein,A1,Verb,시간이 없어요.,Ich habe keine Zeit.,Alltag
+하다,hada,machen / tun,A1,Verb,뭐 해요?,Was machst du?,Alltag
+보다,boda,sehen / schauen,A1,Verb,TV를 봐요.,Ich schaue fern.,Freizeit
+듣다,deutda,hören,A1,Verb,음악을 들어요.,Ich höre Musik.,Freizeit
+읽다,ikda,lesen,A1,Verb,책을 읽어요.,Ich lese ein Buch.,Bildung
+자다,jada,schlafen,A1,Verb,일찍 자요.,Ich schlafe früh.,Alltag
+만나다,mannada,treffen,A1,Verb,친구를 만나요.,Ich treffe einen Freund.,Beziehungen
+좋아하다,joahada,mögen / gerne haben,A1,Verb,한국어를 좋아해요.,Ich mag Koreanisch.,Gefühle
+싫어하다,sireohadam,nicht mögen / ablehnen,A1,Verb,채소를 싫어해요.,Ich mag kein Gemüse.,Gefühle
+사랑하다,saranghada,lieben,A1,Verb,사랑해요.,Ich liebe dich.,Gefühle
+사다,sada,kaufen,A1,Verb,옷을 사요.,Ich kaufe Kleidung.,Einkaufen
+말하다,malhada,sprechen / sagen,A1,Verb,한국어로 말해요.,Ich spreche auf Koreanisch.,Kommunikation
+쓰다,sseuda,schreiben / benutzen,A1,Verb,편지를 써요.,Ich schreibe einen Brief.,Bildung
+알다,alda,wissen / kennen,A1,Verb,알아요!,Ich weiß!,Alltag
+모르다,moreuda,nicht wissen,A1,Verb,몰라요.,Ich weiß es nicht.,Alltag
+주다,juda,geben,A1,Verb,친구한테 줘요.,Ich gebe es meinem Freund.,Alltag
+받다,batda,bekommen / empfangen,A1,Verb,선물을 받았어요.,Ich habe ein Geschenk bekommen.,Alltag
+앉다,anda,sitzen,A1,Verb,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag
+서다,seoda,stehen,A1,Verb,여기 서요.,Ich stehe hier.,Alltag
+열다,yeolda,öffnen,A1,Verb,문을 열어요.,Ich öffne die Tür.,Alltag
+닫다,datda,schließen,A1,Verb,창문을 닫아요.,Ich schließe das Fenster.,Alltag
+입다,ipda,anziehen / tragen (Kleidung),A1,Verb,옷을 입어요.,Ich ziehe mich an.,Alltag
+일하다,ilhada,arbeiten,A1,Verb,회사에서 일해요.,Ich arbeite in einer Firma.,Beruf
+좋다,jota,gut / schön,A1,Adjektiv,날씨가 좋아요.,Das Wetter ist schön.,Beschreibung
+크다,keuda,groß,A1,Adjektiv,집이 커요.,Das Haus ist groß.,Beschreibung
+작다,jakda,klein,A1,Adjektiv,방이 작아요.,Das Zimmer ist klein.,Beschreibung
+많다,manta,viel,A1,Adjektiv,사람이 많아요.,Es gibt viele Menschen.,Menge
+비싸다,bissada,teuer,A1,Adjektiv,이 옷은 비싸요.,Diese Kleidung ist teuer.,Einkaufen
+싸다,ssada,billig / günstig,A1,Adjektiv,이 음식은 싸요.,Dieses Essen ist günstig.,Einkaufen
+맛있다,masitda,lecker,A1,Adjektiv,이 음식은 맛있어요.,Dieses Essen ist lecker.,Essen & Trinken
+귀엽다,gwiyeopda,niedlich / süß,A1,Adjektiv,강아지가 귀여워요.,Der Hund ist süß.,Beschreibung
+조용하다,joyonghada,leise / ruhig,A1,Adjektiv,도서관이 조용해요.,Die Bibliothek ist ruhig.,Beschreibung
+시끄럽다,sikkeureopda,laut,A1,Adjektiv,밖이 시끄러워요.,Draußen ist es laut.,Beschreibung
+어렵다,eoryeopda,schwierig / schwer,A1,Adjektiv,한국어가 어려워요.,Koreanisch ist schwierig.,Beschreibung
+쉽다,swipda,einfach / leicht,A1,Adjektiv,이 문제는 쉬워요.,Diese Aufgabe ist einfach.,Beschreibung
+배고프다,baegopuda,hungrig sein,A1,Adjektiv,배고파요.,Ich bin hungrig.,Körper
+길다,gilda,lang,A1,Adjektiv,머리가 길어요.,Meine Haare sind lang.,Beschreibung
+짧다,jjalda,kurz,A1,Adjektiv,치마가 짧아요.,Der Rock ist kurz.,Beschreibung
+회사,hoesa,Firma / Unternehmen,A2,Nomen,회사에 다녀요.,Ich gehe zur Arbeit.,Beruf
+직업,jigeop,Beruf,A2,Nomen,직업이 뭐예요?,Was ist dein Beruf?,Beruf
+취미,chwimi,Hobby,A2,Nomen,취미가 뭐예요?,Was ist dein Hobby?,Freizeit
+날씨,nalssi,Wetter,A2,Nomen,날씨가 어때요?,Wie ist das Wetter?,Wetter
+계절,gyejeol,Jahreszeit,A2,Nomen,어떤 계절을 좋아해요?,Welche Jahreszeit magst du?,Wetter
+봄,bom,Frühling,A2,Nomen,봄이 왔어요.,Der Frühling ist da.,Wetter
+여름,yeoreum,Sommer,A2,Nomen,여름은 더워요.,Der Sommer ist heiß.,Wetter
+가을,gaeul,Herbst,A2,Nomen,가을 단풍이 예뻐요.,Das Herbstlaub ist schön.,Wetter
+겨울,gyeoul,Winter,A2,Nomen,겨울은 추워요.,Der Winter ist kalt.,Wetter
+병원,byeongwon,Krankenhaus,A2,Nomen,병원에 가요.,Ich gehe ins Krankenhaus.,Gesundheit
+약,yak,Medizin / Medikament,A2,Nomen,약을 먹어요.,Ich nehme Medizin.,Gesundheit
+식당,sikdang,Restaurant,A2,Nomen,식당에서 먹어요.,Ich esse im Restaurant.,Essen & Trinken
+시장,sijang,Markt,A2,Nomen,시장에서 사요.,Ich kaufe auf dem Markt.,Einkaufen
+은행,eunhaeng,Bank,A2,Nomen,은행에 가요.,Ich gehe zur Bank.,Alltag
+여행,yeohaeng,Reise,A2,Nomen,여행을 가요.,Ich gehe auf Reise.,Reise
+비행기,bihaenggi,Flugzeug,A2,Nomen,비행기를 타요.,Ich nehme das Flugzeug.,Verkehr
+호텔,hotel,Hotel,A2,Nomen,호텔에 묵어요.,Ich übernachte im Hotel.,Reise
+음악,eumak,Musik,A2,Nomen,음악을 들어요.,Ich höre Musik.,Freizeit
+영화,yeonghwa,Film,A2,Nomen,영화를 봐요.,Ich schaue einen Film.,Freizeit
+시험,siheom,Prüfung / Test,A2,Nomen,내일 시험이 있어요.,Morgen habe ich eine Prüfung.,Bildung
+숙제,sukje,Hausaufgaben,A2,Nomen,숙제를 해요.,Ich mache Hausaufgaben.,Bildung
+성적,seongjeok,Noten / Ergebnis,A2,Nomen,성적이 좋아요.,Meine Noten sind gut.,Bildung
+휴가,hyuga,Urlaub / Freizeit,A2,Nomen,휴가를 즐겨요.,Ich genieße meinen Urlaub.,Beruf
+회의,hoei,Meeting / Besprechung,A2,Nomen,회의가 있어요.,Ich habe ein Meeting.,Beruf
+택시,taeksi,Taxi,A2,Nomen,택시를 타요.,Ich nehme ein Taxi.,Verkehr
+기차,gicha,Zug / Bahn,A2,Nomen,기차로 가요.,Ich fahre mit dem Zug.,Verkehr
+자전거,jajeongeo,Fahrrad,A2,Nomen,자전거를 타요.,Ich fahre Fahrrad.,Verkehr
+전화,jeonhwa,Telefon / Anruf,A2,Nomen,전화가 왔어요.,Ich habe einen Anruf bekommen.,Kommunikation
+문자,munja,Nachricht (SMS),A2,Nomen,문자를 보냈어요?,Hast du eine Nachricht geschickt?,Kommunikation
+인터넷,inteonet,Internet,A2,Nomen,인터넷을 써요.,Ich nutze das Internet.,Technologie
+컴퓨터,keompyuteo,Computer,A2,Nomen,컴퓨터로 일해요.,Ich arbeite am Computer.,Technologie
+지갑,jigap,Geldbörse / Portemonnaie,A2,Nomen,지갑이 없어요.,Ich habe keine Geldbörse.,Alltag
+열쇠,yeolsoe,Schlüssel,A2,Nomen,열쇠를 잃었어요.,Ich habe den Schlüssel verloren.,Alltag
+우산,usan,Regenschirm,A2,Nomen,우산이 있어요?,Hast du einen Regenschirm?,Wetter
+얼마,eolma,wie viel (Geld),A2,Ausdruck,이거 얼마예요?,Wie viel kostet das?,Einkaufen
+할인,halin,Rabatt / Ermäßigung,A2,Nomen,할인이 있어요?,Gibt es einen Rabatt?,Einkaufen
+영수증,yeongsujeung,Quittung / Kassenbon,A2,Nomen,영수증 주세요.,Die Quittung bitte.,Einkaufen
+카드,kadeu,Kreditkarte / Karte,A2,Nomen,카드로 내요.,Ich zahle mit Karte.,Einkaufen
+공부하다,gongbuhada,lernen / studieren,A2,Verb,한국어를 공부해요.,Ich lerne Koreanisch.,Bildung
+운동하다,undonghada,Sport machen,A2,Verb,매일 운동해요.,Ich treibe täglich Sport.,Sport
+여행하다,yeohaenghada,reisen,A2,Verb,한국에 여행해요.,Ich reise nach Korea.,Reise
+요리하다,yorihada,kochen,A2,Verb,요리를 해요.,Ich koche.,Essen & Trinken
+전화하다,jeonhwahada,anrufen,A2,Verb,친구에게 전화해요.,Ich rufe einen Freund an.,Kommunikation
+도착하다,dochakhada,ankommen,A2,Verb,학교에 도착했어요.,Ich bin in der Schule angekommen.,Bewegung
+쉬다,swida,sich ausruhen,A2,Verb,집에서 쉬어요.,Ich ruhe mich zuhause aus.,Alltag
+기억하다,gieokada,sich erinnern,A2,Verb,이름을 기억해요?,Erinnerst du dich an den Namen?,Alltag
+이해하다,ihaehada,verstehen,A2,Verb,이해해요?,Verstehst du?,Bildung
+배우다,baeuda,lernen / etwas Neues erlernen,A2,Verb,기타를 배워요.,Ich lerne Gitarre.,Bildung
+가르치다,gareuchida,lehren / unterrichten,A2,Verb,영어를 가르쳐요.,Ich unterrichte Englisch.,Bildung
+찾다,chatda,suchen / finden,A2,Verb,열쇠를 찾아요.,Ich suche den Schlüssel.,Alltag
+만들다,mandeulda,machen / herstellen,A2,Verb,케이크를 만들어요.,Ich backe einen Kuchen.,Alltag
+예약하다,yeyakhada,reservieren / buchen,A2,Verb,호텔을 예약해요.,Ich buche ein Hotel.,Reise
+보내다,bonaeda,schicken / senden,A2,Verb,메시지를 보내요.,Ich schicke eine Nachricht.,Kommunikation
+잃어버리다,ireobeorida,verlieren,A2,Verb,지갑을 잃어버렸어요.,Ich habe meine Brieftasche verloren.,Alltag
+바꾸다,bakkuda,wechseln / ändern / tauschen,A2,Verb,번호를 바꿨어요.,Ich habe die Nummer gewechselt.,Alltag
+걷다,geotda,zu Fuß gehen / laufen,A2,Verb,학교까지 걸어요.,Ich gehe zur Schule zu Fuß.,Bewegung
+걱정하다,geokjeonghada,sich sorgen / besorgt sein,A2,Verb,걱정하지 마세요.,Mach dir keine Sorgen.,Gefühle
+계산하다,gyesanhada,bezahlen / abrechnen,A2,Verb,계산해 주세요.,Ich möchte bitte bezahlen.,Einkaufen
+덥다,deopda,heiß (sein),A2,Adjektiv,오늘 너무 더워요.,Heute ist es sehr heiß.,Wetter
+춥다,chupda,kalt (sein),A2,Adjektiv,겨울에 추워요.,Im Winter ist es kalt.,Wetter
+바쁘다,bappeuda,beschäftigt (sein),A2,Adjektiv,요즘 많이 바빠요.,Ich bin zurzeit sehr beschäftigt.,Alltag
+피곤하다,pigonhada,müde (sein),A2,Adjektiv,오늘 피곤해요.,Heute bin ich müde.,Gefühle
+행복하다,haengbokhada,glücklich (sein),A2,Adjektiv,지금 행복해요.,Jetzt bin ich glücklich.,Gefühle
+슬프다,seulpeuda,traurig (sein),A2,Adjektiv,오늘 슬퍼요.,Heute bin ich traurig.,Gefühle
+예쁘다,yeppeuda,hübsch / schön (sein),A2,Adjektiv,꽃이 예뻐요.,Die Blume ist hübsch.,Beschreibung
+재미있다,jaemiitda,interessant / lustig (sein),A2,Adjektiv,한국어가 재미있어요.,Koreanisch ist interessant.,Beschreibung
+무섭다,museobda,Angst einflößend / beängstigend,A2,Adjektiv,귀신이 무서워요.,Geister machen mir Angst.,Gefühle
+건강하다,geonganghada,gesund sein,A2,Adjektiv,몸이 건강해요.,Ich bin gesund.,Gesundheit
+아프다,apeuda,krank sein / schmerzen,A2,Adjektiv,배가 아파요.,Mein Bauch tut weh.,Gesundheit
+빠르다,ppareuda,schnell sein,A2,Adjektiv,버스가 빨라요.,Der Bus ist schnell.,Beschreibung
+느리다,neurida,langsam sein,A2,Adjektiv,거북이가 느려요.,Die Schildkröte ist langsam.,Beschreibung
+무겁다,mugeopda,schwer sein,A2,Adjektiv,가방이 무거워요.,Die Tasche ist schwer.,Beschreibung
+가볍다,gabyeopda,leicht sein,A2,Adjektiv,이 가방은 가벼워요.,Diese Tasche ist leicht.,Beschreibung
+넓다,neolda,breit / geräumig sein,A2,Adjektiv,공원이 넓어요.,Der Park ist groß und weit.,Beschreibung
+좁다,jobda,eng / schmal sein,A2,Adjektiv,이 방은 좁아요.,Dieses Zimmer ist eng.,Beschreibung
+달다,dalda,süß sein,A2,Adjektiv,이 케이크는 달아요.,Dieser Kuchen ist süß.,Essen & Trinken
+맵다,maepda,scharf sein,A2,Adjektiv,김치가 매워요.,Kimchi ist scharf.,Essen & Trinken
+그립다,geuripda,vermissen / sich sehnen,A2,Adjektiv,고향이 그리워요.,Ich vermisse meine Heimat.,Gefühle
+외롭다,oeroepda,einsam sein,A2,Adjektiv,혼자라서 외로워요.,Ich bin allein und einsam.,Gefühle
+정말,jeongmal,wirklich / tatsächlich,A2,Adverb,정말 맛있어요!,Das ist wirklich lecker!,Alltag
+너무,neomu,zu sehr / sehr,A2,Adverb,너무 더워요.,Es ist zu heiß.,Alltag
+조금,jogeum,ein bisschen / etwas,A2,Adverb,조금 더 주세요.,Noch ein bisschen mehr bitte.,Alltag
+많이,mani,viel / sehr,A2,Adverb,많이 먹었어요.,Ich habe viel gegessen.,Alltag
+혼자,honja,alleine,A2,Adverb,혼자 살아요.,Ich wohne alleine.,Alltag
+같이,gachi,zusammen / gemeinsam,A2,Adverb,같이 가요.,Lass uns zusammen gehen.,Alltag
+또,tto,auch / wieder / nochmal,A2,Adverb,또 왔어요.,Ich bin wieder gekommen.,Alltag
+경험,gyeongheom,Erfahrung,B1,Nomen,새로운 경험을 해요.,Ich mache neue Erfahrungen.,Alltag
+문화,munhwa,Kultur,B1,Nomen,한국 문화를 배워요.,Ich lerne die koreanische Kultur.,Gesellschaft
+사회,sahoe,Gesellschaft,B1,Nomen,다양한 사회에 살아요.,Wir leben in einer vielfältigen Gesellschaft.,Gesellschaft
+환경,hwangyeong,Umwelt,B1,Nomen,환경을 보호해야 해요.,Wir müssen die Umwelt schützen.,Umwelt
+관계,gwangye,Beziehung / Verhältnis,B1,Nomen,좋은 관계를 유지해요.,Ich pflege gute Beziehungen.,Beziehungen
+목표,mokpyo,Ziel / Vorhaben,B1,Nomen,목표를 세워요.,Ich setze mir Ziele.,Motivation
+방법,bangbeop,Methode / Weg,B1,Nomen,좋은 방법이 있어요?,Gibt es eine gute Methode?,Alltag
+문제,munje,Problem / Aufgabe,B1,Nomen,문제가 있어요?,Gibt es ein Problem?,Alltag
+해결,haegyeol,Lösung,B1,Nomen,문제를 해결해요.,Ich löse das Problem.,Alltag
+정치,jeongchi,Politik,B1,Nomen,정치에 관심이 있어요?,Interessierst du dich für Politik?,Gesellschaft
+경제,gyeongje,Wirtschaft,B1,Nomen,경제가 어려워요.,Die Wirtschaft ist schwierig.,Gesellschaft
+교육,gyoyuk,Bildung / Erziehung,B1,Nomen,교육이 중요해요.,Bildung ist wichtig.,Gesellschaft
+건강,geongang,Gesundheit,B1,Nomen,건강이 최고예요.,Gesundheit ist das Wichtigste.,Gesundheit
+기술,gisul,Technologie / Technik,B1,Nomen,기술이 발전했어요.,Die Technologie hat sich entwickelt.,Gesellschaft
+스트레스,seuteuleseu,Stress,B1,Nomen,스트레스를 받아요.,Ich habe Stress.,Alltag
+습관,seupgwan,Gewohnheit,B1,Nomen,나쁜 습관을 바꿔요.,Ich ändere meine schlechten Gewohnheiten.,Alltag
+기회,gihoe,Gelegenheit / Chance,B1,Nomen,좋은 기회예요.,Das ist eine gute Gelegenheit.,Motivation
+과정,gwajeong,Prozess / Vorgang,B1,Nomen,학습 과정이 중요해요.,Der Lernprozess ist wichtig.,Bildung
+상황,sanghwang,Situation / Lage,B1,Nomen,상황이 어려워요.,Die Situation ist schwierig.,Alltag
+원인,wonin,Ursache / Grund,B1,Nomen,문제의 원인을 찾아요.,Ich suche die Ursache des Problems.,Alltag
+결과,gyeolgwa,Ergebnis / Folge,B1,Nomen,결과가 좋아요.,Das Ergebnis ist gut.,Alltag
+생각,saenggak,Gedanke / Meinung,B1,Nomen,제 생각은 달라요.,Meine Meinung ist anders.,Kommunikation
+의견,uigyeon,Meinung / Standpunkt,B1,Nomen,의견을 말해 주세요.,Bitte sagen Sie Ihre Meinung.,Kommunikation
+이유,iyu,Grund / Ursache,B1,Nomen,이유가 뭐예요?,Was ist der Grund?,Alltag
+조건,jogeon,Bedingung / Voraussetzung,B1,Nomen,조건이 맞아요.,Die Bedingungen stimmen.,Alltag
+정보,jeongbo,Information,B1,Nomen,정보를 찾아요.,Ich suche Informationen.,Alltag
+연락,yeollak,Kontakt / Kommunikation,B1,Nomen,연락해 주세요.,Bitte kontaktiere mich.,Kommunikation
+결정하다,gyeoljeongada,entscheiden,B1,Verb,혼자 결정했어요.,Ich habe alleine entschieden.,Alltag
+설명하다,seolmyeonghada,erklären,B1,Verb,천천히 설명해 주세요.,Bitte erkläre es langsam.,Kommunikation
+비교하다,bigohada,vergleichen,B1,Verb,두 개를 비교해요.,Ich vergleiche die zwei Dinge.,Alltag
+준비하다,junbihada,vorbereiten,B1,Verb,시험을 준비해요.,Ich bereite mich auf die Prüfung vor.,Bildung
+포기하다,pogihada,aufgeben,B1,Verb,절대 포기하지 마세요.,Gib niemals auf!,Motivation
+도전하다,dojeonhada,eine Herausforderung annehmen,B1,Verb,새로운 것에 도전해요.,Ich nehme neue Herausforderungen an.,Motivation
+발전하다,baljeonhada,sich entwickeln / Fortschritte machen,B1,Verb,실력이 발전했어요.,Meine Fähigkeiten haben sich verbessert.,Bildung
+노력하다,noryeokhada,sich anstrengen / bemühen,B1,Verb,열심히 노력해요.,Ich strenge mich sehr an.,Motivation
+참여하다,chamyeohada,teilnehmen / mitmachen,B1,Verb,행사에 참여해요.,Ich nehme an der Veranstaltung teil.,Alltag
+선택하다,seontaek hada,auswählen / sich entscheiden,B1,Verb,좋은 것을 선택해요.,Ich wähle das Gute.,Alltag
+실패하다,silpaekhada,scheitern / versagen,B1,Verb,실패를 두려워하지 마세요.,Hab keine Angst vor dem Scheitern.,Motivation
+성공하다,seonggonghada,erfolgreich sein / Erfolg haben,B1,Verb,성공할 수 있어요.,Du kannst Erfolg haben.,Motivation
+극복하다,geukbokhada,überwinden,B1,Verb,어려움을 극복해요.,Ich überwinde die Schwierigkeiten.,Motivation
+표현하다,pyohyeonhada,ausdrücken,B1,Verb,감정을 표현해요.,Ich drücke meine Gefühle aus.,Kommunikation
+집중하다,jipjunghada,sich konzentrieren,B1,Verb,공부에 집중해요.,Ich konzentriere mich auf das Lernen.,Bildung
+인정하다,injeonghada,anerkennen / zugeben,B1,Verb,실수를 인정해요.,Ich gebe meinen Fehler zu.,Alltag
+중요하다,jungnyohada,wichtig (sein),B1,Adjektiv,공부가 중요해요.,Lernen ist wichtig.,Beschreibung
+다양하다,dayanghada,vielfältig / verschieden (sein),B1,Adjektiv,다양한 방법이 있어요.,Es gibt verschiedene Methoden.,Beschreibung
+복잡하다,bokjaphada,kompliziert sein,B1,Adjektiv,상황이 복잡해요.,Die Situation ist kompliziert.,Beschreibung
+단순하다,dansunhada,einfach / schlicht sein,B1,Adjektiv,방법이 단순해요.,Die Methode ist einfach.,Beschreibung
+정확하다,jeonghwakhada,genau / korrekt sein,B1,Adjektiv,정확한 정보예요.,Das sind genaue Informationen.,Beschreibung
+효율적이다,hyoyuljeogida,effizient sein,B1,Adjektiv,이 방법이 효율적이에요.,Diese Methode ist effizient.,Beschreibung
+결국,gyeolguk,schließlich / letztendlich,B1,Adverb,결국 성공했어요.,Letztendlich hat es geklappt.,Alltag
+오히려,ohilleo,eher / vielmehr,B1,Adverb,오히려 도움이 됐어요.,Es hat mir eher geholfen.,Alltag
+게다가,gedaga,außerdem / darüber hinaus,B1,Adverb,게다가 맛도 있어요.,Außerdem ist es auch lecker.,Alltag
+따라서,ttaraseo,daher / deshalb / folglich,B1,Adverb,따라서 조심해야 해요.,Daher muss man vorsichtig sein.,Alltag
+특히,teuki,besonders / vor allem,B1,Adverb,특히 한국 음식을 좋아해요.,Ich mag besonders koreanisches Essen.,Alltag
+갑자기,gapjagi,plötzlich,B1,Adverb,갑자기 비가 왔어요.,Es hat plötzlich geregnet.,Alltag
+드디어,deudieeo,endlich / schließlich,B1,Adverb,드디어 끝났어요!,Es ist endlich vorbei!,Alltag
+반면,banmyeon,andererseits / hingegen,B1,Adverb,좋은 반면 비싸요.,Es ist gut aber teuer.,Alltag
+갈등,galdeung,Konflikt,B2,Nomen,갈등을 해결해야 해요.,Wir müssen den Konflikt lösen.,Gesellschaft
+관점,gwanjeom,Standpunkt / Perspektive,B2,Nomen,다양한 관점이 있어요.,Es gibt verschiedene Standpunkte.,Denken
+가치관,gachigwan,Wertvorstellung,B2,Nomen,서로 다른 가치관을 가져요.,Wir haben unterschiedliche Wertvorstellungen.,Gesellschaft
+논리,nolli,Logik / Argumentation,B2,Nomen,논리적으로 생각해요.,Ich denke logisch.,Denken
+이론,iron,Theorie,B2,Nomen,이론을 공부해요.,Ich studiere die Theorie.,Bildung
+연구,yeongu,Forschung / Studie,B2,Nomen,새로운 연구 결과예요.,Das ist ein neues Forschungsergebnis.,Wissenschaft
+결론,gyeollon,Schlussfolgerung / Fazit,B2,Nomen,결론을 내려요.,Ich ziehe eine Schlussfolgerung.,Denken
+근거,geungeo,Grundlage / Beweis / Beleg,B2,Nomen,근거가 없어요.,Es gibt keinen Beweis.,Denken
+현상,hyeonsang,Phänomen / Erscheinung,B2,Nomen,사회적 현상이에요.,Das ist ein gesellschaftliches Phänomen.,Gesellschaft
+전제,jeonje,Voraussetzung / Prämisse,B2,Nomen,전제가 틀렸어요.,Die Voraussetzung ist falsch.,Denken
+맥락,maengnak,Kontext / Zusammenhang,B2,Nomen,맥락을 이해해요.,Ich verstehe den Kontext.,Denken
+복지,bokji,Wohlfahrt / Sozialleistungen,B2,Nomen,사회 복지가 중요해요.,Soziale Wohlfahrt ist wichtig.,Gesellschaft
+민주주의,minjujuui,Demokratie,B2,Nomen,민주주의를 지켜요.,Wir schützen die Demokratie.,Gesellschaft
+자유,jayu,Freiheit,B2,Nomen,자유가 중요해요.,Freiheit ist wichtig.,Gesellschaft
+주장하다,jujangada,behaupten / argumentieren,B2,Verb,자신의 의견을 주장해요.,Ich vertrete meine eigene Meinung.,Kommunikation
+분석하다,bunseokada,analysieren,B2,Verb,상황을 분석해요.,Ich analysiere die Situation.,Denken
+평가하다,pyeonggahada,bewerten / beurteilen,B2,Verb,성과를 평가해요.,Ich bewerte die Leistung.,Alltag
+비판하다,bipanhada,kritisieren,B2,Verb,건설적으로 비판해요.,Ich kritisiere konstruktiv.,Kommunikation
+강조하다,gangjohada,betonen / hervorheben,B2,Verb,중요성을 강조해요.,Ich betone die Wichtigkeit.,Kommunikation
+검토하다,geomtohada,überprüfen / untersuchen,B2,Verb,계획을 검토해요.,Ich überprüfe den Plan.,Alltag
+제시하다,jesihada,vorstellen / präsentieren,B2,Verb,새 아이디어를 제시해요.,Ich präsentiere eine neue Idee.,Kommunikation
+논의하다,nonuihada,diskutieren / erörtern,B2,Verb,문제를 논의해요.,Wir diskutieren das Problem.,Kommunikation
+인식하다,insikhada,erkennen / wahrnehmen,B2,Verb,문제를 인식해요.,Ich erkenne das Problem.,Denken
+해석하다,haeseokhada,interpretieren / auslegen,B2,Verb,상황을 해석해요.,Ich interpretiere die Situation.,Denken
+반박하다,banbakhada,widerlegen / widersprechen,B2,Verb,주장을 반박해요.,Ich widerlege die Behauptung.,Kommunikation
+적용하다,jeogyonghada,anwenden,B2,Verb,이론을 적용해요.,Ich wende die Theorie an.,Alltag
+실현하다,silhyeonhada,verwirklichen / realisieren,B2,Verb,꿈을 실현해요.,Ich verwirkliche meinen Traum.,Motivation
+지속하다,jisokhada,fortsetzen / aufrechterhalten,B2,Verb,노력을 지속해요.,Ich setze meine Bemühungen fort.,Motivation
+추상적이다,chusangjeoida,abstrakt sein,B2,Adjektiv,추상적인 개념이에요.,Das ist ein abstraktes Konzept.,Denken
+구체적이다,gucheijeoida,konkret sein,B2,Adjektiv,구체적인 예를 들어요.,Ich gebe ein konkretes Beispiel.,Denken
+객관적이다,gaekgwanjeoida,objektiv sein,B2,Adjektiv,객관적으로 판단해요.,Ich urteile objektiv.,Denken
+주관적이다,jugwanjeoida,subjektiv sein,B2,Adjektiv,주관적인 의견이에요.,Das ist eine subjektive Meinung.,Denken
+일,il,eins (sino-koreanisch),A1,Nomen,일층에 가요.,Ich gehe in die erste Etage.,Zahlen
+이,i,zwei (sino-koreanisch),A1,Nomen,이층이에요.,Es ist im zweiten Stock.,Zahlen
+삼,sam,drei (sino-koreanisch),A1,Nomen,삼번 버스를 타요.,Ich nehme den Bus Nummer drei.,Zahlen
+사,sa,vier (sino-koreanisch),A1,Nomen,사월에 만나요.,Wir treffen uns im April.,Zahlen
+오,o,fünf (sino-koreanisch),A1,Nomen,오천 원이에요.,Das kostet fünftausend Won.,Zahlen
+육,yuk,sechs (sino-koreanisch),A1,Nomen,육 시에 일어나요.,Ich stehe um sechs auf.,Zahlen
+칠,chil,sieben (sino-koreanisch),A1,Nomen,칠월은 더워요.,Der Juli ist heiß.,Zahlen
+팔,pal,acht (sino-koreanisch),A1,Nomen,팔월에 휴가예요.,Im August habe ich Urlaub.,Zahlen
+구,gu,neun (sino-koreanisch),A1,Nomen,구월에 학교가 시작해요.,Im September fängt die Schule an.,Zahlen
+십,sip,zehn (sino-koreanisch),A1,Nomen,십 분만 기다려요.,Ich warte nur zehn Minuten.,Zahlen
+백,baek,hundert,A1,Nomen,백 명이 왔어요.,Hundert Leute sind gekommen.,Zahlen
+천,cheon,tausend,A1,Nomen,천 원만 빌려주세요.,Leih mir bitte tausend Won.,Zahlen
+만,man,zehntausend,A1,Nomen,만 원이에요.,Es kostet zehntausend Won.,Zahlen
+하나,hana,eins (rein-koreanisch),A1,Nomen,하나만 주세요.,Nur eins bitte.,Zahlen
+둘,dul,zwei (rein-koreanisch),A1,Nomen,둘이 같이 가요.,Wir gehen zu zweit.,Zahlen
+셋,set,drei (rein-koreanisch),A1,Nomen,사과 셋 주세요.,Drei Äpfel bitte.,Zahlen
+넷,net,vier (rein-koreanisch),A1,Nomen,우리는 넷이에요.,Wir sind zu viert.,Zahlen
+다섯,daseot,fünf (rein-koreanisch),A1,Nomen,다섯 시에 만나요.,Wir treffen uns um fünf.,Zahlen
+여섯,yeoseot,sechs (rein-koreanisch),A1,Nomen,여섯 명이 와요.,Sechs Leute kommen.,Zahlen
+일곱,ilgop,sieben (rein-koreanisch),A1,Nomen,일곱 시에 출발해요.,Wir starten um sieben.,Zahlen
+여덟,yeodeol,acht (rein-koreanisch),A1,Nomen,여덟 살이에요.,Ich bin acht Jahre alt.,Zahlen
+아홉,ahop,neun (rein-koreanisch),A1,Nomen,아홉 시예요.,Es ist neun Uhr.,Zahlen
+열,yeol,zehn (rein-koreanisch),A1,Nomen,열 시까지 와요.,Komm bis zehn Uhr.,Zahlen
+시,si,Uhr (Stunde),A1,Nomen,지금 몇 시예요?,Wie spät ist es jetzt?,Zeit
+분,bun,Minute,A1,Nomen,십 분 남았어요.,Es bleiben noch zehn Minuten.,Zeit
+초,cho,Sekunde,A1,Nomen,일 초만 기다려요.,Warte nur eine Sekunde.,Zeit
+시간,sigan,Zeit / Stunde,A1,Nomen,시간이 없어요.,Ich habe keine Zeit.,Zeit
+요일,yoil,Wochentag,A1,Nomen,무슨 요일이에요?,Welcher Wochentag ist heute?,Zeit
+월요일,woryoil,Montag,A1,Nomen,월요일에 시작해요.,Wir fangen am Montag an.,Zeit
+화요일,hwayoil,Dienstag,A1,Nomen,화요일에 만나요.,Wir treffen uns am Dienstag.,Zeit
+수요일,suyoil,Mittwoch,A1,Nomen,수요일이 좋아요.,Mittwoch passt mir gut.,Zeit
+목요일,mogyoil,Donnerstag,A1,Nomen,목요일에 와요.,Komm am Donnerstag.,Zeit
+금요일,geumyoil,Freitag,A1,Nomen,금요일 저녁에 만나요.,Wir treffen uns Freitagabend.,Zeit
+토요일,toyoil,Samstag,A1,Nomen,토요일에 쉬어요.,Am Samstag ruhe ich mich aus.,Zeit
+일요일,iryoil,Sonntag,A1,Nomen,일요일에 교회 가요.,Sonntags gehe ich in die Kirche.,Zeit
+안녕히 가세요,annyeonghi gaseyo,Auf Wiedersehen (zum Gehenden),A1,Ausdruck,안녕히 가세요!,Auf Wiedersehen! (zu dem der geht),Begrüßung
+안녕히 계세요,annyeonghi gyeseyo,Auf Wiedersehen (zum Bleibenden),A1,Ausdruck,안녕히 계세요!,Auf Wiedersehen! (zu dem der bleibt),Begrüßung
+잘 자요,jal jayo,Gute Nacht,A1,Ausdruck,잘 자요!,Gute Nacht!,Begrüßung
+잘 지내요?,jal jinaeyo,Wie geht es dir?,A1,Ausdruck,요즘 잘 지내요?,Wie geht es dir in letzter Zeit?,Begrüßung
+처음 뵙겠습니다,cheoeum boepgesseumnida,Sehr erfreut Sie kennenzulernen,A1,Ausdruck,처음 뵙겠습니다!,Sehr erfreut Sie kennenzulernen! (formell),Begrüßung
+만나서 반가워요,mannaseo bangawoyo,Schön dich kennenzulernen,A1,Ausdruck,만나서 반가워요!,Schön dich kennenzulernen!,Begrüßung
+잘 부탁드려요,jal butakdeuryeoyo,Ich bitte um gute Zusammenarbeit,A1,Ausdruck,앞으로 잘 부탁드려요.,Bitte um gute Zusammenarbeit künftig.,Höflichkeit
+천만에요,cheonmaneyo,Gern geschehen / Keine Ursache,A1,Ausdruck,천만에요!,Gern geschehen!,Höflichkeit
+별말씀을요,byeolmalsseumeurueyo,Keine Ursache (höflich),A1,Ausdruck,별말씀을요.,Keine Ursache.,Höflichkeit
+실례합니다,sillyehamnida,Entschuldigen Sie,A1,Ausdruck,실례합니다 잠깐만요.,Entschuldigung — einen Moment.,Höflichkeit
+잠시만요,jamsimanyo,Einen Moment bitte,A1,Ausdruck,잠시만요!,Einen Moment bitte!,Höflichkeit
+화이팅,hwaiting,Du schaffst das! / Viel Erfolg!,A1,Ausdruck,한국어 화이팅!,Koreanisch — du schaffst das!,Motivation
+위,wi,oben / über,A1,Nomen,책상 위에 있어요.,Es liegt auf dem Tisch.,Position
+아래,arae,unten / unter,A1,Nomen,의자 아래에 가방이 있어요.,Unter dem Stuhl steht eine Tasche.,Position
+앞,ap,vorne / vor,A1,Nomen,학교 앞에서 만나요.,Wir treffen uns vor der Schule.,Position
+뒤,dwi,hinten / hinter,A1,Nomen,집 뒤에 공원이 있어요.,Hinter dem Haus ist ein Park.,Position
+옆,yeop,neben / Seite,A1,Nomen,옆에 앉아도 돼요?,Darf ich neben dir sitzen?,Position
+안,an,drinnen / in,A1,Nomen,가방 안에 책이 있어요.,In der Tasche ist ein Buch.,Position
+밖,bak,draußen / außerhalb,A1,Nomen,밖에 비가 와요.,Draußen regnet es.,Position
+사이,sai,zwischen / Zwischenraum,A1,Nomen,우리 사이는 좋아요.,Wir verstehen uns gut.,Beziehungen
+왼쪽,oenjjok,links,A1,Nomen,왼쪽으로 가세요.,Gehen Sie nach links.,Position
+오른쪽,oreunjjok,rechts,A1,Nomen,오른쪽에 화장실이 있어요.,Rechts ist die Toilette.,Position
+저,jeo,ich (höflich),A1,Pronomen,저는 한국어를 배워요.,Ich lerne Koreanisch.,Person
+나,na,ich (informell),A1,Pronomen,나도 갈래.,Ich komme auch mit.,Person
+너,neo,du (informell),A1,Pronomen,너 어디 가?,Wohin gehst du?,Person
+우리,uri,wir,A1,Pronomen,우리 같이 가요.,Lass uns zusammen gehen.,Person
+이거,igeo,das (hier),A1,Pronomen,이거 얼마예요?,Wie viel kostet das?,Alltag
+그거,geugeo,das (da),A1,Pronomen,그거 주세요.,Das da bitte.,Alltag
+저거,jeogeo,das (dort),A1,Pronomen,저거 뭐예요?,Was ist das dort?,Alltag
+여기,yeogi,hier,A1,Nomen,여기 앉으세요.,Setzen Sie sich bitte hier hin.,Position
+거기,geogi,da,A1,Nomen,거기 가 본 적 있어요.,Da war ich schon mal.,Position
+저기,jeogi,dort,A1,Nomen,저기 보세요.,Schauen Sie dort hin.,Position
+새,sae,neu (attributiv),A1,Adjektiv,새 옷이 마음에 들어요.,Die neue Kleidung gefällt mir.,Beschreibung
+다른,dareun,andere/r/s,A1,Adjektiv,다른 색깔도 있어요?,Gibt es auch andere Farben?,Beschreibung
+같은,gateun,gleich / dasselbe,A1,Adjektiv,같은 학교에 다녀요.,Wir gehen zur gleichen Schule.,Beschreibung
+모든,modeun,alle / sämtliche,A1,Adjektiv,모든 사람이 좋아해요.,Alle Leute mögen es.,Menge
+몇,myeot,wie viele,A1,Adjektiv,몇 명이에요?,Wie viele Personen?,Menge
+잠깐,jamkkan,kurz / einen Moment,A1,Adverb,잠깐 기다려요.,Warte einen Moment.,Zeit
+천천히,cheoncheonhi,langsam,A1,Adverb,천천히 말해 주세요.,Bitte sprechen Sie langsam.,Alltag
+일찍,iljjik,früh,A1,Adverb,일찍 자요.,Ich gehe früh schlafen.,Zeit
+늦게,neutge,spät,A1,Adverb,어제 늦게 잤어요.,Gestern bin ich spät schlafen gegangen.,Zeit
+자주,jaju,oft,A1,Adverb,자주 만나요.,Wir treffen uns oft.,Alltag
+별로,byeolro,nicht besonders,A1,Adverb,별로 안 좋아해요.,Ich mag es nicht besonders.,Alltag
+진짜,jinjja,echt / wirklich (umgangssprachlich),A1,Adverb,진짜 맛있어요!,Das ist echt lecker!,Alltag
+맛없다,masseopda,nicht lecker sein,A1,Adjektiv,음식이 좀 맛없어요.,Das Essen ist nicht so lecker.,Essen & Trinken
+더,deo,mehr,A1,Adverb,더 주세요.,Mehr bitte.,Alltag
+덜,deol,weniger,A1,Adverb,설탕은 덜 넣어요.,Ich gebe weniger Zucker hinein.,Alltag
+주문하다,jumunhada,bestellen,A2,Verb,메뉴를 주문해요.,Ich bestelle von der Speisekarte.,Essen & Trinken
+메뉴,menyu,Menü / Speisekarte,A2,Nomen,메뉴 좀 주세요.,Die Speisekarte bitte.,Essen & Trinken
+추천하다,chucheonhada,empfehlen,A2,Verb,뭘 추천해요?,Was empfehlen Sie?,Essen & Trinken
+맛,mat,Geschmack,A2,Nomen,맛이 어때요?,Wie schmeckt es?,Essen & Trinken
+짜다,jjada,salzig sein,A2,Adjektiv,국이 좀 짜요.,Die Suppe ist etwas salzig.,Essen & Trinken
+시다,sida,sauer sein,A2,Adjektiv,레몬이 시어요.,Die Zitrone ist sauer.,Essen & Trinken
+싱겁다,singgeopda,fade / wenig gewürzt sein,A2,Adjektiv,음식이 싱거워요.,Das Essen ist fade.,Essen & Trinken
+포장하다,pojanghada,zum Mitnehmen / verpacken,A2,Verb,포장해 주세요.,Zum Mitnehmen bitte.,Essen & Trinken
+배달,baedal,Lieferdienst / Lieferung,A2,Nomen,배달 시켜요.,Lass uns liefern lassen.,Essen & Trinken
+매콤하다,maekomhada,leicht scharf sein,A2,Adjektiv,이 양념은 매콤해요.,Diese Soße ist leicht scharf.,Essen & Trinken
+사이즈,saijeu,Größe,A2,Nomen,사이즈가 어떻게 돼요?,Welche Größe haben Sie?,Einkaufen
+색깔,saekkkal,Farbe,A2,Nomen,다른 색깔도 있어요?,Gibt es auch andere Farben?,Einkaufen
+입어보다,ibeoboda,anprobieren,A2,Verb,한번 입어 봐도 돼요?,Darf ich es mal anprobieren?,Einkaufen
+어울리다,eoullida,passen / stehen,A2,Verb,잘 어울려요!,Es steht dir gut!,Einkaufen
+환불,hwanbul,Rückerstattung,A2,Nomen,환불받을 수 있어요?,Kann ich Geld zurückbekommen?,Einkaufen
+교환,gyohwan,Umtausch,A2,Nomen,교환 가능해요?,Ist Umtausch möglich?,Einkaufen
+손님,sonnim,Kunde / Gast,A2,Nomen,손님이 많아요.,Es sind viele Gäste da.,Einkaufen
+점원,jeomwon,Verkäufer/in,A2,Nomen,점원이 친절했어요.,Der Verkäufer war freundlich.,Einkaufen
+길,gil,Weg / Straße,A2,Nomen,길을 잃었어요.,Ich habe mich verlaufen.,Verkehr
+곧장,gotjang,geradeaus,A2,Adverb,곧장 가세요.,Gehen Sie geradeaus.,Verkehr
+신호등,sinhodeung,Ampel,A2,Nomen,신호등에서 좌회전이에요.,An der Ampel links abbiegen.,Verkehr
+횡단보도,hoengdanbodo,Zebrastreifen,A2,Nomen,횡단보도에서 건너세요.,Bitte am Zebrastreifen überqueren.,Verkehr
+교차로,gyochalo,Kreuzung,A2,Nomen,다음 교차로에서 만나요.,Wir treffen uns an der nächsten Kreuzung.,Verkehr
+안내하다,annaehada,führen / Auskunft geben,A2,Verb,길을 안내해 드릴게요.,Ich zeige Ihnen den Weg.,Verkehr
+가깝다,gakkapda,nah sein,A2,Adjektiv,회사가 집에서 가까워요.,Die Firma ist nah am Haus.,Beschreibung
+멀다,meolda,weit sein,A2,Adjektiv,학교가 너무 멀어요.,Die Schule ist zu weit.,Beschreibung
+화나다,hwanada,wütend werden,A2,Verb,진짜 화났어요.,Ich war wirklich sauer.,Gefühle
+부끄럽다,bukkeureopda,sich schämen / schüchtern sein,A2,Adjektiv,너무 부끄러워요.,Das ist mir sehr peinlich.,Gefühle
+놀라다,nollada,überrascht sein / sich erschrecken,A2,Verb,깜짝 놀랐어요!,Ich war total überrascht!,Gefühle
+기쁘다,gippeuda,sich freuen / froh sein,A2,Adjektiv,만나서 기뻐요.,Ich freue mich dich zu treffen.,Gefühle
+답답하다,dapdapada,beklemmend / frustrierend sein,A2,Adjektiv,답답해서 못 견디겠어요.,Es ist so beklemmend — ich halte es kaum aus.,Gefühle
+신나다,sinnada,aufgeregt sein / freudig erregt,A2,Verb,여행 가서 신나요!,Ich freue mich auf die Reise!,Gefühle
+지루하다,jiruhada,langweilig sein,A2,Adjektiv,영화가 지루해요.,Der Film ist langweilig.,Gefühle
+긴장하다,ginjanghada,nervös / angespannt sein,A2,Verb,면접 때문에 긴장돼요.,Wegen des Vorstellungsgesprächs bin ich nervös.,Gefühle
+동료,dongryo,Kollege/in,A2,Nomen,동료들과 점심을 먹어요.,Ich esse mit den Kollegen zu Mittag.,Beruf
+사장,sajang,Chef / Firmeninhaber,A2,Nomen,사장님이 친절하세요.,Der Chef ist freundlich.,Beruf
+상사,sangsa,Vorgesetzte/r,A2,Nomen,상사한테 보고했어요.,Ich habe meinem Vorgesetzten Bericht erstattet.,Beruf
+출근하다,chulgeunhada,zur Arbeit gehen,A2,Verb,아침 아홉 시에 출근해요.,Ich gehe morgens um neun zur Arbeit.,Beruf
+퇴근하다,toegeunhada,Feierabend machen,A2,Verb,보통 여섯 시에 퇴근해요.,Ich mache normalerweise um sechs Feierabend.,Beruf
+야근하다,yageunhada,Überstunden machen,A2,Verb,오늘 야근해야 해요.,Heute muss ich Überstunden machen.,Beruf
+월급,wolgeup,Monatsgehalt,A2,Nomen,월급이 올랐어요.,Mein Gehalt wurde erhöht.,Beruf
+면접,myeonjeop,Vorstellungsgespräch,A2,Nomen,내일 면접이 있어요.,Morgen habe ich ein Vorstellungsgespräch.,Beruf
+일어나다,ireonada,aufstehen / aufwachen,A2,Verb,매일 일곱 시에 일어나요.,Ich stehe jeden Tag um sieben auf.,Alltag
+씻다,ssitda,sich waschen / putzen,A2,Verb,자기 전에 씻어요.,Vor dem Schlafen wasche ich mich.,Alltag
+화장하다,hwajangada,Make-up auflegen,A2,Verb,출근하기 전에 화장해요.,Vor der Arbeit schminke ich mich.,Alltag
+빨래하다,ppallaehada,Wäsche waschen,A2,Verb,주말에 빨래해요.,Am Wochenende mache ich Wäsche.,Alltag
+청소하다,cheongsohada,putzen / sauber machen,A2,Verb,집을 청소해요.,Ich putze die Wohnung.,Alltag
+정리하다,jeongnihada,aufräumen / ordnen,A2,Verb,책상을 정리했어요.,Ich habe den Schreibtisch aufgeräumt.,Alltag
+설거지하다,seolgeojihada,Geschirr spülen,A2,Verb,저녁 설거지를 했어요.,Ich habe nach dem Abendessen abgewaschen.,Alltag
+분홍색,bunhongsaek,rosa,A2,Nomen,분홍색이 예뻐요.,Rosa ist hübsch.,Farben
+보라색,borasaek,lila / violett,A2,Nomen,보라색을 좋아해요.,Ich mag Lila.,Farben
+갈색,galsaek,braun,A2,Nomen,갈색 가방이 멋있어요.,Die braune Tasche ist schön.,Farben
+회색,hoesaek,grau,A2,Nomen,회색 코트를 입었어요.,Ich trug einen grauen Mantel.,Farben
+주황색,juhwangsaek,orange,A2,Nomen,주황색이 잘 어울려요.,Orange steht dir gut.,Farben
+영상,yeongsang,Video / Bildmaterial,B1,Nomen,유튜브 영상을 봐요.,Ich schaue YouTube-Videos.,Technologie
+댓글,daetgeul,Kommentar (online),B1,Nomen,댓글을 달았어요.,Ich habe einen Kommentar hinterlassen.,Technologie
+좋아요,joayo,Like (Social Media),B1,Nomen,좋아요를 눌렀어요.,Ich habe ein Like gegeben.,Technologie
+팔로워,palloweo,Follower,B1,Nomen,팔로워가 늘었어요.,Meine Followerzahl ist gewachsen.,Technologie
+게시물,gesimul,Post / Beitrag,B1,Nomen,게시물을 올렸어요.,Ich habe einen Beitrag hochgeladen.,Technologie
+업로드하다,eopload-hada,hochladen,B1,Verb,사진을 업로드해요.,Ich lade Fotos hoch.,Technologie
+검색하다,geomsaekhada,recherchieren / online suchen,B1,Verb,정보를 검색해요.,Ich recherchiere Informationen.,Technologie
+다운로드,daunrodeu,Download,B1,Nomen,파일을 다운로드해요.,Ich lade die Datei herunter.,Technologie
+공유하다,gongyuhada,teilen (Social Media),B1,Verb,친구한테 공유해요.,Ich teile es mit Freunden.,Technologie
+협력하다,hyeoryeokhada,zusammenarbeiten / kooperieren,B1,Verb,다른 팀과 협력해요.,Wir arbeiten mit anderen Teams zusammen.,Beruf
+책임지다,chaegimjida,Verantwortung übernehmen,B1,Verb,이 일은 제가 책임질게요.,Ich übernehme die Verantwortung für diese Aufgabe.,Beruf
+보고하다,bogohada,Bericht erstatten,B1,Verb,결과를 보고해요.,Ich berichte die Ergebnisse.,Beruf
+진행하다,jinhaenghada,durchführen / voranbringen,B1,Verb,프로젝트를 진행해요.,Wir führen das Projekt durch.,Beruf
+마감,magam,Deadline / Abgabefrist,B1,Nomen,마감이 다음 주예요.,Die Deadline ist nächste Woche.,Beruf
+일정,iljeong,Terminplan / Zeitplan,B1,Nomen,일정을 확인해 주세요.,Bitte überprüfen Sie den Terminplan.,Beruf
+회의록,hoeuirok,Sitzungsprotokoll,B1,Nomen,회의록을 작성해요.,Ich schreibe das Sitzungsprotokoll.,Beruf
+제안하다,jeanhada,vorschlagen,B1,Verb,새 아이디어를 제안해요.,Ich schlage eine neue Idee vor.,Beruf
+거절하다,geojeolhada,ablehnen,B1,Verb,정중하게 거절했어요.,Ich habe es höflich abgelehnt.,Beruf
+동의하다,donguihada,zustimmen,B1,Verb,그 의견에 동의해요.,Ich stimme dieser Meinung zu.,Kommunikation
+다이어트,daieoteu,Diät,B1,Nomen,다이어트 중이에요.,Ich mache gerade eine Diät.,Gesundheit
+명상,myeongsang,Meditation,B1,Nomen,매일 아침 명상해요.,Ich meditiere jeden Morgen.,Gesundheit
+식단,sikdan,Ernährungsplan,B1,Nomen,식단을 관리해요.,Ich achte auf meine Ernährung.,Gesundheit
+균형,gyunhyeong,Balance / Gleichgewicht,B1,Nomen,일과 삶의 균형이 중요해요.,Work-Life-Balance ist wichtig.,Gesellschaft
+휴식,hyusik,Erholung / Pause,B1,Nomen,잠깐 휴식을 취해요.,Ich mache eine kurze Pause.,Alltag
+취향,chwihyang,Vorliebe / Geschmack,B1,Nomen,사람마다 취향이 달라요.,Jeder hat einen anderen Geschmack.,Beschreibung
+의미,uimi,Bedeutung / Sinn,B1,Nomen,이 단어의 의미가 뭐예요?,Was bedeutet dieses Wort?,Kommunikation
+변화,byeonhwa,Veränderung / Wandel,B1,Nomen,큰 변화가 있었어요.,Es gab eine große Veränderung.,Alltag
+영향,yeonghyang,Einfluss / Wirkung,B1,Nomen,좋은 영향을 줘요.,Es hat einen guten Einfluss.,Gesellschaft
+차이,chai,Unterschied,B1,Nomen,두 나라의 차이가 커요.,Der Unterschied zwischen den beiden Ländern ist groß.,Beschreibung
+공통점,gongtongjeom,Gemeinsamkeit,B1,Nomen,공통점이 많아요.,Wir haben viele Gemeinsamkeiten.,Beziehungen
+가능성,ganeungseong,Möglichkeit,B1,Nomen,가능성이 있어요.,Es gibt eine Möglichkeit.,Denken
+한계,hangye,Grenze / Limit,B1,Nomen,자신의 한계를 알아요.,Ich kenne meine Grenzen.,Denken
+책임,chaegim,Verantwortung,B1,Nomen,책임이 무거워요.,Die Verantwortung ist groß.,Beruf
+솔직하다,soljikhada,ehrlich / aufrichtig sein,B1,Adjektiv,솔직하게 말해 주세요.,Sagen Sie es bitte ehrlich.,Beschreibung
+겸손하다,gyeomsonhada,bescheiden sein,B1,Adjektiv,그 사람은 정말 겸손해요.,Diese Person ist wirklich bescheiden.,Beschreibung
+친절하다,chinjeolhada,freundlich / hilfsbereit sein,B1,Adjektiv,점원이 친절해요.,Der Verkäufer ist freundlich.,Beschreibung
+게으르다,geeureuda,faul sein,B1,Adjektiv,주말에는 좀 게을러요.,Am Wochenende bin ich etwas faul.,Beschreibung
+부지런하다,bujireonhada,fleißig sein,B1,Adjektiv,부지런한 사람이에요.,Er ist ein fleißiger Mensch.,Beschreibung
+적극적이다,jeokgeukjeogida,aktiv / engagiert sein,B1,Adjektiv,적극적으로 참여해요.,Ich beteilige mich aktiv.,Beschreibung
+소극적이다,sogeukjeogida,passiv / zurückhaltend sein,B1,Adjektiv,처음에는 소극적이었어요.,Am Anfang war ich zurückhaltend.,Beschreibung
+책임감,chaegimgam,Verantwortungsbewusstsein,B1,Nomen,책임감이 강해요.,Sie hat ein starkes Verantwortungsbewusstsein.,Beschreibung
+신경 쓰다,singyeong sseuda,sich Sorgen machen / sich kümmern,B1,Verb,너무 신경 쓰지 마세요.,Mach dir nicht so viele Sorgen.,Gefühle
+마음에 들다,maeume deulda,gefallen,B1,Verb,정말 마음에 들어요!,Das gefällt mir sehr!,Gefühle
+약속하다,yaksokhada,versprechen,B1,Verb,꼭 지킬게요 약속해요.,Ich verspreche es einzuhalten.,Kommunikation
+후회하다,huhoehada,bereuen,B1,Verb,후회하지 않아요.,Ich bereue es nicht.,Gefühle
+기대하다,gidaehada,erwarten / sich freuen auf,B1,Verb,너무 기대돼요.,Ich freue mich sehr darauf.,Gefühle
+협상,hyeopsang,Verhandlung,B2,Nomen,협상이 잘 됐어요.,Die Verhandlung lief gut.,Beruf
+계약,gyeyak,Vertrag,B2,Nomen,계약을 체결했어요.,Wir haben den Vertrag abgeschlossen.,Beruf
+투자,tuja,Investition,B2,Nomen,투자가 필요해요.,Eine Investition ist nötig.,Gesellschaft
+수익,suik,Gewinn / Ertrag,B2,Nomen,수익이 늘었어요.,Der Gewinn ist gestiegen.,Gesellschaft
+비용,biyong,Kosten,B2,Nomen,비용이 많이 들어요.,Es kostet viel.,Gesellschaft
+생산성,saengsanseong,Produktivität,B2,Nomen,생산성을 높여야 해요.,Wir müssen die Produktivität steigern.,Beruf
+경쟁력,gyeongjaengnyeok,Wettbewerbsfähigkeit,B2,Nomen,경쟁력이 강해요.,Die Wettbewerbsfähigkeit ist stark.,Gesellschaft
+전략,jeollyak,Strategie,B2,Nomen,새 전략을 세웠어요.,Wir haben eine neue Strategie entwickelt.,Beruf
+위기,wigi,Krise,B2,Nomen,위기를 극복했어요.,Wir haben die Krise überwunden.,Gesellschaft
+협업,hyeobeop,Zusammenarbeit (formell),B2,Nomen,두 회사의 협업이 시작됐어요.,Die Zusammenarbeit der beiden Firmen begann.,Beruf
+법,beop,Gesetz,B2,Nomen,법을 지켜야 해요.,Wir müssen das Gesetz einhalten.,Gesellschaft
+정책,jeongchaek,Politik / Strategie (staatlich),B2,Nomen,새 정책이 발표됐어요.,Eine neue Politik wurde angekündigt.,Gesellschaft
+제도,jedo,System / Institution,B2,Nomen,교육 제도가 바뀌어요.,Das Bildungssystem ändert sich.,Gesellschaft
+의무,uimu,Pflicht / Verpflichtung,B2,Nomen,의무를 다해요.,Ich erfülle meine Pflicht.,Gesellschaft
+평등,pyeongdeung,Gleichheit / Gleichberechtigung,B2,Nomen,평등이 중요해요.,Gleichberechtigung ist wichtig.,Gesellschaft
+차별,chabyeol,Diskriminierung,B2,Nomen,차별이 사라져야 해요.,Diskriminierung muss verschwinden.,Gesellschaft
+인권,ingwon,Menschenrechte,B2,Nomen,인권을 보호해요.,Wir schützen die Menschenrechte.,Gesellschaft
+양극화,yanggeukhwa,Polarisierung / Spaltung,B2,Nomen,사회 양극화가 심해져요.,Die gesellschaftliche Spaltung verschärft sich.,Gesellschaft
+강점,gangjeom,Stärke,B2,Nomen,제 강점은 끈기예요.,Meine Stärke ist Ausdauer.,Beruf
+약점,yakjeom,Schwäche,B2,Nomen,약점도 인정해야 해요.,Man muss auch seine Schwächen anerkennen.,Beruf
+경력,gyeongnyeok,Berufserfahrung / Werdegang,B2,Nomen,십 년의 경력이 있어요.,Ich habe zehn Jahre Berufserfahrung.,Beruf
+자격증,jagyeokjeung,Zertifikat / Qualifikation,B2,Nomen,어떤 자격증이 있어요?,Welche Zertifikate haben Sie?,Beruf
+자신감,jasingam,Selbstvertrauen,B2,Nomen,자신감이 생겼어요.,Ich habe Selbstvertrauen gewonnen.,Gefühle
+끈기,kkeungi,Ausdauer / Beharrlichkeit,B2,Nomen,끈기 있게 노력해요.,Ich strenge mich beharrlich an.,Beschreibung
+잠재력,jamjaeryeok,Potenzial,B2,Nomen,잠재력을 발휘해요.,Sie entfaltet ihr Potenzial.,Beschreibung
+동기,donggi,Motivation / Anreiz,B2,Nomen,동기가 부족해요.,Mir fehlt die Motivation.,Motivation
+분야,bunya,Bereich / Fach / Gebiet,B2,Nomen,이 분야의 전문가예요.,Sie ist Expertin auf diesem Gebiet.,Bildung
+전공,jeongong,Hauptfach / Studienfach,B2,Nomen,전공이 뭐예요?,Was studierst du?,Bildung
+학위,hagwi,akademischer Grad,B2,Nomen,박사 학위를 받았어요.,Sie hat den Doktortitel erworben.,Bildung
+논문,nonmun,wissenschaftlicher Aufsatz / Arbeit,B2,Nomen,논문을 발표했어요.,Ich habe einen Aufsatz veröffentlicht.,Bildung
+발표하다,balpyohada,präsentieren / vortragen,B2,Verb,다음 주에 발표해요.,Nächste Woche halte ich eine Präsentation.,Kommunikation
+인용하다,inyonghada,zitieren,B2,Verb,출처를 인용해요.,Ich zitiere die Quelle.,Bildung
+통계,tonggye,Statistik,B2,Nomen,통계 자료가 정확해요.,Die Statistik ist genau.,Denken
+가설,gaseol,Hypothese,B2,Nomen,가설을 세웠어요.,Ich habe eine Hypothese aufgestellt.,Denken
+진정한,jinjeonghan,wahr / echt,B2,Adjektiv,진정한 친구를 찾아요.,Ich suche einen echten Freund.,Beschreibung
+본질적이다,bonjiljeogida,wesentlich / essenziell sein,B2,Adjektiv,본질적인 문제예요.,Das ist ein wesentliches Problem.,Denken
+적절하다,jeokjeolhada,angemessen / passend sein,B2,Adjektiv,적절한 반응이에요.,Das ist eine angemessene Reaktion.,Beschreibung
+명확하다,myeonghwakhada,eindeutig / klar sein,B2,Adjektiv,명확한 답을 주세요.,Bitte geben Sie eine klare Antwort.,Kommunikation
+모호하다,mohohada,vage / unklar sein,B2,Adjektiv,답변이 모호해요.,Die Antwort ist vage.,Kommunikation
+합리적이다,hamnijeogida,rational / vernünftig sein,B2,Adjektiv,합리적으로 결정해요.,Wir entscheiden vernünftig.,Denken

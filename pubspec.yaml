@@ -1,0 +1,74 @@
+name: ko_lernen_app
+description: "Persönlicher Koreanisch-Trainer · A1→B2"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # ── Lokalisierung ───────────────────────────────────────
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  # ── Daten / Persistenz ──────────────────────────────────
+  csv: ^6.0.0
+  shared_preferences: ^2.3.0
+
+  # ── Audio / Sprache ─────────────────────────────────────
+  flutter_tts: ^4.2.0
+
+  # ── UI ──────────────────────────────────────────────────
+  flutter_svg: ^2.0.10
+  google_fonts: ^6.2.1
+
+  # ── Werbung (vorbereitet, AdUnit ID später) ─────────────
+  # google_mobile_ads: ^5.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+  # ── Icon / Splash Generierung ───────────────────────────
+  flutter_launcher_icons: ^0.14.1
+  flutter_native_splash:  ^2.4.2
+
+flutter:
+  uses-material-design: true
+  generate: true                   # für ARB Localisations
+
+  assets:
+    - assets/data/
+    - assets/icons/
+
+# ─────────────────────────────────────────────────────────
+# Launcher Icon — generiert mit:
+#   flutter pub run flutter_launcher_icons
+# ─────────────────────────────────────────────────────────
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon-512.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#0F1419"
+  adaptive_icon_foreground: "assets/icons/icon-512.png"
+  remove_alpha_ios: true
+
+# ─────────────────────────────────────────────────────────
+# Splash Screen — generiert mit:
+#   flutter pub run flutter_native_splash:create
+# ─────────────────────────────────────────────────────────
+flutter_native_splash:
+  color: "#0F1419"
+  image: assets/icons/icon-512.png
+  android_gravity: center
+  ios_content_mode: center
+  android_12:
+    image: assets/icons/icon-512.png
+    color: "#0F1419"

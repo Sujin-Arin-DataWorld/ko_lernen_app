@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#e64980"/>
+      <stop offset="55%" stop-color="#845ef7"/>
+      <stop offset="100%" stop-color="#339af0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#ffe066"/>
+      <stop offset="50%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#daa520"/>
+    </linearGradient>
+    <radialGradient id="gem" cx="0.35" cy="0.35" r="0.65">
+      <stop offset="0%"  stop-color="#fff8dc"/>
+      <stop offset="60%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <!-- ── 익선관 (세종대왕 왕관) ─────────────────────────── -->
+  <g>
+    <!-- 양 옆 날개 (위로 솟은 익선) — 본체보다 뒤 -->
+    <path d="M 148 178 Q 108 140 96 178 Q 100 208 148 208 Z"
+          fill="#0d0d0d"/>
+    <path d="M 364 178 Q 404 140 416 178 Q 412 208 364 208 Z"
+          fill="#0d0d0d"/>
+    <!-- 본체 (이마부터 정수리까지) -->
+    <path d="M 150 222
+             Q 150 152, 202 146
+             L 310 146
+             Q 362 152, 362 222
+             Z"
+          fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+    <!-- 정수리 둥근 솟음 -->
+    <path d="M 196 152
+             Q 200 94, 256 90
+             Q 312 94, 316 152
+             Z"
+          fill="#1a1a1a" stroke="#000" stroke-width="1.5"/>
+    <!-- 금색 가로 띠 (이마) -->
+    <rect x="150" y="208" width="212" height="9" rx="2" fill="url(#gold)" stroke="#8b6914" stroke-width="0.5"/>
+    <!-- 중앙 보석 -->
+    <circle cx="256" cy="178" r="14" fill="url(#gem)" stroke="#8b6914" stroke-width="2"/>
+    <!-- 보석 하이라이트 -->
+    <circle cx="251" cy="173" r="4" fill="#fffacd" opacity="0.9"/>
+    <!-- 측면 작은 장식 점 -->
+    <circle cx="180" cy="213" r="3" fill="#fff8dc"/>
+    <circle cx="332" cy="213" r="3" fill="#fff8dc"/>
+  </g>
+
+  <!-- 한 글자 (모자 아래) -->
+  <text x="50%" y="80%" text-anchor="middle"
+        font-family="-apple-system, 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif"
+        font-size="210" font-weight="900" fill="white">한</text>
+</svg>
