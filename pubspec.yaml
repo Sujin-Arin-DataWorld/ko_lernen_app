@@ -26,6 +26,7 @@ dependencies:
   # ── UI ──────────────────────────────────────────────────
   flutter_svg: ^2.0.10
   google_fonts: ^6.2.1
+  animations: ^2.0.11        # OpenContainer Material container transform
 
   # ── Werbung ─────────────────────────────────────────────
   # ⚠️ google_mobile_ads (5.x) inkompatibel mit aktuellem AGP/Gradle
@@ -57,6 +58,21 @@ flutter:
   assets:
     - assets/data/
     - assets/icons/
+
+  # ── Pretendard (한국어 모던 산세리프, SIL OFL, Std subset ~310KB×5) ──
+  fonts:
+    - family: Pretendard
+      fonts:
+        - asset: assets/fonts/Pretendard/PretendardStd-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Pretendard/PretendardStd-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Pretendard/PretendardStd-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/Pretendard/PretendardStd-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Pretendard/PretendardStd-ExtraBold.otf
+          weight: 800
 
 # ─────────────────────────────────────────────────────────
 # Launcher Icon — generiert mit:
