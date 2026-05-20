@@ -27,8 +27,8 @@ dependencies:
   flutter_svg: ^2.0.10
   google_fonts: ^6.2.1
 
-  # ── Werbung (vorbereitet, AdUnit ID später) ─────────────
-  # google_mobile_ads: ^5.2.0
+  # ── Werbung ─────────────────────────────────────────────
+  google_mobile_ads: ^5.2.0
 
 dev_dependencies:
   flutter_test:

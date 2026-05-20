@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'theme.dart';
 import 'services/storage_service.dart';
 import 'services/locale_service.dart';
+import 'services/ad_service.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/home_screen.dart';
 import 'screens/vocab_screen.dart';
@@ -12,6 +13,7 @@ import 'screens/placeholder_screen.dart';
 import 'screens/chosung_quiz_screen.dart';
 import 'screens/wordle_screen.dart';
 import 'screens/settings_screen.dart';
+import 'screens/hangul_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +21,10 @@ Future<void> main() async {
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
   await Storage.touchStreak();
+
+  // AdMob best-effort initialisieren (im Hintergrund)
+  // ignore: discarded_futures, unawaited_futures
+  _initAds();
 
   // Portrait sperren
   await SystemChrome.setPreferredOrientations([
@@ -36,6 +42,15 @@ Future<void> main() async {
   );
 
   runApp(const KoLernenApp());
+}
+
+Future<void> _initAds() async {
+  try {
+    await AdService.init();
+    await AdService.preloadInterstitial();
+  } catch (_) {
+    // best-effort
+  }
 }
 
 class KoLernenApp extends StatelessWidget {
@@ -64,7 +79,7 @@ class KoLernenApp extends StatelessWidget {
           '/vocab':     (_) => const VocabScreen(),
           '/grammar':   (_) => const GrammarScreen(),
           '/listening': (_) => const PlaceholderScreen(title: 'Hören',  emoji: '🎧'),
-          '/hangul':    (_) => const PlaceholderScreen(title: 'Hangul', emoji: '🔤'),
+          '/hangul':    (_) => const HangulScreen(),
           '/chosung':   (_) => const ChosungQuizScreen(),
           '/wordle':    (_) => const WordleScreen(),
           '/settings':  (_) => const SettingsScreen(),

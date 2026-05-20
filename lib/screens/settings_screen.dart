@@ -89,6 +89,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
 
+          // ── Werbung ──
+          _Section(label: 'Anzeigen'),
+          SwitchListTile(
+            title: const Text('Werbung anzeigen'),
+            subtitle: const Text('Hilft beim Erhalten der App', style: TextStyle(fontSize: 12, color: AppColors.textMuted)),
+            value: Storage.adsEnabled,
+            onChanged: (v) async {
+              await Storage.setAdsEnabled(v);
+              if (mounted) setState(() {});
+            },
+            activeThumbColor: AppColors.primary,
+          ),
+
           // ── Reset ──
           _Section(label: ''),
           ListTile(

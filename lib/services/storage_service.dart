@@ -113,6 +113,10 @@ class Storage {
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 
+  /// Werbung anzeigen? Default true. User kann in Settings deaktivieren.
+  static bool get adsEnabled => _prefs?.getBool('kl_ads_enabled') ?? true;
+  static Future<void> setAdsEnabled(bool v) async => _prefs?.setBool('kl_ads_enabled', v);
+
   // ───────── Reset ─────────
   static Future<void> resetAll() async {
     final keys = _prefs?.getKeys() ?? <String>{};

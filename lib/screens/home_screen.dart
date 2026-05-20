@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../theme.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../services/storage_service.dart';
+import '../widgets/banner_ad.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -107,7 +109,9 @@ class HomeScreen extends StatelessWidget {
                 onTap: () => Navigator.pushNamed(context, '/wordle'),
               ),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
+              if (Storage.adsEnabled) const Center(child: AppBannerAd()),
+              const SizedBox(height: 16),
               Center(
                 child: Text(
                   t.footerCheer,
