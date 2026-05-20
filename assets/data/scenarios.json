@@ -1023,6 +1023,699 @@
           "en": "When your Korean partner says '괜찮아' but face and tone say otherwise — believe the face. '괜찮아' is often a polite shield. What actually heals: acknowledge ('서운했지') + take blame ('내가 잘못했어') + concrete future ('다음부터는...'). Vague apology = empty comfort. Get specific = mean it."
         }
       }
+    },
+
+    {
+      "id": "taxi_kakao",
+      "level": "a1",
+      "emoji": "🚕",
+      "register": "polite",
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "카카오 택시 타기",
+        "de": "Ein Taxi nehmen (KakaoT)",
+        "en": "Taking a taxi (KakaoT)"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Du brauchst ein Taxi zum Hotel. Über KakaoT App bestellt — der Fahrer kommt gleich. Er fragt nach dem Ziel. Wie antwortest du auf Koreanisch?",
+        "en": "You need a taxi to the hotel. Ordered via KakaoT app — driver arriving soon. He asks for your destination. How do you reply in Korean?"
+      },
+      "vocab": [
+        {
+          "korean": "카카오티",
+          "aliases": ["카카오택시"],
+          "note": {
+            "ko": "",
+            "de": "Koreas Uber. App vorab installieren, Karte registrieren = bezahlt automatisch nach Fahrt.",
+            "en": "Korea's Uber. Install app beforehand, register card = auto-pays after ride."
+          }
+        },
+        {
+          "korean": "어디까지",
+          "note": {
+            "ko": "",
+            "de": "Bis wohin? Sehr häufige Frage von Taxi-Fahrern.",
+            "en": "To where? Very common driver question."
+          }
+        },
+        {
+          "korean": "가주세요",
+          "note": {
+            "ko": "",
+            "de": "Bitte fahren Sie. V-아/어 주세요 = höfliche Bitte.",
+            "en": "Please go/drive. V-아/어 주세요 = polite request."
+          }
+        },
+        {
+          "korean": "빨리",
+          "note": {
+            "ko": "",
+            "de": "schnell. Aber: in Korea heißt 'schnell' oft 'sehr schnell'. Vorsicht!",
+            "en": "fast. But in Korea, 'fast' often means very fast. Beware!"
+          }
+        },
+        {
+          "korean": "천천히",
+          "note": {
+            "ko": "",
+            "de": "langsam. Auch: 'mach's gut' beim Verabschieden (천천히 가세요).",
+            "en": "slowly. Also: 'take it easy' when saying goodbye (천천히 가세요)."
+          }
+        },
+        {
+          "korean": "자동 결제",
+          "note": {
+            "ko": "",
+            "de": "Auto-Zahlung (via App). Du musst NICHT bar bezahlen — die App regelt es.",
+            "en": "Auto-payment (via app). You do NOT pay cash — the app handles it."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N까지",
+          "de": "N까지 (bis zu)",
+          "en": "N까지 (up to / until)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Endpunkt einer Bewegung — 'bis (zu)'. 강남역까지 = bis Gangnam Station. Auch zeitlich: 5시까지 = bis 5 Uhr. Pendant zu 부터 (ab/von).",
+          "en": "Endpoint of motion — 'up to / until'. 강남역까지 = up to Gangnam Station. Also temporal: 5시까지 = until 5 PM. Pairs with 부터 (from)."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "안녕하세요. 어디까지 가세요?",
+          "de": "Guten Tag. Wohin geht's?",
+          "en": "Hello. Where are you headed?"
+        },
+        {
+          "speaker": "user",
+          "ko": "강남역까지 가주세요.",
+          "de": "Bis zur Gangnam Station, bitte.",
+          "en": "To Gangnam Station, please."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 강남역. 빨리 가드릴까요?",
+          "de": "OK, Gangnam Station. Soll ich schnell fahren?",
+          "en": "OK, Gangnam. Should I drive fast?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니요, 천천히 가셔도 돼요.",
+          "de": "Nein, langsam ist gut.",
+          "en": "No, slow is fine."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "알겠습니다. 자동 결제죠?",
+          "de": "Verstanden. Auto-Zahlung, oder?",
+          "en": "Got it. Auto-payment, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 자동 결제예요.",
+          "de": "Ja, Auto-Zahlung.",
+          "en": "Yes, auto-payment."
+        }
+      ],
+      "quests": [
+        {
+          "type": "particlePop",
+          "data": {
+            "prefix": "강남역",
+            "suffix": "가주세요.",
+            "options": ["까지", "에서", "에", "도", "는", "이"],
+            "correctIndex": 0,
+            "explanationDe": "까지 = 'bis zu' (Endpunkt). Standard für Taxi-/Bus-Ziele.",
+            "explanationEn": "까지 = 'up to' (endpoint). Standard for taxi/bus destinations."
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "어디까지 가세요?",
+            "options": [
+              { "de": "Wohin geht's?",            "en": "Where are you headed?" },
+              { "de": "Wie viel kostet das?",     "en": "How much is it?" },
+              { "de": "Wie lange dauert es?",     "en": "How long will it take?" },
+              { "de": "Welche Adresse haben Sie?", "en": "What's your address?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Nein, langsam ist gut.",
+            "promptEn": "No, slow is fine.",
+            "options": [
+              { "ko": "아니요, 천천히 가셔도 돼요." },
+              { "ko": "네, 빨리 가주세요." },
+              { "ko": "자동 결제예요." },
+              { "ko": "강남역까지 가주세요." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "카카오 택시 — 결제 안 해도 됨",
+          "de": "KakaoT — Du zahlst NICHT bar",
+          "en": "KakaoT — you don't pay cash"
+        },
+        "body": {
+          "ko": "",
+          "de": "App-vorab-Setup: KakaoT installieren → Karte (oder Apple/Google Pay) registrieren → Fahrt buchen. Im Auto: keine Geldscheine, keine Karte zücken. App lädt automatisch ab nach Ankunft. Trinkgeld unüblich. Wenn der Fahrer 'Bargeld?' fragt → du sagst '자동 결제예요' und das war's.",
+          "en": "Pre-set up the app: install KakaoT → register card (or Apple/Google Pay) → book ride. In the car: no cash, no card-tap. App auto-charges on arrival. No tipping. If driver asks 'cash?' → say '자동 결제예요' and that's it."
+        }
+      }
+    },
+
+    {
+      "id": "bunshik_tteokbokki",
+      "level": "a1",
+      "emoji": "🍽️",
+      "register": "polite",
+      "sidekick": "jieun",
+      "xpReward": 130,
+      "title": {
+        "ko": "분식집에서 떡볶이",
+        "de": "Tteokbokki im 분식집",
+        "en": "Tteokbokki at a snack shop"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Erste Tteokbokki Erfahrung in Hongdae. Du gehst in ein 분식집 (Snack-Restaurant). Aber Achtung: koreanisch 'mild' = europäisch 'medium scharf'. Wie bestellst du wirklich nicht-scharf?",
+        "en": "First tteokbokki experience in Hongdae. You walk into a 분식집 (snack restaurant). But beware: Korean 'mild' = European 'medium spicy'. How do you actually order not-spicy?"
+      },
+      "vocab": [
+        {
+          "korean": "떡볶이",
+          "note": {
+            "ko": "",
+            "de": "Reiskuchen in scharfer Soße — koreanisches Soul Food. In 분식집 omnipresent.",
+            "en": "Rice cakes in spicy sauce — Korean soul food. Everywhere in 분식집."
+          }
+        },
+        {
+          "korean": "김밥",
+          "note": {
+            "ko": "",
+            "de": "Reisrolle (wie Sushi-Maki). Klassisch dazu, nicht-scharf.",
+            "en": "Rice roll (like sushi maki). Classic pairing, not spicy."
+          }
+        },
+        {
+          "korean": "매워요",
+          "note": {
+            "ko": "",
+            "de": "ist scharf. Stammform 맵다.",
+            "en": "is spicy. Dictionary form: 맵다."
+          }
+        },
+        {
+          "korean": "안 맵게",
+          "note": {
+            "ko": "",
+            "de": "nicht scharf (als Bitte). 안 + 매워요 → 안 매워요 / als Adverb: 안 맵게.",
+            "en": "not spicy (as request). 안 + spicy → adverb form: 안 맵게."
+          }
+        },
+        {
+          "korean": "한 인분",
+          "note": {
+            "ko": "",
+            "de": "eine Portion. 인분 = pro Person. 두 인분 = zwei Portionen.",
+            "en": "one portion. 인분 = per person. 두 인분 = two portions."
+          }
+        },
+        {
+          "korean": "사이다",
+          "note": {
+            "ko": "",
+            "de": "Klare Limonade (Sprite-ähnlich) — NICHT Cider! 'Cider' auf Koreanisch heißt jede klare Süß-Limo.",
+            "en": "Clear soda (Sprite-like) — NOT cider! 'Cider' in Korean means any clear sweet soda."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-게 해주세요",
+          "de": "V-게 해주세요 (Bitte mach es V-mäßig)",
+          "en": "V-게 해주세요 (please make it V)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Adjektiv + 게 → Adverb-Form. + 해주세요 = höfliche Bitte. 안 맵게 해주세요 = 'Bitte mach es nicht scharf'. 빨리 해주세요 = 'Bitte schnell'. Sehr nützlich in Restaurants.",
+          "en": "Adjective + 게 → adverb form. + 해주세요 = polite request. 안 맵게 해주세요 = 'please make it not spicy'. 빨리 해주세요 = 'please quickly'. Very useful in restaurants."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "어서 오세요. 주문하시겠어요?",
+          "de": "Willkommen. Möchten Sie bestellen?",
+          "en": "Welcome. Ready to order?"
+        },
+        {
+          "speaker": "user",
+          "ko": "떡볶이 한 인분이랑 김밥 하나 주세요.",
+          "de": "Eine Portion Tteokbokki und einen Kimbap, bitte.",
+          "en": "One tteokbokki and one kimbap, please."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "매운맛은 어떻게 해드릴까요?",
+          "de": "Wie scharf darf's sein?",
+          "en": "How spicy would you like it?"
+        },
+        {
+          "speaker": "user",
+          "ko": "안 맵게 해주세요. 진짜 안 맵게요!",
+          "de": "Bitte nicht scharf. Wirklich nicht scharf!",
+          "en": "Not spicy please. Really not spicy!"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 알겠습니다. 음료는요?",
+          "de": "Klar, verstanden. Und ein Getränk?",
+          "en": "Got it. Drink?"
+        },
+        {
+          "speaker": "user",
+          "ko": "사이다 한 캔이요.",
+          "de": "Eine Dose Sprite.",
+          "en": "One can of Sprite."
+        }
+      ],
+      "quests": [
+        {
+          "type": "luecken",
+          "data": {
+            "sentence": "안 ___ 해주세요.",
+            "options": ["맵게", "매워", "맵다", "매운"],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "매운맛은 어떻게 해드릴까요?",
+            "options": [
+              { "de": "Wie scharf darf's sein?",      "en": "How spicy would you like it?" },
+              { "de": "Welche Größe möchten Sie?",    "en": "What size would you like?" },
+              { "de": "Mit oder ohne Käse?",           "en": "With or without cheese?" },
+              { "de": "Hier oder zum Mitnehmen?",      "en": "For here or to go?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Eine Portion Tteokbokki, bitte.",
+            "promptEn": "One portion of tteokbokki, please.",
+            "options": [
+              { "ko": "떡볶이 한 인분 주세요." },
+              { "ko": "사이다 한 캔이요." },
+              { "ko": "안 맵게 해주세요." },
+              { "ko": "김밥 하나 주세요." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "안 맵게 = 진짜로!",
+          "de": "Koreanisch 'mild' ist nicht mild",
+          "en": "Korean 'mild' is not mild"
+        },
+        "body": {
+          "ko": "",
+          "de": "Koreas Schärfe-Skala ist intensiver. 'Anfänger nicht-scharf' Tteokbokki kann immer noch Schweißausbrüche verursachen. Strategie: '안 맵게' + Verstärker '진짜', '아주' oder 'completely'. Manche 분식 ergänzen mit '하얀 떡볶이' (weißer/cremiger Tteokbokki) ohne Gochujang — frag danach falls verfügbar.",
+          "en": "Korea's spice scale runs hotter. 'Beginner not-spicy' tteokbokki can still trigger sweating. Strategy: '안 맵게' + intensifier '진짜', '아주', or 'completely'. Some 분식 offer '하얀 떡볶이' (white/creamy tteokbokki) without gochujang — ask if available."
+        }
+      }
+    },
+
+    {
+      "id": "subway_transfer",
+      "level": "a2",
+      "emoji": "🚇",
+      "register": "polite",
+      "sidekick": "jieun",
+      "xpReward": 140,
+      "title": {
+        "ko": "지하철 환승",
+        "de": "U-Bahn Umsteigen",
+        "en": "Subway transfer"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Bukchon Hanok Village wartet. 1호선 → 3호선 mit Umstieg. T-money geladen. Du bist auf der Karte verwirrt — fragst du die nette Frau neben dir auf Koreanisch?",
+        "en": "Bukchon Hanok Village awaits. Line 1 → Line 3 with transfer. T-money loaded. You're confused at the map — should you ask the friendly woman next to you in Korean?"
+      },
+      "vocab": [
+        {
+          "korean": "지하철",
+          "note": {
+            "ko": "",
+            "de": "U-Bahn. Eines der besten Netze der Welt. Komplett auf Englisch+Koreanisch beschriftet.",
+            "en": "Subway. One of the world's best networks. Fully signed in English + Korean."
+          }
+        },
+        {
+          "korean": "환승",
+          "note": {
+            "ko": "",
+            "de": "Umstieg. Auch im Bus → U-Bahn. T-money macht es automatisch.",
+            "en": "Transfer. Also bus → subway. T-money handles it automatically."
+          }
+        },
+        {
+          "korean": "호선",
+          "note": {
+            "ko": "",
+            "de": "Linie. 1호선 = Linie 1, 3호선 = Linie 3, 9호선 = Linie 9.",
+            "en": "Line. 1호선 = line 1, 3호선 = line 3, 9호선 = line 9."
+          }
+        },
+        {
+          "korean": "갈아타다",
+          "note": {
+            "ko": "",
+            "de": "umsteigen. Höflich: 갈아타세요 = bitte umsteigen.",
+            "en": "to transfer. Polite: 갈아타세요 = please transfer."
+          }
+        },
+        {
+          "korean": "내리다",
+          "note": {
+            "ko": "",
+            "de": "aussteigen. 내리세요 = bitte aussteigen / steigen Sie aus.",
+            "en": "to get off. 내리세요 = please get off / get off here."
+          }
+        },
+        {
+          "korean": "티머니",
+          "note": {
+            "ko": "",
+            "de": "Transport-Karte (wie BVG-Ticket). Im 편의점 oder Automat kaufen, aufladen. ~50 % günstiger als Einzelfahrten.",
+            "en": "Transit card (like Oyster). Buy at convenience store or machine, recharge. ~50 % cheaper than single fares."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에서 N(으)로",
+          "de": "N에서 N(으)로 (von ... nach)",
+          "en": "N에서 N(으)로 (from ... to)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Bewegung von einem Ort/Linie zu einem anderen. 1호선에서 3호선으로 = von Linie 1 zu Linie 3. 에서 = Ausgangspunkt; (으)로 = Richtung. 호선 endet auf ㄴ → mit Konsonant → 으로. (Aber 종로3가 endet auf Vokal → 종로3가로 wäre korrekt — beachte die Regel.)",
+          "en": "Movement from one place/line to another. 1호선에서 3호선으로 = from line 1 to line 3. 에서 = origin; (으)로 = direction. 호선 ends in ㄴ → consonant → 으로."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저기요, 북촌 한옥마을 어떻게 가요?",
+          "de": "Entschuldigung, wie komme ich zum Bukchon Hanok Village?",
+          "en": "Excuse me, how do I get to Bukchon Hanok Village?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "1호선 타시고, 종로3가에서 3호선으로 갈아타세요.",
+          "de": "Linie 1 fahren, an Jongno 3-ga auf Linie 3 umsteigen.",
+          "en": "Take line 1, transfer to line 3 at Jongno 3-ga."
+        },
+        {
+          "speaker": "user",
+          "ko": "종로3가에서 갈아탄다는 거죠?",
+          "de": "Also bei Jongno 3-ga umsteigen, oder?",
+          "en": "So I transfer at Jongno 3-ga, right?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네. 그리고 안국역에서 내리세요.",
+          "de": "Ja. Und an Anguk Station aussteigen.",
+          "en": "Yes. And get off at Anguk Station."
+        },
+        {
+          "speaker": "user",
+          "ko": "정말 감사합니다.",
+          "de": "Vielen herzlichen Dank.",
+          "en": "Thank you so much."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "천천히 가세요!",
+          "de": "Gute Reise!",
+          "en": "Take care!"
+        }
+      ],
+      "quests": [
+        {
+          "type": "particlePop",
+          "data": {
+            "prefix": "종로3가",
+            "suffix": "갈아타세요.",
+            "options": ["에서", "까지", "에", "로", "을", "는"],
+            "correctIndex": 0,
+            "explanationDe": "에서 markiert den Ort EINER Handlung — hier den Umsteigeort. 'An Jongno 3-ga umsteigen.'",
+            "explanationEn": "에서 marks the location OF an action — here the transfer point. 'Transfer AT Jongno 3-ga.'"
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "1호선 타시고, 종로3가에서 3호선으로 갈아타세요.",
+            "options": [
+              { "de": "Linie 1, dann auf Linie 3 umsteigen.",        "en": "Take line 1, transfer to line 3." },
+              { "de": "Steigen Sie sofort in den Bus um.",            "en": "Switch to the bus immediately." },
+              { "de": "Linie 3 fährt nicht heute.",                   "en": "Line 3 doesn't run today." },
+              { "de": "Sie sind in die falsche Richtung gefahren.",  "en": "You went the wrong way." }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Bei Anguk Station aussteigen.",
+            "promptEn": "Get off at Anguk Station.",
+            "options": [
+              { "ko": "안국역에서 내리세요." },
+              { "ko": "안국역까지 가주세요." },
+              { "ko": "1호선 타세요." },
+              { "ko": "안국역에 환승하세요." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "노약자석은 비어있어도",
+          "de": "Priority-Seats — auch wenn leer",
+          "en": "Priority seats — even if empty"
+        },
+        "body": {
+          "ko": "",
+          "de": "Jeder Wagen hat '노약자석' (Sitze für Alte / Schwangere / Behinderte). Auch wenn der Zug leer ist und die Sitze frei sind — Koreaner setzen sich NICHT dort hin. Soziale Regel. Wenn du nicht zur Zielgruppe gehörst, bleib stehen oder nimm reguläre Sitze. Verstoß = peinlich, aber niemand wird dich konfrontieren — sie schauen nur.",
+          "en": "Every car has '노약자석' (seats for elderly / pregnant / disabled). Even if the train is empty and seats are free — Koreans don't sit there. Social rule. If you're not in those groups, stand or take regular seats. Violation = embarrassing, but nobody will confront — they'll just stare."
+        }
+      }
+    },
+
+    {
+      "id": "company_dinner_hoeshik",
+      "level": "b1",
+      "emoji": "💼",
+      "register": "polite",
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "회식 — 1차에서 2차로",
+        "de": "Hoeshik — von 1차 zu 2차",
+        "en": "Hoeshik — 1st round to 2nd"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Erstes 회식 in deinem koreanischen Job. 1차 (Essen + Bier) ist durch, jetzt zieht das Team weiter zu 2차 (Karaoke). Du bist müde — wie lehnst du höflich ab, ohne die Beziehung zu beschädigen?",
+        "en": "First 회식 (work dinner) at your Korean job. 1차 (food + beer) done, team heading to 2차 (karaoke). You're tired — how do you politely decline without damaging the relationship?"
+      },
+      "vocab": [
+        {
+          "korean": "회식",
+          "note": {
+            "ko": "",
+            "de": "Firmenessen mit Trinken, teils verpflichtend. Wichtiger Teil koreanischer Arbeitskultur — Beziehungen über Soju, nicht im Büro.",
+            "en": "Work dinner with drinking, partly mandatory. Key part of Korean work culture — relationships over soju, not in the office."
+          }
+        },
+        {
+          "korean": "1차",
+          "aliases": ["일차"],
+          "note": {
+            "ko": "",
+            "de": "Erste Runde — Hauptessen + erste Drinks. Pflicht-Teilnahme oft erwartet.",
+            "en": "First round — main meal + first drinks. Attendance often expected."
+          }
+        },
+        {
+          "korean": "2차",
+          "aliases": ["이차"],
+          "note": {
+            "ko": "",
+            "de": "Zweite Runde — Bar, Karaoke (노래방), oder weiter trinken. Hier ist Abspringen OK — wenn man's richtig macht.",
+            "en": "Second round — bar, karaoke (노래방), or more drinking. Bailing here is OK — if done right."
+          }
+        },
+        {
+          "korean": "죄송하지만",
+          "note": {
+            "ko": "",
+            "de": "Entschuldigung, aber... — STARTET fast jede höfliche Ablehnung. Lass das nicht weg.",
+            "en": "Sorry, but... — STARTS almost every polite refusal. Don't skip it."
+          }
+        },
+        {
+          "korean": "다음에",
+          "note": {
+            "ko": "",
+            "de": "Beim nächsten Mal. Pflicht-Phrase nach Ablehnung — signalisiert dauerhaftes Interesse.",
+            "en": "Next time. Mandatory phrase after refusing — signals lasting interest."
+          }
+        },
+        {
+          "korean": "잘 먹었습니다",
+          "note": {
+            "ko": "",
+            "de": "Höfliches 'Es hat gut geschmeckt' nach dem Essen. Wer bezahlt hat (oft Chef): an ihn richten.",
+            "en": "Polite 'I enjoyed the meal' after eating. Address whoever paid (often boss)."
+          }
+        },
+        {
+          "korean": "조심히 들어가요",
+          "note": {
+            "ko": "",
+            "de": "Komm sicher heim — Standard-Abschied nach Abendessen / spät am Abend.",
+            "en": "Get home safely — standard farewell after evening meals / late at night."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ게요",
+          "de": "V-(으)ㄹ게요 (Absichts-/Versprechen-Endung)",
+          "en": "V-(으)ㄹ게요 (intention / promise ending)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Bekundet eigene Absicht oder ein Versprechen — auf Höflichkeits-Ebene. 다음에 갈게요 = 'Beim nächsten Mal gehe ich (versprochen)'. Vokal-Ende → ㄹ게요 (가다 → 갈게요). Konsonant-Ende → 을게요 (먹다 → 먹을게요).",
+          "en": "Expresses one's intention or promise — at polite level. 다음에 갈게요 = 'next time I'll go (promise)'. Vowel-ending → ㄹ게요 (가다 → 갈게요). Consonant-ending → 을게요 (먹다 → 먹을게요)."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "1차 끝났는데, 2차 가실 거죠?",
+          "de": "Erste Runde ist vorbei, du kommst zur zweiten, oder?",
+          "en": "First round's done, you'll join the second, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "음... 죄송하지만 오늘은 좀 피곤해서요.",
+          "de": "Hm... Entschuldigung, aber ich bin heute etwas müde.",
+          "en": "Um... sorry, but I'm a bit tired today."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "아, 그래요? 한 잔만 더 하시죠.",
+          "de": "Ach so? Komm, nur noch ein Drink.",
+          "en": "Oh really? Just one more drink."
+        },
+        {
+          "speaker": "user",
+          "ko": "다음에 꼭 갈게요. 오늘 정말 잘 먹었습니다.",
+          "de": "Beim nächsten Mal komme ich auf jeden Fall mit. Heute hat's wirklich geschmeckt.",
+          "en": "Next time I'll definitely come. Really enjoyed the meal today."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "알겠어요. 조심히 들어가요.",
+          "de": "Verstehe. Komm sicher heim.",
+          "en": "Got it. Get home safely."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 다음 회식 기대할게요!",
+          "de": "Ja, freue mich aufs nächste 회식!",
+          "en": "Yes, looking forward to the next 회식!"
+        }
+      ],
+      "quests": [
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Beim nächsten Mal komme ich auf jeden Fall mit. (Versprechen)",
+            "promptEn": "Next time I'll definitely come. (promise)",
+            "options": [
+              { "ko": "다음에 꼭 갈게요." },
+              { "ko": "오늘은 좀 피곤해서요." },
+              { "ko": "한 잔만 더 할게요." },
+              { "ko": "잘 먹었습니다." }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "luecken",
+          "data": {
+            "sentence": "다음에 꼭 ___.",
+            "options": ["갈게요", "가요", "갔어요", "가세요"],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "한 잔만 더 하시죠.",
+            "options": [
+              { "de": "Komm, nur noch ein Drink.",   "en": "Come on, just one more drink." },
+              { "de": "Bezahl die Rechnung bitte.",  "en": "Please pay the bill." },
+              { "de": "Bringen Sie mich nach Hause.", "en": "Take me home." },
+              { "de": "Wo ist das nächste Lokal?",   "en": "Where's the next place?" }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "회식 거절 = 3-Schritt 패턴",
+          "de": "Hoeshik ablehnen — 3-Schritt-Formel",
+          "en": "Declining hoeshik — 3-step formula"
+        },
+        "body": {
+          "ko": "",
+          "de": "Direktes 'Nein, kann nicht' wirkt unhöflich. Sichere Formel: (1) '죄송하지만' (Entschuldigung-Puffer) + (2) Grund mit 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (Versprechen für Zukunft). Selbst wenn der Grund leicht erfunden ist — die Form zählt mehr als die Wahrheit. Direktheit unbeleidigt das Gesicht des Einladenden.",
+          "en": "Blunt 'No, can't' feels rude. Safe formula: (1) '죄송하지만' (apology buffer) + (2) reason ending in 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (promise for future). Even if reason is a polite fiction — form matters more than truth. Directness wounds the inviter's face."
+        }
+      }
     }
   ]
 }
