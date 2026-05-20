@@ -1,13 +1,18 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../theme.dart';
 import '../models/scenario.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
+import '../widgets/sori/badge.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/pressable.dart';
+import '../widgets/sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
+import 'scenario_player_screen.dart';
 
 /// Szenarien-Hub. Listet alle Szenarien gruppiert nach CEFR-Level.
 /// Gesperrte Level (über `Storage.userLevelCode`) erscheinen ausgegraut.
@@ -30,7 +35,10 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
   }
 
   Future<void> _load() async {
-    setState(() { _loading = true; _loadFailed = false; });
+    setState(() {
+      _loading = true;
+      _loadFailed = false;
+    });
     final list = await ScenarioLoader.load();
     if (!mounted) return;
     setState(() {
@@ -45,12 +53,17 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
 
   bool _isLocked(LearnerLevel level) => level.rank > _userLevel.rank;
 
+  /// Level별 accent 컬러 매핑
   Color _levelColor(LearnerLevel level) {
     switch (level) {
-      case LearnerLevel.a1: return AppColors.success;
-      case LearnerLevel.a2: return AppColors.vocab;
-      case LearnerLevel.b1: return AppColors.grammar;
-      case LearnerLevel.b2: return AppColors.hangul;
+      case LearnerLevel.a1:
+        return SoriColors.success;
+      case LearnerLevel.a2:
+        return SoriColors.primary;
+      case LearnerLevel.b1:
+        return SoriColors.warning;
+      case LearnerLevel.b2:
+        return SoriColors.hangul;
     }
   }
 
@@ -66,28 +79,46 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
         appBar: AppBar(title: Text(t.scenariosListTitle)),
         body: AppError(
           message: ScenarioLoader.lastError ?? 'Error',
-          onRetry: () { ScenarioLoader.reset(); _load(); },
+          onRetry: () {
+            ScenarioLoader.reset();
+            _load();
+          },
         ),
       );
     }
 
     final stars = Storage.scenarioStars;
     final lang = Localizations.localeOf(context).languageCode;
+    final s = SoriSurfaces.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.scenariosListTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.scenariosListTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 4, 16, 24),
+          padding: const EdgeInsets.fromLTRB(
+            Spacing.lg,
+            Spacing.xs,
+            Spacing.lg,
+            Spacing.xl,
+          ),
           children: [
             // Subtitle
             Padding(
-              padding: const EdgeInsets.only(bottom: 16, left: 2),
+              padding: const EdgeInsets.only(
+                bottom: Spacing.lg,
+                left: 2,
+              ),
               child: Text(
                 t.scenariosListSubtitle,
-                style: const TextStyle(color: AppColors.textMuted, fontSize: 13),
+                style: TextStyle(
+                  color: s.textMuted,
+                  fontSize: 13,
+                ),
               ),
             ),
 
@@ -95,28 +126,22 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
             for (final level in LearnerLevel.values) ...[
               _LevelSection(
                 level: level,
-                color: _levelColor(level),
+                accent: _levelColor(level),
                 locked: _isLocked(level),
-                scenarios: _all.where((s) => s.level == level).toList(),
-                userLevelDisplay: _userLevel.display,
+                scenarios: _all.where((sc) => sc.level == level).toList(),
                 lang: lang,
                 stars: stars,
-                onTap: (sc) {
-                  if (_isLocked(sc.level)) {
-                    HapticFeedback.selectionClick();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(t.scenariosLocked(sc.level.display)),
-                        duration: const Duration(seconds: 2),
-                      ),
-                    );
-                    return;
-                  }
-                  HapticFeedback.lightImpact();
-                  Navigator.pushNamed(context, '/scenario', arguments: sc.id);
+                onLockedTap: (sc) {
+                  HapticFeedback.selectionClick();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(t.scenariosLocked(sc.level.display)),
+                      duration: const Duration(seconds: 2),
+                    ),
+                  );
                 },
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: Spacing.xl),
             ],
           ],
         ),
@@ -125,60 +150,52 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
   }
 }
 
+// ─── Level Section ────────────────────────────────────────────────────────────
+
 class _LevelSection extends StatelessWidget {
   final LearnerLevel level;
-  final Color color;
+  final Color accent;
   final bool locked;
   final List<Scenario> scenarios;
-  final String userLevelDisplay;
   final String lang;
   final Map<String, int> stars;
-  final void Function(Scenario) onTap;
+  final void Function(Scenario) onLockedTap;
 
   const _LevelSection({
     required this.level,
-    required this.color,
+    required this.accent,
     required this.locked,
     required this.scenarios,
-    required this.userLevelDisplay,
     required this.lang,
     required this.stars,
-    required this.onTap,
+    required this.onLockedTap,
   });
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final effectiveAccent = locked ? s.textDim : accent;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Section header
         Row(
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-              decoration: BoxDecoration(
-                color: locked ? AppColors.surfaceAlt : color,
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Text(
-                level.display,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 11,
-                  letterSpacing: 0.5,
-                ),
-              ),
+            SoriBadge.level(
+              level.display,
+              color: locked ? s.surfaceAlt : accent,
+              size: 26,
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: Spacing.sm),
             Text(
               t.scenariosLevelBadge(level.display),
               style: TextStyle(
-                color: locked ? AppColors.textDim : AppColors.textMuted,
-                fontSize: 12.5,
+                color: locked ? s.textDim : s.textMuted,
+                fontSize: 13,
                 fontWeight: FontWeight.w700,
-                letterSpacing: 0.5,
+                letterSpacing: 0.4,
               ),
             ),
             const Spacer(),
@@ -186,67 +203,114 @@ class _LevelSection extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.lock_outline, size: 13, color: AppColors.textDim),
-                  const SizedBox(width: 4),
+                  Icon(Icons.lock_outline_rounded,
+                      size: 13, color: s.textDim),
+                  const SizedBox(width: Spacing.xs),
                   Text(
                     t.scenariosLocked(level.display),
-                    style: const TextStyle(color: AppColors.textDim, fontSize: 11),
+                    style: TextStyle(color: s.textDim, fontSize: 11),
                   ),
                 ],
               ),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: Spacing.sm),
 
-        // Scenarios (or empty)
+        // Cards or empty placeholder
         if (scenarios.isEmpty)
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: AppColors.surfaceAlt),
-            ),
+          SoriCard(
+            variant: SoriCardVariant.compact,
             child: Row(
               children: [
                 const Text('🚧', style: TextStyle(fontSize: 20)),
-                const SizedBox(width: 8),
+                const SizedBox(width: Spacing.sm),
                 Text(
                   t.scenariosEmpty,
-                  style: const TextStyle(color: AppColors.textMuted, fontSize: 13),
+                  style: TextStyle(color: s.textMuted, fontSize: 13),
                 ),
               ],
             ),
           )
         else
-          ...scenarios.map((sc) => Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: _ScenarioCard(
-                  scenario: sc,
-                  color: color,
-                  locked: locked,
-                  stars: stars[sc.id] ?? 0,
-                  lang: lang,
-                  onTap: () => onTap(sc),
-                ),
-              )),
+          ...scenarios.map(
+            (sc) => Padding(
+              padding: const EdgeInsets.only(bottom: Spacing.sm),
+              child: locked
+                  ? _LockedScenarioCard(
+                      scenario: sc,
+                      accent: effectiveAccent,
+                      stars: stars[sc.id] ?? 0,
+                      lang: lang,
+                      onTap: () => onLockedTap(sc),
+                    )
+                  : _OpenScenarioCard(
+                      scenario: sc,
+                      accent: accent,
+                      stars: stars[sc.id] ?? 0,
+                      lang: lang,
+                    ),
+            ),
+          ),
       ],
     );
   }
 }
 
-class _ScenarioCard extends StatelessWidget {
+// ─── Unlocked card (OpenContainer) ────────────────────────────────────────────
+
+class _OpenScenarioCard extends StatelessWidget {
   final Scenario scenario;
-  final Color color;
-  final bool locked;
+  final Color accent;
+  final int stars;
+  final String lang;
+
+  const _OpenScenarioCard({
+    required this.scenario,
+    required this.accent,
+    required this.stars,
+    required this.lang,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+
+    return OpenContainer<void>(
+      transitionDuration: const Duration(milliseconds: 400),
+      transitionType: ContainerTransitionType.fade,
+      closedShape: const RoundedRectangleBorder(
+        borderRadius: SoriRadius.brMd,
+      ),
+      closedColor: s.surface,
+      closedElevation: 0,
+      openColor: s.bg,
+      openElevation: 0,
+      closedBuilder: (ctx, openContainer) => _ScenarioCardBody(
+        scenario: scenario,
+        accent: accent,
+        stars: stars,
+        lang: lang,
+        locked: false,
+        onTap: openContainer,
+      ),
+      openBuilder: (ctx, _) =>
+          ScenarioPlayerScreen(scenarioId: scenario.id),
+    );
+  }
+}
+
+// ─── Locked card (SoriPressable + SnackBar) ───────────────────────────────────
+
+class _LockedScenarioCard extends StatelessWidget {
+  final Scenario scenario;
+  final Color accent;
   final int stars;
   final String lang;
   final VoidCallback onTap;
 
-  const _ScenarioCard({
+  const _LockedScenarioCard({
     required this.scenario,
-    required this.color,
-    required this.locked,
+    required this.accent,
     required this.stars,
     required this.lang,
     required this.onTap,
@@ -254,114 +318,137 @@ class _ScenarioCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return SoriPressable(
+      onTap: onTap,
+      haptic: SoriHaptic.selection,
+      child: _ScenarioCardBody(
+        scenario: scenario,
+        accent: accent,
+        stars: stars,
+        lang: lang,
+        locked: true,
+      ),
+    );
+  }
+}
+
+// ─── Shared card body ─────────────────────────────────────────────────────────
+
+class _ScenarioCardBody extends StatelessWidget {
+  final Scenario scenario;
+  final Color accent;
+  final int stars;
+  final String lang;
+  final bool locked;
+  final VoidCallback? onTap;
+
+  const _ScenarioCardBody({
+    required this.scenario,
+    required this.accent,
+    required this.stars,
+    required this.lang,
+    required this.locked,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     final title = scenario.title.pick(lang);
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        splashColor: color.withValues(alpha: locked ? 0.05 : 0.15),
-        child: Ink(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: locked
-                  ? AppColors.surfaceAlt
-                  : color.withValues(alpha: 0.7),
-              width: 1.5,
-            ),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: locked
-                  ? [AppColors.surface, AppColors.bg]
-                  : [color.withValues(alpha: 0.16), color.withValues(alpha: 0.04)],
-            ),
+
+    return Opacity(
+      opacity: locked ? 0.5 : 1.0,
+      child: Container(
+        padding: const EdgeInsets.all(Spacing.lg),
+        decoration: BoxDecoration(
+          color: locked
+              ? s.surface
+              : Color.alphaBlend(
+                  accent.withValues(alpha: 0.07),
+                  s.surface,
+                ),
+          borderRadius: SoriRadius.brMd,
+          border: Border.all(
+            color: locked
+                ? s.border
+                : accent.withValues(alpha: 0.28),
+            width: 1,
           ),
-          padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
-          child: Row(
-            children: [
-              // Emoji
-              Container(
-                width: 52, height: 52,
-                decoration: BoxDecoration(
-                  color: locked
-                      ? AppColors.surfaceAlt.withValues(alpha: 0.4)
-                      : color.withValues(alpha: 0.18),
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                alignment: Alignment.center,
-                child: Opacity(
-                  opacity: locked ? 0.4 : 1.0,
-                  child: Text(scenario.emoji, style: const TextStyle(fontSize: 28)),
-                ),
-              ),
-              const SizedBox(width: 12),
-
-              // Title + stars
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 15.5,
-                        fontWeight: FontWeight.w800,
-                        color: locked
-                            ? AppColors.textDim
-                            : Color.lerp(color, AppColors.text, 0.25),
-                        letterSpacing: -0.1,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 4),
-                    Row(
-                      children: [
-                        for (var i = 0; i < 3; i++)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 2),
-                            child: Icon(
-                              i < stars ? Icons.star_rounded : Icons.star_outline_rounded,
-                              size: 18,
-                              color: i < stars
-                                  ? AppColors.warning
-                                  : AppColors.textDim,
-                            ),
-                          ),
-                        const SizedBox(width: 6),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                          decoration: BoxDecoration(
-                            color: (locked ? AppColors.surfaceAlt : color).withValues(alpha: 0.25),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            scenario.level.display,
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w800,
-                              color: locked ? AppColors.textDim : color,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-
-              // Trailing icon
-              Icon(
-                locked ? Icons.lock_outline : Icons.chevron_right,
+          boxShadow: locked ? null : SoriElevation.low,
+        ),
+        child: Row(
+          children: [
+            // Emoji box (56×56)
+            Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
                 color: locked
-                    ? AppColors.textDim
-                    : color.withValues(alpha: 0.75),
+                    ? s.surfaceAlt
+                    : accent.withValues(alpha: 0.16),
+                borderRadius: SoriRadius.brSm,
               ),
-            ],
-          ),
+              alignment: Alignment.center,
+              child: Text(
+                scenario.emoji,
+                style: const TextStyle(fontSize: 28),
+              ),
+            ),
+            const SizedBox(width: Spacing.md),
+
+            // Centre: title + badges + meta
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                      color: locked ? s.textDim : s.text,
+                      letterSpacing: -0.2,
+                      height: 1.3,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Row(
+                    children: [
+                      SoriBadge.level(
+                        scenario.level.display,
+                        color: locked ? s.textDim : accent,
+                        size: 20,
+                      ),
+                      const SizedBox(width: Spacing.xs),
+                      Text(
+                        '5–7 min · +${scenario.xpReward} XP',
+                        style: TextStyle(
+                          color: s.textDim,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  SoriStars(filled: stars, total: 3, size: 16),
+                ],
+              ),
+            ),
+            const SizedBox(width: Spacing.sm),
+
+            // Trailing icon
+            Icon(
+              locked ? Icons.lock_outline_rounded : Icons.chevron_right_rounded,
+              color: locked
+                  ? s.textDim
+                  : accent.withValues(alpha: 0.7),
+              size: 20,
+            ),
+          ],
         ),
       ),
     );
