@@ -1716,6 +1716,688 @@
           "en": "Blunt 'No, can't' feels rude. Safe formula: (1) '죄송하지만' (apology buffer) + (2) reason ending in 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (promise for future). Even if reason is a polite fiction — form matters more than truth. Directness wounds the inviter's face."
         }
       }
+    },
+
+    {
+      "id": "hotel_checkin",
+      "level": "a1",
+      "emoji": "🏨",
+      "register": "polite",
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "호텔 체크인",
+        "de": "Hotel-Check-in",
+        "en": "Hotel check-in"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Müde nach langem Flug. Du gehst zur Rezeption deines Seoul-Hotels. Pass und Buchung bereit — schaffst du den Check-in auf Koreanisch?",
+        "en": "Tired from a long flight. You walk up to the front desk of your Seoul hotel. Passport and booking ready — can you handle check-in in Korean?"
+      },
+      "vocab": [
+        {
+          "korean": "예약",
+          "note": {
+            "ko": "",
+            "de": "Reservierung. Mit Partikel: 예약이 있어요 (Ich habe eine Reservierung).",
+            "en": "Reservation. With particle: 예약이 있어요 (I have a reservation)."
+          }
+        },
+        {
+          "korean": "이름",
+          "note": {
+            "ko": "",
+            "de": "Name. 이름이 뭐예요? = Wie heißt du? (informell)",
+            "en": "Name. 이름이 뭐예요? = What's your name? (informal)"
+          }
+        },
+        {
+          "korean": "2박",
+          "note": {
+            "ko": "",
+            "de": "2 Nächte. N박 = N Nächte (Hotel-Zählweise). 1박 2일 = 2 Tage, 1 Nacht.",
+            "en": "2 nights. N박 = N nights (hotel counter). 1박 2일 = 2 days, 1 night."
+          }
+        },
+        {
+          "korean": "와이파이",
+          "note": {
+            "ko": "",
+            "de": "WiFi (Lehnwort). Frage höflich: 와이파이 비밀번호 좀 알려주세요.",
+            "en": "WiFi (loanword). Polite ask: 와이파이 비밀번호 좀 알려주세요."
+          }
+        },
+        {
+          "korean": "비밀번호",
+          "note": {
+            "ko": "",
+            "de": "Passwort. Auch für ATM, App-Logins.",
+            "en": "Password. Also for ATM, app logins."
+          }
+        },
+        {
+          "korean": "조식",
+          "note": {
+            "ko": "",
+            "de": "Frühstück (formal). Alltagsbegriff: 아침 (밥). 조식 포함 = Frühstück inklusive.",
+            "en": "Breakfast (formal). Casual: 아침 (밥). 조식 포함 = breakfast included."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이/가 있어요/없어요",
+          "de": "N이/가 있어요/없어요 (Existenz)",
+          "en": "N이/가 있어요/없어요 (existence)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "'Es gibt N' / 'Ich habe N'. 예약이 있어요 = Ich habe eine Reservierung (예약 endet auf Konsonant → 이). 와이파이가 있어요 = Es gibt WLAN (Vokal-Ende → 가). Verneinung: 없어요.",
+          "en": "'There is N' / 'I have N'. 예약이 있어요 = I have a reservation (예약 ends in consonant → 이). 와이파이가 있어요 = There's WiFi (vowel-ending → 가). Negative: 없어요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "안녕하세요. 체크인 도와드릴게요.",
+          "de": "Willkommen. Ich helfe Ihnen beim Check-in.",
+          "en": "Welcome. I'll help you check in."
+        },
+        {
+          "speaker": "user",
+          "ko": "예약했는데요. 이름은 [이름]이에요.",
+          "de": "Ich habe reserviert. Mein Name ist [Name].",
+          "en": "I have a reservation. My name is [Name]."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 확인해드릴게요... 2박 맞으세요?",
+          "de": "Klar, ich prüfe... 2 Nächte, korrekt?",
+          "en": "Sure, let me check... 2 nights, correct?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 맞아요. 와이파이 비밀번호 좀 알려주세요.",
+          "de": "Ja, stimmt. Können Sie mir das WLAN-Passwort sagen?",
+          "en": "Yes, that's right. Could you tell me the WiFi password?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "영수증에 적어드렸어요. 조식은 7시부터 10시까지예요.",
+          "de": "Hab's auf die Quittung geschrieben. Frühstück von 7 bis 10 Uhr.",
+          "en": "I've written it on the receipt. Breakfast is from 7 to 10 AM."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사합니다.",
+          "de": "Vielen Dank.",
+          "en": "Thank you."
+        }
+      ],
+      "quests": [
+        {
+          "type": "particlePop",
+          "data": {
+            "prefix": "예약",
+            "suffix": "있어요.",
+            "options": ["이", "가", "은", "는", "을", "를"],
+            "correctIndex": 0,
+            "explanationDe": "예약 endet auf Konsonant ㄱ → Subjekt-Partikel 이 (nicht 가). 'Ich habe eine Reservierung' = '예약이 있어요'.",
+            "explanationEn": "예약 ends in consonant ㄱ → subject particle 이 (not 가). 'I have a reservation' = '예약이 있어요'."
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Können Sie mir das WLAN-Passwort sagen?",
+            "promptEn": "Could you tell me the WiFi password?",
+            "options": [
+              { "ko": "와이파이 비밀번호 좀 알려주세요." },
+              { "ko": "예약했는데요." },
+              { "ko": "조식은 몇 시예요?" },
+              { "ko": "방이 어디예요?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "2박 맞으세요?",
+            "options": [
+              { "de": "2 Nächte, korrekt?",         "en": "2 nights, correct?" },
+              { "de": "Möchten Sie ein Upgrade?",   "en": "Would you like an upgrade?" },
+              { "de": "Haben Sie einen Ausweis?",   "en": "Do you have an ID?" },
+              { "de": "Wie viele Personen?",         "en": "How many people?" }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "한국 호텔 — Trinkgeld 없음",
+          "de": "Hotels in Korea: kein Trinkgeld",
+          "en": "Korean hotels: no tipping"
+        },
+        "body": {
+          "ko": "",
+          "de": "Trinkgeld ist in Korea NICHT üblich — auch nicht im Hotel. Bell-Boy: kein Tipp nötig (versuchen erlaubt, wird oft höflich abgelehnt). Reinigung: kein Tipp im Zimmer lassen. Concierge: nur bei außergewöhnlichem Service ein Geschenk (z.B. Schokolade). Das System läuft auf Servicegehalt, nicht Trinkgeld.",
+          "en": "Tipping is NOT customary in Korea — including hotels. Bellhop: no tip needed (try if you want, often politely refused). Cleaning: don't leave a tip in the room. Concierge: only for exceptional service might give a small gift (e.g., chocolate). The system runs on service pay, not tips."
+        }
+      }
+    },
+
+    {
+      "id": "convenience_store",
+      "level": "a1",
+      "emoji": "🛒",
+      "register": "polite",
+      "sidekick": "minsu",
+      "xpReward": 110,
+      "title": {
+        "ko": "편의점에서 사기",
+        "de": "Im Convenience Store",
+        "en": "At the convenience store"
+      },
+      "intro": {
+        "ko": "",
+        "de": "23 Uhr. Du brauchst Wasser, Schokolade, und einen 김밥. CU oder GS25, 24/7 offen. Eine schnelle Bestellung — wie meisterst du Aufwärmen + Tüte + Quittung?",
+        "en": "11 PM. You need water, chocolate, and a 김밥. CU or GS25, 24/7. A quick stop — how do you handle heating + bag + receipt?"
+      },
+      "vocab": [
+        {
+          "korean": "편의점",
+          "note": {
+            "ko": "",
+            "de": "Convenience Store (CU, GS25, 7-Eleven, Emart24). Allgegenwärtig, 24/7.",
+            "en": "Convenience store (CU, GS25, 7-Eleven, Emart24). Everywhere, 24/7."
+          }
+        },
+        {
+          "korean": "물",
+          "note": {
+            "ko": "",
+            "de": "Wasser. Generika ist günstig, ~700–1000 Won pro 500ml.",
+            "en": "Water. Generic is cheap, ~700–1000 won per 500ml."
+          }
+        },
+        {
+          "korean": "봉지",
+          "note": {
+            "ko": "",
+            "de": "Plastiktüte. Kostet 100 Won (Eco-Charge). Eigene mitbringen OK.",
+            "en": "Plastic bag. Costs 100 won (eco-charge). Bring your own OK."
+          }
+        },
+        {
+          "korean": "데워주세요",
+          "note": {
+            "ko": "",
+            "de": "Bitte aufwärmen. Für 김밥, 도시락, 호빵 etc. — Kassierer macht es kurz in Mikrowelle.",
+            "en": "Please heat it up. For 김밥, 도시락, 호빵 etc. — cashier zaps it quickly in microwave."
+          }
+        },
+        {
+          "korean": "다 됐어요",
+          "note": {
+            "ko": "",
+            "de": "'Das ist alles' / 'Fertig'. Höflich: 다 되셨어요? = 'Sind Sie fertig?' (vom Kassierer).",
+            "en": "'That's all' / 'Done'. Polite: 다 되셨어요? = 'Are you done?' (from cashier)."
+          }
+        },
+        {
+          "korean": "괜찮아요",
+          "note": {
+            "ko": "",
+            "de": "Nein danke / Es ist OK. Für höfliche Ablehnung (Quittung, Tüte etc.). Universal verwendbar.",
+            "en": "No thanks / It's OK. For polite refusal (receipt, bag etc.). Universally usable."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N도 주세요",
+          "de": "N도 (auch N) — Hinzufügen",
+          "en": "N도 (also N) — adding items"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "도 = 'auch' / 'ebenfalls'. Ersetzt 이/가 oder 은/는. 봉지도 주세요 = 'Auch eine Tüte, bitte'. 영수증도 주세요 = 'Auch die Quittung'. Beim Aufzählen mehrerer Wünsche an Kasse.",
+          "en": "도 = 'also' / 'as well'. Replaces 이/가 or 은/는. 봉지도 주세요 = 'A bag too, please'. 영수증도 주세요 = 'Also the receipt'. For listing multiple requests at checkout."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "안녕하세요. 다 되셨어요?",
+          "de": "Hallo. Alles?",
+          "en": "Hi. Will that be all?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 이거 데워주세요.",
+          "de": "Ja. Können Sie das aufwärmen?",
+          "en": "Yes. Please heat this up."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "김밥 데워드릴게요... 4,500원이에요. 봉지 필요해요?",
+          "de": "Ich wärme den Kimbap... 4.500 Won. Brauchen Sie eine Tüte?",
+          "en": "I'll heat the kimbap... 4,500 won. Need a bag?"
+        },
+        {
+          "speaker": "user",
+          "ko": "봉지도 주세요. 100원이죠?",
+          "de": "Eine Tüte auch, bitte. 100 Won, oder?",
+          "en": "A bag too, please. 100 won, right?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 맞아요. 영수증 드릴까요?",
+          "de": "Ja. Möchten Sie die Quittung?",
+          "en": "Yes. Want the receipt?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니요, 괜찮아요.",
+          "de": "Nein, danke.",
+          "en": "No thanks."
+        }
+      ],
+      "quests": [
+        {
+          "type": "luecken",
+          "data": {
+            "sentence": "봉지 ___ 주세요.",
+            "options": ["도", "만", "이", "는"],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Bitte aufwärmen.",
+            "promptEn": "Please heat it up.",
+            "options": [
+              { "ko": "데워주세요." },
+              { "ko": "봉지 주세요." },
+              { "ko": "영수증 주세요." },
+              { "ko": "다 됐어요." }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "봉지 필요해요?",
+            "options": [
+              { "de": "Brauchen Sie eine Tüte?",        "en": "Do you need a bag?" },
+              { "de": "Soll ich das aufwärmen?",        "en": "Should I heat this up?" },
+              { "de": "Wie bezahlen Sie?",               "en": "How are you paying?" },
+              { "de": "Brauchen Sie eine Quittung?",     "en": "Do you need a receipt?" }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "편의점 봉지 100원 + 무료 데움",
+          "de": "Convenience-Hacks",
+          "en": "Convenience-store hacks"
+        },
+        "body": {
+          "ko": "",
+          "de": "Plastiktüte: 100 Won Eco-Charge (gilt seit 2019). Stoffbeutel bringen = sparen. Aufwärmen (데움): KOSTENLOS für 김밥/도시락/호빵. Mikrowelle und manchmal Heißwasser für Cup-Ramen direkt im Laden — viele essen vor Ort am Stehtisch. ATM verfügbar (oft 4-stellige PIN für ausländische Karten kein Problem).",
+          "en": "Plastic bag: 100 won eco-charge (since 2019). Cloth bag = saves money. Heating (데움): FREE for 김밥/도시락/호빵. Microwave and sometimes hot water for cup-ramen right in the store — many people eat at standing tables. ATM available (4-digit PIN usually works for foreign cards)."
+        }
+      }
+    },
+
+    {
+      "id": "pharmacy_headache",
+      "level": "a2",
+      "emoji": "💊",
+      "register": "polite",
+      "sidekick": "jieun",
+      "xpReward": 130,
+      "title": {
+        "ko": "약국에서 두통약",
+        "de": "In der Apotheke",
+        "en": "At the pharmacy"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Pochende Kopfschmerzen nach langem Tag. Du suchst das grüne '약국'-Schild. Ohne Termin, ohne Rezept — der Apotheker hilft direkt. Wie beschreibst du Symptome?",
+        "en": "Pounding headache after a long day. You spot the green '약국' sign. No appointment, no prescription needed — the pharmacist helps directly. How do you describe symptoms?"
+      },
+      "vocab": [
+        {
+          "korean": "약국",
+          "note": {
+            "ko": "",
+            "de": "Apotheke (grünes Kreuz-Schild). Überall, oft sonntags geschlossen — gibt 24/7-Apps zum Finden.",
+            "en": "Pharmacy (green cross sign). Everywhere, often closed Sundays — apps help find 24/7 ones."
+          }
+        },
+        {
+          "korean": "두통",
+          "note": {
+            "ko": "",
+            "de": "Kopfschmerz. Auch: 머리가 아파요 (Mein Kopf tut weh — beschreibend).",
+            "en": "Headache. Also: 머리가 아파요 (my head hurts — descriptive)."
+          }
+        },
+        {
+          "korean": "아파요",
+          "note": {
+            "ko": "",
+            "de": "tut weh / bin krank. Stammform 아프다. Mit Körperteil + 이/가: 머리가 아파요 / 배가 아파요.",
+            "en": "hurts / am sick. Dictionary form 아프다. With body part + 이/가: 머리가 아파요 / 배가 아파요."
+          }
+        },
+        {
+          "korean": "처방전",
+          "note": {
+            "ko": "",
+            "de": "Rezept. Für OTC (두통약 etc.) NICHT nötig.",
+            "en": "Prescription. NOT needed for OTC (두통약 etc.)."
+          }
+        },
+        {
+          "korean": "하루에 두 번",
+          "note": {
+            "ko": "",
+            "de": "Zweimal am Tag. 하루에 = pro Tag · 두 번 = zweimal. Drei Mal: 세 번.",
+            "en": "Twice a day. 하루에 = per day · 두 번 = twice. Three times: 세 번."
+          }
+        },
+        {
+          "korean": "식후",
+          "note": {
+            "ko": "",
+            "de": "Nach dem Essen. Häufig bei Medikamenten: 식후 30분 = 30 Min nach dem Essen.",
+            "en": "After meal. Common with meds: 식후 30분 = 30 min after meal."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이/가 아파요",
+          "de": "N이/가 아파요 (N tut weh)",
+          "en": "N이/가 아파요 (N hurts)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Körperteil als Subjekt + 아파요. 머리가 아파요 = Mein Kopf tut weh. 배가 아파요 = Mein Bauch tut weh. 목이 아파요 = Mein Hals tut weh. 받침 X → 가; 받침 O → 이.",
+          "en": "Body part as subject + 아파요. 머리가 아파요 = my head hurts. 배가 아파요 = my stomach hurts. 목이 아파요 = my throat hurts. Vowel-end → 가; consonant-end → 이."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "어디가 아프세요?",
+          "de": "Wo tut's weh?",
+          "en": "What hurts?"
+        },
+        {
+          "speaker": "user",
+          "ko": "머리가 너무 아파요. 두통약 있어요?",
+          "de": "Mein Kopf tut sehr weh. Haben Sie Kopfschmerztabletten?",
+          "en": "My head hurts a lot. Do you have headache medicine?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "처방전 있으세요?",
+          "de": "Haben Sie ein Rezept?",
+          "en": "Do you have a prescription?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니요, 그냥 두통약이요.",
+          "de": "Nein, einfach Kopfschmerztabletten.",
+          "en": "No, just headache medicine."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이 약 드세요. 하루에 두 번, 식후 30분에요.",
+          "de": "Nehmen Sie dieses Medikament. Zweimal am Tag, 30 Min nach dem Essen.",
+          "en": "Take this medicine. Twice a day, 30 minutes after meals."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 알겠습니다. 감사합니다.",
+          "de": "OK, verstanden. Danke.",
+          "en": "OK, got it. Thank you."
+        }
+      ],
+      "quests": [
+        {
+          "type": "particlePop",
+          "data": {
+            "prefix": "머리",
+            "suffix": "아파요.",
+            "options": ["가", "이", "은", "는", "도", "을"],
+            "correctIndex": 0,
+            "explanationDe": "머리 endet auf Vokal ㅣ → Subjekt-Partikel 가. '머리가 아파요' ist DAS Standard-Muster bei körperlichen Schmerzen.",
+            "explanationEn": "머리 ends in vowel ㅣ → subject particle 가. '머리가 아파요' is THE standard pattern for body aches."
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "처방전 있으세요?",
+            "options": [
+              { "de": "Haben Sie ein Rezept?",               "en": "Do you have a prescription?" },
+              { "de": "Sind Sie Allergiker?",                "en": "Do you have allergies?" },
+              { "de": "Bezahlen Sie mit Karte?",             "en": "Paying by card?" },
+              { "de": "Brauchen Sie eine Anweisung?",        "en": "Do you need instructions?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Zweimal am Tag, 30 Minuten nach den Mahlzeiten.",
+            "promptEn": "Twice a day, 30 minutes after meals.",
+            "options": [
+              { "ko": "하루에 두 번, 식후 30분이에요." },
+              { "ko": "하루에 세 번, 식전에요." },
+              { "ko": "머리가 아파요." },
+              { "ko": "처방전 있어요." }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "한국 약국 — 의사 없이 OK",
+          "de": "Apotheke ohne Arztbesuch",
+          "en": "Pharmacy without doctor visit"
+        },
+        "body": {
+          "ko": "",
+          "de": "Für leichte Beschwerden (Kopfweh, Erkältung, Magen, Allergien) brauchst du KEIN Rezept — Apotheker beraten direkt und verkaufen OTC. Sie fragen Symptome ab, schlagen passendes Medikament vor. Preise sehr günstig (€2–5). Allergien IMMER erwähnen ('알러지가 있어요'). Bei ernsteren Symptomen: '병원 가세요' (gehen Sie ins Krankenhaus) — folge dem.",
+          "en": "For minor issues (headache, cold, stomach, allergies) you DON'T need a prescription — pharmacists advise directly and sell OTC. They'll ask symptoms, suggest meds. Prices very cheap (€2–5). ALWAYS mention allergies ('알러지가 있어요'). For serious symptoms: '병원 가세요' (go to the hospital) — follow that."
+        }
+      }
+    },
+
+    {
+      "id": "myeongdong_shopping",
+      "level": "a2",
+      "emoji": "🛍️",
+      "register": "polite",
+      "sidekick": "minsu",
+      "xpReward": 130,
+      "title": {
+        "ko": "명동 쇼핑",
+        "de": "Shopping in Myeong-dong",
+        "en": "Shopping in Myeongdong"
+      },
+      "intro": {
+        "ko": "",
+        "de": "Myeong-dong: Koreas Shopping-Mekka. K-Beauty-Samples, Klamotten, Souvenirs. Ein Verkäufer kommt auf dich zu — wirst du gleich abgelehnt oder schaust du dich erst um?",
+        "en": "Myeongdong: Korea's shopping mecca. K-beauty samples, clothes, souvenirs. A clerk walks toward you — do you brush them off or politely browse first?"
+      },
+      "vocab": [
+        {
+          "korean": "그냥 보는 거예요",
+          "note": {
+            "ko": "",
+            "de": "'Ich schaue nur'. Höfliche Standard-Phrase um Verkäufer abzuwehren ohne unfreundlich zu sein.",
+            "en": "'I'm just looking'. Polite standard phrase to deflect a clerk without being rude."
+          }
+        },
+        {
+          "korean": "입어봐도 돼요",
+          "note": {
+            "ko": "",
+            "de": "Darf ich anprobieren? V-아/어 보다 = mal V machen / probieren · -도 돼요 = darf ich.",
+            "en": "May I try it on? V-아/어 보다 = try V-ing · -도 돼요 = is it OK to."
+          }
+        },
+        {
+          "korean": "더 큰",
+          "note": {
+            "ko": "",
+            "de": "Größer. 더 = mehr · 큰 = groß (adnominal). Gegenteil: 더 작은.",
+            "en": "Bigger. 더 = more · 큰 = big (adnominal). Opposite: 더 작은."
+          }
+        },
+        {
+          "korean": "사이즈",
+          "note": {
+            "ko": "",
+            "de": "Größe. Korea-Größen sind oft kleiner als europäische — Sample probieren!",
+            "en": "Size. Korean sizes often run smaller than European — try samples!"
+          }
+        },
+        {
+          "korean": "색깔",
+          "note": {
+            "ko": "",
+            "de": "Farbe. 검정 (schwarz), 흰색 (weiß), 빨강 (rot), 파랑 (blau).",
+            "en": "Color. 검정 (black), 흰색 (white), 빨강 (red), 파랑 (blue)."
+          }
+        },
+        {
+          "korean": "가져다드릴게요",
+          "note": {
+            "ko": "",
+            "de": "Ich bringe es Ihnen. Service-Sprache. V-아/어 드리다 = höflich (Erhöhung des Gegenübers).",
+            "en": "I'll bring it to you. Service language. V-아/어 드리다 = polite (elevating addressee)."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어도 돼요",
+          "de": "V-아/어도 돼요 (darf ich V?)",
+          "en": "V-아/어도 돼요 (may I V?)"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Erlaubnis-Frage. ㅏ/ㅗ-Vokal → 아도 돼요 (입어보다 → 입어봐도 돼요? Anprobieren). Andere Vokale → 어도 돼요. Verneint: V-(으)면 안 돼요 (man darf nicht V).",
+          "en": "Asking permission. ㅏ/ㅗ vowel → 아도 돼요 (입어보다 → 입어봐도 돼요? Try on). Other vowels → 어도 돼요. Negative: V-(으)면 안 돼요 (you can't V)."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "어서 오세요! 찾으시는 거 있으세요?",
+          "de": "Willkommen! Suchen Sie was Bestimmtes?",
+          "en": "Welcome! Looking for anything specific?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그냥 보는 거예요. 감사합니다.",
+          "de": "Ich schaue nur, danke.",
+          "en": "I'm just looking, thanks."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "이거 입어보시겠어요?",
+          "de": "Möchten Sie das mal anprobieren?",
+          "en": "Would you like to try this on?"
+        },
+        {
+          "speaker": "user",
+          "ko": "입어봐도 돼요? 더 큰 사이즈 있어요?",
+          "de": "Darf ich? Haben Sie eine größere Größe?",
+          "en": "May I? Do you have a bigger size?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 가져다드릴게요. 무슨 색깔 좋아하세요?",
+          "de": "Ja, ich bringe sie. Welche Farbe mögen Sie?",
+          "en": "Sure, I'll bring it. What color do you like?"
+        },
+        {
+          "speaker": "user",
+          "ko": "검정색이요.",
+          "de": "Schwarz.",
+          "en": "Black."
+        }
+      ],
+      "quests": [
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Darf ich anprobieren?",
+            "promptEn": "May I try it on?",
+            "options": [
+              { "ko": "입어봐도 돼요?" },
+              { "ko": "그냥 보는 거예요." },
+              { "ko": "더 큰 사이즈 있어요?" },
+              { "ko": "무슨 색깔 좋아해요?" }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "luecken",
+          "data": {
+            "sentence": "그냥 ___ 거예요.",
+            "options": ["보는", "봐", "봅니다", "봤어요"],
+            "correctIndex": 0
+          }
+        },
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "이거 입어보시겠어요?",
+            "options": [
+              { "de": "Möchten Sie das anprobieren?",   "en": "Would you like to try this on?" },
+              { "de": "Möchten Sie das kaufen?",        "en": "Would you like to buy this?" },
+              { "de": "Ist das auf Sale?",              "en": "Is this on sale?" },
+              { "de": "Ist das neu eingetroffen?",      "en": "Is this newly arrived?" }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "명동 vs 동대문 — Feilschen?",
+          "de": "Feilschen in Korea: wann ja, wann nein",
+          "en": "Bargaining in Korea: when yes, when no"
+        },
+        "body": {
+          "ko": "",
+          "de": "Myeong-dong: Kette-Stores + Marken-Shops → KEIN Feilschen, Preisschilder gelten. Verkäufer sind aktiv aber nicht aufdringlich. '그냥 보는 거예요' beendet jede Belagerung höflich. Dongdaemun-Markt (Stoff, Mode-Wholesale): Feilschen MÖGLICH ('깎아주세요' = bitte Rabatt) — aber moderat, 10–20 %. Touristenfänger-Areas (Itaewon Souvenirs): wahrscheinlich überteuert, prüfen lohnt sich.",
+          "en": "Myeongdong: chain + brand stores → NO bargaining, prices are fixed. Clerks are active but not pushy. '그냥 보는 거예요' politely ends any siege. Dongdaemun market (fabric, fashion wholesale): bargaining POSSIBLE ('깎아주세요' = please discount) — but moderate, 10–20%. Tourist-trap areas (Itaewon souvenirs): likely overpriced, check around."
+        }
+      }
     }
   ]
 }
