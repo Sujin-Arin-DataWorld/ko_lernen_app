@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'theme.dart';
 import 'services/storage_service.dart';
 import 'services/locale_service.dart';
+import 'services/theme_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -87,13 +88,15 @@ class KoLernenApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<Locale?>(
-      valueListenable: localeNotifier,
-      builder: (_, locale, __) => MaterialApp(
+    return ListenableBuilder(
+      listenable: Listenable.merge([localeNotifier, themeModeNotifier]),
+      builder: (_, __) => MaterialApp(
         title: 'Hangul Sori',
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.dark,
-        locale: locale,
+        theme:      AppTheme.light,
+        darkTheme:  AppTheme.dark,
+        themeMode:  themeModeNotifier.value,
+        locale:     localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         // Tap außerhalb von Inputs → Tastatur weg

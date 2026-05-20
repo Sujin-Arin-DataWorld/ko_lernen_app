@@ -8,6 +8,7 @@ import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync.dart';
+import '../services/theme_service.dart';
 import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -39,6 +40,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: [
+          // ── Erscheinungsbild ──
+          _Section(label: t.settingsThemeTitle),
+          _RadioTile<ThemeMode>(
+            title: t.settingsThemeSystem,
+            value: ThemeMode.system,
+            groupValue: themeModeNotifier.value,
+            onChanged: (m) => setState(() => setThemeMode(m ?? ThemeMode.system)),
+          ),
+          _RadioTile<ThemeMode>(
+            title: t.settingsThemeLight,
+            value: ThemeMode.light,
+            groupValue: themeModeNotifier.value,
+            onChanged: (m) => setState(() => setThemeMode(m ?? ThemeMode.system)),
+          ),
+          _RadioTile<ThemeMode>(
+            title: t.settingsThemeDark,
+            value: ThemeMode.dark,
+            groupValue: themeModeNotifier.value,
+            onChanged: (m) => setState(() => setThemeMode(m ?? ThemeMode.system)),
+          ),
+
           // ── Sprache ──
           _Section(label: t.settingsLanguage),
           _RadioTile<String>(

@@ -1398,6 +1398,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Lerne Koreanisch wie ein Local'**
   String get homeGreetingLearn;
+
+  /// No description provided for @settingsThemeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Erscheinungsbild'**
+  String get settingsThemeTitle;
+
+  /// No description provided for @settingsThemeSystem.
+  ///
+  /// In de, this message translates to:
+  /// **'Systemvorgabe'**
+  String get settingsThemeSystem;
+
+  /// No description provided for @settingsThemeLight.
+  ///
+  /// In de, this message translates to:
+  /// **'Hell'**
+  String get settingsThemeLight;
+
+  /// No description provided for @settingsThemeDark.
+  ///
+  /// In de, this message translates to:
+  /// **'Dunkel'**
+  String get settingsThemeDark;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

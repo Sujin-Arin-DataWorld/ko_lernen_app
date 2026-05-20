@@ -707,4 +707,16 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get homeGreetingLearn => 'Lerne Koreanisch wie ein Local';
+
+  @override
+  String get settingsThemeTitle => 'Erscheinungsbild';
+
+  @override
+  String get settingsThemeSystem => 'Systemvorgabe';
+
+  @override
+  String get settingsThemeLight => 'Hell';
+
+  @override
+  String get settingsThemeDark => 'Dunkel';
 }

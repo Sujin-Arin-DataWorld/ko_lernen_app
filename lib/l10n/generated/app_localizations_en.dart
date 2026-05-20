@@ -706,4 +706,16 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeGreetingLearn => 'Learn Korean like a local';
+
+  @override
+  String get settingsThemeTitle => 'Appearance';
+
+  @override
+  String get settingsThemeSystem => 'System default';
+
+  @override
+  String get settingsThemeLight => 'Light';
+
+  @override
+  String get settingsThemeDark => 'Dark';
 }

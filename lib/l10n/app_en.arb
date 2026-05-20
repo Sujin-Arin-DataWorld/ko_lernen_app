@@ -266,5 +266,10 @@
   "homeRecommended": "Recommended today ✨",
   "homeAllDone": "All scenarios done! 🎉",
   "homeNoScenario": "Scenarios for your level coming soon",
-  "homeGreetingLearn": "Learn Korean like a local"
+  "homeGreetingLearn": "Learn Korean like a local",
+
+  "settingsThemeTitle": "Appearance",
+  "settingsThemeSystem": "System default",
+  "settingsThemeLight": "Light",
+  "settingsThemeDark": "Dark"
 }

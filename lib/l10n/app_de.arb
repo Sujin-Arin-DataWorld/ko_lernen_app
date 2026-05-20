@@ -266,5 +266,10 @@
   "homeRecommended": "Heute empfohlen ✨",
   "homeAllDone": "Alle Szenarien geschafft! 🎉",
   "homeNoScenario": "Bald gibt es Szenarien für dein Level",
-  "homeGreetingLearn": "Lerne Koreanisch wie ein Local"
+  "homeGreetingLearn": "Lerne Koreanisch wie ein Local",
+
+  "settingsThemeTitle": "Erscheinungsbild",
+  "settingsThemeSystem": "Systemvorgabe",
+  "settingsThemeLight": "Hell",
+  "settingsThemeDark": "Dunkel"
 }

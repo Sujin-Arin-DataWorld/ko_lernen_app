@@ -141,6 +141,10 @@ class Storage {
   static String get localeCode => _s('kl_locale');             // 'de', 'en', '' = system
   static Future<void> setLocaleCode(String v) => _ss('kl_locale', v);
 
+  /// Theme-Modus: 'light' / 'dark' / '' = System.
+  static String get themeMode => _s('kl_theme_mode');
+  static Future<void> setThemeMode(String v) => _ss('kl_theme_mode', v);
+
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 
