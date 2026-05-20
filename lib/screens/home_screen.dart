@@ -53,6 +53,11 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   IconButton(
+                    icon: const Icon(Icons.bar_chart_rounded, color: AppColors.textMuted),
+                    onPressed: () => Navigator.pushNamed(context, '/stats'),
+                    tooltip: t.sectionStats,
+                  ),
+                  IconButton(
                     icon: const Icon(Icons.settings_outlined, color: AppColors.textMuted),
                     onPressed: () => Navigator.pushNamed(context, '/settings'),
                     tooltip: t.settingsTitle,

@@ -14,6 +14,7 @@ import 'screens/chosung_quiz_screen.dart';
 import 'screens/wordle_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
+import 'screens/stats_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -83,6 +84,7 @@ class KoLernenApp extends StatelessWidget {
           '/chosung':   (_) => const ChosungQuizScreen(),
           '/wordle':    (_) => const WordleScreen(),
           '/settings':  (_) => const SettingsScreen(),
+          '/stats':     (_) => const StatsScreen(),
         },
       ),
     );
