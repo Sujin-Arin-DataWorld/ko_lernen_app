@@ -168,6 +168,20 @@ class CulturalNote {
   );
 }
 
+/// Inline Grammar-Block für Szenarien. Wenn ein Szenario einen spezifischen
+/// Pattern lehrt, der nicht in `grammar.csv` ist, wird er hier eingebettet.
+class GrammarBlock {
+  final LocalizedText title;        // z.B. "N(으)로 주세요"
+  final LocalizedText explanation;  // 2–4 Sätze Regel + Beispiele
+
+  const GrammarBlock({required this.title, required this.explanation});
+
+  factory GrammarBlock.fromJson(Map<String, dynamic> j) => GrammarBlock(
+    title:       LocalizedText.fromJson(j['title']       as Map<String, dynamic>),
+    explanation: LocalizedText.fromJson(j['explanation'] as Map<String, dynamic>),
+  );
+}
+
 /// Register / Formalitätsstufe — bestimmt Ton der Dialoge.
 enum Register {
   polite,     // ~요체 — Standard höflich (Café, Geschäft)
@@ -192,6 +206,7 @@ class Scenario {
   final LocalizedText intro;
   final List<VocabRef> vocab;
   final List<String> grammarIds;
+  final GrammarBlock? grammarBlock;  // inline grammar if not in grammar.csv
   final List<DialogLine> dialog;
   final List<QuestSpec> quests;
   final CulturalNote? culturalNote;
@@ -210,6 +225,7 @@ class Scenario {
     required this.grammarIds,
     required this.dialog,
     required this.quests,
+    this.grammarBlock,
     this.culturalNote,
     this.xpReward = 100,
     this.sidekick,
@@ -227,6 +243,9 @@ class Scenario {
         .map((e) => VocabRef.fromJson(e as Map<String, dynamic>))
         .toList(),
     grammarIds: ((j['grammarIds'] as List?) ?? const []).cast<String>(),
+    grammarBlock: j['grammarBlock'] is Map<String, dynamic>
+        ? GrammarBlock.fromJson(j['grammarBlock'] as Map<String, dynamic>)
+        : null,
     dialog: ((j['dialog'] as List?) ?? const [])
         .map((e) => DialogLine.fromJson(e as Map<String, dynamic>))
         .toList(),

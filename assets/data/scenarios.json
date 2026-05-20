@@ -1,5 +1,195 @@
 {
   "version": 1,
-  "_comment": "Szenarien für Phase 5. Schema in lib/models/scenario.dart. Wird befüllt in Sprint 5.2 (☕ Starbucks zuerst).",
-  "scenarios": []
+  "_comment": "Szenarien für Phase 5. Schema: lib/models/scenario.dart. Pflege-Pattern: ko ist Lerninhalt; de/en sind Mutterspracheübersetzungen.",
+  "scenarios": [
+    {
+      "id": "cafe_starbucks_basic",
+      "level": "a2",
+      "emoji": "☕",
+      "register": "polite",
+      "sidekick": "minsu",
+      "xpReward": 140,
+      "title": {
+        "ko": "스타벅스에서 주문하기",
+        "de": "Im Starbucks bestellen",
+        "en": "Ordering at Starbucks"
+      },
+      "intro": {
+        "ko": "",
+        "de": "32°C in Gangnam. Du gehst in einen Starbucks. Klimaanlage ✓. Du willst einen 아아 — Iced Americano, Tall. Aber wie sagt man 'for here or to go' auf Koreanisch?",
+        "en": "32°C in Gangnam. You walk into a Starbucks. AC ✓. You want an 아아 — Iced Americano, Tall. But how do you say 'for here or to go' in Korean?"
+      },
+      "vocab": [
+        {
+          "korean": "아이스 아메리카노",
+          "aliases": ["아아"],
+          "note": {
+            "ko": "",
+            "de": "Kurzform: 아아. Auch im Winter beliebt — siehe Kulturnotiz '얼죽아'.",
+            "en": "Short form: 아아. Popular even in winter — see culture note '얼죽아'."
+          }
+        },
+        {
+          "korean": "사이즈",
+          "variants": ["숏", "톨", "그란데", "벤티"],
+          "note": {
+            "ko": "",
+            "de": "Starbucks-Größen: Short → Tall → Grande → Venti.",
+            "en": "Starbucks sizes: Short → Tall → Grande → Venti."
+          }
+        },
+        {
+          "korean": "따뜻한",
+          "note": {
+            "ko": "",
+            "de": "heiß (Getränk). Gegenteil: 차가운.",
+            "en": "hot (drink). Opposite: 차가운."
+          }
+        },
+        {
+          "korean": "차가운",
+          "note": {
+            "ko": "",
+            "de": "kalt (Getränk).",
+            "en": "cold (drink)."
+          }
+        },
+        {
+          "korean": "매장에서",
+          "note": {
+            "ko": "",
+            "de": "im Laden — also für hier (im Gegensatz zu Take-away).",
+            "en": "in the store — i.e. for here (vs. take-away)."
+          }
+        },
+        {
+          "korean": "포장",
+          "note": {
+            "ko": "",
+            "de": "zum Mitnehmen / Take-away.",
+            "en": "to-go / take-away."
+          }
+        },
+        {
+          "korean": "진동벨",
+          "note": {
+            "ko": "",
+            "de": "Vibrationspager — piept, wenn das Getränk fertig ist.",
+            "en": "vibration pager — buzzes when your drink is ready."
+          }
+        },
+        {
+          "korean": "카드 결제",
+          "note": {
+            "ko": "",
+            "de": "Kartenzahlung. Fast überall in Korea akzeptiert.",
+            "en": "card payment. Accepted almost everywhere in Korea."
+          }
+        }
+      ],
+      "grammarIds": [],
+      "grammarBlock": {
+        "title": {
+          "ko": "N(으)로 주세요",
+          "de": "N(으)로 주세요",
+          "en": "N(으)로 주세요"
+        },
+        "explanation": {
+          "ko": "",
+          "de": "Bestellpartikel — 'in / als / mit' bei der Auswahl. Regel: Vokal-Ende → 로 (라떼로). Konsonant-Ende → 으로 (햄버거로 wird 햄버거로 = ‚als Hamburger‘, aber nach Konsonant ohne ㄹ wäre es 으로, z. B. 김밥으로). Nach ㄹ als Endkonsonant: nur 로 (톨로, nicht 톨으로).",
+          "en": "Ordering particle — 'as / by / with' for selection. Rule: ends in vowel → 로 (라떼로). Ends in consonant → 으로. After ㄹ as final consonant: just 로 (톨로, not 톨으로)."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "어서 오세요. 주문 도와드릴게요.",
+          "de": "Willkommen. Was darf's sein?",
+          "en": "Welcome. What can I get you?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아이스 아메리카노 톨 사이즈로 주세요.",
+          "de": "Einen Iced Americano in Tall, bitte.",
+          "en": "One iced americano, tall please."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네. 드시고 가세요? 포장이세요?",
+          "de": "Klar. Hier oder zum Mitnehmen?",
+          "en": "Sure. For here or to go?"
+        },
+        {
+          "speaker": "user",
+          "ko": "매장에서 마실게요.",
+          "de": "Hier, bitte.",
+          "en": "For here, please."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "4,500원입니다. 카드로 결제하시겠어요?",
+          "de": "Das macht 4.500 Won. Mit Karte?",
+          "en": "That'll be 4,500 won. Paying by card?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "진동벨 드릴게요. 울리면 받아 가세요.",
+          "de": "Hier Ihr Pager. Wenn er piepst, holen Sie Ihr Getränk ab.",
+          "en": "Here's your pager. When it buzzes, come pick up your drink."
+        }
+      ],
+      "quests": [
+        {
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "드시고 가세요? 포장이세요?",
+            "options": [
+              { "de": "Welche Größe?",            "en": "What size?" },
+              { "de": "Hier oder zum Mitnehmen?", "en": "For here or to go?" },
+              { "de": "Mit Eis?",                 "en": "With ice?" },
+              { "de": "Wie viel kostet das?",     "en": "How much is it?" }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "type": "particlePop",
+          "data": {
+            "prefix": "아이스 아메리카노 톨 사이즈",
+            "suffix": "주세요.",
+            "options": ["으로", "로", "을", "를", "이", "가"],
+            "correctIndex": 1,
+            "explanationDe": "톨 endet auf ㄹ → nur 로 (nicht 으로). Bestellpartikel = 'als'.",
+            "explanationEn": "톨 ends in ㄹ → just 로 (not 으로). Ordering particle = 'as'."
+          }
+        },
+        {
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Für hier oder zum Mitnehmen?",
+            "promptEn": "For here or to go?",
+            "options": [
+              { "ko": "드시고 가세요? 포장이세요?" },
+              { "ko": "얼마예요?" },
+              { "ko": "진동벨 드릴게요." },
+              { "ko": "빨대 필요하세요?" }
+            ],
+            "correctIndex": 0
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "얼죽아 — 얼어 죽어도 아아",
+          "de": "Was bedeutet '아아'?",
+          "en": "What's '아아'?"
+        },
+        "body": {
+          "ko": "아아 = 아이스 아메리카노. 한국인은 줄임말을 정말 좋아한다 🙃. 겨울에도 아아를 마시는 사람이 많아서 '얼죽아' = '얼어 죽어도 아이스 아메리카노'라는 표현이 생겼다. 진짜로 쓰는 말이다.",
+          "de": "아아 ist die Kurzform von 아이스 아메리카노. Koreaner lieben Abkürzungen 🙃. Selbst im Winter trinken viele 아아 — daher der Spruch '얼죽아' (eol-juk-a), wörtlich 'lieber erfrieren als heißen Kaffee'. Wird wirklich gesagt.",
+          "en": "아아 is short for 아이스 아메리카노 (iced americano). Koreans love abbreviations 🙃. Even in winter, many people drink 아아 — hence the saying '얼죽아' (eol-juk-a), literally 'I'd rather freeze to death than drink hot coffee'. People actually say this."
+        }
+      }
+    }
+  ]
 }
