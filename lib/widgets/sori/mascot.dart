@@ -1,31 +1,19 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
-/// **Sori Mascot v5** — 호랑이 + 갓 쓴 까치 일러스트 기반 마스코트.
+/// Sori mascot widget backed by separated tiger and magpie pose PNGs.
 ///
-/// **v4 버그 수정**: v4는 존재하지 않는 `tiger_magpie.png`를 참조해 홈·시나리오·
-/// 퀘스트·데일리 등 앱 전역에서 마스코트가 *깨진 이미지 아이콘*으로 표시됐다.
-/// v5는 실제로 번들된 일러스트 `welcome-hero.png` (1024², 직접 제작한 호랑이+까치)
-/// 를 사용한다.
-///
-/// API는 v4와 동일 — 호출부 변경 불필요:
-/// - [Mascot.tiger] / [Mascot.magpie] / [Mascot.new]
-/// - [Mascot.forSpeaker] — 시나리오 speaker 코드 → 마스코트
-/// - [MascotKind] / [MascotEmotion]
-///
-/// **신규**: [animate] = true → 부드러운 호흡(breathing) 스케일로 "살아있는" 느낌.
-/// 결과 화면·홈 hero 등 큰 컨텍스트에만 권장. dialog 작은 아바타는 false 유지.
-///
-/// 사용:
-/// ```dart
-/// Mascot.tiger(emotion: MascotEmotion.celebrate, size: 120, animate: true)
-/// Mascot.magpie(emotion: MascotEmotion.smile, size: 56)
-/// ```
+/// The public API stays compatible with the older combined welcome-hero based
+/// widget. Callers keep using [Mascot.tiger], [Mascot.magpie], and
+/// [Mascot.forSpeaker], while this widget selects the right pose internally.
 class Mascot extends StatefulWidget {
   final MascotKind kind;
   final MascotEmotion emotion;
   final double size;
 
-  /// 부드러운 호흡 스케일 애니메이션 — hero 컨텍스트(결과/홈)에만 권장.
+  /// Gentle idle motion. Tiger breathes and blinks; magpie can flap while
+  /// flying contexts use it.
   final bool animate;
 
   const Mascot({
@@ -36,7 +24,6 @@ class Mascot extends StatefulWidget {
     this.animate = false,
   });
 
-  // ── Primary constructors ──────────────────────────────────────────────
   const Mascot.tiger({
     super.key,
     this.emotion = MascotEmotion.smile,
@@ -51,8 +38,9 @@ class Mascot extends StatefulWidget {
     this.animate = false,
   }) : kind = MascotKind.magpie;
 
-  // ── Legacy constructors (deprecated — route to tiger) ─────────────────
-  @Deprecated('Use Mascot.tiger — Jieun/Minsu painters retired in v3 design refresh')
+  @Deprecated(
+    'Use Mascot.tiger — Jieun/Minsu painters retired in v3 design refresh',
+  )
   const Mascot.jieun({
     super.key,
     this.emotion = MascotEmotion.smile,
@@ -60,7 +48,9 @@ class Mascot extends StatefulWidget {
     this.animate = false,
   }) : kind = MascotKind.tiger;
 
-  @Deprecated('Use Mascot.tiger — Jieun/Minsu painters retired in v3 design refresh')
+  @Deprecated(
+    'Use Mascot.tiger — Jieun/Minsu painters retired in v3 design refresh',
+  )
   const Mascot.minsu({
     super.key,
     this.emotion = MascotEmotion.smile,
@@ -68,8 +58,8 @@ class Mascot extends StatefulWidget {
     this.animate = false,
   }) : kind = MascotKind.tiger;
 
-  /// Speaker-code → Mascot. minsu/jieun (legacy) → tiger, kkachi/magpie → magpie.
-  /// 알 수 없는 speaker → null (caller가 emoji fallback 사용).
+  /// Speaker-code -> Mascot. minsu/jieun (legacy) -> tiger,
+  /// kkachi/magpie -> magpie. Unknown speaker -> null.
   static Widget? forSpeaker(
     String speaker, {
     MascotEmotion emotion = MascotEmotion.smile,
@@ -80,8 +70,8 @@ class Mascot extends StatefulWidget {
       case 'tiger':
       case 'horangi':
       case '호랑이':
-      case 'jieun': // legacy v2 → tiger
-      case 'minsu': // legacy v2 → tiger
+      case 'jieun':
+      case 'minsu':
         return Mascot.tiger(emotion: emotion, size: size, animate: animate);
       case 'kkachi':
       case 'magpie':
@@ -97,111 +87,128 @@ class Mascot extends StatefulWidget {
 }
 
 class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
-  /// 직접 제작한 호랑이+까치 일러스트. pubspec의 `assets/illustrations/hanok/`
-  /// 디렉토리로 번들됨.
-  static const String _asset = 'assets/illustrations/hanok/welcome-hero.png';
+  static const _tigerIdle = 'assets/illustrations/mascot/tiger_idle.png';
+  static const _tigerBlink = 'assets/illustrations/mascot/tiger_blink.png';
+  static const _tigerHappy = 'assets/illustrations/mascot/tiger_happy.png';
+  static const _tigerCelebrate =
+      'assets/illustrations/mascot/tiger_celebrate.png';
+  static const _tigerSad = 'assets/illustrations/mascot/tiger_sad.png';
 
-  AnimationController? _breath;
+  static const _magpiePerched =
+      'assets/illustrations/mascot/magpie_perched.png';
+  static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
+  static const _magpieWingDown =
+      'assets/illustrations/mascot/magpie_wingdown.png';
+  static const _magpieCelebrate =
+      'assets/illustrations/mascot/magpie_celebrate.png';
+
+  AnimationController? _motion;
+
+  bool get _isMagpie => widget.kind == MascotKind.magpie;
 
   @override
   void initState() {
     super.initState();
-    if (widget.animate) _startBreath();
+    if (widget.animate) _startMotion();
   }
 
-  void _startBreath() {
-    _breath = AnimationController(
+  void _startMotion() {
+    _motion = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 2600),
-    )..repeat(reverse: true);
+    )..repeat();
   }
 
   @override
   void didUpdateWidget(covariant Mascot old) {
     super.didUpdateWidget(old);
-    if (widget.animate && _breath == null) {
-      _startBreath();
-    } else if (!widget.animate && _breath != null) {
-      _breath!.dispose();
-      _breath = null;
+    if (widget.animate && _motion == null) {
+      _startMotion();
+    } else if (!widget.animate && _motion != null) {
+      _motion!.dispose();
+      _motion = null;
     }
   }
 
   @override
   void dispose() {
-    _breath?.dispose();
+    _motion?.dispose();
     super.dispose();
   }
 
-  /// 감정 → 우측 하단 이모지 오버레이. smile/neutral은 오버레이 없음.
-  String get _overlay {
+  String _assetFor(double t) {
+    if (_isMagpie) {
+      if (widget.emotion == MascotEmotion.celebrate) return _magpieCelebrate;
+      if (widget.animate) {
+        final flap = math.sin(t * math.pi * 10);
+        return flap >= 0 ? _magpieWingUp : _magpieWingDown;
+      }
+      return _magpiePerched;
+    }
+
     switch (widget.emotion) {
       case MascotEmotion.celebrate:
-        return '🎉';
+        return _tigerCelebrate;
       case MascotEmotion.worry:
-        return '😟';
+        return _tigerSad;
       case MascotEmotion.sleepy:
-        return '😴';
+        return _tigerBlink;
       case MascotEmotion.surprised:
-        return '😲';
+        return _tigerHappy;
       case MascotEmotion.neutral:
       case MascotEmotion.smile:
-        return '';
+        if (widget.animate && t > 0.82 && t < 0.90) return _tigerBlink;
+        return _tigerIdle;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget image = Image.asset(
-      _asset,
-      width: widget.size,
-      height: widget.size,
-      fit: BoxFit.contain,
-      filterQuality: FilterQuality.medium,
-      errorBuilder: (_, __, ___) => _Fallback(kind: widget.kind, size: widget.size),
+    final motion = _motion;
+    if (motion == null) return _buildPose(0);
+
+    return AnimatedBuilder(
+      animation: motion,
+      builder: (_, __) => _buildPose(motion.value),
     );
+  }
 
-    // hero 컨텍스트: 부드러운 호흡 스케일.
-    final breath = _breath;
-    if (breath != null) {
-      image = AnimatedBuilder(
-        animation: breath,
-        builder: (_, child) {
-          final t = Curves.easeInOut.transform(breath.value);
-          return Transform.scale(scale: 1.0 + t * 0.045, child: child);
-        },
-        child: image,
-      );
-    }
-
-    final overlay = _overlay;
+  Widget _buildPose(double t) {
+    final wave = math.sin(t * math.pi * 2);
+    final bob = _isMagpie && widget.animate ? wave * widget.size * 0.035 : 0.0;
+    final scale = widget.animate && !_isMagpie ? 1.0 + (wave + 1) * 0.018 : 1.0;
 
     return SizedBox(
       width: widget.size,
       height: widget.size,
-      child: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          image,
-          if (overlay.isNotEmpty)
-            Text(overlay, style: TextStyle(fontSize: widget.size * 0.30, height: 1)),
-        ],
+      child: Transform.translate(
+        offset: Offset(0, bob),
+        child: Transform.scale(
+          scale: scale,
+          child: Image.asset(
+            _assetFor(t),
+            width: widget.size,
+            height: widget.size,
+            fit: BoxFit.contain,
+            filterQuality: FilterQuality.medium,
+            errorBuilder: (_, __, ___) =>
+                _Fallback(kind: widget.kind, size: widget.size),
+          ),
+        ),
       ),
     );
   }
 }
 
-/// 에셋 로드 실패 시 (이론상 발생하지 않음 — 번들됨) *깨진 아이콘* 대신
-/// 부드러운 색상 원 + 이모지 fallback.
 class _Fallback extends StatelessWidget {
   final MascotKind kind;
   final double size;
+
   const _Fallback({required this.kind, required this.size});
 
   @override
   Widget build(BuildContext context) {
     final isMagpie = kind == MascotKind.magpie;
-    // SoriColors와 독립 — 위젯 자체로 안전하게 동작하도록 const 색상 사용.
     final color = isMagpie ? const Color(0xFF5A7BA0) : const Color(0xFFFF8C42);
     return Container(
       width: size,
@@ -222,9 +229,10 @@ class _Fallback extends StatelessWidget {
 enum MascotKind {
   tiger,
   magpie,
-  // Legacy aliases — 코드가 여전히 참조할 수 있음. v5는 둘 다 일러스트로 표시.
-  @Deprecated('Use MascotKind.tiger') jieun,
-  @Deprecated('Use MascotKind.tiger') minsu,
+  @Deprecated('Use MascotKind.tiger')
+  jieun,
+  @Deprecated('Use MascotKind.tiger')
+  minsu,
 }
 
 enum MascotEmotion { neutral, smile, worry, celebrate, sleepy, surprised }

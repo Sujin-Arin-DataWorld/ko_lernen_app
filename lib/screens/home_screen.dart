@@ -5,6 +5,7 @@ import '../models/scenario.dart';
 import '../services/daily_char_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
+import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
 import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/badge.dart';
@@ -416,15 +417,7 @@ class _TodayScenarioCard extends StatelessWidget {
         variant: SoriCardVariant.hero,
         accent: SoriColors.primary,
         tinted: true,
-        child: SizedBox(
-          height: 120,
-          child: Center(
-            child: CircularProgressIndicator(
-              strokeWidth: 2.5,
-              color: SoriColors.primary,
-            ),
-          ),
-        ),
+        child: SizedBox(height: 120, child: const AppLoading()),
       );
     }
 

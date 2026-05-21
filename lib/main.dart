@@ -110,10 +110,9 @@ class KoLernenApp extends StatelessWidget {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: child,
         ),
-        // 인트로(솟을대문)는 일러스트 에셋 대기 중 — 임시 비활성, 바로 온보딩/홈.
-        //   gate_frame/door 에셋 도착 시 initialRoute를 '/intro'로 되돌린다.
+        // 솟을대문 인트로가 먼저 열리고, 완료 시 온보딩 또는 홈으로 이동한다.
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
-        initialRoute: Storage.userLevelCode == null ? '/onboarding' : '/',
+        initialRoute: '/intro',
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/intro':

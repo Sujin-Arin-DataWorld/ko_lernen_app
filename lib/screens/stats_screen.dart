@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -14,31 +15,60 @@ class StatsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
-    final vokTotal    = Storage.vokCorrect + Storage.vokWrong;
-    final vokAccuracy = vokTotal == 0 ? 0 : (Storage.vokCorrect * 100 ~/ vokTotal);
+    final vokTotal = Storage.vokCorrect + Storage.vokWrong;
+    final vokAccuracy = vokTotal == 0
+        ? 0
+        : (Storage.vokCorrect * 100 ~/ vokTotal);
     final chosungTotal = Storage.chosungCorrect + Storage.chosungWrong;
-    final chosungAccuracy = chosungTotal == 0 ? 0 : (Storage.chosungCorrect * 100 ~/ chosungTotal);
+    final chosungAccuracy = chosungTotal == 0
+        ? 0
+        : (Storage.chosungCorrect * 100 ~/ chosungTotal);
     final wordleTotal = Storage.wordleWins + Storage.wordleLosses;
-    final wordleRate  = wordleTotal == 0 ? 0 : (Storage.wordleWins * 100 ~/ wordleTotal);
+    final wordleRate = wordleTotal == 0
+        ? 0
+        : (Storage.wordleWins * 100 ~/ wordleTotal);
 
     return Scaffold(
-      appBar: AppBar(title: Text(t.statsHeader, style: const TextStyle(fontWeight: FontWeight.w800))),
+      appBar: AppBar(
+        title: Text(
+          t.statsHeader,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
         children: [
           // ── 친구들 hero (호랑이 + 갓 쓴 까치 — 함께 학습) ──
-          Center(
-            child: Image.asset(
-              'assets/illustrations/hanok/welcome-hero.png',
-              width: 200,
-              height: 200,
-              fit: BoxFit.contain,
+          const Center(
+            child: SizedBox(
+              width: 220,
+              height: 180,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    left: 20,
+                    bottom: 0,
+                    child: Mascot.tiger(size: 156, animate: true),
+                  ),
+                  Positioned(
+                    right: 18,
+                    top: 10,
+                    child: Mascot.magpie(size: 86, animate: true),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 12),
 
           // Streak Hero
-          _StreakHero(streak: Storage.streakDays, best: Storage.bestStreak, label: t.statsStreak, bestLabel: t.statsBestStreak),
+          _StreakHero(
+            streak: Storage.streakDays,
+            best: Storage.bestStreak,
+            label: t.statsStreak,
+            bestLabel: t.statsBestStreak,
+          ),
           const SizedBox(height: 16),
 
           // ── Szenario-Fortschritt (XP/Level/Badges) ──
@@ -50,7 +80,10 @@ class StatsScreen extends StatelessWidget {
             badges: Storage.earnedBadges,
             title: t.statsXpTitle,
             levelLabel: t.statsLevelLabel(Storage.xpLevel),
-            toNextLabel: t.statsToNextLevel(Storage.xpToNext, Storage.xpLevel + 1),
+            toNextLabel: t.statsToNextLevel(
+              Storage.xpToNext,
+              Storage.xpLevel + 1,
+            ),
             scenariosLabel: t.statsScenariosCompleted,
             badgesTitle: t.statsBadgesTitle,
             noBadges: t.statsNoBadges,
@@ -59,43 +92,85 @@ class StatsScreen extends StatelessWidget {
 
           // Vocab
           _StatCard(
-            icon:   Icons.style_outlined,
-            title:  t.moduleVocabTitle,
-            color:  SoriColors.info,
+            icon: Icons.style_outlined,
+            title: t.moduleVocabTitle,
+            color: SoriColors.info,
             rows: [
-              _MetricRow(label: '✅ ${t.statsGotIt}', value: '${Storage.vokCorrect}'),
-              _MetricRow(label: '❌ ${t.statsNotGotIt}', value: '${Storage.vokWrong}'),
-              _MetricRow(label: '⏭ ${t.statsSkipped}', value: '${Storage.vokSkipped}'),
-              _MetricRow(label: '📚 ${t.statsCardsLearned}', value: '${Storage.vokSeenIds.length}'),
-              _MetricRow(label: '🎯 ${t.statsAccuracy}', value: '$vokAccuracy %', accent: true),
+              _MetricRow(
+                label: '✅ ${t.statsGotIt}',
+                value: '${Storage.vokCorrect}',
+              ),
+              _MetricRow(
+                label: '❌ ${t.statsNotGotIt}',
+                value: '${Storage.vokWrong}',
+              ),
+              _MetricRow(
+                label: '⏭ ${t.statsSkipped}',
+                value: '${Storage.vokSkipped}',
+              ),
+              _MetricRow(
+                label: '📚 ${t.statsCardsLearned}',
+                value: '${Storage.vokSeenIds.length}',
+              ),
+              _MetricRow(
+                label: '🎯 ${t.statsAccuracy}',
+                value: '$vokAccuracy %',
+                accent: true,
+              ),
             ],
           ),
           const SizedBox(height: 12),
 
           // Chosung
           _StatCard(
-            icon:   Icons.spellcheck,
-            title:  t.gameChosungTitle,
-            color:  SoriColors.primary,
+            icon: Icons.spellcheck,
+            title: t.gameChosungTitle,
+            color: SoriColors.primary,
             rows: [
-              _MetricRow(label: '✅ ${t.statsCorrect}', value: '${Storage.chosungCorrect}'),
-              _MetricRow(label: '❌ ${t.statsWrong}',  value: '${Storage.chosungWrong}'),
-              _MetricRow(label: '🎯 ${t.statsAccuracy}', value: '$chosungAccuracy %', accent: true),
+              _MetricRow(
+                label: '✅ ${t.statsCorrect}',
+                value: '${Storage.chosungCorrect}',
+              ),
+              _MetricRow(
+                label: '❌ ${t.statsWrong}',
+                value: '${Storage.chosungWrong}',
+              ),
+              _MetricRow(
+                label: '🎯 ${t.statsAccuracy}',
+                value: '$chosungAccuracy %',
+                accent: true,
+              ),
             ],
           ),
           const SizedBox(height: 12),
 
           // Wordle
           _StatCard(
-            icon:   Icons.grid_4x4,
-            title:  t.gameWordleTitle,
-            color:  SoriColors.success,
+            icon: Icons.grid_4x4,
+            title: t.gameWordleTitle,
+            color: SoriColors.success,
             rows: [
-              _MetricRow(label: '🏆 ${t.statsWordleWins}', value: '${Storage.wordleWins}'),
-              _MetricRow(label: '💔 ${t.statsLosses}', value: '${Storage.wordleLosses}'),
-              _MetricRow(label: '🔥 ${t.statsWordleStreak}', value: '${Storage.wordleStreak}'),
-              _MetricRow(label: '⭐ ${t.statsBestShort}',  value: '${Storage.wordleBestStreak}'),
-              _MetricRow(label: '🎯 ${t.statsWinRate}',  value: '$wordleRate %', accent: true),
+              _MetricRow(
+                label: '🏆 ${t.statsWordleWins}',
+                value: '${Storage.wordleWins}',
+              ),
+              _MetricRow(
+                label: '💔 ${t.statsLosses}',
+                value: '${Storage.wordleLosses}',
+              ),
+              _MetricRow(
+                label: '🔥 ${t.statsWordleStreak}',
+                value: '${Storage.wordleStreak}',
+              ),
+              _MetricRow(
+                label: '⭐ ${t.statsBestShort}',
+                value: '${Storage.wordleBestStreak}',
+              ),
+              _MetricRow(
+                label: '🎯 ${t.statsWinRate}',
+                value: '$wordleRate %',
+                accent: true,
+              ),
             ],
           ),
         ],
@@ -109,7 +184,12 @@ class _StreakHero extends StatelessWidget {
   final int best;
   final String label;
   final String bestLabel;
-  const _StreakHero({required this.streak, required this.best, required this.label, required this.bestLabel});
+  const _StreakHero({
+    required this.streak,
+    required this.best,
+    required this.label,
+    required this.bestLabel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +200,8 @@ class _StreakHero extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 64, height: 64,
+            width: 64,
+            height: 64,
             decoration: BoxDecoration(
               color: SoriColors.warning.withValues(alpha: 0.20),
               borderRadius: BorderRadius.circular(16),
@@ -133,10 +214,31 @@ class _StreakHero extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label, style: TextStyle(color: SoriSurfaces.of(context).textMuted, fontSize: 12, letterSpacing: 0.5)),
-                Text('$streak', style: TextStyle(color: SoriSurfaces.of(context).text, fontSize: 38, fontWeight: FontWeight.w900, height: 1.1)),
+                Text(
+                  label,
+                  style: TextStyle(
+                    color: SoriSurfaces.of(context).textMuted,
+                    fontSize: 12,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+                Text(
+                  '$streak',
+                  style: TextStyle(
+                    color: SoriSurfaces.of(context).text,
+                    fontSize: 38,
+                    fontWeight: FontWeight.w900,
+                    height: 1.1,
+                  ),
+                ),
                 const SizedBox(height: 2),
-                Text('$bestLabel: $best', style: TextStyle(color: SoriSurfaces.of(context).textMuted, fontSize: 12)),
+                Text(
+                  '$bestLabel: $best',
+                  style: TextStyle(
+                    color: SoriSurfaces.of(context).textMuted,
+                    fontSize: 12,
+                  ),
+                ),
               ],
             ),
           ),
@@ -151,7 +253,12 @@ class _StatCard extends StatelessWidget {
   final String title;
   final Color color;
   final List<_MetricRow> rows;
-  const _StatCard({required this.icon, required this.title, required this.color, required this.rows});
+  const _StatCard({
+    required this.icon,
+    required this.title,
+    required this.color,
+    required this.rows,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +273,14 @@ class _StatCard extends StatelessWidget {
             children: [
               Icon(icon, color: color, size: 22),
               const SizedBox(width: 8),
-              Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: color)),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                  color: color,
+                ),
+              ),
             ],
           ),
           Divider(height: 18, color: s.surfaceAlt),
@@ -206,11 +320,11 @@ class _XpCard extends StatelessWidget {
 
   /// Badge id → emoji + label (de/en kombiniert da Badges Eigennamen sind)
   static const _badgeMeta = {
-    'cafe_starter':       {'emoji': '☕', 'label': 'Café Starter'},
-    'airport_arrival':    {'emoji': '✈️', 'label': 'Flughafen Pro'},
+    'cafe_starter': {'emoji': '☕', 'label': 'Café Starter'},
+    'airport_arrival': {'emoji': '✈️', 'label': 'Flughafen Pro'},
     'introduce_yourself': {'emoji': '👋', 'label': 'Smooth Intro'},
     'warm_encouragement': {'emoji': '💗', 'label': 'Heart Healer'},
-    'couple_argument':    {'emoji': '💢', 'label': 'Repair Master'},
+    'couple_argument': {'emoji': '💢', 'label': 'Repair Master'},
   };
 
   @override
@@ -227,11 +341,19 @@ class _XpCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.bolt_rounded, color: SoriColors.primary, size: 22),
+              const Icon(
+                Icons.bolt_rounded,
+                color: SoriColors.primary,
+                size: 22,
+              ),
               const SizedBox(width: 8),
               Text(
                 title,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: SoriColors.primary),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                  color: SoriColors.primary,
+                ),
               ),
               const Spacer(),
               Text(
@@ -262,7 +384,14 @@ class _XpCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 6),
-              Text('XP', style: TextStyle(color: s.textMuted, fontWeight: FontWeight.w700, fontSize: 14)),
+              Text(
+                'XP',
+                style: TextStyle(
+                  color: s.textMuted,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                ),
+              ),
               const Spacer(),
               SoriChip(
                 label: '🎬 $scenariosDone $scenariosLabel',
@@ -293,10 +422,7 @@ class _XpCard extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           if (badges.isEmpty)
-            Text(
-              noBadges,
-              style: TextStyle(color: s.textDim, fontSize: 13),
-            )
+            Text(noBadges, style: TextStyle(color: s.textDim, fontSize: 13))
           else
             Wrap(
               spacing: 8,
@@ -321,7 +447,11 @@ class _MetricRow extends StatelessWidget {
   final String label;
   final String value;
   final bool accent;
-  const _MetricRow({required this.label, required this.value, this.accent = false});
+  const _MetricRow({
+    required this.label,
+    required this.value,
+    this.accent = false,
+  });
 
   @override
   Widget build(BuildContext context) {

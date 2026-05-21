@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/ambient_particles.dart';
+import '../widgets/sori/hanok/gate_art.dart';
 import '../widgets/sori/motion.dart';
 import '../models/scenario.dart';
 import '../services/storage_service.dart';
@@ -121,12 +122,14 @@ class OnboardingLevelScreen extends StatelessWidget {
                     slideY: 0,
                     startScale: 0.55,
                     child: Center(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
-                          'assets/illustrations/hanok/gate.png',
-                          height: 160,
-                          fit: BoxFit.contain,
+                      child: SizedBox(
+                        height: 170,
+                        child: AspectRatio(
+                          aspectRatio: 9 / 16,
+                          child: HanokGateArt(
+                            openAmount: 0.08,
+                            filterQuality: FilterQuality.high,
+                          ),
                         ),
                       ),
                     ),

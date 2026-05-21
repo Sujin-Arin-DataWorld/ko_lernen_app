@@ -61,6 +61,7 @@ flutter:
     - assets/data/
     - assets/icons/
     - assets/illustrations/hanok/
+    - assets/illustrations/mascot/
 
   # ── Pretendard (한국어 모던 산세리프, SIL OFL, Std subset ~310KB×5) ──
   fonts:

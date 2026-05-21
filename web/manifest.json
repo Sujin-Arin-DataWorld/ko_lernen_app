@@ -1,11 +1,11 @@
 {
-    "name": "ko_lernen_app",
-    "short_name": "ko_lernen_app",
+    "name": "Hangul Sori",
+    "short_name": "Hangul Sori",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FAF6EC",
+    "theme_color": "#1F7A6B",
+    "description": "Koreanisch lernen mit Hangul, Vokabeln, Grammatik und Spielen.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

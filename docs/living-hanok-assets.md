@@ -18,25 +18,26 @@
 
 ---
 
-## 1. 앱 로고 — 기존 teal 로고 교체 ★1순위
+## 1. 앱 로고 — 완료
 
-**현재 상태**: `assets/icons/`에 `HanLogo.png` · `icon-512.png` · `icon-192.png`
-3개 — 전부 **teal 배경 갓+한** 로고. Jin이 새 로고를 만들었다고 했으나 repo에는
-아직 없음(`assets/icons/`·`~/Downloads/` 확인 결과 없음).
+**현재 상태**: `assets/icons/`의 `HanLogo.png` · `icon-512.png` · `icon-192.png`
+3개가 Jin이 제작한 현재 로고 원본/파생본이다. 별도 `logo.png`/`logo_mark.png`로
+이름을 바꾸지 않고 이 파일들을 정식 로고로 유지한다.
 
-**제작/배치할 파일**:
-| 파일 | 크기 | 내용 |
-|---|---|---|
-| `assets/icons/logo.png` | 1024×1024 | 새 브랜드 로고 (Jin 디자인). **배경 teal/파랑 금지.** 앱 아이콘용. |
-| `assets/icons/logo_mark.png` | 512×512 | **투명 배경**, 마크/심볼만. 앱 내부 헤더·로딩 스피너용. |
-
-→ 두 파일이 들어오면 Claude가: 런처 아이콘 + 스플래시 + 홈 헤더 + 로딩 위젯을
-전부 새 로고로 교체하고 **기존 teal 3개 파일 삭제**.
-→ 그 전까지는 앱 아이콘이 없어지면 안 되므로 teal 로고를 임시 유지함.
+**코드 연결**:
+| 파일 | 용도 |
+|---|---|
+| `assets/icons/HanLogo.png` | 런처 아이콘 생성 원본 + 네이티브 스플래시 |
+| `assets/icons/icon-512.png` | 고해상도 파생 아이콘 |
+| `assets/icons/icon-192.png` | 앱 내부 헤더·로딩 위젯 |
 
 ---
 
 ## 2. 솟을대문 — 인트로 (★1순위 · 레이어 분리 **필수**)
+
+**현재 상태**: `gate_frame.png` · `gate_door_left.png` · `gate_door_right.png`
+3개가 추가되어 인트로 코드에 통합됨. 현재 파일은 즉시 빌드 가능한 임시 SVG 기반
+PNG이며, Jin 최종 일러스트가 오면 같은 경로/좌표계로 덮어쓰면 된다.
 
 인트로에서 문이 **실제로 열려야** 하므로 한 장의 평면 PNG로는 불가능.
 **3개 파일로 분리** 제작 — 모두 같은 좌표계에 등록(registration)되어야 함.
@@ -67,6 +68,10 @@ perspective 회전 → 문이 열림 → 카메라가 통과 → 마당(아래 �
 ---
 
 ## 3. 마스코트 — 호랑이 / 까치 포즈 세트 (★2순위 · Phase 3)
+
+**현재 상태**: 기존 `assets/illustrations/hanok/` 아래에 있던 포즈 PNG를
+`assets/illustrations/mascot/`로 정리했고, `Mascot`/`FlyingMagpie` 위젯이 이
+분리 파일을 사용한다. 현재 파일은 1024×1024 원본이며 앱에서는 크기에 맞춰 표시된다.
 
 `welcome-hero.png`(호랑이+까치 합본 1장)는 눈 깜빡임·날갯짓 같은 부분 동작이
 불가능. **캐릭터별·포즈별로 분리** 제작.
@@ -103,9 +108,9 @@ perspective 회전 → 문이 열림 → 카메라가 통과 → 마당(아래 �
 
 ## 우선순위 요약
 
-1. **로고 2종** (`logo.png` · `logo_mark.png`) — 즉시 필요, teal 로고 교체
-2. **솟을대문 3종** (`gate_frame` · `gate_door_left` · `gate_door_right`) — 인트로 완성
-3. **마스코트 포즈** (호랑이 5 · 까치 4) — Phase 3 캐릭터 생명력
+1. **로고 3종** (`HanLogo.png` · `icon-512.png` · `icon-192.png`) — 완료/통합
+2. **솟을대문 3종** (`gate_frame` · `gate_door_left` · `gate_door_right`) — 완료/인트로 통합
+3. **마스코트 포즈** (호랑이 5 · 까치 4) — 완료/위젯 통합
 4. (선택) `madang_intro.png`
 
-각 묶음이 준비되는 대로 경로에 넣고 알려주면 Claude가 코드 통합 + 애니메이션.
+추후 최종 일러스트를 교체할 때는 같은 파일명과 투명 배경/좌표계를 유지하면 코드 수정 없이 반영된다.
