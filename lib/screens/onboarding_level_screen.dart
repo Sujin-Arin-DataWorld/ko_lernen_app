@@ -90,6 +90,19 @@ class OnboardingLevelScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // ── 한옥 대문 hero (사용자가 입장하는 느낌) ──
+              Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/illustrations/hanok/gate.png',
+                    height: 160,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 18),
+
               // ── Header ──
               ShaderMask(
                 shaderCallback: (b) => const LinearGradient(

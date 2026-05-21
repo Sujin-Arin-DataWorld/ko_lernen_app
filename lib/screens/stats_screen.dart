@@ -26,6 +26,17 @@ class StatsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
         children: [
+          // ── 친구들 hero (호랑이 + 갓 쓴 까치 — 함께 학습) ──
+          Center(
+            child: Image.asset(
+              'assets/illustrations/hanok/welcome-hero.png',
+              width: 200,
+              height: 200,
+              fit: BoxFit.contain,
+            ),
+          ),
+          const SizedBox(height: 12),
+
           // Streak Hero
           _StreakHero(streak: Storage.streakDays, best: Storage.bestStreak, label: t.statsStreak, bestLabel: t.statsBestStreak),
           const SizedBox(height: 16),

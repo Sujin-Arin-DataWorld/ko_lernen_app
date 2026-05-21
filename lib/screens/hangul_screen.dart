@@ -82,6 +82,16 @@ class _OverviewTab extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 24),
       children: [
+        // ── 서당 banner (산 + "한글" 캘리 + 매화) ────────────────────
+        ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Image.asset(
+            'assets/illustrations/hanok/calligraphy.png',
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+        ),
+        const SizedBox(height: 16),
         _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
         _CharGrid(chars: consonants, color: SoriColors.hangul),
         const SizedBox(height: 24),

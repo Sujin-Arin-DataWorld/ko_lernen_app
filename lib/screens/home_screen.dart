@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/scenario.dart';
@@ -77,18 +76,31 @@ class _HomeScreenState extends State<HomeScreen> {
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(Spacing.lg, Spacing.lg, Spacing.lg, Spacing.xl),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // ── Header ──────────────────────────────────────────
-              // 48×48 컨텍스트 — gold band/gem detail이 묻히는 full icon 대신
-              // mini silhouette (assets/icons/icon-mini.svg). 큰 사이즈 (splash,
-              // launcher) 는 그대로 icon.svg / icon-512.png 사용.
-              _Header(svgIcon: 'assets/icons/icon-mini.svg'),
+      body: Stack(
+        children: [
+          // ── 한옥 마당 배경 (dark mode only) ───────────────────────
+          // 본인이 제작한 madang(dark).png — 밤하늘 + 멀리 한옥 + 작은 호랑이.
+          // 콘텐츠가 위에 SoriCard 솔리드 surface로 깔리므로 가독성 영향 X.
+          if (isDark)
+            Positioned.fill(
+              child: Image.asset(
+                'assets/illustrations/hanok/madang(dark).png',
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+              ),
+            ),
+
+          SafeArea(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(Spacing.lg, Spacing.lg, Spacing.lg, Spacing.xl),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // ── Header (PNG 로고 — HanLogo 갓+한 brand) ─────────
+                  _Header(logoAsset: 'assets/icons/icon-192.png'),
               const SizedBox(height: Spacing.lg),
 
               // ── Stats peek ──────────────────────────────────────
@@ -157,9 +169,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(color: s.textDim, fontSize: 12, fontWeight: FontWeight.w500),
                 ),
               ),
-            ],
+                ],
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -168,8 +182,8 @@ class _HomeScreenState extends State<HomeScreen> {
 // ─── Header ──────────────────────────────────────────────────────────────
 
 class _Header extends StatelessWidget {
-  final String svgIcon;
-  const _Header({required this.svgIcon});
+  final String logoAsset;
+  const _Header({required this.logoAsset});
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +192,16 @@ class _Header extends StatelessWidget {
 
     return Row(
       children: [
-        SizedBox(width: 48, height: 48, child: SvgPicture.asset(svgIcon)),
+        // HanLogo PNG — 갓 silhouette + 한 글자 + 단청 도트 brand
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.asset(
+            logoAsset,
+            width: 48,
+            height: 48,
+            fit: BoxFit.cover,
+          ),
+        ),
         const SizedBox(width: Spacing.md),
         Expanded(
           child: Column(

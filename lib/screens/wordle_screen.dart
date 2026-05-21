@@ -244,6 +244,17 @@ class _WordleScreenState extends State<WordleScreen> {
           padding: const EdgeInsets.fromLTRB(18, 6, 18, 24),
           child: Column(
             children: [
+              // ── 마루 banner (한옥 처마 + 까치 + 풍경 + 매화) ──
+              ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: Image.asset(
+                  'assets/illustrations/hanok/porch.png',
+                  width: double.infinity,
+                  height: 80,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: 12),
               Text(
                 t.wordleSyllableCount(n),
                 style: TextStyle(color: SoriSurfaces.of(context).textMuted, fontSize: 13),

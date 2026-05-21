@@ -267,6 +267,18 @@ class _VocabScreenState extends State<VocabScreen> {
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
+              // ── 사랑방 banner (한지 미닫이문 + 대나무 + 서안) ──
+              ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: Image.asset(
+                  'assets/illustrations/hanok/study.png',
+                  width: double.infinity,
+                  height: 80,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: Spacing.md),
+
               // Mode chips (SRS Due / Favorites / Alle)
               Row(
                 children: [

@@ -159,6 +159,18 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // ── 마루 banner (한옥 처마 + 까치 + 풍경) ──
+              ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: Image.asset(
+                  'assets/illustrations/hanok/porch.png',
+                  width: double.infinity,
+                  height: 80,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: Spacing.md),
+
               // ── 레벨 선택 ──────────────────────────────────────────
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
