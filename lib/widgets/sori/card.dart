@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'hanok/eaves_corner.dart';
+import 'hanok/hanji_texture.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
@@ -11,6 +13,8 @@ enum SoriCardVariant {
   base,
   /// 작은 compact 카드 (12 padding, radius 12).
   compact,
+  /// 한지 텍스처 배경 카드 (v4 한옥 skin). hero급 padding, hanji bg, eaves corner 자동.
+  hanji,
 }
 
 /// **SoriCard** — 통합 카드 컴포넌트.
@@ -43,6 +47,10 @@ class SoriCard extends StatelessWidget {
   /// surface 배경 대신 accent 채움(아주 옅게). hero 카드에 권장.
   final bool tinted;
 
+  /// v4 한옥 skin — 카드 상단 모서리를 처마(eaves)처럼 살짝 더 큰 곡선으로.
+  /// hero/hanji variant에 자연스러움. base/compact엔 보통 false.
+  final bool eaves;
+
   const SoriCard({
     super.key,
     required this.child,
@@ -54,19 +62,32 @@ class SoriCard extends StatelessWidget {
     this.width,
     this.height,
     this.tinted = false,
+    this.eaves = false,
   });
 
   double get _radius => switch (variant) {
     SoriCardVariant.hero    => SoriRadius.lg,
     SoriCardVariant.base    => SoriRadius.md,
     SoriCardVariant.compact => SoriRadius.sm,
+    SoriCardVariant.hanji   => SoriRadius.lg,
   };
 
   EdgeInsetsGeometry get _defaultPadding => switch (variant) {
     SoriCardVariant.hero    => const EdgeInsets.all(Spacing.xl),
     SoriCardVariant.base    => const EdgeInsets.all(Spacing.lg),
     SoriCardVariant.compact => const EdgeInsets.all(Spacing.md),
+    SoriCardVariant.hanji   => const EdgeInsets.all(Spacing.lg),
   };
+
+  /// hanji variant + 처마 옵션은 자동 eaves 처리.
+  bool get _useEaves => eaves || variant == SoriCardVariant.hanji;
+
+  /// hanji variant는 항상 HanjiTexture wrapping.
+  bool get _useHanji => variant == SoriCardVariant.hanji;
+
+  BorderRadius get _borderRadius => _useEaves
+      ? EavesCorner.borderRadius(base: _radius, boost: 6)
+      : BorderRadius.circular(_radius);
 
   @override
   Widget build(BuildContext context) {
@@ -82,17 +103,34 @@ class SoriCard extends StatelessWidget {
         ? accentColor.withValues(alpha: isLight ? 0.25 : 0.35)
         : s.border;
 
-    final card = Container(
+    // hanji variant — HanjiTexture가 배경, padding은 child에 적용
+    final Widget cardContent = _useHanji
+        ? HanjiTexture(
+            borderRadius: _borderRadius,
+            child: Container(
+              padding: padding ?? _defaultPadding,
+              decoration: BoxDecoration(
+                borderRadius: _borderRadius,
+                border: Border.all(color: borderColor, width: 1),
+              ),
+              child: child,
+            ),
+          )
+        : Container(
+            padding: padding ?? _defaultPadding,
+            decoration: BoxDecoration(
+              color: bgColor,
+              borderRadius: _borderRadius,
+              border: Border.all(color: borderColor, width: 1),
+              boxShadow: isLight ? SoriElevation.low : null,
+            ),
+            child: child,
+          );
+
+    final card = SizedBox(
       width: width,
       height: height,
-      padding: padding ?? _defaultPadding,
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(_radius),
-        border: Border.all(color: borderColor, width: 1),
-        boxShadow: isLight ? SoriElevation.low : null,
-      ),
-      child: child,
+      child: cardContent,
     );
 
     if (onTap == null && onLongPress == null) return card;
@@ -100,9 +138,9 @@ class SoriCard extends StatelessWidget {
     return SoriPressable(
       onTap: onTap,
       onLongPress: onLongPress,
-      pressScale: variant == SoriCardVariant.hero ? 0.97 : 0.96,
+      pressScale: (variant == SoriCardVariant.hero || variant == SoriCardVariant.hanji) ? 0.97 : 0.96,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(_radius),
+        borderRadius: _borderRadius,
         child: card,
       ),
     );
