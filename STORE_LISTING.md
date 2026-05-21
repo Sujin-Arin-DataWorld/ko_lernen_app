@@ -79,6 +79,8 @@ Hangul Sori (한글소리, "Klang des Hangul") macht Koreanisch zugänglich — 
 
 Hangul Sori ist kein weiteres überladenes Sprachlern-Tool. Inspiriert vom König Sejong dem Großen — dem Erfinder des Hangul — vereint die App klassische koreanische Ästhetik mit modernem Material-3-Design. Dunkles Theme schont die Augen, jede Animation ist bewusst gesetzt.
 
+Lerne nicht allein: Ein freundlicher Tiger und eine Elster mit Gat (traditioneller Hut) begleiten dich — inspiriert von „Kkachi Horangi", der koreanischen Volksmalerei. Jeder Bildschirm ist wie ein Raum in einem Hanok, dem traditionellen koreanischen Haus.
+
 🔐 DATENSCHUTZ
 
 • Keine versteckten Tracker
@@ -156,6 +158,8 @@ Hangul Sori (한글소리 = "Sound of Hangul") opens Korean to learners worldwid
 🎨 DESIGN PHILOSOPHY
 
 Hangul Sori isn't yet another bloated language learning tool. Inspired by King Sejong the Great — the inventor of Hangul — it pairs classical Korean aesthetics with modern Material 3. Dark theme by default, every animation deliberate.
+
+You won't learn alone: a friendly tiger and a gat-wearing magpie keep you company — inspired by "Kkachi Horangi," the Korean folk painting tradition. Every screen feels like a room in a hanok, the traditional Korean house.
 
 🔐 PRIVACY
 
