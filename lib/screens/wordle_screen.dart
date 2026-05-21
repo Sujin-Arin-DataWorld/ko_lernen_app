@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/storage_service.dart';
-import '../theme.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
@@ -113,7 +112,7 @@ class _WordleScreenState extends State<WordleScreen> {
           children: [
             Text(
               t.wordleHowIntro,
-              style: const TextStyle(color: AppColors.textMuted, fontSize: 13.5, height: 1.5),
+              style: TextStyle(color: SoriSurfaces.of(ctx).textMuted, fontSize: 13.5, height: 1.5),
             ),
             const SizedBox(height: 20),
             _helpRow(SoriColors.success, t.wordleHowExact, t.wordleHowExactDesc),
@@ -124,7 +123,7 @@ class _WordleScreenState extends State<WordleScreen> {
             const SizedBox(height: 20),
             Text(
               t.wordleHowOutro,
-              style: const TextStyle(color: AppColors.textMuted, fontSize: 12.5, height: 1.5),
+              style: TextStyle(color: SoriSurfaces.of(ctx).textMuted, fontSize: 12.5, height: 1.5),
             ),
           ],
         ),

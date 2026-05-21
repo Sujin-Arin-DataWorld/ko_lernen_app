@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme.dart';
+import 'sori/tokens.dart';
 
 class AppError extends StatelessWidget {
   final String message;
@@ -17,18 +17,19 @@ class AppError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 56, color: AppColors.danger),
+            Icon(icon, size: 56, color: SoriColors.danger),
             const SizedBox(height: 14),
             Text(
               message,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: AppColors.text, fontSize: 15, height: 1.5),
+              style: TextStyle(color: s.text, fontSize: 15, height: 1.5),
             ),
             if (onRetry != null) ...[
               const SizedBox(height: 18),
@@ -61,18 +62,19 @@ class AppEmpty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 56, color: AppColors.textDim),
+            Icon(icon, size: 56, color: s.textDim),
             const SizedBox(height: 14),
             Text(
               message,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: AppColors.textMuted, fontSize: 14, height: 1.5),
+              style: TextStyle(color: s.textMuted, fontSize: 14, height: 1.5),
             ),
             if (onAction != null) ...[
               const SizedBox(height: 18),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme.dart';
+import '../widgets/sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
 
 /// Temporärer Platzhalter für noch-nicht-portierte Module.
@@ -22,7 +22,7 @@ class PlaceholderScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               AppL10n.of(context).placeholderComingSoon,
-              style: const TextStyle(color: AppColors.textMuted),
+              style: TextStyle(color: SoriSurfaces.of(context).textMuted),
             ),
           ],
         ),

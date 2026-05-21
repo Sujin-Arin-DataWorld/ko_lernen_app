@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../theme.dart';
+import 'sori/tokens.dart';
 
 class AppLoading extends StatefulWidget {
   final String? message;
@@ -29,6 +29,7 @@ class _AppLoadingState extends State<AppLoading> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -43,7 +44,7 @@ class _AppLoadingState extends State<AppLoading> with SingleTickerProviderStateM
           ),
           if (widget.message != null) ...[
             const SizedBox(height: 14),
-            Text(widget.message!, style: const TextStyle(color: AppColors.textMuted, fontSize: 13)),
+            Text(widget.message!, style: TextStyle(color: s.textMuted, fontSize: 13)),
           ],
         ],
       ),

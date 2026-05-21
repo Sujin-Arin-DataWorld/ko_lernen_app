@@ -2,7 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../data/hangul_strokes.dart';
-import '../theme.dart';
+import 'sori/tokens.dart';
 
 /// Animierte Strichreihenfolge eines Hangul-Buchstabens.
 ///
@@ -22,7 +22,7 @@ class StrokeCanvas extends StatefulWidget {
     required this.letter,
     required this.strokes,
     this.size = 220,
-    this.color = AppColors.hangul,
+    this.color = SoriColors.hangul,
     this.guideColor = const Color(0x33845EF7),
     this.showNumbers = true,
     this.perStroke = const Duration(milliseconds: 700),
@@ -221,7 +221,7 @@ class _Painter extends CustomPainter {
     )..layout();
 
     final r = 11 * scale;
-    canvas.drawCircle(pos, r, Paint()..color = AppColors.hangul);
+    canvas.drawCircle(pos, r, Paint()..color = SoriColors.hangul);
     tp.paint(canvas, pos - Offset(tp.width / 2, tp.height / 2));
   }
 
