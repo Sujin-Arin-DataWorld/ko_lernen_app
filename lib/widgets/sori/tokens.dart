@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-/// Sori 디자인 토큰 — 색/공간/모서리/그림자 단일 소스 (5.7 디자인 리프레시).
+/// Sori 디자인 토큰 — 색/공간/모서리/그림자 단일 소스 (6.0 단청 마이그레이션).
+///
+/// **v6.0 변경**: SoriColors 값이 Teal(#2AB7A9 등) → 단청 팔레트로 교체됨.
+/// 변수 이름은 모두 그대로이므로 consumer 파일은 코드 변경 없이 자동 적용.
+/// 원본 영감: 창덕궁 처마 4색(청금석·녹청·석간주·한지) — 채도 12% 낮춰 모던화.
+/// WCAG AA 검증된 light/dark 셋. Firebase Remote Config 'palette_variant'로
+/// 'teal' 선택 시 [SoriColorsTeal] 레거시 값으로 회귀(kill-switch).
 ///
 /// 사용:
 /// ```dart
@@ -68,25 +74,71 @@ class SoriElevation {
 // COLORS — brand + light + dark
 // ─────────────────────────────────────────────────────────────────────────
 class SoriColors {
-  // ── Brand v3.1 (Teal + Tiger + Gold) ─────────────────────────────────
-  // 청록 (Korean celadon teal) — Tiger(orange) 마스코트와 보색 임팩트.
-  // 보라 학습 앱과 완전 차별화 + 청자 문화 정체성.
-  static const Color primary     = Color(0xFF2AB7A9);  // 청록 (Sori Teal)
-  static const Color primarySoft = Color(0xFFD8F1EE);  // 옅은 teal tint
-  static const Color primaryDark = Color(0xFF1F8F84);  // hover/button bg (contrast)
+  // ── Brand v6.0 (단청 녹청 + Tiger accent + 황 gold) ───────────────────
+  // 녹청 (Korean dancheong green) — 창덕궁 처마 원본 #2D9C7C 채도 12% 낮춤.
+  // 학습의 인내·집중 톤. Tiger orange와 보색 대신 family-of-warms로 조화.
+  static const Color primary     = Color(0xFF1F7A6B);  // 녹청 600 (단청 desat)
+  static const Color primarySoft = Color(0xFFDCEEE8);  // 녹청 100
+  static const Color primaryDark = Color(0xFF0E443B);  // 녹청 800 (hover/pressed)
 
-  // ── Cultural accent ──────────────────────────────────────────────────
+  // ── Cultural accents ─────────────────────────────────────────────────
+  // 호랑이 마스코트 정체성 유지. 단청 적과 family-of-warms로 조화.
   static const Color tiger    = Color(0xFFFF8C42);   // 호랑이 (mascot primary)
-  static const Color gold     = Color(0xFFD4A92F);   // 갓끈 / XP / 별 (gat band)
+  static const Color gold     = Color(0xFFC99A2E);   // 황 (XP/streak/갓띠 — 단청 desat)
 
-  // ── Functional accent ────────────────────────────────────────────────
-  static const Color hangul   = Color(0xFFEC4899);   // 한국어 강조
-  static const Color success  = Color(0xFF22C55E);   // 정답/완료
-  static const Color warning  = Color(0xFFF59E0B);   // streak/주의
-  static const Color danger   = Color(0xFFEF4444);   // 오답/삭제
-  static const Color info     = Color(0xFF3B82F6);   // 정보 (vocab 등)
+  // ── Dancheong accent (석간주 적) — CTA secondary / 한국어 강조 ────────
+  static const Color accent     = Color(0xFFA0524A);  // 석간주 600
+  static const Color accentSoft = Color(0xFFF0D9D5);  // 석간주 100
 
-  // ── Light surfaces & text ───────────────────────────────────────────
+  // ── Highlight (청금석 sky) — info / 강조 highlight ────────────────────
+  static const Color highlight  = Color(0xFF5A7BA0);  // 청금석 (Hero photo blue)
+
+  // ── Functional ───────────────────────────────────────────────────────
+  // success = primary (정답=녹청, 학습 흐름 일관). danger = 단청 적(흙빛, 핏빛 X).
+  static const Color hangul   = Color(0xFFA0524A);   // 한국어 강조 (was pink)
+  static const Color success  = Color(0xFF1F7A6B);   // 정답/완료 = primary 재사용
+  static const Color warning  = Color(0xFFD4A22E);   // streak/주의 (황 lifted)
+  static const Color danger   = Color(0xFFC44F40);   // 오답/삭제 (단청 적 lifted)
+  static const Color info     = Color(0xFF5A7BA0);   // 정보 (청금석)
+
+  // ── Light surfaces (한지 위에서) ─────────────────────────────────────
+  static const Color lightBg          = Color(0xFFFAF6EC);  // 한지 cream
+  static const Color lightSurface     = Color(0xFFF1ECDC);  // 한지 깊은 톤
+  static const Color lightSurfaceAlt  = Color(0xFFE5DCC4);
+  static const Color lightText        = Color(0xFF1A1F1D);  // 먹 (warm dark)
+  static const Color lightTextMuted   = Color(0xFF5C6660);
+  static const Color lightTextDim     = Color(0xFF8B948E);
+  static const Color lightBorder      = Color(0xFFDAD3BE);
+
+  // ── Dark surfaces (먹색 위에서) ──────────────────────────────────────
+  // 완전 검정 회피 — 단청 정서와 어울리는 -5% 회녹 ink.
+  static const Color darkBg          = Color(0xFF0E1A18);   // deep ink
+  static const Color darkSurface     = Color(0xFF1A2A26);
+  static const Color darkSurfaceAlt  = Color(0xFF233530);
+  static const Color darkText        = Color(0xFFF1E8D0);   // 따뜻한 한지 크림
+  static const Color darkTextMuted   = Color(0xFFA0AFA8);
+  static const Color darkTextDim     = Color(0xFF6B7570);
+  static const Color darkBorder      = Color(0xFF2E443E);
+
+  // ── Dark mode brand raises (대비 위해 light에서 한 톤 위로) ──────────
+  static const Color darkPrimary     = Color(0xFF4FB6A0);   // 녹청 다크에서 lift
+  static const Color darkAccent      = Color(0xFFC77268);   // 석간주 다크에서 lift
+}
+
+/// **레거시 Teal 팔레트** — Firebase Remote Config 'palette_variant=teal' 시 사용.
+/// 단청 마이그레이션 실패/롤백 대비 kill-switch용 보관소.
+/// 직접 참조 금지 — [PaletteService] 통해 ThemeData 빌드 시에만 사용.
+class SoriColorsTeal {
+  SoriColorsTeal._();
+
+  static const Color primary     = Color(0xFF2AB7A9);
+  static const Color primarySoft = Color(0xFFD8F1EE);
+  static const Color primaryDark = Color(0xFF1F8F84);
+  static const Color success     = Color(0xFF22C55E);
+  static const Color warning     = Color(0xFFF59E0B);
+  static const Color danger      = Color(0xFFEF4444);
+  static const Color info        = Color(0xFF3B82F6);
+
   static const Color lightBg          = Color(0xFFFFFFFF);
   static const Color lightSurface     = Color(0xFFF7F8FA);
   static const Color lightSurfaceAlt  = Color(0xFFEEF0F4);
@@ -95,7 +147,6 @@ class SoriColors {
   static const Color lightTextDim     = Color(0xFF9CA3AF);
   static const Color lightBorder      = Color(0xFFE5E7EB);
 
-  // ── Dark surfaces & text ────────────────────────────────────────────
   static const Color darkBg          = Color(0xFF0B0E12);
   static const Color darkSurface     = Color(0xFF171B22);
   static const Color darkSurfaceAlt  = Color(0xFF252A33);
@@ -148,6 +199,29 @@ class SoriSurfaces {
     textMuted:  SoriColors.darkTextMuted,
     textDim:    SoriColors.darkTextDim,
     border:     SoriColors.darkBorder,
+    brightness: Brightness.dark,
+  );
+
+  // ── 레거시 Teal 팔레트용 surfaces (kill-switch 용도) ────────────────
+  static const lightTeal = SoriSurfaces._(
+    bg:         SoriColorsTeal.lightBg,
+    surface:    SoriColorsTeal.lightSurface,
+    surfaceAlt: SoriColorsTeal.lightSurfaceAlt,
+    text:       SoriColorsTeal.lightText,
+    textMuted:  SoriColorsTeal.lightTextMuted,
+    textDim:    SoriColorsTeal.lightTextDim,
+    border:     SoriColorsTeal.lightBorder,
+    brightness: Brightness.light,
+  );
+
+  static const darkTeal = SoriSurfaces._(
+    bg:         SoriColorsTeal.darkBg,
+    surface:    SoriColorsTeal.darkSurface,
+    surfaceAlt: SoriColorsTeal.darkSurfaceAlt,
+    text:       SoriColorsTeal.darkText,
+    textMuted:  SoriColorsTeal.darkTextMuted,
+    textDim:    SoriColorsTeal.darkTextDim,
+    border:     SoriColorsTeal.darkBorder,
     brightness: Brightness.dark,
   );
 

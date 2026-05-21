@@ -335,19 +335,19 @@ class _CardsTabState extends State<_CardsTab> {
                 flipped: _flipped,
                 onTap: _onFlip,
                 front: _HangulCardFace(
-                  gradient: const [Color(0xFF2A1525), Color(0xFF3A1A2C)],
+                  gradient: const [SoriColors.accent, SoriColors.darkAccent],
                   borderColor: SoriColors.hangul,
-                  child: Text(c.letter, style: const TextStyle(fontSize: 110, fontWeight: FontWeight.w800, color: Color(0xFFFCC2D7))),
+                  child: Text(c.letter, style: const TextStyle(fontSize: 110, fontWeight: FontWeight.w800, color: SoriColors.accentSoft)),
                 ),
                 back: _HangulCardFace(
-                  gradient: const [Color(0xFF0F2942), Color(0xFF162E4D)],
+                  gradient: const [SoriColors.highlight, SoriColors.darkPrimary],
                   borderColor: SoriColors.info,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(c.letter, style: const TextStyle(fontSize: 60, fontWeight: FontWeight.w800, color: Color(0xFFA5D8FF))),
+                      Text(c.letter, style: const TextStyle(fontSize: 60, fontWeight: FontWeight.w800, color: SoriColors.darkText)),
                       const SizedBox(height: 8),
-                      Text('[${c.romanization}]', style: const TextStyle(fontSize: 20, color: Color(0xFF74C0FC), fontStyle: FontStyle.italic, fontWeight: FontWeight.w600)),
+                      Text('[${c.romanization}]', style: const TextStyle(fontSize: 20, color: SoriColors.info, fontStyle: FontStyle.italic, fontWeight: FontWeight.w600)),
                       const SizedBox(height: 12),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24),

@@ -7,6 +7,7 @@ import 'services/locale_service.dart';
 import 'services/theme_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
+import 'services/palette_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
@@ -67,6 +68,8 @@ Future<void> _initFirebase() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     await AuthService.ensureSignedIn();
+    // v6.0 단청 kill-switch — Remote Config 'palette_variant' 읽기 (best-effort).
+    await PaletteService.fetchAndApply();
   } catch (e) {
     // google-services.json fehlt → Cloud-Sync deaktiviert, lokale App funktioniert weiter
     // ignore: avoid_print
@@ -89,12 +92,12 @@ class KoLernenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: Listenable.merge([localeNotifier, themeModeNotifier]),
+      listenable: Listenable.merge([localeNotifier, themeModeNotifier, paletteVariantNotifier]),
       builder: (_, __) => MaterialApp(
         title: 'Hangul Sori',
         debugShowCheckedModeBanner: false,
-        theme:      AppTheme.light,
-        darkTheme:  AppTheme.dark,
+        theme:      AppTheme.lightFor(paletteVariantNotifier.value),
+        darkTheme:  AppTheme.darkFor(paletteVariantNotifier.value),
         themeMode:  themeModeNotifier.value,
         locale:     localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'services/palette_service.dart';
 import 'widgets/sori/tokens.dart';
 
 /// **레거시 AppColors** — 점진 마이그레이션 위해 유지.
@@ -29,16 +30,27 @@ class AppColors {
   static const listen  = SoriColors.success;
 }
 
-/// Sori 테마 — 라이트/다크 둘 다 빌드. 5.7 Phase C2에서 ThemeMode 토글 연결.
+/// Sori 테마 — 라이트/다크 + 단청/teal kill-switch variant 지원.
+///
+/// 기본 `.dark` / `.light` 게터는 단청 팔레트(v6.0). Teal 롤백은 [darkFor]/[lightFor]
+/// 에 [PaletteVariant.teal] 전달. main.dart에서 [paletteVariantNotifier] 연결.
 class AppTheme {
-  static ThemeData get dark  => _build(SoriSurfaces.dark);
-  static ThemeData get light => _build(SoriSurfaces.light);
+  static ThemeData get dark  => darkFor(PaletteVariant.dancheong);
+  static ThemeData get light => lightFor(PaletteVariant.dancheong);
 
-  static ThemeData _build(SoriSurfaces s) {
+  static ThemeData darkFor(PaletteVariant v) => v == PaletteVariant.teal
+      ? _build(SoriSurfaces.darkTeal, primary: SoriColorsTeal.primary)
+      : _build(SoriSurfaces.dark,     primary: SoriColors.primary);
+
+  static ThemeData lightFor(PaletteVariant v) => v == PaletteVariant.teal
+      ? _build(SoriSurfaces.lightTeal, primary: SoriColorsTeal.primary)
+      : _build(SoriSurfaces.light,     primary: SoriColors.primary);
+
+  static ThemeData _build(SoriSurfaces s, {required Color primary}) {
     final colorScheme = ColorScheme.fromSeed(
-      seedColor:  SoriColors.primary,
+      seedColor:  primary,
       brightness: s.brightness,
-      primary:    SoriColors.primary,
+      primary:    primary,
       surface:    s.surface,
       onSurface:  s.text,
     );
@@ -69,7 +81,7 @@ class AppTheme {
       // ── Buttons ──────────────────────────────────────────────────────
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          backgroundColor: SoriColors.primary,
+          backgroundColor: primary,
           foregroundColor: Colors.white,
           minimumSize: const Size(0, 52),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SoriRadius.lg)),
@@ -98,7 +110,7 @@ class AppTheme {
 
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: SoriColors.primary,
+          foregroundColor: primary,
           textStyle: const TextStyle(
             fontFamily: 'Pretendard',
             fontWeight: FontWeight.w600,
@@ -114,14 +126,14 @@ class AppTheme {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         border:        OutlineInputBorder(borderRadius: SoriRadius.brLg, borderSide: BorderSide(color: s.border)),
         enabledBorder: OutlineInputBorder(borderRadius: SoriRadius.brLg, borderSide: BorderSide(color: s.border)),
-        focusedBorder: OutlineInputBorder(borderRadius: SoriRadius.brLg, borderSide: const BorderSide(color: SoriColors.primary, width: 2)),
+        focusedBorder: OutlineInputBorder(borderRadius: SoriRadius.brLg, borderSide: BorderSide(color: primary, width: 2)),
         hintStyle: TextStyle(color: s.textDim, fontWeight: FontWeight.w500),
       ),
 
       // ── Chips ────────────────────────────────────────────────────────
       chipTheme: ChipThemeData(
         backgroundColor: s.surface,
-        selectedColor: SoriColors.primary,
+        selectedColor: primary,
         labelStyle: TextStyle(color: s.text, fontFamily: 'Pretendard', fontWeight: FontWeight.w600, fontSize: 12),
         secondaryLabelStyle: const TextStyle(color: Colors.white, fontFamily: 'Pretendard', fontWeight: FontWeight.w700, fontSize: 12),
         side: BorderSide(color: s.border),
@@ -131,7 +143,7 @@ class AppTheme {
 
       // ── Progress ─────────────────────────────────────────────────────
       progressIndicatorTheme: ProgressIndicatorThemeData(
-        color: SoriColors.primary,
+        color: primary,
         linearTrackColor: s.surfaceAlt,
         linearMinHeight: 6,
       ),
