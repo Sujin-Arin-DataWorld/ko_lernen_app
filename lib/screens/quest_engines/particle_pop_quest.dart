@@ -110,7 +110,6 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   }
 
   Future<void> _onNextTap() async {
-    final passed = _tries == 0 || (_completed && _droppedIndex == _correctIndex && _tries < 2);
     widget.onComplete(QuestResult(
       passed: _tries < 2 && _droppedIndex == _correctIndex,
       firstTry: _tries == 0,

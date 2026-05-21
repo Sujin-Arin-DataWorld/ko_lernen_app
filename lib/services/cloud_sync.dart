@@ -83,7 +83,7 @@ class CloudSync {
       }
     }
 
-    final w = (data['wordle'] as Map?) ?? {};
+    // wordle sync intentionally skipped — local values preserved.
     // Wordle ist komplexer (best_streak nur erhöhen, nicht überschreiben).
     // Vereinfachung: lokale Werte bleiben, Cloud merged 'max'.
     // (Hier minimal: nichts überschreiben außer Initialisierung)

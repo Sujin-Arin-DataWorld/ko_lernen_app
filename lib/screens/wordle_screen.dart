@@ -40,7 +40,6 @@ class WordleScreen extends StatefulWidget {
 }
 
 class _WordleScreenState extends State<WordleScreen> {
-  List<String> _pool  = [];
   List<Vocab>  _vocab = [];
   String _target = '';
 
@@ -84,7 +83,6 @@ class _WordleScreenState extends State<WordleScreen> {
 
     if (!mounted) return;
     setState(() {
-      _pool   = pool;
       _vocab  = all;
       _target = target;
       _guesses.clear();

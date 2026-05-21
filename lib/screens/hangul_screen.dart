@@ -591,6 +591,7 @@ class _PracticeCanvas extends StatefulWidget {
   final Color color;
   /// 명시적 size. null → 부모 (Expanded/AspectRatio) 가 결정.
   final double? size;
+  // ignore: unused_element_parameter
   const _PracticeCanvas({super.key, required this.ghost, required this.color, this.size});
 
   @override
