@@ -29,11 +29,14 @@ Firebase 프로젝트: `ko-lernen-app`
 ## 파일 맵 (SSoT)
 
 ### 진입점
-- `lib/main.dart` — 라우트 테이블, Firebase/Ad 초기화, 팔레트 서비스
+- `lib/main.dart` — 라우트 테이블, Firebase/Ad 초기화, 팔레트 서비스. **`initialRoute: '/intro'`** — 솟을대문 인트로 후 온보딩/홈으로 분기
+- `lib/screens/intro_gate_screen.dart` — 솟을대문 시네마틱 인트로 (Phase 1)
+- `lib/motion/transitions.dart` — 공유 화면 전환 (`SoriTransitions.fadeScale`)
 
 ### 라우트
 | 경로 | 화면 |
 |---|---|
+| `/intro` | IntroGateScreen (솟을대문 시네마틱 인트로 — **앱 진입점**) |
 | `/` | HomeScreen |
 | `/onboarding` | OnboardingLevelScreen (첫 실행 레벨 선택) |
 | `/vocab` | VocabScreen |
@@ -62,6 +65,10 @@ Firebase 프로젝트: `ko-lernen-app`
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` → `welcome-hero.png` 일러스트 사용 (v5). v4는 미존재 `tiger_magpie.png`를 참조해 앱 전역에서 마스코트가 깨졌었음 — v5에서 수정. `animate:true` 시 호흡 애니메이션 + errorBuilder fallback
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
 - `hanok/` — 한옥 장식 위젯 (단청 divider, 기와 패턴, 처마, 창살, 마당 배경)
+- `motion.dart` — `SoriEntrance` (진입 fade+slide+scale), `SoriKenBurns` (배경 느린 줌)
+- `ambient_particles.dart` — 매화 꽃잎(light) / 불씨(dark) 입자
+- `flying_magpie.dart` — 홈 상단을 가로지르는 비행 까치
+- ⚠️ 모션 시스템 3원화 — 위 `motion.dart` + `lib/motion/transitions.dart` + `flutter_animate` 패키지 공존. 일원화 필요.
 
 ### 데이터
 - `assets/data/korean_vocab.csv` — 단어장 (level 필드: A1/A2/B1/B2)
@@ -130,6 +137,18 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 현재 진행 중인 작업 (2026-05-21 기준)
 
+### ★ "살아있는 한옥" UI/UX 대개편 (승인된 계획)
+> 정적 "상자 더미" → 모션·깊이·캐릭터가 살아 움직이는 한옥. 컨셉(단청+한옥+호랑이/까치)은 유지.
+> 전체 plan: `~/.claude/plans/claude-code-ko-leren-app-glimmering-storm.md`
+
+- [x] **Phase 0** — 토대 안정화 (`flutter analyze` 0) + `flutter_animate` 모션 패키지
+- [~] **Phase 1** — 솟을대문 시네마틱 인트로 (코드 완료 · 시각 검증 미완)
+- [ ] **Phase 2** — 살아있는 한옥 환경 (홈=마당, ambient 모션) — *동시 세션 진행 중*
+- [ ] **Phase 3** — 호랑이·까치 마스코트 생명력 (포즈 기반 2D 애니메이션)
+- [ ] **Phase 4** — de-box + 모든 상호작용 생명력 (스프링·축하·물리 전환)
+- [ ] **Phase 5** — 60fps 보증 + GitHub Actions CI
+
+### 기타
 - [x] 초성 퀴즈 A1-B2 레벨 분리 + 독일어 UI
 - [x] 워들 독일어 힌트 카드 상시 표시
 - [x] Sori v6.0 단청 팔레트 마이그레이션
@@ -139,7 +158,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **퀘스트 엔진 5종 라이트/다크 대응** — 레거시 `AppColors`(다크 전용) → `SoriSurfaces` (hoerverstehen/luecken/uebersetzen/particle_pop/batchim_drop)
 - [x] **홈에 시나리오 노출** — listening placeholder 카드 → Szenarien 카드(`/scenarios`). 기존엔 시나리오 리스트 진입로 없었음
 - [x] **홈 라이트모드 배경** — `madang(light).png` 추가 (다크는 기존)
-- [x] analyzer 정리 (23→8, 잔여 8건은 settings의 deprecated Radio API + build_context — 기존)
+- [x] analyzer 정리 — 23→0 (settings의 deprecated Radio → `RadioGroup` + async-gap 4건 정식 수정)
 - [x] APK 디버그 빌드 검증 통과
 - [ ] 앱 on-device 시각 검증 (`flutter run`)
 - [ ] **B2 시나리오 0개** → 콘텐츠 양산 (docs/content Track A, 13→30)

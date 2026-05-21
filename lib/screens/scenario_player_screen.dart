@@ -9,6 +9,7 @@ import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/celebration.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tokens.dart';
@@ -110,6 +111,17 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
       duration: const Duration(milliseconds: 350),
       curve: Curves.easeInOut,
     );
+
+    // 결과 스테이지 진입 + 별 1개 이상 → 축하 연출 (단청 별·다이아 burst)
+    if (_isResultStage) {
+      final s = _scenario;
+      if (s != null &&
+          _starsFor(_passedCount, _firstTryPassedCount, s.quests.length) >= 1) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) SoriCelebration.burst(context);
+        });
+      }
+    }
   }
 
   void _onQuestComplete(QuestResult result) {

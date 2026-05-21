@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'sori/tokens.dart';
 
 class AppLoading extends StatefulWidget {
@@ -39,7 +38,10 @@ class _AppLoadingState extends State<AppLoading> with SingleTickerProviderStateM
             child: SizedBox(
               width: 72,
               height: 72,
-              child: SvgPicture.asset('assets/icons/icon.svg'),
+              child: Image.asset(
+                'assets/icons/HanLogo.png',
+                filterQuality: FilterQuality.medium,
+              ),
             ),
           ),
           if (widget.message != null) ...[

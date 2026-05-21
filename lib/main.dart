@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'theme.dart';
+import 'motion/transitions.dart';
 import 'services/storage_service.dart';
 import 'services/locale_service.dart';
 import 'services/theme_service.dart';
@@ -109,30 +110,59 @@ class KoLernenApp extends StatelessWidget {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: child,
         ),
-        // 솟을대문 인트로로 시작 → 인트로가 온보딩/홈으로 분기.
-        initialRoute: '/intro',
-        routes: {
-          '/intro':      (_) => const IntroGateScreen(),
-          '/':           (_) => const HomeScreen(),
-          '/onboarding': (_) => const OnboardingLevelScreen(),
-          '/vocab':      (_) => const VocabScreen(),
-          '/grammar':    (_) => const GrammarScreen(),
-          '/listening':  (ctx) => PlaceholderScreen(title: AppL10n.of(ctx).moduleListenTitle, emoji: '🎧'),
-          '/hangul':     (_) => const HangulScreen(),
-          '/chosung':    (_) => const ChosungQuizScreen(),
-          '/wordle':     (_) => const WordleScreen(),
-          '/settings':   (_) => const SettingsScreen(),
-          '/stats':      (_) => const StatsScreen(),
-          '/scenarios':  (_) => const ScenariosListScreen(),
-        },
+        // 인트로(솟을대문)는 일러스트 에셋 대기 중 — 임시 비활성, 바로 온보딩/홈.
+        //   gate_frame/door 에셋 도착 시 initialRoute를 '/intro'로 되돌린다.
+        // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
+        initialRoute: Storage.userLevelCode == null ? '/onboarding' : '/',
         onGenerateRoute: (settings) {
-          if (settings.name == '/scenario') {
-            final id = settings.arguments as String? ?? '';
-            return MaterialPageRoute(
-              builder: (_) => ScenarioPlayerScreen(scenarioId: id),
-            );
+          switch (settings.name) {
+            case '/intro':
+              return SoriTransitions.fadeScale(
+                  (_) => const IntroGateScreen(), settings: settings);
+            case '/':
+              return SoriTransitions.fadeScale(
+                  (_) => const HomeScreen(), settings: settings);
+            case '/onboarding':
+              return SoriTransitions.fadeScale(
+                  (_) => const OnboardingLevelScreen(), settings: settings);
+            case '/vocab':
+              return SoriTransitions.fadeScale(
+                  (_) => const VocabScreen(), settings: settings);
+            case '/grammar':
+              return SoriTransitions.fadeScale(
+                  (_) => const GrammarScreen(), settings: settings);
+            case '/listening':
+              return SoriTransitions.fadeScale(
+                  (ctx) => PlaceholderScreen(
+                      title: AppL10n.of(ctx).moduleListenTitle, emoji: '🎧'),
+                  settings: settings);
+            case '/hangul':
+              return SoriTransitions.fadeScale(
+                  (_) => const HangulScreen(), settings: settings);
+            case '/chosung':
+              return SoriTransitions.fadeScale(
+                  (_) => const ChosungQuizScreen(), settings: settings);
+            case '/wordle':
+              return SoriTransitions.fadeScale(
+                  (_) => const WordleScreen(), settings: settings);
+            case '/settings':
+              return SoriTransitions.fadeScale(
+                  (_) => const SettingsScreen(), settings: settings);
+            case '/stats':
+              return SoriTransitions.fadeScale(
+                  (_) => const StatsScreen(), settings: settings);
+            case '/scenarios':
+              return SoriTransitions.fadeScale(
+                  (_) => const ScenariosListScreen(), settings: settings);
+            case '/scenario':
+              final id = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => ScenarioPlayerScreen(scenarioId: id),
+                  settings: settings);
+            default:
+              return SoriTransitions.fadeScale(
+                  (_) => const HomeScreen(), settings: settings);
           }
-          return null;
         },
       ),
     );

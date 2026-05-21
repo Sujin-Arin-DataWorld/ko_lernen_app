@@ -6,6 +6,7 @@ import '../services/data_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/celebration.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -190,6 +191,7 @@ class _WordleScreenState extends State<WordleScreen> {
     if (won) {
       HapticFeedback.heavyImpact();
       Storage.incWordleWins();
+      SoriCelebration.burst(context);
     } else if (lost) {
       HapticFeedback.mediumImpact();
       Storage.incWordleLosses();

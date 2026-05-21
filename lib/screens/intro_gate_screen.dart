@@ -63,7 +63,7 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     final next = Storage.userLevelCode == null
         ? const OnboardingLevelScreen()
         : const HomeScreen();
-    Navigator.of(context).pushReplacement(SoriTransitions.fadeScale(next));
+    Navigator.of(context).pushReplacement(SoriTransitions.fadeScale((_) => next));
   }
 
   @override

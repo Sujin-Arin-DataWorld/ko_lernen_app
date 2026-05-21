@@ -8,6 +8,7 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/celebration.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/stroke_canvas.dart';
@@ -53,6 +54,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     await Storage.addCalligraphyDate(iso);
     if (!mounted) return;
     setState(() => _doneNow = true);
+    SoriCelebration.burst(context);
     await Future<void>.delayed(const Duration(milliseconds: 1500));
     if (!mounted) return;
     Navigator.pop(context);
