@@ -2,34 +2,6 @@ import 'package:flutter/material.dart';
 import 'services/palette_service.dart';
 import 'widgets/sori/tokens.dart';
 
-/// **레거시 AppColors** — 점진 마이그레이션 위해 유지.
-/// 새 코드는 [SoriColors] / [SoriSurfaces] 사용. 5.7 Phase B에서 화면별로 교체.
-class AppColors {
-  // Brand → SoriColors
-  static const primary     = SoriColors.primary;
-  static const hangul      = SoriColors.hangul;
-  static const success     = SoriColors.success;
-  static const danger      = SoriColors.danger;
-  static const warning     = SoriColors.warning;
-
-  // Dark surface defaults (대부분 화면이 다크 모드만 가정)
-  static const bg          = SoriColors.darkBg;
-  static const surface     = SoriColors.darkSurface;
-  static const surfaceAlt  = SoriColors.darkSurfaceAlt;
-  static const text        = SoriColors.darkText;
-  static const textMuted   = SoriColors.darkTextMuted;
-  static const textDim     = SoriColors.darkTextDim;
-
-  // 모듈별 컬러 (deprecated — Phase B에서 제거)
-  // ignore: deprecated_member_use_from_same_package
-  @Deprecated('use SoriColors.primary or SoriColors.info')
-  static const vocab   = SoriColors.info;
-  @Deprecated('use SoriColors.warning')
-  static const grammar = SoriColors.warning;
-  @Deprecated('use SoriColors.success')
-  static const listen  = SoriColors.success;
-}
-
 /// Sori 테마 — 라이트/다크 + 단청/teal kill-switch variant 지원.
 ///
 /// 기본 `.dark` / `.light` 게터는 단청 팔레트(v6.0). Teal 롤백은 [darkFor]/[lightFor]
