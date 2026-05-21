@@ -27,6 +27,7 @@ dependencies:
   flutter_svg: ^2.0.10
   google_fonts: ^6.2.1
   animations: ^2.0.11        # OpenContainer Material container transform
+  flutter_animate: ^4.5.0    # 선언적 모션 — entrance·스프링·시차·축하 ("살아있는 한옥")
 
   # ── Werbung ─────────────────────────────────────────────
   # ⚠️ google_mobile_ads (5.x) inkompatibel mit aktuellem AGP/Gradle
@@ -85,7 +86,7 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/icons/HanLogo.png"
   min_sdk_android: 21
-  adaptive_icon_background: "#2AB7A9"
+  adaptive_icon_background: "#FAF6EC"
   adaptive_icon_foreground: "assets/icons/HanLogo.png"
   remove_alpha_ios: true
 
@@ -94,10 +95,10 @@ flutter_launcher_icons:
 #   flutter pub run flutter_native_splash:create
 # ─────────────────────────────────────────────────────────
 flutter_native_splash:
-  color: "#2AB7A9"
+  color: "#FAF6EC"
   image: assets/icons/HanLogo.png
   android_gravity: center
   ios_content_mode: center
   android_12:
     image: assets/icons/HanLogo.png
-    color: "#2AB7A9"
+    color: "#FAF6EC"

@@ -11,6 +11,7 @@ import 'services/palette_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
+import 'screens/intro_gate_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/vocab_screen.dart';
 import 'screens/grammar_screen.dart';
@@ -108,9 +109,10 @@ class KoLernenApp extends StatelessWidget {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: child,
         ),
-        // Erst-Launch: Nutzer hat noch kein Level gewählt → Onboarding.
-        initialRoute: Storage.userLevelCode == null ? '/onboarding' : '/',
+        // 솟을대문 인트로로 시작 → 인트로가 온보딩/홈으로 분기.
+        initialRoute: '/intro',
         routes: {
+          '/intro':      (_) => const IntroGateScreen(),
           '/':           (_) => const HomeScreen(),
           '/onboarding': (_) => const OnboardingLevelScreen(),
           '/vocab':      (_) => const VocabScreen(),

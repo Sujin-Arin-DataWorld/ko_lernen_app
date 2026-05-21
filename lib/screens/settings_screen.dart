@@ -42,44 +42,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           // ── Erscheinungsbild ──
           _Section(label: t.settingsThemeTitle),
-          _RadioTile<ThemeMode>(
-            title: t.settingsThemeSystem,
-            value: ThemeMode.system,
+          RadioGroup<ThemeMode>(
             groupValue: themeModeNotifier.value,
             onChanged: (m) => setState(() => setThemeMode(m ?? ThemeMode.system)),
-          ),
-          _RadioTile<ThemeMode>(
-            title: t.settingsThemeLight,
-            value: ThemeMode.light,
-            groupValue: themeModeNotifier.value,
-            onChanged: (m) => setState(() => setThemeMode(m ?? ThemeMode.system)),
-          ),
-          _RadioTile<ThemeMode>(
-            title: t.settingsThemeDark,
-            value: ThemeMode.dark,
-            groupValue: themeModeNotifier.value,
-            onChanged: (m) => setState(() => setThemeMode(m ?? ThemeMode.system)),
+            child: Column(
+              children: [
+                _RadioTile<ThemeMode>(title: t.settingsThemeSystem, value: ThemeMode.system),
+                _RadioTile<ThemeMode>(title: t.settingsThemeLight, value: ThemeMode.light),
+                _RadioTile<ThemeMode>(title: t.settingsThemeDark, value: ThemeMode.dark),
+              ],
+            ),
           ),
 
           // ── Sprache ──
           _Section(label: t.settingsLanguage),
-          _RadioTile<String>(
-            title: t.settingsLanguageSystem,
-            value: 'system',
+          RadioGroup<String>(
             groupValue: currentLocale == null ? 'system' : currentLocale.languageCode,
-            onChanged: (_) => setState(() => setLocale(null)),
-          ),
-          _RadioTile<String>(
-            title: t.settingsLanguageDe,
-            value: 'de',
-            groupValue: currentLocale == null ? 'system' : currentLocale.languageCode,
-            onChanged: (_) => setState(() => setLocale(const Locale('de'))),
-          ),
-          _RadioTile<String>(
-            title: t.settingsLanguageEn,
-            value: 'en',
-            groupValue: currentLocale == null ? 'system' : currentLocale.languageCode,
-            onChanged: (_) => setState(() => setLocale(const Locale('en'))),
+            onChanged: (v) => setState(() {
+              switch (v) {
+                case 'de':
+                  setLocale(const Locale('de'));
+                case 'en':
+                  setLocale(const Locale('en'));
+                default:
+                  setLocale(null);
+              }
+            }),
+            child: Column(
+              children: [
+                _RadioTile<String>(title: t.settingsLanguageSystem, value: 'system'),
+                _RadioTile<String>(title: t.settingsLanguageDe, value: 'de'),
+                _RadioTile<String>(title: t.settingsLanguageEn, value: 'en'),
+              ],
+            ),
           ),
 
           // ── Lernlevel ──
@@ -141,9 +136,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               leading: const Icon(Icons.cloud_upload_outlined),
               title:   Text(t.settingsCloudBackupNow),
               onTap: () async {
+                final messenger = ScaffoldMessenger.of(context);
                 await CloudSync.backup();
                 if (!mounted) return;
-                ScaffoldMessenger.of(context).showSnackBar(
+                messenger.showSnackBar(
                   SnackBar(content: Text(t.settingsCloudBackupSuccess), duration: const Duration(seconds: 2)),
                 );
               },
@@ -152,9 +148,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               leading: const Icon(Icons.cloud_download_outlined),
               title:   Text(t.settingsCloudRestore),
               onTap: () async {
+                final messenger = ScaffoldMessenger.of(context);
                 final ok = await CloudSync.restore();
                 if (!mounted) return;
-                ScaffoldMessenger.of(context).showSnackBar(
+                messenger.showSnackBar(
                   SnackBar(content: Text(ok ? t.settingsCloudRestoreSuccess : t.settingsCloudRestoreEmpty)),
                 );
                 setState(() {});
@@ -188,7 +185,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ListTile(
             leading: const Icon(Icons.info_outline),
             title: Text(t.settingsVersion(_appVersion())),
-            subtitle: const Text('Made with ❤️ in Berlin'),
+            subtitle: const Text('Made with ❤️ in Germany'),
           ),
         ],
       ),
@@ -223,24 +220,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
       builder: (ctx) => AlertDialog(
         backgroundColor: SoriColors.darkSurface,
         title: Text(t.settingsUserLevel),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: LearnerLevel.values.map((lvl) {
-            return RadioListTile<LearnerLevel>(
-              title: Text('${lvl.display} — ${nameFor(lvl)}'),
-              value: lvl,
-              groupValue: current,
-              activeColor: SoriColors.primary,
-              onChanged: (v) async {
-                if (v == null) return;
-                await Storage.setUserLevelCode(v.code);
-                HapticFeedback.selectionClick();
-                if (!mounted) return;
-                Navigator.pop(ctx);
-                setState(() {});
-              },
-            );
-          }).toList(),
+        content: RadioGroup<LearnerLevel>(
+          groupValue: current,
+          onChanged: (v) async {
+            if (v == null) return;
+            final nav = Navigator.of(ctx);
+            await Storage.setUserLevelCode(v.code);
+            HapticFeedback.selectionClick();
+            if (!mounted) return;
+            nav.pop();
+            setState(() {});
+          },
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: LearnerLevel.values.map((lvl) {
+              return RadioListTile<LearnerLevel>(
+                title: Text('${lvl.display} — ${nameFor(lvl)}'),
+                value: lvl,
+                activeColor: SoriColors.primary,
+              );
+            }).toList(),
+          ),
         ),
         actions: [
           TextButton(
@@ -287,11 +287,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: SoriColors.danger),
             onPressed: () async {
+              final dialogNav = Navigator.of(ctx);
+              final rootNav = Navigator.of(context);
               await Storage.resetAll();
               DataLoader.reset();
               if (!mounted) return;
-              Navigator.pop(ctx);
-              Navigator.popUntil(context, (r) => r.isFirst);
+              dialogNav.pop();
+              rootNav.popUntil((r) => r.isFirst);
               HapticFeedback.heavyImpact();
             },
             child: Text(t.btnConfirm),
@@ -326,17 +328,13 @@ class _Section extends StatelessWidget {
 class _RadioTile<T> extends StatelessWidget {
   final String title;
   final T value;
-  final T groupValue;
-  final ValueChanged<T?> onChanged;
-  const _RadioTile({required this.title, required this.value, required this.groupValue, required this.onChanged});
+  const _RadioTile({required this.title, required this.value});
 
   @override
   Widget build(BuildContext context) {
     return RadioListTile<T>(
       title: Text(title),
       value: value,
-      groupValue: groupValue,
-      onChanged: onChanged,
       activeColor: SoriColors.primary,
     );
   }

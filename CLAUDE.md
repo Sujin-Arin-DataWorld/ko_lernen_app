@@ -149,6 +149,51 @@ flutter run -d <android-id>   # 안드로이드
 
 ---
 
+## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-05-21 — 코드베이스 audit + 마스코트/퀘스트/홈 긴급 수정
+
+**Audit (전수 조사):**
+- 🔴 마스코트가 앱 전역에서 깨져 있었음 — `mascot.dart`가 존재하지 않는 `tiger_magpie.png` 참조. 체크리스트엔 완료(`[x]`)로 잘못 표기돼 있었음. 홈 아바타·시나리오 대화·결과 화면·퀘스트 정답 팝업 전부 깨진 이미지로 표시
+- 🟡 퀘스트 엔진 5종이 레거시 `AppColors`(다크 하드코딩) 사용 → 라이트모드에서 깨짐
+- 🟡 `/scenarios` 리스트 화면은 완성됐으나 홈에서 진입 동선 없음
+- 🟡 `madang(light).png` 미사용 (라이트모드 홈 배경 없음)
+- 🟡 analyzer 경고 23건
+- 콘텐츠: 시나리오 13개(B2 0개), `docs/content` 4트랙 전부 미실행
+
+**Review:** Sori 디자인 시스템·8개 일러스트는 성숙·고품질. 핵심 결함은 마스코트 깨짐 + 라이트모드 미완성 + 콘텐츠 진입 동선 부재.
+
+**Update (실행·검증 완료):**
+1. mascot v5 — `welcome-hero.png` 기반 재작성, 호흡 애니메이션, errorBuilder fallback
+2. 퀘스트 5종 → `SoriSurfaces` 라이트/다크 대응
+3. 홈 Szenarien 카드 신설 (`/scenarios` 진입로)
+4. 홈 라이트모드 `madang(light).png` 배경
+5. analyzer 23→8
+6. 검증: `flutter analyze` 0 errors · APK 디버그 빌드 성공 · 웹에서 시나리오 전체 흐름(온보딩→홈→리스트→퀘스트 3종→결과) 시각 확인
+
+**Git push:** `f748073` (+ 동시 세션 `0afbd66`) → `origin/main` 푸시 완료
+
+### 2026-05-21 (2차) — 발견 이슈 수정 + 역동적 애니메이션
+
+**발견 이슈 수정 (Review→Fix):**
+- 웹 settings 진입/리로드 시 `FirebaseException` JS-interop 레드스크린 — `auth_service`의 `_auth`를 nullable getter로, 모든 읽기 getter를 예외 안전하게. 웹 전용 이슈(안드로이드 무관)
+- 시나리오 완료 후 홈 복귀 시 XP·streak 미갱신 — Today 카드 네비게이션에 `.then()` refresh 추가
+
+**역동적 애니메이션 (Update):**
+- `widgets/sori/motion.dart` 신규 — `SoriEntrance`(진입 fade+slide+scale), `SoriKenBurns`(배경 느린 줌)
+- `widgets/sori/ambient_particles.dart` 신규 — 라이트: 매화 꽃잎 / 다크: 불씨 입자 (CustomPainter, seamless 무한 루프)
+- `widgets/sori/flying_magpie.dart` 신규 — 갓 쓴 까치가 홈 상단을 주기적으로 비행 (날갯짓·뱅킹)
+- 홈: Ken Burns 배경 + 매화 입자 + 비행 까치 + 카드 stagger 진입
+- 온보딩: 매화 입자 + 대문 "열리듯" 등장 + 레벨 카드 stagger
+
+**검증:** `flutter analyze` 0 issues · APK 디버그 빌드 성공. ⚠️ **시각(픽셀) 검증 미완** — Chrome 확장 연결 끊김 + 화면 접근 권한 시간 초과로 애니메이션 실물 확인 못 함. 코드는 컴파일·빌드만 검증됨 → 첫 `flutter run` 시 까치/입자 모양 점검 권장.
+
+**동시 세션 작업 (같은 커밋에 포함):** 다른 세션이 솟을대문 인트로(`screens/intro_gate_screen.dart`) + 라우트 전환(`lib/motion/transitions.dart`) + `flutter_animate` 패키지 + 스플래시 색(teal→cream)을 작업. 본 커밋에 함께 포함됨. ⚠️ entrance 애니메이션이 `SoriEntrance`(이 세션)와 `flutter_animate`(동시 세션) 두 방식 공존 — 추후 일원화 검토 필요.
+
+**Git push:** 본 커밋 → `origin/main`
+
+---
+
 ## 금지 사항
 
 - `dist/`, `build/` 내부 직접 편집 금지

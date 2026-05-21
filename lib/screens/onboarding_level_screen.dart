@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/ambient_particles.dart';
+import '../widgets/sori/motion.dart';
 import '../models/scenario.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -26,43 +28,60 @@ class OnboardingLevelScreen extends StatelessWidget {
   static const _romanization = {
     LearnerLevel.a1: 'annyeonghaseyo',
     LearnerLevel.a2: 'aiseu amerikano tol-lo juseyo',
-    LearnerLevel.b1: 'eoje chingu-rang yeonghwa bwasseoyo. jinjja jaemiisseosseoyo',
+    LearnerLevel.b1:
+        'eoje chingu-rang yeonghwa bwasseoyo. jinjja jaemiisseosseoyo',
     LearnerLevel.b2: 'hoeui-ga gireojyeoseo jom neujeul geot gatayo',
   };
 
   Color _colorFor(LearnerLevel level) {
     switch (level) {
-      case LearnerLevel.a1: return SoriColors.success;
-      case LearnerLevel.a2: return SoriColors.primary;
-      case LearnerLevel.b1: return SoriColors.warning;
-      case LearnerLevel.b2: return SoriColors.hangul;
+      case LearnerLevel.a1:
+        return SoriColors.success;
+      case LearnerLevel.a2:
+        return SoriColors.primary;
+      case LearnerLevel.b1:
+        return SoriColors.warning;
+      case LearnerLevel.b2:
+        return SoriColors.hangul;
     }
   }
 
   String _titleFor(AppL10n t, LearnerLevel level) {
     switch (level) {
-      case LearnerLevel.a1: return t.onboardingLevelA1;
-      case LearnerLevel.a2: return t.onboardingLevelA2;
-      case LearnerLevel.b1: return t.onboardingLevelB1;
-      case LearnerLevel.b2: return t.onboardingLevelB2;
+      case LearnerLevel.a1:
+        return t.onboardingLevelA1;
+      case LearnerLevel.a2:
+        return t.onboardingLevelA2;
+      case LearnerLevel.b1:
+        return t.onboardingLevelB1;
+      case LearnerLevel.b2:
+        return t.onboardingLevelB2;
     }
   }
 
   String _descFor(AppL10n t, LearnerLevel level) {
     switch (level) {
-      case LearnerLevel.a1: return t.onboardingLevelA1Desc;
-      case LearnerLevel.a2: return t.onboardingLevelA2Desc;
-      case LearnerLevel.b1: return t.onboardingLevelB1Desc;
-      case LearnerLevel.b2: return t.onboardingLevelB2Desc;
+      case LearnerLevel.a1:
+        return t.onboardingLevelA1Desc;
+      case LearnerLevel.a2:
+        return t.onboardingLevelA2Desc;
+      case LearnerLevel.b1:
+        return t.onboardingLevelB1Desc;
+      case LearnerLevel.b2:
+        return t.onboardingLevelB2Desc;
     }
   }
 
   String _exampleTransFor(AppL10n t, LearnerLevel level) {
     switch (level) {
-      case LearnerLevel.a1: return t.onboardingExampleA1Trans;
-      case LearnerLevel.a2: return t.onboardingExampleA2Trans;
-      case LearnerLevel.b1: return t.onboardingExampleB1Trans;
-      case LearnerLevel.b2: return t.onboardingExampleB2Trans;
+      case LearnerLevel.a1:
+        return t.onboardingExampleA1Trans;
+      case LearnerLevel.a2:
+        return t.onboardingExampleA2Trans;
+      case LearnerLevel.b1:
+        return t.onboardingExampleB1Trans;
+      case LearnerLevel.b2:
+        return t.onboardingExampleB2Trans;
     }
   }
 
@@ -84,90 +103,116 @@ class OnboardingLevelScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // ── 한옥 대문 hero (사용자가 입장하는 느낌) ──
-              Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    'assets/illustrations/hanok/gate.png',
-                    height: 160,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 18),
-
-              // ── Header ──
-              ShaderMask(
-                shaderCallback: (b) => const LinearGradient(
-                  colors: [SoriColors.hangul, SoriColors.primary, SoriColors.info],
-                ).createShader(b),
-                child: Text(
-                  t.onboardingTitle,
-                  style: const TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.white,
-                    letterSpacing: -0.5,
-                    height: 1.1,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                t.onboardingSubtitle,
-                style: const TextStyle(
-                  fontSize: 13.5,
-                  color: SoriColors.darkTextMuted,
-                  height: 1.5,
-                ),
-              ),
-              const SizedBox(height: 24),
-
-              // ── Level cards ──
-              Expanded(
-                child: ListView.separated(
-                  itemCount: LearnerLevel.values.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
-                  itemBuilder: (_, i) {
-                    final level = LearnerLevel.values[i];
-                    return _LevelCard(
-                      level: level,
-                      color: _colorFor(level),
-                      title: _titleFor(t, level),
-                      desc:  _descFor(t, level),
-                      exampleKo: _exampleKo[level]!,
-                      romanization: _romanization[level]!,
-                      exampleTrans: _exampleTransFor(t, level),
-                      onTap: () => _select(context, level),
-                    );
-                  },
-                ),
-              ),
-
-              const SizedBox(height: 8),
-              Text(
-                t.onboardingPrompt,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 11.5, color: SoriColors.darkTextDim),
-              ),
-              const SizedBox(height: 8),
-              TextButton(
-                onPressed: () => _skip(context),
-                child: Text(
-                  t.onboardingSkip,
-                  style: const TextStyle(color: SoriColors.darkTextMuted, fontSize: 13),
-                ),
-              ),
-            ],
+      body: Stack(
+        children: [
+          // ── Ambient 입자 — 라이트: 매화 꽃잎 / 다크: 따뜻한 불씨 ──
+          const Positioned.fill(
+            child: IgnorePointer(child: AmbientParticles(count: 12)),
           ),
-        ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // ── 한옥 대문 hero — 작게서 크게 "열리듯" 등장 ──
+                  SoriEntrance(
+                    duration: const Duration(milliseconds: 720),
+                    slideY: 0,
+                    startScale: 0.55,
+                    child: Center(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          'assets/illustrations/hanok/gate.png',
+                          height: 160,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+
+                  // ── Header ──
+                  ShaderMask(
+                    shaderCallback: (b) => const LinearGradient(
+                      colors: [
+                        SoriColors.hangul,
+                        SoriColors.primary,
+                        SoriColors.info,
+                      ],
+                    ).createShader(b),
+                    child: Text(
+                      t.onboardingTitle,
+                      style: const TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.white,
+                        letterSpacing: -0.5,
+                        height: 1.1,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    t.onboardingSubtitle,
+                    style: const TextStyle(
+                      fontSize: 13.5,
+                      color: SoriColors.darkTextMuted,
+                      height: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+
+                  // ── Level cards ──
+                  Expanded(
+                    child: ListView.separated(
+                      itemCount: LearnerLevel.values.length,
+                      separatorBuilder: (_, __) => const SizedBox(height: 10),
+                      itemBuilder: (_, i) {
+                        final level = LearnerLevel.values[i];
+                        return SoriEntrance(
+                          delay: Duration(milliseconds: 260 + i * 90),
+                          child: _LevelCard(
+                            level: level,
+                            color: _colorFor(level),
+                            title: _titleFor(t, level),
+                            desc: _descFor(t, level),
+                            exampleKo: _exampleKo[level]!,
+                            romanization: _romanization[level]!,
+                            exampleTrans: _exampleTransFor(t, level),
+                            onTap: () => _select(context, level),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
+                  Text(
+                    t.onboardingPrompt,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 11.5,
+                      color: SoriColors.darkTextDim,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () => _skip(context),
+                    child: Text(
+                      t.onboardingSkip,
+                      style: const TextStyle(
+                        color: SoriColors.darkTextMuted,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -208,7 +253,8 @@ class _LevelCard extends StatelessWidget {
         children: [
           // Level badge
           Container(
-            width: 52, height: 52,
+            width: 52,
+            height: 52,
             decoration: BoxDecoration(
               color: color,
               borderRadius: BorderRadius.circular(14),
@@ -244,15 +290,15 @@ class _LevelCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   desc,
-                  style: TextStyle(
-                    fontSize: 12.5,
-                    color: s.textMuted,
-                  ),
+                  style: TextStyle(fontSize: 12.5, color: s.textMuted),
                 ),
                 const SizedBox(height: 8),
                 // Example chip — KO + translation
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 7,
+                  ),
                   decoration: BoxDecoration(
                     color: s.bg.withValues(alpha: 0.6),
                     borderRadius: BorderRadius.circular(10),

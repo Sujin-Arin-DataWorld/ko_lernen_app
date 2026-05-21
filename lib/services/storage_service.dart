@@ -177,6 +177,11 @@ class Storage {
   static bool get adsEnabled => _prefs?.getBool('kl_ads_enabled') ?? true;
   static Future<void> setAdsEnabled(bool v) async => _prefs?.setBool('kl_ads_enabled', v);
 
+  /// Intro-Gate (솟을대문) schon gesehen? Erstlauf → volle Animation,
+  /// danach kürzere Version.
+  static bool get introSeen => _prefs?.getBool('kl_intro_seen') ?? false;
+  static Future<void> setIntroSeen() async => _prefs?.setBool('kl_intro_seen', true);
+
   // ───────── SRS (Spaced Repetition, SM-2 vereinfacht) ─────────
   static Map<String, SrsCard>? _srsCache;
 
