@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/tts_service.dart';
-import '../../theme.dart';
+import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
 import 'quest_models.dart';
 
 /// Hörverstehen-Quest: TTS abspielen → 4 Optionen wählen.
+///
+/// **v5**: Light/Dark-fähig via [SoriSurfaces] (vorher dark-only `AppColors`).
 class HoerverstehenQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
@@ -75,113 +77,114 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     }
   }
 
-  Color _borderColor(int idx) {
-    if (_selected != idx) return AppColors.surfaceAlt;
-    if (idx == _correctIndex) return AppColors.success;
-    return AppColors.danger;
+  Color _borderColor(int idx, SoriSurfaces s) {
+    if (_selected != idx) return s.surfaceAlt;
+    if (idx == _correctIndex) return SoriColors.success;
+    return SoriColors.danger;
   }
 
-  Color _bgColor(int idx) {
-    if (_selected != idx) return AppColors.surface;
-    if (idx == _correctIndex) return AppColors.success.withAlpha(38);
-    return AppColors.danger.withAlpha(38);
+  Color _bgColor(int idx, SoriSurfaces s) {
+    if (_selected != idx) return s.surface;
+    if (idx == _correctIndex) return SoriColors.success.withAlpha(38);
+    return SoriColors.danger.withAlpha(38);
   }
 
   @override
   Widget build(BuildContext context) {
     final langCode = Localizations.localeOf(context).languageCode;
+    final s = SoriSurfaces.of(context);
 
     return Stack(
       children: [
         Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        // TTS-Button
-        Center(
-          child: GestureDetector(
-            onTap: _playTts,
-            child: Container(
-              width: 84,
-              height: 84,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.vocab.withAlpha(26),
-                border: Border.all(color: AppColors.vocab, width: 2),
-              ),
-              child: const Icon(Icons.volume_up_rounded, color: AppColors.vocab, size: 40),
-            ),
-          ),
-        ),
-        const SizedBox(height: 8),
-        Center(
-          child: Text(
-            '▶ Tap to play',
-            style: TextStyle(color: AppColors.textMuted, fontSize: 13),
-          ),
-        ),
-        const SizedBox(height: 28),
-
-        // Optionen
-        ..._options.asMap().entries.map((entry) {
-          final idx = entry.key;
-          final opt = entry.value;
-          final label = langCode == 'en'
-              ? (opt['en'] as String? ?? '')
-              : (opt['de'] as String? ?? '');
-
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              decoration: BoxDecoration(
-                color: _bgColor(idx),
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: _borderColor(idx), width: 1.5),
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(14),
-                onTap: () => _onOptionTap(idx),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 28,
-                        height: 28,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: _borderColor(idx).withAlpha(51),
-                        ),
-                        child: Center(
-                          child: Text(
-                            String.fromCharCode(65 + idx), // A, B, C, D
-                            style: TextStyle(
-                              color: _selected == idx ? _borderColor(idx) : AppColors.textMuted,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          label,
-                          style: const TextStyle(
-                            color: AppColors.text,
-                            fontSize: 15,
-                            height: 1.4,
-                          ),
-                        ),
-                      ),
-                    ],
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // TTS-Button
+            Center(
+              child: GestureDetector(
+                onTap: _playTts,
+                child: Container(
+                  width: 84,
+                  height: 84,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: SoriColors.info.withAlpha(26),
+                    border: Border.all(color: SoriColors.info, width: 2),
                   ),
+                  child: const Icon(Icons.volume_up_rounded, color: SoriColors.info, size: 40),
                 ),
               ),
             ),
-          );
-        }),
-      ],
+            const SizedBox(height: 8),
+            Center(
+              child: Text(
+                '▶ Tap to play',
+                style: TextStyle(color: s.textMuted, fontSize: 13),
+              ),
+            ),
+            const SizedBox(height: 28),
+
+            // Optionen
+            ..._options.asMap().entries.map((entry) {
+              final idx = entry.key;
+              final opt = entry.value;
+              final label = langCode == 'en'
+                  ? (opt['en'] as String? ?? '')
+                  : (opt['de'] as String? ?? '');
+
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  decoration: BoxDecoration(
+                    color: _bgColor(idx, s),
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: _borderColor(idx, s), width: 1.5),
+                  ),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(14),
+                    onTap: () => _onOptionTap(idx),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 28,
+                            height: 28,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: _borderColor(idx, s).withAlpha(51),
+                            ),
+                            child: Center(
+                              child: Text(
+                                String.fromCharCode(65 + idx), // A, B, C, D
+                                style: TextStyle(
+                                  color: _selected == idx ? _borderColor(idx, s) : s.textMuted,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              label,
+                              style: TextStyle(
+                                color: s.text,
+                                fontSize: 15,
+                                height: 1.4,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ],
         ),
         Positioned(
           top: 0,

@@ -576,7 +576,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
             duration: const Duration(milliseconds: 600),
             curve: SoriMotion.celebrate,
             builder: (_, v, child) => Transform.scale(scale: v, child: child),
-            child: Mascot(kind: mascotKind, emotion: mascotEmotion, size: 120),
+            child: Mascot(kind: mascotKind, emotion: mascotEmotion, size: 120, animate: true),
           ),
           const SizedBox(height: Spacing.lg),
 

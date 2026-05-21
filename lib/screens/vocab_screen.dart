@@ -328,8 +328,11 @@ class _VocabScreenState extends State<VocabScreen> {
                 child: GestureDetector(
                   onHorizontalDragEnd: (d) {
                     if (d.primaryVelocity == null) return;
-                    if (d.primaryVelocity! < -250) _next();
-                    else if (d.primaryVelocity! > 250) _prev();
+                    if (d.primaryVelocity! < -250) {
+                      _next();
+                    } else if (d.primaryVelocity! > 250) {
+                      _prev();
+                    }
                   },
                   child: Stack(
                     children: [

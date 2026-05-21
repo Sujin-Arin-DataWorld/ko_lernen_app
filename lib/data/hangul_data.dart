@@ -1,4 +1,5 @@
 /// Hangul-Buchstaben mit Aussprache und kurzer Erklärung.
+library;
 
 class HangulChar {
   final String letter;

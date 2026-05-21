@@ -81,17 +81,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // ── 한옥 마당 배경 (dark mode only) ───────────────────────
-          // 본인이 제작한 madang(dark).png — 밤하늘 + 멀리 한옥 + 작은 호랑이.
+          // ── 한옥 마당 배경 (light/dark 양쪽) ───────────────────────
+          // 직접 제작한 madang 일러스트 — 낮(light)/밤(dark) 한옥 마당.
           // 콘텐츠가 위에 SoriCard 솔리드 surface로 깔리므로 가독성 영향 X.
-          if (isDark)
-            Positioned.fill(
-              child: Image.asset(
-                'assets/illustrations/hanok/madang(dark).png',
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
-              ),
+          Positioned.fill(
+            child: Image.asset(
+              isDark
+                  ? 'assets/illustrations/hanok/madang(dark).png'
+                  : 'assets/illustrations/hanok/madang(light).png',
+              fit: BoxFit.cover,
+              alignment: Alignment.topCenter,
             ),
+          ),
 
           SafeArea(
             child: SingleChildScrollView(
@@ -521,11 +522,11 @@ class _ModulesGrid extends StatelessWidget {
             )),
             const SizedBox(width: Spacing.md),
             Expanded(child: _MiniModuleCard(
-              emoji: '🎧',
-              title: t.moduleListenTitle,
-              subtitle: t.moduleListenDesc,
-              accent: SoriColors.info,
-              onTap: () => Navigator.pushNamed(context, '/listening'),
+              emoji: '💬',
+              title: t.moduleScenariosTitle,
+              subtitle: t.moduleScenariosDesc,
+              accent: SoriColors.accent,
+              onTap: () => Navigator.pushNamed(context, '/scenarios'),
             )),
           ],
         ),
@@ -698,7 +699,16 @@ class _ScenarioAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mascot = Mascot.forSpeaker(sidekick ?? '', size: 56, emotion: MascotEmotion.smile);
+    final mascot = Mascot.forSpeaker(
+      sidekick ?? '',
+      size: 64,
+      emotion: MascotEmotion.smile,
+      animate: true,
+    );
+    // 마스코트 일러스트는 자체 원형 구성이 있어 박스 없이 그대로 노출.
+    if (mascot != null) {
+      return SizedBox(width: 64, height: 64, child: mascot);
+    }
     return Container(
       width: 64, height: 64,
       decoration: BoxDecoration(
@@ -706,7 +716,7 @@ class _ScenarioAvatar extends StatelessWidget {
         borderRadius: BorderRadius.circular(SoriRadius.md),
       ),
       alignment: Alignment.center,
-      child: mascot ?? Text(emoji, style: const TextStyle(fontSize: 32)),
+      child: Text(emoji, style: const TextStyle(fontSize: 32)),
     );
   }
 }

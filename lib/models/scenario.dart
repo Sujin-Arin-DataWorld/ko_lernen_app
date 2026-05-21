@@ -13,6 +13,7 @@
 ///   ├── culturalNote (optional)
 ///   └── xpReward
 /// ```
+library;
 
 /// CEFR-Stufe — auch Storage-Schlüssel via [code].
 enum LearnerLevel {

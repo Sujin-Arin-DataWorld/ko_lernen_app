@@ -156,8 +156,11 @@ class _GrammarScreenState extends State<GrammarScreen> {
                 child: GestureDetector(
                   onHorizontalDragEnd: (d) {
                     if (d.primaryVelocity == null) return;
-                    if (d.primaryVelocity! < -250) _next();
-                    else if (d.primaryVelocity! > 250) _prev();
+                    if (d.primaryVelocity! < -250) {
+                      _next();
+                    } else if (d.primaryVelocity! > 250) {
+                      _prev();
+                    }
                   },
                   child: FlipCard(
                     flipped: _flipped,

@@ -195,7 +195,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  String _appVersion() => '1.0.0';
+  String _appVersion() => '1.0.1';
 
   String _levelDisplay(AppL10n t) {
     final lvl = LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
@@ -211,7 +211,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void _showLevelDialog() {
     final t = AppL10n.of(context);
     final current = LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-    String _nameFor(LearnerLevel lvl) => switch (lvl) {
+    String nameFor(LearnerLevel lvl) => switch (lvl) {
       LearnerLevel.a1 => t.onboardingLevelA1,
       LearnerLevel.a2 => t.onboardingLevelA2,
       LearnerLevel.b1 => t.onboardingLevelB1,
@@ -227,7 +227,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           mainAxisSize: MainAxisSize.min,
           children: LearnerLevel.values.map((lvl) {
             return RadioListTile<LearnerLevel>(
-              title: Text('${lvl.display} — ${_nameFor(lvl)}'),
+              title: Text('${lvl.display} — ${nameFor(lvl)}'),
               value: lvl,
               groupValue: current,
               activeColor: SoriColors.primary,

@@ -1,4 +1,5 @@
 /// Gemeinsame Datenmodelle für alle Quest-Engines.
+library;
 
 class QuestResult {
   final bool passed;

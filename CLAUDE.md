@@ -3,6 +3,7 @@
 > 세션 시작 시 이 파일 먼저 읽기. 그 다음 필요한 파일만 grep/Read.
 > 전역 운영 원칙은 `~/.claude/CLAUDE.md` 참조.
 > **작업 완료 시마다** "현재 진행 중인 작업" 체크리스트를 업데이트할 것 (완료 항목 체크, 새 항목 추가).
+> **비주얼 에셋 작업 전** `~/Downloads/HANGUL_SORI_STYLE_GUIDE.md` 반드시 읽기 — 스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**, 일러스트/아이콘/마케팅 자료 신규 제작·이터레이션 시 이 가이드를 프롬프트 기준으로 사용.
 
 ---
 
@@ -58,7 +59,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`
 - `hanok_tokens.dart` — 한옥 전용 색상 (단청 4색)
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
-- `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` → `tiger_magpie.png` PNG 사용 (v4, CustomPainter 제거됨)
+- `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` → `welcome-hero.png` 일러스트 사용 (v5). v4는 미존재 `tiger_magpie.png`를 참조해 앱 전역에서 마스코트가 깨졌었음 — v5에서 수정. `animate:true` 시 호흡 애니메이션 + errorBuilder fallback
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
 - `hanok/` — 한옥 장식 위젯 (단청 divider, 기와 패턴, 처마, 창살, 마당 배경)
 
@@ -71,8 +72,10 @@ Firebase 프로젝트: `ko-lernen-app`
 ### 에셋
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
 - `assets/icons/icon-512.png` — HanLogo 복사본 (launcher_icons 참조)
-- `assets/illustrations/hanok/tiger_magpie.png` — 마스코트 PNG (Gemini 생성)
-- `assets/illustrations/hanok/gate.png` — 한옥 대문 일러스트
+- `assets/illustrations/hanok/welcome-hero.png` — 호랑이+까치 일러스트 (1024², Faceted Minhwa). stats 화면 hero + **마스코트 위젯 소스**
+- `assets/illustrations/hanok/gate.png` — 한옥 대문 일러스트 (온보딩)
+- `assets/illustrations/hanok/madang(light).png` / `madang(dark).png` — 홈 배경 (낮/밤)
+- ⚠️ `tiger_magpie.png`는 **존재하지 않음** — 과거 마스코트가 이걸 참조해 깨졌음 (v5에서 해결)
 
 ---
 
@@ -104,9 +107,11 @@ Firebase 프로젝트: `ko-lernen-app`
 - UI 텍스트는 `AppL10n.of(ctx).XXX` 사용. 하드코딩 금지.
 - 독일어 = 주 언어. 새 문자열은 `l10n/app_de.arb` + `l10n/app_en.arb` 양쪽에 추가.
 
-### 마스코트
-- `Mascot.tiger` / `Mascot.magpie` 둘 다 같은 `tiger_magpie.png` 표시.
+### 마스코트 (v5)
+- `Mascot.tiger` / `Mascot.magpie` 둘 다 `welcome-hero.png` 일러스트 표시.
 - `emotion` 파라미터: celebrate/worry/sleepy/surprised → 우측 하단 이모지 오버레이.
+- `animate: true` → hero 컨텍스트(결과/홈)용 부드러운 호흡 스케일 애니메이션.
+- 에셋 로드 실패 시 errorBuilder가 색상 원+이모지 fallback (깨진 아이콘 방지).
 
 ### 아이콘 재생성
 ```bash
@@ -129,10 +134,18 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 워들 독일어 힌트 카드 상시 표시
 - [x] Sori v6.0 단청 팔레트 마이그레이션
 - [x] HanLogo (갓+한) 런처 아이콘 적용
-- [x] 마스코트 PNG 교체 (tiger_magpie.png)
 - [x] Firebase Remote Config `palette_variant` 키 설정
-- [ ] 앱 시각 검증 (`flutter run -d chrome`)
-- [ ] 타이거 마스코트 단독 이미지 필요 여부 확인 (현재 tiger+magpie 합본만 있음)
+- [x] **마스코트 깨짐 수정 (v5)** — v4가 미존재 `tiger_magpie.png` 참조 → `welcome-hero.png` 일러스트 + 호흡 애니메이션 (mascot.dart)
+- [x] **퀘스트 엔진 5종 라이트/다크 대응** — 레거시 `AppColors`(다크 전용) → `SoriSurfaces` (hoerverstehen/luecken/uebersetzen/particle_pop/batchim_drop)
+- [x] **홈에 시나리오 노출** — listening placeholder 카드 → Szenarien 카드(`/scenarios`). 기존엔 시나리오 리스트 진입로 없었음
+- [x] **홈 라이트모드 배경** — `madang(light).png` 추가 (다크는 기존)
+- [x] analyzer 정리 (23→8, 잔여 8건은 settings의 deprecated Radio API + build_context — 기존)
+- [x] APK 디버그 빌드 검증 통과
+- [ ] 앱 on-device 시각 검증 (`flutter run`)
+- [ ] **B2 시나리오 0개** → 콘텐츠 양산 (docs/content Track A, 13→30)
+- [ ] 동기 기반 온보딩 + 5분 코스 (docs/content Track C) — 미실행
+- [ ] 끝말잇기 게임 화면 (docs/content Track D) — 풀 JSON만 있고 화면 없음
+- [ ] 모듈 통합 "Sori Brain" (docs/content Track B) — 미실행
 
 ---
 

@@ -1,4 +1,5 @@
 /// Hangul-Hilfsfunktionen — Chosung-Extraktion etc.
+library;
 
 const _chosung = [
   'ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ',
