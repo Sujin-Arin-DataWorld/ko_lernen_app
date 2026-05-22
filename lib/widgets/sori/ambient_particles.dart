@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
+import 'tokens.dart';
+
 /// **AmbientParticles** — 화면에 은은하게 떠다니는 입자 레이어.
 ///
 /// - 라이트 모드: 매화(梅花) 꽃잎이 천천히 흩날려 내려온다.
@@ -99,6 +101,7 @@ class _AmbientParticlesState extends State<AmbientParticles>
 
   @override
   Widget build(BuildContext context) {
+    if (SoriMotion.reduceMotion(context)) return const SizedBox.shrink();
     final brightness = widget.brightness ?? Theme.of(context).brightness;
     final isDark = brightness == Brightness.dark;
 

@@ -42,6 +42,8 @@ class ChosungQuizScreen extends StatefulWidget {
 }
 
 class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
+  static const int _roundSize = 10;
+
   List<Vocab> _deck   = [];
   int    _idx     = 0;
   int    _correct = 0;
@@ -49,6 +51,13 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
   bool   _hint    = false;
   _State _state   = _State.waiting;
   String _level   = 'A1';
+
+  // Round tracking
+  int _roundIndex = 0;            // 0..roundSize-1
+  int _roundCorrect = 0;
+  final List<int> _roundDurationsMs = [];
+  DateTime? _questionStart;
+  bool _roundComplete = false;
 
   final _ctrl      = TextEditingController();
   final _focusNode = FocusNode();
@@ -75,19 +84,37 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
       _wrong   = 0;
       _hint    = false;
       _state   = _State.waiting;
+      _roundIndex = 0;
+      _roundCorrect = 0;
+      _roundDurationsMs.clear();
+      _roundComplete = false;
     });
     _ctrl.clear();
+    _questionStart = DateTime.now();
   }
 
   Vocab get _card => _deck[_idx % _deck.length];
+
+  void _recordDuration() {
+    final start = _questionStart;
+    if (start != null) {
+      _roundDurationsMs.add(DateTime.now().difference(start).inMilliseconds);
+    }
+  }
 
   void _submit() {
     final ans = _ctrl.text.trim();
     if (ans.isEmpty) return;
     final ok = ans == _card.korean;
+    _recordDuration();
     setState(() {
       _state = ok ? _State.correct : _State.wrong;
-      if (ok) { _correct++; } else { _wrong++; }
+      if (ok) {
+        _correct++;
+        _roundCorrect++;
+      } else {
+        _wrong++;
+      }
     });
     // Persistenz + Haptik
     if (ok) {
@@ -102,20 +129,67 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
 
   void _skip() {
     HapticFeedback.selectionClick();
-    setState(() { _wrong++; _state = _State.wrong; });
+    _recordDuration();
+    setState(() {
+      _wrong++;
+      _state = _State.wrong;
+    });
     Storage.incChosungWrong();
     Future.delayed(const Duration(milliseconds: 1000), _next);
   }
 
   void _next() {
     if (!mounted) return;
+    final completedRound = _roundIndex + 1 >= _roundSize;
+    if (completedRound) {
+      setState(() {
+        _roundIndex = _roundSize;
+        _state = _State.waiting;
+        _roundComplete = true;
+        _hint = false;
+      });
+      _ctrl.clear();
+      return;
+    }
     setState(() {
       _idx++;
+      _roundIndex++;
       _hint  = false;
       _state = _State.waiting;
       _ctrl.clear();
     });
+    _questionStart = DateTime.now();
     _focusNode.requestFocus();
+  }
+
+  void _startNewRound() {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _idx++;
+      _roundIndex = 0;
+      _roundCorrect = 0;
+      _roundDurationsMs.clear();
+      _roundComplete = false;
+      _hint = false;
+      _state = _State.waiting;
+    });
+    _ctrl.clear();
+    _questionStart = DateTime.now();
+    _focusNode.requestFocus();
+  }
+
+  String? _recommendation(AppL10n t) {
+    if (_roundDurationsMs.isEmpty) return null;
+    final accuracy = _roundCorrect / _roundSize;
+    final levels = ['A1', 'A2', 'B1', 'B2'];
+    final idx = levels.indexOf(_level);
+    if (accuracy >= 0.9 && idx < levels.length - 1) {
+      return t.chosungRoundLevelUp(levels[idx + 1]);
+    }
+    if (accuracy < 0.5) {
+      return t.chosungRoundReview(_level);
+    }
+    return t.chosungRoundKeepLevel(_level);
   }
 
   void _appendConsonant(String c) {
@@ -141,9 +215,11 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
 
     final card     = _card;
     final cs       = extractChosung(card.korean);
-    final total    = _deck.length;
-    final pos      = _idx % total + 1;
     final showPad  = _level == 'A1' || _level == 'A2';
+    final roundPos = (_roundIndex.clamp(0, _roundSize)) + (_roundComplete ? 0 : 1);
+    final roundProgress = _roundComplete
+        ? 1.0
+        : (_roundIndex / _roundSize).clamp(0.0, 1.0);
 
     return Scaffold(
       appBar: AppBar(
@@ -200,23 +276,36 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
                 const SizedBox(width: Spacing.sm),
                 SoriChip(label: '❌  $_wrong',  accent: SoriColors.danger),
                 const SizedBox(width: Spacing.sm),
-                SoriChip(label: '$pos / $total'),
+                SoriChip(label: '$roundPos / $_roundSize'),
               ]),
               const SizedBox(height: 14),
 
-              // ── 카드 ───────────────────────────────────────────────
-              _QuizCard(
-                chosung:     cs,
-                german:      card.german,
-                hint:        _hint,
-                state:       _state,
-                correctWord: card.korean,
-                onHint:      () => setState(() => _hint = true),
-              ),
-              const SizedBox(height: 12),
+              if (_roundComplete) ...[
+                Builder(builder: (context) {
+                  final t = AppL10n.of(context);
+                  return _RoundSummaryCard(
+                    correct: _roundCorrect,
+                    total: _roundSize,
+                    durationsMs: _roundDurationsMs,
+                    recommendation: _recommendation(t),
+                    onContinue: _startNewRound,
+                  );
+                }),
+              ] else ...[
+                // ── 카드 ─────────────────────────────────────────────
+                _QuizCard(
+                  chosung:     cs,
+                  german:      card.german,
+                  hint:        _hint,
+                  state:       _state,
+                  correctWord: card.korean,
+                  onHint:      () => setState(() => _hint = true),
+                ),
+                const SizedBox(height: 12),
+              ],
 
               // ── 입력 ───────────────────────────────────────────────
-              if (_state == _State.waiting) ...[
+              if (!_roundComplete && _state == _State.waiting) ...[
                 Builder(
                   builder: (context) {
                     final t = AppL10n.of(context);
@@ -266,7 +355,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
 
               // ── 진행 바 ────────────────────────────────────────────
               SoriProgressBar(
-                value: pos / total,
+                value: roundProgress,
                 thickness: 6,
                 animated: true,
               ),
@@ -277,6 +366,112 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
     );
   }
 
+}
+
+// ── 라운드 요약 카드 ──────────────────────────────────────────────────────────
+class _RoundSummaryCard extends StatelessWidget {
+  final int correct;
+  final int total;
+  final List<int> durationsMs;
+  final String? recommendation;
+  final VoidCallback onContinue;
+
+  const _RoundSummaryCard({
+    required this.correct,
+    required this.total,
+    required this.durationsMs,
+    required this.recommendation,
+    required this.onContinue,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final accuracy = total == 0 ? 0 : ((correct / total) * 100).round();
+    final avgSec = durationsMs.isEmpty
+        ? '0.0'
+        : (durationsMs.reduce((a, b) => a + b) / durationsMs.length / 1000)
+            .toStringAsFixed(1);
+    final accent = accuracy >= 80
+        ? SoriColors.success
+        : accuracy >= 50
+            ? SoriColors.warning
+            : SoriColors.danger;
+
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: accent,
+      tinted: true,
+      width: double.infinity,
+      padding: const EdgeInsets.all(Spacing.xl),
+      child: Column(
+        children: [
+          Text(
+            t.chosungRoundDoneTitle,
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w900,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: Spacing.md),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
+              const SizedBox(width: Spacing.md),
+              _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
+            ],
+          ),
+          if (recommendation != null) ...[
+            const SizedBox(height: Spacing.md),
+            Text(
+              recommendation!,
+              style: TextStyle(
+                fontSize: 14,
+                color: s.textMuted,
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+          const SizedBox(height: Spacing.lg),
+          SoriButton.filled(
+            label: t.chosungRoundContinue,
+            accent: accent,
+            fullWidth: true,
+            onTap: onContinue,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Stat extends StatelessWidget {
+  final String label;
+  final Color color;
+  const _Stat({required this.label, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(SoriRadius.sm),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: color,
+          fontWeight: FontWeight.w700,
+          fontSize: 13,
+        ),
+      ),
+    );
+  }
 }
 
 // ── 자음 버튼 패널 ──────────────────────────────────────────────────────────────

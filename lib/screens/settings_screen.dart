@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -40,6 +42,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: [
+          // ── 서재 헤더 (한옥 학자방 일러스트) ──
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              Spacing.lg,
+              Spacing.xs,
+              Spacing.lg,
+              Spacing.md,
+            ),
+            child: HanokHeader(
+              asset: 'assets/illustrations/hanok/scholar_room.png',
+              fallbackIcon: Icons.tune_rounded,
+            ),
+          ),
+
           // ── Erscheinungsbild ──
           _Section(label: t.settingsThemeTitle),
           RadioGroup<ThemeMode>(
@@ -135,27 +151,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ListTile(
               leading: const Icon(Icons.cloud_upload_outlined),
               title:   Text(t.settingsCloudBackupNow),
-              onTap: () async {
-                final messenger = ScaffoldMessenger.of(context);
-                await CloudSync.backup();
-                if (!mounted) return;
-                messenger.showSnackBar(
-                  SnackBar(content: Text(t.settingsCloudBackupSuccess), duration: const Duration(seconds: 2)),
-                );
-              },
+              onTap: _onBackupTap,
             ),
             ListTile(
               leading: const Icon(Icons.cloud_download_outlined),
               title:   Text(t.settingsCloudRestore),
-              onTap: () async {
-                final messenger = ScaffoldMessenger.of(context);
-                final ok = await CloudSync.restore();
-                if (!mounted) return;
-                messenger.showSnackBar(
-                  SnackBar(content: Text(ok ? t.settingsCloudRestoreSuccess : t.settingsCloudRestoreEmpty)),
-                );
-                setState(() {});
-              },
+              onTap: _onRestoreTap,
             ),
           ],
 
@@ -248,6 +249,74 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Text(t.btnCancel),
           ),
         ],
+      ),
+    );
+  }
+
+  Future<void> _onBackupTap() async {
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await CloudSync.backup();
+      if (!mounted) return;
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(t.settingsCloudBackupSuccess),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    } catch (_) {
+      if (!mounted) return;
+      _showOfflineDialog(retry: _onBackupTap);
+    }
+  }
+
+  Future<void> _onRestoreTap() async {
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      final ok = await CloudSync.restore();
+      if (!mounted) return;
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(
+            ok ? t.settingsCloudRestoreSuccess : t.settingsCloudRestoreEmpty,
+          ),
+        ),
+      );
+      setState(() {});
+    } catch (_) {
+      if (!mounted) return;
+      _showOfflineDialog(retry: _onRestoreTap);
+    }
+  }
+
+  void _showOfflineDialog({required Future<void> Function() retry}) {
+    final t = AppL10n.of(context);
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => Dialog(
+        backgroundColor: Theme.of(ctx).scaffoldBackgroundColor,
+        insetPadding: const EdgeInsets.all(Spacing.xl),
+        shape: RoundedRectangleBorder(borderRadius: SoriRadius.brLg),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+          child: SoriEmptyState(
+            asset: 'assets/illustrations/error/offline_lantern.png',
+            icon: Icons.wifi_off_rounded,
+            title: t.settingsOfflineTitle,
+            body: t.settingsOfflineBody,
+            ctaLabel: t.btnRetry,
+            onCta: () {
+              Navigator.of(ctx).pop();
+              retry();
+            },
+            secondaryLabel: t.btnCancel,
+            onSecondary: () => Navigator.of(ctx).pop(),
+            illustrationMaxHeight: 160,
+            accent: SoriColors.gold,
+          ),
+        ),
       ),
     );
   }

@@ -61,6 +61,33 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
     if (mounted) setState(() => _scenario = s);
   }
 
+  // ─── Backdrop-Map ──────────────────────────────────────────────────────────
+
+  /// Maps scenario IDs to a scene asset key. Returns null when no match.
+  String? get _backdropKey {
+    final id = _scenario?.id ?? '';
+    const map = <String, String>{
+      'cafe': 'cafe',
+      'airport': 'airport',
+      'taxi': 'taxi',
+      'bunshik': 'restaurant',
+      'dinner': 'restaurant',
+      'hoeshik': 'restaurant',
+      'subway': 'subway',
+      'hotel': 'hotel',
+      'convenience': 'store',
+      'pharmacy': 'pharmacy',
+      'shopping': 'market',
+      'myeongdong': 'market',
+      'market': 'market',
+      'directions': 'directions',
+    };
+    for (final entry in map.entries) {
+      if (id.contains(entry.key)) return entry.value;
+    }
+    return null;
+  }
+
   // ─── Stage-Berechnung ──────────────────────────────────────────────────────
 
   /// Gesamtzahl der Stages:
@@ -787,17 +814,34 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
           ),
         ),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageCtrl,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: _totalStages,
-              itemBuilder: (_, index) => _buildStage(index, t, lang),
+          if (_backdropKey != null)
+            Positioned.fill(
+              child: IgnorePointer(
+                child: Opacity(
+                  opacity: 0.08,
+                  child: Image.asset(
+                    'assets/illustrations/scenes/${_backdropKey!}.png',
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                  ),
+                ),
+              ),
             ),
+          Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageCtrl,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: _totalStages,
+                  itemBuilder: (_, index) => _buildStage(index, t, lang),
+                ),
+              ),
+              _buildBottomBar(t),
+            ],
           ),
-          _buildBottomBar(t),
         ],
       ),
     );

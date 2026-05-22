@@ -53,6 +53,14 @@ class HanokColors {
   /// 흑 (북방, 겨울, 물) — 먹.
   static const Color heuk   = Color(0xFF2C2419);
 
+  // ── 단청 muted 변형 (alpha 0.55) ─────────────────────────────────────
+  // dancheong_divider 등 décor에서 인라인 `.withValues(alpha: 0.55)` 패턴을
+  // 토큰화. const 컴파일 가능하도록 Color.fromARGB로 미리 합성.
+  // 0.55 ≈ 140/255 (8-bit 알파).
+  static const Color cheongMuted = Color(0x8C3D9A7F);  // 0x8C = 140
+  static const Color jeokMuted   = Color(0x8CC24A45);
+  static const Color hwangMuted  = Color(0x8CDFA951);
+
   // ── 기와 (roof tiles) ─────────────────────────────────────────────────
   static const Color giwaGray    = Color(0xFF5C6470);
   static const Color giwaShadow  = Color(0xFF3A4148);

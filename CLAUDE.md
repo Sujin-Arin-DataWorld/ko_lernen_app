@@ -65,10 +65,12 @@ Firebase 프로젝트: `ko-lernen-app`
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` → `welcome-hero.png` 일러스트 사용 (v5). v4는 미존재 `tiger_magpie.png`를 참조해 앱 전역에서 마스코트가 깨졌었음 — v5에서 수정. `animate:true` 시 호흡 애니메이션 + errorBuilder fallback
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
 - `hanok/` — 한옥 장식 위젯 (단청 divider, 기와 패턴, 처마, 창살, 마당 배경)
-- `motion.dart` — `SoriEntrance` (진입 fade+slide+scale), `SoriKenBurns` (배경 느린 줌)
-- `ambient_particles.dart` — 매화 꽃잎(light) / 불씨(dark) 입자
-- `flying_magpie.dart` — 홈 상단을 가로지르는 비행 까치
-- ⚠️ 모션 시스템 3원화 — 위 `motion.dart` + `lib/motion/transitions.dart` + `flutter_animate` 패키지 공존. 일원화 필요.
+- `motion.dart` — `SoriEntrance` (진입 fade+slide+scale), `SoriKenBurns` (배경 느린 줌). **`SoriMotion.reduceMotion(context)` 헬퍼** — `MediaQuery.disableAnimations` 시 정적 fallback.
+- `ambient_particles.dart` — 매화 꽃잎(light) / 불씨(dark) 입자. reduce-motion 시 SizedBox.
+- `flying_magpie.dart` — 홈 상단을 가로지르는 비행 까치. reduce-motion 시 SizedBox.
+- `empty_state.dart` — **표준 빈/오류 상태**. `SoriEmptyState(asset, title, body, ctaLabel, onCta, secondaryLabel)`. 일러스트 errorBuilder가 아이콘 fallback.
+- `hanok_header.dart` — 10:3 wide 한옥 헤더 배너. 자산 미존재 시 단청 그라데이션 + 아이콘 fallback.
+- ✅ 모션 시스템 일원화 완료 — `flutter_animate` 패키지 제거. `motion.dart` + `lib/motion/transitions.dart` 둘만 공존 (역할 분리: entrance vs route transition).
 
 ### 데이터
 - `assets/data/korean_vocab.csv` — 단어장 (level 필드: A1/A2/B1/B2)
@@ -148,23 +150,69 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **Phase 4** — de-box + 모든 상호작용 생명력 (스프링·축하·물리 전환)
 - [ ] **Phase 5** — 60fps 보증 + GitHub Actions CI
 
-### 기타
-- [x] 초성 퀴즈 A1-B2 레벨 분리 + 독일어 UI
-- [x] 워들 독일어 힌트 카드 상시 표시
-- [x] Sori v6.0 단청 팔레트 마이그레이션
-- [x] HanLogo (갓+한) 런처 아이콘 적용
-- [x] Firebase Remote Config `palette_variant` 키 설정
-- [x] **마스코트 깨짐 수정 (v5)** — v4가 미존재 `tiger_magpie.png` 참조 → `welcome-hero.png` 일러스트 + 호흡 애니메이션 (mascot.dart)
-- [x] **퀘스트 엔진 5종 라이트/다크 대응** — 레거시 `AppColors`(다크 전용) → `SoriSurfaces` (hoerverstehen/luecken/uebersetzen/particle_pop/batchim_drop)
-- [x] **홈에 시나리오 노출** — listening placeholder 카드 → Szenarien 카드(`/scenarios`). 기존엔 시나리오 리스트 진입로 없었음
-- [x] **홈 라이트모드 배경** — `madang(light).png` 추가 (다크는 기존)
-- [x] analyzer 정리 — 23→0 (settings의 deprecated Radio → `RadioGroup` + async-gap 4건 정식 수정)
-- [x] APK 디버그 빌드 검증 통과
-- [ ] 앱 on-device 시각 검증 (`flutter run`)
-- [ ] **B2 시나리오 0개** → 콘텐츠 양산 (docs/content Track A, 13→30)
-- [ ] 동기 기반 온보딩 + 5분 코스 (docs/content Track C) — 미실행
-- [ ] 끝말잇기 게임 화면 (docs/content Track D) — 풀 JSON만 있고 화면 없음
-- [ ] 모듈 통합 "Sori Brain" (docs/content Track B) — 미실행
+### 출시 폴리시 (2026-05-22 Week 1–4 완료)
+> plan: `~/.claude/plans/hangul-sori-temporal-wombat.md`
+
+**Week 1 — 접근성 + 모션 일원화 + 토큰**
+- [x] 모든 Sori 위젯에 `Semantics` 적용 (button, chip, card, pressable, badge, mascot)
+- [x] `SoriColors.primaryOnLight = primaryDark` 토큰 (≥7:1 대비, AA 통과)
+- [x] `intro_gate_screen.dart`의 하드코딩 `_black`/`_white` → `SoriColors.darkBg`/`lightBg`
+- [x] `flutter_animate` 패키지 완전 제거 + `app_error.dart`의 `.animate()` 호출을 `SoriEntrance` + 인라인 `_BreathingTransform`으로 재작성
+- [x] `SoriMotion.reduceMotion(context)` 헬퍼 추가 — 4개 모션 위젯 reduce-motion 대응
+- [x] `SoriTextTheme` 신규 (display/h1/h2/h3/body/bodySmall/caption/label, Pretendard 통일)
+- [x] `HanokColors.cheongMuted/jeokMuted/hwangMuted` muted 변형 추가
+- [x] `Mascot` 위젯 Semantics (`label: '호랑이 마스코트, 상태: $emotion'`)
+
+**Week 2 — 빈/오류 상태 + 헤더 슬롯**
+- [x] `SoriEmptyState` 위젯 신규 (asset + title + body + CTA + secondary)
+- [x] `HanokHeader` 위젯 신규 (10:3 wide, gradient fallback)
+- [x] 5개 빈/오류 상태 통일: 시나리오 B2 잠금 (`sleeping_tiger_b2.png`) · 단어장 due 완료 (`celebrate_complete.png`) · 통계 첫 진입 (`study_room_waiting.png`) · 설정 오프라인 (`offline_lantern.png`) · 시나리오 로드 실패 (`lost_magpie.png`)
+- [x] Settings 헤더 (`scholar_room.png`) + Stats 헤더 (`achievements.png`) 통합
+- [x] DE/EN ARB에 10개 빈/오류 키 추가
+
+**Week 3 — 모듈 폴리시**
+- [x] **Chosung 라운드 요약** — 10문제 단위 round 추적, 라운드 종료 시 정확도% + 평균 시간 + 레벨 추천 카드 (`_RoundSummaryCard` private 위젯)
+- [x] **Wordle 키보드 폴리시** — 결과 카드에 `Focus(autofocus: true, onKeyEvent: ...)` → Enter/Space로 새 단어. 입력 자동 재포커스 (브라우저 IME가 한글 합성 처리)
+- [x] **시나리오 백드롭** — `_backdropKey` getter (scenario ID → scene 키 매핑) + `assets/illustrations/scenes/{key}.png` opacity 0.08 백그라운드 + errorBuilder fallback (Jin이 PNG 만들기 전에도 정상 동작)
+- [ ] **Hangul IoU 정확도 측정** — 캔버스 stroke vs ghost letter mask 비교, 80%+ 시 celebrate 팝업. 캔버스 구조 복잡도 때문에 출시 후 1차 업데이트로 이월
+
+**Week 4 — 출시 자료 (모두 `docs/store/`)**
+- [x] `docs/store/README.md` — Pre-submission 체크리스트 (Play Console + App Store Connect)
+- [x] `docs/store/listing-de.md` — DE 짧은 설명(78자) + Promo(168자) + 전체 설명(~2950자) + Release Notes
+- [x] `docs/store/listing-en.md` — EN 동일 + Apple Keywords(94자, 100자 한도 내)
+- [x] `docs/store/data-safety.md` — Play Data Safety + Apple App Privacy 답변 (Firebase Anonymous + 옵션 Google Sign-In, 광고 없음 가정)
+- [x] `docs/store/screenshot-shotlist.md` — 8슬롯 캡쳐 가이드 (어떤 state로 어떻게)
+- [x] `docs/store/release-notes-v1.md` — v1.0.0 DE/EN
+
+**Privacy URL**: `https://hangul-sori.com/privacy.html` (기존 `docs/privacy.html` + `docs/CNAME` 활용)
+
+### 출시 전 Jin이 직접 해야 할 작업
+
+**🔴 출시 차단**
+- [ ] **Data Safety 답변 확정** — `docs/store/data-safety.md` 끝의 "Open questions": Crashlytics/Analytics/AdMob이 release build에 포함되는지 확인. 포함 시 양식 답변 수정 필요.
+- [ ] **실기기 시각 검증** — Android 1대 + iPhone 1대에서 전 화면 진입, light/dark 둘 다. **특히 Week 1–3 수정 사항이 시각으로 들어맞는지 (Chosung 라운드 요약, Wordle 결과 Enter, 시나리오 백드롭 opacity 0.08, Settings/Stats 헤더, 5개 빈상태 일러스트)**.
+- [ ] **PNG 자산 8종 생성** (계획 D 섹션 프롬프트 사용 — ChatGPT/Nano Banana 2):
+  - `assets/illustrations/empty/sleeping_tiger_b2.png` (B2 잠금)
+  - `assets/illustrations/empty/celebrate_complete.png` (단어장 due 완료)
+  - `assets/illustrations/empty/study_room_waiting.png` (통계 첫 진입)
+  - `assets/illustrations/error/offline_lantern.png` (오프라인 다이얼로그)
+  - `assets/illustrations/error/lost_magpie.png` (시나리오 로드 실패)
+  - `assets/illustrations/hanok/scholar_room.png` (Settings 헤더, 1888×560)
+  - `assets/illustrations/hanok/achievements.png` (Stats 헤더, 1888×560)
+  - `assets/store/feature_graphic.png` (Play 1024×500)
+  - **현재 모두 errorBuilder fallback이 동작**하므로 빌드는 정상. PNG 추가 후 `pubspec.yaml`의 `flutter > assets` 섹션에 등록 필요.
+
+**🟡 출시 후 1차 업데이트 후보**
+- [ ] **Hangul IoU 정확도 측정** (Week 3 deferred)
+- [ ] **시나리오 백드롭 PNG 5종** (cafe/market/restaurant/hotel/directions, 계획 D4) — 현재는 errorBuilder가 빈 화면으로 떨어지므로 문제 없음
+- [ ] **마스코트 추가 포즈 4종** (계획 D1: tiger_sleepy/neutral/thinking, magpie_worry)
+- [ ] **madang(dark) v2** (계획 D5)
+
+**🟢 콘텐츠 백로그 (별개 트랙)**
+- [ ] B2 시나리오 0개 → 양산 (docs/content Track A, 13→30)
+- [ ] 동기 기반 온보딩 + 5분 코스 (Track C)
+- [ ] 끝말잇기 게임 화면 (Track D, 풀 JSON만 있고 화면 없음)
+- [ ] 모듈 통합 "Sori Brain" (Track B)
 
 ---
 
@@ -208,6 +256,22 @@ flutter run -d <android-id>   # 안드로이드
 **검증:** `flutter analyze` 0 issues · APK 디버그 빌드 성공. ⚠️ **시각(픽셀) 검증 미완** — Chrome 확장 연결 끊김 + 화면 접근 권한 시간 초과로 애니메이션 실물 확인 못 함. 코드는 컴파일·빌드만 검증됨 → 첫 `flutter run` 시 까치/입자 모양 점검 권장.
 
 **동시 세션 작업 (같은 커밋에 포함):** 다른 세션이 솟을대문 인트로(`screens/intro_gate_screen.dart`) + 라우트 전환(`lib/motion/transitions.dart`) + `flutter_animate` 패키지 + 스플래시 색(teal→cream)을 작업. 본 커밋에 함께 포함됨. ⚠️ entrance 애니메이션이 `SoriEntrance`(이 세션)와 `flutter_animate`(동시 세션) 두 방식 공존 — 추후 일원화 검토 필요.
+
+**Git push:** 본 커밋 → `origin/main`
+
+### 2026-05-22 — 출시 폴리시 Week 1–4 (plan: hangul-sori-temporal-wombat)
+
+**범위:** 4주 폴리시 — 접근성·모션 일원화·빈상태·모듈 폴리시·스토어 자료. 코드만 작업 (PNG는 Jin이 별도 생성).
+
+**Update:**
+- **Week 1**: Semantics 6개 위젯 + `primaryOnLight` 토큰 + `SoriMotion.reduceMotion` + `SoriTextTheme` + `flutter_animate` 제거 + `_BreathingTransform` 인라인 위젯 (`app_error.dart` 재작성)
+- **Week 2**: `SoriEmptyState`·`HanokHeader` 신규 + 5개 빈/오류 상태 통일 + Settings/Stats 헤더 슬롯 + ARB 10키
+- **Week 3**: Chosung 라운드(10문제) 요약 카드 + Wordle Focus/Enter 단축키 + 시나리오 backdrop opacity 0.08
+- **Week 4**: `docs/store/` 6개 문서 (README, listing-de, listing-en, data-safety, screenshot-shotlist, release-notes-v1)
+
+**검증:** `flutter analyze` = 0 issues · debug APK 빌드 통과. 시각 검증은 Jin 실기기에서.
+
+**미해결 (위 체크리스트 참조):** Hangul IoU 정확도(deferred), Data Safety 답변 확정(Crashlytics/Analytics/AdMob 확인 필요), PNG 자산 8종 생성.
 
 **Git push:** 본 커밋 → `origin/main`
 

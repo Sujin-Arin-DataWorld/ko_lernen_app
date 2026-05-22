@@ -411,6 +411,37 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get chosungRoundDoneTitle => 'Round complete!';
+
+  @override
+  String chosungRoundAccuracy(int percent) {
+    return '$percent% correct';
+  }
+
+  @override
+  String chosungRoundAvgTime(Object seconds) {
+    return 'Ø ${seconds}s per question';
+  }
+
+  @override
+  String get chosungRoundContinue => 'Keep going';
+
+  @override
+  String chosungRoundLevelUp(Object level) {
+    return 'Strong! Try level $level.';
+  }
+
+  @override
+  String chosungRoundKeepLevel(Object level) {
+    return 'Nice run — stay on level $level.';
+  }
+
+  @override
+  String chosungRoundReview(Object level) {
+    return 'Take another pass on level $level.';
+  }
+
+  @override
   String get statsTitle => 'Statistics';
 
   @override
@@ -600,6 +631,39 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get scenariosEmpty => 'Coming soon 🚧';
+
+  @override
+  String get scenariosEmptyTitle => 'Coming soon';
+
+  @override
+  String get scenariosEmptyBody => 'We\'re crafting new scenarios with care.';
+
+  @override
+  String get scenariosLoadFailedTitle => 'Hmm, something went wrong';
+
+  @override
+  String get statsFirstEntryTitle => 'Your story begins here';
+
+  @override
+  String get statsFirstEntryBody =>
+      'Start a scenario — this page will fill with your progress.';
+
+  @override
+  String get statsFirstEntryCta => 'Start your first scenario';
+
+  @override
+  String get settingsOfflineTitle => 'No connection';
+
+  @override
+  String get settingsOfflineBody =>
+      'Cloud sync needs an active internet connection. Try again later.';
+
+  @override
+  String get vocabDueEmptyTitle => 'All done for today!';
+
+  @override
+  String get vocabDueEmptyBody =>
+      'You finished your due cards. Come back tomorrow or learn new words.';
 
   @override
   String get moduleScenariosTitle => 'Scenarios';

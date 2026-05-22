@@ -61,7 +61,7 @@ class SoriChip extends StatelessWidget {
       duration: SoriMotion.fast,
       padding: EdgeInsets.symmetric(
         horizontal: icon == null ? 12 : 10,
-        vertical: 5,
+        vertical: 8, // 5 → 8 (44px tap target 보강)
       ),
       decoration: BoxDecoration(
         color: bg,
@@ -77,21 +77,32 @@ class SoriChip extends StatelessWidget {
             Icon(icon, size: fontSize + 2, color: fg),
             const SizedBox(width: 4),
           ],
-          Text(
-            label,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              color: fg,
-              fontSize: fontSize,
-              fontWeight: FontWeight.w700,
-              height: 1.2,
+          Flexible(
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                color: fg,
+                fontSize: fontSize,
+                fontWeight: FontWeight.w700,
+                height: 1.2,
+              ),
             ),
           ),
         ],
       ),
     );
 
-    if (onTap == null) return chip;
-    return SoriPressable(onTap: onTap, child: chip);
+    if (onTap == null) {
+      return Semantics(label: label, child: chip);
+    }
+    return Semantics(
+      button: true,
+      label: label,
+      selected: selected,
+      child: SoriPressable(onTap: onTap, child: chip),
+    );
   }
 }

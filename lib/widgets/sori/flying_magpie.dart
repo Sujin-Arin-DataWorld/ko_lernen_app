@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import 'tokens.dart';
+
 /// A small gat-wearing magpie that periodically crosses the top of the screen.
 ///
 /// The flight path is procedural, but the character itself uses the separated
@@ -53,6 +55,7 @@ class _FlyingMagpieState extends State<FlyingMagpie>
 
   @override
   Widget build(BuildContext context) {
+    if (SoriMotion.reduceMotion(context)) return const SizedBox.shrink();
     return RepaintBoundary(
       child: LayoutBuilder(
         builder: (context, constraints) {

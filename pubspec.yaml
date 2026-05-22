@@ -27,7 +27,6 @@ dependencies:
   flutter_svg: ^2.0.10
   google_fonts: ^6.2.1
   animations: ^2.0.11        # OpenContainer Material container transform
-  flutter_animate: ^4.5.0    # 선언적 모션 — entrance·스프링·시차·축하 ("살아있는 한옥")
 
   # ── Werbung ─────────────────────────────────────────────
   # ⚠️ google_mobile_ads (5.x) inkompatibel mit aktuellem AGP/Gradle

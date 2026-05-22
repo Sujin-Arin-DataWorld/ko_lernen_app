@@ -92,6 +92,8 @@ class SoriXpProgress extends StatelessWidget {
           children: [
             Text(
               'Lv $level',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontFamily: 'Pretendard',
                 color: s.text,
@@ -102,13 +104,18 @@ class SoriXpProgress extends StatelessWidget {
             ),
             const Spacer(),
             if (trailingLabel != null)
-              Text(
-                trailingLabel!,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  color: s.textMuted,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 11.5,
+              Flexible(
+                child: Text(
+                  trailingLabel!,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    color: s.textMuted,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 11.5,
+                  ),
                 ),
               ),
           ],

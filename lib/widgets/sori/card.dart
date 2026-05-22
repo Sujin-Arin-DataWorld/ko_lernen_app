@@ -51,6 +51,10 @@ class SoriCard extends StatelessWidget {
   /// hero/hanji variant에 자연스러움. base/compact엔 보통 false.
   final bool eaves;
 
+  /// 접근성 라벨 — null이면 child의 Semantics를 그대로 사용.
+  /// tappable card는 button 역할로 트리에 등록된다.
+  final String? semanticLabel;
+
   const SoriCard({
     super.key,
     required this.child,
@@ -63,6 +67,7 @@ class SoriCard extends StatelessWidget {
     this.height,
     this.tinted = false,
     this.eaves = false,
+    this.semanticLabel,
   });
 
   double get _radius => switch (variant) {
@@ -133,15 +138,23 @@ class SoriCard extends StatelessWidget {
       child: cardContent,
     );
 
-    if (onTap == null && onLongPress == null) return card;
+    if (onTap == null && onLongPress == null) {
+      return semanticLabel == null
+          ? card
+          : Semantics(label: semanticLabel, container: true, child: card);
+    }
 
-    return SoriPressable(
-      onTap: onTap,
-      onLongPress: onLongPress,
-      pressScale: (variant == SoriCardVariant.hero || variant == SoriCardVariant.hanji) ? 0.97 : 0.96,
-      child: ClipRRect(
-        borderRadius: _borderRadius,
-        child: card,
+    return Semantics(
+      button: true,
+      label: semanticLabel,
+      child: SoriPressable(
+        onTap: onTap,
+        onLongPress: onLongPress,
+        pressScale: (variant == SoriCardVariant.hero || variant == SoriCardVariant.hanji) ? 0.97 : 0.96,
+        child: ClipRRect(
+          borderRadius: _borderRadius,
+          child: card,
+        ),
       ),
     );
   }

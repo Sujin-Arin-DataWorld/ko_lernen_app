@@ -6,9 +6,9 @@ import '../models/scenario.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/app_error.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -77,12 +77,17 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
     if (_loadFailed) {
       return Scaffold(
         appBar: AppBar(title: Text(t.scenariosListTitle)),
-        body: AppError(
-          message: ScenarioLoader.lastError ?? 'Error',
-          onRetry: () {
+        body: SoriEmptyState(
+          asset: 'assets/illustrations/error/lost_magpie.png',
+          icon: Icons.signal_wifi_statusbar_null_rounded,
+          title: t.scenariosLoadFailedTitle,
+          body: ScenarioLoader.lastError,
+          ctaLabel: t.btnRetry,
+          onCta: () {
             ScenarioLoader.reset();
             _load();
           },
+          accent: SoriColors.accent,
         ),
       );
     }
@@ -216,21 +221,9 @@ class _LevelSection extends StatelessWidget {
         ),
         const SizedBox(height: Spacing.sm),
 
-        // Cards or empty placeholder
+        // Cards or empty placeholder (Faceted Minhwa empty card)
         if (scenarios.isEmpty)
-          SoriCard(
-            variant: SoriCardVariant.compact,
-            child: Row(
-              children: [
-                const Text('🚧', style: TextStyle(fontSize: 20)),
-                const SizedBox(width: Spacing.sm),
-                Text(
-                  t.scenariosEmpty,
-                  style: TextStyle(color: s.textMuted, fontSize: 13),
-                ),
-              ],
-            ),
-          )
+          _EmptyLevelCard(accent: accent, locked: locked)
         else
           ...scenarios.map(
             (sc) => Padding(
@@ -450,6 +443,87 @@ class _ScenarioCardBody extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// ─── Empty Level Card ─────────────────────────────────────────────────────────
+// 시나리오 0개인 레벨에 자는 호랑이 일러스트 + "곧 만나요" 안내.
+// 자산이 없으면 errorBuilder가 아이콘+그라데이션 fallback으로 대체한다.
+
+class _EmptyLevelCard extends StatelessWidget {
+  final Color accent;
+  final bool locked;
+
+  const _EmptyLevelCard({required this.accent, required this.locked});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final mutedAccent = locked ? s.textDim : accent;
+
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: mutedAccent,
+      semanticLabel: '${t.scenariosEmptyTitle}. ${t.scenariosEmptyBody}',
+      child: Row(
+        children: [
+          SizedBox(
+            width: 56,
+            height: 56,
+            child: Image.asset(
+              'assets/illustrations/empty/sleeping_tiger_b2.png',
+              fit: BoxFit.contain,
+              filterQuality: FilterQuality.medium,
+              errorBuilder: (_, __, ___) => Container(
+                decoration: BoxDecoration(
+                  color: mutedAccent.withValues(alpha: 0.14),
+                  borderRadius: SoriRadius.brSm,
+                ),
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.bedtime_outlined,
+                  color: mutedAccent,
+                  size: 28,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  t.scenariosEmptyTitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    color: s.text,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 14,
+                    letterSpacing: -0.1,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  t.scenariosEmptyBody,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: s.textMuted,
+                    fontSize: 12,
+                    height: 1.35,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

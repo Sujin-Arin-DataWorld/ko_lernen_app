@@ -197,8 +197,23 @@ class _WordleScreenState extends State<WordleScreen> {
       Storage.incWordleLosses();
     } else {
       HapticFeedback.selectionClick();
+    }
+    // 항상 입력 필드에 다시 포커스 (결과 시에는 _ResultCard가 가려 자동 해제됨)
+    if (!won && !lost) {
       _focusNode.requestFocus();
     }
+  }
+
+  KeyEventResult _onResultKey(KeyEvent event) {
+    if (!(_won || _lost)) return KeyEventResult.ignored;
+    if (event is! KeyDownEvent) return KeyEventResult.ignored;
+    if (event.logicalKey == LogicalKeyboardKey.enter ||
+        event.logicalKey == LogicalKeyboardKey.numpadEnter ||
+        event.logicalKey == LogicalKeyboardKey.space) {
+      _load(random: true);
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
   }
 
   @override
@@ -315,11 +330,15 @@ class _WordleScreenState extends State<WordleScreen> {
               // ── 결과 ────────────────────────────────────────────────
               if (_won || _lost) ...[
                 const SizedBox(height: 8),
-                _ResultCard(
-                  won:    _won,
-                  target: _target,
-                  german: _targetGerman,
-                  onNew:  () => _load(random: true),
+                Focus(
+                  autofocus: true,
+                  onKeyEvent: (_, e) => _onResultKey(e),
+                  child: _ResultCard(
+                    won:    _won,
+                    target: _target,
+                    german: _targetGerman,
+                    onNew:  () => _load(random: true),
+                  ),
                 ),
               ] else ...[
                 // ── 입력 ────────────────────────────────────────────

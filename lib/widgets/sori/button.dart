@@ -98,10 +98,18 @@ class SoriButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final isLight = s.brightness == Brightness.light;
     final disabled = onTap == null;
     final color = destructive
         ? SoriColors.danger
         : (accent ?? SoriColors.primary);
+
+    // outlined·ghost용 텍스트 색: accent 미지정 시 light 한지 위 대비 보강
+    // (primary `#1F7A6B` 5.8:1 → primaryOnLight `#0E443B` 12.6:1).
+    final fgAccent = destructive
+        ? SoriColors.danger
+        : (accent ??
+            (isLight ? SoriColors.primaryOnLight : SoriColors.primaryOnDark));
 
     final (Color bg, Color fg, BoxBorder? border) = switch (variant) {
       SoriButtonVariant.filled => (
@@ -111,12 +119,12 @@ class SoriButton extends StatelessWidget {
       ),
       SoriButtonVariant.outlined => (
         Colors.transparent,
-        disabled ? s.textDim : color,
-        Border.all(color: disabled ? s.border : color.withValues(alpha: 0.6), width: 1.5),
+        disabled ? s.textDim : fgAccent,
+        Border.all(color: disabled ? s.border : fgAccent.withValues(alpha: 0.7), width: 1.5),
       ),
       SoriButtonVariant.ghost => (
         Colors.transparent,
-        disabled ? s.textDim : color,
+        disabled ? s.textDim : fgAccent,
         null,
       ),
     };
@@ -129,15 +137,19 @@ class SoriButton extends StatelessWidget {
           Icon(icon, size: _fontSize + 3, color: fg),
           const SizedBox(width: Spacing.sm),
         ],
-        Text(
-          label,
-          style: TextStyle(
-            fontFamily: 'Pretendard',
-            color: fg,
-            fontWeight: FontWeight.w700,
-            fontSize: _fontSize,
-            letterSpacing: -0.2,
-            height: 1.2,
+        Flexible(
+          child: Text(
+            label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              color: fg,
+              fontWeight: FontWeight.w700,
+              fontSize: _fontSize,
+              letterSpacing: -0.2,
+              height: 1.2,
+            ),
           ),
         ),
       ],
@@ -157,12 +169,24 @@ class SoriButton extends StatelessWidget {
 
     final wrapped = fullWidth ? SizedBox(width: double.infinity, child: box) : box;
 
-    if (disabled) return wrapped;
+    if (disabled) {
+      return Semantics(
+        button: true,
+        enabled: false,
+        label: label,
+        child: wrapped,
+      );
+    }
 
-    return SoriPressable(
-      onTap: onTap,
-      haptic: variant == SoriButtonVariant.filled ? SoriHaptic.light : SoriHaptic.selection,
-      child: wrapped,
+    return Semantics(
+      button: true,
+      enabled: true,
+      label: label,
+      child: SoriPressable(
+        onTap: onTap,
+        haptic: variant == SoriButtonVariant.filled ? SoriHaptic.light : SoriHaptic.selection,
+        child: wrapped,
+      ),
     );
   }
 }

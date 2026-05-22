@@ -15,7 +15,9 @@ class SoriCelebration {
   SoriCelebration._();
 
   /// 일회성 축하 입자 burst를 [Overlay]에 띄운다. 1.5초 후 스스로 사라진다.
+  /// `MediaQuery.disableAnimations`(prefers-reduced-motion)가 켜져 있으면 no-op.
   static void burst(BuildContext context, {Offset? origin, int particles = 30}) {
+    if (SoriMotion.reduceMotion(context)) return;
     final overlay = Overlay.maybeOf(context);
     if (overlay == null) return;
     final media = MediaQuery.maybeOf(context);

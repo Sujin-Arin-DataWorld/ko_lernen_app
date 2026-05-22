@@ -123,6 +123,21 @@ class SoriColors {
   // ── Dark mode brand raises (대비 위해 light에서 한 톤 위로) ──────────
   static const Color darkPrimary     = Color(0xFF4FB6A0);   // 녹청 다크에서 lift
   static const Color darkAccent      = Color(0xFFC77268);   // 석간주 다크에서 lift
+
+  // ── On-surface text accents (WCAG AA/AAA 보강) ──────────────────────
+  // primary `#1F7A6B` on lightSurface `#F1ECDC` ≈ 5.8:1 (AA fail for <18pt).
+  // primaryDark `#0E443B` on lightSurface ≈ 12.6:1 → outlined/ghost 텍스트에 사용.
+  static const Color primaryOnLight = primaryDark;          // alias for clarity
+  static const Color primaryOnDark  = darkPrimary;          // dark mode text-on-surface
+
+  // ── Celebration palette (입자/축하 모션 4색) ─────────────────────────
+  // SoriCelebration._palette에서 사용. 외부 토큰화로 테마 변경 시 일관 유지.
+  static const List<Color> celebrationPalette = [
+    tiger,    // 호랑이 주황
+    gold,     // 황
+    accent,   // 석간주 적
+    primary,  // 녹청
+  ];
 }
 
 /// **레거시 Teal 팔레트** — Firebase Remote Config 'palette_variant=teal' 시 사용.
@@ -252,4 +267,83 @@ class SoriMotion {
   /// Scale targets.
   static const double pressScale = 0.96;
   static const double bounceUp   = 1.15;
+
+  /// 사용자 시스템 "동작 줄이기(Reduce Motion)" 켜져 있는지.
+  ///
+  /// 켜져 있으면 Ken Burns·매화 입자·flying magpie·celebration 등
+  /// 장식 모션은 정적으로 떨어진다. WCAG 2.3.3 / iOS·Android 시스템 설정 존중.
+  static bool reduceMotion(BuildContext context) =>
+      MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+
+  /// reduceMotion 시 Duration.zero, 아니면 [d] 그대로.
+  /// `SoriEntrance(duration: SoriMotion.respect(ctx, slow))` 같은 패턴.
+  static Duration respect(BuildContext context, Duration d) =>
+      reduceMotion(context) ? Duration.zero : d;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// TEXT — Pretendard 중앙 TextStyle 토큰
+// ─────────────────────────────────────────────────────────────────────────
+/// 모든 Sori 컴포넌트가 따르는 TextStyle 프리셋.
+///
+/// 기존 컴포넌트는 `TextStyle(fontFamily: 'Pretendard', ...)` 하드코딩.
+/// 점진 마이그레이션 — 신규 텍스트는 [SoriTextTheme.of(ctx).body] 등 사용.
+///
+/// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
+/// 사이즈·weight·letter-spacing·height 만 중앙화.
+class SoriTextTheme {
+  final SoriSurfaces _s;
+
+  const SoriTextTheme._(this._s);
+
+  static SoriTextTheme of(BuildContext context) =>
+      SoriTextTheme._(SoriSurfaces.of(context));
+
+  // ── Display / Heading ────────────────────────────────────────────────
+  TextStyle get display => _base(
+        fontSize: 32, weight: FontWeight.w800, letterSpacing: -0.6, height: 1.15,
+      );
+  TextStyle get h1 => _base(
+        fontSize: 24, weight: FontWeight.w800, letterSpacing: -0.4, height: 1.2,
+      );
+  TextStyle get h2 => _base(
+        fontSize: 20, weight: FontWeight.w800, letterSpacing: -0.3, height: 1.25,
+      );
+  TextStyle get h3 => _base(
+        fontSize: 17, weight: FontWeight.w700, letterSpacing: -0.2, height: 1.3,
+      );
+
+  // ── Body ─────────────────────────────────────────────────────────────
+  TextStyle get body => _base(
+        fontSize: 15, weight: FontWeight.w500, letterSpacing: -0.1, height: 1.45,
+      );
+  TextStyle get bodySmall => _base(
+        fontSize: 13.5, weight: FontWeight.w500, letterSpacing: -0.05, height: 1.4,
+        color: _s.textMuted,
+      );
+
+  // ── Caption / Label ──────────────────────────────────────────────────
+  TextStyle get caption => _base(
+        fontSize: 12, weight: FontWeight.w500, letterSpacing: 0, height: 1.35,
+        color: _s.textMuted,
+      );
+  TextStyle get label => _base(
+        fontSize: 12.5, weight: FontWeight.w700, letterSpacing: 0.2, height: 1.2,
+      );
+
+  TextStyle _base({
+    required double fontSize,
+    required FontWeight weight,
+    required double letterSpacing,
+    required double height,
+    Color? color,
+  }) =>
+      TextStyle(
+        fontFamily: 'Pretendard',
+        fontSize: fontSize,
+        fontWeight: weight,
+        letterSpacing: letterSpacing,
+        height: height,
+        color: color ?? _s.text,
+      );
 }

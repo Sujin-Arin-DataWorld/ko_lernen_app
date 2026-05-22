@@ -107,21 +107,60 @@ class _SoriPressableState extends State<SoriPressable> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: widget.behavior,
-      onTapDown:   (_) => _down(),
-      onTapUp:     (_) => _release(),
-      onTapCancel: _release,
-      onTap:       _onTap,
-      onLongPress: widget.onLongPress != null ? _onLongPress : null,
-      child: AnimatedBuilder(
-        animation: _ctrl,
-        builder: (_, child) => Transform.scale(
-          scale: _ctrl.value,
-          alignment: widget.alignment,
-          child: child,
-        ),
-        child: widget.child,
+    final enabled = widget.onTap != null || widget.onLongPress != null;
+
+    return Focus(
+      canRequestFocus: enabled,
+      child: Builder(
+        builder: (ctx) {
+          final focused = Focus.of(ctx).hasFocus;
+          return MouseRegion(
+            cursor: enabled
+                ? SystemMouseCursors.click
+                : SystemMouseCursors.basic,
+            child: GestureDetector(
+              behavior: widget.behavior,
+              onTapDown:   (_) => _down(),
+              onTapUp:     (_) => _release(),
+              onTapCancel: _release,
+              onTap:       _onTap,
+              onLongPress: widget.onLongPress != null ? _onLongPress : null,
+              child: AnimatedBuilder(
+                animation: _ctrl,
+                builder: (_, child) {
+                  final scaled = Transform.scale(
+                    scale: _ctrl.value,
+                    alignment: widget.alignment,
+                    child: child,
+                  );
+                  if (!focused) return scaled;
+                  // Keyboard focus indicator (web/desktop) — 살짝 띈 ring.
+                  return Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      scaled,
+                      Positioned(
+                        left: -3, top: -3, right: -3, bottom: -3,
+                        child: IgnorePointer(
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(SoriRadius.md),
+                              border: Border.all(
+                                color: SoriColors.primary.withValues(alpha: 0.55),
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+                child: widget.child,
+              ),
+            ),
+          );
+        },
       ),
     );
   }

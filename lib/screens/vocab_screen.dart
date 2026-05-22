@@ -13,6 +13,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/pressable.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -224,10 +225,13 @@ class _VocabScreenState extends State<VocabScreen> {
       if (_mode == 'due') {
         return Scaffold(
           appBar: AppBar(title: Text(t.screenVocabTitle)),
-          body: AppEmpty(
-            message: t.vocabDueEmpty,
-            actionLabel: t.vocabDueEmptyAction,
-            onAction: () => _setMode('all'),
+          body: SoriEmptyState(
+            asset: 'assets/illustrations/empty/celebrate_complete.png',
+            icon: Icons.celebration_outlined,
+            title: t.vocabDueEmptyTitle,
+            body: t.vocabDueEmptyBody,
+            ctaLabel: t.vocabDueEmptyAction,
+            onCta: () => _setMode('all'),
           ),
         );
       }
@@ -235,19 +239,22 @@ class _VocabScreenState extends State<VocabScreen> {
       if (_mode == 'favorites') {
         return Scaffold(
           appBar: AppBar(title: Text(t.screenVocabTitle)),
-          body: AppEmpty(
-            message: t.vocabEmptyFavorites,
-            actionLabel: t.vocabModeAll,
-            onAction: () => _setMode('all'),
+          body: SoriEmptyState(
+            icon: Icons.star_outline_rounded,
+            title: t.vocabEmptyFavorites,
+            ctaLabel: t.vocabModeAll,
+            onCta: () => _setMode('all'),
+            accent: SoriColors.warning,
           ),
         );
       }
       return Scaffold(
         appBar: AppBar(title: Text(t.screenVocabTitle)),
-        body: AppEmpty(
-          message: t.emptyVocab,
-          actionLabel: t.filterOpenBtn,
-          onAction: _showFilterSheet,
+        body: SoriEmptyState(
+          icon: Icons.tune_rounded,
+          title: t.emptyVocab,
+          ctaLabel: t.filterOpenBtn,
+          onCta: _showFilterSheet,
         ),
       );
     }

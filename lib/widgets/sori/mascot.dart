@@ -162,14 +162,34 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
     }
   }
 
+  String get _semanticsLabel {
+    final kindLabel = _isMagpie ? '까치' : '호랑이';
+    final emotionLabel = switch (widget.emotion) {
+      MascotEmotion.celebrate => ', 축하',
+      MascotEmotion.worry     => ', 걱정',
+      MascotEmotion.sleepy    => ', 졸림',
+      MascotEmotion.surprised => ', 놀람',
+      MascotEmotion.smile     => ', 미소',
+      MascotEmotion.neutral   => '',
+    };
+    return '마스코트 $kindLabel$emotionLabel';
+  }
+
   @override
   Widget build(BuildContext context) {
     final motion = _motion;
-    if (motion == null) return _buildPose(0);
+    final pose = motion == null
+        ? _buildPose(0)
+        : AnimatedBuilder(
+            animation: motion,
+            builder: (_, __) => _buildPose(motion.value),
+          );
 
-    return AnimatedBuilder(
-      animation: motion,
-      builder: (_, __) => _buildPose(motion.value),
+    return Semantics(
+      label: _semanticsLabel,
+      image: true,
+      excludeSemantics: true,
+      child: pose,
     );
   }
 

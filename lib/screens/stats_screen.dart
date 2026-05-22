@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../services/storage_service.dart';
@@ -28,6 +30,34 @@ class StatsScreen extends StatelessWidget {
         ? 0
         : (Storage.wordleWins * 100 ~/ wordleTotal);
 
+    // 첫 진입 감지 — XP 0 + 시나리오 0 + 모든 퀴즈 카운트 0.
+    final isFirstEntry = Storage.xp == 0 &&
+        Storage.completedScenarios.isEmpty &&
+        vokTotal == 0 &&
+        chosungTotal == 0 &&
+        wordleTotal == 0 &&
+        Storage.streakDays == 0;
+
+    if (isFirstEntry) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            t.statsHeader,
+            style: const TextStyle(fontWeight: FontWeight.w800),
+          ),
+        ),
+        body: SoriEmptyState(
+          asset: 'assets/illustrations/empty/study_room_waiting.png',
+          icon: Icons.auto_stories_outlined,
+          title: t.statsFirstEntryTitle,
+          body: t.statsFirstEntryBody,
+          ctaLabel: t.statsFirstEntryCta,
+          onCta: () => Navigator.of(context).pushNamed('/scenarios'),
+          illustrationMaxHeight: 220,
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -38,6 +68,13 @@ class StatsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
         children: [
+          // ── 한옥 마당 헤더 (성취 / 황혼 톤) ──
+          const HanokHeader(
+            asset: 'assets/illustrations/hanok/achievements.png',
+            fallbackIcon: Icons.emoji_events_outlined,
+          ),
+          const SizedBox(height: 12),
+
           // ── 친구들 hero (호랑이 + 갓 쓴 까치 — 함께 학습) ──
           const Center(
             child: SizedBox(

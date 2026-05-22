@@ -859,6 +859,48 @@ abstract class AppL10n {
   /// **'Antwort: {word}'**
   String chosungAnswerLabel(Object word);
 
+  /// No description provided for @chosungRoundDoneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde abgeschlossen!'**
+  String get chosungRoundDoneTitle;
+
+  /// No description provided for @chosungRoundAccuracy.
+  ///
+  /// In de, this message translates to:
+  /// **'{percent}% richtig'**
+  String chosungRoundAccuracy(int percent);
+
+  /// No description provided for @chosungRoundAvgTime.
+  ///
+  /// In de, this message translates to:
+  /// **'Ø {seconds}s pro Frage'**
+  String chosungRoundAvgTime(Object seconds);
+
+  /// No description provided for @chosungRoundContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitermachen'**
+  String get chosungRoundContinue;
+
+  /// No description provided for @chosungRoundLevelUp.
+  ///
+  /// In de, this message translates to:
+  /// **'Stark! Probier Stufe {level} aus.'**
+  String chosungRoundLevelUp(Object level);
+
+  /// No description provided for @chosungRoundKeepLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Schöne Übung — bleib bei Stufe {level}.'**
+  String chosungRoundKeepLevel(Object level);
+
+  /// No description provided for @chosungRoundReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe Stufe {level} ruhig nochmal.'**
+  String chosungRoundReview(Object level);
+
   /// No description provided for @statsTitle.
   ///
   /// In de, this message translates to:
@@ -1206,6 +1248,66 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bald verfügbar 🚧'**
   String get scenariosEmpty;
+
+  /// No description provided for @scenariosEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bald verfügbar'**
+  String get scenariosEmptyTitle;
+
+  /// No description provided for @scenariosEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir bereiten neue Szenarien mit Sorgfalt vor.'**
+  String get scenariosEmptyBody;
+
+  /// No description provided for @scenariosLoadFailedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hmm, etwas ist schiefgelaufen'**
+  String get scenariosLoadFailedTitle;
+
+  /// No description provided for @statsFirstEntryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Reise beginnt'**
+  String get statsFirstEntryTitle;
+
+  /// No description provided for @statsFirstEntryBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Starte ein Szenario — danach füllt sich diese Seite mit deinem Fortschritt.'**
+  String get statsFirstEntryBody;
+
+  /// No description provided for @statsFirstEntryCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Erstes Szenario starten'**
+  String get statsFirstEntryCta;
+
+  /// No description provided for @settingsOfflineTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Verbindung'**
+  String get settingsOfflineTitle;
+
+  /// No description provided for @settingsOfflineBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Sync braucht eine aktive Internetverbindung. Du kannst es später erneut versuchen.'**
+  String get settingsOfflineBody;
+
+  /// No description provided for @vocabDueEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute alles erledigt!'**
+  String get vocabDueEmptyTitle;
+
+  /// No description provided for @vocabDueEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast deine fälligen Karten geschafft. Komm morgen wieder oder lerne neue Wörter.'**
+  String get vocabDueEmptyBody;
 
   /// No description provided for @moduleScenariosTitle.
   ///

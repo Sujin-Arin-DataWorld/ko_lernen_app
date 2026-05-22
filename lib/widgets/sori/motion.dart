@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'tokens.dart';
+
 /// **Sori Motion** — 정적인 화면에 생동감을 부여하는 재사용 애니메이션 래퍼.
 ///
 /// - [SoriEntrance] — 화면 진입 시 child가 fade + slide-up + 살짝 scale로 등장.
@@ -60,6 +62,7 @@ class _SoriEntranceState extends State<SoriEntrance>
 
   @override
   Widget build(BuildContext context) {
+    if (SoriMotion.reduceMotion(context)) return widget.child;
     return AnimatedBuilder(
       animation: _c,
       builder: (_, child) {
@@ -128,6 +131,7 @@ class _SoriKenBurnsState extends State<SoriKenBurns>
 
   @override
   Widget build(BuildContext context) {
+    if (SoriMotion.reduceMotion(context)) return widget.child;
     return AnimatedBuilder(
       animation: _c,
       builder: (_, child) {

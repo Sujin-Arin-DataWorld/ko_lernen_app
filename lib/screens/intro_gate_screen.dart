@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/hanok/gate_art.dart';
+import '../widgets/sori/tokens.dart';
 import '../motion/transitions.dart';
 import 'home_screen.dart';
 import 'onboarding_level_screen.dart';
@@ -235,14 +236,11 @@ class _MagpiePainter extends CustomPainter {
   final double flap;
   _MagpiePainter({required this.flap});
 
-  static const _black = Color(0xFF15151A);
-  static const _white = Color(0xFFF4F4F4);
-
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width;
     final h = size.height;
-    final black = Paint()..color = _black;
+    final black = Paint()..color = SoriColors.darkBg;
 
     // 꼬리
     canvas.drawPath(
@@ -284,7 +282,7 @@ class _MagpiePainter extends CustomPainter {
         width: w * 0.20,
         height: h * 0.17,
       ),
-      Paint()..color = _white,
+      Paint()..color = SoriColors.lightBg,
     );
     // 머리
     canvas.drawCircle(Offset(w * 0.67, h * 0.44), w * 0.13, black);
@@ -293,7 +291,7 @@ class _MagpiePainter extends CustomPainter {
       Offset(w * 0.54, h * 0.33),
       Offset(w * 0.82, h * 0.33),
       Paint()
-        ..color = _black
+        ..color = SoriColors.darkBg
         ..strokeWidth = w * 0.05
         ..strokeCap = StrokeCap.round,
     );
