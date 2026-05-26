@@ -81,21 +81,26 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/data/scenarios.json` — 회화 시나리오
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
 
-### 에셋 (2026-05-25 정리 후)
+### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
 - `assets/icons/icon-192.png` — pubspec 등록된 192 buffer
 - `assets/illustrations/hanok/` — 한옥 공간 자산 (모두 사용 중):
   - `madang(light).png` / `madang(dark).png` — 홈 배경 (낮/밤)
   - `gate_door_left.png` / `gate_door_right.png` / `gate_frame.png` — IntroGateScreen GateArt 합성
+  - `gate.png` — 한옥 솟을대문 단일 일러스트 (홈페이지 final-cta 배경, 앱은 미래 사용)
+  - `welcome-hero.png` — 호랑이+어깨 까치+단청 점 통합 일러스트 (앱 미래 사용, 홈페이지 mascot-strip는 docs/assets/ 사본 사용)
   - `porch.png` — Chosung/Wordle 80px banner
-  - `study.png` — Vocab/Grammar 80px banner (신규 `study_classroom.png`/`study_scholar.png`가 들어오면 자동 교체, 둘 다 errorBuilder fallback으로 study.png 유지)
+  - `study.png` — Vocab/Grammar 80px banner (신규 `study_classroom.png`/`study_scholar.png`가 들어오면 자동 교체)
   - `calligraphy.png` — Hangul 화면 헤더
-- `assets/illustrations/mascot/` — 분리 포즈 PNG (Mascot 위젯 소스)
-- `assets/illustrations/scenes/` — 시나리오 backdrop 5종 (Jin이 PNG 추가 시 자동 적용). `_backdropKey` 매핑은 `scenario_player_screen.dart`에 이미 완료
-- `assets/illustrations/empty/` — 빈 상태 일러스트 3종 (sleeping_tiger_b2, celebrate_complete, study_room_waiting) — Jin 작업
-- `assets/illustrations/error/` — 오류 상태 일러스트 2종 (offline_lantern, lost_magpie) — Jin 작업
-- `docs/store/feature_graphic_v1_draft.png` — Play Store feature graphic 임시본 (재생성 권장)
-- ⚠️ **2026-05-25 정리**: hanok/ 중복 마스코트 7장 + 미참조 5장(`tiger_smile`, `tigerbasic1`, `magpie_perched.v2`, `welcome-hero`, `gate.png`) + icons/icon-512.png 삭제 (~17MB 절감). 이전 코드가 참조하던 `welcome-hero.png`, `gate.png`는 모두 분리 자산/CustomPainter로 이전 완료.
+- `assets/illustrations/mascot/` — 분리 포즈 PNG (Mascot 위젯 소스, 11종):
+  - 호랑이 7: `idle`, `blink`, `happy`, `celebrate`, `sad`, `neutral` (← tigerbasic1 복원), `smile` (← tiger_smile 복원)
+  - 까치 5: `perched`, `wingup`, `wingdown`, `celebrate`, `perched_alt` (← v2 복원, fallback 다양성용)
+- `assets/illustrations/scenes/` — 시나리오 backdrop 5종 (Jin 작업)
+- `assets/illustrations/empty/` — 빈 상태 일러스트 3종 (Jin 작업)
+- `assets/illustrations/error/` — 오류 상태 일러스트 2종 (Jin 작업)
+- `docs/store/feature_graphic_v1_draft.png` — Play Store feature graphic 임시본
+- `docs/assets/` — 홈페이지(hangul-sori.com) 자산: `logo.png`, `tiger.png`, `magpie.png`, `tiger_celebrate.png`, `favicon.png`, `welcome-hero.png` (mascot-strip), `gate.png` (final-cta 배경)
+- ⚠️ **2026-05-25 → 26 변경 흐름**: 중복 마스코트 7장 + icon-512는 영구 삭제. 미참조 5장은 시각 검수 후 모두 복원 — tigerbasic1/tiger_smile/welcome-hero/gate는 적재적소 매핑(neutral/smile emotion + 홈페이지 hero/CTA), magpie_perched.v2는 fallback 다양성용 보존.
 
 ---
 

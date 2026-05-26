@@ -351,42 +351,19 @@
   .f-listening { --feature-accent: var(--primary); }
   .f-offline   { --feature-accent: var(--gold); }
 
-  /* ─── Mascot strip — tiger + magpie hero ─────────────────────────────── */
+  /* ─── Mascot strip — unified hero (tiger + magpie + dancheong dots) ──── */
   .mascot-strip {
     text-align: center;
     padding: 64px 0;
     position: relative;
   }
-  .mascot-row {
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-  .mascot {
-    transition: transform 0.3s;
-  }
-  .mascot-tiger {
-    width: clamp(140px, 28vw, 220px);
+  .mascot-hero {
+    width: clamp(220px, 50vw, 360px);
     height: auto;
-    transform-origin: bottom center;
-    animation: tigerBreath 5s ease-in-out infinite;
-  }
-  .mascot-magpie {
-    width: clamp(70px, 14vw, 110px);
-    height: auto;
-    margin-bottom: 12px;
-    animation: magpieBob 3.6s ease-in-out infinite;
-  }
-  @keyframes tigerBreath {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.03); }
-  }
-  @keyframes magpieBob {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-6px); }
+    margin: 0 auto 24px;
+    display: block;
+    animation: gentleBreath 5s ease-in-out infinite;
+    filter: drop-shadow(0 8px 24px color-mix(in srgb, var(--tiger) 22%, transparent));
   }
   .mascot-caption {
     color: var(--fg-muted);
@@ -426,11 +403,24 @@
     font-weight: 700;
   }
 
-  /* ─── Final CTA ──────────────────────────────────────────────────────── */
+  /* ─── Final CTA — with subtle hanok gate backdrop ────────────────────── */
   .final-cta {
     text-align: center;
-    padding: 80px 0;
+    padding: 96px 0 80px;
+    position: relative;
+    overflow: hidden;
   }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('assets/gate.png') center top / clamp(300px, 60vw, 480px) auto no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+  }
+  :root[data-theme="light"] .final-cta::before { opacity: 0.18; }
+  .final-cta > .container { position: relative; z-index: 1; }
   .final-cta h2 {
     font-size: clamp(28px, 5vw, 40px);
     font-weight: 900;
@@ -470,7 +460,7 @@
 
   /* ─── Reduce motion respect ──────────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
-    .hero-logo, .mascot-tiger, .mascot-magpie {
+    .hero-logo, .mascot-hero {
       animation: none;
     }
   }
@@ -656,13 +646,12 @@
     </div>
   </section>
 
-  <!-- ─── Mascot strip ──────────────────────────────────────────────── -->
+  <!-- ─── Mascot strip — unified hero (tiger + perched magpie) ──────── -->
   <section class="mascot-strip">
     <div class="container">
-      <div class="mascot-row">
-        <img src="assets/tiger.png" alt="Korean tiger guide" class="mascot mascot-tiger">
-        <img src="assets/magpie.png" alt="Magpie with gat hat" class="mascot mascot-magpie">
-      </div>
+      <img src="assets/welcome-hero.png"
+           alt="Korean tiger with magpie on shoulder, surrounded by dancheong dots"
+           class="mascot-hero">
       <p class="mascot-caption"
          data-de="Der <span>Tiger</span> hütet deinen Lernpfad. Die <b>Elster</b> bringt gute Nachrichten."
          data-en="The <span>tiger</span> guards your learning path. The <b>magpie</b> brings good news."

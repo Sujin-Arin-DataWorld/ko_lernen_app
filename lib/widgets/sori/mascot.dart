@@ -97,6 +97,8 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
   static const _tigerThinking =
       'assets/illustrations/mascot/tiger_thinking.png';
   static const _tigerSleepy = 'assets/illustrations/mascot/tiger_sleepy.png';
+  static const _tigerSmile = 'assets/illustrations/mascot/tiger_smile.png';
+  static const _tigerNeutral = 'assets/illustrations/mascot/tiger_neutral.png';
 
   static const _magpiePerched =
       'assets/illustrations/mascot/magpie_perched.png';
@@ -173,10 +175,20 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
         return _tigerThinking;
       case MascotEmotion.surprised:
         return _tigerHappy;
-      case MascotEmotion.neutral:
       case MascotEmotion.smile:
-        if (widget.animate && t > 0.82 && t < 0.90) return _tigerBlink;
-        return _tigerIdle;
+        // 부드러운 미소 — animate 시 깜빡임 + 가끔 idle 프레임으로 다양성.
+        if (widget.animate) {
+          if (t > 0.82 && t < 0.90) return _tigerBlink;
+          if (t > 0.40 && t < 0.46) return _tigerIdle;
+        }
+        return _tigerSmile;
+      case MascotEmotion.neutral:
+        // 중립 정면 — animate 시 가끔 깜빡임 + idle 프레임 교차.
+        if (widget.animate) {
+          if (t > 0.82 && t < 0.90) return _tigerBlink;
+          if (t > 0.40 && t < 0.46) return _tigerIdle;
+        }
+        return _tigerNeutral;
     }
   }
 
