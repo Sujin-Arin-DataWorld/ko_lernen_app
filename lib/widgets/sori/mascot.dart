@@ -93,6 +93,10 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
   static const _tigerCelebrate =
       'assets/illustrations/mascot/tiger_celebrate.png';
   static const _tigerSad = 'assets/illustrations/mascot/tiger_sad.png';
+  // Optional add-on poses (fallback to idle/blink if asset missing — handled by Image errorBuilder).
+  static const _tigerThinking =
+      'assets/illustrations/mascot/tiger_thinking.png';
+  static const _tigerSleepy = 'assets/illustrations/mascot/tiger_sleepy.png';
 
   static const _magpiePerched =
       'assets/illustrations/mascot/magpie_perched.png';
@@ -101,6 +105,7 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
       'assets/illustrations/mascot/magpie_wingdown.png';
   static const _magpieCelebrate =
       'assets/illustrations/mascot/magpie_celebrate.png';
+  static const _magpieWorry = 'assets/illustrations/mascot/magpie_worry.png';
 
   AnimationController? _motion;
 
@@ -138,12 +143,23 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
 
   String _assetFor(double t) {
     if (_isMagpie) {
-      if (widget.emotion == MascotEmotion.celebrate) return _magpieCelebrate;
-      if (widget.animate) {
-        final flap = math.sin(t * math.pi * 10);
-        return flap >= 0 ? _magpieWingUp : _magpieWingDown;
+      switch (widget.emotion) {
+        case MascotEmotion.celebrate:
+          return _magpieCelebrate;
+        case MascotEmotion.worry:
+          return _magpieWorry;
+        case MascotEmotion.sleepy:
+          return _magpiePerched;
+        case MascotEmotion.thinking:
+        case MascotEmotion.surprised:
+        case MascotEmotion.neutral:
+        case MascotEmotion.smile:
+          if (widget.animate) {
+            final flap = math.sin(t * math.pi * 10);
+            return flap >= 0 ? _magpieWingUp : _magpieWingDown;
+          }
+          return _magpiePerched;
       }
-      return _magpiePerched;
     }
 
     switch (widget.emotion) {
@@ -152,7 +168,9 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
       case MascotEmotion.worry:
         return _tigerSad;
       case MascotEmotion.sleepy:
-        return _tigerBlink;
+        return _tigerSleepy;
+      case MascotEmotion.thinking:
+        return _tigerThinking;
       case MascotEmotion.surprised:
         return _tigerHappy;
       case MascotEmotion.neutral:
@@ -169,6 +187,7 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
       MascotEmotion.worry     => ', 걱정',
       MascotEmotion.sleepy    => ', 졸림',
       MascotEmotion.surprised => ', 놀람',
+      MascotEmotion.thinking  => ', 생각 중',
       MascotEmotion.smile     => ', 미소',
       MascotEmotion.neutral   => '',
     };
@@ -255,4 +274,4 @@ enum MascotKind {
   minsu,
 }
 
-enum MascotEmotion { neutral, smile, worry, celebrate, sleepy, surprised }
+enum MascotEmotion { neutral, smile, worry, celebrate, sleepy, surprised, thinking }

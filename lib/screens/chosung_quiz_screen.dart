@@ -7,7 +7,9 @@ import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -149,6 +151,13 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
         _hint = false;
       });
       _ctrl.clear();
+      // 라운드 종료 — 정확도 ≥80% 때만 단청 별 burst (과한 축하 자제).
+      final accuracy = _roundCorrect / _roundSize;
+      if (accuracy >= 0.8) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) SoriCelebration.burst(context);
+        });
+      }
       return;
     }
     setState(() {
@@ -399,6 +408,13 @@ class _RoundSummaryCard extends StatelessWidget {
             ? SoriColors.warning
             : SoriColors.danger;
 
+    // 정확도에 따른 mascot emotion — 모두 PNG가 존재하는 4가지로만 매핑.
+    final mascotEmotion = accuracy >= 80
+        ? MascotEmotion.celebrate
+        : accuracy >= 50
+            ? MascotEmotion.surprised
+            : MascotEmotion.worry;
+
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: accent,
@@ -407,6 +423,14 @@ class _RoundSummaryCard extends StatelessWidget {
       padding: const EdgeInsets.all(Spacing.xl),
       child: Column(
         children: [
+          // 호랑이가 정확도에 맞춰 축하·격려·아쉬움 표정으로 등장.
+          Mascot(
+            kind: MascotKind.tiger,
+            emotion: mascotEmotion,
+            size: 88,
+            animate: true,
+          ),
+          const SizedBox(height: Spacing.sm),
           Text(
             t.chosungRoundDoneTitle,
             style: TextStyle(

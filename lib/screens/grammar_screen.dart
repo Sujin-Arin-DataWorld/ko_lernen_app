@@ -128,14 +128,21 @@ class _GrammarScreenState extends State<GrammarScreen> {
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
-              // ── 사랑방 banner (한지문 + 대나무 + 서안) ──
+              // ── 학자 책상 banner (한지 책 펼침 + 붓·벼루·인장). 신규
+              //    study_scholar.png가 들어오면 자동 교체, 없으면 study.png fallback. ──
               ClipRRect(
                 borderRadius: BorderRadius.circular(14),
                 child: Image.asset(
-                  'assets/illustrations/hanok/study.png',
+                  'assets/illustrations/hanok/study_scholar.png',
                   width: double.infinity,
                   height: 80,
                   fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Image.asset(
+                    'assets/illustrations/hanok/study.png',
+                    width: double.infinity,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(height: Spacing.md),

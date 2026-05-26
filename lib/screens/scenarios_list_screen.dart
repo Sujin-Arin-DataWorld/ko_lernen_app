@@ -78,7 +78,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
       return Scaffold(
         appBar: AppBar(title: Text(t.scenariosListTitle)),
         body: SoriEmptyState(
-          asset: 'assets/illustrations/error/lost_magpie.png',
+          asset: 'assets/illustrations/mascot/magpie_perched.png',
           icon: Icons.signal_wifi_statusbar_null_rounded,
           title: t.scenariosLoadFailedTitle,
           body: ScenarioLoader.lastError,
@@ -474,7 +474,7 @@ class _EmptyLevelCard extends StatelessWidget {
             width: 56,
             height: 56,
             child: Image.asset(
-              'assets/illustrations/empty/sleeping_tiger_b2.png',
+              'assets/illustrations/mascot/tiger_blink.png',
               fit: BoxFit.contain,
               filterQuality: FilterQuality.medium,
               errorBuilder: (_, __, ___) => Container(

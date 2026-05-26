@@ -601,6 +601,36 @@ abstract class AppL10n {
   /// **'Version {v}'**
   String settingsVersion(Object v);
 
+  /// No description provided for @settingsPrivacyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenschutz'**
+  String get settingsPrivacyTitle;
+
+  /// No description provided for @settingsPrivacySubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'URL kopieren'**
+  String get settingsPrivacySubtitle;
+
+  /// No description provided for @settingsPrivacyCopied.
+  ///
+  /// In de, this message translates to:
+  /// **'URL kopiert: {url}'**
+  String settingsPrivacyCopied(Object url);
+
+  /// No description provided for @settingsLicensesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Open-Source-Lizenzen'**
+  String get settingsLicensesTitle;
+
+  /// No description provided for @settingsLicensesSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Verwendete Bibliotheken'**
+  String get settingsLicensesSubtitle;
+
   /// No description provided for @statsHeader.
   ///
   /// In de, this message translates to:
@@ -1590,6 +1620,246 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Noch keine Favoriten ⭐\nMarkiere schwierige Wörter mit dem Stern'**
   String get vocabEmptyFavorites;
+
+  /// No description provided for @listeningTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören'**
+  String get listeningTitle;
+
+  /// No description provided for @listeningSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hör ein Szenario in echtem Tempo'**
+  String get listeningSubtitle;
+
+  /// No description provided for @listeningSelectScenario.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenario wählen'**
+  String get listeningSelectScenario;
+
+  /// No description provided for @listeningSpeedLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Tempo'**
+  String get listeningSpeedLabel;
+
+  /// No description provided for @listeningSubtitleLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Untertitel'**
+  String get listeningSubtitleLabel;
+
+  /// No description provided for @listeningSubtitleKo.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanisch'**
+  String get listeningSubtitleKo;
+
+  /// No description provided for @listeningSubtitleNative.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung'**
+  String get listeningSubtitleNative;
+
+  /// No description provided for @listeningSubtitleBoth.
+  ///
+  /// In de, this message translates to:
+  /// **'Beides'**
+  String get listeningSubtitleBoth;
+
+  /// No description provided for @listeningSubtitleOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus'**
+  String get listeningSubtitleOff;
+
+  /// No description provided for @listeningReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholen'**
+  String get listeningReplay;
+
+  /// No description provided for @listeningGotIt.
+  ///
+  /// In de, this message translates to:
+  /// **'Verstanden'**
+  String get listeningGotIt;
+
+  /// No description provided for @listeningPrev.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück'**
+  String get listeningPrev;
+
+  /// No description provided for @listeningNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get listeningNext;
+
+  /// No description provided for @listeningProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{i}/{n}'**
+  String listeningProgress(int i, int n);
+
+  /// No description provided for @listeningCompleteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Geschafft!'**
+  String get listeningCompleteTitle;
+
+  /// No description provided for @listeningCompleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Zeilen gehört · +{xp} XP'**
+  String listeningCompleteBody(int n, int xp);
+
+  /// No description provided for @listeningPickFirst.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle oben ein Szenario aus, um zu starten.'**
+  String get listeningPickFirst;
+
+  /// No description provided for @listeningEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Szenarien'**
+  String get listeningEmptyTitle;
+
+  /// No description provided for @listeningEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sobald neue Szenarien geladen sind, kannst du sie hier anhören.'**
+  String get listeningEmptyBody;
+
+  /// No description provided for @kkeunmariTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortkette'**
+  String get kkeunmariTitle;
+
+  /// No description provided for @kkeunmariSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Letzte Silbe → nächstes Wort'**
+  String get kkeunmariSubtitle;
+
+  /// No description provided for @kkeunmariYourTurn.
+  ///
+  /// In de, this message translates to:
+  /// **'Du bist dran'**
+  String get kkeunmariYourTurn;
+
+  /// No description provided for @kkeunmariTigerTurn.
+  ///
+  /// In de, this message translates to:
+  /// **'Tiger denkt …'**
+  String get kkeunmariTigerTurn;
+
+  /// No description provided for @kkeunmariStartHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Beginne mit »{syl}«'**
+  String kkeunmariStartHint(Object syl);
+
+  /// No description provided for @kkeunmariInputHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort auf Koreanisch …'**
+  String get kkeunmariInputHint;
+
+  /// No description provided for @kkeunmariSubmit.
+  ///
+  /// In de, this message translates to:
+  /// **'Senden'**
+  String get kkeunmariSubmit;
+
+  /// No description provided for @kkeunmariNotInPool.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort nicht in der Liste'**
+  String get kkeunmariNotInPool;
+
+  /// No description provided for @kkeunmariWrongStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Muss mit »{syl}« anfangen'**
+  String kkeunmariWrongStart(Object syl);
+
+  /// No description provided for @kkeunmariAlreadyUsed.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereits genutzt'**
+  String get kkeunmariAlreadyUsed;
+
+  /// No description provided for @kkeunmariTimeUp.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeit abgelaufen!'**
+  String get kkeunmariTimeUp;
+
+  /// No description provided for @kkeunmariDeadEnd.
+  ///
+  /// In de, this message translates to:
+  /// **'한방단어 — die Kette endet hier'**
+  String get kkeunmariDeadEnd;
+
+  /// No description provided for @kkeunmariChainLength.
+  ///
+  /// In de, this message translates to:
+  /// **'Kette: {n}'**
+  String kkeunmariChainLength(int n);
+
+  /// No description provided for @kkeunmariFinalScore.
+  ///
+  /// In de, this message translates to:
+  /// **'+{xp} XP'**
+  String kkeunmariFinalScore(int xp);
+
+  /// No description provided for @kkeunmariPlayAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Nochmal'**
+  String get kkeunmariPlayAgain;
+
+  /// No description provided for @kkeunmariBackHome.
+  ///
+  /// In de, this message translates to:
+  /// **'Startseite'**
+  String get kkeunmariBackHome;
+
+  /// No description provided for @kkeunmariTimerSeconds.
+  ///
+  /// In de, this message translates to:
+  /// **'{n}s'**
+  String kkeunmariTimerSeconds(int n);
+
+  /// No description provided for @kkeunmariResultTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiel vorbei'**
+  String get kkeunmariResultTitle;
+
+  /// No description provided for @kkeunmariResultBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast {n} Wörter verkettet.'**
+  String kkeunmariResultBody(int n);
+
+  /// No description provided for @gameKkeunmariTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortkette'**
+  String get gameKkeunmariTitle;
+
+  /// No description provided for @gameKkeunmariDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Letzte Silbe → nächstes Wort'**
+  String get gameKkeunmariDesc;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

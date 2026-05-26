@@ -188,12 +188,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: Text(t.settingsVersion(_appVersion())),
             subtitle: const Text('Made with ❤️ in Germany'),
           ),
+          ListTile(
+            leading: const Icon(Icons.privacy_tip_outlined),
+            title: Text(t.settingsPrivacyTitle),
+            subtitle: Text(t.settingsPrivacySubtitle),
+            trailing: const Icon(Icons.copy_rounded, size: 18),
+            onTap: _copyPrivacyUrl,
+          ),
+          ListTile(
+            leading: const Icon(Icons.description_outlined),
+            title: Text(t.settingsLicensesTitle),
+            subtitle: Text(t.settingsLicensesSubtitle),
+            trailing: const Icon(Icons.chevron_right_rounded),
+            onTap: () => showLicensePage(
+              context: context,
+              applicationName: 'Hangul Sori',
+              applicationVersion: _appVersion(),
+              applicationLegalese: '© 2026 Hangul Sori',
+            ),
+          ),
         ],
       ),
     );
   }
 
+  static const String _privacyUrl = 'https://hangul-sori.com/privacy.html';
+
   String _appVersion() => '1.0.1';
+
+  Future<void> _copyPrivacyUrl() async {
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    await Clipboard.setData(const ClipboardData(text: _privacyUrl));
+    HapticFeedback.selectionClick();
+    if (!mounted) return;
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(t.settingsPrivacyCopied(_privacyUrl)),
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  }
 
   String _levelDisplay(AppL10n t) {
     final lvl = LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
@@ -302,7 +337,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
           child: SoriEmptyState(
-            asset: 'assets/illustrations/error/offline_lantern.png',
+            asset: 'assets/illustrations/mascot/tiger_sad.png',
             icon: Icons.wifi_off_rounded,
             title: t.settingsOfflineTitle,
             body: t.settingsOfflineBody,

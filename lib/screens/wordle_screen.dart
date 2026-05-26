@@ -9,6 +9,8 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/hanok_tokens.dart';
+import '../widgets/sori/mascot.dart';
 import '../l10n/generated/app_localizations.dart';
 
 enum _LS { empty, correct, present, absent }
@@ -302,19 +304,44 @@ class _WordleScreenState extends State<WordleScreen> {
               ),
               const SizedBox(height: 16),
 
-              // ── 그리드 ──────────────────────────────────────────────
-              ...List.generate(_max, (row) {
-                if (row < _guesses.length) {
-                  final (word, states) = _guesses[row];
-                  return _Row(syls: word.split(''), states: states, n: n);
-                }
-                return _Row(
-                  syls:     const [],
-                  states:   const [],
-                  n:        n,
-                  isActive: row == _guesses.length && !_won && !_lost,
-                );
-              }),
+              // ── 그리드 (단청 frame로 감싸기 — 한옥 처마 띠 느낌) ──
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                decoration: BoxDecoration(
+                  color: SoriSurfaces.of(context).surface.withValues(alpha: 0.35),
+                  borderRadius: BorderRadius.circular(SoriRadius.lg),
+                  border: Border.all(
+                    color: HanokColors.cheong.withValues(alpha: 0.55),
+                    width: 2,
+                  ),
+                ),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Column(
+                      children: List.generate(_max, (row) {
+                        if (row < _guesses.length) {
+                          final (word, states) = _guesses[row];
+                          return _Row(
+                              syls: word.split(''), states: states, n: n);
+                        }
+                        return _Row(
+                          syls: const [],
+                          states: const [],
+                          n: n,
+                          isActive:
+                              row == _guesses.length && !_won && !_lost,
+                        );
+                      }),
+                    ),
+                    // 단청 4코너 점 — 적·황·녹 군집
+                    const Positioned(top: -4, left: -4, child: _CornerDot(color: HanokColors.jeok)),
+                    const Positioned(top: -4, right: -4, child: _CornerDot(color: HanokColors.hwang)),
+                    const Positioned(bottom: -4, left: -4, child: _CornerDot(color: HanokColors.hwang)),
+                    const Positioned(bottom: -4, right: -4, child: _CornerDot(color: HanokColors.jeok)),
+                  ],
+                ),
+              ),
 
               const SizedBox(height: 16),
 
@@ -457,6 +484,14 @@ class _ResultCard extends StatelessWidget {
       tinted: true,
       width: double.infinity,
       child: Column(children: [
+        // 정답 시 까치 축하 / 패배 시 호랑이 worry — 결과 카드의 캐릭터.
+        Mascot(
+          kind: won ? MascotKind.magpie : MascotKind.tiger,
+          emotion: won ? MascotEmotion.celebrate : MascotEmotion.worry,
+          size: 80,
+          animate: true,
+        ),
+        const SizedBox(height: Spacing.sm),
         Text(won ? t.wordleResultWin : t.wordleResultLose,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: color)),
         if (!won && german != null) ...[
@@ -475,6 +510,25 @@ class _ResultCard extends StatelessWidget {
           onTap: onNew,
         ),
       ]),
+    );
+  }
+}
+
+// ─── Dancheong corner dot ─────────────────────────────────────────────────────
+class _CornerDot extends StatelessWidget {
+  final Color color;
+  const _CornerDot({required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 10,
+      height: 10,
+      decoration: BoxDecoration(
+        color: color,
+        shape: BoxShape.circle,
+        border: Border.all(color: HanokColors.hanjiCream, width: 1.5),
+      ),
     );
   }
 }

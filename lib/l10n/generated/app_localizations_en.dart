@@ -269,6 +269,23 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get settingsPrivacyTitle => 'Privacy Policy';
+
+  @override
+  String get settingsPrivacySubtitle => 'Copy URL';
+
+  @override
+  String settingsPrivacyCopied(Object url) {
+    return 'URL copied: $url';
+  }
+
+  @override
+  String get settingsLicensesTitle => 'Open-source licenses';
+
+  @override
+  String get settingsLicensesSubtitle => 'Bundled libraries';
+
+  @override
   String get statsHeader => 'Your progress';
 
   @override
@@ -820,4 +837,141 @@ class AppL10nEn extends AppL10n {
   @override
   String get vocabEmptyFavorites =>
       'No favorites yet ⭐\nTap the star on hard words';
+
+  @override
+  String get listeningTitle => 'Listening';
+
+  @override
+  String get listeningSubtitle => 'Hear a scenario at real-life pace';
+
+  @override
+  String get listeningSelectScenario => 'Choose scenario';
+
+  @override
+  String get listeningSpeedLabel => 'Speed';
+
+  @override
+  String get listeningSubtitleLabel => 'Subtitles';
+
+  @override
+  String get listeningSubtitleKo => 'Korean';
+
+  @override
+  String get listeningSubtitleNative => 'Translation';
+
+  @override
+  String get listeningSubtitleBoth => 'Both';
+
+  @override
+  String get listeningSubtitleOff => 'Off';
+
+  @override
+  String get listeningReplay => 'Replay';
+
+  @override
+  String get listeningGotIt => 'Got it';
+
+  @override
+  String get listeningPrev => 'Back';
+
+  @override
+  String get listeningNext => 'Next';
+
+  @override
+  String listeningProgress(int i, int n) {
+    return '$i/$n';
+  }
+
+  @override
+  String get listeningCompleteTitle => 'Done!';
+
+  @override
+  String listeningCompleteBody(int n, int xp) {
+    return 'Heard $n lines · +$xp XP';
+  }
+
+  @override
+  String get listeningPickFirst => 'Pick a scenario above to start.';
+
+  @override
+  String get listeningEmptyTitle => 'No scenarios yet';
+
+  @override
+  String get listeningEmptyBody =>
+      'Once scenarios load, you can listen to them here.';
+
+  @override
+  String get kkeunmariTitle => 'Word Chain';
+
+  @override
+  String get kkeunmariSubtitle => 'Last syllable → next word';
+
+  @override
+  String get kkeunmariYourTurn => 'Your turn';
+
+  @override
+  String get kkeunmariTigerTurn => 'Tiger thinking …';
+
+  @override
+  String kkeunmariStartHint(Object syl) {
+    return 'Start with “$syl”';
+  }
+
+  @override
+  String get kkeunmariInputHint => 'Type a Korean word …';
+
+  @override
+  String get kkeunmariSubmit => 'Send';
+
+  @override
+  String get kkeunmariNotInPool => 'Word not in pool';
+
+  @override
+  String kkeunmariWrongStart(Object syl) {
+    return 'Must start with “$syl”';
+  }
+
+  @override
+  String get kkeunmariAlreadyUsed => 'Already used';
+
+  @override
+  String get kkeunmariTimeUp => 'Time’s up!';
+
+  @override
+  String get kkeunmariDeadEnd => '한방단어 — the chain ends here';
+
+  @override
+  String kkeunmariChainLength(int n) {
+    return 'Chain: $n';
+  }
+
+  @override
+  String kkeunmariFinalScore(int xp) {
+    return '+$xp XP';
+  }
+
+  @override
+  String get kkeunmariPlayAgain => 'Play again';
+
+  @override
+  String get kkeunmariBackHome => 'Home';
+
+  @override
+  String kkeunmariTimerSeconds(int n) {
+    return '${n}s';
+  }
+
+  @override
+  String get kkeunmariResultTitle => 'Game over';
+
+  @override
+  String kkeunmariResultBody(int n) {
+    return 'You chained $n words.';
+  }
+
+  @override
+  String get gameKkeunmariTitle => 'Word Chain';
+
+  @override
+  String get gameKkeunmariDesc => 'Last syllable → next word';
 }

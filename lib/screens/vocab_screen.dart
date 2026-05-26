@@ -226,7 +226,7 @@ class _VocabScreenState extends State<VocabScreen> {
         return Scaffold(
           appBar: AppBar(title: Text(t.screenVocabTitle)),
           body: SoriEmptyState(
-            asset: 'assets/illustrations/empty/celebrate_complete.png',
+            asset: 'assets/illustrations/mascot/tiger_celebrate.png',
             icon: Icons.celebration_outlined,
             title: t.vocabDueEmptyTitle,
             body: t.vocabDueEmptyBody,
@@ -274,14 +274,21 @@ class _VocabScreenState extends State<VocabScreen> {
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
-              // ── 사랑방 banner (한지 미닫이문 + 대나무 + 서안) ──
+              // ── 서당 banner (한지 책상 + 책·붓·벼루). 신규 study_classroom.png가
+              //    들어오면 자동 교체, 없으면 기존 study.png fallback. ──
               ClipRRect(
                 borderRadius: BorderRadius.circular(14),
                 child: Image.asset(
-                  'assets/illustrations/hanok/study.png',
+                  'assets/illustrations/hanok/study_classroom.png',
                   width: double.infinity,
                   height: 80,
                   fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Image.asset(
+                    'assets/illustrations/hanok/study.png',
+                    width: double.infinity,
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(height: Spacing.md),

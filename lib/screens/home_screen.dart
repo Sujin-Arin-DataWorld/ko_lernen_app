@@ -172,31 +172,61 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: Spacing.xl),
 
-                  // ── Spiele (2 cards) ────────────────────────────────
+                  // ── Spiele (3 cards: Chosung · Wordle · Kkeunmari) ──
                   _SectionLabel(label: t.sectionGames),
                   const SizedBox(height: Spacing.sm),
                   SoriEntrance(
                     delay: const Duration(milliseconds: 260),
-                    child: Row(
+                    child: Column(
                       children: [
-                        Expanded(
-                          child: _MiniModuleCard(
-                            emoji: '🔠',
-                            title: t.gameChosungTitle,
-                            accent: SoriColors.primary,
-                            onTap: () =>
-                                Navigator.pushNamed(context, '/chosung'),
-                          ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _MiniModuleCard(
+                                emoji: '🔠',
+                                title: t.gameChosungTitle,
+                                accent: SoriColors.primary,
+                                onTap: () =>
+                                    Navigator.pushNamed(context, '/chosung'),
+                              ),
+                            ),
+                            const SizedBox(width: Spacing.md),
+                            Expanded(
+                              child: _MiniModuleCard(
+                                emoji: '🟩',
+                                title: t.gameWordleTitle,
+                                accent: SoriColors.success,
+                                onTap: () =>
+                                    Navigator.pushNamed(context, '/wordle'),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: Spacing.md),
-                        Expanded(
-                          child: _MiniModuleCard(
-                            emoji: '🟩',
-                            title: t.gameWordleTitle,
-                            accent: SoriColors.success,
-                            onTap: () =>
-                                Navigator.pushNamed(context, '/wordle'),
-                          ),
+                        const SizedBox(height: Spacing.md),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _MiniModuleCard(
+                                emoji: '🔗',
+                                title: t.gameKkeunmariTitle,
+                                subtitle: t.gameKkeunmariDesc,
+                                accent: SoriColors.accent,
+                                onTap: () => Navigator.pushNamed(
+                                    context, '/kkeunmari'),
+                              ),
+                            ),
+                            const SizedBox(width: Spacing.md),
+                            Expanded(
+                              child: _MiniModuleCard(
+                                emoji: '🎧',
+                                title: t.moduleListenTitle,
+                                subtitle: t.listeningSubtitle,
+                                accent: SoriColors.info,
+                                onTap: () =>
+                                    Navigator.pushNamed(context, '/listening'),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

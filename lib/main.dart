@@ -16,7 +16,8 @@ import 'screens/intro_gate_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/vocab_screen.dart';
 import 'screens/grammar_screen.dart';
-import 'screens/placeholder_screen.dart';
+import 'screens/kkeunmari_screen.dart';
+import 'screens/listening_screen.dart';
 import 'screens/chosung_quiz_screen.dart';
 import 'screens/wordle_screen.dart';
 import 'screens/settings_screen.dart';
@@ -132,9 +133,10 @@ class KoLernenApp extends StatelessWidget {
                   (_) => const GrammarScreen(), settings: settings);
             case '/listening':
               return SoriTransitions.fadeScale(
-                  (ctx) => PlaceholderScreen(
-                      title: AppL10n.of(ctx).moduleListenTitle, emoji: '🎧'),
-                  settings: settings);
+                  (_) => const ListeningScreen(), settings: settings);
+            case '/kkeunmari':
+              return SoriTransitions.fadeScale(
+                  (_) => const KkeunmariScreen(), settings: settings);
             case '/hangul':
               return SoriTransitions.fadeScale(
                   (_) => const HangulScreen(), settings: settings);
