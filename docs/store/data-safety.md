@@ -17,9 +17,10 @@
 | `firebase_crashlytics` ^4.3.10 | Aktiv | ✅ ja (Plugin in Gradle, `FlutterError.onError` + `PlatformDispatcher.onError` Hook) |
 | `firebase_analytics` ^11.6.0 | Aktiv | ✅ ja (Auto-Collection durch SDK-Linking; keine expliziten Events instrumentiert) |
 | `google_sign_in` ^6.2.1 | Aktiv | ✅ ja (optional, nur bei expliziter User-Aktion) |
-| `google_mobile_ads` 5.2.0 | **Auskommentiert** in pubspec.yaml | ❌ nein — `ad_service.dart` ist Stub, AdMob-Manifest-Eintrag entfernt (2026-05-27) |
+| `google_mobile_ads` 5.2.0 | **Auskommentiert** in pubspec.yaml | ❌ nein — `ad_service.dart` ist Stub, Android-Manifest **und** iOS-Info.plist (`GADApplicationIdentifier` + `SKAdNetworkItems`) bereinigt (2026-05-27) |
 
 **Konsequenz:** "Keine Werbung / keine cross-app Tracking"-Aussage ist konsistent.
+Für die spätere Reaktivierung in v1.1+ siehe `docs/store/target-audience-and-ads.md` Part 2.
 Crashlytics + Analytics sind aktiv → diese MÜSSEN deklariert werden (siehe Tabelle unten).
 
 ---

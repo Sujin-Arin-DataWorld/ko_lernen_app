@@ -443,6 +443,81 @@ flutter run -d <android-id>   # 안드로이드
 **Git push:** 미수행 (Jin 확인 후 명시 요청 시 commit & push).
 **변경 파일:** `AndroidManifest.xml`, `data-safety.md`, `scenarios_list_screen.dart`, `vocab_screen.dart`, `settings_screen.dart`, `stats_screen.dart`, `CLAUDE.md` + PNG 2장 rename + 3장 staging (`lost_magpie.png`, `offline_lantern.png`, `studyroom_waiting.png`).
 
+### 2026-05-27 (3차) — AAB 크기 최적화 (97MB → 예상 ~55MB)
+
+**범위:** 1차 빌드가 97MB AAB로 나옴 → Jin이 줄이고 싶다고 함 → 자산 분석 + 무손실 PNG 압축 + Gradle 설정 정리.
+
+**진단:**
+- AAB 97MB 중 자산 PNG가 ~46MB (mascot 21 + scenes 11 + empty 6.4 + error 4 + hanok 3.4)
+- 모든 일러스트 PNG가 1024-1254px, RGB/RGBA 무압축으로 저장됨 (각 ~2MB)
+- Faceted Minhwa 스타일 = 단청 면 분할 = 평면 색상 → palette 양자화에 이상적
+
+**Update (2단계 최적화):**
+1. **Gradle 설정** (`android/app/build.gradle.kts`):
+   - `buildTypes.release { ndk { debugSymbolLevel = "NONE" } }` 추가
+   - native debug symbols를 AAB에 packing 안 함 → 5-15MB 절감
+   - 심볼은 이미 `build/app/outputs/symbols/`에 있어 Play Console에 따로 업로드 가능
+
+2. **PNG 양자화 압축** (Pillow Image.quantize, palette 256색):
+   - RGBA → FASTOCTREE, RGB → MEDIANCUT
+   - 백업은 `assets/illustrations/.backup_uncompressed/`에 자동 저장 (`.gitignore`에 추가)
+   - 원본을 in-place로 압축 (코드 경로 변경 불필요)
+
+**결과:**
+| 폴더 | Before | After | 절감 |
+|---|---|---|---|
+| mascot/ | 21 MB | 1.6 MB | -93% |
+| scenes/ | 11 MB | 4.5 MB | -59% |
+| empty/ | 6.4 MB | 4.1 MB | -36% |
+| error/ | 4.0 MB | 2.0 MB | -50% |
+| hanok/ | 3.4 MB | 3.0 MB | -12% |
+| **TOTAL** | **45.9 MB** | **13.9 MB** | **-70% (30.5 MB 절감)** |
+
+- `madang(light/dark).png` 2장은 사진풍 그라데이션이라 양자화가 오히려 크게 만들어 → 원본 복구
+- `calligraphy/porch/study/welcome-hero/gate.png` 5장은 이미 어느정도 최적화 상태 → 1% 정도만 줄어듦
+- 시각 검증: tiger_idle / cafe / celebrate_complete / magpie_perched 4장 spot check → 육안으로 원본과 구분 불가능
+
+**예상 AAB 크기:** 97 MB → **~55 MB** (자산 30 MB + symbols 5-15 MB 절감)
+**예상 사용자 다운로드:** ABI split 후 **15-25 MB** (이전 30-40 MB → 절반)
+
+**다음 단계 — Jin이 재빌드:**
+```bash
+flutter clean
+flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols
+ls -lh build/app/outputs/bundle/release/app-release.aab
+```
+
+**롤백 방법** (압축 결과가 마음에 안 들면):
+```bash
+cp -r assets/illustrations/.backup_uncompressed/* assets/illustrations/
+```
+백업 폴더는 `.gitignore` 처리됨 → repo 크기 영향 없음.
+
+**변경 파일:** `android/app/build.gradle.kts` (ndk debugSymbolLevel), `.gitignore` (backup 폴더 제외), `assets/illustrations/{mascot,scenes,empty,error,hanok}/*.png` (압축).
+**Git push:** 미수행.
+
+### 2026-05-27 — Play Console 타겟 연령 결정 + iOS AdMob 잔재 정리
+
+**범위:** Play Console "앱 타겟층 및 콘텐츠" 5단계 답변 확정 + 향후 광고 도입 시 정책 위반 0 로드맵 정리 + iOS AdMob 잔재 제거.
+
+**Audit:**
+- Android-Manifest, pubspec.yaml, ad_service.dart 모두 "no ads" 일관 ✅
+- 🔴 iOS Info.plist에 `GADApplicationIdentifier` (test ID) + `SKAdNetworkItems` 잔존 — Android와 비대칭, Data-Safety "no ads" 답변과 불일치 우려
+
+**Update:**
+1. `ios/Runner/Info.plist` — `GADApplicationIdentifier` + `SKAdNetworkItems` 제거, Android-Manifest와 동일 패턴의 복원 안내 주석 추가
+2. `docs/store/data-safety.md` SDK-Audit 표에 iOS 정리 반영
+3. `docs/store/target-audience-and-ads.md` 신규 — Play Console 5단계 답변 가이드 + 광고 도입 시 정책 위반 0 체크리스트 (SDK, 코드 복원, 슬롯 설계, Disruptive Ads 9개 항목, Data Safety 업데이트, ATT, 직접 광고주 영업)
+
+**핵심 결정 — 대상 연령대 = 13+ (13–15세 + 16–17세 + 18세 이상 3개 체크):**
+- 콘텐츠는 G-rated이지만 K-pop/K-drama 영향 청소년+성인이 시장 현실
+- 13세 미만 포함 시 COPPA + GDPR-K (독일 16세) + Google Families Programme 부담 폭발
+- 기존 문서(IARC 13+, Apple App-Privacy) 일관성 유지
+
+**검증:** 정적만 — 빌드는 Jin 로컬. 변경된 Dart 코드 0줄이라 회귀 가능성 0.
+
+**Git push:** 미수행.
+
 ---
 
 ## 금지 사항
