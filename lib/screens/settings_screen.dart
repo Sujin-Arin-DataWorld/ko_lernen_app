@@ -337,7 +337,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sad.png',
+            asset: 'assets/illustrations/error/offline_lantern.png',
             icon: Icons.wifi_off_rounded,
             title: t.settingsOfflineTitle,
             body: t.settingsOfflineBody,

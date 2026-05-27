@@ -228,10 +228,14 @@ flutter run -d <android-id>   # 안드로이드
 - `docs/store/gate_decomposition_prompt.md` 작성 — gate.png 기반 3-layer animation prompt 생성
 - 핵심 우선순위: ① 시나리오 백드롭 5장 (`scenes/`), ② 빈/오류 5장 (`empty/`+`error/`), ③ 헤더 6장 (`hanok/scholar_room`, `achievements`, `study_classroom`, `study_scholar`, `listening_hero`, `kkeunmari_hero`), ④ 마스코트 4장 (`mascot/tiger_thinking/neutral/sleepy`, `magpie_worry`), ⑤ feature graphic 1024×500.
 
-**Track D — 콘텐츠 작성 (Jin, 진행 중)**
-- B2 시나리오 3-5개 추가 (`business_meeting_intro`, `complaint_delivery`, `doctor_consultation`, optional `apartment_viewing`, `job_interview`) — schema는 plan §7.1.1 참조
+**Track D — 콘텐츠 작성 (✅ 핵심 완료, 2026-05-27)**
+- [x] B2 시나리오 3개 (`business_meeting_intro`, `complaint_delivery`, `doctor_consultation`) — 원어민 DE/EN 전면 교열 후 확정
+- [x] 일상 시나리오 5개 신규 추가: `taxi_street` [A2] · `plans_with_friend` [A2] · `running_late` [A2] · `postpone_plans` [B1] · `cancel_plans` [B1]
+- [x] `assets/data/scenarios.json` 13 → 21개 (A1×6, A2×7, B1×5, B2×3)
+- [x] `docs/store/b2_scenarios_draft.json` 최종본 커밋
 - 끝말잇기 풀은 v1 그대로 충분 (225 단어)
 - 듣기는 시나리오 dialog 재사용 — 별도 콘텐츠 불필요
+- [ ] optional: `apartment_viewing`, `job_interview` B2 2개 (백로그)
 
 **Track E — 검증 & 출시 자료 (남은 작업)**
 - [ ] **Data Safety 답변 확정** — `docs/store/data-safety.md` 끝의 "Open questions": Crashlytics/Analytics/AdMob이 release build에 포함되는지 확인
@@ -247,7 +251,7 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **madang(dark) v2** (계획 D5)
 
 **🟢 콘텐츠 백로그 (별개 트랙)**
-- [ ] B2 시나리오 0개 → 양산 (docs/content Track A, 13→30)
+- [ ] 시나리오 21개 → 추가 양산 (apartment_viewing, job_interview 등)
 - [ ] 동기 기반 온보딩 + 5분 코스 (Track C)
 - [ ] 끝말잇기 게임 화면 (Track D, 풀 JSON만 있고 화면 없음)
 - [ ] 모듈 통합 "Sori Brain" (Track B)
@@ -325,6 +329,34 @@ flutter run -d <android-id>   # 안드로이드
 
 **Git push:** 미수행 (Jin이 확인 후 명시적 요청 시 push).
 
+### 2026-05-27 — Track D 콘텐츠 완료 (시나리오 13→21)
+
+**범위:** B2 시나리오 3개 DE/EN 원어민 교열 + scenarios.json append + 일상 시나리오 5개 신규 작성.
+
+**Update:**
+1. **B2 시나리오 DE/EN 전면 교열** — 이전 세션 초안의 번역체·문법 오류 전수 수정:
+   - `business_meeting_intro` title de: "Im Geschäftsmeeting vorstellen" → "Vorstellung beim Geschäftsmeeting" (sich 누락 수정)
+   - `doctor_consultation` grammarBlock de: "Ich hoffe, ich werde bald besser" → "Ich hoffe, es geht mir bald besser"
+   - 이전 세션 수정 사항 포함 (Ich hätte gerne / Es tut mir wirklich leid / stressbedingter Erschöpfung 등)
+2. **scenarios.json append** — B2 3개 + 신규 5개 → 총 21개
+3. **신규 시나리오 5개** (원어민 DE/EN으로 초안부터 작성):
+   - `taxi_street` [A2] — 일반 택시, 길 지시, 요금 정산. Grammar: -(아/어) 주세요
+   - `plans_with_friend` [A2, casual] — 금요일 약속 잡기. Grammar: -(으)ㄹ래?/ㄹ까?
+   - `running_late` [A2, casual] — 30분 지각 카톡, ㅋㅋ 문화. Grammar: -고 있어 + -(으)ㄹ 것 같아
+   - `postpone_plans` [B1, casual] — 하루 전 미루기. Grammar: -게 됐어
+   - `cancel_plans` [B1, casual] — 당일 몸 안 좋아서 취소. Grammar: -아/어서 + 못 -(으)ㄹ 것 같아
+
+**검증:** `python3` JSON 파싱 + 전 필드 검사 통과. 오류 0건.
+
+**파일:**
+- `assets/data/scenarios.json` (+8 시나리오)
+- `docs/store/b2_scenarios_draft.json` (최종본)
+- `docs/store/backdrop_prompts_day1.md` (백드롭 5장 이미지 생성 프롬프트 — Jin 사용)
+
+**Git push:** Jin 요청으로 커밋 완료 → `origin/main`
+
+---
+
 ### 2026-05-22 — 출시 폴리시 Week 1–4 (plan: hangul-sori-temporal-wombat)
 
 **범위:** 4주 폴리시 — 접근성·모션 일원화·빈상태·모듈 폴리시·스토어 자료. 코드만 작업 (PNG는 Jin이 별도 생성).
@@ -340,6 +372,76 @@ flutter run -d <android-id>   # 안드로이드
 **미해결 (위 체크리스트 참조):** Hangul IoU 정확도(deferred), Data Safety 답변 확정(Crashlytics/Analytics/AdMob 확인 필요), PNG 자산 8종 생성.
 
 **Git push:** 본 커밋 → `origin/main`
+
+### 2026-05-27 — 출시 직전 더블 크로스체크 + Play Console 일관성 픽스
+
+**범위:** 동시 세션이 푸시한 `84bad36` (Crashlytics/Analytics 연동) 직후 점검. Play Console 등록 직전 *문서 ↔ 코드 ↔ 매니페스트* 정합성을 다시 본 결과 모두 작은 불일치들이 남아 있었음. 빌드 차원의 결함 0건, 출시 정합성 결함 4건 수정.
+
+**Audit 결과:**
+- ✅ `firebase_crashlytics ^4.3.10` + Gradle plugin `3.0.1` + `main.dart::_initFirebase` Hook (`FlutterError.onError` + `PlatformDispatcher.onError`) — 정확히 권장 패턴
+- ✅ `firebase_analytics ^11.6.0` pubspec 등록 — SDK 링크만으로 auto-collection 활성 (custom event 미사용)
+- ✅ `google-services` 4.4.2, `firebase.crashlytics` 3.0.1 — settings.gradle.kts에 정확히 등록
+- ✅ `android/app/build.gradle.kts` — `isMinifyEnabled = true`, `isShrinkResources = true`, ProGuard rules 적용. R8 난독화 ON
+- ✅ `proguard-rules.pro` — Firebase + Flutter + flutter_tts + Parcelable 보존 규칙 모두 포함
+- ✅ `flutter_animate` 패키지 코드/pubspec에서 완전 제거 (한 줄 주석만 잔존)
+- ✅ `print()` 잔존 0건. `debugPrint` 2건 (main.dart의 Firebase init fail + palette_service의 RC fetch fail) — 모두 best-effort 로깅. 민감 정보 노출 없음
+- 🔴 `AndroidManifest.xml` — AdMob `APPLICATION_ID` meta-data가 **test ID**로 남아 있음. `google_mobile_ads`는 pubspec에서 주석 처리됐고 `ad_service.dart`는 stub → manifest 잔재가 "no ads" Data-Safety 주장을 흐림
+- 🔴 `assets/illustrations/error/offline_lantern.png.png` — 더블 확장자 (.png.png)
+- 🔴 `assets/illustrations/empty/studyroom_wating.png` — 오타 (`wating` → `waiting`)
+- 🔴 Jin이 새로 만든 5장 PNG (empty/error)이 코드에 wire-up 안 됨 — 화면들이 여전히 mascot 이미지를 사용
+- 🔴 `docs/store/data-safety.md` 끝의 "Open questions" 3개 (Crashlytics/Analytics/AdMob) 미해결 → Play Console form 작성 불가
+- 🟡 In-app account deletion 미구현 (Play 5월 2024 정책 위반 가능성) — v1.0.1 후보로 메모
+
+**Update (모두 이 세션에서 수정):**
+1. **AdMob 매니페스트 잔재 제거** — `AndroidManifest.xml`의 `com.google.android.gms.ads.APPLICATION_ID` meta-data 삭제 + "AdMob 재활성화 시 어떻게 되돌리는지" 주석 남김
+2. **PNG 파일명 수정** — `offline_lantern.png.png` → `offline_lantern.png`, `studyroom_wating.png` → `studyroom_waiting.png`
+3. **5장 PNG 코드 wire-up**:
+   - 시나리오 로드 실패 (`scenarios_list_screen.dart:81`) → `error/lost_magpie.png`
+   - 시나리오 B2 잠금 (`_EmptyLevelCard` Image.asset) → `locked ? empty/sleeping_tiger_b2.png : mascot/tiger_blink.png` 분기
+   - 단어장 due 완료 (`vocab_screen.dart:229`) → `empty/celebrate_complete.png`
+   - 설정 오프라인 (`settings_screen.dart:340`) → `error/offline_lantern.png`
+   - 통계 첫 진입 (`stats_screen.dart:50`) → `empty/studyroom_waiting.png`
+   - 모두 `errorBuilder` 아이콘 fallback이 있어 PNG 로드 실패 시 자동 폴백
+4. **data-safety.md 전면 보강** — SDK Audit 표 추가, "Open questions" 모두 ✅로 해결, "Account Deletion (Play-Policy)" 섹션 추가. Play Console form 그대로 옮길 수 있는 상태로 정리
+
+**Play Console 입력값 (확정):**
+- Privacy URL: `https://hangul-sori.com/privacy.html`
+- App Access: "All functionality is available without special access" (익명 Firebase Auth로 모든 기능 접근 가능 — 검토용 계정 불필요)
+- Data Safety: `docs/store/data-safety.md` 표 그대로
+  - **수집 데이터**: Email + Display Name (Google opt-in), User ID (Firebase UID, 자동), App Activity (XP/Streak/Progress + Analytics auto-events), Crash logs, Diagnostics, Device/other IDs (Firebase Installation ID + Advertising ID via Analytics)
+  - **공유**: 없음. **판매**: 없음. **암호화 in transit**: Yes (TLS).
+- Category: Education (Bildung)
+- Content rating: IARC 13+
+- Target audience: 13+ (DE+EN)
+- Support email: `hello@hangul-sori.com`
+
+**검증:**
+- 정적 분석 (코드 검토): ✅ 모든 변경이 기존 패턴과 일관. 추가된 PNG 경로 모두 `errorBuilder` 안전망 있음. 컴파일 이슈 없음.
+- 빌드 검증: 샌드박스에 flutter 미설치 → Jin 로컬에서 `flutter analyze && flutter test && flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols` 1회 실행 필요. 동일 패키지 셋업으로 직전 커밋(`84bad36`)이 통과했으므로 회귀 가능성 낮음.
+
+**Jin 로컬 env 액션 (이전 세션 미완 — 그대로 유효):**
+1. Android Studio → SDK Manager → SDK Tools → "Android SDK Command-line Tools (latest)" 설치
+2. `flutter doctor --android-licenses` 실행 → 모두 `y`
+3. 프로젝트 루트에서:
+   ```bash
+   flutter clean
+   flutter pub get
+   flutter analyze
+   flutter test
+   flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols
+   ```
+4. 결과 AAB: `build/app/outputs/bundle/release/app-release.aab` → Play Console Closed Testing 트랙 업로드
+5. 동시에 `build/app/outputs/symbols/` 의 native debug symbols를 Play Console "App bundle explorer → Native debug symbols" 에 업로드 (난독화 스택 trace 복원용)
+
+**미수행 (v1.0.1 후보 또는 Jin 영역):**
+- 🟡 In-app account deletion (`AuthService.deleteAccount()` + Firestore doc 삭제) — Play 2024년 5월 정책 권장사항. 출시 후 14일 내 patch
+- 🟡 Track B 남은 PNG (마스코트 추가 포즈, hero PNGs 등) — Jin 작업, errorBuilder fallback으로 빌드는 정상
+- 🟡 실기기 시각 검증 (특히 새로 wire-up한 5장 PNG가 의도대로 보이는지)
+- 🟡 Track D B2 시나리오 — 동시 세션 `6898646`에서 B2×3 추가됨 (확인 필요)
+- 🟡 Crashlytics + Analytics console에서 실제 데이터 수신 확인 (release build 한 번 실행 후)
+
+**Git push:** 미수행 (Jin 확인 후 명시 요청 시 commit & push).
+**변경 파일:** `AndroidManifest.xml`, `data-safety.md`, `scenarios_list_screen.dart`, `vocab_screen.dart`, `settings_screen.dart`, `stats_screen.dart`, `CLAUDE.md` + PNG 2장 rename + 3장 staging (`lost_magpie.png`, `offline_lantern.png`, `studyroom_waiting.png`).
 
 ---
 

@@ -47,7 +47,7 @@ class StatsScreen extends StatelessWidget {
           ),
         ),
         body: SoriEmptyState(
-          asset: 'assets/illustrations/mascot/tiger_idle.png',
+          asset: 'assets/illustrations/empty/studyroom_waiting.png',
           icon: Icons.auto_stories_outlined,
           title: t.statsFirstEntryTitle,
           body: t.statsFirstEntryBody,

@@ -32,14 +32,17 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
-        <!-- AdMob App ID — Test ID! Vor Production durch echte App ID ersetzen.
-             Production ID: https://apps.admob.com/v2/apps -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+        <!-- AdMob ist in v1.0.0 nicht aktiv (Plugin in pubspec.yaml deaktiviert,
+             ad_service.dart ist ein Stub). Bei Reaktivierung in v1.1+:
+             entweder echte App-ID hier eintragen und google_mobile_ads in
+             pubspec wieder enablen, oder Test-ID:
+             ca-app-pub-3940256099942544~3347511713 verwenden.
+             Aktuelle Begründung: "no ads" Data-Safety-Aussage soll konsistent
+             sein — keine Ad-SDK-Spuren im Release-Build. -->
     </application>
 
-    <!-- AdMob benötigt Internet -->
+    <!-- Internet wird für Firebase (Cloud-Sync, Crashlytics, Analytics,
+         Remote Config) benötigt. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

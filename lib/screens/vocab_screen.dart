@@ -226,7 +226,7 @@ class _VocabScreenState extends State<VocabScreen> {
         return Scaffold(
           appBar: AppBar(title: Text(t.screenVocabTitle)),
           body: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_celebrate.png',
+            asset: 'assets/illustrations/empty/celebrate_complete.png',
             icon: Icons.celebration_outlined,
             title: t.vocabDueEmptyTitle,
             body: t.vocabDueEmptyBody,
