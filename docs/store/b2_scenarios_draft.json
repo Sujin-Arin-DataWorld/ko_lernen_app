@@ -1,0 +1,707 @@
+[
+  {
+    "id": "business_meeting_intro",
+    "level": "b2",
+    "emoji": "💼",
+    "register": "formal",
+    "sidekick": "minsu",
+    "xpReward": 200,
+    "title": {
+      "ko": "비즈니스 미팅 — 첫 인사",
+      "de": "Vorstellung beim Geschäftsmeeting",
+      "en": "Business meeting — first introduction"
+    },
+    "intro": {
+      "ko": "",
+      "de": "Du begegnest einem koreanischen Kunden zum ersten Mal. Minsu leitet das Projekt beim Partnerunternehmen. Visitenkarten liegen auf dem Tisch — wie führst du das Gespräch?",
+      "en": "You're meeting a Korean client for the first time. Minsu is the project lead at the partner company. Business cards are on the table — how do you steer the conversation?"
+    },
+    "vocab": [
+      {
+        "korean": "처음 뵙겠습니다",
+        "note": {
+          "ko": "",
+          "de": "Formelle Begrüßung beim ersten Treffen. Wörtlich: 'Ich werde Sie zum ersten Mal sehen.' Höflicher als 안녕하세요 in Geschäftskontexten.",
+          "en": "Formal first-time greeting. Lit. 'I will be seeing you for the first time.' More respectful than 안녕하세요 in business settings."
+        }
+      },
+      {
+        "korean": "명함",
+        "note": {
+          "ko": "",
+          "de": "Visitenkarte. In Korea mit beiden Händen überreichen und entgegennehmen — fester Bestandteil der Geschäftsetikette.",
+          "en": "Business card. In Korea, present and receive with both hands — a fixed part of business etiquette."
+        }
+      },
+      {
+        "korean": "담당하다",
+        "note": {
+          "ko": "",
+          "de": "zuständig sein für, betreuen. 제가 마케팅을 담당하고 있습니다 = 'Ich bin für den Marketingbereich zuständig.'",
+          "en": "to be in charge of, to handle. 제가 마케팅을 담당하고 있습니다 = 'I'm in charge of marketing.'"
+        }
+      },
+      {
+        "korean": "분야",
+        "note": {
+          "ko": "",
+          "de": "Fachgebiet, Bereich. 어떤 분야를 담당하세요? = 'Für welchen Bereich sind Sie zuständig?'",
+          "en": "field, area. 어떤 분야를 담당하세요? = 'What area are you in charge of?'"
+        }
+      },
+      {
+        "korean": "말씀드리다",
+        "note": {
+          "ko": "",
+          "de": "jemandem etwas mitteilen (bescheidene Höflichkeitsform). Wird verwendet, wenn man zu jemandem Ranghöherem spricht.",
+          "en": "to tell / mention something to someone (humble polite form). Used when speaking to someone of higher status."
+        }
+      },
+      {
+        "korean": "편이다",
+        "note": {
+          "ko": "",
+          "de": "drückt eine Tendenz aus — 'eher, tendenziell'. 저는 꼼꼼한 편이에요 = 'Ich bin eher sorgfältig.' Häufig in Selbstvorstellungen.",
+          "en": "expresses a tendency — 'tend to, rather'. 저는 꼼꼼한 편이에요 = 'I tend to be thorough.' Common in self-introductions."
+        }
+      },
+      {
+        "korean": "진행하다",
+        "note": {
+          "ko": "",
+          "de": "durchführen, vorantreiben. 프로젝트를 진행하다 = ein Projekt durchführen.",
+          "en": "to carry out, to move forward with. 프로젝트를 진행하다 = to carry out a project."
+        }
+      },
+      {
+        "korean": "협력",
+        "note": {
+          "ko": "",
+          "de": "Zusammenarbeit, Kooperation. Auf dieses Wort folgt häufig 앞으로 잘 부탁드립니다.",
+          "en": "cooperation, collaboration. Often followed by 앞으로 잘 부탁드립니다."
+        }
+      },
+      {
+        "korean": "검토하다",
+        "note": {
+          "ko": "",
+          "de": "prüfen, durchsehen. 제안서를 검토해 드리겠습니다 = 'Ich werde die Unterlagen durchsehen.'",
+          "en": "to review, to look through. 제안서를 검토해 드리겠습니다 = 'I'll go through the proposal.'"
+        }
+      },
+      {
+        "korean": "앞으로 잘 부탁드립니다",
+        "note": {
+          "ko": "",
+          "de": "Abschlussformel bei Vorstellungen: sinngemäß 'Ich freue mich auf die Zusammenarbeit.' Nicht wörtlich übersetzbar — als feste Formel einprägen.",
+          "en": "Standard closing phrase: 'I look forward to working with you.' Not literally translatable — just memorize it as a set formula."
+        }
+      },
+      {
+        "korean": "제안",
+        "note": {
+          "ko": "",
+          "de": "Vorschlag. 제안을 드리다 = einen Vorschlag machen.",
+          "en": "proposal, suggestion. 제안을 드리다 = to make a proposal."
+        }
+      },
+      {
+        "korean": "일정",
+        "note": {
+          "ko": "",
+          "de": "Termin, Zeitplan. 일정을 잡다 = einen Termin vereinbaren.",
+          "en": "schedule, appointment. 일정을 잡다 = to arrange a time."
+        }
+      }
+    ],
+    "grammarIds": [],
+    "grammarBlock": {
+      "title": {
+        "ko": "-(으)ㄴ/는 편이다",
+        "de": "-(으)ㄴ/는 편이다 — Tendenz ausdrücken",
+        "en": "-(으)ㄴ/는 편이다 — expressing tendency"
+      },
+      "explanation": {
+        "ko": "",
+        "de": "Drückt aus, dass etwas 'eher / tendenziell' so ist — keine absolute Aussage, sondern eine Einschätzung. Bildung: Adjektiv → -(으)ㄴ 편이다 (꼼꼼한 편이다 = 'ich bin eher sorgfältig'). Verb → -는 편이다 (빨리 처리하는 편이에요 = 'ich erledige Dinge eher zügig'). Nützlich in Vorstellungsgesprächen und Geschäftsgesprächen, weil es selbstbewusst klingt, ohne zu übertreiben.",
+        "en": "Expresses that something 'tends to be' or is 'rather' a certain way — not an absolute claim, but a general tendency. Formation: Adjective → -(으)ㄴ 편이다 (꼼꼼한 편이다 = 'I tend to be thorough'). Verb → -는 편이다 (빨리 처리하는 편이에요 = 'I tend to handle things quickly'). Useful in introductions because it sounds confident without overstating."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "minsu",
+        "ko": "어서 오세요. 먼 길 오셨네요. 저는 민수라고 합니다. 프로젝트 총괄 담당입니다.",
+        "de": "Herzlich willkommen. Schön, dass Sie gekommen sind. Ich bin Minsu — ich bin der Gesamtverantwortliche für das Projekt.",
+        "en": "Welcome. Glad you could make it. I'm Minsu — I'm the overall project lead on our side."
+      },
+      {
+        "speaker": "user",
+        "ko": "처음 뵙겠습니다. 명함 드려도 될까요?",
+        "de": "Freut mich sehr, Sie kennenzulernen. Darf ich Ihnen meine Visitenkarte überreichen?",
+        "en": "Very pleased to meet you. May I give you my business card?"
+      },
+      {
+        "speaker": "minsu",
+        "ko": "감사합니다. 저도 드릴게요. 어떤 분야를 담당하고 계세요?",
+        "de": "Danke — hier ist auch meine. Für welchen Bereich sind Sie zuständig?",
+        "en": "Thank you — here's mine as well. What area are you in charge of?"
+      },
+      {
+        "speaker": "user",
+        "ko": "저는 해외 마케팅을 담당하고 있어요. 꼼꼼하게 챙기는 편이라 잘 맞을 것 같습니다.",
+        "de": "Ich bin für internationales Marketing zuständig. Ich arbeite generell sehr sorgfältig — das sollte gut passen.",
+        "en": "I handle international marketing. I tend to be detail-oriented, so I think we'll work well together."
+      },
+      {
+        "speaker": "minsu",
+        "ko": "좋습니다. 이번 프로젝트 제안서 검토해 보셨나요?",
+        "de": "Sehr gut. Haben Sie die Projektunterlagen bereits durchgesehen?",
+        "en": "Excellent. Have you had a chance to look through the project proposal?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 읽어봤습니다. 몇 가지 말씀드리고 싶은 부분이 있는데, 괜찮으시면 일정을 잡아서 다시 이야기해도 될까요?",
+        "de": "Ja, ich habe sie gelesen. Es gibt ein paar Punkte, die ich gerne ansprechen möchte — wäre es möglich, dafür einen separaten Termin zu vereinbaren?",
+        "en": "Yes, I've read them. There are a few points I'd like to bring up — would it be possible to schedule a separate time to go over them?"
+      },
+      {
+        "speaker": "minsu",
+        "ko": "물론이죠. 오늘은 인사 나누는 자리니까요. 앞으로 잘 부탁드립니다.",
+        "de": "Natürlich. Heute ist ja in erster Linie ein erstes Kennenlernen. Ich freue mich auf die Zusammenarbeit.",
+        "en": "Of course. Today is really just about getting acquainted. Looking forward to working together."
+      }
+    ],
+    "quests": [
+      {
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "꼼꼼하게 챙기는 편이라 잘 맞을 것 같습니다.",
+          "options": [
+            {
+              "de": "Ich habe in diesem Bereich noch wenig Erfahrung.",
+              "en": "I don't have much experience in this field yet."
+            },
+            {
+              "de": "Ich arbeite generell sehr sorgfältig — das sollte gut passen.",
+              "en": "I tend to be detail-oriented, so I think we'll work well together."
+            },
+            {
+              "de": "Ich bin momentan sehr beschäftigt und brauche Unterstützung.",
+              "en": "I'm very busy right now and could use some support."
+            },
+            {
+              "de": "Ich werde die Unterlagen so schnell wie möglich prüfen.",
+              "en": "I'll review the documents as soon as possible."
+            }
+          ],
+          "correctIndex": 1
+        }
+      },
+      {
+        "type": "particlePop",
+        "data": {
+          "prefix": "저는 해외 마케팅",
+          "suffix": "담당하고 있어요.",
+          "options": ["을", "이", "로", "에서", "과", "의"],
+          "correctIndex": 0,
+          "explanationDe": "담당하다 ist ein transitives Verb — das Objekt nimmt 을/를. 마케팅 endet auf ㅇ (Konsonant) → 을.",
+          "explanationEn": "담당하다 is a transitive verb — the object takes 을/를. 마케팅 ends in ㅇ (consonant) → 을."
+        }
+      },
+      {
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Darf ich Ihnen meine Visitenkarte überreichen?",
+          "promptEn": "May I give you my business card?",
+          "options": [
+            { "ko": "명함 드려도 될까요?" },
+            { "ko": "명함 받으셨어요?" },
+            { "ko": "명함이 어디 있어요?" },
+            { "ko": "명함 주세요." }
+          ],
+          "correctIndex": 0
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "명함 에티켓",
+        "de": "Visitenkarten-Etikette in Korea",
+        "en": "Business card etiquette in Korea"
+      },
+      "body": {
+        "ko": "한국 비즈니스 자리에서 명함은 두 손으로 주고받는다. 받은 명함은 바로 주머니에 넣지 말고, 테이블 위에 올려두거나 잠깐 살펴보는 것이 예의다. 상대방의 이름이나 직책을 명함으로 확인하는 것은 자연스러운 일이다.",
+        "de": "In koreanischen Geschäftsmeetings werden Visitenkarten mit beiden Händen überreicht und entgegengenommen. Die Karte nicht sofort einstecken — kurz ansehen oder auf dem Tisch liegenlassen. Es ist völlig üblich, Namen und Titel des Gegenübers auf der Karte nachzuschauen.",
+        "en": "In Korean business meetings, business cards are given and received with both hands. Don't immediately pocket the card — glance at it or leave it on the table. It's completely normal to check the other person's name and title on the card."
+      }
+    }
+  },
+
+  {
+    "id": "complaint_delivery",
+    "level": "b2",
+    "emoji": "📦",
+    "register": "polite",
+    "sidekick": "jihye",
+    "xpReward": 200,
+    "title": {
+      "ko": "배송 오류 항의하기",
+      "de": "Reklamation bei einer Lieferung",
+      "en": "Complaining about a wrong delivery"
+    },
+    "intro": {
+      "ko": "",
+      "de": "Du hast online bestellt, aber das falsche Produkt wurde geliefert. Du rufst den Kundendienst an — Jihye nimmt ab. Wie erklärst du das Problem, und was möchtest du erreichen?",
+      "en": "You ordered online but received the wrong item. You call customer service — Jihye picks up. How do you explain the problem, and what outcome do you want?"
+    },
+    "vocab": [
+      {
+        "korean": "주문하다",
+        "note": {
+          "ko": "",
+          "de": "bestellen. 주문 번호 = Bestellnummer.",
+          "en": "to order. 주문 번호 = order number."
+        }
+      },
+      {
+        "korean": "다르다",
+        "note": {
+          "ko": "",
+          "de": "anders sein, abweichen. 주문한 것과 달라요 = 'Das entspricht nicht dem, was ich bestellt habe.'",
+          "en": "to be different, to not match. 주문한 것과 달라요 = 'This isn't what I ordered.'"
+        }
+      },
+      {
+        "korean": "교환",
+        "note": {
+          "ko": "",
+          "de": "Umtausch. 교환을 요청하다 = einen Umtausch beantragen. In Korea häufiger als Rückgabe.",
+          "en": "exchange. 교환을 요청하다 = to request an exchange. More common than returns in Korea."
+        }
+      },
+      {
+        "korean": "반품",
+        "note": {
+          "ko": "",
+          "de": "Rückgabe. 반품 처리 = Rückgabeabwicklung.",
+          "en": "return (of goods). 반품 처리 = return processing."
+        }
+      },
+      {
+        "korean": "환불",
+        "note": {
+          "ko": "",
+          "de": "Rückerstattung. 환불을 요청하다 = eine Rückerstattung beantragen.",
+          "en": "refund. 환불을 요청하다 = to request a refund."
+        }
+      },
+      {
+        "korean": "접수하다",
+        "note": {
+          "ko": "",
+          "de": "aufnehmen, erfassen (Beschwerde, Antrag). 접수해 드리겠습니다 = 'Ich nehme das für Sie auf.'",
+          "en": "to register, to log (a complaint or request). 접수해 드리겠습니다 = 'I'll log that for you now.'"
+        }
+      },
+      {
+        "korean": "불편을 드려서 죄송합니다",
+        "note": {
+          "ko": "",
+          "de": "Standardentschuldigung im Kundendienst: 'Es tut mir leid für die Unannehmlichkeiten.' Wörtlich: 'Es tut mir leid, Ihnen Unbequemlichkeit bereitet zu haben.'",
+          "en": "Standard customer service apology: 'I'm sorry for the inconvenience.' Lit. 'I'm sorry for having caused you discomfort.'"
+        }
+      },
+      {
+        "korean": "확인해 드리겠습니다",
+        "note": {
+          "ko": "",
+          "de": "'Ich werde das für Sie prüfen / nachsehen.' Sehr gängig im Kundendienst.",
+          "en": "'I'll check that for you.' Very common in customer service."
+        }
+      },
+      {
+        "korean": "처리되다",
+        "note": {
+          "ko": "",
+          "de": "bearbeitet werden, abgewickelt werden. 언제 처리돼요? = 'Wann wird das bearbeitet?'",
+          "en": "to be processed, to be handled. 언제 처리돼요? = 'When will this be processed?'"
+        }
+      },
+      {
+        "korean": "영업일",
+        "note": {
+          "ko": "",
+          "de": "Werktag. 영업일 기준 3일 = '3 Werktage (Wochenenden und Feiertage ausgenommen)'.",
+          "en": "business day. 영업일 기준 3일 = '3 business days (weekends and holidays excluded)'."
+        }
+      },
+      {
+        "korean": "규정",
+        "note": {
+          "ko": "",
+          "de": "Richtlinie, Regelung. 회사 규정상 = 'gemäß den Unternehmensrichtlinien'.",
+          "en": "policy, regulation. 회사 규정상 = 'according to company policy'."
+        }
+      }
+    ],
+    "grammarIds": [],
+    "grammarBlock": {
+      "title": {
+        "ko": "-았/었더라면 -았/었을 텐데",
+        "de": "-았/었더라면 -았/었을 텐데 — kontrafaktisches Bedauern",
+        "en": "-았/었더라면 -았/었을 텐데 — counterfactual regret"
+      },
+      "explanation": {
+        "ko": "",
+        "de": "Drückt aus, was gewesen wäre, wenn in der Vergangenheit etwas anders gelaufen wäre. Struktur: [Bedingung in der Vergangenheit]-았/었더라면 + [Ergebnis]-았/었을 텐데. Beispiel: 제대로 확인했더라면 이런 일이 없었을 텐데 = 'Wenn das ordentlich geprüft worden wäre, wäre das nicht passiert.' Klingt nach leisem Bedauern oder verdeckter Kritik — ein wichtiger Ton in Beschwerdegesprächen.",
+        "en": "Expresses what would have happened if something in the past had gone differently. Structure: [Past condition]-았/었더라면 + [Result]-았/었을 텐데. Example: 제대로 확인했더라면 이런 일이 없었을 텐데 = 'If it had been checked properly, none of this would have happened.' Conveys quiet regret or implied criticism — an important register in complaint situations."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "jihye",
+        "ko": "안녕하세요, 고객센터입니다. 어떻게 도와드릴까요?",
+        "de": "Guten Tag, hier ist der Kundendienst. Wie kann ich Ihnen helfen?",
+        "en": "Hello, this is customer service. How can I help you?"
+      },
+      {
+        "speaker": "user",
+        "ko": "안녕하세요. 어제 주문한 물건이 왔는데, 제가 주문한 것과 달라서요.",
+        "de": "Guten Tag. Ich habe gestern meine Bestellung erhalten, aber das gelieferte Produkt stimmt nicht mit meiner Bestellung überein.",
+        "en": "Hello. I received my order yesterday, but the item I got doesn't match what I ordered."
+      },
+      {
+        "speaker": "jihye",
+        "ko": "불편을 드려서 정말 죄송합니다. 주문 번호 확인해 드려도 될까요?",
+        "de": "Es tut mir wirklich leid für die Unannehmlichkeiten. Dürfte ich bitte Ihre Bestellnummer nachschlagen?",
+        "en": "I'm truly sorry for the inconvenience. Could I please look up your order number?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 주문 번호는 A-2847이에요. 제대로 확인했더라면 이런 일이 없었을 텐데 아쉽네요.",
+        "de": "Ja, die Bestellnummer ist A-2847. Wenn das beim Versand ordentlich geprüft worden wäre, wäre das gar nicht erst passiert.",
+        "en": "Yes, the order number is A-2847. If it had been checked properly before shipping, none of this would have happened."
+      },
+      {
+        "speaker": "jihye",
+        "ko": "죄송합니다. 확인해 보니 포장 과정에서 오류가 있었네요. 교환과 환불 중 어떻게 해드릴까요?",
+        "de": "Es tut mir leid. Nach Überprüfung Ihrer Bestellung sehen wir, dass beim Verpacken ein Fehler unterlaufen ist. Möchten Sie einen Umtausch oder eine Rückerstattung?",
+        "en": "I apologize. After looking into your order, we can see there was an error during packing. Would you prefer an exchange or a refund?"
+      },
+      {
+        "speaker": "user",
+        "ko": "교환으로 부탁드릴게요. 얼마나 걸려요?",
+        "de": "Ich hätte gerne einen Umtausch, bitte. Wie lange dauert das in der Regel?",
+        "en": "I'd like an exchange, please. How long does that usually take?"
+      },
+      {
+        "speaker": "jihye",
+        "ko": "영업일 기준 2~3일 안에 처리해 드리겠습니다. 지금 바로 접수해 드릴게요.",
+        "de": "Innerhalb von zwei bis drei Werktagen. Ich nehme das gleich für Sie auf.",
+        "en": "Within two to three business days. I'll get that logged for you right now."
+      }
+    ],
+    "quests": [
+      {
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "제대로 확인했더라면 이런 일이 없었을 텐데 아쉽네요.",
+          "options": [
+            {
+              "de": "Ich möchte, dass das in Zukunft gründlicher geprüft wird.",
+              "en": "I'd like this to be checked more carefully in the future."
+            },
+            {
+              "de": "Wenn das ordentlich geprüft worden wäre, wäre das gar nicht erst passiert.",
+              "en": "If it had been checked properly, none of this would have happened."
+            },
+            {
+              "de": "Ich habe die Bestellung selbst nicht gründlich genug überprüft.",
+              "en": "I didn't check my own order carefully enough."
+            },
+            {
+              "de": "Es ist schade, dass der Prüfvorgang so lange dauert.",
+              "en": "It's a shame the checking process takes so long."
+            }
+          ],
+          "correctIndex": 1
+        }
+      },
+      {
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Das gelieferte Produkt stimmt nicht mit meiner Bestellung überein.",
+          "promptEn": "The item I got doesn't match what I ordered.",
+          "options": [
+            { "ko": "제가 주문한 것과 달라서요." },
+            { "ko": "주문이 아직 안 왔어요." },
+            { "ko": "물건이 부서져 있어요." },
+            { "ko": "주문을 취소하고 싶어요." }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "type": "particlePop",
+        "data": {
+          "prefix": "영업일 기준 2~3일 안",
+          "suffix": "처리해 드리겠습니다.",
+          "options": ["에", "에서", "으로", "이", "을", "까지"],
+          "correctIndex": 0,
+          "explanationDe": "안에 = 'innerhalb von'. Zeitangaben + 에 (Zeitpunkt/Frist). 에서 ist falsch, da 에서 einen Ort markiert.",
+          "explanationEn": "안에 = 'within'. Time expressions + 에 (time point/deadline). 에서 is wrong here as it marks a place."
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "한국의 반품·교환 문화",
+        "de": "Rückgabe und Umtausch in Korea",
+        "en": "Returns and exchanges in Korea"
+      },
+      "body": {
+        "ko": "한국 온라인 쇼핑몰은 대부분 구매 후 7일 이내 반품·교환을 허용한다. 특히 쿠팡·네이버쇼핑 같은 대형 플랫폼은 반품 절차가 매우 간편하다. 단, 식품·속옷·맞춤 제작 상품은 제외되는 경우가 많다. 오배송(잘못 보낸 경우)은 판매자 비용으로 처리되는 것이 원칙이다.",
+        "de": "Die meisten koreanischen Online-Shops erlauben Rückgaben und Umtausch innerhalb von 7 Tagen nach dem Kauf. Große Plattformen wie Coupang und Naver Shopping machen den Prozess besonders unkompliziert. Ausnahmen gelten häufig für Lebensmittel, Unterwäsche und Sonderanfertigungen. Bei Falschlieferungen (오배송) trägt grundsätzlich der Verkäufer die Rücksendekosten.",
+        "en": "Most Korean online stores allow returns and exchanges within 7 days of purchase. Major platforms like Coupang and Naver Shopping make the process especially straightforward. Exceptions often apply to food, underwear, and custom-made items. For wrong deliveries (오배송), the seller is generally responsible for the return shipping costs."
+      }
+    }
+  },
+
+  {
+    "id": "doctor_consultation",
+    "level": "b2",
+    "emoji": "🏥",
+    "register": "polite",
+    "sidekick": "subin",
+    "xpReward": 200,
+    "title": {
+      "ko": "병원에서 증상 설명하기",
+      "de": "Beim Arzt — Symptome beschreiben",
+      "en": "At the clinic — describing symptoms"
+    },
+    "intro": {
+      "ko": "",
+      "de": "Seit ein paar Tagen hast du Kopfschmerzen, bist ständig müde und hast kaum Appetit. Du gehst in eine Arztpraxis. Subin ist die Ärztin. Wie beschreibst du, was dich plagt?",
+      "en": "You've had headaches for a few days, you're constantly tired, and you've had almost no appetite. You go to a clinic. Subin is the doctor. How do you describe what's been bothering you?"
+    },
+    "vocab": [
+      {
+        "korean": "증상",
+        "note": {
+          "ko": "",
+          "de": "Symptom, Beschwerden. 어떤 증상이 있으세요? = 'Welche Beschwerden haben Sie?'",
+          "en": "symptom. 어떤 증상이 있으세요? = 'What symptoms do you have?'"
+        }
+      },
+      {
+        "korean": "두통",
+        "note": {
+          "ko": "",
+          "de": "Kopfschmerzen. 두통이 심해요 = 'Die Kopfschmerzen sind stark.' 두통약 = Kopfschmerzmittel.",
+          "en": "headache. 두통이 심해요 = 'The headache is bad.' 두통약 = headache medicine."
+        }
+      },
+      {
+        "korean": "피로",
+        "note": {
+          "ko": "",
+          "de": "Erschöpfung, Müdigkeit. 피로가 쌓이다 = 'sich Erschöpfung aufstauen'. 만성 피로 = chronische Erschöpfung.",
+          "en": "fatigue, exhaustion. 피로가 쌓이다 = 'fatigue builds up'. 만성 피로 = chronic fatigue."
+        }
+      },
+      {
+        "korean": "식욕",
+        "note": {
+          "ko": "",
+          "de": "Appetit. 식욕이 없다 = 'keinen Appetit haben'. 식욕이 떨어지다 = 'der Appetit lässt nach'.",
+          "en": "appetite. 식욕이 없다 = 'to have no appetite'. 식욕이 떨어지다 = 'appetite decreases'."
+        }
+      },
+      {
+        "korean": "어지럽다",
+        "note": {
+          "ko": "",
+          "de": "schwindelig sein, sich benommen fühlen. 갑자기 어지러워요 = 'Mir ist plötzlich schwindelig.'",
+          "en": "to feel dizzy, lightheaded. 갑자기 어지러워요 = 'I suddenly feel dizzy.'"
+        }
+      },
+      {
+        "korean": "지속되다",
+        "note": {
+          "ko": "",
+          "de": "anhalten, andauern. 며칠째 지속되고 있어요 = 'Es hält seit einigen Tagen an.'",
+          "en": "to persist, to continue. 며칠째 지속되고 있어요 = 'It's been going on for several days.'"
+        }
+      },
+      {
+        "korean": "것 같다",
+        "note": {
+          "ko": "",
+          "de": "'Es scheint, dass / ich glaube, dass.' Drückt Unsicherheit oder vorsichtige Einschätzung aus. Besonders nützlich beim Schildern von Symptomen: 감기인 것 같아요 = 'Ich glaube, ich habe eine Erkältung.'",
+          "en": "'It seems like / I think that.' Expresses uncertainty or careful judgment. Especially useful for symptoms: 감기인 것 같아요 = 'I think I might have a cold.'"
+        }
+      },
+      {
+        "korean": "처방하다",
+        "note": {
+          "ko": "",
+          "de": "verschreiben (ein Medikament). 처방전 = Rezept.",
+          "en": "to prescribe (medication). 처방전 = prescription."
+        }
+      },
+      {
+        "korean": "복용하다",
+        "note": {
+          "ko": "",
+          "de": "einnehmen (Medizin). 하루 세 번 복용하세요 = 'Nehmen Sie das dreimal täglich ein.'",
+          "en": "to take (medicine). 하루 세 번 복용하세요 = 'Take this three times a day.'"
+        }
+      },
+      {
+        "korean": "충분히",
+        "note": {
+          "ko": "",
+          "de": "ausreichend, genug. 충분히 쉬다 = 'sich genug ausruhen'.",
+          "en": "sufficiently, properly. 충분히 쉬다 = 'to rest properly'."
+        }
+      },
+      {
+        "korean": "스트레스",
+        "note": {
+          "ko": "",
+          "de": "Stress. 스트레스를 받다 = 'unter Stress stehen'. 스트레스가 쌓이다 = 'Stress baut sich auf'.",
+          "en": "stress. 스트레스를 받다 = 'to be under stress'. 스트레스가 쌓이다 = 'stress builds up'."
+        }
+      },
+      {
+        "korean": "면 좋겠다",
+        "note": {
+          "ko": "",
+          "de": "'Es wäre schön, wenn … / Ich würde mich freuen, wenn …' — drückt einen Wunsch aus. 빨리 나으면 좋겠어요 = 'Ich würde mich freuen, wenn ich bald besser wäre.'",
+          "en": "'It would be good if … / I hope …' — expresses a wish. 빨리 나으면 좋겠어요 = 'I hope I get better soon.'"
+        }
+      }
+    ],
+    "grammarIds": [],
+    "grammarBlock": {
+      "title": {
+        "ko": "-(으)ㄴ/는 것 같다  +  -(으)면 좋겠다",
+        "de": "-(으)ㄴ/는 것 같다 (Vermutung) + -(으)면 좋겠다 (Wunsch)",
+        "en": "-(으)ㄴ/는 것 같다 (inference) + -(으)면 좋겠다 (wish)"
+      },
+      "explanation": {
+        "ko": "",
+        "de": "Zwei Grammatikmuster als Paar:\n\n1. -(으)ㄴ/는 것 같다 — vorsichtige Einschätzung: 'Es scheint, dass / ich glaube, dass.' Mit Adjektiv: -(으)ㄴ 것 같다 (피곤한 것 같아요 = 'ich glaube, ich bin erschöpft'). Mit Verb: -는 것 같다 (악화되는 것 같아요 = 'es scheint, als würde es schlimmer'). Mit Nomen: -(이)ㄴ 것 같다 (감기인 것 같아요 = 'ich glaube, ich habe eine Erkältung').\n\n2. -(으)면 좋겠다 — Wunsch oder Hoffnung: 'Es wäre schön, wenn … / Ich würde mich freuen, wenn …'. 빨리 나으면 좋겠어요 = 'Ich hoffe, es geht mir bald besser.' 줄어들면 좋겠어요 = 'Ich wäre froh, wenn es nachlässt.'",
+        "en": "Two grammar patterns used as a pair:\n\n1. -(으)ㄴ/는 것 같다 — careful inference: 'It seems that / I think that.' With adjective: -(으)ㄴ 것 같다 (피곤한 것 같아요 = 'I think I'm exhausted'). With verb: -는 것 같다 (악화되는 것 같아요 = 'it seems like it's getting worse'). With noun: -(이)ㄴ 것 같다 (감기인 것 같아요 = 'I think I have a cold').\n\n2. -(으)면 좋겠다 — wish or hope: 'It would be nice if … / I hope …'. 빨리 나으면 좋겠어요 = 'I hope I get better soon.' 줄어들면 좋겠어요 = 'I hope it eases up.'"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "subin",
+        "ko": "안녕하세요. 어디가 불편하세요?",
+        "de": "Guten Tag. Was führt Sie zu mir?",
+        "en": "Hello. What brings you in today?"
+      },
+      {
+        "speaker": "user",
+        "ko": "며칠 전부터 두통이 있고, 계속 피곤한 것 같아요. 식욕도 많이 떨어졌어요.",
+        "de": "Seit ein paar Tagen habe ich Kopfschmerzen und fühle mich ständig erschöpft. Außerdem habe ich kaum noch Appetit.",
+        "en": "I've had headaches for a few days and I feel constantly exhausted. My appetite has also dropped a lot."
+      },
+      {
+        "speaker": "subin",
+        "ko": "언제부터 그랬어요? 열은 없나요?",
+        "de": "Seit wann genau? Haben Sie Fieber?",
+        "en": "Since when exactly? Do you have a fever?"
+      },
+      {
+        "speaker": "user",
+        "ko": "한 3~4일 됐어요. 열은 없는 것 같고, 가끔 어지럽기도 해요.",
+        "de": "Ungefähr drei bis vier Tage. Fieber habe ich glaube ich nicht — aber manchmal dreht sich mir auch der Kopf.",
+        "en": "About three to four days. I don't think I have a fever, but I've also been feeling dizzy at times."
+      },
+      {
+        "speaker": "subin",
+        "ko": "요즘 많이 바쁘세요? 스트레스나 수면 부족도 이런 증상을 일으킬 수 있거든요.",
+        "de": "Stehen Sie gerade unter besonderem Druck? Stress und Schlafmangel können genau solche Beschwerden auslösen.",
+        "en": "Have you been under a lot of pressure lately? Stress and lack of sleep can trigger exactly these kinds of symptoms."
+      },
+      {
+        "speaker": "user",
+        "ko": "맞아요, 요즘 일이 많아서 잠을 제대로 못 잔 것 같아요. 빨리 나으면 좋겠는데요.",
+        "de": "Ja, stimmt — ich habe gerade viel um die Ohren und schlafe schlecht. Ich wäre froh, wenn das bald besser würde.",
+        "en": "Yes, that's right — I've had a lot on my plate lately and I haven't been sleeping well. I really hope this clears up soon."
+      },
+      {
+        "speaker": "subin",
+        "ko": "피로와 스트레스가 원인인 것 같네요. 간단한 약 처방해 드릴게요. 충분히 쉬시고, 3일 후에도 증상이 지속되면 다시 오세요.",
+        "de": "Das sieht nach stressbedingter Erschöpfung aus. Ich verschreibe Ihnen etwas. Ruhen Sie sich gut aus — und wenn die Beschwerden nach drei Tagen nicht nachlassen, kommen Sie bitte wieder.",
+        "en": "It looks like stress-induced exhaustion. I'll prescribe something for you. Make sure to rest — and if the symptoms don't ease up after three days, please come back."
+      }
+    ],
+    "quests": [
+      {
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "며칠 전부터 두통이 있고, 계속 피곤한 것 같아요.",
+          "options": [
+            {
+              "de": "Seit ein paar Tagen habe ich Kopfschmerzen und fühle mich ständig erschöpft.",
+              "en": "I've had headaches for a few days and feel constantly exhausted."
+            },
+            {
+              "de": "Ich war ein paar Tage lang schwindelig, aber jetzt geht es mir besser.",
+              "en": "I was dizzy for a few days but I'm feeling better now."
+            },
+            {
+              "de": "Ich habe starken Husten und leichtes Fieber.",
+              "en": "I have a bad cough and a slight fever."
+            },
+            {
+              "de": "Ich schlafe zu viel und kann mich nicht konzentrieren.",
+              "en": "I'm sleeping too much and can't concentrate."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich wäre froh, wenn das bald besser würde.",
+          "promptEn": "I really hope this clears up soon.",
+          "options": [
+            { "ko": "빨리 나으면 좋겠는데요." },
+            { "ko": "빨리 나아서 다행이에요." },
+            { "ko": "곧 좋아질 것 같아요." },
+            { "ko": "빨리 병원에 가면 좋겠어요." }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "type": "particlePop",
+        "data": {
+          "prefix": "3일 후에도 증상이 지속되",
+          "suffix": "다시 오세요.",
+          "options": ["면", "어서", "고", "는데", "니까", "지만"],
+          "correctIndex": 0,
+          "explanationDe": "-(으)면 = 'wenn / falls' — Konditionalsatz. 지속되다 endet auf einen Vokal → 면 (nicht 으면).",
+          "explanationEn": "-(으)면 = 'if / when' — conditional. 지속되다 ends in a vowel → 면 (not 으면)."
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "한국의 의원 vs. 병원",
+        "de": "Arztpraxis vs. Krankenhaus in Korea",
+        "en": "Clinic vs. hospital in Korea"
+      },
+      "body": {
+        "ko": "한국에서 '의원'은 작은 개인 병원(영어: clinic), '병원'은 규모가 큰 병원이다. 감기나 두통 같은 가벼운 증상은 동네 의원에 먼저 가는 것이 일반적이다. 처방전을 받으면 바로 옆 약국에서 약을 받는다. 한국 의료비는 건강보험 적용 시 매우 저렴한 편이다.",
+        "de": "In Korea ist eine '의원' eine kleine Arztpraxis (vergleichbar mit einem Allgemeinarzt), während ein '병원' ein größeres Krankenhaus ist. Bei leichten Beschwerden wie Erkältung oder Kopfschmerzen geht man üblicherweise zuerst zu einer nahegelegenen Praxis. Das Rezept löst man direkt in der Apotheke nebenan ein. Mit Krankenversicherung sind die Kosten in Korea sehr überschaubar.",
+        "en": "In Korea, a '의원' is a small private clinic (similar to a GP's office), while a '병원' is a larger hospital. For mild symptoms like a cold or headache, it's standard to go to a nearby clinic first. You pick up the prescription at the pharmacy right next door. With health insurance, medical costs in Korea are very reasonable."
+      }
+    }
+  }
+]
