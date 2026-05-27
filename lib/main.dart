@@ -9,7 +9,9 @@ import 'services/theme_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
 import 'services/palette_service.dart';
+import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/intro_gate_screen.dart';
@@ -70,13 +72,22 @@ Future<void> _initFirebase() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    
+    // Pass all uncaught "fatal" errors from the framework to Crashlytics
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
+
     await AuthService.ensureSignedIn();
     // v6.0 단청 kill-switch — Remote Config 'palette_variant' 읽기 (best-effort).
     await PaletteService.fetchAndApply();
   } catch (e) {
     // google-services.json fehlt → Cloud-Sync deaktiviert, lokale App funktioniert weiter
     // ignore: avoid_print
-    print('Firebase init skipped: $e');
+    debugPrint('Firebase init skipped: $e');
   }
 }
 

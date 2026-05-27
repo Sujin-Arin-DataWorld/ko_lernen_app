@@ -42,6 +42,8 @@ dependencies:
   google_sign_in:          ^6.2.1
   cloud_firestore:         ^5.4.4
   firebase_remote_config:  ^5.1.4   # v6.0 palette kill-switch (dancheong ↔ teal)
+  firebase_analytics: ^11.6.0
+  firebase_crashlytics: ^4.3.10
 
 dev_dependencies:
   flutter_test:

@@ -43,7 +43,7 @@ class PaletteService {
     } catch (e) {
       // Remote Config 미설정 / 네트워크 실패 → 기본값 (dancheong) 유지.
       // ignore: avoid_print
-      print('PaletteService: fetch failed, using dancheong default — $e');
+      debugPrint('PaletteService: fetch failed, using dancheong default — $e');
     }
   }
 
