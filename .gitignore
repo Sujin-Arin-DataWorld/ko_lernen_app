@@ -4,6 +4,9 @@
 *.pyc
 *.swp
 .DS_Store
+
+# Asset compression backup (untracked — for local rollback only)
+assets/illustrations/.backup_uncompressed/
 .atom/
 .build/
 .buildlog/

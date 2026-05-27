@@ -63,6 +63,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Native debug symbols NICHT in die AAB packen — sie liegen
+            // bereits in build/app/outputs/symbols/ und werden separat in
+            // die Play Console ("Native debug symbols") hochgeladen.
+            // Das spart 5-15 MB AAB-Größe.
+            ndk {
+                debugSymbolLevel = "NONE"
+            }
         }
     }
 

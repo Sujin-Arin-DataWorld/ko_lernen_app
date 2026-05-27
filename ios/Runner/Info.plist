@@ -4,17 +4,15 @@
 	<dict>
 		<key>CADisableMinimumFrameDurationOnPhone</key>
 		<true/>
-		<!-- AdMob iOS — Test App ID. Vor Production durch echte ID ersetzen.
-	     Production: https://apps.admob.com/ → Apps → App ID -->
-		<key>GADApplicationIdentifier</key>
-		<string>ca-app-pub-3940256099942544~1458002511</string>
-		<key>SKAdNetworkItems</key>
-		<array>
-			<dict>
-				<key>SKAdNetworkIdentifier</key>
-				<string>cstr6suwn9.skadnetwork</string>
-			</dict>
-		</array>
+		<!-- AdMob iOS ist in v1.0.0 nicht aktiv. Bei Reaktivierung in v1.1+:
+		     1. google_mobile_ads in pubspec.yaml enablen
+		     2. Hier GADApplicationIdentifier mit echter Production-ID eintragen
+		        (Test-ID war: ca-app-pub-3940256099942544~1458002511)
+		     3. SKAdNetworkItems-Array mit allen Netzwerk-IDs der Mediation-Partner
+		        wiederherstellen (Test-Eintrag war: cstr6suwn9.skadnetwork)
+		     4. Konsistenz mit Play Data-Safety + Apple App-Privacy prüfen.
+		     Begründung Entfernung: "no ads"-Aussage soll keine AdMob-Spuren im
+		     Release-Build haben. Android-Manifest wurde 2026-05-27 analog bereinigt. -->
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
