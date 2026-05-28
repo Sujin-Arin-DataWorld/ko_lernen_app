@@ -214,6 +214,18 @@ Verification: `flutter analyze` = 0 issues, `flutter test` = 47/47 passing.
 
 Phase 3 complete. Remaining release-gate work (manual smoke test on real devices, asset console check) is unchanged.
 
+## Phase 4 Applied — Header Unification + Emoji→Mascot Cleanup + Asset Registry
+
+Phase 4 focuses on brand-system uniformity: every module screen now leads with the same banner component, the remaining emoji-as-primary spots get a proper mascot treatment, and there is finally a single source of truth for which PNG fills which slot.
+
+- **HanokHeader migration (6 screens).** Replaced bespoke `ClipRRect(Image.asset(...))` banners — and added banners where none existed — in [vocab_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/vocab_screen.dart), [grammar_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/grammar_screen.dart), [hangul_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/hangul_screen.dart), [wordle_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/wordle_screen.dart), [chosung_quiz_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/chosung_quiz_screen.dart), [scenarios_list_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/scenarios_list_screen.dart). All ten module-level screens (Vocab/Grammar/Hangul/Wordle/Chosung/ScenariosList/Settings/Stats/Kkeunmari/Listening) now share the same 10:3 `HanokHeader` with built-in 단청 gradient fallback. Wordle/Chosung/Kkeunmari temporarily share `porch.png` until Phase 4b commissions unique art.
+- **Emoji-as-primary cleanup (4 spots).** Stats streak hero replaced `Text('🔥', size: 36)` with `Icon(local_fire_department_rounded/_outlined)` driven by streak ≥ 1 in [stats_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/stats_screen.dart). Three scenario-player emoji slots — next-scenario card, `_ScenarioIntroArt` outer, and Positioned scene mascot — now use `Mascot.forSpeaker(...) ?? Mascot.tiger(...)` so a guaranteed-non-null mascot widget renders and the bare-emoji fallback was deleted as dead code in [scenario_player_screen.dart](/Users/sujinpark/Developer/ko_lernen_app/lib/screens/scenario_player_screen.dart). Per-scenario list-tile emoji is intentionally kept (scenario identity, Phase 5 work).
+- **Asset registry.** Added [docs/assets/REGISTRY.md](/Users/sujinpark/Developer/ko_lernen_app/docs/assets/REGISTRY.md) — one markdown table per illustration folder (`hanok/`, `mascot/`, `scenes/`, `empty/`, `error/`, `icons/`) listing filename, slot purpose, expected dimensions, consumer file:line, and fallback for every PNG referenced from `lib/`. Includes the scenario-keyword → backdrop mapping and a "adding a new asset" playbook so the next session does not have to grep.
+
+Verification: `flutter analyze` = 0 issues, `flutter test` = 47/47 passing. No new user-facing strings (Phase 4 reused existing screen-title keys via Semantics where applicable).
+
+Phase 4 complete. Deferred to Phase 4b/5: unique Wordle/Chosung/Kkeunmari headers, per-scenario scene art beyond the current five backdrops, replacing scenario list-tile emoji with unique illustrations.
+
 ## Release Gate
 
 Before inviting external testers, require:

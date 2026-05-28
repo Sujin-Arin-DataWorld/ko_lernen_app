@@ -9,6 +9,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -112,6 +113,12 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
             Spacing.xl,
           ),
           children: [
+            // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+            const HanokHeader(
+              asset: 'assets/illustrations/hanok/madang(light).png',
+              fallbackIcon: Icons.travel_explore_outlined,
+            ),
+            const SizedBox(height: Spacing.md),
             // Subtitle
             Padding(
               padding: const EdgeInsets.only(

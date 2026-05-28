@@ -255,7 +255,13 @@ class _StreakHero extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             alignment: Alignment.center,
-            child: const Text('🔥', style: TextStyle(fontSize: 36)),
+            child: Icon(
+              streak >= 1
+                  ? Icons.local_fire_department_rounded
+                  : Icons.local_fire_department_outlined,
+              size: 38,
+              color: SoriColors.warning,
+            ),
           ),
           const SizedBox(width: 16),
           Expanded(

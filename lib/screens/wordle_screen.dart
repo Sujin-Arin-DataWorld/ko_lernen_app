@@ -9,6 +9,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/mascot.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -319,15 +320,10 @@ class _WordleScreenState extends State<WordleScreen> {
           padding: const EdgeInsets.fromLTRB(18, 6, 18, 24),
           child: Column(
             children: [
-              // ── 마루 banner (한옥 처마 + 까치 + 풍경 + 매화) ──
-              ClipRRect(
-                borderRadius: BorderRadius.circular(14),
-                child: Image.asset(
-                  'assets/illustrations/hanok/porch.png',
-                  width: double.infinity,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
+              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+              const HanokHeader(
+                asset: 'assets/illustrations/hanok/porch.png',
+                fallbackIcon: Icons.grid_4x4_rounded,
               ),
               const SizedBox(height: 12),
               Text(

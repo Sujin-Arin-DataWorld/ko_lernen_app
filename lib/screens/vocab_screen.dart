@@ -14,6 +14,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -274,22 +275,10 @@ class _VocabScreenState extends State<VocabScreen> {
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
-              // ── 서당 banner (한지 책상 + 책·붓·벼루). 신규 study_classroom.png가
-              //    없으면 같은 톤의 scholar asset으로 fallback. ──
-              ClipRRect(
-                borderRadius: BorderRadius.circular(14),
-                child: Image.asset(
-                  'assets/illustrations/hanok/study_classroom.png',
-                  width: double.infinity,
-                  height: 80,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => Image.asset(
-                    'assets/illustrations/hanok/study_scholar.png',
-                    width: double.infinity,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+              const HanokHeader(
+                asset: 'assets/illustrations/hanok/study_classroom.png',
+                fallbackIcon: Icons.menu_book_outlined,
               ),
               const SizedBox(height: Spacing.md),
 

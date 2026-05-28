@@ -13,6 +13,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class GrammarScreen extends StatefulWidget {
@@ -161,22 +162,10 @@ class _GrammarScreenState extends State<GrammarScreen> {
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
-              // ── 학자 책상 banner (한지 책 펼침 + 붓·벼루·인장). 신규
-              //    study_scholar.png가 들어오면 자동 교체, 없으면 study.png fallback. ──
-              ClipRRect(
-                borderRadius: BorderRadius.circular(14),
-                child: Image.asset(
-                  'assets/illustrations/hanok/study_scholar.png',
-                  width: double.infinity,
-                  height: 80,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => Image.asset(
-                    'assets/illustrations/hanok/study_classroom.png',
-                    width: double.infinity,
-                    height: 80,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+              const HanokHeader(
+                asset: 'assets/illustrations/hanok/study_scholar.png',
+                fallbackIcon: Icons.auto_stories_outlined,
               ),
               const SizedBox(height: Spacing.md),
 

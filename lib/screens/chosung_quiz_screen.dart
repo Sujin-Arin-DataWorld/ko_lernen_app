@@ -9,6 +9,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -281,15 +282,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // ── 마루 banner (한옥 처마 + 까치 + 풍경) ──
-              ClipRRect(
-                borderRadius: BorderRadius.circular(14),
-                child: Image.asset(
-                  'assets/illustrations/hanok/porch.png',
-                  width: double.infinity,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
+              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+              const HanokHeader(
+                asset: 'assets/illustrations/hanok/porch.png',
+                fallbackIcon: Icons.abc_rounded,
               ),
               const SizedBox(height: Spacing.md),
 

@@ -901,7 +901,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
                       const SizedBox(height: Spacing.sm),
                       Row(
                         children: [
-                          Text(next.emoji, style: const TextStyle(fontSize: 28)),
+                          SizedBox(
+                            width: 36,
+                            height: 36,
+                            child: Mascot.forSpeaker(
+                                  next.sidekick ?? '',
+                                  size: 36,
+                                  emotion: MascotEmotion.smile,
+                                ) ??
+                                Mascot.tiger(
+                                  emotion: MascotEmotion.smile,
+                                  size: 36,
+                                ),
+                          ),
                           const SizedBox(width: Spacing.sm),
                           Expanded(
                             child: Text(
@@ -1087,11 +1099,16 @@ class _ScenarioIntroArt extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final mascot = Mascot.forSpeaker(
-      sidekick ?? '',
-      size: 82,
-      emotion: MascotEmotion.smile,
-      animate: true,
-    );
+          sidekick ?? '',
+          size: 82,
+          emotion: MascotEmotion.smile,
+          animate: true,
+        ) ??
+        Mascot.tiger(
+          emotion: MascotEmotion.smile,
+          size: 82,
+          animate: true,
+        );
     final fallback = Container(
       height: 168,
       width: double.infinity,
@@ -1101,7 +1118,7 @@ class _ScenarioIntroArt extends StatelessWidget {
         border: Border.all(color: SoriColors.primary.withValues(alpha: 0.25)),
       ),
       alignment: Alignment.center,
-      child: mascot ?? Text(emoji, style: const TextStyle(fontSize: 64)),
+      child: mascot,
     );
 
     if (backdropKey == null) return fallback;
@@ -1131,19 +1148,7 @@ class _ScenarioIntroArt extends StatelessWidget {
             Positioned(
               left: Spacing.lg,
               bottom: Spacing.md,
-              child:
-                  mascot ??
-                  Container(
-                    width: 58,
-                    height: 58,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: s.surface.withValues(alpha: 0.88),
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                      border: Border.all(color: s.border),
-                    ),
-                    child: Text(emoji, style: const TextStyle(fontSize: 30)),
-                  ),
+              child: mascot,
             ),
           ],
         ),

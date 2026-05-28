@@ -6,6 +6,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../widgets/flip_card.dart';
@@ -82,14 +83,10 @@ class _OverviewTab extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 24),
       children: [
-        // ── 서당 banner (산 + "한글" 캘리 + 매화) ────────────────────
-        ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: Image.asset(
-            'assets/illustrations/hanok/calligraphy.png',
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
+        // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+        const HanokHeader(
+          asset: 'assets/illustrations/hanok/calligraphy.png',
+          fallbackIcon: Icons.draw_outlined,
         ),
         const SizedBox(height: 16),
         _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
