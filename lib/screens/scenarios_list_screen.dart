@@ -115,7 +115,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
             // Subtitle
             Padding(
               padding: const EdgeInsets.only(
-                bottom: Spacing.lg,
+                bottom: Spacing.md,
                 left: 2,
               ),
               child: Text(
@@ -126,6 +126,16 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
                 ),
               ),
             ),
+
+            // Lesson Path header (Phase 3 — visible lesson path)
+            _LessonPathHeader(
+              all: _all,
+              userLevel: _userLevel,
+              stars: stars,
+              lang: lang,
+              levelColor: _levelColor,
+            ),
+            const SizedBox(height: Spacing.lg),
 
             // Per-Level Sections
             for (final level in LearnerLevel.values) ...[
@@ -440,6 +450,312 @@ class _ScenarioCardBody extends StatelessWidget {
                   ? s.textDim
                   : accent.withValues(alpha: 0.7),
               size: 20,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─── Lesson Path Header (Phase 3) ─────────────────────────────────────────────
+// Holistic "where am I in the path?" snapshot above the per-level sections:
+//   • per-level ★ progress chips (done / total)
+//   • next-recommended hero card with direct CTA
+// Picks the next scenario: first unlocked scenario at the user's level with
+// fewer than 3 stars, falling back to the first unlocked across all levels.
+
+class _LessonPathHeader extends StatelessWidget {
+  final List<Scenario> all;
+  final LearnerLevel userLevel;
+  final Map<String, int> stars;
+  final String lang;
+  final Color Function(LearnerLevel) levelColor;
+
+  const _LessonPathHeader({
+    required this.all,
+    required this.userLevel,
+    required this.stars,
+    required this.lang,
+    required this.levelColor,
+  });
+
+  Scenario? _pickNext() {
+    final unlocked = all.where((sc) => sc.level.rank <= userLevel.rank).toList();
+    if (unlocked.isEmpty) return null;
+
+    Scenario? bestAtUserLevel;
+    Scenario? anyUnder3;
+    for (final sc in unlocked) {
+      final st = stars[sc.id] ?? 0;
+      if (st < 3) {
+        anyUnder3 ??= sc;
+        if (sc.level == userLevel) {
+          bestAtUserLevel ??= sc;
+        }
+      }
+    }
+    return bestAtUserLevel ?? anyUnder3;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final next = _pickNext();
+
+    final totalUnlocked =
+        all.where((sc) => sc.level.rank <= userLevel.rank).length;
+    final totalAll = all.length;
+
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.primary,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Title + overall progress
+          Row(
+            children: [
+              Icon(Icons.route_rounded,
+                  size: 18, color: SoriColors.primary),
+              const SizedBox(width: Spacing.sm),
+              Text(
+                t.scenariosPathTitle,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w800,
+                  color: s.text,
+                  letterSpacing: -0.1,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                t.scenariosPathProgress(totalUnlocked, totalAll),
+                style: TextStyle(
+                  fontSize: 11.5,
+                  color: s.textMuted,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.sm),
+
+          // Per-level ★ progress chips
+          Wrap(
+            spacing: Spacing.xs + 2,
+            runSpacing: Spacing.xs,
+            children: [
+              for (final lvl in LearnerLevel.values)
+                _LevelProgressChip(
+                  level: lvl,
+                  scenarios: all.where((sc) => sc.level == lvl).toList(),
+                  stars: stars,
+                  accent: levelColor(lvl),
+                  locked: lvl.rank > userLevel.rank,
+                  label: t.scenariosPathLevelProgress(
+                    lvl.display,
+                    all
+                        .where((sc) => sc.level == lvl)
+                        .where((sc) => (stars[sc.id] ?? 0) > 0)
+                        .length,
+                    all.where((sc) => sc.level == lvl).length,
+                  ),
+                ),
+            ],
+          ),
+
+          // Next-recommended hero
+          if (next != null) ...[
+            const SizedBox(height: Spacing.md),
+            _NextRecommended(scenario: next, lang: lang, accent: levelColor(next.level)),
+          ] else ...[
+            const SizedBox(height: Spacing.md),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              child: Row(
+                children: [
+                  Icon(Icons.celebration_outlined,
+                      size: 16, color: SoriColors.success),
+                  const SizedBox(width: Spacing.sm),
+                  Flexible(
+                    child: Text(
+                      t.scenariosPathAllDone,
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        color: s.text,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _LevelProgressChip extends StatelessWidget {
+  final LearnerLevel level;
+  final List<Scenario> scenarios;
+  final Map<String, int> stars;
+  final Color accent;
+  final bool locked;
+  final String label;
+
+  const _LevelProgressChip({
+    required this.level,
+    required this.scenarios,
+    required this.stars,
+    required this.accent,
+    required this.locked,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final tint = locked ? s.textDim : accent;
+    return Semantics(
+      label: label,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        decoration: BoxDecoration(
+          color: tint.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(999),
+          border: Border.all(color: tint.withValues(alpha: 0.32), width: 1),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (locked) ...[
+              Icon(Icons.lock_outline_rounded, size: 11, color: tint),
+              const SizedBox(width: 4),
+            ],
+            Text(
+              label,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+                color: tint,
+                letterSpacing: 0.2,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _NextRecommended extends StatelessWidget {
+  final Scenario scenario;
+  final String lang;
+  final Color accent;
+  const _NextRecommended({
+    required this.scenario,
+    required this.lang,
+    required this.accent,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriPressable(
+      onTap: () {
+        HapticFeedback.selectionClick();
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => ScenarioPlayerScreen(scenarioId: scenario.id),
+          ),
+        );
+      },
+      haptic: SoriHaptic.selection,
+      child: Container(
+        padding: const EdgeInsets.all(Spacing.md),
+        decoration: BoxDecoration(
+          color: Color.alphaBlend(accent.withValues(alpha: 0.10), s.surface),
+          borderRadius: SoriRadius.brSm,
+          border: Border.all(
+            color: accent.withValues(alpha: 0.32),
+            width: 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: accent.withValues(alpha: 0.18),
+                borderRadius: SoriRadius.brSm,
+              ),
+              alignment: Alignment.center,
+              child: Text(scenario.emoji, style: const TextStyle(fontSize: 22)),
+            ),
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    t.scenariosPathNextLabel,
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: accent,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 0.6,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    scenario.title.pick(lang),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: s.text,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: -0.1,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: Spacing.sm),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 12, vertical: 7),
+              decoration: BoxDecoration(
+                color: accent,
+                borderRadius: BorderRadius.circular(999),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    t.scenariosPathStartCta,
+                    style: const TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 12,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 0.3,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  const Icon(Icons.arrow_forward_rounded,
+                      size: 14, color: Colors.white),
+                ],
+              ),
             ),
           ],
         ),

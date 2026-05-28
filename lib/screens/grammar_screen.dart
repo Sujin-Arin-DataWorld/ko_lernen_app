@@ -28,7 +28,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
   int _idx = 0;
   bool _flipped = false;
   String _level = 'Alle';
-  String _type  = 'Alle';
+  String _type = 'Alle';
   bool _loading = true;
   bool _loadFailed = false;
 
@@ -40,7 +40,10 @@ class _GrammarScreenState extends State<GrammarScreen> {
   }
 
   void _load() {
-    setState(() { _loading = true; _loadFailed = false; });
+    setState(() {
+      _loading = true;
+      _loadFailed = false;
+    });
     DataLoader.loadGrammar().then((g) {
       if (!mounted) return;
       setState(() {
@@ -56,8 +59,8 @@ class _GrammarScreenState extends State<GrammarScreen> {
   void _applyFilters() {
     setState(() {
       _filtered = _all.where((g) {
-        if (_level != 'Alle' && g.level  != _level) return false;
-        if (_type  != 'Alle' && g.typeDe != _type)  return false;
+        if (_level != 'Alle' && g.level != _level) return false;
+        if (_type != 'Alle' && g.typeDe != _type) return false;
         return true;
       }).toList();
       _idx = 0;
@@ -65,13 +68,37 @@ class _GrammarScreenState extends State<GrammarScreen> {
     });
   }
 
-  Grammar? get _current => _filtered.isEmpty ? null : _filtered[_idx % _filtered.length];
+  Grammar? get _current =>
+      _filtered.isEmpty ? null : _filtered[_idx % _filtered.length];
 
   void _persistIdx() => Storage.setGrammarLastIdx(_idx);
 
-  void _next()    { HapticFeedback.selectionClick(); setState(() { _flipped = false; _idx = (_idx + 1) % _filtered.length; }); _persistIdx(); }
-  void _prev()    { HapticFeedback.selectionClick(); setState(() { _flipped = false; _idx = (_idx - 1 + _filtered.length) % _filtered.length; }); _persistIdx(); }
-  void _random()  { HapticFeedback.lightImpact();    setState(() { _flipped = false; _idx = math.Random().nextInt(_filtered.length); }); _persistIdx(); }
+  void _next() {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _flipped = false;
+      _idx = (_idx + 1) % _filtered.length;
+    });
+    _persistIdx();
+  }
+
+  void _prev() {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _flipped = false;
+      _idx = (_idx - 1 + _filtered.length) % _filtered.length;
+    });
+    _persistIdx();
+  }
+
+  void _random() {
+    HapticFeedback.lightImpact();
+    setState(() {
+      _flipped = false;
+      _idx = math.Random().nextInt(_filtered.length);
+    });
+    _persistIdx();
+  }
 
   void _onFlip() {
     HapticFeedback.selectionClick();
@@ -100,7 +127,10 @@ class _GrammarScreenState extends State<GrammarScreen> {
         appBar: AppBar(title: Text(t.screenGrammarTitle)),
         body: AppError(
           message: DataLoader.lastError ?? 'Unbekannter Fehler',
-          onRetry: () { DataLoader.reset(); _load(); },
+          onRetry: () {
+            DataLoader.reset();
+            _load();
+          },
         ),
       );
     }
@@ -118,7 +148,10 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.screenGrammarTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.screenGrammarTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         actions: [
           IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
         ],
@@ -138,7 +171,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
                   height: 80,
                   fit: BoxFit.cover,
                   errorBuilder: (_, __, ___) => Image.asset(
-                    'assets/illustrations/hanok/study.png',
+                    'assets/illustrations/hanok/study_classroom.png',
                     width: double.infinity,
                     height: 80,
                     fit: BoxFit.cover,
@@ -151,8 +184,11 @@ class _GrammarScreenState extends State<GrammarScreen> {
               Wrap(
                 spacing: Spacing.xs + 2,
                 children: [
-                  SoriChip(label: '📝 ${_idx + 1}/${_filtered.length}', accent: SoriColors.warning),
-                  SoriChip(label: g.level,  accent: SoriColors.warning),
+                  SoriChip(
+                    label: '📝 ${_idx + 1}/${_filtered.length}',
+                    accent: SoriColors.warning,
+                  ),
+                  SoriChip(label: g.level, accent: SoriColors.warning),
                   SoriChip(label: g.typeDe, accent: SoriColors.hangul),
                 ],
               ),
@@ -173,7 +209,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
                     flipped: _flipped,
                     onTap: _onFlip,
                     front: _Front(g: g),
-                    back:  _Back(g: g),
+                    back: _Back(g: g),
                   ),
                 ),
               ),
@@ -241,18 +277,42 @@ class _GrammarScreenState extends State<GrammarScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(child: Container(width: 40, height: 4, decoration: BoxDecoration(color: SoriSurfaces.of(ctx).surfaceAlt, borderRadius: BorderRadius.circular(2)))),
+                Center(
+                  child: Container(
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: SoriSurfaces.of(ctx).surfaceAlt,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
                 const SizedBox(height: Spacing.lg),
-                Text(t.filterTitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                Text(
+                  t.filterTitle,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 const SizedBox(height: Spacing.md),
-                _dropdown(t.filterLevel, _level, _levels, (v) { setLocal(() => _level = v!); _level = v!; }),
+                _dropdown(t.filterLevel, _level, _levels, (v) {
+                  setLocal(() => _level = v!);
+                  _level = v!;
+                }),
                 const SizedBox(height: Spacing.sm + 2),
-                _dropdown(t.filterType,  _type,  _types,  (v) { setLocal(() => _type  = v!); _type  = v!; }),
+                _dropdown(t.filterType, _type, _types, (v) {
+                  setLocal(() => _type = v!);
+                  _type = v!;
+                }),
                 const SizedBox(height: Spacing.lg),
                 SoriButton.filled(
                   label: t.btnApply,
                   fullWidth: true,
-                  onTap: () { _applyFilters(); Navigator.pop(ctx); },
+                  onTap: () {
+                    _applyFilters();
+                    Navigator.pop(ctx);
+                  },
                 ),
               ],
             ),
@@ -262,7 +322,12 @@ class _GrammarScreenState extends State<GrammarScreen> {
     );
   }
 
-  Widget _dropdown(String label, String value, List<String> items, ValueChanged<String?> onChanged) {
+  Widget _dropdown(
+    String label,
+    String value,
+    List<String> items,
+    ValueChanged<String?> onChanged,
+  ) {
     final s = SoriSurfaces.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
@@ -277,7 +342,14 @@ class _GrammarScreenState extends State<GrammarScreen> {
         underline: const SizedBox.shrink(),
         dropdownColor: s.surface,
         hint: Text(label, style: TextStyle(color: s.textMuted)),
-        items: items.map((item) => DropdownMenuItem(value: item, child: Text(item, overflow: TextOverflow.ellipsis))).toList(),
+        items: items
+            .map(
+              (item) => DropdownMenuItem(
+                value: item,
+                child: Text(item, overflow: TextOverflow.ellipsis),
+              ),
+            )
+            .toList(),
         onChanged: onChanged,
       ),
     );
@@ -300,17 +372,36 @@ class _Front extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SoriChip(label: g.level, accent: SoriColors.warning, variant: SoriChipVariant.filled),
+              SoriChip(
+                label: g.level,
+                accent: SoriColors.warning,
+                variant: SoriChipVariant.filled,
+              ),
               const SizedBox(height: 14),
               Text(
                 g.pattern,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800, color: SoriColors.warning, height: 1.15),
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w800,
+                  color: SoriColors.warning,
+                  height: 1.15,
+                ),
               ),
               const SizedBox(height: Spacing.sm),
-              Text(g.typeDe, style: TextStyle(fontSize: 13, color: SoriColors.warning.withValues(alpha: 0.75), fontWeight: FontWeight.w700)),
+              Text(
+                g.typeDe,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: SoriColors.warning.withValues(alpha: 0.75),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
               const SizedBox(height: Spacing.lg),
-              Text('👆 Tippen für Erklärung', style: TextStyle(fontSize: 11.5, color: s.textDim)),
+              Text(
+                '👆 Tippen für Erklärung',
+                style: TextStyle(fontSize: 11.5, color: s.textDim),
+              ),
             ],
           ),
         ),
@@ -335,20 +426,63 @@ class _Back extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SoriChip(label: g.level, accent: SoriColors.hangul, variant: SoriChipVariant.filled),
+              SoriChip(
+                label: g.level,
+                accent: SoriColors.hangul,
+                variant: SoriChipVariant.filled,
+              ),
               const SizedBox(height: 10),
-              Text(g.pattern, textAlign: TextAlign.center, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: SoriColors.hangul)),
+              Text(
+                g.pattern,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w800,
+                  color: SoriColors.hangul,
+                ),
+              ),
               const SizedBox(height: Spacing.sm),
-              Text(g.explanationDe, textAlign: TextAlign.center, style: TextStyle(fontSize: 13.5, color: s.text, height: 1.5)),
+              Text(
+                g.explanationDe,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 13.5, color: s.text, height: 1.5),
+              ),
               const SizedBox(height: 12),
-              Text(g.exampleKorean, textAlign: TextAlign.center, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: SoriColors.hangul.withValues(alpha: 0.85))),
+              Text(
+                g.exampleKorean,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: SoriColors.hangul.withValues(alpha: 0.85),
+                ),
+              ),
               const SizedBox(height: 4),
-              Text(g.exampleGerman, textAlign: TextAlign.center, style: TextStyle(fontSize: 13, color: s.text, fontStyle: FontStyle.italic)),
+              Text(
+                g.exampleGerman,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: s.text,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
               if (g.note.isNotEmpty) ...[
                 const SizedBox(height: Spacing.sm),
-                Divider(color: SoriColors.hangul.withValues(alpha: 0.25), height: 1),
+                Divider(
+                  color: SoriColors.hangul.withValues(alpha: 0.25),
+                  height: 1,
+                ),
                 const SizedBox(height: Spacing.xs + 2),
-                Text(g.note, textAlign: TextAlign.center, style: TextStyle(fontSize: 11.5, color: s.textMuted, height: 1.4)),
+                Text(
+                  g.note,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 11.5,
+                    color: s.textMuted,
+                    height: 1.4,
+                  ),
+                ),
               ],
             ],
           ),

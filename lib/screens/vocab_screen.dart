@@ -275,7 +275,7 @@ class _VocabScreenState extends State<VocabScreen> {
           child: Column(
             children: [
               // ── 서당 banner (한지 책상 + 책·붓·벼루). 신규 study_classroom.png가
-              //    들어오면 자동 교체, 없으면 기존 study.png fallback. ──
+              //    없으면 같은 톤의 scholar asset으로 fallback. ──
               ClipRRect(
                 borderRadius: BorderRadius.circular(14),
                 child: Image.asset(
@@ -284,7 +284,7 @@ class _VocabScreenState extends State<VocabScreen> {
                   height: 80,
                   fit: BoxFit.cover,
                   errorBuilder: (_, __, ___) => Image.asset(
-                    'assets/illustrations/hanok/study.png',
+                    'assets/illustrations/hanok/study_scholar.png',
                     width: double.infinity,
                     height: 80,
                     fit: BoxFit.cover,
@@ -566,6 +566,8 @@ class _Front extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
+    final mastery = Storage.vocabMastery(v.korean);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
@@ -574,7 +576,18 @@ class _Front extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SoriChip(label: v.level, accent: SoriColors.info, variant: SoriChipVariant.filled),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SoriChip(
+                  label: v.level,
+                  accent: SoriColors.info,
+                  variant: SoriChipVariant.filled,
+                ),
+                const SizedBox(width: 8),
+                _MasteryChip(state: mastery, label: _masteryLabel(t, mastery)),
+              ],
+            ),
             const SizedBox(height: 14),
             Text(
               koFirst ? v.korean : v.german,
@@ -595,6 +608,65 @@ class _Front extends StatelessWidget {
             Text(v.posDe, style: TextStyle(fontSize: 12, color: s.textMuted)),
             const SizedBox(height: Spacing.lg),
             Text('👆 Tippen zum Umdrehen', style: TextStyle(fontSize: 11.5, color: s.textDim)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+String _masteryLabel(AppL10n t, MasteryState m) {
+  switch (m) {
+    case MasteryState.fresh:
+      return t.vocabMasteryFresh;
+    case MasteryState.learning:
+      return t.vocabMasteryLearning;
+    case MasteryState.reviewDue:
+      return t.vocabMasteryReviewDue;
+    case MasteryState.strong:
+      return t.vocabMasteryStrong;
+  }
+}
+
+class _MasteryChip extends StatelessWidget {
+  final MasteryState state;
+  final String label;
+  const _MasteryChip({required this.state, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    final (color, icon) = switch (state) {
+      MasteryState.fresh =>
+        (SoriSurfaces.of(context).textMuted, Icons.fiber_new_rounded),
+      MasteryState.learning => (SoriColors.info, Icons.school_outlined),
+      MasteryState.reviewDue =>
+        (SoriColors.warning, Icons.refresh_rounded),
+      MasteryState.strong => (SoriColors.success, Icons.workspace_premium_rounded),
+    };
+    return Semantics(
+      label: label,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.14),
+          borderRadius: BorderRadius.circular(999),
+          border: Border.all(color: color.withValues(alpha: 0.35), width: 1),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 12, color: color),
+            const SizedBox(width: 4),
+            Text(
+              label,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+                color: color,
+                letterSpacing: 0.2,
+              ),
+            ),
           ],
         ),
       ),

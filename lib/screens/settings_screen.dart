@@ -37,7 +37,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.settingsTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.settingsTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
@@ -51,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Spacing.md,
             ),
             child: HanokHeader(
-              asset: 'assets/illustrations/hanok/scholar_room.png',
+              asset: 'assets/illustrations/hanok/study_scholar.png',
               fallbackIcon: Icons.tune_rounded,
             ),
           ),
@@ -60,12 +63,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _Section(label: t.settingsThemeTitle),
           RadioGroup<ThemeMode>(
             groupValue: themeModeNotifier.value,
-            onChanged: (m) => setState(() => setThemeMode(m ?? ThemeMode.system)),
+            onChanged: (m) =>
+                setState(() => setThemeMode(m ?? ThemeMode.system)),
             child: Column(
               children: [
-                _RadioTile<ThemeMode>(title: t.settingsThemeSystem, value: ThemeMode.system),
-                _RadioTile<ThemeMode>(title: t.settingsThemeLight, value: ThemeMode.light),
-                _RadioTile<ThemeMode>(title: t.settingsThemeDark, value: ThemeMode.dark),
+                _RadioTile<ThemeMode>(
+                  title: t.settingsThemeSystem,
+                  value: ThemeMode.system,
+                ),
+                _RadioTile<ThemeMode>(
+                  title: t.settingsThemeLight,
+                  value: ThemeMode.light,
+                ),
+                _RadioTile<ThemeMode>(
+                  title: t.settingsThemeDark,
+                  value: ThemeMode.dark,
+                ),
               ],
             ),
           ),
@@ -73,7 +86,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // ── Sprache ──
           _Section(label: t.settingsLanguage),
           RadioGroup<String>(
-            groupValue: currentLocale == null ? 'system' : currentLocale.languageCode,
+            groupValue: currentLocale == null
+                ? 'system'
+                : currentLocale.languageCode,
             onChanged: (v) => setState(() {
               switch (v) {
                 case 'de':
@@ -86,7 +101,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             }),
             child: Column(
               children: [
-                _RadioTile<String>(title: t.settingsLanguageSystem, value: 'system'),
+                _RadioTile<String>(
+                  title: t.settingsLanguageSystem,
+                  value: 'system',
+                ),
                 _RadioTile<String>(title: t.settingsLanguageDe, value: 'de'),
                 _RadioTile<String>(title: t.settingsLanguageEn, value: 'en'),
               ],
@@ -96,10 +114,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // ── Lernlevel ──
           _Section(label: t.settingsUserLevel),
           ListTile(
-            leading: const Icon(Icons.school_outlined, color: SoriColors.primary),
+            leading: const Icon(
+              Icons.school_outlined,
+              color: SoriColors.primary,
+            ),
             title: Text(_levelDisplay(t)),
-            subtitle: Text(t.settingsUserLevelChange, style: const TextStyle(fontSize: 12, color: SoriColors.darkTextMuted)),
-            trailing: const Icon(Icons.chevron_right, color: SoriColors.darkTextMuted),
+            subtitle: Text(
+              t.settingsUserLevelChange,
+              style: const TextStyle(
+                fontSize: 12,
+                color: SoriColors.darkTextMuted,
+              ),
+            ),
+            trailing: const Icon(
+              Icons.chevron_right,
+              color: SoriColors.darkTextMuted,
+            ),
             onTap: _showLevelDialog,
           ),
 
@@ -111,7 +141,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 Slider(
                   value: _ttsRate,
-                  min: 0.1, max: 1.0,
+                  min: 0.1,
+                  max: 1.0,
                   divisions: 9,
                   label: _ttsRate.toStringAsFixed(2),
                   onChanged: (v) {
@@ -126,9 +157,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(t.settingsTtsRateSlow,  style: const TextStyle(fontSize: 11, color: SoriColors.darkTextMuted)),
-                    Text(t.settingsTtsRateNormal, style: const TextStyle(fontSize: 11, color: SoriColors.darkTextMuted)),
-                    Text(t.settingsTtsRateFast,  style: const TextStyle(fontSize: 11, color: SoriColors.darkTextMuted)),
+                    Text(
+                      t.settingsTtsRateSlow,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        color: SoriColors.darkTextMuted,
+                      ),
+                    ),
+                    Text(
+                      t.settingsTtsRateNormal,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        color: SoriColors.darkTextMuted,
+                      ),
+                    ),
+                    Text(
+                      t.settingsTtsRateFast,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        color: SoriColors.darkTextMuted,
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -138,24 +187,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // ── Cloud-Backup (Firebase Auth) ──
           _Section(label: t.settingsCloudSection),
           ListTile(
-            leading: const Icon(Icons.cloud_outlined, color: SoriColors.primary),
-            title: Text(AuthService.isGoogleLinked
-                ? t.settingsCloudSignedIn(AuthService.displayName ?? 'Google')
-                : t.settingsCloudSignInPrompt),
-            subtitle: Text(AuthService.isGoogleLinked
-                ? t.settingsCloudSignedInDesc
-                : t.settingsCloudSignInDesc),
+            leading: const Icon(
+              Icons.cloud_outlined,
+              color: SoriColors.primary,
+            ),
+            title: Text(
+              AuthService.isGoogleLinked
+                  ? t.settingsCloudSignedIn(AuthService.displayName ?? 'Google')
+                  : t.settingsCloudSignInPrompt,
+            ),
+            subtitle: Text(
+              AuthService.isGoogleLinked
+                  ? t.settingsCloudSignedInDesc
+                  : t.settingsCloudSignInDesc,
+            ),
             onTap: _onGoogleTap,
           ),
           if (AuthService.isGoogleLinked) ...[
             ListTile(
               leading: const Icon(Icons.cloud_upload_outlined),
-              title:   Text(t.settingsCloudBackupNow),
+              title: Text(t.settingsCloudBackupNow),
               onTap: _onBackupTap,
             ),
             ListTile(
               leading: const Icon(Icons.cloud_download_outlined),
-              title:   Text(t.settingsCloudRestore),
+              title: Text(t.settingsCloudRestore),
               onTap: _onRestoreTap,
             ),
           ],
@@ -164,7 +220,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _Section(label: t.settingsAdsSection),
           SwitchListTile(
             title: Text(t.settingsShowAds),
-            subtitle: Text(t.settingsShowAdsDesc, style: const TextStyle(fontSize: 12, color: SoriColors.darkTextMuted)),
+            subtitle: Text(
+              t.settingsShowAdsDesc,
+              style: const TextStyle(
+                fontSize: 12,
+                color: SoriColors.darkTextMuted,
+              ),
+            ),
             value: Storage.adsEnabled,
             onChanged: (v) async {
               await Storage.setAdsEnabled(v);
@@ -177,7 +239,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _Section(label: ''),
           ListTile(
             leading: const Icon(Icons.delete_outline, color: SoriColors.danger),
-            title: Text(t.settingsReset, style: const TextStyle(color: SoriColors.danger)),
+            title: Text(
+              t.settingsReset,
+              style: const TextStyle(color: SoriColors.danger),
+            ),
             onTap: _confirmReset,
           ),
 
@@ -243,7 +308,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _showLevelDialog() {
     final t = AppL10n.of(context);
-    final current = LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final current =
+        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
     String nameFor(LearnerLevel lvl) => switch (lvl) {
       LearnerLevel.a1 => t.onboardingLevelA1,
       LearnerLevel.a2 => t.onboardingLevelA2,
@@ -370,7 +436,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppL10n.of(context).settingsCloudAuthFailed(e.toString()))),
+        SnackBar(
+          content: Text(
+            AppL10n.of(context).settingsCloudAuthFailed(e.toString()),
+          ),
+        ),
       );
     }
   }

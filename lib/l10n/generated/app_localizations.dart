@@ -661,6 +661,18 @@ abstract class AppL10n {
   /// **'Bester Streak'**
   String get statsBestStreak;
 
+  /// No description provided for @statsStreakShield.
+  ///
+  /// In de, this message translates to:
+  /// **'Streak-Schutz'**
+  String get statsStreakShield;
+
+  /// No description provided for @statsStreakShieldHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Schützt einen verpassten Tag.'**
+  String get statsStreakShieldHint;
+
   /// No description provided for @statsWordleWins.
   ///
   /// In de, this message translates to:
@@ -1417,6 +1429,48 @@ abstract class AppL10n {
   /// **'{stars} von 3 Sternen'**
   String scenarioStarsLabel(int stars);
 
+  /// No description provided for @scenarioRecapTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Das hast du gelernt'**
+  String get scenarioRecapTitle;
+
+  /// No description provided for @scenarioRecapWordsLine.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Wörter geübt'**
+  String scenarioRecapWordsLine(int count);
+
+  /// No description provided for @scenarioRecapAccuracyLine.
+  ///
+  /// In de, this message translates to:
+  /// **'{passed} von {total} Quests im ersten Versuch'**
+  String scenarioRecapAccuracyLine(int passed, int total);
+
+  /// No description provided for @scenarioRecapGrammarLine.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik-Fokus: {pattern}'**
+  String scenarioRecapGrammarLine(String pattern);
+
+  /// No description provided for @scenarioNextRecommendedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes empfohlen'**
+  String get scenarioNextRecommendedTitle;
+
+  /// No description provided for @scenarioNextRecommendedCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffnen'**
+  String get scenarioNextRecommendedCta;
+
+  /// No description provided for @scenarioNextRecommendedAllDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle {level}-Szenarien abgeschlossen.'**
+  String scenarioNextRecommendedAllDone(String level);
+
   /// No description provided for @questCorrect.
   ///
   /// In de, this message translates to:
@@ -1530,6 +1584,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Lerne Koreanisch wie ein Local'**
   String get homeGreetingLearn;
+
+  /// No description provided for @homeTodaySection.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute'**
+  String get homeTodaySection;
 
   /// No description provided for @settingsThemeTitle.
   ///
@@ -1860,6 +1920,66 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Letzte Silbe → nächstes Wort'**
   String get gameKkeunmariDesc;
+
+  /// No description provided for @vocabMasteryFresh.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu'**
+  String get vocabMasteryFresh;
+
+  /// No description provided for @vocabMasteryLearning.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Aufbau'**
+  String get vocabMasteryLearning;
+
+  /// No description provided for @vocabMasteryReviewDue.
+  ///
+  /// In de, this message translates to:
+  /// **'Fällig'**
+  String get vocabMasteryReviewDue;
+
+  /// No description provided for @vocabMasteryStrong.
+  ///
+  /// In de, this message translates to:
+  /// **'Gefestigt'**
+  String get vocabMasteryStrong;
+
+  /// No description provided for @scenariosPathTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Pfad'**
+  String get scenariosPathTitle;
+
+  /// No description provided for @scenariosPathProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{done}/{total} freigeschaltet'**
+  String scenariosPathProgress(int done, int total);
+
+  /// No description provided for @scenariosPathNextLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes'**
+  String get scenariosPathNextLabel;
+
+  /// No description provided for @scenariosPathStartCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Starten'**
+  String get scenariosPathStartCta;
+
+  /// No description provided for @scenariosPathAllDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Szenarien abgeschlossen'**
+  String get scenariosPathAllDone;
+
+  /// No description provided for @scenariosPathLevelProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{level}: {done}/{total} ★'**
+  String scenariosPathLevelProgress(Object level, int done, int total);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

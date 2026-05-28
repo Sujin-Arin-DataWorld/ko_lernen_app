@@ -155,6 +155,30 @@ class QuestSpec {
     type: QuestType.fromCode((j['type'] as String?) ?? 'hoerverstehen'),
     data: (j['data'] as Map<String, dynamic>?) ?? const {},
   );
+
+  /// Korean vocabulary keys this quest tests. Used for error-aware SRS:
+  /// failing the quest marks these keys as "didn't get it" so they surface
+  /// sooner. Empty for grammar-only quest types.
+  List<String> targetVocabKeys() {
+    switch (type) {
+      case QuestType.hoerverstehen:
+      case QuestType.luecken:
+      case QuestType.uebersetzen:
+        final opts = (data['options'] as List?) ?? const [];
+        final idx = (data['correctIndex'] as num?)?.toInt() ?? 0;
+        if (idx >= 0 && idx < opts.length) {
+          final answer = opts[idx]?.toString() ?? '';
+          if (answer.isNotEmpty) return [answer];
+        }
+        return const [];
+      case QuestType.batchimDrop:
+        final t = (data['targetWord'] as String?) ?? '';
+        return t.isNotEmpty ? [t] : const [];
+      case QuestType.particlePop:
+      case QuestType.schreiben:
+        return const [];
+    }
+  }
 }
 
 class CulturalNote {

@@ -301,6 +301,12 @@ class AppL10nEn extends AppL10n {
   String get statsBestStreak => 'Best streak';
 
   @override
+  String get statsStreakShield => 'Streak shield';
+
+  @override
+  String get statsStreakShieldHint => 'Shields one missed day.';
+
+  @override
   String get statsWordleWins => 'Wordle wins';
 
   @override
@@ -727,6 +733,35 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get scenarioRecapTitle => 'What you learned';
+
+  @override
+  String scenarioRecapWordsLine(int count) {
+    return '$count words practiced';
+  }
+
+  @override
+  String scenarioRecapAccuracyLine(int passed, int total) {
+    return '$passed of $total quests on first try';
+  }
+
+  @override
+  String scenarioRecapGrammarLine(String pattern) {
+    return 'Grammar focus: $pattern';
+  }
+
+  @override
+  String get scenarioNextRecommendedTitle => 'Suggested next';
+
+  @override
+  String get scenarioNextRecommendedCta => 'Open';
+
+  @override
+  String scenarioNextRecommendedAllDone(String level) {
+    return 'All $level scenarios completed.';
+  }
+
+  @override
   String get questCorrect => 'Correct!';
 
   @override
@@ -787,6 +822,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeGreetingLearn => 'Learn Korean like a local';
+
+  @override
+  String get homeTodaySection => 'Today';
 
   @override
   String get settingsThemeTitle => 'Appearance';
@@ -974,4 +1012,38 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gameKkeunmariDesc => 'Last syllable → next word';
+
+  @override
+  String get vocabMasteryFresh => 'New';
+
+  @override
+  String get vocabMasteryLearning => 'Learning';
+
+  @override
+  String get vocabMasteryReviewDue => 'Review due';
+
+  @override
+  String get vocabMasteryStrong => 'Strong';
+
+  @override
+  String get scenariosPathTitle => 'Your path';
+
+  @override
+  String scenariosPathProgress(int done, int total) {
+    return '$done/$total unlocked';
+  }
+
+  @override
+  String get scenariosPathNextLabel => 'Next up';
+
+  @override
+  String get scenariosPathStartCta => 'Start';
+
+  @override
+  String get scenariosPathAllDone => 'All scenarios completed';
+
+  @override
+  String scenariosPathLevelProgress(Object level, int done, int total) {
+    return '$level: $done/$total ★';
+  }
 }

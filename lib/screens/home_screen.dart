@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: Spacing.xl),
 
                   // ── Heute (Hero Szenario) ───────────────────────────
-                  _SectionLabel(label: 'Heute'),
+                  _SectionLabel(label: t.homeTodaySection),
                   const SizedBox(height: Spacing.sm),
                   SoriEntrance(
                     delay: const Duration(milliseconds: 60),
@@ -183,8 +183,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Expanded(
                               child: _MiniModuleCard(
-                                emoji: '🔠',
+                                icon: Icons.sort_by_alpha_rounded,
                                 title: t.gameChosungTitle,
+                                subtitle: t.gameChosungDesc,
                                 accent: SoriColors.primary,
                                 onTap: () =>
                                     Navigator.pushNamed(context, '/chosung'),
@@ -193,8 +194,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(width: Spacing.md),
                             Expanded(
                               child: _MiniModuleCard(
-                                emoji: '🟩',
+                                icon: Icons.grid_4x4_rounded,
                                 title: t.gameWordleTitle,
+                                subtitle: t.gameWordleDesc,
                                 accent: SoriColors.success,
                                 onTap: () =>
                                     Navigator.pushNamed(context, '/wordle'),
@@ -207,18 +209,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Expanded(
                               child: _MiniModuleCard(
-                                emoji: '🔗',
+                                icon: Icons.link_rounded,
                                 title: t.gameKkeunmariTitle,
                                 subtitle: t.gameKkeunmariDesc,
                                 accent: SoriColors.accent,
-                                onTap: () => Navigator.pushNamed(
-                                    context, '/kkeunmari'),
+                                onTap: () =>
+                                    Navigator.pushNamed(context, '/kkeunmari'),
                               ),
                             ),
                             const SizedBox(width: Spacing.md),
                             Expanded(
                               child: _MiniModuleCard(
-                                emoji: '🎧',
+                                icon: Icons.headphones_rounded,
                                 title: t.moduleListenTitle,
                                 subtitle: t.listeningSubtitle,
                                 accent: SoriColors.info,
@@ -373,7 +375,11 @@ class _StatsPeek extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('🔥', style: TextStyle(fontSize: 20)),
+                const Icon(
+                  Icons.local_fire_department_rounded,
+                  color: SoriColors.warning,
+                  size: 22,
+                ),
                 const SizedBox(width: 6),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -390,7 +396,7 @@ class _StatsPeek extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Tage',
+                      AppL10n.of(context).statsDays,
                       style: TextStyle(
                         fontFamily: 'Pretendard',
                         color: s.textMuted,
@@ -594,7 +600,7 @@ class _ModulesGrid extends StatelessWidget {
           children: [
             Expanded(
               child: _MiniModuleCard(
-                emoji: '🔤',
+                icon: Icons.text_fields_rounded,
                 title: t.moduleHangulTitle,
                 subtitle: t.moduleHangulDesc,
                 accent: SoriColors.hangul,
@@ -604,7 +610,7 @@ class _ModulesGrid extends StatelessWidget {
             const SizedBox(width: Spacing.md),
             Expanded(
               child: _MiniModuleCard(
-                emoji: '📚',
+                icon: Icons.menu_book_rounded,
                 title: t.moduleVocabTitle,
                 subtitle: t.moduleVocabDesc,
                 accent: SoriColors.primary,
@@ -618,7 +624,7 @@ class _ModulesGrid extends StatelessWidget {
           children: [
             Expanded(
               child: _MiniModuleCard(
-                emoji: '📝',
+                icon: Icons.edit_note_rounded,
                 title: t.moduleGrammarTitle,
                 subtitle: t.moduleGrammarDesc,
                 accent: SoriColors.warning,
@@ -628,7 +634,7 @@ class _ModulesGrid extends StatelessWidget {
             const SizedBox(width: Spacing.md),
             Expanded(
               child: _MiniModuleCard(
-                emoji: '💬',
+                icon: Icons.forum_rounded,
                 title: t.moduleScenariosTitle,
                 subtitle: t.moduleScenariosDesc,
                 accent: SoriColors.accent,
@@ -643,14 +649,14 @@ class _ModulesGrid extends StatelessWidget {
 }
 
 class _MiniModuleCard extends StatelessWidget {
-  final String emoji;
+  final IconData icon;
   final String title;
   final String? subtitle;
   final Color accent;
   final VoidCallback onTap;
 
   const _MiniModuleCard({
-    required this.emoji,
+    required this.icon,
     required this.title,
     this.subtitle,
     required this.accent,
@@ -675,7 +681,7 @@ class _MiniModuleCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
             alignment: Alignment.center,
-            child: Text(emoji, style: const TextStyle(fontSize: 22)),
+            child: Icon(icon, size: 22, color: accent),
           ),
           const SizedBox(height: Spacing.md),
           Text(

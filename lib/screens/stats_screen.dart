@@ -31,7 +31,8 @@ class StatsScreen extends StatelessWidget {
         : (Storage.wordleWins * 100 ~/ wordleTotal);
 
     // 첫 진입 감지 — XP 0 + 시나리오 0 + 모든 퀴즈 카운트 0.
-    final isFirstEntry = Storage.xp == 0 &&
+    final isFirstEntry =
+        Storage.xp == 0 &&
         Storage.completedScenarios.isEmpty &&
         vokTotal == 0 &&
         chosungTotal == 0 &&
@@ -103,8 +104,11 @@ class StatsScreen extends StatelessWidget {
           _StreakHero(
             streak: Storage.streakDays,
             best: Storage.bestStreak,
+            shields: Storage.streakFreezes,
             label: t.statsStreak,
             bestLabel: t.statsBestStreak,
+            shieldLabel: t.statsStreakShield,
+            shieldHint: t.statsStreakShieldHint,
           ),
           const SizedBox(height: 16),
 
@@ -219,17 +223,24 @@ class StatsScreen extends StatelessWidget {
 class _StreakHero extends StatelessWidget {
   final int streak;
   final int best;
+  final int shields;
   final String label;
   final String bestLabel;
+  final String shieldLabel;
+  final String shieldHint;
   const _StreakHero({
     required this.streak,
     required this.best,
+    required this.shields,
     required this.label,
     required this.bestLabel,
+    required this.shieldLabel,
+    required this.shieldHint,
   });
 
   @override
   Widget build(BuildContext context) {
+    final ss = SoriSurfaces.of(context);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.warning,
@@ -254,7 +265,7 @@ class _StreakHero extends StatelessWidget {
                 Text(
                   label,
                   style: TextStyle(
-                    color: SoriSurfaces.of(context).textMuted,
+                    color: ss.textMuted,
                     fontSize: 12,
                     letterSpacing: 0.5,
                   ),
@@ -262,7 +273,7 @@ class _StreakHero extends StatelessWidget {
                 Text(
                   '$streak',
                   style: TextStyle(
-                    color: SoriSurfaces.of(context).text,
+                    color: ss.text,
                     fontSize: 38,
                     fontWeight: FontWeight.w900,
                     height: 1.1,
@@ -271,11 +282,46 @@ class _StreakHero extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   '$bestLabel: $best',
-                  style: TextStyle(
-                    color: SoriSurfaces.of(context).textMuted,
-                    fontSize: 12,
-                  ),
+                  style: TextStyle(color: ss.textMuted, fontSize: 12),
                 ),
+                if (shields > 0) ...[
+                  const SizedBox(height: 6),
+                  Semantics(
+                    label: '$shieldLabel: $shields. $shieldHint',
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 3,
+                      ),
+                      decoration: BoxDecoration(
+                        color: SoriColors.primary.withValues(alpha: 0.12),
+                        borderRadius: BorderRadius.circular(999),
+                        border: Border.all(
+                          color: SoriColors.primary.withValues(alpha: 0.30),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.shield_rounded,
+                            size: 13,
+                            color: SoriColors.primary,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            '$shieldLabel × $shields',
+                            style: TextStyle(
+                              color: SoriColors.primary,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -384,17 +430,22 @@ class _XpCard extends StatelessWidget {
                 size: 22,
               ),
               const SizedBox(width: 8),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w800,
-                  color: SoriColors.primary,
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    color: SoriColors.primary,
+                  ),
                 ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Text(
                 levelLabel,
+                maxLines: 1,
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w800,
@@ -407,34 +458,51 @@ class _XpCard extends StatelessWidget {
 
           // XP big number + scenarios chip
           Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                '$xp',
-                style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w900,
-                  color: s.text,
-                  height: 1,
-                  letterSpacing: -1,
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '$xp',
+                          style: TextStyle(
+                            fontSize: 36,
+                            fontWeight: FontWeight.w900,
+                            color: s.text,
+                            height: 1,
+                            letterSpacing: -1,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 3),
+                      child: Text(
+                        'XP',
+                        style: TextStyle(
+                          color: s.textMuted,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(width: 6),
-              Text(
-                'XP',
-                style: TextStyle(
-                  color: s.textMuted,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
+              const SizedBox(width: 8),
+              Flexible(
+                child: SoriChip(
+                  label: '🎬 $scenariosDone $scenariosLabel',
+                  accent: SoriColors.primary,
+                  variant: SoriChipVariant.soft,
+                  fontSize: 11,
                 ),
-              ),
-              const Spacer(),
-              SoriChip(
-                label: '🎬 $scenariosDone $scenariosLabel',
-                accent: SoriColors.primary,
-                variant: SoriChipVariant.soft,
-                fontSize: 11,
               ),
             ],
           ),

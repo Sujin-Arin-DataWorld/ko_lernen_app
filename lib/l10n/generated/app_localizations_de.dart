@@ -302,6 +302,12 @@ class AppL10nDe extends AppL10n {
   String get statsBestStreak => 'Bester Streak';
 
   @override
+  String get statsStreakShield => 'Streak-Schutz';
+
+  @override
+  String get statsStreakShieldHint => 'Schützt einen verpassten Tag.';
+
+  @override
   String get statsWordleWins => 'Wordle Siege';
 
   @override
@@ -729,6 +735,35 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get scenarioRecapTitle => 'Das hast du gelernt';
+
+  @override
+  String scenarioRecapWordsLine(int count) {
+    return '$count Wörter geübt';
+  }
+
+  @override
+  String scenarioRecapAccuracyLine(int passed, int total) {
+    return '$passed von $total Quests im ersten Versuch';
+  }
+
+  @override
+  String scenarioRecapGrammarLine(String pattern) {
+    return 'Grammatik-Fokus: $pattern';
+  }
+
+  @override
+  String get scenarioNextRecommendedTitle => 'Als Nächstes empfohlen';
+
+  @override
+  String get scenarioNextRecommendedCta => 'Öffnen';
+
+  @override
+  String scenarioNextRecommendedAllDone(String level) {
+    return 'Alle $level-Szenarien abgeschlossen.';
+  }
+
+  @override
   String get questCorrect => 'Richtig!';
 
   @override
@@ -789,6 +824,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get homeGreetingLearn => 'Lerne Koreanisch wie ein Local';
+
+  @override
+  String get homeTodaySection => 'Heute';
 
   @override
   String get settingsThemeTitle => 'Erscheinungsbild';
@@ -977,4 +1015,38 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gameKkeunmariDesc => 'Letzte Silbe → nächstes Wort';
+
+  @override
+  String get vocabMasteryFresh => 'Neu';
+
+  @override
+  String get vocabMasteryLearning => 'Im Aufbau';
+
+  @override
+  String get vocabMasteryReviewDue => 'Fällig';
+
+  @override
+  String get vocabMasteryStrong => 'Gefestigt';
+
+  @override
+  String get scenariosPathTitle => 'Dein Pfad';
+
+  @override
+  String scenariosPathProgress(int done, int total) {
+    return '$done/$total freigeschaltet';
+  }
+
+  @override
+  String get scenariosPathNextLabel => 'Als Nächstes';
+
+  @override
+  String get scenariosPathStartCta => 'Starten';
+
+  @override
+  String get scenariosPathAllDone => 'Alle Szenarien abgeschlossen';
+
+  @override
+  String scenariosPathLevelProgress(Object level, int done, int total) {
+    return '$level: $done/$total ★';
+  }
 }

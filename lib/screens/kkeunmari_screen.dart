@@ -108,8 +108,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
     if (_end != _End.none || _turn != _Turn.user) return;
     final input = _ctrl.text.trim();
     if (input.isEmpty) return;
-    final (valid, reason, word) =
-        KkeunmariEngine.validateUserWord(input, _required, _used);
+    final (valid, reason, word) = KkeunmariEngine.validateUserWord(
+      input,
+      _required,
+      _used,
+    );
     if (!valid) {
       final t = AppL10n.of(context);
       HapticFeedback.mediumImpact();
@@ -214,8 +217,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.kkeunmariTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.kkeunmariTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, size: 20),
           onPressed: () => Navigator.pop(context),
@@ -229,7 +234,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
             children: [
               // ── hero ──
               HanokHeader(
-                asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
+                asset: 'assets/illustrations/hanok/porch.png',
                 fallbackIcon: Icons.link_rounded,
                 fallbackTint: SoriColors.accent,
                 aspectRatio: 10 / 3,
@@ -280,9 +285,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
                     focusNode: _focusNode,
                     autofocus: true,
                     textAlign: TextAlign.center,
-                    decoration: InputDecoration(
-                      hintText: t.kkeunmariInputHint,
-                    ),
+                    decoration: InputDecoration(hintText: t.kkeunmariInputHint),
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w800,

@@ -16,18 +16,23 @@ import '../l10n/generated/app_localizations.dart';
 enum _LS { empty, correct, present, absent }
 
 List<_LS> _check(String guess, String target) {
-  final n      = target.length;
+  final n = target.length;
   final result = List.filled(n, _LS.absent);
-  final used   = List.filled(n, false);
+  final used = List.filled(n, false);
 
   for (int i = 0; i < n && i < guess.length; i++) {
-    if (guess[i] == target[i]) { result[i] = _LS.correct; used[i] = true; }
+    if (guess[i] == target[i]) {
+      result[i] = _LS.correct;
+      used[i] = true;
+    }
   }
   for (int i = 0; i < guess.length; i++) {
     if (result[i] == _LS.correct) continue;
     for (int j = 0; j < n; j++) {
       if (!used[j] && guess[i] == target[j]) {
-        result[i] = _LS.present; used[j] = true; break;
+        result[i] = _LS.present;
+        used[j] = true;
+        break;
       }
     }
   }
@@ -42,15 +47,15 @@ class WordleScreen extends StatefulWidget {
 }
 
 class _WordleScreenState extends State<WordleScreen> {
-  List<Vocab>  _vocab = [];
+  List<Vocab> _vocab = [];
   String _target = '';
 
   final List<(String, List<_LS>)> _guesses = [];
-  bool   _won   = false;
-  bool   _lost  = false;
+  bool _won = false;
+  bool _lost = false;
   String _error = '';
 
-  final _ctrl      = TextEditingController();
+  final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
 
   static const _max = 6;
@@ -63,21 +68,25 @@ class _WordleScreenState extends State<WordleScreen> {
 
   Future<void> _load({bool random = false}) async {
     final all = await DataLoader.loadVocab();
-    final pool = all
-        .where((v) =>
-            v.korean.length >= 2 &&
-            v.korean.length <= 3 &&
-            v.korean.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3))
-        .map((v) => v.korean)
-        .toSet()
-        .toList()
-      ..sort();
+    final pool =
+        all
+            .where(
+              (v) =>
+                  v.korean.length >= 2 &&
+                  v.korean.length <= 3 &&
+                  v.korean.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3),
+            )
+            .map((v) => v.korean)
+            .toSet()
+            .toList()
+          ..sort();
 
     String target;
     if (random) {
       target = pool[Random().nextInt(pool.length)];
     } else {
-      final seed = DateTime.now().year * 10000 +
+      final seed =
+          DateTime.now().year * 10000 +
           DateTime.now().month * 100 +
           DateTime.now().day;
       target = pool[seed % pool.length];
@@ -85,21 +94,19 @@ class _WordleScreenState extends State<WordleScreen> {
 
     if (!mounted) return;
     setState(() {
-      _vocab  = all;
+      _vocab = all;
       _target = target;
       _guesses.clear();
-      _won   = false;
-      _lost  = false;
+      _won = false;
+      _lost = false;
       _error = '';
     });
     _ctrl.clear();
     _focusNode.requestFocus();
   }
 
-  String? get _targetGerman => _vocab
-      .where((v) => v.korean == _target)
-      .map((v) => v.german)
-      .firstOrNull;
+  String? get _targetGerman =>
+      _vocab.where((v) => v.korean == _target).map((v) => v.german).firstOrNull;
 
   void _showHelp() {
     final t = AppL10n.of(context);
@@ -108,32 +115,61 @@ class _WordleScreenState extends State<WordleScreen> {
       builder: (ctx) => AlertDialog(
         backgroundColor: SoriSurfaces.of(ctx).surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: Text(t.wordleHowTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.wordleHowTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               t.wordleHowIntro,
-              style: TextStyle(color: SoriSurfaces.of(ctx).textMuted, fontSize: 13.5, height: 1.5),
+              style: TextStyle(
+                color: SoriSurfaces.of(ctx).textMuted,
+                fontSize: 13.5,
+                height: 1.5,
+              ),
             ),
             const SizedBox(height: 20),
-            _helpRow(SoriColors.success, t.wordleHowExact, t.wordleHowExactDesc),
+            _helpRow(
+              SoriColors.success,
+              t.wordleHowExact,
+              t.wordleHowExactDesc,
+            ),
             const SizedBox(height: 10),
-            _helpRow(SoriColors.warning, t.wordleHowWrong, t.wordleHowWrongDesc),
+            _helpRow(
+              SoriColors.warning,
+              t.wordleHowWrong,
+              t.wordleHowWrongDesc,
+            ),
             const SizedBox(height: 10),
-            _helpRow(SoriSurfaces.of(ctx).surfaceAlt, t.wordleHowAbsent, t.wordleHowAbsentDesc),
+            _helpRow(
+              SoriSurfaces.of(ctx).surfaceAlt,
+              t.wordleHowAbsent,
+              t.wordleHowAbsentDesc,
+            ),
             const SizedBox(height: 20),
             Text(
               t.wordleHowOutro,
-              style: TextStyle(color: SoriSurfaces.of(ctx).textMuted, fontSize: 12.5, height: 1.5),
+              style: TextStyle(
+                color: SoriSurfaces.of(ctx).textMuted,
+                fontSize: 12.5,
+                height: 1.5,
+              ),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: Text(t.btnConfirm, style: const TextStyle(color: SoriColors.info, fontWeight: FontWeight.w700)),
+            child: Text(
+              t.btnConfirm,
+              style: const TextStyle(
+                color: SoriColors.info,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ),
         ],
       ),
@@ -146,17 +182,35 @@ class _WordleScreenState extends State<WordleScreen> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: 36, height: 36,
-          decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(8)),
+          width: 36,
+          height: 36,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(8),
+          ),
           alignment: Alignment.center,
-          child: const Text('가', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 16)),
+          child: const Text(
+            '가',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w800,
+              fontSize: 16,
+            ),
+          ),
         ),
         const SizedBox(width: 12),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(label, style: TextStyle(color: color, fontWeight: FontWeight.w700, fontSize: 13)),
+              Text(
+                label,
+                style: TextStyle(
+                  color: color,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
+              ),
               Text(desc, style: TextStyle(color: s.textMuted, fontSize: 12)),
             ],
           ),
@@ -170,7 +224,9 @@ class _WordleScreenState extends State<WordleScreen> {
     if (input.isEmpty) return;
 
     if (input.length != _target.length) {
-      setState(() => _error = AppL10n.of(context).wordleErrorLength(_target.length));
+      setState(
+        () => _error = AppL10n.of(context).wordleErrorLength(_target.length),
+      );
       return;
     }
     if (!input.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3)) {
@@ -179,13 +235,13 @@ class _WordleScreenState extends State<WordleScreen> {
     }
 
     final result = _check(input, _target);
-    final won    = result.every((s) => s == _LS.correct);
-    final lost   = !won && _guesses.length + 1 >= _max;
+    final won = result.every((s) => s == _LS.correct);
+    final lost = !won && _guesses.length + 1 >= _max;
 
     setState(() {
       _error = '';
       _guesses.add((input, result));
-      _won  = won;
+      _won = won;
       _lost = lost;
     });
     _ctrl.clear();
@@ -236,19 +292,22 @@ class _WordleScreenState extends State<WordleScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.screenWordleTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.screenWordleTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, size: 20),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
-            icon:    const Icon(Icons.help_outline_rounded),
+            icon: const Icon(Icons.help_outline_rounded),
             tooltip: t.wordleHelpTooltip,
             onPressed: _showHelp,
           ),
           IconButton(
-            icon:    const Icon(Icons.shuffle_rounded),
+            icon: const Icon(Icons.shuffle_rounded),
             tooltip: t.wordleShuffleTooltip,
             onPressed: () => _load(random: true),
           ),
@@ -273,7 +332,10 @@ class _WordleScreenState extends State<WordleScreen> {
               const SizedBox(height: 12),
               Text(
                 t.wordleSyllableCount(n),
-                style: TextStyle(color: SoriSurfaces.of(context).textMuted, fontSize: 13),
+                style: TextStyle(
+                  color: SoriSurfaces.of(context).textMuted,
+                  fontSize: 13,
+                ),
               ),
               const SizedBox(height: Spacing.sm),
               if (_targetGerman != null)
@@ -284,10 +346,20 @@ class _WordleScreenState extends State<WordleScreen> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.lightbulb_outline, color: SoriColors.warning, size: 15),
+                      const Icon(
+                        Icons.lightbulb_outline,
+                        color: SoriColors.warning,
+                        size: 15,
+                      ),
                       const SizedBox(width: Spacing.xs + 2),
-                      Text(t.wordleMeaning(_targetGerman!),
-                          style: const TextStyle(color: SoriColors.warning, fontSize: 13, fontWeight: FontWeight.w600)),
+                      Text(
+                        t.wordleMeaning(_targetGerman!),
+                        style: const TextStyle(
+                          color: SoriColors.warning,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -295,9 +367,15 @@ class _WordleScreenState extends State<WordleScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SoriChip(label: t.wordleLegendCorrect, accent: SoriColors.success),
+                  SoriChip(
+                    label: t.wordleLegendCorrect,
+                    accent: SoriColors.success,
+                  ),
                   const SizedBox(width: 12),
-                  SoriChip(label: t.wordleLegendPresent, accent: SoriColors.warning),
+                  SoriChip(
+                    label: t.wordleLegendPresent,
+                    accent: SoriColors.warning,
+                  ),
                   const SizedBox(width: 12),
                   SoriChip(label: t.wordleLegendAbsent),
                 ],
@@ -306,9 +384,14 @@ class _WordleScreenState extends State<WordleScreen> {
 
               // ── 그리드 (단청 frame로 감싸기 — 한옥 처마 띠 느낌) ──
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 8,
+                ),
                 decoration: BoxDecoration(
-                  color: SoriSurfaces.of(context).surface.withValues(alpha: 0.35),
+                  color: SoriSurfaces.of(
+                    context,
+                  ).surface.withValues(alpha: 0.35),
                   borderRadius: BorderRadius.circular(SoriRadius.lg),
                   border: Border.all(
                     color: HanokColors.cheong.withValues(alpha: 0.55),
@@ -323,22 +406,40 @@ class _WordleScreenState extends State<WordleScreen> {
                         if (row < _guesses.length) {
                           final (word, states) = _guesses[row];
                           return _Row(
-                              syls: word.split(''), states: states, n: n);
+                            syls: word.split(''),
+                            states: states,
+                            n: n,
+                          );
                         }
                         return _Row(
                           syls: const [],
                           states: const [],
                           n: n,
-                          isActive:
-                              row == _guesses.length && !_won && !_lost,
+                          isActive: row == _guesses.length && !_won && !_lost,
                         );
                       }),
                     ),
                     // 단청 4코너 점 — 적·황·녹 군집
-                    const Positioned(top: -4, left: -4, child: _CornerDot(color: HanokColors.jeok)),
-                    const Positioned(top: -4, right: -4, child: _CornerDot(color: HanokColors.hwang)),
-                    const Positioned(bottom: -4, left: -4, child: _CornerDot(color: HanokColors.hwang)),
-                    const Positioned(bottom: -4, right: -4, child: _CornerDot(color: HanokColors.jeok)),
+                    const Positioned(
+                      top: -4,
+                      left: -4,
+                      child: _CornerDot(color: HanokColors.jeok),
+                    ),
+                    const Positioned(
+                      top: -4,
+                      right: -4,
+                      child: _CornerDot(color: HanokColors.hwang),
+                    ),
+                    const Positioned(
+                      bottom: -4,
+                      left: -4,
+                      child: _CornerDot(color: HanokColors.hwang),
+                    ),
+                    const Positioned(
+                      bottom: -4,
+                      right: -4,
+                      child: _CornerDot(color: HanokColors.jeok),
+                    ),
                   ],
                 ),
               ),
@@ -351,7 +452,13 @@ class _WordleScreenState extends State<WordleScreen> {
                   variant: SoriCardVariant.compact,
                   accent: SoriColors.danger,
                   tinted: true,
-                  child: Text(_error, style: const TextStyle(color: SoriColors.danger, fontWeight: FontWeight.w600)),
+                  child: Text(
+                    _error,
+                    style: const TextStyle(
+                      color: SoriColors.danger,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
 
               // ── 결과 ────────────────────────────────────────────────
@@ -361,27 +468,28 @@ class _WordleScreenState extends State<WordleScreen> {
                   autofocus: true,
                   onKeyEvent: (_, e) => _onResultKey(e),
                   child: _ResultCard(
-                    won:    _won,
+                    won: _won,
                     target: _target,
                     german: _targetGerman,
-                    onNew:  () => _load(random: true),
+                    onNew: () => _load(random: true),
                   ),
                 ),
               ] else ...[
                 // ── 입력 ────────────────────────────────────────────
                 TextField(
                   controller: _ctrl,
-                  focusNode:  _focusNode,
-                  autofocus:  true,
-                  textAlign:  TextAlign.center,
-                  maxLength:  n,
+                  focusNode: _focusNode,
+                  autofocus: true,
+                  textAlign: TextAlign.center,
+                  maxLength: n,
                   style: const TextStyle(
-                    fontSize: 24, fontWeight: FontWeight.w800,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
                     letterSpacing: 10,
                   ),
                   decoration: InputDecoration(
                     counterText: '',
-                    hintText:    t.wordleInputHint(n),
+                    hintText: t.wordleInputHint(n),
                   ),
                   onSubmitted: (_) => _submit(),
                 ),
@@ -407,29 +515,33 @@ class _WordleScreenState extends State<WordleScreen> {
       ),
     );
   }
-
 }
 
 // ── 그리드 행 ──────────────────────────────────────────────────────────────────
 class _Row extends StatelessWidget {
   final List<String> syls;
-  final List<_LS>    states;
-  final int  n;
+  final List<_LS> states;
+  final int n;
   final bool isActive;
 
-  const _Row({required this.syls, required this.states, required this.n, this.isActive = false});
+  const _Row({
+    required this.syls,
+    required this.states,
+    required this.n,
+    this.isActive = false,
+  });
 
   static Color _bg(_LS s, bool active) => switch (s) {
     _LS.correct => SoriColors.success,
     _LS.present => SoriColors.warning,
-    _LS.absent  => SoriColors.darkSurfaceAlt,
-    _LS.empty   => Colors.transparent,
+    _LS.absent => SoriColors.darkSurfaceAlt,
+    _LS.empty => Colors.transparent,
   };
   static Color _border(_LS s, bool active) => switch (s) {
     _LS.correct => SoriColors.success,
     _LS.present => SoriColors.warning,
-    _LS.absent  => SoriColors.darkSurfaceAlt,
-    _LS.empty   => active ? SoriColors.info : SoriColors.darkSurfaceAlt,
+    _LS.absent => SoriColors.darkSurfaceAlt,
+    _LS.empty => active ? SoriColors.info : SoriColors.darkSurfaceAlt,
   };
   static Color _fg(_LS s) => switch (s) {
     _LS.correct || _LS.present || _LS.absent => Colors.white,
@@ -438,40 +550,63 @@ class _Row extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(n, (i) {
-          final s   = i < states.length ? states[i] : _LS.empty;
-          final syl = i < syls.length   ? syls[i]   : '';
-          return AnimatedContainer(
-            duration:    const Duration(milliseconds: 200),
-            width:  62, height: 62,
-            margin: const EdgeInsets.symmetric(horizontal: 4),
-            decoration: BoxDecoration(
-              color:        _bg(s, isActive),
-              borderRadius: BorderRadius.circular(12),
-              border:       Border.all(color: _border(s, isActive), width: 2),
-            ),
-            alignment: Alignment.center,
-            child: Text(syl,
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800, color: _fg(s))),
-          );
-        }),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final cell = min(
+          62.0,
+          (constraints.maxWidth - (n * 8)) / n,
+        ).clamp(44.0, 62.0);
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(n, (i) {
+              final s = i < states.length ? states[i] : _LS.empty;
+              final syl = i < syls.length ? syls[i] : '';
+              return AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                width: cell,
+                height: cell,
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  color: _bg(s, isActive),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: _border(s, isActive), width: 2),
+                ),
+                alignment: Alignment.center,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    syl,
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w800,
+                      color: _fg(s),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        );
+      },
     );
   }
 }
 
 // ── 결과 카드 ──────────────────────────────────────────────────────────────────
 class _ResultCard extends StatelessWidget {
-  final bool    won;
-  final String  target;
+  final bool won;
+  final String target;
   final String? german;
   final VoidCallback onNew;
 
-  const _ResultCard({required this.won, required this.target, this.german, required this.onNew});
+  const _ResultCard({
+    required this.won,
+    required this.target,
+    this.german,
+    required this.onNew,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -483,33 +618,47 @@ class _ResultCard extends StatelessWidget {
       accent: color,
       tinted: true,
       width: double.infinity,
-      child: Column(children: [
-        // 정답 시 까치 축하 / 패배 시 호랑이 worry — 결과 카드의 캐릭터.
-        Mascot(
-          kind: won ? MascotKind.magpie : MascotKind.tiger,
-          emotion: won ? MascotEmotion.celebrate : MascotEmotion.worry,
-          size: 80,
-          animate: true,
-        ),
-        const SizedBox(height: Spacing.sm),
-        Text(won ? t.wordleResultWin : t.wordleResultLose,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: color)),
-        if (!won && german != null) ...[
+      child: Column(
+        children: [
+          // 정답 시 까치 축하 / 패배 시 호랑이 worry — 결과 카드의 캐릭터.
+          Mascot(
+            kind: won ? MascotKind.magpie : MascotKind.tiger,
+            emotion: won ? MascotEmotion.celebrate : MascotEmotion.worry,
+            size: 80,
+            animate: true,
+          ),
           const SizedBox(height: Spacing.sm),
-          Text(t.wordleAnswerLabel(target),
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: s.text)),
-          const SizedBox(height: 2),
-          Text(german!, style: TextStyle(fontSize: 14, color: s.textMuted)),
+          Text(
+            won ? t.wordleResultWin : t.wordleResultLose,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w900,
+              color: color,
+            ),
+          ),
+          if (!won && german != null) ...[
+            const SizedBox(height: Spacing.sm),
+            Text(
+              t.wordleAnswerLabel(target),
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                color: s.text,
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(german!, style: TextStyle(fontSize: 14, color: s.textMuted)),
+          ],
+          const SizedBox(height: Spacing.lg),
+          SoriButton.filled(
+            label: t.wordleNewWordBtn,
+            icon: Icons.shuffle_rounded,
+            accent: color,
+            fullWidth: true,
+            onTap: onNew,
+          ),
         ],
-        const SizedBox(height: Spacing.lg),
-        SoriButton.filled(
-          label: t.wordleNewWordBtn,
-          icon: Icons.shuffle_rounded,
-          accent: color,
-          fullWidth: true,
-          onTap: onNew,
-        ),
-      ]),
+      ),
     );
   }
 }

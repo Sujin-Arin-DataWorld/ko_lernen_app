@@ -1,5 +1,19 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
+
+/// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
+/// nicht separat persistiert.
+enum MasteryState {
+  /// Noch nie reviewed — frische Karte.
+  fresh,
+  /// Erste paar Wiederholungen, kurzes Intervall (≤ 3 Tage).
+  learning,
+  /// Intervall > 3 Tage, fällig (heute oder früher).
+  reviewDue,
+  /// Intervall > 3 Tage, sitzt — nicht fällig.
+  strong,
+}
 
 /// Spaced Repetition card state.
 /// Felder kurz benannt, damit JSON klein bleibt (viele tausend Vokabeln möglich).
@@ -40,6 +54,15 @@ class Storage {
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
     _prefs ??= await SharedPreferences.getInstance();
+  }
+
+  /// Test-only: leert den `_prefs`-Cache, damit ein neuer
+  /// `SharedPreferences.setMockInitialValues(...)` plus `Storage.init()`
+  /// frische Werte liefert. Im Produktionscode niemals aufrufen.
+  @visibleForTesting
+  static void resetForTesting() {
+    _prefs = null;
+    _srsCache = null;
   }
 
   // ───────── Generic helpers ─────────
@@ -124,27 +147,56 @@ class Storage {
   static int    get streakDays   => _i('kl_streak_days');
   static int    get bestStreak   => _i('kl_best_streak');
 
+  /// Streak-Freeze Tokens. Verdient an jeder 7-Tage-Marke (Cap [kStreakFreezeMax]).
+  /// Schützt automatisch genau einen verpassten Tag, damit der Streak überlebt.
+  static int    get streakFreezes        => _i('kl_streak_freezes');
+  static String get streakFreezeLastUsed => _s('kl_streak_freeze_last_used');
+  static const int kStreakFreezeMax = 2;
+  static const int kStreakFreezeRefillDays = 7;
+
   /// Beim App-Start aufrufen — aktualisiert Streak automatisch.
-  static Future<void> touchStreak() async {
-    final today = _today();
+  /// [now] ist für Tests injizierbar; default = `DateTime.now()`.
+  static Future<void> touchStreak({DateTime? now}) async {
+    final today = _today(now);
     final last  = lastOpenDate;
     if (last == today) return;
 
     int newStreak = 1;
+    int freezes = streakFreezes;
+    bool freezeUsed = false;
+
     if (last.isNotEmpty) {
       final lastDate = DateTime.tryParse(last);
       if (lastDate != null) {
         final diff = DateTime.parse(today).difference(lastDate).inDays;
-        if (diff == 1) newStreak = streakDays + 1;
+        if (diff == 1) {
+          newStreak = streakDays + 1;
+        } else if (diff == 2 && freezes > 0) {
+          // Genau ein verpasster Tag → Freeze einsetzen.
+          newStreak = streakDays + 1;
+          freezes -= 1;
+          freezeUsed = true;
+        }
       }
     }
+
     await _ss('kl_last_open_date', today);
     await _si('kl_streak_days', newStreak);
     if (newStreak > bestStreak) await _si('kl_best_streak', newStreak);
+
+    if (newStreak > 0 &&
+        newStreak % kStreakFreezeRefillDays == 0 &&
+        freezes < kStreakFreezeMax) {
+      freezes += 1;
+    }
+    await _si('kl_streak_freezes', freezes);
+    if (freezeUsed) {
+      await _ss('kl_streak_freeze_last_used', today);
+    }
   }
 
-  static String _today() {
-    final d = DateTime.now();
+  static String _today([DateTime? now]) {
+    final d = now ?? DateTime.now();
     final m = d.month.toString().padLeft(2, '0');
     final day = d.day.toString().padLeft(2, '0');
     return '${d.year}-$m-$day';
@@ -265,6 +317,21 @@ class Storage {
 
   /// Anzahl aller Karten die jemals reviewed wurden.
   static int srsTotalReviewed() => _loadSrs().length;
+
+  /// Mastery-Status eines Vokabel-Items, abgeleitet aus SRS-Daten.
+  /// - [MasteryState.fresh]      → nie reviewed
+  /// - [MasteryState.learning]   → reviewed, Intervall ≤ 3 Tage
+  /// - [MasteryState.reviewDue]  → Intervall > 3 Tage, fällig (heute/früher)
+  /// - [MasteryState.strong]     → Intervall > 3 Tage, noch nicht fällig
+  static MasteryState vocabMastery(String id, {DateTime? now}) {
+    final card = _loadSrs()[id];
+    if (card == null || card.reviewCount == 0) return MasteryState.fresh;
+    if (card.intervalDays <= 3) return MasteryState.learning;
+    final today = _today(now);
+    final due = card.nextReviewIso.isEmpty ||
+        card.nextReviewIso.compareTo(today) <= 0;
+    return due ? MasteryState.reviewDue : MasteryState.strong;
+  }
 
   // ───────── Szenarien (Phase 5) ─────────
   /// Code wie 'a1', 'a2', 'b1', 'b2' — null bedeutet noch nicht gewählt

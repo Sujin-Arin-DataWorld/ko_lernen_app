@@ -111,6 +111,8 @@
   "statsAccuracy": "Accuracy",
   "statsStreak": "Streak",
   "statsBestStreak": "Best streak",
+  "statsStreakShield": "Streak shield",
+  "statsStreakShieldHint": "Shields one missed day.",
   "statsWordleWins": "Wordle wins",
   "statsWordleStreak": "Wordle streak",
 
@@ -270,6 +272,17 @@
   "@scenarioXpEarned": { "placeholders": { "xp": { "type": "int" } } },
   "scenarioStarsLabel": "{stars} of 3 stars",
   "@scenarioStarsLabel": { "placeholders": { "stars": { "type": "int" } } },
+  "scenarioRecapTitle": "What you learned",
+  "scenarioRecapWordsLine": "{count} words practiced",
+  "@scenarioRecapWordsLine": { "placeholders": { "count": { "type": "int" } } },
+  "scenarioRecapAccuracyLine": "{passed} of {total} quests on first try",
+  "@scenarioRecapAccuracyLine": { "placeholders": { "passed": { "type": "int" }, "total": { "type": "int" } } },
+  "scenarioRecapGrammarLine": "Grammar focus: {pattern}",
+  "@scenarioRecapGrammarLine": { "placeholders": { "pattern": { "type": "String" } } },
+  "scenarioNextRecommendedTitle": "Suggested next",
+  "scenarioNextRecommendedCta": "Open",
+  "scenarioNextRecommendedAllDone": "All {level} scenarios completed.",
+  "@scenarioNextRecommendedAllDone": { "placeholders": { "level": { "type": "String" } } },
 
   "questCorrect": "Correct!",
   "questWrong": "Not quite",
@@ -295,6 +308,7 @@
   "homeAllDone": "All scenarios done! 🎉",
   "homeNoScenario": "Scenarios for your level coming soon",
   "homeGreetingLearn": "Learn Korean like a local",
+  "homeTodaySection": "Today",
 
   "settingsThemeTitle": "Appearance",
   "settingsThemeSystem": "System default",
@@ -364,5 +378,19 @@
   "kkeunmariResultBody": "You chained {n} words.",
   "@kkeunmariResultBody": { "placeholders": { "n": { "type": "int" } } },
   "gameKkeunmariTitle": "Word Chain",
-  "gameKkeunmariDesc": "Last syllable → next word"
+  "gameKkeunmariDesc": "Last syllable → next word",
+
+  "vocabMasteryFresh": "New",
+  "vocabMasteryLearning": "Learning",
+  "vocabMasteryReviewDue": "Review due",
+  "vocabMasteryStrong": "Strong",
+
+  "scenariosPathTitle": "Your path",
+  "scenariosPathProgress": "{done}/{total} unlocked",
+  "@scenariosPathProgress": { "placeholders": { "done": { "type": "int" }, "total": { "type": "int" } } },
+  "scenariosPathNextLabel": "Next up",
+  "scenariosPathStartCta": "Start",
+  "scenariosPathAllDone": "All scenarios completed",
+  "scenariosPathLevelProgress": "{level}: {done}/{total} ★",
+  "@scenariosPathLevelProgress": { "placeholders": { "level": {}, "done": { "type": "int" }, "total": { "type": "int" } } }
 }

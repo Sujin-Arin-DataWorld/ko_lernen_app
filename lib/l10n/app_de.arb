@@ -111,6 +111,8 @@
   "statsAccuracy": "Genauigkeit",
   "statsStreak": "Streak",
   "statsBestStreak": "Bester Streak",
+  "statsStreakShield": "Streak-Schutz",
+  "statsStreakShieldHint": "Schützt einen verpassten Tag.",
   "statsWordleWins": "Wordle Siege",
   "statsWordleStreak": "Wordle Streak",
 
@@ -270,6 +272,17 @@
   "@scenarioXpEarned": { "placeholders": { "xp": { "type": "int" } } },
   "scenarioStarsLabel": "{stars} von 3 Sternen",
   "@scenarioStarsLabel": { "placeholders": { "stars": { "type": "int" } } },
+  "scenarioRecapTitle": "Das hast du gelernt",
+  "scenarioRecapWordsLine": "{count} Wörter geübt",
+  "@scenarioRecapWordsLine": { "placeholders": { "count": { "type": "int" } } },
+  "scenarioRecapAccuracyLine": "{passed} von {total} Quests im ersten Versuch",
+  "@scenarioRecapAccuracyLine": { "placeholders": { "passed": { "type": "int" }, "total": { "type": "int" } } },
+  "scenarioRecapGrammarLine": "Grammatik-Fokus: {pattern}",
+  "@scenarioRecapGrammarLine": { "placeholders": { "pattern": { "type": "String" } } },
+  "scenarioNextRecommendedTitle": "Als Nächstes empfohlen",
+  "scenarioNextRecommendedCta": "Öffnen",
+  "scenarioNextRecommendedAllDone": "Alle {level}-Szenarien abgeschlossen.",
+  "@scenarioNextRecommendedAllDone": { "placeholders": { "level": { "type": "String" } } },
 
   "questCorrect": "Richtig!",
   "questWrong": "Nicht ganz",
@@ -295,6 +308,7 @@
   "homeAllDone": "Alle Szenarien geschafft! 🎉",
   "homeNoScenario": "Bald gibt es Szenarien für dein Level",
   "homeGreetingLearn": "Lerne Koreanisch wie ein Local",
+  "homeTodaySection": "Heute",
 
   "settingsThemeTitle": "Erscheinungsbild",
   "settingsThemeSystem": "Systemvorgabe",
@@ -364,5 +378,19 @@
   "kkeunmariResultBody": "Du hast {n} Wörter verkettet.",
   "@kkeunmariResultBody": { "placeholders": { "n": { "type": "int" } } },
   "gameKkeunmariTitle": "Wortkette",
-  "gameKkeunmariDesc": "Letzte Silbe → nächstes Wort"
+  "gameKkeunmariDesc": "Letzte Silbe → nächstes Wort",
+
+  "vocabMasteryFresh": "Neu",
+  "vocabMasteryLearning": "Im Aufbau",
+  "vocabMasteryReviewDue": "Fällig",
+  "vocabMasteryStrong": "Gefestigt",
+
+  "scenariosPathTitle": "Dein Pfad",
+  "scenariosPathProgress": "{done}/{total} freigeschaltet",
+  "@scenariosPathProgress": { "placeholders": { "done": { "type": "int" }, "total": { "type": "int" } } },
+  "scenariosPathNextLabel": "Als Nächstes",
+  "scenariosPathStartCta": "Starten",
+  "scenariosPathAllDone": "Alle Szenarien abgeschlossen",
+  "scenariosPathLevelProgress": "{level}: {done}/{total} ★",
+  "@scenariosPathLevelProgress": { "placeholders": { "level": {}, "done": { "type": "int" }, "total": { "type": "int" } } }
 }

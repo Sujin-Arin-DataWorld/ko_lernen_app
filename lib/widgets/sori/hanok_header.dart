@@ -4,11 +4,11 @@ import 'hanok_tokens.dart';
 
 /// **HanokHeader** — 모듈 상단 wide 한옥 일러스트 배너.
 ///
-/// 10:3 가로 비율(`scholar_room.png`, `achievements.png` 등)을 위한 자리.
+/// 10:3 가로 비율(`study_scholar.png`, `achievements.png` 등)을 위한 자리.
 /// 이미지가 아직 없으면 단청 그라데이션 + 아이콘 fallback으로 자연스럽게 떨어진다.
 ///
 /// ```dart
-/// HanokHeader(asset: 'assets/illustrations/hanok/scholar_room.png',
+/// HanokHeader(asset: 'assets/illustrations/hanok/study_scholar.png',
 ///             fallbackIcon: Icons.tune)
 /// ```
 class HanokHeader extends StatelessWidget {
@@ -46,10 +46,8 @@ class HanokHeader extends StatelessWidget {
           asset,
           fit: BoxFit.cover,
           filterQuality: FilterQuality.medium,
-          errorBuilder: (_, __, ___) => _Fallback(
-            icon: fallbackIcon,
-            tint: tint,
-          ),
+          errorBuilder: (_, __, ___) =>
+              _Fallback(icon: fallbackIcon, tint: tint),
         ),
       ),
     );
@@ -71,7 +69,10 @@ class _Fallback extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [
             HanokColors.hanjiCream,
-            Color.alphaBlend(tint.withValues(alpha: 0.16), HanokColors.hanjiCream),
+            Color.alphaBlend(
+              tint.withValues(alpha: 0.16),
+              HanokColors.hanjiCream,
+            ),
           ],
         ),
       ),
