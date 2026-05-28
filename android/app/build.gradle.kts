@@ -63,13 +63,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // Native debug symbols NICHT in die AAB packen — sie liegen
-            // bereits in build/app/outputs/symbols/ und werden separat in
-            // die Play Console ("Native debug symbols") hochgeladen.
-            // Das spart 5-15 MB AAB-Größe.
-            ndk {
-                debugSymbolLevel = "NONE"
-            }
+            // Hinweis: debugSymbolLevel = "NONE" wurde testweise hinzugefügt,
+            // führte aber zu "failed to strip debug symbols" beim Build
+            // (Konflikt mit Flutter's eigenem Strip-Schritt). Standard belassen.
+            // AAB enthält daher native debug symbols (~5-15 MB Mehraufwand) —
+            // Play Console kann sie aus der AAB selbst lesen.
         }
     }
 

@@ -44,6 +44,9 @@
     <!-- Internet wird für Firebase (Cloud-Sync, Crashlytics, Analytics,
          Remote Config) benötigt. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Android 13+ requires this permission when the app uses Advertising ID
+         via Firebase Analytics. No AdMob ads are included in v1.0.0. -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.

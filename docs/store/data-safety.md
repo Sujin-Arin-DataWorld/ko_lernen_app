@@ -57,6 +57,8 @@ Wir **schon**:
 | **Device or other IDs** — Firebase Installation ID + Android Advertising ID (Analytics) | **Yes** | No | No | Analytics-Aggregation (nicht zur User-Identifizierung gegenüber Dritten) | Yes |
 | Financial info | No | — | — | — | — |
 | Health & fitness | No | — | — | — | — |
+
+> Hinweis: Android 13+ erfordert zusätzlich die Manifest-Berechtigung `com.google.android.gms.permission.AD_ID`, wenn die App Advertising ID für Firebase Analytics verwendet. Hangul Sori nutzt keine Werbung im Release-Build.
 | Messages, photos, videos, audio | No | — | — | — | — |
 | Files & docs | No | — | — | — | — |
 | Calendar, contacts | No | — | — | — | — |
