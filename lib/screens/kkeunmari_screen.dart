@@ -234,7 +234,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
             children: [
               // ── hero ──
               HanokHeader(
-                asset: 'assets/illustrations/hanok/porch.png',
+                asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
                 fallbackIcon: Icons.link_rounded,
                 fallbackTint: SoriColors.accent,
                 aspectRatio: 10 / 3,

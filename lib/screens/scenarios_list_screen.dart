@@ -10,6 +10,7 @@ import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -388,21 +389,12 @@ class _ScenarioCardBody extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Emoji box (56×56)
-            Container(
-              width: 56,
-              height: 56,
-              decoration: BoxDecoration(
-                color: locked
-                    ? s.surfaceAlt
-                    : accent.withValues(alpha: 0.16),
-                borderRadius: SoriRadius.brSm,
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                scenario.emoji,
-                style: const TextStyle(fontSize: 28),
-              ),
+            // Scene + sidekick thumbnail (Phase 5)
+            _ScenarioThumbnail(
+              scenario: scenario,
+              accent: accent,
+              locked: locked,
+              size: 56,
             ),
             const SizedBox(width: Spacing.md),
 
@@ -697,15 +689,11 @@ class _NextRecommended extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(
-                color: accent.withValues(alpha: 0.18),
-                borderRadius: SoriRadius.brSm,
-              ),
-              alignment: Alignment.center,
-              child: Text(scenario.emoji, style: const TextStyle(fontSize: 22)),
+            _ScenarioThumbnail(
+              scenario: scenario,
+              accent: accent,
+              locked: false,
+              size: 44,
             ),
             const SizedBox(width: Spacing.md),
             Expanded(
@@ -849,6 +837,123 @@ class _EmptyLevelCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ─── Scenario Thumbnail (Phase 5) ─────────────────────────────────────────────
+// Replaces the per-tile emoji box with a backdrop scene (location identity)
+// + sidekick mascot overlay (character identity). Falls back to a tinted
+// accent gradient + emoji when no backdrop matches.
+
+class _ScenarioThumbnail extends StatelessWidget {
+  final Scenario scenario;
+  final Color accent;
+  final bool locked;
+  final double size;
+
+  const _ScenarioThumbnail({
+    required this.scenario,
+    required this.accent,
+    required this.locked,
+    required this.size,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final key = scenario.backdropKey;
+    final mascotSize = size * 0.62;
+
+    final base = ClipRRect(
+      borderRadius: SoriRadius.brSm,
+      child: SizedBox(
+        width: size,
+        height: size,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            if (key != null)
+              Image.asset(
+                'assets/illustrations/scenes/$key.png',
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.medium,
+                errorBuilder: (_, __, ___) => _gradient(s),
+              )
+            else
+              _gradient(s),
+            // Subtle vignette so mascot reads regardless of backdrop brightness.
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Colors.transparent,
+                    accent.withValues(alpha: 0.18),
+                  ],
+                ),
+              ),
+            ),
+            // Sidekick mascot — fall back to tiger for unknown speakers so
+            // every tile shows a character.
+            Positioned(
+              right: -2,
+              bottom: -2,
+              child: SizedBox(
+                width: mascotSize,
+                height: mascotSize,
+                child: Mascot.forSpeaker(
+                      scenario.sidekick ?? '',
+                      size: mascotSize,
+                      emotion: MascotEmotion.smile,
+                    ) ??
+                    Mascot.tiger(
+                      emotion: MascotEmotion.smile,
+                      size: mascotSize,
+                    ),
+              ),
+            ),
+            // No backdrop? show the emoji small in the top-left so the tile
+            // still carries the scenario's own identity glyph.
+            if (key == null)
+              Positioned(
+                left: 4,
+                top: 2,
+                child: Text(
+                  scenario.emoji,
+                  style: TextStyle(fontSize: size * 0.32),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+
+    if (!locked) return base;
+    return ColorFiltered(
+      colorFilter: const ColorFilter.matrix(<double>[
+        0.2126, 0.7152, 0.0722, 0, 0,
+        0.2126, 0.7152, 0.0722, 0, 0,
+        0.2126, 0.7152, 0.0722, 0, 0,
+        0,      0,      0,      1, 0,
+      ]),
+      child: base,
+    );
+  }
+
+  Widget _gradient(SoriSurfaces s) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            accent.withValues(alpha: 0.22),
+            accent.withValues(alpha: 0.10),
+          ],
+        ),
       ),
     );
   }

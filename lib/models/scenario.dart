@@ -285,3 +285,47 @@ class Scenario {
     preferredVoice: j['preferredVoice'] as String?,
   );
 }
+
+/// Scenario ID -> scenes/ backdrop key. Shared by ScenarioPlayer (full-screen
+/// 0.08 opacity background) and the scenarios list (tile thumbnail).
+/// Adding a new scene PNG only requires a new entry here.
+extension ScenarioBackdrop on Scenario {
+  static const _map = <String, String>{
+    'cafe': 'cafe',
+    'starbucks': 'cafe',
+    'bunshik': 'restaurant',
+    'bunsik': 'restaurant',
+    'tteokbokki': 'restaurant',
+    'dinner': 'restaurant',
+    'hoeshik': 'restaurant',
+    'market': 'market',
+    'shopping': 'market',
+    'myeongdong': 'market',
+    'convenience': 'market',
+    'store': 'market',
+    'pharmacy': 'market',
+    'hotel': 'hotel',
+    'directions': 'directions',
+    'airport': 'directions',
+    'arrival': 'directions',
+    'taxi': 'directions',
+    'subway': 'directions',
+    'transfer': 'directions',
+    'introduce': 'cafe',
+    'encouragement': 'cafe',
+    'warm': 'cafe',
+    'couple': 'cafe',
+    'argument': 'cafe',
+    'plans': 'cafe',
+    'postpone': 'cafe',
+    'cancel': 'cafe',
+    'late': 'directions',
+  };
+
+  String? get backdropKey {
+    for (final entry in _map.entries) {
+      if (id.contains(entry.key)) return entry.value;
+    }
+    return null;
+  }
+}

@@ -67,51 +67,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
 
   // ─── Backdrop-Map ──────────────────────────────────────────────────────────
 
-  /// Scenario ID 키워드 → backdrop asset 키 매핑.
-  ///
-  /// 현재 5장만 보유 (cafe, restaurant, market, hotel, directions). 13개
-  /// 시나리오 모두를 이 5장 중 분위기가 가까운 곳으로 흡수.
-  /// 예: convenience/pharmacy → market(사기 공간), airport/taxi/subway →
-  /// directions(이동), introduce/couple/warm → cafe(일상 대화).
-  String? get _backdropKey {
-    final id = _scenario?.id ?? '';
-    const map = <String, String>{
-      // 음식·카페
-      'cafe': 'cafe',
-      'starbucks': 'cafe',
-      'bunshik': 'restaurant',
-      'bunsik': 'restaurant',
-      'tteokbokki': 'restaurant',
-      'dinner': 'restaurant',
-      'hoeshik': 'restaurant',
-      // 시장·구매 공간
-      'market': 'market',
-      'shopping': 'market',
-      'myeongdong': 'market',
-      'convenience': 'market',
-      'store': 'market',
-      'pharmacy': 'market',
-      // 숙박
-      'hotel': 'hotel',
-      // 이동·길찾기
-      'directions': 'directions',
-      'airport': 'directions',
-      'arrival': 'directions',
-      'taxi': 'directions',
-      'subway': 'directions',
-      'transfer': 'directions',
-      // 일상 대화 (카페 분위기로 흡수)
-      'introduce': 'cafe',
-      'encouragement': 'cafe',
-      'warm': 'cafe',
-      'couple': 'cafe',
-      'argument': 'cafe',
-    };
-    for (final entry in map.entries) {
-      if (id.contains(entry.key)) return entry.value;
-    }
-    return null;
-  }
+  /// Scenario → scenes/ backdrop key. Delegates to
+  /// `ScenarioBackdrop.backdropKey` so the scenarios list tile reuses the
+  /// same mapping (single source of truth).
+  String? get _backdropKey => _scenario?.backdropKey;
 
   // ─── Stage-Berechnung ──────────────────────────────────────────────────────
 
