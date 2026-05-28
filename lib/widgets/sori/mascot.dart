@@ -93,10 +93,9 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
   static const _tigerCelebrate =
       'assets/illustrations/mascot/tiger_celebrate.png';
   static const _tigerSad = 'assets/illustrations/mascot/tiger_sad.png';
-  // Optional add-on poses mapped to existing production assets until dedicated
-  // thinking/sleepy frames are generated.
-  static const _tigerThinking = _tigerNeutral;
-  static const _tigerSleepy = _tigerBlink;
+  static const _tigerThinking =
+      'assets/illustrations/mascot/tiger_thinking.png';
+  static const _tigerSleepy = 'assets/illustrations/mascot/tiger_sleepy.png';
   static const _tigerSmile = 'assets/illustrations/mascot/tiger_smile.png';
   static const _tigerNeutral = 'assets/illustrations/mascot/tiger_neutral.png';
 

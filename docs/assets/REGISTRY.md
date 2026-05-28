@@ -29,6 +29,7 @@ where possible (see Phase 4 compression notes).
 | `achievements.png` | Stats screen header | 10:3 banner | [stats_screen.dart:73-74](../../lib/screens/stats_screen.dart#L73-L74) | HanokHeader gradient + `bar_chart_rounded` |
 | `listening_hero.png` | Listening screen header | 10:3 banner | [listening_screen.dart:167-168](../../lib/screens/listening_screen.dart#L167-L168) | HanokHeader gradient + `headphones_rounded` |
 | `kkeunmari_hero.png` | Kkeunmari screen header | 10:3 banner | [kkeunmari_screen.dart:236-237](../../lib/screens/kkeunmari_screen.dart#L236-L237) | HanokHeader gradient + `link_rounded` |
+| `dancheong_frame.png` | Wordle game-board decorative frame (transparent center) | 1024² square RGBA | [wordle_screen.dart:419-429](../../lib/screens/wordle_screen.dart#L419-L429) | `SizedBox.shrink()` — board still gets BoxBorder + 4 corner dots |
 | `gate_frame.png` | Intro gate — outer 단청 frame layer | square 1024² | [gate_art.dart:21](../../lib/widgets/sori/hanok/gate_art.dart#L21) | painter fallback in GateArt |
 | `gate_door_left.png` | Intro gate — left door (animated open) | half-frame | [gate_art.dart:22](../../lib/widgets/sori/hanok/gate_art.dart#L22) | painter fallback |
 | `gate_door_right.png` | Intro gate — right door (animated open) | half-frame | [gate_art.dart:24](../../lib/widgets/sori/hanok/gate_art.dart#L24) | painter fallback |
@@ -54,7 +55,9 @@ hard-code these paths in screens).
 | `tiger_celebrate.png` | `celebrate` | arms up / confetti |
 | `tiger_sad.png` | `worry` | downturned mouth |
 | `tiger_smile.png` | `smile` (default) | gentle smile, hero pose |
-| `tiger_neutral.png` | `neutral` (default), alias for `thinking` and `_tigerThinking` | facing forward; dedicated thinking PNG retired 2026-05-28 |
+| `tiger_neutral.png` | `neutral` (default) | facing forward |
+| `tiger_sleepy.png` | `sleepy` | dedicated drowsy pose (2026-05-28) |
+| `tiger_thinking.png` | `thinking` | dedicated pondering pose (2026-05-28) |
 
 ### Magpie (`MascotKind.magpie`) — [mascot.dart:103-111](../../lib/widgets/sori/mascot.dart#L103-L111)
 
@@ -136,8 +139,13 @@ Generated via `flutter pub run flutter_launcher_icons` + sharp-cli (see
 | `icon-192.png` | pubspec-registered 192px buffer |
 
 Derived (do not edit by hand): `web/icons/Icon-192.png`,
-`web/icons/Icon-512.png`, Android `mipmap-*`, iOS `Assets.xcassets/AppIcon`,
-`docs/store/feature_graphic_v1_draft.png`.
+`web/icons/Icon-512.png`, Android `mipmap-*`, iOS `Assets.xcassets/AppIcon`.
+
+**Play Store feature graphic** lives at `docs/store/feature_graphic.png`
+(1024×500 final, 2:1). Composed from the new hanok-gate illustration +
+"한글소리 / Hangul Sori / KOREANISCH LERNEN · KÖNIG SEJONG" text rendered
+in 단청 녹청 (#1F7A6B) + 먹 (#0E1A18) + 황 (#C99A2E). Re-generate via the
+Pillow recipe captured in commit history if the source art changes.
 
 ---
 

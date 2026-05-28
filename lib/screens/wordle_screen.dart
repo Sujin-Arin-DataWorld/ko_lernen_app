@@ -415,7 +415,19 @@ class _WordleScreenState extends State<WordleScreen> {
                         );
                       }),
                     ),
-                    // 단청 4코너 점 — 적·황·녹 군집
+                    // 단청 frame 오버레이 — 가운데가 투명이라 그리드 위로 띠만 합성.
+                    // PNG 부재 시 자동으로 SizedBox로 fallback → 기존 4코너 dot만 남음.
+                    Positioned.fill(
+                      child: IgnorePointer(
+                        child: Image.asset(
+                          'assets/illustrations/hanok/dancheong_frame.png',
+                          fit: BoxFit.fill,
+                          filterQuality: FilterQuality.medium,
+                          errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                        ),
+                      ),
+                    ),
+                    // 단청 4코너 점 — 적·황·녹 군집 (frame 위에도 anchor로 유지)
                     const Positioned(
                       top: -4,
                       left: -4,
