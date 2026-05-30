@@ -8,7 +8,6 @@ import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
 import '../widgets/sori/ambient_particles.dart';
-import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/mascot.dart';
@@ -17,14 +16,21 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tokens.dart';
 
-/// Home — Bento Layout.
+/// **Home — v4 (2026-05-29 완전 재구성)**
 ///
-/// Aufbau:
-///   1. Header (brand + actions)
-///   2. Stats peek (streak, XP, level)
-///   3. Hero card "Heute empfohlen" (oder All-done)
-///   4. Lernmodule 2×2 grid
-///   5. Spiele Sektion (2 Karten)
+/// 이전 (v3)의 문제:
+///   - `madang(light/dark).png` 배경에 호랑이/하녹이 baked-in 되어 BoxFit.cover 시
+///     랜덤한 위치에서 잘림 (bug)
+///   - Stats peek + Daily char + Hero + Modules grid → 정보 폭격, 페르소나 약함
+///   - 호랑이가 hero card 한 칸에만 등장 → 안내자 페르소나 0
+///
+/// v4 컨셉: **"한옥 마당에 호랑이가 사용자에게 말 거는 한 장면"**
+///   1. 추상 gradient + ambient 입자 + flying magpie (baked-in mascot 0)
+///   2. 시간대별 인사 + 큰 호랑이 + 말풍선 (Duo의 캐릭터 페르소나를 한국식으로)
+///   3. Inline stat chip row (streak · XP · shield) — 큰 카드 X
+///   4. 오늘의 글자 compact
+///   5. "다음 한 발" hero CTA (1개 시나리오 추천)
+///   6. Modules + Games → horizontal scroll secondary
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -49,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
         LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
     final completed = Storage.completedScenarios.toSet();
 
-    // Erste offene Szenario auf User-Level
     Scenario? pick;
     for (final s in list.where((s) => s.level == userLevel)) {
       if (!completed.contains(s.id)) {
@@ -57,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       }
     }
-    // Fallback: erste offene auf irgendeinem Level
     if (pick == null) {
       for (final s in list) {
         if (!completed.contains(s.id)) {
@@ -66,7 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       }
     }
-    // Last resort: erste Szenario
     pick ??= list.isEmpty ? null : list.first;
 
     setState(() {
@@ -75,182 +78,217 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  /// 시간대 — 인사 + 호랑이 emotion 결정.
+  _DayPhase get _phase {
+    final h = DateTime.now().hour;
+    if (h < 11) return _DayPhase.morning;
+    if (h < 18) return _DayPhase.afternoon;
+    return _DayPhase.evening;
+  }
+
+  String _greeting(AppL10n t) {
+    switch (_phase) {
+      case _DayPhase.morning:
+        return t.homeHeroGreetingMorning;
+      case _DayPhase.afternoon:
+        return t.homeHeroGreetingAfternoon;
+      case _DayPhase.evening:
+        return t.homeHeroGreetingEvening;
+    }
+  }
+
+  /// 말풍선 텍스트 — streak·진척에 따라 회전.
+  String _tigerBubble(AppL10n t) {
+    final streak = Storage.streakDays;
+    final xp = Storage.xp;
+    if (streak == 0 && xp == 0) return t.homeTigerBubbleStart;
+    if (streak >= 3) return t.homeTigerBubbleStreak;
+    return t.homeTigerBubbleResume;
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       body: Stack(
         children: [
-          // ── 한옥 마당 배경 — 아주 느린 Ken Burns 줌으로 "숨쉬는" 배경 ──
-          // 직접 제작한 madang 일러스트 — 낮(light)/밤(dark) 한옥 마당.
+          // ── 1. 추상 gradient base — baked-in mascot 없음 ──
           Positioned.fill(
-            child: SoriKenBurns(
-              child: Image.asset(
-                isDark
-                    ? 'assets/illustrations/hanok/madang(dark).png'
-                    : 'assets/illustrations/hanok/madang(light).png',
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: isDark
+                      ? const [
+                          Color(0xFF14201E),
+                          Color(0xFF0E1815),
+                          Color(0xFF0A1310),
+                        ]
+                      : const [
+                          Color(0xFFFAF6EC),
+                          Color(0xFFF4ECDA),
+                          Color(0xFFEEDFC2),
+                        ],
+                  stops: const [0.0, 0.55, 1.0],
+                ),
               ),
             ),
           ),
 
-          // ── Ambient 입자 — 라이트: 매화 꽃잎 / 다크: 따뜻한 불씨 ──
-          const Positioned.fill(
-            child: IgnorePointer(child: AmbientParticles(count: 13)),
+          // ── 2. Subtle radial accent — 호랑이 뒤 따뜻한 빛 ──
+          Positioned(
+            top: 60,
+            left: -40,
+            right: -40,
+            height: 360,
+            child: IgnorePointer(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    colors: [
+                      SoriColors.tiger.withValues(alpha: isDark ? 0.15 : 0.10),
+                      SoriColors.tiger.withValues(alpha: 0.0),
+                    ],
+                    radius: 0.7,
+                  ),
+                ),
+              ),
+            ),
           ),
 
+          // ── 3. Ambient particles ──
+          const Positioned.fill(
+            child: IgnorePointer(child: AmbientParticles(count: 14)),
+          ),
+
+          // ── 4. Content ──
           SafeArea(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(
-                Spacing.lg,
-                Spacing.lg,
-                Spacing.lg,
-                Spacing.xl,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // ── Header (PNG 로고 — HanLogo 갓+한 brand) ─────────
-                  _Header(logoAsset: 'assets/icons/icon-192.png'),
-                  const SizedBox(height: Spacing.lg),
+            child: RefreshIndicator(
+              onRefresh: _loadToday,
+              color: SoriColors.primary,
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: const EdgeInsets.fromLTRB(
+                  Spacing.lg,
+                  Spacing.md,
+                  Spacing.lg,
+                  Spacing.xl,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // ── A. Compact top bar (logo + actions) ──
+                    _TopBar(),
+                    const SizedBox(height: Spacing.lg),
 
-                  // ── Stats peek ──────────────────────────────────────
-                  _StatsPeek(
-                    streak: Storage.streakDays,
-                    xp: Storage.xp,
-                    level: Storage.xpLevel,
-                    xpToNext: Storage.xpToNext,
-                  ),
-                  const SizedBox(height: Spacing.md),
-
-                  // ── Daily Calligraphy (오늘의 글자) ─────────────────
-                  _DailyCharCard(
-                    char: DailyCharService.today(),
-                    doneToday: Storage.calligraphyDoneToday,
-                    onTap: () => showDailyCharSheet(context).then((_) {
-                      if (mounted) setState(() {}); // refresh "done" state
-                    }),
-                  ),
-                  const SizedBox(height: Spacing.xl),
-
-                  // ── Heute (Hero Szenario) ───────────────────────────
-                  _SectionLabel(label: t.homeTodaySection),
-                  const SizedBox(height: Spacing.sm),
-                  SoriEntrance(
-                    delay: const Duration(milliseconds: 60),
-                    child: _TodayScenarioCard(
-                      scenario: _today,
-                      loading: _loadingScenario,
-                      lang: lang,
-                      // 시나리오 완료 후 복귀 시 XP·streak·추천을 갱신.
-                      onTap: _today == null
-                          ? null
-                          : () async {
-                              await Navigator.pushNamed(
-                                context,
-                                '/scenario',
-                                arguments: _today!.id,
-                              );
-                              if (mounted) await _loadToday();
-                            },
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.xl),
-
-                  // ── Lernmodule grid (2×2) ───────────────────────────
-                  _SectionLabel(label: t.sectionModules),
-                  const SizedBox(height: Spacing.sm),
-                  SoriEntrance(
-                    delay: const Duration(milliseconds: 160),
-                    child: _ModulesGrid(t: t),
-                  ),
-                  const SizedBox(height: Spacing.xl),
-
-                  // ── Spiele (3 cards: Chosung · Wordle · Kkeunmari) ──
-                  _SectionLabel(label: t.sectionGames),
-                  const SizedBox(height: Spacing.sm),
-                  SoriEntrance(
-                    delay: const Duration(milliseconds: 260),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: _MiniModuleCard(
-                                icon: Icons.sort_by_alpha_rounded,
-                                title: t.gameChosungTitle,
-                                subtitle: t.gameChosungDesc,
-                                accent: SoriColors.primary,
-                                onTap: () =>
-                                    Navigator.pushNamed(context, '/chosung'),
-                              ),
-                            ),
-                            const SizedBox(width: Spacing.md),
-                            Expanded(
-                              child: _MiniModuleCard(
-                                icon: Icons.grid_4x4_rounded,
-                                title: t.gameWordleTitle,
-                                subtitle: t.gameWordleDesc,
-                                accent: SoriColors.success,
-                                onTap: () =>
-                                    Navigator.pushNamed(context, '/wordle'),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: Spacing.md),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: _MiniModuleCard(
-                                icon: Icons.link_rounded,
-                                title: t.gameKkeunmariTitle,
-                                subtitle: t.gameKkeunmariDesc,
-                                accent: SoriColors.accent,
-                                onTap: () =>
-                                    Navigator.pushNamed(context, '/kkeunmari'),
-                              ),
-                            ),
-                            const SizedBox(width: Spacing.md),
-                            Expanded(
-                              child: _MiniModuleCard(
-                                icon: Icons.headphones_rounded,
-                                title: t.moduleListenTitle,
-                                subtitle: t.listeningSubtitle,
-                                accent: SoriColors.info,
-                                onTap: () =>
-                                    Navigator.pushNamed(context, '/listening'),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(height: Spacing.xxxl),
-                  Center(
-                    child: Text(
-                      t.footerCheer,
-                      style: TextStyle(
-                        color: s.textDim,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
+                    // ── B. Tiger hero — 시간대별 인사 + 말풍선 + 큰 호랑이 ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 40),
+                      child: _TigerHero(
+                        greeting: _greeting(t),
+                        bubble: _tigerBubble(t),
+                        subline: t.homeGreetingLearn,
+                        phase: _phase,
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: Spacing.lg),
+
+                    // ── C. Inline stat chip row ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 140),
+                      slideY: 14,
+                      child: _StatChipRow(
+                        streak: Storage.streakDays,
+                        xp: Storage.xp,
+                        level: Storage.xpLevel,
+                        xpToNext: Storage.xpToNext,
+                        shields: Storage.streakFreezes,
+                        shieldLabel: t.homeShieldLabel,
+                        daysLabel: t.statsDays,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+
+                    // ── D. Daily char (compact) ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 200),
+                      slideY: 12,
+                      child: _DailyCharCard(
+                        char: DailyCharService.today(),
+                        doneToday: Storage.calligraphyDoneToday,
+                        onTap: () => showDailyCharSheet(context).then((_) {
+                          if (mounted) setState(() {});
+                        }),
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+
+                    // ── E. Today CTA hero ──
+                    _SectionLabel(label: t.homeTodaySection),
+                    const SizedBox(height: Spacing.sm),
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 280),
+                      child: _TodayScenarioCard(
+                        scenario: _today,
+                        loading: _loadingScenario,
+                        lang: lang,
+                        onTap: _today == null
+                            ? null
+                            : () async {
+                                await Navigator.pushNamed(
+                                  context,
+                                  '/scenario',
+                                  arguments: _today!.id,
+                                );
+                                if (mounted) await _loadToday();
+                              },
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+
+                    // ── F. Modules row ──
+                    _SectionLabel(label: t.sectionModules),
+                    const SizedBox(height: Spacing.sm),
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 380),
+                      slideY: 16,
+                      child: _ModulesGrid(t: t),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+
+                    // ── G. Games ──
+                    _SectionLabel(label: t.sectionGames),
+                    const SizedBox(height: Spacing.sm),
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 460),
+                      slideY: 16,
+                      child: _GamesGrid(t: t),
+                    ),
+
+                    const SizedBox(height: Spacing.xxxl),
+                    Center(
+                      child: Text(
+                        t.footerCheer,
+                        style: TextStyle(
+                          fontFamily: 'Pretendard',
+                          color: s.textDim,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
 
-          // ── 좋은 소식을 물고 오는 까치 — 화면 상단을 가로질러 비행 ──
+          // ── 5. Flying magpie overlay ──
           const Positioned.fill(child: IgnorePointer(child: FlyingMagpie())),
         ],
       ),
@@ -258,58 +296,38 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// ─── Header ──────────────────────────────────────────────────────────────
+enum _DayPhase { morning, afternoon, evening }
 
-class _Header extends StatelessWidget {
-  final String logoAsset;
-  const _Header({required this.logoAsset});
-
+// ════════════════════════════════════════════════════════════════════════
+// A. Top bar — compact, no big stats
+// ════════════════════════════════════════════════════════════════════════
+class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-
     return Row(
       children: [
-        // HanLogo PNG — 갓 silhouette + 한 글자 + 단청 도트 brand
         ClipRRect(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(10),
           child: Image.asset(
-            logoAsset,
-            width: 48,
-            height: 48,
+            'assets/icons/icon-192.png',
+            width: 36,
+            height: 36,
             fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(width: Spacing.md),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hangul Sori',
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 22,
-                  fontWeight: FontWeight.w900,
-                  color: s.text,
-                  letterSpacing: -0.5,
-                  height: 1,
-                ),
-              ),
-              const SizedBox(height: 3),
-              Text(
-                t.homeGreetingLearn,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  color: s.textMuted,
-                  fontSize: 12.5,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
+        const SizedBox(width: Spacing.sm),
+        Text(
+          'Hangul Sori',
+          style: TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: 16,
+            fontWeight: FontWeight.w900,
+            color: s.text,
+            letterSpacing: -0.3,
           ),
         ),
+        const Spacer(),
         _RoundIconButton(
           icon: Icons.bar_chart_rounded,
           onTap: () => Navigator.pushNamed(context, '/stats'),
@@ -336,91 +354,220 @@ class _RoundIconButton extends StatelessWidget {
       onTap: onTap,
       haptic: SoriHaptic.selection,
       child: Container(
-        width: 40,
-        height: 40,
+        width: 36,
+        height: 36,
         decoration: BoxDecoration(
-          color: s.surface,
+          color: s.surface.withValues(alpha: 0.62),
           shape: BoxShape.circle,
           border: Border.all(color: s.border),
         ),
-        child: Icon(icon, size: 20, color: s.textMuted),
+        child: Icon(icon, size: 18, color: s.textMuted),
       ),
     );
   }
 }
 
-// ─── Stats Peek ──────────────────────────────────────────────────────────
-
-class _StatsPeek extends StatelessWidget {
-  final int streak;
-  final int xp;
-  final int level;
-  final int xpToNext;
-  const _StatsPeek({
-    required this.streak,
-    required this.xp,
-    required this.level,
-    required this.xpToNext,
+// ════════════════════════════════════════════════════════════════════════
+// B. Tiger hero — greeting + 큰 호랑이 + 말풍선
+// ════════════════════════════════════════════════════════════════════════
+class _TigerHero extends StatelessWidget {
+  final String greeting;
+  final String bubble;
+  final String subline;
+  final _DayPhase phase;
+  const _TigerHero({
+    required this.greeting,
+    required this.bubble,
+    required this.subline,
+    required this.phase,
   });
+
+  MascotEmotion get _emotion {
+    switch (phase) {
+      case _DayPhase.morning:
+        return MascotEmotion.smile;
+      case _DayPhase.afternoon:
+        return MascotEmotion.smile;
+      case _DayPhase.evening:
+        return MascotEmotion.neutral;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      child: Row(
-        children: [
-          // Streak
-          Expanded(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(
-                  Icons.local_fire_department_rounded,
-                  color: SoriColors.warning,
-                  size: 22,
-                ),
-                const SizedBox(width: 6),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      '$streak',
-                      style: TextStyle(
-                        fontFamily: 'Pretendard',
-                        color: s.text,
-                        fontWeight: FontWeight.w900,
-                        fontSize: 18,
-                        height: 1,
-                      ),
+    // v4 (2026-05-29): 좁은 화면(360px 미만)에서 호랑이가 잘리지 않도록
+    // 화면 폭에 비례한 사이즈 + 강제 clip 처리.
+    final media = MediaQuery.of(context);
+    final tigerSize = media.size.width < 360 ? 124.0 : 140.0;
+    final textRightInset = tigerSize + 12;
+
+    return ClipRect(
+      child: SizedBox(
+        height: 160,
+        child: Stack(
+          children: [
+            // Left: greeting + subline + speech bubble
+            Positioned(
+              top: 8,
+              left: 0,
+              right: textRightInset,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    greeting,
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 24,
+                      fontWeight: FontWeight.w900,
+                      color: s.text,
+                      letterSpacing: -0.7,
+                      height: 1.05,
                     ),
-                    Text(
-                      AppL10n.of(context).statsDays,
-                      style: TextStyle(
-                        fontFamily: 'Pretendard',
-                        color: s.textMuted,
-                        fontSize: 10.5,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    subline,
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 12,
+                      color: s.textMuted,
+                      height: 1.4,
+                      fontWeight: FontWeight.w500,
                     ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(width: 1, height: 26, color: s.border),
-          // XP progress
-          Expanded(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.only(left: Spacing.md),
-              child: SoriXpProgress(
-                currentXp: xp,
-                level: level,
-                trailingLabel: '$xp XP',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 12),
+                  _SpeechBubble(text: bubble),
+                ],
               ),
             ),
+
+            // Right: 큰 호랑이 — 화면 안에 완전히 들어옴 (right: 0)
+            Positioned(
+              right: 0,
+              bottom: 0,
+              child: Mascot.tiger(
+                size: tigerSize,
+                emotion: _emotion,
+                animate: true,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SpeechBubble extends StatelessWidget {
+  final String text;
+  const _SpeechBubble({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bg = isDark
+        ? Colors.white.withValues(alpha: 0.94)
+        : Colors.white;
+    return Container(
+      constraints: const BoxConstraints(maxWidth: 220),
+      padding: const EdgeInsets.fromLTRB(12, 9, 12, 10),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: SoriColors.tiger.withValues(alpha: 0.30),
+          width: 1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.12),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontFamily: 'Pretendard',
+          fontSize: 12.5,
+          fontWeight: FontWeight.w700,
+          color: isDark ? const Color(0xFF1F1A14) : s.text,
+          height: 1.35,
+          letterSpacing: -0.1,
+        ),
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// C. Inline stat chip row — streak · XP · shield
+// ════════════════════════════════════════════════════════════════════════
+class _StatChipRow extends StatelessWidget {
+  final int streak;
+  final int xp;
+  final int level;
+  final int xpToNext;
+  final int shields;
+  final String shieldLabel;
+  final String daysLabel;
+
+  const _StatChipRow({
+    required this.streak,
+    required this.xp,
+    required this.level,
+    required this.xpToNext,
+    required this.shields,
+    required this.shieldLabel,
+    required this.daysLabel,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              _MiniStat(
+                icon: Icons.local_fire_department_rounded,
+                color: SoriColors.warning,
+                value: '$streak',
+                label: daysLabel,
+              ),
+              _Divider(),
+              _MiniStat(
+                icon: Icons.stars_rounded,
+                color: SoriColors.primary,
+                value: 'Lv $level',
+                label: '$xp XP',
+              ),
+              if (shields > 0) ...[
+                _Divider(),
+                _MiniStat(
+                  icon: Icons.shield_rounded,
+                  color: SoriColors.highlight,
+                  value: '$shields',
+                  label: shieldLabel,
+                ),
+              ],
+            ],
+          ),
+          const SizedBox(height: 10),
+          SoriXpProgress(
+            currentXp: xp,
+            level: level,
+            trailingLabel: null,
           ),
         ],
       ),
@@ -428,8 +575,175 @@ class _StatsPeek extends StatelessWidget {
   }
 }
 
-// ─── Today's Scenario Hero Card ──────────────────────────────────────────
+class _Divider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return Container(
+      width: 1,
+      height: 22,
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      color: s.border,
+    );
+  }
+}
 
+class _MiniStat extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final String value;
+  final String label;
+  const _MiniStat({
+    required this.icon,
+    required this.color,
+    required this.value,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return Expanded(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: color, size: 20),
+          const SizedBox(width: 6),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                value,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  color: s.text,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w900,
+                  height: 1,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                label,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  color: s.textMuted,
+                  fontSize: 9.5,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0.2,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// D. Daily char (compact)
+// ════════════════════════════════════════════════════════════════════════
+class _DailyCharCard extends StatelessWidget {
+  final String char;
+  final bool doneToday;
+  final VoidCallback onTap;
+
+  const _DailyCharCard({
+    required this.char,
+    required this.doneToday,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.hangul,
+      tinted: !doneToday,
+      onTap: onTap,
+      padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: SoriColors.hangul.withValues(alpha: 0.20),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              char,
+              style: const TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 24,
+                fontWeight: FontWeight.w900,
+                color: SoriColors.hangul,
+                height: 1,
+              ),
+            ),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  t.dailyCharTitle,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 13,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  doneToday ? t.dailyCharDoneToday : t.dailyCharSubtitle,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 11,
+                    color: doneToday ? SoriColors.success : s.textMuted,
+                    fontWeight: doneToday ? FontWeight.w700 : FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (doneToday)
+            Container(
+              padding: const EdgeInsets.all(5),
+              decoration: const BoxDecoration(
+                color: SoriColors.success,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.check_rounded,
+                color: Colors.white,
+                size: 12,
+              ),
+            )
+          else
+            Icon(
+              Icons.chevron_right_rounded,
+              color: SoriColors.hangul.withValues(alpha: 0.7),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// E. Today scenario hero — primary CTA
+// ════════════════════════════════════════════════════════════════════════
 class _TodayScenarioCard extends StatelessWidget {
   final Scenario? scenario;
   final bool loading;
@@ -453,7 +767,7 @@ class _TodayScenarioCard extends StatelessWidget {
         variant: SoriCardVariant.hero,
         accent: SoriColors.primary,
         tinted: true,
-        child: SizedBox(height: 120, child: const AppLoading()),
+        child: const SizedBox(height: 120, child: AppLoading()),
       );
     }
 
@@ -501,7 +815,7 @@ class _TodayScenarioCard extends StatelessWidget {
                   children: [
                     Text(
                       t.homeRecommended,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Pretendard',
                         color: SoriColors.primary,
                         fontSize: 11,
@@ -526,8 +840,25 @@ class _TodayScenarioCard extends StatelessWidget {
                     const SizedBox(height: Spacing.xs),
                     Row(
                       children: [
-                        SoriBadge.level(scenario!.level.display, size: 18),
-                        const SizedBox(width: 6),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 3),
+                          decoration: BoxDecoration(
+                            color: SoriColors.primary.withValues(alpha: 0.18),
+                            borderRadius: BorderRadius.circular(SoriRadius.pill),
+                          ),
+                          child: Text(
+                            scenario!.level.display,
+                            style: const TextStyle(
+                              fontFamily: 'Pretendard',
+                              color: SoriColors.primary,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 0.4,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
                         Text(
                           '5–7 min · +${scenario!.xpReward} XP',
                           style: TextStyle(
@@ -550,12 +881,19 @@ class _TodayScenarioCard extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 8,
+                  horizontal: 16,
+                  vertical: 9,
                 ),
                 decoration: BoxDecoration(
                   color: SoriColors.primary,
                   borderRadius: SoriRadius.brPill,
+                  boxShadow: [
+                    BoxShadow(
+                      color: SoriColors.primary.withValues(alpha: 0.30),
+                      blurRadius: 8,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -586,8 +924,38 @@ class _TodayScenarioCard extends StatelessWidget {
   }
 }
 
-// ─── Modules Grid (2×2) ──────────────────────────────────────────────────
+class _ScenarioAvatar extends StatelessWidget {
+  final String emoji;
+  final String? sidekick;
+  const _ScenarioAvatar({required this.emoji, this.sidekick});
 
+  @override
+  Widget build(BuildContext context) {
+    final mascot = Mascot.forSpeaker(
+      sidekick ?? '',
+      size: 60,
+      emotion: MascotEmotion.smile,
+      animate: true,
+    );
+    if (mascot != null) {
+      return SizedBox(width: 60, height: 60, child: mascot);
+    }
+    return Container(
+      width: 60,
+      height: 60,
+      decoration: BoxDecoration(
+        color: SoriColors.primary.withValues(alpha: 0.18),
+        borderRadius: BorderRadius.circular(SoriRadius.md),
+      ),
+      alignment: Alignment.center,
+      child: Text(emoji, style: const TextStyle(fontSize: 30)),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// F. Modules + G. Games grids
+// ════════════════════════════════════════════════════════════════════════
 class _ModulesGrid extends StatelessWidget {
   final AppL10n t;
   const _ModulesGrid({required this.t});
@@ -648,6 +1016,66 @@ class _ModulesGrid extends StatelessWidget {
   }
 }
 
+class _GamesGrid extends StatelessWidget {
+  final AppL10n t;
+  const _GamesGrid({required this.t});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.sort_by_alpha_rounded,
+                title: t.gameChosungTitle,
+                subtitle: t.gameChosungDesc,
+                accent: SoriColors.primary,
+                onTap: () => Navigator.pushNamed(context, '/chosung'),
+              ),
+            ),
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.grid_4x4_rounded,
+                title: t.gameWordleTitle,
+                subtitle: t.gameWordleDesc,
+                accent: SoriColors.success,
+                onTap: () => Navigator.pushNamed(context, '/wordle'),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: Spacing.md),
+        Row(
+          children: [
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.link_rounded,
+                title: t.gameKkeunmariTitle,
+                subtitle: t.gameKkeunmariDesc,
+                accent: SoriColors.accent,
+                onTap: () => Navigator.pushNamed(context, '/kkeunmari'),
+              ),
+            ),
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.headphones_rounded,
+                title: t.moduleListenTitle,
+                subtitle: t.listeningSubtitle,
+                accent: SoriColors.info,
+                onTap: () => Navigator.pushNamed(context, '/listening'),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
 class _MiniModuleCard extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -674,23 +1102,23 @@ class _MiniModuleCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: 36,
+            height: 36,
             decoration: BoxDecoration(
               color: accent.withValues(alpha: 0.16),
               borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
             alignment: Alignment.center,
-            child: Icon(icon, size: 22, color: accent),
+            child: Icon(icon, size: 20, color: accent),
           ),
-          const SizedBox(height: Spacing.md),
+          const SizedBox(height: Spacing.sm),
           Text(
             title,
             style: TextStyle(
               fontFamily: 'Pretendard',
               color: s.text,
               fontWeight: FontWeight.w800,
-              fontSize: 14,
+              fontSize: 13.5,
               letterSpacing: -0.2,
               height: 1.2,
             ),
@@ -702,7 +1130,7 @@ class _MiniModuleCard extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Pretendard',
                 color: s.textMuted,
-                fontSize: 11,
+                fontSize: 10.5,
                 fontWeight: FontWeight.w500,
                 height: 1.35,
               ),
@@ -716,138 +1144,9 @@ class _MiniModuleCard extends StatelessWidget {
   }
 }
 
-// ─── Section Label ───────────────────────────────────────────────────────
-
-/// Daily Calligraphy compact card — char + "오늘의 글자" + status
-class _DailyCharCard extends StatelessWidget {
-  final String char;
-  final bool doneToday;
-  final VoidCallback onTap;
-
-  const _DailyCharCard({
-    required this.char,
-    required this.doneToday,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      accent: SoriColors.hangul,
-      tinted: !doneToday,
-      onTap: onTap,
-      child: Row(
-        children: [
-          // Char display
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              color: SoriColors.hangul.withValues(alpha: 0.20),
-              borderRadius: BorderRadius.circular(SoriRadius.sm),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              char,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 26,
-                fontWeight: FontWeight.w900,
-                color: SoriColors.hangul,
-                height: 1,
-              ),
-            ),
-          ),
-          const SizedBox(width: Spacing.md),
-          // Title + subtitle
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  t.dailyCharTitle,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 13.5,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                    letterSpacing: -0.2,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  doneToday ? t.dailyCharDoneToday : t.dailyCharSubtitle,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 11.5,
-                    color: doneToday ? SoriColors.success : s.textMuted,
-                    fontWeight: doneToday ? FontWeight.w700 : FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          // Done badge or chevron
-          if (doneToday)
-            Container(
-              padding: const EdgeInsets.all(6),
-              decoration: const BoxDecoration(
-                color: SoriColors.success,
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.check_rounded,
-                color: Colors.white,
-                size: 14,
-              ),
-            )
-          else
-            Icon(
-              Icons.chevron_right_rounded,
-              color: SoriColors.hangul.withValues(alpha: 0.7),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-/// Hero card avatar — sidekick mascot if known, else emoji tile.
-class _ScenarioAvatar extends StatelessWidget {
-  final String emoji;
-  final String? sidekick;
-  const _ScenarioAvatar({required this.emoji, this.sidekick});
-
-  @override
-  Widget build(BuildContext context) {
-    final mascot = Mascot.forSpeaker(
-      sidekick ?? '',
-      size: 64,
-      emotion: MascotEmotion.smile,
-      animate: true,
-    );
-    // 마스코트 일러스트는 자체 원형 구성이 있어 박스 없이 그대로 노출.
-    if (mascot != null) {
-      return SizedBox(width: 64, height: 64, child: mascot);
-    }
-    return Container(
-      width: 64,
-      height: 64,
-      decoration: BoxDecoration(
-        color: SoriColors.primary.withValues(alpha: 0.18),
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-      ),
-      alignment: Alignment.center,
-      child: Text(emoji, style: const TextStyle(fontSize: 32)),
-    );
-  }
-}
-
+// ════════════════════════════════════════════════════════════════════════
+// Section label
+// ════════════════════════════════════════════════════════════════════════
 class _SectionLabel extends StatelessWidget {
   final String label;
   const _SectionLabel({required this.label});

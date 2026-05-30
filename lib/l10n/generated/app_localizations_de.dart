@@ -123,6 +123,9 @@ class AppL10nDe extends AppL10n {
   String get btnRetry => 'Erneut versuchen';
 
   @override
+  String get btnClose => 'Schließen';
+
+  @override
   String get btnApply => 'Übernehmen';
 
   @override
@@ -285,6 +288,24 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsLicensesSubtitle => 'Verwendete Bibliotheken';
+
+  @override
+  String get settingsDataSourcesTitle => 'Datenquellen';
+
+  @override
+  String get settingsDataSourcesSubtitle =>
+      'Wörterbücher, Frequenzlisten, Übersetzungen';
+
+  @override
+  String get settingsDataSourcesIntro =>
+      'Die Inhalte dieser App bauen auf öffentlich zugänglichen Sprachdaten auf. Jede Quelle ist hier mit Lizenz und Attribution genannt.';
+
+  @override
+  String get settingsDataLicenseNote => 'CC BY-SA 2.0 KR Hinweis';
+
+  @override
+  String get settingsDataLicenseBody =>
+      'Korea-Wörterbuchdaten (Definitionen, Übersetzungen) stammen aus 우리말샘 (National Institute of Korean Language) und stehen unter CC BY-SA 2.0 KR. Abgeleitete Inhalte (z. B. die in dieser App enthaltenen JSON-Dateien) werden unter derselben Lizenz weitergegeben.';
 
   @override
   String get statsHeader => 'Dein Fortschritt';
@@ -638,6 +659,42 @@ class AppL10nDe extends AppL10n {
       'Tippe dein Level — du kannst es in den Einstellungen ändern.';
 
   @override
+  String get onboardingTigerGreeting => '환영해요!\n어떤 레벨부터 시작할까요?';
+
+  @override
+  String get homeHeroGreetingMorning => 'Guten Morgen!';
+
+  @override
+  String get homeHeroGreetingAfternoon => 'Hallo!';
+
+  @override
+  String get homeHeroGreetingEvening => 'Guten Abend!';
+
+  @override
+  String get homeTigerBubbleStart => 'Sollen wir 5 Minuten lernen? 📖';
+
+  @override
+  String get homeTigerBubbleStreak => 'Streak hält! Weiter so 🔥';
+
+  @override
+  String get homeTigerBubbleResume => 'Willkommen zurück!';
+
+  @override
+  String get homeShieldLabel => 'Schild';
+
+  @override
+  String get homePathSection => 'Dein Pfad';
+
+  @override
+  String get homePathLocked => 'Verschlossen';
+
+  @override
+  String get homePathCurrent => 'Jetzt';
+
+  @override
+  String get homePathDone => 'Erledigt';
+
+  @override
   String get scenariosListTitle => 'Szenarien';
 
   @override
@@ -965,7 +1022,11 @@ class AppL10nDe extends AppL10n {
   String get kkeunmariSubmit => 'Senden';
 
   @override
-  String get kkeunmariNotInPool => 'Wort nicht in der Liste';
+  String get kkeunmariNotInPool =>
+      'Kenn ich noch nicht — versuch ein anderes 🐯';
+
+  @override
+  String get kkeunmariNotKorean => 'Nur Hangul-Wörter, bitte';
 
   @override
   String kkeunmariWrongStart(Object syl) {

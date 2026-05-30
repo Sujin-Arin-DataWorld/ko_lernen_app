@@ -8,7 +8,6 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/chip.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/mascot.dart';
@@ -325,73 +324,71 @@ class _WordleScreenState extends State<WordleScreen> {
                 asset: 'assets/illustrations/hanok/porch.png',
                 fallbackIcon: Icons.grid_4x4_rounded,
               ),
-              const SizedBox(height: 12),
-              Text(
-                t.wordleSyllableCount(n),
-                style: TextStyle(
-                  color: SoriSurfaces.of(context).textMuted,
-                  fontSize: 13,
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              if (_targetGerman != null)
-                SoriCard(
-                  variant: SoriCardVariant.compact,
-                  accent: SoriColors.warning,
-                  tinted: true,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(
-                        Icons.lightbulb_outline,
-                        color: SoriColors.warning,
-                        size: 15,
-                      ),
-                      const SizedBox(width: Spacing.xs + 2),
-                      Text(
-                        t.wordleMeaning(_targetGerman!),
-                        style: const TextStyle(
-                          color: SoriColors.warning,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              const SizedBox(height: Spacing.xs + 2),
+              const SizedBox(height: 14),
+
+              // ── 단서 행: 음절 수 · 의도 단어 (clean, single row) ──
+              // v3 (2026-05-29): Right/Wrong/Absent legend는 항상 표시할
+              // 필요 없어 help(?) 다이얼로그로 이동 (앱바 우상단 ? 버튼).
+              // Meaning은 더 차분한 inline pill로.
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SoriChip(
-                    label: t.wordleLegendCorrect,
-                    accent: SoriColors.success,
+                  // 음절 수 hint
+                  Text(
+                    t.wordleSyllableCount(n),
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      color: SoriSurfaces.of(context).textMuted,
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  const SizedBox(width: 12),
-                  SoriChip(
-                    label: t.wordleLegendPresent,
-                    accent: SoriColors.warning,
-                  ),
-                  const SizedBox(width: 12),
-                  SoriChip(label: t.wordleLegendAbsent),
+                  if (_targetGerman != null) ...[
+                    const SizedBox(width: 10),
+                    Container(
+                      width: 4,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: SoriSurfaces.of(context).textDim,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Flexible(
+                      child: Text(
+                        _targetGerman!,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pretendard',
+                          color: SoriSurfaces.of(context).text,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.italic,
+                          height: 1.3,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 14),
 
-              // ── 그리드 (단청 frame로 감싸기 — 한옥 처마 띠 느낌) ──
+              // ── 그리드 (clean, no dancheong overlay) ──
+              // v2 (2026-05-29): dancheong_frame.png 오버레이를 제거 — 입력칸과
+              // 겹치며 그리드를 가려서 게임이 안 보였음. 외곽선 + 4 코너 점만
+              // 유지해 한옥 단청 정체성은 살리고 가독성은 회복.
               Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 8,
-                ),
+                padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
                   color: SoriSurfaces.of(
                     context,
-                  ).surface.withValues(alpha: 0.35),
+                  ).surface.withValues(alpha: 0.45),
                   borderRadius: BorderRadius.circular(SoriRadius.lg),
                   border: Border.all(
-                    color: HanokColors.cheong.withValues(alpha: 0.55),
-                    width: 2,
+                    color: HanokColors.cheong.withValues(alpha: 0.45),
+                    width: 1.5,
                   ),
                 ),
                 child: Stack(
@@ -415,37 +412,25 @@ class _WordleScreenState extends State<WordleScreen> {
                         );
                       }),
                     ),
-                    // 단청 frame 오버레이 — 가운데가 투명이라 그리드 위로 띠만 합성.
-                    // PNG 부재 시 자동으로 SizedBox로 fallback → 기존 4코너 dot만 남음.
-                    Positioned.fill(
-                      child: IgnorePointer(
-                        child: Image.asset(
-                          'assets/illustrations/hanok/dancheong_frame.png',
-                          fit: BoxFit.fill,
-                          filterQuality: FilterQuality.medium,
-                          errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-                        ),
-                      ),
-                    ),
-                    // 단청 4코너 점 — 적·황·녹 군집 (frame 위에도 anchor로 유지)
+                    // 4 코너 단청 점 — 그리드를 가리지 않고 액센트만.
                     const Positioned(
-                      top: -4,
-                      left: -4,
+                      top: -6,
+                      left: -6,
                       child: _CornerDot(color: HanokColors.jeok),
                     ),
                     const Positioned(
-                      top: -4,
-                      right: -4,
+                      top: -6,
+                      right: -6,
                       child: _CornerDot(color: HanokColors.hwang),
                     ),
                     const Positioned(
-                      bottom: -4,
-                      left: -4,
+                      bottom: -6,
+                      left: -6,
                       child: _CornerDot(color: HanokColors.hwang),
                     ),
                     const Positioned(
-                      bottom: -4,
-                      right: -4,
+                      bottom: -6,
+                      right: -6,
                       child: _CornerDot(color: HanokColors.jeok),
                     ),
                   ],

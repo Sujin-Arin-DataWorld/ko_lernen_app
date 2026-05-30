@@ -63,8 +63,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _Section(label: t.settingsThemeTitle),
           RadioGroup<ThemeMode>(
             groupValue: themeModeNotifier.value,
-            onChanged: (m) =>
-                setState(() => setThemeMode(m ?? ThemeMode.system)),
+            onChanged: (m) => setState(() {
+              setThemeMode(m ?? ThemeMode.system);
+            }),
             child: Column(
               children: [
                 _RadioTile<ThemeMode>(
@@ -272,7 +273,147 @@ class _SettingsScreenState extends State<SettingsScreen> {
               applicationLegalese: '© 2026 Hangul Sori',
             ),
           ),
+          ListTile(
+            leading: const Icon(Icons.library_books_outlined),
+            title: Text(t.settingsDataSourcesTitle),
+            subtitle: Text(t.settingsDataSourcesSubtitle),
+            trailing: const Icon(Icons.chevron_right_rounded),
+            onTap: _showDataSources,
+          ),
         ],
+      ),
+    );
+  }
+
+  /// CC BY-SA 2.0 KR 라이선스 준수 — NIKL 우리말샘 등 데이터 출처 표시.
+  void _showDataSources() {
+    final t = AppL10n.of(context);
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (ctx) => DraggableScrollableSheet(
+        expand: false,
+        initialChildSize: 0.7,
+        maxChildSize: 0.92,
+        builder: (_, scroll) => ListView(
+          controller: scroll,
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+          children: [
+            Center(
+              child: Container(
+                width: 36,
+                height: 4,
+                margin: const EdgeInsets.only(bottom: 18),
+                decoration: BoxDecoration(
+                  color: Theme.of(ctx).colorScheme.outline.withValues(alpha: 0.4),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            ),
+            Text(
+              t.settingsDataSourcesTitle,
+              style: const TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              t.settingsDataSourcesIntro,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 13,
+                color: Theme.of(ctx).colorScheme.onSurface.withValues(alpha: 0.7),
+                height: 1.5,
+              ),
+            ),
+            const SizedBox(height: 18),
+            const _DataSourceCard(
+              name: '우리말샘 (National Institute of Korean Language)',
+              role: 'Korean definitions, English translations, vocabulary',
+              license: 'CC BY-SA 2.0 KR',
+              url: 'https://opendict.korean.go.kr',
+              attribution: '국립국어원 우리말샘 (opendict.korean.go.kr)',
+            ),
+            const _DataSourceCard(
+              name: 'open-korean-text',
+              role: 'Verified Korean noun dictionary (~140k entries)',
+              license: 'Apache 2.0',
+              url: 'https://github.com/open-korean-text/open-korean-text',
+              attribution: 'open-korean-text contributors',
+            ),
+            const _DataSourceCard(
+              name: 'hermitdave/FrequencyWords',
+              role: 'Korean word frequency ranking (OpenSubtitles)',
+              license: 'CC BY-SA 4.0',
+              url: 'https://github.com/hermitdave/FrequencyWords',
+              attribution: 'Hermit Dave & OpenSubtitles community',
+            ),
+            const _DataSourceCard(
+              name: 'DeepL',
+              role: 'Korean → German translation',
+              license: 'Translation output: factual data, attribution voluntary',
+              url: 'https://www.deepl.com',
+              attribution: 'DeepL SE',
+            ),
+            const SizedBox(height: 18),
+            Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: SoriColors.warning.withValues(alpha: 0.10),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: SoriColors.warning.withValues(alpha: 0.30),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.info_outline,
+                          size: 18, color: SoriColors.warning),
+                      const SizedBox(width: 8),
+                      Text(
+                        t.settingsDataLicenseNote,
+                        style: const TextStyle(
+                          fontFamily: 'Pretendard',
+                          fontSize: 13,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    t.settingsDataLicenseBody,
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 12.5,
+                      height: 1.5,
+                      color: Theme.of(ctx)
+                          .colorScheme
+                          .onSurface
+                          .withValues(alpha: 0.85),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: TextButton(
+                onPressed: () => Navigator.pop(ctx),
+                child: Text(t.btnClose),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -510,6 +651,131 @@ class _RadioTile<T> extends StatelessWidget {
       title: Text(title),
       value: value,
       activeColor: SoriColors.primary,
+    );
+  }
+}
+
+/// 데이터 출처 카드 — Settings → Data sources sheet.
+/// CC BY-SA 2.0 KR 라이선스 준수 (NIKL 우리말샘) + 기타 외부 데이터 attribution.
+class _DataSourceCard extends StatelessWidget {
+  final String name;
+  final String role;
+  final String license;
+  final String url;
+  final String attribution;
+
+  const _DataSourceCard({
+    required this.name,
+    required this.role,
+    required this.license,
+    required this.url,
+    required this.attribution,
+  });
+
+  Future<void> _copy(BuildContext context) async {
+    await Clipboard.setData(ClipboardData(text: url));
+    HapticFeedback.selectionClick();
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(url), duration: const Duration(seconds: 2)),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final surface = Theme.of(context).colorScheme.surface;
+    final onSurface = Theme.of(context).colorScheme.onSurface;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: InkWell(
+        onTap: () => _copy(context),
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: surface,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: onSurface.withValues(alpha: 0.12)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      name,
+                      style: const TextStyle(
+                        fontFamily: 'Pretendard',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: SoriColors.primary.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Text(
+                      license,
+                      style: const TextStyle(
+                        fontFamily: 'Pretendard',
+                        fontSize: 10.5,
+                        fontWeight: FontWeight.w800,
+                        color: SoriColors.primary,
+                        letterSpacing: 0.2,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Text(
+                role,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 12,
+                  color: onSurface.withValues(alpha: 0.7),
+                  height: 1.4,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  const Icon(Icons.link_rounded, size: 14),
+                  const SizedBox(width: 4),
+                  Expanded(
+                    child: Text(
+                      url,
+                      style: TextStyle(
+                        fontFamily: 'Pretendard',
+                        fontSize: 11,
+                        color: onSurface.withValues(alpha: 0.55),
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const Icon(Icons.copy_rounded, size: 14),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Attribution: $attribution',
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 10.5,
+                  fontStyle: FontStyle.italic,
+                  color: onSurface.withValues(alpha: 0.5),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

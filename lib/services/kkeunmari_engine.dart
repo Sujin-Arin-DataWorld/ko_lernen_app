@@ -105,15 +105,25 @@ class KkeunmariEngine {
   }
 
   /// 사용자의 다음 단어가 유효한지 검증.
-  /// 반환: (유효, 사유 코드 — 'ok' | 'not_in_pool' | 'wrong_start' | 'already_used')
+  /// 반환: (유효, 사유 코드 — 'ok' | 'not_in_pool' | 'wrong_start' | 'already_used' | 'not_korean')
+  ///
+  /// **v2 (2026-05-29)**: validation 우선순위 재배치 — wrong_start를 not_in_pool보다
+  /// 먼저 검사해 사용자에게 더 즉시적인 피드백. 또한 한글이 아닌 입력은
+  /// 별도 사유로 분리해 안내가 명확하도록 함.
   static (bool valid, String reason, KkeunmariWord? word) validateUserWord(
     String input,
     String requiredFirst,
     Set<String> usedWords,
   ) {
-    final w = findExact(input.trim());
+    final trimmed = input.trim();
+    if (trimmed.isEmpty) return (false, 'not_in_pool', null);
+    // Hangul only check (Unicode 0xAC00..0xD7A3 syllable block)
+    final isHangul = trimmed.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3);
+    if (!isHangul) return (false, 'not_korean', null);
+    // wrong_start first — most actionable hint
+    if (trimmed[0] != requiredFirst) return (false, 'wrong_start', null);
+    final w = findExact(trimmed);
     if (w == null) return (false, 'not_in_pool', null);
-    if (w.first != requiredFirst) return (false, 'wrong_start', w);
     if (usedWords.contains(w.word)) return (false, 'already_used', w);
     return (true, 'ok', w);
   }

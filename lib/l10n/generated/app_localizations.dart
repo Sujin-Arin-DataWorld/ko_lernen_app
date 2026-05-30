@@ -325,6 +325,12 @@ abstract class AppL10n {
   /// **'Erneut versuchen'**
   String get btnRetry;
 
+  /// No description provided for @btnClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließen'**
+  String get btnClose;
+
   /// No description provided for @btnApply.
   ///
   /// In de, this message translates to:
@@ -630,6 +636,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Verwendete Bibliotheken'**
   String get settingsLicensesSubtitle;
+
+  /// No description provided for @settingsDataSourcesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenquellen'**
+  String get settingsDataSourcesTitle;
+
+  /// No description provided for @settingsDataSourcesSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörterbücher, Frequenzlisten, Übersetzungen'**
+  String get settingsDataSourcesSubtitle;
+
+  /// No description provided for @settingsDataSourcesIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Inhalte dieser App bauen auf öffentlich zugänglichen Sprachdaten auf. Jede Quelle ist hier mit Lizenz und Attribution genannt.'**
+  String get settingsDataSourcesIntro;
+
+  /// No description provided for @settingsDataLicenseNote.
+  ///
+  /// In de, this message translates to:
+  /// **'CC BY-SA 2.0 KR Hinweis'**
+  String get settingsDataLicenseNote;
+
+  /// No description provided for @settingsDataLicenseBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Korea-Wörterbuchdaten (Definitionen, Übersetzungen) stammen aus 우리말샘 (National Institute of Korean Language) und stehen unter CC BY-SA 2.0 KR. Abgeleitete Inhalte (z. B. die in dieser App enthaltenen JSON-Dateien) werden unter derselben Lizenz weitergegeben.'**
+  String get settingsDataLicenseBody;
 
   /// No description provided for @statsHeader.
   ///
@@ -1261,6 +1297,78 @@ abstract class AppL10n {
   /// **'Tippe dein Level — du kannst es in den Einstellungen ändern.'**
   String get onboardingPrompt;
 
+  /// No description provided for @onboardingTigerGreeting.
+  ///
+  /// In de, this message translates to:
+  /// **'환영해요!\n어떤 레벨부터 시작할까요?'**
+  String get onboardingTigerGreeting;
+
+  /// No description provided for @homeHeroGreetingMorning.
+  ///
+  /// In de, this message translates to:
+  /// **'Guten Morgen!'**
+  String get homeHeroGreetingMorning;
+
+  /// No description provided for @homeHeroGreetingAfternoon.
+  ///
+  /// In de, this message translates to:
+  /// **'Hallo!'**
+  String get homeHeroGreetingAfternoon;
+
+  /// No description provided for @homeHeroGreetingEvening.
+  ///
+  /// In de, this message translates to:
+  /// **'Guten Abend!'**
+  String get homeHeroGreetingEvening;
+
+  /// No description provided for @homeTigerBubbleStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Sollen wir 5 Minuten lernen? 📖'**
+  String get homeTigerBubbleStart;
+
+  /// No description provided for @homeTigerBubbleStreak.
+  ///
+  /// In de, this message translates to:
+  /// **'Streak hält! Weiter so 🔥'**
+  String get homeTigerBubbleStreak;
+
+  /// No description provided for @homeTigerBubbleResume.
+  ///
+  /// In de, this message translates to:
+  /// **'Willkommen zurück!'**
+  String get homeTigerBubbleResume;
+
+  /// No description provided for @homeShieldLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Schild'**
+  String get homeShieldLabel;
+
+  /// No description provided for @homePathSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Pfad'**
+  String get homePathSection;
+
+  /// No description provided for @homePathLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Verschlossen'**
+  String get homePathLocked;
+
+  /// No description provided for @homePathCurrent.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt'**
+  String get homePathCurrent;
+
+  /// No description provided for @homePathDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Erledigt'**
+  String get homePathDone;
+
   /// No description provided for @scenariosListTitle.
   ///
   /// In de, this message translates to:
@@ -1840,8 +1948,14 @@ abstract class AppL10n {
   /// No description provided for @kkeunmariNotInPool.
   ///
   /// In de, this message translates to:
-  /// **'Wort nicht in der Liste'**
+  /// **'Kenn ich noch nicht — versuch ein anderes 🐯'**
   String get kkeunmariNotInPool;
+
+  /// No description provided for @kkeunmariNotKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur Hangul-Wörter, bitte'**
+  String get kkeunmariNotKorean;
 
   /// No description provided for @kkeunmariWrongStart.
   ///

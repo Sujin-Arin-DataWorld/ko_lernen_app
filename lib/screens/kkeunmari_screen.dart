@@ -118,6 +118,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
       HapticFeedback.mediumImpact();
       setState(() {
         _errorMsg = switch (reason) {
+          'not_korean' => t.kkeunmariNotKorean,
           'not_in_pool' => t.kkeunmariNotInPool,
           'wrong_start' => t.kkeunmariWrongStart(_required),
           'already_used' => t.kkeunmariAlreadyUsed,

@@ -53,6 +53,13 @@ const List<String> _consonantPadKeys = [
   'ㅎ',
 ];
 
+/// 중성(모음) 21자 — 한글 syllable decomposition.
+const List<String> _jungsungTable = [
+  'ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ',
+  'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ',
+  'ㅣ',
+];
+
 String extractChosung(String word) {
   final buf = StringBuffer();
   for (final r in word.runes) {
@@ -63,6 +70,33 @@ String extractChosung(String word) {
     }
   }
   return buf.toString();
+}
+
+/// Hint mode for the quiz card display.
+/// - [chosung]: just initial consonants (hard, e.g. "ㄱㅇㄷ" for 귀엽다)
+/// - [chosungVowel]: initial consonant + medial vowel pairs (easier,
+///   e.g. "ㄱㅟ ㅇㅕ ㄷㅏ") — keeps user guessing the final but reveals vowels.
+enum _HintMode { chosung, chosungVowel }
+
+/// Build the displayed pattern based on hint mode.
+String buildPattern(String word, _HintMode mode) {
+  final parts = <String>[];
+  for (final r in word.runes) {
+    if (r >= 0xAC00 && r <= 0xD7A3) {
+      final idx = r - 0xAC00;
+      final cho = _chosungTable[idx ~/ 588];
+      final jung = _jungsungTable[(idx % 588) ~/ 28];
+      switch (mode) {
+        case _HintMode.chosung:
+          parts.add(cho);
+        case _HintMode.chosungVowel:
+          parts.add('$cho$jung');
+      }
+    } else {
+      parts.add(String.fromCharCode(r));
+    }
+  }
+  return parts.join(' ');
 }
 
 enum _State { waiting, correct, wrong }
@@ -84,6 +118,9 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
   bool _hint = false;
   _State _state = _State.waiting;
   String _level = 'A1';
+  // v2 (2026-05-29): 초성+모음 모드 추가 — 사용자가 너무 어렵다고 피드백.
+  // 기본은 chosungVowel(쉬움) — 모음 보이면 추측 가능. 토글로 hard 모드 선택 가능.
+  _HintMode _mode = _HintMode.chosungVowel;
 
   // Round tracking
   int _roundIndex = 0; // 0..roundSize-1
@@ -257,7 +294,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
     }
 
     final card = _card;
-    final cs = extractChosung(card.korean);
+    final cs = buildPattern(card.korean, _mode);
     final showPad = _level == 'A1' || _level == 'A2';
     final roundPos =
         (_roundIndex.clamp(0, _roundSize)) + (_roundComplete ? 0 : 1);
@@ -282,9 +319,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+              // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
+              // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
               const HanokHeader(
-                asset: 'assets/illustrations/hanok/porch.png',
+                asset: 'assets/illustrations/hanok/calligraphy.png',
                 fallbackIcon: Icons.abc_rounded,
               ),
               const SizedBox(height: Spacing.md),
@@ -311,6 +349,37 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
                     ),
                   );
                 }).toList(),
+              ),
+              const SizedBox(height: 8),
+
+              // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SoriChip(
+                    label: '초성 + 모음',
+                    icon: Icons.lightbulb_outline,
+                    accent: SoriColors.warning,
+                    selected: _mode == _HintMode.chosungVowel,
+                    variant: SoriChipVariant.soft,
+                    fontSize: 12,
+                    onTap: _mode == _HintMode.chosungVowel
+                        ? null
+                        : () => setState(() => _mode = _HintMode.chosungVowel),
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                  SoriChip(
+                    label: '초성 only',
+                    icon: Icons.flash_on_rounded,
+                    accent: SoriColors.danger,
+                    selected: _mode == _HintMode.chosung,
+                    variant: SoriChipVariant.soft,
+                    fontSize: 12,
+                    onTap: _mode == _HintMode.chosung
+                        ? null
+                        : () => setState(() => _mode = _HintMode.chosung),
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
 
@@ -601,16 +670,18 @@ class _QuizCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // v2: buildPattern이 이미 공백 포함된 display 문자열 반환.
+          // 단순 chosung: "ㄱ ㅇ ㄷ"  / chosungVowel: "ㄱㅟ ㅇㅕ ㄷㅏ"
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
-              chosung.split('').join('  '),
+              chosung,
               maxLines: 1,
               style: TextStyle(
-                fontSize: 46,
+                fontSize: 42,
                 fontWeight: FontWeight.w900,
                 color: accent,
-                letterSpacing: 6,
+                letterSpacing: 2,
               ),
             ),
           ),

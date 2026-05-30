@@ -63,3 +63,13 @@ KEYSTORE_BACKUP.md
 !.dev.vars.example
 .env*
 !.env.example
+
+# Auto-generated backups from 2026-05-29 PNG knockout (not for repo)
+assets/illustrations/mascot/backup/
+assets/illustrations/.bg_knockout_backup/
+outputs_inspect/
+
+# Build-pipeline caches (regenerable, may contain API responses)
+scripts/cache/nikl/
+scripts/cache/deepl_de.json
+scripts/cache/wiktionary_de.json

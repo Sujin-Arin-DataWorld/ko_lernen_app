@@ -241,7 +241,7 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
             width: widget.size,
             height: widget.size,
             fit: BoxFit.contain,
-            filterQuality: FilterQuality.medium,
+            filterQuality: FilterQuality.high,
             errorBuilder: (_, __, ___) =>
                 _Fallback(kind: widget.kind, size: widget.size),
           ),

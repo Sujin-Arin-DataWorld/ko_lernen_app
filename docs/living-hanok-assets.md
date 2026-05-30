@@ -37,7 +37,14 @@
 
 **현재 상태**: `gate_frame.png` · `gate_door_left.png` · `gate_door_right.png`
 3개가 추가되어 인트로 코드에 통합됨. 현재 파일은 즉시 빌드 가능한 임시 SVG 기반
-PNG이며, Jin 최종 일러스트가 오면 같은 경로/좌표계로 덮어쓰면 된다.
+PNG이며, Jin 최종 일러스트이 오면 같은 경로/좌표계로 덮어쓰면 된다.
+
+**업데이트 (2026-05-28)**: 빌드 사이즈 최적화를 위해 다음 파일을 lossily 압축했습니다. 원본 원본 파일은 `assets/illustrations/hanok/backup/`에 보관되어 있습니다.
+
+- `assets/illustrations/hanok/gate_door_right.png` — compressed (242 KB). backup: `backup/gate_door_right.orig.png` (527 KB)
+- `assets/illustrations/hanok/gate_final.png` — compressed (311 KB). backup: `backup/gate_final.orig.png` (337 KB)
+
+압축은 `pngquant --quality=60-80 --speed 1`로 수행했습니다. 문제가 있을 경우 백업에서 원본을 복원하세요.
 
 인트로에서 문이 **실제로 열려야** 하므로 한 장의 평면 PNG로는 불가능.
 **3개 파일로 분리** 제작 — 모두 같은 좌표계에 등록(registration)되어야 함.
