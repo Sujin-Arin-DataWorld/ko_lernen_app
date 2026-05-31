@@ -200,8 +200,74 @@
   "vocabModeDue": "Due today",
   "vocabDueBadge": "🔥 {n} due",
   "@vocabDueBadge": { "placeholders": { "n": { "type": "int" } } },
+  "vocabTodayBadge": "🔥 Today ({newCount} new · {reviewCount} review)",
+  "@vocabTodayBadge": {
+    "description": "Daily goal chip — N new cards + M reviews (Phase 1 SRS UX patch, stately-rising-jongga).",
+    "placeholders": {
+      "newCount":    { "type": "int" },
+      "reviewCount": { "type": "int" }
+    }
+  },
   "vocabDueEmpty": "🎉 All done for today!\nCome back tomorrow.",
   "vocabDueEmptyAction": "Practice anyway",
+
+  "@_phase2_vocab_packs": { "description": "Phase 2 (stately-rising-jongga) — Pack UX strings." },
+  "vocabPacksTitle": "Vocab packs",
+  "vocabPacksLevelMenu": "Switch level",
+  "vocabPacksProgressLabel": "{cleared}/{total} packs cleared",
+  "@vocabPacksProgressLabel": {
+    "placeholders": {
+      "cleared": { "type": "int" },
+      "total":   { "type": "int" }
+    }
+  },
+  "vocabPacksEmptyTitle": "No packs yet",
+  "vocabPacksEmptyBody": "No vocabulary prepared for this level yet.",
+  "vocabPackLockedNoPrev": "🔒 This pack is still locked.",
+  "vocabPackLockedHint": "🔒 Clear \"{prev}\" first with ≥ 70% on bosses.",
+  "@vocabPackLockedHint": {
+    "placeholders": { "prev": {} }
+  },
+
+  "hanokStageEmpty":         "Preparing the plot",
+  "hanokStageFoundation":    "Laying foundation stones",
+  "hanokStagePillars":       "Raising pillars",
+  "hanokStageBeams":         "Building the roof frame",
+  "hanokStageThatch":        "Thatched roof finished",
+  "hanokStageTilePartial":   "Laying tiles",
+  "hanokStageTileComplete":  "Tile roof complete",
+  "hanokStageDancheong":     "Dancheong painted",
+  "hanokStageGate":          "Gate raised",
+  "hanokStageWindows":       "Lattice doors fitted",
+  "hanokStageSideBuilding":  "Side wing added",
+  "hanokStageJongga":        "Jongga complete",
+
+  "vocabPackPlayTitle":      "Pack practice",
+  "vocabPackLearnHint":      "Tap to flip",
+  "vocabPackDontKnow":       "Don't know",
+  "vocabPackGotIt":          "Got it",
+  "vocabPackStageLearn":     "Learn",
+  "vocabPackStageQuiz":      "Quiz",
+  "vocabPackStageBoss":      "Boss",
+  "vocabPackQuizHint":       "Pick the right translation",
+  "vocabPackBossHint":       "Listen and choose",
+  "vocabPackBossReplayAudio":"Play again",
+  "vocabPackTapToFlip":      "Tap to flip",
+
+  "vocabPackResultTitle":         "Result",
+  "vocabPackResultCleared":       "🎉 Pack cleared!",
+  "vocabPackResultClearedAgain":  "Already cleared — nice review!",
+  "vocabPackResultRetry":         "So close — try again!",
+  "vocabPackResultBossLabel":     "Boss accuracy",
+  "vocabPackResultQuizLabel":     "Quiz",
+  "vocabPackResultXpLabel":       "Reward",
+  "vocabPackResultNextPack":      "Continue to \"{next}\"",
+  "@vocabPackResultNextPack": {
+    "placeholders": { "next": {} }
+  },
+  "vocabPackResultRetryCta":      "Try again",
+  "vocabPackResultBackToGrid":    "Back to packs",
+
   "moduleStatsTitle": "Statistics",
   "moduleStatsDesc": "Streak, cards, accuracy",
 

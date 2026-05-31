@@ -533,10 +533,142 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String vocabTodayBadge(int newCount, int reviewCount) {
+    return '🔥 Heute ($newCount neu · $reviewCount Wdh.)';
+  }
+
+  @override
   String get vocabDueEmpty => '🎉 Heute alles erledigt!\nKomm morgen wieder.';
 
   @override
   String get vocabDueEmptyAction => 'Trotzdem üben';
+
+  @override
+  String get vocabPacksTitle => 'Vokabel-Packs';
+
+  @override
+  String get vocabPacksLevelMenu => 'Level wechseln';
+
+  @override
+  String vocabPacksProgressLabel(int cleared, int total) {
+    return '$cleared/$total Packs geklärt';
+  }
+
+  @override
+  String get vocabPacksEmptyTitle => 'Noch keine Packs';
+
+  @override
+  String get vocabPacksEmptyBody =>
+      'Für dieses Level sind noch keine Vokabeln vorbereitet.';
+
+  @override
+  String get vocabPackLockedNoPrev => '🔒 Dieses Pack ist noch gesperrt.';
+
+  @override
+  String vocabPackLockedHint(Object prev) {
+    return '🔒 Schaffe zuerst \"$prev\" mit ≥ 70 % Bossen.';
+  }
+
+  @override
+  String get hanokStageEmpty => 'Bauplatz vorbereiten';
+
+  @override
+  String get hanokStageFoundation => 'Sockel legen';
+
+  @override
+  String get hanokStagePillars => 'Säulen aufstellen';
+
+  @override
+  String get hanokStageBeams => 'Dachstuhl bauen';
+
+  @override
+  String get hanokStageThatch => 'Strohdach gedeckt';
+
+  @override
+  String get hanokStageTilePartial => 'Ziegel auflegen';
+
+  @override
+  String get hanokStageTileComplete => 'Ziegeldach fertig';
+
+  @override
+  String get hanokStageDancheong => 'Dancheong gemalt';
+
+  @override
+  String get hanokStageGate => 'Tor errichtet';
+
+  @override
+  String get hanokStageWindows => 'Gitterfenster eingebaut';
+
+  @override
+  String get hanokStageSideBuilding => 'Nebengebäude angebaut';
+
+  @override
+  String get hanokStageJongga => 'Jongga vollendet';
+
+  @override
+  String get vocabPackPlayTitle => 'Pack-Übung';
+
+  @override
+  String get vocabPackLearnHint => 'Tippen zum Umdrehen';
+
+  @override
+  String get vocabPackDontKnow => 'Weiß ich nicht';
+
+  @override
+  String get vocabPackGotIt => 'Gewusst';
+
+  @override
+  String get vocabPackStageLearn => 'Lernen';
+
+  @override
+  String get vocabPackStageQuiz => 'Quiz';
+
+  @override
+  String get vocabPackStageBoss => 'Boss';
+
+  @override
+  String get vocabPackQuizHint => 'Wähle die richtige Übersetzung';
+
+  @override
+  String get vocabPackBossHint => 'Hör zu und wähle';
+
+  @override
+  String get vocabPackBossReplayAudio => 'Erneut anhören';
+
+  @override
+  String get vocabPackTapToFlip => 'Tippen zum Umdrehen';
+
+  @override
+  String get vocabPackResultTitle => 'Ergebnis';
+
+  @override
+  String get vocabPackResultCleared => '🎉 Pack geklärt!';
+
+  @override
+  String get vocabPackResultClearedAgain => 'Bereits geklärt — gut wiederholt!';
+
+  @override
+  String get vocabPackResultRetry => 'Fast geschafft — nochmal probieren!';
+
+  @override
+  String get vocabPackResultBossLabel => 'Boss-Genauigkeit';
+
+  @override
+  String get vocabPackResultQuizLabel => 'Quiz';
+
+  @override
+  String get vocabPackResultXpLabel => 'Belohnung';
+
+  @override
+  String vocabPackResultNextPack(Object next) {
+    return 'Weiter zu \"$next\"';
+  }
+
+  @override
+  String get vocabPackResultRetryCta => 'Nochmal versuchen';
+
+  @override
+  String get vocabPackResultBackToGrid => 'Zurück zu den Packs';
 
   @override
   String get moduleStatsTitle => 'Statistik';

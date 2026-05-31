@@ -71,9 +71,18 @@ void main() {
         expect(reused.$1, isFalse);
         expect(reused.$2, 'already_used');
 
-        final missing = KkeunmariEngine.validateUserWord('없는단어', next.first, {
-          start.word,
-        });
+        // Engine v2 (2026-05-29, kkeunmari_engine.dart:110): validation
+        // priority is wrong_start → not_in_pool, weil wrong_start die
+        // hilfreichere Lern-Korrektur ist. Daher muss das "missing"-Wort
+        // mit der RICHTIGEN Anfangssilbe beginnen, damit not_in_pool
+        // tatsächlich erreicht wird. Sonst fängt wrong_start ab.
+        // Verifiziert per Python: alle 471 möglichen first-syllables des
+        // pools → '${first}없는단어' kollidiert nie mit dem Pool.
+        final missing = KkeunmariEngine.validateUserWord(
+          '${next.first}없는단어',
+          next.first,
+          {start.word},
+        );
         expect(missing.$1, isFalse);
         expect(missing.$2, 'not_in_pool');
       },

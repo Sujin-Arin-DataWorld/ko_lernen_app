@@ -1,0 +1,61 @@
+rules_version = '2';
+
+// Hangul Sori — Firestore Security Rules
+//
+// Plan: docs/plans/stately-rising-jongga.md §3.3, §7.2
+//
+// 원칙:
+//  - 모든 사용자 데이터는 `/users/{uid}/...` 하위에 격리.
+//  - 본인만 read/write — 익명 / Google 링크된 anonymous 둘 다 허용.
+//  - Cloud Functions 가 별도 admin SDK 로 쓰는 부분은 client rules 무시.
+//  - Phase 5+ 의 Gye / Bookshelf / Custom Packs 는 별도 path 로 확장 예정.
+//
+// 배포:
+//   firebase deploy --only firestore:rules
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── 사용자 개인 데이터 ─────────────────────────────────────────────
+    // 기존 cloud_sync.dart 가 쓰는 /users/{uid} 문서 (vok, chosung, wordle,
+    // grammar, app 통계) + Phase 1 신규 sub-collections:
+    //   /users/{uid}/packs/{packId}           — 팩 진행도
+    //   /users/{uid}/quests/{questId}         — 특별 퀘스트 (Phase 4)
+    //   /users/{uid}/bookshelf/{pageId}       — 책 한 컷 페이지 (Phase 5)
+    //   /users/{uid}/custom_packs/{packId}    — 책 한 컷 커스텀 팩 (Phase 5)
+    //   /users/{uid}/custom_words/{wordId}    — 책 한 컷 신규 단어 (Phase 5)
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+
+      match /{document=**} {
+        allow read, write: if isOwner(uid);
+      }
+    }
+
+    // ── 번역 캐시 (Phase 5 — 책 한 컷) ────────────────────────────────
+    // Cloud Function 만 write. 모든 인증된 사용자가 read 가능 (캐시 hit).
+    match /cache/translations/{hash} {
+      allow read: if request.auth != null;
+      allow write: if false; // Cloud Function (admin SDK) 만
+    }
+
+    // ── Gye (Phase 6+) — 미래 확장 ────────────────────────────────────
+    // 현재 단계에선 모두 차단. Phase 6 에서 활성화.
+    match /gye/{gyeId} {
+      allow read, write: if false;
+      match /{document=**} {
+        allow read, write: if false;
+      }
+    }
+
+    // ── 그 외 ──────────────────────────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+// ── 헬퍼 ───────────────────────────────────────────────────────────────
+function isOwner(uid) {
+  return request.auth != null && request.auth.uid == uid;
+}

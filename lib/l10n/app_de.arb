@@ -200,8 +200,74 @@
   "vocabModeDue": "Heute fällig",
   "vocabDueBadge": "🔥 {n} fällig",
   "@vocabDueBadge": { "placeholders": { "n": { "type": "int" } } },
+  "vocabTodayBadge": "🔥 Heute ({newCount} neu · {reviewCount} Wdh.)",
+  "@vocabTodayBadge": {
+    "description": "Tagesziel Chip — N neue Karten + M Wiederholungen (Phase 1 SRS-UX-Patch, stately-rising-jongga).",
+    "placeholders": {
+      "newCount":    { "type": "int" },
+      "reviewCount": { "type": "int" }
+    }
+  },
   "vocabDueEmpty": "🎉 Heute alles erledigt!\nKomm morgen wieder.",
   "vocabDueEmptyAction": "Trotzdem üben",
+
+  "@_phase2_vocab_packs": { "description": "Phase 2 (stately-rising-jongga) — Pack-UX Texte." },
+  "vocabPacksTitle": "Vokabel-Packs",
+  "vocabPacksLevelMenu": "Level wechseln",
+  "vocabPacksProgressLabel": "{cleared}/{total} Packs geklärt",
+  "@vocabPacksProgressLabel": {
+    "placeholders": {
+      "cleared": { "type": "int" },
+      "total":   { "type": "int" }
+    }
+  },
+  "vocabPacksEmptyTitle": "Noch keine Packs",
+  "vocabPacksEmptyBody": "Für dieses Level sind noch keine Vokabeln vorbereitet.",
+  "vocabPackLockedNoPrev": "🔒 Dieses Pack ist noch gesperrt.",
+  "vocabPackLockedHint": "🔒 Schaffe zuerst \"{prev}\" mit ≥ 70 % Bossen.",
+  "@vocabPackLockedHint": {
+    "placeholders": { "prev": {} }
+  },
+
+  "hanokStageEmpty":         "Bauplatz vorbereiten",
+  "hanokStageFoundation":    "Sockel legen",
+  "hanokStagePillars":       "Säulen aufstellen",
+  "hanokStageBeams":         "Dachstuhl bauen",
+  "hanokStageThatch":        "Strohdach gedeckt",
+  "hanokStageTilePartial":   "Ziegel auflegen",
+  "hanokStageTileComplete":  "Ziegeldach fertig",
+  "hanokStageDancheong":     "Dancheong gemalt",
+  "hanokStageGate":          "Tor errichtet",
+  "hanokStageWindows":       "Gitterfenster eingebaut",
+  "hanokStageSideBuilding":  "Nebengebäude angebaut",
+  "hanokStageJongga":        "Jongga vollendet",
+
+  "vocabPackPlayTitle":      "Pack-Übung",
+  "vocabPackLearnHint":      "Tippen zum Umdrehen",
+  "vocabPackDontKnow":       "Weiß ich nicht",
+  "vocabPackGotIt":          "Gewusst",
+  "vocabPackStageLearn":     "Lernen",
+  "vocabPackStageQuiz":      "Quiz",
+  "vocabPackStageBoss":      "Boss",
+  "vocabPackQuizHint":       "Wähle die richtige Übersetzung",
+  "vocabPackBossHint":       "Hör zu und wähle",
+  "vocabPackBossReplayAudio":"Erneut anhören",
+  "vocabPackTapToFlip":      "Tippen zum Umdrehen",
+
+  "vocabPackResultTitle":         "Ergebnis",
+  "vocabPackResultCleared":       "🎉 Pack geklärt!",
+  "vocabPackResultClearedAgain":  "Bereits geklärt — gut wiederholt!",
+  "vocabPackResultRetry":         "Fast geschafft — nochmal probieren!",
+  "vocabPackResultBossLabel":     "Boss-Genauigkeit",
+  "vocabPackResultQuizLabel":     "Quiz",
+  "vocabPackResultXpLabel":       "Belohnung",
+  "vocabPackResultNextPack":      "Weiter zu \"{next}\"",
+  "@vocabPackResultNextPack": {
+    "placeholders": { "next": {} }
+  },
+  "vocabPackResultRetryCta":      "Nochmal versuchen",
+  "vocabPackResultBackToGrid":    "Zurück zu den Packs",
+
   "moduleStatsTitle": "Statistik",
   "moduleStatsDesc": "Streak, Karten, Genauigkeit",
 

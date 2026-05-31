@@ -302,6 +302,11 @@ class Storage {
   }
 
   /// IDs die heute (oder früher) fällig sind. Noch nie gesehen → fällig.
+  ///
+  /// **Achtung**: Dies liefert ALLE fälligen Karten, inkl. nie gesehener.
+  /// Bei Erstanwendung sind das tausende Karten → UX-Stress.
+  /// Für die tägliche Lerneinheit lieber [todayNewIds] + [todayReviewIds]
+  /// (Phase 1 SRS-UX-Patch in stately-rising-jongga).
   static Set<String> dueIds(Iterable<String> allIds) {
     final map = _loadSrs();
     final today = _today();
@@ -310,6 +315,70 @@ class Storage {
       if (card == null) return true;
       return card.nextReviewIso.compareTo(today) <= 0;
     }).toSet();
+  }
+
+  // ── Phase 1 SRS-UX-Patch (stately-rising-jongga) ─────────────────────
+  //
+  // "Heute lernen" = neue Karten (max [max]) + Wiederholungs-Karten
+  // (max [max]). Cap verhindert "522 due" Schock-UX bei Erstanwendung.
+  //
+  // Reihenfolge in [allIds] wird respektiert → CSV-Reihenfolge =
+  // Lern-Reihenfolge (kuratiert nach Wichtigkeit / Pack-Order).
+  //
+  // ─────────────────────────────────────────────────────────────────────
+
+  /// "Heute neu" — nie reviewed Karten, max [max]. Reihenfolge: wie [allIds].
+  static List<String> todayNewIds(Iterable<String> allIds, {int max = 10}) {
+    if (max <= 0) return const [];
+    final map = _loadSrs();
+    final out = <String>[];
+    for (final id in allIds) {
+      if (map[id] == null) {
+        out.add(id);
+        if (out.length >= max) break;
+      }
+    }
+    return out;
+  }
+
+  /// "Heute Wiederholung" — schon mal reviewed, jetzt fällig, max [max].
+  /// Schließt nie-gesehene Karten aus (das sind "neue", siehe [todayNewIds]).
+  static List<String> todayReviewIds(
+    Iterable<String> allIds, {
+    int max = 15,
+  }) {
+    if (max <= 0) return const [];
+    final map = _loadSrs();
+    final today = _today();
+    final out = <String>[];
+    for (final id in allIds) {
+      final card = map[id];
+      if (card == null) continue; // nie gesehen → "neu", nicht "review"
+      if (card.reviewCount == 0) continue;
+      if (card.nextReviewIso.isEmpty ||
+          card.nextReviewIso.compareTo(today) <= 0) {
+        out.add(id);
+        if (out.length >= max) break;
+      }
+    }
+    return out;
+  }
+
+  /// Tagesziel = Union(todayNewIds, todayReviewIds). Insertion-order erhalten.
+  /// Liefert maximal `newMax + reviewMax` IDs.
+  static List<String> todayGoalIds(
+    Iterable<String> allIds, {
+    int newMax = 10,
+    int reviewMax = 15,
+  }) {
+    final fresh = todayNewIds(allIds, max: newMax);
+    final review = todayReviewIds(allIds, max: reviewMax);
+    final seen = <String>{};
+    final out = <String>[];
+    for (final id in [...fresh, ...review]) {
+      if (seen.add(id)) out.add(id);
+    }
+    return out;
   }
 
   /// SRS-Status einer einzelnen Karte (z.B. für Debug/Anzeige).
@@ -385,6 +454,85 @@ class Storage {
     }
   }
 
+  // ── Phase 2 (stately-rising-jongga) ── Pack-Fortschritt (lokal) ──────
+  //
+  // Lokale Source of Truth — überlebt offline. FirestoreProgressService
+  // synct asynchron im Hintergrund (best-effort).
+  //
+  // Speicherformat: JSON-encoded Map<packId, PackProgress.toJson()>.
+  // Schlüssel: `kl_pack_progress_v1` — Versionierung im Namen, damit
+  // spätere Schema-Migrationen unterscheidbar bleiben.
+  //
+  // Hier wird absichtlich KEIN `PackProgress` importiert — Storage darf
+  // keine model-Abhängigkeit haben (zirkulär bei Tests). Stattdessen
+  // raw JSON Maps; `PackProgressService` dekodiert.
+  // ─────────────────────────────────────────────────────────────────────
+
+  static const String _packProgressKey = 'kl_pack_progress_v1';
+  static Map<String, dynamic>? _packCache;
+
+  static Map<String, Map<String, dynamic>> _loadPackJson() {
+    if (_packCache != null) {
+      return _packCache!.map(
+        (k, v) => MapEntry(k, (v as Map).cast<String, dynamic>()),
+      );
+    }
+    final raw = _s(_packProgressKey);
+    if (raw.isEmpty) {
+      _packCache = <String, dynamic>{};
+      return const <String, Map<String, dynamic>>{};
+    }
+    try {
+      final decoded = jsonDecode(raw) as Map<String, dynamic>;
+      _packCache = decoded;
+      return decoded.map(
+        (k, v) => MapEntry(k, (v as Map).cast<String, dynamic>()),
+      );
+    } catch (_) {
+      _packCache = <String, dynamic>{};
+      return const <String, Map<String, dynamic>>{};
+    }
+  }
+
+  /// JSON-rohdaten eines Packs (null wenn nie gespeichert).
+  /// Nutze `PackProgressService.get()` für typisierte Objekte.
+  static Map<String, dynamic>? packProgressJson(String packId) {
+    final map = _loadPackJson();
+    return map[packId];
+  }
+
+  /// Alle Pack-Fortschritte als Raw-JSON. Für Bulk-load (Grid-Screen).
+  static Map<String, Map<String, dynamic>> allPackProgressJson() =>
+      _loadPackJson();
+
+  /// Pack-Fortschritt schreiben (overwrite). Aufrufer ist verantwortlich
+  /// für Merge-Logik (PackProgressService).
+  static Future<void> setPackProgressJson(
+    String packId,
+    Map<String, dynamic> json,
+  ) async {
+    final cache = _packCache ?? <String, dynamic>{};
+    cache[packId] = json;
+    _packCache = cache;
+    await _ss(_packProgressKey, jsonEncode(cache));
+  }
+
+  /// Mehrere Packs gleichzeitig schreiben (Migration / Cloud-restore).
+  static Future<void> setManyPackProgressJson(
+    Map<String, Map<String, dynamic>> entries,
+  ) async {
+    final cache = _packCache ?? <String, dynamic>{};
+    cache.addAll(entries);
+    _packCache = cache;
+    await _ss(_packProgressKey, jsonEncode(cache));
+  }
+
+  /// Test-only: Pack-Cache invalidieren.
+  @visibleForTesting
+  static void resetPackProgressForTesting() {
+    _packCache = null;
+  }
+
   // ───────── Reset ─────────
   static Future<void> resetAll() async {
     final keys = _prefs?.getKeys() ?? <String>{};
@@ -392,6 +540,7 @@ class Storage {
       if (k.startsWith('kl_')) await _prefs?.remove(k);
     }
     _srsCache = null;
+    _packCache = null;
   }
 
   static Future<void> resetSession() async {

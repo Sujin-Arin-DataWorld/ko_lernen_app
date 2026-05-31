@@ -14,7 +14,8 @@ import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
-import 'package:ko_lernen_app/screens/vocab_screen.dart';
+import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
+import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/screens/wordle_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/kkeunmari_engine.dart';
@@ -39,7 +40,8 @@ void main() {
 
   final screens = <String, Widget>{
     'home': const HomeScreen(),
-    'vocab': const VocabScreen(),
+    'vocab (packs grid)': const VocabPacksScreen(),
+    'vocab (legacy)': const LegacyVocabScreen(),
     'grammar': const GrammarScreen(),
     'hangul': const HangulScreen(),
     'listening': const ListeningScreen(),

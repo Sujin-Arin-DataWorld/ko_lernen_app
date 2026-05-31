@@ -1063,6 +1063,12 @@ abstract class AppL10n {
   /// **'🔥 {n} fällig'**
   String vocabDueBadge(int n);
 
+  /// Tagesziel Chip — N neue Karten + M Wiederholungen (Phase 1 SRS-UX-Patch, stately-rising-jongga).
+  ///
+  /// In de, this message translates to:
+  /// **'🔥 Heute ({newCount} neu · {reviewCount} Wdh.)'**
+  String vocabTodayBadge(int newCount, int reviewCount);
+
   /// No description provided for @vocabDueEmpty.
   ///
   /// In de, this message translates to:
@@ -1074,6 +1080,246 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Trotzdem üben'**
   String get vocabDueEmptyAction;
+
+  /// No description provided for @vocabPacksTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokabel-Packs'**
+  String get vocabPacksTitle;
+
+  /// No description provided for @vocabPacksLevelMenu.
+  ///
+  /// In de, this message translates to:
+  /// **'Level wechseln'**
+  String get vocabPacksLevelMenu;
+
+  /// No description provided for @vocabPacksProgressLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'{cleared}/{total} Packs geklärt'**
+  String vocabPacksProgressLabel(int cleared, int total);
+
+  /// No description provided for @vocabPacksEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Packs'**
+  String get vocabPacksEmptyTitle;
+
+  /// No description provided for @vocabPacksEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für dieses Level sind noch keine Vokabeln vorbereitet.'**
+  String get vocabPacksEmptyBody;
+
+  /// No description provided for @vocabPackLockedNoPrev.
+  ///
+  /// In de, this message translates to:
+  /// **'🔒 Dieses Pack ist noch gesperrt.'**
+  String get vocabPackLockedNoPrev;
+
+  /// No description provided for @vocabPackLockedHint.
+  ///
+  /// In de, this message translates to:
+  /// **'🔒 Schaffe zuerst \"{prev}\" mit ≥ 70 % Bossen.'**
+  String vocabPackLockedHint(Object prev);
+
+  /// No description provided for @hanokStageEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauplatz vorbereiten'**
+  String get hanokStageEmpty;
+
+  /// No description provided for @hanokStageFoundation.
+  ///
+  /// In de, this message translates to:
+  /// **'Sockel legen'**
+  String get hanokStageFoundation;
+
+  /// No description provided for @hanokStagePillars.
+  ///
+  /// In de, this message translates to:
+  /// **'Säulen aufstellen'**
+  String get hanokStagePillars;
+
+  /// No description provided for @hanokStageBeams.
+  ///
+  /// In de, this message translates to:
+  /// **'Dachstuhl bauen'**
+  String get hanokStageBeams;
+
+  /// No description provided for @hanokStageThatch.
+  ///
+  /// In de, this message translates to:
+  /// **'Strohdach gedeckt'**
+  String get hanokStageThatch;
+
+  /// No description provided for @hanokStageTilePartial.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziegel auflegen'**
+  String get hanokStageTilePartial;
+
+  /// No description provided for @hanokStageTileComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziegeldach fertig'**
+  String get hanokStageTileComplete;
+
+  /// No description provided for @hanokStageDancheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong gemalt'**
+  String get hanokStageDancheong;
+
+  /// No description provided for @hanokStageGate.
+  ///
+  /// In de, this message translates to:
+  /// **'Tor errichtet'**
+  String get hanokStageGate;
+
+  /// No description provided for @hanokStageWindows.
+  ///
+  /// In de, this message translates to:
+  /// **'Gitterfenster eingebaut'**
+  String get hanokStageWindows;
+
+  /// No description provided for @hanokStageSideBuilding.
+  ///
+  /// In de, this message translates to:
+  /// **'Nebengebäude angebaut'**
+  String get hanokStageSideBuilding;
+
+  /// No description provided for @hanokStageJongga.
+  ///
+  /// In de, this message translates to:
+  /// **'Jongga vollendet'**
+  String get hanokStageJongga;
+
+  /// No description provided for @vocabPackPlayTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Pack-Übung'**
+  String get vocabPackPlayTitle;
+
+  /// No description provided for @vocabPackLearnHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippen zum Umdrehen'**
+  String get vocabPackLearnHint;
+
+  /// No description provided for @vocabPackDontKnow.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiß ich nicht'**
+  String get vocabPackDontKnow;
+
+  /// No description provided for @vocabPackGotIt.
+  ///
+  /// In de, this message translates to:
+  /// **'Gewusst'**
+  String get vocabPackGotIt;
+
+  /// No description provided for @vocabPackStageLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get vocabPackStageLearn;
+
+  /// No description provided for @vocabPackStageQuiz.
+  ///
+  /// In de, this message translates to:
+  /// **'Quiz'**
+  String get vocabPackStageQuiz;
+
+  /// No description provided for @vocabPackStageBoss.
+  ///
+  /// In de, this message translates to:
+  /// **'Boss'**
+  String get vocabPackStageBoss;
+
+  /// No description provided for @vocabPackQuizHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle die richtige Übersetzung'**
+  String get vocabPackQuizHint;
+
+  /// No description provided for @vocabPackBossHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Hör zu und wähle'**
+  String get vocabPackBossHint;
+
+  /// No description provided for @vocabPackBossReplayAudio.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut anhören'**
+  String get vocabPackBossReplayAudio;
+
+  /// No description provided for @vocabPackTapToFlip.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippen zum Umdrehen'**
+  String get vocabPackTapToFlip;
+
+  /// No description provided for @vocabPackResultTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis'**
+  String get vocabPackResultTitle;
+
+  /// No description provided for @vocabPackResultCleared.
+  ///
+  /// In de, this message translates to:
+  /// **'🎉 Pack geklärt!'**
+  String get vocabPackResultCleared;
+
+  /// No description provided for @vocabPackResultClearedAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereits geklärt — gut wiederholt!'**
+  String get vocabPackResultClearedAgain;
+
+  /// No description provided for @vocabPackResultRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast geschafft — nochmal probieren!'**
+  String get vocabPackResultRetry;
+
+  /// No description provided for @vocabPackResultBossLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Boss-Genauigkeit'**
+  String get vocabPackResultBossLabel;
+
+  /// No description provided for @vocabPackResultQuizLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Quiz'**
+  String get vocabPackResultQuizLabel;
+
+  /// No description provided for @vocabPackResultXpLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Belohnung'**
+  String get vocabPackResultXpLabel;
+
+  /// No description provided for @vocabPackResultNextPack.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter zu \"{next}\"'**
+  String vocabPackResultNextPack(Object next);
+
+  /// No description provided for @vocabPackResultRetryCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Nochmal versuchen'**
+  String get vocabPackResultRetryCta;
+
+  /// No description provided for @vocabPackResultBackToGrid.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zu den Packs'**
+  String get vocabPackResultBackToGrid;
 
   /// No description provided for @moduleStatsTitle.
   ///

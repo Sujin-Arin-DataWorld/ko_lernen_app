@@ -18,14 +18,14 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../l10n/generated/app_localizations.dart';
 
-class VocabScreen extends StatefulWidget {
-  const VocabScreen({super.key});
+class LegacyVocabScreen extends StatefulWidget {
+  const LegacyVocabScreen({super.key});
 
   @override
-  State<VocabScreen> createState() => _VocabScreenState();
+  State<LegacyVocabScreen> createState() => _LegacyVocabScreenState();
 }
 
-class _VocabScreenState extends State<VocabScreen> {
+class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
   List<Vocab> _all = [];
   List<Vocab> _filtered = [];
   int _idx = 0;
@@ -38,9 +38,16 @@ class _VocabScreenState extends State<VocabScreen> {
   String _topic = 'Alle';
   bool   _koFirst = true;
 
-  /// 'due' = nur heute fällige Karten (SRS), 'favorites' = ⭐ markierte, 'all' = alle.
+  /// 'due' = Tagesziel (neu + Wiederholung, capped), 'favorites' = ⭐ markierte, 'all' = alle.
+  ///
+  /// Phase 1 SRS-UX-Patch (stately-rising-jongga):
+  ///   - früher: 'due' = alle SRS-fälligen Karten → "522 due" Schock
+  ///   - jetzt:  'due' = max 10 neue + max 15 Wiederholung → Tagesziel
   String _mode = 'due';
   Set<String> _dueIds = {};
+  // Stat für die Header-Anzeige — wie viele neue / wie viele Wdh. heute.
+  int _todayNewCount = 0;
+  int _todayReviewCount = 0;
   Set<String> _favorites = {};
 
   bool _loading = true;
@@ -61,14 +68,20 @@ class _VocabScreenState extends State<VocabScreen> {
     setState(() { _loading = true; _loadFailed = false; });
     DataLoader.loadVocab().then((v) {
       if (!mounted) return;
-      final due = Storage.dueIds(v.map((e) => e.korean));
+      // Phase 1 SRS-UX-Patch: nicht ALLE due (= Schock), sondern Tagesziel
+      // (10 neu + 15 Wdh., respektiert CSV/pack_order).
+      final newIds = Storage.todayNewIds(v.map((e) => e.korean));
+      final reviewIds = Storage.todayReviewIds(v.map((e) => e.korean));
+      final goal = {...newIds, ...reviewIds};
       setState(() {
         _all = v;
-        _dueIds = due;
+        _dueIds = goal;
+        _todayNewCount = newIds.length;
+        _todayReviewCount = reviewIds.length;
         _favorites = Storage.vokFavorites.toSet();
-        // Erstanwendung: alle Karten sind "due" → starte im 'due' Modus.
-        // Wenn nichts fällig: 'all'.
-        _mode = due.isNotEmpty ? 'due' : 'all';
+        // Erstanwendung: Tagesziel ist nicht leer → 'due' Modus (jetzt
+        // gemeint als "heute lernen"). Sonst 'all'.
+        _mode = goal.isNotEmpty ? 'due' : 'all';
         _loading = false;
         _loadFailed = v.isEmpty && DataLoader.lastError != null;
         _filtered = _filterList();
@@ -282,11 +295,15 @@ class _VocabScreenState extends State<VocabScreen> {
               ),
               const SizedBox(height: Spacing.md),
 
-              // Mode chips (SRS Due / Favorites / Alle)
+              // Mode chips (Tagesziel / Favorites / Alle)
+              //
+              // Phase 1 SRS-UX-Patch (stately-rising-jongga):
+              //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
+              //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
               Row(
                 children: [
                   SoriChip(
-                    label: t.vocabDueBadge(_dueIds.length),
+                    label: t.vocabTodayBadge(_todayNewCount, _todayReviewCount),
                     accent: SoriColors.info,
                     selected: _mode == 'due',
                     variant: SoriChipVariant.filled,

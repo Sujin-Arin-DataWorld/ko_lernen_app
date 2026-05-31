@@ -16,7 +16,10 @@ import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/intro_gate_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/vocab_screen.dart';
+import 'screens/legacy_vocab_screen.dart';
+import 'screens/vocab_pack_result_screen.dart';
+import 'screens/vocab_pack_screen.dart';
+import 'screens/vocab_packs_screen.dart';
 import 'screens/grammar_screen.dart';
 import 'screens/kkeunmari_screen.dart';
 import 'screens/listening_screen.dart';
@@ -137,8 +140,25 @@ class KoLernenApp extends StatelessWidget {
               return SoriTransitions.fadeScale(
                   (_) => const OnboardingLevelScreen(), settings: settings);
             case '/vocab':
+              // Phase 2 (stately-rising-jongga): default vocab entry =
+              // Pack-Marktplatz (Grid).
               return SoriTransitions.fadeScale(
-                  (_) => const VocabScreen(), settings: settings);
+                  (_) => const VocabPacksScreen(), settings: settings);
+            case '/vocab/pack':
+              final packId = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => VocabPackScreen(packId: packId),
+                  settings: settings);
+            case '/vocab/result':
+              return SoriTransitions.fadeScale(
+                  (_) => VocabPackResultScreen.fromArgs(settings.arguments),
+                  settings: settings);
+            case '/vocab/legacy':
+              // Rollback / Power-User: alte single-card Ansicht (Phase 1
+              // SRS-UX-Patch). Wird in Phase 3 entfernt, sobald Pack-UX
+              // produktiv läuft.
+              return SoriTransitions.fadeScale(
+                  (_) => const LegacyVocabScreen(), settings: settings);
             case '/grammar':
               return SoriTransitions.fadeScale(
                   (_) => const GrammarScreen(), settings: settings);
