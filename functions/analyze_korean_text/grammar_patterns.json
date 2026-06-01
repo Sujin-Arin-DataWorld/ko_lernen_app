@@ -22,28 +22,28 @@
   },
   {
     "id": "g_reason_nikka",
-    "regex": "[으]?니까",
+    "regex": "니까",
     "name_de": "Begründung (-(으)니까)",
     "level": "A2",
     "explanation_de": "Subjektive Begründung. Vor Befehlen/Vorschlägen statt -아/어서."
   },
   {
     "id": "g_future_will",
-    "regex": "[가-힣]+ 거(?:예요|에요|야)",
+    "regex": "거예요|거에요|거야",
     "name_de": "Vermutung / Plan (-(으)ㄹ 거예요)",
     "level": "A2",
     "explanation_de": "Künftige Handlung oder Vermutung."
   },
   {
     "id": "g_future_kkeyo",
-    "regex": "[으]?ㄹ게[요]?",
+    "regex": "게요",
     "name_de": "Versprechen (-(으)ㄹ게요)",
     "level": "A2",
     "explanation_de": "Sprecher-zentrierte Ankündigung / Versprechen."
   },
   {
     "id": "g_future_kkayo",
-    "regex": "[으]?ㄹ까[요]?",
+    "regex": "까요",
     "name_de": "Vorschlag / Frage (-(으)ㄹ까요?)",
     "level": "A1",
     "explanation_de": "'Sollen wir …?' / Vermutung."
@@ -64,35 +64,35 @@
   },
   {
     "id": "g_intent_ryeogo",
-    "regex": "[으]?려고",
+    "regex": "려고",
     "name_de": "Absicht (-(으)려고)",
     "level": "B1",
     "explanation_de": "'Um zu …' — Zweck einer Handlung."
   },
   {
     "id": "g_can",
-    "regex": "[가-힣]+ 수 있",
+    "regex": "수 있",
     "name_de": "Können (-(으)ㄹ 수 있다)",
     "level": "A2",
     "explanation_de": "'Können / kann …'."
   },
   {
     "id": "g_cannot",
-    "regex": "[가-힣]+ 수 없",
+    "regex": "수 없",
     "name_de": "Nicht können (-(으)ㄹ 수 없다)",
     "level": "A2",
     "explanation_de": "Verneinte Fähigkeit."
   },
   {
     "id": "g_must",
-    "regex": "[아어해]야( ?하|되)",
+    "regex": "야 하|야 해|야 되|야 돼|야겠",
     "name_de": "Müssen (-아/어야 하다)",
     "level": "A2",
     "explanation_de": "Notwendigkeit / Pflicht."
   },
   {
     "id": "g_request",
-    "regex": "(?:아|어|해|와|워) 주(?:세|십시오)",
+    "regex": "주세요|주십시오",
     "name_de": "Höfliche Bitte (-아/어 주세요)",
     "level": "A1",
     "explanation_de": "'Bitte tun Sie …' — höfliche Aufforderung."
@@ -113,7 +113,7 @@
   },
   {
     "id": "g_have_to_have_to_see",
-    "regex": "[아어해]야겠",
+    "regex": "야겠",
     "name_de": "Vorhaben (-아/어야겠다)",
     "level": "B1",
     "explanation_de": "'Ich werde wohl …' — Entschluss / Selbstüberredung."
@@ -127,14 +127,14 @@
   },
   {
     "id": "g_attribute_past",
-    "regex": "[ㄴ은] ",
+    "regex": "은 ",
     "name_de": "Attribut Vergangenheit (-(으)ㄴ)",
     "level": "A2",
     "explanation_de": "Vergangene Handlung als Attribut."
   },
   {
     "id": "g_attribute_future",
-    "regex": "[ㄹ을] ",
+    "regex": "을 ",
     "name_de": "Attribut Zukunft (-(으)ㄹ)",
     "level": "A2",
     "explanation_de": "Zukünftige/hypothetische Handlung als Attribut."
@@ -148,7 +148,7 @@
   },
   {
     "id": "g_conditional",
-    "regex": "[으]?면",
+    "regex": "으면|다면|라면|면 ",
     "name_de": "Bedingung (-(으)면)",
     "level": "A2",
     "explanation_de": "'Wenn …, dann …' — allgemeine Bedingung."
@@ -183,7 +183,7 @@
   },
   {
     "id": "g_since_time",
-    "regex": "[으]?ㄴ 지",
+    "regex": "지 [0-9]+|지가 |지 오래",
     "name_de": "Seit (-(으)ㄴ 지)",
     "level": "B1",
     "explanation_de": "'Es ist X her, dass …'."

@@ -129,6 +129,142 @@ class AppL10nDe extends AppL10n {
   String get btnApply => 'Übernehmen';
 
   @override
+  String get btnPlay => 'Üben';
+
+  @override
+  String get btnDelete => 'Löschen';
+
+  @override
+  String get bookshelfTitle => 'Mein Bücherregal';
+
+  @override
+  String get bookshelfAddPage => 'Seite hinzufügen';
+
+  @override
+  String get bookshelfEmptyTitle => 'Noch keine Seite';
+
+  @override
+  String get bookshelfEmptyBody =>
+      'Knipse deine erste Lehrbuchseite — die analysierten Wörter landen hier.';
+
+  @override
+  String get bookshelfEmptyCta => 'Seite einlesen';
+
+  @override
+  String get bookshelfSectionPages => 'Seiten';
+
+  @override
+  String get bookshelfSectionCustomPacks => 'Eigene Packs';
+
+  @override
+  String bookshelfTileMeta(int words, int grammar, String date) {
+    return '$words Wörter · $grammar Grammatik · $date';
+  }
+
+  @override
+  String bookshelfPackMeta(int n) {
+    return '$n Wörter';
+  }
+
+  @override
+  String get bookshelfPageTitle => 'Seite';
+
+  @override
+  String get bookshelfPageNotFoundTitle => 'Seite nicht gefunden';
+
+  @override
+  String get bookshelfPageNotFoundBody => 'Möglicherweise wurde sie gelöscht.';
+
+  @override
+  String get bookshelfCreatePackCta => 'Custom-Pack aus dieser Seite';
+
+  @override
+  String get bookshelfCreatePackTitle => 'Neuer Custom-Pack';
+
+  @override
+  String get bookshelfCreatePackName => 'Name';
+
+  @override
+  String get bookshelfCreatePackSaved => 'Pack gespeichert.';
+
+  @override
+  String get bookshelfDeletePageTitle => 'Seite löschen?';
+
+  @override
+  String get bookshelfDeletePageBody => 'Die Seite wird endgültig entfernt.';
+
+  @override
+  String get bookshelfDeletePackTitle => 'Pack löschen?';
+
+  @override
+  String bookshelfDeletePackBody(Object name) {
+    return 'Soll \"$name\" gelöscht werden?';
+  }
+
+  @override
+  String get customPackPlayTitle => 'Custom-Pack üben';
+
+  @override
+  String get customPackNotFoundTitle => 'Pack nicht gefunden';
+
+  @override
+  String get customPackNotFoundBody => 'Möglicherweise wurde es gelöscht.';
+
+  @override
+  String get customPackEmptyTitle => 'Pack ist leer';
+
+  @override
+  String get customPackEmptyBody => 'Dieser Pack enthält noch keine Wörter.';
+
+  @override
+  String get customPackResultTitle => 'Geschafft';
+
+  @override
+  String get customPackResultDone => 'Alle Karten durchgegangen!';
+
+  @override
+  String customPackResultStats(int learned, int total) {
+    return '$learned von $total als gewusst markiert';
+  }
+
+  @override
+  String get customPackResultAgain => 'Nochmal durchgehen';
+
+  @override
+  String get customPackResultBack => 'Zurück zum Bücherregal';
+
+  @override
+  String get homeBookCardTitle => 'Buchseite';
+
+  @override
+  String get homeBookCardDesc => 'Knipsen → Wörter & Grammatik';
+
+  @override
+  String get homeBookshelfCardTitle => 'Mein Bücherregal';
+
+  @override
+  String get homeBookshelfCardDesc => 'Gespeicherte Seiten & Custom-Packs';
+
+  @override
+  String get homeQuestsCardTitle => 'Quests';
+
+  @override
+  String get homeQuestsCardDesc => 'Mehr Hanok-Dekoration freischalten';
+
+  @override
+  String get settingsBookEndpointSection => 'Cloud-Analyse-Endpoint';
+
+  @override
+  String get settingsBookEndpointHint =>
+      'URL der Cloud Function (DeepL + OKT). Leer = nur Offline-Grammatik.';
+
+  @override
+  String get settingsBookEndpointSave => 'Speichern';
+
+  @override
+  String get settingsBookEndpointSaved => 'Endpoint gespeichert.';
+
+  @override
   String get filterTitle => 'Filter';
 
   @override

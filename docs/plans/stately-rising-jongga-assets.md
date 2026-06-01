@@ -1420,125 +1420,423 @@ grain texture, restricted palette.
 - **스타일**: Faceted minhwa, but slightly more rounded/cute than other assets (스티커는 친밀한 표현용)
   - **예외 허용**: 스티커는 chibi에 가깝게 그려도 OK — 일러스트 메인 자산과 다른 톤. 단 디자인 가이드의 색상 팔레트는 그대로.
 
-### 5.0A 앱 마스코트 재제작용 보강 프롬프트
+### 5.0A 앱 마스코트 재제작용 보강 프롬프트 — Jongga Guardian Style
 
 > 아래 블록은 256px 채팅 스티커가 아니라 앱 내부
-> `assets/illustrations/mascot/` 교체용이다. `tiger_sleepy.png`의 고급스러운
-> 호랑이 퀄리티와 `magpie_wingup.png` / `magpie_wingdown.png`의 까치 퀄리티를
-> 기준으로 모든 mascot pose를 다시 만들 때 붙인다.
+> `assets/illustrations/mascot/` 교체용이다. 목표는 귀여운 스티커가 아니라
+> `jongga-assets.md`의 한옥/장식 자산과 같은 결의 **웅장한 수호 마스코트**다.
+> 호랑이는 두 번째 첨부 이미지처럼 상반신·가슴·앞발이 크게 보이는
+> **upper-body guardian portrait**가 기준이다. 까치는 현재 퀄리티가 좋은
+> `magpie_wingup.png` / `magpie_wingdown.png`를 기준으로 나머지 포즈를 맞춘다.
 
-**출력 사양 (스티커와 다름)**:
+#### 5.0A.1 왜 이전 출력이 귀엽게 나왔는가
+
+다음 단어·지시는 모델을 자동으로 cute / sticker / baby 쪽으로 끌고 간다.
+마스코트 재생성 프롬프트에서는 쓰지 않는다.
+
+- **금지 단어**: cute, playful, adorable, puppy eye, apologetic,
+  vulnerable, shrinking, small, shy, pout, baby, cub, kawaii, chibi,
+  sticker border, toy-like, emoji-like.
+- **금지 포즈**: waving paw, raised paw near face/chest, paw-to-chin,
+  forepaw toes spread for emotion, paws close together to look smaller,
+  head tilt for vulnerability, sweat drop, tear drop, confetti-heavy joy.
+- **금지 기준 이미지**: `tiger_sleepy.png`를 전체 호랑이 set의 기준으로 쓰지 않는다.
+  sleepy는 특수 휴식 포즈라서 전체 set을 눕고 부드러운 방향으로 끌 수 있다.
+
+#### 5.0A.2 출력 사양
+
 - **Master size**: 1254×1254 또는 1536×1536 square PNG.
 - **Final app path**: `assets/illustrations/mascot/{filename}.png`
 - **Alpha**: true PNG-32 / RGBA transparent background. No baked checkerboard,
   no white square, no beige paper rectangle, no drop-shadow rectangle.
-- **Framing**: subject centered, 6-10% transparent padding on every side,
-  readable at 64px. Keep the same character scale across the whole set.
+- **Framing**: subject centered, 5-8% transparent padding. The mascot must read
+  at 48-64px but still feel premium at 512px.
 - **Texture**: subtle hanji grain on the character color planes only, not a
   full background layer.
-- **Use references**:
-  - Tiger identity/style: current `tiger_sleepy.png` / attached sleeping tiger.
-  - Magpie identity/style: current `magpie_wingup.png` and `magpie_wingdown.png`.
+- **Style references**:
+  - Overall app style: current jongga gate, hanok stage, and decoration assets.
+  - Tiger target: majestic upper-body guardian portrait, not the cute paw-up
+    tiger. After `tiger_idle.png` is approved, it becomes the character design
+    source of truth for the active tiger set.
+  - Tiger motion references: use tiger expression / movement sheets only for
+    anatomical energy cues such as forward lean, crouch, stretch, relaxed rest,
+    alert turn, and proud call. Do not copy any reference sheet composition,
+    watermark, line style, or exact pose.
+  - Real-tiger behavior reference: translate emotions through body height,
+    center of gravity, ears, gaze, mouth shape, forepaw rhythm, and tail curve
+    when visible. Avoid pasting human facial acting onto a tiger.
+  - Active motion reference: for `happy`, `celebrate`, `thinking`, `sad`,
+    `sleepy`, and sticker/action variants, prefer a 3/4 diagonal motion sprite
+    over a straight frontal portrait when the emotion needs body movement.
+  - Magpie target: current `magpie_wingup.png` and `magpie_wingdown.png`.
+- **Tiger variant rule**: `tiger_idle.png` is not a pixel prison; it is the
+  character-design source of truth. Preserve the Design DNA across every
+  variant, while allowing controlled tiger body language for emotional poses.
+  `blink`, `neutral`, and `smile` stay near-idle and mostly pixel-stable.
+  `happy`, `celebrate`, `sad`, `thinking`, and `sleepy` may change head angle,
+  chest energy, ear angle, forepaw weight distribution, body rotation, visible
+  torso/hip flow, and tail curve as long as the result is unmistakably the same
+  tiger character.
 
-**이번 교체 대상 (앱에서 이미 쓰는 mascot 파일명 그대로 덮어쓰기)**:
+#### 5.0A.3 이번 교체 대상
 
 | 상태 | 파일 | 기준 |
 |---|---|---|
-| 기준 유지 | `tiger_sleepy.png` | 호랑이 스타일 기준. 새 호랑이 생성 시 reference로 첨부 |
-| 재생성 | `tiger_idle.png` | `tiger_sleepy`와 같은 캐릭터, 기본 표정 |
-| 재생성 | `tiger_blink.png` | `tiger_idle`과 몸/얼굴 위치 동일, 눈만 감김 |
-| 재생성 | `tiger_smile.png` | `tiger_idle`과 동일 스케일, 미소 강화 |
-| 재생성 | `tiger_neutral.png` | 차분한 중립 표정 |
-| 재생성 | `tiger_happy.png` | 밝은 칭찬/진척 표정 |
-| 재생성 | `tiger_celebrate.png` | 앞발 들어올린 완료/레벨업 표정 |
-| 재생성 | `tiger_sad.png` | 시무룩하지만 품격 있는 오답/실패 표정 |
-| 재생성 | `tiger_thinking.png` | 생각하는 포즈 |
-| 기준 유지 | `magpie_wingup.png` | 까치 스타일/해상도 기준. 새 까치 생성 시 reference로 첨부 |
-| 기준 유지 | `magpie_wingdown.png` | 까치 날갯짓 기준. `wingup`과 같이 reference로 첨부 |
+| 먼저 재생성 / 새 기준 | `tiger_idle.png` | upper-body guardian portrait anchor |
+| near-idle 편집 | `tiger_blink.png` | idle 복제 후 눈만 감김 |
+| near-idle 편집 | `tiger_neutral.png` | idle 복제 후 눈/입/눈썹만 더 무표정하게 |
+| near-idle 편집 | `tiger_smile.png` | idle 복제 후 눈/입만 미세 조정 |
+| expressive motion | `tiger_happy.png` | 3/4 forward walk + soft chuff + visible loose tail |
+| expressive motion | `tiger_celebrate.png` | 3/4 proud lift/call + confident S-curve tail, 만세 포즈 금지 |
+| expressive motion | `tiger_sad.png` | low grounded pause + lowered body line, puppy-eye/tear 금지 |
+| expressive motion | `tiger_thinking.png` | investigative pause + asymmetrical ears + balancing tail |
+| expressive rest variant | `tiger_sleepy.png` | 같은 캐릭터 DNA 유지 + 졸린 휴식 body language |
+| 기준 유지 | `magpie_wingup.png` | 까치 스타일/해상도 기준 |
+| 기준 유지 | `magpie_wingdown.png` | 까치 날갯짓 기준 |
 | 재생성 | `magpie_perched.png` | 날개 접고 앉은 기본 포즈 |
-| 재생성 | `magpie_perched_alt.png` | 방향/표정만 살짝 다른 앉은 포즈 |
+| 재생성 | `magpie_perched_alt.png` | 방향만 살짝 다른 앉은 포즈 |
 | 재생성 | `magpie_celebrate.png` | 좋은 소식/완료 축하 포즈 |
-| 재생성 | `magpie_worry.png` | 걱정/에러 포즈 |
+| 재생성 | `magpie_worry.png` | 침착한 걱정 포즈, round chick 금지 |
 
-**중요**: 위 파일들은 채팅 스티커가 아니라 앱 마스코트다. `assets/stickers/`
-가 아니라 반드시 `assets/illustrations/mascot/`에 같은 파일명으로 저장한다.
-`magpie_wingup.png` / `magpie_wingdown.png`은 현재 퀄리티가 좋으므로 교체하지
-말고, 나머지 까치 pose를 이 둘과 같은 캐릭터로 맞춘다.
+#### 5.0A.3.1 호랑이 variant 제작 방식 — Design DNA 고정 + Body Language 허용
 
-**공통 스타일 문장 (모든 tiger/magpie prompt 끝에 붙이기)**:
+`tiger_idle.png`는 픽셀 고정 복제품을 만들기 위한 원본이 아니라
+**캐릭터 디자인의 source of truth**다. 목표는 모든 감정 이미지가
+"같은 호랑이"로 보이면서도, 실제 호랑이의 body language처럼 자연스럽게
+움직이고 반응하는 것이다.
+
+**Design DNA — 모든 variant에서 고정**
+
+- 같은 adult Korean guardian tiger identity.
+- 같은 얼굴 구조, muzzle construction, cheek shape, broad head silhouette.
+- 같은 낮고 둥근 tiger ears. Cat-like pointed ears 금지.
+- 같은 `王` 느낌의 이마 줄무늬 구조와 stripe language.
+- 같은 burnt orange / rust-orange / cream / ink-black palette.
+- 같은 faceted minhwa planes, subtle hanji grain, no outline finish.
+- 같은 dignified guardian personality. Cute/chibi/sticker mascot 금지.
+- 같은 square transparent PNG family와 app-size readability.
+
+**Expressive Body Language — 감정에 따라 허용**
+
+- body axis and line of action.
+- camera angle and motion direction.
+- body height and center of gravity.
+- shoulder asymmetry and chest energy.
+- forepaw weight transfer, rhythm, and one-forepaw pause/step.
+- visible torso/hip/tail flow when motion needs it.
+- head height, head turn, chin angle, and nose direction.
+- ear angle, including subtle left/right asymmetry.
+- eye focus and eyelid tension.
+- whisker direction and sensory focus.
+- mouth shape as soft chuff / proud call / scent-analysis tiny parting /
+  relaxed closed mouth, not human grin.
+- tail curve only when it supports the motion and remains readable.
+- 몸의 에너지 방향: relaxed walk, investigative pause, scent-analysis pause,
+  proud call,
+  low grounded pause, resting sphinx, playful paw tap, sudden alert freeze,
+  affectionate cheek rub.
+
+**제작 타입**
+
+- **Near-idle variants**: `tiger_blink.png`, `tiger_neutral.png`,
+  `tiger_smile.png`.
+  - `tiger_idle.png`를 복제하거나 image edit / inpainting으로 만든다.
+  - 몸, 귀, 앞발, 줄무늬, 王 mark, whiskers, palette, framing은 거의
+    동일하게 둔다.
+  - `blink`는 눈만 감겨야 한다.
+  - `neutral`은 idle과 거의 같아도 된다. 앱 크기에서 차이가 흐려지면
+    exact copy 사용이 더 낫다.
+
+- **Expressive variants**: `tiger_happy.png`, `tiger_celebrate.png`,
+  `tiger_sad.png`, `tiger_thinking.png`, `tiger_sleepy.png`.
+  - `tiger_idle.png`를 character reference로 넣고 image-to-image /
+    reference-guided generation / 넓은 마스크 편집으로 만든다.
+  - 픽셀 위치까지 같을 필요는 없다.
+  - 정면 upper-body portrait에 묶이지 않는다. 감정이 살아야 할 때는
+    torso, hip, hind leg 일부, tail까지 보이는 3/4 motion sprite를 허용한다.
+  - 단, character redesign처럼 보이면 실패다. 얼굴 구조, ear type,
+    stripe language, 王 mark, palette, faceted style은 반드시 유지한다.
+  - 감정은 human gesture가 아니라 tiger anatomy와 body language로 표현한다.
+
+**금지**
+
+- 완전히 다른 tiger 얼굴로 재생성.
+- cat-like ears, kitten/cub proportions, plush toy body.
+- human-like waving, hooray arms, paw-to-chin thinking pose.
+- tears, sweat drops, floating symbols, question marks, speech bubbles.
+- tiny static full-body sticker silhouette로 작아지는 것. Active motion은
+  허용하지만 얼굴과 동작이 48-64px에서 읽혀야 한다.
+
+#### 5.0A.3.2 Real Tiger Emotion Translation
+
+감정 variant는 "웃는 얼굴"이나 "사람 같은 제스처"가 아니라 실제 호랑이의
+몸짓을 앱 마스코트 언어로 번역한다. 참고 이미지는 정확한 포즈 복사용이
+아니라, 호랑이가 감정을 몸으로 표현하는 방향성을 잡기 위한 anatomy /
+motion reference다.
+
+| 감정 | 실제 호랑이식 표현 | 프롬프트 cue |
+|---|---|---|
+| 행복 / 만족 | 안전함, 편안함, 친근한 greeting. 몸이 굳지 않고 귀는 중립 또는 살짝 앞으로, 입은 부드러운 chuff 느낌. | relaxed forward walking step, soft eyes, neutral-forward ears, gentle chuffing mouth |
+| 생각 / 관찰 | 사람처럼 찡그리는 것이 아니라 냄새를 분석하고, 소리를 듣고, 주변을 평가하는 investigative / scent-analysis pause. 한 발이 멈추고, 귀가 비대칭으로 소리를 탐색. | one forepaw suspended or lightly touching down, asymmetrical ears, focused side glance, nose slightly lifted, whiskers slightly forward, optional very subtle flehmen hint |
+| 축하 / 성공 | 인간식 만세가 아니라 가슴을 열고 고개를 들거나 짧은 proud call / energetic step. | proud chest lift, head raised, open tiger-like call, one forepaw stepping forward |
+| 슬픔 / 실망 | 눈물이 아니라 낮아진 에너지, 고개 낮춤, 시선 회피, 귀가 옆/뒤로 풀림. | low heavy posture, head lowered, gaze down/away, ears relaxed outward/back, slow grounded pause |
+| 자는 중 | 몸을 낮게 내려놓고 앞발을 앞으로 둠. 눈꺼풀 무겁고 호흡이 평온함. | resting sphinx, forepaws forward, heavy eyelids, relaxed shoulders, calm breathing |
+| cheer / 응원 | 친근한 chuff와 앞으로 다가오는 동작. | encouraging chuff, forward lean, warm eye contact, one forepaw reaching forward |
+| clap / 박수 | 실제 박수 대신 앞발을 땅에 툭 디디는 playful paw tap. | playful double paw tap on ground, weight shift, pleased face |
+| 놀람 | 순간적으로 몸이 stiff해지고 고개가 번쩍 들림. 귀는 앞으로/옆으로 반응. | sudden alert freeze, widened eyes, head jerk upward, ears pricked, forepaw paused mid-step |
+| 사랑 / 애정 | 하트보다 greeting, cheek rub, slow blink, soft chuff. | affectionate cheek rub, soft chuff, slow blink, head nuzzle, relaxed body |
+
+#### 5.0A.3.3 Active Motion Sprite Framing
+
+`tiger_happy.png`처럼 감정이 몸의 움직임으로 읽히는 파일은 정면
+upper-body portrait로 만들지 않는다. `tiger_idle.png`의 캐릭터 DNA를
+유지하되, square canvas 안에서 3/4 방향성과 꼬리 곡선을 적극적으로 쓴다.
+
+| 타입 | 파일 | 프레이밍 |
+|---|---|---|
+| Near-idle portrait | `idle`, `blink`, `neutral`, `smile` | 상반신 / front-half 중심. 얼굴, 가슴, 두 앞발 안정감 우선 |
+| Active motion sprite | `happy`, `celebrate`, `thinking`, `sad` | 3/4 diagonal view. 얼굴, 가슴, 앞발, 몸통 일부, tail curve가 읽히게 구성 |
+| Rest motion sprite | `sleepy` | resting sphinx / side-rest crop. 앞몸 낮음, 앞발 앞으로, tail 또는 몸통 곡선 일부 허용 |
+| Sticker action | `cheer`, `clap`, `surprised`, `love` | 더 작은 캔버스에서도 동작 실루엣이 먼저 읽히게 구성 |
+
+**Active motion composition rules**
+
+- Avoid straight-on symmetrical portrait for expressive variants.
+- Use a 25-45 degree 3/4 camera angle: body travels diagonally across the
+  square, while the head can still turn toward the viewer.
+- Create a clear line of action from tail/hip through spine/chest to head or
+  leading forepaw.
+- Show enough torso and hip to explain the motion. Do not crop so tightly that
+  the tiger looks like only a face and chest.
+- Tail is visible by default for `happy`, `celebrate`, `thinking`, `surprised`,
+  `cheer`, and `love` unless it hurts 48-64px readability.
+- Keep the face large enough to read at app size: face/head should remain about
+  24-34% of canvas height in active motion sprites.
+- Keep the whole silhouette inside the square with 4-8% transparent padding.
+  Do not crop off the tail tip, leading paw, ears, or whisker area.
+- Exactly two forepaws are visible and anatomically clear. Full-body motion may
+  show hind legs, but never add a third forepaw or make paws look like hands.
+
+**Tail language**
+
+- Happy / cheer / love: loose lifted C-curve or soft S-curve, relaxed and
+  friendly.
+- Celebrate: higher confident S-curve, energized but not aggressive.
+- Thinking / surprised: paused lifted curve, as if the body froze mid-step.
+- Sad: low trailing curve or relaxed downward tail, not tucked in fear.
+- Sleepy: tail relaxed along the body or softly curled around the resting form.
+- Avoid fast whipping tail, bristled tail, or sharp aggressive lash unless an
+  explicit anger asset is requested.
+
+**Thinking-specific sensory rules**
+
+`tiger_thinking.png`은 인간식 "thinking face"가 아니라 감각으로 환경을
+판독하는 조사 프레임이다. 아래 신호를 조합한다.
+
+- Head is turned slightly to one side, not straight at the viewer.
+- Nose is lifted slightly upward as if catching scent on the air.
+- Eyes focus sideways and slightly upward, not directly forward.
+- One ear points forward while the other angles outward a little, suggesting
+  selective listening.
+- Whiskers angle slightly forward, as if sensing the space ahead.
+- Mouth is mostly closed. A tiny mouth parting or slight upper-lip tension is
+  allowed only as a subtle scent-analysis cue.
+- Optional subtle flehmen hint only: very slight upper-lip lift or minimal
+  mouth parting. Avoid a full flehmen grimace, goofy grin, stink-face,
+  cartoon confusion, or cheerful smile.
+- Tail, if visible, stays in a restrained calm curve that supports a paused
+  attentive state. It should not read as playful excitement or aggression.
+- Avoid direct front-facing pose, symmetrical ears, both forepaws planted
+  equally in a neutral walk, sad/worried body language, question marks,
+  paw-to-chin, or any human "thinking" gesture.
+
+**프롬프트 구조**
+
+Expressive variant를 만들 때는 아래 네 블록을 반드시 포함한다.
+
+```text
+MOTION ANCHOR:
+[real tiger behavior: relaxed walk / investigative pause / scent-analysis pause /
+proud call / low grounded pause / resting sphinx / playful paw tap /
+sudden alert freeze / affectionate cheek rub]
+
+BODY AXIS:
+Describe the line of action, spine angle, chest height, shoulder asymmetry,
+and weight transfer.
+
+FOREPAW LOGIC:
+Describe which forepaw is forward, which paw carries weight, and whether
+one paw is paused, lightly touching down, or tapping the ground.
+
+FACE / EARS / TAIL:
+Describe eyes, eyelid tension, nose direction, mouth as chuff/call/closed mouth
+or tiny scent-analysis parting, whiskers, ear angle, and tail curve only if
+visible and useful.
+
+CAMERA / FRAMING:
+Describe portrait / front-half / 3/4 diagonal motion / resting crop. State
+whether the tail must be visible and how much torso/hip should appear.
 ```
-Create this as a premium app mascot sprite, not a cheap sticker.
-Match the attached reference mascot style exactly: large clean geometric
-facets, confident Korean minhwa character design, subtle hanji grain,
-crisp silhouette, high-resolution painterly-polished finish.
 
-Use true transparent PNG alpha. The preview background may show a checkerboard,
-but the exported PNG must contain no baked checkerboard pixels, no white/cream
-background box, no shadow rectangle, no text, no speech bubble, no sticker
-border.
+**공통 body-language 블록**
 
-The character must remain readable at 64 px and still feel detailed at 512 px.
-Avoid fuzzy low-resolution edges, plastic 3D rendering, anime style, Disney
-style, generic clipart, photorealism, watercolor blur, excessive micro-feather
-noise, and random decorative elements.
+```text
+Translate the emotion through real tiger body language, not human acting.
+Do not create a human facial expression pasted onto a tiger.
+
+Use these animal-behavior channels:
+- body axis and line of action
+- camera angle and motion direction
+- shoulder asymmetry
+- forepaw weight transfer
+- head height and head turn
+- nose direction and sensory focus
+- ear angle
+- eye focus and eyelid tension
+- whisker direction
+- mouth shape as chuff / call / relaxed closed mouth / tiny scent-analysis
+  parting
+- tail curve only if it supports the motion
+
+The pose must look like one captured animation frame of a living tiger.
+Avoid a static seated mascot portrait for expressive variants.
+For active motion variants, prefer a 3/4 diagonal view with visible torso,
+hip, and tail curve. Do not make every tiger face straight forward.
+Avoid human gestures, waving, clapping hands, raised arms, paw-to-chin,
+tears, symbols, hearts, speech bubbles, or emoji acting.
 ```
 
-**호랑이 character bible — `tiger_*.png` 전체 공통**:
+**프레이밍 규칙**
+
+- Near-idle 앱 마스코트는 upper-body / front-half 중심으로 유지한다.
+- Active expressive 앱 마스코트는 정면 상반신에 갇히지 않는다.
+  감정이 걸음/정지/꼬리로 읽힐 때는 3/4 front-half 또는 near-full-body
+  motion sprite를 우선한다.
+- `happy`, `celebrate`, `thinking`은 tail curve와 torso/hip flow가 감정을
+  살리므로 active motion sprite에서는 tail을 기본적으로 보이게 한다.
+- `sleepy`는 low resting pose가 더 잘 읽히므로 front-half rest,
+  side-rest crop, 또는 compact full-body rest를 허용한다.
+- rolling, full-body leap, extreme lying full-body처럼 square mascot
+  가독성이 떨어지는 큰 동작만 `tiger_special_*.png` 별도 자산으로 만든다.
+- 어떤 경우에도 48-64px에서 표정과 실루엣이 읽혀야 한다.
+
+#### 5.0A.4 공통 스타일 문장
+
 ```
-Use the attached sleeping Korean tiger as the exact character reference:
-a dignified guardian tiger, heavy and calm, with broad low body mass,
-large angular head, soft but serious expression, and premium faceted-minhwa
-polygon planes.
+Create this as a premium Korean learning app mascot sprite in the same
+Jongga Faceted Minhwa style as the attached hanok gate, hanok stage, and
+quest-decoration assets.
 
-Tiger design constants:
-- Burnt orange coat #E87830 with rust-orange shadow facets #C25420 and
-  warm ochre midtones #A87E5E.
-- Deep ink-black angular stripes #1A1410, including a clear 王 mark on the
-  forehead.
-- Cream muzzle, cheeks, belly, and inner ears #F4E8D0.
-- Amber-gold eyes #DFA951 with dark ink eyelids; expression changes only
-  through eyelids, pupils, brows, mouth corners, and paw gesture.
-- Long low silhouette, big rounded paws, broad nose bridge, triangular cheek
-  ruff, no tiny kitten proportions.
-- Large geometric facets: 40-70 readable planes, not hundreds of noisy shards.
-- Same lighting direction as reference: soft upper-left light, darker
-  lower-right facets.
+This is NOT a chat sticker and NOT a cute animal icon. It is a dignified
+guardian mascot: monumental, calm, editorial, geometric, and rooted in
+Joseon minhwa visual language.
 
-Composition constants:
-- One tiger only, centered in a square canvas.
-- No magpie inside tiger-only assets unless the filename explicitly requests
-  a pair illustration.
-- No floor lines, no background scene, no props except action-specific tiny
-  facets explicitly requested.
-- Keep the head and torso scale consistent across tiger_idle, tiger_blink,
-  tiger_smile, tiger_neutral, tiger_happy, tiger_celebrate, tiger_sad,
-  tiger_thinking, tiger_sleepy.
+Use large clean geometric facets, crisp silhouette, subtle hanji grain,
+and a restrained traditional palette. No soft toy feeling, no emoji face,
+no chibi proportions, no Western cartoon acting.
+
+Emotion should be expressed through authentic tiger anatomy and body language:
+eye shape, brow angle, chin height, ear angle, chest energy, shoulder tension,
+forepaw weight distribution, and subtle body rotation. Do not use human
+gestures, props, symbols, or mascot-costume acting.
+
+Use true transparent PNG alpha. The exported PNG must contain no baked
+checkerboard pixels, no white/cream background box, no beige paper rectangle,
+no shadow rectangle, no text, no speech bubble, and no sticker outline.
 ```
 
-**호랑이 포즈별 추가 문장**:
+#### 5.0A.5 호랑이 Character Bible — upper-body guardian portrait
+
+```
+TIGER IDENTITY:
+The tiger is an adult Korean guardian tiger from a modern Jongga minhwa
+illustration set. It should feel like a calm mountain guardian sitting at
+the entrance of a noble hanok: powerful, composed, and intelligent.
+
+Primary framing:
+- `tiger_idle.png`, `tiger_blink.png`, `tiger_neutral.png`, and
+  `tiger_smile.png` use upper-body guardian portrait framing.
+- Active expressive variants may use front-half or near-full-body motion
+  sprite framing when body movement and tail curve are needed.
+- Near-idle portrait: head, broad chest, cream belly V, shoulders, and exactly
+  two forepaws visible near the lower edge of the canvas.
+- Active motion sprite: head, chest, leading forepaw, supporting forepaw,
+  torso/hip flow, and tail curve should explain the motion inside the square.
+- Avoid tiny full-body sticker silhouette. The head and face must still read
+  clearly at 48-64px.
+- Near-idle face occupies about 38-45% of character height; active motion face
+  occupies about 24-34% of canvas height.
+- Near-idle head is forward with a subtle 3/4 turn, about 8-12 degrees to the
+  right. Active motion uses a stronger 25-45 degree 3/4 camera angle.
+- Chest and shoulders are large and architectural, like a gate guardian, even
+  when the body is moving.
+
+Anatomy and silhouette:
+- Adult tiger proportions. No cub, no baby-cat head, no plush toy body.
+- Broad triangular head, large cheek tufts, thick neck, heavy shoulders,
+  grounded chest, and big calm forepaws.
+- Ears are slightly lower rounded tiger ears, not cat-like pointed ears.
+  They should feel powerful and integrated into the broad head silhouette,
+  not tall, sharp, kitten-like, or fox-like.
+- Exactly two forepaws visible, left and right, near the lower edge of the
+  composition. Near-idle variants keep both planted. Expressive variants may
+  shift weight, move one forepaw slightly forward/back, or make one forepaw
+  feel lighter, but never add a third paw.
+- Expressive variants may show hind legs and tail when the motion needs them,
+  but the two forepaws must remain clear and anatomically distinct.
+- Do not use waving paws, paws near the face/chest, paw-to-chin gestures, or
+  human hand-like posing. Forepaws are tiger anatomy, not hands.
+- Forepaws should stay weight-bearing and dignified. Do not use paw pads or
+  spread toes as the main emotion cue.
+
+Color and facet construction:
+- Coat: burnt orange #E87830 with rust-orange #C25420 and warm ochre
+  #A87E5E shadow facets.
+- Stripes: deep ink-black #1A1410, drawn as bold angular filled shapes.
+- Cream areas: muzzle, cheeks, chin, chest V, belly, and inner ears in
+  #F4E8D0.
+- Eyes: amber-gold #DFA951, almond-shaped, focused and intelligent.
+- Forehead mark: stripe arrangement suggesting 王 through discrete angular
+  black stripe shapes, not a typographic Chinese character.
+- 45-80 large readable facets. Avoid hundreds of tiny shards and avoid
+  smooth airbrushed fur.
+
+Style:
+- No outlines around the body or color planes. The dark stripes are filled
+  shapes, not outlines.
+- Soft upper-left light, deeper lower-right facets, same quiet premium finish
+  as the jongga gate/stage/decoration assets.
+- Expression is subtle and majestic. No puppy eyes, no tears, no sweat drops,
+  no exaggerated smile, no raised arms.
+```
+
+#### 5.0A.6 호랑이 포즈별 지시
+
 | 파일 | 추가 지시 |
 |---|---|
-| `tiger_idle.png` | Calm seated guardian pose, eyes open, tiny mouth smile, front paws relaxed, same broad head as reference. |
-| `tiger_blink.png` | Same as idle, identical body and head position, only eyes closed in relaxed blink. |
-| `tiger_smile.png` | Same scale as idle, warmer smile, amber eyes friendly, cheeks slightly lifted. |
-| `tiger_neutral.png` | Same scale as idle, calm neutral mouth, dignified guardian presence, not sad. |
-| `tiger_happy.png` | Same tiger, brighter happy face, eyes crescent-shaped, tail or paws subtly lifted, still premium not chibi. |
-| `tiger_celebrate.png` | Same tiger, both front paws raised in celebration, confident joyful expression, 3-5 tiny dancheong confetti facets only. |
-| `tiger_sad.png` | Same tiger, ears slightly lowered, brows tilted, one small cobalt-indigo tear facet optional, keep dignity. |
-| `tiger_thinking.png` | Same tiger, one paw near chin, eyes looking up-left, small single question-mark-like geometric facet optional. |
-| `tiger_sleepy.png` | Match the reference most closely: lying low with eyes closed, heavy relaxed body, peaceful guardian mood. |
+| `tiger_idle.png` | Anchor image. Calm upper-body guardian portrait. Eyes open and focused, mouth closed, chin level, shoulders broad, slightly lower rounded tiger ears, exactly two forepaws planted. This should resemble the second attached majestic tiger image, not the paw-up cute tiger. |
+| `tiger_blink.png` | Duplicate the approved `tiger_idle.png` and edit only the eyes into a relaxed blink. Body, head, stripes, mouth, ears, chest, whiskers, canvas, and forepaws stay identical. |
+| `tiger_neutral.png` | Duplicate the approved `tiger_idle.png`. Keep it almost identical; only make the eyes/mouth/brow 1-3% more formal and still. If the difference is not visible at app size, using an exact idle copy is acceptable. |
+| `tiger_smile.png` | Near-idle variant. Duplicate `tiger_idle.png` and edit mouth corners plus tiny eye warmth. Very restrained guardian smile. No crescent cartoon eyes, no grin, no paw movement. |
+| `tiger_happy.png` | Expressive active motion sprite. Default direction: relaxed 3/4 forward walking step + soft chuff + warm eyes. Show torso/hip and a loose lifted tail curve. One forepaw reaches forward into the foreground, opposite forepaw stays back and weight-bearing, chest leans forward, ears neutral-forward. This should feel like friendly encouragement, not a straight-on human smile pose. |
+| `tiger_celebrate.png` | Expressive active motion sprite. Confident success through proud chest lift, controlled tiger-like call, or energetic forward step. Use 3/4 diagonal view, visible torso, higher confident S-curve tail, head raised, chest expanded, ears alert, shoulders energized, one forepaw stepping forward with confident weight transfer. No human "hooray" arms, no paw near face/chest, no mascot costume acting. |
+| `tiger_sad.png` | Expressive motion sprite. Low energy and withdrawal through low grounded pause. Use low 3/4 front-half or side-front crop, visible lowered body line, tail low/trailing if visible. Head lowered, chin tucked, gaze down or away, ears relaxed outward/back but not pinned aggressively, shoulders sink, forepaws heavy near the ground. No puppy eyes, tears, sweat, shrinking baby pose, or paws close together to look small. |
+| `tiger_thinking.png` | Expressive active motion sprite. Investigating, scenting, evaluating, and listening through slow investigative pause. Use 3/4 diagonal view with enough torso/hip to show the paused step and restrained balancing tail. One forepaw paused just above the ground or lightly touching down, nose slightly lifted, head turned to one side, one ear forward and the other angled outward, eyes focused sideways/upward, whiskers slightly forward. Optional very subtle flehmen hint only; no goofy grin, no question mark prop, no human thinking gesture. |
+| `tiger_sleepy.png` | Expressive rest motion sprite. Rest and safety through resting sphinx or side-rest crop. Front body lowered, forepaws stretched forward, head heavy but dignified, tail relaxed along the body or softly curled, eyelids mostly closed, ears relaxed, shoulders soft, breathing calm. No cartoon sleep symbols, no collapsed body, no sick/sad expression. |
 
-**호랑이 기본 프롬프트 템플릿**:
+#### 5.0A.7 호랑이 프롬프트 템플릿
+
+##### `tiger_idle.png` 생성 템플릿
+
 ```
-A true-transparent PNG app mascot sprite of a Korean guardian tiger,
-[POSE / EMOTION].
+A true-transparent PNG app mascot sprite of an adult Korean guardian tiger,
+calm idle expression, in upper-body guardian portrait framing.
 
-Use the attached tiger_sleepy image as the exact quality and character
-reference. The tiger is dignified, calm, broad, faceted, and premium; not a
-baby tiger and not a generic cartoon.
+Use the attached majestic upper-body tiger reference as the character target:
+broad chest, large angular head, cream belly V, two planted forepaws, calm
+powerful gaze, and premium Jongga Faceted Minhwa finish.
 
-[Paste Tiger design constants]
-[Paste Composition constants]
+[Paste TIGER IDENTITY / Primary framing / Anatomy / Color / Style blocks]
 [Paste pose-specific sentence]
 [Paste common style sentence]
 
@@ -1546,13 +1844,211 @@ Aspect ratio: 1:1 square, 1254x1254 or 1536x1536 px.
 Export as true RGBA transparent PNG.
 ```
 
-**까치 character bible — `magpie_*.png` 전체 공통**:
-```
-Use the attached magpie_wingup and magpie_wingdown images as the exact
-character reference: a Korean magpie wearing a black gat, sharp but friendly,
-with elegant faceted feathers and a premium editorial mascot finish.
+##### near-idle variant 편집 템플릿
 
-Magpie design constants:
+```
+Use the attached tiger_idle.png as the exact base image.
+This is a near-idle image-editing / inpainting task, not a new character
+generation.
+
+Do not redraw the character. Preserve the exact canvas size, transparent alpha,
+silhouette, ears, head angle, body position, forepaw position, stripe placement,
+王-like forehead stripe arrangement, whiskers, nose, cream belly V, colors,
+scale, and framing.
+
+Only edit the masked expression area: [eyes / eyelids / brow / mouth].
+Target expression: [VARIANT EXPRESSION].
+
+Everything outside the masked expression area must remain identical to
+tiger_idle.png. Do not change the body, ears, paws, stripes, chest, lighting,
+texture, or character proportions.
+
+Export as true RGBA transparent PNG with no baked checkerboard, no white box,
+no paper background, no sticker outline, no text.
+```
+
+Use this template for `tiger_blink.png`, `tiger_neutral.png`, and
+`tiger_smile.png`.
+
+##### expressive variant 생성 / 편집 템플릿
+
+```
+A true-transparent PNG app mascot sprite of the SAME adult Korean guardian
+tiger character as tiger_idle.png, in Jongga Faceted Minhwa style.
+
+IMPORTANT SOURCE-OF-TRUTH RULE:
+Use tiger_idle.png as the character-design anchor, not as a pixel-locked copy.
+This must unmistakably be the same tiger character as tiger_idle.png.
+Preserve the Design DNA:
+- same adult guardian tiger identity
+- same broad head and muzzle construction
+- same slightly lower rounded tiger ears, not cat-like pointed ears
+- same 王-like forehead stripe arrangement
+- same stripe language and placement logic
+- same burnt orange / rust-orange / cream / ink-black palette
+- same faceted geometric minhwa rendering and subtle hanji grain
+- same dignified, premium, not-cute personality
+- same mascot family and transparent square PNG format
+- near-idle variants stay upper-body; active expressive variants may show
+  torso, hip, hind legs, and tail when motion readability needs them
+
+EXPRESSIVE BODY LANGUAGE:
+Allow subtle expressive changes in head angle, chin height, ear position,
+chest energy, shoulder tension, forepaw weight distribution, and slight body
+rotation, but do not redesign the character or change it into a different
+tiger. Emotion must come from authentic tiger anatomy and body language,
+not human gestures. The pose must look like one captured animation frame of
+a living tiger, not a static seated mascot portrait. Use a 25-45 degree 3/4
+camera angle for active motion unless the variant explicitly says near-idle.
+
+POSE / EMOTION:
+[PASTE VARIANT DELTA HERE]
+
+MOTION ANCHOR:
+[relaxed walk / investigative pause / scent-analysis pause / proud call /
+low grounded pause / resting sphinx / playful paw tap / sudden alert freeze /
+affectionate cheek rub]
+
+BODY AXIS:
+[Describe the line of action, spine angle, chest height, shoulder asymmetry,
+and weight transfer.]
+
+FOREPAW LOGIC:
+[Describe which forepaw is forward, which paw carries weight, and whether
+one paw is paused, lightly touching down, or tapping the ground.]
+
+FACE / EARS / TAIL:
+[Describe eye focus, eyelid tension, nose direction, mouth as
+chuff/call/closed mouth/tiny scent-analysis parting, whiskers, ear angle, and
+tail curve only if visible and useful.]
+
+CAMERA / FRAMING:
+[Describe portrait / front-half / 3/4 diagonal motion / resting crop. State
+whether the tail must be visible and how much torso/hip should appear.]
+
+CONSTRAINTS:
+- Exactly two forepaws visible. No third paw.
+- Forepaws may shift weight or one may step slightly forward/back near the
+  lower edge, but no waving paw, no paw near face/chest, no paw-to-chin pose.
+- Hind legs may be visible in active motion sprites, but they must never be
+  confused with extra forepaws.
+- If the tail is part of the emotion, show the full tail curve inside the
+  square. Do not crop off the tail tip.
+- No chibi, no cub, no plush toy, no mascot costume acting.
+- No tears, sweat drops, hearts, question marks, speech bubbles, text,
+  symbols, or confetti-heavy effects.
+- Keep square canvas, transparent alpha, clear 48-64px readability, and
+  5-8% padding.
+
+Export as true RGBA transparent PNG with no baked checkerboard, no white box,
+no paper background, and no sticker outline.
+```
+
+Use this template for `tiger_happy.png`, `tiger_celebrate.png`,
+`tiger_sad.png`, `tiger_thinking.png`, and `tiger_sleepy.png`.
+
+##### expressive variant delta prompts
+
+```
+tiger_happy.png:
+Real tiger emotion translation: content, safe, friendly greeting.
+Motion anchor: relaxed forward walking step, soft chuff.
+Camera / framing: 3/4 diagonal active motion sprite, not straight-on. Show the
+head, chest, leading forepaw, supporting forepaw, enough torso/hip to show the
+walking direction, and the full loose lifted tail curve inside the square.
+Body axis: diagonal line of action from the lifted tail through the back and
+chest to the leading forepaw. The body travels across the canvas while the head
+turns warmly toward the viewer.
+Forepaw logic: one large foreground forepaw reaches forward into the viewer's
+space; the opposite forepaw remains back and weight-bearing. Hind legs may be
+visible behind, but never read as extra forepaws.
+Face / ears / tail: ears neutral-forward, eyes warm and engaged, mouth slightly
+open as a soft chuff, not a grin. Tail is a relaxed C-curve or soft S-curve,
+showing friendly energy. This should feel like "good job, continue" through
+animal body language.
+
+tiger_celebrate.png:
+Real tiger emotion translation: confident success, energized presence.
+Motion anchor: proud chest lift or controlled tiger call.
+Camera / framing: 3/4 diagonal active motion sprite with visible torso and a
+higher confident S-curve tail. Avoid straight frontal pose.
+Body axis: upward line of action from grounded forepaws through expanded chest
+to raised head; shoulders energized, body rotated slightly.
+Forepaw logic: one forepaw steps forward with confident weight transfer, the
+other braces. Keep both forepaws low and tiger-like.
+Face / ears / tail: head raised, ears alert, mouth open in a short powerful
+tiger-like call or chuff-roar, not a cartoon scream. Tail is lifted in an
+energized S-curve but not aggressive. This is stronger than happy but still
+dignified. No human cheering pose, no raised-arms gesture, no waving paw.
+
+tiger_sad.png:
+Real tiger emotion translation: low energy, disappointment, withdrawal.
+Motion anchor: low grounded pause.
+Camera / framing: low 3/4 front-half or side-front crop. Show enough shoulders,
+forepaws, and body line to read lowered energy. Tail may be visible as a low
+trailing curve.
+Body axis: descending line of action; chest less open, shoulders softened and
+slightly sunk, center of gravity low.
+Forepaw logic: both forepaws heavy and close to the ground; one may sit
+slightly ahead but should not look cute or tucked.
+Face / ears / tail: head lowered, chin slightly tucked, gaze down or away; ears
+relaxed outward/back but not pinned aggressively; mouth closed with subtle
+downturned tension. Tail low and relaxed if visible. Dignified and composed,
+not helpless or babyish. No tears.
+
+tiger_thinking.png:
+Real tiger emotion translation: investigating, scenting, evaluating, and
+listening. This is NOT a human-style "thinking face." The tiger should feel
+like it has paused mid-step to analyze something in the environment.
+Motion anchor: slow investigative pause / scent-analysis pause.
+Camera / framing: 3/4 diagonal active motion sprite. Show torso/hip enough to
+explain a paused step, with tail visible as a restrained balancing curve if it
+fits. Avoid direct front-facing pose.
+Body axis: forward but suspended; torso held in a quiet diagonal line of action,
+as if the tiger interrupted its walk to examine something. Chest slightly
+forward, shoulders controlled and still, with subtle asymmetry.
+Forepaw logic: one forepaw paused just above the ground or only lightly touching
+down; most body weight stays on the other grounded forepaw and rear support.
+This is a real walking pause, not a human thinking pose.
+Face / ears / tail: head turned slightly to one side; nose lifted slightly
+upward as if catching scent on the air; eyes focused sideways and slightly
+upward, not directly forward; one ear points forward while the other angles
+outward, suggesting selective listening; whiskers angle slightly forward; mouth
+mostly closed or only very slightly parted. Optional scent-analysis detail:
+include only a very subtle flehmen hint, such as tiny upper-lip tension or
+minimal mouth parting. Do NOT make it look goofy, smiling, like a stink-face,
+or cartoon confused. Tail, if visible, stays in a restrained calm curve that
+supports a paused attentive state. Emotional read: thoughtful, observant, and
+quietly intelligent; more "I am assessing this carefully" than happy,
+surprised, sad, or worried.
+Avoid: symmetrical ears, both forepaws planted equally in a neutral walk,
+cheerful expression, obvious smile, exaggerated flehmen grimace, confused
+cartoon face, sad/worried body language, paw-to-chin, props, question marks.
+
+tiger_sleepy.png:
+Real tiger emotion translation: rest, safety, low arousal.
+Motion anchor: resting sphinx or side-rest crop.
+Camera / framing: resting sphinx front-half, side-rest crop, or compact rest
+sprite. Show the lowered front body, stretched forepaws, and tail relaxed along
+the body or softly curled when visible.
+Body axis: horizontal and calm; chest lowered, shoulders soft, neck relaxed.
+Forepaw logic: forepaws stretched forward or folded naturally under the chest,
+not human-like.
+Face / ears / tail: head heavy but dignified; eyelids mostly closed; ears
+relaxed; breathing calm; mouth closed or tiny relaxed yawn only if still
+elegant. Tail relaxed along the body or softly curled. No cartoon sleep symbols,
+no collapsed body, no sick/sad expression.
+```
+
+#### 5.0A.8 까치 Character Bible
+
+```
+MAGPIE IDENTITY:
+Use the attached magpie_wingup and magpie_wingdown images as the exact
+quality, anatomy, color, gat, and faceted-feather reference. The result
+must look like the same Korean magpie character in a new pose.
+
+Design constants:
 - Ink-black / blue-black head and back #101820, with cool slate facets
   #26323A and deep teal tail facets #0E4D58.
 - Cream-white belly and wing panels #F4E8D0 with pale gray shadow facets
@@ -1567,36 +2063,36 @@ Magpie design constants:
 
 Composition constants:
 - One magpie only, centered in a square canvas.
-- Transparent background only. No branch unless the filename specifically
-  says perched; no speech bubble, no text.
+- Transparent background only.
+- No round chick body, no cute penguin proportions, no oversized eyes.
+- No speech bubble, no sticker border, no extra props unless requested.
 - Keep the body center anchored consistently across magpie_perched,
   magpie_perched_alt, magpie_wingup, magpie_wingdown, magpie_celebrate,
-  magpie_worry.
-- For wing animation frames, body/head/gat/tail must be almost identical;
-  only wing angle changes.
+  and magpie_worry.
 ```
 
-**까치 포즈별 추가 문장**:
+#### 5.0A.9 까치 포즈별 지시
+
 | 파일 | 추가 지시 |
 |---|---|
-| `magpie_wingup.png` | Flying frame 1: both wings raised high in a wide V, same body/head/tail anchor as wingdown. |
-| `magpie_wingdown.png` | Flying frame 2: both wings lowered and spread outward, same body/head/tail anchor as wingup. |
-| `magpie_perched.png` | Calm perched pose, wings folded, feet visible, optional tiny transparent-compatible branch only under feet. |
-| `magpie_perched_alt.png` | Similar perched pose but body turned slightly the other way, useful as alternate/worry base. |
-| `magpie_celebrate.png` | Excited pose, wings open, beak slightly open, 3-5 tiny dancheong confetti facets only. |
-| `magpie_worry.png` | Concerned pose, wings slightly tucked, eye softer, head tilted, keep the gat accurate and elegant. |
+| `magpie_wingup.png` | Existing reference. Flying frame 1: both wings raised high in a wide V. |
+| `magpie_wingdown.png` | Existing reference. Flying frame 2: both wings lowered and spread outward. |
+| `magpie_perched.png` | Calm Joseon messenger pose. Wings folded, feet visible, gat accurate, long tail elegant. Optional tiny branch only if it does not make the asset feel like a sticker. |
+| `magpie_perched_alt.png` | Same character, slightly different direction or head angle. Keep body scale and gat size identical. |
+| `magpie_celebrate.png` | Elegant good-news pose. Wings open but not cute; beak slightly open. Use at most 2-3 tiny dancheong facets, no heavy confetti. |
+| `magpie_worry.png` | Alert concern. Head angle and wing tuck express worry; no tears, no sweat, no round baby-bird face. |
 
-**까치 기본 프롬프트 템플릿**:
+#### 5.0A.10 까치 기본 프롬프트 템플릿
+
 ```
 A true-transparent PNG app mascot sprite of a Korean magpie wearing a gat,
 [POSE / EMOTION].
 
 Use the attached magpie_wingup and magpie_wingdown images as the exact
 quality, anatomy, color, gat, and faceted-feather reference. The result must
-look like the same character in a new pose.
+look like the same dignified Korean magpie character in a new pose.
 
-[Paste Magpie design constants]
-[Paste Composition constants]
+[Paste MAGPIE IDENTITY / Design constants / Composition constants]
 [Paste pose-specific sentence]
 [Paste common style sentence]
 
@@ -1604,39 +2100,71 @@ Aspect ratio: 1:1 square, 1254x1254 or 1536x1536 px.
 Export as true RGBA transparent PNG.
 ```
 
-**생성 순서 추천**:
-1. `tiger_idle.png`와 `magpie_perched.png`를 먼저 확정한다.
-2. 확정 이미지를 reference로 다시 첨부해 표정/동작 variation을 만든다.
-3. `blink`는 idle에서 눈만 바꾸게 지시한다.
-4. `wingup`/`wingdown`은 한 세트로 생성하고 body anchor가 어긋나면 다시 만든다.
-5. 앱에 넣기 전 solid mint/black/cream 배경 위에서 체크무늬 찌꺼기와 사각 박스가
-   없는지 확인한다.
+#### 5.0A.11 생성 순서 추천
+
+1. `tiger_idle.png`를 먼저 만든다. 두 번째 첨부 이미지처럼 웅장한
+   upper-body guardian portrait가 나올 때까지 여기서 타협하지 않는다.
+2. 확정된 `tiger_idle.png`를 character-design source of truth로 저장한다.
+   이후 variant는 이 이미지의 Design DNA를 기준으로 만든다.
+3. `blink`, `neutral`, `smile`은 near-idle variant다. `tiger_idle.png`를
+   복제한 뒤 image edit / inpainting / 수동 편집으로 눈·눈썹·입만 바꾼다.
+4. `blink`는 idle에서 눈만 바뀌어야 한다.
+5. `neutral`은 idle과 거의 같아도 된다. 앱 크기에서 차이가 흐려지면
+   exact copy 사용이 더 낫다.
+6. `happy`, `celebrate`, `sad`, `thinking`, `sleepy`는 expressive variant다.
+   `tiger_idle.png`를 reference로 넣되 픽셀 복제에 묶지 말고, 같은 캐릭터
+   DNA 안에서 고개·가슴·귀·앞발 무게중심·몸 회전·tail curve를 허용한다.
+7. expressive variant를 만들 때는 먼저 Real Tiger Emotion Translation에서
+   `MOTION ANCHOR`를 하나 고른다. 한 이미지에 여러 동작을 섞지 않는다.
+8. expressive variant도 full redesign은 금지다. 얼굴 구조, 낮고 둥근 귀,
+   王 mark, stripe language, palette, faceted style은 유지한다.
+9. `happy`/`celebrate`는 human paw-up이 아니라 3/4 diagonal motion,
+   leading forepaw, torso flow, visible tail curve로 만든다.
+10. `sad`/`thinking`은 puppy-eye, tear, paw-to-chin 없이 낮아진 body energy,
+   investigative pause, 시선·고개·귀 각도로 만든다.
+11. active motion sprite는 꼬리 끝, leading paw, 귀, 수염이 잘리지 않도록
+    square canvas 안에 4-8% padding을 둔다.
+12. 구르기, 전신 점프, 과도한 전신 눕기처럼 square mascot 가독성이 떨어지는
+    동작만 `tiger_special_*.png`로 분리한다.
+13. `magpie_perched.png`를 먼저 만든 뒤 나머지 까치 pose를 variation으로 만든다.
+14. 앱에 넣기 전 solid mint / black / cream 배경 위에서 체크무늬 찌꺼기와
+   사각 박스가 없는지 확인한다.
 
 ### 5.1 호랑이 스티커 5종 (`tiger_*.png`)
 
 #### 5.1.1 `tiger_cheer.png` — 응원
-- 호랑이가 두 앞발 들어올림, "화이팅" 표정. Burnt orange + 王 forehead, 입가 미소.
+- 친근한 encouragement chuff. 앞으로 다가오는 듯한 forward lean,
+  warm eye contact, neutral-forward ears, 한 앞발이 시청자 쪽으로 나아감.
+  사람처럼 두 앞발을 들거나 만세하지 않는다.
 
 #### 5.1.2 `tiger_clap.png` — 박수
-- 호랑이 두 앞발 마주침, 얼굴 흐뭇.
+- 실제 박수 대신 playful double paw tap on ground. 두 앞발은 낮고 땅에
+  가까우며, 한 앞발은 방금 "툭" 디딘 듯하고 다른 앞발은 무게를 받침.
+  앞발을 사람 손처럼 마주치지 않는다.
 
 #### 5.1.3 `tiger_surprised.png` — 놀람
-- 호랑이 눈 동그래짐, 작은 별 facet 양옆.
+- sudden alert freeze. 고개가 살짝 위로 번쩍 들리고, 눈이 넓어지며,
+  귀가 앞으로 서거나 한쪽 귀가 옆으로 반응. 한 앞발이 mid-step에서
+  멈춘 느낌. 별/이모지 효과 없이 몸의 stiff pause로 표현.
 
 #### 5.1.4 `tiger_sad.png` — 슬픔
-- 호랑이 귀 처짐, 작은 눈물 한 방울 (cobalt indigo facet).
+- low grounded pause. 고개 낮춤, 시선 아래/옆으로 회피, 귀는 옆/뒤로
+  편안히 풀림, 어깨가 내려앉고 앞발은 무겁게 지면에 닿음. 눈물 금지.
 
 #### 5.1.5 `tiger_love.png` — 사랑
-- 호랑이 가슴에 작은 하트 (dancheong red).
+- affectionate greeting. cheek rub 또는 slow-blink chuff 느낌. 고개가
+  부드럽게 기울고, 눈은 half-closed / slow blink, 귀는 relaxed, 몸은
+  따뜻하게 앞으로 기대는 듯함. 하트 prop은 명시적으로 sticker-only가
+  필요할 때만 아주 작게 허용한다.
 
 **공통 프롬프트 템플릿**:
 ```
-A transparent PNG of a Korean tiger sticker showing [EMOTION/ACTION]
-for use in a chat-style sticker interface.
+A transparent PNG of the same Korean guardian tiger character showing
+[EMOTION/ACTION] for use in a chat-style sticker interface.
 
 Style: faceted minhwa but slightly more rounded/playful than
 editorial illustrations — still NOT pure chibi, retain dignified
-character but allow expressive face.
+character and real tiger body language.
 
 Tiger specifications:
 - Burnt orange #E87830 coat, rust orange #C25420 shadow facets
@@ -1644,10 +2172,25 @@ Tiger specifications:
 - Stripe black #1A1410 angular stripes
 - 王 character on forehead in stripe black
 - Sharp amber-gold eyes ([EXPRESSION DETAIL])
-- Frontal pose, square 1:1 framing
+- Square 1:1 framing; use 3/4 action pose when the sticker emotion needs
+  movement. Frontal pose only for near-idle sticker expressions.
 
-[ACTION SPECIFIC: e.g., "Both front paws raised in cheering gesture,
-mouth slightly open in encouraging shout"]
+Translate the sticker emotion through tiger behavior:
+- body axis and line of action
+- shoulder asymmetry
+- forepaw weight transfer
+- head height and head turn
+- ear angle
+- eye focus and eyelid tension
+- mouth as chuff / call / relaxed closed mouth
+- tail curve if it supports the motion and remains readable at 256px
+
+[ACTION SPECIFIC: e.g., "encouraging chuff with forward lean,
+warm eye contact, one forepaw stepping forward, loose lifted tail curve"]
+
+Avoid human gestures, waving, clapping hands, raised arms, paw-to-chin,
+tears, symbols, hearts, speech bubbles, or emoji acting unless the sticker
+explicitly requires a tiny decorative accent.
 
 Aspect ratio: 1:1 (256x256 pixels)
 Transparent background.

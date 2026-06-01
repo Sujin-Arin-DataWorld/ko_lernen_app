@@ -8,6 +8,7 @@ import 'services/locale_service.dart';
 import 'services/theme_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
+import 'services/book_analysis_service.dart';
 import 'services/palette_service.dart';
 import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +20,9 @@ import 'screens/home_screen.dart';
 import 'screens/book_capture_screen.dart';
 import 'screens/book_preview_screen.dart';
 import 'screens/book_result_screen.dart';
+import 'screens/bookshelf_page_screen.dart';
+import 'screens/bookshelf_screen.dart';
+import 'screens/custom_pack_play_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/vocab_pack_result_screen.dart';
@@ -42,6 +46,10 @@ Future<void> main() async {
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
   await Storage.touchStreak();
+
+  // Phase 5 (stately-rising-jongga) — Cloud-Endpoint aus Storage übernehmen.
+  // Jin kann ihn später in Settings ändern; bleibt persistent.
+  BookAnalysisService.setEndpoint(Storage.bookAnalysisEndpoint);
 
   // Firebase best-effort — schlägt fehl wenn google-services.json fehlt
   // ignore: discarded_futures, unawaited_futures
@@ -210,6 +218,20 @@ class KoLernenApp extends StatelessWidget {
                   const <String, dynamic>{};
               return SoriTransitions.fadeScale(
                   (_) => BookResultScreen(args: args),
+                  settings: settings);
+            // Phase 5.1 — Bookshelf + Custom Pack
+            case '/bookshelf':
+              return SoriTransitions.fadeScale(
+                  (_) => const BookshelfScreen(), settings: settings);
+            case '/bookshelf/page':
+              final id = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => BookshelfPageScreen(pageId: id),
+                  settings: settings);
+            case '/custom_pack/play':
+              final id = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => CustomPackPlayScreen(packId: id),
                   settings: settings);
             case '/scenario':
               final id = settings.arguments as String? ?? '';

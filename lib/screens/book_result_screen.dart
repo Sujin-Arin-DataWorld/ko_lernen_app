@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../services/book_analysis_service.dart';
 import '../services/bookshelf_service.dart';
+import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
@@ -195,7 +196,18 @@ class _BookResultScreenState extends State<BookResultScreen> {
                 fullWidth: true,
                 onTap: _save,
               )
-            else
+            else ...[
+              if (r.words.isNotEmpty) ...[
+                SoriButton(
+                  label: t.bookshelfCreatePackCta,
+                  icon: Icons.style_outlined,
+                  variant: SoriButtonVariant.filled,
+                  accent: SoriColors.primary,
+                  fullWidth: true,
+                  onTap: () => _createCustomPack(t),
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
               SoriButton(
                 label: t.bookResultBackToCapture,
                 icon: Icons.add_a_photo_outlined,
@@ -206,7 +218,71 @@ class _BookResultScreenState extends State<BookResultScreen> {
                   (r) => r.settings.name == '/book' || r.isFirst,
                 ),
               ),
+            ],
           ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _createCustomPack(AppL10n t) async {
+    final res = _result;
+    if (res == null || res.words.isEmpty) return;
+    final controller = TextEditingController(
+      text:
+          'Pack ${DateTime.now().toIso8601String().substring(0, 10)}',
+    );
+    final name = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(t.bookshelfCreatePackTitle),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          decoration: InputDecoration(
+            labelText: t.bookshelfCreatePackName,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(null),
+            child: Text(t.btnCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
+            child: Text(t.btnConfirm),
+          ),
+        ],
+      ),
+    );
+    if (name == null || name.isEmpty) return;
+    // 임시 BookPage 빌드 — 저장 안 됐을 수도 있으니 ephemeral.
+    final tempPage = BookPage(
+      id: 'temp_${DateTime.now().millisecondsSinceEpoch}',
+      localThumbnailPath: _imagePath,
+      extractedText: _text,
+      note: '',
+      words: res.words,
+      grammar: res.grammar,
+      sentences: res.sentences,
+      capturedAtIso: DateTime.now().toUtc().toIso8601String(),
+      customPackId: null,
+    );
+    final pack = await CustomPackService.createFromPage(
+      page: tempPage,
+      name: name,
+    );
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(t.bookshelfCreatePackSaved),
+        behavior: SnackBarBehavior.floating,
+        action: SnackBarAction(
+          label: t.btnPlay,
+          onPressed: () => Navigator.of(context).pushNamed(
+            '/custom_pack/play',
+            arguments: pack.id,
+          ),
         ),
       ),
     );

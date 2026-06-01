@@ -552,6 +552,21 @@ class Storage {
     _packCache = null;
   }
 
+  // ── Phase 5.1 (stately-rising-jongga) ── Custom Packs + Endpoint ────
+  //
+  // CustomPack JSON map: { packId: { name, sourcePageId, words: [...], ... } }
+  // Endpoint: BookAnalysisService 가 부르는 Cloud Function URL (Settings UI).
+  // ────────────────────────────────────────────────────────────────────
+
+  static String get customPacksRawJson => _s('kl_custom_packs_v1');
+  static Future<void> setCustomPacksRawJson(String json) =>
+      _ss('kl_custom_packs_v1', json);
+
+  static String get bookAnalysisEndpoint =>
+      _s('kl_book_analysis_endpoint');
+  static Future<void> setBookAnalysisEndpoint(String url) =>
+      _ss('kl_book_analysis_endpoint', url.trim());
+
   // ── Phase 5 (stately-rising-jongga) ── 책 한 컷 / Bookshelf Storage ──
   //
   // Raw JSON string in SharedPreferences. Bookshelf-Service liest/parst.

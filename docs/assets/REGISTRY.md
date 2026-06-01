@@ -1,14 +1,34 @@
 # Asset Registry — Hangul Sori
 
 > Single source of truth for which PNG fills which slot in the app.
-> Generated 2026-05-28 (Phase 4). Refresh whenever a new `Image.asset(...)`
-> or `HanokHeader(asset: ...)` call site is added.
+> Generated 2026-05-28 (Phase 4). Last refreshed 2026-06-01 for the Jongga
+> asset import. Refresh whenever a new `Image.asset(...)` or
+> `HanokHeader(asset: ...)` call site is added.
 >
 > All consumer PNGs have an `errorBuilder` (or `HanokHeader` gradient
 > fallback). A missing file degrades to icon/gradient — it does not crash.
 >
 > Stylistic baseline for **new** illustrations: see
 > `~/Downloads/HANGUL_SORI_STYLE_GUIDE.md` (Faceted Minhwa).
+
+## 2026-06-01 Jongga Import
+
+Source folder: `~/Downloads/종가이미지`.
+
+Imported into app asset folders:
+
+- Gate intro layers -> `assets/illustrations/hanok/`
+- Living hanok stage backgrounds -> `assets/illustrations/hanok_stages/`
+- Quest reward decorations -> `assets/illustrations/decorations/`
+- Mascot replacements -> `assets/illustrations/mascot/`
+- Stamp motifs -> `assets/illustrations/stamps/`
+- Sticker/reward extras -> `assets/stickers/`
+
+Composable PNGs that arrived with baked checkerboard backgrounds were converted
+to true RGBA alpha after import. Full-scene backgrounds such as
+`gate_entrance.png`, `gate_final.png`, and `stage_*_light.png` keep their RGB
+backgrounds. `stage_beams.light.DE.png` and `stage_beams.light.EN.png` were
+not imported because they are full app UI mockups, not pure stage backdrops.
 
 ---
 
@@ -90,6 +110,15 @@ from generated checkerboard RGB images to real RGBA alpha.
 | `decoration_punggyeong.png` | `q_punggyeong` |
 | `decoration_pyeonaek.png` | `q_pyeonaek` |
 | `decoration_sagunja_maehwa.png` | `q_sagunja_maehwa` |
+| `decoration_kkachi_nest.png` | `q_kkachi_nest` |
+| `decoration_sagunja_nan.png` | `q_sagunja_nan` |
+| `decoration_sagunja_juk.png` | `q_sagunja_juk` |
+
+Still planned / missing from the 2026-06-01 batch:
+`decoration_seokdeung.png`, `decoration_doldam.png`,
+`decoration_sagunja_guk.png`, `decoration_seollal_flag.png`,
+`decoration_chuseok_moon.png`, `decoration_hangeulday_plaque.png`,
+`decoration_kite.png`.
 
 ---
 
@@ -105,7 +134,7 @@ hard-code these paths in screens).
 |---|---|---|
 | `tiger_idle.png` | (animate cycle for `smile`, `neutral` — random idle frame) | base resting pose |
 | `tiger_blink.png` | (animate cycle for `smile`, `neutral`, alias for `sleepy`) | eyes closed |
-| `tiger_happy.png` | `surprised` | wide eyes |
+| `tiger_happy.png` | `surprised` | 2026-06-01 full-body moving happy pose, RGBA alpha |
 | `tiger_celebrate.png` | `celebrate` | arms up / confetti |
 | `tiger_sad.png` | `worry` | downturned mouth |
 | `tiger_smile.png` | `smile` (default) | gentle smile, hero pose |
@@ -118,8 +147,8 @@ hard-code these paths in screens).
 | Filename | Emotion(s) mapped | Notes |
 |---|---|---|
 | `magpie_perched.png` | `sleepy`, default idle | resting on branch |
-| `magpie_wingup.png` | (animate cycle for `smile`/`neutral`/`thinking`/`surprised`) + FlyingMagpie | wing raised |
-| `magpie_wingdown.png` | (animate cycle, alternating with wingup) + FlyingMagpie | wing lowered |
+| `magpie_wingup.png` | (animate cycle for `smile`/`neutral`/`thinking`/`surprised`) + FlyingMagpie | wing raised, refreshed 2026-06-01 |
+| `magpie_wingdown.png` | (animate cycle, alternating with wingup) + FlyingMagpie | wing lowered, refreshed 2026-06-01 |
 | `magpie_celebrate.png` | `celebrate` | wings spread |
 | `magpie_perched_alt.png` | `worry` (mapped via `_magpieWorry`) | alt pose for fallback variety |
 
@@ -127,6 +156,54 @@ hard-code these paths in screens).
 `horangi` / `호랑이` / `jieun` / `minsu` → tiger; `kkachi` / `magpie` /
 `까치` → magpie. Unknown speaker → `null` (caller must `?? Mascot.tiger(...)`
 to guarantee a widget).
+
+---
+
+## `assets/illustrations/stamps/` — dancheong stamp motifs
+
+Imported from `~/Downloads/종가이미지` on 2026-06-01 and registered in
+`pubspec.yaml`. These are RGBA alpha PNGs intended for future stamp/reward UI
+slots. The existing [dancheong_stamp.dart](../../lib/widgets/sori/dancheong_stamp.dart)
+widget can accept an `asset` when these are wired in.
+
+| Filename | Motif | Status |
+|---|---|---|
+| `stamp_lotus.png` | Lotus | imported |
+| `stamp_chrysanthemum.png` | Chrysanthemum | imported |
+| `stamp_bamboo.png` | Bamboo | imported |
+| `stamp_cloud.png` | Cloud scroll | imported |
+| `stamp_geometric_octagon.png` | Octagon geometry | imported |
+| `stamp_swastika.png` | Manji lattice | imported |
+
+Still planned / missing from the current batch: `stamp_plum.png`,
+`stamp_mountain.png`.
+
+---
+
+## `assets/stickers/` — collectible sticker extras
+
+Imported from `~/Downloads/종가이미지` on 2026-06-01 and registered in
+`pubspec.yaml`. These are RGBA alpha PNGs. No production UI currently consumes
+this folder directly, so wire through a typed asset map before hard-coding
+paths in screens.
+
+| Filename | Category | Status |
+|---|---|---|
+| `dancheong_cloud.png` | Dancheong | imported |
+| `dancheong_flower.png` | Dancheong | imported |
+| `dancheong_hanji.png` | Dancheong | imported |
+| `dancheong_star.png` | Dancheong | imported |
+| `food_hotteok.png` | Food | imported |
+| `food_kimbap.png` | Food | imported |
+| `food_sikhye.png` | Food | imported |
+| `food_tea.png` | Food | imported |
+| `food_tteok.png` | Food | imported |
+| `hangul_fighting.png` | Hangul | imported |
+| `hangul_hh.png` | Hangul | imported |
+
+Still planned / missing from the current batch: `dancheong_lantern.png`,
+`hangul_heart.png`, `hangul_good.png`, `hangul_wow.png`, and
+`stamp_sticker_*.png`.
 
 ---
 
@@ -205,13 +282,13 @@ Pillow recipe captured in commit history if the source art changes.
 
 ## Adding a new asset — quick playbook
 
-1. Decide which folder it belongs to (header / mascot pose / scene / empty
-   / error / icon).
+1. Decide which folder it belongs to (header / hanok stage / decoration /
+   stamp / sticker / mascot pose / scene / empty / error / icon).
 2. Generate at the recommended dimensions above, save as PNG.
    Use Faceted Minhwa style (`HANGUL_SORI_STYLE_GUIDE.md`).
-3. Drop into the matching folder under `assets/illustrations/...`.
-   `pubspec.yaml` already declares all 5 illustration subfolders + `icons/`
-   — no manifest edit needed.
+3. Drop into the matching folder under `assets/illustrations/...` or
+   `assets/stickers/`. `pubspec.yaml` declares the current asset folders; add a
+   new folder there if a future import creates another top-level asset path.
 4. Wire it into the consumer screen. Prefer `HanokHeader(asset: ...)` for
    banners; `SoriEmptyState(asset: ...)` for empty/error.
 5. Add a row to the table above (filename, slot, consumer file:line,

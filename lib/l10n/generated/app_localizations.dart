@@ -337,6 +337,258 @@ abstract class AppL10n {
   /// **'Übernehmen'**
   String get btnApply;
 
+  /// No description provided for @btnPlay.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get btnPlay;
+
+  /// No description provided for @btnDelete.
+  ///
+  /// In de, this message translates to:
+  /// **'Löschen'**
+  String get btnDelete;
+
+  /// No description provided for @bookshelfTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Bücherregal'**
+  String get bookshelfTitle;
+
+  /// No description provided for @bookshelfAddPage.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite hinzufügen'**
+  String get bookshelfAddPage;
+
+  /// No description provided for @bookshelfEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Seite'**
+  String get bookshelfEmptyTitle;
+
+  /// No description provided for @bookshelfEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Knipse deine erste Lehrbuchseite — die analysierten Wörter landen hier.'**
+  String get bookshelfEmptyBody;
+
+  /// No description provided for @bookshelfEmptyCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite einlesen'**
+  String get bookshelfEmptyCta;
+
+  /// No description provided for @bookshelfSectionPages.
+  ///
+  /// In de, this message translates to:
+  /// **'Seiten'**
+  String get bookshelfSectionPages;
+
+  /// No description provided for @bookshelfSectionCustomPacks.
+  ///
+  /// In de, this message translates to:
+  /// **'Eigene Packs'**
+  String get bookshelfSectionCustomPacks;
+
+  /// No description provided for @bookshelfTileMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'{words} Wörter · {grammar} Grammatik · {date}'**
+  String bookshelfTileMeta(int words, int grammar, String date);
+
+  /// No description provided for @bookshelfPackMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Wörter'**
+  String bookshelfPackMeta(int n);
+
+  /// No description provided for @bookshelfPageTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite'**
+  String get bookshelfPageTitle;
+
+  /// No description provided for @bookshelfPageNotFoundTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite nicht gefunden'**
+  String get bookshelfPageNotFoundTitle;
+
+  /// No description provided for @bookshelfPageNotFoundBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Möglicherweise wurde sie gelöscht.'**
+  String get bookshelfPageNotFoundBody;
+
+  /// No description provided for @bookshelfCreatePackCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Custom-Pack aus dieser Seite'**
+  String get bookshelfCreatePackCta;
+
+  /// No description provided for @bookshelfCreatePackTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Neuer Custom-Pack'**
+  String get bookshelfCreatePackTitle;
+
+  /// No description provided for @bookshelfCreatePackName.
+  ///
+  /// In de, this message translates to:
+  /// **'Name'**
+  String get bookshelfCreatePackName;
+
+  /// No description provided for @bookshelfCreatePackSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Pack gespeichert.'**
+  String get bookshelfCreatePackSaved;
+
+  /// No description provided for @bookshelfDeletePageTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite löschen?'**
+  String get bookshelfDeletePageTitle;
+
+  /// No description provided for @bookshelfDeletePageBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Seite wird endgültig entfernt.'**
+  String get bookshelfDeletePageBody;
+
+  /// No description provided for @bookshelfDeletePackTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Pack löschen?'**
+  String get bookshelfDeletePackTitle;
+
+  /// No description provided for @bookshelfDeletePackBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Soll \"{name}\" gelöscht werden?'**
+  String bookshelfDeletePackBody(Object name);
+
+  /// No description provided for @customPackPlayTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Custom-Pack üben'**
+  String get customPackPlayTitle;
+
+  /// No description provided for @customPackNotFoundTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Pack nicht gefunden'**
+  String get customPackNotFoundTitle;
+
+  /// No description provided for @customPackNotFoundBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Möglicherweise wurde es gelöscht.'**
+  String get customPackNotFoundBody;
+
+  /// No description provided for @customPackEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Pack ist leer'**
+  String get customPackEmptyTitle;
+
+  /// No description provided for @customPackEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Pack enthält noch keine Wörter.'**
+  String get customPackEmptyBody;
+
+  /// No description provided for @customPackResultTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Geschafft'**
+  String get customPackResultTitle;
+
+  /// No description provided for @customPackResultDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Karten durchgegangen!'**
+  String get customPackResultDone;
+
+  /// No description provided for @customPackResultStats.
+  ///
+  /// In de, this message translates to:
+  /// **'{learned} von {total} als gewusst markiert'**
+  String customPackResultStats(int learned, int total);
+
+  /// No description provided for @customPackResultAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Nochmal durchgehen'**
+  String get customPackResultAgain;
+
+  /// No description provided for @customPackResultBack.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zum Bücherregal'**
+  String get customPackResultBack;
+
+  /// No description provided for @homeBookCardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchseite'**
+  String get homeBookCardTitle;
+
+  /// No description provided for @homeBookCardDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Knipsen → Wörter & Grammatik'**
+  String get homeBookCardDesc;
+
+  /// No description provided for @homeBookshelfCardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Bücherregal'**
+  String get homeBookshelfCardTitle;
+
+  /// No description provided for @homeBookshelfCardDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Seiten & Custom-Packs'**
+  String get homeBookshelfCardDesc;
+
+  /// No description provided for @homeQuestsCardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Quests'**
+  String get homeQuestsCardTitle;
+
+  /// No description provided for @homeQuestsCardDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr Hanok-Dekoration freischalten'**
+  String get homeQuestsCardDesc;
+
+  /// No description provided for @settingsBookEndpointSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Analyse-Endpoint'**
+  String get settingsBookEndpointSection;
+
+  /// No description provided for @settingsBookEndpointHint.
+  ///
+  /// In de, this message translates to:
+  /// **'URL der Cloud Function (DeepL + OKT). Leer = nur Offline-Grammatik.'**
+  String get settingsBookEndpointHint;
+
+  /// No description provided for @settingsBookEndpointSave.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern'**
+  String get settingsBookEndpointSave;
+
+  /// No description provided for @settingsBookEndpointSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Endpoint gespeichert.'**
+  String get settingsBookEndpointSaved;
+
   /// No description provided for @filterTitle.
   ///
   /// In de, this message translates to:

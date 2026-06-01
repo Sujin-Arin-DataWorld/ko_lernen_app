@@ -45,6 +45,72 @@
   "btnRetry": "Try again",
   "btnClose": "Close",
   "btnApply": "Apply",
+  "btnPlay": "Play",
+  "btnDelete": "Delete",
+
+  "@_phase5_1_bookshelf": { "description": "Phase 5.1 (stately-rising-jongga) — Bookshelf + Custom Pack UI." },
+  "bookshelfTitle":              "My bookshelf",
+  "bookshelfAddPage":            "Add page",
+  "bookshelfEmptyTitle":         "No pages yet",
+  "bookshelfEmptyBody":          "Snap your first textbook page — the analyzed words will land here.",
+  "bookshelfEmptyCta":           "Snap a page",
+  "bookshelfSectionPages":       "Pages",
+  "bookshelfSectionCustomPacks": "Custom packs",
+  "bookshelfTileMeta":           "{words} words · {grammar} grammar · {date}",
+  "@bookshelfTileMeta": {
+    "placeholders": {
+      "words":   { "type": "int" },
+      "grammar": { "type": "int" },
+      "date":    { "type": "String" }
+    }
+  },
+  "bookshelfPackMeta":           "{n} words",
+  "@bookshelfPackMeta": {
+    "placeholders": { "n": { "type": "int" } }
+  },
+  "bookshelfPageTitle":          "Page",
+  "bookshelfPageNotFoundTitle":  "Page not found",
+  "bookshelfPageNotFoundBody":   "It may have been deleted.",
+  "bookshelfCreatePackCta":      "Create a custom pack from this page",
+  "bookshelfCreatePackTitle":    "New custom pack",
+  "bookshelfCreatePackName":     "Name",
+  "bookshelfCreatePackSaved":    "Pack saved.",
+  "bookshelfDeletePageTitle":    "Delete page?",
+  "bookshelfDeletePageBody":     "The page will be permanently removed.",
+  "bookshelfDeletePackTitle":    "Delete pack?",
+  "bookshelfDeletePackBody":     "Delete \"{name}\"?",
+  "@bookshelfDeletePackBody": {
+    "placeholders": { "name": {} }
+  },
+
+  "customPackPlayTitle":         "Custom pack practice",
+  "customPackNotFoundTitle":     "Pack not found",
+  "customPackNotFoundBody":      "It may have been deleted.",
+  "customPackEmptyTitle":        "Pack is empty",
+  "customPackEmptyBody":         "This pack has no words yet.",
+  "customPackResultTitle":       "Done",
+  "customPackResultDone":        "All cards done!",
+  "customPackResultStats":       "{learned} of {total} marked as known",
+  "@customPackResultStats": {
+    "placeholders": {
+      "learned": { "type": "int" },
+      "total":   { "type": "int" }
+    }
+  },
+  "customPackResultAgain":       "Go again",
+  "customPackResultBack":        "Back to bookshelf",
+
+  "homeBookCardTitle":           "Book page",
+  "homeBookCardDesc":            "Snap → words & grammar",
+  "homeBookshelfCardTitle":      "My bookshelf",
+  "homeBookshelfCardDesc":       "Saved pages & custom packs",
+  "homeQuestsCardTitle":         "Quests",
+  "homeQuestsCardDesc":          "Unlock more hanok decorations",
+
+  "settingsBookEndpointSection": "Cloud analysis endpoint",
+  "settingsBookEndpointHint":    "Cloud Function URL (DeepL + OKT). Empty = offline grammar only.",
+  "settingsBookEndpointSave":    "Save",
+  "settingsBookEndpointSaved":   "Endpoint saved.",
 
   "filterTitle": "Filter",
   "filterLevel": "Level",

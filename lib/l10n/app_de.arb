@@ -45,6 +45,72 @@
   "btnRetry": "Erneut versuchen",
   "btnClose": "Schließen",
   "btnApply": "Übernehmen",
+  "btnPlay": "Üben",
+  "btnDelete": "Löschen",
+
+  "@_phase5_1_bookshelf": { "description": "Phase 5.1 (stately-rising-jongga) — Bookshelf + Custom Pack UI." },
+  "bookshelfTitle":              "Mein Bücherregal",
+  "bookshelfAddPage":            "Seite hinzufügen",
+  "bookshelfEmptyTitle":         "Noch keine Seite",
+  "bookshelfEmptyBody":          "Knipse deine erste Lehrbuchseite — die analysierten Wörter landen hier.",
+  "bookshelfEmptyCta":           "Seite einlesen",
+  "bookshelfSectionPages":       "Seiten",
+  "bookshelfSectionCustomPacks": "Eigene Packs",
+  "bookshelfTileMeta":           "{words} Wörter · {grammar} Grammatik · {date}",
+  "@bookshelfTileMeta": {
+    "placeholders": {
+      "words":   { "type": "int" },
+      "grammar": { "type": "int" },
+      "date":    { "type": "String" }
+    }
+  },
+  "bookshelfPackMeta":           "{n} Wörter",
+  "@bookshelfPackMeta": {
+    "placeholders": { "n": { "type": "int" } }
+  },
+  "bookshelfPageTitle":          "Seite",
+  "bookshelfPageNotFoundTitle":  "Seite nicht gefunden",
+  "bookshelfPageNotFoundBody":   "Möglicherweise wurde sie gelöscht.",
+  "bookshelfCreatePackCta":      "Custom-Pack aus dieser Seite",
+  "bookshelfCreatePackTitle":    "Neuer Custom-Pack",
+  "bookshelfCreatePackName":     "Name",
+  "bookshelfCreatePackSaved":    "Pack gespeichert.",
+  "bookshelfDeletePageTitle":    "Seite löschen?",
+  "bookshelfDeletePageBody":     "Die Seite wird endgültig entfernt.",
+  "bookshelfDeletePackTitle":    "Pack löschen?",
+  "bookshelfDeletePackBody":     "Soll \"{name}\" gelöscht werden?",
+  "@bookshelfDeletePackBody": {
+    "placeholders": { "name": {} }
+  },
+
+  "customPackPlayTitle":         "Custom-Pack üben",
+  "customPackNotFoundTitle":     "Pack nicht gefunden",
+  "customPackNotFoundBody":      "Möglicherweise wurde es gelöscht.",
+  "customPackEmptyTitle":        "Pack ist leer",
+  "customPackEmptyBody":         "Dieser Pack enthält noch keine Wörter.",
+  "customPackResultTitle":       "Geschafft",
+  "customPackResultDone":        "Alle Karten durchgegangen!",
+  "customPackResultStats":       "{learned} von {total} als gewusst markiert",
+  "@customPackResultStats": {
+    "placeholders": {
+      "learned": { "type": "int" },
+      "total":   { "type": "int" }
+    }
+  },
+  "customPackResultAgain":       "Nochmal durchgehen",
+  "customPackResultBack":        "Zurück zum Bücherregal",
+
+  "homeBookCardTitle":           "Buchseite",
+  "homeBookCardDesc":            "Knipsen → Wörter & Grammatik",
+  "homeBookshelfCardTitle":      "Mein Bücherregal",
+  "homeBookshelfCardDesc":       "Gespeicherte Seiten & Custom-Packs",
+  "homeQuestsCardTitle":         "Quests",
+  "homeQuestsCardDesc":          "Mehr Hanok-Dekoration freischalten",
+
+  "settingsBookEndpointSection": "Cloud-Analyse-Endpoint",
+  "settingsBookEndpointHint":    "URL der Cloud Function (DeepL + OKT). Leer = nur Offline-Grammatik.",
+  "settingsBookEndpointSave":    "Speichern",
+  "settingsBookEndpointSaved":   "Endpoint gespeichert.",
 
   "filterTitle": "Filter",
   "filterLevel": "Level",
