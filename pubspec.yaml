@@ -45,6 +45,17 @@ dependencies:
   firebase_analytics: ^11.6.0
   firebase_crashlytics: ^4.3.10
 
+  # ── Phase 5 (stately-rising-jongga) — 책 한 컷 ───────────
+  # OCR: ML Kit (on-device, 무료, 한국어 지원)
+  google_mlkit_text_recognition: ^0.13.0
+  # 사진 캡쳐 + 자르기
+  image_picker:   ^1.1.2
+  image_cropper:  ^8.0.2
+  # 권한 요청 (카메라 + 사진)
+  permission_handler: ^11.3.1
+  # Cloud Function HTTP 호출
+  http: ^1.2.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -62,6 +73,8 @@ flutter:
     - assets/data/
     - assets/icons/
     - assets/illustrations/hanok/
+    - assets/illustrations/hanok_stages/
+    - assets/illustrations/decorations/
     - assets/illustrations/mascot/
     - assets/illustrations/scenes/
     - assets/illustrations/empty/

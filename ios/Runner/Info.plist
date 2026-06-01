@@ -77,5 +77,12 @@
 		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<!-- Phase 5 (stately-rising-jongga) — "책 한 컷" Snap-and-Learn.
+		     Bild wird on-device per ML Kit OCR analysiert; nur extrahierter
+		     Text wird zum Cloud Function Server gesendet. -->
+		<key>NSCameraUsageDescription</key>
+		<string>Diese App benötigt Zugriff auf die Kamera, um Lehrbuchseiten zu fotografieren und automatisch koreanische Wörter zu extrahieren.</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>Diese App benötigt Zugriff auf Ihre Fotos, um eine bereits aufgenommene Lehrbuchseite zur Analyse auszuwählen.</string>
 	</dict>
 </plist>

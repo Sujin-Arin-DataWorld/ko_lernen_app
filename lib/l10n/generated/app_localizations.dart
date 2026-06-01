@@ -1123,6 +1123,216 @@ abstract class AppL10n {
   /// **'🔒 Schaffe zuerst \"{prev}\" mit ≥ 70 % Bossen.'**
   String vocabPackLockedHint(Object prev);
 
+  /// No description provided for @bookCaptureTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchseite einlesen'**
+  String get bookCaptureTitle;
+
+  /// No description provided for @bookCaptureHero.
+  ///
+  /// In de, this message translates to:
+  /// **'Knipse eine Lehrbuchseite'**
+  String get bookCaptureHero;
+
+  /// No description provided for @bookCaptureSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Bild bleibt auf deinem Gerät. Nur erkannter Text wird analysiert.'**
+  String get bookCaptureSubtitle;
+
+  /// No description provided for @bookCaptureCamera.
+  ///
+  /// In de, this message translates to:
+  /// **'Kamera'**
+  String get bookCaptureCamera;
+
+  /// No description provided for @bookCaptureGallery.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus Galerie'**
+  String get bookCaptureGallery;
+
+  /// No description provided for @bookCaptureLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Texterkennung läuft …'**
+  String get bookCaptureLoading;
+
+  /// No description provided for @bookCaptureErrorNoKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'Kein Koreanisch erkannt — bitte eine deutlichere Aufnahme.'**
+  String get bookCaptureErrorNoKorean;
+
+  /// No description provided for @bookCaptureErrorPermission.
+  ///
+  /// In de, this message translates to:
+  /// **'Berechtigung verweigert. Du kannst es in den Einstellungen erlauben.'**
+  String get bookCaptureErrorPermission;
+
+  /// No description provided for @bookCaptureErrorQuota.
+  ///
+  /// In de, this message translates to:
+  /// **'Tägliches Limit erreicht (20 Seiten). Komm morgen wieder.'**
+  String get bookCaptureErrorQuota;
+
+  /// No description provided for @bookCaptureErrorOcr.
+  ///
+  /// In de, this message translates to:
+  /// **'Texterkennung fehlgeschlagen.'**
+  String get bookCaptureErrorOcr;
+
+  /// No description provided for @bookCaptureErrorUnknown.
+  ///
+  /// In de, this message translates to:
+  /// **'Unerwarteter Fehler.'**
+  String get bookCaptureErrorUnknown;
+
+  /// No description provided for @bookCropTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereich zuschneiden'**
+  String get bookCropTitle;
+
+  /// No description provided for @bookPreviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Text prüfen'**
+  String get bookPreviewTitle;
+
+  /// No description provided for @bookPreviewHint.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Textblöcke erkannt — bei Bedarf korrigieren.'**
+  String bookPreviewHint(int count);
+
+  /// No description provided for @bookPreviewAnalyze.
+  ///
+  /// In de, this message translates to:
+  /// **'Analysieren'**
+  String get bookPreviewAnalyze;
+
+  /// No description provided for @bookPreviewRetake.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu aufnehmen'**
+  String get bookPreviewRetake;
+
+  /// No description provided for @bookResultTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis'**
+  String get bookResultTitle;
+
+  /// No description provided for @bookResultAnalyzing.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter & Grammatik werden untersucht …'**
+  String get bookResultAnalyzing;
+
+  /// No description provided for @bookResultFoundN.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} neue Wörter gefunden'**
+  String bookResultFoundN(int n);
+
+  /// No description provided for @bookResultOfflineNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Server nicht erreichbar — nur Grammatikmuster offline erkannt.'**
+  String get bookResultOfflineNotice;
+
+  /// No description provided for @bookResultSectionWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter'**
+  String get bookResultSectionWords;
+
+  /// No description provided for @bookResultSectionGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik'**
+  String get bookResultSectionGrammar;
+
+  /// No description provided for @bookResultSectionSentences.
+  ///
+  /// In de, this message translates to:
+  /// **'Sätze'**
+  String get bookResultSectionSentences;
+
+  /// No description provided for @bookResultSave.
+  ///
+  /// In de, this message translates to:
+  /// **'In meinem Bücherregal speichern'**
+  String get bookResultSave;
+
+  /// No description provided for @bookResultSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite gespeichert.'**
+  String get bookResultSaved;
+
+  /// No description provided for @bookResultBackToCapture.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Seite einlesen'**
+  String get bookResultBackToCapture;
+
+  /// No description provided for @questsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Spezial-Quests'**
+  String get questsTitle;
+
+  /// No description provided for @questsEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Quests'**
+  String get questsEmptyTitle;
+
+  /// No description provided for @questsEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Beginne ein Pack — die ersten Quest-Fortschritte erscheinen hier.'**
+  String get questsEmptyBody;
+
+  /// No description provided for @questsSectionInProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Läuft'**
+  String get questsSectionInProgress;
+
+  /// No description provided for @questsSectionAvailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Verfügbar'**
+  String get questsSectionAvailable;
+
+  /// No description provided for @questsSectionCompleted.
+  ///
+  /// In de, this message translates to:
+  /// **'Geklärt'**
+  String get questsSectionCompleted;
+
+  /// No description provided for @questsSectionSeasonalLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Saisonal (gesperrt)'**
+  String get questsSectionSeasonalLocked;
+
+  /// No description provided for @questsSeasonalBadge.
+  ///
+  /// In de, this message translates to:
+  /// **'Saison'**
+  String get questsSeasonalBadge;
+
+  /// No description provided for @hanokCinematicIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok wächst —'**
+  String get hanokCinematicIntro;
+
   /// No description provided for @hanokStageEmpty.
   ///
   /// In de, this message translates to:

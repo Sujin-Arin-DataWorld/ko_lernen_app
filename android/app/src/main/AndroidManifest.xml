@@ -47,6 +47,19 @@
     <!-- Android 13+ requires this permission when the app uses Advertising ID
          via Firebase Analytics. No AdMob ads are included in v1.0.0. -->
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <!-- Phase 5 (stately-rising-jongga) — "책 한 컷" Snap-and-Learn.
+         Kamera zum Fotografieren von Lehrbuchseiten + Galeriezugriff für
+         vorhandene Fotos. OCR (ML Kit) läuft on-device, kein Cloud-Upload
+         des Bildes; nur der extrahierte Text wird zum Analysieren versendet.
+         iOS Pendant siehe ios/Runner/Info.plist. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <!-- Android 13+ (SDK 33+): granulare Medienberechtigung statt READ_EXTERNAL_STORAGE -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <!-- Fallback für ältere Android (≤ 12), max-sdk verhindert Doppel-Prompt -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.

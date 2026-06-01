@@ -7,10 +7,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 enum MasteryState {
   /// Noch nie reviewed — frische Karte.
   fresh,
+
   /// Erste paar Wiederholungen, kurzes Intervall (≤ 3 Tage).
   learning,
+
   /// Intervall > 3 Tage, fällig (heute oder früher).
   reviewDue,
+
   /// Intervall > 3 Tage, sitzt — nicht fällig.
   strong,
 }
@@ -18,10 +21,10 @@ enum MasteryState {
 /// Spaced Repetition card state.
 /// Felder kurz benannt, damit JSON klein bleibt (viele tausend Vokabeln möglich).
 class SrsCard {
-  final double ease;          // SM-2 Ease-Faktor (1.3 – 3.5)
-  final int    intervalDays;  // aktuelles Intervall
+  final double ease; // SM-2 Ease-Faktor (1.3 – 3.5)
+  final int intervalDays; // aktuelles Intervall
   final String nextReviewIso; // 'YYYY-MM-DD'
-  final int    reviewCount;   // wie oft wiederholt
+  final int reviewCount; // wie oft wiederholt
 
   const SrsCard({
     required this.ease,
@@ -38,10 +41,10 @@ class SrsCard {
   };
 
   factory SrsCard.fromJson(Map<String, dynamic> j) => SrsCard(
-    ease:          (j['e'] as num?)?.toDouble() ?? 2.5,
-    intervalDays:  (j['i'] as num?)?.toInt()    ?? 0,
-    nextReviewIso: j['n'] as String?            ?? '',
-    reviewCount:   (j['r'] as num?)?.toInt()    ?? 0,
+    ease: (j['e'] as num?)?.toDouble() ?? 2.5,
+    intervalDays: (j['i'] as num?)?.toInt() ?? 0,
+    nextReviewIso: j['n'] as String? ?? '',
+    reviewCount: (j['r'] as num?)?.toInt() ?? 0,
   );
 }
 
@@ -66,25 +69,26 @@ class Storage {
   }
 
   // ───────── Generic helpers ─────────
-  static int    _i(String k)             => _prefs?.getInt(k)    ?? 0;
-  static String _s(String k)             => _prefs?.getString(k) ?? '';
+  static int _i(String k) => _prefs?.getInt(k) ?? 0;
+  static String _s(String k) => _prefs?.getString(k) ?? '';
   static double _d(String k, [double dflt = 0]) => _prefs?.getDouble(k) ?? dflt;
-  static List<String> _l(String k)       => _prefs?.getStringList(k) ?? [];
+  static List<String> _l(String k) => _prefs?.getStringList(k) ?? [];
 
-  static Future<void> _si(String k, int v)         async => _prefs?.setInt(k, v);
-  static Future<void> _ss(String k, String v)      async => _prefs?.setString(k, v);
-  static Future<void> _sd(String k, double v)      async => _prefs?.setDouble(k, v);
-  static Future<void> _sl(String k, List<String> v) async => _prefs?.setStringList(k, v);
+  static Future<void> _si(String k, int v) async => _prefs?.setInt(k, v);
+  static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
+  static Future<void> _sd(String k, double v) async => _prefs?.setDouble(k, v);
+  static Future<void> _sl(String k, List<String> v) async =>
+      _prefs?.setStringList(k, v);
 
   // ───────── Vokabeln ─────────
-  static int  get vokCorrect  => _i('kl_vok_correct');
-  static int  get vokWrong    => _i('kl_vok_wrong');
-  static int  get vokSkipped  => _i('kl_vok_skipped');
-  static int  get vokLastIdx  => _i('kl_vok_last_idx');
+  static int get vokCorrect => _i('kl_vok_correct');
+  static int get vokWrong => _i('kl_vok_wrong');
+  static int get vokSkipped => _i('kl_vok_skipped');
+  static int get vokLastIdx => _i('kl_vok_last_idx');
   static List<String> get vokSeenIds => _l('kl_vok_seen_ids');
 
   static Future<void> setVokCorrect(int v) => _si('kl_vok_correct', v);
-  static Future<void> setVokWrong(int v)   => _si('kl_vok_wrong', v);
+  static Future<void> setVokWrong(int v) => _si('kl_vok_wrong', v);
   static Future<void> setVokSkipped(int v) => _si('kl_vok_skipped', v);
   static Future<void> setVokLastIdx(int v) => _si('kl_vok_last_idx', v);
   static Future<void> addVokSeen(String id) async {
@@ -110,28 +114,31 @@ class Storage {
 
   // ───────── Chosung Quiz ─────────
   static int get chosungCorrect => _i('kl_chosung_correct');
-  static int get chosungWrong   => _i('kl_chosung_wrong');
-  static Future<void> incChosungCorrect() => _si('kl_chosung_correct', chosungCorrect + 1);
-  static Future<void> incChosungWrong()   => _si('kl_chosung_wrong',   chosungWrong   + 1);
+  static int get chosungWrong => _i('kl_chosung_wrong');
+  static Future<void> incChosungCorrect() =>
+      _si('kl_chosung_correct', chosungCorrect + 1);
+  static Future<void> incChosungWrong() =>
+      _si('kl_chosung_wrong', chosungWrong + 1);
 
   // ───────── Wordle ─────────
-  static int get wordleWins        => _i('kl_wordle_wins');
-  static int get wordleLosses      => _i('kl_wordle_losses');
-  static int get wordleStreak      => _i('kl_wordle_streak');
-  static int get wordleBestStreak  => _i('kl_wordle_best_streak');
+  static int get wordleWins => _i('kl_wordle_wins');
+  static int get wordleLosses => _i('kl_wordle_losses');
+  static int get wordleStreak => _i('kl_wordle_streak');
+  static int get wordleBestStreak => _i('kl_wordle_best_streak');
   static Future<void> incWordleWins() async {
     await _si('kl_wordle_wins', wordleWins + 1);
     final s = wordleStreak + 1;
     await _si('kl_wordle_streak', s);
     if (s > wordleBestStreak) await _si('kl_wordle_best_streak', s);
   }
+
   static Future<void> incWordleLosses() async {
     await _si('kl_wordle_losses', wordleLosses + 1);
     await _si('kl_wordle_streak', 0);
   }
 
   // ───────── Grammatik ─────────
-  static int  get grammarLastIdx => _i('kl_gram_last_idx');
+  static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
   static Future<void> addGrammarSeen(String pattern) async {
@@ -143,13 +150,13 @@ class Storage {
   }
 
   // ───────── App / Streak ─────────
-  static String get lastOpenDate => _s('kl_last_open_date');  // 'YYYY-MM-DD'
-  static int    get streakDays   => _i('kl_streak_days');
-  static int    get bestStreak   => _i('kl_best_streak');
+  static String get lastOpenDate => _s('kl_last_open_date'); // 'YYYY-MM-DD'
+  static int get streakDays => _i('kl_streak_days');
+  static int get bestStreak => _i('kl_best_streak');
 
   /// Streak-Freeze Tokens. Verdient an jeder 7-Tage-Marke (Cap [kStreakFreezeMax]).
   /// Schützt automatisch genau einen verpassten Tag, damit der Streak überlebt.
-  static int    get streakFreezes        => _i('kl_streak_freezes');
+  static int get streakFreezes => _i('kl_streak_freezes');
   static String get streakFreezeLastUsed => _s('kl_streak_freeze_last_used');
   static const int kStreakFreezeMax = 2;
   static const int kStreakFreezeRefillDays = 7;
@@ -158,7 +165,7 @@ class Storage {
   /// [now] ist für Tests injizierbar; default = `DateTime.now()`.
   static Future<void> touchStreak({DateTime? now}) async {
     final today = _today(now);
-    final last  = lastOpenDate;
+    final last = lastOpenDate;
     if (last == today) return;
 
     int newStreak = 1;
@@ -203,7 +210,7 @@ class Storage {
   }
 
   // ───────── Einstellungen ─────────
-  static String get localeCode => _s('kl_locale');             // 'de', 'en', '' = system
+  static String get localeCode => _s('kl_locale'); // 'de', 'en', '' = system
   static Future<void> setLocaleCode(String v) => _ss('kl_locale', v);
 
   /// Theme-Modus: 'light' / 'dark' / '' = System.
@@ -219,6 +226,7 @@ class Storage {
       await _sl('kl_callig_dates', list);
     }
   }
+
   static bool get calligraphyDoneToday => calligraphyDates.contains(_today());
   static int get calligraphyTotalDays => calligraphyDates.length;
 
@@ -227,12 +235,14 @@ class Storage {
 
   /// Werbung anzeigen? Default true. User kann in Settings deaktivieren.
   static bool get adsEnabled => _prefs?.getBool('kl_ads_enabled') ?? true;
-  static Future<void> setAdsEnabled(bool v) async => _prefs?.setBool('kl_ads_enabled', v);
+  static Future<void> setAdsEnabled(bool v) async =>
+      _prefs?.setBool('kl_ads_enabled', v);
 
   /// Intro-Gate (솟을대문) schon gesehen? Erstlauf → volle Animation,
   /// danach kürzere Version.
   static bool get introSeen => _prefs?.getBool('kl_intro_seen') ?? false;
-  static Future<void> setIntroSeen() async => _prefs?.setBool('kl_intro_seen', true);
+  static Future<void> setIntroSeen() async =>
+      _prefs?.setBool('kl_intro_seen', true);
 
   // ───────── SRS (Spaced Repetition, SM-2 vereinfacht) ─────────
   static Map<String, SrsCard>? _srsCache;
@@ -253,7 +263,9 @@ class Storage {
   }
 
   static Future<void> _persistSrs() async {
-    final json = _srsCache?.map((k, v) => MapEntry(k, v.toJson())) ?? const <String, dynamic>{};
+    final json =
+        _srsCache?.map((k, v) => MapEntry(k, v.toJson())) ??
+        const <String, dynamic>{};
     await _ss('kl_srs_v1', jsonEncode(json));
   }
 
@@ -273,7 +285,14 @@ class Storage {
   /// - Richtig → Ease + 0.05 (1.3 ≤ Ease ≤ 3.5)
   static Future<void> srsReview(String id, {required bool gotIt}) async {
     final map = _loadSrs();
-    final old = map[id] ?? const SrsCard(ease: 2.5, intervalDays: 0, nextReviewIso: '', reviewCount: 0);
+    final old =
+        map[id] ??
+        const SrsCard(
+          ease: 2.5,
+          intervalDays: 0,
+          nextReviewIso: '',
+          reviewCount: 0,
+        );
     final now = DateTime.now();
 
     final SrsCard updated;
@@ -281,20 +300,20 @@ class Storage {
       final newInterval = old.intervalDays == 0
           ? 1
           : old.intervalDays == 1
-              ? 3
-              : (old.intervalDays * old.ease).round().clamp(1, 365);
+          ? 3
+          : (old.intervalDays * old.ease).round().clamp(1, 365);
       updated = SrsCard(
-        ease:          (old.ease + 0.05).clamp(1.3, 3.5),
-        intervalDays:  newInterval,
+        ease: (old.ease + 0.05).clamp(1.3, 3.5),
+        intervalDays: newInterval,
         nextReviewIso: _isoOf(now.add(Duration(days: newInterval))),
-        reviewCount:   old.reviewCount + 1,
+        reviewCount: old.reviewCount + 1,
       );
     } else {
       updated = SrsCard(
-        ease:          (old.ease - 0.2).clamp(1.3, 3.5),
-        intervalDays:  1,
+        ease: (old.ease - 0.2).clamp(1.3, 3.5),
+        intervalDays: 1,
         nextReviewIso: _isoOf(now.add(const Duration(days: 1))),
-        reviewCount:   old.reviewCount + 1,
+        reviewCount: old.reviewCount + 1,
       );
     }
     map[id] = updated;
@@ -343,10 +362,7 @@ class Storage {
 
   /// "Heute Wiederholung" — schon mal reviewed, jetzt fällig, max [max].
   /// Schließt nie-gesehene Karten aus (das sind "neue", siehe [todayNewIds]).
-  static List<String> todayReviewIds(
-    Iterable<String> allIds, {
-    int max = 15,
-  }) {
+  static List<String> todayReviewIds(Iterable<String> allIds, {int max = 15}) {
     if (max <= 0) return const [];
     final map = _loadSrs();
     final today = _today();
@@ -397,8 +413,8 @@ class Storage {
     if (card == null || card.reviewCount == 0) return MasteryState.fresh;
     if (card.intervalDays <= 3) return MasteryState.learning;
     final today = _today(now);
-    final due = card.nextReviewIso.isEmpty ||
-        card.nextReviewIso.compareTo(today) <= 0;
+    final due =
+        card.nextReviewIso.isEmpty || card.nextReviewIso.compareTo(today) <= 0;
     return due ? MasteryState.reviewDue : MasteryState.strong;
   }
 
@@ -409,12 +425,14 @@ class Storage {
     final v = _s('kl_user_level');
     return v.isEmpty ? null : v;
   }
-  static Future<void> setUserLevelCode(String code) => _ss('kl_user_level', code);
+
+  static Future<void> setUserLevelCode(String code) =>
+      _ss('kl_user_level', code);
 
   /// XP-Gesamtpunkte. Level = (xp / 100) + 1.
-  static int get xp        => _i('kl_xp');
-  static int get xpLevel   => (xp ~/ 100) + 1;
-  static int get xpToNext  => 100 - (xp % 100);
+  static int get xp => _i('kl_xp');
+  static int get xpLevel => (xp ~/ 100) + 1;
+  static int get xpToNext => 100 - (xp % 100);
   static Future<void> addXp(int amount) => _si('kl_xp', xp + amount);
 
   /// Sterne pro Szenario (0–3). Speichert nur Verbesserungen.
@@ -428,6 +446,7 @@ class Storage {
       return {};
     }
   }
+
   static Future<void> setScenarioStars(String id, int stars) async {
     final m = scenarioStars;
     if ((m[id] ?? 0) < stars) {
@@ -533,6 +552,92 @@ class Storage {
     _packCache = null;
   }
 
+  // ── Phase 5 (stately-rising-jongga) ── 책 한 컷 / Bookshelf Storage ──
+  //
+  // Raw JSON string in SharedPreferences. Bookshelf-Service liest/parst.
+  // ────────────────────────────────────────────────────────────────────
+  static String get bookshelfRawJson => _s('kl_bookshelf_v1');
+  static Future<void> setBookshelfRawJson(String json) =>
+      _ss('kl_bookshelf_v1', json);
+
+  /// Tagessperre für "책 한 컷" Analyse-Aufrufe — DeepL Free 한도 보호.
+  /// Speichert `<isoDate>:<count>`.
+  static const int kBookSnapDailyLimit = 20;
+
+  static int bookSnapCountToday() {
+    final raw = _s('kl_book_snap_quota');
+    final today = _today();
+    if (raw.isEmpty) return 0;
+    final parts = raw.split(':');
+    if (parts.length != 2) return 0;
+    if (parts[0] != today) return 0;
+    return int.tryParse(parts[1]) ?? 0;
+  }
+
+  static Future<void> incBookSnapCountToday() async {
+    final today = _today();
+    final cur = bookSnapCountToday();
+    await _ss('kl_book_snap_quota', '$today:${cur + 1}');
+  }
+
+  static bool get bookSnapQuotaReached =>
+      bookSnapCountToday() >= kBookSnapDailyLimit;
+
+  // ── Phase 4 (stately-rising-jongga) ── Kkeunmari-Wins Counter ───────
+  //
+  // Wird in `kkeunmari_screen._endGame()` inkrementiert bei Sieg
+  // (tigerStuck / deadEnd). Quest `q_punggyeong` braucht ≥ 10.
+  static int get kkeunmariWins => _i('kl_kkeunmari_wins');
+  static Future<void> incKkeunmariWins() =>
+      _si('kl_kkeunmari_wins', kkeunmariWins + 1);
+
+  // ── Phase 4 (stately-rising-jongga) ── Quest-Abschluss-Persistenz ────
+  //
+  // Format: JSON Map<questId, ISO-Timestamp>. Storage gewinnt von Quest-
+  // Tracker — beim ersten Erreichen des Targets wird hier markiert; die
+  // Marke verschwindet nicht mehr (auch wenn der Counter später sinkt,
+  // z.B. nach Reset).
+  static const String _questCompletedKey = 'kl_quests_completed_v1';
+
+  static Map<String, String> get questCompletions {
+    final raw = _s(_questCompletedKey);
+    if (raw.isEmpty) return const {};
+    try {
+      final decoded = jsonDecode(raw) as Map<String, dynamic>;
+      return decoded.map((k, v) => MapEntry(k, v as String));
+    } catch (_) {
+      return const {};
+    }
+  }
+
+  static bool hasQuestCompleted(String id) => questCompletions.containsKey(id);
+
+  static Future<void> markQuestCompleted(String id, {DateTime? at}) async {
+    final map = Map<String, String>.from(questCompletions);
+    if (map.containsKey(id)) return; // idempotent
+    map[id] = (at ?? DateTime.now().toUtc()).toIso8601String();
+    await _ss(_questCompletedKey, jsonEncode(map));
+  }
+
+  // ── Phase 3 (stately-rising-jongga) ── Gesehene Hanok-Stages ─────────
+  //
+  // Liste der bereits "gesehenen" HanokStage-Namen (z.B. ['empty',
+  // 'foundation']). Wird vom HanokCinematic-Widget gelesen, um die
+  // Übergangsszene nur einmal pro Stage auszuspielen.
+  // ─────────────────────────────────────────────────────────────────────
+
+  static List<String> get seenHanokStages => _l('kl_hanok_stages_seen_v1');
+
+  static bool hasSeenHanokStage(String stageName) =>
+      seenHanokStages.contains(stageName);
+
+  static Future<void> markHanokStageSeen(String stageName) async {
+    final list = seenHanokStages;
+    if (list.contains(stageName)) return;
+    list.add(stageName);
+    await _sl('kl_hanok_stages_seen_v1', list);
+  }
+
   // ───────── Reset ─────────
   static Future<void> resetAll() async {
     final keys = _prefs?.getKeys() ?? <String>{};
@@ -546,7 +651,7 @@ class Storage {
   static Future<void> resetSession() async {
     // Game-Punkte zurücksetzen, Streak/Profil-Daten bleiben
     await _si('kl_vok_correct', 0);
-    await _si('kl_vok_wrong',   0);
+    await _si('kl_vok_wrong', 0);
     await _si('kl_vok_skipped', 0);
     await _si('kl_vok_last_idx', 0);
     await _sl('kl_vok_seen_ids', []);

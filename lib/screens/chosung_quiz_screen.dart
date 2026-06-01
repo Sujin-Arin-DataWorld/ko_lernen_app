@@ -55,8 +55,26 @@ const List<String> _consonantPadKeys = [
 
 /// 중성(모음) 21자 — 한글 syllable decomposition.
 const List<String> _jungsungTable = [
-  'ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ',
-  'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ',
+  'ㅏ',
+  'ㅐ',
+  'ㅑ',
+  'ㅒ',
+  'ㅓ',
+  'ㅔ',
+  'ㅕ',
+  'ㅖ',
+  'ㅗ',
+  'ㅘ',
+  'ㅙ',
+  'ㅚ',
+  'ㅛ',
+  'ㅜ',
+  'ㅝ',
+  'ㅞ',
+  'ㅟ',
+  'ㅠ',
+  'ㅡ',
+  'ㅢ',
   'ㅣ',
 ];
 
@@ -76,10 +94,10 @@ String extractChosung(String word) {
 /// - [chosung]: just initial consonants (hard, e.g. "ㄱㅇㄷ" for 귀엽다)
 /// - [chosungVowel]: initial consonant + medial vowel pairs (easier,
 ///   e.g. "ㄱㅟ ㅇㅕ ㄷㅏ") — keeps user guessing the final but reveals vowels.
-enum _HintMode { chosung, chosungVowel }
+enum HintMode { chosung, chosungVowel }
 
 /// Build the displayed pattern based on hint mode.
-String buildPattern(String word, _HintMode mode) {
+String buildPattern(String word, HintMode mode) {
   final parts = <String>[];
   for (final r in word.runes) {
     if (r >= 0xAC00 && r <= 0xD7A3) {
@@ -87,9 +105,9 @@ String buildPattern(String word, _HintMode mode) {
       final cho = _chosungTable[idx ~/ 588];
       final jung = _jungsungTable[(idx % 588) ~/ 28];
       switch (mode) {
-        case _HintMode.chosung:
+        case HintMode.chosung:
           parts.add(cho);
-        case _HintMode.chosungVowel:
+        case HintMode.chosungVowel:
           parts.add('$cho$jung');
       }
     } else {
@@ -120,7 +138,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
   String _level = 'A1';
   // v2 (2026-05-29): 초성+모음 모드 추가 — 사용자가 너무 어렵다고 피드백.
   // 기본은 chosungVowel(쉬움) — 모음 보이면 추측 가능. 토글로 hard 모드 선택 가능.
-  _HintMode _mode = _HintMode.chosungVowel;
+  HintMode _mode = HintMode.chosungVowel;
 
   // Round tracking
   int _roundIndex = 0; // 0..roundSize-1
@@ -360,24 +378,24 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
                     label: '초성 + 모음',
                     icon: Icons.lightbulb_outline,
                     accent: SoriColors.warning,
-                    selected: _mode == _HintMode.chosungVowel,
+                    selected: _mode == HintMode.chosungVowel,
                     variant: SoriChipVariant.soft,
                     fontSize: 12,
-                    onTap: _mode == _HintMode.chosungVowel
+                    onTap: _mode == HintMode.chosungVowel
                         ? null
-                        : () => setState(() => _mode = _HintMode.chosungVowel),
+                        : () => setState(() => _mode = HintMode.chosungVowel),
                   ),
                   const SizedBox(width: Spacing.sm),
                   SoriChip(
                     label: '초성 only',
                     icon: Icons.flash_on_rounded,
                     accent: SoriColors.danger,
-                    selected: _mode == _HintMode.chosung,
+                    selected: _mode == HintMode.chosung,
                     variant: SoriChipVariant.soft,
                     fontSize: 12,
-                    onTap: _mode == _HintMode.chosung
+                    onTap: _mode == HintMode.chosung
                         ? null
-                        : () => setState(() => _mode = _HintMode.chosung),
+                        : () => setState(() => _mode = HintMode.chosung),
                   ),
                 ],
               ),

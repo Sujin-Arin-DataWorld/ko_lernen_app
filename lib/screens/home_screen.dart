@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/hanok_stage.dart';
 import '../models/scenario.dart';
 import '../services/daily_char_service.dart';
+import '../services/hanok_stage_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
@@ -10,6 +12,7 @@ import 'daily_char_sheet.dart';
 import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
+import '../widgets/sori/hanok_cinematic.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
@@ -42,10 +45,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Scenario? _today;
   bool _loadingScenario = true;
 
+  // Phase 3 (stately-rising-jongga) — Hanok-Cinematic gating.
+  HanokStage? _pendingCinematicStage;
+  bool _cinematicShown = false;
+
   @override
   void initState() {
     super.initState();
     _loadToday();
+    _checkHanokCinematic();
+  }
+
+  Future<void> _checkHanokCinematic() async {
+    final stage = await HanokStageService.currentStage();
+    if (!mounted) return;
+    final shouldShow = await HanokCinematic.shouldShow(stage);
+    if (!shouldShow || !mounted) return;
+    setState(() => _pendingCinematicStage = stage);
   }
 
   Future<void> _loadToday() async {
@@ -290,6 +306,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
           // ── 5. Flying magpie overlay ──
           const Positioned.fill(child: IgnorePointer(child: FlyingMagpie())),
+
+          // ── 6. Hanok-Cinematic — Phase 3 stage transition ──
+          // Wird einmalig pro neuem Stage gezeigt (Storage gating).
+          if (_pendingCinematicStage != null && !_cinematicShown)
+            Positioned.fill(
+              child: HanokCinematic(
+                current: _pendingCinematicStage!,
+                onDone: () {
+                  if (!mounted) return;
+                  setState(() {
+                    _cinematicShown = true;
+                    _pendingCinematicStage = null;
+                  });
+                },
+              ),
+            ),
         ],
       ),
     );

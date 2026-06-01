@@ -16,7 +16,11 @@ import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/intro_gate_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/book_capture_screen.dart';
+import 'screens/book_preview_screen.dart';
+import 'screens/book_result_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
+import 'screens/quests_screen.dart';
 import 'screens/vocab_pack_result_screen.dart';
 import 'screens/vocab_pack_screen.dart';
 import 'screens/vocab_packs_screen.dart';
@@ -186,6 +190,27 @@ class KoLernenApp extends StatelessWidget {
             case '/scenarios':
               return SoriTransitions.fadeScale(
                   (_) => const ScenariosListScreen(), settings: settings);
+            case '/quests':
+              return SoriTransitions.fadeScale(
+                  (_) => const QuestsScreen(), settings: settings);
+            // Phase 5 (stately-rising-jongga) — "책 한 컷"
+            case '/book':
+              return SoriTransitions.fadeScale(
+                  (_) => const BookCaptureScreen(), settings: settings);
+            case '/book/preview':
+              final args = (settings.arguments as Map?)
+                      ?.cast<String, dynamic>() ??
+                  const <String, dynamic>{};
+              return SoriTransitions.fadeScale(
+                  (_) => BookPreviewScreen(args: args),
+                  settings: settings);
+            case '/book/result':
+              final args = (settings.arguments as Map?)
+                      ?.cast<String, dynamic>() ??
+                  const <String, dynamic>{};
+              return SoriTransitions.fadeScale(
+                  (_) => BookResultScreen(args: args),
+                  settings: settings);
             case '/scenario':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(

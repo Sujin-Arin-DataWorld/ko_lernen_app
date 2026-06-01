@@ -1353,7 +1353,7 @@ Transparent background.
 - **경로**: `assets/illustrations/stamps/stamp_{N}.png`
 - **참고 이미지**: #4, #7, #8, #12 (단청 패턴 모음)
 
-### 4.1 Stamp 1 — 연꽃 (Lotus) — `stamp_lotus.png`
+
 
 **구도**: 원형 도장. 빨간 base + 안에 cream + gold 연꽃 도형.
 
@@ -1419,6 +1419,198 @@ grain texture, restricted palette.
 - **경로**: `assets/stickers/{category}_{name}.png`
 - **스타일**: Faceted minhwa, but slightly more rounded/cute than other assets (스티커는 친밀한 표현용)
   - **예외 허용**: 스티커는 chibi에 가깝게 그려도 OK — 일러스트 메인 자산과 다른 톤. 단 디자인 가이드의 색상 팔레트는 그대로.
+
+### 5.0A 앱 마스코트 재제작용 보강 프롬프트
+
+> 아래 블록은 256px 채팅 스티커가 아니라 앱 내부
+> `assets/illustrations/mascot/` 교체용이다. `tiger_sleepy.png`의 고급스러운
+> 호랑이 퀄리티와 `magpie_wingup.png` / `magpie_wingdown.png`의 까치 퀄리티를
+> 기준으로 모든 mascot pose를 다시 만들 때 붙인다.
+
+**출력 사양 (스티커와 다름)**:
+- **Master size**: 1254×1254 또는 1536×1536 square PNG.
+- **Final app path**: `assets/illustrations/mascot/{filename}.png`
+- **Alpha**: true PNG-32 / RGBA transparent background. No baked checkerboard,
+  no white square, no beige paper rectangle, no drop-shadow rectangle.
+- **Framing**: subject centered, 6-10% transparent padding on every side,
+  readable at 64px. Keep the same character scale across the whole set.
+- **Texture**: subtle hanji grain on the character color planes only, not a
+  full background layer.
+- **Use references**:
+  - Tiger identity/style: current `tiger_sleepy.png` / attached sleeping tiger.
+  - Magpie identity/style: current `magpie_wingup.png` and `magpie_wingdown.png`.
+
+**이번 교체 대상 (앱에서 이미 쓰는 mascot 파일명 그대로 덮어쓰기)**:
+
+| 상태 | 파일 | 기준 |
+|---|---|---|
+| 기준 유지 | `tiger_sleepy.png` | 호랑이 스타일 기준. 새 호랑이 생성 시 reference로 첨부 |
+| 재생성 | `tiger_idle.png` | `tiger_sleepy`와 같은 캐릭터, 기본 표정 |
+| 재생성 | `tiger_blink.png` | `tiger_idle`과 몸/얼굴 위치 동일, 눈만 감김 |
+| 재생성 | `tiger_smile.png` | `tiger_idle`과 동일 스케일, 미소 강화 |
+| 재생성 | `tiger_neutral.png` | 차분한 중립 표정 |
+| 재생성 | `tiger_happy.png` | 밝은 칭찬/진척 표정 |
+| 재생성 | `tiger_celebrate.png` | 앞발 들어올린 완료/레벨업 표정 |
+| 재생성 | `tiger_sad.png` | 시무룩하지만 품격 있는 오답/실패 표정 |
+| 재생성 | `tiger_thinking.png` | 생각하는 포즈 |
+| 기준 유지 | `magpie_wingup.png` | 까치 스타일/해상도 기준. 새 까치 생성 시 reference로 첨부 |
+| 기준 유지 | `magpie_wingdown.png` | 까치 날갯짓 기준. `wingup`과 같이 reference로 첨부 |
+| 재생성 | `magpie_perched.png` | 날개 접고 앉은 기본 포즈 |
+| 재생성 | `magpie_perched_alt.png` | 방향/표정만 살짝 다른 앉은 포즈 |
+| 재생성 | `magpie_celebrate.png` | 좋은 소식/완료 축하 포즈 |
+| 재생성 | `magpie_worry.png` | 걱정/에러 포즈 |
+
+**중요**: 위 파일들은 채팅 스티커가 아니라 앱 마스코트다. `assets/stickers/`
+가 아니라 반드시 `assets/illustrations/mascot/`에 같은 파일명으로 저장한다.
+`magpie_wingup.png` / `magpie_wingdown.png`은 현재 퀄리티가 좋으므로 교체하지
+말고, 나머지 까치 pose를 이 둘과 같은 캐릭터로 맞춘다.
+
+**공통 스타일 문장 (모든 tiger/magpie prompt 끝에 붙이기)**:
+```
+Create this as a premium app mascot sprite, not a cheap sticker.
+Match the attached reference mascot style exactly: large clean geometric
+facets, confident Korean minhwa character design, subtle hanji grain,
+crisp silhouette, high-resolution painterly-polished finish.
+
+Use true transparent PNG alpha. The preview background may show a checkerboard,
+but the exported PNG must contain no baked checkerboard pixels, no white/cream
+background box, no shadow rectangle, no text, no speech bubble, no sticker
+border.
+
+The character must remain readable at 64 px and still feel detailed at 512 px.
+Avoid fuzzy low-resolution edges, plastic 3D rendering, anime style, Disney
+style, generic clipart, photorealism, watercolor blur, excessive micro-feather
+noise, and random decorative elements.
+```
+
+**호랑이 character bible — `tiger_*.png` 전체 공통**:
+```
+Use the attached sleeping Korean tiger as the exact character reference:
+a dignified guardian tiger, heavy and calm, with broad low body mass,
+large angular head, soft but serious expression, and premium faceted-minhwa
+polygon planes.
+
+Tiger design constants:
+- Burnt orange coat #E87830 with rust-orange shadow facets #C25420 and
+  warm ochre midtones #A87E5E.
+- Deep ink-black angular stripes #1A1410, including a clear 王 mark on the
+  forehead.
+- Cream muzzle, cheeks, belly, and inner ears #F4E8D0.
+- Amber-gold eyes #DFA951 with dark ink eyelids; expression changes only
+  through eyelids, pupils, brows, mouth corners, and paw gesture.
+- Long low silhouette, big rounded paws, broad nose bridge, triangular cheek
+  ruff, no tiny kitten proportions.
+- Large geometric facets: 40-70 readable planes, not hundreds of noisy shards.
+- Same lighting direction as reference: soft upper-left light, darker
+  lower-right facets.
+
+Composition constants:
+- One tiger only, centered in a square canvas.
+- No magpie inside tiger-only assets unless the filename explicitly requests
+  a pair illustration.
+- No floor lines, no background scene, no props except action-specific tiny
+  facets explicitly requested.
+- Keep the head and torso scale consistent across tiger_idle, tiger_blink,
+  tiger_smile, tiger_neutral, tiger_happy, tiger_celebrate, tiger_sad,
+  tiger_thinking, tiger_sleepy.
+```
+
+**호랑이 포즈별 추가 문장**:
+| 파일 | 추가 지시 |
+|---|---|
+| `tiger_idle.png` | Calm seated guardian pose, eyes open, tiny mouth smile, front paws relaxed, same broad head as reference. |
+| `tiger_blink.png` | Same as idle, identical body and head position, only eyes closed in relaxed blink. |
+| `tiger_smile.png` | Same scale as idle, warmer smile, amber eyes friendly, cheeks slightly lifted. |
+| `tiger_neutral.png` | Same scale as idle, calm neutral mouth, dignified guardian presence, not sad. |
+| `tiger_happy.png` | Same tiger, brighter happy face, eyes crescent-shaped, tail or paws subtly lifted, still premium not chibi. |
+| `tiger_celebrate.png` | Same tiger, both front paws raised in celebration, confident joyful expression, 3-5 tiny dancheong confetti facets only. |
+| `tiger_sad.png` | Same tiger, ears slightly lowered, brows tilted, one small cobalt-indigo tear facet optional, keep dignity. |
+| `tiger_thinking.png` | Same tiger, one paw near chin, eyes looking up-left, small single question-mark-like geometric facet optional. |
+| `tiger_sleepy.png` | Match the reference most closely: lying low with eyes closed, heavy relaxed body, peaceful guardian mood. |
+
+**호랑이 기본 프롬프트 템플릿**:
+```
+A true-transparent PNG app mascot sprite of a Korean guardian tiger,
+[POSE / EMOTION].
+
+Use the attached tiger_sleepy image as the exact quality and character
+reference. The tiger is dignified, calm, broad, faceted, and premium; not a
+baby tiger and not a generic cartoon.
+
+[Paste Tiger design constants]
+[Paste Composition constants]
+[Paste pose-specific sentence]
+[Paste common style sentence]
+
+Aspect ratio: 1:1 square, 1254x1254 or 1536x1536 px.
+Export as true RGBA transparent PNG.
+```
+
+**까치 character bible — `magpie_*.png` 전체 공통**:
+```
+Use the attached magpie_wingup and magpie_wingdown images as the exact
+character reference: a Korean magpie wearing a black gat, sharp but friendly,
+with elegant faceted feathers and a premium editorial mascot finish.
+
+Magpie design constants:
+- Ink-black / blue-black head and back #101820, with cool slate facets
+  #26323A and deep teal tail facets #0E4D58.
+- Cream-white belly and wing panels #F4E8D0 with pale gray shadow facets
+  #B8B6AE.
+- Long elegant tail, visible black beak, small amber-gold eye #DFA951.
+- Korean gat must be accurate: black cylindrical crown, wide flat brim,
+  thin chin strap tied under the beak / neck. No top hat, no western hat.
+- Legs and feet are small burnt-orange facets #C25420.
+- Feathers are angular layered planes, not fuzzy realistic feather noise.
+- Same body size, head size, gat size, and tail length across all magpie
+  poses.
+
+Composition constants:
+- One magpie only, centered in a square canvas.
+- Transparent background only. No branch unless the filename specifically
+  says perched; no speech bubble, no text.
+- Keep the body center anchored consistently across magpie_perched,
+  magpie_perched_alt, magpie_wingup, magpie_wingdown, magpie_celebrate,
+  magpie_worry.
+- For wing animation frames, body/head/gat/tail must be almost identical;
+  only wing angle changes.
+```
+
+**까치 포즈별 추가 문장**:
+| 파일 | 추가 지시 |
+|---|---|
+| `magpie_wingup.png` | Flying frame 1: both wings raised high in a wide V, same body/head/tail anchor as wingdown. |
+| `magpie_wingdown.png` | Flying frame 2: both wings lowered and spread outward, same body/head/tail anchor as wingup. |
+| `magpie_perched.png` | Calm perched pose, wings folded, feet visible, optional tiny transparent-compatible branch only under feet. |
+| `magpie_perched_alt.png` | Similar perched pose but body turned slightly the other way, useful as alternate/worry base. |
+| `magpie_celebrate.png` | Excited pose, wings open, beak slightly open, 3-5 tiny dancheong confetti facets only. |
+| `magpie_worry.png` | Concerned pose, wings slightly tucked, eye softer, head tilted, keep the gat accurate and elegant. |
+
+**까치 기본 프롬프트 템플릿**:
+```
+A true-transparent PNG app mascot sprite of a Korean magpie wearing a gat,
+[POSE / EMOTION].
+
+Use the attached magpie_wingup and magpie_wingdown images as the exact
+quality, anatomy, color, gat, and faceted-feather reference. The result must
+look like the same character in a new pose.
+
+[Paste Magpie design constants]
+[Paste Composition constants]
+[Paste pose-specific sentence]
+[Paste common style sentence]
+
+Aspect ratio: 1:1 square, 1254x1254 or 1536x1536 px.
+Export as true RGBA transparent PNG.
+```
+
+**생성 순서 추천**:
+1. `tiger_idle.png`와 `magpie_perched.png`를 먼저 확정한다.
+2. 확정 이미지를 reference로 다시 첨부해 표정/동작 variation을 만든다.
+3. `blink`는 idle에서 눈만 바꾸게 지시한다.
+4. `wingup`/`wingdown`은 한 세트로 생성하고 body anchor가 어긋나면 다시 만든다.
+5. 앱에 넣기 전 solid mint/black/cream 배경 위에서 체크무늬 찌꺼기와 사각 박스가
+   없는지 확인한다.
 
 ### 5.1 호랑이 스티커 5종 (`tiger_*.png`)
 

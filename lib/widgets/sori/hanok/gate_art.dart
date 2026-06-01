@@ -4,17 +4,16 @@ import 'package:flutter/material.dart';
 
 /// Layered sotdae-mun gate art.
 ///
-/// **v2 자산 정리 (2026-05-29)** — Jin이 보낸 PNG들의 좌표계를 표준화:
+/// **v3 자산 정리 (2026-06-01)** — 새 PNG들의 좌표계를 표준화:
 /// - `gate_frame.png` (941×1672) — arch + roof + dancheong; **doorway 투명** +
 ///   **외부 투명** (knockout 완료). Stack의 BOTTOM 레이어가 보이도록.
-/// - `gate_door_left.png` (500×1450) — 순수 좌측 문짝 panel. canvas 전체를 채움.
+/// - `gate_door_left.png` (737×2135) — 순수 좌측 문짝 panel. canvas 전체를 채움.
 ///   hinge = 캔버스 LEFT edge.
-/// - `gate_door_right.png` (500×1450) — 순수 우측 문짝 panel. canvas 전체를 채움.
+/// - `gate_door_right.png` (737×2135) — 순수 우측 문짝 panel. canvas 전체를 채움.
 ///   hinge = 캔버스 RIGHT edge.
 ///
-/// 문 위치는 frame의 doorway rect 좌표계(195/1080, 615/1920, 345/1080, 1000/1920)
-/// 비율을 그대로 유지 — Jin의 원본 frame이 1080×1920 spec 비율을 그대로 따르므로
-/// 941×1672 캔버스에서도 같은 fraction이 통한다.
+/// 문 위치는 새 frame에서 doorway checkerboard 영역의 bbox를 기준으로 맞춤:
+/// left/top/right/bottom ≈ (219, 750, 722, 1240). 한 짝은 폭의 절반.
 ///
 /// 문은 `Transform.rotateY` 로 경첩 기준 perspective 회전하며,
 /// `gate_frame.png` 가 TOP 레이어에 있어 문이 frame의 두 기둥 뒤로 자연스럽게
@@ -35,13 +34,13 @@ class HanokGateArt extends StatelessWidget {
   static const rightDoorAsset =
       'assets/illustrations/hanok/gate_door_right.png';
 
-  static const _sourceW = 1080.0;
-  static const _sourceH = 1920.0;
-  static const _doorLeft = 195.0 / _sourceW;
-  static const _doorTop = 615.0 / _sourceH;
-  static const _doorW = 345.0 / _sourceW;
-  static const _doorH = 1000.0 / _sourceH;
-  static const _doorRightLeft = 540.0 / _sourceW;
+  static const _sourceW = 941.0;
+  static const _sourceH = 1672.0;
+  static const _doorLeft = 219.0 / _sourceW;
+  static const _doorTop = 750.0 / _sourceH;
+  static const _doorW = 251.5 / _sourceW;
+  static const _doorH = 490.0 / _sourceH;
+  static const _doorRightLeft = 470.5 / _sourceW;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +72,7 @@ class HanokGateArt extends StatelessWidget {
                   leftDoorAsset,
                   fit: BoxFit.fill,
                   filterQuality: filterQuality,
+                  errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                 ),
               ),
             ),
@@ -91,6 +91,7 @@ class HanokGateArt extends StatelessWidget {
                   rightDoorAsset,
                   fit: BoxFit.fill,
                   filterQuality: filterQuality,
+                  errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                 ),
               ),
             ),
@@ -101,6 +102,7 @@ class HanokGateArt extends StatelessWidget {
                 frameAsset,
                 fit: BoxFit.fill,
                 filterQuality: filterQuality,
+                errorBuilder: (_, __, ___) => const SizedBox.shrink(),
               ),
             ),
           ],

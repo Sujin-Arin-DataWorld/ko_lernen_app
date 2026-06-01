@@ -176,11 +176,15 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
     _stopTimer();
     HapticFeedback.heavyImpact();
     setState(() => _end = reason);
-    // 사용자 승 (tigerStuck, deadEnd) → 셀러브레이션.
-    if (reason == _End.tigerStuck || reason == _End.deadEnd) {
+    // 사용자 승 (tigerStuck, deadEnd) → 셀러브레이션 + Phase 4 Quest-Tracking.
+    final didWin =
+        reason == _End.tigerStuck || reason == _End.deadEnd;
+    if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) SoriCelebration.burst(context);
       });
+      // ignore: discarded_futures
+      Storage.incKkeunmariWins();
     }
     // XP 보상 — chain length × 10. 최소 20.
     final earned = (_chain.length * 10).clamp(20, 500);

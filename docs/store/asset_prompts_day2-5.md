@@ -3,6 +3,13 @@
 > **Day 1 (백드롭 5장) 다음으로 만들 모든 자산 통합 프롬프트.**
 > Nano Banana 2 / ChatGPT / DALL-E에 그대로 복붙 가능.
 >
+> **2026-06-01 마스코트 재생성 메모:** Day 4 solo mascot 프롬프트는 초기
+> 마스코트 세트를 만들기 위한 기준이었다. 현재 `jongga-assets.md`로 만든
+> 한옥/장식 자산의 퀄리티가 더 높으므로, `assets/illustrations/mascot/`
+> 교체 작업은 `docs/plans/stately-rising-jongga-assets.md`의
+> **§5.0A 앱 마스코트 재제작용 보강 프롬프트**를 우선 사용한다.
+> 이 문서의 Day 4 내용은 참고용/legacy anchor로만 본다.
+>
 > **2026-05-28 개정 사유:** Day 4 tiger_thinking 등에서 호랑이가 chibi 새끼 고양이처럼 나오고, 까치의 gat 비율이 작아지고, 王 한자가 literal하게 새겨지는 등 기존 mascot/ asset과 캐릭터가 다르게 그려지는 문제 발견. 원인은 (1) bust-up framing 미명시, (2) "王 character" literal 해석, (3) 수염·cheek tuft·eye treatment 누락. v2는 **§0 캐릭터 시트**를 도입해 모든 prompt에서 동일 anchor를 반복 인용한다.
 >
 > **공통 규칙 (필독):**

@@ -570,6 +570,121 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get bookCaptureTitle => 'Buchseite einlesen';
+
+  @override
+  String get bookCaptureHero => 'Knipse eine Lehrbuchseite';
+
+  @override
+  String get bookCaptureSubtitle =>
+      'Das Bild bleibt auf deinem Gerät. Nur erkannter Text wird analysiert.';
+
+  @override
+  String get bookCaptureCamera => 'Kamera';
+
+  @override
+  String get bookCaptureGallery => 'Aus Galerie';
+
+  @override
+  String get bookCaptureLoading => 'Texterkennung läuft …';
+
+  @override
+  String get bookCaptureErrorNoKorean =>
+      'Kein Koreanisch erkannt — bitte eine deutlichere Aufnahme.';
+
+  @override
+  String get bookCaptureErrorPermission =>
+      'Berechtigung verweigert. Du kannst es in den Einstellungen erlauben.';
+
+  @override
+  String get bookCaptureErrorQuota =>
+      'Tägliches Limit erreicht (20 Seiten). Komm morgen wieder.';
+
+  @override
+  String get bookCaptureErrorOcr => 'Texterkennung fehlgeschlagen.';
+
+  @override
+  String get bookCaptureErrorUnknown => 'Unerwarteter Fehler.';
+
+  @override
+  String get bookCropTitle => 'Bereich zuschneiden';
+
+  @override
+  String get bookPreviewTitle => 'Text prüfen';
+
+  @override
+  String bookPreviewHint(int count) {
+    return '$count Textblöcke erkannt — bei Bedarf korrigieren.';
+  }
+
+  @override
+  String get bookPreviewAnalyze => 'Analysieren';
+
+  @override
+  String get bookPreviewRetake => 'Neu aufnehmen';
+
+  @override
+  String get bookResultTitle => 'Ergebnis';
+
+  @override
+  String get bookResultAnalyzing => 'Wörter & Grammatik werden untersucht …';
+
+  @override
+  String bookResultFoundN(int n) {
+    return '$n neue Wörter gefunden';
+  }
+
+  @override
+  String get bookResultOfflineNotice =>
+      'Server nicht erreichbar — nur Grammatikmuster offline erkannt.';
+
+  @override
+  String get bookResultSectionWords => 'Wörter';
+
+  @override
+  String get bookResultSectionGrammar => 'Grammatik';
+
+  @override
+  String get bookResultSectionSentences => 'Sätze';
+
+  @override
+  String get bookResultSave => 'In meinem Bücherregal speichern';
+
+  @override
+  String get bookResultSaved => 'Seite gespeichert.';
+
+  @override
+  String get bookResultBackToCapture => 'Weitere Seite einlesen';
+
+  @override
+  String get questsTitle => 'Spezial-Quests';
+
+  @override
+  String get questsEmptyTitle => 'Noch keine Quests';
+
+  @override
+  String get questsEmptyBody =>
+      'Beginne ein Pack — die ersten Quest-Fortschritte erscheinen hier.';
+
+  @override
+  String get questsSectionInProgress => 'Läuft';
+
+  @override
+  String get questsSectionAvailable => 'Verfügbar';
+
+  @override
+  String get questsSectionCompleted => 'Geklärt';
+
+  @override
+  String get questsSectionSeasonalLocked => 'Saisonal (gesperrt)';
+
+  @override
+  String get questsSeasonalBadge => 'Saison';
+
+  @override
+  String get hanokCinematicIntro => 'Dein Hanok wächst —';
+
+  @override
   String get hanokStageEmpty => 'Bauplatz vorbereiten';
 
   @override

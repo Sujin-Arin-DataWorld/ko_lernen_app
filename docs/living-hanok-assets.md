@@ -35,9 +35,14 @@
 
 ## 2. 솟을대문 — 인트로 (★1순위 · 레이어 분리 **필수**)
 
-**현재 상태**: `gate_frame.png` · `gate_door_left.png` · `gate_door_right.png`
-3개가 추가되어 인트로 코드에 통합됨. 현재 파일은 즉시 빌드 가능한 임시 SVG 기반
-PNG이며, Jin 최종 일러스트이 오면 같은 경로/좌표계로 덮어쓰면 된다.
+**현재 상태**: `gate_entrance.png` · `gate_final.png` · `gate_frame.png` ·
+`gate_door_left.png` · `gate_door_right.png` 5개가 인트로 코드에 통합됨.
+
+**업데이트 (2026-06-01)**: 새 고해상도 gate 세트로 교체. 현재 인트로는
+`madang(light).png` → `gate_final.png` → `gate_entrance.png` establishing shot →
+transparent `gate_frame.png` + animated `gate_door_left/right.png` 순서로 쌓고,
+문이 열린 뒤 `gate_final.png`로 push-in handoff합니다. 새 `gate_frame`과 문짝
+이미지는 체크무늬 배경을 실제 알파 채널로 변환해 사용합니다.
 
 **업데이트 (2026-05-28)**: 빌드 사이즈 최적화를 위해 다음 파일을 lossily 압축했습니다. 원본 원본 파일은 `assets/illustrations/hanok/backup/`에 보관되어 있습니다.
 
@@ -49,20 +54,24 @@ PNG이며, Jin 최종 일러스트이 오면 같은 경로/좌표계로 덮어�
 인트로에서 문이 **실제로 열려야** 하므로 한 장의 평면 PNG로는 불가능.
 **3개 파일로 분리** 제작 — 모두 같은 좌표계에 등록(registration)되어야 함.
 
-### 2-1. `assets/illustrations/hanok/gate_frame.png` — **1080 × 1920**
+### 2-0. `assets/illustrations/hanok/gate_entrance.png` — **1024 × 1536**
+- 넓은 닫힌 대문 establishing shot. 산·담장·계단·꽃나무 포함.
+- 초반 0.00–0.44 구간에서 카메라가 대문으로 다가가는 느낌을 담당.
+
+### 2-1. `assets/illustrations/hanok/gate_frame.png` — **941 × 1672 RGBA**
 - 대문 **구조만**: 기와지붕 · 처마(끝이 위로 솟은 곡선) · 단청 띠 · 좌우 기둥 ·
   기단(주춧돌).
 - **중앙 문간(doorway)은 완전 투명** — 정확한 직사각형 구멍:
-  - 좌상단 `(195, 615)` → 우하단 `(885, 1615)` (즉 폭 690 × 높이 1000)
+  - 좌상단 약 `(219, 750)` → 우하단 약 `(722, 1240)`
 - 지붕 위 하늘·대문 바깥 영역도 **투명**.
 - 정면(front elevation) 시점, 좌우 대칭.
 
-### 2-2. `assets/illustrations/hanok/gate_door_left.png` — **345 × 1000**
+### 2-2. `assets/illustrations/hanok/gate_door_left.png` — **737 × 2135 RGBA**
 - **왼쪽 문짝 하나만**. 캔버스를 문짝이 꽉 채움.
-- 석간주 적(`#C24A45`) 바탕 + 황금 못(brass studs) 격자 + 문고리.
+- 목재 문 바탕 + 검은 철물/문고리.
 - 닫힌 상태 기준 — 경첩은 **왼쪽 가장자리**, 오른쪽 가장자리가 중앙선.
 
-### 2-3. `assets/illustrations/hanok/gate_door_right.png` — **345 × 1000**
+### 2-3. `assets/illustrations/hanok/gate_door_right.png` — **737 × 2135 RGBA**
 - 오른쪽 문짝. `gate_door_left`의 좌우 대칭. 경첩은 **오른쪽 가장자리**.
 
 → 셋을 쌓으면 **닫힌 솟을대문** 완성. Claude가 문짝 2개를 경첩 기준

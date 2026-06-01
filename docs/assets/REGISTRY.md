@@ -20,7 +20,7 @@ where possible (see Phase 4 compression notes).
 
 | Filename | Slot purpose | Aspect / size | Consumer | Fallback |
 |---|---|---|---|---|
-| `madang(light).png` | Light-mode home backdrop (Ken Burns) + scenarios list header | 4:3 photo-like | [home_screen.dart:93-96](../../lib/screens/home_screen.dart#L93-L96), [scenarios_list_screen.dart:117-118](../../lib/screens/scenarios_list_screen.dart#L117-L118), [intro_gate_screen.dart:120-121](../../lib/screens/intro_gate_screen.dart#L120-L121) | HanokHeader gradient + `travel_explore_outlined` |
+| `madang(light).png` | Light-mode home backdrop (Ken Burns) + scenarios list header + intro paper base | 848×1854 | [home_screen.dart:93-96](../../lib/screens/home_screen.dart#L93-L96), [scenarios_list_screen.dart:117-118](../../lib/screens/scenarios_list_screen.dart#L117-L118), [intro_gate_screen.dart](../../lib/screens/intro_gate_screen.dart) | HanokHeader gradient + `travel_explore_outlined` |
 | `madang(dark).png` | Dark-mode home backdrop (Ken Burns) | 4:3 photo-like | [home_screen.dart:93-96](../../lib/screens/home_screen.dart#L93-L96) | (Image.asset `errorBuilder` returns SizedBox) |
 | `study_classroom.png` | Vocab module header | 10:3 banner | [vocab_screen.dart:279-280](../../lib/screens/vocab_screen.dart#L279-L280) | HanokHeader gradient + `menu_book_outlined` |
 | `study_scholar.png` | Grammar + Settings header | 10:3 banner | [grammar_screen.dart:166-167](../../lib/screens/grammar_screen.dart#L166-L167), [settings_screen.dart:56-57](../../lib/screens/settings_screen.dart#L56-L57) | HanokHeader gradient + `auto_stories_outlined` |
@@ -30,12 +30,66 @@ where possible (see Phase 4 compression notes).
 | `listening_hero.png` | Listening screen header | 10:3 banner | [listening_screen.dart:167-168](../../lib/screens/listening_screen.dart#L167-L168) | HanokHeader gradient + `headphones_rounded` |
 | `kkeunmari_hero.png` | Kkeunmari screen header | 10:3 banner | [kkeunmari_screen.dart:236-237](../../lib/screens/kkeunmari_screen.dart#L236-L237) | HanokHeader gradient + `link_rounded` |
 | `dancheong_frame.png` | Wordle game-board decorative frame (transparent center) | 1024² square RGBA | [wordle_screen.dart:419-429](../../lib/screens/wordle_screen.dart#L419-L429) | `SizedBox.shrink()` — board still gets BoxBorder + 4 corner dots |
-| `gate_frame.png` | Intro gate — outer 단청 frame layer | square 1024² | [gate_art.dart:21](../../lib/widgets/sori/hanok/gate_art.dart#L21) | painter fallback in GateArt |
-| `gate_door_left.png` | Intro gate — left door (animated open) | half-frame | [gate_art.dart:22](../../lib/widgets/sori/hanok/gate_art.dart#L22) | painter fallback |
-| `gate_door_right.png` | Intro gate — right door (animated open) | half-frame | [gate_art.dart:24](../../lib/widgets/sori/hanok/gate_art.dart#L24) | painter fallback |
+| `gate_entrance.png` | Intro gate — wide closed-gate establishing shot | 1024×1536 RGB | [intro_gate_screen.dart](../../lib/screens/intro_gate_screen.dart) | `SizedBox.shrink()` |
+| `gate_final.png` | Intro gate — inner courtyard destination + onboarding backdrop | 1024×1536 RGB | [intro_gate_screen.dart](../../lib/screens/intro_gate_screen.dart), [onboarding_level_screen.dart:105](../../lib/screens/onboarding_level_screen.dart#L105) | intro gradient fallback |
+| `gate_frame.png` | Intro gate — transparent outer frame layer | 941×1672 RGBA | [gate_art.dart](../../lib/widgets/sori/hanok/gate_art.dart) | `SizedBox.shrink()` |
+| `gate_door_left.png` | Intro gate — left door (animated open) | 737×2135 RGBA | [gate_art.dart](../../lib/widgets/sori/hanok/gate_art.dart) | `SizedBox.shrink()` |
+| `gate_door_right.png` | Intro gate — right door (animated open) | 737×2135 RGBA | [gate_art.dart](../../lib/widgets/sori/hanok/gate_art.dart) | `SizedBox.shrink()` |
 | `gate.png` | Combined gate composite (homepage final-cta, unused in app currently) | 1024² | — | — |
 | `welcome-hero.png` | Tiger+magpie hero composite (homepage mascot-strip; unused in app currently) | 1024² | — | — |
 | `studyroom_wating.png` | (legacy / typo) — superseded by `empty/studyroom_waiting.png` | — | — | not referenced; safe to remove |
+
+---
+
+## `assets/illustrations/hanok_stages/` — living hanok growth backdrops
+
+Consumed by [madang_background.dart](../../lib/widgets/sori/madang_background.dart).
+The widget looks for
+`assets/illustrations/hanok_stages/stage_{slug}_{light|dark}.png`, then falls
+back to `hanok/madang(light|dark).png` if the stage PNG is missing.
+
+Imported from `~/Downloads/종가이미지` on 2026-06-01. Current batch contains
+light-mode backgrounds only; dark variants still fall back to the legacy
+`madang(dark).png`.
+
+| Filename | Stage |
+|---|---|
+| `stage_empty_light.png` | `HanokStage.empty` |
+| `stage_foundation_light.png` | `HanokStage.foundation` |
+| `stage_pillars_light.png` | `HanokStage.pillars` |
+| `stage_thatch_light.png` | `HanokStage.thatchRoof` |
+| `stage_tile_partial_light.png` | `HanokStage.tileRoofPartial` |
+| `stage_tile_complete_light.png` | `HanokStage.tileRoofComplete` |
+| `stage_dancheong_light.png` | `HanokStage.dancheong` |
+| `stage_gate_light.png` | `HanokStage.gate` |
+| `stage_windows_light.png` | `HanokStage.windows` |
+
+Missing / intentionally skipped: `stage_beams_light.png`,
+`stage_side_building_light.png`, `stage_jongga_light.png`, and all dark
+variants. The downloaded `stage_beams.light.DE/EN.png` files are app UI mockups,
+not pure backdrop art, so they are not registered.
+
+---
+
+## `assets/illustrations/decorations/` — quest reward overlays
+
+Consumed by [decoration_layer.dart](../../lib/widgets/sori/decoration_layer.dart).
+Each quest definition in [quest_catalog.dart](../../lib/data/quest_catalog.dart)
+stores a `decorationSlug`; the rendered asset path is
+`assets/illustrations/decorations/{decorationSlug}.png`.
+
+Imported from `~/Downloads/종가이미지` on 2026-06-01. These PNGs were converted
+from generated checkerboard RGB images to real RGBA alpha.
+
+| Filename | Quest |
+|---|---|
+| `decoration_jangdokdae.png` | `q_jangdokdae` |
+| `decoration_maehwa.png` | `q_maehwa` |
+| `decoration_sonamu.png` | `q_sonamu` |
+| `decoration_pond.png` | `q_pond` |
+| `decoration_punggyeong.png` | `q_punggyeong` |
+| `decoration_pyeonaek.png` | `q_pyeonaek` |
+| `decoration_sagunja_maehwa.png` | `q_sagunja_maehwa` |
 
 ---
 

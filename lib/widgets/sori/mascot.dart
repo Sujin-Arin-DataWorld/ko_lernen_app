@@ -106,8 +106,7 @@ class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
       'assets/illustrations/mascot/magpie_wingdown.png';
   static const _magpieCelebrate =
       'assets/illustrations/mascot/magpie_celebrate.png';
-  static const _magpieWorry =
-      'assets/illustrations/mascot/magpie_perched_alt.png';
+  static const _magpieWorry = 'assets/illustrations/mascot/magpie_worry.png';
 
   AnimationController? _motion;
 
