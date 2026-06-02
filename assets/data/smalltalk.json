@@ -1,0 +1,508 @@
+{
+ "version": 1,
+ "_comment": "Small-talk corpus by category x level. Built by tools/content_factory/build_smalltalk.py. Native review recommended before launch.",
+ "categories": [
+  {
+   "id": "weather",
+   "emoji": "☀️",
+   "label": {
+    "ko": "날씨·계절",
+    "de": "Wetter & Jahreszeit",
+    "en": "Weather & season"
+   }
+  },
+  {
+   "id": "mood",
+   "emoji": "🙂",
+   "label": {
+    "ko": "기분·컨디션",
+    "de": "Stimmung & Befinden",
+    "en": "Mood & how you feel"
+   }
+  },
+  {
+   "id": "weekend",
+   "emoji": "📅",
+   "label": {
+    "ko": "주말·계획",
+    "de": "Wochenende & Pläne",
+    "en": "Weekend & plans"
+   }
+  },
+  {
+   "id": "food",
+   "emoji": "🍽️",
+   "label": {
+    "ko": "음식·맛집",
+    "de": "Essen & Restaurants",
+    "en": "Food & eating out"
+   }
+  },
+  {
+   "id": "daily",
+   "emoji": "☕",
+   "label": {
+    "ko": "일상·근황",
+    "de": "Alltag & Neues",
+    "en": "Daily life & catching up"
+   }
+  },
+  {
+   "id": "screen",
+   "emoji": "🎬",
+   "label": {
+    "ko": "영화·드라마·OTT",
+    "de": "Filme, Serien & Streaming",
+    "en": "Movies, series & streaming"
+   }
+  },
+  {
+   "id": "music",
+   "emoji": "🎵",
+   "label": {
+    "ko": "음악",
+    "de": "Musik",
+    "en": "Music"
+   }
+  },
+  {
+   "id": "hobby",
+   "emoji": "🎨",
+   "label": {
+    "ko": "취미·여가",
+    "de": "Hobbys & Freizeit",
+    "en": "Hobbies & free time"
+   }
+  },
+  {
+   "id": "travel",
+   "emoji": "✈️",
+   "label": {
+    "ko": "여행",
+    "de": "Reisen",
+    "en": "Travel"
+   }
+  },
+  {
+   "id": "work_study",
+   "emoji": "💼",
+   "label": {
+    "ko": "일·공부",
+    "de": "Arbeit & Lernen",
+    "en": "Work & study"
+   }
+  },
+  {
+   "id": "family",
+   "emoji": "👨‍👩‍👧",
+   "label": {
+    "ko": "가족·사람",
+    "de": "Familie & Menschen",
+    "en": "Family & people"
+   }
+  },
+  {
+   "id": "health",
+   "emoji": "💪",
+   "label": {
+    "ko": "운동·건강",
+    "de": "Sport & Gesundheit",
+    "en": "Exercise & health"
+   }
+  }
+ ],
+ "phrases": [
+  {
+   "category": "weather",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "날씨 좋네요.",
+   "de": "Schönes Wetter, oder?",
+   "en": "Nice weather, huh?"
+  },
+  {
+   "category": "weather",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "오늘 좀 덥네요.",
+   "de": "Heute ist es etwas heiß.",
+   "en": "It's a bit hot today."
+  },
+  {
+   "category": "weather",
+   "level": "a2",
+   "kind": "question",
+   "ko": "주말에 날씨 좋을까요?",
+   "de": "Ob das Wetter am Wochenende gut wird?",
+   "en": "Will the weather be nice this weekend?"
+  },
+  {
+   "category": "weather",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "이런 날씨엔 산책하기 딱 좋죠.",
+   "de": "Bei so einem Wetter geht man perfekt spazieren.",
+   "en": "This kind of weather is perfect for a walk."
+  },
+  {
+   "category": "weather",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
+   "de": "Die Temperaturunterschiede sind gerade groß — da erkältet man sich leicht.",
+   "en": "The temperature swings lately make it easy to catch a cold."
+  },
+  {
+   "category": "mood",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "오늘 기분 좋아요.",
+   "de": "Mir geht's heute gut.",
+   "en": "I'm in a good mood today."
+  },
+  {
+   "category": "mood",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "요즘 좀 피곤해요.",
+   "de": "In letzter Zeit bin ich etwas müde.",
+   "en": "I've been a bit tired lately."
+  },
+  {
+   "category": "mood",
+   "level": "b1",
+   "kind": "question",
+   "ko": "오늘 하루 어떠셨어요?",
+   "de": "Wie war Ihr Tag heute?",
+   "en": "How was your day today?"
+  },
+  {
+   "category": "mood",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.",
+   "de": "Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.",
+   "en": "I'm so busy lately I don't even notice time passing."
+  },
+  {
+   "category": "weekend",
+   "level": "a1",
+   "kind": "question",
+   "ko": "주말에 뭐 해요?",
+   "de": "Was machst du am Wochenende?",
+   "en": "What do you do on weekends?"
+  },
+  {
+   "category": "weekend",
+   "level": "a2",
+   "kind": "question",
+   "ko": "이번 주말에 뭐 할 거예요?",
+   "de": "Was machst du dieses Wochenende?",
+   "en": "What are you doing this weekend?"
+  },
+  {
+   "category": "weekend",
+   "level": "b1",
+   "kind": "question",
+   "ko": "보통 쉬는 날엔 어떻게 시간 보내세요?",
+   "de": "Wie verbringen Sie normalerweise Ihre freien Tage?",
+   "en": "How do you usually spend your days off?"
+  },
+  {
+   "category": "weekend",
+   "level": "b2",
+   "kind": "question",
+   "ko": "주말에 별 계획 없으면 같이 바람이나 쐬러 갈까요?",
+   "de": "Wenn Sie am Wochenende nichts vorhaben, sollen wir mal zusammen rauskommen?",
+   "en": "If you have no plans this weekend, shall we go out for some fresh air?"
+  },
+  {
+   "category": "food",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "이거 진짜 맛있어요.",
+   "de": "Das ist echt lecker.",
+   "en": "This is really delicious."
+  },
+  {
+   "category": "food",
+   "level": "a2",
+   "kind": "question",
+   "ko": "점심 뭐 먹었어요?",
+   "de": "Was hast du zu Mittag gegessen?",
+   "en": "What did you have for lunch?"
+  },
+  {
+   "category": "food",
+   "level": "b1",
+   "kind": "question",
+   "ko": "요즘 맛있게 먹은 음식 있어요?",
+   "de": "Gab's in letzter Zeit etwas richtig Leckeres?",
+   "en": "Have you had anything really good to eat lately?"
+  },
+  {
+   "category": "food",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "가보고 싶은 맛집 있으면 다음에 같이 가요.",
+   "de": "Wenn Sie ein Lokal ausprobieren möchten, gehen wir mal zusammen.",
+   "en": "If there's a place you want to try, let's go together sometime."
+  },
+  {
+   "category": "daily",
+   "level": "a1",
+   "kind": "question",
+   "ko": "커피 마셨어요?",
+   "de": "Hast du schon Kaffee getrunken?",
+   "en": "Have you had coffee?"
+  },
+  {
+   "category": "daily",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "오늘 아침에 일찍 일어났어요.",
+   "de": "Ich bin heute früh aufgestanden.",
+   "en": "I got up early this morning."
+  },
+  {
+   "category": "daily",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "아침에 마신 커피가 맛있어서 하루 시작이 좋네요.",
+   "de": "Der Kaffee heute Morgen war so gut — ein schöner Start in den Tag.",
+   "en": "The coffee this morning was great, so it's a nice start to the day."
+  },
+  {
+   "category": "daily",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.",
+   "de": "Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
+   "en": "The commute's so jammed lately that I end up leaving earlier than usual."
+  },
+  {
+   "category": "screen",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "그 드라마 재미있어요.",
+   "de": "Die Serie ist gut.",
+   "en": "That drama is fun."
+  },
+  {
+   "category": "screen",
+   "level": "a2",
+   "kind": "question",
+   "ko": "요즘 무슨 드라마 봐요?",
+   "de": "Welche Serie schaust du gerade?",
+   "en": "What drama are you watching these days?"
+  },
+  {
+   "category": "screen",
+   "level": "b1",
+   "kind": "question",
+   "ko": "넷플릭스에 볼 만한 거 있어요?",
+   "de": "Gibt's auf Netflix etwas Sehenswertes?",
+   "en": "Is there anything worth watching on Netflix?"
+  },
+  {
+   "category": "screen",
+   "level": "b2",
+   "kind": "question",
+   "ko": "요즘 통 볼 만한 게 없던데, 혹시 추천해 줄 거 있어요?",
+   "de": "In letzter Zeit gibt's kaum etwas Gutes — hast du vielleicht eine Empfehlung?",
+   "en": "There's been nothing good to watch lately — got any recommendations?"
+  },
+  {
+   "category": "music",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "이 노래 좋아요.",
+   "de": "Das Lied ist schön.",
+   "en": "I like this song."
+  },
+  {
+   "category": "music",
+   "level": "a2",
+   "kind": "question",
+   "ko": "무슨 음악 좋아해요?",
+   "de": "Welche Musik magst du?",
+   "en": "What music do you like?"
+  },
+  {
+   "category": "music",
+   "level": "b1",
+   "kind": "question",
+   "ko": "즐겨 듣는 음악 장르가 있으세요?",
+   "de": "Haben Sie ein Lieblingsgenre bei Musik?",
+   "en": "Do you have a favorite music genre?"
+  },
+  {
+   "category": "music",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "일할 때 음악을 들으면 집중이 더 잘 되는 편이에요.",
+   "de": "Mit Musik beim Arbeiten kann ich mich eher besser konzentrieren.",
+   "en": "I tend to focus better when I listen to music while working."
+  },
+  {
+   "category": "hobby",
+   "level": "a1",
+   "kind": "question",
+   "ko": "취미가 뭐예요?",
+   "de": "Was ist dein Hobby?",
+   "en": "What's your hobby?"
+  },
+  {
+   "category": "hobby",
+   "level": "a2",
+   "kind": "question",
+   "ko": "시간 있을 때 보통 뭐 해요?",
+   "de": "Was machst du normalerweise in deiner Freizeit?",
+   "en": "What do you usually do in your free time?"
+  },
+  {
+   "category": "hobby",
+   "level": "b1",
+   "kind": "question",
+   "ko": "퇴근 후엔 주로 뭐 하면서 쉬세요?",
+   "de": "Womit entspannen Sie sich meist nach der Arbeit?",
+   "en": "What do you usually do to relax after work?"
+  },
+  {
+   "category": "hobby",
+   "level": "b2",
+   "kind": "question",
+   "ko": "스트레스 받을 때 푸는 본인만의 방법이 있으세요?",
+   "de": "Haben Sie eine eigene Methode, um Stress abzubauen?",
+   "en": "Do you have your own way of relieving stress?"
+  },
+  {
+   "category": "travel",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "저는 여행을 좋아해요.",
+   "de": "Ich reise gern.",
+   "en": "I like traveling."
+  },
+  {
+   "category": "travel",
+   "level": "a2",
+   "kind": "question",
+   "ko": "어디로 여행 가고 싶어요?",
+   "de": "Wohin möchtest du reisen?",
+   "en": "Where do you want to travel?"
+  },
+  {
+   "category": "travel",
+   "level": "b1",
+   "kind": "question",
+   "ko": "가장 기억에 남는 여행지가 어디예요?",
+   "de": "Welches Reiseziel ist Ihnen am meisten in Erinnerung geblieben?",
+   "en": "What's your most memorable travel destination?"
+  },
+  {
+   "category": "travel",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "나중에 시간 되면 꼭 한번 가보고 싶은 나라가 있어요.",
+   "de": "Es gibt ein Land, das ich später unbedingt einmal besuchen möchte.",
+   "en": "There's a country I really want to visit someday."
+  },
+  {
+   "category": "work_study",
+   "level": "a1",
+   "kind": "question",
+   "ko": "일 많아요?",
+   "de": "Hast du viel zu tun?",
+   "en": "Are you busy with work?"
+  },
+  {
+   "category": "work_study",
+   "level": "a2",
+   "kind": "question",
+   "ko": "요즘 무슨 일 해요?",
+   "de": "Was machst du gerade beruflich?",
+   "en": "What kind of work do you do these days?"
+  },
+  {
+   "category": "work_study",
+   "level": "b1",
+   "kind": "question",
+   "ko": "일하면서 가장 보람 있을 때가 언제예요?",
+   "de": "Wann ist Ihre Arbeit am erfüllendsten?",
+   "en": "When do you find your work most rewarding?"
+  },
+  {
+   "category": "work_study",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "요즘 일이 몰려서 좀 정신없는데, 그래도 배우는 게 많아요.",
+   "de": "Gerade häuft sich die Arbeit und es ist hektisch, aber ich lerne viel dabei.",
+   "en": "Work's been piling up and it's hectic, but I'm learning a lot."
+  },
+  {
+   "category": "family",
+   "level": "a1",
+   "kind": "question",
+   "ko": "가족이 많아요?",
+   "de": "Hast du eine große Familie?",
+   "en": "Do you have a big family?"
+  },
+  {
+   "category": "family",
+   "level": "a2",
+   "kind": "question",
+   "ko": "주말에 가족이랑 뭐 해요?",
+   "de": "Was machst du am Wochenende mit der Familie?",
+   "en": "What do you do with your family on weekends?"
+  },
+  {
+   "category": "family",
+   "level": "b1",
+   "kind": "question",
+   "ko": "가족이랑 자주 연락하는 편이세요?",
+   "de": "Haben Sie oft Kontakt zu Ihrer Familie?",
+   "en": "Do you keep in touch with your family often?"
+  },
+  {
+   "category": "family",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "멀리 떨어져 살다 보니 가족이 더 소중하게 느껴지더라고요.",
+   "de": "Seit ich weit weg wohne, ist mir die Familie noch wichtiger geworden.",
+   "en": "Living far away has made me appreciate family even more."
+  },
+  {
+   "category": "health",
+   "level": "a1",
+   "kind": "question",
+   "ko": "운동 좋아해요?",
+   "de": "Treibst du gern Sport?",
+   "en": "Do you like exercising?"
+  },
+  {
+   "category": "health",
+   "level": "a2",
+   "kind": "question",
+   "ko": "보통 무슨 운동 해요?",
+   "de": "Welchen Sport machst du normalerweise?",
+   "en": "What sport do you usually do?"
+  },
+  {
+   "category": "health",
+   "level": "b1",
+   "kind": "question",
+   "ko": "건강을 위해 따로 하는 운동 있으세요?",
+   "de": "Machen Sie etwas Bestimmtes für Ihre Gesundheit?",
+   "en": "Do you do anything specific for your health?"
+  },
+  {
+   "category": "health",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.",
+   "de": "Ich hab neulich mit Sport angefangen — ich fühle mich deutlich fitter.",
+   "en": "I started working out recently and I definitely feel in better shape."
+  }
+ ]
+}
