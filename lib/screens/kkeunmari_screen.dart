@@ -555,14 +555,17 @@ class _LastWordCard extends StatelessWidget {
             }),
           ),
           const SizedBox(height: Spacing.sm),
-          Text(
-            word.german,
-            style: TextStyle(
-              color: s.textMuted,
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
+          // Nur echte Übersetzungen zeigen — "TODO"/leer wird ausgeblendet
+          // (der Pool ist fragment-lastig; siehe tools/content_factory/README).
+          if (word.german.isNotEmpty && word.german != 'TODO')
+            Text(
+              word.german,
+              style: TextStyle(
+                color: s.textMuted,
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
           SoriPressable(
             onTap: () => TtsService.speak(word.word),
             haptic: SoriHaptic.selection,

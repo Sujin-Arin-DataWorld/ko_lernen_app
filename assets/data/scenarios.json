@@ -4631,6 +4631,579 @@
     "de": "Mit der T-money-Karte (교통카드) fährst du U-Bahn, Bus und sogar Taxi — einmal aufladen, überall tippen. An jedem Kiosk erhältlich.",
     "en": "With a T-money card (교통카드) you ride subway, bus and even taxis — top up once, tap everywhere. Available at any convenience store."
    }
+  },
+  {
+   "id": "ktx_ticket",
+   "level": "a2",
+   "emoji": "🚄",
+   "register": "polite",
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "KTX 기차표 사기",
+    "de": "Ein KTX-Ticket kaufen",
+    "en": "Buying a KTX ticket"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Du stehst am Seouler Bahnhof und willst mit dem KTX nach Busan. Hin und zurück? Fensterplatz? Los.",
+    "en": "You're at Seoul Station, taking the KTX to Busan. Round trip? Window seat? Let's go."
+   },
+   "vocab": [
+    {
+     "korean": "편도",
+     "note": {
+      "ko": "",
+      "de": "einfache Fahrt (one-way).",
+      "en": "one-way trip."
+     }
+    },
+    {
+     "korean": "왕복",
+     "note": {
+      "ko": "",
+      "de": "Hin- und Rückfahrt (round trip).",
+      "en": "round trip."
+     }
+    },
+    {
+     "korean": "좌석",
+     "note": {
+      "ko": "",
+      "de": "Sitzplatz.",
+      "en": "seat."
+     }
+    },
+    {
+     "korean": "창가",
+     "note": {
+      "ko": "",
+      "de": "Fensterplatz (창가 자리).",
+      "en": "window (seat)."
+     }
+    },
+    {
+     "korean": "출발 시간",
+     "note": {
+      "ko": "",
+      "de": "Abfahrtszeit.",
+      "en": "departure time."
+     }
+    },
+    {
+     "korean": "매진",
+     "note": {
+      "ko": "",
+      "de": "ausverkauft.",
+      "en": "sold out."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "N행",
+     "de": "N행 — (Zug) Richtung N",
+     "en": "N행 — (train) bound for N"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Ortsname + 행 = 'in Richtung / nach'. 부산행 기차 = 'der Zug nach Busan'. Wird bei Zügen/Bussen für das Ziel verwendet.",
+     "en": "Place + 행 = 'bound for'. 부산행 기차 = 'the train to Busan'. Used for the destination of trains/buses."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "부산행 KTX 한 장 주세요.",
+     "de": "Ein KTX-Ticket nach Busan, bitte.",
+     "en": "One KTX ticket to Busan, please."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "편도세요, 왕복이세요?",
+     "de": "Einfach oder hin und zurück?",
+     "en": "One-way or round trip?"
+    },
+    {
+     "speaker": "user",
+     "ko": "왕복으로 주세요.",
+     "de": "Hin und zurück, bitte.",
+     "en": "Round trip, please."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "창가 자리로 드릴까요?",
+     "de": "Möchten Sie einen Fensterplatz?",
+     "en": "Would you like a window seat?"
+    },
+    {
+     "speaker": "user",
+     "ko": "네, 창가로 부탁해요.",
+     "de": "Ja, einen Fensterplatz bitte.",
+     "en": "Yes, a window seat please."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "열 시 출발입니다. 좋은 여행 되세요.",
+     "de": "Abfahrt um zehn Uhr. Gute Reise!",
+     "en": "Departure at ten. Have a good trip!"
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "편도세요, 왕복이세요?",
+      "options": [
+       {
+        "de": "Einfach oder hin und zurück?",
+        "en": "One-way or round trip?"
+       },
+       {
+        "de": "Fenster oder Gang?",
+        "en": "Window or aisle?"
+       },
+       {
+        "de": "Erste oder zweite Klasse?",
+        "en": "First or second class?"
+       },
+       {
+        "de": "Wann fahren Sie?",
+        "en": "When are you traveling?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ein Ticket nach Busan, bitte.",
+      "promptEn": "One ticket to Busan, please.",
+      "options": [
+       {
+        "ko": "부산행 한 장 주세요."
+       },
+       {
+        "ko": "부산이 어디예요?"
+       },
+       {
+        "ko": "부산은 멀어요?"
+       },
+       {
+        "ko": "부산에 살아요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "왕복",
+      "suffix": "주세요.",
+      "options": [
+       "으로",
+       "로",
+       "을",
+       "를",
+       "이",
+       "가"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "왕복 endet auf Konsonant (ㄱ) → 으로 ('als'). Also: 왕복으로 주세요.",
+      "explanationEn": "왕복 ends in a consonant (ㄱ) → 으로 ('as'). So: 왕복으로 주세요."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Der KTX (고속철도) fährt bis ~305 km/h — Seoul→Busan in ~2,5 Std. Tickets per App 'Korail' oder am Automaten; Fensterplätze (창가) sind schnell weg.",
+    "en": "The KTX bullet train hits ~305 km/h — Seoul→Busan in ~2.5 h. Book via the Korail app or a machine; window seats go fast."
+   }
+  },
+  {
+   "id": "cafe_study",
+   "level": "a2",
+   "emoji": "📶",
+   "register": "polite",
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "카페에서 공부하기",
+    "de": "Im Café lernen",
+    "en": "Studying at a café"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Du willst im Café lernen. WLAN-Passwort? Steckdose? Frag höflich nach.",
+    "en": "You want to study at a café. WiFi password? A power outlet? Ask politely."
+   },
+   "vocab": [
+    {
+     "korean": "와이파이",
+     "note": {
+      "ko": "",
+      "de": "WLAN.",
+      "en": "Wi-Fi."
+     }
+    },
+    {
+     "korean": "비밀번호",
+     "note": {
+      "ko": "",
+      "de": "Passwort.",
+      "en": "password."
+     }
+    },
+    {
+     "korean": "콘센트",
+     "note": {
+      "ko": "",
+      "de": "Steckdose.",
+      "en": "power outlet."
+     }
+    },
+    {
+     "korean": "충전",
+     "note": {
+      "ko": "",
+      "de": "Aufladen (충전하다 = laden).",
+      "en": "charging (충전하다 = to charge)."
+     }
+    },
+    {
+     "korean": "자리",
+     "note": {
+      "ko": "",
+      "de": "Platz/Sitzplatz.",
+      "en": "seat/spot."
+     }
+    },
+    {
+     "korean": "영수증",
+     "note": {
+      "ko": "",
+      "de": "Kassenbon (오늘 영수증에 비번이 있을 때도).",
+      "en": "receipt (sometimes shows the WiFi password)."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-아/어도 돼요?",
+     "de": "-아/어도 돼요? — Darf ich …?",
+     "en": "-아/어도 돼요? — May I …?"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Höflich um Erlaubnis fragen: Verb-Stamm + -아/어도 돼요? 앉다 → 앉아도 돼요? 'Darf ich mich setzen?'",
+     "en": "Politely ask permission: verb stem + -아/어도 돼요? 앉다 → 앉아도 돼요? 'May I sit down?'"
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "여기 앉아도 돼요?",
+     "de": "Darf ich mich hier hinsetzen?",
+     "en": "May I sit here?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 앉으세요.",
+     "de": "Ja, setzen Sie sich.",
+     "en": "Yes, please sit."
+    },
+    {
+     "speaker": "user",
+     "ko": "와이파이 비밀번호가 뭐예요?",
+     "de": "Wie lautet das WLAN-Passwort?",
+     "en": "What's the WiFi password?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "영수증 아래에 있어요.",
+     "de": "Es steht unten auf dem Kassenbon.",
+     "en": "It's at the bottom of the receipt."
+    },
+    {
+     "speaker": "user",
+     "ko": "콘센트는 어디 있어요?",
+     "de": "Wo ist eine Steckdose?",
+     "en": "Where is a power outlet?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "창가 자리에 있어요.",
+     "de": "An den Fensterplätzen.",
+     "en": "By the window seats."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "영수증 아래에 있어요.",
+      "options": [
+       {
+        "de": "Es steht unten auf dem Kassenbon.",
+        "en": "It's at the bottom of the receipt."
+       },
+       {
+        "de": "Wir haben kein WLAN.",
+        "en": "We have no WiFi."
+       },
+       {
+        "de": "Die Steckdose ist kaputt.",
+        "en": "The outlet is broken."
+       },
+       {
+        "de": "Setzen Sie sich bitte.",
+        "en": "Please have a seat."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Darf ich mich hier hinsetzen?",
+      "promptEn": "May I sit here?",
+      "options": [
+       {
+        "ko": "여기 앉아도 돼요?"
+       },
+       {
+        "ko": "여기 어디예요?"
+       },
+       {
+        "ko": "여기 앉으세요."
+       },
+       {
+        "ko": "여기 비싸요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "와이파이 비밀번호",
+      "suffix": "뭐예요?",
+      "options": [
+       "가",
+       "이",
+       "을",
+       "를",
+       "로",
+       "에"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "비밀번호 endet auf Vokal (ㅗ) → Subjektpartikel 가.",
+      "explanationEn": "비밀번호 ends in a vowel (ㅗ) → subject particle 가."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Korea ist 'Café-Lernen'-Land: riesige Cafés (스터디 카페 sogar speziell dafür), schnelles WLAN, oft das Passwort auf dem Bon. Ein Getränk = Stunden bleiben ist normal.",
+    "en": "Korea is built for café studying: huge cafés (even dedicated 스터디 카페), fast WiFi, password often on the receipt. One drink = staying for hours is normal."
+   }
+  },
+  {
+   "id": "food_delivery",
+   "level": "b1",
+   "emoji": "🛵",
+   "register": "polite",
+   "sidekick": "minsu",
+   "xpReward": 160,
+   "title": {
+    "ko": "배달 음식 주문하기",
+    "de": "Essen liefern lassen",
+    "en": "Ordering food delivery"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Regnerischer Abend, du willst Hähnchen liefern lassen. Mindestbestellwert? Liefergebühr? Adresse durchgeben.",
+    "en": "Rainy night, you want to order fried chicken. Minimum order? Delivery fee? Give your address."
+   },
+   "vocab": [
+    {
+     "korean": "배달",
+     "note": {
+      "ko": "",
+      "de": "Lieferung (배달하다 = liefern).",
+      "en": "delivery (배달하다 = to deliver)."
+     }
+    },
+    {
+     "korean": "주문",
+     "note": {
+      "ko": "",
+      "de": "Bestellung (주문하다 = bestellen).",
+      "en": "order (주문하다 = to order)."
+     }
+    },
+    {
+     "korean": "최소 주문 금액",
+     "note": {
+      "ko": "",
+      "de": "Mindestbestellwert.",
+      "en": "minimum order amount."
+     }
+    },
+    {
+     "korean": "배달비",
+     "note": {
+      "ko": "",
+      "de": "Liefergebühr.",
+      "en": "delivery fee."
+     }
+    },
+    {
+     "korean": "주소",
+     "note": {
+      "ko": "",
+      "de": "Adresse.",
+      "en": "address."
+     }
+    },
+    {
+     "korean": "얼마나 걸려요",
+     "note": {
+      "ko": "",
+      "de": "Wie lange dauert es?",
+      "en": "how long does it take?"
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-아/어 주시겠어요?",
+     "de": "-아/어 주시겠어요? — Könnten Sie bitte …?",
+     "en": "-아/어 주시겠어요? — Could you please …?"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Sehr höfliche Bitte: Verb-Stamm + -아/어 주시겠어요? 보내다 → 보내 주시겠어요? 'Könnten Sie es (mir) schicken?'",
+     "en": "Very polite request: verb stem + -아/어 주시겠어요? 보내다 → 보내 주시겠어요? 'Could you send it to me?'"
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "후라이드 한 마리 주문할게요.",
+     "de": "Ich möchte ein ganzes Brathähnchen bestellen.",
+     "en": "I'd like to order one whole fried chicken."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "최소 주문 금액은 만 오천 원이에요.",
+     "de": "Der Mindestbestellwert liegt bei 15.000 Won.",
+     "en": "The minimum order is 15,000 won."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 콜라도 같이 주세요.",
+     "de": "Dann bitte auch eine Cola dazu.",
+     "en": "Then add a cola too, please."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "주소를 말씀해 주시겠어요?",
+     "de": "Könnten Sie mir die Adresse nennen?",
+     "en": "Could you give me the address?"
+    },
+    {
+     "speaker": "user",
+     "ko": "행복아파트 101동 502호예요.",
+     "de": "Haengbok-Apartment, Gebäude 101, Wohnung 502.",
+     "en": "Haengbok Apt, building 101, unit 502."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "삼십 분 정도 걸려요.",
+     "de": "Es dauert etwa 30 Minuten.",
+     "en": "It'll take about 30 minutes."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "주소를 말씀해 주시겠어요?",
+      "options": [
+       {
+        "de": "Könnten Sie mir die Adresse nennen?",
+        "en": "Could you give me the address?"
+       },
+       {
+        "de": "Wie möchten Sie bezahlen?",
+        "en": "How would you like to pay?"
+       },
+       {
+        "de": "Möchten Sie noch etwas?",
+        "en": "Would you like anything else?"
+       },
+       {
+        "de": "Es ist leider ausverkauft.",
+        "en": "Sorry, it's sold out."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Wie lange dauert es?",
+      "promptEn": "How long does it take?",
+      "options": [
+       {
+        "ko": "얼마나 걸려요?"
+       },
+       {
+        "ko": "얼마예요?"
+       },
+       {
+        "ko": "어디예요?"
+       },
+       {
+        "ko": "몇 개예요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "주소",
+      "suffix": "말씀해 주시겠어요?",
+      "options": [
+       "를",
+       "을",
+       "로",
+       "가",
+       "에",
+       "이"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "주소 endet auf Vokal (ㅗ) → Objektpartikel 를.",
+      "explanationEn": "주소 ends in a vowel (ㅗ) → object particle 를."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Korea ist Liefer-Weltmeister: Apps wie 배달의민족 liefern fast alles, oft in 30–40 Min. 'Eine ganze Henne' (한 마리) Chicken + Cola an einem Regenabend ist Kult.",
+    "en": "Korea is the delivery champion: apps like Baemin deliver almost anything, often in 30–40 min. 'A whole chicken' (한 마리) + cola on a rainy night is iconic."
+   }
   }
  ]
 }
