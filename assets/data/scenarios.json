@@ -6350,6 +6350,388 @@
     "de": "In Korea isst man bei Krankheit 죽 (Reisbrei), und 'Gute Besserung' heißt 빨리 나아 (banmal) / 몸조리 잘하세요 (höflich). Freunde fragen oft direkt 'Hast du Medizin genommen?'.",
     "en": "In Korea you eat 죽 (rice porridge) when sick, and 'get well' is 빨리 나아 (casual) / 몸조리 잘하세요 (polite). Friends often ask straight away 'Did you take medicine?'."
    }
+  },
+  {
+   "id": "lost_phone",
+   "level": "a2",
+   "emoji": "📱",
+   "register": "polite",
+   "sidekick": "minsu",
+   "xpReward": 150,
+   "title": {
+    "ko": "휴대폰을 잃어버렸을 때",
+    "de": "Wenn du dein Handy verloren hast",
+    "en": "When you've lost your phone"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Mist — dein Handy ist weg. Du gehst zum Fundbüro der U-Bahn. Wo zuletzt gesehen? Melden und nachfragen.",
+    "en": "Ugh — your phone is gone. You go to the subway lost & found. Where last seen? Report it and ask."
+   },
+   "vocab": [
+    {
+     "korean": "휴대폰",
+     "note": {
+      "ko": "",
+      "de": "Handy (auch 핸드폰).",
+      "en": "cell phone (also 핸드폰)."
+     }
+    },
+    {
+     "korean": "잃어버리다",
+     "note": {
+      "ko": "",
+      "de": "verlieren.",
+      "en": "to lose."
+     }
+    },
+    {
+     "korean": "분실물",
+     "note": {
+      "ko": "",
+      "de": "Fundsache / verlorenes Objekt (분실물 센터 = Fundbüro).",
+      "en": "lost item (분실물 센터 = lost & found)."
+     }
+    },
+    {
+     "korean": "찾다",
+     "note": {
+      "ko": "",
+      "de": "finden / suchen.",
+      "en": "to find / look for."
+     }
+    },
+    {
+     "korean": "신고하다",
+     "note": {
+      "ko": "",
+      "de": "melden / Anzeige machen.",
+      "en": "to report."
+     }
+    },
+    {
+     "korean": "혹시",
+     "note": {
+      "ko": "",
+      "de": "vielleicht / zufällig (höfliche Nachfrage).",
+      "en": "by any chance (polite asking)."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-아/어 버리다",
+     "de": "-아/어 버리다 — (versehentlich/leider) ganz …",
+     "en": "-아/어 버리다 — (regretfully) completely …"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Abgeschlossene Handlung, oft mit Bedauern: Verb-Stamm + -아/어 버리다. 잃다 → 잃어버리다 = '(leider ganz) verlieren'. 잊다 → 잊어버리다 = 'vergessen'.",
+     "en": "Completed action, often with regret: verb stem + -아/어 버리다. 잃다 → 잃어버리다 = 'to lose (for good)'. 잊다 → 잊어버리다 = 'to forget'."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "저기요, 휴대폰을 잃어버렸어요.",
+     "de": "Entschuldigung, ich habe mein Handy verloren.",
+     "en": "Excuse me, I lost my phone."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "어디에서 잃어버리셨어요?",
+     "de": "Wo haben Sie es verloren?",
+     "en": "Where did you lose it?"
+    },
+    {
+     "speaker": "user",
+     "ko": "지하철에 두고 내린 것 같아요.",
+     "de": "Ich glaube, ich hab es in der U-Bahn liegen lassen.",
+     "en": "I think I left it on the subway."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "분실물 센터에 신고해 보세요.",
+     "de": "Melden Sie es bitte beim Fundbüro.",
+     "en": "Try reporting it to the lost & found center."
+    },
+    {
+     "speaker": "user",
+     "ko": "혹시 검은색 휴대폰 들어왔어요?",
+     "de": "Ist zufällig ein schwarzes Handy abgegeben worden?",
+     "en": "Has a black phone been turned in, by any chance?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "잠시만요, 확인해 볼게요.",
+     "de": "Einen Moment, ich schaue nach.",
+     "en": "One moment, I'll check."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "어디에서 잃어버리셨어요?",
+      "options": [
+       {
+        "de": "Wo haben Sie es verloren?",
+        "en": "Where did you lose it?"
+       },
+       {
+        "de": "Welche Farbe hat es?",
+        "en": "What color is it?"
+       },
+       {
+        "de": "Wann war das?",
+        "en": "When was that?"
+       },
+       {
+        "de": "Haben Sie es gemeldet?",
+        "en": "Did you report it?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich habe mein Handy verloren.",
+      "promptEn": "I lost my phone.",
+      "options": [
+       {
+        "ko": "휴대폰을 잃어버렸어요."
+       },
+       {
+        "ko": "휴대폰이 없어요."
+       },
+       {
+        "ko": "휴대폰을 샀어요."
+       },
+       {
+        "ko": "휴대폰이 비싸요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "휴대폰",
+      "suffix": "잃어버렸어요.",
+      "options": [
+       "을",
+       "를",
+       "이",
+       "가",
+       "로",
+       "에"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "휴대폰 endet auf Konsonant (ㄴ) → Objektpartikel 을.",
+      "explanationEn": "휴대폰 ends in a consonant (ㄴ) → object particle 을."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Korea hat eine hohe Fundquote: U-Bahn-Fundbüros (유실물센터) und die App 'LOST112' sammeln Funde. Ein liegen gelassenes Handy taucht erstaunlich oft wieder auf.",
+    "en": "Korea has a high recovery rate: subway lost & found offices (유실물센터) and the 'LOST112' app track items. A left-behind phone resurfaces surprisingly often."
+   }
+  },
+  {
+   "id": "friend_birthday",
+   "level": "a2",
+   "emoji": "🎂",
+   "register": "casual",
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "친구 생일 축하하기",
+    "de": "Einem Freund zum Geburtstag gratulieren",
+    "en": "Wishing a friend happy birthday"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Heute hat dein Freund Geburtstag! Gratulier ihm, gib ihm ein Geschenk — in Banmal.",
+    "en": "It's your friend's birthday today! Congratulate them and give a gift — in banmal."
+   },
+   "vocab": [
+    {
+     "korean": "생일",
+     "note": {
+      "ko": "",
+      "de": "Geburtstag.",
+      "en": "birthday."
+     }
+    },
+    {
+     "korean": "축하하다",
+     "note": {
+      "ko": "",
+      "de": "gratulieren / feiern.",
+      "en": "to congratulate / celebrate."
+     }
+    },
+    {
+     "korean": "선물",
+     "note": {
+      "ko": "",
+      "de": "Geschenk.",
+      "en": "gift."
+     }
+    },
+    {
+     "korean": "케이크",
+     "note": {
+      "ko": "",
+      "de": "Kuchen.",
+      "en": "cake."
+     }
+    },
+    {
+     "korean": "파티",
+     "note": {
+      "ko": "",
+      "de": "Party.",
+      "en": "party."
+     }
+    },
+    {
+     "korean": "준비하다",
+     "note": {
+      "ko": "",
+      "de": "vorbereiten.",
+      "en": "to prepare."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-아/어 줄게",
+     "de": "-아/어 줄게 — Ich mach … für dich (banmal)",
+     "en": "-아/어 줄게 — I'll … for you (casual)"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Anbieten, etwas für jemanden zu tun (banmal): Verb-Stamm + -아/어 줄게. 사다 → 사 줄게 = 'Ich kauf's dir.' 도와주다 → 도와줄게.",
+     "en": "Offer to do something for someone (banmal): verb stem + -아/어 줄게. 사다 → 사 줄게 = 'I'll buy it for you.' 도와주다 → 도와줄게."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "생일 축하해!",
+     "de": "Alles Gute zum Geburtstag!",
+     "en": "Happy birthday!"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "고마워!",
+     "de": "Danke!",
+     "en": "Thank you!"
+    },
+    {
+     "speaker": "user",
+     "ko": "이거 선물이야. 열어 봐.",
+     "de": "Das ist ein Geschenk. Mach's auf.",
+     "en": "This is a gift. Open it."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "와, 진짜 고마워!",
+     "de": "Wow, vielen Dank!",
+     "en": "Wow, thank you so much!"
+    },
+    {
+     "speaker": "user",
+     "ko": "이따 케이크도 사 줄게.",
+     "de": "Später kauf ich dir auch einen Kuchen.",
+     "en": "I'll get you a cake later too."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "너무 좋아! 파티 하자.",
+     "de": "Super! Lass uns feiern.",
+     "en": "I love it! Let's party."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "이따 케이크도 사 줄게.",
+      "options": [
+       {
+        "de": "Später kauf ich dir auch einen Kuchen.",
+        "en": "I'll get you a cake later too."
+       },
+       {
+        "de": "Ich hab das Geschenk vergessen.",
+        "en": "I forgot the gift."
+       },
+       {
+        "de": "Wann ist die Party?",
+        "en": "When is the party?"
+       },
+       {
+        "de": "Danke für das Geschenk.",
+        "en": "Thanks for the gift."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Alles Gute zum Geburtstag!",
+      "promptEn": "Happy birthday!",
+      "options": [
+       {
+        "ko": "생일 축하해!"
+       },
+       {
+        "ko": "잘 자!"
+       },
+       {
+        "ko": "맛있게 먹어!"
+       },
+       {
+        "ko": "조심해!"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "선물",
+      "suffix": "사 줄게.",
+      "options": [
+       "을",
+       "를",
+       "이",
+       "가",
+       "로",
+       "에"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "선물 endet auf Konsonant (ㄹ) → Objektpartikel 을.",
+      "explanationEn": "선물 ends in a consonant (ㄹ) → object particle 을."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "In Korea isst man am Geburtstag 미역국 (Seetangsuppe). Gratulieren: '생일 축하해' (banmal) / '생일 축하합니다' (höflich). Geschenke öffnet man oft erst später, nicht sofort vor allen.",
+    "en": "In Korea you eat 미역국 (seaweed soup) on your birthday. Wishing: '생일 축하해' (casual) / '생일 축하합니다' (polite). Gifts are often opened later, not right away in front of everyone."
+   }
   }
  ]
 }
