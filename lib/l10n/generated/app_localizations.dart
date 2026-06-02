@@ -1861,6 +1861,84 @@ abstract class AppL10n {
   /// **'Anmeldung fehlgeschlagen: {error}'**
   String settingsCloudAuthFailed(Object error);
 
+  /// No description provided for @settingsCloudDeleteData.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Daten löschen'**
+  String get settingsCloudDeleteData;
+
+  /// No description provided for @settingsCloudDeleteDataDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Löscht dein Firestore-Backup. Lokale Fortschritte auf diesem Gerät bleiben erhalten.'**
+  String get settingsCloudDeleteDataDesc;
+
+  /// No description provided for @settingsCloudDeleteDataConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Daten löschen?'**
+  String get settingsCloudDeleteDataConfirmTitle;
+
+  /// No description provided for @settingsCloudDeleteDataConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dadurch wird das Cloud-Backup für das aktuelle Firebase-Konto gelöscht. Lokale Fortschritte auf diesem Gerät werden nicht gelöscht.'**
+  String get settingsCloudDeleteDataConfirmBody;
+
+  /// No description provided for @settingsCloudDeleteDataSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Daten gelöscht'**
+  String get settingsCloudDeleteDataSuccess;
+
+  /// No description provided for @settingsAccountDelete.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto und alle Daten löschen'**
+  String get settingsAccountDelete;
+
+  /// No description provided for @settingsAccountDeleteDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Löscht dein Firebase-Konto, Cloud-Backup und lokale Fortschritte.'**
+  String get settingsAccountDeleteDesc;
+
+  /// No description provided for @settingsAccountDeleteConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto dauerhaft löschen?'**
+  String get settingsAccountDeleteConfirmTitle;
+
+  /// No description provided for @settingsAccountDeleteConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dadurch werden dein Firebase-Konto, die Google-Verknüpfung, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das kann nicht rückgängig gemacht werden. Google kann dich zur Bestätigung erneut anmelden lassen.'**
+  String get settingsAccountDeleteConfirmBody;
+
+  /// No description provided for @settingsAccountDeleteSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto und Daten gelöscht'**
+  String get settingsAccountDeleteSuccess;
+
+  /// No description provided for @settingsAccountDeleteFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Löschung fehlgeschlagen: {error}'**
+  String settingsAccountDeleteFailed(Object error);
+
+  /// No description provided for @settingsAccountDeletionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto- und Datenlöschung'**
+  String get settingsAccountDeletionTitle;
+
+  /// No description provided for @settingsAccountDeletionSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Info-URL zur Löschung kopieren'**
+  String get settingsAccountDeletionSubtitle;
+
   /// No description provided for @statsGotIt.
   ///
   /// In de, this message translates to:

@@ -2,7 +2,8 @@
 
 > Answers for Google Play "Data Safety" form + Apple "App Privacy" section.
 > Source-of-truth for what Hangul Sori collects, shares, and stores.
-> **Last verified: 2026-05-27** — siehe Build-Audit unten.
+> **Last verified: 2026-06-01** — v2.0 update (Snap-and-Learn + Camera permissions).
+> v1.0 → v2.0 deltas marked with **🆕 v2.0**.
 
 ---
 
@@ -18,6 +19,11 @@
 | `firebase_analytics` ^11.6.0 | Aktiv | ✅ ja (Auto-Collection durch SDK-Linking; keine expliziten Events instrumentiert) |
 | `google_sign_in` ^6.2.1 | Aktiv | ✅ ja (optional, nur bei expliziter User-Aktion) |
 | `google_mobile_ads` 5.2.0 | **Auskommentiert** in pubspec.yaml | ❌ nein — `ad_service.dart` ist Stub, Android-Manifest **und** iOS-Info.plist (`GADApplicationIdentifier` + `SKAdNetworkItems`) bereinigt (2026-05-27) |
+| **🆕 v2.0** `google_mlkit_text_recognition` ^0.13.0 | Aktiv | ✅ ja (on-device Korean OCR für Snap-and-Learn). **Kein Server-Upload des Bildes.** |
+| **🆕 v2.0** `image_picker` ^1.1.2 + `image_cropper` ^8.0.2 | Aktiv | ✅ ja (Kamera/Galerie + Crop für Snap-and-Learn) |
+| **🆕 v2.0** `permission_handler` ^11.3.1 | Aktiv | ✅ ja (Runtime-Berechtigungen) |
+| **🆕 v2.0** `http` ^1.2.2 | Aktiv | ✅ ja (Cloud Function POST nur mit OCR-Text, nicht mit Bild) |
+| **🆕 v2.0** DeepL Translation API | Aktiv (Server-seitig in Cloud Function) | ✅ ja — nur extrahierter Text, EU-Server (DeepL SE Köln) |
 
 **Konsequenz:** "Keine Werbung / keine cross-app Tracking"-Aussage ist konsistent.
 Für die spätere Reaktivierung in v1.1+ siehe `docs/store/target-audience-and-ads.md` Part 2.
@@ -55,11 +61,13 @@ Wir **schon**:
 | **App info & performance** — Crash logs (Firebase Crashlytics) | **Yes** | No | No | Crashes diagnostizieren | Yes |
 | **App info & performance** — Diagnostics (Geräte-Modell, OS-Version, App-Version, Speicherzustand) | **Yes** | No | No | Crash-Kontext | Yes |
 | **Device or other IDs** — Firebase Installation ID + Android Advertising ID (Analytics) | **Yes** | No | No | Analytics-Aggregation (nicht zur User-Identifizierung gegenüber Dritten) | Yes |
+| **🆕 v2.0 App activity** — User-generated Korean text (OCR-extrahierte Lehrbuchseiten) | **Yes** | **Yes** (nur wenn User Snap-and-Learn nutzt) | **Yes — DeepL für Übersetzung** | App-Funktionalität: Wort/Grammatik-Analyse + DE/EN-Übersetzung | Yes |
+| **🆕 v2.0 Photos & Videos** — Lehrbuchseiten-Fotos | **No (stays on device)** | — | — | OCR läuft on-device via ML Kit; das Bild wird nicht an unsere Server gesendet | — |
 | Financial info | No | — | — | — | — |
 | Health & fitness | No | — | — | — | — |
 
 > Hinweis: Android 13+ erfordert zusätzlich die Manifest-Berechtigung `com.google.android.gms.permission.AD_ID`, wenn die App Advertising ID für Firebase Analytics verwendet. Hangul Sori nutzt keine Werbung im Release-Build.
-| Messages, photos, videos, audio | No | — | — | — | — |
+| Messages, audio | No | — | — | — | — |
 | Files & docs | No | — | — | — | — |
 | Calendar, contacts | No | — | — | — | — |
 | Location | No | — | — | — | — |
@@ -106,6 +114,8 @@ The HTML privacy page is already prepared at `docs/privacy.html` and served via 
 - [x] **Firebase Crashlytics aktiv?** — JA. `firebase_crashlytics ^4.3.10` in pubspec, Gradle-Plugin `com.google.firebase.crashlytics` 3.0.1, Hooks in `main.dart::_initFirebase` (FlutterError + PlatformDispatcher). Row im Formular eingetragen.
 - [x] **Firebase Analytics aktiv?** — JA. `firebase_analytics ^11.6.0` in pubspec, Auto-Collection durch SDK-Linking (kein expliziter Custom-Event-Code, aber Standard-Events wie `app_open`, `screen_view`, `session_start` werden automatisch erfasst). Zwei zusätzliche Zeilen im Formular: "App activity → Other actions" + "Device or other IDs".
 - [x] **AdMob im Release-Build?** — NEIN. `google_mobile_ads` in pubspec auskommentiert, `ad_service.dart` ist Stub, AdMob-Manifest-Eintrag am 2026-05-27 entfernt. "Keine Werbung"-Aussage konsistent.
+- [x] **🆕 v2.0 Camera/Photos im Release-Build?** — JA für Snap-and-Learn (optional). Manifest: `CAMERA` + `READ_MEDIA_IMAGES` (Android 13+) + `READ_EXTERNAL_STORAGE` (max-sdk 32). iOS: `NSCameraUsageDescription` + `NSPhotoLibraryUsageDescription`. **Bilder verlassen das Gerät nicht** (OCR läuft on-device).
+- [x] **🆕 v2.0 DeepL Translation API?** — JA. Server-seitig in Cloud Function (`functions/analyze_korean_text`). Nur extrahierter Text (nicht das Bild) wird an DeepL gesendet. DeepL EU-Server (Köln, DE). DeepL Privacy Policy: <https://www.deepl.com/privacy>.
 
 ## Account Deletion (Play-Policy ab Mai 2024)
 

@@ -965,6 +965,51 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get settingsCloudDeleteData => 'Delete cloud data';
+
+  @override
+  String get settingsCloudDeleteDataDesc =>
+      'Removes your Firestore backup. Local progress stays on this device.';
+
+  @override
+  String get settingsCloudDeleteDataConfirmTitle => 'Delete cloud data?';
+
+  @override
+  String get settingsCloudDeleteDataConfirmBody =>
+      'This deletes your cloud backup for the current Firebase account. Local progress on this device is not deleted.';
+
+  @override
+  String get settingsCloudDeleteDataSuccess => 'Cloud data deleted';
+
+  @override
+  String get settingsAccountDelete => 'Delete account and all data';
+
+  @override
+  String get settingsAccountDeleteDesc =>
+      'Deletes your Firebase account, cloud backup, and local progress.';
+
+  @override
+  String get settingsAccountDeleteConfirmTitle => 'Delete account permanently?';
+
+  @override
+  String get settingsAccountDeleteConfirmBody =>
+      'This deletes your Firebase account, Google link, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google may ask you to sign in again to confirm.';
+
+  @override
+  String get settingsAccountDeleteSuccess => 'Account and data deleted';
+
+  @override
+  String settingsAccountDeleteFailed(Object error) {
+    return 'Deletion failed: $error';
+  }
+
+  @override
+  String get settingsAccountDeletionTitle => 'Account & data deletion';
+
+  @override
+  String get settingsAccountDeletionSubtitle => 'Copy deletion info URL';
+
+  @override
   String get statsGotIt => 'Got it';
 
   @override

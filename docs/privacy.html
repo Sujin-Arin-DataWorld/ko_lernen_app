@@ -158,7 +158,7 @@
     <!-- ─────────── ENGLISH ─────────── -->
     <section class="section active" id="lang-en">
       <h1>Privacy Policy</h1>
-      <p class="meta"><strong>Effective Date:</strong> 2026-05-20 · <strong>Last Updated:</strong> 2026-05-20</p>
+      <p class="meta"><strong>Effective Date:</strong> 2026-05-20 · <strong>Last Updated:</strong> 2026-06-01</p>
 
       <h2>1. Introduction</h2>
       <p>This Privacy Policy describes how <strong>Hangul Sori (한글소리)</strong> ("we", "our", or "the App"), developed by <strong>Sujin Arin DataWorld</strong> (Frankfurt am Main, Germany), collects, uses, and protects your information when you use our mobile application.</p>
@@ -189,10 +189,21 @@
       </ul>
       <p>This is used solely to restore your learning progress when you switch devices. We do not use this data for marketing, profiling, or sharing with third parties.</p>
 
-      <h3>2.4 What We Do NOT Collect</h3>
+      <h3>2.4 Camera &amp; Photo Library (v2.0 — "책 한 컷 / Snap-and-Learn")</h3>
+      <p>If you use the optional <strong>Snap-and-Learn</strong> feature to photograph a Korean textbook page, the following applies:</p>
+      <ul>
+        <li>🔒 <strong>The photo never leaves your device.</strong> Text recognition (OCR) runs entirely on-device using Google ML Kit; the image bytes are never uploaded to our servers.</li>
+        <li>📝 Only the <strong>extracted Korean text</strong> (and your manual corrections to it) is sent to our Cloud Function for word/grammar analysis.</li>
+        <li>🇩🇪 The extracted text is forwarded to <strong>DeepL</strong> (EU servers, Cologne, Germany) to produce German/English translations. DeepL states it does not store input from API requests.</li>
+        <li>💾 The extracted text and analysis results are saved <strong>only on your device</strong> (your "Bookshelf") unless you have Cloud Backup enabled.</li>
+      </ul>
+      <p>You can revoke camera and photo permissions at any time in your phone's Settings; Snap-and-Learn will simply be unavailable.</p>
+
+      <h3>2.5 What We Do NOT Collect</h3>
       <ul>
         <li>❌ Your real name (beyond optional Google display name)</li>
-        <li>❌ Phone number, location, photos, contacts, files, microphone</li>
+        <li>❌ Phone number, location, contacts, files, microphone</li>
+        <li>❌ Photo files (Snap-and-Learn photos stay on your device only)</li>
         <li>❌ Browsing history outside the app</li>
         <li>❌ Advertising IDs (this version has no ads)</li>
       </ul>
@@ -209,10 +220,14 @@
           <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>App crash and error reporting</td></tr>
           <tr><td>Google Sign-In</td><td>Google LLC</td><td>OAuth flow</td></tr>
           <tr><td>flutter_tts</td><td>Native Android</td><td>Korean pronunciation (offline)</td></tr>
+          <tr><td>Google ML Kit (Text Recognition)</td><td>Google LLC</td><td>On-device Korean OCR for Snap-and-Learn (no upload)</td></tr>
+          <tr><td>DeepL Translation API</td><td>DeepL SE (Cologne, DE)</td><td>Extracted-text translation (text only, EU servers)</td></tr>
+          <tr><td>Firebase Cloud Functions</td><td>Google LLC</td><td>Korean morpheme analysis (OKT) for Snap-and-Learn</td></tr>
           <tr><td>AdMob</td><td>Google LLC</td><td>Disabled in this version</td></tr>
         </tbody>
       </table>
       <p>Google's Privacy Policy: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
+      <p>DeepL Privacy Policy: <a href="https://www.deepl.com/privacy">deepl.com/privacy</a></p>
 
       <h2>4. Your Rights (GDPR)</h2>
       <p>You have the right to:</p>
@@ -254,7 +269,7 @@
     <!-- ─────────── DEUTSCH ─────────── -->
     <section class="section" id="lang-de">
       <h1>Datenschutzerklärung</h1>
-      <p class="meta"><strong>Wirksam ab:</strong> 2026-05-20 · <strong>Zuletzt aktualisiert:</strong> 2026-05-20</p>
+      <p class="meta"><strong>Wirksam ab:</strong> 2026-05-20 · <strong>Zuletzt aktualisiert:</strong> 2026-06-01</p>
 
       <h2>1. Einleitung</h2>
       <p>Diese Datenschutzerklärung beschreibt, wie <strong>Hangul Sori (한글소리)</strong> ("wir", "uns" oder "die App"), entwickelt von <strong>Sujin Arin DataWorld</strong> (Frankfurt am Main, Deutschland), Ihre Informationen bei der Nutzung unserer mobilen Anwendung erhebt, verwendet und schützt.</p>
@@ -285,10 +300,21 @@
       </ul>
       <p>Dies dient ausschließlich der Wiederherstellung Ihres Lernfortschritts bei Gerätewechsel. Wir verwenden diese Daten <strong>nicht</strong> für Marketing, Profilbildung oder Weitergabe an Dritte.</p>
 
-      <h3>2.4 Was wir NICHT erheben</h3>
+      <h3>2.4 Kamera &amp; Fotomediathek (v2.0 — "책 한 컷 / Snap-and-Learn")</h3>
+      <p>Wenn Sie die optionale <strong>Snap-and-Learn</strong>-Funktion nutzen, um eine koreanische Lehrbuchseite zu fotografieren, gilt Folgendes:</p>
+      <ul>
+        <li>🔒 <strong>Das Foto verlässt Ihr Gerät nicht.</strong> Die Texterkennung (OCR) läuft vollständig auf dem Gerät mithilfe von Google ML Kit; das Bild wird niemals auf unsere Server hochgeladen.</li>
+        <li>📝 Nur der <strong>erkannte koreanische Text</strong> (und Ihre manuellen Korrekturen) wird an unsere Cloud Function für die Wort- und Grammatikanalyse gesendet.</li>
+        <li>🇩🇪 Der extrahierte Text wird an <strong>DeepL</strong> (EU-Server, Köln, Deutschland) weitergeleitet, um deutsche/englische Übersetzungen zu erstellen. DeepL gibt an, Eingaben aus API-Anfragen nicht zu speichern.</li>
+        <li>💾 Der extrahierte Text und die Analyseergebnisse werden <strong>nur auf Ihrem Gerät</strong> (Ihr "Bücherregal") gespeichert, es sei denn, Sie haben Cloud-Backup aktiviert.</li>
+      </ul>
+      <p>Sie können Kamera- und Fotoberechtigungen jederzeit in den Telefon-Einstellungen widerrufen; Snap-and-Learn ist dann einfach nicht mehr verfügbar.</p>
+
+      <h3>2.5 Was wir NICHT erheben</h3>
       <ul>
         <li>❌ Ihren echten Namen (außer optionalem Google-Anzeigenamen)</li>
-        <li>❌ Telefonnummer, Standort, Fotos, Kontakte, Dateien, Mikrofon</li>
+        <li>❌ Telefonnummer, Standort, Kontakte, Dateien, Mikrofon</li>
+        <li>❌ Fotodateien (Snap-and-Learn-Bilder bleiben ausschließlich auf Ihrem Gerät)</li>
         <li>❌ Browserverlauf außerhalb der App</li>
         <li>❌ Werbe-IDs (diese Version enthält keine Werbung)</li>
       </ul>
@@ -305,6 +331,9 @@
           <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>App-Absturz- und Fehlerberichte</td></tr>
           <tr><td>Google Sign-In</td><td>Google LLC</td><td>OAuth-Flow</td></tr>
           <tr><td>flutter_tts</td><td>Native Android</td><td>Koreanische Aussprache (offline)</td></tr>
+          <tr><td>Google ML Kit (Texterkennung)</td><td>Google LLC</td><td>OCR auf dem Gerät für Snap-and-Learn (kein Upload)</td></tr>
+          <tr><td>DeepL Translation API</td><td>DeepL SE (Köln, DE)</td><td>Übersetzung des extrahierten Texts (nur Text, EU-Server)</td></tr>
+          <tr><td>Firebase Cloud Functions</td><td>Google LLC</td><td>Koreanische Morphem-Analyse (OKT) für Snap-and-Learn</td></tr>
           <tr><td>AdMob</td><td>Google LLC</td><td>In dieser Version deaktiviert</td></tr>
         </tbody>
       </table>
@@ -350,7 +379,7 @@
     <!-- ─────────── 한국어 (요약) ─────────── -->
     <section class="section" id="lang-ko">
       <h1>개인정보 처리방침 (요약)</h1>
-      <p class="meta">시행일: 2026-05-20 · 최종 갱신: 2026-05-20</p>
+      <p class="meta">시행일: 2026-05-20 · 최종 갱신: 2026-06-01</p>
       <p style="background: var(--bg-card); padding: 12px 16px; border-radius: 8px; font-size: 14px;">
         ※ 한국어 요약은 참고용입니다. 법적 효력은 English / Deutsch 버전이 우선합니다.
       </p>
@@ -360,18 +389,20 @@
         <li><strong>기기 내 저장 (항상)</strong>: 학습 진도, 게임 점수, Streak, SRS 상태, UI 언어, TTS 속도, CEFR 레벨</li>
         <li><strong>익명 Firebase ID (자동)</strong>: 첫 실행 시 랜덤 ID 생성, 개인 정보 아님, Frankfurt EU 서버 저장</li>
         <li><strong>Google 로그인 (선택)</strong>: 이메일, 이름, 익명 ID와 연결 — 기기 간 학습 데이터 동기화용</li>
+        <li><strong>v2.0 책 한 컷 (선택)</strong>: 카메라/갤러리로 교재 페이지 촬영 시 — <strong>사진은 기기에만 저장</strong>, OCR로 추출된 한국어 텍스트만 분석 서버(Cloud Function + DeepL EU 서버)로 전송. 결과는 기기에 보관 (Cloud Backup 활성화 시 Firestore에도 백업)</li>
       </ul>
 
       <h2>2. 수집하지 않는 것</h2>
       <ul>
         <li>실명 (선택적 Google 표시 이름 제외)</li>
-        <li>전화번호, 위치, 사진, 연락처, 마이크</li>
+        <li>전화번호, 위치, 연락처, 마이크</li>
+        <li>사진 파일 (책 한 컷 사진은 기기에만 보관, 서버로 업로드 안 됨)</li>
         <li>앱 외부 브라우징 기록</li>
         <li>광고 ID (이 버전 광고 없음)</li>
       </ul>
 
       <h2>3. 제3자 서비스</h2>
-      <p>Firebase Auth, Firebase Firestore, Google Sign-In, Firebase Analytics, Firebase Crashlytics (모두 Google LLC). 모든 통신 TLS 1.3 암호화, 데이터 EU 서버 저장. Analytics 및 Crashlytics는 익명화된 앱 사용 데이터와 크래시 로그만 수집합니다.</p>
+      <p>Firebase Auth, Firebase Firestore, Firebase Cloud Functions, Google Sign-In, Firebase Analytics, Firebase Crashlytics, Google ML Kit (모두 Google LLC), DeepL Translation API (DeepL SE, 쾰른 DE). 모든 통신 TLS 1.3 암호화, 데이터 EU 서버 저장. Analytics 및 Crashlytics는 익명화된 앱 사용 데이터와 크래시 로그만 수집합니다.</p>
 
       <h2>4. 사용자 권리 (GDPR)</h2>
       <ul>

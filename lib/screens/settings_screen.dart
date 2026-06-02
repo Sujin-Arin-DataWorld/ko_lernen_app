@@ -9,6 +9,7 @@ import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
+import '../services/book_analysis_service.dart';
 import '../services/cloud_sync.dart';
 import '../services/theme_service.dart';
 import '../models/scenario.dart';
@@ -23,11 +24,35 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   late double _ttsRate;
+  late final TextEditingController _endpointCtrl;
 
   @override
   void initState() {
     super.initState();
     _ttsRate = Storage.ttsRate;
+    _endpointCtrl =
+        TextEditingController(text: Storage.bookAnalysisEndpoint);
+  }
+
+  @override
+  void dispose() {
+    _endpointCtrl.dispose();
+    super.dispose();
+  }
+
+  Future<void> _saveEndpoint() async {
+    final url = _endpointCtrl.text.trim();
+    await Storage.setBookAnalysisEndpoint(url);
+    BookAnalysisService.setEndpoint(url);
+    if (!mounted) return;
+    final t = AppL10n.of(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(t.settingsBookEndpointSaved),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 2),
+      ),
+    );
   }
 
   @override
@@ -215,6 +240,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text(t.settingsCloudRestore),
               onTap: _onRestoreTap,
             ),
+            ListTile(
+              leading: const Icon(
+                Icons.cloud_off_outlined,
+                color: SoriColors.danger,
+              ),
+              title: Text(
+                t.settingsCloudDeleteData,
+                style: const TextStyle(color: SoriColors.danger),
+              ),
+              subtitle: Text(t.settingsCloudDeleteDataDesc),
+              onTap: _confirmCloudDelete,
+            ),
           ],
 
           // ── Werbung ──
@@ -236,6 +273,49 @@ class _SettingsScreenState extends State<SettingsScreen> {
             activeThumbColor: SoriColors.primary,
           ),
 
+          // ── Phase 5 — Cloud Analysis Endpoint ──
+          _Section(label: t.settingsBookEndpointSection),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: Spacing.lg, vertical: Spacing.sm),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  t.settingsBookEndpointHint,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: SoriSurfaces.of(context).textMuted,
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                TextField(
+                  controller: _endpointCtrl,
+                  keyboardType: TextInputType.url,
+                  autocorrect: false,
+                  enableSuggestions: false,
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (_) => _saveEndpoint(),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText:
+                        'https://us-central1-…/analyze_korean_text',
+                    isDense: true,
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: FilledButton.icon(
+                    icon: const Icon(Icons.save_outlined, size: 18),
+                    label: Text(t.settingsBookEndpointSave),
+                    onPressed: _saveEndpoint,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
           // ── Reset ──
           _Section(label: ''),
           ListTile(
@@ -245,6 +325,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               style: const TextStyle(color: SoriColors.danger),
             ),
             onTap: _confirmReset,
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.person_remove_outlined,
+              color: SoriColors.danger,
+            ),
+            title: Text(
+              t.settingsAccountDelete,
+              style: const TextStyle(color: SoriColors.danger),
+            ),
+            subtitle: Text(t.settingsAccountDeleteDesc),
+            onTap: _confirmAccountDelete,
           ),
 
           // ── About ──
@@ -260,6 +352,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(t.settingsPrivacySubtitle),
             trailing: const Icon(Icons.copy_rounded, size: 18),
             onTap: _copyPrivacyUrl,
+          ),
+          ListTile(
+            leading: const Icon(Icons.manage_accounts_outlined),
+            title: Text(t.settingsAccountDeletionTitle),
+            subtitle: Text(t.settingsAccountDeletionSubtitle),
+            trailing: const Icon(Icons.copy_rounded, size: 18),
+            onTap: _copyDeletionUrl,
           ),
           ListTile(
             leading: const Icon(Icons.description_outlined),
@@ -419,18 +518,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   static const String _privacyUrl = 'https://hangul-sori.com/privacy.html';
+  static const String _deletionUrl =
+      'https://hangul-sori.com/account-deletion.html';
 
   String _appVersion() => '1.0.1';
 
   Future<void> _copyPrivacyUrl() async {
+    await _copyUrl(_privacyUrl);
+  }
+
+  Future<void> _copyDeletionUrl() async {
+    await _copyUrl(_deletionUrl);
+  }
+
+  Future<void> _copyUrl(String url) async {
     final t = AppL10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
-    await Clipboard.setData(const ClipboardData(text: _privacyUrl));
+    await Clipboard.setData(ClipboardData(text: url));
     HapticFeedback.selectionClick();
     if (!mounted) return;
     messenger.showSnackBar(
       SnackBar(
-        content: Text(t.settingsPrivacyCopied(_privacyUrl)),
+        content: Text(t.settingsPrivacyCopied(url)),
         duration: const Duration(seconds: 3),
       ),
     );
@@ -533,6 +642,52 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  Future<void> _onDeleteCloudData() async {
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await AuthService.deleteCloudData();
+      if (!mounted) return;
+      HapticFeedback.heavyImpact();
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(t.settingsCloudDeleteDataSuccess),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      messenger.showSnackBar(
+        SnackBar(content: Text(t.settingsAccountDeleteFailed(e.toString()))),
+      );
+    }
+  }
+
+  Future<void> _onDeleteAccount() async {
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    final rootNav = Navigator.of(context);
+    try {
+      await AuthService.deleteAccount();
+      await Storage.resetAll();
+      DataLoader.reset();
+      if (!mounted) return;
+      HapticFeedback.heavyImpact();
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(t.settingsAccountDeleteSuccess),
+          duration: const Duration(seconds: 3),
+        ),
+      );
+      rootNav.pushNamedAndRemoveUntil('/intro', (route) => false);
+    } catch (e) {
+      if (!mounted) return;
+      messenger.showSnackBar(
+        SnackBar(content: Text(t.settingsAccountDeleteFailed(e.toString()))),
+      );
+    }
+  }
+
   void _showOfflineDialog({required Future<void> Function() retry}) {
     final t = AppL10n.of(context);
     showDialog<void>(
@@ -612,6 +767,58 @@ class _SettingsScreenState extends State<SettingsScreen> {
               HapticFeedback.heavyImpact();
             },
             child: Text(t.btnConfirm),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _confirmCloudDelete() {
+    final t = AppL10n.of(context);
+    _showDangerConfirm(
+      title: t.settingsCloudDeleteDataConfirmTitle,
+      body: t.settingsCloudDeleteDataConfirmBody,
+      confirmLabel: t.btnDelete,
+      onConfirm: _onDeleteCloudData,
+    );
+  }
+
+  void _confirmAccountDelete() {
+    final t = AppL10n.of(context);
+    _showDangerConfirm(
+      title: t.settingsAccountDeleteConfirmTitle,
+      body: t.settingsAccountDeleteConfirmBody,
+      confirmLabel: t.btnDelete,
+      onConfirm: _onDeleteAccount,
+    );
+  }
+
+  void _showDangerConfirm({
+    required String title,
+    required String body,
+    required String confirmLabel,
+    required Future<void> Function() onConfirm,
+  }) {
+    final t = AppL10n.of(context);
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: SoriColors.darkSurface,
+        title: Text(title),
+        content: Text(body),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(t.btnCancel),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: SoriColors.danger),
+            onPressed: () async {
+              final nav = Navigator.of(ctx);
+              nav.pop();
+              await onConfirm();
+            },
+            child: Text(confirmLabel),
           ),
         ],
       ),

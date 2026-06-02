@@ -1043,6 +1043,49 @@ class _ModulesGrid extends StatelessWidget {
             ),
           ],
         ),
+        // Phase 5.1 신규 진입로 — 책 한 컷 + 책장
+        const SizedBox(height: Spacing.md),
+        Row(
+          children: [
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.photo_camera_outlined,
+                title: t.homeBookCardTitle,
+                subtitle: t.homeBookCardDesc,
+                accent: SoriColors.info,
+                onTap: () => Navigator.pushNamed(context, '/book'),
+              ),
+            ),
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.collections_bookmark_outlined,
+                title: t.homeBookshelfCardTitle,
+                subtitle: t.homeBookshelfCardDesc,
+                accent: SoriColors.primary,
+                onTap: () => Navigator.pushNamed(context, '/bookshelf'),
+              ),
+            ),
+          ],
+        ),
+        // Phase 4 진입로 — 특별 퀘스트
+        const SizedBox(height: Spacing.md),
+        Row(
+          children: [
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.workspace_premium_outlined,
+                title: t.homeQuestsCardTitle,
+                subtitle: t.homeQuestsCardDesc,
+                accent: SoriColors.gold,
+                onTap: () => Navigator.pushNamed(context, '/quests'),
+              ),
+            ),
+            // Right cell intentionally empty — 7 modules total, odd count.
+            const SizedBox(width: Spacing.md),
+            const Expanded(child: SizedBox.shrink()),
+          ],
+        ),
       ],
     );
   }

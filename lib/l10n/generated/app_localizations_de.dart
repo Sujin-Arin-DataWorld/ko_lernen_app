@@ -966,6 +966,52 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get settingsCloudDeleteData => 'Cloud-Daten löschen';
+
+  @override
+  String get settingsCloudDeleteDataDesc =>
+      'Löscht dein Firestore-Backup. Lokale Fortschritte auf diesem Gerät bleiben erhalten.';
+
+  @override
+  String get settingsCloudDeleteDataConfirmTitle => 'Cloud-Daten löschen?';
+
+  @override
+  String get settingsCloudDeleteDataConfirmBody =>
+      'Dadurch wird das Cloud-Backup für das aktuelle Firebase-Konto gelöscht. Lokale Fortschritte auf diesem Gerät werden nicht gelöscht.';
+
+  @override
+  String get settingsCloudDeleteDataSuccess => 'Cloud-Daten gelöscht';
+
+  @override
+  String get settingsAccountDelete => 'Konto und alle Daten löschen';
+
+  @override
+  String get settingsAccountDeleteDesc =>
+      'Löscht dein Firebase-Konto, Cloud-Backup und lokale Fortschritte.';
+
+  @override
+  String get settingsAccountDeleteConfirmTitle => 'Konto dauerhaft löschen?';
+
+  @override
+  String get settingsAccountDeleteConfirmBody =>
+      'Dadurch werden dein Firebase-Konto, die Google-Verknüpfung, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das kann nicht rückgängig gemacht werden. Google kann dich zur Bestätigung erneut anmelden lassen.';
+
+  @override
+  String get settingsAccountDeleteSuccess => 'Konto und Daten gelöscht';
+
+  @override
+  String settingsAccountDeleteFailed(Object error) {
+    return 'Löschung fehlgeschlagen: $error';
+  }
+
+  @override
+  String get settingsAccountDeletionTitle => 'Konto- und Datenlöschung';
+
+  @override
+  String get settingsAccountDeletionSubtitle =>
+      'Info-URL zur Löschung kopieren';
+
+  @override
   String get statsGotIt => 'Gewusst';
 
   @override

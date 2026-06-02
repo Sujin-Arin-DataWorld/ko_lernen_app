@@ -1,6 +1,7 @@
 # Store Listing — Deutsch
 
 > Eintrag-Texte für Google Play (DE) und App Store Connect (DE).
+> **v2.0 update** (2026-06-01): Snap-and-Learn + Hanok-System + Vokabel-Packs.
 
 ---
 
@@ -14,17 +15,17 @@
 
 ## Kurze Beschreibung (Play Store, max. 80 Zeichen)
 
-**Koreanisch lernen wie ein Lied — Hangul, Vokabeln, Szenarien & Mini-Spiele.**
+**Koreanisch lernen — Vokabel-Packs, Hanok-System & Lehrbuchseite knipsen.**
 
-(78 Zeichen)
+(76 Zeichen)
 
 ---
 
 ## Promotional Text (App Store, max. 170 Zeichen)
 
-**Vom ersten ㄱ bis zur Café-Bestellung in Seoul: Hangul-Übungen, Vokabel-Karten mit SRS, lebensechte Dialog-Szenarien und Mini-Spiele wie Wordle auf Koreanisch.**
+**526 Wörter in 61 Packs (A1–B2), dein Hanok wächst mit dir, fotografiere eine Lehrbuchseite und erhalte sofort Wörter, Grammatik und Übersetzung.**
 
-(168 Zeichen)
+(155 Zeichen)
 
 ---
 
@@ -36,15 +37,19 @@ Hangul Sori ist eine sorgfältig gestaltete Lern-App für deutschsprachige Anfä
 
 Statt sturer Vokabellisten lebst du im Hanok: einem traditionellen koreanischen Haus, das sich mit dir entwickelt. Tiger und Elster begleiten dich von der ersten Silbe bis zum ersten Smalltalk im Café in Seoul.
 
-▌ **Was du lernst**
+▌ **Was du lernst (v2.0)**
 
 • **Hangul von Grund auf** — Konsonanten, Vokale, Endlaute (Batchim). Erkennen, schreiben, hören.
-• **Vokabular mit SRS** — Karten lernen sich von selbst über Spaced Repetition. Heute fällig = heute lernen.
+• **526 Vokabeln in 61 Packs** — A1 bis B2, nach Themen geordnet (Begrüßung, Familie, Zahlen, Essen, Verkehr …). Jeder Pack endet mit Boss-Wörtern; ≥ 70 % freischalten den nächsten.
 • **Lebensechte Szenarien** — Café, Markt, Hotel, U-Bahn, Apotheke: keine Schulbuch-Sätze, sondern wie es wirklich klingt.
 • **Grammatik im Kontext** — keine endlosen Tabellen. Du siehst die Form, hörst sie, benutzt sie.
+• **🆕 Snap-and-Learn ("책 한 컷")** — Lehrbuchseite knipsen, Wörter und Grammatik werden automatisch erkannt und übersetzt. Bilder bleiben auf deinem Gerät.
+• **🆕 Hanok-System** — dein virtueller Innenhof wächst Stage für Stage mit dem Lernfortschritt: Bauplatz → Säulen → Ziegeldach → Dancheong → Jongga.
+• **🆕 17 Spezial-Quests** — Pflaumenbaum, Steinmauer, Steinlaterne, Kalligraphie-Tafel, saisonale Events (Seollal, Chuseok, Hangeul-Tag).
 • **Mini-Spiele**:
   – **Anlaut-Quiz** — Errate das Wort an seinen Anfangs-Konsonanten (ㅂ_ㅂ_ → 밥)
   – **Hangul-Wordle** — 6 Versuche, eine koreanische Silbe pro Tag
+  – **Kkeunmari (끝말잇기)** — das Wortketten-Spiel gegen den Tiger
   – **Lückentexte, Hörverstehen, Übersetzung** — als Quests in den Szenarien
 
 ▌ **Was Hangul Sori anders macht**

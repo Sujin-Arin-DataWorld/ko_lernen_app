@@ -1,6 +1,7 @@
 # Store Listing — English
 
 > Entry texts for Google Play (EN) and App Store Connect (EN).
+> **v2.0 update** (2026-06-01): Snap-and-Learn + Hanok system + vocab packs.
 
 ---
 
@@ -14,17 +15,17 @@
 
 ## Short Description (Play Store, max. 80 chars)
 
-**Learn Korean like learning a song — Hangul, vocab, scenarios & mini-games.**
+**Korean by themed packs, a hanok that grows with you, snap-and-learn your book.**
 
-(76 characters)
+(79 characters)
 
 ---
 
 ## Promotional Text (App Store, max. 170 chars)
 
-**From your first ㄱ to ordering a coffee in Seoul: Hangul drills, SRS vocab cards, real-life dialog scenarios, and mini-games like Korean Wordle.**
+**526 words across 61 themed packs (A1–B2), your hanok grows with your progress, photograph a textbook page and get words, grammar and translation instantly.**
 
-(151 characters)
+(160 characters)
 
 ---
 
@@ -36,15 +37,19 @@ Hangul Sori is a carefully crafted Korean learning app for German and English sp
 
 Instead of dry vocabulary lists, you live inside a hanok: a traditional Korean house that grows with you. A tiger and a magpie guide you from your first syllable to your first small talk in a Seoul café.
 
-▌ **What you learn**
+▌ **What you learn (v2.0)**
 
 • **Hangul from the ground up** — consonants, vowels, batchim (final consonants). Recognize, write, hear.
-• **Vocabulary with SRS** — cards rise and fall on a spaced-repetition schedule. Due today = learn today.
+• **526 vocab words in 61 themed packs** — A1 to B2, organized by topic (greetings, family, numbers, food, transport …). Each pack ends with boss words; ≥ 70 % unlocks the next.
 • **Real-life scenarios** — café, market, hotel, subway, pharmacy: not textbook sentences, but how it actually sounds.
 • **Grammar in context** — no endless tables. You see the form, hear it, use it.
+• **🆕 Snap-and-Learn ("책 한 컷")** — photograph a textbook page and we auto-extract words and grammar with translation. Photos stay on your device.
+• **🆕 Hanok system** — your virtual courtyard grows stage by stage as you learn: empty lot → pillars → tile roof → dancheong → jongga (head family estate).
+• **🆕 17 special quests** — plum tree, stone wall, stone lantern, calligraphy plaque, seasonal events (Seollal, Chuseok, Hangeul Day).
 • **Mini-games**:
   – **Anlaut Quiz** — guess the word from its initial consonants (ㅂ_ㅂ_ → 밥)
   – **Hangul Wordle** — six tries to find a Korean syllable, daily + shuffle
+  – **Kkeunmari (끝말잇기)** — the word-chain game vs. the tiger
   – **Fill-in-the-blanks, listening, translation** — as quests inside scenarios
 
 ▌ **What makes Hangul Sori different**
