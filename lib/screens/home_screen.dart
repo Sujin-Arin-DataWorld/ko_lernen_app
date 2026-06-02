@@ -8,6 +8,7 @@ import '../services/daily_char_service.dart';
 import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/review_deck_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
@@ -49,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Scenario? _today;
   bool _loadingScenario = true;
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
+  int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
 
   // E2. Skill-path — 사용자 레벨 시나리오 진행 레일.
   List<Scenario> _levelPath = const [];
@@ -100,12 +102,16 @@ class _HomeScreenState extends State<HomeScreen> {
     final levelPath =
         list.where((s) => s.level == userLevel).toList(growable: false);
 
-    // M2: "Heute lernen" — Anzahl heute fälliger + neuer SRS-Karten.
+    // M2/A1: "Heute lernen" — fällige + neue SRS-Karten. A1: CSV + 나만의 단어장
+    // + 책 한 컷 단어 모두 포함. A2: "어려운 단어"(leech) 개수도 함께 계산.
     int dueCount = 0;
+    int hardCount = 0;
     try {
-      final vocab = await DataLoader.loadVocab();
+      final all = await ReviewDeckService.allReviewable();
       if (!mounted) return;
-      dueCount = Storage.todayGoalIds(vocab.map((v) => v.korean)).length;
+      final koreans = all.map((v) => v.korean);
+      dueCount = Storage.todayGoalIds(koreans).length;
+      hardCount = Storage.hardIds(koreans).length;
     } catch (_) {/* best-effort; ohne Vokabeln einfach 0 */}
 
     setState(() {
@@ -113,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _levelPath = levelPath;
       _completed = completed;
       _dueCount = dueCount;
+      _hardCount = hardCount;
       _loadingScenario = false;
     });
   }
@@ -321,6 +328,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
+                    // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
+                    if (_hardCount > 0) ...[
+                      const SizedBox(height: Spacing.sm),
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 310),
+                        slideY: 14,
+                        child: _HardWordsCard(
+                          count: _hardCount,
+                          onTap: () async {
+                            await Navigator.pushNamed(context, '/hard_words');
+                            if (mounted) await _loadToday();
+                          },
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: Spacing.md),
 
                     // ── E1c. Dein Tageskurs (M5) — personalisiert · Premium ──
@@ -1138,6 +1160,74 @@ class _ReviewCard extends StatelessWidget {
                 ? SoriColors.gold.withValues(alpha: 0.8)
                 : SoriColors.success,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// A2. "어려운 단어"(leech) 카드 — 반복해도 안 외워지는 단어 집중 복습
+// ════════════════════════════════════════════════════════════════════════
+class _HardWordsCard extends StatelessWidget {
+  final int count;
+  final VoidCallback onTap;
+  const _HardWordsCard({required this.count, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.danger,
+      tinted: true,
+      onTap: onTap,
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: SoriColors.danger.withValues(alpha: 0.16),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+            ),
+            alignment: Alignment.center,
+            child: const Icon(Icons.bolt_rounded,
+                color: SoriColors.danger, size: 24),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  t.hardWordsTitle,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  t.hardWordsSubtitle(count),
+                  style: const TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 11.5,
+                    color: SoriColors.danger,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Icon(Icons.chevron_right_rounded,
+              color: SoriColors.danger.withValues(alpha: 0.8)),
         ],
       ),
     );

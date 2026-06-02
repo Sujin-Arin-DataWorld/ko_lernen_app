@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../services/custom_pack_service.dart';
+import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -67,9 +69,13 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
 
   void _pick(String option) {
     if (_picked != null) return;
-    final correct = _pool[_order[_qIdx]].translationDe.trim();
+    final word = _pool[_order[_qIdx]];
+    final correct = word.translationDe.trim();
+    final isRight = option == correct;
     setState(() => _picked = option);
-    if (option == correct) {
+    // A1: 퀴즈 결과를 메인 SRS 에 반영.
+    Storage.srsReview(word.korean, gotIt: isRight);
+    if (isRight) {
       _score++;
       HapticFeedback.lightImpact();
     } else {
@@ -173,6 +179,19 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
                   padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
                   child: Column(
                     children: [
+                      if (word.imagePath.isNotEmpty) ...[
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(SoriRadius.md),
+                          child: Image.file(
+                            File(word.imagePath),
+                            height: 110,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) =>
+                                const SizedBox.shrink(),
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.md),
+                      ],
                       Text(
                         word.korean,
                         textAlign: TextAlign.center,

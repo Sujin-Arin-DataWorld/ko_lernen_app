@@ -290,8 +290,13 @@ def analyze_korean_text(request: Request) -> Response:
     target = "DE" if lang == "de" else "EN-US"
     translations = translate_batch(to_translate, target)
 
-    # Koreanische Definitionen via 우리말샘 (best effort, in-place).
-    enrich_definitions(words)
+    # 한국어 뜻풀이(definitionKo)는 v1.0 에서 비활성화.
+    # NIKL 사전 API(우리말샘·표준국어대사전·krdict) 모두 동음이의어의 "대표 뜻"을
+    # 안정적으로 주지 못함 (밥→형벌, 먹다→귀먹다, krdict 도 슬랭 다수). 독일 학습자에겐
+    # 독일어 번역+예문이 핵심이라 가치 낮고, 호출 제거로 응답 속도도 향상.
+    # 클라이언트는 definitionKo 빈 값이면 자동 숨김(isNotEmpty 가드). → definitionKo 는 "".
+    # v1.1 재검토: 고정 단어장 큐레이션 또는 LLM 문맥 기반 sense 선택.
+    # enrich_definitions(words)
 
     enriched_words = []
     sentence_lookup = {s: translations.get(s, "") for s in sentences}

@@ -727,5 +727,24 @@
   },
   "wbPhotoCamera": "Kamera",
   "wbPhotoGallery": "Galerie",
-  "wbPhotoRemove": "Foto entfernen"
+  "wbPhotoRemove": "Foto entfernen",
+
+  "@_a2_a3_memory_engine": { "description": "A2 schwierige Wörter + A3 Lernmodi (v2.0)." },
+  "hardWordsTitle": "Schwierige Wörter",
+  "hardWordsSubtitle": "{count} Wörter wollen einfach nicht sitzen",
+  "@hardWordsSubtitle": { "placeholders": { "count": { "type": "int" } } },
+  "hardWordsEmptyTitle": "Keine Sorgenkinder 🎉",
+  "hardWordsEmptyBody": "Im Moment gibt es keine besonders schwierigen Wörter. Lern weiter — falls eins hakt, taucht es hier auf.",
+  "hardWordsStudyCta": "Gezielt wiederholen",
+  "wbMatching": "Paare finden",
+  "wbMatchingHint": "Tippe ein koreanisches Wort, dann seine Bedeutung.",
+  "wbMatchingNeedMore": "Mindestens 2 Wörter mit Bedeutung nötig.",
+  "wbMatchingDone": "Alle Paare gefunden!",
+  "wbMatchingDoneBody": "Noch eine Runde?",
+  "wbTyping": "Schreiben",
+  "wbTypingNeedMore": "Mindestens 1 Wort mit Bedeutung nötig.",
+  "wbTypingPrompt": "Schreib das koreanische Wort:",
+  "wbTypingHint": "Auf Koreanisch …",
+  "wbTypingAnswer": "Richtig: {answer}",
+  "@wbTypingAnswer": { "placeholders": { "answer": {} } }
 }

@@ -52,6 +52,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
     HapticFeedback.lightImpact();
     final w = pack.words[_idx];
     Storage.addVokSeen(w.korean);
+    // A1: 메인 SRS 에 편입 → "오늘의 복습"에서 다시 만남.
+    Storage.srsReview(w.korean, gotIt: true);
     setState(() {
       _learned++;
     });
@@ -60,6 +62,11 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
 
   void _skip() {
     HapticFeedback.selectionClick();
+    final pack = _pack;
+    if (pack != null) {
+      // A1: 모른 단어 → SRS 간격 짧게 리셋 (내일 다시).
+      Storage.srsReview(pack.words[_idx].korean, gotIt: false);
+    }
     _advance();
   }
 

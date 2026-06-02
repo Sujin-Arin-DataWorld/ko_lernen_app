@@ -1863,4 +1863,55 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wbPhotoRemove => 'Foto entfernen';
+
+  @override
+  String get hardWordsTitle => 'Schwierige Wörter';
+
+  @override
+  String hardWordsSubtitle(int count) {
+    return '$count Wörter wollen einfach nicht sitzen';
+  }
+
+  @override
+  String get hardWordsEmptyTitle => 'Keine Sorgenkinder 🎉';
+
+  @override
+  String get hardWordsEmptyBody =>
+      'Im Moment gibt es keine besonders schwierigen Wörter. Lern weiter — falls eins hakt, taucht es hier auf.';
+
+  @override
+  String get hardWordsStudyCta => 'Gezielt wiederholen';
+
+  @override
+  String get wbMatching => 'Paare finden';
+
+  @override
+  String get wbMatchingHint =>
+      'Tippe ein koreanisches Wort, dann seine Bedeutung.';
+
+  @override
+  String get wbMatchingNeedMore => 'Mindestens 2 Wörter mit Bedeutung nötig.';
+
+  @override
+  String get wbMatchingDone => 'Alle Paare gefunden!';
+
+  @override
+  String get wbMatchingDoneBody => 'Noch eine Runde?';
+
+  @override
+  String get wbTyping => 'Schreiben';
+
+  @override
+  String get wbTypingNeedMore => 'Mindestens 1 Wort mit Bedeutung nötig.';
+
+  @override
+  String get wbTypingPrompt => 'Schreib das koreanische Wort:';
+
+  @override
+  String get wbTypingHint => 'Auf Koreanisch …';
+
+  @override
+  String wbTypingAnswer(Object answer) {
+    return 'Richtig: $answer';
+  }
 }

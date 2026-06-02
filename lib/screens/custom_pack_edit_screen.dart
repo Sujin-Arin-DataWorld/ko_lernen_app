@@ -248,40 +248,74 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            // 학습 / 퀴즈 진입
+            // 학습 모드 4종: 카드 · 짝맞추기 · 받아쓰기 · 퀴즈
             Padding(
               padding: const EdgeInsets.fromLTRB(
-                  Spacing.lg, Spacing.md, Spacing.lg, Spacing.sm),
-              child: Row(
+                  Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),
+              child: Column(
                 children: [
-                  Expanded(
-                    child: SoriButton(
-                      label: t.wbStudyCards,
-                      icon: Icons.style_outlined,
-                      variant: SoriButtonVariant.filled,
-                      accent: SoriColors.primary,
-                      onTap: words.isEmpty
-                          ? null
-                          : () => Navigator.of(context).pushNamed(
-                                '/custom_pack/play',
-                                arguments: pack.id,
-                              ),
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SoriButton(
+                          label: t.wbStudyCards,
+                          icon: Icons.style_outlined,
+                          variant: SoriButtonVariant.filled,
+                          accent: SoriColors.primary,
+                          onTap: words.isEmpty
+                              ? null
+                              : () => Navigator.of(context).pushNamed(
+                                  '/custom_pack/play',
+                                  arguments: pack.id),
+                        ),
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: SoriButton(
+                          label: t.wbMatching,
+                          icon: Icons.grid_view_rounded,
+                          variant: SoriButtonVariant.outlined,
+                          accent: SoriColors.primary,
+                          onTap: words.length < 2
+                              ? null
+                              : () => Navigator.of(context).pushNamed(
+                                  '/custom_pack/matching',
+                                  arguments: pack.id),
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: Spacing.md),
-                  Expanded(
-                    child: SoriButton(
-                      label: t.wbQuiz,
-                      icon: Icons.quiz_outlined,
-                      variant: SoriButtonVariant.outlined,
-                      accent: SoriColors.accent,
-                      onTap: words.length < 4
-                          ? null
-                          : () => Navigator.of(context).pushNamed(
-                                '/custom_pack/quiz',
-                                arguments: pack.id,
-                              ),
-                    ),
+                  const SizedBox(height: Spacing.sm),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SoriButton(
+                          label: t.wbTyping,
+                          icon: Icons.keyboard_alt_outlined,
+                          variant: SoriButtonVariant.outlined,
+                          accent: SoriColors.accent,
+                          onTap: words.isEmpty
+                              ? null
+                              : () => Navigator.of(context).pushNamed(
+                                  '/custom_pack/typing',
+                                  arguments: pack.id),
+                        ),
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: SoriButton(
+                          label: t.wbQuiz,
+                          icon: Icons.quiz_outlined,
+                          variant: SoriButtonVariant.outlined,
+                          accent: SoriColors.accent,
+                          onTap: words.length < 4
+                              ? null
+                              : () => Navigator.of(context).pushNamed(
+                                  '/custom_pack/quiz',
+                                  arguments: pack.id),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

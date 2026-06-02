@@ -1858,4 +1858,54 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wbPhotoRemove => 'Remove photo';
+
+  @override
+  String get hardWordsTitle => 'Tricky words';
+
+  @override
+  String hardWordsSubtitle(int count) {
+    return '$count words just won\'t stick';
+  }
+
+  @override
+  String get hardWordsEmptyTitle => 'Nothing tricky 🎉';
+
+  @override
+  String get hardWordsEmptyBody =>
+      'No especially hard words right now. Keep learning — if one keeps tripping you up, it\'ll show up here.';
+
+  @override
+  String get hardWordsStudyCta => 'Drill these';
+
+  @override
+  String get wbMatching => 'Match pairs';
+
+  @override
+  String get wbMatchingHint => 'Tap a Korean word, then its meaning.';
+
+  @override
+  String get wbMatchingNeedMore => 'You need at least 2 words with a meaning.';
+
+  @override
+  String get wbMatchingDone => 'All pairs matched!';
+
+  @override
+  String get wbMatchingDoneBody => 'One more round?';
+
+  @override
+  String get wbTyping => 'Spell it';
+
+  @override
+  String get wbTypingNeedMore => 'You need at least 1 word with a meaning.';
+
+  @override
+  String get wbTypingPrompt => 'Type the Korean word:';
+
+  @override
+  String get wbTypingHint => 'In Korean …';
+
+  @override
+  String wbTypingAnswer(Object answer) {
+    return 'Correct: $answer';
+  }
 }

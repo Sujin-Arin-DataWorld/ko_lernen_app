@@ -726,5 +726,24 @@
   },
   "wbPhotoCamera": "Camera",
   "wbPhotoGallery": "Gallery",
-  "wbPhotoRemove": "Remove photo"
+  "wbPhotoRemove": "Remove photo",
+
+  "@_a2_a3_memory_engine": { "description": "A2 hard words + A3 study modes (v2.0)." },
+  "hardWordsTitle": "Tricky words",
+  "hardWordsSubtitle": "{count} words just won't stick",
+  "@hardWordsSubtitle": { "placeholders": { "count": { "type": "int" } } },
+  "hardWordsEmptyTitle": "Nothing tricky 🎉",
+  "hardWordsEmptyBody": "No especially hard words right now. Keep learning — if one keeps tripping you up, it'll show up here.",
+  "hardWordsStudyCta": "Drill these",
+  "wbMatching": "Match pairs",
+  "wbMatchingHint": "Tap a Korean word, then its meaning.",
+  "wbMatchingNeedMore": "You need at least 2 words with a meaning.",
+  "wbMatchingDone": "All pairs matched!",
+  "wbMatchingDoneBody": "One more round?",
+  "wbTyping": "Spell it",
+  "wbTypingNeedMore": "You need at least 1 word with a meaning.",
+  "wbTypingPrompt": "Type the Korean word:",
+  "wbTypingHint": "In Korean …",
+  "wbTypingAnswer": "Correct: {answer}",
+  "@wbTypingAnswer": { "placeholders": { "answer": {} } }
 }

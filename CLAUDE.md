@@ -326,6 +326,13 @@ flutter run -d <android-id>   # 안드로이드
 
 **⚠️ 빌드:** 신규 l10n 키 + path_provider 때문에 **반드시 `flutter pub get` → `flutter gen-l10n` → `flutter analyze` → `flutter test`** 1회. 정적 검증(브레이스 균형·키 parity·JSON·기존 위젯 API 대조)만 했고 컴파일은 Jin 로컬에서.
 
+11. **"나만의 단어장 = 암기 엔진" (A1·A2·A3)** — 단순 저장소 → SRS 통합 학습 엔진:
+   - **A1 메인 SRS 편입**: 신규 `ReviewDeckService.allReviewable()`(CSV+커스텀팩+책장 단어 통합, 한국어 dedup) → `review_session_screen`("오늘의 복습")·홈 dueCount가 이걸 사용. 커스텀팩 카드/퀴즈/받아쓰기에서 `Storage.srsReview()` 호출 → 직접 모은 단어가 매일 복습에 흐름.
+   - **A2 어려운 단어(leech)**: `Storage.hardIds()`(reviewCount≥3 & (ease≤1.8 ‖ interval≤1)) + 신규 `hard_words_screen.dart`(목록+집중복습) + 홈 카드(`_HardWordscard`, hardCount>0일 때만) + 라우트 `/hard_words`.
+   - **A3 학습 모드 확장**: 신규 `custom_pack_matching_screen.dart`(짝맞추기) + `custom_pack_typing_screen.dart`(받아쓰기, SRS연동) + 퀴즈에 사진 노출(A4). 편집화면 4모드 버튼(카드·짝맞추기·받아쓰기·퀴즈). 라우트 `/custom_pack/matching`·`/custom_pack/typing`.
+   - l10n +21키(hardWords*·wbMatching*·wbTyping*), DE/EN parity(내 키 전부 일치; `@homeReviewDue`는 템플릿(DE) 전용 메타로 정상). 11개 파일 브레이스 균형 OK.
+   - **빌드: `flutter gen-l10n` 필수**(신규 키). 웹사이트엔 "나만의 단어장" 카드 추가됨(라이브는 푸시 필요).
+
 **검증:** Jin 로컬 빌드 통과 확인("전부 문제없이 빌드됐어"). 이후 추가된 `definitionKo` 관련 Dart 3파일은 `flutter analyze` 1회 재확인 권장. 함수 배포·AAB·실기기·Play Console·우리말샘 실호출 = Jin.
 
 **⚠️ API 키:** DeepL·우리말샘 키가 대화에 노출됨 → 셋업 후 **DeepL 키 재발급** 권장.

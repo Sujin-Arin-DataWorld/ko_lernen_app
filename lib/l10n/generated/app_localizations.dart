@@ -3492,6 +3492,96 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Foto entfernen'**
   String get wbPhotoRemove;
+
+  /// No description provided for @hardWordsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierige Wörter'**
+  String get hardWordsTitle;
+
+  /// No description provided for @hardWordsSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Wörter wollen einfach nicht sitzen'**
+  String hardWordsSubtitle(int count);
+
+  /// No description provided for @hardWordsEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Sorgenkinder 🎉'**
+  String get hardWordsEmptyTitle;
+
+  /// No description provided for @hardWordsEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Moment gibt es keine besonders schwierigen Wörter. Lern weiter — falls eins hakt, taucht es hier auf.'**
+  String get hardWordsEmptyBody;
+
+  /// No description provided for @hardWordsStudyCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Gezielt wiederholen'**
+  String get hardWordsStudyCta;
+
+  /// No description provided for @wbMatching.
+  ///
+  /// In de, this message translates to:
+  /// **'Paare finden'**
+  String get wbMatching;
+
+  /// No description provided for @wbMatchingHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe ein koreanisches Wort, dann seine Bedeutung.'**
+  String get wbMatchingHint;
+
+  /// No description provided for @wbMatchingNeedMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Mindestens 2 Wörter mit Bedeutung nötig.'**
+  String get wbMatchingNeedMore;
+
+  /// No description provided for @wbMatchingDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Paare gefunden!'**
+  String get wbMatchingDone;
+
+  /// No description provided for @wbMatchingDoneBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch eine Runde?'**
+  String get wbMatchingDoneBody;
+
+  /// No description provided for @wbTyping.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreiben'**
+  String get wbTyping;
+
+  /// No description provided for @wbTypingNeedMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Mindestens 1 Wort mit Bedeutung nötig.'**
+  String get wbTypingNeedMore;
+
+  /// No description provided for @wbTypingPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreib das koreanische Wort:'**
+  String get wbTypingPrompt;
+
+  /// No description provided for @wbTypingHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Koreanisch …'**
+  String get wbTypingHint;
+
+  /// No description provided for @wbTypingAnswer.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig: {answer}'**
+  String wbTypingAnswer(Object answer);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

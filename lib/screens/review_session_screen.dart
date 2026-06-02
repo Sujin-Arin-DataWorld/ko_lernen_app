@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
-import '../services/data_loader.dart';
+import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -55,9 +55,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
     }
     List<Vocab> deck = [];
     try {
-      final vocab = await DataLoader.loadVocab();
+      // A1: CSV + 나만의 단어장 + 책 한 컷 단어를 모두 포함 (한국어 기준 dedup).
+      final vocab = await ReviewDeckService.allReviewable();
       // todayGoalIds liefert neue + fällige Karten (gedeckelt). Reihenfolge wie
-      // CSV → kuratiert. Filtern erhält diese Reihenfolge.
+      // Pool → kuratiert. Filtern erhält diese Reihenfolge.
       final goal = Storage.todayGoalIds(vocab.map((v) => v.korean)).toSet();
       deck = vocab.where((v) => goal.contains(v.korean)).toList();
     } catch (_) {
