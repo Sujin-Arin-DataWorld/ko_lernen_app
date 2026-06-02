@@ -3270,7 +3270,7 @@
       "first": "그",
       "last": "래",
       "level": "A1",
-      "german": "TODO",
+      "german": "ja / genau",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -3290,7 +3290,7 @@
       "first": "그",
       "last": "고",
       "level": "A1",
-      "german": "TODO",
+      "german": "und",
       "topic": "general",
       "next_count": 10,
       "is_dead_end": false
@@ -3300,7 +3300,7 @@
       "first": "우",
       "last": "리",
       "level": "A1",
-      "german": "TODO",
+      "german": "wir",
       "topic": "general",
       "next_count": 2,
       "is_dead_end": false
@@ -3310,7 +3310,7 @@
       "first": "무",
       "last": "슨",
       "level": "A1",
-      "german": "TODO",
+      "german": "was für ein / welche",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -3320,7 +3320,7 @@
       "first": "하",
       "last": "만",
       "level": "A1",
-      "german": "TODO",
+      "german": "aber",
       "topic": "general",
       "next_count": 16,
       "is_dead_end": false
@@ -3340,7 +3340,7 @@
       "first": "그",
       "last": "냥",
       "level": "A1",
-      "german": "TODO",
+      "german": "einfach (so)",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -3350,7 +3350,7 @@
       "first": "정",
       "last": "말",
       "level": "A1",
-      "german": "TODO",
+      "german": "wirklich / tatsächlich",
       "topic": "general",
       "next_count": 28,
       "is_dead_end": false
@@ -3360,7 +3360,7 @@
       "first": "그",
       "last": "럼",
       "level": "A1",
-      "german": "TODO",
+      "german": "dann / also",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -3400,7 +3400,7 @@
       "first": "이",
       "last": "제",
       "level": "A1",
-      "german": "TODO",
+      "german": "jetzt / nun",
       "topic": "general",
       "next_count": 15,
       "is_dead_end": false
@@ -3410,7 +3410,7 @@
       "first": "지",
       "last": "금",
       "level": "A1",
-      "german": "TODO",
+      "german": "jetzt / gerade",
       "topic": "general",
       "next_count": 3,
       "is_dead_end": false
@@ -3470,7 +3470,7 @@
       "first": "좋",
       "last": "아",
       "level": "A1",
-      "german": "TODO",
+      "german": "gut / okay",
       "topic": "general",
       "next_count": 82,
       "is_dead_end": false
@@ -3490,7 +3490,7 @@
       "first": "다",
       "last": "른",
       "level": "A1",
-      "german": "TODO",
+      "german": "andere/r/s",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -3520,7 +3520,7 @@
       "first": "너",
       "last": "무",
       "level": "A1",
-      "german": "TODO",
+      "german": "zu sehr / sehr",
       "topic": "general",
       "next_count": 9,
       "is_dead_end": false
@@ -3590,7 +3590,7 @@
       "first": "모",
       "last": "든",
       "level": "A1",
-      "german": "TODO",
+      "german": "alle / sämtliche",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -3690,7 +3690,7 @@
       "first": "같",
       "last": "이",
       "level": "A1",
-      "german": "TODO",
+      "german": "zusammen / gemeinsam",
       "topic": "general",
       "next_count": 57,
       "is_dead_end": false
@@ -3760,7 +3760,7 @@
       "first": "아",
       "last": "직",
       "level": "A1",
-      "german": "TODO",
+      "german": "noch",
       "topic": "general",
       "next_count": 2,
       "is_dead_end": false
@@ -3780,7 +3780,7 @@
       "first": "진",
       "last": "짜",
       "level": "A1",
-      "german": "TODO",
+      "german": "echt / wirklich (umgangssprachlich)",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -3800,7 +3800,7 @@
       "first": "같",
       "last": "은",
       "level": "A1",
-      "german": "TODO",
+      "german": "gleich / dasselbe",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -3920,7 +3920,7 @@
       "first": "빨",
       "last": "리",
       "level": "A1",
-      "german": "TODO",
+      "german": "schnell / beeile dich",
       "topic": "general",
       "next_count": 2,
       "is_dead_end": false
@@ -3930,7 +3930,7 @@
       "first": "이",
       "last": "거",
       "level": "A1",
-      "german": "TODO",
+      "german": "das (hier)",
       "topic": "general",
       "next_count": 27,
       "is_dead_end": false
@@ -4060,7 +4060,7 @@
       "first": "안",
       "last": "녕",
       "level": "A1",
-      "german": "TODO",
+      "german": "Hallo / Tschüss (informell)",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -4200,7 +4200,7 @@
       "first": "많",
       "last": "이",
       "level": "A1",
-      "german": "TODO",
+      "german": "viel / sehr",
       "topic": "general",
       "next_count": 57,
       "is_dead_end": false
@@ -4280,7 +4280,7 @@
       "first": "고",
       "last": "요",
       "level": "A1",
-      "german": "TODO",
+      "german": "Danke (informell)",
       "topic": "general",
       "next_count": 4,
       "is_dead_end": false
@@ -4290,7 +4290,7 @@
       "first": "항",
       "last": "상",
       "level": "A1",
-      "german": "TODO",
+      "german": "immer",
       "topic": "general",
       "next_count": 8,
       "is_dead_end": false
@@ -4310,7 +4310,7 @@
       "first": "잠",
       "last": "깐",
       "level": "A1",
-      "german": "TODO",
+      "german": "kurz / einen Moment",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -4390,7 +4390,7 @@
       "first": "그",
       "last": "거",
       "level": "A1",
-      "german": "TODO",
+      "german": "das (da)",
       "topic": "general",
       "next_count": 27,
       "is_dead_end": false
@@ -4700,7 +4700,7 @@
       "first": "절",
       "last": "대",
       "level": "A2",
-      "german": "TODO",
+      "german": "niemals / auf keinen Fall",
       "topic": "general",
       "next_count": 17,
       "is_dead_end": false
@@ -4720,7 +4720,7 @@
       "first": "당",
       "last": "장",
       "level": "A2",
-      "german": "TODO",
+      "german": "sofort",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -4730,7 +4730,7 @@
       "first": "그",
       "last": "도",
       "level": "A2",
-      "german": "TODO",
+      "german": "trotzdem",
       "topic": "general",
       "next_count": 13,
       "is_dead_end": false
@@ -4760,7 +4760,7 @@
       "first": "전",
       "last": "부",
       "level": "A2",
-      "german": "TODO",
+      "german": "alles / komplett",
       "topic": "general",
       "next_count": 7,
       "is_dead_end": false
@@ -4860,7 +4860,7 @@
       "first": "미",
       "last": "해",
       "level": "A2",
-      "german": "TODO",
+      "german": "Entschuldigung / tut mir leid",
       "topic": "general",
       "next_count": 15,
       "is_dead_end": false
@@ -4920,7 +4920,7 @@
       "first": "어",
       "last": "때",
       "level": "A2",
-      "german": "TODO",
+      "german": "wie wär's? / wie ist es?",
       "topic": "general",
       "next_count": 7,
       "is_dead_end": false
@@ -4960,7 +4960,7 @@
       "first": "아",
       "last": "마",
       "level": "A2",
-      "german": "TODO",
+      "german": "vielleicht / wahrscheinlich",
       "topic": "general",
       "next_count": 23,
       "is_dead_end": false
@@ -5280,7 +5280,7 @@
       "first": "혼",
       "last": "자",
       "level": "A2",
-      "german": "TODO",
+      "german": "alleine",
       "topic": "general",
       "next_count": 39,
       "is_dead_end": false
@@ -5340,7 +5340,7 @@
       "first": "물",
       "last": "론",
       "level": "A2",
-      "german": "TODO",
+      "german": "natürlich",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -5710,7 +5710,7 @@
       "first": "미",
       "last": "요",
       "level": "A2",
-      "german": "TODO",
+      "german": "Es tut mir leid",
       "topic": "general",
       "next_count": 4,
       "is_dead_end": false
@@ -5840,7 +5840,7 @@
       "first": "아",
       "last": "요",
       "level": "A2",
-      "german": "TODO",
+      "german": "Nein",
       "topic": "general",
       "next_count": 4,
       "is_dead_end": false
@@ -6310,7 +6310,7 @@
       "first": "완",
       "last": "히",
       "level": "A2",
-      "german": "TODO",
+      "german": "völlig / komplett",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -6350,7 +6350,7 @@
       "first": "벌",
       "last": "써",
       "level": "A2",
-      "german": "TODO",
+      "german": "schon",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -6490,7 +6490,7 @@
       "first": "조",
       "last": "금",
       "level": "A2",
-      "german": "TODO",
+      "german": "ein bisschen / etwas",
       "topic": "general",
       "next_count": 3,
       "is_dead_end": false
@@ -6660,7 +6660,7 @@
       "first": "확",
       "last": "히",
       "level": "A2",
-      "german": "TODO",
+      "german": "sicher / bestimmt",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -6780,7 +6780,7 @@
       "first": "별",
       "last": "로",
       "level": "A2",
-      "german": "TODO",
+      "german": "nicht besonders",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -6810,7 +6810,7 @@
       "first": "여",
       "last": "히",
       "level": "A2",
-      "german": "TODO",
+      "german": "immer noch",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -7000,7 +7000,7 @@
       "first": "어",
       "last": "면",
       "level": "A2",
-      "german": "TODO",
+      "german": "vielleicht",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -7190,7 +7190,7 @@
       "first": "갑",
       "last": "기",
       "level": "A2",
-      "german": "TODO",
+      "german": "plötzlich",
       "topic": "general",
       "next_count": 16,
       "is_dead_end": false
@@ -7450,7 +7450,7 @@
       "first": "매",
       "last": "일",
       "level": "A2",
-      "german": "TODO",
+      "german": "jeden Tag / täglich",
       "topic": "general",
       "next_count": 24,
       "is_dead_end": false
@@ -7630,7 +7630,7 @@
       "first": "금",
       "last": "방",
       "level": "B1",
-      "german": "TODO",
+      "german": "gleich / sofort",
       "topic": "general",
       "next_count": 7,
       "is_dead_end": false
@@ -7680,7 +7680,7 @@
       "first": "결",
       "last": "국",
       "level": "B1",
-      "german": "TODO",
+      "german": "schließlich / letztendlich",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -8140,7 +8140,7 @@
       "first": "조",
       "last": "히",
       "level": "B1",
-      "german": "TODO",
+      "german": "leise",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -8290,7 +8290,7 @@
       "first": "게",
       "last": "가",
       "level": "B1",
-      "german": "TODO",
+      "german": "außerdem / darüber hinaus",
       "topic": "general",
       "next_count": 43,
       "is_dead_end": false
@@ -8770,7 +8770,7 @@
       "first": "역",
       "last": "시",
       "level": "B1",
-      "german": "TODO",
+      "german": "wie erwartet / auch",
       "topic": "general",
       "next_count": 11,
       "is_dead_end": false
@@ -8850,7 +8850,7 @@
       "first": "천",
       "last": "히",
       "level": "B1",
-      "german": "TODO",
+      "german": "langsam",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -9040,7 +9040,7 @@
       "first": "가",
       "last": "끔",
       "level": "B1",
-      "german": "TODO",
+      "german": "manchmal / gelegentlich",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -9780,7 +9780,7 @@
       "first": "잠",
       "last": "요",
       "level": "B1",
-      "german": "TODO",
+      "german": "Einen Moment bitte",
       "topic": "general",
       "next_count": 4,
       "is_dead_end": false
@@ -11090,7 +11090,7 @@
       "first": "특",
       "last": "히",
       "level": "B1",
-      "german": "TODO",
+      "german": "besonders / vor allem",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
@@ -11200,7 +11200,7 @@
       "first": "얼",
       "last": "마",
       "level": "B1",
-      "german": "TODO",
+      "german": "wie viel (Geld)",
       "topic": "general",
       "next_count": 23,
       "is_dead_end": false
@@ -11290,7 +11290,7 @@
       "first": "자",
       "last": "주",
       "level": "B1",
-      "german": "TODO",
+      "german": "oft",
       "topic": "general",
       "next_count": 11,
       "is_dead_end": false
@@ -11360,7 +11360,7 @@
       "first": "저",
       "last": "거",
       "level": "B1",
-      "german": "TODO",
+      "german": "das (dort)",
       "topic": "general",
       "next_count": 27,
       "is_dead_end": false
@@ -11570,7 +11570,7 @@
       "first": "드",
       "last": "어",
       "level": "B1",
-      "german": "TODO",
+      "german": "endlich / schließlich",
       "topic": "general",
       "next_count": 32,
       "is_dead_end": false
@@ -11650,7 +11650,7 @@
       "first": "일",
       "last": "찍",
       "level": "B1",
-      "german": "TODO",
+      "german": "früh",
       "topic": "general",
       "next_count": 1,
       "is_dead_end": false
@@ -12650,7 +12650,7 @@
       "first": "위",
       "last": "한",
       "level": "B2",
-      "german": "TODO",
+      "german": "großartig",
       "topic": "general",
       "next_count": 13,
       "is_dead_end": false
@@ -12660,7 +12660,7 @@
       "first": "이",
       "last": "와",
       "level": "B2",
-      "german": "TODO",
+      "german": "komm her",
       "topic": "general",
       "next_count": 5,
       "is_dead_end": false
@@ -12710,7 +12710,7 @@
       "first": "보",
       "last": "통",
       "level": "B2",
-      "german": "TODO",
+      "german": "normalerweise / gewöhnlich",
       "topic": "general",
       "next_count": 2,
       "is_dead_end": false
@@ -12820,7 +12820,7 @@
       "first": "들",
       "last": "와",
       "level": "B2",
-      "german": "TODO",
+      "german": "komm rein",
       "topic": "general",
       "next_count": 5,
       "is_dead_end": false
@@ -13780,7 +13780,7 @@
       "first": "진",
       "last": "한",
       "level": "B2",
-      "german": "TODO",
+      "german": "wahr / echt",
       "topic": "general",
       "next_count": 13,
       "is_dead_end": false
@@ -16560,7 +16560,7 @@
       "first": "마",
       "last": "내",
       "level": "B2",
-      "german": "TODO",
+      "german": "endlich",
       "topic": "general",
       "next_count": 11,
       "is_dead_end": false
@@ -20030,7 +20030,7 @@
       "first": "늦",
       "last": "게",
       "level": "B2",
-      "german": "TODO",
+      "german": "spät",
       "topic": "general",
       "next_count": 4,
       "is_dead_end": false
@@ -20890,7 +20890,7 @@
       "first": "따",
       "last": "서",
       "level": "B2",
-      "german": "TODO",
+      "german": "daher / deshalb / folglich",
       "topic": "general",
       "next_count": 6,
       "is_dead_end": false
@@ -21030,7 +21030,7 @@
       "first": "오",
       "last": "려",
       "level": "B2",
-      "german": "TODO",
+      "german": "eher / vielmehr",
       "topic": "general",
       "next_count": 0,
       "is_dead_end": true
