@@ -3,7 +3,8 @@
 
 > **작성일**: 2026-05-31
 > **대상**: Jin (Hangul Sori 일러스트 양산)
-> **스타일 기준**: `docs/HANGUL_SORI_STYLE_GUIDE.md` (Faceted Minhwa — 모던 면 분할 민화)
+> **역할**: `docs/ASSET_GENERATION_BIBLE.md`의 **상세 부록(낱장 95장 개별 프롬프트)**. 스타일 시스템·마스코트는 BIBLE이 최종, 이 파일은 한옥 12단계·장식·도장·스티커의 개별 정확 프롬프트 보관용.
+> **스타일 기준**: `docs/ASSET_GENERATION_BIBLE.md` §1 (Faceted Minhwa — 모던 면 분할 민화)
 > **참고 자료**: 첨부한 Pinterest 무드보드 12장 + 북촌 한옥마을 실사 사진 2장 + 솟을대문 일러스트 1장
 > **총 자산 수**: ~95 PNG (한옥 24 + 퀘스트 17 + 도장 8 + 스티커 30 + 계 8 + 책 한 컷 5 + 출시 3)
 
@@ -2217,7 +2218,7 @@ Transparent background.
 | `dancheong_flower.png` | 단청 꽃 (red + gold) |
 | `dancheong_star.png` | 단청 별 (gold + teal) |
 | `dancheong_cloud.png` | 구름 (cream + teal) |
-| `dancheong_lantern.png` | 한지 등롱 (warm glow) |
+| `dancheong_lantern.png` | 한지 등롱 (warm glow)ㅈ |
 | `dancheong_hanji.png` | 한지 무늬 (cream + 작은 dot pattern) |
 
 장식 모티프 — 그저 예쁜 단청 요소를 send 가능. 캐릭터 X.
@@ -2348,22 +2349,180 @@ Transparent background.
 **구도**: 한국어 책 한 페이지 + 위에 카메라 뷰파인더 frame + 까치가 안내하는 포즈
 **치수**: 1024×768
 
+**영문 프롬프트**:
+```
+A horizontal editorial illustration showing how to photograph a Korean
+textbook page, as a first-use tutorial illustration for a language
+learning app's "snap a page" feature.
+
+Mid-century modernist geometric reduction (Saul Bass, Charley Harper
+era) crossed with Korean minhwa folk painting. NOT cute, NOT cartoonish
+— confident, premium editorial quality.
+
+LAYER 1 — Background
+- Hanji cream #FAF6EC background with subtle paper grain
+
+LAYER 2 — Open textbook page (center, slightly tilted)
+- An open book / single page in cream #F4E8D0 with warm walnut #8E6646
+  spine, a few faceted lines of placeholder Korean text (simple gray
+  #8B8478 bars, NOT real letters) and one highlighted line in dancheong
+  teal #3D9A7F
+- A camera viewfinder frame overlaid on the page: 4 corner brackets in
+  dancheong gold #DFA951, suggesting "align the page here"
+
+LAYER 3 — Magpie guide (right)
+- A small gat-wearing magpie (black + white body, gold-amber beak, tall
+  cylindrical gat hat with gold band) pointing a wing toward the
+  viewfinder frame in a friendly guiding pose
+
+ATMOSPHERIC DETAILS:
+- Two loose dancheong dot groupings (red #C24A45, gold #DFA951, teal
+  #3D9A7F)
+- Soft, inviting tone
+
+Aspect ratio: 4:3 (1024x768 pixels). Transparent background.
+NO outlines on subjects — pure color planes only. Subtle hanji paper
+grain. Restricted palette: #FAF6EC #F4E8D0 #8E6646 #5C4028 #8B8478
+#3D9A7F #DFA951 #C24A45 #1A1410.
+
+IMPORTANT: match the geometric faceted style, color palette, paper
+grain texture, and overall mood of the attached reference images
+exactly. This must look like part of the same illustrated set.
+```
+
 ### 7.3 `book_analyzing.png` — 분석 중
 **상황**: Cloud Function 호출 중 (3~5초)
 **구도**: 호랑이가 책을 읽고 있음 + 위에 떠 있는 작은 facet (단어 추출 진행 표현) + 까치가 옆에서 wing up
 **치수**: 1024×768
+
+**영문 프롬프트**:
+```
+A horizontal editorial illustration of a Korean tiger reading a book,
+as a "analyzing…" loading illustration for a language learning app.
+
+Mid-century modernist geometric reduction crossed with Korean minhwa.
+NOT cute — confident, dignified, premium editorial quality.
+
+LAYER 1 — Background
+- Hanji cream #FAF6EC with subtle paper grain
+
+LAYER 2 — Tiger reading (center-left)
+- A seated Korean tiger looking down at an open book, calm and focused:
+  - Burnt orange #E87830 coat with rust orange #C25420 shadow facets
+  - Tiger cream #F4E8D0 belly and chin
+  - Stripe black #1A1410 angular stripes, 王 mark on forehead
+  - Sharp almond amber-gold eyes
+- Open book in cream #F4E8D0 + warm walnut #8E6646 cover held/below
+
+LAYER 3 — Extraction motion (above the book)
+- Small word-card facets and dancheong dots rising upward from the page
+  (gold #DFA951, teal #3D9A7F, red #C24A45), suggesting words being
+  pulled out and processed
+- A small gat-wearing magpie beside the tiger with one wing raised
+  (wing-up), as if cheering the process on
+
+ATMOSPHERIC DETAILS:
+- Sense of gentle motion / progress, NOT chaos
+- Two loose dancheong dot groupings
+
+Aspect ratio: 4:3 (1024x768 pixels). Transparent background.
+NO outlines — pure color planes. Subtle hanji grain. Restricted palette:
+#FAF6EC #F4E8D0 #E87830 #C25420 #1A1410 #8E6646 #3D9A7F #DFA951 #C24A45.
+
+IMPORTANT: match the geometric faceted style, color palette, paper
+grain texture, and overall mood of the attached reference images
+exactly. This must look like part of the same illustrated set.
+```
 
 ### 7.4 `book_success.png` — 분석 완료 축하
 **상황**: N개 단어 추출 완료
 **구도**: 까치 celebrate + 호랑이 smile + 흩어지는 작은 단어 카드 facet + 가운데 cream paper에 "N단어!" placeholder
 **치수**: 1024×768
 
+**영문 프롬프트**:
+```
+A horizontal editorial illustration celebrating a finished analysis,
+as a success-state illustration for a language learning app — new words
+have been found.
+
+Mid-century modernist geometric reduction crossed with Korean minhwa.
+NOT cute — joyful but premium, magazine-cover quality.
+
+LAYER 1 — Background
+- Hanji cream #FAF6EC with subtle paper grain
+
+LAYER 2 — Mascots (celebrating)
+- A gat-wearing magpie mid-celebration, wings spread upward
+  (black + white body, gold-amber beak, gat hat with gold band)
+- A Korean tiger with a warm smiling expression beside it:
+  - Burnt orange #E87830 coat, rust #C25420 shadow facets, cream
+    #F4E8D0 belly, stripe black #1A1410 stripes, 王 mark
+
+LAYER 3 — Scattering word cards (foreground)
+- Several small faceted "word cards" (cream #F4E8D0 rectangles with a
+  tiny gold #DFA951 or teal #3D9A7F edge) bursting outward and upward
+- Center: a clean cream #FAF6EC paper panel with a thin walnut #8E6646
+  frame — LEAVE THE CENTER EMPTY (app overlays "N new words" text)
+
+ATMOSPHERIC DETAILS:
+- A few celebratory dancheong dots and small star facets (gold #DFA951)
+- Energetic but balanced — leave breathing room
+
+Aspect ratio: 4:3 (1024x768 pixels). Transparent background.
+CRITICAL: keep the center paper panel BLANK for app text overlay.
+NO outlines — pure color planes. Subtle hanji grain. Restricted palette:
+#FAF6EC #F4E8D0 #E87830 #C25420 #1A1410 #8E6646 #3D9A7F #DFA951 #C24A45.
+
+IMPORTANT: match the geometric faceted style, color palette, paper
+grain texture, and overall mood of the attached reference images
+exactly. This must look like part of the same illustrated set.
+```
+
 ### 7.5 `book_error.png` — 분석 실패
 **상황**: OCR 실패 or 분석 실패
 **구도**: 호랑이 worry + 까치 worry + 흐릿한 책 페이지 + cream paper에 placeholder "다시 시도"
 **치수**: 1024×768
 
-각 항목 프롬프트는 위 표준 템플릿 + 해당 상황 layer 묘사.
+**영문 프롬프트**:
+```
+A horizontal editorial illustration of a gentle error state for a
+language learning app — the page could not be read.
+
+Mid-century modernist geometric reduction crossed with Korean minhwa.
+NOT cute, NOT sad-melodramatic — softly apologetic, premium quality.
+
+LAYER 1 — Background
+- Hanji cream #FAF6EC with subtle paper grain
+
+LAYER 2 — Blurred page (center)
+- A book page rendered with soft, slightly offset/duplicated facets to
+  suggest "blurry / unreadable": cream #F4E8D0 with faint gray #8B8478
+  smudged text bars, low contrast
+- A small dancheong-red #C24A45 soft warning dot (NOT a harsh icon)
+
+LAYER 3 — Mascots (concerned)
+- A Korean tiger with a worried but kind expression (brows slightly up):
+  burnt orange #E87830, rust #C25420 facets, cream #F4E8D0 belly,
+  stripe black #1A1410, 王 mark
+- A small gat-wearing magpie tilting its head with mild worry beside it
+- Center-bottom: a clean cream #FAF6EC paper panel with thin walnut
+  #8E6646 frame — LEAVE EMPTY (app overlays "try again" text)
+
+ATMOSPHERIC DETAILS:
+- Calm, reassuring tone — make it feel recoverable, not a failure
+- One loose dancheong dot grouping only
+
+Aspect ratio: 4:3 (1024x768 pixels). Transparent background.
+CRITICAL: keep the center paper panel BLANK for app text overlay.
+NO outlines — pure color planes. Subtle hanji grain. Restricted palette:
+#FAF6EC #F4E8D0 #E87830 #C25420 #1A1410 #8E6646 #8B8478 #C24A45 #DFA951.
+
+IMPORTANT: match the geometric faceted style, color palette, paper
+grain texture, and overall mood of the attached reference images
+exactly. This must look like part of the same illustrated set.
+```
+
+> ✅ 5장 모두 바로 복붙 가능한 완전한 영문 프롬프트 보유 (7.1~7.5). 표준 템플릿(§1) + 각 상황 layer 묘사 반영.
 
 ---
 

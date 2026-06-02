@@ -3,7 +3,8 @@
 > 세션 시작 시 이 파일 먼저 읽기. 그 다음 필요한 파일만 grep/Read.
 > 전역 운영 원칙은 `~/.claude/CLAUDE.md` 참조.
 > **작업 완료 시마다** "현재 진행 중인 작업" 체크리스트를 업데이트할 것 (완료 항목 체크, 새 항목 추가).
-> **비주얼 에셋 작업 전** `~/Downloads/HANGUL_SORI_STYLE_GUIDE.md` 반드시 읽기 — 스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**, 일러스트/아이콘/마케팅 자료 신규 제작·이터레이션 시 이 가이드를 프롬프트 기준으로 사용.
+> **비주얼 에셋 작업 전** `docs/ASSET_GENERATION_BIBLE.md` **하나만** 읽으면 됨 — 스타일 가이드·디자인 토큰·한옥/장식/도장/스티커/마스코트 프롬프트를 모두 흡수한 자급자족 AI 생성 바이블 (스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**). 일러스트/아이콘/마케팅 자산 신규 제작·이터레이션 시 이 파일을 프롬프트 소스로 사용. (구 `HANGUL_SORI_STYLE_GUIDE.md`·`HANGUL_SORI_DESIGN_TOKENS.md`·`stately-rising-jongga-assets.md`는 상세 레퍼런스로만.)
+> **마스코트(2026-06-02 v2)**: 업로드된 앉은 호랑이=`tiger_idle.png`, 갓 까치 비행 2프레임=`magpie_wingup/wingdown.png`가 캐릭터 source of truth. `tiger_sleepy`·`tiger_thinking`은 화풍 이질 → 교체 1순위. 상세는 BIBLE §2.
 
 ---
 
@@ -39,7 +40,10 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/intro` | IntroGateScreen (솟을대문 시네마틱 인트로 — **앱 진입점**) |
 | `/` | HomeScreen |
 | `/onboarding` | OnboardingLevelScreen (첫 실행 레벨 선택) |
-| `/vocab` | VocabScreen |
+| `/vocab` | **VocabPacksScreen** (단어팩 그리드 — v2.0) |
+| `/vocab/pack` (args: packId) | VocabPackScreen (Learn→Quiz→Boss 단계) |
+| `/vocab/result` (args) | VocabPackResultScreen |
+| `/vocab/legacy` | LegacyVocabScreen (구 플래시카드) |
 | `/grammar` | GrammarScreen |
 | `/hangul` | HangulScreen |
 | `/chosung` | ChosungQuizScreen (초성 퀴즈 A1-B2) |
@@ -49,7 +53,14 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/scenarios` | ScenariosListScreen |
 | `/scenario` (args: scenarioId) | ScenarioPlayerScreen |
 | `/listening` | ListeningScreen (v1 — 시나리오 TTS 재생 + 자막 토글) |
-| `/kkeunmari` | KkeunmariScreen (v1 — 끝말잇기 호랑이↔사용자 턴제, 30s 타이머) |
+| `/kkeunmari` | KkeunmariScreen (끝말잇기 호랑이↔사용자 턴제, 30s 타이머) |
+| `/quests` | QuestsScreen (특별 퀘스트 — 마당 장식 언락) |
+| `/book` | BookCaptureScreen (★ 책 한 컷: 사진→OCR) |
+| `/book/preview` (args) | BookPreviewScreen (OCR 텍스트 수정) |
+| `/book/result` (args) | BookResultScreen (단어·문법·문장 분석 결과) |
+| `/bookshelf` | BookshelfScreen (내 책장 + 커스텀팩) |
+| `/bookshelf/page` (args: pageId) | BookshelfPageScreen |
+| `/custom_pack/play` (args: packId) | CustomPackPlayScreen (플립카드 학습) |
 
 ### 서비스
 - `lib/services/auth_service.dart` — Hybrid Auth. 항상 익명 로그인, Google 링크 선택. **주의**: web에서 Firebase 미설정 시 crash 방지를 위해 `_auth`가 nullable getter임.
@@ -60,6 +71,14 @@ Firebase 프로젝트: `ko-lernen-app`
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)
 - `lib/services/kkeunmari_engine.dart` — 끝말잇기 풀 로더 + chain 검증 + 호랑이 다음 단어 선택 (`is_dead_end` 회피 우선)
 - `lib/services/tts_service.dart` — flutter_tts 래퍼, ko-KR 기본, `speakSlow`/`setRate` 지원
+- **책 한 컷 (Phase 5)**:
+  - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
+  - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.
+  - `lib/services/bookshelf_service.dart` — BookPage 로컬(`kl_bookshelf_v1`) + best-effort Firestore `users/{uid}/bookshelf/{id}`.
+  - `lib/services/custom_pack_service.dart` — 커스텀팩 **로컬 only**(`kl_custom_packs_v1`). createFromPage/getAll/save/delete.
+- **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 61팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
+- **한옥/퀘스트 (Phase 3·4)**: `lib/services/hanok_stage_service.dart` (진행도→한옥 12단계), `quest_tracker.dart` (특별 퀘스트), `daily_char_service.dart` (오늘의 글자).
+- **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
 
 ### Sori 디자인 시스템 (`lib/widgets/sori/`)
 - `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`
@@ -73,6 +92,11 @@ Firebase 프로젝트: `ko-lernen-app`
 - `flying_magpie.dart` — 홈 상단을 가로지르는 비행 까치. reduce-motion 시 SizedBox.
 - `empty_state.dart` — **표준 빈/오류 상태**. `SoriEmptyState(asset, title, body, ctaLabel, onCta, secondaryLabel)`. 일러스트 errorBuilder가 아이콘 fallback.
 - `hanok_header.dart` — 10:3 wide 한옥 헤더 배너. 자산 미존재 시 단청 그라데이션 + 아이콘 fallback.
+- `madang_background.dart` — 한옥 12단계 배경. 3단계 fallback: `hanok_stages/stage_{slug}_{light|dark}.png` → `hanok/madang(…).png` → 그라데이션. **dark stage PNG 0/12 → 다크모드는 그라데이션.**
+- `hanok_cinematic.dart` — 단계 전환 시 1회 시네마틱 (Storage gating).
+- `decoration_layer.dart` — 퀘스트 보상 장식 합성. 미존재 PNG는 초록 원형 placeholder.
+- `dancheong_stamp.dart` — 단청 도장 (CustomPainter, PNG 미참조).
+- `pack_card.dart` / `celebration.dart` — 단어팩 카드 / 축하 burst.
 - ✅ 모션 시스템 일원화 완료 — `flutter_animate` 패키지 제거. `motion.dart` + `lib/motion/transitions.dart` 둘만 공존 (역할 분리: entrance vs route transition).
 
 ### 데이터
@@ -80,6 +104,9 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/data/grammar.csv` — 문법
 - `assets/data/scenarios.json` — 회화 시나리오
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
+- `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
+- 단어팩(61)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
+- ⚠️ **콘텐츠 언어**: `korean_vocab.csv`(`german`)·`grammar.csv`(`explanation_de`/`example_german`)는 **독일어 전용**. 영어 UI 사용자도 학습 콘텐츠는 독일어로 표시됨 (영어권 출시 시 컬럼 추가 필요).
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
@@ -155,7 +182,16 @@ flutter run -d <android-id>   # 안드로이드
 
 ---
 
-## 현재 진행 중인 작업 (2026-05-21 기준)
+## 현재 진행 중인 작업 (2026-06-02 기준)
+
+> **최신 현황 → `docs/release-readiness-2026-06-02.md`.** 앱은 **v2.0 (stately-rising-jongga)**, 버전 `2.0.0+3`, 안드로이드 내부 테스트 직전.
+> - ✅ 사진→단어장("책 한 컷") 클라이언트 완성 · Cloud Function(`functions/analyze_korean_text` — kiwipiepy+DeepL+우리말샘) **배포 대기**
+> - ✅ 단어팩 61(Learn→Quiz→Boss) · 특별 퀘스트→마당 장식 · 한옥 12단계 성장 · 홈 v4(호랑이 hero)
+> - 🔨 2026-06-02 세션: 공유 기능(친구코드+OS공유) · Cloud Function 클라 보정 · 홈 skill-path 레일
+> - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
+> - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화
+
+### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
 ### ★ "살아있는 한옥" UI/UX 대개편 (승인된 계획)
 > 정적 "상자 더미" → 모션·깊이·캐릭터가 살아 움직이는 한옥. 컨셉(단청+한옥+호랑이/까치)은 유지.
@@ -259,6 +295,51 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-02 (Cowork) — 이미지 교체 + 다크모드 폐지 + API키 반영 + 출시 문서
+
+**범위:** 내부 테스터 모집 직전. Jin 요청으로 (1) 압축 이미지 교체, (2) 다크모드 폐지, (3) DeepL·우리말샘 키 반영, (4) 출시 문서 3종.
+
+**Update(이 Cowork 세션):**
+1. **이미지 48장 교체/추가** — `~/Downloads/종가이미지 압축`의 `_optimized` PNG를 앱 에셋 경로로 매핑·복사.
+   - hanok_stages 10(light) — **`stage_beams_light.png` 신규**(.en 변형, 841×1870 규격 일치 / .de는 off-size라 스킵).
+   - decorations 10 · stamps 6 · stickers 11(`assets/stickers/`, `hangul_hh` 신규) · hanok gate 5 · mascot 6(`tiger_idle2` 신규=코드 미연결).
+2. **다크모드 폐지** — `main.dart` `themeMode: ThemeMode.light` 고정 + `darkTheme`를 light로 미러 + `themeModeNotifier`를 merge에서 제거. `settings_screen.dart` 테마 선택 UI 삭제. 양쪽 `theme_service.dart` import 제거(미사용 경고 0 확인). → **다크용 PNG 제작 불필요**.
+3. **콘텐츠 버그 수정** — `scenarios.json` `cafe_starbucks_basic` 독일어 문법 설명 오류(햄버거=모음인데 Konsonant-Ende로 오기 + 무의미 반복) 수정 · `One iced americano, tall please.`→`One iced Americano, tall, please.` · `listing-en.md` "Anlaut Quiz"→"Initial-Consonant Quiz". (JSON 파싱 OK)
+4. **버전** `1.0.1+2`→`2.0.0+3` (`pubspec.yaml`).
+5. **API 키 반영(보안)** — `functions/analyze_korean_text/.env`에 `DEEPL_API_KEY`(:fx) + `URIMALSAEM_API_KEY` 저장(.gitignore `.env*` 처리 확인, git status 미노출). `.env.example` 커밋용 템플릿. `main.py`에 `.env` 로더 + **우리말샘(opendict) 뜻풀이 enrichment**(urllib stdlib, 키 없으면/실패 시 빈 문자열, 최대 20단어) 추가 → 응답에 `definitionKo`. 클라 연결: `ExtractedWord.definitionKo`(옵션 필드) + `book_analysis_service` 파싱 + `book_result_screen` 단어카드 "📖 뜻풀이" 표시. (`py_compile` OK. 우리말샘 실호출은 샌드박스 403으로 미검증 → 배포 후 확인)
+6. **책 한 컷 프롬프트 완성** — `jongga-assets.md` §7: 기존엔 7.1만 완전 프롬프트, 7.2~7.5는 구도 설명만 → **7.2~7.5 완전 영문 프롬프트 작성**(템플릿+상황 layer, center-blank 지시 포함). 이제 5장 전부 복붙 가능.
+7. **출시 문서 3종** — `docs/LAUNCH_READINESS_2026-06-02.md`(준비도 진단·계획), `docs/JIN_VERIFY_CHECKLIST.md`(Jin 직접 검증 항목), `docs/IMAGES_TO_CREATE.md`(제작할 이미지 light-only).
+
+**검증:** Jin 로컬 빌드 통과 확인("전부 문제없이 빌드됐어"). 이후 추가된 `definitionKo` 관련 Dart 3파일은 `flutter analyze` 1회 재확인 권장. 함수 배포·AAB·실기기·Play Console·우리말샘 실호출 = Jin.
+
+**⚠️ API 키:** DeepL·우리말샘 키가 대화에 노출됨 → 셋업 후 **DeepL 키 재발급** 권장.
+
+**Git push:** 미수행 (Jin 확인 후).
+
+### 2026-06-02 — 출시 준비도 전수 진단 + 6종 작업 (plan: deepl-api…eager-puppy)
+
+**범위:** 내부 테스터 모집 직전 전수 진단 → 진단문서 작성 + CLAUDE.md 갱신 + 공유 기능·Cloud Function 보정·홈 skill-path.
+
+**핵심 진단(정정):**
+- Cloud Function `functions/analyze_korean_text/main.py` = **kiwipiepy(순수 Python, Java 없음) + DeepL + 우리말샘(NIKL)** 이미 구현 → 배포만 남음(Jin, gcloud gen2 권장 europe-west3). 1차 audit의 "konlpy/Java"는 환각.
+- 버전 `2.0.0+3`, privacy.html account-deletion 링크, 홈 v4 재설계 — 모두 이미 반영(동시 세션).
+- 로컬라이제이션: 독일어 완벽 / 영어 UI 완벽이나 **학습 콘텐츠는 독일어 전용**(`korean_vocab.csv` `german` · `grammar.csv` `_de` 컬럼). 독일어권 타깃엔 OK.
+- 에셋: 코드 cross-ref → missing 전부 fallback, 테스터에 깨진 이미지 0. hanok_stages **dark 0/12**가 다크모드 시각손실 최대.
+- 공유 기능: 코드 0건 → 신규 개발.
+
+**Update(이 세션):**
+- A. `docs/release-readiness-2026-06-02.md` 신규 (영역별 상태·에셋 실측·P0~P3·Play Console 폼값).
+- B. CLAUDE.md 파일맵·라우트·현재작업·세션로그 v2.0 갱신.
+- 2. 공유(친구코드+OS공유): `share_plus` · `shared_pack_service.dart` · firestore.rules `shared_packs/{code}` · UI(공유시트·코드 가져오기) · l10n.
+- 3. Cloud Function 클라 보정: `targetLang` locale화 · 기본 endpoint 주입 · EN translation. `.env`에 두 키(gitignored). 배포 런북.
+- 4. 홈 skill-path 레일.
+
+**검증:** `flutter analyze` 0 유지 + `gen-l10n` + `test`. 함수 배포·AAB·실기기·Play Console = Jin.
+
+**⚠️ API 키:** DeepL·우리말샘 키가 대화에 노출됨 → 셋업 후 **DeepL 키 재발급** 권장.
+
+**Git push:** 미수행 (Jin 확인 후).
 
 ### 2026-05-21 — 코드베이스 audit + 마스코트/퀘스트/홈 긴급 수정
 

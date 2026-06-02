@@ -8,8 +8,8 @@
 > All consumer PNGs have an `errorBuilder` (or `HanokHeader` gradient
 > fallback). A missing file degrades to icon/gradient — it does not crash.
 >
-> Stylistic baseline for **new** illustrations: see
-> `~/Downloads/HANGUL_SORI_STYLE_GUIDE.md` (Faceted Minhwa).
+> Stylistic baseline + generation prompts for **new** illustrations: see
+> `docs/ASSET_GENERATION_BIBLE.md` (Faceted Minhwa — 최종 단일 소스).
 
 ## 2026-06-01 Jongga Import
 
