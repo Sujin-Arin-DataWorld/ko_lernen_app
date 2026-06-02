@@ -5204,6 +5204,770 @@
     "de": "Korea ist Liefer-Weltmeister: Apps wie 배달의민족 liefern fast alles, oft in 30–40 Min. 'Eine ganze Henne' (한 마리) Chicken + Cola an einem Regenabend ist Kult.",
     "en": "Korea is the delivery champion: apps like Baemin deliver almost anything, often in 30–40 min. 'A whole chicken' (한 마리) + cola on a rainy night is iconic."
    }
+  },
+  {
+   "id": "mart_grocery",
+   "level": "a1",
+   "emoji": "🛒",
+   "register": "polite",
+   "sidekick": "minsu",
+   "xpReward": 110,
+   "title": {
+    "ko": "마트에서 장보기",
+    "de": "Im Supermarkt einkaufen",
+    "en": "Grocery shopping at the mart"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Du bist im Supermarkt. Du suchst Milch und Äpfel und willst wissen, was es kostet. Ganz einfach.",
+    "en": "You're at the supermarket. You're looking for milk and apples and want to know the price. Easy."
+   },
+   "vocab": [
+    {
+     "korean": "우유",
+     "note": {
+      "ko": "",
+      "de": "Milch.",
+      "en": "milk."
+     }
+    },
+    {
+     "korean": "사과",
+     "note": {
+      "ko": "",
+      "de": "Apfel.",
+      "en": "apple."
+     }
+    },
+    {
+     "korean": "얼마예요",
+     "note": {
+      "ko": "",
+      "de": "Wie viel kostet es?",
+      "en": "how much is it?"
+     }
+    },
+    {
+     "korean": "봉지",
+     "note": {
+      "ko": "",
+      "de": "Tüte.",
+      "en": "bag."
+     }
+    },
+    {
+     "korean": "계산",
+     "note": {
+      "ko": "",
+      "de": "Bezahlen/Kasse (계산하다 = bezahlen).",
+      "en": "checkout/paying (계산하다 = to pay)."
+     }
+    },
+    {
+     "korean": "어디",
+     "note": {
+      "ko": "",
+      "de": "wo.",
+      "en": "where."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "얼마예요?",
+     "de": "얼마예요? — Wie viel kostet das?",
+     "en": "얼마예요? — How much is it?"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Nach dem Preis fragen: (N) 얼마예요? 사과 얼마예요? = 'Wie viel kosten die Äpfel?'.",
+     "en": "Ask the price: (N) 얼마예요? 사과 얼마예요? = 'How much are the apples?'."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "저기요, 우유 어디 있어요?",
+     "de": "Entschuldigung, wo ist die Milch?",
+     "en": "Excuse me, where is the milk?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "저쪽 냉장고에 있어요.",
+     "de": "Dort drüben im Kühlregal.",
+     "en": "Over there in the fridge."
+    },
+    {
+     "speaker": "user",
+     "ko": "사과는 얼마예요?",
+     "de": "Wie viel kosten die Äpfel?",
+     "en": "How much are the apples?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "다섯 개에 오천 원이에요.",
+     "de": "Fünf Stück für 5.000 Won.",
+     "en": "Five for 5,000 won."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 사과 주세요. 봉지도 주세요.",
+     "de": "Dann die Äpfel bitte. Und eine Tüte.",
+     "en": "Then the apples please. And a bag."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 계산 도와드릴게요.",
+     "de": "Gut, ich kassiere ab.",
+     "en": "Sure, I'll ring you up."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "다섯 개에 오천 원이에요.",
+      "options": [
+       {
+        "de": "Fünf Stück für 5.000 Won.",
+        "en": "Five for 5,000 won."
+       },
+       {
+        "de": "Es ist ausverkauft.",
+        "en": "It's sold out."
+       },
+       {
+        "de": "Dort drüben im Kühlregal.",
+        "en": "Over there in the fridge."
+       },
+       {
+        "de": "Möchten Sie eine Tüte?",
+        "en": "Would you like a bag?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Wie viel kosten die Äpfel?",
+      "promptEn": "How much are the apples?",
+      "options": [
+       {
+        "ko": "사과는 얼마예요?"
+       },
+       {
+        "ko": "사과 있어요?"
+       },
+       {
+        "ko": "사과 어디 있어요?"
+       },
+       {
+        "ko": "사과 주세요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "사과",
+      "suffix": "주세요.",
+      "options": [
+       "를",
+       "을",
+       "가",
+       "이",
+       "로",
+       "에"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "사과 endet auf Vokal (ㅏ) → Objektpartikel 를.",
+      "explanationEn": "사과 ends in a vowel (ㅏ) → object particle 를."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Im Supermarkt (마트) wie E-Mart/Homeplus kosten Tüten (봉지) extra — viele bringen eigene. Obst wird oft im Set verkauft ('다섯 개에 …').",
+    "en": "At marts like E-Mart/Homeplus, bags (봉지) cost extra — many bring their own. Fruit is often sold in sets ('five for …')."
+   }
+  },
+  {
+   "id": "gym_signup",
+   "level": "a2",
+   "emoji": "💪",
+   "register": "polite",
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "헬스장 등록하기",
+    "de": "Sich im Fitnessstudio anmelden",
+    "en": "Signing up at the gym"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Neues Jahr, neues Ich. Du willst dich im Fitnessstudio anmelden. Wie lange? Wie viel? Frag nach.",
+    "en": "New year, new you. You want to sign up at the gym. How long? How much? Ask."
+   },
+   "vocab": [
+    {
+     "korean": "헬스장",
+     "note": {
+      "ko": "",
+      "de": "Fitnessstudio.",
+      "en": "gym."
+     }
+    },
+    {
+     "korean": "등록",
+     "note": {
+      "ko": "",
+      "de": "Anmeldung (등록하다 = sich anmelden).",
+      "en": "registration (등록하다 = to sign up)."
+     }
+    },
+    {
+     "korean": "한 달",
+     "note": {
+      "ko": "",
+      "de": "ein Monat.",
+      "en": "one month."
+     }
+    },
+    {
+     "korean": "회원권",
+     "note": {
+      "ko": "",
+      "de": "Mitgliedschaft/Mitgliedskarte.",
+      "en": "membership."
+     }
+    },
+    {
+     "korean": "운동",
+     "note": {
+      "ko": "",
+      "de": "Sport/Training (운동하다 = trainieren).",
+      "en": "exercise (운동하다 = to work out)."
+     }
+    },
+    {
+     "korean": "샤워실",
+     "note": {
+      "ko": "",
+      "de": "Duschraum.",
+      "en": "shower room."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-고 싶어요",
+     "de": "-고 싶어요 — Ich möchte …",
+     "en": "-고 싶어요 — I want to …"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Wunsch ausdrücken: Verb-Stamm + -고 싶어요. 등록하다 → 등록하고 싶어요 = 'Ich möchte mich anmelden.'",
+     "en": "Express a wish: verb stem + -고 싶어요. 등록하다 → 등록하고 싶어요 = 'I want to sign up.'"
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "헬스장 등록하고 싶어요.",
+     "de": "Ich möchte mich anmelden.",
+     "en": "I'd like to sign up."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "얼마나 등록하시겠어요?",
+     "de": "Für wie lange möchten Sie sich anmelden?",
+     "en": "How long would you like to register for?"
+    },
+    {
+     "speaker": "user",
+     "ko": "한 달에 얼마예요?",
+     "de": "Wie viel kostet ein Monat?",
+     "en": "How much is one month?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "한 달에 오만 원이에요.",
+     "de": "50.000 Won pro Monat.",
+     "en": "50,000 won a month."
+    },
+    {
+     "speaker": "user",
+     "ko": "샤워실도 있어요?",
+     "de": "Gibt es auch Duschen?",
+     "en": "Are there showers too?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 이 층에 있어요.",
+     "de": "Ja, auf dieser Etage.",
+     "en": "Yes, on this floor."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "얼마나 등록하시겠어요?",
+      "options": [
+       {
+        "de": "Für wie lange möchten Sie sich anmelden?",
+        "en": "How long would you like to register for?"
+       },
+       {
+        "de": "Wie viel möchten Sie zahlen?",
+        "en": "How much do you want to pay?"
+       },
+       {
+        "de": "Waren Sie schon mal hier?",
+        "en": "Have you been here before?"
+       },
+       {
+        "de": "Möchten Sie duschen?",
+        "en": "Would you like to shower?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich möchte mich anmelden.",
+      "promptEn": "I'd like to sign up.",
+      "options": [
+       {
+        "ko": "등록하고 싶어요."
+       },
+       {
+        "ko": "등록했어요."
+       },
+       {
+        "ko": "등록이 뭐예요?"
+       },
+       {
+        "ko": "등록 안 해요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "운동",
+      "suffix": "시작했어요.",
+      "options": [
+       "을",
+       "를",
+       "가",
+       "이",
+       "로",
+       "에"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "운동 endet auf Konsonant (ㅇ) → Objektpartikel 을.",
+      "explanationEn": "운동 ends in a consonant (ㅇ) → object particle 을."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Viele koreanische 헬스장 verlangen Anmeldung für mehrere Monate (länger = billiger) und stellen oft Trainingskleidung + Handtücher. Januar = Andrang.",
+    "en": "Many Korean gyms push multi-month sign-ups (longer = cheaper) and often provide gym clothes + towels. January = crowded."
+   }
+  },
+  {
+   "id": "bank_account",
+   "level": "b1",
+   "emoji": "🏦",
+   "register": "polite",
+   "sidekick": "minsu",
+   "xpReward": 170,
+   "title": {
+    "ko": "은행 계좌 만들기",
+    "de": "Ein Bankkonto eröffnen",
+    "en": "Opening a bank account"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Du wohnst jetzt in Korea und brauchst ein Konto. Reisepass dabei, Nummer gezogen. Was sagt der Bankangestellte?",
+    "en": "You live in Korea now and need an account. Passport in hand, ticket pulled. What does the teller say?"
+   },
+   "vocab": [
+    {
+     "korean": "통장",
+     "note": {
+      "ko": "",
+      "de": "Sparbuch/Konto.",
+      "en": "bankbook/account."
+     }
+    },
+    {
+     "korean": "신분증",
+     "note": {
+      "ko": "",
+      "de": "Ausweis (für Ausländer: Reisepass/ARC).",
+      "en": "ID (for foreigners: passport/ARC)."
+     }
+    },
+    {
+     "korean": "체크카드",
+     "note": {
+      "ko": "",
+      "de": "Debitkarte.",
+      "en": "debit card."
+     }
+    },
+    {
+     "korean": "비밀번호",
+     "note": {
+      "ko": "",
+      "de": "PIN/Passwort.",
+      "en": "PIN/password."
+     }
+    },
+    {
+     "korean": "서류",
+     "note": {
+      "ko": "",
+      "de": "Dokument/Unterlagen.",
+      "en": "document/paperwork."
+     }
+    },
+    {
+     "korean": "신청서",
+     "note": {
+      "ko": "",
+      "de": "Antragsformular.",
+      "en": "application form."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-(으)려고 하다",
+     "de": "-(으)려고 하다 — vorhaben zu …",
+     "en": "-(으)려고 하다 — intend to …"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Absicht ausdrücken: Verb-Stamm + -(으)려고 해요. 만들다 → 통장을 만들려고 해요 = 'Ich möchte ein Konto eröffnen.'",
+     "en": "Express intention: verb stem + -(으)려고 해요. 만들다 → 통장을 만들려고 해요 = 'I intend to open an account.'"
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "통장을 만들려고 해요.",
+     "de": "Ich möchte ein Konto eröffnen.",
+     "en": "I'd like to open an account."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "신분증 가지고 오셨어요?",
+     "de": "Haben Sie einen Ausweis dabei?",
+     "en": "Did you bring an ID?"
+    },
+    {
+     "speaker": "user",
+     "ko": "네, 여권 여기 있어요.",
+     "de": "Ja, hier ist mein Reisepass.",
+     "en": "Yes, here's my passport."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "이 신청서를 작성해 주세요.",
+     "de": "Bitte füllen Sie dieses Formular aus.",
+     "en": "Please fill out this form."
+    },
+    {
+     "speaker": "user",
+     "ko": "체크카드도 만들 수 있어요?",
+     "de": "Kann ich auch eine Debitkarte bekommen?",
+     "en": "Can I get a debit card too?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 비밀번호를 정해 주세요.",
+     "de": "Ja, bitte legen Sie eine PIN fest.",
+     "en": "Yes, please set a PIN."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "신분증 가지고 오셨어요?",
+      "options": [
+       {
+        "de": "Haben Sie einen Ausweis dabei?",
+        "en": "Did you bring an ID?"
+       },
+       {
+        "de": "Möchten Sie eine Karte?",
+        "en": "Would you like a card?"
+       },
+       {
+        "de": "Wie viel möchten Sie einzahlen?",
+        "en": "How much would you like to deposit?"
+       },
+       {
+        "de": "Füllen Sie das Formular aus.",
+        "en": "Fill out the form."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich möchte ein Konto eröffnen.",
+      "promptEn": "I'd like to open an account.",
+      "options": [
+       {
+        "ko": "통장을 만들려고 해요."
+       },
+       {
+        "ko": "통장이 없어요."
+       },
+       {
+        "ko": "통장이 어디예요?"
+       },
+       {
+        "ko": "통장을 닫고 싶어요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "통장",
+      "suffix": "만들려고 해요.",
+      "options": [
+       "을",
+       "를",
+       "이",
+       "가",
+       "로",
+       "에"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "통장 endet auf Konsonant (ㅇ) → Objektpartikel 을.",
+      "explanationEn": "통장 ends in a consonant (ㅇ) → object particle 을."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Ausländer brauchen meist Reisepass + ARC (외국인등록증). Überweisungen laufen per App; Online-Banking verlangt oft zusätzliche Verifizierung. Bei Andrang: Nummer ziehen.",
+    "en": "Foreigners usually need a passport + ARC. Transfers happen via app; online banking often needs extra verification. When busy: pull a number."
+   }
+  },
+  {
+   "id": "job_interview",
+   "level": "b2",
+   "emoji": "💼",
+   "register": "formal",
+   "sidekick": "minsu",
+   "xpReward": 200,
+   "title": {
+    "ko": "면접 보기",
+    "de": "Im Vorstellungsgespräch",
+    "en": "In a job interview"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Dein Vorstellungsgespräch. Stell dich vor, sprich über deine Stärke und warum diese Firma. Förmliches Koreanisch (-습니다).",
+    "en": "Your job interview. Introduce yourself, talk about your strength and why this company. Formal Korean (-습니다)."
+   },
+   "vocab": [
+    {
+     "korean": "면접",
+     "note": {
+      "ko": "",
+      "de": "Vorstellungsgespräch.",
+      "en": "job interview."
+     }
+    },
+    {
+     "korean": "지원하다",
+     "note": {
+      "ko": "",
+      "de": "sich bewerben.",
+      "en": "to apply."
+     }
+    },
+    {
+     "korean": "장점",
+     "note": {
+      "ko": "",
+      "de": "Stärke/Vorteil.",
+      "en": "strength/strong point."
+     }
+    },
+    {
+     "korean": "경험",
+     "note": {
+      "ko": "",
+      "de": "Erfahrung.",
+      "en": "experience."
+     }
+    },
+    {
+     "korean": "입사",
+     "note": {
+      "ko": "",
+      "de": "Eintritt in die Firma (입사하다).",
+      "en": "joining a company (입사하다)."
+     }
+    },
+    {
+     "korean": "최선을 다하다",
+     "note": {
+      "ko": "",
+      "de": "sein Bestes geben.",
+      "en": "to do one's best."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-(으)ㄹ 수 있습니다",
+     "de": "-(으)ㄹ 수 있습니다 — Ich kann … (förmlich)",
+     "en": "-(으)ㄹ 수 있습니다 — I can … (formal)"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Fähigkeit förmlich ausdrücken: Verb-Stamm + -(으)ㄹ 수 있습니다. 하다 → 할 수 있습니다 = 'Ich kann das.'",
+     "en": "State ability formally: verb stem + -(으)ㄹ 수 있습니다. 하다 → 할 수 있습니다 = 'I can do it.'"
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "minsu",
+     "ko": "자기소개를 해 주시겠어요?",
+     "de": "Würden Sie sich bitte vorstellen?",
+     "en": "Could you introduce yourself?"
+    },
+    {
+     "speaker": "user",
+     "ko": "네, 마케팅 경험이 삼 년 있습니다.",
+     "de": "Ja, ich habe drei Jahre Marketing-Erfahrung.",
+     "en": "Yes, I have three years of marketing experience."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "본인의 장점은 무엇입니까?",
+     "de": "Was ist Ihre Stärke?",
+     "en": "What is your strength?"
+    },
+    {
+     "speaker": "user",
+     "ko": "저는 끝까지 최선을 다합니다.",
+     "de": "Ich gebe bis zum Schluss mein Bestes.",
+     "en": "I give my best to the end."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "왜 저희 회사에 지원하셨습니까?",
+     "de": "Warum haben Sie sich bei uns beworben?",
+     "en": "Why did you apply to our company?"
+    },
+    {
+     "speaker": "user",
+     "ko": "귀사에서 성장할 수 있다고 생각합니다.",
+     "de": "Ich glaube, bei Ihnen kann ich wachsen.",
+     "en": "I believe I can grow at your company."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "본인의 장점은 무엇입니까?",
+      "options": [
+       {
+        "de": "Was ist Ihre Stärke?",
+        "en": "What is your strength?"
+       },
+       {
+        "de": "Wo haben Sie studiert?",
+        "en": "Where did you study?"
+       },
+       {
+        "de": "Wann können Sie anfangen?",
+        "en": "When can you start?"
+       },
+       {
+        "de": "Wie hoch ist Ihr Gehaltswunsch?",
+        "en": "What's your desired salary?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich gebe mein Bestes.",
+      "promptEn": "I'll do my best.",
+      "options": [
+       {
+        "ko": "최선을 다하겠습니다."
+       },
+       {
+        "ko": "잘 모르겠습니다."
+       },
+       {
+        "ko": "괜찮습니다."
+       },
+       {
+        "ko": "수고하셨습니다."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "경험",
+      "suffix": "있습니다.",
+      "options": [
+       "이",
+       "가",
+       "을",
+       "를",
+       "은",
+       "는"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "경험 endet auf Konsonant (ㅁ) → Subjektpartikel 이 (경험이 있습니다 = 'Erfahrung haben').",
+      "explanationEn": "경험 ends in a consonant (ㅁ) → subject particle 이 (경험이 있습니다 = 'to have experience')."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Im koreanischen 면접 zählt förmliche Sprache (-습니다) und Bescheidenheit. 'Ich gebe mein Bestes' (최선을 다하겠습니다) ist fast Pflicht. Über 귀사 (Ihre geschätzte Firma) spricht man respektvoll.",
+    "en": "In Korean interviews, formal speech (-습니다) and humility matter. 'I'll do my best' (최선을 다하겠습니다) is almost expected. Refer to the company respectfully as 귀사."
+   }
   }
  ]
 }

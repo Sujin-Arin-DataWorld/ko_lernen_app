@@ -74,7 +74,8 @@ def main():
             if row and row[0] != "korean":
                 vocab[row[0]] = row[2]
 
-    from_csv = from_curated = remaining = 0
+    from_csv = from_curated = 0
+    remaining = []
     for w in data["words"]:
         if w.get("german") != "TODO":
             continue
@@ -86,11 +87,18 @@ def main():
             w["german"] = CURATED[word]
             from_curated += 1
         else:
-            remaining += 1
+            remaining.append(w)
 
     print(f"CSV 정확 복사:   {from_csv}")
     print(f"큐레이트 글로스: {from_curated}")
-    print(f"남은 TODO:       {remaining}  (대화체 조각/활용형 — 큐레이션 필요, 추측 금지)")
+    print(f"남은 TODO:       {len(remaining)}")
+
+    if "--deepl" in sys.argv and remaining:
+        n = _deepl_fill(remaining)
+        print(f"DeepL 번역:      {n}  (기계 번역 — 원어민 검수 권장)")
+    elif remaining:
+        print("  → 나머지: 'DEEPL_API_KEY=… python3 … --deepl --write' 로 기계 번역")
+        print("     (조각/활용형은 문맥 없이 번역돼 부정확 가능 → 검수 필수)")
 
     if write:
         with open(POOL, "w", encoding="utf-8") as f:
@@ -100,5 +108,37 @@ def main():
         print("(미저장 — 실제 적용은 --write)")
 
 
+def _deepl_fill(entries):
+    """남은 TODO 항목을 DeepL ko→de 로 채운다 (DEEPL_API_KEY 필요).
+    조각/활용형은 문맥 없이 번역돼 부정확할 수 있음 → 원어민 검수 전제.
+    DeepL Free-Tier(월 50만 자)면 ~2천 단어는 충분히 커버."""
+    key = os.environ.get("DEEPL_API_KEY")
+    if not key:
+        print("  ✗ DEEPL_API_KEY 미설정 — DeepL 건너뜀")
+        return 0
+    try:
+        import deepl  # pip install deepl
+    except ImportError:
+        print("  ✗ 'deepl' 미설치 — pip install deepl")
+        return 0
+    translator = deepl.Translator(key)
+    filled, chunk = 0, 50
+    for i in range(0, len(entries), chunk):
+        batch = entries[i:i + chunk]
+        try:
+            res = translator.translate_text(
+                [e["word"] for e in batch], source_lang="KO", target_lang="DE")
+            for e, r in zip(batch, res):
+                de = r.text.strip()
+                if de and de != e["word"]:
+                    e["german"] = de
+                    filled += 1
+        except Exception as ex:  # noqa: BLE001
+            print("  DeepL 오류:", ex)
+            break
+    return filled
+
+
 if __name__ == "__main__":
     main()
+
