@@ -5,6 +5,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../services/storage_service.dart';
+import '../services/notification_service.dart';
 import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
@@ -52,6 +53,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
         duration: const Duration(seconds: 2),
       ),
     );
+  }
+
+  // ── M3: Benachrichtigungen ──────────────────────────────────
+  String _notifTimeLabel() =>
+      '${Storage.notificationHour.toString().padLeft(2, '0')}:00';
+
+  Future<void> _onToggleNotif(bool v) async {
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    await Storage.setNotificationsEnabled(v);
+    if (v) {
+      final granted = await NotificationService.requestPermission();
+      if (granted) {
+        await NotificationService.scheduleDaily(
+          hour: Storage.notificationHour,
+          minute: 0,
+          title: t.notificationTitle,
+          body: t.notificationBody,
+        );
+      } else {
+        await Storage.setNotificationsEnabled(false);
+        messenger.showSnackBar(SnackBar(content: Text(t.settingsNotifDenied)));
+      }
+    } else {
+      await NotificationService.cancelAll();
+    }
+    if (mounted) setState(() {});
+  }
+
+  Future<void> _pickNotifTime() async {
+    final t = AppL10n.of(context);
+    final picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(hour: Storage.notificationHour, minute: 0),
+    );
+    if (picked == null) return;
+    await Storage.setNotificationHour(picked.hour);
+    await NotificationService.scheduleDaily(
+      hour: picked.hour,
+      minute: 0,
+      title: t.notificationTitle,
+      body: t.notificationBody,
+    );
+    if (mounted) setState(() {});
   }
 
   @override
@@ -186,6 +231,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ],
             ),
           ),
+
+          // ── Erinnerung (M3) ──
+          _Section(label: t.settingsNotifSection),
+          SwitchListTile(
+            secondary: const Icon(Icons.notifications_active_outlined,
+                color: SoriColors.primary),
+            title: Text(t.settingsNotifTitle),
+            subtitle: Text(
+              t.settingsNotifSubtitle,
+              style: const TextStyle(
+                  fontSize: 12, color: SoriColors.darkTextMuted),
+            ),
+            value: Storage.notificationsEnabled,
+            activeThumbColor: SoriColors.primary,
+            onChanged: _onToggleNotif,
+          ),
+          if (Storage.notificationsEnabled)
+            ListTile(
+              leading: const Icon(Icons.schedule_outlined,
+                  color: SoriColors.primary),
+              title: Text(t.settingsNotifTime),
+              trailing: Text(
+                _notifTimeLabel(),
+                style: const TextStyle(
+                    fontWeight: FontWeight.w800, color: SoriColors.primary),
+              ),
+              onTap: _pickNotifTime,
+            ),
 
           // ── Cloud-Backup (Firebase Auth) ──
           _Section(label: t.settingsCloudSection),

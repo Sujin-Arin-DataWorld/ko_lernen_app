@@ -10,6 +10,7 @@ import 'services/auth_service.dart';
 import 'services/book_analysis_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
+import 'services/notification_service.dart';
 import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -76,6 +77,10 @@ Future<void> main() async {
   // Premium / Abo (RevenueCat) best-effort — ohne Keys "kostenlos"-Modus.
   // ignore: discarded_futures, unawaited_futures
   PremiumService.init();
+
+  // Lokale Benachrichtigungen (M3) best-effort initialisieren.
+  // ignore: discarded_futures, unawaited_futures
+  NotificationService.init();
 
   // Portrait sperren
   await SystemChrome.setPreferredOrientations([

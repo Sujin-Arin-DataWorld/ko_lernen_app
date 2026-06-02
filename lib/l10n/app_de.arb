@@ -30,6 +30,14 @@
   "@homeReviewDue": { "placeholders": { "n": { "type": "int" } } },
   "homeReviewDone": "Heute alles wiederholt 🎉",
 
+  "settingsNotifSection": "Erinnerung",
+  "settingsNotifTitle": "Tägliche Erinnerung",
+  "settingsNotifSubtitle": "Der Tiger erinnert dich ans Lernen",
+  "settingsNotifTime": "Uhrzeit",
+  "settingsNotifDenied": "Benachrichtigungen sind deaktiviert. Erlaube sie in den Systemeinstellungen.",
+  "notificationTitle": "Hangul Sori",
+  "notificationBody": "Der Tiger wartet — Zeit für Koreanisch! 🐯",
+
   "appTitle": "Koreanisch lernen",
   "welcomeMsg": "Hallo! Viel Erfolg heute 💪",
   "footerCheer": "Viel Erfolg beim Lernen 🌟",

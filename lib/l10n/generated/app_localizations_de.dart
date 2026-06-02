@@ -92,6 +92,28 @@ class AppL10nDe extends AppL10n {
   String get homeReviewDone => 'Heute alles wiederholt 🎉';
 
   @override
+  String get settingsNotifSection => 'Erinnerung';
+
+  @override
+  String get settingsNotifTitle => 'Tägliche Erinnerung';
+
+  @override
+  String get settingsNotifSubtitle => 'Der Tiger erinnert dich ans Lernen';
+
+  @override
+  String get settingsNotifTime => 'Uhrzeit';
+
+  @override
+  String get settingsNotifDenied =>
+      'Benachrichtigungen sind deaktiviert. Erlaube sie in den Systemeinstellungen.';
+
+  @override
+  String get notificationTitle => 'Hangul Sori';
+
+  @override
+  String get notificationBody => 'Der Tiger wartet — Zeit für Koreanisch! 🐯';
+
+  @override
   String get appTitle => 'Koreanisch lernen';
 
   @override

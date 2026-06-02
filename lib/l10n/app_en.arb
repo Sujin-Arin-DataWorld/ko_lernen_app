@@ -29,6 +29,14 @@
   "homeReviewDue": "{n} words due",
   "homeReviewDone": "All reviewed today 🎉",
 
+  "settingsNotifSection": "Reminder",
+  "settingsNotifTitle": "Daily reminder",
+  "settingsNotifSubtitle": "The tiger reminds you to study",
+  "settingsNotifTime": "Time",
+  "settingsNotifDenied": "Notifications are disabled. Enable them in system settings.",
+  "notificationTitle": "Hangul Sori",
+  "notificationBody": "The tiger's waiting — time for Korean! 🐯",
+
   "appTitle": "Learn Korean",
   "welcomeMsg": "Hi! All the best today 💪",
   "footerCheer": "Keep going — you got this 🌟",

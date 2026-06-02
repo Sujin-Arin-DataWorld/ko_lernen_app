@@ -95,6 +95,14 @@ class Storage {
   static Future<void> setDevPremiumOverride(bool v) =>
       _sb('kl_premium_dev_override', v);
 
+  // ───────── Benachrichtigungen (M3) — tägliche Lern-Erinnerung ─────────
+  static bool get notificationsEnabled => _b('kl_notif_enabled');
+  static Future<void> setNotificationsEnabled(bool v) =>
+      _sb('kl_notif_enabled', v);
+  // Default 19:00 (Abend). getInt maskiert "ungesetzt", daher direkt mit ?? 19.
+  static int get notificationHour => _prefs?.getInt('kl_notif_hour') ?? 19;
+  static Future<void> setNotificationHour(int v) => _si('kl_notif_hour', v);
+
   // ───────── Vokabeln ─────────
   static int get vokCorrect => _i('kl_vok_correct');
   static int get vokWrong => _i('kl_vok_wrong');

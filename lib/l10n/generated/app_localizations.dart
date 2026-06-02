@@ -253,6 +253,48 @@ abstract class AppL10n {
   /// **'Heute alles wiederholt 🎉'**
   String get homeReviewDone;
 
+  /// No description provided for @settingsNotifSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Erinnerung'**
+  String get settingsNotifSection;
+
+  /// No description provided for @settingsNotifTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Tägliche Erinnerung'**
+  String get settingsNotifTitle;
+
+  /// No description provided for @settingsNotifSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Tiger erinnert dich ans Lernen'**
+  String get settingsNotifSubtitle;
+
+  /// No description provided for @settingsNotifTime.
+  ///
+  /// In de, this message translates to:
+  /// **'Uhrzeit'**
+  String get settingsNotifTime;
+
+  /// No description provided for @settingsNotifDenied.
+  ///
+  /// In de, this message translates to:
+  /// **'Benachrichtigungen sind deaktiviert. Erlaube sie in den Systemeinstellungen.'**
+  String get settingsNotifDenied;
+
+  /// No description provided for @notificationTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul Sori'**
+  String get notificationTitle;
+
+  /// No description provided for @notificationBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Tiger wartet — Zeit für Koreanisch! 🐯'**
+  String get notificationBody;
+
   /// No description provided for @appTitle.
   ///
   /// In de, this message translates to:

@@ -69,6 +69,13 @@ dependencies:
   #    Ohne Keys läuft PremiumService im "kostenlos"-Modus (kein Crash).
   purchases_flutter: ^10.2.0
 
+  # ── Lokale Benachrichtigungen (M3) — tägliche Lern-Erinnerung ───
+  # Erfordert Android core library desugaring (siehe android/app/build.gradle.kts)
+  # + Manifest-Receiver. zonedSchedule braucht die lokale IANA-Zeitzone.
+  flutter_local_notifications: ^19.4.2
+  timezone: ^0.10.0
+  flutter_timezone: ^5.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

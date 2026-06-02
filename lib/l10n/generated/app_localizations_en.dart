@@ -92,6 +92,28 @@ class AppL10nEn extends AppL10n {
   String get homeReviewDone => 'All reviewed today 🎉';
 
   @override
+  String get settingsNotifSection => 'Reminder';
+
+  @override
+  String get settingsNotifTitle => 'Daily reminder';
+
+  @override
+  String get settingsNotifSubtitle => 'The tiger reminds you to study';
+
+  @override
+  String get settingsNotifTime => 'Time';
+
+  @override
+  String get settingsNotifDenied =>
+      'Notifications are disabled. Enable them in system settings.';
+
+  @override
+  String get notificationTitle => 'Hangul Sori';
+
+  @override
+  String get notificationBody => 'The tiger\'s waiting — time for Korean! 🐯';
+
+  @override
   String get appTitle => 'Learn Korean';
 
   @override
