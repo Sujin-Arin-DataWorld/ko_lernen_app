@@ -9,31 +9,24 @@ import '../motion/transitions.dart';
 import 'home_screen.dart';
 import 'onboarding_level_screen.dart';
 
-const _gateEntranceAsset = 'assets/illustrations/hanok/gate_entrance.png';
 const _courtyardAsset = 'assets/illustrations/hanok/gate_final.png';
-const _paperCourtyardAsset = 'assets/illustrations/hanok/madang(light).png';
-const _entranceCanvas = Size(1024, 1536);
 const _gateFrameCanvas = Size(941, 1672);
 const _gatewayAlign = Alignment(0.0, 0.10);
 
 /// **솟을대문 인트로** — 앱의 시그니처 입장 장면.
 ///
-/// 정적 splash 대신, 닫힌 한옥 대문이 열리고 카메라가 마당으로 들어선다.
+/// 닫힌 종가 대문이 열리고, 카메라가 열린 문 사이로 안마당으로 빨려 들어간다.
 /// "상자 더미"가 아니라 "들어서는 살아있는 한옥"의 첫인상.
 ///
-/// **v5 타임라인 (2026-06-01 새 gate 자산 반영)** — 넓은 대문 컷에서 마당으로 진입:
-/// - 0.00–0.28  `gate_entrance`로 넓은 닫힌 대문 establishing shot
-/// - 0.28–0.44  카메라가 대문에 다가가며 transparent `gate_frame` 레이어로 handoff
-/// - 0.34–0.68  문짝이 열리며 `gate_final`의 안마당이 선명해짐
-/// - 0.30–0.80  까치가 대문 위를 가로지르며 생동감 추가
-/// - 0.68–0.96  카메라가 문간 중심으로 push-in
-/// - 0.78–1.00  대문 레이어가 사라지고 마당 화면으로 자연스럽게 handoff
-///
-/// 이전 v1의 부자연스러움 원인:
-///   ① easeInCubic push (끝에서 가속) → 멀미 유발 → easeInOutCubic으로 변경
-///   ② gateScale 4.0배 (과한 줌) → 2.4배로 완화
-///   ③ 도어 open(0.50) ↔ 푸시 시작(0.46) 거의 동시 → 사이에 plateau(0.55→0.62) 추가
-///   ④ gate_frame이 doorway/외부 모두 불투명 → 도어/배경 다 가려짐 → PNG 알파 knockout으로 해결
+/// **v6 (2026-06-02) — 3겹 단순화**: 사진풍 `gate_entrance` + 미니멀 `madang`
+/// 혼용을 제거하고, 서로 어울리는 종가 세트(`gate_frame`+문짝2 + `gate_final`)
+/// 한 톤으로 통일. 게이트 PNG는 바깥/문구멍 투명 knockout 완료.
+/// - 0.00–0.12  닫힌 대문 establishing (안마당은 dim)
+/// - 0.18–0.52  문짝이 경첩 기준 바깥으로 회전해 열림 + 문틈 황금빛
+/// - 0.22–0.62  안마당(`gate_final`)이 점점 선명해짐
+/// - 0.30–0.80  까치가 대문 위를 가로지름
+/// - 0.50–0.92  카메라 push-in: 대문이 커지며 통과, 마당이 확대
+/// - 0.80–1.00  대문 페이드아웃 → 마당만 → 홈으로 handoff
 class IntroGateScreen extends StatefulWidget {
   const IntroGateScreen({super.key});
 
@@ -45,6 +38,7 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl;
   bool _navigated = false;
+  bool _reduceMotion = false;
 
   @override
   void initState() {
@@ -59,6 +53,17 @@ class _IntroGateScreenState extends State<IntroGateScreen>
           if (s == AnimationStatus.completed) _finish();
         });
     _ctrl.forward();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // reduce-motion: 화려한 시네마틱 생략, 곧장 마당으로.
+    final reduce = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+    if (reduce && !_reduceMotion) {
+      _reduceMotion = true;
+      _ctrl.duration = const Duration(milliseconds: 900);
+    }
   }
 
   @override
@@ -113,101 +118,67 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     final t = _ctrl.value;
 
     // ── 타이밍 함수 ─────────────────────────────────────────────────────────
-    final appear = Curves.easeOutCubic.transform((t / 0.14).clamp(0.0, 1.0));
-    final settle = Curves.easeOutCubic.transform((t / 0.18).clamp(0.0, 1.0));
+    final appear = Curves.easeOutCubic.transform((t / 0.12).clamp(0.0, 1.0));
 
-    // 2) establishing shot → close gate frame handoff.
-    final approach = Curves.easeInOutCubic.transform(
-      ((t - 0.12) / 0.24).clamp(0.0, 1.0),
-    );
-    final frameAppear = Curves.easeOutCubic.transform(
-      ((t - 0.28) / 0.14).clamp(0.0, 1.0),
-    );
-    final entranceFade =
-        1.0 -
-        Curves.easeInOutCubic.transform(((t - 0.30) / 0.16).clamp(0.0, 1.0));
-
-    // 3) 문 열림 — 0.34~0.68 (대문에 다가간 뒤 열린다)
+    // 문 열림 — 0.18~0.52
     final doorOpen = Curves.easeInOutCubic.transform(
-      ((t - 0.34) / 0.34).clamp(0.0, 1.0),
+      ((t - 0.18) / 0.34).clamp(0.0, 1.0),
     );
 
-    // 4) 안마당 선명도 — 문이 열릴 때 `gate_final` 컷으로 handoff.
+    // 안마당 선명도 — 0.22~0.62
     final courtyardReveal = Curves.easeOutCubic.transform(
-      ((t - 0.36) / 0.32).clamp(0.0, 1.0),
+      ((t - 0.22) / 0.40).clamp(0.0, 1.0),
     );
 
-    // 5) 카메라 푸시 — 0.68~0.96 (문이 충분히 열린 뒤 안으로 들어감)
+    // 카메라 푸시 — 0.50~0.92
     final pushIn = Curves.easeInOutCubic.transform(
-      ((t - 0.68) / 0.28).clamp(0.0, 1.0),
+      ((t - 0.50) / 0.42).clamp(0.0, 1.0),
     );
 
-    // 6) 대문 페이드아웃 — 푸시 후반부에 문지방을 통과하는 느낌.
+    // 대문 페이드아웃 — 0.80~1.00 (문지방을 통과하는 느낌)
     final gateFade =
-        1.0 - Curves.easeInCubic.transform(((t - 0.78) / 0.22).clamp(0.0, 1.0));
+        1.0 - Curves.easeInCubic.transform(((t - 0.80) / 0.20).clamp(0.0, 1.0));
 
-    // 7) 까치 비행 — 0.30~0.80
+    // 까치 비행 — 0.30~0.80
     final magpieT = ((t - 0.30) / 0.50).clamp(0.0, 1.0);
 
-    // 8) 문틈 빛(닫힌→반쯤 열림 사이 가장 강함, 도어 다 열리면 사라짐)
-    final glow = doorOpen * (1.0 - doorOpen) * 4.0; // 0→1→0 종 모양
+    // 문틈 빛(반쯤 열림에서 가장 강함, 다 열리면 사라짐) — 종 모양 0→1→0
+    final glow = doorOpen * (1.0 - doorOpen) * 4.0;
 
-    // 9) skip 힌트(초반에 잠깐만)
+    // skip 힌트(초반에 잠깐만)
     final skipO = 0.55 * (1.0 - ((t - 0.45) / 0.18).clamp(0.0, 1.0));
 
-    // ── 스케일 / 정렬 ───────────────────────────────────────────────────────
-    // entrance는 넓은 컷에서 대문 쪽으로 다가가고, frame은 close-up gate 역할.
-    final entranceScale = (1.02 - settle * 0.02) + approach * 1.05;
-    final frameScale = (0.97 + frameAppear * 0.03) + pushIn * 1.42;
-    final courtyardScale = (1.12 - courtyardReveal * 0.04) + pushIn * 0.38;
-    final paperScale = 1.02 + pushIn * 0.10;
+    // ── 스케일 ──────────────────────────────────────────────────────────────
+    // 마당은 천천히, 대문은 빠르게 커지며 통과 → 전진 parallax.
+    final courtyardScale = 1.06 + pushIn * 0.32;
+    final gateScale = 1.0 + pushIn * 1.55;
 
     return Stack(
       fit: StackFit.expand,
       children: [
-        // ── 1. 한지/산 base — reference 이미지처럼 넓은 숨을 먼저 만든다. ──
-        _coverImage(
-          asset: _paperCourtyardAsset,
-          scale: paperScale,
-          opacity: 1.0,
-          alignment: Alignment.center,
-        ),
-
-        // ── 2. 문 너머 안마당 — push-in의 도착점. ─────────────────────
+        // ── 1. 안마당(도착점) — push-in의 목적지. 처음엔 dim. ──────────────
         _coverImage(
           asset: _courtyardAsset,
           scale: courtyardScale,
-          opacity: 0.34 + courtyardReveal * 0.66,
+          opacity: 0.40 + courtyardReveal * 0.60,
           alignment: Alignment.center,
         ),
 
-        // ── 3. reference형 대문 컷 — backup의 with_gate 이미지를 정식 레이어로 사용. ──
-        _coverCanvas(
-          scale: entranceScale,
-          opacity: appear * entranceFade,
-          child: Image.asset(
-            _gateEntranceAsset,
-            fit: BoxFit.fill,
-            filterQuality: FilterQuality.medium,
-            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-          ),
-        ),
-
-        // ── 4. 투명 프레임 + 문짝 — 실제 문 열림 레이어. ────────────────
+        // ── 2. 대문(프레임 + 문짝) — 바깥/문구멍 투명. 문이 열린다. ─────────
         _coverGateFrame(
-          scale: frameScale,
-          opacity: appear * frameAppear * gateFade,
+          scale: gateScale,
+          opacity: appear * gateFade,
           child: HanokGateArt(openAmount: doorOpen),
         ),
 
-        // ── 5. 문틈에서 새어나오는 따뜻한 빛 ────────────────────────
+        // ── 3. 문틈에서 새어나오는 따뜻한 빛 ────────────────────────────────
         if (glow > 0.01)
           IgnorePointer(
             child: Align(
               alignment: _gatewayAlign,
               child: FractionallySizedBox(
-                widthFactor: 0.58,
-                heightFactor: 0.52,
+                widthFactor: 0.50,
+                heightFactor: 0.46,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: RadialGradient(
@@ -222,13 +193,13 @@ class _IntroGateScreenState extends State<IntroGateScreen>
             ),
           ),
 
-        // ── 6. 가장자리 vignette — 문 안으로 들어갈 때 중심으로 시선 유도. ──
-        IgnorePointer(child: _Vignette(strength: 0.22 + pushIn * 0.18)),
+        // ── 4. 가장자리 vignette — 문 안으로 들어갈 때 중심으로 시선 유도. ──
+        IgnorePointer(child: _Vignette(strength: 0.20 + pushIn * 0.18)),
 
-        // ── 7. 까치 ────────────────────────────────────────────────
+        // ── 5. 까치 ────────────────────────────────────────────────────────
         if (magpieT > 0.0 && magpieT < 1.0) _magpie(size, magpieT),
 
-        // ── 8. 건너뛰기 힌트 ───────────────────────────────────────
+        // ── 6. 건너뛰기 힌트 ───────────────────────────────────────────────
         if (skipO > 0.01)
           Positioned(
             bottom: 30,
@@ -281,31 +252,6 @@ class _IntroGateScreenState extends State<IntroGateScreen>
                 ],
               ),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _coverCanvas({
-    required double scale,
-    required double opacity,
-    required Widget child,
-  }) {
-    final o = _unit(opacity);
-    if (o <= 0.01) return const SizedBox.shrink();
-    return Opacity(
-      opacity: o,
-      child: Transform.scale(
-        scale: scale,
-        alignment: _gatewayAlign,
-        child: FittedBox(
-          fit: BoxFit.cover,
-          alignment: Alignment.center,
-          child: SizedBox(
-            width: _entranceCanvas.width,
-            height: _entranceCanvas.height,
-            child: child,
           ),
         ),
       ),
@@ -395,7 +341,7 @@ class _Vignette extends StatelessWidget {
 }
 
 // ════════════════════════════════════════════════════════════════════════
-// 까치 — 갓 쓴 작은 까치 실루엣 (날갯짓, gate_final 로드 실패 시 fallback)
+// 까치 — 갓 쓴 작은 까치 실루엣 (날갯짓, PNG 로드 실패 시 fallback)
 // ════════════════════════════════════════════════════════════════════════
 class _MagpiePainter extends CustomPainter {
   final double flap;

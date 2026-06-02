@@ -5968,6 +5968,388 @@
     "de": "Im koreanischen 면접 zählt förmliche Sprache (-습니다) und Bescheidenheit. 'Ich gebe mein Bestes' (최선을 다하겠습니다) ist fast Pflicht. Über 귀사 (Ihre geschätzte Firma) spricht man respektvoll.",
     "en": "In Korean interviews, formal speech (-습니다) and humility matter. 'I'll do my best' (최선을 다하겠습니다) is almost expected. Refer to the company respectfully as 귀사."
    }
+  },
+  {
+   "id": "love_confession",
+   "level": "b1",
+   "emoji": "❤️",
+   "register": "casual",
+   "sidekick": "minsu",
+   "xpReward": 170,
+   "title": {
+    "ko": "사랑한다고 말하기",
+    "de": "Sagen, dass man jemanden liebt",
+    "en": "Telling someone you love them"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Ein ruhiger Abend mit deinem Schatz. Du willst endlich sagen, was du fühlst — auf Koreanisch, in Banmal (du-Form).",
+    "en": "A quiet evening with your sweetheart. You finally want to say how you feel — in Korean, in banmal (casual)."
+   },
+   "vocab": [
+    {
+     "korean": "사랑하다",
+     "note": {
+      "ko": "",
+      "de": "lieben.",
+      "en": "to love."
+     }
+    },
+    {
+     "korean": "보고 싶다",
+     "note": {
+      "ko": "",
+      "de": "vermissen / sehen wollen.",
+      "en": "to miss / want to see."
+     }
+    },
+    {
+     "korean": "마음",
+     "note": {
+      "ko": "",
+      "de": "Herz / Gefühl.",
+      "en": "heart / feelings."
+     }
+    },
+    {
+     "korean": "행복",
+     "note": {
+      "ko": "",
+      "de": "Glück (행복하다 = glücklich sein).",
+      "en": "happiness (행복하다 = to be happy)."
+     }
+    },
+    {
+     "korean": "평생",
+     "note": {
+      "ko": "",
+      "de": "ein Leben lang.",
+      "en": "for a lifetime."
+     }
+    },
+    {
+     "korean": "약속",
+     "note": {
+      "ko": "",
+      "de": "Versprechen (약속하다 = versprechen).",
+      "en": "promise (약속하다 = to promise)."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-(으)ㄹ게",
+     "de": "-(으)ㄹ게 — Ich werde … (Versprechen, banmal)",
+     "en": "-(으)ㄹ게 — I'll … (promise, casual)"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Lockeres Versprechen an eine vertraute Person: Verb-Stamm + -(으)ㄹ게. 사랑하다 → 사랑할게 = 'Ich werde dich lieben.' (nur banmal/vertraut).",
+     "en": "Casual promise to someone close: verb stem + -(으)ㄹ게. 사랑하다 → 사랑할게 = 'I'll love you.' (banmal/intimate only)."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "나 너한테 할 말 있어.",
+     "de": "Ich muss dir was sagen.",
+     "en": "I have something to tell you."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "응? 뭔데?",
+     "de": "Hm? Was denn?",
+     "en": "Hm? What is it?"
+    },
+    {
+     "speaker": "user",
+     "ko": "너를 정말 사랑해.",
+     "de": "Ich liebe dich wirklich.",
+     "en": "I really love you."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "나도 너 사랑해.",
+     "de": "Ich liebe dich auch.",
+     "en": "I love you too."
+    },
+    {
+     "speaker": "user",
+     "ko": "평생 너만 사랑할게.",
+     "de": "Ich werde mein Leben lang nur dich lieben.",
+     "en": "I'll love only you for the rest of my life."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "우리 행복하자.",
+     "de": "Lass uns glücklich sein.",
+     "en": "Let's be happy together."
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "나도 너 사랑해.",
+      "options": [
+       {
+        "de": "Ich liebe dich auch.",
+        "en": "I love you too."
+       },
+       {
+        "de": "Ich vermisse dich.",
+        "en": "I miss you."
+       },
+       {
+        "de": "Ich muss dir was sagen.",
+        "en": "I have something to tell you."
+       },
+       {
+        "de": "Lass uns glücklich sein.",
+        "en": "Let's be happy."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich liebe dich wirklich.",
+      "promptEn": "I really love you.",
+      "options": [
+       {
+        "ko": "너를 정말 사랑해."
+       },
+       {
+        "ko": "너 정말 미워."
+       },
+       {
+        "ko": "나 너 보고 싶어."
+       },
+       {
+        "ko": "우리 행복하자."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "너",
+      "suffix": "사랑해.",
+      "options": [
+       "를",
+       "을",
+       "가",
+       "이",
+       "로",
+       "에"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "너 endet auf Vokal (ㅓ) → Objektpartikel 를 (너를 사랑해 = 'dich lieben').",
+      "explanationEn": "너 ends in a vowel (ㅓ) → object particle 를 (너를 사랑해 = 'love you')."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "Koreanische Paare feiern den 100. Tag (백일) und sprechen Banmal miteinander. '사랑해' ohne 'dich' ist der Alltagsklassiker; '사랑할게' (Versprechen) klingt besonders warm.",
+    "en": "Korean couples celebrate the 100th day (백일) and speak banmal to each other. '사랑해' (no 'you') is the everyday classic; '사랑할게' (a promise) sounds especially warm."
+   }
+  },
+  {
+   "id": "feeling_sick",
+   "level": "a2",
+   "emoji": "🤒",
+   "register": "casual",
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "아플 때 친구에게 말하기",
+    "de": "Einem Freund sagen, dass man krank ist",
+    "en": "Telling a friend you're sick"
+   },
+   "intro": {
+    "ko": "",
+    "de": "Dir geht's nicht gut. Du schreibst/sagst es einem engen Freund — in Banmal. Erkältung? Fieber? Ausruhen.",
+    "en": "You're not feeling well. You tell a close friend — in banmal. A cold? Fever? Get some rest."
+   },
+   "vocab": [
+    {
+     "korean": "아프다",
+     "note": {
+      "ko": "",
+      "de": "weh tun / krank sein.",
+      "en": "to hurt / be sick."
+     }
+    },
+    {
+     "korean": "열나다",
+     "note": {
+      "ko": "",
+      "de": "Fieber haben.",
+      "en": "to have a fever."
+     }
+    },
+    {
+     "korean": "감기",
+     "note": {
+      "ko": "",
+      "de": "Erkältung (감기 걸리다 = sich erkälten).",
+      "en": "cold (감기 걸리다 = to catch a cold)."
+     }
+    },
+    {
+     "korean": "몸살",
+     "note": {
+      "ko": "",
+      "de": "Gliederschmerzen / Erschöpfung.",
+      "en": "body aches / fatigue."
+     }
+    },
+    {
+     "korean": "푹 쉬다",
+     "note": {
+      "ko": "",
+      "de": "sich gut ausruhen.",
+      "en": "to rest well."
+     }
+    },
+    {
+     "korean": "괜찮다",
+     "note": {
+      "ko": "",
+      "de": "okay sein / in Ordnung sein.",
+      "en": "to be okay."
+     }
+    }
+   ],
+   "grammarIds": [],
+   "grammarBlock": {
+    "title": {
+     "ko": "-(으)ㄴ/는 것 같아",
+     "de": "-(으)ㄴ/는 것 같아 — Ich glaube / es scheint (banmal)",
+     "en": "-(으)ㄴ/는 것 같아 — I think / it seems (casual)"
+    },
+    "explanation": {
+     "ko": "",
+     "de": "Vermutung in Banmal: 감기 걸리다 → 감기 걸린 것 같아 = 'Ich glaube, ich hab mich erkältet.' Verb + -(으)ㄴ 것 같아 (Vergangenheit/Zustand).",
+     "en": "Guess in banmal: 감기 걸리다 → 감기 걸린 것 같아 = 'I think I caught a cold.' Verb + -(으)ㄴ 것 같아 (past/state)."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "나 몸이 좀 안 좋아.",
+     "de": "Mir geht's nicht so gut.",
+     "en": "I'm not feeling great."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "왜? 어디 아파?",
+     "de": "Warum? Wo tut's weh?",
+     "en": "Why? Where does it hurt?"
+    },
+    {
+     "speaker": "user",
+     "ko": "감기 걸린 것 같아. 열도 나.",
+     "de": "Ich glaub, ich hab mich erkältet. Ich hab auch Fieber.",
+     "en": "I think I caught a cold. I have a fever too."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "약은 먹었어?",
+     "de": "Hast du Medizin genommen?",
+     "en": "Did you take any medicine?"
+    },
+    {
+     "speaker": "user",
+     "ko": "아직. 오늘은 푹 쉬어야겠어.",
+     "de": "Noch nicht. Heute ruh ich mich richtig aus.",
+     "en": "Not yet. I should rest well today."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "그래, 푹 쉬어. 빨리 나아.",
+     "de": "Okay, ruh dich gut aus. Gute Besserung!",
+     "en": "Okay, rest well. Get better soon!"
+    }
+   ],
+   "quests": [
+    {
+     "type": "hoerverstehen",
+     "data": {
+      "audioKo": "왜? 어디 아파?",
+      "options": [
+       {
+        "de": "Warum? Wo tut's weh?",
+        "en": "Why? Where does it hurt?"
+       },
+       {
+        "de": "Hast du gegessen?",
+        "en": "Did you eat?"
+       },
+       {
+        "de": "Wann kommst du?",
+        "en": "When are you coming?"
+       },
+       {
+        "de": "Geht es dir gut?",
+        "en": "Are you okay?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "uebersetzen",
+     "data": {
+      "promptDe": "Ich glaube, ich habe eine Erkältung.",
+      "promptEn": "I think I caught a cold.",
+      "options": [
+       {
+        "ko": "감기 걸린 것 같아."
+       },
+       {
+        "ko": "배가 고파."
+       },
+       {
+        "ko": "기분이 좋아."
+       },
+       {
+        "ko": "약을 먹었어."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "type": "particlePop",
+     "data": {
+      "prefix": "열",
+      "suffix": "나.",
+      "options": [
+       "이",
+       "가",
+       "을",
+       "를",
+       "은",
+       "는"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "열 endet auf Konsonant (ㄹ) → Subjektpartikel 이 (열이 나 = 'Fieber haben').",
+      "explanationEn": "열 ends in a consonant (ㄹ) → subject particle 이 (열이 나 = 'to have a fever')."
+     }
+    }
+   ],
+   "culturalNote": {
+    "ko": "",
+    "de": "In Korea isst man bei Krankheit 죽 (Reisbrei), und 'Gute Besserung' heißt 빨리 나아 (banmal) / 몸조리 잘하세요 (höflich). Freunde fragen oft direkt 'Hast du Medizin genommen?'.",
+    "en": "In Korea you eat 죽 (rice porridge) when sick, and 'get well' is 빨리 나아 (casual) / 몸조리 잘하세요 (polite). Friends often ask straight away 'Did you take medicine?'."
+   }
   }
  ]
 }
