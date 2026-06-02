@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../services/storage_service.dart';
 import '../services/notification_service.dart';
+import '../services/premium_service.dart';
 import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
@@ -388,6 +390,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(t.settingsAccountDeleteDesc),
             onTap: _confirmAccountDelete,
           ),
+
+          // ── DEBUG: Premium-Override (nur im Debug-Build sichtbar) ──
+          // Damit Gating + Paywall ohne RevenueCat-Dashboard testbar sind.
+          // Wird im Release-Build NICHT angezeigt (kein Gratis-Premium-Schalter).
+          if (kDebugMode) ...[
+            _Section(label: 'DEBUG'),
+            SwitchListTile(
+              secondary: const Icon(Icons.workspace_premium_outlined,
+                  color: SoriColors.gold),
+              title: const Text('Premium (Dev-Override)'),
+              subtitle: const Text(
+                'Nur Debug — testet Gating/Paywall ohne RevenueCat',
+                style:
+                    TextStyle(fontSize: 12, color: SoriColors.darkTextMuted),
+              ),
+              value: Storage.devPremiumOverride,
+              activeThumbColor: SoriColors.gold,
+              onChanged: (v) async {
+                await PremiumService.setDevOverride(v);
+                if (mounted) setState(() {});
+              },
+            ),
+          ],
 
           // ── About ──
           _Section(label: t.settingsAbout),

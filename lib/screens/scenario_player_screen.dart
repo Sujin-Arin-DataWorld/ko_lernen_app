@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/scenario.dart';
+import '../services/premium_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -61,6 +62,16 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
     if (s == null) {
       if (mounted) Navigator.pop(context);
       return;
+    }
+    // Premium-Gate (M4): A1-Szenarien frei, A2/B1/B2 erfordern ein Abo.
+    // Deckt alle Einstiege ab (Home-CTA, Skill-Path, Szenarien-Liste).
+    if (s.level != LearnerLevel.a1 && !PremiumService.isPremium) {
+      if (!mounted) return;
+      final ok = await PremiumService.gate(context);
+      if (!ok) {
+        if (mounted) Navigator.pop(context);
+        return;
+      }
     }
     if (mounted) setState(() => _scenario = s);
   }

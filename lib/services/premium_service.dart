@@ -100,12 +100,8 @@ class PremiumService {
   static Future<bool> purchase(Package package) async {
     if (!_configured) return false;
     try {
-      // v9+: purchasePackage liefert PurchaseResult (nicht mehr CustomerInfo).
-      // TODO(jin): Auf `Purchases.purchase(PurchaseParams(package: package))`
-      //   migrieren, sobald ein echter Sandbox-Kauf getestet werden kann.
-      //   purchasePackage ist in v10 deprecated, funktioniert aber weiterhin.
-      // ignore: deprecated_member_use
-      final result = await Purchases.purchasePackage(package);
+      // v9+: purchase(PurchaseParams) liefert ein PurchaseResult mit CustomerInfo.
+      final result = await Purchases.purchase(PurchaseParams.package(package));
       _onCustomerInfo(result.customerInfo);
       return isPremium;
     } catch (e) {
