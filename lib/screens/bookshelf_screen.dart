@@ -79,6 +79,49 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
     );
   }
 
+  /// 빈 "나만의 단어장" 생성 → 이름 입력 → 편집 화면으로 이동.
+  Future<void> _createWordbook() async {
+    final t = AppL10n.of(context);
+    final controller = TextEditingController();
+    final name = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(t.createWordbookTitle),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          decoration: InputDecoration(
+            labelText: t.wbRenameLabel,
+            hintText: t.createWordbookHint,
+            border: const OutlineInputBorder(),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: Text(t.btnCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
+            child: Text(t.btnConfirm),
+          ),
+        ],
+      ),
+    );
+    if (name == null || name.isEmpty || !mounted) return;
+    final pack = await CustomPackService.createEmpty(name: name);
+    if (!mounted) return;
+    await Navigator.of(context)
+        .pushNamed('/custom_pack/edit', arguments: pack.id);
+    _reload();
+  }
+
+  Widget _createAction(AppL10n t) => IconButton(
+        icon: const Icon(Icons.playlist_add_rounded),
+        tooltip: t.createWordbookCta,
+        onPressed: _createWordbook,
+      );
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -87,7 +130,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
       return Scaffold(
         appBar: AppBar(
           title: Text(t.bookshelfTitle),
-          actions: [_redeemAction(t)],
+          actions: [_createAction(t), _redeemAction(t)],
         ),
         body: Center(
           child: SoriEmptyState(
@@ -98,6 +141,8 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
             onCta: () => Navigator.of(context)
                 .pushNamed('/book')
                 .then((_) => _reload()),
+            secondaryLabel: t.createWordbookCta,
+            onSecondary: _createWordbook,
           ),
         ),
       );
@@ -108,6 +153,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
         title: Text(t.bookshelfTitle,
             style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
+          _createAction(t),
           _redeemAction(t),
           IconButton(
             icon: const Icon(Icons.add_a_photo_outlined),
@@ -138,6 +184,9 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
                         '/custom_pack/play',
                         arguments: p.id,
                       ),
+                      onEdit: () => Navigator.of(context)
+                          .pushNamed('/custom_pack/edit', arguments: p.id)
+                          .then((_) => _reload()),
                       onShare: () => _sharePack(p),
                       onDelete: () async {
                         await CustomPackService.delete(p.id);
@@ -247,11 +296,13 @@ class _PageTile extends StatelessWidget {
 class _CustomPackTile extends StatelessWidget {
   final CustomPack pack;
   final VoidCallback onTap;
+  final VoidCallback onEdit;
   final VoidCallback onShare;
   final VoidCallback onDelete;
   const _CustomPackTile({
     required this.pack,
     required this.onTap,
+    required this.onEdit,
     required this.onShare,
     required this.onDelete,
   });
@@ -301,6 +352,12 @@ class _CustomPackTile extends StatelessWidget {
                 size: SoriButtonSize.sm,
                 accent: SoriColors.primary,
                 onTap: onTap,
+              ),
+              IconButton(
+                icon: Icon(Icons.edit_outlined, color: SoriColors.primary),
+                tooltip: t.wbEditTooltip,
+                visualDensity: VisualDensity.compact,
+                onPressed: onEdit,
               ),
               IconButton(
                 icon: Icon(Icons.ios_share_rounded, color: SoriColors.primary),

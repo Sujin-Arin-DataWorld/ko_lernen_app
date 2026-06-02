@@ -310,6 +310,16 @@ flutter run -d <android-id>   # 안드로이드
 5. **API 키 반영(보안)** — `functions/analyze_korean_text/.env`에 `DEEPL_API_KEY`(:fx) + `URIMALSAEM_API_KEY` 저장(.gitignore `.env*` 처리 확인, git status 미노출). `.env.example` 커밋용 템플릿. `main.py`에 `.env` 로더 + **우리말샘(opendict) 뜻풀이 enrichment**(urllib stdlib, 키 없으면/실패 시 빈 문자열, 최대 20단어) 추가 → 응답에 `definitionKo`. 클라 연결: `ExtractedWord.definitionKo`(옵션 필드) + `book_analysis_service` 파싱 + `book_result_screen` 단어카드 "📖 뜻풀이" 표시. (`py_compile` OK. 우리말샘 실호출은 샌드박스 403으로 미검증 → 배포 후 확인)
 6. **책 한 컷 프롬프트 완성** — `jongga-assets.md` §7: 기존엔 7.1만 완전 프롬프트, 7.2~7.5는 구도 설명만 → **7.2~7.5 완전 영문 프롬프트 작성**(템플릿+상황 layer, center-blank 지시 포함). 이제 5장 전부 복붙 가능.
 7. **출시 문서 3종** — `docs/LAUNCH_READINESS_2026-06-02.md`(준비도 진단·계획), `docs/JIN_VERIFY_CHECKLIST.md`(Jin 직접 검증 항목), `docs/IMAGES_TO_CREATE.md`(제작할 이미지 light-only).
+8. **웹사이트 v2.0 갱신** — `docs/index.html`: 히어로에 사진 기능 문구 + "베타 신청" CTA 메일 연결, 📷 책 한 컷 플래그십 카드 + 한옥 건축 + 퀘스트 카드(3개국어), 단어장 카드 "61팩" 메시지, 스크린샷 라벨·메타 갱신. (태그 균형 검증) — **라이브 반영은 docs/ 커밋·푸시 필요**.
+9. **"나만의 단어장"(수동 커스텀 단어장) 신규** — 기존 CustomPack 인프라 확장:
+   - 모델: `CustomPack.manual()`+`copyWith()`+`isManual`, `ExtractedWord.manual()`.
+   - 서비스: `createEmpty/addWord/updateWord/deleteWord/rename` + `BookAnalysisService.autoFill()`(단어 1개 번역·뜻풀이 자동채우기, Cloud Function 필요).
+   - 화면 신규: `custom_pack_edit_screen.dart`(단어 직접 추가·편집·삭제, 자동채우기, TTS), `custom_pack_quiz_screen.dart`(4지선다 퀴즈, ≥4단어).
+   - 진입: 책장 화면 ＋버튼(생성)·편집 아이콘, 빈 상태 보조 CTA. 라우트 `/custom_pack/edit`·`/custom_pack/quiz`.
+   - l10n: DE/EN +30키(`wb*`/`quiz*`/`createWordbook*`), 591키 parity OK. **`flutter gen-l10n` 재실행 필수**(생성 파일 stale).
+   - CSV 일괄 등록은 백로그. 홈 전용 카드 미추가(책장 경유).
+
+**⚠️ 빌드:** 위 9의 신규 l10n 키 때문에 **반드시 `flutter gen-l10n` → `flutter analyze` 순서**로 1회. 정적 검증(브레이스 균형·키 parity·JSON)만 했고 컴파일은 Jin 로컬에서.
 
 **검증:** Jin 로컬 빌드 통과 확인("전부 문제없이 빌드됐어"). 이후 추가된 `definitionKo` 관련 Dart 3파일은 `flutter analyze` 1회 재확인 권장. 함수 배포·AAB·실기기·Play Console·우리말샘 실호출 = Jin.
 
