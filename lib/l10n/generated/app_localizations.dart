@@ -97,6 +97,114 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @paywallTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul Sori Premium'**
+  String get paywallTitle;
+
+  /// No description provided for @paywallSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lern Koreanisch ohne Grenzen.'**
+  String get paywallSubtitle;
+
+  /// No description provided for @paywallBenefit1.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Vokabel-Packs (A2 · B1 · B2)'**
+  String get paywallBenefit1;
+
+  /// No description provided for @paywallBenefit2.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Gesprächs-Szenarien'**
+  String get paywallBenefit2;
+
+  /// No description provided for @paywallBenefit3.
+  ///
+  /// In de, this message translates to:
+  /// **'Unbegrenzte Wiederholungen (SRS)'**
+  String get paywallBenefit3;
+
+  /// No description provided for @paywallBenefit4.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein persönlicher KI-Kurs — jeden Tag neu'**
+  String get paywallBenefit4;
+
+  /// No description provided for @paywallBenefit5.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchschnappschuss ohne Tageslimit'**
+  String get paywallBenefit5;
+
+  /// No description provided for @paywallPriceFallback.
+  ///
+  /// In de, this message translates to:
+  /// **'5 € / Monat'**
+  String get paywallPriceFallback;
+
+  /// No description provided for @paywallPricePerMonth.
+  ///
+  /// In de, this message translates to:
+  /// **'/ Monat'**
+  String get paywallPricePerMonth;
+
+  /// No description provided for @paywallCtaStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Premium starten'**
+  String get paywallCtaStart;
+
+  /// No description provided for @paywallCtaRestore.
+  ///
+  /// In de, this message translates to:
+  /// **'Käufe wiederherstellen'**
+  String get paywallCtaRestore;
+
+  /// No description provided for @paywallClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Vielleicht später'**
+  String get paywallClose;
+
+  /// No description provided for @paywallLegal.
+  ///
+  /// In de, this message translates to:
+  /// **'Jederzeit kündbar. Das Abo verlängert sich automatisch, bis du kündigst.'**
+  String get paywallLegal;
+
+  /// No description provided for @paywallNotAvailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Abos sind in dieser Version noch nicht verfügbar.'**
+  String get paywallNotAvailable;
+
+  /// No description provided for @paywallProcessing.
+  ///
+  /// In de, this message translates to:
+  /// **'Einen Moment …'**
+  String get paywallProcessing;
+
+  /// No description provided for @paywallSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'Premium ist aktiv. Viel Spaß! 🎉'**
+  String get paywallSuccess;
+
+  /// No description provided for @paywallFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Kauf nicht abgeschlossen.'**
+  String get paywallFailed;
+
+  /// No description provided for @paywallRestoreNone.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine früheren Käufe gefunden.'**
+  String get paywallRestoreNone;
+
   /// No description provided for @appTitle.
   ///
   /// In de, this message translates to:
@@ -2880,6 +2988,294 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{level}: {done}/{total} ★'**
   String scenariosPathLevelProgress(Object level, int done, int total);
+
+  /// No description provided for @shareTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Teilen'**
+  String get shareTooltip;
+
+  /// No description provided for @shareTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Pack teilen'**
+  String get shareTitle;
+
+  /// No description provided for @shareGenerating.
+  ///
+  /// In de, this message translates to:
+  /// **'Code wird erstellt …'**
+  String get shareGenerating;
+
+  /// No description provided for @shareCodeLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Freundes-Code'**
+  String get shareCodeLabel;
+
+  /// No description provided for @shareCopyCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Code kopieren'**
+  String get shareCopyCode;
+
+  /// No description provided for @shareCodeCopied.
+  ///
+  /// In de, this message translates to:
+  /// **'Code kopiert'**
+  String get shareCodeCopied;
+
+  /// No description provided for @shareViaApp.
+  ///
+  /// In de, this message translates to:
+  /// **'Über App teilen'**
+  String get shareViaApp;
+
+  /// No description provided for @shareExpiryNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Code gilt 30 Tage.'**
+  String get shareExpiryNote;
+
+  /// No description provided for @shareError.
+  ///
+  /// In de, this message translates to:
+  /// **'Teilen fehlgeschlagen. Bist du online?'**
+  String get shareError;
+
+  /// No description provided for @shareEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Pack hat keine Wörter.'**
+  String get shareEmpty;
+
+  /// No description provided for @sharePackBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich teile mit dir den Vokabel-Pack „{name}“ ({count} Wörter) aus Hangul Sori! Gib in der App den Code {code} ein, um ihn zu importieren. hangul-sori.com'**
+  String sharePackBody(Object name, int count, Object code);
+
+  /// No description provided for @redeemTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Code importieren'**
+  String get redeemTooltip;
+
+  /// No description provided for @redeemTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Pack importieren'**
+  String get redeemTitle;
+
+  /// No description provided for @redeemHint.
+  ///
+  /// In de, this message translates to:
+  /// **'6-stelligen Code eingeben'**
+  String get redeemHint;
+
+  /// No description provided for @redeemAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Importieren'**
+  String get redeemAction;
+
+  /// No description provided for @redeemSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'„{name}“ importiert ({count} Wörter)'**
+  String redeemSuccess(Object name, int count);
+
+  /// No description provided for @redeemNotFound.
+  ///
+  /// In de, this message translates to:
+  /// **'Code nicht gefunden.'**
+  String get redeemNotFound;
+
+  /// No description provided for @redeemExpired.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Code ist abgelaufen.'**
+  String get redeemExpired;
+
+  /// No description provided for @redeemError.
+  ///
+  /// In de, this message translates to:
+  /// **'Import fehlgeschlagen. Bist du online?'**
+  String get redeemError;
+
+  /// No description provided for @createWordbookCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Eigene Wortliste'**
+  String get createWordbookCta;
+
+  /// No description provided for @createWordbookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Wortliste'**
+  String get createWordbookTitle;
+
+  /// No description provided for @createWordbookHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Gib deiner Wortliste einen Namen.'**
+  String get createWordbookHint;
+
+  /// No description provided for @wbEditTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Bearbeiten'**
+  String get wbEditTooltip;
+
+  /// No description provided for @wbEditTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortliste bearbeiten'**
+  String get wbEditTitle;
+
+  /// No description provided for @wbAddWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort hinzufügen'**
+  String get wbAddWord;
+
+  /// No description provided for @wbEditWordTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort bearbeiten'**
+  String get wbEditWordTitle;
+
+  /// No description provided for @wbEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Wörter'**
+  String get wbEmptyTitle;
+
+  /// No description provided for @wbEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Füge dein erstes Wort hinzu — oder lass die Übersetzung automatisch ausfüllen.'**
+  String get wbEmptyBody;
+
+  /// No description provided for @wbFieldKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanisch'**
+  String get wbFieldKorean;
+
+  /// No description provided for @wbFieldMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung'**
+  String get wbFieldMeaning;
+
+  /// No description provided for @wbFieldExample.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispielsatz (optional)'**
+  String get wbFieldExample;
+
+  /// No description provided for @wbAutoFill.
+  ///
+  /// In de, this message translates to:
+  /// **'Automatisch ausfüllen'**
+  String get wbAutoFill;
+
+  /// No description provided for @wbAutoFillRunning.
+  ///
+  /// In de, this message translates to:
+  /// **'Suche Übersetzung …'**
+  String get wbAutoFillRunning;
+
+  /// No description provided for @wbAutoFillOffline.
+  ///
+  /// In de, this message translates to:
+  /// **'Auto-Ausfüllen gerade nicht verfügbar — bitte manuell eintragen.'**
+  String get wbAutoFillOffline;
+
+  /// No description provided for @wbSaveWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern'**
+  String get wbSaveWord;
+
+  /// No description provided for @wbNeedKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'Bitte ein koreanisches Wort eingeben.'**
+  String get wbNeedKorean;
+
+  /// No description provided for @wbDeleteWordTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort löschen?'**
+  String get wbDeleteWordTitle;
+
+  /// No description provided for @wbDeleteWordBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort wird aus der Liste entfernt.'**
+  String get wbDeleteWordBody;
+
+  /// No description provided for @wbRenameTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Umbenennen'**
+  String get wbRenameTitle;
+
+  /// No description provided for @wbRenameLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Name'**
+  String get wbRenameLabel;
+
+  /// No description provided for @wbStudyCards.
+  ///
+  /// In de, this message translates to:
+  /// **'Karten lernen'**
+  String get wbStudyCards;
+
+  /// No description provided for @wbQuiz.
+  ///
+  /// In de, this message translates to:
+  /// **'Quiz'**
+  String get wbQuiz;
+
+  /// No description provided for @quizNeedMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Mindestens 4 Wörter mit Bedeutung nötig.'**
+  String get quizNeedMore;
+
+  /// No description provided for @quizQuestion.
+  ///
+  /// In de, this message translates to:
+  /// **'Was bedeutet dieses Wort?'**
+  String get quizQuestion;
+
+  /// No description provided for @quizScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct} / {total} richtig'**
+  String quizScore(int correct, int total);
+
+  /// No description provided for @quizResultTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Quiz beendet'**
+  String get quizResultTitle;
+
+  /// No description provided for @quizResultBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gut gemacht! Wiederhole die Liste, um dich zu verbessern.'**
+  String get quizResultBody;
+
+  /// No description provided for @quizAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Nochmal'**
+  String get quizAgain;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -5,11 +5,11 @@ import 'theme.dart';
 import 'motion/transitions.dart';
 import 'services/storage_service.dart';
 import 'services/locale_service.dart';
-import 'services/theme_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
 import 'services/book_analysis_service.dart';
 import 'services/palette_service.dart';
+import 'services/premium_service.dart';
 import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -17,12 +17,15 @@ import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/intro_gate_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/paywall_screen.dart';
 import 'screens/book_capture_screen.dart';
 import 'screens/book_preview_screen.dart';
 import 'screens/book_result_screen.dart';
 import 'screens/bookshelf_page_screen.dart';
 import 'screens/bookshelf_screen.dart';
 import 'screens/custom_pack_play_screen.dart';
+import 'screens/custom_pack_edit_screen.dart';
+import 'screens/custom_pack_quiz_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
 import 'screens/vocab_pack_result_screen.dart';
@@ -47,9 +50,19 @@ Future<void> main() async {
   await Storage.init();
   await Storage.touchStreak();
 
-  // Phase 5 (stately-rising-jongga) — Cloud-Endpoint aus Storage übernehmen.
-  // Jin kann ihn später in Settings ändern; bleibt persistent.
-  BookAnalysisService.setEndpoint(Storage.bookAnalysisEndpoint);
+  // Phase 5 (stately-rising-jongga) — Cloud-Endpoint festlegen.
+  // Priorität: Settings (persistent) > --dart-define > deployter Default.
+  // So funktioniert "책 한 컷" für Closed-Test-Tester ohne manuelle Eingabe;
+  // ohne erreichbaren Endpoint fällt der Client sauber auf Offline-Grammatik.
+  const kEnvEndpoint = String.fromEnvironment('BOOK_ANALYSIS_ENDPOINT');
+  const kDefaultEndpoint =
+      'https://europe-west3-ko-lernen-app.cloudfunctions.net/analyze_korean_text';
+  final storedEndpoint = Storage.bookAnalysisEndpoint;
+  BookAnalysisService.setEndpoint(
+    storedEndpoint.isNotEmpty
+        ? storedEndpoint
+        : (kEnvEndpoint.isNotEmpty ? kEnvEndpoint : kDefaultEndpoint),
+  );
 
   // Firebase best-effort — schlägt fehl wenn google-services.json fehlt
   // ignore: discarded_futures, unawaited_futures
@@ -58,6 +71,10 @@ Future<void> main() async {
   // AdMob best-effort initialisieren (im Hintergrund)
   // ignore: discarded_futures, unawaited_futures
   _initAds();
+
+  // Premium / Abo (RevenueCat) best-effort — ohne Keys "kostenlos"-Modus.
+  // ignore: discarded_futures, unawaited_futures
+  PremiumService.init();
 
   // Portrait sperren
   await SystemChrome.setPreferredOrientations([
@@ -121,13 +138,15 @@ class KoLernenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: Listenable.merge([localeNotifier, themeModeNotifier, paletteVariantNotifier]),
+      listenable: Listenable.merge([localeNotifier, paletteVariantNotifier]),
       builder: (_, __) => MaterialApp(
         title: 'Hangul Sori',
         debugShowCheckedModeBanner: false,
+        // Dark Mode deaktiviert (v2.0): App immer im Light-Theme.
+        // darkTheme spiegelt das Light-Theme, falls das System Dark erzwingt.
         theme:      AppTheme.lightFor(paletteVariantNotifier.value),
-        darkTheme:  AppTheme.darkFor(paletteVariantNotifier.value),
-        themeMode:  themeModeNotifier.value,
+        darkTheme:  AppTheme.lightFor(paletteVariantNotifier.value),
+        themeMode:  ThemeMode.light,
         locale:     localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
@@ -195,6 +214,9 @@ class KoLernenApp extends StatelessWidget {
             case '/stats':
               return SoriTransitions.fadeScale(
                   (_) => const StatsScreen(), settings: settings);
+            case '/paywall':
+              return SoriTransitions.fadeScale(
+                  (_) => const PaywallScreen(), settings: settings);
             case '/scenarios':
               return SoriTransitions.fadeScale(
                   (_) => const ScenariosListScreen(), settings: settings);
@@ -232,6 +254,16 @@ class KoLernenApp extends StatelessWidget {
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
                   (_) => CustomPackPlayScreen(packId: id),
+                  settings: settings);
+            case '/custom_pack/edit':
+              final id = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => CustomPackEditScreen(packId: id),
+                  settings: settings);
+            case '/custom_pack/quiz':
+              final id = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => CustomPackQuizScreen(packId: id),
                   settings: settings);
             case '/scenario':
               final id = settings.arguments as String? ?? '';

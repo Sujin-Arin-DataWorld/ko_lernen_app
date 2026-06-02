@@ -48,6 +48,18 @@ service cloud.firestore {
       }
     }
 
+    // ── 공유 단어팩 (Phase 5.2 — 친구코드) ────────────────────────────
+    // 코드(문서 ID) = bearer capability. 인증 사용자는 누구나 read(=import).
+    // create 는 본인(createdBy=uid)만 + wordCount 제한. update/delete 차단.
+    match /shared_packs/{code} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.wordCount is int
+        && request.resource.data.wordCount <= 100;
+      allow update, delete: if false;
+    }
+
     // ── 그 외 ──────────────────────────────────────────────────────────
     match /{document=**} {
       allow read, write: if false;

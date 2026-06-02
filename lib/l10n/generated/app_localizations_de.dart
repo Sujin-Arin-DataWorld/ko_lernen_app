@@ -9,6 +9,62 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get paywallTitle => 'Hangul Sori Premium';
+
+  @override
+  String get paywallSubtitle => 'Lern Koreanisch ohne Grenzen.';
+
+  @override
+  String get paywallBenefit1 => 'Alle Vokabel-Packs (A2 · B1 · B2)';
+
+  @override
+  String get paywallBenefit2 => 'Alle Gesprächs-Szenarien';
+
+  @override
+  String get paywallBenefit3 => 'Unbegrenzte Wiederholungen (SRS)';
+
+  @override
+  String get paywallBenefit4 => 'Dein persönlicher KI-Kurs — jeden Tag neu';
+
+  @override
+  String get paywallBenefit5 => 'Buchschnappschuss ohne Tageslimit';
+
+  @override
+  String get paywallPriceFallback => '5 € / Monat';
+
+  @override
+  String get paywallPricePerMonth => '/ Monat';
+
+  @override
+  String get paywallCtaStart => 'Premium starten';
+
+  @override
+  String get paywallCtaRestore => 'Käufe wiederherstellen';
+
+  @override
+  String get paywallClose => 'Vielleicht später';
+
+  @override
+  String get paywallLegal =>
+      'Jederzeit kündbar. Das Abo verlängert sich automatisch, bis du kündigst.';
+
+  @override
+  String get paywallNotAvailable =>
+      'Abos sind in dieser Version noch nicht verfügbar.';
+
+  @override
+  String get paywallProcessing => 'Einen Moment …';
+
+  @override
+  String get paywallSuccess => 'Premium ist aktiv. Viel Spaß! 🎉';
+
+  @override
+  String get paywallFailed => 'Kauf nicht abgeschlossen.';
+
+  @override
+  String get paywallRestoreNone => 'Keine früheren Käufe gefunden.';
+
+  @override
   String get appTitle => 'Koreanisch lernen';
 
   @override
@@ -1539,4 +1595,157 @@ class AppL10nDe extends AppL10n {
   String scenariosPathLevelProgress(Object level, int done, int total) {
     return '$level: $done/$total ★';
   }
+
+  @override
+  String get shareTooltip => 'Teilen';
+
+  @override
+  String get shareTitle => 'Pack teilen';
+
+  @override
+  String get shareGenerating => 'Code wird erstellt …';
+
+  @override
+  String get shareCodeLabel => 'Freundes-Code';
+
+  @override
+  String get shareCopyCode => 'Code kopieren';
+
+  @override
+  String get shareCodeCopied => 'Code kopiert';
+
+  @override
+  String get shareViaApp => 'Über App teilen';
+
+  @override
+  String get shareExpiryNote => 'Code gilt 30 Tage.';
+
+  @override
+  String get shareError => 'Teilen fehlgeschlagen. Bist du online?';
+
+  @override
+  String get shareEmpty => 'Dieser Pack hat keine Wörter.';
+
+  @override
+  String sharePackBody(Object name, int count, Object code) {
+    return 'Ich teile mit dir den Vokabel-Pack „$name“ ($count Wörter) aus Hangul Sori! Gib in der App den Code $code ein, um ihn zu importieren. hangul-sori.com';
+  }
+
+  @override
+  String get redeemTooltip => 'Mit Code importieren';
+
+  @override
+  String get redeemTitle => 'Pack importieren';
+
+  @override
+  String get redeemHint => '6-stelligen Code eingeben';
+
+  @override
+  String get redeemAction => 'Importieren';
+
+  @override
+  String redeemSuccess(Object name, int count) {
+    return '„$name“ importiert ($count Wörter)';
+  }
+
+  @override
+  String get redeemNotFound => 'Code nicht gefunden.';
+
+  @override
+  String get redeemExpired => 'Dieser Code ist abgelaufen.';
+
+  @override
+  String get redeemError => 'Import fehlgeschlagen. Bist du online?';
+
+  @override
+  String get createWordbookCta => 'Eigene Wortliste';
+
+  @override
+  String get createWordbookTitle => 'Neue Wortliste';
+
+  @override
+  String get createWordbookHint => 'Gib deiner Wortliste einen Namen.';
+
+  @override
+  String get wbEditTooltip => 'Bearbeiten';
+
+  @override
+  String get wbEditTitle => 'Wortliste bearbeiten';
+
+  @override
+  String get wbAddWord => 'Wort hinzufügen';
+
+  @override
+  String get wbEditWordTitle => 'Wort bearbeiten';
+
+  @override
+  String get wbEmptyTitle => 'Noch keine Wörter';
+
+  @override
+  String get wbEmptyBody =>
+      'Füge dein erstes Wort hinzu — oder lass die Übersetzung automatisch ausfüllen.';
+
+  @override
+  String get wbFieldKorean => 'Koreanisch';
+
+  @override
+  String get wbFieldMeaning => 'Bedeutung';
+
+  @override
+  String get wbFieldExample => 'Beispielsatz (optional)';
+
+  @override
+  String get wbAutoFill => 'Automatisch ausfüllen';
+
+  @override
+  String get wbAutoFillRunning => 'Suche Übersetzung …';
+
+  @override
+  String get wbAutoFillOffline =>
+      'Auto-Ausfüllen gerade nicht verfügbar — bitte manuell eintragen.';
+
+  @override
+  String get wbSaveWord => 'Speichern';
+
+  @override
+  String get wbNeedKorean => 'Bitte ein koreanisches Wort eingeben.';
+
+  @override
+  String get wbDeleteWordTitle => 'Wort löschen?';
+
+  @override
+  String get wbDeleteWordBody => 'Dieses Wort wird aus der Liste entfernt.';
+
+  @override
+  String get wbRenameTitle => 'Umbenennen';
+
+  @override
+  String get wbRenameLabel => 'Name';
+
+  @override
+  String get wbStudyCards => 'Karten lernen';
+
+  @override
+  String get wbQuiz => 'Quiz';
+
+  @override
+  String get quizNeedMore => 'Mindestens 4 Wörter mit Bedeutung nötig.';
+
+  @override
+  String get quizQuestion => 'Was bedeutet dieses Wort?';
+
+  @override
+  String quizScore(int correct, int total) {
+    return '$correct / $total richtig';
+  }
+
+  @override
+  String get quizResultTitle => 'Quiz beendet';
+
+  @override
+  String get quizResultBody =>
+      'Gut gemacht! Wiederhole die Liste, um dich zu verbessern.';
+
+  @override
+  String get quizAgain => 'Nochmal';
 }

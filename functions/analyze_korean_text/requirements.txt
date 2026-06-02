@@ -1,5 +1,4 @@
 functions-framework==3.*
 flask==3.*
-konlpy==0.6.0
-JPype1==1.5.0
+kiwipiepy==0.19.*
 deepl==1.18.0

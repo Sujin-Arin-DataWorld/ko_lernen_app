@@ -47,7 +47,7 @@ Instead of dry vocabulary lists, you live inside a hanok: a traditional Korean h
 • **🆕 Hanok system** — your virtual courtyard grows stage by stage as you learn: empty lot → pillars → tile roof → dancheong → jongga (head family estate).
 • **🆕 17 special quests** — plum tree, stone wall, stone lantern, calligraphy plaque, seasonal events (Seollal, Chuseok, Hangeul Day).
 • **Mini-games**:
-  – **Anlaut Quiz** — guess the word from its initial consonants (ㅂ_ㅂ_ → 밥)
+  – **Initial-Consonant Quiz** — guess the word from its initial consonants (ㅂ_ㅂ_ → 밥)
   – **Hangul Wordle** — six tries to find a Korean syllable, daily + shuffle
   – **Kkeunmari (끝말잇기)** — the word-chain game vs. the tiger
   – **Fill-in-the-blanks, listening, translation** — as quests inside scenarios
@@ -101,7 +101,7 @@ korean,hangul,learn korean,한국어,koreanisch,language,flashcards,srs,wordle,s
 • Hangul writing drills with step-by-step guidance
 • Vocab trainer with SRS (spaced repetition)
 • 13+ real-life scenarios (café, market, hotel, subway …)
-• Anlaut quiz with round-by-round stats
+• Initial-consonant quiz with round-by-round stats
 • Korean Wordle (daily + shuffle)
 • Tiger & magpie learning companions — illustrated in 민화 (Minhwa) style
 • Light/dark mode, DE/EN interface

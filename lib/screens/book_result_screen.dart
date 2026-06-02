@@ -367,6 +367,17 @@ class _WordCard extends StatelessWidget {
               style: TextStyle(fontSize: 11, color: s.textMuted),
             ),
           ],
+          if (word.definitionKo.isNotEmpty) ...[
+            const SizedBox(height: 4),
+            Text(
+              '📖 ${word.definitionKo}',
+              style: TextStyle(
+                fontSize: 12,
+                height: 1.35,
+                color: s.textMuted,
+              ),
+            ),
+          ],
           if (word.exampleKorean.isNotEmpty) ...[
             const SizedBox(height: Spacing.sm),
             Container(

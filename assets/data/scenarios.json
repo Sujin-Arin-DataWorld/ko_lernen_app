@@ -103,7 +103,7 @@
         },
         "explanation": {
           "ko": "",
-          "de": "Bestellpartikel — 'in / als / mit' bei der Auswahl. Regel: Vokal-Ende → 로 (라떼로). Konsonant-Ende → 으로 (햄버거로 wird 햄버거로 = ‚als Hamburger‘, aber nach Konsonant ohne ㄹ wäre es 으로, z. B. 김밥으로). Nach ㄹ als Endkonsonant: nur 로 (톨로, nicht 톨으로).",
+          "de": "Bestellpartikel — 'in / als / mit' bei der Auswahl. Regel: Vokal-Ende → 로 (라떼로). Konsonant-Ende → 으로 (z. B. 김밥으로). Nach ㄹ als Endkonsonant: nur 로 (톨로, nicht 톨으로).",
           "en": "Ordering particle — 'as / by / with' for selection. Rule: ends in vowel → 로 (라떼로). Ends in consonant → 으로. After ㄹ as final consonant: just 로 (톨로, not 톨으로)."
         }
       },
@@ -118,7 +118,7 @@
           "speaker": "user",
           "ko": "아이스 아메리카노 톨 사이즈로 주세요.",
           "de": "Einen Iced Americano in Tall, bitte.",
-          "en": "One iced americano, tall please."
+          "en": "One iced Americano, tall, please."
         },
         {
           "speaker": "minsu",

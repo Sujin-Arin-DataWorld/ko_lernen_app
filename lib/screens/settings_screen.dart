@@ -11,7 +11,6 @@ import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/book_analysis_service.dart';
 import '../services/cloud_sync.dart';
-import '../services/theme_service.dart';
 import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -84,30 +83,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
 
-          // ── Erscheinungsbild ──
-          _Section(label: t.settingsThemeTitle),
-          RadioGroup<ThemeMode>(
-            groupValue: themeModeNotifier.value,
-            onChanged: (m) => setState(() {
-              setThemeMode(m ?? ThemeMode.system);
-            }),
-            child: Column(
-              children: [
-                _RadioTile<ThemeMode>(
-                  title: t.settingsThemeSystem,
-                  value: ThemeMode.system,
-                ),
-                _RadioTile<ThemeMode>(
-                  title: t.settingsThemeLight,
-                  value: ThemeMode.light,
-                ),
-                _RadioTile<ThemeMode>(
-                  title: t.settingsThemeDark,
-                  value: ThemeMode.dark,
-                ),
-              ],
-            ),
-          ),
+          // ── Erscheinungsbild: Dark Mode in v2.0 deaktiviert ──
+          // (App läuft ausschließlich im Light-Theme — Auswahl entfernt.)
 
           // ── Sprache ──
           _Section(label: t.settingsLanguage),

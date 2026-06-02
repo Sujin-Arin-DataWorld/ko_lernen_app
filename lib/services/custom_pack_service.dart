@@ -55,6 +55,57 @@ class CustomPackService {
     return pack;
   }
 
+  /// 빈 "나만의 단어장" 생성 + 저장. 새 팩 반환.
+  static Future<CustomPack> createEmpty({required String name}) async {
+    final pack = CustomPack.manual(id: generateId(), name: name);
+    await save(pack);
+    return pack;
+  }
+
+  /// 단어 추가 → 저장. 갱신된 팩 반환 (없으면 null).
+  static Future<CustomPack?> addWord(String packId, ExtractedWord word) async {
+    final pack = getById(packId);
+    if (pack == null) return null;
+    final updated = pack.copyWith(words: [...pack.words, word]);
+    await save(updated);
+    return updated;
+  }
+
+  /// index 위치 단어 교체 → 저장.
+  static Future<CustomPack?> updateWord(
+      String packId, int index, ExtractedWord word) async {
+    final pack = getById(packId);
+    if (pack == null || index < 0 || index >= pack.words.length) {
+      return pack;
+    }
+    final words = List<ExtractedWord>.from(pack.words);
+    words[index] = word;
+    final updated = pack.copyWith(words: words);
+    await save(updated);
+    return updated;
+  }
+
+  /// index 위치 단어 삭제 → 저장.
+  static Future<CustomPack?> deleteWord(String packId, int index) async {
+    final pack = getById(packId);
+    if (pack == null || index < 0 || index >= pack.words.length) {
+      return pack;
+    }
+    final words = List<ExtractedWord>.from(pack.words)..removeAt(index);
+    final updated = pack.copyWith(words: words);
+    await save(updated);
+    return updated;
+  }
+
+  /// 단어장 이름 변경 → 저장.
+  static Future<CustomPack?> rename(String packId, String name) async {
+    final pack = getById(packId);
+    if (pack == null) return null;
+    final updated = pack.copyWith(name: name);
+    await save(updated);
+    return updated;
+  }
+
   static Future<void> save(CustomPack pack) async {
     final raw = Map<String, dynamic>.from(_readRaw());
     raw[pack.id] = pack.toJson();

@@ -62,6 +62,32 @@ class BookAnalysisService {
     return _localStub(trimmed);
   }
 
+  /// "나만의 단어장" 자동 채우기 — 단어 하나의 번역/뜻풀이를 가져온다 (VoCat 식).
+  /// Cloud Function 이 배포돼 있어야 동작. 오프라인이거나 결과가 비면 null →
+  /// UI 가 "직접 입력" 안내. 반환된 ExtractedWord 에는 번역(DE)·국어 뜻풀이·품사 포함.
+  static Future<ExtractedWord?> autoFill(
+    String korean, {
+    String targetLang = 'de',
+  }) async {
+    final word = korean.trim();
+    if (word.isEmpty) {
+      return null;
+    }
+    final result = await analyze(text: word, targetLang: targetLang);
+    if (result.words.isEmpty) {
+      return null;
+    }
+    final match = result.words.firstWhere(
+      (w) => w.korean == word,
+      orElse: () => result.words.first,
+    );
+    if (match.translationDe.trim().isEmpty &&
+        match.definitionKo.trim().isEmpty) {
+      return null; // 오프라인/번역 없음 → 직접 입력 유도
+    }
+    return match;
+  }
+
   // ── Cloud parsing ──────────────────────────────────────────────────
 
   static BookAnalysisResult _parseCloudResponse(Map<String, dynamic> body) {
@@ -79,6 +105,7 @@ class BookAnalysisService {
             translationEn: (m['translationEn'] as String?) ?? '',
             exampleKorean: m['example'] as String? ?? '',
             exampleDe: m['exampleTranslation'] as String? ?? '',
+            definitionKo: m['definitionKo'] as String? ?? '',
             savedToPackId: null,
           );
         })

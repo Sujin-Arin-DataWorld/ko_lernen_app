@@ -45,6 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Scenario? _today;
   bool _loadingScenario = true;
 
+  // E2. Skill-path — 사용자 레벨 시나리오 진행 레일.
+  List<Scenario> _levelPath = const [];
+  Set<String> _completed = const {};
+
   // Phase 3 (stately-rising-jongga) — Hanok-Cinematic gating.
   HanokStage? _pendingCinematicStage;
   bool _cinematicShown = false;
@@ -88,8 +92,13 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     pick ??= list.isEmpty ? null : list.first;
 
+    final levelPath =
+        list.where((s) => s.level == userLevel).toList(growable: false);
+
     setState(() {
       _today = pick;
+      _levelPath = levelPath;
+      _completed = completed;
       _loadingScenario = false;
     });
   }
@@ -266,6 +275,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const SizedBox(height: Spacing.xl),
+
+                    // ── E2. Skill path — 레벨 시나리오 진행 레일 ──
+                    if (_levelPath.isNotEmpty) ...[
+                      _SectionLabel(label: t.scenariosPathTitle),
+                      const SizedBox(height: Spacing.sm),
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 330),
+                        slideY: 14,
+                        child: _SkillPathRail(
+                          scenarios: _levelPath,
+                          completed: _completed,
+                          currentId: _today?.id,
+                          lang: lang,
+                          onTapScenario: (id) async {
+                            await Navigator.pushNamed(context, '/scenario',
+                                arguments: id);
+                            if (mounted) await _loadToday();
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.xl),
+                    ],
 
                     // ── F. Modules row ──
                     _SectionLabel(label: t.sectionModules),
@@ -1214,6 +1245,186 @@ class _MiniModuleCard extends StatelessWidget {
             ),
           ],
         ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// E2. Skill-path rail — 레벨 시나리오 진행 (완료 ● / 현재 ◉ / 예정 ○)
+// ════════════════════════════════════════════════════════════════════════
+class _SkillPathRail extends StatelessWidget {
+  final List<Scenario> scenarios;
+  final Set<String> completed;
+  final String? currentId;
+  final String lang;
+  final void Function(String id) onTapScenario;
+
+  const _SkillPathRail({
+    required this.scenarios,
+    required this.completed,
+    required this.currentId,
+    required this.lang,
+    required this.onTapScenario,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final doneCount =
+        scenarios.where((sc) => completed.contains(sc.id)).length;
+
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      padding: const EdgeInsets.fromLTRB(14, 12, 8, 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            t.scenariosPathProgress(doneCount, scenarios.length),
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              color: s.textMuted,
+            ),
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 80,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.zero,
+              itemCount: scenarios.length,
+              itemBuilder: (context, i) {
+                final sc = scenarios[i];
+                return _PathNode(
+                  index: i,
+                  total: scenarios.length,
+                  label: sc.title.pick(lang),
+                  done: completed.contains(sc.id),
+                  current: sc.id == currentId,
+                  onTap: () => onTapScenario(sc.id),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PathNode extends StatelessWidget {
+  final int index;
+  final int total;
+  final String label;
+  final bool done;
+  final bool current;
+  final VoidCallback onTap;
+  const _PathNode({
+    required this.index,
+    required this.total,
+    required this.label,
+    required this.done,
+    required this.current,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final Color ring = done
+        ? SoriColors.primary
+        : current
+            ? SoriColors.tiger
+            : s.border;
+    final Color fill = done
+        ? SoriColors.primary
+        : current
+            ? SoriColors.tiger.withValues(alpha: 0.18)
+            : s.surface;
+
+    return SoriPressable(
+      onTap: onTap,
+      haptic: SoriHaptic.selection,
+      child: SizedBox(
+        width: 82,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: index == 0
+                      ? const SizedBox.shrink()
+                      : _Connector(active: done || current),
+                ),
+                Container(
+                  width: 34,
+                  height: 34,
+                  decoration: BoxDecoration(
+                    color: fill,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: ring, width: 2),
+                  ),
+                  alignment: Alignment.center,
+                  child: done
+                      ? const Icon(Icons.check_rounded,
+                          color: Colors.white, size: 18)
+                      : Text(
+                          '${index + 1}',
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w900,
+                            fontSize: 13,
+                            color: current ? SoriColors.tiger : s.textMuted,
+                          ),
+                        ),
+                ),
+                Expanded(
+                  child: index == total - 1
+                      ? const SizedBox.shrink()
+                      : _Connector(active: done),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Expanded(
+              child: Text(
+                label,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 10,
+                  height: 1.15,
+                  fontWeight: current ? FontWeight.w800 : FontWeight.w500,
+                  color: current ? s.text : s.textMuted,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Connector extends StatelessWidget {
+  final bool active;
+  const _Connector({required this.active});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return Container(
+      height: 3,
+      margin: const EdgeInsets.symmetric(horizontal: 1),
+      decoration: BoxDecoration(
+        color: active ? SoriColors.primary.withValues(alpha: 0.5) : s.border,
+        borderRadius: BorderRadius.circular(2),
       ),
     );
   }

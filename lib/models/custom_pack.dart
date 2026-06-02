@@ -48,6 +48,33 @@ class CustomPack {
     );
   }
 
+  /// 사용자가 직접 만드는 빈 단어장 ("나만의 단어장"). 사진 출처 없음.
+  factory CustomPack.manual({
+    required String id,
+    required String name,
+    List<ExtractedWord> words = const [],
+    DateTime? createdAt,
+  }) {
+    return CustomPack(
+      id: id,
+      name: name,
+      sourcePageId: '', // 빈 값 = 수동 생성 단어장
+      words: List<ExtractedWord>.from(words),
+      createdAtIso: (createdAt ?? DateTime.now().toUtc()).toIso8601String(),
+    );
+  }
+
+  /// 사진이 아니라 사용자가 손으로 만든 단어장인지.
+  bool get isManual => sourcePageId.isEmpty;
+
+  CustomPack copyWith({String? name, List<ExtractedWord>? words}) => CustomPack(
+        id: id,
+        name: name ?? this.name,
+        sourcePageId: sourcePageId,
+        words: words ?? this.words,
+        createdAtIso: createdAtIso,
+      );
+
   Map<String, dynamic> toJson() => {
         'name': name,
         'sourcePageId': sourcePageId,

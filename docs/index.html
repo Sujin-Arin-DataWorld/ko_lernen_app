@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0E1A18" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#FAF6EC" media="(prefers-color-scheme: light)">
-<meta name="description" content="Hangul Sori — Koreanisch lernen, das sich nicht wie Hausaufgaben anfühlt. Hangul, Vokabeln, Grammatik, echte Szenarien und Wortkettenspiele — in einem Hanok, mit Tiger und Elster. Made in Germany.">
+<meta name="description" content="Hangul Sori — Koreanisch lernen, das sich nicht wie Hausaufgaben anfühlt. Fotografiere eine Lehrbuchseite und bekomme dein eigenes Wörterbuch. Vokabel-Packs, ein Hanok, das mit dir wächst, Grammatik, echte Szenarien & Spiele — mit Tiger und Elster. Made in Germany.">
 <meta property="og:title" content="Hangul Sori — Koreanisch lernen, das Spaß macht">
 <meta property="og:description" content="Kein graues Pauken. Ein Hanok-Hof, ein Tiger, eine Elster — und Koreanisch, das wirklich hängen bleibt.">
 <meta property="og:type" content="website">
@@ -350,6 +350,28 @@
   .f-kkeunmari { --feature-accent: var(--accent); }
   .f-listening { --feature-accent: var(--primary); }
   .f-offline   { --feature-accent: var(--gold); }
+  .f-booksnap  { --feature-accent: var(--tiger); }
+  .f-hanok     { --feature-accent: var(--primary); }
+  .f-quests    { --feature-accent: var(--gold); }
+  /* Flagship feature gets a soft highlight border + full-width row */
+  .feature.f-booksnap {
+    grid-column: 1 / -1;
+    background: color-mix(in srgb, var(--tiger) 7%, var(--bg-card));
+    border-color: color-mix(in srgb, var(--tiger) 35%, var(--border));
+  }
+  .feature .feature-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--feature-accent, var(--primary));
+    background: color-mix(in srgb, var(--feature-accent, var(--primary)) 14%, transparent);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
 
   /* ─── Mascot strip — unified hero (tiger + magpie + dancheong dots) ──── */
   .mascot-strip {
@@ -499,13 +521,13 @@
       <h1>한글소리</h1>
       <div class="hero-subtitle">Hangul Sori</div>
       <p class="hero-tagline"
-         data-de="Vokabeln pauken war gestern. Lern Koreanisch — im <em>Hanok</em>, mit einem <em>Tiger</em> an deiner Seite und einer <em>Elster</em>, die jeden Schritt mitfeiert."
-         data-en="Forget the flashcard grind. Learn Korean inside a <em>hanok</em> — a <em>tiger</em> by your side, a <em>magpie</em> cheering every step."
-         data-ko="지루한 암기는 이제 그만. <em>한옥</em> 마당에서 <em>호랑이</em>와 함께 배우고, <em>까치</em>가 매 순간을 응원해요.">
-        Vokabeln pauken war gestern. Lern Koreanisch — im <em>Hanok</em>, mit einem <em>Tiger</em> an deiner Seite und einer <em>Elster</em>, die jeden Schritt mitfeiert.
+         data-de="Vokabeln pauken war gestern. Lern Koreanisch — im <em>Hanok</em>, mit einem <em>Tiger</em> an deiner Seite und einer <em>Elster</em>, die jeden Schritt mitfeiert. Sogar <em>jede Lehrbuchseite</em> wird per Foto zu deinem eigenen Wortschatz."
+         data-en="Forget the flashcard grind. Learn Korean inside a <em>hanok</em> — a <em>tiger</em> by your side, a <em>magpie</em> cheering every step. Even <em>any textbook page</em> becomes your own word list with a single photo."
+         data-ko="지루한 암기는 이제 그만. <em>한옥</em> 마당에서 <em>호랑이</em>와 함께 배우고, <em>까치</em>가 매 순간을 응원해요. <em>교재 한 페이지</em>를 찍으면 나만의 단어장이 됩니다.">
+        Vokabeln pauken war gestern. Lern Koreanisch — im <em>Hanok</em>, mit einem <em>Tiger</em> an deiner Seite und einer <em>Elster</em>, die jeden Schritt mitfeiert. Sogar <em>jede Lehrbuchseite</em> wird per Foto zu deinem eigenen Wortschatz.
       </p>
       <div class="hero-cta">
-        <a href="#" class="btn btn-primary" id="ctaStore">
+        <a href="mailto:hello@hangul-sori.com?subject=Beta-Zugang%20Hangul%20Sori&body=Hi%2C%20ich%20m%C3%B6chte%20die%20Beta%20von%20Hangul%20Sori%20testen." class="btn btn-primary" id="ctaStore">
           <span data-de="Bald im Play Store — Beta anfordern"
                 data-en="Coming soon — request beta access"
                 data-ko="곧 출시 — 베타 신청하기">Bald im Play Store — Beta anfordern</span>
@@ -549,6 +571,19 @@
           data-ko="한국어 학습에 필요한 모든 것 — 한 지붕 아래.">Alles, was du brauchst — unter einem Dach.</h2>
 
       <div class="features">
+        <div class="feature f-booksnap">
+          <div class="feature-head"><span class="feature-dot"></span>
+            <h3 data-de="📷 책 한 컷 — Seite fotografieren, Wörter bekommen"
+                data-en="📷 Snap a page — photograph, get words"
+                data-ko="📷 책 한 컷 — 찍으면 단어가 돼요">📷 책 한 컷 — Seite fotografieren, Wörter bekommen</h3><span class="feature-badge" data-de="Neu in v2.0" data-en="New in v2.0" data-ko="v2.0 신규">Neu in v2.0</span>
+          </div>
+          <p data-de="Das Herzstück von v2.0: Fotografiere irgendeine koreanische Lehrbuch- oder Buchseite. Die App erkennt den Text, zieht Vokabeln, Grammatikmuster und Beispielsätze heraus, übersetzt sie und legt eine koreanische Wörterbuch-Definition dazu. Speichere alles als dein eigenes Lern-Pack. Das Bild bleibt auf deinem Gerät."
+             data-en="The heart of v2.0: photograph any Korean textbook or book page. The app reads the text, pulls out vocabulary, grammar patterns and example sentences, translates them, and adds a Korean dictionary definition. Save it all as your own study pack. The photo never leaves your device."
+             data-ko="v2.0의 핵심 기능. 한국어 교재나 책 페이지를 찍으면 글자를 인식해 단어·문법·예문을 뽑아내고, 번역과 국어사전 뜻풀이까지 붙여줘요. 그대로 나만의 학습 팩으로 저장. 사진은 기기 밖으로 나가지 않아요.">
+            Das Herzstück von v2.0: Fotografiere irgendeine koreanische Lehrbuch- oder Buchseite. Die App erkennt den Text, zieht Vokabeln, Grammatikmuster und Beispielsätze heraus, übersetzt sie und legt eine koreanische Wörterbuch-Definition dazu. Speichere alles als dein eigenes Lern-Pack. Das Bild bleibt auf deinem Gerät.
+          </p>
+        </div>
+
         <div class="feature f-hangul">
           <div class="feature-head"><span class="feature-dot"></span>
             <h3 data-de="한글 — Hangul lernen"
@@ -568,10 +603,10 @@
                 data-en="Vocabulary A1 → B2"
                 data-ko="단어장 A1 → B2">Vokabeln A1 → B2</h3>
           </div>
-          <p data-de="526 Karten mit einer Besonderheit: Sie kommen zurück, kurz bevor du sie vergessen hättest. SM-2-Wiederholung, deutsche & englische Übersetzung, koreanische Aussprache — einmal gelernt, bleibt es."
-             data-en="526 cards with a trick up their sleeve: they reappear right before you'd forget them. SM-2 spaced repetition, German & English translations, Korean audio. Learn once, remember for good."
-             data-ko="잊기 직전에 다시 나타나는 526개 카드. 독일어·영어 번역, 한국어 TTS, SM-2 간격반복으로 단어를 오래 기억해요.">
-            526 Karten mit einer Besonderheit: Sie kommen zurück, kurz bevor du sie vergessen hättest. SM-2-Wiederholung, deutsche & englische Übersetzung, koreanische Aussprache — einmal gelernt, bleibt es.
+          <p data-de="526 Wörter, aufgeteilt in 61 kleine Packs — kein „500 Karten fällig“-Schock mehr, sondern überschaubare 5-Minuten-Häppchen. Sie kommen zurück, kurz bevor du sie vergessen hättest: SM-2-Wiederholung, deutsche & englische Übersetzung, koreanische Aussprache."
+             data-en="526 words split into 61 bite-sized packs — no more “500 cards due” dread, just 5-minute sessions you can actually finish. They come back right before you'd forget: SM-2 spaced repetition, German & English translations, Korean audio."
+             data-ko="526개 단어를 61개의 작은 팩으로 나눴어요. ‘500개 밀림’ 부담 대신, 5분이면 끝나는 분량으로. 잊기 직전 다시 나오는 SM-2 간격반복, 독일어·영어 번역, 한국어 TTS까지.">
+            526 Wörter, aufgeteilt in 61 kleine Packs — kein „500 Karten fällig“-Schock mehr, sondern überschaubare 5-Minuten-Häppchen. Sie kommen zurück, kurz bevor du sie vergessen hättest: SM-2-Wiederholung, deutsche & englische Übersetzung, koreanische Aussprache.
           </p>
         </div>
 
@@ -598,6 +633,32 @@
              data-en="Ordering coffee in Seoul, hailing a taxi, asking the pharmacist — the conversations you'll actually have. Every scenario: dialogue, vocab, mini-quests, and a culture note. Tiger or magpie always by your side."
              data-ko="카페 주문, 택시 잡기, 약국에서 약 사기 — 실제로 써먹는 상황들로 배워요. 대화·단어·미니퀘스트·문화 노트까지, 호랑이 또는 까치가 옆에서 함께합니다.">
             Im Café bestellen, ein Taxi rufen, in der Apotheke nach Ibuprofen fragen — Situationen, die du wirklich brauchst. Jedes Szenario: Dialog, Vokabular, Mini-Quest und eine Kulturnotiz. Tiger oder Elster immer dabei.
+          </p>
+        </div>
+
+        <div class="feature f-hanok">
+          <div class="feature-head"><span class="feature-dot"></span>
+            <h3 data-de="Dein Hanok wächst mit dir"
+                data-en="Your hanok grows with you"
+                data-ko="당신과 함께 자라는 한옥">Dein Hanok wächst mit dir</h3><span class="feature-badge" data-de="Neu in v2.0" data-en="New in v2.0" data-ko="v2.0 신규">Neu in v2.0</span>
+          </div>
+          <p data-de="Du startest mit einem leeren Hof. Jedes gemeisterte Pack baut ihn weiter auf — vom ersten Grundstein über Säulen und Ziegeldach bis zum fertigen Jongga-Anwesen mit Dancheong-Bemalung. Lernfortschritt, den du wachsen siehst."
+             data-en="You start with an empty courtyard. Every pack you master builds it further — from the first foundation stone through pillars and tiled roof to a finished jongga estate with dancheong paintwork. Progress you can actually watch grow."
+             data-ko="텅 빈 마당에서 시작해요. 팩을 하나씩 깰 때마다 주춧돌 → 기둥 → 기와지붕 → 단청을 입힌 종갓집까지 한옥이 자라나요. 눈으로 보이는 성취감.">
+            Du startest mit einem leeren Hof. Jedes gemeisterte Pack baut ihn weiter auf — vom ersten Grundstein über Säulen und Ziegeldach bis zum fertigen Jongga-Anwesen mit Dancheong-Bemalung. Lernfortschritt, den du wachsen siehst.
+          </p>
+        </div>
+
+        <div class="feature f-quests">
+          <div class="feature-head"><span class="feature-dot"></span>
+            <h3 data-de="Spezial-Quests & Belohnungen"
+                data-en="Special quests & rewards"
+                data-ko="특별 퀘스트 & 보상">Spezial-Quests & Belohnungen</h3><span class="feature-badge" data-de="Neu in v2.0" data-en="New in v2.0" data-ko="v2.0 신규">Neu in v2.0</span>
+          </div>
+          <p data-de="Pflaumenbaum, Steinmauer, Steinlaterne, Namensschild über dem Tor — schließe Quests ab und schmücke deinen Hof mit dauerhaften Verzierungen. Dazu Streak-Schilde und saisonale Events (Seollal, Chuseok, Hangeul-Tag)."
+             data-en="Plum tree, stone wall, stone lantern, a name plaque above your gate — complete quests and decorate your courtyard with permanent ornaments. Plus streak shields and seasonal events (Seollal, Chuseok, Hangeul Day)."
+             data-ko="매화나무·돌담·장명등·대문 위 편액 — 퀘스트를 깨면 마당에 영구 장식이 더해져요. 스트릭 실드와 계절 이벤트(설날·추석·한글날)까지.">
+            Pflaumenbaum, Steinmauer, Steinlaterne, Namensschild über dem Tor — schließe Quests ab und schmücke deinen Hof mit dauerhaften Verzierungen. Dazu Streak-Schilde und saisonale Events (Seollal, Chuseok, Hangeul-Tag).
           </p>
         </div>
 
@@ -675,11 +736,11 @@
       </p>
       <div class="screenshots" aria-hidden="true">
         <div class="shot" data-label="Intro Gate"></div>
-        <div class="shot" data-label="Madang"></div>
-        <div class="shot" data-label="Vokabeln"></div>
+        <div class="shot" data-label="Hanok / Madang"></div>
+        <div class="shot" data-label="📷 책 한 컷"></div>
+        <div class="shot" data-label="Vokabel-Packs"></div>
         <div class="shot" data-label="Szenario"></div>
-        <div class="shot" data-label="Wordle"></div>
-        <div class="shot" data-label="Kkeunmari"></div>
+        <div class="shot" data-label="Quests"></div>
       </div>
     </div>
   </section>

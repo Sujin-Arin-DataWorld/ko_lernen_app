@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
+import '../services/shared_pack_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -41,13 +44,51 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
     });
   }
 
+  /// AppBar 액션 — 친구 코드로 팩 가져오기.
+  Widget _redeemAction(AppL10n t) => IconButton(
+        icon: const Icon(Icons.download_outlined),
+        tooltip: t.redeemTooltip,
+        onPressed: _openRedeem,
+      );
+
+  /// 커스텀팩 공유 시트 (코드 생성 + 복사 + OS 공유).
+  Future<void> _sharePack(CustomPack pack) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) => _SharePackSheet(pack: pack),
+    );
+  }
+
+  /// 코드 입력 다이얼로그 → 성공 시 로컬 import + 새로고침.
+  Future<void> _openRedeem() async {
+    final imported = await showDialog<CustomPack>(
+      context: context,
+      builder: (_) => const _RedeemDialog(),
+    );
+    if (imported == null || !mounted) return;
+    _reload();
+    final t = AppL10n.of(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          t.redeemSuccess(imported.displayName(), imported.totalWords),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
     if (_pages.isEmpty && _packs.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.bookshelfTitle)),
+        appBar: AppBar(
+          title: Text(t.bookshelfTitle),
+          actions: [_redeemAction(t)],
+        ),
         body: Center(
           child: SoriEmptyState(
             icon: Icons.menu_book_outlined,
@@ -67,6 +108,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
         title: Text(t.bookshelfTitle,
             style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
+          _redeemAction(t),
           IconButton(
             icon: const Icon(Icons.add_a_photo_outlined),
             tooltip: t.bookshelfAddPage,
@@ -96,6 +138,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
                         '/custom_pack/play',
                         arguments: p.id,
                       ),
+                      onShare: () => _sharePack(p),
                       onDelete: () async {
                         await CustomPackService.delete(p.id);
                         _reload();
@@ -204,10 +247,12 @@ class _PageTile extends StatelessWidget {
 class _CustomPackTile extends StatelessWidget {
   final CustomPack pack;
   final VoidCallback onTap;
+  final VoidCallback onShare;
   final VoidCallback onDelete;
   const _CustomPackTile({
     required this.pack,
     required this.onTap,
+    required this.onShare,
     required this.onDelete,
   });
 
@@ -258,6 +303,12 @@ class _CustomPackTile extends StatelessWidget {
                 onTap: onTap,
               ),
               IconButton(
+                icon: Icon(Icons.ios_share_rounded, color: SoriColors.primary),
+                tooltip: t.shareTooltip,
+                visualDensity: VisualDensity.compact,
+                onPressed: onShare,
+              ),
+              IconButton(
                 icon: Icon(Icons.delete_outline, color: s.textDim),
                 tooltip: t.btnDelete,
                 visualDensity: VisualDensity.compact,
@@ -290,5 +341,309 @@ class _CustomPackTile extends StatelessWidget {
       ),
     );
     if (ok == true) onDelete();
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// 공유 시트 — 코드 생성 + 복사 + OS 공유 (Phase 5.2)
+// ════════════════════════════════════════════════════════════════════════
+class _SharePackSheet extends StatefulWidget {
+  final CustomPack pack;
+  const _SharePackSheet({required this.pack});
+
+  @override
+  State<_SharePackSheet> createState() => _SharePackSheetState();
+}
+
+class _SharePackSheetState extends State<_SharePackSheet> {
+  String? _code;
+  bool _loading = true;
+  SharedPackError? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _generate();
+  }
+
+  Future<void> _generate() async {
+    try {
+      final code = await SharedPackService.sharePack(widget.pack);
+      if (!mounted) return;
+      setState(() {
+        _code = code;
+        _loading = false;
+      });
+    } on SharedPackException catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _error = e.error;
+        _loading = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _error = SharedPackError.network;
+        _loading = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final code = _code;
+
+    Widget body;
+    if (_loading) {
+      body = Padding(
+        padding: const EdgeInsets.symmetric(vertical: 28),
+        child: Column(
+          children: [
+            const CircularProgressIndicator(color: SoriColors.primary),
+            const SizedBox(height: 14),
+            Text(t.shareGenerating,
+                style:
+                    TextStyle(fontFamily: 'Pretendard', color: s.textMuted)),
+          ],
+        ),
+      );
+    } else if (code == null) {
+      final msg = _error == SharedPackError.empty ? t.shareEmpty : t.shareError;
+      body = Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Column(
+          children: [
+            Icon(Icons.cloud_off_outlined, color: s.textMuted, size: 32),
+            const SizedBox(height: 12),
+            Text(msg,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'Pretendard', color: s.text)),
+            const SizedBox(height: 16),
+            SoriButton(
+              label: t.btnClose,
+              variant: SoriButtonVariant.ghost,
+              onTap: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
+    } else {
+      body = Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(t.shareCodeLabel,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 0.5,
+                  color: s.textMuted)),
+          const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            decoration: BoxDecoration(
+              color: SoriColors.primary.withValues(alpha: 0.10),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+              border: Border.all(
+                  color: SoriColors.primary.withValues(alpha: 0.35)),
+            ),
+            child: Text(
+              code,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 34,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 8,
+                color: SoriColors.primary,
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(t.shareExpiryNote,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Pretendard', fontSize: 11, color: s.textDim)),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: SoriButton(
+                  label: t.shareCopyCode,
+                  variant: SoriButtonVariant.ghost,
+                  accent: SoriColors.primary,
+                  onTap: () async {
+                    final messenger = ScaffoldMessenger.of(context);
+                    await Clipboard.setData(ClipboardData(text: code));
+                    messenger.showSnackBar(
+                      SnackBar(content: Text(t.shareCodeCopied)),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: SoriButton(
+                  label: t.shareViaApp,
+                  accent: SoriColors.primary,
+                  onTap: () async {
+                    await Share.share(
+                      t.sharePackBody(
+                        widget.pack.displayName(),
+                        widget.pack.totalWords,
+                        code,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+
+    return Container(
+      padding: EdgeInsets.fromLTRB(
+          20, 12, 20, 20 + MediaQuery.of(context).viewInsets.bottom),
+      decoration: BoxDecoration(
+        color: s.surface,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 40,
+            height: 4,
+            margin: const EdgeInsets.only(bottom: 16),
+            decoration: BoxDecoration(
+                color: s.border, borderRadius: BorderRadius.circular(2)),
+          ),
+          Text(t.shareTitle,
+              style: const TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800)),
+          const SizedBox(height: 2),
+          Text(widget.pack.displayName(),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 12.5,
+                  color: s.textMuted)),
+          const SizedBox(height: 18),
+          body,
+        ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// 코드 입력 다이얼로그 — 친구 코드로 팩 가져오기 (Phase 5.2)
+// ════════════════════════════════════════════════════════════════════════
+class _RedeemDialog extends StatefulWidget {
+  const _RedeemDialog();
+
+  @override
+  State<_RedeemDialog> createState() => _RedeemDialogState();
+}
+
+class _RedeemDialogState extends State<_RedeemDialog> {
+  final TextEditingController _controller = TextEditingController();
+  bool _loading = false;
+  String? _errorText;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Future<void> _submit() async {
+    if (_loading) return;
+    final t = AppL10n.of(context);
+    setState(() {
+      _loading = true;
+      _errorText = null;
+    });
+    try {
+      final pack = await SharedPackService.redeem(_controller.text);
+      if (!mounted) return;
+      Navigator.of(context).pop(pack);
+    } on SharedPackException catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _loading = false;
+        _errorText = switch (e.error) {
+          SharedPackError.notFound => t.redeemNotFound,
+          SharedPackError.expired => t.redeemExpired,
+          _ => t.redeemError,
+        };
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _loading = false;
+        _errorText = t.redeemError;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return AlertDialog(
+      title: Text(t.redeemTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(t.redeemHint,
+              style: const TextStyle(fontFamily: 'Pretendard', fontSize: 12.5)),
+          const SizedBox(height: 14),
+          TextField(
+            controller: _controller,
+            autofocus: true,
+            enabled: !_loading,
+            textAlign: TextAlign.center,
+            textCapitalization: TextCapitalization.characters,
+            maxLength: 6,
+            style: const TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 26,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 8,
+            ),
+            decoration: InputDecoration(
+              counterText: '',
+              errorText: _errorText,
+              border: const OutlineInputBorder(),
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: _loading ? null : () => Navigator.of(context).pop(),
+          child: Text(t.btnCancel),
+        ),
+        FilledButton(
+          onPressed: _loading ? null : _submit,
+          child: _loading
+              ? const SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text(t.redeemAction),
+        ),
+      ],
+    );
   }
 }

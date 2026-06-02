@@ -6,11 +6,11 @@ Phase 5 (stately-rising-jongga) — Hangul Sori 책 한 컷 backend.
     cd functions/
     firebase deploy --only functions:analyze_korean_text
 
-**Env vars** (Firebase Functions config):
-    firebase functions:config:set \
-        deepl.api_key="..." \
-        nikl.api_key="..."   # optional, definitions enrichment
-    firebase deploy --only functions
+**Env vars** — in `.env` (im selben Ordner, via .gitignore ausgeschlossen):
+    DEEPL_API_KEY=...            # DeepL Übersetzung (DE/EN)
+    URIMALSAEM_API_KEY=...       # 우리말샘 / NIKL — koreanische Definitionen
+    Firebase liest `.env` beim Deploy automatisch in die Runtime.
+    Vorlage: `.env.example`. Danach: firebase deploy --only functions
 
 **Request**:
     POST <function-url>
@@ -30,15 +30,40 @@ from __future__ import annotations
 import json
 import os
 import re
+import urllib.parse
+import urllib.request
 from functools import lru_cache
 from typing import Any
 
 import functions_framework
 from flask import Request, Response
 
-# Lazy imports — OKT braucht Java; nur initialisieren wenn aufgerufen.
-_OKT = None
+# Lazy imports — nur initialisieren wenn aufgerufen.
+_KIWI = None
 _DEEPL = None
+
+
+# ── .env Loader ──────────────────────────────────────────────────────────
+# Firebase liest `.env` beim Deploy automatisch in die Runtime-Umgebung.
+# Für lokale Ausführung / Emulator laden wir die Datei hier zusätzlich
+# (best effort). `.env` ist via .gitignore ausgeschlossen — Keys NICHT committen.
+def _load_dotenv() -> None:
+    path = os.path.join(os.path.dirname(__file__), ".env")
+    try:
+        with open(path, encoding="utf-8") as f:
+            for raw in f:
+                line = raw.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, _, value = line.partition("=")
+                os.environ.setdefault(
+                    key.strip(), value.strip().strip('"').strip("'")
+                )
+    except FileNotFoundError:
+        pass
+
+
+_load_dotenv()
 
 
 # ── Grammar patterns ─────────────────────────────────────────────────────
@@ -90,31 +115,33 @@ def split_sentences(text: str) -> list[str]:
     return [p.strip() for p in parts if p.strip()]
 
 
-# ── OKT word extraction ──────────────────────────────────────────────────
+# ── Kiwi word extraction (no Java needed) ────────────────────────────────
+
+_POS_KEEP = {"NNG", "NNP", "VV", "VA"}
+_POS_MAP = {"NNG": "Nomen", "NNP": "Nomen", "VV": "Verb", "VA": "Adjektiv"}
 
 
-def _get_okt():
-    global _OKT
-    if _OKT is None:
-        from konlpy.tag import Okt  # type: ignore
+def _get_kiwi():
+    global _KIWI
+    if _KIWI is None:
+        from kiwipiepy import Kiwi  # type: ignore
 
-        _OKT = Okt()
-    return _OKT
+        _KIWI = Kiwi()
+    return _KIWI
 
 
 def extract_words(text: str, max_words: int = 30) -> list[dict[str, Any]]:
-    okt = _get_okt()
-    morphs = okt.pos(text, norm=True, stem=True)
+    kiwi = _get_kiwi()
     seen: dict[str, str] = {}
     ordered: list[str] = []
-    for word, pos in morphs:
-        if pos in ("Noun", "Verb", "Adjective") and word not in seen:
-            seen[word] = pos
-            ordered.append(word)
+    for token in kiwi.tokenize(text, normalize_coda=True):
+        tag = str(token.tag).split(".")[-1]  # "POS.NNG" → "NNG"
+        if tag in _POS_KEEP and token.form not in seen:
+            seen[token.form] = tag
+            ordered.append(token.form)
             if len(ordered) >= max_words:
                 break
-    pos_map = {"Noun": "Nomen", "Verb": "Verb", "Adjective": "Adjektiv"}
-    return [{"korean": w, "pos": pos_map.get(seen[w], "Wort")} for w in ordered]
+    return [{"korean": w, "pos": _POS_MAP.get(seen[w], "Wort")} for w in ordered]
 
 
 # ── DeepL translation ────────────────────────────────────────────────────
@@ -146,6 +173,57 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
         return {src: r.text for src, r in zip(items, results)}
     except Exception:  # pragma: no cover — best-effort
         return {it: "" for it in items}
+
+
+# ── 우리말샘 (Urimalsaem / NIKL Open Dictionary) Definitionen ─────────────
+# Liefert eine kurze koreanische Definition (뜻풀이) pro Wort.
+# Best effort: ohne Key oder bei Fehler einfach leer.
+
+_URIMALSAEM_URL = "https://opendict.korean.go.kr/api/search"
+
+
+def _fetch_definition(word: str, api_key: str) -> str:
+    params = urllib.parse.urlencode({
+        "key": api_key,
+        "q": word,
+        "req_type": "json",
+        "num": "1",          # nur der erste Treffer
+        "advanced": "n",
+    })
+    url = f"{_URIMALSAEM_URL}?{params}"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "HangulSori/2.0"})
+        with urllib.request.urlopen(req, timeout=2.5) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+    except Exception:  # pragma: no cover — best effort
+        return ""
+    try:
+        items = data.get("channel", {}).get("item", [])
+        if isinstance(items, dict):
+            items = [items]
+        if not items:
+            return ""
+        sense = items[0].get("sense", {})
+        if isinstance(sense, list):
+            sense = sense[0] if sense else {}
+        definition = sense.get("definition", "")
+        # HTML-Tags entfernen, die das Wörterbuch manchmal einbettet.
+        return re.sub(r"<[^>]+>", "", definition).strip()
+    except (KeyError, IndexError, AttributeError, TypeError):
+        return ""
+
+
+def enrich_definitions(words: list[dict[str, Any]], max_lookups: int = 20) -> None:
+    """Fügt jedem Wort (in-place) `definitionKo` hinzu. Best effort."""
+    api_key = os.environ.get("URIMALSAEM_API_KEY", "")
+    if not api_key:
+        for w in words:
+            w["definitionKo"] = ""
+        return
+    for i, w in enumerate(words):
+        w["definitionKo"] = (
+            _fetch_definition(w["korean"], api_key) if i < max_lookups else ""
+        )
 
 
 # ── Cloud Function entrypoint ────────────────────────────────────────────
@@ -180,6 +258,9 @@ def analyze_korean_text(request: Request) -> Response:
     target = "DE" if lang == "de" else "EN-US"
     translations = translate_batch(to_translate, target)
 
+    # Koreanische Definitionen via 우리말샘 (best effort, in-place).
+    enrich_definitions(words)
+
     enriched_words = []
     sentence_lookup = {s: translations.get(s, "") for s in sentences}
     for w in words:
@@ -191,6 +272,7 @@ def analyze_korean_text(request: Request) -> Response:
             "romanization": "",  # could add hangul-romanization fallback later
             "pos": w["pos"],
             "translation": translation,
+            "definitionKo": w.get("definitionKo", ""),
             "example": example,
             "exampleTranslation": sentence_lookup.get(example, ""),
         })

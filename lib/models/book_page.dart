@@ -11,6 +11,7 @@ class ExtractedWord {
   final String translationEn;
   final String exampleKorean; // 추출 텍스트 중 첫 등장 문장 (옵션)
   final String exampleDe;
+  final String definitionKo; // 우리말샘 국어사전 뜻풀이 (옵션, 없으면 '')
   final String? savedToPackId; // 저장한 custom pack id (null = 미저장)
 
   const ExtractedWord({
@@ -22,7 +23,31 @@ class ExtractedWord {
     required this.exampleKorean,
     required this.exampleDe,
     required this.savedToPackId,
+    this.definitionKo = '',
   });
+
+  /// 사용자가 손으로 입력하는 단어 ("나만의 단어장"). 옵션 필드는 기본 빈 값.
+  factory ExtractedWord.manual({
+    required String korean,
+    required String translationDe,
+    String translationEn = '',
+    String romanization = '',
+    String posDe = '',
+    String exampleKorean = '',
+    String exampleDe = '',
+    String definitionKo = '',
+  }) =>
+      ExtractedWord(
+        korean: korean,
+        romanization: romanization,
+        posDe: posDe,
+        translationDe: translationDe,
+        translationEn: translationEn,
+        exampleKorean: exampleKorean,
+        exampleDe: exampleDe,
+        definitionKo: definitionKo,
+        savedToPackId: null,
+      );
 
   Map<String, dynamic> toJson() => {
     'korean': korean,
@@ -32,6 +57,7 @@ class ExtractedWord {
     'translationEn': translationEn,
     'exampleKorean': exampleKorean,
     'exampleDe': exampleDe,
+    'definitionKo': definitionKo,
     'savedToPackId': savedToPackId,
   };
 
@@ -43,6 +69,7 @@ class ExtractedWord {
     translationEn: j['translationEn'] as String? ?? '',
     exampleKorean: j['exampleKorean'] as String? ?? '',
     exampleDe: j['exampleDe'] as String? ?? '',
+    definitionKo: j['definitionKo'] as String? ?? '',
     savedToPackId: j['savedToPackId'] as String?,
   );
 
@@ -55,6 +82,7 @@ class ExtractedWord {
         translationEn: translationEn,
         exampleKorean: exampleKorean,
         exampleDe: exampleDe,
+        definitionKo: definitionKo,
         savedToPackId: clearSaved
             ? null
             : (savedToPackId ?? this.savedToPackId),

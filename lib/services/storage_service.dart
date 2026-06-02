@@ -80,6 +80,21 @@ class Storage {
   static Future<void> _sl(String k, List<String> v) async =>
       _prefs?.setStringList(k, v);
 
+  static bool _b(String k, [bool dflt = false]) => _prefs?.getBool(k) ?? dflt;
+  static Future<void> _sb(String k, bool v) async => _prefs?.setBool(k, v);
+
+  // ───────── Premium / Abo (RevenueCat-Cache) ─────────
+  // `premiumCached` spiegelt das echte RevenueCat-Entitlement (offline-fähig,
+  // bei jedem CustomerInfo-Update aktualisiert). `devPremiumOverride` ist ein
+  // lokaler Test-Schalter (Settings → Debug), um Gating + Paywall ohne
+  // Dashboard-Setup zu prüfen — verändert NICHT den echten Kaufstatus.
+  static bool get premiumCached => _b('kl_premium_cached');
+  static Future<void> setPremiumCached(bool v) => _sb('kl_premium_cached', v);
+
+  static bool get devPremiumOverride => _b('kl_premium_dev_override');
+  static Future<void> setDevPremiumOverride(bool v) =>
+      _sb('kl_premium_dev_override', v);
+
   // ───────── Vokabeln ─────────
   static int get vokCorrect => _i('kl_vok_correct');
   static int get vokWrong => _i('kl_vok_wrong');

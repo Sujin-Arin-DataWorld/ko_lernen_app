@@ -5,6 +5,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../services/pack_progress_service.dart';
+import '../services/premium_service.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
@@ -79,6 +80,19 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   void _onPackTap(VocabPack pack) {
+    // Premium-Gate: A1 ist kostenlos, A2/B1/B2 erfordern ein Abo.
+    // Freie Nutzer dürfen alle Level durchstöbern (Verkaufsfläche); erst das
+    // Lernen eines A2/B1/B2-Packs öffnet die Paywall.
+    if (_level != 'A1' && !PremiumService.isPremium) {
+      PremiumService.gate(context).then((ok) {
+        if (ok && mounted) _openPack(pack);
+      });
+      return;
+    }
+    _openPack(pack);
+  }
+
+  void _openPack(VocabPack pack) {
     Navigator.of(context).pushNamed('/vocab/pack', arguments: pack.id).then((_) {
       // 복귀 시 진행도 새로고침 — 보스 클리어 후 다음 팩 unlock 반영.
       if (mounted) _load();
