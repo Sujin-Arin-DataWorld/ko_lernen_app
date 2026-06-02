@@ -187,11 +187,15 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
         return {it: "" for it in items}
 
 
-# ── 우리말샘 (Urimalsaem / NIKL Open Dictionary) Definitionen ─────────────
-# Liefert eine kurze koreanische Definition (뜻풀이) pro Wort.
-# Best effort: ohne Key oder bei Fehler einfach leer.
-
-_URIMALSAEM_URL = "https://opendict.korean.go.kr/api/search"
+# ── 표준국어대사전 (stdict / NIKL) Definitionen ───────────────────────────
+# Liefert eine kurze koreanische Definition (뜻풀이) pro Wort. Best effort.
+# Wichtig: NIKL-Wörterbücher ordnen Homonyme (먹다1=taub, 먹다2=essen) nach
+# Etymologie, NICHT nach Häufigkeit — die "übliche" Bedeutung ist per API
+# nicht erkennbar. Darum: bei mehreren Homonym-Einträgen lieber WEGLASSEN,
+# statt eine falsche Bedeutung zu zeigen. Die DeepL-Übersetzung trägt ohnehin.
+# Lizenz: stdict-Definitionen sind CC BY-SA 2.0 KR → Attribution in den
+# Datenquellen (settingsDataSources / DATA_LICENSES.md) ergänzen.
+_STDICT_URL = "https://stdict.korean.go.kr/api/search.do"
 
 
 def _fetch_definition(word: str, api_key: str, pos_ko: str = "") -> str:
@@ -199,10 +203,10 @@ def _fetch_definition(word: str, api_key: str, pos_ko: str = "") -> str:
         "key": api_key,
         "q": word,
         "req_type": "json",
-        "num": "10",         # opendict erlaubt nur 10–100 (wir nutzen item[0])
+        "num": "10",         # stdict erlaubt nur 10–100
         "advanced": "n",
     })
-    url = f"{_URIMALSAEM_URL}?{params}"
+    url = f"{_STDICT_URL}?{params}"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "HangulSori/2.0"})
         with urllib.request.urlopen(req, timeout=2.5) as resp:
@@ -213,45 +217,34 @@ def _fetch_definition(word: str, api_key: str, pos_ko: str = "") -> str:
         items = data.get("channel", {}).get("item", [])
         if isinstance(items, dict):
             items = [items]
-        if not items:
+        # 표제어 정확 일치만 (복합어/파생어 제외).
+        exact = [it for it in items if it.get("word") == word]
+        if not exact:
             return ""
-        # 정확히 일치하는 표제어 우선 (복합어 "학생 가구" 등 제외).
-        exact = [it for it in items if it.get("word") == word] or items
-        # opendict 는 동음이의어·옛말·전문어가 뒤섞여 있고 item[0]·sense_no 가
-        # 대표 뜻을 보장하지 않는다 (예: "먹다"→귀먹다, "친구"→입맞춤).
-        # 그래서 (1) 품사 일치 (2) target_code 최소(=가장 오래된/표준 표제어)
-        # 순으로 정렬해 대표 뜻을 고른다.
-        candidates: list[tuple[int, int, str]] = []
-        for it in exact:
-            senses = it.get("sense", [])
-            if isinstance(senses, dict):
-                senses = [senses]
-            for sn in senses:
-                definition = sn.get("definition", "")
-                if not definition:
-                    continue
-                sense_pos = sn.get("pos", "")
-                pos_rank = (
-                    0 if (not pos_ko or not sense_pos or sense_pos == pos_ko) else 1
-                )
-                try:
-                    tc = int(sn.get("target_code", 0))
-                except (ValueError, TypeError):
-                    tc = 10 ** 12
-                candidates.append((pos_rank, tc, definition))
-        if not candidates:
+        # 품사가 주어지면 먼저 좁힌다 (명사/동사/형용사).
+        if pos_ko:
+            posed = [it for it in exact if it.get("pos") == pos_ko]
+            if posed:
+                exact = posed
+        # 동음이의어(먹다1/먹다2 …)가 둘 이상이면 어떤 게 흔한 뜻인지 API 로
+        # 알 수 없으므로 안전하게 생략 — 틀린 뜻을 절대 보여주지 않는다.
+        if len(exact) != 1:
             return ""
-        candidates.sort(key=lambda c: (c[0], c[1]))
-        best_def = candidates[0][2]
+        sense = exact[0].get("sense", {})
+        if isinstance(sense, list):
+            sense = sense[0] if sense else {}
+        definition = sense.get("definition", "")
         # HTML 태그 + 엔티티(&lt; 등) 정리.
-        return re.sub(r"<[^>]+>", "", html.unescape(best_def)).strip()
+        return re.sub(r"<[^>]+>", "", html.unescape(definition)).strip()
     except (KeyError, IndexError, AttributeError, TypeError):
         return ""
 
 
 def enrich_definitions(words: list[dict[str, Any]], max_lookups: int = 20) -> None:
     """Fügt jedem Wort (in-place) `definitionKo` hinzu. Best effort."""
-    api_key = os.environ.get("URIMALSAEM_API_KEY", "")
+    api_key = os.environ.get("STDICT_API_KEY") or os.environ.get(
+        "URIMALSAEM_API_KEY", ""
+    )
     if not api_key:
         for w in words:
             w["definitionKo"] = ""

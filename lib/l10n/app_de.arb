@@ -38,6 +38,18 @@
   "notificationTitle": "Hangul Sori",
   "notificationBody": "Der Tiger wartet — Zeit für Koreanisch! 🐯",
 
+  "homeCourseTitle": "Dein Tageskurs",
+  "homeCourseDesc": "Auf deine Schwächen & Interessen zugeschnitten",
+  "settingsInterestsTitle": "Interessen",
+  "settingsInterestsSubtitle": "Themen für deinen Tageskurs",
+  "interestsSheetTitle": "Was interessiert dich?",
+  "interestEveryday": "Alltag",
+  "interestFoodShopping": "Essen & Einkaufen",
+  "interestWorkStudy": "Beruf & Bildung",
+  "interestTravel": "Reisen & Verkehr",
+  "interestFeelingsPeople": "Gefühle & Menschen",
+  "interestHealthBody": "Gesundheit & Körper",
+
   "appTitle": "Koreanisch lernen",
   "welcomeMsg": "Hallo! Viel Erfolg heute 💪",
   "footerCheer": "Viel Erfolg beim Lernen 🌟",

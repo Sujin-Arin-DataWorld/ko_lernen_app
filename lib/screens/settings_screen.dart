@@ -7,6 +7,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../services/storage_service.dart';
 import '../services/notification_service.dart';
+import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
 import '../services/tts_service.dart';
 import '../services/locale_service.dart';
@@ -99,6 +100,90 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: t.notificationBody,
     );
     if (mounted) setState(() {});
+  }
+
+  // ── M5: Interessen-Auswahl (für den personalisierten Tageskurs) ──
+  String _interestLabel(AppL10n t, String key) {
+    switch (key) {
+      case 'everyday':
+        return t.interestEveryday;
+      case 'food_shopping':
+        return t.interestFoodShopping;
+      case 'work_study':
+        return t.interestWorkStudy;
+      case 'travel':
+        return t.interestTravel;
+      case 'feelings_people':
+        return t.interestFeelingsPeople;
+      case 'health_body':
+        return t.interestHealthBody;
+      default:
+        return key;
+    }
+  }
+
+  Future<void> _showInterestPicker() async {
+    final t = AppL10n.of(context);
+    final selected = Storage.interests.toSet();
+    await showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setSheet) => Padding(
+          padding: const EdgeInsets.fromLTRB(20, 18, 20, 28),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                t.interestsSheetTitle,
+                style: const TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+              const SizedBox(height: 14),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: PersonalizedLessonService.allInterests.map((k) {
+                  final on = selected.contains(k);
+                  return FilterChip(
+                    label: Text(_interestLabel(t, k)),
+                    selected: on,
+                    onSelected: (v) => setSheet(() {
+                      if (v) {
+                        selected.add(k);
+                      } else {
+                        selected.remove(k);
+                      }
+                    }),
+                    selectedColor: SoriColors.primary.withValues(alpha: 0.18),
+                    checkmarkColor: SoriColors.primary,
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 18),
+              Align(
+                alignment: Alignment.centerRight,
+                child: FilledButton(
+                  onPressed: () async {
+                    await Storage.setInterests(selected.toList());
+                    if (ctx.mounted) Navigator.pop(ctx);
+                    if (mounted) setState(() {});
+                  },
+                  child: Text(t.btnApply),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -261,6 +346,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               onTap: _pickNotifTime,
             ),
+
+          // ── Interessen (M5) — für den personalisierten Tageskurs ──
+          _Section(label: t.settingsInterestsTitle),
+          ListTile(
+            leading: const Icon(Icons.category_outlined,
+                color: SoriColors.primary),
+            title: Text(t.settingsInterestsTitle),
+            subtitle: Text(
+              t.settingsInterestsSubtitle,
+              style: const TextStyle(
+                  fontSize: 12, color: SoriColors.darkTextMuted),
+            ),
+            trailing: const Icon(Icons.chevron_right,
+                color: SoriColors.darkTextMuted),
+            onTap: _showInterestPicker,
+          ),
 
           // ── Cloud-Backup (Firebase Auth) ──
           _Section(label: t.settingsCloudSection),

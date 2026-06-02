@@ -114,6 +114,39 @@ class AppL10nDe extends AppL10n {
   String get notificationBody => 'Der Tiger wartet — Zeit für Koreanisch! 🐯';
 
   @override
+  String get homeCourseTitle => 'Dein Tageskurs';
+
+  @override
+  String get homeCourseDesc => 'Auf deine Schwächen & Interessen zugeschnitten';
+
+  @override
+  String get settingsInterestsTitle => 'Interessen';
+
+  @override
+  String get settingsInterestsSubtitle => 'Themen für deinen Tageskurs';
+
+  @override
+  String get interestsSheetTitle => 'Was interessiert dich?';
+
+  @override
+  String get interestEveryday => 'Alltag';
+
+  @override
+  String get interestFoodShopping => 'Essen & Einkaufen';
+
+  @override
+  String get interestWorkStudy => 'Beruf & Bildung';
+
+  @override
+  String get interestTravel => 'Reisen & Verkehr';
+
+  @override
+  String get interestFeelingsPeople => 'Gefühle & Menschen';
+
+  @override
+  String get interestHealthBody => 'Gesundheit & Körper';
+
+  @override
   String get appTitle => 'Koreanisch lernen';
 
   @override

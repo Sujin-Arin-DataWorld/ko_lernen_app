@@ -103,6 +103,10 @@ class Storage {
   static int get notificationHour => _prefs?.getInt('kl_notif_hour') ?? 19;
   static Future<void> setNotificationHour(int v) => _si('kl_notif_hour', v);
 
+  // ───────── Interessen (M5) — Personalisierung des Tageskurses ─────────
+  static List<String> get interests => _l('kl_interests');
+  static Future<void> setInterests(List<String> v) => _sl('kl_interests', v);
+
   // ───────── Vokabeln ─────────
   static int get vokCorrect => _i('kl_vok_correct');
   static int get vokWrong => _i('kl_vok_wrong');

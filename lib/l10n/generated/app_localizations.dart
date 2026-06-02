@@ -295,6 +295,72 @@ abstract class AppL10n {
   /// **'Der Tiger wartet — Zeit für Koreanisch! 🐯'**
   String get notificationBody;
 
+  /// No description provided for @homeCourseTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Tageskurs'**
+  String get homeCourseTitle;
+
+  /// No description provided for @homeCourseDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf deine Schwächen & Interessen zugeschnitten'**
+  String get homeCourseDesc;
+
+  /// No description provided for @settingsInterestsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Interessen'**
+  String get settingsInterestsTitle;
+
+  /// No description provided for @settingsInterestsSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Themen für deinen Tageskurs'**
+  String get settingsInterestsSubtitle;
+
+  /// No description provided for @interestsSheetTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was interessiert dich?'**
+  String get interestsSheetTitle;
+
+  /// No description provided for @interestEveryday.
+  ///
+  /// In de, this message translates to:
+  /// **'Alltag'**
+  String get interestEveryday;
+
+  /// No description provided for @interestFoodShopping.
+  ///
+  /// In de, this message translates to:
+  /// **'Essen & Einkaufen'**
+  String get interestFoodShopping;
+
+  /// No description provided for @interestWorkStudy.
+  ///
+  /// In de, this message translates to:
+  /// **'Beruf & Bildung'**
+  String get interestWorkStudy;
+
+  /// No description provided for @interestTravel.
+  ///
+  /// In de, this message translates to:
+  /// **'Reisen & Verkehr'**
+  String get interestTravel;
+
+  /// No description provided for @interestFeelingsPeople.
+  ///
+  /// In de, this message translates to:
+  /// **'Gefühle & Menschen'**
+  String get interestFeelingsPeople;
+
+  /// No description provided for @interestHealthBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesundheit & Körper'**
+  String get interestHealthBody;
+
   /// No description provided for @appTitle.
   ///
   /// In de, this message translates to:

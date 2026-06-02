@@ -114,6 +114,39 @@ class AppL10nEn extends AppL10n {
   String get notificationBody => 'The tiger\'s waiting — time for Korean! 🐯';
 
   @override
+  String get homeCourseTitle => 'Your daily course';
+
+  @override
+  String get homeCourseDesc => 'Tailored to your weak spots & interests';
+
+  @override
+  String get settingsInterestsTitle => 'Interests';
+
+  @override
+  String get settingsInterestsSubtitle => 'Topics for your daily course';
+
+  @override
+  String get interestsSheetTitle => 'What are you into?';
+
+  @override
+  String get interestEveryday => 'Everyday';
+
+  @override
+  String get interestFoodShopping => 'Food & shopping';
+
+  @override
+  String get interestWorkStudy => 'Work & study';
+
+  @override
+  String get interestTravel => 'Travel & transport';
+
+  @override
+  String get interestFeelingsPeople => 'Feelings & people';
+
+  @override
+  String get interestHealthBody => 'Health & body';
+
+  @override
   String get appTitle => 'Learn Korean';
 
   @override

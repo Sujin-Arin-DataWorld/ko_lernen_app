@@ -5,11 +5,14 @@ import '../models/hanok_stage.dart';
 import '../models/scenario.dart';
 import '../services/data_loader.dart';
 import '../services/daily_char_service.dart';
+import '../services/personalized_lesson_service.dart';
+import '../services/premium_service.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
+import 'review_session_screen.dart';
 import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
@@ -112,6 +115,25 @@ class _HomeScreenState extends State<HomeScreen> {
       _dueCount = dueCount;
       _loadingScenario = false;
     });
+  }
+
+  // M5: personalisierter Tageskurs (Premium-gated, Laufzeit-Kosten 0 —
+  // rein lokale Auswahl aus vorhandenem Content nach Schwäche + Interesse).
+  Future<void> _openCourse() async {
+    if (!await PremiumService.gate(context)) return;
+    if (!mounted) return;
+    final t = AppL10n.of(context);
+    final vocab = await DataLoader.loadVocab();
+    if (!mounted) return;
+    final deck = PersonalizedLessonService.buildFromStorage(vocab);
+    if (deck.isEmpty) return;
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) =>
+            ReviewSessionScreen(deck: deck, title: t.homeCourseTitle),
+      ),
+    );
+    if (mounted) _loadToday();
   }
 
   /// 시간대 — 인사 + 호랑이 emotion 결정.
@@ -298,6 +320,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           if (mounted) await _loadToday();
                         },
                       ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+
+                    // ── E1c. Dein Tageskurs (M5) — personalisiert · Premium ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 320),
+                      slideY: 14,
+                      child: _CourseCard(onTap: _openCourse),
                     ),
                     const SizedBox(height: Spacing.xl),
 
@@ -1107,6 +1137,107 @@ class _ReviewCard extends StatelessWidget {
             color: has
                 ? SoriColors.gold.withValues(alpha: 0.8)
                 : SoriColors.success,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// E1c. "Dein Tageskurs" (M5) — personalisierter Kurs, Premium-gated
+// ════════════════════════════════════════════════════════════════════════
+class _CourseCard extends StatelessWidget {
+  final VoidCallback onTap;
+  const _CourseCard({required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final isPro = PremiumService.isPremium;
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.tiger,
+      tinted: true,
+      onTap: onTap,
+      child: Row(
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              color: SoriColors.tiger.withValues(alpha: 0.18),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+            ),
+            alignment: Alignment.center,
+            child: const Icon(Icons.auto_awesome_rounded,
+                color: SoriColors.tiger, size: 26),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        t.homeCourseTitle,
+                        style: TextStyle(
+                          fontFamily: 'Pretendard',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
+                          color: s.text,
+                          letterSpacing: -0.3,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    if (!isPro) ...[
+                      const SizedBox(width: 6),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: SoriColors.gold,
+                          borderRadius: BorderRadius.circular(SoriRadius.pill),
+                        ),
+                        child: const Text(
+                          'PRO',
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            color: Colors.white,
+                            fontSize: 9,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  t.homeCourseDesc,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 11.5,
+                    color: s.textMuted,
+                    fontWeight: FontWeight.w600,
+                    height: 1.3,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+          Icon(
+            isPro ? Icons.chevron_right_rounded : Icons.lock_outline_rounded,
+            color: SoriColors.tiger.withValues(alpha: 0.8),
           ),
         ],
       ),

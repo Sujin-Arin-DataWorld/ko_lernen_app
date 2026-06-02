@@ -20,7 +20,11 @@ import '../widgets/sori/tokens.dart';
 /// (`Storage.srsReview`). So schließt sich der Lern-Loop: Spiele & Packs füllen
 /// das SRS, hier wird es abgearbeitet.
 class ReviewSessionScreen extends StatefulWidget {
-  const ReviewSessionScreen({super.key});
+  /// Optionaler vorgegebener Deck (M5: personalisierter Tageskurs). Null →
+  /// lädt selbst die heute fälligen SRS-Karten (Standard "Heute lernen").
+  final List<Vocab>? deck;
+  final String? title;
+  const ReviewSessionScreen({super.key, this.deck, this.title});
 
   @override
   State<ReviewSessionScreen> createState() => _ReviewSessionScreenState();
@@ -41,6 +45,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
   }
 
   Future<void> _load() async {
+    // M5: vorgegebener personalisierter Deck hat Vorrang.
+    if (widget.deck != null) {
+      setState(() {
+        _deck = widget.deck!;
+        _loading = false;
+      });
+      return;
+    }
     List<Vocab> deck = [];
     try {
       final vocab = await DataLoader.loadVocab();
@@ -85,7 +97,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
     return Scaffold(
       backgroundColor: s.bg,
       appBar: AppBar(
-        title: Text(t.reviewTitle,
+        title: Text(widget.title ?? t.reviewTitle,
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(

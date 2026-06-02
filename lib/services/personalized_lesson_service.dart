@@ -1,0 +1,121 @@
+import '../models/vocab.dart';
+import 'storage_service.dart';
+
+/// Ein zusammengestellter Tageskurs (M5). Aktuell der personalisierte
+/// Vokabel-Deck; später um interessen-getaggte generierte Inhalte erweiterbar.
+class PersonalizedCourse {
+  final List<Vocab> vocab;
+  const PersonalizedCourse({required this.vocab});
+  bool get isEmpty => vocab.isEmpty;
+  int get length => vocab.length;
+}
+
+/// **PersonalizedLessonService (M5 — Runtime, Kosten 0)**
+///
+/// Stellt "Dein Tageskurs" rein LOKAL zusammen — KEIN Claude/Cloud-Aufruf zur
+/// Laufzeit. Es wird nur aus bereits vorhandenem Content ausgewählt & sortiert:
+///   1) heute fällige / neue SRS-Karten zuerst (Schwäche-getrieben),
+///   2) dann Vokabeln, deren Thema zu den gewählten Interessen passt,
+///   3) begrenzt auf das Userlevel (≤).
+///
+/// Die "Content-Fabrik" (offline Claude-Batch) vergrößert später den Pool und
+/// liefert interessen-getaggte Szenarien/Drills — der Auswahl-Algorithmus hier
+/// bleibt gleich und profitiert automatisch.
+class PersonalizedLessonService {
+  PersonalizedLessonService._();
+
+  static const int maxVocab = 12;
+
+  /// Interesse → bestehende CSV-Themen (deutsche Kategorien in `vocab.topic`).
+  static const Map<String, Set<String>> interestTopics = {
+    'everyday': {'Alltag', 'Zeit', 'Position', 'Bewegung', 'Menge', 'Zahlen'},
+    'food_shopping': {'Essen & Trinken', 'Einkaufen'},
+    'work_study': {
+      'Beruf', 'Bildung', 'Technologie', 'Gesellschaft', 'Wissenschaft',
+    },
+    'travel': {'Reise', 'Verkehr', 'Wetter', 'Geographie', 'Umwelt'},
+    'feelings_people': {
+      'Gefühle', 'Beziehungen', 'Familie', 'Person', 'Denken', 'Kommunikation',
+    },
+    'health_body': {'Gesundheit', 'Körper', 'Sport'},
+  };
+
+  /// Alle wählbaren Interessen-Keys (Reihenfolge = Anzeige-Reihenfolge).
+  static const List<String> allInterests = [
+    'everyday',
+    'food_shopping',
+    'work_study',
+    'travel',
+    'feelings_people',
+    'health_body',
+  ];
+
+  static Set<String> _topicsFor(Iterable<String> interests) {
+    final out = <String>{};
+    for (final i in interests) {
+      out.addAll(interestTopics[i] ?? const <String>{});
+    }
+    return out;
+  }
+
+  static int levelRank(String code) {
+    switch (code.toUpperCase()) {
+      case 'A2':
+        return 1;
+      case 'B1':
+        return 2;
+      case 'B2':
+        return 3;
+      case 'A1':
+      default:
+        return 0;
+    }
+  }
+
+  /// Baut den personalisierten Vokabel-Deck (max [maxVocab]).
+  /// Rein synchron/lokal — liest nur den SRS-Zustand aus [Storage].
+  static List<Vocab> buildVocabDeck(
+    List<Vocab> allVocab, {
+    required String levelCode,
+    required Set<String> interests,
+  }) {
+    final rank = levelRank(levelCode);
+    final pool = allVocab
+        .where((v) => levelRank(v.level) <= rank)
+        .toList(growable: false);
+    if (pool.isEmpty) return const [];
+
+    final topics = _topicsFor(interests);
+    final dueIds =
+        Storage.todayGoalIds(pool.map((v) => v.korean)).toSet();
+
+    // Stabiler Sort: kleinerer Score zuerst. Index als Tie-Breaker erhält die
+    // (kuratierte) CSV-Reihenfolge → deterministisch ohne Zufall.
+    final indexed = <MapEntry<int, Vocab>>[
+      for (var i = 0; i < pool.length; i++) MapEntry(i, pool[i]),
+    ];
+    indexed.sort((a, b) {
+      final sa = _score(a.value, dueIds, topics);
+      final sb = _score(b.value, dueIds, topics);
+      if (sa != sb) return sa.compareTo(sb);
+      return a.key.compareTo(b.key);
+    });
+    return indexed.take(maxVocab).map((e) => e.value).toList();
+  }
+
+  /// Convenience: liest Level + Interessen aus [Storage].
+  static List<Vocab> buildFromStorage(List<Vocab> allVocab) => buildVocabDeck(
+        allVocab,
+        levelCode: Storage.userLevelCode ?? 'A1',
+        interests: Storage.interests.toSet(),
+      );
+
+  static int _score(Vocab v, Set<String> dueIds, Set<String> topics) {
+    var s = 0;
+    if (!dueIds.contains(v.korean)) s += 100; // fällige/neue Karten zuerst
+    if (topics.isNotEmpty && !topics.contains(v.topic)) {
+      s += 10; // Interessen-Treffer nach vorne
+    }
+    return s;
+  }
+}
