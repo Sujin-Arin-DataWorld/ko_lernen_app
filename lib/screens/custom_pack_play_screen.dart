@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -257,6 +259,18 @@ class _Front extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if ((word.imagePath as String).isNotEmpty) ...[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(SoriRadius.md),
+                child: Image.file(
+                  File(word.imagePath as String),
+                  height: 120,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                ),
+              ),
+              const SizedBox(height: Spacing.md),
+            ],
             Text(
               word.korean,
               textAlign: TextAlign.center,

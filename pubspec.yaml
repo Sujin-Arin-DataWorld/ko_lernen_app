@@ -55,6 +55,8 @@ dependencies:
   permission_handler: ^11.3.1
   # Cloud Function HTTP 호출
   http: ^1.2.2
+  # 단어 첨부 사진을 앱 문서 폴더에 영구 저장 (나만의 단어장 v2.0)
+  path_provider: ^2.1.5
 
   # ── 공유 (Phase 5.2 — 커스텀팩 친구 공유) ───────────────────
   share_plus: ^10.1.4

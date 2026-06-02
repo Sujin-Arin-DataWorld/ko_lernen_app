@@ -317,9 +317,14 @@ flutter run -d <android-id>   # 안드로이드
    - 화면 신규: `custom_pack_edit_screen.dart`(단어 직접 추가·편집·삭제, 자동채우기, TTS), `custom_pack_quiz_screen.dart`(4지선다 퀴즈, ≥4단어).
    - 진입: 책장 화면 ＋버튼(생성)·편집 아이콘, 빈 상태 보조 CTA. 라우트 `/custom_pack/edit`·`/custom_pack/quiz`.
    - l10n: DE/EN +30키(`wb*`/`quiz*`/`createWordbook*`), 591키 parity OK. **`flutter gen-l10n` 재실행 필수**(생성 파일 stale).
-   - CSV 일괄 등록은 백로그. 홈 전용 카드 미추가(책장 경유).
+10. **나만의 단어장 3종 확장 (홈카드·CSV·사진)** — 무오류·고품질, 새 네이티브 의존성 0:
+   - **홈 카드**: 홈 모듈 그리드의 빈 셀(퀘스트 옆)에 "나만의 단어장" 카드 → `/bookshelf` (레이아웃 변경 없음). `homeWordbookCard*` l10n.
+   - **CSV 가져오기**: 편집 화면 액션 → 붙여넣기 다이얼로그 → 기존 `csv` 패키지로 파싱(한국어,뜻,예문) → `CustomPackService.addWords()` 일괄. 파일선택기(file_picker) 미사용=권한0. `csvImport*` l10n.
+   - **사진 첨부**: `ExtractedWord.imagePath` 필드 추가 + 신규 `WordImageService`(image_picker 촬영/갤러리 → **path_provider로 앱 문서 폴더 영구 복사**) + 편집 시트 사진 버튼/썸네일 + 단어 타일 썸네일 + 플립카드 앞면 이미지. 모두 `Image.file(errorBuilder)`로 누락 안전. `wbPhoto*` l10n.
+   - **pubspec**: `path_provider: ^2.1.5` 직접 의존성 추가(이미 lockfile transitive라 resolve 안전). 카메라/사진 권한은 책 한 컷이 이미 선언(Android CAMERA/READ_MEDIA_IMAGES, iOS NSCamera/PhotoLibrary).
+   - l10n 양쪽 602키 parity OK. CSV 일괄·파일import는 백로그.
 
-**⚠️ 빌드:** 위 9의 신규 l10n 키 때문에 **반드시 `flutter gen-l10n` → `flutter analyze` 순서**로 1회. 정적 검증(브레이스 균형·키 parity·JSON)만 했고 컴파일은 Jin 로컬에서.
+**⚠️ 빌드:** 신규 l10n 키 + path_provider 때문에 **반드시 `flutter pub get` → `flutter gen-l10n` → `flutter analyze` → `flutter test`** 1회. 정적 검증(브레이스 균형·키 parity·JSON·기존 위젯 API 대조)만 했고 컴파일은 Jin 로컬에서.
 
 **검증:** Jin 로컬 빌드 통과 확인("전부 문제없이 빌드됐어"). 이후 추가된 `definitionKo` 관련 Dart 3파일은 `flutter analyze` 1회 재확인 권장. 함수 배포·AAB·실기기·Play Console·우리말샘 실호출 = Jin.
 

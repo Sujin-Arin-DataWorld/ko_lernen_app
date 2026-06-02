@@ -3276,6 +3276,66 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Nochmal'**
   String get quizAgain;
+
+  /// No description provided for @homeWordbookCardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Eigene Wortliste'**
+  String get homeWordbookCardTitle;
+
+  /// No description provided for @homeWordbookCardDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Selbst erstellen & üben'**
+  String get homeWordbookCardDesc;
+
+  /// No description provided for @csvImportTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'CSV importieren'**
+  String get csvImportTitle;
+
+  /// No description provided for @csvImportHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Zeile pro Wort: Koreanisch, Bedeutung, Beispiel (optional). Mit Komma getrennt.'**
+  String get csvImportHint;
+
+  /// No description provided for @csvImportButton.
+  ///
+  /// In de, this message translates to:
+  /// **'Importieren'**
+  String get csvImportButton;
+
+  /// No description provided for @csvImportEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine gültigen Zeilen gefunden.'**
+  String get csvImportEmpty;
+
+  /// No description provided for @csvImportResult.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Wörter importiert'**
+  String csvImportResult(int count);
+
+  /// No description provided for @wbPhotoCamera.
+  ///
+  /// In de, this message translates to:
+  /// **'Kamera'**
+  String get wbPhotoCamera;
+
+  /// No description provided for @wbPhotoGallery.
+  ///
+  /// In de, this message translates to:
+  /// **'Galerie'**
+  String get wbPhotoGallery;
+
+  /// No description provided for @wbPhotoRemove.
+  ///
+  /// In de, this message translates to:
+  /// **'Foto entfernen'**
+  String get wbPhotoRemove;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

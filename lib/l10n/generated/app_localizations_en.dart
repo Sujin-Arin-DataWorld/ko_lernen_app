@@ -1743,4 +1743,37 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get quizAgain => 'Again';
+
+  @override
+  String get homeWordbookCardTitle => 'Own word list';
+
+  @override
+  String get homeWordbookCardDesc => 'Build & study your own';
+
+  @override
+  String get csvImportTitle => 'Import CSV';
+
+  @override
+  String get csvImportHint =>
+      'One line per word: Korean, meaning, example (optional). Comma-separated.';
+
+  @override
+  String get csvImportButton => 'Import';
+
+  @override
+  String get csvImportEmpty => 'No valid rows found.';
+
+  @override
+  String csvImportResult(int count) {
+    return '$count words imported';
+  }
+
+  @override
+  String get wbPhotoCamera => 'Camera';
+
+  @override
+  String get wbPhotoGallery => 'Gallery';
+
+  @override
+  String get wbPhotoRemove => 'Remove photo';
 }

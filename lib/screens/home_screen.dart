@@ -1112,9 +1112,16 @@ class _ModulesGrid extends StatelessWidget {
                 onTap: () => Navigator.pushNamed(context, '/quests'),
               ),
             ),
-            // Right cell intentionally empty — 7 modules total, odd count.
             const SizedBox(width: Spacing.md),
-            const Expanded(child: SizedBox.shrink()),
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.edit_note_rounded,
+                title: t.homeWordbookCardTitle,
+                subtitle: t.homeWordbookCardDesc,
+                accent: SoriColors.accent,
+                onTap: () => Navigator.pushNamed(context, '/bookshelf'),
+              ),
+            ),
           ],
         ),
       ],

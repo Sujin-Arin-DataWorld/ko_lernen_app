@@ -215,6 +215,9 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
       HapticFeedback.mediumImpact();
       Storage.incChosungWrong();
     }
+    // M1: Das Spiel speist das SRS — gewusst/nicht gewusst fließt in die
+    // Wiederholungs-Planung (gleicher Key wie Vokabel-Packs: korean-String).
+    Storage.srsReview(_card.korean, gotIt: ok);
     Future.delayed(const Duration(milliseconds: 1400), _next);
   }
 
@@ -226,6 +229,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
       _state = _State.wrong;
     });
     Storage.incChosungWrong();
+    Storage.srsReview(_card.korean, gotIt: false); // M1: Skip = nicht gewusst
     Future.delayed(const Duration(milliseconds: 1000), _next);
   }
 

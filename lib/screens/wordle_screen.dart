@@ -249,10 +249,12 @@ class _WordleScreenState extends State<WordleScreen> {
     if (won) {
       HapticFeedback.heavyImpact();
       Storage.incWordleWins();
+      Storage.srsReview(_target, gotIt: true); // M1: Spiel speist das SRS
       SoriCelebration.burst(context);
     } else if (lost) {
       HapticFeedback.mediumImpact();
       Storage.incWordleLosses();
+      Storage.srsReview(_target, gotIt: false); // M1: Spiel speist das SRS
     } else {
       HapticFeedback.selectionClick();
     }

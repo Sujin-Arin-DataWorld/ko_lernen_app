@@ -12,6 +12,7 @@ class ExtractedWord {
   final String exampleKorean; // 추출 텍스트 중 첫 등장 문장 (옵션)
   final String exampleDe;
   final String definitionKo; // 우리말샘 국어사전 뜻풀이 (옵션, 없으면 '')
+  final String imagePath; // 첨부 사진 로컬 경로 (옵션, 없으면 ''). 앱 문서 폴더.
   final String? savedToPackId; // 저장한 custom pack id (null = 미저장)
 
   const ExtractedWord({
@@ -24,6 +25,7 @@ class ExtractedWord {
     required this.exampleDe,
     required this.savedToPackId,
     this.definitionKo = '',
+    this.imagePath = '',
   });
 
   /// 사용자가 손으로 입력하는 단어 ("나만의 단어장"). 옵션 필드는 기본 빈 값.
@@ -36,6 +38,7 @@ class ExtractedWord {
     String exampleKorean = '',
     String exampleDe = '',
     String definitionKo = '',
+    String imagePath = '',
   }) =>
       ExtractedWord(
         korean: korean,
@@ -46,6 +49,7 @@ class ExtractedWord {
         exampleKorean: exampleKorean,
         exampleDe: exampleDe,
         definitionKo: definitionKo,
+        imagePath: imagePath,
         savedToPackId: null,
       );
 
@@ -58,6 +62,7 @@ class ExtractedWord {
     'exampleKorean': exampleKorean,
     'exampleDe': exampleDe,
     'definitionKo': definitionKo,
+    'imagePath': imagePath,
     'savedToPackId': savedToPackId,
   };
 
@@ -70,6 +75,7 @@ class ExtractedWord {
     exampleKorean: j['exampleKorean'] as String? ?? '',
     exampleDe: j['exampleDe'] as String? ?? '',
     definitionKo: j['definitionKo'] as String? ?? '',
+    imagePath: j['imagePath'] as String? ?? '',
     savedToPackId: j['savedToPackId'] as String?,
   );
 
@@ -83,6 +89,7 @@ class ExtractedWord {
         exampleKorean: exampleKorean,
         exampleDe: exampleDe,
         definitionKo: definitionKo,
+        imagePath: imagePath,
         savedToPackId: clearSaved
             ? null
             : (savedToPackId ?? this.savedToPackId),

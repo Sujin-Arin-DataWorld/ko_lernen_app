@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
@@ -6,6 +10,7 @@ import '../models/custom_pack.dart';
 import '../services/book_analysis_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
+import '../services/word_image_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/tokens.dart';
@@ -119,6 +124,83 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
     }
   }
 
+  /// CSV 붙여넣기 → 파싱 → 일괄 추가. 한 줄: 한국어,뜻,예문(옵션).
+  Future<void> _importCsv() async {
+    final pack = _pack;
+    if (pack == null) return;
+    final t = AppL10n.of(context);
+    final controller = TextEditingController();
+    final raw = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(t.csvImportTitle),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(t.csvImportHint,
+                style: const TextStyle(fontSize: 12.5, height: 1.4)),
+            const SizedBox(height: 10),
+            TextField(
+              controller: controller,
+              autofocus: true,
+              minLines: 4,
+              maxLines: 10,
+              decoration: const InputDecoration(
+                hintText: '안녕하세요, Hallo, 안녕하세요!\n사과, Apfel',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: Text(t.btnCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop(controller.text),
+            child: Text(t.csvImportButton),
+          ),
+        ],
+      ),
+    );
+    if (raw == null || raw.trim().isEmpty) return;
+
+    final rows = const CsvToListConverter(
+      shouldParseNumbers: false,
+      eol: '\n',
+    ).convert(raw.replaceAll('\r\n', '\n').replaceAll('\r', '\n'));
+
+    final words = <ExtractedWord>[];
+    for (final row in rows) {
+      if (row.isEmpty) continue;
+      final korean = row[0].toString().trim();
+      if (korean.isEmpty) continue;
+      final meaning = row.length > 1 ? row[1].toString().trim() : '';
+      final example = row.length > 2 ? row[2].toString().trim() : '';
+      words.add(ExtractedWord.manual(
+        korean: korean,
+        translationDe: meaning,
+        exampleKorean: example,
+      ));
+    }
+
+    if (!mounted) return;
+    if (words.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(t.csvImportEmpty)),
+      );
+      return;
+    }
+    await CustomPackService.addWords(pack.id, words);
+    _reload();
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(t.csvImportResult(words.length))),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -145,6 +227,11 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
         title: Text(pack.displayName(),
             style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.upload_file_outlined),
+            tooltip: t.csvImportTitle,
+            onPressed: _importCsv,
+          ),
           IconButton(
             icon: const Icon(Icons.drive_file_rename_outline),
             tooltip: t.wbRenameTitle,
@@ -275,6 +362,22 @@ class _WordTile extends StatelessWidget {
           ),
           child: Row(
             children: [
+              if (word.imagePath.isNotEmpty) ...[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(SoriRadius.sm),
+                  child: Image.file(
+                    File(word.imagePath),
+                    width: 44,
+                    height: 44,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Icon(
+                        Icons.image_not_supported_outlined,
+                        size: 22,
+                        color: s.textDim),
+                  ),
+                ),
+                const SizedBox(width: Spacing.md),
+              ],
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -330,7 +433,9 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
   late final TextEditingController _meaning;
   late final TextEditingController _example;
   String _definitionKo = '';
+  String _imagePath = '';
   bool _autoLoading = false;
+  bool _photoBusy = false;
   String? _autoNote;
 
   @override
@@ -341,6 +446,24 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
     _example =
         TextEditingController(text: widget.existing?.exampleKorean ?? '');
     _definitionKo = widget.existing?.definitionKo ?? '';
+    _imagePath = widget.existing?.imagePath ?? '';
+  }
+
+  Future<void> _pickImage(ImageSource source) async {
+    if (_photoBusy) return;
+    setState(() => _photoBusy = true);
+    final path = await WordImageService.pickAndSave(source);
+    if (!mounted) return;
+    setState(() {
+      _photoBusy = false;
+      if (path != null) {
+        _imagePath = path;
+      }
+    });
+  }
+
+  void _removeImage() {
+    setState(() => _imagePath = '');
   }
 
   @override
@@ -396,6 +519,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
       translationDe: _meaning.text.trim(),
       exampleKorean: _example.text.trim(),
       definitionKo: _definitionKo,
+      imagePath: _imagePath,
     );
     Navigator.of(context).pop(word);
   }
@@ -490,6 +614,64 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
                 labelText: t.wbFieldExample,
                 border: const OutlineInputBorder(),
               ),
+            ),
+            const SizedBox(height: 14),
+            // ── 사진 첨부 ──
+            Row(
+              children: [
+                if (_imagePath.isNotEmpty)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(SoriRadius.sm),
+                    child: Image.file(
+                      File(_imagePath),
+                      width: 56,
+                      height: 56,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => Icon(
+                          Icons.image_not_supported_outlined,
+                          color: s.textDim),
+                    ),
+                  )
+                else
+                  Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: s.border.withValues(alpha: 0.4),
+                      borderRadius: BorderRadius.circular(SoriRadius.sm),
+                    ),
+                    child: Icon(Icons.image_outlined, color: s.textDim),
+                  ),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: Wrap(
+                    spacing: 6,
+                    runSpacing: 6,
+                    children: [
+                      TextButton.icon(
+                        onPressed: _photoBusy
+                            ? null
+                            : () => _pickImage(ImageSource.camera),
+                        icon: const Icon(Icons.photo_camera_outlined, size: 18),
+                        label: Text(t.wbPhotoCamera),
+                      ),
+                      TextButton.icon(
+                        onPressed: _photoBusy
+                            ? null
+                            : () => _pickImage(ImageSource.gallery),
+                        icon: const Icon(Icons.photo_library_outlined, size: 18),
+                        label: Text(t.wbPhotoGallery),
+                      ),
+                      if (_imagePath.isNotEmpty)
+                        TextButton.icon(
+                          onPressed: _removeImage,
+                          icon: const Icon(Icons.delete_outline, size: 18),
+                          label: Text(t.wbPhotoRemove),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 18),
             SoriButton(

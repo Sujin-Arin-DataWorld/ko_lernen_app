@@ -1748,4 +1748,37 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get quizAgain => 'Nochmal';
+
+  @override
+  String get homeWordbookCardTitle => 'Eigene Wortliste';
+
+  @override
+  String get homeWordbookCardDesc => 'Selbst erstellen & üben';
+
+  @override
+  String get csvImportTitle => 'CSV importieren';
+
+  @override
+  String get csvImportHint =>
+      'Eine Zeile pro Wort: Koreanisch, Bedeutung, Beispiel (optional). Mit Komma getrennt.';
+
+  @override
+  String get csvImportButton => 'Importieren';
+
+  @override
+  String get csvImportEmpty => 'Keine gültigen Zeilen gefunden.';
+
+  @override
+  String csvImportResult(int count) {
+    return '$count Wörter importiert';
+  }
+
+  @override
+  String get wbPhotoCamera => 'Kamera';
+
+  @override
+  String get wbPhotoGallery => 'Galerie';
+
+  @override
+  String get wbPhotoRemove => 'Foto entfernen';
 }

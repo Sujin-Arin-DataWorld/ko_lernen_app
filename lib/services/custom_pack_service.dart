@@ -71,6 +71,17 @@ class CustomPackService {
     return updated;
   }
 
+  /// 여러 단어 일괄 추가 (CSV 가져오기). 갱신된 팩 반환.
+  static Future<CustomPack?> addWords(
+      String packId, List<ExtractedWord> words) async {
+    if (words.isEmpty) return getById(packId);
+    final pack = getById(packId);
+    if (pack == null) return null;
+    final updated = pack.copyWith(words: [...pack.words, ...words]);
+    await save(updated);
+    return updated;
+  }
+
   /// index 위치 단어 교체 → 저장.
   static Future<CustomPack?> updateWord(
       String packId, int index, ExtractedWord word) async {

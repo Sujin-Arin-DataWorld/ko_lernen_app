@@ -27,6 +27,7 @@ arbeitet bis dahin als Fallback.
 
 from __future__ import annotations
 
+import html
 import json
 import os
 import re
@@ -141,7 +142,18 @@ def extract_words(text: str, max_words: int = 30) -> list[dict[str, Any]]:
             ordered.append(token.form)
             if len(ordered) >= max_words:
                 break
-    return [{"korean": w, "pos": _POS_MAP.get(seen[w], "Wort")} for w in ordered]
+    out: list[dict[str, Any]] = []
+    for w in ordered:
+        tag = seen[w]
+        # 동사(VV)·형용사(VA)는 어간만 추출됨 → 사전 기본형(+다)으로 복원.
+        # 예: "좋"→"좋다". stem 은 예문 매칭용으로 보존. 명사는 그대로.
+        korean = f"{w}다" if tag in ("VV", "VA") else w
+        out.append({
+            "korean": korean,
+            "stem": w,
+            "pos": _POS_MAP.get(tag, "Wort"),
+        })
+    return out
 
 
 # ── DeepL translation ────────────────────────────────────────────────────
@@ -187,7 +199,7 @@ def _fetch_definition(word: str, api_key: str) -> str:
         "key": api_key,
         "q": word,
         "req_type": "json",
-        "num": "1",          # nur der erste Treffer
+        "num": "10",         # opendict erlaubt nur 10–100 (wir nutzen item[0])
         "advanced": "n",
     })
     url = f"{_URIMALSAEM_URL}?{params}"
@@ -203,12 +215,27 @@ def _fetch_definition(word: str, api_key: str) -> str:
             items = [items]
         if not items:
             return ""
-        sense = items[0].get("sense", {})
-        if isinstance(sense, list):
-            sense = sense[0] if sense else {}
-        definition = sense.get("definition", "")
-        # HTML-Tags entfernen, die das Wörterbuch manchmal einbettet.
-        return re.sub(r"<[^>]+>", "", definition).strip()
+        # 정확히 일치하는 표제어 우선 (복합어 "학생 가구" 등 제외).
+        exact = [it for it in items if it.get("word") == word] or items
+        # opendict 의 item[0] 이 항상 대표 뜻은 아니다 (예: "학생" → 1929년 잡지).
+        # 모든 뜻 중 sense_no 가 가장 낮은(가장 기본) 정의를 고른다.
+        best_def = ""
+        best_no = None
+        for it in exact:
+            senses = it.get("sense", [])
+            if isinstance(senses, dict):
+                senses = [senses]
+            for sn in senses:
+                definition = sn.get("definition", "")
+                if not definition:
+                    continue
+                no = str(sn.get("sense_no", "999"))
+                if best_no is None or no < best_no:
+                    best_no, best_def = no, definition
+        if not best_def:
+            return ""
+        # HTML 태그 + 엔티티(&lt; 등) 정리.
+        return re.sub(r"<[^>]+>", "", html.unescape(best_def)).strip()
     except (KeyError, IndexError, AttributeError, TypeError):
         return ""
 
@@ -266,7 +293,7 @@ def analyze_korean_text(request: Request) -> Response:
     for w in words:
         kor = w["korean"]
         translation = translations.get(kor, "")
-        example = next((s for s in sentences if kor in s), "")
+        example = next((s for s in sentences if w.get("stem", kor) in s), "")
         enriched_words.append({
             "korean": kor,
             "romanization": "",  # could add hangul-romanization fallback later

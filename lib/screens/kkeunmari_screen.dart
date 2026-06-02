@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/data_loader.dart';
 import '../services/kkeunmari_engine.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -41,6 +42,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
   bool _loading = true;
   List<KkeunmariWord> _chain = [];
   final Set<String> _used = {};
+  Set<String> _vocabKeys = {}; // M1: nur diese Wörter speisen das SRS
   _Turn _turn = _Turn.user;
   _End _end = _End.none;
   String _errorMsg = '';
@@ -61,6 +63,15 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
   Future<void> _start() async {
     await KkeunmariEngine.load();
     if (!mounted) return;
+    // M1: Vokabel-Keys laden → nur Kkeunmari-Wörter, die echte Vokabeln sind,
+    // speisen das SRS (best-effort; Spiel läuft auch ohne).
+    if (_vocabKeys.isEmpty) {
+      try {
+        final vocab = await DataLoader.loadVocab();
+        if (!mounted) return;
+        _vocabKeys = vocab.map((v) => v.korean).toSet();
+      } catch (_) {/* SRS-Einspeisung optional */}
+    }
     final start = KkeunmariEngine.pickStart();
     setState(() {
       _chain = [start];
@@ -137,6 +148,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
       _ctrl.clear();
     });
     TtsService.speak(w.word);
+
+    // M1: nur echte Vokabeln ins SRS (Kkeunmari-Pool ≠ Vokabel-CSV → sonst
+    // Geisterkarten, die in der Wiederholung nie auftauchen).
+    if (_vocabKeys.contains(w.word)) {
+      Storage.srsReview(w.word, gotIt: true);
+    }
 
     // dead_end → 호랑이 응답 불가 → 사용자 승 직전, 한 박자 쉬고 종료.
     if (w.isDeadEnd) {
