@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/hanok_stage.dart';
 import '../models/scenario.dart';
+import '../services/data_loader.dart';
 import '../services/daily_char_service.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/scenario_loader.dart';
@@ -44,6 +45,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   Scenario? _today;
   bool _loadingScenario = true;
+  int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
 
   // E2. Skill-path — 사용자 레벨 시나리오 진행 레일.
   List<Scenario> _levelPath = const [];
@@ -95,10 +97,19 @@ class _HomeScreenState extends State<HomeScreen> {
     final levelPath =
         list.where((s) => s.level == userLevel).toList(growable: false);
 
+    // M2: "Heute lernen" — Anzahl heute fälliger + neuer SRS-Karten.
+    int dueCount = 0;
+    try {
+      final vocab = await DataLoader.loadVocab();
+      if (!mounted) return;
+      dueCount = Storage.todayGoalIds(vocab.map((v) => v.korean)).length;
+    } catch (_) {/* best-effort; ohne Vokabeln einfach 0 */}
+
     setState(() {
       _today = pick;
       _levelPath = levelPath;
       _completed = completed;
+      _dueCount = dueCount;
       _loadingScenario = false;
     });
   }
@@ -272,6 +283,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 );
                                 if (mounted) await _loadToday();
                               },
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+
+                    // ── E1b. Heute lernen (M2) — fällige SRS-Karten ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 300),
+                      slideY: 14,
+                      child: _ReviewCard(
+                        dueCount: _dueCount,
+                        onTap: () async {
+                          await Navigator.pushNamed(context, '/review');
+                          if (mounted) await _loadToday();
+                        },
                       ),
                     ),
                     const SizedBox(height: Spacing.xl),
@@ -1012,6 +1037,79 @@ class _ScenarioAvatar extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Text(emoji, style: const TextStyle(fontSize: 30)),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// E1b. "Heute lernen" review card (M2) — fällige SRS-Karten → /review
+// ════════════════════════════════════════════════════════════════════════
+class _ReviewCard extends StatelessWidget {
+  final int dueCount;
+  final VoidCallback onTap;
+  const _ReviewCard({required this.dueCount, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final has = dueCount > 0;
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.gold,
+      tinted: has,
+      onTap: onTap,
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: SoriColors.gold.withValues(alpha: 0.18),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+            ),
+            alignment: Alignment.center,
+            child: const Icon(Icons.refresh_rounded,
+                color: SoriColors.gold, size: 24),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  t.homeReviewTitle,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  has ? t.homeReviewDue(dueCount) : t.homeReviewDone,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 11.5,
+                    color: has ? SoriColors.gold : SoriColors.success,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Icon(
+            has ? Icons.chevron_right_rounded : Icons.check_circle_rounded,
+            color: has
+                ? SoriColors.gold.withValues(alpha: 0.8)
+                : SoriColors.success,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -205,6 +205,54 @@ abstract class AppL10n {
   /// **'Keine früheren Käufe gefunden.'**
   String get paywallRestoreNone;
 
+  /// No description provided for @reviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute lernen'**
+  String get reviewTitle;
+
+  /// No description provided for @reviewEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alles erledigt!'**
+  String get reviewEmptyTitle;
+
+  /// No description provided for @reviewEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.'**
+  String get reviewEmptyBody;
+
+  /// No description provided for @reviewDoneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Stark! 🎉'**
+  String get reviewDoneTitle;
+
+  /// No description provided for @reviewDoneBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast deine fälligen Karten wiederholt.'**
+  String get reviewDoneBody;
+
+  /// No description provided for @homeReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute lernen'**
+  String get homeReviewTitle;
+
+  /// No description provided for @homeReviewDue.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Wörter fällig'**
+  String homeReviewDue(int n);
+
+  /// No description provided for @homeReviewDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute alles wiederholt 🎉'**
+  String get homeReviewDone;
+
   /// No description provided for @appTitle.
   ///
   /// In de, this message translates to:

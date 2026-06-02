@@ -194,7 +194,7 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
 _URIMALSAEM_URL = "https://opendict.korean.go.kr/api/search"
 
 
-def _fetch_definition(word: str, api_key: str) -> str:
+def _fetch_definition(word: str, api_key: str, pos_ko: str = "") -> str:
     params = urllib.parse.urlencode({
         "key": api_key,
         "q": word,
@@ -217,10 +217,11 @@ def _fetch_definition(word: str, api_key: str) -> str:
             return ""
         # 정확히 일치하는 표제어 우선 (복합어 "학생 가구" 등 제외).
         exact = [it for it in items if it.get("word") == word] or items
-        # opendict 의 item[0] 이 항상 대표 뜻은 아니다 (예: "학생" → 1929년 잡지).
-        # 모든 뜻 중 sense_no 가 가장 낮은(가장 기본) 정의를 고른다.
-        best_def = ""
-        best_no = None
+        # opendict 는 동음이의어·옛말·전문어가 뒤섞여 있고 item[0]·sense_no 가
+        # 대표 뜻을 보장하지 않는다 (예: "먹다"→귀먹다, "친구"→입맞춤).
+        # 그래서 (1) 품사 일치 (2) target_code 최소(=가장 오래된/표준 표제어)
+        # 순으로 정렬해 대표 뜻을 고른다.
+        candidates: list[tuple[int, int, str]] = []
         for it in exact:
             senses = it.get("sense", [])
             if isinstance(senses, dict):
@@ -229,11 +230,19 @@ def _fetch_definition(word: str, api_key: str) -> str:
                 definition = sn.get("definition", "")
                 if not definition:
                     continue
-                no = str(sn.get("sense_no", "999"))
-                if best_no is None or no < best_no:
-                    best_no, best_def = no, definition
-        if not best_def:
+                sense_pos = sn.get("pos", "")
+                pos_rank = (
+                    0 if (not pos_ko or not sense_pos or sense_pos == pos_ko) else 1
+                )
+                try:
+                    tc = int(sn.get("target_code", 0))
+                except (ValueError, TypeError):
+                    tc = 10 ** 12
+                candidates.append((pos_rank, tc, definition))
+        if not candidates:
             return ""
+        candidates.sort(key=lambda c: (c[0], c[1]))
+        best_def = candidates[0][2]
         # HTML 태그 + 엔티티(&lt; 등) 정리.
         return re.sub(r"<[^>]+>", "", html.unescape(best_def)).strip()
     except (KeyError, IndexError, AttributeError, TypeError):
@@ -247,9 +256,12 @@ def enrich_definitions(words: list[dict[str, Any]], max_lookups: int = 20) -> No
         for w in words:
             w["definitionKo"] = ""
         return
+    pos_ko = {"Nomen": "명사", "Verb": "동사", "Adjektiv": "형용사"}
     for i, w in enumerate(words):
         w["definitionKo"] = (
-            _fetch_definition(w["korean"], api_key) if i < max_lookups else ""
+            _fetch_definition(w["korean"], api_key, pos_ko.get(w.get("pos", ""), ""))
+            if i < max_lookups
+            else ""
         )
 
 

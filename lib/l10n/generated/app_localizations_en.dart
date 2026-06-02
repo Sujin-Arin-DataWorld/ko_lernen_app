@@ -65,6 +65,33 @@ class AppL10nEn extends AppL10n {
   String get paywallRestoreNone => 'No previous purchases found.';
 
   @override
+  String get reviewTitle => 'Today\'s review';
+
+  @override
+  String get reviewEmptyTitle => 'All done!';
+
+  @override
+  String get reviewEmptyBody =>
+      'No cards are due today. Play a round or learn a new pack — those words will show up here for review.';
+
+  @override
+  String get reviewDoneTitle => 'Nice work! 🎉';
+
+  @override
+  String get reviewDoneBody => 'You\'ve reviewed your due cards.';
+
+  @override
+  String get homeReviewTitle => 'Today\'s review';
+
+  @override
+  String homeReviewDue(int n) {
+    return '$n words due';
+  }
+
+  @override
+  String get homeReviewDone => 'All reviewed today 🎉';
+
+  @override
   String get appTitle => 'Learn Korean';
 
   @override

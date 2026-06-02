@@ -259,11 +259,11 @@ class _Front extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if ((word.imagePath as String).isNotEmpty) ...[
+            if (word.imagePath.isNotEmpty) ...[
               ClipRRect(
                 borderRadius: BorderRadius.circular(SoriRadius.md),
                 child: Image.file(
-                  File(word.imagePath as String),
+                  File(word.imagePath),
                   height: 120,
                   fit: BoxFit.cover,
                   errorBuilder: (_, __, ___) => const SizedBox.shrink(),
@@ -281,7 +281,7 @@ class _Front extends StatelessWidget {
               ),
             ),
             const SizedBox(height: Spacing.sm),
-            if ((word.romanization as String).isNotEmpty)
+            if (word.romanization.isNotEmpty)
               Text(
                 '[${word.romanization}]',
                 style: const TextStyle(

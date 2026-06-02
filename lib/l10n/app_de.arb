@@ -20,6 +20,16 @@
   "paywallFailed": "Kauf nicht abgeschlossen.",
   "paywallRestoreNone": "Keine früheren Käufe gefunden.",
 
+  "reviewTitle": "Heute lernen",
+  "reviewEmptyTitle": "Alles erledigt!",
+  "reviewEmptyBody": "Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.",
+  "reviewDoneTitle": "Stark! 🎉",
+  "reviewDoneBody": "Du hast deine fälligen Karten wiederholt.",
+  "homeReviewTitle": "Heute lernen",
+  "homeReviewDue": "{n} Wörter fällig",
+  "@homeReviewDue": { "placeholders": { "n": { "type": "int" } } },
+  "homeReviewDone": "Heute alles wiederholt 🎉",
+
   "appTitle": "Koreanisch lernen",
   "welcomeMsg": "Hallo! Viel Erfolg heute 💪",
   "footerCheer": "Viel Erfolg beim Lernen 🌟",

@@ -65,6 +65,33 @@ class AppL10nDe extends AppL10n {
   String get paywallRestoreNone => 'Keine früheren Käufe gefunden.';
 
   @override
+  String get reviewTitle => 'Heute lernen';
+
+  @override
+  String get reviewEmptyTitle => 'Alles erledigt!';
+
+  @override
+  String get reviewEmptyBody =>
+      'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.';
+
+  @override
+  String get reviewDoneTitle => 'Stark! 🎉';
+
+  @override
+  String get reviewDoneBody => 'Du hast deine fälligen Karten wiederholt.';
+
+  @override
+  String get homeReviewTitle => 'Heute lernen';
+
+  @override
+  String homeReviewDue(int n) {
+    return '$n Wörter fällig';
+  }
+
+  @override
+  String get homeReviewDone => 'Heute alles wiederholt 🎉';
+
+  @override
   String get appTitle => 'Koreanisch lernen';
 
   @override

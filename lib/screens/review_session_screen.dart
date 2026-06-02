@@ -1,0 +1,273 @@
+import 'package:flutter/material.dart';
+
+import '../l10n/generated/app_localizations.dart';
+import '../models/vocab.dart';
+import '../services/data_loader.dart';
+import '../services/storage_service.dart';
+import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/celebration.dart';
+import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/mascot.dart';
+import '../widgets/sori/pressable.dart';
+import '../widgets/sori/tokens.dart';
+
+/// **Review Session (M2)** — "Heute lernen / 오늘의 학습".
+///
+/// Zieht die heute fälligen + neuen SRS-Karten (`Storage.todayGoalIds`) und
+/// lässt sie als Flip-Karten wiederholen. Jede Antwort speist das SRS
+/// (`Storage.srsReview`). So schließt sich der Lern-Loop: Spiele & Packs füllen
+/// das SRS, hier wird es abgearbeitet.
+class ReviewSessionScreen extends StatefulWidget {
+  const ReviewSessionScreen({super.key});
+
+  @override
+  State<ReviewSessionScreen> createState() => _ReviewSessionScreenState();
+}
+
+class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
+  bool _loading = true;
+  List<Vocab> _deck = [];
+  int _idx = 0;
+  bool _flipped = false;
+  int _reviewed = 0;
+  bool _done = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    List<Vocab> deck = [];
+    try {
+      final vocab = await DataLoader.loadVocab();
+      // todayGoalIds liefert neue + fällige Karten (gedeckelt). Reihenfolge wie
+      // CSV → kuratiert. Filtern erhält diese Reihenfolge.
+      final goal = Storage.todayGoalIds(vocab.map((v) => v.korean)).toSet();
+      deck = vocab.where((v) => goal.contains(v.korean)).toList();
+    } catch (_) {
+      // Laden fehlgeschlagen → Empty-State (kein Crash).
+    }
+    if (!mounted) return;
+    setState(() {
+      _deck = deck;
+      _loading = false;
+    });
+  }
+
+  Vocab get _card => _deck[_idx];
+
+  void _answer(bool gotIt) {
+    Storage.srsReview(_card.korean, gotIt: gotIt);
+    _reviewed++;
+    if (_idx + 1 >= _deck.length) {
+      Storage.addXp(_reviewed * 2);
+      setState(() => _done = true);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) SoriCelebration.burst(context);
+      });
+    } else {
+      setState(() {
+        _idx++;
+        _flipped = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+
+    return Scaffold(
+      backgroundColor: s.bg,
+      appBar: AppBar(
+        title: Text(t.reviewTitle,
+            style: const TextStyle(fontWeight: FontWeight.w800)),
+      ),
+      body: SafeArea(
+        child: _loading
+            ? const AppLoading()
+            : _deck.isEmpty
+                ? _buildEmpty(t)
+                : _done
+                    ? _buildDone(t, s)
+                    : _buildCard(t, s),
+      ),
+    );
+  }
+
+  Widget _buildEmpty(AppL10n t) => SoriEmptyState(
+        icon: Icons.task_alt_rounded,
+        title: t.reviewEmptyTitle,
+        body: t.reviewEmptyBody,
+        ctaLabel: t.btnClose,
+        onCta: () => Navigator.of(context).maybePop(),
+      );
+
+  Widget _buildDone(AppL10n t, SoriSurfaces s) {
+    final tt = SoriTextTheme.of(context);
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.xl),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Mascot.tiger(
+                size: 120, emotion: MascotEmotion.celebrate, animate: true),
+            const SizedBox(height: Spacing.lg),
+            Text(t.reviewDoneTitle,
+                textAlign: TextAlign.center, style: tt.h1),
+            const SizedBox(height: Spacing.sm),
+            Text(t.reviewDoneBody,
+                textAlign: TextAlign.center,
+                style: tt.body.copyWith(color: s.textMuted)),
+            const SizedBox(height: Spacing.md),
+            Text('+${_reviewed * 2} XP',
+                style: tt.h2.copyWith(color: SoriColors.gold)),
+            const SizedBox(height: Spacing.xl),
+            SoriButton.filled(
+              label: t.btnClose,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCard(AppL10n t, SoriSurfaces s) {
+    final card = _card;
+    final total = _deck.length;
+    final tt = SoriTextTheme.of(context);
+
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(
+              Spacing.lg, Spacing.md, Spacing.lg, 0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('${_idx + 1} / $total',
+                      style: tt.label.copyWith(color: s.textMuted)),
+                  Text(card.level,
+                      style: tt.label.copyWith(color: SoriColors.primary)),
+                ],
+              ),
+              const SizedBox(height: Spacing.sm),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: LinearProgressIndicator(
+                  value: total == 0 ? 0 : _idx / total,
+                  minHeight: 6,
+                  backgroundColor: s.text.withValues(alpha: 0.08),
+                  valueColor:
+                      const AlwaysStoppedAnimation(SoriColors.primary),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: SoriPressable(
+              onTap: () => setState(() => _flipped = !_flipped),
+              haptic: SoriHaptic.selection,
+              child: SoriCard(
+                variant: SoriCardVariant.hero,
+                accent: SoriColors.primary,
+                tinted: !_flipped,
+                child: Center(
+                  child: SingleChildScrollView(
+                    child: _flipped ? _back(card, s, tt) : _front(card, s, tt, t),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(
+              Spacing.lg, 0, Spacing.lg, Spacing.lg),
+          child: Row(
+            children: [
+              Expanded(
+                child: SoriButton.outlined(
+                  label: t.btnNichtGewusst,
+                  destructive: true,
+                  fullWidth: true,
+                  onTap: () => _answer(false),
+                ),
+              ),
+              const SizedBox(width: Spacing.md),
+              Expanded(
+                child: SoriButton.filled(
+                  label: t.btnGewusst,
+                  fullWidth: true,
+                  onTap: () => _answer(true),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _front(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            v.korean,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 40,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          if (v.romanization.isNotEmpty) ...[
+            const SizedBox(height: Spacing.sm),
+            Text(v.romanization,
+                style: tt.body.copyWith(color: s.textMuted)),
+          ],
+          const SizedBox(height: Spacing.lg),
+          Text(t.hintTapToFlip,
+              style: tt.caption.copyWith(color: s.textDim)),
+        ],
+      );
+
+  Widget _back(Vocab v, SoriSurfaces s, SoriTextTheme tt) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            v.german,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 26,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          if (v.exampleKorean.isNotEmpty) ...[
+            const SizedBox(height: Spacing.lg),
+            Text(v.exampleKorean,
+                textAlign: TextAlign.center, style: tt.body),
+          ],
+          if (v.exampleGerman.isNotEmpty) ...[
+            const SizedBox(height: Spacing.xs),
+            Text(v.exampleGerman,
+                textAlign: TextAlign.center,
+                style: tt.bodySmall.copyWith(color: s.textMuted)),
+          ],
+        ],
+      );
+}
