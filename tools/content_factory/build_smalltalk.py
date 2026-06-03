@@ -29,6 +29,9 @@ CATS = [
     ("work_study", "💼", "일·공부", "Arbeit & Lernen", "Work & study"),
     ("family", "👨‍👩‍👧", "가족·사람", "Familie & Menschen", "Family & people"),
     ("health", "💪", "운동·건강", "Sport & Gesundheit", "Exercise & health"),
+    ("kpop", "🎤", "K-pop·아이돌", "K-Pop & Idols", "K-pop & idols"),
+    ("dating", "💕", "연애·썸", "Dating & Beziehung", "Dating & relationships"),
+    ("interview", "🧑‍💼", "면접", "Vorstellungsgespräch", "Job interviews"),
 ]
 
 # (category, level, kind, ko, de, en)   kind: opener | question | reaction
@@ -144,6 +147,32 @@ P = [
     ("health", "a2", "question", "요즘 잘 자요?", "Schläfst du in letzter Zeit gut?", "Are you sleeping well these days?"),
     ("health", "b1", "opener", "건강 챙기려고 물을 많이 마시려고 해요.", "Um gesund zu bleiben, versuche ich viel Wasser zu trinken.", "I try to drink lots of water to stay healthy."),
     ("health", "b2", "opener", "나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.", "Mit dem Alter merkt der Körper jede kleine Überanstrengung sofort.", "As I get older, my body shows it right away if I overdo it even a little."),
+
+    # ── neue Kategorien: K-pop / Dating / Interview ──
+    ("kpop", "a1", "opener", "케이팝 좋아해요.", "Ich mag K-Pop.", "I like K-pop."),
+    ("kpop", "a1", "reaction", "이 노래 인기 많아요.", "Das Lied ist sehr beliebt.", "This song is really popular."),
+    ("kpop", "a2", "question", "어떤 아이돌 좋아해요?", "Welche Idols magst du?", "Which idols do you like?"),
+    ("kpop", "a2", "question", "콘서트 표 구했어요?", "Hast du Konzertkarten bekommen?", "Did you get concert tickets?"),
+    ("kpop", "b1", "question", "요즘 어떤 그룹 노래 많이 들어요?", "Welche Gruppe hörst du gerade viel?", "Which group are you listening to a lot lately?"),
+    ("kpop", "b1", "question", "최애가 누구예요?", "Wer ist dein Bias (Lieblingsmitglied)?", "Who's your bias (favorite member)?"),
+    ("kpop", "b2", "opener", "컴백 무대 보려고 음악방송까지 챙겨 보게 되더라고요.", "Für die Comeback-Bühne schaue ich sogar die Musikshows.", "I even keep up with the music shows just to catch the comeback stage."),
+    ("kpop", "b2", "opener", "덕질하다 보면 시간 가는 줄 모르겠어요.", "Wenn man im Fandom versinkt, vergisst man die Zeit.", "When you're deep into fandom, you lose all track of time."),
+    ("dating", "a1", "question", "남자친구 있어요?", "Hast du einen Freund?", "Do you have a boyfriend?"),
+    ("dating", "a1", "question", "여자친구 있어요?", "Hast du eine Freundin?", "Do you have a girlfriend?"),
+    ("dating", "a2", "question", "어떤 사람 좋아해요?", "Was für Menschen magst du?", "What kind of person do you like?"),
+    ("dating", "a2", "question", "소개팅 해 봤어요?", "Warst du schon mal bei einem Blind Date?", "Have you ever been on a blind date?"),
+    ("dating", "b1", "question", "이상형이 어떻게 돼요?", "Was ist dein Typ?", "What's your ideal type?"),
+    ("dating", "b1", "question", "요즘 만나는 사람 있어요?", "Triffst du dich gerade mit jemandem?", "Are you seeing anyone these days?"),
+    ("dating", "b2", "opener", "썸 타는 단계가 제일 설레는 것 같아요.", "Die 'Kennenlern-Phase' ist wohl am aufregendsten.", "The 'talking' stage is probably the most exciting."),
+    ("dating", "b2", "opener", "연애는 타이밍이 정말 중요한 것 같더라고요.", "Beim Dating ist Timing wirklich entscheidend.", "In dating, timing really does seem to matter."),
+    ("interview", "a1", "reaction", "떨려요.", "Ich bin nervös.", "I'm nervous."),
+    ("interview", "a1", "reaction", "면접 잘 보세요.", "Viel Erfolg beim Vorstellungsgespräch.", "Good luck with your interview."),
+    ("interview", "a2", "question", "면접 언제예요?", "Wann ist dein Vorstellungsgespräch?", "When is your interview?"),
+    ("interview", "a2", "question", "어디 지원했어요?", "Wo hast du dich beworben?", "Where did you apply?"),
+    ("interview", "b1", "question", "면접 준비 많이 했어요?", "Hast du dich gut auf das Interview vorbereitet?", "Did you prepare a lot for the interview?"),
+    ("interview", "b1", "question", "자기소개는 어떻게 준비했어요?", "Wie hast du deine Selbstvorstellung vorbereitet?", "How did you prepare your self-introduction?"),
+    ("interview", "b2", "opener", "압박 면접이라 너무 긴장됐어요.", "Es war ein Stressinterview, ich war total angespannt.", "It was a pressure interview, so I was really tense."),
+    ("interview", "b2", "opener", "면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.", "Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig.", "In interviews, an honest yet confident attitude seems to matter."),
 ]
 
 LEVELS = {"a1", "a2", "b1", "b2"}

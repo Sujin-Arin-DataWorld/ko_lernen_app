@@ -279,25 +279,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: Spacing.md),
 
-                    // ── D. Daily char (compact) ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 200),
-                      slideY: 12,
-                      child: _DailyCharCard(
-                        char: DailyCharService.today(),
-                        doneToday: Storage.calligraphyDoneToday,
-                        onTap: () => showDailyCharSheet(context).then((_) {
-                          if (mounted) setState(() {});
-                        }),
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.xl),
-
-                    // ── E. Today CTA hero ──
+                    // ── E. Today CTA hero — 단일 주요 행동(최상단 승격) ──
                     _SectionLabel(label: t.homeTodaySection),
                     const SizedBox(height: Spacing.sm),
                     SoriEntrance(
-                      delay: const Duration(milliseconds: 280),
+                      delay: const Duration(milliseconds: 120),
                       child: _TodayScenarioCard(
                         scenario: _today,
                         loading: _loadingScenario,
@@ -316,49 +302,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: Spacing.xl),
 
-                    // ── E1b. Heute lernen (M2) — fällige SRS-Karten ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 300),
-                      slideY: 14,
-                      child: _ReviewCard(
-                        dueCount: _dueCount,
-                        onTap: () async {
-                          await Navigator.pushNamed(context, '/review');
-                          if (mounted) await _loadToday();
-                        },
-                      ),
-                    ),
-                    // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
-                    if (_hardCount > 0) ...[
-                      const SizedBox(height: Spacing.sm),
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 310),
-                        slideY: 14,
-                        child: _HardWordsCard(
-                          count: _hardCount,
-                          onTap: () async {
-                            await Navigator.pushNamed(context, '/hard_words');
-                            if (mounted) await _loadToday();
-                          },
-                        ),
-                      ),
-                    ],
-                    const SizedBox(height: Spacing.md),
-
-                    // ── E1c. Dein Tageskurs (M5) — personalisiert · Premium ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 320),
-                      slideY: 14,
-                      child: _CourseCard(onTap: _openCourse),
-                    ),
-                    const SizedBox(height: Spacing.xl),
-
-                    // ── E2. Skill path — 레벨 시나리오 진행 레일 ──
+                    // ── E2. Skill path — 진행 레일(홈 중심 메타포로 승격) ──
                     if (_levelPath.isNotEmpty) ...[
                       _SectionLabel(label: t.scenariosPathTitle),
                       const SizedBox(height: Spacing.sm),
                       SoriEntrance(
-                        delay: const Duration(milliseconds: 330),
+                        delay: const Duration(milliseconds: 180),
                         slideY: 14,
                         child: _SkillPathRail(
                           scenarios: _levelPath,
@@ -375,11 +324,62 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(height: Spacing.xl),
                     ],
 
-                    // ── F. Modules row ──
+                    // ── E1b. Heute lernen (M2) — fällige SRS-Karten ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 220),
+                      slideY: 14,
+                      child: _ReviewCard(
+                        dueCount: _dueCount,
+                        onTap: () async {
+                          await Navigator.pushNamed(context, '/review');
+                          if (mounted) await _loadToday();
+                        },
+                      ),
+                    ),
+                    // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
+                    if (_hardCount > 0) ...[
+                      const SizedBox(height: Spacing.sm),
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 240),
+                        slideY: 14,
+                        child: _HardWordsCard(
+                          count: _hardCount,
+                          onTap: () async {
+                            await Navigator.pushNamed(context, '/hard_words');
+                            if (mounted) await _loadToday();
+                          },
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: Spacing.md),
+
+                    // ── E1c. Dein Tageskurs (M5) — personalisiert · Premium ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 260),
+                      slideY: 14,
+                      child: _CourseCard(onTap: _openCourse),
+                    ),
+                    const SizedBox(height: Spacing.md),
+
+                    // ── D. Daily char (compact, 부차 요소로 강등) ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 300),
+                      slideY: 12,
+                      child: _DailyCharCard(
+                        char: DailyCharService.today(),
+                        doneToday: Storage.calligraphyDoneToday,
+                        onTap: () => showDailyCharSheet(context).then((_) {
+                          if (mounted) setState(() {});
+                        }),
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+
+                    // ── F. Modules row (하단 도구함으로 강등) ──
                     _SectionLabel(label: t.sectionModules),
                     const SizedBox(height: Spacing.sm),
                     SoriEntrance(
-                      delay: const Duration(milliseconds: 380),
+                      delay: const Duration(milliseconds: 360),
                       slideY: 16,
                       child: _ModulesGrid(t: t),
                     ),
@@ -389,7 +389,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     _SectionLabel(label: t.sectionGames),
                     const SizedBox(height: Spacing.sm),
                     SoriEntrance(
-                      delay: const Duration(milliseconds: 460),
+                      delay: const Duration(milliseconds: 420),
                       slideY: 16,
                       child: _GamesGrid(t: t),
                     ),

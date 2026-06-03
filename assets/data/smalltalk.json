@@ -109,6 +109,33 @@
     "de": "Sport & Gesundheit",
     "en": "Exercise & health"
    }
+  },
+  {
+   "id": "kpop",
+   "emoji": "🎤",
+   "label": {
+    "ko": "K-pop·아이돌",
+    "de": "K-Pop & Idols",
+    "en": "K-pop & idols"
+   }
+  },
+  {
+   "id": "dating",
+   "emoji": "💕",
+   "label": {
+    "ko": "연애·썸",
+    "de": "Dating & Beziehung",
+    "en": "Dating & relationships"
+   }
+  },
+  {
+   "id": "interview",
+   "emoji": "🧑‍💼",
+   "label": {
+    "ko": "면접",
+    "de": "Vorstellungsgespräch",
+    "en": "Job interviews"
+   }
   }
  ],
  "phrases": [
@@ -887,6 +914,198 @@
    "ko": "나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.",
    "de": "Mit dem Alter merkt der Körper jede kleine Überanstrengung sofort.",
    "en": "As I get older, my body shows it right away if I overdo it even a little."
+  },
+  {
+   "category": "kpop",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "케이팝 좋아해요.",
+   "de": "Ich mag K-Pop.",
+   "en": "I like K-pop."
+  },
+  {
+   "category": "kpop",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "이 노래 인기 많아요.",
+   "de": "Das Lied ist sehr beliebt.",
+   "en": "This song is really popular."
+  },
+  {
+   "category": "kpop",
+   "level": "a2",
+   "kind": "question",
+   "ko": "어떤 아이돌 좋아해요?",
+   "de": "Welche Idols magst du?",
+   "en": "Which idols do you like?"
+  },
+  {
+   "category": "kpop",
+   "level": "a2",
+   "kind": "question",
+   "ko": "콘서트 표 구했어요?",
+   "de": "Hast du Konzertkarten bekommen?",
+   "en": "Did you get concert tickets?"
+  },
+  {
+   "category": "kpop",
+   "level": "b1",
+   "kind": "question",
+   "ko": "요즘 어떤 그룹 노래 많이 들어요?",
+   "de": "Welche Gruppe hörst du gerade viel?",
+   "en": "Which group are you listening to a lot lately?"
+  },
+  {
+   "category": "kpop",
+   "level": "b1",
+   "kind": "question",
+   "ko": "최애가 누구예요?",
+   "de": "Wer ist dein Bias (Lieblingsmitglied)?",
+   "en": "Who's your bias (favorite member)?"
+  },
+  {
+   "category": "kpop",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "컴백 무대 보려고 음악방송까지 챙겨 보게 되더라고요.",
+   "de": "Für die Comeback-Bühne schaue ich sogar die Musikshows.",
+   "en": "I even keep up with the music shows just to catch the comeback stage."
+  },
+  {
+   "category": "kpop",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "덕질하다 보면 시간 가는 줄 모르겠어요.",
+   "de": "Wenn man im Fandom versinkt, vergisst man die Zeit.",
+   "en": "When you're deep into fandom, you lose all track of time."
+  },
+  {
+   "category": "dating",
+   "level": "a1",
+   "kind": "question",
+   "ko": "남자친구 있어요?",
+   "de": "Hast du einen Freund?",
+   "en": "Do you have a boyfriend?"
+  },
+  {
+   "category": "dating",
+   "level": "a1",
+   "kind": "question",
+   "ko": "여자친구 있어요?",
+   "de": "Hast du eine Freundin?",
+   "en": "Do you have a girlfriend?"
+  },
+  {
+   "category": "dating",
+   "level": "a2",
+   "kind": "question",
+   "ko": "어떤 사람 좋아해요?",
+   "de": "Was für Menschen magst du?",
+   "en": "What kind of person do you like?"
+  },
+  {
+   "category": "dating",
+   "level": "a2",
+   "kind": "question",
+   "ko": "소개팅 해 봤어요?",
+   "de": "Warst du schon mal bei einem Blind Date?",
+   "en": "Have you ever been on a blind date?"
+  },
+  {
+   "category": "dating",
+   "level": "b1",
+   "kind": "question",
+   "ko": "이상형이 어떻게 돼요?",
+   "de": "Was ist dein Typ?",
+   "en": "What's your ideal type?"
+  },
+  {
+   "category": "dating",
+   "level": "b1",
+   "kind": "question",
+   "ko": "요즘 만나는 사람 있어요?",
+   "de": "Triffst du dich gerade mit jemandem?",
+   "en": "Are you seeing anyone these days?"
+  },
+  {
+   "category": "dating",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "썸 타는 단계가 제일 설레는 것 같아요.",
+   "de": "Die 'Kennenlern-Phase' ist wohl am aufregendsten.",
+   "en": "The 'talking' stage is probably the most exciting."
+  },
+  {
+   "category": "dating",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "연애는 타이밍이 정말 중요한 것 같더라고요.",
+   "de": "Beim Dating ist Timing wirklich entscheidend.",
+   "en": "In dating, timing really does seem to matter."
+  },
+  {
+   "category": "interview",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "떨려요.",
+   "de": "Ich bin nervös.",
+   "en": "I'm nervous."
+  },
+  {
+   "category": "interview",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "면접 잘 보세요.",
+   "de": "Viel Erfolg beim Vorstellungsgespräch.",
+   "en": "Good luck with your interview."
+  },
+  {
+   "category": "interview",
+   "level": "a2",
+   "kind": "question",
+   "ko": "면접 언제예요?",
+   "de": "Wann ist dein Vorstellungsgespräch?",
+   "en": "When is your interview?"
+  },
+  {
+   "category": "interview",
+   "level": "a2",
+   "kind": "question",
+   "ko": "어디 지원했어요?",
+   "de": "Wo hast du dich beworben?",
+   "en": "Where did you apply?"
+  },
+  {
+   "category": "interview",
+   "level": "b1",
+   "kind": "question",
+   "ko": "면접 준비 많이 했어요?",
+   "de": "Hast du dich gut auf das Interview vorbereitet?",
+   "en": "Did you prepare a lot for the interview?"
+  },
+  {
+   "category": "interview",
+   "level": "b1",
+   "kind": "question",
+   "ko": "자기소개는 어떻게 준비했어요?",
+   "de": "Wie hast du deine Selbstvorstellung vorbereitet?",
+   "en": "How did you prepare your self-introduction?"
+  },
+  {
+   "category": "interview",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "압박 면접이라 너무 긴장됐어요.",
+   "de": "Es war ein Stressinterview, ich war total angespannt.",
+   "en": "It was a pressure interview, so I was really tense."
+  },
+  {
+   "category": "interview",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.",
+   "de": "Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig.",
+   "en": "In interviews, an honest yet confident attitude seems to matter."
   }
  ]
 }
