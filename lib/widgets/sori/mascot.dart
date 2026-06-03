@@ -86,7 +86,9 @@ class Mascot extends StatefulWidget {
   State<Mascot> createState() => _MascotState();
 }
 
-class _MascotState extends State<Mascot> with SingleTickerProviderStateMixin {
+// TickerProviderStateMixin (nicht Single): _motion kann beim Umschalten von
+// widget.animate (true→false→true) mehrfach neu erstellt werden.
+class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   static const _tigerIdle = 'assets/illustrations/mascot/tiger_idle.png';
   static const _tigerBlink = 'assets/illustrations/mascot/tiger_blink.png';
   static const _tigerHappy = 'assets/illustrations/mascot/tiger_happy.png';

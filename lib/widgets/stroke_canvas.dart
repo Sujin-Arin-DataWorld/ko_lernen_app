@@ -53,8 +53,12 @@ class _StrokeCanvasState extends State<StrokeCanvas> with SingleTickerProviderSt
   void didUpdateWidget(covariant StrokeCanvas old) {
     super.didUpdateWidget(old);
     if (old.letter != widget.letter || old.strokes.length != widget.strokes.length) {
-      _ctrl.dispose();
-      _initCtrl();
+      // Controller wiederverwenden (nur Dauer anpassen), statt einen neuen zu
+      // erzeugen — SingleTickerProviderStateMixin erlaubt nur einen Ticker.
+      _ctrl.duration = widget.perStroke * widget.strokes.length;
+      _ctrl
+        ..reset()
+        ..forward();
     }
   }
 
