@@ -11,6 +11,7 @@ import '../services/smalltalk_loader.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/review_deck_service.dart';
 import '../services/scenario_loader.dart';
+import '../services/notification_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
@@ -23,6 +24,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Home — v4 (2026-05-29 완전 재구성)**
@@ -123,6 +125,28 @@ class _HomeScreenState extends State<HomeScreen> {
       _hardCount = hardCount;
       _loadingScenario = false;
     });
+
+    // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
+    _refreshDailyReminder();
+  }
+
+  /// 알림이 켜져 있으면 데일리 리마인더를 최신 스트릭 문구로 재예약한다
+  /// (홈 진입마다). 스트릭이 있으면 "🔥 N일 연속" 넛지로 강화.
+  void _refreshDailyReminder() {
+    if (!mounted || !Storage.notificationsEnabled) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final streak = Storage.streakDays;
+    final body =
+        streak > 0 ? t.notifDailyStreakBody(streak) : t.notificationBody;
+    // ignore: discarded_futures
+    NotificationService.scheduleDaily(
+      hour: Storage.notificationHour,
+      minute: 0,
+      title: t.notificationTitle,
+      body: body,
+    );
   }
 
   // M5: personalisierter Tageskurs (Premium-gated, Laufzeit-Kosten 0 —
@@ -248,15 +272,17 @@ class _HomeScreenState extends State<HomeScreen> {
             child: RefreshIndicator(
               onRefresh: _loadToday,
               color: SoriColors.primary,
-              child: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                padding: const EdgeInsets.fromLTRB(
+              child: SoriContentClamp(
+                base: const EdgeInsets.fromLTRB(
                   Spacing.lg,
                   Spacing.md,
                   Spacing.lg,
                   Spacing.xl,
                 ),
-                child: Column(
+                builder: (context, padding) => SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  padding: padding,
+                  child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // ── A. Compact top bar (logo + actions) ──
@@ -310,6 +336,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 );
                                 if (mounted) await _loadToday();
                               },
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+
+                    // ── E1a. Lernpfad 진입 — 진척 시각화(단어팩 61 + 한옥 12단계) ──
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 150),
+                      slideY: 14,
+                      child: _PathCard(
+                        onTap: () async {
+                          await Navigator.pushNamed(context, '/path');
+                          if (mounted) await _loadToday();
+                        },
                       ),
                     ),
                     const SizedBox(height: Spacing.xl),
@@ -387,23 +426,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: Spacing.xl),
 
-                    // ── F. Modules row (하단 도구함으로 강등) ──
-                    _SectionLabel(label: t.sectionModules),
-                    const SizedBox(height: Spacing.sm),
+                    // ── F+G. 둘러보기 — 모듈 + 게임 (접이식, 선택 과부하 완화) ──
                     SoriEntrance(
                       delay: const Duration(milliseconds: 360),
                       slideY: 16,
-                      child: _ModulesGrid(t: t),
-                    ),
-                    const SizedBox(height: Spacing.xl),
-
-                    // ── G. Games ──
-                    _SectionLabel(label: t.sectionGames),
-                    const SizedBox(height: Spacing.sm),
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 420),
-                      slideY: 16,
-                      child: _GamesGrid(t: t),
+                      child: _BrowseSection(t: t),
                     ),
 
                     const SizedBox(height: Spacing.xxxl),
@@ -419,6 +446,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ],
+                ),
                 ),
               ),
             ),
@@ -469,17 +497,22 @@ class _TopBar extends StatelessWidget {
           ),
         ),
         const SizedBox(width: Spacing.sm),
-        Text(
-          'Hangul Sori',
-          style: TextStyle(
-            fontFamily: 'Pretendard',
-            fontSize: 16,
-            fontWeight: FontWeight.w900,
-            color: s.text,
-            letterSpacing: -0.3,
+        // 좁은 폰(≤320px)에서 브랜드명이 액션 버튼과 충돌해 넘치지 않도록 Expanded
+        // + ellipsis. 넓은 화면에선 자연폭이라 기존 룩(좌 텍스트·우 버튼) 동일.
+        Expanded(
+          child: Text(
+            'Hangul Sori',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 16,
+              fontWeight: FontWeight.w900,
+              color: s.text,
+              letterSpacing: -0.3,
+            ),
           ),
         ),
-        const Spacer(),
         _RoundIconButton(
           icon: Icons.bar_chart_rounded,
           onTap: () => Navigator.pushNamed(context, '/stats'),
@@ -548,77 +581,88 @@ class _TigerHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    // v4 (2026-05-29): 좁은 화면(360px 미만)에서 호랑이가 잘리지 않도록
-    // 화면 폭에 비례한 사이즈 + 강제 clip 처리.
-    final media = MediaQuery.of(context);
-    final tigerSize = media.size.width < 360 ? 124.0 : 140.0;
-    final textRightInset = tigerSize + 12;
+    // v4 (2026-05-29): 좁은 화면에서 호랑이가 잘리지 않도록 폭 비례 사이즈 + clip.
+    // v5 (2026-06-03): 클램프된 콘텐츠 폭(LayoutBuilder) 기준 3구간 반응형 —
+    // 아주 좁은 폰(<330)은 호랑이·높이를 줄여 인사말 압축 해소 + CTA 빨리 도달.
+    return LayoutBuilder(
+      builder: (context, c) {
+        final w = c.maxWidth;
+        final bool veryNarrow = w < 330;
+        final double tigerSize =
+            veryNarrow ? 104.0 : (w < 400 ? 124.0 : 140.0);
+        final double heroHeight = veryNarrow ? 138.0 : 160.0;
+        final double textRightInset = tigerSize + (veryNarrow ? 8.0 : 12.0);
+        final double greetingSize = veryNarrow ? 21.0 : 24.0;
+        final double bubbleMax = (w - textRightInset).clamp(120.0, 240.0);
 
-    return ClipRect(
-      child: SizedBox(
-        height: 160,
-        child: Stack(
-          children: [
-            // Left: greeting + subline + speech bubble
-            Positioned(
-              top: 8,
-              left: 0,
-              right: textRightInset,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    greeting,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 24,
-                      fontWeight: FontWeight.w900,
-                      color: s.text,
-                      letterSpacing: -0.7,
-                      height: 1.05,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+        return ClipRect(
+          child: SizedBox(
+            height: heroHeight,
+            child: Stack(
+              children: [
+                // Left: greeting + subline + speech bubble
+                Positioned(
+                  top: 8,
+                  left: 0,
+                  right: textRightInset,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        greeting,
+                        style: TextStyle(
+                          fontFamily: 'Pretendard',
+                          fontSize: greetingSize,
+                          fontWeight: FontWeight.w900,
+                          color: s.text,
+                          letterSpacing: -0.7,
+                          height: 1.05,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        subline,
+                        style: TextStyle(
+                          fontFamily: 'Pretendard',
+                          fontSize: 12,
+                          color: s.textMuted,
+                          height: 1.4,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: veryNarrow ? 8 : 12),
+                      _SpeechBubble(text: bubble, maxWidth: bubbleMax),
+                    ],
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    subline,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 12,
-                      color: s.textMuted,
-                      height: 1.4,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 12),
-                  _SpeechBubble(text: bubble),
-                ],
-              ),
-            ),
+                ),
 
-            // Right: 큰 호랑이 — 화면 안에 완전히 들어옴 (right: 0)
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: Mascot.tiger(
-                size: tigerSize,
-                emotion: _emotion,
-                animate: true,
-              ),
+                // Right: 큰 호랑이 — 화면 안에 완전히 들어옴 (right: 0)
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: Mascot.tiger(
+                    size: tigerSize,
+                    emotion: _emotion,
+                    animate: true,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
 
 class _SpeechBubble extends StatelessWidget {
   final String text;
-  const _SpeechBubble({required this.text});
+  final double maxWidth;
+  const _SpeechBubble({required this.text, this.maxWidth = 220});
 
   @override
   Widget build(BuildContext context) {
@@ -628,7 +672,7 @@ class _SpeechBubble extends StatelessWidget {
         ? Colors.white.withValues(alpha: 0.94)
         : Colors.white;
     return Container(
-      constraints: const BoxConstraints(maxWidth: 220),
+      constraints: BoxConstraints(maxWidth: maxWidth),
       padding: const EdgeInsets.fromLTRB(12, 9, 12, 10),
       decoration: BoxDecoration(
         color: bg,
@@ -689,31 +733,35 @@ class _StatChipRow extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
       child: Column(
         children: [
-          Row(
-            children: [
-              _MiniStat(
-                icon: Icons.local_fire_department_rounded,
-                color: SoriColors.warning,
-                value: '$streak',
-                label: daysLabel,
-              ),
-              _Divider(),
-              _MiniStat(
-                icon: Icons.stars_rounded,
-                color: SoriColors.primary,
-                value: 'Lv $level',
-                label: '$xp XP',
-              ),
-              if (shields > 0) ...[
+          // 스탯칩은 한눈 요약 — 접근성 큰 글씨에서 3칩이 터지지 않게 1.3배 캡.
+          MediaQuery.withClampedTextScaling(
+            maxScaleFactor: 1.3,
+            child: Row(
+              children: [
+                _MiniStat(
+                  icon: Icons.local_fire_department_rounded,
+                  color: SoriColors.warning,
+                  value: '$streak',
+                  label: daysLabel,
+                ),
                 _Divider(),
                 _MiniStat(
-                  icon: Icons.shield_rounded,
-                  color: SoriColors.highlight,
-                  value: '$shields',
-                  label: shieldLabel,
+                  icon: Icons.stars_rounded,
+                  color: SoriColors.primary,
+                  value: 'Lv $level',
+                  label: '$xp XP',
                 ),
+                if (shields > 0) ...[
+                  _Divider(),
+                  _MiniStat(
+                    icon: Icons.shield_rounded,
+                    color: SoriColors.highlight,
+                    value: '$shields',
+                    label: shieldLabel,
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
           const SizedBox(height: 10),
           SoriXpProgress(
@@ -761,32 +809,40 @@ class _MiniStat extends StatelessWidget {
         children: [
           Icon(icon, color: color, size: 20),
           const SizedBox(width: 6),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                value,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  color: s.text,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w900,
-                  height: 1,
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  value,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: false,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    color: s.text,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w900,
+                    height: 1,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                label,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  color: s.textMuted,
-                  fontSize: 9.5,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.2,
+                const SizedBox(height: 2),
+                Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: false,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    color: s.textMuted,
+                    fontSize: 9.5,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.2,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
@@ -1011,13 +1067,17 @@ class _TodayScenarioCard extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 8),
-                        Text(
-                          '5–7 min · +${scenario!.xpReward} XP',
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            color: s.textMuted,
-                            fontSize: 11.5,
-                            fontWeight: FontWeight.w600,
+                        Flexible(
+                          child: Text(
+                            '5–7 min · +${scenario!.xpReward} XP',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontFamily: 'Pretendard',
+                              color: s.textMuted,
+                              fontSize: 11.5,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ],
@@ -1173,6 +1233,138 @@ class _ReviewCard extends StatelessWidget {
                 : SoriColors.success,
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// E1a. Lernpfad(학습 경로) 진입 카드 — 진척 시각화 화면(/path)으로
+// ════════════════════════════════════════════════════════════════════════
+class _PathCard extends StatelessWidget {
+  final VoidCallback onTap;
+  const _PathCard({required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.primary,
+      tinted: true,
+      onTap: onTap,
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: SoriColors.primary.withValues(alpha: 0.16),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+            ),
+            alignment: Alignment.center,
+            child: const Icon(Icons.route_rounded,
+                color: SoriColors.primary, size: 24),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  t.homePathCardTitle,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  t.homePathCardSub,
+                  style: const TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 11.5,
+                    color: SoriColors.primary,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Icon(Icons.chevron_right_rounded,
+              color: SoriColors.primary.withValues(alpha: 0.8)),
+        ],
+      ),
+    );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// F+G. 둘러보기 — 모듈 + 게임을 접이식으로 (기본 접힘 → 첫 화면 선택 과부하 완화)
+// ════════════════════════════════════════════════════════════════════════
+class _BrowseSection extends StatelessWidget {
+  final AppL10n t;
+  const _BrowseSection({required this.t});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return Material(
+      color: s.surface,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: SoriRadius.brMd,
+        side: BorderSide(color: s.border),
+      ),
+      child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          tilePadding:
+              const EdgeInsets.symmetric(horizontal: Spacing.lg, vertical: 2),
+          childrenPadding:
+              const EdgeInsets.fromLTRB(Spacing.sm, 0, Spacing.sm, Spacing.md),
+          leading: const Icon(Icons.apps_rounded, color: SoriColors.primary),
+          iconColor: SoriColors.primary,
+          collapsedIconColor: s.textMuted,
+          title: Text(
+            t.homeBrowseTitle,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 15,
+              fontWeight: FontWeight.w800,
+              color: s.text,
+            ),
+          ),
+          subtitle: Text(
+            t.homeBrowseSub,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 12,
+              color: s.textMuted,
+            ),
+          ),
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: _SectionLabel(label: t.sectionModules),
+            ),
+            const SizedBox(height: Spacing.sm),
+            _ModulesGrid(t: t),
+            const SizedBox(height: Spacing.lg),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: _SectionLabel(label: t.sectionGames),
+            ),
+            const SizedBox(height: Spacing.sm),
+            _GamesGrid(t: t),
+          ],
+        ),
       ),
     );
   }

@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
+import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
@@ -42,6 +43,7 @@ void main() {
   final screens = <String, Widget>{
     'intro gate': const IntroGateScreen(),
     'home': const HomeScreen(),
+    'learning path': const LearningPathScreen(),
     'vocab (packs grid)': const VocabPacksScreen(),
     'vocab (legacy)': const LegacyVocabScreen(),
     'grammar': const GrammarScreen(),

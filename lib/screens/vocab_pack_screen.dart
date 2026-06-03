@@ -7,6 +7,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import '../services/pack_progress_service.dart';
+import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/vocab_pack_service.dart';
@@ -17,6 +18,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/wordbook_add.dart';
 
@@ -58,6 +60,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   int _bossCorrect = 0;
   int _selectedChoice = -1;
   bool _choiceLocked = false;
+  int _combo = 0; // 연속 정답 (도파민 루프)
   List<String>? _choices; // per-question 4-option cache
 
   // 동일 pack 내에서 distractor 풀로 사용. pack이 너무 작으면 sibling pack 단어로 채움.
@@ -229,15 +232,22 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final cur = _currentQuiz;
     final choices = _choices;
     if (cur == null || choices == null) return;
-    HapticFeedback.lightImpact();
     final isCorrect = choices[i] == cur.german;
     setState(() {
       _selectedChoice = i;
       _choiceLocked = true;
     });
     if (isCorrect) {
-      // 정답 순간 보상 — 색종이 burst (촉각은 위 lightImpact 유지).
+      // 정답 순간 보상 — 햅틱 + 효과음 + 색종이 burst + 콤보.
+      HapticFeedback.lightImpact();
+      SoundService.correct();
       SoriCelebration.burst(context);
+      _combo++;
+      if (_combo >= 3) {
+        SoundService.combo();
+        ScorePop.show(context, AppL10n.of(context).comboPop(_combo),
+            color: SoriColors.tiger);
+      }
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
         Storage.addVokSeen(cur.korean);
@@ -250,6 +260,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         Storage.srsReview(cur.korean, gotIt: true);
       }
     } else {
+      // 오답 — 더 강한 햅틱 + 부드러운 효과음, 콤보 리셋.
+      HapticFeedback.mediumImpact();
+      SoundService.wrong();
+      _combo = 0;
       // ignore: discarded_futures
       Storage.srsReview(cur.korean, gotIt: false);
     }

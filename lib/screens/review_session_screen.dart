@@ -257,7 +257,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
                 tinted: !_flipped,
                 child: Center(
                   child: SingleChildScrollView(
-                    child: _flipped ? _back(card, s, tt) : _front(card, s, tt, t),
+                    child:
+                        _flipped ? _back(card, s, tt, t) : _front(card, s, tt, t),
                   ),
                 ),
               ),
@@ -304,6 +305,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
               fontWeight: FontWeight.w900,
             ),
           ),
+          const SizedBox(height: Spacing.md),
+          _SpeakButton(text: v.korean, label: t.ttsListen),
           if (v.romanization.isNotEmpty) ...[
             const SizedBox(height: Spacing.sm),
             Text(v.romanization,
@@ -315,7 +318,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
         ],
       );
 
-  Widget _back(Vocab v, SoriSurfaces s, SoriTextTheme tt) => Column(
+  Widget _back(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
@@ -331,6 +334,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
             const SizedBox(height: Spacing.lg),
             Text(v.exampleKorean,
                 textAlign: TextAlign.center, style: tt.body),
+            const SizedBox(height: Spacing.sm),
+            _SpeakButton(text: v.exampleKorean, label: t.ttsListen, size: 22),
           ],
           if (v.exampleGerman.isNotEmpty) ...[
             const SizedBox(height: Spacing.xs),
@@ -340,4 +345,34 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
           ],
         ],
       );
+}
+
+/// 발음 듣기 버튼 — 카드 탭(뒤집기)과 분리되도록 InkWell 이 탭을 소비한다.
+/// 앞면(단어)·뒷면(예문) 양쪽에서 재사용.
+class _SpeakButton extends StatelessWidget {
+  final String text;
+  final String label;
+  final double size;
+  const _SpeakButton({required this.text, required this.label, this.size = 28});
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: label,
+      child: Material(
+        color: SoriColors.primary.withValues(alpha: 0.12),
+        shape: const CircleBorder(),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () => TtsService.speak(text),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Icon(Icons.volume_up_rounded,
+                color: SoriColors.primary, size: size),
+          ),
+        ),
+      ),
+    );
+  }
 }

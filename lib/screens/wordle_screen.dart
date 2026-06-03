@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
+import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
@@ -253,11 +254,13 @@ class _WordleScreenState extends State<WordleScreen> {
 
     if (won) {
       HapticFeedback.heavyImpact();
+      SoundService.complete();
       Storage.incWordleWins();
       Storage.srsReview(_target, gotIt: true); // M1: Spiel speist das SRS
       SoriCelebration.burst(context);
     } else if (lost) {
       HapticFeedback.mediumImpact();
+      SoundService.wrong();
       Storage.incWordleLosses();
       Storage.srsReview(_target, gotIt: false); // M1: Spiel speist das SRS
     } else {

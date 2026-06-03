@@ -22,6 +22,9 @@ dependencies:
 
   # ── Audio / Sprache ─────────────────────────────────────
   flutter_tts: ^4.2.0
+  # SFX (정답/오답/콤보/레벨업) — assets/sfx/*.mp3. 에셋 없으면 SoundService가
+  # 조용히 무음 처리(no-op). Jin이 mp3 5개 넣으면 자동 재생.
+  audioplayers: ^6.1.0
 
   # ── UI ──────────────────────────────────────────────────
   flutter_svg: ^2.0.10
@@ -101,6 +104,7 @@ flutter:
     - assets/illustrations/empty/
     - assets/illustrations/error/
     - assets/stickers/
+    - assets/sfx/
 
   # ── Pretendard (한국어 모던 산세리프, SIL OFL, Std subset ~310KB×5) ──
   fonts:

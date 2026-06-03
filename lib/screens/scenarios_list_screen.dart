@@ -12,6 +12,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'scenario_player_screen.dart';
@@ -107,11 +108,14 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(
-            Spacing.lg,
-            Spacing.xs,
-            Spacing.lg,
-            Spacing.xl,
+          padding: soriClampPadding(
+            MediaQuery.sizeOf(context).width,
+            base: const EdgeInsets.fromLTRB(
+              Spacing.lg,
+              Spacing.xs,
+              Spacing.lg,
+              Spacing.xl,
+            ),
           ),
           children: [
             // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.

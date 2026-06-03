@@ -13,6 +13,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pack_card.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Vocab Packs Screen** — Phase 2 의 새 vocab 진입 화면.
@@ -160,7 +161,11 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+          padding: soriClampPadding(
+            MediaQuery.sizeOf(context).width,
+            maxWidth: SoriBreakpoints.grid,
+            base: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+          ),
           child: CustomScrollView(
             slivers: [
               const SliverToBoxAdapter(

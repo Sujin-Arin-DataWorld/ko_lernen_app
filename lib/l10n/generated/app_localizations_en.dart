@@ -1972,4 +1972,57 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wbSearchCta => 'Search my words';
+
+  @override
+  String comboPop(int count) {
+    return '$count in a row! 🔥';
+  }
+
+  @override
+  String get pathTitle => 'Learning path';
+
+  @override
+  String pathHanokStage(int n) {
+    return 'Hanok · Stage $n/12';
+  }
+
+  @override
+  String get pathHanokSub => 'Your courtyard grows with every pack you master.';
+
+  @override
+  String pathLevelPacks(int done, int total) {
+    return '$done/$total packs';
+  }
+
+  @override
+  String get pathNodeNow => 'Now';
+
+  @override
+  String get pathLockedHint => 'Clear the previous pack first.';
+
+  @override
+  String get homePathCardTitle => 'Learning path';
+
+  @override
+  String get homePathCardSub => 'See where you are';
+
+  @override
+  String get homeBrowseTitle => 'Browse all';
+
+  @override
+  String get homeBrowseSub => 'Modules & games';
+
+  @override
+  String get notifStreakSaverTitle => '🔥 Don\'t lose your streak!';
+
+  @override
+  String get notifStreakSaverBody => 'A quick lesson keeps it alive.';
+
+  @override
+  String notifDailyStreakBody(int days) {
+    return '🔥 $days days in a row — keep going today?';
+  }
+
+  @override
+  String get ttsListen => 'Pronunciation';
 }

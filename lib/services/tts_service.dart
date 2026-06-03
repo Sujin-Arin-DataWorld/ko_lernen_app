@@ -28,9 +28,19 @@ class TtsService {
   /// Sucht in den verfügbaren Stimmen eine koreanische (locale beginnt mit
   /// "ko") und wählt sie. Best-effort: nicht jede Plattform liefert getVoices,
   /// und ohne installierte ko-Stimme bleibt es bei setLanguage('ko-KR').
+  /// true = 이 플랫폼/브라우저에 한국어 음성이 실제로 존재. false면 (특히 웹에서)
+  /// 한국어가 무음일 수 있다 — 브라우저에 ko 보이스 미설치. 화면 안내용으로 사용 가능.
+  static bool koVoiceAvailable = false;
+
   static Future<void> _trySelectKoreanVoice() async {
     try {
-      final voices = await _tts.getVoices;
+      // 웹: getVoices가 첫 호출에 빈 목록을 주는 경우가 많다(보이스 지연 로드).
+      // 비어 있으면 짧게 대기 후 한 번 재시도.
+      var voices = await _tts.getVoices;
+      if (voices is List && voices.isEmpty) {
+        await Future<void>.delayed(const Duration(milliseconds: 250));
+        voices = await _tts.getVoices;
+      }
       if (voices is! List) return;
       for (final v in voices) {
         if (v is! Map) continue;
@@ -42,6 +52,7 @@ class TtsService {
             'name': name,
             'locale': (v['locale'] ?? 'ko-KR').toString(),
           });
+          koVoiceAvailable = true;
           return;
         }
       }
@@ -54,7 +65,11 @@ class TtsService {
   static Future<bool> speak(String text) async {
     try {
       await _init();
-      await _tts.stop();
+      // stop()은 이전 발화를 끊기 위함. 웹에서 cancel()이 SpeechSynthesisErrorEvent를
+      // 던질 수 있으므로 guard — 던져도 새 speak는 계속 진행.
+      try {
+        await _tts.stop();
+      } catch (_) {}
       // Re-apply user rate in case slow mode altered it last time.
       await _tts.setSpeechRate(Storage.ttsRate);
       final result = await _tts.speak(text);
@@ -70,7 +85,9 @@ class TtsService {
   static Future<bool> speakSlow(String text) async {
     try {
       await _init();
-      await _tts.stop();
+      try {
+        await _tts.stop();
+      } catch (_) {}
       await _tts.setSpeechRate(0.30);
       final result = await _tts.speak(text);
       return result == 1;

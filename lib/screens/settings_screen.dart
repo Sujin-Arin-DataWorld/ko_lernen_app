@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import '../services/storage_service.dart';
 import '../services/notification_service.dart';
@@ -75,6 +76,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           title: t.notificationTitle,
           body: t.notificationBody,
         );
+        // 늦은 저녁 스트릭 보호 알림 (별도 채널 · 강한 retention 넛지)
+        await NotificationService.scheduleStreakSaver(
+          hour: 21,
+          minute: 0,
+          title: t.notifStreakSaverTitle,
+          body: t.notifStreakSaverBody,
+        );
       } else {
         await Storage.setNotificationsEnabled(false);
         messenger.showSnackBar(SnackBar(content: Text(t.settingsNotifDenied)));
@@ -98,6 +106,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       minute: 0,
       title: t.notificationTitle,
       body: t.notificationBody,
+    );
+    await NotificationService.scheduleStreakSaver(
+      hour: 21,
+      minute: 0,
+      title: t.notifStreakSaverTitle,
+      body: t.notifStreakSaverBody,
     );
     if (mounted) setState(() {});
   }
@@ -199,7 +213,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: soriClampPadding(
+          MediaQuery.sizeOf(context).width,
+          base: const EdgeInsets.symmetric(vertical: 8),
+        ),
         children: [
           // ── 서재 헤더 (한옥 학자방 일러스트) ──
           Padding(

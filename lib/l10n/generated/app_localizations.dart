@@ -3696,6 +3696,96 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Meine Wörter durchsuchen'**
   String get wbSearchCta;
+
+  /// No description provided for @comboPop.
+  ///
+  /// In de, this message translates to:
+  /// **'{count}er-Combo! 🔥'**
+  String comboPop(int count);
+
+  /// No description provided for @pathTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernpfad'**
+  String get pathTitle;
+
+  /// No description provided for @pathHanokStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok · Stufe {n}/12'**
+  String pathHanokStage(int n);
+
+  /// No description provided for @pathHanokSub.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hof wächst mit jedem gemeisterten Pack.'**
+  String get pathHanokSub;
+
+  /// No description provided for @pathLevelPacks.
+  ///
+  /// In de, this message translates to:
+  /// **'{done}/{total} Packs'**
+  String pathLevelPacks(int done, int total);
+
+  /// No description provided for @pathNodeNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt'**
+  String get pathNodeNow;
+
+  /// No description provided for @pathLockedHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe zuerst das vorherige Pack ab.'**
+  String get pathLockedHint;
+
+  /// No description provided for @homePathCardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernpfad'**
+  String get homePathCardTitle;
+
+  /// No description provided for @homePathCardSub.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh, wo du stehst'**
+  String get homePathCardSub;
+
+  /// No description provided for @homeBrowseTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alles entdecken'**
+  String get homeBrowseTitle;
+
+  /// No description provided for @homeBrowseSub.
+  ///
+  /// In de, this message translates to:
+  /// **'Module & Spiele'**
+  String get homeBrowseSub;
+
+  /// No description provided for @notifStreakSaverTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'🔥 Streak nicht verlieren!'**
+  String get notifStreakSaverTitle;
+
+  /// No description provided for @notifStreakSaverBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine kurze Lektion reicht, um dranzubleiben.'**
+  String get notifStreakSaverBody;
+
+  /// No description provided for @notifDailyStreakBody.
+  ///
+  /// In de, this message translates to:
+  /// **'🔥 {days} Tage am Stück — heute weiter?'**
+  String notifDailyStreakBody(int days);
+
+  /// No description provided for @ttsListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache'**
+  String get ttsListen;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

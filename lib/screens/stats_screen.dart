@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
@@ -67,7 +68,10 @@ class StatsScreen extends StatelessWidget {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+        padding: soriClampPadding(
+          MediaQuery.sizeOf(context).width,
+          base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+        ),
         children: [
           // ── 한옥 마당 헤더 (성취 / 황혼 톤) ──
           const HanokHeader(

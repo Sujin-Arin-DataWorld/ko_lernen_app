@@ -22,6 +22,8 @@ class NotificationService {
 
   static const int _dailyId = 1001;
   static const String _channelId = 'daily_reminder';
+  static const int _streakSaverId = 1002;
+  static const String _streakChannelId = 'streak_saver';
 
   /// In `main()` aufrufen (best-effort). Initialisiert Plugin + Zeitzonen.
   /// Plant NICHTS — das Planen passiert beim Einschalten in den Einstellungen
@@ -105,6 +107,40 @@ class NotificationService {
       );
     } catch (e) {
       debugPrint('NotificationService: schedule failed — $e');
+    }
+  }
+
+  /// Späte Abend-Erinnerung "Streak sichern" — separate ID/Kanal, stärkerer
+  /// Retention-Nudge als die normale Tageserinnerung. Ersetzt bestehende.
+  static Future<void> scheduleStreakSaver({
+    required int hour,
+    required int minute,
+    required String title,
+    required String body,
+  }) async {
+    if (!_ready) return;
+    try {
+      await _plugin.zonedSchedule(
+        _streakSaverId,
+        title,
+        body,
+        _nextInstanceOf(hour, minute),
+        NotificationDetails(
+          android: AndroidNotificationDetails(
+            _streakChannelId,
+            'Streak-Schutz',
+            channelDescription:
+                'Erinnert dich abends, deinen Streak zu sichern.',
+            importance: Importance.defaultImportance,
+            priority: Priority.defaultPriority,
+          ),
+          iOS: const DarwinNotificationDetails(),
+        ),
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+        matchDateTimeComponents: DateTimeComponents.time,
+      );
+    } catch (e) {
+      debugPrint('NotificationService: streak-saver schedule failed — $e');
     }
   }
 

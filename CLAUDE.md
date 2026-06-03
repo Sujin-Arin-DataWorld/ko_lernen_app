@@ -84,7 +84,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
 
 ### Sori 디자인 시스템 (`lib/widgets/sori/`)
-- `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`
+- `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`, **`SoriBreakpoints`(content=480·grid=600 반응형 폭 클램프)**
+- `responsive.dart` — **반응형 콘텐츠 폭 클램프** (2026-06-03). `soriClampPadding(width, {maxWidth, base})` = 폰 무변화·넓은 화면만 잉여폭 좌우 분배 + `SoriContentClamp`(LayoutBuilder 래퍼). 배경 풀블리드 유지, 콘텐츠만 480 중앙 정렬. 홈·리스트 5화면 적용.
 - `hanok_tokens.dart` — 한옥 전용 색상 (단청 4색)
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` (v6). **자산은 `assets/illustrations/mascot/`에 분리된 포즈 PNG**: 호랑이 5(idle/blink/happy/celebrate/sad) + 까치 4(perched/wingup/wingdown/celebrate). emotion → 포즈 매핑 (celebrate/worry/sleepy/surprised/thinking/neutral/smile). `tiger_thinking`/`tiger_sleepy`/`tiger_neutral`/`magpie_worry`는 Jin이 추후 추가하면 자동 사용, 미존재 시 errorBuilder fallback.
@@ -298,6 +299,20 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-03 (반응형) — 듀오링고식 콘텐츠 폭 클램프 (배경:콘텐츠 비율 최적화)
+
+**범위:** Jin 피드백 — 앱 모드 배경:콘텐츠 비율 비효율(넓은 화면 풀폭 스트레치 + 좁은 폰 308px 히어로 압축). plan `~/.claude/plans/flutter-lazy-conway.md`. 결정: 홈+리스트 화면 일괄, content maxWidth **480**(그리드 600).
+
+**Update:**
+1. **Foundation** — `lib/widgets/sori/tokens.dart`에 `SoriBreakpoints`(content=480, grid=600) + **신규 `lib/widgets/sori/responsive.dart`**: `soriClampPadding(width, {maxWidth, base})`(폰 무변화·넓은 화면만 잉여폭 좌우 분배) + `SoriContentClamp`(LayoutBuilder 래퍼). **배경 풀블리드 유지, 콘텐츠 padding만 클램프**.
+2. **Home** (`home_screen.dart`) — (a) `SingleChildScrollView`를 `SoriContentClamp`로 래핑(RefreshIndicator는 풀폭 유지) (b) `_TigerHero` `MediaQuery`→`LayoutBuilder` 3구간 반응형(<330: tiger104·height138·greeting21 / <400:124 / ≥400:140), `_SpeechBubble`에 `maxWidth` 파라미터 (c) `_StatChipRow` 큰 글씨 안전 — `_MiniStat` 텍스트 `Flexible`+ellipsis + Row만 `MediaQuery.withClampedTextScaling(1.3)`.
+3. **리스트 5화면** — `scenarios_list`·`settings`·`quests`·`stats`는 `ListView.padding`을 `soriClampPadding(MediaQuery.sizeOf(context).width, base: 기존)`으로 교체(닫는 괄호 매칭 리스크 0). `vocab_packs`(CustomScrollView)는 바깥 Padding에 `maxWidth: SoriBreakpoints.grid`로 적용.
+4. **버그 픽스(좁은 폰 잠복 2건, 클램프 무관)** — (a) `_TopBar` 브랜드명 `Text+Spacer`가 320px서 4.7px 오버플로 → `Expanded(…ellipsis)`. (b) `_TodayScenarioCard` 메타행(레벨칩+`'5–7 min · +XP'`)이 308px서 ~1px 오버플로(**Jin 실기기 Chrome 포착**, async 로드 상태) → 듀레이션 `Text`를 `Flexible(…ellipsis)`. 둘 다 넓은 화면 룩 동일·좁을 때만 말줄임. (나머지 데이터 의존 카드 `_Review/_Path/_HardWords/_DailyChar`는 텍스트가 Expanded 컬럼 안=세로 줄바꿈이라 안전, `_CourseTitle`은 이미 Flexible.)
+
+**검증:** `flutter analyze` **0 issues** · `flutter test` **245 통과**(신규 `test/responsive_test.dart` 26개: `soriClampPadding` 수학 5 + `SoriContentClamp` 위젯 1 + 5화면 ×**308**/360/800/1280px 오버플로0 20). ⚠️ **시각 픽셀 검증 미완** — 앱이 `initialRoute:'/intro'` 하드코딩이라 URL로 화면 직행 불가 + Flutter CanvasKit 헤드리스 클릭 불안정 → 자동 시각 검증 비현실적. **Jin이 `flutter run -d chrome`로 308/360/430/768/1200px 육안 확인 필요**(특히 넓은 화면 480 중앙 컬럼, 308px 히어로·_TopBar).
+
+**Git push:** 미수행 (Jin 확인 후).
 
 ### 2026-06-03 — 시나리오 버그 + 단어장 전역 통합 + 학습화면 5종 + 크래시 픽스 (commits `bf7ca2f`, `daa883a`)
 

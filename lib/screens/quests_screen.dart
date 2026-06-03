@@ -6,8 +6,10 @@ import '../models/quest.dart';
 import '../services/quest_tracker.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/decoration_layer.dart' show kAvailableDecorations;
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 4 (stately-rising-jongga) — 특별 퀘스트 진행 화면.
@@ -96,7 +98,10 @@ class _QuestsScreenState extends State<QuestsScreen> {
           onRefresh: _load,
           color: SoriColors.primary,
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(12, 4, 12, 32),
+            padding: soriClampPadding(
+              MediaQuery.sizeOf(context).width,
+              base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
+            ),
             children: [
               const HanokHeader(
                 asset: 'assets/illustrations/hanok/achievements.png',
@@ -359,20 +364,24 @@ class _RewardThumb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final giftIcon = Icon(
+      Icons.card_giftcard_rounded,
+      size: 22,
+      color: earned ? SoriColors.success : s.textDim,
+    );
     return Opacity(
       opacity: earned ? 1.0 : 0.4,
       child: SizedBox(
         width: 34,
         height: 34,
-        child: Image.asset(
-          'assets/illustrations/decorations/$slug.png',
-          fit: BoxFit.contain,
-          errorBuilder: (_, __, ___) => Icon(
-            Icons.card_giftcard_rounded,
-            size: 22,
-            color: earned ? SoriColors.success : s.textDim,
-          ),
-        ),
+        // 자산이 없는 슬러그는 로드 시도 없이 선물 아이콘 (웹 404 방지).
+        child: kAvailableDecorations.contains(slug)
+            ? Image.asset(
+                'assets/illustrations/decorations/$slug.png',
+                fit: BoxFit.contain,
+                errorBuilder: (_, __, ___) => giftIcon,
+              )
+            : giftIcon,
       ),
     );
   }

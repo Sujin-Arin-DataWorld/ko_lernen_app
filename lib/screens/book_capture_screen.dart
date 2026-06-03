@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,6 +33,21 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
   Future<void> _pick(ImageSource source) async {
     if (_busy) return;
     final l10n = AppL10n.of(context);
+
+    // 웹은 "책 한 컷" 파이프라인(카메라 + dart:io File + ML Kit 온디바이스 OCR)을
+    // 지원하지 않는다 → 무한 로딩 대신 명확히 안내하고 종료. (모바일 전용 기능)
+    if (kIsWeb) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            '📱 „책 한 컷" funktioniert nur in der mobilen App '
+            '(Kamera + On-Device-OCR). · 책 한 컷은 모바일 앱에서만 작동해요.',
+          ),
+          duration: Duration(seconds: 4),
+        ),
+      );
+      return;
+    }
 
     // Tageslimit check (DeepL Free 보호) — analyze 호출 전이라도 OCR 자체는
     // permitted, 그러나 의미 없음 (분석 미실행). 명확한 UX 위해 차단.

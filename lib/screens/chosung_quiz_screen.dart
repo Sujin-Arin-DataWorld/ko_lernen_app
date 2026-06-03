@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
+import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
@@ -149,6 +151,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
   // Round tracking
   int _roundIndex = 0; // 0..roundSize-1
   int _roundCorrect = 0;
+  int _combo = 0; // 연속 정답 (도파민 루프)
   final List<int> _roundDurationsMs = [];
   DateTime? _questionStart;
   bool _roundComplete = false;
@@ -215,10 +218,19 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
     // Persistenz + Haptik
     if (ok) {
       HapticFeedback.lightImpact();
+      SoundService.correct();
       Storage.incChosungCorrect();
+      _combo++;
+      if (_combo >= 3) {
+        SoundService.combo();
+        ScorePop.show(context, AppL10n.of(context).comboPop(_combo),
+            color: SoriColors.tiger);
+      }
     } else {
       HapticFeedback.mediumImpact();
+      SoundService.wrong();
       Storage.incChosungWrong();
+      _combo = 0;
     }
     // M1: Das Spiel speist das SRS — gewusst/nicht gewusst fließt in die
     // Wiederholungs-Planung (gleicher Key wie Vokabel-Packs: korean-String).
@@ -234,6 +246,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
       _state = _State.wrong;
     });
     Storage.incChosungWrong();
+    _combo = 0;
     Storage.srsReview(_card.korean, gotIt: false); // M1: Skip = nicht gewusst
     Future.delayed(const Duration(milliseconds: 1000), _next);
   }

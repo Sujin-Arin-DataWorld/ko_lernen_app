@@ -70,6 +70,23 @@ class _PositionedDecoration extends StatelessWidget {
   }
 }
 
+/// 실제로 PNG가 존재하는 퀘스트 장식 슬러그. 여기에 없는 슬러그는
+/// `Image.asset`을 **시도하지 않고** 바로 placeholder로 보낸다 —
+/// 그래야 웹에서 없는 자산에 대한 404 네트워크 에러 스팸이 안 생긴다.
+/// (새 장식 PNG를 추가하면 이 셋에도 슬러그를 추가할 것.)
+const Set<String> kAvailableDecorations = {
+  'decoration_jangdokdae',
+  'decoration_kkachi_nest',
+  'decoration_maehwa',
+  'decoration_pond',
+  'decoration_punggyeong',
+  'decoration_pyeonaek',
+  'decoration_sagunja_juk',
+  'decoration_sagunja_maehwa',
+  'decoration_sagunja_nan',
+  'decoration_sonamu',
+};
+
 class _DecorationImage extends StatelessWidget {
   final String slug;
   final double size;
@@ -77,6 +94,10 @@ class _DecorationImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 자산이 없는 슬러그는 로드 시도 없이 placeholder (404 방지).
+    if (!kAvailableDecorations.contains(slug)) {
+      return _Fallback(slug: slug, size: size);
+    }
     final path = 'assets/illustrations/decorations/$slug.png';
     return Image.asset(
       path,
