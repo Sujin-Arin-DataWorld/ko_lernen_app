@@ -25,6 +25,7 @@
   "reviewEmptyBody": "No cards are due today. Play a round or learn a new pack — those words will show up here for review.",
   "reviewDoneTitle": "Nice work! 🎉",
   "reviewDoneBody": "You've reviewed your due cards.",
+  "reviewBonusLabel": "Phrase of the day",
   "homeReviewTitle": "Today's review",
   "homeReviewDue": "{n} words due",
   "homeReviewDone": "All reviewed today 🎉",

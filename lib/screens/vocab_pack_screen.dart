@@ -15,6 +15,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -234,6 +235,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choiceLocked = true;
     });
     if (isCorrect) {
+      // 정답 순간 보상 — 색종이 burst (촉각은 위 lightImpact 유지).
+      SoriCelebration.burst(context);
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
         Storage.addVokSeen(cur.korean);

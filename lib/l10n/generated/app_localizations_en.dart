@@ -81,6 +81,9 @@ class AppL10nEn extends AppL10n {
   String get reviewDoneBody => 'You\'ve reviewed your due cards.';
 
   @override
+  String get reviewBonusLabel => 'Phrase of the day';
+
+  @override
   String get homeReviewTitle => 'Today\'s review';
 
   @override

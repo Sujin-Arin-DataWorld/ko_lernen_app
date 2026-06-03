@@ -235,6 +235,12 @@ abstract class AppL10n {
   /// **'Du hast deine fälligen Karten wiederholt.'**
   String get reviewDoneBody;
 
+  /// No description provided for @reviewBonusLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz des Tages'**
+  String get reviewBonusLabel;
+
   /// No description provided for @homeReviewTitle.
   ///
   /// In de, this message translates to:

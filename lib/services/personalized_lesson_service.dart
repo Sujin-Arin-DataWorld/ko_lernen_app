@@ -1,3 +1,4 @@
+import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import 'storage_service.dart';
 
@@ -109,6 +110,55 @@ class PersonalizedLessonService {
         levelCode: Storage.userLevelCode ?? 'A1',
         interests: Storage.interests.toSet(),
       );
+
+  // ── M5: Interesse → Small-talk-Kategorien (smalltalk.json category-ids) ──
+  static const Map<String, List<String>> interestSmalltalk = {
+    'everyday': ['daily', 'weekend', 'weather', 'mood'],
+    'food_shopping': ['food'],
+    'work_study': ['work_study', 'interview'],
+    'travel': ['travel'],
+    'feelings_people': ['dating', 'family', 'mood'],
+    'health_body': ['health'],
+  };
+
+  /// Small-talk-Kategorien passend zu den Interessen (Reihenfolge = Priorität).
+  /// Leere Interessen → leere Liste (= keine Priorisierung).
+  static List<String> smalltalkCategoriesFor(Iterable<String> interests) {
+    final out = <String>[];
+    for (final i in interests) {
+      for (final c in (interestSmalltalk[i] ?? const <String>[])) {
+        if (!out.contains(c)) out.add(c);
+      }
+    }
+    return out;
+  }
+
+  /// Wählt [count] Small-talk-Sätze: Interessen-Kategorien zuerst, auf Level
+  /// (≤) begrenzt. Rein lokal, deterministisch (CSV-Reihenfolge als Tie-Break).
+  static List<SmalltalkPhrase> pickSmalltalk(
+    List<SmalltalkPhrase> all, {
+    required String levelCode,
+    required Set<String> interests,
+    int count = 1,
+  }) {
+    final rank = levelRank(levelCode);
+    final pool = <SmalltalkPhrase>[
+      for (final p in all)
+        if (levelRank(p.level) <= rank) p,
+    ];
+    if (pool.isEmpty) return const [];
+    final cats = smalltalkCategoriesFor(interests).toSet();
+    final indexed = [
+      for (var i = 0; i < pool.length; i++) MapEntry(i, pool[i]),
+    ];
+    indexed.sort((a, b) {
+      final am = (cats.isEmpty || cats.contains(a.value.category)) ? 0 : 1;
+      final bm = (cats.isEmpty || cats.contains(b.value.category)) ? 0 : 1;
+      if (am != bm) return am.compareTo(bm);
+      return a.key.compareTo(b.key);
+    });
+    return indexed.take(count).map((e) => e.value).toList();
+  }
 
   static int _score(Vocab v, Set<String> dueIds, Set<String> topics) {
     var s = 0;

@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/services/personalized_lesson_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -13,6 +14,15 @@ Vocab _v(String ko, String level, String topic) => Vocab(
       exampleKorean: '',
       exampleGerman: '',
       topic: topic,
+    );
+
+SmalltalkPhrase _sp(String cat, String level) => SmalltalkPhrase(
+      category: cat,
+      level: level,
+      kind: 'question',
+      ko: 'q',
+      de: 'q',
+      en: 'q',
     );
 
 void main() {
@@ -57,5 +67,27 @@ void main() {
       interests: const {'food_shopping'},
     );
     expect(deck.any((v) => v.korean == '김밥'), isTrue);
+  });
+
+  test('smalltalkCategoriesFor: travel → enthält travel; leer → leer', () {
+    expect(PersonalizedLessonService.smalltalkCategoriesFor({'travel'}),
+        contains('travel'));
+    expect(PersonalizedLessonService.smalltalkCategoriesFor(const {}), isEmpty);
+  });
+
+  test('pickSmalltalk: Interesse priorisiert + Level-Filter', () {
+    final all = [
+      _sp('weather', 'a1'),
+      _sp('travel', 'a1'),
+      _sp('travel', 'b2'),
+    ];
+    final got = PersonalizedLessonService.pickSmalltalk(
+      all,
+      levelCode: 'a1',
+      interests: {'travel'},
+      count: 5,
+    );
+    expect(got.first.category, 'travel'); // Interesse zuerst
+    expect(got.every((p) => p.level != 'b2'), isTrue); // Level-Filter (≤ a1)
   });
 }

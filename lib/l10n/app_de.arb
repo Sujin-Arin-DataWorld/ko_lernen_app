@@ -25,6 +25,7 @@
   "reviewEmptyBody": "Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.",
   "reviewDoneTitle": "Stark! 🎉",
   "reviewDoneBody": "Du hast deine fälligen Karten wiederholt.",
+  "reviewBonusLabel": "Satz des Tages",
   "homeReviewTitle": "Heute lernen",
   "homeReviewDue": "{n} Wörter fällig",
   "@homeReviewDue": { "placeholders": { "n": { "type": "int" } } },

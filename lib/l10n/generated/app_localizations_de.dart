@@ -81,6 +81,9 @@ class AppL10nDe extends AppL10n {
   String get reviewDoneBody => 'Du hast deine fälligen Karten wiederholt.';
 
   @override
+  String get reviewBonusLabel => 'Satz des Tages';
+
+  @override
   String get homeReviewTitle => 'Heute lernen';
 
   @override

@@ -7,6 +7,7 @@ import '../services/data_loader.dart';
 import '../services/daily_char_service.dart';
 import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
+import '../services/smalltalk_loader.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/review_deck_service.dart';
 import '../services/scenario_loader.dart';
@@ -134,10 +135,21 @@ class _HomeScreenState extends State<HomeScreen> {
     if (!mounted) return;
     final deck = PersonalizedLessonService.buildFromStorage(vocab);
     if (deck.isEmpty) return;
+    // M5: interessen-passenden Small-talk-Satz als Kurs-Bonus ("한마디").
+    await SmalltalkLoader.load();
+    final bonus = PersonalizedLessonService.pickSmalltalk(
+      SmalltalkLoader.phrases,
+      levelCode: Storage.userLevelCode ?? 'A1',
+      interests: Storage.interests.toSet(),
+    );
+    if (!mounted) return;
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) =>
-            ReviewSessionScreen(deck: deck, title: t.homeCourseTitle),
+        builder: (_) => ReviewSessionScreen(
+          deck: deck,
+          title: t.homeCourseTitle,
+          bonusPhrase: bonus.isNotEmpty ? bonus.first : null,
+        ),
       ),
     );
     if (mounted) _loadToday();

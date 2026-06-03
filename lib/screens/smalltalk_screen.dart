@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/smalltalk.dart';
+import '../services/personalized_lesson_service.dart';
 import '../services/smalltalk_loader.dart';
+import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/card.dart';
@@ -34,8 +36,15 @@ class _SmalltalkScreenState extends State<SmalltalkScreen> {
     await SmalltalkLoader.load();
     if (!mounted) return;
     final cats = SmalltalkLoader.categories;
+    final catIds = cats.map((c) => c.id).toSet();
+    // M5: zuerst eine Kategorie passend zu den Interessen öffnen (관심사 우선).
+    final preferred = PersonalizedLessonService
+        .smalltalkCategoriesFor(Storage.interests)
+        .firstWhere(catIds.contains, orElse: () => '');
     setState(() {
-      _cat = cats.isNotEmpty ? cats.first.id : '';
+      _cat = preferred.isNotEmpty
+          ? preferred
+          : (cats.isNotEmpty ? cats.first.id : '');
       _loading = false;
     });
   }

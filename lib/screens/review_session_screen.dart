@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import '../services/review_deck_service.dart';
+import '../services/tts_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -24,7 +27,11 @@ class ReviewSessionScreen extends StatefulWidget {
   /// lädt selbst die heute fälligen SRS-Karten (Standard "Heute lernen").
   final List<Vocab>? deck;
   final String? title;
-  const ReviewSessionScreen({super.key, this.deck, this.title});
+
+  /// M5: optionaler Small-talk-Satz, der am Kursende als "한마디" gezeigt wird.
+  final SmalltalkPhrase? bonusPhrase;
+  const ReviewSessionScreen(
+      {super.key, this.deck, this.title, this.bonusPhrase});
 
   @override
   State<ReviewSessionScreen> createState() => _ReviewSessionScreenState();
@@ -74,6 +81,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
   Vocab get _card => _deck[_idx];
 
   void _answer(bool gotIt) {
+    // 답변 순간 촉각 피드백 — 맞으면 강하게, 틀리면 가볍게.
+    gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
     Storage.srsReview(_card.korean, gotIt: gotIt);
     _reviewed++;
     if (_idx + 1 >= _deck.length) {
@@ -141,6 +150,40 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
             const SizedBox(height: Spacing.md),
             Text('+${_reviewed * 2} XP',
                 style: tt.h2.copyWith(color: SoriColors.gold)),
+            // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
+            if (widget.bonusPhrase != null) ...[
+              const SizedBox(height: Spacing.xl),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(Spacing.md),
+                decoration: BoxDecoration(
+                  color: SoriColors.highlight.withValues(alpha: 0.10),
+                  borderRadius: SoriRadius.brMd,
+                ),
+                child: Column(
+                  children: [
+                    Text(t.reviewBonusLabel,
+                        style: tt.label.copyWith(color: SoriColors.highlight)),
+                    const SizedBox(height: 6),
+                    Text(widget.bonusPhrase!.ko,
+                        textAlign: TextAlign.center, style: tt.h3),
+                    const SizedBox(height: 2),
+                    Text(
+                      widget.bonusPhrase!.translation(
+                          Localizations.localeOf(context).languageCode),
+                      textAlign: TextAlign.center,
+                      style: tt.bodySmall.copyWith(color: s.textMuted),
+                    ),
+                    const SizedBox(height: 8),
+                    GestureDetector(
+                      onTap: () => TtsService.speak(widget.bonusPhrase!.ko),
+                      child: const Icon(Icons.volume_up_rounded,
+                          color: SoriColors.highlight, size: 22),
+                    ),
+                  ],
+                ),
+              ),
+            ],
             const SizedBox(height: Spacing.xl),
             SoriButton.filled(
               label: t.btnClose,
