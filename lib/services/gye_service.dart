@@ -236,6 +236,137 @@ class GyeService {
       // best-effort
     }
   }
+
+  /// 계 메타 실시간 스트림 (없으면 null).
+  static Stream<GyeMeta?> metaStream(String id) {
+    final db = _db;
+    if (db == null) {
+      return Stream.value(null);
+    }
+    return db.collection(_collection).doc(id).snapshots().map(
+          (s) => s.exists ? GyeMeta.fromDoc(id, s.data()!) : null,
+        );
+  }
+
+  /// 피드 실시간 스트림 (최근 [limit]개, 최신순).
+  static Stream<List<GyeFeedEvent>> feedStream(String id, {int limit = 20}) {
+    final db = _db;
+    if (db == null) {
+      return Stream.value(const []);
+    }
+    return db
+        .collection(_collection)
+        .doc(id)
+        .collection('feed')
+        .orderBy('createdAt', descending: true)
+        .limit(limit)
+        .snapshots()
+        .map((q) =>
+            q.docs.map((d) => GyeFeedEvent.fromDoc(d.id, d.data())).toList());
+  }
+
+  /// 내가 속한 계 메타 목록 (입장 후 다시 들어가기용).
+  static Future<List<GyeMeta>> myGyeMetas() async {
+    final out = <GyeMeta>[];
+    for (final id in await myGyeIds()) {
+      final m = await fetchGye(id);
+      if (m != null) {
+        out.add(m);
+      }
+    }
+    return out;
+  }
+
+  /// 멤버 실시간 스트림.
+  static Stream<List<GyeMember>> membersStream(String id) {
+    final db = _db;
+    if (db == null) {
+      return Stream.value(const []);
+    }
+    return db
+        .collection(_collection)
+        .doc(id)
+        .collection('members')
+        .snapshots()
+        .map((q) =>
+            q.docs.map((d) => GyeMember.fromDoc(d.id, d.data())).toList());
+  }
+
+  /// 멤버 신고 — `reports`에 append. 본인 신고 불가. 실패 시 false.
+  /// (검토·자동 suspend는 3e/3f CF·운영 — 여기선 신고 접수만.)
+  static Future<bool> reportMember({
+    required String gyeId,
+    required String targetUid,
+    required GyeReportReason reason,
+    String note = '',
+  }) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null || uid == targetUid) {
+      return false;
+    }
+    try {
+      await db.collection(_collection).doc(gyeId).collection('reports').add(
+            GyeReport(
+              id: '',
+              reporterUid: uid,
+              targetUid: targetUid,
+              reason: reason,
+              note: note.trim(),
+            ).toCreateJson(),
+          );
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// 현재 사용자 uid (UI에서 본인 식별용).
+  static String? get currentUid => AuthService.current?.uid;
+
+  /// 클라 레이트 가드 — 분당 10개(인메모리). 일일 100개는 3e CF에서 강화.
+  static final List<DateTime> _recentStickerSends = [];
+
+  /// 스티커 전송 — 피드에 이벤트(type: sticker, payload.stickerCode) append.
+  /// 레이트 초과/실패 시 false.
+  static Future<bool> sendSticker({
+    required String gyeId,
+    required int code,
+  }) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return false;
+    }
+    final now = DateTime.now();
+    _recentStickerSends.removeWhere((tt) => now.difference(tt).inSeconds >= 60);
+    if (_recentStickerSends.length >= 10) {
+      return false;
+    }
+    final ref = db.collection(_collection).doc(gyeId);
+    var nickname = '';
+    try {
+      final m = await ref.collection('members').doc(uid).get();
+      nickname = m.data()?['nickname'] as String? ?? '';
+    } catch (_) {
+      // 닉네임 없이도 전송은 진행
+    }
+    try {
+      await ref.collection('feed').add(
+            GyeFeedEvent(
+              id: '',
+              type: GyeFeedType.sticker,
+              actorUid: uid,
+              actorNickname: nickname,
+              payload: {'stickerCode': code},
+            ).toCreateJson(),
+          );
+      _recentStickerSends.add(now);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
 }
 
 enum GyeError {

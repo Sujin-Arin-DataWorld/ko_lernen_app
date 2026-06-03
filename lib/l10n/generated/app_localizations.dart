@@ -1813,6 +1813,378 @@ abstract class AppL10n {
   /// **'{earned} von {total} Stempeln gesammelt'**
   String dojangProgress(int earned, int total);
 
+  /// No description provided for @gyeEntryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lern-Gye'**
+  String get gyeEntryTitle;
+
+  /// No description provided for @gyeEntryDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemeinsam ein Hanok bauen'**
+  String get gyeEntryDesc;
+
+  /// No description provided for @gyeChooserTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye (Lerngruppe)'**
+  String get gyeChooserTitle;
+
+  /// No description provided for @gyeChooserCreate.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye erstellen'**
+  String get gyeChooserCreate;
+
+  /// No description provided for @gyeChooserJoin.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Code beitreten'**
+  String get gyeChooserJoin;
+
+  /// No description provided for @gyeCreateTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye erstellen'**
+  String get gyeCreateTitle;
+
+  /// No description provided for @gyeJoinTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye beitreten'**
+  String get gyeJoinTitle;
+
+  /// No description provided for @gyeNameLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye-Name'**
+  String get gyeNameLabel;
+
+  /// No description provided for @gyeNameHint.
+  ///
+  /// In de, this message translates to:
+  /// **'z. B. Morgentiger'**
+  String get gyeNameHint;
+
+  /// No description provided for @gyeNicknameLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Spitzname'**
+  String get gyeNicknameLabel;
+
+  /// No description provided for @gyeNicknameHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird Gye-Mitgliedern angezeigt'**
+  String get gyeNicknameHint;
+
+  /// No description provided for @gyeCodeLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Beitrittscode'**
+  String get gyeCodeLabel;
+
+  /// No description provided for @gyeCodeInputLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'6-stelliger Code'**
+  String get gyeCodeInputLabel;
+
+  /// No description provided for @gyeCreateCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Erstellen'**
+  String get gyeCreateCta;
+
+  /// No description provided for @gyeJoinCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Beitreten'**
+  String get gyeJoinCta;
+
+  /// No description provided for @gyeCreatedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye erstellt!'**
+  String get gyeCreatedTitle;
+
+  /// No description provided for @gyeShareCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Code teilen'**
+  String get gyeShareCode;
+
+  /// No description provided for @gyeCopyCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Code kopieren'**
+  String get gyeCopyCode;
+
+  /// No description provided for @gyeCodeCopied.
+  ///
+  /// In de, this message translates to:
+  /// **'Code kopiert'**
+  String get gyeCodeCopied;
+
+  /// No description provided for @gyeShareMessage.
+  ///
+  /// In de, this message translates to:
+  /// **'Tritt meinem Hangul-Sori-Gye bei! Code: {code}'**
+  String gyeShareMessage(Object code);
+
+  /// No description provided for @gyeJoinedSnack.
+  ///
+  /// In de, this message translates to:
+  /// **'{name} beigetreten!'**
+  String gyeJoinedSnack(Object name);
+
+  /// No description provided for @gyeErrNetwork.
+  ///
+  /// In de, this message translates to:
+  /// **'Netzwerkfehler. Bitte erneut versuchen.'**
+  String get gyeErrNetwork;
+
+  /// No description provided for @gyeErrNotFound.
+  ///
+  /// In de, this message translates to:
+  /// **'Kein Gye für diesen Code gefunden.'**
+  String get gyeErrNotFound;
+
+  /// No description provided for @gyeErrFull.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Gye ist voll (max. 10).'**
+  String get gyeErrFull;
+
+  /// No description provided for @gyeErrTooMany.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst höchstens 3 Gye beitreten.'**
+  String get gyeErrTooMany;
+
+  /// No description provided for @gyeErrName.
+  ///
+  /// In de, this message translates to:
+  /// **'Bitte gib einen gültigen Gye-Namen ein.'**
+  String get gyeErrName;
+
+  /// No description provided for @gyeErrNickname.
+  ///
+  /// In de, this message translates to:
+  /// **'Bitte gib einen gültigen Spitznamen ein.'**
+  String get gyeErrNickname;
+
+  /// No description provided for @gyeErrProfanity.
+  ///
+  /// In de, this message translates to:
+  /// **'Bitte wähle ein anderes Wort.'**
+  String get gyeErrProfanity;
+
+  /// No description provided for @gyeOpenCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye öffnen'**
+  String get gyeOpenCta;
+
+  /// No description provided for @gyeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye'**
+  String get gyeTitle;
+
+  /// No description provided for @gyeNotFoundTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye nicht gefunden'**
+  String get gyeNotFoundTitle;
+
+  /// No description provided for @gyeNotFoundBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Gye wurde möglicherweise entfernt.'**
+  String get gyeNotFoundBody;
+
+  /// No description provided for @gyeMembersN.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Mitglieder'**
+  String gyeMembersN(int count);
+
+  /// No description provided for @gyeWeeklyGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Wochenziel'**
+  String get gyeWeeklyGoal;
+
+  /// No description provided for @gyeNoGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch kein Wochenziel'**
+  String get gyeNoGoal;
+
+  /// No description provided for @gyeFeedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktivität'**
+  String get gyeFeedTitle;
+
+  /// No description provided for @gyeFeedEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Aktivität. Schließt gemeinsam Pakete ab!'**
+  String get gyeFeedEmpty;
+
+  /// No description provided for @gyeFeedPackCleared.
+  ///
+  /// In de, this message translates to:
+  /// **'{name} hat ein Paket abgeschlossen'**
+  String gyeFeedPackCleared(Object name);
+
+  /// No description provided for @gyeFeedQuest.
+  ///
+  /// In de, this message translates to:
+  /// **'{name} hat eine Quest abgeschlossen'**
+  String gyeFeedQuest(Object name);
+
+  /// No description provided for @gyeFeedLevelUp.
+  ///
+  /// In de, this message translates to:
+  /// **'{name} ist aufgestiegen'**
+  String gyeFeedLevelUp(Object name);
+
+  /// No description provided for @gyeFeedSticker.
+  ///
+  /// In de, this message translates to:
+  /// **'{name} hat einen Sticker gesendet'**
+  String gyeFeedSticker(Object name);
+
+  /// No description provided for @gyeStickerSend.
+  ///
+  /// In de, this message translates to:
+  /// **'Sticker senden'**
+  String get gyeStickerSend;
+
+  /// No description provided for @gyeStickerRateLimited.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu viele Sticker — kurz langsamer.'**
+  String get gyeStickerRateLimited;
+
+  /// No description provided for @gyeStickerCatTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'Tiger'**
+  String get gyeStickerCatTiger;
+
+  /// No description provided for @gyeStickerCatMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'Elster'**
+  String get gyeStickerCatMagpie;
+
+  /// No description provided for @gyeStickerCatDancheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong'**
+  String get gyeStickerCatDancheong;
+
+  /// No description provided for @gyeStickerCatHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul'**
+  String get gyeStickerCatHangul;
+
+  /// No description provided for @gyeStickerCatFood.
+  ///
+  /// In de, this message translates to:
+  /// **'Essen'**
+  String get gyeStickerCatFood;
+
+  /// No description provided for @gyeStickerCatStamp.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel'**
+  String get gyeStickerCatStamp;
+
+  /// No description provided for @gyeLeave.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye verlassen'**
+  String get gyeLeave;
+
+  /// No description provided for @gyeLeaveConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Gye verlassen?'**
+  String get gyeLeaveConfirm;
+
+  /// No description provided for @gyeMembersTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mitglieder'**
+  String get gyeMembersTitle;
+
+  /// No description provided for @gyeMemberSelf.
+  ///
+  /// In de, this message translates to:
+  /// **'Du'**
+  String get gyeMemberSelf;
+
+  /// No description provided for @gyeRoleOwner.
+  ///
+  /// In de, this message translates to:
+  /// **'Leiter'**
+  String get gyeRoleOwner;
+
+  /// No description provided for @gyeReportTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mitglied melden'**
+  String get gyeReportTitle;
+
+  /// No description provided for @gyeReportReasonSpam.
+  ///
+  /// In de, this message translates to:
+  /// **'Spam'**
+  String get gyeReportReasonSpam;
+
+  /// No description provided for @gyeReportReasonInappropriate.
+  ///
+  /// In de, this message translates to:
+  /// **'Unangemessener Inhalt'**
+  String get gyeReportReasonInappropriate;
+
+  /// No description provided for @gyeReportReasonHarassment.
+  ///
+  /// In de, this message translates to:
+  /// **'Belästigung'**
+  String get gyeReportReasonHarassment;
+
+  /// No description provided for @gyeReportReasonOther.
+  ///
+  /// In de, this message translates to:
+  /// **'Sonstiges'**
+  String get gyeReportReasonOther;
+
+  /// No description provided for @gyeReportNoteHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Notiz (optional)'**
+  String get gyeReportNoteHint;
+
+  /// No description provided for @gyeReportSubmit.
+  ///
+  /// In de, this message translates to:
+  /// **'Melden'**
+  String get gyeReportSubmit;
+
+  /// No description provided for @gyeReportSent.
+  ///
+  /// In de, this message translates to:
+  /// **'Meldung gesendet. Danke.'**
+  String get gyeReportSent;
+
   /// No description provided for @bookResultOfflineNotice.
   ///
   /// In de, this message translates to:

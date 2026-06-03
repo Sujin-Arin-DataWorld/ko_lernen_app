@@ -120,11 +120,11 @@ function isOwner(uid) {
 // 계 멤버 여부 — 본인 멤버 문서 존재 검사.
 function isGyeMember(gyeId) {
   return request.auth != null
-    && exists(/databases/$(database)/documents/gye/$(gyeId)/members/$(request.auth.uid));
+    && exists(/databases/(default)/documents/gye/$(gyeId)/members/$(request.auth.uid));
 }
 
 // 계장 여부 — 메타 문서 ownerId 검사 (메타 미존재 시 get() 실패 → 거부).
 function isGyeOwner(gyeId) {
   return request.auth != null
-    && get(/databases/$(database)/documents/gye/$(gyeId)).data.ownerId == request.auth.uid;
+    && get(/databases/(default)/documents/gye/$(gyeId)).data.ownerId == request.auth.uid;
 }

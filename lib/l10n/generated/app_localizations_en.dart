@@ -941,6 +941,207 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get gyeEntryTitle => 'Study Gye';
+
+  @override
+  String get gyeEntryDesc => 'Build a hanok together';
+
+  @override
+  String get gyeChooserTitle => 'Gye (study group)';
+
+  @override
+  String get gyeChooserCreate => 'Create a Gye';
+
+  @override
+  String get gyeChooserJoin => 'Join with code';
+
+  @override
+  String get gyeCreateTitle => 'Create Gye';
+
+  @override
+  String get gyeJoinTitle => 'Join Gye';
+
+  @override
+  String get gyeNameLabel => 'Gye name';
+
+  @override
+  String get gyeNameHint => 'e.g. Morning Tigers';
+
+  @override
+  String get gyeNicknameLabel => 'Your nickname';
+
+  @override
+  String get gyeNicknameHint => 'Shown to gye members';
+
+  @override
+  String get gyeCodeLabel => 'Entry code';
+
+  @override
+  String get gyeCodeInputLabel => '6-digit code';
+
+  @override
+  String get gyeCreateCta => 'Create';
+
+  @override
+  String get gyeJoinCta => 'Join';
+
+  @override
+  String get gyeCreatedTitle => 'Gye created!';
+
+  @override
+  String get gyeShareCode => 'Share code';
+
+  @override
+  String get gyeCopyCode => 'Copy code';
+
+  @override
+  String get gyeCodeCopied => 'Code copied';
+
+  @override
+  String gyeShareMessage(Object code) {
+    return 'Join my Hangul Sori gye! Code: $code';
+  }
+
+  @override
+  String gyeJoinedSnack(Object name) {
+    return 'Joined $name!';
+  }
+
+  @override
+  String get gyeErrNetwork => 'Network error. Please try again.';
+
+  @override
+  String get gyeErrNotFound => 'No gye found for that code.';
+
+  @override
+  String get gyeErrFull => 'This gye is full (max 10).';
+
+  @override
+  String get gyeErrTooMany => 'You can join up to 3 gye.';
+
+  @override
+  String get gyeErrName => 'Please enter a valid gye name.';
+
+  @override
+  String get gyeErrNickname => 'Please enter a valid nickname.';
+
+  @override
+  String get gyeErrProfanity => 'Please choose a different word.';
+
+  @override
+  String get gyeOpenCta => 'Open gye';
+
+  @override
+  String get gyeTitle => 'Gye';
+
+  @override
+  String get gyeNotFoundTitle => 'Gye not found';
+
+  @override
+  String get gyeNotFoundBody => 'This gye may have been removed.';
+
+  @override
+  String gyeMembersN(int count) {
+    return '$count members';
+  }
+
+  @override
+  String get gyeWeeklyGoal => 'This week\'s goal';
+
+  @override
+  String get gyeNoGoal => 'No weekly goal set yet';
+
+  @override
+  String get gyeFeedTitle => 'Activity';
+
+  @override
+  String get gyeFeedEmpty =>
+      'No activity yet. Clear packs together to grow the courtyard!';
+
+  @override
+  String gyeFeedPackCleared(Object name) {
+    return '$name cleared a pack';
+  }
+
+  @override
+  String gyeFeedQuest(Object name) {
+    return '$name completed a quest';
+  }
+
+  @override
+  String gyeFeedLevelUp(Object name) {
+    return '$name leveled up';
+  }
+
+  @override
+  String gyeFeedSticker(Object name) {
+    return '$name sent a sticker';
+  }
+
+  @override
+  String get gyeStickerSend => 'Send sticker';
+
+  @override
+  String get gyeStickerRateLimited => 'Too many stickers — slow down a moment.';
+
+  @override
+  String get gyeStickerCatTiger => 'Tiger';
+
+  @override
+  String get gyeStickerCatMagpie => 'Magpie';
+
+  @override
+  String get gyeStickerCatDancheong => 'Dancheong';
+
+  @override
+  String get gyeStickerCatHangul => 'Hangul';
+
+  @override
+  String get gyeStickerCatFood => 'Food';
+
+  @override
+  String get gyeStickerCatStamp => 'Stamps';
+
+  @override
+  String get gyeLeave => 'Leave gye';
+
+  @override
+  String get gyeLeaveConfirm => 'Leave this gye?';
+
+  @override
+  String get gyeMembersTitle => 'Members';
+
+  @override
+  String get gyeMemberSelf => 'You';
+
+  @override
+  String get gyeRoleOwner => 'Owner';
+
+  @override
+  String get gyeReportTitle => 'Report member';
+
+  @override
+  String get gyeReportReasonSpam => 'Spam';
+
+  @override
+  String get gyeReportReasonInappropriate => 'Inappropriate content';
+
+  @override
+  String get gyeReportReasonHarassment => 'Harassment';
+
+  @override
+  String get gyeReportReasonOther => 'Other';
+
+  @override
+  String get gyeReportNoteHint => 'Note (optional)';
+
+  @override
+  String get gyeReportSubmit => 'Report';
+
+  @override
+  String get gyeReportSent => 'Report submitted. Thank you.';
+
+  @override
   String get bookResultOfflineNotice =>
       'Server unreachable — only grammar patterns detected offline.';
 

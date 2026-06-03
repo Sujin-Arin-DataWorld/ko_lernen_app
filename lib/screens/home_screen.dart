@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/gye.dart';
 import '../models/hanok_stage.dart';
 import '../models/scenario.dart';
 import '../services/data_loader.dart';
+import '../services/gye_service.dart';
 import '../services/daily_char_service.dart';
 import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
@@ -1653,12 +1655,79 @@ class _ModulesGrid extends StatelessWidget {
               ),
             ),
             const SizedBox(width: Spacing.md),
-            const Expanded(child: SizedBox()),
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.groups_2_outlined,
+                title: t.gyeEntryTitle,
+                subtitle: t.gyeEntryDesc,
+                accent: SoriColors.primary,
+                onTap: () => showGyeChooser(context),
+              ),
+            ),
           ],
         ),
       ],
     );
   }
+}
+
+/// 계(契) 진입 — 내 계 목록 + 만들기/입장 선택 바텀시트. plan §7.3.
+void showGyeChooser(BuildContext context) {
+  final t = AppL10n.of(context);
+  showModalBottomSheet<void>(
+    context: context,
+    builder: (sheetCtx) => SafeArea(
+      child: FutureBuilder<List<GyeMeta>>(
+        future: GyeService.myGyeMetas(),
+        builder: (ctx, snap) {
+          final mine = snap.data ?? const <GyeMeta>[];
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: Spacing.md),
+              Text(
+                t.gyeChooserTitle,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: Spacing.sm),
+              for (final g in mine)
+                ListTile(
+                  leading: const Icon(Icons.groups_2_outlined,
+                      color: SoriColors.primary),
+                  title: Text(g.name),
+                  subtitle: Text(g.code),
+                  onTap: () {
+                    Navigator.of(sheetCtx).pop();
+                    Navigator.of(context).pushNamed('/gye', arguments: g.id);
+                  },
+                ),
+              if (mine.isNotEmpty) const Divider(height: 1),
+              ListTile(
+                leading: const Icon(Icons.add_home_outlined,
+                    color: SoriColors.primary),
+                title: Text(t.gyeChooserCreate),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  Navigator.of(context).pushNamed('/gye/create');
+                },
+              ),
+              ListTile(
+                leading:
+                    const Icon(Icons.login_rounded, color: SoriColors.info),
+                title: Text(t.gyeChooserJoin),
+                onTap: () {
+                  Navigator.of(sheetCtx).pop();
+                  Navigator.of(context).pushNamed('/gye/join');
+                },
+              ),
+              const SizedBox(height: Spacing.sm),
+            ],
+          );
+        },
+      ),
+    ),
+  );
 }
 
 class _GamesGrid extends StatelessWidget {

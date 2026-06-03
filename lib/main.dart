@@ -34,6 +34,10 @@ import 'screens/custom_pack_typing_screen.dart';
 import 'screens/wordbook_search_screen.dart';
 import 'screens/hard_words_screen.dart';
 import 'screens/dojangcheop_screen.dart';
+import 'screens/gye_create_screen.dart';
+import 'screens/gye_join_screen.dart';
+import 'screens/gye_members_screen.dart';
+import 'screens/gye_screen.dart';
 import 'screens/learning_path_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
@@ -315,6 +319,20 @@ class KoLernenApp extends StatelessWidget {
             case '/dojangcheop':
               return SoriTransitions.fadeScale(
                   (_) => const DojangcheopScreen(), settings: settings);
+            case '/gye/create':
+              return SoriTransitions.fadeScale(
+                  (_) => const GyeCreateScreen(), settings: settings);
+            case '/gye/join':
+              return SoriTransitions.fadeScale(
+                  (_) => const GyeJoinScreen(), settings: settings);
+            case '/gye':
+              final gyeId = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => GyeScreen(gyeId: gyeId), settings: settings);
+            case '/gye/members':
+              final gyeId = settings.arguments as String? ?? '';
+              return SoriTransitions.fadeScale(
+                  (_) => GyeMembersScreen(gyeId: gyeId), settings: settings);
             case '/path':
               return SoriTransitions.fadeScale(
                   (_) => const LearningPathScreen(), settings: settings);

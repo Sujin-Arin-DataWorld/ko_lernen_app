@@ -64,6 +64,9 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/custom_pack/edit·quiz·matching·typing` (args: packId) | 커스텀팩 편집 / 4지선다 / 짝맞추기 / 받아쓰기 |
 | `/wordbook/search` | WordbookSearchScreen (내 저장 단어 통합 검색 + 품사 필터 — 2026-06-03) |
 | `/dojangcheop` | DojangcheopScreen (도장첩 — 팩 클리어로 획득한 단청 도장 8 motif 갤러리. 진입: VocabPacksScreen AppBar) |
+| `/gye/create` | GyeCreateScreen (계 만들기 — 이름·닉네임→6자리 코드 생성·공유) |
+| `/gye/join` | GyeJoinScreen (계 입장 — 코드+닉네임 가입). 진입: 홈 둘러보기 "Lern-Gye" 카드→chooser 바텀시트 |
+| `/gye` (args: gyeId) | GyeScreen (계 마당 — 멤버수·주간목표바·공동한옥(gye_* 8 합성)·피드·스티커 FAB·나가기). 생성/입장 성공 시 진입 |
 
 ### 서비스
 - `lib/services/auth_service.dart` — Hybrid Auth. 항상 익명 로그인, Google 링크 선택. **주의**: web에서 Firebase 미설정 시 crash 방지를 위해 `_auth`가 nullable getter임.
@@ -306,6 +309,39 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-03 (Tier 3c+3d) — 계 마당 + 공동 한옥 + 스티커 (모든 자산 표시 완료)
+
+**범위:** 계 UI 본체 + 스티커. **이로써 "누락이미지" 미연결 자산 전부 화면 노출**(책5·도장8·gye8·스티커30).
+
+**Update:**
+1. **3c 계 마당** — `lib/screens/gye_screen.dart`(meta·feed Firestore stream): 상단 멤버수+`weekly_goal_bar.dart`, 중간 `gye_hanok.dart`, 하단 `gye_feed.dart`, FAB 스티커, ⋮나가기. `gye_hanok.dart`=`MadangBackground`(jongga)+**gye_* 8장** `Positioned` 분수좌표 합성(잠금=ghost 0.22라 8장 모두 노출). unlock=placeholder(`weeklyGoalProgress~/3`, 3e CF가 합산으로 대체). 좌표 시안값=Jin 육안 튜닝.
+2. **3d 스티커** — `lib/data/sticker_catalog.dart`(30종 코드↔자산) + `lib/widgets/sori/sticker_picker.dart`(6탭 그리드). `GyeService.sendSticker`(분당10 인메모리 레이트 + feed에 type:sticker append). `gye_feed.dart`가 sticker 이벤트를 **스티커 이미지**로 렌더.
+3. **계 나가기** — gye_screen ⋮ → 확인 → `leaveGye` → 홈. `GyeService` 추가: `metaStream`·`feedStream`·`myGyeMetas`·`sendSticker`.
+4. 라우트 `/gye`(args gyeId), 생성/입장 성공→`/gye`, 홈 chooser가 내 계 목록 표시. l10n `gye*` 화면/피드/스티커 ~28키(parity).
+
+**검증:** `flutter gen-l10n` · `flutter analyze lib/` **0** · `flutter test` **255**. ⚠️ **Firestore 실데이터/멀티유저/시각 미검증**(Jin: 2계정). 피드·주간목표 자동집계는 **3e CF 대기**(현재 stickers·placeholder만).
+
+**남음(Jin 백엔드/정책 도메인):** **3e** Cloud Functions(`functions_framework` gen2 — `onPackCleared` Firestore 트리거로 weeklyGoalProgress 합산+pack_cleared 피드, `weeklyGoalRollover` 스케줄) + FCM. **3f** 신고 UI(모델·rules는 준비됨)·자동 suspend·계정삭제 시 gye 멤버십 정리(GDPR)·약관. 내가 배포·정책 불가라 spec 제공.
+
+**Git push:** 미수행.
+
+### 2026-06-03 (Tier 3b) — 계(契) 생성·입장 화면 + 홈 진입
+
+**범위:** Tier 3a 토대 위 UI. Rules는 Jin이 클라우드 배포 완료(커밋 `1d74d0b`).
+
+**Update:**
+1. `lib/screens/gye_create_screen.dart` — 이름·닉네임 입력 → `GyeService.createGye` → 6자리 코드 hero + 공유(`Share.share`)/복사/닫기. busy 시 progress.
+2. `lib/screens/gye_join_screen.dart` — 코드(대문자)+닉네임 → `GyeService.joinGye` → 성공 스낵바+pop(true). (계 마당은 3c — 여기선 가입 확인까지.)
+3. `lib/l10n/gye_error_text.dart` — `GyeError`→현지화 메시지 공유 헬퍼.
+4. routes `/gye/create`·`/gye/join` + 홈 둘러보기 빈 슬롯에 "Lern-Gye" 카드 → `showGyeChooser` 바텀시트(만들기/입장).
+5. l10n `gye*` ~30키(de=en parity, `@gyeShareMessage`/`@gyeJoinedSnack` placeholders 양쪽).
+
+**검증:** `flutter gen-l10n` OK · `flutter analyze lib/` **0** · `flutter test` **255 통과**. ⚠️ **계 생성/입장 실제 플로우는 Firestore 필요 → 미검증**(Jin: 2계정 실기기 + rules 배포됨). 화면 시각도 Jin. 순수 로직(코드·검증)은 3a 단위테스트 커버.
+
+**남음:** 3c 계 마당+공동한옥(gye 8 표시) · 3d 스티커(30 표시) · 3e CF+FCM · 3f 모더레이션/GDPR.
+
+**Git push:** 미수행 (3b 미커밋 — Jin 확인 후).
 
 ### 2026-06-03 (Tier 3a) — 계(契) 백엔드 토대 (모델·서비스·rules·욕설필터)
 
