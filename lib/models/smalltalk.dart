@@ -30,6 +30,10 @@ class SmalltalkPhrase {
   final String de;
   final String en;
 
+  /// Beispielantwort für die Catch-ball-Übung (Frage → Antwort). Nur bei
+  /// Fragen gesetzt; sonst null.
+  final SmalltalkReply? reply;
+
   const SmalltalkPhrase({
     required this.category,
     required this.level,
@@ -37,6 +41,7 @@ class SmalltalkPhrase {
     required this.ko,
     required this.de,
     required this.en,
+    this.reply,
   });
 
   factory SmalltalkPhrase.fromJson(Map<String, dynamic> j) => SmalltalkPhrase(
@@ -46,8 +51,27 @@ class SmalltalkPhrase {
         ko: j['ko'] as String? ?? '',
         de: j['de'] as String? ?? '',
         en: j['en'] as String? ?? '',
+        reply: j['reply'] is Map<String, dynamic>
+            ? SmalltalkReply.fromJson(j['reply'] as Map<String, dynamic>)
+            : null,
       );
 
   /// Übersetzung je nach UI-Sprache ('de' → Deutsch, sonst Englisch).
+  String translation(String lang) => lang == 'de' ? de : en;
+}
+
+/// Beispielantwort für die Catch-ball-Übung (Frage → Antwort).
+class SmalltalkReply {
+  final String ko;
+  final String de;
+  final String en;
+  const SmalltalkReply({required this.ko, required this.de, required this.en});
+
+  factory SmalltalkReply.fromJson(Map<String, dynamic> j) => SmalltalkReply(
+        ko: j['ko'] as String? ?? '',
+        de: j['de'] as String? ?? '',
+        en: j['en'] as String? ?? '',
+      );
+
   String translation(String lang) => lang == 'de' ? de : en;
 }

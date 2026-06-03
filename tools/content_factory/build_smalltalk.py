@@ -178,6 +178,78 @@ P = [
 LEVELS = {"a1", "a2", "b1", "b2"}
 KINDS = {"opener", "question", "reaction"}
 
+# 모범 답변 (캐치볼 연습) — 질문 ko → (ko, de, en). 자연스러운 한 줄 응답.
+REPLIES = {
+    "주말에 날씨 좋을까요?": ("네, 맑을 것 같아요.", "Ja, es wird wohl sonnig.", "Yeah, looks like it'll be sunny."),
+    "오늘 하루 어떠셨어요?": ("바빴지만 괜찮았어요.", "Anstrengend, aber okay.", "Busy, but it was okay."),
+    "주말에 뭐 해요?": ("보통 집에서 쉬어요.", "Meist ruh ich mich zu Hause aus.", "I usually rest at home."),
+    "이번 주말에 뭐 할 거예요?": ("친구를 만날 거예요.", "Ich treffe einen Freund.", "I'm going to meet a friend."),
+    "보통 쉬는 날엔 어떻게 시간 보내세요?": ("산책하거나 책을 읽어요.", "Ich gehe spazieren oder lese.", "I go for a walk or read."),
+    "주말에 별 계획 없으면 같이 바람이나 쐬러 갈까요?": ("좋아요, 그래요!", "Gerne, machen wir!", "Sure, let's do it!"),
+    "점심 뭐 먹었어요?": ("김치찌개 먹었어요.", "Kimchi-Eintopf.", "I had kimchi stew."),
+    "요즘 맛있게 먹은 음식 있어요?": ("어제 먹은 파스타가 맛있었어요.", "Die Pasta gestern war lecker.", "The pasta I had yesterday was great."),
+    "커피 마셨어요?": ("네, 아침에 한 잔 마셨어요.", "Ja, morgens eine Tasse.", "Yes, I had a cup this morning."),
+    "요즘 무슨 드라마 봐요?": ("요즘 한국 드라마 보고 있어요.", "Gerade eine koreanische Serie.", "I'm watching a Korean drama these days."),
+    "넷플릭스에 볼 만한 거 있어요?": ("요즘 이거 인기 많아요.", "Das hier ist gerade beliebt.", "This one's popular right now."),
+    "요즘 통 볼 만한 게 없던데, 혹시 추천해 줄 거 있어요?": ("이 드라마 한번 봐 보세요.", "Probier mal diese Serie.", "Try this drama."),
+    "무슨 음악 좋아해요?": ("케이팝이랑 발라드 좋아해요.", "K-Pop und Balladen.", "I like K-pop and ballads."),
+    "즐겨 듣는 음악 장르가 있으세요?": ("주로 재즈를 들어요.", "Hauptsächlich Jazz.", "Mostly jazz."),
+    "취미가 뭐예요?": ("사진 찍는 거 좋아해요.", "Ich fotografiere gern.", "I like taking photos."),
+    "시간 있을 때 보통 뭐 해요?": ("보통 영화를 봐요.", "Meist schaue ich Filme.", "I usually watch movies."),
+    "퇴근 후엔 주로 뭐 하면서 쉬세요?": ("음악 들으면서 쉬어요.", "Ich entspanne mit Musik.", "I relax by listening to music."),
+    "스트레스 받을 때 푸는 본인만의 방법이 있으세요?": ("운동을 하면 좀 풀려요.", "Sport hilft mir dabei.", "Exercising helps me."),
+    "어디로 여행 가고 싶어요?": ("제주도에 가고 싶어요.", "Nach Jeju.", "I want to go to Jeju."),
+    "가장 기억에 남는 여행지가 어디예요?": ("부산이 제일 기억에 남아요.", "Busan.", "Busan is the most memorable."),
+    "일 많아요?": ("네, 요즘 좀 바빠요.", "Ja, gerade ziemlich viel.", "Yeah, pretty busy lately."),
+    "요즘 무슨 일 해요?": ("회사에서 마케팅 일 해요.", "Ich arbeite im Marketing.", "I work in marketing."),
+    "일하면서 가장 보람 있을 때가 언제예요?": ("결과가 좋을 때 보람 있어요.", "Wenn die Ergebnisse gut sind.", "When the results turn out well."),
+    "가족이 많아요?": ("네 명이에요.", "Wir sind vier.", "There are four of us."),
+    "주말에 가족이랑 뭐 해요?": ("같이 밥 먹고 산책해요.", "Wir essen und spazieren zusammen.", "We eat and take walks together."),
+    "가족이랑 자주 연락하는 편이세요?": ("네, 거의 매일 연락해요.", "Ja, fast täglich.", "Yes, almost every day."),
+    "운동 좋아해요?": ("네, 좋아해요.", "Ja, sehr.", "Yes, I do."),
+    "보통 무슨 운동 해요?": ("주로 달리기를 해요.", "Ich laufe meistens.", "I mostly run."),
+    "건강을 위해 따로 하는 운동 있으세요?": ("요가를 하고 있어요.", "Ich mache Yoga.", "I do yoga."),
+    "우산 가져왔어요?": ("네, 챙겨 왔어요.", "Ja, hab ich dabei.", "Yes, I brought one."),
+    "오늘 컨디션 어때요?": ("좀 피곤하지만 괜찮아요.", "Etwas müde, aber okay.", "A bit tired, but okay."),
+    "매운 거 잘 먹어요?": ("네, 매운 거 좋아해요.", "Ja, ich mag scharf.", "Yes, I love spicy food."),
+    "이 근처에 맛집 좀 아세요?": ("저기 분식집이 맛있어요.", "Der Imbiss da drüben ist gut.", "That snack place over there is good."),
+    "잘 잤어요?": ("네, 푹 잤어요.", "Ja, gut geschlafen.", "Yes, I slept well."),
+    "주말에 영화 봤어요?": ("네, 한 편 봤어요.", "Ja, einen Film.", "Yes, I watched one."),
+    "최근에 본 것 중에 추천할 만한 거 있어요?": ("이거 진짜 재밌었어요.", "Das war echt gut.", "This one was really good."),
+    "콘서트 가 본 적 있어요?": ("네, 작년에 가 봤어요.", "Ja, letztes Jahr.", "Yes, last year."),
+    "기분 안 좋을 때 듣는 노래 있어요?": ("네, 잔잔한 노래 들어요.", "Ja, ruhige Lieder.", "Yes, I listen to calm songs."),
+    "요즘 새로 배우는 거 있어요?": ("요즘 기타 배워요.", "Ich lerne gerade Gitarre.", "I'm learning guitar these days."),
+    "휴가 때 어디 갔어요?": ("바다에 다녀왔어요.", "Ans Meer.", "I went to the beach."),
+    "여행은 혼자 가는 편이에요, 같이 가는 편이에요?": ("보통 친구랑 같이 가요.", "Meist mit Freunden.", "Usually with friends."),
+    "일 끝나고 뭐 해요?": ("집에 가서 쉬어요.", "Ich geh heim und ruh mich aus.", "I go home and rest."),
+    "부모님 잘 계세요?": ("네, 잘 지내세요.", "Ja, es geht ihnen gut.", "Yes, they're doing well."),
+    "형제 있어요?": ("네, 동생 한 명 있어요.", "Ja, ein jüngeres Geschwister.", "Yes, one younger sibling."),
+    "명절엔 보통 가족이랑 보내세요?": ("네, 가족이랑 모여요.", "Ja, wir kommen zusammen.", "Yes, we gather as a family."),
+    "요즘 잘 자요?": ("네, 잘 자요.", "Ja, ganz gut.", "Yes, pretty well."),
+    "어떤 아이돌 좋아해요?": ("저는 이 그룹 좋아해요.", "Ich mag diese Gruppe.", "I like this group."),
+    "콘서트 표 구했어요?": ("네, 겨우 구했어요!", "Ja, gerade so!", "Yes, barely got one!"),
+    "요즘 어떤 그룹 노래 많이 들어요?": ("요즘 이 그룹 많이 들어요.", "Gerade viel diese Gruppe.", "I'm listening to this group a lot."),
+    "최애가 누구예요?": ("저는 메인보컬이 최애예요.", "Mein Bias ist der Hauptsänger.", "My bias is the main vocalist."),
+    "남자친구 있어요?": ("아니요, 없어요.", "Nein, hab ich nicht.", "No, I don't."),
+    "여자친구 있어요?": ("네, 있어요.", "Ja, hab ich.", "Yes, I do."),
+    "어떤 사람 좋아해요?": ("유머 있는 사람이 좋아요.", "Ich mag humorvolle Menschen.", "I like people with a sense of humor."),
+    "소개팅 해 봤어요?": ("네, 몇 번 해 봤어요.", "Ja, ein paar Mal.", "Yes, a few times."),
+    "이상형이 어떻게 돼요?": ("착하고 잘 웃는 사람이요.", "Nett und fröhlich.", "Someone kind who smiles a lot."),
+    "요즘 만나는 사람 있어요?": ("아니요, 요즘은 없어요.", "Nein, gerade nicht.", "No, not at the moment."),
+    "면접 언제예요?": ("다음 주 월요일이에요.", "Nächsten Montag.", "Next Monday."),
+    "어디 지원했어요?": ("IT 회사에 지원했어요.", "Bei einer IT-Firma.", "I applied to an IT company."),
+    "면접 준비 많이 했어요?": ("네, 열심히 준비했어요.", "Ja, ich hab fleißig geübt.", "Yes, I prepared hard."),
+    "자기소개는 어떻게 준비했어요?": ("경험 위주로 준비했어요.", "Hauptsächlich über meine Erfahrung.", "I focused on my experience."),
+}
+
+
+def _phrase(cat, lvl, kind, ko, de, en):
+    p = {"category": cat, "level": lvl, "kind": kind, "ko": ko, "de": de, "en": en}
+    if ko in REPLIES:
+        r = REPLIES[ko]
+        p["reply"] = {"ko": r[0], "de": r[1], "en": r[2]}
+    return p
+
 
 def main():
     write = "--write" in sys.argv
@@ -210,8 +282,7 @@ def main():
             for c in CATS
         ],
         "phrases": [
-            {"category": cat, "level": lvl, "kind": kind,
-             "ko": ko, "de": de, "en": en}
+            _phrase(cat, lvl, kind, ko, de, en)
             for (cat, lvl, kind, ko, de, en) in P
         ],
     }

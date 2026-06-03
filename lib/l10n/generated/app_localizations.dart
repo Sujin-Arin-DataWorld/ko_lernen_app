@@ -373,6 +373,12 @@ abstract class AppL10n {
   /// **'Keine Sätze für diese Auswahl.'**
   String get smalltalkEmpty;
 
+  /// No description provided for @smalltalkReply.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispielantwort'**
+  String get smalltalkReply;
+
   /// No description provided for @homeSmalltalkCardTitle.
   ///
   /// In de, this message translates to:

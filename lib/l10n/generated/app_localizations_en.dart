@@ -153,6 +153,9 @@ class AppL10nEn extends AppL10n {
   String get smalltalkEmpty => 'No phrases for this selection.';
 
   @override
+  String get smalltalkReply => 'Sample answer';
+
+  @override
   String get homeSmalltalkCardTitle => 'Small talk';
 
   @override

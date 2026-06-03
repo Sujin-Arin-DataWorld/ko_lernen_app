@@ -149,7 +149,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen> {
       );
 }
 
-class _PhraseCard extends StatelessWidget {
+class _PhraseCard extends StatefulWidget {
   final SmalltalkPhrase p;
   final String lang;
   final Color levelColor;
@@ -160,70 +160,163 @@ class _PhraseCard extends StatelessWidget {
   });
 
   @override
+  State<_PhraseCard> createState() => _PhraseCardState();
+}
+
+class _PhraseCardState extends State<_PhraseCard> {
+  bool _showReply = false;
+
+  @override
   Widget build(BuildContext context) {
+    final p = widget.p;
+    final lang = widget.lang;
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
+    final hasReply = p.reply != null;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.md),
       child: SoriCard(
         variant: SoriCardVariant.base,
-        onTap: () => TtsService.speak(p.ko),
-        child: Row(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Column(
+            // Frage/Satz — tippen spricht Koreanisch.
+            InkWell(
+              onTap: () => TtsService.speak(p.ko),
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    p.ko,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 17,
-                      fontWeight: FontWeight.w800,
-                      color: s.text,
-                      height: 1.3,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          p.ko,
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            fontSize: 17,
+                            fontWeight: FontWeight.w800,
+                            color: s.text,
+                            height: 1.3,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          p.translation(lang),
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            fontSize: 13,
+                            color: s.textMuted,
+                            height: 1.35,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    p.translation(lang),
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 13,
-                      color: s.textMuted,
-                      height: 1.35,
-                    ),
+                  const SizedBox(width: Spacing.sm),
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 7, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: widget.levelColor.withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(SoriRadius.pill),
+                        ),
+                        child: Text(
+                          p.level.toUpperCase(),
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            fontSize: 10,
+                            fontWeight: FontWeight.w900,
+                            color: widget.levelColor,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Icon(Icons.volume_up_rounded,
+                          color: SoriColors.primary.withValues(alpha: 0.7),
+                          size: 20),
+                    ],
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: Spacing.sm),
-            Column(
-              children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: levelColor.withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(SoriRadius.pill),
+            // Catch-ball: Beispielantwort (nur bei Fragen).
+            if (hasReply) ...[
+              const SizedBox(height: Spacing.xs),
+              if (!_showReply)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    onPressed: () => setState(() => _showReply = true),
+                    icon: const Icon(Icons.chat_bubble_outline_rounded,
+                        size: 16),
+                    label: Text(t.smalltalkReply),
                   ),
-                  child: Text(
-                    p.level.toUpperCase(),
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 10,
-                      fontWeight: FontWeight.w900,
-                      color: levelColor,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Icon(Icons.volume_up_rounded,
-                    color: SoriColors.primary.withValues(alpha: 0.7), size: 20),
-              ],
-            ),
+                )
+              else
+                _ReplyView(reply: p.reply!, lang: lang),
+            ],
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _ReplyView extends StatelessWidget {
+  final SmalltalkReply reply;
+  final String lang;
+  const _ReplyView({required this.reply, required this.lang});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(Spacing.md),
+      decoration: BoxDecoration(
+        color: SoriColors.primary.withValues(alpha: 0.08),
+        borderRadius: SoriRadius.brSm,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '💬 ${reply.ko}',
+                  style: const TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: SoriColors.primaryOnLight,
+                    height: 1.3,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  reply.translation(lang),
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 12.5,
+                    color: s.textMuted,
+                    height: 1.3,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () => TtsService.speak(reply.ko),
+            child: Icon(Icons.volume_up_rounded,
+                color: SoriColors.primary.withValues(alpha: 0.7), size: 20),
+          ),
+        ],
       ),
     );
   }
