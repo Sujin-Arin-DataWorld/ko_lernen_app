@@ -83,6 +83,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 61팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
 - **한옥/퀘스트 (Phase 3·4)**: `lib/services/hanok_stage_service.dart` (진행도→한옥 12단계), `quest_tracker.dart` (특별 퀘스트), `daily_char_service.dart` (오늘의 글자).
 - **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
+- **계(契) (Phase 6, Tier 3a — 토대만)**: `lib/services/gye_service.dart` (계 CRUD·6자리 코드·가입한도 3계/계10명·욕설검증, `SharedPackService` 패턴 mirror) + `lib/models/gye.dart` (GyeMeta/Member/FeedEvent/Sticker/Report) + `lib/data/profanity_denylist.dart` (KO/DE/EN 스타터 + `containsProfanity`). `firestore.rules`의 `gye/{gyeId}` 활성화(메타=bearer read·멤버/피드/스티커=멤버전용·append-only). **UI 미구현**(3b 생성/입장·3c 마당+공동한옥·3d 스티커·3e CF·3f 모더레이션 후속).
 
 ### Sori 디자인 시스템 (`lib/widgets/sori/`)
 - `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`, **`SoriBreakpoints`(content=480·grid=600 반응형 폭 클램프)**
@@ -305,6 +306,20 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-03 (Tier 3a) — 계(契) 백엔드 토대 (모델·서비스·rules·욕설필터)
+
+**범위:** 미연결 자산 기능화 plan의 **Tier 3a**(계+스티커 풀백엔드의 데이터/서비스/보안 토대). UI(3b~)·CF(3e)·모더레이션(3f)은 후속. Tier 1+2는 직전 커밋 `5efc994`에 포함.
+
+**Update:**
+1. `lib/models/gye.dart` — `GyeMeta`/`GyeMember`/`GyeFeedEvent`/`GyeSticker`/`GyeReport` + enums(role/status/feedType wire/reportReason), fromDoc/toCreateJson (§7.2 스키마).
+2. `lib/services/gye_service.dart` — `SharedPackService` 패턴 mirror: nullable `_db`, 6자리 bearer 코드(혼동글자 제외)+충돌 재시도, `createGye`/`joinGye`/`fetchGye`/`leaveGye`/`myGyeIds`. 한도 계10명·유저3계, 이름/닉 길이+욕설 검증. 멤버십 인덱스=`users/{uid}.gyeIds`(collectionGroup 회피).
+3. `lib/data/profanity_denylist.dart` — KO/DE/EN 스타터 deny-list + `containsProfanity`(정규화 시 **한글 보존**: 공백/구분기호만 제거).
+4. `firestore.rules` `gye/{gyeId}` 활성화: 메타 read=인증(bearer 코드, 가입 전 미리보기)·create=본인 owner·update=계장 전체 or memberCount 단일필드·members/feed/stickers/reports=멤버/계장 게이트·feed/sticker append-only. helper `isGyeMember`/`isGyeOwner`. ⚠️ 인원상한·memberCount 정밀화는 3e CF에서 강화.
+
+**검증:** `flutter analyze lib/` **0** · `flutter test` **255 통과**(신규 `gye_service_test` 7: 코드 생성/포맷·이름검증·욕설 KO/DE/EN). Firestore CRUD·rules는 **에뮬레이터/실기기 미검증**(Jin: `firebase emulators` rules 테스트 + 2계정). UI 없어 앱 동작 변화 0.
+
+**Git push:** 미수행 (Tier 3a 미커밋 — Jin 확인 후).
 
 ### 2026-06-03 (Tier 1+2) — 책 상태 일러스트 연결 + 도장 PNG + 도장첩 화면
 

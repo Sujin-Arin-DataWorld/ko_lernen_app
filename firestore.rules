@@ -39,12 +39,57 @@ service cloud.firestore {
       allow write: if false; // Cloud Function (admin SDK) 만
     }
 
-    // ── Gye (Phase 6+) — 미래 확장 ────────────────────────────────────
-    // 현재 단계에선 모두 차단. Phase 6 에서 활성화.
+    // ── Gye (Phase 6) — 계(契) 그룹 ───────────────────────────────────
+    // gyeId == 6자리 입장 코드(bearer). 메타는 코드를 아는 인증 사용자면
+    // read(가입 전 미리보기); 멤버 명단·피드·스티커는 멤버 전용.
+    // memberCount/weeklyGoalProgress 정밀화 + 인원 상한은 3e Cloud Function.
     match /gye/{gyeId} {
-      allow read, write: if false;
-      match /{document=**} {
-        allow read, write: if false;
+      allow read: if request.auth != null; // 코드 보유 = bearer (미리보기)
+      allow create: if request.auth != null
+        && request.resource.data.ownerId == request.auth.uid
+        && request.resource.data.code == gyeId
+        && request.resource.data.memberCount == 1;
+      // 계장은 전체 수정; 멤버는 memberCount 단일 필드만(가입/탈퇴 카운트).
+      allow update: if isGyeOwner(gyeId)
+        || (request.auth != null
+            && request.resource.data.diff(resource.data).affectedKeys()
+                 .hasOnly(['memberCount'])
+            && request.resource.data.memberCount is int);
+      allow delete: if isGyeOwner(gyeId);
+
+      match /members/{memberUid} {
+        allow read: if isGyeMember(gyeId);
+        // 가입 = 본인 멤버 문서 생성.
+        allow create: if request.auth != null
+          && request.auth.uid == memberUid
+          && request.resource.data.nickname is string
+          && request.resource.data.nickname.size() <= 20;
+        allow update: if request.auth.uid == memberUid || isGyeOwner(gyeId);
+        allow delete: if request.auth.uid == memberUid || isGyeOwner(gyeId);
+      }
+
+      match /feed/{eventId} {
+        allow read: if isGyeMember(gyeId);
+        allow create: if isGyeMember(gyeId)
+          && request.resource.data.actorUid == request.auth.uid;
+        allow update, delete: if false; // Cloud Function(admin)만 정리
+      }
+
+      match /stickers/{stickerId} {
+        allow read: if isGyeMember(gyeId);
+        allow create: if isGyeMember(gyeId)
+          && request.resource.data.senderUid == request.auth.uid
+          && request.resource.data.stickerCode is int
+          && request.resource.data.stickerCode >= 1
+          && request.resource.data.stickerCode <= 30;
+        allow update, delete: if false;
+      }
+
+      match /reports/{reportId} {
+        allow read: if isGyeOwner(gyeId);
+        allow create: if isGyeMember(gyeId)
+          && request.resource.data.reporterUid == request.auth.uid;
+        allow update, delete: if false;
       }
     }
 
@@ -70,4 +115,16 @@ service cloud.firestore {
 // ── 헬퍼 ───────────────────────────────────────────────────────────────
 function isOwner(uid) {
   return request.auth != null && request.auth.uid == uid;
+}
+
+// 계 멤버 여부 — 본인 멤버 문서 존재 검사.
+function isGyeMember(gyeId) {
+  return request.auth != null
+    && exists(/databases/$(database)/documents/gye/$(gyeId)/members/$(request.auth.uid));
+}
+
+// 계장 여부 — 메타 문서 ownerId 검사 (메타 미존재 시 get() 실패 → 거부).
+function isGyeOwner(gyeId) {
+  return request.auth != null
+    && get(/databases/$(database)/documents/gye/$(gyeId)).data.ownerId == request.auth.uid;
 }
