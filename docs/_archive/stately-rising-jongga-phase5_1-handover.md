@@ -1,5 +1,9 @@
 # Phase 5.1 Handover — stately-rising-jongga (Closed Testing 준비)
 
+> ✅ **실행완료 — 코드 구현 완료** (2026-06-03 아카이브)
+> 책장·커스텀팩 코드는 끝났고 `lib/`에 반영·검증됨 (`flutter analyze` 0 · `flutter test` 218 통과).
+> 남은 운영/배포(Cloud Function·Firestore rules, 실기기 QA, 스토어 등록)는 → [`../IMPROVEMENT_PLAN_2026-06-03.md`](../IMPROVEMENT_PLAN_2026-06-03.md) TRACK 0 으로 이관.
+
 > **세션**: 2026-06-01 · Claude
 > **상위 plan**: `docs/plans/stately-rising-jongga.md` §6.5 (책 한 컷)
 > **상태**: 코드 작성 완료 — Jin 로컬 검증 + Cloud Function 배포 + 실기기 점검 후 Closed Testing 가능

@@ -1,5 +1,9 @@
 # Phase 5.2 Handover — stately-rising-jongga (홈 진입로 + Endpoint UI)
 
+> ✅ **실행완료 — 코드 구현 완료** (2026-06-03 아카이브)
+> 홈 진입로·Endpoint UI 코드는 끝났고 `lib/`에 반영·검증됨 (`flutter analyze` 0 · `flutter test` 218 통과).
+> 남은 운영/배포(Cloud Function·Firestore rules, 실기기 QA, 스토어 등록)는 → [`../IMPROVEMENT_PLAN_2026-06-03.md`](../IMPROVEMENT_PLAN_2026-06-03.md) TRACK 0 으로 이관.
+
 > **세션**: 2026-06-01 · Claude
 > **상위 plan**: `docs/plans/stately-rising-jongga.md` §6.5 (책 한 컷)
 > **상태**: 코드 작성 완료 — Phase 5.1 deferred 두 가지 처리

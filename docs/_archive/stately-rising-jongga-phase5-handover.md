@@ -1,5 +1,9 @@
 # Phase 5 Handover — stately-rising-jongga
 
+> ✅ **실행완료 — 코드 구현 완료** (2026-06-03 아카이브)
+> 책 한 컷 클라이언트(OCR·분석 클라·UI)는 끝났고 `lib/`에 반영·검증됨 (`flutter analyze` 0 · `flutter test` 218 통과).
+> ⚠️ **Cloud Function 미배포** → 현재 번역·단어추출 비작동(문법패턴 stub만). 배포는 → [`../IMPROVEMENT_PLAN_2026-06-03.md`](../IMPROVEMENT_PLAN_2026-06-03.md) TRACK 0.2 (P0).
+
 > **세션**: 2026-06-01 · Claude
 > **상위 plan**: `docs/plans/stately-rising-jongga.md` §6.5 (책 한 컷)
 > **상태**: 코드 작성 완료 — Jin 로컬 검증 + Cloud Function 배포 대기

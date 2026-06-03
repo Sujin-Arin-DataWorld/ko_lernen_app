@@ -1,5 +1,9 @@
 # Phase 3 Handover — stately-rising-jongga
 
+> ✅ **실행완료 — 코드 구현 완료** (2026-06-03 아카이브)
+> 이 핸드오버의 코드 작업은 끝났고 `lib/`에 반영·검증됨 (`flutter analyze` 0 · `flutter test` 218 통과).
+> ⚠️ 한옥 stage PNG는 light **10/12**, dark **0/12** (그라데이션 폴백 동작). 자산 보강은 → [`../IMPROVEMENT_PLAN_2026-06-03.md`](../IMPROVEMENT_PLAN_2026-06-03.md) TRACK 0.4 / TRACK 6.
+
 > **세션**: 2026-05-31 (Phase 3, 같은 날 Phase 2 직후) · Claude
 > **상위 plan**: `docs/plans/stately-rising-jongga.md` §5
 > **상태**: 코드 작성 완료 — Jin 로컬 검증 대기
