@@ -297,6 +297,91 @@
   }
   .about strong { color: var(--accent); font-weight: 700; }
 
+  /* ─── Hero trust chips ───────────────────────────────────────────────── */
+  .trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 22px;
+  }
+  .trust span.chip {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--fg-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ─── How it works — 3 steps ─────────────────────────────────────────── */
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    counter-reset: step;
+  }
+  @media (max-width: 680px) { .how-steps { grid-template-columns: 1fr; } }
+  .how-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .how-step::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--step-accent, var(--primary));
+    opacity: 0.9;
+  }
+  .how-step .num {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 15px;
+    color: #fff;
+    background: var(--step-accent, var(--primary));
+    margin-bottom: 14px;
+  }
+  .how-step .ico { font-size: 30px; line-height: 1; margin-bottom: 10px; }
+  .how-step h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .how-step p { color: var(--fg-muted); font-size: 14px; line-height: 1.6; }
+  .how-step.s1 { --step-accent: var(--tiger); }
+  .how-step.s2 { --step-accent: var(--primary); }
+  .how-step.s3 { --step-accent: var(--gold); }
+
+  /* ─── Secondary (compact) feature treatment ──────────────────────────── */
+  .features-more {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .feature-mini {
+    background: color-mix(in srgb, var(--bg-card) 55%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+  .feature-mini h4 {
+    font-size: 14px; font-weight: 800; color: var(--fg);
+    margin-bottom: 3px; letter-spacing: -0.01em;
+  }
+  .feature-mini p { color: var(--fg-muted); font-size: 12.5px; line-height: 1.5; }
+  .features-more-label {
+    font-size: 12px; font-weight: 800; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--fg-dim);
+    margin: 36px 0 4px;
+  }
+
   /* ─── Features grid ──────────────────────────────────────────────────── */
   .features {
     display: grid;
@@ -533,12 +618,18 @@
                 data-en="Coming soon — request beta access"
                 data-ko="곧 출시 — 베타 신청하기">Bald im Play Store — Beta anfordern</span>
         </a>
-        <a href="#features" class="btn btn-secondary"
-           data-de="Was steckt drin?"
-           data-en="What's inside?"
-           data-ko="어떤 기능이 있나요?">Was steckt drin?</a>
+        <a href="#how" class="btn btn-secondary"
+           data-de="So funktioniert's"
+           data-en="See how it works"
+           data-ko="작동 방식 보기">So funktioniert's</a>
       </div>
-      <div class="dancheong-band" style="max-width: 240px; margin: 16px auto 0;" aria-hidden="true"></div>
+      <div class="trust" aria-label="Highlights">
+        <span class="chip">🔒 <span data-de="100 % offline" data-en="100% offline" data-ko="100% 오프라인">100 % offline</span></span>
+        <span class="chip">🚫 <span data-de="Keine Werbung" data-en="No ads, ever" data-ko="광고 없음">Keine Werbung</span></span>
+        <span class="chip">🗣️ <span data-de="DE &amp; EN von Muttersprachlern" data-en="Native DE &amp; EN" data-ko="원어민 독일어·영어">DE &amp; EN von Muttersprachlern</span></span>
+        <span class="chip">🇩🇪 <span data-de="Made in Germany" data-en="Made in Germany" data-ko="독일 제작">Made in Germany</span></span>
+      </div>
+      <div class="dancheong-band" style="max-width: 240px; margin: 22px auto 0;" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -557,6 +648,50 @@
            data-ko="한글소리는 단어 암기 공장이 아니에요. 조용한 <strong>마당</strong>에서 한 걸음씩 한국어를 발견해 나가는 공간이에요. 이마에 王 자를 새긴 <strong>호랑이</strong>가 단어와 문법을 안내하고, 갓 쓴 <strong>까치</strong>가 게임과 듣기 모드로 이끌어줘요. 화면 속 모든 색은 한국 사찰의 <strong>단청</strong> 4색에서 가져왔어요. 매 학습이 억지로 외우는 느낌이 아니라, 진짜로 무언가를 발견하는 기분이 들도록 설계했습니다.">
           Hangul Sori ist kein Lernprogramm — es ist ein Ort. Ein ruhiger <strong>Madang</strong>, ein Hanok-Hof, in dem Koreanisch sich entfaltet, statt eingetrichtert zu werden. Dein Begleiter: ein weiser <strong>Tiger</strong> mit dem 王-Zeichen auf der Stirn, der dir durch Vokabeln und Grammatik hilft, und eine schlaue <strong>Elster</strong> im Gat-Hut, die dich zu Spielen und Hörmodus lockt. Jede Farbe stammt direkt aus den vier <strong>Dancheong</strong>-Tönen koreanischer Tempel. Weil gutes Lernen auch schön aussehen darf.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── How it works — 3 steps ────────────────────────────────────── -->
+  <section id="how">
+    <div class="container">
+      <div class="section-eyebrow"
+           data-de="So funktioniert's" data-en="How it works" data-ko="이렇게 배워요">So funktioniert's</div>
+      <h2 class="section-title"
+          data-de="Vom Foto zum eigenen Hanok — in drei Schritten."
+          data-en="From a photo to your own hanok — in three steps."
+          data-ko="사진 한 장에서 나만의 한옥까지 — 단 3단계.">Vom Foto zum eigenen Hanok — in drei Schritten.</h2>
+      <div class="how-steps">
+        <div class="how-step s1">
+          <div class="num">1</div>
+          <div class="ico" aria-hidden="true">📷</div>
+          <h3 data-de="Seite fotografieren" data-en="Snap a page" data-ko="페이지를 찍어요">Seite fotografieren</h3>
+          <p data-de="Richte die Kamera auf irgendeine koreanische Lehrbuch- oder Buchseite. Die Texterkennung läuft direkt auf deinem Gerät — das Foto bleibt bei dir."
+             data-en="Point your camera at any Korean textbook or book page. Text recognition runs on-device — the photo never leaves your phone."
+             data-ko="한국어 교재나 책 페이지에 카메라를 대기만 하면 돼요. 글자 인식은 기기 안에서 처리되고, 사진은 밖으로 나가지 않아요.">
+            Richte die Kamera auf irgendeine koreanische Lehrbuch- oder Buchseite. Die Texterkennung läuft direkt auf deinem Gerät — das Foto bleibt bei dir.
+          </p>
+        </div>
+        <div class="how-step s2">
+          <div class="num">2</div>
+          <div class="ico" aria-hidden="true">✍️</div>
+          <h3 data-de="Eigenes Wort-Pack" data-en="Your own word pack" data-ko="나만의 단어팩이 생겨요">Eigenes Wort-Pack</h3>
+          <p data-de="Die App zieht Vokabeln, Grammatik und Beispielsätze heraus, übersetzt sie und ergänzt eine koreanische Wörterbuch-Definition. Üben per Karten & Quiz mit SM-2-Wiederholung."
+             data-en="The app pulls out vocab, grammar and example sentences, translates them, and adds a Korean dictionary definition. Drill them with cards & quiz on SM-2 spaced repetition."
+             data-ko="단어·문법·예문을 뽑아 번역하고 국어사전 뜻풀이까지 붙여줘요. 카드와 퀴즈, SM-2 간격반복으로 잊기 직전에 다시 만나요.">
+            Die App zieht Vokabeln, Grammatik und Beispielsätze heraus, übersetzt sie und ergänzt eine koreanische Wörterbuch-Definition. Üben per Karten & Quiz mit SM-2-Wiederholung.
+          </p>
+        </div>
+        <div class="how-step s3">
+          <div class="num">3</div>
+          <div class="ico" aria-hidden="true">🏯</div>
+          <h3 data-de="Dein Hanok wächst" data-en="Your hanok grows" data-ko="한옥이 자라나요">Dein Hanok wächst</h3>
+          <p data-de="Jedes gemeisterte Pack baut deinen Hof weiter auf — vom Grundstein bis zum Jongga-Anwesen mit Dancheong. Fortschritt, den du wirklich wachsen siehst."
+             data-en="Every pack you master builds your courtyard further — from foundation stone to a dancheong-painted jongga estate. Progress you can actually watch grow."
+             data-ko="팩을 깰 때마다 마당이 자라요 — 주춧돌에서 단청 입힌 종갓집까지. 눈으로 보이는 성취감이 다음 학습을 이끌어요.">
+            Jedes gemeisterte Pack baut deinen Hof weiter auf — vom Grundstein bis zum Jongga-Anwesen mit Dancheong. Fortschritt, den du wirklich wachsen siehst.
+          </p>
+        </div>
       </div>
     </div>
   </section>

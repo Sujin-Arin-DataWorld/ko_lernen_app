@@ -49,6 +49,11 @@
   "interestFeelingsPeople": "Feelings & people",
   "interestHealthBody": "Health & body",
 
+  "smalltalkTitle": "Small talk",
+  "smalltalkEmpty": "No phrases for this selection.",
+  "homeSmalltalkCardTitle": "Small talk",
+  "homeSmalltalkCardDesc": "Conversation starters by topic",
+
   "appTitle": "Learn Korean",
   "welcomeMsg": "Hi! All the best today 💪",
   "footerCheer": "Keep going — you got this 🌟",

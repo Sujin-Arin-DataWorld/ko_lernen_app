@@ -1443,6 +1443,23 @@ class _ModulesGrid extends StatelessWidget {
             ),
           ],
         ),
+        // 스몰토크 진입로 — 회화 주제 (카테고리 × 레벨)
+        const SizedBox(height: Spacing.md),
+        Row(
+          children: [
+            Expanded(
+              child: _MiniModuleCard(
+                icon: Icons.chat_bubble_outline_rounded,
+                title: t.homeSmalltalkCardTitle,
+                subtitle: t.homeSmalltalkCardDesc,
+                accent: SoriColors.highlight,
+                onTap: () => Navigator.pushNamed(context, '/smalltalk'),
+              ),
+            ),
+            const SizedBox(width: Spacing.md),
+            const Expanded(child: SizedBox()),
+          ],
+        ),
       ],
     );
   }

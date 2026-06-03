@@ -147,6 +147,18 @@ class AppL10nDe extends AppL10n {
   String get interestHealthBody => 'Gesundheit & Körper';
 
   @override
+  String get smalltalkTitle => 'Small Talk';
+
+  @override
+  String get smalltalkEmpty => 'Keine Sätze für diese Auswahl.';
+
+  @override
+  String get homeSmalltalkCardTitle => 'Small Talk';
+
+  @override
+  String get homeSmalltalkCardDesc => 'Gesprächseinstiege nach Thema';
+
+  @override
   String get appTitle => 'Koreanisch lernen';
 
   @override

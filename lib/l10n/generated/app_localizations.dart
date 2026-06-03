@@ -361,6 +361,30 @@ abstract class AppL10n {
   /// **'Gesundheit & Körper'**
   String get interestHealthBody;
 
+  /// No description provided for @smalltalkTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Small Talk'**
+  String get smalltalkTitle;
+
+  /// No description provided for @smalltalkEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Sätze für diese Auswahl.'**
+  String get smalltalkEmpty;
+
+  /// No description provided for @homeSmalltalkCardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Small Talk'**
+  String get homeSmalltalkCardTitle;
+
+  /// No description provided for @homeSmalltalkCardDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesprächseinstiege nach Thema'**
+  String get homeSmalltalkCardDesc;
+
   /// No description provided for @appTitle.
   ///
   /// In de, this message translates to:

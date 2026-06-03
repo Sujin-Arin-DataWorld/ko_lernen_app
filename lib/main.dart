@@ -20,6 +20,7 @@ import 'screens/intro_gate_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/paywall_screen.dart';
 import 'screens/review_session_screen.dart';
+import 'screens/smalltalk_screen.dart';
 import 'screens/book_capture_screen.dart';
 import 'screens/book_preview_screen.dart';
 import 'screens/book_result_screen.dart';
@@ -229,6 +230,9 @@ class KoLernenApp extends StatelessWidget {
             case '/review':
               return SoriTransitions.fadeScale(
                   (_) => const ReviewSessionScreen(), settings: settings);
+            case '/smalltalk':
+              return SoriTransitions.fadeScale(
+                  (_) => const SmalltalkScreen(), settings: settings);
             case '/scenarios':
               return SoriTransitions.fadeScale(
                   (_) => const ScenariosListScreen(), settings: settings);

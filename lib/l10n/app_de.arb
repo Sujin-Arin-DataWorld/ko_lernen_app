@@ -50,6 +50,11 @@
   "interestFeelingsPeople": "Gefühle & Menschen",
   "interestHealthBody": "Gesundheit & Körper",
 
+  "smalltalkTitle": "Small Talk",
+  "smalltalkEmpty": "Keine Sätze für diese Auswahl.",
+  "homeSmalltalkCardTitle": "Small Talk",
+  "homeSmalltalkCardDesc": "Gesprächseinstiege nach Thema",
+
   "appTitle": "Koreanisch lernen",
   "welcomeMsg": "Hallo! Viel Erfolg heute 💪",
   "footerCheer": "Viel Erfolg beim Lernen 🌟",
