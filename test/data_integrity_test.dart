@@ -179,12 +179,19 @@ void main() {
           .where((file) => file.path.endsWith('.dart'));
       final assetPattern = RegExp(r'''['"]((?:assets/)[^'"]+)['"]''');
 
+      // 의도적으로 아직 없는 자산 — 런타임에서 폴백 처리됨. 생기면 여기서 제거.
+      const pending = <String>{
+        // Rive 리그 제작 대기. 없으면 TigerStageRive가 프레임 TigerStage로 폴백.
+        'assets/rive/tiger.riv',
+      };
+
       final missing = <String>[];
       for (final file in dartFiles) {
         final source = file.readAsStringSync();
         for (final match in assetPattern.allMatches(source)) {
           final asset = match.group(1)!;
           if (asset.contains(r'$') || asset.endsWith('/')) continue;
+          if (pending.contains(asset)) continue;
           if (!File(asset).existsSync()) {
             missing.add('${file.path}: $asset');
           }

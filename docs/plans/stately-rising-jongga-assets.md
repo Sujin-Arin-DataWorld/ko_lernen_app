@@ -2218,7 +2218,7 @@ Transparent background.
 | `dancheong_flower.png` | 단청 꽃 (red + gold) |
 | `dancheong_star.png` | 단청 별 (gold + teal) |
 | `dancheong_cloud.png` | 구름 (cream + teal) |
-| `dancheong_lantern.png` | 한지 등롱 (warm glow)ㅈ |
+| `dancheong_lantern.png` | 한지 등롱 (warm glow)|
 | `dancheong_hanji.png` | 한지 무늬 (cream + 작은 dot pattern) |
 
 장식 모티프 — 그저 예쁜 단청 요소를 send 가능. 캐릭터 X.
@@ -2230,7 +2230,7 @@ Transparent background.
 | `hangul_kk.png` | "ㅋㅋ" 큰 글자 + 미소 mouth facet |
 | `hangul_hh.png` | "ㅎㅎ" 큰 글자 + 행복 표정 |
 | `hangul_fighting.png` | "화이팅!" 큰 글자 + 주먹 |
-| `hangul_jjang.png` | "짱!" 큰 글자 + 엄지 |
+| `hangul_best.png` | "최고!" 큰 글자 + 엄지 |
 | `hangul_good.png` | "굿" 큰 글자 + 박수 |
 
 글자는 Pretendard Bold, dancheong red 또는 dark ink. 작은 facet 장식 옆에.

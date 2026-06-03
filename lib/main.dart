@@ -33,6 +33,7 @@ import 'screens/custom_pack_matching_screen.dart';
 import 'screens/custom_pack_typing_screen.dart';
 import 'screens/wordbook_search_screen.dart';
 import 'screens/hard_words_screen.dart';
+import 'screens/dojangcheop_screen.dart';
 import 'screens/learning_path_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
@@ -50,6 +51,8 @@ import 'screens/stats_screen.dart';
 import 'screens/onboarding_level_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
+import 'package:rive/rive.dart' show RiveNative;
+import 'widgets/sori/tiger_stage_rive.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -87,6 +90,16 @@ Future<void> main() async {
   // Lokale Benachrichtigungen (M3) best-effort initialisieren.
   // ignore: discarded_futures, unawaited_futures
   NotificationService.init();
+
+  // Rive(살아있는 호랑이) 런타임 best-effort. 실패해도 앱은 프레임 폴백으로 정상
+  // — TigerStageRive가 riveReady=false면 기존 TigerStage(프레임)를 쓴다.
+  try {
+    if (await RiveNative.init()) {
+      TigerStageRive.riveReady = true;
+    }
+  } catch (_) {
+    // 네이티브 미지원/초기화 실패 → 프레임 폴백 유지
+  }
 
   // Portrait sperren
   await SystemChrome.setPreferredOrientations([
@@ -299,6 +312,9 @@ class KoLernenApp extends StatelessWidget {
             case '/hard_words':
               return SoriTransitions.fadeScale(
                   (_) => const HardWordsScreen(), settings: settings);
+            case '/dojangcheop':
+              return SoriTransitions.fadeScale(
+                  (_) => const DojangcheopScreen(), settings: settings);
             case '/path':
               return SoriTransitions.fadeScale(
                   (_) => const LearningPathScreen(), settings: settings);

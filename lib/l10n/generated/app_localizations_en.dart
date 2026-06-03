@@ -926,6 +926,21 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get dojangTitle => 'Stamp Book';
+
+  @override
+  String get dojangEmptyTitle => 'No stamps yet';
+
+  @override
+  String get dojangEmptyBody =>
+      'Clear vocab packs to collect dancheong stamps.';
+
+  @override
+  String dojangProgress(int earned, int total) {
+    return '$earned of $total stamps collected';
+  }
+
+  @override
   String get bookResultOfflineNotice =>
       'Server unreachable — only grammar patterns detected offline.';
 

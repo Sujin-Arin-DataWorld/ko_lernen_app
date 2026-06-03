@@ -127,16 +127,40 @@ class _DancheongStampState extends State<DancheongStamp>
     super.dispose();
   }
 
+  /// Motif → `stamps/stamp_*.png` 파일 slug.
+  static String _assetSlug(DancheongMotif m) => switch (m) {
+        DancheongMotif.lotus => 'stamp_lotus',
+        DancheongMotif.chrysanthemum => 'stamp_chrysanthemum',
+        DancheongMotif.plum => 'stamp_plum',
+        DancheongMotif.bamboo => 'stamp_bamboo',
+        DancheongMotif.cloud => 'stamp_cloud',
+        DancheongMotif.octagon => 'stamp_geometric_octagon',
+        DancheongMotif.mountain => 'stamp_mountain',
+        DancheongMotif.swastika => 'stamp_swastika',
+      };
+
   @override
   Widget build(BuildContext context) {
-    final stamp = CustomPaint(
+    // PNG 자산 우선; 없으면(로드 실패) 기존 절차적 CustomPainter로 fallback.
+    final painter = CustomPaint(
       size: Size(widget.size, widget.size),
       painter: _StampPainter(
         motif: widget.motif,
-        // stamped 도장은 약간 더 무광 (ink absorbed effect)
         intensity: widget.stamped ? 0.85 : 1.0,
       ),
     );
+    Widget stamp = Image.asset(
+      'assets/illustrations/stamps/${_assetSlug(widget.motif)}.png',
+      width: widget.size,
+      height: widget.size,
+      fit: BoxFit.contain,
+      filterQuality: FilterQuality.medium,
+      errorBuilder: (_, __, ___) => painter,
+    );
+    // stamped 도장은 약간 무광 (ink absorbed effect).
+    if (widget.stamped) {
+      stamp = Opacity(opacity: 0.92, child: stamp);
+    }
 
     if (!widget.animate) return stamp;
     return AnimatedBuilder(

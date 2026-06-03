@@ -1789,6 +1789,30 @@ abstract class AppL10n {
   /// **'{n} neue Wörter gefunden'**
   String bookResultFoundN(int n);
 
+  /// No description provided for @dojangTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempelbuch'**
+  String get dojangTitle;
+
+  /// No description provided for @dojangEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Stempel'**
+  String get dojangEmptyTitle;
+
+  /// No description provided for @dojangEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe Vokabelpakete ab, um Dancheong-Stempel zu sammeln.'**
+  String get dojangEmptyBody;
+
+  /// No description provided for @dojangProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{earned} von {total} Stempeln gesammelt'**
+  String dojangProgress(int earned, int total);
+
   /// No description provided for @bookResultOfflineNotice.
   ///
   /// In de, this message translates to:

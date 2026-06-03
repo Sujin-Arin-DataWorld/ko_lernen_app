@@ -4,7 +4,17 @@ import 'sori/tokens.dart';
 /// 브랜드 톤 로딩 인디케이터 — 앱 로고가 부드럽게 숨 쉰다.
 class AppLoading extends StatefulWidget {
   final String? message;
-  const AppLoading({super.key, this.message});
+
+  /// 옵션 일러스트 — 주어지면 로고 대신 이 PNG가 숨 쉰다(없으면/실패 시 로고).
+  final String? asset;
+  final double assetSize;
+
+  const AppLoading({
+    super.key,
+    this.message,
+    this.asset,
+    this.assetSize = 124,
+  });
 
   @override
   State<AppLoading> createState() => _AppLoadingState();
@@ -42,8 +52,8 @@ class _AppLoadingState extends State<AppLoading>
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: 58,
-            height: 58,
+            width: widget.asset != null ? widget.assetSize : 58,
+            height: widget.asset != null ? widget.assetSize : 58,
             child: AnimatedBuilder(
               animation: _ctrl,
               builder: (_, __) {
@@ -51,20 +61,29 @@ class _AppLoadingState extends State<AppLoading>
                     ? _ctrl.value * 2
                     : (1 - _ctrl.value) * 2;
                 final pulse = Curves.easeInOut.transform(wave.clamp(0.0, 1.0));
-                return Transform.scale(
-                  scale: 0.96 + pulse * 0.07,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(14),
-                    child: Image.asset(
-                      _logoAsset,
-                      fit: BoxFit.cover,
-                      filterQuality: FilterQuality.medium,
-                      errorBuilder: (_, __, ___) => _DotFallback(
-                        controllerValue: _ctrl.value,
-                        colors: _dots,
-                      ),
+                final logo = ClipRRect(
+                  borderRadius: BorderRadius.circular(14),
+                  child: Image.asset(
+                    _logoAsset,
+                    fit: BoxFit.cover,
+                    filterQuality: FilterQuality.medium,
+                    errorBuilder: (_, __, ___) => _DotFallback(
+                      controllerValue: _ctrl.value,
+                      colors: _dots,
                     ),
                   ),
+                );
+                final visual = widget.asset == null
+                    ? logo
+                    : Image.asset(
+                        widget.asset!,
+                        fit: BoxFit.contain,
+                        filterQuality: FilterQuality.medium,
+                        errorBuilder: (_, __, ___) => logo,
+                      );
+                return Transform.scale(
+                  scale: 0.96 + pulse * 0.07,
+                  child: visual,
                 );
               },
             ),

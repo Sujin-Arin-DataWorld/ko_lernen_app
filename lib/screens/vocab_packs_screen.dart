@@ -146,6 +146,11 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
         title: Text(t.vocabPacksTitle,
             style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.workspace_premium_outlined),
+            tooltip: t.dojangTitle,
+            onPressed: () => Navigator.of(context).pushNamed('/dojangcheop'),
+          ),
           PopupMenuButton<String>(
             icon: const Icon(Icons.swap_horiz),
             tooltip: t.vocabPacksLevelMenu,

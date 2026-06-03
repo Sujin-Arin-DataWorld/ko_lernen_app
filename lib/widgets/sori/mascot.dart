@@ -91,7 +91,6 @@ class Mascot extends StatefulWidget {
 class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   static const _tigerIdle = 'assets/illustrations/mascot/tiger_idle.png';
   static const _tigerBlink = 'assets/illustrations/mascot/tiger_blink.png';
-  static const _tigerHappy = 'assets/illustrations/mascot/tiger_happy.png';
   static const _tigerCelebrate =
       'assets/illustrations/mascot/tiger_celebrate.png';
   static const _tigerSad = 'assets/illustrations/mascot/tiger_sad.png';
@@ -100,6 +99,8 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   static const _tigerSleepy = 'assets/illustrations/mascot/tiger_sleepy.png';
   static const _tigerSmile = 'assets/illustrations/mascot/tiger_smile.png';
   static const _tigerNeutral = 'assets/illustrations/mascot/tiger_neutral.png';
+  static const _tigerSurprised =
+      'assets/illustrations/mascot/tiger_surprised.png';
 
   static const _magpiePerched =
       'assets/illustrations/mascot/magpie_perched.png';
@@ -175,7 +176,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
       case MascotEmotion.thinking:
         return _tigerThinking;
       case MascotEmotion.surprised:
-        return _tigerHappy;
+        return _tigerSurprised;
       case MascotEmotion.smile:
         // 부드러운 미소 — animate 시 깜빡임 + 가끔 idle 프레임으로 다양성.
         if (widget.animate) {

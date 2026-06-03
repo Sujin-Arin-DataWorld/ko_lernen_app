@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+
+import '../l10n/generated/app_localizations.dart';
+import '../services/storage_service.dart';
+import '../widgets/sori/dancheong_stamp.dart';
+import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/tokens.dart';
+
+/// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (8 motif).
+///
+/// 획득 = 풀컬러 도장(PNG). 미획득 = 흐릿 + 자물쇠. 0개면 빈 상태.
+/// 획득 영속: `Storage.earnedStamps`(`DancheongMotif.name` slug).
+class DojangcheopScreen extends StatelessWidget {
+  const DojangcheopScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final earned = Storage.earnedStamps.toSet();
+    const motifs = DancheongMotif.values;
+    final got = motifs.where((m) => earned.contains(m.name)).length;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          t.dojangTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
+      ),
+      body: SafeArea(
+        child: got == 0
+            ? Center(
+                child: SoriEmptyState(
+                  icon: Icons.workspace_premium_outlined,
+                  title: t.dojangEmptyTitle,
+                  body: t.dojangEmptyBody,
+                ),
+              )
+            : ListView(
+                padding: const EdgeInsets.all(Spacing.lg),
+                children: [
+                  Text(
+                    t.dojangProgress(got, motifs.length),
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: s.textMuted,
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  GridView.count(
+                    crossAxisCount: 3,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    mainAxisSpacing: Spacing.lg,
+                    crossAxisSpacing: Spacing.lg,
+                    children: [
+                      for (final m in motifs)
+                        _StampCell(motif: m, earned: earned.contains(m.name)),
+                    ],
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
+}
+
+class _StampCell extends StatelessWidget {
+  final DancheongMotif motif;
+  final bool earned;
+  const _StampCell({required this.motif, required this.earned});
+
+  @override
+  Widget build(BuildContext context) {
+    if (earned) {
+      return Center(child: DancheongStamp(motif: motif, size: 96, stamped: true));
+    }
+    return Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Opacity(opacity: 0.20, child: DancheongStamp(motif: motif, size: 96)),
+          Icon(
+            Icons.lock_outline_rounded,
+            size: 26,
+            color: SoriSurfaces.of(context).textDim,
+          ),
+        ],
+      ),
+    );
+  }
+}

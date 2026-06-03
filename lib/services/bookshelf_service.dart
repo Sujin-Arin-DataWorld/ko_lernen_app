@@ -14,18 +14,24 @@ import 'storage_service.dart';
 class BookshelfService {
   static final math.Random _rng = math.Random.secure();
 
+  /// Prozess-monotoner Zähler — garantiert Eindeutigkeit auch bei mehreren
+  /// Aufrufen innerhalb derselben Millisekunde.
+  static int _seq = 0;
+
   // ── ID-Generierung ─────────────────────────────────────────────────
 
-  /// Zeit-basierte kurze ID: epochMs(36) + 4 Zeichen Random.
-  /// Sortierbar; collision-free in praktischer Anwendung.
+  /// Zeit-basierte kurze ID: epochMs(36) + Sequenz + 4 Zeichen Random.
+  /// Sortierbar; der monotone [_seq]-Zähler macht Kollisionen unmöglich,
+  /// der Random-Tail deckt den (theoretischen) Mehr-Isolate-Fall ab.
   static String generateId() {
     final ts = DateTime.now().millisecondsSinceEpoch.toRadixString(36);
+    final seq = (_seq++).toRadixString(36);
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     final tail = List.generate(
       4,
       (_) => chars[_rng.nextInt(chars.length)],
     ).join();
-    return 'p_${ts}_$tail';
+    return 'p_${ts}_${seq}_$tail';
   }
 
   // ── Local Read/Write ──────────────────────────────────────────────

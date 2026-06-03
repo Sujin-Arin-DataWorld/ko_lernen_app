@@ -180,11 +180,16 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: Spacing.lg),
-              const Center(
-                child: Mascot(
-                  kind: MascotKind.magpie,
-                  emotion: MascotEmotion.smile,
-                  size: 130,
+              Center(
+                child: Image.asset(
+                  'assets/illustrations/book/book_camera_guide.png',
+                  height: 160,
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, __, ___) => const Mascot(
+                    kind: MascotKind.magpie,
+                    emotion: MascotEmotion.smile,
+                    size: 130,
+                  ),
                 ),
               ),
               const SizedBox(height: Spacing.md),

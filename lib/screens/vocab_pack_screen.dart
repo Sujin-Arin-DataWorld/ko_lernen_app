@@ -18,6 +18,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -322,6 +323,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     );
     // XP 보상 (Plan §4.4) — wordsTotal*5 + bossCorrect*10
     await Storage.addXp(pack.total * 5 + bossCorrect * 10);
+    // 도장 획득 — 첫 클리어 시 토픽군 motif 도장을 도장첩에 추가.
+    if (result.justCleared) {
+      await Storage.addEarnedStamp(motifForPackId(pack.id).name);
+    }
 
     if (!mounted) return;
     Navigator.of(context).pushReplacementNamed(

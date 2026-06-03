@@ -74,3 +74,6 @@ outputs_inspect/
 scripts/cache/nikl/
 scripts/cache/deepl_de.json
 scripts/cache/wiktionary_de.json
+
+# 투명 키잉 원본(흰배경) 백업 (2026-06-03)
+.asset_keying_backup/

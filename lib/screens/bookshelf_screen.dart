@@ -134,6 +134,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
         ),
         body: Center(
           child: SoriEmptyState(
+            asset: 'assets/illustrations/book/book_empty_shelf.png',
             icon: Icons.menu_book_outlined,
             title: t.bookshelfEmptyTitle,
             body: t.bookshelfEmptyBody,

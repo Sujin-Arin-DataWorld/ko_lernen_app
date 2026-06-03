@@ -63,6 +63,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/custom_pack/play` (args: packId) | CustomPackPlayScreen (플립카드 학습) |
 | `/custom_pack/edit·quiz·matching·typing` (args: packId) | 커스텀팩 편집 / 4지선다 / 짝맞추기 / 받아쓰기 |
 | `/wordbook/search` | WordbookSearchScreen (내 저장 단어 통합 검색 + 품사 필터 — 2026-06-03) |
+| `/dojangcheop` | DojangcheopScreen (도장첩 — 팩 클리어로 획득한 단청 도장 8 motif 갤러리. 진입: VocabPacksScreen AppBar) |
 
 ### 서비스
 - `lib/services/auth_service.dart` — Hybrid Auth. 항상 익명 로그인, Google 링크 선택. **주의**: web에서 Firebase 미설정 시 crash 방지를 위해 `_auth`가 nullable getter임.
@@ -89,6 +90,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - `hanok_tokens.dart` — 한옥 전용 색상 (단청 4색)
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` (v6). **자산은 `assets/illustrations/mascot/`에 분리된 포즈 PNG**: 호랑이 5(idle/blink/happy/celebrate/sad) + 까치 4(perched/wingup/wingdown/celebrate). emotion → 포즈 매핑 (celebrate/worry/sleepy/surprised/thinking/neutral/smile). `tiger_thinking`/`tiger_sleepy`/`tiger_neutral`/`magpie_worry`는 Jin이 추후 추가하면 자동 사용, 미존재 시 errorBuilder fallback.
+- `tiger_stage.dart` — **살아있는 호랑이 프레임 애니메이션** (홈 상단 밴드, 2026-06-03). 상태머신 INTRO(launch당 1회)→FRONT_IDLE↔PACING(좌우 there-and-back, 중앙 복귀)/SIT + ambient 스케줄러(5–10s). 토큰 가드 재귀 Future 시퀀서 + 150ms 크로스디졸브(걷기는 하드컷) + reduce-motion 정지 프레임 + 프레임 누락 시 `Mascot.tiger` fallback + 백그라운드 일시정지. 자산 `assets/illustrations/tiger_anim/`(풀바디 35장). **기존 `mascot.dart`(흉상 아바타)와 별개 시스템**. 전체 스펙: `docs/TIGER_ANIMATION_SPEC.md`. **홈은 직접 쓰지 않고 `tiger_stage_rive.dart`를 통해 폴백으로만 사용.**
+- `tiger_stage_rive.dart` — **Rive 리깅 호랑이 래퍼**(부드러운 sit→인사→pacing 목표). `assets/rive/tiger.riv` + `RiveNative.init()` 성공(`riveReady`) 시 Rive 재생, 그 외(미초기화·파일 없음·로드 실패·reduce-motion) `TigerStage`(프레임)로 자동 폴백. rive 0.14 API(`RiveWidgetBuilder`/`FileLoader.fromAsset`/`Factory.flutter`/`RiveWidget(fit:contain)`). **`tiger.riv` 리그는 미제작(GUI 작업) — 제작 명세 `docs/TIGER_RIVE_RIG_SPEC.md`.** 홈 `_TigerHero`가 이걸 사용.
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
 - `hanok/` — 한옥 장식 위젯 (단청 divider, 기와 패턴, 처마, 창살, 마당 배경)
 - `motion.dart` — `SoriEntrance` (진입 fade+slide+scale), `SoriKenBurns` (배경 느린 줌). **`SoriMotion.reduceMotion(context)` 헬퍼** — `MediaQuery.disableAnimations` 시 정적 fallback.
@@ -126,6 +129,9 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/illustrations/mascot/` — 분리 포즈 PNG (Mascot 위젯 소스, 11종):
   - 호랑이 7: `idle`, `blink`, `happy`, `celebrate`, `sad`, `neutral` (← tigerbasic1 복원), `smile` (← tiger_smile 복원)
   - 까치 5: `perched`, `wingup`, `wingdown`, `celebrate`, `perched_alt` (← v2 복원, fallback 다양성용)
+- `assets/illustrations/tiger_anim/` — **풀바디 호랑이 애니메이션 프레임 44장** (`TigerStage` 소스). intro 9 + idle 4 + 좌 pacing 10 + 우 pacing 11 + thinking 1 + **ambient special 9(stretch 3·roar 6, 2026-06-03 "누락이미지" 드롭)**. 1254² 정사각·투명·Faceted Minhwa. 매핑·시퀀스·타이밍은 `docs/TIGER_ANIMATION_SPEC.md`.
+- `assets/illustrations/gye/` — **계(공동 한옥) 요소 8** (haenglangchae·byeoldang·jeongja·pond_large·garden·bridge·jangmyeongdeung_pair·gate_grand). 2026-06-03 드롭. **현재 코드 consumer 없음** — "계" 공동 마당 기능 제작 시 합성용. 명세 jongga-assets §6.
+- `assets/illustrations/book/` — **책 한 컷 UI 일러스트 5, 전부 연결**(2026-06-03): empty_shelf→책장 빈 상태, camera_guide→book_capture idle, analyzing→book_result 로딩(`AppLoading.asset`), success→book_result 성공, error→book_result 에러(`AppError.asset`). 모두 errorBuilder→마스코트 fallback. 명세 §7.
 - `assets/illustrations/scenes/` — 시나리오 backdrop 5종 (Jin 작업)
 - `assets/illustrations/empty/` — 빈 상태 일러스트 3종 (Jin 작업)
 - `assets/illustrations/error/` — 오류 상태 일러스트 2종 (Jin 작업)
@@ -299,6 +305,101 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-03 (Tier 1+2) — 책 상태 일러스트 연결 + 도장 PNG + 도장첩 화면
+
+**범위:** 미연결 자산 기능화 plan(enchanted-percolating-turtle) 중 **Tier 1(책 상태)·Tier 2(도장)** 구현. (Tier 3 계+스티커는 별도 대규모 백엔드 트랙으로 후속.)
+
+**Update:**
+1. **책 상태 5장 전부 연결** — `AppLoading`·`AppError`에 옵션 `asset` 추가(없으면 기존 로고/아이콘, 회귀 0). book_result 로딩=book_analyzing·에러=book_error·성공(N단어)=book_success, book_capture idle=book_camera_guide, 책장 빈 상태=book_empty_shelf. 모두 `errorBuilder`→마스코트 fallback.
+2. **도장 PNG 교체** — `dancheong_stamp.dart`: 절차적 `_StampPainter` 대신 `stamps/stamp_{motif}.png`(`_assetSlug`, errorBuilder→CustomPainter fallback). 결과화면 도장이 PNG로. `motifForPackId` 유지.
+3. **도장 획득 영속** — `Storage.earnedStamps`/`addEarnedStamp`(`kl_stamps_earned`). `vocab_pack_screen._finish`에서 `justCleared` 시 `motifForPackId(pack.id).name` 추가.
+4. **도장첩 화면 신규** — `dojangcheop_screen.dart` + route `/dojangcheop`(VocabPacksScreen AppBar 진입). 8 motif 그리드(획득=PNG·미획득=흐림+자물쇠)+진행도+빈상태. l10n `dojang*` 4키(parity, `@dojangProgress` placeholders 양쪽).
+
+**검증:** `flutter gen-l10n` OK · `flutter analyze lib/` **0** · `flutter test` **248 통과**(신규 `earned_stamps_test`). 시각은 Jin(책 플로우·결과화면 도장·도장첩).
+
+**남음:** Tier 3 계(契)+스티커 풀 백엔드(Firestore 그룹·gye_service·4화면·Cloud Functions·FCM·모더레이션·GDPR) — gye 8 + 스티커 30 자산 표시는 이 트랙. plan 참조.
+
+**Git push:** 미수행.
+
+### 2026-06-03 (투명 후속) — 통합 스크립트가 놓친 흰배경 14장 키잉
+
+**범위:** Jin "새 자산 중 배경 투명 안 된 것 찾아 깨지지 않게 투명화" 요청. 신규/변경 PNG 111장 전수 alpha 검사(§0 — 추측 금지, PIL `convert("RGBA")` 실측) → **14장이 P-mode 불투명(흰배경)**. 직전 "에셋 대량 통합"의 `integrate_jongga_assets.py` 목록 **밖** 자산: `mascot/tiger_idle·neutral·smile`, `stickers/food_hotteok·kimbap·sikhye·tea·tteok`, `stickers/dancheong_cloud·flower·hanji·star`, `stickers/hangul_fighting·hh`. 나머지 97장은 이미 투명(무수정).
+
+**Update:**
+- **키잉 방식(이진 흰색 + 모서리 flood)**: per-pixel min-channel≥238로 흰색 이진 마스크(한지 종이질감 변동 흡수) → 4코너 `floodfill(thresh=0)`로 테두리 연결 배경만 제거. 안쪽 흰색(동공·밥알·찻잔·흰떡·글자 흰면)은 어두운 윤곽에 막혀 **자동 보존**. `MaxFilter(3)` 헤일로 1px + `GaussianBlur(0.7)` feather. RGBA→`quantize(FASTOCTREE,256,dither0)` P+alpha 재압축.
+- **진단 정정(§0)**: 단순 floodfill `thresh` 단일값 실패 2모드 — (a) 낮으면 종이질감으로 배경조차 못 먹음(thresh15→0.1%) (b) 높으면 검은 눈테 안티앨리어싱 틈으로 동공 누수(thresh100). 이진 흰색 마스크가 둘 다 해결. **썸네일서 hangul_hh 동공을 투명으로 오인**했으나 픽셀 실측(동공 alpha=255, 크림합성 RGB=흰색 254≠크림 250)으로 보존 확정.
+
+**검증:** 14/14 `alpha[0,255]`·%trans 47~72(형제 파일과 일치). 크림 합성 그리드 14장 + food_tteok/tea 확대 **육안 클린**(헤일로 0·안쪽 흰색 보존·양자화 색손실 미미). 용량 13.1MB(RGBA중간)→**2.5MB**(P+alpha, 흰배경 원본 5.4MB보다 작음). ⚠️ Flutter 빌드/시각은 미실행 — 이미지 콘텐츠 교체(동일 경로·파일명)라 Dart 컴파일·`data_integrity_test`(경로 존재만 검사) 무관. Jin `flutter run` 육안 권장.
+
+**백업:** `.asset_keying_backup/`(gitignored) 원본 14장 — 롤백 가능.
+**Git push:** 미수행.
+
+### 2026-06-03 (에셋 대량 통합) — "누락이미지" 52장 적재적소 배치 + 키잉 + 일부 wiring
+
+**범위:** Jin이 `~/Downloads/누락이미지-압축`에 jongga-assets.md 명세 이미지 52장 제작 → "각각 적재적소 + 같은 이름 교체" 요청.
+
+**Update:**
+1. **전부 P-mode 불투명** 확인(§0 alpha 검사) → `tool/integrate_jongga_assets.py`: 모서리 floodfill 키잉(테두리 근백색만 투명, 안쪽 보존) + P+transparency 재압축 + 명세대로 폴더 배치. 크림 합성 8장 육안 클린.
+2. **배치(52 소스 → 54 placements):**
+   - **mascot/ 교체+추가**: tiger_blink·celebrate·sad·sleepy·surprised + magpie celebrate·perched·perched_alt·wingdown·wingup·worry (Jongga Guardian 스타일).
+   - **tiger_anim/ +9**: stretch 3·roar 6 (ambient special).
+   - **stickers/ +19**: tiger cheer·clap·love·sad·surprised, magpie dance·wave·sleep·sing·encourage, hangul good·best·kk, dancheong_lantern, stamp_sticker cheer·love·happy·well_done·fighting.
+   - **stamps/ +2**: mountain·plum. ⚠️ **소스 두 파일 내용 swap돼 content 기준 교정**(plum 파일=산 그림이었음).
+   - **gye/(신규) 8 · book/(신규) 5** + pubspec 등록.
+3. **wiring(consumer 있는 것만 "사용"):**
+   - mascot 교체분 = `Mascot` 위젯 이미 참조 → 즉시 라이브.
+   - **`tiger_surprised`** → `MascotEmotion.surprised` 연결(기존 tiger_happy 대역 제거 → `_tigerHappy` const 삭제). 초성/워들 결과 등 사용.
+   - **stretch/roar** → `TigerStage` ambient 신규 행동(`_doStretch`/`_doRoar`, turn_right 진입·복귀, 확률 idle45/pace23/sit12/stretch11/roar9). `_allFrames` 추가(precache). `_Phase.special`.
+   - **`book_empty_shelf`** → 책장 빈 상태(`SoriEmptyState.asset`).
+4. **미연결(배치만, consumer 없음)**: stickers 19(전송 기능 없음) · gye 8(계 기능 없음) · book 4(camera_guide/analyzing/success/error — book_capture/result wiring 후속) · stamps(현재 CustomPainter라 PNG 미로드). → 배치 완료, "표시"는 각 기능 제작 시.
+
+**검증:** `flutter analyze lib/` **0** · `flutter test` **247 통과**(data_integrity가 tiger_surprised·book_empty_shelf 실존 확인). 키잉은 대표 8장 육안. **⚠️ 앱 내 실제 표시 미검증**(Jin 실기기). ⚠️ tiger_celebrate는 paw-up(만세) 포즈 — 명세 §5.0A는 celebrate 만세 지양 권고였으나 Jin 제작본 그대로 배치.
+
+**Git push:** 미수행.
+
+### 2026-06-03 (flaky 픽스) — `generateId` 충돌 방지 (Rive 세션 별도 태스크 해소)
+
+**범위:** Rive 세션이 남긴 별도 태스크 — `book_page_test`의 `generateId` flaky(전체 `flutter test`에서 간헐 실패). 진단 정정: 원인은 "타임스탬프 단독"이 아니라 **이미 있던 4자 random tail(36⁴≈1.68M)의 birthday-collision** — 같은 ms에 50개 생성 시 ~0.07%/run 충돌(드물어 격리 실행은 통과, 전체 런에서 간헐). 프로덕션에서도 같은 ms 2팩 생성 시 id 중복 잠복 버그.
+
+**Update:**
+- `bookshelf_service.dart`·`custom_pack_service.dart` 양쪽 `generateId`에 **프로세스 monotonic 카운터 `_seq`** 추가 → `p_${ts}_${seq}_$tail` / `cp_${ts}_${seq}_$tail`. 카운터가 isolate 내 유일성을 **보장**(확률→불가능), ts는 정렬·프로세스간 유일성, random tail은 멀티-isolate 방어. `p_`/`cp_` prefix·정렬성 유지.
+- ID 구조 파싱처 점검: `split('_')` 사용처(`vocab_pack_service`·`dancheong_stamp`)는 vocab pack id(`food_a1`) 전용·끝자리 숫자만 추출 → `p_`/`cp_` id 무관(새 tail은 비숫자라 통과해도 무해).
+
+**검증:** `flutter analyze` (2파일) **0 issues** · 타깃 2파일 **10회 연속 통과** · 전체 `flutter test` **247 통과**. 카운터 결정성으로 50회 루프 테스트는 구조적으로 충돌 불가.
+
+**Git push:** 미수행 (Jin 확인 후).
+
+### 2026-06-03 (Rive 전환) — 프레임 끊김 → Rive 리깅 경로 turnkey
+
+**범위:** Jin 피드백 — 투명은 됐으나 **프레임 전환이 끊겨 부자연스러움**. 프레임 방식 한계(인트로 7·걷기 6장). 1차: 프레임판 스무딩(상시 호흡 스케일 + 걷기 하드컷→짧은 크로스페이드 46ms + 걷기 상하 bob + easeInOut). Jin이 "베타로 못 냄 → 진짜 부드럽게(Rive)" 결정. **결론: 프레임/AI보간으로는 한계·떨림 → Rive 리깅이 유일하게 확실.**
+
+**Update:**
+1. **Rive 통합 turnkey** — `rive ^0.14.7` 추가. 신규 `lib/widgets/sori/tiger_stage_rive.dart`(0.14 신 API: `RiveWidgetBuilder`+`FileLoader.fromAsset`+`Factory.flutter`+`RiveWidget(fit:contain)`). `main.dart`에 `RiveNative.init()` best-effort(성공 시 `TigerStageRive.riveReady=true`). 홈 `_TigerHero`가 `TigerStageRive` 사용. **폴백 체인:** 미초기화/`.riv` 없음/로드 실패/reduce-motion → 프레임 `TigerStage`. → `.riv` 넣으면 코드 0변경으로 매끄러운 버전 가동.
+2. **`assets/rive/`** 폴더+pubspec 등록(+`.gitkeep`). `data_integrity_test`에 pending 자산 allowlist(`tiger.riv`).
+3. **리깅 명세** `docs/TIGER_RIVE_RIG_SPEC.md` — 아트보드/본·메시/타임라인(Sit·Notice·Smile·Rise·IdleStand·WalkL/R)/default 자동재생 상태머신/익스포트/DIY·외주 경로. 기존 PNG 재사용.
+
+**⚠️ 남은 단 하나 = `.riv` 리그 제작(Rive 에디터 GUI 작업).** 이건 코드로 생성 불가 — Jin DIY 또는 외주. 그때까지 홈은 프레임 폴백으로 정상 동작.
+
+**검증:** `flutter analyze lib/` **0**(rive 0.14 신 API 컴파일 확인 — 설치 패키지 소스 직접 대조 후 작성) · `flutter test` **247 통과**(home은 `riveReady=false`라 프레임 폴백 경로). **⚠️ Rive 실제 렌더는 `.riv` 부재로 미검증**(불가피). 프레임 스무딩 시각도 미검증 — Jin 육안. **flaky 발견:** `book_page_test` `generateId`(타임스탬프 ID 충돌, 본 작업 무관 — 별도 태스크).
+
+**Git push:** 미수행.
+
+### 2026-06-03 (살아있는 호랑이) — TigerStage 애니메이션 + 홈 밴드 (plan: enchanted-percolating-turtle)
+
+**범위:** Jin이 호랑이 프레임 PNG 세트(직접 제작·압축)를 `~/Downloads/호랑이-인트로 호랑이완성/`에 넣고 "이미지 더 만들기 전에 애니메이션 구조 스펙 먼저 확정" 요청. Q&A로 **풀스코프(스펙+에셋+홈 위젯)** + **홈 상단 와이드 밴드** 확정.
+
+**Update:**
+1. **에셋 정리** — 최적화 39장 중 35장을 `assets/illustrations/tiger_anim/`로 import+canonical rename(.png.png ×3·한글명 ×2·숫자접두 제거). **중복/예비 4장은 픽셀 확인 후 드롭**(`turn_right_threeq`/`step_out_threeq_right`/`turn_right_front_prep` 비접두 중복 + `b-1…side_left_a`). pubspec 폴더 등록. (md5로 중복 의심쌍 비교 → 다 다름 → 8장 육안 확인해 우측 lead-in이 `turn_3q→step_out→walk_start` 별개 프레임임을 확정.)
+2. **`tiger_stage.dart` 신규** — `TigerStage` 위젯. 토큰 가드 재귀 Future 시퀀서, 150ms 크로스디졸브(걷기 하드컷), pacing there-and-back(±span→0, span=폭×0.17 clamp 28–80), ambient 스케줄러(55% idle/30% pace/15% sit), reduce-motion 정지 프레임, 프레임별 errorBuilder→`Mascot.tiger` 2층 degradation, `WidgetsBindingObserver` 백그라운드 일시정지. **intro는 launch당 1회(in-memory static — `Storage.introSeen` 게이트용이라 사용 금지).**
+3. **홈 통합** — `_TigerHero` 리팩토링: greeting/subline 텍스트(상단) + `TigerStage` 밴드(콘텐츠 폭, height 150/168) + 말풍선 오버레이. 인라인 `Mascot.tiger` 제거. (⚠️ edge-to-edge 풀블리드는 미적용 — clamp 308px 튜닝 회귀 위험. 현재 콘텐츠 폭 와이드 밴드.)
+4. **스펙 문서** `docs/TIGER_ANIMATION_SPEC.md` — 핸드오프용(상태머신·프레임맵·rename 이력·타이밍·구현·영문 블록·후속).
+
+5. **⚠️ 투명 배경 복원(Jin 실기기 피드백)** — 첫 import 후 홈에 **호랑이 뒤 흰 사각형** 노출. 원인: **소스 프레임 전부 알파 없음**(비압축=RGB 흰배경, 최적화=P). 내가 첫 Read 때 체커보드를 투명으로 오인(§0 — alpha 미검증). 수정: 비압축 RGB 원본에서 모서리 `floodfill(thresh46)` 키잉(테두리 연결 근백색만 투명, 안쪽 흰색 보존)→`P+transparency`(255색, dither0) 재압축. 35/35 투명, 10MB. 크림 합성 육안 6장 클린(흰박스·구멍·헤일로 0). `rise_prep`만 비압축 부재로 최적화본 키잉. 상세: SPEC §3-2.
+
+**검증:** `flutter analyze lib/` **0 issues** · `flutter test` **247 통과**(신규 `test/tiger_stage_test.dart` 2: reduce-motion 정지·무타이머, 라이브 빌드+dispose). 에셋 35/35 **투명 확인**. responsive_test가 home을 308/360/800/1280px에서 빌드(오버플로 0) → 히어로 리팩토링 회귀 없음. **⚠️ 시각/애니메이션 재생은 미검증** — `initialRoute:'/intro'` + 신규세션 온보딩 + CanvasKit 헤드리스 클릭 불안정 → 자동 시각검증 비현실. **Jin이 `flutter run -d chrome`로 육안 확인 필요**(진입 인사 1회→idle→좌우 pacing, 308/360/430/768/1200px 밴드·말풍선·오버플로, OS reduce-motion 정지).
+
+**Git push:** 미수행 (Jin 확인 후).
 
 ### 2026-06-03 (반응형) — 듀오링고식 콘텐츠 폭 클램프 (배경:콘텐츠 비율 최적화)
 

@@ -15,15 +15,21 @@ enum WordbookAddResult { added, alreadyExists, failed }
 class CustomPackService {
   static final math.Random _rng = math.Random.secure();
 
+  /// Prozess-monotoner Zähler — siehe [BookshelfService.generateId].
+  static int _seq = 0;
+
   /// 시간 기반 짧은 ID — BookshelfService 와 동일 패턴.
+  /// epochMs(36) + Sequenz + 4 Zeichen Random: [_seq] garantiert
+  /// Eindeutigkeit auch bei Aufrufen innerhalb derselben Millisekunde.
   static String generateId() {
     final ts = DateTime.now().millisecondsSinceEpoch.toRadixString(36);
+    final seq = (_seq++).toRadixString(36);
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     final tail = List.generate(
       4,
       (_) => chars[_rng.nextInt(chars.length)],
     ).join();
-    return 'cp_${ts}_$tail';
+    return 'cp_${ts}_${seq}_$tail';
   }
 
   static List<CustomPack> getAll() {

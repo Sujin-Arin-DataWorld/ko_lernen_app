@@ -622,8 +622,8 @@ restricted palette #C24A45 #FAF6EC #DFA951 #3D9A7F.
 | `stamp_bamboo` | 대나무 격자 | vertical stalks + segment lines + angular leaf cluster | 학교·직장 |
 | `stamp_cloud` | 구름문양 | flat geometric curl/scroll shapes interlocking | 날씨·자연 |
 | `stamp_geometric_octagon` | 팔각 기하 | octagon grid of alternating gold/teal/red triangles | 음식·쇼핑 |
-| `stamp_mountain` | 산봉우리 | mini irworobongdo 3 peaks + tiny sun/moon | 교통·여행 |
-| `stamp_swastika` | 만(卍)자 격자 | interlocking 卍 lattice (Buddhist/folk), gold on cream | 신체·건강 |
+| `stamp_mountain` | 산봉우리 | mini irworobongdo 3 peaks + tiny sun/moon | 교통·여행 | 
+| `stamp_swastika` | 만(卍)자 격자 | interlocking 卍 lattice (Buddhist/folk), gold on cream | 신체·건강 |- 완성
 
 ---
 

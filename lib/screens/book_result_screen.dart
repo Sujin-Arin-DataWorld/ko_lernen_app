@@ -101,13 +101,20 @@ class _BookResultScreenState extends State<BookResultScreen> {
     if (_loading) {
       return Scaffold(
         appBar: AppBar(title: Text(t.bookResultTitle)),
-        body: AppLoading(message: t.bookResultAnalyzing),
+        body: AppLoading(
+          message: t.bookResultAnalyzing,
+          asset: 'assets/illustrations/book/book_analyzing.png',
+        ),
       );
     }
     if (_error != null || _result == null) {
       return Scaffold(
         appBar: AppBar(title: Text(t.bookResultTitle)),
-        body: AppError(message: _error ?? 'unknown', onRetry: _analyze),
+        body: AppError(
+          message: _error ?? 'unknown',
+          onRetry: _analyze,
+          asset: 'assets/illustrations/book/book_error.png',
+        ),
       );
     }
 
@@ -125,13 +132,22 @@ class _BookResultScreenState extends State<BookResultScreen> {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
           children: [
             Center(
-              child: Mascot(
-                kind: MascotKind.tiger,
-                emotion: r.words.isNotEmpty
-                    ? MascotEmotion.celebrate
-                    : MascotEmotion.thinking,
-                size: 96,
-              ),
+              child: r.words.isNotEmpty
+                  ? Image.asset(
+                      'assets/illustrations/book/book_success.png',
+                      height: 150,
+                      fit: BoxFit.contain,
+                      errorBuilder: (_, __, ___) => const Mascot(
+                        kind: MascotKind.tiger,
+                        emotion: MascotEmotion.celebrate,
+                        size: 96,
+                      ),
+                    )
+                  : const Mascot(
+                      kind: MascotKind.tiger,
+                      emotion: MascotEmotion.thinking,
+                      size: 96,
+                    ),
             ),
             const SizedBox(height: Spacing.sm),
             Center(

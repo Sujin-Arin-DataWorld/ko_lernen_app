@@ -24,6 +24,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/tiger_stage_rive.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -581,78 +582,69 @@ class _TigerHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    // v4 (2026-05-29): 좁은 화면에서 호랑이가 잘리지 않도록 폭 비례 사이즈 + clip.
-    // v5 (2026-06-03): 클램프된 콘텐츠 폭(LayoutBuilder) 기준 3구간 반응형 —
-    // 아주 좁은 폰(<330)은 호랑이·높이를 줄여 인사말 압축 해소 + CTA 빨리 도달.
+    // v6 (2026-06-03): 정적 아바타 → 살아있는 호랑이 "마당 밴드".
+    // greeting/subline 텍스트 위 + TigerStage 밴드(진입 인사→idle→좌우 pacing) +
+    // 말풍선 오버레이. 밴드는 콘텐츠 폭 전체를 차지(걷는 가로 공간 확보).
     return LayoutBuilder(
       builder: (context, c) {
         final w = c.maxWidth;
         final bool veryNarrow = w < 330;
-        final double tigerSize =
-            veryNarrow ? 104.0 : (w < 400 ? 124.0 : 140.0);
-        final double heroHeight = veryNarrow ? 138.0 : 160.0;
-        final double textRightInset = tigerSize + (veryNarrow ? 8.0 : 12.0);
         final double greetingSize = veryNarrow ? 21.0 : 24.0;
-        final double bubbleMax = (w - textRightInset).clamp(120.0, 240.0);
+        final double bandHeight = veryNarrow ? 150.0 : 168.0;
+        final double bubbleMax = (w * 0.62).clamp(140.0, 260.0);
 
-        return ClipRect(
-          child: SizedBox(
-            height: heroHeight,
-            child: Stack(
-              children: [
-                // Left: greeting + subline + speech bubble
-                Positioned(
-                  top: 8,
-                  left: 0,
-                  right: textRightInset,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        greeting,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          fontSize: greetingSize,
-                          fontWeight: FontWeight.w900,
-                          color: s.text,
-                          letterSpacing: -0.7,
-                          height: 1.05,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        subline,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          fontSize: 12,
-                          color: s.textMuted,
-                          height: 1.4,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      SizedBox(height: veryNarrow ? 8 : 12),
-                      _SpeechBubble(text: bubble, maxWidth: bubbleMax),
-                    ],
-                  ),
-                ),
-
-                // Right: 큰 호랑이 — 화면 안에 완전히 들어옴 (right: 0)
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Mascot.tiger(
-                    size: tigerSize,
-                    emotion: _emotion,
-                    animate: true,
-                  ),
-                ),
-              ],
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              greeting,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: greetingSize,
+                fontWeight: FontWeight.w900,
+                color: s.text,
+                letterSpacing: -0.7,
+                height: 1.05,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-          ),
+            const SizedBox(height: 4),
+            Text(
+              subline,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 12,
+                color: s.textMuted,
+                height: 1.4,
+                fontWeight: FontWeight.w500,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: veryNarrow ? 8 : 10),
+            // 살아있는 호랑이 밴드 + 말풍선 오버레이
+            SizedBox(
+              height: bandHeight,
+              width: double.infinity,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned.fill(
+                    child: TigerStageRive(
+                      height: bandHeight,
+                      fallbackEmotion: _emotion,
+                    ),
+                  ),
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    child: _SpeechBubble(text: bubble, maxWidth: bubbleMax),
+                  ),
+                ],
+              ),
+            ),
+          ],
         );
       },
     );

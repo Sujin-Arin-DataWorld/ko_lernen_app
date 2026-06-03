@@ -257,6 +257,16 @@ class Storage {
   static bool get calligraphyDoneToday => calligraphyDates.contains(_today());
   static int get calligraphyTotalDays => calligraphyDates.length;
 
+  /// 도장첩 — 획득한 단청 도장 motif slug 목록 (DancheongMotif.name).
+  static List<String> get earnedStamps => _l('kl_stamps_earned');
+  static Future<void> addEarnedStamp(String motif) async {
+    final list = earnedStamps;
+    if (!list.contains(motif)) {
+      list.add(motif);
+      await _sl('kl_stamps_earned', list);
+    }
+  }
+
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 

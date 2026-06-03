@@ -10,12 +10,16 @@ class AppError extends StatelessWidget {
   final IconData icon;
   final String? retryLabel;
 
+  /// 옵션 일러스트 — 주어지면 아이콘 대신 PNG(없으면/실패 시 아이콘).
+  final String? asset;
+
   const AppError({
     super.key,
     required this.message,
     this.onRetry,
     this.icon = Icons.error_outline,
     this.retryLabel,
+    this.asset,
   });
 
   @override
@@ -33,7 +37,15 @@ class AppError extends StatelessWidget {
               _BreathingTransform(
                 scaleEnd: 1.07,
                 period: const Duration(milliseconds: 900),
-                child: Icon(icon, size: 56, color: SoriColors.danger),
+                child: asset != null
+                    ? Image.asset(
+                        asset!,
+                        height: 124,
+                        fit: BoxFit.contain,
+                        errorBuilder: (_, __, ___) =>
+                            Icon(icon, size: 56, color: SoriColors.danger),
+                      )
+                    : Icon(icon, size: 56, color: SoriColors.danger),
               ),
               const SizedBox(height: 14),
               Text(

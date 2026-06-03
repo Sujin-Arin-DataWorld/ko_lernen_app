@@ -376,6 +376,13 @@
   "@bookResultFoundN": {
     "placeholders": { "n": { "type": "int" } }
   },
+  "dojangTitle":                 "Stamp Book",
+  "dojangEmptyTitle":            "No stamps yet",
+  "dojangEmptyBody":             "Clear vocab packs to collect dancheong stamps.",
+  "dojangProgress":              "{earned} of {total} stamps collected",
+  "@dojangProgress": {
+    "placeholders": { "earned": { "type": "int" }, "total": { "type": "int" } }
+  },
   "bookResultOfflineNotice":     "Server unreachable — only grammar patterns detected offline.",
   "bookResultSectionWords":      "Words",
   "bookResultSectionGrammar":    "Grammar",

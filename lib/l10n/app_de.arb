@@ -377,6 +377,13 @@
   "@bookResultFoundN": {
     "placeholders": { "n": { "type": "int" } }
   },
+  "dojangTitle":                 "Stempelbuch",
+  "dojangEmptyTitle":            "Noch keine Stempel",
+  "dojangEmptyBody":             "Schließe Vokabelpakete ab, um Dancheong-Stempel zu sammeln.",
+  "dojangProgress":              "{earned} von {total} Stempeln gesammelt",
+  "@dojangProgress": {
+    "placeholders": { "earned": { "type": "int" }, "total": { "type": "int" } }
+  },
   "bookResultOfflineNotice":     "Server nicht erreichbar — nur Grammatikmuster offline erkannt.",
   "bookResultSectionWords":      "Wörter",
   "bookResultSectionGrammar":    "Grammatik",

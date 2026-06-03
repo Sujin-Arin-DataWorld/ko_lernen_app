@@ -927,6 +927,21 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get dojangTitle => 'Stempelbuch';
+
+  @override
+  String get dojangEmptyTitle => 'Noch keine Stempel';
+
+  @override
+  String get dojangEmptyBody =>
+      'Schließe Vokabelpakete ab, um Dancheong-Stempel zu sammeln.';
+
+  @override
+  String dojangProgress(int earned, int total) {
+    return '$earned von $total Stempeln gesammelt';
+  }
+
+  @override
   String get bookResultOfflineNotice =>
       'Server nicht erreichbar — nur Grammatikmuster offline erkannt.';
 
