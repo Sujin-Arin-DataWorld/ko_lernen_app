@@ -50,6 +50,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/wordle` | WordleScreen (한글 워들) |
 | `/settings` | SettingsScreen |
 | `/stats` | StatsScreen |
+| `/profile` | ProfileScreen (프로필 허브 — 정체성·계정상태·요약 통계, 게스트→Google 유도. 진입: 홈 `_TopBar` 사람 아이콘) |
 | `/scenarios` | ScenariosListScreen |
 | `/scenario` (args: scenarioId) | ScenarioPlayerScreen |
 | `/listening` | ListeningScreen (v1 — 시나리오 TTS 재생 + 자막 토글) |
@@ -66,7 +67,8 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/dojangcheop` | DojangcheopScreen (도장첩 — 팩 클리어로 획득한 단청 도장 8 motif 갤러리. 진입: VocabPacksScreen AppBar) |
 | `/gye/create` | GyeCreateScreen (계 만들기 — 이름·닉네임→6자리 코드 생성·공유) |
 | `/gye/join` | GyeJoinScreen (계 입장 — 코드+닉네임 가입). 진입: 홈 둘러보기 "Lern-Gye" 카드→chooser 바텀시트 |
-| `/gye` (args: gyeId) | GyeScreen (계 마당 — 멤버수·주간목표바·공동한옥(gye_* 8 합성)·피드·스티커 FAB·나가기). 생성/입장 성공 시 진입 |
+| `/gye` (args: gyeId) | GyeScreen (계 마당 — 멤버수·주간목표바·공동한옥(gye_* 8 합성)·피드·스티커 FAB·⋮멤버/나가기). 생성/입장 성공 시 진입 |
+| `/gye/members` (args: gyeId) | GyeMembersScreen (멤버 목록 + 신고 다이얼로그). 진입: GyeScreen ⋮ |
 
 ### 서비스
 - `lib/services/auth_service.dart` — Hybrid Auth. 항상 익명 로그인, Google 링크 선택. **주의**: web에서 Firebase 미설정 시 crash 방지를 위해 `_auth`가 nullable getter임.
@@ -309,6 +311,53 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-03 (계정 듀오링고화) — 상용화 진단 + 프로필 허브(Tier 1) + 출시 차단요소(Tier 0) · 커밋 dc291a6
+
+**범위:** Jin "회원계정·가입·로그인·계정삭제·개인정보·회원관리 상용화 단계인지 전수검사 + 듀오링고화 계획 md + 진행". 진단 → md → Tier 1(프로필+온보딩 유도) 구현.
+
+**진단(실제 코드, §0 — 과거 세션로그 일부 stale 정정):**
+- 익명우선(`ensureSignedIn`) + Google 단일 링크. 이메일/Apple 로그인 0.
+- **`deleteAccount()` 이미 구현+UI 연결**(`auth_service.dart:125`·`settings_screen.dart:499` 위험영역) — 과거 "계정삭제 미구현" 메모는 stale.
+- 전용 로그인/회원가입/프로필 화면 0(전부 settings 내부). 온보딩 약관/계정 단계 0.
+- privacy.html 충실(EN/DE/KO·GDPR·COPPA·account-deletion.html). 단 settings는 privacy URL **복사만**(url_launcher 미사용).
+- 🔴 iOS 폴더 존재인데 Apple Sign-In 없음 → App Store 4.8 리젝 리스크.
+- 🔴 RevenueCat `Purchases.configure`만, **`logIn(uid)` 없음**(`premium_service.dart:56`) → 구독↔Firebase계정 분리(복원·크로스기기 불안정).
+- CloudSync 수동·부분(`cloud_sync.dart` vok/chosung/wordle/grammar/app만; packs·bookshelf·custom 누락).
+- 판정: **안드로이드 출시 가능**(계정삭제·GDPR·rules 충족), iOS·유료구독·리텐션은 미완.
+
+**산출물:** `docs/ACCOUNT_SYSTEM_AUDIT_2026-06-03.md` — 진단표·스토어별 신호등·듀오링고 갭·Tier0~4 로드맵·즉시진행 항목.
+
+**Update(Tier 1 — 계정 1급화):**
+1. **`lib/screens/profile_screen.dart` 신규** route `/profile` — 아바타+이름(게스트/Google photoUrl), 계정상태 카드(게스트=Google저장 CTA·연결=로그아웃), 요약 3타일(streak/level/단어), "전체 통계"→/stats. 깊은 통계는 /stats 위임.
+2. **`lib/widgets/sori/account_nudge.dart` 신규** `showAccountNudgeSheet` — 온보딩 직후 soft 유도 바텀시트(익명만 노출·가드 내장, 항상 "나중에"). Google 연결 성공 시 `CloudSync.backup`.
+3. **진입점**: 홈 `_TopBar` 사람 아이콘 → /profile. 온보딩 `_select`/`_skip`이 레벨 저장 후 시트 → 홈.
+4. l10n `navProfile`/`profile*`/`accountNudge*` 16키(de=en parity). 연결 CTA·에러·이름은 기존 `settingsCloud*` 재활용.
+
+**Update(Tier 0 — 출시 차단요소, Jin "전부 진행" 요청):**
+5. **Apple Sign-In** — `auth_service.linkWithApple`+`_reauthenticateWithApple`+`deleteAccount` Apple 분기+nonce(crypto sha256, rawNonce→Firebase·해시→Apple). `appleSignInAvailable`(iOS/macOS만). profile·settings·account_nudge에 Apple 버튼(iOS만 노출). ⚠️ Xcode "Sign in with Apple" capability = Jin.
+6. **RevenueCat `logIn(uid)`** — `premium_service._bindFirebaseIdentity`: `FirebaseAuth.userChanges()` 구독 → uid 변경 시 `Purchases.logIn`(`_boundUid` 가드). 구독이 익명 RC ID 대신 Firebase 계정 추적(기기변경·재설치·계정전환). main race 무관(리스너 방식).
+7. **첫 실행 동의 게이트** — `lib/screens/consent_screen.dart` + `Storage.consentAccepted`. intro `_finish`가 미동의 시 ConsentScreen→(레벨/홈). privacy 링크 launchUrl.
+8. **privacy/삭제 URL 브라우저 열기** — 신규 `lib/widgets/sori/external_link.dart`(`openExternalUrl`: launchUrl externalApplication, 실패 시 클립보드 fallback). settings `_copyUrl` 교체. deps `sign_in_with_apple ^8.1.0`/`url_launcher ^6.3.2`/`crypto`. l10n `authAppleSignIn`+`consent*` 6키.
+
+**검증:** `flutter gen-l10n` OK · `flutter analyze`(lib+test) **0** · `flutter test` **257 통과**(신규 `profile_screen_test`: profile·consent 게스트 빌드 스모크 2). ⚠️ Apple 실플로우·Google 링크·구독 logIn·시각은 Firebase/스토어/실기기 필요 → **Jin 검증**(특히 iOS Apple capability·실결제). 동의게이트는 기존 사용자도 1회 표시(정당).
+
+**남음:** Tier 1 자동동기화+범위완성(packs·bookshelf·custom·streak) · Tier 2 이메일/비번 로그인 · iOS Apple capability(Jin). `docs/ACCOUNT_SYSTEM_AUDIT_2026-06-03.md` 로드맵.
+
+**Git push:** 미수행 — **커밋 dc291a6**(내 21파일만; 동시세션 `functions/gye` Node 전환·`firebase.json`은 미포함, Jin 별도).
+
+### 2026-06-03 (Tier 3f+3e) — 신고 UI + 계 나가기 + Cloud Function 스켈레톤 (커밋 be884f6)
+
+**Update:**
+1. **3f 신고/멤버** — `lib/screens/gye_members_screen.dart`(route `/gye/members`, GyeScreen ⋮ 진입): `membersStream` 멤버 목록 + 본인 외 신고(사유 4 + 노트→`reports/`). `GyeService.reportMember`/`membersStream`/`currentUid` 추가. 계 나가기는 3c에서 완료.
+2. **3e CF 스켈레톤** — `functions/gye/main.py`(firebase_functions SDK): `on_pack_cleared`(Firestore 트리거 → 계 weeklyGoalProgress·contributed 증가 + pack_cleared 피드) + `weekly_goal_rollover`(월 0시 KST 리셋). **미검증 — 배포·검증·FCM·보상로직 = Jin.** 기존 analyze_korean_text(functions_framework)와 별도 source.
+3. l10n `gyeMembers*`/`gyeReport*` 11키(parity).
+
+**검증:** `flutter analyze lib/` **0** · `flutter test` **255** · CF `py_compile` OK. ⚠️ Firestore 멀티유저·rules 에뮬·gye_hanok 좌표 시각·CF 배포는 Jin.
+
+**이로써 Tier 3 클라이언트 전부 완료** — 계 생성/입장/마당/공동한옥/스티커/멤버/신고/나가기. 남은 건 **Jin 백엔드/운영**: 3e CF 배포 + FCM, 자동 suspend, 계정삭제 시 gye 멤버십 정리(GDPR), gye_hanok 좌표 육안 튜닝.
+
+> ⚠️ 위 "Tier 3c+3d" 항목의 "남음(3f 신고 UI)"은 본 항목에서 해소됨.
 
 ### 2026-06-03 (Tier 3c+3d) — 계 마당 + 공동 한옥 + 스티커 (모든 자산 표시 완료)
 

@@ -2248,4 +2248,75 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ttsListen => 'Aussprache';
+
+  @override
+  String get navProfile => 'Profil';
+
+  @override
+  String get profileTitle => 'Profil';
+
+  @override
+  String get profileGuestName => 'Gast';
+
+  @override
+  String get profileGuestBadge => 'Gast-Modus';
+
+  @override
+  String get profileGuestDesc =>
+      'Dein Fortschritt liegt nur auf diesem Gerät. Sichere ihn mit Google, damit er einen Handywechsel übersteht.';
+
+  @override
+  String get profileConnectedBadge => 'Mit Google verbunden';
+
+  @override
+  String get profileConnectedDesc =>
+      'Dein Fortschritt kann jetzt in der Cloud gesichert werden.';
+
+  @override
+  String get profileStatStreak => 'Tage-Streak';
+
+  @override
+  String get profileStatLevel => 'Level';
+
+  @override
+  String get profileStatWords => 'Vokabeln';
+
+  @override
+  String get profileViewStats => 'Alle Statistiken ansehen';
+
+  @override
+  String get profileSignOut => 'Abmelden';
+
+  @override
+  String get accountNudgeTitle => 'Speichere deinen Fortschritt';
+
+  @override
+  String get accountNudgeBody =>
+      'Verbinde dich mit Google, damit dein Streak und deine Vokabeln einen Handywechsel überstehen.';
+
+  @override
+  String get accountNudgeConnect => 'Mit Google verbinden';
+
+  @override
+  String get accountNudgeLater => 'Später';
+
+  @override
+  String get authAppleSignIn => 'Mit Apple anmelden';
+
+  @override
+  String get consentTitle => 'Willkommen bei Hangul Sori';
+
+  @override
+  String get consentBody =>
+      'Bevor du loslegst — Hangul Sori speichert deinen Lernfortschritt standardmäßig nur auf deinem Gerät. Bitte sieh kurz, wie wir mit deinen Daten umgehen.';
+
+  @override
+  String get consentPrivacyCta => 'Datenschutzerklärung lesen';
+
+  @override
+  String get consentAgreeCta => 'Zustimmen & loslegen';
+
+  @override
+  String get consentFootnote =>
+      'Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu.';
 }

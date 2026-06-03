@@ -4182,6 +4182,138 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Aussprache'**
   String get ttsListen;
+
+  /// No description provided for @navProfile.
+  ///
+  /// In de, this message translates to:
+  /// **'Profil'**
+  String get navProfile;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Profil'**
+  String get profileTitle;
+
+  /// No description provided for @profileGuestName.
+  ///
+  /// In de, this message translates to:
+  /// **'Gast'**
+  String get profileGuestName;
+
+  /// No description provided for @profileGuestBadge.
+  ///
+  /// In de, this message translates to:
+  /// **'Gast-Modus'**
+  String get profileGuestBadge;
+
+  /// No description provided for @profileGuestDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt liegt nur auf diesem Gerät. Sichere ihn mit Google, damit er einen Handywechsel übersteht.'**
+  String get profileGuestDesc;
+
+  /// No description provided for @profileConnectedBadge.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Google verbunden'**
+  String get profileConnectedBadge;
+
+  /// No description provided for @profileConnectedDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt kann jetzt in der Cloud gesichert werden.'**
+  String get profileConnectedDesc;
+
+  /// No description provided for @profileStatStreak.
+  ///
+  /// In de, this message translates to:
+  /// **'Tage-Streak'**
+  String get profileStatStreak;
+
+  /// No description provided for @profileStatLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Level'**
+  String get profileStatLevel;
+
+  /// No description provided for @profileStatWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokabeln'**
+  String get profileStatWords;
+
+  /// No description provided for @profileViewStats.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Statistiken ansehen'**
+  String get profileViewStats;
+
+  /// No description provided for @profileSignOut.
+  ///
+  /// In de, this message translates to:
+  /// **'Abmelden'**
+  String get profileSignOut;
+
+  /// No description provided for @accountNudgeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichere deinen Fortschritt'**
+  String get accountNudgeTitle;
+
+  /// No description provided for @accountNudgeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbinde dich mit Google, damit dein Streak und deine Vokabeln einen Handywechsel überstehen.'**
+  String get accountNudgeBody;
+
+  /// No description provided for @accountNudgeConnect.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Google verbinden'**
+  String get accountNudgeConnect;
+
+  /// No description provided for @accountNudgeLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get accountNudgeLater;
+
+  /// No description provided for @authAppleSignIn.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Apple anmelden'**
+  String get authAppleSignIn;
+
+  /// No description provided for @consentTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Willkommen bei Hangul Sori'**
+  String get consentTitle;
+
+  /// No description provided for @consentBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Bevor du loslegst — Hangul Sori speichert deinen Lernfortschritt standardmäßig nur auf deinem Gerät. Bitte sieh kurz, wie wir mit deinen Daten umgehen.'**
+  String get consentBody;
+
+  /// No description provided for @consentPrivacyCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenschutzerklärung lesen'**
+  String get consentPrivacyCta;
+
+  /// No description provided for @consentAgreeCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Zustimmen & loslegen'**
+  String get consentAgreeCta;
+
+  /// No description provided for @consentFootnote.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu.'**
+  String get consentFootnote;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

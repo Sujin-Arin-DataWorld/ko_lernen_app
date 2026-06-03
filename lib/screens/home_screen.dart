@@ -517,6 +517,11 @@ class _TopBar extends StatelessWidget {
           ),
         ),
         _RoundIconButton(
+          icon: Icons.person_outline_rounded,
+          onTap: () => Navigator.pushNamed(context, '/profile'),
+        ),
+        const SizedBox(width: Spacing.xs),
+        _RoundIconButton(
           icon: Icons.bar_chart_rounded,
           onTap: () => Navigator.pushNamed(context, '/stats'),
         ),

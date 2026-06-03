@@ -866,5 +866,31 @@
   "notifStreakSaverBody": "Eine kurze Lektion reicht, um dranzubleiben.",
   "notifDailyStreakBody": "🔥 {days} Tage am Stück — heute weiter?",
   "@notifDailyStreakBody": { "placeholders": { "days": { "type": "int" } } },
-  "ttsListen": "Aussprache"
+  "ttsListen": "Aussprache",
+
+  "@_profile": { "description": "Profil-Hub + Konto-Nudge (Tier 1 — 2026-06-03)." },
+  "navProfile": "Profil",
+  "profileTitle": "Profil",
+  "profileGuestName": "Gast",
+  "profileGuestBadge": "Gast-Modus",
+  "profileGuestDesc": "Dein Fortschritt liegt nur auf diesem Gerät. Sichere ihn mit Google, damit er einen Handywechsel übersteht.",
+  "profileConnectedBadge": "Mit Google verbunden",
+  "profileConnectedDesc": "Dein Fortschritt kann jetzt in der Cloud gesichert werden.",
+  "profileStatStreak": "Tage-Streak",
+  "profileStatLevel": "Level",
+  "profileStatWords": "Vokabeln",
+  "profileViewStats": "Alle Statistiken ansehen",
+  "profileSignOut": "Abmelden",
+  "accountNudgeTitle": "Speichere deinen Fortschritt",
+  "accountNudgeBody": "Verbinde dich mit Google, damit dein Streak und deine Vokabeln einen Handywechsel überstehen.",
+  "accountNudgeConnect": "Mit Google verbinden",
+  "accountNudgeLater": "Später",
+  "authAppleSignIn": "Mit Apple anmelden",
+
+  "@_consent": { "description": "Consent-Gate beim ersten Start (Tier 0 — 2026-06-03)." },
+  "consentTitle": "Willkommen bei Hangul Sori",
+  "consentBody": "Bevor du loslegst — Hangul Sori speichert deinen Lernfortschritt standardmäßig nur auf deinem Gerät. Bitte sieh kurz, wie wir mit deinen Daten umgehen.",
+  "consentPrivacyCta": "Datenschutzerklärung lesen",
+  "consentAgreeCta": "Zustimmen & loslegen",
+  "consentFootnote": "Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu."
 }

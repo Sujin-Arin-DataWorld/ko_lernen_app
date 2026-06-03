@@ -6,6 +6,7 @@ import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/account_nudge.dart';
 import '../models/scenario.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -75,12 +76,16 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     HapticFeedback.mediumImpact();
     await Storage.setUserLevelCode(level.code);
     if (!context.mounted) return;
+    await showAccountNudgeSheet(context);
+    if (!context.mounted) return;
     Navigator.pushReplacementNamed(context, '/');
   }
 
   Future<void> _skip(BuildContext context) async {
     HapticFeedback.selectionClick();
     await Storage.setUserLevelCode(LearnerLevel.a1.code);
+    if (!context.mounted) return;
+    await showAccountNudgeSheet(context);
     if (!context.mounted) return;
     Navigator.pushReplacementNamed(context, '/');
   }

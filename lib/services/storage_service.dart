@@ -281,6 +281,12 @@ class Storage {
   static Future<void> setIntroSeen() async =>
       _prefs?.setBool('kl_intro_seen', true);
 
+  /// DSGVO/ToS-Einwilligung beim ersten Start akzeptiert? (Consent-Gate)
+  static bool get consentAccepted =>
+      _prefs?.getBool('kl_consent_accepted') ?? false;
+  static Future<void> setConsentAccepted() async =>
+      _prefs?.setBool('kl_consent_accepted', true);
+
   // ───────── SRS (Spaced Repetition, SM-2 vereinfacht) ─────────
   static Map<String, SrsCard>? _srsCache;
 

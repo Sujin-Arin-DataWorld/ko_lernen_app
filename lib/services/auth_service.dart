@@ -1,7 +1,12 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 /// Hybrid-Auth — **immer** anonym eingeloggt. Optional kann der
 /// User mit Google verlinken, um Cloud-Backup zu aktivieren.
@@ -51,6 +56,25 @@ class AuthService {
     } catch (_) {
       return false;
     }
+  }
+
+  static bool get isAppleLinked {
+    try {
+      return current?.providerData.any((p) => p.providerId == 'apple.com') ??
+          false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// Apple Sign-In ist nur auf Apple-Plattformen verfügbar (App-Store-
+  /// Richtlinie 4.8 verlangt es, sobald Google-Login angeboten wird).
+  static bool get appleSignInAvailable {
+    if (kIsWeb) {
+      return false;
+    }
+    return defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.macOS;
   }
 
   static String? get displayName => current?.displayName ?? current?.email;
@@ -109,6 +133,65 @@ class AuthService {
     }
   }
 
+  /// Anonymen User mit Apple-Account verlinken (iOS — App-Store-Pflicht 4.8).
+  /// Wie [linkWithGoogle]: existiert das Apple-Konto bereits → einfach anmelden.
+  static Future<User?> linkWithApple() async {
+    final auth = _auth;
+    if (auth == null) return null;
+
+    final rawNonce = _generateNonce();
+    final appleCredential = await SignInWithApple.getAppleIDCredential(
+      scopes: const [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+      nonce: _sha256(rawNonce),
+    );
+    final credential = OAuthProvider('apple.com').credential(
+      idToken: appleCredential.identityToken,
+      rawNonce: rawNonce,
+    );
+
+    final user = auth.currentUser;
+    if (user != null && user.isAnonymous) {
+      try {
+        final result = await user.linkWithCredential(credential);
+        await _maybeSetAppleName(result.user, appleCredential);
+        return result.user;
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'credential-already-in-use' ||
+            e.code == 'email-already-in-use') {
+          final result = await auth.signInWithCredential(credential);
+          return result.user;
+        }
+        rethrow;
+      }
+    } else {
+      final result = await auth.signInWithCredential(credential);
+      return result.user;
+    }
+  }
+
+  /// Apple liefert den Namen nur beim allerersten Login — übernehmen, wenn
+  /// vorhanden und noch kein displayName gesetzt ist.
+  static Future<void> _maybeSetAppleName(
+    User? user,
+    AuthorizationCredentialAppleID c,
+  ) async {
+    if (user == null) return;
+    if (user.displayName != null && user.displayName!.isNotEmpty) return;
+    final name = [c.givenName, c.familyName]
+        .where((e) => e != null && e.isNotEmpty)
+        .join(' ')
+        .trim();
+    if (name.isEmpty) return;
+    try {
+      await user.updateDisplayName(name);
+    } catch (_) {
+      // best-effort — Name ist optional.
+    }
+  }
+
   /// Delete the signed-in user's Firestore backup document and known
   /// subcollections. Local data stays untouched.
   static Future<void> deleteCloudData() async {
@@ -130,16 +213,24 @@ class AuthService {
 
     final wasGoogleLinked =
         user.providerData.any((p) => p.providerId == 'google.com');
+    final wasAppleLinked =
+        user.providerData.any((p) => p.providerId == 'apple.com');
     if (wasGoogleLinked) {
       await _reauthenticateWithGoogle(user);
+    } else if (wasAppleLinked) {
+      await _reauthenticateWithApple(user);
     }
 
     await deleteCloudData();
     try {
       await user.delete();
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'requires-recent-login' && wasGoogleLinked) {
-        await _reauthenticateWithGoogle(user);
+      if (e.code == 'requires-recent-login') {
+        if (wasGoogleLinked) {
+          await _reauthenticateWithGoogle(user);
+        } else if (wasAppleLinked) {
+          await _reauthenticateWithApple(user);
+        }
         await user.delete();
       } else {
         rethrow;
@@ -175,6 +266,34 @@ class AuthService {
     );
     await user.reauthenticateWithCredential(credential);
   }
+
+  static Future<void> _reauthenticateWithApple(User user) async {
+    final rawNonce = _generateNonce();
+    final appleCredential = await SignInWithApple.getAppleIDCredential(
+      scopes: const [AppleIDAuthorizationScopes.email],
+      nonce: _sha256(rawNonce),
+    );
+    final credential = OAuthProvider('apple.com').credential(
+      idToken: appleCredential.identityToken,
+      rawNonce: rawNonce,
+    );
+    await user.reauthenticateWithCredential(credential);
+  }
+
+  /// Krypto-sicherer Nonce für Apple Sign-In (Replay-Schutz). Roh-Nonce geht
+  /// an Firebase (`rawNonce`), der SHA-256-Hash an Apple (`nonce`).
+  static String _generateNonce([int length = 32]) {
+    const charset =
+        '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-._';
+    final random = Random.secure();
+    return List.generate(
+      length,
+      (_) => charset[random.nextInt(charset.length)],
+    ).join();
+  }
+
+  static String _sha256(String input) =>
+      sha256.convert(utf8.encode(input)).toString();
 
   static Future<void> _deleteUserFirestoreTree(
     FirebaseFirestore db,

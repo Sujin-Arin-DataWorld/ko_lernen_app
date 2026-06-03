@@ -6,6 +6,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/external_link.dart';
 import '../services/storage_service.dart';
 import '../services/notification_service.dart';
 import '../services/personalized_lesson_service.dart';
@@ -388,18 +389,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
               color: SoriColors.primary,
             ),
             title: Text(
-              AuthService.isGoogleLinked
+              (AuthService.isGoogleLinked || AuthService.isAppleLinked)
                   ? t.settingsCloudSignedIn(AuthService.displayName ?? 'Google')
                   : t.settingsCloudSignInPrompt,
             ),
             subtitle: Text(
-              AuthService.isGoogleLinked
+              (AuthService.isGoogleLinked || AuthService.isAppleLinked)
                   ? t.settingsCloudSignedInDesc
                   : t.settingsCloudSignInDesc,
             ),
-            onTap: _onGoogleTap,
+            onTap: (AuthService.isGoogleLinked || AuthService.isAppleLinked)
+                ? null
+                : _onGoogleTap,
           ),
-          if (AuthService.isGoogleLinked) ...[
+          if (!AuthService.isGoogleLinked &&
+              !AuthService.isAppleLinked &&
+              AuthService.appleSignInAvailable)
+            ListTile(
+              leading: const Icon(Icons.apple),
+              title: Text(t.authAppleSignIn),
+              subtitle: Text(t.settingsCloudSignInDesc),
+              onTap: _onAppleTap,
+            ),
+          if (AuthService.isGoogleLinked || AuthService.isAppleLinked) ...[
             ListTile(
               leading: const Icon(Icons.cloud_upload_outlined),
               title: Text(t.settingsCloudBackupNow),
@@ -409,6 +421,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               leading: const Icon(Icons.cloud_download_outlined),
               title: Text(t.settingsCloudRestore),
               onTap: _onRestoreTap,
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout_rounded),
+              title: Text(t.profileSignOut),
+              onTap: _onSignOutTap,
             ),
             ListTile(
               leading: const Icon(
@@ -725,17 +742,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _copyUrl(String url) async {
-    final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
-    await Clipboard.setData(ClipboardData(text: url));
+    // Im Browser öffnen; bei Fehler (kein Browser/Web-Sandbox) Fallback auf
+    // Zwischenablage + Snackbar (in [openExternalUrl]).
     HapticFeedback.selectionClick();
-    if (!mounted) return;
-    messenger.showSnackBar(
-      SnackBar(
-        content: Text(t.settingsPrivacyCopied(url)),
-        duration: const Duration(seconds: 3),
-      ),
-    );
+    await openExternalUrl(context, url);
   }
 
   String _levelDisplay(AppL10n t) {
@@ -932,6 +942,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       );
     }
+  }
+
+  Future<void> _onAppleTap() async {
+    try {
+      final user = await AuthService.linkWithApple();
+      if (user != null) {
+        await CloudSync.backup();
+      }
+      if (mounted) setState(() {});
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            AppL10n.of(context).settingsCloudAuthFailed(e.toString()),
+          ),
+        ),
+      );
+    }
+  }
+
+  Future<void> _onSignOutTap() async {
+    try {
+      await AuthService.signOut();
+    } catch (_) {
+      // signOut bricht still ab, wenn Firebase nicht verfügbar ist.
+    }
+    if (mounted) setState(() {});
   }
 
   void _confirmReset() {

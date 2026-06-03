@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
@@ -32,6 +33,7 @@ class PremiumService {
   static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');
 
   static bool _configured = false;
+  static String? _boundUid;
 
   /// `true` wenn echtes Abo aktiv ODER lokaler Dev-Override gesetzt ist.
   static bool get isPremium => premiumNotifier.value;
@@ -56,9 +58,34 @@ class PremiumService {
       await Purchases.configure(PurchasesConfiguration(key));
       _configured = true;
       Purchases.addCustomerInfoUpdateListener(_onCustomerInfo);
+      _bindFirebaseIdentity();
       _onCustomerInfo(await Purchases.getCustomerInfo());
     } catch (e) {
       debugPrint('PremiumService: init skipped — $e');
+    }
+  }
+
+  /// RevenueCat-`appUserID` an die Firebase-UID koppeln, damit das Abo dem
+  /// **Konto** folgt (Gerätewechsel, Reinstall, Google/Apple-Login) statt einer
+  /// gerätelokalen anonymen RC-ID. Reagiert auf UID-Wechsel (Konto-Wechsel oder
+  /// Neu-Anmeldung nach Konto-Löschung). Best-effort — ohne Firebase passiert
+  /// nichts, kein Crash.
+  static void _bindFirebaseIdentity() {
+    try {
+      FirebaseAuth.instance.userChanges().listen((user) async {
+        final uid = user?.uid;
+        if (uid == null || uid == _boundUid) {
+          return;
+        }
+        _boundUid = uid;
+        try {
+          await Purchases.logIn(uid);
+        } catch (e) {
+          debugPrint('PremiumService: logIn failed — $e');
+        }
+      });
+    } catch (_) {
+      // Firebase nicht verfügbar (z.B. Web ohne Config) — RC bleibt anonym.
     }
   }
 

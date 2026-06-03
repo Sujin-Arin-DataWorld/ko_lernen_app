@@ -53,6 +53,7 @@ import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
 import 'screens/onboarding_level_screen.dart';
+import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
 import 'package:rive/rive.dart' show RiveNative;
@@ -243,6 +244,9 @@ class KoLernenApp extends StatelessWidget {
             case '/stats':
               return SoriTransitions.fadeScale(
                   (_) => const StatsScreen(), settings: settings);
+            case '/profile':
+              return SoriTransitions.fadeScale(
+                  (_) => const ProfileScreen(), settings: settings);
             case '/paywall':
               return SoriTransitions.fadeScale(
                   (_) => const PaywallScreen(), settings: settings);

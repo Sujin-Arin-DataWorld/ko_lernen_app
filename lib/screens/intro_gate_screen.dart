@@ -8,6 +8,7 @@ import '../widgets/sori/tokens.dart';
 import '../motion/transitions.dart';
 import 'home_screen.dart';
 import 'onboarding_level_screen.dart';
+import 'consent_screen.dart';
 
 const _courtyardAsset = 'assets/illustrations/hanok/gate_final.png';
 const _gateFrameCanvas = Size(941, 1672);
@@ -85,9 +86,14 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     if (_navigated || !mounted) return;
     _navigated = true;
     Storage.setIntroSeen();
-    final next = Storage.userLevelCode == null
-        ? const OnboardingLevelScreen()
-        : const HomeScreen();
+    final Widget next;
+    if (!Storage.consentAccepted) {
+      next = const ConsentScreen();
+    } else if (Storage.userLevelCode == null) {
+      next = const OnboardingLevelScreen();
+    } else {
+      next = const HomeScreen();
+    }
     Navigator.of(
       context,
     ).pushReplacement(SoriTransitions.fadeScale((_) => next));

@@ -865,5 +865,31 @@
   "notifStreakSaverBody": "A quick lesson keeps it alive.",
   "notifDailyStreakBody": "🔥 {days} days in a row — keep going today?",
   "@notifDailyStreakBody": { "placeholders": { "days": { "type": "int" } } },
-  "ttsListen": "Pronunciation"
+  "ttsListen": "Pronunciation",
+
+  "@_profile": { "description": "Profile hub + account nudge (Tier 1 — 2026-06-03)." },
+  "navProfile": "Profile",
+  "profileTitle": "Profile",
+  "profileGuestName": "Guest",
+  "profileGuestBadge": "Guest mode",
+  "profileGuestDesc": "Your progress lives only on this device. Save it with Google so it survives a phone change.",
+  "profileConnectedBadge": "Connected with Google",
+  "profileConnectedDesc": "Your progress can now be backed up to the cloud.",
+  "profileStatStreak": "Day streak",
+  "profileStatLevel": "Level",
+  "profileStatWords": "Words",
+  "profileViewStats": "View all stats",
+  "profileSignOut": "Sign out",
+  "accountNudgeTitle": "Save your progress",
+  "accountNudgeBody": "Connect with Google so your streak and vocabulary survive a phone change.",
+  "accountNudgeConnect": "Connect with Google",
+  "accountNudgeLater": "Later",
+  "authAppleSignIn": "Sign in with Apple",
+
+  "@_consent": { "description": "First-launch consent gate (Tier 0 — 2026-06-03)." },
+  "consentTitle": "Welcome to Hangul Sori",
+  "consentBody": "Before you start — Hangul Sori keeps your learning progress on your device by default. Please take a moment to see how we handle your data.",
+  "consentPrivacyCta": "Read the privacy policy",
+  "consentAgreeCta": "Agree & start",
+  "consentFootnote": "By continuing you agree to our Privacy Policy."
 }

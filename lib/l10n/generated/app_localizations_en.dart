@@ -2241,4 +2241,75 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get ttsListen => 'Pronunciation';
+
+  @override
+  String get navProfile => 'Profile';
+
+  @override
+  String get profileTitle => 'Profile';
+
+  @override
+  String get profileGuestName => 'Guest';
+
+  @override
+  String get profileGuestBadge => 'Guest mode';
+
+  @override
+  String get profileGuestDesc =>
+      'Your progress lives only on this device. Save it with Google so it survives a phone change.';
+
+  @override
+  String get profileConnectedBadge => 'Connected with Google';
+
+  @override
+  String get profileConnectedDesc =>
+      'Your progress can now be backed up to the cloud.';
+
+  @override
+  String get profileStatStreak => 'Day streak';
+
+  @override
+  String get profileStatLevel => 'Level';
+
+  @override
+  String get profileStatWords => 'Words';
+
+  @override
+  String get profileViewStats => 'View all stats';
+
+  @override
+  String get profileSignOut => 'Sign out';
+
+  @override
+  String get accountNudgeTitle => 'Save your progress';
+
+  @override
+  String get accountNudgeBody =>
+      'Connect with Google so your streak and vocabulary survive a phone change.';
+
+  @override
+  String get accountNudgeConnect => 'Connect with Google';
+
+  @override
+  String get accountNudgeLater => 'Later';
+
+  @override
+  String get authAppleSignIn => 'Sign in with Apple';
+
+  @override
+  String get consentTitle => 'Welcome to Hangul Sori';
+
+  @override
+  String get consentBody =>
+      'Before you start — Hangul Sori keeps your learning progress on your device by default. Please take a moment to see how we handle your data.';
+
+  @override
+  String get consentPrivacyCta => 'Read the privacy policy';
+
+  @override
+  String get consentAgreeCta => 'Agree & start';
+
+  @override
+  String get consentFootnote =>
+      'By continuing you agree to our Privacy Policy.';
 }
