@@ -32,6 +32,9 @@ CATS = [
     ("kpop", "🎤", "K-pop·아이돌", "K-Pop & Idols", "K-pop & idols"),
     ("dating", "💕", "연애·썸", "Dating & Beziehung", "Dating & relationships"),
     ("interview", "🧑‍💼", "면접", "Vorstellungsgespräch", "Job interviews"),
+    ("job_hunting", "🧑‍💻", "취업 준비", "Jobsuche", "Job hunting"),
+    ("moving", "📦", "이사", "Umzug", "Moving house"),
+    ("hospital", "🏥", "병원", "Arztbesuch", "At the clinic"),
 ]
 
 # (category, level, kind, ko, de, en)   kind: opener | question | reaction
@@ -173,6 +176,32 @@ P = [
     ("interview", "b1", "question", "자기소개는 어떻게 준비했어요?", "Wie hast du deine Selbstvorstellung vorbereitet?", "How did you prepare your self-introduction?"),
     ("interview", "b2", "opener", "압박 면접이라 너무 긴장됐어요.", "Es war ein Stressinterview, ich war total angespannt.", "It was a pressure interview, so I was really tense."),
     ("interview", "b2", "opener", "면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.", "Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig.", "In interviews, an honest yet confident attitude seems to matter."),
+
+    # ── neue Kategorien (batch 2): Jobsuche / Umzug / Arztbesuch ──
+    ("job_hunting", "a1", "opener", "취업 준비해요.", "Ich suche gerade einen Job.", "I'm job hunting."),
+    ("job_hunting", "a1", "question", "이력서 썼어요?", "Hast du deinen Lebenslauf geschrieben?", "Did you write your resume?"),
+    ("job_hunting", "a2", "question", "어떤 회사 가고 싶어요?", "Bei welcher Firma möchtest du arbeiten?", "What company do you want to work for?"),
+    ("job_hunting", "a2", "question", "자소서 다 썼어요?", "Bist du mit dem Anschreiben fertig?", "Did you finish your cover letter?"),
+    ("job_hunting", "b1", "question", "요즘 취업 시장 어때요?", "Wie ist gerade der Arbeitsmarkt?", "How's the job market these days?"),
+    ("job_hunting", "b1", "question", "어느 분야로 지원하고 있어요?", "In welchem Bereich bewirbst du dich?", "What field are you applying in?"),
+    ("job_hunting", "b2", "opener", "서류는 붙었는데 면접에서 자꾸 떨어지네요.", "Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch.", "I pass the document round but keep failing the interviews."),
+    ("job_hunting", "b2", "opener", "취준 기간이 길어지니까 좀 지치더라고요.", "Die lange Jobsuche zehrt langsam an mir.", "The long job search is starting to wear me down."),
+    ("moving", "a1", "opener", "이사했어요.", "Ich bin umgezogen.", "I moved."),
+    ("moving", "a1", "question", "집 구했어요?", "Hast du eine Wohnung gefunden?", "Did you find a place?"),
+    ("moving", "a2", "question", "어디로 이사 가요?", "Wohin ziehst du um?", "Where are you moving to?"),
+    ("moving", "a2", "question", "이삿짐 많아요?", "Hast du viel Umzugsgut?", "Do you have a lot of stuff to move?"),
+    ("moving", "b1", "question", "새 집은 어때요?", "Wie ist die neue Wohnung?", "How's the new place?"),
+    ("moving", "b1", "question", "이사 비용 많이 들었어요?", "War der Umzug teuer?", "Did the move cost a lot?"),
+    ("moving", "b2", "opener", "이사하고 나니까 정리할 게 산더미예요.", "Nach dem Umzug gibt's einen Berg zum Aufräumen.", "After moving there's a mountain of stuff to organize."),
+    ("moving", "b2", "opener", "전세 구하기가 요즘 정말 어렵더라고요.", "Eine Jeonse-Wohnung zu finden ist gerade echt schwer.", "Finding a jeonse place is really tough these days."),
+    ("hospital", "a1", "opener", "병원 가요.", "Ich gehe zum Arzt.", "I'm going to the doctor."),
+    ("hospital", "a1", "question", "어디 아파요?", "Wo tut's weh?", "Where does it hurt?"),
+    ("hospital", "a2", "question", "예약했어요?", "Hast du einen Termin?", "Do you have an appointment?"),
+    ("hospital", "a2", "question", "보험 있어요?", "Hast du eine Versicherung?", "Do you have insurance?"),
+    ("hospital", "b1", "question", "증상이 언제부터 그랬어요?", "Seit wann hast du die Symptome?", "Since when have you had the symptoms?"),
+    ("hospital", "b1", "question", "처방전 받았어요?", "Hast du ein Rezept bekommen?", "Did you get a prescription?"),
+    ("hospital", "b2", "opener", "요즘 환절기라 병원에 사람이 너무 많더라고요.", "Wegen des Jahreszeitenwechsels ist beim Arzt gerade viel los.", "With the season changing, the clinic's been packed lately."),
+    ("hospital", "b2", "opener", "큰 병원은 예약 잡기가 하늘의 별 따기예요.", "Bei großen Krankenhäusern einen Termin zu bekommen ist fast unmöglich.", "Getting an appointment at a big hospital is nearly impossible."),
 ]
 
 LEVELS = {"a1", "a2", "b1", "b2"}
@@ -240,6 +269,21 @@ REPLIES = {
     "어디 지원했어요?": ("IT 회사에 지원했어요.", "Bei einer IT-Firma.", "I applied to an IT company."),
     "면접 준비 많이 했어요?": ("네, 열심히 준비했어요.", "Ja, ich hab fleißig geübt.", "Yes, I prepared hard."),
     "자기소개는 어떻게 준비했어요?": ("경험 위주로 준비했어요.", "Hauptsächlich über meine Erfahrung.", "I focused on my experience."),
+    "이력서 썼어요?": ("네, 어제 다 썼어요.", "Ja, gestern fertig geschrieben.", "Yes, I finished it yesterday."),
+    "어떤 회사 가고 싶어요?": ("IT 회사에 가고 싶어요.", "Zu einer IT-Firma.", "I'd like to join an IT company."),
+    "자소서 다 썼어요?": ("아직 반밖에 못 썼어요.", "Erst die Hälfte.", "Only halfway done so far."),
+    "요즘 취업 시장 어때요?": ("경쟁이 좀 치열해요.", "Der Wettbewerb ist ziemlich hart.", "The competition is pretty fierce."),
+    "어느 분야로 지원하고 있어요?": ("마케팅 쪽으로 지원해요.", "Im Bereich Marketing.", "I'm applying in marketing."),
+    "집 구했어요?": ("네, 지난주에 구했어요.", "Ja, letzte Woche.", "Yes, last week."),
+    "어디로 이사 가요?": ("회사 근처로 가요.", "In die Nähe der Firma.", "Near my office."),
+    "이삿짐 많아요?": ("생각보다 많아요.", "Mehr als gedacht.", "More than I thought."),
+    "새 집은 어때요?": ("깨끗하고 좋아요.", "Sauber und schön.", "Clean and nice."),
+    "이사 비용 많이 들었어요?": ("네, 좀 비쌌어요.", "Ja, ziemlich teuer.", "Yeah, it was pretty pricey."),
+    "어디 아파요?": ("목이 좀 아파요.", "Mein Hals tut weh.", "My throat hurts a bit."),
+    "예약했어요?": ("네, 두 시로 했어요.", "Ja, um zwei Uhr.", "Yes, at two o'clock."),
+    "보험 있어요?": ("네, 있어요.", "Ja, hab ich.", "Yes, I do."),
+    "증상이 언제부터 그랬어요?": ("며칠 됐어요.", "Seit ein paar Tagen.", "For a few days now."),
+    "처방전 받았어요?": ("네, 약 타러 가요.", "Ja, ich hol gleich die Medizin.", "Yes, I'm off to get the medicine."),
 }
 
 

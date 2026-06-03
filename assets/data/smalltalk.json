@@ -136,6 +136,33 @@
     "de": "Vorstellungsgespräch",
     "en": "Job interviews"
    }
+  },
+  {
+   "id": "job_hunting",
+   "emoji": "🧑‍💻",
+   "label": {
+    "ko": "취업 준비",
+    "de": "Jobsuche",
+    "en": "Job hunting"
+   }
+  },
+  {
+   "id": "moving",
+   "emoji": "📦",
+   "label": {
+    "ko": "이사",
+    "de": "Umzug",
+    "en": "Moving house"
+   }
+  },
+  {
+   "id": "hospital",
+   "emoji": "🏥",
+   "label": {
+    "ko": "병원",
+    "de": "Arztbesuch",
+    "en": "At the clinic"
+   }
   }
  ],
  "phrases": [
@@ -1406,6 +1433,273 @@
    "ko": "면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.",
    "de": "Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig.",
    "en": "In interviews, an honest yet confident attitude seems to matter."
+  },
+  {
+   "category": "job_hunting",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "취업 준비해요.",
+   "de": "Ich suche gerade einen Job.",
+   "en": "I'm job hunting."
+  },
+  {
+   "category": "job_hunting",
+   "level": "a1",
+   "kind": "question",
+   "ko": "이력서 썼어요?",
+   "de": "Hast du deinen Lebenslauf geschrieben?",
+   "en": "Did you write your resume?",
+   "reply": {
+    "ko": "네, 어제 다 썼어요.",
+    "de": "Ja, gestern fertig geschrieben.",
+    "en": "Yes, I finished it yesterday."
+   }
+  },
+  {
+   "category": "job_hunting",
+   "level": "a2",
+   "kind": "question",
+   "ko": "어떤 회사 가고 싶어요?",
+   "de": "Bei welcher Firma möchtest du arbeiten?",
+   "en": "What company do you want to work for?",
+   "reply": {
+    "ko": "IT 회사에 가고 싶어요.",
+    "de": "Zu einer IT-Firma.",
+    "en": "I'd like to join an IT company."
+   }
+  },
+  {
+   "category": "job_hunting",
+   "level": "a2",
+   "kind": "question",
+   "ko": "자소서 다 썼어요?",
+   "de": "Bist du mit dem Anschreiben fertig?",
+   "en": "Did you finish your cover letter?",
+   "reply": {
+    "ko": "아직 반밖에 못 썼어요.",
+    "de": "Erst die Hälfte.",
+    "en": "Only halfway done so far."
+   }
+  },
+  {
+   "category": "job_hunting",
+   "level": "b1",
+   "kind": "question",
+   "ko": "요즘 취업 시장 어때요?",
+   "de": "Wie ist gerade der Arbeitsmarkt?",
+   "en": "How's the job market these days?",
+   "reply": {
+    "ko": "경쟁이 좀 치열해요.",
+    "de": "Der Wettbewerb ist ziemlich hart.",
+    "en": "The competition is pretty fierce."
+   }
+  },
+  {
+   "category": "job_hunting",
+   "level": "b1",
+   "kind": "question",
+   "ko": "어느 분야로 지원하고 있어요?",
+   "de": "In welchem Bereich bewirbst du dich?",
+   "en": "What field are you applying in?",
+   "reply": {
+    "ko": "마케팅 쪽으로 지원해요.",
+    "de": "Im Bereich Marketing.",
+    "en": "I'm applying in marketing."
+   }
+  },
+  {
+   "category": "job_hunting",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "서류는 붙었는데 면접에서 자꾸 떨어지네요.",
+   "de": "Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch.",
+   "en": "I pass the document round but keep failing the interviews."
+  },
+  {
+   "category": "job_hunting",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "취준 기간이 길어지니까 좀 지치더라고요.",
+   "de": "Die lange Jobsuche zehrt langsam an mir.",
+   "en": "The long job search is starting to wear me down."
+  },
+  {
+   "category": "moving",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "이사했어요.",
+   "de": "Ich bin umgezogen.",
+   "en": "I moved."
+  },
+  {
+   "category": "moving",
+   "level": "a1",
+   "kind": "question",
+   "ko": "집 구했어요?",
+   "de": "Hast du eine Wohnung gefunden?",
+   "en": "Did you find a place?",
+   "reply": {
+    "ko": "네, 지난주에 구했어요.",
+    "de": "Ja, letzte Woche.",
+    "en": "Yes, last week."
+   }
+  },
+  {
+   "category": "moving",
+   "level": "a2",
+   "kind": "question",
+   "ko": "어디로 이사 가요?",
+   "de": "Wohin ziehst du um?",
+   "en": "Where are you moving to?",
+   "reply": {
+    "ko": "회사 근처로 가요.",
+    "de": "In die Nähe der Firma.",
+    "en": "Near my office."
+   }
+  },
+  {
+   "category": "moving",
+   "level": "a2",
+   "kind": "question",
+   "ko": "이삿짐 많아요?",
+   "de": "Hast du viel Umzugsgut?",
+   "en": "Do you have a lot of stuff to move?",
+   "reply": {
+    "ko": "생각보다 많아요.",
+    "de": "Mehr als gedacht.",
+    "en": "More than I thought."
+   }
+  },
+  {
+   "category": "moving",
+   "level": "b1",
+   "kind": "question",
+   "ko": "새 집은 어때요?",
+   "de": "Wie ist die neue Wohnung?",
+   "en": "How's the new place?",
+   "reply": {
+    "ko": "깨끗하고 좋아요.",
+    "de": "Sauber und schön.",
+    "en": "Clean and nice."
+   }
+  },
+  {
+   "category": "moving",
+   "level": "b1",
+   "kind": "question",
+   "ko": "이사 비용 많이 들었어요?",
+   "de": "War der Umzug teuer?",
+   "en": "Did the move cost a lot?",
+   "reply": {
+    "ko": "네, 좀 비쌌어요.",
+    "de": "Ja, ziemlich teuer.",
+    "en": "Yeah, it was pretty pricey."
+   }
+  },
+  {
+   "category": "moving",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "이사하고 나니까 정리할 게 산더미예요.",
+   "de": "Nach dem Umzug gibt's einen Berg zum Aufräumen.",
+   "en": "After moving there's a mountain of stuff to organize."
+  },
+  {
+   "category": "moving",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "전세 구하기가 요즘 정말 어렵더라고요.",
+   "de": "Eine Jeonse-Wohnung zu finden ist gerade echt schwer.",
+   "en": "Finding a jeonse place is really tough these days."
+  },
+  {
+   "category": "hospital",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "병원 가요.",
+   "de": "Ich gehe zum Arzt.",
+   "en": "I'm going to the doctor."
+  },
+  {
+   "category": "hospital",
+   "level": "a1",
+   "kind": "question",
+   "ko": "어디 아파요?",
+   "de": "Wo tut's weh?",
+   "en": "Where does it hurt?",
+   "reply": {
+    "ko": "목이 좀 아파요.",
+    "de": "Mein Hals tut weh.",
+    "en": "My throat hurts a bit."
+   }
+  },
+  {
+   "category": "hospital",
+   "level": "a2",
+   "kind": "question",
+   "ko": "예약했어요?",
+   "de": "Hast du einen Termin?",
+   "en": "Do you have an appointment?",
+   "reply": {
+    "ko": "네, 두 시로 했어요.",
+    "de": "Ja, um zwei Uhr.",
+    "en": "Yes, at two o'clock."
+   }
+  },
+  {
+   "category": "hospital",
+   "level": "a2",
+   "kind": "question",
+   "ko": "보험 있어요?",
+   "de": "Hast du eine Versicherung?",
+   "en": "Do you have insurance?",
+   "reply": {
+    "ko": "네, 있어요.",
+    "de": "Ja, hab ich.",
+    "en": "Yes, I do."
+   }
+  },
+  {
+   "category": "hospital",
+   "level": "b1",
+   "kind": "question",
+   "ko": "증상이 언제부터 그랬어요?",
+   "de": "Seit wann hast du die Symptome?",
+   "en": "Since when have you had the symptoms?",
+   "reply": {
+    "ko": "며칠 됐어요.",
+    "de": "Seit ein paar Tagen.",
+    "en": "For a few days now."
+   }
+  },
+  {
+   "category": "hospital",
+   "level": "b1",
+   "kind": "question",
+   "ko": "처방전 받았어요?",
+   "de": "Hast du ein Rezept bekommen?",
+   "en": "Did you get a prescription?",
+   "reply": {
+    "ko": "네, 약 타러 가요.",
+    "de": "Ja, ich hol gleich die Medizin.",
+    "en": "Yes, I'm off to get the medicine."
+   }
+  },
+  {
+   "category": "hospital",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "요즘 환절기라 병원에 사람이 너무 많더라고요.",
+   "de": "Wegen des Jahreszeitenwechsels ist beim Arzt gerade viel los.",
+   "en": "With the season changing, the clinic's been packed lately."
+  },
+  {
+   "category": "hospital",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "큰 병원은 예약 잡기가 하늘의 별 따기예요.",
+   "de": "Bei großen Krankenhäusern einen Termin zu bekommen ist fast unmöglich.",
+   "en": "Getting an appointment at a big hospital is nearly impossible."
   }
  ]
 }
