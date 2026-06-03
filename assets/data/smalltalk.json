@@ -503,6 +503,390 @@
    "ko": "요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.",
    "de": "Ich hab neulich mit Sport angefangen — ich fühle mich deutlich fitter.",
    "en": "I started working out recently and I definitely feel in better shape."
+  },
+  {
+   "category": "weather",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "비가 와요.",
+   "de": "Es regnet.",
+   "en": "It's raining."
+  },
+  {
+   "category": "weather",
+   "level": "a2",
+   "kind": "question",
+   "ko": "우산 가져왔어요?",
+   "de": "Hast du einen Schirm dabei?",
+   "en": "Did you bring an umbrella?"
+  },
+  {
+   "category": "weather",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "날씨가 점점 추워지네요.",
+   "de": "Es wird allmählich kälter.",
+   "en": "It's gradually getting colder."
+  },
+  {
+   "category": "weather",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "미세먼지가 심한 날엔 마스크를 챙기게 되더라고요.",
+   "de": "An Tagen mit viel Feinstaub nehme ich am Ende immer eine Maske mit.",
+   "en": "On heavy fine-dust days I always end up grabbing a mask."
+  },
+  {
+   "category": "mood",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "좀 졸려요.",
+   "de": "Ich bin etwas schläfrig.",
+   "en": "I'm a bit sleepy."
+  },
+  {
+   "category": "mood",
+   "level": "a2",
+   "kind": "question",
+   "ko": "오늘 컨디션 어때요?",
+   "de": "Wie fühlst du dich heute?",
+   "en": "How are you feeling today?"
+  },
+  {
+   "category": "mood",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "요즘 일이 많아서 좀 지쳤어요.",
+   "de": "Wegen viel Arbeit bin ich in letzter Zeit etwas erschöpft.",
+   "en": "I'm a bit worn out from all the work lately."
+  },
+  {
+   "category": "mood",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "별일 없는데도 괜히 마음이 싱숭생숭하네요.",
+   "de": "Obwohl nichts los ist, bin ich grundlos unruhig.",
+   "en": "Nothing's really wrong, yet I feel oddly restless."
+  },
+  {
+   "category": "weekend",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "주말 잘 보내세요.",
+   "de": "Schönes Wochenende.",
+   "en": "Have a nice weekend."
+  },
+  {
+   "category": "weekend",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "주말에 친구를 만났어요.",
+   "de": "Am Wochenende hab ich einen Freund getroffen.",
+   "en": "I met a friend over the weekend."
+  },
+  {
+   "category": "weekend",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "이번 주말엔 집에서 좀 쉬려고요.",
+   "de": "Dieses Wochenende will ich mich zu Hause ausruhen.",
+   "en": "I plan to just rest at home this weekend."
+  },
+  {
+   "category": "weekend",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "주말마다 뭔가 하려고 계획은 하는데 결국 늦잠만 자게 돼요.",
+   "de": "Jedes Wochenende plane ich etwas, aber am Ende schlafe ich nur aus.",
+   "en": "Every weekend I plan something but end up just sleeping in."
+  },
+  {
+   "category": "food",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "배고파요.",
+   "de": "Ich hab Hunger.",
+   "en": "I'm hungry."
+  },
+  {
+   "category": "food",
+   "level": "a2",
+   "kind": "question",
+   "ko": "매운 거 잘 먹어요?",
+   "de": "Verträgst du Scharfes gut?",
+   "en": "Can you handle spicy food?"
+  },
+  {
+   "category": "food",
+   "level": "b1",
+   "kind": "question",
+   "ko": "이 근처에 맛집 좀 아세요?",
+   "de": "Kennen Sie hier in der Nähe ein gutes Lokal?",
+   "en": "Do you know any good restaurants nearby?"
+  },
+  {
+   "category": "food",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "혼자 밥 먹는 것도 익숙해지니까 나름 편하더라고요.",
+   "de": "Allein zu essen wird mit der Zeit ganz angenehm.",
+   "en": "Eating alone becomes quite comfortable once you get used to it."
+  },
+  {
+   "category": "daily",
+   "level": "a1",
+   "kind": "question",
+   "ko": "잘 잤어요?",
+   "de": "Gut geschlafen?",
+   "en": "Did you sleep well?"
+  },
+  {
+   "category": "daily",
+   "level": "a2",
+   "kind": "opener",
+   "ko": "오늘 좀 늦었어요.",
+   "de": "Ich bin heute etwas spät dran.",
+   "en": "I'm running a bit late today."
+  },
+  {
+   "category": "daily",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "요즘 하루가 너무 빨리 가는 것 같아요.",
+   "de": "Die Tage vergehen gerade so schnell.",
+   "en": "The days feel like they're flying by lately."
+  },
+  {
+   "category": "daily",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "퇴근하고 나면 아무것도 하기 싫어지더라고요.",
+   "de": "Nach Feierabend hab ich zu gar nichts mehr Lust.",
+   "en": "After work I just don't feel like doing anything."
+  },
+  {
+   "category": "screen",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "영화 좋아해요.",
+   "de": "Ich mag Filme.",
+   "en": "I like movies."
+  },
+  {
+   "category": "screen",
+   "level": "a2",
+   "kind": "question",
+   "ko": "주말에 영화 봤어요?",
+   "de": "Hast du am Wochenende einen Film gesehen?",
+   "en": "Did you watch a movie over the weekend?"
+  },
+  {
+   "category": "screen",
+   "level": "b1",
+   "kind": "question",
+   "ko": "최근에 본 것 중에 추천할 만한 거 있어요?",
+   "de": "Gibt's unter deinen letzten etwas zu empfehlen?",
+   "en": "Anything worth recommending from what you've seen recently?"
+  },
+  {
+   "category": "screen",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "요즘은 드라마 정주행하느라 밤을 새우기 일쑤예요.",
+   "de": "In letzter Zeit binge ich Serien und mache oft die Nacht durch.",
+   "en": "Lately I binge dramas and often end up pulling all-nighters."
+  },
+  {
+   "category": "music",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "노래 들어요.",
+   "de": "Ich höre Musik.",
+   "en": "I'm listening to music."
+  },
+  {
+   "category": "music",
+   "level": "a2",
+   "kind": "question",
+   "ko": "콘서트 가 본 적 있어요?",
+   "de": "Warst du schon mal auf einem Konzert?",
+   "en": "Have you ever been to a concert?"
+  },
+  {
+   "category": "music",
+   "level": "b1",
+   "kind": "question",
+   "ko": "기분 안 좋을 때 듣는 노래 있어요?",
+   "de": "Hast du ein Lied für schlechte Tage?",
+   "en": "Do you have a song for when you're feeling down?"
+  },
+  {
+   "category": "music",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "출퇴근할 때 음악이 없으면 하루가 허전하더라고요.",
+   "de": "Ohne Musik auf dem Arbeitsweg fühlt sich der Tag leer an.",
+   "en": "Without music on my commute the day feels empty."
+  },
+  {
+   "category": "hobby",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "저는 그림을 그려요.",
+   "de": "Ich male.",
+   "en": "I draw."
+  },
+  {
+   "category": "hobby",
+   "level": "a2",
+   "kind": "question",
+   "ko": "요즘 새로 배우는 거 있어요?",
+   "de": "Lernst du gerade etwas Neues?",
+   "en": "Are you learning anything new lately?"
+  },
+  {
+   "category": "hobby",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "취미로 시작했는데 점점 진심이 됐어요.",
+   "de": "Hab's als Hobby angefangen, aber es wird immer ernster.",
+   "en": "I started it as a hobby but I'm getting more serious about it."
+  },
+  {
+   "category": "hobby",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "바쁘다는 핑계로 취미를 자꾸 미루게 되네요.",
+   "de": "Mit der Ausrede 'keine Zeit' schiebe ich meine Hobbys ständig auf.",
+   "en": "I keep putting off my hobbies with the excuse of being busy."
+  },
+  {
+   "category": "travel",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "바다 좋아해요.",
+   "de": "Ich mag das Meer.",
+   "en": "I like the sea."
+  },
+  {
+   "category": "travel",
+   "level": "a2",
+   "kind": "question",
+   "ko": "휴가 때 어디 갔어요?",
+   "de": "Wohin bist du im Urlaub gefahren?",
+   "en": "Where did you go on your vacation?"
+  },
+  {
+   "category": "travel",
+   "level": "b1",
+   "kind": "question",
+   "ko": "여행은 혼자 가는 편이에요, 같이 가는 편이에요?",
+   "de": "Reist du eher allein oder mit anderen?",
+   "en": "Do you tend to travel alone or with others?"
+  },
+  {
+   "category": "travel",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.",
+   "de": "Reisen ohne Plan bleiben einem überraschend besser in Erinnerung.",
+   "en": "Trips taken without a plan turn out surprisingly more memorable."
+  },
+  {
+   "category": "work_study",
+   "level": "a1",
+   "kind": "opener",
+   "ko": "오늘 바빠요.",
+   "de": "Heute ist viel los.",
+   "en": "I'm busy today."
+  },
+  {
+   "category": "work_study",
+   "level": "a2",
+   "kind": "question",
+   "ko": "일 끝나고 뭐 해요?",
+   "de": "Was machst du nach der Arbeit?",
+   "en": "What do you do after work?"
+  },
+  {
+   "category": "work_study",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "새 프로젝트 때문에 요즘 좀 바빠요.",
+   "de": "Wegen eines neuen Projekts hab ich gerade viel zu tun.",
+   "en": "I'm pretty busy lately because of a new project."
+  },
+  {
+   "category": "work_study",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "일과 삶의 균형을 맞추는 게 생각보다 어렵더라고요.",
+   "de": "Die Work-Life-Balance hinzubekommen ist schwerer als gedacht.",
+   "en": "Balancing work and life is harder than I expected."
+  },
+  {
+   "category": "family",
+   "level": "a1",
+   "kind": "question",
+   "ko": "부모님 잘 계세요?",
+   "de": "Geht's deinen Eltern gut?",
+   "en": "Are your parents doing well?"
+  },
+  {
+   "category": "family",
+   "level": "a2",
+   "kind": "question",
+   "ko": "형제 있어요?",
+   "de": "Hast du Geschwister?",
+   "en": "Do you have any siblings?"
+  },
+  {
+   "category": "family",
+   "level": "b1",
+   "kind": "question",
+   "ko": "명절엔 보통 가족이랑 보내세요?",
+   "de": "Verbringen Sie die Feiertage meist mit der Familie?",
+   "en": "Do you usually spend the holidays with family?"
+  },
+  {
+   "category": "family",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "부모님이랑 떨어져 살면서 전화를 더 자주 하게 됐어요.",
+   "de": "Seit ich getrennt von meinen Eltern lebe, rufe ich öfter an.",
+   "en": "Since living apart from my parents, I've started calling them more often."
+  },
+  {
+   "category": "health",
+   "level": "a1",
+   "kind": "reaction",
+   "ko": "잘 자요.",
+   "de": "Schlaf gut.",
+   "en": "Sleep well."
+  },
+  {
+   "category": "health",
+   "level": "a2",
+   "kind": "question",
+   "ko": "요즘 잘 자요?",
+   "de": "Schläfst du in letzter Zeit gut?",
+   "en": "Are you sleeping well these days?"
+  },
+  {
+   "category": "health",
+   "level": "b1",
+   "kind": "opener",
+   "ko": "건강 챙기려고 물을 많이 마시려고 해요.",
+   "de": "Um gesund zu bleiben, versuche ich viel Wasser zu trinken.",
+   "en": "I try to drink lots of water to stay healthy."
+  },
+  {
+   "category": "health",
+   "level": "b2",
+   "kind": "opener",
+   "ko": "나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.",
+   "de": "Mit dem Alter merkt der Körper jede kleine Überanstrengung sofort.",
+   "en": "As I get older, my body shows it right away if I overdo it even a little."
   }
  ]
 }
