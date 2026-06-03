@@ -3618,6 +3618,84 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Richtig: {answer}'**
   String wbTypingAnswer(Object answer);
+
+  /// No description provided for @wbQuickPackName.
+  ///
+  /// In de, this message translates to:
+  /// **'⭐ Schnellspeicher'**
+  String get wbQuickPackName;
+
+  /// No description provided for @wbAddTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Wortliste hinzufügen'**
+  String get wbAddTooltip;
+
+  /// No description provided for @wbAdded.
+  ///
+  /// In de, this message translates to:
+  /// **'{word} zur Wortliste hinzugefügt'**
+  String wbAdded(Object word);
+
+  /// No description provided for @wbAlreadyAdded.
+  ///
+  /// In de, this message translates to:
+  /// **'{word} ist schon in deiner Wortliste'**
+  String wbAlreadyAdded(Object word);
+
+  /// No description provided for @wbAddFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Konnte nicht hinzugefügt werden'**
+  String get wbAddFailed;
+
+  /// No description provided for @wbViewAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Ansehen'**
+  String get wbViewAction;
+
+  /// No description provided for @wbSearchTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Wörter'**
+  String get wbSearchTitle;
+
+  /// No description provided for @wbSearchHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort oder Bedeutung suchen …'**
+  String get wbSearchHint;
+
+  /// No description provided for @wbSearchEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Treffer'**
+  String get wbSearchEmpty;
+
+  /// No description provided for @wbSearchNoWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine gespeicherten Wörter. Tippe beim Lernen auf das Lesezeichen-Symbol.'**
+  String get wbSearchNoWords;
+
+  /// No description provided for @wbSearchCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Wörter'**
+  String wbSearchCount(int count);
+
+  /// No description provided for @wbPosAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle'**
+  String get wbPosAll;
+
+  /// No description provided for @wbSearchCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Wörter durchsuchen'**
+  String get wbSearchCta;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

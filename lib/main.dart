@@ -31,6 +31,7 @@ import 'screens/custom_pack_edit_screen.dart';
 import 'screens/custom_pack_quiz_screen.dart';
 import 'screens/custom_pack_matching_screen.dart';
 import 'screens/custom_pack_typing_screen.dart';
+import 'screens/wordbook_search_screen.dart';
 import 'screens/hard_words_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
@@ -291,6 +292,9 @@ class KoLernenApp extends StatelessWidget {
               return SoriTransitions.fadeScale(
                   (_) => CustomPackTypingScreen(packId: id),
                   settings: settings);
+            case '/wordbook/search':
+              return SoriTransitions.fadeScale(
+                  (_) => const WordbookSearchScreen(), settings: settings);
             case '/hard_words':
               return SoriTransitions.fadeScale(
                   (_) => const HardWordsScreen(), settings: settings);

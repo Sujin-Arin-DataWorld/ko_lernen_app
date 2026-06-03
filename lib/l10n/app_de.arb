@@ -753,5 +753,23 @@
   "wbTypingPrompt": "Schreib das koreanische Wort:",
   "wbTypingHint": "Auf Koreanisch …",
   "wbTypingAnswer": "Richtig: {answer}",
-  "@wbTypingAnswer": { "placeholders": { "answer": {} } }
+  "@wbTypingAnswer": { "placeholders": { "answer": {} } },
+
+  "@_wordbook_global": { "description": "Globales Zur-Wortliste-hinzufuegen + Woerter-Suche (v2.0)." },
+  "wbQuickPackName": "⭐ Schnellspeicher",
+  "wbAddTooltip": "Zur Wortliste hinzufügen",
+  "wbAdded": "{word} zur Wortliste hinzugefügt",
+  "@wbAdded": { "placeholders": { "word": {} } },
+  "wbAlreadyAdded": "{word} ist schon in deiner Wortliste",
+  "@wbAlreadyAdded": { "placeholders": { "word": {} } },
+  "wbAddFailed": "Konnte nicht hinzugefügt werden",
+  "wbViewAction": "Ansehen",
+  "wbSearchTitle": "Meine Wörter",
+  "wbSearchHint": "Wort oder Bedeutung suchen …",
+  "wbSearchEmpty": "Keine Treffer",
+  "wbSearchNoWords": "Noch keine gespeicherten Wörter. Tippe beim Lernen auf das Lesezeichen-Symbol.",
+  "wbSearchCount": "{count} Wörter",
+  "@wbSearchCount": { "placeholders": { "count": { "type": "int" } } },
+  "wbPosAll": "Alle",
+  "wbSearchCta": "Meine Wörter durchsuchen"
 }

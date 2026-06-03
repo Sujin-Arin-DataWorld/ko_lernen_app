@@ -1926,4 +1926,50 @@ class AppL10nEn extends AppL10n {
   String wbTypingAnswer(Object answer) {
     return 'Correct: $answer';
   }
+
+  @override
+  String get wbQuickPackName => '⭐ Quick saves';
+
+  @override
+  String get wbAddTooltip => 'Add to word list';
+
+  @override
+  String wbAdded(Object word) {
+    return 'Added $word to your word list';
+  }
+
+  @override
+  String wbAlreadyAdded(Object word) {
+    return '$word is already in your word list';
+  }
+
+  @override
+  String get wbAddFailed => 'Couldn\'t add it';
+
+  @override
+  String get wbViewAction => 'View';
+
+  @override
+  String get wbSearchTitle => 'My words';
+
+  @override
+  String get wbSearchHint => 'Search word or meaning …';
+
+  @override
+  String get wbSearchEmpty => 'No matches';
+
+  @override
+  String get wbSearchNoWords =>
+      'No saved words yet. Tap the bookmark icon while learning.';
+
+  @override
+  String wbSearchCount(int count) {
+    return '$count words';
+  }
+
+  @override
+  String get wbPosAll => 'All';
+
+  @override
+  String get wbSearchCta => 'Search my words';
 }

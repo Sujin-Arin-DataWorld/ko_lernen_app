@@ -752,5 +752,23 @@
   "wbTypingPrompt": "Type the Korean word:",
   "wbTypingHint": "In Korean …",
   "wbTypingAnswer": "Correct: {answer}",
-  "@wbTypingAnswer": { "placeholders": { "answer": {} } }
+  "@wbTypingAnswer": { "placeholders": { "answer": {} } },
+
+  "@_wordbook_global": { "description": "Global add-to-wordlist + word search (v2.0)." },
+  "wbQuickPackName": "⭐ Quick saves",
+  "wbAddTooltip": "Add to word list",
+  "wbAdded": "Added {word} to your word list",
+  "@wbAdded": { "placeholders": { "word": {} } },
+  "wbAlreadyAdded": "{word} is already in your word list",
+  "@wbAlreadyAdded": { "placeholders": { "word": {} } },
+  "wbAddFailed": "Couldn't add it",
+  "wbViewAction": "View",
+  "wbSearchTitle": "My words",
+  "wbSearchHint": "Search word or meaning …",
+  "wbSearchEmpty": "No matches",
+  "wbSearchNoWords": "No saved words yet. Tap the bookmark icon while learning.",
+  "wbSearchCount": "{count} words",
+  "@wbSearchCount": { "placeholders": { "count": { "type": "int" } } },
+  "wbPosAll": "All",
+  "wbSearchCta": "Search my words"
 }

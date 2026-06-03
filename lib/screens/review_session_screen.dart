@@ -15,6 +15,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/wordbook_add.dart';
 
 /// **Review Session (M2)** — "Heute lernen / 오늘의 학습".
 ///
@@ -109,6 +110,19 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
       appBar: AppBar(
         title: Text(widget.title ?? t.reviewTitle,
             style: const TextStyle(fontWeight: FontWeight.w800)),
+        actions: [
+          // 오늘의 복습 카드를 바로 내 단어장에 담기 (item 11).
+          if (!_loading && _deck.isNotEmpty && !_done)
+            AddToWordbookButton(
+              korean: _card.korean,
+              translationDe: _card.german,
+              romanization: _card.romanization,
+              posDe: _card.posDe,
+              exampleKorean: _card.exampleKorean,
+              exampleDe: _card.exampleGerman,
+              compact: true,
+            ),
+        ],
       ),
       body: SafeArea(
         child: _loading

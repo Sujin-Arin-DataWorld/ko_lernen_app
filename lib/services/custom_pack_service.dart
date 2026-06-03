@@ -5,6 +5,9 @@ import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import 'storage_service.dart';
 
+/// Ergebnis von [CustomPackService.quickAdd].
+enum WordbookAddResult { added, alreadyExists, failed }
+
 /// Phase 5.1 (stately-rising-jongga) — CustomPack CRUD service.
 ///
 /// Lokal-only — Firestore sync 는 v1 에서 미구현 (사용자 1대 기기 가정).
@@ -60,6 +63,34 @@ class CustomPackService {
     final pack = CustomPack.manual(id: generateId(), name: name);
     await save(pack);
     return pack;
+  }
+
+  /// Feste ID des "Schnellspeicher"-Packs — überall im Lern-Flow per
+  /// [quickAdd] befüllt. Feste ID = kein Storage-Key nötig (find-or-create).
+  static const String quickPackId = 'cp_quick_v1';
+
+  /// "Dieses Wort in meine Wortliste" — universeller Schnell-Hinzufüger.
+  /// Legt den Schnellspeicher-Pack bei Bedarf an, dedupliziert per
+  /// koreanischem String (kein Spam beim mehrfachen Tippen).
+  static Future<WordbookAddResult> quickAdd({
+    required String defaultPackName,
+    required ExtractedWord word,
+  }) async {
+    if (word.korean.trim().isEmpty) return WordbookAddResult.failed;
+    try {
+      var pack = getById(quickPackId);
+      if (pack == null) {
+        pack = CustomPack.manual(id: quickPackId, name: defaultPackName);
+        await save(pack);
+      }
+      if (pack.words.any((w) => w.korean == word.korean)) {
+        return WordbookAddResult.alreadyExists;
+      }
+      await addWord(quickPackId, word);
+      return WordbookAddResult.added;
+    } catch (_) {
+      return WordbookAddResult.failed;
+    }
   }
 
   /// 단어 추가 → 저장. 갱신된 팩 반환 (없으면 null).

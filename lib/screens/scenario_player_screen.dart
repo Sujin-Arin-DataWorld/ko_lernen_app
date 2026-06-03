@@ -14,6 +14,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
 import 'quest_engines/luecken_quest.dart';
 import 'quest_engines/batchim_drop_quest.dart';
@@ -361,6 +362,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
                               alpha: 0.12,
                             ),
                           ),
+                        ),
+                        // 시나리오 단어를 내 단어장에 담기.
+                        AddToWordbookButton(
+                          korean: v.korean,
+                          translationDe: v.note?.de ?? '',
+                          translationEn: v.note?.en ?? '',
+                          compact: true,
                         ),
                       ],
                     ),

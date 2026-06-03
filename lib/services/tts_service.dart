@@ -9,13 +9,44 @@ class TtsService {
   static Future<void> _init() async {
     if (_initialized) return;
     try {
+      // Web (Chrome): ohne awaitSpeakCompletion werden längere Äußerungen
+      // abgeschnitten ("da…"). Mit true wartet speak() bis zum Ende.
+      await _tts.awaitSpeakCompletion(true);
       await _tts.setLanguage('ko-KR');
+      // Falls eine koreanische Stimme installiert ist, sie explizit wählen —
+      // sonst liest die Standardstimme (z.B. DE im Browser) Hangul falsch vor.
+      await _trySelectKoreanVoice();
       await _tts.setSpeechRate(Storage.ttsRate);
       await _tts.setPitch(1.0);
       await _tts.setVolume(1.0);
       _initialized = true;
     } catch (e) {
       lastError = 'TTS-Initialisierung fehlgeschlagen: $e';
+    }
+  }
+
+  /// Sucht in den verfügbaren Stimmen eine koreanische (locale beginnt mit
+  /// "ko") und wählt sie. Best-effort: nicht jede Plattform liefert getVoices,
+  /// und ohne installierte ko-Stimme bleibt es bei setLanguage('ko-KR').
+  static Future<void> _trySelectKoreanVoice() async {
+    try {
+      final voices = await _tts.getVoices;
+      if (voices is! List) return;
+      for (final v in voices) {
+        if (v is! Map) continue;
+        final locale = (v['locale'] ?? '').toString().toLowerCase();
+        final name = (v['name'] ?? '').toString();
+        if (locale.startsWith('ko') || locale.contains('ko-') ||
+            name.toLowerCase().contains('korean')) {
+          await _tts.setVoice({
+            'name': name,
+            'locale': (v['locale'] ?? 'ko-KR').toString(),
+          });
+          return;
+        }
+      }
+    } catch (_) {
+      // getVoices/setVoice nicht überall unterstützt — ignorieren.
     }
   }
 

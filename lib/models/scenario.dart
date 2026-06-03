@@ -191,6 +191,17 @@ class CulturalNote {
     title: LocalizedText.fromJson(j['title'] as Map<String, dynamic>),
     body:  LocalizedText.fromJson(j['body']  as Map<String, dynamic>),
   );
+
+  /// Null-safe: gibt null zurück, wenn `culturalNote` kein Map ist oder
+  /// title/body fehlen. So kann eine fehlerhafte Notiz NICHT das ganze
+  /// Szenario (und via Loader die ganze Liste) beim Parsen werfen.
+  static CulturalNote? fromJsonOrNull(dynamic j) {
+    if (j is! Map<String, dynamic>) return null;
+    final title = LocalizedText.fromJsonOrNull(j['title']);
+    final body = LocalizedText.fromJsonOrNull(j['body']);
+    if (title == null || body == null) return null;
+    return CulturalNote(title: title, body: body);
+  }
 }
 
 /// Inline Grammar-Block für Szenarien. Wenn ein Szenario einen spezifischen
@@ -205,6 +216,15 @@ class GrammarBlock {
     title:       LocalizedText.fromJson(j['title']       as Map<String, dynamic>),
     explanation: LocalizedText.fromJson(j['explanation'] as Map<String, dynamic>),
   );
+
+  /// Null-safe (siehe [CulturalNote.fromJsonOrNull]).
+  static GrammarBlock? fromJsonOrNull(dynamic j) {
+    if (j is! Map<String, dynamic>) return null;
+    final title = LocalizedText.fromJsonOrNull(j['title']);
+    final explanation = LocalizedText.fromJsonOrNull(j['explanation']);
+    if (title == null || explanation == null) return null;
+    return GrammarBlock(title: title, explanation: explanation);
+  }
 }
 
 /// Register / Formalitätsstufe — bestimmt Ton der Dialoge.
@@ -262,24 +282,22 @@ class Scenario {
     level: LearnerLevel.fromCode(j['level'] as String?) ?? LearnerLevel.a1,
     emoji: (j['emoji'] as String?) ?? '📖',
     register: Register.fromCode((j['register'] as String?) ?? 'polite'),
-    title: LocalizedText.fromJson(j['title'] as Map<String, dynamic>),
-    intro: LocalizedText.fromJson(j['intro'] as Map<String, dynamic>),
+    title: LocalizedText.fromJsonOrNull(j['title']) ??
+        const LocalizedText(ko: '', de: '', en: ''),
+    intro: LocalizedText.fromJsonOrNull(j['intro']) ??
+        const LocalizedText(ko: '', de: '', en: ''),
     vocab: ((j['vocab'] as List?) ?? const [])
         .map((e) => VocabRef.fromJson(e as Map<String, dynamic>))
         .toList(),
     grammarIds: ((j['grammarIds'] as List?) ?? const []).cast<String>(),
-    grammarBlock: j['grammarBlock'] is Map<String, dynamic>
-        ? GrammarBlock.fromJson(j['grammarBlock'] as Map<String, dynamic>)
-        : null,
+    grammarBlock: GrammarBlock.fromJsonOrNull(j['grammarBlock']),
     dialog: ((j['dialog'] as List?) ?? const [])
         .map((e) => DialogLine.fromJson(e as Map<String, dynamic>))
         .toList(),
     quests: ((j['quests'] as List?) ?? const [])
         .map((e) => QuestSpec.fromJson(e as Map<String, dynamic>))
         .toList(),
-    culturalNote: j['culturalNote'] is Map<String, dynamic>
-        ? CulturalNote.fromJson(j['culturalNote'] as Map<String, dynamic>)
-        : null,
+    culturalNote: CulturalNote.fromJsonOrNull(j['culturalNote']),
     xpReward: (j['xpReward'] as num?)?.toInt() ?? 100,
     sidekick: j['sidekick'] as String?,
     preferredVoice: j['preferredVoice'] as String?,

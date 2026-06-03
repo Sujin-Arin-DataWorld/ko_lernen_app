@@ -153,6 +153,12 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
         title: Text(t.bookshelfTitle,
             style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.search_rounded),
+            tooltip: t.wbSearchTitle,
+            onPressed: () =>
+                Navigator.of(context).pushNamed('/wordbook/search'),
+          ),
           _createAction(t),
           _redeemAction(t),
           IconButton(

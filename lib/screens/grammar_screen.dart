@@ -47,9 +47,16 @@ class _GrammarScreenState extends State<GrammarScreen> {
     });
     DataLoader.loadGrammar().then((g) {
       if (!mounted) return;
+      // 80+ 패턴을 한 번에 보여주지 않도록, 첫 진입 시 사용자 레벨로 스코프.
+      // (CSV 레벨 표기와 일치할 때만 — 아니면 'Alle' 유지, 안전.)
+      final userLvl = (Storage.userLevelCode ?? '').toUpperCase();
+      final useLevel = g.any((x) => x.level == userLvl) ? userLvl : 'Alle';
       setState(() {
         _all = g;
-        _filtered = g;
+        _level = useLevel;
+        _filtered = useLevel == 'Alle'
+            ? g
+            : g.where((x) => x.level == useLevel).toList();
         _loading = false;
         _loadFailed = g.isEmpty && DataLoader.lastError != null;
         if (_idx >= _filtered.length) _idx = 0;
@@ -168,6 +175,33 @@ class _GrammarScreenState extends State<GrammarScreen> {
                 fallbackIcon: Icons.auto_stories_outlined,
               ),
               const SizedBox(height: Spacing.md),
+
+              // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.
+              SizedBox(
+                height: 36,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    for (final lvl in _levels)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 6),
+                        child: SoriChip(
+                          label: lvl == 'Alle' ? t.filterAll : lvl,
+                          accent: SoriColors.warning,
+                          selected: _level == lvl,
+                          variant: SoriChipVariant.soft,
+                          onTap: _level == lvl
+                              ? null
+                              : () {
+                                  setState(() => _level = lvl);
+                                  _applyFilters();
+                                },
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: Spacing.sm),
 
               // Stats
               Wrap(

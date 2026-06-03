@@ -1932,4 +1932,50 @@ class AppL10nDe extends AppL10n {
   String wbTypingAnswer(Object answer) {
     return 'Richtig: $answer';
   }
+
+  @override
+  String get wbQuickPackName => '⭐ Schnellspeicher';
+
+  @override
+  String get wbAddTooltip => 'Zur Wortliste hinzufügen';
+
+  @override
+  String wbAdded(Object word) {
+    return '$word zur Wortliste hinzugefügt';
+  }
+
+  @override
+  String wbAlreadyAdded(Object word) {
+    return '$word ist schon in deiner Wortliste';
+  }
+
+  @override
+  String get wbAddFailed => 'Konnte nicht hinzugefügt werden';
+
+  @override
+  String get wbViewAction => 'Ansehen';
+
+  @override
+  String get wbSearchTitle => 'Meine Wörter';
+
+  @override
+  String get wbSearchHint => 'Wort oder Bedeutung suchen …';
+
+  @override
+  String get wbSearchEmpty => 'Keine Treffer';
+
+  @override
+  String get wbSearchNoWords =>
+      'Noch keine gespeicherten Wörter. Tippe beim Lernen auf das Lesezeichen-Symbol.';
+
+  @override
+  String wbSearchCount(int count) {
+    return '$count Wörter';
+  }
+
+  @override
+  String get wbPosAll => 'Alle';
+
+  @override
+  String get wbSearchCta => 'Meine Wörter durchsuchen';
 }

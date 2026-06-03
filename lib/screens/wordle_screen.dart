@@ -11,6 +11,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/wordbook_add.dart';
 import '../l10n/generated/app_localizations.dart';
 
 enum _LS { empty, correct, present, absent }
@@ -107,6 +108,10 @@ class _WordleScreenState extends State<WordleScreen> {
 
   String? get _targetGerman =>
       _vocab.where((v) => v.korean == _target).map((v) => v.german).firstOrNull;
+
+  /// Volle Vokabel zum Zielwort — für reichere Hinweise (Wortart + Beispiel).
+  Vocab? get _targetVocab =>
+      _vocab.where((v) => v.korean == _target).firstOrNull;
 
   void _showHelp() {
     final t = AppL10n.of(context);
@@ -328,52 +333,88 @@ class _WordleScreenState extends State<WordleScreen> {
               ),
               const SizedBox(height: 14),
 
-              // ── 단서 행: 음절 수 · 의도 단어 (clean, single row) ──
-              // v3 (2026-05-29): Right/Wrong/Absent legend는 항상 표시할
-              // 필요 없어 help(?) 다이얼로그로 이동 (앱바 우상단 ? 버튼).
-              // Meaning은 더 차분한 inline pill로.
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // 음절 수 hint
-                  Text(
-                    t.wordleSyllableCount(n),
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      color: SoriSurfaces.of(context).textMuted,
-                      fontSize: 12.5,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  if (_targetGerman != null) ...[
-                    const SizedBox(width: 10),
-                    Container(
-                      width: 4,
-                      height: 4,
-                      decoration: BoxDecoration(
-                        color: SoriSurfaces.of(context).textDim,
-                        shape: BoxShape.circle,
+              // ── 단서: 음절 수 · 품사 · 뜻 · 예문 ──
+              // v4 (2026-06-03): Wordle이 너무 어렵다는 피드백 → 힌트 강화.
+              // 품사(명사/동사/형용사) + 뜻 + 독일어 예문을 보여줘 단어를
+              // 떠올리기 쉽게. (동의어/반의어는 데이터 확보 후 추가 예정.)
+              Builder(
+                builder: (context) {
+                  final ss = SoriSurfaces.of(context);
+                  final tv = _targetVocab;
+                  final pos = tv?.posDe.trim() ?? '';
+                  final example = tv?.exampleGerman.trim() ?? '';
+                  return Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            t.wordleSyllableCount(n),
+                            style: TextStyle(
+                              fontFamily: 'Pretendard',
+                              color: ss.textMuted,
+                              fontSize: 12.5,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          if (pos.isNotEmpty) ...[
+                            const SizedBox(width: 8),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 2),
+                              decoration: BoxDecoration(
+                                color: SoriColors.info.withValues(alpha: 0.12),
+                                borderRadius:
+                                    BorderRadius.circular(SoriRadius.pill),
+                              ),
+                              child: Text(
+                                pos,
+                                style: const TextStyle(
+                                  fontFamily: 'Pretendard',
+                                  color: SoriColors.info,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ],
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    Flexible(
-                      child: Text(
-                        _targetGerman!,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          color: SoriSurfaces.of(context).text,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.italic,
-                          height: 1.3,
+                      if (_targetGerman != null) ...[
+                        const SizedBox(height: 6),
+                        Text(
+                          _targetGerman!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            color: ss.text,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w800,
+                            height: 1.3,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ],
+                      ],
+                      if (example.isNotEmpty) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          '„$example"',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            color: ss.textMuted,
+                            fontSize: 12.5,
+                            fontStyle: FontStyle.italic,
+                            height: 1.35,
+                          ),
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ],
+                  );
+                },
               ),
               const SizedBox(height: 14),
 
@@ -644,7 +685,9 @@ class _ResultCard extends StatelessWidget {
             const SizedBox(height: 2),
             Text(german!, style: TextStyle(fontSize: 14, color: s.textMuted)),
           ],
-          const SizedBox(height: Spacing.lg),
+          // 방금 배운 단어를 내 단어장에 담기.
+          AddToWordbookButton(korean: target, translationDe: german ?? ''),
+          const SizedBox(height: Spacing.sm),
           SoriButton.filled(
             label: t.wordleNewWordBtn,
             icon: Icons.shuffle_rounded,

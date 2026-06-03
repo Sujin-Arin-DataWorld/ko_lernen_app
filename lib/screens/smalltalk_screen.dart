@@ -10,6 +10,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/wordbook_add.dart';
 
 /// **Small Talk (스몰토크)** — Gesprächseinstiege nach Kategorie × Level.
 /// Liest `assets/data/smalltalk.json` (via [SmalltalkLoader]). Tippen auf eine
@@ -247,6 +248,16 @@ class _PhraseCardState extends State<_PhraseCard> {
                       Icon(Icons.volume_up_rounded,
                           color: SoriColors.primary.withValues(alpha: 0.7),
                           size: 20),
+                      const SizedBox(height: 10),
+                      // Satz ins eigene Wörterbuch (Satz = Karte).
+                      GestureDetector(
+                        onTap: () => addToWordbook(context,
+                            korean: p.ko, translationDe: p.de,
+                            translationEn: p.en),
+                        child: Icon(Icons.bookmark_add_outlined,
+                            color: SoriColors.primary.withValues(alpha: 0.7),
+                            size: 20),
+                      ),
                     ],
                   ),
                 ],

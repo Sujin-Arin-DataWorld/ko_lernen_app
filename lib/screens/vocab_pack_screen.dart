@@ -18,6 +18,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/wordbook_add.dart';
 
 /// **Vocab Pack Play Screen** — Phase 2 의 3-단계 학습 플로우.
 ///
@@ -345,6 +346,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
     final pack = _pack!;
     final title = VocabPackService.displayLabel(pack.id);
+    // 현재 보고 있는 단어(학습/퀴즈/보스)를 바로 내 단어장에 담기.
+    final Vocab? addable =
+        _stage == _Stage.learn ? _currentLearn : _currentQuiz;
 
     return Scaffold(
       appBar: AppBar(
@@ -354,6 +358,18 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: [
+          if (addable != null)
+            AddToWordbookButton(
+              korean: addable.korean,
+              translationDe: addable.german,
+              romanization: addable.romanization,
+              posDe: addable.posDe,
+              exampleKorean: addable.exampleKorean,
+              exampleDe: addable.exampleGerman,
+              compact: true,
+            ),
+        ],
       ),
       body: SafeArea(
         child: Padding(

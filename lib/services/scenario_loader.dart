@@ -14,12 +14,26 @@ class ScenarioLoader {
     try {
       final raw = await rootBundle.loadString('assets/data/scenarios.json');
       final json = jsonDecode(raw) as Map<String, dynamic>;
-      final list = (json['scenarios'] as List? ?? const [])
-          .whereType<Map<String, dynamic>>()
-          .map(Scenario.fromJson)
-          .toList();
+      // Pro Szenario parsen: eine fehlerhafte Definition darf NICHT die ganze
+      // Liste leeren (sonst verschwindet der ganze Szenarien-Hub). Defekte
+      // Einträge werden übersprungen statt die App-weite Liste zu werfen.
+      final list = <Scenario>[];
+      var skipped = 0;
+      for (final e in (json['scenarios'] as List? ?? const [])) {
+        if (e is! Map<String, dynamic>) {
+          skipped++;
+          continue;
+        }
+        try {
+          list.add(Scenario.fromJson(e));
+        } catch (err) {
+          skipped++;
+        }
+      }
       _cached = list;
-      lastError = null;
+      lastError = (list.isEmpty && skipped > 0)
+          ? 'Keine gültigen Szenarien ($skipped übersprungen).'
+          : null;
       return list;
     } catch (e) {
       lastError = 'Szenarien konnten nicht geladen werden: $e';

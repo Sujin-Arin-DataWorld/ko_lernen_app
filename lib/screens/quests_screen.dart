@@ -103,6 +103,11 @@ class _QuestsScreenState extends State<QuestsScreen> {
                 fallbackIcon: Icons.workspace_premium_outlined,
               ),
               const SizedBox(height: Spacing.md),
+              // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
+              if (_quests.isNotEmpty) ...[
+                _QuestSummary(quests: _quests),
+                const SizedBox(height: Spacing.md),
+              ],
               if (inProgress.isEmpty &&
                   available.isEmpty &&
                   completed.isEmpty &&
@@ -234,6 +239,9 @@ class _QuestTile extends StatelessWidget {
                     ),
                   ),
                 ),
+              const SizedBox(width: Spacing.sm),
+              // 보상 미리보기 — 이 퀘스트로 언락되는 마당 장식.
+              _RewardThumb(slug: def.decorationSlug, earned: isCompleted),
             ],
           ),
           const SizedBox(height: 4),
@@ -254,7 +262,7 @@ class _QuestTile extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              '${q.current} / ${q.target}',
+              '${q.current} / ${q.target}  ·  ${(q.fraction * 100).round()}%',
               style: TextStyle(
                 fontSize: 11,
                 color: s.textMuted,
@@ -263,6 +271,108 @@ class _QuestTile extends StatelessWidget {
             ),
           ],
         ],
+      ),
+    );
+  }
+}
+
+/// Gesamtfortschritt aller Quests — abgeschlossen / erreichbar + Balken.
+class _QuestSummary extends StatelessWidget {
+  final List<QuestProgress> quests;
+  const _QuestSummary({required this.quests});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final done = quests.where((q) => q.completed).length;
+    final total = quests.where((q) => q.active || q.completed).length;
+    final inProgress = quests
+        .where((q) => q.active && !q.completed && q.current > 0)
+        .length;
+    final frac = total == 0 ? 0.0 : done / total;
+    return Container(
+      padding: const EdgeInsets.all(Spacing.md),
+      decoration: BoxDecoration(
+        color: SoriColors.success.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(SoriRadius.md),
+        border: Border.all(color: SoriColors.success.withValues(alpha: 0.25)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.emoji_events_rounded,
+                  color: SoriColors.gold, size: 22),
+              const SizedBox(width: Spacing.sm),
+              Text('$done / $total',
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      color: SoriColors.success)),
+              const SizedBox(width: Spacing.sm),
+              Text(t.questsSectionCompleted,
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: s.textMuted,
+                      fontWeight: FontWeight.w700)),
+              const Spacer(),
+              if (inProgress > 0)
+                Row(
+                  children: [
+                    Icon(Icons.local_florist_outlined,
+                        size: 14, color: SoriColors.info),
+                    const SizedBox(width: 3),
+                    Text('$inProgress',
+                        style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w800,
+                            color: SoriColors.info)),
+                  ],
+                ),
+            ],
+          ),
+          const SizedBox(height: Spacing.sm),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: LinearProgressIndicator(
+              value: frac,
+              minHeight: 8,
+              backgroundColor: s.text.withValues(alpha: 0.08),
+              valueColor: const AlwaysStoppedAnimation(SoriColors.success),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Belohnungs-Vorschau — die Hof-Dekoration, die diese Quest freischaltet.
+/// Nicht freigeschaltet → gedimmt. Fehlendes PNG → Geschenk-Icon.
+class _RewardThumb extends StatelessWidget {
+  final String slug;
+  final bool earned;
+  const _RewardThumb({required this.slug, required this.earned});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return Opacity(
+      opacity: earned ? 1.0 : 0.4,
+      child: SizedBox(
+        width: 34,
+        height: 34,
+        child: Image.asset(
+          'assets/illustrations/decorations/$slug.png',
+          fit: BoxFit.contain,
+          errorBuilder: (_, __, ___) => Icon(
+            Icons.card_giftcard_rounded,
+            size: 22,
+            color: earned ? SoriColors.success : s.textDim,
+          ),
+        ),
       ),
     );
   }

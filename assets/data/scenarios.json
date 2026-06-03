@@ -4627,9 +4627,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Mit der T-money-Karte (교통카드) fährst du U-Bahn, Bus und sogar Taxi — einmal aufladen, überall tippen. An jedem Kiosk erhältlich.",
-    "en": "With a T-money card (교통카드) you ride subway, bus and even taxis — top up once, tap everywhere. Available at any convenience store."
+    "title": {
+     "ko": "T-money 교통카드",
+     "de": "T-money-Karte",
+     "en": "T-money card"
+    },
+    "body": {
+     "ko": "",
+     "de": "Mit der T-money-Karte (교통카드) fährst du U-Bahn, Bus und sogar Taxi — einmal aufladen, überall tippen. An jedem Kiosk erhältlich.",
+     "en": "With a T-money card (교통카드) you ride subway, bus and even taxis — top up once, tap everywhere. Available at any convenience store."
+    }
    }
   },
   {
@@ -4818,9 +4825,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Der KTX (고속철도) fährt bis ~305 km/h — Seoul→Busan in ~2,5 Std. Tickets per App 'Korail' oder am Automaten; Fensterplätze (창가) sind schnell weg.",
-    "en": "The KTX bullet train hits ~305 km/h — Seoul→Busan in ~2.5 h. Book via the Korail app or a machine; window seats go fast."
+    "title": {
+     "ko": "KTX 고속철도",
+     "de": "Der KTX",
+     "en": "The KTX"
+    },
+    "body": {
+     "ko": "",
+     "de": "Der KTX (고속철도) fährt bis ~305 km/h — Seoul→Busan in ~2,5 Std. Tickets per App 'Korail' oder am Automaten; Fensterplätze (창가) sind schnell weg.",
+     "en": "The KTX bullet train hits ~305 km/h — Seoul→Busan in ~2.5 h. Book via the Korail app or a machine; window seats go fast."
+    }
    }
   },
   {
@@ -5009,9 +5023,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Korea ist 'Café-Lernen'-Land: riesige Cafés (스터디 카페 sogar speziell dafür), schnelles WLAN, oft das Passwort auf dem Bon. Ein Getränk = Stunden bleiben ist normal.",
-    "en": "Korea is built for café studying: huge cafés (even dedicated 스터디 카페), fast WiFi, password often on the receipt. One drink = staying for hours is normal."
+    "title": {
+     "ko": "카페에서 공부",
+     "de": "Lernen im Café",
+     "en": "Studying in cafés"
+    },
+    "body": {
+     "ko": "",
+     "de": "Korea ist 'Café-Lernen'-Land: riesige Cafés (스터디 카페 sogar speziell dafür), schnelles WLAN, oft das Passwort auf dem Bon. Ein Getränk = Stunden bleiben ist normal.",
+     "en": "Korea is built for café studying: huge cafés (even dedicated 스터디 카페), fast WiFi, password often on the receipt. One drink = staying for hours is normal."
+    }
    }
   },
   {
@@ -5200,9 +5221,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Korea ist Liefer-Weltmeister: Apps wie 배달의민족 liefern fast alles, oft in 30–40 Min. 'Eine ganze Henne' (한 마리) Chicken + Cola an einem Regenabend ist Kult.",
-    "en": "Korea is the delivery champion: apps like Baemin deliver almost anything, often in 30–40 min. 'A whole chicken' (한 마리) + cola on a rainy night is iconic."
+    "title": {
+     "ko": "배달 문화",
+     "de": "Lieferkultur",
+     "en": "Delivery culture"
+    },
+    "body": {
+     "ko": "",
+     "de": "Korea ist Liefer-Weltmeister: Apps wie 배달의민족 liefern fast alles, oft in 30–40 Min. 'Eine ganze Henne' (한 마리) Chicken + Cola an einem Regenabend ist Kult.",
+     "en": "Korea is the delivery champion: apps like Baemin deliver almost anything, often in 30–40 min. 'A whole chicken' (한 마리) + cola on a rainy night is iconic."
+    }
    }
   },
   {
@@ -5391,9 +5419,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Im Supermarkt (마트) wie E-Mart/Homeplus kosten Tüten (봉지) extra — viele bringen eigene. Obst wird oft im Set verkauft ('다섯 개에 …').",
-    "en": "At marts like E-Mart/Homeplus, bags (봉지) cost extra — many bring their own. Fruit is often sold in sets ('five for …')."
+    "title": {
+     "ko": "마트 장보기",
+     "de": "Einkaufen im Supermarkt",
+     "en": "Grocery shopping"
+    },
+    "body": {
+     "ko": "",
+     "de": "Im Supermarkt (마트) wie E-Mart/Homeplus kosten Tüten (봉지) extra — viele bringen eigene. Obst wird oft im Set verkauft ('다섯 개에 …').",
+     "en": "At marts like E-Mart/Homeplus, bags (봉지) cost extra — many bring their own. Fruit is often sold in sets ('five for …')."
+    }
    }
   },
   {
@@ -5582,9 +5617,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Viele koreanische 헬스장 verlangen Anmeldung für mehrere Monate (länger = billiger) und stellen oft Trainingskleidung + Handtücher. Januar = Andrang.",
-    "en": "Many Korean gyms push multi-month sign-ups (longer = cheaper) and often provide gym clothes + towels. January = crowded."
+    "title": {
+     "ko": "헬스장 등록",
+     "de": "Im Fitnessstudio anmelden",
+     "en": "Gym sign-up"
+    },
+    "body": {
+     "ko": "",
+     "de": "Viele koreanische 헬스장 verlangen Anmeldung für mehrere Monate (länger = billiger) und stellen oft Trainingskleidung + Handtücher. Januar = Andrang.",
+     "en": "Many Korean gyms push multi-month sign-ups (longer = cheaper) and often provide gym clothes + towels. January = crowded."
+    }
    }
   },
   {
@@ -5773,9 +5815,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Ausländer brauchen meist Reisepass + ARC (외국인등록증). Überweisungen laufen per App; Online-Banking verlangt oft zusätzliche Verifizierung. Bei Andrang: Nummer ziehen.",
-    "en": "Foreigners usually need a passport + ARC. Transfers happen via app; online banking often needs extra verification. When busy: pull a number."
+    "title": {
+     "ko": "은행 계좌 개설",
+     "de": "Ein Bankkonto eröffnen",
+     "en": "Opening a bank account"
+    },
+    "body": {
+     "ko": "",
+     "de": "Ausländer brauchen meist Reisepass + ARC (외국인등록증). Überweisungen laufen per App; Online-Banking verlangt oft zusätzliche Verifizierung. Bei Andrang: Nummer ziehen.",
+     "en": "Foreigners usually need a passport + ARC. Transfers happen via app; online banking often needs extra verification. When busy: pull a number."
+    }
    }
   },
   {
@@ -5964,9 +6013,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Im koreanischen 면접 zählt förmliche Sprache (-습니다) und Bescheidenheit. 'Ich gebe mein Bestes' (최선을 다하겠습니다) ist fast Pflicht. Über 귀사 (Ihre geschätzte Firma) spricht man respektvoll.",
-    "en": "In Korean interviews, formal speech (-습니다) and humility matter. 'I'll do my best' (최선을 다하겠습니다) is almost expected. Refer to the company respectfully as 귀사."
+    "title": {
+     "ko": "면접 예절",
+     "de": "Im Vorstellungsgespräch",
+     "en": "Interview etiquette"
+    },
+    "body": {
+     "ko": "",
+     "de": "Im koreanischen 면접 zählt förmliche Sprache (-습니다) und Bescheidenheit. 'Ich gebe mein Bestes' (최선을 다하겠습니다) ist fast Pflicht. Über 귀사 (Ihre geschätzte Firma) spricht man respektvoll.",
+     "en": "In Korean interviews, formal speech (-습니다) and humility matter. 'I'll do my best' (최선을 다하겠습니다) is almost expected. Refer to the company respectfully as 귀사."
+    }
    }
   },
   {
@@ -6155,9 +6211,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Koreanische Paare feiern den 100. Tag (백일) und sprechen Banmal miteinander. '사랑해' ohne 'dich' ist der Alltagsklassiker; '사랑할게' (Versprechen) klingt besonders warm.",
-    "en": "Korean couples celebrate the 100th day (백일) and speak banmal to each other. '사랑해' (no 'you') is the everyday classic; '사랑할게' (a promise) sounds especially warm."
+    "title": {
+     "ko": "백일과 반말",
+     "de": "100. Tag & Banmal",
+     "en": "100th day & banmal"
+    },
+    "body": {
+     "ko": "",
+     "de": "Koreanische Paare feiern den 100. Tag (백일) und sprechen Banmal miteinander. '사랑해' ohne 'dich' ist der Alltagsklassiker; '사랑할게' (Versprechen) klingt besonders warm.",
+     "en": "Korean couples celebrate the 100th day (백일) and speak banmal to each other. '사랑해' (no 'you') is the everyday classic; '사랑할게' (a promise) sounds especially warm."
+    }
    }
   },
   {
@@ -6346,9 +6409,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "In Korea isst man bei Krankheit 죽 (Reisbrei), und 'Gute Besserung' heißt 빨리 나아 (banmal) / 몸조리 잘하세요 (höflich). Freunde fragen oft direkt 'Hast du Medizin genommen?'.",
-    "en": "In Korea you eat 죽 (rice porridge) when sick, and 'get well' is 빨리 나아 (casual) / 몸조리 잘하세요 (polite). Friends often ask straight away 'Did you take medicine?'."
+    "title": {
+     "ko": "아플 때",
+     "de": "Wenn man krank ist",
+     "en": "When you're sick"
+    },
+    "body": {
+     "ko": "",
+     "de": "In Korea isst man bei Krankheit 죽 (Reisbrei), und 'Gute Besserung' heißt 빨리 나아 (banmal) / 몸조리 잘하세요 (höflich). Freunde fragen oft direkt 'Hast du Medizin genommen?'.",
+     "en": "In Korea you eat 죽 (rice porridge) when sick, and 'get well' is 빨리 나아 (casual) / 몸조리 잘하세요 (polite). Friends often ask straight away 'Did you take medicine?'."
+    }
    }
   },
   {
@@ -6537,9 +6607,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "Korea hat eine hohe Fundquote: U-Bahn-Fundbüros (유실물센터) und die App 'LOST112' sammeln Funde. Ein liegen gelassenes Handy taucht erstaunlich oft wieder auf.",
-    "en": "Korea has a high recovery rate: subway lost & found offices (유실물센터) and the 'LOST112' app track items. A left-behind phone resurfaces surprisingly often."
+    "title": {
+     "ko": "분실물 찾기",
+     "de": "Fundsachen in Korea",
+     "en": "Lost & found in Korea"
+    },
+    "body": {
+     "ko": "",
+     "de": "Korea hat eine hohe Fundquote: U-Bahn-Fundbüros (유실물센터) und die App 'LOST112' sammeln Funde. Ein liegen gelassenes Handy taucht erstaunlich oft wieder auf.",
+     "en": "Korea has a high recovery rate: subway lost & found offices (유실물센터) and the 'LOST112' app track items. A left-behind phone resurfaces surprisingly often."
+    }
    }
   },
   {
@@ -6728,9 +6805,16 @@
     }
    ],
    "culturalNote": {
-    "ko": "",
-    "de": "In Korea isst man am Geburtstag 미역국 (Seetangsuppe). Gratulieren: '생일 축하해' (banmal) / '생일 축하합니다' (höflich). Geschenke öffnet man oft erst später, nicht sofort vor allen.",
-    "en": "In Korea you eat 미역국 (seaweed soup) on your birthday. Wishing: '생일 축하해' (casual) / '생일 축하합니다' (polite). Gifts are often opened later, not right away in front of everyone."
+    "title": {
+     "ko": "생일 미역국",
+     "de": "Geburtstag in Korea",
+     "en": "Birthdays in Korea"
+    },
+    "body": {
+     "ko": "",
+     "de": "In Korea isst man am Geburtstag 미역국 (Seetangsuppe). Gratulieren: '생일 축하해' (banmal) / '생일 축하합니다' (höflich). Geschenke öffnet man oft erst später, nicht sofort vor allen.",
+     "en": "In Korea you eat 미역국 (seaweed soup) on your birthday. Wishing: '생일 축하해' (casual) / '생일 축하합니다' (polite). Gifts are often opened later, not right away in front of everyone."
+    }
    }
   }
  ]
