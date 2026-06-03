@@ -61,6 +61,8 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/bookshelf` | BookshelfScreen (내 책장 + 커스텀팩) |
 | `/bookshelf/page` (args: pageId) | BookshelfPageScreen |
 | `/custom_pack/play` (args: packId) | CustomPackPlayScreen (플립카드 학습) |
+| `/custom_pack/edit·quiz·matching·typing` (args: packId) | 커스텀팩 편집 / 4지선다 / 짝맞추기 / 받아쓰기 |
+| `/wordbook/search` | WordbookSearchScreen (내 저장 단어 통합 검색 + 품사 필터 — 2026-06-03) |
 
 ### 서비스
 - `lib/services/auth_service.dart` — Hybrid Auth. 항상 익명 로그인, Google 링크 선택. **주의**: web에서 Firebase 미설정 시 crash 방지를 위해 `_auth`가 nullable getter임.
@@ -75,7 +77,8 @@ Firebase 프로젝트: `ko-lernen-app`
   - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
   - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.
   - `lib/services/bookshelf_service.dart` — BookPage 로컬(`kl_bookshelf_v1`) + best-effort Firestore `users/{uid}/bookshelf/{id}`.
-  - `lib/services/custom_pack_service.dart` — 커스텀팩 **로컬 only**(`kl_custom_packs_v1`). createFromPage/getAll/save/delete.
+  - `lib/services/custom_pack_service.dart` — 커스텀팩 **로컬 only**(`kl_custom_packs_v1`). createFromPage/getAll/save/delete. **`quickAdd`**(고정 id `cp_quick_v1` "⭐빠른저장" find-or-create + 한국어 dedup, enum `WordbookAddResult`) — 전역 "＋단어장"의 코어.
+  - `lib/widgets/sori/wordbook_add.dart` — `addToWordbook(ctx, korean,…)` + `AddToWordbookButton`(compact). 6개 학습화면(review·chosung·wordle·vocab_pack·smalltalk·scenario_player)에서 호출.
 - **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 61팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
 - **한옥/퀘스트 (Phase 3·4)**: `lib/services/hanok_stage_service.dart` (진행도→한옥 12단계), `quest_tracker.dart` (특별 퀘스트), `daily_char_service.dart` (오늘의 글자).
 - **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
@@ -295,6 +298,25 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-03 — 시나리오 버그 + 단어장 전역 통합 + 학습화면 5종 + 크래시 픽스 (commits `bf7ca2f`, `daa883a`)
+
+**범위:** Jin 실사용 피드백 다수 처리. 동시 세션 종료 후 전수 재검증 → 커밋·푸시.
+
+**Update:**
+1. **초성/마스코트 크래시** (`bf7ca2f`) — `stroke_canvas.dart`가 `SingleTickerProviderStateMixin`인데 `didUpdateWidget`이 AnimationController 재생성 → **한글 화면 글자 전환 시 레드스크린**(assert, debug/web만). 컨트롤러 재사용(duration 갱신+reset/forward)으로 수정. `mascot.dart`도 같은 잠복 버그(`animate` 토글 시 재생성) → `TickerProviderStateMixin`. 회귀 테스트 `test/stroke_canvas_test.dart`·`test/mascot_ticker_test.dart`.
+2. **시나리오 안 뜸 (regression)** — 콘텐츠 공장이 추가한 신규 12개 시나리오의 `culturalNote`가 `{title,body}` 대신 `{ko,de,en}` → `CulturalNote.fromJson` throw → **전체 시나리오 리스트가 빔**. (a) 데이터: 12개 `culturalNote`를 `{title,body}`로 교정 (b) 코드: `CulturalNote/GrammarBlock.fromJsonOrNull` null-safe + `ScenarioLoader`가 시나리오별 try/catch(1개 깨져도 전체 안 죽음) + `Scenario.title/intro`도 null-safe. `test/scenario_loader_test.dart`. 33개 정상 로드.
+3. **단어장 전역 통합** — (a) `CustomPackService.quickAdd`(고정 id `cp_quick_v1` "⭐ 빠른 저장" find-or-create + 한국어 dedup, enum `WordbookAddResult`) (b) 신규 `lib/widgets/sori/wordbook_add.dart`(`addToWordbook()` + `AddToWordbookButton`) → **review·chosung·wordle·vocab_pack·smalltalk·scenario_player** 6개 화면에 "＋단어장" (c) 신규 `lib/screens/wordbook_search_screen.dart` route **`/wordbook/search`**: 모든 저장 단어 통합 + 텍스트 검색 + 품사(카테고리) 필터, 책장 AppBar 🔍 진입. l10n `wb*` +~12키. `test/wordbook_quick_add_test.dart`. (단어장으로 게임·카드는 기존 `custom_pack` play/quiz/matching/typing로 이미 가능.)
+4. **학습화면 5종 개선:**
+   - **초성 재설계** `chosung_quiz_screen.dart`: 뜻 **항상 표시**(hint 게이트 제거) + 플랫 "ㅇㅏㅃㅏ" → **음절 스캐폴드**(초성/중성/종성 슬롯, 점선 박스+`모음`/`받침` 라벨; `_jongsungTable` 추가, `_SyllableScaffold`/`_Slot`/`_DashedBoxPainter`). 쉬움=중성 채움·받침 점선 / 어려움=중성·받침 점선(받침 없는 단어도 정답 비노출). `_hint` 필드 완전 제거.
+   - **Wordle 힌트** `wordle_screen.dart`: 품사 칩 + 뜻 + 독일어 예문(`_targetVocab`). ⚠️ 동의어/반의어는 **데이터 부재로 미구현**(§0 — 추후 콘텐츠 공장).
+   - **Grammar 분할** `grammar_screen.dart`: 상시 레벨 칩 + 첫 진입 시 사용자 레벨 자동 스코프(CSV 표기 일치 시).
+   - **퀘스트 상세** `quests_screen.dart`: 전체 요약 카드(완료/전체+진행바+진행중) + 퀘스트별 보상 장식 썸네일(`_RewardThumb`) + %.
+   - **TTS** `tts_service.dart`: 웹 한국어 voice 자동 선택 + `awaitSpeakCompletion`. ⚠️ **한계: OS에 ko 음성 없으면 코드로 불가(웹). 실기기(Android) 확인 필요.**
+
+**검증:** `flutter analyze` **0** · `flutter test` **218 통과** · l10n de=en=600 parity · `scenarios.json` parse-throw 0 · `.env.example`는 placeholder만(실제 키 미추적·gitignored). **시각/오디오는 미검증**(샌드박스 한계). Jin 실기기 확인 항목: 초성 스캐폴드·점선 박스, Grammar 레벨 칩, 퀘스트 썸네일, ＋단어장 흐름, **TTS 실발화**.
+
+**Git push:** `bf7ca2f`(크래시) → `daa883a`(나머지 25파일, +1567/−170) → `origin/main` 완료.
 
 ### 2026-06-02 (Cowork) — 이미지 교체 + 다크모드 폐지 + API키 반영 + 출시 문서
 
