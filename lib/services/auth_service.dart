@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 /// Hybrid-Auth — **immer** anonym eingeloggt. Optional kann der
@@ -180,10 +181,47 @@ class AuthService {
     String uid,
   ) async {
     final userRef = db.collection('users').doc(uid);
+
+    // gye 멤버십 정리 (GDPR: 사용자가 속한 모든 계에서 제거)
+    await _deleteUserFromGyeMembers(db, uid);
+
     for (final collectionName in _userSubcollections) {
       await _deleteCollection(userRef.collection(collectionName));
     }
     await userRef.delete();
+  }
+
+  /// 사용자가 속한 모든 gye에서 멤버 문서 삭제 + 멤버수 감소.
+  /// users/{uid}.gyeIds 배열 → 각 gye/{gyeId}/members/{uid} 삭제.
+  static Future<void> _deleteUserFromGyeMembers(
+    FirebaseFirestore db,
+    String uid,
+  ) async {
+    try {
+      // users/{uid} 문서에서 gyeIds 배열 읽기
+      final userDoc = await db.collection('users').doc(uid).get();
+      final gyeIds = List<String>.from(userDoc.get('gyeIds') ?? []);
+
+      if (gyeIds.isEmpty) return;
+
+      // 각 gye에서 멤버 문서 삭제 + 멤버수 감소
+      final batch = db.batch();
+      for (final gyeId in gyeIds) {
+        final memberRef = db.collection('gye').doc(gyeId).collection('members').doc(uid);
+        batch.delete(memberRef);
+
+        // memberCount 감소 (rules는 쓰기 막지만, 삭제 트리거는 문제 아님)
+        final metaRef = db.collection('gye').doc(gyeId);
+        batch.update(metaRef, {
+          'memberCount': FieldValue.increment(-1),
+        });
+      }
+
+      await batch.commit();
+    } catch (e) {
+      // 계 정리 실패는 무시 (사용자 삭제를 막지 않음 — GDPR)
+      debugPrint('[auth] gye cleanup error: $e');
+    }
   }
 
   static Future<void> _deleteCollection(
