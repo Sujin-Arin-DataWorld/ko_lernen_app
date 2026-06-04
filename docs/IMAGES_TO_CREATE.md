@@ -7,9 +7,10 @@
 
 ---
 
-## ✅ 지금 들어와 있는 것 (참고)
-- 한옥 단계(light): 10/12 — empty, foundation, pillars, **beams(신규)**, thatch, tile_partial, tile_complete, dancheong, gate, windows
-- 장식: 10 · 도장: 6 · 스티커: 11 · 마스코트: 호랑이·까치 전부 · 솟을대문 gate 세트
+## ✅ 지금 들어와 있는 것 (참고, 2026-06-04 갱신)
+- 한옥 단계(light): **12/12 완료** — empty·foundation·pillars·beams·thatch·tile_partial·tile_complete·dancheong·gate·windows·**side_building·jongga**(2026-06-04 추가)
+- 장식: 10 · 도장: 8 · 스티커: 30 · 마스코트: 호랑이·까치 전부 · 솟을대문 gate 세트
+- 남은 장식 7 = decorations 17 중 10 있음 → 누락 7(아래 P3·P4). **프롬프트는 전부 `plans/stately-rising-jongga-assets.md` §3.5~3.17에 완비**(BIBLE 스타일·팔레트 hex·layout 포함). 신규 작성 불필요 — 해당 § 열어 그대로 생성.
 
 ---
 
@@ -29,14 +30,9 @@
 
 ---
 
-## 🟠 P2 — 한옥 성장 완성 (light 2장, 드롭인)
+## ✅ P2 — 한옥 성장 완성 (2026-06-04 완료)
 
-| 파일 | 용도 | 규격 | 저장 경로 | 연결 |
-|---|---|---|---|---|
-| `stage_side_building_light.png` | 한옥 11단계 사랑채 | 841×1870 (기존 단계와 동일) | `assets/illustrations/hanok_stages/` | **드롭인** (자동 인식) |
-| `stage_jongga_light.png` | 한옥 12단계 종갓집 완성 | 〃 | 〃 | **드롭인** |
-
-> 없으면 마지막 두 단계가 이전 단계 이미지/단색 fallback으로 보임. B2 끝까지 간 유저에게 "종갓집 완성" 연출이 안 나옴.
+`stage_side_building_light.png` + `stage_jongga_light.png` 둘 다 추가됨 → **hanok_stages 12/12**. B2 끝까지 간 유저에게 "종갓집 완성" 연출 정상 노출. (드롭인 완료)
 
 ---
 
@@ -44,8 +40,8 @@
 
 | 파일 | 용도 | 연결 | 비고 |
 |---|---|---|---|
-| `decoration_seokdeung.png` | 장명등 (발음평가 퀘스트 보상) | **드롭인** | 출시 후 획득 가능 퀘스트 |
-| `decoration_sagunja_guk.png` | 사군자 국화 (4폭 완성용) | **드롭인** | 매·난·죽 3장 있음, 국화만 빠짐 |
+| `decoration_seokdeung.png` | 장명등 (발음평가 퀘스트 보상) | **드롭인** | 프롬프트 **assets-md §3.5** · layout L.08 B.08 W.10 · 출시 후 퀘스트 |
+| `decoration_sagunja_guk.png` | 사군자 국화 (4폭 완성용) | **드롭인** | 프롬프트 **assets-md §3.11** · layout L.28 B.52 W.10 · 매·난·죽 있음 국화만 |
 | `stamp_mountain.png` | 단청 도장 (산) | 와이어링 가능성 | 도장 위젯 8모티프 중 7번째 |
 | `stamp_plum.png` | 단청 도장 (매화) | 와이어링 가능성 | 8번째 |
 
@@ -55,8 +51,8 @@
 
 ## 🟢 P4 — v3.0(커뮤니티) 전까지 불필요 (지금 만들지 말 것)
 
-- **계절 장식 4종**: `decoration_seollal_flag`, `decoration_chuseok_moon`, `decoration_hangeulday_plaque`, `decoration_kite` (시즌 이벤트 시)
-- **돌담** `decoration_doldam.png` (친구 5명 = 계 커뮤니티 기능 = v3.0)
+- **계절 장식 4종** (프롬프트 **assets-md §3.14~3.17**): `decoration_seollal_flag`(L.42 B.30 W.20) · `decoration_chuseok_moon`(L.70 B.86 W.15) · `decoration_hangeulday_plaque`(L.42 B.78 W.16) · `decoration_kite`(L.30 B.88 W.18) — 시즌 이벤트 시
+- **돌담** `decoration_doldam.png` (프롬프트 **assets-md §3.8** · layout L0 B.04 W1.0 full) — 친구/계원 5명 = v3.0
 - **스티커 19장** (현재 11/30, 스티커 채팅은 v3.0 커뮤니티)
 - **계 공동 한옥 추가 요소 8장** (v3.0)
 
