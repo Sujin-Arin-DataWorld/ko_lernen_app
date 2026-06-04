@@ -114,6 +114,10 @@ class StatsScreen extends StatelessWidget {
             shieldLabel: t.statsStreakShield,
             shieldHint: t.statsStreakShieldHint,
           ),
+          const SizedBox(height: 12),
+
+          // P1-4: G9 7일 heatmap
+          _StreakWeekHeatmap(streak: Storage.streakDays),
           const SizedBox(height: 16),
 
           // ── Szenario-Fortschritt (XP/Level/Badges) ──
@@ -552,6 +556,84 @@ class _XpCard extends StatelessWidget {
                 );
               }).toList(),
             ),
+        ],
+      ),
+    );
+  }
+}
+
+// P1-4: G9 7일 heatmap
+class _StreakWeekHeatmap extends StatelessWidget {
+  final int streak;
+  const _StreakWeekHeatmap({required this.streak});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final days = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+    final today = DateTime.now().weekday % 7; // 0=Sunday, 1=Monday...
+
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '이번 주',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              color: s.textMuted,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: List.generate(7, (i) {
+              final isToday = i == today;
+              final isDone = streak > (6 - i);
+              final color = isDone
+                  ? SoriColors.success
+                  : isToday
+                      ? SoriColors.warning
+                      : s.border;
+
+              return Column(
+                children: [
+                  Text(
+                    days[i],
+                    style: TextStyle(
+                      fontSize: 9,
+                      color: s.textMuted,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: color.withValues(alpha: isDone ? 1.0 : 0.15),
+                      borderRadius: BorderRadius.circular(6),
+                      border: isToday && !isDone
+                          ? Border.all(color: color, width: 1.5)
+                          : null,
+                    ),
+                    child: SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: Center(
+                        child: isDone
+                            ? const Icon(Icons.check_rounded, size: 14, color: Colors.white)
+                            : isToday
+                                ? const Icon(Icons.favorite_rounded, size: 10, color: SoriColors.warning)
+                                : null,
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }),
+          ),
         ],
       ),
     );
