@@ -77,3 +77,6 @@ scripts/cache/wiktionary_de.json
 
 # 투명 키잉 원본(흰배경) 백업 (2026-06-03)
 .asset_keying_backup/
+
+# Node.js dependencies (Cloud Functions) — npm install 로 재생성, 커밋 금지
+**/node_modules/
