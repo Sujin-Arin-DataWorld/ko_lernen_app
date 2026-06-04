@@ -12,6 +12,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// A3 — "받아쓰기/스펠링"(Typing). 뜻을 보고 한국어를 직접 입력(인출).
@@ -122,7 +123,8 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
         ),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SoriCenterClamp(
+          child: Padding(
           padding: const EdgeInsets.all(Spacing.lg),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -207,6 +209,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
             ],
           ),
         ),
+        ),
       ),
     );
   }
@@ -220,7 +223,8 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SoriCenterClamp(
+          child: Padding(
           padding: const EdgeInsets.all(Spacing.lg),
           child: Column(
             children: [
@@ -261,6 +265,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
               ),
             ],
           ),
+        ),
         ),
       ),
     );

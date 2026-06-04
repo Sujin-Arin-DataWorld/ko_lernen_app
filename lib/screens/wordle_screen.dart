@@ -11,6 +11,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -299,6 +300,13 @@ class _WordleScreenState extends State<WordleScreen> {
     }
 
     final n = _target.length;
+    // 게임판이 한 화면에 들어오도록: 작은 화면에선 셀 상한을 화면 높이에 맞춰
+    // 축소(헤더/단서/입력에 ~360px 예약). 넓은 화면은 기존 62 유지.
+    final screenH = MediaQuery.sizeOf(context).height;
+    final compact = screenH < 720;
+    final boardCellMax = compact
+        ? ((screenH - 440) / _max).clamp(24.0, 56.0)
+        : 62.0;
 
     return Scaffold(
       appBar: AppBar(
@@ -326,15 +334,19 @@ class _WordleScreenState extends State<WordleScreen> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(18, 6, 18, 24),
+          padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(18, 6, 18, 24)),
           child: Column(
             children: [
               // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-              const HanokHeader(
-                asset: 'assets/illustrations/hanok/porch.png',
-                fallbackIcon: Icons.grid_4x4_rounded,
-              ),
-              const SizedBox(height: 14),
+              // 작은 화면(compact)에선 게임판 세로 공간 확보를 위해 배너 생략
+              // (AppBar 타이틀로 정체성 유지).
+              if (!compact) ...[
+                const HanokHeader(
+                  asset: 'assets/illustrations/hanok/porch.png',
+                  fallbackIcon: Icons.grid_4x4_rounded,
+                ),
+                const SizedBox(height: 14),
+              ],
 
               // ── 단서: 음절 수 · 품사 · 뜻 · 예문 ──
               // v4 (2026-06-03): Wordle이 너무 어렵다는 피드백 → 힌트 강화.
@@ -348,8 +360,11 @@ class _WordleScreenState extends State<WordleScreen> {
                   final example = tv?.exampleGerman.trim() ?? '';
                   return Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 8,
+                        runSpacing: 4,
                         children: [
                           Text(
                             t.wordleSyllableCount(n),
@@ -360,8 +375,7 @@ class _WordleScreenState extends State<WordleScreen> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          if (pos.isNotEmpty) ...[
-                            const SizedBox(width: 8),
+                          if (pos.isNotEmpty)
                             Container(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 8, vertical: 2),
@@ -380,7 +394,6 @@ class _WordleScreenState extends State<WordleScreen> {
                                 ),
                               ),
                             ),
-                          ],
                         ],
                       ),
                       if (_targetGerman != null) ...[
@@ -448,6 +461,7 @@ class _WordleScreenState extends State<WordleScreen> {
                             syls: word.split(''),
                             states: states,
                             n: n,
+                            maxCell: boardCellMax,
                           );
                         }
                         return _Row(
@@ -455,6 +469,7 @@ class _WordleScreenState extends State<WordleScreen> {
                           states: const [],
                           n: n,
                           isActive: row == _guesses.length && !_won && !_lost,
+                          maxCell: boardCellMax,
                         );
                       }),
                     ),
@@ -562,12 +577,14 @@ class _Row extends StatelessWidget {
   final List<_LS> states;
   final int n;
   final bool isActive;
+  final double maxCell;
 
   const _Row({
     required this.syls,
     required this.states,
     required this.n,
     this.isActive = false,
+    this.maxCell = 62.0,
   });
 
   static Color _bg(_LS s, bool active) => switch (s) {
@@ -589,46 +606,44 @@ class _Row extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final cell = min(
-          62.0,
-          (constraints.maxWidth - (n * 8)) / n,
-        ).clamp(44.0, 62.0);
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(n, (i) {
-              final s = i < states.length ? states[i] : _LS.empty;
-              final syl = i < syls.length ? syls[i] : '';
-              return AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                width: cell,
-                height: cell,
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                decoration: BoxDecoration(
-                  color: _bg(s, isActive),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: _border(s, isActive), width: 2),
-                ),
-                alignment: Alignment.center,
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    syl,
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w800,
-                      color: _fg(s),
-                    ),
+    // 셀 = maxCell(화면 높이 기반 상한 → 게임판이 한 화면에 맞도록) + FittedBox로
+    // 가로(좁은 폭·긴 단어)도 비례 축소 → 어떤 화면에서도 세로·가로 오버플로 0.
+    final cell = maxCell;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: List.generate(n, (i) {
+            final s = i < states.length ? states[i] : _LS.empty;
+            final syl = i < syls.length ? syls[i] : '';
+            return AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width: cell,
+              height: cell,
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              decoration: BoxDecoration(
+                color: _bg(s, isActive),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: _border(s, isActive), width: 2),
+              ),
+              alignment: Alignment.center,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  syl,
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w800,
+                    color: _fg(s),
                   ),
                 ),
-              );
-            }),
-          ),
-        );
-      },
+              ),
+            );
+          }),
+        ),
+      ),
     );
   }
 }

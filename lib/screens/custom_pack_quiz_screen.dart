@@ -14,6 +14,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// "나만의 단어장" 객관식 퀴즈 — 한국어를 보고 뜻 4지선다 (Quizlet/클래스카드 식).
@@ -149,7 +150,8 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
         ),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SoriCenterClamp(
+          child: Padding(
           padding: const EdgeInsets.all(Spacing.lg),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -249,6 +251,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
             ],
           ),
         ),
+        ),
       ),
     );
   }
@@ -262,7 +265,8 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SoriCenterClamp(
+          child: Padding(
           padding: const EdgeInsets.all(Spacing.lg),
           child: Column(
             children: [
@@ -300,6 +304,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
               ),
             ],
           ),
+        ),
         ),
       ),
     );

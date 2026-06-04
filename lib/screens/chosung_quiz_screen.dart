@@ -579,13 +579,33 @@ class _RoundSummaryCard extends StatelessWidget {
       padding: const EdgeInsets.all(Spacing.xl),
       child: Column(
         children: [
-          // 호랑이가 정확도에 맞춰 축하·격려·아쉬움 표정으로 등장.
-          Mascot(
-            kind: MascotKind.tiger,
-            emotion: mascotEmotion,
-            size: 88,
-            animate: true,
-          ),
+          // 80% 이상: 호랑이 + 까치 동반 축하 / 그 외: 호랑이 단독 격려
+          if (accuracy >= 80)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Mascot(
+                  kind: MascotKind.tiger,
+                  emotion: MascotEmotion.celebrate,
+                  size: 76,
+                  animate: true,
+                ),
+                const SizedBox(width: 8),
+                Mascot(
+                  kind: MascotKind.magpie,
+                  emotion: MascotEmotion.celebrate,
+                  size: 76,
+                  animate: true,
+                ),
+              ],
+            )
+          else
+            Mascot(
+              kind: MascotKind.tiger,
+              emotion: mascotEmotion,
+              size: 88,
+              animate: true,
+            ),
           const SizedBox(height: Spacing.sm),
           Text(
             t.chosungRoundDoneTitle,

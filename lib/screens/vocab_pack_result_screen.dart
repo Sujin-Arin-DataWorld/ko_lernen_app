@@ -7,6 +7,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Vocab Pack Result Screen** — Phase 2 의 클리어 결과 화면.
@@ -78,10 +79,11 @@ class VocabPackResultScreen extends StatelessWidget {
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: Column(
-            children: [
+        child: SoriCenterClamp(
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: Column(
+              children: [
               const SizedBox(height: Spacing.md),
               Text(
                 title,
@@ -185,6 +187,7 @@ class VocabPackResultScreen extends StatelessWidget {
               ),
             ],
           ),
+        ),
         ),
       ),
     );

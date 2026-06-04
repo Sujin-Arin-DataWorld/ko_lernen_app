@@ -9,6 +9,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/responsive.dart';
 import 'review_session_screen.dart';
 
 /// A2 (암기 엔진) — "어려운 단어" 모음.
@@ -82,7 +83,7 @@ class _HardWordsScreenState extends State<HardWordsScreen> {
                       ),
                       Expanded(
                         child: ListView.separated(
-                          padding: const EdgeInsets.fromLTRB(12, 0, 12, 96),
+                          padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(12, 0, 12, 96)),
                           itemCount: _hard.length,
                           separatorBuilder: (_, __) =>
                               const SizedBox(height: Spacing.xs),

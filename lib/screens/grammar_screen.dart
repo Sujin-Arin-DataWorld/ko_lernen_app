@@ -14,6 +14,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/responsive.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class GrammarScreen extends StatefulWidget {
@@ -165,7 +166,8 @@ class _GrammarScreenState extends State<GrammarScreen> {
         ],
       ),
       body: SafeArea(
-        child: Padding(
+        child: SoriCenterClamp(
+          child: Padding(
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
           child: Column(
             children: [
@@ -279,6 +281,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
               ),
             ],
           ),
+        ),
         ),
       ),
     );

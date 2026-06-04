@@ -10,6 +10,7 @@ import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// A3 — "짝 맞추기"(Matching). 한국어 ↔ 뜻 카드를 짝지어 없앤다.
@@ -133,7 +134,8 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen> {
         ),
       ),
       body: SafeArea(
-        child: _roundDone
+        child: SoriCenterClamp(
+          child: _roundDone
             ? _buildDone(t)
             : Padding(
                 padding: const EdgeInsets.all(Spacing.lg),
@@ -190,6 +192,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen> {
                   ],
                 ),
               ),
+        ),
       ),
     );
   }

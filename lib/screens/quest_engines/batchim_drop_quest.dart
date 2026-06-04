@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/tts_service.dart';
+import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/mascot_pop.dart';
 import 'quest_models.dart';
@@ -461,7 +462,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         Positioned(
           top: 0,
           right: 0,
-          child: MascotPop(visible: _celebrated, size: 56),
+          child: MascotPop(visible: _celebrated, size: 56, kind: MascotKind.magpie),
         ),
       ],
     );

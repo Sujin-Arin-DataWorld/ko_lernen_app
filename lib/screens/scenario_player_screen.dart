@@ -13,6 +13,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
@@ -1055,8 +1056,15 @@ class _StageScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(Spacing.xl),
+      padding: soriClampPadding(
+        width,
+        base: const EdgeInsets.symmetric(
+          horizontal: Spacing.lg,
+          vertical: Spacing.xl,
+        ),
+      ),
       child: child,
     );
   }

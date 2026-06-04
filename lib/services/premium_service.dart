@@ -166,7 +166,7 @@ class PremiumService {
   static Future<bool> gate(BuildContext context) async {
     if (isPremium) return true;
     if (!context.mounted) return false;
-    final purchased = await Navigator.of(context).pushNamed<bool>('/paywall');
+    final purchased = await Navigator.of(context).pushNamed('/paywall');
     return purchased == true || isPremium;
   }
 }

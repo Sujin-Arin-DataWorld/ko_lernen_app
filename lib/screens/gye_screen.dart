@@ -96,7 +96,12 @@ class GyeScreen extends StatelessWidget {
                           ],
                         ),
                 ),
-                SizedBox(height: 280, child: GyeHanok(meta: meta)),
+                LayoutBuilder(
+                  builder: (context, c) {
+                    final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
+                    return SizedBox(height: h, child: GyeHanok(meta: meta));
+                  },
+                ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(
                       Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),

@@ -46,6 +46,12 @@ class SoriBreakpoints {
 
   /// 2열 그리드(단어팩) 전용 — 카드가 너무 좁아지지 않게 여유.
   static const double grid = 600;
+
+  /// 태블릿 시작점 — grid 컬럼 수 증가 등 레이아웃 분기 기준.
+  static const double tablet = 720;
+
+  /// 그리드 카드 1장 최소 목표 폭 — [soriGridColumns] 컬럼 수 산출의 분모.
+  static const double gridCardMin = 150;
 }
 
 // ─────────────────────────────────────────────────────────────────────────

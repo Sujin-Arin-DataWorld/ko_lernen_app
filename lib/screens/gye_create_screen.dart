@@ -7,6 +7,7 @@ import '../l10n/gye_error_text.dart';
 import '../services/gye_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// 계 만들기 — 이름·닉네임 입력 → 6자리 코드 생성·공유. plan §7.3.
@@ -70,9 +71,14 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: _code == null ? _form(t) : _created(t),
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            padding: soriClampPadding(
+              constraints.maxWidth,
+              base: const EdgeInsets.all(Spacing.lg),
+            ),
+            child: _code == null ? _form(t) : _created(t),
+          ),
         ),
       ),
     );

@@ -6,6 +6,7 @@ import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Meine Wörter** (v2.0) — durchsucht ALLE selbst gespeicherten Wörter
@@ -88,11 +89,15 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                 title: t.wbSearchTitle,
                 body: t.wbSearchNoWords,
               )
-            : Column(
+            : LayoutBuilder(
+                builder: (context, constraints) => Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                        Spacing.lg, Spacing.md, Spacing.lg, Spacing.sm),
+                    padding: soriClampPadding(
+                      constraints.maxWidth,
+                      base: const EdgeInsets.fromLTRB(
+                          Spacing.lg, Spacing.md, Spacing.lg, Spacing.sm),
+                    ),
                     child: TextField(
                       controller: _ctrl,
                       onChanged: (v) => setState(() => _query = v),
@@ -146,8 +151,11 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                       ),
                     ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                        Spacing.lg, Spacing.sm, Spacing.lg, 0),
+                    padding: soriClampPadding(
+                      constraints.maxWidth,
+                      base: const EdgeInsets.fromLTRB(
+                          Spacing.lg, Spacing.sm, Spacing.lg, 0),
+                    ),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -166,8 +174,11 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                                 style: TextStyle(color: s.textMuted)),
                           )
                         : ListView.separated(
-                            padding: const EdgeInsets.fromLTRB(
-                                Spacing.lg, Spacing.sm, Spacing.lg, Spacing.xl),
+                            padding: soriClampPadding(
+                              constraints.maxWidth,
+                              base: const EdgeInsets.fromLTRB(
+                                  Spacing.lg, Spacing.sm, Spacing.lg, Spacing.xl),
+                            ),
                             itemCount: results.length,
                             separatorBuilder: (_, __) =>
                                 const SizedBox(height: Spacing.sm),
@@ -175,6 +186,7 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                           ),
                   ),
                 ],
+              ),
               ),
       ),
     );

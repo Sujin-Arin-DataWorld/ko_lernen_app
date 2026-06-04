@@ -7,6 +7,7 @@ import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — 책장 페이지 상세.
@@ -146,8 +147,12 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
         ],
       ),
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+        child: LayoutBuilder(
+          builder: (context, constraints) => ListView(
+          padding: soriClampPadding(
+            constraints.maxWidth,
+            base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+          ),
           children: [
             // 추출 원문 미리보기
             Container(
@@ -196,6 +201,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
                   ),
             ],
           ],
+        ),
         ),
       ),
     );

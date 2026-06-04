@@ -13,6 +13,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — CustomPack 학습 화면.
@@ -128,7 +129,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
         ),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SoriCenterClamp(
+          child: Padding(
           padding: const EdgeInsets.all(Spacing.lg),
           child: Column(
             children: [
@@ -182,6 +184,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
             ],
           ),
         ),
+        ),
       ),
     );
   }
@@ -194,7 +197,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SoriCenterClamp(
+          child: Padding(
           padding: const EdgeInsets.all(Spacing.lg),
           child: Column(
             children: [
@@ -246,6 +250,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
               ),
             ],
           ),
+        ),
         ),
       ),
     );

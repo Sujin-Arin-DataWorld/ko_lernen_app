@@ -17,6 +17,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 enum _Turn { user, tiger }
@@ -249,8 +250,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+          padding: soriClampPadding(
+            constraints.maxWidth,
+            base: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -376,6 +381,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
               ],
             ],
           ),
+        ),
         ),
       ),
     );
@@ -522,37 +528,44 @@ class _LastWordCard extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(chars.length, (i) {
-              final isLast = i == chars.length - 1;
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2),
-                child: Container(
-                  width: 56,
-                  height: 56,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: isLast
-                        ? SoriColors.accent
-                        : SoriColors.accent.withValues(alpha: 0.10),
-                    borderRadius: BorderRadius.circular(SoriRadius.sm),
-                    border: Border.all(
-                      color: SoriColors.accent.withValues(alpha: 0.6),
-                      width: 1.5,
+          LayoutBuilder(
+            builder: (context, c) {
+              final n = chars.length;
+              final box = ((c.maxWidth - n * 4) / n).clamp(36.0, 56.0);
+              final fontSize = (box * 0.5).clamp(18.0, 28.0);
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(n, (i) {
+                  final isLast = i == n - 1;
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2),
+                    child: Container(
+                      width: box,
+                      height: box,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: isLast
+                            ? SoriColors.accent
+                            : SoriColors.accent.withValues(alpha: 0.10),
+                        borderRadius: BorderRadius.circular(SoriRadius.sm),
+                        border: Border.all(
+                          color: SoriColors.accent.withValues(alpha: 0.6),
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Text(
+                        chars[i],
+                        style: TextStyle(
+                          color: isLast ? Colors.white : SoriColors.accent,
+                          fontSize: fontSize,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    chars[i],
-                    style: TextStyle(
-                      color: isLast ? Colors.white : SoriColors.accent,
-                      fontSize: 28,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ),
+                  );
+                }),
               );
-            }),
+            },
           ),
           const SizedBox(height: Spacing.sm),
           // Nur echte Übersetzungen zeigen — "TODO"/leer wird ausgeblendet
@@ -623,7 +636,7 @@ class _ResultCard extends StatelessWidget {
       child: Column(
         children: [
           Mascot(
-            kind: won ? MascotKind.tiger : MascotKind.magpie,
+            kind: won ? MascotKind.magpie : MascotKind.tiger,
             emotion: won ? MascotEmotion.celebrate : MascotEmotion.worry,
             size: 88,
             animate: true,

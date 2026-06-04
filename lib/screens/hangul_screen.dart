@@ -7,6 +7,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/responsive.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../widgets/flip_card.dart';
@@ -81,7 +82,7 @@ class _OverviewTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return ListView(
-      padding: const EdgeInsets.fromLTRB(12, 12, 12, 24),
+      padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(12, 12, 12, 24)),
       children: [
         // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
         const HanokHeader(
@@ -313,7 +314,8 @@ class _CardsTabState extends State<_CardsTab> {
   @override
   Widget build(BuildContext context) {
     final c = _pool[_idx % _pool.length];
-    return Padding(
+    return SoriCenterClamp(
+      child: Padding(
       padding: const EdgeInsets.all(12),
       child: Column(
         children: [
@@ -389,6 +391,7 @@ class _CardsTabState extends State<_CardsTab> {
           ),
         ],
       ),
+      ),
     );
   }
 }
@@ -454,7 +457,7 @@ class _WriteTabState extends State<_WriteTab> {
     final strokes = hangulStrokes[c.letter] ?? [];
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(14),
+      padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.all(14)),
       child: Column(
         children: [
           // 3 Regeln

@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../l10n/gye_error_text.dart';
 import '../services/gye_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// 계 입장 — 6자리 코드 + 닉네임 → 가입 검증. plan §7.3.
@@ -63,9 +64,13 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: Column(
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            padding: soriClampPadding(
+              constraints.maxWidth,
+              base: const EdgeInsets.all(Spacing.lg),
+            ),
+            child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: Spacing.md),
@@ -106,6 +111,7 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
                   onTap: _join,
                 ),
             ],
+          ),
           ),
         ),
       ),

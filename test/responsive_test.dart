@@ -8,6 +8,16 @@ import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
+import 'package:ko_lernen_app/screens/grammar_screen.dart';
+import 'package:ko_lernen_app/screens/hangul_screen.dart';
+import 'package:ko_lernen_app/screens/wordle_screen.dart';
+import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
+import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
+import 'package:ko_lernen_app/screens/listening_screen.dart';
+import 'package:ko_lernen_app/screens/hard_words_screen.dart';
+import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
+import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/screens/paywall_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -99,6 +109,66 @@ void main() {
     });
   });
 
+  // ── 2b. soriGridColumns: 반응형 grid 컬럼 수 ──────────────────────────
+  group('soriGridColumns', () {
+    test('폰 360px → min 보존 (회귀 0)', () {
+      expect(soriGridColumns(360, target: 110, min: 3, max: 6), 3);
+    });
+    test('태블릿 768px → 확장', () {
+      expect(soriGridColumns(768, target: 110, min: 3, max: 6),
+          greaterThan(3));
+    });
+    test('아주 넓은 폭 → max 상한 클램프', () {
+      expect(soriGridColumns(3000, target: 110, min: 3, max: 6), 6);
+    });
+    test('좁은 폭도 min 밑으로 안 내려감', () {
+      expect(soriGridColumns(200, target: 150, min: 2, max: 6), 2);
+    });
+  });
+
+  // ── 2c. SoriCenterClamp: 비스크롤 중앙 클램프 위젯 ────────────────────
+  group('SoriCenterClamp', () {
+    testWidgets('넓은 폭 → maxWidth(480)로 제한', (tester) async {
+      tester.view.physicalSize = const Size(1000, 600);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SoriCenterClamp(
+              child: const SizedBox.expand(
+                child: ColoredBox(key: Key('c'), color: Color(0xFF000000)),
+              ),
+            ),
+          ),
+        ),
+      );
+      expect(tester.getSize(find.byKey(const Key('c'))).width, 480);
+    });
+
+    testWidgets('폰 폭(360) → 그대로 통과 (회귀 0)', (tester) async {
+      tester.view.physicalSize = const Size(360, 600);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SoriCenterClamp(
+              child: const SizedBox.expand(
+                child: ColoredBox(key: Key('c'), color: Color(0xFF000000)),
+              ),
+            ),
+          ),
+        ),
+      );
+      expect(tester.getSize(find.byKey(const Key('c'))).width, 360);
+    });
+  });
+
   // ── 3. 화면 렌더: 다중 폭에서 오버플로 0 ───────────────────────────────
   group('반응형 화면 다중 폭 렌더', () {
     setUp(() async {
@@ -118,6 +188,17 @@ void main() {
       'settings': const SettingsScreen(),
       'stats': const StatsScreen(),
       'vocab packs': const VocabPacksScreen(),
+      // 반응형 전파 + 핫스팟 동적화 화면 (무인자만)
+      'grammar': const GrammarScreen(),
+      'hangul': const HangulScreen(),
+      'wordle': const WordleScreen(),
+      'kkeunmari': const KkeunmariScreen(),
+      'dojangcheop': const DojangcheopScreen(),
+      'listening': const ListeningScreen(),
+      'hard words': const HardWordsScreen(),
+      'legacy vocab': const LegacyVocabScreen(),
+      'consent': const ConsentScreen(),
+      'paywall': const PaywallScreen(),
     };
 
     for (final width in <double>[308, 360, 800, 1280]) {

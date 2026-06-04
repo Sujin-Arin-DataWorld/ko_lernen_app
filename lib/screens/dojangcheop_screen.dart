@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (8 motif).
@@ -37,30 +38,42 @@ class DojangcheopScreen extends StatelessWidget {
                   body: t.dojangEmptyBody,
                 ),
               )
-            : ListView(
-                padding: const EdgeInsets.all(Spacing.lg),
-                children: [
-                  Text(
-                    t.dojangProgress(got, motifs.length),
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      color: s.textMuted,
+            : LayoutBuilder(
+                builder: (context, constraints) => ListView(
+                  padding: soriClampPadding(
+                    constraints.maxWidth,
+                    base: const EdgeInsets.all(Spacing.lg),
+                  ),
+                  children: [
+                    Text(
+                      t.dojangProgress(got, motifs.length),
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: s.textMuted,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  GridView.count(
-                    crossAxisCount: 3,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: Spacing.lg,
-                    crossAxisSpacing: Spacing.lg,
-                    children: [
-                      for (final m in motifs)
-                        _StampCell(motif: m, earned: earned.contains(m.name)),
-                    ],
-                  ),
-                ],
+                    const SizedBox(height: Spacing.lg),
+                    LayoutBuilder(
+                      builder: (context, c) => GridView.count(
+                        crossAxisCount: soriGridColumns(
+                          c.maxWidth,
+                          target: 110,
+                          min: 3,
+                          max: 6,
+                        ),
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        mainAxisSpacing: Spacing.lg,
+                        crossAxisSpacing: Spacing.lg,
+                        children: [
+                          for (final m in motifs)
+                            _StampCell(motif: m, earned: earned.contains(m.name)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
       ),
     );

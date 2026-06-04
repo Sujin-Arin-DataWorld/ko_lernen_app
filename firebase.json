@@ -24,11 +24,6 @@
   },
   "functions": [
     {
-      "source": "functions/analyze_korean_text",
-      "codebase": "analyze-korean-text",
-      "runtime": "python311"
-    },
-    {
       "source": "functions/gye",
       "codebase": "gye-firebase-functions",
       "runtime": "nodejs20"

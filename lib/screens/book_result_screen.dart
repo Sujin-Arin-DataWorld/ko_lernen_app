@@ -13,6 +13,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 5 (stately-rising-jongga) — Analysis-Result Screen.
@@ -128,8 +129,12 @@ class _BookResultScreenState extends State<BookResultScreen> {
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
       body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+        child: LayoutBuilder(
+          builder: (context, constraints) => ListView(
+          padding: soriClampPadding(
+            constraints.maxWidth,
+            base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+          ),
           children: [
             Center(
               child: r.words.isNotEmpty
@@ -236,6 +241,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
               ),
             ],
           ],
+        ),
         ),
       ),
     );

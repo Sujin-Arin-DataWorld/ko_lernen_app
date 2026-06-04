@@ -19,6 +19,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -391,14 +392,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         ],
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-          child: Column(
-            children: [
-              _StageBar(stage: _stage),
-              const SizedBox(height: Spacing.md),
-              Expanded(child: _buildStageBody(t)),
-            ],
+        child: SoriCenterClamp(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+            child: Column(
+              children: [
+                _StageBar(stage: _stage),
+                const SizedBox(height: Spacing.md),
+                Expanded(child: _buildStageBody(t)),
+              ],
+            ),
           ),
         ),
       ),

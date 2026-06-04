@@ -11,6 +11,7 @@ import '../services/shared_pack_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — 내 책장 (Bookshelf) 목록.
@@ -172,11 +173,15 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
         ],
       ),
       body: SafeArea(
-        child: RefreshIndicator(
+        child: LayoutBuilder(
+          builder: (context, constraints) => RefreshIndicator(
           onRefresh: () async => _reload(),
           color: SoriColors.primary,
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(12, 4, 12, 32),
+            padding: soriClampPadding(
+              constraints.maxWidth,
+              base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
+            ),
             children: [
               const HanokHeader(
                 asset: 'assets/illustrations/hanok/calligraphy.png',
@@ -213,6 +218,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
               ],
             ],
           ),
+        ),
         ),
       ),
     );

@@ -15,6 +15,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 /// **Review Session (M2)** — "Heute lernen / 오늘의 학습".
@@ -125,13 +126,15 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
         ],
       ),
       body: SafeArea(
-        child: _loading
-            ? const AppLoading()
-            : _deck.isEmpty
-                ? _buildEmpty(t)
-                : _done
-                    ? _buildDone(t, s)
-                    : _buildCard(t, s),
+        child: SoriCenterClamp(
+          child: _loading
+              ? const AppLoading()
+              : _deck.isEmpty
+                  ? _buildEmpty(t)
+                  : _done
+                      ? _buildDone(t, s)
+                      : _buildCard(t, s),
+        ),
       ),
     );
   }

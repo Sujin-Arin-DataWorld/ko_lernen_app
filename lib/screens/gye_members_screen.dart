@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
 import '../services/gye_service.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// 계 멤버 목록 + 신고. plan §7.4/§9. rules: 멤버만 read, 신고는 본인 reporterUid.
@@ -29,7 +30,13 @@ class GyeMembersScreen extends StatelessWidget {
             if (members.isEmpty) {
               return const Center(child: CircularProgressIndicator());
             }
+            final width = MediaQuery.sizeOf(context).width;
             return ListView.builder(
+              padding: soriClampPadding(
+                width,
+                base: const EdgeInsets.symmetric(
+                    horizontal: Spacing.lg, vertical: Spacing.sm),
+              ),
               itemCount: members.length,
               itemBuilder: (_, i) {
                 final m = members[i];

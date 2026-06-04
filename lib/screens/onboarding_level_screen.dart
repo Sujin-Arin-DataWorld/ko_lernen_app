@@ -10,6 +10,7 @@ import '../widgets/sori/account_nudge.dart';
 import '../models/scenario.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/sori/responsive.dart';
 
 /// Erstes-Launch Onboarding — Nutzer wählt CEFR-Level.
 ///
@@ -143,7 +144,10 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
             child: LayoutBuilder(
               builder: (context, c) {
                 return SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                  padding: soriClampPadding(
+                    c.maxWidth,
+                    base: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                  ),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
                       minHeight: c.maxHeight - 32,

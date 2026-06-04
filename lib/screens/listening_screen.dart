@@ -16,6 +16,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/responsive.dart';
 
 enum _SubMode { both, koOnly, nativeOnly, off }
 
@@ -159,7 +160,7 @@ class _ListeningScreenState extends State<ListeningScreen> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+          padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(16, 8, 16, 24)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -554,7 +555,7 @@ class _CompleteCard extends StatelessWidget {
       child: Column(
         children: [
           const Mascot(
-            kind: MascotKind.tiger,
+            kind: MascotKind.magpie,
             emotion: MascotEmotion.celebrate,
             size: 96,
             animate: true,

@@ -385,6 +385,12 @@ abstract class AppL10n {
   /// **'Beispielantwort'**
   String get smalltalkReply;
 
+  /// No description provided for @smalltalkPickCategory.
+  ///
+  /// In de, this message translates to:
+  /// **'Thema wählen'**
+  String get smalltalkPickCategory;
+
   /// No description provided for @homeSmalltalkCardTitle.
   ///
   /// In de, this message translates to:

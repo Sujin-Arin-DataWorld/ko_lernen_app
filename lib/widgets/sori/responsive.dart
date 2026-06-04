@@ -61,3 +61,76 @@ class SoriContentClamp extends StatelessWidget {
     );
   }
 }
+
+/// 가용 [width]에서 [target] 폭 카드가 몇 개 들어가는지 산출해 grid 컬럼 수로
+/// 반환한다. [min]~[max]로 클램프한다.
+///
+/// 폰(360~430)에서 기존 컬럼 수를 보존하려면 **호출부에서 [min]을 그 화면의
+/// 현재 컬럼 수로 지정**한다 — 폰 산출값이 min 밑으로 내려가지 않으면 시각 변화 0.
+/// 예) dojangcheop(현재 3컬럼): `soriGridColumns(width, target: 110, min: 3)`
+///     → 360px서 3(유지), 768px서 더 많이.
+///
+/// [outerPadding]은 그리드 좌우 여백 합(기본 [Spacing.lg]×2), [spacing]은
+/// 카드 사이 간격이다.
+int soriGridColumns(
+  double width, {
+  double target = SoriBreakpoints.gridCardMin,
+  int min = 2,
+  int max = 6,
+  double outerPadding = Spacing.lg * 2,
+  double spacing = Spacing.lg,
+}) {
+  final usable = (width - outerPadding).clamp(0.0, double.infinity);
+  // n*target + (n-1)*spacing ≤ usable  →  n ≤ (usable + spacing)/(target + spacing)
+  final raw = ((usable + spacing) / (target + spacing)).floor();
+  return raw.clamp(min, max);
+}
+
+/// 비스크롤 콘텐츠(Column/Expanded/Stack)를 [maxWidth]로 가운데 클램프한다.
+/// 폰(부모 폭 ≤ maxWidth)에선 [child]가 폰 폭을 그대로 채워 **시각 변화 0**,
+/// 넓은 화면에서만 단일 중앙 컬럼이 된다.
+///
+/// 내부 `SizedBox(width: double.infinity)`가 자식에게 항상 클램프된 폭을
+/// 꽉 채우게 강제하므로, 감싸는 Column의 `crossAxisAlignment`(start/center/
+/// stretch)와 **무관하게** 폰에서 정렬이 보존된다(= 회귀 0). 이 폭 강제가 없으면
+/// 폭을 다 안 쓰는 Column을 Align이 중앙으로 밀어 폰에서 정렬이 바뀐다.
+///
+/// [SoriContentClamp]와의 차이: 저쪽은 *스크롤뷰 padding 슬롯*만 클램프해
+/// viewport는 풀블리드(스크롤바·RefreshIndicator가 창 가장자리). 이쪽은
+/// *위젯 자체*를 ConstrainedBox로 감싼다 → 스크롤 없는 Column 화면 전용.
+/// 배경은 호출부의 Scaffold/Stack에 남겨야 풀블리드가 유지된다(이 위젯은
+/// 콘텐츠만 감쌀 것).
+///
+/// ```dart
+/// body: SafeArea(
+///   child: SoriCenterClamp(
+///     child: Padding(
+///       padding: const EdgeInsets.all(Spacing.lg),
+///       child: Column(children: [...]),
+///     ),
+///   ),
+/// )
+/// ```
+class SoriCenterClamp extends StatelessWidget {
+  final Widget child;
+  final double maxWidth;
+  final AlignmentGeometry alignment;
+
+  const SoriCenterClamp({
+    super.key,
+    required this.child,
+    this.maxWidth = SoriBreakpoints.content,
+    this.alignment = Alignment.topCenter,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: alignment,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: maxWidth),
+        child: SizedBox(width: double.infinity, child: child),
+      ),
+    );
+  }
+}

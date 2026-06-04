@@ -159,6 +159,9 @@ class AppL10nDe extends AppL10n {
   String get smalltalkReply => 'Beispielantwort';
 
   @override
+  String get smalltalkPickCategory => 'Thema wählen';
+
+  @override
   String get homeSmalltalkCardTitle => 'Small Talk';
 
   @override

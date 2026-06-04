@@ -13,6 +13,7 @@ import '../services/tts_service.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// "나만의 단어장" 편집 화면 — 단어를 직접 추가·수정·삭제하고, 학습/퀴즈로 이동.
@@ -246,12 +247,16 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
         label: Text(t.wbAddWord),
       ),
       body: SafeArea(
-        child: Column(
+        child: LayoutBuilder(
+          builder: (context, constraints) => Column(
           children: [
             // 학습 모드 4종: 카드 · 짝맞추기 · 받아쓰기 · 퀴즈
             Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),
+              padding: soriClampPadding(
+                constraints.maxWidth,
+                base: const EdgeInsets.fromLTRB(
+                    Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),
+              ),
               child: Column(
                 children: [
                   Row(
@@ -322,7 +327,10 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
             ),
             if (words.length < 4)
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+                padding: soriClampPadding(
+                  constraints.maxWidth,
+                  base: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+                ),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -344,7 +352,10 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
                       ),
                     )
                   : ListView.separated(
-                      padding: const EdgeInsets.fromLTRB(12, 0, 12, 96),
+                      padding: soriClampPadding(
+                        constraints.maxWidth,
+                        base: const EdgeInsets.fromLTRB(12, 0, 12, 96),
+                      ),
                       itemCount: words.length,
                       separatorBuilder: (_, __) =>
                           const SizedBox(height: Spacing.xs),
@@ -360,6 +371,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
                     ),
             ),
           ],
+        ),
         ),
       ),
     );

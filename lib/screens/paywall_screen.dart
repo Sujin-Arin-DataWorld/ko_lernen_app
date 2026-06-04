@@ -4,6 +4,7 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/premium_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// €5/Monat Premium-Paywall.
@@ -104,6 +105,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
       t.paywallBenefit5,
     ];
 
+    final screenWidth = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: s.bg,
       body: SafeArea(
@@ -119,7 +121,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
             ),
             Expanded(
               child: ListView(
-                padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+                padding: soriClampPadding(
+                  screenWidth,
+                  base: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+                ),
                 children: [
                   Center(
                     child: Container(
@@ -164,7 +169,10 @@ class _PaywallScreenState extends State<PaywallScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),
+              padding: soriClampPadding(
+                screenWidth,
+                base: const EdgeInsets.fromLTRB(24, 0, 24, 16),
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

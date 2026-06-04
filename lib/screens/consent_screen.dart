@@ -5,6 +5,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/external_link.dart';
+import '../widgets/sori/responsive.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -41,12 +42,13 @@ class ConsentScreen extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(Spacing.xl),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Spacer(flex: 2),
+        child: SoriCenterClamp(
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.xl),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Spacer(flex: 2),
               const Center(
                 child: Mascot.tiger(
                   size: 128,
@@ -96,8 +98,9 @@ class ConsentScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 11.5, height: 1.4, color: s.textDim),
               ),
-              const SizedBox(height: 4),
-            ],
+                const SizedBox(height: 4),
+              ],
+            ),
           ),
         ),
       ),
