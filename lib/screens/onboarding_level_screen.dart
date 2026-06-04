@@ -77,6 +77,8 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     HapticFeedback.mediumImpact();
     await Storage.setUserLevelCode(level.code);
     if (!context.mounted) return;
+    // P1-2: G8 첫날 환영 모달 (이미지 준비 후 활성화)
+    // await _showWelcomeModal(context, level);
     await showAccountNudgeSheet(context);
     if (!context.mounted) return;
     Navigator.pushReplacementNamed(context, '/');
