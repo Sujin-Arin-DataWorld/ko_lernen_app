@@ -1,5 +1,8 @@
-# v2.0 출시 QA 검증 보고서 (실기기)
+# ⚠️ ARCHIVED — v2.0 출시 QA 검증 보고서 (2026-06-04)
 
+> **상태**: 실기기 QA 검증 체크리스트. 다음 배포 시 갱신 필요.  
+> **현행 기준**: `docs/store/closed-testing-checklist-v2.md` 참조
+>
 > 플랜 §10.2/§10.4 Deliverable. **Jin이 실기기에서 직접 채우는 체크리스트.**
 > Android 1대 + iOS 1대, light 모드(다크 폐지). 각 항목 `[x]` + 비고.
 > 코드는 `flutter analyze` 0 · `flutter test` 310 통과(2026-06-04). 여기선 **실기기 시각·동작**만 검증.

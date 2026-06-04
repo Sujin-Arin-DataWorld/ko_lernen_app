@@ -53,10 +53,43 @@ curl -X POST '<배포-URL>' -H 'Content-Type: application/json' \
 - 위 기본 region/이름으로 배포하면 **추가 설정 없이 동작**.
 - 다른 URL 이면: 릴리즈 빌드 시 `--dart-define=BOOK_ANALYSIS_ENDPOINT=<URL>` 추가, 또는 앱 Settings → "Cloud-Analyse-Endpoint" 에 입력.
 
-## 5. Firestore Rules 배포 (공유 기능 `shared_packs`)
+## 5. Firestore Rules 배포 (gye·shared_packs·cache·age-gate·admin)
 ```bash
 firebase deploy --only firestore:rules
 ```
+> v2.0 rules: gye 멤버/피드/스티커/신고 + `isActiveGyeMember`(정지자 전송 차단) + `isAdmin()`(admin 패널) + `cache/translations`. 배포 후 에뮬레이터 또는 실기기 2계정으로 검증 권장.
+
+## 6. Firestore 인덱스 배포 (admin 패널 신고 큐)
+```bash
+firebase deploy --only firestore:indexes
+```
+`firestore.indexes.json` 에 `reports` **collection-group** 단일필드(`createdAt`) override 정의됨 → admin 패널 `collectionGroup('reports').orderBy('createdAt')` 용.
+> 형식 오류로 배포 실패 시, admin 패널 첫 조회에서 콘솔 에러의 "인덱스 생성" 링크 클릭으로 대체 가능.
+
+## 7. 계(契) Cloud Functions 배포 (Node — `functions/gye`)
+`analyze_korean_text`(Python·gcloud)와 **별개 codebase**. `firebase.json`: `source=functions/gye`, `codebase=gye-firebase-functions`, runtime nodejs20.
+```bash
+cd functions/gye && npm install
+firebase deploy --only functions:on_pack_cleared,functions:weekly_goal_rollover,functions:on_report_created
+# 또는 codebase 전체: firebase deploy --only functions
+```
+- `weekly_goal_rollover` 는 배포 시 **Cloud Scheduler job 자동 생성**(Blaze + Cloud Scheduler API 필요). 확인: `gcloud scheduler jobs list`.
+- FCM 푸시(`pushToGyeMembers`)는 **iOS APNs 키 + FCM enable** 후에만 실제 전달됨.
+
+## 8. 배포 후 스모크 테스트
+**① 책 한 컷 (HTTP):**
+```bash
+python3 functions/analyze_korean_text/smoke_test.py '<배포-URL>'
+```
+응답 스키마(words/grammar/sentences) + DeepL 번역 + 빈/초과 엣지 검증. 전부 통과 시 exit 0. 빈 `translation` → `DEEPL_API_KEY` 확인.
+
+**② 계 (Firestore 트리거):** 서비스 계정 키 필요.
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=/경로/serviceAccountKey.json
+cd functions/gye && npm install && npm run smoke
+```
+`on_pack_cleared`(진행도·피드) + `on_report_created`(서로 다른 3명→정지) 를 실데이터로 검증 후 테스트 데이터(`SMOKE…`) 자동 정리. `weekly_goal_rollover`(스케줄)는 제외 — `gcloud scheduler jobs run …` 로 수동 트리거.
+> ⚠️ 실 Firestore에 쓰므로 프로덕션에서는 신중히(테스트 데이터는 프리픽스·자동 삭제로 격리).
 
 ## 비용 / 한도
 - kiwipiepy: 순수 Python, cold start 수 초. Gen2 기본 메모리(256MB)로 충분(필요 시 `--memory=512Mi`).

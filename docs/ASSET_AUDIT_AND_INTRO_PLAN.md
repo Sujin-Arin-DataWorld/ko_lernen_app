@@ -1,5 +1,9 @@
-# Hangul Sori — 에셋 전수 감사 + 인트로 재설계 계획
+# ⚠️ ARCHIVED — Hangul Sori 에셋 감사 (2026-06-02)
 
+> **상태**: 2026-06-02 시점의 진단 문서. 그 이후 자산·코드가 대폭 갱신되었습니다.
+> **현행 기준**: `docs/ROADMAP_TO_LAUNCH_2026-06-04.md` + `docs/IMPLEMENTATION_AUDIT_2026-06-04.md` 참조  
+> **이미지 기준**: `docs/ASSET_GENERATION_BIBLE.md` + `docs/IMAGES_TO_CREATE.md`
+>
 > 작성: 2026-06-02 · 범위: `assets/` 전 이미지 117장 실측(치수·투명도·코드 사용처) + 인트로 재설계.
 > 판정 키: ✅재사용 / 🔧투명수정 / ♻️재생성(스타일·품질) / ❌불필요(앱) / ➕신규제작
 > 스타일·프롬프트 기준: `docs/ASSET_GENERATION_BIBLE.md`

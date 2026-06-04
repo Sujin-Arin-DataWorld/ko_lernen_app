@@ -1,7 +1,10 @@
-# Hangul Sori Quality Diagnosis and Update Plan
+# ⚠️ ARCHIVED — 품질 진단 및 계획 (2026-05-28)
 
-Date: 2026-05-28
-Scope: pre-beta tester recruitment readiness check for app quality, illustration quality, app design, content quality, and game quality.
+> **상태**: v1.0.0 출시 전 진단. 대부분의 항목이 해결됨.  
+> **현행 기준**: `docs/ROADMAP_TO_LAUNCH_2026-06-04.md` + `docs/IMPLEMENTATION_AUDIT_2026-06-04.md` 참조
+>
+> Date: 2026-05-28
+> Scope: pre-beta tester recruitment readiness check for app quality, illustration quality, app design, content quality, and game quality.
 
 This diagnosis is based only on the current repository state inspected locally. It does not assume unimplemented features.
 

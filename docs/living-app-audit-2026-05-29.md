@@ -1,5 +1,8 @@
-# Living App Audit — Hangul Sori (2026-05-29)
+# ⚠️ ARCHIVED — Living App Audit (2026-05-29)
 
+> **상태**: 2026-05-29 시점의 진단 문서. 그 이후 대부분의 항목이 구현되었습니다.
+> **현행 기준**: `docs/ROADMAP_TO_LAUNCH_2026-06-04.md` + `docs/IMPLEMENTATION_AUDIT_2026-06-04.md` 참조
+>
 > 진단·개선안·필요 자산·이미지 프롬프트. screens/ + assets/ 전수 cross-check 결과.
 
 ---
