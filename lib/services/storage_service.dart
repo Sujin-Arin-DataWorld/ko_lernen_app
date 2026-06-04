@@ -318,6 +318,16 @@ class Storage {
     await _ss('kl_srs_v1', jsonEncode(json));
   }
 
+  /// Roh-JSON des SRS-Decks (für CloudSync-Backup). Leer = kein Deck.
+  static String get srsRawJson => _s('kl_srs_v1');
+
+  /// SRS-Deck als Roh-JSON setzen (CloudSync-Restore) + Cache invalidieren,
+  /// damit der nächste [_loadSrs] neu parst.
+  static Future<void> setSrsRawJson(String json) async {
+    await _ss('kl_srs_v1', json);
+    _srsCache = null;
+  }
+
   static String _isoOf(DateTime d) {
     final m = d.month.toString().padLeft(2, '0');
     final day = d.day.toString().padLeft(2, '0');
