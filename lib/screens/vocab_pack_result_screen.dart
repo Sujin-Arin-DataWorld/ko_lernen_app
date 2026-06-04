@@ -94,20 +94,22 @@ class VocabPackResultScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: Spacing.lg),
-              // Hero: 도장 (cleared) 또는 마스코트 (else)
-              SizedBox(
-                height: 160,
-                child: Center(
-                  child: _cleared
-                      ? DancheongStamp(
-                          motif: motif,
-                          size: 140,
-                          animate: justCleared,
-                          stamped: true,
-                        )
-                      : const Mascot(kind: MascotKind.tiger, emotion: MascotEmotion.worry, size: 130),
-                ),
-              ),
+              // Hero: 도장 (cleared) 또는 마스코트 (else) — P0: 3단 시퀀스 진입
+              _cleared
+                  ? _CelebrationSequence(
+                      motif: motif,
+                      justCleared: justCleared,
+                    )
+                  : SizedBox(
+                      height: 160,
+                      child: Center(
+                        child: const Mascot(
+                          kind: MascotKind.tiger,
+                          emotion: MascotEmotion.worry,
+                          size: 130,
+                        ),
+                      ),
+                    ),
               const SizedBox(height: Spacing.lg),
               // Stats card
               SoriCard(
@@ -235,6 +237,104 @@ class _StatLine extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+// P0: G3 3단 시퀀스 (호랑이+까치 박수 → XP bar fill 애니메이션)
+class _CelebrationSequence extends StatefulWidget {
+  final DancheongMotif motif;
+  final bool justCleared;
+  const _CelebrationSequence({
+    required this.motif,
+    required this.justCleared,
+  });
+
+  @override
+  State<_CelebrationSequence> createState() => _CelebrationSequenceState();
+}
+
+class _CelebrationSequenceState extends State<_CelebrationSequence>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _ctrl;
+  int _phase = 0; // 0=마스코트, 1=도장
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(vsync: this);
+    _playSequence();
+  }
+
+  Future<void> _playSequence() async {
+    if (!mounted) return;
+    // Phase 1: 호랑이+까치 박수 (1.5s)
+    await Future.delayed(const Duration(milliseconds: 300));
+    if (!mounted) return;
+    setState(() => _phase = 0);
+    await Future.delayed(const Duration(seconds: 1500));
+    // Phase 2: 도장 전환 + 스탬프 애니메이션
+    if (!mounted) return;
+    setState(() => _phase = 1);
+    await Future.delayed(const Duration(seconds: 2));
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 160,
+      child: Center(
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 500),
+          child: _phase == 0
+              ? _MascotsApplaud(key: const ValueKey(0))
+              : DancheongStamp(
+                  key: const ValueKey(1),
+                  motif: widget.motif,
+                  size: 140,
+                  animate: widget.justCleared,
+                  stamped: true,
+                ),
+        ),
+      ),
+    );
+  }
+}
+
+// 호랑이+까치 박수 포즈
+class _MascotsApplaud extends StatelessWidget {
+  const _MascotsApplaud({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Positioned(
+          left: 0,
+          child: Mascot(
+            kind: MascotKind.tiger,
+            emotion: MascotEmotion.celebrate,
+            size: 100,
+            animate: true,
+          ),
+        ),
+        Positioned(
+          right: 0,
+          child: Mascot(
+            kind: MascotKind.magpie,
+            emotion: MascotEmotion.celebrate,
+            size: 90,
+            animate: true,
+          ),
+        ),
+      ],
     );
   }
 }
