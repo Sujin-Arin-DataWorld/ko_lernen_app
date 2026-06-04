@@ -379,6 +379,52 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(height: Spacing.xl),
                     ],
 
+                    // ── P0-G7. Streak 0 회복 메시지 ──
+                    if (Storage.streakDays == 0) ...[
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 200),
+                        slideY: 14,
+                        child: SoriCard(
+                          variant: SoriCardVariant.hero,
+                          accent: SoriColors.primary,
+                          tinted: true,
+                          child: Row(
+                            children: [
+                              const Mascot(
+                                kind: MascotKind.tiger,
+                                emotion: MascotEmotion.smile,
+                                size: 60,
+                              ),
+                              const SizedBox(width: Spacing.md),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      t.homeTigerBubbleResume,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      '5분이면 충분해요!',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: s.textMuted,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                    ],
                     // ── E1b. Heute lernen (M2) — fällige SRS-Karten ──
                     SoriEntrance(
                       delay: const Duration(milliseconds: 220),
