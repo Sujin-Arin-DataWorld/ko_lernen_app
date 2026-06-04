@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangul Sori — Gye Admin</title>
+  <!--
+    계(契) 운영자 패널 — plan §9.2.
+    Firebase Auth Custom Claim `admin: true` 가진 계정만 사용.
+    배포: Firebase Hosting (별도 site) 또는 로컬 `firebase serve`.
+    상세: tools/admin/README.md
+  -->
+  <style>
+    :root { --bg:#0E1A18; --card:#15211F; --ink:#FAF6EC; --muted:#9DB0AB;
+            --green:#1F7A6B; --red:#A0524A; --gold:#C99A2E; --line:#243430; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,system-ui,"Segoe UI",sans-serif;
+           background:var(--bg); color:var(--ink); }
+    header { padding:14px 20px; border-bottom:1px solid var(--line);
+             display:flex; align-items:center; gap:12px; }
+    header h1 { font-size:16px; margin:0; font-weight:800; }
+    header .sp { flex:1; }
+    button { background:var(--green); color:#fff; border:0; border-radius:8px;
+             padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; }
+    button.ghost { background:transparent; color:var(--muted); border:1px solid var(--line); }
+    button.danger { background:var(--red); }
+    button:disabled { opacity:.5; cursor:default; }
+    main { padding:20px; max-width:960px; margin:0 auto; }
+    .hint { color:var(--muted); font-size:13px; line-height:1.6; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:12px;
+            padding:14px 16px; margin-bottom:12px; }
+    .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tag { font-size:11px; padding:2px 8px; border-radius:99px; background:#243430; color:var(--muted); }
+    .tag.pending { background:#3a2f12; color:var(--gold); }
+    .tag.suspended, .tag.reviewed { background:#3a1f1c; color:#e09; }
+    input { background:#0b1413; color:var(--ink); border:1px solid var(--line);
+            border-radius:8px; padding:8px 10px; font-size:13px; }
+    h2 { font-size:14px; margin:22px 0 10px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+    .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; color:var(--muted); }
+    .empty { color:var(--muted); font-size:13px; padding:8px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐯 Gye Admin</h1>
+    <span class="sp"></span>
+    <span id="who" class="hint"></span>
+    <button id="loginBtn">Anmelden (Google)</button>
+    <button id="logoutBtn" class="ghost" style="display:none">Abmelden</button>
+  </header>
+
+  <main>
+    <div id="gate" class="card hint">
+      Lade…
+    </div>
+
+    <div id="app" style="display:none">
+      <h2>Gye suchen (Code)</h2>
+      <div class="card">
+        <div class="row">
+          <input id="gyeCode" placeholder="6-stelliger Code (z. B. K3X9W1)" maxlength="6" />
+          <button id="gyeLookupBtn">Suchen</button>
+        </div>
+        <div id="gyeResult"></div>
+      </div>
+
+      <h2>Meldungs-Queue (offen zuerst)</h2>
+      <div class="row" style="margin-bottom:10px">
+        <button id="refreshBtn" class="ghost">Aktualisieren</button>
+        <span class="hint" id="reportCount"></span>
+      </div>
+      <div id="reports"><div class="empty">…</div></div>
+    </div>
+  </main>
+
+  <!-- Firebase v9 compat (single-file, kein Build-Step) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script>
+    // ── Firebase config (öffentliche Identifier — wie lib/firebase_options.dart) ──
+    // TODO(Jin): appId durch die **Web-App-ID** aus der Firebase Console ersetzen
+    //   (Projekt-Einstellungen → Web-App hinzufügen). Android-ID funktioniert für
+    //   Auth/Firestore meist auch, ist aber nicht der saubere Web-Client.
+    const firebaseConfig = {
+      apiKey: 'AIzaSyD_opujse33cwt6nOQFxqQJXfgSCW5UkO8',
+      authDomain: 'ko-lernen-app.firebaseapp.com',
+      projectId: 'ko-lernen-app',
+      storageBucket: 'ko-lernen-app.firebasestorage.app',
+      messagingSenderId: '573567222361',
+      appId: '1:573567222361:android:38d26a50001ee64c356748',
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+    $('loginBtn').onclick = () =>
+      auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch((e) => alert(e.message));
+    $('logoutBtn').onclick = () => auth.signOut();
+
+    auth.onAuthStateChanged(async (user) => {
+      if (!user) {
+        $('gate').textContent = 'Bitte mit einem Admin-Konto anmelden.';
+        $('gate').style.display = '';
+        $('app').style.display = 'none';
+        $('loginBtn').style.display = '';
+        $('logoutBtn').style.display = 'none';
+        $('who').textContent = '';
+        return;
+      }
+      $('who').textContent = user.email || user.uid;
+      $('loginBtn').style.display = 'none';
+      $('logoutBtn').style.display = '';
+      const token = await user.getIdTokenResult(true);
+      if (token.claims.admin !== true) {
+        $('gate').innerHTML = '⛔ Kein Admin-Recht.<br>' +
+          '<span class="mono">' + esc(user.uid) + '</span><br>' +
+          'Setze das Custom Claim <span class="mono">{admin:true}</span> für diese UID (siehe README).';
+        $('gate').style.display = '';
+        $('app').style.display = 'none';
+        return;
+      }
+      $('gate').style.display = 'none';
+      $('app').style.display = '';
+      loadReports();
+    });
+
+    // ── Meldungs-Queue (collectionGroup) ──────────────────────────────
+    async function loadReports() {
+      const box = $('reports');
+      box.innerHTML = '<div class="empty">Lade…</div>';
+      try {
+        const snap = await db.collectionGroup('reports')
+          .orderBy('createdAt', 'desc').limit(100).get();
+        if (snap.empty) { box.innerHTML = '<div class="empty">Keine Meldungen.</div>'; $('reportCount').textContent=''; return; }
+        // offen (pending) zuerst.
+        const docs = snap.docs.slice().sort((a, b) => {
+          const ap = (a.data().status === 'pending') ? 0 : 1;
+          const bp = (b.data().status === 'pending') ? 0 : 1;
+          return ap - bp;
+        });
+        $('reportCount').textContent = docs.length + ' Meldung(en)';
+        box.innerHTML = '';
+        for (const d of docs) {
+          const r = d.data();
+          const gyeId = d.ref.parent.parent.id;
+          const card = document.createElement('div');
+          card.className = 'card';
+          const when = r.createdAt && r.createdAt.toDate ? r.createdAt.toDate().toLocaleString() : '—';
+          card.innerHTML =
+            '<div class="row"><span class="tag ' + esc(r.status) + '">' + esc(r.status) + '</span>' +
+            '<span class="tag">' + esc(r.reason) + '</span>' +
+            '<span class="mono">gye ' + esc(gyeId) + '</span><span class="sp"></span>' +
+            '<span class="hint">' + esc(when) + '</span></div>' +
+            '<div class="hint" style="margin:8px 0">Ziel: <span class="mono">' + esc(r.targetUid) +
+            '</span> · Melder: <span class="mono">' + esc(r.reporterUid) + '</span></div>' +
+            (r.note ? '<div class="hint">„' + esc(r.note) + '"</div>' : '') +
+            '<div class="row" style="margin-top:10px"></div>';
+          const actions = card.querySelector('.row:last-child');
+          const susp = document.createElement('button');
+          susp.className = 'danger';
+          susp.textContent = 'Sperren';
+          susp.onclick = () => suspendMember(gyeId, r.targetUid, d.ref, susp);
+          const dis = document.createElement('button');
+          dis.className = 'ghost';
+          dis.textContent = 'Verwerfen';
+          dis.onclick = () => updateReport(d.ref, { status: 'dismissed', reviewedBy: 'manual' }, dis);
+          actions.appendChild(susp);
+          actions.appendChild(dis);
+          box.appendChild(card);
+        }
+      } catch (e) {
+        box.innerHTML = '<div class="empty">Fehler: ' + esc(e.message) +
+          '<br>(collectionGroup-Index „reports" evtl. nötig — Link in der Konsole.)</div>';
+      }
+    }
+    $('refreshBtn').onclick = loadReports;
+
+    async function suspendMember(gyeId, uid, reportRef, btn) {
+      btn.disabled = true;
+      try {
+        await db.doc('gye/' + gyeId + '/members/' + uid).update({ status: 'suspended' });
+        if (reportRef) {
+          await reportRef.update({ status: 'reviewed', reviewedBy: 'manual', actionTaken: 'suspended' });
+        }
+        loadReports();
+      } catch (e) { alert('Sperren fehlgeschlagen: ' + e.message); btn.disabled = false; }
+    }
+    async function updateReport(ref, data, btn) {
+      btn.disabled = true;
+      try { await ref.update(data); loadReports(); }
+      catch (e) { alert('Fehler: ' + e.message); btn.disabled = false; }
+    }
+
+    // ── Gye-Suche + Mitgliederverwaltung ──────────────────────────────
+    $('gyeLookupBtn').onclick = lookupGye;
+    async function lookupGye() {
+      const code = $('gyeCode').value.trim().toUpperCase();
+      const out = $('gyeResult');
+      out.innerHTML = '<div class="empty">Lade…</div>';
+      if (code.length !== 6) { out.innerHTML = '<div class="empty">6-stelliger Code.</div>'; return; }
+      try {
+        const meta = await db.doc('gye/' + code).get();
+        if (!meta.exists) { out.innerHTML = '<div class="empty">Nicht gefunden.</div>'; return; }
+        const m = meta.data();
+        const members = await db.collection('gye/' + code + '/members').get();
+        let html = '<div class="row" style="margin-top:10px"><b>' + esc(m.name) + '</b>' +
+          '<span class="tag">' + (m.memberCount || members.size) + ' Mitglieder</span>' +
+          '<span class="tag">Ziel ' + (m.weeklyGoalProgress || 0) + '/' + (m.weeklyGoalPacks || 0) + '</span>' +
+          '<span class="sp"></span>' +
+          '<button class="danger" id="disbandBtn">Gye auflösen</button></div>';
+        for (const md of members.docs) {
+          const u = md.data();
+          html += '<div class="row" style="border-top:1px solid var(--line);padding-top:8px;margin-top:8px">' +
+            '<span class="tag ' + esc(u.status) + '">' + esc(u.status) + '</span>' +
+            '<b>' + esc(u.nickname) + '</b><span class="mono">' + esc(md.id) + '</span>' +
+            '<span class="sp"></span>' +
+            '<button data-act="toggle" data-uid="' + esc(md.id) + '" data-status="' + esc(u.status) + '" class="ghost">' +
+            (u.status === 'suspended' ? 'Entsperren' : 'Sperren') + '</button>' +
+            '<button data-act="rename" data-uid="' + esc(md.id) + '" class="ghost">Name ändern</button></div>';
+        }
+        out.innerHTML = html;
+        $('disbandBtn').onclick = () => disband(code);
+        out.querySelectorAll('button[data-act]').forEach((b) => {
+          b.onclick = () => {
+            const uid = b.getAttribute('data-uid');
+            if (b.dataset.act === 'toggle') {
+              const next = b.dataset.status === 'suspended' ? 'active' : 'suspended';
+              db.doc('gye/' + code + '/members/' + uid).update({ status: next }).then(lookupGye)
+                .catch((e) => alert(e.message));
+            } else {
+              const nn = prompt('Neuer Spitzname:');
+              if (nn) db.doc('gye/' + code + '/members/' + uid).update({ nickname: nn.slice(0, 20) })
+                .then(lookupGye).catch((e) => alert(e.message));
+            }
+          };
+        });
+      } catch (e) { out.innerHTML = '<div class="empty">Fehler: ' + esc(e.message) + '</div>'; }
+    }
+    function disband(code) {
+      if (!confirm('Gye ' + code + ' wirklich auflösen? (Meta wird gelöscht; Sub-Collections per CF/manuell nachräumen.)')) return;
+      db.doc('gye/' + code).delete().then(() => { alert('Gelöscht.'); $('gyeResult').innerHTML = ''; })
+        .catch((e) => alert(e.message));
+    }
+  </script>
+</body>
+</html>

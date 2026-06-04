@@ -58,26 +58,32 @@ service cloud.firestore {
       allow delete: if isGyeOwner(gyeId);
 
       match /members/{memberUid} {
-        allow read: if isGyeMember(gyeId);
+        allow read: if isGyeMember(gyeId) || isAdmin();
         // 가입 = 본인 멤버 문서 생성.
         allow create: if request.auth != null
           && request.auth.uid == memberUid
           && request.resource.data.nickname is string
           && request.resource.data.nickname.size() <= 20;
-        allow update: if request.auth.uid == memberUid || isGyeOwner(gyeId);
+        // 본인은 자기 멤버 문서 수정 가능 — 단 `status`는 제외(정지 회피 방지).
+        // status 변경은 계장/admin 또는 Cloud Function(on_report_created)만.
+        allow update: if isGyeOwner(gyeId) || isAdmin()
+          || (request.auth.uid == memberUid
+              && !request.resource.data.diff(resource.data)
+                   .affectedKeys().hasAny(['status']));
         allow delete: if request.auth.uid == memberUid || isGyeOwner(gyeId);
       }
 
       match /feed/{eventId} {
         allow read: if isGyeMember(gyeId);
-        allow create: if isGyeMember(gyeId)
+        // 정지된 멤버는 전송 불가 (active 멤버만 append).
+        allow create: if isActiveGyeMember(gyeId)
           && request.resource.data.actorUid == request.auth.uid;
         allow update, delete: if false; // Cloud Function(admin)만 정리
       }
 
       match /stickers/{stickerId} {
         allow read: if isGyeMember(gyeId);
-        allow create: if isGyeMember(gyeId)
+        allow create: if isActiveGyeMember(gyeId)
           && request.resource.data.senderUid == request.auth.uid
           && request.resource.data.stickerCode is int
           && request.resource.data.stickerCode >= 1
@@ -86,10 +92,13 @@ service cloud.firestore {
       }
 
       match /reports/{reportId} {
-        allow read: if isGyeOwner(gyeId);
+        // 계장 또는 admin(custom claim) — admin 패널 collectionGroup 조회.
+        allow read: if isGyeOwner(gyeId) || isAdmin();
         allow create: if isGyeMember(gyeId)
           && request.resource.data.reporterUid == request.auth.uid;
-        allow update, delete: if false;
+        // admin 검토 처리(status=reviewed/dismissed). 그 외 CF(admin SDK)만.
+        allow update: if isAdmin();
+        allow delete: if false;
       }
     }
 
@@ -123,8 +132,21 @@ function isGyeMember(gyeId) {
     && exists(/databases/(default)/documents/gye/$(gyeId)/members/$(request.auth.uid));
 }
 
+// 정지되지 않은 활성 멤버 — 전송(feed/sticker) 게이트. status 필드 검사(get 1회).
+function isActiveGyeMember(gyeId) {
+  return isGyeMember(gyeId)
+    && get(/databases/(default)/documents/gye/$(gyeId)/members/$(request.auth.uid))
+         .data.status != 'suspended';
+}
+
 // 계장 여부 — 메타 문서 ownerId 검사 (메타 미존재 시 get() 실패 → 거부).
 function isGyeOwner(gyeId) {
   return request.auth != null
     && get(/databases/(default)/documents/gye/$(gyeId)).data.ownerId == request.auth.uid;
+}
+
+// 운영자 — Firebase Auth Custom Claim `admin: true` (Jin uid에 set). plan §9.2.
+// admin 패널(tools/admin)이 reports collectionGroup 조회 + 멤버 status 변경에 사용.
+function isAdmin() {
+  return request.auth != null && request.auth.token.admin == true;
 }

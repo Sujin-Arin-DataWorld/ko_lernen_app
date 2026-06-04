@@ -1029,6 +1029,19 @@ class AppL10nEn extends AppL10n {
   String get gyeErrProfanity => 'Please choose a different word.';
 
   @override
+  String get gyeErrAgeRestricted => 'Gye is available from age 16 (GDPR).';
+
+  @override
+  String get gyeAgeYearTitle => 'Birth year';
+
+  @override
+  String get gyeAgeYearBody =>
+      'Gye is available from age 16 (GDPR). Please enter your birth year.';
+
+  @override
+  String get gyeAgeYearHint => 'e.g. 2005';
+
+  @override
   String get gyeOpenCta => 'Open gye';
 
   @override
@@ -1077,6 +1090,9 @@ class AppL10nEn extends AppL10n {
   String gyeFeedSticker(Object name) {
     return '$name sent a sticker';
   }
+
+  @override
+  String get gyeFeedGoalAchieved => 'Weekly goal reached! 🎉 Your hanok grows.';
 
   @override
   String get gyeStickerSend => 'Send sticker';

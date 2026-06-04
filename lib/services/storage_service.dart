@@ -287,6 +287,12 @@ class Storage {
   static Future<void> setConsentAccepted() async =>
       _prefs?.setBool('kl_consent_accepted', true);
 
+  /// Geburtsjahr (optional, Alters-Gate für Gye/Community — GDPR-K §8 DSGVO).
+  /// 0 = nicht angegeben. Siehe [AgeGateService].
+  static int get birthYear => _prefs?.getInt('kl_birth_year') ?? 0;
+  static Future<void> setBirthYear(int year) async =>
+      _prefs?.setInt('kl_birth_year', year);
+
   // ───────── SRS (Spaced Repetition, SM-2 vereinfacht) ─────────
   static Map<String, SrsCard>? _srsCache;
 

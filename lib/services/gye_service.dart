@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../data/profanity_denylist.dart';
 import '../models/gye.dart';
+import 'age_gate_service.dart';
 import 'auth_service.dart';
 
 /// 계(契) CRUD + 입장 코드. Firestore `gye/{code}` (코드 = 문서 ID = gyeId).
@@ -90,6 +91,10 @@ class GyeService {
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
     }
+    // GDPR-K: 16세 미만은 계 생성 불가 (생년 미상은 통과 — UI가 사전 확인).
+    if (AgeGateService.isUnderMinAge) {
+      throw const GyeException(GyeError.ageRestricted);
+    }
     final cleanName = validatedName(name, maxNameLen, GyeError.invalidName);
     final cleanNick =
         validatedName(nickname, maxNicknameLen, GyeError.invalidNickname);
@@ -143,6 +148,10 @@ class GyeService {
     final db = _db;
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
+    }
+    // GDPR-K: 16세 미만은 계 입장 불가 (생년 미상은 통과 — UI가 사전 확인).
+    if (AgeGateService.isUnderMinAge) {
+      throw const GyeException(GyeError.ageRestricted);
     }
     final id = code.trim().toUpperCase();
     if (!isValidCodeFormat(id)) {
@@ -377,6 +386,7 @@ enum GyeError {
   invalidName,
   invalidNickname,
   profanity,
+  ageRestricted,
 }
 
 class GyeException implements Exception {

@@ -32,9 +32,11 @@ class GyeHanok extends StatelessWidget {
     (slug: 'gye_bridge', left: 0.40, bottom: 0.085, width: 0.20),
   ];
 
-  /// placeholder — 최소 1개 + 주간 3팩당 1개. 3e CF가 합산 진행도로 대체.
+  /// 영구 unlock — 기본 1개 + 누적 달성 주간목표 1개당 1요소.
+  /// `weekly_goal_rollover` CF가 100% 달성 시 `lifetimeGoalsAchieved`를 올리며,
+  /// 주간 진행도 리셋과 무관하게 공동 한옥은 줄어들지 않는다(영구 성장). plan §8.1.
   int get _unlocked =>
-      (1 + meta.weeklyGoalProgress ~/ 3).clamp(1, _elements.length);
+      (1 + meta.lifetimeGoalsAchieved).clamp(1, _elements.length);
 
   @override
   Widget build(BuildContext context) {

@@ -1981,6 +1981,30 @@ abstract class AppL10n {
   /// **'Bitte wähle ein anderes Wort.'**
   String get gyeErrProfanity;
 
+  /// No description provided for @gyeErrAgeRestricted.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye ist ab 16 Jahren verfügbar (DSGVO).'**
+  String get gyeErrAgeRestricted;
+
+  /// No description provided for @gyeAgeYearTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Geburtsjahr'**
+  String get gyeAgeYearTitle;
+
+  /// No description provided for @gyeAgeYearBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye ist ab 16 Jahren verfügbar (DSGVO). Bitte gib dein Geburtsjahr ein.'**
+  String get gyeAgeYearBody;
+
+  /// No description provided for @gyeAgeYearHint.
+  ///
+  /// In de, this message translates to:
+  /// **'z. B. 2005'**
+  String get gyeAgeYearHint;
+
   /// No description provided for @gyeOpenCta.
   ///
   /// In de, this message translates to:
@@ -2058,6 +2082,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{name} hat einen Sticker gesendet'**
   String gyeFeedSticker(Object name);
+
+  /// No description provided for @gyeFeedGoalAchieved.
+  ///
+  /// In de, this message translates to:
+  /// **'Wochenziel erreicht! 🎉 Euer Hanok wächst.'**
+  String get gyeFeedGoalAchieved;
 
   /// No description provided for @gyeStickerSend.
   ///

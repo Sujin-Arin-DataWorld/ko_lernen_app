@@ -18,6 +18,7 @@ import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
 import 'review_session_screen.dart';
+import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
@@ -1677,7 +1678,14 @@ class _ModulesGrid extends StatelessWidget {
 }
 
 /// 계(契) 진입 — 내 계 목록 + 만들기/입장 선택 바텀시트. plan §7.3.
-void showGyeChooser(BuildContext context) {
+Future<void> showGyeChooser(BuildContext context) async {
+  // GDPR-K: 16세 미만은 계 진입 차단(생년 미상 시 입력 요청). 서비스도 backstop.
+  if (!await ensureGyeAgeAllowed(context)) {
+    return;
+  }
+  if (!context.mounted) {
+    return;
+  }
   final t = AppL10n.of(context);
   showModalBottomSheet<void>(
     context: context,

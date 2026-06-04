@@ -9,7 +9,7 @@ enum GyeRole { owner, member }
 
 enum GyeMemberStatus { active, reported, suspended }
 
-enum GyeFeedType { packCleared, questCompleted, levelUp, sticker }
+enum GyeFeedType { packCleared, questCompleted, levelUp, goalAchieved, sticker }
 
 enum GyeReportReason { spam, inappropriate, harassment, other }
 
@@ -19,12 +19,14 @@ extension GyeFeedTypeWire on GyeFeedType {
         GyeFeedType.packCleared => 'pack_cleared',
         GyeFeedType.questCompleted => 'quest_completed',
         GyeFeedType.levelUp => 'level_up',
+        GyeFeedType.goalAchieved => 'goal_achieved',
         GyeFeedType.sticker => 'sticker',
       };
   static GyeFeedType fromWire(String? s) => switch (s) {
         'pack_cleared' => GyeFeedType.packCleared,
         'quest_completed' => GyeFeedType.questCompleted,
         'level_up' => GyeFeedType.levelUp,
+        'goal_achieved' => GyeFeedType.goalAchieved,
         _ => GyeFeedType.sticker,
       };
 }
@@ -54,6 +56,13 @@ class GyeMeta {
   final DateTime? weeklyGoalEndAt;
   final int weeklyGoalProgress;
 
+  /// 누적 달성한 주간 목표 수 (영구). 공동 한옥 영구 unlock 구동.
+  /// `weekly_goal_rollover` CF가 100% 달성 시 +1. 주간 리셋과 무관.
+  final int lifetimeGoalsAchieved;
+
+  /// 지난 주 70%+ 달성 → 이번 주 XP 부스트 활성 (클라 소비, best-effort).
+  final bool xpBoostActive;
+
   const GyeMeta({
     required this.id,
     required this.name,
@@ -64,6 +73,8 @@ class GyeMeta {
     this.weeklyGoalPacks = 0,
     this.weeklyGoalEndAt,
     this.weeklyGoalProgress = 0,
+    this.lifetimeGoalsAchieved = 0,
+    this.xpBoostActive = false,
   });
 
   factory GyeMeta.fromDoc(String id, Map<String, dynamic> d) => GyeMeta(
@@ -76,6 +87,9 @@ class GyeMeta {
         weeklyGoalPacks: (d['weeklyGoalPacks'] as num?)?.toInt() ?? 0,
         weeklyGoalEndAt: _ts(d['weeklyGoalEndAt']),
         weeklyGoalProgress: (d['weeklyGoalProgress'] as num?)?.toInt() ?? 0,
+        lifetimeGoalsAchieved:
+            (d['lifetimeGoalsAchieved'] as num?)?.toInt() ?? 0,
+        xpBoostActive: d['xpBoostActive'] as bool? ?? false,
       );
 
   /// 생성 시 Firestore에 쓰는 맵 (createdAt 서버 타임스탬프).
@@ -87,6 +101,8 @@ class GyeMeta {
         'createdAt': FieldValue.serverTimestamp(),
         'weeklyGoalPacks': weeklyGoalPacks,
         'weeklyGoalProgress': weeklyGoalProgress,
+        'lifetimeGoalsAchieved': lifetimeGoalsAchieved,
+        'xpBoostActive': xpBoostActive,
         if (weeklyGoalEndAt != null)
           'weeklyGoalEndAt': Timestamp.fromDate(weeklyGoalEndAt!),
       };

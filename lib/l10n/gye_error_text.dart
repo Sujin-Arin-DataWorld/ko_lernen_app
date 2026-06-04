@@ -10,4 +10,5 @@ String gyeErrorMessage(AppL10n t, GyeError e) => switch (e) {
       GyeError.invalidName => t.gyeErrName,
       GyeError.invalidNickname => t.gyeErrNickname,
       GyeError.profanity => t.gyeErrProfanity,
+      GyeError.ageRestricted => t.gyeErrAgeRestricted,
     };

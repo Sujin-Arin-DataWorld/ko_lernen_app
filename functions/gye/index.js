@@ -1,9 +1,9 @@
 /**
- * 계(契) Cloud Functions — Tier 3e SKELETON
+ * 계(契) Cloud Functions — Tier 3e/3f
  * ============================================================================
  * Node.js 18+ (firebase-functions ^5.0.0, firebase-admin ^12.0.0)
  *
- * 두 함수:
+ * 세 함수:
  *   1) on_pack_cleared — users/{uid}/packs/{packId} 쓰기 트리거
  *      팩이 '처음' cleared 되면 사용자의 모든 계에 대해:
  *      - weeklyGoalProgress +1
@@ -12,15 +12,21 @@
  *      (멤버는 rules상 weeklyGoalProgress를 직접 못 써서 이 admin 함수가 필수.)
  *
  *   2) weekly_goal_rollover — 매주 월 00:00 KST
- *      진행도 리셋 + 보상(TODO)
+ *      - 100% 달성 → lifetimeGoalsAchieved +1 (공동 한옥 영구 성장) + goal_achieved 피드
+ *      - 70%+    → xpBoostActive=true (이번 주 부스트 플래그)
+ *      - 진행도 리셋 + 피드 100개 초과분 prune
+ *
+ *   3) on_report_created — gye/{gyeId}/reports/{reportId} 생성 트리거
+ *      같은 targetUid에 서로 다른 신고자 3명+ → members/{targetUid}.status='suspended'
+ *      (자동 모더레이션. 신고 status는 reviewed/auto 마킹.)
  *
  * 배포:
- *   cd functions/gye
- *   npm install
- *   firebase deploy --only functions:on_pack_cleared,functions:weekly_goal_rollover
+ *   cd functions/gye && npm install
+ *   firebase deploy --only functions:on_pack_cleared,functions:weekly_goal_rollover,functions:on_report_created
+ *   (weekly_goal_rollover는 Cloud Scheduler 자동 생성 — Blaze + Scheduler API 필요.)
  *
- * TODO(검증 후): 피드 100개 초과 prune, FCM 푸시(피드 이벤트), 보상 로직 확정,
- *   memberCount 정합성, reports 자동 suspend 임계.
+ * TODO(후속): FCM 푸시(피드 이벤트 — notification_service의 kein-FCM 정책 결정 후),
+ *   memberCount 정합성 재계산, admin 수동 검토 패널.
  * ============================================================================
  */
 
@@ -85,38 +91,165 @@ exports.on_pack_cleared = functions.firestore
   });
 
 /**
- * 매주 월 00:00 KST — 주간 진행도 리셋 + 보상(스켈레톤).
+ * 매주 월 00:00 KST — 주간 진행도 리셋 + 보상.
+ *   100% 달성 → lifetimeGoalsAchieved +1 (공동 한옥 영구 unlock) + goal_achieved 피드.
+ *   70%+      → xpBoostActive = true.
+ *   리셋 후 피드 100개 초과분 prune.
  */
 exports.weekly_goal_rollover = functions.pubsub
   .schedule("0 0 * * 1")
   .timeZone("Asia/Seoul")
-  .onRun(async (context) => {
+  .onRun(async () => {
     try {
       const gyeSnapshot = await db.collection("gye").get();
 
       for (const gdoc of gyeSnapshot.docs) {
         const gref = gdoc.ref;
         const meta = gdoc.data() || {};
-        const progress = parseInt(meta.weeklyGoalProgress || 0);
-        const goal = parseInt(meta.weeklyGoalPacks || 0);
+        const progress = parseInt(meta.weeklyGoalProgress || 0, 10);
+        const goal = parseInt(meta.weeklyGoalPacks || 0, 10);
 
-        // TODO: 보상 로직 확정 — 100% 달성 시 공동 한옥 영구 장식 1개,
-        //       70%+ 시 다음 주 XP +10%. 현재는 리셋만.
-        // const achieved = goal > 0 && progress >= goal;
+        // 보상 판정 — 목표가 설정돼 있을 때만(goal>0).
+        const achieved = goal > 0 && progress >= goal; // 100%+
+        const boost = goal > 0 && progress >= Math.ceil(goal * 0.7); // 70%+
 
         const batch = db.batch();
-        batch.update(gref, { weeklyGoalProgress: 0 });
+        const metaUpdate = { weeklyGoalProgress: 0, xpBoostActive: boost };
+        if (achieved) {
+          // 공동 한옥 영구 요소 +1 (gye_hanok이 lifetimeGoalsAchieved로 unlock).
+          metaUpdate.lifetimeGoalsAchieved =
+            admin.firestore.FieldValue.increment(1);
+          batch.set(gref.collection("feed").doc(), {
+            type: "goal_achieved",
+            actorUid: "",
+            actorNickname: "",
+            payload: { goal, progress },
+            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+          });
+        }
+        batch.update(gref, metaUpdate);
 
         const membersSnapshot = await gref.collection("members").get();
         for (const mdoc of membersSnapshot.docs) {
           batch.update(mdoc.ref, { weeklyPacksContributed: 0 });
         }
-
         await batch.commit();
+
+        await pruneFeed(gref, 100);
+        if (achieved) {
+          await pushToGyeMembers(
+            gref,
+            "Wochenziel erreicht! 🎉",
+            (meta.name || "Euer Gye") + " hat das Wochenziel geschafft.",
+          );
+        }
       }
 
-      console.log("[weekly_goal_rollover] Reset complete");
+      console.log("[weekly_goal_rollover] Rollover + rewards complete");
     } catch (error) {
       console.error("[weekly_goal_rollover] Error:", error);
     }
   });
+
+/**
+ * 신고 생성 트리거 — 같은 targetUid에 **서로 다른 신고자 3명+** → 자동 suspend.
+ * rules상 members.status는 client가 직접 못 바꿈(정지 회피 방지) → admin SDK 필수.
+ */
+exports.on_report_created = functions.firestore
+  .document("gye/{gyeId}/reports/{reportId}")
+  .onCreate(async (snap, context) => {
+    const report = snap.data() || {};
+    const targetUid = report.targetUid;
+    const gyeId = context.params.gyeId;
+    if (!targetUid) return;
+
+    try {
+      const reportsSnap = await db
+        .collection("gye")
+        .doc(gyeId)
+        .collection("reports")
+        .where("targetUid", "==", targetUid)
+        .get();
+
+      // 서로 다른 신고자만 카운트(동일인 중복 신고 무력화).
+      const reporters = new Set();
+      reportsSnap.docs.forEach((d) => {
+        const uid = (d.data() || {}).reporterUid;
+        if (uid) reporters.add(uid);
+      });
+      if (reporters.size < 3) return;
+
+      const memberRef = db
+        .collection("gye")
+        .doc(gyeId)
+        .collection("members")
+        .doc(targetUid);
+      const m = await memberRef.get();
+      if (!m.exists || (m.data() || {}).status === "suspended") return;
+
+      const batch = db.batch();
+      batch.update(memberRef, { status: "suspended" });
+      reportsSnap.docs.forEach((d) => {
+        if ((d.data() || {}).status === "pending") {
+          batch.update(d.ref, {
+            status: "reviewed",
+            reviewedBy: "auto",
+            actionTaken: "suspended",
+          });
+        }
+      });
+      await batch.commit();
+      console.log(
+        `[on_report_created] Suspended ${targetUid} in ${gyeId} ` +
+          `(${reporters.size} distinct reporters)`,
+      );
+    } catch (error) {
+      console.error(`[on_report_created] Error for gye=${gyeId}:`, error);
+    }
+  });
+
+/**
+ * 피드 컬렉션을 최신 [keep]개로 정리. rules상 feed delete는 CF(admin)만 가능.
+ * 한 번에 최대 400개 삭제(batch 500 한도 안전).
+ */
+async function pruneFeed(gref, keep) {
+  try {
+    const snap = await gref
+      .collection("feed")
+      .orderBy("createdAt", "desc")
+      .offset(keep)
+      .limit(400)
+      .get();
+    if (snap.empty) return;
+    const batch = db.batch();
+    snap.docs.forEach((d) => batch.delete(d.ref));
+    await batch.commit();
+  } catch (e) {
+    console.error("[pruneFeed] Error:", e);
+  }
+}
+
+/**
+ * 계 멤버 전체에 FCM 푸시. 토큰은 users/{uid}.fcmTokens(array) — PushService가 저장.
+ * 토큰 없으면 조용히 무동작. (피드 push는 스팸 우려로 현재 goal_achieved만.)
+ */
+async function pushToGyeMembers(gref, title, body) {
+  try {
+    const members = await gref.collection("members").get();
+    const tokens = [];
+    for (const md of members.docs) {
+      const u = await db.collection("users").doc(md.id).get();
+      const arr = (u.data() || {}).fcmTokens || [];
+      for (const t of arr) {
+        if (t) tokens.push(t);
+      }
+    }
+    if (tokens.length === 0) return;
+    await admin.messaging().sendEachForMulticast({
+      tokens: tokens.slice(0, 500),
+      notification: { title, body },
+    });
+  } catch (e) {
+    console.error("[pushToGyeMembers] Error:", e);
+  }
+}

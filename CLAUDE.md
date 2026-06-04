@@ -312,6 +312,35 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-04 (구현 감사 + Phase 7·8·9 구현 + FCM + admin) — 미커밋
+
+**범위:** Jin "stately-rising-jongga 플랜 전부 구현됐는지 + 모든 md ↔ 코드 1:1 감사 파일 + 상용화 방향" → 이후 "phase 7부터 step by step" → "FCM·admin·커밋·로그 전부".
+
+**A. 감사·로드맵 (신규 2 SSoT):**
+- `docs/IMPLEMENTATION_AUDIT_2026-06-04.md` — 70개 md ↔ 코드 1:1(Phase 1~9 Deliverable 체크박스, ~~취소선~~✅/❌/⚠️/🔧). **정정한 stale**: Phase4 quest_catalog는 17퀘 정확 구현(에이전트 "batchim_drop 렌더" 오판 — 그건 scenario_player의 별개 미니게임) · CF는 kiwipiepy(konlpy 아님) · deleteAccount gye cascade 구현됨 · 번역 Firestore 캐시는 rules만 있고 CF는 lru_cache.
+- `docs/ROADMAP_TO_LAUNCH_2026-06-04.md` — 상용화 15필수·P0·시나리오 A/B/C·백로그·방향.
+
+**B. Phase 7 (계 공동마당, `functions/gye/index.js` + 클라):**
+- `weekly_goal_rollover` 보상: 100%→`lifetimeGoalsAchieved`+1(영구)+`goal_achieved` 피드 · 70%+→`xpBoostActive`. 피드 100 prune.
+- `GyeMeta`에 `lifetimeGoalsAchieved`/`xpBoostActive` + `GyeFeedType.goalAchieved`(wire `goal_achieved`) + `gye_feed` 렌더 + DE/EN l10n.
+- **`gye_hanok` 영구 unlock 전환**(`lifetimeGoalsAchieved`) — 주간 리셋 시 공동한옥 축소되던 버그 수정.
+
+**C. Phase 8 (모더레이션+GDPR):**
+- CF `on_report_created` — 서로 다른 신고자 3명+ → `members/{uid}.status='suspended'` + 신고 reviewed/auto.
+- `firestore.rules`: 본인 `status` self-write 금지(정지 회피) + `isActiveGyeMember`(정지자 feed/sticker 전송 차단) + **`isAdmin()`**(custom claim) admin 접근.
+- **age-gate**: `age_gate_service.dart`(GDPR-K 16세, 로컬 `Storage.birthYear`) + `gye_service` createGye/joinGye backstop(`GyeError.ageRestricted`) + `age_gate_prompt.dart`(생년 다이얼로그) + `home_screen.showGyeChooser` 가드 + `gye_error_text`/l10n. `test/age_gate_test.dart` 7.
+
+**D. FCM (Phase 7 잔여, 정책 전환 — Jin 승인):**
+- `firebase_messaging ^15.1.3`(해석 15.2.10) + `push_service.dart`(권한·토큰→`users/{uid}.fcmTokens`·포그라운드→`NotificationService.showNow` 신규) + `main.dart` init 배선 + CF `pushToGyeMembers`(rollover 목표달성 시 멀티캐스트) + `data-safety.md` FCM 토큰 반영. **⚠️ iOS APNs·FCM enable = Jin. 포그라운드 push는 goal_achieved만(스팸 방지).**
+
+**E. admin 패널 (Phase 8, `tools/admin/`):** 단일 `index.html`(Firebase v9 compat) — 신고 큐(collectionGroup, suspend/dismiss) + 계 조회(멤버 suspend/엔서스펜드·닉변·해체). `README.md`(custom claim 설정·인덱스·배포). **⚠️ custom claim·collectionGroup 인덱스·실동작 = Jin.**
+
+**검증:** `flutter analyze lib` **0** · `flutter test` **310 통과**(+7 age_gate) · CF `node --check` OK · l10n parity 734=734. **⚠️ 미검증(§0)**: CF/rules 실배포·에뮬레이터, age-gate/admin 시각·실동작(Firebase/실기기 필요) → Jin.
+
+**동시 세션 주의:** 본 세션 내내 다른 세션이 35→69 파일 responsive 리팩토링(Scaffold 래핑) 진행 → test 중간중간 transient 컴파일 에러(내 변경 무관, 이동하는 에러로 확인). Jin 선택으로 1회 대기 후 재개. **내 전용 파일만 커밋 권장**(공유: main.dart·home_screen은 내 변경만 들었으나 동시세션 트리에 섞임).
+
+**Git:** 미커밋(Jin 확인) — 또는 본 세션 전용 파일 선택 커밋.
+
 ### 2026-06-03 (계정 듀오링고화) — 상용화 진단 + 프로필 허브(Tier 1) + 출시 차단요소(Tier 0) · 커밋 dc291a6
 
 **범위:** Jin "회원계정·가입·로그인·계정삭제·개인정보·회원관리 상용화 단계인지 전수검사 + 듀오링고화 계획 md + 진행". 진단 → md → Tier 1(프로필+온보딩 유도) 구현.

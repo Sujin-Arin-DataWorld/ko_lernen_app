@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
 
 import 'theme.dart';
@@ -11,6 +12,7 @@ import 'services/book_analysis_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
 import 'services/notification_service.dart';
+import 'services/push_service.dart';
 import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -96,14 +98,21 @@ Future<void> main() async {
   // ignore: discarded_futures, unawaited_futures
   NotificationService.init();
 
+  // FCM 푸시(계 피드 — 주간목표 달성) best-effort. 권한 거부/미설정 시 무동작.
+  // ignore: discarded_futures, unawaited_futures
+  PushService.init();
+
   // Rive(살아있는 호랑이) 런타임 best-effort. 실패해도 앱은 프레임 폴백으로 정상
   // — TigerStageRive가 riveReady=false면 기존 TigerStage(프레임)를 쓴다.
-  try {
-    if (await RiveNative.init()) {
-      TigerStageRive.riveReady = true;
+  // ⚠️ 웹은 비활성화 (.riv 파일 path resolution 이슈, 프레임으로 충분함)
+  if (!kIsWeb) {
+    try {
+      if (await RiveNative.init()) {
+        TigerStageRive.riveReady = true;
+      }
+    } catch (_) {
+      // 네이티브 미지원/초기화 실패 → 프레임 폴백 유지
     }
-  } catch (_) {
-    // 네이티브 미지원/초기화 실패 → 프레임 폴백 유지
   }
 
   // Portrait sperren

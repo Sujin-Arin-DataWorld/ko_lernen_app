@@ -17,6 +17,7 @@
 | `firebase_remote_config` ^5.1.4 | Aktiv | ✅ ja (Palette Kill-Switch) |
 | `firebase_crashlytics` ^4.3.10 | Aktiv | ✅ ja (Plugin in Gradle, `FlutterError.onError` + `PlatformDispatcher.onError` Hook) |
 | `firebase_analytics` ^11.6.0 | Aktiv | ✅ ja (Auto-Collection durch SDK-Linking; keine expliziten Events instrumentiert) |
+| **🆕 v2.0** `firebase_messaging` ^15.1.3 | Aktiv | ✅ ja (FCM-Push für Gye-Feed; Registrierungstoken in `users/{uid}.fcmTokens`. iOS: APNs nötig). Permission opt-in; bei Ablehnung kein Token. |
 | `google_sign_in` ^6.2.1 | Aktiv | ✅ ja (optional, nur bei expliziter User-Aktion) |
 | `google_mobile_ads` 5.2.0 | **Auskommentiert** in pubspec.yaml | ❌ nein — `ad_service.dart` ist Stub, Android-Manifest **und** iOS-Info.plist (`GADApplicationIdentifier` + `SKAdNetworkItems`) bereinigt (2026-05-27) |
 | **🆕 v2.0** `google_mlkit_text_recognition` ^0.13.0 | Aktiv | ✅ ja (on-device Korean OCR für Snap-and-Learn). **Kein Server-Upload des Bildes.** |
@@ -60,7 +61,7 @@ Wir **schon**:
 | **App activity** — Other actions (Analytics auto-events: app_open, screen_view, session_start) | **Yes** | No | No | App-Performance, Nutzungsverständnis (Analytics) | Yes |
 | **App info & performance** — Crash logs (Firebase Crashlytics) | **Yes** | No | No | Crashes diagnostizieren | Yes |
 | **App info & performance** — Diagnostics (Geräte-Modell, OS-Version, App-Version, Speicherzustand) | **Yes** | No | No | Crash-Kontext | Yes |
-| **Device or other IDs** — Firebase Installation ID + Android Advertising ID (Analytics) | **Yes** | No | No | Analytics-Aggregation (nicht zur User-Identifizierung gegenüber Dritten) | Yes |
+| **Device or other IDs** — Firebase Installation ID + Android Advertising ID (Analytics) + **🆕 FCM-Registrierungstoken** (Gye-Push, opt-in) | **Yes** | No | No | Analytics-Aggregation + App-Funktionalität (Community-Benachrichtigungen) | Yes |
 | **🆕 v2.0 App activity** — User-generated Korean text (OCR-extrahierte Lehrbuchseiten) | **Yes** | **Yes** (nur wenn User Snap-and-Learn nutzt) | **Yes — DeepL für Übersetzung** | App-Funktionalität: Wort/Grammatik-Analyse + DE/EN-Übersetzung | Yes |
 | **🆕 v2.0 Photos & Videos** — Lehrbuchseiten-Fotos | **No (stays on device)** | — | — | OCR läuft on-device via ML Kit; das Bild wird nicht an unsere Server gesendet | — |
 | Financial info | No | — | — | — | — |

@@ -48,6 +48,7 @@ class GyeFeed extends StatelessWidget {
         GyeFeedType.packCleared => Icons.workspace_premium_outlined,
         GyeFeedType.questCompleted => Icons.local_florist_outlined,
         GyeFeedType.levelUp => Icons.trending_up_rounded,
+        GyeFeedType.goalAchieved => Icons.celebration_outlined,
         GyeFeedType.sticker => Icons.emoji_emotions_outlined,
       };
 
@@ -55,6 +56,7 @@ class GyeFeed extends StatelessWidget {
         GyeFeedType.packCleared => SoriColors.gold,
         GyeFeedType.questCompleted => SoriColors.primary,
         GyeFeedType.levelUp => SoriColors.accent,
+        GyeFeedType.goalAchieved => SoriColors.tiger,
         GyeFeedType.sticker => SoriColors.highlight,
       };
 
@@ -62,6 +64,7 @@ class GyeFeed extends StatelessWidget {
         GyeFeedType.packCleared => t.gyeFeedPackCleared(e.actorNickname),
         GyeFeedType.questCompleted => t.gyeFeedQuest(e.actorNickname),
         GyeFeedType.levelUp => t.gyeFeedLevelUp(e.actorNickname),
+        GyeFeedType.goalAchieved => t.gyeFeedGoalAchieved,
         GyeFeedType.sticker => t.gyeFeedSticker(e.actorNickname),
       };
 

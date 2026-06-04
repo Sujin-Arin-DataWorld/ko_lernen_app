@@ -11,8 +11,9 @@ import 'package:timezone/timezone.dart' as tz;
 /// `matchDateTimeComponents.time`) — überlebt App-Neustarts; der Boot-Receiver
 /// (AndroidManifest) stellt sie nach einem Reboot wieder her.
 ///
-/// Es werden KEINE Cloud-Dienste genutzt (kein FCM) → keine zusätzlichen
-/// Daten verlassen das Gerät; passt zur "no ads / minimal data"-Haltung.
+/// NotificationService selbst nutzt kein FCM. Vordergrund-FCM-Nachrichten
+/// (Gye-Feed, via [PushService]) werden über [showNow] als lokale Notification
+/// gerendert. Die tägliche Erinnerung bleibt rein lokal/offline.
 class NotificationService {
   NotificationService._();
 
@@ -24,6 +25,7 @@ class NotificationService {
   static const String _channelId = 'daily_reminder';
   static const int _streakSaverId = 1002;
   static const String _streakChannelId = 'streak_saver';
+  static const int _fcmId = 1003;
 
   /// In `main()` aufrufen (best-effort). Initialisiert Plugin + Zeitzonen.
   /// Plant NICHTS — das Planen passiert beim Einschalten in den Einstellungen
@@ -141,6 +143,33 @@ class NotificationService {
       );
     } catch (e) {
       debugPrint('NotificationService: streak-saver schedule failed — $e');
+    }
+  }
+
+  /// Sofortige lokale Benachrichtigung — für Vordergrund-FCM (Gye-Feed).
+  static Future<void> showNow({
+    required String title,
+    required String body,
+  }) async {
+    if (!_ready) return;
+    try {
+      await _plugin.show(
+        _fcmId,
+        title,
+        body,
+        const NotificationDetails(
+          android: AndroidNotificationDetails(
+            _channelId,
+            'Tägliche Erinnerung',
+            channelDescription: 'Erinnert dich täglich ans Koreanisch-Lernen.',
+            importance: Importance.defaultImportance,
+            priority: Priority.defaultPriority,
+          ),
+          iOS: DarwinNotificationDetails(),
+        ),
+      );
+    } catch (e) {
+      debugPrint('NotificationService: showNow failed — $e');
     }
   }
 
