@@ -16,16 +16,20 @@ class GyeHanok extends StatelessWidget {
   const GyeHanok({super.key, required this.meta});
 
   // (slug, leftFrac, bottomFrac, widthFrac) — 리스트 순서 = 잠금 해제 순 + 뒤→앞 z순.
+  // (slug, leftFrac, bottomFrac, widthFrac) — 리스트 순서 = 뒤→앞 z순 + 잠금 해제 순.
+  // PIL 합성 프리뷰(393×280)로 보정한 시안값. 실기기에서 미세 조정 가능.
   static const List<({String slug, double left, double bottom, double width})>
       _elements = [
-    (slug: 'gye_gate_grand', left: 0.28, bottom: 0.00, width: 0.55),
-    (slug: 'gye_haenglangchae', left: 0.00, bottom: 0.18, width: 0.44),
-    (slug: 'gye_byeoldang', left: 0.60, bottom: 0.22, width: 0.36),
-    (slug: 'gye_jeongja', left: 0.64, bottom: 0.42, width: 0.32),
-    (slug: 'gye_jangmyeongdeung_pair', left: 0.04, bottom: 0.08, width: 0.24),
-    (slug: 'gye_pond_large', left: 0.22, bottom: 0.02, width: 0.44),
-    (slug: 'gye_bridge', left: 0.34, bottom: 0.10, width: 0.22),
-    (slug: 'gye_garden', left: 0.02, bottom: 0.01, width: 0.40),
+    // 뒤(건물)
+    (slug: 'gye_gate_grand', left: 0.31, bottom: 0.00, width: 0.46),
+    (slug: 'gye_haenglangchae', left: 0.00, bottom: 0.16, width: 0.40),
+    (slug: 'gye_byeoldang', left: 0.64, bottom: 0.18, width: 0.34),
+    (slug: 'gye_jeongja', left: 0.72, bottom: 0.46, width: 0.26),
+    // 앞(조경)
+    (slug: 'gye_garden', left: 0.00, bottom: 0.00, width: 0.33),
+    (slug: 'gye_jangmyeongdeung_pair', left: 0.30, bottom: 0.05, width: 0.15),
+    (slug: 'gye_pond_large', left: 0.28, bottom: 0.01, width: 0.40),
+    (slug: 'gye_bridge', left: 0.40, bottom: 0.085, width: 0.20),
   ];
 
   /// placeholder — 최소 1개 + 주간 3팩당 1개. 3e CF가 합산 진행도로 대체.
