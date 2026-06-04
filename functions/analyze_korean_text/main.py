@@ -27,6 +27,7 @@ arbeitet bis dahin als Fallback.
 
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import os
@@ -42,6 +43,8 @@ from flask import Request, Response
 # Lazy imports — nur initialisieren wenn aufgerufen.
 _KIWI = None
 _DEEPL = None
+_FS_CLIENT = None
+_FS_TRIED = False
 
 
 # ── .env Loader ──────────────────────────────────────────────────────────
@@ -171,20 +174,98 @@ def _get_deepl():
     return _DEEPL
 
 
+# ── DeepL-Übersetzungs-Cache (Firestore) ──────────────────────────────────
+# Gleiches Wort+Ziel geht nur einmal an DeepL → spart Kontingent (Free 500k
+# Zeichen/Monat). Server-only Collection `translation_cache` (CF läuft mit
+# Ambient-Credentials, Security Rules gelten für den Server nicht). Jeder
+# Firestore-Fehler degradiert **still** zu direkter DeepL-Übersetzung —
+# der P0-Pfad (Übersetzung) bricht durch den Cache niemals.
+_CACHE_COLLECTION = "translation_cache"
+
+
+def _get_firestore():
+    """Lazy Firestore-Client (Ambient-CF-Credentials). None bei Fehler."""
+    global _FS_CLIENT, _FS_TRIED
+    if _FS_TRIED:
+        return _FS_CLIENT
+    _FS_TRIED = True
+    try:
+        from google.cloud import firestore  # type: ignore
+        _FS_CLIENT = firestore.Client()
+    except Exception:
+        _FS_CLIENT = None
+    return _FS_CLIENT
+
+
+def _cache_key(text: str, target: str) -> str:
+    return hashlib.sha256(f"{target}\n{text}".encode("utf-8")).hexdigest()
+
+
 def translate_batch(items: list[str], target: str) -> dict[str, str]:
     if not items:
         return {}
-    translator = _get_deepl()
-    if translator is None:
-        return {it: "" for it in items}
     target_code = target.upper()
     if target_code == "EN":
         target_code = "EN-US"
-    try:
-        results = translator.translate_text(items, target_lang=target_code)
-        return {src: r.text for src, r in zip(items, results)}
-    except Exception:  # pragma: no cover — best-effort
-        return {it: "" for it in items}
+
+    out: dict[str, str] = {}
+    pending = list(dict.fromkeys(items))  # dedup, Reihenfolge erhalten
+    fs = _get_firestore()
+
+    # 1) Cache-Treffer einsammeln (best-effort).
+    if fs is not None:
+        try:
+            key_to_item = {_cache_key(it, target_code): it for it in pending}
+            refs = [fs.collection(_CACHE_COLLECTION).document(k)
+                    for k in key_to_item]
+            for snap in fs.get_all(refs):
+                if snap.exists:
+                    item = key_to_item.get(snap.id)
+                    val = (snap.to_dict() or {}).get("t", "")
+                    if item and val:
+                        out[item] = val
+            pending = [it for it in pending if it not in out]
+        except Exception:  # Cache-Lesefehler → alles übersetzen
+            out, pending = {}, list(dict.fromkeys(items))
+
+    # 2) Nur Misses an DeepL.
+    if pending:
+        translator = _get_deepl()
+        if translator is None:
+            for it in pending:
+                out.setdefault(it, "")
+        else:
+            try:
+                results = translator.translate_text(
+                    pending, target_lang=target_code)
+                fresh = {src: r.text for src, r in zip(pending, results)}
+            except Exception:  # pragma: no cover — best-effort
+                fresh = {it: "" for it in pending}
+            out.update(fresh)
+            # 3) Neue Übersetzungen cachen (best-effort, nur nicht-leere).
+            if fs is not None:
+                try:
+                    batch = fs.batch()
+                    n = 0
+                    for src, txt in fresh.items():
+                        if not txt:
+                            continue
+                        batch.set(
+                            fs.collection(_CACHE_COLLECTION).document(
+                                _cache_key(src, target_code)),
+                            {"t": txt, "src": src, "lang": target_code},
+                        )
+                        n += 1
+                        if n % 400 == 0:
+                            batch.commit()
+                            batch = fs.batch()
+                    if n % 400 != 0:
+                        batch.commit()
+                except Exception:
+                    pass
+
+    # Alle Eingabe-Keys garantieren.
+    return {it: out.get(it, "") for it in items}
 
 
 # ── 표준국어대사전 (stdict / NIKL) Definitionen ───────────────────────────

@@ -84,8 +84,8 @@ B + **Phase 7·8 완성**(FCM·자동모더레이션·age-gate) + 콘텐츠 증�
 | ~~P2~~ | ~~`weekly_goal_rollover` 보상(영구 unlock·xp부스트)~~ ✅ + Scheduler 설정 | 7 | ✅코드 / 🔧배포 |
 | ~~P2~~ | ~~`on_report_created` 자동정지 CF (서로 다른 3명)~~ ✅ | 8 | ✅코드 / 🔧배포 |
 | ~~P2~~ | ~~`age_gate_service` 16세 미만 차단(GDPR-K) + 생년 UI + 정지회피 rules~~ ✅ | 8 | ✅ |
-| **P2** | FCM 피드 푸시 (`notification_service` kein-FCM 정책 결정 후) | 7 | 코드+🔧 |
-| **P3** | Admin 패널 `tools/admin/` (신고 큐) | 8 | 코드 |
+| ~~P2~~ | ~~FCM 피드 푸시 (`push_service` + CF `pushToGyeMembers`)~~ ✅ 코드 / iOS APNs·enable 🔧 | 7 | ✅코드 |
+| ~~P3~~ | ~~Admin 패널 `tools/admin/` (신고 큐·계 관리)~~ ✅ 코드 / claim·인덱스·배포 🔧 | 8 | ✅코드 |
 | **P3** | 누락 PNG: hanok_stages `jongga`·`side_building`, decorations 7, `tiger.riv` | 3·4 | 자산 |
 | **P3** | `q_seokdeung`(발음평가)·`q_doldam`(친구수) source 와이어 | 4 | 코드 |
 | **P3** | CloudSync 범위 완성 (packs·bookshelf·custom·gye 동기화) | — | 코드 |
