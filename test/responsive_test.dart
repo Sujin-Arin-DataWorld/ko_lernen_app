@@ -18,6 +18,8 @@ import 'package:ko_lernen_app/screens/hard_words_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/paywall_screen.dart';
+import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -199,6 +201,8 @@ void main() {
       'legacy vocab': const LegacyVocabScreen(),
       'consent': const ConsentScreen(),
       'paywall': const PaywallScreen(),
+      'chosung': const ChosungQuizScreen(),
+      'learning path': const LearningPathScreen(),
     };
 
     for (final width in <double>[308, 360, 800, 1280]) {

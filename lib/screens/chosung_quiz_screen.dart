@@ -6,6 +6,7 @@ import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
@@ -83,8 +84,34 @@ const List<String> _jungsungTable = [
 
 /// 종성(받침) 28자 — index 0 = 받침 없음.
 const List<String> _jongsungTable = [
-  '', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ',
-  'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ',
+  '',
+  'ㄱ',
+  'ㄲ',
+  'ㄳ',
+  'ㄴ',
+  'ㄵ',
+  'ㄶ',
+  'ㄷ',
+  'ㄹ',
+  'ㄺ',
+  'ㄻ',
+  'ㄼ',
+  'ㄽ',
+  'ㄾ',
+  'ㄿ',
+  'ㅀ',
+  'ㅁ',
+  'ㅂ',
+  'ㅄ',
+  'ㅅ',
+  'ㅆ',
+  'ㅇ',
+  'ㅈ',
+  'ㅊ',
+  'ㅋ',
+  'ㅌ',
+  'ㅍ',
+  'ㅎ',
 ];
 
 String extractChosung(String word) {
@@ -223,8 +250,11 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
       _combo++;
       if (_combo >= 3) {
         SoundService.combo();
-        ScorePop.show(context, AppL10n.of(context).comboPop(_combo),
-            color: SoriColors.tiger);
+        ScorePop.show(
+          context,
+          AppL10n.of(context).comboPop(_combo),
+          color: SoriColors.tiger,
+        );
       }
     } else {
       HapticFeedback.mediumImpact();
@@ -362,170 +392,174 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
         ],
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 8, 18, 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
-              // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
-              const HanokHeader(
-                asset: 'assets/illustrations/hanok/calligraphy.png',
-                fallbackIcon: Icons.abc_rounded,
-              ),
-              const SizedBox(height: Spacing.md),
+        child: SoriCenterClamp(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(18, 8, 18, 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
+                // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
+                const HanokHeader(
+                  asset: 'assets/illustrations/hanok/calligraphy.png',
+                  fallbackIcon: Icons.abc_rounded,
+                ),
+                const SizedBox(height: Spacing.md),
 
-              // ── 레벨 선택 ──────────────────────────────────────────
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: ['A1', 'A2', 'B1', 'B2'].map((lvl) {
-                  final selected = _level == lvl;
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: Spacing.xs),
-                    child: SoriChip(
-                      label: lvl,
-                      accent: SoriColors.primary,
-                      selected: selected,
+                // ── 레벨 선택 ──────────────────────────────────────────
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: ['A1', 'A2', 'B1', 'B2'].map((lvl) {
+                    final selected = _level == lvl;
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Spacing.xs,
+                      ),
+                      child: SoriChip(
+                        label: lvl,
+                        accent: SoriColors.primary,
+                        selected: selected,
+                        variant: SoriChipVariant.soft,
+                        fontSize: 13,
+                        onTap: selected
+                            ? null
+                            : () {
+                                setState(() => _level = lvl);
+                                _load();
+                              },
+                      ),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(height: 8),
+
+                // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SoriChip(
+                      label: '초성 + 모음',
+                      icon: Icons.lightbulb_outline,
+                      accent: SoriColors.warning,
+                      selected: _mode == HintMode.chosungVowel,
                       variant: SoriChipVariant.soft,
-                      fontSize: 13,
-                      onTap: selected
+                      fontSize: 12,
+                      onTap: _mode == HintMode.chosungVowel
                           ? null
-                          : () {
-                              setState(() => _level = lvl);
-                              _load();
-                            },
+                          : () => setState(() => _mode = HintMode.chosungVowel),
                     ),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(height: 8),
+                    const SizedBox(width: Spacing.sm),
+                    SoriChip(
+                      label: '초성 only',
+                      icon: Icons.flash_on_rounded,
+                      accent: SoriColors.danger,
+                      selected: _mode == HintMode.chosung,
+                      variant: SoriChipVariant.soft,
+                      fontSize: 12,
+                      onTap: _mode == HintMode.chosung
+                          ? null
+                          : () => setState(() => _mode = HintMode.chosung),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
 
-              // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SoriChip(
-                    label: '초성 + 모음',
-                    icon: Icons.lightbulb_outline,
-                    accent: SoriColors.warning,
-                    selected: _mode == HintMode.chosungVowel,
-                    variant: SoriChipVariant.soft,
-                    fontSize: 12,
-                    onTap: _mode == HintMode.chosungVowel
-                        ? null
-                        : () => setState(() => _mode = HintMode.chosungVowel),
+                // ── 통계 칩 ────────────────────────────────────────────
+                Row(
+                  children: [
+                    SoriChip(label: '✅  $_correct', accent: SoriColors.success),
+                    const SizedBox(width: Spacing.sm),
+                    SoriChip(label: '❌  $_wrong', accent: SoriColors.danger),
+                    const SizedBox(width: Spacing.sm),
+                    SoriChip(label: '$roundPos / $_roundSize'),
+                  ],
+                ),
+                const SizedBox(height: 14),
+
+                if (_roundComplete) ...[
+                  Builder(
+                    builder: (context) {
+                      final t = AppL10n.of(context);
+                      return _RoundSummaryCard(
+                        correct: _roundCorrect,
+                        total: _roundSize,
+                        durationsMs: _roundDurationsMs,
+                        recommendation: _recommendation(t),
+                        onContinue: _startNewRound,
+                      );
+                    },
                   ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: '초성 only',
-                    icon: Icons.flash_on_rounded,
-                    accent: SoriColors.danger,
-                    selected: _mode == HintMode.chosung,
-                    variant: SoriChipVariant.soft,
-                    fontSize: 12,
-                    onTap: _mode == HintMode.chosung
-                        ? null
-                        : () => setState(() => _mode = HintMode.chosung),
+                ] else ...[
+                  // ── 카드 ─────────────────────────────────────────────
+                  _QuizCard(
+                    word: card.korean,
+                    mode: _mode,
+                    german: card.german,
+                    state: _state,
                   ),
-                ],
-              ),
-              const SizedBox(height: 10),
-
-              // ── 통계 칩 ────────────────────────────────────────────
-              Row(
-                children: [
-                  SoriChip(label: '✅  $_correct', accent: SoriColors.success),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(label: '❌  $_wrong', accent: SoriColors.danger),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(label: '$roundPos / $_roundSize'),
-                ],
-              ),
-              const SizedBox(height: 14),
-
-              if (_roundComplete) ...[
-                Builder(
-                  builder: (context) {
-                    final t = AppL10n.of(context);
-                    return _RoundSummaryCard(
-                      correct: _roundCorrect,
-                      total: _roundSize,
-                      durationsMs: _roundDurationsMs,
-                      recommendation: _recommendation(t),
-                      onContinue: _startNewRound,
-                    );
-                  },
-                ),
-              ] else ...[
-                // ── 카드 ─────────────────────────────────────────────
-                _QuizCard(
-                  word: card.korean,
-                  mode: _mode,
-                  german: card.german,
-                  state: _state,
-                ),
-                const SizedBox(height: 12),
-              ],
-
-              // ── 입력 ───────────────────────────────────────────────
-              if (!_roundComplete && _state == _State.waiting) ...[
-                Builder(
-                  builder: (context) {
-                    final t = AppL10n.of(context);
-                    return Column(
-                      children: [
-                        TextField(
-                          controller: _ctrl,
-                          focusNode: _focusNode,
-                          autofocus: true,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w700,
-                          ),
-                          onSubmitted: (_) => _submit(),
-                        ),
-                        const SizedBox(height: Spacing.sm + 2),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: SoriButton.filled(
-                                label: t.chosungSubmitBtn,
-                                fullWidth: true,
-                                onTap: _submit,
-                              ),
-                            ),
-                            const SizedBox(width: Spacing.sm + 2),
-                            Expanded(
-                              flex: 2,
-                              child: SoriButton.outlined(
-                                label: t.btnSkip,
-                                fullWidth: true,
-                                onTap: _skip,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                if (showPad) ...[
                   const SizedBox(height: 12),
-                  _ConsonantPad(onTap: _appendConsonant),
                 ],
+
+                // ── 입력 ───────────────────────────────────────────────
+                if (!_roundComplete && _state == _State.waiting) ...[
+                  Builder(
+                    builder: (context) {
+                      final t = AppL10n.of(context);
+                      return Column(
+                        children: [
+                          TextField(
+                            controller: _ctrl,
+                            focusNode: _focusNode,
+                            autofocus: true,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            onSubmitted: (_) => _submit(),
+                          ),
+                          const SizedBox(height: Spacing.sm + 2),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: SoriButton.filled(
+                                  label: t.chosungSubmitBtn,
+                                  fullWidth: true,
+                                  onTap: _submit,
+                                ),
+                              ),
+                              const SizedBox(width: Spacing.sm + 2),
+                              Expanded(
+                                flex: 2,
+                                child: SoriButton.outlined(
+                                  label: t.btnSkip,
+                                  fullWidth: true,
+                                  onTap: _skip,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  if (showPad) ...[
+                    const SizedBox(height: 12),
+                    _ConsonantPad(onTap: _appendConsonant),
+                  ],
+                ],
+
+                const Spacer(),
+
+                // ── 진행 바 ────────────────────────────────────────────
+                SoriProgressBar(
+                  value: roundProgress,
+                  thickness: 6,
+                  animated: true,
+                ),
               ],
-
-              const Spacer(),
-
-              // ── 진행 바 ────────────────────────────────────────────
-              SoriProgressBar(
-                value: roundProgress,
-                thickness: 6,
-                animated: true,
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -738,38 +772,40 @@ class _QuizCard extends StatelessWidget {
           const SizedBox(height: 16),
           switch (state) {
             _State.correct => Text(
-                '✅  $word',
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
-                  color: SoriColors.success,
-                ),
+              '✅  $word',
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w800,
+                color: SoriColors.success,
               ),
+            ),
             _State.wrong => Column(
-                children: [
-                  Text(
-                    t.chosungAnswerLabel(word),
-                    style: const TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.danger,
-                    ),
+              children: [
+                Text(
+                  t.chosungAnswerLabel(word),
+                  style: const TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.w700,
+                    color: SoriColors.danger,
                   ),
-                  const SizedBox(height: 4),
-                  Text(german,
-                      style: TextStyle(fontSize: 14, color: s.textMuted)),
-                ],
-              ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  german,
+                  style: TextStyle(fontSize: 14, color: s.textMuted),
+                ),
+              ],
+            ),
             // 뜻 항상 표시 — 글자를 떠올리는 핵심 단서.
             _State.waiting => Text(
-                german,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: s.text,
-                  fontWeight: FontWeight.w700,
-                ),
+              german,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18,
+                color: s.text,
+                fontWeight: FontWeight.w700,
               ),
+            ),
           },
         ],
       ),
@@ -799,21 +835,28 @@ class _SyllableScaffold extends StatelessWidget {
     for (final r in word.runes) {
       if (r >= 0xAC00 && r <= 0xD7A3) {
         final idx = r - 0xAC00;
-        blocks.add(_box(
-          _chosungTable[idx ~/ 588],
-          _jungsungTable[(idx % 588) ~/ 28],
-          _jongsungTable[idx % 28],
-          showVowel,
-        ));
-      } else {
-        blocks.add(Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2),
-          child: Text(
-            String.fromCharCode(r),
-            style: TextStyle(
-                fontSize: 26, fontWeight: FontWeight.w800, color: accent),
+        blocks.add(
+          _box(
+            _chosungTable[idx ~/ 588],
+            _jungsungTable[(idx % 588) ~/ 28],
+            _jongsungTable[idx % 28],
+            showVowel,
           ),
-        ));
+        );
+      } else {
+        blocks.add(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            child: Text(
+              String.fromCharCode(r),
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w800,
+                color: accent,
+              ),
+            ),
+          ),
+        );
       }
     }
     return Wrap(
@@ -869,7 +912,10 @@ class _Slot extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              fontSize: 24, fontWeight: FontWeight.w900, color: accent),
+            fontSize: 24,
+            fontWeight: FontWeight.w900,
+            color: accent,
+          ),
         ),
       );
     }
@@ -883,9 +929,10 @@ class _Slot extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.w800,
-                color: accent.withValues(alpha: 0.75)),
+              fontSize: 10,
+              fontWeight: FontWeight.w800,
+              color: accent.withValues(alpha: 0.75),
+            ),
           ),
         ),
       ),
@@ -903,8 +950,10 @@ class _DashedBoxPainter extends CustomPainter {
       ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5;
-    final rrect =
-        RRect.fromRectAndRadius(Offset.zero & size, const Radius.circular(7));
+    final rrect = RRect.fromRectAndRadius(
+      Offset.zero & size,
+      const Radius.circular(7),
+    );
     final path = Path()..addRRect(rrect);
     const dash = 4.0, gap = 3.0;
     for (final metric in path.computeMetrics()) {

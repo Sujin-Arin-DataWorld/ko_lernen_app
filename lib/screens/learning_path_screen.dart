@@ -11,6 +11,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/responsive.dart';
 
 /// **Lernpfad (학습 경로)** — Duolingo식 진척 시각화.
 ///
@@ -88,9 +89,9 @@ class _LearningPathScreenState extends State<LearningPathScreen> {
   Future<void> _openPack(VocabPack pack, PackStatus status) async {
     final t = AppL10n.of(context);
     if (status == PackStatus.locked) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(t.pathLockedHint)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.pathLockedHint)));
       return;
     }
     await Navigator.pushNamed(context, '/vocab/pack', arguments: pack.id);
@@ -115,7 +116,10 @@ class _LearningPathScreenState extends State<LearningPathScreen> {
           : RefreshIndicator(
               onRefresh: _load,
               child: ListView(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 48),
+                padding: soriClampPadding(
+                  MediaQuery.sizeOf(context).width,
+                  base: const EdgeInsets.fromLTRB(16, 8, 16, 48),
+                ),
                 children: [
                   _HanokHeader(
                     stage: _stage,
@@ -214,12 +218,18 @@ class _HanokHeader extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [SoriColors.primarySoft, SoriColors.lightSurfaceAlt],
+                    colors: [
+                      SoriColors.primarySoft,
+                      SoriColors.lightSurfaceAlt,
+                    ],
                   ),
                 ),
                 alignment: Alignment.center,
-                child: const Icon(Icons.temple_buddhist_outlined,
-                    size: 56, color: SoriColors.primary),
+                child: const Icon(
+                  Icons.temple_buddhist_outlined,
+                  size: 56,
+                  color: SoriColors.primary,
+                ),
               ),
             ),
           ),
@@ -292,10 +302,10 @@ class _PathNode extends StatelessWidget {
     final Color ringColor = cleared
         ? SoriColors.primary
         : isNow
-            ? SoriColors.tiger
-            : locked
-                ? s.border
-                : SoriColors.gold;
+        ? SoriColors.tiger
+        : locked
+        ? s.border
+        : SoriColors.gold;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
@@ -378,8 +388,8 @@ class _PathNode extends StatelessWidget {
         cleared
             ? Icons.check
             : locked
-                ? Icons.lock_outline
-                : Icons.play_arrow_rounded,
+            ? Icons.lock_outline
+            : Icons.play_arrow_rounded,
         size: 20,
         color: cleared ? Colors.white : ring,
       ),

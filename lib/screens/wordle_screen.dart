@@ -11,7 +11,6 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -300,13 +299,9 @@ class _WordleScreenState extends State<WordleScreen> {
     }
 
     final n = _target.length;
-    // 게임판이 한 화면에 들어오도록: 작은 화면에선 셀 상한을 화면 높이에 맞춰
-    // 축소(헤더/단서/입력에 ~360px 예약). 넓은 화면은 기존 62 유지.
-    final screenH = MediaQuery.sizeOf(context).height;
-    final compact = screenH < 720;
-    final boardCellMax = compact
-        ? ((screenH - 440) / _max).clamp(24.0, 56.0)
-        : 62.0;
+    // 작은 화면(compact)에선 배너·예문·중복 버튼을 생략해 게임판 세로 공간을
+    // 확보 → 게임판 Expanded가 남는 공간에 정확히 맞춤(스크롤 없이 한 화면).
+    final compact = MediaQuery.sizeOf(context).height < 720;
 
     return Scaffold(
       appBar: AppBar(
@@ -333,237 +328,271 @@ class _WordleScreenState extends State<WordleScreen> {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(18, 6, 18, 24)),
-          child: Column(
-            children: [
-              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-              // 작은 화면(compact)에선 게임판 세로 공간 확보를 위해 배너 생략
-              // (AppBar 타이틀로 정체성 유지).
-              if (!compact) ...[
-                const HanokHeader(
-                  asset: 'assets/illustrations/hanok/porch.png',
-                  fallbackIcon: Icons.grid_4x4_rounded,
-                ),
-                const SizedBox(height: 14),
-              ],
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: SoriBreakpoints.content,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(18, 6, 18, 12),
+              child: Column(
+                children: [
+                  // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+                  // 작은 화면(compact)에선 게임판 세로 공간 확보를 위해 배너 생략
+                  // (AppBar 타이틀로 정체성 유지).
+                  if (!compact) ...[
+                    const HanokHeader(
+                      asset: 'assets/illustrations/hanok/porch.png',
+                      fallbackIcon: Icons.grid_4x4_rounded,
+                    ),
+                    const SizedBox(height: 14),
+                  ],
 
-              // ── 단서: 음절 수 · 품사 · 뜻 · 예문 ──
-              // v4 (2026-06-03): Wordle이 너무 어렵다는 피드백 → 힌트 강화.
-              // 품사(명사/동사/형용사) + 뜻 + 독일어 예문을 보여줘 단어를
-              // 떠올리기 쉽게. (동의어/반의어는 데이터 확보 후 추가 예정.)
-              Builder(
-                builder: (context) {
-                  final ss = SoriSurfaces.of(context);
-                  final tv = _targetVocab;
-                  final pos = tv?.posDe.trim() ?? '';
-                  final example = tv?.exampleGerman.trim() ?? '';
-                  return Column(
-                    children: [
-                      Wrap(
-                        alignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        spacing: 8,
-                        runSpacing: 4,
+                  // ── 단서: 음절 수 · 품사 · 뜻 · 예문 ──
+                  // v4 (2026-06-03): Wordle이 너무 어렵다는 피드백 → 힌트 강화.
+                  // 품사(명사/동사/형용사) + 뜻 + 독일어 예문을 보여줘 단어를
+                  // 떠올리기 쉽게. (동의어/반의어는 데이터 확보 후 추가 예정.)
+                  Builder(
+                    builder: (context) {
+                      final ss = SoriSurfaces.of(context);
+                      final tv = _targetVocab;
+                      final pos = tv?.posDe.trim() ?? '';
+                      final example = tv?.exampleGerman.trim() ?? '';
+                      return Column(
                         children: [
-                          Text(
-                            t.wordleSyllableCount(n),
-                            style: TextStyle(
-                              fontFamily: 'Pretendard',
-                              color: ss.textMuted,
-                              fontSize: 12.5,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          if (pos.isNotEmpty)
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: SoriColors.info.withValues(alpha: 0.12),
-                                borderRadius:
-                                    BorderRadius.circular(SoriRadius.pill),
-                              ),
-                              child: Text(
-                                pos,
-                                style: const TextStyle(
+                          Wrap(
+                            alignment: WrapAlignment.center,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            spacing: 8,
+                            runSpacing: 4,
+                            children: [
+                              Text(
+                                t.wordleSyllableCount(n),
+                                style: TextStyle(
                                   fontFamily: 'Pretendard',
-                                  color: SoriColors.info,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w800,
+                                  color: ss.textMuted,
+                                  fontSize: 12.5,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
+                              if (pos.isNotEmpty)
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 2,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: SoriColors.info.withValues(
+                                      alpha: 0.12,
+                                    ),
+                                    borderRadius: BorderRadius.circular(
+                                      SoriRadius.pill,
+                                    ),
+                                  ),
+                                  child: Text(
+                                    pos,
+                                    style: const TextStyle(
+                                      fontFamily: 'Pretendard',
+                                      color: SoriColors.info,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                          if (_targetGerman != null) ...[
+                            const SizedBox(height: 6),
+                            Text(
+                              _targetGerman!,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Pretendard',
+                                color: ss.text,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w800,
+                                height: 1.3,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
+                          ],
+                          if (!compact && example.isNotEmpty) ...[
+                            const SizedBox(height: 4),
+                            Text(
+                              '„$example"',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'Pretendard',
+                                color: ss.textMuted,
+                                fontSize: 12.5,
+                                fontStyle: FontStyle.italic,
+                                height: 1.35,
+                              ),
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
                         ],
-                      ),
-                      if (_targetGerman != null) ...[
-                        const SizedBox(height: 6),
-                        Text(
-                          _targetGerman!,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            color: ss.text,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w800,
-                            height: 1.3,
-                          ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                      if (example.isNotEmpty) ...[
-                        const SizedBox(height: 4),
-                        Text(
-                          '„$example"',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            color: ss.textMuted,
-                            fontSize: 12.5,
-                            fontStyle: FontStyle.italic,
-                            height: 1.35,
-                          ),
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ],
-                  );
-                },
-              ),
-              const SizedBox(height: 14),
-
-              // ── 그리드 (clean, no dancheong overlay) ──
-              // v2 (2026-05-29): dancheong_frame.png 오버레이를 제거 — 입력칸과
-              // 겹치며 그리드를 가려서 게임이 안 보였음. 외곽선 + 4 코너 점만
-              // 유지해 한옥 단청 정체성은 살리고 가독성은 회복.
-              Container(
-                padding: const EdgeInsets.all(14),
-                decoration: BoxDecoration(
-                  color: SoriSurfaces.of(
-                    context,
-                  ).surface.withValues(alpha: 0.45),
-                  borderRadius: BorderRadius.circular(SoriRadius.lg),
-                  border: Border.all(
-                    color: HanokColors.cheong.withValues(alpha: 0.45),
-                    width: 1.5,
+                      );
+                    },
                   ),
-                ),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Column(
-                      children: List.generate(_max, (row) {
-                        if (row < _guesses.length) {
-                          final (word, states) = _guesses[row];
-                          return _Row(
-                            syls: word.split(''),
-                            states: states,
-                            n: n,
-                            maxCell: boardCellMax,
+                  const SizedBox(height: 14),
+
+                  // ── 그리드 (clean, no dancheong overlay) ──
+                  // v2 (2026-05-29): dancheong_frame.png 오버레이를 제거 — 입력칸과
+                  // 겹치며 그리드를 가려서 게임이 안 보였음. 외곽선 + 4 코너 점만
+                  // 유지해 한옥 단청 정체성은 살리고 가독성은 회복.
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: SoriSurfaces.of(
+                          context,
+                        ).surface.withValues(alpha: 0.45),
+                        borderRadius: BorderRadius.circular(SoriRadius.lg),
+                        border: Border.all(
+                          color: HanokColors.cheong.withValues(alpha: 0.45),
+                          width: 1.5,
+                        ),
+                      ),
+                      child: LayoutBuilder(
+                        builder: (context, c) {
+                          // 셀 = min(가로 허용, 세로 허용, 62) → 남는 공간에 정확히 맞춤.
+                          final byW = (c.maxWidth - n * 8) / n;
+                          final byH = (c.maxHeight - _max * 8) / _max;
+                          final cell = [
+                            byW,
+                            byH,
+                            62.0,
+                          ].reduce((a, b) => a < b ? a : b).clamp(16.0, 62.0);
+                          return Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: List.generate(_max, (row) {
+                                  if (row < _guesses.length) {
+                                    final (word, states) = _guesses[row];
+                                    return _Row(
+                                      syls: word.split(''),
+                                      states: states,
+                                      n: n,
+                                      maxCell: cell,
+                                    );
+                                  }
+                                  return _Row(
+                                    syls: const [],
+                                    states: const [],
+                                    n: n,
+                                    isActive:
+                                        row == _guesses.length &&
+                                        !_won &&
+                                        !_lost,
+                                    maxCell: cell,
+                                  );
+                                }),
+                              ),
+                              // 4 코너 단청 점 — 그리드를 가리지 않고 액센트만.
+                              const Positioned(
+                                top: -6,
+                                left: -6,
+                                child: _CornerDot(color: HanokColors.jeok),
+                              ),
+                              const Positioned(
+                                top: -6,
+                                right: -6,
+                                child: _CornerDot(color: HanokColors.hwang),
+                              ),
+                              const Positioned(
+                                bottom: -6,
+                                left: -6,
+                                child: _CornerDot(color: HanokColors.hwang),
+                              ),
+                              const Positioned(
+                                bottom: -6,
+                                right: -6,
+                                child: _CornerDot(color: HanokColors.jeok),
+                              ),
+                            ],
                           );
-                        }
-                        return _Row(
-                          syls: const [],
-                          states: const [],
-                          n: n,
-                          isActive: row == _guesses.length && !_won && !_lost,
-                          maxCell: boardCellMax,
-                        );
-                      }),
+                        },
+                      ),
                     ),
-                    // 4 코너 단청 점 — 그리드를 가리지 않고 액센트만.
-                    const Positioned(
-                      top: -6,
-                      left: -6,
-                      child: _CornerDot(color: HanokColors.jeok),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // ── 에러 ────────────────────────────────────────────────
+                  if (_error.isNotEmpty)
+                    SoriCard(
+                      variant: SoriCardVariant.compact,
+                      accent: SoriColors.danger,
+                      tinted: true,
+                      child: Text(
+                        _error,
+                        style: const TextStyle(
+                          color: SoriColors.danger,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
-                    const Positioned(
-                      top: -6,
-                      right: -6,
-                      child: _CornerDot(color: HanokColors.hwang),
+
+                  // ── 결과 ────────────────────────────────────────────────
+                  if (_won || _lost) ...[
+                    const SizedBox(height: 8),
+                    Focus(
+                      autofocus: true,
+                      onKeyEvent: (_, e) => _onResultKey(e),
+                      child: _ResultCard(
+                        won: _won,
+                        target: _target,
+                        german: _targetGerman,
+                        onNew: () => _load(random: true),
+                      ),
                     ),
-                    const Positioned(
-                      bottom: -6,
-                      left: -6,
-                      child: _CornerDot(color: HanokColors.hwang),
+                  ] else ...[
+                    // ── 입력 ────────────────────────────────────────────
+                    TextField(
+                      controller: _ctrl,
+                      focusNode: _focusNode,
+                      autofocus: true,
+                      textAlign: TextAlign.center,
+                      maxLength: n,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 10,
+                      ),
+                      decoration: InputDecoration(
+                        counterText: '',
+                        hintText: t.wordleInputHint(n),
+                      ),
+                      onSubmitted: (_) => _submit(),
                     ),
-                    const Positioned(
-                      bottom: -6,
-                      right: -6,
-                      child: _CornerDot(color: HanokColors.jeok),
+                    const SizedBox(height: Spacing.sm + 2),
+                    SoriButton.filled(
+                      label: t.wordleSubmitBtn,
+                      accent: SoriColors.info,
+                      fullWidth: true,
+                      onTap: _submit,
                     ),
                   ],
-                ),
-              ),
 
-              const SizedBox(height: 16),
-
-              // ── 에러 ────────────────────────────────────────────────
-              if (_error.isNotEmpty)
-                SoriCard(
-                  variant: SoriCardVariant.compact,
-                  accent: SoriColors.danger,
-                  tinted: true,
-                  child: Text(
-                    _error,
-                    style: const TextStyle(
-                      color: SoriColors.danger,
-                      fontWeight: FontWeight.w600,
+                  // 새 단어 버튼은 AppBar shuffle 아이콘과 중복 → compact에선 생략.
+                  if (!compact) ...[
+                    const SizedBox(height: Spacing.lg),
+                    SoriButton.outlined(
+                      label: t.wordleNewWordBtn,
+                      icon: Icons.shuffle_rounded,
+                      fullWidth: true,
+                      onTap: () => _load(random: true),
                     ),
-                  ),
-                ),
-
-              // ── 결과 ────────────────────────────────────────────────
-              if (_won || _lost) ...[
-                const SizedBox(height: 8),
-                Focus(
-                  autofocus: true,
-                  onKeyEvent: (_, e) => _onResultKey(e),
-                  child: _ResultCard(
-                    won: _won,
-                    target: _target,
-                    german: _targetGerman,
-                    onNew: () => _load(random: true),
-                  ),
-                ),
-              ] else ...[
-                // ── 입력 ────────────────────────────────────────────
-                TextField(
-                  controller: _ctrl,
-                  focusNode: _focusNode,
-                  autofocus: true,
-                  textAlign: TextAlign.center,
-                  maxLength: n,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 10,
-                  ),
-                  decoration: InputDecoration(
-                    counterText: '',
-                    hintText: t.wordleInputHint(n),
-                  ),
-                  onSubmitted: (_) => _submit(),
-                ),
-                const SizedBox(height: Spacing.sm + 2),
-                SoriButton.filled(
-                  label: t.wordleSubmitBtn,
-                  accent: SoriColors.info,
-                  fullWidth: true,
-                  onTap: _submit,
-                ),
-              ],
-
-              const SizedBox(height: Spacing.lg),
-              SoriButton.outlined(
-                label: t.wordleNewWordBtn,
-                icon: Icons.shuffle_rounded,
-                fullWidth: true,
-                onTap: () => _load(random: true),
+                  ],
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
