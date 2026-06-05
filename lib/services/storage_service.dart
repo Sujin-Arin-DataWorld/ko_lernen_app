@@ -325,6 +325,24 @@ class Storage {
   static Future<void> setTutPackBossSeen() async =>
       _prefs?.setBool('kl_tut_pack_boss', true);
 
+  /// 온보딩 3장 미리보기 캐러셀 표시됨? (Stage 2)
+  static bool get introPreviewSeen =>
+      _prefs?.getBool('kl_intro_preview_seen') ?? false;
+  static Future<void> setIntroPreviewSeen() async =>
+      _prefs?.setBool('kl_intro_preview_seen', true);
+
+  /// 모든 튜토리얼·코치마크 플래그를 false로 리셋 (Settings "안내 다시 보기").
+  /// `introSeen`(솟을대문 애니메이션)은 건드리지 않음 — 코치마크와 별도 개념.
+  static Future<void> resetTutorials() async {
+    await Future.wait([
+      _sb('kl_tut_book', false),
+      _sb('kl_tut_vocab_pack', false),
+      _sb('kl_tut_pack_quiz', false),
+      _sb('kl_tut_pack_boss', false),
+      _sb('kl_intro_preview_seen', false),
+    ]);
+  }
+
   /// DSGVO/ToS-Einwilligung beim ersten Start akzeptiert? (Consent-Gate)
   static bool get consentAccepted =>
       _prefs?.getBool('kl_consent_accepted') ?? false;

@@ -11,6 +11,7 @@ import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'home_screen.dart';
 import 'onboarding_level_screen.dart';
+import 'onboarding_preview_screen.dart';
 
 const _privacyUrl = 'https://hangul-sori.com/privacy.html';
 
@@ -28,9 +29,17 @@ class ConsentScreen extends StatelessWidget {
     if (!context.mounted) {
       return;
     }
-    final next = Storage.userLevelCode == null
-        ? const OnboardingLevelScreen()
-        : const HomeScreen();
+    // 레벨 미선택 + 캐러셀 미표시 → 프리뷰 캐러셀 먼저.
+    // 레벨 미선택 + 이미 표시됨 → 레벨 선택.
+    // 레벨 선택 완료 → 홈.
+    final Widget next;
+    if (Storage.userLevelCode == null && !Storage.introPreviewSeen) {
+      next = const OnboardingPreviewScreen();
+    } else if (Storage.userLevelCode == null) {
+      next = const OnboardingLevelScreen();
+    } else {
+      next = const HomeScreen();
+    }
     Navigator.of(
       context,
     ).pushReplacement(SoriTransitions.fadeScale((_) => next));

@@ -941,5 +941,34 @@
   "coachVocabPackStep3": "🎯 Schritt 3 · Boss — Hör zu und wähle die Bedeutung",
   "coachPackStageQuiz": "Jetzt das Quiz! Wähle die richtige Übersetzung.",
   "coachPackStageBoss": "Der Boss wartet — hör genau hin!",
-  "coachBtnGotIt": "Alles klar!"
+  "coachBtnGotIt": "Alles klar!",
+
+  "@_onboarding_preview": { "description": "Onboarding 3-Seiten-Karussell (Stage 2 — Consent→Level-Wahl)." },
+  "previewSkip": "Überspringen",
+  "previewStart": "Loslegen",
+  "previewPage1Title": "Foto → Wortliste",
+  "previewPage1Body": "Fotografiere dein Lehrbuch oder eine Speisekarte — die Wörter landen direkt in deiner Lernliste.",
+  "previewPage2Title": "Deine Hanok wächst",
+  "previewPage2Body": "Mit jedem Wortpack baust du dein eigenes koreanisches Haus — Stein für Stein.",
+  "previewPage3Title": "Täglich mit dem Tiger",
+  "previewPage3Body": "Schon 5 Minuten täglich reichen, um dauerhaft voranzukommen. Der Tiger erinnert dich daran.",
+
+  "@_hub_headers": { "description": "Fortschritts-Header in den Lern-Hubs (Stage 2)." },
+  "hubLearnLevel": "Level {level}",
+  "@hubLearnLevel": { "placeholders": { "level": { "type": "int" } } },
+  "hubLearnNextPack": "Weiter: {name}",
+  "@hubLearnNextPack": { "placeholders": { "name": { "type": "String" } } },
+  "hubLearnAllDone": "Alle Packs abgeschlossen!",
+  "hubPracticeStreak": "{n} Tage in Folge",
+  "@hubPracticeStreak": { "placeholders": { "n": { "type": "int" } } },
+  "hubPracticeStreakZero": "Fang heute an!",
+  "hubWordbookSaved": "{n} Wörter gespeichert",
+  "@hubWordbookSaved": { "placeholders": { "n": { "type": "int" } } },
+  "hubWordbookEmpty": "Noch keine Wörter gespeichert",
+
+  "@_settings_tutorial_reset": { "description": "Settings — Einführung zurücksetzen (Stage 2)." },
+  "settingsTutorialResetSection": "Einführung",
+  "settingsTutorialResetTitle": "Einführung zurücksetzen",
+  "settingsTutorialResetSubtitle": "Karussell & Tipp-Hinweise beim nächsten Start neu anzeigen",
+  "settingsTutorialResetDone": "Einführung zurückgesetzt"
 }

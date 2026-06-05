@@ -940,5 +940,34 @@
   "coachVocabPackStep3": "🎯 Step 3 · Boss — listen and choose the meaning",
   "coachPackStageQuiz": "Quiz time! Pick the right translation.",
   "coachPackStageBoss": "The boss is waiting — listen closely!",
-  "coachBtnGotIt": "Got it!"
+  "coachBtnGotIt": "Got it!",
+
+  "@_onboarding_preview": { "description": "Onboarding 3-page carousel (Stage 2 — Consent→Level selection)." },
+  "previewSkip": "Skip",
+  "previewStart": "Let's go",
+  "previewPage1Title": "Photo → Word list",
+  "previewPage1Body": "Snap a photo of your textbook or a menu — words land straight in your learning list.",
+  "previewPage2Title": "Your hanok grows",
+  "previewPage2Body": "Every word pack you finish builds your own Korean house — brick by brick.",
+  "previewPage3Title": "Daily with the Tiger",
+  "previewPage3Body": "Even 5 minutes a day keeps the progress going. The Tiger will remind you.",
+
+  "@_hub_headers": { "description": "Progress headers in the learning hubs (Stage 2)." },
+  "hubLearnLevel": "Level {level}",
+  "@hubLearnLevel": { "placeholders": { "level": { "type": "int" } } },
+  "hubLearnNextPack": "Next up: {name}",
+  "@hubLearnNextPack": { "placeholders": { "name": { "type": "String" } } },
+  "hubLearnAllDone": "All packs completed!",
+  "hubPracticeStreak": "{n} days in a row",
+  "@hubPracticeStreak": { "placeholders": { "n": { "type": "int" } } },
+  "hubPracticeStreakZero": "Start today!",
+  "hubWordbookSaved": "{n} words saved",
+  "@hubWordbookSaved": { "placeholders": { "n": { "type": "int" } } },
+  "hubWordbookEmpty": "No words saved yet",
+
+  "@_settings_tutorial_reset": { "description": "Settings — reset tutorial (Stage 2)." },
+  "settingsTutorialResetSection": "Intro",
+  "settingsTutorialResetTitle": "Reset intro",
+  "settingsTutorialResetSubtitle": "Show the carousel & tips again on next launch",
+  "settingsTutorialResetDone": "Intro reset"
 }
