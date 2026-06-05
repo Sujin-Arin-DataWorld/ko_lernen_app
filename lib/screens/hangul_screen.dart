@@ -658,14 +658,7 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.md),
       child: GestureDetector(
-        // Consume horizontal/vertical drag to prevent TabBarView swipe
-        onHorizontalDragStart: (_) {},
-        onHorizontalDragUpdate: (_) {},
-        onHorizontalDragEnd: (_) {},
-        onVerticalDragStart: (_) {},
-        onVerticalDragUpdate: (_) {},
-        onVerticalDragEnd: (_) {},
-        // Pan gesture for drawing strokes
+        // Pan gesture for drawing strokes (handles all drags: horizontal, vertical, diagonal)
         onPanStart: (d) {
           setState(() {
             _current = [d.localPosition];
