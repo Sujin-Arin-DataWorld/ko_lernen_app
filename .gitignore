@@ -80,3 +80,7 @@ scripts/cache/wiktionary_de.json
 
 # Node.js dependencies (Cloud Functions) — npm install 로 재생성, 커밋 금지
 **/node_modules/
+
+# GCP/Firebase 서비스 계정 키 (시크릿 — 절대 커밋 금지)
+ko-lernen-app-key.json
+*-service-account*.json
