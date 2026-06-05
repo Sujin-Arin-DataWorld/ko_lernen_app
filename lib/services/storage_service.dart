@@ -212,6 +212,10 @@ class Storage {
   static Future<void> setDailyGoal(int minutes) =>
       _si('kl_daily_goal_minutes', minutes);
 
+  static String get preferredMascot => _s('kl_preferred_mascot'); // 'tiger' or 'magpie'
+  static Future<void> setPreferredMascot(String mascot) =>
+      _ss('kl_preferred_mascot', mascot);
+
   // ───────── App / Streak ─────────
   static String get lastOpenDate => _s('kl_last_open_date'); // 'YYYY-MM-DD'
   static int get streakDays => _i('kl_streak_days');

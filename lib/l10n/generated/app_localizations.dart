@@ -247,6 +247,36 @@ abstract class AppL10n {
   /// **'Jetzt lernen'**
   String get streakDialogLearnNow;
 
+  /// No description provided for @characterSelectionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wer ist dein Lernfreund?'**
+  String get characterSelectionTitle;
+
+  /// No description provided for @characterNameTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'든든이'**
+  String get characterNameTiger;
+
+  /// No description provided for @characterTraitTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'Verlässlich & mutig'**
+  String get characterTraitTiger;
+
+  /// No description provided for @characterNameMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'쌤쌤이'**
+  String get characterNameMagpie;
+
+  /// No description provided for @characterTraitMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'Fröhlich & lebendig'**
+  String get characterTraitMagpie;
+
   /// No description provided for @reviewTitle.
   ///
   /// In de, this message translates to:

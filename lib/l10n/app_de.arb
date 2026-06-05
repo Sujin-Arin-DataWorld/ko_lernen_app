@@ -28,6 +28,12 @@
   "streakDialogLastActivity": "Zuletzt aktiv: {time}",
   "streakDialogLearnNow": "Jetzt lernen",
 
+  "characterSelectionTitle": "Wer ist dein Lernfreund?",
+  "characterNameTiger": "든든이",
+  "characterTraitTiger": "Verlässlich & mutig",
+  "characterNameMagpie": "쌤쌤이",
+  "characterTraitMagpie": "Fröhlich & lebendig",
+
   "reviewTitle": "Heute lernen",
   "reviewEmptyTitle": "Alles erledigt!",
   "reviewEmptyBody": "Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.",

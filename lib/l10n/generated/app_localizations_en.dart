@@ -93,6 +93,21 @@ class AppL10nEn extends AppL10n {
   String get streakDialogLearnNow => 'Learn now';
 
   @override
+  String get characterSelectionTitle => 'Who\'s your study buddy?';
+
+  @override
+  String get characterNameTiger => '든든이';
+
+  @override
+  String get characterTraitTiger => 'Reliable & brave';
+
+  @override
+  String get characterNameMagpie => '쌤쌤이';
+
+  @override
+  String get characterTraitMagpie => 'Cheerful & lively';
+
+  @override
   String get reviewTitle => 'Today\'s review';
 
   @override

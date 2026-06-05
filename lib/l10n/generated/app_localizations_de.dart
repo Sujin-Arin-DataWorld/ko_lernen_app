@@ -92,6 +92,21 @@ class AppL10nDe extends AppL10n {
   String get streakDialogLearnNow => 'Jetzt lernen';
 
   @override
+  String get characterSelectionTitle => 'Wer ist dein Lernfreund?';
+
+  @override
+  String get characterNameTiger => '든든이';
+
+  @override
+  String get characterTraitTiger => 'Verlässlich & mutig';
+
+  @override
+  String get characterNameMagpie => '쌤쌤이';
+
+  @override
+  String get characterTraitMagpie => 'Fröhlich & lebendig';
+
+  @override
   String get reviewTitle => 'Heute lernen';
 
   @override
