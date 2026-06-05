@@ -302,7 +302,12 @@ class _WordleScreenState extends State<WordleScreen> {
     final n = _target.length;
     // 작은 화면(compact)에선 배너·예문·중복 버튼을 생략해 게임판 세로 공간을
     // 확보 → 게임판 Expanded가 남는 공간에 정확히 맞춤(스크롤 없이 한 화면).
-    final compact = MediaQuery.sizeOf(context).height < 720;
+    // ⚠️ autofocus로 키보드가 올라오면 가용 높이가 줄어든다 — viewInsets를 빼서
+    // 키보드 상태에서도 헤더·예문을 접어 하단 오버플로를 막는다.
+    final compact =
+        (MediaQuery.sizeOf(context).height -
+            MediaQuery.viewInsetsOf(context).bottom) <
+        720;
 
     return Scaffold(
       appBar: AppBar(
