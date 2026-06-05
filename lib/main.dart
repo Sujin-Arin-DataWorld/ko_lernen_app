@@ -18,6 +18,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
+import 'screens/splash_screen.dart';
 import 'screens/intro_gate_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/paywall_screen.dart';
@@ -195,11 +196,14 @@ class KoLernenApp extends StatelessWidget {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: child,
         ),
-        // 솟을대문 인트로가 먼저 열리고, 완료 시 온보딩 또는 홈으로 이동한다.
+        // 로고 스플래시(2초) → 솟을대문 인트로 → 온보딩/홈
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
-        initialRoute: '/intro',
+        initialRoute: '/splash',
         onGenerateRoute: (settings) {
           switch (settings.name) {
+            case '/splash':
+              return SoriTransitions.fadeScale(
+                  (_) => const SplashScreen(), settings: settings);
             case '/intro':
               return SoriTransitions.fadeScale(
                   (_) => const IntroGateScreen(), settings: settings);
