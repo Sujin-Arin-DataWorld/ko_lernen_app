@@ -945,6 +945,7 @@
 
   "@_onboarding_preview": { "description": "Onboarding 3-Seiten-Karussell (Stage 2 — Consent→Level-Wahl)." },
   "previewSkip": "Überspringen",
+  "previewNext": "Weiter",
   "previewStart": "Loslegen",
   "previewPage1Title": "Foto → Wortliste",
   "previewPage1Body": "Fotografiere dein Lehrbuch oder eine Speisekarte — die Wörter landen direkt in deiner Lernliste.",

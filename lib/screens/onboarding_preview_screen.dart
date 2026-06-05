@@ -154,7 +154,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                           _DotIndicator(current: _page, total: _total),
                           const SizedBox(height: 20),
                           SoriButton.filled(
-                            label: isLast ? t.previewStart : t.previewSkip,
+                            label: isLast ? t.previewStart : t.previewNext,
                             icon: isLast
                                 ? Icons.arrow_forward_rounded
                                 : Icons.navigate_next_rounded,

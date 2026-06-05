@@ -4573,6 +4573,12 @@ abstract class AppL10n {
   /// **'Überspringen'**
   String get previewSkip;
 
+  /// No description provided for @previewNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get previewNext;
+
   /// No description provided for @previewStart.
   ///
   /// In de, this message translates to:

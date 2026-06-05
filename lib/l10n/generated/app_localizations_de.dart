@@ -2462,6 +2462,9 @@ class AppL10nDe extends AppL10n {
   String get previewSkip => 'Überspringen';
 
   @override
+  String get previewNext => 'Weiter';
+
+  @override
   String get previewStart => 'Loslegen';
 
   @override

@@ -2451,6 +2451,9 @@ class AppL10nEn extends AppL10n {
   String get previewSkip => 'Skip';
 
   @override
+  String get previewNext => 'Next';
+
+  @override
   String get previewStart => 'Let\'s go';
 
   @override

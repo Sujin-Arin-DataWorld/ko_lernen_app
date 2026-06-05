@@ -944,6 +944,7 @@
 
   "@_onboarding_preview": { "description": "Onboarding 3-page carousel (Stage 2 — Consent→Level selection)." },
   "previewSkip": "Skip",
+  "previewNext": "Next",
   "previewStart": "Let's go",
   "previewPage1Title": "Photo → Word list",
   "previewPage1Body": "Snap a photo of your textbook or a menu — words land straight in your learning list.",
