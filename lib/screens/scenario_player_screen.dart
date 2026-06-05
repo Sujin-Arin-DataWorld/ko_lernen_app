@@ -499,7 +499,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
                                     GestureDetector(
                                       onTap: () {
                                         HapticFeedback.selectionClick();
-                                        TtsService.speak(line.ko);
+                                        TtsService.speak(
+                                          line.ko,
+                                          voice: line.speaker == 'user'
+                                              ? 'female'
+                                              : 'male',
+                                        );
                                       },
                                       child: Icon(
                                         Icons.volume_up_rounded,

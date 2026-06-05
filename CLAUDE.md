@@ -78,7 +78,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `lib/services/theme_service.dart` — 다크모드 toggle
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)
 - `lib/services/kkeunmari_engine.dart` — 끝말잇기 풀 로더 + chain 검증 + 호랑이 다음 단어 선택 (`is_dead_end` 회피 우선)
-- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단** (① 로컬캐시 → ② Firebase Storage `tts/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Aoede**(사전생성 1245), **male=Neural2-C**(동적 on-demand). `audioplayers` 재생, `crypto` sha1 키(클라/CF/스크립트 통일), `firebase_storage` SDK(auth-gated). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`.
+- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단** (① 로컬캐시 → ② Firebase Storage `tts/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Aoede**(단어·예문·user 대화 사전생성 1142), **male=Neural2-C**(시나리오 NPC·narrator 대화 사전생성 103 + 책한컷·내단어장 동적). 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, `crypto` sha1 키(클라/CF/스크립트 통일), `firebase_storage` SDK(auth-gated). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`.
 - **책 한 컷 (Phase 5)**:
   - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
   - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.

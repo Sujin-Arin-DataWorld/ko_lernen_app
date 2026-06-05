@@ -66,7 +66,10 @@ def collect():
             for line in sc.get("dialog", []):
                 t = (line.get("ko") or "").strip()
                 if t:
-                    texts[("female", t)] = None
+                    # 시나리오 대화: user=여(Aoede), 상대 NPC·narrator=남(Neural2-C).
+                    # scenario_player_screen.dart 의 매핑과 반드시 동일하게 유지.
+                    voice = "female" if line.get("speaker") == "user" else "male"
+                    texts[(voice, t)] = None
 
     return list(texts.keys())
 
