@@ -27,6 +27,14 @@
       "source": "functions/gye",
       "codebase": "gye-firebase-functions",
       "runtime": "nodejs22"
+    },
+    {
+      "source": "functions/tts",
+      "codebase": "tts-firebase-functions",
+      "runtime": "nodejs22"
     }
-  ]
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  }
 }

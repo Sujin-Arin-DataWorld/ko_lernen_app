@@ -1,0 +1,27 @@
+rules_version = '2';
+
+// Hangul Sori — Storage Security Rules
+//
+// TTS mp3 (사전생성 + 동적 CF 캐시).
+//   - 읽기 = 인증된 앱 사용자만 (익명 로그인 포함). 공개 아님.
+//   - 쓰기 = 차단. 사전생성 스크립트(gsutil, Jin 자격) · Cloud Function
+//            admin SDK 만 기록 (admin SDK 는 client rules 를 우회).
+//
+// 배포:
+//   firebase deploy --only storage
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // 고품질 발음 mp3 — tts/{voice}/{sha1}.mp3
+    match /tts/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // 그 외 전부 차단
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

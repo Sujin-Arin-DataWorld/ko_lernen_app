@@ -78,7 +78,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `lib/services/theme_service.dart` — 다크모드 toggle
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)
 - `lib/services/kkeunmari_engine.dart` — 끝말잇기 풀 로더 + chain 검증 + 호랑이 다음 단어 선택 (`is_dead_end` 회피 우선)
-- `lib/services/tts_service.dart` — flutter_tts 래퍼, ko-KR 기본, `speakSlow`/`setRate` 지원
+- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단** (① 로컬캐시 → ② Firebase Storage `tts/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Aoede**(사전생성 1245), **male=Neural2-C**(동적 on-demand). `audioplayers` 재생, `crypto` sha1 키(클라/CF/스크립트 통일), `firebase_storage` SDK(auth-gated). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`.
 - **책 한 컷 (Phase 5)**:
   - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
   - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.
@@ -311,6 +311,32 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-05 (고품질 음성 — Google Cloud TTS 캐시우선 3단) — 커밋·푸쉬
+
+**범위:** Jin "우리 음성 정확한데 진짜 사람 목소리처럼(예: 내 목소리로) 안 돼?" → Q&A로 방향 확정: **voice cloning 아님, 자연스러운 원어민 neural**. 데모 청취로 voice 선택 → 사전생성+동적 파이프라인 구축.
+
+**voice 선택(Jin 데모 청취):** ko-KR 41개(Chirp3-HD 30·Neural2 3·Wavenet 4·Standard 4) 중 대표 샘플 합성 → Jin이 직접 듣고 **여=`ko-KR-Chirp3-HD-Aoede`, 남=`ko-KR-Neural2-C`** 확정. (난 오디오 청취 불가 → 샘플 mp3 만들어 Jin이 판단. 데모 `~/Desktop/hangul_sori_voice_samples`.) 사전생성 속도 0.9(또박).
+
+**아키텍처(캐시우선 3단, 모든 발화가 `tts/{voice}/{sha1("voice|text")}.mp3`로 수렴):**
+1. 로컬 캐시(앱 문서폴더) → 즉시 재생(오프라인·무료)
+2. Firebase Storage 사전생성 → 다운로드·캐시 (526단어+526예문+204대화 = **1245 dedup**, female)
+3. Cloud Function 동적 합성 → base64 (책한컷·내단어장 사용자 입력, male on-demand)
+4. flutter_tts 폴백 (오프라인+미캐시)
+
+**Update:** `tts_service.dart` 재작성(인터페이스 유지=23화면 무수정, audioplayers·sha1·path_provider·firebase_storage) · `functions/tts/`(동적 CF, @google-cloud/text-to-speech+Storage 캐시, europe-west3 2nd gen) · `tool/generate_tts.py`(REST 합성+gcloud rsync, 재실행 안전) · `storage.rules`(tts/ 인증만 read·write 차단) · `firebase.json`(storage+tts codebase) · `pubspec`(firebase_storage ^12.3.0) · `.gitignore`(.tts_pregen).
+
+**인프라(실배포 완료):** Cloud TTS API 활성화 · Firebase Storage **europe-west3**(첫 시도 us-west3 됨 → 버킷 삭제 후 재생성) · CF `synthesize_tts(europe-west3)` ✅ · storage.rules ✅ · 사전생성 **1245/1245 업로드 ✅**.
+
+**검증:** `flutter analyze lib` **0** · `flutter test` **330** · Storage 1245/1245 · CF·rules 배포. ⚠️ **미검증: 실기기 실제 음성(Aoede) 재생** = Jin 청취.
+
+**origin 빌드 복구:** 직전 동시세션 `cfbe96b`("fix(hangul)")가 main.dart의 TtsService 배선(import+setEndpoint)만 휩쓸어 커밋하고 `tts_service.dart`(setEndpoint 정의)는 누락 → **origin/main이 빌드 깨진 상태였음**. 본 커밋이 tts_service 새버전으로 복구. (main.dart는 이미 origin이라 본 커밋서 제외, google-services.json도 제외.)
+
+**비용:** 사전생성 1회 ~38K자 무료티어 0원. 동적 무료 100만자/월. egress 미미.
+
+**Git:** Jin 명시 요청으로 커밋·푸쉬.
+
+---
 
 ### 2026-06-05 (학습 화면 UI/UX 폴리시 — 완료 축하화면·Grammar·플래시카드) — 미커밋
 
