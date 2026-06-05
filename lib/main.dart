@@ -122,16 +122,24 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // Edge-to-edge (Android 15+ default, ältere Versionen profitieren auch).
-  // Status- und Navigationsleiste werden transparent, App zeichnet darunter.
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  // Plan B (2026-06-05): edge-to-edge를 끄고 시스템바 영역을 OS가 예약하게 →
+  // 콘텐츠가 상태바/네비게이션바 밑으로 들어가 잘리는 문제를 원천 차단.
+  // 3중 안전망: Android <15 = manual 모드로 창 자체가 시스템바만큼 inset,
+  //   Android 15 = 테마 windowOptOutEdgeToEdgeEnforcement(styles.xml 4종),
+  //   Android 16+ = 화면별 SafeArea(이미 적용).
+  await SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: SystemUiOverlay.values,
+  );
 
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
+      // 밝은 한지(cream) 배경 → 어두운 아이콘으로 가독성 확보.
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light,
-      systemNavigationBarColor: Colors.transparent,
-      systemNavigationBarIconBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light, // iOS
+      systemNavigationBarColor: Color(0xFFFAF6EC), // 한지 cream (앱 배경과 일치)
+      systemNavigationBarIconBrightness: Brightness.dark,
       systemNavigationBarContrastEnforced: false,
     ),
   );
