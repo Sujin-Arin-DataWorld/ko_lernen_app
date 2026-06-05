@@ -158,7 +158,16 @@ class _BreathingTransformState extends State<_BreathingTransform>
   }
 
   @override
+  void didUpdateWidget(covariant _BreathingTransform oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.period != widget.period) {
+      _c.duration = widget.period;
+    }
+  }
+
+  @override
   void dispose() {
+    _c.stop();
     _c.dispose();
     super.dispose();
   }
