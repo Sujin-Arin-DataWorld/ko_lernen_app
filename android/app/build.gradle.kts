@@ -93,4 +93,11 @@ flutter {
 dependencies {
     // M3: Laufzeit-Backport für core library desugaring (flutter_local_notifications).
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+
+    // 책 한 컷 한국어 OCR (PFLICHT): google_mlkit_text_recognition 플러그인은
+    // Latin 인식기만 implementation 으로 번들하고, Korean/Chinese/Japanese/
+    // Devanagari 는 compileOnly 로만 선언한다 → Korean 클래스가 APK(런타임)에
+    // 빠져 OCR 호출 시 NoClassDefFoundError(KoreanTextRecognizerOptions) 크래시.
+    // 앱에서 implementation 으로 명시 포함해야 한국어 인식이 동작한다.
+    implementation("com.google.mlkit:text-recognition-korean:16.0.1")
 }
