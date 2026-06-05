@@ -14,6 +14,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -400,9 +401,11 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
               children: [
                 // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
                 // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
-                const HanokHeader(
-                  asset: 'assets/illustrations/hanok/calligraphy.png',
-                  fallbackIcon: Icons.abc_rounded,
+                const SoriEntrance(
+                  child: HanokHeader(
+                    asset: 'assets/illustrations/hanok/calligraphy.png',
+                    fallbackIcon: Icons.abc_rounded,
+                  ),
                 ),
                 const SizedBox(height: Spacing.md),
 

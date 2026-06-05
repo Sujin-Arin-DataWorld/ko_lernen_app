@@ -10,13 +10,13 @@ import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class LegacyVocabScreen extends StatefulWidget {
@@ -37,7 +37,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
 
   String _level = 'Alle';
   String _topic = 'Alle';
-  bool   _koFirst = true;
+  bool _koFirst = true;
 
   /// 'due' = Tagesziel (neu + Wiederholung, capped), 'favorites' = ⭐ markierte, 'all' = alle.
   ///
@@ -59,14 +59,17 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
     super.initState();
     // Persistente Werte beim Start laden
     _correct = Storage.vokCorrect;
-    _wrong   = Storage.vokWrong;
+    _wrong = Storage.vokWrong;
     _skipped = Storage.vokSkipped;
-    _idx     = Storage.vokLastIdx;
+    _idx = Storage.vokLastIdx;
     _load();
   }
 
   void _load() {
-    setState(() { _loading = true; _loadFailed = false; });
+    setState(() {
+      _loading = true;
+      _loadFailed = false;
+    });
     DataLoader.loadVocab().then((v) {
       if (!mounted) return;
       // Phase 1 SRS-UX-Patch: nicht ALLE due (= Schock), sondern Tagesziel
@@ -138,13 +141,34 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
     });
   }
 
-  Vocab? get _current => _filtered.isEmpty ? null : _filtered[_idx % _filtered.length];
+  Vocab? get _current =>
+      _filtered.isEmpty ? null : _filtered[_idx % _filtered.length];
 
   void _persistIdx() => Storage.setVokLastIdx(_idx);
 
-  void _next()    { setState(() { _flipped = false; _idx = (_idx + 1) % _filtered.length; }); _persistIdx(); }
-  void _prev()    { setState(() { _flipped = false; _idx = (_idx - 1 + _filtered.length) % _filtered.length; }); _persistIdx(); }
-  void _random()  { setState(() { _flipped = false; _idx = math.Random().nextInt(_filtered.length); }); _persistIdx(); }
+  void _next() {
+    setState(() {
+      _flipped = false;
+      _idx = (_idx + 1) % _filtered.length;
+    });
+    _persistIdx();
+  }
+
+  void _prev() {
+    setState(() {
+      _flipped = false;
+      _idx = (_idx - 1 + _filtered.length) % _filtered.length;
+    });
+    _persistIdx();
+  }
+
+  void _random() {
+    setState(() {
+      _flipped = false;
+      _idx = math.Random().nextInt(_filtered.length);
+    });
+    _persistIdx();
+  }
 
   void _gewusst() {
     HapticFeedback.lightImpact();
@@ -229,7 +253,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
         appBar: AppBar(title: Text(t.screenVocabTitle)),
         body: AppError(
           message: DataLoader.lastError ?? 'Unbekannter Fehler',
-          onRetry: () { DataLoader.reset(); _load(); },
+          onRetry: () {
+            DataLoader.reset();
+            _load();
+          },
         ),
       );
     }
@@ -276,220 +303,235 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.screenVocabTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.screenVocabTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.tune),
-            onPressed: _showFilterSheet,
-          ),
+          IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
         ],
       ),
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-          child: Column(
-            children: [
-              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-              const HanokHeader(
-                asset: 'assets/illustrations/hanok/study_classroom.png',
-                fallbackIcon: Icons.menu_book_outlined,
-              ),
-              const SizedBox(height: Spacing.md),
-
-              // Mode chips (Tagesziel / Favorites / Alle)
-              //
-              // Phase 1 SRS-UX-Patch (stately-rising-jongga):
-              //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
-              //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
-              Row(
-                children: [
-                  SoriChip(
-                    label: t.vocabTodayBadge(_todayNewCount, _todayReviewCount),
-                    accent: SoriColors.info,
-                    selected: _mode == 'due',
-                    variant: SoriChipVariant.filled,
-                    onTap: () => _setMode('due'),
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: t.vocabFavoritesBadge(_favorites.length),
-                    accent: SoriColors.warning,
-                    selected: _mode == 'favorites',
-                    variant: SoriChipVariant.filled,
-                    onTap: () => _setMode('favorites'),
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: t.vocabModeAll,
-                    accent: SoriColors.info,
-                    selected: _mode == 'all',
-                    variant: SoriChipVariant.filled,
-                    onTap: () => _setMode('all'),
-                  ),
-                ],
-              ),
-              const SizedBox(height: Spacing.sm),
-
-              // Stat chips
-              Row(
-                children: [
-                  SoriChip(label: '📚 ${_idx + 1}/${_filtered.length}', accent: SoriColors.info),
-                  const SizedBox(width: Spacing.xs + 2),
-                  SoriChip(label: '✅ $_correct', accent: SoriColors.success),
-                  const SizedBox(width: Spacing.xs + 2),
-                  SoriChip(label: '❌ $_wrong',   accent: SoriColors.danger),
-                  const SizedBox(width: Spacing.xs + 2),
-                  SoriChip(label: '⏭ $_skipped', accent: SoriColors.warning),
-                ],
-              ),
-              const SizedBox(height: 10),
-
-              // Card with swipe + favorite star overlay
-              Expanded(
-                child: GestureDetector(
-                  onHorizontalDragEnd: (d) {
-                    if (d.primaryVelocity == null) return;
-                    if (d.primaryVelocity! < -250) {
-                      _next();
-                    } else if (d.primaryVelocity! > 250) {
-                      _prev();
-                    }
-                  },
-                  child: Stack(
-                    children: [
-                      FlipCard(
-                        flipped: _flipped,
-                        onTap: _onFlip,
-                        front: _Front(v: v, koFirst: _koFirst),
-                        back:  _Back(v: v, koFirst: _koFirst),
-                      ),
-                      Positioned(
-                        top: 12,
-                        right: 12,
-                        child: SoriPressable(
-                          onTap: () => _toggleFavorite(v.korean),
-                          haptic: SoriHaptic.light,
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: SoriSurfaces.of(context).bg.withValues(alpha: 0.4),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              _favorites.contains(v.korean)
-                                  ? Icons.star_rounded
-                                  : Icons.star_outline_rounded,
-                              color: _favorites.contains(v.korean)
-                                  ? SoriColors.warning
-                                  : SoriSurfaces.of(context).textDim,
-                              size: 28,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+            padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+            child: Column(
+              children: [
+                // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+                const HanokHeader(
+                  asset: 'assets/illustrations/hanok/study_classroom.png',
+                  fallbackIcon: Icons.menu_book_outlined,
                 ),
-              ),
-              const SizedBox(height: 12),
+                const SizedBox(height: Spacing.md),
 
-              // Answer buttons (only when flipped)
-              if (_flipped) ...[
+                // Mode chips (Tagesziel / Favorites / Alle)
+                //
+                // Phase 1 SRS-UX-Patch (stately-rising-jongga):
+                //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
+                //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
                 Row(
                   children: [
-                    Expanded(
-                      child: SoriButton.filled(
-                        label: t.btnGewusst,
-                        icon: Icons.check,
-                        accent: SoriColors.success,
-                        fullWidth: true,
-                        onTap: _gewusst,
+                    SoriChip(
+                      label: t.vocabTodayBadge(
+                        _todayNewCount,
+                        _todayReviewCount,
                       ),
+                      accent: SoriColors.info,
+                      selected: _mode == 'due',
+                      variant: SoriChipVariant.filled,
+                      onTap: () => _setMode('due'),
                     ),
                     const SizedBox(width: Spacing.sm),
-                    Expanded(
-                      child: SoriButton.filled(
-                        label: t.btnNichtGewusst,
-                        icon: Icons.close,
-                        fullWidth: true,
-                        destructive: true,
-                        onTap: _nichtGewusst,
-                      ),
+                    SoriChip(
+                      label: t.vocabFavoritesBadge(_favorites.length),
+                      accent: SoriColors.warning,
+                      selected: _mode == 'favorites',
+                      variant: SoriChipVariant.filled,
+                      onTap: () => _setMode('favorites'),
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    SoriChip(
+                      label: t.vocabModeAll,
+                      accent: SoriColors.info,
+                      selected: _mode == 'all',
+                      variant: SoriChipVariant.filled,
+                      onTap: () => _setMode('all'),
                     ),
                   ],
                 ),
                 const SizedBox(height: Spacing.sm),
-              ],
 
-              // Bottom row
-              Row(
-                children: [
-                  Expanded(
-                    child: SoriPressable(
-                      onTap: () => TtsService.speak(v.korean),
-                      onLongPress: () => TtsService.speakSlow(v.korean),
-                      haptic: SoriHaptic.selection,
-                      child: Container(
-                        height: 44,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(SoriRadius.md),
-                          border: Border.all(color: SoriSurfaces.of(context).border, width: 1.5),
+                // Stat chips
+                Row(
+                  children: [
+                    SoriChip(
+                      label: '📚 ${_idx + 1}/${_filtered.length}',
+                      accent: SoriColors.info,
+                    ),
+                    const SizedBox(width: Spacing.xs + 2),
+                    SoriChip(label: '✅ $_correct', accent: SoriColors.success),
+                    const SizedBox(width: Spacing.xs + 2),
+                    SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
+                    const SizedBox(width: Spacing.xs + 2),
+                    SoriChip(label: '⏭ $_skipped', accent: SoriColors.warning),
+                  ],
+                ),
+                const SizedBox(height: 10),
+
+                // Card with swipe + favorite star overlay
+                Expanded(
+                  child: GestureDetector(
+                    onHorizontalDragEnd: (d) {
+                      if (d.primaryVelocity == null) return;
+                      if (d.primaryVelocity! < -250) {
+                        _next();
+                      } else if (d.primaryVelocity! > 250) {
+                        _prev();
+                      }
+                    },
+                    child: Stack(
+                      children: [
+                        FlipCard(
+                          flipped: _flipped,
+                          onTap: _onFlip,
+                          front: _Front(v: v, koFirst: _koFirst),
+                          back: _Back(v: v, koFirst: _koFirst),
                         ),
-                        alignment: Alignment.center,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.volume_up, size: 17, color: SoriSurfaces.of(context).text),
-                            const SizedBox(width: Spacing.sm),
-                            Text(
-                              t.btnHoeren,
-                              style: TextStyle(
-                                fontFamily: 'Pretendard',
-                                color: SoriSurfaces.of(context).text,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
+                        Positioned(
+                          top: 12,
+                          right: 12,
+                          child: SoriPressable(
+                            onTap: () => _toggleFavorite(v.korean),
+                            haptic: SoriHaptic.light,
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: SoriSurfaces.of(
+                                  context,
+                                ).bg.withValues(alpha: 0.4),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                _favorites.contains(v.korean)
+                                    ? Icons.star_rounded
+                                    : Icons.star_outline_rounded,
+                                color: _favorites.contains(v.korean)
+                                    ? SoriColors.warning
+                                    : SoriSurfaces.of(context).textDim,
+                                size: 28,
                               ),
                             ),
-                          ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                // Answer buttons (only when flipped)
+                if (_flipped) ...[
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SoriButton.filled(
+                          label: t.btnGewusst,
+                          icon: Icons.check,
+                          accent: SoriColors.success,
+                          fullWidth: true,
+                          onTap: _gewusst,
+                        ),
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(
+                        child: SoriButton.filled(
+                          label: t.btnNichtGewusst,
+                          icon: Icons.close,
+                          fullWidth: true,
+                          destructive: true,
+                          onTap: _nichtGewusst,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                ],
+
+                // Bottom row
+                Row(
+                  children: [
+                    Expanded(
+                      child: SoriPressable(
+                        onTap: () => TtsService.speak(v.korean),
+                        onLongPress: () => TtsService.speakSlow(v.korean),
+                        haptic: SoriHaptic.selection,
+                        child: Container(
+                          height: 44,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(SoriRadius.md),
+                            border: Border.all(
+                              color: SoriSurfaces.of(context).border,
+                              width: 1.5,
+                            ),
+                          ),
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.volume_up,
+                                size: 17,
+                                color: SoriSurfaces.of(context).text,
+                              ),
+                              const SizedBox(width: Spacing.sm),
+                              Text(
+                                t.btnHoeren,
+                                style: TextStyle(
+                                  fontFamily: 'Pretendard',
+                                  color: SoriSurfaces.of(context).text,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: Spacing.xs + 2),
-                  Expanded(
-                    child: SoriButton.outlined(
-                      label: t.btnSkip,
-                      icon: Icons.skip_next,
-                      fullWidth: true,
-                      onTap: _skip,
+                    const SizedBox(width: Spacing.xs + 2),
+                    Expanded(
+                      child: SoriButton.outlined(
+                        label: t.btnSkip,
+                        icon: Icons.skip_next,
+                        fullWidth: true,
+                        onTap: _skip,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: Spacing.xs + 2),
-                  Expanded(
-                    child: SoriButton.outlined(
-                      label: t.btnRandom,
-                      icon: Icons.shuffle,
-                      fullWidth: true,
-                      onTap: _random,
+                    const SizedBox(width: Spacing.xs + 2),
+                    Expanded(
+                      child: SoriButton.outlined(
+                        label: t.btnRandom,
+                        icon: Icons.shuffle,
+                        fullWidth: true,
+                        onTap: _random,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: Spacing.xs),
-              Center(
-                child: Text(
-                  t.vocabSlowHint,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 10.5,
-                    color: SoriSurfaces.of(context).textDim,
+                  ],
+                ),
+                const SizedBox(height: Spacing.xs),
+                Center(
+                  child: Text(
+                    t.vocabSlowHint,
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 10.5,
+                      color: SoriSurfaces.of(context).textDim,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
         ),
       ),
     );
@@ -505,35 +547,62 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
       builder: (ctx) {
         return StatefulBuilder(
           builder: (ctx, setLocal) => Padding(
-            padding: EdgeInsets.fromLTRB(20, 16, 20, MediaQuery.of(ctx).viewInsets.bottom + 24),
+            padding: EdgeInsets.fromLTRB(
+              20,
+              16,
+              20,
+              MediaQuery.of(ctx).viewInsets.bottom + 24,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: Container(
-                    width: 40, height: 4,
-                    decoration: BoxDecoration(color: SoriSurfaces.of(ctx).surfaceAlt, borderRadius: BorderRadius.circular(2)),
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: SoriSurfaces.of(ctx).surfaceAlt,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
-                Text(AppL10n.of(ctx).filterTitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                Text(
+                  AppL10n.of(ctx).filterTitle,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 const SizedBox(height: 12),
-                _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) { setLocal(() => _level = v!); _level = v!; }),
+                _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) {
+                  setLocal(() => _level = v!);
+                  _level = v!;
+                }),
                 const SizedBox(height: 10),
-                _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) { setLocal(() => _topic = v!); _topic = v!; }),
+                _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
+                  setLocal(() => _topic = v!);
+                  _topic = v!;
+                }),
                 const SizedBox(height: 16),
                 SwitchListTile(
                   contentPadding: EdgeInsets.zero,
                   title: Text(AppL10n.of(ctx).filterDirKoDe),
                   value: _koFirst,
-                  onChanged: (b) { setLocal(() => _koFirst = b); _koFirst = b; },
+                  onChanged: (b) {
+                    setLocal(() => _koFirst = b);
+                    _koFirst = b;
+                  },
                 ),
                 const SizedBox(height: Spacing.sm),
                 SoriButton.filled(
                   label: AppL10n.of(ctx).btnApply,
                   fullWidth: true,
-                  onTap: () { _applyFilters(); Navigator.pop(ctx); },
+                  onTap: () {
+                    _applyFilters();
+                    Navigator.pop(ctx);
+                  },
                 ),
               ],
             ),
@@ -543,7 +612,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
     );
   }
 
-  Widget _dropdown(String label, String value, List<String> items, ValueChanged<String?> onChanged) {
+  Widget _dropdown(
+    String label,
+    String value,
+    List<String> items,
+    ValueChanged<String?> onChanged,
+  ) {
     final s = SoriSurfaces.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
@@ -558,7 +632,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
         underline: const SizedBox.shrink(),
         dropdownColor: s.surface,
         hint: Text(label, style: TextStyle(color: s.textMuted)),
-        items: items.map((item) => DropdownMenuItem(value: item, child: Text(item))).toList(),
+        items: items
+            .map((item) => DropdownMenuItem(value: item, child: Text(item)))
+            .toList(),
         onChanged: onChanged,
       ),
     );
@@ -577,49 +653,51 @@ class _Front extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final mastery = Storage.vocabMastery(v.korean);
-    return SoriCard(
-      variant: SoriCardVariant.hero,
+    return StudyCardFace(
       accent: SoriColors.info,
-      width: double.infinity,
-      child: Center(
-        child: Column(
+      children: [
+        Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SoriChip(
-                  label: v.level,
-                  accent: SoriColors.info,
-                  variant: SoriChipVariant.filled,
-                ),
-                const SizedBox(width: 8),
-                _MasteryChip(state: mastery, label: _masteryLabel(t, mastery)),
-              ],
+            SoriChip(
+              label: v.level,
+              accent: SoriColors.info,
+              variant: SoriChipVariant.filled,
             ),
-            const SizedBox(height: 14),
-            Text(
-              koFirst ? v.korean : v.german,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: koFirst ? 38 : 28,
-                fontWeight: FontWeight.w800,
-                color: SoriColors.info,
-                height: 1.15,
-              ),
-            ),
-            if (koFirst) ...[
-              const SizedBox(height: 6),
-              Text('[${v.romanization}]',
-                  style: TextStyle(fontSize: 15, color: SoriColors.info.withValues(alpha: 0.7), fontStyle: FontStyle.italic)),
-            ],
-            const SizedBox(height: Spacing.sm),
-            Text(v.posDe, style: TextStyle(fontSize: 12, color: s.textMuted)),
-            const SizedBox(height: Spacing.lg),
-            Text('👆 Tippen zum Umdrehen', style: TextStyle(fontSize: 11.5, color: s.textDim)),
+            const SizedBox(width: 8),
+            _MasteryChip(state: mastery, label: _masteryLabel(t, mastery)),
           ],
         ),
-      ),
+        const SizedBox(height: 14),
+        Text(
+          koFirst ? v.korean : v.german,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: koFirst ? 38 : 28,
+            fontWeight: FontWeight.w800,
+            color: SoriColors.info,
+            height: 1.15,
+          ),
+        ),
+        if (koFirst) ...[
+          const SizedBox(height: 6),
+          Text(
+            '[${v.romanization}]',
+            style: TextStyle(
+              fontSize: 15,
+              color: SoriColors.info.withValues(alpha: 0.7),
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        ],
+        const SizedBox(height: Spacing.sm),
+        Text(v.posDe, style: TextStyle(fontSize: 12, color: s.textMuted)),
+        const SizedBox(height: Spacing.lg),
+        Text(
+          '👆 ${t.hintTapToFlip}',
+          style: TextStyle(fontSize: 11.5, color: s.textDim),
+        ),
+      ],
     );
   }
 }
@@ -645,12 +723,16 @@ class _MasteryChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (color, icon) = switch (state) {
-      MasteryState.fresh =>
-        (SoriSurfaces.of(context).textMuted, Icons.fiber_new_rounded),
+      MasteryState.fresh => (
+        SoriSurfaces.of(context).textMuted,
+        Icons.fiber_new_rounded,
+      ),
       MasteryState.learning => (SoriColors.info, Icons.school_outlined),
-      MasteryState.reviewDue =>
-        (SoriColors.warning, Icons.refresh_rounded),
-      MasteryState.strong => (SoriColors.success, Icons.workspace_premium_rounded),
+      MasteryState.reviewDue => (SoriColors.warning, Icons.refresh_rounded),
+      MasteryState.strong => (
+        SoriColors.success,
+        Icons.workspace_premium_rounded,
+      ),
     };
     return Semantics(
       label: label,
@@ -691,78 +773,80 @@ class _Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return SoriCard(
-      variant: SoriCardVariant.hero,
+    return StudyCardFace(
       accent: SoriColors.success,
-      width: double.infinity,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SoriChip(label: v.level, accent: SoriColors.success, variant: SoriChipVariant.filled),
-            const SizedBox(height: 12),
-            Text(
-              koFirst ? v.german : v.korean,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: koFirst ? 28 : 36,
-                fontWeight: FontWeight.w800,
-                color: SoriColors.success,
-                height: 1.2,
-              ),
-            ),
-            const SizedBox(height: Spacing.sm),
-            Text('${v.posDe} · ${v.topic}', style: TextStyle(fontSize: 12, color: s.textMuted)),
-            const SizedBox(height: Spacing.lg),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
-              child: Column(
+      children: [
+        SoriChip(
+          label: v.level,
+          accent: SoriColors.success,
+          variant: SoriChipVariant.filled,
+        ),
+        const SizedBox(height: 12),
+        Text(
+          koFirst ? v.german : v.korean,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: koFirst ? 28 : 36,
+            fontWeight: FontWeight.w800,
+            color: SoriColors.success,
+            height: 1.2,
+          ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          '${v.posDe} · ${v.topic}',
+          style: TextStyle(fontSize: 12, color: s.textMuted),
+        ),
+        const SizedBox(height: Spacing.lg),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          v.exampleKorean,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            color: SoriColors.info.withValues(alpha: 0.9),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      SoriPressable(
-                        onTap: () => TtsService.speak(v.exampleKorean),
-                        onLongPress: () => TtsService.speakSlow(v.exampleKorean),
-                        haptic: SoriHaptic.selection,
-                        child: Container(
-                          padding: const EdgeInsets.all(6),
-                          decoration: BoxDecoration(
-                            color: SoriColors.info.withValues(alpha: 0.18),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.volume_up_rounded,
-                            color: SoriColors.info,
-                            size: 18,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  Text(v.exampleGerman,
+                  Flexible(
+                    child: Text(
+                      v.exampleKorean,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 13.5, color: s.text)),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: SoriColors.info.withValues(alpha: 0.9),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  SoriPressable(
+                    onTap: () => TtsService.speak(v.exampleKorean),
+                    onLongPress: () => TtsService.speakSlow(v.exampleKorean),
+                    haptic: SoriHaptic.selection,
+                    child: Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: SoriColors.info.withValues(alpha: 0.18),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.volume_up_rounded,
+                        color: SoriColors.info,
+                        size: 18,
+                      ),
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
+              const SizedBox(height: 4),
+              Text(
+                v.exampleGerman,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 13.5, color: s.text),
+              ),
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

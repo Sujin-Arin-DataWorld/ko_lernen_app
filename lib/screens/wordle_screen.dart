@@ -12,6 +12,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/motion.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -342,9 +343,11 @@ class _WordleScreenState extends State<WordleScreen> {
                   // 작은 화면(compact)에선 게임판 세로 공간 확보를 위해 배너 생략
                   // (AppBar 타이틀로 정체성 유지).
                   if (!compact) ...[
-                    const HanokHeader(
-                      asset: 'assets/illustrations/hanok/porch.png',
-                      fallbackIcon: Icons.grid_4x4_rounded,
+                    const SoriEntrance(
+                      child: HanokHeader(
+                        asset: 'assets/illustrations/hanok/porch.png',
+                        fallbackIcon: Icons.grid_4x4_rounded,
+                      ),
                     ),
                     const SizedBox(height: 14),
                   ],

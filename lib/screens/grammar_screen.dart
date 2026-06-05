@@ -10,11 +10,14 @@ import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/motion.dart';
+import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/study_action_bar.dart';
+import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class GrammarScreen extends StatefulWidget {
@@ -72,8 +75,12 @@ class _GrammarScreenState extends State<GrammarScreen> {
       _filtered = _all.where((g) {
         if (_level != 'Alle' && g.level != _level) return false;
         if (_type != 'Alle' && g.typeDe != _type) return false;
-        if (_difficulty == 'Schwer' && !hardPatterns.contains(g.pattern)) return false;
-        if (_difficulty == 'Leicht' && hardPatterns.contains(g.pattern)) return false;
+        if (_difficulty == 'Schwer' && !hardPatterns.contains(g.pattern)) {
+          return false;
+        }
+        if (_difficulty == 'Leicht' && hardPatterns.contains(g.pattern)) {
+          return false;
+        }
         return true;
       }).toList();
       _idx = 0;
@@ -159,6 +166,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
       );
     }
 
+    final s = SoriSurfaces.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -172,183 +180,188 @@ class _GrammarScreenState extends State<GrammarScreen> {
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-          child: Column(
-            children: [
-              // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-              const HanokHeader(
-                asset: 'assets/illustrations/hanok/study_scholar.png',
-                fallbackIcon: Icons.auto_stories_outlined,
-              ),
-              const SizedBox(height: Spacing.md),
+            padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+            child: Column(
+              children: [
+                // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+                const HanokHeader(
+                  asset: 'assets/illustrations/hanok/study_scholar.png',
+                  fallbackIcon: Icons.auto_stories_outlined,
+                ),
+                const SizedBox(height: Spacing.md),
 
-              // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.
-              SizedBox(
-                height: 36,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    for (final lvl in _levels)
-                      Padding(
-                        padding: const EdgeInsets.only(right: 6),
-                        child: SoriChip(
-                          label: lvl == 'Alle' ? t.filterAll : lvl,
-                          accent: SoriColors.warning,
-                          selected: _level == lvl,
-                          variant: SoriChipVariant.soft,
-                          onTap: _level == lvl
-                              ? null
-                              : () {
-                                  setState(() => _level = lvl);
-                                  _applyFilters();
-                                },
+                // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.
+                SizedBox(
+                  height: 36,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      for (final lvl in _levels)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 6),
+                          child: SoriChip(
+                            label: lvl == 'Alle' ? t.filterAll : lvl,
+                            accent: SoriColors.warning,
+                            selected: _level == lvl,
+                            variant: SoriChipVariant.soft,
+                            onTap: _level == lvl
+                                ? null
+                                : () {
+                                    setState(() => _level = lvl);
+                                    _applyFilters();
+                                  },
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+
+                // Difficulty Filter
+                SizedBox(
+                  height: 36,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      for (final diff in ['Alle', 'Leicht', 'Schwer'])
+                        Padding(
+                          padding: const EdgeInsets.only(right: 6),
+                          child: SoriChip(
+                            label: diff,
+                            accent: SoriColors.info,
+                            selected: _difficulty == diff,
+                            variant: SoriChipVariant.soft,
+                            onTap: _difficulty == diff
+                                ? null
+                                : () {
+                                    setState(() => _difficulty = diff);
+                                    _applyFilters();
+                                  },
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+
+                // 진행도 — 슬림 바 + 위치 카운터 (3중 칩 정리, level·typeDe는 카드에 표시).
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: SoriProgressBar(
+                          value: _filtered.isEmpty
+                              ? 0
+                              : (_idx + 1) / _filtered.length,
+                          thickness: 6,
+                          color: SoriColors.warning,
+                          animated: true,
                         ),
                       ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
-
-              // Difficulty Filter
-              SizedBox(
-                height: 36,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    for (final diff in ['Alle', 'Leicht', 'Schwer'])
-                      Padding(
-                        padding: const EdgeInsets.only(right: 6),
-                        child: SoriChip(
-                          label: diff,
-                          accent: SoriColors.info,
-                          selected: _difficulty == diff,
-                          variant: SoriChipVariant.soft,
-                          onTap: _difficulty == diff
-                              ? null
-                              : () {
-                                  setState(() => _difficulty = diff);
-                                  _applyFilters();
-                                },
+                      const SizedBox(width: Spacing.sm),
+                      Text(
+                        '${_idx + 1} / ${_filtered.length}',
+                        style: TextStyle(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w700,
+                          color: s.textMuted,
                         ),
                       ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: Spacing.sm),
+                const SizedBox(height: 10),
 
-              // Stats
-              SoriCard(
-                variant: SoriCardVariant.compact,
-                accent: SoriColors.warning,
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                child: Wrap(
-                  spacing: Spacing.xs + 2,
-                  children: [
-                    SoriChip(
-                      label: '📝 ${_idx + 1}/${_filtered.length}',
-                      accent: SoriColors.warning,
-                    ),
-                    SoriChip(label: g.level, accent: SoriColors.warning),
-                    SoriChip(label: g.typeDe, accent: SoriColors.hangul),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
-
-              // Card + Difficulty Buttons
-              Expanded(
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onHorizontalDragEnd: (d) {
-                          if (d.primaryVelocity == null) return;
-                          if (d.primaryVelocity! < -250) {
-                            _next();
-                          } else if (d.primaryVelocity! > 250) {
-                            _prev();
-                          }
-                        },
-                        child: FlipCard(
-                          flipped: _flipped,
-                          onTap: _onFlip,
-                          front: _Front(g: g),
-                          back: _Back(g: g),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
+                // Card + Difficulty Buttons
+                Expanded(
+                  child: SoriEntrance(
+                    child: Column(
                       children: [
                         Expanded(
-                          child: SoriButton.outlined(
-                            label: '👍 ${t.grammarEasy}',
-                            onTap: () async {
-                              await Storage.markGrammarEasy(g.pattern);
-                              _next();
+                          child: GestureDetector(
+                            onHorizontalDragEnd: (d) {
+                              if (d.primaryVelocity == null) {
+                                return;
+                              }
+                              if (d.primaryVelocity! < -250) {
+                                _next();
+                              } else if (d.primaryVelocity! > 250) {
+                                _prev();
+                              }
                             },
+                            child: FlipCard(
+                              flipped: _flipped,
+                              onTap: _onFlip,
+                              front: _Front(g: g),
+                              back: _Back(g: g),
+                            ),
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: SoriButton.outlined(
-                            label: '🤔 ${t.grammarHard}',
-                            destructive: true,
-                            onTap: () async {
-                              await Storage.markGrammarHard(g.pattern);
-                              _next();
-                            },
-                          ),
+                        const SizedBox(height: 8),
+                        // SRS 마킹 (이 카드 난이도) — 네비게이션과 별개.
+                        Row(
+                          children: [
+                            Expanded(
+                              child: SoriButton.outlined(
+                                label: '👍 ${t.grammarEasy}',
+                                onTap: () async {
+                                  await Storage.markGrammarEasy(g.pattern);
+                                  _next();
+                                },
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: SoriButton.outlined(
+                                label: '🤔 ${t.grammarHard}',
+                                destructive: true,
+                                onTap: () async {
+                                  await Storage.markGrammarHard(g.pattern);
+                                  _next();
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
+                const SizedBox(height: 12),
 
-              // Nav
-              Row(
-                children: [
-                  Expanded(
-                    child: SoriButton.outlined(
-                      label: t.btnHoeren,
-                      icon: Icons.volume_up,
-                      fullWidth: true,
-                      onTap: () => TtsService.speak(g.exampleKorean),
-                    ),
-                  ),
-                  const SizedBox(width: Spacing.xs + 2),
-                  Expanded(
-                    child: SoriButton.outlined(
-                      label: t.btnPrev,
-                      icon: Icons.arrow_back,
-                      fullWidth: true,
-                      onTap: _prev,
-                    ),
-                  ),
-                  const SizedBox(width: Spacing.xs + 2),
-                  Expanded(
-                    child: SoriButton.outlined(
+                // 하단 액션 위계: Weiter(primary) > Hören·Zurück(secondary) > Zufällig(tertiary).
+                SoriEntrance(
+                  delay: const Duration(milliseconds: 80),
+                  child: StudyActionBar(
+                    accent: SoriColors.warning,
+                    secondary: [
+                      StudyAction(
+                        label: t.btnHoeren,
+                        icon: Icons.volume_up,
+                        onTap: () => TtsService.speak(g.exampleKorean),
+                      ),
+                      StudyAction(
+                        label: t.btnPrev,
+                        icon: Icons.arrow_back,
+                        onTap: _prev,
+                      ),
+                    ],
+                    primary: StudyAction(
                       label: t.btnNext,
                       icon: Icons.arrow_forward,
-                      fullWidth: true,
                       onTap: _next,
                     ),
+                    tertiary: StudyAction(
+                      label: t.btnRandom,
+                      icon: Icons.shuffle,
+                      onTap: _random,
+                    ),
                   ),
-                ],
-              ),
-              const SizedBox(height: Spacing.xs + 2),
-              SoriButton.filled(
-                label: t.btnRandom,
-                icon: Icons.shuffle,
-                accent: SoriColors.warning,
-                fullWidth: true,
-                onTap: _random,
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
-        ),
         ),
       ),
     );
@@ -456,49 +469,80 @@ class _Front extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return SoriCard(
-      variant: SoriCardVariant.hero,
+    final t = AppL10n.of(context);
+    return StudyCardFace(
       accent: SoriColors.warning,
-      width: double.infinity,
-      child: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SoriChip(
-                label: g.level,
-                accent: SoriColors.warning,
-                variant: SoriChipVariant.filled,
-              ),
-              const SizedBox(height: 14),
-              Text(
-                g.pattern,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w800,
-                  color: SoriColors.warning,
-                  height: 1.15,
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                g.typeDe,
-                style: TextStyle(
-                  fontSize: 13,
-                  color: SoriColors.warning.withValues(alpha: 0.75),
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-              Text(
-                '👆 Tippen für Erklärung',
-                style: TextStyle(fontSize: 11.5, color: s.textDim),
-              ),
-            ],
+      children: [
+        SoriChip(
+          label: g.level,
+          accent: SoriColors.warning,
+          variant: SoriChipVariant.filled,
+        ),
+        const SizedBox(height: 14),
+        Text(
+          g.pattern,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.w800,
+            color: SoriColors.warning,
+            height: 1.15,
           ),
         ),
-      ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          g.typeDe,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 13,
+            color: SoriColors.warning.withValues(alpha: 0.75),
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        // 예문 미리보기 — 빈 카드를 채우고 패턴을 바로 용례로 보여줌.
+        if (g.exampleKorean.isNotEmpty) ...[
+          const SizedBox(height: Spacing.lg),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            decoration: BoxDecoration(
+              color: SoriColors.warning.withValues(alpha: 0.08),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  g.exampleKorean,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    color: s.text,
+                    height: 1.3,
+                  ),
+                ),
+                if (g.exampleGerman.isNotEmpty) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    g.exampleGerman,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      color: s.textMuted,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
+        const SizedBox(height: Spacing.lg),
+        Text(
+          '👆 ${t.hintTapForExplanation}',
+          style: TextStyle(fontSize: 11.5, color: s.textDim),
+        ),
+      ],
     );
   }
 }
@@ -510,77 +554,61 @@ class _Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return SoriCard(
-      variant: SoriCardVariant.hero,
+    return StudyCardFace(
       accent: SoriColors.hangul,
-      width: double.infinity,
-      child: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SoriChip(
-                label: g.level,
-                accent: SoriColors.hangul,
-                variant: SoriChipVariant.filled,
-              ),
-              const SizedBox(height: 10),
-              Text(
-                g.pattern,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w800,
-                  color: SoriColors.hangul,
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                g.explanationDe,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13.5, color: s.text, height: 1.5),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                g.exampleKorean,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: SoriColors.hangul.withValues(alpha: 0.85),
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                g.exampleGerman,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 13,
-                  color: s.text,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              if (g.note.isNotEmpty) ...[
-                const SizedBox(height: Spacing.sm),
-                Divider(
-                  color: SoriColors.hangul.withValues(alpha: 0.25),
-                  height: 1,
-                ),
-                const SizedBox(height: Spacing.xs + 2),
-                Text(
-                  g.note,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 11.5,
-                    color: s.textMuted,
-                    height: 1.4,
-                  ),
-                ),
-              ],
-            ],
+      children: [
+        SoriChip(
+          label: g.level,
+          accent: SoriColors.hangul,
+          variant: SoriChipVariant.filled,
+        ),
+        const SizedBox(height: 10),
+        Text(
+          g.pattern,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w800,
+            color: SoriColors.hangul,
           ),
         ),
-      ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          g.explanationDe,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 13.5, color: s.text, height: 1.5),
+        ),
+        const SizedBox(height: 12),
+        Text(
+          g.exampleKorean,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: SoriColors.hangul.withValues(alpha: 0.85),
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          g.exampleGerman,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 13,
+            color: s.text,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        if (g.note.isNotEmpty) ...[
+          const SizedBox(height: Spacing.sm),
+          Divider(color: SoriColors.hangul.withValues(alpha: 0.25), height: 1),
+          const SizedBox(height: Spacing.xs + 2),
+          Text(
+            g.note,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 11.5, color: s.textMuted, height: 1.4),
+          ),
+        ],
+      ],
     );
   }
 }

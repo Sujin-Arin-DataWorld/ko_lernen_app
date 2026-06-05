@@ -2053,6 +2053,48 @@ abstract class AppL10n {
   /// **'Noch kein Wochenziel'**
   String get gyeNoGoal;
 
+  /// No description provided for @gyeDureTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Woche zusammen'**
+  String get gyeDureTitle;
+
+  /// No description provided for @gyeDureMe.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich'**
+  String get gyeDureMe;
+
+  /// No description provided for @gyeDureEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch leer — knack ein Pack und mach den Anfang!'**
+  String get gyeDureEmpty;
+
+  /// No description provided for @dureTitleDuru.
+  ///
+  /// In de, this message translates to:
+  /// **'Stütze'**
+  String get dureTitleDuru;
+
+  /// No description provided for @dureTitleNewcomer.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu dabei'**
+  String get dureTitleNewcomer;
+
+  /// No description provided for @dureTitleSprout.
+  ///
+  /// In de, this message translates to:
+  /// **'Frischling'**
+  String get dureTitleSprout;
+
+  /// No description provided for @dureTitleHelper.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit dabei'**
+  String get dureTitleHelper;
+
   /// No description provided for @gyeFeedTitle.
   ///
   /// In de, this message translates to:
@@ -2520,6 +2562,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Zurück zu den Packs'**
   String get vocabPackResultBackToGrid;
+
+  /// No description provided for @vocabPackResultGeschafft.
+  ///
+  /// In de, this message translates to:
+  /// **'Geschafft! Du hast diesen Wortschatz-Pack gemeistert.'**
+  String get vocabPackResultGeschafft;
 
   /// No description provided for @moduleStatsTitle.
   ///

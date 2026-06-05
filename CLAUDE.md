@@ -312,6 +312,29 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-05 (학습 화면 UI/UX 폴리시 — 완료 축하화면·Grammar·플래시카드) — 미커밋
+
+**범위:** Jin 실기기 피드백 — "Lernpfad 끝냈는데 호랑이·까치 이미지 + 화면 UI 퀄리티가 떨어진다. 축하 화면인데 두 마스코트가 각각 떨어져 떠 있어 뭐 하는 건지 모르겠다." Q&A로 스코프 확정(약한 학습 화면 전체 + 완료 축하화면 UI/UX 재설계). plan: `lernpfad-foamy-quill.md`.
+
+**진단(실측·§0):**
+- 🔴 **완료 축하 시퀀스 깨짐(버그)**: [vocab_pack_result_screen.dart](lib/screens/vocab_pack_result_screen.dart) `_CelebrationSequence._playSequence` — 주석 "1.5s"인데 `Duration(seconds: 1500)`(=25분) 오타 → phase0(`_MascotsApplaud`: 호랑이 `left:0`+까치 `right:0` 양끝에 떨어져 떠 있음)만 영원히 보이고 의도된 phase1(단청 도장 리빌=보상)은 절대 안 나옴. `_ctrl`은 duration 없이 생성만 된 死코드.
+- 🔴 **Grammar 빈 카드**: `_Front`가 `SoriCard>SingleChildScrollView>Center>Column(min)` → SingleChildScrollView가 Center 무력화 → 콘텐츠 상단 쏠림+여백. `exampleKorean`/`German`은 모델에 있는데 뒷면에만.
+- 🔴 **버튼 위계 역전**: Zufällig(랜덤=부수)가 큰 filled-orange primary, Weiter는 밋밋한 outlined.
+- 마스코트 아트 자체는 정상(Faceted Minhwa 의도대로) — 불만은 배치/연출.
+
+**Update:**
+1. **완료 축하화면 재설계** — 1500초 버그 픽스. `_MascotsApplaud` 삭제 → 단일 `AnimationController(1100ms)`가 글로우→도장(중앙 주인공)→호랑이(좌104)→까치(우80)를 한 박자로 elasticOut 등장. 셋이 단청 도장을 **함께 둘러쌈**. 도장 착지(~55%) 시 `SoriCelebration.burst` 1회. 바닥 RadialGradient 글로우로 그라운딩(떠 있음 제거). XP를 `_XpPayoffLine`(카운트업+gold 바)으로. "Geschafft!" 헤드라인(신규 l10n `vocabPackResultGeschafft`). stats·CTA `SoriEntrance` stagger. reduce-motion/재클리어는 최종 정지 프레임+burst 억제.
+2. **공유 위젯 2 신규** — `lib/widgets/sori/study_card_face.dart`(`StudyCardFace`: LayoutBuilder+ConstrainedBox(minHeight)+IntrinsicHeight+Column → void 버그 근본 해결, 오버플로만 스크롤) + `study_action_bar.dart`(`StudyActionBar`/`StudyAction`: primary filled·secondary outlined·tertiary ghost 위계 강제).
+3. **Grammar** — `_Front` StudyCardFace+예문 미리보기로 채움, `_Back` StudyCardFace. 하단 `StudyActionBar`(Weiter=primary·Hören/Zurück=secondary·Zufällig=ghost). 3중 칩 → 슬림 `SoriProgressBar`+카운터. 카드·바 `SoriEntrance`. 하드코딩 'Tippen für Erklärung'→`t.hintTapForExplanation`.
+4. **Legacy Vocab** — `_Front`/`_Back` StudyCardFace(Stack loose 제약으로 콘텐츠 높이 상단정렬되던 걸 채움+중앙정렬+스크롤안전). Hören 롱프레스(느린 TTS) 보존. 하드코딩→`t.hintTapToFlip`.
+5. **Wordle·Chosung** — HanokHeader 배너만 `SoriEntrance`(일관성). **게임판·입력·FocusNode·autofocus·IME 무변경**(의도적 최소 터치 — 이미 양호).
+
+**검증:** `flutter analyze lib` **0 issues** · `flutter test` **323 통과** · `flutter gen-l10n` OK · `dart format` 적용(포매터가 펼친 기존 한 줄 if에 중괄호 보강). **⚠️ 시각/애니메이션 미검증** — `initialRoute:'/intro'`+온보딩+CanvasKit 헤드리스라 자동 시각검증 비현실, 완료화면은 Navigator args(보스통계) 필요해 도달 불가 → **Jin `flutter run` 육안**(축하 cleared/미클리어/재클리어·reduce-motion·Grammar 빈여백 해소·버튼 위계·360px).
+
+**변경 파일:** screens: vocab_pack_result·grammar·legacy_vocab·wordle·chosung_quiz / widgets/sori: study_card_face(신규)·study_action_bar(신규) / l10n: app_de·app_en(+generated) +1키.
+
+**Git push:** 미수행 (Jin 확인 후).
+
 ### 2026-06-05 (스티커/계 백엔드 검증 + 배포 실측 + 문서 정정) — 미커밋(문서만)
 
 **범위:** Jin "스티커 코드 미구현이 무슨 뜻? 우리 스티커 코드 아무것도 없는 거야?" → 스티커/계(契) 백엔드 실태 전수 검증 + 문서 최종 업데이트.

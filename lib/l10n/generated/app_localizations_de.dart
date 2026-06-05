@@ -1069,6 +1069,27 @@ class AppL10nDe extends AppL10n {
   String get gyeNoGoal => 'Noch kein Wochenziel';
 
   @override
+  String get gyeDureTitle => 'Diese Woche zusammen';
+
+  @override
+  String get gyeDureMe => 'Ich';
+
+  @override
+  String get gyeDureEmpty => 'Noch leer — knack ein Pack und mach den Anfang!';
+
+  @override
+  String get dureTitleDuru => 'Stütze';
+
+  @override
+  String get dureTitleNewcomer => 'Neu dabei';
+
+  @override
+  String get dureTitleSprout => 'Frischling';
+
+  @override
+  String get dureTitleHelper => 'Mit dabei';
+
+  @override
   String get gyeFeedTitle => 'Aktivität';
 
   @override
@@ -1315,6 +1336,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabPackResultBackToGrid => 'Zurück zu den Packs';
+
+  @override
+  String get vocabPackResultGeschafft =>
+      'Geschafft! Du hast diesen Wortschatz-Pack gemeistert.';
 
   @override
   String get moduleStatsTitle => 'Statistik';

@@ -1068,6 +1068,27 @@ class AppL10nEn extends AppL10n {
   String get gyeNoGoal => 'No weekly goal set yet';
 
   @override
+  String get gyeDureTitle => 'Together this week';
+
+  @override
+  String get gyeDureMe => 'Me';
+
+  @override
+  String get gyeDureEmpty => 'Empty so far — clear a pack to break ground!';
+
+  @override
+  String get dureTitleDuru => 'Pillar';
+
+  @override
+  String get dureTitleNewcomer => 'Newcomer';
+
+  @override
+  String get dureTitleSprout => 'Sprout';
+
+  @override
+  String get dureTitleHelper => 'Helper';
+
+  @override
   String get gyeFeedTitle => 'Activity';
 
   @override
@@ -1314,6 +1335,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabPackResultBackToGrid => 'Back to packs';
+
+  @override
+  String get vocabPackResultGeschafft => 'Done! You mastered this vocab pack.';
 
   @override
   String get moduleStatsTitle => 'Statistics';
