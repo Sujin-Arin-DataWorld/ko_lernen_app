@@ -9,7 +9,7 @@ import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/sticker_picker.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/weekly_goal_bar.dart';
+import '../widgets/sori/dure_board.dart';
 
 /// 계 마당 — 상단(이름·멤버수·주간 목표) / 중간(공동 한옥) / 하단(피드). plan §7.4.
 /// (스티커 FAB·전송 = Tier 3d. 피드는 3e Cloud Function이 채움.)
@@ -79,22 +79,11 @@ class GyeScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(Spacing.lg),
-                  child: meta.weeklyGoalPacks > 0
-                      ? WeeklyGoalBar(
-                          progress: meta.weeklyGoalProgress,
-                          goal: meta.weeklyGoalPacks,
-                          label: t.gyeWeeklyGoal,
-                        )
-                      : Row(
-                          children: [
-                            Icon(Icons.flag_outlined,
-                                size: 16, color: s.textDim),
-                            const SizedBox(width: 6),
-                            Text(t.gyeNoGoal,
-                                style: TextStyle(
-                                    fontSize: 13, color: s.textMuted)),
-                          ],
-                        ),
+                  child: DureBoard(
+                    gyeId: gyeId,
+                    meta: meta,
+                    myUid: GyeService.currentUid,
+                  ),
                 ),
                 LayoutBuilder(
                   builder: (context, c) {

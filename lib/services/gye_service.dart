@@ -113,6 +113,7 @@ class GyeService {
           name: cleanName,
           code: code,
           ownerId: uid,
+          weeklyGoalPacks: 10, // 기본 주간 공동목표 (두레판·롤오버 구동)
         );
         final batch = db.batch();
         batch.set(ref, meta.toCreateJson());
