@@ -254,16 +254,29 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
             child: SoriPressable(
               onTap: () => setState(() => _flipped = !_flipped),
               haptic: SoriHaptic.selection,
-              child: SoriCard(
-                variant: SoriCardVariant.hero,
-                accent: SoriColors.primary,
-                tinted: !_flipped,
-                child: Center(
-                  child: SingleChildScrollView(
-                    child:
-                        _flipped ? _back(card, s, tt, t) : _front(card, s, tt, t),
-                  ),
-                ),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final minH = constraints.maxHeight.isFinite
+                      ? constraints.maxHeight
+                      : 0.0;
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(minHeight: minH),
+                      child: IntrinsicHeight(
+                        child: SoriCard(
+                          variant: SoriCardVariant.hero,
+                          accent: SoriColors.primary,
+                          tinted: !_flipped,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:
+                                _flipped ? _backList(card, s, tt, t) : _frontList(card, s, tt, t),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ),
@@ -296,58 +309,52 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
     );
   }
 
-  Widget _front(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            v.korean,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 40,
-              fontWeight: FontWeight.w900,
-            ),
+  List<Widget> _frontList(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => [
+        Text(
+          v.korean,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: 40,
+            fontWeight: FontWeight.w900,
           ),
-          const SizedBox(height: Spacing.md),
-          _SpeakButton(text: v.korean, label: t.ttsListen),
-          if (v.romanization.isNotEmpty) ...[
-            const SizedBox(height: Spacing.sm),
-            Text(v.romanization,
-                style: tt.body.copyWith(color: s.textMuted)),
-          ],
-          const SizedBox(height: Spacing.lg),
-          Text(t.hintTapToFlip,
-              style: tt.caption.copyWith(color: s.textDim)),
+        ),
+        const SizedBox(height: Spacing.md),
+        _SpeakButton(text: v.korean, label: t.ttsListen),
+        if (v.romanization.isNotEmpty) ...[
+          const SizedBox(height: Spacing.sm),
+          Text(v.romanization,
+              style: tt.body.copyWith(color: s.textMuted)),
         ],
-      );
+        const SizedBox(height: Spacing.lg),
+        Text(t.hintTapToFlip,
+            style: tt.caption.copyWith(color: s.textDim)),
+      ];
 
-  Widget _back(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            v.german,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 26,
-              fontWeight: FontWeight.w800,
-            ),
+  List<Widget> _backList(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => [
+        Text(
+          v.german,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: 26,
+            fontWeight: FontWeight.w800,
           ),
-          if (v.exampleKorean.isNotEmpty) ...[
-            const SizedBox(height: Spacing.lg),
-            Text(v.exampleKorean,
-                textAlign: TextAlign.center, style: tt.body),
-            const SizedBox(height: Spacing.sm),
-            _SpeakButton(text: v.exampleKorean, label: t.ttsListen, size: 22),
-          ],
-          if (v.exampleGerman.isNotEmpty) ...[
-            const SizedBox(height: Spacing.xs),
-            Text(v.exampleGerman,
-                textAlign: TextAlign.center,
-                style: tt.bodySmall.copyWith(color: s.textMuted)),
-          ],
+        ),
+        if (v.exampleKorean.isNotEmpty) ...[
+          const SizedBox(height: Spacing.lg),
+          Text(v.exampleKorean,
+              textAlign: TextAlign.center, style: tt.body),
+          const SizedBox(height: Spacing.sm),
+          _SpeakButton(text: v.exampleKorean, label: t.ttsListen, size: 22),
         ],
-      );
+        if (v.exampleGerman.isNotEmpty) ...[
+          const SizedBox(height: Spacing.xs),
+          Text(v.exampleGerman,
+              textAlign: TextAlign.center,
+              style: tt.bodySmall.copyWith(color: s.textMuted)),
+        ],
+      ];
 }
 
 /// 발음 듣기 버튼 — 카드 탭(뒤집기)과 분리되도록 InkWell 이 탭을 소비한다.
