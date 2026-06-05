@@ -148,3 +148,39 @@ class _SoriKenBurnsState extends State<SoriKenBurns>
     );
   }
 }
+
+/// **Sori 모션 상수** — 일관된 애니메이션 타이밍 & 곡선.
+///
+/// 모든 위젯이 같은 Duration/Curve를 사용하면 일관된 느낌의 인터페이스.
+/// 예: `ScaleTransition(scale: anim, ...)` 대신
+///     `ScaleTransition(scale: Tween(...).animate(CurvedAnimation(parent: ctrl, curve: SoriAnimation.tapOut)))`
+abstract final class SoriAnimation {
+  // ─── Durations ───
+  static const Duration tap = Duration(milliseconds: 100);
+  static const Duration quick = Duration(milliseconds: 200);
+  static const Duration normal = Duration(milliseconds: 400);
+  static const Duration slow = Duration(milliseconds: 800);
+  static const Duration verySlow = Duration(milliseconds: 1200);
+
+  // ─── Curves ───
+  static const Curve tapOut = Curves.easeOut;
+  static const Curve release = Curves.elasticOut;
+  static const Curve gentle = Curves.easeOutCubic;
+
+  // ─── Entrance (화면 진입) ───
+  static const Duration entranceDuration = Duration(milliseconds: 540);
+  static const Curve entranceCurve = gentle;
+
+  // ─── Preset combos ───
+  /// press feedback: 즉시 반응, 탄력적 복귀
+  static const Duration pressDuration = quick;
+  static const Curve pressCurve = release;
+
+  /// list/card 진입: 부드러운 fade + slide
+  static const Duration cardDuration = normal;
+  static const Curve cardCurve = gentle;
+
+  /// idle 호흡: 느슨하고 자연스러운 반복
+  static const Duration idleDuration = verySlow;
+  static const Curve idleCurve = Curves.easeInOut;
+}
