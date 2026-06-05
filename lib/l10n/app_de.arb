@@ -576,6 +576,17 @@
   "statsBestShort": "Beste",
   "statsWinRate": "Quote",
 
+  "onboardingPage1Title": "Treffe deinen Lernfreund",
+  "onboardingPage1Subtitle": "Der Tiger begleitet dich durch dein Abenteuer",
+  "onboardingPage2Title": "5 Minuten pro Tag",
+  "onboardingPage2Subtitle": "Kurz, effektiv und immer erreichbar",
+  "onboardingPage3Title": "🔥 Streaks zählen",
+  "onboardingPage3Subtitle": "Je öfter du kommst, desto mehr Belohnungen!",
+  "onboardingPage4Title": "Wie viel Zeit hast du?",
+  "onboardingGoal5min": "5 Minuten",
+  "onboardingGoal10min": "10 Minuten",
+  "onboardingGoal15min": "15 Minuten",
+
   "onboardingTitle": "Was ist dein Level?",
   "onboardingSubtitle": "Wir fangen bei dir an. Frühere Levels bleiben offen, spätere schaltest du frei.",
   "onboardingLevelA1": "Anfänger",

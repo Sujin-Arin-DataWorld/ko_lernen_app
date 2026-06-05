@@ -2827,6 +2827,66 @@ abstract class AppL10n {
   /// **'Quote'**
   String get statsWinRate;
 
+  /// No description provided for @onboardingPage1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Treffe deinen Lernfreund'**
+  String get onboardingPage1Title;
+
+  /// No description provided for @onboardingPage1Subtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Tiger begleitet dich durch dein Abenteuer'**
+  String get onboardingPage1Subtitle;
+
+  /// No description provided for @onboardingPage2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'5 Minuten pro Tag'**
+  String get onboardingPage2Title;
+
+  /// No description provided for @onboardingPage2Subtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz, effektiv und immer erreichbar'**
+  String get onboardingPage2Subtitle;
+
+  /// No description provided for @onboardingPage3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'🔥 Streaks zählen'**
+  String get onboardingPage3Title;
+
+  /// No description provided for @onboardingPage3Subtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Je öfter du kommst, desto mehr Belohnungen!'**
+  String get onboardingPage3Subtitle;
+
+  /// No description provided for @onboardingPage4Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie viel Zeit hast du?'**
+  String get onboardingPage4Title;
+
+  /// No description provided for @onboardingGoal5min.
+  ///
+  /// In de, this message translates to:
+  /// **'5 Minuten'**
+  String get onboardingGoal5min;
+
+  /// No description provided for @onboardingGoal10min.
+  ///
+  /// In de, this message translates to:
+  /// **'10 Minuten'**
+  String get onboardingGoal10min;
+
+  /// No description provided for @onboardingGoal15min.
+  ///
+  /// In de, this message translates to:
+  /// **'15 Minuten'**
+  String get onboardingGoal15min;
+
   /// No description provided for @onboardingTitle.
   ///
   /// In de, this message translates to:

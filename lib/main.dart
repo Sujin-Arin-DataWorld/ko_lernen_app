@@ -20,6 +20,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/splash_screen.dart';
+import 'screens/quick_onboarding_screen.dart';
 import 'screens/intro_gate_screen.dart';
 import 'screens/app_shell.dart';
 import 'screens/paywall_screen.dart';
@@ -217,6 +218,9 @@ class KoLernenApp extends StatelessWidget {
             case '/splash':
               return SoriTransitions.fadeScale(
                   (_) => const SplashScreen(), settings: settings);
+            case '/quick_onboarding':
+              return SoriTransitions.fadeScale(
+                  (_) => const QuickOnboardingScreen(), settings: settings);
             case '/intro':
               return SoriTransitions.fadeScale(
                   (_) => const IntroGateScreen(), settings: settings);

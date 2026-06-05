@@ -1482,6 +1482,38 @@ class AppL10nEn extends AppL10n {
   String get statsWinRate => 'Win rate';
 
   @override
+  String get onboardingPage1Title => 'Meet your study buddy';
+
+  @override
+  String get onboardingPage1Subtitle =>
+      'The tiger joins you on your learning journey';
+
+  @override
+  String get onboardingPage2Title => '5 minutes a day';
+
+  @override
+  String get onboardingPage2Subtitle => 'Short, effective, always accessible';
+
+  @override
+  String get onboardingPage3Title => '🔥 Streaks matter';
+
+  @override
+  String get onboardingPage3Subtitle =>
+      'The more you come, the more rewards you earn!';
+
+  @override
+  String get onboardingPage4Title => 'How much time do you have?';
+
+  @override
+  String get onboardingGoal5min => '5 minutes';
+
+  @override
+  String get onboardingGoal10min => '10 minutes';
+
+  @override
+  String get onboardingGoal15min => '15 minutes';
+
+  @override
   String get onboardingTitle => 'What\'s your level?';
 
   @override

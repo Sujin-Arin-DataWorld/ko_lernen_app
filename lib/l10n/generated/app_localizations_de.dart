@@ -1485,6 +1485,38 @@ class AppL10nDe extends AppL10n {
   String get statsWinRate => 'Quote';
 
   @override
+  String get onboardingPage1Title => 'Treffe deinen Lernfreund';
+
+  @override
+  String get onboardingPage1Subtitle =>
+      'Der Tiger begleitet dich durch dein Abenteuer';
+
+  @override
+  String get onboardingPage2Title => '5 Minuten pro Tag';
+
+  @override
+  String get onboardingPage2Subtitle => 'Kurz, effektiv und immer erreichbar';
+
+  @override
+  String get onboardingPage3Title => '🔥 Streaks zählen';
+
+  @override
+  String get onboardingPage3Subtitle =>
+      'Je öfter du kommst, desto mehr Belohnungen!';
+
+  @override
+  String get onboardingPage4Title => 'Wie viel Zeit hast du?';
+
+  @override
+  String get onboardingGoal5min => '5 Minuten';
+
+  @override
+  String get onboardingGoal10min => '10 Minuten';
+
+  @override
+  String get onboardingGoal15min => '15 Minuten';
+
+  @override
   String get onboardingTitle => 'Was ist dein Level?';
 
   @override

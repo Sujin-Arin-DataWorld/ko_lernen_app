@@ -575,6 +575,17 @@
   "statsBestShort": "Best",
   "statsWinRate": "Win rate",
 
+  "onboardingPage1Title": "Meet your study buddy",
+  "onboardingPage1Subtitle": "The tiger joins you on your learning journey",
+  "onboardingPage2Title": "5 minutes a day",
+  "onboardingPage2Subtitle": "Short, effective, always accessible",
+  "onboardingPage3Title": "🔥 Streaks matter",
+  "onboardingPage3Subtitle": "The more you come, the more rewards you earn!",
+  "onboardingPage4Title": "How much time do you have?",
+  "onboardingGoal5min": "5 minutes",
+  "onboardingGoal10min": "10 minutes",
+  "onboardingGoal15min": "15 minutes",
+
   "onboardingTitle": "What's your level?",
   "onboardingSubtitle": "We start at your level. Earlier levels stay open, later ones unlock as you progress.",
   "onboardingLevelA1": "Beginner",

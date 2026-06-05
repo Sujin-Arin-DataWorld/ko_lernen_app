@@ -194,6 +194,24 @@ class Storage {
     }
   }
 
+  // ───────── Onboarding ─────────
+  static bool get hasCompletedOnboarding =>
+      _b('kl_onboarding_completed');
+  static Future<void> setHasCompletedOnboarding(bool v) =>
+      _sb('kl_onboarding_completed', v);
+
+  static int get sessionCount => _i('kl_session_count');
+  static Future<void> setSessionCount(int v) => _si('kl_session_count', v);
+
+  static String get lastActivityTime =>
+      _s('kl_last_activity_time'); // ISO 8601 datetime
+  static Future<void> setLastActivityTime(String v) =>
+      _ss('kl_last_activity_time', v);
+
+  static int get dailyGoalMinutes => _i('kl_daily_goal_minutes');
+  static Future<void> setDailyGoal(int minutes) =>
+      _si('kl_daily_goal_minutes', minutes);
+
   // ───────── App / Streak ─────────
   static String get lastOpenDate => _s('kl_last_open_date'); // 'YYYY-MM-DD'
   static int get streakDays => _i('kl_streak_days');
