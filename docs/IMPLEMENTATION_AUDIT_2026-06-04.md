@@ -16,7 +16,7 @@
 
 변경 파일: `functions/gye/index.js` · `firestore.rules` · `lib/models/gye.dart` · `lib/services/{age_gate_service,gye_service,storage_service}.dart` · `lib/widgets/sori/{gye_hanok,gye_feed,age_gate_prompt}.dart` · `lib/l10n/{gye_error_text,app_de,app_en}` · `lib/screens/home_screen.dart`(showGyeChooser 가드) · `test/age_gate_test.dart`.
 
-**여전히 핵심 차단**: CF 2종 미배포(P0) · 번역 Firestore 캐시 미구현(P1) · FCM 정책결정. → `ROADMAP_TO_LAUNCH`.
+**여전히 핵심 차단**: ~~CF 2종 미배포(P0)~~ ✅ **06-05 배포 완료**(CF 4종 ACTIVE) · 번역 Firestore 캐시 미구현(P1) · FCM 정책결정 · rules 재배포. → `ROADMAP_TO_LAUNCH`.
 
 ---
 
@@ -44,10 +44,10 @@
 | 2 | 팩 화면 (선택·플레이·결과) | ✅ | ✅ | — | 완전. 3단계 흐름·도장·legacy 보존. |
 | 3 | 한옥 12단계 건축 | ✅ | ⚠️ | — | 코드 완전. light PNG **10/12**(jongga·side 누락)·dark 0(폐지). |
 | 4 | 특별 퀘스트 + 마당 장식 | ✅ | ⚠️ | — | 카탈로그 17퀘 와이어. 2 source 스텁·데코 PNG **10/17**·seasonal은 하드코딩. |
-| 5 | 책 한 컷 (OCR+NLP+번역) | ✅ | ✅ | ❌ | 클라 완전(kiwipiepy로 개선). **CF 미배포**·번역 Firestore 캐시 미구현. |
+| 5 | 책 한 컷 (OCR+NLP+번역) | ✅ | ✅ | ✅ | 클라 완전(kiwipiepy). **CF 4종 전부 배포(06-05)** — analyze_korean_text ✅ LIVE. 번역 Firestore 캐시는 P1. |
 | 6 | 계(契) 모델 + 모임방 | ✅ | ✅ | — | 완전. CRUD·6자리코드·rules·욕설사전. |
-| 7 | 계 공동마당·주간목표·스티커 | ✅ | ✅ | 🔧 | rollover 보상·피드 prune·FCM(push_service+CF)·스티커30·on_pack_cleared ✅. **CF 미배포(🔧)**. (2026-06-04 갱신) |
-| 8 | 모더레이션 + GDPR | ✅ | — | 🔧 | 계정삭제·신고UI·**자동정지 CF·age-gate·admin 패널 전부 ✅(코드)**. CF/claim/인덱스 배포 🔧. (2026-06-04 갱신) |
+| 7 | 계 공동마당·주간목표·스티커 | ✅ | ✅ | ✅ | rollover·피드 prune·스티커30·**on_pack_cleared·weekly_goal_rollover CF 배포 ✅(06-05)**. FCM은 정책 대기. |
+| 8 | 모더레이션 + GDPR | ✅ | — | ✅ | 계정삭제·신고UI·age-gate·admin 패널 ✅. **on_report_created·Firestore rules·IAM 배포 ✅(06-05)**. |
 | 9 | 출시 자료 + 검증 | ⚠️ | ⚠️ | ❌ | 스토어 문서 ✅. **실기기 QA 0회·스크린샷·feature graphic·Closed Test ❌**. |
 
 **판정**: Phase 1·2·6 = 완전. 3 = 코드 완전·자산 일부. 4 = 거의 완전(주변부 스텁). 5 = 클라 완전·**배포가 핵심 차단**. 7 = 코드 대부분·FCM/롤오버 미완. 8 = **절반**(자동 모더레이션 미구현). 9 = 운영 미실행.
@@ -136,7 +136,7 @@
 - CF 통합 테스트 (emulator) ❌ **부재** (테스트 파일 없음)
 - ~~`docs/privacy.html` 업데이트 (카메라+DeepL)~~ ✅
 - ~~`docs/store/data-safety.md` 업데이트~~ ✅
-- 🔧 **CF 미배포** — 프로덕션에서 번역·단어추출 **미작동**(핵심 차단요소, 로드맵 P0).
+- ~~🔧 CF 미배포~~ ✅ **06-05 배포 완료** — `analyze_korean_text` v2 LIVE, 번역·단어추출 프로덕션 작동.
 
 ### Phase 6 — 계(契) 모델 + 모임방 (§7.6) → ✅ 완료
 
@@ -159,7 +159,7 @@
 - CF `weeklyGoalRollover` (월요일 자정) ⚠️ **skeleton** (선언만·Cloud Scheduler TODO)
 - FCM (피드 푸시 알림) ❌ **미구현** (CF 주석 TODO)
 - ~~DE/EN ARB 키~~ ✅
-- 🔧 **gye CF 미배포** + Cloud Scheduler 미설정.
+- 🔧 **gye CF 부분배포**(06-05 실측) — `weekly_goal_rollover` 구버전(v1/node20)만↑, `on_pack_cleared`·`on_report_created` 미배포. `cd functions/gye && firebase deploy --only functions`(v2) 재배포 필요.
 
 ### Phase 8 — 모더레이션 + GDPR (§9.5) → ⚠️ 절반
 
@@ -323,7 +323,7 @@
 
 - **stately-rising-jongga Phase 1~9 코드는 ~85% 구현.** 핵심 학습·게임·계·책한컷 **클라이언트 전부 완성**.
 - **미구현/차단의 본질은 "코드"가 아니라 "배포·운영·검증"** + **Phase 8 자동 모더레이션 트랙**:
-  - 🔧 CF 2종(analyze_korean_text·gye) 미배포 → 책한컷·계 집계 프로덕션 미작동
+  - 🔧 CF: `analyze_korean_text` ✅배포(책한컷 작동)·`gye` ⚠️부분배포(`rollover` 구버전만↑, 트리거2 미배포→계 집계 0) — 06-05 `functions:list` 실측
   - 🔧 RevenueCat 운영 셋업 0 → 결제 불가
   - ❌ 자동정지 CF·admin 패널·age-gate (Phase 8)
   - ❌ FCM·weeklyGoalRollover (Phase 7)

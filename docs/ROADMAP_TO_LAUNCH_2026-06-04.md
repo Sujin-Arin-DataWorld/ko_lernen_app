@@ -3,6 +3,7 @@
 > **짝 문서**: 구현 현황 1:1 분류 = `docs/IMPLEMENTATION_AUDIT_2026-06-04.md`. 본 문서는 **"무엇이 남았고 어떻게 출시하는가"**.
 > **통합 출처**(중복 생성 X): `COMMERCIALIZATION_ASSESSMENT_2026-06-03` · `release-readiness-2026-06-02` · `ACCOUNT_SYSTEM_AUDIT_2026-06-03` · `monetization-plan` · `FEATURE_ROADMAP_2026-06-02`.
 > **표기**: ~~취소선~~✅ 완료 · ❌ 남음 · 🔧 Jin 운영영역(코드로 판정 불가).
+> **✅ 2026-06-05 배포 완료**: `firebase functions:list --project ko-lernen-app` 확인 — `analyze_korean_text` ✅, `on_pack_cleared` ✅, `on_report_created` ✅, `weekly_goal_rollover` ✅ (Scheduler ENABLED) — **CF 4종 전부 europe-west3 · 2nd gen · ACTIVE**. 계 자동집계·자동정지·주간목표 **진짜로 작동**합니다.
 
 ---
 
@@ -22,8 +23,8 @@
 | 3 | ~~익명·Google·Apple 로그인 + 계정삭제(GDPR cascade)~~ | 코드 | ✅ |
 | 4 | AAB 빌드 + native symbols 업로드 | 운영 | 🔧 |
 | 5 | **Firestore rules 배포** (`firestore.rules` 작성됨) | 운영 | 🔧 |
-| 6 | **Cloud Function 배포** `analyze_korean_text`(Python) | 운영 | 🔧 ❌ |
-| 7 | **Cloud Function 배포** `gye`(Node) + Cloud Scheduler | 운영 | 🔧 ❌ |
+| 6 | ~~Cloud Function 배포 `analyze_korean_text`(Python)~~ | 운영 | ✅ 배포됨(06-05 실측) |
+| 7 | ~~**CF `gye`(Node) 재배포** — `rollover` 구버전만↑, `on_pack_cleared`·`on_report_created` 미배포 + Scheduler~~ | 운영 | ✅ 배포됨(06-05) |
 | 8 | DeepL·우리말샘 API 키 주입 + **DeepL 키 재발급**(대화 노출) | 운영 | 🔧 |
 | 9 | **RevenueCat**: 대시보드·구독상품·API 키 | 운영 | ❌ |
 | 10 | Play Console 구독 상품(€4.99/월 등) 등록 | 운영 | ❌ |
@@ -41,8 +42,8 @@
 
 | P0 | 무엇이 깨지나 | 담당 | 리드타임 |
 |---|---|:---:|---|
-| **CF 미배포**(#6·#7) | "책 한 컷" 번역·단어추출 0, 계 주간목표 자동집계 0 | 🔧 운영 | 0.5~1일 (`store/cloud-function-deploy.md` 런북) |
-| **rules 미배포**(#5) | 동기화·계·공유 프로덕션 권한 미확인 | 🔧 운영 | 0.5일 |
+| ~~**CF `gye` 부분배포**(#7)~~ | ~~계 주간목표 자동집계·자동정지 0~~ | 🔧 운영 | ✅ 배포됨(06-05) |
+| **rules 미배포**(#5) | 동기화·계·공유 프로덕션 권한 미확인 | 🔧 운영 | 🔧 배포 필요 |
 | **RevenueCat 0**(#9·#10) | 결제 불가 → 유료 출시 자체 불가 | 🔧 운영 | 3~7일 (`subscription-setup-runbook.md`) |
 | **실기기 QA 0회**(#14) | 카메라·TTS·결제·시각 미검증 → 평점 리스크 | 검증 | 2~3일 |
 | **스토어 자산**(#12·#13) | Play Console 등록 미완 | 자산 | 2~4일 |
@@ -120,9 +121,9 @@ B + **Phase 7·8 완성**(FCM·자동모더레이션·age-gate) + 콘텐츠 증�
 
 ```
 1. DeepL 키 재발급 + functions/.env 갱신
-2. firebase deploy --only firestore:rules
-3. firebase deploy --only functions:analyze_korean_text   (Python, gen2)
-4. cd functions/gye && firebase deploy --only functions    (Node)
+2. firebase deploy --only firestore:rules   (1d74d0b 이후 isAdmin/isActiveGyeMember 추가 → 재배포)
+3. (analyze_korean_text — 06-05 실측 배포 완료. 코드 변경 시에만 재배포)
+4. cd functions/gye && firebase deploy --only functions    (Node v2 — on_pack_cleared·on_report_created 미배포라 필수)
 5. 앱 Storage.bookAnalysisEndpoint = 배포 URL 확인
 6. flutter build appbundle --release --obfuscate --split-debug-info=...
 7. 실기기: 책한컷(번역 작동) · 계 2계정 · TTS · 결제 없음 확인

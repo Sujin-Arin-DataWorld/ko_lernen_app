@@ -88,7 +88,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - **단어팩 (Phase 1·2)**: `lib/services/vocab_pack_service.dart` (CSV `pack_id`로 61팩 로드) + `pack_progress_service.dart` (진행도 로컬+Firestore `users/{uid}/packs`).
 - **한옥/퀘스트 (Phase 3·4)**: `lib/services/hanok_stage_service.dart` (진행도→한옥 12단계), `quest_tracker.dart` (특별 퀘스트), `daily_char_service.dart` (오늘의 글자).
 - **동기화**: `lib/services/cloud_sync.dart` + `firestore_progress_service.dart`, `scenario_loader.dart` (시나리오 JSON).
-- **계(契) (Phase 6, Tier 3a — 토대만)**: `lib/services/gye_service.dart` (계 CRUD·6자리 코드·가입한도 3계/계10명·욕설검증, `SharedPackService` 패턴 mirror) + `lib/models/gye.dart` (GyeMeta/Member/FeedEvent/Sticker/Report) + `lib/data/profanity_denylist.dart` (KO/DE/EN 스타터 + `containsProfanity`). `firestore.rules`의 `gye/{gyeId}` 활성화(메타=bearer read·멤버/피드/스티커=멤버전용·append-only). **UI 미구현**(3b 생성/입장·3c 마당+공동한옥·3d 스티커·3e CF·3f 모더레이션 후속).
+- **계(契) (Phase 6·7·8 — 클라 완성 / CF 부분배포)**: `lib/services/gye_service.dart` (CRUD·6자리 코드·한도 3계/계10명·욕설·`sendSticker`·신고·나가기) + `lib/models/gye.dart` + `lib/data/profanity_denylist.dart` (`containsProfanity`) + `lib/services/age_gate_service.dart` (GDPR-K 16세). **UI 6화면 전부 구현**: create/join/gye(마당+공동한옥)/members + 홈 chooser, 스티커(catalog 30·`StickerPicker`·feed 렌더), `weekly_goal_bar`·`gye_hanok`·`gye_feed`. `firestore.rules` `gye/{gyeId}` 활성(멤버/계장/active/admin 게이트·reports collectionGroup·append-only). **CF `functions/gye/index.js`(v2/2nd gen, europe-west3) 3함수 코드 완성** — `on_pack_cleared`·`weekly_goal_rollover`·`on_report_created`. ✅ **배포(2026-06-05): CF 4종 전부 europe-west3·2nd gen·nodejs22·ACTIVE** — 계 자동집계(`on_pack_cleared`)·자동정지(`on_report_created`)·주간롤오버 프로덕션 작동. 미검증(Jin): 2계정 실동작 E2E·FCM 실도달·rules 재배포·admin claim. 상세 = 2026-06-05 세션로그.
 
 ### Sori 디자인 시스템 (`lib/widgets/sori/`)
 - `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`, **`SoriBreakpoints`(content=480·grid=600 반응형 폭 클램프)**
@@ -312,7 +312,37 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
-### 2026-06-04 (구현 감사 + Phase 7·8·9 구현 + FCM + admin) — 미커밋
+### 2026-06-05 (스티커/계 백엔드 검증 + 배포 실측 + 문서 정정) — 미커밋(문서만)
+
+**범위:** Jin "스티커 코드 미구현이 무슨 뜻? 우리 스티커 코드 아무것도 없는 거야?" → 스티커/계(契) 백엔드 실태 전수 검증 + 문서 최종 업데이트.
+
+**스티커 오해 해소(§0, 실코드 Read):** "코드 미구현"은 **틀린 표현**. 스티커는 **완전 구현**됨 — `lib/data/sticker_catalog.dart`(30종=6카테고리×5: 호랑이·까치·단청·한글·음식·도장), `lib/widgets/sori/sticker_picker.dart`(6탭 그리드 `StickerPicker`), `GyeService.sendSticker`([gye_service.dart:341](lib/services/gye_service.dart) 실제 Firestore `feed` append + 분당10 인메모리 레이트), `gye_screen.dart` FAB 진입, `gye_feed.dart` 스티커 이미지 렌더. **단 독립기능 아님 — 계(契) 그룹 안에서만 동작**(계 만들기/입장 → 마당 FAB → 전송 → 피드). 옛 메모("stickers 19 전송 기능 없음")가 같은 날 Tier 3d 구현으로 뒤집힌 걸 표가 못 따라잡은 stale.
+
+**계(契) 백엔드 코드(✅ 전부 구현·커밋·푸시 — `git status` clean, 로컬 main == origin/main):**
+- 클라: `gye_service.dart`(CRUD·6자리코드·욕설·스티커·신고·나가기)·`models/gye.dart`·screens 6(create/join/gye/members + 홈 chooser)·`age_gate_service.dart`(GDPR-K 16세).
+- 보안: `firestore.rules` gye 블록(멤버/계장/active/admin 게이트·reports collectionGroup·append-only) + `firestore.indexes.json`(reports.createdAt collectionGroup).
+- CF: **`functions/gye/index.js`(v2/2nd gen, region europe-west3 고정, node22)** — 3함수(on_pack_cleared·weekly_goal_rollover·on_report_created) + pruneFeed·pushToGyeMembers. `firebase.json` codebase `gye-firebase-functions` 등록. (옛 `main.py`는 Node 전환 완료 — 커밋 d0acb9c·baf3de1. `functions/gye/__pycache__`만 잔재.)
+- FCM: `push_service.dart` + `main.dart:103` init + `firebase_messaging ^15.1.3`. admin: `tools/admin/index.html`+README. 테스트: `gye_service_test`(7)·`age_gate_test`(7) — 순수 로직만.
+
+**🟢 배포(`firebase functions:list --project ko-lernen-app`, 2026-06-05):**
+> 본 세션 1차 실측(이른 시점)엔 `on_pack_cleared`·`on_report_created` 미배포 + `weekly_goal_rollover` 구버전(v1/node20)만 떠있었음 → **Jin이 그 직후 `cd functions/gye && firebase deploy --only functions` 실행** → 재확인 결과 **4종 전부 v2·nodejs22·europe-west3·ACTIVE**:
+
+| 함수 | Trigger | 상태 |
+|---|---|---|
+| `analyze_korean_text` | https | ✅ v2/python312 — 책 한 컷 번역·단어추출 LIVE |
+| `on_pack_cleared` | firestore.written | ✅ v2/node22 — 팩클리어→계 주간목표 집계 LIVE |
+| `on_report_created` | firestore.created | ✅ v2/node22 — 신고 3명→자동정지 LIVE |
+| `weekly_goal_rollover` | scheduled | ✅ v2/node22 (Cloud Scheduler ENABLED) |
+
+> **계 자동집계·자동정지·주간 롤오버가 프로덕션에서 실제 작동.** 스티커 질문에서 출발했지만 검증 중 발견한 계 CF 배포 갭(트리거 2함수 누락·rollover 구버전)을 Jin이 즉시 재배포로 해소한 게 본 세션 실익.
+
+**여전히 미검증(코드/CLI 판정 불가 — Jin/콘솔/실기기 §0):** ① rules 최신본 배포 여부(1d74d0b 이후 `isAdmin`/`isActiveGyeMember` 추가 → 재배포 권장) ② 2계정 Firestore 실동작(생성·입장·집계·신고 suspend) ③ rules 에뮬레이터 ④ FCM 실도달(iOS APNs enable) ⑤ admin custom claim + collectionGroup 인덱스 실배포 ⑥ age-gate 시각.
+
+**문서 정정:** 본 항목 추가 + 파일맵 §계 "Tier 3a 토대만/UI 미구현" → "클라 완성·CF 4종 배포 완료" + `docs/ROADMAP_TO_LAUNCH_2026-06-04.md`·`IMPLEMENTATION_AUDIT_2026-06-04.md` 배포완료 반영(Jin 동시 편집 포함, 내가 놓친 AUDIT line 19·139 보강). 직전 2026-06-04 항목 "미커밋"도 stale 정정.
+
+**Git push:** 미수행 (문서만 변경 — Jin 확인 후).
+
+### 2026-06-04 (구현 감사 + Phase 7·8·9 구현 + FCM + admin) — 커밋·푸시 완료(~baf3de1)
 
 **범위:** Jin "stately-rising-jongga 플랜 전부 구현됐는지 + 모든 md ↔ 코드 1:1 감사 파일 + 상용화 방향" → 이후 "phase 7부터 step by step" → "FCM·admin·커밋·로그 전부".
 
