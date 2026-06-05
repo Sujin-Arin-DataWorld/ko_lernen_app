@@ -48,6 +48,16 @@
             </intent-filter>
         </receiver>
 
+        <!-- Phase 5 — image_cropper (UCrop). PFLICHT-Registrierung: ohne diese
+             Activity hängt/crasht der Zuschneide-Schritt von „책 한 컷" nach
+             dem Foto (Endlos-Spinner). Theme kommt aus androidx.appcompat
+             (transitiv via image_cropper → ucrop). -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <!-- AdMob ist in v1.0.0 nicht aktiv (Plugin in pubspec.yaml deaktiviert,
              ad_service.dart ist ein Stub). Bei Reaktivierung in v1.1+:
              entweder echte App-ID hier eintragen und google_mobile_ads in

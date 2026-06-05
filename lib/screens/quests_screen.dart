@@ -4,11 +4,14 @@ import '../data/quest_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/quest.dart';
 import '../services/quest_tracker.dart';
+import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/celebration.dart';
 import '../widgets/sori/decoration_layer.dart' show kAvailableDecorations;
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -43,13 +46,36 @@ class _QuestsScreenState extends State<QuestsScreen> {
       _error = null;
     });
     try {
+      // 로드 전 기존 완료 퀘스트 기록
+      final prevCompletions = Map<String, String>.from(
+        Storage.questCompletions,
+      );
+
       final list = await QuestTracker.computeAll();
       await QuestTracker.persistNewCompletions(list);
       if (!mounted) return;
+
+      // 새로 완료된 퀘스트 감지
+      final newlyCompleted = <QuestProgress>[];
+      for (final quest in list) {
+        if (quest.completed &&
+            !prevCompletions.containsKey(quest.questId)) {
+          newlyCompleted.add(quest);
+        }
+      }
+
       setState(() {
         _quests = list;
         _loading = false;
       });
+
+      // 새로 완료된 퀘스트마다 축하 연출
+      for (final quest in newlyCompleted) {
+        if (mounted) {
+          await _showQuestCompletionCelebration(quest);
+          await Future.delayed(const Duration(milliseconds: 600));
+        }
+      }
     } catch (e) {
       if (!mounted) return;
       setState(() {
@@ -57,6 +83,29 @@ class _QuestsScreenState extends State<QuestsScreen> {
         _error = e.toString();
       });
     }
+  }
+
+  Future<void> _showQuestCompletionCelebration(
+    QuestProgress quest,
+  ) async {
+    if (!mounted) return;
+
+    final def = kQuestById[quest.questId];
+    if (def == null) return;
+
+    final lang = Localizations.localeOf(context).languageCode;
+    final isEn = lang == 'en';
+    final questName = isEn ? def.name.en : def.name.de;
+
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) => _QuestCompletionCelebration(
+        questName: questName,
+        decorationSlug: def.decorationSlug,
+        quest: quest,
+      ),
+    );
   }
 
   @override
@@ -382,6 +431,137 @@ class _RewardThumb extends StatelessWidget {
                 errorBuilder: (_, __, ___) => giftIcon,
               )
             : giftIcon,
+      ),
+    );
+  }
+}
+
+/// 퀘스트 완료 축하 다이얼로그 — 3단 시퀀스.
+/// (1) 까치 박수 (2) 마당 장식 이미지 + 반짝임 (3) 자동 닫기
+class _QuestCompletionCelebration extends StatefulWidget {
+  final String questName;
+  final String decorationSlug;
+  final QuestProgress quest;
+
+  const _QuestCompletionCelebration({
+    required this.questName,
+    required this.decorationSlug,
+    required this.quest,
+  });
+
+  @override
+  State<_QuestCompletionCelebration> createState() =>
+      _QuestCompletionCelebrationState();
+}
+
+class _QuestCompletionCelebrationState
+    extends State<_QuestCompletionCelebration>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _ctrl;
+  int _phase = 0; // 0=마스코트, 1=장식 + 반짝임, 2=끝
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(vsync: this);
+    _playSequence();
+  }
+
+  Future<void> _playSequence() async {
+    if (!mounted) return;
+    // Phase 1: 까치 박수 (1.2s)
+    setState(() => _phase = 0);
+    await Future.delayed(const Duration(milliseconds: 1200));
+    if (!mounted) return;
+
+    // Phase 2: 장식 + 반짝임 (1.5s)
+    setState(() => _phase = 1);
+    SoriCelebration.burst(context);
+    await Future.delayed(const Duration(milliseconds: 1500));
+    if (!mounted) return;
+
+    // Phase 3: 자동 닫기
+    Navigator.of(context).pop();
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final giftIcon = Icon(
+      Icons.card_giftcard_rounded,
+      size: 48,
+      color: SoriColors.success,
+    );
+
+    return Dialog(
+      backgroundColor: s.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(SoriRadius.lg),
+      ),
+      child: Container(
+        padding: const EdgeInsets.all(Spacing.lg),
+        constraints: const BoxConstraints(maxWidth: 300),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Phase 1: 마스코트 박수
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: _phase == 0
+                  ? SizedBox(
+                      height: 100,
+                      key: const ValueKey(0),
+                      child: Center(
+                        child: Mascot(
+                          kind: MascotKind.magpie,
+                          emotion: MascotEmotion.celebrate,
+                          size: 80,
+                          animate: true,
+                        ),
+                      ),
+                    )
+                  : SizedBox(
+                      height: 100,
+                      key: const ValueKey(1),
+                      child: Center(
+                        child: kAvailableDecorations
+                                .contains(widget.decorationSlug)
+                            ? Image.asset(
+                                'assets/illustrations/decorations/${widget.decorationSlug}.png',
+                                fit: BoxFit.contain,
+                                width: 80,
+                                errorBuilder: (_, __, ___) => giftIcon,
+                              )
+                            : giftIcon,
+                      ),
+                    ),
+            ),
+            const SizedBox(height: Spacing.md),
+            Text(
+              widget.questName,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(
+              AppL10n.of(context).questsCompletionCelebration,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 13,
+                color: s.textMuted,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

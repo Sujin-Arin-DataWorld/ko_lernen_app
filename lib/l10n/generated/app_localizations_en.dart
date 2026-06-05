@@ -1208,6 +1208,10 @@ class AppL10nEn extends AppL10n {
   String get questsSeasonalBadge => 'Season';
 
   @override
+  String get questsCompletionCelebration =>
+      'New courtyard decoration unlocked!';
+
+  @override
   String get hanokCinematicIntro => 'Your hanok is growing —';
 
   @override

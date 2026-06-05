@@ -1210,6 +1210,9 @@ class AppL10nDe extends AppL10n {
   String get questsSeasonalBadge => 'Saison';
 
   @override
+  String get questsCompletionCelebration => 'Neue Hofmöbel freigeschaltet!';
+
+  @override
   String get hanokCinematicIntro => 'Dein Hanok wächst —';
 
   @override

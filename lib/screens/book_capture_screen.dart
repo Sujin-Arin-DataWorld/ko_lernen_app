@@ -115,8 +115,15 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
       final file = File(cropped.path);
 
-      // OCR
-      final ocr = await SnapOcrService.recognizeKorean(file);
+      // OCR — erster Aufruf lädt das ML-Kit-Korean-Modell herunter (kann
+      // dauern). Endlos-Spinner vermeiden: 45s Timeout → Fehlerkarte.
+      final ocr = await SnapOcrService.recognizeKorean(file).timeout(
+        const Duration(seconds: 45),
+        onTimeout: () => OcrResult.failure(
+          reason: OcrFailure.engineError,
+          message: 'timeout',
+        ),
+      );
       if (!ocr.isSuccess) {
         setState(() {
           _busy = false;

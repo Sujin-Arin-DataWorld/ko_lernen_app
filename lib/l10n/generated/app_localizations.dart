@@ -2311,6 +2311,12 @@ abstract class AppL10n {
   /// **'Saison'**
   String get questsSeasonalBadge;
 
+  /// No description provided for @questsCompletionCelebration.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Hofmöbel freigeschaltet!'**
+  String get questsCompletionCelebration;
+
   /// No description provided for @hanokCinematicIntro.
   ///
   /// In de, this message translates to:

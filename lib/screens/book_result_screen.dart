@@ -15,6 +15,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/wordbook_add.dart';
 
 /// Phase 5 (stately-rising-jongga) — Analysis-Result Screen.
 ///
@@ -354,6 +355,16 @@ class _WordCard extends StatelessWidget {
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.w800),
                 ),
+              ),
+              AddToWordbookButton(
+                korean: word.korean,
+                translationDe: word.translationDe,
+                translationEn: word.translationEn,
+                romanization: word.romanization,
+                posDe: word.posDe,
+                exampleKorean: word.exampleKorean,
+                exampleDe: word.exampleDe,
+                compact: true,
               ),
               IconButton(
                 visualDensity: VisualDensity.compact,

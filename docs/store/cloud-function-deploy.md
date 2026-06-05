@@ -1,7 +1,7 @@
 # Cloud Function 배포 런북 — `analyze_korean_text` (책 한 컷)
 
-> 작성 2026-06-02. 사진→단어/문법/예문 분석 백엔드를 배포한다.
-> 함수 코드는 완성 상태: **kiwipiepy(순수 Python)** + **DeepL** 번역 + **우리말샘(NIKL)** 정의.
+> 작성 2026-06-02 (갱신 2026-06-04: 우리말샘/사전 정의 비사용 — 정확도 미달로 제외). 사진→단어/문법/예문 분석 백엔드를 배포한다.
+> 함수 코드는 완성 상태: **kiwipiepy(순수 Python)** 형태소 분석 + **DeepL** 번역.
 > 코드가 `@functions_framework.http` (GCP 네이티브) 스타일이라 **`gcloud` 배포**가 정석이다.
 > (`firebase deploy --only functions` 는 `firebase_functions` SDK 래퍼가 필요 → 코드 수정 유발하므로 권장 안 함.)
 
@@ -14,12 +14,13 @@ gcloud services enable run.googleapis.com cloudfunctions.googleapis.com \
 ```
 
 ## 1. API 키 확인 (커밋 금지 — `.env*` 는 gitignore됨)
-`functions/analyze_korean_text/.env` 에 **실제** 키 2개가 있는지 확인:
+`functions/analyze_korean_text/.env` 에 **DeepL 키**가 있는지 확인:
 ```bash
 grep -oE '^[A-Z_]+=' functions/analyze_korean_text/.env   # 변수명만 (값 비표시)
 ```
-`DEEPL_API_KEY=` 와 `URIMALSAEM_API_KEY=` 가 있어야 하고, **값이 `.env.example` 의 placeholder 가 아니라 이번에 발급한 실제 키**인지 직접 확인. (현재 두 값 모두 채워져 있음.)
-> ⚠️ DeepL 키가 이 세션 대화에 평문 노출됨 → 배포·검증 후 **DeepL 무료키 재발급** 권장.
+`DEEPL_API_KEY=` 가 있고, **값이 `.env.example` 의 placeholder 가 아니라 실제 발급 키**인지 직접 확인.
+> `URIMALSAEM_API_KEY`·`STDICT_API_KEY` 가 남아 있어도 무방 — 현재 코드는 사전 정의(`definitionKo`)를 호출하지 않아 **미사용**이다(§3 참조). 런타임 영향 없음.
+> ⚠️ DeepL 키가 과거 세션 대화에 평문 노출됨 → 배포·검증 후 **DeepL 무료키 재발급** 권장.
 
 ## 2. 배포 (Gen2)
 ```bash
@@ -46,7 +47,8 @@ gcloud functions describe analyze_korean_text --region=europe-west3 --gen2 \
 curl -X POST '<배포-URL>' -H 'Content-Type: application/json' \
   -d '{"text":"저는 학생이에요. 오늘 날씨가 좋아요.","lang":"de"}'
 ```
-기대: `{"words":[…],"grammar":[…],"sentences":[…],"warnings":[]}` — words 에 `translation`(독일어)·`definitionKo`(우리말샘) 채워짐. 빈 `translation` → DeepL 키 문제. 빈 `definitionKo` → 우리말샘 키 문제(비치명적).
+기대: `{"words":[…],"grammar":[…],"sentences":[…],"warnings":[]}` — words 에 `translation`(독일어) 채워짐. 빈 `translation` → DeepL 키 문제.
+> `definitionKo` 필드는 응답 스키마 유지를 위해 남아 있으나 **항상 빈 문자열**이다 — NIKL 사전 API(우리말샘·표준국어대사전)가 동음이의어의 "대표 뜻"을 안정적으로 주지 못해(정확도 미달) 비활성화([main.py](../../functions/analyze_korean_text/main.py) `enrich_definitions` 주석). 클라이언트는 빈 값이면 자동 숨김 → 정상.
 
 ## 4. 앱에 endpoint 연결
 `lib/main.dart` 는 이미 3단계로 endpoint 를 정함: **Settings 저장값 > `--dart-define` > 기본값(`europe-west3-ko-lernen-app.cloudfunctions.net/...`)**.
@@ -93,5 +95,5 @@ cd functions/gye && npm install && npm run smoke
 
 ## 비용 / 한도
 - kiwipiepy: 순수 Python, cold start 수 초. Gen2 기본 메모리(256MB)로 충분(필요 시 `--memory=512Mi`).
-- DeepL Free: 500k 자/월. 우리말샘: 무료.
+- DeepL Free: 500k 자/월.
 - 클라이언트 일일 20장 제한(`kBookSnapDailyLimit`).
