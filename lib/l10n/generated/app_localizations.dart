@@ -2071,6 +2071,18 @@ abstract class AppL10n {
   /// **'Noch leer — knack ein Pack und mach den Anfang!'**
   String get gyeDureEmpty;
 
+  /// No description provided for @gyeChallengeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle dabei?'**
+  String get gyeChallengeTitle;
+
+  /// No description provided for @gyeChallengeDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle dabei! 🔥'**
+  String get gyeChallengeDone;
+
   /// No description provided for @dureTitleDuru.
   ///
   /// In de, this message translates to:
@@ -2172,6 +2184,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wochenziel erreicht! 🎉 Euer Hanok wächst.'**
   String get gyeFeedGoalAchieved;
+
+  /// No description provided for @gyeFeedGoalAchievedMvp.
+  ///
+  /// In de, this message translates to:
+  /// **'Wochenziel erreicht! 🎉 {packs} Packs · MVP {mvp}'**
+  String gyeFeedGoalAchievedMvp(int packs, Object mvp);
 
   /// No description provided for @gyeStickerSend.
   ///

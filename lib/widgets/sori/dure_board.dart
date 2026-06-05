@@ -13,6 +13,7 @@ import 'tokens.dart';
 /// - 개인 기여는 **하나의 막대를 색 세그먼트로 함께 채운다** (분리된 경쟁 막대 X)
 /// - 범례에 **순위 숫자·등수 없음** — 대신 **칭호**(든든이/새내기/새싹/일꾼, 비위계)
 /// - **다른 계원 칩 탭 → 응원**(정형 격려, 3픽 리텐션 훅)
+/// - **전원 참여 챌린지**(5픽): 모두가 1팩+ 하면 🔥 (협력 강조)
 /// - 강등·꼴등 낙인 없음 — 쌓기만
 class DureBoard extends StatelessWidget {
   final String gyeId;
@@ -115,6 +116,9 @@ class DureBoard extends StatelessWidget {
         final contributors =
             members.where((m) => m.weeklyPacksContributed > 0).toList();
         final now = DateTime.now();
+        // 5픽: 전원 참여 챌린지 (모두 1팩+).
+        final allIn =
+            members.isNotEmpty && contributors.length == members.length;
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,13 +210,46 @@ class DureBoard extends StatelessWidget {
                       title: dureTitleFor(m, members, now: now),
                       titleLabel:
                           _titleLabel(t, dureTitleFor(m, members, now: now)),
-                      // 본인 외 멤버는 탭하면 응원 시트
                       onTap: m.uid == myUid
                           ? null
                           : () => _showCheerSheet(context, m.uid, m.nickname),
                     ),
                 ],
               ),
+            // 5픽: 전원 참여 챌린지 줄
+            if (members.isNotEmpty) ...[
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  Icon(
+                    allIn
+                        ? Icons.local_fire_department_rounded
+                        : Icons.groups_outlined,
+                    size: 14,
+                    color: allIn ? SoriColors.tiger : s.textMuted,
+                  ),
+                  const SizedBox(width: 5),
+                  Expanded(
+                    child: Text(
+                      allIn ? t.gyeChallengeDone : t.gyeChallengeTitle,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: allIn ? FontWeight.w800 : FontWeight.w600,
+                        color: allIn ? SoriColors.tiger : s.textMuted,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '${contributors.length}/${members.length}',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w800,
+                      color: allIn ? SoriColors.tiger : s.textMuted,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ],
         );
       },
@@ -290,7 +327,6 @@ class _MemberChip extends StatelessWidget {
             style: TextStyle(
                 fontSize: 12, fontWeight: FontWeight.w800, color: color),
           ),
-          // 응원 가능(본인 외) 표시
           if (onTap != null) ...[
             const SizedBox(width: 4),
             Icon(Icons.volunteer_activism_outlined,

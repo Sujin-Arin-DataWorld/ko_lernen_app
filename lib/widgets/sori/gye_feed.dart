@@ -66,7 +66,13 @@ class GyeFeed extends StatelessWidget {
         GyeFeedType.packCleared => t.gyeFeedPackCleared(e.actorNickname),
         GyeFeedType.questCompleted => t.gyeFeedQuest(e.actorNickname),
         GyeFeedType.levelUp => t.gyeFeedLevelUp(e.actorNickname),
-        GyeFeedType.goalAchieved => t.gyeFeedGoalAchieved,
+        GyeFeedType.goalAchieved =>
+          (e.payload['mvp'] as String?)?.isNotEmpty == true
+              ? t.gyeFeedGoalAchievedMvp(
+                  (e.payload['progress'] as num?)?.toInt() ?? 0,
+                  e.payload['mvp'] as String,
+                )
+              : t.gyeFeedGoalAchieved,
         GyeFeedType.sticker => t.gyeFeedSticker(e.actorNickname),
         GyeFeedType.cheer =>
           '${e.actorNickname} → ${(e.payload['targetNickname'] as String?) ?? ''}  ${_cheerText(t, (e.payload['cheerCode'] as num?)?.toInt() ?? 1)}',

@@ -1078,6 +1078,12 @@ class AppL10nDe extends AppL10n {
   String get gyeDureEmpty => 'Noch leer — knack ein Pack und mach den Anfang!';
 
   @override
+  String get gyeChallengeTitle => 'Alle dabei?';
+
+  @override
+  String get gyeChallengeDone => 'Alle dabei! 🔥';
+
+  @override
   String get dureTitleDuru => 'Stütze';
 
   @override
@@ -1137,6 +1143,11 @@ class AppL10nDe extends AppL10n {
   @override
   String get gyeFeedGoalAchieved =>
       'Wochenziel erreicht! 🎉 Euer Hanok wächst.';
+
+  @override
+  String gyeFeedGoalAchievedMvp(int packs, Object mvp) {
+    return 'Wochenziel erreicht! 🎉 $packs Packs · MVP $mvp';
+  }
 
   @override
   String get gyeStickerSend => 'Sticker senden';

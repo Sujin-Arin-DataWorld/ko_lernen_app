@@ -97,6 +97,19 @@ exports.weekly_goal_rollover = onSchedule(
         const achieved = goal > 0 && progress >= goal; // 100%+
         const boost = goal > 0 && progress >= Math.ceil(goal * 0.7); // 70%+
 
+        // 4픽 회고: MVP(이번 주 최다 기여자) — reset 전에 계산.
+        const membersSnapshot = await gref.collection("members").get();
+        let mvp = "";
+        let mvpPacks = 0;
+        for (const mdoc of membersSnapshot.docs) {
+          const c = parseInt(
+            (mdoc.data() || {}).weeklyPacksContributed || 0, 10);
+          if (c > mvpPacks) {
+            mvpPacks = c;
+            mvp = (mdoc.data() || {}).nickname || "";
+          }
+        }
+
         const batch = db.batch();
         const metaUpdate = { weeklyGoalProgress: 0, xpBoostActive: boost };
         if (achieved) {
@@ -106,13 +119,12 @@ exports.weekly_goal_rollover = onSchedule(
             type: "goal_achieved",
             actorUid: "",
             actorNickname: "",
-            payload: { goal, progress },
+            payload: { goal, progress, mvp, mvpPacks },
             createdAt: admin.firestore.FieldValue.serverTimestamp(),
           });
         }
         batch.update(gref, metaUpdate);
 
-        const membersSnapshot = await gref.collection("members").get();
         for (const mdoc of membersSnapshot.docs) {
           batch.update(mdoc.ref, { weeklyPacksContributed: 0 });
         }
