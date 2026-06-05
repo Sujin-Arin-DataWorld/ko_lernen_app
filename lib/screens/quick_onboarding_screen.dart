@@ -59,9 +59,9 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
     final sessionCount = (Storage.sessionCount) + 1;
     Storage.setSessionCount(sessionCount);
 
-    // 홈으로
+    // 캐릭터 선택으로
     if (mounted) {
-      Navigator.of(context).pushReplacementNamed('/');
+      Navigator.of(context).pushReplacementNamed('/character_selection');
     }
   }
 

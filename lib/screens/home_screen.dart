@@ -27,6 +27,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/streak_display.dart';
 import '../widgets/sori/tiger_stage_rive.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -528,53 +529,70 @@ class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return Row(
+    final streak = Storage.streakDays;
+    final lastActivity = Storage.lastActivityTime;
+    final lastActivityDt = lastActivity.isNotEmpty
+        ? DateTime.parse(lastActivity)
+        : DateTime.now().subtract(const Duration(days: 1));
+
+    return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.asset(
-            'assets/icons/icon-192.png',
-            width: 36,
-            height: 36,
-            fit: BoxFit.cover,
-          ),
-        ),
-        const SizedBox(width: Spacing.sm),
-        // 좁은 폰(≤320px)에서 브랜드명이 액션 버튼과 충돌해 넘치지 않도록 Expanded
-        // + ellipsis. 넓은 화면에선 자연폭이라 기존 룩(좌 텍스트·우 버튼) 동일.
-        Expanded(
-          child: Text(
-            'Hangul Sori',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 16,
-              fontWeight: FontWeight.w900,
-              color: s.text,
-              letterSpacing: -0.3,
+        Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                'assets/icons/icon-192.png',
+                width: 36,
+                height: 36,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Text(
+                'Hangul Sori',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 16,
+                  fontWeight: FontWeight.w900,
+                  color: s.text,
+                  letterSpacing: -0.3,
+                ),
+              ),
+            ),
+            if (streak > 0)
+              Padding(
+                padding: const EdgeInsets.only(right: Spacing.sm),
+                child: StreakDisplay(
+                  days: streak,
+                  lastActivity: lastActivityDt,
+                ),
+              ),
+            _RoundIconButton(
+              icon: Icons.groups_2_outlined,
+              onTap: () => showGyeChooser(context),
+            ),
+            const SizedBox(width: Spacing.xs),
+            _RoundIconButton(
+              icon: Icons.person_outline_rounded,
+              onTap: () => Navigator.pushNamed(context, '/profile'),
+            ),
+            const SizedBox(width: Spacing.xs),
+            _RoundIconButton(
+              icon: Icons.bar_chart_rounded,
+              onTap: () => Navigator.pushNamed(context, '/stats'),
+            ),
+            const SizedBox(width: Spacing.xs),
+            _RoundIconButton(
+              icon: Icons.settings_outlined,
+              onTap: () => Navigator.pushNamed(context, '/settings'),
+            ),
+          ],
         ),
-        _RoundIconButton(
-          icon: Icons.groups_2_outlined,
-          onTap: () => showGyeChooser(context),
-        ),
-        const SizedBox(width: Spacing.xs),
-        _RoundIconButton(
-          icon: Icons.person_outline_rounded,
-          onTap: () => Navigator.pushNamed(context, '/profile'),
-        ),
-        const SizedBox(width: Spacing.xs),
-        _RoundIconButton(
-          icon: Icons.bar_chart_rounded,
-          onTap: () => Navigator.pushNamed(context, '/stats'),
-        ),
-        const SizedBox(width: Spacing.xs),
-        _RoundIconButton(
-          icon: Icons.settings_outlined,
-          onTap: () => Navigator.pushNamed(context, '/settings'),
-        ),
+        const SizedBox(height: Spacing.lg),
       ],
     );
   }

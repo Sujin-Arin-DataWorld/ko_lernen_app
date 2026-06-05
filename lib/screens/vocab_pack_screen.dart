@@ -20,6 +20,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/feature_coach.dart';
+import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/tokens.dart';
@@ -602,55 +603,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 children: List.generate(choices.length, (i) {
                   final text = choices[i];
                   final isCorrect = text == cur.german;
-                  Color accent = s.text;
-                  Color bg = s.surface;
-                  if (_choiceLocked) {
-                    if (isCorrect) {
-                      accent = SoriColors.success;
-                      bg = SoriColors.success.withValues(alpha: 0.12);
-                    } else if (i == _selectedChoice) {
-                      accent = SoriColors.danger;
-                      bg = SoriColors.danger.withValues(alpha: 0.12);
-                    }
-                  }
+                  final isSelected = i == _selectedChoice && _choiceLocked;
+
                   return Padding(
                     padding: const EdgeInsets.only(bottom: Spacing.sm),
-                    child: Material(
-                      color: bg,
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(SoriRadius.md),
-                        onTap: _choiceLocked ? null : () => _selectChoice(i),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: accent.withValues(alpha: 0.4)),
-                            borderRadius: BorderRadius.circular(SoriRadius.md),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: Spacing.lg, vertical: Spacing.md),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  text,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    color: accent,
-                                  ),
-                                ),
-                              ),
-                              if (_choiceLocked && isCorrect)
-                                const Icon(Icons.check_circle,
-                                    color: SoriColors.success),
-                              if (_choiceLocked &&
-                                  i == _selectedChoice &&
-                                  !isCorrect)
-                                const Icon(Icons.cancel, color: SoriColors.danger),
-                            ],
-                          ),
-                        ),
-                      ),
+                    child: QuizChoice(
+                      text: text,
+                      isCorrect: isCorrect,
+                      isSelected: isSelected,
+                      onSelected: () => _selectChoice(i),
                     ),
                   );
                 }),
