@@ -1084,7 +1084,7 @@ class AppL10nDe extends AppL10n {
   String get dureTitleNewcomer => 'Neu dabei';
 
   @override
-  String get dureTitleSprout => 'Frischling';
+  String get dureTitleSprout => 'Spross';
 
   @override
   String get dureTitleHelper => 'Mit dabei';

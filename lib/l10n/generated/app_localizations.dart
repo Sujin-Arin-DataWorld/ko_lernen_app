@@ -2086,7 +2086,7 @@ abstract class AppL10n {
   /// No description provided for @dureTitleSprout.
   ///
   /// In de, this message translates to:
-  /// **'Frischling'**
+  /// **'Spross'**
   String get dureTitleSprout;
 
   /// No description provided for @dureTitleHelper.
