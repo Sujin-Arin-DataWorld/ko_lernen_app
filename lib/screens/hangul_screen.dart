@@ -219,9 +219,14 @@ class _DetailSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     // 중앙 다이얼로그: 화면 정중앙 → 시스템바에 안 걸림(기기 무관 동일).
     // SingleChildScrollView → 설명이 길거나 글자배율이 커도 스크롤(오버플로 0).
+    // insetPadding responsive — 좁은 폰(width < 360) 대비.
+    final screenWidth = MediaQuery.sizeOf(context).width;
     return Dialog(
       backgroundColor: SoriColors.darkSurface,
-      insetPadding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+      insetPadding: EdgeInsets.symmetric(
+        horizontal: screenWidth < 360 ? 16 : 32,
+        vertical: 24,
+      ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
       child: SingleChildScrollView(
         child: Padding(

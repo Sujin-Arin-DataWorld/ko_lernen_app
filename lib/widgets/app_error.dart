@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/generated/app_localizations.dart';
 import 'sori/motion.dart';
 import 'sori/tokens.dart';
 
@@ -25,6 +26,7 @@ class AppError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
@@ -58,7 +60,7 @@ class AppError extends StatelessWidget {
                 FilledButton.icon(
                   onPressed: onRetry,
                   icon: const Icon(Icons.refresh),
-                  label: Text(retryLabel ?? 'Erneut versuchen'),
+                  label: Text(retryLabel ?? t.btnRetry),
                 ),
               ],
             ],

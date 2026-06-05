@@ -131,118 +131,116 @@ class _BookResultScreenState extends State<BookResultScreen> {
       ),
       body: SafeArea(
         child: LayoutBuilder(
-          builder: (context, constraints) => ListView(
-          padding: soriClampPadding(
-            constraints.maxWidth,
-            base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-          ),
-          children: [
-            Center(
-              child: r.words.isNotEmpty
-                  ? Image.asset(
-                      'assets/illustrations/book/book_success.png',
-                      height: 150,
-                      fit: BoxFit.contain,
-                      errorBuilder: (_, __, ___) => const Mascot(
-                        kind: MascotKind.tiger,
-                        emotion: MascotEmotion.celebrate,
-                        size: 96,
-                      ),
-                    )
-                  : const Mascot(
-                      kind: MascotKind.tiger,
-                      emotion: MascotEmotion.thinking,
-                      size: 96,
-                    ),
+          builder: (context, constraints) => SingleChildScrollView(
+            padding: soriClampPadding(
+              constraints.maxWidth,
+              base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
             ),
-            const SizedBox(height: Spacing.sm),
-            Center(
-              child: Text(
-                t.bookResultFoundN(r.words.length),
-                style: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.w800),
-              ),
-            ),
-            const SizedBox(height: Spacing.lg),
-
-            if (offlineStub) ...[
-              SoriCard(
-                variant: SoriCardVariant.compact,
-                accent: SoriColors.warning,
-                tinted: true,
-                child: Row(
-                  children: [
-                    const Icon(Icons.cloud_off_outlined,
-                        color: SoriColors.warning, size: 18),
-                    const SizedBox(width: Spacing.sm),
-                    Expanded(
-                      child: Text(
-                        t.bookResultOfflineNotice,
-                        style: TextStyle(fontSize: 12, color: s.textMuted),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: Spacing.md),
-            ],
-
-            // 단어 카드
-            if (r.words.isNotEmpty) ...[
-              _SectionLabel(label: t.bookResultSectionWords),
-              ...r.words.map((w) => _WordCard(word: w)),
-              const SizedBox(height: Spacing.lg),
-            ],
-
-            // 문법 패턴
-            if (r.grammar.isNotEmpty) ...[
-              _SectionLabel(label: t.bookResultSectionGrammar),
-              ...r.grammar.map((g) => _GrammarCard(hit: g)),
-              const SizedBox(height: Spacing.lg),
-            ],
-
-            // 문장
-            if (r.sentences.isNotEmpty) ...[
-              _SectionLabel(label: t.bookResultSectionSentences),
-              ...r.sentences.take(8).map((s) => _SentenceCard(sentence: s)),
-              const SizedBox(height: Spacing.lg),
-            ],
-
-            const SizedBox(height: Spacing.md),
-            if (!_saved)
-              SoriButton(
-                label: t.bookResultSave,
-                icon: Icons.bookmark_add_outlined,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.primary,
-                fullWidth: true,
-                onTap: _save,
-              )
-            else ...[
-              if (r.words.isNotEmpty) ...[
-                SoriButton(
-                  label: t.bookshelfCreatePackCta,
-                  icon: Icons.style_outlined,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.primary,
-                  fullWidth: true,
-                  onTap: () => _createCustomPack(t),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: r.words.isNotEmpty
+                      ? Image.asset(
+                          'assets/illustrations/book/book_success.png',
+                          height: 150,
+                          fit: BoxFit.contain,
+                          errorBuilder: (_, __, ___) => const Mascot(
+                            kind: MascotKind.tiger,
+                            emotion: MascotEmotion.celebrate,
+                            size: 96,
+                          ),
+                        )
+                      : const Mascot(
+                          kind: MascotKind.tiger,
+                          emotion: MascotEmotion.thinking,
+                          size: 96,
+                        ),
                 ),
                 const SizedBox(height: Spacing.sm),
-              ],
-              SoriButton(
-                label: t.bookResultBackToCapture,
-                icon: Icons.add_a_photo_outlined,
-                variant: SoriButtonVariant.outlined,
-                accent: SoriColors.info,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).popUntil(
-                  (r) => r.settings.name == '/book' || r.isFirst,
+                Center(
+                  child: Text(
+                    t.bookResultFoundN(r.words.length),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w800),
+                  ),
                 ),
-              ),
-            ],
-          ],
-        ),
+                const SizedBox(height: Spacing.lg),
+                if (offlineStub) ...[
+                  SoriCard(
+                    variant: SoriCardVariant.compact,
+                    accent: SoriColors.warning,
+                    tinted: true,
+                    child: Row(
+                      children: [
+                        const Icon(Icons.cloud_off_outlined,
+                            color: SoriColors.warning, size: 18),
+                        const SizedBox(width: Spacing.sm),
+                        Expanded(
+                          child: Text(
+                            t.bookResultOfflineNotice,
+                            style: TextStyle(fontSize: 12, color: s.textMuted),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.md),
+                ],
+                // 단어 카드
+                if (r.words.isNotEmpty) ...[
+                  _SectionLabel(label: t.bookResultSectionWords),
+                  ...r.words.map((w) => _WordCard(word: w)),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                // 문법 패턴
+                if (r.grammar.isNotEmpty) ...[
+                  _SectionLabel(label: t.bookResultSectionGrammar),
+                  ...r.grammar.map((g) => _GrammarCard(hit: g)),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                // 문장
+                if (r.sentences.isNotEmpty) ...[
+                  _SectionLabel(label: t.bookResultSectionSentences),
+                  ...r.sentences.take(8).map((s) => _SentenceCard(sentence: s)),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                const SizedBox(height: Spacing.md),
+                if (!_saved)
+                  SoriButton(
+                    label: t.bookResultSave,
+                    icon: Icons.bookmark_add_outlined,
+                    variant: SoriButtonVariant.filled,
+                    accent: SoriColors.primary,
+                    fullWidth: true,
+                    onTap: _save,
+                  )
+                else ...[
+                  if (r.words.isNotEmpty) ...[
+                    SoriButton(
+                      label: t.bookshelfCreatePackCta,
+                      icon: Icons.style_outlined,
+                      variant: SoriButtonVariant.filled,
+                      accent: SoriColors.primary,
+                      fullWidth: true,
+                      onTap: () => _createCustomPack(t),
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                  ],
+                  SoriButton(
+                    label: t.bookResultBackToCapture,
+                    icon: Icons.add_a_photo_outlined,
+                    variant: SoriButtonVariant.outlined,
+                    accent: SoriColors.info,
+                    fullWidth: true,
+                    onTap: () => Navigator.of(context).popUntil(
+                      (r) => r.settings.name == '/book' || r.isFirst,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
         ),
       ),
     );

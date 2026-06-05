@@ -49,9 +49,9 @@ class _TigerStageState extends State<TigerStage>
   static bool _introPlayedThisLaunch = false;
 
   // 걷기 프레임 1장당 체류(ms). pace 컨트롤러 길이도 이 값으로 계산해 동기.
-  static const int _walkMs = 116;
-  // 걷기 프레임 간 크로스페이드(ms). 짧게 — 하드컷 스냅만 완화(과하면 다리 잔상).
-  static const int _walkFade = 46;
+  static const int _walkMs = 110;
+  // 걷기 프레임 간 크로스페이드(ms). 짧게 — 하드컷 스냅만 완화(26ms = 걷기의 ~24% = 자연스러운 수준).
+  static const int _walkFade = 26;
 
   static const List<String> _allFrames = [
     'rest_idle', 'notice_turn', 'notice_front', 'smile_front', 'rise_prep',
@@ -287,6 +287,7 @@ class _TigerStageState extends State<TigerStage>
     }
 
     // 나가기: 정면→측면 전환 후 walk out (0 → dir)
+    // 좌/우 대칭: turn(240ms) → step_out(170ms) → walk_start(120ms) → walk 루프
     await tf(startLeft ? 'turn_left_3q' : 'turn_right_3q', 150, 240);
     if (_disposed || token != _seqToken) {
       return;
@@ -295,12 +296,11 @@ class _TigerStageState extends State<TigerStage>
     if (_disposed || token != _seqToken) {
       return;
     }
-    if (!startLeft) {
-      // 우측만 측면 walk_start 추가 lead-in 보유
-      await tf('walk_start_right', 60, 120);
-      if (_disposed || token != _seqToken) {
-        return;
-      }
+    // 양쪽 모두 walk_start 또는 첫 보를 안정적으로 진입시키기 위해
+    // step_out 후 충분한 settling time(선택적 프레임 없이 지연)
+    await Future<void>.delayed(const Duration(milliseconds: 85));
+    if (_disposed || token != _seqToken) {
+      return;
     }
     await _walkSegment(token, startLeft, 0.0, dir);
     if (_disposed || token != _seqToken) {
@@ -324,12 +324,13 @@ class _TigerStageState extends State<TigerStage>
 
   /// 걷기 한 구간: [faceLeft] 방향 프레임을 [loops]회 하드컷 재생하면서
   /// dx fraction을 [dxFrom]→[dxTo]로 _paceCtrl과 동기 이동.
+  /// loops=3이면 18프레임(1980ms) 걷기로 더 자연스러운 리듬감.
   Future<void> _walkSegment(
     int token,
     bool faceLeft,
     double dxFrom,
     double dxTo, {
-    int loops = 2,
+    int loops = 3,
   }) async {
     final frames = faceLeft ? _walkLeft : _walkRight;
     if (mounted) {
@@ -538,9 +539,10 @@ class _TigerStageState extends State<TigerStage>
               builder: (context, _) {
                 final dx =
                     (_dxFrom + (_dxTo - _dxFrom) * _paceCurve.value) * _span;
-                // 걷는 동안만 미세 상하 bob → 미끄러지듯(ice-skating) 보임 방지.
+                // 걷는 동안만 미세 상하 bob → 발걸음 리듬감(한 발씩 올렸다 내림).
+                // 프레임이 이미 일부 상하 움직임을 포함하므로, bob은 최소한(1.5px)으로 억제.
                 final dy = _paceCtrl.isAnimating
-                    ? -3.0 * math.sin(math.pi * _paceCtrl.value * 4).abs()
+                    ? -1.5 * math.sin(math.pi * _paceCtrl.value * 4)
                     : 0.0;
                 // 상시 미세 호흡 스케일 → 정지 프레임도 죽지 않게.
                 final breath =

@@ -7,6 +7,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/sticker_picker.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/dure_board.dart';
@@ -75,8 +76,9 @@ class GyeScreen extends StatelessWidget {
             ],
           ),
           body: SafeArea(
-            child: Column(
-              children: [
+            child: SoriCenterClamp(
+              child: Column(
+                children: [
                 Padding(
                   padding: const EdgeInsets.all(Spacing.lg),
                   child: DureBoard(
@@ -111,6 +113,7 @@ class GyeScreen extends StatelessWidget {
                   ),
                 ),
               ],
+              ),
             ),
           ),
           floatingActionButton: FloatingActionButton(

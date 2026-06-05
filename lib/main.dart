@@ -211,7 +211,8 @@ class KoLernenApp extends StatelessWidget {
         ),
         // 로고 스플래시(2초) → 솟을대문 인트로 → 온보딩/홈
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
-        initialRoute: '/splash',
+        // TODO: 호랑이 애니메이션 테스트 완료 후 '/splash'로 복구
+        initialRoute: '/',
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/splash':

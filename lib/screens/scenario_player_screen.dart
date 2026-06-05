@@ -275,43 +275,49 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
     return _StageScroll(
       child: Column(
         children: [
-          const SizedBox(height: Spacing.xl),
           _ScenarioIntroArt(
             backdropKey: _backdropKey,
             emoji: s.emoji,
             sidekick: s.sidekick,
           ),
-          const SizedBox(height: Spacing.lg),
+          const SizedBox(height: Spacing.xl),
           Text(
             t.scenarioIntroTitle,
             style: TextStyle(
               color: ss.textMuted,
-              fontSize: 13,
+              fontSize: 12,
               letterSpacing: 1.2,
               fontWeight: FontWeight.w600,
             ),
           ),
-          const SizedBox(height: Spacing.sm),
+          const SizedBox(height: Spacing.xs),
           Text(
             s.title.pick(lang),
             style: TextStyle(
               color: ss.text,
-              fontSize: 26,
-              fontWeight: FontWeight.w700,
+              fontSize: 32,
+              fontWeight: FontWeight.w800,
+              height: 1.2,
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: Spacing.xl),
+          const SizedBox(height: Spacing.lg),
           SoriCard(
             variant: SoriCardVariant.base,
+            padding: const EdgeInsets.all(Spacing.lg),
             child: Text(
               s.intro.pick(lang),
-              style: TextStyle(color: ss.textMuted, fontSize: 15, height: 1.6),
+              style: TextStyle(
+                color: ss.textMuted,
+                fontSize: 16,
+                height: 1.7,
+                fontWeight: FontWeight.w500,
+              ),
               textAlign: TextAlign.center,
             ),
           ),
-          const SizedBox(height: Spacing.sm),
-          SoriBadge.level(s.level.display, size: 24),
+          const SizedBox(height: Spacing.lg),
+          SoriBadge.level(s.level.display, size: 28),
         ],
       ),
     );
@@ -1093,33 +1099,35 @@ class _ScenarioIntroArt extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final mascot = Mascot.forSpeaker(
           sidekick ?? '',
-          size: 82,
+          size: 72,
           emotion: MascotEmotion.smile,
           animate: true,
         ) ??
         Mascot.tiger(
           emotion: MascotEmotion.smile,
-          size: 82,
+          size: 72,
           animate: true,
         );
-    final fallback = Container(
-      height: 168,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: SoriColors.primary.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(SoriRadius.lg),
-        border: Border.all(color: SoriColors.primary.withValues(alpha: 0.25)),
-      ),
-      alignment: Alignment.center,
-      child: mascot,
-    );
 
-    if (backdropKey == null) return fallback;
+    // Backdrop만 표시 (호랑이 없이 — 배경 자체가 시각적 focal point)
+    if (backdropKey == null) {
+      return Container(
+        height: 140,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: SoriColors.primary.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(SoriRadius.lg),
+          border: Border.all(color: SoriColors.primary.withValues(alpha: 0.25)),
+        ),
+        alignment: Alignment.center,
+        child: mascot,
+      );
+    }
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.lg),
       child: SizedBox(
-        height: 168,
+        height: 140,
         width: double.infinity,
         child: Stack(
           fit: StackFit.expand,
@@ -1127,20 +1135,25 @@ class _ScenarioIntroArt extends StatelessWidget {
             Image.asset(
               'assets/illustrations/scenes/$backdropKey.png',
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => fallback,
+              errorBuilder: (_, __, ___) => Container(
+                color: SoriColors.primary.withValues(alpha: 0.12),
+                alignment: Alignment.center,
+                child: mascot,
+              ),
             ),
             DecoratedBox(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.transparent, s.bg.withValues(alpha: 0.42)],
+                  colors: [Colors.transparent, s.bg.withValues(alpha: 0.5)],
                 ),
               ),
             ),
+            // 호랑이/까치를 오른쪽 하단에 배치 (배경과 구분)
             Positioned(
-              left: Spacing.lg,
-              bottom: Spacing.md,
+              right: Spacing.md,
+              bottom: Spacing.xs,
               child: mascot,
             ),
           ],
