@@ -480,7 +480,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SoriEntrance(
                       delay: const Duration(milliseconds: 360),
                       slideY: 16,
-                      child: _BrowseSection(t: t),
+                      child: _BrowseSection(t: t, dueCount: _dueCount),
                     ),
 
                     const SizedBox(height: Spacing.xxxl),
@@ -1356,7 +1356,8 @@ class _PathCard extends StatelessWidget {
 // ════════════════════════════════════════════════════════════════════════
 class _BrowseSection extends StatelessWidget {
   final AppL10n t;
-  const _BrowseSection({required this.t});
+  final int dueCount; // P0 G5: 단어 카드 ribbon용 복습대기 수
+  const _BrowseSection({required this.t, required this.dueCount});
 
   @override
   Widget build(BuildContext context) {
@@ -1401,7 +1402,7 @@ class _BrowseSection extends StatelessWidget {
               child: _SectionLabel(label: t.sectionModules),
             ),
             const SizedBox(height: Spacing.sm),
-            _ModulesGrid(t: t),
+            _ModulesGrid(t: t, dueCount: dueCount),
             const SizedBox(height: Spacing.lg),
             Align(
               alignment: Alignment.centerLeft,
@@ -1590,7 +1591,8 @@ class _CourseCard extends StatelessWidget {
 // ════════════════════════════════════════════════════════════════════════
 class _ModulesGrid extends StatelessWidget {
   final AppL10n t;
-  const _ModulesGrid({required this.t});
+  final int dueCount; // P0 G5: 복습대기 카드 수 → 단어 카드 ribbon
+  const _ModulesGrid({required this.t, required this.dueCount});
 
   @override
   Widget build(BuildContext context) {
@@ -1615,6 +1617,8 @@ class _ModulesGrid extends StatelessWidget {
                 subtitle: t.moduleVocabDesc,
                 accent: SoriColors.primary,
                 onTap: () => Navigator.pushNamed(context, '/vocab'),
+                ribbonType: dueCount > 0 ? 'due' : null,
+                ribbonValue: dueCount,
               ),
             ),
           ],
@@ -1654,6 +1658,7 @@ class _ModulesGrid extends StatelessWidget {
                 subtitle: t.homeBookCardDesc,
                 accent: SoriColors.info,
                 onTap: () => Navigator.pushNamed(context, '/book'),
+                ribbonType: 'new',
               ),
             ),
             const SizedBox(width: Spacing.md),
