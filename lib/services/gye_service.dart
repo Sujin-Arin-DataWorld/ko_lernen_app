@@ -6,6 +6,7 @@ import '../data/profanity_denylist.dart';
 import '../models/gye.dart';
 import 'age_gate_service.dart';
 import 'auth_service.dart';
+import 'storage_service.dart';
 
 /// 계(契) CRUD + 입장 코드. Firestore `gye/{code}` (코드 = 문서 ID = gyeId).
 ///
@@ -372,6 +373,98 @@ class GyeService {
             ).toCreateJson(),
           );
       _recentStickerSends.add(now);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// 마일스톤 이벤트(퀘스트 완료·레벨업 등)를 내 모든 계 피드에 broadcast.
+  /// 학습 성취가 계원에게 보이게 → 축하 스티커 유도 (2픽 피드 풍부화).
+  /// best-effort: 한 계 실패해도 나머지 진행. 계 없으면 no-op.
+  static Future<void> broadcastFeed(
+    GyeFeedType type,
+    Map<String, dynamic> payload,
+  ) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return;
+    }
+    for (final gid in await myGyeIds()) {
+      try {
+        final ref = db.collection(_collection).doc(gid);
+        final m = await ref.collection('members').doc(uid).get();
+        final nickname = m.data()?['nickname'] as String? ?? '';
+        await ref.collection('feed').add(
+              GyeFeedEvent(
+                id: '',
+                type: type,
+                actorUid: uid,
+                actorNickname: nickname,
+                payload: payload,
+              ).toCreateJson(),
+            );
+      } catch (_) {
+        // 한 계 실패해도 나머지 진행
+      }
+    }
+  }
+
+  /// 레벨이 올랐으면 계 피드에 levelUp broadcast (lastGyeLevel 비교로 중복 방지).
+  /// 순환(storage→gye) 회피 위해 storage가 아닌 여기서 pull — persist 등에서 호출.
+  static Future<void> syncLevelUp() async {
+    final cur = Storage.xpLevel;
+    if (cur > Storage.lastGyeLevel) {
+      await broadcastFeed(GyeFeedType.levelUp, {'level': cur});
+      await Storage.setLastGyeLevel(cur);
+    }
+  }
+
+  /// 응원 레이트 — 분당 10개(인메모리).
+  static final List<DateTime> _recentCheerSends = [];
+
+  /// 응원 보내기 — 정형 격려(cheerCode 1~5)를 계 피드에 append (3픽 리텐션 훅).
+  /// 자유 텍스트가 아니라 코드라 모더레이션 안전. 레이트 초과/실패 시 false.
+  static Future<bool> sendCheer({
+    required String gyeId,
+    required String targetUid,
+    required String targetNickname,
+    required int cheerCode,
+  }) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return false;
+    }
+    final now = DateTime.now();
+    _recentCheerSends.removeWhere((t) => now.difference(t).inSeconds >= 60);
+    if (_recentCheerSends.length >= 10) {
+      return false;
+    }
+    final ref = db.collection(_collection).doc(gyeId);
+    var nickname = '';
+    try {
+      final m = await ref.collection('members').doc(uid).get();
+      nickname = m.data()?['nickname'] as String? ?? '';
+    } catch (_) {
+      // 닉네임 없이도 전송 진행
+    }
+    try {
+      await ref.collection('feed').add(
+            GyeFeedEvent(
+              id: '',
+              type: GyeFeedType.cheer,
+              actorUid: uid,
+              actorNickname: nickname,
+              payload: {
+                'targetUid': targetUid,
+                'targetNickname': targetNickname,
+                'cheerCode': cheerCode,
+              },
+            ).toCreateJson(),
+          );
+      _recentCheerSends.add(now);
       return true;
     } catch (_) {
       return false;

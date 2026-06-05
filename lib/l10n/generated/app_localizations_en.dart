@@ -1116,6 +1116,24 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get gyeCheer1 => 'Together!';
+
+  @override
+  String get gyeCheer2 => 'You got this!';
+
+  @override
+  String get gyeCheer3 => 'We miss you!';
+
+  @override
+  String get gyeCheer4 => 'Almost there!';
+
+  @override
+  String get gyeCheer5 => 'Let\'s go!';
+
+  @override
+  String get gyeCheerTitle => 'Send cheer';
+
+  @override
   String get gyeFeedGoalAchieved => 'Weekly goal reached! 🎉 Your hanok grows.';
 
   @override

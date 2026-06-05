@@ -1,6 +1,8 @@
 import '../data/quest_catalog.dart';
 import '../models/quest.dart';
+import '../models/gye.dart';
 import 'data_loader.dart';
+import 'gye_service.dart';
 import 'storage_service.dart';
 
 /// Phase 4 (stately-rising-jongga) — Quest-Progress Computation.
@@ -97,8 +99,15 @@ class QuestTracker {
       if (p.completed && p.completedAtIso == null) {
         // p.completedAtIso == null 은 "방금 도달" 의미 (computeAll 의 mark 참고)
         await Storage.markQuestCompleted(p.questId);
+        // 2픽: 방금 완료한 퀘스트를 계 피드에 broadcast (축하 유도)
+        await GyeService.broadcastFeed(
+          GyeFeedType.questCompleted,
+          {'questId': p.questId},
+        );
       }
     }
+    // 2픽: 레벨업도 계 피드에 동기화 (순환 회피 — 여기서 pull)
+    await GyeService.syncLevelUp();
   }
 
   // ── Helfer ──────────────────────────────────────────────────────────

@@ -50,6 +50,7 @@ class GyeFeed extends StatelessWidget {
         GyeFeedType.levelUp => Icons.trending_up_rounded,
         GyeFeedType.goalAchieved => Icons.celebration_outlined,
         GyeFeedType.sticker => Icons.emoji_emotions_outlined,
+        GyeFeedType.cheer => Icons.volunteer_activism_outlined,
       };
 
   Color _color(GyeFeedType ty) => switch (ty) {
@@ -58,6 +59,7 @@ class GyeFeed extends StatelessWidget {
         GyeFeedType.levelUp => SoriColors.accent,
         GyeFeedType.goalAchieved => SoriColors.tiger,
         GyeFeedType.sticker => SoriColors.highlight,
+        GyeFeedType.cheer => SoriColors.tiger,
       };
 
   String _message(AppL10n t, GyeFeedEvent e) => switch (e.type) {
@@ -66,6 +68,17 @@ class GyeFeed extends StatelessWidget {
         GyeFeedType.levelUp => t.gyeFeedLevelUp(e.actorNickname),
         GyeFeedType.goalAchieved => t.gyeFeedGoalAchieved,
         GyeFeedType.sticker => t.gyeFeedSticker(e.actorNickname),
+        GyeFeedType.cheer =>
+          '${e.actorNickname} → ${(e.payload['targetNickname'] as String?) ?? ''}  ${_cheerText(t, (e.payload['cheerCode'] as num?)?.toInt() ?? 1)}',
+      };
+
+  /// 응원 코드(1~5) → 정형 메시지 (자유 텍스트 X = 모더레이션 안전).
+  String _cheerText(AppL10n t, int code) => switch (code) {
+        1 => t.gyeCheer1,
+        2 => t.gyeCheer2,
+        3 => t.gyeCheer3,
+        4 => t.gyeCheer4,
+        _ => t.gyeCheer5,
       };
 
   Widget _stickerLeading(GyeFeedEvent e) {

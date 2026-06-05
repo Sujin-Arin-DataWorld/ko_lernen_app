@@ -9,7 +9,7 @@ enum GyeRole { owner, member }
 
 enum GyeMemberStatus { active, reported, suspended }
 
-enum GyeFeedType { packCleared, questCompleted, levelUp, goalAchieved, sticker }
+enum GyeFeedType { packCleared, questCompleted, levelUp, goalAchieved, sticker, cheer }
 
 enum GyeReportReason { spam, inappropriate, harassment, other }
 
@@ -21,12 +21,14 @@ extension GyeFeedTypeWire on GyeFeedType {
         GyeFeedType.levelUp => 'level_up',
         GyeFeedType.goalAchieved => 'goal_achieved',
         GyeFeedType.sticker => 'sticker',
+        GyeFeedType.cheer => 'cheer',
       };
   static GyeFeedType fromWire(String? s) => switch (s) {
         'pack_cleared' => GyeFeedType.packCleared,
         'quest_completed' => GyeFeedType.questCompleted,
         'level_up' => GyeFeedType.levelUp,
         'goal_achieved' => GyeFeedType.goalAchieved,
+        'cheer' => GyeFeedType.cheer,
         _ => GyeFeedType.sticker,
       };
 }

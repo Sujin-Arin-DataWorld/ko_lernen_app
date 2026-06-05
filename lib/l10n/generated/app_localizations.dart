@@ -2131,6 +2131,42 @@ abstract class AppL10n {
   /// **'{name} hat einen Sticker gesendet'**
   String gyeFeedSticker(Object name);
 
+  /// No description provided for @gyeCheer1.
+  ///
+  /// In de, this message translates to:
+  /// **'Zusammen!'**
+  String get gyeCheer1;
+
+  /// No description provided for @gyeCheer2.
+  ///
+  /// In de, this message translates to:
+  /// **'Du schaffst das!'**
+  String get gyeCheer2;
+
+  /// No description provided for @gyeCheer3.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir vermissen dich!'**
+  String get gyeCheer3;
+
+  /// No description provided for @gyeCheer4.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast geschafft!'**
+  String get gyeCheer4;
+
+  /// No description provided for @gyeCheer5.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf geht\'s!'**
+  String get gyeCheer5;
+
+  /// No description provided for @gyeCheerTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Anfeuern'**
+  String get gyeCheerTitle;
+
   /// No description provided for @gyeFeedGoalAchieved.
   ///
   /// In de, this message translates to:

@@ -529,6 +529,10 @@ class Storage {
   static int get xpToNext => 100 - (xp % 100);
   static Future<void> addXp(int amount) => _si('kl_xp', xp + amount);
 
+  /// 계 피드에 마지막으로 broadcast 한 레벨 (2픽 levelUp 중복 방지).
+  static int get lastGyeLevel => _i('kl_gye_level');
+  static Future<void> setLastGyeLevel(int v) => _si('kl_gye_level', v);
+
   /// Sterne pro Szenario (0–3). Speichert nur Verbesserungen.
   static Map<String, int> get scenarioStars {
     final raw = _s('kl_scenario_stars');

@@ -1117,6 +1117,24 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get gyeCheer1 => 'Zusammen!';
+
+  @override
+  String get gyeCheer2 => 'Du schaffst das!';
+
+  @override
+  String get gyeCheer3 => 'Wir vermissen dich!';
+
+  @override
+  String get gyeCheer4 => 'Fast geschafft!';
+
+  @override
+  String get gyeCheer5 => 'Auf geht\'s!';
+
+  @override
+  String get gyeCheerTitle => 'Anfeuern';
+
+  @override
   String get gyeFeedGoalAchieved =>
       'Wochenziel erreicht! 🎉 Euer Hanok wächst.';
 
