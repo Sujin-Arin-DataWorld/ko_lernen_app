@@ -213,7 +213,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      body: ListView(
+      body: SafeArea(
+        child: ListView(
         padding: soriClampPadding(
           MediaQuery.sizeOf(context).width,
           base: const EdgeInsets.symmetric(vertical: 8),
@@ -590,6 +591,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onTap: _showDataSources,
           ),
         ],
+      ),
       ),
     );
   }

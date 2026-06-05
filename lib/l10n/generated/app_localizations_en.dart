@@ -2335,4 +2335,10 @@ class AppL10nEn extends AppL10n {
   @override
   String get consentFootnote =>
       'By continuing you agree to our Privacy Policy.';
+
+  @override
+  String get grammarEasy => 'Got it';
+
+  @override
+  String get grammarHard => 'Difficult';
 }

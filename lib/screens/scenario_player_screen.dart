@@ -1028,18 +1028,20 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
                 ),
               ),
             ),
-          Column(
-            children: [
-              Expanded(
-                child: PageView.builder(
-                  controller: _pageCtrl,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: _totalStages,
-                  itemBuilder: (_, index) => _buildStage(index, t, lang),
+          SafeArea(
+            child: Column(
+              children: [
+                Expanded(
+                  child: PageView.builder(
+                    controller: _pageCtrl,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: _totalStages,
+                    itemBuilder: (_, index) => _buildStage(index, t, lang),
+                  ),
                 ),
-              ),
-              _buildBottomBar(t),
-            ],
+                _buildBottomBar(t),
+              ],
+            ),
           ),
         ],
       ),

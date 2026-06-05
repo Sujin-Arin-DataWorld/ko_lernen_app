@@ -899,5 +899,9 @@
   "consentBody": "Bevor du loslegst — Hangul Sori speichert deinen Lernfortschritt standardmäßig nur auf deinem Gerät. Bitte sieh kurz, wie wir mit deinen Daten umgehen.",
   "consentPrivacyCta": "Datenschutzerklärung lesen",
   "consentAgreeCta": "Zustimmen & loslegen",
-  "consentFootnote": "Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu."
+  "consentFootnote": "Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu.",
+
+  "@_grammar_difficulty": { "description": "Grammatik-Schwierigkeit Filter (Tier 2 — 2026-06-05)." },
+  "grammarEasy": "Verstanden",
+  "grammarHard": "Schwierig"
 }

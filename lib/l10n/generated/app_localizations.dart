@@ -4356,6 +4356,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu.'**
   String get consentFootnote;
+
+  /// No description provided for @grammarEasy.
+  ///
+  /// In de, this message translates to:
+  /// **'Verstanden'**
+  String get grammarEasy;
+
+  /// No description provided for @grammarHard.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierig'**
+  String get grammarHard;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

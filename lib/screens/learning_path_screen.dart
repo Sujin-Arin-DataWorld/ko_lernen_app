@@ -111,26 +111,28 @@ class _LearningPathScreenState extends State<LearningPathScreen> {
         backgroundColor: s.bg,
         surfaceTintColor: Colors.transparent,
       ),
-      body: _loading
-          ? const AppLoading()
-          : RefreshIndicator(
-              onRefresh: _load,
-              child: ListView(
-                padding: soriClampPadding(
-                  MediaQuery.sizeOf(context).width,
-                  base: const EdgeInsets.fromLTRB(16, 8, 16, 48),
-                ),
-                children: [
-                  _HanokHeader(
-                    stage: _stage,
-                    cleared: _clearedTotal,
-                    total: _packTotal,
+      body: SafeArea(
+        child: _loading
+            ? const AppLoading()
+            : RefreshIndicator(
+                onRefresh: _load,
+                child: ListView(
+                  padding: soriClampPadding(
+                    MediaQuery.sizeOf(context).width,
+                    base: const EdgeInsets.fromLTRB(16, 8, 16, 48),
                   ),
-                  const SizedBox(height: Spacing.xl),
-                  for (final g in _groups) ..._levelSection(t, g),
-                ],
+                  children: [
+                    _HanokHeader(
+                      stage: _stage,
+                      cleared: _clearedTotal,
+                      total: _packTotal,
+                    ),
+                    const SizedBox(height: Spacing.xl),
+                    for (final g in _groups) ..._levelSection(t, g),
+                  ],
+                ),
               ),
-            ),
+      ),
     );
   }
 

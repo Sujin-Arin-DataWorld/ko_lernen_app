@@ -31,6 +31,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
   bool _flipped = false;
   String _level = 'Alle';
   String _type = 'Alle';
+  String _difficulty = 'Alle'; // Alle / Leicht / Schwer
   bool _loading = true;
   bool _loadFailed = false;
 
@@ -67,9 +68,12 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
   void _applyFilters() {
     setState(() {
+      final hardPatterns = Storage.grammarHard;
       _filtered = _all.where((g) {
         if (_level != 'Alle' && g.level != _level) return false;
         if (_type != 'Alle' && g.typeDe != _type) return false;
+        if (_difficulty == 'Schwer' && !hardPatterns.contains(g.pattern)) return false;
+        if (_difficulty == 'Leicht' && hardPatterns.contains(g.pattern)) return false;
         return true;
       }).toList();
       _idx = 0;
@@ -205,37 +209,100 @@ class _GrammarScreenState extends State<GrammarScreen> {
               ),
               const SizedBox(height: Spacing.sm),
 
+              // Difficulty Filter
+              SizedBox(
+                height: 36,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    for (final diff in ['Alle', 'Leicht', 'Schwer'])
+                      Padding(
+                        padding: const EdgeInsets.only(right: 6),
+                        child: SoriChip(
+                          label: diff,
+                          accent: SoriColors.info,
+                          selected: _difficulty == diff,
+                          variant: SoriChipVariant.soft,
+                          onTap: _difficulty == diff
+                              ? null
+                              : () {
+                                  setState(() => _difficulty = diff);
+                                  _applyFilters();
+                                },
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: Spacing.sm),
+
               // Stats
-              Wrap(
-                spacing: Spacing.xs + 2,
-                children: [
-                  SoriChip(
-                    label: '📝 ${_idx + 1}/${_filtered.length}',
-                    accent: SoriColors.warning,
-                  ),
-                  SoriChip(label: g.level, accent: SoriColors.warning),
-                  SoriChip(label: g.typeDe, accent: SoriColors.hangul),
-                ],
+              SoriCard(
+                variant: SoriCardVariant.compact,
+                accent: SoriColors.warning,
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                child: Wrap(
+                  spacing: Spacing.xs + 2,
+                  children: [
+                    SoriChip(
+                      label: '📝 ${_idx + 1}/${_filtered.length}',
+                      accent: SoriColors.warning,
+                    ),
+                    SoriChip(label: g.level, accent: SoriColors.warning),
+                    SoriChip(label: g.typeDe, accent: SoriColors.hangul),
+                  ],
+                ),
               ),
               const SizedBox(height: 10),
 
-              // Card
+              // Card + Difficulty Buttons
               Expanded(
-                child: GestureDetector(
-                  onHorizontalDragEnd: (d) {
-                    if (d.primaryVelocity == null) return;
-                    if (d.primaryVelocity! < -250) {
-                      _next();
-                    } else if (d.primaryVelocity! > 250) {
-                      _prev();
-                    }
-                  },
-                  child: FlipCard(
-                    flipped: _flipped,
-                    onTap: _onFlip,
-                    front: _Front(g: g),
-                    back: _Back(g: g),
-                  ),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onHorizontalDragEnd: (d) {
+                          if (d.primaryVelocity == null) return;
+                          if (d.primaryVelocity! < -250) {
+                            _next();
+                          } else if (d.primaryVelocity! > 250) {
+                            _prev();
+                          }
+                        },
+                        child: FlipCard(
+                          flipped: _flipped,
+                          onTap: _onFlip,
+                          front: _Front(g: g),
+                          back: _Back(g: g),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SoriButton.outlined(
+                            label: '👍 ${t.grammarEasy}',
+                            onTap: () async {
+                              await Storage.markGrammarEasy(g.pattern);
+                              _next();
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: SoriButton.outlined(
+                            label: '🤔 ${t.grammarHard}',
+                            destructive: true,
+                            onTap: () async {
+                              await Storage.markGrammarHard(g.pattern);
+                              _next();
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 12),

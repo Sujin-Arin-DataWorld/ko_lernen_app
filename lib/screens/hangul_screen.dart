@@ -59,13 +59,15 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabs,
-        children: const [
-          _OverviewTab(),
-          _CardsTab(),
-          _WriteTab(),
-        ],
+      body: SafeArea(
+        child: TabBarView(
+          controller: _tabs,
+          children: const [
+            _OverviewTab(),
+            _CardsTab(),
+            _WriteTab(),
+          ],
+        ),
       ),
     );
   }
@@ -295,7 +297,7 @@ class _CardsTabState extends State<_CardsTab> {
   List<HangulChar> get _pool {
     switch (_mode) {
       case 1: return vowels;
-      case 2: return syllables.map((s) => HangulChar(s.letter, s.romanization, s.composition, s.composition)).toList();
+      case 2: return syllables.map((s) => HangulChar(s.letter, s.romanization, s.composition, s.composition, s.exampleWord, s.exampleDe, s.exampleEn)).toList();
       default: return consonants;
     }
   }
@@ -314,6 +316,7 @@ class _CardsTabState extends State<_CardsTab> {
   @override
   Widget build(BuildContext context) {
     final c = _pool[_idx % _pool.length];
+    final s = SoriSurfaces.of(context);
     return SoriCenterClamp(
       child: Padding(
       padding: const EdgeInsets.all(12),
@@ -330,7 +333,7 @@ class _CardsTabState extends State<_CardsTab> {
           ),
           const SizedBox(height: 12),
           // Counter
-          Text('${_idx + 1} / ${_pool.length}', style: const TextStyle(color: SoriColors.darkTextMuted, fontSize: 13)),
+          Text('${_idx + 1} / ${_pool.length}', style: TextStyle(color: s.textMuted, fontSize: 13)),
           const SizedBox(height: 8),
 
           Expanded(
@@ -349,7 +352,7 @@ class _CardsTabState extends State<_CardsTab> {
                 front: _HangulCardFace(
                   gradient: const [SoriColors.accent, SoriColors.darkAccent],
                   borderColor: SoriColors.hangul,
-                  child: Text(c.letter, style: const TextStyle(fontSize: 110, fontWeight: FontWeight.w800, color: SoriColors.accentSoft)),
+                  child: Text(c.letter, style: const TextStyle(fontSize: 110, fontWeight: FontWeight.w800, color: SoriColors.hangul)),
                 ),
                 back: _HangulCardFace(
                   gradient: const [SoriColors.highlight, SoriColors.darkPrimary],
@@ -357,14 +360,43 @@ class _CardsTabState extends State<_CardsTab> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(c.letter, style: const TextStyle(fontSize: 60, fontWeight: FontWeight.w800, color: SoriColors.darkText)),
+                      Text(c.letter, style: const TextStyle(fontSize: 60, fontWeight: FontWeight.w800, color: SoriColors.primary)),
                       const SizedBox(height: 8),
                       Text('[${c.romanization}]', style: const TextStyle(fontSize: 20, color: SoriColors.info, fontStyle: FontStyle.italic, fontWeight: FontWeight.w600)),
                       const SizedBox(height: 12),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: Text(c.descriptionDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 13, color: SoriColors.darkText, height: 1.5)),
+                        child: Text(c.descriptionDe, textAlign: TextAlign.center, style: TextStyle(fontSize: 13, color: s.text, height: 1.5)),
                       ),
+                      if (c.exampleWord.isNotEmpty) ...[
+                        const SizedBox(height: 16),
+                        GestureDetector(
+                          onTap: () => TtsService.speak(c.exampleWord),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                            decoration: BoxDecoration(
+                              color: SoriColors.hangul.withValues(alpha: 0.10),
+                              borderRadius: BorderRadius.circular(14),
+                              border: Border.all(color: SoriColors.hangul.withValues(alpha: 0.30)),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(c.exampleWord, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: SoriColors.hangul)),
+                                    const SizedBox(width: 6),
+                                    const Icon(Icons.volume_up_rounded, size: 16, color: SoriColors.hangul),
+                                  ],
+                                ),
+                                const SizedBox(height: 2),
+                                Text(c.exampleDe, style: TextStyle(fontSize: 13, color: s.text, fontWeight: FontWeight.w600)),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -505,7 +537,9 @@ class _WriteTabState extends State<_WriteTab> {
                       children: [
                         Text(t.hangulStrokeOrderTitle,
                             style: const TextStyle(fontSize: 11.5, color: SoriColors.darkTextMuted, fontWeight: FontWeight.w700),
-                            textAlign: TextAlign.center),
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.visible),
                         const SizedBox(height: 6),
                         SoriCard(
                           variant: SoriCardVariant.base,
@@ -531,14 +565,21 @@ class _WriteTabState extends State<_WriteTab> {
                       children: [
                         Text(t.hangulTraceTitle,
                             style: const TextStyle(fontSize: 11.5, color: SoriColors.success, fontWeight: FontWeight.w700),
-                            textAlign: TextAlign.center),
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.visible),
                         const SizedBox(height: 6),
-                        AspectRatio(
-                          aspectRatio: 1,
-                          child: _PracticeCanvas(
-                            key: _practiceKey,
-                            ghost: c.letter,
-                            color: SoriColors.success,
+                        SoriCard(
+                          variant: SoriCardVariant.base,
+                          accent: SoriColors.success,
+                          padding: const EdgeInsets.all(6),
+                          child: AspectRatio(
+                            aspectRatio: 1,
+                            child: _PracticeCanvas(
+                              key: _practiceKey,
+                              ghost: c.letter,
+                              color: SoriColors.success,
+                            ),
                           ),
                         ),
                       ],
@@ -614,36 +655,37 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
 
   @override
   Widget build(BuildContext context) {
-    return SoriCard(
-      variant: SoriCardVariant.base,
-      accent: SoriColors.success,
-      width: widget.size,
-      height: widget.size,
-      padding: EdgeInsets.zero,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        child: GestureDetector(
-          onPanStart: (d) {
-            setState(() {
-              _current = [d.localPosition];
-              _strokes.add(_current!);
-            });
-          },
-          onPanUpdate: (d) {
-            setState(() => _current?.add(d.localPosition));
-          },
-          onPanEnd: (_) {
-            HapticFeedback.lightImpact();
-            _current = null;
-          },
-          child: CustomPaint(
-            painter: _PracticePainter(
-              ghost: widget.ghost,
-              strokes: _strokes,
-              color: widget.color,
-            ),
-            child: const SizedBox.expand(),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(SoriRadius.md),
+      child: GestureDetector(
+        // Consume horizontal/vertical drag to prevent TabBarView swipe
+        onHorizontalDragStart: (_) {},
+        onHorizontalDragUpdate: (_) {},
+        onHorizontalDragEnd: (_) {},
+        onVerticalDragStart: (_) {},
+        onVerticalDragUpdate: (_) {},
+        onVerticalDragEnd: (_) {},
+        // Pan gesture for drawing strokes
+        onPanStart: (d) {
+          setState(() {
+            _current = [d.localPosition];
+            _strokes.add(_current!);
+          });
+        },
+        onPanUpdate: (d) {
+          setState(() => _current?.add(d.localPosition));
+        },
+        onPanEnd: (_) {
+          HapticFeedback.lightImpact();
+          _current = null;
+        },
+        child: CustomPaint(
+          painter: _PracticePainter(
+            ghost: widget.ghost,
+            strokes: _strokes,
+            color: widget.color,
           ),
+          child: const SizedBox.expand(),
         ),
       ),
     );

@@ -78,15 +78,17 @@ class _SmalltalkScreenState extends State<SmalltalkScreen> {
         title: Text(t.smalltalkTitle,
             style: const TextStyle(fontWeight: FontWeight.w800)),
       ),
-      body: _loading
-          ? const AppLoading()
-          : SmalltalkLoader.categories.isEmpty
-              ? SoriEmptyState(
-                  icon: Icons.chat_bubble_outline_rounded,
-                  title: t.smalltalkTitle,
-                  body: SmalltalkLoader.lastError ?? '',
-                )
-              : _buildBody(t, s, lang),
+      body: SafeArea(
+        child: _loading
+            ? const AppLoading()
+            : SmalltalkLoader.categories.isEmpty
+                ? SoriEmptyState(
+                    icon: Icons.chat_bubble_outline_rounded,
+                    title: t.smalltalkTitle,
+                    body: SmalltalkLoader.lastError ?? '',
+                  )
+                : _buildBody(t, s, lang),
+      ),
     );
   }
 

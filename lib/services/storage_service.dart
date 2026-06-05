@@ -167,12 +167,30 @@ class Storage {
   // ───────── Grammatik ─────────
   static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
+  static List<String> get grammarHard => _l('kl_gram_hard');
+
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
   static Future<void> addGrammarSeen(String pattern) async {
     final list = grammarSeen;
     if (!list.contains(pattern)) {
       list.add(pattern);
       await _sl('kl_gram_seen', list);
+    }
+  }
+
+  static Future<void> markGrammarHard(String pattern) async {
+    final list = grammarHard;
+    if (!list.contains(pattern)) {
+      list.add(pattern);
+      await _sl('kl_gram_hard', list);
+    }
+  }
+
+  static Future<void> markGrammarEasy(String pattern) async {
+    final list = grammarHard;
+    if (list.contains(pattern)) {
+      list.remove(pattern);
+      await _sl('kl_gram_hard', list);
     }
   }
 

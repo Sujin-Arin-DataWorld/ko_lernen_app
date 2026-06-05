@@ -78,7 +78,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
-      body: ListView(
+      body: SafeArea(
+        child: ListView(
         padding: soriClampPadding(
           MediaQuery.sizeOf(context).width,
           base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
@@ -131,6 +132,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onTap: () => Navigator.pushNamed(context, '/stats'),
           ),
         ],
+      ),
       ),
     );
   }

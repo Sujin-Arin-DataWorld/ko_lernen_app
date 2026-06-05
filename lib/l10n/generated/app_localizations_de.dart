@@ -2342,4 +2342,10 @@ class AppL10nDe extends AppL10n {
   @override
   String get consentFootnote =>
       'Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu.';
+
+  @override
+  String get grammarEasy => 'Verstanden';
+
+  @override
+  String get grammarHard => 'Schwierig';
 }

@@ -48,7 +48,8 @@ class StatsScreen extends StatelessWidget {
             style: const TextStyle(fontWeight: FontWeight.w800),
           ),
         ),
-        body: SoriEmptyState(
+        body: SafeArea(
+          child: SoriEmptyState(
           asset: 'assets/illustrations/empty/studyroom_waiting.png',
           icon: Icons.auto_stories_outlined,
           title: t.statsFirstEntryTitle,
@@ -56,6 +57,7 @@ class StatsScreen extends StatelessWidget {
           ctaLabel: t.statsFirstEntryCta,
           onCta: () => Navigator.of(context).pushNamed('/scenarios'),
           illustrationMaxHeight: 220,
+        ),
         ),
       );
     }
@@ -67,7 +69,8 @@ class StatsScreen extends StatelessWidget {
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      body: ListView(
+      body: SafeArea(
+        child: ListView(
         padding: soriClampPadding(
           MediaQuery.sizeOf(context).width,
           base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
@@ -223,6 +226,7 @@ class StatsScreen extends StatelessWidget {
             ],
           ),
         ],
+      ),
       ),
     );
   }

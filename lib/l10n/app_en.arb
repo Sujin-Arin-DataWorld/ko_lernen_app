@@ -898,5 +898,9 @@
   "consentBody": "Before you start — Hangul Sori keeps your learning progress on your device by default. Please take a moment to see how we handle your data.",
   "consentPrivacyCta": "Read the privacy policy",
   "consentAgreeCta": "Agree & start",
-  "consentFootnote": "By continuing you agree to our Privacy Policy."
+  "consentFootnote": "By continuing you agree to our Privacy Policy.",
+
+  "@_grammar_difficulty": { "description": "Grammar difficulty filter (Tier 2 — 2026-06-05)." },
+  "grammarEasy": "Got it",
+  "grammarHard": "Difficult"
 }
