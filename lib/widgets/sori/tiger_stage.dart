@@ -48,9 +48,10 @@ class _TigerStageState extends State<TigerStage>
   /// 인트로는 앱 launch당 1회. (영속 X — `Storage.introSeen`은 게이트 화면 전용)
   static bool _introPlayedThisLaunch = false;
 
-  // 걷기 프레임 1장당 체류(ms). pace 컨트롤러 길이도 이 값으로 계산해 동기.
-  static const int _walkMs = 120;
-  // 걷기 프레임은 하드컷(0) — 다리 움직임이 명확. 포즈 전환(turn/step_out)만 soft fade.
+  // 걷기 프레임 1장당 체류(ms). 더 빠를수록 더 부드러워 보임(frame interpolation 효과).
+  // 100ms = 10fps = 자연스러운 수준. 느릴수록 어색(8fps 이하는 stutter 눈에 띔).
+  static const int _walkMs = 100;
+  // 걷기 프레임은 하드컷(0) — 다리 움직임이 명확하고 선명함.
   static const int _walkFade = 0;
 
   static const List<String> _allFrames = [
@@ -252,12 +253,18 @@ class _TigerStageState extends State<TigerStage>
 
   Future<void> _loopFrontIdle() async {
     final token = ++_seqToken;
+    // 다양한 idle 포즈로 "살아있는" 느낌 연출.
+    // stand_idle_a/b도 활용해서 호흡 다양성 증가.
     const seq = <(String, int, int)>[
-      ('stand_greet', 1300, 280),
-      ('bob_a', 640, 280),
-      ('bob_b', 640, 280),
-      ('bob_a', 640, 280),
+      ('stand_greet', 1200, 260),      // 인사 포즈
+      ('bob_a', 720, 240),               // 호흡 A
+      ('bob_b', 720, 240),               // 호흡 B
+      ('stand_idle_a', 800, 240),        // 다른 정지 포즈 A
+      ('bob_a', 720, 240),               // 호흡 다시
+      ('stand_idle_b', 800, 240),        // 다른 정지 포즈 B
+      ('bob_b', 720, 240),               // 호흡 B
     ];
+    // 총 루프 시간 ≈ 6.5초 (충분히 길어서 사용자가 완전히 분석하지 못함)
     while (!_disposed && token == _seqToken) {
       for (final (name, ms, fade) in seq) {
         if (_disposed || token != _seqToken) {
@@ -273,10 +280,13 @@ class _TigerStageState extends State<TigerStage>
   }
 
   // ── pacing (there-and-back: 0 → ±span → 0, 항상 중앙 복귀) ──────────────
+  // 호랑이가 가끔 짧게(2회), 보통(3회), 가끔 길게(4회) 걸음 → 예측 불가능 → 살아있는 느낌
   Future<void> _doPace(bool startLeft) async {
     final token = ++_seqToken;
     _phase = startLeft ? _Phase.pacingLeft : _Phase.pacingRight;
     final dir = startLeft ? -1.0 : 1.0;
+    // walk loop 확률: 2회(25%) / 3회(50%) / 4회(25%)
+    final loopCount = _rng.nextDouble() < 0.25 ? 2 : (_rng.nextDouble() < 0.666 ? 3 : 4);
 
     Future<void> tf(String n, int fade, int dwell) async {
       await _crossTo(n, fadeMs: fade);
@@ -297,12 +307,12 @@ class _TigerStageState extends State<TigerStage>
     if (_disposed || token != _seqToken) {
       return;
     }
-    // step_out → walk 간 아주 짧은 settling (프레임 자체의 transition으로 충분)
-    await Future<void>.delayed(const Duration(milliseconds: 40));
+    // step_out → walk 간 아주 짧은 settling (walk_stop이 이제 transition을 담당하므로 거의 필요 없음)
+    await Future<void>.delayed(const Duration(milliseconds: 20));
     if (_disposed || token != _seqToken) {
       return;
     }
-    await _walkSegment(token, startLeft, 0.0, dir);
+    await _walkSegment(token, startLeft, 0.0, dir, loops: loopCount);
     if (_disposed || token != _seqToken) {
       return;
     }
@@ -311,7 +321,8 @@ class _TigerStageState extends State<TigerStage>
     if (_disposed || token != _seqToken) {
       return;
     }
-    await _walkSegment(token, !startLeft, dir, 0.0);
+    // 돌아올 때도 같은 loop count (대칭성)
+    await _walkSegment(token, !startLeft, dir, 0.0, loops: loopCount);
     if (_disposed || token != _seqToken) {
       return;
     }
@@ -324,7 +335,7 @@ class _TigerStageState extends State<TigerStage>
 
   /// 걷기 한 구간: [faceLeft] 방향 프레임을 [loops]회 하드컷 재생하면서
   /// dx fraction을 [dxFrom]→[dxTo]로 _paceCtrl과 동기 이동.
-  /// loops=3이면 18프레임(1980ms) 걷기로 더 자연스러운 리듬감.
+  /// 걷기 끝에 walk_stop_left/right를 추가 → turn으로 부드럽게 연결.
   Future<void> _walkSegment(
     int token,
     bool faceLeft,
@@ -333,15 +344,19 @@ class _TigerStageState extends State<TigerStage>
     int loops = 3,
   }) async {
     final frames = faceLeft ? _walkLeft : _walkRight;
+    final stopFrame = faceLeft ? 'walk_stop_left' : 'walk_stop_right';
+
     if (mounted) {
       setState(() {
         _dxFrom = dxFrom;
         _dxTo = dxTo;
       });
     }
+    // 계산: walk loop의 시간 + walk_stop(100ms)
     _paceCtrl.duration =
-        Duration(milliseconds: loops * frames.length * _walkMs);
+        Duration(milliseconds: loops * frames.length * _walkMs + 100);
     final paceFut = _paceCtrl.forward(from: 0);
+
     for (var i = 0; i < loops; i++) {
       for (final n in frames) {
         if (_disposed || token != _seqToken) {
@@ -354,10 +369,19 @@ class _TigerStageState extends State<TigerStage>
           return;
         }
         await Future<void>.delayed(
-          const Duration(milliseconds: _walkMs - _walkFade),
+          Duration(milliseconds: _walkMs - _walkFade),
         );
       }
     }
+
+    // 걷기 끝: walk_stop 프레임으로 발 착지 강조 (100ms)
+    if (!_disposed && token == _seqToken) {
+      await _crossTo(stopFrame, fadeMs: 0);
+      if (!_disposed && token == _seqToken) {
+        await Future<void>.delayed(const Duration(milliseconds: 100));
+      }
+    }
+
     try {
       await paceFut;
     } catch (_) {}
@@ -366,11 +390,14 @@ class _TigerStageState extends State<TigerStage>
   Future<void> _doSit() async {
     final token = ++_seqToken;
     _phase = _Phase.sitting;
+    // 호랑이가 가끔 짧게(1.5초), 보통(2초), 가끔 길게(3초) 앉음 → 자연스러움
+    final sitDuration = _rng.nextDouble() < 0.3 ? 1500 : (_rng.nextDouble() < 0.666 ? 2000 : 3000);
+
     await _crossTo('sit_idle_a', fadeMs: 220);
     if (_disposed || token != _seqToken) {
       return;
     }
-    await Future<void>.delayed(const Duration(milliseconds: 900));
+    await Future<void>.delayed(Duration(milliseconds: (sitDuration * 0.45).toInt()));
     if (_disposed || token != _seqToken) {
       return;
     }
@@ -378,7 +405,7 @@ class _TigerStageState extends State<TigerStage>
     if (_disposed || token != _seqToken) {
       return;
     }
-    await Future<void>.delayed(const Duration(milliseconds: 950));
+    await Future<void>.delayed(Duration(milliseconds: (sitDuration * 0.55).toInt()));
     if (_disposed || token != _seqToken) {
       return;
     }
@@ -458,23 +485,27 @@ class _TigerStageState extends State<TigerStage>
       return;
     }
     final r = _rng.nextDouble();
-    if (r < 0.45) {
-      _scheduleAmbient(); // 그대로 idle
+    // 확률 재조정: idle을 줄이고 다양한 행동을 늘림
+    // → 사용자가 호랑이를 완전히 분석할 시간 부족
+    // → 더 "살아있는" 느낌 (자주 변하므로 부자연스러움이 눈에 띄지 않음)
+    if (r < 0.32) {
+      _scheduleAmbient(); // idle 유지 (32%)
       return;
     }
-    if (r < 0.68) {
-      _doPace(_rng.nextBool()); // 완료 시 _enterFrontIdle이 재무장
+    if (r < 0.57) {
+      _doPace(_rng.nextBool()); // pacing 25%
       return;
     }
-    if (r < 0.80) {
-      _doSit();
+    if (r < 0.72) {
+      _doSit(); // sitting 15%
       return;
     }
-    if (r < 0.91) {
-      _doStretch(); // 기지개
+    if (r < 0.86) {
+      _doStretch(); // stretch 14%
       return;
     }
-    _doRoar(); // 포효
+    _doRoar(); // roar 14%
+    // 총합: 32 + 25 + 15 + 14 + 14 = 100%
   }
 
   // ── lifecycle ───────────────────────────────────────────────────────
@@ -539,11 +570,9 @@ class _TigerStageState extends State<TigerStage>
               builder: (context, _) {
                 final dx =
                     (_dxFrom + (_dxTo - _dxFrom) * _paceCurve.value) * _span;
-                // 걷는 동안만 미세 상하 bob → 발걸음 리듬감(한 발씩 올렸다 내림).
-                // 프레임이 이미 일부 상하 움직임을 포함하므로, bob은 최소한(1.5px)으로 억제.
-                final dy = _paceCtrl.isAnimating
-                    ? -1.5 * math.sin(math.pi * _paceCtrl.value * 4)
-                    : 0.0;
+                // ⚠️ bob 제거됨: 프레임이 이미 상하 움직임(stride의 자연스러운 리듬)을 포함.
+                // 추가 bob은 이중 움직임 → 어색함. 프레임의 자연스러운 gait만 신뢰.
+                const dy = 0.0;
                 // 상시 미세 호흡 스케일 → 정지 프레임도 죽지 않게.
                 final breath =
                     1.0 + 0.016 * Curves.easeInOut.transform(_breath.value);
