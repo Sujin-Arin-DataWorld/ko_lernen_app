@@ -205,6 +205,48 @@ abstract class AppL10n {
   /// **'Keine früheren Käufe gefunden.'**
   String get paywallRestoreNone;
 
+  /// No description provided for @streakDisplay.
+  ///
+  /// In de, this message translates to:
+  /// **'🔥 {days} Tage'**
+  String streakDisplay(Object days);
+
+  /// No description provided for @streakDialogTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Streak aufbauen'**
+  String get streakDialogTitle;
+
+  /// No description provided for @streakDialogSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lern jeden Tag — dein Streak wächst!'**
+  String get streakDialogSubtitle;
+
+  /// No description provided for @streakDialogEarned.
+  ///
+  /// In de, this message translates to:
+  /// **'Streaks sammeln Belohnungen'**
+  String get streakDialogEarned;
+
+  /// No description provided for @streakDialogCurrent.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktueller Streak: {days} Tage'**
+  String streakDialogCurrent(Object days);
+
+  /// No description provided for @streakDialogLastActivity.
+  ///
+  /// In de, this message translates to:
+  /// **'Zuletzt aktiv: {time}'**
+  String streakDialogLastActivity(Object time);
+
+  /// No description provided for @streakDialogLearnNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt lernen'**
+  String get streakDialogLearnNow;
+
   /// No description provided for @reviewTitle.
   ///
   /// In de, this message translates to:

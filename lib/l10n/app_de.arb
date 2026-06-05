@@ -20,6 +20,14 @@
   "paywallFailed": "Kauf nicht abgeschlossen.",
   "paywallRestoreNone": "Keine früheren Käufe gefunden.",
 
+  "streakDisplay": "🔥 {days} Tage",
+  "streakDialogTitle": "Streak aufbauen",
+  "streakDialogSubtitle": "Lern jeden Tag — dein Streak wächst!",
+  "streakDialogEarned": "Streaks sammeln Belohnungen",
+  "streakDialogCurrent": "Aktueller Streak: {days} Tage",
+  "streakDialogLastActivity": "Zuletzt aktiv: {time}",
+  "streakDialogLearnNow": "Jetzt lernen",
+
   "reviewTitle": "Heute lernen",
   "reviewEmptyTitle": "Alles erledigt!",
   "reviewEmptyBody": "Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.",

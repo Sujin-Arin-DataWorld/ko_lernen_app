@@ -65,6 +65,34 @@ class AppL10nEn extends AppL10n {
   String get paywallRestoreNone => 'No previous purchases found.';
 
   @override
+  String streakDisplay(Object days) {
+    return '🔥 $days days';
+  }
+
+  @override
+  String get streakDialogTitle => 'Keep your streak alive';
+
+  @override
+  String get streakDialogSubtitle =>
+      'Learn every day — watch your streak grow!';
+
+  @override
+  String get streakDialogEarned => 'Streaks unlock rewards';
+
+  @override
+  String streakDialogCurrent(Object days) {
+    return 'Current streak: $days days';
+  }
+
+  @override
+  String streakDialogLastActivity(Object time) {
+    return 'Last activity: $time';
+  }
+
+  @override
+  String get streakDialogLearnNow => 'Learn now';
+
+  @override
   String get reviewTitle => 'Today\'s review';
 
   @override

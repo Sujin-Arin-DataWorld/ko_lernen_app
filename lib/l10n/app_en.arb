@@ -20,6 +20,14 @@
   "paywallFailed": "Purchase not completed.",
   "paywallRestoreNone": "No previous purchases found.",
 
+  "streakDisplay": "🔥 {days} days",
+  "streakDialogTitle": "Keep your streak alive",
+  "streakDialogSubtitle": "Learn every day — watch your streak grow!",
+  "streakDialogEarned": "Streaks unlock rewards",
+  "streakDialogCurrent": "Current streak: {days} days",
+  "streakDialogLastActivity": "Last activity: {time}",
+  "streakDialogLearnNow": "Learn now",
+
   "reviewTitle": "Today's review",
   "reviewEmptyTitle": "All done!",
   "reviewEmptyBody": "No cards are due today. Play a round or learn a new pack — those words will show up here for review.",
