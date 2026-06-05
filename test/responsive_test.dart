@@ -3,7 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
+import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
+import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
+import 'package:ko_lernen_app/screens/wordbook_hub_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
@@ -185,7 +189,11 @@ void main() {
     });
 
     final screens = <String, Widget>{
+      'app shell': const AppShell(),
       'home': const HomeScreen(),
+      'learn hub': const LearnHubScreen(),
+      'practice hub': const PracticeHubScreen(),
+      'wordbook hub': const WordbookHubScreen(),
       'scenarios list': const ScenariosListScreen(),
       'settings': const SettingsScreen(),
       'stats': const StatsScreen(),

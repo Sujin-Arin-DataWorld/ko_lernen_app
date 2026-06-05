@@ -12,6 +12,7 @@ import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -30,6 +31,22 @@ class BookCaptureScreen extends StatefulWidget {
 class _BookCaptureScreenState extends State<BookCaptureScreen> {
   bool _busy = false;
   String? _errorKey;
+
+  @override
+  void initState() {
+    super.initState();
+    // 첫 진입 시 코치마크 1회 표시 (initState에서 직접 showModalBottomSheet 금지
+    // → postFrameCallback으로 위젯 트리 안정화 후 호출).
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) {
+        return;
+      }
+      if (!Storage.tutBookSeen) {
+        await showFeatureCoachSheet(context, FeatureCoach.book);
+        await Storage.setTutBookSeen();
+      }
+    });
+  }
 
   Future<void> _pick(ImageSource source) async {
     if (_busy) return;

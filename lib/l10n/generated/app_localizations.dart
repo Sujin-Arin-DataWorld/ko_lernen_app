@@ -4470,6 +4470,102 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Schwierig'**
   String get grammarHard;
+
+  /// No description provided for @navHome.
+  ///
+  /// In de, this message translates to:
+  /// **'Start'**
+  String get navHome;
+
+  /// No description provided for @navLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get navLearn;
+
+  /// No description provided for @navPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get navPractice;
+
+  /// No description provided for @navWordbook.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter'**
+  String get navWordbook;
+
+  /// No description provided for @coachBookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchseite einlesen'**
+  String get coachBookTitle;
+
+  /// No description provided for @coachBookStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'📸 Mach ein Foto von deinem Lehrbuch oder einer Speisekarte'**
+  String get coachBookStep1;
+
+  /// No description provided for @coachBookStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'🔍 Der Text wird automatisch erkannt und analysiert'**
+  String get coachBookStep2;
+
+  /// No description provided for @coachBookStep3.
+  ///
+  /// In de, this message translates to:
+  /// **'📚 Neue Wörter landen direkt in deiner Wortliste'**
+  String get coachBookStep3;
+
+  /// No description provided for @coachBookLimitNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Tageslimit: 20 Seiten'**
+  String get coachBookLimitNote;
+
+  /// No description provided for @coachVocabPackTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'In 3 Schritten lernen'**
+  String get coachVocabPackTitle;
+
+  /// No description provided for @coachVocabPackStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'📖 Schritt 1 · Lernen — Karten umdrehen und einprägen'**
+  String get coachVocabPackStep1;
+
+  /// No description provided for @coachVocabPackStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'✏️ Schritt 2 · Quiz — Wähle die richtige Übersetzung'**
+  String get coachVocabPackStep2;
+
+  /// No description provided for @coachVocabPackStep3.
+  ///
+  /// In de, this message translates to:
+  /// **'🎯 Schritt 3 · Boss — Hör zu und wähle die Bedeutung'**
+  String get coachVocabPackStep3;
+
+  /// No description provided for @coachPackStageQuiz.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt das Quiz! Wähle die richtige Übersetzung.'**
+  String get coachPackStageQuiz;
+
+  /// No description provided for @coachPackStageBoss.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Boss wartet — hör genau hin!'**
+  String get coachPackStageBoss;
+
+  /// No description provided for @coachBtnGotIt.
+  ///
+  /// In de, this message translates to:
+  /// **'Alles klar!'**
+  String get coachBtnGotIt;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

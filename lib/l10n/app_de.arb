@@ -921,5 +921,25 @@
 
   "@_grammar_difficulty": { "description": "Grammatik-Schwierigkeit Filter (Tier 2 — 2026-06-05)." },
   "grammarEasy": "Verstanden",
-  "grammarHard": "Schwierig"
+  "grammarHard": "Schwierig",
+
+  "@_bottom_nav": { "description": "BottomNav 4-Tabs (Stage 1 IA — 2026-06-05)." },
+  "navHome": "Start",
+  "navLearn": "Lernen",
+  "navPractice": "Üben",
+  "navWordbook": "Wörter",
+
+  "@_feature_coach": { "description": "Onboarding-Coachmarks — Mascot-Bottomsheet (Stage 1 — 2026-06-05)." },
+  "coachBookTitle": "Buchseite einlesen",
+  "coachBookStep1": "📸 Mach ein Foto von deinem Lehrbuch oder einer Speisekarte",
+  "coachBookStep2": "🔍 Der Text wird automatisch erkannt und analysiert",
+  "coachBookStep3": "📚 Neue Wörter landen direkt in deiner Wortliste",
+  "coachBookLimitNote": "Tageslimit: 20 Seiten",
+  "coachVocabPackTitle": "In 3 Schritten lernen",
+  "coachVocabPackStep1": "📖 Schritt 1 · Lernen — Karten umdrehen und einprägen",
+  "coachVocabPackStep2": "✏️ Schritt 2 · Quiz — Wähle die richtige Übersetzung",
+  "coachVocabPackStep3": "🎯 Schritt 3 · Boss — Hör zu und wähle die Bedeutung",
+  "coachPackStageQuiz": "Jetzt das Quiz! Wähle die richtige Übersetzung.",
+  "coachPackStageBoss": "Der Boss wartet — hör genau hin!",
+  "coachBtnGotIt": "Alles klar!"
 }

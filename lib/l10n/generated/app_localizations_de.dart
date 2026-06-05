@@ -2402,4 +2402,59 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarHard => 'Schwierig';
+
+  @override
+  String get navHome => 'Start';
+
+  @override
+  String get navLearn => 'Lernen';
+
+  @override
+  String get navPractice => 'Üben';
+
+  @override
+  String get navWordbook => 'Wörter';
+
+  @override
+  String get coachBookTitle => 'Buchseite einlesen';
+
+  @override
+  String get coachBookStep1 =>
+      '📸 Mach ein Foto von deinem Lehrbuch oder einer Speisekarte';
+
+  @override
+  String get coachBookStep2 =>
+      '🔍 Der Text wird automatisch erkannt und analysiert';
+
+  @override
+  String get coachBookStep3 =>
+      '📚 Neue Wörter landen direkt in deiner Wortliste';
+
+  @override
+  String get coachBookLimitNote => 'Tageslimit: 20 Seiten';
+
+  @override
+  String get coachVocabPackTitle => 'In 3 Schritten lernen';
+
+  @override
+  String get coachVocabPackStep1 =>
+      '📖 Schritt 1 · Lernen — Karten umdrehen und einprägen';
+
+  @override
+  String get coachVocabPackStep2 =>
+      '✏️ Schritt 2 · Quiz — Wähle die richtige Übersetzung';
+
+  @override
+  String get coachVocabPackStep3 =>
+      '🎯 Schritt 3 · Boss — Hör zu und wähle die Bedeutung';
+
+  @override
+  String get coachPackStageQuiz =>
+      'Jetzt das Quiz! Wähle die richtige Übersetzung.';
+
+  @override
+  String get coachPackStageBoss => 'Der Boss wartet — hör genau hin!';
+
+  @override
+  String get coachBtnGotIt => 'Alles klar!';
 }

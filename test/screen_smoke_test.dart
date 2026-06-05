@@ -3,21 +3,25 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
+import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
+import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
+import 'package:ko_lernen_app/screens/wordbook_hub_screen.dart';
 import 'package:ko_lernen_app/screens/wordle_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/kkeunmari_engine.dart';
@@ -41,8 +45,12 @@ void main() {
   });
 
   final screens = <String, Widget>{
+    'app shell': const AppShell(),
     'intro gate': const IntroGateScreen(),
     'home': const HomeScreen(),
+    'learn hub': const LearnHubScreen(),
+    'practice hub': const PracticeHubScreen(),
+    'wordbook hub': const WordbookHubScreen(),
     'learning path': const LearningPathScreen(),
     'vocab (packs grid)': const VocabPacksScreen(),
     'vocab (legacy)': const LegacyVocabScreen(),
@@ -72,7 +80,8 @@ void main() {
 
       await tester.pumpWidget(_wrap(entry.value));
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 1200));
+      // TigerStage의 ambient 스케줄러 타이머(최대 ~1.5s)가 완료될 때까지 진행.
+      await tester.pump(const Duration(milliseconds: 2000));
 
       expect(tester.takeException(), isNull);
 

@@ -19,6 +19,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
+import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/tokens.dart';
@@ -74,6 +75,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   void initState() {
     super.initState();
     _load();
+    // 첫 진입 시 3단계 코치마크 1회 표시.
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) {
+        return;
+      }
+      if (!Storage.tutVocabPackSeen) {
+        await showFeatureCoachSheet(context, FeatureCoach.vocabPack);
+        await Storage.setTutVocabPackSeen();
+      }
+    });
   }
 
   Future<void> _load() async {
@@ -184,6 +195,21 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    // 스테이지 전환 인라인 배너 — 최초 1회만 (모달보다 학습 흐름 덜 끊음).
+    if (!Storage.tutPackQuizSeen && mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (!mounted) {
+          return;
+        }
+        await ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppL10n.of(context).coachPackStageQuiz),
+            duration: const Duration(seconds: 3),
+          ),
+        ).closed;
+        await Storage.setTutPackQuizSeen();
+      });
+    }
   }
 
   void _enterBoss() {
@@ -205,6 +231,21 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (cur != null) {
       // ignore: discarded_futures
       TtsService.speak(cur.korean);
+    }
+    // 스테이지 전환 인라인 배너 — 최초 1회만.
+    if (!Storage.tutPackBossSeen && mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (!mounted) {
+          return;
+        }
+        await ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppL10n.of(context).coachPackStageBoss),
+            duration: const Duration(seconds: 3),
+          ),
+        ).closed;
+        await Storage.setTutPackBossSeen();
+      });
     }
   }
 
@@ -552,65 +593,69 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ),
         ),
         const SizedBox(height: Spacing.lg),
-        // 4 choices
+        // 4 choices — 중앙 정렬 + 스크롤 안전
         Expanded(
-          child: GridView.count(
-            crossAxisCount: 1,
-            mainAxisSpacing: Spacing.sm,
-            childAspectRatio: 7,
-            physics: const NeverScrollableScrollPhysics(),
-            children: List.generate(choices.length, (i) {
-              final text = choices[i];
-              final isCorrect = text == cur.german;
-              Color accent = s.text;
-              Color bg = s.surface;
-              if (_choiceLocked) {
-                if (isCorrect) {
-                  accent = SoriColors.success;
-                  bg = SoriColors.success.withValues(alpha: 0.12);
-                } else if (i == _selectedChoice) {
-                  accent = SoriColors.danger;
-                  bg = SoriColors.danger.withValues(alpha: 0.12);
-                }
-              }
-              return Material(
-                color: bg,
-                borderRadius: BorderRadius.circular(SoriRadius.md),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                  onTap: _choiceLocked ? null : () => _selectChoice(i),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: accent.withValues(alpha: 0.4)),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(choices.length, (i) {
+                  final text = choices[i];
+                  final isCorrect = text == cur.german;
+                  Color accent = s.text;
+                  Color bg = s.surface;
+                  if (_choiceLocked) {
+                    if (isCorrect) {
+                      accent = SoriColors.success;
+                      bg = SoriColors.success.withValues(alpha: 0.12);
+                    } else if (i == _selectedChoice) {
+                      accent = SoriColors.danger;
+                      bg = SoriColors.danger.withValues(alpha: 0.12);
+                    }
+                  }
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: Spacing.sm),
+                    child: Material(
+                      color: bg,
                       borderRadius: BorderRadius.circular(SoriRadius.md),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: Spacing.lg, vertical: Spacing.md),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            text,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: accent,
-                            ),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(SoriRadius.md),
+                        onTap: _choiceLocked ? null : () => _selectChoice(i),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: accent.withValues(alpha: 0.4)),
+                            borderRadius: BorderRadius.circular(SoriRadius.md),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: Spacing.lg, vertical: Spacing.md),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  text,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: accent,
+                                  ),
+                                ),
+                              ),
+                              if (_choiceLocked && isCorrect)
+                                const Icon(Icons.check_circle,
+                                    color: SoriColors.success),
+                              if (_choiceLocked &&
+                                  i == _selectedChoice &&
+                                  !isCorrect)
+                                const Icon(Icons.cancel, color: SoriColors.danger),
+                            ],
                           ),
                         ),
-                        if (_choiceLocked && isCorrect)
-                          const Icon(Icons.check_circle,
-                              color: SoriColors.success),
-                        if (_choiceLocked &&
-                            i == _selectedChoice &&
-                            !isCorrect)
-                          const Icon(Icons.cancel, color: SoriColors.danger),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              );
-            }),
+                  );
+                }),
+              ),
+            ),
           ),
         ),
       ],

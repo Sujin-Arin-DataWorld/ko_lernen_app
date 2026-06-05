@@ -38,7 +38,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | 경로 | 화면 |
 |---|---|
 | `/intro` | IntroGateScreen (솟을대문 시네마틱 인트로 — **앱 진입점**) |
-| `/` | HomeScreen |
+| `/` | **AppShell** (BottomNav 4탭 셸 — 홈/배우기/연습/단어장. 2026-06-05 IA 재설계) |
 | `/onboarding` | OnboardingLevelScreen (첫 실행 레벨 선택) |
 | `/vocab` | **VocabPacksScreen** (단어팩 그리드 — v2.0) |
 | `/vocab/pack` (args: packId) | VocabPackScreen (Learn→Quiz→Boss 단계) |
@@ -110,6 +110,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - `decoration_layer.dart` — 퀘스트 보상 장식 합성. 미존재 PNG는 초록 원형 placeholder.
 - `dancheong_stamp.dart` — 단청 도장 (CustomPainter, PNG 미참조).
 - `pack_card.dart` / `celebration.dart` — 단어팩 카드 / 축하 burst.
+- `module_card.dart` — **ModuleCard** 공유 컴포넌트 (home·허브 3종 공용, 2026-06-05 추출).
+- `feature_coach.dart` — **FeatureCoach** 마스코트 바텀시트 코치마크 (account_nudge 일반화, 2026-06-05).
 - ✅ 모션 시스템 일원화 완료 — `flutter_animate` 패키지 제거. `motion.dart` + `lib/motion/transitions.dart` 둘만 공존 (역할 분리: entrance vs route transition).
 
 ### 데이터
@@ -203,9 +205,9 @@ flutter run -d <android-id>   # 안드로이드
 > **최신 현황 → `docs/release-readiness-2026-06-02.md`.** 앱은 **v2.0 (stately-rising-jongga)**, 버전 `2.0.0+3`, 안드로이드 내부 테스트 직전.
 > - ✅ 사진→단어장("책 한 컷") 클라이언트 완성 · Cloud Function(`functions/analyze_korean_text` — kiwipiepy+DeepL+우리말샘) **배포 대기**
 > - ✅ 단어팩 61(Learn→Quiz→Boss) · 특별 퀘스트→마당 장식 · 한옥 12단계 성장 · 홈 v4(호랑이 hero)
-> - 🔨 2026-06-02 세션: 공유 기능(친구코드+OS공유) · Cloud Function 클라 보정 · 홈 skill-path 레일
+> - ✅ **2026-06-05: BottomNav IA 재설계 + 첫 사용자 온보딩 코치마크 (Stage 1)** — AppShell(4탭) + 허브 3종 + feature_coach.dart + Storage kl_tut_* 플래그 + P0 배선(책한컷·단어팩). 미커밋(Jin 확인 후).
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
-> - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화
+> - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 

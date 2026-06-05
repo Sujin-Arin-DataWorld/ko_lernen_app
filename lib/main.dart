@@ -21,7 +21,7 @@ import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/splash_screen.dart';
 import 'screens/intro_gate_screen.dart';
-import 'screens/home_screen.dart';
+import 'screens/app_shell.dart';
 import 'screens/paywall_screen.dart';
 import 'screens/review_session_screen.dart';
 import 'screens/smalltalk_screen.dart';
@@ -222,7 +222,7 @@ class KoLernenApp extends StatelessWidget {
                   (_) => const IntroGateScreen(), settings: settings);
             case '/':
               return SoriTransitions.fadeScale(
-                  (_) => const HomeScreen(), settings: settings);
+                  (_) => const AppShell(), settings: settings);
             case '/onboarding':
               return SoriTransitions.fadeScale(
                   (_) => const OnboardingLevelScreen(), settings: settings);
@@ -373,7 +373,7 @@ class KoLernenApp extends StatelessWidget {
                   settings: settings);
             default:
               return SoriTransitions.fadeScale(
-                  (_) => const HomeScreen(), settings: settings);
+                  (_) => const AppShell(), settings: settings);
           }
         },
       ),

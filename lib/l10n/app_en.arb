@@ -920,5 +920,25 @@
 
   "@_grammar_difficulty": { "description": "Grammar difficulty filter (Tier 2 — 2026-06-05)." },
   "grammarEasy": "Got it",
-  "grammarHard": "Difficult"
+  "grammarHard": "Difficult",
+
+  "@_bottom_nav": { "description": "BottomNav 4 tabs (Stage 1 IA — 2026-06-05)." },
+  "navHome": "Home",
+  "navLearn": "Learn",
+  "navPractice": "Practice",
+  "navWordbook": "Words",
+
+  "@_feature_coach": { "description": "Onboarding coachmarks — mascot bottom sheet (Stage 1 — 2026-06-05)." },
+  "coachBookTitle": "Snap a page",
+  "coachBookStep1": "📸 Take a photo of your textbook or a menu",
+  "coachBookStep2": "🔍 Text is detected and analyzed automatically",
+  "coachBookStep3": "📚 New words are saved straight to your word list",
+  "coachBookLimitNote": "Daily limit: 20 pages",
+  "coachVocabPackTitle": "Learn in 3 steps",
+  "coachVocabPackStep1": "📖 Step 1 · Learn — flip the cards and absorb them",
+  "coachVocabPackStep2": "✏️ Step 2 · Quiz — pick the right translation",
+  "coachVocabPackStep3": "🎯 Step 3 · Boss — listen and choose the meaning",
+  "coachPackStageQuiz": "Quiz time! Pick the right translation.",
+  "coachPackStageBoss": "The boss is waiting — listen closely!",
+  "coachBtnGotIt": "Got it!"
 }

@@ -140,6 +140,31 @@ class AppTheme {
         subtitleTextStyle: TextStyle(color: s.textMuted, fontFamily: 'Pretendard', fontWeight: FontWeight.w500, fontSize: 12),
       ),
 
+      // ── NavigationBar ────────────────────────────────────────────────
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: s.surface,
+        indicatorColor: primary.withValues(alpha: 0.16),
+        surfaceTintColor: Colors.transparent,
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          final selected = states.contains(WidgetState.selected);
+          return TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: 11,
+            fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+            color: selected ? primary : s.textMuted,
+          );
+        }),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          final selected = states.contains(WidgetState.selected);
+          return IconThemeData(
+            color: selected ? primary : s.textMuted,
+            size: 22,
+          );
+        }),
+        elevation: 0,
+        shadowColor: Colors.transparent,
+      ),
+
       // ── Typography ───────────────────────────────────────────────────
       textTheme: _buildTextTheme(s),
     );

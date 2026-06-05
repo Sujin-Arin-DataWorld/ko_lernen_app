@@ -299,6 +299,32 @@ class Storage {
   static Future<void> setIntroSeen() async =>
       _prefs?.setBool('kl_intro_seen', true);
 
+  // ───────── 온보딩 코치마크 1회성 플래그 (Stage 1) ─────────
+  // `introSeen` 패턴과 동일. 각각 진입 화면에서 최초 1회 시트 표시.
+
+  /// 책 한 컷 코치마크 표시됨?
+  static bool get tutBookSeen => _prefs?.getBool('kl_tut_book') ?? false;
+  static Future<void> setTutBookSeen() async =>
+      _prefs?.setBool('kl_tut_book', true);
+
+  /// 단어팩 진입 코치마크 표시됨?
+  static bool get tutVocabPackSeen =>
+      _prefs?.getBool('kl_tut_vocab_pack') ?? false;
+  static Future<void> setTutVocabPackSeen() async =>
+      _prefs?.setBool('kl_tut_vocab_pack', true);
+
+  /// 단어팩 퀴즈 스테이지 인라인 배너 표시됨?
+  static bool get tutPackQuizSeen =>
+      _prefs?.getBool('kl_tut_pack_quiz') ?? false;
+  static Future<void> setTutPackQuizSeen() async =>
+      _prefs?.setBool('kl_tut_pack_quiz', true);
+
+  /// 단어팩 보스 스테이지 인라인 배너 표시됨?
+  static bool get tutPackBossSeen =>
+      _prefs?.getBool('kl_tut_pack_boss') ?? false;
+  static Future<void> setTutPackBossSeen() async =>
+      _prefs?.setBool('kl_tut_pack_boss', true);
+
   /// DSGVO/ToS-Einwilligung beim ersten Start akzeptiert? (Consent-Gate)
   static bool get consentAccepted =>
       _prefs?.getBool('kl_consent_accepted') ?? false;
