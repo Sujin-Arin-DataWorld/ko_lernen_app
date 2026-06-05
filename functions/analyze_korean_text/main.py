@@ -268,6 +268,119 @@ def translate_batch(items: list[str], target: str) -> dict[str, str]:
     return {it: out.get(it, "") for it in items}
 
 
+def translate_words_with_context(
+    words: list[dict[str, Any]],
+    sentences: list[str],
+    target: str,
+) -> dict[str, str]:
+    """단어를 그 단어가 등장한 문장을 context 로 실어 번역 → 다의어 해소.
+
+    "걸리다" 처럼 문맥에 따라 뜻이 갈리는 단어를, DeepL `context` 파라미터에
+    예문을 함께 보내 올바른 의미로 번역한다(시간이 걸리다→dauern,
+    경찰에 걸리다→erwischt werden). context 텍스트는 DeepL 과금 글자수에 미포함.
+
+    효율: 같은 예문의 단어들은 한 요청으로 묶어 호출 수를 문장 수로 제한.
+    캐시: 키 = sha256(target, "단어\\x1e예문") → 같은 문맥 재등장 시 재사용,
+          문맥이 다르면 별도 번역(의미가 다를 수 있으므로 정당).
+    반환: {korean: translation}. 오프라인/실패 시 빈 문자열.
+    """
+    target_code = target.upper()
+    if target_code == "EN":
+        target_code = "EN-US"
+
+    # 전체 텍스트를 공통 context 로 사용. 단어별 예문(stem 부분문자열) 매칭은
+    # 한국어 동사 활용(걸리다→걸려요, "걸리"가 "걸려요"에 없음) 때문에 자주
+    # 실패해 context 가 비고 다의어 해소가 안 됐다. 짧은 책-한-컷 텍스트 전체를
+    # 문맥으로 주면 모든 단어가 같은 context 라 DeepL 호출 1회로 묶이고 문맥도
+    # 최대가 된다.
+    full_context = " ".join(s for s in sentences if s).strip()
+    word_example: dict[str, str] = {
+        kor: full_context
+        for kor in dict.fromkeys(w["korean"] for w in words)
+    }
+
+    result: dict[str, str] = {}
+    fs = _get_firestore()
+
+    # 1) 캐시 일괄 조회 (단어+예문 키).
+    pending = dict(word_example)  # korean -> example
+    if fs is not None:
+        try:
+            id_to_word = {
+                _cache_key(f"{kor}\x1e{ex}", target_code): kor
+                for kor, ex in word_example.items()
+            }
+            refs = [
+                fs.collection(_CACHE_COLLECTION).document(cid)
+                for cid in id_to_word
+            ]
+            for snap in fs.get_all(refs):
+                if snap.exists:
+                    kor = id_to_word.get(snap.id)
+                    val = (snap.to_dict() or {}).get("t", "")
+                    if kor and val:
+                        result[kor] = val
+            pending = {
+                kor: ex for kor, ex in word_example.items()
+                if kor not in result
+            }
+        except Exception:  # Cache-Lesefehler → alles neu übersetzen
+            result, pending = {}, dict(word_example)
+
+    if not pending:
+        return result
+
+    translator = _get_deepl()
+    if translator is None:
+        for kor in pending:
+            result.setdefault(kor, "")
+        return result
+
+    # 2) 미스를 예문(context)별로 묶어 DeepL 호출 (예문당 1회).
+    by_context: dict[str, list[str]] = {}
+    for kor, ex in pending.items():
+        by_context.setdefault(ex, []).append(kor)
+
+    fresh: dict[str, str] = {}
+    for ex, kors in by_context.items():
+        try:
+            results = translator.translate_text(
+                kors, target_lang=target_code, context=(ex or None)
+            )
+            for kor, r in zip(kors, results):
+                fresh[kor] = r.text
+        except Exception:  # pragma: no cover — best-effort
+            for kor in kors:
+                fresh[kor] = ""
+    result.update(fresh)
+
+    # 3) 새 번역 캐시 저장 (단어+예문 키, 비어있지 않은 것만).
+    if fs is not None:
+        try:
+            batch = fs.batch()
+            n = 0
+            for kor, ex in pending.items():
+                txt = fresh.get(kor, "")
+                if not txt:
+                    continue
+                batch.set(
+                    fs.collection(_CACHE_COLLECTION).document(
+                        _cache_key(f"{kor}\x1e{ex}", target_code)
+                    ),
+                    {"t": txt, "src": kor, "lang": target_code},
+                )
+                n += 1
+                if n % 400 == 0:
+                    batch.commit()
+                    batch = fs.batch()
+            if n % 400 != 0:
+                batch.commit()
+        except Exception:
+            pass
+
+    return result
+
+
 # ── 표준국어대사전 (stdict / NIKL) Definitionen ───────────────────────────
 # Liefert eine kurze koreanische Definition (뜻풀이) pro Wort. Best effort.
 # Wichtig: NIKL-Wörterbücher ordnen Homonyme (먹다1=taub, 먹다2=essen) nach
@@ -366,10 +479,12 @@ def analyze_korean_text(request: Request) -> Response:
     sentences = split_sentences(text)
     words = extract_words(text)
 
-    # Translate words + sentences together (DeepL batched).
-    to_translate = [w["korean"] for w in words] + sentences
+    # 문장은 batch 번역(문장 자체가 문맥), 단어는 그 단어가 든 예문을 DeepL
+    # context 로 실어 번역 → 다의어 해소("걸리다"=시간이면 dauern / 경찰이면
+    # erwischt werden). 단어 단독 번역의 문맥 부재 오역을 막는다.
     target = "DE" if lang == "de" else "EN-US"
-    translations = translate_batch(to_translate, target)
+    sentence_translations = translate_batch(sentences, target)
+    word_translations = translate_words_with_context(words, sentences, target)
 
     # 한국어 뜻풀이(definitionKo)는 v1.0 에서 비활성화.
     # NIKL 사전 API(우리말샘·표준국어대사전·krdict) 모두 동음이의어의 "대표 뜻"을
@@ -379,12 +494,27 @@ def analyze_korean_text(request: Request) -> Response:
     # v1.1 재검토: 고정 단어장 큐레이션 또는 LLM 문맥 기반 sense 선택.
     # enrich_definitions(words)
 
+    # 단어의 예문 찾기 — 동사 활용(걸리다→걸려요) 때문에 stem 부분문자열 매칭이
+    # 실패하므로, 문장을 형태소 분석해 form→대표문장 역인덱스를 만든다(문장당 1회).
+    kiwi = _get_kiwi()
+    form_to_sentence: dict[str, str] = {}
+    for s in sentences:
+        try:
+            for token in kiwi.tokenize(s, normalize_coda=True):
+                form_to_sentence.setdefault(token.form, s)
+        except Exception:  # pragma: no cover — best-effort
+            pass
+
     enriched_words = []
-    sentence_lookup = {s: translations.get(s, "") for s in sentences}
+    sentence_lookup = {s: sentence_translations.get(s, "") for s in sentences}
     for w in words:
         kor = w["korean"]
-        translation = translations.get(kor, "")
-        example = next((s for s in sentences if w.get("stem", kor) in s), "")
+        translation = word_translations.get(kor, "")
+        stem = w.get("stem", kor)
+        # 1) 형태소 역인덱스(활용형 정확) → 2) 부분문자열 fallback.
+        example = form_to_sentence.get(stem) or next(
+            (s for s in sentences if stem in s or kor in s), ""
+        )
         enriched_words.append({
             "korean": kor,
             "romanization": "",  # could add hangul-romanization fallback later
