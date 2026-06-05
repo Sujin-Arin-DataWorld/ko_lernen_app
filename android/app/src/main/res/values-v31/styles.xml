@@ -2,12 +2,16 @@
 <resources>
     <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Native splash screen disabled (Android 12+) — Flutter splash_screen.dart takes full control.
+             This avoids duplicate/cut-off logo splash screens.
+             If you want to re-enable Android 12+ native splash: add back
+               <item name="android:windowSplashScreenBackground">#FAF6EC</item>
+               <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
+             and ensure the android12splash drawable matches HanLogo.png sizing. -->
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
-        <item name="android:windowSplashScreenBackground">#FAF6EC</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
     </style>
     <!-- Theme applied to the Android Window as soon as the process has started.
          This theme determines the color of the Android Window while your
@@ -17,5 +21,8 @@
          This Theme is only used starting with V2 of Flutter's Android embedding. -->
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
+        <!-- Plan B (2026-06-05): Android 15 강제 edge-to-edge opt-out →
+             OS가 상태바/네비게이션바 영역을 예약, 콘텐츠 잘림 방지 (API 35 적용). -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 </resources>
