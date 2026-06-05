@@ -84,7 +84,14 @@ const Set<String> kAvailableDecorations = {
   'decoration_sagunja_juk',
   'decoration_sagunja_maehwa',
   'decoration_sagunja_nan',
+  'decoration_sagunja_guk',
   'decoration_sonamu',
+  'decoration_seokdeung',
+  'decoration_doldam',
+  'decoration_seollal_flag',
+  'decoration_chuseok_moon',
+  'decoration_hangeulday_plaque',
+  'decoration_kite',
 };
 
 class _DecorationImage extends StatelessWidget {
