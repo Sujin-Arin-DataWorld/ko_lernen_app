@@ -12,7 +12,20 @@
           "package_name": "com.sujinarin.ko_lernen_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "573567222361-ie6fko7oi2nd0p8eo78l20b30i44v7rt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sujinarin.ko_lernen_app",
+            "certificate_hash": "927593a43e591b305e579270dba2d5425c5286ed"
+          }
+        },
+        {
+          "client_id": "573567222361-spcm503sda3g4qftb21lqbogehk4nic8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD_opujse33cwt6nOQFxqQJXfgSCW5UkO8"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573567222361-spcm503sda3g4qftb21lqbogehk4nic8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
