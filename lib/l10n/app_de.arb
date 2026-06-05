@@ -427,6 +427,9 @@
   "@gyeMembersN": { "placeholders": { "count": { "type": "int" } } },
   "gyeWeeklyGoal":               "Wochenziel",
   "gyeNoGoal":                   "Noch kein Wochenziel",
+  "gyeDureTitle":                "Diese Woche zusammen",
+  "gyeDureMe":                   "Ich",
+  "gyeDureEmpty":                "Noch leer — knack ein Pack und mach den Anfang!",
   "gyeFeedTitle":                "Aktivität",
   "gyeFeedEmpty":                "Noch keine Aktivität. Schließt gemeinsam Pakete ab!",
   "gyeFeedPackCleared":          "{name} hat ein Paket abgeschlossen",
@@ -517,6 +520,7 @@
   },
   "vocabPackResultRetryCta":      "Nochmal versuchen",
   "vocabPackResultBackToGrid":    "Zurück zu den Packs",
+  "vocabPackResultGeschafft":     "Geschafft! Du hast diesen Wortschatz-Pack gemeistert.",
 
   "moduleStatsTitle": "Statistik",
   "moduleStatsDesc": "Streak, Karten, Genauigkeit",

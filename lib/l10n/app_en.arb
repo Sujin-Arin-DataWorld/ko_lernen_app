@@ -426,6 +426,9 @@
   "@gyeMembersN": { "placeholders": { "count": { "type": "int" } } },
   "gyeWeeklyGoal":               "This week's goal",
   "gyeNoGoal":                   "No weekly goal set yet",
+  "gyeDureTitle":                "Together this week",
+  "gyeDureMe":                   "Me",
+  "gyeDureEmpty":                "Empty so far — clear a pack to break ground!",
   "gyeFeedTitle":                "Activity",
   "gyeFeedEmpty":                "No activity yet. Clear packs together to grow the courtyard!",
   "gyeFeedPackCleared":          "{name} cleared a pack",
@@ -516,6 +519,7 @@
   },
   "vocabPackResultRetryCta":      "Try again",
   "vocabPackResultBackToGrid":    "Back to packs",
+  "vocabPackResultGeschafft":     "Done! You mastered this vocab pack.",
 
   "moduleStatsTitle": "Statistics",
   "moduleStatsDesc": "Streak, cards, accuracy",
