@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "firebase emulators:start --only functions",
-    "deploy": "firebase deploy --only functions:on_pack_cleared,functions:weekly_goal_rollover,functions:on_report_created",
+    "deploy": "firebase deploy --only functions",
     "smoke": "node smoke_test.js"
   },
   "dependencies": {

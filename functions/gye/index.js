@@ -39,7 +39,7 @@ const db = admin.firestore();
 /**
  * 팩이 처음 cleared 되는 순간 계 진행도·피드 갱신.
  */
-exports.on_pack_cleared = functions.firestore
+exports.on_pack_cleared = functions.region("europe-west3").firestore
   .document("users/{uid}/packs/{packId}")
   .onWrite(async (change, context) => {
     const after = change.after.data();
@@ -96,7 +96,7 @@ exports.on_pack_cleared = functions.firestore
  *   70%+      → xpBoostActive = true.
  *   리셋 후 피드 100개 초과분 prune.
  */
-exports.weekly_goal_rollover = functions.pubsub
+exports.weekly_goal_rollover = functions.region("europe-west3").pubsub
   .schedule("0 0 * * 1")
   .timeZone("Asia/Seoul")
   .onRun(async () => {
@@ -155,7 +155,7 @@ exports.weekly_goal_rollover = functions.pubsub
  * 신고 생성 트리거 — 같은 targetUid에 **서로 다른 신고자 3명+** → 자동 suspend.
  * rules상 members.status는 client가 직접 못 바꿈(정지 회피 방지) → admin SDK 필수.
  */
-exports.on_report_created = functions.firestore
+exports.on_report_created = functions.region("europe-west3").firestore
   .document("gye/{gyeId}/reports/{reportId}")
   .onCreate(async (snap, context) => {
     const report = snap.data() || {};

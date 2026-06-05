@@ -34,9 +34,12 @@ echo "── gye (Node · firebase deploy) ──"
 node --check functions/gye/index.js 2>/dev/null &&
   ok "gye/index.js 문법" || bad "gye/index.js 문법 오류"
 for fn in on_pack_cleared weekly_goal_rollover on_report_created; do
-  grep -q "functions:$fn" functions/gye/package.json &&
-    ok "deploy 목록: $fn" || bad "deploy 목록 누락: $fn → 배포 안 됨"
+  grep -q "exports.$fn" functions/gye/index.js &&
+    ok "index.js exports: $fn" || bad "index.js exports 누락: $fn"
 done
+grep -q 'region("europe-west3")' functions/gye/index.js &&
+  ok "gye 함수 region: europe-west3 (Firestore와 일치)" ||
+  bad "gye 함수 region 미설정 → us-central1 배포 시 Firestore 트리거 안 울림"
 [ -f functions/gye/smoke_test.js ] &&
   ok "smoke_test.js 존재" || bad "smoke_test.js 없음"
 
