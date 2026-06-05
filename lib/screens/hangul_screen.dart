@@ -62,6 +62,10 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
       body: SafeArea(
         child: TabBarView(
           controller: _tabs,
+          // "그리기 박스에서만 스와이프 차단" — Schreiben 탭(index 2)에서만
+          // 좌우 스와이프를 끈다. 손가락 그리기(pan)가 탭 넘김을 유발하지 않고,
+          // Übersicht/Karten 탭은 정상 스와이프 유지. (탭 전환은 상단 탭 클릭)
+          physics: _tabIndex == 2 ? const NeverScrollableScrollPhysics() : null,
           children: const [
             _OverviewTab(),
             _CardsTab(),
@@ -148,15 +152,10 @@ class _CharGrid extends StatelessWidget {
 
   void _showDetail(BuildContext ctx, HangulChar c, Color color) {
     HapticFeedback.selectionClick();
-    showModalBottomSheet(
+    // 바텀시트 대신 중앙 다이얼로그 — 화면 정중앙에 떠서 상단/하단 시스템바에
+    // 구조적으로 안 걸림(기기 무관 동일). 내용은 스크롤 가능해 오버플로도 0.
+    showDialog(
       context: ctx,
-      backgroundColor: SoriColors.darkSurface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-      ),
-      isScrollControlled: true,   // sheet가 keyboard/landscape에서 잘림 방지
-      useSafeArea: true,          // status bar / notch / gesture bar 회피
-      enableDrag: true,           // swipe-down 닫기 명시
       builder: (_) => _DetailSheet(char: c, color: color),
     );
   }
@@ -218,26 +217,33 @@ class _DetailSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(24, 18, 24, MediaQuery.of(context).padding.bottom + 24),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(width: 40, height: 4, decoration: BoxDecoration(color: SoriColors.darkSurfaceAlt, borderRadius: BorderRadius.circular(2))),
-          const SizedBox(height: 22),
-          Text(char.letter, style: TextStyle(fontSize: 92, fontWeight: FontWeight.w800, color: color, height: 1)),
-          const SizedBox(height: 6),
-          Text('[${char.romanization}]', style: TextStyle(fontSize: 18, color: color.withValues(alpha: 0.85), fontStyle: FontStyle.italic, fontWeight: FontWeight.w600)),
-          const SizedBox(height: 16),
-          Text(char.descriptionDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 14, color: SoriColors.darkText, height: 1.5)),
-          const SizedBox(height: 24),
-          FilledButton.icon(
-            style: FilledButton.styleFrom(backgroundColor: color),
-            onPressed: () => TtsService.speak(char.letter),
-            icon: const Icon(Icons.volume_up),
-            label: Text(AppL10n.of(context).hangulPronounceBtn),
+    // 중앙 다이얼로그: 화면 정중앙 → 시스템바에 안 걸림(기기 무관 동일).
+    // SingleChildScrollView → 설명이 길거나 글자배율이 커도 스크롤(오버플로 0).
+    return Dialog(
+      backgroundColor: SoriColors.darkSurface,
+      insetPadding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(char.letter, style: TextStyle(fontSize: 92, fontWeight: FontWeight.w800, color: color, height: 1)),
+              const SizedBox(height: 6),
+              Text('[${char.romanization}]', style: TextStyle(fontSize: 18, color: color.withValues(alpha: 0.85), fontStyle: FontStyle.italic, fontWeight: FontWeight.w600)),
+              const SizedBox(height: 16),
+              Text(char.descriptionDe, textAlign: TextAlign.center, style: const TextStyle(fontSize: 14, color: SoriColors.darkText, height: 1.5)),
+              const SizedBox(height: 24),
+              FilledButton.icon(
+                style: FilledButton.styleFrom(backgroundColor: color),
+                onPressed: () => TtsService.speak(char.letter),
+                icon: const Icon(Icons.volume_up),
+                label: Text(AppL10n.of(context).hangulPronounceBtn),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

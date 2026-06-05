@@ -9,6 +9,7 @@ import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
 import 'services/book_analysis_service.dart';
+import 'services/tts_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
 import 'services/notification_service.dart';
@@ -83,6 +84,15 @@ Future<void> main() async {
         : (kEnvEndpoint.isNotEmpty ? kEnvEndpoint : kDefaultEndpoint),
   );
 
+  // 고품질 TTS 동적 합성 엔드포인트 (책 한 컷·내 단어장의 사용자 입력 단어).
+  // 사전생성된 고정 콘텐츠는 Storage 에서 직접 읽으므로 이 엔드포인트는 동적만.
+  const kTtsEndpoint = String.fromEnvironment('TTS_ENDPOINT');
+  TtsService.setEndpoint(
+    kTtsEndpoint.isNotEmpty
+        ? kTtsEndpoint
+        : 'https://europe-west3-ko-lernen-app.cloudfunctions.net/synthesize_tts',
+  );
+
   // Firebase best-effort — schlägt fehl wenn google-services.json fehlt
   // ignore: discarded_futures, unawaited_futures
   _initFirebase();
@@ -122,23 +132,18 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // Plan B (2026-06-05): edge-to-edge를 끄고 시스템바 영역을 OS가 예약하게 →
-  // 콘텐츠가 상태바/네비게이션바 밑으로 들어가 잘리는 문제를 원천 차단.
-  // 3중 안전망: Android <15 = manual 모드로 창 자체가 시스템바만큼 inset,
-  //   Android 15 = 테마 windowOptOutEdgeToEdgeEnforcement(styles.xml 4종),
-  //   Android 16+ = 화면별 SafeArea(이미 적용).
-  await SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.manual,
-    overlays: SystemUiOverlay.values,
-  );
+  // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
+  // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
+  // 올려 잘림 방지. (manual 모드는 일부 기기서 inset 보고가 깨져 회귀했었음.)
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      // 밝은 한지(cream) 배경 → 어두운 아이콘으로 가독성 확보.
+      // 밝은 한지(cream) 배경 위 → 시스템바 아이콘은 어둡게(가독성 확보).
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.light, // iOS
-      systemNavigationBarColor: Color(0xFFFAF6EC), // 한지 cream (앱 배경과 일치)
+      systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.dark,
       systemNavigationBarContrastEnforced: false,
     ),
