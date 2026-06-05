@@ -4566,6 +4566,120 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Alles klar!'**
   String get coachBtnGotIt;
+
+  /// No description provided for @previewSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Überspringen'**
+  String get previewSkip;
+
+  /// No description provided for @previewStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Loslegen'**
+  String get previewStart;
+
+  /// No description provided for @previewPage1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Foto → Wortliste'**
+  String get previewPage1Title;
+
+  /// No description provided for @previewPage1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Fotografiere dein Lehrbuch oder eine Speisekarte — die Wörter landen direkt in deiner Lernliste.'**
+  String get previewPage1Body;
+
+  /// No description provided for @previewPage2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Hanok wächst'**
+  String get previewPage2Title;
+
+  /// No description provided for @previewPage2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit jedem Wortpack baust du dein eigenes koreanisches Haus — Stein für Stein.'**
+  String get previewPage2Body;
+
+  /// No description provided for @previewPage3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Täglich mit dem Tiger'**
+  String get previewPage3Title;
+
+  /// No description provided for @previewPage3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Schon 5 Minuten täglich reichen, um dauerhaft voranzukommen. Der Tiger erinnert dich daran.'**
+  String get previewPage3Body;
+
+  /// No description provided for @hubLearnLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Level {level}'**
+  String hubLearnLevel(int level);
+
+  /// No description provided for @hubLearnNextPack.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter: {name}'**
+  String hubLearnNextPack(String name);
+
+  /// No description provided for @hubLearnAllDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Packs abgeschlossen!'**
+  String get hubLearnAllDone;
+
+  /// No description provided for @hubPracticeStreak.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Tage in Folge'**
+  String hubPracticeStreak(int n);
+
+  /// No description provided for @hubPracticeStreakZero.
+  ///
+  /// In de, this message translates to:
+  /// **'Fang heute an!'**
+  String get hubPracticeStreakZero;
+
+  /// No description provided for @hubWordbookSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Wörter gespeichert'**
+  String hubWordbookSaved(int n);
+
+  /// No description provided for @hubWordbookEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Wörter gespeichert'**
+  String get hubWordbookEmpty;
+
+  /// No description provided for @settingsTutorialResetSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Einführung'**
+  String get settingsTutorialResetSection;
+
+  /// No description provided for @settingsTutorialResetTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einführung zurücksetzen'**
+  String get settingsTutorialResetTitle;
+
+  /// No description provided for @settingsTutorialResetSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Karussell & Tipp-Hinweise beim nächsten Start neu anzeigen'**
+  String get settingsTutorialResetSubtitle;
+
+  /// No description provided for @settingsTutorialResetDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Einführung zurückgesetzt'**
+  String get settingsTutorialResetDone;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

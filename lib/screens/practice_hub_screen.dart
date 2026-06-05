@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/storage_service.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/hub_progress_header.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -15,6 +17,10 @@ class PracticeHubScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final streak = Storage.streakDays;
+    final streakLabel = streak > 0
+        ? t.hubPracticeStreak(streak)
+        : t.hubPracticeStreakZero;
     return Scaffold(
       appBar: AppBar(title: Text(t.navPractice)),
       body: SafeArea(
@@ -31,6 +37,13 @@ class PracticeHubScreen extends StatelessWidget {
               HanokHeader(
                 asset: 'assets/illustrations/hanok/porch.png',
                 fallbackIcon: Icons.sports_esports_rounded,
+              ),
+              const SizedBox(height: Spacing.md),
+              HubProgressHeader(
+                icon: Icons.local_fire_department_rounded,
+                accentColor: SoriColors.tiger,
+                title: streakLabel,
+                progress: streak > 0 ? (streak % 7) / 7.0 : 0.0,
               ),
               const SizedBox(height: Spacing.lg),
               _grid(context, t),

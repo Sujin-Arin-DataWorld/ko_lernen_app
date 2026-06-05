@@ -504,6 +504,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
 
+          // ── 안내 다시 보기 ──
+          _Section(label: t.settingsTutorialResetSection),
+          ListTile(
+            leading: const Icon(Icons.replay_rounded),
+            title: Text(t.settingsTutorialResetTitle),
+            subtitle: Text(t.settingsTutorialResetSubtitle),
+            onTap: _resetTutorials,
+          ),
+
           // ── Reset ──
           _Section(label: ''),
           ListTile(
@@ -972,6 +981,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // signOut bricht still ab, wenn Firebase nicht verfügbar ist.
     }
     if (mounted) setState(() {});
+  }
+
+  Future<void> _resetTutorials() async {
+    await Storage.resetTutorials();
+    if (!mounted) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(t.settingsTutorialResetDone),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 2),
+      ),
+    );
+    HapticFeedback.lightImpact();
   }
 
   void _confirmReset() {

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/pack_progress.dart';
+import '../services/storage_service.dart';
+import '../services/vocab_pack_service.dart';
+import '../services/pack_progress_service.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/hub_progress_header.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -12,9 +17,24 @@ import '../widgets/sori/tokens.dart';
 class LearnHubScreen extends StatelessWidget {
   const LearnHubScreen({super.key});
 
+  Future<String?> _nextPackName() async {
+    try {
+      final allPacks = await VocabPackService.loadAll();
+      for (final pack in allPacks) {
+        final progress = PackProgressService.get(pack.id);
+        final status = progress?.status ?? PackStatus.locked;
+        if (status == PackStatus.available || status == PackStatus.inProgress) {
+          return VocabPackService.displayLabel(pack.id);
+        }
+      }
+    } catch (_) {/* best-effort */}
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final level = Storage.xpLevel;
     return Scaffold(
       appBar: AppBar(title: Text(t.navLearn)),
       body: SafeArea(
@@ -31,6 +51,25 @@ class LearnHubScreen extends StatelessWidget {
               HanokHeader(
                 asset: 'assets/illustrations/hanok/study_scholar.png',
                 fallbackIcon: Icons.school_rounded,
+              ),
+              const SizedBox(height: Spacing.md),
+              // ── 진행도 헤더 ──
+              FutureBuilder<String?>(
+                future: _nextPackName(),
+                builder: (context, snap) {
+                  final subtitle = snap.hasData && snap.data != null
+                      ? t.hubLearnNextPack(snap.data!)
+                      : (snap.connectionState == ConnectionState.done
+                          ? t.hubLearnAllDone
+                          : null);
+                  return HubProgressHeader(
+                    icon: Icons.school_rounded,
+                    accentColor: SoriColors.primary,
+                    title: t.hubLearnLevel(level),
+                    subtitle: subtitle,
+                    progress: (Storage.xp % 100) / 100.0,
+                  );
+                },
               ),
               const SizedBox(height: Spacing.lg),
               _grid(context, t),

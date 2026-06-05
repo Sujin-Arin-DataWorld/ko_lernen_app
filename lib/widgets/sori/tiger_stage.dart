@@ -49,9 +49,9 @@ class _TigerStageState extends State<TigerStage>
   static bool _introPlayedThisLaunch = false;
 
   // 걷기 프레임 1장당 체류(ms). pace 컨트롤러 길이도 이 값으로 계산해 동기.
-  static const int _walkMs = 110;
-  // 걷기 프레임 간 크로스페이드(ms). 짧게 — 하드컷 스냅만 완화(26ms = 걷기의 ~24% = 자연스러운 수준).
-  static const int _walkFade = 26;
+  static const int _walkMs = 120;
+  // 걷기 프레임은 하드컷(0) — 다리 움직임이 명확. 포즈 전환(turn/step_out)만 soft fade.
+  static const int _walkFade = 0;
 
   static const List<String> _allFrames = [
     'rest_idle', 'notice_turn', 'notice_front', 'smile_front', 'rise_prep',
@@ -287,18 +287,18 @@ class _TigerStageState extends State<TigerStage>
     }
 
     // 나가기: 정면→측면 전환 후 walk out (0 → dir)
-    // 좌/우 대칭: turn(240ms) → step_out(170ms) → walk_start(120ms) → walk 루프
-    await tf(startLeft ? 'turn_left_3q' : 'turn_right_3q', 150, 240);
+    // turn (포즈 전환) — smooth 200ms fade로 자연스럽게
+    await tf(startLeft ? 'turn_left_3q' : 'turn_right_3q', 200, 240);
     if (_disposed || token != _seqToken) {
       return;
     }
-    await tf(startLeft ? 'step_out_left' : 'step_out_right', 120, 170);
+    // step_out (발 내딛기) — turn 후 즉시, smooth 180ms fade
+    await tf(startLeft ? 'step_out_left' : 'step_out_right', 180, 160);
     if (_disposed || token != _seqToken) {
       return;
     }
-    // 양쪽 모두 walk_start 또는 첫 보를 안정적으로 진입시키기 위해
-    // step_out 후 충분한 settling time(선택적 프레임 없이 지연)
-    await Future<void>.delayed(const Duration(milliseconds: 85));
+    // step_out → walk 간 아주 짧은 settling (프레임 자체의 transition으로 충분)
+    await Future<void>.delayed(const Duration(milliseconds: 40));
     if (_disposed || token != _seqToken) {
       return;
     }

@@ -2446,4 +2446,73 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachBtnGotIt => 'Got it!';
+
+  @override
+  String get previewSkip => 'Skip';
+
+  @override
+  String get previewStart => 'Let\'s go';
+
+  @override
+  String get previewPage1Title => 'Photo → Word list';
+
+  @override
+  String get previewPage1Body =>
+      'Snap a photo of your textbook or a menu — words land straight in your learning list.';
+
+  @override
+  String get previewPage2Title => 'Your hanok grows';
+
+  @override
+  String get previewPage2Body =>
+      'Every word pack you finish builds your own Korean house — brick by brick.';
+
+  @override
+  String get previewPage3Title => 'Daily with the Tiger';
+
+  @override
+  String get previewPage3Body =>
+      'Even 5 minutes a day keeps the progress going. The Tiger will remind you.';
+
+  @override
+  String hubLearnLevel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String hubLearnNextPack(String name) {
+    return 'Next up: $name';
+  }
+
+  @override
+  String get hubLearnAllDone => 'All packs completed!';
+
+  @override
+  String hubPracticeStreak(int n) {
+    return '$n days in a row';
+  }
+
+  @override
+  String get hubPracticeStreakZero => 'Start today!';
+
+  @override
+  String hubWordbookSaved(int n) {
+    return '$n words saved';
+  }
+
+  @override
+  String get hubWordbookEmpty => 'No words saved yet';
+
+  @override
+  String get settingsTutorialResetSection => 'Intro';
+
+  @override
+  String get settingsTutorialResetTitle => 'Reset intro';
+
+  @override
+  String get settingsTutorialResetSubtitle =>
+      'Show the carousel & tips again on next launch';
+
+  @override
+  String get settingsTutorialResetDone => 'Intro reset';
 }

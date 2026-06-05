@@ -2457,4 +2457,73 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachBtnGotIt => 'Alles klar!';
+
+  @override
+  String get previewSkip => 'Überspringen';
+
+  @override
+  String get previewStart => 'Loslegen';
+
+  @override
+  String get previewPage1Title => 'Foto → Wortliste';
+
+  @override
+  String get previewPage1Body =>
+      'Fotografiere dein Lehrbuch oder eine Speisekarte — die Wörter landen direkt in deiner Lernliste.';
+
+  @override
+  String get previewPage2Title => 'Deine Hanok wächst';
+
+  @override
+  String get previewPage2Body =>
+      'Mit jedem Wortpack baust du dein eigenes koreanisches Haus — Stein für Stein.';
+
+  @override
+  String get previewPage3Title => 'Täglich mit dem Tiger';
+
+  @override
+  String get previewPage3Body =>
+      'Schon 5 Minuten täglich reichen, um dauerhaft voranzukommen. Der Tiger erinnert dich daran.';
+
+  @override
+  String hubLearnLevel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String hubLearnNextPack(String name) {
+    return 'Weiter: $name';
+  }
+
+  @override
+  String get hubLearnAllDone => 'Alle Packs abgeschlossen!';
+
+  @override
+  String hubPracticeStreak(int n) {
+    return '$n Tage in Folge';
+  }
+
+  @override
+  String get hubPracticeStreakZero => 'Fang heute an!';
+
+  @override
+  String hubWordbookSaved(int n) {
+    return '$n Wörter gespeichert';
+  }
+
+  @override
+  String get hubWordbookEmpty => 'Noch keine Wörter gespeichert';
+
+  @override
+  String get settingsTutorialResetSection => 'Einführung';
+
+  @override
+  String get settingsTutorialResetTitle => 'Einführung zurücksetzen';
+
+  @override
+  String get settingsTutorialResetSubtitle =>
+      'Karussell & Tipp-Hinweise beim nächsten Start neu anzeigen';
+
+  @override
+  String get settingsTutorialResetDone => 'Einführung zurückgesetzt';
 }
