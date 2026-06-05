@@ -37,9 +37,12 @@ for fn in on_pack_cleared weekly_goal_rollover on_report_created; do
   grep -q "exports.$fn" functions/gye/index.js &&
     ok "index.js exports: $fn" || bad "index.js exports 누락: $fn"
 done
-grep -q 'region("europe-west3")' functions/gye/index.js &&
-  ok "gye 함수 region: europe-west3 (Firestore와 일치)" ||
-  bad "gye 함수 region 미설정 → us-central1 배포 시 Firestore 트리거 안 울림"
+grep -q 'firebase-functions/v2' functions/gye/index.js &&
+  ok "gye 함수: 2nd gen (v2 API)" ||
+  bad "gye 함수가 v2(2nd gen) 아님 → europe-west3 Firestore 트리거 미지원"
+grep -q 'europe-west3' functions/gye/index.js &&
+  ok "gye region: europe-west3 (Firestore와 일치)" ||
+  bad "gye region 미설정"
 [ -f functions/gye/smoke_test.js ] &&
   ok "smoke_test.js 존재" || bad "smoke_test.js 없음"
 

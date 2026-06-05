@@ -26,7 +26,7 @@
     {
       "source": "functions/gye",
       "codebase": "gye-firebase-functions",
-      "runtime": "nodejs20"
+      "runtime": "nodejs22"
     }
   ]
 }
