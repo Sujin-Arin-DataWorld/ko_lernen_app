@@ -4627,6 +4627,30 @@ abstract class AppL10n {
   /// **'Wörter'**
   String get navWordbook;
 
+  /// No description provided for @navGye.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye'**
+  String get navGye;
+
+  /// No description provided for @practiceSecLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get practiceSecLearn;
+
+  /// No description provided for @practiceSecGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele'**
+  String get practiceSecGames;
+
+  /// No description provided for @practiceSecWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter'**
+  String get practiceSecWords;
+
   /// No description provided for @coachBookTitle.
   ///
   /// In de, this message translates to:

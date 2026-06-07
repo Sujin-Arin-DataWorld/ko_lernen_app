@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import 'home_screen.dart';
-import 'learn_hub_screen.dart';
 import 'practice_hub_screen.dart';
-import 'wordbook_hub_screen.dart';
+import 'gye_tab_screen.dart';
+import 'profile_screen.dart';
 
-/// **AppShell** — BottomNav 4탭 셸.
+/// **AppShell** — BottomNav 4탭 셸 (R1 IA, 2026-06-06).
 ///
-/// 탭 구성:
-///   0. 홈     (HomeScreen)
-///   1. 배우기  (LearnHubScreen)
-///   2. 연습    (PracticeHubScreen)
-///   3. 단어장  (WordbookHubScreen)
+/// 탭 구성 (듀오링고 패턴 — deep-research 검증):
+///   0. 홈   (HomeScreen — 학습 경로 진입)
+///   1. 연습 (PracticeHubScreen — 배우기·게임·단어 named 섹션)
+///   2. 계   (GyeTabScreen — 비경쟁 협력 그룹)
+///   3. 나   (ProfileScreen — 통계·설정)
 ///
-/// IndexedStack으로 탭 상태를 보존한다. 탭 내 `pushNamed`는 루트 Navigator를 통해
-/// 상세화면이 탭바 위 전체화면으로 열린다(듀오링고식 레슨 진입).
+/// IndexedStack으로 탭 상태를 보존(스와이프 X — 게임/시나리오 제스처 충돌 회피).
+/// 탭 내 `pushNamed`는 루트 Navigator → 상세화면이 탭바 위 전체화면(듀오링고식 진입).
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
 
@@ -35,15 +35,17 @@ class _AppShellState extends State<AppShell> {
         index: _index,
         children: const [
           HomeScreen(),
-          LearnHubScreen(),
           PracticeHubScreen(),
-          WordbookHubScreen(),
+          GyeTabScreen(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
         onDestinationSelected: (i) {
-          if (_index == i) return; // 재탭 시 pop-to-root(후속 세션)
+          if (_index == i) {
+            return;
+          }
           setState(() => _index = i);
         },
         destinations: [
@@ -53,19 +55,19 @@ class _AppShellState extends State<AppShell> {
             label: t.navHome,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.school_outlined),
-            selectedIcon: const Icon(Icons.school_rounded),
-            label: t.navLearn,
-          ),
-          NavigationDestination(
             icon: const Icon(Icons.sports_esports_outlined),
             selectedIcon: const Icon(Icons.sports_esports_rounded),
             label: t.navPractice,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.style_outlined),
-            selectedIcon: const Icon(Icons.style_rounded),
-            label: t.navWordbook,
+            icon: const Icon(Icons.groups_2_outlined),
+            selectedIcon: const Icon(Icons.groups_2_rounded),
+            label: t.navGye,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.person_outline),
+            selectedIcon: const Icon(Icons.person_rounded),
+            label: t.navProfile,
           ),
         ],
       ),

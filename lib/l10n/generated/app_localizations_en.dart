@@ -2483,6 +2483,18 @@ class AppL10nEn extends AppL10n {
   String get navWordbook => 'Words';
 
   @override
+  String get navGye => 'Gye';
+
+  @override
+  String get practiceSecLearn => 'Learn';
+
+  @override
+  String get practiceSecGames => 'Games';
+
+  @override
+  String get practiceSecWords => 'Words';
+
+  @override
   String get coachBookTitle => 'Snap a page';
 
   @override

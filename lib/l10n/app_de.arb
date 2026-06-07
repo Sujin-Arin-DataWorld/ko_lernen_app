@@ -953,6 +953,10 @@
   "navLearn": "Lernen",
   "navPractice": "Üben",
   "navWordbook": "Wörter",
+  "navGye": "Gye",
+  "practiceSecLearn": "Lernen",
+  "practiceSecGames": "Spiele",
+  "practiceSecWords": "Wörter",
 
   "@_feature_coach": { "description": "Onboarding-Coachmarks — Mascot-Bottomsheet (Stage 1 — 2026-06-05)." },
   "coachBookTitle": "Buchseite einlesen",

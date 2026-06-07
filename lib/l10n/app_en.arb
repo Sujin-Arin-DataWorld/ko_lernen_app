@@ -952,6 +952,10 @@
   "navLearn": "Learn",
   "navPractice": "Practice",
   "navWordbook": "Words",
+  "navGye": "Gye",
+  "practiceSecLearn": "Learn",
+  "practiceSecGames": "Games",
+  "practiceSecWords": "Words",
 
   "@_feature_coach": { "description": "Onboarding coachmarks — mascot bottom sheet (Stage 1 — 2026-06-05)." },
   "coachBookTitle": "Snap a page",
