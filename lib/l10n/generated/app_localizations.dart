@@ -4411,6 +4411,12 @@ abstract class AppL10n {
   /// **'Schließe zuerst das vorherige Pack ab.'**
   String get pathLockedHint;
 
+  /// No description provided for @pathSeeAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Ganzer Pfad'**
+  String get pathSeeAll;
+
   /// No description provided for @homePathCardTitle.
   ///
   /// In de, this message translates to:

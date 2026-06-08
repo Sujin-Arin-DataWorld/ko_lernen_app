@@ -2374,6 +2374,9 @@ class AppL10nDe extends AppL10n {
   String get pathLockedHint => 'Schließe zuerst das vorherige Pack ab.';
 
   @override
+  String get pathSeeAll => 'Ganzer Pfad';
+
+  @override
   String get homePathCardTitle => 'Lernpfad';
 
   @override

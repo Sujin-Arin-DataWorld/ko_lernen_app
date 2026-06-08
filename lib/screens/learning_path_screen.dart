@@ -8,10 +8,10 @@ import '../services/hanok_stage_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/pressable.dart';
+import '../widgets/sori/path_node.dart';
 import '../widgets/sori/progress.dart';
-import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/tokens.dart';
 
 /// **Lernpfad (학습 경로)** — Duolingo식 진척 시각화.
 ///
@@ -169,7 +169,7 @@ class _LearningPathScreenState extends State<LearningPathScreen> {
         ),
       ),
       for (final e in g.packs)
-        _PathNode(
+        PathNode(
           label: VocabPackService.displayLabel(e.pack.id, lang: lang),
           status: e.progress.status,
           fraction: e.progress.progressFraction,
@@ -277,143 +277,3 @@ class _HanokHeader extends StatelessWidget {
   }
 }
 
-// ─── 팩 노드 ─────────────────────────────────────────────────────────────────
-
-class _PathNode extends StatelessWidget {
-  const _PathNode({
-    required this.label,
-    required this.status,
-    required this.fraction,
-    required this.isNow,
-    required this.onTap,
-  });
-
-  final String label;
-  final PackStatus status;
-  final double fraction;
-  final bool isNow;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final cleared = status == PackStatus.cleared;
-    final locked = status == PackStatus.locked;
-
-    final Color ringColor = cleared
-        ? SoriColors.primary
-        : isNow
-        ? SoriColors.tiger
-        : locked
-        ? s.border
-        : SoriColors.gold;
-
-    return Padding(
-      padding: const EdgeInsets.only(bottom: Spacing.sm),
-      child: SoriPressable(
-        onTap: onTap,
-        haptic: locked ? SoriHaptic.light : SoriHaptic.selection,
-        child: Opacity(
-          opacity: locked ? 0.62 : 1.0,
-          child: Container(
-            padding: const EdgeInsets.all(Spacing.md),
-            decoration: BoxDecoration(
-              color: isNow
-                  ? SoriColors.tiger.withValues(alpha: 0.08)
-                  : s.surface,
-              borderRadius: SoriRadius.brMd,
-              border: Border.all(
-                color: isNow ? SoriColors.tiger : s.border,
-                width: isNow ? 1.6 : 1,
-              ),
-            ),
-            child: Row(
-              children: [
-                _node(ringColor, cleared, locked),
-                const SizedBox(width: Spacing.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              label,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: s.text,
-                              ),
-                            ),
-                          ),
-                          if (isNow) ...[
-                            const SizedBox(width: Spacing.sm),
-                            _nowBadge(t),
-                          ],
-                        ],
-                      ),
-                      if (!locked && !cleared && fraction > 0) ...[
-                        const SizedBox(height: 6),
-                        SoriProgressBar(value: fraction, thickness: 5),
-                      ],
-                    ],
-                  ),
-                ),
-                Icon(
-                  locked ? Icons.lock_outline : Icons.chevron_right,
-                  size: 20,
-                  color: s.textDim,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _node(Color ring, bool cleared, bool locked) {
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: cleared ? SoriColors.primary : Colors.transparent,
-        border: Border.all(color: ring, width: 2.4),
-      ),
-      alignment: Alignment.center,
-      child: Icon(
-        cleared
-            ? Icons.check
-            : locked
-            ? Icons.lock_outline
-            : Icons.play_arrow_rounded,
-        size: 20,
-        color: cleared ? Colors.white : ring,
-      ),
-    );
-  }
-
-  Widget _nowBadge(AppL10n t) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(
-        color: SoriColors.tiger,
-        borderRadius: SoriRadius.brPill,
-      ),
-      child: Text(
-        t.pathNodeNow,
-        style: const TextStyle(
-          fontSize: 11,
-          fontWeight: FontWeight.w800,
-          color: Colors.white,
-          letterSpacing: 0.3,
-        ),
-      ),
-    );
-  }
-}

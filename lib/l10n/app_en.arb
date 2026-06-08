@@ -907,6 +907,7 @@
   "@pathLevelPacks": { "placeholders": { "done": { "type": "int" }, "total": { "type": "int" } } },
   "pathNodeNow": "Now",
   "pathLockedHint": "Clear the previous pack first.",
+  "pathSeeAll": "Full path",
   "homePathCardTitle": "Learning path",
   "homePathCardSub": "See where you are",
   "homeBrowseTitle": "Browse all",

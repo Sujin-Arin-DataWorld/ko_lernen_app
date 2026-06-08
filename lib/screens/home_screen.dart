@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
+import '../models/pack_progress.dart';
 import '../models/scenario.dart';
+import '../models/vocab_pack.dart';
 import '../services/data_loader.dart';
 import '../services/gye_service.dart';
 import '../services/daily_char_service.dart';
+import '../services/pack_progress_service.dart';
 import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
 import '../services/smalltalk_loader.dart';
@@ -15,6 +18,7 @@ import '../services/review_deck_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/notification_service.dart';
 import '../services/storage_service.dart';
+import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
 import 'review_session_screen.dart';
@@ -25,6 +29,7 @@ import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
+import '../widgets/sori/path_node.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/tiger_stage_rive.dart';
@@ -63,6 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Scenario> _levelPath = const [];
   Set<String> _completed = const {};
 
+  // E1a. Lernpfad 홈 임베드 — 현재 레벨 단어팩 노드 리스트.
+  List<({VocabPack pack, PackProgress progress})> _pathNodes = [];
+  String? _nowPackId;
+
   // Phase 3 (stately-rising-jongga) — Hanok-Cinematic gating.
   HanokStage? _pendingCinematicStage;
   bool _cinematicShown = false;
@@ -71,7 +80,46 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _loadToday();
+    _loadPath();
     _checkHanokCinematic();
+  }
+
+  /// E1a: 현재 레벨의 단어팩 노드 로드.
+  /// 첫 미완·잠금해제 팩이 속한 레벨의 view를 홈에 임베드한다.
+  /// 다 클리어됐으면 마지막 레벨(B2)의 view를 보여준다.
+  Future<void> _loadPath() async {
+    try {
+      const levels = ['A1', 'A2', 'B1', 'B2'];
+      String? nowId;
+      List<({VocabPack pack, PackProgress progress})> nodes = [];
+
+      for (final lv in levels) {
+        final view = await PackProgressService.loadLevelView(lv);
+        for (final e in view) {
+          if (nowId == null &&
+              e.progress.status != PackStatus.cleared &&
+              e.progress.status != PackStatus.locked) {
+            nowId = e.pack.id;
+            nodes = view;
+          }
+        }
+        if (nowId != null) {
+          break;
+        }
+        // 이 레벨이 다 클리어됐으면 다음 레벨로
+        nodes = view; // 계속 갱신 — 다 클리어 시 마지막 레벨로 남음
+      }
+
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _pathNodes = nodes;
+        _nowPackId = nowId;
+      });
+    } catch (_) {
+      // best-effort — 로드 실패 시 _pathNodes 빈 상태 유지 → _PathCard fallback
+    }
   }
 
   Future<void> _checkHanokCinematic() async {
@@ -132,6 +180,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
     _refreshDailyReminder();
+    // 팩 진행도 새로고침 (RefreshIndicator → pull-to-refresh 시 동기화).
+    // ignore: discarded_futures
+    _loadPath();
   }
 
   /// 알림이 켜져 있으면 데일리 리마인더를 최신 스트릭 문구로 재예약한다
@@ -324,16 +375,84 @@ class _HomeScreenState extends State<HomeScreen> {
                     // ── E1a. Lernpfad — 학습 경로(홈 중심·F1, Today 위로 승격) ──
                     _SectionLabel(label: t.pathTitle),
                     const SizedBox(height: Spacing.sm),
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 120),
-                      slideY: 14,
-                      child: _PathCard(
-                        onTap: () async {
-                          await Navigator.pushNamed(context, '/path');
-                          if (mounted) await _loadToday();
-                        },
+                    if (_pathNodes.isEmpty)
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 120),
+                        slideY: 14,
+                        child: _PathCard(
+                          onTap: () async {
+                            await Navigator.pushNamed(context, '/path');
+                            if (mounted) {
+                              await _loadToday();
+                            }
+                          },
+                        ),
+                      )
+                    else
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 120),
+                        slideY: 14,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            for (final e in _pathNodes)
+                              PathNode(
+                                label: VocabPackService.displayLabel(
+                                    e.pack.id, lang: lang),
+                                status: e.progress.status,
+                                fraction: e.progress.progressFraction,
+                                isNow: e.pack.id == _nowPackId,
+                                onTap: () async {
+                                  if (e.progress.status == PackStatus.locked) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content:
+                                              Text(t.pathLockedHint)),
+                                    );
+                                    return;
+                                  }
+                                  await Navigator.pushNamed(
+                                    context,
+                                    '/vocab/pack',
+                                    arguments: e.pack.id,
+                                  );
+                                  if (mounted) {
+                                    await _loadToday();
+                                    await _loadPath();
+                                  }
+                                },
+                              ),
+                            const SizedBox(height: Spacing.xs),
+                            TextButton(
+                              onPressed: () async {
+                                await Navigator.pushNamed(context, '/path');
+                                if (mounted) {
+                                  await _loadPath();
+                                }
+                              },
+                              style: TextButton.styleFrom(
+                                foregroundColor: SoriColors.primary,
+                                padding: EdgeInsets.zero,
+                                alignment: Alignment.centerLeft,
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    t.pathSeeAll,
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 2),
+                                  const Icon(Icons.chevron_right, size: 14),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
                     const SizedBox(height: Spacing.xl),
 
                     // ── E. Today CTA — 오늘의 단일 행동(경로 아래) ──
