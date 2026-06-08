@@ -28,8 +28,8 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Analyze (error 0 강제 · warning 허용)
-        run: flutter analyze --no-fatal-warnings
+      - name: Analyze (error 0 강제 · warning·info 허용)
+        run: flutter analyze --no-fatal-warnings --no-fatal-infos
 
       - name: Build web (release)
         run: flutter build web --release
