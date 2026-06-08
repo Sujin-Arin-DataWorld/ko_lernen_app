@@ -124,7 +124,7 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
                     decoration: BoxDecoration(
                       color: _currentPage == i
                           ? SoriColors.primary
-                          : SoriColors.primary.withOpacity(0.3),
+                          : SoriColors.primary.withValues(alpha: 0.3),
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -206,7 +206,7 @@ class _Page2Challenge extends StatelessWidget {
                 width: 120,
                 height: 120,
                 decoration: BoxDecoration(
-                  color: SoriColors.primary.withOpacity(0.12),
+                  color: SoriColors.primary.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(SoriRadius.lg),
                 ),
                 child: Icon(
@@ -262,7 +262,7 @@ class _Page3Streak extends StatelessWidget {
                 width: 120,
                 height: 120,
                 decoration: BoxDecoration(
-                  color: SoriColors.tiger.withOpacity(0.12),
+                  color: SoriColors.tiger.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(SoriRadius.lg),
                 ),
                 child: const Icon(

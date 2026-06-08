@@ -79,7 +79,7 @@ class _QuizChoiceState extends State<QuizChoice>
               : (widget.isCorrect ? const Color(0xFF4CAF50) : Colors.red),
           border: Border.all(
             color: !_isPressed
-                ? SoriColors.primary.withOpacity(0.2)
+                ? SoriColors.primary.withValues(alpha: 0.2)
                 : (widget.isCorrect ? const Color(0xFF4CAF50) : Colors.red),
             width: 2,
           ),

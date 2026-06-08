@@ -65,8 +65,8 @@ class _StreakDisplayState extends State<StreakDisplay>
             ),
           ),
           backgroundColor: isMissing
-              ? SoriColors.danger.withOpacity(0.12)
-              : SoriColors.primary.withOpacity(0.12),
+              ? SoriColors.danger.withValues(alpha: 0.12)
+              : SoriColors.primary.withValues(alpha: 0.12),
           shape: StadiumBorder(
             side: BorderSide(
               color: isMissing ? SoriColors.danger : SoriColors.primary,

@@ -40,11 +40,11 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
 
     await TtsService.speak(greeting, voice: 'female');
 
-    if (mounted) {
-      // 약간 대기 후 홈으로 이동
-      await Future.delayed(const Duration(milliseconds: 500));
-      Navigator.of(context).pushReplacementNamed('/');
-    }
+    if (!mounted) return;
+    // 약간 대기 후 홈으로 이동
+    await Future.delayed(const Duration(milliseconds: 500));
+    if (!mounted) return;
+    Navigator.of(context).pushReplacementNamed('/');
   }
 
   @override
@@ -139,7 +139,7 @@ class _CharacterCard extends StatelessWidget {
             boxShadow: [
               if (isSelected)
                 BoxShadow(
-                  color: SoriColors.primary.withOpacity(0.2),
+                  color: SoriColors.primary.withValues(alpha: 0.2),
                   blurRadius: 12,
                   spreadRadius: 2,
                 ),
