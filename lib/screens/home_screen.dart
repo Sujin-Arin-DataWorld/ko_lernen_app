@@ -321,11 +321,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: Spacing.md),
 
-                    // ── E. Today CTA hero — 단일 주요 행동(최상단 승격) ──
-                    _SectionLabel(label: t.homeTodaySection),
+                    // ── E1a. Lernpfad — 학습 경로(홈 중심·F1, Today 위로 승격) ──
+                    _SectionLabel(label: t.pathTitle),
                     const SizedBox(height: Spacing.sm),
                     SoriEntrance(
                       delay: const Duration(milliseconds: 120),
+                      slideY: 14,
+                      child: _PathCard(
+                        onTap: () async {
+                          await Navigator.pushNamed(context, '/path');
+                          if (mounted) await _loadToday();
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+
+                    // ── E. Today CTA — 오늘의 단일 행동(경로 아래) ──
+                    _SectionLabel(label: t.homeTodaySection),
+                    const SizedBox(height: Spacing.sm),
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 150),
                       child: _TodayScenarioCard(
                         scenario: _today,
                         loading: _loadingScenario,
@@ -343,19 +358,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const SizedBox(height: Spacing.md),
-
-                    // ── E1a. Lernpfad 진입 — 진척 시각화(단어팩 61 + 한옥 12단계) ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 150),
-                      slideY: 14,
-                      child: _PathCard(
-                        onTap: () async {
-                          await Navigator.pushNamed(context, '/path');
-                          if (mounted) await _loadToday();
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.xl),
 
                     // ── E2. Skill path — 진행 레일(홈 중심 메타포로 승격) ──
                     if (_levelPath.isNotEmpty) ...[
