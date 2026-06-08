@@ -27,7 +27,6 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
-import '../widgets/sori/streak_display.dart';
 import '../widgets/sori/tiger_stage_rive.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -529,11 +528,6 @@ class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    final streak = Storage.streakDays;
-    final lastActivity = Storage.lastActivityTime;
-    final lastActivityDt = lastActivity.isNotEmpty
-        ? DateTime.parse(lastActivity)
-        : DateTime.now().subtract(const Duration(days: 1));
 
     return Column(
       children: [
@@ -563,14 +557,6 @@ class _TopBar extends StatelessWidget {
                 ),
               ),
             ),
-            if (streak > 0)
-              Padding(
-                padding: const EdgeInsets.only(right: Spacing.sm),
-                child: StreakDisplay(
-                  days: streak,
-                  lastActivity: lastActivityDt,
-                ),
-              ),
             _RoundIconButton(
               icon: Icons.groups_2_outlined,
               onTap: () => showGyeChooser(context),
