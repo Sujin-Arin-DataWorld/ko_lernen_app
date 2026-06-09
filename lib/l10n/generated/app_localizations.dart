@@ -1993,6 +1993,18 @@ abstract class AppL10n {
   /// **'Code teilen'**
   String get gyeShareCode;
 
+  /// No description provided for @gyeInviteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lade Freunde ein'**
+  String get gyeInviteTitle;
+
+  /// No description provided for @gyeInviteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Gye lebt von seinen Mitgliedern — teile den Code mit Freunden.'**
+  String get gyeInviteBody;
+
   /// No description provided for @gyeCopyCode.
   ///
   /// In de, this message translates to:

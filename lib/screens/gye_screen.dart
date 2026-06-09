@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
 import '../services/gye_service.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
@@ -115,7 +118,9 @@ class _GyeScreenState extends State<GyeScreen>
               ),
               PopupMenuButton<String>(
                 onSelected: (v) {
-                  if (v == 'leave') {
+                  if (v == 'invite') {
+                    _shareGyeCode(context, meta.code);
+                  } else if (v == 'leave') {
                     _confirmLeaveGye(context, widget.gyeId);
                   } else if (v == 'members') {
                     Navigator.of(context)
@@ -123,6 +128,7 @@ class _GyeScreenState extends State<GyeScreen>
                   }
                 },
                 itemBuilder: (_) => [
+                  PopupMenuItem(value: 'invite', child: Text(t.gyeShareCode)),
                   PopupMenuItem(value: 'members', child: Text(t.gyeMembersTitle)),
                   PopupMenuItem(value: 'leave', child: Text(t.gyeLeave)),
                 ],
@@ -133,6 +139,13 @@ class _GyeScreenState extends State<GyeScreen>
             child: SoriCenterClamp(
               child: Column(
                 children: [
+                  // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
+                  if (meta.memberCount <= 1)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                          Spacing.lg, Spacing.lg, Spacing.lg, 0),
+                      child: _SoloInviteCard(code: meta.code),
+                    ),
                   Padding(
                     padding: const EdgeInsets.all(Spacing.lg),
                     child: KeyedSubtree(
@@ -232,4 +245,75 @@ void _openGyeStickerPicker(BuildContext context, String gyeId) {
       ),
     ),
   );
+}
+
+/// 초대 코드 공유 — OS 공유 시트로 6자리 코드 전파. 계(契)는 멤버가 있어야 산다.
+/// ⋮ 메뉴와 솔로 초대 카드 양쪽의 공통 진입점.
+void _shareGyeCode(BuildContext context, String code) {
+  Share.share(AppL10n.of(context).gyeShareMessage(code));
+}
+
+/// 솔로 계(멤버 1명) 초대 카드 — 빈 두레판을 "행동 가능한" 상태로 전환.
+/// 비경쟁 협력 기능은 멤버가 있어야 의미가 있으므로, 가장 먼저 초대를 유도.
+class _SoloInviteCard extends StatelessWidget {
+  final String code;
+  const _SoloInviteCard({required this.code});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: SoriColors.primary,
+      tinted: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.group_add_outlined,
+                  size: 20, color: SoriColors.primary),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  t.gyeInviteTitle,
+                  style:
+                      const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            t.gyeInviteBody,
+            style: TextStyle(fontSize: 13, height: 1.45, color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.md),
+          Row(
+            children: [
+              Text('${t.gyeCodeLabel}: ',
+                  style: TextStyle(fontSize: 12, color: s.textMuted)),
+              Text(
+                code,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 3,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.md),
+          SoriButton(
+            label: t.gyeShareCode,
+            icon: Icons.ios_share,
+            accent: SoriColors.primary,
+            fullWidth: true,
+            onTap: () => _shareGyeCode(context, code),
+          ),
+        ],
+      ),
+    );
+  }
 }

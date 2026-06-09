@@ -1038,6 +1038,13 @@ class AppL10nEn extends AppL10n {
   String get gyeShareCode => 'Share code';
 
   @override
+  String get gyeInviteTitle => 'Invite friends';
+
+  @override
+  String get gyeInviteBody =>
+      'A gye thrives with its members — share the code with friends.';
+
+  @override
   String get gyeCopyCode => 'Copy code';
 
   @override

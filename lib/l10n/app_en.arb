@@ -415,6 +415,8 @@
   "gyeJoinCta":                  "Join",
   "gyeCreatedTitle":             "Gye created!",
   "gyeShareCode":                "Share code",
+  "gyeInviteTitle":              "Invite friends",
+  "gyeInviteBody":               "A gye thrives with its members — share the code with friends.",
   "gyeCopyCode":                 "Copy code",
   "gyeCodeCopied":               "Code copied",
   "gyeShareMessage":             "Join my Hangul Sori gye! Code: {code}",
