@@ -136,6 +136,8 @@ class VocabPackService {
     'a2_weather':      ('Wetter', 'Weather'),
     'a2_education':    ('Bildung (A2)', 'Education (A2)'),
     'a2_health_misc':  ('Gesundheit & Sonstiges', 'Health & Misc'),
+    'a2_home':         ('Wohnen & Haushalt', 'Home & Household'),
+    'a2_money':        ('Geld & Bank', 'Money & Banking'),
     // B1
     'b1_daily':                ('Alltag (B1)', 'Daily Life (B1)'),
     'b1_descriptions':         ('Beschreibung (B1)', 'Descriptions (B1)'),
@@ -180,6 +182,8 @@ class VocabPackService {
     'a2_work':         8,
     'a2_education':    9,
     'a2_health_misc':  10,
+    'a2_home':         11,
+    'a2_money':        12,
     // B1
     'b1_daily':                1,
     'b1_descriptions':         2,

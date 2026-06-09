@@ -18,6 +18,12 @@ class Vocab {
   final int packOrder;
   final bool isReviewBoss;
 
+  // ── DE+EN 이중언어 (2026-06-09) ── 영어 열은 CSV 맨 뒤(11~13)에 추가됨.
+  // 비어 있을 수 있으므로(구 fixture·미번역 행) 헬퍼가 독일어로 자동 폴백.
+  final String english;
+  final String posEn;
+  final String exampleEnglish;
+
   const Vocab({
     required this.korean,
     required this.romanization,
@@ -30,9 +36,12 @@ class Vocab {
     this.packId = '',
     this.packOrder = 0,
     this.isReviewBoss = false,
+    this.english = '',
+    this.posEn = '',
+    this.exampleEnglish = '',
   });
 
-  /// 안정한 row → Vocab. 구 8-컬럼 / 신 11-컬럼 둘 다 처리.
+  /// 안정한 row → Vocab. 구 8-컬럼 / 신 11-컬럼 / 신 14-컬럼 모두 처리.
   /// row 가 짧아도 IndexError 없이 빈 값/기본값으로 채운다.
   factory Vocab.fromRow(List<dynamic> row) {
     String s(int i) => i < row.length ? row[i].toString() : '';
@@ -48,6 +57,24 @@ class Vocab {
       packId:        s(8),
       packOrder:     int.tryParse(s(9)) ?? 0,
       isReviewBoss:  s(10).toLowerCase() == 'true',
+      english:       s(11),
+      posEn:         s(12),
+      exampleEnglish: s(13),
     );
   }
+
+  // ── 언어별 표시 헬퍼 ── lang=='en' 이고 영어가 있으면 영어, 아니면 독일어.
+  /// 뜻 (en 우선, 없으면 de).
+  String translationFor(String lang) =>
+      (lang == 'en' && english.trim().isNotEmpty) ? english : german;
+
+  /// 품사 라벨.
+  String posFor(String lang) =>
+      (lang == 'en' && posEn.trim().isNotEmpty) ? posEn : posDe;
+
+  /// 예문 번역.
+  String exampleFor(String lang) =>
+      (lang == 'en' && exampleEnglish.trim().isNotEmpty)
+          ? exampleEnglish
+          : exampleGerman;
 }

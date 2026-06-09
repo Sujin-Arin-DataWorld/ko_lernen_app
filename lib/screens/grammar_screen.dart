@@ -470,6 +470,7 @@ class _Front extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
     return StudyCardFace(
       accent: SoriColors.warning,
       children: [
@@ -491,7 +492,7 @@ class _Front extends StatelessWidget {
         ),
         const SizedBox(height: Spacing.sm),
         Text(
-          g.typeDe,
+          g.typeFor(lang),
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 13,
@@ -524,7 +525,7 @@ class _Front extends StatelessWidget {
                 if (g.exampleGerman.isNotEmpty) ...[
                   const SizedBox(height: 4),
                   Text(
-                    g.exampleGerman,
+                    g.exampleFor(lang),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 12.5,
@@ -554,6 +555,7 @@ class _Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
     return StudyCardFace(
       accent: SoriColors.hangul,
       children: [
@@ -574,7 +576,7 @@ class _Back extends StatelessWidget {
         ),
         const SizedBox(height: Spacing.sm),
         Text(
-          g.explanationDe,
+          g.explanationFor(lang),
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 13.5, color: s.text, height: 1.5),
         ),
@@ -590,7 +592,7 @@ class _Back extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          g.exampleGerman,
+          g.exampleFor(lang),
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 13,
@@ -603,7 +605,7 @@ class _Back extends StatelessWidget {
           Divider(color: SoriColors.hangul.withValues(alpha: 0.25), height: 1),
           const SizedBox(height: Spacing.xs + 2),
           Text(
-            g.note,
+            g.noteFor(lang),
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 11.5, color: s.textMuted, height: 1.4),
           ),

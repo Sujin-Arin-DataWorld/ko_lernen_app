@@ -652,6 +652,7 @@ class _Front extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
     final mastery = Storage.vocabMastery(v.korean);
     return StudyCardFace(
       accent: SoriColors.info,
@@ -670,7 +671,7 @@ class _Front extends StatelessWidget {
         ),
         const SizedBox(height: 14),
         Text(
-          koFirst ? v.korean : v.german,
+          koFirst ? v.korean : v.translationFor(lang),
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: koFirst ? 38 : 28,
@@ -691,7 +692,7 @@ class _Front extends StatelessWidget {
           ),
         ],
         const SizedBox(height: Spacing.sm),
-        Text(v.posDe, style: TextStyle(fontSize: 12, color: s.textMuted)),
+        Text(v.posFor(lang), style: TextStyle(fontSize: 12, color: s.textMuted)),
         const SizedBox(height: Spacing.lg),
         Text(
           '👆 ${t.hintTapToFlip}',
@@ -773,6 +774,7 @@ class _Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
     return StudyCardFace(
       accent: SoriColors.success,
       children: [
@@ -783,7 +785,7 @@ class _Back extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          koFirst ? v.german : v.korean,
+          koFirst ? v.translationFor(lang) : v.korean,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: koFirst ? 28 : 36,
@@ -794,7 +796,7 @@ class _Back extends StatelessWidget {
         ),
         const SizedBox(height: Spacing.sm),
         Text(
-          '${v.posDe} · ${v.topic}',
+          '${v.posFor(lang)} · ${v.topic}',
           style: TextStyle(fontSize: 12, color: s.textMuted),
         ),
         const SizedBox(height: Spacing.lg),
@@ -839,7 +841,7 @@ class _Back extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                v.exampleGerman,
+                v.exampleFor(lang),
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 13.5, color: s.text),
               ),

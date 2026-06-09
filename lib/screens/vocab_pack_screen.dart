@@ -254,10 +254,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   void _prepareNextQuestion() {
     final cur = _currentQuiz;
     if (cur == null) return;
-    final correct = cur.german;
+    final lang = Localizations.localeOf(context).languageCode;
+    final correct = cur.translationFor(lang);
     final pool = _distractorPool
-        .where((v) => v.korean != cur.korean && v.german != correct)
-        .map((v) => v.german)
+        .where((v) => v.korean != cur.korean && v.translationFor(lang) != correct)
+        .map((v) => v.translationFor(lang))
         .toSet()
         .toList();
     pool.shuffle(_rng);
@@ -276,7 +277,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final cur = _currentQuiz;
     final choices = _choices;
     if (cur == null || choices == null) return;
-    final isCorrect = choices[i] == cur.german;
+    final lang = Localizations.localeOf(context).languageCode;
+    final isCorrect = choices[i] == cur.translationFor(lang);
     setState(() {
       _selectedChoice = i;
       _choiceLocked = true;
@@ -602,7 +604,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: List.generate(choices.length, (i) {
                   final text = choices[i];
-                  final isCorrect = text == cur.german;
+                  final isCorrect = text ==
+                      cur.translationFor(
+                          Localizations.localeOf(context).languageCode);
 
                   return Padding(
                     padding: const EdgeInsets.only(bottom: Spacing.sm),
@@ -720,6 +724,7 @@ class _FlipBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lang = Localizations.localeOf(context).languageCode;
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
@@ -729,7 +734,7 @@ class _FlipBack extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              v.german,
+              v.translationFor(lang),
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 28,
@@ -738,7 +743,7 @@ class _FlipBack extends StatelessWidget {
             ),
             const SizedBox(height: Spacing.sm),
             Text(
-              v.posDe,
+              v.posFor(lang),
               style: const TextStyle(fontSize: 14, color: Colors.black54),
             ),
             if (v.exampleKorean.isNotEmpty) ...[
@@ -753,7 +758,7 @@ class _FlipBack extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                v.exampleGerman,
+                v.exampleFor(lang),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 14,

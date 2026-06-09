@@ -331,9 +331,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
             style: tt.caption.copyWith(color: s.textDim)),
       ];
 
-  List<Widget> _backList(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => [
+  List<Widget> _backList(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) {
+    final lang = Localizations.localeOf(context).languageCode;
+    return [
         Text(
-          v.german,
+          v.translationFor(lang),
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontFamily: 'Pretendard',
@@ -350,11 +352,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
         ],
         if (v.exampleGerman.isNotEmpty) ...[
           const SizedBox(height: Spacing.xs),
-          Text(v.exampleGerman,
+          Text(v.exampleFor(lang),
               textAlign: TextAlign.center,
               style: tt.bodySmall.copyWith(color: s.textMuted)),
         ],
       ];
+  }
 }
 
 /// 발음 듣기 버튼 — 카드 탭(뒤집기)과 분리되도록 InkWell 이 탭을 소비한다.
