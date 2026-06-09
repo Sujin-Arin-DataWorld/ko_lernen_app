@@ -354,6 +354,13 @@ class Storage {
   static Future<void> setTutHomeTourSeen() async =>
       _prefs?.setBool('kl_tut_home_tour', true);
 
+  /// 단어장 추가(북마크) 버튼 첫 노출 코치마크 표시됨? (＋단어장 안내)
+  /// _prefs 미초기화 시 true(미표시·안전 기본값).
+  static bool get tutWordbookSeen =>
+      _prefs == null ? true : (_prefs!.getBool('kl_tut_wordbook') ?? false);
+  static Future<void> setTutWordbookSeen() async =>
+      _prefs?.setBool('kl_tut_wordbook', true);
+
   /// 온보딩 3장 미리보기 캐러셀 표시됨? (Stage 2)
   static bool get introPreviewSeen =>
       _prefs?.getBool('kl_intro_preview_seen') ?? false;
@@ -370,6 +377,7 @@ class Storage {
       _sb('kl_tut_pack_boss', false),
       _sb('kl_intro_preview_seen', false),
       _sb('kl_tut_home_tour', false),
+      _sb('kl_tut_wordbook', false),
     ]);
   }
 

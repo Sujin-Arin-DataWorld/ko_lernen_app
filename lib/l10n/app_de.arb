@@ -886,6 +886,8 @@
   "@_wordbook_global": { "description": "Globales Zur-Wortliste-hinzufuegen + Woerter-Suche (v2.0)." },
   "wbQuickPackName": "⭐ Schnellspeicher",
   "wbAddTooltip": "Zur Wortliste hinzufügen",
+  "wbCoachTitle": "Wörter hier speichern",
+  "wbCoachBody": "Tippe aufs Lesezeichen, um ein Wort zu speichern und täglich zu wiederholen — aus deiner Wortliste kannst du sogar eigene Lernkarten erstellen!",
   "wbAdded": "{word} zur Wortliste hinzugefügt",
   "@wbAdded": { "placeholders": { "word": {} } },
   "wbAlreadyAdded": "{word} ist schon in deiner Wortliste",

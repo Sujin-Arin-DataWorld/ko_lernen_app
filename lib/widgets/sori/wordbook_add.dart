@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/book_page.dart';
 import '../../services/custom_pack_service.dart';
+import '../../services/storage_service.dart';
+import 'spotlight_coach.dart';
 import 'tokens.dart';
 
 /// Globaler "Zur Wortliste hinzufügen"-Flow (v2.0). Überall im Lern-Flow
@@ -61,7 +63,11 @@ Future<void> addToWordbook(
 
 /// Wiederverwendbarer "Zur Wortliste"-Button (Lesezeichen-Icon).
 /// [compact] → reine Icon-Variante (AppBar/Kartenecke).
-class AddToWordbookButton extends StatelessWidget {
+///
+/// 첫 노출 시(세션 1회·`tutWordbookSeen` false) 자기 위치에 스포트라이트
+/// 코치마크를 띄워 "북마크로 저장→복습→내 단어카드"를 안내한다. 6개 학습
+/// 화면(review·chosung·wordle·vocab_pack·smalltalk·scenario_player) 무수정.
+class AddToWordbookButton extends StatefulWidget {
   final String korean;
   final String translationDe;
   final String translationEn;
@@ -83,23 +89,66 @@ class AddToWordbookButton extends StatelessWidget {
     this.compact = false,
   });
 
+  @override
+  State<AddToWordbookButton> createState() => _AddToWordbookButtonState();
+}
+
+class _AddToWordbookButtonState extends State<AddToWordbookButton> {
+  // 세션 내 1회만 — 한 화면에 버튼이 여럿이거나 화면을 옮겨도 첫 1개만 안내.
+  static bool _coachShownThisSession = false;
+  final GlobalKey _coachKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    if (_coachShownThisSession || Storage.tutWordbookSeen) {
+      return;
+    }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted ||
+          _coachShownThisSession ||
+          Storage.tutWordbookSeen ||
+          widget.korean.trim().isEmpty) {
+        return;
+      }
+      _coachShownThisSession = true;
+      final t = AppL10n.of(context);
+      SpotlightCoach.show(
+        context,
+        steps: [
+          SpotlightStep(
+            targetKey: _coachKey,
+            title: t.wbCoachTitle,
+            body: t.wbCoachBody,
+            icon: Icons.bookmark_add_outlined,
+            cutoutPadding: const EdgeInsets.all(8),
+            cutoutRadius: 22,
+            shape: ShapeKind.circle,
+          ),
+        ],
+        onComplete: () => Storage.setTutWordbookSeen(),
+      );
+    });
+  }
+
   void _add(BuildContext context) => addToWordbook(
         context,
-        korean: korean,
-        translationDe: translationDe,
-        translationEn: translationEn,
-        romanization: romanization,
-        posDe: posDe,
-        exampleKorean: exampleKorean,
-        exampleDe: exampleDe,
+        korean: widget.korean,
+        translationDe: widget.translationDe,
+        translationEn: widget.translationEn,
+        romanization: widget.romanization,
+        posDe: widget.posDe,
+        exampleKorean: widget.exampleKorean,
+        exampleDe: widget.exampleDe,
       );
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final enabled = korean.trim().isNotEmpty;
-    if (compact) {
+    final enabled = widget.korean.trim().isNotEmpty;
+    if (widget.compact) {
       return IconButton(
+        key: _coachKey,
         tooltip: t.wbAddTooltip,
         icon: const Icon(Icons.bookmark_add_outlined),
         color: SoriColors.primary,
@@ -107,6 +156,7 @@ class AddToWordbookButton extends StatelessWidget {
       );
     }
     return TextButton.icon(
+      key: _coachKey,
       onPressed: enabled ? () => _add(context) : null,
       icon: const Icon(Icons.bookmark_add_outlined, size: 18),
       label: Text(t.wbAddTooltip),

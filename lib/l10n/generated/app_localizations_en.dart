@@ -2307,6 +2307,13 @@ class AppL10nEn extends AppL10n {
   String get wbAddTooltip => 'Add to word list';
 
   @override
+  String get wbCoachTitle => 'Save words here';
+
+  @override
+  String get wbCoachBody =>
+      'Tap the bookmark to save a word and review it daily — you can even build your own flashcards from your word list!';
+
+  @override
   String wbAdded(Object word) {
     return 'Added $word to your word list';
   }

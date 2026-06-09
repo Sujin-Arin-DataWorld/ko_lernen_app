@@ -885,6 +885,8 @@
   "@_wordbook_global": { "description": "Global add-to-wordlist + word search (v2.0)." },
   "wbQuickPackName": "⭐ Quick saves",
   "wbAddTooltip": "Add to word list",
+  "wbCoachTitle": "Save words here",
+  "wbCoachBody": "Tap the bookmark to save a word and review it daily — you can even build your own flashcards from your word list!",
   "wbAdded": "Added {word} to your word list",
   "@wbAdded": { "placeholders": { "word": {} } },
   "wbAlreadyAdded": "{word} is already in your word list",

@@ -4315,6 +4315,18 @@ abstract class AppL10n {
   /// **'Zur Wortliste hinzufügen'**
   String get wbAddTooltip;
 
+  /// No description provided for @wbCoachTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter hier speichern'**
+  String get wbCoachTitle;
+
+  /// No description provided for @wbCoachBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe aufs Lesezeichen, um ein Wort zu speichern und täglich zu wiederholen — aus deiner Wortliste kannst du sogar eigene Lernkarten erstellen!'**
+  String get wbCoachBody;
+
   /// No description provided for @wbAdded.
   ///
   /// In de, this message translates to:

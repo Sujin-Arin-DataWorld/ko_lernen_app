@@ -2313,6 +2313,13 @@ class AppL10nDe extends AppL10n {
   String get wbAddTooltip => 'Zur Wortliste hinzufügen';
 
   @override
+  String get wbCoachTitle => 'Wörter hier speichern';
+
+  @override
+  String get wbCoachBody =>
+      'Tippe aufs Lesezeichen, um ein Wort zu speichern und täglich zu wiederholen — aus deiner Wortliste kannst du sogar eigene Lernkarten erstellen!';
+
+  @override
   String wbAdded(Object word) {
     return '$word zur Wortliste hinzugefügt';
   }
