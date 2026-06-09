@@ -15,6 +15,8 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
 import 'quest_engines/luecken_quest.dart';
@@ -32,7 +34,8 @@ class ScenarioPlayerScreen extends StatefulWidget {
   State<ScenarioPlayerScreen> createState() => _ScenarioPlayerScreenState();
 }
 
-class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
+class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
+    with ScreenCoachMixin<ScenarioPlayerScreen> {
   Scenario? _scenario;
   int _stage = 0;
   int _firstTryPassedCount = 0;
@@ -44,12 +47,47 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
   // review).
   final Set<int> _failedQuestIndices = <int>{};
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _stageAreaKey = GlobalKey();
+  final GlobalKey _nextBtnKey = GlobalKey();
+
+  @override
+  String get coachId => 'scenario';
+
+  /// 시나리오 로드됨 + 프리미엄 게이트 화면 아님(= 실제 콘텐츠 화면).
+  @override
+  bool get coachReady => _scenario != null;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    // 프리미엄 게이트를 통과한 시나리오만 코치 표시.
+    if (_scenario == null) {
+      return [];
+    }
+    return [
+      SpotlightStep(
+        targetKey: _stageAreaKey,
+        title: t.coachScenarioStep1Title,
+        body: t.coachScenarioStep1Body,
+        icon: Icons.school_outlined,
+      ),
+      SpotlightStep(
+        targetKey: _nextBtnKey,
+        title: t.coachScenarioStep2Title,
+        body: t.coachScenarioStep2Body,
+        icon: Icons.arrow_forward_rounded,
+      ),
+    ];
+  }
+
   // ─── Initialisierung ───────────────────────────────────────────────────────
 
   @override
   void initState() {
     super.initState();
     _loadScenario();
+    scheduleCoach();
   }
 
   @override
@@ -983,6 +1021,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
         Spacing.xxl,
       ),
       child: SoriButton.filled(
+        key: _nextBtnKey,
         label: isIntro ? t.scenarioStartBtn : t.scenarioNextBtn,
         fullWidth: true,
         onTap: enabled ? _next : null,
@@ -1044,6 +1083,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen> {
               children: [
                 Expanded(
                   child: PageView.builder(
+                    key: _stageAreaKey,
                     controller: _pageCtrl,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: _totalStages,

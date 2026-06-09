@@ -14,6 +14,8 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -39,7 +41,8 @@ class ReviewSessionScreen extends StatefulWidget {
   State<ReviewSessionScreen> createState() => _ReviewSessionScreenState();
 }
 
-class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
+class _ReviewSessionScreenState extends State<ReviewSessionScreen>
+    with ScreenCoachMixin<ReviewSessionScreen> {
   bool _loading = true;
   List<Vocab> _deck = [];
   int _idx = 0;
@@ -47,10 +50,40 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
   int _reviewed = 0;
   bool _done = false;
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _cardKey = GlobalKey();
+  final GlobalKey _answerRowKey = GlobalKey();
+
+  @override
+  String get coachId => 'review';
+
+  @override
+  bool get coachReady => !_loading && _deck.isNotEmpty && !_done;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _cardKey,
+        title: t.coachReviewStep1Title,
+        body: t.coachReviewStep1Body,
+        icon: Icons.flip_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _answerRowKey,
+        title: t.coachReviewStep2Title,
+        body: t.coachReviewStep2Body,
+        icon: Icons.thumbs_up_down_rounded,
+      ),
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -252,6 +285,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
           child: Padding(
             padding: const EdgeInsets.all(Spacing.lg),
             child: SoriPressable(
+              key: _cardKey,
               onTap: () => setState(() => _flipped = !_flipped),
               haptic: SoriHaptic.selection,
               child: LayoutBuilder(
@@ -285,6 +319,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen> {
           padding: const EdgeInsets.fromLTRB(
               Spacing.lg, 0, Spacing.lg, Spacing.lg),
           child: Row(
+            key: _answerRowKey,
             children: [
               Expanded(
                 child: SoriButton.outlined(

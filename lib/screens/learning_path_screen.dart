@@ -11,6 +11,8 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/path_node.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Lernpfad (학습 경로)** — Duolingo식 진척 시각화.
@@ -34,7 +36,8 @@ class _LevelGroup {
   const _LevelGroup(this.level, this.packs);
 }
 
-class _LearningPathScreenState extends State<LearningPathScreen> {
+class _LearningPathScreenState extends State<LearningPathScreen>
+    with ScreenCoachMixin<LearningPathScreen> {
   bool _loading = true;
   HanokStage _stage = HanokStage.empty;
   final List<_LevelGroup> _groups = [];
@@ -44,10 +47,33 @@ class _LearningPathScreenState extends State<LearningPathScreen> {
 
   static const List<String> _levels = ['A1', 'A2', 'B1', 'B2'];
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _nowNodeKey = GlobalKey();
+
+  @override
+  String get coachId => 'learningPath';
+
+  @override
+  bool get coachReady => !_loading && _groups.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _nowNodeKey,
+        title: t.coachLearningPathTitle,
+        body: t.coachLearningPathBody,
+        icon: Icons.play_circle_outline_rounded,
+      ),
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -170,6 +196,7 @@ class _LearningPathScreenState extends State<LearningPathScreen> {
       ),
       for (final e in g.packs)
         PathNode(
+          key: e.pack.id == _nowPackId ? _nowNodeKey : null,
           label: VocabPackService.displayLabel(e.pack.id, lang: lang),
           status: e.progress.status,
           fraction: e.progress.progressFraction,

@@ -2779,4 +2779,81 @@ class AppL10nDe extends AppL10n {
   @override
   String get coachListeningStep3Body =>
       'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile';
+
+  @override
+  String get coachHangulTitle => '3 Tabs — 3 Wege zum Hangul';
+
+  @override
+  String get coachHangulBody =>
+      'Übersicht zeigt alle Zeichen · Karten helfen beim Üben · Schreiben trainiert den Strich';
+
+  @override
+  String get coachGrammarStep1Title => 'Karte umdrehen';
+
+  @override
+  String get coachGrammarStep1Body =>
+      'Tippe auf die Karte, um Erklärung und Beispiele zu sehen';
+
+  @override
+  String get coachGrammarStep2Title => 'Filtern & markieren';
+
+  @override
+  String get coachGrammarStep2Body =>
+      'Wähle Niveau oder Typ — schwierige Karten mit 🤔 als Schwer markieren';
+
+  @override
+  String get coachSmalltalkStep1Title => 'Thema auswählen';
+
+  @override
+  String get coachSmalltalkStep1Body =>
+      'Tippe auf das Themenfeld, um aus 18 Kategorien zu wählen';
+
+  @override
+  String get coachSmalltalkStep2Title => 'Aussprache & Wörterbuch';
+
+  @override
+  String get coachSmalltalkStep2Body =>
+      'Tippe auf eine Karte zum Vorlesen — ＋ speichert den Ausdruck im Wörterbuch';
+
+  @override
+  String get coachScenarioStep1Title => 'Schritt für Schritt';
+
+  @override
+  String get coachScenarioStep1Body =>
+      'Vokabeln → Dialog → Grammatik → Quests → Ergebnis — alles in dieser Reihenfolge';
+
+  @override
+  String get coachScenarioStep2Title => 'Weiter & Fortschritt';
+
+  @override
+  String get coachScenarioStep2Body =>
+      'Tippe Weiter zum nächsten Schritt · der Balken oben zeigt deinen Fortschritt';
+
+  @override
+  String get coachReviewStep1Title => 'Karte aufdecken';
+
+  @override
+  String get coachReviewStep1Body =>
+      'Denk an die Bedeutung — dann Karte antippen, um die Antwort zu sehen';
+
+  @override
+  String get coachReviewStep2Title => 'Gewusst oder nicht?';
+
+  @override
+  String get coachReviewStep2Body =>
+      '\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück';
+
+  @override
+  String get coachLegacyVocabTitle => 'Karteikarte';
+
+  @override
+  String get coachLegacyVocabBody =>
+      'Antippen = umdrehen · lang halten = langsam vorlesen lassen';
+
+  @override
+  String get coachLearningPathTitle => 'Dein Lernpfad';
+
+  @override
+  String get coachLearningPathBody =>
+      'Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor';
 }

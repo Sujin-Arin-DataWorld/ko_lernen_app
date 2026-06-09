@@ -9,6 +9,8 @@ import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -23,15 +25,46 @@ class SmalltalkScreen extends StatefulWidget {
   State<SmalltalkScreen> createState() => _SmalltalkScreenState();
 }
 
-class _SmalltalkScreenState extends State<SmalltalkScreen> {
+class _SmalltalkScreenState extends State<SmalltalkScreen>
+    with ScreenCoachMixin<SmalltalkScreen> {
   bool _loading = true;
   String _cat = '';
   String? _level; // null = alle Level
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _categoryKey = GlobalKey();
+  final GlobalKey _firstCardKey = GlobalKey();
+
+  @override
+  String get coachId => 'smalltalk';
+
+  @override
+  bool get coachReady => !_loading && SmalltalkLoader.categories.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _categoryKey,
+        title: t.coachSmalltalkStep1Title,
+        body: t.coachSmalltalkStep1Body,
+        icon: Icons.category_outlined,
+      ),
+      SpotlightStep(
+        targetKey: _firstCardKey,
+        title: t.coachSmalltalkStep2Title,
+        body: t.coachSmalltalkStep2Body,
+        icon: Icons.volume_up_rounded,
+      ),
+    ];
+  }
 
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -104,6 +137,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen> {
         Padding(
           padding: const EdgeInsets.fromLTRB(Spacing.lg, 10, Spacing.lg, 6),
           child: Material(
+            key: _categoryKey,
             color: s.surface,
             borderRadius: SoriRadius.brMd,
             child: InkWell(
@@ -171,11 +205,17 @@ class _SmalltalkScreenState extends State<SmalltalkScreen> {
                         Spacing.lg, 0, Spacing.lg, Spacing.xl),
                   ),
                   itemCount: phrases.length,
-                  itemBuilder: (_, i) => _PhraseCard(
-                    p: phrases[i],
-                    lang: lang,
-                    levelColor: _levelColor(phrases[i].level),
-                  ),
+                  itemBuilder: (_, i) {
+                    final card = _PhraseCard(
+                      p: phrases[i],
+                      lang: lang,
+                      levelColor: _levelColor(phrases[i].level),
+                    );
+                    if (i == 0) {
+                      return KeyedSubtree(key: _firstCardKey, child: card);
+                    }
+                    return card;
+                  },
                 )),
         ),
       ],

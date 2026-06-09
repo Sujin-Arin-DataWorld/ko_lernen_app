@@ -17,6 +17,8 @@ import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/study_action_bar.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -27,7 +29,8 @@ class GrammarScreen extends StatefulWidget {
   State<GrammarScreen> createState() => _GrammarScreenState();
 }
 
-class _GrammarScreenState extends State<GrammarScreen> {
+class _GrammarScreenState extends State<GrammarScreen>
+    with ScreenCoachMixin<GrammarScreen> {
   List<Grammar> _all = [];
   List<Grammar> _filtered = [];
   int _idx = 0;
@@ -38,11 +41,41 @@ class _GrammarScreenState extends State<GrammarScreen> {
   bool _loading = true;
   bool _loadFailed = false;
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _cardKey = GlobalKey();
+  final GlobalKey _filterRowKey = GlobalKey();
+
+  @override
+  String get coachId => 'grammar';
+
+  @override
+  bool get coachReady => !_loading && _current != null;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _cardKey,
+        title: t.coachGrammarStep1Title,
+        body: t.coachGrammarStep1Body,
+        icon: Icons.flip_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _filterRowKey,
+        title: t.coachGrammarStep2Title,
+        body: t.coachGrammarStep2Body,
+        icon: Icons.tune_rounded,
+      ),
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
     _idx = Storage.grammarLastIdx;
     _load();
+    scheduleCoach();
   }
 
   void _load() {
@@ -192,6 +225,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
                 // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.
                 SizedBox(
+                  key: _filterRowKey,
                   height: 36,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
@@ -291,6 +325,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
                               }
                             },
                             child: FlipCard(
+                              key: _cardKey,
                               flipped: _flipped,
                               onTap: _onFlip,
                               front: _Front(g: g),

@@ -1058,5 +1058,36 @@
   "coachListeningStep2Title": "Tempo & Untertitel",
   "coachListeningStep2Body": "Stelle Geschwindigkeit (0,75×–1,25×) und Untertitel-Modus ein",
   "coachListeningStep3Title": "Zeile für Zeile",
-  "coachListeningStep3Body": "Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile"
+  "coachListeningStep3Body": "Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile",
+
+  "@_coach_c2": { "description": "Stage C-2 학습 7화면 코치마크 키 (2026-06-09)" },
+
+  "coachHangulTitle": "3 Tabs — 3 Wege zum Hangul",
+  "coachHangulBody": "Übersicht zeigt alle Zeichen · Karten helfen beim Üben · Schreiben trainiert den Strich",
+
+  "coachGrammarStep1Title": "Karte umdrehen",
+  "coachGrammarStep1Body": "Tippe auf die Karte, um Erklärung und Beispiele zu sehen",
+  "coachGrammarStep2Title": "Filtern & markieren",
+  "coachGrammarStep2Body": "Wähle Niveau oder Typ — schwierige Karten mit 🤔 als Schwer markieren",
+
+  "coachSmalltalkStep1Title": "Thema auswählen",
+  "coachSmalltalkStep1Body": "Tippe auf das Themenfeld, um aus 18 Kategorien zu wählen",
+  "coachSmalltalkStep2Title": "Aussprache & Wörterbuch",
+  "coachSmalltalkStep2Body": "Tippe auf eine Karte zum Vorlesen — ＋ speichert den Ausdruck im Wörterbuch",
+
+  "coachScenarioStep1Title": "Schritt für Schritt",
+  "coachScenarioStep1Body": "Vokabeln → Dialog → Grammatik → Quests → Ergebnis — alles in dieser Reihenfolge",
+  "coachScenarioStep2Title": "Weiter & Fortschritt",
+  "coachScenarioStep2Body": "Tippe Weiter zum nächsten Schritt · der Balken oben zeigt deinen Fortschritt",
+
+  "coachReviewStep1Title": "Karte aufdecken",
+  "coachReviewStep1Body": "Denk an die Bedeutung — dann Karte antippen, um die Antwort zu sehen",
+  "coachReviewStep2Title": "Gewusst oder nicht?",
+  "coachReviewStep2Body": "\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück",
+
+  "coachLegacyVocabTitle": "Karteikarte",
+  "coachLegacyVocabBody": "Antippen = umdrehen · lang halten = langsam vorlesen lassen",
+
+  "coachLearningPathTitle": "Dein Lernpfad",
+  "coachLearningPathBody": "Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor"
 }

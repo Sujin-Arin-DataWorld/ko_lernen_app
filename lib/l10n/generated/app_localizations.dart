@@ -5130,6 +5130,138 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile'**
   String get coachListeningStep3Body;
+
+  /// No description provided for @coachHangulTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'3 Tabs — 3 Wege zum Hangul'**
+  String get coachHangulTitle;
+
+  /// No description provided for @coachHangulBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersicht zeigt alle Zeichen · Karten helfen beim Üben · Schreiben trainiert den Strich'**
+  String get coachHangulBody;
+
+  /// No description provided for @coachGrammarStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Karte umdrehen'**
+  String get coachGrammarStep1Title;
+
+  /// No description provided for @coachGrammarStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf die Karte, um Erklärung und Beispiele zu sehen'**
+  String get coachGrammarStep1Body;
+
+  /// No description provided for @coachGrammarStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Filtern & markieren'**
+  String get coachGrammarStep2Title;
+
+  /// No description provided for @coachGrammarStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle Niveau oder Typ — schwierige Karten mit 🤔 als Schwer markieren'**
+  String get coachGrammarStep2Body;
+
+  /// No description provided for @coachSmalltalkStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Thema auswählen'**
+  String get coachSmalltalkStep1Title;
+
+  /// No description provided for @coachSmalltalkStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf das Themenfeld, um aus 18 Kategorien zu wählen'**
+  String get coachSmalltalkStep1Body;
+
+  /// No description provided for @coachSmalltalkStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache & Wörterbuch'**
+  String get coachSmalltalkStep2Title;
+
+  /// No description provided for @coachSmalltalkStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf eine Karte zum Vorlesen — ＋ speichert den Ausdruck im Wörterbuch'**
+  String get coachSmalltalkStep2Body;
+
+  /// No description provided for @coachScenarioStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Schritt für Schritt'**
+  String get coachScenarioStep1Title;
+
+  /// No description provided for @coachScenarioStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokabeln → Dialog → Grammatik → Quests → Ergebnis — alles in dieser Reihenfolge'**
+  String get coachScenarioStep1Body;
+
+  /// No description provided for @coachScenarioStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter & Fortschritt'**
+  String get coachScenarioStep2Title;
+
+  /// No description provided for @coachScenarioStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe Weiter zum nächsten Schritt · der Balken oben zeigt deinen Fortschritt'**
+  String get coachScenarioStep2Body;
+
+  /// No description provided for @coachReviewStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Karte aufdecken'**
+  String get coachReviewStep1Title;
+
+  /// No description provided for @coachReviewStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Denk an die Bedeutung — dann Karte antippen, um die Antwort zu sehen'**
+  String get coachReviewStep1Body;
+
+  /// No description provided for @coachReviewStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Gewusst oder nicht?'**
+  String get coachReviewStep2Title;
+
+  /// No description provided for @coachReviewStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück'**
+  String get coachReviewStep2Body;
+
+  /// No description provided for @coachLegacyVocabTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Karteikarte'**
+  String get coachLegacyVocabTitle;
+
+  /// No description provided for @coachLegacyVocabBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Antippen = umdrehen · lang halten = langsam vorlesen lassen'**
+  String get coachLegacyVocabBody;
+
+  /// No description provided for @coachLearningPathTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernpfad'**
+  String get coachLearningPathTitle;
+
+  /// No description provided for @coachLearningPathBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor'**
+  String get coachLearningPathBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -16,6 +16,8 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -26,7 +28,8 @@ class LegacyVocabScreen extends StatefulWidget {
   State<LegacyVocabScreen> createState() => _LegacyVocabScreenState();
 }
 
-class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
+class _LegacyVocabScreenState extends State<LegacyVocabScreen>
+    with ScreenCoachMixin<LegacyVocabScreen> {
   List<Vocab> _all = [];
   List<Vocab> _filtered = [];
   int _idx = 0;
@@ -54,6 +57,28 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
   bool _loading = true;
   bool _loadFailed = false;
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _flashCardKey = GlobalKey();
+
+  @override
+  String get coachId => 'legacyVocab';
+
+  @override
+  bool get coachReady => !_loading && _current != null;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _flashCardKey,
+        title: t.coachLegacyVocabTitle,
+        body: t.coachLegacyVocabBody,
+        icon: Icons.style_outlined,
+      ),
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
@@ -63,6 +88,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
     _skipped = Storage.vokSkipped;
     _idx = Storage.vokLastIdx;
     _load();
+    scheduleCoach();
   }
 
   void _load() {
@@ -392,6 +418,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen> {
                     child: Stack(
                       children: [
                         FlipCard(
+                          key: _flashCardKey,
                           flipped: _flipped,
                           onTap: _onFlip,
                           front: _Front(v: v, koFirst: _koFirst),

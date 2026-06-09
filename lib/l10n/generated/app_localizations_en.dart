@@ -2765,4 +2765,81 @@ class AppL10nEn extends AppL10n {
   @override
   String get coachListeningStep3Body =>
       'Listen and tap ⟳ to replay, or Next to advance';
+
+  @override
+  String get coachHangulTitle => '3 tabs — 3 ways to learn Hangul';
+
+  @override
+  String get coachHangulBody =>
+      'Overview shows all characters · Cards help you practise · Write trains your strokes';
+
+  @override
+  String get coachGrammarStep1Title => 'Flip the card';
+
+  @override
+  String get coachGrammarStep1Body =>
+      'Tap the card to reveal the explanation and examples';
+
+  @override
+  String get coachGrammarStep2Title => 'Filter & mark';
+
+  @override
+  String get coachGrammarStep2Body =>
+      'Filter by level or type — mark tricky cards with 🤔 as Hard';
+
+  @override
+  String get coachSmalltalkStep1Title => 'Pick a topic';
+
+  @override
+  String get coachSmalltalkStep1Body =>
+      'Tap the topic field to choose from 18 categories';
+
+  @override
+  String get coachSmalltalkStep2Title => 'Pronunciation & wordbook';
+
+  @override
+  String get coachSmalltalkStep2Body =>
+      'Tap a card to hear it spoken — ＋ saves the phrase to your wordbook';
+
+  @override
+  String get coachScenarioStep1Title => 'Step by step';
+
+  @override
+  String get coachScenarioStep1Body =>
+      'Vocab → Dialogue → Grammar → Quests → Result — in that order';
+
+  @override
+  String get coachScenarioStep2Title => 'Next & progress';
+
+  @override
+  String get coachScenarioStep2Body =>
+      'Tap Next to advance · the bar at the top shows your progress';
+
+  @override
+  String get coachReviewStep1Title => 'Reveal the card';
+
+  @override
+  String get coachReviewStep1Body =>
+      'Think of the meaning — then tap the card to check your answer';
+
+  @override
+  String get coachReviewStep2Title => 'Got it or not?';
+
+  @override
+  String get coachReviewStep2Body =>
+      '\"Got it\" extends the interval · \"Didn\'t know\" brings the card back sooner';
+
+  @override
+  String get coachLegacyVocabTitle => 'Flashcard';
+
+  @override
+  String get coachLegacyVocabBody =>
+      'Tap to flip · long-press to hear it at slow speed';
+
+  @override
+  String get coachLearningPathTitle => 'Your learning path';
+
+  @override
+  String get coachLearningPathBody =>
+      'Start at the orange \"Now\" node and work your way forward step by step';
 }

@@ -8,6 +8,8 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../widgets/flip_card.dart';
@@ -22,9 +24,29 @@ class HangulScreen extends StatefulWidget {
   State<HangulScreen> createState() => _HangulScreenState();
 }
 
-class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderStateMixin {
+class _HangulScreenState extends State<HangulScreen>
+    with SingleTickerProviderStateMixin, ScreenCoachMixin<HangulScreen> {
   late final TabController _tabs;
   int _tabIndex = 0;
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _tabBarKey = GlobalKey();
+
+  @override
+  String get coachId => 'hangul';
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _tabBarKey,
+        title: t.coachHangulTitle,
+        body: t.coachHangulBody,
+        icon: Icons.tab_rounded,
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -33,6 +55,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
     _tabs.addListener(() {
       if (_tabs.index != _tabIndex) setState(() => _tabIndex = _tabs.index);
     });
+    scheduleCoach();
   }
 
   @override
@@ -48,6 +71,7 @@ class _HangulScreenState extends State<HangulScreen> with SingleTickerProviderSt
       appBar: AppBar(
         title: Text(t.screenHangulTitle, style: const TextStyle(fontWeight: FontWeight.w800)),
         bottom: TabBar(
+          key: _tabBarKey,
           controller: _tabs,
           indicatorColor: SoriColors.hangul,
           labelColor: SoriColors.hangul,

@@ -1057,5 +1057,36 @@
   "coachListeningStep2Title": "Speed & subtitles",
   "coachListeningStep2Body": "Adjust playback speed (0.75×–1.25×) and subtitle mode",
   "coachListeningStep3Title": "Line by line",
-  "coachListeningStep3Body": "Listen and tap ⟳ to replay, or Next to advance"
+  "coachListeningStep3Body": "Listen and tap ⟳ to replay, or Next to advance",
+
+  "@_coach_c2": { "description": "Stage C-2 learning 7-screen coach keys (2026-06-09)" },
+
+  "coachHangulTitle": "3 tabs — 3 ways to learn Hangul",
+  "coachHangulBody": "Overview shows all characters · Cards help you practise · Write trains your strokes",
+
+  "coachGrammarStep1Title": "Flip the card",
+  "coachGrammarStep1Body": "Tap the card to reveal the explanation and examples",
+  "coachGrammarStep2Title": "Filter & mark",
+  "coachGrammarStep2Body": "Filter by level or type — mark tricky cards with 🤔 as Hard",
+
+  "coachSmalltalkStep1Title": "Pick a topic",
+  "coachSmalltalkStep1Body": "Tap the topic field to choose from 18 categories",
+  "coachSmalltalkStep2Title": "Pronunciation & wordbook",
+  "coachSmalltalkStep2Body": "Tap a card to hear it spoken — ＋ saves the phrase to your wordbook",
+
+  "coachScenarioStep1Title": "Step by step",
+  "coachScenarioStep1Body": "Vocab → Dialogue → Grammar → Quests → Result — in that order",
+  "coachScenarioStep2Title": "Next & progress",
+  "coachScenarioStep2Body": "Tap Next to advance · the bar at the top shows your progress",
+
+  "coachReviewStep1Title": "Reveal the card",
+  "coachReviewStep1Body": "Think of the meaning — then tap the card to check your answer",
+  "coachReviewStep2Title": "Got it or not?",
+  "coachReviewStep2Body": "\"Got it\" extends the interval · \"Didn't know\" brings the card back sooner",
+
+  "coachLegacyVocabTitle": "Flashcard",
+  "coachLegacyVocabBody": "Tap to flip · long-press to hear it at slow speed",
+
+  "coachLearningPathTitle": "Your learning path",
+  "coachLearningPathBody": "Start at the orange \"Now\" node and work your way forward step by step"
 }
