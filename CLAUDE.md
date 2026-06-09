@@ -314,7 +314,31 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
-### 2026-06-09 (CI 실패 진단 — 빨간 X 9개 전수 분석) — 커밋(미푸시)
+### 2026-06-09 (듀오링고급 IA 재설계 + 스포트라이트 코치마크 + 온보딩 프리뷰) — 커밋·푸시 완료
+
+**범위:** Jin 실기기 "게임/단어 사라짐" → deep-research(대기업 언어앱) → 완성형 개편안 → R1 IA + 홈 path 본문화 + CI 정상화 + 스포트라이트 코치마크 + 온보딩 프리뷰. (아래 "CI 실패 진단" 항목이 본 세션 커밋 `c99739a`/`cca3417`/`bdc35a0`를 동시세션이 "Jin 커밋"으로 오인 기록 — 전부 본 세션 작업.)
+
+**deep-research(112 agents·29소스·검증 12/22, `Workflow`):** Duolingo 1차출처 등 — ①홈=단일 path 중심, 기능 탭 분산 X(F1, 3-0) ②경쟁 리그/리더보드=최악 안티패턴·dark-nudge(F5/6) ③계(契) 비경쟁 협력=연구 지지(F9/10/11, "잘 설계된 협업=경쟁과 동률·해악 없음") ④적응형 SRS +12%(F12). 게이미피케이션 효능 일반주장은 검증 탈락. 산출 `docs/MASTER_REDESIGN_2026-06-06.md`.
+
+**R1 IA(bdc35a0):** 기존 4탭(홈/배우기/연습/단어장 평면분산=안티패턴) → **4탭 [홈/연습/계/나]** + 연습 탭에 배우기·게임·단어 3 named 섹션 통합(F2/3, 발견성 복구). 계 탭 승격(차별점), 나=ProfileScreen. `app_shell`/`practice_hub` 재작성 + `gye_tab_screen` 신규.
+
+**홈 path 본문화(dbe573a→cacde06):** `_PathCard`(카드 1장) → `learning_path` 노드(✓/Jetzt/🔒)를 홈 본문 직접 임베드(F1). `PathNode` 공유 위젯 추출(home+learning_path 재사용).
+
+**오버플로 fix(ee0da4e):** 동시세션 `StreakDisplay`가 `_TopBar` 308·360px서 118px 오버플로 + streak 중복(StatChip 칩) → 제거.
+
+**CI 정상화(c99739a+cca3417):** `flutter analyze`가 info도 exit1 → CI #93~#101 빨강 9개. ci.yml `--no-fatal-infos` 추가 + info 8건 **근본 수정**(withOpacity→withValues 7 + BuildContext `mounted` 가드 1, 동시세션 파일). 이후 green.
+
+**스포트라이트 Stage A(694692d):** `lib/widgets/sori/spotlight_coach.dart` **신규**(Overlay+CustomPainter `Path.combine` 구멍 + 말풍선 자동배치 + reduce-motion, 패키지 0·직접 구현). AppShell 4탭 GlobalKey(Stack 앵커, 레이아웃 무변경) + 첫 진입 투어 5단계(4탭+학습경로, `tutHomeTourSeen`). **+ 온보딩 멈춤 버그 fix**(`quick_onboarding` `_currentPage<2→<3` — 첫 유저가 스트릭 페이지에서 100% 멈추던 출시 차단). plan `keen-launching-scott.md`.
+
+**온보딩 프리뷰(c877295):** `mascot.dart` 호랑이 프레임 전환을 150ms `AnimatedSwitcher` 크로스페이드(정면↔눈감기 하드컷 끊김 해소, 전역). `onboarding_preview` page0=`book_success`·page1=`gye_gate_grand` 이미지 교체(어색한 아이콘 뱃지 제거) + page2 도깨비불 PNG(미존재 시 불 아이콘 글로우 폴백). 도깨비불=Jin 생성 대기(Faceted Minhwa 프롬프트 제공, `data_integrity` pending allowlist).
+
+**검증:** `flutter analyze lib test` **0** · `flutter test` **362** · `flutter build apk --debug` ✓(exit 직접 확인) · DE=EN parity. ⚠️ 시각/실기기(스포트라이트 투어·크로스페이드·캐러셀 이미지·도깨비불 생성 후)=Jin.
+
+**한글명 PNG 빌드 차단(중요):** `tiger_anim` 한글 파일명 4장(예: `앉아있는 오른쪽보는 호랑이.png`)이 web/apk 빌드 시 flutter_assets URL인코딩 255자초과(errno 63)로 빌드 차단 → `~/kl_tiger_korean_backup` 백업 이동(삭제 X). **동시세션이 영문명으로 재투입 필요**(한글명 커밋 시 CI 빌드 깨짐).
+
+**Git:** R1~온보딩 8커밋 origin 푸시 완료(동기화 0/0).
+
+### 2026-06-09 (CI 실패 진단 — 빨간 X 9개 전수 분석) — 커밋·푸시(3120cda, c877295 푸시에 동반)
 
 **범위:** Jin이 GitHub Actions 화면 스크린샷(런 #93~#101 빨간 X 9개) 공유 → "에러난 거 전부 뭔지 파악해서 의도한대로 실행되게." `gh run view --log-failed`로 9개 런 전수 실측(§0 — 추측 없이 로그 인용).
 
