@@ -369,7 +369,7 @@ class Storage {
     'legacyVocab', 'learningPath',
     'bookshelf', 'cpEdit', 'cpPlay', 'cpQuiz', 'cpMatching', 'cpTyping',
     'hardWords', 'dojang',
-    'gye', 'profile', 'stats', 'scenarios',
+    'gye', 'profile', 'stats', 'quests', 'scenarios',
   ];
 
   /// 화면 코치마크 표시됨? `_prefs` 미초기화(테스트/웹) 시 true(미표시·안전).
