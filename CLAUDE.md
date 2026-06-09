@@ -314,6 +314,32 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-09 (gye 빨간화면 진단 + 네비바 회귀 수정 + 계 초대 기능 + 스태시 정리) — 커밋·푸시
+
+**범위:** Jin 실기기 빨간 화면(`framework.dart:6268 _dependents.isEmpty`) "gye 오류" 제보 → 진단 → 네비바 실종 회귀 발견·수정 → 계 초대 기능 추가 → 묻힌 변경(스태시) 정리. Jin 외출, 자율 진행.
+
+**gye `_dependents.isEmpty` 크래시 — 미재현/원인 미확정 (§0):**
+- `assert(_dependents.isEmpty)` = InheritedElement가 dependents 남긴 채 deactivate(보통 GlobalKey 리페어런팅 류). 계 전 화면·위젯(screen 5·widget 6·코치마크·스포트라이트·트랜지션) 전수 Read + **GyeScreen else-branch를 실제 위젯 그대로(DureBoard·GyeHanok·코치마크 + 진입→발화→이탈) 위젯테스트 재현 → 안 터짐.** 빈 데이터로 재현 불가 = 실데이터/타이밍 의존 간헐.
+- 정적: 커스텀 InheritedWidget 0, GlobalKey 전부 per-instance(static/공유 0). 키보드(`showSoftInput`) 직전 발생 = TextField 화면(만들기/입장/다이얼로그) 경유 추정.
+- **핵심 발견:** `main.dart:164` `FlutterError.onError = Crashlytics.recordFlutterFatalError` 가 디버그 콘솔 출력을 삼켜 빨간화면 스택이 logcat에 안 찍힘(`I/flutter` 0건) → **크래시는 Crashlytics에만 기록.** 디버그에선 `presentError`도 호출하게 수정(에러 가시성 복구) → 다음 재현 시 전체 스택 확보 가능.
+- ⚠️ **미해결.** 정확 원인 = Crashlytics 스택(또는 다음 콘솔 재현) 필요. 네비바 수정이 트리거 맥락(bare HomeScreen)을 없애 부수 해소될 가능성 있으나 미검증.
+
+**네비바 실종 회귀 — 수정 ✅ (커밋 d717285):**
+- 원인: `intro_gate_screen.dart:96` + `consent_screen.dart:41` 의 "온보딩 완료→메인" 분기가 `AppShell`(R1 4탭 셸) 대신 옛 `HomeScreen`(네비바 없음)으로 보냄. R1 IA 도입 시 안 고쳐진 잔재 → 정상 실행이 bare HomeScreen 착지 → 하단 4탭 실종. (`onboarding_level`은 이미 `/`=AppShell로 가 일치.)
+- 수정: 둘 다 `const AppShell()`. ⚠️ 기기 시각검증은 Gradle 빌드가 Android Studio 데몬과 충돌해 멈춰 보류 — 코드는 확실.
+
+**계 초대 기능 — 신규 ✅ (커밋 6234261):**
+- 계 마당 초대 동선 0(코드는 생성 직후만 공유) → 멤버 1명 계 = 빈 두레판/피드만 보여 "미구현"처럼 느껴짐. **dure 로드맵 5/5(두레판·피드·응원·MVP회고·전원챌린지)는 이미 완성**(89f32ea) — 그 위에 멤버 모으기 보강.
+- `gye_screen.dart`: ⋮메뉴 "Code teilen"(초대) + `memberCount<=1` 시 `_SoloInviteCard`(초대 유도+코드+공유). `_shareGyeCode`=OS 공유 시트. l10n `gyeInviteTitle/Body`(DE/EN), 기존 `gyeShareMessage/Code` 재사용.
+
+**묻힌 변경(스태시) — 보존 + 보고 (커밋 안 함):**
+- `stash@{0} WIP on 948e207`(app_shell/home_screen/practice_hub/tiger_stage/l10n nav `Start→Pfad`·`Profil→Ich`). **base 948e207 이후 해당 파일 685+줄 변경 → 스태시 전 파일 patch 충돌(does not apply).** R1 IA·tiger 작업에 superseded된 WIP. **자율 강제 병합 = R1/tiger 회귀 위험** → drop 안 하고 stash 유지·로그에 기록. 원하면 `navHome→Pfad`·`navProfile→Ich` 라벨만 수동 추림 권장.
+- 미푸시 커밋 0(로컬==origin 였음). 동시 세션이 `docs/TIGER_FULL_REMAKE_MASTER.md`·`docs/dokkaebi_fire_prompt.md` 편집 중 → 미손댐.
+
+**검증:** `flutter analyze` 0(lib test) · `flutter test` **362** · ARB parity 895=895 · gen-l10n OK. ⚠️ 미검증: 실기기 시각(네비바·계 초대 카드 — Gradle 멈춤), gye 크래시 실제 원인(Crashlytics), 4픽 MVP회고 CF 재배포(Jin: `cd functions/gye && firebase deploy --only functions`).
+
+**Git:** d717285(nav)·6234261(gye 초대) + 본 로그 → origin/main 푸시.
+
 ### 2026-06-09 (독일어·영어 현지화 딥다이브 — UI·콘텐츠·시나리오 네이티브 패스) — 미커밋
 
 **범위:** Jin "내부테스트 전 완성, 특히 독일어 현지화 — 진짜 독일/영어권 뉘앙스로 구현됐는지 딥다이브 더블크로스체크 + 적극 개선." 전 표면 적용 + 뉘앙스 적극 격상 확정. SSoT: `docs/LOCALIZATION_DEEP_DIVE_2026-06-09.md`.
