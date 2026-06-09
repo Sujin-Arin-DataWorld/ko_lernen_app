@@ -11,6 +11,8 @@ import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// A3 — "짝 맞추기"(Matching). 한국어 ↔ 뜻 카드를 짝지어 없앤다.
@@ -24,7 +26,8 @@ class CustomPackMatchingScreen extends StatefulWidget {
       _CustomPackMatchingScreenState();
 }
 
-class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen> {
+class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
+    with ScreenCoachMixin<CustomPackMatchingScreen> {
   final math.Random _rng = math.Random();
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
@@ -35,6 +38,28 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen> {
   int? _selLeft; // 선택된 한국어 index
   final Set<String> _matched = {}; // 맞춘 한국어
   String? _wrongRight; // 방금 틀린 뜻 (빨강 플래시)
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _boardKey = GlobalKey();
+
+  @override
+  String get coachId => 'cpMatching';
+
+  @override
+  bool get coachReady => _pool.length >= 2 && _round.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _boardKey,
+        title: t.coachCpMatchingTitle,
+        body: t.coachCpMatchingBody,
+        icon: Icons.grid_view_rounded,
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -47,6 +72,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen> {
           .toList();
       if (_pool.length >= 2) _newRound();
     }
+    scheduleCoach();
   }
 
   void _newRound() {
@@ -146,7 +172,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen> {
                         style: TextStyle(fontSize: 13, color: s.textMuted)),
                     const SizedBox(height: Spacing.md),
                     Expanded(
-                      child: Row(
+                      child: KeyedSubtree(
+                        key: _boardKey,
+                        child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // 한국어 열
@@ -187,6 +215,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen> {
                             ),
                           ),
                         ],
+                        ),
                       ),
                     ),
                   ],

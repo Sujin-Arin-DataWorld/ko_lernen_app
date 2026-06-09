@@ -1089,5 +1089,35 @@
   "coachLegacyVocabBody": "Antippen = umdrehen · lang halten = langsam vorlesen lassen",
 
   "coachLearningPathTitle": "Dein Lernpfad",
-  "coachLearningPathBody": "Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor"
+  "coachLearningPathBody": "Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor",
+
+  "@_coach_c3": { "description": "Stage C-3 데이터/단어장 9화면 코치마크 키 (2026-06-09)" },
+
+  "coachBookshelfStep1Title": "Wörterbuch erstellen",
+  "coachBookshelfStep1Body": "Tippe auf ＋ oben rechts, um ein eigenes Wörterbuch anzulegen",
+  "coachBookshelfStep2Title": "Gespeicherte Wörter suchen",
+  "coachBookshelfStep2Body": "Tippe auf 🔍, um alle gespeicherten Wörter zu durchsuchen und nach Wortart zu filtern",
+
+  "coachCpEditStep1Title": "Wörter hinzufügen",
+  "coachCpEditStep1Body": "Tippe auf ＋ Wort hinzufügen · oder importiere per CSV · Foto · Auto-Ausfüllen",
+  "coachCpEditStep2Title": "4 Lernmodi",
+  "coachCpEditStep2Body": "Karten · Zuordnen · Schreiben · Quiz — wähle den Modus, der am besten passt",
+
+  "coachCpPlayTitle": "Karteikarten lernen",
+  "coachCpPlayBody": "Antippen = Karte umdrehen · \"Gewusst\" = Wort zum SRS-System hinzufügen",
+
+  "coachCpQuizTitle": "Bedeutung erraten",
+  "coachCpQuizBody": "Wähle die richtige Bedeutung — dein Ergebnis fließt ins Wiederholungssystem ein",
+
+  "coachCpMatchingTitle": "Paare zuordnen",
+  "coachCpMatchingBody": "Tippe links ein koreanisches Wort an, dann rechts die passende Bedeutung",
+
+  "coachCpTypingTitle": "Wort eintippen",
+  "coachCpTypingBody": "Sieh die Bedeutung — und tippe das koreanische Wort ein. Stärker als reines Wiedererkennen",
+
+  "coachHardWordsTitle": "Hartnäckige Wörter",
+  "coachHardWordsBody": "Hier sammelst du Wörter, die du dir noch nicht gemerkt hast — gezieltes Üben hilft",
+
+  "coachDojangTitle": "Dangseon-Stempel sammeln",
+  "coachDojangBody": "Schließe Vokabelpacks ab, um alle 8 Dangseon-Muster zu freizuschalten"
 }

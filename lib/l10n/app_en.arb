@@ -1088,5 +1088,35 @@
   "coachLegacyVocabBody": "Tap to flip · long-press to hear it at slow speed",
 
   "coachLearningPathTitle": "Your learning path",
-  "coachLearningPathBody": "Start at the orange \"Now\" node and work your way forward step by step"
+  "coachLearningPathBody": "Start at the orange \"Now\" node and work your way forward step by step",
+
+  "@_coach_c3": { "description": "Stage C-3 data/wordbook 9 screens coach keys (2026-06-09)" },
+
+  "coachBookshelfStep1Title": "Create a wordbook",
+  "coachBookshelfStep1Body": "Tap ＋ in the top right to create your own wordbook",
+  "coachBookshelfStep2Title": "Search saved words",
+  "coachBookshelfStep2Body": "Tap 🔍 to search all saved words and filter by part of speech",
+
+  "coachCpEditStep1Title": "Add words",
+  "coachCpEditStep1Body": "Tap ＋ Add word · or import via CSV · photo · auto-fill",
+  "coachCpEditStep2Title": "4 study modes",
+  "coachCpEditStep2Body": "Cards · Matching · Typing · Quiz — pick the mode that suits you best",
+
+  "coachCpPlayTitle": "Study with flashcards",
+  "coachCpPlayBody": "Tap to flip · \"Got it\" adds the word to the SRS review system",
+
+  "coachCpQuizTitle": "Guess the meaning",
+  "coachCpQuizBody": "Choose the correct meaning — your result is saved in the review system",
+
+  "coachCpMatchingTitle": "Match pairs",
+  "coachCpMatchingBody": "Tap a Korean word on the left, then tap its meaning on the right",
+
+  "coachCpTypingTitle": "Type the word",
+  "coachCpTypingBody": "See the meaning — type the Korean word. Stronger memory than recognition alone",
+
+  "coachHardWordsTitle": "Stubborn words",
+  "coachHardWordsBody": "Words you keep forgetting are collected here — focused practice makes them stick",
+
+  "coachDojangTitle": "Collect Dancheong stamps",
+  "coachDojangBody": "Complete vocabulary packs to unlock all 8 Dancheong stamp designs"
 }

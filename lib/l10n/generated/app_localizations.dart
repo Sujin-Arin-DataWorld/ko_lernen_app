@@ -5262,6 +5262,126 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor'**
   String get coachLearningPathBody;
+
+  /// No description provided for @coachBookshelfStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörterbuch erstellen'**
+  String get coachBookshelfStep1Title;
+
+  /// No description provided for @coachBookshelfStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf ＋ oben rechts, um ein eigenes Wörterbuch anzulegen'**
+  String get coachBookshelfStep1Body;
+
+  /// No description provided for @coachBookshelfStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Wörter suchen'**
+  String get coachBookshelfStep2Title;
+
+  /// No description provided for @coachBookshelfStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf 🔍, um alle gespeicherten Wörter zu durchsuchen und nach Wortart zu filtern'**
+  String get coachBookshelfStep2Body;
+
+  /// No description provided for @coachCpEditStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter hinzufügen'**
+  String get coachCpEditStep1Title;
+
+  /// No description provided for @coachCpEditStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf ＋ Wort hinzufügen · oder importiere per CSV · Foto · Auto-Ausfüllen'**
+  String get coachCpEditStep1Body;
+
+  /// No description provided for @coachCpEditStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'4 Lernmodi'**
+  String get coachCpEditStep2Title;
+
+  /// No description provided for @coachCpEditStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Karten · Zuordnen · Schreiben · Quiz — wähle den Modus, der am besten passt'**
+  String get coachCpEditStep2Body;
+
+  /// No description provided for @coachCpPlayTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Karteikarten lernen'**
+  String get coachCpPlayTitle;
+
+  /// No description provided for @coachCpPlayBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Antippen = Karte umdrehen · \"Gewusst\" = Wort zum SRS-System hinzufügen'**
+  String get coachCpPlayBody;
+
+  /// No description provided for @coachCpQuizTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung erraten'**
+  String get coachCpQuizTitle;
+
+  /// No description provided for @coachCpQuizBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle die richtige Bedeutung — dein Ergebnis fließt ins Wiederholungssystem ein'**
+  String get coachCpQuizBody;
+
+  /// No description provided for @coachCpMatchingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Paare zuordnen'**
+  String get coachCpMatchingTitle;
+
+  /// No description provided for @coachCpMatchingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe links ein koreanisches Wort an, dann rechts die passende Bedeutung'**
+  String get coachCpMatchingBody;
+
+  /// No description provided for @coachCpTypingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort eintippen'**
+  String get coachCpTypingTitle;
+
+  /// No description provided for @coachCpTypingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh die Bedeutung — und tippe das koreanische Wort ein. Stärker als reines Wiedererkennen'**
+  String get coachCpTypingBody;
+
+  /// No description provided for @coachHardWordsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hartnäckige Wörter'**
+  String get coachHardWordsTitle;
+
+  /// No description provided for @coachHardWordsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier sammelst du Wörter, die du dir noch nicht gemerkt hast — gezieltes Üben hilft'**
+  String get coachHardWordsBody;
+
+  /// No description provided for @coachDojangTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dangseon-Stempel sammeln'**
+  String get coachDojangTitle;
+
+  /// No description provided for @coachDojangBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe Vokabelpacks ab, um alle 8 Dangseon-Muster zu freizuschalten'**
+  String get coachDojangBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

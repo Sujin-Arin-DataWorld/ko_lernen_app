@@ -14,6 +14,8 @@ import '../services/word_image_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// "나만의 단어장" 편집 화면 — 단어를 직접 추가·수정·삭제하고, 학습/퀴즈로 이동.
@@ -31,13 +33,41 @@ class CustomPackEditScreen extends StatefulWidget {
   State<CustomPackEditScreen> createState() => _CustomPackEditScreenState();
 }
 
-class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
+class _CustomPackEditScreenState extends State<CustomPackEditScreen>
+    with ScreenCoachMixin<CustomPackEditScreen> {
   CustomPack? _pack;
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _fabKey = GlobalKey();
+  final GlobalKey _modeRowKey = GlobalKey();
+
+  @override
+  String get coachId => 'cpEdit';
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _fabKey,
+        title: t.coachCpEditStep1Title,
+        body: t.coachCpEditStep1Body,
+        icon: Icons.add_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _modeRowKey,
+        title: t.coachCpEditStep2Title,
+        body: t.coachCpEditStep2Body,
+        icon: Icons.grid_view_rounded,
+      ),
+    ];
+  }
 
   @override
   void initState() {
     super.initState();
     _pack = CustomPackService.getById(widget.packId);
+    scheduleCoach();
   }
 
   void _reload() {
@@ -241,6 +271,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
+        key: _fabKey,
         onPressed: () => _addOrEdit(),
         backgroundColor: SoriColors.primary,
         icon: const Icon(Icons.add),
@@ -251,7 +282,9 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
           builder: (context, constraints) => Column(
           children: [
             // 학습 모드 4종: 카드 · 짝맞추기 · 받아쓰기 · 퀴즈
-            Padding(
+            KeyedSubtree(
+              key: _modeRowKey,
+              child: Padding(
               padding: soriClampPadding(
                 constraints.maxWidth,
                 base: const EdgeInsets.fromLTRB(
@@ -325,6 +358,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen> {
                 ],
               ),
             ),
+            ), // KeyedSubtree _modeRowKey
             if (words.length < 4)
               Padding(
                 padding: soriClampPadding(

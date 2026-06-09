@@ -2842,4 +2842,74 @@ class AppL10nEn extends AppL10n {
   @override
   String get coachLearningPathBody =>
       'Start at the orange \"Now\" node and work your way forward step by step';
+
+  @override
+  String get coachBookshelfStep1Title => 'Create a wordbook';
+
+  @override
+  String get coachBookshelfStep1Body =>
+      'Tap ＋ in the top right to create your own wordbook';
+
+  @override
+  String get coachBookshelfStep2Title => 'Search saved words';
+
+  @override
+  String get coachBookshelfStep2Body =>
+      'Tap 🔍 to search all saved words and filter by part of speech';
+
+  @override
+  String get coachCpEditStep1Title => 'Add words';
+
+  @override
+  String get coachCpEditStep1Body =>
+      'Tap ＋ Add word · or import via CSV · photo · auto-fill';
+
+  @override
+  String get coachCpEditStep2Title => '4 study modes';
+
+  @override
+  String get coachCpEditStep2Body =>
+      'Cards · Matching · Typing · Quiz — pick the mode that suits you best';
+
+  @override
+  String get coachCpPlayTitle => 'Study with flashcards';
+
+  @override
+  String get coachCpPlayBody =>
+      'Tap to flip · \"Got it\" adds the word to the SRS review system';
+
+  @override
+  String get coachCpQuizTitle => 'Guess the meaning';
+
+  @override
+  String get coachCpQuizBody =>
+      'Choose the correct meaning — your result is saved in the review system';
+
+  @override
+  String get coachCpMatchingTitle => 'Match pairs';
+
+  @override
+  String get coachCpMatchingBody =>
+      'Tap a Korean word on the left, then tap its meaning on the right';
+
+  @override
+  String get coachCpTypingTitle => 'Type the word';
+
+  @override
+  String get coachCpTypingBody =>
+      'See the meaning — type the Korean word. Stronger memory than recognition alone';
+
+  @override
+  String get coachHardWordsTitle => 'Stubborn words';
+
+  @override
+  String get coachHardWordsBody =>
+      'Words you keep forgetting are collected here — focused practice makes them stick';
+
+  @override
+  String get coachDojangTitle => 'Collect Dancheong stamps';
+
+  @override
+  String get coachDojangBody =>
+      'Complete vocabulary packs to unlock all 8 Dancheong stamp designs';
 }

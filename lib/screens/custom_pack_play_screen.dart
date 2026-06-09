@@ -14,6 +14,8 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — CustomPack 학습 화면.
@@ -35,16 +37,40 @@ class CustomPackPlayScreen extends StatefulWidget {
   State<CustomPackPlayScreen> createState() => _CustomPackPlayScreenState();
 }
 
-class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
+class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
+    with ScreenCoachMixin<CustomPackPlayScreen> {
   CustomPack? _pack;
   int _idx = 0;
   bool _flipped = false;
   int _learned = 0;
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _cardKey = GlobalKey();
+
+  @override
+  String get coachId => 'cpPlay';
+
+  @override
+  bool get coachReady => _pack != null && (_pack!.words.isNotEmpty);
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _cardKey,
+        title: t.coachCpPlayTitle,
+        body: t.coachCpPlayBody,
+        icon: Icons.style_outlined,
+      ),
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
     _pack = CustomPackService.getById(widget.packId);
+    scheduleCoach();
   }
 
   void _gotIt() {
@@ -150,6 +176,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen> {
               const SizedBox(height: Spacing.md),
               Expanded(
                 child: FlipCard(
+                  key: _cardKey,
                   flipped: _flipped,
                   onTap: () {
                     HapticFeedback.selectionClick();

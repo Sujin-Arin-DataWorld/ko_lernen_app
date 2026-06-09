@@ -12,6 +12,8 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — 내 책장 (Bookshelf) 목록.
@@ -28,14 +30,42 @@ class BookshelfScreen extends StatefulWidget {
   State<BookshelfScreen> createState() => _BookshelfScreenState();
 }
 
-class _BookshelfScreenState extends State<BookshelfScreen> {
+class _BookshelfScreenState extends State<BookshelfScreen>
+    with ScreenCoachMixin<BookshelfScreen> {
   late List<BookPage> _pages;
   late List<CustomPack> _packs;
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _createKey = GlobalKey();
+  final GlobalKey _searchKey = GlobalKey();
+
+  @override
+  String get coachId => 'bookshelf';
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _createKey,
+        title: t.coachBookshelfStep1Title,
+        body: t.coachBookshelfStep1Body,
+        icon: Icons.playlist_add_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _searchKey,
+        title: t.coachBookshelfStep2Title,
+        body: t.coachBookshelfStep2Body,
+        icon: Icons.search_rounded,
+      ),
+    ];
+  }
 
   @override
   void initState() {
     super.initState();
     _reload();
+    scheduleCoach();
   }
 
   void _reload() {
@@ -118,6 +148,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
   }
 
   Widget _createAction(AppL10n t) => IconButton(
+        key: _createKey,
         icon: const Icon(Icons.playlist_add_rounded),
         tooltip: t.createWordbookCta,
         onPressed: _createWordbook,
@@ -156,6 +187,7 @@ class _BookshelfScreenState extends State<BookshelfScreen> {
             style: const TextStyle(fontWeight: FontWeight.w800)),
         actions: [
           IconButton(
+            key: _searchKey,
             icon: const Icon(Icons.search_rounded),
             tooltip: t.wbSearchTitle,
             onPressed: () =>

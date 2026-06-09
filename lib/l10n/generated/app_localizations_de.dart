@@ -2856,4 +2856,74 @@ class AppL10nDe extends AppL10n {
   @override
   String get coachLearningPathBody =>
       'Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor';
+
+  @override
+  String get coachBookshelfStep1Title => 'Wörterbuch erstellen';
+
+  @override
+  String get coachBookshelfStep1Body =>
+      'Tippe auf ＋ oben rechts, um ein eigenes Wörterbuch anzulegen';
+
+  @override
+  String get coachBookshelfStep2Title => 'Gespeicherte Wörter suchen';
+
+  @override
+  String get coachBookshelfStep2Body =>
+      'Tippe auf 🔍, um alle gespeicherten Wörter zu durchsuchen und nach Wortart zu filtern';
+
+  @override
+  String get coachCpEditStep1Title => 'Wörter hinzufügen';
+
+  @override
+  String get coachCpEditStep1Body =>
+      'Tippe auf ＋ Wort hinzufügen · oder importiere per CSV · Foto · Auto-Ausfüllen';
+
+  @override
+  String get coachCpEditStep2Title => '4 Lernmodi';
+
+  @override
+  String get coachCpEditStep2Body =>
+      'Karten · Zuordnen · Schreiben · Quiz — wähle den Modus, der am besten passt';
+
+  @override
+  String get coachCpPlayTitle => 'Karteikarten lernen';
+
+  @override
+  String get coachCpPlayBody =>
+      'Antippen = Karte umdrehen · \"Gewusst\" = Wort zum SRS-System hinzufügen';
+
+  @override
+  String get coachCpQuizTitle => 'Bedeutung erraten';
+
+  @override
+  String get coachCpQuizBody =>
+      'Wähle die richtige Bedeutung — dein Ergebnis fließt ins Wiederholungssystem ein';
+
+  @override
+  String get coachCpMatchingTitle => 'Paare zuordnen';
+
+  @override
+  String get coachCpMatchingBody =>
+      'Tippe links ein koreanisches Wort an, dann rechts die passende Bedeutung';
+
+  @override
+  String get coachCpTypingTitle => 'Wort eintippen';
+
+  @override
+  String get coachCpTypingBody =>
+      'Sieh die Bedeutung — und tippe das koreanische Wort ein. Stärker als reines Wiedererkennen';
+
+  @override
+  String get coachHardWordsTitle => 'Hartnäckige Wörter';
+
+  @override
+  String get coachHardWordsBody =>
+      'Hier sammelst du Wörter, die du dir noch nicht gemerkt hast — gezieltes Üben hilft';
+
+  @override
+  String get coachDojangTitle => 'Dangseon-Stempel sammeln';
+
+  @override
+  String get coachDojangBody =>
+      'Schließe Vokabelpacks ab, um alle 8 Dangseon-Muster zu freizuschalten';
 }

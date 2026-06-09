@@ -16,6 +16,8 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// "나만의 단어장" 객관식 퀴즈 — 한국어를 보고 뜻 4지선다 (Quizlet/클래스카드 식).
@@ -29,7 +31,8 @@ class CustomPackQuizScreen extends StatefulWidget {
   State<CustomPackQuizScreen> createState() => _CustomPackQuizScreenState();
 }
 
-class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
+class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
+    with ScreenCoachMixin<CustomPackQuizScreen> {
   final math.Random _rng = math.Random();
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
@@ -38,6 +41,28 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
   int _score = 0;
   List<String> _options = const [];
   String? _picked; // 선택한 답 (null = 미선택)
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _optionsKey = GlobalKey();
+
+  @override
+  String get coachId => 'cpQuiz';
+
+  @override
+  bool get coachReady => _pool.length >= 4;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _optionsKey,
+        title: t.coachCpQuizTitle,
+        body: t.coachCpQuizBody,
+        icon: Icons.quiz_outlined,
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -53,6 +78,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
         _buildOptions();
       }
     }
+    scheduleCoach();
   }
 
   void _buildOptions() {
@@ -211,19 +237,24 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
                 ),
               ),
               const SizedBox(height: Spacing.lg),
-              ..._options.map((opt) {
-                final revealed = _picked != null;
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: Spacing.sm),
-                  child: QuizChoice(
-                    text: opt,
-                    isCorrect: opt == correct,
-                    isSelected: _picked == opt,
-                    revealed: revealed,
-                    onSelected: revealed ? null : () => _pick(opt),
-                  ),
-                );
-              }),
+              KeyedSubtree(
+                key: _optionsKey,
+                child: Column(
+                  children: _options.map((opt) {
+                    final revealed = _picked != null;
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: Spacing.sm),
+                      child: QuizChoice(
+                        text: opt,
+                        isCorrect: opt == correct,
+                        isSelected: _picked == opt,
+                        revealed: revealed,
+                        onSelected: revealed ? null : () => _pick(opt),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
             ],
           ),
         ),

@@ -5,14 +5,50 @@ import '../services/storage_service.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (8 motif).
 ///
 /// 획득 = 풀컬러 도장(PNG). 미획득 = 흐릿 + 자물쇠. 0개면 빈 상태.
 /// 획득 영속: `Storage.earnedStamps`(`DancheongMotif.name` slug).
-class DojangcheopScreen extends StatelessWidget {
+class DojangcheopScreen extends StatefulWidget {
   const DojangcheopScreen({super.key});
+
+  @override
+  State<DojangcheopScreen> createState() => _DojangcheopScreenState();
+}
+
+class _DojangcheopScreenState extends State<DojangcheopScreen>
+    with ScreenCoachMixin<DojangcheopScreen> {
+  // ── 코치마크 타겟 ──
+  final GlobalKey _gridKey = GlobalKey();
+
+  @override
+  String get coachId => 'dojang';
+
+  @override
+  bool get coachReady => Storage.earnedStamps.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _gridKey,
+        title: t.coachDojangTitle,
+        body: t.coachDojangBody,
+        icon: Icons.workspace_premium_outlined,
+      ),
+    ];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    scheduleCoach();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +92,7 @@ class DojangcheopScreen extends StatelessWidget {
                     const SizedBox(height: Spacing.lg),
                     LayoutBuilder(
                       builder: (context, c) => GridView.count(
+                        key: _gridKey,
                         crossAxisCount: soriGridColumns(
                           c.maxWidth,
                           target: 110,

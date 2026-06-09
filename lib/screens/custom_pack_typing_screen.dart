@@ -13,6 +13,8 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// A3 — "받아쓰기/스펠링"(Typing). 뜻을 보고 한국어를 직접 입력(인출).
@@ -26,7 +28,8 @@ class CustomPackTypingScreen extends StatefulWidget {
       _CustomPackTypingScreenState();
 }
 
-class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
+class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
+    with ScreenCoachMixin<CustomPackTypingScreen> {
   final TextEditingController _input = TextEditingController();
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
@@ -34,6 +37,28 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
   int _idx = 0;
   int _score = 0;
   bool? _correct; // null = 미제출
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _inputKey = GlobalKey();
+
+  @override
+  String get coachId => 'cpTyping';
+
+  @override
+  bool get coachReady => _pool.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _inputKey,
+        title: t.coachCpTypingTitle,
+        body: t.coachCpTypingBody,
+        icon: Icons.keyboard_alt_outlined,
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -47,6 +72,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
           .toList();
       _order = List<int>.generate(_pool.length, (i) => i)..shuffle(math.Random());
     }
+    scheduleCoach();
   }
 
   @override
@@ -160,6 +186,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen> {
               ),
               const SizedBox(height: Spacing.lg),
               TextField(
+                key: _inputKey,
                 controller: _input,
                 autofocus: true,
                 enabled: !revealed,

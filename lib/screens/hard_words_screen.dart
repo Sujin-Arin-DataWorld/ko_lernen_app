@@ -8,8 +8,10 @@ import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/tokens.dart';
 import 'review_session_screen.dart';
 
 /// A2 (암기 엔진) — "어려운 단어" 모음.
@@ -24,14 +26,38 @@ class HardWordsScreen extends StatefulWidget {
   State<HardWordsScreen> createState() => _HardWordsScreenState();
 }
 
-class _HardWordsScreenState extends State<HardWordsScreen> {
+class _HardWordsScreenState extends State<HardWordsScreen>
+    with ScreenCoachMixin<HardWordsScreen> {
   bool _loading = true;
   List<Vocab> _hard = const [];
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _listKey = GlobalKey();
+
+  @override
+  String get coachId => 'hardWords';
+
+  @override
+  bool get coachReady => !_loading && _hard.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _listKey,
+        title: t.coachHardWordsTitle,
+        body: t.coachHardWordsBody,
+        icon: Icons.bolt_rounded,
+      ),
+    ];
+  }
 
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -83,6 +109,7 @@ class _HardWordsScreenState extends State<HardWordsScreen> {
                       ),
                       Expanded(
                         child: ListView.separated(
+                          key: _listKey,
                           padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(12, 0, 12, 96)),
                           itemCount: _hard.length,
                           separatorBuilder: (_, __) =>
