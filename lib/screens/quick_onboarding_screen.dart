@@ -36,7 +36,7 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
       duration: const Duration(seconds: 3),
       vsync: this,
     )..addStatusListener((status) {
-        if (status == AnimationStatus.completed && _currentPage < 2) {
+        if (status == AnimationStatus.completed && _currentPage < 3) {
           _pageCtrl.nextPage(
             duration: const Duration(milliseconds: 600),
             curve: Curves.easeInOut,
@@ -92,7 +92,7 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
             physics: const NeverScrollableScrollPhysics(), // 스와이프 불가
             onPageChanged: (i) {
               setState(() => _currentPage = i);
-              if (i < 2) {
+              if (i < 3) {
                 _autoAnim.forward(from: 0);
               } else {
                 _autoAnim.stop();

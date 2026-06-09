@@ -347,6 +347,13 @@ class Storage {
   static Future<void> setTutPackBossSeen() async =>
       _prefs?.setBool('kl_tut_pack_boss', true);
 
+  /// 홈 투어 스포트라이트 코치마크 표시됨? (Stage A — BottomNav 4탭 + 학습경로)
+  /// _prefs 미초기화(테스트/웹 샌드박스 등) 시 true 반환 — 투어 미표시(안전 기본값).
+  static bool get tutHomeTourSeen =>
+      _prefs == null ? true : (_prefs!.getBool('kl_tut_home_tour') ?? false);
+  static Future<void> setTutHomeTourSeen() async =>
+      _prefs?.setBool('kl_tut_home_tour', true);
+
   /// 온보딩 3장 미리보기 캐러셀 표시됨? (Stage 2)
   static bool get introPreviewSeen =>
       _prefs?.getBool('kl_intro_preview_seen') ?? false;
@@ -362,6 +369,7 @@ class Storage {
       _sb('kl_tut_pack_quiz', false),
       _sb('kl_tut_pack_boss', false),
       _sb('kl_intro_preview_seen', false),
+      _sb('kl_tut_home_tour', false),
     ]);
   }
 
