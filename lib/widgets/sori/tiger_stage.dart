@@ -11,8 +11,8 @@ import 'tokens.dart';
 /// 상태머신:
 ///   REST → INTRO_GREETING(launch당 1회) → FRONT_IDLE(루프) ↔ PACING_L/R / SIT
 ///
-/// 프레임 자산은 `assets/illustrations/tiger_anim/`의 35장 PNG. 전체 스펙은
-/// `docs/TIGER_ANIMATION_SPEC.md` 참조.
+/// 프레임 자산은 `assets/illustrations/tiger_anim/`의 44장 PNG. 전체 스펙은
+/// `docs/TIGER_FULL_REMAKE_MASTER.md` 참조.
 ///
 /// 설계 요점:
 ///   - **토큰 가드 재귀 Future 시퀀서** — 새 행동이 시작되면 `_seqToken`이 증가해
@@ -55,27 +55,46 @@ class _TigerStageState extends State<TigerStage>
   static const int _walkFade = 0;
 
   static const List<String> _allFrames = [
+    // intro
     'rest_idle', 'notice_turn', 'notice_front', 'smile_front', 'rise_prep',
     'rise_half', 'stand_greet', 'bob_a', 'bob_b',
+    // idle
     'stand_idle_a', 'stand_idle_b', 'sit_idle_a', 'sit_idle_b',
+    // left pacing
     'turn_left_3q', 'step_out_left',
-    'walk_left_a', 'walk_left_b', 'walk_left_c', 'walk_left_d', 'walk_left_e',
-    'walk_left_f', 'walk_stop_left', 'turn_left_front',
-    'turn_right_3q', 'step_out_right', 'walk_start_right',
-    'walk_right_a', 'walk_right_b', 'walk_right_c', 'walk_right_d', 'walk_right_e',
-    'walk_right_f', 'walk_stop_right', 'turn_right_front',
+    'walk_left_01', 'walk_left_02', 'walk_left_03', 'walk_left_04',
+    'walk_left_05', 'walk_left_06', 'walk_left_07', 'walk_left_08',
+    'turn_left_front',
+    // right pacing
+    'turn_right_3q', 'step_out_right',
+    'walk_right_01', 'walk_right_02', 'walk_right_03', 'walk_right_04',
+    'walk_right_05', 'walk_right_06', 'walk_right_07', 'walk_right_08',
+    'turn_right_front',
     // ambient specials (3/4 right): 기지개 + 포효
     'stretch_prep', 'stretch_full', 'stretch_release',
     'roar_prep', 'roar_open', 'roar_open2', 'roar_full', 'roar_close',
     'roar_recover',
   ];
+  // 새 8프레임 보행 루프 (Jin이 제작한 다리 교차 자연스러운 에셋)
   static const List<String> _walkLeft = [
-    'walk_left_a', 'walk_left_b', 'walk_left_c', 'walk_left_d', 'walk_left_e',
-    'walk_left_f',
+    'walk_left_01',
+    'walk_left_02',
+    'walk_left_03',
+    'walk_left_04',
+    'walk_left_05',
+    'walk_left_06',
+    'walk_left_07',
+    'walk_left_08',
   ];
   static const List<String> _walkRight = [
-    'walk_right_a', 'walk_right_b', 'walk_right_c', 'walk_right_d', 'walk_right_e',
-    'walk_right_f',
+    'walk_right_01',
+    'walk_right_02',
+    'walk_right_03',
+    'walk_right_04',
+    'walk_right_05',
+    'walk_right_06',
+    'walk_right_07',
+    'walk_right_08',
   ];
 
   late final AnimationController _xfade; // 프레임 크로스디졸브
@@ -256,13 +275,13 @@ class _TigerStageState extends State<TigerStage>
     // 다양한 idle 포즈로 "살아있는" 느낌 연출.
     // stand_idle_a/b도 활용해서 호흡 다양성 증가.
     const seq = <(String, int, int)>[
-      ('stand_greet', 1200, 260),      // 인사 포즈
-      ('bob_a', 720, 240),               // 호흡 A
-      ('bob_b', 720, 240),               // 호흡 B
-      ('stand_idle_a', 800, 240),        // 다른 정지 포즈 A
-      ('bob_a', 720, 240),               // 호흡 다시
-      ('stand_idle_b', 800, 240),        // 다른 정지 포즈 B
-      ('bob_b', 720, 240),               // 호흡 B
+      ('stand_greet', 1200, 260), // 인사 포즈
+      ('bob_a', 720, 240), // 호흡 A
+      ('bob_b', 720, 240), // 호흡 B
+      ('stand_idle_a', 800, 240), // 다른 정지 포즈 A
+      ('bob_a', 720, 240), // 호흡 다시
+      ('stand_idle_b', 800, 240), // 다른 정지 포즈 B
+      ('bob_b', 720, 240), // 호흡 B
     ];
     // 총 루프 시간 ≈ 6.5초 (충분히 길어서 사용자가 완전히 분석하지 못함)
     while (!_disposed && token == _seqToken) {
@@ -286,7 +305,9 @@ class _TigerStageState extends State<TigerStage>
     _phase = startLeft ? _Phase.pacingLeft : _Phase.pacingRight;
     final dir = startLeft ? -1.0 : 1.0;
     // walk loop 확률: 2회(25%) / 3회(50%) / 4회(25%)
-    final loopCount = _rng.nextDouble() < 0.25 ? 2 : (_rng.nextDouble() < 0.666 ? 3 : 4);
+    final loopCount = _rng.nextDouble() < 0.25
+        ? 2
+        : (_rng.nextDouble() < 0.666 ? 3 : 4);
 
     Future<void> tf(String n, int fade, int dwell) async {
       await _crossTo(n, fadeMs: fade);
@@ -307,7 +328,7 @@ class _TigerStageState extends State<TigerStage>
     if (_disposed || token != _seqToken) {
       return;
     }
-    // step_out → walk 간 아주 짧은 settling (walk_stop이 이제 transition을 담당하므로 거의 필요 없음)
+    // step_out → walk 간 아주 짧은 settling.
     await Future<void>.delayed(const Duration(milliseconds: 20));
     if (_disposed || token != _seqToken) {
       return;
@@ -335,7 +356,6 @@ class _TigerStageState extends State<TigerStage>
 
   /// 걷기 한 구간: [faceLeft] 방향 프레임을 [loops]회 하드컷 재생하면서
   /// dx fraction을 [dxFrom]→[dxTo]로 _paceCtrl과 동기 이동.
-  /// 걷기 끝에 walk_stop_left/right를 추가 → turn으로 부드럽게 연결.
   Future<void> _walkSegment(
     int token,
     bool faceLeft,
@@ -344,7 +364,6 @@ class _TigerStageState extends State<TigerStage>
     int loops = 3,
   }) async {
     final frames = faceLeft ? _walkLeft : _walkRight;
-    final stopFrame = faceLeft ? 'walk_stop_left' : 'walk_stop_right';
 
     if (mounted) {
       setState(() {
@@ -352,9 +371,10 @@ class _TigerStageState extends State<TigerStage>
         _dxTo = dxTo;
       });
     }
-    // 계산: walk loop의 시간 + walk_stop(100ms)
-    _paceCtrl.duration =
-        Duration(milliseconds: loops * frames.length * _walkMs + 100);
+    // 계산: walk loop 시간과 dx 이동 시간을 정확히 맞춘다.
+    _paceCtrl.duration = Duration(
+      milliseconds: loops * frames.length * _walkMs,
+    );
     final paceFut = _paceCtrl.forward(from: 0);
 
     for (var i = 0; i < loops; i++) {
@@ -368,17 +388,7 @@ class _TigerStageState extends State<TigerStage>
           _paceCtrl.stop();
           return;
         }
-        await Future<void>.delayed(
-          Duration(milliseconds: _walkMs - _walkFade),
-        );
-      }
-    }
-
-    // 걷기 끝: walk_stop 프레임으로 발 착지 강조 (100ms)
-    if (!_disposed && token == _seqToken) {
-      await _crossTo(stopFrame, fadeMs: 0);
-      if (!_disposed && token == _seqToken) {
-        await Future<void>.delayed(const Duration(milliseconds: 100));
+        await Future<void>.delayed(Duration(milliseconds: _walkMs - _walkFade));
       }
     }
 
@@ -391,13 +401,17 @@ class _TigerStageState extends State<TigerStage>
     final token = ++_seqToken;
     _phase = _Phase.sitting;
     // 호랑이가 가끔 짧게(1.5초), 보통(2초), 가끔 길게(3초) 앉음 → 자연스러움
-    final sitDuration = _rng.nextDouble() < 0.3 ? 1500 : (_rng.nextDouble() < 0.666 ? 2000 : 3000);
+    final sitDuration = _rng.nextDouble() < 0.3
+        ? 1500
+        : (_rng.nextDouble() < 0.666 ? 2000 : 3000);
 
     await _crossTo('sit_idle_a', fadeMs: 220);
     if (_disposed || token != _seqToken) {
       return;
     }
-    await Future<void>.delayed(Duration(milliseconds: (sitDuration * 0.45).toInt()));
+    await Future<void>.delayed(
+      Duration(milliseconds: (sitDuration * 0.45).toInt()),
+    );
     if (_disposed || token != _seqToken) {
       return;
     }
@@ -405,7 +419,9 @@ class _TigerStageState extends State<TigerStage>
     if (_disposed || token != _seqToken) {
       return;
     }
-    await Future<void>.delayed(Duration(milliseconds: (sitDuration * 0.55).toInt()));
+    await Future<void>.delayed(
+      Duration(milliseconds: (sitDuration * 0.55).toInt()),
+    );
     if (_disposed || token != _seqToken) {
       return;
     }
@@ -609,10 +625,7 @@ class _TigerStageState extends State<TigerStage>
       height: widget.height,
       child: Stack(
         alignment: Alignment.bottomCenter,
-        children: [
-          _frameImg(_backName, 1 - f),
-          _frameImg(_frontName, f),
-        ],
+        children: [_frameImg(_backName, 1 - f), _frameImg(_frontName, f)],
       ),
     );
   }

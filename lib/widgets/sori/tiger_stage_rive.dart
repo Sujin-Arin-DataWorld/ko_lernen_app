@@ -12,9 +12,8 @@ import 'tokens.dart';
 /// 기존 프레임 기반 [TigerStage]로 **자동 폴백**한다.
 ///   → `.riv`를 `assets/rive/`에 넣기만 하면 코드 변경 0으로 매끄러운 버전 가동.
 ///
-/// 리그 제작 명세(아트보드·본·메시·타임라인·상태머신)는
-/// `docs/TIGER_RIVE_RIG_SPEC.md`. 상태머신은 default 1개를 auto-play로 만들면
-/// 됨(입력 불필요) — Flutter는 그냥 임베드만 한다.
+/// Rive 경로는 현재 보류(`tiger.riv` 미제작) — 프레임 `TigerStage`로 폴백.
+/// 호랑이 애니메이션 전체 스펙은 `docs/TIGER_FULL_REMAKE_MASTER.md`(부록 Rive 참조).
 class TigerStageRive extends StatefulWidget {
   final double height;
   final MascotEmotion fallbackEmotion;
