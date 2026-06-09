@@ -2926,4 +2926,46 @@ class AppL10nDe extends AppL10n {
   @override
   String get coachDojangBody =>
       'Schließe Vokabelpacks ab, um alle 8 Dangseon-Muster zu freizuschalten';
+
+  @override
+  String get coachGyeStep1Title => 'Wochenziel';
+
+  @override
+  String get coachGyeStep1Body =>
+      'Hier seht ihr euren gemeinsamen Fortschritt — zusammen mehr schaffen als allein';
+
+  @override
+  String get coachGyeStep2Title => 'Sticker senden';
+
+  @override
+  String get coachGyeStep2Body =>
+      'Tippe auf den Smiley-Button, um ein Sticker zur Motivation zu senden';
+
+  @override
+  String get coachProfileTitle => 'Dein Konto';
+
+  @override
+  String get coachProfileBody =>
+      'Verbinde dich mit Google — so bleiben Streak und Vokabeln bei einem Handywechsel erhalten';
+
+  @override
+  String get coachStatsTitle => 'Lernstatistiken';
+
+  @override
+  String get coachStatsBody =>
+      'Streak, XP und Trefferquote zeigen, wie weit du schon gekommen bist';
+
+  @override
+  String get coachQuestsTitle => 'Quests & Belohnungen';
+
+  @override
+  String get coachQuestsBody =>
+      'Erledige Quests, um Dekorationen für deinen Hanok-Hof freizuschalten';
+
+  @override
+  String get coachScenariosTitle => 'Situationsgespräche';
+
+  @override
+  String get coachScenariosBody =>
+      'Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar';
 }

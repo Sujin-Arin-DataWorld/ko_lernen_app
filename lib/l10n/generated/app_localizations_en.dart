@@ -2912,4 +2912,46 @@ class AppL10nEn extends AppL10n {
   @override
   String get coachDojangBody =>
       'Complete vocabulary packs to unlock all 8 Dancheong stamp designs';
+
+  @override
+  String get coachGyeStep1Title => 'Weekly goal';
+
+  @override
+  String get coachGyeStep1Body =>
+      'See your shared progress here — you achieve more together than alone';
+
+  @override
+  String get coachGyeStep2Title => 'Send a sticker';
+
+  @override
+  String get coachGyeStep2Body =>
+      'Tap the smiley button to send an encouraging sticker to your group';
+
+  @override
+  String get coachProfileTitle => 'Your account';
+
+  @override
+  String get coachProfileBody =>
+      'Connect with Google — your streak and vocabulary survive a phone change';
+
+  @override
+  String get coachStatsTitle => 'Learning stats';
+
+  @override
+  String get coachStatsBody =>
+      'Streak, XP and accuracy show how far you have already come';
+
+  @override
+  String get coachQuestsTitle => 'Quests & rewards';
+
+  @override
+  String get coachQuestsBody =>
+      'Complete quests to unlock decorations for your Hanok courtyard';
+
+  @override
+  String get coachScenariosTitle => 'Situational dialogues';
+
+  @override
+  String get coachScenariosBody =>
+      'Tap a scenario and practise real everyday situations — unlocked from A2 onwards';
 }

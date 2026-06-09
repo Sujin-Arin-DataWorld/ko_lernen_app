@@ -5382,6 +5382,78 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Schließe Vokabelpacks ab, um alle 8 Dangseon-Muster zu freizuschalten'**
   String get coachDojangBody;
+
+  /// No description provided for @coachGyeStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Wochenziel'**
+  String get coachGyeStep1Title;
+
+  /// No description provided for @coachGyeStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier seht ihr euren gemeinsamen Fortschritt — zusammen mehr schaffen als allein'**
+  String get coachGyeStep1Body;
+
+  /// No description provided for @coachGyeStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Sticker senden'**
+  String get coachGyeStep2Title;
+
+  /// No description provided for @coachGyeStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf den Smiley-Button, um ein Sticker zur Motivation zu senden'**
+  String get coachGyeStep2Body;
+
+  /// No description provided for @coachProfileTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Konto'**
+  String get coachProfileTitle;
+
+  /// No description provided for @coachProfileBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbinde dich mit Google — so bleiben Streak und Vokabeln bei einem Handywechsel erhalten'**
+  String get coachProfileBody;
+
+  /// No description provided for @coachStatsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernstatistiken'**
+  String get coachStatsTitle;
+
+  /// No description provided for @coachStatsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Streak, XP und Trefferquote zeigen, wie weit du schon gekommen bist'**
+  String get coachStatsBody;
+
+  /// No description provided for @coachQuestsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Quests & Belohnungen'**
+  String get coachQuestsTitle;
+
+  /// No description provided for @coachQuestsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Erledige Quests, um Dekorationen für deinen Hanok-Hof freizuschalten'**
+  String get coachQuestsBody;
+
+  /// No description provided for @coachScenariosTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Situationsgespräche'**
+  String get coachScenariosTitle;
+
+  /// No description provided for @coachScenariosBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar'**
+  String get coachScenariosBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -13,6 +13,8 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'scenario_player_screen.dart';
@@ -26,15 +28,40 @@ class ScenariosListScreen extends StatefulWidget {
   State<ScenariosListScreen> createState() => _ScenariosListScreenState();
 }
 
-class _ScenariosListScreenState extends State<ScenariosListScreen> {
+class _ScenariosListScreenState extends State<ScenariosListScreen>
+    with ScreenCoachMixin<ScenariosListScreen> {
   List<Scenario> _all = [];
   bool _loading = true;
   bool _loadFailed = false;
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _pathHeaderKey = GlobalKey();
+
+  @override
+  String get coachId => 'scenarios';
+
+  // 시나리오 로드 완료 후에만 발화 (타겟 위젯이 데이터 필요).
+  @override
+  bool get coachReady => !_loading && !_loadFailed && _all.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _pathHeaderKey,
+        title: t.coachScenariosTitle,
+        body: t.coachScenariosBody,
+        icon: Icons.travel_explore_outlined,
+      ),
+    ];
+  }
 
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -140,12 +167,15 @@ class _ScenariosListScreenState extends State<ScenariosListScreen> {
             ),
 
             // Lesson Path header (Phase 3 — visible lesson path)
-            _LessonPathHeader(
-              all: _all,
-              userLevel: _userLevel,
-              stars: stars,
-              lang: lang,
-              levelColor: _levelColor,
+            KeyedSubtree(
+              key: _pathHeaderKey,
+              child: _LessonPathHeader(
+                all: _all,
+                userLevel: _userLevel,
+                stars: stars,
+                lang: lang,
+                levelColor: _levelColor,
+              ),
             ),
             const SizedBox(height: Spacing.lg),
 

@@ -13,6 +13,8 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Phase 4 (stately-rising-jongga) — 특별 퀘스트 진행 화면.
@@ -29,15 +31,40 @@ class QuestsScreen extends StatefulWidget {
   State<QuestsScreen> createState() => _QuestsScreenState();
 }
 
-class _QuestsScreenState extends State<QuestsScreen> {
+class _QuestsScreenState extends State<QuestsScreen>
+    with ScreenCoachMixin<QuestsScreen> {
   bool _loading = true;
   String? _error;
   List<QuestProgress> _quests = [];
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _summaryKey = GlobalKey();
+
+  @override
+  String get coachId => 'quests';
+
+  // 퀘스트 로드 완료 후에만 발화 (요약 카드가 퀘스트 데이터 필요).
+  @override
+  bool get coachReady => !_loading && _quests.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _summaryKey,
+        title: t.coachQuestsTitle,
+        body: t.coachQuestsBody,
+        icon: Icons.emoji_events_rounded,
+      ),
+    ];
+  }
 
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -159,7 +186,10 @@ class _QuestsScreenState extends State<QuestsScreen> {
               const SizedBox(height: Spacing.md),
               // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
               if (_quests.isNotEmpty) ...[
-                _QuestSummary(quests: _quests),
+                KeyedSubtree(
+                  key: _summaryKey,
+                  child: _QuestSummary(quests: _quests),
+                ),
                 const SizedBox(height: Spacing.md),
               ],
               if (inProgress.isEmpty &&

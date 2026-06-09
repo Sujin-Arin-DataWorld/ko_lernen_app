@@ -8,11 +8,59 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
-class StatsScreen extends StatelessWidget {
+class StatsScreen extends StatefulWidget {
   const StatsScreen({super.key});
+
+  @override
+  State<StatsScreen> createState() => _StatsScreenState();
+}
+
+class _StatsScreenState extends State<StatsScreen>
+    with ScreenCoachMixin<StatsScreen> {
+  // ── 코치마크 타겟 ──
+  final GlobalKey _streakHeroKey = GlobalKey();
+
+  @override
+  String get coachId => 'stats';
+
+  // 첫 진입(빈 상태) 시에는 코치마크 타겟이 없음 — 실제 통계가 있을 때만 발화.
+  @override
+  bool get coachReady {
+    final vokTotal = Storage.vokCorrect + Storage.vokWrong;
+    final chosungTotal = Storage.chosungCorrect + Storage.chosungWrong;
+    final wordleTotal = Storage.wordleWins + Storage.wordleLosses;
+    final isFirstEntry = Storage.xp == 0 &&
+        Storage.completedScenarios.isEmpty &&
+        vokTotal == 0 &&
+        chosungTotal == 0 &&
+        wordleTotal == 0 &&
+        Storage.streakDays == 0;
+    return !isFirstEntry;
+  }
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _streakHeroKey,
+        title: t.coachStatsTitle,
+        body: t.coachStatsBody,
+        icon: Icons.bar_chart_rounded,
+      ),
+    ];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    scheduleCoach();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,14 +156,17 @@ class StatsScreen extends StatelessWidget {
           const SizedBox(height: 12),
 
           // Streak Hero
-          _StreakHero(
-            streak: Storage.streakDays,
-            best: Storage.bestStreak,
-            shields: Storage.streakFreezes,
-            label: t.statsStreak,
-            bestLabel: t.statsBestStreak,
-            shieldLabel: t.statsStreakShield,
-            shieldHint: t.statsStreakShieldHint,
+          KeyedSubtree(
+            key: _streakHeroKey,
+            child: _StreakHero(
+              streak: Storage.streakDays,
+              best: Storage.bestStreak,
+              shields: Storage.streakFreezes,
+              label: t.statsStreak,
+              bestLabel: t.statsBestStreak,
+              shieldLabel: t.statsStreakShield,
+              shieldHint: t.statsStreakShieldHint,
+            ),
           ),
           const SizedBox(height: 12),
 

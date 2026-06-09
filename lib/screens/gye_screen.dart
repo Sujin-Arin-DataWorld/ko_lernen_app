@@ -8,23 +8,69 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sticker_picker.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/dure_board.dart';
 
 /// 계 마당 — 상단(이름·멤버수·주간 목표) / 중간(공동 한옥) / 하단(피드). plan §7.4.
 /// (스티커 FAB·전송 = Tier 3d. 피드는 3e Cloud Function이 채움.)
-class GyeScreen extends StatelessWidget {
+class GyeScreen extends StatefulWidget {
   final String gyeId;
 
   const GyeScreen({super.key, required this.gyeId});
+
+  @override
+  State<GyeScreen> createState() => _GyeScreenState();
+}
+
+class _GyeScreenState extends State<GyeScreen>
+    with ScreenCoachMixin<GyeScreen> {
+  // ── 코치마크 타겟 ──
+  final GlobalKey _dureBoardKey = GlobalKey();
+  final GlobalKey _fabKey = GlobalKey();
+
+  // 계 데이터 로드 여부 — StreamBuilder가 첫 데이터를 받으면 true.
+  bool _metaLoaded = false;
+
+  @override
+  String get coachId => 'gye';
+
+  @override
+  bool get coachReady => _metaLoaded;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _dureBoardKey,
+        title: t.coachGyeStep1Title,
+        body: t.coachGyeStep1Body,
+        icon: Icons.groups_2_outlined,
+      ),
+      SpotlightStep(
+        targetKey: _fabKey,
+        title: t.coachGyeStep2Title,
+        body: t.coachGyeStep2Body,
+        icon: Icons.emoji_emotions_outlined,
+      ),
+    ];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    scheduleCoach();
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     return StreamBuilder<GyeMeta?>(
-      stream: GyeService.metaStream(gyeId),
+      stream: GyeService.metaStream(widget.gyeId),
       builder: (context, snap) {
         if (snap.connectionState == ConnectionState.waiting && !snap.hasData) {
           return Scaffold(
@@ -45,6 +91,14 @@ class GyeScreen extends StatelessWidget {
             ),
           );
         }
+        // 첫 meta 수신 시 coachReady 게이트 열기
+        if (!_metaLoaded) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted && !_metaLoaded) {
+              setState(() => _metaLoaded = true);
+            }
+          });
+        }
         return Scaffold(
           appBar: AppBar(
             title: Text(meta.name,
@@ -62,10 +116,10 @@ class GyeScreen extends StatelessWidget {
               PopupMenuButton<String>(
                 onSelected: (v) {
                   if (v == 'leave') {
-                    _confirmLeaveGye(context, gyeId);
+                    _confirmLeaveGye(context, widget.gyeId);
                   } else if (v == 'members') {
                     Navigator.of(context)
-                        .pushNamed('/gye/members', arguments: gyeId);
+                        .pushNamed('/gye/members', arguments: widget.gyeId);
                   }
                 },
                 itemBuilder: (_) => [
@@ -79,45 +133,49 @@ class GyeScreen extends StatelessWidget {
             child: SoriCenterClamp(
               child: Column(
                 children: [
-                Padding(
-                  padding: const EdgeInsets.all(Spacing.lg),
-                  child: DureBoard(
-                    gyeId: gyeId,
-                    meta: meta,
-                    myUid: GyeService.currentUid,
-                  ),
-                ),
-                LayoutBuilder(
-                  builder: (context, c) {
-                    final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
-                    return SizedBox(height: h, child: GyeHanok(meta: meta));
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                      Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      t.gyeFeedTitle,
-                      style: const TextStyle(
-                          fontSize: 13, fontWeight: FontWeight.w800),
+                  Padding(
+                    padding: const EdgeInsets.all(Spacing.lg),
+                    child: KeyedSubtree(
+                      key: _dureBoardKey,
+                      child: DureBoard(
+                        gyeId: widget.gyeId,
+                        meta: meta,
+                        myUid: GyeService.currentUid,
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: StreamBuilder<List<GyeFeedEvent>>(
-                    stream: GyeService.feedStream(gyeId),
-                    builder: (context, fsnap) =>
-                        GyeFeed(events: fsnap.data ?? const []),
+                  LayoutBuilder(
+                    builder: (context, c) {
+                      final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
+                      return SizedBox(height: h, child: GyeHanok(meta: meta));
+                    },
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                        Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        t.gyeFeedTitle,
+                        style: const TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.w800),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: StreamBuilder<List<GyeFeedEvent>>(
+                      stream: GyeService.feedStream(widget.gyeId),
+                      builder: (context, fsnap) =>
+                          GyeFeed(events: fsnap.data ?? const []),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () => _openGyeStickerPicker(context, gyeId),
+            key: _fabKey,
+            onPressed: () => _openGyeStickerPicker(context, widget.gyeId),
             backgroundColor: SoriColors.primary,
             tooltip: t.gyeStickerSend,
             child: const Icon(Icons.emoji_emotions_outlined),

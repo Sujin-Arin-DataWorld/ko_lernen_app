@@ -5,6 +5,8 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync.dart';
 import '../services/storage_service.dart';
@@ -23,8 +25,34 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenState extends State<ProfileScreen>
+    with ScreenCoachMixin<ProfileScreen> {
   bool _busy = false;
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _accountCardKey = GlobalKey();
+
+  @override
+  String get coachId => 'profile';
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _accountCardKey,
+        title: t.coachProfileTitle,
+        body: t.coachProfileBody,
+        icon: Icons.cloud_upload_outlined,
+      ),
+    ];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    scheduleCoach();
+  }
 
   Future<void> _connectWith(Future<dynamic> Function() link) async {
     final t = AppL10n.of(context);
@@ -110,16 +138,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const SizedBox(height: 20),
 
           // ── Konto-Status ──
-          if (linked)
-            _ConnectedCard(name: name, onSignOut: _signOut)
-          else
-            _GuestCard(
-              busy: _busy,
-              onConnect: () => _connectWith(AuthService.linkWithGoogle),
-              onConnectApple: AuthService.appleSignInAvailable
-                  ? () => _connectWith(AuthService.linkWithApple)
-                  : null,
-            ),
+          KeyedSubtree(
+            key: _accountCardKey,
+            child: linked
+                ? _ConnectedCard(name: name, onSignOut: _signOut)
+                : _GuestCard(
+                    busy: _busy,
+                    onConnect: () => _connectWith(AuthService.linkWithGoogle),
+                    onConnectApple: AuthService.appleSignInAvailable
+                        ? () => _connectWith(AuthService.linkWithApple)
+                        : null,
+                  ),
+          ),
           const SizedBox(height: 20),
 
           // ── Kurz-Übersicht ──
