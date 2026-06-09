@@ -508,6 +508,7 @@ class _Front extends StatelessWidget {
     final lang = Localizations.localeOf(context).languageCode;
     return StudyCardFace(
       accent: SoriColors.warning,
+      heightFactor: 0.82,
       children: [
         SoriChip(
           label: g.level,
@@ -593,6 +594,7 @@ class _Back extends StatelessWidget {
     final lang = Localizations.localeOf(context).languageCode;
     return StudyCardFace(
       accent: SoriColors.hangul,
+      heightFactor: 0.82,
       children: [
         SoriChip(
           label: g.level,

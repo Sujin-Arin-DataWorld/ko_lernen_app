@@ -415,42 +415,49 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                         _prev();
                       }
                     },
-                    child: Stack(
-                      children: [
-                        FlipCard(
-                          key: _flashCardKey,
-                          flipped: _flipped,
-                          onTap: _onFlip,
-                          front: _Front(v: v, koFirst: _koFirst),
-                          back: _Back(v: v, koFirst: _koFirst),
-                        ),
-                        Positioned(
-                          top: 12,
-                          right: 12,
-                          child: SoriPressable(
-                            onTap: () => _toggleFavorite(v.korean),
-                            haptic: SoriHaptic.light,
-                            child: Container(
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: SoriSurfaces.of(
-                                  context,
-                                ).bg.withValues(alpha: 0.4),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Icon(
-                                _favorites.contains(v.korean)
-                                    ? Icons.star_rounded
-                                    : Icons.star_outline_rounded,
-                                color: _favorites.contains(v.korean)
-                                    ? SoriColors.warning
-                                    : SoriSurfaces.of(context).textDim,
-                                size: 28,
+                    // 카드는 글자 수와 무관하게 영역의 82%로 고정(쪼그라들지 않음)
+                    // + 상하 여백. 별 오버레이가 카드와 함께 정렬되도록 Stack째 래핑.
+                    child: Center(
+                      child: FractionallySizedBox(
+                        heightFactor: 0.82,
+                        child: Stack(
+                          children: [
+                            FlipCard(
+                              key: _flashCardKey,
+                              flipped: _flipped,
+                              onTap: _onFlip,
+                              front: _Front(v: v, koFirst: _koFirst),
+                              back: _Back(v: v, koFirst: _koFirst),
+                            ),
+                            Positioned(
+                              top: 12,
+                              right: 12,
+                              child: SoriPressable(
+                                onTap: () => _toggleFavorite(v.korean),
+                                haptic: SoriHaptic.light,
+                                child: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: SoriSurfaces.of(
+                                      context,
+                                    ).bg.withValues(alpha: 0.4),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    _favorites.contains(v.korean)
+                                        ? Icons.star_rounded
+                                        : Icons.star_outline_rounded,
+                                    color: _favorites.contains(v.korean)
+                                        ? SoriColors.warning
+                                        : SoriSurfaces.of(context).textDim,
+                                    size: 28,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -719,7 +726,10 @@ class _Front extends StatelessWidget {
           ),
         ],
         const SizedBox(height: Spacing.sm),
-        Text(v.posFor(lang), style: TextStyle(fontSize: 12, color: s.textMuted)),
+        Text(
+          v.posFor(lang),
+          style: TextStyle(fontSize: 12, color: s.textMuted),
+        ),
         const SizedBox(height: Spacing.lg),
         Text(
           '👆 ${t.hintTapToFlip}',

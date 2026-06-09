@@ -173,7 +173,6 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
       ),
     );
   }
-
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -286,7 +285,7 @@ class _PreviewPage extends StatelessWidget {
                               top: 0,
                               right: 4,
                               child: Image.asset(
-                                'assets/illustrations/dokkaebi_fire.png',
+                                'assets/illustrations/decorations/dokkaebi_fire.png',
                                 width: 72,
                                 height: 72,
                                 fit: BoxFit.contain,
@@ -299,8 +298,9 @@ class _PreviewPage extends StatelessWidget {
                                     shape: BoxShape.circle,
                                     boxShadow: [
                                       BoxShadow(
-                                        color:
-                                            accentColor.withValues(alpha: 0.45),
+                                        color: accentColor.withValues(
+                                          alpha: 0.45,
+                                        ),
                                         blurRadius: 16,
                                         offset: const Offset(0, 4),
                                       ),

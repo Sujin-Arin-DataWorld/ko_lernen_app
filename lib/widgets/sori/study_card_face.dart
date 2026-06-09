@@ -42,6 +42,11 @@ class StudyCardFace extends StatelessWidget {
 
   final EdgeInsetsGeometry? padding;
 
+  /// 부모(Expanded 등)가 준 높이 중 카드가 차지할 비율. 1.0이면 가득 채운다.
+  /// <1.0이면 글자 수와 무관하게 그 비율 높이로 **고정**하고 상하 여백을 남긴다
+  /// (예: 0.82 — 단어가 짧아도 쪼그라들지 않고, 코치마크·버튼 공간을 확보).
+  final double heightFactor;
+
   const StudyCardFace({
     super.key,
     required this.children,
@@ -49,11 +54,12 @@ class StudyCardFace extends StatelessWidget {
     this.alignment = MainAxisAlignment.center,
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.padding,
+    this.heightFactor = 1.0,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SoriCard(
+    final card = SoriCard(
       variant: SoriCardVariant.hero,
       accent: accent,
       width: double.infinity,
@@ -79,6 +85,13 @@ class StudyCardFace extends StatelessWidget {
           );
         },
       ),
+    );
+    if (heightFactor >= 1.0) {
+      return card;
+    }
+    // 글자 수와 무관하게 고정 비율 높이 + 상하 여백(중앙 정렬).
+    return Center(
+      child: FractionallySizedBox(heightFactor: heightFactor, child: card),
     );
   }
 }

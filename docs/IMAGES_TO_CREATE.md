@@ -44,6 +44,7 @@
 | `decoration_sagunja_guk.png` | 사군자 국화 (4폭 완성용) | **드롭인** | 프롬프트 **assets-md §3.11** · layout L.28 B.52 W.10 · 매·난·죽 있음 국화만 |
 | `stamp_mountain.png` | 단청 도장 (산) | 와이어링 가능성 | 도장 위젯 8모티프 중 7번째 |
 | `stamp_plum.png` | 단청 도장 (매화) | 와이어링 가능성 | 8번째 |
+| `dokkaebi_fire.png` | 온보딩 프리뷰 page3 — 축하 호랑이 우상단 도깨비불 뱃지 | **와이어링** (현 경로 pubspec 미등록) | 폴백=주황 원 글로우(비차단) · 프롬프트 → **부록 A** |
 
 저장 경로: 장식 `assets/illustrations/decorations/`, 도장 `assets/illustrations/stamps/`
 
@@ -55,6 +56,65 @@
 - **돌담** `decoration_doldam.png` (프롬프트 **assets-md §3.8** · layout L0 B.04 W1.0 full) — 친구/계원 5명 = v3.0
 - **스티커 19장** (현재 11/30, 스티커 채팅은 v3.0 커뮤니티)
 - **계 공동 한옥 추가 요소 8장** (v3.0)
+
+---
+
+## 부록 A — 도깨비불 뱃지 프롬프트 (`dokkaebi_fire.png`)
+
+> 온보딩 프리뷰 **page3**("매일 호랑이와 / Täglich mit dem Tiger") — 축하 호랑이 우상단 72px 장식 뱃지.
+> 한국 전통 **도깨비불**(푸른빛 영묘한 불 = 호랑이 주황의 보색). BIBLE §1 Faceted Minhwa + §1.3 팔레트 기반.
+> 생성 시 레퍼런스로 `assets/illustrations/mascot/tiger_idle.png` + 단청 자산 1장을 **반드시 첨부**.
+
+```text
+A square editorial illustration of a single Korean dokkaebi-bul (도깨비불) — an
+ethereal floating goblin-fire / will-o'-the-wisp from Korean folklore, glowing
+COOL blue-green, never warm orange.
+
+Mid-century modernist geometric reduction (Saul Bass, Charley Harper era) crossed
+with Korean minhwa folk-painting iconography. NOT cute, NOT cartoonish, NO face on
+the flame — confident, contemporary, premium editorial quality. Mood: calm,
+mystical, auspicious.
+
+Single centered focal object on empty space:
+- An upward teardrop / wisp flame built from clean ANGULAR color facets
+  (cut-paper / stained-glass planes).
+- Luminous core: Dancheong Gold #DFA951.
+- Mid-body: Dancheong Teal #3D9A7F and deeper #2A6B5C.
+- Cool outer facets and base: Muted Indigo #1F2E5C, Cobalt Indigo #2C3E94,
+  deepest #0A2E3A.
+- A few small rising embers as faceted gold #DFA951 dots in ONE loose cluster
+  drifting upward (not scattered randomly).
+
+Style discipline (CRITICAL):
+- NO outlines — pure flat color planes meeting at hard angular edges; volume from
+  hard-edge value steps only.
+- NO gradients within shapes EXCEPT ONE soft halo glow around the core
+  (gold -> teal) — the single allowed gradient.
+- Subtle hanji paper-grain texture on the flame's color planes only.
+- Restricted palette (hex): #DFA951, #3D9A7F, #2A6B5C, #1F2E5C, #2C3E94, #0A2E3A.
+- Clear silhouette readability — must read as a flame/wisp at 48-72px thumbnail.
+- Deliberately the COOL complement to the warm-orange tiger it sits beside.
+
+Background: FULLY TRANSPARENT (RGBA) — no paper, no card, no box, no drop-shadow
+rectangle. Subject centered with ~10% transparent padding.
+
+Aspect ratio: 1:1 (1024x1024 px; master 1254x1254 ok).
+
+ABSOLUTELY AVOID: outlines; red/orange/yellow campfire or candle colors; realistic
+fire, smoke or embers; candy/neon; a cute chibi face on the flame; jack-o'-lantern
+look; any text or letters; opaque/white/beige background; drop-shadow box.
+
+This is editorial illustration for a premium Korean learning app — a serene,
+auspicious goblin-fire badge floating beside the celebrating tiger,
+magazine-cover quality.
+
+IMPORTANT: match the geometric faceted style, color palette, paper-grain texture,
+and overall mood of the attached reference images (mascot/tiger_idle.png and a
+단청 asset) exactly. This must look like part of the same illustrated set.
+```
+
+**후처리 (BIBLE §2.2/§6)**: RGBA 투명 PNG · 정사각 1024²(마스터 1254²) · 중앙 ~10% 패딩 · 흰/베이지 사각·드롭섀도 사각 금지.
+**연결 주의 (§0)**: 코드는 현재 `assets/illustrations/dokkaebi_fire.png`(루트)를 참조하나 이 루트 경로는 **pubspec 미등록**(하위폴더만 등록) → PNG를 넣어도 안 뜸. 제작 후 둘 중 하나 — **① `decorations/`에 저장하고 코드 경로를 `decorations/dokkaebi_fire.png`로 변경**, 또는 **② pubspec `assets:`에 파일 직접 등록**. (Claude가 1줄로 처리 가능.)
 
 ---
 

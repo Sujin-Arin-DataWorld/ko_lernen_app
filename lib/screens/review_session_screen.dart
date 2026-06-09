@@ -34,8 +34,12 @@ class ReviewSessionScreen extends StatefulWidget {
 
   /// M5: optionaler Small-talk-Satz, der am Kursende als "한마디" gezeigt wird.
   final SmalltalkPhrase? bonusPhrase;
-  const ReviewSessionScreen(
-      {super.key, this.deck, this.title, this.bonusPhrase});
+  const ReviewSessionScreen({
+    super.key,
+    this.deck,
+    this.title,
+    this.bonusPhrase,
+  });
 
   @override
   State<ReviewSessionScreen> createState() => _ReviewSessionScreenState();
@@ -142,8 +146,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     return Scaffold(
       backgroundColor: s.bg,
       appBar: AppBar(
-        title: Text(widget.title ?? t.reviewTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          widget.title ?? t.reviewTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         actions: [
           // 오늘의 복습 카드를 바로 내 단어장에 담기 (item 11).
           if (!_loading && _deck.isNotEmpty && !_done)
@@ -163,22 +169,22 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           child: _loading
               ? const AppLoading()
               : _deck.isEmpty
-                  ? _buildEmpty(t)
-                  : _done
-                      ? _buildDone(t, s)
-                      : _buildCard(t, s),
+              ? _buildEmpty(t)
+              : _done
+              ? _buildDone(t, s)
+              : _buildCard(t, s),
         ),
       ),
     );
   }
 
   Widget _buildEmpty(AppL10n t) => SoriEmptyState(
-        icon: Icons.task_alt_rounded,
-        title: t.reviewEmptyTitle,
-        body: t.reviewEmptyBody,
-        ctaLabel: t.btnClose,
-        onCta: () => Navigator.of(context).maybePop(),
-      );
+    icon: Icons.task_alt_rounded,
+    title: t.reviewEmptyTitle,
+    body: t.reviewEmptyBody,
+    ctaLabel: t.btnClose,
+    onCta: () => Navigator.of(context).maybePop(),
+  );
 
   Widget _buildDone(AppL10n t, SoriSurfaces s) {
     final tt = SoriTextTheme.of(context);
@@ -189,17 +195,23 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             Mascot.tiger(
-                size: 120, emotion: MascotEmotion.celebrate, animate: true),
+              size: 120,
+              emotion: MascotEmotion.celebrate,
+              animate: true,
+            ),
             const SizedBox(height: Spacing.lg),
-            Text(t.reviewDoneTitle,
-                textAlign: TextAlign.center, style: tt.h1),
+            Text(t.reviewDoneTitle, textAlign: TextAlign.center, style: tt.h1),
             const SizedBox(height: Spacing.sm),
-            Text(t.reviewDoneBody,
-                textAlign: TextAlign.center,
-                style: tt.body.copyWith(color: s.textMuted)),
+            Text(
+              t.reviewDoneBody,
+              textAlign: TextAlign.center,
+              style: tt.body.copyWith(color: s.textMuted),
+            ),
             const SizedBox(height: Spacing.md),
-            Text('+${_reviewed * 2} XP',
-                style: tt.h2.copyWith(color: SoriColors.gold)),
+            Text(
+              '+${_reviewed * 2} XP',
+              style: tt.h2.copyWith(color: SoriColors.gold),
+            ),
             // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
             if (widget.bonusPhrase != null) ...[
               const SizedBox(height: Spacing.xl),
@@ -212,23 +224,32 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                 ),
                 child: Column(
                   children: [
-                    Text(t.reviewBonusLabel,
-                        style: tt.label.copyWith(color: SoriColors.highlight)),
+                    Text(
+                      t.reviewBonusLabel,
+                      style: tt.label.copyWith(color: SoriColors.highlight),
+                    ),
                     const SizedBox(height: 6),
-                    Text(widget.bonusPhrase!.ko,
-                        textAlign: TextAlign.center, style: tt.h3),
+                    Text(
+                      widget.bonusPhrase!.ko,
+                      textAlign: TextAlign.center,
+                      style: tt.h3,
+                    ),
                     const SizedBox(height: 2),
                     Text(
                       widget.bonusPhrase!.translation(
-                          Localizations.localeOf(context).languageCode),
+                        Localizations.localeOf(context).languageCode,
+                      ),
                       textAlign: TextAlign.center,
                       style: tt.bodySmall.copyWith(color: s.textMuted),
                     ),
                     const SizedBox(height: 8),
                     GestureDetector(
                       onTap: () => TtsService.speak(widget.bonusPhrase!.ko),
-                      child: const Icon(Icons.volume_up_rounded,
-                          color: SoriColors.highlight, size: 22),
+                      child: const Icon(
+                        Icons.volume_up_rounded,
+                        color: SoriColors.highlight,
+                        size: 22,
+                      ),
                     ),
                   ],
                 ),
@@ -255,16 +276,24 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(
-              Spacing.lg, Spacing.md, Spacing.lg, 0),
+            Spacing.lg,
+            Spacing.md,
+            Spacing.lg,
+            0,
+          ),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('${_idx + 1} / $total',
-                      style: tt.label.copyWith(color: s.textMuted)),
-                  Text(card.level,
-                      style: tt.label.copyWith(color: SoriColors.primary)),
+                  Text(
+                    '${_idx + 1} / $total',
+                    style: tt.label.copyWith(color: s.textMuted),
+                  ),
+                  Text(
+                    card.level,
+                    style: tt.label.copyWith(color: SoriColors.primary),
+                  ),
                 ],
               ),
               const SizedBox(height: Spacing.sm),
@@ -274,8 +303,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   value: total == 0 ? 0 : _idx / total,
                   minHeight: 6,
                   backgroundColor: s.text.withValues(alpha: 0.08),
-                  valueColor:
-                      const AlwaysStoppedAnimation(SoriColors.primary),
+                  valueColor: const AlwaysStoppedAnimation(SoriColors.primary),
                 ),
               ),
             ],
@@ -284,40 +312,56 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(Spacing.lg),
-            child: SoriPressable(
-              key: _cardKey,
-              onTap: () => setState(() => _flipped = !_flipped),
-              haptic: SoriHaptic.selection,
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final minH = constraints.maxHeight.isFinite
-                      ? constraints.maxHeight
-                      : 0.0;
-                  return SingleChildScrollView(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(minHeight: minH),
-                      child: IntrinsicHeight(
-                        child: SoriCard(
-                          variant: SoriCardVariant.hero,
-                          accent: SoriColors.primary,
-                          tinted: !_flipped,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children:
-                                _flipped ? _backList(card, s, tt, t) : _frontList(card, s, tt, t),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                // 카드는 글자 수와 무관하게 영역의 고정 비율(82%) 높이를 유지한다
+                // (단어가 짧아도 쪼그라들지 않음). 남는 위/아래 여백이 코치마크
+                // 말풍선·버튼 공간이 되어 잘림을 막는다.
+                final h = constraints.maxHeight.isFinite
+                    ? constraints.maxHeight
+                    : 360.0;
+                final cardH = h * 0.82;
+                return Center(
+                  child: SoriPressable(
+                    key: _cardKey,
+                    onTap: () => setState(() => _flipped = !_flipped),
+                    haptic: SoriHaptic.selection,
+                    child: SizedBox(
+                      height: cardH,
+                      child: SoriCard(
+                        variant: SoriCardVariant.hero,
+                        accent: SoriColors.primary,
+                        tinted: !_flipped,
+                        child: LayoutBuilder(
+                          builder: (context, cc) => SingleChildScrollView(
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minHeight: cc.maxHeight,
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: _flipped
+                                    ? _backList(card, s, tt, t)
+                                    : _frontList(card, s, tt, t),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(
-              Spacing.lg, 0, Spacing.lg, Spacing.lg),
+            Spacing.lg,
+            0,
+            Spacing.lg,
+            Spacing.lg,
+          ),
           child: Row(
             key: _answerRowKey,
             children: [
@@ -344,54 +388,58 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     );
   }
 
-  List<Widget> _frontList(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) => [
-        Text(
-          v.korean,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontFamily: 'Pretendard',
-            fontSize: 40,
-            fontWeight: FontWeight.w900,
-          ),
-        ),
-        const SizedBox(height: Spacing.md),
-        _SpeakButton(text: v.korean, label: t.ttsListen),
-        if (v.romanization.isNotEmpty) ...[
-          const SizedBox(height: Spacing.sm),
-          Text(v.romanization,
-              style: tt.body.copyWith(color: s.textMuted)),
-        ],
-        const SizedBox(height: Spacing.lg),
-        Text(t.hintTapToFlip,
-            style: tt.caption.copyWith(color: s.textDim)),
-      ];
+  List<Widget> _frontList(
+    Vocab v,
+    SoriSurfaces s,
+    SoriTextTheme tt,
+    AppL10n t,
+  ) => [
+    Text(
+      v.korean,
+      textAlign: TextAlign.center,
+      style: const TextStyle(
+        fontFamily: 'Pretendard',
+        fontSize: 40,
+        fontWeight: FontWeight.w900,
+      ),
+    ),
+    const SizedBox(height: Spacing.md),
+    _SpeakButton(text: v.korean, label: t.ttsListen),
+    if (v.romanization.isNotEmpty) ...[
+      const SizedBox(height: Spacing.sm),
+      Text(v.romanization, style: tt.body.copyWith(color: s.textMuted)),
+    ],
+    const SizedBox(height: Spacing.lg),
+    Text(t.hintTapToFlip, style: tt.caption.copyWith(color: s.textDim)),
+  ];
 
   List<Widget> _backList(Vocab v, SoriSurfaces s, SoriTextTheme tt, AppL10n t) {
     final lang = Localizations.localeOf(context).languageCode;
     return [
-        Text(
-          v.translationFor(lang),
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontFamily: 'Pretendard',
-            fontSize: 26,
-            fontWeight: FontWeight.w800,
-          ),
+      Text(
+        v.translationFor(lang),
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          fontFamily: 'Pretendard',
+          fontSize: 26,
+          fontWeight: FontWeight.w800,
         ),
-        if (v.exampleKorean.isNotEmpty) ...[
-          const SizedBox(height: Spacing.lg),
-          Text(v.exampleKorean,
-              textAlign: TextAlign.center, style: tt.body),
-          const SizedBox(height: Spacing.sm),
-          _SpeakButton(text: v.exampleKorean, label: t.ttsListen, size: 22),
-        ],
-        if (v.exampleGerman.isNotEmpty) ...[
-          const SizedBox(height: Spacing.xs),
-          Text(v.exampleFor(lang),
-              textAlign: TextAlign.center,
-              style: tt.bodySmall.copyWith(color: s.textMuted)),
-        ],
-      ];
+      ),
+      if (v.exampleKorean.isNotEmpty) ...[
+        const SizedBox(height: Spacing.lg),
+        Text(v.exampleKorean, textAlign: TextAlign.center, style: tt.body),
+        const SizedBox(height: Spacing.sm),
+        _SpeakButton(text: v.exampleKorean, label: t.ttsListen, size: 22),
+      ],
+      if (v.exampleGerman.isNotEmpty) ...[
+        const SizedBox(height: Spacing.xs),
+        Text(
+          v.exampleFor(lang),
+          textAlign: TextAlign.center,
+          style: tt.bodySmall.copyWith(color: s.textMuted),
+        ),
+      ],
+    ];
   }
 }
 
@@ -416,8 +464,11 @@ class _SpeakButton extends StatelessWidget {
           onTap: () => TtsService.speak(text),
           child: Padding(
             padding: const EdgeInsets.all(10),
-            child: Icon(Icons.volume_up_rounded,
-                color: SoriColors.primary, size: size),
+            child: Icon(
+              Icons.volume_up_rounded,
+              color: SoriColors.primary,
+              size: size,
+            ),
           ),
         ),
       ),

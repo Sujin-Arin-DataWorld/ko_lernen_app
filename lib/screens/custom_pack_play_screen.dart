@@ -147,8 +147,10 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(pack.displayName(),
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          pack.displayName(),
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
@@ -157,60 +159,67 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  SoriChip(
-                    label: '${_idx + 1} / ${pack.words.length}',
-                    accent: SoriColors.info,
-                  ),
-                  const Spacer(),
-                  Text(
-                    t.vocabPackTapToFlip,
-                    style: TextStyle(fontSize: 12, color: s.textMuted),
-                  ),
-                ],
-              ),
-              const SizedBox(height: Spacing.md),
-              Expanded(
-                child: FlipCard(
-                  key: _cardKey,
-                  flipped: _flipped,
-                  onTap: () {
-                    HapticFeedback.selectionClick();
-                    setState(() => _flipped = !_flipped);
-                  },
-                  front: _Front(word: w),
-                  back: _Back(word: w),
-                ),
-              ),
-              const SizedBox(height: Spacing.md),
-              Row(
-                children: [
-                  Expanded(
-                    child: SoriButton(
-                      label: t.btnSkip,
-                      variant: SoriButtonVariant.outlined,
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    SoriChip(
+                      label: '${_idx + 1} / ${pack.words.length}',
                       accent: SoriColors.info,
-                      onTap: _skip,
+                    ),
+                    const Spacer(),
+                    Text(
+                      t.vocabPackTapToFlip,
+                      style: TextStyle(fontSize: 12, color: s.textMuted),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: Spacing.md),
+                Expanded(
+                  // 카드는 글자 수와 무관하게 영역의 82%로 고정(쪼그라들지 않음) +
+                  // 상하 여백으로 코치마크·버튼 공간 확보.
+                  child: Center(
+                    child: FractionallySizedBox(
+                      heightFactor: 0.82,
+                      child: FlipCard(
+                        key: _cardKey,
+                        flipped: _flipped,
+                        onTap: () {
+                          HapticFeedback.selectionClick();
+                          setState(() => _flipped = !_flipped);
+                        },
+                        front: _Front(word: w),
+                        back: _Back(word: w),
+                      ),
                     ),
                   ),
-                  const SizedBox(width: Spacing.md),
-                  Expanded(
-                    child: SoriButton(
-                      label: t.btnGewusst,
-                      variant: SoriButtonVariant.filled,
-                      accent: SoriColors.success,
-                      onTap: _gotIt,
+                ),
+                const SizedBox(height: Spacing.md),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SoriButton(
+                        label: t.btnSkip,
+                        variant: SoriButtonVariant.outlined,
+                        accent: SoriColors.info,
+                        onTap: _skip,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    const SizedBox(width: Spacing.md),
+                    Expanded(
+                      child: SoriButton(
+                        label: t.btnGewusst,
+                        variant: SoriButtonVariant.filled,
+                        accent: SoriColors.success,
+                        onTap: _gotIt,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
         ),
       ),
     );
@@ -220,64 +229,64 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(t.customPackResultTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.customPackResultTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: Column(
-            children: [
-              const SizedBox(height: Spacing.xl),
-              Text(
-                '🎉',
-                style: const TextStyle(fontSize: 64),
-              ),
-              const SizedBox(height: Spacing.md),
-              Text(
-                t.customPackResultDone,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontSize: 22, fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                t.customPackResultStats(_learned, pack.totalWords),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: SoriSurfaces.of(context).textMuted,
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: Column(
+              children: [
+                const SizedBox(height: Spacing.xl),
+                Text('🎉', style: const TextStyle(fontSize: 64)),
+                const SizedBox(height: Spacing.md),
+                Text(
+                  t.customPackResultDone,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-              ),
-              const Spacer(),
-              SoriButton(
-                label: t.customPackResultAgain,
-                icon: Icons.refresh_rounded,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.primary,
-                fullWidth: true,
-                onTap: () => setState(() {
-                  _idx = 0;
-                  _learned = 0;
-                  _flipped = false;
-                }),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton(
-                label: t.customPackResultBack,
-                icon: Icons.menu_book_outlined,
-                variant: SoriButtonVariant.outlined,
-                accent: SoriColors.info,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).popUntil(
-                  (r) =>
-                      r.settings.name == '/bookshelf' || r.isFirst,
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  t.customPackResultStats(_learned, pack.totalWords),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: SoriSurfaces.of(context).textMuted,
+                  ),
                 ),
-              ),
-            ],
+                const Spacer(),
+                SoriButton(
+                  label: t.customPackResultAgain,
+                  icon: Icons.refresh_rounded,
+                  variant: SoriButtonVariant.filled,
+                  accent: SoriColors.primary,
+                  fullWidth: true,
+                  onTap: () => setState(() {
+                    _idx = 0;
+                    _learned = 0;
+                    _flipped = false;
+                  }),
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriButton(
+                  label: t.customPackResultBack,
+                  icon: Icons.menu_book_outlined,
+                  variant: SoriButtonVariant.outlined,
+                  accent: SoriColors.info,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).popUntil(
+                    (r) => r.settings.name == '/bookshelf' || r.isFirst,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
         ),
       ),
     );
@@ -363,10 +372,7 @@ class _Back extends StatelessWidget {
                   ? word.translationDe
                   : (word.posDe.isNotEmpty ? word.posDe : '—'),
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w800,
-              ),
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
             ),
             if ((word.posDe as String).isNotEmpty) ...[
               const SizedBox(height: 4),

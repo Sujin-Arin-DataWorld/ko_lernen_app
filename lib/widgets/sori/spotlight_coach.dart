@@ -214,8 +214,7 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
       );
     }
 
-    final pulseAnim =
-        _pulse ?? const AlwaysStoppedAnimation<double>(0.0);
+    final pulseAnim = _pulse ?? const AlwaysStoppedAnimation<double>(0.0);
 
     return Positioned.fill(
       child: Stack(
@@ -254,9 +253,6 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
     final spaceAbove = rect.top;
     final spaceBelow = screenSize.height - rect.bottom;
 
-    // 말풍선을 위 또는 아래에 배치
-    final placeAbove = spaceAbove > spaceBelow && spaceAbove > 220;
-
     final tooltip = _CoachTooltip(
       step: step,
       stepIndex: _i,
@@ -265,6 +261,14 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
       onSkip: _skipAll,
     );
 
+    // 위·아래 중 넓은 쪽에 배치.
+    final placeAbove = spaceAbove > spaceBelow;
+    final avail = placeAbove ? spaceAbove : spaceBelow;
+    // 타겟이 화면 대부분을 차지해 위·아래가 모두 좁으면 화면 하단에 고정해
+    // 말풍선이 화면 밖으로 잘리지 않게 한다(타겟 일부를 가리더라도 가독성 우선).
+    if (avail < 180) {
+      return Positioned(left: 16, right: 16, bottom: 24, child: tooltip);
+    }
     if (placeAbove) {
       return Positioned(
         left: 16,
@@ -272,14 +276,13 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
         bottom: screenSize.height - rect.top + 12,
         child: tooltip,
       );
-    } else {
-      return Positioned(
-        left: 16,
-        right: 16,
-        top: rect.bottom + 12,
-        child: tooltip,
-      );
     }
+    return Positioned(
+      left: 16,
+      right: 16,
+      top: rect.bottom + 12,
+      child: tooltip,
+    );
   }
 }
 
@@ -370,9 +373,7 @@ class _CoachTooltip extends StatelessWidget {
                     height: isCurrent ? 8 : 6,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: isCurrent
-                          ? SoriColors.tiger
-                          : Colors.transparent,
+                      color: isCurrent ? SoriColors.tiger : Colors.transparent,
                       border: isCurrent
                           ? null
                           : Border.all(
