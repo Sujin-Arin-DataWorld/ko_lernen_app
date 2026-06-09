@@ -314,6 +314,20 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-09 (CI 실패 진단 — 빨간 X 9개 전수 분석) — 커밋(미푸시)
+
+**범위:** Jin이 GitHub Actions 화면 스크린샷(런 #93~#101 빨간 X 9개) 공유 → "에러난 거 전부 뭔지 파악해서 의도한대로 실행되게." `gh run view --log-failed`로 9개 런 전수 실측(§0 — 추측 없이 로그 인용).
+
+**진단(9건 전부 동일 단일 원인):** `analyze` step이 **info 레벨 이슈에서 exit 1** → CI 차단. **컴파일·빌드 에러 0건**(실패 런 전부 ~1분에 analyze에서 죽음 / 통과 런은 빌드까지 ~2.5분). 이슈 정체 = 전부 info급: `withOpacity` deprecated(→`withValues`) + `use_build_context_synchronously` 1. 새 화면 누적 — #93(7bd5e86 온보딩) 3건(quick_onboarding) → #94(1a47b6f 게임화) 6건(+quiz_choice·streak_display) → #95~#101 8건(+character_selection BuildContext 가드+withOpacity). 당시 CI 명령이 `flutter analyze --no-fatal-warnings`뿐이라 info를 못 막음.
+
+**이미 해결돼 있던 상태(이 세션 전, Jin 커밋):** `c99739a`(ci.yml에 `--no-fatal-infos` 추가) + `cca3417`(info 8건 소스 근본 수정 — withOpacity→withValues + `mounted` 가드) → 이후 4개 런 전부 green. 실측 확인: `lib/` 내 `withOpacity` **0건**, 플래그됐던 파일 전부 `withValues`/`mounted` 적용.
+
+**Update(이 세션 — 1건):** 유일 잔여 info — [test/spotlight_coach_test.dart](test/spotlight_coach_test.dart)의 `main()` 내부 로컬 함수 `_wrap`(`no_leading_underscores_for_local_identifiers`, CI는 통과하나 거슬림) → `wrap` rename(선언+호출 6곳). 다른 test 파일의 `_wrap`은 top-level private라 정당 → 미변경.
+
+**검증(로컬 Flutter 3.44.0 = CI 동일):** `flutter analyze` → **No issues found!**(info 포함 0, exit 0) · CI 명령 `flutter analyze --no-fatal-warnings --no-fatal-infos` → exit 0 · `flutter test test/spotlight_coach_test.dart` → **8/8**(rename 회귀 0). working tree Dart 변경=이 1파일뿐.
+
+**Git:** Jin 요청으로 커밋(test 1 + 본 로그). tiger_anim walk PNG 16·docs md는 Jin 별개 작업물이라 제외. 푸시는 미요청.
+
 ### 2026-06-05 (고품질 음성 — Google Cloud TTS 캐시우선 3단) — 커밋·푸쉬
 
 **범위:** Jin "우리 음성 정확한데 진짜 사람 목소리처럼(예: 내 목소리로) 안 돼?" → Q&A로 방향 확정: **voice cloning 아님, 자연스러운 원어민 neural**. 데모 청취로 voice 선택 → 사전생성+동적 파이프라인 구축.

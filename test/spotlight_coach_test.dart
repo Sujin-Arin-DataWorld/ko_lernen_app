@@ -20,7 +20,7 @@ void main() {
     await Storage.init();
   });
 
-  Widget _wrap(Widget child) {
+  Widget wrap(Widget child) {
     return MaterialApp(
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
@@ -33,7 +33,7 @@ void main() {
     testWidgets('빈 steps → onComplete 즉시 호출', (tester) async {
       bool completed = false;
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           Builder(
             builder: (ctx) {
               return ElevatedButton(
@@ -61,7 +61,7 @@ void main() {
       bool completed = false;
 
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           Builder(
             builder: (ctx) {
               return ElevatedButton(
@@ -96,7 +96,7 @@ void main() {
       await tester.pumpWidget(
         MediaQuery(
           data: const MediaQueryData(disableAnimations: true),
-          child: _wrap(
+          child: wrap(
             Builder(
               builder: (ctx) {
                 return Column(
@@ -143,7 +143,7 @@ void main() {
       int completedCount = 0;
 
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           Builder(
             builder: (ctx) {
               return Column(
@@ -207,7 +207,7 @@ void main() {
       bool skipped = false;
 
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           Builder(
             builder: (ctx) {
               return Column(
