@@ -14,6 +14,8 @@ import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/wordbook_add.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../l10n/generated/app_localizations.dart';
 
 enum _LS { empty, correct, present, absent }
@@ -49,7 +51,8 @@ class WordleScreen extends StatefulWidget {
   State<WordleScreen> createState() => _WordleScreenState();
 }
 
-class _WordleScreenState extends State<WordleScreen> {
+class _WordleScreenState extends State<WordleScreen>
+    with ScreenCoachMixin<WordleScreen> {
   List<Vocab> _vocab = [];
   String _target = '';
 
@@ -61,12 +64,49 @@ class _WordleScreenState extends State<WordleScreen> {
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _gridKey = GlobalKey();
+  final GlobalKey _clueKey = GlobalKey();
+  final GlobalKey _inputKey = GlobalKey();
+
+  @override
+  String get coachId => 'wordle';
+
+  @override
+  bool get coachReady => _target.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _gridKey,
+        title: t.coachWordleStep1Title,
+        body: t.coachWordleStep1Body,
+        icon: Icons.grid_on_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _clueKey,
+        title: t.coachWordleStep2Title,
+        body: t.coachWordleStep2Body,
+        icon: Icons.lightbulb_outline_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _inputKey,
+        title: t.coachWordleStep3Title,
+        body: t.coachWordleStep3Body,
+        icon: Icons.keyboard_rounded,
+      ),
+    ];
+  }
+
   static const _max = 6;
 
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load({bool random = false}) async {
@@ -361,7 +401,9 @@ class _WordleScreenState extends State<WordleScreen> {
                   // v4 (2026-06-03): Wordle이 너무 어렵다는 피드백 → 힌트 강화.
                   // 품사(명사/동사/형용사) + 뜻 + 독일어 예문을 보여줘 단어를
                   // 떠올리기 쉽게. (동의어/반의어는 데이터 확보 후 추가 예정.)
-                  Builder(
+                  KeyedSubtree(
+                    key: _clueKey,
+                    child: Builder(
                     builder: (context) {
                       final ss = SoriSurfaces.of(context);
                       final tv = _targetVocab;
@@ -446,6 +488,7 @@ class _WordleScreenState extends State<WordleScreen> {
                       );
                     },
                   ),
+                  ),
                   const SizedBox(height: 14),
 
                   // ── 그리드 (clean, no dancheong overlay) ──
@@ -454,6 +497,7 @@ class _WordleScreenState extends State<WordleScreen> {
                   // 유지해 한옥 단청 정체성은 살리고 가독성은 회복.
                   Expanded(
                     child: Container(
+                      key: _gridKey,
                       padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
                         color: SoriSurfaces.of(
@@ -563,6 +607,7 @@ class _WordleScreenState extends State<WordleScreen> {
                   ] else ...[
                     // ── 입력 ────────────────────────────────────────────
                     TextField(
+                      key: _inputKey,
                       controller: _ctrl,
                       focusNode: _focusNode,
                       autofocus: true,

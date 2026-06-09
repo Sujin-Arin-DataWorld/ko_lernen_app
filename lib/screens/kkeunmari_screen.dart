@@ -18,6 +18,8 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 enum _Turn { user, tiger }
@@ -37,7 +39,8 @@ class KkeunmariScreen extends StatefulWidget {
   State<KkeunmariScreen> createState() => _KkeunmariScreenState();
 }
 
-class _KkeunmariScreenState extends State<KkeunmariScreen> {
+class _KkeunmariScreenState extends State<KkeunmariScreen>
+    with ScreenCoachMixin<KkeunmariScreen> {
   static const _turnSeconds = 30;
 
   bool _loading = true;
@@ -55,10 +58,47 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _lastWordCardKey = GlobalKey();
+  final GlobalKey _timerRowKey = GlobalKey();
+  final GlobalKey _inputFieldKey = GlobalKey();
+
+  @override
+  String get coachId => 'kkeunmari';
+
+  @override
+  bool get coachReady => !_loading && _last != null;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _lastWordCardKey,
+        title: t.coachKkeunmariStep1Title,
+        body: t.coachKkeunmariStep1Body,
+        icon: Icons.link_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _timerRowKey,
+        title: t.coachKkeunmariStep2Title,
+        body: t.coachKkeunmariStep2Body,
+        icon: Icons.timer_outlined,
+      ),
+      SpotlightStep(
+        targetKey: _inputFieldKey,
+        title: t.coachKkeunmariStep3Title,
+        body: t.coachKkeunmariStep3Body,
+        icon: Icons.keyboard_rounded,
+      ),
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
     _start();
+    scheduleCoach();
   }
 
   Future<void> _start() async {
@@ -283,6 +323,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
               else ...[
                 // ── 현재 차례 + 타이머 ──
                 Row(
+                  key: _timerRowKey,
                   children: [
                     _TurnIndicator(turn: _turn, t: t),
                     const Spacer(),
@@ -292,7 +333,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
                 const SizedBox(height: Spacing.md),
 
                 // ── 마지막 단어 카드 (last 음절 강조) ──
-                _LastWordCard(word: _last!),
+                KeyedSubtree(
+                  key: _lastWordCardKey,
+                  child: _LastWordCard(word: _last!),
+                ),
                 const SizedBox(height: Spacing.md),
 
                 // ── 사용자 차례: 입력 ──
@@ -308,6 +352,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen> {
                   ),
                   const SizedBox(height: Spacing.sm),
                   TextField(
+                    key: _inputFieldKey,
                     controller: _ctrl,
                     focusNode: _focusNode,
                     autofocus: true,

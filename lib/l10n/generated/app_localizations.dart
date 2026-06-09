@@ -106,7 +106,7 @@ abstract class AppL10n {
   /// No description provided for @paywallSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Lern Koreanisch ohne Grenzen.'**
+  /// **'Koreanisch lernen — ohne Grenzen.'**
   String get paywallSubtitle;
 
   /// No description provided for @paywallBenefit1.
@@ -154,7 +154,7 @@ abstract class AppL10n {
   /// No description provided for @paywallCtaStart.
   ///
   /// In de, this message translates to:
-  /// **'Premium starten'**
+  /// **'Premium freischalten'**
   String get paywallCtaStart;
 
   /// No description provided for @paywallCtaRestore.
@@ -214,7 +214,7 @@ abstract class AppL10n {
   /// No description provided for @streakDialogTitle.
   ///
   /// In de, this message translates to:
-  /// **'Streak aufbauen'**
+  /// **'Deinen Streak halten'**
   String get streakDialogTitle;
 
   /// No description provided for @streakDialogSubtitle.
@@ -226,7 +226,7 @@ abstract class AppL10n {
   /// No description provided for @streakDialogEarned.
   ///
   /// In de, this message translates to:
-  /// **'Streaks sammeln Belohnungen'**
+  /// **'Dranbleiben lohnt sich'**
   String get streakDialogEarned;
 
   /// No description provided for @streakDialogCurrent.
@@ -280,7 +280,7 @@ abstract class AppL10n {
   /// No description provided for @reviewTitle.
   ///
   /// In de, this message translates to:
-  /// **'Heute lernen'**
+  /// **'Heute wiederholen'**
   String get reviewTitle;
 
   /// No description provided for @reviewEmptyTitle.
@@ -316,7 +316,7 @@ abstract class AppL10n {
   /// No description provided for @homeReviewTitle.
   ///
   /// In de, this message translates to:
-  /// **'Heute lernen'**
+  /// **'Heute wiederholen'**
   String get homeReviewTitle;
 
   /// No description provided for @homeReviewDue.
@@ -484,13 +484,13 @@ abstract class AppL10n {
   /// No description provided for @welcomeMsg.
   ///
   /// In de, this message translates to:
-  /// **'Hallo! Viel Erfolg heute 💪'**
+  /// **'Hallo! Du schaffst das heute 💪'**
   String get welcomeMsg;
 
   /// No description provided for @footerCheer.
   ///
   /// In de, this message translates to:
-  /// **'Viel Erfolg beim Lernen 🌟'**
+  /// **'Bleib dran, läuft super! 🌟'**
   String get footerCheer;
 
   /// No description provided for @sectionModules.
@@ -748,7 +748,7 @@ abstract class AppL10n {
   /// No description provided for @bookshelfEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Knipse deine erste Lehrbuchseite — die analysierten Wörter landen hier.'**
+  /// **'Fotografiere deine erste Lehrbuchseite — die erkannten Wörter landen hier.'**
   String get bookshelfEmptyBody;
 
   /// No description provided for @bookshelfEmptyCta.
@@ -802,13 +802,13 @@ abstract class AppL10n {
   /// No description provided for @bookshelfCreatePackCta.
   ///
   /// In de, this message translates to:
-  /// **'Custom-Pack aus dieser Seite'**
+  /// **'Eigenes Pack aus dieser Seite'**
   String get bookshelfCreatePackCta;
 
   /// No description provided for @bookshelfCreatePackTitle.
   ///
   /// In de, this message translates to:
-  /// **'Neuer Custom-Pack'**
+  /// **'Neues eigenes Pack'**
   String get bookshelfCreatePackTitle;
 
   /// No description provided for @bookshelfCreatePackName.
@@ -850,7 +850,7 @@ abstract class AppL10n {
   /// No description provided for @customPackPlayTitle.
   ///
   /// In de, this message translates to:
-  /// **'Custom-Pack üben'**
+  /// **'Eigenes Pack üben'**
   String get customPackPlayTitle;
 
   /// No description provided for @customPackNotFoundTitle.
@@ -880,7 +880,7 @@ abstract class AppL10n {
   /// No description provided for @customPackResultTitle.
   ///
   /// In de, this message translates to:
-  /// **'Geschafft'**
+  /// **'Geschafft!'**
   String get customPackResultTitle;
 
   /// No description provided for @customPackResultDone.
@@ -916,7 +916,7 @@ abstract class AppL10n {
   /// No description provided for @homeBookCardDesc.
   ///
   /// In de, this message translates to:
-  /// **'Knipsen → Wörter & Grammatik'**
+  /// **'Foto machen → Wörter & Grammatik'**
   String get homeBookCardDesc;
 
   /// No description provided for @homeBookshelfCardTitle.
@@ -940,7 +940,7 @@ abstract class AppL10n {
   /// No description provided for @homeQuestsCardDesc.
   ///
   /// In de, this message translates to:
-  /// **'Mehr Hanok-Dekoration freischalten'**
+  /// **'Schalte mehr Hanok-Dekoration frei'**
   String get homeQuestsCardDesc;
 
   /// No description provided for @settingsBookEndpointSection.
@@ -1156,7 +1156,7 @@ abstract class AppL10n {
   /// No description provided for @wordleResultLose.
   ///
   /// In de, this message translates to:
-  /// **'😢 Daneben'**
+  /// **'😢 Leider daneben'**
   String get wordleResultLose;
 
   /// No description provided for @settingsTitle.
@@ -1222,7 +1222,7 @@ abstract class AppL10n {
   /// No description provided for @settingsResetConfirm.
   ///
   /// In de, this message translates to:
-  /// **'Wirklich alle Lernfortschritte löschen? Das kann nicht rückgängig gemacht werden.'**
+  /// **'Wirklich alle Lernfortschritte löschen? Das lässt sich nicht rückgängig machen.'**
   String get settingsResetConfirm;
 
   /// No description provided for @settingsAbout.
@@ -1246,13 +1246,13 @@ abstract class AppL10n {
   /// No description provided for @settingsPrivacySubtitle.
   ///
   /// In de, this message translates to:
-  /// **'URL kopieren'**
+  /// **'Link kopieren'**
   String get settingsPrivacySubtitle;
 
   /// No description provided for @settingsPrivacyCopied.
   ///
   /// In de, this message translates to:
-  /// **'URL kopiert: {url}'**
+  /// **'Link kopiert: {url}'**
   String settingsPrivacyCopied(Object url);
 
   /// No description provided for @settingsLicensesTitle.
@@ -1342,13 +1342,13 @@ abstract class AppL10n {
   /// No description provided for @statsWordleWins.
   ///
   /// In de, this message translates to:
-  /// **'Wordle Siege'**
+  /// **'Wordle-Siege'**
   String get statsWordleWins;
 
   /// No description provided for @statsWordleStreak.
   ///
   /// In de, this message translates to:
-  /// **'Wordle Streak'**
+  /// **'Wordle-Streak'**
   String get statsWordleStreak;
 
   /// No description provided for @screenVocabTitle.
@@ -1444,7 +1444,7 @@ abstract class AppL10n {
   /// No description provided for @hangulTraceTitle.
   ///
   /// In de, this message translates to:
-  /// **'✍️ mit dem Finger nachzeichnen'**
+  /// **'✍️ Mit dem Finger nachzeichnen'**
   String get hangulTraceTitle;
 
   /// No description provided for @hangulClearBtn.
@@ -1480,7 +1480,7 @@ abstract class AppL10n {
   /// No description provided for @wordleInputHint.
   ///
   /// In de, this message translates to:
-  /// **'{n} Silben eingeben…'**
+  /// **'{n} Silben eingeben …'**
   String wordleInputHint(int n);
 
   /// No description provided for @wordleLegendCorrect.
@@ -1498,7 +1498,7 @@ abstract class AppL10n {
   /// No description provided for @wordleLegendAbsent.
   ///
   /// In de, this message translates to:
-  /// **'Nicht da'**
+  /// **'Nicht enthalten'**
   String get wordleLegendAbsent;
 
   /// No description provided for @wordleSubmitBtn.
@@ -1600,13 +1600,13 @@ abstract class AppL10n {
   /// No description provided for @chosungRoundKeepLevel.
   ///
   /// In de, this message translates to:
-  /// **'Schöne Übung — bleib bei Stufe {level}.'**
+  /// **'Gut gemacht — bleib noch bei Stufe {level}.'**
   String chosungRoundKeepLevel(Object level);
 
   /// No description provided for @chosungRoundReview.
   ///
   /// In de, this message translates to:
-  /// **'Übe Stufe {level} ruhig nochmal.'**
+  /// **'Kein Problem — üb Stufe {level} noch mal.'**
   String chosungRoundReview(Object level);
 
   /// No description provided for @statsTitle.
@@ -1726,7 +1726,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPacksProgressLabel.
   ///
   /// In de, this message translates to:
-  /// **'{cleared}/{total} Packs geklärt'**
+  /// **'{cleared}/{total} Packs geschafft'**
   String vocabPacksProgressLabel(int cleared, int total);
 
   /// No description provided for @vocabPacksEmptyTitle.
@@ -1750,7 +1750,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPackLockedHint.
   ///
   /// In de, this message translates to:
-  /// **'🔒 Schaffe zuerst \"{prev}\" mit ≥ 70 % Bossen.'**
+  /// **'🔒 Schließe zuerst „{prev}“ mit ≥ 70 % ab.'**
   String vocabPackLockedHint(Object prev);
 
   /// No description provided for @bookCaptureTitle.
@@ -1762,7 +1762,7 @@ abstract class AppL10n {
   /// No description provided for @bookCaptureHero.
   ///
   /// In de, this message translates to:
-  /// **'Knipse eine Lehrbuchseite'**
+  /// **'Fotografiere eine Lehrbuchseite'**
   String get bookCaptureHero;
 
   /// No description provided for @bookCaptureSubtitle.
@@ -1792,7 +1792,7 @@ abstract class AppL10n {
   /// No description provided for @bookCaptureErrorNoKorean.
   ///
   /// In de, this message translates to:
-  /// **'Kein Koreanisch erkannt — bitte eine deutlichere Aufnahme.'**
+  /// **'Kein Koreanisch erkannt — bitte mach ein schärferes Foto.'**
   String get bookCaptureErrorNoKorean;
 
   /// No description provided for @bookCaptureErrorPermission.
@@ -1858,7 +1858,7 @@ abstract class AppL10n {
   /// No description provided for @bookResultAnalyzing.
   ///
   /// In de, this message translates to:
-  /// **'Wörter & Grammatik werden untersucht …'**
+  /// **'Wörter & Grammatik werden analysiert …'**
   String get bookResultAnalyzing;
 
   /// No description provided for @bookResultFoundN.
@@ -1882,7 +1882,7 @@ abstract class AppL10n {
   /// No description provided for @dojangEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließe Vokabelpakete ab, um Dancheong-Stempel zu sammeln.'**
+  /// **'Schließ Vokabelpakete ab und sammle Dancheong-Stempel.'**
   String get dojangEmptyBody;
 
   /// No description provided for @dojangProgress.
@@ -1954,7 +1954,7 @@ abstract class AppL10n {
   /// No description provided for @gyeNicknameHint.
   ///
   /// In de, this message translates to:
-  /// **'Wird Gye-Mitgliedern angezeigt'**
+  /// **'Für alle im Gye sichtbar'**
   String get gyeNicknameHint;
 
   /// No description provided for @gyeCodeLabel.
@@ -2062,7 +2062,7 @@ abstract class AppL10n {
   /// No description provided for @gyeErrAgeRestricted.
   ///
   /// In de, this message translates to:
-  /// **'Gye ist ab 16 Jahren verfügbar (DSGVO).'**
+  /// **'Gye ist erst ab 16 Jahren nutzbar (DSGVO).'**
   String get gyeErrAgeRestricted;
 
   /// No description provided for @gyeAgeYearTitle.
@@ -2074,7 +2074,7 @@ abstract class AppL10n {
   /// No description provided for @gyeAgeYearBody.
   ///
   /// In de, this message translates to:
-  /// **'Gye ist ab 16 Jahren verfügbar (DSGVO). Bitte gib dein Geburtsjahr ein.'**
+  /// **'Gye ist erst ab 16 Jahren nutzbar (DSGVO). Bitte gib dein Geburtsjahr ein.'**
   String get gyeAgeYearBody;
 
   /// No description provided for @gyeAgeYearHint.
@@ -2140,7 +2140,7 @@ abstract class AppL10n {
   /// No description provided for @gyeDureEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Noch leer — knack ein Pack und mach den Anfang!'**
+  /// **'Noch leer — schließ ein Pack ab und mach den Anfang!'**
   String get gyeDureEmpty;
 
   /// No description provided for @gyeChallengeTitle.
@@ -2188,13 +2188,13 @@ abstract class AppL10n {
   /// No description provided for @gyeFeedEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Noch keine Aktivität. Schließt gemeinsam Pakete ab!'**
+  /// **'Noch keine Aktivität — schließt gemeinsam Packs ab!'**
   String get gyeFeedEmpty;
 
   /// No description provided for @gyeFeedPackCleared.
   ///
   /// In de, this message translates to:
-  /// **'{name} hat ein Paket abgeschlossen'**
+  /// **'{name} hat ein Pack abgeschlossen'**
   String gyeFeedPackCleared(Object name);
 
   /// No description provided for @gyeFeedQuest.
@@ -2230,7 +2230,7 @@ abstract class AppL10n {
   /// No description provided for @gyeCheer3.
   ///
   /// In de, this message translates to:
-  /// **'Wir vermissen dich!'**
+  /// **'Du fehlst uns!'**
   String get gyeCheer3;
 
   /// No description provided for @gyeCheer4.
@@ -2272,7 +2272,7 @@ abstract class AppL10n {
   /// No description provided for @gyeStickerRateLimited.
   ///
   /// In de, this message translates to:
-  /// **'Zu viele Sticker — kurz langsamer.'**
+  /// **'Zu viele Sticker auf einmal — kurz durchatmen!'**
   String get gyeStickerRateLimited;
 
   /// No description provided for @gyeStickerCatTiger.
@@ -2464,7 +2464,7 @@ abstract class AppL10n {
   /// No description provided for @questsSectionCompleted.
   ///
   /// In de, this message translates to:
-  /// **'Geklärt'**
+  /// **'Abgeschlossen'**
   String get questsSectionCompleted;
 
   /// No description provided for @questsSectionSeasonalLocked.
@@ -2482,7 +2482,7 @@ abstract class AppL10n {
   /// No description provided for @questsCompletionCelebration.
   ///
   /// In de, this message translates to:
-  /// **'Neue Hofmöbel freigeschaltet!'**
+  /// **'Neue Hof-Dekoration freigeschaltet!'**
   String get questsCompletionCelebration;
 
   /// No description provided for @hanokCinematicIntro.
@@ -2638,13 +2638,13 @@ abstract class AppL10n {
   /// No description provided for @vocabPackResultCleared.
   ///
   /// In de, this message translates to:
-  /// **'🎉 Pack geklärt!'**
+  /// **'🎉 Pack geschafft!'**
   String get vocabPackResultCleared;
 
   /// No description provided for @vocabPackResultClearedAgain.
   ///
   /// In de, this message translates to:
-  /// **'Bereits geklärt — gut wiederholt!'**
+  /// **'Bereits gemeistert — gut wiederholt!'**
   String get vocabPackResultClearedAgain;
 
   /// No description provided for @vocabPackResultRetry.
@@ -2692,7 +2692,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPackResultGeschafft.
   ///
   /// In de, this message translates to:
-  /// **'Geschafft! Du hast diesen Wortschatz-Pack gemeistert.'**
+  /// **'Geschafft! Du hast diesen Vokabel-Pack gemeistert.'**
   String get vocabPackResultGeschafft;
 
   /// No description provided for @moduleStatsTitle.
@@ -2716,7 +2716,7 @@ abstract class AppL10n {
   /// No description provided for @settingsCloudSignedIn.
   ///
   /// In de, this message translates to:
-  /// **'Eingeloggt: {name}'**
+  /// **'Angemeldet: {name}'**
   String settingsCloudSignedIn(Object name);
 
   /// No description provided for @settingsCloudSignInPrompt.
@@ -2794,7 +2794,7 @@ abstract class AppL10n {
   /// No description provided for @settingsCloudDeleteDataConfirmBody.
   ///
   /// In de, this message translates to:
-  /// **'Dadurch wird das Cloud-Backup für das aktuelle Firebase-Konto gelöscht. Lokale Fortschritte auf diesem Gerät werden nicht gelöscht.'**
+  /// **'Dadurch wird das Cloud-Backup deines Firebase-Kontos gelöscht. Deine lokalen Fortschritte auf diesem Gerät bleiben erhalten.'**
   String get settingsCloudDeleteDataConfirmBody;
 
   /// No description provided for @settingsCloudDeleteDataSuccess.
@@ -2824,7 +2824,7 @@ abstract class AppL10n {
   /// No description provided for @settingsAccountDeleteConfirmBody.
   ///
   /// In de, this message translates to:
-  /// **'Dadurch werden dein Firebase-Konto, die Google-Verknüpfung, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das kann nicht rückgängig gemacht werden. Google kann dich zur Bestätigung erneut anmelden lassen.'**
+  /// **'Dadurch werden dein Firebase-Konto, die Google-Verknüpfung, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google bittet dich zur Bestätigung eventuell um eine erneute Anmeldung.'**
   String get settingsAccountDeleteConfirmBody;
 
   /// No description provided for @settingsAccountDeleteSuccess.
@@ -2848,7 +2848,7 @@ abstract class AppL10n {
   /// No description provided for @settingsAccountDeletionSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Info-URL zur Löschung kopieren'**
+  /// **'Link zur Kontolöschung kopieren'**
   String get settingsAccountDeletionSubtitle;
 
   /// No description provided for @statsGotIt.
@@ -2920,7 +2920,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingPage2Subtitle.
   ///
   /// In de, this message translates to:
-  /// **'Kurz, effektiv und immer erreichbar'**
+  /// **'Kurz, effektiv, immer dabei'**
   String get onboardingPage2Subtitle;
 
   /// No description provided for @onboardingPage3Title.
@@ -2932,7 +2932,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingPage3Subtitle.
   ///
   /// In de, this message translates to:
-  /// **'Je öfter du kommst, desto mehr Belohnungen!'**
+  /// **'Je öfter du lernst, desto mehr Belohnungen!'**
   String get onboardingPage3Subtitle;
 
   /// No description provided for @onboardingPage4Title.
@@ -2968,7 +2968,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Wir fangen bei dir an. Frühere Levels bleiben offen, spätere schaltest du frei.'**
+  /// **'Wir fangen dort an, wo du stehst. Frühere Level bleiben offen, spätere schaltest du frei.'**
   String get onboardingSubtitle;
 
   /// No description provided for @onboardingLevelA1.
@@ -3082,13 +3082,13 @@ abstract class AppL10n {
   /// No description provided for @homeTigerBubbleStart.
   ///
   /// In de, this message translates to:
-  /// **'Sollen wir 5 Minuten lernen? 📖'**
+  /// **'Lust auf 5 Minuten Koreanisch? 📖'**
   String get homeTigerBubbleStart;
 
   /// No description provided for @homeTigerBubbleStreak.
   ///
   /// In de, this message translates to:
-  /// **'Streak hält! Weiter so 🔥'**
+  /// **'Dein Streak hält! Weiter so 🔥'**
   String get homeTigerBubbleStreak;
 
   /// No description provided for @homeTigerBubbleResume.
@@ -3106,7 +3106,7 @@ abstract class AppL10n {
   /// No description provided for @homeHeroActionStart.
   ///
   /// In de, this message translates to:
-  /// **'Neues Wortpaket'**
+  /// **'Neues Pack'**
   String get homeHeroActionStart;
 
   /// No description provided for @homeShieldLabel.
@@ -3154,7 +3154,7 @@ abstract class AppL10n {
   /// No description provided for @scenariosLocked.
   ///
   /// In de, this message translates to:
-  /// **'Erreiche {level} um freizuschalten'**
+  /// **'Erreiche {level}, um freizuschalten'**
   String scenariosLocked(Object level);
 
   /// No description provided for @scenariosLevelBadge.
@@ -3178,13 +3178,13 @@ abstract class AppL10n {
   /// No description provided for @scenariosEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Wir bereiten neue Szenarien mit Sorgfalt vor.'**
+  /// **'Wir arbeiten fleißig an neuen Szenarien.'**
   String get scenariosEmptyBody;
 
   /// No description provided for @scenariosLoadFailedTitle.
   ///
   /// In de, this message translates to:
-  /// **'Hmm, etwas ist schiefgelaufen'**
+  /// **'Hm, da ist etwas schiefgelaufen'**
   String get scenariosLoadFailedTitle;
 
   /// No description provided for @statsFirstEntryTitle.
@@ -3196,7 +3196,7 @@ abstract class AppL10n {
   /// No description provided for @statsFirstEntryBody.
   ///
   /// In de, this message translates to:
-  /// **'Starte ein Szenario — danach füllt sich diese Seite mit deinem Fortschritt.'**
+  /// **'Schließ ein Szenario ab — danach füllt sich diese Seite mit deinem Fortschritt.'**
   String get statsFirstEntryBody;
 
   /// No description provided for @statsFirstEntryCta.
@@ -3238,7 +3238,7 @@ abstract class AppL10n {
   /// No description provided for @moduleScenariosDesc.
   ///
   /// In de, this message translates to:
-  /// **'Lerne wie ein Koreaner lebt — Café, Flughafen, Vorstellung…'**
+  /// **'Lerne, wie Koreaner leben — Café, Flughafen, Vorstellung …'**
   String get moduleScenariosDesc;
 
   /// No description provided for @scenarioIntroTitle.
@@ -3280,7 +3280,7 @@ abstract class AppL10n {
   /// No description provided for @scenarioStartBtn.
   ///
   /// In de, this message translates to:
-  /// **'Los geht\'s'**
+  /// **'Los geht\'s!'**
   String get scenarioStartBtn;
 
   /// No description provided for @scenarioNextBtn.
@@ -3436,7 +3436,7 @@ abstract class AppL10n {
   /// No description provided for @statsNoBadges.
   ///
   /// In de, this message translates to:
-  /// **'Noch keine — schließe Szenarien ab! 🚀'**
+  /// **'Noch keine — schließ ein Szenario ab und hol dir die erste! 🚀'**
   String get statsNoBadges;
 
   /// No description provided for @homeRecommended.
@@ -3460,7 +3460,7 @@ abstract class AppL10n {
   /// No description provided for @homeGreetingLearn.
   ///
   /// In de, this message translates to:
-  /// **'Lerne Koreanisch wie ein Local'**
+  /// **'Lerne Koreanisch wie ein Einheimischer'**
   String get homeGreetingLearn;
 
   /// No description provided for @homeTodaySection.
@@ -3502,7 +3502,7 @@ abstract class AppL10n {
   /// No description provided for @dailyCharSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'1 Min nachzeichnen'**
+  /// **'1 Minute nachzeichnen'**
   String get dailyCharSubtitle;
 
   /// No description provided for @dailyCharDoneToday.
@@ -3568,7 +3568,7 @@ abstract class AppL10n {
   /// No description provided for @listeningSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Hör ein Szenario in echtem Tempo'**
+  /// **'Hör ein Szenario in natürlichem Tempo'**
   String get listeningSubtitle;
 
   /// No description provided for @listeningSelectScenario.
@@ -3658,7 +3658,7 @@ abstract class AppL10n {
   /// No description provided for @listeningPickFirst.
   ///
   /// In de, this message translates to:
-  /// **'Wähle oben ein Szenario aus, um zu starten.'**
+  /// **'Wähl oben ein Szenario, um zu starten.'**
   String get listeningPickFirst;
 
   /// No description provided for @listeningEmptyTitle.
@@ -3670,7 +3670,7 @@ abstract class AppL10n {
   /// No description provided for @listeningEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Sobald neue Szenarien geladen sind, kannst du sie hier anhören.'**
+  /// **'Sobald Szenarien verfügbar sind, kannst du sie hier anhören.'**
   String get listeningEmptyBody;
 
   /// No description provided for @kkeunmariTitle.
@@ -3748,7 +3748,7 @@ abstract class AppL10n {
   /// No description provided for @kkeunmariDeadEnd.
   ///
   /// In de, this message translates to:
-  /// **'한방단어 — die Kette endet hier'**
+  /// **'한방단어 (Sackgasse) — die Kette endet hier'**
   String get kkeunmariDeadEnd;
 
   /// No description provided for @kkeunmariChainLength.
@@ -4066,7 +4066,7 @@ abstract class AppL10n {
   /// No description provided for @wbAutoFillOffline.
   ///
   /// In de, this message translates to:
-  /// **'Auto-Ausfüllen gerade nicht verfügbar — bitte manuell eintragen.'**
+  /// **'Automatisches Ausfüllen gerade nicht möglich — bitte manuell eintragen.'**
   String get wbAutoFillOffline;
 
   /// No description provided for @wbSaveWord.
@@ -4216,13 +4216,13 @@ abstract class AppL10n {
   /// No description provided for @hardWordsTitle.
   ///
   /// In de, this message translates to:
-  /// **'Schwierige Wörter'**
+  /// **'Knifflige Wörter'**
   String get hardWordsTitle;
 
   /// No description provided for @hardWordsSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'{count} Wörter wollen einfach nicht sitzen'**
+  /// **'{count} Wörter, die einfach nicht sitzen wollen'**
   String hardWordsSubtitle(int count);
 
   /// No description provided for @hardWordsEmptyTitle.
@@ -4252,7 +4252,7 @@ abstract class AppL10n {
   /// No description provided for @wbMatchingHint.
   ///
   /// In de, this message translates to:
-  /// **'Tippe ein koreanisches Wort, dann seine Bedeutung.'**
+  /// **'Tippe auf ein koreanisches Wort, dann auf seine Bedeutung.'**
   String get wbMatchingHint;
 
   /// No description provided for @wbMatchingNeedMore.
@@ -4474,7 +4474,7 @@ abstract class AppL10n {
   /// No description provided for @notifStreakSaverBody.
   ///
   /// In de, this message translates to:
-  /// **'Eine kurze Lektion reicht, um dranzubleiben.'**
+  /// **'Eine kurze Runde reicht, um dranzubleiben.'**
   String get notifStreakSaverBody;
 
   /// No description provided for @notifDailyStreakBody.
@@ -4516,7 +4516,7 @@ abstract class AppL10n {
   /// No description provided for @profileGuestDesc.
   ///
   /// In de, this message translates to:
-  /// **'Dein Fortschritt liegt nur auf diesem Gerät. Sichere ihn mit Google, damit er einen Handywechsel übersteht.'**
+  /// **'Dein Fortschritt ist nur auf diesem Gerät gespeichert. Sichere ihn mit Google — so bleibt er auch nach einem Handywechsel erhalten.'**
   String get profileGuestDesc;
 
   /// No description provided for @profileConnectedBadge.
@@ -4570,7 +4570,7 @@ abstract class AppL10n {
   /// No description provided for @accountNudgeBody.
   ///
   /// In de, this message translates to:
-  /// **'Verbinde dich mit Google, damit dein Streak und deine Vokabeln einen Handywechsel überstehen.'**
+  /// **'Verbinde dich mit Google — so überleben dein Streak und deine Vokabeln jeden Handywechsel.'**
   String get accountNudgeBody;
 
   /// No description provided for @accountNudgeConnect.
@@ -4600,7 +4600,7 @@ abstract class AppL10n {
   /// No description provided for @consentBody.
   ///
   /// In de, this message translates to:
-  /// **'Bevor du loslegst — Hangul Sori speichert deinen Lernfortschritt standardmäßig nur auf deinem Gerät. Bitte sieh kurz, wie wir mit deinen Daten umgehen.'**
+  /// **'Bevor du loslegst: Hangul Sori speichert deinen Lernfortschritt zunächst nur auf deinem Gerät. Schau kurz, wie wir mit deinen Daten umgehen.'**
   String get consentBody;
 
   /// No description provided for @consentPrivacyCta.
@@ -4780,13 +4780,13 @@ abstract class AppL10n {
   /// No description provided for @previewPage1Body.
   ///
   /// In de, this message translates to:
-  /// **'Fotografiere dein Lehrbuch oder eine Speisekarte — die Wörter landen direkt in deiner Lernliste.'**
+  /// **'Fotografiere dein Lehrbuch oder eine Speisekarte — die Wörter landen direkt in deiner Wortliste.'**
   String get previewPage1Body;
 
   /// No description provided for @previewPage2Title.
   ///
   /// In de, this message translates to:
-  /// **'Deine Hanok wächst'**
+  /// **'Dein Hanok wächst'**
   String get previewPage2Title;
 
   /// No description provided for @previewPage2Body.
@@ -4834,7 +4834,7 @@ abstract class AppL10n {
   /// No description provided for @hubPracticeStreakZero.
   ///
   /// In de, this message translates to:
-  /// **'Fang heute an!'**
+  /// **'Fang noch heute an!'**
   String get hubPracticeStreakZero;
 
   /// No description provided for @hubWordbookSaved.
@@ -4924,7 +4924,7 @@ abstract class AppL10n {
   /// No description provided for @coachHomeTab2Body.
   ///
   /// In de, this message translates to:
-  /// **'Erreicht gemeinsam mit Freunden eure Ziele'**
+  /// **'Erreicht gemeinsam eure Lernziele'**
   String get coachHomeTab2Body;
 
   /// No description provided for @coachHomeTab3Title.
@@ -4948,7 +4948,7 @@ abstract class AppL10n {
   /// No description provided for @coachHomePathBody.
   ///
   /// In de, this message translates to:
-  /// **'Klär Wortpakete der Reihe nach — der Tiger wächst mit'**
+  /// **'Schließ Packs der Reihe nach ab — der Tiger wächst mit'**
   String get coachHomePathBody;
 
   /// No description provided for @coachHomeBookTitle.
@@ -4962,6 +4962,174 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Foto von deinem Lehrbuch — direkt in die Wortliste'**
   String get coachHomeBookBody;
+
+  /// No description provided for @introSkipHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Überspringen tippen'**
+  String get introSkipHint;
+
+  /// No description provided for @bookCaptureWebNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'📱 „Buchseite einlesen“ funktioniert nur in der mobilen App (Kamera + Texterkennung auf dem Gerät).'**
+  String get bookCaptureWebNotice;
+
+  /// No description provided for @bookshelfCreatePackNameHint.
+  ///
+  /// In de, this message translates to:
+  /// **'z. B. Schritt 1 — Lektion 5'**
+  String get bookshelfCreatePackNameHint;
+
+  /// No description provided for @settingsMadeWith.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit ❤️ in Deutschland gemacht'**
+  String get settingsMadeWith;
+
+  /// No description provided for @coachChosungStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben-Puzzle'**
+  String get coachChosungStep1Title;
+
+  /// No description provided for @coachChosungStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Füll die gepunkteten Felder aus und vervollständige das Wort'**
+  String get coachChosungStep1Body;
+
+  /// No description provided for @coachChosungStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Niveau & Schwierigkeit'**
+  String get coachChosungStep2Title;
+
+  /// No description provided for @coachChosungStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle dein Level (A1–B2) und ob Vokale angezeigt werden'**
+  String get coachChosungStep2Body;
+
+  /// No description provided for @coachChosungStep3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort eingeben'**
+  String get coachChosungStep3Title;
+
+  /// No description provided for @coachChosungStep3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Gib das vollständige koreanische Wort ein und bestätige'**
+  String get coachChosungStep3Body;
+
+  /// No description provided for @coachWordleStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'6 Versuche'**
+  String get coachWordleStep1Title;
+
+  /// No description provided for @coachWordleStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Rate das gesuchte Wort — du hast 6 Versuche'**
+  String get coachWordleStep1Body;
+
+  /// No description provided for @coachWordleStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweise nutzen'**
+  String get coachWordleStep2Title;
+
+  /// No description provided for @coachWordleStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Silbenzahl, Wortart und Bedeutung helfen dir beim Raten'**
+  String get coachWordleStep2Body;
+
+  /// No description provided for @coachWordleStep3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Eingabe & Farben'**
+  String get coachWordleStep3Title;
+
+  /// No description provided for @coachWordleStep3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Eingabe → Enter · 🟩 richtig · 🟨 falsche Position · ⬜ nicht enthalten'**
+  String get coachWordleStep3Body;
+
+  /// No description provided for @coachKkeunmariStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Letzter Buchstabe zählt'**
+  String get coachKkeunmariStep1Title;
+
+  /// No description provided for @coachKkeunmariStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Fang dein Wort mit der hervorgehobenen Endsilbe an'**
+  String get coachKkeunmariStep1Body;
+
+  /// No description provided for @coachKkeunmariStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Zug & Timer'**
+  String get coachKkeunmariStep2Title;
+
+  /// No description provided for @coachKkeunmariStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast 30 Sekunden pro Zug — bringst du den Tiger zum Schweigen?'**
+  String get coachKkeunmariStep2Body;
+
+  /// No description provided for @coachKkeunmariStep3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort eingeben'**
+  String get coachKkeunmariStep3Title;
+
+  /// No description provided for @coachKkeunmariStep3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Gib ein gültiges koreanisches Wort ein — der Tiger antwortet automatisch'**
+  String get coachKkeunmariStep3Body;
+
+  /// No description provided for @coachListeningStep1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Situation wählen'**
+  String get coachListeningStep1Title;
+
+  /// No description provided for @coachListeningStep1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf eine Karte, um die passende Situation auszuwählen'**
+  String get coachListeningStep1Body;
+
+  /// No description provided for @coachListeningStep2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Tempo & Untertitel'**
+  String get coachListeningStep2Title;
+
+  /// No description provided for @coachListeningStep2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Stelle Geschwindigkeit (0,75×–1,25×) und Untertitel-Modus ein'**
+  String get coachListeningStep2Body;
+
+  /// No description provided for @coachListeningStep3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeile für Zeile'**
+  String get coachListeningStep3Title;
+
+  /// No description provided for @coachListeningStep3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile'**
+  String get coachListeningStep3Body;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

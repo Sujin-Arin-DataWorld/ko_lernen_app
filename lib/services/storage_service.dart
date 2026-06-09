@@ -361,6 +361,23 @@ class Storage {
   static Future<void> setTutWordbookSeen() async =>
       _prefs?.setBool('kl_tut_wordbook', true);
 
+  /// 콘텐츠 화면별 사용법 코치마크 — 범용 플래그(`kl_tut_<id>`).
+  /// 화면 id 레지스트리: 오타·resetTutorials 누락 방지(ScreenCoachMixin assert).
+  static const List<String> kScreenCoachIds = [
+    'chosung', 'wordle', 'kkeunmari', 'listening',
+    'hangul', 'grammar', 'smalltalk', 'scenario', 'review',
+    'legacyVocab', 'learningPath',
+    'bookshelf', 'cpEdit', 'cpPlay', 'cpQuiz', 'cpMatching', 'cpTyping',
+    'hardWords', 'dojang',
+    'gye', 'profile', 'stats', 'scenarios',
+  ];
+
+  /// 화면 코치마크 표시됨? `_prefs` 미초기화(테스트/웹) 시 true(미표시·안전).
+  static bool tutSeen(String id) =>
+      _prefs == null ? true : (_prefs!.getBool('kl_tut_$id') ?? false);
+  static Future<void> setTutSeen(String id) async =>
+      _prefs?.setBool('kl_tut_$id', true);
+
   /// 온보딩 3장 미리보기 캐러셀 표시됨? (Stage 2)
   static bool get introPreviewSeen =>
       _prefs?.getBool('kl_intro_preview_seen') ?? false;
@@ -378,6 +395,7 @@ class Storage {
       _sb('kl_intro_preview_seen', false),
       _sb('kl_tut_home_tour', false),
       _sb('kl_tut_wordbook', false),
+      for (final id in kScreenCoachIds) _sb('kl_tut_$id', false),
     ]);
   }
 

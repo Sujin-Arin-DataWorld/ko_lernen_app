@@ -17,6 +17,8 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/wordbook_add.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../l10n/generated/app_localizations.dart';
 
 const List<String> _chosungTable = [
@@ -163,8 +165,45 @@ class ChosungQuizScreen extends StatefulWidget {
   State<ChosungQuizScreen> createState() => _ChosungQuizScreenState();
 }
 
-class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
+class _ChosungQuizScreenState extends State<ChosungQuizScreen>
+    with ScreenCoachMixin<ChosungQuizScreen> {
   static const int _roundSize = 10;
+
+  // ── 코치마크 타겟 ──
+  final GlobalKey _quizCardKey = GlobalKey();
+  final GlobalKey _levelRowKey = GlobalKey();
+  final GlobalKey _inputFieldKey = GlobalKey();
+
+  @override
+  String get coachId => 'chosung';
+
+  @override
+  bool get coachReady => _deck.isNotEmpty;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _quizCardKey,
+        title: t.coachChosungStep1Title,
+        body: t.coachChosungStep1Body,
+        icon: Icons.grid_view_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _levelRowKey,
+        title: t.coachChosungStep2Title,
+        body: t.coachChosungStep2Body,
+        icon: Icons.tune_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _inputFieldKey,
+        title: t.coachChosungStep3Title,
+        body: t.coachChosungStep3Body,
+        icon: Icons.keyboard_rounded,
+      ),
+    ];
+  }
 
   List<Vocab> _deck = [];
   int _idx = 0;
@@ -191,6 +230,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -371,9 +411,9 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Anlaut-Quiz',
-          style: TextStyle(fontWeight: FontWeight.w800),
+        title: Text(
+          AppL10n.of(context).gameChosungTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, size: 20),
@@ -417,6 +457,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
 
                         // ── 레벨 선택 ──────────────────────────────────────────
                         Row(
+                          key: _levelRowKey,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: ['A1', 'A2', 'B1', 'B2'].map((lvl) {
                             final selected = _level == lvl;
@@ -510,11 +551,14 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
                           ),
                         ] else ...[
                           // ── 카드 ─────────────────────────────────────────────
-                          _QuizCard(
-                            word: card.korean,
-                            mode: _mode,
-                            german: card.german,
-                            state: _state,
+                          KeyedSubtree(
+                            key: _quizCardKey,
+                            child: _QuizCard(
+                              word: card.korean,
+                              mode: _mode,
+                              german: card.german,
+                              state: _state,
+                            ),
                           ),
                           const SizedBox(height: 12),
                         ],
@@ -527,6 +571,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen> {
                               return Column(
                                 children: [
                                   TextField(
+                                    key: _inputFieldKey,
                                     controller: _ctrl,
                                     focusNode: _focusNode,
                                     autofocus: true,

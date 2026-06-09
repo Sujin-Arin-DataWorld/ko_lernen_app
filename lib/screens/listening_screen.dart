@@ -15,6 +15,8 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
 
@@ -31,7 +33,8 @@ class ListeningScreen extends StatefulWidget {
   State<ListeningScreen> createState() => _ListeningScreenState();
 }
 
-class _ListeningScreenState extends State<ListeningScreen> {
+class _ListeningScreenState extends State<ListeningScreen>
+    with ScreenCoachMixin<ListeningScreen> {
   List<Scenario> _scenarios = const [];
   Scenario? _selected;
   int _step = 0;
@@ -40,10 +43,47 @@ class _ListeningScreenState extends State<ListeningScreen> {
   _SubMode _subs = _SubMode.both;
   bool _completed = false;
 
+  // ── 코치마크 타겟 ──
+  final GlobalKey _scenarioChipKey = GlobalKey();
+  final GlobalKey _controlsBarKey = GlobalKey();
+  final GlobalKey _lineCardKey = GlobalKey();
+
+  @override
+  String get coachId => 'listening';
+
+  @override
+  bool get coachReady => !_loading && _selected != null;
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _scenarioChipKey,
+        title: t.coachListeningStep1Title,
+        body: t.coachListeningStep1Body,
+        icon: Icons.playlist_play_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _controlsBarKey,
+        title: t.coachListeningStep2Title,
+        body: t.coachListeningStep2Body,
+        icon: Icons.tune_rounded,
+      ),
+      SpotlightStep(
+        targetKey: _lineCardKey,
+        title: t.coachListeningStep3Title,
+        body: t.coachListeningStep3Body,
+        icon: Icons.headphones_rounded,
+      ),
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
     _load();
+    scheduleCoach();
   }
 
   Future<void> _load() async {
@@ -195,6 +235,7 @@ class _ListeningScreenState extends State<ListeningScreen> {
               ),
               const SizedBox(height: Spacing.sm),
               SizedBox(
+                key: _scenarioChipKey,
                 height: 38,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
@@ -219,12 +260,15 @@ class _ListeningScreenState extends State<ListeningScreen> {
 
               // ── 컨트롤 + 자막 토글 ──
               if (_selected != null) ...[
-                _ControlsBar(
-                  rate: _rate,
-                  subs: _subs,
-                  onRate: (r) => setState(() => _rate = r),
-                  onSubs: (m) => setState(() => _subs = m),
-                  t: t,
+                KeyedSubtree(
+                  key: _controlsBarKey,
+                  child: _ControlsBar(
+                    rate: _rate,
+                    subs: _subs,
+                    onRate: (r) => setState(() => _rate = r),
+                    onSubs: (m) => setState(() => _subs = m),
+                    t: t,
+                  ),
                 ),
                 const SizedBox(height: Spacing.md),
 
@@ -237,10 +281,13 @@ class _ListeningScreenState extends State<ListeningScreen> {
                     onClose: () => Navigator.pop(context),
                   )
                 else
-                  _LineCard(
-                    line: _selected!.dialog[_step],
-                    subs: _subs,
-                    onReplay: _speakCurrent,
+                  KeyedSubtree(
+                    key: _lineCardKey,
+                    child: _LineCard(
+                      line: _selected!.dialog[_step],
+                      subs: _subs,
+                      onReplay: _speakCurrent,
+                    ),
                   ),
 
                 const SizedBox(height: Spacing.lg),
