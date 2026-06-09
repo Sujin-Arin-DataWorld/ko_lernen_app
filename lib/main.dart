@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb, kDebugMode;
 import 'package:flutter/services.dart';
 
 import 'theme.dart';
@@ -160,8 +160,15 @@ Future<void> _initFirebase() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     
-    // Pass all uncaught "fatal" errors from the framework to Crashlytics
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    // Pass all uncaught "fatal" errors from the framework to Crashlytics.
+    // In debug, also dump to the console so red-screen errors are diagnosable
+    // (the bare Crashlytics handler otherwise swallows the console stack trace).
+    FlutterError.onError = (details) {
+      if (kDebugMode) {
+        FlutterError.presentError(details);
+      }
+      FirebaseCrashlytics.instance.recordFlutterFatalError(details);
+    };
     // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
     PlatformDispatcher.instance.onError = (error, stack) {
       FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);

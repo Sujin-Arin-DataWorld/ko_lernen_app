@@ -6,7 +6,7 @@ import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/hanok/gate_art.dart';
 import '../widgets/sori/tokens.dart';
 import '../motion/transitions.dart';
-import 'home_screen.dart';
+import 'app_shell.dart';
 import 'onboarding_level_screen.dart';
 import 'consent_screen.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -93,7 +93,7 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     } else if (Storage.userLevelCode == null) {
       next = const OnboardingLevelScreen();
     } else {
-      next = const HomeScreen();
+      next = const AppShell();
     }
     Navigator.of(
       context,

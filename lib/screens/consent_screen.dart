@@ -9,7 +9,7 @@ import '../widgets/sori/responsive.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
-import 'home_screen.dart';
+import 'app_shell.dart';
 import 'onboarding_level_screen.dart';
 import 'onboarding_preview_screen.dart';
 
@@ -38,7 +38,7 @@ class ConsentScreen extends StatelessWidget {
     } else if (Storage.userLevelCode == null) {
       next = const OnboardingLevelScreen();
     } else {
-      next = const HomeScreen();
+      next = const AppShell();
     }
     Navigator.of(
       context,
