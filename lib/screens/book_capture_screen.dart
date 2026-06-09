@@ -56,12 +56,9 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
     // 지원하지 않는다 → 무한 로딩 대신 명확히 안내하고 종료. (모바일 전용 기능)
     if (kIsWeb) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            '📱 „책 한 컷" funktioniert nur in der mobilen App '
-            '(Kamera + On-Device-OCR). · 책 한 컷은 모바일 앱에서만 작동해요.',
-          ),
-          duration: Duration(seconds: 4),
+        SnackBar(
+          content: Text(l10n.bookCaptureWebNotice),
+          duration: const Duration(seconds: 4),
         ),
       );
       return;

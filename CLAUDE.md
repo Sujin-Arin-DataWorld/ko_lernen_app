@@ -96,8 +96,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - `hanok_tokens.dart` — 한옥 전용 색상 (단청 4색)
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` (v6). **자산은 `assets/illustrations/mascot/`에 분리된 포즈 PNG**: 호랑이 5(idle/blink/happy/celebrate/sad) + 까치 4(perched/wingup/wingdown/celebrate). emotion → 포즈 매핑 (celebrate/worry/sleepy/surprised/thinking/neutral/smile). `tiger_thinking`/`tiger_sleepy`/`tiger_neutral`/`magpie_worry`는 Jin이 추후 추가하면 자동 사용, 미존재 시 errorBuilder fallback.
-- `tiger_stage.dart` — **살아있는 호랑이 프레임 애니메이션** (홈 상단 밴드, 2026-06-03). 상태머신 INTRO(launch당 1회)→FRONT_IDLE↔PACING(좌우 there-and-back, 중앙 복귀)/SIT + ambient 스케줄러(5–10s). 토큰 가드 재귀 Future 시퀀서 + 150ms 크로스디졸브(걷기는 하드컷) + reduce-motion 정지 프레임 + 프레임 누락 시 `Mascot.tiger` fallback + 백그라운드 일시정지. 자산 `assets/illustrations/tiger_anim/`(풀바디 35장). **기존 `mascot.dart`(흉상 아바타)와 별개 시스템**. 전체 스펙: `docs/TIGER_ANIMATION_SPEC.md`. **홈은 직접 쓰지 않고 `tiger_stage_rive.dart`를 통해 폴백으로만 사용.**
-- `tiger_stage_rive.dart` — **Rive 리깅 호랑이 래퍼**(부드러운 sit→인사→pacing 목표). `assets/rive/tiger.riv` + `RiveNative.init()` 성공(`riveReady`) 시 Rive 재생, 그 외(미초기화·파일 없음·로드 실패·reduce-motion) `TigerStage`(프레임)로 자동 폴백. rive 0.14 API(`RiveWidgetBuilder`/`FileLoader.fromAsset`/`Factory.flutter`/`RiveWidget(fit:contain)`). **`tiger.riv` 리그는 미제작(GUI 작업) — 제작 명세 `docs/TIGER_RIVE_RIG_SPEC.md`.** 홈 `_TigerHero`가 이걸 사용.
+- `tiger_stage.dart` — **살아있는 호랑이 프레임 애니메이션** (홈 상단 밴드, 2026-06-03). 상태머신 INTRO(launch당 1회)→FRONT_IDLE↔PACING(좌우 there-and-back, 중앙 복귀)/SIT + ambient 스케줄러(5–10s). 토큰 가드 재귀 Future 시퀀서 + 150ms 크로스디졸브(걷기는 하드컷) + reduce-motion 정지 프레임 + 프레임 누락 시 `Mascot.tiger` fallback + 백그라운드 일시정지. 자산 `assets/illustrations/tiger_anim/`(풀바디 44장). **기존 `mascot.dart`(흉상 아바타)와 별개 시스템**. 전체 스펙(생성 프롬프트·상태머신·타이밍·4다리 보행·프레임↔코드 통합): `docs/TIGER_FULL_REMAKE_MASTER.md`. **홈은 직접 쓰지 않고 `tiger_stage_rive.dart`를 통해 폴백으로만 사용.**
+- `tiger_stage_rive.dart` — **Rive 리깅 호랑이 래퍼**(부드러운 sit→인사→pacing 목표). `assets/rive/tiger.riv` + `RiveNative.init()` 성공(`riveReady`) 시 Rive 재생, 그 외(미초기화·파일 없음·로드 실패·reduce-motion) `TigerStage`(프레임)로 자동 폴백. rive 0.14 API(`RiveWidgetBuilder`/`FileLoader.fromAsset`/`Factory.flutter`/`RiveWidget(fit:contain)`). **`tiger.riv` 리그는 미제작(Rive 경로 보류) — 프레임 폴백으로 동작.** 호랑이 전체 스펙은 `docs/TIGER_FULL_REMAKE_MASTER.md`. 홈 `_TigerHero`가 이걸 사용.
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
 - `hanok/` — 한옥 장식 위젯 (단청 divider, 기와 패턴, 처마, 창살, 마당 배경)
 - `motion.dart` — `SoriEntrance` (진입 fade+slide+scale), `SoriKenBurns` (배경 느린 줌). **`SoriMotion.reduceMotion(context)` 헬퍼** — `MediaQuery.disableAnimations` 시 정적 fallback.
@@ -137,7 +137,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/illustrations/mascot/` — 분리 포즈 PNG (Mascot 위젯 소스, 11종):
   - 호랑이 7: `idle`, `blink`, `happy`, `celebrate`, `sad`, `neutral` (← tigerbasic1 복원), `smile` (← tiger_smile 복원)
   - 까치 5: `perched`, `wingup`, `wingdown`, `celebrate`, `perched_alt` (← v2 복원, fallback 다양성용)
-- `assets/illustrations/tiger_anim/` — **풀바디 호랑이 애니메이션 프레임 44장** (`TigerStage` 소스). intro 9 + idle 4 + 좌 pacing 10 + 우 pacing 11 + thinking 1 + **ambient special 9(stretch 3·roar 6, 2026-06-03 "누락이미지" 드롭)**. 1254² 정사각·투명·Faceted Minhwa. 매핑·시퀀스·타이밍은 `docs/TIGER_ANIMATION_SPEC.md`.
+- `assets/illustrations/tiger_anim/` — **풀바디 호랑이 애니메이션 프레임 44장** (`TigerStage` 소스). intro 9 + idle 4 + 좌 pacing 10 + 우 pacing 11 + thinking 1 + **ambient special 9(stretch 3·roar 6, 2026-06-03 "누락이미지" 드롭)**. 1254² 정사각·투명·Faceted Minhwa. 매핑·시퀀스·타이밍·생성 프롬프트·4다리 보행은 `docs/TIGER_FULL_REMAKE_MASTER.md`.
 - `assets/illustrations/gye/` — **계(공동 한옥) 요소 8** (haenglangchae·byeoldang·jeongja·pond_large·garden·bridge·jangmyeongdeung_pair·gate_grand). 2026-06-03 드롭. **현재 코드 consumer 없음** — "계" 공동 마당 기능 제작 시 합성용. 명세 jongga-assets §6.
 - `assets/illustrations/book/` — **책 한 컷 UI 일러스트 5, 전부 연결**(2026-06-03): empty_shelf→책장 빈 상태, camera_guide→book_capture idle, analyzing→book_result 로딩(`AppLoading.asset`), success→book_result 성공, error→book_result 에러(`AppError.asset`). 모두 errorBuilder→마스코트 fallback. 명세 §7.
 - `assets/illustrations/scenes/` — 시나리오 backdrop 5종 (Jin 작업)
@@ -313,6 +313,28 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-09 (독일어·영어 현지화 딥다이브 — UI·콘텐츠·시나리오 네이티브 패스) — 미커밋
+
+**범위:** Jin "내부테스트 전 완성, 특히 독일어 현지화 — 진짜 독일/영어권 뉘앙스로 구현됐는지 딥다이브 더블크로스체크 + 적극 개선." 전 표면 적용 + 뉘앙스 적극 격상 확정. SSoT: `docs/LOCALIZATION_DEEP_DIVE_2026-06-09.md`.
+
+**방법:** Opus가 양 언어 네이티브 판정·편집. Sonnet 서브에이전트 6개로 1차 플래그(ARB 2렌즈·시나리오 DE/EN·vocab·grammar) → Opus 어드주디케이트(에이전트 후한 판정·오판·환각 걸러냄).
+
+**Update:**
+- **UI ARB ~115문자열**(`app_de`+`app_en`.arb): DE/EN 의미불일치(`reviewTitle` "Heute lernen"→"wiederholen", EN "Today's review" 일치), 성별버그(`previewPage2Title` "Deine"→"Dein Hanok"), 복합어(`statsWordleWins`→"Wordle-Siege"), 비네이티브 영어(`welcomeMsg` "All the best today"→"You've got this today" 등), gye(Pakete→Packs·du fehlst uns)/book(knipsen→fotografieren)/onboarding/consent 뉘앙스 격상. parity 839=839, gen-l10n OK.
+- **독일어 학습 콘텐츠 48건**: `grammar.csv` 34(종속절·관계절·um-zu·sondern/aber 쉼표, zuhause→zu Hause) + `korean_vocab.csv` 14(답변/호격 쉼표 "Ja, das stimmt"·"Ich liebe dich, Papa"). 쉼표 필드 RFC 따옴표 처리 → CSV 열수 무결(14/11, 0불량).
+- **시나리오 독일어 13건**(`scenarios.json`): "Ich mich auch"→"Freut mich ebenfalls", **"unbeleidigt"(비단어)→"verletzt"**, "dieses Phrase"→"diese", Sprite→Limo(사이다), 회식 du→Sie, business "먼 길 오셨네요" 복원 등. JSON 검증.
+- **하드코딩 l10n 갭**: 신규 4키(`bookCaptureWebNotice`·`introSkipHint`·`bookshelfCreatePackNameHint`·`settingsMadeWith`) + 6화면 배선(book_capture 웹안내·intro skip·chosung 타이틀→`gameChosungTitle`·bookshelf 힌트·settings footer; intro_gate AppL10n import 추가). analyze(6화면) 0.
+
+**§0 발견:**
+- ⚠️ **영어 시나리오 리뷰 서브에이전트가 대사를 환각**(파일에 없는 라인 verbatim 인용 — "room key"/"Kakao Taxi" 등 grep 0) → count==1 가드로 전부 차단, 미적용. **영어 시나리오 대사 자연화는 신뢰 리뷰 후 후속**(독일어 시나리오 에이전트는 전부 정확 매칭).
+- ⚠️ **Phase 4(영어 학습 콘텐츠)는 동시 세션이 이미 완료** — `vocab.csv`(english/pos_en/example_english)·`grammar.csv`(type_en 등)·`models/vocab|grammar.dart` `meaning(lang)` helper 존재 확인 → **중복 회피, 미손댐**.
+
+**검증:** ARB parity 839=839 · gen-l10n OK · analyze(touched 6화면) 0 · CSV 14/11열 0불량 · scenarios/JSON valid · **17/17 대표 변경 잔존 재확인(동시 세션 클로버 없음)**. ⚠️ 미검증: 실기기 시각·DE/EN 토글 양 언어 스팟체크 = Jin.
+
+**동시 세션 주의:** vocab/grammar/models/tiger_anim/screens/CLAUDE.md 동시 편집 활발 — 내 변경은 독립 표면(German example 컬럼·ARB 값·시나리오 DE·l10n 갭)만 손댐. 커밋 시 Jin 분리 검토 권장.
+
+**Git:** 미커밋 (Jin 확인 후).
 
 ### 2026-06-09 (듀오링고급 IA 재설계 + 스포트라이트 코치마크 + 온보딩 프리뷰) — 커밋·푸시 완료
 

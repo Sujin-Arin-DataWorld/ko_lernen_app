@@ -564,7 +564,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ListTile(
             leading: const Icon(Icons.info_outline),
             title: Text(t.settingsVersion(_appVersion())),
-            subtitle: const Text('Made with ❤️ in Germany'),
+            subtitle: Text(t.settingsMadeWith),
           ),
           ListTile(
             leading: const Icon(Icons.privacy_tip_outlined),

@@ -9,6 +9,7 @@ import '../motion/transitions.dart';
 import 'home_screen.dart';
 import 'onboarding_level_screen.dart';
 import 'consent_screen.dart';
+import '../l10n/generated/app_localizations.dart';
 
 const _courtyardAsset = 'assets/illustrations/hanok/gate_final.png';
 const _gateFrameCanvas = Size(941, 1672);
@@ -213,10 +214,10 @@ class _IntroGateScreenState extends State<IntroGateScreen>
             right: 0,
             child: Opacity(
               opacity: skipO,
-              child: const Text(
-                'Tippen zum Überspringen',
+              child: Text(
+                AppL10n.of(context).introSkipHint,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Pretendard',
                   fontSize: 12,
                   color: HanokColors.hwangtoDark,

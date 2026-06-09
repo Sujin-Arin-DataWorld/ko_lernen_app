@@ -532,7 +532,7 @@
     {
      "speaker": "user",
      "ko": "저도요. 잘 부탁드립니다.",
-     "de": "Ich mich auch. Bitte um Ihre Unterstützung.",
+     "de": "Freut mich ebenfalls. Bitte um Ihre Unterstützung.",
      "en": "Likewise. I look forward to your guidance."
     }
    ],
@@ -628,7 +628,7 @@
     },
     "body": {
      "ko": "",
-     "de": "Wörtlich 'bitte behandelt mich gut' — kein 1:1 Äquivalent. Du sagst es bei Vorstellungen, neuen Jobs, Bitten, manchmal sogar in E-Mails. Spiegelt die koreanische Beziehungskultur: 'Wir sind jetzt verbunden, lass uns gut miteinander umgehen.' Klingt vielleicht übertrieben — aber lass es NICHT weg. Ohne dieses Phrase fehlt etwas.",
+     "de": "Wörtlich 'bitte behandelt mich gut' — kein 1:1 Äquivalent. Du sagst es bei Vorstellungen, neuen Jobs, Bitten, manchmal sogar in E-Mails. Spiegelt die koreanische Beziehungskultur: 'Wir sind jetzt verbunden, lass uns gut miteinander umgehen.' Klingt vielleicht übertrieben — aber lass es NICHT weg. Ohne diese Phrase fehlt etwas.",
      "en": "Literally 'please treat me well' — no English equivalent. Said at intros, new jobs, requests, even in emails sometimes. Reflects Korean relational culture: 'We're connected now, let's be good to each other.' Might feel excessive — but don't skip it. Without it, something feels missing."
     }
    }
@@ -1339,7 +1339,7 @@
     {
      "speaker": "user",
      "ko": "사이다 한 캔이요.",
-     "de": "Eine Dose Sprite.",
+     "de": "Eine Dose Limo.",
      "en": "One can of Sprite."
     }
    ],
@@ -1714,7 +1714,7 @@
     {
      "speaker": "minsu",
      "ko": "1차 끝났는데, 2차 가실 거죠?",
-     "de": "Erste Runde ist vorbei, du kommst zur zweiten, oder?",
+     "de": "Die erste Runde ist vorbei — Sie kommen doch zur zweiten, oder?",
      "en": "First round's done, you'll join the second, right?"
     },
     {
@@ -1726,7 +1726,7 @@
     {
      "speaker": "minsu",
      "ko": "아, 그래요? 한 잔만 더 하시죠.",
-     "de": "Ach so? Komm, nur noch ein Drink.",
+     "de": "Ach so? Kommen Sie, noch einen Drink.",
      "en": "Oh really? Just one more drink."
     },
     {
@@ -1818,7 +1818,7 @@
     },
     "body": {
      "ko": "",
-     "de": "Direktes 'Nein, kann nicht' wirkt unhöflich. Sichere Formel: (1) '죄송하지만' (Entschuldigung-Puffer) + (2) Grund mit 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (Versprechen für Zukunft). Selbst wenn der Grund leicht erfunden ist — die Form zählt mehr als die Wahrheit. Direktheit unbeleidigt das Gesicht des Einladenden.",
+     "de": "Direktes 'Nein, kann nicht' wirkt unhöflich. Sichere Formel: (1) '죄송하지만' (Entschuldigung-Puffer) + (2) Grund mit 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (Versprechen für Zukunft). Selbst wenn der Grund leicht erfunden ist — die Form zählt mehr als die Wahrheit. Direktheit verletzt das Gesicht des Einladenden.",
      "en": "Blunt 'No, can't' feels rude. Safe formula: (1) '죄송하지만' (apology buffer) + (2) reason ending in 서/아서 (피곤해서, 약속이 있어서) + (3) '다음에 꼭 갈게요' (promise for future). Even if reason is a polite fiction — form matters more than truth. Directness wounds the inviter's face."
     }
    }
@@ -1919,7 +1919,7 @@
     {
      "speaker": "jieun",
      "ko": "네, 확인해드릴게요... 2박 맞으세요?",
-     "de": "Klar, ich prüfe... 2 Nächte, korrekt?",
+     "de": "Selbstverständlich, ich schaue kurz nach … Zwei Nächte, stimmt das?",
      "en": "Sure, let me check... 2 nights, correct?"
     },
     {
@@ -1931,7 +1931,7 @@
     {
      "speaker": "jieun",
      "ko": "영수증에 적어드렸어요. 조식은 7시부터 10시까지예요.",
-     "de": "Hab's auf die Quittung geschrieben. Frühstück von 7 bis 10 Uhr.",
+     "de": "Ich habe es auf den Beleg geschrieben. Frühstück von 7 bis 10 Uhr.",
      "en": "I've written it on the receipt. Breakfast is from 7 to 10 AM."
     },
     {
@@ -2369,7 +2369,7 @@
         "en": "Paying by card?"
        },
        {
-        "de": "Brauchen Sie eine Anweisung?",
+        "de": "Brauchen Sie eine Erklärung dazu?",
         "en": "Do you need instructions?"
        }
       ],
@@ -2737,7 +2737,7 @@
     {
      "speaker": "minsu",
      "ko": "어서 오세요. 먼 길 오셨네요. 저는 민수라고 합니다. 프로젝트 총괄 담당입니다.",
-     "de": "Herzlich willkommen. Schön, dass Sie gekommen sind. Ich bin Minsu — ich bin der Gesamtverantwortliche für das Projekt.",
+     "de": "Herzlich willkommen. Vielen Dank, dass Sie den weiten Weg auf sich genommen haben. Ich bin Minsu — ich bin der Gesamtverantwortliche für das Projekt.",
      "en": "Welcome. Glad you could make it. I'm Minsu — I'm the overall project lead on our side."
     },
     {
@@ -4137,7 +4137,7 @@
     {
      "speaker": "yuna",
      "ko": "그래, 목요일 좋아. 꼭 지켜줘 이번엔~",
-     "de": "Okay, Donnerstag passt. Aber diesmal nicht kneifen, yeah~",
+     "de": "Okay, Donnerstag passt. Aber diesmal nicht kneifen, ne?~",
      "en": "Okay, Thursday works. But don't bail on me this time~"
     },
     {
@@ -5941,7 +5941,7 @@
     {
      "speaker": "user",
      "ko": "귀사에서 성장할 수 있다고 생각합니다.",
-     "de": "Ich glaube, bei Ihnen kann ich wachsen.",
+     "de": "Ich glaube, ich kann mich bei Ihnen weiterentwickeln.",
      "en": "I believe I can grow at your company."
     }
    ],
@@ -6629,7 +6629,7 @@
    "title": {
     "ko": "친구 생일 축하하기",
     "de": "Einem Freund zum Geburtstag gratulieren",
-    "en": "Wishing a friend happy birthday"
+    "en": "Wishing a friend a happy birthday"
    },
    "intro": {
     "ko": "",

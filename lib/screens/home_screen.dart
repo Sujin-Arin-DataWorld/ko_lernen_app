@@ -1629,85 +1629,88 @@ class _CourseCard extends StatelessWidget {
       accent: SoriColors.tiger,
       tinted: true,
       onTap: onTap,
-      child: Row(
-        children: [
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              color: SoriColors.tiger.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 68),
+        child: Row(
+          children: [
+            Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                color: SoriColors.tiger.withValues(alpha: 0.18),
+                borderRadius: BorderRadius.circular(SoriRadius.md),
+              ),
+              alignment: Alignment.center,
+              child: const Icon(Icons.auto_awesome_rounded,
+                  color: SoriColors.tiger, size: 26),
             ),
-            alignment: Alignment.center,
-            child: const Icon(Icons.auto_awesome_rounded,
-                color: SoriColors.tiger, size: 26),
-          ),
-          const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        t.homeCourseTitle,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w900,
-                          color: s.text,
-                          letterSpacing: -0.3,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    if (!isPro) ...[
-                      const SizedBox(width: 6),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(
-                          color: SoriColors.gold,
-                          borderRadius: BorderRadius.circular(SoriRadius.pill),
-                        ),
-                        child: const Text(
-                          'PRO',
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          t.homeCourseTitle,
                           style: TextStyle(
                             fontFamily: 'Pretendard',
-                            color: Colors.white,
-                            fontSize: 9,
+                            fontSize: 16,
                             fontWeight: FontWeight.w900,
-                            letterSpacing: 0.5,
+                            color: s.text,
+                            letterSpacing: -0.3,
                           ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
+                      if (!isPro) ...[
+                        const SizedBox(width: 6),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: SoriColors.gold,
+                            borderRadius: BorderRadius.circular(SoriRadius.pill),
+                          ),
+                          child: const Text(
+                            'PRO',
+                            style: TextStyle(
+                              fontFamily: 'Pretendard',
+                              color: Colors.white,
+                              fontSize: 9,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
-                ),
-                const SizedBox(height: 3),
-                Text(
-                  t.homeCourseDesc,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 11.5,
-                    color: s.textMuted,
-                    fontWeight: FontWeight.w600,
-                    height: 1.3,
                   ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+                  const SizedBox(height: 3),
+                  Text(
+                    t.homeCourseDesc,
+                    style: TextStyle(
+                      fontFamily: 'Pretendard',
+                      fontSize: 11.5,
+                      color: s.textMuted,
+                      fontWeight: FontWeight.w600,
+                      height: 1.3,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Icon(
-            isPro ? Icons.chevron_right_rounded : Icons.lock_outline_rounded,
-            color: SoriColors.tiger.withValues(alpha: 0.8),
-          ),
-        ],
+            Icon(
+              isPro ? Icons.chevron_right_rounded : Icons.lock_outline_rounded,
+              color: SoriColors.tiger.withValues(alpha: 0.8),
+            ),
+          ],
+        ),
       ),
     );
   }

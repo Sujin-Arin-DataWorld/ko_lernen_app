@@ -77,7 +77,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
           autofocus: true,
           decoration: InputDecoration(
             labelText: t.bookshelfCreatePackName,
-            hintText: 'Schritte 1 — Lektion 5',
+            hintText: t.bookshelfCreatePackNameHint,
           ),
         ),
         actions: [

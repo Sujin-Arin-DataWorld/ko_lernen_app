@@ -396,22 +396,9 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                   ),
                 ),
               ),
-              // (2) 단청 도장 = 중앙 주인공(보상), 마스코트 뒤.
-              Opacity(
-                opacity: _stampIn.value.clamp(0.0, 1.0),
-                child: Transform.scale(
-                  scale: (0.6 + 0.4 * _stampIn.value).clamp(0.0, 1.3),
-                  child: DancheongStamp(
-                    motif: widget.motif,
-                    size: 118,
-                    animate: false,
-                    stamped: true,
-                  ),
-                ),
-              ),
-              // (3) 호랑이 — 중앙 왼쪽, 도장을 향해, 바닥에 grounding.
+              // (3) 호랑이 — 왼쪽 바깥, 도장을 향해, 바닥에 grounding. (더 옆으로)
               Positioned(
-                left: 14,
+                left: -8,
                 bottom: 8,
                 child: Opacity(
                   opacity: _tigerIn.value.clamp(0.0, 1.0),
@@ -421,15 +408,15 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                     child: const Mascot(
                       kind: MascotKind.tiger,
                       emotion: MascotEmotion.celebrate,
-                      size: 104,
+                      size: 96,
                       animate: true,
                     ),
                   ),
                 ),
               ),
-              // (4) 까치 — 중앙 오른쪽, 살짝 띄워서, 약간 늦게.
+              // (4) 까치 — 오른쪽 바깥, 살짝 띄워서, 약간 늦게. (더 옆으로)
               Positioned(
-                right: 12,
+                right: -8,
                 top: 6,
                 child: Opacity(
                   opacity: _magpieIn.value.clamp(0.0, 1.0),
@@ -439,9 +426,22 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                     child: const Mascot(
                       kind: MascotKind.magpie,
                       emotion: MascotEmotion.celebrate,
-                      size: 80,
+                      size: 72,
                       animate: true,
                     ),
+                  ),
+                ),
+              ),
+              // (2) 단청 도장 = 중앙 주인공(보상), 마스코트 위에 앞에 배치.
+              Opacity(
+                opacity: _stampIn.value.clamp(0.0, 1.0),
+                child: Transform.scale(
+                  scale: (0.6 + 0.4 * _stampIn.value).clamp(0.0, 1.3),
+                  child: DancheongStamp(
+                    motif: widget.motif,
+                    size: 118,
+                    animate: false,
+                    stamped: true,
                   ),
                 ),
               ),
