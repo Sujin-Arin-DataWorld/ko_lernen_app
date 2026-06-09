@@ -14,6 +14,7 @@ import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
 import '../services/smalltalk_loader.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/lesson_recommender_service.dart';
 import '../services/review_deck_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/notification_service.dart';
@@ -52,7 +53,13 @@ import '../widgets/sori/tokens.dart';
 ///   5. "다음 한 발" hero CTA (1개 시나리오 추천)
 ///   6. Modules + Games → horizontal scroll secondary
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  /// AppShell이 스포트라이트 투어 타겟으로 전달하는 학습경로 섹션 키.
+  /// null이면 KeyedSubtree 래핑 없이 그냥 렌더 (독립 실행 등).
+  final GlobalKey? pathTourKey;
+
+  // Stage B 예약: final GlobalKey? bookTourKey;
+
+  const HomeScreen({super.key, this.pathTourKey});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -71,6 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
   // E1a. Lernpfad 홈 임베드 — 현재 레벨 단어팩 노드 리스트.
   List<({VocabPack pack, PackProgress progress})> _pathNodes = [];
   String? _nowPackId;
+
+  // Phase E — 호랑이 hero의 "다음 한 가지" 추천(경로 now 노드와 동일 팩).
+  LessonPath? _recommendation;
 
   // Phase 3 (stately-rising-jongga) — Hanok-Cinematic gating.
   HanokStage? _pendingCinematicStage;
@@ -110,12 +120,16 @@ class _HomeScreenState extends State<HomeScreen> {
         nodes = view; // 계속 갱신 — 다 클리어 시 마지막 레벨로 남음
       }
 
+      // Phase E — hero CTA용 추천(경로 now 노드와 동일 알고리즘).
+      final rec = await LessonRecommenderService.getNextLesson();
+
       if (!mounted) {
         return;
       }
       setState(() {
         _pathNodes = nodes;
         _nowPackId = nowId;
+        _recommendation = rec;
       });
     } catch (_) {
       // best-effort — 로드 실패 시 _pathNodes 빈 상태 유지 → _PathCard fallback
@@ -262,6 +276,34 @@ class _HomeScreenState extends State<HomeScreen> {
     return t.homeTigerBubbleResume;
   }
 
+  /// Phase E — hero subline. 추천이 있으면 "▶ {행동} · {팩 이름}",
+  /// 없으면(전부 클리어/로드 전) 기본 학습 카피.
+  String _heroSubline(AppL10n t, String lang) {
+    final rec = _recommendation;
+    if (rec == null) {
+      return t.homeGreetingLearn;
+    }
+    final action = rec.kind == LessonKind.continueLearning
+        ? t.homeHeroActionContinue
+        : t.homeHeroActionStart;
+    final label = VocabPackService.displayLabel(rec.packId, lang: lang);
+    return '▶ $action · $label';
+  }
+
+  /// Phase E — hero 탭. 추천 팩으로 직행(없으면 단어팩 그리드).
+  Future<void> _onHeroTap() async {
+    final rec = _recommendation;
+    if (rec != null) {
+      await Navigator.pushNamed(context, '/vocab/pack', arguments: rec.packId);
+    } else {
+      await Navigator.pushNamed(context, '/vocab');
+    }
+    if (mounted) {
+      await _loadToday();
+      await _loadPath();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -350,8 +392,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: _TigerHero(
                         greeting: _greeting(t),
                         bubble: _tigerBubble(t),
-                        subline: t.homeGreetingLearn,
+                        subline: _heroSubline(t, lang),
                         phase: _phase,
+                        onTap: _onHeroTap,
                       ),
                     ),
                     const SizedBox(height: Spacing.lg),
@@ -373,7 +416,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: Spacing.md),
 
                     // ── E1a. Lernpfad — 학습 경로(홈 중심·F1, Today 위로 승격) ──
-                    _SectionLabel(label: t.pathTitle),
+                    widget.pathTourKey != null
+                        ? KeyedSubtree(
+                            key: widget.pathTourKey!,
+                            child: _SectionLabel(label: t.pathTitle),
+                          )
+                        : _SectionLabel(label: t.pathTitle),
                     const SizedBox(height: Spacing.sm),
                     if (_pathNodes.isEmpty)
                       SoriEntrance(
@@ -738,11 +786,16 @@ class _TigerHero extends StatelessWidget {
   final String bubble;
   final String subline;
   final _DayPhase phase;
+
+  /// Phase E — hero 탭 시 추천 팩으로 직행(있으면). null = 비탭.
+  final VoidCallback? onTap;
+
   const _TigerHero({
     required this.greeting,
     required this.bubble,
     required this.subline,
     required this.phase,
+    this.onTap,
   });
 
   MascotEmotion get _emotion {
@@ -770,7 +823,7 @@ class _TigerHero extends StatelessWidget {
         final double bandHeight = veryNarrow ? 150.0 : 168.0;
         final double bubbleMax = (w * 0.62).clamp(140.0, 260.0);
 
-        return Column(
+        final hero = Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -787,14 +840,16 @@ class _TigerHero extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 4),
+            // 추천이 있으면(onTap != null) subline 을 primary CTA 로 강조.
             Text(
               subline,
               style: TextStyle(
                 fontFamily: 'Pretendard',
-                fontSize: 12,
-                color: s.textMuted,
+                fontSize: onTap != null ? 13 : 12,
+                color: onTap != null ? SoriColors.primary : s.textMuted,
                 height: 1.4,
-                fontWeight: FontWeight.w500,
+                fontWeight: onTap != null ? FontWeight.w800 : FontWeight.w500,
+                letterSpacing: onTap != null ? -0.2 : 0,
               ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
@@ -822,6 +877,20 @@ class _TigerHero extends StatelessWidget {
               ),
             ),
           ],
+        );
+
+        if (onTap == null) {
+          return hero;
+        }
+        // hero 전체를 추천 팩으로 가는 탭 타깃으로(Duo식 "큰 캐릭터 + 한 행동").
+        return Semantics(
+          button: true,
+          label: subline,
+          child: GestureDetector(
+            onTap: onTap,
+            behavior: HitTestBehavior.opaque,
+            child: hero,
+          ),
         );
       },
     );

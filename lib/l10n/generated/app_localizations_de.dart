@@ -1632,6 +1632,12 @@ class AppL10nDe extends AppL10n {
   String get homeTigerBubbleResume => 'Willkommen zurück!';
 
   @override
+  String get homeHeroActionContinue => 'Weiterlernen';
+
+  @override
+  String get homeHeroActionStart => 'Neues Wortpaket';
+
+  @override
   String get homeShieldLabel => 'Schild';
 
   @override
@@ -2618,4 +2624,51 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsTutorialResetDone => 'Einführung zurückgesetzt';
+
+  @override
+  String get navTourNext => 'Weiter';
+
+  @override
+  String get navTourSkip => 'Überspringen';
+
+  @override
+  String get navTourDone => 'Fertig';
+
+  @override
+  String get coachHomeTab0Title => 'Start';
+
+  @override
+  String get coachHomeTab0Body => 'Lernpfad & heutige Aufgaben an einem Ort';
+
+  @override
+  String get coachHomeTab1Title => 'Üben';
+
+  @override
+  String get coachHomeTab1Body => 'Spiele, Wörter & Grammatik zum Wiederholen';
+
+  @override
+  String get coachHomeTab2Title => 'Gye';
+
+  @override
+  String get coachHomeTab2Body => 'Erreicht gemeinsam mit Freunden eure Ziele';
+
+  @override
+  String get coachHomeTab3Title => 'Profil';
+
+  @override
+  String get coachHomeTab3Body => 'Statistiken, Einstellungen & Konto';
+
+  @override
+  String get coachHomePathTitle => 'Lernpfad';
+
+  @override
+  String get coachHomePathBody =>
+      'Klär Wortpakete der Reihe nach — der Tiger wächst mit';
+
+  @override
+  String get coachHomeBookTitle => 'Buchschnappschuss';
+
+  @override
+  String get coachHomeBookBody =>
+      'Foto von deinem Lehrbuch — direkt in die Wortliste';
 }

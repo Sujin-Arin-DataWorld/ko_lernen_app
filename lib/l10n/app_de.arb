@@ -625,6 +625,8 @@
   "homeTigerBubbleStart": "Sollen wir 5 Minuten lernen? 📖",
   "homeTigerBubbleStreak": "Streak hält! Weiter so 🔥",
   "homeTigerBubbleResume": "Willkommen zurück!",
+  "homeHeroActionContinue": "Weiterlernen",
+  "homeHeroActionStart": "Neues Wortpaket",
   "homeShieldLabel": "Schild",
   "homePathSection": "Dein Pfad",
   "homePathLocked": "Verschlossen",
@@ -1001,5 +1003,22 @@
   "settingsTutorialResetSection": "Einführung",
   "settingsTutorialResetTitle": "Einführung zurücksetzen",
   "settingsTutorialResetSubtitle": "Karussell & Tipp-Hinweise beim nächsten Start neu anzeigen",
-  "settingsTutorialResetDone": "Einführung zurückgesetzt"
+  "settingsTutorialResetDone": "Einführung zurückgesetzt",
+
+  "@_spotlight_coach": { "description": "Stage A — Spotlight-Coach-Marken (홈 투어 + BottomNav)." },
+  "navTourNext": "Weiter",
+  "navTourSkip": "Überspringen",
+  "navTourDone": "Fertig",
+  "coachHomeTab0Title": "Start",
+  "coachHomeTab0Body": "Lernpfad & heutige Aufgaben an einem Ort",
+  "coachHomeTab1Title": "Üben",
+  "coachHomeTab1Body": "Spiele, Wörter & Grammatik zum Wiederholen",
+  "coachHomeTab2Title": "Gye",
+  "coachHomeTab2Body": "Erreicht gemeinsam mit Freunden eure Ziele",
+  "coachHomeTab3Title": "Profil",
+  "coachHomeTab3Body": "Statistiken, Einstellungen & Konto",
+  "coachHomePathTitle": "Lernpfad",
+  "coachHomePathBody": "Klär Wortpakete der Reihe nach — der Tiger wächst mit",
+  "coachHomeBookTitle": "Buchschnappschuss",
+  "coachHomeBookBody": "Foto von deinem Lehrbuch — direkt in die Wortliste"
 }

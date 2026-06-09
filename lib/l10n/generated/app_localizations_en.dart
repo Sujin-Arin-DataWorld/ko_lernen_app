@@ -1630,6 +1630,12 @@ class AppL10nEn extends AppL10n {
   String get homeTigerBubbleResume => 'Welcome back!';
 
   @override
+  String get homeHeroActionContinue => 'Continue learning';
+
+  @override
+  String get homeHeroActionStart => 'New word pack';
+
+  @override
   String get homeShieldLabel => 'Shield';
 
   @override
@@ -2608,4 +2614,51 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsTutorialResetDone => 'Intro reset';
+
+  @override
+  String get navTourNext => 'Next';
+
+  @override
+  String get navTourSkip => 'Skip';
+
+  @override
+  String get navTourDone => 'Done';
+
+  @override
+  String get coachHomeTab0Title => 'Home';
+
+  @override
+  String get coachHomeTab0Body => 'Your path & today\'s tasks in one place';
+
+  @override
+  String get coachHomeTab1Title => 'Practice';
+
+  @override
+  String get coachHomeTab1Body => 'Games, words & grammar to review';
+
+  @override
+  String get coachHomeTab2Title => 'Gye';
+
+  @override
+  String get coachHomeTab2Body => 'Reach your goals together with friends';
+
+  @override
+  String get coachHomeTab3Title => 'Profile';
+
+  @override
+  String get coachHomeTab3Body => 'Stats, settings & account';
+
+  @override
+  String get coachHomePathTitle => 'Learning path';
+
+  @override
+  String get coachHomePathBody =>
+      'Clear word packs in order — the tiger grows with you';
+
+  @override
+  String get coachHomeBookTitle => 'Book snapshot';
+
+  @override
+  String get coachHomeBookBody =>
+      'Photo of your textbook — straight into your word list';
 }

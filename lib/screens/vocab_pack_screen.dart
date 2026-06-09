@@ -603,15 +603,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 children: List.generate(choices.length, (i) {
                   final text = choices[i];
                   final isCorrect = text == cur.german;
-                  final isSelected = i == _selectedChoice && _choiceLocked;
 
                   return Padding(
                     padding: const EdgeInsets.only(bottom: Spacing.sm),
                     child: QuizChoice(
                       text: text,
                       isCorrect: isCorrect,
-                      isSelected: isSelected,
-                      onSelected: () => _selectChoice(i),
+                      isSelected: i == _selectedChoice,
+                      revealed: _choiceLocked,
+                      onSelected:
+                          _choiceLocked ? null : () => _selectChoice(i),
                     ),
                   );
                 }),

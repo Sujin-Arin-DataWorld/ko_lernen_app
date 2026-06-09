@@ -3097,6 +3097,18 @@ abstract class AppL10n {
   /// **'Willkommen zurück!'**
   String get homeTigerBubbleResume;
 
+  /// No description provided for @homeHeroActionContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlernen'**
+  String get homeHeroActionContinue;
+
+  /// No description provided for @homeHeroActionStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Neues Wortpaket'**
+  String get homeHeroActionStart;
+
   /// No description provided for @homeShieldLabel.
   ///
   /// In de, this message translates to:
@@ -4848,6 +4860,96 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Einführung zurückgesetzt'**
   String get settingsTutorialResetDone;
+
+  /// No description provided for @navTourNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get navTourNext;
+
+  /// No description provided for @navTourSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Überspringen'**
+  String get navTourSkip;
+
+  /// No description provided for @navTourDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Fertig'**
+  String get navTourDone;
+
+  /// No description provided for @coachHomeTab0Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Start'**
+  String get coachHomeTab0Title;
+
+  /// No description provided for @coachHomeTab0Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernpfad & heutige Aufgaben an einem Ort'**
+  String get coachHomeTab0Body;
+
+  /// No description provided for @coachHomeTab1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get coachHomeTab1Title;
+
+  /// No description provided for @coachHomeTab1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele, Wörter & Grammatik zum Wiederholen'**
+  String get coachHomeTab1Body;
+
+  /// No description provided for @coachHomeTab2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye'**
+  String get coachHomeTab2Title;
+
+  /// No description provided for @coachHomeTab2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Erreicht gemeinsam mit Freunden eure Ziele'**
+  String get coachHomeTab2Body;
+
+  /// No description provided for @coachHomeTab3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Profil'**
+  String get coachHomeTab3Title;
+
+  /// No description provided for @coachHomeTab3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Statistiken, Einstellungen & Konto'**
+  String get coachHomeTab3Body;
+
+  /// No description provided for @coachHomePathTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernpfad'**
+  String get coachHomePathTitle;
+
+  /// No description provided for @coachHomePathBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Klär Wortpakete der Reihe nach — der Tiger wächst mit'**
+  String get coachHomePathBody;
+
+  /// No description provided for @coachHomeBookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchschnappschuss'**
+  String get coachHomeBookTitle;
+
+  /// No description provided for @coachHomeBookBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Foto von deinem Lehrbuch — direkt in die Wortliste'**
+  String get coachHomeBookBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -1,27 +1,45 @@
 import 'package:flutter/material.dart';
 
+import 'motion.dart';
 import 'tokens.dart';
 
-/// **마이크로인터랙션: 즉시 피드백 선택지**
+/// **4지선다 답안 버튼 — 즉시 누름 피드백 + 정답 공개**
 ///
-/// 버튼 누르는 순간 즉시 반응 (500ms 이내):
-/// 1. scale 0.95 elasticOut (press 감각)
-/// 2. 색상 변경 (정답=초록, 오답=빨강)
-/// 3. ✓ 또는 ✗ 아이콘 표시
-/// 4. 부모에 콜백 전송 (1ms 후 — 시각 피드백 먼저)
+/// 시각 전용 위젯이다. 햅틱·효과음·채점·SRS 갱신은 부모 화면이 [onSelected]
+/// 안에서 처리한다 (관심사 분리 → 화면별 보상 로직 자유).
+///
+/// 상태:
+/// - **idle**: 중립 surface + 옅은 primary 테두리. 누르면 scale-down(탄력)으로
+///   "제출" 촉감 (reduce-motion 시 정지).
+/// - **revealed** ([revealed] = true): 정답 옵션은 **항상** 초록으로 표시되어
+///   학습자가 정답을 확인할 수 있고(오답을 골랐어도), 선택한 오답은 빨강으로
+///   표시된다. 나머지는 흐려진다. Duolingo·Quizlet의 정답 공개 패턴.
 class QuizChoice extends StatefulWidget {
+  /// 표시 텍스트(보기).
   final String text;
+
+  /// 이 보기가 정답인지.
   final bool isCorrect;
-  final VoidCallback onSelected;
+
+  /// 사용자가 이 보기를 골랐는지.
   final bool isSelected;
+
+  /// 답이 잠겼는지(공개 단계) — 정답/오답 색을 보일지 결정.
+  final bool revealed;
+
+  /// null 이면 탭 비활성(잠금 후). 탭하면 즉시 호출(부모가 채점).
+  final VoidCallback? onSelected;
+
+  /// 선택 보조 설명(로마자·품사 등). 없으면 미표시.
   final String? subtitle;
 
   const QuizChoice({
     super.key,
     required this.text,
     required this.isCorrect,
-    required this.onSelected,
     this.isSelected = false,
+    this.revealed = false,
+    this.onSelected,
     this.subtitle,
   });
 
@@ -31,108 +49,149 @@ class QuizChoice extends StatefulWidget {
 
 class _QuizChoiceState extends State<QuizChoice>
     with SingleTickerProviderStateMixin {
-  late AnimationController _scaleCtrl;
-  bool _isPressed = false;
+  late final AnimationController _press;
 
   @override
   void initState() {
     super.initState();
-    _scaleCtrl = AnimationController(
-      duration: const Duration(milliseconds: 200),
+    _press = AnimationController(
       vsync: this,
+      duration: const Duration(milliseconds: 120),
     );
   }
 
   @override
   void dispose() {
-    _scaleCtrl.dispose();
+    _press.dispose();
     super.dispose();
   }
 
   void _handleTap() {
-    if (_isPressed) return;
-
-    // 1. 시각적 반응 (scale down)
-    setState(() => _isPressed = true);
-    _scaleCtrl.forward();
-
-    // 2. 부모에 즉시 알림 (애니 보다 우선)
-    Future.delayed(Duration.zero, widget.onSelected);
-
-    // 3. 색상 변경은 자동 (AnimatedContainer)
+    final cb = widget.onSelected;
+    if (cb == null || widget.revealed) {
+      return;
+    }
+    // 즉시 누름 애니메이션(있으면) → 그 직후 부모 콜백(채점).
+    if (!SoriMotion.reduceMotion(context)) {
+      _press.forward().then((_) {
+        if (mounted) {
+          _press.reverse();
+        }
+      });
+    }
+    cb();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ScaleTransition(
-      scale: _isPressed
-          ? Tween<double>(begin: 1.0, end: 0.95).animate(
-              CurvedAnimation(parent: _scaleCtrl, curve: Curves.elasticOut),
-            )
-          : AlwaysStoppedAnimation(1.0),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        margin: const EdgeInsets.symmetric(vertical: 6),
-        decoration: BoxDecoration(
-          color: !_isPressed
-              ? const Color(0xFFFAFAFA)
-              : (widget.isCorrect ? const Color(0xFF4CAF50) : Colors.red),
-          border: Border.all(
-            color: !_isPressed
-                ? SoriColors.primary.withValues(alpha: 0.2)
-                : (widget.isCorrect ? const Color(0xFF4CAF50) : Colors.red),
-            width: 2,
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: _handleTap,
-            borderRadius: BorderRadius.circular(10),
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          widget.text,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: _isPressed ? Colors.white : Colors.black87,
-                          ),
-                        ),
-                        if (widget.subtitle != null) ...[
-                          const SizedBox(height: 4),
-                          Text(
-                            widget.subtitle!,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: _isPressed
-                                  ? Colors.white70
-                                  : const Color(0xFF999999),
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
+    final s = SoriSurfaces.of(context);
+    final reduce = SoriMotion.reduceMotion(context);
+
+    // ── 색 결정 (revealed 단계가 우선) ──
+    Color bg = s.surface;
+    Color border = SoriColors.primary.withValues(alpha: 0.25);
+    final Color fg = s.text;
+    double opacity = 1.0;
+    IconData? trailing;
+    Color? trailingColor;
+
+    if (widget.revealed) {
+      if (widget.isCorrect) {
+        bg = SoriColors.success.withValues(alpha: 0.14);
+        border = SoriColors.success;
+        trailing = Icons.check_circle_rounded;
+        trailingColor = SoriColors.success;
+      } else if (widget.isSelected) {
+        bg = SoriColors.danger.withValues(alpha: 0.14);
+        border = SoriColors.danger;
+        trailing = Icons.cancel_rounded;
+        trailingColor = SoriColors.danger;
+      } else {
+        // 선택 안 된 오답 — 흐리게.
+        opacity = 0.55;
+      }
+    }
+
+    final content = AnimatedContainer(
+      duration: SoriAnimation.quick,
+      curve: Curves.easeOut,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: bg,
+        border: Border.all(color: border, width: 1.6),
+        borderRadius: BorderRadius.circular(SoriRadius.md),
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.lg,
+        vertical: Spacing.md,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  widget.text,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    color: fg,
                   ),
-                  if (_isPressed)
-                    Icon(
-                      widget.isCorrect ? Icons.check_circle : Icons.cancel,
-                      color: Colors.white,
-                      size: 28,
-                    ),
+                ),
+                if (widget.subtitle != null &&
+                    widget.subtitle!.trim().isNotEmpty) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    widget.subtitle!,
+                    style: TextStyle(fontSize: 12, color: s.textMuted),
+                  ),
                 ],
-              ),
+              ],
             ),
           ),
-        ),
+          if (trailing != null) ...[
+            const SizedBox(width: Spacing.sm),
+            Icon(trailing, color: trailingColor, size: 24),
+          ],
+        ],
+      ),
+    );
+
+    final tappable = Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: widget.onSelected == null || widget.revealed ? null : _handleTap,
+        borderRadius: BorderRadius.circular(SoriRadius.md),
+        child: content,
+      ),
+    );
+
+    final reveal = AnimatedOpacity(
+      duration: SoriAnimation.quick,
+      opacity: opacity,
+      child: tappable,
+    );
+
+    if (reduce) {
+      return Semantics(
+        button: true,
+        selected: widget.isSelected,
+        child: reveal,
+      );
+    }
+
+    return Semantics(
+      button: true,
+      selected: widget.isSelected,
+      child: AnimatedBuilder(
+        animation: _press,
+        builder: (_, child) {
+          final scale = 1.0 - 0.04 * _press.value;
+          return Transform.scale(scale: scale, child: child);
+        },
+        child: reveal,
       ),
     );
   }

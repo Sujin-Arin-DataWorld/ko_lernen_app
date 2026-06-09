@@ -14,6 +14,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -211,40 +212,15 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen> {
               ),
               const SizedBox(height: Spacing.lg),
               ..._options.map((opt) {
-                final isPicked = _picked == opt;
                 final revealed = _picked != null;
-                Color border = s.border;
-                Color bg = s.surface;
-                if (revealed && opt == correct) {
-                  border = SoriColors.success;
-                  bg = SoriColors.success.withValues(alpha: 0.12);
-                } else if (revealed && isPicked) {
-                  border = SoriColors.danger;
-                  bg = SoriColors.danger.withValues(alpha: 0.12);
-                }
                 return Padding(
                   padding: const EdgeInsets.only(bottom: Spacing.sm),
-                  child: Material(
-                    color: bg,
-                    borderRadius: BorderRadius.circular(SoriRadius.md),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                      onTap: revealed ? null : () => _pick(opt),
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: Spacing.md, vertical: Spacing.md),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: border, width: 1.5),
-                          borderRadius: BorderRadius.circular(SoriRadius.md),
-                        ),
-                        child: Text(
-                          opt,
-                          style: const TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
+                  child: QuizChoice(
+                    text: opt,
+                    isCorrect: opt == correct,
+                    isSelected: _picked == opt,
+                    revealed: revealed,
+                    onSelected: revealed ? null : () => _pick(opt),
                   ),
                 );
               }),

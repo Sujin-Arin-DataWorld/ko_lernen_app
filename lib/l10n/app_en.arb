@@ -624,6 +624,8 @@
   "homeTigerBubbleStart": "Shall we study for 5 minutes? 📖",
   "homeTigerBubbleStreak": "Streak alive! Keep going 🔥",
   "homeTigerBubbleResume": "Welcome back!",
+  "homeHeroActionContinue": "Continue learning",
+  "homeHeroActionStart": "New word pack",
   "homeShieldLabel": "Shield",
   "homePathSection": "Your path",
   "homePathLocked": "Locked",
@@ -1000,5 +1002,22 @@
   "settingsTutorialResetSection": "Intro",
   "settingsTutorialResetTitle": "Reset intro",
   "settingsTutorialResetSubtitle": "Show the carousel & tips again on next launch",
-  "settingsTutorialResetDone": "Intro reset"
+  "settingsTutorialResetDone": "Intro reset",
+
+  "@_spotlight_coach": { "description": "Stage A — spotlight coach marks (home tour + BottomNav)." },
+  "navTourNext": "Next",
+  "navTourSkip": "Skip",
+  "navTourDone": "Done",
+  "coachHomeTab0Title": "Home",
+  "coachHomeTab0Body": "Your path & today's tasks in one place",
+  "coachHomeTab1Title": "Practice",
+  "coachHomeTab1Body": "Games, words & grammar to review",
+  "coachHomeTab2Title": "Gye",
+  "coachHomeTab2Body": "Reach your goals together with friends",
+  "coachHomeTab3Title": "Profile",
+  "coachHomeTab3Body": "Stats, settings & account",
+  "coachHomePathTitle": "Learning path",
+  "coachHomePathBody": "Clear word packs in order — the tiger grows with you",
+  "coachHomeBookTitle": "Book snapshot",
+  "coachHomeBookBody": "Photo of your textbook — straight into your word list"
 }
