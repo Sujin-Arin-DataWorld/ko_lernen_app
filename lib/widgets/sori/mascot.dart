@@ -226,10 +226,34 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
     );
   }
 
+  Widget _img(String asset, {Key? key}) {
+    return Image.asset(
+      asset,
+      key: key,
+      width: widget.size,
+      height: widget.size,
+      fit: BoxFit.contain,
+      filterQuality: FilterQuality.high,
+      errorBuilder: (_, __, ___) =>
+          _Fallback(kind: widget.kind, size: widget.size),
+    );
+  }
+
   Widget _buildPose(double t) {
     final wave = math.sin(t * math.pi * 2);
     final bob = _isMagpie && widget.animate ? wave * widget.size * 0.035 : 0.0;
     final scale = widget.animate && !_isMagpie ? 1.0 + (wave + 1) * 0.018 : 1.0;
+    final asset = _assetFor(t);
+
+    // 호랑이: 프레임 전환(smile↔blink↔idle)을 150ms 크로스페이드로 부드럽게 →
+    // 정면↔눈감기 하드컷 끊김 해소. ValueKey(asset)이 바뀔 때만 전환 발동.
+    // 까치: 날갯짓이 빠른 교대(~5Hz)라 페이드하면 뭉개짐 → 즉시 교대 유지.
+    final framed = (_isMagpie || !widget.animate)
+        ? _img(asset)
+        : AnimatedSwitcher(
+            duration: const Duration(milliseconds: 150),
+            child: _img(asset, key: ValueKey<String>(asset)),
+          );
 
     return SizedBox(
       width: widget.size,
@@ -238,15 +262,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
         offset: Offset(0, bob),
         child: Transform.scale(
           scale: scale,
-          child: Image.asset(
-            _assetFor(t),
-            width: widget.size,
-            height: widget.size,
-            fit: BoxFit.contain,
-            filterQuality: FilterQuality.high,
-            errorBuilder: (_, __, ___) =>
-                _Fallback(kind: widget.kind, size: widget.size),
-          ),
+          child: framed,
         ),
       ),
     );

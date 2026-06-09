@@ -113,8 +113,8 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                         children: [
                           _PreviewPage(
                             index: 0,
-                            mascotEmotion: MascotEmotion.surprised,
-                            icon: Icons.photo_camera_outlined,
+                            imageAsset:
+                                'assets/illustrations/book/book_success.png',
                             accentColor: SoriColors.info,
                             title: t.previewPage1Title,
                             body: t.previewPage1Body,
@@ -122,8 +122,8 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                           ),
                           _PreviewPage(
                             index: 1,
-                            mascotEmotion: MascotEmotion.smile,
-                            icon: Icons.house_outlined,
+                            imageAsset:
+                                'assets/illustrations/gye/gye_gate_grand.png',
                             accentColor: SoriColors.primary,
                             title: t.previewPage2Title,
                             body: t.previewPage2Body,
@@ -132,7 +132,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                           _PreviewPage(
                             index: 2,
                             mascotEmotion: MascotEmotion.celebrate,
-                            icon: Icons.local_fire_department_outlined,
+                            useDokkaebi: true,
                             accentColor: SoriColors.tiger,
                             title: t.previewPage3Title,
                             body: t.previewPage3Body,
@@ -182,8 +182,16 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
 
 class _PreviewPage extends StatelessWidget {
   final int index;
+
+  /// != null → 이미지(book/한옥)를 마스코트 자리에 렌더. null → 호랑이 마스코트.
+  final String? imageAsset;
+
+  /// 호랑이 마스코트 포즈 (imageAsset == null일 때만 사용).
   final MascotEmotion mascotEmotion;
-  final IconData icon;
+
+  /// page2 전용 — 불 아이콘 자리에 도깨비불 PNG(미존재 시 글로우 폴백).
+  final bool useDokkaebi;
+
   final Color accentColor;
   final String title;
   final String body;
@@ -191,8 +199,9 @@ class _PreviewPage extends StatelessWidget {
 
   const _PreviewPage({
     required this.index,
-    required this.mascotEmotion,
-    required this.icon,
+    this.imageAsset,
+    this.mascotEmotion = MascotEmotion.celebrate,
+    this.useDokkaebi = false,
     required this.accentColor,
     required this.title,
     required this.body,
@@ -216,7 +225,7 @@ class _PreviewPage extends StatelessWidget {
               children: [
                 const SizedBox(height: 16),
 
-                // ── 마스코트 + 아이콘 오버레이 ──
+                // ── 메인 비주얼: 이미지(book/한옥) 또는 호랑이 + 도깨비불 ──
                 SoriEntrance(
                   delay: delay,
                   duration: const Duration(milliseconds: 700),
@@ -245,37 +254,67 @@ class _PreviewPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        // 호랑이 마스코트
-                        Positioned(
-                          bottom: 0,
-                          left: 28,
-                          child: Mascot.tiger(
-                            size: 150,
-                            emotion: mascotEmotion,
-                            animate: true,
-                          ),
-                        ),
-                        // 아이콘 뱃지 (오른쪽 상단)
-                        Positioned(
-                          top: 12,
-                          right: 8,
-                          child: Container(
-                            width: 56,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: accentColor,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: accentColor.withValues(alpha: 0.45),
-                                  blurRadius: 16,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
+                        // 메인 비주얼 — 이미지(page0/1) 또는 호랑이(page2)
+                        if (imageAsset != null)
+                          Positioned(
+                            bottom: 0,
+                            child: Image.asset(
+                              imageAsset!,
+                              height: 168,
+                              fit: BoxFit.contain,
+                              filterQuality: FilterQuality.high,
+                              errorBuilder: (_, __, ___) => const Mascot.tiger(
+                                size: 150,
+                                emotion: MascotEmotion.smile,
+                                animate: true,
+                              ),
                             ),
-                            child: Icon(icon, color: Colors.white, size: 28),
+                          )
+                        else ...[
+                          Positioned(
+                            bottom: 0,
+                            left: 28,
+                            child: Mascot.tiger(
+                              size: 150,
+                              emotion: mascotEmotion,
+                              animate: true,
+                            ),
                           ),
-                        ),
+                          // 도깨비불 뱃지 — PNG, 미존재 시 불 아이콘 글로우 폴백
+                          if (useDokkaebi)
+                            Positioned(
+                              top: 0,
+                              right: 4,
+                              child: Image.asset(
+                                'assets/illustrations/dokkaebi_fire.png',
+                                width: 72,
+                                height: 72,
+                                fit: BoxFit.contain,
+                                filterQuality: FilterQuality.high,
+                                errorBuilder: (_, __, ___) => Container(
+                                  width: 56,
+                                  height: 56,
+                                  decoration: BoxDecoration(
+                                    color: accentColor,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color:
+                                            accentColor.withValues(alpha: 0.45),
+                                        blurRadius: 16,
+                                        offset: const Offset(0, 4),
+                                      ),
+                                    ],
+                                  ),
+                                  child: const Icon(
+                                    Icons.local_fire_department_rounded,
+                                    color: Colors.white,
+                                    size: 28,
+                                  ),
+                                ),
+                              ),
+                            ),
+                        ],
                       ],
                     ),
                   ),

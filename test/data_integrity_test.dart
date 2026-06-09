@@ -183,6 +183,8 @@ void main() {
       const pending = <String>{
         // Rive 리그 제작 대기. 없으면 TigerStageRive가 프레임 TigerStage로 폴백.
         'assets/rive/tiger.riv',
+        // 도깨비불 PNG — Jin 생성 대기. 없으면 onboarding_preview가 불 아이콘 글로우 폴백.
+        'assets/illustrations/dokkaebi_fire.png',
       };
 
       final missing = <String>[];
