@@ -413,13 +413,7 @@ class _GrammarScreenState extends State<GrammarScreen>
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                t.filterTitle,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              Text(t.filterTitle, style: SoriTextTheme.of(ctx).h3),
               const SizedBox(height: Spacing.md),
               _dropdown(t.filterLevel, _level, _levels, (v) {
                 setLocal(() => _level = v!);

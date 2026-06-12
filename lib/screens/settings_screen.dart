@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 
+import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
@@ -151,11 +152,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             Text(
               t.interestsSheetTitle,
-              style: const TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 18,
-                fontWeight: FontWeight.w900,
-              ),
+              style: SoriTextTheme.of(
+                context,
+              ).h3.copyWith(fontWeight: FontWeight.w900),
             ),
             const SizedBox(height: 14),
             Wrap(
@@ -179,16 +178,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
               }).toList(),
             ),
             const SizedBox(height: 18),
-            Align(
-              alignment: Alignment.centerRight,
-              child: FilledButton(
-                onPressed: () async {
-                  await Storage.setInterests(selected.toList());
-                  if (ctx.mounted) Navigator.pop(ctx);
-                  if (mounted) setState(() {});
-                },
-                child: Text(t.btnApply),
-              ),
+            SoriButton.filled(
+              label: t.btnApply,
+              fullWidth: true,
+              onTap: () async {
+                await Storage.setInterests(selected.toList());
+                if (ctx.mounted) Navigator.pop(ctx);
+                if (mounted) setState(() {});
+              },
             ),
           ],
         ),
@@ -270,10 +267,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text(_levelDisplay(t)),
               subtitle: Text(
                 t.settingsUserLevelChange,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: SoriColors.darkTextMuted,
-                ),
+                style: SoriTextTheme.of(context).caption,
               ),
               trailing: const Icon(
                 Icons.chevron_right,
@@ -308,24 +302,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     children: [
                       Text(
                         t.settingsTtsRateSlow,
-                        style: const TextStyle(
-                          fontSize: 11,
-                          color: SoriColors.darkTextMuted,
-                        ),
+                        style: SoriTextTheme.of(context).cardSubtitle,
                       ),
                       Text(
                         t.settingsTtsRateNormal,
-                        style: const TextStyle(
-                          fontSize: 11,
-                          color: SoriColors.darkTextMuted,
-                        ),
+                        style: SoriTextTheme.of(context).cardSubtitle,
                       ),
                       Text(
                         t.settingsTtsRateFast,
-                        style: const TextStyle(
-                          fontSize: 11,
-                          color: SoriColors.darkTextMuted,
-                        ),
+                        style: SoriTextTheme.of(context).cardSubtitle,
                       ),
                     ],
                   ),
@@ -343,10 +328,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text(t.settingsNotifTitle),
               subtitle: Text(
                 t.settingsNotifSubtitle,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: SoriColors.darkTextMuted,
-                ),
+                style: SoriTextTheme.of(context).caption,
               ),
               value: Storage.notificationsEnabled,
               activeThumbColor: SoriColors.primary,
@@ -379,10 +361,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text(t.settingsInterestsTitle),
               subtitle: Text(
                 t.settingsInterestsSubtitle,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: SoriColors.darkTextMuted,
-                ),
+                style: SoriTextTheme.of(context).caption,
               ),
               trailing: const Icon(
                 Icons.chevron_right,
@@ -459,10 +438,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text(t.settingsShowAds),
               subtitle: Text(
                 t.settingsShowAdsDesc,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: SoriColors.darkTextMuted,
-                ),
+                style: SoriTextTheme.of(context).caption,
               ),
               value: Storage.adsEnabled,
               onChanged: (v) async {
@@ -484,10 +460,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Text(
                     t.settingsBookEndpointHint,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: SoriSurfaces.of(context).textMuted,
-                    ),
+                    style: SoriTextTheme.of(context).caption,
                   ),
                   const SizedBox(height: Spacing.sm),
                   TextField(
@@ -699,11 +672,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             Text(
               t.settingsDataSourcesTitle,
-              style: const TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 20,
-                fontWeight: FontWeight.w900,
-              ),
+              style: SoriTextTheme.of(
+                ctx,
+              ).h2.copyWith(fontWeight: FontWeight.w900),
             ),
             const SizedBox(height: 6),
             Text(
@@ -1170,11 +1141,9 @@ class _Section extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 6),
       child: Text(
         label.toUpperCase(),
-        style: const TextStyle(
-          fontSize: 11,
+        style: SoriTextTheme.of(context).cardSubtitle.copyWith(
           fontWeight: FontWeight.w700,
           letterSpacing: 0.8,
-          color: SoriColors.darkTextMuted,
         ),
       ),
     );

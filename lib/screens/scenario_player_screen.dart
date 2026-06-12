@@ -250,7 +250,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   Future<void> _openNext(int stars, int earnedXp, String nextId) async {
     await _persistResult(stars, earnedXp);
     if (mounted) {
-      Navigator.of(context).pushReplacementNamed('/scenario', arguments: nextId);
+      Navigator.of(
+        context,
+      ).pushReplacementNamed('/scenario', arguments: nextId);
     }
   }
 
@@ -262,8 +264,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (cur == null) return null;
     final completed = Storage.completedScenarios.toSet();
     final stars = Storage.scenarioStars;
-    final sameLevel =
-        ScenarioLoader.byLevel(cur.level).where((s) => s.id != cur.id).toList();
+    final sameLevel = ScenarioLoader.byLevel(
+      cur.level,
+    ).where((s) => s.id != cur.id).toList();
     for (final s in sameLevel) {
       if (!completed.contains(s.id)) return s;
     }
@@ -321,22 +324,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           const SizedBox(height: Spacing.xl),
           Text(
             t.scenarioIntroTitle,
-            style: TextStyle(
-              color: ss.textMuted,
-              fontSize: 12,
-              letterSpacing: 1.2,
-              fontWeight: FontWeight.w600,
-            ),
+            style: SoriTextTheme.of(
+              context,
+            ).caption.copyWith(letterSpacing: 1.2, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: Spacing.xs),
           Text(
             s.title.pick(lang),
-            style: TextStyle(
-              color: ss.text,
-              fontSize: 32,
-              fontWeight: FontWeight.w800,
-              height: 1.2,
-            ),
+            style: SoriTextTheme.of(context).display,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: Spacing.lg),
@@ -441,11 +436,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                       const SizedBox(height: Spacing.sm),
                       Text(
                         v.note!.pick(lang),
-                        style: TextStyle(
-                          color: ss.textMuted,
-                          fontSize: 13,
-                          height: 1.4,
-                        ),
+                        style: SoriTextTheme.of(context).bodySmall,
                       ),
                     ],
                   ],
@@ -508,12 +499,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             ),
                             child: Text(
                               line.ko,
-                              style: TextStyle(
-                                color: ss.textMuted,
-                                fontSize: 14,
-                                fontStyle: FontStyle.italic,
-                                height: 1.4,
-                              ),
+                              style: SoriTextTheme.of(
+                                context,
+                              ).bodySmall.copyWith(fontStyle: FontStyle.italic),
                             ),
                           )
                         : SoriCard(
@@ -564,11 +552,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                   const SizedBox(height: Spacing.xs),
                                   Text(
                                     line.pick(lang),
-                                    style: TextStyle(
-                                      color: ss.textDim,
-                                      fontSize: 13,
-                                      height: 1.3,
-                                    ),
+                                    style: SoriTextTheme.of(
+                                      context,
+                                    ).bodySmall.copyWith(color: ss.textDim),
                                   ),
                                 ],
                               ],
@@ -608,20 +594,16 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               children: [
                 Text(
                   block.title.pick(lang),
-                  style: const TextStyle(
-                    color: grammarAccent,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w800,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).h2.copyWith(color: grammarAccent),
                 ),
                 const SizedBox(height: Spacing.md),
                 Text(
                   block.explanation.pick(lang),
-                  style: TextStyle(
-                    color: ss.textMuted,
-                    fontSize: 15,
-                    height: 1.6,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).body.copyWith(color: ss.textMuted, height: 1.6),
                 ),
               ],
             ),
@@ -773,7 +755,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           const SizedBox(height: Spacing.md),
           Text(
             t.scenarioStarsLabel(stars),
-            style: TextStyle(color: ss.textMuted, fontSize: 14),
+            style: SoriTextTheme.of(context).bodySmall,
           ),
           const SizedBox(height: Spacing.lg),
 
@@ -789,9 +771,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                 const SizedBox(width: Spacing.sm),
                 Text(
                   t.scenarioXpEarned(earnedXp),
-                  style: const TextStyle(
+                  style: SoriTextTheme.of(context).h3.copyWith(
                     color: SoriColors.primary,
-                    fontSize: 18,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -810,10 +791,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               children: [
                 Text(
                   t.scenarioRecapTitle,
-                  style: const TextStyle(
+                  style: SoriTextTheme.of(context).label.copyWith(
                     color: SoriColors.primary,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
                     letterSpacing: 0.8,
                   ),
                 ),
@@ -860,10 +839,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                       const SizedBox(width: Spacing.sm),
                       Text(
                         t.scenarioCulturalNote,
-                        style: const TextStyle(
+                        style: SoriTextTheme.of(context).label.copyWith(
                           color: SoriColors.warning,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
                           letterSpacing: 0.8,
                         ),
                       ),
@@ -872,20 +849,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   const SizedBox(height: Spacing.sm),
                   Text(
                     sc.culturalNote!.title.pick(lang),
-                    style: TextStyle(
-                      color: ss.text,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: SoriTextTheme.of(context).h3,
                   ),
                   const SizedBox(height: Spacing.xs),
                   Text(
                     sc.culturalNote!.body.pick(lang),
-                    style: TextStyle(
-                      color: ss.textMuted,
-                      fontSize: 14,
-                      height: 1.5,
-                    ),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).bodySmall.copyWith(height: 1.5),
                   ),
                 ],
               ),
@@ -903,7 +874,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   child: Text(
                     t.scenarioNextRecommendedAllDone(sc.level.display),
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: ss.textMuted, fontSize: 13),
+                    style: SoriTextTheme.of(context).bodySmall,
                   ),
                 );
               }
@@ -919,10 +890,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                     children: [
                       Text(
                         t.scenarioNextRecommendedTitle,
-                        style: const TextStyle(
+                        style: SoriTextTheme.of(context).label.copyWith(
                           color: SoriColors.accent,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
                           letterSpacing: 0.8,
                         ),
                       ),
@@ -932,7 +901,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                           SizedBox(
                             width: 36,
                             height: 36,
-                            child: Mascot.forSpeaker(
+                            child:
+                                Mascot.forSpeaker(
                                   next.sidekick ?? '',
                                   size: 36,
                                   emotion: MascotEmotion.smile,
@@ -946,11 +916,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                           Expanded(
                             child: Text(
                               next.title.pick(lang),
-                              style: TextStyle(
-                                color: ss.text,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                              ),
+                              style: SoriTextTheme.of(
+                                context,
+                              ).body.copyWith(fontWeight: FontWeight.w700),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -1137,17 +1105,14 @@ class _ScenarioIntroArt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    final mascot = Mascot.forSpeaker(
+    final mascot =
+        Mascot.forSpeaker(
           sidekick ?? '',
           size: 72,
           emotion: MascotEmotion.smile,
           animate: true,
         ) ??
-        Mascot.tiger(
-          emotion: MascotEmotion.smile,
-          size: 72,
-          animate: true,
-        );
+        Mascot.tiger(emotion: MascotEmotion.smile, size: 72, animate: true);
 
     // Backdrop만 표시 (호랑이 없이 — 배경 자체가 시각적 focal point)
     if (backdropKey == null) {
@@ -1191,11 +1156,7 @@ class _ScenarioIntroArt extends StatelessWidget {
               ),
             ),
             // 호랑이/까치를 오른쪽 하단에 배치 (배경과 구분)
-            Positioned(
-              right: Spacing.md,
-              bottom: Spacing.xs,
-              child: mascot,
-            ),
+            Positioned(right: Spacing.md, bottom: Spacing.xs, child: mascot),
           ],
         ),
       ),
@@ -1213,12 +1174,9 @@ class _StageTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(
-        color: color,
-        fontSize: 13,
-        fontWeight: FontWeight.w700,
-        letterSpacing: 1.2,
-      ),
+      style: SoriTextTheme.of(
+        context,
+      ).label.copyWith(color: color, letterSpacing: 1.2),
     );
   }
 }
@@ -1240,11 +1198,9 @@ class _MiniChip extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(
-          color: color,
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
-        ),
+        style: SoriTextTheme.of(
+          context,
+        ).caption.copyWith(color: color, fontWeight: FontWeight.w600),
       ),
     );
   }
@@ -1267,7 +1223,7 @@ class _RecapLine extends StatelessWidget {
         Expanded(
           child: Text(
             text,
-            style: TextStyle(color: ss.text, fontSize: 14, height: 1.4),
+            style: SoriTextTheme.of(context).bodySmall.copyWith(color: ss.text),
           ),
         ),
       ],

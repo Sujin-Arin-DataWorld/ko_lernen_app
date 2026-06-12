@@ -583,10 +583,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             children: [
               Text(
                 AppL10n.of(ctx).filterTitle,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: SoriTextTheme.of(ctx).h3,
               ),
               const SizedBox(height: 12),
               _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) {
