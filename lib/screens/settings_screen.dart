@@ -783,7 +783,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const String _deletionUrl =
       'https://hangul-sori.com/account-deletion.html';
 
-  String _appVersion() => '1.0.1';
+  // pubspec.yaml `version:`과 동기 — 버전 범프 시 함께 갱신할 것.
+  String _appVersion() => '2.0.1';
 
   Future<void> _copyPrivacyUrl() async {
     await _copyUrl(_privacyUrl);

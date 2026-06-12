@@ -97,7 +97,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` (v6). **자산은 `assets/illustrations/mascot/`에 분리된 포즈 PNG**: 호랑이 5(idle/blink/happy/celebrate/sad) + 까치 4(perched/wingup/wingdown/celebrate). emotion → 포즈 매핑 (celebrate/worry/sleepy/surprised/thinking/neutral/smile). `tiger_thinking`/`tiger_sleepy`/`tiger_neutral`/`magpie_worry`는 Jin이 추후 추가하면 자동 사용, 미존재 시 errorBuilder fallback.
 - `tiger_stage.dart` — **살아있는 호랑이 프레임 애니메이션** (홈 상단 밴드, 2026-06-03). 상태머신 INTRO(launch당 1회)→FRONT_IDLE↔PACING(좌우 there-and-back, 중앙 복귀)/SIT + ambient 스케줄러(5–10s). 토큰 가드 재귀 Future 시퀀서 + 150ms 크로스디졸브(걷기는 하드컷) + reduce-motion 정지 프레임 + 프레임 누락 시 `Mascot.tiger` fallback + 백그라운드 일시정지. 자산 `assets/illustrations/tiger_anim/`(풀바디 44장). **기존 `mascot.dart`(흉상 아바타)와 별개 시스템**. 전체 스펙(생성 프롬프트·상태머신·타이밍·4다리 보행·프레임↔코드 통합): `docs/TIGER_FULL_REMAKE_MASTER.md`. **홈은 직접 쓰지 않고 `tiger_stage_rive.dart`를 통해 폴백으로만 사용.**
-- `tiger_stage_rive.dart` — **Rive 리깅 호랑이 래퍼**(부드러운 sit→인사→pacing 목표). `assets/rive/tiger.riv` + `RiveNative.init()` 성공(`riveReady`) 시 Rive 재생, 그 외(미초기화·파일 없음·로드 실패·reduce-motion) `TigerStage`(프레임)로 자동 폴백. rive 0.14 API(`RiveWidgetBuilder`/`FileLoader.fromAsset`/`Factory.flutter`/`RiveWidget(fit:contain)`). **`tiger.riv` 리그는 미제작(Rive 경로 보류) — 프레임 폴백으로 동작.** 호랑이 전체 스펙은 `docs/TIGER_FULL_REMAKE_MASTER.md`. 홈 `_TigerHero`가 이걸 사용.
+- `tiger_stage_rive.dart` — **Rive 리깅 호랑이 래퍼**(부드러운 sit→인사→pacing 목표). `assets/rive/tiger.riv` + `RiveNative.init()` 성공(`riveReady`) 시 Rive 재생, 그 외(미초기화·파일 없음·로드 실패·reduce-motion) `TigerStage`(프레임)로 자동 폴백. rive 0.14 API(`RiveWidgetBuilder`/`FileLoader.fromAsset`/`Factory.flutter`/`RiveWidget(fit:contain)`). **`tiger.riv` 리그는 미제작(Rive 경로 보류) — 프레임 폴백으로 동작.** 호랑이 전체 스펙은 `docs/TIGER_FULL_REMAKE_MASTER.md`. **홈은 2026-06-12부터 `tiger_video.dart`를 쓰고, 이건 그 폴백 체인의 중간 단계.**
+- `tiger_video.dart` — **호랑이 영상 위젯 2종** (Jin 제작 mp4, 2026-06-12). ① `TigerStageVideo`(홈 밴드): 인사 `tiger_greet.mp4` launch당 1회 → 150ms 크로스페이드 → `tiger_pace.mp4` 무한루프, 항상 무음. ② `TigerGreetClip`(온보딩 첫 만남): 인사 영상 + `sfx/tiger_greet.mp3` 음성 1회. 영상이 H.264(알파 없음, 흰 배경)라 **`ColorFiltered`+`BlendMode.multiply`로 흰 배경을 크림에 흡수**(⚠️ 캔버스 saveLayer 블렌드는 비디오 Texture 레이어에 안 먹힘 — 반드시 ColorFiltered). multiply 특성상 **밝은 배경 전용** → 다크/reduce-motion/`videoReady=false`(테스트)/로드 실패 시 `TigerStageRive`→프레임 폴백. `videoReady`는 main.dart에서만 true. 탭 비가시(`TickerMode.getValuesNotifier`)·앱 백그라운드 시 pause. 홈 `_TigerHero`가 이걸 사용(rive·프레임은 폴백으로 강등).
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
 - `hanok/` — 한옥 장식 위젯 (단청 divider, 기와 패턴, 처마, 창살, 마당 배경)
 - `motion.dart` — `SoriEntrance` (진입 fade+slide+scale), `SoriKenBurns` (배경 느린 줌). **`SoriMotion.reduceMotion(context)` 헬퍼** — `MediaQuery.disableAnimations` 시 정적 fallback.
@@ -314,6 +315,22 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-12 (호랑이 영상 통합 — 홈 밴드 + 온보딩 첫 만남) — 미커밋
+
+**범위:** Jin이 호랑이 영상 2개+인사 오디오 제작("메인에 쓸 거 어디에 넣으면 좋을까") → Q&A 확정: ①홈+온보딩 둘 다 ②오디오는 온보딩 첫 만남만 ③흰 배경 multiply 블렌드. plan `users-sujinpark-downloads-mp4-…-cheeky-platypus.md` 승인 실행. 프레임 "전환 끊김" 문제(Rive 경로 보류 중)의 실질 해소.
+
+**소스 실측:** `tiger_greet.mp4`(4.0s 640² H.264+AAC 2.3MB)·`tiger_pace.mp4`(8.0s 4.1MB)·`tiger_greet.mp3`(4.1s 45KB). **알파 없음** — 배경 차가운 흰색(~#F0F4F2) 박힘.
+
+**Update:**
+1. **에셋**: `assets/video/`(신규, pubspec 등록) `tiger_greet/pace.mp4` + `assets/sfx/tiger_greet.mp3`. ASCII 파일명(한글명 빌드 차단 전례). deps `video_player ^2.11.1`.
+2. **`lib/widgets/sori/tiger_video.dart` 신규** — `TigerStageVideo`(홈: greet launch당 1회→크로스페이드→pace 루프, 무음)+`TigerGreetClip`(온보딩: greet+mp3). **설계 변경(§0 실측):** plan의 saveLayer 블렌드는 비디오가 Texture 엔진 레이어라 미적용 → `ColorFiltered(ColorFilter.mode(크림, multiply))`(컴포지터 레이어, 텍스처에 적용됨)로 대체. 흰 배경→크림 흡수, 결과 박스는 **불투명 크림**(뒤 입자 가림은 미미). 홈 blendColor 기본 `#F8F2E4`(그라데이션 중간값 튜닝 노브)·온보딩 `lightBg`(플랫이라 완전 일치). 폴백: `!videoReady`(테스트 기본)/reduce-motion/다크/로드 실패 → `TigerStageRive`→프레임. 라이프사이클: `WidgetsBindingObserver`+`TickerMode.getValuesNotifier`(getNotifier는 deprecated) pause/resume.
+3. **배선 4곳**: 홈 `_TigerHero` `TigerStageRive`→`TigerStageVideo`(1줄) · main.dart `TigerStageVideo.videoReady=true` · QuickOnboarding 페이지1 `Mascot`→`TigerGreetClip(size:200, playAudio:true)`(다크면 기존 Mascot 유지)+페이지별 자동넘김 `[4600,3000,3000]ms`(영상 4s 수용, 리스너 중복 reset/forward 제거) · AppShell IndexedStack 자식 `TickerMode(enabled: i==_index)` 래핑(숨은 탭 영상·애니 정지).
+4. **온보딩 미적용 화면**: `onboarding_preview`(다크 배경 #0E1A18)는 multiply 부적합 → 미손댐.
+
+**검증:** `flutter analyze lib test` **0** · `flutter test` **395 통과**(392+신규 `tiger_video_test` 3: videoReady=false→프레임 폴백·reduce-motion·GreetClip→Mascot) · `flutter build apk --debug` ✓ + **APK 내 영상 3에셋 번들 실확인**(unzip) · dart format. **⚠️ 미검증(Jin 실기기 `flutter run -d 9053622f`)**: ①홈 인사→루프 전환·**블렌드 박스 경계**(보이면 `TigerStageVideo.blendColor` 튜닝) ②온보딩 첫 실행 페이지1 영상+음성 동기·4.6s 넘김 ③탭 전환·백그라운드 pause 복귀 ④reduce-motion 프레임 폴백. 용량 +6.4MB(원본 그대로 — pace 4.3Mbps 재인코딩 절반 가능, 화질은 Jin 판단).
+
+**Git:** 미커밋 (Jin 확인 후).
+
 ### 2026-06-12 (출시 전 품질 감사 + 5-Phase 개선: DSGVO opt-in·SoriSheet·차단·계 확장·bookshelf 복원) — 미커밋
 
 **범위:** Jin "출시 전 디자인·콘텐츠·앱품질·회원관리·독일 정보보호법·Play 정책 거짓/환각 없이 판정 + 개선 계획·실행". 멀티에이전트 감사(35 agents, P0/P1 적대적 재검증) → plan `soft-stirring-hartmanis.md` 승인 → 5 Phase 실행. Jin 결정: Analytics **opt-in**, 범위 전체(약관·bookshelf·차단·계 확장·디자인 통일·다이얼로그 잘림).
@@ -356,7 +373,24 @@ flutter run -d <android-id>   # 안드로이드
 
 **검증:** `flutter analyze` **0** · `flutter test` **392 통과**(362→392, 신규 30) · ARB parity **918=918** · gen-l10n OK · CF `node --check` OK · dart format 적용. **⚠️ 미검증(Jin)**: 실기기 시각(동의 체크박스·설정 토글·SoriSheet 13곳·홈 CTA·차단·프로필 카드·MVP 카드), CF 재배포(`cd functions/gye && firebase deploy --only functions`), Impressum 주소 기입, terms 법률 검토, Play Console Data Safety 폼 갱신(opt-in으로 답 변경), gye 크래시 재현, hangul-sori.com 반영(docs/ 푸시).
 
-**Git:** 미커밋 (Jin 확인 후). 변경: lib 22파일 + test 5 + docs 7(privacy/impressum/terms/index/data-safety/release-notes/MASTER_REDESIGN) + AndroidManifest + Info.plist + functions/gye/index.js + CLAUDE.md.
+**Git:** 커밋·푸시 완료 — df9d4e4(5-Phase) · 6e76347(B-2 1차) · f02e73e(B-2 2차).
+
+### 2026-06-12 (후속 — 웹 시각검증 + 🔴 gye 크래시 근본 원인 확정·수정) — 커밋·푸시
+
+**범위:** Jin "끝까지 진행 후 앱 열어 스크린샷 전수검증". `flutter run -d web-server`(8099) + 헤드리스 프리뷰로 실행. **헤드리스 occluded 탭은 rAF가 안 와 Flutter 엔진 동결** → `web/index.html`에 `?forceRaf=1` 게이트 심(rAF→setTimeout, 일반 사용자 무영향) 추가로 우회. Flutter 시맨틱스 활성화(placeholder 클릭)로 버튼 조작·플로우 주행.
+
+**🔴 gye `_dependents.isEmpty` 크래시 — 웹 재현 성공 → 근본 원인 확정 → 수정:**
+- **재현 경로:** Gye 탭 → Create a Gye → 생년(age-gate) 다이얼로그 → Cancel → Profile 탭 = 레드스크린.
+- **근본 원인(디버그 스택 실측):** `A TextEditingController was used after being disposed` — age_gate_prompt.dart:69 TextField. `await showDialog` **직후** `controller.dispose()` 하는데 **다이얼로그 퇴장 애니메이션 동안 TextField가 리빌드**되며 disposed 컨트롤러 사용 → 엘리먼트 트리 오염 → 후속 네비게이션에서 `_dependents.isEmpty` assert. 실기기 "키보드(showSoftInput) 직후" 정황과 일치.
+- **수정:** 같은 안티패턴 2곳(정규식 전수 스캔 = 전부) — `age_gate_prompt._askBirthYear`→`_BirthYearDialog` StatefulWidget(State가 컨트롤러 소유), `gye_members_screen._report`→`_ReportDialog` StatefulWidget(record 반환). **수정 빌드로 동일 경로 재주행 → 크래시 0**(스크린샷 검증).
+
+**검증에서 발견·수정한 추가 2건:**
+- 🔴 **신규 사용자 동의 화면 미표시 갭**: splash→QuickOnboarding→CharacterSelection→홈 경로가 ConsentScreen(인트로 경로에만 배선)을 우회 → opt-in 체크박스가 신규 유저에게 안 보였음. character_selection에 `!consentAccepted → ConsentScreen` 게이트 추가. 수정 후 풀 플로우(동의 체크박스→프리뷰→레벨→홈) 스크린샷 검증.
+- 🟡 settings `_appVersion()` '1.0.1' stale → '2.0.1'.
+
+**스크린샷 검증 통과:** 퀵 온보딩·캐릭터 선택·**신규 동의 화면(체크박스 2 기본 OFF·Privacy/Terms 링크)**·프리뷰 캐러셀·레벨 선택·account_nudge SoriSheet·홈(신규 "Learn now" CTA·경로 노드·4탭)·설정(**PRIVACY 토글 2**·Terms/Impressum 링크·섹션 라벨 토큰·다크색 부제 버그 해소)·관심사 SoriSheet(Apply 하단여백 16px 실측, 잘림 0)·Practice 허브·Gye 탭·age-gate 다이얼로그·Profile. 수정 후 콘솔 에러 0.
+
+**검증:** `flutter analyze` 0 · `flutter test` **395 통과** · 웹 실행 시각검증 상기. ⚠️ 실기기(9053622f) 최종 확인 권장 — 특히 gye 크래시 동일 경로·TTS 실발화.
 
 ### 2026-06-09 (gye 빨간화면 진단 + 네비바 회귀 수정 + 계 초대 기능 + 스태시 정리) — 커밋·푸시
 

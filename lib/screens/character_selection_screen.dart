@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
+import 'consent_screen.dart';
 
 /// **캐릭터 선택 + 음성 가이드**
 ///
@@ -44,6 +46,15 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 약간 대기 후 홈으로 이동
     await Future.delayed(const Duration(milliseconds: 500));
     if (!mounted) return;
+    // DSGVO Consent-Gate: 퀵 온보딩(첫 실행) 경로는 인트로를 거치지 않아
+    // 동의 화면이 한 번도 안 뜨던 갭(2026-06-12 웹 검증에서 발견).
+    // 미동의면 동의 화면으로 — 이후 단계(프리뷰/레벨/홈)는 ConsentScreen이 분기.
+    if (!Storage.consentAccepted) {
+      Navigator.of(context).pushReplacement(
+        SoriTransitions.fadeScale((_) => const ConsentScreen()),
+      );
+      return;
+    }
     Navigator.of(context).pushReplacementNamed('/');
   }
 
@@ -77,14 +88,18 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       name: t.characterNameTiger,
                       trait: t.characterTraitTiger,
                       isSelected: _selected == MascotKind.tiger,
-                      onTap: _isLoading ? null : () => _handleSelection(MascotKind.tiger),
+                      onTap: _isLoading
+                          ? null
+                          : () => _handleSelection(MascotKind.tiger),
                     ),
                     _CharacterCard(
                       kind: MascotKind.magpie,
                       name: t.characterNameMagpie,
                       trait: t.characterTraitMagpie,
                       isSelected: _selected == MascotKind.magpie,
-                      onTap: _isLoading ? null : () => _handleSelection(MascotKind.magpie),
+                      onTap: _isLoading
+                          ? null
+                          : () => _handleSelection(MascotKind.magpie),
                     ),
                   ],
                 ),
@@ -165,10 +180,7 @@ class _CharacterCard extends StatelessWidget {
               Text(
                 trait,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFF999999),
-                ),
+                style: const TextStyle(fontSize: 12, color: Color(0xFF999999)),
               ),
             ],
           ),

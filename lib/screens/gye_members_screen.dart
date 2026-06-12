@@ -286,61 +286,19 @@ Future<void> _report(
   GyeMember target,
 ) async {
   final t = AppL10n.of(context);
-  final noteCtrl = TextEditingController();
-  var reason = GyeReportReason.spam;
-  final submitted = await showDialog<bool>(
+  // ⚠️ 컨트롤러를 여기서 만들고 `await showDialog` 직후 dispose하면 퇴장
+  // 애니메이션 중 리빌드가 "used after disposed" → `_dependents.isEmpty`
+  // 레드스크린(실기기 gye 크래시 동일 패턴). State가 소유하게 한다.
+  final result = await showDialog<({GyeReportReason reason, String note})>(
     context: context,
-    builder: (dctx) => StatefulBuilder(
-      builder: (dctx, setLocal) => AlertDialog(
-        title: Text(t.gyeReportTitle),
-        content: SizedBox(
-          width: double.maxFinite,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                for (final r in GyeReportReason.values)
-                  ListTile(
-                    dense: true,
-                    contentPadding: EdgeInsets.zero,
-                    leading: Icon(
-                      reason == r
-                          ? Icons.radio_button_checked
-                          : Icons.radio_button_unchecked,
-                      color: SoriColors.primary,
-                    ),
-                    title: Text(_reasonLabel(t, r)),
-                    onTap: () => setLocal(() => reason = r),
-                  ),
-                TextField(
-                  controller: noteCtrl,
-                  maxLength: 200,
-                  maxLines: 2,
-                  decoration: InputDecoration(hintText: t.gyeReportNoteHint),
-                ),
-              ],
-            ),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dctx, false),
-            child: Text(t.btnCancel),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(dctx, true),
-            child: Text(t.gyeReportSubmit),
-          ),
-        ],
-      ),
-    ),
+    builder: (_) => const _ReportDialog(),
   );
-  if (submitted == true) {
+  if (result != null) {
     final ok = await GyeService.reportMember(
       gyeId: gyeId,
       targetUid: target.uid,
-      reason: reason,
-      note: noteCtrl.text,
+      reason: result.reason,
+      note: result.note,
     );
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -348,5 +306,70 @@ Future<void> _report(
       );
     }
   }
-  noteCtrl.dispose();
+}
+
+class _ReportDialog extends StatefulWidget {
+  const _ReportDialog();
+
+  @override
+  State<_ReportDialog> createState() => _ReportDialogState();
+}
+
+class _ReportDialogState extends State<_ReportDialog> {
+  final TextEditingController _noteCtrl = TextEditingController();
+  GyeReportReason _reason = GyeReportReason.spam;
+
+  @override
+  void dispose() {
+    _noteCtrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return AlertDialog(
+      title: Text(t.gyeReportTitle),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final r in GyeReportReason.values)
+                ListTile(
+                  dense: true,
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(
+                    _reason == r
+                        ? Icons.radio_button_checked
+                        : Icons.radio_button_unchecked,
+                    color: SoriColors.primary,
+                  ),
+                  title: Text(_reasonLabel(t, r)),
+                  onTap: () => setState(() => _reason = r),
+                ),
+              TextField(
+                controller: _noteCtrl,
+                maxLength: 200,
+                maxLines: 2,
+                decoration: InputDecoration(hintText: t.gyeReportNoteHint),
+              ),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(t.btnCancel),
+        ),
+        TextButton(
+          onPressed: () =>
+              Navigator.pop(context, (reason: _reason, note: _noteCtrl.text)),
+          child: Text(t.gyeReportSubmit),
+        ),
+      ],
+    );
+  }
 }

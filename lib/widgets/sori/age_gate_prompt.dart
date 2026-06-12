@@ -51,56 +51,76 @@ Future<void> _showBlocked(BuildContext context) async {
   );
 }
 
-Future<int?> _askBirthYear(BuildContext context) async {
-  final t = AppL10n.of(context);
-  final controller = TextEditingController();
-  final year = await showDialog<int>(
+Future<int?> _askBirthYear(BuildContext context) {
+  // ⚠️ 컨트롤러를 이 함수에서 만들고 `await showDialog` 직후 dispose하면 안 된다:
+  // pop 후에도 다이얼로그 퇴장 애니메이션 동안 TextField가 리빌드되며
+  // "used after being disposed" → framework `_dependents.isEmpty` 레드스크린
+  // (Jin 실기기 gye 크래시의 근본 원인, 2026-06-12 웹 재현으로 확정).
+  // → State가 컨트롤러를 소유해 route 트리 파괴 후 dispose되게 한다.
+  return showDialog<int>(
     context: context,
-    builder: (ctx) {
-      String? error;
-      return StatefulBuilder(
-        builder: (ctx, setState) => AlertDialog(
-          title: Text(t.gyeAgeYearTitle),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(t.gyeAgeYearBody),
-              const SizedBox(height: 12),
-              TextField(
-                controller: controller,
-                keyboardType: TextInputType.number,
-                maxLength: 4,
-                autofocus: true,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                decoration: InputDecoration(
-                  hintText: t.gyeAgeYearHint,
-                  counterText: '',
-                  errorText: error,
-                ),
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(ctx).pop(),
-              child: Text(t.btnCancel),
-            ),
-            TextButton(
-              onPressed: () {
-                final y = int.tryParse(controller.text.trim());
-                if (y == null || !AgeGateService.isPlausibleYear(y)) {
-                  setState(() => error = t.gyeAgeYearHint);
-                  return;
-                }
-                Navigator.of(ctx).pop(y);
-              },
-              child: Text(t.btnConfirm),
-            ),
-          ],
-        ),
-      );
-    },
+    builder: (_) => const _BirthYearDialog(),
   );
-  controller.dispose();
-  return year;
+}
+
+class _BirthYearDialog extends StatefulWidget {
+  const _BirthYearDialog();
+
+  @override
+  State<_BirthYearDialog> createState() => _BirthYearDialogState();
+}
+
+class _BirthYearDialogState extends State<_BirthYearDialog> {
+  final TextEditingController _controller = TextEditingController();
+  String? _error;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return AlertDialog(
+      title: Text(t.gyeAgeYearTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(t.gyeAgeYearBody),
+          const SizedBox(height: 12),
+          TextField(
+            controller: _controller,
+            keyboardType: TextInputType.number,
+            maxLength: 4,
+            autofocus: true,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            decoration: InputDecoration(
+              hintText: t.gyeAgeYearHint,
+              counterText: '',
+              errorText: _error,
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.btnCancel),
+        ),
+        TextButton(
+          onPressed: () {
+            final y = int.tryParse(_controller.text.trim());
+            if (y == null || !AgeGateService.isPlausibleYear(y)) {
+              setState(() => _error = t.gyeAgeYearHint);
+              return;
+            }
+            Navigator.of(context).pop(y);
+          },
+          child: Text(t.btnConfirm),
+        ),
+      ],
+    );
+  }
 }

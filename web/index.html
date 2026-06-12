@@ -99,6 +99,19 @@
       document.body.style.background = "transparent";
     }
   </script>
+  <script>
+    // 헤드리스 시각검증 전용 (?forceRaf=1): occluded 탭에서 compositor가
+    // requestAnimationFrame을 멈춰 Flutter 엔진이 동결되는 문제 우회.
+    // 일반 사용자 경로에는 영향 없음 (URL 파라미터 게이트).
+    if (navigator.webdriver || new URLSearchParams(location.search).has('forceRaf')) {
+      window.requestAnimationFrame = (cb) => setTimeout(() => cb(performance.now()), 16);
+      window.cancelAnimationFrame = clearTimeout;
+      try {
+        Object.defineProperty(document, 'visibilityState', { value: 'visible' });
+        Object.defineProperty(document, 'hidden', { value: false });
+      } catch (_) {}
+    }
+  </script>
 </head>
 <body>
   <picture id="splash">
