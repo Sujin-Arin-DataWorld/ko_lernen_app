@@ -855,6 +855,9 @@ class AppL10nEn extends AppL10n {
   String get statsDays => 'Days';
 
   @override
+  String get statsThisWeek => 'This week';
+
+  @override
   String get statsCards => 'Cards';
 
   @override
@@ -1720,6 +1723,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homeLearnNowCta => 'Learn now';
+
+  @override
+  String get homeTigerBubbleResumeSub => '5 minutes is all it takes!';
 
   @override
   String get homePathDone => 'Done';

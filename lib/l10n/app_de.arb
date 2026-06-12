@@ -330,6 +330,7 @@
   "statsTitle": "Statistik",
   "statsSubtitle": "Dein Lernfortschritt",
   "statsDays": "Tage",
+  "statsThisWeek": "Diese Woche",
   "statsCards": "Karten",
   "statsPercent": "Genauigkeit",
   "statsWins": "Siege",
@@ -656,6 +657,7 @@
   "homePathLocked": "Verschlossen",
   "homePathCurrent": "Jetzt",
   "homeLearnNowCta": "Jetzt lernen",
+  "homeTigerBubbleResumeSub": "5 Minuten reichen schon!",
   "homePathDone": "Erledigt",
 
   "scenariosListTitle": "Szenarien",

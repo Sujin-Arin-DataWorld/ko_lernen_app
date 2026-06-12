@@ -528,10 +528,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Text(
                                       t.pathSeeAll,
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                      style: SoriTextTheme.of(context).label
+                                          .copyWith(color: SoriColors.primary),
                                     ),
                                     const SizedBox(width: 2),
                                     const Icon(Icons.chevron_right, size: 14),
@@ -615,19 +613,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     children: [
                                       Text(
                                         t.homeTigerBubbleResume,
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w800,
-                                        ),
+                                        style: SoriTextTheme.of(
+                                          context,
+                                        ).cardTitle,
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        '5분이면 충분해요!',
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: s.textMuted,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        t.homeTigerBubbleResumeSub,
+                                        style: SoriTextTheme.of(
+                                          context,
+                                        ).caption,
                                       ),
                                     ],
                                   ),
@@ -693,12 +688,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Center(
                         child: Text(
                           t.footerCheer,
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            color: s.textDim,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: SoriTextTheme.of(
+                            context,
+                          ).caption.copyWith(color: s.textDim),
                         ),
                       ),
                     ],
@@ -1143,7 +1135,6 @@ class _DailyCharCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
 
     return SoriCard(
       variant: SoriCardVariant.compact,
@@ -1180,22 +1171,14 @@ class _DailyCharCard extends StatelessWidget {
               children: [
                 Text(
                   t.dailyCharTitle,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 13,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                    letterSpacing: -0.2,
-                  ),
+                  style: SoriTextTheme.of(context).cardTitle,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   doneToday ? t.dailyCharDoneToday : t.dailyCharSubtitle,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 11,
-                    color: doneToday ? SoriColors.success : s.textMuted,
-                    fontWeight: doneToday ? FontWeight.w700 : FontWeight.w500,
+                  style: SoriTextTheme.of(context).cardSubtitle.copyWith(
+                    color: doneToday ? SoriColors.success : null,
+                    fontWeight: doneToday ? FontWeight.w700 : null,
                   ),
                 ),
               ],
@@ -1244,7 +1227,6 @@ class _TodayScenarioCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
 
     if (loading) {
       return SoriCard(
@@ -1264,12 +1246,7 @@ class _TodayScenarioCard extends StatelessWidget {
             child: Text(
               t.homeNoScenario,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                color: s.textMuted,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+              style: SoriTextTheme.of(context).bodySmall,
             ),
           ),
         ),
@@ -1310,14 +1287,9 @@ class _TodayScenarioCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       title,
-                      style: TextStyle(
-                        fontFamily: 'Pretendard',
-                        color: s.text,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: -0.3,
-                        height: 1.2,
-                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).h3.copyWith(fontWeight: FontWeight.w800),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -1352,12 +1324,7 @@ class _TodayScenarioCard extends StatelessWidget {
                             '5–7 min · +${scenario!.xpReward} XP',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontFamily: 'Pretendard',
-                              color: s.textMuted,
-                              fontSize: 11.5,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: SoriTextTheme.of(context).cardSubtitle,
                           ),
                         ),
                       ],
@@ -1456,7 +1423,6 @@ class _ReviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final has = dueCount > 0;
     return SoriCard(
       variant: SoriCardVariant.compact,
@@ -1488,20 +1454,12 @@ class _ReviewCard extends StatelessWidget {
               children: [
                 Text(
                   t.homeReviewTitle,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                    letterSpacing: -0.2,
-                  ),
+                  style: SoriTextTheme.of(context).cardTitle,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   has ? t.homeReviewDue(dueCount) : t.homeReviewDone,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 11.5,
+                  style: SoriTextTheme.of(context).cardSubtitle.copyWith(
                     color: has ? SoriColors.gold : SoriColors.success,
                     fontWeight: FontWeight.w700,
                   ),
@@ -1531,7 +1489,6 @@ class _PathCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     return SoriCard(
       variant: SoriCardVariant.compact,
       accent: SoriColors.primary,
@@ -1562,20 +1519,12 @@ class _PathCard extends StatelessWidget {
               children: [
                 Text(
                   t.homePathCardTitle,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                    letterSpacing: -0.2,
-                  ),
+                  style: SoriTextTheme.of(context).cardTitle,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   t.homePathCardSub,
-                  style: const TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 11.5,
+                  style: SoriTextTheme.of(context).cardSubtitle.copyWith(
                     color: SoriColors.primary,
                     fontWeight: FontWeight.w700,
                   ),
@@ -1605,7 +1554,6 @@ class _HardWordsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     return SoriCard(
       variant: SoriCardVariant.compact,
       accent: SoriColors.danger,
@@ -1636,20 +1584,12 @@ class _HardWordsCard extends StatelessWidget {
               children: [
                 Text(
                   t.hardWordsTitle,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                    letterSpacing: -0.2,
-                  ),
+                  style: SoriTextTheme.of(context).cardTitle,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   t.hardWordsSubtitle(count),
-                  style: const TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 11.5,
+                  style: SoriTextTheme.of(context).cardSubtitle.copyWith(
                     color: SoriColors.danger,
                     fontWeight: FontWeight.w700,
                   ),
@@ -1677,7 +1617,6 @@ class _CourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final isPro = PremiumService.isPremium;
     return SoriCard(
       variant: SoriCardVariant.hero,
@@ -1713,13 +1652,9 @@ class _CourseCard extends StatelessWidget {
                       Flexible(
                         child: Text(
                           t.homeCourseTitle,
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900,
-                            color: s.text,
-                            letterSpacing: -0.3,
-                          ),
+                          style: SoriTextTheme.of(
+                            context,
+                          ).h3.copyWith(fontWeight: FontWeight.w900),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -1754,13 +1689,9 @@ class _CourseCard extends StatelessWidget {
                   const SizedBox(height: 3),
                   Text(
                     t.homeCourseDesc,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 11.5,
-                      color: s.textMuted,
-                      fontWeight: FontWeight.w600,
-                      height: 1.3,
-                    ),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).cardSubtitle.copyWith(fontWeight: FontWeight.w600),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -1798,10 +1729,7 @@ Future<void> showGyeChooser(BuildContext context) async {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: Spacing.md),
-            Text(
-              t.gyeChooserTitle,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-            ),
+            Text(t.gyeChooserTitle, style: SoriTextTheme.of(context).h3),
             const SizedBox(height: Spacing.sm),
             for (final g in mine)
               ListTile(
@@ -1876,12 +1804,7 @@ class _SkillPathRail extends StatelessWidget {
         children: [
           Text(
             t.scenariosPathProgress(doneCount, scenarios.length),
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 12,
-              fontWeight: FontWeight.w700,
-              color: s.textMuted,
-            ),
+            style: SoriTextTheme.of(context).label.copyWith(color: s.textMuted),
           ),
           const SizedBox(height: 10),
           SizedBox(
@@ -2040,10 +1963,8 @@ class _SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.only(left: 2),
       child: Text(
         label,
-        style: TextStyle(
-          fontFamily: 'Pretendard',
+        style: SoriTextTheme.of(context).label.copyWith(
           color: s.textMuted,
-          fontSize: 12,
           fontWeight: FontWeight.w800,
           letterSpacing: 0.4,
         ),

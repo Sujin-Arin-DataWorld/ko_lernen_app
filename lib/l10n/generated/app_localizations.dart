@@ -1669,6 +1669,12 @@ abstract class AppL10n {
   /// **'Tage'**
   String get statsDays;
 
+  /// No description provided for @statsThisWeek.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Woche'**
+  String get statsThisWeek;
+
   /// No description provided for @statsCards.
   ///
   /// In de, this message translates to:
@@ -3258,6 +3264,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Jetzt lernen'**
   String get homeLearnNowCta;
+
+  /// No description provided for @homeTigerBubbleResumeSub.
+  ///
+  /// In de, this message translates to:
+  /// **'5 Minuten reichen schon!'**
+  String get homeTigerBubbleResumeSub;
 
   /// No description provided for @homePathDone.
   ///

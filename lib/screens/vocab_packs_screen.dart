@@ -94,7 +94,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   void _openPack(VocabPack pack) {
-    Navigator.of(context).pushNamed('/vocab/pack', arguments: pack.id).then((_) {
+    Navigator.of(context).pushNamed('/vocab/pack', arguments: pack.id).then((
+      _,
+    ) {
       // 복귀 시 진행도 새로고침 — 보스 클리어 후 다음 팩 unlock 반영.
       if (mounted) _load();
     });
@@ -128,8 +130,10 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     if (_loading) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(t.vocabPacksTitle,
-              style: const TextStyle(fontWeight: FontWeight.w800)),
+          title: Text(
+            t.vocabPacksTitle,
+            style: const TextStyle(fontWeight: FontWeight.w800),
+          ),
         ),
         body: const AppLoading(),
       );
@@ -143,8 +147,10 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.vocabPacksTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.vocabPacksTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.workspace_premium_outlined),
@@ -201,24 +207,21 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                   sliver: SliverGrid(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: Spacing.md,
-                      crossAxisSpacing: Spacing.md,
-                      childAspectRatio: 0.92,
-                    ),
-                    delegate: SliverChildBuilderDelegate(
-                      (context, i) {
-                        final e = _packs[i];
-                        return PackCard(
-                          packId: e.pack.id,
-                          title: VocabPackService.displayLabel(e.pack.id),
-                          progress: e.progress,
-                          onTap: () => _onPackTap(e.pack),
-                          onLockedTap: () => _onLockedTap(e.pack),
-                        );
-                      },
-                      childCount: _packs.length,
-                    ),
+                          crossAxisCount: 2,
+                          mainAxisSpacing: Spacing.md,
+                          crossAxisSpacing: Spacing.md,
+                          childAspectRatio: 0.92,
+                        ),
+                    delegate: SliverChildBuilderDelegate((context, i) {
+                      final e = _packs[i];
+                      return PackCard(
+                        packId: e.pack.id,
+                        title: VocabPackService.displayLabel(e.pack.id),
+                        progress: e.progress,
+                        onTap: () => _onPackTap(e.pack),
+                        onLockedTap: () => _onLockedTap(e.pack),
+                      );
+                    }, childCount: _packs.length),
                   ),
                 ),
             ],
@@ -252,21 +255,11 @@ class _LevelProgressHeader extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(
-                level,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 22,
-                ),
-              ),
+              Text(level, style: SoriTextTheme.of(context).h2),
               const SizedBox(width: Spacing.sm),
               Text(
                 t.vocabPacksProgressLabel(cleared, total),
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: s.textMuted,
-                ),
+                style: SoriTextTheme.of(context).bodySmall,
               ),
               const Spacer(),
               _StageLabel(level: level, pct: pct),
@@ -306,15 +299,15 @@ class _StageLabel extends StatelessWidget {
         color: SoriColors.primary.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(SoriRadius.pill),
         border: Border.all(
-            color: SoriColors.primary.withValues(alpha: 0.3), width: 0.8),
+          color: SoriColors.primary.withValues(alpha: 0.3),
+          width: 0.8,
+        ),
       ),
       child: Text(
         label,
-        style: TextStyle(
-          fontSize: 11,
-          fontWeight: FontWeight.w700,
-          color: s.text,
-        ),
+        style: SoriTextTheme.of(
+          context,
+        ).cardSubtitle.copyWith(color: s.text, fontWeight: FontWeight.w700),
       ),
     );
   }

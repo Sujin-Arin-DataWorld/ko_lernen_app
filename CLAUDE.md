@@ -335,6 +335,7 @@ flutter run -d <android-id>   # 안드로이드
 - **홈 주 CTA**: 호랑이 히어로+스탯 직후 풀폭 `SoriButton.filled` "Jetzt lernen"(tiger 주황) → 현재 팩 직행(없으면 /path). l10n `homeLearnNowCta`.
 - **텍스트스케일 회귀 매트릭스**: responsive_test에 전 21화면 ×1.3 케이스 추가 — 전부 통과(기존 Flexible 작업 덕).
 - ⚠️ **잔여(후속 세션)**: B-2 타이포 SoriTextTheme 전면 채택(인라인 409→토큰), B-3 버튼 68·수제 박스 74 통일 — plan 문서에 화면 우선순위 명시됨.
+- **B-2 1차 배치(같은 날 후속, 커밋 별도)**: `SoriTextTheme`에 앱 최빈 역할 2종 신설 — **`cardTitle`(14/w800)·`cardSubtitle`(11.5 muted)** (기존 8종으론 카드 패턴이 안 맞아 억지 매핑 대신 토큰 확장이 정답). **home(34→역할 일치 18곳 토큰화)·stats(18→10)·vocab_packs(5→3)** 이행 — 히어로/마이크로(스탯칩 9.5·큰 숫자 38·이모지)는 의도적 예외로 유지. 부수 발견·수정: **하드코딩 한국어 2건**(`'5분이면 충분해요!'`→`homeTigerBubbleResumeSub`, stats `'이번 주'`→`statsThisWeek`) l10n화. 잔여: scenario_player·settings·grammar/legacy·게임 화면 타이포 + B-3 버튼/카드.
 
 **Phase C — Play 정책:**
 - **멤버 차단(block)**: `GyeService.blockUser/unblockUser/blockedUidsStream/filterBlocked`(`users/{me}.blockedUids` — 기존 rules로 충분, 본인 문서) + gye_members_screen 차단/해제 토글(확인 다이얼로그·차단 시 취소선+라벨) + gye_screen 피드 필터(차단한 actor + 그를 향한 응원 숨김). 단위테스트 3(filterBlocked).
