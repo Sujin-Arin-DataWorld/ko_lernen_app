@@ -1240,7 +1240,7 @@ abstract class AppL10n {
   /// No description provided for @settingsPrivacyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Datenschutz'**
+  /// **'Datenschutzerklärung'**
   String get settingsPrivacyTitle;
 
   /// No description provided for @settingsPrivacySubtitle.
@@ -1254,6 +1254,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Link kopiert: {url}'**
   String settingsPrivacyCopied(Object url);
+
+  /// No description provided for @settingsPrivacySection.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenschutz'**
+  String get settingsPrivacySection;
+
+  /// No description provided for @settingsAnalyticsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzungsstatistiken'**
+  String get settingsAnalyticsTitle;
+
+  /// No description provided for @settingsAnalyticsDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Anonyme App-Nutzung teilen (Firebase Analytics)'**
+  String get settingsAnalyticsDesc;
+
+  /// No description provided for @settingsCrashTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Absturzberichte'**
+  String get settingsCrashTitle;
+
+  /// No description provided for @settingsCrashDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Hilft uns, Fehler schneller zu beheben (Crashlytics)'**
+  String get settingsCrashDesc;
+
+  /// No description provided for @settingsTermsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzungsbedingungen'**
+  String get settingsTermsTitle;
+
+  /// No description provided for @settingsImpressumTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Impressum'**
+  String get settingsImpressumTitle;
 
   /// No description provided for @settingsLicensesTitle.
   ///
@@ -2401,6 +2443,72 @@ abstract class AppL10n {
   /// **'Meldung gesendet. Danke.'**
   String get gyeReportSent;
 
+  /// No description provided for @gyeBlockTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mitglied blockieren?'**
+  String get gyeBlockTitle;
+
+  /// No description provided for @gyeBlockBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du siehst keine Sticker, Anfeuerungen oder Beiträge dieser Person mehr. Du kannst die Blockierung jederzeit in der Mitgliederliste aufheben.'**
+  String get gyeBlockBody;
+
+  /// No description provided for @gyeBlockConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Blockieren'**
+  String get gyeBlockConfirm;
+
+  /// No description provided for @gyeUnblock.
+  ///
+  /// In de, this message translates to:
+  /// **'Blockierung aufheben'**
+  String get gyeUnblock;
+
+  /// No description provided for @gyeBlockedLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Blockiert'**
+  String get gyeBlockedLabel;
+
+  /// No description provided for @gyeBlockedSnack.
+  ///
+  /// In de, this message translates to:
+  /// **'Mitglied blockiert. Beiträge werden ausgeblendet.'**
+  String get gyeBlockedSnack;
+
+  /// No description provided for @gyeMvpCard.
+  ///
+  /// In de, this message translates to:
+  /// **'Applaus für {name} — {packs} Packs letzte Woche! 👏'**
+  String gyeMvpCard(Object name, Object packs);
+
+  /// No description provided for @gyeProfileLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Level {level}'**
+  String gyeProfileLevel(Object level);
+
+  /// No description provided for @gyeProfileStreak.
+  ///
+  /// In de, this message translates to:
+  /// **'{days} Tage Streak'**
+  String gyeProfileStreak(Object days);
+
+  /// No description provided for @gyeProfileWeekly.
+  ///
+  /// In de, this message translates to:
+  /// **'{packs} Packs diese Woche'**
+  String gyeProfileWeekly(Object packs);
+
+  /// No description provided for @gyeAllInCelebrate.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle haben diese Woche beigetragen! 🔥'**
+  String get gyeAllInCelebrate;
+
   /// No description provided for @bookResultOfflineNotice.
   ///
   /// In de, this message translates to:
@@ -3144,6 +3252,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Jetzt'**
   String get homePathCurrent;
+
+  /// No description provided for @homeLearnNowCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt lernen'**
+  String get homeLearnNowCta;
 
   /// No description provided for @homePathDone.
   ///
@@ -4612,14 +4726,20 @@ abstract class AppL10n {
   /// No description provided for @consentBody.
   ///
   /// In de, this message translates to:
-  /// **'Bevor du loslegst: Hangul Sori speichert deinen Lernfortschritt zunächst nur auf deinem Gerät. Schau kurz, wie wir mit deinen Daten umgehen.'**
+  /// **'Dein Lernfortschritt bleibt zunächst nur auf deinem Gerät. Optionale Funktionen (Cloud-Backup, Lerngruppen, Foto-Worterkennung, Aussprache-Audio) verarbeiten einzelne Daten auf EU-Servern — Details in der Datenschutzerklärung.'**
   String get consentBody;
 
   /// No description provided for @consentPrivacyCta.
   ///
   /// In de, this message translates to:
-  /// **'Datenschutzerklärung lesen'**
+  /// **'Datenschutzerklärung'**
   String get consentPrivacyCta;
+
+  /// No description provided for @consentTermsCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzungsbedingungen'**
+  String get consentTermsCta;
 
   /// No description provided for @consentAgreeCta.
   ///
@@ -4630,8 +4750,26 @@ abstract class AppL10n {
   /// No description provided for @consentFootnote.
   ///
   /// In de, this message translates to:
-  /// **'Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu.'**
+  /// **'Mit dem Fortfahren stimmst du unseren Nutzungsbedingungen und unserer Datenschutzerklärung zu.'**
   String get consentFootnote;
+
+  /// No description provided for @consentAnalyticsOptIn.
+  ///
+  /// In de, this message translates to:
+  /// **'Anonyme Nutzungsstatistiken teilen (optional)'**
+  String get consentAnalyticsOptIn;
+
+  /// No description provided for @consentCrashOptIn.
+  ///
+  /// In de, this message translates to:
+  /// **'Anonyme Absturzberichte teilen (optional)'**
+  String get consentCrashOptIn;
+
+  /// No description provided for @consentOptionalHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.'**
+  String get consentOptionalHint;
 
   /// No description provided for @grammarEasy.
   ///

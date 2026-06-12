@@ -405,6 +405,19 @@ class Storage {
   static Future<void> setConsentAccepted() async =>
       _prefs?.setBool('kl_consent_accepted', true);
 
+  /// Opt-in: anonyme Nutzungsstatistiken (Firebase Analytics).
+  /// Default **false** — Erhebung erst nach expliziter Einwilligung
+  /// (TTDSG §25 / DSGVO Art. 6). Jederzeit in den Einstellungen widerrufbar.
+  static bool get analyticsConsent =>
+      _prefs?.getBool('kl_analytics_consent') ?? false;
+  static Future<void> setAnalyticsConsent(bool v) async =>
+      _prefs?.setBool('kl_analytics_consent', v);
+
+  /// Opt-in: Absturzberichte (Firebase Crashlytics). Default **false**.
+  static bool get crashConsent => _prefs?.getBool('kl_crash_consent') ?? false;
+  static Future<void> setCrashConsent(bool v) async =>
+      _prefs?.setBool('kl_crash_consent', v);
+
   /// Geburtsjahr (optional, Alters-Gate für Gye/Community — GDPR-K §8 DSGVO).
   /// 0 = nicht angegeben. Siehe [AgeGateService].
   static int get birthYear => _prefs?.getInt('kl_birth_year') ?? 0;

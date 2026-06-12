@@ -13,6 +13,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -77,17 +78,15 @@ class _BookshelfScreenState extends State<BookshelfScreen>
 
   /// AppBar 액션 — 친구 코드로 팩 가져오기.
   Widget _redeemAction(AppL10n t) => IconButton(
-        icon: const Icon(Icons.download_outlined),
-        tooltip: t.redeemTooltip,
-        onPressed: _openRedeem,
-      );
+    icon: const Icon(Icons.download_outlined),
+    tooltip: t.redeemTooltip,
+    onPressed: _openRedeem,
+  );
 
   /// 커스텀팩 공유 시트 (코드 생성 + 복사 + OS 공유).
   Future<void> _sharePack(CustomPack pack) async {
-    await showModalBottomSheet<void>(
+    await showSoriSheet<void>(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
       builder: (_) => _SharePackSheet(pack: pack),
     );
   }
@@ -142,17 +141,18 @@ class _BookshelfScreenState extends State<BookshelfScreen>
     if (name == null || name.isEmpty || !mounted) return;
     final pack = await CustomPackService.createEmpty(name: name);
     if (!mounted) return;
-    await Navigator.of(context)
-        .pushNamed('/custom_pack/edit', arguments: pack.id);
+    await Navigator.of(
+      context,
+    ).pushNamed('/custom_pack/edit', arguments: pack.id);
     _reload();
   }
 
   Widget _createAction(AppL10n t) => IconButton(
-        key: _createKey,
-        icon: const Icon(Icons.playlist_add_rounded),
-        tooltip: t.createWordbookCta,
-        onPressed: _createWordbook,
-      );
+    key: _createKey,
+    icon: const Icon(Icons.playlist_add_rounded),
+    tooltip: t.createWordbookCta,
+    onPressed: _createWordbook,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -171,9 +171,8 @@ class _BookshelfScreenState extends State<BookshelfScreen>
             title: t.bookshelfEmptyTitle,
             body: t.bookshelfEmptyBody,
             ctaLabel: t.bookshelfEmptyCta,
-            onCta: () => Navigator.of(context)
-                .pushNamed('/book')
-                .then((_) => _reload()),
+            onCta: () =>
+                Navigator.of(context).pushNamed('/book').then((_) => _reload()),
             secondaryLabel: t.createWordbookCta,
             onSecondary: _createWordbook,
           ),
@@ -183,8 +182,10 @@ class _BookshelfScreenState extends State<BookshelfScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.bookshelfTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.bookshelfTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         actions: [
           IconButton(
             key: _searchKey,
@@ -198,36 +199,35 @@ class _BookshelfScreenState extends State<BookshelfScreen>
           IconButton(
             icon: const Icon(Icons.add_a_photo_outlined),
             tooltip: t.bookshelfAddPage,
-            onPressed: () => Navigator.of(context)
-                .pushNamed('/book')
-                .then((_) => _reload()),
+            onPressed: () =>
+                Navigator.of(context).pushNamed('/book').then((_) => _reload()),
           ),
         ],
       ),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) => RefreshIndicator(
-          onRefresh: () async => _reload(),
-          color: SoriColors.primary,
-          child: ListView(
-            padding: soriClampPadding(
-              constraints.maxWidth,
-              base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
-            ),
-            children: [
-              const HanokHeader(
-                asset: 'assets/illustrations/hanok/calligraphy.png',
-                fallbackIcon: Icons.menu_book_outlined,
+            onRefresh: () async => _reload(),
+            color: SoriColors.primary,
+            child: ListView(
+              padding: soriClampPadding(
+                constraints.maxWidth,
+                base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
               ),
-              const SizedBox(height: Spacing.md),
-              if (_packs.isNotEmpty) ...[
-                _SectionHeader(label: t.bookshelfSectionCustomPacks),
-                ..._packs.map((p) => _CustomPackTile(
+              children: [
+                const HanokHeader(
+                  asset: 'assets/illustrations/hanok/calligraphy.png',
+                  fallbackIcon: Icons.menu_book_outlined,
+                ),
+                const SizedBox(height: Spacing.md),
+                if (_packs.isNotEmpty) ...[
+                  _SectionHeader(label: t.bookshelfSectionCustomPacks),
+                  ..._packs.map(
+                    (p) => _CustomPackTile(
                       pack: p,
-                      onTap: () => Navigator.of(context).pushNamed(
-                        '/custom_pack/play',
-                        arguments: p.id,
-                      ),
+                      onTap: () => Navigator.of(
+                        context,
+                      ).pushNamed('/custom_pack/play', arguments: p.id),
                       onEdit: () => Navigator.of(context)
                           .pushNamed('/custom_pack/edit', arguments: p.id)
                           .then((_) => _reload()),
@@ -236,21 +236,24 @@ class _BookshelfScreenState extends State<BookshelfScreen>
                         await CustomPackService.delete(p.id);
                         _reload();
                       },
-                    )),
-                const SizedBox(height: Spacing.lg),
-              ],
-              if (_pages.isNotEmpty) ...[
-                _SectionHeader(label: t.bookshelfSectionPages),
-                ..._pages.map((p) => _PageTile(
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (_pages.isNotEmpty) ...[
+                  _SectionHeader(label: t.bookshelfSectionPages),
+                  ..._pages.map(
+                    (p) => _PageTile(
                       page: p,
                       onTap: () => Navigator.of(context)
                           .pushNamed('/bookshelf/page', arguments: p.id)
                           .then((_) => _reload()),
-                    )),
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
-        ),
         ),
       ),
     );
@@ -268,7 +271,10 @@ class _SectionHeader extends StatelessWidget {
       child: Text(
         label,
         style: const TextStyle(
-            fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 0.4),
+          fontSize: 13,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0.4,
+        ),
       ),
     );
   }
@@ -300,14 +306,12 @@ class _PageTile extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: Spacing.sm),
           padding: const EdgeInsets.all(Spacing.md),
           decoration: BoxDecoration(
-            border:
-                Border.all(color: SoriColors.info.withValues(alpha: 0.25)),
+            border: Border.all(color: SoriColors.info.withValues(alpha: 0.25)),
             borderRadius: BorderRadius.circular(SoriRadius.md),
           ),
           child: Row(
             children: [
-              Icon(Icons.article_outlined,
-                  size: 22, color: SoriColors.info),
+              Icon(Icons.article_outlined, size: 22, color: SoriColors.info),
               const SizedBox(width: Spacing.md),
               Expanded(
                 child: Column(
@@ -318,12 +322,17 @@ class _PageTile extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w700, fontSize: 14),
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                      ),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       t.bookshelfTileMeta(
-                          page.words.length, page.grammar.length, dateLabel),
+                        page.words.length,
+                        page.grammar.length,
+                        dateLabel,
+                      ),
                       style: TextStyle(fontSize: 11, color: s.textMuted),
                     ),
                   ],
@@ -366,7 +375,9 @@ class _CustomPackTile extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: Spacing.sm),
           padding: const EdgeInsets.all(Spacing.md),
           decoration: BoxDecoration(
-            border: Border.all(color: SoriColors.primary.withValues(alpha: 0.35)),
+            border: Border.all(
+              color: SoriColors.primary.withValues(alpha: 0.35),
+            ),
             borderRadius: BorderRadius.circular(SoriRadius.md),
           ),
           child: Row(
@@ -382,7 +393,9 @@ class _CustomPackTile extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w800, fontSize: 14),
+                        fontWeight: FontWeight.w800,
+                        fontSize: 14,
+                      ),
                     ),
                     Text(
                       t.bookshelfPackMeta(pack.totalWords),
@@ -505,9 +518,10 @@ class _SharePackSheetState extends State<_SharePackSheet> {
           children: [
             const CircularProgressIndicator(color: SoriColors.primary),
             const SizedBox(height: 14),
-            Text(t.shareGenerating,
-                style:
-                    TextStyle(fontFamily: 'Pretendard', color: s.textMuted)),
+            Text(
+              t.shareGenerating,
+              style: TextStyle(fontFamily: 'Pretendard', color: s.textMuted),
+            ),
           ],
         ),
       );
@@ -519,9 +533,11 @@ class _SharePackSheetState extends State<_SharePackSheet> {
           children: [
             Icon(Icons.cloud_off_outlined, color: s.textMuted, size: 32),
             const SizedBox(height: 12),
-            Text(msg,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Pretendard', color: s.text)),
+            Text(
+              msg,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontFamily: 'Pretendard', color: s.text),
+            ),
             const SizedBox(height: 16),
             SoriButton(
               label: t.btnClose,
@@ -535,14 +551,17 @@ class _SharePackSheetState extends State<_SharePackSheet> {
       body = Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(t.shareCodeLabel,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.5,
-                  color: s.textMuted)),
+          Text(
+            t.shareCodeLabel,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.5,
+              color: s.textMuted,
+            ),
+          ),
           const SizedBox(height: 8),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -550,7 +569,8 @@ class _SharePackSheetState extends State<_SharePackSheet> {
               color: SoriColors.primary.withValues(alpha: 0.10),
               borderRadius: BorderRadius.circular(SoriRadius.md),
               border: Border.all(
-                  color: SoriColors.primary.withValues(alpha: 0.35)),
+                color: SoriColors.primary.withValues(alpha: 0.35),
+              ),
             ),
             child: Text(
               code,
@@ -565,10 +585,15 @@ class _SharePackSheetState extends State<_SharePackSheet> {
             ),
           ),
           const SizedBox(height: 8),
-          Text(t.shareExpiryNote,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Pretendard', fontSize: 11, color: s.textDim)),
+          Text(
+            t.shareExpiryNote,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 11,
+              color: s.textDim,
+            ),
+          ),
           const SizedBox(height: 16),
           Row(
             children: [
@@ -608,40 +633,32 @@ class _SharePackSheetState extends State<_SharePackSheet> {
       );
     }
 
-    return Container(
-      padding: EdgeInsets.fromLTRB(
-          20, 12, 20, 20 + MediaQuery.of(context).viewInsets.bottom),
-      decoration: BoxDecoration(
-        color: s.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 40,
-            height: 4,
-            margin: const EdgeInsets.only(bottom: 16),
-            decoration: BoxDecoration(
-                color: s.border, borderRadius: BorderRadius.circular(2)),
+    // 시트 외형(둥근 상단·handle·키보드 inset·스크롤)은 SoriSheet 담당.
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          t.shareTitle,
+          style: const TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: 17,
+            fontWeight: FontWeight.w800,
           ),
-          Text(t.shareTitle,
-              style: const TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 17,
-                  fontWeight: FontWeight.w800)),
-          const SizedBox(height: 2),
-          Text(widget.pack.displayName(),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 12.5,
-                  color: s.textMuted)),
-          const SizedBox(height: 18),
-          body,
-        ],
-      ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          widget.pack.displayName(),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: 12.5,
+            color: s.textMuted,
+          ),
+        ),
+        const SizedBox(height: 18),
+        body,
+      ],
     );
   }
 }
@@ -706,8 +723,10 @@ class _RedeemDialogState extends State<_RedeemDialog> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(t.redeemHint,
-              style: const TextStyle(fontFamily: 'Pretendard', fontSize: 12.5)),
+          Text(
+            t.redeemHint,
+            style: const TextStyle(fontFamily: 'Pretendard', fontSize: 12.5),
+          ),
           const SizedBox(height: 14),
           TextField(
             controller: _controller,

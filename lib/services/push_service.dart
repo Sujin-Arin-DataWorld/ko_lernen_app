@@ -68,8 +68,8 @@ class PushService {
         },
         SetOptions(merge: true),
       );
-    } catch (_) {
-      // best-effort
+    } catch (e) {
+      debugPrint('PushService: token persist skipped — $e');
     }
   }
 
@@ -90,8 +90,8 @@ class PushService {
         },
         SetOptions(merge: true),
       );
-    } catch (_) {
-      // best-effort
+    } catch (e) {
+      debugPrint('PushService: token remove skipped — $e');
     }
   }
 }

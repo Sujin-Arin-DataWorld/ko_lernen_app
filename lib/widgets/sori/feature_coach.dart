@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import 'button.dart';
 import 'mascot.dart';
+import 'sheet.dart';
 import 'tokens.dart';
 
 /// 지원하는 코치마크 종류 (후속 세션에서 gye / wordbook 추가).
@@ -32,10 +33,8 @@ Future<void> showFeatureCoachSheet(
   BuildContext context,
   FeatureCoach coach,
 ) async {
-  await showModalBottomSheet<void>(
+  await showSoriSheet<void>(
     context: context,
-    isScrollControlled: true,
-    backgroundColor: Colors.transparent,
     builder: (_) => _FeatureCoachSheet(coach: coach),
   );
 }
@@ -54,87 +53,62 @@ class _FeatureCoachSheet extends StatelessWidget {
     final title = _title(t);
     final steps = _steps(t);
 
-    return Container(
-      decoration: BoxDecoration(
-        color: s.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-      ),
-      padding: EdgeInsets.fromLTRB(
-        24,
-        12,
-        24,
-        24 + MediaQuery.viewInsetsOf(context).bottom,
-      ),
-      child: SafeArea(
-        top: false,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Grab handle
-            Container(
-              width: 40,
-              height: 4,
-              margin: const EdgeInsets.only(bottom: 16),
-              decoration: BoxDecoration(
-                color: s.border,
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
-
-            // 마스코트
-            const Mascot.tiger(
-              size: 88,
-              emotion: MascotEmotion.smile,
-              animate: true,
-            ),
-            const SizedBox(height: 12),
-
-            // 제목
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 19,
-                fontWeight: FontWeight.w900,
-                color: s.text,
-                letterSpacing: -0.3,
-              ),
-            ),
-            const SizedBox(height: 16),
-
-            // 번호 3스텝
-            for (int i = 0; i < steps.length; i++) ...[
-              _StepRow(index: i + 1, text: steps[i]),
-              if (i < steps.length - 1) const SizedBox(height: 8),
-            ],
-
-            // 한도 노트 (책 한 컷 전용)
-            if (coach == FeatureCoach.book) ...[
-              const SizedBox(height: 8),
-              Text(
-                t.coachBookLimitNote,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 11.5,
-                  color: s.textMuted,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-
-            const SizedBox(height: 20),
-
-            // CTA
-            SoriButton.filled(
-              label: t.coachBtnGotIt,
-              fullWidth: true,
-              onTap: () => Navigator.of(context).pop(),
-            ),
-          ],
+    // 시트 외형(둥근 상단·handle·SafeArea·maxHeight·스크롤)은 SoriSheet 담당.
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // 마스코트
+        const Mascot.tiger(
+          size: 88,
+          emotion: MascotEmotion.smile,
+          animate: true,
         ),
-      ),
+        const SizedBox(height: 12),
+
+        // 제목
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: 19,
+            fontWeight: FontWeight.w900,
+            color: s.text,
+            letterSpacing: -0.3,
+          ),
+        ),
+        const SizedBox(height: 16),
+
+        // 번호 3스텝
+        for (int i = 0; i < steps.length; i++) ...[
+          _StepRow(index: i + 1, text: steps[i]),
+          if (i < steps.length - 1) const SizedBox(height: 8),
+        ],
+
+        // 한도 노트 (책 한 컷 전용)
+        if (coach == FeatureCoach.book) ...[
+          const SizedBox(height: 8),
+          Text(
+            t.coachBookLimitNote,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 11.5,
+              color: s.textMuted,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+
+        const SizedBox(height: 20),
+
+        // CTA
+        SoriButton.filled(
+          label: t.coachBtnGotIt,
+          fullWidth: true,
+          onTap: () => Navigator.of(context).pop(),
+        ),
+      ],
     );
   }
 

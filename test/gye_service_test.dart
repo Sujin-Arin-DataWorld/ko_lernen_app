@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/data/profanity_denylist.dart';
+import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/services/gye_service.dart';
 
 void main() {
@@ -63,6 +64,60 @@ void main() {
       expect(containsProfanity('안녕하세요'), isFalse);
       expect(containsProfanity('한글소리'), isFalse);
       expect(containsProfanity('Sori Team'), isFalse);
+    });
+    test('확장 세트 — 거짓 양성 회피 (일반 단어/지명/이름)', () {
+      // 'ass'/'anal'/'cock'/'coon'/'mongo'/'년' 류 함정 미등재 확인.
+      expect(containsProfanity('Wasserfall'), isFalse);
+      expect(containsProfanity('Klasse 2026'), isFalse);
+      expect(containsProfanity('Analyse-Profi'), isFalse);
+      expect(containsProfanity('Peacock'), isFalse);
+      expect(containsProfanity('Mongolei-Fan'), isFalse);
+      expect(containsProfanity('한남동 주민'), isFalse);
+      expect(containsProfanity('2026년 수강생'), isFalse);
+      expect(containsProfanity('ㅋㅋㅋ'), isFalse);
+    });
+    test('확장 세트 — 신규 항목 차단', () {
+      expect(containsProfanity('Hurensohn123'), isTrue);
+      expect(containsProfanity('miss geburt'), isTrue);
+      expect(containsProfanity('미친놈들'), isTrue);
+      expect(containsProfanity('느금마야'), isTrue);
+      expect(containsProfanity('motherFucker'), isTrue);
+    });
+  });
+
+  group('filterBlocked (Play UGC 차단)', () {
+    GyeFeedEvent ev(String actor, {Map<String, dynamic> payload = const {}}) =>
+        GyeFeedEvent(
+          id: actor,
+          type: GyeFeedType.sticker,
+          actorUid: actor,
+          actorNickname: actor,
+          payload: payload,
+        );
+
+    test('차단 없음 → 원본 그대로', () {
+      final events = [ev('a'), ev('b')];
+      expect(GyeService.filterBlocked(events, const {}), same(events));
+    });
+
+    test('차단한 actor의 이벤트 숨김', () {
+      final out = GyeService.filterBlocked(
+        [ev('a'), ev('b'), ev('c')],
+        {'b'},
+      );
+      expect(out.map((e) => e.actorUid), ['a', 'c']);
+    });
+
+    test('차단한 사용자를 향한 응원(payload.targetUid)도 숨김', () {
+      final out = GyeService.filterBlocked(
+        [
+          ev('a', payload: {'targetUid': 'b'}),
+          ev('c', payload: {'targetUid': 'd'}),
+        ],
+        {'b'},
+      );
+      expect(out.length, 1);
+      expect(out.single.actorUid, 'c');
     });
   });
 }

@@ -10,6 +10,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
@@ -73,9 +74,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     final cats = SmalltalkLoader.categories;
     final catIds = cats.map((c) => c.id).toSet();
     // M5: zuerst eine Kategorie passend zu den Interessen öffnen (관심사 우선).
-    final preferred = PersonalizedLessonService
-        .smalltalkCategoriesFor(Storage.interests)
-        .firstWhere(catIds.contains, orElse: () => '');
+    final preferred = PersonalizedLessonService.smalltalkCategoriesFor(
+      Storage.interests,
+    ).firstWhere(catIds.contains, orElse: () => '');
     setState(() {
       _cat = preferred.isNotEmpty
           ? preferred
@@ -108,26 +109,31 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     return Scaffold(
       backgroundColor: s.bg,
       appBar: AppBar(
-        title: Text(t.smalltalkTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.smalltalkTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: SafeArea(
         child: _loading
             ? const AppLoading()
             : SmalltalkLoader.categories.isEmpty
-                ? SoriEmptyState(
-                    icon: Icons.chat_bubble_outline_rounded,
-                    title: t.smalltalkTitle,
-                    body: SmalltalkLoader.lastError ?? '',
-                  )
-                : _buildBody(t, s, lang),
+            ? SoriEmptyState(
+                icon: Icons.chat_bubble_outline_rounded,
+                title: t.smalltalkTitle,
+                body: SmalltalkLoader.lastError ?? '',
+              )
+            : _buildBody(t, s, lang),
       ),
     );
   }
 
   Widget _buildBody(AppL10n t, SoriSurfaces s, String lang) {
     final cats = SmalltalkLoader.categories;
-    final current = cats.firstWhere((c) => c.id == _cat, orElse: () => cats.first);
+    final current = cats.firstWhere(
+      (c) => c.id == _cat,
+      orElse: () => cats.first,
+    );
     final phrases = SmalltalkLoader.filter(category: _cat, level: _level);
 
     return Column(
@@ -145,7 +151,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               borderRadius: SoriRadius.brMd,
               child: Container(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: Spacing.md, vertical: 12),
+                  horizontal: Spacing.md,
+                  vertical: 12,
+                ),
                 decoration: BoxDecoration(
                   borderRadius: SoriRadius.brMd,
                   border: Border.all(color: s.border),
@@ -194,90 +202,85 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         Expanded(
           child: phrases.isEmpty
               ? Center(
-                  child: Text(t.smalltalkEmpty,
-                      style: TextStyle(color: s.textMuted)),
+                  child: Text(
+                    t.smalltalkEmpty,
+                    style: TextStyle(color: s.textMuted),
+                  ),
                 )
               : LayoutBuilder(
                   builder: (context, c) => ListView.builder(
-                  padding: soriClampPadding(
-                    c.maxWidth,
-                    base: const EdgeInsets.fromLTRB(
-                        Spacing.lg, 0, Spacing.lg, Spacing.xl),
+                    padding: soriClampPadding(
+                      c.maxWidth,
+                      base: const EdgeInsets.fromLTRB(
+                        Spacing.lg,
+                        0,
+                        Spacing.lg,
+                        Spacing.xl,
+                      ),
+                    ),
+                    itemCount: phrases.length,
+                    itemBuilder: (_, i) {
+                      final card = _PhraseCard(
+                        p: phrases[i],
+                        lang: lang,
+                        levelColor: _levelColor(phrases[i].level),
+                      );
+                      if (i == 0) {
+                        return KeyedSubtree(key: _firstCardKey, child: card);
+                      }
+                      return card;
+                    },
                   ),
-                  itemCount: phrases.length,
-                  itemBuilder: (_, i) {
-                    final card = _PhraseCard(
-                      p: phrases[i],
-                      lang: lang,
-                      levelColor: _levelColor(phrases[i].level),
-                    );
-                    if (i == 0) {
-                      return KeyedSubtree(key: _firstCardKey, child: card);
-                    }
-                    return card;
-                  },
-                )),
+                ),
         ),
       ],
     );
   }
 
   Widget _levelChip(String label, String? lvl) => ChoiceChip(
-        label: Text(label),
-        selected: _level == lvl,
-        onSelected: (_) => setState(() => _level = lvl),
-      );
+    label: Text(label),
+    selected: _level == lvl,
+    onSelected: (_) => setState(() => _level = lvl),
+  );
 
   /// 카테고리 18개 선택 바텀시트 — Wrap 그리드로 한눈에(가로 스크롤 제거).
   void _showCategorySheet(AppL10n t, String lang) {
     final s = SoriSurfaces.of(context);
     final cats = SmalltalkLoader.categories;
-    showModalBottomSheet<void>(
+    showSoriSheet<void>(
       context: context,
-      backgroundColor: s.bg,
-      showDragHandle: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.vertical(top: Radius.circular(SoriRadius.lg)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: SingleChildScrollView(
-          padding:
-              const EdgeInsets.fromLTRB(Spacing.lg, 0, Spacing.lg, Spacing.lg),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
+      builder: (ctx) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: Spacing.md, left: 4),
+            child: Text(
+              t.smalltalkPickCategory,
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 16,
+                fontWeight: FontWeight.w800,
+                color: s.text,
+              ),
+            ),
+          ),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: Spacing.md, left: 4),
-                child: Text(
-                  t.smalltalkPickCategory,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
+              for (final c in cats)
+                ChoiceChip(
+                  label: Text('${c.emoji} ${c.labelFor(lang)}'),
+                  selected: c.id == _cat,
+                  onSelected: (_) {
+                    setState(() => _cat = c.id);
+                    Navigator.pop(ctx);
+                  },
                 ),
-              ),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  for (final c in cats)
-                    ChoiceChip(
-                      label: Text('${c.emoji} ${c.labelFor(lang)}'),
-                      selected: c.id == _cat,
-                      onSelected: (_) {
-                        setState(() => _cat = c.id);
-                        Navigator.pop(ctx);
-                      },
-                    ),
-                ],
-              ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
@@ -353,7 +356,9 @@ class _PhraseCardState extends State<_PhraseCard> {
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 7, vertical: 2),
+                          horizontal: 7,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: widget.levelColor.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(SoriRadius.pill),
@@ -369,18 +374,25 @@ class _PhraseCardState extends State<_PhraseCard> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      Icon(Icons.volume_up_rounded,
-                          color: SoriColors.primary.withValues(alpha: 0.7),
-                          size: 20),
+                      Icon(
+                        Icons.volume_up_rounded,
+                        color: SoriColors.primary.withValues(alpha: 0.7),
+                        size: 20,
+                      ),
                       const SizedBox(height: 10),
                       // Satz ins eigene Wörterbuch (Satz = Karte).
                       GestureDetector(
-                        onTap: () => addToWordbook(context,
-                            korean: p.ko, translationDe: p.de,
-                            translationEn: p.en),
-                        child: Icon(Icons.bookmark_add_outlined,
-                            color: SoriColors.primary.withValues(alpha: 0.7),
-                            size: 20),
+                        onTap: () => addToWordbook(
+                          context,
+                          korean: p.ko,
+                          translationDe: p.de,
+                          translationEn: p.en,
+                        ),
+                        child: Icon(
+                          Icons.bookmark_add_outlined,
+                          color: SoriColors.primary.withValues(alpha: 0.7),
+                          size: 20,
+                        ),
                       ),
                     ],
                   ),
@@ -395,8 +407,10 @@ class _PhraseCardState extends State<_PhraseCard> {
                   alignment: Alignment.centerLeft,
                   child: TextButton.icon(
                     onPressed: () => setState(() => _showReply = true),
-                    icon: const Icon(Icons.chat_bubble_outline_rounded,
-                        size: 16),
+                    icon: const Icon(
+                      Icons.chat_bubble_outline_rounded,
+                      size: 16,
+                    ),
                     label: Text(t.smalltalkReply),
                   ),
                 )
@@ -457,8 +471,11 @@ class _ReplyView extends StatelessWidget {
           ),
           InkWell(
             onTap: () => TtsService.speak(reply.ko),
-            child: Icon(Icons.volume_up_rounded,
-                color: SoriColors.primary.withValues(alpha: 0.7), size: 20),
+            child: Icon(
+              Icons.volume_up_rounded,
+              color: SoriColors.primary.withValues(alpha: 0.7),
+              size: 20,
+            ),
           ),
         ],
       ),

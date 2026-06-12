@@ -610,7 +610,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get settingsPrivacyTitle => 'Datenschutz';
+  String get settingsPrivacyTitle => 'Datenschutzerklärung';
 
   @override
   String get settingsPrivacySubtitle => 'Link kopieren';
@@ -619,6 +619,29 @@ class AppL10nDe extends AppL10n {
   String settingsPrivacyCopied(Object url) {
     return 'Link kopiert: $url';
   }
+
+  @override
+  String get settingsPrivacySection => 'Datenschutz';
+
+  @override
+  String get settingsAnalyticsTitle => 'Nutzungsstatistiken';
+
+  @override
+  String get settingsAnalyticsDesc =>
+      'Anonyme App-Nutzung teilen (Firebase Analytics)';
+
+  @override
+  String get settingsCrashTitle => 'Absturzberichte';
+
+  @override
+  String get settingsCrashDesc =>
+      'Hilft uns, Fehler schneller zu beheben (Crashlytics)';
+
+  @override
+  String get settingsTermsTitle => 'Nutzungsbedingungen';
+
+  @override
+  String get settingsImpressumTitle => 'Impressum';
 
   @override
   String get settingsLicensesTitle => 'Open-Source-Lizenzen';
@@ -1265,6 +1288,49 @@ class AppL10nDe extends AppL10n {
   String get gyeReportSent => 'Meldung gesendet. Danke.';
 
   @override
+  String get gyeBlockTitle => 'Mitglied blockieren?';
+
+  @override
+  String get gyeBlockBody =>
+      'Du siehst keine Sticker, Anfeuerungen oder Beiträge dieser Person mehr. Du kannst die Blockierung jederzeit in der Mitgliederliste aufheben.';
+
+  @override
+  String get gyeBlockConfirm => 'Blockieren';
+
+  @override
+  String get gyeUnblock => 'Blockierung aufheben';
+
+  @override
+  String get gyeBlockedLabel => 'Blockiert';
+
+  @override
+  String get gyeBlockedSnack =>
+      'Mitglied blockiert. Beiträge werden ausgeblendet.';
+
+  @override
+  String gyeMvpCard(Object name, Object packs) {
+    return 'Applaus für $name — $packs Packs letzte Woche! 👏';
+  }
+
+  @override
+  String gyeProfileLevel(Object level) {
+    return 'Level $level';
+  }
+
+  @override
+  String gyeProfileStreak(Object days) {
+    return '$days Tage Streak';
+  }
+
+  @override
+  String gyeProfileWeekly(Object packs) {
+    return '$packs Packs diese Woche';
+  }
+
+  @override
+  String get gyeAllInCelebrate => 'Alle haben diese Woche beigetragen! 🔥';
+
+  @override
   String get bookResultOfflineNotice =>
       'Server nicht erreichbar — nur Grammatikmuster offline erkannt.';
 
@@ -1660,6 +1726,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get homePathCurrent => 'Jetzt';
+
+  @override
+  String get homeLearnNowCta => 'Jetzt lernen';
 
   @override
   String get homePathDone => 'Erledigt';
@@ -2486,17 +2555,31 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get consentBody =>
-      'Bevor du loslegst: Hangul Sori speichert deinen Lernfortschritt zunächst nur auf deinem Gerät. Schau kurz, wie wir mit deinen Daten umgehen.';
+      'Dein Lernfortschritt bleibt zunächst nur auf deinem Gerät. Optionale Funktionen (Cloud-Backup, Lerngruppen, Foto-Worterkennung, Aussprache-Audio) verarbeiten einzelne Daten auf EU-Servern — Details in der Datenschutzerklärung.';
 
   @override
-  String get consentPrivacyCta => 'Datenschutzerklärung lesen';
+  String get consentPrivacyCta => 'Datenschutzerklärung';
+
+  @override
+  String get consentTermsCta => 'Nutzungsbedingungen';
 
   @override
   String get consentAgreeCta => 'Zustimmen & loslegen';
 
   @override
   String get consentFootnote =>
-      'Mit dem Fortfahren stimmst du unserer Datenschutzerklärung zu.';
+      'Mit dem Fortfahren stimmst du unseren Nutzungsbedingungen und unserer Datenschutzerklärung zu.';
+
+  @override
+  String get consentAnalyticsOptIn =>
+      'Anonyme Nutzungsstatistiken teilen (optional)';
+
+  @override
+  String get consentCrashOptIn => 'Anonyme Absturzberichte teilen (optional)';
+
+  @override
+  String get consentOptionalHint =>
+      'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.';
 
   @override
   String get grammarEasy => 'Verstanden';

@@ -4,6 +4,8 @@ import '../../data/dure_title.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/gye.dart';
 import '../../services/gye_service.dart';
+import 'celebration.dart';
+import 'sheet.dart';
 import 'tokens.dart';
 
 /// 두레판 — 계 주간 공동 기여를 "함께 채우는" 협력 보드.
@@ -38,12 +40,15 @@ class DureBoard extends StatelessWidget {
   ];
   static Color _colorFor(int i) => _palette[i % _palette.length];
 
+  /// 전원 참여(5픽) 달성 축하 — 앱 실행당 계마다 1회 (재진입 스팸 방지).
+  static final Set<String> _allInCelebrated = {};
+
   static String _titleLabel(AppL10n t, DureTitle title) => switch (title) {
-        DureTitle.duru => t.dureTitleDuru,
-        DureTitle.newcomer => t.dureTitleNewcomer,
-        DureTitle.sprout => t.dureTitleSprout,
-        DureTitle.helper => t.dureTitleHelper,
-      };
+    DureTitle.duru => t.dureTitleDuru,
+    DureTitle.newcomer => t.dureTitleNewcomer,
+    DureTitle.sprout => t.dureTitleSprout,
+    DureTitle.helper => t.dureTitleHelper,
+  };
 
   /// 3픽: 다른 계원 칩 탭 → 정형 격려(자유 텍스트 X = 모더레이션 안전) 시트.
   void _showCheerSheet(
@@ -59,43 +64,42 @@ class DureBoard extends StatelessWidget {
       t.gyeCheer4,
       t.gyeCheer5,
     ];
-    showModalBottomSheet<void>(
+    showSoriSheet<void>(
       context: context,
-      builder: (sheetCtx) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(Spacing.md),
-              child: Text(
-                '${t.gyeCheerTitle} → $targetNickname',
-                style:
-                    const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
-              ),
+      builder: (sheetCtx) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(Spacing.md),
+            child: Text(
+              '${t.gyeCheerTitle} → $targetNickname',
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
             ),
-            for (var i = 0; i < cheers.length; i++)
-              ListTile(
-                leading: const Icon(Icons.volunteer_activism_outlined,
-                    color: SoriColors.tiger),
-                title: Text(cheers[i]),
-                onTap: () async {
-                  Navigator.of(sheetCtx).pop();
-                  final ok = await GyeService.sendCheer(
-                    gyeId: gyeId,
-                    targetUid: targetUid,
-                    targetNickname: targetNickname,
-                    cheerCode: i + 1,
-                  );
-                  if (!ok && context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(t.gyeStickerRateLimited)),
-                    );
-                  }
-                },
+          ),
+          for (var i = 0; i < cheers.length; i++)
+            ListTile(
+              leading: const Icon(
+                Icons.volunteer_activism_outlined,
+                color: SoriColors.tiger,
               ),
-            const SizedBox(height: Spacing.sm),
-          ],
-        ),
+              title: Text(cheers[i]),
+              onTap: () async {
+                Navigator.of(sheetCtx).pop();
+                final ok = await GyeService.sendCheer(
+                  gyeId: gyeId,
+                  targetUid: targetUid,
+                  targetNickname: targetNickname,
+                  cheerCode: i + 1,
+                );
+                if (!ok && context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(t.gyeStickerRateLimited)),
+                  );
+                }
+              },
+            ),
+          const SizedBox(height: Spacing.sm),
+        ],
       ),
     );
   }
@@ -107,18 +111,34 @@ class DureBoard extends StatelessWidget {
     return StreamBuilder<List<GyeMember>>(
       stream: GyeService.membersStream(gyeId),
       builder: (context, snap) {
-        final members = [...(snap.data ?? const <GyeMember>[])]..sort((a, b) =>
-            b.weeklyPacksContributed.compareTo(a.weeklyPacksContributed));
-        final total =
-            members.fold<int>(0, (sum, m) => sum + m.weeklyPacksContributed);
+        final members = [...(snap.data ?? const <GyeMember>[])]
+          ..sort(
+            (a, b) =>
+                b.weeklyPacksContributed.compareTo(a.weeklyPacksContributed),
+          );
+        final total = members.fold<int>(
+          0,
+          (sum, m) => sum + m.weeklyPacksContributed,
+        );
         final goal = meta.weeklyGoalPacks;
         final done = goal > 0 && total >= goal;
-        final contributors =
-            members.where((m) => m.weeklyPacksContributed > 0).toList();
+        final contributors = members
+            .where((m) => m.weeklyPacksContributed > 0)
+            .toList();
         final now = DateTime.now();
         // 5픽: 전원 참여 챌린지 (모두 1팩+).
         final allIn =
             members.isNotEmpty && contributors.length == members.length;
+
+        // 전원 참여 달성 순간 → 단청 burst (2인 이상, 실행당 1회).
+        if (allIn && members.length >= 2 && !_allInCelebrated.contains(gyeId)) {
+          _allInCelebrated.add(gyeId);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (context.mounted) {
+              SoriCelebration.burst(context);
+            }
+          });
+        }
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,37 +146,46 @@ class DureBoard extends StatelessWidget {
             // 헤더 — 라벨 + 합계(주인공) / 목표
             Row(
               children: [
-                Icon(done ? Icons.local_florist_rounded : Icons.grass_rounded,
-                    size: 16,
-                    color: done ? SoriColors.gold : SoriColors.primary),
+                Icon(
+                  done ? Icons.local_florist_rounded : Icons.grass_rounded,
+                  size: 16,
+                  color: done ? SoriColors.gold : SoriColors.primary,
+                ),
                 const SizedBox(width: 6),
                 Expanded(
                   child: Text(
                     t.gyeDureTitle,
                     style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: s.text),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: s.text,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                Text.rich(TextSpan(children: [
+                Text.rich(
                   TextSpan(
-                    text: '$total',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                        color: done ? SoriColors.gold : SoriColors.primary),
+                    children: [
+                      TextSpan(
+                        text: '$total',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900,
+                          color: done ? SoriColors.gold : SoriColors.primary,
+                        ),
+                      ),
+                      TextSpan(
+                        text: goal > 0 ? ' / $goal' : '',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          color: s.textMuted,
+                        ),
+                      ),
+                    ],
                   ),
-                  TextSpan(
-                    text: goal > 0 ? ' / $goal' : '',
-                    style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: s.textMuted),
-                  ),
-                ])),
+                ),
               ],
             ),
             const SizedBox(height: 8),
@@ -189,9 +218,10 @@ class DureBoard extends StatelessWidget {
               Text(
                 t.gyeDureEmpty,
                 style: TextStyle(
-                    fontSize: 12,
-                    color: s.textMuted,
-                    fontStyle: FontStyle.italic),
+                  fontSize: 12,
+                  color: s.textMuted,
+                  fontStyle: FontStyle.italic,
+                ),
               )
             else
               Wrap(
@@ -208,8 +238,10 @@ class DureBoard extends StatelessWidget {
                       isMe: m.uid == myUid,
                       isOwner: m.role == GyeRole.owner,
                       title: dureTitleFor(m, members, now: now),
-                      titleLabel:
-                          _titleLabel(t, dureTitleFor(m, members, now: now)),
+                      titleLabel: _titleLabel(
+                        t,
+                        dureTitleFor(m, members, now: now),
+                      ),
                       onTap: m.uid == myUid
                           ? null
                           : () => _showCheerSheet(context, m.uid, m.nickname),
@@ -292,7 +324,9 @@ class _MemberChip extends StatelessWidget {
         color: isMe ? color.withValues(alpha: 0.12) : Colors.transparent,
         borderRadius: BorderRadius.circular(SoriRadius.pill),
         border: Border.all(
-            color: isMe ? color.withValues(alpha: 0.5) : s.border, width: 1),
+          color: isMe ? color.withValues(alpha: 0.5) : s.border,
+          width: 1,
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -304,33 +338,42 @@ class _MemberChip extends StatelessWidget {
           ),
           const SizedBox(width: 6),
           if (isOwner) ...[
-            const Icon(Icons.workspace_premium_rounded,
-                size: 12, color: SoriColors.gold),
+            const Icon(
+              Icons.workspace_premium_rounded,
+              size: 12,
+              color: SoriColors.gold,
+            ),
             const SizedBox(width: 2),
           ],
           Text(
             name,
             style: TextStyle(
-                fontSize: 12,
-                fontWeight: isMe ? FontWeight.w800 : FontWeight.w600,
-                color: s.text),
+              fontSize: 12,
+              fontWeight: isMe ? FontWeight.w800 : FontWeight.w600,
+              color: s.text,
+            ),
           ),
           const SizedBox(width: 5),
           Text(
             titleLabel,
             style: TextStyle(
-                fontSize: 10.5, fontWeight: FontWeight.w800, color: titleColor),
+              fontSize: 10.5,
+              fontWeight: FontWeight.w800,
+              color: titleColor,
+            ),
           ),
           const SizedBox(width: 5),
           Text(
             '$count',
             style: TextStyle(
-                fontSize: 12, fontWeight: FontWeight.w800, color: color),
+              fontSize: 12,
+              fontWeight: FontWeight.w800,
+              color: color,
+            ),
           ),
           if (onTap != null) ...[
             const SizedBox(width: 4),
-            Icon(Icons.volunteer_activism_outlined,
-                size: 12, color: s.textDim),
+            Icon(Icons.volunteer_activism_outlined, size: 12, color: s.textDim),
           ],
         ],
       ),

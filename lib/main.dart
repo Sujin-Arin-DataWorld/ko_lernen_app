@@ -13,6 +13,7 @@ import 'services/tts_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
 import 'services/notification_service.dart';
+import 'services/privacy_consent_service.dart';
 import 'services/push_service.dart';
 import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
@@ -159,7 +160,12 @@ Future<void> _initFirebase() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    
+
+    // DSGVO/TTDSG: Analytics + Crashlytics sind opt-in. Die Erhebung ist im
+    // Manifest/Info.plist deaktiviert; hier wird die gespeicherte
+    // Einwilligung (Default: aus) auf die SDKs angewendet.
+    await PrivacyConsentService.applyStored();
+
     // Pass all uncaught "fatal" errors from the framework to Crashlytics.
     // In debug, also dump to the console so red-screen errors are diagnosable
     // (the bare Crashlytics handler otherwise swallows the console stack trace).

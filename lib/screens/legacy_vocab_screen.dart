@@ -17,6 +17,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -572,74 +573,51 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   }
 
   void _showFilterSheet() {
-    showModalBottomSheet(
+    showSoriSheet<void>(
       context: context,
-      backgroundColor: SoriSurfaces.of(context).surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
       builder: (ctx) {
         return StatefulBuilder(
-          builder: (ctx, setLocal) => Padding(
-            padding: EdgeInsets.fromLTRB(
-              20,
-              16,
-              20,
-              MediaQuery.of(ctx).viewInsets.bottom + 24,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: SoriSurfaces.of(ctx).surfaceAlt,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
+          builder: (ctx, setLocal) => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppL10n.of(ctx).filterTitle,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
                 ),
-                const SizedBox(height: 16),
-                Text(
-                  AppL10n.of(ctx).filterTitle,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) {
-                  setLocal(() => _level = v!);
-                  _level = v!;
-                }),
-                const SizedBox(height: 10),
-                _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
-                  setLocal(() => _topic = v!);
-                  _topic = v!;
-                }),
-                const SizedBox(height: 16),
-                SwitchListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(AppL10n.of(ctx).filterDirKoDe),
-                  value: _koFirst,
-                  onChanged: (b) {
-                    setLocal(() => _koFirst = b);
-                    _koFirst = b;
-                  },
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.filled(
-                  label: AppL10n.of(ctx).btnApply,
-                  fullWidth: true,
-                  onTap: () {
-                    _applyFilters();
-                    Navigator.pop(ctx);
-                  },
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 12),
+              _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) {
+                setLocal(() => _level = v!);
+                _level = v!;
+              }),
+              const SizedBox(height: 10),
+              _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
+                setLocal(() => _topic = v!);
+                _topic = v!;
+              }),
+              const SizedBox(height: 16),
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(AppL10n.of(ctx).filterDirKoDe),
+                value: _koFirst,
+                onChanged: (b) {
+                  setLocal(() => _koFirst = b);
+                  _koFirst = b;
+                },
+              ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton.filled(
+                label: AppL10n.of(ctx).btnApply,
+                fullWidth: true,
+                onTap: () {
+                  _applyFilters();
+                  Navigator.pop(ctx);
+                },
+              ),
+            ],
           ),
         );
       },

@@ -18,6 +18,7 @@ void main() {
     await Storage.setUserLevelCode('');
     await Storage.setSrsRawJson('');
     await Storage.setCustomPacksRawJson('');
+    await Storage.setBookshelfRawJson('');
   });
 
   test('buildBackupPayload enthält progress + srs + custom + Bestandsfelder',
@@ -80,6 +81,27 @@ void main() {
     });
     expect(Storage.srsRawJson, contains('local')); // kein Clobber
     expect(Storage.customPacksRawJson, contains('local'));
+  });
+
+  test('Bookshelf Round-Trip: Backup enthält bookshelf_json + Restore '
+      'nur wenn lokal leer (kein Clobber)', () async {
+    // Backup-Seite.
+    await Storage.setBookshelfRawJson('[{"id":"p_local"}]');
+    expect(CloudSync.buildBackupPayload()['bookshelf_json'],
+        '[{"id":"p_local"}]');
+
+    // Kein Clobber wenn lokal vorhanden.
+    await CloudSync.applyRestorePayload({
+      'bookshelf_json': '[{"id":"p_cloud"}]',
+    });
+    expect(Storage.bookshelfRawJson, contains('p_local'));
+
+    // Restore wenn lokal leer (Gerätewechsel).
+    await Storage.setBookshelfRawJson('');
+    await CloudSync.applyRestorePayload({
+      'bookshelf_json': '[{"id":"p_cloud"}]',
+    });
+    expect(Storage.bookshelfRawJson, contains('p_cloud'));
   });
 
   test('setSrsRawJson Round-Trip (Getter/Setter)', () async {

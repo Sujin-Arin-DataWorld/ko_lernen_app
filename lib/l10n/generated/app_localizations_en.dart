@@ -621,6 +621,28 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get settingsPrivacySection => 'Privacy';
+
+  @override
+  String get settingsAnalyticsTitle => 'Usage statistics';
+
+  @override
+  String get settingsAnalyticsDesc =>
+      'Share anonymous app usage (Firebase Analytics)';
+
+  @override
+  String get settingsCrashTitle => 'Crash reports';
+
+  @override
+  String get settingsCrashDesc => 'Helps us fix bugs faster (Crashlytics)';
+
+  @override
+  String get settingsTermsTitle => 'Terms of Service';
+
+  @override
+  String get settingsImpressumTitle => 'Legal Notice (Impressum)';
+
+  @override
   String get settingsLicensesTitle => 'Open-source licenses';
 
   @override
@@ -1261,6 +1283,48 @@ class AppL10nEn extends AppL10n {
   String get gyeReportSent => 'Report submitted. Thank you.';
 
   @override
+  String get gyeBlockTitle => 'Block member?';
+
+  @override
+  String get gyeBlockBody =>
+      'You won\'t see this person\'s stickers, cheers or posts anymore. You can unblock them anytime in the member list.';
+
+  @override
+  String get gyeBlockConfirm => 'Block';
+
+  @override
+  String get gyeUnblock => 'Unblock';
+
+  @override
+  String get gyeBlockedLabel => 'Blocked';
+
+  @override
+  String get gyeBlockedSnack => 'Member blocked. Their posts are now hidden.';
+
+  @override
+  String gyeMvpCard(Object name, Object packs) {
+    return 'A round of applause for $name — $packs packs last week! 👏';
+  }
+
+  @override
+  String gyeProfileLevel(Object level) {
+    return 'Level $level';
+  }
+
+  @override
+  String gyeProfileStreak(Object days) {
+    return '$days-day streak';
+  }
+
+  @override
+  String gyeProfileWeekly(Object packs) {
+    return '$packs packs this week';
+  }
+
+  @override
+  String get gyeAllInCelebrate => 'Everyone contributed this week! 🔥';
+
+  @override
   String get bookResultOfflineNotice =>
       'Server unreachable — only grammar patterns detected offline.';
 
@@ -1653,6 +1717,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get homePathCurrent => 'Now';
+
+  @override
+  String get homeLearnNowCta => 'Learn now';
 
   @override
   String get homePathDone => 'Done';
@@ -2476,17 +2543,31 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get consentBody =>
-      'Before you dive in — Hangul Sori keeps your learning progress on your device by default. Take a moment to see how we handle your data.';
+      'Your learning progress stays on your device by default. Optional features (cloud backup, study groups, photo word capture, pronunciation audio) process specific data on EU servers — see the privacy policy for details.';
 
   @override
-  String get consentPrivacyCta => 'Read the privacy policy';
+  String get consentPrivacyCta => 'Privacy policy';
+
+  @override
+  String get consentTermsCta => 'Terms of service';
 
   @override
   String get consentAgreeCta => 'Agree & start';
 
   @override
   String get consentFootnote =>
-      'By continuing you agree to our Privacy Policy.';
+      'By continuing you agree to our Terms of Service and Privacy Policy.';
+
+  @override
+  String get consentAnalyticsOptIn =>
+      'Share anonymous usage statistics (optional)';
+
+  @override
+  String get consentCrashOptIn => 'Share anonymous crash reports (optional)';
+
+  @override
+  String get consentOptionalHint =>
+      'Both are optional and can be changed anytime in Settings.';
 
   @override
   String get grammarEasy => 'Got it';

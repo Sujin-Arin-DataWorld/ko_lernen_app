@@ -146,6 +146,8 @@
     <nav class="top-nav">
       <a href="index.html">← Home</a>
       <a href="account-deletion.html">Account & Data Deletion</a>
+      <a href="terms.html">Terms</a>
+      <a href="impressum.html">Impressum</a>
       <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>
     </nav>
 
@@ -158,7 +160,7 @@
     <!-- ─────────── ENGLISH ─────────── -->
     <section class="section active" id="lang-en">
       <h1>Privacy Policy</h1>
-      <p class="meta"><strong>Effective Date:</strong> 2026-05-20 · <strong>Last Updated:</strong> 2026-06-01</p>
+      <p class="meta"><strong>Effective Date:</strong> 2026-05-20 · <strong>Last Updated:</strong> 2026-06-12</p>
 
       <h2>1. Introduction</h2>
       <p>This Privacy Policy describes how <strong>Hangul Sori (한글소리)</strong> ("we", "our", or "the App"), developed by <strong>Sujin Arin DataWorld</strong> (Frankfurt am Main, Germany), collects, uses, and protects your information when you use our mobile application.</p>
@@ -199,13 +201,27 @@
       </ul>
       <p>You can revoke camera and photo permissions at any time in your phone's Settings; Snap-and-Learn will simply be unavailable.</p>
 
-      <h3>2.5 What We Do NOT Collect</h3>
+      <h3>2.5 Optional: Usage Statistics &amp; Crash Reports (Opt-in)</h3>
+      <p><strong>Firebase Analytics and Firebase Crashlytics are disabled by default.</strong> They are only activated if you explicitly opt in on the welcome screen (two separate, voluntary checkboxes) or later in <em>Settings → Privacy</em>. You can withdraw this consent at any time in <em>Settings → Privacy</em>; collection stops immediately.</p>
+      <ul>
+        <li>📊 <strong>Usage statistics (Analytics)</strong>: anonymous app events (e.g. screen views, session length) tied to a random Firebase Installation ID — used only to understand which features are used.</li>
+        <li>🐛 <strong>Crash reports (Crashlytics)</strong>: device model, OS version, and stack traces when the app crashes — used only to fix bugs.</li>
+      </ul>
+
+      <h3>2.6 Optional: Study Groups ("Gye") &amp; Push Notifications</h3>
+      <p>If you create or join a study group (Gye), we store in Firestore (EU servers): your chosen <strong>group nickname</strong>, the group name, your weekly learning contributions, sent stickers/cheers, and any reports you submit. This is required to run the group feature and is deleted when you leave the group or delete your account. Joining a Gye requires a minimum age of 16 (Art. 8 GDPR).</p>
+      <p>For group notifications (e.g. weekly goal achieved) we use <strong>Firebase Cloud Messaging</strong>: a push registration token (a device identifier) is stored in your user document. Notifications only work if you grant the system notification permission; you can revoke it anytime in your phone's Settings.</p>
+
+      <h3>2.7 Korean Audio (Text-to-Speech)</h3>
+      <p>High-quality Korean pronunciation uses <strong>Google Cloud Text-to-Speech</strong>. Pre-generated audio for built-in content is simply downloaded. For words you add yourself (Snap-and-Learn, custom wordbooks), only the <strong>Korean text</strong> is sent to our Cloud Function (EU, Frankfurt) to synthesize audio; no other personal data is attached. Synthesized audio is cached on your device.</p>
+
+      <h3>2.8 What We Do NOT Collect</h3>
       <ul>
         <li>❌ Your real name (beyond optional Google display name)</li>
         <li>❌ Phone number, location, contacts, files, microphone</li>
-        <li>❌ Photo files (Snap-and-Learn photos stay on your device only)</li>
+        <li>❌ Photo files (Snap-and-Learn photos and word photos stay on your device only)</li>
         <li>❌ Browsing history outside the app</li>
-        <li>❌ Advertising IDs (this version has no ads)</li>
+        <li>❌ No ads, no ad-based tracking, no sale of data</li>
       </ul>
 
       <h2>3. Third-Party Services</h2>
@@ -215,15 +231,20 @@
         </thead>
         <tbody>
           <tr><td>Firebase Auth</td><td>Google LLC</td><td>Anonymous + Google login</td></tr>
-          <tr><td>Firebase Firestore</td><td>Google LLC</td><td>Cloud backup (opt-in)</td></tr>
-          <tr><td>Firebase Analytics</td><td>Google LLC</td><td>App usage tracking (anonymous)</td></tr>
-          <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>App crash and error reporting</td></tr>
+          <tr><td>Firebase Firestore</td><td>Google LLC</td><td>Cloud backup (opt-in) + study groups (Gye)</td></tr>
+          <tr><td>Firebase Analytics</td><td>Google LLC</td><td>Usage statistics — <strong>opt-in</strong>, off by default</td></tr>
+          <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>Crash reports — <strong>opt-in</strong>, off by default</td></tr>
+          <tr><td>Firebase Cloud Messaging</td><td>Google LLC</td><td>Push notifications for study groups (push token)</td></tr>
+          <tr><td>Firebase Remote Config / Storage</td><td>Google LLC</td><td>Feature flags / pre-generated audio download</td></tr>
           <tr><td>Google Sign-In</td><td>Google LLC</td><td>OAuth flow</td></tr>
-          <tr><td>flutter_tts</td><td>Native Android</td><td>Korean pronunciation (offline)</td></tr>
+          <tr><td>Google Cloud Text-to-Speech</td><td>Google LLC</td><td>Korean audio synthesis (text only, via our EU Cloud Function)</td></tr>
+          <tr><td>flutter_tts</td><td>Native Android</td><td>Korean pronunciation fallback (offline)</td></tr>
           <tr><td>Google ML Kit (Text Recognition)</td><td>Google LLC</td><td>On-device Korean OCR for Snap-and-Learn (no upload)</td></tr>
           <tr><td>DeepL Translation API</td><td>DeepL SE (Cologne, DE)</td><td>Extracted-text translation (text only, EU servers)</td></tr>
-          <tr><td>Firebase Cloud Functions</td><td>Google LLC</td><td>Korean morpheme analysis (OKT) for Snap-and-Learn</td></tr>
-          <tr><td>AdMob</td><td>Google LLC</td><td>Disabled in this version</td></tr>
+          <tr><td>NIKL Urimalsaem API</td><td>National Institute of Korean Language (KR)</td><td>Korean dictionary definitions (looked-up words only, via our Cloud Function)</td></tr>
+          <tr><td>Firebase Cloud Functions</td><td>Google LLC</td><td>Korean text analysis &amp; TTS (Frankfurt, EU)</td></tr>
+          <tr><td>RevenueCat</td><td>RevenueCat Inc. (US)</td><td>Subscription management — only if you purchase a subscription (SCC)</td></tr>
+          <tr><td>AdMob</td><td>Google LLC</td><td>Disabled in this version — no ads</td></tr>
         </tbody>
       </table>
       <p>Google's Privacy Policy: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
@@ -237,13 +258,13 @@
         <li><strong>Delete</strong> your data: Settings → "Reset" (on-device) or "Delete cloud data" (Firestore)</li>
         <li><strong>Restrict processing</strong>: Disable Cloud Sync in Settings</li>
         <li><strong>Data portability</strong>: Contact us for an export</li>
-        <li><strong>Withdraw consent</strong>: Disable features anytime</li>
-        <li><strong>Lodge a complaint</strong> with your national data protection authority</li>
+        <li><strong>Withdraw consent</strong>: <em>Settings → Privacy</em> — turn off usage statistics and crash reports at any time (Art. 7(3) GDPR); collection stops immediately</li>
+        <li><strong>Lodge a complaint</strong> with your national data protection authority (for Germany: Der Hessische Beauftragte für Datenschutz und Informationsfreiheit)</li>
       </ul>
 
       <h2>5. Children's Privacy</h2>
-      <p>Hangul Sori is rated for general audiences. We do not knowingly collect personal data from children under 13 (US) / 16 (EU). The Google Sign-In feature requires an age-eligible Google account.</p>
-      <p>For users under 13, third-party services like Firebase Analytics and Crashlytics are configured to <strong>not collect</strong> any Personal Identifiable Information (PII) or Advertising IDs. We strictly comply with the Children's Online Privacy Protection Act (COPPA) and Google Play's Families Policy. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately to have it removed.</p>
+      <p>Hangul Sori is rated for ages 13 and up. We do not knowingly collect personal data from children under 13 (US) / 16 (EU). The Google Sign-In feature requires an age-eligible Google account, and study groups (Gye) require a minimum age of 16.</p>
+      <p><strong>Usage statistics (Analytics) and crash reports (Crashlytics) are off by default for everyone</strong> and only run after explicit opt-in consent; they can be turned off again at any time in <em>Settings → Privacy</em>. The app contains no advertising. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately to have it removed.</p>
 
       <h2>6. Security</h2>
       <ul>
@@ -264,12 +285,13 @@
       Sujin Park (Sujin Arin DataWorld)<br>
       Frankfurt am Main, Germany<br>
       Email: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a></p>
+      <p>Full provider identification: <a href="impressum.html">Impressum / Legal Notice</a></p>
     </section>
 
     <!-- ─────────── DEUTSCH ─────────── -->
     <section class="section" id="lang-de">
       <h1>Datenschutzerklärung</h1>
-      <p class="meta"><strong>Wirksam ab:</strong> 2026-05-20 · <strong>Zuletzt aktualisiert:</strong> 2026-06-01</p>
+      <p class="meta"><strong>Wirksam ab:</strong> 2026-05-20 · <strong>Zuletzt aktualisiert:</strong> 2026-06-12</p>
 
       <h2>1. Einleitung</h2>
       <p>Diese Datenschutzerklärung beschreibt, wie <strong>Hangul Sori (한글소리)</strong> ("wir", "uns" oder "die App"), entwickelt von <strong>Sujin Arin DataWorld</strong> (Frankfurt am Main, Deutschland), Ihre Informationen bei der Nutzung unserer mobilen Anwendung erhebt, verwendet und schützt.</p>
@@ -310,13 +332,27 @@
       </ul>
       <p>Sie können Kamera- und Fotoberechtigungen jederzeit in den Telefon-Einstellungen widerrufen; Snap-and-Learn ist dann einfach nicht mehr verfügbar.</p>
 
-      <h3>2.5 Was wir NICHT erheben</h3>
+      <h3>2.5 Optional: Nutzungsstatistiken &amp; Absturzberichte (Opt-in)</h3>
+      <p><strong>Firebase Analytics und Firebase Crashlytics sind standardmäßig deaktiviert.</strong> Sie werden nur aktiviert, wenn Sie auf dem Willkommensbildschirm ausdrücklich zustimmen (zwei separate, freiwillige Checkboxen) — oder später unter <em>Einstellungen → Datenschutz</em>. Sie können die Einwilligung dort jederzeit widerrufen (Art. 7 Abs. 3 DSGVO); die Erhebung stoppt sofort.</p>
+      <ul>
+        <li>📊 <strong>Nutzungsstatistiken (Analytics)</strong>: anonyme App-Ereignisse (z. B. Bildschirmaufrufe, Sitzungsdauer), verknüpft mit einer zufälligen Firebase-Installations-ID — nur um zu verstehen, welche Funktionen genutzt werden.</li>
+        <li>🐛 <strong>Absturzberichte (Crashlytics)</strong>: Gerätemodell, OS-Version und Stack-Traces bei App-Abstürzen — nur zur Fehlerbehebung.</li>
+      </ul>
+
+      <h3>2.6 Optional: Lerngruppen („Gye") &amp; Push-Benachrichtigungen</h3>
+      <p>Wenn Sie eine Lerngruppe (Gye) erstellen oder ihr beitreten, speichern wir in Firestore (EU-Server): Ihren gewählten <strong>Gruppen-Spitznamen</strong>, den Gruppennamen, Ihre wöchentlichen Lernbeiträge, gesendete Sticker/Anfeuerungen sowie von Ihnen abgegebene Meldungen. Dies ist für den Betrieb der Gruppenfunktion erforderlich und wird gelöscht, wenn Sie die Gruppe verlassen oder Ihr Konto löschen. Für Lerngruppen gilt ein Mindestalter von 16 Jahren (Art. 8 DSGVO).</p>
+      <p>Für Gruppen-Benachrichtigungen (z. B. Wochenziel erreicht) nutzen wir <strong>Firebase Cloud Messaging</strong>: ein Push-Registrierungstoken (eine Gerätekennung) wird in Ihrem Nutzerdokument gespeichert. Benachrichtigungen funktionieren nur, wenn Sie die System-Benachrichtigungsberechtigung erteilen; diese können Sie jederzeit in den Telefon-Einstellungen widerrufen.</p>
+
+      <h3>2.7 Koreanische Audio-Ausgabe (Text-to-Speech)</h3>
+      <p>Die hochwertige koreanische Aussprache nutzt <strong>Google Cloud Text-to-Speech</strong>. Vorgenerierte Audiodateien für eingebaute Inhalte werden lediglich heruntergeladen. Für selbst hinzugefügte Wörter (Snap-and-Learn, eigene Wortschätze) wird nur der <strong>koreanische Text</strong> an unsere Cloud Function (EU, Frankfurt) zur Audio-Synthese gesendet; es werden keine weiteren personenbezogenen Daten angehängt. Synthetisierte Audiodateien werden auf Ihrem Gerät zwischengespeichert.</p>
+
+      <h3>2.8 Was wir NICHT erheben</h3>
       <ul>
         <li>❌ Ihren echten Namen (außer optionalem Google-Anzeigenamen)</li>
         <li>❌ Telefonnummer, Standort, Kontakte, Dateien, Mikrofon</li>
-        <li>❌ Fotodateien (Snap-and-Learn-Bilder bleiben ausschließlich auf Ihrem Gerät)</li>
+        <li>❌ Fotodateien (Snap-and-Learn-Bilder und Wortfotos bleiben ausschließlich auf Ihrem Gerät)</li>
         <li>❌ Browserverlauf außerhalb der App</li>
-        <li>❌ Werbe-IDs (diese Version enthält keine Werbung)</li>
+        <li>❌ Keine Werbung, kein werbebasiertes Tracking, kein Datenverkauf</li>
       </ul>
 
       <h2>3. Drittanbieter</h2>
@@ -326,15 +362,20 @@
         </thead>
         <tbody>
           <tr><td>Firebase Auth</td><td>Google LLC</td><td>Anonyme + Google-Anmeldung</td></tr>
-          <tr><td>Firebase Firestore</td><td>Google LLC</td><td>Cloud-Backup (opt-in)</td></tr>
-          <tr><td>Firebase Analytics</td><td>Google LLC</td><td>App-Nutzung und Verhaltensanalyse (anonym)</td></tr>
-          <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>App-Absturz- und Fehlerberichte</td></tr>
+          <tr><td>Firebase Firestore</td><td>Google LLC</td><td>Cloud-Backup (opt-in) + Lerngruppen (Gye)</td></tr>
+          <tr><td>Firebase Analytics</td><td>Google LLC</td><td>Nutzungsstatistiken — <strong>Opt-in</strong>, standardmäßig aus</td></tr>
+          <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>Absturzberichte — <strong>Opt-in</strong>, standardmäßig aus</td></tr>
+          <tr><td>Firebase Cloud Messaging</td><td>Google LLC</td><td>Push-Benachrichtigungen für Lerngruppen (Push-Token)</td></tr>
+          <tr><td>Firebase Remote Config / Storage</td><td>Google LLC</td><td>Feature-Flags / Download vorgenerierter Audiodateien</td></tr>
           <tr><td>Google Sign-In</td><td>Google LLC</td><td>OAuth-Flow</td></tr>
-          <tr><td>flutter_tts</td><td>Native Android</td><td>Koreanische Aussprache (offline)</td></tr>
+          <tr><td>Google Cloud Text-to-Speech</td><td>Google LLC</td><td>Koreanische Audio-Synthese (nur Text, über unsere EU Cloud Function)</td></tr>
+          <tr><td>flutter_tts</td><td>Native Android</td><td>Koreanische Aussprache als Fallback (offline)</td></tr>
           <tr><td>Google ML Kit (Texterkennung)</td><td>Google LLC</td><td>OCR auf dem Gerät für Snap-and-Learn (kein Upload)</td></tr>
           <tr><td>DeepL Translation API</td><td>DeepL SE (Köln, DE)</td><td>Übersetzung des extrahierten Texts (nur Text, EU-Server)</td></tr>
-          <tr><td>Firebase Cloud Functions</td><td>Google LLC</td><td>Koreanische Morphem-Analyse (OKT) für Snap-and-Learn</td></tr>
-          <tr><td>AdMob</td><td>Google LLC</td><td>In dieser Version deaktiviert</td></tr>
+          <tr><td>NIKL Urimalsaem API</td><td>National Institute of Korean Language (KR)</td><td>Koreanische Wörterbuch-Definitionen (nur nachgeschlagene Wörter, über unsere Cloud Function)</td></tr>
+          <tr><td>Firebase Cloud Functions</td><td>Google LLC</td><td>Koreanische Textanalyse &amp; TTS (Frankfurt, EU)</td></tr>
+          <tr><td>RevenueCat</td><td>RevenueCat Inc. (US)</td><td>Abo-Verwaltung — nur bei Abschluss eines Abos (SCC)</td></tr>
+          <tr><td>AdMob</td><td>Google LLC</td><td>In dieser Version deaktiviert — keine Werbung</td></tr>
         </tbody>
       </table>
       <p>Es gilt die Google-Datenschutzerklärung: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
@@ -347,13 +388,13 @@
         <li><strong>Löschung</strong> Ihrer Daten: Einstellungen → "Zurücksetzen" (lokal) oder "Cloud-Daten löschen"</li>
         <li><strong>Einschränkung der Verarbeitung</strong>: Cloud Sync deaktivieren</li>
         <li><strong>Datenübertragbarkeit</strong>: Kontaktieren Sie uns für einen Export</li>
-        <li><strong>Widerruf der Einwilligung</strong>: Funktionen jederzeit deaktivieren</li>
-        <li><strong>Beschwerderecht</strong> bei der zuständigen Datenschutzbehörde</li>
+        <li><strong>Widerruf der Einwilligung</strong>: <em>Einstellungen → Datenschutz</em> — Nutzungsstatistiken und Absturzberichte jederzeit abschalten (Art. 7 Abs. 3 DSGVO); die Erhebung stoppt sofort</li>
+        <li><strong>Beschwerderecht</strong> bei der zuständigen Datenschutzbehörde (für uns: Der Hessische Beauftragte für Datenschutz und Informationsfreiheit)</li>
       </ul>
 
       <h2>5. Datenschutz von Kindern</h2>
-      <p>Hangul Sori ist für alle Altersgruppen freigegeben. Wir erheben wissentlich keine personenbezogenen Daten von Kindern unter 13 (USA) / 16 (EU). Die Google-Anmeldung erfordert ein altersberechtigtes Google-Konto.</p>
-      <p>Für Nutzer unter 13 Jahren sind Drittanbieter-Dienste wie Firebase Analytics und Crashlytics so konfiguriert, dass sie <strong>keine</strong> personenbezogenen Daten (PII) oder Werbe-IDs erheben. Wir halten uns strikt an den Children's Online Privacy Protection Act (COPPA) und die Google Play Families Policy. Wenn Sie als Elternteil oder Erziehungsberechtigter glauben, dass Ihr Kind uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte umgehend, damit wir diese löschen können.</p>
+      <p>Hangul Sori ist ab 13 Jahren freigegeben. Wir erheben wissentlich keine personenbezogenen Daten von Kindern unter 13 (USA) / 16 (EU). Die Google-Anmeldung erfordert ein altersberechtigtes Google-Konto; Lerngruppen (Gye) erfordern ein Mindestalter von 16 Jahren.</p>
+      <p><strong>Nutzungsstatistiken (Analytics) und Absturzberichte (Crashlytics) sind für alle standardmäßig deaktiviert</strong> und laufen nur nach ausdrücklicher Opt-in-Einwilligung; sie lassen sich jederzeit unter <em>Einstellungen → Datenschutz</em> wieder abschalten. Die App enthält keine Werbung. Wenn Sie als Elternteil oder Erziehungsberechtigter glauben, dass Ihr Kind uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte umgehend, damit wir diese löschen können.</p>
 
       <h2>6. Sicherheit</h2>
       <ul>
@@ -374,12 +415,13 @@
       Sujin Park (Sujin Arin DataWorld)<br>
       Frankfurt am Main, Deutschland<br>
       E-Mail: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a></p>
+      <p>Vollständige Anbieterkennzeichnung: <a href="impressum.html">Impressum</a></p>
     </section>
 
     <!-- ─────────── 한국어 (요약) ─────────── -->
     <section class="section" id="lang-ko">
       <h1>개인정보 처리방침 (요약)</h1>
-      <p class="meta">시행일: 2026-05-20 · 최종 갱신: 2026-06-01</p>
+      <p class="meta">시행일: 2026-05-20 · 최종 갱신: 2026-06-12</p>
       <p style="background: var(--bg-card); padding: 12px 16px; border-radius: 8px; font-size: 14px;">
         ※ 한국어 요약은 참고용입니다. 법적 효력은 English / Deutsch 버전이 우선합니다.
       </p>
@@ -390,6 +432,9 @@
         <li><strong>익명 Firebase ID (자동)</strong>: 첫 실행 시 랜덤 ID 생성, 개인 정보 아님, Frankfurt EU 서버 저장</li>
         <li><strong>Google 로그인 (선택)</strong>: 이메일, 이름, 익명 ID와 연결 — 기기 간 학습 데이터 동기화용</li>
         <li><strong>v2.0 책 한 컷 (선택)</strong>: 카메라/갤러리로 교재 페이지 촬영 시 — <strong>사진은 기기에만 저장</strong>, OCR로 추출된 한국어 텍스트만 분석 서버(Cloud Function + DeepL EU 서버)로 전송. 결과는 기기에 보관 (Cloud Backup 활성화 시 Firestore에도 백업)</li>
+        <li><strong>사용 통계·크래시 리포트 (opt-in, 기본 꺼짐)</strong>: Firebase Analytics/Crashlytics는 명시적 동의가 있을 때만 활성화. 설정 → 개인정보에서 언제든 철회 가능</li>
+        <li><strong>계(契) 학습 그룹 (선택, 16세 이상)</strong>: 그룹 닉네임·그룹명·주간 기여도·스티커/응원·신고 내역 (Firestore EU 서버). 그룹 알림용 FCM 푸시 토큰 저장</li>
+        <li><strong>한국어 음성 (TTS)</strong>: 직접 추가한 단어는 한국어 텍스트만 EU Cloud Function(Google Cloud TTS)으로 전송해 합성. 음성은 기기에 캐시</li>
       </ul>
 
       <h2>2. 수집하지 않는 것</h2>
@@ -402,20 +447,20 @@
       </ul>
 
       <h2>3. 제3자 서비스</h2>
-      <p>Firebase Auth, Firebase Firestore, Firebase Cloud Functions, Google Sign-In, Firebase Analytics, Firebase Crashlytics, Google ML Kit (모두 Google LLC), DeepL Translation API (DeepL SE, 쾰른 DE). 모든 통신 TLS 1.3 암호화, 데이터 EU 서버 저장. Analytics 및 Crashlytics는 익명화된 앱 사용 데이터와 크래시 로그만 수집합니다.</p>
+      <p>Firebase Auth, Firestore, Cloud Functions, Cloud Messaging(푸시), Remote Config, Storage, Google Sign-In, Google Cloud Text-to-Speech, Firebase Analytics·Crashlytics(둘 다 opt-in, 기본 꺼짐), Google ML Kit (모두 Google LLC), DeepL Translation API (DeepL SE, 쾰른 DE), 우리말샘 API (국립국어원), RevenueCat (구독 구매 시에만). 모든 통신 TLS 1.3 암호화, 데이터 EU 서버 저장.</p>
 
       <h2>4. 사용자 권리 (GDPR)</h2>
       <ul>
         <li>접근, 수정, 삭제 (앱 내 "Cloud-Daten löschen")</li>
         <li>처리 제한 (Cloud Sync 비활성화)</li>
         <li>데이터 이전성 (이메일로 요청)</li>
-        <li>동의 철회 (언제든)</li>
+        <li>동의 철회 — 설정 → 개인정보에서 사용 통계/크래시 리포트 언제든 끄기 (즉시 중단)</li>
         <li>국가 데이터 보호 기관에 신고</li>
       </ul>
 
       <h2>5. 어린이 보호 (Children's Privacy)</h2>
-      <p>전체 이용가 앱입니다. 13세(미국)/16세(EU) 미만 어린이의 개인 정보를 의도적으로 수집하지 않으며, COPPA 및 Google Play 가족 정책(Families Policy)을 엄격히 준수합니다.</p>
-      <p>Analytics 및 Crashlytics는 해당 연령대의 사용자로부터 광고 ID나 개인 식별 정보(PII)를 수집하지 않습니다. 자녀가 개인정보를 제공했다고 판단되시면 즉시 연락해 주시기 바랍니다.</p>
+      <p>13세 이상 이용가 앱입니다. 13세(미국)/16세(EU) 미만 어린이의 개인 정보를 의도적으로 수집하지 않으며, 계(契) 그룹은 16세 이상만 이용 가능합니다.</p>
+      <p><strong>Analytics와 Crashlytics는 모든 사용자에게 기본 꺼짐</strong>이며 명시적 opt-in 동의 후에만 동작하고, 설정에서 언제든 다시 끌 수 있습니다. 앱에 광고는 없습니다. 자녀가 개인정보를 제공했다고 판단되시면 즉시 연락해 주시기 바랍니다.</p>
 
       <h2>6. 문의</h2>
       <p>
@@ -426,7 +471,7 @@
     </section>
 
     <footer>
-      <p>© 2026 Sujin Arin DataWorld · <a href="index.html">Home</a> · <a href="account-deletion.html">Account Deletion</a> · <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a></p>
+      <p>© 2026 Sujin Arin DataWorld · <a href="index.html">Home</a> · <a href="account-deletion.html">Account Deletion</a> · <a href="terms.html">Terms</a> · <a href="impressum.html">Impressum</a> · <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a></p>
     </footer>
   </div>
 

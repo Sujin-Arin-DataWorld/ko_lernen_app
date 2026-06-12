@@ -58,6 +58,46 @@ void main() {
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
   });
+
+  testWidgets(
+      'ConsentScreen Opt-in: Analytics/Crash default AUS, '
+      'nur Angekreuztes wird persistiert (TTDSG §25)', (tester) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    // Preview gesehen + Level offen → _accept navigiert zur Level-Auswahl
+    // (AppShell würde TigerStage-Timer hinterlassen → Test-Invariante).
+    await Storage.setIntroPreviewSeen();
+
+    await tester.pumpWidget(_wrap(const ConsentScreen()));
+    await tester.pump();
+
+    // Default: beide Checkboxen aus, nichts persistiert.
+    expect(Storage.analyticsConsent, isFalse);
+    expect(Storage.crashConsent, isFalse);
+    final boxes = find.byType(Checkbox);
+    expect(boxes, findsNWidgets(2));
+    expect(tester.widget<Checkbox>(boxes.at(0)).value, isFalse);
+    expect(tester.widget<Checkbox>(boxes.at(1)).value, isFalse);
+
+    // Nur Analytics ankreuzen, dann zustimmen.
+    await tester.tap(boxes.at(0));
+    await tester.pump();
+    await tester.tap(find.text('Zustimmen & loslegen'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(Storage.consentAccepted, isTrue);
+    expect(Storage.analyticsConsent, isTrue);
+    expect(Storage.crashConsent, isFalse);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    // SoriEntrance-Stagger-Timer der Zielseite ausklingen lassen
+    // (one-shot Future.delayed, nach dispose no-op).
+    await tester.pump(const Duration(seconds: 2));
+  });
 }
 
 Widget _wrap(Widget child) {

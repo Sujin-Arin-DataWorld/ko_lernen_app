@@ -32,6 +32,17 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
+        <!-- DSGVO/TTDSG §25: Analytics + Crashlytics sind OPT-IN. Erhebung ist
+             hier ab Werk deaktiviert und wird erst nach expliziter
+             Einwilligung zur Laufzeit aktiviert
+             (PrivacyConsentService.setAnalytics/setCrash). -->
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="false" />
+
         <!-- M3: flutter_local_notifications — geplante Erinnerungen +
              Wiederherstellung nach Reboot. -->
         <receiver

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart' show debugPrint;
 
 import '../models/book_page.dart';
 import 'auth_service.dart';
@@ -121,8 +122,9 @@ class BookshelfService {
       final payload = Map<String, dynamic>.from(page.toFirestoreJson());
       payload['updatedAt'] = FieldValue.serverTimestamp();
       await col.doc(page.id).set(payload, SetOptions(merge: true));
-    } catch (_) {
-      // silent
+    } catch (e) {
+      // best-effort — 로컬이 source of truth. 단 침묵 실패는 디버깅 불가라 로깅.
+      debugPrint('BookshelfService: Firestore save skipped — $e');
     }
   }
 
@@ -131,8 +133,8 @@ class BookshelfService {
     if (col == null) return;
     try {
       await col.doc(id).delete();
-    } catch (_) {
-      // silent
+    } catch (e) {
+      debugPrint('BookshelfService: Firestore delete skipped — $e');
     }
   }
 }

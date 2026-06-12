@@ -2,7 +2,11 @@
 
 > Answers for Google Play "Data Safety" form + Apple "App Privacy" section.
 > Source-of-truth for what Hangul Sori collects, shares, and stores.
-> **Last verified: 2026-06-01** — v2.0 update (Snap-and-Learn + Camera permissions).
+> **Last verified: 2026-06-12** — **Analytics + Crashlytics sind jetzt OPT-IN**
+> (Manifest/Info.plist `collection_enabled=false` ab Werk; Aktivierung erst nach
+> Einwilligung im Consent-Screen bzw. Settings → Datenschutz; jederzeit widerrufbar
+> — `PrivacyConsentService`). Neu ergänzt: UGC-Block (`users/{uid}.blockedUids`),
+> Wortfotos (nur lokal), Google Cloud TTS (nur Text), In-App-Account-Löschung.
 > v1.0 → v2.0 deltas marked with **🆕 v2.0**.
 
 ---
@@ -15,8 +19,8 @@
 | `firebase_auth` ^5.3.1 | Aktiv | ✅ ja (anonymes Login + optionales Google-Link) |
 | `cloud_firestore` ^5.4.4 | Aktiv | ✅ ja (Cloud-Sync nur nach Google-Link opt-in) |
 | `firebase_remote_config` ^5.1.4 | Aktiv | ✅ ja (Palette Kill-Switch) |
-| `firebase_crashlytics` ^4.3.10 | Aktiv | ✅ ja (Plugin in Gradle, `FlutterError.onError` + `PlatformDispatcher.onError` Hook) |
-| `firebase_analytics` ^11.6.0 | Aktiv | ✅ ja (Auto-Collection durch SDK-Linking; keine expliziten Events instrumentiert) |
+| `firebase_crashlytics` ^4.3.10 | Aktiv | ⚠️ **OPT-IN** (2026-06-12): Manifest `firebase_crashlytics_collection_enabled=false` — Erhebung erst nach expliziter Einwilligung (Consent-Screen-Checkbox / Settings-Toggle) |
+| `firebase_analytics` ^11.6.0 | Aktiv | ⚠️ **OPT-IN** (2026-06-12): Manifest `firebase_analytics_collection_enabled=false` — Erhebung erst nach expliziter Einwilligung; keine expliziten Custom Events |
 | **🆕 v2.0** `firebase_messaging` ^15.1.3 | Aktiv | ✅ ja (FCM-Push für Gye-Feed; Registrierungstoken in `users/{uid}.fcmTokens`. iOS: APNs nötig). Permission opt-in; bei Ablehnung kein Token. |
 | `google_sign_in` ^6.2.1 | Aktiv | ✅ ja (optional, nur bei expliziter User-Aktion) |
 | `google_mobile_ads` 5.2.0 | **Auskommentiert** in pubspec.yaml | ❌ nein — `ad_service.dart` ist Stub, Android-Manifest **und** iOS-Info.plist (`GADApplicationIdentifier` + `SKAdNetworkItems`) bereinigt (2026-05-27) |
@@ -44,9 +48,14 @@ Wir **nicht**:
 - Daten verkaufen.
 - User über andere Apps oder Websites tracken (kein ATT, kein Cross-App ID-Linking).
 
-Wir **schon**:
+Wir **schon** (nur nach Opt-in — Default AUS, jederzeit widerrufbar):
 - Anonyme Crash-Reports an Firebase Crashlytics senden (Stack Trace, Geräte-Modell, OS-Version, App-Version).
 - Anonyme App-Nutzung an Firebase Analytics melden (Session-Dauer, App-Start, Screen-Auto-Logging — keine expliziten Custom Events).
+
+Immer (App-Funktionalität, kein Tracking):
+- FCM-Push-Token für Gye-Benachrichtigungen (nur bei erteilter System-Berechtigung).
+- Gye-Daten (Spitzname, Beiträge, Sticker/Anfeuerungen, Block-Liste `blockedUids`) in Firestore EU.
+- Koreanischer Text eigener Wörter an unsere EU Cloud Function (Google Cloud TTS-Synthese / Analyse + DeepL).
 
 ---
 
@@ -58,12 +67,13 @@ Wir **schon**:
 | **Personal info** — Name (display name) | **Yes** | Yes (nur bei Google-Sign-In opt-in) | No | Begrüßung im UI | Yes |
 | **Personal info** — User ID (Firebase UID) | **Yes** | No (anonyme UID wird automatisch ausgegeben) | No | Authentifizierungsstatus, Sync-Anker | Yes |
 | **App activity** — In-app actions (XP, Streak, Szenario-Fortschritt, Vokabel-SRS-State, Badges) | **Yes** | Yes (nur synchronisiert wenn User Cloud-Backup aktiviert) | No | Lernfortschritt geräteübergreifend synchron halten | Yes |
-| **App activity** — Other actions (Analytics auto-events: app_open, screen_view, session_start) | **Yes** | No | No | App-Performance, Nutzungsverständnis (Analytics) | Yes |
-| **App info & performance** — Crash logs (Firebase Crashlytics) | **Yes** | No | No | Crashes diagnostizieren | Yes |
-| **App info & performance** — Diagnostics (Geräte-Modell, OS-Version, App-Version, Speicherzustand) | **Yes** | No | No | Crash-Kontext | Yes |
-| **Device or other IDs** — Firebase Installation ID + Android Advertising ID (Analytics) + **🆕 FCM-Registrierungstoken** (Gye-Push, opt-in) | **Yes** | No | No | Analytics-Aggregation + App-Funktionalität (Community-Benachrichtigungen) | Yes |
+| **App activity** — Other actions (Analytics auto-events: app_open, screen_view, session_start) | **Yes** | **Yes — Opt-in, Default AUS** | No | App-Performance, Nutzungsverständnis (Analytics) | Yes |
+| **App info & performance** — Crash logs (Firebase Crashlytics) | **Yes** | **Yes — Opt-in, Default AUS** | No | Crashes diagnostizieren | Yes |
+| **App info & performance** — Diagnostics (Geräte-Modell, OS-Version, App-Version, Speicherzustand) | **Yes** | **Yes — Opt-in (Crashlytics)** | No | Crash-Kontext | Yes |
+| **Device or other IDs** — Firebase Installation ID + Android Advertising ID (nur bei Analytics-Opt-in) + **🆕 FCM-Registrierungstoken** (Gye-Push, Berechtigungs-opt-in) | **Yes** | Teilweise (Analytics-Anteil opt-in) | No | Analytics-Aggregation + App-Funktionalität (Community-Benachrichtigungen) | Yes |
+| **🆕 App activity** — Gye-Community (Gruppen-Spitzname, Wochenbeiträge, Sticker/Anfeuerungs-Codes, Block-Liste) | **Yes** | **Yes** (nur bei Gye-Nutzung, 16+) | No | App-Funktionalität (Lerngruppen) | Yes |
 | **🆕 v2.0 App activity** — User-generated Korean text (OCR-extrahierte Lehrbuchseiten) | **Yes** | **Yes** (nur wenn User Snap-and-Learn nutzt) | **Yes — DeepL für Übersetzung** | App-Funktionalität: Wort/Grammatik-Analyse + DE/EN-Übersetzung | Yes |
-| **🆕 v2.0 Photos & Videos** — Lehrbuchseiten-Fotos | **No (stays on device)** | — | — | OCR läuft on-device via ML Kit; das Bild wird nicht an unsere Server gesendet | — |
+| **🆕 v2.0 Photos & Videos** — Lehrbuchseiten-Fotos + Wortfotos (eigenes Wörterbuch) | **No (stays on device)** | — | — | OCR läuft on-device via ML Kit; Bilder werden nicht an unsere Server gesendet. Wortfotos liegen in `wordbook_images/` (App-Dokumente) und werden bei Konto-Löschung/Reset mitgelöscht | — |
 | Financial info | No | — | — | — | — |
 | Health & fitness | No | — | — | — | — |
 
@@ -82,7 +92,7 @@ Wir **schon**:
 ## Security practices
 
 - **Data encrypted in transit**: Yes — Firebase uses TLS for all traffic.
-- **Users can request deletion**: Yes — sign-out + "Wiederherstellen" / "Restore" toggle clears local. For full account deletion, users can email the team or revoke Google access from their Google account.
+- **Users can request deletion**: Yes — **in-app**: Settings → "Konto löschen" (`AuthService.deleteAccount()`: Firebase-User + Firestore-Baum + lokale Daten inkl. Wortfotos/TTS-Cache). Web-Anleitung: `https://hangul-sori.com/account-deletion.html`.
 - **Independent security review**: No (small team, pre-launch).
 - **Complies with Families Policy**: N/A (not targeted at children under 13).
 
@@ -120,8 +130,18 @@ The HTML privacy page is already prepared at `docs/privacy.html` and served via 
 
 ## Account Deletion (Play-Policy ab Mai 2024)
 
-Google verlangt seit Mai 2024, dass jede App mit User-Accounts einen **App-internen** Lösch-Weg anbietet (nicht nur per E-Mail). Aktuell:
+Google verlangt seit Mai 2024, dass jede App mit User-Accounts einen **App-internen** Lösch-Weg anbietet (nicht nur per E-Mail). Stand 2026-06-12:
 
 - ✅ **In-App Sign-Out**: Settings → "Aus Google-Account ausloggen" → wieder anonym, lokale Daten bleiben.
-- ⚠️ **In-App Account-Delete (Firebase-User + Firestore-Doc löschen)**: aktuell nicht implementiert. Workaround: User schickt E-Mail an `hello@hangul-sori.com` und Jin löscht manuell.
-- 🟡 **Empfehlung für v1.0.1**: `AuthService.deleteAccount()` hinzufügen → `user.delete()` + Firestore-Doc-Löschung. Bis dahin in der Privacy-Policy klar dokumentieren.
+- ✅ **In-App Account-Delete**: Settings → Konto löschen → `AuthService.deleteAccount()` (Re-Auth bei Google/Apple-Link, Firestore-Baum, `user.delete()`) + `Storage.resetAll()` + `WordImageService.deleteAll()` (Wortfotos) + `TtsService.clearCache()`.
+- ✅ **Web-URL für Play-Console-Formular**: `https://hangul-sori.com/account-deletion.html`.
+
+## UGC / Moderation (Play UGC-Policy)
+
+Gye(契)-Lerngruppen enthalten nutzergenerierte Inhalte (Spitznamen, Sticker, Anfeuerungs-Codes — **kein Freitext-Chat**). Maßnahmen:
+
+- ✅ **Melden**: in-app Report-Flow (Grund + Notiz) → `gye/{id}/reports`; ≥3 unabhängige Melder → automatische Suspendierung (`on_report_created` CF).
+- ✅ **Blockieren** (2026-06-12): Mitgliederliste → Block-Button → `users/{me}.blockedUids`; Beiträge/Sticker/Anfeuerungen der Person werden clientseitig ausgeblendet, jederzeit aufhebbar.
+- ✅ **Profanity-Filter**: deny-list ~100 Einträge (KO/DE/EN) auf Spitznamen + Gruppennamen.
+- ✅ **Altersgrenze**: Gye nur ab 16 (GDPR-K Art. 8).
+- ⚠️ **IARC-Fragebogen**: "Users interact" = JA angeben (UGC vorhanden).

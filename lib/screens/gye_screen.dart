@@ -12,6 +12,7 @@ import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sticker_picker.dart';
 import '../widgets/sori/tokens.dart';
@@ -66,6 +67,9 @@ class _GyeScreenState extends State<GyeScreen>
   void initState() {
     super.initState();
     scheduleCoach();
+    // 프로필 카드용 level/streak denormalize (best-effort, 진입 시 1회).
+    // ignore: discarded_futures, unawaited_futures
+    GyeService.syncMyMemberStats();
   }
 
   @override
@@ -104,16 +108,19 @@ class _GyeScreenState extends State<GyeScreen>
         }
         return Scaffold(
           appBar: AppBar(
-            title: Text(meta.name,
-                style: const TextStyle(fontWeight: FontWeight.w800)),
+            title: Text(
+              meta.name,
+              style: const TextStyle(fontWeight: FontWeight.w800),
+            ),
             actions: [
               Center(
                 child: Text(
                   t.gyeMembersN(meta.memberCount),
                   style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: s.textMuted),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: s.textMuted,
+                  ),
                 ),
               ),
               PopupMenuButton<String>(
@@ -123,13 +130,17 @@ class _GyeScreenState extends State<GyeScreen>
                   } else if (v == 'leave') {
                     _confirmLeaveGye(context, widget.gyeId);
                   } else if (v == 'members') {
-                    Navigator.of(context)
-                        .pushNamed('/gye/members', arguments: widget.gyeId);
+                    Navigator.of(
+                      context,
+                    ).pushNamed('/gye/members', arguments: widget.gyeId);
                   }
                 },
                 itemBuilder: (_) => [
                   PopupMenuItem(value: 'invite', child: Text(t.gyeShareCode)),
-                  PopupMenuItem(value: 'members', child: Text(t.gyeMembersTitle)),
+                  PopupMenuItem(
+                    value: 'members',
+                    child: Text(t.gyeMembersTitle),
+                  ),
                   PopupMenuItem(value: 'leave', child: Text(t.gyeLeave)),
                 ],
               ),
@@ -143,7 +154,11 @@ class _GyeScreenState extends State<GyeScreen>
                   if (meta.memberCount <= 1)
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
-                          Spacing.lg, Spacing.lg, Spacing.lg, 0),
+                        Spacing.lg,
+                        Spacing.lg,
+                        Spacing.lg,
+                        0,
+                      ),
                       child: _SoloInviteCard(code: meta.code),
                     ),
                   Padding(
@@ -157,29 +172,61 @@ class _GyeScreenState extends State<GyeScreen>
                       ),
                     ),
                   ),
+                  // 지난주 살림꾼 — 축하 톤 1줄 카드 (경쟁 리더보드 아님).
+                  if (meta.lastWeekMvp.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        Spacing.lg,
+                        0,
+                        Spacing.lg,
+                        Spacing.sm,
+                      ),
+                      child: _MvpCard(
+                        nickname: meta.lastWeekMvp,
+                        packs: meta.lastWeekMvpPacks,
+                      ),
+                    ),
                   LayoutBuilder(
                     builder: (context, c) {
                       final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
-                      return SizedBox(height: h, child: GyeHanok(meta: meta));
+                      return SizedBox(
+                        height: h,
+                        child: GyeHanok(meta: meta),
+                      );
                     },
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(
-                        Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),
+                      Spacing.lg,
+                      Spacing.md,
+                      Spacing.lg,
+                      Spacing.xs,
+                    ),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         t.gyeFeedTitle,
                         style: const TextStyle(
-                            fontSize: 13, fontWeight: FontWeight.w800),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: StreamBuilder<List<GyeFeedEvent>>(
-                      stream: GyeService.feedStream(widget.gyeId),
-                      builder: (context, fsnap) =>
-                          GyeFeed(events: fsnap.data ?? const []),
+                    // 차단한 멤버의 이벤트는 숨김 (Play UGC — 사용자 주도).
+                    child: StreamBuilder<Set<String>>(
+                      stream: GyeService.blockedUidsStream(),
+                      builder: (context, bsnap) =>
+                          StreamBuilder<List<GyeFeedEvent>>(
+                            stream: GyeService.feedStream(widget.gyeId),
+                            builder: (context, fsnap) => GyeFeed(
+                              events: GyeService.filterBlocked(
+                                fsnap.data ?? const [],
+                                bsnap.data ?? const {},
+                              ),
+                            ),
+                          ),
                     ),
                   ),
                 ],
@@ -229,20 +276,20 @@ Future<void> _confirmLeaveGye(BuildContext context, String gyeId) async {
 /// 스티커 키보드 시트 → 선택 시 전송. 레이트 초과 시 스낵바. plan §8.2.
 void _openGyeStickerPicker(BuildContext context, String gyeId) {
   final t = AppL10n.of(context);
-  showModalBottomSheet<void>(
+  showSoriSheet<void>(
     context: context,
-    builder: (sheetCtx) => SafeArea(
-      child: StickerPicker(
-        onPick: (code) async {
-          Navigator.of(sheetCtx).pop();
-          final ok = await GyeService.sendSticker(gyeId: gyeId, code: code);
-          if (!ok && context.mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(t.gyeStickerRateLimited)),
-            );
-          }
-        },
-      ),
+    // StickerPicker는 자체 TabBar+GridView 스크롤러 → 시트 스크롤 비활성.
+    scrollable: false,
+    builder: (sheetCtx) => StickerPicker(
+      onPick: (code) async {
+        Navigator.of(sheetCtx).pop();
+        final ok = await GyeService.sendSticker(gyeId: gyeId, code: code);
+        if (!ok && context.mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(t.gyeStickerRateLimited)));
+        }
+      },
     ),
   );
 }
@@ -255,6 +302,42 @@ void _shareGyeCode(BuildContext context, String code) {
 
 /// 솔로 계(멤버 1명) 초대 카드 — 빈 두레판을 "행동 가능한" 상태로 전환.
 /// 비경쟁 협력 기능은 멤버가 있어야 의미가 있으므로, 가장 먼저 초대를 유도.
+/// 지난주 살림꾼 — 축하 톤 1줄 카드. 순위표가 아니라 1명만, 박수 의미.
+/// (디자인 리서치 F5/6: 경쟁 리더보드 금지 — 어조는 감사/축하로 고정.)
+class _MvpCard extends StatelessWidget {
+  final String nickname;
+  final int packs;
+  const _MvpCard({required this.nickname, required this.packs});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.gold,
+      tinted: true,
+      child: Row(
+        children: [
+          const Text('🏅', style: TextStyle(fontSize: 18)),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              t.gyeMvpCard(nickname, packs),
+              style: TextStyle(
+                fontSize: 12.5,
+                fontWeight: FontWeight.w700,
+                color: s.text,
+                height: 1.35,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _SoloInviteCard extends StatelessWidget {
   final String code;
   const _SoloInviteCard({required this.code});
@@ -272,14 +355,19 @@ class _SoloInviteCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.group_add_outlined,
-                  size: 20, color: SoriColors.primary),
+              const Icon(
+                Icons.group_add_outlined,
+                size: 20,
+                color: SoriColors.primary,
+              ),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   t.gyeInviteTitle,
-                  style:
-                      const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
             ],
@@ -292,8 +380,10 @@ class _SoloInviteCard extends StatelessWidget {
           const SizedBox(height: Spacing.md),
           Row(
             children: [
-              Text('${t.gyeCodeLabel}: ',
-                  style: TextStyle(fontSize: 12, color: s.textMuted)),
+              Text(
+                '${t.gyeCodeLabel}: ',
+                style: TextStyle(fontSize: 12, color: s.textMuted),
+              ),
               Text(
                 code,
                 style: const TextStyle(

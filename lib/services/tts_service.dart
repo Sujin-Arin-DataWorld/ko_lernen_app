@@ -200,6 +200,20 @@ class TtsService {
     return sha1.convert(utf8.encode('$voice|$text')).toString();
   }
 
+  /// 캐시된 음성 mp3 전부 삭제 — 계정 삭제/전체 초기화 시 호출.
+  static Future<void> clearCache() async {
+    try {
+      final dir = await _ensureCacheDir();
+      if (dir != null && await dir.exists()) {
+        await dir.delete(recursive: true);
+      }
+    } catch (_) {
+      // best effort
+    } finally {
+      _cacheDir = null;
+    }
+  }
+
   static Future<Directory?> _ensureCacheDir() async {
     if (_cacheDir != null) {
       return _cacheDir;

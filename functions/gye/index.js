@@ -111,7 +111,13 @@ exports.weekly_goal_rollover = onSchedule(
         }
 
         const batch = db.batch();
-        const metaUpdate = { weeklyGoalProgress: 0, xpBoostActive: boost };
+        // 지난주 살림꾼 — 클라 _MvpCard가 축하 톤으로 표시 (기여 0이면 빈 값).
+        const metaUpdate = {
+          weeklyGoalProgress: 0,
+          xpBoostActive: boost,
+          lastWeekMvp: mvp,
+          lastWeekMvpPacks: mvpPacks,
+        };
         if (achieved) {
           metaUpdate.lifetimeGoalsAchieved =
             admin.firestore.FieldValue.increment(1);

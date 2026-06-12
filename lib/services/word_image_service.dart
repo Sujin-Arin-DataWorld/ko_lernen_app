@@ -46,6 +46,20 @@ class WordImageService {
     return dest;
   }
 
+  /// 모든 첨부 사진 삭제 — 계정 삭제/전체 초기화 시 호출 (DSGVO Art. 17:
+  /// SharedPreferences 만 지우면 `wordbook_images/` 의 jpg 가 기기에 남는다).
+  static Future<void> deleteAll() async {
+    try {
+      final docs = await getApplicationDocumentsDirectory();
+      final imgDir = Directory('${docs.path}/wordbook_images');
+      if (await imgDir.exists()) {
+        await imgDir.delete(recursive: true);
+      }
+    } catch (_) {
+      // best effort — 웹/권한 실패 시 무시
+    }
+  }
+
   /// 파일 삭제 (best effort). 사진 교체/삭제 시 옛 파일 정리용.
   static Future<void> deleteIfExists(String path) async {
     if (path.isEmpty) {

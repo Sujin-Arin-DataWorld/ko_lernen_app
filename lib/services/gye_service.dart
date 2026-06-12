@@ -37,9 +37,9 @@ class GyeService {
 
   // ── 순수 헬퍼 (테스트 가능) ─────────────────────────────────────────────
   static String generateCode() => List.generate(
-        codeLength,
-        (_) => _codeAlphabet[_rng.nextInt(_codeAlphabet.length)],
-      ).join();
+    codeLength,
+    (_) => _codeAlphabet[_rng.nextInt(_codeAlphabet.length)],
+  ).join();
 
   static bool isValidCodeFormat(String code) {
     final c = code.trim().toUpperCase();
@@ -97,8 +97,11 @@ class GyeService {
       throw const GyeException(GyeError.ageRestricted);
     }
     final cleanName = validatedName(name, maxNameLen, GyeError.invalidName);
-    final cleanNick =
-        validatedName(nickname, maxNicknameLen, GyeError.invalidNickname);
+    final cleanNick = validatedName(
+      nickname,
+      maxNicknameLen,
+      GyeError.invalidNickname,
+    );
     if ((await myGyeIds()).length >= maxGyePerUser) {
       throw const GyeException(GyeError.tooManyGye);
     }
@@ -120,16 +123,17 @@ class GyeService {
         batch.set(ref, meta.toCreateJson());
         batch.set(
           ref.collection('members').doc(uid),
-          GyeMember(uid: uid, nickname: cleanNick, role: GyeRole.owner)
-              .toCreateJson(),
+          GyeMember(
+            uid: uid,
+            nickname: cleanNick,
+            role: GyeRole.owner,
+            level: Storage.xpLevel,
+            streakDays: Storage.streakDays,
+          ).toCreateJson(),
         );
-        batch.set(
-          db.collection('users').doc(uid),
-          {
-            'gyeIds': FieldValue.arrayUnion([code]),
-          },
-          SetOptions(merge: true),
-        );
+        batch.set(db.collection('users').doc(uid), {
+          'gyeIds': FieldValue.arrayUnion([code]),
+        }, SetOptions(merge: true));
         await batch.commit();
         return meta;
       }
@@ -159,8 +163,11 @@ class GyeService {
     if (!isValidCodeFormat(id)) {
       throw const GyeException(GyeError.notFound);
     }
-    final cleanNick =
-        validatedName(nickname, maxNicknameLen, GyeError.invalidNickname);
+    final cleanNick = validatedName(
+      nickname,
+      maxNicknameLen,
+      GyeError.invalidNickname,
+    );
 
     final mine = await myGyeIds();
     final alreadyMine = mine.contains(id);
@@ -184,17 +191,18 @@ class GyeService {
         final batch = db.batch();
         batch.set(
           memberRef,
-          GyeMember(uid: uid, nickname: cleanNick).toCreateJson(),
+          GyeMember(
+            uid: uid,
+            nickname: cleanNick,
+            level: Storage.xpLevel,
+            streakDays: Storage.streakDays,
+          ).toCreateJson(),
         );
         // 참고: memberCount는 increment(동시 가입 시 근사) — rules + CF가 보강.
         batch.update(ref, {'memberCount': FieldValue.increment(1)});
-        batch.set(
-          db.collection('users').doc(uid),
-          {
-            'gyeIds': FieldValue.arrayUnion([id]),
-          },
-          SetOptions(merge: true),
-        );
+        batch.set(db.collection('users').doc(uid), {
+          'gyeIds': FieldValue.arrayUnion([id]),
+        }, SetOptions(merge: true));
         await batch.commit();
       }
       return meta;
@@ -235,13 +243,9 @@ class GyeService {
       final batch = db.batch();
       batch.delete(ref.collection('members').doc(uid));
       batch.update(ref, {'memberCount': FieldValue.increment(-1)});
-      batch.set(
-        db.collection('users').doc(uid),
-        {
-          'gyeIds': FieldValue.arrayRemove([id]),
-        },
-        SetOptions(merge: true),
-      );
+      batch.set(db.collection('users').doc(uid), {
+        'gyeIds': FieldValue.arrayRemove([id]),
+      }, SetOptions(merge: true));
       await batch.commit();
     } catch (_) {
       // best-effort
@@ -254,9 +258,11 @@ class GyeService {
     if (db == null) {
       return Stream.value(null);
     }
-    return db.collection(_collection).doc(id).snapshots().map(
-          (s) => s.exists ? GyeMeta.fromDoc(id, s.data()!) : null,
-        );
+    return db
+        .collection(_collection)
+        .doc(id)
+        .snapshots()
+        .map((s) => s.exists ? GyeMeta.fromDoc(id, s.data()!) : null);
   }
 
   /// 피드 실시간 스트림 (최근 [limit]개, 최신순).
@@ -272,8 +278,10 @@ class GyeService {
         .orderBy('createdAt', descending: true)
         .limit(limit)
         .snapshots()
-        .map((q) =>
-            q.docs.map((d) => GyeFeedEvent.fromDoc(d.id, d.data())).toList());
+        .map(
+          (q) =>
+              q.docs.map((d) => GyeFeedEvent.fromDoc(d.id, d.data())).toList(),
+        );
   }
 
   /// 내가 속한 계 메타 목록 (입장 후 다시 들어가기용).
@@ -299,8 +307,9 @@ class GyeService {
         .doc(id)
         .collection('members')
         .snapshots()
-        .map((q) =>
-            q.docs.map((d) => GyeMember.fromDoc(d.id, d.data())).toList());
+        .map(
+          (q) => q.docs.map((d) => GyeMember.fromDoc(d.id, d.data())).toList(),
+        );
   }
 
   /// 멤버 신고 — `reports`에 append. 본인 신고 불가. 실패 시 false.
@@ -317,7 +326,11 @@ class GyeService {
       return false;
     }
     try {
-      await db.collection(_collection).doc(gyeId).collection('reports').add(
+      await db
+          .collection(_collection)
+          .doc(gyeId)
+          .collection('reports')
+          .add(
             GyeReport(
               id: '',
               reporterUid: uid,
@@ -363,7 +376,9 @@ class GyeService {
       // 닉네임 없이도 전송은 진행
     }
     try {
-      await ref.collection('feed').add(
+      await ref
+          .collection('feed')
+          .add(
             GyeFeedEvent(
               id: '',
               type: GyeFeedType.sticker,
@@ -396,7 +411,9 @@ class GyeService {
         final ref = db.collection(_collection).doc(gid);
         final m = await ref.collection('members').doc(uid).get();
         final nickname = m.data()?['nickname'] as String? ?? '';
-        await ref.collection('feed').add(
+        await ref
+            .collection('feed')
+            .add(
               GyeFeedEvent(
                 id: '',
                 type: type,
@@ -418,6 +435,29 @@ class GyeService {
     if (cur > Storage.lastGyeLevel) {
       await broadcastFeed(GyeFeedType.levelUp, {'level': cur});
       await Storage.setLastGyeLevel(cur);
+    }
+  }
+
+  /// 내 멤버 문서에 level/streak denormalize (프로필 카드용, best-effort).
+  /// 계 화면 진입 시 호출 — rules가 본인 멤버 문서 수정 허용(status 제외).
+  static Future<void> syncMyMemberStats() async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return;
+    }
+    final stats = {'level': Storage.xpLevel, 'streakDays': Storage.streakDays};
+    for (final gid in await myGyeIds()) {
+      try {
+        await db
+            .collection(_collection)
+            .doc(gid)
+            .collection('members')
+            .doc(uid)
+            .set(stats, SetOptions(merge: true));
+      } catch (_) {
+        // best-effort — 한 계 실패해도 나머지 진행
+      }
     }
   }
 
@@ -451,7 +491,9 @@ class GyeService {
       // 닉네임 없이도 전송 진행
     }
     try {
-      await ref.collection('feed').add(
+      await ref
+          .collection('feed')
+          .add(
             GyeFeedEvent(
               id: '',
               type: GyeFeedType.cheer,
@@ -469,6 +511,81 @@ class GyeService {
     } catch (_) {
       return false;
     }
+  }
+
+  // ── 차단 (Play UGC 정책: 사용자 주도 콘텐츠 숨김) ─────────────────────
+  // 저장 위치: users/{me}.blockedUids (array) — 본인만 read/write(기존 rules),
+  // 크로스기기 동기. 차단한 사용자의 피드 이벤트(스티커·응원 포함)는
+  // 클라이언트에서 숨긴다 (filterBlocked). 신고(reportMember)와 독립.
+
+  /// 사용자 차단. 본인 차단 불가. 실패 시 false.
+  static Future<bool> blockUser(String targetUid) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null || uid == targetUid) {
+      return false;
+    }
+    try {
+      await db.collection('users').doc(uid).set({
+        'blockedUids': FieldValue.arrayUnion([targetUid]),
+      }, SetOptions(merge: true));
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// 차단 해제. 실패 시 false.
+  static Future<bool> unblockUser(String targetUid) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return false;
+    }
+    try {
+      await db.collection('users').doc(uid).set({
+        'blockedUids': FieldValue.arrayRemove([targetUid]),
+      }, SetOptions(merge: true));
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// 내가 차단한 uid 집합 (실시간). Firebase 미설정 시 빈 집합 스트림.
+  static Stream<Set<String>> blockedUidsStream() {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return Stream.value(const <String>{});
+    }
+    return db
+        .collection('users')
+        .doc(uid)
+        .snapshots()
+        .map(
+          (d) => ((d.data()?['blockedUids'] as List?) ?? const [])
+              .whereType<String>()
+              .toSet(),
+        );
+  }
+
+  /// 차단 필터 — 차단한 사용자의 피드 이벤트 + 그를 향한/그가 보낸 응원 숨김.
+  /// 순수 함수 (단위테스트 대상).
+  static List<GyeFeedEvent> filterBlocked(
+    List<GyeFeedEvent> events,
+    Set<String> blocked,
+  ) {
+    if (blocked.isEmpty) {
+      return events;
+    }
+    return events
+        .where(
+          (e) =>
+              !blocked.contains(e.actorUid) &&
+              !blocked.contains(e.payload['targetUid'] as String? ?? ''),
+        )
+        .toList();
   }
 }
 

@@ -1,4 +1,4 @@
-# Release Notes — v2.0.0-alpha (Closed Testing)
+# Release Notes — v2.0.1 (Closed Testing, Build 2.0.1+4)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -10,7 +10,7 @@
 ## Deutsch (max. 500 Zeichen)
 
 ```
-Hangul Sori v2.0-alpha — neu denken, neu lernen 🏯
+Hangul Sori v2.0 — neu denken, neu lernen 🏯
 
 Neu:
 • Vokabel-Packs — 526 Wörter in 61 thematische Packs (A1–B2)
@@ -33,7 +33,7 @@ Viel Erfolg beim Bau deines Hanok!
 ## English (max. 500 chars)
 
 ```
-Hangul Sori v2.0-alpha — rethink, relearn 🏯
+Hangul Sori v2.0 — rethink, relearn 🏯
 
 New:
 • Vocab packs — 526 words in 61 themed packs (A1–B2)
@@ -67,7 +67,7 @@ Enjoy building your hanok!
 
 ### Release prep
 
-- Build tag: **v2.0.0-alpha** — match `pubspec.yaml` `version:` field
+- Build tag: **v2.0.1+4** — matches `pubspec.yaml` `version: 2.0.1+4` (2026-06-12)
 - Branch: `main` after Phase 5.2 verification
 - Track: **Closed Testing** (5-10 testers from v1.0 user pool)
 - Rollout: 100% to Closed track, monitor 1 week before considering Production
@@ -75,7 +75,8 @@ Enjoy building your hanok!
 - Cloud Function: must be deployed before testers receive build, OR testers
   see "offline grammar only" banner (intended fallback)
 - Privacy + Data Safety updates pushed before AAB upload (see
-  `docs/privacy.html` v2026-06-01, `docs/store/data-safety.md` v2026-06-01)
+  `docs/privacy.html` v2026-06-12 — Analytics/Crashlytics opt-in, FCM/TTS/
+  RevenueCat processors, `docs/store/data-safety.md`)
 
 ### Testing scope for Closed Alpha
 

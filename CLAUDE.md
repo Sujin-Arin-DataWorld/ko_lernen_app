@@ -30,7 +30,7 @@ Firebase 프로젝트: `ko-lernen-app`
 ## 파일 맵 (SSoT)
 
 ### 진입점
-- `lib/main.dart` — 라우트 테이블, Firebase/Ad 초기화, 팔레트 서비스. **`initialRoute: '/intro'`** — 솟을대문 인트로 후 온보딩/홈으로 분기
+- `lib/main.dart` — 라우트 테이블, Firebase/Ad 초기화, 팔레트 서비스. **`initialRoute: '/splash'`** — 스플래시 → 인트로/온보딩/홈 분기. **Analytics/Crashlytics는 opt-in** (2026-06-12): Manifest/Info.plist `*_collection_enabled=false` + `PrivacyConsentService.applyStored()`가 저장된 동의를 SDK에 적용
 - `lib/screens/intro_gate_screen.dart` — 솟을대문 시네마틱 인트로 (Phase 1)
 - `lib/motion/transitions.dart` — 공유 화면 전환 (`SoriTransitions.fadeScale`)
 
@@ -121,7 +121,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
 - `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
 - 단어팩(61)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
-- ⚠️ **콘텐츠 언어**: `korean_vocab.csv`(`german`)·`grammar.csv`(`explanation_de`/`example_german`)는 **독일어 전용**. 영어 UI 사용자도 학습 콘텐츠는 독일어로 표시됨 (영어권 출시 시 컬럼 추가 필요).
+- ✅ **콘텐츠 언어 (2026-06-09 해소)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(546/546)·`grammar.csv` `_en` 컬럼(88/88) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
 
 ### 에셋 (2026-05-26 복원 후 최종)
 - `assets/icons/HanLogo.png` — **현재 앱 아이콘 소스** (Gemini 생성, 1024×1024, 갓+한)
@@ -313,6 +313,49 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-06-12 (출시 전 품질 감사 + 5-Phase 개선: DSGVO opt-in·SoriSheet·차단·계 확장·bookshelf 복원) — 미커밋
+
+**범위:** Jin "출시 전 디자인·콘텐츠·앱품질·회원관리·독일 정보보호법·Play 정책 거짓/환각 없이 판정 + 개선 계획·실행". 멀티에이전트 감사(35 agents, P0/P1 적대적 재검증) → plan `soft-stirring-hartmanis.md` 승인 → 5 Phase 실행. Jin 결정: Analytics **opt-in**, 범위 전체(약관·bookshelf·차단·계 확장·디자인 통일·다이얼로그 잘림).
+
+**감사 판정(실측):** 안정성 🟢(analyze 0·test 362·CI green) · 콘텐츠 🟢(EN 100%·독일어 네이티브급) · 디자인 🔴(인라인 TextStyle 409 vs 토큰 59·fontSize 26종·버튼 59% 우회) · 회원관리 🟡 · **DSGVO 🔴(동의 前 Analytics/Crashlytics 무조건 수집 + privacy.html:246 "구성됨" 허위 기재 + opt-out 0 + Impressum 0 + FCM/TTS/RevenueCat 처리자 미기재)** · Play 🟡(차단 없음·Data Safety stale).
+
+**Phase A — 법적 필수 (DSGVO·TTDSG·DDG):**
+- **Analytics/Crashlytics opt-in 전환**: AndroidManifest+Info.plist `*_collection_enabled=false`(첫 프레임 전 원천 차단) + 신규 `lib/services/privacy_consent_service.dart`(applyStored/setAnalytics/setCrash) + main.dart `_initFirebase` 배선 + consent_screen **체크박스 2개(기본 OFF)** + settings "Datenschutz" 섹션 토글 2개(Art.7(3) 철회) + `Storage.analyticsConsent/crashConsent`. 기존 테스터도 미동의 시작(안전 기본값).
+- **privacy.html 전면 정정**(EN/DE/KO): :246류 허위("under-13 구성됨")→opt-in 사실 기술, 처리자 표에 FCM·Cloud TTS·우리말샘·RevenueCat·Remote Config/Storage 추가, §2.5~2.8 신설(opt-in·계 데이터·TTS), withdraw 경로 구체화, Impressum 링크.
+- **`docs/impressum.html` 신규**(DDG §5 — ⚠️ 도로명 주소·HRB는 placeholder, Jin 기입 필수) + index.html/privacy 푸터 링크 + 앱 settings About에 Impressum/약관 링크.
+- **`docs/terms.html` 신규**(DE/EN 약관: UGC 행동수칙·구독/Widerruf §356(5) BGB·책임제한·ODR — ⚠️ 법률 검토는 Jin) + consent_screen 약관 링크 + footnote 갱신.
+- **계정 삭제 로컬 정리(Art.17)**: `WordImageService.deleteAll()`(wordbook_images/) + `TtsService.clearCache()`(tts_cache/) 신규 → settings 계정삭제·전체리셋 양쪽 배선.
+- **버전 정합**: release-notes-v2.md `v2.0.0-alpha`→`2.0.1+4`(pubspec 일치).
+- 테스트: consent opt-in 회귀(`profile_screen_test` — 기본 OFF·체크만 영속).
+
+**Phase B — 디자인/UX (Jin 최우선 "잘림" 버그):**
+- **잘림 원인 분석**: 53개 팝업 전수 감사에서 깨진 패턴 0 — 유력 원인 = main.dart `SystemUiMode.edgeToEdge` + SafeArea 없는 바텀시트가 시스템바/컷아웃에 가림(hangul_screen:178 주석이 동일 증상 과거 수정 흔적). **Jin 재현 화면 제보 여전히 유용.**
+- **`lib/widgets/sori/sheet.dart` 신규** — `showSoriSheet`/`SoriSheetShell`: useSafeArea+내부 SafeArea+maxHeight 88% clamp+자동 스크롤+텍스트스케일 1.3 clamp+grab handle+키보드 inset. **바텀시트 13곳 전부 이행**(feature_coach·account_nudge·gye 스티커·dure 응원·home gye chooser·daily_char·smalltalk·grammar/legacy 필터·custom_pack 에디터·bookshelf 공유·settings 관심사; settings 출처 시트는 Draggable 유지+useSafeArea). 위젯테스트 `sori_sheet_test.dart`(2000px 내용→88% clamp·1.6×스케일→1.3 clamp).
+- **홈 주 CTA**: 호랑이 히어로+스탯 직후 풀폭 `SoriButton.filled` "Jetzt lernen"(tiger 주황) → 현재 팩 직행(없으면 /path). l10n `homeLearnNowCta`.
+- **텍스트스케일 회귀 매트릭스**: responsive_test에 전 21화면 ×1.3 케이스 추가 — 전부 통과(기존 Flexible 작업 덕).
+- ⚠️ **잔여(후속 세션)**: B-2 타이포 SoriTextTheme 전면 채택(인라인 409→토큰), B-3 버튼 68·수제 박스 74 통일 — plan 문서에 화면 우선순위 명시됨.
+
+**Phase C — Play 정책:**
+- **멤버 차단(block)**: `GyeService.blockUser/unblockUser/blockedUidsStream/filterBlocked`(`users/{me}.blockedUids` — 기존 rules로 충분, 본인 문서) + gye_members_screen 차단/해제 토글(확인 다이얼로그·차단 시 취소선+라벨) + gye_screen 피드 필터(차단한 actor + 그를 향한 응원 숨김). 단위테스트 3(filterBlocked).
+- **욕설 denylist 확장**: 28→~100 엔트리(KO/DE/EN, 거짓 양성 함정 의도 회피 — ass/anal/cock/한남동/년 단독 미등재) + 거짓양성/신규차단 테스트.
+- **data-safety.md 최신화**: opt-in 전환·UGC/Moderation 섹션(신고·차단·필터·16+·IARC "users interact"=JA)·계정삭제 구현 반영(구 "미구현" stale 정정)·Gye 데이터 행 추가.
+
+**Phase D — 계 커뮤니티 확장 (Tandem 방향 출시분):**
+- **멤버 프로필 카드**: GyeMember에 `level`/`streakDays` denormalize(create/join 초기값+`syncMyMemberStats()` gye 진입 시 갱신) → 멤버 탭 시 SoriSheet 카드(레벨·스트릭·주간 기여).
+- **지난주 살림꾼(MVP) 카드**: GyeMeta `lastWeekMvp`/`lastWeekMvpPacks` + CF `weekly_goal_rollover`가 기록(node --check OK, **⚠️ CF 재배포 = Jin**) → GyeScreen 두레판 아래 축하 톤 1줄 카드(`_MvpCard`, 경쟁 어조 금지 — 리서치 F5/6 준수).
+- **전원챌린지 축하**: 전원 기여 달성 순간 `SoriCelebration.burst`(2인+, 실행당 1회).
+- **포스트런치 로드맵**: MASTER_REDESIGN §9 신설 — 자유채팅/공개검색/1:1매칭 보류 사유·선행조건 명문화.
+- l10n `gyeMvpCard`·`gyeProfile*`·`gyeBlock*` 등 DE/EN.
+
+**Phase E — 데이터 보존·품질:**
+- **bookshelf 클라우드 복원**: CloudSync `bookshelf_json` 백업+복원(로컬 비어있을 때만, custom_packs와 동형) — 기기 변경 시 책 한 컷 손실 해소. round-trip 테스트.
+- catch(_) 로깅 보강(bookshelf Firestore save/delete·push token persist/remove → debugPrint).
+- consentBody 재작성(EU 서버 처리 항목 명시).
+
+**검증:** `flutter analyze` **0** · `flutter test` **392 통과**(362→392, 신규 30) · ARB parity **918=918** · gen-l10n OK · CF `node --check` OK · dart format 적용. **⚠️ 미검증(Jin)**: 실기기 시각(동의 체크박스·설정 토글·SoriSheet 13곳·홈 CTA·차단·프로필 카드·MVP 카드), CF 재배포(`cd functions/gye && firebase deploy --only functions`), Impressum 주소 기입, terms 법률 검토, Play Console Data Safety 폼 갱신(opt-in으로 답 변경), gye 크래시 재현, hangul-sori.com 반영(docs/ 푸시).
+
+**Git:** 미커밋 (Jin 확인 후). 변경: lib 22파일 + test 5 + docs 7(privacy/impressum/terms/index/data-safety/release-notes/MASTER_REDESIGN) + AndroidManifest + Info.plist + functions/gye/index.js + CLAUDE.md.
 
 ### 2026-06-09 (gye 빨간화면 진단 + 네비바 회귀 수정 + 계 초대 기능 + 스태시 정리) — 커밋·푸시
 

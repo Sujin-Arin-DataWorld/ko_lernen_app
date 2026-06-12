@@ -235,17 +235,45 @@ void main() {
         });
       }
     }
+
+    // 접근성 큰 글씨(시스템 텍스트 스케일 1.3×) — 좁은 폰에서 오버플로 0.
+    // WCAG 1.4.4 / Jin 실기기 "잘림" 계열 회귀 방어.
+    for (final entry in screens.entries) {
+      testWidgets('${entry.key} @ 360px ×1.3 글씨 오버플로 없음',
+          (tester) async {
+        tester.view.physicalSize = const Size(360, 900);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(_wrap(entry.value, textScale: 1.3));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        await tester.pump(const Duration(milliseconds: 1200));
+
+        expect(tester.takeException(), isNull);
+
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump();
+      });
+    }
   });
 }
 
-Widget _wrap(Widget child) {
+Widget _wrap(Widget child, {double textScale = 1.0}) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.light,
     locale: const Locale('de'),
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
-    home: child,
+    home: textScale == 1.0
+        ? child
+        : MediaQuery.withClampedTextScaling(
+            minScaleFactor: textScale,
+            maxScaleFactor: textScale,
+            child: child,
+          ),
     onGenerateRoute: (settings) => null,
   );
 }

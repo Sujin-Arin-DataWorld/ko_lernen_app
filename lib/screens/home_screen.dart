@@ -25,6 +25,7 @@ import 'daily_char_sheet.dart';
 import 'review_session_screen.dart';
 import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/ambient_particles.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
@@ -33,6 +34,7 @@ import '../widgets/sori/motion.dart';
 import '../widgets/sori/path_node.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tiger_stage_rive.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -168,8 +170,9 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     pick ??= list.isEmpty ? null : list.first;
 
-    final levelPath =
-        list.where((s) => s.level == userLevel).toList(growable: false);
+    final levelPath = list
+        .where((s) => s.level == userLevel)
+        .toList(growable: false);
 
     // M2/A1: "Heute lernen" — fällige + neue SRS-Karten. A1: CSV + 나만의 단어장
     // + 책 한 컷 단어 모두 포함. A2: "어려운 단어"(leech) 개수도 함께 계산.
@@ -181,7 +184,9 @@ class _HomeScreenState extends State<HomeScreen> {
       final koreans = all.map((v) => v.korean);
       dueCount = Storage.todayGoalIds(koreans).length;
       hardCount = Storage.hardIds(koreans).length;
-    } catch (_) {/* best-effort; ohne Vokabeln einfach 0 */}
+    } catch (_) {
+      /* best-effort; ohne Vokabeln einfach 0 */
+    }
 
     setState(() {
       _today = pick;
@@ -207,8 +212,9 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     final t = AppL10n.of(context);
     final streak = Storage.streakDays;
-    final body =
-        streak > 0 ? t.notifDailyStreakBody(streak) : t.notificationBody;
+    final body = streak > 0
+        ? t.notifDailyStreakBody(streak)
+        : t.notificationBody;
     // ignore: discarded_futures
     NotificationService.scheduleDaily(
       hour: Storage.notificationHour,
@@ -380,285 +386,323 @@ class _HomeScreenState extends State<HomeScreen> {
                   physics: const AlwaysScrollableScrollPhysics(),
                   padding: padding,
                   child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // ── A. Compact top bar (logo + actions) ──
-                    _TopBar(),
-                    const SizedBox(height: Spacing.lg),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // ── A. Compact top bar (logo + actions) ──
+                      _TopBar(),
+                      const SizedBox(height: Spacing.lg),
 
-                    // ── B. Tiger hero — 시간대별 인사 + 말풍선 + 큰 호랑이 ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 40),
-                      child: _TigerHero(
-                        greeting: _greeting(t),
-                        bubble: _tigerBubble(t),
-                        subline: _heroSubline(t, lang),
-                        phase: _phase,
-                        onTap: _onHeroTap,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.lg),
-
-                    // ── C. Inline stat chip row ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 140),
-                      slideY: 14,
-                      child: _StatChipRow(
-                        streak: Storage.streakDays,
-                        xp: Storage.xp,
-                        level: Storage.xpLevel,
-                        xpToNext: Storage.xpToNext,
-                        shields: Storage.streakFreezes,
-                        shieldLabel: t.homeShieldLabel,
-                        daysLabel: t.statsDays,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.md),
-
-                    // ── E1a. Lernpfad — 학습 경로(홈 중심·F1, Today 위로 승격) ──
-                    widget.pathTourKey != null
-                        ? KeyedSubtree(
-                            key: widget.pathTourKey!,
-                            child: _SectionLabel(label: t.pathTitle),
-                          )
-                        : _SectionLabel(label: t.pathTitle),
-                    const SizedBox(height: Spacing.sm),
-                    if (_pathNodes.isEmpty)
+                      // ── B. Tiger hero — 시간대별 인사 + 말풍선 + 큰 호랑이 ──
                       SoriEntrance(
-                        delay: const Duration(milliseconds: 120),
+                        delay: const Duration(milliseconds: 40),
+                        child: _TigerHero(
+                          greeting: _greeting(t),
+                          bubble: _tigerBubble(t),
+                          subline: _heroSubline(t, lang),
+                          phase: _phase,
+                          onTap: _onHeroTap,
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+
+                      // ── C. Inline stat chip row ──
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 140),
                         slideY: 14,
-                        child: _PathCard(
+                        child: _StatChipRow(
+                          streak: Storage.streakDays,
+                          xp: Storage.xp,
+                          level: Storage.xpLevel,
+                          xpToNext: Storage.xpToNext,
+                          shields: Storage.streakFreezes,
+                          shieldLabel: t.homeShieldLabel,
+                          daysLabel: t.statsDays,
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.md),
+
+                      // ── D. 주 CTA — 듀오링고식 단일 행동: "열면 바로 뭘 할지"
+                      //    현재 진행 팩으로 직행 (없으면 학습 경로로) ──
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 100),
+                        slideY: 14,
+                        child: SoriButton.filled(
+                          label: t.homeLearnNowCta,
+                          icon: Icons.bolt_rounded,
+                          accent: SoriColors.tiger,
+                          fullWidth: true,
                           onTap: () async {
-                            await Navigator.pushNamed(context, '/path');
+                            if (_nowPackId != null) {
+                              await Navigator.pushNamed(
+                                context,
+                                '/vocab/pack',
+                                arguments: _nowPackId,
+                              );
+                            } else {
+                              await Navigator.pushNamed(context, '/path');
+                            }
                             if (mounted) {
                               await _loadToday();
+                              await _loadPath();
                             }
                           },
                         ),
-                      )
-                    else
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 120),
-                        slideY: 14,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            for (final e in _pathNodes)
-                              PathNode(
-                                label: VocabPackService.displayLabel(
-                                    e.pack.id, lang: lang),
-                                status: e.progress.status,
-                                fraction: e.progress.progressFraction,
-                                isNow: e.pack.id == _nowPackId,
-                                onTap: () async {
-                                  if (e.progress.status == PackStatus.locked) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content:
-                                              Text(t.pathLockedHint)),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+
+                      // ── E1a. Lernpfad — 학습 경로(홈 중심·F1, Today 위로 승격) ──
+                      widget.pathTourKey != null
+                          ? KeyedSubtree(
+                              key: widget.pathTourKey!,
+                              child: _SectionLabel(label: t.pathTitle),
+                            )
+                          : _SectionLabel(label: t.pathTitle),
+                      const SizedBox(height: Spacing.sm),
+                      if (_pathNodes.isEmpty)
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 120),
+                          slideY: 14,
+                          child: _PathCard(
+                            onTap: () async {
+                              await Navigator.pushNamed(context, '/path');
+                              if (mounted) {
+                                await _loadToday();
+                              }
+                            },
+                          ),
+                        )
+                      else
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 120),
+                          slideY: 14,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              for (final e in _pathNodes)
+                                PathNode(
+                                  label: VocabPackService.displayLabel(
+                                    e.pack.id,
+                                    lang: lang,
+                                  ),
+                                  status: e.progress.status,
+                                  fraction: e.progress.progressFraction,
+                                  isNow: e.pack.id == _nowPackId,
+                                  onTap: () async {
+                                    if (e.progress.status ==
+                                        PackStatus.locked) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text(t.pathLockedHint),
+                                        ),
+                                      );
+                                      return;
+                                    }
+                                    await Navigator.pushNamed(
+                                      context,
+                                      '/vocab/pack',
+                                      arguments: e.pack.id,
                                     );
-                                    return;
-                                  }
-                                  await Navigator.pushNamed(
-                                    context,
-                                    '/vocab/pack',
-                                    arguments: e.pack.id,
-                                  );
+                                    if (mounted) {
+                                      await _loadToday();
+                                      await _loadPath();
+                                    }
+                                  },
+                                ),
+                              const SizedBox(height: Spacing.xs),
+                              TextButton(
+                                onPressed: () async {
+                                  await Navigator.pushNamed(context, '/path');
                                   if (mounted) {
-                                    await _loadToday();
                                     await _loadPath();
                                   }
                                 },
-                              ),
-                            const SizedBox(height: Spacing.xs),
-                            TextButton(
-                              onPressed: () async {
-                                await Navigator.pushNamed(context, '/path');
-                                if (mounted) {
-                                  await _loadPath();
-                                }
-                              },
-                              style: TextButton.styleFrom(
-                                foregroundColor: SoriColors.primary,
-                                padding: EdgeInsets.zero,
-                                alignment: Alignment.centerLeft,
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    t.pathSeeAll,
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 2),
-                                  const Icon(Icons.chevron_right, size: 14),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    const SizedBox(height: Spacing.xl),
-
-                    // ── E. Today CTA — 오늘의 단일 행동(경로 아래) ──
-                    _SectionLabel(label: t.homeTodaySection),
-                    const SizedBox(height: Spacing.sm),
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 150),
-                      child: _TodayScenarioCard(
-                        scenario: _today,
-                        loading: _loadingScenario,
-                        lang: lang,
-                        onTap: _today == null
-                            ? null
-                            : () async {
-                                await Navigator.pushNamed(
-                                  context,
-                                  '/scenario',
-                                  arguments: _today!.id,
-                                );
-                                if (mounted) await _loadToday();
-                              },
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.md),
-
-                    // ── E2. Skill path — 진행 레일(홈 중심 메타포로 승격) ──
-                    if (_levelPath.isNotEmpty) ...[
-                      _SectionLabel(label: t.scenariosPathTitle),
-                      const SizedBox(height: Spacing.sm),
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 180),
-                        slideY: 14,
-                        child: _SkillPathRail(
-                          scenarios: _levelPath,
-                          completed: _completed,
-                          currentId: _today?.id,
-                          lang: lang,
-                          onTapScenario: (id) async {
-                            await Navigator.pushNamed(context, '/scenario',
-                                arguments: id);
-                            if (mounted) await _loadToday();
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.xl),
-                    ],
-
-                    // ── P0-G7. Streak 0 회복 메시지 ──
-                    if (Storage.streakDays == 0) ...[
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 200),
-                        slideY: 14,
-                        child: SoriCard(
-                          variant: SoriCardVariant.hero,
-                          accent: SoriColors.primary,
-                          tinted: true,
-                          child: Row(
-                            children: [
-                              const Mascot(
-                                kind: MascotKind.tiger,
-                                emotion: MascotEmotion.smile,
-                                size: 60,
-                              ),
-                              const SizedBox(width: Spacing.md),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                style: TextButton.styleFrom(
+                                  foregroundColor: SoriColors.primary,
+                                  padding: EdgeInsets.zero,
+                                  alignment: Alignment.centerLeft,
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
-                                      t.homeTigerBubbleResume,
+                                      t.pathSeeAll,
                                       style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      '5분이면 충분해요!',
-                                      style: TextStyle(
                                         fontSize: 12,
-                                        color: s.textMuted,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w700,
                                       ),
                                     ),
+                                    const SizedBox(width: 2),
+                                    const Icon(Icons.chevron_right, size: 14),
                                   ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                    ],
-                    // ── E1b. Heute lernen (M2) — fällige SRS-Karten ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 220),
-                      slideY: 14,
-                      child: _ReviewCard(
-                        dueCount: _dueCount,
-                        onTap: () async {
-                          await Navigator.pushNamed(context, '/review');
-                          if (mounted) await _loadToday();
-                        },
-                      ),
-                    ),
-                    // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
-                    if (_hardCount > 0) ...[
+                      const SizedBox(height: Spacing.xl),
+
+                      // ── E. Today CTA — 오늘의 단일 행동(경로 아래) ──
+                      _SectionLabel(label: t.homeTodaySection),
                       const SizedBox(height: Spacing.sm),
                       SoriEntrance(
-                        delay: const Duration(milliseconds: 240),
+                        delay: const Duration(milliseconds: 150),
+                        child: _TodayScenarioCard(
+                          scenario: _today,
+                          loading: _loadingScenario,
+                          lang: lang,
+                          onTap: _today == null
+                              ? null
+                              : () async {
+                                  await Navigator.pushNamed(
+                                    context,
+                                    '/scenario',
+                                    arguments: _today!.id,
+                                  );
+                                  if (mounted) await _loadToday();
+                                },
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.md),
+
+                      // ── E2. Skill path — 진행 레일(홈 중심 메타포로 승격) ──
+                      if (_levelPath.isNotEmpty) ...[
+                        _SectionLabel(label: t.scenariosPathTitle),
+                        const SizedBox(height: Spacing.sm),
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 180),
+                          slideY: 14,
+                          child: _SkillPathRail(
+                            scenarios: _levelPath,
+                            completed: _completed,
+                            currentId: _today?.id,
+                            lang: lang,
+                            onTapScenario: (id) async {
+                              await Navigator.pushNamed(
+                                context,
+                                '/scenario',
+                                arguments: id,
+                              );
+                              if (mounted) await _loadToday();
+                            },
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.xl),
+                      ],
+
+                      // ── P0-G7. Streak 0 회복 메시지 ──
+                      if (Storage.streakDays == 0) ...[
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 200),
+                          slideY: 14,
+                          child: SoriCard(
+                            variant: SoriCardVariant.hero,
+                            accent: SoriColors.primary,
+                            tinted: true,
+                            child: Row(
+                              children: [
+                                const Mascot(
+                                  kind: MascotKind.tiger,
+                                  emotion: MascotEmotion.smile,
+                                  size: 60,
+                                ),
+                                const SizedBox(width: Spacing.md),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        t.homeTigerBubbleResume,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        '5분이면 충분해요!',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: s.textMuted,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                      ],
+                      // ── E1b. Heute lernen (M2) — fällige SRS-Karten ──
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 220),
                         slideY: 14,
-                        child: _HardWordsCard(
-                          count: _hardCount,
+                        child: _ReviewCard(
+                          dueCount: _dueCount,
                           onTap: () async {
-                            await Navigator.pushNamed(context, '/hard_words');
+                            await Navigator.pushNamed(context, '/review');
                             if (mounted) await _loadToday();
                           },
                         ),
                       ),
-                    ],
-                    const SizedBox(height: Spacing.md),
+                      // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
+                      if (_hardCount > 0) ...[
+                        const SizedBox(height: Spacing.sm),
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 240),
+                          slideY: 14,
+                          child: _HardWordsCard(
+                            count: _hardCount,
+                            onTap: () async {
+                              await Navigator.pushNamed(context, '/hard_words');
+                              if (mounted) await _loadToday();
+                            },
+                          ),
+                        ),
+                      ],
+                      const SizedBox(height: Spacing.md),
 
-                    // ── E1c. Dein Tageskurs (M5) — personalisiert · Premium ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 260),
-                      slideY: 14,
-                      child: _CourseCard(onTap: _openCourse),
-                    ),
-                    const SizedBox(height: Spacing.md),
-
-                    // ── D. Daily char (compact, 부차 요소로 강등) ──
-                    SoriEntrance(
-                      delay: const Duration(milliseconds: 300),
-                      slideY: 12,
-                      child: _DailyCharCard(
-                        char: DailyCharService.today(),
-                        doneToday: Storage.calligraphyDoneToday,
-                        onTap: () => showDailyCharSheet(context).then((_) {
-                          if (mounted) setState(() {});
-                        }),
+                      // ── E1c. Dein Tageskurs (M5) — personalisiert · Premium ──
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 260),
+                        slideY: 14,
+                        child: _CourseCard(onTap: _openCourse),
                       ),
-                    ),
-                    const SizedBox(height: Spacing.xl),
+                      const SizedBox(height: Spacing.md),
 
-                    const SizedBox(height: Spacing.xxxl),
-                    Center(
-                      child: Text(
-                        t.footerCheer,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          color: s.textDim,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                      // ── D. Daily char (compact, 부차 요소로 강등) ──
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 300),
+                        slideY: 12,
+                        child: _DailyCharCard(
+                          char: DailyCharService.today(),
+                          doneToday: Storage.calligraphyDoneToday,
+                          onTap: () => showDailyCharSheet(context).then((_) {
+                            if (mounted) setState(() {});
+                          }),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                      const SizedBox(height: Spacing.xl),
+
+                      const SizedBox(height: Spacing.xxxl),
+                      Center(
+                        child: Text(
+                          t.footerCheer,
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            color: s.textDim,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -906,9 +950,7 @@ class _SpeechBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final bg = isDark
-        ? Colors.white.withValues(alpha: 0.94)
-        : Colors.white;
+    final bg = isDark ? Colors.white.withValues(alpha: 0.94) : Colors.white;
     return Container(
       constraints: BoxConstraints(maxWidth: maxWidth),
       padding: const EdgeInsets.fromLTRB(12, 9, 12, 10),
@@ -1002,11 +1044,7 @@ class _StatChipRow extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          SoriXpProgress(
-            currentXp: xp,
-            level: level,
-            trailingLabel: null,
-          ),
+          SoriXpProgress(currentXp: xp, level: level, trailingLabel: null),
         ],
       ),
     );
@@ -1288,10 +1326,14 @@ class _TodayScenarioCard extends StatelessWidget {
                       children: [
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 3),
+                            horizontal: 8,
+                            vertical: 3,
+                          ),
                           decoration: BoxDecoration(
                             color: SoriColors.primary.withValues(alpha: 0.18),
-                            borderRadius: BorderRadius.circular(SoriRadius.pill),
+                            borderRadius: BorderRadius.circular(
+                              SoriRadius.pill,
+                            ),
                           ),
                           child: Text(
                             scenario!.level.display,
@@ -1432,8 +1474,11 @@ class _ReviewCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
             alignment: Alignment.center,
-            child: const Icon(Icons.refresh_rounded,
-                color: SoriColors.gold, size: 24),
+            child: const Icon(
+              Icons.refresh_rounded,
+              color: SoriColors.gold,
+              size: 24,
+            ),
           ),
           const SizedBox(width: Spacing.md),
           Expanded(
@@ -1503,8 +1548,11 @@ class _PathCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
             alignment: Alignment.center,
-            child: const Icon(Icons.route_rounded,
-                color: SoriColors.primary, size: 24),
+            child: const Icon(
+              Icons.route_rounded,
+              color: SoriColors.primary,
+              size: 24,
+            ),
           ),
           const SizedBox(width: Spacing.md),
           Expanded(
@@ -1535,8 +1583,10 @@ class _PathCard extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.chevron_right_rounded,
-              color: SoriColors.primary.withValues(alpha: 0.8)),
+          Icon(
+            Icons.chevron_right_rounded,
+            color: SoriColors.primary.withValues(alpha: 0.8),
+          ),
         ],
       ),
     );
@@ -1572,8 +1622,11 @@ class _HardWordsCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
             alignment: Alignment.center,
-            child: const Icon(Icons.bolt_rounded,
-                color: SoriColors.danger, size: 24),
+            child: const Icon(
+              Icons.bolt_rounded,
+              color: SoriColors.danger,
+              size: 24,
+            ),
           ),
           const SizedBox(width: Spacing.md),
           Expanded(
@@ -1604,8 +1657,10 @@ class _HardWordsCard extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.chevron_right_rounded,
-              color: SoriColors.danger.withValues(alpha: 0.8)),
+          Icon(
+            Icons.chevron_right_rounded,
+            color: SoriColors.danger.withValues(alpha: 0.8),
+          ),
         ],
       ),
     );
@@ -1641,8 +1696,11 @@ class _CourseCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(SoriRadius.md),
               ),
               alignment: Alignment.center,
-              child: const Icon(Icons.auto_awesome_rounded,
-                  color: SoriColors.tiger, size: 26),
+              child: const Icon(
+                Icons.auto_awesome_rounded,
+                color: SoriColors.tiger,
+                size: 26,
+              ),
             ),
             const SizedBox(width: Spacing.md),
             Expanded(
@@ -1670,10 +1728,14 @@ class _CourseCard extends StatelessWidget {
                         const SizedBox(width: 6),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 6, vertical: 2),
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
                             color: SoriColors.gold,
-                            borderRadius: BorderRadius.circular(SoriRadius.pill),
+                            borderRadius: BorderRadius.circular(
+                              SoriRadius.pill,
+                            ),
                           ),
                           child: const Text(
                             'PRO',
@@ -1726,58 +1788,58 @@ Future<void> showGyeChooser(BuildContext context) async {
     return;
   }
   final t = AppL10n.of(context);
-  showModalBottomSheet<void>(
+  showSoriSheet<void>(
     context: context,
-    builder: (sheetCtx) => SafeArea(
-      child: FutureBuilder<List<GyeMeta>>(
-        future: GyeService.myGyeMetas(),
-        builder: (ctx, snap) {
-          final mine = snap.data ?? const <GyeMeta>[];
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: Spacing.md),
-              Text(
-                t.gyeChooserTitle,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: Spacing.sm),
-              for (final g in mine)
-                ListTile(
-                  leading: const Icon(Icons.groups_2_outlined,
-                      color: SoriColors.primary),
-                  title: Text(g.name),
-                  subtitle: Text(g.code),
-                  onTap: () {
-                    Navigator.of(sheetCtx).pop();
-                    Navigator.of(context).pushNamed('/gye', arguments: g.id);
-                  },
+    builder: (sheetCtx) => FutureBuilder<List<GyeMeta>>(
+      future: GyeService.myGyeMetas(),
+      builder: (ctx, snap) {
+        final mine = snap.data ?? const <GyeMeta>[];
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: Spacing.md),
+            Text(
+              t.gyeChooserTitle,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: Spacing.sm),
+            for (final g in mine)
+              ListTile(
+                leading: const Icon(
+                  Icons.groups_2_outlined,
+                  color: SoriColors.primary,
                 ),
-              if (mine.isNotEmpty) const Divider(height: 1),
-              ListTile(
-                leading: const Icon(Icons.add_home_outlined,
-                    color: SoriColors.primary),
-                title: Text(t.gyeChooserCreate),
+                title: Text(g.name),
+                subtitle: Text(g.code),
                 onTap: () {
                   Navigator.of(sheetCtx).pop();
-                  Navigator.of(context).pushNamed('/gye/create');
+                  Navigator.of(context).pushNamed('/gye', arguments: g.id);
                 },
               ),
-              ListTile(
-                leading:
-                    const Icon(Icons.login_rounded, color: SoriColors.info),
-                title: Text(t.gyeChooserJoin),
-                onTap: () {
-                  Navigator.of(sheetCtx).pop();
-                  Navigator.of(context).pushNamed('/gye/join');
-                },
+            if (mine.isNotEmpty) const Divider(height: 1),
+            ListTile(
+              leading: const Icon(
+                Icons.add_home_outlined,
+                color: SoriColors.primary,
               ),
-              const SizedBox(height: Spacing.sm),
-            ],
-          );
-        },
-      ),
+              title: Text(t.gyeChooserCreate),
+              onTap: () {
+                Navigator.of(sheetCtx).pop();
+                Navigator.of(context).pushNamed('/gye/create');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.login_rounded, color: SoriColors.info),
+              title: Text(t.gyeChooserJoin),
+              onTap: () {
+                Navigator.of(sheetCtx).pop();
+                Navigator.of(context).pushNamed('/gye/join');
+              },
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+        );
+      },
     ),
   );
 }
@@ -1804,8 +1866,7 @@ class _SkillPathRail extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final doneCount =
-        scenarios.where((sc) => completed.contains(sc.id)).length;
+    final doneCount = scenarios.where((sc) => completed.contains(sc.id)).length;
 
     return SoriCard(
       variant: SoriCardVariant.compact,
@@ -1870,13 +1931,13 @@ class _PathNode extends StatelessWidget {
     final Color ring = done
         ? SoriColors.primary
         : current
-            ? SoriColors.tiger
-            : s.border;
+        ? SoriColors.tiger
+        : s.border;
     final Color fill = done
         ? SoriColors.primary
         : current
-            ? SoriColors.tiger.withValues(alpha: 0.18)
-            : s.surface;
+        ? SoriColors.tiger.withValues(alpha: 0.18)
+        : s.surface;
 
     return SoriPressable(
       onTap: onTap,
@@ -1902,8 +1963,11 @@ class _PathNode extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: done
-                      ? const Icon(Icons.check_rounded,
-                          color: Colors.white, size: 18)
+                      ? const Icon(
+                          Icons.check_rounded,
+                          color: Colors.white,
+                          size: 18,
+                        )
                       : Text(
                           '${index + 1}',
                           style: TextStyle(

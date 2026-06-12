@@ -16,6 +16,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/study_action_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -404,59 +405,41 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   void _showFilterSheet() {
     final t = AppL10n.of(context);
-    showModalBottomSheet(
+    showSoriSheet<void>(
       context: context,
-      backgroundColor: SoriSurfaces.of(context).surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
       builder: (ctx) {
         return StatefulBuilder(
-          builder: (ctx, setLocal) => Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: SoriSurfaces.of(ctx).surfaceAlt,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
+          builder: (ctx, setLocal) => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                t.filterTitle,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
                 ),
-                const SizedBox(height: Spacing.lg),
-                Text(
-                  t.filterTitle,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: Spacing.md),
-                _dropdown(t.filterLevel, _level, _levels, (v) {
-                  setLocal(() => _level = v!);
-                  _level = v!;
-                }),
-                const SizedBox(height: Spacing.sm + 2),
-                _dropdown(t.filterType, _type, _types, (v) {
-                  setLocal(() => _type = v!);
-                  _type = v!;
-                }),
-                const SizedBox(height: Spacing.lg),
-                SoriButton.filled(
-                  label: t.btnApply,
-                  fullWidth: true,
-                  onTap: () {
-                    _applyFilters();
-                    Navigator.pop(ctx);
-                  },
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: Spacing.md),
+              _dropdown(t.filterLevel, _level, _levels, (v) {
+                setLocal(() => _level = v!);
+                _level = v!;
+              }),
+              const SizedBox(height: Spacing.sm + 2),
+              _dropdown(t.filterType, _type, _types, (v) {
+                setLocal(() => _type = v!);
+                _type = v!;
+              }),
+              const SizedBox(height: Spacing.lg),
+              SoriButton.filled(
+                label: t.btnApply,
+                fullWidth: true,
+                onTap: () {
+                  _applyFilters();
+                  Navigator.pop(ctx);
+                },
+              ),
+            ],
           ),
         );
       },

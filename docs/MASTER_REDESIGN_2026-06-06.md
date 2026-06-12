@@ -116,3 +116,22 @@
 - Mogavi et al., 게이미피케이션 오용 — ACM L@S'22, arxiv 2203.16175
 - Qiao/Yeung et al., 협력학습 N=156 — LLT 2024
 - Settles & Meeder, HLR SRS — ACL 2016, P16-1174
+
+---
+
+## 9. 계 커뮤니티 — 출시 범위 vs 포스트런치 로드맵 (2026-06-12 확정)
+
+### 출시 범위 (구현 완료 — 2026-06-12 세션)
+- **멤버 차단(block)**: `users/{uid}.blockedUids` + 멤버 화면 토글 + 피드/응원 클라 필터 (Play UGC 정책)
+- **멤버 프로필 카드**: GyeMember에 level/streak denormalize(`syncMyMemberStats`) → 멤버 탭 시 SoriSheet 카드
+- **지난주 살림꾼(MVP) 카드**: `weekly_goal_rollover` CF가 `lastWeekMvp`/`lastWeekMvpPacks` 기록 → GyeScreen 축하 톤 1줄 카드 (⚠️ CF 재배포 필요 — Jin)
+- **전원챌린지 축하**: 전원 기여 달성 순간 SoriCelebration.burst (2인+, 실행당 1회)
+- 기존 dure 5종(두레판·피드·응원·MVP회고·전원챌린지)은 89f32ea에서 완성
+
+### 포스트런치 (Tandem 방향 — 의도적 보류, 근거)
+| 후보 | 보류 사유 | 선행 조건 |
+|---|---|---|
+| 자유 텍스트 채팅 | ML 모더레이션 비용·스팸·신고량 폭증 리스크. 현재 스티커/정형 응원이 모더레이션-안전 | 모더레이션 파이프라인(Cloud DLP or Perspective API)+운영 인력 |
+| 피드 reaction(이벤트별 스티커 답글) | GyeSticker.targetEventId 스키마는 준비됨 — UI/rules 추가 필요(M) | v2.1 후보 |
+| 공개 계 검색/가입 | 초대코드(bearer) 모델이 GDPR·스팸에 안전. 공개화는 발견성↑ 대신 모더레이션 부담↑ | 신고 처리 SLA + 차단 사용 데이터 확인 후 |
+| 1:1 파트너 매칭(Tandem 코어) | 별도 프로덕트 규모: 매칭엔진·DM·신원/안전(미성년 보호)·차단 고도화 | 사용자 기반 + 안전 설계 별도 트랙 |

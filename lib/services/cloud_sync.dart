@@ -11,10 +11,12 @@ import 'storage_service.dart';
 /// - Restore: Firestore → lokale Werte — **additiv / max-merge, kein Clobber**.
 ///
 /// Felder: Spiel-Statistik (vok/chosung/wordle/grammar/app) + **Fortschritt
-/// (xp/level/stamps/quests) + SRS-Deck + Custom-Packs** (sonst Verlust bei
-/// Reinstall/Gerätewechsel). packs/bookshelf werden separat von
-/// `firestore_progress_service` / `bookshelf_service` synchronisiert → hier
-/// nicht dupliziert.
+/// (xp/level/stamps/quests) + SRS-Deck + Custom-Packs + Bücherregal**
+/// (sonst Verlust bei Reinstall/Gerätewechsel). packs werden separat von
+/// `firestore_progress_service` synchronisiert → hier nicht dupliziert.
+/// Bücherregal: `bookshelf_service` schreibt zwar best-effort einzelne Docs,
+/// hatte aber **keinen Restore-Pfad** → seit 2026-06-12 hier als
+/// `bookshelf_json` mitgesichert/-wiederhergestellt (Gerätewechsel-Schutz).
 class CloudSync {
   static FirebaseFirestore get _db => FirebaseFirestore.instance;
 
@@ -27,42 +29,43 @@ class CloudSync {
   /// Reines Backup-Payload (ohne Firestore-I/O, ohne `updated_at`) — testbar.
   @visibleForTesting
   static Map<String, dynamic> buildBackupPayload() => {
-        'vok': {
-          'correct': Storage.vokCorrect,
-          'wrong': Storage.vokWrong,
-          'skipped': Storage.vokSkipped,
-          'last_idx': Storage.vokLastIdx,
-          'seen_ids': Storage.vokSeenIds,
-        },
-        'chosung': {
-          'correct': Storage.chosungCorrect,
-          'wrong': Storage.chosungWrong,
-        },
-        'wordle': {
-          'wins': Storage.wordleWins,
-          'losses': Storage.wordleLosses,
-          'streak': Storage.wordleStreak,
-          'best_streak': Storage.wordleBestStreak,
-        },
-        'grammar': {
-          'last_idx': Storage.grammarLastIdx,
-          'seen': Storage.grammarSeen,
-        },
-        'app': {
-          'last_open': Storage.lastOpenDate,
-          'streak_days': Storage.streakDays,
-          'best_streak': Storage.bestStreak,
-        },
-        // Phase 1~8 Fortschritt (Reinstall/Gerätewechsel-Schutz).
-        'progress': {
-          'xp': Storage.xp,
-          'level': Storage.userLevelCode,
-          'earned_stamps': Storage.earnedStamps,
-          'quest_completions': Storage.questCompletions,
-        },
-        'srs_json': Storage.srsRawJson,
-        'custom_packs_json': Storage.customPacksRawJson,
-      };
+    'vok': {
+      'correct': Storage.vokCorrect,
+      'wrong': Storage.vokWrong,
+      'skipped': Storage.vokSkipped,
+      'last_idx': Storage.vokLastIdx,
+      'seen_ids': Storage.vokSeenIds,
+    },
+    'chosung': {
+      'correct': Storage.chosungCorrect,
+      'wrong': Storage.chosungWrong,
+    },
+    'wordle': {
+      'wins': Storage.wordleWins,
+      'losses': Storage.wordleLosses,
+      'streak': Storage.wordleStreak,
+      'best_streak': Storage.wordleBestStreak,
+    },
+    'grammar': {
+      'last_idx': Storage.grammarLastIdx,
+      'seen': Storage.grammarSeen,
+    },
+    'app': {
+      'last_open': Storage.lastOpenDate,
+      'streak_days': Storage.streakDays,
+      'best_streak': Storage.bestStreak,
+    },
+    // Phase 1~8 Fortschritt (Reinstall/Gerätewechsel-Schutz).
+    'progress': {
+      'xp': Storage.xp,
+      'level': Storage.userLevelCode,
+      'earned_stamps': Storage.earnedStamps,
+      'quest_completions': Storage.questCompletions,
+    },
+    'srs_json': Storage.srsRawJson,
+    'custom_packs_json': Storage.customPacksRawJson,
+    'bookshelf_json': Storage.bookshelfRawJson,
+  };
 
   /// Lokale Werte → Firestore. Idempotent.
   static Future<void> backup() async {
@@ -77,10 +80,18 @@ class CloudSync {
   @visibleForTesting
   static Future<void> applyRestorePayload(Map<String, dynamic> data) async {
     final vok = (data['vok'] as Map?) ?? const {};
-    if (vok['correct'] != null) await Storage.setVokCorrect(vok['correct'] as int);
-    if (vok['wrong'] != null) await Storage.setVokWrong(vok['wrong'] as int);
-    if (vok['skipped'] != null) await Storage.setVokSkipped(vok['skipped'] as int);
-    if (vok['last_idx'] != null) await Storage.setVokLastIdx(vok['last_idx'] as int);
+    if (vok['correct'] != null) {
+      await Storage.setVokCorrect(vok['correct'] as int);
+    }
+    if (vok['wrong'] != null) {
+      await Storage.setVokWrong(vok['wrong'] as int);
+    }
+    if (vok['skipped'] != null) {
+      await Storage.setVokSkipped(vok['skipped'] as int);
+    }
+    if (vok['last_idx'] != null) {
+      await Storage.setVokLastIdx(vok['last_idx'] as int);
+    }
     for (final id in (vok['seen_ids'] as List?)?.cast<String>() ?? const []) {
       await Storage.addVokSeen(id);
     }
@@ -96,7 +107,9 @@ class CloudSync {
     // wordle: lokale Werte bleiben (best_streak nur erhöhen — Original-Verhalten).
 
     final g = (data['grammar'] as Map?) ?? const {};
-    if (g['last_idx'] != null) await Storage.setGrammarLastIdx(g['last_idx'] as int);
+    if (g['last_idx'] != null) {
+      await Storage.setGrammarLastIdx(g['last_idx'] as int);
+    }
     for (final pat in (g['seen'] as List?)?.cast<String>() ?? const []) {
       await Storage.addGrammarSeen(pat);
     }
@@ -135,6 +148,12 @@ class CloudSync {
         cpJson.isNotEmpty &&
         Storage.customPacksRawJson.isEmpty) {
       await Storage.setCustomPacksRawJson(cpJson);
+    }
+    final bsJson = data['bookshelf_json'] as String?;
+    if (bsJson != null &&
+        bsJson.isNotEmpty &&
+        Storage.bookshelfRawJson.isEmpty) {
+      await Storage.setBookshelfRawJson(bsJson);
     }
   }
 

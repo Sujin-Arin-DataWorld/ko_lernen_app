@@ -15,6 +15,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -78,10 +79,8 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     final pack = _pack;
     if (pack == null) return;
     final existing = index != null ? pack.words[index] : null;
-    final result = await showModalBottomSheet<ExtractedWord>(
+    final result = await showSoriSheet<ExtractedWord>(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
       builder: (_) => _WordEditorSheet(existing: existing),
     );
     if (result == null) return;
@@ -169,8 +168,10 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(t.csvImportHint,
-                style: const TextStyle(fontSize: 12.5, height: 1.4)),
+            Text(
+              t.csvImportHint,
+              style: const TextStyle(fontSize: 12.5, height: 1.4),
+            ),
             const SizedBox(height: 10),
             TextField(
               controller: controller,
@@ -210,26 +211,28 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
       if (korean.isEmpty) continue;
       final meaning = row.length > 1 ? row[1].toString().trim() : '';
       final example = row.length > 2 ? row[2].toString().trim() : '';
-      words.add(ExtractedWord.manual(
-        korean: korean,
-        translationDe: meaning,
-        exampleKorean: example,
-      ));
+      words.add(
+        ExtractedWord.manual(
+          korean: korean,
+          translationDe: meaning,
+          exampleKorean: example,
+        ),
+      );
     }
 
     if (!mounted) return;
     if (words.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(t.csvImportEmpty)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.csvImportEmpty)));
       return;
     }
     await CustomPackService.addWords(pack.id, words);
     _reload();
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(t.csvImportResult(words.length))),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(t.csvImportResult(words.length))));
   }
 
   @override
@@ -255,8 +258,10 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(pack.displayName(),
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          pack.displayName(),
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.upload_file_outlined),
@@ -280,132 +285,140 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) => Column(
-          children: [
-            // 학습 모드 4종: 카드 · 짝맞추기 · 받아쓰기 · 퀴즈
-            KeyedSubtree(
-              key: _modeRowKey,
-              child: Padding(
-              padding: soriClampPadding(
-                constraints.maxWidth,
-                base: const EdgeInsets.fromLTRB(
-                    Spacing.lg, Spacing.md, Spacing.lg, Spacing.xs),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SoriButton(
-                          label: t.wbStudyCards,
-                          icon: Icons.style_outlined,
-                          variant: SoriButtonVariant.filled,
-                          accent: SoriColors.primary,
-                          onTap: words.isEmpty
-                              ? null
-                              : () => Navigator.of(context).pushNamed(
-                                  '/custom_pack/play',
-                                  arguments: pack.id),
-                        ),
-                      ),
-                      const SizedBox(width: Spacing.md),
-                      Expanded(
-                        child: SoriButton(
-                          label: t.wbMatching,
-                          icon: Icons.grid_view_rounded,
-                          variant: SoriButtonVariant.outlined,
-                          accent: SoriColors.primary,
-                          onTap: words.length < 2
-                              ? null
-                              : () => Navigator.of(context).pushNamed(
-                                  '/custom_pack/matching',
-                                  arguments: pack.id),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SoriButton(
-                          label: t.wbTyping,
-                          icon: Icons.keyboard_alt_outlined,
-                          variant: SoriButtonVariant.outlined,
-                          accent: SoriColors.accent,
-                          onTap: words.isEmpty
-                              ? null
-                              : () => Navigator.of(context).pushNamed(
-                                  '/custom_pack/typing',
-                                  arguments: pack.id),
-                        ),
-                      ),
-                      const SizedBox(width: Spacing.md),
-                      Expanded(
-                        child: SoriButton(
-                          label: t.wbQuiz,
-                          icon: Icons.quiz_outlined,
-                          variant: SoriButtonVariant.outlined,
-                          accent: SoriColors.accent,
-                          onTap: words.length < 4
-                              ? null
-                              : () => Navigator.of(context).pushNamed(
-                                  '/custom_pack/quiz',
-                                  arguments: pack.id),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            ), // KeyedSubtree _modeRowKey
-            if (words.length < 4)
-              Padding(
-                padding: soriClampPadding(
-                  constraints.maxWidth,
-                  base: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                ),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    t.quizNeedMore,
-                    style: TextStyle(fontSize: 11, color: s.textDim),
-                  ),
-                ),
-              ),
-            const SizedBox(height: Spacing.sm),
-            Expanded(
-              child: words.isEmpty
-                  ? Center(
-                      child: SoriEmptyState(
-                        icon: Icons.playlist_add,
-                        title: t.wbEmptyTitle,
-                        body: t.wbEmptyBody,
-                        ctaLabel: t.wbAddWord,
-                        onCta: () => _addOrEdit(),
-                      ),
-                    )
-                  : ListView.separated(
-                      padding: soriClampPadding(
-                        constraints.maxWidth,
-                        base: const EdgeInsets.fromLTRB(12, 0, 12, 96),
-                      ),
-                      itemCount: words.length,
-                      separatorBuilder: (_, __) =>
-                          const SizedBox(height: Spacing.xs),
-                      itemBuilder: (_, i) {
-                        final w = words[i];
-                        return _WordTile(
-                          word: w,
-                          onTap: () => _addOrEdit(index: i),
-                          onSpeak: () => TtsService.speak(w.korean),
-                          onDelete: () => _deleteWord(i),
-                        );
-                      },
+            children: [
+              // 학습 모드 4종: 카드 · 짝맞추기 · 받아쓰기 · 퀴즈
+              KeyedSubtree(
+                key: _modeRowKey,
+                child: Padding(
+                  padding: soriClampPadding(
+                    constraints.maxWidth,
+                    base: const EdgeInsets.fromLTRB(
+                      Spacing.lg,
+                      Spacing.md,
+                      Spacing.lg,
+                      Spacing.xs,
                     ),
-            ),
-          ],
-        ),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SoriButton(
+                              label: t.wbStudyCards,
+                              icon: Icons.style_outlined,
+                              variant: SoriButtonVariant.filled,
+                              accent: SoriColors.primary,
+                              onTap: words.isEmpty
+                                  ? null
+                                  : () => Navigator.of(context).pushNamed(
+                                      '/custom_pack/play',
+                                      arguments: pack.id,
+                                    ),
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          Expanded(
+                            child: SoriButton(
+                              label: t.wbMatching,
+                              icon: Icons.grid_view_rounded,
+                              variant: SoriButtonVariant.outlined,
+                              accent: SoriColors.primary,
+                              onTap: words.length < 2
+                                  ? null
+                                  : () => Navigator.of(context).pushNamed(
+                                      '/custom_pack/matching',
+                                      arguments: pack.id,
+                                    ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SoriButton(
+                              label: t.wbTyping,
+                              icon: Icons.keyboard_alt_outlined,
+                              variant: SoriButtonVariant.outlined,
+                              accent: SoriColors.accent,
+                              onTap: words.isEmpty
+                                  ? null
+                                  : () => Navigator.of(context).pushNamed(
+                                      '/custom_pack/typing',
+                                      arguments: pack.id,
+                                    ),
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          Expanded(
+                            child: SoriButton(
+                              label: t.wbQuiz,
+                              icon: Icons.quiz_outlined,
+                              variant: SoriButtonVariant.outlined,
+                              accent: SoriColors.accent,
+                              onTap: words.length < 4
+                                  ? null
+                                  : () => Navigator.of(context).pushNamed(
+                                      '/custom_pack/quiz',
+                                      arguments: pack.id,
+                                    ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ), // KeyedSubtree _modeRowKey
+              if (words.length < 4)
+                Padding(
+                  padding: soriClampPadding(
+                    constraints.maxWidth,
+                    base: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      t.quizNeedMore,
+                      style: TextStyle(fontSize: 11, color: s.textDim),
+                    ),
+                  ),
+                ),
+              const SizedBox(height: Spacing.sm),
+              Expanded(
+                child: words.isEmpty
+                    ? Center(
+                        child: SoriEmptyState(
+                          icon: Icons.playlist_add,
+                          title: t.wbEmptyTitle,
+                          body: t.wbEmptyBody,
+                          ctaLabel: t.wbAddWord,
+                          onCta: () => _addOrEdit(),
+                        ),
+                      )
+                    : ListView.separated(
+                        padding: soriClampPadding(
+                          constraints.maxWidth,
+                          base: const EdgeInsets.fromLTRB(12, 0, 12, 96),
+                        ),
+                        itemCount: words.length,
+                        separatorBuilder: (_, __) =>
+                            const SizedBox(height: Spacing.xs),
+                        itemBuilder: (_, i) {
+                          final w = words[i];
+                          return _WordTile(
+                            word: w,
+                            onTap: () => _addOrEdit(index: i),
+                            onSpeak: () => TtsService.speak(w.korean),
+                            onDelete: () => _deleteWord(i),
+                          );
+                        },
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -435,7 +448,9 @@ class _WordTile extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.symmetric(
-              horizontal: Spacing.md, vertical: Spacing.sm),
+            horizontal: Spacing.md,
+            vertical: Spacing.sm,
+          ),
           decoration: BoxDecoration(
             border: Border.all(color: s.border),
             borderRadius: BorderRadius.circular(SoriRadius.md),
@@ -451,9 +466,10 @@ class _WordTile extends StatelessWidget {
                     height: 44,
                     fit: BoxFit.cover,
                     errorBuilder: (_, __, ___) => Icon(
-                        Icons.image_not_supported_outlined,
-                        size: 22,
-                        color: s.textDim),
+                      Icons.image_not_supported_outlined,
+                      size: 22,
+                      color: s.textDim,
+                    ),
                   ),
                 ),
                 const SizedBox(width: Spacing.md),
@@ -467,7 +483,9 @@ class _WordTile extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w800, fontSize: 16),
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                      ),
                     ),
                     if (word.translationDe.isNotEmpty)
                       Text(
@@ -522,9 +540,12 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
   void initState() {
     super.initState();
     _korean = TextEditingController(text: widget.existing?.korean ?? '');
-    _meaning = TextEditingController(text: widget.existing?.translationDe ?? '');
-    _example =
-        TextEditingController(text: widget.existing?.exampleKorean ?? '');
+    _meaning = TextEditingController(
+      text: widget.existing?.translationDe ?? '',
+    );
+    _example = TextEditingController(
+      text: widget.existing?.exampleKorean ?? '',
+    );
     _definitionKo = widget.existing?.definitionKo ?? '';
     _imagePath = widget.existing?.imagePath ?? '';
   }
@@ -609,168 +630,152 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
 
-    return Container(
-      padding: EdgeInsets.fromLTRB(
-          20, 12, 20, 20 + MediaQuery.of(context).viewInsets.bottom),
-      decoration: BoxDecoration(
-        color: s.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Center(
-              child: Container(
-                width: 40,
-                height: 4,
-                margin: const EdgeInsets.only(bottom: 14),
-                decoration: BoxDecoration(
-                    color: s.border, borderRadius: BorderRadius.circular(2)),
-              ),
+    // 시트 외형(둥근 상단·handle·키보드 inset·maxHeight·스크롤)은 SoriSheet 담당.
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          widget.existing == null ? t.wbAddWord : t.wbEditWordTitle,
+          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _korean,
+          autofocus: widget.existing == null,
+          decoration: InputDecoration(
+            labelText: t.wbFieldKorean,
+            border: const OutlineInputBorder(),
+            suffixIcon: IconButton(
+              icon: Icon(Icons.volume_up_rounded, color: SoriColors.primary),
+              onPressed: () => TtsService.speak(_korean.text.trim()),
             ),
-            Text(
-              widget.existing == null ? t.wbAddWord : t.wbEditWordTitle,
-              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: _korean,
-              autofocus: widget.existing == null,
-              decoration: InputDecoration(
-                labelText: t.wbFieldKorean,
-                border: const OutlineInputBorder(),
-                suffixIcon: IconButton(
-                  icon:
-                      Icon(Icons.volume_up_rounded, color: SoriColors.primary),
-                  onPressed: () => TtsService.speak(_korean.text.trim()),
-                ),
-              ),
-            ),
-            const SizedBox(height: 8),
-            // 자동 채우기 버튼
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton.icon(
-                onPressed: _autoLoading ? null : _autoFill,
-                icon: _autoLoading
-                    ? const SizedBox(
-                        width: 16,
-                        height: 16,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Icon(Icons.auto_awesome, size: 18),
-                label: Text(_autoLoading ? t.wbAutoFillRunning : t.wbAutoFill),
-              ),
-            ),
-            if (_autoNote != null)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Text(
-                  _autoNote!,
-                  style: TextStyle(fontSize: 12, color: SoriColors.accent),
-                ),
-              ),
-            const SizedBox(height: 4),
-            TextField(
-              controller: _meaning,
-              decoration: InputDecoration(
-                labelText: t.wbFieldMeaning,
-                border: const OutlineInputBorder(),
-              ),
-            ),
-            if (_definitionKo.isNotEmpty) ...[
-              const SizedBox(height: 6),
-              Text('📖 $_definitionKo',
-                  style: TextStyle(fontSize: 12, color: s.textMuted)),
-            ],
-            const SizedBox(height: 12),
-            TextField(
-              controller: _example,
-              minLines: 1,
-              maxLines: 3,
-              decoration: InputDecoration(
-                labelText: t.wbFieldExample,
-                border: const OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 14),
-            // ── 사진 첨부 ──
-            Row(
-              children: [
-                if (_imagePath.isNotEmpty)
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(SoriRadius.sm),
-                    child: Image.file(
-                      File(_imagePath),
-                      width: 56,
-                      height: 56,
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => Icon(
-                          Icons.image_not_supported_outlined,
-                          color: s.textDim),
-                    ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        // 자동 채우기 버튼
+        Align(
+          alignment: Alignment.centerLeft,
+          child: TextButton.icon(
+            onPressed: _autoLoading ? null : _autoFill,
+            icon: _autoLoading
+                ? const SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                else
-                  Container(
-                    width: 56,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      color: s.border.withValues(alpha: 0.4),
-                      borderRadius: BorderRadius.circular(SoriRadius.sm),
-                    ),
-                    child: Icon(Icons.image_outlined, color: s.textDim),
-                  ),
-                const SizedBox(width: Spacing.md),
-                Expanded(
-                  child: Wrap(
-                    spacing: 6,
-                    runSpacing: 6,
-                    children: [
-                      TextButton.icon(
-                        onPressed: _photoBusy
-                            ? null
-                            : () => _pickImage(ImageSource.camera),
-                        icon: const Icon(Icons.photo_camera_outlined, size: 18),
-                        label: Text(t.wbPhotoCamera),
-                      ),
-                      TextButton.icon(
-                        onPressed: _photoBusy
-                            ? null
-                            : () => _pickImage(ImageSource.gallery),
-                        icon: const Icon(Icons.photo_library_outlined, size: 18),
-                        label: Text(t.wbPhotoGallery),
-                      ),
-                      if (_imagePath.isNotEmpty)
-                        TextButton.icon(
-                          onPressed: _removeImage,
-                          icon: const Icon(Icons.delete_outline, size: 18),
-                          label: Text(t.wbPhotoRemove),
-                        ),
-                    ],
+                : const Icon(Icons.auto_awesome, size: 18),
+            label: Text(_autoLoading ? t.wbAutoFillRunning : t.wbAutoFill),
+          ),
+        ),
+        if (_autoNote != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Text(
+              _autoNote!,
+              style: TextStyle(fontSize: 12, color: SoriColors.accent),
+            ),
+          ),
+        const SizedBox(height: 4),
+        TextField(
+          controller: _meaning,
+          decoration: InputDecoration(
+            labelText: t.wbFieldMeaning,
+            border: const OutlineInputBorder(),
+          ),
+        ),
+        if (_definitionKo.isNotEmpty) ...[
+          const SizedBox(height: 6),
+          Text(
+            '📖 $_definitionKo',
+            style: TextStyle(fontSize: 12, color: s.textMuted),
+          ),
+        ],
+        const SizedBox(height: 12),
+        TextField(
+          controller: _example,
+          minLines: 1,
+          maxLines: 3,
+          decoration: InputDecoration(
+            labelText: t.wbFieldExample,
+            border: const OutlineInputBorder(),
+          ),
+        ),
+        const SizedBox(height: 14),
+        // ── 사진 첨부 ──
+        Row(
+          children: [
+            if (_imagePath.isNotEmpty)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(SoriRadius.sm),
+                child: Image.file(
+                  File(_imagePath),
+                  width: 56,
+                  height: 56,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Icon(
+                    Icons.image_not_supported_outlined,
+                    color: s.textDim,
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(height: 18),
-            SoriButton(
-              label: t.wbSaveWord,
-              variant: SoriButtonVariant.filled,
-              accent: SoriColors.primary,
-              fullWidth: true,
-              onTap: _save,
-            ),
-            const SizedBox(height: 6),
-            SoriButton(
-              label: t.btnCancel,
-              variant: SoriButtonVariant.ghost,
-              fullWidth: true,
-              onTap: () => Navigator.of(context).pop(),
+              )
+            else
+              Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: s.border.withValues(alpha: 0.4),
+                  borderRadius: BorderRadius.circular(SoriRadius.sm),
+                ),
+                child: Icon(Icons.image_outlined, color: s.textDim),
+              ),
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: Wrap(
+                spacing: 6,
+                runSpacing: 6,
+                children: [
+                  TextButton.icon(
+                    onPressed: _photoBusy
+                        ? null
+                        : () => _pickImage(ImageSource.camera),
+                    icon: const Icon(Icons.photo_camera_outlined, size: 18),
+                    label: Text(t.wbPhotoCamera),
+                  ),
+                  TextButton.icon(
+                    onPressed: _photoBusy
+                        ? null
+                        : () => _pickImage(ImageSource.gallery),
+                    icon: const Icon(Icons.photo_library_outlined, size: 18),
+                    label: Text(t.wbPhotoGallery),
+                  ),
+                  if (_imagePath.isNotEmpty)
+                    TextButton.icon(
+                      onPressed: _removeImage,
+                      icon: const Icon(Icons.delete_outline, size: 18),
+                      label: Text(t.wbPhotoRemove),
+                    ),
+                ],
+              ),
             ),
           ],
         ),
-      ),
+        const SizedBox(height: 18),
+        SoriButton(
+          label: t.wbSaveWord,
+          variant: SoriButtonVariant.filled,
+          accent: SoriColors.primary,
+          fullWidth: true,
+          onTap: _save,
+        ),
+        const SizedBox(height: 6),
+        SoriButton(
+          label: t.btnCancel,
+          variant: SoriButtonVariant.ghost,
+          fullWidth: true,
+          onTap: () => Navigator.of(context).pop(),
+        ),
+      ],
     );
   }
 }

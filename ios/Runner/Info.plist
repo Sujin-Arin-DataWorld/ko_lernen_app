@@ -4,6 +4,13 @@
 	<dict>
 		<key>CADisableMinimumFrameDurationOnPhone</key>
 		<true/>
+		<!-- DSGVO/TTDSG §25: Analytics + Crashlytics sind OPT-IN. Erhebung ab
+		     Werk deaktiviert; wird erst nach expliziter Einwilligung zur
+		     Laufzeit aktiviert (PrivacyConsentService). -->
+		<key>FirebaseAnalyticsCollectionEnabled</key>
+		<false/>
+		<key>FirebaseCrashlyticsCollectionEnabled</key>
+		<false/>
 		<!-- AdMob iOS ist in v1.0.0 nicht aktiv. Bei Reaktivierung in v1.1+:
 		     1. google_mobile_ads in pubspec.yaml enablen
 		     2. Hier GADApplicationIdentifier mit echter Production-ID eintragen
