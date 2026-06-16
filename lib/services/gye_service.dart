@@ -440,6 +440,50 @@ class GyeService {
     }
   }
 
+  /// 주 단위 dedup 키 — 같은 주의 all-in은 하나의 피드 문서로 수렴.
+  /// (CF weekly_goal_rollover가 매주 월요일 기여도 리셋 → 주 경계와 일치.)
+  static String _weekKey(DateTime now) {
+    final weekOfYear = (now.difference(DateTime(now.year)).inDays / 7).floor();
+    return '${now.year}w$weekOfYear';
+  }
+
+  /// 전원 기여 챌린지 달성 → 피드에 1회 기록 (D-4).
+  /// **결정적 doc id**(`allin_<주키>`)로 set: 여러 멤버 클라가 동시에 감지해도
+  /// 첫 작성만 create(허용), 나머지는 update라 rules가 거부 → **중복 0**.
+  /// best-effort: 실패(이미 존재·권한)해도 조용히 무시. 화면 burst와 별개.
+  static Future<void> markAllInAchieved(String gyeId) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return;
+    }
+    final docId = 'allin_${_weekKey(DateTime.now())}';
+    final ref = db.collection(_collection).doc(gyeId);
+    var nickname = '';
+    try {
+      final m = await ref.collection('members').doc(uid).get();
+      nickname = m.data()?['nickname'] as String? ?? '';
+    } catch (_) {
+      // 닉네임 없이도 진행
+    }
+    try {
+      // create-only: 문서가 이미 있으면 set은 update가 되어 rules가 거부 → dedup.
+      await ref
+          .collection('feed')
+          .doc(docId)
+          .set(
+            GyeFeedEvent(
+              id: docId,
+              type: GyeFeedType.allInChallenge,
+              actorUid: uid,
+              actorNickname: nickname,
+            ).toCreateJson(),
+          );
+    } catch (_) {
+      // 이미 기록됨(다른 멤버가 먼저) 또는 권한 → 무시. burst는 화면이 담당.
+    }
+  }
+
   /// 마일스톤 이벤트(퀘스트 완료·레벨업 등)를 내 모든 계 피드에 broadcast.
   /// 학습 성취가 계원에게 보이게 → 축하 스티커 유도 (2픽 피드 풍부화).
   /// best-effort: 한 계 실패해도 나머지 진행. 계 없으면 no-op.

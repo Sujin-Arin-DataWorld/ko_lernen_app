@@ -477,6 +477,7 @@
   "gyeCheer5":                   "Auf geht's!",
   "gyeCheerTitle":               "Anfeuern",
   "gyeFeedGoalAchieved":         "Wochenziel erreicht! 🎉 Euer Hanok wächst.",
+  "gyeFeedAllIn":                "Alle haben diese Woche beigetragen! 🔥",
   "gyeFeedGoalAchievedMvp":      "Wochenziel erreicht! 🎉 {packs} Packs · MVP {mvp}",
   "@gyeFeedGoalAchievedMvp": { "placeholders": { "packs": {"type":"int"}, "mvp": {} } },
   "gyeStickerSend":              "Sticker senden",

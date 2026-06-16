@@ -162,4 +162,18 @@ void main() {
       expect(split.reactions, isEmpty);
     });
   });
+
+  group('GyeFeedType wire (전원챌린지 D-4)', () {
+    test('allInChallenge ↔ all_in 라운드트립', () {
+      expect(GyeFeedType.allInChallenge.wire, 'all_in');
+      expect(GyeFeedTypeWire.fromWire('all_in'), GyeFeedType.allInChallenge);
+    });
+
+    test('모든 타입 wire 라운드트립 (오타 가드)', () {
+      for (final ty in GyeFeedType.values) {
+        // sticker는 fromWire의 fallback이므로 미지값도 sticker로 수렴 — 정상.
+        expect(GyeFeedTypeWire.fromWire(ty.wire), ty, reason: ty.name);
+      }
+    });
+  });
 }

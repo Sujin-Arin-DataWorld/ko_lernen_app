@@ -130,9 +130,12 @@ class DureBoard extends StatelessWidget {
         final allIn =
             members.isNotEmpty && contributors.length == members.length;
 
-        // 전원 참여 달성 순간 → 단청 burst (2인 이상, 실행당 1회).
+        // 전원 참여 달성 순간 → 단청 burst(실행당 1회) + 피드 1회 기록(주 dedup).
         if (allIn && members.length >= 2 && !_allInCelebrated.contains(gyeId)) {
           _allInCelebrated.add(gyeId);
+          // 피드 기록은 결정적 doc id로 중복 0 (GyeService가 보장).
+          // ignore: discarded_futures, unawaited_futures
+          GyeService.markAllInAchieved(gyeId);
           WidgetsBinding.instance.addPostFrameCallback((_) {
             if (context.mounted) {
               SoriCelebration.burst(context);

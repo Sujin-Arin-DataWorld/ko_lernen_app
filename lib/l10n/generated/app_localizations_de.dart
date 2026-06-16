@@ -1222,6 +1222,9 @@ class AppL10nDe extends AppL10n {
       'Wochenziel erreicht! 🎉 Euer Hanok wächst.';
 
   @override
+  String get gyeFeedAllIn => 'Alle haben diese Woche beigetragen! 🔥';
+
+  @override
   String gyeFeedGoalAchievedMvp(int packs, Object mvp) {
     return 'Wochenziel erreicht! 🎉 $packs Packs · MVP $mvp';
   }

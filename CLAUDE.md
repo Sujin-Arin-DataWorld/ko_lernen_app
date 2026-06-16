@@ -315,6 +315,22 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-12 (후속 — Phase D-4 전원챌린지 피드 이벤트 보강) — 커밋·푸시
+
+**범위:** Jin "D4·Phase E도 있잖아" 지적 → §0 재검증. **Phase E는 실측 완료 확인**(bookshelf_json round-trip 테스트 통과·catch 로깅·consentBody·CLAUDE.md). 단 **D-4는 plan이 "burst + 피드 이벤트"인데 burst만 돼 있던 갭** 발견 → 피드 이벤트 보강.
+
+- **`GyeFeedType.allInChallenge`(wire `all_in`)** 신설 + 모델 wire 양방향 매핑.
+- **`GyeService.markAllInAchieved(gyeId)`** — **결정적 doc id `allin_<주키>`로 set**: 여러 멤버 클라가 동시 감지해도 첫 작성만 create(허용), 나머지는 update라 rules `allow update: if false`가 거부 → **중복 0**(서버 dedup 없이 rules로 보장). 주키는 CF weekly_goal_rollover 리셋 경계와 일치.
+- **dure_board**: 전원 기여 달성 순간 burst와 함께 `markAllInAchieved` 호출(실행당 1회 인메모리 가드 + 주별 doc dedup 이중).
+- **gye_feed**: allInChallenge 렌더(🔥 아이콘·tiger 색·`gyeFeedAllIn` 메시지) + 반응 가능 이벤트에 포함. l10n DE/EN.
+- 단위테스트 +2(wire 라운드트립·전 타입 오타 가드).
+
+**이로써 Phase D 4건 전부 plan 명세대로 완료** — 프로필 카드·MVP 카드·피드 reaction(D-3)·전원챌린지(burst+피드). **감사 plan의 모든 코드 작업 종료.**
+
+**검증:** `flutter analyze` **0** · `flutter test` **400 통과** · ARB parity **922=922**. ⚠️ 미검증(Jin): 실기기 2계정 all-in 피드 dedup 실동작.
+
+**Git:** 커밋·푸시 완료.
+
 ### 2026-06-12 (후속 — B-2/B-3 마무리 + Phase D-3 피드 reaction 구현) — 커밋·푸시
 
 **범위:** Jin "B-3 확인 후 다음 진행" → B-2/B-3 잔여 화면 마무리 + Phase D 4건 중 유일 미구현이던 **피드 reaction(D-3)** 구현.

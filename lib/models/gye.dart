@@ -14,6 +14,7 @@ enum GyeFeedType {
   questCompleted,
   levelUp,
   goalAchieved,
+  allInChallenge, // 전원 기여 챌린지 달성 (D-4)
   sticker,
   cheer,
 }
@@ -27,6 +28,7 @@ extension GyeFeedTypeWire on GyeFeedType {
     GyeFeedType.questCompleted => 'quest_completed',
     GyeFeedType.levelUp => 'level_up',
     GyeFeedType.goalAchieved => 'goal_achieved',
+    GyeFeedType.allInChallenge => 'all_in',
     GyeFeedType.sticker => 'sticker',
     GyeFeedType.cheer => 'cheer',
   };
@@ -35,6 +37,7 @@ extension GyeFeedTypeWire on GyeFeedType {
     'quest_completed' => GyeFeedType.questCompleted,
     'level_up' => GyeFeedType.levelUp,
     'goal_achieved' => GyeFeedType.goalAchieved,
+    'all_in' => GyeFeedType.allInChallenge,
     'cheer' => GyeFeedType.cheer,
     _ => GyeFeedType.sticker,
   };

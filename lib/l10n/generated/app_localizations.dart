@@ -2317,6 +2317,12 @@ abstract class AppL10n {
   /// **'Wochenziel erreicht! 🎉 Euer Hanok wächst.'**
   String get gyeFeedGoalAchieved;
 
+  /// No description provided for @gyeFeedAllIn.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle haben diese Woche beigetragen! 🔥'**
+  String get gyeFeedAllIn;
+
   /// No description provided for @gyeFeedGoalAchievedMvp.
   ///
   /// In de, this message translates to:

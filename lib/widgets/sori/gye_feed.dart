@@ -43,7 +43,8 @@ class GyeFeed extends StatelessWidget {
       ty == GyeFeedType.packCleared ||
       ty == GyeFeedType.questCompleted ||
       ty == GyeFeedType.levelUp ||
-      ty == GyeFeedType.goalAchieved;
+      ty == GyeFeedType.goalAchieved ||
+      ty == GyeFeedType.allInChallenge;
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +117,7 @@ class GyeFeed extends StatelessWidget {
     GyeFeedType.questCompleted => Icons.local_florist_outlined,
     GyeFeedType.levelUp => Icons.trending_up_rounded,
     GyeFeedType.goalAchieved => Icons.celebration_outlined,
+    GyeFeedType.allInChallenge => Icons.local_fire_department_rounded,
     GyeFeedType.sticker => Icons.emoji_emotions_outlined,
     GyeFeedType.cheer => Icons.volunteer_activism_outlined,
   };
@@ -125,6 +127,7 @@ class GyeFeed extends StatelessWidget {
     GyeFeedType.questCompleted => SoriColors.primary,
     GyeFeedType.levelUp => SoriColors.accent,
     GyeFeedType.goalAchieved => SoriColors.tiger,
+    GyeFeedType.allInChallenge => SoriColors.tiger,
     GyeFeedType.sticker => SoriColors.highlight,
     GyeFeedType.cheer => SoriColors.tiger,
   };
@@ -140,6 +143,7 @@ class GyeFeed extends StatelessWidget {
               e.payload['mvp'] as String,
             )
           : t.gyeFeedGoalAchieved,
+    GyeFeedType.allInChallenge => t.gyeFeedAllIn,
     GyeFeedType.sticker => t.gyeFeedSticker(e.actorNickname),
     GyeFeedType.cheer =>
       '${e.actorNickname} → ${(e.payload['targetNickname'] as String?) ?? ''}  ${_cheerText(t, (e.payload['cheerCode'] as num?)?.toInt() ?? 1)}',

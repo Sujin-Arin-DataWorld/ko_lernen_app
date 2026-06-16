@@ -129,7 +129,8 @@
 - 기존 dure 5종(두레판·피드·응원·MVP회고·전원챌린지)은 89f32ea에서 완성
 
 ### 출시 구현 추가 (2026-06-12)
-- **피드 reaction(이벤트별 스티커 답글)** — `GyeService.sendReaction(targetEventId, code)` + `GyeFeed.splitReactions`(반응을 대상 이벤트 아래 작은 스티커로 묶음) + 마일스톤 이벤트(클리어·퀘스트·레벨업·목표달성)에 "반응" 버튼. 기존 feed rules(active 멤버 append, payload 제약 없음)로 충분 — 규칙 변경 0. 자유 텍스트 X = 모더레이션 안전. 단위테스트 3(splitReactions).
+- **피드 reaction(이벤트별 스티커 답글)** — `GyeService.sendReaction(targetEventId, code)` + `GyeFeed.splitReactions`(반응을 대상 이벤트 아래 작은 스티커로 묶음) + 마일스톤 이벤트(클리어·퀘스트·레벨업·목표달성·전원챌린지)에 "반응" 버튼. 기존 feed rules(active 멤버 append, payload 제약 없음)로 충분 — 규칙 변경 0. 자유 텍스트 X = 모더레이션 안전. 단위테스트 3(splitReactions).
+- **전원챌린지 피드 이벤트(D-4 보강)** — `GyeFeedType.allInChallenge`(wire `all_in`) + `GyeService.markAllInAchieved` (결정적 doc id `allin_<주키>`로 set → 첫 작성만 create 성공, 나머지 update는 rules 거부 = 멤버 간 중복 0). dure_board가 burst와 함께 호출. 🔥 피드 한 줄.
 
 ### 포스트런치 (Tandem 방향 — 의도적 보류, 근거)
 | 후보 | 보류 사유 | 선행 조건 |
