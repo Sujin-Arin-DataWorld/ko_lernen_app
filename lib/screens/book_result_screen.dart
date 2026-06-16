@@ -126,8 +126,10 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.bookResultTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.bookResultTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: SafeArea(
         child: LayoutBuilder(
@@ -161,8 +163,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
                 Center(
                   child: Text(
                     t.bookResultFoundN(r.words.length),
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.w800),
+                    style: SoriTextTheme.of(context).h3,
                   ),
                 ),
                 const SizedBox(height: Spacing.lg),
@@ -173,8 +174,11 @@ class _BookResultScreenState extends State<BookResultScreen> {
                     tinted: true,
                     child: Row(
                       children: [
-                        const Icon(Icons.cloud_off_outlined,
-                            color: SoriColors.warning, size: 18),
+                        const Icon(
+                          Icons.cloud_off_outlined,
+                          color: SoriColors.warning,
+                          size: 18,
+                        ),
                         const SizedBox(width: Spacing.sm),
                         Expanded(
                           child: Text(
@@ -233,9 +237,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
                     variant: SoriButtonVariant.outlined,
                     accent: SoriColors.info,
                     fullWidth: true,
-                    onTap: () => Navigator.of(context).popUntil(
-                      (r) => r.settings.name == '/book' || r.isFirst,
-                    ),
+                    onTap: () => Navigator.of(
+                      context,
+                    ).popUntil((r) => r.settings.name == '/book' || r.isFirst),
                   ),
                 ],
               ],
@@ -250,8 +254,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final res = _result;
     if (res == null || res.words.isEmpty) return;
     final controller = TextEditingController(
-      text:
-          'Pack ${DateTime.now().toIso8601String().substring(0, 10)}',
+      text: 'Pack ${DateTime.now().toIso8601String().substring(0, 10)}',
     );
     final name = await showDialog<String>(
       context: context,
@@ -260,9 +263,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
         content: TextField(
           controller: controller,
           autofocus: true,
-          decoration: InputDecoration(
-            labelText: t.bookshelfCreatePackName,
-          ),
+          decoration: InputDecoration(labelText: t.bookshelfCreatePackName),
         ),
         actions: [
           TextButton(
@@ -300,10 +301,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
         behavior: SnackBarBehavior.floating,
         action: SnackBarAction(
           label: t.btnPlay,
-          onPressed: () => Navigator.of(context).pushNamed(
-            '/custom_pack/play',
-            arguments: pack.id,
-          ),
+          onPressed: () => Navigator.of(
+            context,
+          ).pushNamed('/custom_pack/play', arguments: pack.id),
         ),
       ),
     );
@@ -320,8 +320,9 @@ class _SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(4, Spacing.sm, 4, Spacing.sm),
       child: Text(
         label,
-        style: const TextStyle(
-            fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 0.4),
+        style: SoriTextTheme.of(
+          context,
+        ).bodySmall.copyWith(fontWeight: FontWeight.w800, letterSpacing: 0.4),
       ),
     );
   }
@@ -333,110 +334,94 @@ class _WordCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    return Container(
-      margin: const EdgeInsets.only(bottom: Spacing.sm),
-      padding: const EdgeInsets.all(Spacing.md),
-      decoration: BoxDecoration(
-        color: s.surface,
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        border: Border.all(color: SoriColors.info.withValues(alpha: 0.25)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  word.korean,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w800),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.info,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text(word.korean, style: SoriTextTheme.of(context).h2),
                 ),
+                AddToWordbookButton(
+                  korean: word.korean,
+                  translationDe: word.translationDe,
+                  translationEn: word.translationEn,
+                  romanization: word.romanization,
+                  posDe: word.posDe,
+                  exampleKorean: word.exampleKorean,
+                  exampleDe: word.exampleDe,
+                  compact: true,
+                ),
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  icon: const Icon(Icons.volume_up_rounded, size: 22),
+                  onPressed: () {
+                    // ignore: discarded_futures
+                    TtsService.speak(word.korean);
+                  },
+                ),
+              ],
+            ),
+            if (word.romanization.isNotEmpty)
+              Text(
+                '[${word.romanization}]',
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(fontStyle: FontStyle.italic),
               ),
-              AddToWordbookButton(
-                korean: word.korean,
-                translationDe: word.translationDe,
-                translationEn: word.translationEn,
-                romanization: word.romanization,
-                posDe: word.posDe,
-                exampleKorean: word.exampleKorean,
-                exampleDe: word.exampleDe,
-                compact: true,
-              ),
-              IconButton(
-                visualDensity: VisualDensity.compact,
-                icon: const Icon(Icons.volume_up_rounded, size: 22),
-                onPressed: () {
-                  // ignore: discarded_futures
-                  TtsService.speak(word.korean);
-                },
+            if (word.translationDe.isNotEmpty) ...[
+              const SizedBox(height: 4),
+              Text(
+                word.translationDe,
+                style: SoriTextTheme.of(
+                  context,
+                ).bodySmall.copyWith(fontWeight: FontWeight.w600),
               ),
             ],
-          ),
-          if (word.romanization.isNotEmpty)
-            Text(
-              '[${word.romanization}]',
-              style: TextStyle(
-                fontSize: 12,
-                fontStyle: FontStyle.italic,
-                color: s.textMuted,
+            if (word.posDe.isNotEmpty) ...[
+              const SizedBox(height: 2),
+              Text(word.posDe, style: SoriTextTheme.of(context).cardSubtitle),
+            ],
+            if (word.definitionKo.isNotEmpty) ...[
+              const SizedBox(height: 4),
+              Text(
+                '📖 ${word.definitionKo}',
+                style: SoriTextTheme.of(context).caption.copyWith(height: 1.35),
               ),
-            ),
-          if (word.translationDe.isNotEmpty) ...[
-            const SizedBox(height: 4),
-            Text(
-              word.translationDe,
-              style: const TextStyle(
-                  fontSize: 14, fontWeight: FontWeight.w600),
-            ),
-          ],
-          if (word.posDe.isNotEmpty) ...[
-            const SizedBox(height: 2),
-            Text(
-              word.posDe,
-              style: TextStyle(fontSize: 11, color: s.textMuted),
-            ),
-          ],
-          if (word.definitionKo.isNotEmpty) ...[
-            const SizedBox(height: 4),
-            Text(
-              '📖 ${word.definitionKo}',
-              style: TextStyle(
-                fontSize: 12,
-                height: 1.35,
-                color: s.textMuted,
-              ),
-            ),
-          ],
-          if (word.exampleKorean.isNotEmpty) ...[
-            const SizedBox(height: Spacing.sm),
-            Container(
-              padding: const EdgeInsets.all(Spacing.sm),
-              decoration: BoxDecoration(
-                color: SoriColors.primary.withValues(alpha: 0.06),
-                borderRadius: BorderRadius.circular(SoriRadius.sm),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    word.exampleKorean,
-                    style: const TextStyle(fontSize: 13),
-                  ),
-                  if (word.exampleDe.isNotEmpty)
+            ],
+            if (word.exampleKorean.isNotEmpty) ...[
+              const SizedBox(height: Spacing.sm),
+              Container(
+                padding: const EdgeInsets.all(Spacing.sm),
+                decoration: BoxDecoration(
+                  color: SoriColors.primary.withValues(alpha: 0.06),
+                  borderRadius: BorderRadius.circular(SoriRadius.sm),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     Text(
-                      word.exampleDe,
-                      style: TextStyle(
-                          fontSize: 11,
-                          fontStyle: FontStyle.italic,
-                          color: s.textMuted),
+                      word.exampleKorean,
+                      style: SoriTextTheme.of(context).bodySmall,
                     ),
-                ],
+                    if (word.exampleDe.isNotEmpty)
+                      Text(
+                        word.exampleDe,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).caption.copyWith(fontStyle: FontStyle.italic),
+                      ),
+                  ],
+                ),
               ),
-            ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }
@@ -448,49 +433,40 @@ class _GrammarCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    return Container(
-      margin: const EdgeInsets.only(bottom: Spacing.sm),
-      padding: const EdgeInsets.all(Spacing.md),
-      decoration: BoxDecoration(
-        color: s.surface,
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        border: Border.all(color: SoriColors.warning.withValues(alpha: 0.30)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  hit.nameDe,
-                  style: const TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.w800),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.warning,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    hit.nameDe,
+                    style: SoriTextTheme.of(context).cardTitle,
+                  ),
                 ),
+                SoriChip(label: hit.level, accent: SoriColors.warning),
+              ],
+            ),
+            if (hit.matchedText.isNotEmpty) ...[
+              const SizedBox(height: 4),
+              Text(
+                '"${hit.matchedText}"',
+                style: SoriTextTheme.of(
+                  context,
+                ).bodySmall.copyWith(fontStyle: FontStyle.italic),
               ),
-              SoriChip(label: hit.level, accent: SoriColors.warning),
             ],
-          ),
-          if (hit.matchedText.isNotEmpty) ...[
-            const SizedBox(height: 4),
-            Text(
-              '"${hit.matchedText}"',
-              style: TextStyle(
-                fontSize: 13,
-                fontStyle: FontStyle.italic,
-                color: s.textMuted,
-              ),
-            ),
+            if (hit.explanationDe.isNotEmpty) ...[
+              const SizedBox(height: 4),
+              Text(hit.explanationDe, style: SoriTextTheme.of(context).caption),
+            ],
           ],
-          if (hit.explanationDe.isNotEmpty) ...[
-            const SizedBox(height: 4),
-            Text(
-              hit.explanationDe,
-              style: const TextStyle(fontSize: 12),
-            ),
-          ],
-        ],
+        ),
       ),
     );
   }
@@ -509,8 +485,7 @@ class _SentenceCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: s.surface,
         borderRadius: BorderRadius.circular(SoriRadius.md),
-        border: Border.all(
-            color: SoriColors.primary.withValues(alpha: 0.18)),
+        border: Border.all(color: SoriColors.primary.withValues(alpha: 0.18)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -522,7 +497,9 @@ class _SentenceCard extends StatelessWidget {
                 child: Text(
                   sentence.korean,
                   style: const TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.w600),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               IconButton(

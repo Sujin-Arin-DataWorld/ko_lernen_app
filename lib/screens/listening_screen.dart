@@ -96,7 +96,9 @@ class _ListeningScreenState extends State<ListeningScreen>
         .toList();
     setState(() {
       _scenarios = list.where((s) => s.dialog.isNotEmpty).toList();
-      _selected = preferred.isNotEmpty ? preferred.first : (_scenarios.isNotEmpty ? _scenarios.first : null);
+      _selected = preferred.isNotEmpty
+          ? preferred.first
+          : (_scenarios.isNotEmpty ? _scenarios.first : null);
       _loading = false;
     });
   }
@@ -173,7 +175,6 @@ class _ListeningScreenState extends State<ListeningScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
 
     if (_loading) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -191,8 +192,10 @@ class _ListeningScreenState extends State<ListeningScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.listeningTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.listeningTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, size: 20),
           onPressed: () => Navigator.pop(context),
@@ -200,7 +203,10 @@ class _ListeningScreenState extends State<ListeningScreen>
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(16, 8, 16, 24)),
+          padding: soriClampPadding(
+            MediaQuery.sizeOf(context).width,
+            base: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -215,20 +221,14 @@ class _ListeningScreenState extends State<ListeningScreen>
 
               Text(
                 t.listeningSubtitle,
-                style: TextStyle(
-                  color: s.textMuted,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: SoriTextTheme.of(context).bodySmall,
               ),
               const SizedBox(height: Spacing.md),
 
               // ── 시나리오 선택 chips ──
               Text(
                 t.listeningSelectScenario,
-                style: TextStyle(
-                  color: s.textMuted,
-                  fontSize: 11.5,
+                style: SoriTextTheme.of(context).cardSubtitle.copyWith(
                   fontWeight: FontWeight.w800,
                   letterSpacing: 0.4,
                 ),
@@ -303,11 +303,9 @@ class _ListeningScreenState extends State<ListeningScreen>
                   Center(
                     child: Text(
                       t.listeningProgress(_step + 1, _selected!.dialog.length),
-                      style: TextStyle(
-                        color: s.textMuted,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).caption.copyWith(fontWeight: FontWeight.w600),
                     ),
                   ),
                   const SizedBox(height: Spacing.md),
@@ -351,11 +349,7 @@ class _ListeningScreenState extends State<ListeningScreen>
                       child: Text(
                         t.listeningPickFirst,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: s.textMuted,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: SoriTextTheme.of(context).bodySmall,
                       ),
                     ),
                   ),
@@ -400,11 +394,9 @@ class _ControlsBar extends StatelessWidget {
               const SizedBox(width: Spacing.xs),
               Text(
                 t.listeningSpeedLabel,
-                style: TextStyle(
-                  color: s.textMuted,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(width: Spacing.md),
               ...[0.75, 1.0, 1.25].map((r) {
@@ -431,11 +423,9 @@ class _ControlsBar extends StatelessWidget {
               const SizedBox(width: Spacing.xs),
               Text(
                 t.listeningSubtitleLabel,
-                style: TextStyle(
-                  color: s.textMuted,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(width: Spacing.md),
               Expanded(
@@ -495,8 +485,8 @@ class _LineCard extends StatelessWidget {
     final accent = isUser
         ? SoriColors.primary
         : isNarrator
-            ? SoriColors.warning
-            : SoriColors.info;
+        ? SoriColors.warning
+        : SoriColors.info;
 
     final mascot = Mascot.forSpeaker(
       line.speaker,
@@ -513,10 +503,7 @@ class _LineCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          if (mascot != null) ...[
-            mascot,
-            const SizedBox(height: Spacing.md),
-          ],
+          if (mascot != null) ...[mascot, const SizedBox(height: Spacing.md)],
           if (showKo) ...[
             Text(
               line.ko,
@@ -534,11 +521,7 @@ class _LineCard extends StatelessWidget {
             Text(
               line.pick(lang),
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: s.textMuted,
-                fontSize: 14,
-                height: 1.5,
-              ),
+              style: TextStyle(color: s.textMuted, fontSize: 14, height: 1.5),
             ),
             const SizedBox(height: Spacing.md),
           ],
@@ -546,8 +529,7 @@ class _LineCard extends StatelessWidget {
             onTap: onReplay,
             haptic: SoriHaptic.selection,
             child: Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 14, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
                 color: accent.withValues(alpha: 0.14),
                 borderRadius: SoriRadius.brPill,
@@ -610,9 +592,8 @@ class _CompleteCard extends StatelessWidget {
           const SizedBox(height: Spacing.md),
           Text(
             t.listeningCompleteTitle,
-            style: const TextStyle(
+            style: SoriTextTheme.of(context).h2.copyWith(
               color: SoriColors.success,
-              fontSize: 22,
               fontWeight: FontWeight.w900,
             ),
           ),
@@ -620,11 +601,9 @@ class _CompleteCard extends StatelessWidget {
           Text(
             t.listeningCompleteBody(lines, xpEarned),
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: SoriSurfaces.of(context).textMuted,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: Spacing.md),
           SoriBadge.xp(xpEarned, size: 28),

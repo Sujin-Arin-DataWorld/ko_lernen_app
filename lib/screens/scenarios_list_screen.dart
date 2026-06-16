@@ -124,7 +124,6 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
 
     final stars = Storage.scenarioStars;
     final lang = Localizations.localeOf(context).languageCode;
-    final s = SoriSurfaces.of(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -153,16 +152,10 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
             const SizedBox(height: Spacing.md),
             // Subtitle
             Padding(
-              padding: const EdgeInsets.only(
-                bottom: Spacing.md,
-                left: 2,
-              ),
+              padding: const EdgeInsets.only(bottom: Spacing.md, left: 2),
               child: Text(
                 t.scenariosListSubtitle,
-                style: TextStyle(
-                  color: s.textMuted,
-                  fontSize: 13,
-                ),
+                style: SoriTextTheme.of(context).bodySmall,
               ),
             ),
 
@@ -260,8 +253,7 @@ class _LevelSection extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.lock_outline_rounded,
-                      size: 13, color: s.textDim),
+                  Icon(Icons.lock_outline_rounded, size: 13, color: s.textDim),
                   const SizedBox(width: Spacing.xs),
                   Text(
                     t.scenariosLocked(level.display),
@@ -323,9 +315,7 @@ class _OpenScenarioCard extends StatelessWidget {
     return OpenContainer<void>(
       transitionDuration: const Duration(milliseconds: 400),
       transitionType: ContainerTransitionType.fade,
-      closedShape: const RoundedRectangleBorder(
-        borderRadius: SoriRadius.brMd,
-      ),
+      closedShape: const RoundedRectangleBorder(borderRadius: SoriRadius.brMd),
       closedColor: s.surface,
       closedElevation: 0,
       openColor: s.bg,
@@ -338,8 +328,7 @@ class _OpenScenarioCard extends StatelessWidget {
         locked: false,
         onTap: openContainer,
       ),
-      openBuilder: (ctx, _) =>
-          ScenarioPlayerScreen(scenarioId: scenario.id),
+      openBuilder: (ctx, _) => ScenarioPlayerScreen(scenarioId: scenario.id),
     );
   }
 }
@@ -408,15 +397,10 @@ class _ScenarioCardBody extends StatelessWidget {
         decoration: BoxDecoration(
           color: locked
               ? s.surface
-              : Color.alphaBlend(
-                  accent.withValues(alpha: 0.07),
-                  s.surface,
-                ),
+              : Color.alphaBlend(accent.withValues(alpha: 0.07), s.surface),
           borderRadius: SoriRadius.brMd,
           border: Border.all(
-            color: locked
-                ? s.border
-                : accent.withValues(alpha: 0.28),
+            color: locked ? s.border : accent.withValues(alpha: 0.28),
             width: 1,
           ),
           boxShadow: locked ? null : SoriElevation.low,
@@ -440,12 +424,9 @@ class _ScenarioCardBody extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
-                      fontSize: 16,
+                    style: SoriTextTheme.of(context).h3.copyWith(
                       fontWeight: FontWeight.w800,
                       color: locked ? s.textDim : s.text,
-                      letterSpacing: -0.2,
-                      height: 1.3,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -479,9 +460,7 @@ class _ScenarioCardBody extends StatelessWidget {
             // Trailing icon
             Icon(
               locked ? Icons.lock_outline_rounded : Icons.chevron_right_rounded,
-              color: locked
-                  ? s.textDim
-                  : accent.withValues(alpha: 0.7),
+              color: locked ? s.textDim : accent.withValues(alpha: 0.7),
               size: 20,
             ),
           ],
@@ -514,7 +493,9 @@ class _LessonPathHeader extends StatelessWidget {
   });
 
   Scenario? _pickNext() {
-    final unlocked = all.where((sc) => sc.level.rank <= userLevel.rank).toList();
+    final unlocked = all
+        .where((sc) => sc.level.rank <= userLevel.rank)
+        .toList();
     if (unlocked.isEmpty) return null;
 
     Scenario? bestAtUserLevel;
@@ -537,8 +518,9 @@ class _LessonPathHeader extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final next = _pickNext();
 
-    final totalUnlocked =
-        all.where((sc) => sc.level.rank <= userLevel.rank).length;
+    final totalUnlocked = all
+        .where((sc) => sc.level.rank <= userLevel.rank)
+        .length;
     final totalAll = all.length;
 
     return SoriCard(
@@ -550,27 +532,18 @@ class _LessonPathHeader extends StatelessWidget {
           // Title + overall progress
           Row(
             children: [
-              Icon(Icons.route_rounded,
-                  size: 18, color: SoriColors.primary),
+              Icon(Icons.route_rounded, size: 18, color: SoriColors.primary),
               const SizedBox(width: Spacing.sm),
               Text(
                 t.scenariosPathTitle,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w800,
-                  color: s.text,
-                  letterSpacing: -0.1,
-                ),
+                style: SoriTextTheme.of(context).cardTitle,
               ),
               const Spacer(),
               Text(
                 t.scenariosPathProgress(totalUnlocked, totalAll),
-                style: TextStyle(
-                  fontSize: 11.5,
-                  color: s.textMuted,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).cardSubtitle.copyWith(fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -603,15 +576,22 @@ class _LessonPathHeader extends StatelessWidget {
           // Next-recommended hero
           if (next != null) ...[
             const SizedBox(height: Spacing.md),
-            _NextRecommended(scenario: next, lang: lang, accent: levelColor(next.level)),
+            _NextRecommended(
+              scenario: next,
+              lang: lang,
+              accent: levelColor(next.level),
+            ),
           ] else ...[
             const SizedBox(height: Spacing.md),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: Row(
                 children: [
-                  Icon(Icons.celebration_outlined,
-                      size: 16, color: SoriColors.success),
+                  Icon(
+                    Icons.celebration_outlined,
+                    size: 16,
+                    color: SoriColors.success,
+                  ),
                   const SizedBox(width: Spacing.sm),
                   Flexible(
                     child: Text(
@@ -716,10 +696,7 @@ class _NextRecommended extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color.alphaBlend(accent.withValues(alpha: 0.10), s.surface),
           borderRadius: SoriRadius.brSm,
-          border: Border.all(
-            color: accent.withValues(alpha: 0.32),
-            width: 1,
-          ),
+          border: Border.all(color: accent.withValues(alpha: 0.32), width: 1),
         ),
         child: Row(
           children: [
@@ -761,8 +738,7 @@ class _NextRecommended extends StatelessWidget {
             ),
             const SizedBox(width: Spacing.sm),
             Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 12, vertical: 7),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
               decoration: BoxDecoration(
                 color: accent,
                 borderRadius: BorderRadius.circular(999),
@@ -781,8 +757,11 @@ class _NextRecommended extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 4),
-                  const Icon(Icons.arrow_forward_rounded,
-                      size: 14, color: Colors.white),
+                  const Icon(
+                    Icons.arrow_forward_rounded,
+                    size: 14,
+                    color: Colors.white,
+                  ),
                 ],
               ),
             ),
@@ -923,10 +902,7 @@ class _ScenarioThumbnail extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [
-                    Colors.transparent,
-                    accent.withValues(alpha: 0.18),
-                  ],
+                  colors: [Colors.transparent, accent.withValues(alpha: 0.18)],
                 ),
               ),
             ),
@@ -938,7 +914,8 @@ class _ScenarioThumbnail extends StatelessWidget {
               child: SizedBox(
                 width: mascotSize,
                 height: mascotSize,
-                child: Mascot.forSpeaker(
+                child:
+                    Mascot.forSpeaker(
                       scenario.sidekick ?? '',
                       size: mascotSize,
                       emotion: MascotEmotion.smile,
@@ -968,10 +945,26 @@ class _ScenarioThumbnail extends StatelessWidget {
     if (!locked) return base;
     return ColorFiltered(
       colorFilter: const ColorFilter.matrix(<double>[
-        0.2126, 0.7152, 0.0722, 0, 0,
-        0.2126, 0.7152, 0.0722, 0, 0,
-        0.2126, 0.7152, 0.0722, 0, 0,
-        0,      0,      0,      1, 0,
+        0.2126,
+        0.7152,
+        0.0722,
+        0,
+        0,
+        0.2126,
+        0.7152,
+        0.0722,
+        0,
+        0,
+        0.2126,
+        0.7152,
+        0.0722,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
       ]),
       child: base,
     );
