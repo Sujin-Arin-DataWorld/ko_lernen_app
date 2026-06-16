@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/profanity_denylist.dart';
 import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/services/gye_service.dart';
+import 'package:ko_lernen_app/widgets/sori/gye_feed.dart';
 
 void main() {
   group('GyeService — 입장 코드', () {
@@ -101,10 +102,7 @@ void main() {
     });
 
     test('차단한 actor의 이벤트 숨김', () {
-      final out = GyeService.filterBlocked(
-        [ev('a'), ev('b'), ev('c')],
-        {'b'},
-      );
+      final out = GyeService.filterBlocked([ev('a'), ev('b'), ev('c')], {'b'});
       expect(out.map((e) => e.actorUid), ['a', 'c']);
     });
 
@@ -118,6 +116,50 @@ void main() {
       );
       expect(out.length, 1);
       expect(out.single.actorUid, 'c');
+    });
+  });
+
+  group('GyeFeed.splitReactions (피드 반응 D-3)', () {
+    GyeFeedEvent ev(
+      String id, {
+      GyeFeedType type = GyeFeedType.packCleared,
+      String? targetEventId,
+      int stickerCode = 1,
+    }) => GyeFeedEvent(
+      id: id,
+      type: type,
+      actorUid: 'u_$id',
+      actorNickname: id,
+      payload: {
+        'stickerCode': stickerCode,
+        if (targetEventId != null) 'targetEventId': targetEventId,
+      },
+    );
+
+    test('반응 없음 → 전부 타임라인', () {
+      final split = GyeFeed.splitReactions([ev('e1'), ev('e2')]);
+      expect(split.timeline.map((e) => e.id), ['e1', 'e2']);
+      expect(split.reactions, isEmpty);
+    });
+
+    test('targetEventId 단 이벤트는 타임라인서 빠지고 대상별로 묶임', () {
+      final split = GyeFeed.splitReactions([
+        ev('e1'),
+        ev('r1', type: GyeFeedType.sticker, targetEventId: 'e1'),
+        ev('r2', type: GyeFeedType.sticker, targetEventId: 'e1'),
+        ev('e2'),
+      ]);
+      expect(split.timeline.map((e) => e.id), ['e1', 'e2']);
+      expect(split.reactions['e1']!.map((e) => e.id), ['r1', 'r2']);
+      expect(split.reactions.containsKey('e2'), isFalse);
+    });
+
+    test('빈 targetEventId는 반응 아님 → 타임라인 유지', () {
+      final split = GyeFeed.splitReactions([
+        ev('r', type: GyeFeedType.sticker, targetEventId: ''),
+      ]);
+      expect(split.timeline.length, 1);
+      expect(split.reactions, isEmpty);
     });
   });
 }

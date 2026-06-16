@@ -315,6 +315,22 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-12 (후속 — B-2/B-3 마무리 + Phase D-3 피드 reaction 구현) — 커밋·푸시
+
+**범위:** Jin "B-3 확인 후 다음 진행" → B-2/B-3 잔여 화면 마무리 + Phase D 4건 중 유일 미구현이던 **피드 reaction(D-3)** 구현.
+
+**B-2/B-3 마무리(커밋 e975d5f):** B-3 버튼 전수 분류 = 잔여 raw 버튼 **전부 AlertDialog 액션(Material 관례 — SoriButton 강제 시 레이아웃 깨짐, 의도적 유지)**. 잔여 `Container(decoration:)`도 칩/필/그라데이션/아이콘배경이라 카드 아님 — 진짜 수제 카드만 골라 **book_result `_WordCard`·`_GrammarCard` → SoriCard** 이행. 타이포 토큰화: scenarios_list·book_result·listening(대사 22px는 콘텐츠라 예외 유지). 웹 시각검증: 시나리오 리스트·듣기 화면 일관·잘림 0 스크린샷 확인.
+
+**Phase D-3 피드 reaction(이번 커밋):** GyeSticker.targetEventId 스키마만 있고 미구현이던 항목 완성.
+- `GyeService.sendReaction(gyeId, targetEventId, code)` — sendSticker와 동일하나 `payload.targetEventId` 부착. 스티커 레이트가드(분당10) 공유.
+- `GyeFeed.splitReactions`(순수 함수, 테스트 대상) — 이벤트를 (타임라인, 반응 by targetEventId)로 분리. 반응은 독립 항목으로 안 띄우고 **대상 이벤트 아래 28px 스티커 묶음**으로 렌더.
+- 마일스톤 이벤트(클리어·퀘스트·레벨업·목표달성)에만 "반응"(add_reaction) 버튼 → gye_screen `_openReactionPicker`가 StickerPicker 오픈 → sendReaction. 자유 텍스트 X = 모더레이션 안전.
+- **rules 변경 0**(feed는 active 멤버 append·payload 제약 없음 → reaction 그대로 통과). l10n `gyeReactTooltip`(DE Reagieren/EN React). data-safety.md·MASTER_REDESIGN §D 출시 구현으로 갱신(포스트런치 표에서 제거).
+
+**검증:** `flutter analyze` **0** · `flutter test` **398 통과**(+3 splitReactions) · ARB parity **921=921** · gen-l10n OK · dart format. ⚠️ 미검증(Jin): 실기기 reaction 멀티유저 실동작(Firestore 2계정), feedStream limit 20 내 반응 가시성. **이로써 Phase A~E + B-2~B-5 + 감사 전 항목 코드 작업 완료.**
+
+**Git:** 커밋·푸시 완료.
+
 ### 2026-06-12 (호랑이 영상 통합 — 홈 밴드 + 온보딩 첫 만남) — 미커밋
 
 **범위:** Jin이 호랑이 영상 2개+인사 오디오 제작("메인에 쓸 거 어디에 넣으면 좋을까") → Q&A 확정: ①홈+온보딩 둘 다 ②오디오는 온보딩 첫 만남만 ③흰 배경 multiply 블렌드. plan `users-sujinpark-downloads-mp4-…-cheeky-platypus.md` 승인 실행. 프레임 "전환 끊김" 문제(Rive 경로 보류 중)의 실질 해소.

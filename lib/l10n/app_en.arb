@@ -514,6 +514,7 @@
   "gyeProfileWeekly":            "{packs} packs this week",
   "@gyeProfileWeekly":           { "placeholders": { "packs": {} } },
   "gyeAllInCelebrate":           "Everyone contributed this week! 🔥",
+  "gyeReactTooltip":             "React",
   "bookResultOfflineNotice":     "Server unreachable — only grammar patterns detected offline.",
   "bookResultSectionWords":      "Words",
   "bookResultSectionGrammar":    "Grammar",

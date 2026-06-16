@@ -71,7 +71,7 @@ Immer (App-Funktionalität, kein Tracking):
 | **App info & performance** — Crash logs (Firebase Crashlytics) | **Yes** | **Yes — Opt-in, Default AUS** | No | Crashes diagnostizieren | Yes |
 | **App info & performance** — Diagnostics (Geräte-Modell, OS-Version, App-Version, Speicherzustand) | **Yes** | **Yes — Opt-in (Crashlytics)** | No | Crash-Kontext | Yes |
 | **Device or other IDs** — Firebase Installation ID + Android Advertising ID (nur bei Analytics-Opt-in) + **🆕 FCM-Registrierungstoken** (Gye-Push, Berechtigungs-opt-in) | **Yes** | Teilweise (Analytics-Anteil opt-in) | No | Analytics-Aggregation + App-Funktionalität (Community-Benachrichtigungen) | Yes |
-| **🆕 App activity** — Gye-Community (Gruppen-Spitzname, Wochenbeiträge, Sticker/Anfeuerungs-Codes, Block-Liste) | **Yes** | **Yes** (nur bei Gye-Nutzung, 16+) | No | App-Funktionalität (Lerngruppen) | Yes |
+| **🆕 App activity** — Gye-Community (Gruppen-Spitzname, Wochenbeiträge, Sticker/Anfeuerungs-/Reaktions-Codes, Block-Liste) | **Yes** | **Yes** (nur bei Gye-Nutzung, 16+) | No | App-Funktionalität (Lerngruppen) | Yes |
 | **🆕 v2.0 App activity** — User-generated Korean text (OCR-extrahierte Lehrbuchseiten) | **Yes** | **Yes** (nur wenn User Snap-and-Learn nutzt) | **Yes — DeepL für Übersetzung** | App-Funktionalität: Wort/Grammatik-Analyse + DE/EN-Übersetzung | Yes |
 | **🆕 v2.0 Photos & Videos** — Lehrbuchseiten-Fotos + Wortfotos (eigenes Wörterbuch) | **No (stays on device)** | — | — | OCR läuft on-device via ML Kit; Bilder werden nicht an unsere Server gesendet. Wortfotos liegen in `wordbook_images/` (App-Dokumente) und werden bei Konto-Löschung/Reset mitgelöscht | — |
 | Financial info | No | — | — | — | — |
@@ -138,7 +138,7 @@ Google verlangt seit Mai 2024, dass jede App mit User-Accounts einen **App-inter
 
 ## UGC / Moderation (Play UGC-Policy)
 
-Gye(契)-Lerngruppen enthalten nutzergenerierte Inhalte (Spitznamen, Sticker, Anfeuerungs-Codes — **kein Freitext-Chat**). Maßnahmen:
+Gye(契)-Lerngruppen enthalten nutzergenerierte Inhalte (Spitznamen, Sticker, Anfeuerungs- und Reaktions-Codes — **kein Freitext-Chat**; Reaktionen sind feste Sticker auf einzelne Feed-Ereignisse). Maßnahmen:
 
 - ✅ **Melden**: in-app Report-Flow (Grund + Notiz) → `gye/{id}/reports`; ≥3 unabhängige Melder → automatische Suspendierung (`on_report_created` CF).
 - ✅ **Blockieren** (2026-06-12): Mitgliederliste → Block-Button → `users/{me}.blockedUids`; Beiträge/Sticker/Anfeuerungen der Person werden clientseitig ausgeblendet, jederzeit aufhebbar.

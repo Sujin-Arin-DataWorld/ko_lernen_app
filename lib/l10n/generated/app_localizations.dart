@@ -2515,6 +2515,12 @@ abstract class AppL10n {
   /// **'Alle haben diese Woche beigetragen! 🔥'**
   String get gyeAllInCelebrate;
 
+  /// No description provided for @gyeReactTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Reagieren'**
+  String get gyeReactTooltip;
+
   /// No description provided for @bookResultOfflineNotice.
   ///
   /// In de, this message translates to:

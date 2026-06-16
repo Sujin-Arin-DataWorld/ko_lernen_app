@@ -1334,6 +1334,9 @@ class AppL10nDe extends AppL10n {
   String get gyeAllInCelebrate => 'Alle haben diese Woche beigetragen! 🔥';
 
   @override
+  String get gyeReactTooltip => 'Reagieren';
+
+  @override
   String get bookResultOfflineNotice =>
       'Server nicht erreichbar — nur Grammatikmuster offline erkannt.';
 

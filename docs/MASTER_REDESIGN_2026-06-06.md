@@ -128,10 +128,12 @@
 - **전원챌린지 축하**: 전원 기여 달성 순간 SoriCelebration.burst (2인+, 실행당 1회)
 - 기존 dure 5종(두레판·피드·응원·MVP회고·전원챌린지)은 89f32ea에서 완성
 
+### 출시 구현 추가 (2026-06-12)
+- **피드 reaction(이벤트별 스티커 답글)** — `GyeService.sendReaction(targetEventId, code)` + `GyeFeed.splitReactions`(반응을 대상 이벤트 아래 작은 스티커로 묶음) + 마일스톤 이벤트(클리어·퀘스트·레벨업·목표달성)에 "반응" 버튼. 기존 feed rules(active 멤버 append, payload 제약 없음)로 충분 — 규칙 변경 0. 자유 텍스트 X = 모더레이션 안전. 단위테스트 3(splitReactions).
+
 ### 포스트런치 (Tandem 방향 — 의도적 보류, 근거)
 | 후보 | 보류 사유 | 선행 조건 |
 |---|---|---|
 | 자유 텍스트 채팅 | ML 모더레이션 비용·스팸·신고량 폭증 리스크. 현재 스티커/정형 응원이 모더레이션-안전 | 모더레이션 파이프라인(Cloud DLP or Perspective API)+운영 인력 |
-| 피드 reaction(이벤트별 스티커 답글) | GyeSticker.targetEventId 스키마는 준비됨 — UI/rules 추가 필요(M) | v2.1 후보 |
 | 공개 계 검색/가입 | 초대코드(bearer) 모델이 GDPR·스팸에 안전. 공개화는 발견성↑ 대신 모더레이션 부담↑ | 신고 처리 SLA + 차단 사용 데이터 확인 후 |
 | 1:1 파트너 매칭(Tandem 코어) | 별도 프로덕트 규모: 매칭엔진·DM·신원/안전(미성년 보호)·차단 고도화 | 사용자 기반 + 안전 설계 별도 트랙 |

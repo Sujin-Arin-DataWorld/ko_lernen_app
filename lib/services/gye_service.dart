@@ -394,6 +394,52 @@ class GyeService {
     }
   }
 
+  /// 피드 반응 — 특정 피드 이벤트(targetEventId)에 스티커로 답한다.
+  /// 일반 스티커와 동일하게 feed에 append하되 `payload.targetEventId`를 달아
+  /// 클라이언트가 해당 이벤트 아래에 묶어 렌더한다(자유 텍스트 X = 모더레이션
+  /// 안전). 스티커 레이트 가드 공유. 레이트 초과/실패 시 false.
+  static Future<bool> sendReaction({
+    required String gyeId,
+    required String targetEventId,
+    required int code,
+  }) async {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null || targetEventId.isEmpty) {
+      return false;
+    }
+    final now = DateTime.now();
+    _recentStickerSends.removeWhere((tt) => now.difference(tt).inSeconds >= 60);
+    if (_recentStickerSends.length >= 10) {
+      return false;
+    }
+    final ref = db.collection(_collection).doc(gyeId);
+    var nickname = '';
+    try {
+      final m = await ref.collection('members').doc(uid).get();
+      nickname = m.data()?['nickname'] as String? ?? '';
+    } catch (_) {
+      // 닉네임 없이도 전송 진행
+    }
+    try {
+      await ref
+          .collection('feed')
+          .add(
+            GyeFeedEvent(
+              id: '',
+              type: GyeFeedType.sticker,
+              actorUid: uid,
+              actorNickname: nickname,
+              payload: {'stickerCode': code, 'targetEventId': targetEventId},
+            ).toCreateJson(),
+          );
+      _recentStickerSends.add(now);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   /// 마일스톤 이벤트(퀘스트 완료·레벨업 등)를 내 모든 계 피드에 broadcast.
   /// 학습 성취가 계원에게 보이게 → 축하 스티커 유도 (2픽 피드 풍부화).
   /// best-effort: 한 계 실패해도 나머지 진행. 계 없으면 no-op.

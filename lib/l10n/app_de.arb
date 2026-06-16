@@ -515,6 +515,7 @@
   "gyeProfileWeekly":            "{packs} Packs diese Woche",
   "@gyeProfileWeekly":           { "placeholders": { "packs": {} } },
   "gyeAllInCelebrate":           "Alle haben diese Woche beigetragen! 🔥",
+  "gyeReactTooltip":             "Reagieren",
   "bookResultOfflineNotice":     "Server nicht erreichbar — nur Grammatikmuster offline erkannt.",
   "bookResultSectionWords":      "Wörter",
   "bookResultSectionGrammar":    "Grammatik",

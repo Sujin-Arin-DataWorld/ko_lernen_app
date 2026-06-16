@@ -1328,6 +1328,9 @@ class AppL10nEn extends AppL10n {
   String get gyeAllInCelebrate => 'Everyone contributed this week! 🔥';
 
   @override
+  String get gyeReactTooltip => 'React';
+
+  @override
   String get bookResultOfflineNotice =>
       'Server unreachable — only grammar patterns detected offline.';
 

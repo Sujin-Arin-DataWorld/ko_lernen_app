@@ -225,6 +225,11 @@ class _GyeScreenState extends State<GyeScreen>
                                 fsnap.data ?? const [],
                                 bsnap.data ?? const {},
                               ),
+                              onReact: (eventId) => _openReactionPicker(
+                                context,
+                                widget.gyeId,
+                                eventId,
+                              ),
                             ),
                           ),
                     ),
@@ -284,6 +289,35 @@ void _openGyeStickerPicker(BuildContext context, String gyeId) {
       onPick: (code) async {
         Navigator.of(sheetCtx).pop();
         final ok = await GyeService.sendSticker(gyeId: gyeId, code: code);
+        if (!ok && context.mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(t.gyeStickerRateLimited)));
+        }
+      },
+    ),
+  );
+}
+
+/// 피드 반응 스티커 시트 → 선택 시 특정 이벤트(targetEventId)에 반응 전송.
+/// 일반 스티커 시트와 동일 UX, sendReaction으로 라우팅. plan §D-3.
+void _openReactionPicker(
+  BuildContext context,
+  String gyeId,
+  String targetEventId,
+) {
+  final t = AppL10n.of(context);
+  showSoriSheet<void>(
+    context: context,
+    scrollable: false,
+    builder: (sheetCtx) => StickerPicker(
+      onPick: (code) async {
+        Navigator.of(sheetCtx).pop();
+        final ok = await GyeService.sendReaction(
+          gyeId: gyeId,
+          targetEventId: targetEventId,
+          code: code,
+        );
         if (!ok && context.mounted) {
           ScaffoldMessenger.of(
             context,
