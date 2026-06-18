@@ -87,3 +87,6 @@ ko-lernen-app-key.json
 
 # 사전생성 TTS 로컬 빌드 폴더 (Storage 로 업로드, repo 미포함)
 .tts_pregen/
+
+# content_factory 캐시 (시드 다운로드·stdict 응답 캐시 — 재생성 가능, 커밋 금지)
+tools/content_factory/.cache/

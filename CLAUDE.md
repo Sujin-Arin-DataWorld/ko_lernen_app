@@ -335,7 +335,9 @@ flutter run -d <android-id>   # 안드로이드
 
 **검증:** ARB parity **922=922** · gen-l10n OK(Dancheong) · CSV 14/11열 bad 0 · JSON 4파일 OK · kkeunmari TODO **0**·풀 392 · `flutter analyze lib test` **0** · `flutter test` **400 통과**. ⚠️ 미검증(Jin): 실기기 시각, 끝말잇기 392단어 체인 길이 체감.
 
-**Git:** 커밋(푸시 미요청). 변경: app_de/en.arb(+generated)·korean_vocab.csv·grammar.csv·kkeunmari_pool.json·kkeunmari_engine.dart·CLAUDE.md·docs/NATIVE_TEXT_AUDIT_2026-06-18.md.
+**Git:** 커밋 `99c9a57`(푸시 미요청). 변경: app_de/en.arb(+generated)·korean_vocab.csv·grammar.csv·kkeunmari_pool.json·kkeunmari_engine.dart·CLAUDE.md·docs/NATIVE_TEXT_AUDIT_2026-06-18.md.
+
+**후속(Jin "끝말잇기 단어 한국어 사전에서 끌어와서 써"):** Q&A 확정 — 소스 **우리말샘/stdict + DeepL 생성기(Jin 실행)**, **학습용 흔한 명사**. `tools/content_factory/build_kkeunmari_pool.py` 신규: hermitdave ko_50k 빈도시드 → **표준국어대사전(stdict) 명사 검증**(`functions/analyze_korean_text/main.py` 계약 재사용 — 조각·활용형 자동 탈락) → 글로스(vocab 검수분 우선·나머지 DeepL·둘 다 없으면 ""=UI 숨김, **TODO/가짜 0**) → first/last·next_count/is_dead_end 최종집합 계산 → 풀 재생성. §0대로 **손번역 0**. ⚠️ 키(`STDICT_API_KEY`/`URIMALSAEM_API_KEY` + `DEEPL_API_KEY`) 필요 → **Jin 1회 실행**(`--target 2500 --deepl --write`). 검증: `py_compile` OK · 오프라인 `--self-test` 통과(graph·glossprio·필터) · 시드 다운로드 실동작 확인 · 스키마 data_integrity_test·엔진 호환. README (a2) 추가, `.cache/` gitignore. 별도 커밋.
 
 ### 2026-06-12 (후속 — Phase D-4 전원챌린지 피드 이벤트 보강) — 커밋·푸시
 

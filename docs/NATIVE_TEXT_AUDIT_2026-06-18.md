@@ -40,7 +40,8 @@
 - **조치**: §0/메모리대로 **손번역하지 않고**, `german=="TODO"` 2,061건(자막조각: 조사결합형·활용형·문장파편 — 끝말잇기 부적합)을 **풀에서 제거**. 큐레이션된 392 단어만 유지.
 - **그래프 재계산**: 삭제 후 각 단어의 `next_count`(후속 단어 수) · `is_dead_end`(후속 0)를 **필터된 392 집합 기준으로 재계산**(메타데이터 stale 방지). 결과: dead-end 163 · startable(nc≥2) **153** → 엔진 `pickStart`/`pickTigerNext` 정상 작동, 게임 플레이 가능(원 설계 225단어 < 현 392).
 - **부수 정리**: `meta.total` 2453→392, stale `okt_verified` 제거 + curation 노트 추가. 엔진 docstring `225 단어`→`392 단어(큐레이션)` 갱신.
-- **참고**: UI는 이미 `word.german != 'TODO'` 가드로 "TODO" 미표시였음(사용자에 TODO 텍스트 노출 없었음) — 핵심 문제는 부적합 단어가 체인에 쓰이던 것. 향후 정식 확장은 `tools/content_factory/` DeepL 큐레이션으로 노명사만 편입.
+- **참고**: UI는 이미 `word.german != 'TODO'` 가드로 "TODO" 미표시였음(사용자에 TODO 텍스트 노출 없었음) — 핵심 문제는 부적합 단어가 체인에 쓰이던 것.
+- **후속(Jin "사전에서 끌어와서 써" 요청 → 도구 작성):** `tools/content_factory/build_kkeunmari_pool.py` 신규 — hermitdave 빈도시드 → **표준국어대사전(stdict) 명사 검증**(조각 자동 탈락) → DeepL/vocab 글로스 → 풀 재생성. §0대로 손번역 0. 키(`STDICT_API_KEY`+`DEEPL_API_KEY`) 보유한 **Jin이 1회 실행**(학습용 흔한 명사 ~2,500). 오프라인 로직 `--self-test` 통과. 스키마는 data_integrity_test·엔진과 호환.
 
 ### B-3. (참고) 로마자(romanization) 오타 — DE/KO 자연스러움 범위 밖, Jin 판단
 `korean_vocab.csv`의 `romanization` 열에서 발견한 명백한 오타(번역·자연스러움과 무관, 발음 표기 보조 열):

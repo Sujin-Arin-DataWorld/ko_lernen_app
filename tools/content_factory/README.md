@@ -29,7 +29,37 @@ python3 tools/content_factory/fill_kkeunmari_german.py --write   # 저장
 - **문맥 기반 번역**: DeepL(기존 Cloud Function에 연동돼 있음, 무료 티어로 충분)을
   문장 문맥과 함께 호출. 단어만 떼서 번역하면 DeepL도 부정확.
 
-현재 정확히 채워진 것: CSV 39 + 큐레이트 30 = **69개** (+ 기존 323 = 392).
+## (a2) `build_kkeunmari_pool.py` — 끝말잇기 풀을 **사전에서** 재생성 (정석)
+
+> 2026-06-18 감사에서 자막 조각 TODO 2,061개를 풀에서 제거(→ 큐레이트 392만 남김).
+> 이 스크립트는 그 자리를 **실제 사전 명사**로 채운다. (a)의 "진짜 해법"을 도구화한 것.
+
+§0 준수 파이프라인 (전부 실재 소스, 손번역/지어내기 0):
+1. **시드** = hermitdave ko_50k(빈도순 → "흔한", 자동 다운로드·캐시).
+2. **표준국어대사전(stdict) API** 로 각 후보 검증 → **품사==명사**만 통과
+   (조사결합·활용형·부사 등은 자동 탈락 = 조각 문제 근본 해결). 기존
+   `functions/analyze_korean_text/main.py` 의 stdict 계약을 그대로 재사용.
+3. **독일어 글로스**: `korean_vocab.csv` 정확 일치 → 검수 글로스 복사 ·
+   그 외 → DeepL ko→de(`--deepl`, 기계→검수) · 둘 다 없으면 `""`(UI 자동 숨김,
+   **"TODO"·가짜 안 씀**).
+4. `first/last` 음절 + `next_count/is_dead_end` 를 **최종 집합 기준 재계산**.
+
+```bash
+# 0) 오프라인 로직 자가검증 (키·네트워크 불필요)
+python3 tools/content_factory/build_kkeunmari_pool.py --self-test
+# 1) 소량 시범(검증만, 미저장)
+STDICT_API_KEY=… python3 tools/content_factory/build_kkeunmari_pool.py --target 50
+# 2) 본 생성 + DeepL 글로스 + 저장
+STDICT_API_KEY=… DEEPL_API_KEY=… \
+  python3 tools/content_factory/build_kkeunmari_pool.py --target 2500 --deepl --write
+```
+
+키: `STDICT_API_KEY`(또는 `URIMALSAEM_API_KEY`) = stdict, `DEEPL_API_KEY` = DeepL.
+→ **키 보유한 Jin 이 1회 실행** 후 `flutter test`(data integrity) → 육안(체인 길이) → 커밋.
+DeepL 글로스는 기계번역 → **원어민 스팟체크 권장**.
+
+> 옛 (a) `fill_kkeunmari_german.py` 는 기존 풀의 TODO 를 vocab/큐레이트로만 채우는
+> 보조 도구(조각은 못 채움). 이제는 (a2)로 **풀 자체를 사전 기반 재생성**하는 게 정석.
 
 ## (b) `add_interest_scenarios.py` — 관심사 시나리오 추가 (검증 포함)
 
