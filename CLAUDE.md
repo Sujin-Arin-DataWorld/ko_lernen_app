@@ -315,6 +315,28 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-18 (독일어·영어·한국어 자연스러움 전수 검사) — 미커밋
+
+**범위:** Jin "독일어랑 한국어 텍스트가 원어민이 쓰는것같이 자연스러운지 전수 검사." Q&A 확정: **정말 전부**(단어 글로스·끝말잇기 풀 포함) · **DE/EN 직접 수정, KO 제안만**(Jin 원어민) · **EN 포함**. plan `nifty-popping-reddy.md`. SSoT: `docs/NATIVE_TEXT_AUDIT_2026-06-18.md`.
+
+**방법(§0):** Opus 메인이 전 표면 직접 통독(서브에이전트 언어판정 위임 X — 메모리 `feedback_model_delegation`). ARB 922키·시나리오 33(대화+노트)·문법 88·단어장 546·끝말잇기 2,453·smalltalk 145·grammar_patterns 31·hangul_data 발음 24 전수. 대용량은 python 추출로 텍스트만 컴팩트 검토.
+
+**총평:** 2026-06-09 딥다이브 덕에 **기존 품질이 이미 매우 높음** — 시나리오·단어장·문법·smalltalk 모두 원어민급(결함 0). 실제 결함은 소수.
+
+**Update(DE·EN 직접 수정 8건):**
+- `app_de.arb`: `coachDojangTitle/Body` **Dangseon→Dancheong**(단청 로마자 오기, 앱 전체와 불일치) + **"zu freizuschalten" 이중 zu 비문 수정**(freischalten 분리동사).
+- `app_en.arb`: BrE→AmE 철자 3건(`colours`→colors, `practise`→practice ×2) — 앱 미국식 통일.
+- `korean_vocab.csv`: 부사형 `zuhause`→`zu Hause` 3건(grammar.csv 프로젝트 표준과 통일; 명사 `Zuhause`는 보존).
+
+**KO/콘텐츠 반영(Jin "B-1·B-2 반영" 요청 → 적용):**
+- **B-1** grammar.csv `N에서 N까지`: `월요일에서`→`월요일부터`(시간 시작=부터). note(DE)+note_en(EN) 양쪽 2곳.
+- **B-2** 🔴 kkeunmari_pool.json: §0대로 **손번역 안 하고** `german="TODO"` 자막조각 **2,061건 제거**(조사결합·활용형 = 끝말잇기 부적합) → 큐레이션 392단어만 유지. `next_count`/`is_dead_end`를 필터셋 기준 **재계산**(dead-end 163·startable 153, 플레이 가능). meta.total 392·okt_verified 제거·curation 노트. 엔진 docstring 225→392. UI는 이미 `german!='TODO'` 가드라 TODO 미노출이었음.
+- (미반영) 로마자 오타 6건은 발음표기 열이라 자연스러움 범위 밖 — 감사문서 B-3에 목록만.
+
+**검증:** ARB parity **922=922** · gen-l10n OK(Dancheong) · CSV 14/11열 bad 0 · JSON 4파일 OK · kkeunmari TODO **0**·풀 392 · `flutter analyze lib test` **0** · `flutter test` **400 통과**. ⚠️ 미검증(Jin): 실기기 시각, 끝말잇기 392단어 체인 길이 체감.
+
+**Git:** 커밋(푸시 미요청). 변경: app_de/en.arb(+generated)·korean_vocab.csv·grammar.csv·kkeunmari_pool.json·kkeunmari_engine.dart·CLAUDE.md·docs/NATIVE_TEXT_AUDIT_2026-06-18.md.
+
 ### 2026-06-12 (후속 — Phase D-4 전원챌린지 피드 이벤트 보강) — 커밋·푸시
 
 **범위:** Jin "D4·Phase E도 있잖아" 지적 → §0 재검증. **Phase E는 실측 완료 확인**(bookshelf_json round-trip 테스트 통과·catch 로깅·consentBody·CLAUDE.md). 단 **D-4는 plan이 "burst + 피드 이벤트"인데 burst만 돼 있던 갭** 발견 → 피드 이벤트 보강.

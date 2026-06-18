@@ -30,7 +30,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 오늘,oneul,heute,A1,Adverb,오늘 뭐 해요?,Was machst du heute?,Zeit,a1_time_1,1,false,today,Adverb,What are you doing today?
 내일,naeil,morgen,A1,Adverb,내일 만나요.,Wir treffen uns morgen.,Zeit,a1_time_1,2,false,tomorrow,Adverb,See you tomorrow.
 어제,eoje,gestern,A1,Adverb,어제 어디 갔어요?,Wo bist du gestern hingegangen?,Zeit,a1_time_1,3,false,yesterday,Adverb,Where did you go yesterday?
-아버지,abeoji,Vater (formell),A1,Nomen,아버지가 집에 있어요.,Mein Vater ist zuhause.,Familie,a1_family_1,5,false,father (formal),Noun,My father is at home.
+아버지,abeoji,Vater (formell),A1,Nomen,아버지가 집에 있어요.,Mein Vater ist zu Hause.,Familie,a1_family_1,5,false,father (formal),Noun,My father is at home.
 어머니,eomeoni,Mutter (formell),A1,Nomen,어머니한테 전화해요.,Ich rufe meine Mutter an.,Familie,a1_family_1,6,false,mother (formal),Noun,I call my mother.
 아빠,appa,Papa (informell),A1,Nomen,아빠 사랑해요.,"Ich liebe dich, Papa.",Familie,a1_family_1,7,false,dad (informal),Noun,"I love you, Dad."
 엄마,eomma,Mama (informell),A1,Nomen,엄마 어디 있어요?,"Wo bist du, Mama?",Familie,a1_family_1,8,true,mom (informal),Noun,"Where are you, Mom?"
@@ -89,7 +89,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 오다,oda,kommen,A1,Verb,집에 와요.,Ich komme nach Hause.,Bewegung,a1_transport,4,true,to come,Verb,I come home.
 먹다,meokda,essen,A1,Verb,밥을 먹어요.,Ich esse Reis.,Essen & Trinken,a1_food_2,5,false,to eat,Verb,I eat rice.
 마시다,masida,trinken,A1,Verb,커피를 마셔요.,Ich trinke Kaffee.,Essen & Trinken,a1_food_2,6,false,to drink,Verb,I drink coffee.
-있다,itda,sein / haben (existieren),A1,Verb,집에 있어요.,Ich bin zuhause.,Alltag,a1_daily_2,6,false,to be / to have (to exist),Verb,I'm at home.
+있다,itda,sein / haben (existieren),A1,Verb,집에 있어요.,Ich bin zu Hause.,Alltag,a1_daily_2,6,false,to be / to have (to exist),Verb,I'm at home.
 없다,eopda,nicht haben / nicht sein,A1,Verb,시간이 없어요.,Ich habe keine Zeit.,Alltag,a1_daily_2,7,false,to not have / to not exist,Verb,I have no time.
 하다,hada,machen / tun,A1,Verb,뭐 해요?,Was machst du?,Alltag,a1_daily_2,8,true,to do,Verb,What are you doing?
 보다,boda,sehen / schauen,A1,Verb,TV를 봐요.,Ich schaue fern.,Freizeit,a1_misc_1,7,false,to see / to watch,Verb,I watch TV.
@@ -172,7 +172,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 요리하다,yorihada,kochen,A2,Verb,요리를 해요.,Ich koche.,Essen & Trinken,a2_food_1,2,false,to cook,Verb,I cook.
 전화하다,jeonhwahada,anrufen,A2,Verb,친구에게 전화해요.,Ich rufe einen Freund an.,Kommunikation,a2_health_misc_2,5,false,to call (on the phone),Verb,I call a friend.
 도착하다,dochakhada,ankommen,A2,Verb,학교에 도착했어요.,Ich bin in der Schule angekommen.,Bewegung,a2_transport,5,false,to arrive,Verb,I arrived at school.
-쉬다,swida,sich ausruhen,A2,Verb,집에서 쉬어요.,Ich ruhe mich zuhause aus.,Alltag,a2_daily_1,4,false,to rest,Verb,I rest at home.
+쉬다,swida,sich ausruhen,A2,Verb,집에서 쉬어요.,Ich ruhe mich zu Hause aus.,Alltag,a2_daily_1,4,false,to rest,Verb,I rest at home.
 기억하다,gieokada,sich erinnern,A2,Verb,이름을 기억해요?,Erinnerst du dich an den Namen?,Alltag,a2_daily_1,5,false,to remember,Verb,Do you remember the name?
 이해하다,ihaehada,verstehen,A2,Verb,이해해요?,Verstehst du?,Bildung,a2_education,5,false,to understand,Verb,Do you understand?
 배우다,baeuda,lernen / etwas Neues erlernen,A2,Verb,기타를 배워요.,Ich lerne Gitarre.,Bildung,a2_education,6,true,to learn (something new),Verb,I learn guitar.

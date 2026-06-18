@@ -4,8 +4,9 @@ import 'package:flutter/services.dart' show rootBundle;
 
 /// 끝말잇기 (Word Chain) 엔진.
 ///
-/// `assets/data/kkeunmari_pool.json` 의 노명사 풀(225 단어)을 사용한다.
+/// `assets/data/kkeunmari_pool.json` 의 큐레이션 단어 풀(392 단어)을 사용한다.
 /// 각 단어에는 `first`/`last` 음절과 `is_dead_end` 메타데이터가 있다.
+/// (2026-06-18: OpenSubtitles 자막조각 미번역 2,061개 제거 후 next_count/is_dead_end 재계산.)
 ///
 /// 핵심 규칙:
 /// - 사용자가 낸 단어의 [last] 음절 = 호랑이가 낼 단어의 [first] 음절.

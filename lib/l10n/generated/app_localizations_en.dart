@@ -2818,7 +2818,7 @@ class AppL10nEn extends AppL10n {
       'Syllable count, word class and meaning help you narrow it down';
 
   @override
-  String get coachWordleStep3Title => 'Input & colours';
+  String get coachWordleStep3Title => 'Input & colors';
 
   @override
   String get coachWordleStep3Body =>
@@ -2871,7 +2871,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachHangulBody =>
-      'Overview shows all characters · Cards help you practise · Write trains your strokes';
+      'Overview shows all characters · Cards help you practice · Write trains your strokes';
 
   @override
   String get coachGrammarStep1Title => 'Flip the card';
@@ -3053,5 +3053,5 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachScenariosBody =>
-      'Tap a scenario and practise real everyday situations — unlocked from A2 onwards';
+      'Tap a scenario and practice real everyday situations — unlocked from A2 onwards';
 }

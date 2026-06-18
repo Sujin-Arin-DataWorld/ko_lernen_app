@@ -3023,11 +3023,11 @@ class AppL10nDe extends AppL10n {
       'Hier sammelst du Wörter, die du dir noch nicht gemerkt hast — gezieltes Üben hilft';
 
   @override
-  String get coachDojangTitle => 'Dangseon-Stempel sammeln';
+  String get coachDojangTitle => 'Dancheong-Stempel sammeln';
 
   @override
   String get coachDojangBody =>
-      'Schließe Vokabelpacks ab, um alle 8 Dangseon-Muster zu freizuschalten';
+      'Schließe Vokabelpacks ab, um alle 8 Dancheong-Muster freizuschalten';
 
   @override
   String get coachGyeStep1Title => 'Wochenziel';

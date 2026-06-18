@@ -1075,7 +1075,7 @@
   "coachWordleStep1Body": "Guess the hidden word — you have 6 attempts",
   "coachWordleStep2Title": "Use the clues",
   "coachWordleStep2Body": "Syllable count, word class and meaning help you narrow it down",
-  "coachWordleStep3Title": "Input & colours",
+  "coachWordleStep3Title": "Input & colors",
   "coachWordleStep3Body": "Type → Enter · 🟩 correct · 🟨 wrong position · ⬜ not present",
 
   "coachKkeunmariStep1Title": "Last syllable counts",
@@ -1095,7 +1095,7 @@
   "@_coach_c2": { "description": "Stage C-2 learning 7-screen coach keys (2026-06-09)" },
 
   "coachHangulTitle": "3 tabs — 3 ways to learn Hangul",
-  "coachHangulBody": "Overview shows all characters · Cards help you practise · Write trains your strokes",
+  "coachHangulBody": "Overview shows all characters · Cards help you practice · Write trains your strokes",
 
   "coachGrammarStep1Title": "Flip the card",
   "coachGrammarStep1Body": "Tap the card to reveal the explanation and examples",
@@ -1170,5 +1170,5 @@
   "coachQuestsBody": "Complete quests to unlock decorations for your Hanok courtyard",
 
   "coachScenariosTitle": "Situational dialogues",
-  "coachScenariosBody": "Tap a scenario and practise real everyday situations — unlocked from A2 onwards"
+  "coachScenariosBody": "Tap a scenario and practice real everyday situations — unlocked from A2 onwards"
 }

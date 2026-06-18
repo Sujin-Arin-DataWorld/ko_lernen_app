@@ -5548,13 +5548,13 @@ abstract class AppL10n {
   /// No description provided for @coachDojangTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dangseon-Stempel sammeln'**
+  /// **'Dancheong-Stempel sammeln'**
   String get coachDojangTitle;
 
   /// No description provided for @coachDojangBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließe Vokabelpacks ab, um alle 8 Dangseon-Muster zu freizuschalten'**
+  /// **'Schließe Vokabelpacks ab, um alle 8 Dancheong-Muster freizuschalten'**
   String get coachDojangBody;
 
   /// No description provided for @coachGyeStep1Title.
