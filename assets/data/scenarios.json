@@ -210,6 +210,20 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "아이스 아메리카노 톨 사이즈로 주세요.",
+      "promptDe": "Einen Iced Americano in Tall, bitte.",
+      "promptEn": "One iced Americano, tall, please.",
+      "distractors": [
+       "두통약이요",
+       "왕복으로",
+       "해도"
+      ],
+      "audioKo": "아이스 아메리카노 톨 사이즈로 주세요."
+     }
     }
    ],
    "culturalNote": {
@@ -402,6 +416,20 @@
        }
       ],
       "correctIndex": 0
+     }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "네, 여기 있어요.",
+      "promptDe": "Ja, hier bitte.",
+      "promptEn": "Yes, here you go.",
+      "distractors": [
+       "우유",
+       "떡볶이",
+       "강남역까지"
+      ],
+      "audioKo": "네, 여기 있어요."
      }
     }
    ],
@@ -1210,6 +1238,20 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "아니요, 천천히 가셔도 돼요.",
+      "promptDe": "Nein, langsam ist gut.",
+      "promptEn": "No, slow is fine.",
+      "distractors": [
+       "우유",
+       "여기",
+       "데워주세요"
+      ],
+      "audioKo": "아니요, 천천히 가셔도 돼요."
+     }
     }
    ],
    "culturalNote": {
@@ -1402,6 +1444,20 @@
        }
       ],
       "correctIndex": 0
+     }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "떡볶이 한 인분이랑 김밥 하나 주세요.",
+      "promptDe": "Eine Portion Tteokbokki und einen Kimbap, bitte.",
+      "promptEn": "One tteokbokki and one kimbap, please.",
+      "distractors": [
+       "안녕하세요",
+       "가주세요",
+       "아니요"
+      ],
+      "audioKo": "떡볶이 한 인분이랑 김밥 하나 주세요."
      }
     }
    ],
@@ -1600,6 +1656,20 @@
        }
       ],
       "correctIndex": 0
+     }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "저기요, 북촌 한옥마을 어떻게 가요?",
+      "promptDe": "Entschuldigung, wie komme ich zum Bukchon Hanok Village?",
+      "promptEn": "Excuse me, how do I get to Bukchon Hanok Village?",
+      "distractors": [
+       "시간",
+       "이따",
+       "왔어"
+      ],
+      "audioKo": "저기요, 북촌 한옥마을 어떻게 가요?"
      }
     }
    ],
@@ -4822,6 +4892,20 @@
       "explanationDe": "왕복 endet auf Konsonant (ㄱ) → 으로 ('als'). Also: 왕복으로 주세요.",
       "explanationEn": "왕복 ends in a consonant (ㄱ) → 으로 ('as'). So: 왕복으로 주세요."
      }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "부산행 KTX 한 장 주세요.",
+      "promptDe": "Ein KTX-Ticket nach Busan, bitte.",
+      "promptEn": "One KTX ticket to Busan, please.",
+      "distractors": [
+       "북촌",
+       "근처에서",
+       "머리가"
+      ],
+      "audioKo": "부산행 KTX 한 장 주세요."
+     }
     }
    ],
    "culturalNote": {
@@ -5019,6 +5103,20 @@
       "correctIndex": 0,
       "explanationDe": "비밀번호 endet auf Vokal (ㅗ) → Subjektpartikel 가.",
       "explanationEn": "비밀번호 ends in a vowel (ㅗ) → subject particle 가."
+     }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "여기 앉아도 돼요?",
+      "promptDe": "Darf ich mich hier hinsetzen?",
+      "promptEn": "May I sit here?",
+      "distractors": [
+       "20분",
+       "왔어",
+       "기다려줘"
+      ],
+      "audioKo": "여기 앉아도 돼요?"
      }
     }
    ],
@@ -5415,6 +5513,20 @@
       "correctIndex": 0,
       "explanationDe": "사과 endet auf Vokal (ㅏ) → Objektpartikel 를.",
       "explanationEn": "사과 ends in a vowel (ㅏ) → object particle 를."
+     }
+    },
+    {
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "저기요, 우유 어디 있어요?",
+      "promptDe": "Entschuldigung, wo ist die Milch?",
+      "promptEn": "Excuse me, where is the milk?",
+      "distractors": [
+       "얼마예요",
+       "왔어요",
+       "김밥"
+      ],
+      "audioKo": "저기요, 우유 어디 있어요?"
      }
     }
    ],

@@ -315,6 +315,25 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-06-22 (실생활 습득 듀오링고化 검토 + Phase 1: 문장 짓기 산출 엔진) — 미커밋
+
+**범위:** Jin "한글소리가 어디까지 듀오링고처럼 실생활 한국어를 습득하게 만들 수 있는지 개선안 검토." Q&A 확정: **검토 문서 + 1순위 바로 착수** · 레버 **①능동 산출 + ③인터랙티브 역할극 + ④콘텐츠 확충 결합** · **말하기(STT)는 나중 별도 베팅**. plan `zesty-strolling-sloth.md`.
+
+**진단(실측, §0):** 입력 콘텐츠(단어 546·문법 88·시나리오 33/204턴·스몰토크 145, 전부 CEFR·이중언어)는 듀오링고급. **갭 = 산출(말·쓰기)·능동 회상·오류 피드백이 거의 0** — 학습 거의 전부 4지선다/탭 인식. 시나리오 `speaker:"user"` 대사 **101줄**(KO+DE+EN 완비)이 자동 재생만 되고 사용자가 만들어내지 않음.
+
+**핵심 통찰:** 1·3·4를 한 기능으로 — 사용자 대사를 **단어 타일로 직접 조립(문장 짓기)**. 오프라인·결정적·저위험(STT/LLM 불필요), §0대로 신규 번역 0(기존 원어민 대사·어절 재사용).
+
+**Update(Phase 1):**
+- **`lib/screens/quest_engines/satz_bauen_quest.dart` 신규** — `SatzBauenQuest`(단어은행↔답영역 탭, "확인" 채점, 오답 시 첫 불일치 하이라이트=최소 오류 피드백, 2회 후 정답공개, 선택 TTS, 라이트/다크, MascotPop). 채점은 **순수 정적함수** `tokenize`/`isCorrectOrder`/`firstMismatch`(어절 분절+문장부호/공백 정규화).
+- **모델·디스패치**: `scenario.dart` `QuestType.satzBauen` 추가 + `targetVocabKeys()`→[targetKo](오류-인지 SRS 연동) · `scenario_player_screen.dart` 디스패치+import.
+- **콘텐츠 시드 8개**(A1×4·A2×4: cafe/airport/taxi/bunshik/subway/mart/ktx/cafe_study) — `scenarios.json` `quests`에 append(파이썬 mutation, indent=1 round-trip 바이트동일 → diff 112추가/0삭제). targetKo·promptDe·promptEn=기존 user 대사, distractors=동일레벨 실제 어절(가짜 0, 중첩 0).
+- **l10n** DE/EN +2키(`questSatzBauenInstruction`·`questCheckAnswer`) → 924=924. **테스트** +12(`satz_bauen_quest_test`: 채점 로직·시드 무결성) + `data_integrity_test`에 satzBauen 검증 케이스/allowlist 추가.
+- **검토 문서** `docs/REAL_LIFE_ACQUISITION_REVIEW_2026-06-22.md`(진단표·갭 매트릭스·Phase 1~4 로드맵: 인라인 user턴 산출·받아쓰기·오류피드백 강화·상황커버리지·STT/AI파트너).
+
+**검증:** `flutter analyze lib test` **0** · `flutter test` **412 통과**(+12) · ARB parity 924=924 · gen-l10n OK · dart format. ⚠️ 미검증(Jin 실기기 `flutter run -d 9053622f`): 문장 짓기 타일 조립·오답 하이라이트·셀러브레이션·다크모드 시각.
+
+**Git:** 미커밋(Jin 확인 후). 변경: satz_bauen_quest.dart·scenario.dart·scenario_player_screen.dart·scenarios.json·app_de/en.arb(+generated)·data_integrity_test.dart + 신규 satz_bauen_quest_test.dart·REAL_LIFE_ACQUISITION_REVIEW 문서. (동시세션 tiger_video 계열 파일은 미손댐.)
+
 ### 2026-06-18 (독일어·영어·한국어 자연스러움 전수 검사) — 미커밋
 
 **범위:** Jin "독일어랑 한국어 텍스트가 원어민이 쓰는것같이 자연스러운지 전수 검사." Q&A 확정: **정말 전부**(단어 글로스·끝말잇기 풀 포함) · **DE/EN 직접 수정, KO 제안만**(Jin 원어민) · **EN 포함**. plan `nifty-popping-reddy.md`. SSoT: `docs/NATIVE_TEXT_AUDIT_2026-06-18.md`.

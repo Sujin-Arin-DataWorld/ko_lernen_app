@@ -17,7 +17,10 @@ library;
 
 /// CEFR-Stufe — auch Storage-Schlüssel via [code].
 enum LearnerLevel {
-  a1, a2, b1, b2;
+  a1,
+  a2,
+  b1,
+  b2;
 
   /// Lower-case Code für Persistenz: 'a1', 'a2', 'b1', 'b2'.
   String get code => name;
@@ -49,9 +52,12 @@ class LocalizedText {
   /// Wählt die Variante anhand des Sprachcodes ('de'|'en'|fallback 'de').
   String pick(String langCode) {
     switch (langCode) {
-      case 'en': return en.isNotEmpty ? en : de;
-      case 'ko': return ko;
-      default:   return de.isNotEmpty ? de : en;
+      case 'en':
+        return en.isNotEmpty ? en : de;
+      case 'ko':
+        return ko;
+      default:
+        return de.isNotEmpty ? de : en;
     }
   }
 
@@ -84,7 +90,7 @@ class VocabRef {
 
   factory VocabRef.fromJson(Map<String, dynamic> j) => VocabRef(
     korean: (j['korean'] as String?) ?? '',
-    aliases:  ((j['aliases']  as List?) ?? const []).cast<String>(),
+    aliases: ((j['aliases'] as List?) ?? const []).cast<String>(),
     variants: ((j['variants'] as List?) ?? const []).cast<String>(),
     note: LocalizedText.fromJsonOrNull(j['note']),
   );
@@ -113,9 +119,12 @@ class DialogLine {
 
   String pick(String langCode) {
     switch (langCode) {
-      case 'en': return en.isNotEmpty ? en : de;
-      case 'ko': return ko;
-      default:   return de.isNotEmpty ? de : en;
+      case 'en':
+        return en.isNotEmpty ? en : de;
+      case 'ko':
+        return ko;
+      default:
+        return de.isNotEmpty ? de : en;
     }
   }
 }
@@ -124,14 +133,22 @@ class DialogLine {
 enum QuestType {
   /// TTS-Hörverstehen → 4 Auswahlmöglichkeiten.
   hoerverstehen,
+
   /// Lückentext, ein Wort fehlt.
   luecken,
+
   /// DE/EN → KO Übersetzung (Multiple Choice).
   uebersetzen,
+
   /// Partikel-Spiel: 은/는, 이/가, 을/를, (으)로 ziehen.
   particlePop,
+
   /// Receiver-Konsonant (받침) wählen nach gehörtem Wort.
   batchimDrop,
+
+  /// Satz aus Wort-Kacheln selbst zusammensetzen (produktiv).
+  satzBauen,
+
   /// Hangul-Buchstabe nachzeichnen.
   schreiben;
 
@@ -174,6 +191,9 @@ class QuestSpec {
       case QuestType.batchimDrop:
         final t = (data['targetWord'] as String?) ?? '';
         return t.isNotEmpty ? [t] : const [];
+      case QuestType.satzBauen:
+        final t = (data['targetKo'] as String?) ?? '';
+        return t.isNotEmpty ? [t] : const [];
       case QuestType.particlePop:
       case QuestType.schreiben:
         return const [];
@@ -189,7 +209,7 @@ class CulturalNote {
 
   factory CulturalNote.fromJson(Map<String, dynamic> j) => CulturalNote(
     title: LocalizedText.fromJson(j['title'] as Map<String, dynamic>),
-    body:  LocalizedText.fromJson(j['body']  as Map<String, dynamic>),
+    body: LocalizedText.fromJson(j['body'] as Map<String, dynamic>),
   );
 
   /// Null-safe: gibt null zurück, wenn `culturalNote` kein Map ist oder
@@ -207,14 +227,16 @@ class CulturalNote {
 /// Inline Grammar-Block für Szenarien. Wenn ein Szenario einen spezifischen
 /// Pattern lehrt, der nicht in `grammar.csv` ist, wird er hier eingebettet.
 class GrammarBlock {
-  final LocalizedText title;        // z.B. "N(으)로 주세요"
-  final LocalizedText explanation;  // 2–4 Sätze Regel + Beispiele
+  final LocalizedText title; // z.B. "N(으)로 주세요"
+  final LocalizedText explanation; // 2–4 Sätze Regel + Beispiele
 
   const GrammarBlock({required this.title, required this.explanation});
 
   factory GrammarBlock.fromJson(Map<String, dynamic> j) => GrammarBlock(
-    title:       LocalizedText.fromJson(j['title']       as Map<String, dynamic>),
-    explanation: LocalizedText.fromJson(j['explanation'] as Map<String, dynamic>),
+    title: LocalizedText.fromJson(j['title'] as Map<String, dynamic>),
+    explanation: LocalizedText.fromJson(
+      j['explanation'] as Map<String, dynamic>,
+    ),
   );
 
   /// Null-safe (siehe [CulturalNote.fromJsonOrNull]).
@@ -229,10 +251,10 @@ class GrammarBlock {
 
 /// Register / Formalitätsstufe — bestimmt Ton der Dialoge.
 enum Register {
-  polite,     // ~요체 — Standard höflich (Café, Geschäft)
-  casual,     // 반말 — Freunde, Familie
-  business,   // 합쇼체 — Meeting, Vorstellung
-  intimate;   // 친밀한 반말 — Partner, enge Freunde
+  polite, // ~요체 — Standard höflich (Café, Geschäft)
+  casual, // 반말 — Freunde, Familie
+  business, // 합쇼체 — Meeting, Vorstellung
+  intimate; // 친밀한 반말 — Partner, enge Freunde
 
   static Register fromCode(String c) {
     for (final r in values) {
@@ -251,13 +273,13 @@ class Scenario {
   final LocalizedText intro;
   final List<VocabRef> vocab;
   final List<String> grammarIds;
-  final GrammarBlock? grammarBlock;  // inline grammar if not in grammar.csv
+  final GrammarBlock? grammarBlock; // inline grammar if not in grammar.csv
   final List<DialogLine> dialog;
   final List<QuestSpec> quests;
   final CulturalNote? culturalNote;
   final int xpReward;
-  final String? sidekick;        // 'minsu' | 'jieun' | null
-  final String? preferredVoice;  // hint für TTS voice picker (Phase 5b)
+  final String? sidekick; // 'minsu' | 'jieun' | null
+  final String? preferredVoice; // hint für TTS voice picker (Phase 5b)
 
   const Scenario({
     required this.id,
@@ -278,13 +300,15 @@ class Scenario {
   });
 
   factory Scenario.fromJson(Map<String, dynamic> j) => Scenario(
-    id:    (j['id'] as String?) ?? '',
+    id: (j['id'] as String?) ?? '',
     level: LearnerLevel.fromCode(j['level'] as String?) ?? LearnerLevel.a1,
     emoji: (j['emoji'] as String?) ?? '📖',
     register: Register.fromCode((j['register'] as String?) ?? 'polite'),
-    title: LocalizedText.fromJsonOrNull(j['title']) ??
+    title:
+        LocalizedText.fromJsonOrNull(j['title']) ??
         const LocalizedText(ko: '', de: '', en: ''),
-    intro: LocalizedText.fromJsonOrNull(j['intro']) ??
+    intro:
+        LocalizedText.fromJsonOrNull(j['intro']) ??
         const LocalizedText(ko: '', de: '', en: ''),
     vocab: ((j['vocab'] as List?) ?? const [])
         .map((e) => VocabRef.fromJson(e as Map<String, dynamic>))

@@ -1170,5 +1170,8 @@
   "coachQuestsBody": "Complete quests to unlock decorations for your Hanok courtyard",
 
   "coachScenariosTitle": "Situational dialogues",
-  "coachScenariosBody": "Tap a scenario and practice real everyday situations — unlocked from A2 onwards"
+  "coachScenariosBody": "Tap a scenario and practice real everyday situations — unlocked from A2 onwards",
+
+  "questSatzBauenInstruction": "Tap the words in the correct order",
+  "questCheckAnswer": "Check"
 }

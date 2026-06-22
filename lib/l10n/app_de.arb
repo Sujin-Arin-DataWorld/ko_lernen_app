@@ -1171,5 +1171,8 @@
   "coachQuestsBody": "Erledige Quests, um Dekorationen für deinen Hanok-Hof freizuschalten",
 
   "coachScenariosTitle": "Situationsgespräche",
-  "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar"
+  "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar",
+
+  "questSatzBauenInstruction": "Tippe die Wörter in der richtigen Reihenfolge an",
+  "questCheckAnswer": "Überprüfen"
 }

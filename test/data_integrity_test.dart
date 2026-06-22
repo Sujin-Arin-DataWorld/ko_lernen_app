@@ -55,6 +55,7 @@ void main() {
         'uebersetzen',
         'particlePop',
         'batchimDrop',
+        'satzBauen',
         'schreiben',
       };
 
@@ -320,6 +321,27 @@ void _expectQuestData(String type, Map<String, dynamic> data, String label) {
         (data['explanationEn'] as String? ?? '').trim(),
         isNotEmpty,
         reason: '$label.explanationEn',
+      );
+    case 'satzBauen':
+      expect(
+        (data['targetKo'] as String? ?? '').trim(),
+        isNotEmpty,
+        reason: '$label.targetKo',
+      );
+      expect(
+        (data['promptDe'] as String? ?? '').trim(),
+        isNotEmpty,
+        reason: '$label.promptDe',
+      );
+      expect(
+        (data['promptEn'] as String? ?? '').trim(),
+        isNotEmpty,
+        reason: '$label.promptEn',
+      );
+      expect(
+        data['distractors'],
+        isA<List<dynamic>>(),
+        reason: '$label.distractors',
       );
     case 'schreiben':
       expect(data, isNotEmpty, reason: label);

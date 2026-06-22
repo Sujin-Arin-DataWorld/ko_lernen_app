@@ -3054,4 +3054,10 @@ class AppL10nEn extends AppL10n {
   @override
   String get coachScenariosBody =>
       'Tap a scenario and practice real everyday situations — unlocked from A2 onwards';
+
+  @override
+  String get questSatzBauenInstruction => 'Tap the words in the correct order';
+
+  @override
+  String get questCheckAnswer => 'Check';
 }

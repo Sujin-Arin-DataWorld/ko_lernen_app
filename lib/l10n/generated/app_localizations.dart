@@ -5628,6 +5628,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar'**
   String get coachScenariosBody;
+
+  /// No description provided for @questSatzBauenInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe die Wörter in der richtigen Reihenfolge an'**
+  String get questSatzBauenInstruction;
+
+  /// No description provided for @questCheckAnswer.
+  ///
+  /// In de, this message translates to:
+  /// **'Überprüfen'**
+  String get questCheckAnswer;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

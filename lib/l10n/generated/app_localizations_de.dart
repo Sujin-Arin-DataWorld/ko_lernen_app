@@ -3070,4 +3070,11 @@ class AppL10nDe extends AppL10n {
   @override
   String get coachScenariosBody =>
       'Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar';
+
+  @override
+  String get questSatzBauenInstruction =>
+      'Tippe die Wörter in der richtigen Reihenfolge an';
+
+  @override
+  String get questCheckAnswer => 'Überprüfen';
 }

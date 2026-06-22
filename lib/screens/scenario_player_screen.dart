@@ -23,6 +23,7 @@ import 'quest_engines/luecken_quest.dart';
 import 'quest_engines/batchim_drop_quest.dart';
 import 'quest_engines/particle_pop_quest.dart';
 import 'quest_engines/quest_models.dart';
+import 'quest_engines/satz_bauen_quest.dart';
 import 'quest_engines/uebersetzen_quest.dart';
 
 class ScenarioPlayerScreen extends StatefulWidget {
@@ -647,6 +648,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         );
       case QuestType.batchimDrop:
         questWidget = BatchimDropQuest(
+          data: spec.data,
+          onComplete: (r) {
+            _onQuestComplete(r);
+          },
+        );
+      case QuestType.satzBauen:
+        questWidget = SatzBauenQuest(
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
