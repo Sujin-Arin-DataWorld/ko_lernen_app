@@ -5658,6 +5658,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bedeutung zeigen'**
   String get diktatShowMeaning;
+
+  /// No description provided for @scenarioRoleplayTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Rollenspiel'**
+  String get scenarioRoleplayTitle;
+
+  /// No description provided for @scenarioRoleplayHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt bist du dran — bau deine Antworten selbst'**
+  String get scenarioRoleplayHint;
+
+  /// No description provided for @scenarioRoleplayTurn.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antwort'**
+  String get scenarioRoleplayTurn;
+
+  /// No description provided for @scenarioRoleplayDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Rollenspiel geschafft! Du hast das Gespräch selbst geführt.'**
+  String get scenarioRoleplayDone;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

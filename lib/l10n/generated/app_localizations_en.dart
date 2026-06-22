@@ -3069,4 +3069,17 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get diktatShowMeaning => 'Show meaning';
+
+  @override
+  String get scenarioRoleplayTitle => 'Role-play';
+
+  @override
+  String get scenarioRoleplayHint => 'Your turn now — build your own replies';
+
+  @override
+  String get scenarioRoleplayTurn => 'Your reply';
+
+  @override
+  String get scenarioRoleplayDone =>
+      'Role-play complete! You carried the conversation yourself.';
 }

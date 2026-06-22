@@ -1178,5 +1178,10 @@
 
   "diktatInstruction": "Hör zu und tippe, was du hörst",
   "diktatSpacingHint": "Fast! Achte auf die Wortabstände",
-  "diktatShowMeaning": "Bedeutung zeigen"
+  "diktatShowMeaning": "Bedeutung zeigen",
+
+  "scenarioRoleplayTitle": "Rollenspiel",
+  "scenarioRoleplayHint": "Jetzt bist du dran — bau deine Antworten selbst",
+  "scenarioRoleplayTurn": "Deine Antwort",
+  "scenarioRoleplayDone": "Rollenspiel geschafft! Du hast das Gespräch selbst geführt."
 }

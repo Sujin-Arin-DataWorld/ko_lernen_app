@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -27,6 +29,28 @@ import 'quest_engines/quest_models.dart';
 import 'quest_engines/satz_bauen_quest.dart';
 import 'quest_engines/uebersetzen_quest.dart';
 
+/// Reihenfolge der Lern-Stages eines Szenarios.
+/// Top-level + public → die Index-Mathematik ist rein testbar.
+enum ScenarioStage { intro, vocab, dialog, grammar, rollenspiel, quest, result }
+
+/// Baut den Stage-Plan. `quest` erscheint [questCount]-mal. Rein (keine State),
+/// damit Stage-Zählung/Quest-Index-Mapping per Unit-Test abgesichert sind.
+List<ScenarioStage> buildScenarioStagePlan({
+  required bool hasRollenspiel,
+  required bool hasGrammar,
+  required int questCount,
+}) {
+  return [
+    ScenarioStage.intro,
+    ScenarioStage.vocab,
+    ScenarioStage.dialog,
+    if (hasGrammar) ScenarioStage.grammar,
+    if (hasRollenspiel) ScenarioStage.rollenspiel,
+    for (var i = 0; i < questCount; i++) ScenarioStage.quest,
+    ScenarioStage.result,
+  ];
+}
+
 class ScenarioPlayerScreen extends StatefulWidget {
   final String scenarioId;
 
@@ -39,6 +63,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
 class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     with ScreenCoachMixin<ScenarioPlayerScreen> {
   Scenario? _scenario;
+  List<ScenarioStage> _plan = const [];
   int _stage = 0;
   int _firstTryPassedCount = 0;
   int _passedCount = 0;
@@ -115,7 +140,16 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         return;
       }
     }
-    if (mounted) setState(() => _scenario = s);
+    if (mounted) {
+      setState(() {
+        _scenario = s;
+        _plan = buildScenarioStagePlan(
+          hasRollenspiel: s.dialog.any((l) => l.speaker == 'user'),
+          hasGrammar: s.grammarBlock != null,
+          questCount: s.quests.length,
+        );
+      });
+    }
   }
 
   // ─── Backdrop-Map ──────────────────────────────────────────────────────────
@@ -125,36 +159,23 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   /// same mapping (single source of truth).
   String? get _backdropKey => _scenario?.backdropKey;
 
-  // ─── Stage-Berechnung ──────────────────────────────────────────────────────
+  // ─── Stage-Berechnung (plan-basiert, siehe buildScenarioStagePlan) ─────────
 
-  /// Gesamtzahl der Stages:
-  /// 0=Intro, 1=Vocab, 2=Dialog, [3=Grammar], 3/4..N=Quests, last=Result
-  int get _totalStages {
-    final s = _scenario;
-    if (s == null) return 1;
-    int count = 3; // Intro + Vocab + Dialog
-    if (s.grammarBlock != null) count++;
-    count += s.quests.length;
-    count++; // Result
-    return count;
-  }
+  int get _totalStages => _scenario == null ? 1 : _plan.length;
 
-  bool get _hasGrammar => _scenario?.grammarBlock != null;
-
-  /// Index des ersten Quest-Stages
-  int get _questStartStage => _hasGrammar ? 4 : 3;
+  /// Index des ersten Quest-Stages (oder -1, falls keine Quests).
+  int get _questStartStage => _plan.indexOf(ScenarioStage.quest);
 
   /// Ist die aktuelle Stage die Ergebnis-Stage?
   bool get _isResultStage {
-    final s = _scenario;
-    if (s == null) return false;
-    return _stage == _questStartStage + s.quests.length;
+    if (_scenario == null || _stage < 0 || _stage >= _plan.length) return false;
+    return _plan[_stage] == ScenarioStage.result;
   }
 
   /// Quest-Index (0-basiert) der aktuellen Stage
   int get _currentQuestIndex => _stage - _questStartStage;
 
-  double get _progress => _totalStages == 0 ? 0 : _stage / (_totalStages - 1);
+  double get _progress => _totalStages <= 1 ? 0 : _stage / (_totalStages - 1);
 
   // ─── Navigation ────────────────────────────────────────────────────────────
 
@@ -163,13 +184,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final nextStage = _stage + 1;
     if (nextStage >= _totalStages) return;
 
-    // Wenn nächste Stage Quest ist → questReady = false
-    final nextIsQuest =
-        nextStage >= _questStartStage &&
-        nextStage < _questStartStage + (_scenario?.quests.length ?? 0);
+    // Quest und Rollenspiel müssen erst abgeschlossen werden → Next sperren.
+    final nextKind = _plan[nextStage];
+    final nextNeedsCompletion =
+        nextKind == ScenarioStage.quest ||
+        nextKind == ScenarioStage.rollenspiel;
     setState(() {
       _stage = nextStage;
-      _questReady = !nextIsQuest;
+      _questReady = !nextNeedsCompletion;
     });
     _pageCtrl.animateToPage(
       nextStage,
@@ -968,25 +990,56 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // ─── Stage-Dispatcher ──────────────────────────────────────────────────────
 
   Widget _buildStage(int index, AppL10n t, String lang) {
-    if (index == 0) return _buildIntro(t, lang);
-    if (index == 1) return _buildVocab(t, lang);
-    if (index == 2) return _buildDialog(t, lang);
-
-    if (_hasGrammar) {
-      if (index == 3) return _buildGrammar(t, lang);
+    if (index < 0 || index >= _plan.length) return const SizedBox.shrink();
+    switch (_plan[index]) {
+      case ScenarioStage.intro:
+        return _buildIntro(t, lang);
+      case ScenarioStage.vocab:
+        return _buildVocab(t, lang);
+      case ScenarioStage.dialog:
+        return _buildDialog(t, lang);
+      case ScenarioStage.grammar:
+        return _buildGrammar(t, lang);
+      case ScenarioStage.rollenspiel:
+        return _buildRollenspiel(t, lang);
+      case ScenarioStage.quest:
+        final quests = _scenario!.quests;
+        final questIdx = index - _questStartStage;
+        if (questIdx >= 0 && questIdx < quests.length) {
+          return _buildQuest(quests[questIdx], t);
+        }
+        return const SizedBox.shrink();
+      case ScenarioStage.result:
+        return _buildResult(t, lang);
     }
+  }
 
-    if (index >= _questStartStage) {
-      final questIdx = index - _questStartStage;
-      final quests = _scenario!.quests;
-      if (questIdx < quests.length) {
-        return _buildQuest(quests[questIdx], t);
-      }
-      // Result stage
-      return _buildResult(t, lang);
-    }
+  // ─── Rollenspiel-Stage (inline produktive Antworten) ───────────────────────
 
-    return const SizedBox.shrink();
+  Widget _buildRollenspiel(AppL10n t, String lang) {
+    return _StageScroll(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _StageTitle(t.scenarioRoleplayTitle, SoriColors.tiger),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.scenarioRoleplayHint,
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: SoriSurfaces.of(context).textMuted),
+          ),
+          const SizedBox(height: Spacing.lg),
+          _RollenspielStage(
+            scenario: _scenario!,
+            lang: lang,
+            onDone: () {
+              if (mounted) setState(() => _questReady = true);
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   // ─── Bottom Button ─────────────────────────────────────────────────────────
@@ -1241,6 +1294,173 @@ class _RecapLine extends StatelessWidget {
             text,
             style: SoriTextTheme.of(context).bodySmall.copyWith(color: ss.text),
           ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Eine Gesprächsrunde: vorhergehende NPC-Zeile (Stichwort) + die vom
+/// Lernenden zu bauende Antwort.
+class _Turn {
+  final DialogLine? context;
+  final DialogLine user;
+  const _Turn(this.context, this.user);
+}
+
+/// Inline-Rollenspiel: der Lernende baut nacheinander **seine eigenen
+/// Antworten** (speaker:'user') aus Wort-Kacheln — der gelesene Dialog wird
+/// zum Gespräch, das man selbst spricht. Wiederverwendet [SatzBauenQuest].
+class _RollenspielStage extends StatefulWidget {
+  final Scenario scenario;
+  final String lang;
+  final VoidCallback onDone;
+
+  const _RollenspielStage({
+    required this.scenario,
+    required this.lang,
+    required this.onDone,
+  });
+
+  @override
+  State<_RollenspielStage> createState() => _RollenspielStageState();
+}
+
+class _RollenspielStageState extends State<_RollenspielStage> {
+  late final List<_Turn> _turns;
+  late final List<String> _pool; // Distraktor-Quelle (echte Dialog-Wörter)
+  int _idx = 0;
+  bool _done = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final dialog = widget.scenario.dialog;
+    final turns = <_Turn>[];
+    for (var i = 0; i < dialog.length; i++) {
+      if (dialog[i].speaker == 'user') {
+        final prev = i > 0 ? dialog[i - 1] : null;
+        // Narrator/eigene Vorzeile nicht als Stichwort zeigen.
+        final ctx = (prev != null && prev.speaker != 'user') ? prev : null;
+        turns.add(_Turn(ctx, dialog[i]));
+      }
+    }
+    _turns = turns;
+
+    final pool = <String>{};
+    for (final l in dialog) {
+      for (final tk in SatzBauenQuest.tokenize(l.ko)) {
+        if (tk.length >= 2) pool.add(tk);
+      }
+    }
+    _pool = pool.toList()..sort();
+
+    if (_turns.isEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          setState(() => _done = true);
+          widget.onDone();
+        }
+      });
+    }
+  }
+
+  Map<String, dynamic> _dataFor(DialogLine line) {
+    final targetTokens = SatzBauenQuest.tokenize(line.ko).toSet();
+    final candidates = _pool.where((w) => !targetTokens.contains(w)).toList();
+    candidates.shuffle(math.Random(line.ko.hashCode));
+    return {
+      'targetKo': line.ko,
+      'promptDe': line.de,
+      'promptEn': line.en,
+      'distractors': candidates.take(2).toList(),
+      'audioKo': line.ko,
+    };
+  }
+
+  void _onTurnComplete(QuestResult _) {
+    if (_idx + 1 >= _turns.length) {
+      setState(() => _done = true);
+      widget.onDone();
+    } else {
+      setState(() => _idx++);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+
+    if (_done || _turns.isEmpty) {
+      return SoriCard(
+        variant: SoriCardVariant.base,
+        accent: SoriColors.success,
+        tinted: true,
+        width: double.infinity,
+        child: Row(
+          children: [
+            Mascot.tiger(emotion: MascotEmotion.celebrate, size: 48),
+            const SizedBox(width: Spacing.md),
+            Expanded(
+              child: Text(
+                t.scenarioRoleplayDone,
+                style: SoriTextTheme.of(context).body.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: SoriColors.success,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    final turn = _turns[_idx];
+    final ctx = turn.context;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          '${t.scenarioRoleplayTurn} ${_idx + 1}/${_turns.length}',
+          style: SoriTextTheme.of(context).caption.copyWith(color: s.textMuted),
+        ),
+        const SizedBox(height: Spacing.sm),
+        if (ctx != null) ...[
+          SoriCard(
+            variant: SoriCardVariant.compact,
+            accent: SoriColors.success,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  ctx.ko,
+                  style: TextStyle(
+                    color: s.text,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    height: 1.4,
+                  ),
+                ),
+                if (ctx.pick(widget.lang).isNotEmpty) ...[
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    ctx.pick(widget.lang),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).bodySmall.copyWith(color: s.textDim),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: Spacing.md),
+        ],
+        SatzBauenQuest(
+          key: ValueKey('roleplay_${turn.user.ko}_$_idx'),
+          data: _dataFor(turn.user),
+          onComplete: _onTurnComplete,
         ),
       ],
     );

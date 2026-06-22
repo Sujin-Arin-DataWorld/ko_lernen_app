@@ -340,6 +340,14 @@ flutter run -d <android-id>   # 안드로이드
 - **콘텐츠 시드 8**(A1/A2 단문, satzBauen과 다른 줄: airport 여권·introduce 어디서·taxi 강남역·bunshik 사이다·pharmacy 어디가·mart 사과·cafe_study 콘센트·ktx 왕복) — 기존 대사 ko/de/en 재사용. diff 72추가/0삭제.
 - l10n DE/EN +3(`diktatInstruction`·`diktatSpacingHint`·`diktatShowMeaning`) → **927=927**. 테스트 +11(`diktat_quest_test`: 비교로직·시드) + data_integrity diktat allowlist/검증.
 - **검증:** analyze **0** · `flutter test` **423 통과**(+11) · gen-l10n OK · dart format. ⚠️ 미검증(Jin 실기기): 받아쓰기 TTS 자동재생·한글 IME 입력·띄어쓰기 힌트·정답공개·다크.
+- **Git:** 커밋·푸시 완료 — **5dee2bb**(내 12파일만).
+
+**Phase 3 ① (같은 날 후속 — 인라인 역할극 스테이지):** 시나리오를 "읽기"에서 "직접 말하기"로. 대화의 모든 `speaker:"user"` 대사를 **그 자리에서 단어 타일로 조립**(SatzBauenQuest 재사용)하는 Rollenspiel 스테이지 추가 = 진짜 역할극.
+- **스테이지 인덱스 리팩토링(회귀 방지 핵심):** 산재하던 `_totalStages`/`_questStartStage`/`_isResultStage`/`_currentQuestIndex` getter를 **순수 공개 함수 `buildScenarioStagePlan(hasRollenspiel,hasGrammar,questCount)` → `List<ScenarioStage>`**로 추출. State는 `_plan` 보유, `_buildStage`는 `_plan[index]` switch. 인덱스 산술이 **유닛 테스트 대상**이 됨(`scenario_stage_plan_test` 5).
+- 플랜 순서: intro→vocab→dialog→(grammar?)→(rollenspiel?)→quest×N→result. rollenspiel은 quest처럼 완료해야 Next 활성(`_questReady`). **별점/실패-SRS 산술 불변**(rollenspiel은 `_onQuestComplete` 미경유 → `_passedCount`/`_failedQuestIndices` 오염 0).
+- **`_RollenspielStage` 위젯**(파일 내): user 대사들을 순차 제시(상대 NPC 직전 대사를 stichwort 카드로 + 진행 n/m), 각 턴 SatzBauenQuest(distractors=같은 대화 실제 어절 2, 런타임 파생) → 마지막 완료 시 onDone→완료 카드(호랑이 celebrate). 모든 33시나리오 user 대사 ≥1 보장(테스트).
+- l10n DE/EN +4(`scenarioRoleplayTitle/Hint/Turn/Done`) → **931=931**. 테스트 +5(stage plan 산술·user 대사 커버리지).
+- **검증:** analyze **0** · `flutter test` **428 통과**(+5) · gen-l10n OK · dart format. ⚠️ 미검증(Jin 실기기): 역할극 진입·턴 진행·완료 게이트·Next 활성·다크. (참고: rollenspiel이 전 user 대사를 커버하므로 Phase1의 satzBauen 시드 8은 일부 중복 — 추후 정리 후보, 현재는 유지.)
 - **Git:** 별도 커밋 예정.
 
 ### 2026-06-18 (독일어·영어·한국어 자연스러움 전수 검사) — 미커밋

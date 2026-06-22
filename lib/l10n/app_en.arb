@@ -1177,5 +1177,10 @@
 
   "diktatInstruction": "Listen and type what you hear",
   "diktatSpacingHint": "Almost! Check the word spacing",
-  "diktatShowMeaning": "Show meaning"
+  "diktatShowMeaning": "Show meaning",
+
+  "scenarioRoleplayTitle": "Role-play",
+  "scenarioRoleplayHint": "Your turn now — build your own replies",
+  "scenarioRoleplayTurn": "Your reply",
+  "scenarioRoleplayDone": "Role-play complete! You carried the conversation yourself."
 }
