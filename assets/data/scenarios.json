@@ -431,6 +431,15 @@
       ],
       "audioKo": "네, 여기 있어요."
      }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "여권 보여주세요.",
+      "audioKo": "여권 보여주세요.",
+      "promptDe": "Bitte Ihren Pass.",
+      "promptEn": "Passport, please."
+     }
     }
    ],
    "culturalNote": {
@@ -645,6 +654,15 @@
       "correctIndex": 0,
       "explanationDe": "녕 besteht aus ㄴ + ㅕ + ㅇ. Das ㅇ am Silbenende klingt wie \"ng\" in \"Hong Kong\". Anfang ㅇ ist stumm, am Ende klingt es.",
       "explanationEn": "녕 is built from ㄴ + ㅕ + ㅇ. The ㅇ at syllable end sounds like \"ng\" in \"Hong Kong\". At onset it's silent, at end it sounds."
+     }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "어디서 오셨어요?",
+      "audioKo": "어디서 오셨어요?",
+      "promptDe": "Woher kommen Sie?",
+      "promptEn": "Where are you from?"
      }
     }
    ],
@@ -1252,6 +1270,15 @@
       ],
       "audioKo": "아니요, 천천히 가셔도 돼요."
      }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "강남역까지 가주세요.",
+      "audioKo": "강남역까지 가주세요.",
+      "promptDe": "Bis zur Gangnam Station, bitte.",
+      "promptEn": "To Gangnam Station, please."
+     }
     }
    ],
    "culturalNote": {
@@ -1458,6 +1485,15 @@
        "아니요"
       ],
       "audioKo": "떡볶이 한 인분이랑 김밥 하나 주세요."
+     }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "사이다 한 캔이요.",
+      "audioKo": "사이다 한 캔이요.",
+      "promptDe": "Eine Dose Limo.",
+      "promptEn": "One can of Sprite."
      }
     }
    ],
@@ -2466,6 +2502,15 @@
        }
       ],
       "correctIndex": 0
+     }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "어디가 아프세요?",
+      "audioKo": "어디가 아프세요?",
+      "promptDe": "Wo tut's weh?",
+      "promptEn": "What hurts?"
      }
     }
    ],
@@ -4906,6 +4951,15 @@
       ],
       "audioKo": "부산행 KTX 한 장 주세요."
      }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "왕복으로 주세요.",
+      "audioKo": "왕복으로 주세요.",
+      "promptDe": "Hin und zurück, bitte.",
+      "promptEn": "Round trip, please."
+     }
     }
    ],
    "culturalNote": {
@@ -5117,6 +5171,15 @@
        "기다려줘"
       ],
       "audioKo": "여기 앉아도 돼요?"
+     }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "콘센트는 어디 있어요?",
+      "audioKo": "콘센트는 어디 있어요?",
+      "promptDe": "Wo ist eine Steckdose?",
+      "promptEn": "Where is a power outlet?"
      }
     }
    ],
@@ -5527,6 +5590,15 @@
        "김밥"
       ],
       "audioKo": "저기요, 우유 어디 있어요?"
+     }
+    },
+    {
+     "type": "diktat",
+     "data": {
+      "targetKo": "사과는 얼마예요?",
+      "audioKo": "사과는 얼마예요?",
+      "promptDe": "Wie viel kosten die Äpfel?",
+      "promptEn": "How much are the apples?"
      }
     }
    ],

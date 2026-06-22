@@ -5640,6 +5640,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Überprüfen'**
   String get questCheckAnswer;
+
+  /// No description provided for @diktatInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Hör zu und tippe, was du hörst'**
+  String get diktatInstruction;
+
+  /// No description provided for @diktatSpacingHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast! Achte auf die Wortabstände'**
+  String get diktatSpacingHint;
+
+  /// No description provided for @diktatShowMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung zeigen'**
+  String get diktatShowMeaning;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

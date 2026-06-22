@@ -1173,5 +1173,9 @@
   "coachScenariosBody": "Tap a scenario and practice real everyday situations — unlocked from A2 onwards",
 
   "questSatzBauenInstruction": "Tap the words in the correct order",
-  "questCheckAnswer": "Check"
+  "questCheckAnswer": "Check",
+
+  "diktatInstruction": "Listen and type what you hear",
+  "diktatSpacingHint": "Almost! Check the word spacing",
+  "diktatShowMeaning": "Show meaning"
 }

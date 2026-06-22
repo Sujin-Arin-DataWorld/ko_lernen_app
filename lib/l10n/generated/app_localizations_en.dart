@@ -3060,4 +3060,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get questCheckAnswer => 'Check';
+
+  @override
+  String get diktatInstruction => 'Listen and type what you hear';
+
+  @override
+  String get diktatSpacingHint => 'Almost! Check the word spacing';
+
+  @override
+  String get diktatShowMeaning => 'Show meaning';
 }

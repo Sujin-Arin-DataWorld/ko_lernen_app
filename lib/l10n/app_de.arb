@@ -1174,5 +1174,9 @@
   "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar",
 
   "questSatzBauenInstruction": "Tippe die Wörter in der richtigen Reihenfolge an",
-  "questCheckAnswer": "Überprüfen"
+  "questCheckAnswer": "Überprüfen",
+
+  "diktatInstruction": "Hör zu und tippe, was du hörst",
+  "diktatSpacingHint": "Fast! Achte auf die Wortabstände",
+  "diktatShowMeaning": "Bedeutung zeigen"
 }

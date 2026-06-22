@@ -3077,4 +3077,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get questCheckAnswer => 'Überprüfen';
+
+  @override
+  String get diktatInstruction => 'Hör zu und tippe, was du hörst';
+
+  @override
+  String get diktatSpacingHint => 'Fast! Achte auf die Wortabstände';
+
+  @override
+  String get diktatShowMeaning => 'Bedeutung zeigen';
 }

@@ -149,6 +149,9 @@ enum QuestType {
   /// Satz aus Wort-Kacheln selbst zusammensetzen (produktiv).
   satzBauen,
 
+  /// Diktat: gehörten Satz selbst tippen (produktiv, Hör+Schreib).
+  diktat,
+
   /// Hangul-Buchstabe nachzeichnen.
   schreiben;
 
@@ -192,6 +195,7 @@ class QuestSpec {
         final t = (data['targetWord'] as String?) ?? '';
         return t.isNotEmpty ? [t] : const [];
       case QuestType.satzBauen:
+      case QuestType.diktat:
         final t = (data['targetKo'] as String?) ?? '';
         return t.isNotEmpty ? [t] : const [];
       case QuestType.particlePop:

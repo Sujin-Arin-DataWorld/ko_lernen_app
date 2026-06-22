@@ -332,7 +332,15 @@ flutter run -d <android-id>   # 안드로이드
 
 **검증:** `flutter analyze lib test` **0** · `flutter test` **412 통과**(+12) · ARB parity 924=924 · gen-l10n OK · dart format. ⚠️ 미검증(Jin 실기기 `flutter run -d 9053622f`): 문장 짓기 타일 조립·오답 하이라이트·셀러브레이션·다크모드 시각.
 
-**Git:** 미커밋(Jin 확인 후). 변경: satz_bauen_quest.dart·scenario.dart·scenario_player_screen.dart·scenarios.json·app_de/en.arb(+generated)·data_integrity_test.dart + 신규 satz_bauen_quest_test.dart·REAL_LIFE_ACQUISITION_REVIEW 문서. (동시세션 tiger_video 계열 파일은 미손댐.)
+**Git:** 커밋·푸시 완료 — **c6c1aa1**(내 13파일만; 동시세션 tiger_video·pubspec·main/app_shell/home/quick_onboarding은 미스테이징). push에 직전 미푸시 로컬커밋 a1e6cc8·99c9a57 동반 상승(이미 커밋돼 있던 Jin 작업).
+
+**Phase 2 (같은 날 후속 — 받아쓰기(Diktat) 산출 퀘스트):** satzBauen과 대칭의 두 번째 산출 모드. 듣기+철자 인출.
+- **`lib/screens/quest_engines/diktat_quest.dart` 신규** — `DiktatQuest`: TTS(정상/느림 2버튼, 진입 시 1회 자동재생) → 한국어 TextField 직접 입력 → "확인". **띄어쓰기-only 오류는 별도 amber 힌트**(`isSpacingOnly`, 어순/철자는 맞고 공백만 틀림 = 한국어 최난점 배려), 그 외 오답 2회 후 정답공개. 💡뜻보기 토글. 채점 순수함수 `normalize`/`isExact`/`isSpacingOnly`. 컨트롤러는 State 소유·dispose(과거 "disposed controller" 크래시 안티패턴 회피).
+- `scenario.dart` `QuestType.diktat` + `targetVocabKeys`→[targetKo] · `scenario_player_screen.dart` 디스패치+import.
+- **콘텐츠 시드 8**(A1/A2 단문, satzBauen과 다른 줄: airport 여권·introduce 어디서·taxi 강남역·bunshik 사이다·pharmacy 어디가·mart 사과·cafe_study 콘센트·ktx 왕복) — 기존 대사 ko/de/en 재사용. diff 72추가/0삭제.
+- l10n DE/EN +3(`diktatInstruction`·`diktatSpacingHint`·`diktatShowMeaning`) → **927=927**. 테스트 +11(`diktat_quest_test`: 비교로직·시드) + data_integrity diktat allowlist/검증.
+- **검증:** analyze **0** · `flutter test` **423 통과**(+11) · gen-l10n OK · dart format. ⚠️ 미검증(Jin 실기기): 받아쓰기 TTS 자동재생·한글 IME 입력·띄어쓰기 힌트·정답공개·다크.
+- **Git:** 별도 커밋 예정.
 
 ### 2026-06-18 (독일어·영어·한국어 자연스러움 전수 검사) — 미커밋
 

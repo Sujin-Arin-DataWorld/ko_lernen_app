@@ -21,6 +21,7 @@ import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
 import 'quest_engines/luecken_quest.dart';
 import 'quest_engines/batchim_drop_quest.dart';
+import 'quest_engines/diktat_quest.dart';
 import 'quest_engines/particle_pop_quest.dart';
 import 'quest_engines/quest_models.dart';
 import 'quest_engines/satz_bauen_quest.dart';
@@ -655,6 +656,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         );
       case QuestType.satzBauen:
         questWidget = SatzBauenQuest(
+          data: spec.data,
+          onComplete: (r) {
+            _onQuestComplete(r);
+          },
+        );
+      case QuestType.diktat:
+        questWidget = DiktatQuest(
           data: spec.data,
           onComplete: (r) {
             _onQuestComplete(r);
