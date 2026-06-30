@@ -2367,6 +2367,12 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get satzArcadeTitle => 'Build a Sentence';
+
+  @override
+  String get satzArcadeDesc => 'Order words into a sentence';
+
+  @override
   String get homeWordbookCardTitle => 'My word list';
 
   @override

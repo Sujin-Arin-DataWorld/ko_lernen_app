@@ -4405,6 +4405,18 @@ abstract class AppL10n {
   /// **'{count} Tage in Folge'**
   String dailyStreak(int count);
 
+  /// No description provided for @satzArcadeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz bauen'**
+  String get satzArcadeTitle;
+
+  /// No description provided for @satzArcadeDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter zum Satz ordnen'**
+  String get satzArcadeDesc;
+
   /// No description provided for @homeWordbookCardTitle.
   ///
   /// In de, this message translates to:

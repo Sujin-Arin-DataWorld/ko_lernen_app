@@ -894,6 +894,8 @@
   "dailyDesc": "Daily puzzle · streak",
   "dailyAlreadyDone": "Already done today — practice mode",
   "dailyStreak": "{count}-day streak",
+  "satzArcadeTitle": "Build a Sentence",
+  "satzArcadeDesc": "Order words into a sentence",
 
   "homeWordbookCardTitle": "My word list",
   "homeWordbookCardDesc": "Build and study your own list",

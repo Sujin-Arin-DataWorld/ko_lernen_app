@@ -58,6 +58,7 @@ import 'screens/chosung_quiz_screen.dart';
 import 'screens/cloze_game_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/daily_challenge_screen.dart';
+import 'screens/satz_arcade_screen.dart';
 import 'screens/wordle_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
@@ -297,6 +298,9 @@ class KoLernenApp extends StatelessWidget {
             case '/daily':
               return SoriTransitions.fadeScale(
                   (_) => const DailyChallengeScreen(), settings: settings);
+            case '/satz_arcade':
+              return SoriTransitions.fadeScale(
+                  (_) => const SatzArcadeScreen(), settings: settings);
             case '/settings':
               return SoriTransitions.fadeScale(
                   (_) => const SettingsScreen(), settings: settings);

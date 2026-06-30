@@ -191,6 +191,14 @@ class PracticeHubScreen extends StatelessWidget {
       ribbonType: 'new',
     ),
     _HubItem(
+      icon: Icons.reorder_rounded,
+      title: t.satzArcadeTitle,
+      subtitle: t.satzArcadeDesc,
+      accent: SoriColors.accent,
+      route: '/satz_arcade',
+      ribbonType: 'new',
+    ),
+    _HubItem(
       icon: Icons.link_rounded,
       title: t.gameKkeunmariTitle,
       subtitle: t.gameKkeunmariDesc,

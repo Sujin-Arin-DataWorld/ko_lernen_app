@@ -2378,6 +2378,12 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get satzArcadeTitle => 'Satz bauen';
+
+  @override
+  String get satzArcadeDesc => 'Wörter zum Satz ordnen';
+
+  @override
   String get homeWordbookCardTitle => 'Eigene Wortliste';
 
   @override

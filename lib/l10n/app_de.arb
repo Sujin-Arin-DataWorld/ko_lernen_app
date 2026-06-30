@@ -910,6 +910,8 @@
   "@dailyStreak": {
     "placeholders": { "count": { "type": "int" } }
   },
+  "satzArcadeTitle": "Satz bauen",
+  "satzArcadeDesc": "Wörter zum Satz ordnen",
 
   "homeWordbookCardTitle": "Eigene Wortliste",
   "homeWordbookCardDesc": "Selbst erstellen & üben",
