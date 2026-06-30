@@ -23,8 +23,9 @@ class PracticeHubScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final streak = Storage.streakDays;
-    final streakLabel =
-        streak > 0 ? t.hubPracticeStreak(streak) : t.hubPracticeStreakZero;
+    final streakLabel = streak > 0
+        ? t.hubPracticeStreak(streak)
+        : t.hubPracticeStreakZero;
     return Scaffold(
       appBar: AppBar(title: Text(t.navPractice)),
       body: SafeArea(
@@ -119,119 +120,127 @@ class PracticeHubScreen extends StatelessWidget {
   }
 
   List<_HubItem> _learnItems(AppL10n t) => [
-        _HubItem(
-          icon: Icons.text_fields_rounded,
-          title: t.moduleHangulTitle,
-          subtitle: t.moduleHangulDesc,
-          accent: SoriColors.hangul,
-          route: '/hangul',
-        ),
-        _HubItem(
-          icon: Icons.edit_note_rounded,
-          title: t.moduleGrammarTitle,
-          subtitle: t.moduleGrammarDesc,
-          accent: SoriColors.warning,
-          route: '/grammar',
-        ),
-        _HubItem(
-          icon: Icons.forum_rounded,
-          title: t.moduleScenariosTitle,
-          subtitle: t.moduleScenariosDesc,
-          accent: SoriColors.accent,
-          route: '/scenarios',
-        ),
-        _HubItem(
-          icon: Icons.photo_camera_outlined,
-          title: t.homeBookCardTitle,
-          subtitle: t.homeBookCardDesc,
-          accent: SoriColors.info,
-          route: '/book',
-          ribbonType: 'new',
-        ),
-      ];
+    _HubItem(
+      icon: Icons.text_fields_rounded,
+      title: t.moduleHangulTitle,
+      subtitle: t.moduleHangulDesc,
+      accent: SoriColors.hangul,
+      route: '/hangul',
+    ),
+    _HubItem(
+      icon: Icons.edit_note_rounded,
+      title: t.moduleGrammarTitle,
+      subtitle: t.moduleGrammarDesc,
+      accent: SoriColors.warning,
+      route: '/grammar',
+    ),
+    _HubItem(
+      icon: Icons.forum_rounded,
+      title: t.moduleScenariosTitle,
+      subtitle: t.moduleScenariosDesc,
+      accent: SoriColors.accent,
+      route: '/scenarios',
+    ),
+    _HubItem(
+      icon: Icons.photo_camera_outlined,
+      title: t.homeBookCardTitle,
+      subtitle: t.homeBookCardDesc,
+      accent: SoriColors.info,
+      route: '/book',
+      ribbonType: 'new',
+    ),
+  ];
 
   List<_HubItem> _gameItems(AppL10n t) => [
-        _HubItem(
-          icon: Icons.sort_by_alpha_rounded,
-          title: t.gameChosungTitle,
-          subtitle: t.gameChosungDesc,
-          accent: SoriColors.primary,
-          route: '/chosung',
-        ),
-        _HubItem(
-          icon: Icons.grid_4x4_rounded,
-          title: t.gameWordleTitle,
-          subtitle: t.gameWordleDesc,
-          accent: SoriColors.success,
-          route: '/wordle',
-        ),
-        _HubItem(
-          icon: Icons.link_rounded,
-          title: t.gameKkeunmariTitle,
-          subtitle: t.gameKkeunmariDesc,
-          accent: SoriColors.accent,
-          route: '/kkeunmari',
-        ),
-        _HubItem(
-          icon: Icons.headphones_rounded,
-          title: t.moduleListenTitle,
-          subtitle: t.listeningSubtitle,
-          accent: SoriColors.info,
-          route: '/listening',
-        ),
-        _HubItem(
-          icon: Icons.chat_bubble_outline_rounded,
-          title: t.homeSmalltalkCardTitle,
-          subtitle: t.homeSmalltalkCardDesc,
-          accent: SoriColors.highlight,
-          route: '/smalltalk',
-        ),
-        _HubItem(
-          icon: Icons.workspace_premium_outlined,
-          title: t.homeQuestsCardTitle,
-          subtitle: t.homeQuestsCardDesc,
-          accent: SoriColors.gold,
-          route: '/quests',
-        ),
-        _HubItem(
-          icon: Icons.collections_outlined,
-          title: t.dojangTitle,
-          subtitle: t.dojangEmptyBody,
-          accent: SoriColors.accent,
-          route: '/dojangcheop',
-        ),
-      ];
+    _HubItem(
+      icon: Icons.sort_by_alpha_rounded,
+      title: t.gameChosungTitle,
+      subtitle: t.gameChosungDesc,
+      accent: SoriColors.primary,
+      route: '/chosung',
+    ),
+    _HubItem(
+      icon: Icons.grid_4x4_rounded,
+      title: t.gameWordleTitle,
+      subtitle: t.gameWordleDesc,
+      accent: SoriColors.success,
+      route: '/wordle',
+    ),
+    _HubItem(
+      icon: Icons.short_text_rounded,
+      title: t.clozeTitle,
+      subtitle: t.clozeDesc,
+      accent: SoriColors.highlight,
+      route: '/cloze',
+      ribbonType: 'new',
+    ),
+    _HubItem(
+      icon: Icons.link_rounded,
+      title: t.gameKkeunmariTitle,
+      subtitle: t.gameKkeunmariDesc,
+      accent: SoriColors.accent,
+      route: '/kkeunmari',
+    ),
+    _HubItem(
+      icon: Icons.headphones_rounded,
+      title: t.moduleListenTitle,
+      subtitle: t.listeningSubtitle,
+      accent: SoriColors.info,
+      route: '/listening',
+    ),
+    _HubItem(
+      icon: Icons.chat_bubble_outline_rounded,
+      title: t.homeSmalltalkCardTitle,
+      subtitle: t.homeSmalltalkCardDesc,
+      accent: SoriColors.highlight,
+      route: '/smalltalk',
+    ),
+    _HubItem(
+      icon: Icons.workspace_premium_outlined,
+      title: t.homeQuestsCardTitle,
+      subtitle: t.homeQuestsCardDesc,
+      accent: SoriColors.gold,
+      route: '/quests',
+    ),
+    _HubItem(
+      icon: Icons.collections_outlined,
+      title: t.dojangTitle,
+      subtitle: t.dojangEmptyBody,
+      accent: SoriColors.accent,
+      route: '/dojangcheop',
+    ),
+  ];
 
   List<_HubItem> _wordItems(AppL10n t) => [
-        _HubItem(
-          icon: Icons.collections_bookmark_outlined,
-          title: t.homeBookshelfCardTitle,
-          subtitle: t.homeBookshelfCardDesc,
-          accent: SoriColors.primary,
-          route: '/bookshelf',
-        ),
-        _HubItem(
-          icon: Icons.search_rounded,
-          title: t.wbSearchTitle,
-          subtitle: t.wbSearchCta,
-          accent: SoriColors.info,
-          route: '/wordbook/search',
-        ),
-        _HubItem(
-          icon: Icons.bolt_rounded,
-          title: t.hardWordsTitle,
-          subtitle: t.hardWordsEmptyTitle,
-          accent: SoriColors.danger,
-          route: '/hard_words',
-        ),
-        _HubItem(
-          icon: Icons.refresh_rounded,
-          title: t.reviewTitle,
-          subtitle: t.reviewEmptyTitle,
-          accent: SoriColors.gold,
-          route: '/review',
-        ),
-      ];
+    _HubItem(
+      icon: Icons.collections_bookmark_outlined,
+      title: t.homeBookshelfCardTitle,
+      subtitle: t.homeBookshelfCardDesc,
+      accent: SoriColors.primary,
+      route: '/bookshelf',
+    ),
+    _HubItem(
+      icon: Icons.search_rounded,
+      title: t.wbSearchTitle,
+      subtitle: t.wbSearchCta,
+      accent: SoriColors.info,
+      route: '/wordbook/search',
+    ),
+    _HubItem(
+      icon: Icons.bolt_rounded,
+      title: t.hardWordsTitle,
+      subtitle: t.hardWordsEmptyTitle,
+      accent: SoriColors.danger,
+      route: '/hard_words',
+    ),
+    _HubItem(
+      icon: Icons.refresh_rounded,
+      title: t.reviewTitle,
+      subtitle: t.reviewEmptyTitle,
+      accent: SoriColors.gold,
+      route: '/review',
+    ),
+  ];
 }
 
 class _HubItem {
