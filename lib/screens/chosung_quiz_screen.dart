@@ -11,6 +11,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
@@ -222,6 +223,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   final List<int> _roundDurationsMs = [];
   DateTime? _questionStart;
   bool _roundComplete = false;
+  int _roundXp = 0;
+  bool _roundNewBest = false;
 
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
@@ -332,8 +335,18 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         _roundComplete = true;
       });
       _ctrl.clear();
-      // 라운드 종료 — 정확도 ≥80% 때만 단청 별 burst (과한 축하 자제).
+      // 라운드 종료 — XP 보상 + 개인 최고기록(정확도%).
       final accuracy = _roundCorrect / _roundSize;
+      final xp = _roundCorrect * 4;
+      _roundXp = xp;
+      recordGameResult(
+        gameId: 'chosung',
+        xp: xp,
+        score: (accuracy * 100).round(),
+      ).then((o) {
+        if (mounted) setState(() => _roundNewBest = o.isNewBest);
+      });
+      // 정확도 ≥80% 때만 단청 별 burst (과한 축하 자제).
       if (accuracy >= 0.8) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (mounted) SoriCelebration.burst(context);
@@ -544,6 +557,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                 correct: _roundCorrect,
                                 total: _roundSize,
                                 durationsMs: _roundDurationsMs,
+                                earnedXp: _roundXp,
+                                isNewBest: _roundNewBest,
                                 recommendation: _recommendation(t),
                                 onContinue: _startNewRound,
                               );
@@ -639,6 +654,8 @@ class _RoundSummaryCard extends StatelessWidget {
   final int correct;
   final int total;
   final List<int> durationsMs;
+  final int earnedXp;
+  final bool isNewBest;
   final String? recommendation;
   final VoidCallback onContinue;
 
@@ -646,6 +663,8 @@ class _RoundSummaryCard extends StatelessWidget {
     required this.correct,
     required this.total,
     required this.durationsMs,
+    required this.earnedXp,
+    required this.isNewBest,
     required this.recommendation,
     required this.onContinue,
   });
@@ -717,14 +736,27 @@ class _RoundSummaryCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: Spacing.md),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            alignment: WrapAlignment.center,
+            spacing: Spacing.sm,
+            runSpacing: Spacing.sm,
             children: [
               _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
-              const SizedBox(width: Spacing.md),
               _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
+              _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
             ],
           ),
+          if (isNewBest) ...[
+            const SizedBox(height: Spacing.sm),
+            Text(
+              '🏆 ${t.gameNewBest}',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w800,
+                color: SoriColors.gold,
+              ),
+            ),
+          ],
           if (recommendation != null) ...[
             const SizedBox(height: Spacing.md),
             Text(

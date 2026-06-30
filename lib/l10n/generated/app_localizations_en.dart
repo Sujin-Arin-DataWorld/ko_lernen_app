@@ -2305,6 +2305,35 @@ class AppL10nEn extends AppL10n {
   String get quizAgain => 'Again';
 
   @override
+  String get gameNewBest => 'New record!';
+
+  @override
+  String gameBestAccuracy(int percent) {
+    return 'Best accuracy: $percent%';
+  }
+
+  @override
+  String gameBestTries(int count) {
+    return 'Best: $count tries';
+  }
+
+  @override
+  String get clozeTitle => 'Cloze';
+
+  @override
+  String get clozeDesc => 'Fill the missing word';
+
+  @override
+  String get clozeInstruction => 'Choose the missing word.';
+
+  @override
+  String get clozeEmptyBody =>
+      'No sentences for this level yet. Pick another level.';
+
+  @override
+  String get clozeLevelAll => 'All';
+
+  @override
   String get homeWordbookCardTitle => 'My word list';
 
   @override

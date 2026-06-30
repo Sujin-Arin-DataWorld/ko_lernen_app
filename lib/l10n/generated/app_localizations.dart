@@ -4303,6 +4303,54 @@ abstract class AppL10n {
   /// **'Nochmal'**
   String get quizAgain;
 
+  /// No description provided for @gameNewBest.
+  ///
+  /// In de, this message translates to:
+  /// **'Neuer Rekord!'**
+  String get gameNewBest;
+
+  /// No description provided for @gameBestAccuracy.
+  ///
+  /// In de, this message translates to:
+  /// **'Beste Genauigkeit: {percent}%'**
+  String gameBestAccuracy(int percent);
+
+  /// No description provided for @gameBestTries.
+  ///
+  /// In de, this message translates to:
+  /// **'Bester: {count} Versuche'**
+  String gameBestTries(int count);
+
+  /// No description provided for @clozeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lückentext'**
+  String get clozeTitle;
+
+  /// No description provided for @clozeDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Das fehlende Wort im Satz'**
+  String get clozeDesc;
+
+  /// No description provided for @clozeInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle das fehlende Wort.'**
+  String get clozeInstruction;
+
+  /// No description provided for @clozeEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.'**
+  String get clozeEmptyBody;
+
+  /// No description provided for @clozeLevelAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle'**
+  String get clozeLevelAll;
+
   /// No description provided for @homeWordbookCardTitle.
   ///
   /// In de, this message translates to:

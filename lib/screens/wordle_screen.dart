@@ -9,6 +9,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/mascot.dart';
@@ -59,6 +60,7 @@ class _WordleScreenState extends State<WordleScreen>
   final List<(String, List<_LS>)> _guesses = [];
   bool _won = false;
   bool _lost = false;
+  int _earnedXp = 0;
   String _error = '';
 
   final _ctrl = TextEditingController();
@@ -142,6 +144,7 @@ class _WordleScreenState extends State<WordleScreen>
       _guesses.clear();
       _won = false;
       _lost = false;
+      _earnedXp = 0;
       _error = '';
     });
     _ctrl.clear();
@@ -295,15 +298,25 @@ class _WordleScreenState extends State<WordleScreen>
 
     if (won) {
       HapticFeedback.heavyImpact();
-      SoundService.complete();
       Storage.incWordleWins();
       Storage.srsReview(_target, gotIt: true); // M1: Spiel speist das SRS
+      // Weniger Versuche → mehr XP. Bestleistung = wenigste Versuche.
+      final xp = 10 + (_max - _guesses.length) * 5;
+      _earnedXp = xp;
+      recordGameResult(
+        gameId: 'wordle',
+        xp: xp,
+        score: _guesses.length,
+        higherIsBetter: false,
+      ); // spielt den Abschluss-Sound
       SoriCelebration.burst(context);
     } else if (lost) {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
       Storage.incWordleLosses();
       Storage.srsReview(_target, gotIt: false); // M1: Spiel speist das SRS
+      _earnedXp = 4;
+      Storage.addXp(4);
     } else {
       HapticFeedback.selectionClick();
     }
@@ -404,90 +417,90 @@ class _WordleScreenState extends State<WordleScreen>
                   KeyedSubtree(
                     key: _clueKey,
                     child: Builder(
-                    builder: (context) {
-                      final ss = SoriSurfaces.of(context);
-                      final tv = _targetVocab;
-                      final pos = tv?.posDe.trim() ?? '';
-                      final example = tv?.exampleGerman.trim() ?? '';
-                      return Column(
-                        children: [
-                          Wrap(
-                            alignment: WrapAlignment.center,
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            spacing: 8,
-                            runSpacing: 4,
-                            children: [
+                      builder: (context) {
+                        final ss = SoriSurfaces.of(context);
+                        final tv = _targetVocab;
+                        final pos = tv?.posDe.trim() ?? '';
+                        final example = tv?.exampleGerman.trim() ?? '';
+                        return Column(
+                          children: [
+                            Wrap(
+                              alignment: WrapAlignment.center,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              spacing: 8,
+                              runSpacing: 4,
+                              children: [
+                                Text(
+                                  t.wordleSyllableCount(n),
+                                  style: TextStyle(
+                                    fontFamily: 'Pretendard',
+                                    color: ss.textMuted,
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                if (pos.isNotEmpty)
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: SoriColors.info.withValues(
+                                        alpha: 0.12,
+                                      ),
+                                      borderRadius: BorderRadius.circular(
+                                        SoriRadius.pill,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      pos,
+                                      style: const TextStyle(
+                                        fontFamily: 'Pretendard',
+                                        color: SoriColors.info,
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                            if (_targetGerman != null) ...[
+                              const SizedBox(height: 6),
                               Text(
-                                t.wordleSyllableCount(n),
+                                _targetGerman!,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: 'Pretendard',
+                                  color: ss.text,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w800,
+                                  height: 1.3,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                            if (!compact && example.isNotEmpty) ...[
+                              const SizedBox(height: 4),
+                              Text(
+                                '„$example"',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontFamily: 'Pretendard',
                                   color: ss.textMuted,
                                   fontSize: 12.5,
-                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FontStyle.italic,
+                                  height: 1.35,
                                 ),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              if (pos.isNotEmpty)
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                    vertical: 2,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: SoriColors.info.withValues(
-                                      alpha: 0.12,
-                                    ),
-                                    borderRadius: BorderRadius.circular(
-                                      SoriRadius.pill,
-                                    ),
-                                  ),
-                                  child: Text(
-                                    pos,
-                                    style: const TextStyle(
-                                      fontFamily: 'Pretendard',
-                                      color: SoriColors.info,
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                  ),
-                                ),
                             ],
-                          ),
-                          if (_targetGerman != null) ...[
-                            const SizedBox(height: 6),
-                            Text(
-                              _targetGerman!,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Pretendard',
-                                color: ss.text,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w800,
-                                height: 1.3,
-                              ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
                           ],
-                          if (!compact && example.isNotEmpty) ...[
-                            const SizedBox(height: 4),
-                            Text(
-                              '„$example"',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'Pretendard',
-                                color: ss.textMuted,
-                                fontSize: 12.5,
-                                fontStyle: FontStyle.italic,
-                                height: 1.35,
-                              ),
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ],
-                      );
-                    },
-                  ),
+                        );
+                      },
+                    ),
                   ),
                   const SizedBox(height: 14),
 
@@ -601,6 +614,8 @@ class _WordleScreenState extends State<WordleScreen>
                         won: _won,
                         target: _target,
                         german: _targetGerman,
+                        earnedXp: _earnedXp,
+                        bestTries: _won ? Storage.gameBest('wordle') : 0,
                         onNew: () => _load(random: true),
                       ),
                     ),
@@ -735,12 +750,16 @@ class _ResultCard extends StatelessWidget {
   final bool won;
   final String target;
   final String? german;
+  final int earnedXp;
+  final int bestTries;
   final VoidCallback onNew;
 
   const _ResultCard({
     required this.won,
     required this.target,
     this.german,
+    this.earnedXp = 0,
+    this.bestTries = 0,
     required this.onNew,
   });
 
@@ -772,6 +791,38 @@ class _ResultCard extends StatelessWidget {
               color: color,
             ),
           ),
+          if (earnedXp > 0) ...[
+            const SizedBox(height: Spacing.sm),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+              decoration: BoxDecoration(
+                color: SoriColors.gold.withValues(alpha: 0.14),
+                borderRadius: BorderRadius.circular(SoriRadius.pill),
+                border: Border.all(
+                  color: SoriColors.gold.withValues(alpha: 0.5),
+                ),
+              ),
+              child: Text(
+                '+$earnedXp XP',
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w900,
+                  color: SoriColors.gold,
+                ),
+              ),
+            ),
+          ],
+          if (bestTries > 0) ...[
+            const SizedBox(height: 6),
+            Text(
+              t.gameBestTries(bestTries),
+              style: TextStyle(
+                fontSize: 12.5,
+                color: s.textMuted,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
           if (!won && german != null) ...[
             const SizedBox(height: Spacing.sm),
             Text(

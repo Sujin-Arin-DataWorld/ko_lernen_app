@@ -7,9 +7,13 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../services/custom_pack_service.dart';
+import '../services/sound_service.dart';
+import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_reward.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -38,6 +42,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   int? _selLeft; // 선택된 한국어 index
   final Set<String> _matched = {}; // 맞춘 한국어
   String? _wrongRight; // 방금 틀린 뜻 (빨강 플래시)
+  int _misses = 0; // 라운드 내 오답 탭 수 (XP 보상에 반영)
 
   // ── 코치마크 타겟 ──
   final GlobalKey _boardKey = GlobalKey();
@@ -84,6 +89,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _matched.clear();
     _selLeft = null;
     _wrongRight = null;
+    _misses = 0;
   }
 
   void _tapLeft(int i) {
@@ -97,17 +103,24 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   void _tapRight(String de) {
     if (_selLeft == null) return;
     final ko = _leftKo[_selLeft!];
-    final expected =
-        _round.firstWhere((w) => w.korean == ko).translationDe.trim();
+    final expected = _round
+        .firstWhere((w) => w.korean == ko)
+        .translationDe
+        .trim();
     if (de == expected) {
       HapticFeedback.lightImpact();
+      SoundService.correct();
+      Storage.srsReview(ko, gotIt: true); // 인출 강화 → 메인 SRS 반영
       setState(() {
         _matched.add(ko);
         _selLeft = null;
         _wrongRight = null;
       });
+      if (_roundDone) _finish();
     } else {
       HapticFeedback.mediumImpact();
+      SoundService.wrong();
+      _misses++;
       setState(() => _wrongRight = de);
       Future.delayed(const Duration(milliseconds: 450), () {
         if (mounted) setState(() => _wrongRight = null);
@@ -115,8 +128,13 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     }
   }
 
-  bool get _roundDone =>
-      _round.isNotEmpty && _matched.length >= _round.length;
+  Future<void> _finish() async {
+    // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
+    final xp = _misses == 0 ? _round.length * 4 : _round.length * 3;
+    await recordGameResult(gameId: 'cp_matching', xp: xp);
+  }
+
+  bool get _roundDone => _round.isNotEmpty && _matched.length >= _round.length;
 
   @override
   Widget build(BuildContext context) {
@@ -152,8 +170,10 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title:
-            Text(t.wbMatching, style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.wbMatching,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
@@ -162,104 +182,98 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       body: SafeArea(
         child: SoriCenterClamp(
           child: _roundDone
-            ? _buildDone(t)
-            : Padding(
-                padding: const EdgeInsets.all(Spacing.lg),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(t.wbMatchingHint,
-                        style: TextStyle(fontSize: 13, color: s.textMuted)),
-                    const SizedBox(height: Spacing.md),
-                    Expanded(
-                      child: KeyedSubtree(
-                        key: _boardKey,
-                        child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // 한국어 열
-                          Expanded(
-                            child: Column(
-                              children: [
-                                for (var i = 0; i < _leftKo.length; i++)
-                                  _Tile(
-                                    label: _leftKo[i],
-                                    matched: _matched.contains(_leftKo[i]),
-                                    selected: _selLeft == i,
-                                    accent: SoriColors.primary,
-                                    onTap: () => _tapLeft(i),
-                                  ),
-                              ],
-                            ),
+              ? _buildDone(t)
+              : Padding(
+                  padding: const EdgeInsets.all(Spacing.lg),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        t.wbMatchingHint,
+                        style: TextStyle(fontSize: 13, color: s.textMuted),
+                      ),
+                      const SizedBox(height: Spacing.md),
+                      Expanded(
+                        child: KeyedSubtree(
+                          key: _boardKey,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // 한국어 열
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    for (var i = 0; i < _leftKo.length; i++)
+                                      _Tile(
+                                        label: _leftKo[i],
+                                        matched: _matched.contains(_leftKo[i]),
+                                        selected: _selLeft == i,
+                                        accent: SoriColors.primary,
+                                        onTap: () => _tapLeft(i),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: Spacing.md),
+                              // 뜻 열
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    for (final de in _rightDe)
+                                      _Tile(
+                                        label: de,
+                                        matched: _matched.any(
+                                          (ko) =>
+                                              _round
+                                                  .firstWhere(
+                                                    (w) => w.korean == ko,
+                                                  )
+                                                  .translationDe
+                                                  .trim() ==
+                                              de,
+                                        ),
+                                        wrong: _wrongRight == de,
+                                        accent: SoriColors.accent,
+                                        onTap: () => _tapRight(de),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: Spacing.md),
-                          // 뜻 열
-                          Expanded(
-                            child: Column(
-                              children: [
-                                for (final de in _rightDe)
-                                  _Tile(
-                                    label: de,
-                                    matched: _matched.any((ko) =>
-                                        _round
-                                            .firstWhere(
-                                                (w) => w.korean == ko)
-                                            .translationDe
-                                            .trim() ==
-                                        de),
-                                    wrong: _wrongRight == de,
-                                    accent: SoriColors.accent,
-                                    onTap: () => _tapRight(de),
-                                  ),
-                              ],
-                            ),
-                          ),
-                        ],
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
         ),
       ),
     );
   }
 
   Widget _buildDone(AppL10n t) {
-    final s = SoriSurfaces.of(context);
-    return Padding(
-      padding: const EdgeInsets.all(Spacing.lg),
-      child: Column(
-        children: [
-          const SizedBox(height: Spacing.xl),
-          const Text('🎉', style: TextStyle(fontSize: 64)),
-          const SizedBox(height: Spacing.md),
-          Text(t.wbMatchingDone,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
-          const SizedBox(height: Spacing.sm),
-          Text(t.wbMatchingDoneBody,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14, color: s.textMuted)),
-          const Spacer(),
-          SoriButton(
-            label: t.quizAgain,
-            icon: Icons.refresh_rounded,
-            variant: SoriButtonVariant.filled,
-            accent: SoriColors.primary,
-            fullWidth: true,
-            onTap: () => setState(_newRound),
-          ),
-          const SizedBox(height: Spacing.sm),
-          SoriButton(
-            label: t.btnClose,
-            variant: SoriButtonVariant.ghost,
-            fullWidth: true,
-            onTap: () => Navigator.of(context).maybePop(),
-          ),
-        ],
-      ),
+    return GameOverCard(
+      headline: t.wbMatchingDone,
+      scoreLabel: t.wbMatchingDoneBody,
+      xpGained: _round.length * 4,
+      mascotKind: MascotKind.magpie,
+      mascotEmotion: MascotEmotion.celebrate,
+      actions: [
+        SoriButton(
+          label: t.quizAgain,
+          icon: Icons.refresh_rounded,
+          variant: SoriButtonVariant.filled,
+          accent: SoriColors.primary,
+          fullWidth: true,
+          onTap: () => setState(_newRound),
+        ),
+        SoriButton(
+          label: t.btnClose,
+          variant: SoriButtonVariant.ghost,
+          fullWidth: true,
+          onTap: () => Navigator.of(context).maybePop(),
+        ),
+      ],
     );
   }
 }
@@ -311,7 +325,9 @@ class _Tile extends StatelessWidget {
               constraints: const BoxConstraints(minHeight: 56),
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.sm, vertical: Spacing.sm),
+                horizontal: Spacing.sm,
+                vertical: Spacing.sm,
+              ),
               decoration: BoxDecoration(
                 border: Border.all(color: border, width: 1.5),
                 borderRadius: BorderRadius.circular(SoriRadius.md),

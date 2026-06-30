@@ -2315,6 +2315,35 @@ class AppL10nDe extends AppL10n {
   String get quizAgain => 'Nochmal';
 
   @override
+  String get gameNewBest => 'Neuer Rekord!';
+
+  @override
+  String gameBestAccuracy(int percent) {
+    return 'Beste Genauigkeit: $percent%';
+  }
+
+  @override
+  String gameBestTries(int count) {
+    return 'Bester: $count Versuche';
+  }
+
+  @override
+  String get clozeTitle => 'Lückentext';
+
+  @override
+  String get clozeDesc => 'Das fehlende Wort im Satz';
+
+  @override
+  String get clozeInstruction => 'Wähle das fehlende Wort.';
+
+  @override
+  String get clozeEmptyBody =>
+      'Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.';
+
+  @override
+  String get clozeLevelAll => 'Alle';
+
+  @override
   String get homeWordbookCardTitle => 'Eigene Wortliste';
 
   @override

@@ -195,8 +195,7 @@ class Storage {
   }
 
   // ───────── Onboarding ─────────
-  static bool get hasCompletedOnboarding =>
-      _b('kl_onboarding_completed');
+  static bool get hasCompletedOnboarding => _b('kl_onboarding_completed');
   static Future<void> setHasCompletedOnboarding(bool v) =>
       _sb('kl_onboarding_completed', v);
 
@@ -212,7 +211,8 @@ class Storage {
   static Future<void> setDailyGoal(int minutes) =>
       _si('kl_daily_goal_minutes', minutes);
 
-  static String get preferredMascot => _s('kl_preferred_mascot'); // 'tiger' or 'magpie'
+  static String get preferredMascot =>
+      _s('kl_preferred_mascot'); // 'tiger' or 'magpie'
   static Future<void> setPreferredMascot(String mascot) =>
       _ss('kl_preferred_mascot', mascot);
 
@@ -364,12 +364,30 @@ class Storage {
   /// 콘텐츠 화면별 사용법 코치마크 — 범용 플래그(`kl_tut_<id>`).
   /// 화면 id 레지스트리: 오타·resetTutorials 누락 방지(ScreenCoachMixin assert).
   static const List<String> kScreenCoachIds = [
-    'chosung', 'wordle', 'kkeunmari', 'listening',
-    'hangul', 'grammar', 'smalltalk', 'scenario', 'review',
-    'legacyVocab', 'learningPath',
-    'bookshelf', 'cpEdit', 'cpPlay', 'cpQuiz', 'cpMatching', 'cpTyping',
-    'hardWords', 'dojang',
-    'gye', 'profile', 'stats', 'quests', 'scenarios',
+    'chosung',
+    'wordle',
+    'kkeunmari',
+    'listening',
+    'hangul',
+    'grammar',
+    'smalltalk',
+    'scenario',
+    'review',
+    'legacyVocab',
+    'learningPath',
+    'bookshelf',
+    'cpEdit',
+    'cpPlay',
+    'cpQuiz',
+    'cpMatching',
+    'cpTyping',
+    'hardWords',
+    'dojang',
+    'gye',
+    'profile',
+    'stats',
+    'quests',
+    'scenarios',
   ];
 
   /// 화면 코치마크 표시됨? `_prefs` 미초기화(테스트/웹) 시 true(미표시·안전).
@@ -642,6 +660,42 @@ class Storage {
   static int get xpToNext => 100 - (xp % 100);
   static Future<void> addXp(int amount) => _si('kl_xp', xp + amount);
 
+  // ── Persönliche Bestleistung pro Spiel (Highscore) ──────────────────
+  // Eine JSON-Map gameId -> best (int). Selbst-Wettbewerb, KEINE Ranglisten.
+  static Map<String, int> get _gameBests {
+    final raw = _s('kl_game_best');
+    if (raw.isEmpty) {
+      return {};
+    }
+    try {
+      final m = jsonDecode(raw) as Map<String, dynamic>;
+      return m.map((k, v) => MapEntry(k, (v as num).toInt()));
+    } catch (_) {
+      return {};
+    }
+  }
+
+  static int gameBest(String id) => _gameBests[id] ?? 0;
+
+  /// Speichert nur, wenn besser. Gibt `true` zurück, wenn es ein neuer Rekord
+  /// war. [higherIsBetter]=false für zeit-/versuchsbasierte Spiele
+  /// (kleinerer Wert = besser).
+  static Future<bool> recordGameBest(
+    String id,
+    int value, {
+    bool higherIsBetter = true,
+  }) async {
+    final map = _gameBests;
+    final cur = map[id];
+    final better = cur == null || (higherIsBetter ? value > cur : value < cur);
+    if (!better) {
+      return false;
+    }
+    map[id] = value;
+    await _ss('kl_game_best', jsonEncode(map));
+    return true;
+  }
+
   /// 계 피드에 마지막으로 broadcast 한 레벨 (2픽 levelUp 중복 방지).
   static int get lastGyeLevel => _i('kl_gye_level');
   static Future<void> setLastGyeLevel(int v) => _si('kl_gye_level', v);
@@ -773,8 +827,7 @@ class Storage {
   static Future<void> setCustomPacksRawJson(String json) =>
       _ss('kl_custom_packs_v1', json);
 
-  static String get bookAnalysisEndpoint =>
-      _s('kl_book_analysis_endpoint');
+  static String get bookAnalysisEndpoint => _s('kl_book_analysis_endpoint');
   static Future<void> setBookAnalysisEndpoint(String url) =>
       _ss('kl_book_analysis_endpoint', url.trim());
 

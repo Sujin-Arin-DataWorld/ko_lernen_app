@@ -49,6 +49,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   Set<String> _vocabKeys = {}; // M1: nur diese Wörter speisen das SRS
   _Turn _turn = _Turn.user;
   _End _end = _End.none;
+  bool _newBest = false; // diese Runde = längste Kette aller Zeiten?
   String _errorMsg = '';
   KkeunmariWord? _last; // 마지막으로 낸 단어 (chain 마지막)
 
@@ -111,7 +112,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         final vocab = await DataLoader.loadVocab();
         if (!mounted) return;
         _vocabKeys = vocab.map((v) => v.korean).toSet();
-      } catch (_) {/* SRS-Einspeisung optional */}
+      } catch (_) {
+        /* SRS-Einspeisung optional */
+      }
     }
     final start = KkeunmariEngine.pickStart();
     setState(() {
@@ -122,6 +125,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _last = start;
       _turn = _Turn.user;
       _end = _End.none;
+      _newBest = false;
       _errorMsg = '';
       _remaining = _turnSeconds;
       _loading = false;
@@ -235,8 +239,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     HapticFeedback.heavyImpact();
     setState(() => _end = reason);
     // 사용자 승 (tigerStuck, deadEnd) → 셀러브레이션 + Phase 4 Quest-Tracking.
-    final didWin =
-        reason == _End.tigerStuck || reason == _End.deadEnd;
+    final didWin = reason == _End.tigerStuck || reason == _End.deadEnd;
     if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) SoriCelebration.burst(context);
@@ -248,6 +251,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     final earned = (_chain.length * 10).clamp(20, 500);
     // ignore: discarded_futures
     Storage.addXp(earned);
+    // Persönliche Bestleistung = längste Kette (Selbst-Wettbewerb, keine Rangliste).
+    // ignore: discarded_futures
+    Storage.recordGameBest('kkeunmari', _chain.length).then((b) {
+      if (mounted && b) setState(() => _newBest = true);
+    });
   }
 
   @override
@@ -292,141 +300,144 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) => SingleChildScrollView(
-          padding: soriClampPadding(
-            constraints.maxWidth,
-            base: const EdgeInsets.fromLTRB(16, 8, 16, 20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // ── hero ──
-              HanokHeader(
-                asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
-                fallbackIcon: Icons.link_rounded,
-                fallbackTint: SoriColors.accent,
-                aspectRatio: 10 / 3,
-              ),
-              const SizedBox(height: Spacing.md),
-
-              // ── chain 시각화 ──
-              _ChainStrip(chain: _chain),
-              const SizedBox(height: Spacing.md),
-
-              if (_end != _End.none)
-                _ResultCard(
-                  end: _end,
-                  chainLength: _chain.length,
-                  xpEarned: (_chain.length * 10).clamp(20, 500),
-                  onAgain: _start,
-                  onHome: () => Navigator.pop(context),
-                )
-              else ...[
-                // ── 현재 차례 + 타이머 ──
-                Row(
-                  key: _timerRowKey,
-                  children: [
-                    _TurnIndicator(turn: _turn, t: t),
-                    const Spacer(),
-                    _Timer(remaining: _remaining, total: _turnSeconds),
-                  ],
+            padding: soriClampPadding(
+              constraints.maxWidth,
+              base: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // ── hero ──
+                HanokHeader(
+                  asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
+                  fallbackIcon: Icons.link_rounded,
+                  fallbackTint: SoriColors.accent,
+                  aspectRatio: 10 / 3,
                 ),
                 const SizedBox(height: Spacing.md),
 
-                // ── 마지막 단어 카드 (last 음절 강조) ──
-                KeyedSubtree(
-                  key: _lastWordCardKey,
-                  child: _LastWordCard(word: _last!),
-                ),
+                // ── chain 시각화 ──
+                _ChainStrip(chain: _chain),
                 const SizedBox(height: Spacing.md),
 
-                // ── 사용자 차례: 입력 ──
-                if (_turn == _Turn.user) ...[
-                  Text(
-                    t.kkeunmariStartHint(_required),
-                    style: TextStyle(
-                      color: s.textMuted,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.center,
+                if (_end != _End.none)
+                  _ResultCard(
+                    end: _end,
+                    chainLength: _chain.length,
+                    xpEarned: (_chain.length * 10).clamp(20, 500),
+                    isNewBest: _newBest,
+                    onAgain: _start,
+                    onHome: () => Navigator.pop(context),
+                  )
+                else ...[
+                  // ── 현재 차례 + 타이머 ──
+                  Row(
+                    key: _timerRowKey,
+                    children: [
+                      _TurnIndicator(turn: _turn, t: t),
+                      const Spacer(),
+                      _Timer(remaining: _remaining, total: _turnSeconds),
+                    ],
                   ),
-                  const SizedBox(height: Spacing.sm),
-                  TextField(
-                    key: _inputFieldKey,
-                    controller: _ctrl,
-                    focusNode: _focusNode,
-                    autofocus: true,
-                    textAlign: TextAlign.center,
-                    decoration: InputDecoration(hintText: t.kkeunmariInputHint),
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                    ),
-                    onSubmitted: (_) => _submit(),
+                  const SizedBox(height: Spacing.md),
+
+                  // ── 마지막 단어 카드 (last 음절 강조) ──
+                  KeyedSubtree(
+                    key: _lastWordCardKey,
+                    child: _LastWordCard(word: _last!),
                   ),
-                  if (_errorMsg.isNotEmpty) ...[
-                    const SizedBox(height: Spacing.xs),
+                  const SizedBox(height: Spacing.md),
+
+                  // ── 사용자 차례: 입력 ──
+                  if (_turn == _Turn.user) ...[
                     Text(
-                      _errorMsg,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: SoriColors.danger,
+                      t.kkeunmariStartHint(_required),
+                      style: TextStyle(
+                        color: s.textMuted,
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                  ],
-                  const SizedBox(height: Spacing.md),
-                  SoriButton.filled(
-                    label: t.kkeunmariSubmit,
-                    icon: Icons.send_rounded,
-                    accent: SoriColors.accent,
-                    fullWidth: true,
-                    onTap: _submit,
-                  ),
-                ] else
-                  // 호랑이 차례: 짧은 "생각 중" 카드
-                  SoriCard(
-                    variant: SoriCardVariant.base,
-                    accent: SoriColors.tiger,
-                    tinted: true,
-                    child: Row(
-                      children: [
-                        const Mascot(
-                          kind: MascotKind.tiger,
-                          emotion: MascotEmotion.thinking,
-                          size: 56,
-                          animate: false,
+                    const SizedBox(height: Spacing.sm),
+                    TextField(
+                      key: _inputFieldKey,
+                      controller: _ctrl,
+                      focusNode: _focusNode,
+                      autofocus: true,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        hintText: t.kkeunmariInputHint,
+                      ),
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800,
+                      ),
+                      onSubmitted: (_) => _submit(),
+                    ),
+                    if (_errorMsg.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xs),
+                      Text(
+                        _errorMsg,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: SoriColors.danger,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
                         ),
-                        const SizedBox(width: Spacing.md),
-                        Expanded(
-                          child: Text(
-                            t.kkeunmariTigerTurn,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: SoriColors.tiger,
+                      ),
+                    ],
+                    const SizedBox(height: Spacing.md),
+                    SoriButton.filled(
+                      label: t.kkeunmariSubmit,
+                      icon: Icons.send_rounded,
+                      accent: SoriColors.accent,
+                      fullWidth: true,
+                      onTap: _submit,
+                    ),
+                  ] else
+                    // 호랑이 차례: 짧은 "생각 중" 카드
+                    SoriCard(
+                      variant: SoriCardVariant.base,
+                      accent: SoriColors.tiger,
+                      tinted: true,
+                      child: Row(
+                        children: [
+                          const Mascot(
+                            kind: MascotKind.tiger,
+                            emotion: MascotEmotion.thinking,
+                            size: 56,
+                            animate: false,
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          Expanded(
+                            child: Text(
+                              t.kkeunmariTigerTurn,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: SoriColors.tiger,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                    ),
+
+                  const SizedBox(height: Spacing.lg),
+
+                  // ── chain length ──
+                  Center(
+                    child: SoriChip(
+                      label: t.kkeunmariChainLength(_chain.length),
+                      accent: SoriColors.accent,
+                      variant: SoriChipVariant.soft,
                     ),
                   ),
-
-                const SizedBox(height: Spacing.lg),
-
-                // ── chain length ──
-                Center(
-                  child: SoriChip(
-                    label: t.kkeunmariChainLength(_chain.length),
-                    accent: SoriColors.accent,
-                    variant: SoriChipVariant.soft,
-                  ),
-                ),
+                ],
               ],
-            ],
+            ),
           ),
-        ),
         ),
       ),
     );
@@ -648,6 +659,7 @@ class _ResultCard extends StatelessWidget {
   final _End end;
   final int chainLength;
   final int xpEarned;
+  final bool isNewBest;
   final VoidCallback onAgain;
   final VoidCallback onHome;
 
@@ -655,6 +667,7 @@ class _ResultCard extends StatelessWidget {
     required this.end,
     required this.chainLength,
     required this.xpEarned,
+    required this.isNewBest,
     required this.onAgain,
     required this.onHome,
   });
@@ -717,6 +730,17 @@ class _ResultCard extends StatelessWidget {
               SoriBadge.xp(xpEarned, size: 24),
             ],
           ),
+          if (isNewBest) ...[
+            const SizedBox(height: Spacing.sm),
+            Text(
+              '🏆 ${t.gameNewBest}',
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w800,
+                color: SoriColors.gold,
+              ),
+            ),
+          ],
           const SizedBox(height: Spacing.lg),
           Row(
             children: [

@@ -878,6 +878,20 @@
   "quizResultTitle": "Quiz beendet",
   "quizResultBody": "Gut gemacht! Wiederhole die Liste, um dich zu verbessern.",
   "quizAgain": "Nochmal",
+  "gameNewBest": "Neuer Rekord!",
+  "gameBestAccuracy": "Beste Genauigkeit: {percent}%",
+  "@gameBestAccuracy": {
+    "placeholders": { "percent": { "type": "int" } }
+  },
+  "gameBestTries": "Bester: {count} Versuche",
+  "@gameBestTries": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "clozeTitle": "Lückentext",
+  "clozeDesc": "Das fehlende Wort im Satz",
+  "clozeInstruction": "Wähle das fehlende Wort.",
+  "clozeEmptyBody": "Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.",
+  "clozeLevelAll": "Alle",
 
   "homeWordbookCardTitle": "Eigene Wortliste",
   "homeWordbookCardDesc": "Selbst erstellen & üben",

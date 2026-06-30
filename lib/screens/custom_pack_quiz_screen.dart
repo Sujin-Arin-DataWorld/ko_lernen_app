@@ -8,12 +8,15 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../services/custom_pack_service.dart';
+import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_reward.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -41,6 +44,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   int _score = 0;
   List<String> _options = const [];
   String? _picked; // 선택한 답 (null = 미선택)
+  GameOutcome? _outcome;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _optionsKey = GlobalKey();
@@ -83,12 +87,13 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
   void _buildOptions() {
     final correct = _pool[_order[_qIdx]].translationDe.trim();
-    final others = _pool
-        .map((w) => w.translationDe.trim())
-        .where((m) => m.isNotEmpty && m != correct)
-        .toSet()
-        .toList()
-      ..shuffle(_rng);
+    final others =
+        _pool
+            .map((w) => w.translationDe.trim())
+            .where((m) => m.isNotEmpty && m != correct)
+            .toSet()
+            .toList()
+          ..shuffle(_rng);
     final opts = <String>[correct, ...others.take(3)];
     opts.shuffle(_rng);
     _options = opts;
@@ -106,8 +111,10 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     if (isRight) {
       _score++;
       HapticFeedback.lightImpact();
+      SoundService.correct();
     } else {
       HapticFeedback.mediumImpact();
+      SoundService.wrong();
     }
     Future.delayed(const Duration(milliseconds: 900), () {
       if (!mounted) return;
@@ -117,7 +124,20 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
           _buildOptions();
         }
       });
+      if (_qIdx >= _order.length) {
+        _finish();
+      }
     });
+  }
+
+  Future<void> _finish() async {
+    final pct = ((_score / _order.length) * 100).round();
+    final outcome = await recordGameResult(
+      gameId: 'cp_quiz',
+      xp: _score * 4,
+      score: pct,
+    );
+    if (mounted) setState(() => _outcome = outcome);
   }
 
   void _restart() {
@@ -125,6 +145,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       _order = List<int>.generate(_pool.length, (i) => i)..shuffle(_rng);
       _qIdx = 0;
       _score = 0;
+      _outcome = null;
       _buildOptions();
     });
   }
@@ -169,8 +190,10 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.wbQuiz,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.wbQuiz,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
@@ -179,119 +202,119 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  SoriChip(
-                    label: '${_qIdx + 1} / ${_order.length}',
-                    accent: SoriColors.accent,
-                  ),
-                  const Spacer(),
-                  SoriChip(
-                    label: t.quizScore(_score, _order.length),
-                    accent: SoriColors.success,
-                  ),
-                ],
-              ),
-              const SizedBox(height: Spacing.lg),
-              Text(t.quizQuestion,
-                  style: TextStyle(fontSize: 13, color: s.textMuted)),
-              const SizedBox(height: Spacing.sm),
-              SoriCard(
-                variant: SoriCardVariant.hero,
-                accent: SoriColors.primary,
-                tinted: true,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                  child: Column(
-                    children: [
-                      if (word.imagePath.isNotEmpty) ...[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(SoriRadius.md),
-                          child: Image.file(
-                            File(word.imagePath),
-                            height: 110,
-                            fit: BoxFit.cover,
-                            errorBuilder: (_, __, ___) =>
-                                const SizedBox.shrink(),
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    SoriChip(
+                      label: '${_qIdx + 1} / ${_order.length}',
+                      accent: SoriColors.accent,
+                    ),
+                    const Spacer(),
+                    SoriChip(
+                      label: t.quizScore(_score, _order.length),
+                      accent: SoriColors.success,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: Spacing.lg),
+                Text(
+                  t.quizQuestion,
+                  style: TextStyle(fontSize: 13, color: s.textMuted),
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriCard(
+                  variant: SoriCardVariant.hero,
+                  accent: SoriColors.primary,
+                  tinted: true,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+                    child: Column(
+                      children: [
+                        if (word.imagePath.isNotEmpty) ...[
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(SoriRadius.md),
+                            child: Image.file(
+                              File(word.imagePath),
+                              height: 110,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) =>
+                                  const SizedBox.shrink(),
+                            ),
+                          ),
+                          const SizedBox(height: Spacing.md),
+                        ],
+                        Text(
+                          word.korean,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
-                        const SizedBox(height: Spacing.md),
+                        const SizedBox(height: Spacing.sm),
+                        IconButton(
+                          icon: const Icon(Icons.volume_up_rounded, size: 26),
+                          onPressed: () => TtsService.speak(word.korean),
+                        ),
                       ],
-                      Text(
-                        word.korean,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            fontSize: 32, fontWeight: FontWeight.w800),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                      IconButton(
-                        icon: const Icon(Icons.volume_up_rounded, size: 26),
-                        onPressed: () => TtsService.speak(word.korean),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: Spacing.lg),
-              KeyedSubtree(
-                key: _optionsKey,
-                child: Column(
-                  children: _options.map((opt) {
-                    final revealed = _picked != null;
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: Spacing.sm),
-                      child: QuizChoice(
-                        text: opt,
-                        isCorrect: opt == correct,
-                        isSelected: _picked == opt,
-                        revealed: revealed,
-                        onSelected: revealed ? null : () => _pick(opt),
-                      ),
-                    );
-                  }).toList(),
+                const SizedBox(height: Spacing.lg),
+                KeyedSubtree(
+                  key: _optionsKey,
+                  child: Column(
+                    children: _options.map((opt) {
+                      final revealed = _picked != null;
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: Spacing.sm),
+                        child: QuizChoice(
+                          text: opt,
+                          isCorrect: opt == correct,
+                          isSelected: _picked == opt,
+                          revealed: revealed,
+                          onSelected: revealed ? null : () => _pick(opt),
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
         ),
       ),
     );
   }
 
   Widget _buildDone(AppL10n t) {
-    final s = SoriSurfaces.of(context);
+    final pct = ((_score / _order.length) * 100).round();
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(t.quizResultTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.quizResultTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: SafeArea(
         child: SoriCenterClamp(
-          child: Padding(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: Column(
-            children: [
-              const SizedBox(height: Spacing.xl),
-              const Text('🎉', style: TextStyle(fontSize: 64)),
-              const SizedBox(height: Spacing.md),
-              Text(
-                t.quizScore(_score, _order.length),
-                style: const TextStyle(
-                    fontSize: 24, fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                t.quizResultBody,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, color: s.textMuted),
-              ),
-              const Spacer(),
+          child: GameOverCard(
+            headline: t.quizResultTitle,
+            scoreLabel: t.quizScore(_score, _order.length),
+            xpGained: _score * 4,
+            isNewBest: _outcome?.isNewBest ?? false,
+            newBestLabel: t.gameNewBest,
+            bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_quiz')),
+            mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
+            mascotEmotion: pct >= 50
+                ? MascotEmotion.celebrate
+                : MascotEmotion.worry,
+            celebrate: pct >= 50,
+            actions: [
               SoriButton(
                 label: t.quizAgain,
                 icon: Icons.refresh_rounded,
@@ -300,7 +323,6 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                 fullWidth: true,
                 onTap: _restart,
               ),
-              const SizedBox(height: Spacing.sm),
               SoriButton(
                 label: t.customPackResultBack,
                 icon: Icons.menu_book_outlined,
@@ -311,7 +333,6 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
               ),
             ],
           ),
-        ),
         ),
       ),
     );
