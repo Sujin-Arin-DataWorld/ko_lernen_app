@@ -3574,8 +3574,8 @@
     {
      "speaker": "junho",
      "ko": "네. 어떤 길로 갈까요? 마포대교나 성산대교로 갈 수 있어요.",
-     "de": "Gerne — welchen Weg soll ich nehmen? Ich kann über die Mapo-Brücke oder die Sungsan-Brücke fahren.",
-     "en": "Sure — which way would you prefer? I can take the Mapo Bridge or the Sungsan Bridge."
+     "de": "Gerne — welchen Weg soll ich nehmen? Ich kann über die Mapo-Brücke oder die Seongsan-Brücke fahren.",
+     "en": "Sure — which way would you prefer? I can take the Mapo Bridge or the Seongsan Bridge."
     },
     {
      "speaker": "user",
@@ -3586,8 +3586,8 @@
     {
      "speaker": "junho",
      "ko": "성산대교 쪽이 좀 덜 막히는 것 같아요. 그쪽으로 갈게요.",
-     "de": "Über die Sungsan-Brücke läuft's gerade etwas flüssiger — da fahre ich dann lang.",
-     "en": "The Sungsan Bridge side looks a bit clearer — I'll head that way."
+     "de": "Über die Seongsan-Brücke läuft's gerade etwas flüssiger — da fahre ich dann lang.",
+     "en": "The Seongsan Bridge side looks a bit clearer — I'll head that way."
     },
     {
      "speaker": "user",
@@ -5037,7 +5037,7 @@
      "korean": "영수증",
      "note": {
       "ko": "",
-      "de": "Kassenbon (오늘 영수증에 비번이 있을 때도).",
+      "de": "Kassenbon (manchmal steht das WLAN-Passwort darauf).",
       "en": "receipt (sometimes shows the WiFi password)."
      }
     }

@@ -315,6 +315,27 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-01 (DE/KO/EN 원어민 자연스러움 전수 재검사) — 미커밋
+
+**범위:** Jin "독일어·한국어·영어 표현을 각 언어 특성에 맞게 가장 자연스럽게." Q&A 확정: **3개 언어 전수 재검사** · KO도 **직접 수정**(이번 한정) · 로마자 오타 6건 **함께 수정**. SSoT: `docs/NATIVE_TEXT_AUDIT_2026-07-01.md`.
+
+**방법(§0):** Opus 메인이 전 표면 직접 통독(서브에이전트 언어판정 위임 X — `feedback_model_delegation`). python 추출로 ARB 931키×2·시나리오 33(대화 204·노트·문법·문화·퀘스트)·단어 546·문법 88·문법패턴 31·끝말잇기 392·smalltalk 145 전수 정독.
+
+**총평:** 06-09·06-18 두 차례 감사로 **DE·KO 이미 원어민급**. 이번 새 발견 = **영어 시나리오 204줄**(과거 미검수 유일 표면, 06-09에 서브에이전트 환각으로 보류됐던) 직접 정독 → 실품질 양호. 전 표면 확정 결함 **소수**.
+
+**Update(적용 8건):**
+- 🔴 **DE 노트 한국어 조각**: `scenarios.json` `cafe_study` 단어 `영수증` DE `Kassenbon (오늘 영수증에 비번이 있을 때도).` → `Kassenbon (manchmal steht das WLAN-Passwort darauf).`(영어판 정상이었음, 유일한 진짜 결함).
+- 🟡 **고유명사 로마자**: `taxi_street` `성산대교`의 `Sungsan`→`Seongsan`(표준 RR, DE·EN 4곳).
+- **로마자 오타 6**: `korean_vocab.csv` romanization 열 — sireohadam→sireohada·hoei→hoeui·seontaek hada→seontaekhada·ohilleo→ohiryeo·deudieeo→deudieo·eopload-hada→eoprodeuhada.
+
+**유지(제안만):** 사이다 EN "Sprite" vs DE "Limo"(각 언어 native, 단어노트가 "Sprite-like" 프레이밍) · `introduce_yourself` DE "Bitte um Ihre Unterstützung"(잘 부탁드립니다 정형구) · 기타 미세건 — 전부 각 언어로 자연스러워 미적용, 문서에 근거 기록. **KO 결함 0**(Jin 원어민 작성, 직접 수정 권한 받았으나 손댈 것 없었음).
+
+**검증:** scenarios.json valid(33)·잔여 옛 문자열 0 · CSV 14열/546행/불량 0·로마자 6 정확 · `flutter test`(편집 표면 8 스위트) **70 통과**. ⚠️ 미검증(Jin 실기기): DE/EN 토글 시각.
+
+**⚠️ 동시세션 미완(내 작업 무관):** `flutter analyze` 8 에러 = 동시세션 신규 **cloze** 기능(cloze.json·cloze_game_screen·cloze_loader·build_cloze.py 전부 untracked)이 ARB에 `cloze*` 키 추가 후 `gen-l10n` 미실행 → `AppL10n.clozeTitle` 등 getter 부재. 데이터만 만진 내 변경과 무관, 미손댐.
+
+**Git:** 미커밋(Jin 확인 후). 변경: `scenarios.json`·`korean_vocab.csv`·`docs/NATIVE_TEXT_AUDIT_2026-07-01.md`·CLAUDE.md.
+
 ### 2026-06-22 (실생활 습득 듀오링고化 검토 + Phase 1: 문장 짓기 산출 엔진) — 미커밋
 
 **범위:** Jin "한글소리가 어디까지 듀오링고처럼 실생활 한국어를 습득하게 만들 수 있는지 개선안 검토." Q&A 확정: **검토 문서 + 1순위 바로 착수** · 레버 **①능동 산출 + ③인터랙티브 역할극 + ④콘텐츠 확충 결합** · **말하기(STT)는 나중 별도 베팅**. plan `zesty-strolling-sloth.md`.

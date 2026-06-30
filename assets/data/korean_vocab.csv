@@ -98,7 +98,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 자다,jada,schlafen,A1,Verb,일찍 자요.,Ich schlafe früh.,Alltag,a1_daily_2,9,true,to sleep,Verb,I sleep early.
 만나다,mannada,treffen,A1,Verb,친구를 만나요.,Ich treffe einen Freund.,Beziehungen,a1_family_2,8,true,to meet,Verb,I meet a friend.
 좋아하다,joahada,mögen / gerne haben,A1,Verb,한국어를 좋아해요.,Ich mag Koreanisch.,Gefühle,a1_misc_1,10,true,to like,Verb,I like Korean.
-싫어하다,sireohadam,nicht mögen / ablehnen,A1,Verb,채소를 싫어해요.,Ich mag kein Gemüse.,Gefühle,a1_misc_2,1,false,to dislike,Verb,I dislike vegetables.
+싫어하다,sireohada,nicht mögen / ablehnen,A1,Verb,채소를 싫어해요.,Ich mag kein Gemüse.,Gefühle,a1_misc_2,1,false,to dislike,Verb,I dislike vegetables.
 사랑하다,saranghada,lieben,A1,Verb,사랑해요.,Ich liebe dich.,Gefühle,a1_misc_2,2,false,to love,Verb,I love you.
 사다,sada,kaufen,A1,Verb,옷을 사요.,Ich kaufe Kleidung.,Einkaufen,a1_misc_2,3,false,to buy,Verb,I buy clothes.
 말하다,malhada,sprechen / sagen,A1,Verb,한국어로 말해요.,Ich spreche auf Koreanisch.,Kommunikation,a1_misc_2,4,false,to speak / to say,Verb,I speak in Korean.
@@ -151,7 +151,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 숙제,sukje,Hausaufgaben,A2,Nomen,숙제를 해요.,Ich mache Hausaufgaben.,Bildung,a2_education,2,false,homework,Noun,I do homework.
 성적,seongjeok,Noten / Ergebnis,A2,Nomen,성적이 좋아요.,Meine Noten sind gut.,Bildung,a2_education,3,false,grades / results,Noun,My grades are good.
 휴가,hyuga,Urlaub / Freizeit,A2,Nomen,휴가를 즐겨요.,Ich genieße meinen Urlaub.,Beruf,a2_work,3,false,vacation / time off,Noun,I enjoy my vacation.
-회의,hoei,Meeting / Besprechung,A2,Nomen,회의가 있어요.,Ich habe ein Meeting.,Beruf,a2_work,4,false,meeting,Noun,I have a meeting.
+회의,hoeui,Meeting / Besprechung,A2,Nomen,회의가 있어요.,Ich habe ein Meeting.,Beruf,a2_work,4,false,meeting,Noun,I have a meeting.
 택시,taeksi,Taxi,A2,Nomen,택시를 타요.,Ich nehme ein Taxi.,Verkehr,a2_transport,2,false,taxi,Noun,I take a taxi.
 기차,gicha,Zug / Bahn,A2,Nomen,기차로 가요.,Ich fahre mit dem Zug.,Verkehr,a2_transport,3,false,train,Noun,I go by train.
 자전거,jajeongeo,Fahrrad,A2,Nomen,자전거를 타요.,Ich fahre Fahrrad.,Verkehr,a2_transport,4,false,bicycle,Noun,I ride a bicycle.
@@ -250,7 +250,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 발전하다,baljeonhada,sich entwickeln / Fortschritte machen,B1,Verb,실력이 발전했어요.,Meine Fähigkeiten haben sich verbessert.,Bildung,b1_health_education,5,false,to develop / to improve,Verb,My skills have improved.
 노력하다,noryeokhada,sich anstrengen / bemühen,B1,Verb,열심히 노력해요.,Ich strenge mich sehr an.,Motivation,b1_emotions_relations_2,2,false,to make an effort,Verb,I try very hard.
 참여하다,chamyeohada,teilnehmen / mitmachen,B1,Verb,행사에 참여해요.,Ich nehme an der Veranstaltung teil.,Alltag,b1_daily_2,6,false,to participate,Verb,I take part in the event.
-선택하다,seontaek hada,auswählen / sich entscheiden,B1,Verb,좋은 것을 선택해요.,Ich wähle das Gute.,Alltag,b1_daily_2,7,false,to choose / to select,Verb,I choose the good one.
+선택하다,seontaekhada,auswählen / sich entscheiden,B1,Verb,좋은 것을 선택해요.,Ich wähle das Gute.,Alltag,b1_daily_2,7,false,to choose / to select,Verb,I choose the good one.
 실패하다,silpaekhada,scheitern / versagen,B1,Verb,실패를 두려워하지 마세요.,Hab keine Angst vor dem Scheitern.,Motivation,b1_emotions_relations_2,3,false,to fail,Verb,Don't be afraid of failure.
 성공하다,seonggonghada,erfolgreich sein / Erfolg haben,B1,Verb,성공할 수 있어요.,Du kannst Erfolg haben.,Motivation,b1_emotions_relations_2,4,false,to succeed,Verb,You can succeed.
 극복하다,geukbokhada,überwinden,B1,Verb,어려움을 극복해요.,Ich überwinde die Schwierigkeiten.,Motivation,b1_emotions_relations_2,5,false,to overcome,Verb,I overcome the difficulties.
@@ -264,12 +264,12 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 정확하다,jeonghwakhada,genau / korrekt sein,B1,Adjektiv,정확한 정보예요.,Das sind genaue Informationen.,Beschreibung,b1_descriptions_1,5,false,to be accurate / correct,Adjective,That's accurate information.
 효율적이다,hyoyuljeogida,effizient sein,B1,Adjektiv,이 방법이 효율적이에요.,Diese Methode ist effizient.,Beschreibung,b1_descriptions_1,6,false,to be efficient,Adjective,This method is efficient.
 결국,gyeolguk,schließlich / letztendlich,B1,Adverb,결국 성공했어요.,Letztendlich hat es geklappt.,Alltag,b1_daily_2,9,true,in the end / eventually,Adverb,"In the end, it worked out."
-오히려,ohilleo,eher / vielmehr,B1,Adverb,오히려 도움이 됐어요.,Es hat mir eher geholfen.,Alltag,b1_daily_3,1,false,rather / instead,Adverb,"It helped me, if anything."
+오히려,ohiryeo,eher / vielmehr,B1,Adverb,오히려 도움이 됐어요.,Es hat mir eher geholfen.,Alltag,b1_daily_3,1,false,rather / instead,Adverb,"It helped me, if anything."
 게다가,gedaga,außerdem / darüber hinaus,B1,Adverb,게다가 맛도 있어요.,Außerdem ist es auch lecker.,Alltag,b1_daily_3,2,false,moreover / on top of that,Adverb,"On top of that, it's tasty too."
 따라서,ttaraseo,daher / deshalb / folglich,B1,Adverb,따라서 조심해야 해요.,Daher muss man vorsichtig sein.,Alltag,b1_daily_3,3,false,therefore / accordingly,Adverb,"Therefore, one must be careful."
 특히,teuki,besonders / vor allem,B1,Adverb,특히 한국 음식을 좋아해요.,Ich mag besonders koreanisches Essen.,Alltag,b1_daily_3,4,false,especially / above all,Adverb,I especially like Korean food.
 갑자기,gapjagi,plötzlich,B1,Adverb,갑자기 비가 왔어요.,Es hat plötzlich geregnet.,Alltag,b1_daily_3,5,false,suddenly,Adverb,It suddenly started to rain.
-드디어,deudieeo,endlich / schließlich,B1,Adverb,드디어 끝났어요!,Es ist endlich vorbei!,Alltag,b1_daily_3,6,false,finally / at last,Adverb,It's finally over!
+드디어,deudieo,endlich / schließlich,B1,Adverb,드디어 끝났어요!,Es ist endlich vorbei!,Alltag,b1_daily_3,6,false,finally / at last,Adverb,It's finally over!
 반면,banmyeon,andererseits / hingegen,B1,Adverb,좋은 반면 비싸요.,"Es ist gut, aber teuer.",Alltag,b1_daily_3,7,false,on the other hand / whereas,Adverb,It's good but expensive.
 갈등,galdeung,Konflikt,B2,Nomen,갈등을 해결해야 해요.,Wir müssen den Konflikt lösen.,Gesellschaft,b2_society_1,1,false,conflict,Noun,We must resolve the conflict.
 관점,gwanjeom,Standpunkt / Perspektive,B2,Nomen,다양한 관점이 있어요.,Es gibt verschiedene Standpunkte.,Denken,b2_thinking_1,1,false,viewpoint / perspective,Noun,There are various viewpoints.
@@ -444,7 +444,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 좋아요,joayo,Like (Social Media),B1,Nomen,좋아요를 눌렀어요.,Ich habe ein Like gegeben.,Technologie,b1_tech_society_1,9,true,Like (social media),Noun,I hit Like.
 팔로워,palloweo,Follower,B1,Nomen,팔로워가 늘었어요.,Meine Followerzahl ist gewachsen.,Technologie,b1_tech_society_2,1,false,follower,Noun,My follower count grew.
 게시물,gesimul,Post / Beitrag,B1,Nomen,게시물을 올렸어요.,Ich habe einen Beitrag hochgeladen.,Technologie,b1_tech_society_2,2,false,post,Noun,I uploaded a post.
-업로드하다,eopload-hada,hochladen,B1,Verb,사진을 업로드해요.,Ich lade Fotos hoch.,Technologie,b1_tech_society_2,3,false,to upload,Verb,I upload photos.
+업로드하다,eoprodeuhada,hochladen,B1,Verb,사진을 업로드해요.,Ich lade Fotos hoch.,Technologie,b1_tech_society_2,3,false,to upload,Verb,I upload photos.
 검색하다,geomsaekhada,recherchieren / online suchen,B1,Verb,정보를 검색해요.,Ich recherchiere Informationen.,Technologie,b1_tech_society_2,4,false,to search (online),Verb,I search for information.
 다운로드,daunrodeu,Download,B1,Nomen,파일을 다운로드해요.,Ich lade die Datei herunter.,Technologie,b1_tech_society_2,5,false,download,Noun,I download the file.
 공유하다,gongyuhada,teilen (Social Media),B1,Verb,친구한테 공유해요.,Ich teile es mit Freunden.,Technologie,b1_tech_society_2,6,false,to share (social media),Verb,I share it with friends.
