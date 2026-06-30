@@ -70,6 +70,11 @@ class GameOverCard extends StatefulWidget {
   final bool isNewBest;
   final String? newBestLabel; // z. B. "Neuer Rekord!"
 
+  /// Optionaler Streak-Hinweis (🔥), getrennt vom Rekord-Trophäen-Slot.
+  /// Für Konsistenz = "du warst dran" (nicht "gewonnen") → auch bei schwachem
+  /// Score tonal stimmig.
+  final String? streakLabel;
+
   final MascotKind mascotKind;
   final MascotEmotion mascotEmotion;
   final bool celebrate; // Burst beim Erscheinen
@@ -83,6 +88,7 @@ class GameOverCard extends StatefulWidget {
     this.bestLabel,
     this.isNewBest = false,
     this.newBestLabel,
+    this.streakLabel,
     this.mascotKind = MascotKind.tiger,
     this.mascotEmotion = MascotEmotion.celebrate,
     this.celebrate = true,
@@ -206,6 +212,17 @@ class _GameOverCardState extends State<GameOverCard>
                       Text(
                         widget.bestLabel!,
                         style: TextStyle(fontSize: 13, color: s.textMuted),
+                      ),
+                    ],
+                    if (widget.streakLabel != null) ...[
+                      const SizedBox(height: Spacing.sm),
+                      Text(
+                        '🔥 ${widget.streakLabel!}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w800,
+                          color: SoriColors.tiger,
+                        ),
                       ),
                     ],
                   ],

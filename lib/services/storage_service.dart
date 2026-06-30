@@ -696,6 +696,32 @@ class Storage {
     return true;
   }
 
+  // ── Tages-Challenge (오늘의 도전) — täglicher Selbst-Streak ──────────
+  // Datums-Seed-Puzzle (alle Nutzer:innen bekommen dasselbe Tagesset).
+  // Selbst-Wettbewerb (Streak), KEINE Rangliste.
+  static String get dailyChallengeLastDone => _s('kl_daily_last');
+  static int get dailyChallengeStreak => _i('kl_daily_streak');
+
+  static bool dailyChallengeDoneToday({DateTime? now}) =>
+      dailyChallengeLastDone == _isoOf(now ?? DateTime.now());
+
+  /// Markiert die heutige Tages-Challenge als erledigt und pflegt den
+  /// Selbst-Streak: gestern erledigt → +1, sonst Reset auf 1; heute schon
+  /// erledigt → no-op (kein Doppel-Bonus).
+  static Future<void> markDailyChallengeDone({DateTime? now}) async {
+    final n = now ?? DateTime.now();
+    final today = _isoOf(n);
+    if (dailyChallengeLastDone == today) {
+      return;
+    }
+    final yesterday = _isoOf(n.subtract(const Duration(days: 1)));
+    final newStreak = dailyChallengeLastDone == yesterday
+        ? dailyChallengeStreak + 1
+        : 1;
+    await _ss('kl_daily_last', today);
+    await _si('kl_daily_streak', newStreak);
+  }
+
   /// 계 피드에 마지막으로 broadcast 한 레벨 (2픽 levelUp 중복 방지).
   static int get lastGyeLevel => _i('kl_gye_level');
   static Future<void> setLastGyeLevel(int v) => _si('kl_gye_level', v);

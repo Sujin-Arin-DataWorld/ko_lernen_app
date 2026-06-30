@@ -25,6 +25,7 @@ import 'package:ko_lernen_app/screens/paywall_screen.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
+import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
@@ -213,6 +214,7 @@ void main() {
       'chosung': const ChosungQuizScreen(),
       'cloze': const ClozeGameScreen(),
       'speed match': const SpeedMatchScreen(),
+      'daily challenge': const DailyChallengeScreen(),
       'learning path': const LearningPathScreen(),
     };
 

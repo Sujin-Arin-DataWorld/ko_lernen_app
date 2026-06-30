@@ -2353,6 +2353,20 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get dailyTitle => 'Daily Challenge';
+
+  @override
+  String get dailyDesc => 'Daily puzzle · streak';
+
+  @override
+  String get dailyAlreadyDone => 'Already done today — practice mode';
+
+  @override
+  String dailyStreak(int count) {
+    return '$count-day streak';
+  }
+
+  @override
   String get homeWordbookCardTitle => 'My word list';
 
   @override

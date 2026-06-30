@@ -2364,6 +2364,20 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get dailyTitle => 'Tages-Challenge';
+
+  @override
+  String get dailyDesc => 'Tägliches Rätsel · Streak';
+
+  @override
+  String get dailyAlreadyDone => 'Heute schon erledigt — Übungsmodus';
+
+  @override
+  String dailyStreak(int count) {
+    return '$count Tage in Folge';
+  }
+
+  @override
   String get homeWordbookCardTitle => 'Eigene Wortliste';
 
   @override

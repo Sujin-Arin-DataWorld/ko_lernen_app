@@ -890,6 +890,10 @@
   "speedMatchInstruction": "Tap a Korean word, then its meaning.",
   "speedMatchScore": "{count} pairs",
   "speedMatchBest": "Best: {count} pairs",
+  "dailyTitle": "Daily Challenge",
+  "dailyDesc": "Daily puzzle · streak",
+  "dailyAlreadyDone": "Already done today — practice mode",
+  "dailyStreak": "{count}-day streak",
 
   "homeWordbookCardTitle": "My word list",
   "homeWordbookCardDesc": "Build and study your own list",

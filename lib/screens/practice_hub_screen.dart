@@ -153,6 +153,14 @@ class PracticeHubScreen extends StatelessWidget {
 
   List<_HubItem> _gameItems(AppL10n t) => [
     _HubItem(
+      icon: Icons.local_fire_department_rounded,
+      title: t.dailyTitle,
+      subtitle: t.dailyDesc,
+      accent: SoriColors.gold,
+      route: '/daily',
+      ribbonType: 'new',
+    ),
+    _HubItem(
       icon: Icons.sort_by_alpha_rounded,
       title: t.gameChosungTitle,
       subtitle: t.gameChosungDesc,

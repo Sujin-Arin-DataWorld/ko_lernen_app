@@ -4381,6 +4381,30 @@ abstract class AppL10n {
   /// **'Bester: {count} Paare'**
   String speedMatchBest(int count);
 
+  /// No description provided for @dailyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Tages-Challenge'**
+  String get dailyTitle;
+
+  /// No description provided for @dailyDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Tägliches Rätsel · Streak'**
+  String get dailyDesc;
+
+  /// No description provided for @dailyAlreadyDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute schon erledigt — Übungsmodus'**
+  String get dailyAlreadyDone;
+
+  /// No description provided for @dailyStreak.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Tage in Folge'**
+  String dailyStreak(int count);
+
   /// No description provided for @homeWordbookCardTitle.
   ///
   /// In de, this message translates to:

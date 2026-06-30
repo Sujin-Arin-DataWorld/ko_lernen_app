@@ -903,6 +903,13 @@
   "@speedMatchBest": {
     "placeholders": { "count": { "type": "int" } }
   },
+  "dailyTitle": "Tages-Challenge",
+  "dailyDesc": "Tägliches Rätsel · Streak",
+  "dailyAlreadyDone": "Heute schon erledigt — Übungsmodus",
+  "dailyStreak": "{count} Tage in Folge",
+  "@dailyStreak": {
+    "placeholders": { "count": { "type": "int" } }
+  },
 
   "homeWordbookCardTitle": "Eigene Wortliste",
   "homeWordbookCardDesc": "Selbst erstellen & üben",
