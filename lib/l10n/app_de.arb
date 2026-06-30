@@ -892,6 +892,17 @@
   "clozeInstruction": "Wähle das fehlende Wort.",
   "clozeEmptyBody": "Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.",
   "clozeLevelAll": "Alle",
+  "speedMatchTitle": "Blitz-Paare",
+  "speedMatchDesc": "Auf Zeit zuordnen",
+  "speedMatchInstruction": "Tippe ein koreanisches Wort, dann die passende Bedeutung.",
+  "speedMatchScore": "{count} Paare",
+  "@speedMatchScore": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "speedMatchBest": "Bester: {count} Paare",
+  "@speedMatchBest": {
+    "placeholders": { "count": { "type": "int" } }
+  },
 
   "homeWordbookCardTitle": "Eigene Wortliste",
   "homeWordbookCardDesc": "Selbst erstellen & üben",

@@ -2334,6 +2334,25 @@ class AppL10nEn extends AppL10n {
   String get clozeLevelAll => 'All';
 
   @override
+  String get speedMatchTitle => 'Speed Match';
+
+  @override
+  String get speedMatchDesc => 'Match against the clock';
+
+  @override
+  String get speedMatchInstruction => 'Tap a Korean word, then its meaning.';
+
+  @override
+  String speedMatchScore(int count) {
+    return '$count pairs';
+  }
+
+  @override
+  String speedMatchBest(int count) {
+    return 'Best: $count pairs';
+  }
+
+  @override
   String get homeWordbookCardTitle => 'My word list';
 
   @override

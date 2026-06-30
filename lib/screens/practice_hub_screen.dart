@@ -175,6 +175,14 @@ class PracticeHubScreen extends StatelessWidget {
       ribbonType: 'new',
     ),
     _HubItem(
+      icon: Icons.bolt_rounded,
+      title: t.speedMatchTitle,
+      subtitle: t.speedMatchDesc,
+      accent: SoriColors.tiger,
+      route: '/speed_match',
+      ribbonType: 'new',
+    ),
+    _HubItem(
       icon: Icons.link_rounded,
       title: t.gameKkeunmariTitle,
       subtitle: t.gameKkeunmariDesc,

@@ -4351,6 +4351,36 @@ abstract class AppL10n {
   /// **'Alle'**
   String get clozeLevelAll;
 
+  /// No description provided for @speedMatchTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Blitz-Paare'**
+  String get speedMatchTitle;
+
+  /// No description provided for @speedMatchDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Zeit zuordnen'**
+  String get speedMatchDesc;
+
+  /// No description provided for @speedMatchInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe ein koreanisches Wort, dann die passende Bedeutung.'**
+  String get speedMatchInstruction;
+
+  /// No description provided for @speedMatchScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Paare'**
+  String speedMatchScore(int count);
+
+  /// No description provided for @speedMatchBest.
+  ///
+  /// In de, this message translates to:
+  /// **'Bester: {count} Paare'**
+  String speedMatchBest(int count);
+
   /// No description provided for @homeWordbookCardTitle.
   ///
   /// In de, this message translates to:

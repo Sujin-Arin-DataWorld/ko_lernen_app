@@ -23,6 +23,8 @@ import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/paywall_screen.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
+import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
@@ -121,8 +123,7 @@ void main() {
       expect(soriGridColumns(360, target: 110, min: 3, max: 6), 3);
     });
     test('태블릿 768px → 확장', () {
-      expect(soriGridColumns(768, target: 110, min: 3, max: 6),
-          greaterThan(3));
+      expect(soriGridColumns(768, target: 110, min: 3, max: 6), greaterThan(3));
     });
     test('아주 넓은 폭 → max 상한 클램프', () {
       expect(soriGridColumns(3000, target: 110, min: 3, max: 6), 6);
@@ -210,13 +211,16 @@ void main() {
       'consent': const ConsentScreen(),
       'paywall': const PaywallScreen(),
       'chosung': const ChosungQuizScreen(),
+      'cloze': const ClozeGameScreen(),
+      'speed match': const SpeedMatchScreen(),
       'learning path': const LearningPathScreen(),
     };
 
     for (final width in <double>[308, 360, 800, 1280]) {
       for (final entry in screens.entries) {
-        testWidgets('${entry.key} @ ${width.toInt()}px 오버플로 없음',
-            (tester) async {
+        testWidgets('${entry.key} @ ${width.toInt()}px 오버플로 없음', (
+          tester,
+        ) async {
           tester.view.physicalSize = Size(width, 900);
           tester.view.devicePixelRatio = 1;
           addTearDown(tester.view.resetPhysicalSize);
@@ -239,8 +243,7 @@ void main() {
     // 접근성 큰 글씨(시스템 텍스트 스케일 1.3×) — 좁은 폰에서 오버플로 0.
     // WCAG 1.4.4 / Jin 실기기 "잘림" 계열 회귀 방어.
     for (final entry in screens.entries) {
-      testWidgets('${entry.key} @ 360px ×1.3 글씨 오버플로 없음',
-          (tester) async {
+      testWidgets('${entry.key} @ 360px ×1.3 글씨 오버플로 없음', (tester) async {
         tester.view.physicalSize = const Size(360, 900);
         tester.view.devicePixelRatio = 1;
         addTearDown(tester.view.resetPhysicalSize);

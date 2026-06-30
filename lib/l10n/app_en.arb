@@ -885,6 +885,11 @@
   "clozeInstruction": "Choose the missing word.",
   "clozeEmptyBody": "No sentences for this level yet. Pick another level.",
   "clozeLevelAll": "All",
+  "speedMatchTitle": "Speed Match",
+  "speedMatchDesc": "Match against the clock",
+  "speedMatchInstruction": "Tap a Korean word, then its meaning.",
+  "speedMatchScore": "{count} pairs",
+  "speedMatchBest": "Best: {count} pairs",
 
   "homeWordbookCardTitle": "My word list",
   "homeWordbookCardDesc": "Build and study your own list",

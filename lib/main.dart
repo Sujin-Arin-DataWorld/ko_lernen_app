@@ -56,6 +56,7 @@ import 'screens/kkeunmari_screen.dart';
 import 'screens/listening_screen.dart';
 import 'screens/chosung_quiz_screen.dart';
 import 'screens/cloze_game_screen.dart';
+import 'screens/speed_match_screen.dart';
 import 'screens/wordle_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
@@ -289,6 +290,9 @@ class KoLernenApp extends StatelessWidget {
             case '/cloze':
               return SoriTransitions.fadeScale(
                   (_) => const ClozeGameScreen(), settings: settings);
+            case '/speed_match':
+              return SoriTransitions.fadeScale(
+                  (_) => const SpeedMatchScreen(), settings: settings);
             case '/settings':
               return SoriTransitions.fadeScale(
                   (_) => const SettingsScreen(), settings: settings);

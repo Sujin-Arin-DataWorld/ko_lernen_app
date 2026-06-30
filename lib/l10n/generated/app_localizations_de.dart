@@ -2344,6 +2344,26 @@ class AppL10nDe extends AppL10n {
   String get clozeLevelAll => 'Alle';
 
   @override
+  String get speedMatchTitle => 'Blitz-Paare';
+
+  @override
+  String get speedMatchDesc => 'Auf Zeit zuordnen';
+
+  @override
+  String get speedMatchInstruction =>
+      'Tippe ein koreanisches Wort, dann die passende Bedeutung.';
+
+  @override
+  String speedMatchScore(int count) {
+    return '$count Paare';
+  }
+
+  @override
+  String speedMatchBest(int count) {
+    return 'Bester: $count Paare';
+  }
+
+  @override
   String get homeWordbookCardTitle => 'Eigene Wortliste';
 
   @override
