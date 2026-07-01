@@ -315,6 +315,24 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-01 (디자인 "클로드 냄새" 제거 D4·D5 완주 + 실기기 UI 피드백 6종 + Gye 재구성) — 커밋·푸시
+
+**범위:** Jin 실기기 스크린샷 피드백 → 폰트·말풍선·튜토리얼·프로필·호랑이영상 수정 → 이어서 디자인 플랜(`inherited-stirring-biscuit.md`) **D4·D5 완주**. Jin "자러갈거야, 묻지말고 계획 완성" → 자율 진행. plan: 위 파일 + 워크플로우 `design-d4-d5-gye`(11 agents 감사·Gye 판정단·적대검증).
+
+**실기기 피드백 6종(`b8130e3`):** ① **폰트 통일** — GowunBatang 명조(라틴 서브셋, 한글 없어 독/한 분열 + 저품질) 전면 폐기 → **Pretendard 단일**(제목 w800). `SoriFonts.serif`=sans alias, SoriTextTheme display/h1/h2/serifDisplay/numeral·theme AppBar 전부 Pretendard. ② 홈 "Willkommen" 말풍선이 호랑이 가림 → 위 중앙+꼬리. ③ 튜토리얼 "왜 안 보임" = 재시작 전 미표시 갭 → `AppShell.replayHomeTour` 신호로 Settings "다시 보기"가 즉시 재생. ④ 프로필 전신 호랑이 → 원형 메달리온. ⑤ 호랑이 영상 회색 박스 → 초상 액자(#3) + `hasAlpha` 알파영상 자동대응(#2 준비, Jin 재출력 시 플래그). ⑥ 하단탭은 이미 일관(무변경).
+
+**한지 텍스처(Jin 참고사진 "은은 크림" 확정):** `_HanjiPainter` 재작성 — 점+직선 → 실제 한지(따뜻한 구름 얼룩 + 먹 티끌 + 가늘고 성긴 창백한 닥 섬유). `mcp visualize`로 후보 6종 렌더→Jin "은은 크림"(A) 선택. 강도 배경 0.11/카드 0.13. seed 결정적.
+
+**D4 전개(85% 화면, 커밋 6):** 신규 `SoriScreenBackground`(drop-in 한지 배경, Positioned.fill 레이아웃 중립) 토대(`fae0a31`) → D4-1 게임 7(`75ef728`) · D4-2 학습 7(`1cd49e8`) · D4-3 진행/수집 4(`d014899`) · D4-4 설정(`51b4a68`) · D4-5 **Gye 방향 C**(`5edc914`). ~25화면 은은 크림 한지 + 이모지→시맨틱 아이콘 + 수제카드→SoriCard + `_Section`/SoriSectionHeader 단청 골드 rule + stats tabular numeral + hard_words 마스코트. 화면 그룹별 워크플로우(Opus 에이전트 병렬 래핑 → 적대 검증) + 내가 analyze/test 최종검증. 오버플로 회귀(grammar/vocab_pack tap힌트 Row→Text.rich) 잡음.
+
+**Gye "뜬금없다" 재구성(방향 C, 판정단 3방향 중 최소리스크):** 하단탭·AppBar "Lerngruppe"(+ "Zusammen lernen · Gye" 부제)로 독일 학습자 명료화하되 문화어 Gye 보존. IA/라우팅 무변경(탭 유지). 첫 방문 1회 설명 코치(ScreenCoachMixin `gye_tab`, kScreenCoachIds 등록). 빈 상태 = 제네릭 groups → '무엇/왜/어떻게' 3층 설명 카드(한옥 아이콘·gold hero) + CTA. plain Card→SoriCard. l10n navGye "Gye"→"Lerngruppe"/"Study group" + 6키(DE/EN parity, gen-l10n).
+
+**D5(`c87fc64`):** responsive_test +20(gye_tab·quests·smalltalk·review, 총 **517**) + kkeunmari·speed_match 타이머 tabular figures. ⏳ **실기기 이월(§0 헤드리스 불가)**: 색 서사 재균형·ink-reveal 모션·한지 위 대비 감사. `scenarios_list:406` 소프트섀도우는 동시세션 파일이라 조율 후.
+
+**검증:** 매 단계 `flutter analyze` 0(잔여 1 warning=동시세션 hangul_screen, 무접촉) · `flutter test` **517** · 오버플로 0 · dart format · ARB parity · gen-l10n. **⚠️ 미검증(Jin 실기기 필수)**: ~25화면 시각(은은 크림 톤·섹션 골드 rule·Gye 새 빈상태/코치·프로필 메달리온·호랑이 영상 액자·stats 숫자). 호랑이 영상 진짜 투명은 Jin 알파 재출력 필요.
+
+**Git:** 커밋 8건(`b8130e3`~`c87fc64`) origin/main 푸시. hangul_screen·scenarios_list(동시세션 WIP) 전 커밋에서 명시 제외.
+
 ### 2026-07-01 (후속5 — 한국어 예문·시나리오·smalltalk 원어민 자연화) — 커밋
 
 **범위:** Jin "한국어 리뷰가 너무 허접해 보임 → 진짜 한국사람이 쓰는 표현으로 전부 최적화, 누락 없이." Q&A 확정: **소스 CSV/JSON 직접 수정**(앱 반영, md는 재생성) · **전 범위**(vocab 558 + 시나리오 33 + smalltalk 145). 후속4의 리뷰 리스트가 검수-후-반영 방식이었으나 Jin이 "예문 자체가 교재틱" 지적 → 이번은 사전 격상.
