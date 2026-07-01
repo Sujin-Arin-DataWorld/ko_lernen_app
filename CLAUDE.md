@@ -315,6 +315,23 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-01 (후속5 — 한국어 예문·시나리오·smalltalk 원어민 자연화) — 커밋
+
+**범위:** Jin "한국어 리뷰가 너무 허접해 보임 → 진짜 한국사람이 쓰는 표현으로 전부 최적화, 누락 없이." Q&A 확정: **소스 CSV/JSON 직접 수정**(앱 반영, md는 재생성) · **전 범위**(vocab 558 + 시나리오 33 + smalltalk 145). 후속4의 리뷰 리스트가 검수-후-반영 방식이었으나 Jin이 "예문 자체가 교재틱" 지적 → 이번은 사전 격상.
+
+**진단(§0, 실측):** vocab 예문에 (a) 동어반복 15건(감사합니다→감사합니다! 등) (b) 교재틱·무맥락(나이가 몇 살이에요/친구예요/제 방이 작아요) (c) 조사·문장부호 어색(네 맞아요/아니요 틀려요) 다수. 시나리오·smalltalk은 이미 원어민급이라 소량 튜닝만 필요.
+
+**Update:**
+- **`assets/data/korean_vocab.csv` 408건 교체** — `tool/native_polish/vocab_examples.py`(대체 사전 410엔트리). 원어민 실사용 문맥으로 격상: 인사 표현 19(감사합니다!→도와주셔서 감사합니다.), 가족·몸 12(형이 요리해요→우리 형은 요리를 잘해요.), 색깔 9(나뭇잎이 초록색이에요→이 초록색 옷이 예뻐요.), 음식·시간 10, 기본 동사·형용사 30+, 숫자·요일 10+, A2 회사·감정·일상·집·돈 90+, B1 추상·SNS·라이프스타일 60+, B2 학술·경제·환경 60+. **레벨 문법 범위 준수**(A1 예문은 A1 문법). **자체 검증에서 잡은 오류 2건**: `육 시`(시간은 순한글) → `저는 육 층에 살아요.`, `구 월`(붙여쓰기) → `구월`.
+- **`assets/data/scenarios.json` 7건 튜닝** — `tool/native_polish/scenarios_smalltalk.py`. airport(관광이에요→관광하러 왔어요), business_meeting(요체/습니다체 혼용 → 통일), subway_directions(강남역에→강남역), hotel_checkin(예약했는데요. 이름은→예약했는데요, 이름이), mart_grocery(주세요 반복→주시고, 하나 주세요), job_interview(마케팅 경험이 삼 년→마케팅 분야에서 3년), convenience_store(다 되셨어요?→계산 도와드릴까요?).
+- **`assets/data/smalltalk.json` 18건 튜닝** — bare opener를 실감있게: `저는 여행을 좋아해요`→`저 여행 진짜 좋아해요`, `이사했어요`→`저 얼마 전에 이사했어요`, `잘 자요`→`잘 자요, 좋은 꿈 꿔요` 등. 문법 격 하향(-을/-를 드롭)·감탄 자연화.
+- **`docs/KOREAN_REVIEW_2026-07-01.md` 재생성** — `tool/native_polish/regen_review.py`(vocab CSV+scenarios+smalltalk에서 자동 조립, 1016줄). Jin이 리뷰에서 어색한 곳 표시→매핑 갱신 후 재실행 가능.
+- **신규 도구 3종** (`tool/native_polish/`) — 재실행·복원 가능. 대체 사전은 데이터가 아니라 스크립트 상수라 diff·수정·재실행 용이.
+
+**검증:** `flutter test test/data_integrity_test.dart test/scenario_loader_test.dart` 통과 · 전체 `flutter test` **491 통과**(회귀 0) · 남은 동어반복 0건 · CSV 열 14/행 558·독일어/영어 필드 누락 0·시나리오 대사 ko 누락 0·smalltalk 145 보존 · JSON 원본 `indent=1` 포맷 유지(스타일 리포맷 X). CSV 라인엔딩 LF 유지(초기 시도 CRLF로 저장 → Dart `CsvToListConverter(eol:'\n')` 파싱 실패 → `lineterminator="\n"` 지정 후 해소). ⚠️ 미검증: 실기기 시각(스탯 카드·홈 vocab pack 진행도 등에서 새 예문 노출)·TTS 발화 톤 = Jin. 신규 예문 중 A2 문법(-네요·-어서·-기 전에) 소량 포함(A1 벽 완만하게, 대부분 앱 사용자가 조기 노출됨).
+
+**Git:** 이 커밋(내 5파일 + tool/native_polish/*). 동시세션 8파일(app_shell/hangul/home/profile/settings/theme/tiger_video/tokens + screen_background 신규)은 미포함.
+
 ### 2026-07-01 (후속4 — 실기기 피드백: 허브 카드 높이 + 한국어 검수) — 로컬 커밋(미푸시)
 
 **범위:** Jin 실기기 스크린샷(Üben 허브) — ① 그리드 카드 높이 들쑥날쑥 ② 한국어 어색(`열쇠를 잃었어요`→`잃어버렸어요`). Jin "한국어 전부 리스트로" 요청.

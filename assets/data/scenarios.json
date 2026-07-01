@@ -340,7 +340,7 @@
     },
     {
      "speaker": "user",
-     "ko": "네, 처음이에요. 관광이에요.",
+     "ko": "네, 처음이에요. 관광하러 왔어요.",
      "de": "Ja, erstes Mal. Tourismus.",
      "en": "Yes, first time. Tourism."
     },
@@ -2018,7 +2018,7 @@
     },
     {
      "speaker": "user",
-     "ko": "예약했는데요. 이름은 [이름]이에요.",
+     "ko": "예약했는데요, 이름이 [이름]이에요.",
      "de": "Ich habe reserviert. Mein Name ist [Name].",
      "en": "I have a reservation. My name is [Name]."
     },
@@ -2210,7 +2210,7 @@
    "dialog": [
     {
      "speaker": "minsu",
-     "ko": "안녕하세요. 다 되셨어요?",
+     "ko": "안녕하세요, 계산 도와드릴까요?",
      "de": "Hallo. Alles?",
      "en": "Hi. Will that be all?"
     },
@@ -2869,7 +2869,7 @@
     },
     {
      "speaker": "user",
-     "ko": "저는 해외 마케팅을 담당하고 있어요. 꼼꼼하게 챙기는 편이라 잘 맞을 것 같습니다.",
+     "ko": "저는 해외 마케팅을 담당하고 있습니다. 꼼꼼하게 챙기는 편이라 잘 맞을 것 같습니다.",
      "de": "Ich bin für internationales Marketing zuständig. Ich arbeite generell sehr sorgfältig — das sollte gut passen.",
      "en": "I handle international marketing. I tend to be detail-oriented, so I think we'll work well together."
     },
@@ -4639,7 +4639,7 @@
    "dialog": [
     {
      "speaker": "user",
-     "ko": "저기요, 강남역에 어떻게 가요?",
+     "ko": "저기요, 강남역 어떻게 가요?",
      "de": "Entschuldigung, wie komme ich zum Bahnhof Gangnam?",
      "en": "Excuse me, how do I get to Gangnam station?"
     },
@@ -5501,7 +5501,7 @@
     },
     {
      "speaker": "user",
-     "ko": "그럼 사과 주세요. 봉지도 주세요.",
+     "ko": "그럼 사과 주시고, 봉지도 하나 주세요.",
      "de": "Dann die Äpfel bitte. Und eine Tüte.",
      "en": "Then the apples please. And a bag."
     },
@@ -6100,7 +6100,7 @@
     },
     {
      "speaker": "user",
-     "ko": "네, 마케팅 경험이 삼 년 있습니다.",
+     "ko": "네, 마케팅 분야에서 3년 정도 일했습니다.",
      "de": "Ja, ich habe drei Jahre Marketing-Erfahrung.",
      "en": "Yes, I have three years of marketing experience."
     },
