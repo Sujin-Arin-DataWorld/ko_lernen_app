@@ -277,6 +277,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
         ],
       ),
     );
+    controller.dispose();
     if (name == null || name.isEmpty) return;
     // 임시 BookPage 빌드 — 저장 안 됐을 수도 있으니 ephemeral.
     final tempPage = BookPage(

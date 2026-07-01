@@ -499,6 +499,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       );
                                       return;
                                     }
+                                    if (e.pack.level.toUpperCase() != 'A1' &&
+                                        !PremiumService.isPremium) {
+                                      final ok = await PremiumService.gate(
+                                        context,
+                                      );
+                                      if (!ok) return;
+                                    }
+                                    if (!context.mounted) return;
                                     await Navigator.pushNamed(
                                       context,
                                       '/vocab/pack',

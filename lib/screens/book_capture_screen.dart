@@ -84,6 +84,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
                 ? await Permission.photos.request()
                 : await Permission.storage.request());
       if (!perm.isGranted) {
+        if (!mounted) return;
         setState(() {
           _busy = false;
           _errorKey = 'permission';
@@ -100,6 +101,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         imageQuality: 85,
       );
       if (picked == null) {
+        if (!mounted) return;
         setState(() => _busy = false);
         return;
       }
@@ -123,6 +125,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         ],
       );
       if (cropped == null) {
+        if (!mounted) return;
         setState(() => _busy = false);
         return;
       }
@@ -139,6 +142,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         ),
       );
       if (!ocr.isSuccess) {
+        if (!mounted) return;
         setState(() {
           _busy = false;
           _errorKey = ocr.failure == OcrFailure.noKoreanFound
@@ -203,7 +207,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: Spacing.lg),
-                  Center(
+                Center(
                   child: Image.asset(
                     'assets/illustrations/book/book_camera_guide.png',
                     height: 160,

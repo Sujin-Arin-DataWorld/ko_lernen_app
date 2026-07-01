@@ -74,14 +74,21 @@ class PremiumService {
     try {
       FirebaseAuth.instance.userChanges().listen((user) async {
         final uid = user?.uid;
-        if (uid == null || uid == _boundUid) {
+        if (uid == _boundUid) {
           return;
         }
+        final prev = _boundUid;
         _boundUid = uid;
         try {
-          await Purchases.logIn(uid);
+          if (uid != null) {
+            await Purchases.logIn(uid);
+          } else if (prev != null) {
+            // Abmeldung: RC-Identität zurücksetzen, damit Premium nicht am
+            // vorigen Konto haften bleibt.
+            await Purchases.logOut();
+          }
         } catch (e) {
-          debugPrint('PremiumService: logIn failed — $e');
+          debugPrint('PremiumService: logIn/logOut failed — $e');
         }
       });
     } catch (_) {

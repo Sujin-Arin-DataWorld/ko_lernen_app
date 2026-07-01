@@ -116,6 +116,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         /* SRS-Einspeisung optional */
       }
     }
+    if (!mounted) return;
+    if (KkeunmariEngine.pool.isEmpty) {
+      // Pool leer (Asset fehlt/defekt) → Leer-Zustand zeigen statt pickStart-Crash.
+      setState(() => _loading = false);
+      return;
+    }
     final start = KkeunmariEngine.pickStart();
     setState(() {
       _chain = [start];

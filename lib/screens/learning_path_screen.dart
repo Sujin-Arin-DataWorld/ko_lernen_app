@@ -6,6 +6,7 @@ import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/pack_progress_service.dart';
+import '../services/premium_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/path_node.dart';
@@ -119,6 +120,11 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         context,
       ).showSnackBar(SnackBar(content: Text(t.pathLockedHint)));
       return;
+    }
+    // Premium-Gate: A1 frei, A2/B1/B2 erfordern ein Abo (wie vocab_packs_screen).
+    if (pack.level.toUpperCase() != 'A1' && !PremiumService.isPremium) {
+      final ok = await PremiumService.gate(context);
+      if (!ok || !mounted) return;
     }
     await Navigator.pushNamed(context, '/vocab/pack', arguments: pack.id);
     if (mounted) {
@@ -303,4 +309,3 @@ class _HanokHeader extends StatelessWidget {
     );
   }
 }
-
