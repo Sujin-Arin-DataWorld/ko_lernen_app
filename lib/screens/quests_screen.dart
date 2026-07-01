@@ -7,13 +7,16 @@ import '../services/quest_tracker.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/decoration_layer.dart' show kAvailableDecorations;
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -85,8 +88,7 @@ class _QuestsScreenState extends State<QuestsScreen>
       // 새로 완료된 퀘스트 감지
       final newlyCompleted = <QuestProgress>[];
       for (final quest in list) {
-        if (quest.completed &&
-            !prevCompletions.containsKey(quest.questId)) {
+        if (quest.completed && !prevCompletions.containsKey(quest.questId)) {
           newlyCompleted.add(quest);
         }
       }
@@ -112,9 +114,7 @@ class _QuestsScreenState extends State<QuestsScreen>
     }
   }
 
-  Future<void> _showQuestCompletionCelebration(
-    QuestProgress quest,
-  ) async {
+  Future<void> _showQuestCompletionCelebration(QuestProgress quest) async {
     if (!mounted) return;
 
     final def = kQuestById[quest.questId];
@@ -153,8 +153,7 @@ class _QuestsScreenState extends State<QuestsScreen>
     }
 
     final inProgress = _quests
-        .where((q) =>
-            q.active && !q.completed && q.current > 0)
+        .where((q) => q.active && !q.completed && q.current > 0)
         .toList();
     final available = _quests
         .where((q) => q.active && !q.completed && q.current == 0)
@@ -166,82 +165,67 @@ class _QuestsScreenState extends State<QuestsScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.questsTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
-      ),
-      body: SafeArea(
-        child: RefreshIndicator(
-          onRefresh: _load,
-          color: SoriColors.primary,
-          child: ListView(
-            padding: soriClampPadding(
-              MediaQuery.sizeOf(context).width,
-              base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
-            ),
-            children: [
-              const HanokHeader(
-                asset: 'assets/illustrations/hanok/achievements.png',
-                fallbackIcon: Icons.workspace_premium_outlined,
-              ),
-              const SizedBox(height: Spacing.md),
-              // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
-              if (_quests.isNotEmpty) ...[
-                KeyedSubtree(
-                  key: _summaryKey,
-                  child: _QuestSummary(quests: _quests),
-                ),
-                const SizedBox(height: Spacing.md),
-              ],
-              if (inProgress.isEmpty &&
-                  available.isEmpty &&
-                  completed.isEmpty &&
-                  seasonalLocked.isEmpty)
-                SoriEmptyState(
-                  icon: Icons.local_florist_outlined,
-                  title: t.questsEmptyTitle,
-                  body: t.questsEmptyBody,
-                ),
-              if (inProgress.isNotEmpty) ...[
-                _SectionHeader(label: t.questsSectionInProgress),
-                ...inProgress.map((q) => _QuestTile(q: q)),
-                const SizedBox(height: Spacing.lg),
-              ],
-              if (available.isNotEmpty) ...[
-                _SectionHeader(label: t.questsSectionAvailable),
-                ...available.map((q) => _QuestTile(q: q)),
-                const SizedBox(height: Spacing.lg),
-              ],
-              if (completed.isNotEmpty) ...[
-                _SectionHeader(label: t.questsSectionCompleted),
-                ...completed.map((q) => _QuestTile(q: q)),
-                const SizedBox(height: Spacing.lg),
-              ],
-              if (seasonalLocked.isNotEmpty) ...[
-                _SectionHeader(label: t.questsSectionSeasonalLocked),
-                ...seasonalLocked.map((q) => _QuestTile(q: q)),
-              ],
-            ],
-          ),
+        title: Text(
+          t.questsTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-    );
-  }
-}
-
-class _SectionHeader extends StatelessWidget {
-  final String label;
-  const _SectionHeader({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(12, Spacing.md, 12, Spacing.sm),
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 0.4,
+      body: SoriScreenBackground(
+        particles: true,
+        child: SafeArea(
+          child: RefreshIndicator(
+            onRefresh: _load,
+            color: SoriColors.primary,
+            child: ListView(
+              padding: soriClampPadding(
+                MediaQuery.sizeOf(context).width,
+                base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
+              ),
+              children: [
+                const HanokHeader(
+                  asset: 'assets/illustrations/hanok/achievements.png',
+                  fallbackIcon: Icons.workspace_premium_outlined,
+                ),
+                const SizedBox(height: Spacing.md),
+                // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
+                if (_quests.isNotEmpty) ...[
+                  KeyedSubtree(
+                    key: _summaryKey,
+                    child: _QuestSummary(quests: _quests),
+                  ),
+                  const SizedBox(height: Spacing.md),
+                ],
+                if (inProgress.isEmpty &&
+                    available.isEmpty &&
+                    completed.isEmpty &&
+                    seasonalLocked.isEmpty)
+                  SoriEmptyState(
+                    icon: Icons.local_florist_outlined,
+                    title: t.questsEmptyTitle,
+                    body: t.questsEmptyBody,
+                  ),
+                if (inProgress.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionInProgress),
+                  ...inProgress.map((q) => _QuestTile(q: q)),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (available.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionAvailable),
+                  ...available.map((q) => _QuestTile(q: q)),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (completed.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionCompleted),
+                  ...completed.map((q) => _QuestTile(q: q)),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (seasonalLocked.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionSeasonalLocked),
+                  ...seasonalLocked.map((q) => _QuestTile(q: q)),
+                ],
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -290,8 +274,8 @@ class _QuestTile extends StatelessWidget {
                 isCompleted
                     ? Icons.check_circle
                     : (isLocked
-                        ? Icons.lock_outline_rounded
-                        : Icons.local_florist_outlined),
+                          ? Icons.lock_outline_rounded
+                          : Icons.local_florist_outlined),
                 size: 18,
                 color: accentColor,
               ),
@@ -309,7 +293,9 @@ class _QuestTile extends StatelessWidget {
               if (def.type == QuestType.seasonal)
                 Container(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 8, vertical: 2),
+                    horizontal: 8,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
                     color: SoriColors.warning.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(SoriRadius.pill),
@@ -329,10 +315,7 @@ class _QuestTile extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          Text(
-            desc,
-            style: TextStyle(fontSize: 12, color: s.textMuted),
-          ),
+          Text(desc, style: TextStyle(fontSize: 12, color: s.textMuted)),
           if (!isCompleted) ...[
             const SizedBox(height: Spacing.sm),
             ClipRRect(
@@ -375,44 +358,56 @@ class _QuestSummary extends StatelessWidget {
         .where((q) => q.active && !q.completed && q.current > 0)
         .length;
     final frac = total == 0 ? 0.0 : done / total;
-    return Container(
+    return SoriCard(
+      accent: SoriColors.success,
+      tinted: true,
       padding: const EdgeInsets.all(Spacing.md),
-      decoration: BoxDecoration(
-        color: SoriColors.success.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        border: Border.all(color: SoriColors.success.withValues(alpha: 0.25)),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.emoji_events_rounded,
-                  color: SoriColors.gold, size: 22),
+              const Icon(
+                Icons.emoji_events_rounded,
+                color: SoriColors.gold,
+                size: 22,
+              ),
               const SizedBox(width: Spacing.sm),
-              Text('$done / $total',
-                  style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                      color: SoriColors.success)),
+              Text(
+                '$done / $total',
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  color: SoriColors.success,
+                ),
+              ),
               const SizedBox(width: Spacing.sm),
-              Text(t.questsSectionCompleted,
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: s.textMuted,
-                      fontWeight: FontWeight.w700)),
+              Text(
+                t.questsSectionCompleted,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: s.textMuted,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
               const Spacer(),
               if (inProgress > 0)
                 Row(
                   children: [
-                    Icon(Icons.local_florist_outlined,
-                        size: 14, color: SoriColors.info),
+                    Icon(
+                      Icons.local_florist_outlined,
+                      size: 14,
+                      color: SoriColors.info,
+                    ),
                     const SizedBox(width: 3),
-                    Text('$inProgress',
-                        style: const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w800,
-                            color: SoriColors.info)),
+                    Text(
+                      '$inProgress',
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                        color: SoriColors.info,
+                      ),
+                    ),
                   ],
                 ),
             ],
@@ -560,8 +555,10 @@ class _QuestCompletionCelebrationState
                       height: 100,
                       key: const ValueKey(1),
                       child: Center(
-                        child: kAvailableDecorations
-                                .contains(widget.decorationSlug)
+                        child:
+                            kAvailableDecorations.contains(
+                              widget.decorationSlug,
+                            )
                             ? Image.asset(
                                 'assets/illustrations/decorations/${widget.decorationSlug}.png',
                                 fit: BoxFit.contain,
@@ -576,19 +573,13 @@ class _QuestCompletionCelebrationState
             Text(
               widget.questName,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
-              ),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: Spacing.sm),
             Text(
               AppL10n.of(context).questsCompletionCelebration,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 13,
-                color: s.textMuted,
-              ),
+              style: TextStyle(fontSize: 13, color: s.textMuted),
             ),
           ],
         ),

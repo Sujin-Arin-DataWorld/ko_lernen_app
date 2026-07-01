@@ -7,8 +7,11 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
@@ -66,7 +69,9 @@ class _HardWordsScreenState extends State<HardWordsScreen>
       final all = await ReviewDeckService.allReviewable();
       final ids = Storage.hardIds(all.map((v) => v.korean)).toSet();
       hard = all.where((v) => ids.contains(v.korean)).toList();
-    } catch (_) {/* best-effort → empty */}
+    } catch (_) {
+      /* best-effort → empty */
+    }
     if (!mounted) return;
     setState(() {
       _hard = hard;
@@ -81,94 +86,114 @@ class _HardWordsScreenState extends State<HardWordsScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.hardWordsTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.hardWordsTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
-      body: SafeArea(
-        child: _loading
-            ? const AppLoading()
-            : _hard.isEmpty
-                ? Center(
-                    child: SoriEmptyState(
-                      icon: Icons.emoji_events_outlined,
-                      title: t.hardWordsEmptyTitle,
-                      body: t.hardWordsEmptyBody,
-                      ctaLabel: t.btnClose,
-                      onCta: () => Navigator.of(context).maybePop(),
-                    ),
-                  )
-                : Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                            Spacing.lg, Spacing.md, Spacing.lg, Spacing.sm),
-                        child: Text(
-                          t.hardWordsSubtitle(_hard.length),
-                          style: TextStyle(fontSize: 13, color: s.textMuted),
-                        ),
-                      ),
-                      Expanded(
-                        child: ListView.separated(
-                          key: _listKey,
-                          padding: soriClampPadding(MediaQuery.sizeOf(context).width, base: const EdgeInsets.fromLTRB(12, 0, 12, 96)),
-                          itemCount: _hard.length,
-                          separatorBuilder: (_, __) =>
-                              const SizedBox(height: Spacing.xs),
-                          itemBuilder: (_, i) {
-                            final v = _hard[i];
-                            return Material(
-                              color: s.surface,
-                              borderRadius:
-                                  BorderRadius.circular(SoriRadius.md),
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: Spacing.md,
-                                    vertical: Spacing.sm),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: SoriColors.danger
-                                          .withValues(alpha: 0.25)),
-                                  borderRadius:
-                                      BorderRadius.circular(SoriRadius.md),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(v.korean,
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight.w800,
-                                                  fontSize: 16)),
-                                          if (v.german.isNotEmpty)
-                                            Text(v.german,
-                                                maxLines: 1,
-                                                overflow:
-                                                    TextOverflow.ellipsis,
-                                                style: TextStyle(
-                                                    fontSize: 13,
-                                                    color: s.textMuted)),
-                                        ],
-                                      ),
-                                    ),
-                                    IconButton(
-                                      icon: Icon(Icons.volume_up_rounded,
-                                          color: SoriColors.primary),
-                                      visualDensity: VisualDensity.compact,
-                                      onPressed: () =>
-                                          TtsService.speak(v.korean),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
+      body: SoriScreenBackground(
+        particles: true,
+        child: SafeArea(
+          child: _loading
+              ? const AppLoading()
+              : _hard.isEmpty
+              ? Center(
+                  child: SoriEmptyState(
+                    icon: Icons.emoji_events_outlined,
+                    title: t.hardWordsEmptyTitle,
+                    body: t.hardWordsEmptyBody,
+                    ctaLabel: t.btnClose,
+                    onCta: () => Navigator.of(context).maybePop(),
                   ),
+                )
+              : Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        Spacing.lg,
+                        Spacing.md,
+                        Spacing.lg,
+                        Spacing.sm,
+                      ),
+                      child: Row(
+                        children: [
+                          const Mascot.tiger(
+                            emotion: MascotEmotion.thinking,
+                            size: 72,
+                            animate: false,
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          Expanded(
+                            child: Text(
+                              t.hardWordsSubtitle(_hard.length),
+                              style: SoriTextTheme.of(context).bodySmall,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.separated(
+                        key: _listKey,
+                        padding: soriClampPadding(
+                          MediaQuery.sizeOf(context).width,
+                          base: const EdgeInsets.fromLTRB(12, 0, 12, 96),
+                        ),
+                        itemCount: _hard.length,
+                        separatorBuilder: (_, __) =>
+                            const SizedBox(height: Spacing.xs),
+                        itemBuilder: (_, i) {
+                          final v = _hard[i];
+                          return SoriCard(
+                            accent: SoriColors.danger,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: Spacing.md,
+                              vertical: Spacing.sm,
+                            ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        v.korean,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      if (v.german.isNotEmpty)
+                                        Text(
+                                          v.german,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            color: s.textMuted,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.volume_up_rounded,
+                                    color: SoriColors.primary,
+                                  ),
+                                  visualDensity: VisualDensity.compact,
+                                  onPressed: () => TtsService.speak(v.korean),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+        ),
       ),
       bottomNavigationBar: _hard.isEmpty
           ? null
@@ -185,7 +210,9 @@ class _HardWordsScreenState extends State<HardWordsScreen>
                     await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (_) => ReviewSessionScreen(
-                            deck: _hard, title: t.hardWordsTitle),
+                          deck: _hard,
+                          title: t.hardWordsTitle,
+                        ),
                       ),
                     );
                     if (mounted) _load();

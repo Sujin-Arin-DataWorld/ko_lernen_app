@@ -8,6 +8,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../services/storage_service.dart';
@@ -118,163 +119,168 @@ class _StatsScreenState extends State<StatsScreen>
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      body: SafeArea(
-        child: ListView(
-          padding: soriClampPadding(
-            MediaQuery.sizeOf(context).width,
-            base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: ListView(
+            padding: soriClampPadding(
+              MediaQuery.sizeOf(context).width,
+              base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+            ),
+            children: [
+              // ── 한옥 마당 헤더 (성취 / 황혼 톤) ──
+              const HanokHeader(
+                asset: 'assets/illustrations/hanok/achievements.png',
+                fallbackIcon: Icons.emoji_events_outlined,
+              ),
+              const SizedBox(height: 12),
+
+              // ── 친구들 hero (호랑이 + 갓 쓴 까치 — 함께 학습) ──
+              const Center(
+                child: SizedBox(
+                  width: 220,
+                  height: 180,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Positioned(
+                        left: 20,
+                        bottom: 0,
+                        child: Mascot.tiger(size: 156, animate: true),
+                      ),
+                      Positioned(
+                        right: 18,
+                        top: 10,
+                        child: Mascot.magpie(size: 86, animate: true),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              // Streak Hero
+              KeyedSubtree(
+                key: _streakHeroKey,
+                child: _StreakHero(
+                  streak: Storage.streakDays,
+                  best: Storage.bestStreak,
+                  shields: Storage.streakFreezes,
+                  label: t.statsStreak,
+                  bestLabel: t.statsBestStreak,
+                  shieldLabel: t.statsStreakShield,
+                  shieldHint: t.statsStreakShieldHint,
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              // P1-4: G9 7일 heatmap
+              _StreakWeekHeatmap(streak: Storage.streakDays),
+              const SizedBox(height: 16),
+
+              // ── Szenario-Fortschritt (XP/Level/Badges) ──
+              _XpCard(
+                xp: Storage.xp,
+                level: Storage.xpLevel,
+                toNext: Storage.xpToNext,
+                scenariosDone: Storage.completedScenarios.length,
+                badges: Storage.earnedBadges,
+                title: t.statsXpTitle,
+                levelLabel: t.statsLevelLabel(Storage.xpLevel),
+                toNextLabel: t.statsToNextLevel(
+                  Storage.xpToNext,
+                  Storage.xpLevel + 1,
+                ),
+                scenariosLabel: t.statsScenariosCompleted,
+                badgesTitle: t.statsBadgesTitle,
+                noBadges: t.statsNoBadges,
+              ),
+              const SizedBox(height: 12),
+
+              // Vocab
+              _StatCard(
+                icon: Icons.style_outlined,
+                title: t.moduleVocabTitle,
+                color: SoriColors.info,
+                rows: [
+                  _MetricRow(
+                    label: t.statsGotIt,
+                    value: '${Storage.vokCorrect}',
+                  ),
+                  _MetricRow(
+                    label: t.statsNotGotIt,
+                    value: '${Storage.vokWrong}',
+                  ),
+                  _MetricRow(
+                    label: t.statsSkipped,
+                    value: '${Storage.vokSkipped}',
+                  ),
+                  _MetricRow(
+                    label: t.statsCardsLearned,
+                    value: '${Storage.vokSeenIds.length}',
+                  ),
+                  _MetricRow(
+                    label: t.statsAccuracy,
+                    value: '$vokAccuracy %',
+                    accent: true,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+
+              // Chosung
+              _StatCard(
+                icon: Icons.spellcheck,
+                title: t.gameChosungTitle,
+                color: SoriColors.primary,
+                rows: [
+                  _MetricRow(
+                    label: t.statsCorrect,
+                    value: '${Storage.chosungCorrect}',
+                  ),
+                  _MetricRow(
+                    label: t.statsWrong,
+                    value: '${Storage.chosungWrong}',
+                  ),
+                  _MetricRow(
+                    label: t.statsAccuracy,
+                    value: '$chosungAccuracy %',
+                    accent: true,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+
+              // Wordle
+              _StatCard(
+                icon: Icons.grid_4x4,
+                title: t.gameWordleTitle,
+                color: SoriColors.success,
+                rows: [
+                  _MetricRow(
+                    label: t.statsWordleWins,
+                    value: '${Storage.wordleWins}',
+                  ),
+                  _MetricRow(
+                    label: t.statsLosses,
+                    value: '${Storage.wordleLosses}',
+                  ),
+                  _MetricRow(
+                    label: t.statsWordleStreak,
+                    value: '${Storage.wordleStreak}',
+                  ),
+                  _MetricRow(
+                    label: t.statsBestShort,
+                    value: '${Storage.wordleBestStreak}',
+                  ),
+                  _MetricRow(
+                    label: t.statsWinRate,
+                    value: '$wordleRate %',
+                    accent: true,
+                  ),
+                ],
+              ),
+            ],
           ),
-          children: [
-            // ── 한옥 마당 헤더 (성취 / 황혼 톤) ──
-            const HanokHeader(
-              asset: 'assets/illustrations/hanok/achievements.png',
-              fallbackIcon: Icons.emoji_events_outlined,
-            ),
-            const SizedBox(height: 12),
-
-            // ── 친구들 hero (호랑이 + 갓 쓴 까치 — 함께 학습) ──
-            const Center(
-              child: SizedBox(
-                width: 220,
-                height: 180,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Positioned(
-                      left: 20,
-                      bottom: 0,
-                      child: Mascot.tiger(size: 156, animate: true),
-                    ),
-                    Positioned(
-                      right: 18,
-                      top: 10,
-                      child: Mascot.magpie(size: 86, animate: true),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // Streak Hero
-            KeyedSubtree(
-              key: _streakHeroKey,
-              child: _StreakHero(
-                streak: Storage.streakDays,
-                best: Storage.bestStreak,
-                shields: Storage.streakFreezes,
-                label: t.statsStreak,
-                bestLabel: t.statsBestStreak,
-                shieldLabel: t.statsStreakShield,
-                shieldHint: t.statsStreakShieldHint,
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // P1-4: G9 7일 heatmap
-            _StreakWeekHeatmap(streak: Storage.streakDays),
-            const SizedBox(height: 16),
-
-            // ── Szenario-Fortschritt (XP/Level/Badges) ──
-            _XpCard(
-              xp: Storage.xp,
-              level: Storage.xpLevel,
-              toNext: Storage.xpToNext,
-              scenariosDone: Storage.completedScenarios.length,
-              badges: Storage.earnedBadges,
-              title: t.statsXpTitle,
-              levelLabel: t.statsLevelLabel(Storage.xpLevel),
-              toNextLabel: t.statsToNextLevel(
-                Storage.xpToNext,
-                Storage.xpLevel + 1,
-              ),
-              scenariosLabel: t.statsScenariosCompleted,
-              badgesTitle: t.statsBadgesTitle,
-              noBadges: t.statsNoBadges,
-            ),
-            const SizedBox(height: 12),
-
-            // Vocab
-            _StatCard(
-              icon: Icons.style_outlined,
-              title: t.moduleVocabTitle,
-              color: SoriColors.info,
-              rows: [
-                _MetricRow(label: t.statsGotIt, value: '${Storage.vokCorrect}'),
-                _MetricRow(
-                  label: t.statsNotGotIt,
-                  value: '${Storage.vokWrong}',
-                ),
-                _MetricRow(
-                  label: t.statsSkipped,
-                  value: '${Storage.vokSkipped}',
-                ),
-                _MetricRow(
-                  label: t.statsCardsLearned,
-                  value: '${Storage.vokSeenIds.length}',
-                ),
-                _MetricRow(
-                  label: t.statsAccuracy,
-                  value: '$vokAccuracy %',
-                  accent: true,
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-
-            // Chosung
-            _StatCard(
-              icon: Icons.spellcheck,
-              title: t.gameChosungTitle,
-              color: SoriColors.primary,
-              rows: [
-                _MetricRow(
-                  label: t.statsCorrect,
-                  value: '${Storage.chosungCorrect}',
-                ),
-                _MetricRow(
-                  label: t.statsWrong,
-                  value: '${Storage.chosungWrong}',
-                ),
-                _MetricRow(
-                  label: t.statsAccuracy,
-                  value: '$chosungAccuracy %',
-                  accent: true,
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-
-            // Wordle
-            _StatCard(
-              icon: Icons.grid_4x4,
-              title: t.gameWordleTitle,
-              color: SoriColors.success,
-              rows: [
-                _MetricRow(
-                  label: t.statsWordleWins,
-                  value: '${Storage.wordleWins}',
-                ),
-                _MetricRow(
-                  label: t.statsLosses,
-                  value: '${Storage.wordleLosses}',
-                ),
-                _MetricRow(
-                  label: t.statsWordleStreak,
-                  value: '${Storage.wordleStreak}',
-                ),
-                _MetricRow(
-                  label: t.statsBestShort,
-                  value: '${Storage.wordleBestStreak}',
-                ),
-                _MetricRow(
-                  label: t.statsWinRate,
-                  value: '$wordleRate %',
-                  accent: true,
-                ),
-              ],
-            ),
-          ],
         ),
       ),
     );
@@ -337,12 +343,10 @@ class _StreakHero extends StatelessWidget {
                 ),
                 Text(
                   '$streak',
-                  style: TextStyle(
-                    color: ss.text,
-                    fontSize: 38,
-                    fontWeight: FontWeight.w900,
-                    height: 1.1,
-                  ),
+                  // 히어로 스트릭 — tabular(numeral) + 히어로 크기 유지(38).
+                  style: SoriTextTheme.of(
+                    context,
+                  ).numeral.copyWith(color: ss.text, fontSize: 38),
                 ),
                 const SizedBox(height: 2),
                 Text(
@@ -531,13 +535,9 @@ class _XpCard extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           '$xp',
-                          style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.w900,
-                            color: s.text,
-                            height: 1,
-                            letterSpacing: -1,
-                          ),
+                          style: SoriTextTheme.of(
+                            context,
+                          ).numeral.copyWith(color: s.text),
                         ),
                       ),
                     ),
@@ -559,7 +559,8 @@ class _XpCard extends StatelessWidget {
               const SizedBox(width: 8),
               Flexible(
                 child: SoriChip(
-                  label: '🎬 $scenariosDone $scenariosLabel',
+                  label: '$scenariosDone $scenariosLabel',
+                  icon: Icons.movie_outlined,
                   accent: SoriColors.primary,
                   variant: SoriChipVariant.soft,
                   fontSize: 11,

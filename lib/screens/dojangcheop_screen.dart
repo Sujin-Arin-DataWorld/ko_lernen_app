@@ -5,7 +5,9 @@ import '../services/storage_service.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -65,53 +67,60 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      body: SafeArea(
-        child: got == 0
-            ? Center(
-                child: SoriEmptyState(
-                  icon: Icons.workspace_premium_outlined,
-                  title: t.dojangEmptyTitle,
-                  body: t.dojangEmptyBody,
-                ),
-              )
-            : LayoutBuilder(
-                builder: (context, constraints) => ListView(
-                  padding: soriClampPadding(
-                    constraints.maxWidth,
-                    base: const EdgeInsets.all(Spacing.lg),
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: got == 0
+              ? Center(
+                  child: SoriEmptyState(
+                    icon: Icons.workspace_premium_outlined,
+                    title: t.dojangEmptyTitle,
+                    body: t.dojangEmptyBody,
                   ),
-                  children: [
-                    Text(
-                      t.dojangProgress(got, motifs.length),
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: s.textMuted,
-                      ),
+                )
+              : LayoutBuilder(
+                  builder: (context, constraints) => ListView(
+                    padding: soriClampPadding(
+                      constraints.maxWidth,
+                      base: const EdgeInsets.all(Spacing.lg),
                     ),
-                    const SizedBox(height: Spacing.lg),
-                    LayoutBuilder(
-                      builder: (context, c) => GridView.count(
-                        key: _gridKey,
-                        crossAxisCount: soriGridColumns(
-                          c.maxWidth,
-                          target: 110,
-                          min: 3,
-                          max: 6,
+                    children: [
+                      SoriSectionHeader(t.dojangTitle),
+                      const SizedBox(height: Spacing.sm),
+                      Text(
+                        t.dojangProgress(got, motifs.length),
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: s.textMuted,
                         ),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        mainAxisSpacing: Spacing.lg,
-                        crossAxisSpacing: Spacing.lg,
-                        children: [
-                          for (final m in motifs)
-                            _StampCell(motif: m, earned: earned.contains(m.name)),
-                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: Spacing.lg),
+                      LayoutBuilder(
+                        builder: (context, c) => GridView.count(
+                          key: _gridKey,
+                          crossAxisCount: soriGridColumns(
+                            c.maxWidth,
+                            target: 110,
+                            min: 3,
+                            max: 6,
+                          ),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          mainAxisSpacing: Spacing.lg,
+                          crossAxisSpacing: Spacing.lg,
+                          children: [
+                            for (final m in motifs)
+                              _StampCell(
+                                motif: m,
+                                earned: earned.contains(m.name),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+        ),
       ),
     );
   }
@@ -125,7 +134,9 @@ class _StampCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (earned) {
-      return Center(child: DancheongStamp(motif: motif, size: 96, stamped: true));
+      return Center(
+        child: DancheongStamp(motif: motif, size: 96, stamped: true),
+      );
     }
     return Center(
       child: Stack(
