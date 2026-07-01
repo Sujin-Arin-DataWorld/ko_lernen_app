@@ -28,6 +28,10 @@ import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
 import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
+import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
+import 'package:ko_lernen_app/screens/quests_screen.dart';
+import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
+import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -218,6 +222,11 @@ void main() {
       'daily challenge': const DailyChallengeScreen(),
       'satz arcade': const SatzArcadeScreen(),
       'learning path': const LearningPathScreen(),
+      // D5 신규 커버 (D4에서 변경된 미커버 화면, 무인자만).
+      'gye tab': const GyeTabScreen(),
+      'quests': const QuestsScreen(),
+      'smalltalk': const SmalltalkScreen(),
+      'review': const ReviewSessionScreen(),
     };
 
     for (final width in <double>[308, 360, 800, 1280]) {

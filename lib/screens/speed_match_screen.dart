@@ -253,6 +253,8 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
                           color: lowTime ? SoriColors.danger : s.text,
+                          // 카운트다운 자릿수 폭 고정(흔들림 방지).
+                          fontFeatures: const [FontFeature.tabularFigures()],
                         ),
                       ),
                       const Spacer(),

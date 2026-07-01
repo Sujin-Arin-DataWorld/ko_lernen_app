@@ -570,6 +570,8 @@ class _Timer extends StatelessWidget {
             color: color,
             fontWeight: FontWeight.w800,
             fontSize: 13,
+            // 카운트다운 자릿수 폭 고정(흔들림 방지).
+            fontFeatures: const [FontFeature.tabularFigures()],
           ),
         ),
       ],
