@@ -315,6 +315,22 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-01 (서양 학습자 어필 — "동기 & 모멘텀" 자율 구현) — 커밋·푸시
+
+**범위:** Jin(취침) "독일/미·영인에게 얼마나 매력적일지, 더 공부하고 싶어지는 앱으로 — 승인 묻지 말고 계획 세워 구현, phase별 더블크로스체크→커밋, 끝까지→푸시→보고서." superpowers:brainstorming 승인 게이트는 Jin 명시 override로 생략, 자율 진행. 스펙: `docs/superpowers/specs/2026-07-01-western-appeal-motivation-momentum-design.md`.
+
+**진단(실측):** 콘텐츠·게임·SRS·계·TTS·D1~D5 디자인은 갖췄으나 **서양 학습자가 배우는 감정적 이유(K-Pop·K-Drama·여행·문화·연인/가족·커리어)를 앱이 한 번도 묻거나 활용 안 함** — Duolingo 리텐션 플레이북 1번, CLAUDE.md 백로그 "동기 기반 온보딩"과 일치. daily goal은 분으로 캡처만 되고 미표시.
+
+**Phase 1(`47226d1`) — 동기 캡처 + 개인화:** `LearnerMotivation` enum(7) + `Storage.motivation/motivationAsked` + `showMotivationSheet`(showSoriSheet 재사용, 첫 홈 진입 1회·투어 뒤·재노출 가드). **개인화(적대검증 D1 "write-only" 해소):** 홈 tiger 말풍선이 습관형성 구간에 이유별 격려로(`homeTigerBubble` 순수함수), 프로필 "왜 배우는가" 카드(탭 변경). l10n DE/EN 17키(적대 원어민 검수 PASS). 테스트 9.
+
+**Phase 3(`7aec1ae`) — 일일 모멘텀:** `xpToday`(자정 리셋, 순수 `xpTodayValue`) + `addXp` 동시 누적 + `dailyGoalXp`(온보딩 분×3, 기본 30). 홈 스탯 행 아래 일일목표 진행 카드(SoriProgressBar+tabular XP, 달성 시 체크). l10n 2키. 테스트 5. 적대검증 PASS(결함 0). (Phase 2 개인화는 Phase 1에 병합.)
+
+**방법:** phase별 구현→**적대적 verify 에이전트**(더블크로스체크)→지적 반영→커밋. Phase 1 verify가 D1(캡처 미소비)·D2(orphan 키) 잡아 즉시 홈+프로필 배선으로 해소. 검증된 컴포넌트만 재사용, 신규 수제 UI 최소. 동시세션 hangul_screen·scenarios_list 무접촉.
+
+**검증:** `flutter analyze lib test` 0(잔여 hangul warning=동시세션) · `flutter test` **531**(+14) · ARB parity 980 · gen-l10n · dart format · responsive_test 홈 오버플로 0. **⚠️ 미검증(Jin 실기기)**: 동기 시트·홈 말풍선 개인화·프로필 카드·일일목표 카드 시각.
+
+**Git:** 3커밋(`7436ef2`·`47226d1`·`7aec1ae`) origin/main 푸시.
+
 ### 2026-07-01 (디자인 "클로드 냄새" 제거 D4·D5 완주 + 실기기 UI 피드백 6종 + Gye 재구성) — 커밋·푸시
 
 **범위:** Jin 실기기 스크린샷 피드백 → 폰트·말풍선·튜토리얼·프로필·호랑이영상 수정 → 이어서 디자인 플랜(`inherited-stirring-biscuit.md`) **D4·D5 완주**. Jin "자러갈거야, 묻지말고 계획 완성" → 자율 진행. plan: 위 파일 + 워크플로우 `design-d4-d5-gye`(11 agents 감사·Gye 판정단·적대검증).
