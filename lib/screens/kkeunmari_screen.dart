@@ -17,6 +17,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -738,13 +739,20 @@ class _ResultCard extends StatelessWidget {
           ),
           if (isNewBest) ...[
             const SizedBox(height: Spacing.sm),
-            Text(
-              '🏆 ${t.gameNewBest}',
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w800,
-                color: SoriColors.gold,
-              ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(SoriGlyph.record, size: 15, color: SoriColors.gold),
+                const SizedBox(width: 5),
+                Text(
+                  t.gameNewBest,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: SoriColors.gold,
+                  ),
+                ),
+              ],
             ),
           ],
           const SizedBox(height: Spacing.lg),

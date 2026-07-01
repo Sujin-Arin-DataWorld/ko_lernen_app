@@ -56,7 +56,7 @@ class AppL10nDe extends AppL10n {
   String get paywallProcessing => 'Einen Moment …';
 
   @override
-  String get paywallSuccess => 'Premium ist aktiv. Viel Spaß! 🎉';
+  String get paywallSuccess => 'Premium ist aktiv. Viel Spaß!';
 
   @override
   String get paywallFailed => 'Kauf nicht abgeschlossen.';
@@ -66,7 +66,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String streakDisplay(Object days) {
-    return '🔥 $days Tage';
+    return '$days Tage';
   }
 
   @override
@@ -117,7 +117,7 @@ class AppL10nDe extends AppL10n {
       'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.';
 
   @override
-  String get reviewDoneTitle => 'Stark! 🎉';
+  String get reviewDoneTitle => 'Stark!';
 
   @override
   String get reviewDoneBody => 'Du hast deine fälligen Karten wiederholt.';
@@ -134,7 +134,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get homeReviewDone => 'Heute alles wiederholt 🎉';
+  String get homeReviewDone => 'Heute alles wiederholt';
 
   @override
   String get settingsNotifSection => 'Erinnerung';
@@ -562,7 +562,7 @@ class AppL10nDe extends AppL10n {
   String get wordleErrorHangul => 'Bitte nur Hangul eingeben';
 
   @override
-  String get wordleResultWin => '🎉 Geschafft!';
+  String get wordleResultWin => 'Geschafft!';
 
   @override
   String get wordleResultLose => '😢 Leider daneben';
@@ -731,7 +731,7 @@ class AppL10nDe extends AppL10n {
   String get hangulPronounceBtn => 'Aussprechen';
 
   @override
-  String get hangulRulesTitle => '✏️ Hangul-Schreibregeln';
+  String get hangulRulesTitle => 'Hangul-Schreibregeln';
 
   @override
   String get hangulRulesBody =>
@@ -741,7 +741,7 @@ class AppL10nDe extends AppL10n {
   String get hangulStrokeOrderTitle => '📽 Strichreihenfolge (tippe für neu)';
 
   @override
-  String get hangulTraceTitle => '✍️ Mit dem Finger nachzeichnen';
+  String get hangulTraceTitle => 'Mit dem Finger nachzeichnen';
 
   @override
   String get hangulClearBtn => 'Löschen';
@@ -892,16 +892,16 @@ class AppL10nDe extends AppL10n {
 
   @override
   String vocabDueBadge(int n) {
-    return '🔥 $n fällig';
+    return '$n fällig';
   }
 
   @override
   String vocabTodayBadge(int newCount, int reviewCount) {
-    return '🔥 Heute ($newCount neu · $reviewCount Wdh.)';
+    return 'Heute ($newCount neu · $reviewCount Wdh.)';
   }
 
   @override
-  String get vocabDueEmpty => '🎉 Heute alles erledigt!\nKomm morgen wieder.';
+  String get vocabDueEmpty => 'Heute alles erledigt!\nKomm morgen wieder.';
 
   @override
   String get vocabDueEmptyAction => 'Trotzdem üben';
@@ -925,11 +925,11 @@ class AppL10nDe extends AppL10n {
       'Für dieses Level sind noch keine Vokabeln vorbereitet.';
 
   @override
-  String get vocabPackLockedNoPrev => '🔒 Dieses Pack ist noch gesperrt.';
+  String get vocabPackLockedNoPrev => 'Dieses Pack ist noch gesperrt.';
 
   @override
   String vocabPackLockedHint(Object prev) {
-    return '🔒 Schließe zuerst „$prev“ mit ≥ 70 % ab.';
+    return 'Schließe zuerst „$prev“ mit ≥ 70 % ab.';
   }
 
   @override
@@ -1158,7 +1158,7 @@ class AppL10nDe extends AppL10n {
   String get gyeChallengeTitle => 'Alle dabei?';
 
   @override
-  String get gyeChallengeDone => 'Alle dabei! 🔥';
+  String get gyeChallengeDone => 'Alle dabei!';
 
   @override
   String get dureTitleDuru => 'Stütze';
@@ -1218,15 +1218,14 @@ class AppL10nDe extends AppL10n {
   String get gyeCheerTitle => 'Anfeuern';
 
   @override
-  String get gyeFeedGoalAchieved =>
-      'Wochenziel erreicht! 🎉 Euer Hanok wächst.';
+  String get gyeFeedGoalAchieved => 'Wochenziel erreicht! Euer Hanok wächst.';
 
   @override
-  String get gyeFeedAllIn => 'Alle haben diese Woche beigetragen! 🔥';
+  String get gyeFeedAllIn => 'Alle haben diese Woche beigetragen!';
 
   @override
   String gyeFeedGoalAchievedMvp(int packs, Object mvp) {
-    return 'Wochenziel erreicht! 🎉 $packs Packs · MVP $mvp';
+    return 'Wochenziel erreicht! $packs Packs · MVP $mvp';
   }
 
   @override
@@ -1334,7 +1333,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get gyeAllInCelebrate => 'Alle haben diese Woche beigetragen! 🔥';
+  String get gyeAllInCelebrate => 'Alle haben diese Woche beigetragen!';
 
   @override
   String get gyeReactTooltip => 'Reagieren';
@@ -1466,7 +1465,7 @@ class AppL10nDe extends AppL10n {
   String get vocabPackResultTitle => 'Ergebnis';
 
   @override
-  String get vocabPackResultCleared => '🎉 Pack geschafft!';
+  String get vocabPackResultCleared => 'Pack geschafft!';
 
   @override
   String get vocabPackResultClearedAgain =>
@@ -1627,7 +1626,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingPage2Subtitle => 'Kurz, effektiv, immer dabei';
 
   @override
-  String get onboardingPage3Title => '🔥 Streaks zählen';
+  String get onboardingPage3Title => 'Streaks zählen';
 
   @override
   String get onboardingPage3Subtitle =>
@@ -1710,10 +1709,10 @@ class AppL10nDe extends AppL10n {
   String get homeHeroGreetingEvening => 'Guten Abend!';
 
   @override
-  String get homeTigerBubbleStart => 'Lust auf 5 Minuten Koreanisch? 📖';
+  String get homeTigerBubbleStart => 'Lust auf 5 Minuten Koreanisch?';
 
   @override
-  String get homeTigerBubbleStreak => 'Dein Streak hält! Weiter so 🔥';
+  String get homeTigerBubbleStreak => 'Dein Streak hält! Weiter so';
 
   @override
   String get homeTigerBubbleResume => 'Willkommen zurück!';
@@ -1922,10 +1921,10 @@ class AppL10nDe extends AppL10n {
       'Noch keine — schließ ein Szenario ab und hol dir die erste! 🚀';
 
   @override
-  String get homeRecommended => 'Heute empfohlen ✨';
+  String get homeRecommended => 'Heute empfohlen';
 
   @override
-  String get homeAllDone => 'Alle Szenarien geschafft! 🎉';
+  String get homeAllDone => 'Alle Szenarien geschafft!';
 
   @override
   String get homeNoScenario => 'Bald gibt es Szenarien für dein Level';
@@ -1973,7 +1972,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String vocabFavoritesBadge(int n) {
-    return '⭐ $n';
+    return '$n';
   }
 
   @override
@@ -1984,7 +1983,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabEmptyFavorites =>
-      'Noch keine Favoriten ⭐\nMarkiere schwierige Wörter mit dem Stern';
+      'Noch keine Favoriten\nMarkiere schwierige Wörter mit dem Stern';
 
   @override
   String get listeningTitle => 'Hören';
@@ -2425,7 +2424,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get hardWordsEmptyTitle => 'Keine Sorgenkinder 🎉';
+  String get hardWordsEmptyTitle => 'Keine Sorgenkinder';
 
   @override
   String get hardWordsEmptyBody =>
@@ -2522,7 +2521,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String comboPop(int count) {
-    return '${count}er-Combo! 🔥';
+    return '${count}er-Combo!';
   }
 
   @override
@@ -2704,8 +2703,7 @@ class AppL10nDe extends AppL10n {
       '🔍 Der Text wird automatisch erkannt und analysiert';
 
   @override
-  String get coachBookStep3 =>
-      '📚 Neue Wörter landen direkt in deiner Wortliste';
+  String get coachBookStep3 => 'Neue Wörter landen direkt in deiner Wortliste';
 
   @override
   String get coachBookLimitNote => 'Tageslimit: 20 Seiten';
@@ -2715,15 +2713,15 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      '📖 Schritt 1 · Lernen — Karten umdrehen und einprägen';
+      'Schritt 1 · Lernen — Karten umdrehen und einprägen';
 
   @override
   String get coachVocabPackStep2 =>
-      '✏️ Schritt 2 · Quiz — Wähle die richtige Übersetzung';
+      'Schritt 2 · Quiz — Wähle die richtige Übersetzung';
 
   @override
   String get coachVocabPackStep3 =>
-      '🎯 Schritt 3 · Boss — Hör zu und wähle die Bedeutung';
+      'Schritt 3 · Boss — Hör zu und wähle die Bedeutung';
 
   @override
   String get coachPackStageQuiz =>
@@ -2865,7 +2863,7 @@ class AppL10nDe extends AppL10n {
   String get bookshelfCreatePackNameHint => 'z. B. Schritt 1 — Lektion 5';
 
   @override
-  String get settingsMadeWith => 'Mit ❤️ in Deutschland gemacht';
+  String get settingsMadeWith => 'Mit ❤ in Deutschland gemacht';
 
   @override
   String get coachChosungStep1Title => 'Silben-Puzzle';

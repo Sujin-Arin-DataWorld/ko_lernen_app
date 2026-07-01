@@ -190,7 +190,7 @@ abstract class AppL10n {
   /// No description provided for @paywallSuccess.
   ///
   /// In de, this message translates to:
-  /// **'Premium ist aktiv. Viel Spaß! 🎉'**
+  /// **'Premium ist aktiv. Viel Spaß!'**
   String get paywallSuccess;
 
   /// No description provided for @paywallFailed.
@@ -208,7 +208,7 @@ abstract class AppL10n {
   /// No description provided for @streakDisplay.
   ///
   /// In de, this message translates to:
-  /// **'🔥 {days} Tage'**
+  /// **'{days} Tage'**
   String streakDisplay(Object days);
 
   /// No description provided for @streakDialogTitle.
@@ -298,7 +298,7 @@ abstract class AppL10n {
   /// No description provided for @reviewDoneTitle.
   ///
   /// In de, this message translates to:
-  /// **'Stark! 🎉'**
+  /// **'Stark!'**
   String get reviewDoneTitle;
 
   /// No description provided for @reviewDoneBody.
@@ -328,7 +328,7 @@ abstract class AppL10n {
   /// No description provided for @homeReviewDone.
   ///
   /// In de, this message translates to:
-  /// **'Heute alles wiederholt 🎉'**
+  /// **'Heute alles wiederholt'**
   String get homeReviewDone;
 
   /// No description provided for @settingsNotifSection.
@@ -1150,7 +1150,7 @@ abstract class AppL10n {
   /// No description provided for @wordleResultWin.
   ///
   /// In de, this message translates to:
-  /// **'🎉 Geschafft!'**
+  /// **'Geschafft!'**
   String get wordleResultWin;
 
   /// No description provided for @wordleResultLose.
@@ -1468,7 +1468,7 @@ abstract class AppL10n {
   /// No description provided for @hangulRulesTitle.
   ///
   /// In de, this message translates to:
-  /// **'✏️ Hangul-Schreibregeln'**
+  /// **'Hangul-Schreibregeln'**
   String get hangulRulesTitle;
 
   /// No description provided for @hangulRulesBody.
@@ -1486,7 +1486,7 @@ abstract class AppL10n {
   /// No description provided for @hangulTraceTitle.
   ///
   /// In de, this message translates to:
-  /// **'✍️ Mit dem Finger nachzeichnen'**
+  /// **'Mit dem Finger nachzeichnen'**
   String get hangulTraceTitle;
 
   /// No description provided for @hangulClearBtn.
@@ -1738,19 +1738,19 @@ abstract class AppL10n {
   /// No description provided for @vocabDueBadge.
   ///
   /// In de, this message translates to:
-  /// **'🔥 {n} fällig'**
+  /// **'{n} fällig'**
   String vocabDueBadge(int n);
 
   /// Tagesziel Chip — N neue Karten + M Wiederholungen (Phase 1 SRS-UX-Patch, stately-rising-jongga).
   ///
   /// In de, this message translates to:
-  /// **'🔥 Heute ({newCount} neu · {reviewCount} Wdh.)'**
+  /// **'Heute ({newCount} neu · {reviewCount} Wdh.)'**
   String vocabTodayBadge(int newCount, int reviewCount);
 
   /// No description provided for @vocabDueEmpty.
   ///
   /// In de, this message translates to:
-  /// **'🎉 Heute alles erledigt!\nKomm morgen wieder.'**
+  /// **'Heute alles erledigt!\nKomm morgen wieder.'**
   String get vocabDueEmpty;
 
   /// No description provided for @vocabDueEmptyAction.
@@ -1792,13 +1792,13 @@ abstract class AppL10n {
   /// No description provided for @vocabPackLockedNoPrev.
   ///
   /// In de, this message translates to:
-  /// **'🔒 Dieses Pack ist noch gesperrt.'**
+  /// **'Dieses Pack ist noch gesperrt.'**
   String get vocabPackLockedNoPrev;
 
   /// No description provided for @vocabPackLockedHint.
   ///
   /// In de, this message translates to:
-  /// **'🔒 Schließe zuerst „{prev}“ mit ≥ 70 % ab.'**
+  /// **'Schließe zuerst „{prev}“ mit ≥ 70 % ab.'**
   String vocabPackLockedHint(Object prev);
 
   /// No description provided for @bookCaptureTitle.
@@ -2212,7 +2212,7 @@ abstract class AppL10n {
   /// No description provided for @gyeChallengeDone.
   ///
   /// In de, this message translates to:
-  /// **'Alle dabei! 🔥'**
+  /// **'Alle dabei!'**
   String get gyeChallengeDone;
 
   /// No description provided for @dureTitleDuru.
@@ -2314,19 +2314,19 @@ abstract class AppL10n {
   /// No description provided for @gyeFeedGoalAchieved.
   ///
   /// In de, this message translates to:
-  /// **'Wochenziel erreicht! 🎉 Euer Hanok wächst.'**
+  /// **'Wochenziel erreicht! Euer Hanok wächst.'**
   String get gyeFeedGoalAchieved;
 
   /// No description provided for @gyeFeedAllIn.
   ///
   /// In de, this message translates to:
-  /// **'Alle haben diese Woche beigetragen! 🔥'**
+  /// **'Alle haben diese Woche beigetragen!'**
   String get gyeFeedAllIn;
 
   /// No description provided for @gyeFeedGoalAchievedMvp.
   ///
   /// In de, this message translates to:
-  /// **'Wochenziel erreicht! 🎉 {packs} Packs · MVP {mvp}'**
+  /// **'Wochenziel erreicht! {packs} Packs · MVP {mvp}'**
   String gyeFeedGoalAchievedMvp(int packs, Object mvp);
 
   /// No description provided for @gyeStickerSend.
@@ -2518,7 +2518,7 @@ abstract class AppL10n {
   /// No description provided for @gyeAllInCelebrate.
   ///
   /// In de, this message translates to:
-  /// **'Alle haben diese Woche beigetragen! 🔥'**
+  /// **'Alle haben diese Woche beigetragen!'**
   String get gyeAllInCelebrate;
 
   /// No description provided for @gyeReactTooltip.
@@ -2776,7 +2776,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPackResultCleared.
   ///
   /// In de, this message translates to:
-  /// **'🎉 Pack geschafft!'**
+  /// **'Pack geschafft!'**
   String get vocabPackResultCleared;
 
   /// No description provided for @vocabPackResultClearedAgain.
@@ -3064,7 +3064,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingPage3Title.
   ///
   /// In de, this message translates to:
-  /// **'🔥 Streaks zählen'**
+  /// **'Streaks zählen'**
   String get onboardingPage3Title;
 
   /// No description provided for @onboardingPage3Subtitle.
@@ -3220,13 +3220,13 @@ abstract class AppL10n {
   /// No description provided for @homeTigerBubbleStart.
   ///
   /// In de, this message translates to:
-  /// **'Lust auf 5 Minuten Koreanisch? 📖'**
+  /// **'Lust auf 5 Minuten Koreanisch?'**
   String get homeTigerBubbleStart;
 
   /// No description provided for @homeTigerBubbleStreak.
   ///
   /// In de, this message translates to:
-  /// **'Dein Streak hält! Weiter so 🔥'**
+  /// **'Dein Streak hält! Weiter so'**
   String get homeTigerBubbleStreak;
 
   /// No description provided for @homeTigerBubbleResume.
@@ -3592,13 +3592,13 @@ abstract class AppL10n {
   /// No description provided for @homeRecommended.
   ///
   /// In de, this message translates to:
-  /// **'Heute empfohlen ✨'**
+  /// **'Heute empfohlen'**
   String get homeRecommended;
 
   /// No description provided for @homeAllDone.
   ///
   /// In de, this message translates to:
-  /// **'Alle Szenarien geschafft! 🎉'**
+  /// **'Alle Szenarien geschafft!'**
   String get homeAllDone;
 
   /// No description provided for @homeNoScenario.
@@ -3688,7 +3688,7 @@ abstract class AppL10n {
   /// No description provided for @vocabFavoritesBadge.
   ///
   /// In de, this message translates to:
-  /// **'⭐ {n}'**
+  /// **'{n}'**
   String vocabFavoritesBadge(int n);
 
   /// No description provided for @vocabHearExample.
@@ -3706,7 +3706,7 @@ abstract class AppL10n {
   /// No description provided for @vocabEmptyFavorites.
   ///
   /// In de, this message translates to:
-  /// **'Noch keine Favoriten ⭐\nMarkiere schwierige Wörter mit dem Stern'**
+  /// **'Noch keine Favoriten\nMarkiere schwierige Wörter mit dem Stern'**
   String get vocabEmptyFavorites;
 
   /// No description provided for @listeningTitle.
@@ -4492,7 +4492,7 @@ abstract class AppL10n {
   /// No description provided for @hardWordsEmptyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Keine Sorgenkinder 🎉'**
+  /// **'Keine Sorgenkinder'**
   String get hardWordsEmptyTitle;
 
   /// No description provided for @hardWordsEmptyBody.
@@ -4660,7 +4660,7 @@ abstract class AppL10n {
   /// No description provided for @comboPop.
   ///
   /// In de, this message translates to:
-  /// **'{count}er-Combo! 🔥'**
+  /// **'{count}er-Combo!'**
   String comboPop(int count);
 
   /// No description provided for @pathTitle.
@@ -4990,7 +4990,7 @@ abstract class AppL10n {
   /// No description provided for @coachBookStep3.
   ///
   /// In de, this message translates to:
-  /// **'📚 Neue Wörter landen direkt in deiner Wortliste'**
+  /// **'Neue Wörter landen direkt in deiner Wortliste'**
   String get coachBookStep3;
 
   /// No description provided for @coachBookLimitNote.
@@ -5008,19 +5008,19 @@ abstract class AppL10n {
   /// No description provided for @coachVocabPackStep1.
   ///
   /// In de, this message translates to:
-  /// **'📖 Schritt 1 · Lernen — Karten umdrehen und einprägen'**
+  /// **'Schritt 1 · Lernen — Karten umdrehen und einprägen'**
   String get coachVocabPackStep1;
 
   /// No description provided for @coachVocabPackStep2.
   ///
   /// In de, this message translates to:
-  /// **'✏️ Schritt 2 · Quiz — Wähle die richtige Übersetzung'**
+  /// **'Schritt 2 · Quiz — Wähle die richtige Übersetzung'**
   String get coachVocabPackStep2;
 
   /// No description provided for @coachVocabPackStep3.
   ///
   /// In de, this message translates to:
-  /// **'🎯 Schritt 3 · Boss — Hör zu und wähle die Bedeutung'**
+  /// **'Schritt 3 · Boss — Hör zu und wähle die Bedeutung'**
   String get coachVocabPackStep3;
 
   /// No description provided for @coachPackStageQuiz.
@@ -5272,7 +5272,7 @@ abstract class AppL10n {
   /// No description provided for @settingsMadeWith.
   ///
   /// In de, this message translates to:
-  /// **'Mit ❤️ in Deutschland gemacht'**
+  /// **'Mit ❤ in Deutschland gemacht'**
   String get settingsMadeWith;
 
   /// No description provided for @coachChosungStep1Title.

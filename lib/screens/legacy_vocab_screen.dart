@@ -392,7 +392,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 Row(
                   children: [
                     SoriChip(
-                      label: '📚 ${_idx + 1}/${_filtered.length}',
+                      label: '${_idx + 1}/${_filtered.length}',
                       accent: SoriColors.info,
                     ),
                     const SizedBox(width: Spacing.xs + 2),

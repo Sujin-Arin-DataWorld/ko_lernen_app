@@ -12,6 +12,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/game_reward.dart';
+import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
@@ -748,13 +749,20 @@ class _RoundSummaryCard extends StatelessWidget {
           ),
           if (isNewBest) ...[
             const SizedBox(height: Spacing.sm),
-            Text(
-              '🏆 ${t.gameNewBest}',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w800,
-                color: SoriColors.gold,
-              ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(SoriGlyph.record, size: 15, color: SoriColors.gold),
+                const SizedBox(width: 5),
+                Text(
+                  t.gameNewBest,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: SoriColors.gold,
+                  ),
+                ),
+              ],
             ),
           ],
           if (recommendation != null) ...[

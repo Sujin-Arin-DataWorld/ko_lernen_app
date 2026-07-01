@@ -6,6 +6,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'sori_icon.dart';
 import 'tokens.dart';
 
 /// **SoriBadge** — level / XP / streak / stars 등 작은 상태 표시.
@@ -35,12 +36,16 @@ class SoriBadge extends StatelessWidget {
     required String semanticLabel,
     IconData? icon,
     String? emoji,
-  })  : _label = label,
-        _icon = icon,
-        _emoji = emoji,
-        _semanticLabel = semanticLabel;
+  }) : _label = label,
+       _icon = icon,
+       _emoji = emoji,
+       _semanticLabel = semanticLabel;
 
-  factory SoriBadge.level(String level, {Color color = SoriColors.primary, double size = 22}) {
+  factory SoriBadge.level(
+    String level, {
+    Color color = SoriColors.primary,
+    double size = 22,
+  }) {
     return SoriBadge._(
       color: color,
       size: size,
@@ -49,7 +54,11 @@ class SoriBadge extends StatelessWidget {
     );
   }
 
-  factory SoriBadge.xp(int xp, {Color color = SoriColors.primary, double size = 22}) {
+  factory SoriBadge.xp(
+    int xp, {
+    Color color = SoriColors.primary,
+    double size = 22,
+  }) {
     return SoriBadge._(
       color: color,
       size: size,
@@ -59,12 +68,16 @@ class SoriBadge extends StatelessWidget {
     );
   }
 
-  factory SoriBadge.streak(int days, {Color color = SoriColors.warning, double size = 22}) {
+  factory SoriBadge.streak(
+    int days, {
+    Color color = SoriColors.warning,
+    double size = 22,
+  }) {
     return SoriBadge._(
       color: color,
       size: size,
       label: '$days',
-      emoji: '🔥',
+      icon: SoriGlyph.streak,
       semanticLabel: 'Streak $days Tage',
     );
   }
@@ -100,7 +113,12 @@ class SoriBadge extends StatelessWidget {
         Icon(_icon, color: fg, size: size * 0.55),
         const SizedBox(width: 2),
       ],
-      Text(_label, style: textStyle, maxLines: 1, overflow: TextOverflow.ellipsis),
+      Text(
+        _label,
+        style: textStyle,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
     ];
 
     return Semantics(

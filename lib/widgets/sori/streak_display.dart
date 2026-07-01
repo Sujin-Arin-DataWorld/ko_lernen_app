@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import 'sori_icon.dart';
 import 'tokens.dart';
 
 /// **스트릭 시각화** — Duolingo 스타일 (홈 상단)
@@ -47,14 +48,17 @@ class _StreakDisplayState extends State<StreakDisplay>
         DateTime.now().difference(widget.lastActivity).inHours > 26;
 
     return ScaleTransition(
-      scale: Tween<double>(begin: 1.0, end: 1.08)
-          .animate(CurvedAnimation(parent: _pulseCtrl, curve: Curves.easeInOut)),
+      scale: Tween<double>(
+        begin: 1.0,
+        end: 1.08,
+      ).animate(CurvedAnimation(parent: _pulseCtrl, curve: Curves.easeInOut)),
       child: GestureDetector(
         onTap: () => _showStreakInfo(context, t),
         child: Chip(
-          avatar: Text(
-            '🔥',
-            style: TextStyle(fontSize: 20),
+          avatar: Icon(
+            SoriGlyph.streak,
+            size: 18,
+            color: isMissing ? SoriColors.danger : SoriColors.primary,
           ),
           label: Text(
             t.streakDisplay(widget.days),
@@ -89,20 +93,23 @@ class _StreakDisplayState extends State<StreakDisplay>
           children: [
             Text(t.streakDialogSubtitle),
             const SizedBox(height: 12),
-            Text(
-              '🏆 ${t.streakDialogEarned}',
-              style: const TextStyle(fontWeight: FontWeight.w700),
+            Row(
+              children: [
+                const Icon(SoriGlyph.record, size: 16, color: SoriColors.gold),
+                const SizedBox(width: 5),
+                Expanded(
+                  child: Text(
+                    t.streakDialogEarned,
+                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
             Text(t.streakDialogCurrent(widget.days)),
             Text(
-              t.streakDialogLastActivity(
-                _formatTime(widget.lastActivity),
-              ),
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
+              t.streakDialogLastActivity(_formatTime(widget.lastActivity)),
+              style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],
         ),

@@ -13,6 +13,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -241,7 +242,12 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
             child: Column(
               children: [
                 const SizedBox(height: Spacing.xl),
-                Text('🎉', style: const TextStyle(fontSize: 64)),
+                const Mascot(
+                  kind: MascotKind.tiger,
+                  emotion: MascotEmotion.celebrate,
+                  size: 96,
+                  animate: true,
+                ),
                 const SizedBox(height: Spacing.md),
                 Text(
                   t.customPackResultDone,

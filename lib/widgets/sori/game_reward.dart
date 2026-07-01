@@ -4,7 +4,21 @@ import '../../services/sound_service.dart';
 import '../../services/storage_service.dart';
 import 'celebration.dart';
 import 'mascot.dart';
+import 'sori_icon.dart';
 import 'tokens.dart';
+
+/// 아이콘 + 라벨 한 줄 (🏆/🔥 이모지 대체 — 시맨틱 아이콘).
+Widget _iconLine(IconData icon, String text, Color color) => Row(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    Icon(icon, size: 16, color: color),
+    const SizedBox(width: 5),
+    Text(
+      text,
+      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: color),
+    ),
+  ],
+);
 
 /// Ergebnis einer Spielrunde — XP + persönliche Bestleistung.
 class GameOutcome {
@@ -199,13 +213,10 @@ class _GameOverCardState extends State<GameOverCard>
                     ),
                     if (widget.isNewBest && widget.newBestLabel != null) ...[
                       const SizedBox(height: Spacing.md),
-                      Text(
-                        '🏆 ${widget.newBestLabel!}',
-                        style: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w800,
-                          color: SoriColors.gold,
-                        ),
+                      _iconLine(
+                        SoriGlyph.record,
+                        widget.newBestLabel!,
+                        SoriColors.gold,
                       ),
                     ] else if (widget.bestLabel != null) ...[
                       const SizedBox(height: Spacing.md),
@@ -216,13 +227,10 @@ class _GameOverCardState extends State<GameOverCard>
                     ],
                     if (widget.streakLabel != null) ...[
                       const SizedBox(height: Spacing.sm),
-                      Text(
-                        '🔥 ${widget.streakLabel!}',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w800,
-                          color: SoriColors.tiger,
-                        ),
+                      _iconLine(
+                        SoriGlyph.streak,
+                        widget.streakLabel!,
+                        SoriColors.tiger,
                       ),
                     ],
                   ],

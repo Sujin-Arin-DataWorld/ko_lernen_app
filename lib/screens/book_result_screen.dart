@@ -391,7 +391,7 @@ class _WordCard extends StatelessWidget {
             if (word.definitionKo.isNotEmpty) ...[
               const SizedBox(height: 4),
               Text(
-                '📖 ${word.definitionKo}',
+                word.definitionKo,
                 style: SoriTextTheme.of(context).caption.copyWith(height: 1.35),
               ),
             ],

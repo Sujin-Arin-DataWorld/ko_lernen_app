@@ -56,7 +56,7 @@ class AppL10nEn extends AppL10n {
   String get paywallProcessing => 'One moment …';
 
   @override
-  String get paywallSuccess => 'Premium is active. Enjoy! 🎉';
+  String get paywallSuccess => 'Premium is active. Enjoy!';
 
   @override
   String get paywallFailed => 'Purchase not completed.';
@@ -66,7 +66,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String streakDisplay(Object days) {
-    return '🔥 $days days';
+    return '$days days';
   }
 
   @override
@@ -118,7 +118,7 @@ class AppL10nEn extends AppL10n {
       'No cards are due today. Play a round or learn a new pack — those words will show up here for review.';
 
   @override
-  String get reviewDoneTitle => 'Nice work! 🎉';
+  String get reviewDoneTitle => 'Nice work!';
 
   @override
   String get reviewDoneBody => 'You\'ve reviewed your due cards.';
@@ -135,7 +135,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get homeReviewDone => 'All reviewed today 🎉';
+  String get homeReviewDone => 'All reviewed today';
 
   @override
   String get settingsNotifSection => 'Reminder';
@@ -562,7 +562,7 @@ class AppL10nEn extends AppL10n {
   String get wordleErrorHangul => 'Hangul only please';
 
   @override
-  String get wordleResultWin => '🎉 You got it!';
+  String get wordleResultWin => 'You got it!';
 
   @override
   String get wordleResultLose => '😢 Out of tries';
@@ -730,7 +730,7 @@ class AppL10nEn extends AppL10n {
   String get hangulPronounceBtn => 'Pronounce';
 
   @override
-  String get hangulRulesTitle => '✏️ Hangul writing rules';
+  String get hangulRulesTitle => 'Hangul writing rules';
 
   @override
   String get hangulRulesBody =>
@@ -740,7 +740,7 @@ class AppL10nEn extends AppL10n {
   String get hangulStrokeOrderTitle => '📽 Stroke order (tap to replay)';
 
   @override
-  String get hangulTraceTitle => '✍️ Trace with your finger';
+  String get hangulTraceTitle => 'Trace with your finger';
 
   @override
   String get hangulClearBtn => 'Clear';
@@ -891,16 +891,16 @@ class AppL10nEn extends AppL10n {
 
   @override
   String vocabDueBadge(int n) {
-    return '🔥 $n due';
+    return '$n due';
   }
 
   @override
   String vocabTodayBadge(int newCount, int reviewCount) {
-    return '🔥 Today ($newCount new · $reviewCount review)';
+    return 'Today ($newCount new · $reviewCount review)';
   }
 
   @override
-  String get vocabDueEmpty => '🎉 All done for today!\nCome back tomorrow.';
+  String get vocabDueEmpty => 'All done for today!\nCome back tomorrow.';
 
   @override
   String get vocabDueEmptyAction => 'Practice anyway';
@@ -924,11 +924,11 @@ class AppL10nEn extends AppL10n {
       'No vocabulary prepared for this level yet.';
 
   @override
-  String get vocabPackLockedNoPrev => '🔒 This pack is still locked.';
+  String get vocabPackLockedNoPrev => 'This pack is still locked.';
 
   @override
   String vocabPackLockedHint(Object prev) {
-    return '🔒 Clear \"$prev\" first with ≥ 70% on bosses.';
+    return 'Clear \"$prev\" first with ≥ 70% on bosses.';
   }
 
   @override
@@ -1155,7 +1155,7 @@ class AppL10nEn extends AppL10n {
   String get gyeChallengeTitle => 'Everyone in?';
 
   @override
-  String get gyeChallengeDone => 'Everyone\'s in! 🔥';
+  String get gyeChallengeDone => 'Everyone\'s in!';
 
   @override
   String get dureTitleDuru => 'Pillar';
@@ -1215,14 +1215,14 @@ class AppL10nEn extends AppL10n {
   String get gyeCheerTitle => 'Send cheer';
 
   @override
-  String get gyeFeedGoalAchieved => 'Weekly goal reached! 🎉 Your hanok grows.';
+  String get gyeFeedGoalAchieved => 'Weekly goal reached! Your hanok grows.';
 
   @override
-  String get gyeFeedAllIn => 'Everyone contributed this week! 🔥';
+  String get gyeFeedAllIn => 'Everyone contributed this week!';
 
   @override
   String gyeFeedGoalAchievedMvp(int packs, Object mvp) {
-    return 'Weekly goal reached! 🎉 $packs packs · MVP $mvp';
+    return 'Weekly goal reached! $packs packs · MVP $mvp';
   }
 
   @override
@@ -1328,7 +1328,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get gyeAllInCelebrate => 'Everyone contributed this week! 🔥';
+  String get gyeAllInCelebrate => 'Everyone contributed this week!';
 
   @override
   String get gyeReactTooltip => 'React';
@@ -1460,7 +1460,7 @@ class AppL10nEn extends AppL10n {
   String get vocabPackResultTitle => 'Result';
 
   @override
-  String get vocabPackResultCleared => '🎉 Pack cleared!';
+  String get vocabPackResultCleared => 'Pack cleared!';
 
   @override
   String get vocabPackResultClearedAgain => 'Already cleared — nice review!';
@@ -1619,7 +1619,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingPage2Subtitle => 'Short, effective, always there';
 
   @override
-  String get onboardingPage3Title => '🔥 Streaks matter';
+  String get onboardingPage3Title => 'Streaks matter';
 
   @override
   String get onboardingPage3Subtitle => 'Show up every day, earn more rewards!';
@@ -1701,10 +1701,10 @@ class AppL10nEn extends AppL10n {
   String get homeHeroGreetingEvening => 'Good evening!';
 
   @override
-  String get homeTigerBubbleStart => 'Up for 5 minutes of Korean? 📖';
+  String get homeTigerBubbleStart => 'Up for 5 minutes of Korean?';
 
   @override
-  String get homeTigerBubbleStreak => 'Streak\'s alive! Keep it going 🔥';
+  String get homeTigerBubbleStreak => 'Streak\'s alive! Keep it going';
 
   @override
   String get homeTigerBubbleResume => 'Welcome back!';
@@ -1913,10 +1913,10 @@ class AppL10nEn extends AppL10n {
       'None yet — complete a scenario to earn your first! 🚀';
 
   @override
-  String get homeRecommended => 'Recommended today ✨';
+  String get homeRecommended => 'Recommended today';
 
   @override
-  String get homeAllDone => 'All scenarios done! 🎉';
+  String get homeAllDone => 'All scenarios done!';
 
   @override
   String get homeNoScenario => 'Scenarios for your level coming soon';
@@ -1964,7 +1964,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String vocabFavoritesBadge(int n) {
-    return '⭐ $n';
+    return '$n';
   }
 
   @override
@@ -1975,7 +1975,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabEmptyFavorites =>
-      'No favorites yet ⭐\nTap the star on hard words';
+      'No favorites yet\nTap the star on hard words';
 
   @override
   String get listeningTitle => 'Listening';
@@ -2414,7 +2414,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get hardWordsEmptyTitle => 'Nothing tricky 🎉';
+  String get hardWordsEmptyTitle => 'Nothing tricky';
 
   @override
   String get hardWordsEmptyBody =>
@@ -2510,7 +2510,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String comboPop(int count) {
-    return '$count in a row! 🔥';
+    return '$count in a row!';
   }
 
   @override
@@ -2689,8 +2689,7 @@ class AppL10nEn extends AppL10n {
   String get coachBookStep2 => '🔍 Text is detected and analyzed automatically';
 
   @override
-  String get coachBookStep3 =>
-      '📚 New words are saved straight to your word list';
+  String get coachBookStep3 => 'New words are saved straight to your word list';
 
   @override
   String get coachBookLimitNote => 'Daily limit: 20 pages';
@@ -2700,15 +2699,15 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      '📖 Step 1 · Learn — flip the cards and absorb them';
+      'Step 1 · Learn — flip the cards and absorb them';
 
   @override
   String get coachVocabPackStep2 =>
-      '✏️ Step 2 · Quiz — pick the right translation';
+      'Step 2 · Quiz — pick the right translation';
 
   @override
   String get coachVocabPackStep3 =>
-      '🎯 Step 3 · Boss — listen and choose the meaning';
+      'Step 3 · Boss — listen and choose the meaning';
 
   @override
   String get coachPackStageQuiz => 'Quiz time! Pick the right translation.';
@@ -2849,7 +2848,7 @@ class AppL10nEn extends AppL10n {
   String get bookshelfCreatePackNameHint => 'e.g. Step 1 — Lesson 5';
 
   @override
-  String get settingsMadeWith => 'Made with ❤️ in Germany';
+  String get settingsMadeWith => 'Made with ❤ in Germany';
 
   @override
   String get coachChosungStep1Title => 'Syllable puzzle';

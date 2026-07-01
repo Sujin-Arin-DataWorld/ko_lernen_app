@@ -200,24 +200,21 @@ class _StatsScreenState extends State<StatsScreen>
               title: t.moduleVocabTitle,
               color: SoriColors.info,
               rows: [
+                _MetricRow(label: t.statsGotIt, value: '${Storage.vokCorrect}'),
                 _MetricRow(
-                  label: '✅ ${t.statsGotIt}',
-                  value: '${Storage.vokCorrect}',
-                ),
-                _MetricRow(
-                  label: '❌ ${t.statsNotGotIt}',
+                  label: t.statsNotGotIt,
                   value: '${Storage.vokWrong}',
                 ),
                 _MetricRow(
-                  label: '⏭ ${t.statsSkipped}',
+                  label: t.statsSkipped,
                   value: '${Storage.vokSkipped}',
                 ),
                 _MetricRow(
-                  label: '📚 ${t.statsCardsLearned}',
+                  label: t.statsCardsLearned,
                   value: '${Storage.vokSeenIds.length}',
                 ),
                 _MetricRow(
-                  label: '🎯 ${t.statsAccuracy}',
+                  label: t.statsAccuracy,
                   value: '$vokAccuracy %',
                   accent: true,
                 ),
@@ -232,15 +229,15 @@ class _StatsScreenState extends State<StatsScreen>
               color: SoriColors.primary,
               rows: [
                 _MetricRow(
-                  label: '✅ ${t.statsCorrect}',
+                  label: t.statsCorrect,
                   value: '${Storage.chosungCorrect}',
                 ),
                 _MetricRow(
-                  label: '❌ ${t.statsWrong}',
+                  label: t.statsWrong,
                   value: '${Storage.chosungWrong}',
                 ),
                 _MetricRow(
-                  label: '🎯 ${t.statsAccuracy}',
+                  label: t.statsAccuracy,
                   value: '$chosungAccuracy %',
                   accent: true,
                 ),
@@ -255,23 +252,23 @@ class _StatsScreenState extends State<StatsScreen>
               color: SoriColors.success,
               rows: [
                 _MetricRow(
-                  label: '🏆 ${t.statsWordleWins}',
+                  label: t.statsWordleWins,
                   value: '${Storage.wordleWins}',
                 ),
                 _MetricRow(
-                  label: '💔 ${t.statsLosses}',
+                  label: t.statsLosses,
                   value: '${Storage.wordleLosses}',
                 ),
                 _MetricRow(
-                  label: '🔥 ${t.statsWordleStreak}',
+                  label: t.statsWordleStreak,
                   value: '${Storage.wordleStreak}',
                 ),
                 _MetricRow(
-                  label: '⭐ ${t.statsBestShort}',
+                  label: t.statsBestShort,
                   value: '${Storage.wordleBestStreak}',
                 ),
                 _MetricRow(
-                  label: '🎯 ${t.statsWinRate}',
+                  label: t.statsWinRate,
                   value: '$wordleRate %',
                   accent: true,
                 ),

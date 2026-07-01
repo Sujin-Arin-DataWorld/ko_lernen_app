@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/pack_progress.dart';
 import 'dancheong_stamp.dart';
 import 'pressable.dart';
+import 'sori_icon.dart';
 import 'tokens.dart';
 
 /// Pack-Karten Tile für die Pack-Marktplatz-Grid (Phase 2).
@@ -83,9 +84,7 @@ class PackCard extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       fontSize: 14,
                       height: 1.2,
-                      color: _locked
-                          ? s.text.withValues(alpha: 0.5)
-                          : s.text,
+                      color: _locked ? s.text.withValues(alpha: 0.5) : s.text,
                     ),
                   ),
                   const SizedBox(height: Spacing.sm),
@@ -128,10 +127,9 @@ class PackCard extends StatelessWidget {
   }
 
   String _semanticsLabel() {
-    final state = _cleared
-        ? 'geklärt'
-        : (_locked ? 'gesperrt' : 'verfügbar');
-    final progressStr = '${progress.wordsLearned} von ${progress.wordsTotal} gelernt';
+    final state = _cleared ? 'geklärt' : (_locked ? 'gesperrt' : 'verfügbar');
+    final progressStr =
+        '${progress.wordsLearned} von ${progress.wordsTotal} gelernt';
     return 'Pack $title, $state, $progressStr';
   }
 }
@@ -179,11 +177,20 @@ class _BottomRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     if (locked) {
-      return Text(
-        '🔒 Vorher klären',
-        style: TextStyle(fontSize: 11, color: accent),
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(SoriGlyph.locked, size: 11, color: accent),
+          const SizedBox(width: 3),
+          Flexible(
+            child: Text(
+              'Vorher klären',
+              style: TextStyle(fontSize: 11, color: accent),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
       );
     }
 

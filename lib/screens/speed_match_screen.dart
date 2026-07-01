@@ -14,6 +14,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -255,8 +256,10 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
                     const Spacer(),
                     if (_combo >= 2) ...[
                       SoriChip(
-                        label: t.comboPop(_combo), // endet bereits mit 🔥
+                        label: t.comboPop(_combo),
+                        icon: SoriGlyph.streak,
                         accent: SoriColors.tiger,
+                        variant: SoriChipVariant.filled,
                       ),
                       const SizedBox(width: Spacing.sm),
                     ],

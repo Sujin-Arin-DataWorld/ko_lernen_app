@@ -687,7 +687,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
         if (_definitionKo.isNotEmpty) ...[
           const SizedBox(height: 6),
           Text(
-            '📖 $_definitionKo',
+            _definitionKo,
             style: TextStyle(fontSize: 12, color: s.textMuted),
           ),
         ],
