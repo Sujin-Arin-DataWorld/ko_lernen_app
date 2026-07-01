@@ -16,6 +16,7 @@ import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Speed-Match** — gegen die Uhr Koreanisch ↔ Bedeutung paaren.
@@ -229,90 +230,92 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _levelBar(t),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.timer_outlined,
-                      size: 20,
-                      color: lowTime ? SoriColors.danger : s.textMuted,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '$_remaining s',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: lowTime ? SoriColors.danger : s.text,
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: SoriCenterClamp(
+            child: Padding(
+              padding: const EdgeInsets.all(Spacing.lg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _levelBar(t),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.timer_outlined,
+                        size: 20,
+                        color: lowTime ? SoriColors.danger : s.textMuted,
                       ),
-                    ),
-                    const Spacer(),
-                    if (_combo >= 2) ...[
-                      SoriChip(
-                        label: t.comboPop(_combo),
-                        icon: SoriGlyph.streak,
-                        accent: SoriColors.tiger,
-                        variant: SoriChipVariant.filled,
+                      const SizedBox(width: 4),
+                      Text(
+                        '$_remaining s',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: lowTime ? SoriColors.danger : s.text,
+                        ),
                       ),
-                      const SizedBox(width: Spacing.sm),
-                    ],
-                    SoriChip(
-                      label: t.speedMatchScore(_score),
-                      accent: SoriColors.success,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  t.speedMatchInstruction,
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
-                ),
-                const SizedBox(height: Spacing.md),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              for (final v in _active)
-                                _MatchTile(
-                                  label: v.korean,
-                                  selected: _selLeftKo == v.korean,
-                                  accent: SoriColors.primary,
-                                  onTap: () => _tapLeft(v.korean),
-                                ),
-                            ],
-                          ),
+                      const Spacer(),
+                      if (_combo >= 2) ...[
+                        SoriChip(
+                          label: t.comboPop(_combo),
+                          icon: SoriGlyph.streak,
+                          accent: SoriColors.tiger,
+                          variant: SoriChipVariant.filled,
                         ),
-                        const SizedBox(width: Spacing.md),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              for (final v in _rightOrder)
-                                _MatchTile(
-                                  label: v.translationFor(lang),
-                                  wrong:
-                                      _wrongRightKo == v.translationFor(lang),
-                                  accent: SoriColors.accent,
-                                  onTap: () => _tapRight(v),
-                                ),
-                            ],
-                          ),
-                        ),
+                        const SizedBox(width: Spacing.sm),
                       ],
+                      SoriChip(
+                        label: t.speedMatchScore(_score),
+                        accent: SoriColors.success,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    t.speedMatchInstruction,
+                    style: TextStyle(fontSize: 13, color: s.textMuted),
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              children: [
+                                for (final v in _active)
+                                  _MatchTile(
+                                    label: v.korean,
+                                    selected: _selLeftKo == v.korean,
+                                    accent: SoriColors.primary,
+                                    onTap: () => _tapLeft(v.korean),
+                                  ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                for (final v in _rightOrder)
+                                  _MatchTile(
+                                    label: v.translationFor(lang),
+                                    wrong:
+                                        _wrongRightKo == v.translationFor(lang),
+                                    accent: SoriColors.accent,
+                                    onTap: () => _tapRight(v),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

@@ -19,6 +19,7 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
@@ -304,145 +305,147 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) => SingleChildScrollView(
-            padding: soriClampPadding(
-              constraints.maxWidth,
-              base: const EdgeInsets.fromLTRB(16, 8, 16, 20),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // ── hero ──
-                HanokHeader(
-                  asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
-                  fallbackIcon: Icons.link_rounded,
-                  fallbackTint: SoriColors.accent,
-                  aspectRatio: 10 / 3,
-                ),
-                const SizedBox(height: Spacing.md),
-
-                // ── chain 시각화 ──
-                _ChainStrip(chain: _chain),
-                const SizedBox(height: Spacing.md),
-
-                if (_end != _End.none)
-                  _ResultCard(
-                    end: _end,
-                    chainLength: _chain.length,
-                    xpEarned: (_chain.length * 10).clamp(20, 500),
-                    isNewBest: _newBest,
-                    onAgain: _start,
-                    onHome: () => Navigator.pop(context),
-                  )
-                else ...[
-                  // ── 현재 차례 + 타이머 ──
-                  Row(
-                    key: _timerRowKey,
-                    children: [
-                      _TurnIndicator(turn: _turn, t: t),
-                      const Spacer(),
-                      _Timer(remaining: _remaining, total: _turnSeconds),
-                    ],
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              padding: soriClampPadding(
+                constraints.maxWidth,
+                base: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // ── hero ──
+                  HanokHeader(
+                    asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
+                    fallbackIcon: Icons.link_rounded,
+                    fallbackTint: SoriColors.accent,
+                    aspectRatio: 10 / 3,
                   ),
                   const SizedBox(height: Spacing.md),
 
-                  // ── 마지막 단어 카드 (last 음절 강조) ──
-                  KeyedSubtree(
-                    key: _lastWordCardKey,
-                    child: _LastWordCard(word: _last!),
-                  ),
+                  // ── chain 시각화 ──
+                  _ChainStrip(chain: _chain),
                   const SizedBox(height: Spacing.md),
 
-                  // ── 사용자 차례: 입력 ──
-                  if (_turn == _Turn.user) ...[
-                    Text(
-                      t.kkeunmariStartHint(_required),
-                      style: TextStyle(
-                        color: s.textMuted,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      textAlign: TextAlign.center,
+                  if (_end != _End.none)
+                    _ResultCard(
+                      end: _end,
+                      chainLength: _chain.length,
+                      xpEarned: (_chain.length * 10).clamp(20, 500),
+                      isNewBest: _newBest,
+                      onAgain: _start,
+                      onHome: () => Navigator.pop(context),
+                    )
+                  else ...[
+                    // ── 현재 차례 + 타이머 ──
+                    Row(
+                      key: _timerRowKey,
+                      children: [
+                        _TurnIndicator(turn: _turn, t: t),
+                        const Spacer(),
+                        _Timer(remaining: _remaining, total: _turnSeconds),
+                      ],
                     ),
-                    const SizedBox(height: Spacing.sm),
-                    TextField(
-                      key: _inputFieldKey,
-                      controller: _ctrl,
-                      focusNode: _focusNode,
-                      autofocus: true,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        hintText: t.kkeunmariInputHint,
-                      ),
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800,
-                      ),
-                      onSubmitted: (_) => _submit(),
+                    const SizedBox(height: Spacing.md),
+
+                    // ── 마지막 단어 카드 (last 음절 강조) ──
+                    KeyedSubtree(
+                      key: _lastWordCardKey,
+                      child: _LastWordCard(word: _last!),
                     ),
-                    if (_errorMsg.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
+                    const SizedBox(height: Spacing.md),
+
+                    // ── 사용자 차례: 입력 ──
+                    if (_turn == _Turn.user) ...[
                       Text(
-                        _errorMsg,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: SoriColors.danger,
+                        t.kkeunmariStartHint(_required),
+                        style: TextStyle(
+                          color: s.textMuted,
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
                         ),
+                        textAlign: TextAlign.center,
                       ),
-                    ],
-                    const SizedBox(height: Spacing.md),
-                    SoriButton.filled(
-                      label: t.kkeunmariSubmit,
-                      icon: Icons.send_rounded,
-                      accent: SoriColors.accent,
-                      fullWidth: true,
-                      onTap: _submit,
-                    ),
-                  ] else
-                    // 호랑이 차례: 짧은 "생각 중" 카드
-                    SoriCard(
-                      variant: SoriCardVariant.base,
-                      accent: SoriColors.tiger,
-                      tinted: true,
-                      child: Row(
-                        children: [
-                          const Mascot(
-                            kind: MascotKind.tiger,
-                            emotion: MascotEmotion.thinking,
-                            size: 56,
-                            animate: false,
+                      const SizedBox(height: Spacing.sm),
+                      TextField(
+                        key: _inputFieldKey,
+                        controller: _ctrl,
+                        focusNode: _focusNode,
+                        autofocus: true,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          hintText: t.kkeunmariInputHint,
+                        ),
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                        ),
+                        onSubmitted: (_) => _submit(),
+                      ),
+                      if (_errorMsg.isNotEmpty) ...[
+                        const SizedBox(height: Spacing.xs),
+                        Text(
+                          _errorMsg,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: SoriColors.danger,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
                           ),
-                          const SizedBox(width: Spacing.md),
-                          Expanded(
-                            child: Text(
-                              t.kkeunmariTigerTurn,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                color: SoriColors.tiger,
+                        ),
+                      ],
+                      const SizedBox(height: Spacing.md),
+                      SoriButton.filled(
+                        label: t.kkeunmariSubmit,
+                        icon: Icons.send_rounded,
+                        accent: SoriColors.accent,
+                        fullWidth: true,
+                        onTap: _submit,
+                      ),
+                    ] else
+                      // 호랑이 차례: 짧은 "생각 중" 카드
+                      SoriCard(
+                        variant: SoriCardVariant.base,
+                        accent: SoriColors.tiger,
+                        tinted: true,
+                        child: Row(
+                          children: [
+                            const Mascot(
+                              kind: MascotKind.tiger,
+                              emotion: MascotEmotion.thinking,
+                              size: 56,
+                              animate: false,
+                            ),
+                            const SizedBox(width: Spacing.md),
+                            Expanded(
+                              child: Text(
+                                t.kkeunmariTigerTurn,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: SoriColors.tiger,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+
+                    const SizedBox(height: Spacing.lg),
+
+                    // ── chain length ──
+                    Center(
+                      child: SoriChip(
+                        label: t.kkeunmariChainLength(_chain.length),
+                        accent: SoriColors.accent,
+                        variant: SoriChipVariant.soft,
                       ),
                     ),
-
-                  const SizedBox(height: Spacing.lg),
-
-                  // ── chain length ──
-                  Center(
-                    child: SoriChip(
-                      label: t.kkeunmariChainLength(_chain.length),
-                      accent: SoriColors.accent,
-                      variant: SoriChipVariant.soft,
-                    ),
-                  ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),

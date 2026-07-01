@@ -15,6 +15,7 @@ import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Tages-Challenge (오늘의 도전)** — ein datums-gesetztes Lückentext-Puzzle.
@@ -168,110 +169,100 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                if (_alreadyDone) ...[
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Spacing.md,
-                      vertical: Spacing.sm,
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: SoriCenterClamp(
+            child: Padding(
+              padding: const EdgeInsets.all(Spacing.lg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (_alreadyDone) ...[
+                    SoriChip(
+                      label: t.dailyAlreadyDone,
+                      icon: Icons.check_circle_rounded,
+                      accent: SoriColors.gold,
                     ),
-                    decoration: BoxDecoration(
-                      color: SoriColors.gold.withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(SoriRadius.sm),
-                    ),
-                    child: Text(
-                      t.dailyAlreadyDone,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 12.5,
-                        fontWeight: FontWeight.w700,
-                        color: SoriColors.gold,
+                    const SizedBox(height: Spacing.sm),
+                  ],
+                  Row(
+                    children: [
+                      SoriChip(
+                        label: '${_idx + 1} / ${_round.length}',
+                        accent: SoriColors.info,
+                      ),
+                      const Spacer(),
+                      SoriChip(
+                        label: t.quizScore(_score, _round.length),
+                        accent: SoriColors.success,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  Text(
+                    t.clozeInstruction,
+                    style: TextStyle(fontSize: 13, color: s.textMuted),
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  SoriCard(
+                    variant: SoriCardVariant.hero,
+                    accent: SoriColors.primary,
+                    tinted: true,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: Spacing.lg,
+                        horizontal: Spacing.sm,
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            item.sentenceKo,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          const SizedBox(height: Spacing.sm),
+                          Text(
+                            item.meaning(lang),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 14, color: s.textMuted),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.volume_up_rounded, size: 24),
+                            onPressed: () => TtsService.speak(item.fullKo),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  const SizedBox(height: Spacing.sm),
-                ],
-                Row(
-                  children: [
-                    SoriChip(
-                      label: '${_idx + 1} / ${_round.length}',
-                      accent: SoriColors.info,
-                    ),
-                    const Spacer(),
-                    SoriChip(
-                      label: t.quizScore(_score, _round.length),
-                      accent: SoriColors.success,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: Spacing.lg),
-                Text(
-                  t.clozeInstruction,
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriCard(
-                  variant: SoriCardVariant.hero,
-                  accent: SoriColors.primary,
-                  tinted: true,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: Spacing.lg,
-                      horizontal: Spacing.sm,
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          item.sentenceKo,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.sm),
-                        Text(
-                          item.meaning(lang),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 14, color: s.textMuted),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.volume_up_rounded, size: 24),
-                          onPressed: () => TtsService.speak(item.fullKo),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: Spacing.lg),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        for (final opt in options)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: Spacing.sm),
-                            child: QuizChoice(
-                              text: opt,
-                              isCorrect: opt == item.answer,
-                              isSelected: _picked == opt,
-                              revealed: revealed,
-                              onSelected: revealed
-                                  ? null
-                                  : () => _pick(item, opt),
+                  const SizedBox(height: Spacing.lg),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          for (final opt in options)
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                bottom: Spacing.sm,
+                              ),
+                              child: QuizChoice(
+                                text: opt,
+                                isCorrect: opt == item.answer,
+                                isSelected: _picked == opt,
+                                revealed: revealed,
+                                onSelected: revealed
+                                    ? null
+                                    : () => _pick(item, opt),
+                              ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

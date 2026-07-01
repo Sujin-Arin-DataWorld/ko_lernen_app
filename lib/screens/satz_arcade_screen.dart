@@ -9,6 +9,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import 'quest_engines/quest_models.dart';
 import 'quest_engines/satz_bauen_quest.dart';
@@ -157,30 +158,32 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _levelBar(t),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: SoriChip(
-                    label: '${_idx + 1} / ${_round.length}',
-                    accent: SoriColors.info,
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: SoriCenterClamp(
+            child: Padding(
+              padding: const EdgeInsets.all(Spacing.lg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _levelBar(t),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: SoriChip(
+                      label: '${_idx + 1} / ${_round.length}',
+                      accent: SoriColors.info,
+                    ),
                   ),
-                ),
-                const SizedBox(height: Spacing.md),
-                Expanded(
-                  child: SatzBauenQuest(
-                    key: ValueKey('satz_${_roundId}_$_idx'),
-                    data: item.toQuestData(),
-                    onComplete: _onComplete,
+                  const SizedBox(height: Spacing.md),
+                  Expanded(
+                    child: SatzBauenQuest(
+                      key: ValueKey('satz_${_roundId}_$_idx'),
+                      data: item.toQuestData(),
+                      onComplete: _onComplete,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
