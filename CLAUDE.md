@@ -315,6 +315,18 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-01 (후속2 — 동시세션 신규 콘텐츠 자연스러움 감사) — 커밋·푸시
+
+**범위:** "다음 작업" → 동시세션이 그새 main 커밋한 신규 사용자 대면 텍스트(게임 아크 l10n·B2 단어·satz/cloze/kkeunmari) 원어민 검수. §0 직접 통독.
+
+**총평:** 신규 콘텐츠 **대부분 원어민급 + 상당수 이미 감사한 소스 파생** — satz_sentences 191 **전부 vocab 예문 파생(새 문장 0)** · cloze 파생 · kkeunmari 415(신규분은 감사된 vocab 병합·빈 글로스 0) · **B2 환경단어 12 전부 native** · 신규 게임화면 하드코딩 문자열 0.
+
+**Update(EN 2건):** `clozeDesc` "Fill the missing word"→"The missing word in a sentence"(관용 오류 + DE "Das fehlende Wort im Satz"와 평행) · `clozeTitle` "Cloze"→"Fill in the Blank"(jargon→접근성; DE "Lückentext"·타 게임명 평이와 일치). DE 신규 키 전부 native(무수정). parity 955=955.
+
+**검증:** gen-l10n OK · analyze 0. 소프트 노트(미수정): `gameBestTries`/`speedMatchBest` DE "Bester:" 라벨 약간 어색(일관·terse라 유지).
+
+**Git:** 별도 커밋·푸시.
+
 ### 2026-07-01 (후속 — 오류 진단 피드백 "왜 틀렸는지" + Phase 2 재스코핑) — 커밋·푸시
 
 **범위:** 자연스러움 감사 후 "또 뭘?" → 실측 조사(Explore 2)로 **출시·수익화 차단은 전부 Jin 운영**(rules 배포·AAB·실기기·RevenueCat 대시보드), **코드 레버 = 산출/오류피드백 갭** 확인. Jin 방향 = **오류피드백+산출 강화**. 프로토콜: phase마다 검증→더블체크→커밋→다음, 전부 완료 시 push. plan `squishy-munching-fox.md`.

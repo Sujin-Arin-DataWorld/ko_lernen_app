@@ -2318,10 +2318,10 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get clozeTitle => 'Cloze';
+  String get clozeTitle => 'Fill in the Blank';
 
   @override
-  String get clozeDesc => 'Fill the missing word';
+  String get clozeDesc => 'The missing word in a sentence';
 
   @override
   String get clozeInstruction => 'Choose the missing word.';
