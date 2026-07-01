@@ -315,6 +315,19 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-01 (후속4 — 실기기 피드백: 허브 카드 높이 + 한국어 검수) — 로컬 커밋(미푸시)
+
+**범위:** Jin 실기기 스크린샷(Üben 허브) — ① 그리드 카드 높이 들쑥날쑥 ② 한국어 어색(`열쇠를 잃었어요`→`잃어버렸어요`). Jin "한국어 전부 리스트로" 요청.
+
+**Update:**
+- `8e0efc0` **허브 카드 높이 균일화**: D3 그리드의 2열 카드가 콘텐츠 높이로 잡혀 행마다 불균일 → `ModuleCard` Stack `passthrough` + 3허브(practice/learn/wordbook) `_grid` Row를 `IntrinsicHeight`+`stretch`로. responsive_test 137 통과.
+- **한국어**: `korean_vocab.csv` `열쇠` 예문 `잃었어요`→`잃어버렸어요`(물건=잃어버리다). **`길을 잃었어요`(406)는 관용구라 유지**·`지갑`(184)은 이미 정상. `잃` 스캔 타 후보 0.
+- **`docs/KOREAN_REVIEW_2026-07-01.md` 신규** — 전 한국어 사용자 대면 텍스트(단어예문 558·시나리오 33·스몰토크 145) Jin 원어민 검수용 리스트. §0: KO 최종 판정=원어민이라 전수 재작성 대신 리스트 제공 후 반영 방식.
+
+**⚠️ 상태:** 이 커밋들은 **동시세션 디자인 개편(D1/D2/D3 "한지 에디토리얼", 미푸시) 위에 로컬로 쌓임**. push 시 디자인 커밋 동반 상승 → Jin 확인 후. `hangul_screen.dart`(동시세션 미커밋)는 미손댐.
+
+**검증:** flutter analyze 0 · responsive_test 137 · data_integrity 통과.
+
 ### 2026-07-01 (후속3 — 코드/데이터 실 결함 사냥, 적대적 검증) — 커밋·푸시
 
 **범위:** Jin "실 결함·오류 더 찾아줘" → "오래된 코어 화면·gye·결제 경로로 확장." 다차원 defect-hunt 워크플로우(find → **적대적 verify**, 기본 REJECTED) 2라운드 + Opus 직접 결정적 데이터/패턴 검사. §0: 코드/데이터만 위임, 언어 판정 직접. SSoT: `docs/DEFECT_HUNT_2026-07-01.md`.

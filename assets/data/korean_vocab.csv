@@ -160,7 +160,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 인터넷,inteonet,Internet,A2,Nomen,인터넷을 써요.,Ich nutze das Internet.,Technologie,a2_health_misc_2,1,false,internet,Noun,I use the internet.
 컴퓨터,keompyuteo,Computer,A2,Nomen,컴퓨터로 일해요.,Ich arbeite am Computer.,Technologie,a2_health_misc_2,2,false,computer,Noun,I work on the computer.
 지갑,jigap,Geldbörse / Portemonnaie,A2,Nomen,지갑이 없어요.,Ich habe keine Geldbörse.,Alltag,a2_daily_1,2,false,wallet / purse,Noun,I don't have a wallet.
-열쇠,yeolsoe,Schlüssel,A2,Nomen,열쇠를 잃었어요.,Ich habe den Schlüssel verloren.,Alltag,a2_daily_1,3,false,key,Noun,I lost the key.
+열쇠,yeolsoe,Schlüssel,A2,Nomen,열쇠를 잃어버렸어요.,Ich habe den Schlüssel verloren.,Alltag,a2_daily_1,3,false,key,Noun,I lost the key.
 우산,usan,Regenschirm,A2,Nomen,우산이 있어요?,Hast du einen Regenschirm?,Wetter,a2_weather,7,false,umbrella,Noun,Do you have an umbrella?
 얼마,eolma,wie viel (Geld),A2,Ausdruck,이거 얼마예요?,Wie viel kostet das?,Einkaufen,a2_shopping_1,2,false,how much (money),Expression,How much is this?
 할인,halin,Rabatt / Ermäßigung,A2,Nomen,할인이 있어요?,Gibt es einen Rabatt?,Einkaufen,a2_shopping_1,3,false,discount,Noun,Is there a discount?
