@@ -82,7 +82,20 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
   void _newRound() {
     final shuffled = [..._pool]..shuffle(_rng);
-    _round = shuffled.take(math.min(6, shuffled.length)).toList();
+    // Pro Runde nur EINDEUTIGE Übersetzungen: zwei Wörter mit gleichem Gloss
+    // machten das Zuordnen mehrdeutig → Soft-Lock (beide rechten Kacheln würden
+    // beim Match einer deaktiviert). Erstes Vorkommen behalten, max. 6.
+    final seenDe = <String>{};
+    final unique = <ExtractedWord>[];
+    for (final w in shuffled) {
+      if (seenDe.add(w.translationDe.trim())) {
+        unique.add(w);
+      }
+      if (unique.length >= 6) {
+        break;
+      }
+    }
+    _round = unique;
     _leftKo = _round.map((w) => w.korean).toList()..shuffle(_rng);
     _rightDe = _round.map((w) => w.translationDe.trim()).toList()
       ..shuffle(_rng);

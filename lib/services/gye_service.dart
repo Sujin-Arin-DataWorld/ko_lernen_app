@@ -443,8 +443,13 @@ class GyeService {
   /// 주 단위 dedup 키 — 같은 주의 all-in은 하나의 피드 문서로 수렴.
   /// (CF weekly_goal_rollover가 매주 월요일 기여도 리셋 → 주 경계와 일치.)
   static String _weekKey(DateTime now) {
-    final weekOfYear = (now.difference(DateTime(now.year)).inDays / 7).floor();
-    return '${now.year}w$weekOfYear';
+    // Auf Montag ausgerichtet — weekly_goal_rollover läuft '0 0 * * 1' (Mo),
+    // damit deckt sich die Dedup-Woche mit dem Contribution-Reset (sonst
+    // Jan-1-Bucket ≠ Wochengrenze → echte 2. all-in würde verschluckt).
+    final monday = now.subtract(Duration(days: now.weekday - 1));
+    final mm = monday.month.toString().padLeft(2, '0');
+    final dd = monday.day.toString().padLeft(2, '0');
+    return '${monday.year}-$mm-$dd';
   }
 
   /// 전원 기여 챌린지 달성 → 피드에 1회 기록 (D-4).
