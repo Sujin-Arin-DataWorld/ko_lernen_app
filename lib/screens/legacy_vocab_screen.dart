@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
+import '../services/culture_notes_service.dart';
+import '../widgets/sori/culture_note_card.dart';
 import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
@@ -90,6 +92,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _idx = Storage.vokLastIdx;
     _load();
     scheduleCoach();
+    // K-Culture 노트 로드 후 카드 반영.
+    CultureNotesService.load().then((_) {
+      if (mounted) {
+        setState(() {});
+      }
+    });
   }
 
   void _load() {
@@ -860,6 +868,7 @@ class _Back extends StatelessWidget {
             ],
           ),
         ),
+        CultureNoteCard(korean: v.korean),
       ],
     );
   }

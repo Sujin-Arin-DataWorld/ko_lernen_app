@@ -5101,6 +5101,12 @@ abstract class AppL10n {
   /// **'Tagesziel erreicht!'**
   String get homeDailyGoalDone;
 
+  /// No description provided for @cultureNoteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'K-Kultur'**
+  String get cultureNoteTitle;
+
   /// No description provided for @practiceSecLearn.
   ///
   /// In de, this message translates to:

@@ -1,0 +1,89 @@
+{
+  "_comment": "K-Culture 연결 노트 — 단어에 붙는 문화 배경(DE/EN). ko는 korean_vocab.csv의 korean과 정확히 일치해야 노출됨. kind: kpop|drama|culture|film. ⚠️ 특정 곡/드라마 가사 인용은 정확성 검증(Jin) 후에만 추가할 것 — 현재 시드는 검증 가능한 장르/문화 수준 사실만.",
+  "notes": [
+    {
+      "ko": "오빠",
+      "kind": "kpop",
+      "de": "Fans nennen ihre Lieblingsidole oft „Oppa“ — so spricht eine jüngere Frau einen älteren Mann an, den sie mag.",
+      "en": "Fans often call their favorite idols “oppa” — how a younger woman addresses an older man she's close to."
+    },
+    {
+      "ko": "누나",
+      "kind": "kpop",
+      "de": "Ein jüngerer Mann sagt „Noona“ zu einer älteren Frau — ein häufiger Ausdruck in K-Pop und Fan-Kultur.",
+      "en": "A younger man says “noona” to an older woman — a common term in K-pop and fan culture."
+    },
+    {
+      "ko": "언니",
+      "kind": "culture",
+      "de": "„Unnie“ sagt eine jüngere Frau zu einer älteren — in K-Dramas und unter Fans allgegenwärtig.",
+      "en": "“Unnie” is what a younger woman says to an older woman — everywhere in K-dramas and among fans."
+    },
+    {
+      "ko": "형",
+      "kind": "culture",
+      "de": "Ein jüngerer Mann nennt einen älteren Mann „Hyung“ — Idole nennen ältere Bandkollegen genau so.",
+      "en": "A younger man calls an older man “hyung” — idols call their older bandmates hyung too."
+    },
+    {
+      "ko": "화이팅",
+      "kind": "culture",
+      "de": "„Hwaiting!“ heißt „Du schaffst das!“ — in fast jedem K-Drama und jeder Variety-Show zu hören.",
+      "en": "“Hwaiting!” means “You can do it!” — heard in almost every K-drama and variety show."
+    },
+    {
+      "ko": "진짜",
+      "kind": "drama",
+      "de": "„Jinjja?“ („Echt?“) hörst du ständig in K-Dramas — der Ausdruck von Überraschung schlechthin.",
+      "en": "“Jinjja?” (“Really?”) — you'll hear it constantly in K-dramas, the go-to reaction to surprise."
+    },
+    {
+      "ko": "괜찮아요",
+      "kind": "drama",
+      "de": "„Gwaenchana“ („Alles okay“) ist eine der häufigsten Trost-Zeilen in K-Dramas.",
+      "en": "“Gwaenchana” (“It's okay”) is one of the most common comforting lines in K-dramas."
+    },
+    {
+      "ko": "맛있다",
+      "kind": "culture",
+      "de": "„Masisseo!“ („Lecker!“) rufen alle in Mukbang- und Koch-Shows.",
+      "en": "“Masisseo!” (“Delicious!”) — everyone shouts it in mukbang and cooking shows."
+    },
+    {
+      "ko": "빨리",
+      "kind": "culture",
+      "de": "„Ppalli-ppalli“ („schnell-schnell“) beschreibt Koreas berühmtes Tempo — ein echtes Kulturphänomen.",
+      "en": "“Ppalli-ppalli” (“hurry-hurry”) describes Korea's famously fast-paced culture."
+    },
+    {
+      "ko": "김치",
+      "kind": "culture",
+      "de": "Beim Fotografieren sagt man in Korea „Kimchi~“ statt „Cheese“ — für das Lächeln.",
+      "en": "For photos, Koreans say “kimchi~” instead of “cheese” — to make everyone smile."
+    },
+    {
+      "ko": "안녕하세요",
+      "kind": "culture",
+      "de": "„Annyeonghaseyo“ mit einer kleinen Verbeugung — die erste Begrüßung, die jeder K-Fan lernt.",
+      "en": "“Annyeonghaseyo” with a little bow — the first greeting every K-fan learns."
+    },
+    {
+      "ko": "감사합니다",
+      "kind": "culture",
+      "de": "Das höfliche „Gamsahamnida“ hörst du bei jeder Verbeugung — von Idolen bis zum Konbini.",
+      "en": "The polite “gamsahamnida” — heard with every bow, from idols to the convenience store."
+    },
+    {
+      "ko": "우리",
+      "kind": "culture",
+      "de": "Koreaner sagen oft „uri“ („unser“) statt „mein“ — „unsere Mama“, „unser Land“. Ein Gefühl von Gemeinschaft.",
+      "en": "Koreans often say “uri” (“our”) instead of “my” — “our mom”, “our country”. A deep sense of togetherness."
+    },
+    {
+      "ko": "영화",
+      "kind": "film",
+      "de": "Koreanisches Kino ist weltberühmt — „Parasite“ gewann 2020 als erster nicht-englischer Film den Oscar für den besten Film.",
+      "en": "Korean cinema is world-famous — “Parasite” became the first non-English film to win the Best Picture Oscar (2020)."
+    }
+  ]
+}

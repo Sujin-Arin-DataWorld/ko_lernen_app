@@ -2764,6 +2764,9 @@ class AppL10nDe extends AppL10n {
   String get homeDailyGoalDone => 'Tagesziel erreicht!';
 
   @override
+  String get cultureNoteTitle => 'K-Kultur';
+
+  @override
   String get practiceSecLearn => 'Lernen';
 
   @override

@@ -2753,6 +2753,9 @@ class AppL10nEn extends AppL10n {
   String get homeDailyGoalDone => 'Daily goal reached!';
 
   @override
+  String get cultureNoteTitle => 'K-Culture';
+
+  @override
   String get practiceSecLearn => 'Learn';
 
   @override
