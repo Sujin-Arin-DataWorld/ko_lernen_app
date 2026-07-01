@@ -84,6 +84,61 @@ void main() {
     });
   });
 
+  group('SatzBauenQuest.stripJosa', () {
+    test('entfernt bekannte Partikel', () {
+      expect(SatzBauenQuest.stripJosa('우유를'), '우유');
+      expect(SatzBauenQuest.stripJosa('우유가'), '우유');
+      expect(SatzBauenQuest.stripJosa('강남역까지'), '강남역');
+      expect(SatzBauenQuest.stripJosa('집에서'), '집');
+    });
+    test('lässt Wörter ohne Partikel unverändert', () {
+      expect(SatzBauenQuest.stripJosa('사람'), '사람');
+      expect(SatzBauenQuest.stripJosa('우유'), '우유');
+    });
+  });
+
+  group('SatzBauenQuest.diagnose', () {
+    test('korrekte Eingabe → none (nie Falsch-Diagnose)', () {
+      expect(
+        SatzBauenQuest.diagnose(['우유', '어디', '있어요'], '우유 어디 있어요?'),
+        SatzError.none,
+      );
+    });
+
+    test('richtige Wörter, falsche Reihenfolge → order', () {
+      expect(
+        SatzBauenQuest.diagnose(['어디', '우유', '있어요'], '우유 어디 있어요'),
+        SatzError.order,
+      );
+    });
+
+    test('gleicher Stamm, andere Partikel → particle', () {
+      expect(
+        SatzBauenQuest.diagnose(['우유가', '주세요'], '우유를 주세요'),
+        SatzError.particle,
+      );
+      expect(
+        SatzBauenQuest.diagnose(['강남역에', '가주세요'], '강남역까지 가주세요'),
+        SatzError.particle,
+      );
+    });
+
+    test('zu viele / zu wenige Tokens', () {
+      expect(
+        SatzBauenQuest.diagnose(['우유', '어디', '있어요', '주세요'], '우유 어디 있어요'),
+        SatzError.tooMany,
+      );
+      expect(
+        SatzBauenQuest.diagnose(['우유', '어디'], '우유 어디 있어요'),
+        SatzError.tooFew,
+      );
+    });
+
+    test('falsches Wort (kein Partikel-Fall) → word', () {
+      expect(SatzBauenQuest.diagnose(['사람', '주세요'], '사과 주세요'), SatzError.word);
+    });
+  });
+
   group('scenarios.json — geseedete satzBauen-Quests', () {
     late List<Map<String, dynamic>> satzQuests;
     late List<Scenario> scenarios;

@@ -60,9 +60,80 @@ class DiktatQuest extends StatefulWidget {
     final b = normalize(target).replaceAll(RegExp(r'\s+'), '');
     return a.isNotEmpty && a == b;
   }
+
+  /// Zerlegt koreanische Silben in Jamo-Indizes (초/중/종) für den Vergleich.
+  /// Nicht-Silben-Zeichen bleiben als eindeutiger Codepoint erhalten.
+  static List<int> decomposeJamo(String s) {
+    final out = <int>[];
+    for (final rune in s.runes) {
+      if (rune >= 0xAC00 && rune <= 0xD7A3) {
+        final si = rune - 0xAC00;
+        out.add(si ~/ (21 * 28)); // 초성 0..18
+        out.add(100 + (si % (21 * 28)) ~/ 28); // 중성 100..120
+        final tail = si % 28;
+        if (tail != 0) {
+          out.add(200 + tail); // 종성 201..227
+        }
+      } else {
+        out.add(1000 + rune);
+      }
+    }
+    return out;
+  }
+
+  /// Levenshtein-Distanz auf Jamo-Ebene — misst koreanische Rechtschreib-Nähe.
+  static int jamoEditDistance(String a, String b) {
+    final x = decomposeJamo(a);
+    final y = decomposeJamo(b);
+    final n = x.length;
+    final m = y.length;
+    if (n == 0) {
+      return m;
+    }
+    if (m == 0) {
+      return n;
+    }
+    var prev = List<int>.generate(m + 1, (j) => j);
+    var curr = List<int>.filled(m + 1, 0);
+    for (var i = 1; i <= n; i++) {
+      curr[0] = i;
+      for (var j = 1; j <= m; j++) {
+        final cost = x[i - 1] == y[j - 1] ? 0 : 1;
+        final del = prev[j] + 1;
+        final ins = curr[j - 1] + 1;
+        final sub = prev[j - 1] + cost;
+        var best = del < ins ? del : ins;
+        if (sub < best) {
+          best = sub;
+        }
+        curr[j] = best;
+      }
+      final tmp = prev;
+      prev = curr;
+      curr = tmp;
+    }
+    return prev[m];
+  }
+
+  /// Diagnostiziert einen falschen Versuch: reiner Wortabstand, Rechtschreib-
+  /// Nähe (Jamo-Distanz ≤ 2) oder klar daneben.
+  static DiktatError diagnose(String input, String target) {
+    if (isSpacingOnly(input, target)) {
+      return DiktatError.spacing;
+    }
+    final a = normalize(input).replaceAll(RegExp(r'\s+'), '');
+    final b = normalize(target).replaceAll(RegExp(r'\s+'), '');
+    if (a.isNotEmpty && jamoEditDistance(a, b) <= 2) {
+      return DiktatError.spelling;
+    }
+    return DiktatError.wrong;
+  }
 }
 
-enum _Feedback { none, spacing, wrong, correct }
+/// Art des Diktat-Fehlers — steuert das gezielte Feedback.
+enum DiktatError { spacing, spelling, wrong }
+
+enum _Feedback { none, spacing, spelling, wrong, correct }
 
 class _DiktatQuestState extends State<DiktatQuest> {
   final TextEditingController _ctrl = TextEditingController();
@@ -135,7 +206,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
 
     HapticFeedback.mediumImpact();
     _tries++;
-    final spacingOnly = DiktatQuest.isSpacingOnly(input, _targetKo);
+    final diag = DiktatQuest.diagnose(input, _targetKo);
 
     if (_tries >= 2) {
       // Lösung aufzeigen.
@@ -150,7 +221,11 @@ class _DiktatQuestState extends State<DiktatQuest> {
       }
     } else {
       setState(() {
-        _feedback = spacingOnly ? _Feedback.spacing : _Feedback.wrong;
+        _feedback = switch (diag) {
+          DiktatError.spacing => _Feedback.spacing,
+          DiktatError.spelling => _Feedback.spelling,
+          DiktatError.wrong => _Feedback.wrong,
+        };
       });
     }
   }
@@ -164,7 +239,8 @@ class _DiktatQuestState extends State<DiktatQuest> {
     Color fieldBorder = s.surfaceAlt;
     if (_feedback == _Feedback.correct) {
       fieldBorder = SoriColors.success;
-    } else if (_feedback == _Feedback.spacing) {
+    } else if (_feedback == _Feedback.spacing ||
+        _feedback == _Feedback.spelling) {
       fieldBorder = SoriColors.warning;
     } else if (_feedback == _Feedback.wrong) {
       fieldBorder = SoriColors.danger;
@@ -266,9 +342,13 @@ class _DiktatQuestState extends State<DiktatQuest> {
             // Feedback-Zeile.
             SizedBox(
               height: 22,
-              child: _feedback == _Feedback.spacing
+              child:
+                  (_feedback == _Feedback.spacing ||
+                      _feedback == _Feedback.spelling)
                   ? Text(
-                      t.diktatSpacingHint,
+                      _feedback == _Feedback.spacing
+                          ? t.diktatSpacingHint
+                          : t.diktatSpellingHint,
                       style: const TextStyle(
                         color: SoriColors.warning,
                         fontSize: 13,

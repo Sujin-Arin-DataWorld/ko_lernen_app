@@ -1197,6 +1197,11 @@
   "diktatInstruction": "Listen and type what you hear",
   "diktatSpacingHint": "Almost! Check the word spacing",
   "diktatShowMeaning": "Show meaning",
+  "diktatSpellingHint": "So close — check your spelling",
+  "questDiagOrder": "Right words — just the order's off",
+  "questDiagParticle": "Almost! Check the particle (조사)",
+  "questDiagCount": "Check how many words you used",
+  "questDiagWord": "One word doesn't fit — look at the highlighted one",
 
   "scenarioRoleplayTitle": "Role-play",
   "scenarioRoleplayHint": "Your turn now — build your own replies",

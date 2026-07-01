@@ -3157,6 +3157,23 @@ class AppL10nDe extends AppL10n {
   String get diktatShowMeaning => 'Bedeutung zeigen';
 
   @override
+  String get diktatSpellingHint => 'Fast richtig — achte auf die Schreibweise';
+
+  @override
+  String get questDiagOrder =>
+      'Richtige Wörter — nur die Reihenfolge stimmt nicht';
+
+  @override
+  String get questDiagParticle => 'Fast! Achte auf die Partikel (조사)';
+
+  @override
+  String get questDiagCount => 'Achte auf die Anzahl der Wörter';
+
+  @override
+  String get questDiagWord =>
+      'Ein Wort passt nicht — schau dir das markierte an';
+
+  @override
   String get scenarioRoleplayTitle => 'Rollenspiel';
 
   @override

@@ -53,6 +53,45 @@ void main() {
     });
   });
 
+  group('DiktatQuest.decomposeJamo', () {
+    test('Silbe ohne Endkonsonant → 2 Jamo, mit → 3', () {
+      expect(DiktatQuest.decomposeJamo('가'), hasLength(2)); // ㄱ+ㅏ
+      expect(DiktatQuest.decomposeJamo('각'), hasLength(3)); // ㄱ+ㅏ+ㄱ
+    });
+    test('Nicht-Silben-Zeichen bleibt ein Element', () {
+      expect(DiktatQuest.decomposeJamo('A'), hasLength(1));
+    });
+  });
+
+  group('DiktatQuest.jamoEditDistance', () {
+    test('identisch → 0', () {
+      expect(DiktatQuest.jamoEditDistance('가주세요', '가주세요'), 0);
+    });
+    test('ein Jamo-Unterschied → 1', () {
+      expect(DiktatQuest.jamoEditDistance('가', '카'), 1); // ㄱ↔ㅋ
+      expect(DiktatQuest.jamoEditDistance('있어요', '잇어요'), 1); // ㅆ↔ㅅ
+    });
+    test('völlig anders → > 2', () {
+      expect(DiktatQuest.jamoEditDistance('안녕', '강남역까지'), greaterThan(2));
+    });
+  });
+
+  group('DiktatQuest.diagnose', () {
+    const target = '강남역까지 가주세요';
+
+    test('nur Wortabstand → spacing', () {
+      expect(DiktatQuest.diagnose('강남역까지가주세요', target), DiktatError.spacing);
+    });
+
+    test('Rechtschreib-Nähe (1 Jamo) → spelling', () {
+      expect(DiktatQuest.diagnose('강남역까지 가조세요', target), DiktatError.spelling);
+    });
+
+    test('klar daneben → wrong', () {
+      expect(DiktatQuest.diagnose('안녕하세요', target), DiktatError.wrong);
+    });
+  });
+
   group('scenarios.json — geseedete diktat-Quests', () {
     late List<Map<String, dynamic>> diktatQuests;
     late List<Scenario> scenarios;

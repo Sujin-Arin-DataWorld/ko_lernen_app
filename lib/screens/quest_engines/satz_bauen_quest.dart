@@ -10,6 +10,9 @@ import '../../widgets/sori/mascot_pop.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_models.dart';
 
+/// Art des Fehlers beim Zusammensetzen — steuert das gezielte Feedback.
+enum SatzError { none, order, particle, tooMany, tooFew, word }
+
 /// Satz-bauen-Quest (문장 짓기): aus durcheinandergewürfelten Wort-Kacheln
 /// den koreanischen Satz **selbst zusammensetzen** — produktives Üben statt
 /// Erkennen. Die Zielsätze stammen aus den echten `speaker:"user"`-Zeilen der
@@ -86,6 +89,97 @@ class SatzBauenQuest extends StatefulWidget {
     }
     return got.length > target.length ? target.length : -1;
   }
+
+  /// Bekannte Partikel (조사) — längste zuerst, für die Stamm-Extraktion.
+  static const List<String> josaSuffixes = [
+    '에서',
+    '까지',
+    '부터',
+    '으로',
+    '이랑',
+    '한테',
+    '에게',
+    '처럼',
+    '보다',
+    '마다',
+    '밖에',
+    '조차',
+    '마저',
+    '이나',
+    '이요',
+    '은',
+    '는',
+    '이',
+    '가',
+    '을',
+    '를',
+    '에',
+    '도',
+    '만',
+    '의',
+    '랑',
+    '과',
+    '와',
+    '로',
+    '나',
+    '요',
+  ];
+
+  /// Entfernt eine abschließende Partikel (조사) → Wortstamm.
+  static String stripJosa(String token) {
+    for (final p in josaSuffixes) {
+      if (token.length > p.length && token.endsWith(p)) {
+        return token.substring(0, token.length - p.length);
+      }
+    }
+    return token;
+  }
+
+  /// Diagnostiziert die ART des Fehlers für gezieltes Feedback.
+  /// Korrekte Eingaben liefern immer [SatzError.none] (keine Falsch-Diagnose).
+  static SatzError diagnose(List<String> assembled, String targetKo) {
+    if (isCorrectOrder(assembled, targetKo)) {
+      return SatzError.none;
+    }
+    final target = tokenize(targetKo);
+    final got = assembled
+        .map(normalizeToken)
+        .where((t) => t.isNotEmpty)
+        .toList();
+    if (got.length > target.length) {
+      return SatzError.tooMany;
+    }
+    if (got.length < target.length) {
+      return SatzError.tooFew;
+    }
+    // Gleiche Länge: Reihenfolge, Partikel oder falsches Wort?
+    final sortedGot = [...got]..sort();
+    final sortedTarget = [...target]..sort();
+    var sameMultiset = true;
+    for (var i = 0; i < sortedGot.length; i++) {
+      if (sortedGot[i] != sortedTarget[i]) {
+        sameMultiset = false;
+        break;
+      }
+    }
+    if (sameMultiset) {
+      return SatzError.order;
+    }
+    final diffs = <int>[];
+    for (var i = 0; i < target.length; i++) {
+      if (got[i] != target[i]) {
+        diffs.add(i);
+      }
+    }
+    if (diffs.length == 1) {
+      final stemGot = stripJosa(got[diffs.first]);
+      final stemTarget = stripJosa(target[diffs.first]);
+      if (stemGot.isNotEmpty && stemGot == stemTarget) {
+        return SatzError.particle;
+      }
+    }
+    return SatzError.word;
+  }
 }
 
 /// Eine Kachel mit stabiler Identität (erlaubt doppelte Wörter).
@@ -104,6 +198,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
   bool _celebrated = false;
   bool _wrong = false; // letzte Prüfung war falsch → Hinweis anzeigen
   int _mismatchIdx = -1;
+  SatzError _diag = SatzError.none;
 
   String get _targetKo => (widget.data['targetKo'] as String?) ?? '';
   String get _promptDe => (widget.data['promptDe'] as String?) ?? '';
@@ -140,6 +235,21 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     return _promptDe.isNotEmpty ? _promptDe : _promptEn;
   }
 
+  String _diagText(AppL10n t) {
+    switch (_diag) {
+      case SatzError.order:
+        return t.questDiagOrder;
+      case SatzError.particle:
+        return t.questDiagParticle;
+      case SatzError.tooMany:
+      case SatzError.tooFew:
+        return t.questDiagCount;
+      case SatzError.word:
+      case SatzError.none:
+        return t.questDiagWord;
+    }
+  }
+
   Future<void> _playTts() async {
     HapticFeedback.selectionClick();
     await TtsService.speak(_audioKo);
@@ -155,6 +265,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       _answer.add(t);
       _wrong = false;
       _mismatchIdx = -1;
+      _diag = SatzError.none;
     });
   }
 
@@ -168,6 +279,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       _bank.add(t);
       _wrong = false;
       _mismatchIdx = -1;
+      _diag = SatzError.none;
     });
   }
 
@@ -196,6 +308,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     HapticFeedback.mediumImpact();
     _tries++;
     final mismatch = SatzBauenQuest.firstMismatch(assembled, _targetKo);
+    final diag = SatzBauenQuest.diagnose(assembled, _targetKo);
 
     if (_tries >= 2) {
       // Richtige Lösung aufzeigen.
@@ -219,6 +332,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       setState(() {
         _wrong = true;
         _mismatchIdx = mismatch;
+        _diag = diag;
       });
     }
   }
@@ -329,7 +443,21 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
                       ],
                     ),
             ),
-            const SizedBox(height: Spacing.xl),
+            // Diagnose-Feedback (warum falsch).
+            SizedBox(
+              height: 22,
+              child: (_wrong && !_completed && _diag != SatzError.none)
+                  ? Text(
+                      _diagText(t),
+                      style: const TextStyle(
+                        color: SoriColors.danger,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+            ),
+            const SizedBox(height: Spacing.md),
 
             // Wort-Bank.
             Wrap(

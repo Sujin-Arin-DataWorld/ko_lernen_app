@@ -5773,6 +5773,36 @@ abstract class AppL10n {
   /// **'Bedeutung zeigen'**
   String get diktatShowMeaning;
 
+  /// No description provided for @diktatSpellingHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast richtig — achte auf die Schreibweise'**
+  String get diktatSpellingHint;
+
+  /// No description provided for @questDiagOrder.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtige Wörter — nur die Reihenfolge stimmt nicht'**
+  String get questDiagOrder;
+
+  /// No description provided for @questDiagParticle.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast! Achte auf die Partikel (조사)'**
+  String get questDiagParticle;
+
+  /// No description provided for @questDiagCount.
+  ///
+  /// In de, this message translates to:
+  /// **'Achte auf die Anzahl der Wörter'**
+  String get questDiagCount;
+
+  /// No description provided for @questDiagWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Wort passt nicht — schau dir das markierte an'**
+  String get questDiagWord;
+
   /// No description provided for @scenarioRoleplayTitle.
   ///
   /// In de, this message translates to:

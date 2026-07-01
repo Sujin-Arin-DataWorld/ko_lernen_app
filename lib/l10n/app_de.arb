@@ -1213,6 +1213,11 @@
   "diktatInstruction": "Hör zu und tippe, was du hörst",
   "diktatSpacingHint": "Fast! Achte auf die Wortabstände",
   "diktatShowMeaning": "Bedeutung zeigen",
+  "diktatSpellingHint": "Fast richtig — achte auf die Schreibweise",
+  "questDiagOrder": "Richtige Wörter — nur die Reihenfolge stimmt nicht",
+  "questDiagParticle": "Fast! Achte auf die Partikel (조사)",
+  "questDiagCount": "Achte auf die Anzahl der Wörter",
+  "questDiagWord": "Ein Wort passt nicht — schau dir das markierte an",
 
   "scenarioRoleplayTitle": "Rollenspiel",
   "scenarioRoleplayHint": "Jetzt bist du dran — bau deine Antworten selbst",

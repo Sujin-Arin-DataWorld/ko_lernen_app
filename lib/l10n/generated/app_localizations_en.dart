@@ -3139,6 +3139,22 @@ class AppL10nEn extends AppL10n {
   String get diktatShowMeaning => 'Show meaning';
 
   @override
+  String get diktatSpellingHint => 'So close — check your spelling';
+
+  @override
+  String get questDiagOrder => 'Right words — just the order\'s off';
+
+  @override
+  String get questDiagParticle => 'Almost! Check the particle (조사)';
+
+  @override
+  String get questDiagCount => 'Check how many words you used';
+
+  @override
+  String get questDiagWord =>
+      'One word doesn\'t fit — look at the highlighted one';
+
+  @override
   String get scenarioRoleplayTitle => 'Role-play';
 
   @override
