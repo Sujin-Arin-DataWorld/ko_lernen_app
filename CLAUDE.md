@@ -315,6 +315,20 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-01 (후속3 — 코드/데이터 실 결함 사냥, 적대적 검증) — 커밋·푸시
+
+**범위:** Jin "실 결함·오류 더 찾아줘" → "오래된 코어 화면·gye·결제 경로로 확장." 다차원 defect-hunt 워크플로우(find → **적대적 verify**, 기본 REJECTED) 2라운드 + Opus 직접 결정적 데이터/패턴 검사. §0: 코드/데이터만 위임, 언어 판정 직접. SSoT: `docs/DEFECT_HUNT_2026-07-01.md`.
+
+**결과: CONFIRMED 14(거짓양성 6 기각) → 수정 7 커밋 · 보고 7.** 데이터 무결성 5파일(cloze/satz/kkeunmari/vocab/scenarios) 직접 검사 결함 0.
+
+**Update(수정 7):**
+- `6e0cdec` daily_challenge 완료 RangeError(`_idx==length && _outcome==null` 창 → 인덱스-only 가드, 형제화면과 통일).
+- `4e07b74`(6건): 🔴**프리미엄 게이트 우회** learning_path·home 경로노드(A2/B1/B2를 게이트 없이 오픈 → vocab_packs와 동일 게이트) · premium_service 로그아웃 시 `_boundUid` 미리셋(→리셋+logOut) · kkeunmari 빈풀 pickStart RangeError(→빈풀 가드+mounted) · book_capture await 후 setState 4곳 mounted 가드 · book_result 다이얼로그 controller 미dispose.
+
+**보고(미수정 7 — Jin 영역):** firestore.rules 보안 3(#2 10명상한 서버 미강제·memberCount 임의조작 / #3 정지멤버 자가해제 / #10 feed 무검증 주입) = **에뮬레이터 테스트 후 Jin 배포** · CF 강제 2(#7 연령 · #11 계 상한) · 후속 클라 2(#6 매칭 소프트락 · #12 all-in 주경계). 상세·제안픽스 = SSoT 문서.
+
+**검증:** `flutter analyze lib test` **0** · `flutter test` **491 통과** · dart format. 커밋 내 파일만 명시 스테이징.
+
 ### 2026-07-01 (후속2 — 동시세션 신규 콘텐츠 자연스러움 감사) — 커밋·푸시
 
 **범위:** "다음 작업" → 동시세션이 그새 main 커밋한 신규 사용자 대면 텍스트(게임 아크 l10n·B2 단어·satz/cloze/kkeunmari) 원어민 검수. §0 직접 통독.
