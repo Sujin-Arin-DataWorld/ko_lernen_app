@@ -26,7 +26,9 @@ class WordbookHubScreen extends StatelessWidget {
       for (final page in BookshelfService.getAllLocal()) {
         count += page.words.length;
       }
-    } catch (_) {/* best-effort */}
+    } catch (_) {
+      /* best-effort */
+    }
     return count;
   }
 
@@ -59,7 +61,9 @@ class WordbookHubScreen extends StatelessWidget {
                 icon: Icons.style_rounded,
                 accentColor: SoriColors.gold,
                 title: wordbookLabel,
-                progress: totalWords > 0 ? (totalWords / 200.0).clamp(0.0, 1.0) : 0.0,
+                progress: totalWords > 0
+                    ? (totalWords / 200.0).clamp(0.0, 1.0)
+                    : 0.0,
               ),
               const SizedBox(height: Spacing.lg),
               _grid(context, t),
@@ -110,9 +114,18 @@ class WordbookHubScreen extends StatelessWidget {
       ),
     ];
 
+    // 에디토리얼 위계: 첫 항목 = 전폭 featured(한지) 카드, 나머지 = 2열 그리드.
     return Column(
       children: [
-        for (int i = 0; i < items.length; i += 2) ...[
+        FeaturedModuleCard(
+          icon: items.first.icon,
+          title: items.first.title,
+          subtitle: items.first.subtitle,
+          accent: items.first.accent,
+          onTap: () => Navigator.pushNamed(context, items.first.route),
+        ),
+        const SizedBox(height: Spacing.md),
+        for (int i = 1; i < items.length; i += 2) ...[
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

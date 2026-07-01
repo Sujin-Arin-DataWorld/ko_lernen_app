@@ -6,6 +6,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hub_progress_header.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **연습 허브** — 탭 2 (R1 IA, 2026-06-06).
@@ -65,31 +66,27 @@ class PracticeHubScreen extends StatelessWidget {
   }
 
   Widget _section(BuildContext context, String title, List<_HubItem> items) {
-    final s = SoriSurfaces.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 4, bottom: Spacing.sm),
-          child: Text(
-            title,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 15,
-              fontWeight: FontWeight.w800,
-              color: s.text,
-            ),
-          ),
-        ),
-        _grid(context, items),
-      ],
+      children: [SoriSectionHeader(title), _grid(context, items)],
     );
   }
 
   Widget _grid(BuildContext context, List<_HubItem> items) {
+    if (items.isEmpty) return const SizedBox.shrink();
+    // 에디토리얼 위계: 섹션 첫 항목 = 전폭 featured(한지), 나머지 = 2열 그리드.
     return Column(
       children: [
-        for (int i = 0; i < items.length; i += 2) ...[
+        FeaturedModuleCard(
+          icon: items.first.icon,
+          title: items.first.title,
+          subtitle: items.first.subtitle,
+          accent: items.first.accent,
+          ribbonType: items.first.ribbonType,
+          onTap: () => Navigator.pushNamed(context, items.first.route),
+        ),
+        const SizedBox(height: Spacing.md),
+        for (int i = 1; i < items.length; i += 2) ...[
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
