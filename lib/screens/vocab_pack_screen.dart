@@ -23,6 +23,7 @@ import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/wordbook_add.dart';
 
@@ -124,8 +125,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
   }
 
-  List<Vocab> get _normalWords =>
-      _pack?.normalWords.toList() ?? const [];
+  List<Vocab> get _normalWords => _pack?.normalWords.toList() ?? const [];
 
   List<Vocab> get _bossWords => _pack?.bossWords.toList() ?? const [];
 
@@ -202,12 +202,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         if (!mounted) {
           return;
         }
-        await ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppL10n.of(context).coachPackStageQuiz),
-            duration: const Duration(seconds: 3),
-          ),
-        ).closed;
+        await ScaffoldMessenger.of(context)
+            .showSnackBar(
+              SnackBar(
+                content: Text(AppL10n.of(context).coachPackStageQuiz),
+                duration: const Duration(seconds: 3),
+              ),
+            )
+            .closed;
         await Storage.setTutPackQuizSeen();
       });
     }
@@ -239,12 +241,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         if (!mounted) {
           return;
         }
-        await ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppL10n.of(context).coachPackStageBoss),
-            duration: const Duration(seconds: 3),
-          ),
-        ).closed;
+        await ScaffoldMessenger.of(context)
+            .showSnackBar(
+              SnackBar(
+                content: Text(AppL10n.of(context).coachPackStageBoss),
+                duration: const Duration(seconds: 3),
+              ),
+            )
+            .closed;
         await Storage.setTutPackBossSeen();
       });
     }
@@ -257,7 +261,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final lang = Localizations.localeOf(context).languageCode;
     final correct = cur.translationFor(lang);
     final pool = _distractorPool
-        .where((v) => v.korean != cur.korean && v.translationFor(lang) != correct)
+        .where(
+          (v) => v.korean != cur.korean && v.translationFor(lang) != correct,
+        )
         .map((v) => v.translationFor(lang))
         .toSet()
         .toList();
@@ -291,8 +297,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _combo++;
       if (_combo >= 3) {
         SoundService.combo();
-        ScorePop.show(context, AppL10n.of(context).comboPop(_combo),
-            color: SoriColors.tiger);
+        ScorePop.show(
+          context,
+          AppL10n.of(context).comboPop(_combo),
+          color: SoriColors.tiger,
+        );
       }
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
@@ -411,13 +420,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final pack = _pack!;
     final title = VocabPackService.displayLabel(pack.id);
     // 현재 보고 있는 단어(학습/퀴즈/보스)를 바로 내 단어장에 담기.
-    final Vocab? addable =
-        _stage == _Stage.learn ? _currentLearn : _currentQuiz;
+    final Vocab? addable = _stage == _Stage.learn
+        ? _currentLearn
+        : _currentQuiz;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w800)),
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
@@ -435,16 +444,18 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
             ),
         ],
       ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-            child: Column(
-              children: [
-                _StageBar(stage: _stage),
-                const SizedBox(height: Spacing.md),
-                Expanded(child: _buildStageBody(t)),
-              ],
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: SoriCenterClamp(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+              child: Column(
+                children: [
+                  _StageBar(stage: _stage),
+                  const SizedBox(height: Spacing.md),
+                  Expanded(child: _buildStageBody(t)),
+                ],
+              ),
             ),
           ),
         ),
@@ -540,15 +551,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       children: [
         Row(
           children: [
-            SoriChip(
-              label: '${_qIdx + 1} / $total',
-              accent: SoriColors.info,
-            ),
+            SoriChip(label: '${_qIdx + 1} / $total', accent: SoriColors.info),
             const SizedBox(width: Spacing.sm),
             Text(
-              _stage == _Stage.boss
-                  ? t.vocabPackBossHint
-                  : t.vocabPackQuizHint,
+              _stage == _Stage.boss ? t.vocabPackBossHint : t.vocabPackQuizHint,
               style: TextStyle(fontSize: 12, color: s.textMuted),
             ),
           ],
@@ -604,9 +610,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: List.generate(choices.length, (i) {
                   final text = choices[i];
-                  final isCorrect = text ==
+                  final isCorrect =
+                      text ==
                       cur.translationFor(
-                          Localizations.localeOf(context).languageCode);
+                        Localizations.localeOf(context).languageCode,
+                      );
 
                   return Padding(
                     padding: const EdgeInsets.only(bottom: Spacing.sm),
@@ -615,8 +623,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                       isCorrect: isCorrect,
                       isSelected: i == _selectedChoice,
                       revealed: _choiceLocked,
-                      onSelected:
-                          _choiceLocked ? null : () => _selectChoice(i),
+                      onSelected: _choiceLocked ? null : () => _selectChoice(i),
                     ),
                   );
                 }),
@@ -654,8 +661,8 @@ class _StageBar extends StatelessWidget {
                 color: done
                     ? SoriColors.success
                     : (active
-                        ? SoriColors.info
-                        : SoriColors.info.withValues(alpha: 0.15)),
+                          ? SoriColors.info
+                          : SoriColors.info.withValues(alpha: 0.15)),
                 borderRadius: BorderRadius.circular(3),
               ),
             ),
@@ -672,6 +679,7 @@ class _FlipFront extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.info,
@@ -692,9 +700,9 @@ class _FlipFront extends StatelessWidget {
             const SizedBox(height: Spacing.sm),
             Text(
               '[${v.romanization}]',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
-                color: Colors.black54,
+                color: s.textMuted,
                 fontStyle: FontStyle.italic,
               ),
             ),
@@ -707,9 +715,23 @@ class _FlipFront extends StatelessWidget {
               },
             ),
             const SizedBox(height: Spacing.md),
-            Text(
-              '👆 ${AppL10n.of(context).vocabPackTapToFlip}',
-              style: const TextStyle(fontSize: 12, color: Colors.black45),
+            // 인라인 아이콘 + 힌트 — Text.rich라 좁은 폭에서 자연스럽게 줄바꿈.
+            Text.rich(
+              TextSpan(
+                children: [
+                  WidgetSpan(
+                    alignment: PlaceholderAlignment.middle,
+                    child: Icon(
+                      Icons.touch_app_outlined,
+                      size: 14,
+                      color: s.textDim,
+                    ),
+                  ),
+                  const WidgetSpan(child: SizedBox(width: 4)),
+                  TextSpan(text: AppL10n.of(context).vocabPackTapToFlip),
+                ],
+              ),
+              style: TextStyle(fontSize: 12, color: s.textDim),
             ),
           ],
         ),
@@ -725,6 +747,7 @@ class _FlipBack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lang = Localizations.localeOf(context).languageCode;
+    final s = SoriSurfaces.of(context);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
@@ -736,15 +759,12 @@ class _FlipBack extends StatelessWidget {
             Text(
               v.translationFor(lang),
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w800,
-              ),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: Spacing.sm),
             Text(
               v.posFor(lang),
-              style: const TextStyle(fontSize: 14, color: Colors.black54),
+              style: TextStyle(fontSize: 14, color: s.textMuted),
             ),
             if (v.exampleKorean.isNotEmpty) ...[
               const SizedBox(height: Spacing.lg),
@@ -760,9 +780,9 @@ class _FlipBack extends StatelessWidget {
               Text(
                 v.exampleFor(lang),
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black54,
+                  color: s.textMuted,
                   fontStyle: FontStyle.italic,
                 ),
               ),

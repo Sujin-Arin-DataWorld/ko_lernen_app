@@ -16,6 +16,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -300,28 +301,28 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     return null;
   }
 
-  // ─── Sprecher-Emoji ────────────────────────────────────────────────────────
+  // ─── Sprecher-Icon ─────────────────────────────────────────────────────────
 
-  String _speakerEmoji(String speaker) {
+  IconData _speakerIcon(String speaker) {
     switch (speaker) {
       case 'minsu':
-        return '👨🏻‍💼';
+        return Icons.badge_outlined;
       case 'jieun':
-        return '👩🏻‍🎓';
+        return Icons.school_outlined;
       case 'user':
-        return '🧑';
+        return Icons.person_rounded;
       case 'narrator':
-        return '📝';
+        return Icons.menu_book_outlined;
       case 'partner':
-        return '💗';
+        return Icons.favorite_outline_rounded;
       case 'officer':
-        return '👮';
+        return Icons.local_police_outlined;
       default:
-        return '💬';
+        return Icons.record_voice_over_outlined;
     }
   }
 
-  /// minsu/jieun이면 [Mascot] 위젯, 그 외엔 이모지 Text 반환.
+  /// minsu/jieun이면 [Mascot] 위젯, 그 외엔 시맨틱 아이콘 반환.
   Widget _speakerAvatar(
     String speaker, {
     double size = 40,
@@ -329,7 +330,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }) {
     final mascot = Mascot.forSpeaker(speaker, emotion: emotion, size: size);
     if (mascot != null) return mascot;
-    return Text(_speakerEmoji(speaker), style: TextStyle(fontSize: size * 0.6));
+    return Icon(
+      _speakerIcon(speaker),
+      color: _speakerAccent(speaker),
+      size: size * 0.6,
+    );
   }
 
   // ─── Stage-Widgets ─────────────────────────────────────────────────────────
@@ -873,7 +878,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                 children: [
                   Row(
                     children: [
-                      const Text('🏮', style: TextStyle(fontSize: 18)),
+                      const Icon(
+                        Icons.lightbulb_outline,
+                        color: SoriColors.gold,
+                        size: 18,
+                      ),
                       const SizedBox(width: Spacing.sm),
                       Text(
                         t.scenarioCulturalNote,
@@ -1100,38 +1109,40 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          if (_backdropKey != null)
-            Positioned.fill(
-              child: IgnorePointer(
-                child: Opacity(
-                  opacity: 0.08,
-                  child: Image.asset(
-                    'assets/illustrations/scenes/${_backdropKey!}.png',
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+      body: SoriScreenBackground(
+        child: Stack(
+          children: [
+            if (_backdropKey != null)
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: Opacity(
+                    opacity: 0.08,
+                    child: Image.asset(
+                      'assets/illustrations/scenes/${_backdropKey!}.png',
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                    ),
                   ),
                 ),
               ),
-            ),
-          SafeArea(
-            child: Column(
-              children: [
-                Expanded(
-                  child: PageView.builder(
-                    key: _stageAreaKey,
-                    controller: _pageCtrl,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: _totalStages,
-                    itemBuilder: (_, index) => _buildStage(index, t, lang),
+            SafeArea(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: PageView.builder(
+                      key: _stageAreaKey,
+                      controller: _pageCtrl,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: _totalStages,
+                      itemBuilder: (_, index) => _buildStage(index, t, lang),
+                    ),
                   ),
-                ),
-                _buildBottomBar(t),
-              ],
+                  _buildBottomBar(t),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -14,6 +14,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
@@ -164,15 +165,17 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             ),
         ],
       ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: _loading
-              ? const AppLoading()
-              : _deck.isEmpty
-              ? _buildEmpty(t)
-              : _done
-              ? _buildDone(t, s)
-              : _buildCard(t, s),
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: SoriCenterClamp(
+            child: _loading
+                ? const AppLoading()
+                : _deck.isEmpty
+                ? _buildEmpty(t)
+                : _done
+                ? _buildDone(t, s)
+                : _buildCard(t, s),
+          ),
         ),
       ),
     );

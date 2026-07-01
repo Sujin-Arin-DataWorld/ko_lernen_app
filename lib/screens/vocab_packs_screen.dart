@@ -14,6 +14,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Vocab Packs Screen** — Phase 2 의 새 vocab 진입 화면.
@@ -170,61 +171,63 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
           ),
         ],
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: soriClampPadding(
-            MediaQuery.sizeOf(context).width,
-            maxWidth: SoriBreakpoints.grid,
-            base: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-          ),
-          child: CustomScrollView(
-            slivers: [
-              const SliverToBoxAdapter(
-                child: HanokHeader(
-                  asset: 'assets/illustrations/hanok/study_classroom.png',
-                  fallbackIcon: Icons.collections_bookmark_outlined,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: _LevelProgressHeader(
-                  level: _level,
-                  cleared: _clearedCount,
-                  total: _packs.length,
-                ),
-              ),
-              if (_packs.isEmpty)
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: SoriEmptyState(
-                    icon: Icons.menu_book_outlined,
-                    title: t.vocabPacksEmptyTitle,
-                    body: t.vocabPacksEmptyBody,
-                  ),
-                )
-              else
-                SliverPadding(
-                  padding: const EdgeInsets.only(top: Spacing.md, bottom: 80),
-                  sliver: SliverGrid(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: Spacing.md,
-                          crossAxisSpacing: Spacing.md,
-                          childAspectRatio: 0.92,
-                        ),
-                    delegate: SliverChildBuilderDelegate((context, i) {
-                      final e = _packs[i];
-                      return PackCard(
-                        packId: e.pack.id,
-                        title: VocabPackService.displayLabel(e.pack.id),
-                        progress: e.progress,
-                        onTap: () => _onPackTap(e.pack),
-                        onLockedTap: () => _onLockedTap(e.pack),
-                      );
-                    }, childCount: _packs.length),
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: Padding(
+            padding: soriClampPadding(
+              MediaQuery.sizeOf(context).width,
+              maxWidth: SoriBreakpoints.grid,
+              base: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+            ),
+            child: CustomScrollView(
+              slivers: [
+                const SliverToBoxAdapter(
+                  child: HanokHeader(
+                    asset: 'assets/illustrations/hanok/study_classroom.png',
+                    fallbackIcon: Icons.collections_bookmark_outlined,
                   ),
                 ),
-            ],
+                SliverToBoxAdapter(
+                  child: _LevelProgressHeader(
+                    level: _level,
+                    cleared: _clearedCount,
+                    total: _packs.length,
+                  ),
+                ),
+                if (_packs.isEmpty)
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: SoriEmptyState(
+                      icon: Icons.menu_book_outlined,
+                      title: t.vocabPacksEmptyTitle,
+                      body: t.vocabPacksEmptyBody,
+                    ),
+                  )
+                else
+                  SliverPadding(
+                    padding: const EdgeInsets.only(top: Spacing.md, bottom: 80),
+                    sliver: SliverGrid(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: Spacing.md,
+                            crossAxisSpacing: Spacing.md,
+                            childAspectRatio: 0.92,
+                          ),
+                      delegate: SliverChildBuilderDelegate((context, i) {
+                        final e = _packs[i];
+                        return PackCard(
+                          packId: e.pack.id,
+                          title: VocabPackService.displayLabel(e.pack.id),
+                          progress: e.progress,
+                          onTap: () => _onPackTap(e.pack),
+                          onLockedTap: () => _onLockedTap(e.pack),
+                        );
+                      }, childCount: _packs.length),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

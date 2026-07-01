@@ -8,12 +8,14 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 /// **Small Talk (스몰토크)** — Gesprächseinstiege nach Kategorie × Level.
@@ -114,16 +116,18 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
-      body: SafeArea(
-        child: _loading
-            ? const AppLoading()
-            : SmalltalkLoader.categories.isEmpty
-            ? SoriEmptyState(
-                icon: Icons.chat_bubble_outline_rounded,
-                title: t.smalltalkTitle,
-                body: SmalltalkLoader.lastError ?? '',
-              )
-            : _buildBody(t, s, lang),
+      body: SoriScreenBackground(
+        child: SafeArea(
+          child: _loading
+              ? const AppLoading()
+              : SmalltalkLoader.categories.isEmpty
+              ? SoriEmptyState(
+                  icon: Icons.chat_bubble_outline_rounded,
+                  title: t.smalltalkTitle,
+                  body: SmalltalkLoader.lastError ?? '',
+                )
+              : _buildBody(t, s, lang),
+        ),
       ),
     );
   }
@@ -237,10 +241,12 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     );
   }
 
-  Widget _levelChip(String label, String? lvl) => ChoiceChip(
-    label: Text(label),
+  Widget _levelChip(String label, String? lvl) => SoriChip(
+    label: label,
+    accent: lvl == null ? SoriColors.primary : _levelColor(lvl),
     selected: _level == lvl,
-    onSelected: (_) => setState(() => _level = lvl),
+    variant: SoriChipVariant.soft,
+    onTap: () => setState(() => _level = lvl),
   );
 
   /// 카테고리 18개 선택 바텀시트 — Wrap 그리드로 한눈에(가로 스크롤 제거).
@@ -446,15 +452,30 @@ class _ReplyView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  '💬 ${reply.ko}',
-                  style: const TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    color: SoriColors.primaryOnLight,
-                    height: 1.3,
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 2, right: 6),
+                      child: Icon(
+                        Icons.forum_outlined,
+                        size: 15,
+                        color: SoriColors.primaryOnLight,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        reply.ko,
+                        style: const TextStyle(
+                          fontFamily: 'Pretendard',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: SoriColors.primaryOnLight,
+                          height: 1.3,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 2),
                 Text(

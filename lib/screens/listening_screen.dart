@@ -15,6 +15,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
@@ -201,160 +202,166 @@ class _ListeningScreenState extends State<ListeningScreen>
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: soriClampPadding(
-            MediaQuery.sizeOf(context).width,
-            base: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // ── 풍경(風磬) hero header — 자산 없으면 fallback ──
-              HanokHeader(
-                asset: 'assets/illustrations/hanok/listening_hero.png',
-                fallbackIcon: Icons.headphones_outlined,
-                fallbackTint: SoriColors.info,
-                aspectRatio: 10 / 3,
-              ),
-              const SizedBox(height: Spacing.md),
-
-              Text(
-                t.listeningSubtitle,
-                style: SoriTextTheme.of(context).bodySmall,
-              ),
-              const SizedBox(height: Spacing.md),
-
-              // ── 시나리오 선택 chips ──
-              Text(
-                t.listeningSelectScenario,
-                style: SoriTextTheme.of(context).cardSubtitle.copyWith(
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 0.4,
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SizedBox(
-                key: _scenarioChipKey,
-                height: 38,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: _scenarios.length,
-                  separatorBuilder: (_, __) =>
-                      const SizedBox(width: Spacing.xs + 2),
-                  itemBuilder: (_, i) {
-                    final sc = _scenarios[i];
-                    final selected = sc.id == _selected?.id;
-                    final lang = Localizations.localeOf(context).languageCode;
-                    return SoriChip(
-                      label: '${sc.emoji}  ${sc.title.pick(lang)}',
-                      accent: SoriColors.info,
-                      selected: selected,
-                      variant: SoriChipVariant.filled,
-                      onTap: () => _pickScenario(sc),
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-
-              // ── 컨트롤 + 자막 토글 ──
-              if (_selected != null) ...[
-                KeyedSubtree(
-                  key: _controlsBarKey,
-                  child: _ControlsBar(
-                    rate: _rate,
-                    subs: _subs,
-                    onRate: (r) => setState(() => _rate = r),
-                    onSubs: (m) => setState(() => _subs = m),
-                    t: t,
-                  ),
+      body: SoriScreenBackground(
+        particles: true,
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: soriClampPadding(
+              MediaQuery.sizeOf(context).width,
+              base: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // ── 풍경(風磬) hero header — 자산 없으면 fallback ──
+                HanokHeader(
+                  asset: 'assets/illustrations/hanok/listening_hero.png',
+                  fallbackIcon: Icons.headphones_outlined,
+                  fallbackTint: SoriColors.info,
+                  aspectRatio: 10 / 3,
                 ),
                 const SizedBox(height: Spacing.md),
 
-                // ── 발화 카드 또는 완료 카드 ──
-                if (_completed)
-                  _CompleteCard(
-                    lines: _selected!.dialog.length,
-                    xpEarned: (_selected!.dialog.length * 8).clamp(40, 120),
-                    onReplay: _restart,
-                    onClose: () => Navigator.pop(context),
-                  )
-                else
-                  KeyedSubtree(
-                    key: _lineCardKey,
-                    child: _LineCard(
-                      line: _selected!.dialog[_step],
-                      subs: _subs,
-                      onReplay: _speakCurrent,
-                    ),
-                  ),
+                Text(
+                  t.listeningSubtitle,
+                  style: SoriTextTheme.of(context).bodySmall,
+                ),
+                const SizedBox(height: Spacing.md),
 
+                // ── 시나리오 선택 chips ──
+                Text(
+                  t.listeningSelectScenario,
+                  style: SoriTextTheme.of(context).cardSubtitle.copyWith(
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0.4,
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                SizedBox(
+                  key: _scenarioChipKey,
+                  height: 38,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: _scenarios.length,
+                    separatorBuilder: (_, __) =>
+                        const SizedBox(width: Spacing.xs + 2),
+                    itemBuilder: (_, i) {
+                      final sc = _scenarios[i];
+                      final selected = sc.id == _selected?.id;
+                      final lang = Localizations.localeOf(context).languageCode;
+                      return SoriChip(
+                        label: '${sc.emoji}  ${sc.title.pick(lang)}',
+                        accent: SoriColors.info,
+                        selected: selected,
+                        variant: SoriChipVariant.filled,
+                        onTap: () => _pickScenario(sc),
+                      );
+                    },
+                  ),
+                ),
                 const SizedBox(height: Spacing.lg),
 
-                if (!_completed) ...[
-                  // 진행 바
-                  SoriProgressBar(
-                    value: (_step + 1) / _selected!.dialog.length,
-                    thickness: 6,
-                    animated: true,
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  Center(
-                    child: Text(
-                      t.listeningProgress(_step + 1, _selected!.dialog.length),
-                      style: SoriTextTheme.of(
-                        context,
-                      ).caption.copyWith(fontWeight: FontWeight.w600),
+                // ── 컨트롤 + 자막 토글 ──
+                if (_selected != null) ...[
+                  KeyedSubtree(
+                    key: _controlsBarKey,
+                    child: _ControlsBar(
+                      rate: _rate,
+                      subs: _subs,
+                      onRate: (r) => setState(() => _rate = r),
+                      onSubs: (m) => setState(() => _subs = m),
+                      t: t,
                     ),
                   ),
                   const SizedBox(height: Spacing.md),
 
-                  // 다음/이전 버튼
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: SoriButton.outlined(
-                          label: t.listeningPrev,
-                          icon: Icons.skip_previous_rounded,
-                          fullWidth: true,
-                          onTap: _step > 0 ? _prev : null,
-                        ),
+                  // ── 발화 카드 또는 완료 카드 ──
+                  if (_completed)
+                    _CompleteCard(
+                      lines: _selected!.dialog.length,
+                      xpEarned: (_selected!.dialog.length * 8).clamp(40, 120),
+                      onReplay: _restart,
+                      onClose: () => Navigator.pop(context),
+                    )
+                  else
+                    KeyedSubtree(
+                      key: _lineCardKey,
+                      child: _LineCard(
+                        line: _selected!.dialog[_step],
+                        subs: _subs,
+                        onReplay: _speakCurrent,
                       ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        flex: 3,
-                        child: SoriButton.filled(
-                          label: _step >= _selected!.dialog.length - 1
-                              ? t.listeningCompleteTitle
-                              : t.listeningNext,
-                          icon: _step >= _selected!.dialog.length - 1
-                              ? Icons.check_rounded
-                              : Icons.skip_next_rounded,
-                          accent: SoriColors.info,
-                          fullWidth: true,
-                          onTap: _next,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ] else
-                SoriCard(
-                  variant: SoriCardVariant.base,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                    child: Center(
+                    ),
+
+                  const SizedBox(height: Spacing.lg),
+
+                  if (!_completed) ...[
+                    // 진행 바
+                    SoriProgressBar(
+                      value: (_step + 1) / _selected!.dialog.length,
+                      thickness: 6,
+                      animated: true,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Center(
                       child: Text(
-                        t.listeningPickFirst,
-                        textAlign: TextAlign.center,
-                        style: SoriTextTheme.of(context).bodySmall,
+                        t.listeningProgress(
+                          _step + 1,
+                          _selected!.dialog.length,
+                        ),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).caption.copyWith(fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+
+                    // 다음/이전 버튼
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: SoriButton.outlined(
+                            label: t.listeningPrev,
+                            icon: Icons.skip_previous_rounded,
+                            fullWidth: true,
+                            onTap: _step > 0 ? _prev : null,
+                          ),
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        Expanded(
+                          flex: 3,
+                          child: SoriButton.filled(
+                            label: _step >= _selected!.dialog.length - 1
+                                ? t.listeningCompleteTitle
+                                : t.listeningNext,
+                            icon: _step >= _selected!.dialog.length - 1
+                                ? Icons.check_rounded
+                                : Icons.skip_next_rounded,
+                            accent: SoriColors.info,
+                            fullWidth: true,
+                            onTap: _next,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ] else
+                  SoriCard(
+                    variant: SoriCardVariant.base,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+                      child: Center(
+                        child: Text(
+                          t.listeningPickFirst,
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).bodySmall,
+                        ),
                       ),
                     ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
