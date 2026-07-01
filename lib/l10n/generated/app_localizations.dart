@@ -4948,8 +4948,44 @@ abstract class AppL10n {
   /// No description provided for @navGye.
   ///
   /// In de, this message translates to:
-  /// **'Gye'**
+  /// **'Lerngruppe'**
   String get navGye;
+
+  /// No description provided for @gyeTabSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Zusammen lernen · Gye'**
+  String get gyeTabSubtitle;
+
+  /// No description provided for @gyeExplainWhat.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Lerngruppe (Gye) ist eine kleine Gruppe, die gemeinsam Koreanisch lernt — ohne Wettbewerb.'**
+  String get gyeExplainWhat;
+
+  /// No description provided for @gyeExplainWhy.
+  ///
+  /// In de, this message translates to:
+  /// **'Euer Fortschritt lässt ein gemeinsames Hanok wachsen — zusammen bleibt man dran.'**
+  String get gyeExplainWhy;
+
+  /// No description provided for @gyeExplainHow.
+  ///
+  /// In de, this message translates to:
+  /// **'Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei.'**
+  String get gyeExplainHow;
+
+  /// No description provided for @coachGyeTabTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemeinsam lernen'**
+  String get coachGyeTabTitle;
+
+  /// No description provided for @coachGyeTabBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Lerngruppe (Gye) ist eine kleine, nicht-kompetitive Gruppe. Euer Lernfortschritt lässt ein gemeinsames Hanok wachsen.'**
+  String get coachGyeTabBody;
 
   /// No description provided for @practiceSecLearn.
   ///

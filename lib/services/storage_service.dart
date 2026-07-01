@@ -384,6 +384,7 @@ class Storage {
     'hardWords',
     'dojang',
     'gye',
+    'gye_tab',
     'profile',
     'stats',
     'quests',

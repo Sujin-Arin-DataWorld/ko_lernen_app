@@ -2680,7 +2680,29 @@ class AppL10nDe extends AppL10n {
   String get navWordbook => 'Wörter';
 
   @override
-  String get navGye => 'Gye';
+  String get navGye => 'Lerngruppe';
+
+  @override
+  String get gyeTabSubtitle => 'Zusammen lernen · Gye';
+
+  @override
+  String get gyeExplainWhat =>
+      'Eine Lerngruppe (Gye) ist eine kleine Gruppe, die gemeinsam Koreanisch lernt — ohne Wettbewerb.';
+
+  @override
+  String get gyeExplainWhy =>
+      'Euer Fortschritt lässt ein gemeinsames Hanok wachsen — zusammen bleibt man dran.';
+
+  @override
+  String get gyeExplainHow =>
+      'Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei.';
+
+  @override
+  String get coachGyeTabTitle => 'Gemeinsam lernen';
+
+  @override
+  String get coachGyeTabBody =>
+      'Eine Lerngruppe (Gye) ist eine kleine, nicht-kompetitive Gruppe. Euer Lernfortschritt lässt ein gemeinsames Hanok wachsen.';
 
   @override
   String get practiceSecLearn => 'Lernen';

@@ -2668,7 +2668,28 @@ class AppL10nEn extends AppL10n {
   String get navWordbook => 'Words';
 
   @override
-  String get navGye => 'Gye';
+  String get navGye => 'Study group';
+
+  @override
+  String get gyeTabSubtitle => 'Learn together · Gye';
+
+  @override
+  String get gyeExplainWhat =>
+      'A study group (Gye) is a small group that learns Korean together — no competition.';
+
+  @override
+  String get gyeExplainWhy =>
+      'Your progress grows a shared hanok — together you stick with it.';
+
+  @override
+  String get gyeExplainHow => 'Create a group or join with a 6-digit code.';
+
+  @override
+  String get coachGyeTabTitle => 'Learn together';
+
+  @override
+  String get coachGyeTabBody =>
+      'A study group (Gye) is a small, non-competitive group. Your learning progress grows a shared hanok.';
 
   @override
   String get practiceSecLearn => 'Learn';
