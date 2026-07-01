@@ -2705,6 +2705,59 @@ class AppL10nDe extends AppL10n {
       'Eine Lerngruppe (Gye) ist eine kleine, nicht-kompetitive Gruppe. Euer Lernfortschritt lässt ein gemeinsames Hanok wachsen.';
 
   @override
+  String get motivationSheetTitle => 'Warum lernst du Koreanisch?';
+
+  @override
+  String get motivationSheetSubtitle =>
+      'Wähle deinen Grund — so feuern wir dich richtig an.';
+
+  @override
+  String get motivationKpop => 'K-Pop';
+
+  @override
+  String get motivationKdrama => 'K-Dramas & Filme';
+
+  @override
+  String get motivationTravel => 'Reise nach Korea';
+
+  @override
+  String get motivationCulture => 'Kultur & Sprache';
+
+  @override
+  String get motivationLoved => 'Freunde & Familie';
+
+  @override
+  String get motivationCareer => 'Beruf & Studium';
+
+  @override
+  String get motivationCurious => 'Einfach neugierig';
+
+  @override
+  String get motivationLineKpop => 'Bald verstehst du deine Lieblingssongs!';
+
+  @override
+  String get motivationLineKdrama => 'Bald schaust du ohne Untertitel!';
+
+  @override
+  String get motivationLineTravel =>
+      'Bald bestellst du in Seoul wie ein Local!';
+
+  @override
+  String get motivationLineCulture => 'Jedes Wort öffnet eine neue Welt.';
+
+  @override
+  String get motivationLineLoved => 'Sprich bald von Herzen mit ihnen!';
+
+  @override
+  String get motivationLineCareer => 'Koreanisch öffnet neue Türen.';
+
+  @override
+  String get motivationLineCurious => 'Neugier ist der beste Lehrer!';
+
+  @override
+  String get motivationChangeLabel => 'Warum ich lerne';
+
+  @override
   String get practiceSecLearn => 'Lernen';
 
   @override

@@ -4987,6 +4987,108 @@ abstract class AppL10n {
   /// **'Eine Lerngruppe (Gye) ist eine kleine, nicht-kompetitive Gruppe. Euer Lernfortschritt lässt ein gemeinsames Hanok wachsen.'**
   String get coachGyeTabBody;
 
+  /// No description provided for @motivationSheetTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum lernst du Koreanisch?'**
+  String get motivationSheetTitle;
+
+  /// No description provided for @motivationSheetSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle deinen Grund — so feuern wir dich richtig an.'**
+  String get motivationSheetSubtitle;
+
+  /// No description provided for @motivationKpop.
+  ///
+  /// In de, this message translates to:
+  /// **'K-Pop'**
+  String get motivationKpop;
+
+  /// No description provided for @motivationKdrama.
+  ///
+  /// In de, this message translates to:
+  /// **'K-Dramas & Filme'**
+  String get motivationKdrama;
+
+  /// No description provided for @motivationTravel.
+  ///
+  /// In de, this message translates to:
+  /// **'Reise nach Korea'**
+  String get motivationTravel;
+
+  /// No description provided for @motivationCulture.
+  ///
+  /// In de, this message translates to:
+  /// **'Kultur & Sprache'**
+  String get motivationCulture;
+
+  /// No description provided for @motivationLoved.
+  ///
+  /// In de, this message translates to:
+  /// **'Freunde & Familie'**
+  String get motivationLoved;
+
+  /// No description provided for @motivationCareer.
+  ///
+  /// In de, this message translates to:
+  /// **'Beruf & Studium'**
+  String get motivationCareer;
+
+  /// No description provided for @motivationCurious.
+  ///
+  /// In de, this message translates to:
+  /// **'Einfach neugierig'**
+  String get motivationCurious;
+
+  /// No description provided for @motivationLineKpop.
+  ///
+  /// In de, this message translates to:
+  /// **'Bald verstehst du deine Lieblingssongs!'**
+  String get motivationLineKpop;
+
+  /// No description provided for @motivationLineKdrama.
+  ///
+  /// In de, this message translates to:
+  /// **'Bald schaust du ohne Untertitel!'**
+  String get motivationLineKdrama;
+
+  /// No description provided for @motivationLineTravel.
+  ///
+  /// In de, this message translates to:
+  /// **'Bald bestellst du in Seoul wie ein Local!'**
+  String get motivationLineTravel;
+
+  /// No description provided for @motivationLineCulture.
+  ///
+  /// In de, this message translates to:
+  /// **'Jedes Wort öffnet eine neue Welt.'**
+  String get motivationLineCulture;
+
+  /// No description provided for @motivationLineLoved.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprich bald von Herzen mit ihnen!'**
+  String get motivationLineLoved;
+
+  /// No description provided for @motivationLineCareer.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanisch öffnet neue Türen.'**
+  String get motivationLineCareer;
+
+  /// No description provided for @motivationLineCurious.
+  ///
+  /// In de, this message translates to:
+  /// **'Neugier ist der beste Lehrer!'**
+  String get motivationLineCurious;
+
+  /// No description provided for @motivationChangeLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum ich lerne'**
+  String get motivationChangeLabel;
+
   /// No description provided for @practiceSecLearn.
   ///
   /// In de, this message translates to:

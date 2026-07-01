@@ -2692,6 +2692,61 @@ class AppL10nEn extends AppL10n {
       'A study group (Gye) is a small, non-competitive group. Your learning progress grows a shared hanok.';
 
   @override
+  String get motivationSheetTitle => 'Why are you learning Korean?';
+
+  @override
+  String get motivationSheetSubtitle =>
+      'Pick your reason — so we can cheer you on the right way.';
+
+  @override
+  String get motivationKpop => 'K-Pop';
+
+  @override
+  String get motivationKdrama => 'K-Dramas & Movies';
+
+  @override
+  String get motivationTravel => 'Travel to Korea';
+
+  @override
+  String get motivationCulture => 'Culture & Language';
+
+  @override
+  String get motivationLoved => 'Friends & Family';
+
+  @override
+  String get motivationCareer => 'Work & Study';
+
+  @override
+  String get motivationCurious => 'Just curious';
+
+  @override
+  String get motivationLineKpop =>
+      'Soon you\'ll understand your favorite songs!';
+
+  @override
+  String get motivationLineKdrama => 'Soon you\'ll watch without subtitles!';
+
+  @override
+  String get motivationLineTravel =>
+      'Soon you\'ll order in Seoul like a local!';
+
+  @override
+  String get motivationLineCulture => 'Every word opens a new world.';
+
+  @override
+  String get motivationLineLoved =>
+      'Soon you\'ll speak to them from the heart!';
+
+  @override
+  String get motivationLineCareer => 'Korean opens new doors.';
+
+  @override
+  String get motivationLineCurious => 'Curiosity is the best teacher!';
+
+  @override
+  String get motivationChangeLabel => 'Why I\'m learning';
+
+  @override
   String get practiceSecLearn => 'Learn';
 
   @override

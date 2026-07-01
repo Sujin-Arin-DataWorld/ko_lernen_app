@@ -211,6 +211,15 @@ class Storage {
   static Future<void> setDailyGoal(int minutes) =>
       _si('kl_daily_goal_minutes', minutes);
 
+  // ───────── Lern-Motivation (서양 학습자 어필 — 왜 배우는가) ─────────
+  /// 학습 이유 id (LearnerMotivation.name). 빈 문자열 = 미설정.
+  static String get motivation => _s('kl_motivation');
+  static Future<void> setMotivation(String id) => _ss('kl_motivation', id);
+
+  /// 동기 시트를 이미 물었나(1회 노출 가드).
+  static bool get motivationAsked => _b('kl_motivation_asked');
+  static Future<void> setMotivationAsked() => _sb('kl_motivation_asked', true);
+
   static String get preferredMascot =>
       _s('kl_preferred_mascot'); // 'tiger' or 'magpie'
   static Future<void> setPreferredMascot(String mascot) =>

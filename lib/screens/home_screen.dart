@@ -35,6 +35,8 @@ import '../widgets/sori/path_node.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/motivation_sheet.dart';
+import '../data/learner_motivation.dart';
 import '../widgets/sori/tiger_video.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -94,6 +96,26 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadToday();
     _loadPath();
     _checkHanokCinematic();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeAskMotivation());
+  }
+
+  /// 첫 진입 시 1회 — "왜 한국어를 배우나" 캡처(홈 투어 뒤에). 서양 학습자 어필.
+  Future<void> _maybeAskMotivation() async {
+    if (!mounted) {
+      return;
+    }
+    // 온보딩 홈 투어를 먼저 보이고, 그 뒤에 동기 시트(겹침 방지).
+    if (Storage.motivationAsked || !Storage.tutHomeTourSeen) {
+      return;
+    }
+    await Future<void>.delayed(const Duration(milliseconds: 450));
+    if (!mounted) {
+      return;
+    }
+    await showMotivationSheet(context);
+    if (mounted) {
+      setState(() {}); // tiger bubble 개인화 반영
+    }
   }
 
   /// E1a: 현재 레벨의 단어팩 노드 로드.
@@ -273,14 +295,13 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  /// 말풍선 텍스트 — streak·진척에 따라 회전.
-  String _tigerBubble(AppL10n t) {
-    final streak = Storage.streakDays;
-    final xp = Storage.xp;
-    if (streak == 0 && xp == 0) return t.homeTigerBubbleStart;
-    if (streak >= 3) return t.homeTigerBubbleStreak;
-    return t.homeTigerBubbleResume;
-  }
+  /// 말풍선 텍스트 — streak·진척·학습 이유(motivation)에 따라. 순수 함수 위임.
+  String _tigerBubble(AppL10n t) => homeTigerBubble(
+    t,
+    streak: Storage.streakDays,
+    xp: Storage.xp,
+    motivation: learnerMotivationFromId(Storage.motivation),
+  );
 
   /// Phase E — hero subline. 추천이 있으면 "▶ {행동} · {팩 이름}",
   /// 없으면(전부 클리어/로드 전) 기본 학습 카피.

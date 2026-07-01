@@ -10,6 +10,8 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../services/auth_service.dart';
 import '../services/cloud_sync.dart';
 import '../services/storage_service.dart';
+import '../data/learner_motivation.dart';
+import '../widgets/sori/motivation_sheet.dart';
 import '../l10n/generated/app_localizations.dart';
 
 /// **ProfileScreen** (`/profile`) — Identitäts- & Konto-Hub.
@@ -80,6 +82,13 @@ class _ProfileScreenState extends State<ProfileScreen>
     } catch (_) {
       // signOut bricht still ab, wenn Firebase nicht verfügbar ist.
     }
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  Future<void> _changeMotivation() async {
+    await showMotivationSheet(context);
     if (mounted) {
       setState(() {});
     }
@@ -157,6 +166,12 @@ class _ProfileScreenState extends State<ProfileScreen>
             // ── Kurz-Übersicht ──
             const _StatsRow(),
             const SizedBox(height: 16),
+            // ── Lern-Motivation (왜 배우는가 — 정체성 강화) ──
+            if (learnerMotivationFromId(Storage.motivation)
+                case final mot?) ...[
+              _MotivationCard(motivation: mot, onTap: _changeMotivation),
+              const SizedBox(height: 16),
+            ],
             SoriButton.outlined(
               label: t.profileViewStats,
               icon: Icons.bar_chart_rounded,
@@ -348,6 +363,60 @@ class _ConnectedCard extends StatelessWidget {
               onTap: onSignOut,
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MotivationCard extends StatelessWidget {
+  final LearnerMotivation motivation;
+  final VoidCallback onTap;
+
+  const _MotivationCard({required this.motivation, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      onTap: onTap,
+      child: Row(
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: motivation.accent.withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+            ),
+            alignment: Alignment.center,
+            child: Icon(motivation.icon, color: motivation.accent, size: 22),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  t.motivationChangeLabel,
+                  style: TextStyle(fontSize: 11.5, color: s.textMuted),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  motivation.label(t),
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 15,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Icon(Icons.edit_outlined, color: s.textDim, size: 18),
         ],
       ),
     );
