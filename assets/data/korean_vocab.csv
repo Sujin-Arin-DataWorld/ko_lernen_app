@@ -545,3 +545,15 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 환전하다,hwanjeonhada,Geld wechseln,A2,Verb,공항에서 환전했어요.,Ich habe am Flughafen Geld gewechselt.,Geld,a2_money_1,8,false,to exchange money,Verb,I exchanged money at the airport.
 통화,tonghwa,Währung,A2,Nomen,어느 통화로 낼까요?,In welcher Währung soll ich zahlen?,Geld,a2_money_1,9,true,currency,Noun,Which currency should I pay in?
 저축하다,jeochukhada,sparen,A2,Verb,매달 저축해요.,Ich spare jeden Monat.,Geld,a2_money_1,10,true,to save money,Verb,I save every month.
+온난화,onnanhwa,Erwärmung,B2,Nomen,지구 온난화가 심각해요.,Die globale Erwärmung ist ernst.,Umwelt,b2_environment_1,1,false,global warming,Noun,Global warming is serious.
+오염,oyeom,Verschmutzung,B2,Nomen,공기 오염이 점점 심해져요.,Die Luftverschmutzung wird immer schlimmer.,Umwelt,b2_environment_1,2,false,pollution,Noun,Air pollution is getting worse.
+배출,baechul,Ausstoß,B2,Nomen,탄소 배출을 줄여야 해요.,Wir müssen den CO2-Ausstoß senken.,Umwelt,b2_environment_1,3,false,emission,Noun,We must reduce carbon emissions.
+재활용,jaehwaryong,Recycling,B2,Nomen,저는 항상 재활용을 해요.,Ich recycle immer.,Umwelt,b2_environment_1,4,false,recycling,Noun,I always recycle.
+멸종,myeoljong,Aussterben,B2,Nomen,많은 동물이 멸종 위기예요.,Viele Tiere sind vom Aussterben bedroht.,Umwelt,b2_environment_1,5,false,extinction,Noun,Many animals face extinction.
+생태계,saengtaegye,Ökosystem,B2,Nomen,우리는 생태계를 보호해야 해요.,Wir müssen das Ökosystem schützen.,Umwelt,b2_environment_1,6,false,ecosystem,Noun,We must protect the ecosystem.
+자원,jawon,Ressource,B2,Nomen,자원을 아껴 써야 해요.,Wir müssen sparsam mit Ressourcen umgehen.,Umwelt,b2_environment_1,7,false,resource,Noun,We must use resources sparingly.
+폐기물,pyegimul,Abfall,B2,Nomen,폐기물을 줄이는 게 중요해요.,Abfall zu reduzieren ist wichtig.,Umwelt,b2_environment_1,8,false,waste,Noun,Reducing waste is important.
+태양광,taeyanggwang,Solarenergie,B2,Nomen,태양광 에너지가 늘고 있어요.,Solarenergie nimmt zu.,Umwelt,b2_environment_1,9,false,solar power,Noun,Solar energy is increasing.
+온실가스,onsilgaseu,Treibhausgas,B2,Nomen,온실가스가 지구를 데워요.,Treibhausgase erwärmen die Erde.,Umwelt,b2_environment_1,10,true,greenhouse gas,Noun,Greenhouse gases warm the earth.
+친환경,chinhwangyeong,umweltfreundlich,B2,Adjektiv,친환경 제품을 자주 사요.,Ich kaufe oft umweltfreundliche Produkte.,Umwelt,b2_environment_1,11,true,eco-friendly,Adjective,I often buy eco-friendly products.
+지속 가능성,jisok ganeungseong,Nachhaltigkeit,B2,Nomen,지속 가능성이 아주 중요해요.,Nachhaltigkeit ist sehr wichtig.,Umwelt,b2_environment_1,12,true,sustainability,Noun,Sustainability is very important.

@@ -121,6 +121,7 @@ TOPIC_TO_PACK_B2 = {
     "Motivation":    "b2_misc",
     "Wissenschaft":  "b2_misc",
     "Gefühle":       "b2_misc",
+    "Umwelt":        "b2_environment",
 }
 
 TOPIC_TO_PACK = {
@@ -171,6 +172,7 @@ PACK_DISPLAY = {
     "b2_work":          ("Beruf (B2)", "Work (B2)"),
     "b2_education":     ("Bildung (B2)", "Education (B2)"),
     "b2_misc":          ("Sonstiges (B2)", "Misc (B2)"),
+    "b2_environment":   ("Umwelt & Klima", "Environment & Climate"),
 }
 
 # 팩 학습 순서 (UI 에서 위에서 아래로). 같은 level 안에서 작은 숫자가 먼저.
@@ -214,6 +216,7 @@ PACK_ORDER_IN_LEVEL = {
     "b2_work":          4,
     "b2_education":     5,
     "b2_misc":          6,
+    "b2_environment":   7,
 }
 
 

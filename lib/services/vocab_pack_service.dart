@@ -152,6 +152,7 @@ class VocabPackService {
     'b2_work':          ('Beruf (B2)', 'Work (B2)'),
     'b2_education':     ('Bildung (B2)', 'Education (B2)'),
     'b2_misc':          ('Sonstiges (B2)', 'Misc (B2)'),
+    'b2_environment':   ('Umwelt & Klima', 'Environment & Climate'),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
@@ -198,5 +199,6 @@ class VocabPackService {
     'b2_work':          4,
     'b2_education':     5,
     'b2_misc':          6,
+    'b2_environment':   7,
   };
 }

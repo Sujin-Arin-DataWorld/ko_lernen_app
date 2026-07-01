@@ -1,3939 +1,4170 @@
 {
-  "meta": {
-    "source": "hermitdave/FrequencyWords + open-korean-text + DeepL DE + ko.wiktionary",
-    "generated": "2026-05-30",
-    "total": 392,
-    "license": "CC BY-SA 2.0 KR (NIKL 우리말샘) / CC BY-SA 4.0 (hermitdave) / Apache 2.0 (open-korean-text)",
-    "attribution": [
-      "국립국어원 우리말샘 (opendict.korean.go.kr) — CC BY-SA 2.0 KR",
-      "hermitdave/FrequencyWords — CC BY-SA 4.0 (OpenSubtitles)",
-      "open-korean-text contributors — Apache 2.0",
-      "Translations via DeepL SE",
-      "ko.wiktionary.org — CC BY-SA 4.0 (Wikimedia Foundation)"
-    ],
-    "share_alike_notice": "Derivative work (this file) is distributed under CC BY-SA 2.0 KR to comply with the ShareAlike clause of NIKL's source data.",
-    "curation_2026_06_18": "Untranslated OpenSubtitles frequency fragments (german=='TODO', 2061 entries: 조사결합형·활용형 등 끝말잇기 부적합) entfernt; 392 kuratierte, glossierte Wörter behalten. next_count/is_dead_end auf der gefilterten Menge neu berechnet."
+ "meta": {
+  "source": "hermitdave/FrequencyWords + open-korean-text + DeepL DE + ko.wiktionary",
+  "generated": "2026-05-30",
+  "total": 415,
+  "license": "CC BY-SA 2.0 KR (NIKL 우리말샘) / CC BY-SA 4.0 (hermitdave) / Apache 2.0 (open-korean-text)",
+  "attribution": [
+   "국립국어원 우리말샘 (opendict.korean.go.kr) — CC BY-SA 2.0 KR",
+   "hermitdave/FrequencyWords — CC BY-SA 4.0 (OpenSubtitles)",
+   "open-korean-text contributors — Apache 2.0",
+   "Translations via DeepL SE",
+   "ko.wiktionary.org — CC BY-SA 4.0 (Wikimedia Foundation)"
+  ],
+  "share_alike_notice": "Derivative work (this file) is distributed under CC BY-SA 2.0 KR to comply with the ShareAlike clause of NIKL's source data.",
+  "curation_2026_06_18": "Untranslated OpenSubtitles frequency fragments (german=='TODO', 2061 entries: 조사결합형·활용형 등 끝말잇기 부적합) entfernt; 392 kuratierte, glossierte Wörter behalten. next_count/is_dead_end auf der gefilterten Menge neu berechnet.",
+  "merge_2026_07_vocab": "korean_vocab.csv Nomen (geprüfte de/en-Glossen) gemergt: +10 → 415. Keine neue Übersetzung (§0). next_count/is_dead_end über die Gesamtmenge neu berechnet."
+ },
+ "words": [
+  {
+   "word": "이름",
+   "first": "이",
+   "last": "름",
+   "level": "A1",
+   "german": "Name",
+   "topic": "Person",
+   "next_count": 0,
+   "is_dead_end": true
   },
-  "words": [
-    {
-      "word": "이름",
-      "first": "이",
-      "last": "름",
-      "level": "A1",
-      "german": "Name",
-      "topic": "Person",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "나이",
-      "first": "나",
-      "last": "이",
-      "level": "A1",
-      "german": "Alter",
-      "topic": "Person",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "나라",
-      "first": "나",
-      "last": "라",
-      "level": "A1",
-      "german": "Land",
-      "topic": "Geographie",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "학생",
-      "first": "학",
-      "last": "생",
-      "level": "A1",
-      "german": "Student/Schüler",
-      "topic": "Person",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "선생님",
-      "first": "선",
-      "last": "님",
-      "level": "A1",
-      "german": "Lehrer/in",
-      "topic": "Person",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "친구",
-      "first": "친",
-      "last": "구",
-      "level": "A1",
-      "german": "Freund/Freundin",
-      "topic": "Beziehungen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "남자친구",
-      "first": "남",
-      "last": "구",
-      "level": "A1",
-      "german": "Freund (Beziehung)",
-      "topic": "Beziehungen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "여자친구",
-      "first": "여",
-      "last": "구",
-      "level": "A1",
-      "german": "Freundin (Beziehung)",
-      "topic": "Beziehungen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "가족",
-      "first": "가",
-      "last": "족",
-      "level": "A1",
-      "german": "Familie",
-      "topic": "Familie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "학교",
-      "first": "학",
-      "last": "교",
-      "level": "A1",
-      "german": "Schule",
-      "topic": "Bildung",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "커피",
-      "first": "커",
-      "last": "피",
-      "level": "A1",
-      "german": "Kaffee",
-      "topic": "Essen & Trinken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "핸드폰",
-      "first": "핸",
-      "last": "폰",
-      "level": "A1",
-      "german": "Handy",
-      "topic": "Technologie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "버스",
-      "first": "버",
-      "last": "스",
-      "level": "A1",
-      "german": "Bus",
-      "topic": "Verkehr",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "지하철",
-      "first": "지",
-      "last": "철",
-      "level": "A1",
-      "german": "U-Bahn",
-      "topic": "Verkehr",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "아버지",
-      "first": "아",
-      "last": "지",
-      "level": "A1",
-      "german": "Vater (formell)",
-      "topic": "Familie",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "어머니",
-      "first": "어",
-      "last": "니",
-      "level": "A1",
-      "german": "Mutter (formell)",
-      "topic": "Familie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "아빠",
-      "first": "아",
-      "last": "빠",
-      "level": "A1",
-      "german": "Papa (informell)",
-      "topic": "Familie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "엄마",
-      "first": "엄",
-      "last": "마",
-      "level": "A1",
-      "german": "Mama (informell)",
-      "topic": "Familie",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "오빠",
-      "first": "오",
-      "last": "빠",
-      "level": "A1",
-      "german": "älterer Bruder (Sicht der Frau)",
-      "topic": "Familie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "누나",
-      "first": "누",
-      "last": "나",
-      "level": "A1",
-      "german": "ältere Schwester (Sicht des Mannes)",
-      "topic": "Familie",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "언니",
-      "first": "언",
-      "last": "니",
-      "level": "A1",
-      "german": "ältere Schwester (Sicht der Frau)",
-      "topic": "Familie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "남동생",
-      "first": "남",
-      "last": "생",
-      "level": "A1",
-      "german": "jüngerer Bruder",
-      "topic": "Familie",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "여동생",
-      "first": "여",
-      "last": "생",
-      "level": "A1",
-      "german": "jüngere Schwester",
-      "topic": "Familie",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "남편",
-      "first": "남",
-      "last": "편",
-      "level": "A1",
-      "german": "Ehemann",
-      "topic": "Familie",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "아내",
-      "first": "아",
-      "last": "내",
-      "level": "A1",
-      "german": "Ehefrau",
-      "topic": "Familie",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "머리",
-      "first": "머",
-      "last": "리",
-      "level": "A1",
-      "german": "Kopf / Haare",
-      "topic": "Körper",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "다리",
-      "first": "다",
-      "last": "리",
-      "level": "A1",
-      "german": "Bein",
-      "topic": "Körper",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "빨간색",
-      "first": "빨",
-      "last": "색",
-      "level": "A1",
-      "german": "rot",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "파란색",
-      "first": "파",
-      "last": "색",
-      "level": "A1",
-      "german": "blau",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "초록색",
-      "first": "초",
-      "last": "색",
-      "level": "A1",
-      "german": "grün",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "노란색",
-      "first": "노",
-      "last": "색",
-      "level": "A1",
-      "german": "gelb",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "흰색",
-      "first": "흰",
-      "last": "색",
-      "level": "A1",
-      "german": "weiß",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "검은색",
-      "first": "검",
-      "last": "색",
-      "level": "A1",
-      "german": "schwarz",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "고기",
-      "first": "고",
-      "last": "기",
-      "level": "A1",
-      "german": "Fleisch",
-      "topic": "Essen & Trinken",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "생선",
-      "first": "생",
-      "last": "선",
-      "level": "A1",
-      "german": "Fisch (als Essen)",
-      "topic": "Essen & Trinken",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "채소",
-      "first": "채",
-      "last": "소",
-      "level": "A1",
-      "german": "Gemüse",
-      "topic": "Essen & Trinken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "과일",
-      "first": "과",
-      "last": "일",
-      "level": "A1",
-      "german": "Obst",
-      "topic": "Essen & Trinken",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "라면",
-      "first": "라",
-      "last": "면",
-      "level": "A1",
-      "german": "Ramen / Instant-Nudeln",
-      "topic": "Essen & Trinken",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "김치",
-      "first": "김",
-      "last": "치",
-      "level": "A1",
-      "german": "Kimchi (fermentierter Kohl)",
-      "topic": "Essen & Trinken",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "사과",
-      "first": "사",
-      "last": "과",
-      "level": "A1",
-      "german": "Apfel",
-      "topic": "Essen & Trinken",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "계란",
-      "first": "계",
-      "last": "란",
-      "level": "A1",
-      "german": "Ei",
-      "topic": "Essen & Trinken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "화장실",
-      "first": "화",
-      "last": "실",
-      "level": "A1",
-      "german": "Toilette / Badezimmer",
-      "topic": "Alltag",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "편의점",
-      "first": "편",
-      "last": "점",
-      "level": "A1",
-      "german": "Convenience Store",
-      "topic": "Alltag",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "공원",
-      "first": "공",
-      "last": "원",
-      "level": "A1",
-      "german": "Park",
-      "topic": "Freizeit",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "도서관",
-      "first": "도",
-      "last": "관",
-      "level": "A1",
-      "german": "Bibliothek",
-      "topic": "Bildung",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "침대",
-      "first": "침",
-      "last": "대",
-      "level": "A1",
-      "german": "Bett",
-      "topic": "Alltag",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "의자",
-      "first": "의",
-      "last": "자",
-      "level": "A1",
-      "german": "Stuhl",
-      "topic": "Alltag",
-      "next_count": 13,
-      "is_dead_end": false
-    },
-    {
-      "word": "아침",
-      "first": "아",
-      "last": "침",
-      "level": "A1",
-      "german": "Morgen / Frühstück",
-      "topic": "Zeit",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "점심",
-      "first": "점",
-      "last": "심",
-      "level": "A1",
-      "german": "Mittag / Mittagessen",
-      "topic": "Zeit",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "저녁",
-      "first": "저",
-      "last": "녁",
-      "level": "A1",
-      "german": "Abend / Abendessen",
-      "topic": "Zeit",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "주말",
-      "first": "주",
-      "last": "말",
-      "level": "A1",
-      "german": "Wochenende",
-      "topic": "Zeit",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "회사",
-      "first": "회",
-      "last": "사",
-      "level": "A2",
-      "german": "Firma / Unternehmen",
-      "topic": "Beruf",
-      "next_count": 7,
-      "is_dead_end": false
-    },
-    {
-      "word": "직업",
-      "first": "직",
-      "last": "업",
-      "level": "A2",
-      "german": "Beruf",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "취미",
-      "first": "취",
-      "last": "미",
-      "level": "A2",
-      "german": "Hobby",
-      "topic": "Freizeit",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "날씨",
-      "first": "날",
-      "last": "씨",
-      "level": "A2",
-      "german": "Wetter",
-      "topic": "Wetter",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "계절",
-      "first": "계",
-      "last": "절",
-      "level": "A2",
-      "german": "Jahreszeit",
-      "topic": "Wetter",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "여름",
-      "first": "여",
-      "last": "름",
-      "level": "A2",
-      "german": "Sommer",
-      "topic": "Wetter",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "가을",
-      "first": "가",
-      "last": "을",
-      "level": "A2",
-      "german": "Herbst",
-      "topic": "Wetter",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "겨울",
-      "first": "겨",
-      "last": "울",
-      "level": "A2",
-      "german": "Winter",
-      "topic": "Wetter",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "병원",
-      "first": "병",
-      "last": "원",
-      "level": "A2",
-      "german": "Krankenhaus",
-      "topic": "Gesundheit",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "식당",
-      "first": "식",
-      "last": "당",
-      "level": "A2",
-      "german": "Restaurant",
-      "topic": "Essen & Trinken",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "시장",
-      "first": "시",
-      "last": "장",
-      "level": "A2",
-      "german": "Markt",
-      "topic": "Einkaufen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "은행",
-      "first": "은",
-      "last": "행",
-      "level": "A2",
-      "german": "Bank",
-      "topic": "Alltag",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "여행",
-      "first": "여",
-      "last": "행",
-      "level": "A2",
-      "german": "Reise",
-      "topic": "Reise",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "비행기",
-      "first": "비",
-      "last": "기",
-      "level": "A2",
-      "german": "Flugzeug",
-      "topic": "Verkehr",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "호텔",
-      "first": "호",
-      "last": "텔",
-      "level": "A2",
-      "german": "Hotel",
-      "topic": "Reise",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "음악",
-      "first": "음",
-      "last": "악",
-      "level": "A2",
-      "german": "Musik",
-      "topic": "Freizeit",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "영화",
-      "first": "영",
-      "last": "화",
-      "level": "A2",
-      "german": "Film",
-      "topic": "Freizeit",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "시험",
-      "first": "시",
-      "last": "험",
-      "level": "A2",
-      "german": "Prüfung / Test",
-      "topic": "Bildung",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "숙제",
-      "first": "숙",
-      "last": "제",
-      "level": "A2",
-      "german": "Hausaufgaben",
-      "topic": "Bildung",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "성적",
-      "first": "성",
-      "last": "적",
-      "level": "A2",
-      "german": "Noten / Ergebnis",
-      "topic": "Bildung",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "휴가",
-      "first": "휴",
-      "last": "가",
-      "level": "A2",
-      "german": "Urlaub / Freizeit",
-      "topic": "Beruf",
-      "next_count": 9,
-      "is_dead_end": false
-    },
-    {
-      "word": "회의",
-      "first": "회",
-      "last": "의",
-      "level": "A2",
-      "german": "Meeting / Besprechung",
-      "topic": "Beruf",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "택시",
-      "first": "택",
-      "last": "시",
-      "level": "A2",
-      "german": "Taxi",
-      "topic": "Verkehr",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "기차",
-      "first": "기",
-      "last": "차",
-      "level": "A2",
-      "german": "Zug / Bahn",
-      "topic": "Verkehr",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "자전거",
-      "first": "자",
-      "last": "거",
-      "level": "A2",
-      "german": "Fahrrad",
-      "topic": "Verkehr",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "전화",
-      "first": "전",
-      "last": "화",
-      "level": "A2",
-      "german": "Telefon / Anruf",
-      "topic": "Kommunikation",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "문자",
-      "first": "문",
-      "last": "자",
-      "level": "A2",
-      "german": "Nachricht (SMS)",
-      "topic": "Kommunikation",
-      "next_count": 13,
-      "is_dead_end": false
-    },
-    {
-      "word": "인터넷",
-      "first": "인",
-      "last": "넷",
-      "level": "A2",
-      "german": "Internet",
-      "topic": "Technologie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "컴퓨터",
-      "first": "컴",
-      "last": "터",
-      "level": "A2",
-      "german": "Computer",
-      "topic": "Technologie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "지갑",
-      "first": "지",
-      "last": "갑",
-      "level": "A2",
-      "german": "Geldbörse / Portemonnaie",
-      "topic": "Alltag",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "열쇠",
-      "first": "열",
-      "last": "쇠",
-      "level": "A2",
-      "german": "Schlüssel",
-      "topic": "Alltag",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "우산",
-      "first": "우",
-      "last": "산",
-      "level": "A2",
-      "german": "Regenschirm",
-      "topic": "Wetter",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "할인",
-      "first": "할",
-      "last": "인",
-      "level": "A2",
-      "german": "Rabatt / Ermäßigung",
-      "topic": "Einkaufen",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "영수증",
-      "first": "영",
-      "last": "증",
-      "level": "A2",
-      "german": "Quittung / Kassenbon",
-      "topic": "Einkaufen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "카드",
-      "first": "카",
-      "last": "드",
-      "level": "A2",
-      "german": "Kreditkarte / Karte",
-      "topic": "Einkaufen",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "경험",
-      "first": "경",
-      "last": "험",
-      "level": "B1",
-      "german": "Erfahrung",
-      "topic": "Alltag",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "문화",
-      "first": "문",
-      "last": "화",
-      "level": "B1",
-      "german": "Kultur",
-      "topic": "Gesellschaft",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "사회",
-      "first": "사",
-      "last": "회",
-      "level": "B1",
-      "german": "Gesellschaft",
-      "topic": "Gesellschaft",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "환경",
-      "first": "환",
-      "last": "경",
-      "level": "B1",
-      "german": "Umwelt",
-      "topic": "Umwelt",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "관계",
-      "first": "관",
-      "last": "계",
-      "level": "B1",
-      "german": "Beziehung / Verhältnis",
-      "topic": "Beziehungen",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "목표",
-      "first": "목",
-      "last": "표",
-      "level": "B1",
-      "german": "Ziel / Vorhaben",
-      "topic": "Motivation",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "방법",
-      "first": "방",
-      "last": "법",
-      "level": "B1",
-      "german": "Methode / Weg",
-      "topic": "Alltag",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "문제",
-      "first": "문",
-      "last": "제",
-      "level": "B1",
-      "german": "Problem / Aufgabe",
-      "topic": "Alltag",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "해결",
-      "first": "해",
-      "last": "결",
-      "level": "B1",
-      "german": "Lösung",
-      "topic": "Alltag",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "정치",
-      "first": "정",
-      "last": "치",
-      "level": "B1",
-      "german": "Politik",
-      "topic": "Gesellschaft",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "경제",
-      "first": "경",
-      "last": "제",
-      "level": "B1",
-      "german": "Wirtschaft",
-      "topic": "Gesellschaft",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "교육",
-      "first": "교",
-      "last": "육",
-      "level": "B1",
-      "german": "Bildung / Erziehung",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "건강",
-      "first": "건",
-      "last": "강",
-      "level": "B1",
-      "german": "Gesundheit",
-      "topic": "Gesundheit",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "기술",
-      "first": "기",
-      "last": "술",
-      "level": "B1",
-      "german": "Technologie / Technik",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "스트레스",
-      "first": "스",
-      "last": "스",
-      "level": "B1",
-      "german": "Stress",
-      "topic": "Alltag",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "습관",
-      "first": "습",
-      "last": "관",
-      "level": "B1",
-      "german": "Gewohnheit",
-      "topic": "Alltag",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "기회",
-      "first": "기",
-      "last": "회",
-      "level": "B1",
-      "german": "Gelegenheit / Chance",
-      "topic": "Motivation",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "과정",
-      "first": "과",
-      "last": "정",
-      "level": "B1",
-      "german": "Prozess / Vorgang",
-      "topic": "Bildung",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "상황",
-      "first": "상",
-      "last": "황",
-      "level": "B1",
-      "german": "Situation / Lage",
-      "topic": "Alltag",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "원인",
-      "first": "원",
-      "last": "인",
-      "level": "B1",
-      "german": "Ursache / Grund",
-      "topic": "Alltag",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "결과",
-      "first": "결",
-      "last": "과",
-      "level": "B1",
-      "german": "Ergebnis / Folge",
-      "topic": "Alltag",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "생각",
-      "first": "생",
-      "last": "각",
-      "level": "B1",
-      "german": "Gedanke / Meinung",
-      "topic": "Kommunikation",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "의견",
-      "first": "의",
-      "last": "견",
-      "level": "B1",
-      "german": "Meinung / Standpunkt",
-      "topic": "Kommunikation",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "이유",
-      "first": "이",
-      "last": "유",
-      "level": "B1",
-      "german": "Grund / Ursache",
-      "topic": "Alltag",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "조건",
-      "first": "조",
-      "last": "건",
-      "level": "B1",
-      "german": "Bedingung / Voraussetzung",
-      "topic": "Alltag",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "정보",
-      "first": "정",
-      "last": "보",
-      "level": "B1",
-      "german": "Information",
-      "topic": "Alltag",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "연락",
-      "first": "연",
-      "last": "락",
-      "level": "B1",
-      "german": "Kontakt / Kommunikation",
-      "topic": "Kommunikation",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "갈등",
-      "first": "갈",
-      "last": "등",
-      "level": "B2",
-      "german": "Konflikt",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "관점",
-      "first": "관",
-      "last": "점",
-      "level": "B2",
-      "german": "Standpunkt / Perspektive",
-      "topic": "Denken",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "가치관",
-      "first": "가",
-      "last": "관",
-      "level": "B2",
-      "german": "Wertvorstellung",
-      "topic": "Gesellschaft",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "논리",
-      "first": "논",
-      "last": "리",
-      "level": "B2",
-      "german": "Logik / Argumentation",
-      "topic": "Denken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "이론",
-      "first": "이",
-      "last": "론",
-      "level": "B2",
-      "german": "Theorie",
-      "topic": "Bildung",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "연구",
-      "first": "연",
-      "last": "구",
-      "level": "B2",
-      "german": "Forschung / Studie",
-      "topic": "Wissenschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "결론",
-      "first": "결",
-      "last": "론",
-      "level": "B2",
-      "german": "Schlussfolgerung / Fazit",
-      "topic": "Denken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "근거",
-      "first": "근",
-      "last": "거",
-      "level": "B2",
-      "german": "Grundlage / Beweis / Beleg",
-      "topic": "Denken",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "현상",
-      "first": "현",
-      "last": "상",
-      "level": "B2",
-      "german": "Phänomen / Erscheinung",
-      "topic": "Gesellschaft",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "전제",
-      "first": "전",
-      "last": "제",
-      "level": "B2",
-      "german": "Voraussetzung / Prämisse",
-      "topic": "Denken",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "맥락",
-      "first": "맥",
-      "last": "락",
-      "level": "B2",
-      "german": "Kontext / Zusammenhang",
-      "topic": "Denken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "복지",
-      "first": "복",
-      "last": "지",
-      "level": "B2",
-      "german": "Wohlfahrt / Sozialleistungen",
-      "topic": "Gesellschaft",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "민주주의",
-      "first": "민",
-      "last": "의",
-      "level": "B2",
-      "german": "Demokratie",
-      "topic": "Gesellschaft",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "자유",
-      "first": "자",
-      "last": "유",
-      "level": "B2",
-      "german": "Freiheit",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "하나",
-      "first": "하",
-      "last": "나",
-      "level": "A1",
-      "german": "eins (rein-koreanisch)",
-      "topic": "Zahlen",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "다섯",
-      "first": "다",
-      "last": "섯",
-      "level": "A1",
-      "german": "fünf (rein-koreanisch)",
-      "topic": "Zahlen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "여섯",
-      "first": "여",
-      "last": "섯",
-      "level": "A1",
-      "german": "sechs (rein-koreanisch)",
-      "topic": "Zahlen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "일곱",
-      "first": "일",
-      "last": "곱",
-      "level": "A1",
-      "german": "sieben (rein-koreanisch)",
-      "topic": "Zahlen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "여덟",
-      "first": "여",
-      "last": "덟",
-      "level": "A1",
-      "german": "acht (rein-koreanisch)",
-      "topic": "Zahlen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "아홉",
-      "first": "아",
-      "last": "홉",
-      "level": "A1",
-      "german": "neun (rein-koreanisch)",
-      "topic": "Zahlen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "시간",
-      "first": "시",
-      "last": "간",
-      "level": "A1",
-      "german": "Zeit / Stunde",
-      "topic": "Zeit",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "요일",
-      "first": "요",
-      "last": "일",
-      "level": "A1",
-      "german": "Wochentag",
-      "topic": "Zeit",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "월요일",
-      "first": "월",
-      "last": "일",
-      "level": "A1",
-      "german": "Montag",
-      "topic": "Zeit",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "화요일",
-      "first": "화",
-      "last": "일",
-      "level": "A1",
-      "german": "Dienstag",
-      "topic": "Zeit",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "수요일",
-      "first": "수",
-      "last": "일",
-      "level": "A1",
-      "german": "Mittwoch",
-      "topic": "Zeit",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "목요일",
-      "first": "목",
-      "last": "일",
-      "level": "A1",
-      "german": "Donnerstag",
-      "topic": "Zeit",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "금요일",
-      "first": "금",
-      "last": "일",
-      "level": "A1",
-      "german": "Freitag",
-      "topic": "Zeit",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "토요일",
-      "first": "토",
-      "last": "일",
-      "level": "A1",
-      "german": "Samstag",
-      "topic": "Zeit",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "일요일",
-      "first": "일",
-      "last": "일",
-      "level": "A1",
-      "german": "Sonntag",
-      "topic": "Zeit",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "아래",
-      "first": "아",
-      "last": "래",
-      "level": "A1",
-      "german": "unten / unter",
-      "topic": "Position",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "사이",
-      "first": "사",
-      "last": "이",
-      "level": "A1",
-      "german": "zwischen / Zwischenraum",
-      "topic": "Beziehungen",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "왼쪽",
-      "first": "왼",
-      "last": "쪽",
-      "level": "A1",
-      "german": "links",
-      "topic": "Position",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "오른쪽",
-      "first": "오",
-      "last": "쪽",
-      "level": "A1",
-      "german": "rechts",
-      "topic": "Position",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "여기",
-      "first": "여",
-      "last": "기",
-      "level": "A1",
-      "german": "hier",
-      "topic": "Position",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "거기",
-      "first": "거",
-      "last": "기",
-      "level": "A1",
-      "german": "da",
-      "topic": "Position",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "저기",
-      "first": "저",
-      "last": "기",
-      "level": "A1",
-      "german": "dort",
-      "topic": "Position",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "메뉴",
-      "first": "메",
-      "last": "뉴",
-      "level": "A2",
-      "german": "Menü / Speisekarte",
-      "topic": "Essen & Trinken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "배달",
-      "first": "배",
-      "last": "달",
-      "level": "A2",
-      "german": "Lieferdienst / Lieferung",
-      "topic": "Essen & Trinken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "사이즈",
-      "first": "사",
-      "last": "즈",
-      "level": "A2",
-      "german": "Größe",
-      "topic": "Einkaufen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "색깔",
-      "first": "색",
-      "last": "깔",
-      "level": "A2",
-      "german": "Farbe",
-      "topic": "Einkaufen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "환불",
-      "first": "환",
-      "last": "불",
-      "level": "A2",
-      "german": "Rückerstattung",
-      "topic": "Einkaufen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "교환",
-      "first": "교",
-      "last": "환",
-      "level": "A2",
-      "german": "Umtausch",
-      "topic": "Einkaufen",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "손님",
-      "first": "손",
-      "last": "님",
-      "level": "A2",
-      "german": "Kunde / Gast",
-      "topic": "Einkaufen",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "점원",
-      "first": "점",
-      "last": "원",
-      "level": "A2",
-      "german": "Verkäufer/in",
-      "topic": "Einkaufen",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "신호등",
-      "first": "신",
-      "last": "등",
-      "level": "A2",
-      "german": "Ampel",
-      "topic": "Verkehr",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "횡단보도",
-      "first": "횡",
-      "last": "도",
-      "level": "A2",
-      "german": "Zebrastreifen",
-      "topic": "Verkehr",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "교차로",
-      "first": "교",
-      "last": "로",
-      "level": "A2",
-      "german": "Kreuzung",
-      "topic": "Verkehr",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "동료",
-      "first": "동",
-      "last": "료",
-      "level": "A2",
-      "german": "Kollege/in",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "사장",
-      "first": "사",
-      "last": "장",
-      "level": "A2",
-      "german": "Chef / Firmeninhaber",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "상사",
-      "first": "상",
-      "last": "사",
-      "level": "A2",
-      "german": "Vorgesetzte/r",
-      "topic": "Beruf",
-      "next_count": 7,
-      "is_dead_end": false
-    },
-    {
-      "word": "월급",
-      "first": "월",
-      "last": "급",
-      "level": "A2",
-      "german": "Monatsgehalt",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "면접",
-      "first": "면",
-      "last": "접",
-      "level": "A2",
-      "german": "Vorstellungsgespräch",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "분홍색",
-      "first": "분",
-      "last": "색",
-      "level": "A2",
-      "german": "rosa",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "보라색",
-      "first": "보",
-      "last": "색",
-      "level": "A2",
-      "german": "lila / violett",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "갈색",
-      "first": "갈",
-      "last": "색",
-      "level": "A2",
-      "german": "braun",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "회색",
-      "first": "회",
-      "last": "색",
-      "level": "A2",
-      "german": "grau",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "주황색",
-      "first": "주",
-      "last": "색",
-      "level": "A2",
-      "german": "orange",
-      "topic": "Farben",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "영상",
-      "first": "영",
-      "last": "상",
-      "level": "B1",
-      "german": "Video / Bildmaterial",
-      "topic": "Technologie",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "댓글",
-      "first": "댓",
-      "last": "글",
-      "level": "B1",
-      "german": "Kommentar (online)",
-      "topic": "Technologie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "좋아요",
-      "first": "좋",
-      "last": "요",
-      "level": "B1",
-      "german": "Like (Social Media)",
-      "topic": "Technologie",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "팔로워",
-      "first": "팔",
-      "last": "워",
-      "level": "B1",
-      "german": "Follower",
-      "topic": "Technologie",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "게시물",
-      "first": "게",
-      "last": "물",
-      "level": "B1",
-      "german": "Post / Beitrag",
-      "topic": "Technologie",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "다운로드",
-      "first": "다",
-      "last": "드",
-      "level": "B1",
-      "german": "Download",
-      "topic": "Technologie",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "마감",
-      "first": "마",
-      "last": "감",
-      "level": "B1",
-      "german": "Deadline / Abgabefrist",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "일정",
-      "first": "일",
-      "last": "정",
-      "level": "B1",
-      "german": "Terminplan / Zeitplan",
-      "topic": "Beruf",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "회의록",
-      "first": "회",
-      "last": "록",
-      "level": "B1",
-      "german": "Sitzungsprotokoll",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "다이어트",
-      "first": "다",
-      "last": "트",
-      "level": "B1",
-      "german": "Diät",
-      "topic": "Gesundheit",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "명상",
-      "first": "명",
-      "last": "상",
-      "level": "B1",
-      "german": "Meditation",
-      "topic": "Gesundheit",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "식단",
-      "first": "식",
-      "last": "단",
-      "level": "B1",
-      "german": "Ernährungsplan",
-      "topic": "Gesundheit",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "균형",
-      "first": "균",
-      "last": "형",
-      "level": "B1",
-      "german": "Balance / Gleichgewicht",
-      "topic": "Gesellschaft",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "휴식",
-      "first": "휴",
-      "last": "식",
-      "level": "B1",
-      "german": "Erholung / Pause",
-      "topic": "Alltag",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "취향",
-      "first": "취",
-      "last": "향",
-      "level": "B1",
-      "german": "Vorliebe / Geschmack",
-      "topic": "Beschreibung",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "의미",
-      "first": "의",
-      "last": "미",
-      "level": "B1",
-      "german": "Bedeutung / Sinn",
-      "topic": "Kommunikation",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "변화",
-      "first": "변",
-      "last": "화",
-      "level": "B1",
-      "german": "Veränderung / Wandel",
-      "topic": "Alltag",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "영향",
-      "first": "영",
-      "last": "향",
-      "level": "B1",
-      "german": "Einfluss / Wirkung",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "차이",
-      "first": "차",
-      "last": "이",
-      "level": "B1",
-      "german": "Unterschied",
-      "topic": "Beschreibung",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "공통점",
-      "first": "공",
-      "last": "점",
-      "level": "B1",
-      "german": "Gemeinsamkeit",
-      "topic": "Beziehungen",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "가능성",
-      "first": "가",
-      "last": "성",
-      "level": "B1",
-      "german": "Möglichkeit",
-      "topic": "Denken",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "한계",
-      "first": "한",
-      "last": "계",
-      "level": "B1",
-      "german": "Grenze / Limit",
-      "topic": "Denken",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "책임",
-      "first": "책",
-      "last": "임",
-      "level": "B1",
-      "german": "Verantwortung",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "책임감",
-      "first": "책",
-      "last": "감",
-      "level": "B1",
-      "german": "Verantwortungsbewusstsein",
-      "topic": "Beschreibung",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "협상",
-      "first": "협",
-      "last": "상",
-      "level": "B2",
-      "german": "Verhandlung",
-      "topic": "Beruf",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "계약",
-      "first": "계",
-      "last": "약",
-      "level": "B2",
-      "german": "Vertrag",
-      "topic": "Beruf",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "투자",
-      "first": "투",
-      "last": "자",
-      "level": "B2",
-      "german": "Investition",
-      "topic": "Gesellschaft",
-      "next_count": 13,
-      "is_dead_end": false
-    },
-    {
-      "word": "수익",
-      "first": "수",
-      "last": "익",
-      "level": "B2",
-      "german": "Gewinn / Ertrag",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "비용",
-      "first": "비",
-      "last": "용",
-      "level": "B2",
-      "german": "Kosten",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "생산성",
-      "first": "생",
-      "last": "성",
-      "level": "B2",
-      "german": "Produktivität",
-      "topic": "Beruf",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "경쟁력",
-      "first": "경",
-      "last": "력",
-      "level": "B2",
-      "german": "Wettbewerbsfähigkeit",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "전략",
-      "first": "전",
-      "last": "략",
-      "level": "B2",
-      "german": "Strategie",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "위기",
-      "first": "위",
-      "last": "기",
-      "level": "B2",
-      "german": "Krise",
-      "topic": "Gesellschaft",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "협업",
-      "first": "협",
-      "last": "업",
-      "level": "B2",
-      "german": "Zusammenarbeit (formell)",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "정책",
-      "first": "정",
-      "last": "책",
-      "level": "B2",
-      "german": "Politik / Strategie (staatlich)",
-      "topic": "Gesellschaft",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "제도",
-      "first": "제",
-      "last": "도",
-      "level": "B2",
-      "german": "System / Institution",
-      "topic": "Gesellschaft",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "의무",
-      "first": "의",
-      "last": "무",
-      "level": "B2",
-      "german": "Pflicht / Verpflichtung",
-      "topic": "Gesellschaft",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "평등",
-      "first": "평",
-      "last": "등",
-      "level": "B2",
-      "german": "Gleichheit / Gleichberechtigung",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "차별",
-      "first": "차",
-      "last": "별",
-      "level": "B2",
-      "german": "Diskriminierung",
-      "topic": "Gesellschaft",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "인권",
-      "first": "인",
-      "last": "권",
-      "level": "B2",
-      "german": "Menschenrechte",
-      "topic": "Gesellschaft",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "양극화",
-      "first": "양",
-      "last": "화",
-      "level": "B2",
-      "german": "Polarisierung / Spaltung",
-      "topic": "Gesellschaft",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "강점",
-      "first": "강",
-      "last": "점",
-      "level": "B2",
-      "german": "Stärke",
-      "topic": "Beruf",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "약점",
-      "first": "약",
-      "last": "점",
-      "level": "B2",
-      "german": "Schwäche",
-      "topic": "Beruf",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "경력",
-      "first": "경",
-      "last": "력",
-      "level": "B2",
-      "german": "Berufserfahrung / Werdegang",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "자격증",
-      "first": "자",
-      "last": "증",
-      "level": "B2",
-      "german": "Zertifikat / Qualifikation",
-      "topic": "Beruf",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "자신감",
-      "first": "자",
-      "last": "감",
-      "level": "B2",
-      "german": "Selbstvertrauen",
-      "topic": "Gefühle",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "끈기",
-      "first": "끈",
-      "last": "기",
-      "level": "B2",
-      "german": "Ausdauer / Beharrlichkeit",
-      "topic": "Beschreibung",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "잠재력",
-      "first": "잠",
-      "last": "력",
-      "level": "B2",
-      "german": "Potenzial",
-      "topic": "Beschreibung",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "동기",
-      "first": "동",
-      "last": "기",
-      "level": "B2",
-      "german": "Motivation / Anreiz",
-      "topic": "Motivation",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "분야",
-      "first": "분",
-      "last": "야",
-      "level": "B2",
-      "german": "Bereich / Fach / Gebiet",
-      "topic": "Bildung",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "전공",
-      "first": "전",
-      "last": "공",
-      "level": "B2",
-      "german": "Hauptfach / Studienfach",
-      "topic": "Bildung",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "학위",
-      "first": "학",
-      "last": "위",
-      "level": "B2",
-      "german": "akademischer Grad",
-      "topic": "Bildung",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "논문",
-      "first": "논",
-      "last": "문",
-      "level": "B2",
-      "german": "wissenschaftlicher Aufsatz / Arbeit",
-      "topic": "Bildung",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "통계",
-      "first": "통",
-      "last": "계",
-      "level": "B2",
-      "german": "Statistik",
-      "topic": "Denken",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "가설",
-      "first": "가",
-      "last": "설",
-      "level": "B2",
-      "german": "Hypothese",
-      "topic": "Denken",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "자식",
-      "first": "자",
-      "last": "식",
-      "level": "A2",
-      "german": "Kind / Sohn / Tochter",
-      "topic": "family",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "자녀",
-      "first": "자",
-      "last": "녀",
-      "level": "A2",
-      "german": "Kinder",
-      "topic": "family",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "자동차",
-      "first": "자",
-      "last": "차",
-      "level": "A1",
-      "german": "Auto",
-      "topic": "transport",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "자연",
-      "first": "자",
-      "last": "연",
-      "level": "A2",
-      "german": "Natur",
-      "topic": "nature",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "자료",
-      "first": "자",
-      "last": "료",
-      "level": "B1",
-      "german": "Material / Daten",
-      "topic": "work",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "자정",
-      "first": "자",
-      "last": "정",
-      "level": "B1",
-      "german": "Mitternacht",
-      "topic": "time",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "자판기",
-      "first": "자",
-      "last": "기",
-      "level": "B1",
-      "german": "Automat",
-      "topic": "shopping",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "저금",
-      "first": "저",
-      "last": "금",
-      "level": "B1",
-      "german": "Sparen",
-      "topic": "money",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "제목",
-      "first": "제",
-      "last": "목",
-      "level": "A2",
-      "german": "Titel",
-      "topic": "media",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "제주",
-      "first": "제",
-      "last": "주",
-      "level": "A2",
-      "german": "Jeju (Insel)",
-      "topic": "travel",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "경찰",
-      "first": "경",
-      "last": "찰",
-      "level": "A2",
-      "german": "Polizei",
-      "topic": "work",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "경기",
-      "first": "경",
-      "last": "기",
-      "level": "A2",
-      "german": "Spiel / Match",
-      "topic": "sports",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "경고",
-      "first": "경",
-      "last": "고",
-      "level": "B1",
-      "german": "Warnung",
-      "topic": "general",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "경복궁",
-      "first": "경",
-      "last": "궁",
-      "level": "A2",
-      "german": "Gyeongbokgung-Palast",
-      "topic": "travel",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "환자",
-      "first": "환",
-      "last": "자",
-      "level": "A2",
-      "german": "Patient",
-      "topic": "health",
-      "next_count": 13,
-      "is_dead_end": false
-    },
-    {
-      "word": "환영",
-      "first": "환",
-      "last": "영",
-      "level": "A1",
-      "german": "Willkommen",
-      "topic": "social",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "할머니",
-      "first": "할",
-      "last": "니",
-      "level": "A1",
-      "german": "Großmutter",
-      "topic": "family",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "할아버지",
-      "first": "할",
-      "last": "지",
-      "level": "A1",
-      "german": "Großvater",
-      "topic": "family",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "형제",
-      "first": "형",
-      "last": "제",
-      "level": "A2",
-      "german": "Geschwister",
-      "topic": "family",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "자매",
-      "first": "자",
-      "last": "매",
-      "level": "A2",
-      "german": "Schwestern",
-      "topic": "family",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "이웃",
-      "first": "이",
-      "last": "웃",
-      "level": "A2",
-      "german": "Nachbar",
-      "topic": "social",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "휴일",
-      "first": "휴",
-      "last": "일",
-      "level": "A2",
-      "german": "Feiertag",
-      "topic": "time",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "분",
-      "first": "분",
-      "last": "분",
-      "level": "A1",
-      "german": "Minute",
-      "topic": "time",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "내일",
-      "first": "내",
-      "last": "일",
-      "level": "A1",
-      "german": "Morgen (Tag)",
-      "topic": "time",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "어제",
-      "first": "어",
-      "last": "제",
-      "level": "A1",
-      "german": "Gestern",
-      "topic": "time",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "오늘",
-      "first": "오",
-      "last": "늘",
-      "level": "A1",
-      "german": "Heute",
-      "topic": "time",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "치즈",
-      "first": "치",
-      "last": "즈",
-      "level": "A1",
-      "german": "Käse",
-      "topic": "food",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "야채",
-      "first": "야",
-      "last": "채",
-      "level": "A1",
-      "german": "Gemüse",
-      "topic": "food",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "과자",
-      "first": "과",
-      "last": "자",
-      "level": "A1",
-      "german": "Snack",
-      "topic": "food",
-      "next_count": 13,
-      "is_dead_end": false
-    },
-    {
-      "word": "차",
-      "first": "차",
-      "last": "차",
-      "level": "A1",
-      "german": "Tee",
-      "topic": "food",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "맥주",
-      "first": "맥",
-      "last": "주",
-      "level": "A1",
-      "german": "Bier",
-      "topic": "food",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "우유",
-      "first": "우",
-      "last": "유",
-      "level": "A1",
-      "german": "Milch",
-      "topic": "food",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "빵",
-      "first": "빵",
-      "last": "빵",
-      "level": "A1",
-      "german": "Brot",
-      "topic": "food",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "밥",
-      "first": "밥",
-      "last": "밥",
-      "level": "A1",
-      "german": "Reis",
-      "topic": "food",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "국수",
-      "first": "국",
-      "last": "수",
-      "level": "A1",
-      "german": "Nudeln",
-      "topic": "food",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "떡",
-      "first": "떡",
-      "last": "떡",
-      "level": "A2",
-      "german": "Reiskuchen",
-      "topic": "food",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "치킨",
-      "first": "치",
-      "last": "킨",
-      "level": "A1",
-      "german": "Hähnchen",
-      "topic": "food",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "카페",
-      "first": "카",
-      "last": "페",
-      "level": "A1",
-      "german": "Café",
-      "topic": "food",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "주문",
-      "first": "주",
-      "last": "문",
-      "level": "A2",
-      "german": "Bestellung",
-      "topic": "food",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "눈",
-      "first": "눈",
-      "last": "눈",
-      "level": "A1",
-      "german": "Auge",
-      "topic": "body",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "코",
-      "first": "코",
-      "last": "코",
-      "level": "A1",
-      "german": "Nase",
-      "topic": "body",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "입",
-      "first": "입",
-      "last": "입",
-      "level": "A1",
-      "german": "Mund",
-      "topic": "body",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "귀",
-      "first": "귀",
-      "last": "귀",
-      "level": "A1",
-      "german": "Ohr",
-      "topic": "body",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "손",
-      "first": "손",
-      "last": "손",
-      "level": "A1",
-      "german": "Hand",
-      "topic": "body",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "발",
-      "first": "발",
-      "last": "발",
-      "level": "A1",
-      "german": "Fuß",
-      "topic": "body",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "얼굴",
-      "first": "얼",
-      "last": "굴",
-      "level": "A1",
-      "german": "Gesicht",
-      "topic": "body",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "팔",
-      "first": "팔",
-      "last": "팔",
-      "level": "A1",
-      "german": "Arm",
-      "topic": "body",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "공항",
-      "first": "공",
-      "last": "항",
-      "level": "A1",
-      "german": "Flughafen",
-      "topic": "travel",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "가방",
-      "first": "가",
-      "last": "방",
-      "level": "A1",
-      "german": "Tasche",
-      "topic": "travel",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "역",
-      "first": "역",
-      "last": "역",
-      "level": "A1",
-      "german": "Bahnhof",
-      "topic": "travel",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "서울",
-      "first": "서",
-      "last": "울",
-      "level": "A1",
-      "german": "Seoul",
-      "topic": "travel",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "부산",
-      "first": "부",
-      "last": "산",
-      "level": "A1",
-      "german": "Busan",
-      "topic": "travel",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "한국",
-      "first": "한",
-      "last": "국",
-      "level": "A1",
-      "german": "Korea",
-      "topic": "travel",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "독일",
-      "first": "독",
-      "last": "일",
-      "level": "A1",
-      "german": "Deutschland",
-      "topic": "travel",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "약국",
-      "first": "약",
-      "last": "국",
-      "level": "A1",
-      "german": "Apotheke",
-      "topic": "place",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "영화관",
-      "first": "영",
-      "last": "관",
-      "level": "A1",
-      "german": "Kino",
-      "topic": "place",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "가구",
-      "first": "가",
-      "last": "구",
-      "level": "A2",
-      "german": "Möbel",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "시계",
-      "first": "시",
-      "last": "계",
-      "level": "A1",
-      "german": "Uhr",
-      "topic": "general",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "지도",
-      "first": "지",
-      "last": "도",
-      "level": "A1",
-      "german": "Karte",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "사진",
-      "first": "사",
-      "last": "진",
-      "level": "A1",
-      "german": "Foto",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "편지",
-      "first": "편",
-      "last": "지",
-      "level": "A1",
-      "german": "Brief",
-      "topic": "general",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "운동",
-      "first": "운",
-      "last": "동",
-      "level": "A1",
-      "german": "Sport",
-      "topic": "sports",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "수영",
-      "first": "수",
-      "last": "영",
-      "level": "A1",
-      "german": "Schwimmen",
-      "topic": "sports",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "축구",
-      "first": "축",
-      "last": "구",
-      "level": "A1",
-      "german": "Fußball",
-      "topic": "sports",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "야구",
-      "first": "야",
-      "last": "구",
-      "level": "A1",
-      "german": "Baseball",
-      "topic": "sports",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "농구",
-      "first": "농",
-      "last": "구",
-      "level": "A1",
-      "german": "Basketball",
-      "topic": "sports",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "비",
-      "first": "비",
-      "last": "비",
-      "level": "A1",
-      "german": "Regen",
-      "topic": "weather",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "바람",
-      "first": "바",
-      "last": "람",
-      "level": "A1",
-      "german": "Wind",
-      "topic": "weather",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "태양",
-      "first": "태",
-      "last": "양",
-      "level": "A2",
-      "german": "Sonne",
-      "topic": "weather",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "산",
-      "first": "산",
-      "last": "산",
-      "level": "A1",
-      "german": "Berg",
-      "topic": "nature",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "바다",
-      "first": "바",
-      "last": "다",
-      "level": "A1",
-      "german": "Meer",
-      "topic": "nature",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "강",
-      "first": "강",
-      "last": "강",
-      "level": "A1",
-      "german": "Fluss",
-      "topic": "nature",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "나무",
-      "first": "나",
-      "last": "무",
-      "level": "A1",
-      "german": "Baum",
-      "topic": "nature",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "꽃",
-      "first": "꽃",
-      "last": "꽃",
-      "level": "A1",
-      "german": "Blume",
-      "topic": "nature",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "동물",
-      "first": "동",
-      "last": "물",
-      "level": "A1",
-      "german": "Tier",
-      "topic": "nature",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "고양이",
-      "first": "고",
-      "last": "이",
-      "level": "A1",
-      "german": "Katze",
-      "topic": "nature",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "강아지",
-      "first": "강",
-      "last": "지",
-      "level": "A1",
-      "german": "Welpe",
-      "topic": "nature",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "호랑이",
-      "first": "호",
-      "last": "이",
-      "level": "A1",
-      "german": "Tiger",
-      "topic": "nature",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "까치",
-      "first": "까",
-      "last": "치",
-      "level": "A2",
-      "german": "Elster",
-      "topic": "nature",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "일",
-      "first": "일",
-      "last": "일",
-      "level": "A1",
-      "german": "Arbeit",
-      "topic": "work",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "이메일",
-      "first": "이",
-      "last": "일",
-      "level": "A2",
-      "german": "E-Mail",
-      "topic": "work",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "책",
-      "first": "책",
-      "last": "책",
-      "level": "A1",
-      "german": "Buch",
-      "topic": "education",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "공책",
-      "first": "공",
-      "last": "책",
-      "level": "A1",
-      "german": "Notizbuch",
-      "topic": "education",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "연필",
-      "first": "연",
-      "last": "필",
-      "level": "A1",
-      "german": "Bleistift",
-      "topic": "education",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "수업",
-      "first": "수",
-      "last": "업",
-      "level": "A1",
-      "german": "Unterricht",
-      "topic": "education",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "스마트폰",
-      "first": "스",
-      "last": "폰",
-      "level": "A1",
-      "german": "Smartphone",
-      "topic": "tech",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "노래",
-      "first": "노",
-      "last": "래",
-      "level": "A1",
-      "german": "Lied",
-      "topic": "media",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "사랑",
-      "first": "사",
-      "last": "랑",
-      "level": "A1",
-      "german": "Liebe",
-      "topic": "feelings",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "행복",
-      "first": "행",
-      "last": "복",
-      "level": "A2",
-      "german": "Glück",
-      "topic": "feelings",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "웃음",
-      "first": "웃",
-      "last": "음",
-      "level": "A2",
-      "german": "Lächeln",
-      "topic": "feelings",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "기쁨",
-      "first": "기",
-      "last": "쁨",
-      "level": "B1",
-      "german": "Freude",
-      "topic": "feelings",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "생일",
-      "first": "생",
-      "last": "일",
-      "level": "A1",
-      "german": "Geburtstag",
-      "topic": "social",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "선물",
-      "first": "선",
-      "last": "물",
-      "level": "A1",
-      "german": "Geschenk",
-      "topic": "social",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "축하",
-      "first": "축",
-      "last": "하",
-      "level": "A2",
-      "german": "Glückwunsch",
-      "topic": "social",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "파티",
-      "first": "파",
-      "last": "티",
-      "level": "A1",
-      "german": "Party",
-      "topic": "social",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "돈",
-      "first": "돈",
-      "last": "돈",
-      "level": "A1",
-      "german": "Geld",
-      "topic": "money",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "가격",
-      "first": "가",
-      "last": "격",
-      "level": "A1",
-      "german": "Preis",
-      "topic": "money",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "봄",
-      "first": "봄",
-      "last": "봄",
-      "level": "A1",
-      "german": "Frühling",
-      "topic": "time",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "그래",
-      "first": "그",
-      "last": "래",
-      "level": "A1",
-      "german": "ja / genau",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "그리고",
-      "first": "그",
-      "last": "고",
-      "level": "A1",
-      "german": "und",
-      "topic": "general",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "우리",
-      "first": "우",
-      "last": "리",
-      "level": "A1",
-      "german": "wir",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "무슨",
-      "first": "무",
-      "last": "슨",
-      "level": "A1",
-      "german": "was für ein / welche",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "하지만",
-      "first": "하",
-      "last": "만",
-      "level": "A1",
-      "german": "aber",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "그냥",
-      "first": "그",
-      "last": "냥",
-      "level": "A1",
-      "german": "einfach (so)",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "정말",
-      "first": "정",
-      "last": "말",
-      "level": "A1",
-      "german": "wirklich / tatsächlich",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "그럼",
-      "first": "그",
-      "last": "럼",
-      "level": "A1",
-      "german": "dann / also",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "이제",
-      "first": "이",
-      "last": "제",
-      "level": "A1",
-      "german": "jetzt / nun",
-      "topic": "general",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "지금",
-      "first": "지",
-      "last": "금",
-      "level": "A1",
-      "german": "jetzt / gerade",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "좋아",
-      "first": "좋",
-      "last": "아",
-      "level": "A1",
-      "german": "gut / okay",
-      "topic": "general",
-      "next_count": 9,
-      "is_dead_end": false
-    },
-    {
-      "word": "다른",
-      "first": "다",
-      "last": "른",
-      "level": "A1",
-      "german": "andere/r/s",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "너무",
-      "first": "너",
-      "last": "무",
-      "level": "A1",
-      "german": "zu sehr / sehr",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "모든",
-      "first": "모",
-      "last": "든",
-      "level": "A1",
-      "german": "alle / sämtliche",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "같이",
-      "first": "같",
-      "last": "이",
-      "level": "A1",
-      "german": "zusammen / gemeinsam",
-      "topic": "general",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "아직",
-      "first": "아",
-      "last": "직",
-      "level": "A1",
-      "german": "noch",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "진짜",
-      "first": "진",
-      "last": "짜",
-      "level": "A1",
-      "german": "echt / wirklich (umgangssprachlich)",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "같은",
-      "first": "같",
-      "last": "은",
-      "level": "A1",
-      "german": "gleich / dasselbe",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "빨리",
-      "first": "빨",
-      "last": "리",
-      "level": "A1",
-      "german": "schnell / beeile dich",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "이거",
-      "first": "이",
-      "last": "거",
-      "level": "A1",
-      "german": "das (hier)",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "안녕",
-      "first": "안",
-      "last": "녕",
-      "level": "A1",
-      "german": "Hallo / Tschüss (informell)",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "많이",
-      "first": "많",
-      "last": "이",
-      "level": "A1",
-      "german": "viel / sehr",
-      "topic": "general",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
-      "word": "고마워요",
-      "first": "고",
-      "last": "요",
-      "level": "A1",
-      "german": "Danke (informell)",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "항상",
-      "first": "항",
-      "last": "상",
-      "level": "A1",
-      "german": "immer",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "잠깐",
-      "first": "잠",
-      "last": "깐",
-      "level": "A1",
-      "german": "kurz / einen Moment",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "그거",
-      "first": "그",
-      "last": "거",
-      "level": "A1",
-      "german": "das (da)",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "절대",
-      "first": "절",
-      "last": "대",
-      "level": "A2",
-      "german": "niemals / auf keinen Fall",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "당장",
-      "first": "당",
-      "last": "장",
-      "level": "A2",
-      "german": "sofort",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "그래도",
-      "first": "그",
-      "last": "도",
-      "level": "A2",
-      "german": "trotzdem",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "전부",
-      "first": "전",
-      "last": "부",
-      "level": "A2",
-      "german": "alles / komplett",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "미안해",
-      "first": "미",
-      "last": "해",
-      "level": "A2",
-      "german": "Entschuldigung / tut mir leid",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "어때",
-      "first": "어",
-      "last": "때",
-      "level": "A2",
-      "german": "wie wär's? / wie ist es?",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "아마",
-      "first": "아",
-      "last": "마",
-      "level": "A2",
-      "german": "vielleicht / wahrscheinlich",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "혼자",
-      "first": "혼",
-      "last": "자",
-      "level": "A2",
-      "german": "alleine",
-      "topic": "general",
-      "next_count": 13,
-      "is_dead_end": false
-    },
-    {
-      "word": "물론",
-      "first": "물",
-      "last": "론",
-      "level": "A2",
-      "german": "natürlich",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "미안해요",
-      "first": "미",
-      "last": "요",
-      "level": "A2",
-      "german": "Es tut mir leid",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "아니요",
-      "first": "아",
-      "last": "요",
-      "level": "A2",
-      "german": "Nein",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "완전히",
-      "first": "완",
-      "last": "히",
-      "level": "A2",
-      "german": "völlig / komplett",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "벌써",
-      "first": "벌",
-      "last": "써",
-      "level": "A2",
-      "german": "schon",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "조금",
-      "first": "조",
-      "last": "금",
-      "level": "A2",
-      "german": "ein bisschen / etwas",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "확실히",
-      "first": "확",
-      "last": "히",
-      "level": "A2",
-      "german": "sicher / bestimmt",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "별로",
-      "first": "별",
-      "last": "로",
-      "level": "A2",
-      "german": "nicht besonders",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "여전히",
-      "first": "여",
-      "last": "히",
-      "level": "A2",
-      "german": "immer noch",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "어쩌면",
-      "first": "어",
-      "last": "면",
-      "level": "A2",
-      "german": "vielleicht",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "갑자기",
-      "first": "갑",
-      "last": "기",
-      "level": "A2",
-      "german": "plötzlich",
-      "topic": "general",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "매일",
-      "first": "매",
-      "last": "일",
-      "level": "A2",
-      "german": "jeden Tag / täglich",
-      "topic": "general",
-      "next_count": 5,
-      "is_dead_end": false
-    },
-    {
-      "word": "금방",
-      "first": "금",
-      "last": "방",
-      "level": "B1",
-      "german": "gleich / sofort",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "결국",
-      "first": "결",
-      "last": "국",
-      "level": "B1",
-      "german": "schließlich / letztendlich",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "조용히",
-      "first": "조",
-      "last": "히",
-      "level": "B1",
-      "german": "leise",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "게다가",
-      "first": "게",
-      "last": "가",
-      "level": "B1",
-      "german": "außerdem / darüber hinaus",
-      "topic": "general",
-      "next_count": 9,
-      "is_dead_end": false
-    },
-    {
-      "word": "역시",
-      "first": "역",
-      "last": "시",
-      "level": "B1",
-      "german": "wie erwartet / auch",
-      "topic": "general",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "천천히",
-      "first": "천",
-      "last": "히",
-      "level": "B1",
-      "german": "langsam",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "가끔",
-      "first": "가",
-      "last": "끔",
-      "level": "B1",
-      "german": "manchmal / gelegentlich",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "잠시만요",
-      "first": "잠",
-      "last": "요",
-      "level": "B1",
-      "german": "Einen Moment bitte",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "특히",
-      "first": "특",
-      "last": "히",
-      "level": "B1",
-      "german": "besonders / vor allem",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "얼마",
-      "first": "얼",
-      "last": "마",
-      "level": "B1",
-      "german": "wie viel (Geld)",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "자주",
-      "first": "자",
-      "last": "주",
-      "level": "B1",
-      "german": "oft",
-      "topic": "general",
-      "next_count": 3,
-      "is_dead_end": false
-    },
-    {
-      "word": "저거",
-      "first": "저",
-      "last": "거",
-      "level": "B1",
-      "german": "das (dort)",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "드디어",
-      "first": "드",
-      "last": "어",
-      "level": "B1",
-      "german": "endlich / schließlich",
-      "topic": "general",
-      "next_count": 4,
-      "is_dead_end": false
-    },
-    {
-      "word": "일찍",
-      "first": "일",
-      "last": "찍",
-      "level": "B1",
-      "german": "früh",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "위대한",
-      "first": "위",
-      "last": "한",
-      "level": "B2",
-      "german": "großartig",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "이리와",
-      "first": "이",
-      "last": "와",
-      "level": "B2",
-      "german": "komm her",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "보통",
-      "first": "보",
-      "last": "통",
-      "level": "B2",
-      "german": "normalerweise / gewöhnlich",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "들어와",
-      "first": "들",
-      "last": "와",
-      "level": "B2",
-      "german": "komm rein",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    },
-    {
-      "word": "진정한",
-      "first": "진",
-      "last": "한",
-      "level": "B2",
-      "german": "wahr / echt",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "마침내",
-      "first": "마",
-      "last": "내",
-      "level": "B2",
-      "german": "endlich",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "늦게",
-      "first": "늦",
-      "last": "게",
-      "level": "B2",
-      "german": "spät",
-      "topic": "general",
-      "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "따라서",
-      "first": "따",
-      "last": "서",
-      "level": "B2",
-      "german": "daher / deshalb / folglich",
-      "topic": "general",
-      "next_count": 1,
-      "is_dead_end": false
-    },
-    {
-      "word": "오히려",
-      "first": "오",
-      "last": "려",
-      "level": "B2",
-      "german": "eher / vielmehr",
-      "topic": "general",
-      "next_count": 0,
-      "is_dead_end": true
-    }
-  ]
+  {
+   "word": "나이",
+   "first": "나",
+   "last": "이",
+   "level": "A1",
+   "german": "Alter",
+   "topic": "Person",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "나라",
+   "first": "나",
+   "last": "라",
+   "level": "A1",
+   "german": "Land",
+   "topic": "Geographie",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "학생",
+   "first": "학",
+   "last": "생",
+   "level": "A1",
+   "german": "Student/Schüler",
+   "topic": "Person",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "선생님",
+   "first": "선",
+   "last": "님",
+   "level": "A1",
+   "german": "Lehrer/in",
+   "topic": "Person",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "친구",
+   "first": "친",
+   "last": "구",
+   "level": "A1",
+   "german": "Freund/Freundin",
+   "topic": "Beziehungen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "남자친구",
+   "first": "남",
+   "last": "구",
+   "level": "A1",
+   "german": "Freund (Beziehung)",
+   "topic": "Beziehungen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "여자친구",
+   "first": "여",
+   "last": "구",
+   "level": "A1",
+   "german": "Freundin (Beziehung)",
+   "topic": "Beziehungen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "가족",
+   "first": "가",
+   "last": "족",
+   "level": "A1",
+   "german": "Familie",
+   "topic": "Familie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "학교",
+   "first": "학",
+   "last": "교",
+   "level": "A1",
+   "german": "Schule",
+   "topic": "Bildung",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "커피",
+   "first": "커",
+   "last": "피",
+   "level": "A1",
+   "german": "Kaffee",
+   "topic": "Essen & Trinken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "핸드폰",
+   "first": "핸",
+   "last": "폰",
+   "level": "A1",
+   "german": "Handy",
+   "topic": "Technologie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "버스",
+   "first": "버",
+   "last": "스",
+   "level": "A1",
+   "german": "Bus",
+   "topic": "Verkehr",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "지하철",
+   "first": "지",
+   "last": "철",
+   "level": "A1",
+   "german": "U-Bahn",
+   "topic": "Verkehr",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "아버지",
+   "first": "아",
+   "last": "지",
+   "level": "A1",
+   "german": "Vater (formell)",
+   "topic": "Familie",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "어머니",
+   "first": "어",
+   "last": "니",
+   "level": "A1",
+   "german": "Mutter (formell)",
+   "topic": "Familie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "아빠",
+   "first": "아",
+   "last": "빠",
+   "level": "A1",
+   "german": "Papa (informell)",
+   "topic": "Familie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "엄마",
+   "first": "엄",
+   "last": "마",
+   "level": "A1",
+   "german": "Mama (informell)",
+   "topic": "Familie",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "오빠",
+   "first": "오",
+   "last": "빠",
+   "level": "A1",
+   "german": "älterer Bruder (Sicht der Frau)",
+   "topic": "Familie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "누나",
+   "first": "누",
+   "last": "나",
+   "level": "A1",
+   "german": "ältere Schwester (Sicht des Mannes)",
+   "topic": "Familie",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "언니",
+   "first": "언",
+   "last": "니",
+   "level": "A1",
+   "german": "ältere Schwester (Sicht der Frau)",
+   "topic": "Familie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "남동생",
+   "first": "남",
+   "last": "생",
+   "level": "A1",
+   "german": "jüngerer Bruder",
+   "topic": "Familie",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "여동생",
+   "first": "여",
+   "last": "생",
+   "level": "A1",
+   "german": "jüngere Schwester",
+   "topic": "Familie",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "남편",
+   "first": "남",
+   "last": "편",
+   "level": "A1",
+   "german": "Ehemann",
+   "topic": "Familie",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "아내",
+   "first": "아",
+   "last": "내",
+   "level": "A1",
+   "german": "Ehefrau",
+   "topic": "Familie",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "머리",
+   "first": "머",
+   "last": "리",
+   "level": "A1",
+   "german": "Kopf / Haare",
+   "topic": "Körper",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "다리",
+   "first": "다",
+   "last": "리",
+   "level": "A1",
+   "german": "Bein",
+   "topic": "Körper",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "빨간색",
+   "first": "빨",
+   "last": "색",
+   "level": "A1",
+   "german": "rot",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "파란색",
+   "first": "파",
+   "last": "색",
+   "level": "A1",
+   "german": "blau",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "초록색",
+   "first": "초",
+   "last": "색",
+   "level": "A1",
+   "german": "grün",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "노란색",
+   "first": "노",
+   "last": "색",
+   "level": "A1",
+   "german": "gelb",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "흰색",
+   "first": "흰",
+   "last": "색",
+   "level": "A1",
+   "german": "weiß",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "검은색",
+   "first": "검",
+   "last": "색",
+   "level": "A1",
+   "german": "schwarz",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "고기",
+   "first": "고",
+   "last": "기",
+   "level": "A1",
+   "german": "Fleisch",
+   "topic": "Essen & Trinken",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "생선",
+   "first": "생",
+   "last": "선",
+   "level": "A1",
+   "german": "Fisch (als Essen)",
+   "topic": "Essen & Trinken",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "채소",
+   "first": "채",
+   "last": "소",
+   "level": "A1",
+   "german": "Gemüse",
+   "topic": "Essen & Trinken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "과일",
+   "first": "과",
+   "last": "일",
+   "level": "A1",
+   "german": "Obst",
+   "topic": "Essen & Trinken",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "라면",
+   "first": "라",
+   "last": "면",
+   "level": "A1",
+   "german": "Ramen / Instant-Nudeln",
+   "topic": "Essen & Trinken",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "김치",
+   "first": "김",
+   "last": "치",
+   "level": "A1",
+   "german": "Kimchi (fermentierter Kohl)",
+   "topic": "Essen & Trinken",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "사과",
+   "first": "사",
+   "last": "과",
+   "level": "A1",
+   "german": "Apfel",
+   "topic": "Essen & Trinken",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "계란",
+   "first": "계",
+   "last": "란",
+   "level": "A1",
+   "german": "Ei",
+   "topic": "Essen & Trinken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "화장실",
+   "first": "화",
+   "last": "실",
+   "level": "A1",
+   "german": "Toilette / Badezimmer",
+   "topic": "Alltag",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "편의점",
+   "first": "편",
+   "last": "점",
+   "level": "A1",
+   "german": "Convenience Store",
+   "topic": "Alltag",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "공원",
+   "first": "공",
+   "last": "원",
+   "level": "A1",
+   "german": "Park",
+   "topic": "Freizeit",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "도서관",
+   "first": "도",
+   "last": "관",
+   "level": "A1",
+   "german": "Bibliothek",
+   "topic": "Bildung",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "침대",
+   "first": "침",
+   "last": "대",
+   "level": "A1",
+   "german": "Bett",
+   "topic": "Alltag",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "의자",
+   "first": "의",
+   "last": "자",
+   "level": "A1",
+   "german": "Stuhl",
+   "topic": "Alltag",
+   "next_count": 14,
+   "is_dead_end": false
+  },
+  {
+   "word": "아침",
+   "first": "아",
+   "last": "침",
+   "level": "A1",
+   "german": "Morgen / Frühstück",
+   "topic": "Zeit",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "점심",
+   "first": "점",
+   "last": "심",
+   "level": "A1",
+   "german": "Mittag / Mittagessen",
+   "topic": "Zeit",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "저녁",
+   "first": "저",
+   "last": "녁",
+   "level": "A1",
+   "german": "Abend / Abendessen",
+   "topic": "Zeit",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "주말",
+   "first": "주",
+   "last": "말",
+   "level": "A1",
+   "german": "Wochenende",
+   "topic": "Zeit",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "회사",
+   "first": "회",
+   "last": "사",
+   "level": "A2",
+   "german": "Firma / Unternehmen",
+   "topic": "Beruf",
+   "next_count": 7,
+   "is_dead_end": false
+  },
+  {
+   "word": "직업",
+   "first": "직",
+   "last": "업",
+   "level": "A2",
+   "german": "Beruf",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "취미",
+   "first": "취",
+   "last": "미",
+   "level": "A2",
+   "german": "Hobby",
+   "topic": "Freizeit",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "날씨",
+   "first": "날",
+   "last": "씨",
+   "level": "A2",
+   "german": "Wetter",
+   "topic": "Wetter",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "계절",
+   "first": "계",
+   "last": "절",
+   "level": "A2",
+   "german": "Jahreszeit",
+   "topic": "Wetter",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "여름",
+   "first": "여",
+   "last": "름",
+   "level": "A2",
+   "german": "Sommer",
+   "topic": "Wetter",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "가을",
+   "first": "가",
+   "last": "을",
+   "level": "A2",
+   "german": "Herbst",
+   "topic": "Wetter",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "겨울",
+   "first": "겨",
+   "last": "울",
+   "level": "A2",
+   "german": "Winter",
+   "topic": "Wetter",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "병원",
+   "first": "병",
+   "last": "원",
+   "level": "A2",
+   "german": "Krankenhaus",
+   "topic": "Gesundheit",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "식당",
+   "first": "식",
+   "last": "당",
+   "level": "A2",
+   "german": "Restaurant",
+   "topic": "Essen & Trinken",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "시장",
+   "first": "시",
+   "last": "장",
+   "level": "A2",
+   "german": "Markt",
+   "topic": "Einkaufen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "은행",
+   "first": "은",
+   "last": "행",
+   "level": "A2",
+   "german": "Bank",
+   "topic": "Alltag",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "여행",
+   "first": "여",
+   "last": "행",
+   "level": "A2",
+   "german": "Reise",
+   "topic": "Reise",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "비행기",
+   "first": "비",
+   "last": "기",
+   "level": "A2",
+   "german": "Flugzeug",
+   "topic": "Verkehr",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "호텔",
+   "first": "호",
+   "last": "텔",
+   "level": "A2",
+   "german": "Hotel",
+   "topic": "Reise",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "음악",
+   "first": "음",
+   "last": "악",
+   "level": "A2",
+   "german": "Musik",
+   "topic": "Freizeit",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "영화",
+   "first": "영",
+   "last": "화",
+   "level": "A2",
+   "german": "Film",
+   "topic": "Freizeit",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "시험",
+   "first": "시",
+   "last": "험",
+   "level": "A2",
+   "german": "Prüfung / Test",
+   "topic": "Bildung",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "숙제",
+   "first": "숙",
+   "last": "제",
+   "level": "A2",
+   "german": "Hausaufgaben",
+   "topic": "Bildung",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "성적",
+   "first": "성",
+   "last": "적",
+   "level": "A2",
+   "german": "Noten / Ergebnis",
+   "topic": "Bildung",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "휴가",
+   "first": "휴",
+   "last": "가",
+   "level": "A2",
+   "german": "Urlaub / Freizeit",
+   "topic": "Beruf",
+   "next_count": 9,
+   "is_dead_end": false
+  },
+  {
+   "word": "회의",
+   "first": "회",
+   "last": "의",
+   "level": "A2",
+   "german": "Meeting / Besprechung",
+   "topic": "Beruf",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "택시",
+   "first": "택",
+   "last": "시",
+   "level": "A2",
+   "german": "Taxi",
+   "topic": "Verkehr",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "기차",
+   "first": "기",
+   "last": "차",
+   "level": "A2",
+   "german": "Zug / Bahn",
+   "topic": "Verkehr",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "자전거",
+   "first": "자",
+   "last": "거",
+   "level": "A2",
+   "german": "Fahrrad",
+   "topic": "Verkehr",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "전화",
+   "first": "전",
+   "last": "화",
+   "level": "A2",
+   "german": "Telefon / Anruf",
+   "topic": "Kommunikation",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "문자",
+   "first": "문",
+   "last": "자",
+   "level": "A2",
+   "german": "Nachricht (SMS)",
+   "topic": "Kommunikation",
+   "next_count": 14,
+   "is_dead_end": false
+  },
+  {
+   "word": "인터넷",
+   "first": "인",
+   "last": "넷",
+   "level": "A2",
+   "german": "Internet",
+   "topic": "Technologie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "컴퓨터",
+   "first": "컴",
+   "last": "터",
+   "level": "A2",
+   "german": "Computer",
+   "topic": "Technologie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "지갑",
+   "first": "지",
+   "last": "갑",
+   "level": "A2",
+   "german": "Geldbörse / Portemonnaie",
+   "topic": "Alltag",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "열쇠",
+   "first": "열",
+   "last": "쇠",
+   "level": "A2",
+   "german": "Schlüssel",
+   "topic": "Alltag",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "우산",
+   "first": "우",
+   "last": "산",
+   "level": "A2",
+   "german": "Regenschirm",
+   "topic": "Wetter",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "할인",
+   "first": "할",
+   "last": "인",
+   "level": "A2",
+   "german": "Rabatt / Ermäßigung",
+   "topic": "Einkaufen",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "영수증",
+   "first": "영",
+   "last": "증",
+   "level": "A2",
+   "german": "Quittung / Kassenbon",
+   "topic": "Einkaufen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "카드",
+   "first": "카",
+   "last": "드",
+   "level": "A2",
+   "german": "Kreditkarte / Karte",
+   "topic": "Einkaufen",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "경험",
+   "first": "경",
+   "last": "험",
+   "level": "B1",
+   "german": "Erfahrung",
+   "topic": "Alltag",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "문화",
+   "first": "문",
+   "last": "화",
+   "level": "B1",
+   "german": "Kultur",
+   "topic": "Gesellschaft",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "사회",
+   "first": "사",
+   "last": "회",
+   "level": "B1",
+   "german": "Gesellschaft",
+   "topic": "Gesellschaft",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "환경",
+   "first": "환",
+   "last": "경",
+   "level": "B1",
+   "german": "Umwelt",
+   "topic": "Umwelt",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "관계",
+   "first": "관",
+   "last": "계",
+   "level": "B1",
+   "german": "Beziehung / Verhältnis",
+   "topic": "Beziehungen",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "목표",
+   "first": "목",
+   "last": "표",
+   "level": "B1",
+   "german": "Ziel / Vorhaben",
+   "topic": "Motivation",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "방법",
+   "first": "방",
+   "last": "법",
+   "level": "B1",
+   "german": "Methode / Weg",
+   "topic": "Alltag",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "문제",
+   "first": "문",
+   "last": "제",
+   "level": "B1",
+   "german": "Problem / Aufgabe",
+   "topic": "Alltag",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "해결",
+   "first": "해",
+   "last": "결",
+   "level": "B1",
+   "german": "Lösung",
+   "topic": "Alltag",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "정치",
+   "first": "정",
+   "last": "치",
+   "level": "B1",
+   "german": "Politik",
+   "topic": "Gesellschaft",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "경제",
+   "first": "경",
+   "last": "제",
+   "level": "B1",
+   "german": "Wirtschaft",
+   "topic": "Gesellschaft",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "교육",
+   "first": "교",
+   "last": "육",
+   "level": "B1",
+   "german": "Bildung / Erziehung",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "건강",
+   "first": "건",
+   "last": "강",
+   "level": "B1",
+   "german": "Gesundheit",
+   "topic": "Gesundheit",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "기술",
+   "first": "기",
+   "last": "술",
+   "level": "B1",
+   "german": "Technologie / Technik",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "스트레스",
+   "first": "스",
+   "last": "스",
+   "level": "B1",
+   "german": "Stress",
+   "topic": "Alltag",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "습관",
+   "first": "습",
+   "last": "관",
+   "level": "B1",
+   "german": "Gewohnheit",
+   "topic": "Alltag",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "기회",
+   "first": "기",
+   "last": "회",
+   "level": "B1",
+   "german": "Gelegenheit / Chance",
+   "topic": "Motivation",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "과정",
+   "first": "과",
+   "last": "정",
+   "level": "B1",
+   "german": "Prozess / Vorgang",
+   "topic": "Bildung",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "상황",
+   "first": "상",
+   "last": "황",
+   "level": "B1",
+   "german": "Situation / Lage",
+   "topic": "Alltag",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "원인",
+   "first": "원",
+   "last": "인",
+   "level": "B1",
+   "german": "Ursache / Grund",
+   "topic": "Alltag",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "결과",
+   "first": "결",
+   "last": "과",
+   "level": "B1",
+   "german": "Ergebnis / Folge",
+   "topic": "Alltag",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "생각",
+   "first": "생",
+   "last": "각",
+   "level": "B1",
+   "german": "Gedanke / Meinung",
+   "topic": "Kommunikation",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "의견",
+   "first": "의",
+   "last": "견",
+   "level": "B1",
+   "german": "Meinung / Standpunkt",
+   "topic": "Kommunikation",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "이유",
+   "first": "이",
+   "last": "유",
+   "level": "B1",
+   "german": "Grund / Ursache",
+   "topic": "Alltag",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "조건",
+   "first": "조",
+   "last": "건",
+   "level": "B1",
+   "german": "Bedingung / Voraussetzung",
+   "topic": "Alltag",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "정보",
+   "first": "정",
+   "last": "보",
+   "level": "B1",
+   "german": "Information",
+   "topic": "Alltag",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "연락",
+   "first": "연",
+   "last": "락",
+   "level": "B1",
+   "german": "Kontakt / Kommunikation",
+   "topic": "Kommunikation",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "갈등",
+   "first": "갈",
+   "last": "등",
+   "level": "B2",
+   "german": "Konflikt",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "관점",
+   "first": "관",
+   "last": "점",
+   "level": "B2",
+   "german": "Standpunkt / Perspektive",
+   "topic": "Denken",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "가치관",
+   "first": "가",
+   "last": "관",
+   "level": "B2",
+   "german": "Wertvorstellung",
+   "topic": "Gesellschaft",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "논리",
+   "first": "논",
+   "last": "리",
+   "level": "B2",
+   "german": "Logik / Argumentation",
+   "topic": "Denken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "이론",
+   "first": "이",
+   "last": "론",
+   "level": "B2",
+   "german": "Theorie",
+   "topic": "Bildung",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "연구",
+   "first": "연",
+   "last": "구",
+   "level": "B2",
+   "german": "Forschung / Studie",
+   "topic": "Wissenschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "결론",
+   "first": "결",
+   "last": "론",
+   "level": "B2",
+   "german": "Schlussfolgerung / Fazit",
+   "topic": "Denken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "근거",
+   "first": "근",
+   "last": "거",
+   "level": "B2",
+   "german": "Grundlage / Beweis / Beleg",
+   "topic": "Denken",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "현상",
+   "first": "현",
+   "last": "상",
+   "level": "B2",
+   "german": "Phänomen / Erscheinung",
+   "topic": "Gesellschaft",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "전제",
+   "first": "전",
+   "last": "제",
+   "level": "B2",
+   "german": "Voraussetzung / Prämisse",
+   "topic": "Denken",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "맥락",
+   "first": "맥",
+   "last": "락",
+   "level": "B2",
+   "german": "Kontext / Zusammenhang",
+   "topic": "Denken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "복지",
+   "first": "복",
+   "last": "지",
+   "level": "B2",
+   "german": "Wohlfahrt / Sozialleistungen",
+   "topic": "Gesellschaft",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "민주주의",
+   "first": "민",
+   "last": "의",
+   "level": "B2",
+   "german": "Demokratie",
+   "topic": "Gesellschaft",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "자유",
+   "first": "자",
+   "last": "유",
+   "level": "B2",
+   "german": "Freiheit",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "하나",
+   "first": "하",
+   "last": "나",
+   "level": "A1",
+   "german": "eins (rein-koreanisch)",
+   "topic": "Zahlen",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "다섯",
+   "first": "다",
+   "last": "섯",
+   "level": "A1",
+   "german": "fünf (rein-koreanisch)",
+   "topic": "Zahlen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "여섯",
+   "first": "여",
+   "last": "섯",
+   "level": "A1",
+   "german": "sechs (rein-koreanisch)",
+   "topic": "Zahlen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "일곱",
+   "first": "일",
+   "last": "곱",
+   "level": "A1",
+   "german": "sieben (rein-koreanisch)",
+   "topic": "Zahlen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "여덟",
+   "first": "여",
+   "last": "덟",
+   "level": "A1",
+   "german": "acht (rein-koreanisch)",
+   "topic": "Zahlen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "아홉",
+   "first": "아",
+   "last": "홉",
+   "level": "A1",
+   "german": "neun (rein-koreanisch)",
+   "topic": "Zahlen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "시간",
+   "first": "시",
+   "last": "간",
+   "level": "A1",
+   "german": "Zeit / Stunde",
+   "topic": "Zeit",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "요일",
+   "first": "요",
+   "last": "일",
+   "level": "A1",
+   "german": "Wochentag",
+   "topic": "Zeit",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "월요일",
+   "first": "월",
+   "last": "일",
+   "level": "A1",
+   "german": "Montag",
+   "topic": "Zeit",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "화요일",
+   "first": "화",
+   "last": "일",
+   "level": "A1",
+   "german": "Dienstag",
+   "topic": "Zeit",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "수요일",
+   "first": "수",
+   "last": "일",
+   "level": "A1",
+   "german": "Mittwoch",
+   "topic": "Zeit",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "목요일",
+   "first": "목",
+   "last": "일",
+   "level": "A1",
+   "german": "Donnerstag",
+   "topic": "Zeit",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "금요일",
+   "first": "금",
+   "last": "일",
+   "level": "A1",
+   "german": "Freitag",
+   "topic": "Zeit",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "토요일",
+   "first": "토",
+   "last": "일",
+   "level": "A1",
+   "german": "Samstag",
+   "topic": "Zeit",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "일요일",
+   "first": "일",
+   "last": "일",
+   "level": "A1",
+   "german": "Sonntag",
+   "topic": "Zeit",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "아래",
+   "first": "아",
+   "last": "래",
+   "level": "A1",
+   "german": "unten / unter",
+   "topic": "Position",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "사이",
+   "first": "사",
+   "last": "이",
+   "level": "A1",
+   "german": "zwischen / Zwischenraum",
+   "topic": "Beziehungen",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "왼쪽",
+   "first": "왼",
+   "last": "쪽",
+   "level": "A1",
+   "german": "links",
+   "topic": "Position",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "오른쪽",
+   "first": "오",
+   "last": "쪽",
+   "level": "A1",
+   "german": "rechts",
+   "topic": "Position",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "여기",
+   "first": "여",
+   "last": "기",
+   "level": "A1",
+   "german": "hier",
+   "topic": "Position",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "거기",
+   "first": "거",
+   "last": "기",
+   "level": "A1",
+   "german": "da",
+   "topic": "Position",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "저기",
+   "first": "저",
+   "last": "기",
+   "level": "A1",
+   "german": "dort",
+   "topic": "Position",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "메뉴",
+   "first": "메",
+   "last": "뉴",
+   "level": "A2",
+   "german": "Menü / Speisekarte",
+   "topic": "Essen & Trinken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "배달",
+   "first": "배",
+   "last": "달",
+   "level": "A2",
+   "german": "Lieferdienst / Lieferung",
+   "topic": "Essen & Trinken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "사이즈",
+   "first": "사",
+   "last": "즈",
+   "level": "A2",
+   "german": "Größe",
+   "topic": "Einkaufen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "색깔",
+   "first": "색",
+   "last": "깔",
+   "level": "A2",
+   "german": "Farbe",
+   "topic": "Einkaufen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "환불",
+   "first": "환",
+   "last": "불",
+   "level": "A2",
+   "german": "Rückerstattung",
+   "topic": "Einkaufen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "교환",
+   "first": "교",
+   "last": "환",
+   "level": "A2",
+   "german": "Umtausch",
+   "topic": "Einkaufen",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "손님",
+   "first": "손",
+   "last": "님",
+   "level": "A2",
+   "german": "Kunde / Gast",
+   "topic": "Einkaufen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "점원",
+   "first": "점",
+   "last": "원",
+   "level": "A2",
+   "german": "Verkäufer/in",
+   "topic": "Einkaufen",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "신호등",
+   "first": "신",
+   "last": "등",
+   "level": "A2",
+   "german": "Ampel",
+   "topic": "Verkehr",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "횡단보도",
+   "first": "횡",
+   "last": "도",
+   "level": "A2",
+   "german": "Zebrastreifen",
+   "topic": "Verkehr",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "교차로",
+   "first": "교",
+   "last": "로",
+   "level": "A2",
+   "german": "Kreuzung",
+   "topic": "Verkehr",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "동료",
+   "first": "동",
+   "last": "료",
+   "level": "A2",
+   "german": "Kollege/in",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "사장",
+   "first": "사",
+   "last": "장",
+   "level": "A2",
+   "german": "Chef / Firmeninhaber",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "상사",
+   "first": "상",
+   "last": "사",
+   "level": "A2",
+   "german": "Vorgesetzte/r",
+   "topic": "Beruf",
+   "next_count": 7,
+   "is_dead_end": false
+  },
+  {
+   "word": "월급",
+   "first": "월",
+   "last": "급",
+   "level": "A2",
+   "german": "Monatsgehalt",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "면접",
+   "first": "면",
+   "last": "접",
+   "level": "A2",
+   "german": "Vorstellungsgespräch",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "분홍색",
+   "first": "분",
+   "last": "색",
+   "level": "A2",
+   "german": "rosa",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "보라색",
+   "first": "보",
+   "last": "색",
+   "level": "A2",
+   "german": "lila / violett",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "갈색",
+   "first": "갈",
+   "last": "색",
+   "level": "A2",
+   "german": "braun",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "회색",
+   "first": "회",
+   "last": "색",
+   "level": "A2",
+   "german": "grau",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "주황색",
+   "first": "주",
+   "last": "색",
+   "level": "A2",
+   "german": "orange",
+   "topic": "Farben",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "영상",
+   "first": "영",
+   "last": "상",
+   "level": "B1",
+   "german": "Video / Bildmaterial",
+   "topic": "Technologie",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "댓글",
+   "first": "댓",
+   "last": "글",
+   "level": "B1",
+   "german": "Kommentar (online)",
+   "topic": "Technologie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "좋아요",
+   "first": "좋",
+   "last": "요",
+   "level": "B1",
+   "german": "Like (Social Media)",
+   "topic": "Technologie",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "팔로워",
+   "first": "팔",
+   "last": "워",
+   "level": "B1",
+   "german": "Follower",
+   "topic": "Technologie",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "게시물",
+   "first": "게",
+   "last": "물",
+   "level": "B1",
+   "german": "Post / Beitrag",
+   "topic": "Technologie",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "다운로드",
+   "first": "다",
+   "last": "드",
+   "level": "B1",
+   "german": "Download",
+   "topic": "Technologie",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "마감",
+   "first": "마",
+   "last": "감",
+   "level": "B1",
+   "german": "Deadline / Abgabefrist",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "일정",
+   "first": "일",
+   "last": "정",
+   "level": "B1",
+   "german": "Terminplan / Zeitplan",
+   "topic": "Beruf",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "회의록",
+   "first": "회",
+   "last": "록",
+   "level": "B1",
+   "german": "Sitzungsprotokoll",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "다이어트",
+   "first": "다",
+   "last": "트",
+   "level": "B1",
+   "german": "Diät",
+   "topic": "Gesundheit",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "명상",
+   "first": "명",
+   "last": "상",
+   "level": "B1",
+   "german": "Meditation",
+   "topic": "Gesundheit",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "식단",
+   "first": "식",
+   "last": "단",
+   "level": "B1",
+   "german": "Ernährungsplan",
+   "topic": "Gesundheit",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "균형",
+   "first": "균",
+   "last": "형",
+   "level": "B1",
+   "german": "Balance / Gleichgewicht",
+   "topic": "Gesellschaft",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "휴식",
+   "first": "휴",
+   "last": "식",
+   "level": "B1",
+   "german": "Erholung / Pause",
+   "topic": "Alltag",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "취향",
+   "first": "취",
+   "last": "향",
+   "level": "B1",
+   "german": "Vorliebe / Geschmack",
+   "topic": "Beschreibung",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "의미",
+   "first": "의",
+   "last": "미",
+   "level": "B1",
+   "german": "Bedeutung / Sinn",
+   "topic": "Kommunikation",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "변화",
+   "first": "변",
+   "last": "화",
+   "level": "B1",
+   "german": "Veränderung / Wandel",
+   "topic": "Alltag",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "영향",
+   "first": "영",
+   "last": "향",
+   "level": "B1",
+   "german": "Einfluss / Wirkung",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "차이",
+   "first": "차",
+   "last": "이",
+   "level": "B1",
+   "german": "Unterschied",
+   "topic": "Beschreibung",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "공통점",
+   "first": "공",
+   "last": "점",
+   "level": "B1",
+   "german": "Gemeinsamkeit",
+   "topic": "Beziehungen",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "가능성",
+   "first": "가",
+   "last": "성",
+   "level": "B1",
+   "german": "Möglichkeit",
+   "topic": "Denken",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "한계",
+   "first": "한",
+   "last": "계",
+   "level": "B1",
+   "german": "Grenze / Limit",
+   "topic": "Denken",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "책임",
+   "first": "책",
+   "last": "임",
+   "level": "B1",
+   "german": "Verantwortung",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "책임감",
+   "first": "책",
+   "last": "감",
+   "level": "B1",
+   "german": "Verantwortungsbewusstsein",
+   "topic": "Beschreibung",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "협상",
+   "first": "협",
+   "last": "상",
+   "level": "B2",
+   "german": "Verhandlung",
+   "topic": "Beruf",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "계약",
+   "first": "계",
+   "last": "약",
+   "level": "B2",
+   "german": "Vertrag",
+   "topic": "Beruf",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "투자",
+   "first": "투",
+   "last": "자",
+   "level": "B2",
+   "german": "Investition",
+   "topic": "Gesellschaft",
+   "next_count": 14,
+   "is_dead_end": false
+  },
+  {
+   "word": "수익",
+   "first": "수",
+   "last": "익",
+   "level": "B2",
+   "german": "Gewinn / Ertrag",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "비용",
+   "first": "비",
+   "last": "용",
+   "level": "B2",
+   "german": "Kosten",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "생산성",
+   "first": "생",
+   "last": "성",
+   "level": "B2",
+   "german": "Produktivität",
+   "topic": "Beruf",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "경쟁력",
+   "first": "경",
+   "last": "력",
+   "level": "B2",
+   "german": "Wettbewerbsfähigkeit",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "전략",
+   "first": "전",
+   "last": "략",
+   "level": "B2",
+   "german": "Strategie",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "위기",
+   "first": "위",
+   "last": "기",
+   "level": "B2",
+   "german": "Krise",
+   "topic": "Gesellschaft",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "협업",
+   "first": "협",
+   "last": "업",
+   "level": "B2",
+   "german": "Zusammenarbeit (formell)",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "정책",
+   "first": "정",
+   "last": "책",
+   "level": "B2",
+   "german": "Politik / Strategie (staatlich)",
+   "topic": "Gesellschaft",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "제도",
+   "first": "제",
+   "last": "도",
+   "level": "B2",
+   "german": "System / Institution",
+   "topic": "Gesellschaft",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "의무",
+   "first": "의",
+   "last": "무",
+   "level": "B2",
+   "german": "Pflicht / Verpflichtung",
+   "topic": "Gesellschaft",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "평등",
+   "first": "평",
+   "last": "등",
+   "level": "B2",
+   "german": "Gleichheit / Gleichberechtigung",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "차별",
+   "first": "차",
+   "last": "별",
+   "level": "B2",
+   "german": "Diskriminierung",
+   "topic": "Gesellschaft",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "인권",
+   "first": "인",
+   "last": "권",
+   "level": "B2",
+   "german": "Menschenrechte",
+   "topic": "Gesellschaft",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "양극화",
+   "first": "양",
+   "last": "화",
+   "level": "B2",
+   "german": "Polarisierung / Spaltung",
+   "topic": "Gesellschaft",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "강점",
+   "first": "강",
+   "last": "점",
+   "level": "B2",
+   "german": "Stärke",
+   "topic": "Beruf",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "약점",
+   "first": "약",
+   "last": "점",
+   "level": "B2",
+   "german": "Schwäche",
+   "topic": "Beruf",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "경력",
+   "first": "경",
+   "last": "력",
+   "level": "B2",
+   "german": "Berufserfahrung / Werdegang",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "자격증",
+   "first": "자",
+   "last": "증",
+   "level": "B2",
+   "german": "Zertifikat / Qualifikation",
+   "topic": "Beruf",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "자신감",
+   "first": "자",
+   "last": "감",
+   "level": "B2",
+   "german": "Selbstvertrauen",
+   "topic": "Gefühle",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "끈기",
+   "first": "끈",
+   "last": "기",
+   "level": "B2",
+   "german": "Ausdauer / Beharrlichkeit",
+   "topic": "Beschreibung",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "잠재력",
+   "first": "잠",
+   "last": "력",
+   "level": "B2",
+   "german": "Potenzial",
+   "topic": "Beschreibung",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "동기",
+   "first": "동",
+   "last": "기",
+   "level": "B2",
+   "german": "Motivation / Anreiz",
+   "topic": "Motivation",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "분야",
+   "first": "분",
+   "last": "야",
+   "level": "B2",
+   "german": "Bereich / Fach / Gebiet",
+   "topic": "Bildung",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "전공",
+   "first": "전",
+   "last": "공",
+   "level": "B2",
+   "german": "Hauptfach / Studienfach",
+   "topic": "Bildung",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "학위",
+   "first": "학",
+   "last": "위",
+   "level": "B2",
+   "german": "akademischer Grad",
+   "topic": "Bildung",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "논문",
+   "first": "논",
+   "last": "문",
+   "level": "B2",
+   "german": "wissenschaftlicher Aufsatz / Arbeit",
+   "topic": "Bildung",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "통계",
+   "first": "통",
+   "last": "계",
+   "level": "B2",
+   "german": "Statistik",
+   "topic": "Denken",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "가설",
+   "first": "가",
+   "last": "설",
+   "level": "B2",
+   "german": "Hypothese",
+   "topic": "Denken",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "자식",
+   "first": "자",
+   "last": "식",
+   "level": "A2",
+   "german": "Kind / Sohn / Tochter",
+   "topic": "family",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "자녀",
+   "first": "자",
+   "last": "녀",
+   "level": "A2",
+   "german": "Kinder",
+   "topic": "family",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "자동차",
+   "first": "자",
+   "last": "차",
+   "level": "A1",
+   "german": "Auto",
+   "topic": "transport",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "자연",
+   "first": "자",
+   "last": "연",
+   "level": "A2",
+   "german": "Natur",
+   "topic": "nature",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "자료",
+   "first": "자",
+   "last": "료",
+   "level": "B1",
+   "german": "Material / Daten",
+   "topic": "work",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "자정",
+   "first": "자",
+   "last": "정",
+   "level": "B1",
+   "german": "Mitternacht",
+   "topic": "time",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "자판기",
+   "first": "자",
+   "last": "기",
+   "level": "B1",
+   "german": "Automat",
+   "topic": "shopping",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "저금",
+   "first": "저",
+   "last": "금",
+   "level": "B1",
+   "german": "Sparen",
+   "topic": "money",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "제목",
+   "first": "제",
+   "last": "목",
+   "level": "A2",
+   "german": "Titel",
+   "topic": "media",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "제주",
+   "first": "제",
+   "last": "주",
+   "level": "A2",
+   "german": "Jeju (Insel)",
+   "topic": "travel",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "경찰",
+   "first": "경",
+   "last": "찰",
+   "level": "A2",
+   "german": "Polizei",
+   "topic": "work",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "경기",
+   "first": "경",
+   "last": "기",
+   "level": "A2",
+   "german": "Spiel / Match",
+   "topic": "sports",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "경고",
+   "first": "경",
+   "last": "고",
+   "level": "B1",
+   "german": "Warnung",
+   "topic": "general",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "경복궁",
+   "first": "경",
+   "last": "궁",
+   "level": "A2",
+   "german": "Gyeongbokgung-Palast",
+   "topic": "travel",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "환자",
+   "first": "환",
+   "last": "자",
+   "level": "A2",
+   "german": "Patient",
+   "topic": "health",
+   "next_count": 14,
+   "is_dead_end": false
+  },
+  {
+   "word": "환영",
+   "first": "환",
+   "last": "영",
+   "level": "A1",
+   "german": "Willkommen",
+   "topic": "social",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "할머니",
+   "first": "할",
+   "last": "니",
+   "level": "A1",
+   "german": "Großmutter",
+   "topic": "family",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "할아버지",
+   "first": "할",
+   "last": "지",
+   "level": "A1",
+   "german": "Großvater",
+   "topic": "family",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "형제",
+   "first": "형",
+   "last": "제",
+   "level": "A2",
+   "german": "Geschwister",
+   "topic": "family",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "자매",
+   "first": "자",
+   "last": "매",
+   "level": "A2",
+   "german": "Schwestern",
+   "topic": "family",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "이웃",
+   "first": "이",
+   "last": "웃",
+   "level": "A2",
+   "german": "Nachbar",
+   "topic": "social",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "휴일",
+   "first": "휴",
+   "last": "일",
+   "level": "A2",
+   "german": "Feiertag",
+   "topic": "time",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "분",
+   "first": "분",
+   "last": "분",
+   "level": "A1",
+   "german": "Minute",
+   "topic": "time",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "내일",
+   "first": "내",
+   "last": "일",
+   "level": "A1",
+   "german": "Morgen (Tag)",
+   "topic": "time",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "어제",
+   "first": "어",
+   "last": "제",
+   "level": "A1",
+   "german": "Gestern",
+   "topic": "time",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "오늘",
+   "first": "오",
+   "last": "늘",
+   "level": "A1",
+   "german": "Heute",
+   "topic": "time",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "치즈",
+   "first": "치",
+   "last": "즈",
+   "level": "A1",
+   "german": "Käse",
+   "topic": "food",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "야채",
+   "first": "야",
+   "last": "채",
+   "level": "A1",
+   "german": "Gemüse",
+   "topic": "food",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "과자",
+   "first": "과",
+   "last": "자",
+   "level": "A1",
+   "german": "Snack",
+   "topic": "food",
+   "next_count": 14,
+   "is_dead_end": false
+  },
+  {
+   "word": "차",
+   "first": "차",
+   "last": "차",
+   "level": "A1",
+   "german": "Tee",
+   "topic": "food",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "맥주",
+   "first": "맥",
+   "last": "주",
+   "level": "A1",
+   "german": "Bier",
+   "topic": "food",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "우유",
+   "first": "우",
+   "last": "유",
+   "level": "A1",
+   "german": "Milch",
+   "topic": "food",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "빵",
+   "first": "빵",
+   "last": "빵",
+   "level": "A1",
+   "german": "Brot",
+   "topic": "food",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "밥",
+   "first": "밥",
+   "last": "밥",
+   "level": "A1",
+   "german": "Reis",
+   "topic": "food",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "국수",
+   "first": "국",
+   "last": "수",
+   "level": "A1",
+   "german": "Nudeln",
+   "topic": "food",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "떡",
+   "first": "떡",
+   "last": "떡",
+   "level": "A2",
+   "german": "Reiskuchen",
+   "topic": "food",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "치킨",
+   "first": "치",
+   "last": "킨",
+   "level": "A1",
+   "german": "Hähnchen",
+   "topic": "food",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "카페",
+   "first": "카",
+   "last": "페",
+   "level": "A1",
+   "german": "Café",
+   "topic": "food",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "주문",
+   "first": "주",
+   "last": "문",
+   "level": "A2",
+   "german": "Bestellung",
+   "topic": "food",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "눈",
+   "first": "눈",
+   "last": "눈",
+   "level": "A1",
+   "german": "Auge",
+   "topic": "body",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "코",
+   "first": "코",
+   "last": "코",
+   "level": "A1",
+   "german": "Nase",
+   "topic": "body",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "입",
+   "first": "입",
+   "last": "입",
+   "level": "A1",
+   "german": "Mund",
+   "topic": "body",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "귀",
+   "first": "귀",
+   "last": "귀",
+   "level": "A1",
+   "german": "Ohr",
+   "topic": "body",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "손",
+   "first": "손",
+   "last": "손",
+   "level": "A1",
+   "german": "Hand",
+   "topic": "body",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "발",
+   "first": "발",
+   "last": "발",
+   "level": "A1",
+   "german": "Fuß",
+   "topic": "body",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "얼굴",
+   "first": "얼",
+   "last": "굴",
+   "level": "A1",
+   "german": "Gesicht",
+   "topic": "body",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "팔",
+   "first": "팔",
+   "last": "팔",
+   "level": "A1",
+   "german": "Arm",
+   "topic": "body",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "공항",
+   "first": "공",
+   "last": "항",
+   "level": "A1",
+   "german": "Flughafen",
+   "topic": "travel",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "가방",
+   "first": "가",
+   "last": "방",
+   "level": "A1",
+   "german": "Tasche",
+   "topic": "travel",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "역",
+   "first": "역",
+   "last": "역",
+   "level": "A1",
+   "german": "Bahnhof",
+   "topic": "travel",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "서울",
+   "first": "서",
+   "last": "울",
+   "level": "A1",
+   "german": "Seoul",
+   "topic": "travel",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "부산",
+   "first": "부",
+   "last": "산",
+   "level": "A1",
+   "german": "Busan",
+   "topic": "travel",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "한국",
+   "first": "한",
+   "last": "국",
+   "level": "A1",
+   "german": "Korea",
+   "topic": "travel",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "독일",
+   "first": "독",
+   "last": "일",
+   "level": "A1",
+   "german": "Deutschland",
+   "topic": "travel",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "약국",
+   "first": "약",
+   "last": "국",
+   "level": "A1",
+   "german": "Apotheke",
+   "topic": "place",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "영화관",
+   "first": "영",
+   "last": "관",
+   "level": "A1",
+   "german": "Kino",
+   "topic": "place",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "가구",
+   "first": "가",
+   "last": "구",
+   "level": "A2",
+   "german": "Möbel",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "시계",
+   "first": "시",
+   "last": "계",
+   "level": "A1",
+   "german": "Uhr",
+   "topic": "general",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "지도",
+   "first": "지",
+   "last": "도",
+   "level": "A1",
+   "german": "Karte",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "사진",
+   "first": "사",
+   "last": "진",
+   "level": "A1",
+   "german": "Foto",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "편지",
+   "first": "편",
+   "last": "지",
+   "level": "A1",
+   "german": "Brief",
+   "topic": "general",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "운동",
+   "first": "운",
+   "last": "동",
+   "level": "A1",
+   "german": "Sport",
+   "topic": "sports",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "수영",
+   "first": "수",
+   "last": "영",
+   "level": "A1",
+   "german": "Schwimmen",
+   "topic": "sports",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "축구",
+   "first": "축",
+   "last": "구",
+   "level": "A1",
+   "german": "Fußball",
+   "topic": "sports",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "야구",
+   "first": "야",
+   "last": "구",
+   "level": "A1",
+   "german": "Baseball",
+   "topic": "sports",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "농구",
+   "first": "농",
+   "last": "구",
+   "level": "A1",
+   "german": "Basketball",
+   "topic": "sports",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "비",
+   "first": "비",
+   "last": "비",
+   "level": "A1",
+   "german": "Regen",
+   "topic": "weather",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "바람",
+   "first": "바",
+   "last": "람",
+   "level": "A1",
+   "german": "Wind",
+   "topic": "weather",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "태양",
+   "first": "태",
+   "last": "양",
+   "level": "A2",
+   "german": "Sonne",
+   "topic": "weather",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "산",
+   "first": "산",
+   "last": "산",
+   "level": "A1",
+   "german": "Berg",
+   "topic": "nature",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "바다",
+   "first": "바",
+   "last": "다",
+   "level": "A1",
+   "german": "Meer",
+   "topic": "nature",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "강",
+   "first": "강",
+   "last": "강",
+   "level": "A1",
+   "german": "Fluss",
+   "topic": "nature",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "나무",
+   "first": "나",
+   "last": "무",
+   "level": "A1",
+   "german": "Baum",
+   "topic": "nature",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "꽃",
+   "first": "꽃",
+   "last": "꽃",
+   "level": "A1",
+   "german": "Blume",
+   "topic": "nature",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "동물",
+   "first": "동",
+   "last": "물",
+   "level": "A1",
+   "german": "Tier",
+   "topic": "nature",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "고양이",
+   "first": "고",
+   "last": "이",
+   "level": "A1",
+   "german": "Katze",
+   "topic": "nature",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "강아지",
+   "first": "강",
+   "last": "지",
+   "level": "A1",
+   "german": "Welpe",
+   "topic": "nature",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "호랑이",
+   "first": "호",
+   "last": "이",
+   "level": "A1",
+   "german": "Tiger",
+   "topic": "nature",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "까치",
+   "first": "까",
+   "last": "치",
+   "level": "A2",
+   "german": "Elster",
+   "topic": "nature",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "일",
+   "first": "일",
+   "last": "일",
+   "level": "A1",
+   "german": "Arbeit",
+   "topic": "work",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "이메일",
+   "first": "이",
+   "last": "일",
+   "level": "A2",
+   "german": "E-Mail",
+   "topic": "work",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "책",
+   "first": "책",
+   "last": "책",
+   "level": "A1",
+   "german": "Buch",
+   "topic": "education",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "공책",
+   "first": "공",
+   "last": "책",
+   "level": "A1",
+   "german": "Notizbuch",
+   "topic": "education",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "연필",
+   "first": "연",
+   "last": "필",
+   "level": "A1",
+   "german": "Bleistift",
+   "topic": "education",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "수업",
+   "first": "수",
+   "last": "업",
+   "level": "A1",
+   "german": "Unterricht",
+   "topic": "education",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "스마트폰",
+   "first": "스",
+   "last": "폰",
+   "level": "A1",
+   "german": "Smartphone",
+   "topic": "tech",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "노래",
+   "first": "노",
+   "last": "래",
+   "level": "A1",
+   "german": "Lied",
+   "topic": "media",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "사랑",
+   "first": "사",
+   "last": "랑",
+   "level": "A1",
+   "german": "Liebe",
+   "topic": "feelings",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "행복",
+   "first": "행",
+   "last": "복",
+   "level": "A2",
+   "german": "Glück",
+   "topic": "feelings",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "웃음",
+   "first": "웃",
+   "last": "음",
+   "level": "A2",
+   "german": "Lächeln",
+   "topic": "feelings",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "기쁨",
+   "first": "기",
+   "last": "쁨",
+   "level": "B1",
+   "german": "Freude",
+   "topic": "feelings",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "생일",
+   "first": "생",
+   "last": "일",
+   "level": "A1",
+   "german": "Geburtstag",
+   "topic": "social",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "선물",
+   "first": "선",
+   "last": "물",
+   "level": "A1",
+   "german": "Geschenk",
+   "topic": "social",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "축하",
+   "first": "축",
+   "last": "하",
+   "level": "A2",
+   "german": "Glückwunsch",
+   "topic": "social",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "파티",
+   "first": "파",
+   "last": "티",
+   "level": "A1",
+   "german": "Party",
+   "topic": "social",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "돈",
+   "first": "돈",
+   "last": "돈",
+   "level": "A1",
+   "german": "Geld",
+   "topic": "money",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "가격",
+   "first": "가",
+   "last": "격",
+   "level": "A1",
+   "german": "Preis",
+   "topic": "money",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "봄",
+   "first": "봄",
+   "last": "봄",
+   "level": "A1",
+   "german": "Frühling",
+   "topic": "time",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "그래",
+   "first": "그",
+   "last": "래",
+   "level": "A1",
+   "german": "ja / genau",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "그리고",
+   "first": "그",
+   "last": "고",
+   "level": "A1",
+   "german": "und",
+   "topic": "general",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "우리",
+   "first": "우",
+   "last": "리",
+   "level": "A1",
+   "german": "wir",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "무슨",
+   "first": "무",
+   "last": "슨",
+   "level": "A1",
+   "german": "was für ein / welche",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "하지만",
+   "first": "하",
+   "last": "만",
+   "level": "A1",
+   "german": "aber",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "그냥",
+   "first": "그",
+   "last": "냥",
+   "level": "A1",
+   "german": "einfach (so)",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "정말",
+   "first": "정",
+   "last": "말",
+   "level": "A1",
+   "german": "wirklich / tatsächlich",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "그럼",
+   "first": "그",
+   "last": "럼",
+   "level": "A1",
+   "german": "dann / also",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "이제",
+   "first": "이",
+   "last": "제",
+   "level": "A1",
+   "german": "jetzt / nun",
+   "topic": "general",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "지금",
+   "first": "지",
+   "last": "금",
+   "level": "A1",
+   "german": "jetzt / gerade",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "좋아",
+   "first": "좋",
+   "last": "아",
+   "level": "A1",
+   "german": "gut / okay",
+   "topic": "general",
+   "next_count": 9,
+   "is_dead_end": false
+  },
+  {
+   "word": "다른",
+   "first": "다",
+   "last": "른",
+   "level": "A1",
+   "german": "andere/r/s",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "너무",
+   "first": "너",
+   "last": "무",
+   "level": "A1",
+   "german": "zu sehr / sehr",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "모든",
+   "first": "모",
+   "last": "든",
+   "level": "A1",
+   "german": "alle / sämtliche",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "같이",
+   "first": "같",
+   "last": "이",
+   "level": "A1",
+   "german": "zusammen / gemeinsam",
+   "topic": "general",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "아직",
+   "first": "아",
+   "last": "직",
+   "level": "A1",
+   "german": "noch",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "진짜",
+   "first": "진",
+   "last": "짜",
+   "level": "A1",
+   "german": "echt / wirklich (umgangssprachlich)",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "같은",
+   "first": "같",
+   "last": "은",
+   "level": "A1",
+   "german": "gleich / dasselbe",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "빨리",
+   "first": "빨",
+   "last": "리",
+   "level": "A1",
+   "german": "schnell / beeile dich",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "이거",
+   "first": "이",
+   "last": "거",
+   "level": "A1",
+   "german": "das (hier)",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "안녕",
+   "first": "안",
+   "last": "녕",
+   "level": "A1",
+   "german": "Hallo / Tschüss (informell)",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "많이",
+   "first": "많",
+   "last": "이",
+   "level": "A1",
+   "german": "viel / sehr",
+   "topic": "general",
+   "next_count": 8,
+   "is_dead_end": false
+  },
+  {
+   "word": "고마워요",
+   "first": "고",
+   "last": "요",
+   "level": "A1",
+   "german": "Danke (informell)",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "항상",
+   "first": "항",
+   "last": "상",
+   "level": "A1",
+   "german": "immer",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "잠깐",
+   "first": "잠",
+   "last": "깐",
+   "level": "A1",
+   "german": "kurz / einen Moment",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "그거",
+   "first": "그",
+   "last": "거",
+   "level": "A1",
+   "german": "das (da)",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "절대",
+   "first": "절",
+   "last": "대",
+   "level": "A2",
+   "german": "niemals / auf keinen Fall",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "당장",
+   "first": "당",
+   "last": "장",
+   "level": "A2",
+   "german": "sofort",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "그래도",
+   "first": "그",
+   "last": "도",
+   "level": "A2",
+   "german": "trotzdem",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "전부",
+   "first": "전",
+   "last": "부",
+   "level": "A2",
+   "german": "alles / komplett",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "미안해",
+   "first": "미",
+   "last": "해",
+   "level": "A2",
+   "german": "Entschuldigung / tut mir leid",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "어때",
+   "first": "어",
+   "last": "때",
+   "level": "A2",
+   "german": "wie wär's? / wie ist es?",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "아마",
+   "first": "아",
+   "last": "마",
+   "level": "A2",
+   "german": "vielleicht / wahrscheinlich",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "혼자",
+   "first": "혼",
+   "last": "자",
+   "level": "A2",
+   "german": "alleine",
+   "topic": "general",
+   "next_count": 14,
+   "is_dead_end": false
+  },
+  {
+   "word": "물론",
+   "first": "물",
+   "last": "론",
+   "level": "A2",
+   "german": "natürlich",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "미안해요",
+   "first": "미",
+   "last": "요",
+   "level": "A2",
+   "german": "Es tut mir leid",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "아니요",
+   "first": "아",
+   "last": "요",
+   "level": "A2",
+   "german": "Nein",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "완전히",
+   "first": "완",
+   "last": "히",
+   "level": "A2",
+   "german": "völlig / komplett",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "벌써",
+   "first": "벌",
+   "last": "써",
+   "level": "A2",
+   "german": "schon",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "조금",
+   "first": "조",
+   "last": "금",
+   "level": "A2",
+   "german": "ein bisschen / etwas",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "확실히",
+   "first": "확",
+   "last": "히",
+   "level": "A2",
+   "german": "sicher / bestimmt",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "별로",
+   "first": "별",
+   "last": "로",
+   "level": "A2",
+   "german": "nicht besonders",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "여전히",
+   "first": "여",
+   "last": "히",
+   "level": "A2",
+   "german": "immer noch",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "어쩌면",
+   "first": "어",
+   "last": "면",
+   "level": "A2",
+   "german": "vielleicht",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "갑자기",
+   "first": "갑",
+   "last": "기",
+   "level": "A2",
+   "german": "plötzlich",
+   "topic": "general",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "매일",
+   "first": "매",
+   "last": "일",
+   "level": "A2",
+   "german": "jeden Tag / täglich",
+   "topic": "general",
+   "next_count": 5,
+   "is_dead_end": false
+  },
+  {
+   "word": "금방",
+   "first": "금",
+   "last": "방",
+   "level": "B1",
+   "german": "gleich / sofort",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "결국",
+   "first": "결",
+   "last": "국",
+   "level": "B1",
+   "german": "schließlich / letztendlich",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "조용히",
+   "first": "조",
+   "last": "히",
+   "level": "B1",
+   "german": "leise",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "게다가",
+   "first": "게",
+   "last": "가",
+   "level": "B1",
+   "german": "außerdem / darüber hinaus",
+   "topic": "general",
+   "next_count": 9,
+   "is_dead_end": false
+  },
+  {
+   "word": "역시",
+   "first": "역",
+   "last": "시",
+   "level": "B1",
+   "german": "wie erwartet / auch",
+   "topic": "general",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "천천히",
+   "first": "천",
+   "last": "히",
+   "level": "B1",
+   "german": "langsam",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "가끔",
+   "first": "가",
+   "last": "끔",
+   "level": "B1",
+   "german": "manchmal / gelegentlich",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "잠시만요",
+   "first": "잠",
+   "last": "요",
+   "level": "B1",
+   "german": "Einen Moment bitte",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "특히",
+   "first": "특",
+   "last": "히",
+   "level": "B1",
+   "german": "besonders / vor allem",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "얼마",
+   "first": "얼",
+   "last": "마",
+   "level": "B1",
+   "german": "wie viel (Geld)",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "자주",
+   "first": "자",
+   "last": "주",
+   "level": "B1",
+   "german": "oft",
+   "topic": "general",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "저거",
+   "first": "저",
+   "last": "거",
+   "level": "B1",
+   "german": "das (dort)",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "드디어",
+   "first": "드",
+   "last": "어",
+   "level": "B1",
+   "german": "endlich / schließlich",
+   "topic": "general",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "일찍",
+   "first": "일",
+   "last": "찍",
+   "level": "B1",
+   "german": "früh",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "위대한",
+   "first": "위",
+   "last": "한",
+   "level": "B2",
+   "german": "großartig",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "이리와",
+   "first": "이",
+   "last": "와",
+   "level": "B2",
+   "german": "komm her",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "보통",
+   "first": "보",
+   "last": "통",
+   "level": "B2",
+   "german": "normalerweise / gewöhnlich",
+   "topic": "general",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "들어와",
+   "first": "들",
+   "last": "와",
+   "level": "B2",
+   "german": "komm rein",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "진정한",
+   "first": "진",
+   "last": "한",
+   "level": "B2",
+   "german": "wahr / echt",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "마침내",
+   "first": "마",
+   "last": "내",
+   "level": "B2",
+   "german": "endlich",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "늦게",
+   "first": "늦",
+   "last": "게",
+   "level": "B2",
+   "german": "spät",
+   "topic": "general",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "따라서",
+   "first": "따",
+   "last": "서",
+   "level": "B2",
+   "german": "daher / deshalb / folglich",
+   "topic": "general",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "오히려",
+   "first": "오",
+   "last": "려",
+   "level": "B2",
+   "german": "eher / vielmehr",
+   "topic": "general",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "거실",
+   "first": "거",
+   "last": "실",
+   "level": "A2",
+   "german": "Wohnzimmer",
+   "topic": "Wohnen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "부엌",
+   "first": "부",
+   "last": "엌",
+   "level": "A2",
+   "german": "Küche",
+   "topic": "Wohnen",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "냉장고",
+   "first": "냉",
+   "last": "고",
+   "level": "A2",
+   "german": "Kühlschrank",
+   "topic": "Wohnen",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "세탁기",
+   "first": "세",
+   "last": "기",
+   "level": "A2",
+   "german": "Waschmaschine",
+   "topic": "Wohnen",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "청소기",
+   "first": "청",
+   "last": "기",
+   "level": "A2",
+   "german": "Staubsauger",
+   "topic": "Wohnen",
+   "next_count": 4,
+   "is_dead_end": false
+  },
+  {
+   "word": "월세",
+   "first": "월",
+   "last": "세",
+   "level": "A2",
+   "german": "Monatsmiete",
+   "topic": "Wohnen",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "보증금",
+   "first": "보",
+   "last": "금",
+   "level": "A2",
+   "german": "Kaution",
+   "topic": "Wohnen",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "집주인",
+   "first": "집",
+   "last": "인",
+   "level": "A2",
+   "german": "Vermieter",
+   "topic": "Wohnen",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "현금",
+   "first": "현",
+   "last": "금",
+   "level": "A2",
+   "german": "Bargeld",
+   "topic": "Geld",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "통장",
+   "first": "통",
+   "last": "장",
+   "level": "A2",
+   "german": "Bankbuch",
+   "topic": "Geld",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "잔액",
+   "first": "잔",
+   "last": "액",
+   "level": "A2",
+   "german": "Kontostand",
+   "topic": "Geld",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "수수료",
+   "first": "수",
+   "last": "료",
+   "level": "A2",
+   "german": "Gebühr",
+   "topic": "Geld",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "통화",
+   "first": "통",
+   "last": "화",
+   "level": "A2",
+   "german": "Währung",
+   "topic": "Geld",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "온난화",
+   "first": "온",
+   "last": "화",
+   "level": "B2",
+   "german": "Erwärmung",
+   "topic": "Umwelt",
+   "next_count": 2,
+   "is_dead_end": false
+  },
+  {
+   "word": "오염",
+   "first": "오",
+   "last": "염",
+   "level": "B2",
+   "german": "Verschmutzung",
+   "topic": "Umwelt",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "배출",
+   "first": "배",
+   "last": "출",
+   "level": "B2",
+   "german": "Ausstoß",
+   "topic": "Umwelt",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "재활용",
+   "first": "재",
+   "last": "용",
+   "level": "B2",
+   "german": "Recycling",
+   "topic": "Umwelt",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "멸종",
+   "first": "멸",
+   "last": "종",
+   "level": "B2",
+   "german": "Aussterben",
+   "topic": "Umwelt",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "생태계",
+   "first": "생",
+   "last": "계",
+   "level": "B2",
+   "german": "Ökosystem",
+   "topic": "Umwelt",
+   "next_count": 3,
+   "is_dead_end": false
+  },
+  {
+   "word": "자원",
+   "first": "자",
+   "last": "원",
+   "level": "B2",
+   "german": "Ressource",
+   "topic": "Umwelt",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "폐기물",
+   "first": "폐",
+   "last": "물",
+   "level": "B2",
+   "german": "Abfall",
+   "topic": "Umwelt",
+   "next_count": 1,
+   "is_dead_end": false
+  },
+  {
+   "word": "태양광",
+   "first": "태",
+   "last": "광",
+   "level": "B2",
+   "german": "Solarenergie",
+   "topic": "Umwelt",
+   "next_count": 0,
+   "is_dead_end": true
+  },
+  {
+   "word": "온실가스",
+   "first": "온",
+   "last": "스",
+   "level": "B2",
+   "german": "Treibhausgas",
+   "topic": "Umwelt",
+   "next_count": 2,
+   "is_dead_end": false
+  }
+ ]
 }
