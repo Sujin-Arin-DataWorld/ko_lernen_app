@@ -5089,6 +5089,18 @@ abstract class AppL10n {
   /// **'Warum ich lerne'**
   String get motivationChangeLabel;
 
+  /// No description provided for @homeDailyGoalLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Tagesziel'**
+  String get homeDailyGoalLabel;
+
+  /// No description provided for @homeDailyGoalDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Tagesziel erreicht!'**
+  String get homeDailyGoalDone;
+
   /// No description provided for @practiceSecLearn.
   ///
   /// In de, this message translates to:

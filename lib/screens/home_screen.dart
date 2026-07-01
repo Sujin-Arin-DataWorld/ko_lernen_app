@@ -442,6 +442,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: Spacing.md),
 
+                      // ── C2. 일일 목표 진행 (모멘텀 — 리텐션) ──
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 120),
+                        slideY: 14,
+                        child: const _DailyGoalCard(),
+                      ),
+                      const SizedBox(height: Spacing.md),
+
                       // ── D. 주 CTA — 듀오링고식 단일 행동: "열면 바로 뭘 할지"
                       //    현재 진행 팩으로 직행 (없으면 학습 경로로) ──
                       SoriEntrance(
@@ -1031,6 +1039,69 @@ class _BubbleTailPainter extends CustomPainter {
 // ════════════════════════════════════════════════════════════════════════
 // C. Inline stat chip row — streak · XP · shield
 // ════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════════════
+// C2. Daily goal progress — 오늘 XP / 목표 (모멘텀·리텐션)
+// ════════════════════════════════════════════════════════════════════════
+class _DailyGoalCard extends StatelessWidget {
+  const _DailyGoalCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final today = Storage.xpToday;
+    final goal = Storage.dailyGoalXp;
+    final done = goal > 0 && today >= goal;
+    final ratio = goal > 0 ? (today / goal).clamp(0.0, 1.0) : 0.0;
+    final accent = done ? SoriColors.success : SoriColors.tiger;
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                done ? Icons.check_circle_rounded : Icons.flag_outlined,
+                size: 18,
+                color: accent,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  done ? t.homeDailyGoalDone : t.homeDailyGoalLabel,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 13,
+                    fontWeight: FontWeight.w800,
+                    color: s.text,
+                    letterSpacing: -0.2,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '$today/$goal XP',
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: s.textMuted,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          SoriProgressBar(value: ratio, color: accent),
+        ],
+      ),
+    );
+  }
+}
+
 class _StatChipRow extends StatelessWidget {
   final int streak;
   final int xp;

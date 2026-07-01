@@ -668,7 +668,39 @@ class Storage {
   static int get xp => _i('kl_xp');
   static int get xpLevel => (xp ~/ 100) + 1;
   static int get xpToNext => 100 - (xp % 100);
-  static Future<void> addXp(int amount) => _si('kl_xp', xp + amount);
+  static Future<void> addXp(int amount) async {
+    await _si('kl_xp', xp + amount);
+    await _bumpXpToday(amount);
+  }
+
+  // ───────── Tagesziel (일일 목표 진행 — 리텐션 모멘텀) ─────────
+  /// 오늘 획득한 XP(자정 리셋). 저장 날짜가 오늘이 아니면 0.
+  static int get xpToday => xpTodayValue(
+    _s('kl_xp_today_date'),
+    _i('kl_xp_today_raw'),
+    _isoOf(DateTime.now()),
+  );
+
+  /// 순수 함수(테스트 대상) — 저장 날짜가 오늘이면 raw, 아니면 0(자정 리셋).
+  @visibleForTesting
+  static int xpTodayValue(String storedDate, int storedRaw, String today) =>
+      storedDate == today ? storedRaw : 0;
+
+  /// 일일 목표 XP — 온보딩 분 목표(dailyGoalMinutes)에서 파생(3 XP/분), 미설정 시 30.
+  static int get dailyGoalXp {
+    final m = dailyGoalMinutes;
+    return m > 0 ? m * 3 : 30;
+  }
+
+  static Future<void> _bumpXpToday(int amount) async {
+    final today = _isoOf(DateTime.now());
+    if (_s('kl_xp_today_date') != today) {
+      await _ss('kl_xp_today_date', today);
+      await _si('kl_xp_today_raw', amount);
+    } else {
+      await _si('kl_xp_today_raw', _i('kl_xp_today_raw') + amount);
+    }
+  }
 
   // ── Persönliche Bestleistung pro Spiel (Highscore) ──────────────────
   // Eine JSON-Map gameId -> best (int). Selbst-Wettbewerb, KEINE Ranglisten.

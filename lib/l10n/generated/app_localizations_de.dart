@@ -2758,6 +2758,12 @@ class AppL10nDe extends AppL10n {
   String get motivationChangeLabel => 'Warum ich lerne';
 
   @override
+  String get homeDailyGoalLabel => 'Tagesziel';
+
+  @override
+  String get homeDailyGoalDone => 'Tagesziel erreicht!';
+
+  @override
   String get practiceSecLearn => 'Lernen';
 
   @override
