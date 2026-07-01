@@ -13,6 +13,11 @@
 
 **총 CONFIRMED 14 → 수정 7(커밋) · 보고 7(Jin/후속).** 거짓양성은 적대적 verify가 전부 기각.
 
+### 진행 갱신 (후속 커밋)
+- **#6 매칭 소프트락 · #12 all-in 주경계** → ✅ 수정·푸시 (`b65e6d4`).
+- **#2 memberCount ±1 제약 · #10 feed type 화이트리스트** → firestore.rules에 **diff 반영**(아래 커밋). ⚠️ **미테스트 — Jin이 `firebase emulators` 검증 후 `firebase deploy --only firestore:rules`**. 절대 10명 상한(#2)·연령(#7)·계 상한(#11)은 여전히 **CF 필요**.
+- **#3 정지멤버 자가해제** → 순수 rules로 완결 불가(삭제 후 재생성). 권장 설계 = **CF/owner만 쓰는 `bans/{uid}` doc + `isActiveGyeMember`가 확인** (rules+CF 동반, Jin). 미반영.
+
 ## ✅ 수정 완료 (커밋·푸시)
 
 | # | 심각도 | 위치 | 결함 | 커밋 |

@@ -50,11 +50,21 @@ service cloud.firestore {
         && request.resource.data.code == gyeId
         && request.resource.data.memberCount == 1;
       // 계장은 전체 수정; 멤버는 memberCount 단일 필드만(가입/탈퇴 카운트).
+      // Härtung (defect-hunt #2): Nicht-Owner dürfen memberCount nur um ±1
+      // ändern (Beitritt/Austritt) — keine willkürlichen Werte (z.B. 9999 zum
+      // Blockieren aller Joins oder 5 zum Platzschaffen). ⚠️ Das absolute
+      // 10er-Limit braucht weiterhin eine Cloud Function (Rules können die
+      // members-Subcollection nicht zählen). ⚠️ Jin: emulators-Test vor Deploy.
       allow update: if isGyeOwner(gyeId)
         || (request.auth != null
             && request.resource.data.diff(resource.data).affectedKeys()
                  .hasOnly(['memberCount'])
-            && request.resource.data.memberCount is int);
+            && request.resource.data.memberCount is int
+            && request.resource.data.memberCount >= 1
+            && (request.resource.data.memberCount
+                  == resource.data.memberCount + 1
+                || request.resource.data.memberCount
+                  == resource.data.memberCount - 1));
       allow delete: if isGyeOwner(gyeId);
 
       match /members/{memberUid} {
@@ -76,8 +86,13 @@ service cloud.firestore {
       match /feed/{eventId} {
         allow read: if isGyeMember(gyeId);
         // 정지된 멤버는 전송 불가 (active 멤버만 append).
+        // Härtung (defect-hunt #10): nur bekannte Event-Typen — kein Einschleusen
+        // gefälschter goal_achieved/all_in oder beliebiger type-Strings.
+        // ⚠️ Jin: emulators-Test vor Deploy (Liste == GyeFeedTypeWire.wire).
         allow create: if isActiveGyeMember(gyeId)
-          && request.resource.data.actorUid == request.auth.uid;
+          && request.resource.data.actorUid == request.auth.uid
+          && request.resource.data.type in ['pack_cleared', 'quest_completed',
+              'level_up', 'goal_achieved', 'all_in', 'sticker', 'cheer'];
         allow update, delete: if false; // Cloud Function(admin)만 정리
       }
 

@@ -325,7 +325,9 @@ flutter run -d <android-id>   # 안드로이드
 - `6e0cdec` daily_challenge 완료 RangeError(`_idx==length && _outcome==null` 창 → 인덱스-only 가드, 형제화면과 통일).
 - `4e07b74`(6건): 🔴**프리미엄 게이트 우회** learning_path·home 경로노드(A2/B1/B2를 게이트 없이 오픈 → vocab_packs와 동일 게이트) · premium_service 로그아웃 시 `_boundUid` 미리셋(→리셋+logOut) · kkeunmari 빈풀 pickStart RangeError(→빈풀 가드+mounted) · book_capture await 후 setState 4곳 mounted 가드 · book_result 다이얼로그 controller 미dispose.
 
-**보고(미수정 7 — Jin 영역):** firestore.rules 보안 3(#2 10명상한 서버 미강제·memberCount 임의조작 / #3 정지멤버 자가해제 / #10 feed 무검증 주입) = **에뮬레이터 테스트 후 Jin 배포** · CF 강제 2(#7 연령 · #11 계 상한) · 후속 클라 2(#6 매칭 소프트락 · #12 all-in 주경계). 상세·제안픽스 = SSoT 문서.
+**보고(미수정 7 — Jin 영역):** firestore.rules 보안 3(#2 10명상한 서버 미강제·memberCount 임의조작 / #3 정지멤버 자가해제 / #10 feed 무검증 주입) · CF 강제 2(#7 연령 · #11 계 상한) · 후속 클라 2(#6 매칭 소프트락 · #12 all-in 주경계). 상세·제안픽스 = SSoT 문서.
+
+**후속 처리(Jin "진행해"):** 후속 클라 2건 수정·푸시 `b65e6d4`(#6 `_newRound` 중복 gloss 배제 / #12 `_weekKey` 월요일 정렬). firestore.rules **#2(memberCount ±1 제약)·#10(feed type 화이트리스트=GyeFeedTypeWire 7종) diff 반영**(⚠️ 미테스트 — Jin `firebase emulators` 후 배포). #3은 순수 rules 불가(권장: CF/owner-write `bans/{uid}` + isActiveGyeMember 확인), #2 절대상한·#7·#11은 CF 필요 → 미반영·문서화.
 
 **검증:** `flutter analyze lib test` **0** · `flutter test` **491 통과** · dart format. 커밋 내 파일만 명시 스테이징.
 
