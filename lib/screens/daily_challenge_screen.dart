@@ -131,7 +131,12 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
         body: const Center(child: CircularProgressIndicator()),
       );
     }
-    if (_idx >= _round.length && _outcome != null) {
+    // Index-only Guard (wie cloze/satz_arcade): _outcome wird erst nach den
+    // async SharedPreferences-Writes gesetzt — ohne diese Reihenfolge gäbe es
+    // im Fenster _idx==length && _outcome==null einen RangeError auf _round[_idx].
+    // _buildDone liest _outcome defensiv (?.), rendert also auch während des
+    // kurzen Fensters korrekt.
+    if (_idx >= _round.length) {
       return _buildDone(t);
     }
     if (_round.isEmpty) {
