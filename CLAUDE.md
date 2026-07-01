@@ -315,7 +315,22 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
-### 2026-07-01 (DE/KO/EN 원어민 자연스러움 전수 재검사) — 미커밋
+### 2026-07-01 (후속 — 오류 진단 피드백 "왜 틀렸는지" + Phase 2 재스코핑) — 커밋·푸시
+
+**범위:** 자연스러움 감사 후 "또 뭘?" → 실측 조사(Explore 2)로 **출시·수익화 차단은 전부 Jin 운영**(rules 배포·AAB·실기기·RevenueCat 대시보드), **코드 레버 = 산출/오류피드백 갭** 확인. Jin 방향 = **오류피드백+산출 강화**. 프로토콜: phase마다 검증→더블체크→커밋→다음, 전부 완료 시 push. plan `squishy-munching-fox.md`.
+
+**Phase 1 — 오류 진단(커밋 6f63b35):** 산출 퀘스트가 오답 시 위치 하이라이트만 주던 걸 **틀린 유형 진단**으로 강화. 오프라인·결정적·순수함수(기존 채점함수 패턴). QuestResult(별점/진행) 불변 = 회귀 0.
+- `satz_bauen_quest`: `SatzError{order,particle,tooMany,tooFew,word}` + `diagnose()` + `stripJosa()`(조사 사전 어간추출). 답영역 아래 진단 라인. **정답은 항상 none(오진단 0)**.
+- `diktat_quest`: 자모 분해(유니코드 0xAC00)+`jamoEditDistance`(Levenshtein)+`diagnose()` → 띄어쓰기/철자근접(자모거리≤2)/오답 구분. 철자 힌트 신설.
+- l10n DE/EN +5(`questDiag*`·`diktatSpellingHint`, parity 955=955) + 테스트 +14(적대적: 정답→none·조사 vs 단어).
+- **시너지(계획 외):** `SatzBauenQuest`를 **시나리오 역할극 + 동시세션 신규 satz 아케이드**(`satz_arcade_screen`, `satz_sentences.json` 1984줄)가 재사용 → 진단이 **3곳 자동 전파**. 아케이드·cloze 테스트 회귀 0 확인.
+- 검증: `flutter analyze lib test` **0**(전체) · 진단+데이터+시나리오+아케이드 스위트 통과 · dart format. ⚠️ 실기기 시각(진단 라인 노출)=Jin.
+
+**Phase 2 — 재스코핑으로 드롭:** 착수 전 체크포인트에서 **동시세션이 그새 산출 학습 아크 6단계를 main 커밋**(문장짓기 아케이드·cloze 게임·스피드매칭·데일리챌린지·B2 콘텐츠 깊이+끝말잇기 확장)한 것 발견. 산출 표면이 이미 풍부 + `vocab_pack_service` 동시편집 → 단어팩 타이핑 스테이지는 **중복·충돌 위험**. Jin 결정: **Phase 1로 마무리**(진단이 아케이드에 이미 전파돼 산출 학습 전반 강화됨).
+
+**Git:** Phase 1 = **6f63b35** 커밋 → origin/main 푸시. 내 파일만 명시 스테이징(동시세션 tiger_video·게임·pubspec 제외).
+
+### 2026-07-01 (DE/KO/EN 원어민 자연스러움 전수 재검사) — 커밋·푸시 217dc50
 
 **범위:** Jin "독일어·한국어·영어 표현을 각 언어 특성에 맞게 가장 자연스럽게." Q&A 확정: **3개 언어 전수 재검사** · KO도 **직접 수정**(이번 한정) · 로마자 오타 6건 **함께 수정**. SSoT: `docs/NATIVE_TEXT_AUDIT_2026-07-01.md`.
 
@@ -334,7 +349,7 @@ flutter run -d <android-id>   # 안드로이드
 
 **⚠️ 동시세션 미완(내 작업 무관):** `flutter analyze` 8 에러 = 동시세션 신규 **cloze** 기능(cloze.json·cloze_game_screen·cloze_loader·build_cloze.py 전부 untracked)이 ARB에 `cloze*` 키 추가 후 `gen-l10n` 미실행 → `AppL10n.clozeTitle` 등 getter 부재. 데이터만 만진 내 변경과 무관, 미손댐.
 
-**Git:** 미커밋(Jin 확인 후). 변경: `scenarios.json`·`korean_vocab.csv`·`docs/NATIVE_TEXT_AUDIT_2026-07-01.md`·CLAUDE.md.
+**Git:** 커밋·푸시 완료 — **217dc50**(내 4파일: scenarios.json·korean_vocab.csv·docs/NATIVE_TEXT_AUDIT_2026-07-01.md·CLAUDE.md). *이후 동시세션이 cloze를 커밋해 위 analyze 8에러는 해소됨.*
 
 ### 2026-06-22 (실생활 습득 듀오링고化 검토 + Phase 1: 문장 짓기 산출 엔진) — 미커밋
 
