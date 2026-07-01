@@ -108,61 +108,63 @@ class _ProfileScreenState extends State<ProfileScreen>
       ),
       body: SafeArea(
         child: ListView(
-        padding: soriClampPadding(
-          MediaQuery.sizeOf(context).width,
-          base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
-        ),
-        children: [
-          // ── Avatar + Name ──
-          Center(child: _Avatar(linked: linked, photo: photo)),
-          const SizedBox(height: 12),
-          Center(
-            child: Text(
-              linked ? (name ?? t.profileGuestName) : t.profileGuestName,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 20,
-                fontWeight: FontWeight.w900,
-                color: s.text,
-                letterSpacing: -0.3,
+          padding: soriClampPadding(
+            MediaQuery.sizeOf(context).width,
+            base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+          ),
+          children: [
+            // ── Avatar + Name ──
+            Center(
+              child: _Avatar(linked: linked, photo: photo),
+            ),
+            const SizedBox(height: 12),
+            Center(
+              child: Text(
+                linked ? (name ?? t.profileGuestName) : t.profileGuestName,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  color: s.text,
+                  letterSpacing: -0.3,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 4),
-          Center(
-            child: Text(
-              linked ? t.profileConnectedBadge : t.profileGuestBadge,
-              style: TextStyle(fontSize: 13, color: s.textMuted),
+            const SizedBox(height: 4),
+            Center(
+              child: Text(
+                linked ? t.profileConnectedBadge : t.profileGuestBadge,
+                style: TextStyle(fontSize: 13, color: s.textMuted),
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-          // ── Konto-Status ──
-          KeyedSubtree(
-            key: _accountCardKey,
-            child: linked
-                ? _ConnectedCard(name: name, onSignOut: _signOut)
-                : _GuestCard(
-                    busy: _busy,
-                    onConnect: () => _connectWith(AuthService.linkWithGoogle),
-                    onConnectApple: AuthService.appleSignInAvailable
-                        ? () => _connectWith(AuthService.linkWithApple)
-                        : null,
-                  ),
-          ),
-          const SizedBox(height: 20),
+            // ── Konto-Status ──
+            KeyedSubtree(
+              key: _accountCardKey,
+              child: linked
+                  ? _ConnectedCard(name: name, onSignOut: _signOut)
+                  : _GuestCard(
+                      busy: _busy,
+                      onConnect: () => _connectWith(AuthService.linkWithGoogle),
+                      onConnectApple: AuthService.appleSignInAvailable
+                          ? () => _connectWith(AuthService.linkWithApple)
+                          : null,
+                    ),
+            ),
+            const SizedBox(height: 20),
 
-          // ── Kurz-Übersicht ──
-          const _StatsRow(),
-          const SizedBox(height: 16),
-          SoriButton.outlined(
-            label: t.profileViewStats,
-            icon: Icons.bar_chart_rounded,
-            fullWidth: true,
-            onTap: () => Navigator.pushNamed(context, '/stats'),
-          ),
-        ],
-      ),
+            // ── Kurz-Übersicht ──
+            const _StatsRow(),
+            const SizedBox(height: 16),
+            SoriButton.outlined(
+              label: t.profileViewStats,
+              icon: Icons.bar_chart_rounded,
+              fullWidth: true,
+              onTap: () => Navigator.pushNamed(context, '/stats'),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -175,26 +177,51 @@ class _Avatar extends StatelessWidget {
   final String? photo;
   const _Avatar({required this.linked, required this.photo});
 
+  static const double _d = 104;
+
   @override
   Widget build(BuildContext context) {
-    if (linked && photo != null && photo!.isNotEmpty) {
-      return ClipOval(
-        child: Image.network(
-          photo!,
-          width: 96,
-          height: 96,
-          fit: BoxFit.cover,
-          errorBuilder: (_, __, ___) =>
-              const Mascot.tiger(size: 96, animate: false),
+    final Widget inner = (linked && photo != null && photo!.isNotEmpty)
+        ? Image.network(
+            photo!,
+            width: _d,
+            height: _d,
+            fit: BoxFit.cover,
+            errorBuilder: (_, __, ___) => _tigerInner(),
+          )
+        : _tigerInner();
+    // 원형 메달리온 프레임 — 떠 있던 마스코트를 '의도된 초상'으로 감싼다.
+    return Container(
+      width: _d,
+      height: _d,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: RadialGradient(
+          center: const Alignment(0, -0.2),
+          radius: 0.95,
+          colors: [
+            SoriColors.lightSurface,
+            SoriColors.tiger.withValues(alpha: 0.14),
+          ],
         ),
-      );
-    }
-    return const Mascot.tiger(
-      size: 96,
-      emotion: MascotEmotion.smile,
-      animate: true,
+        border: Border.all(
+          color: SoriColors.tiger.withValues(alpha: 0.38),
+          width: 2.5,
+        ),
+        boxShadow: SoriElevation.low,
+      ),
+      child: ClipOval(child: inner),
     );
   }
+
+  Widget _tigerInner() => const Padding(
+    padding: EdgeInsets.all(5),
+    child: Mascot.tiger(
+      size: _d - 10,
+      emotion: MascotEmotion.smile,
+      animate: true,
+    ),
+  );
 }
 
 /// Gast: lädt zum Sichern ein (der Kern-Nudge).
@@ -221,8 +248,11 @@ class _GuestCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.cloud_off_outlined,
-                  color: SoriColors.gold, size: 22),
+              const Icon(
+                Icons.cloud_off_outlined,
+                color: SoriColors.gold,
+                size: 22,
+              ),
               const SizedBox(width: Spacing.sm),
               Expanded(
                 child: Text(
@@ -283,8 +313,11 @@ class _ConnectedCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.check_circle_outline,
-                  color: SoriColors.primary, size: 22),
+              const Icon(
+                Icons.check_circle_outline,
+                color: SoriColors.primary,
+                size: 22,
+              ),
               const SizedBox(width: Spacing.sm),
               Expanded(
                 child: Text(

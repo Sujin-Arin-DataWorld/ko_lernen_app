@@ -45,6 +45,15 @@ class TigerStageVideo extends StatefulWidget {
   /// ([TigerStageRive.riveReady] 패턴 — 테스트가 플러그인 채널에 의존 안 함).
   static bool videoReady = false;
 
+  /// 영상 소스가 **알파(투명) 채널**을 가지는가.
+  ///
+  /// - `false`(기본, 현재 H.264 mp4): 배경이 불투명 회색이라 흰→크림 multiply +
+  ///   초상 액자(#3)로 감싸 "의도된 초상"으로 보이게 한다.
+  /// - `true`(Jin이 알파 재출력 후 main.dart에서 세팅): multiply·액자 없이 raw
+  ///   렌더 → 배경이 그대로 투명해 홈 크림 배경과 edge-to-edge 블렌드(#2).
+  ///   ⚠️ Flutter `video_player`의 알파 합성은 기기/코덱별이라 실기기 검증 후 켤 것.
+  static bool hasAlpha = false;
+
   static const String greetAsset = 'assets/video/tiger_greet.mp4';
   static const String paceAsset = 'assets/video/tiger_pace.mp4';
 
@@ -209,19 +218,48 @@ class _TigerStageVideoState extends State<TigerStageVideo>
         child: !_ready || active == null
             // init 중(~0.2s)엔 빈 밴드 → 페이드인 (프레임 인트로와 겹침 방지).
             ? const SizedBox.shrink()
-            : Center(
-                key: ValueKey<bool>(_showPace),
-                child: SizedBox.square(
-                  dimension: widget.height,
-                  child: ColorFiltered(
-                    colorFilter: ColorFilter.mode(
-                      widget.blendColor,
-                      BlendMode.multiply,
-                    ),
-                    child: VideoPlayer(active),
-                  ),
-                ),
+            : Center(key: ValueKey<bool>(_showPace), child: _tigerView(active)),
+      ),
+    );
+  }
+
+  /// 알파 여부에 따라 렌더 분기.
+  /// - 알파 O: multiply·액자 없이 raw → 배경 투명, 홈 크림과 edge-to-edge(#2).
+  /// - 알파 X: 흰→크림 multiply 후 초상 액자로 감싸 "의도된 초상"으로(#3).
+  Widget _tigerView(VideoPlayerController active) {
+    // 액자(테두리 2px + 여백)일 때 밴드 높이를 넘지 않게 정사각을 줄인다.
+    final double dim = TigerStageVideo.hasAlpha
+        ? widget.height
+        : widget.height - 8;
+    final sized = SizedBox.square(
+      dimension: dim,
+      child: TigerStageVideo.hasAlpha
+          ? VideoPlayer(active)
+          : ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                widget.blendColor,
+                BlendMode.multiply,
               ),
+              child: VideoPlayer(active),
+            ),
+    );
+    if (TigerStageVideo.hasAlpha) {
+      return sized; // 투명 = 액자 없이 그대로 배경에 녹임.
+    }
+    // 초상 액자(#3): 은은한 한지 창 + 호랑이색 테두리 → 회색 박스를 의도된 요소로.
+    return Container(
+      decoration: BoxDecoration(
+        color: widget.blendColor,
+        borderRadius: BorderRadius.circular(SoriRadius.lg),
+        border: Border.all(
+          color: SoriColors.tiger.withValues(alpha: 0.28),
+          width: 2,
+        ),
+        boxShadow: SoriElevation.low,
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(SoriRadius.lg - 2),
+        child: sized,
       ),
     );
   }

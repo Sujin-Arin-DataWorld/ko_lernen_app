@@ -898,26 +898,19 @@ class _TigerHero extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(height: veryNarrow ? 8 : 10),
-            // 살아있는 호랑이 밴드 + 말풍선 오버레이
+            SizedBox(height: veryNarrow ? 6 : 8),
+            // 말풍선을 호랑이 *위*에 두고 아래로 꼬리를 내려 지시 — 얼굴을 덮지
+            // 않으면서 "호랑이가 말하는" 느낌 유지(기존 오버레이는 얼굴을 가림).
+            Center(
+              child: _SpeechBubble(text: bubble, maxWidth: bubbleMax),
+            ),
+            // 살아있는 호랑이 밴드
             SizedBox(
               height: bandHeight,
               width: double.infinity,
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Positioned.fill(
-                    child: TigerStageVideo(
-                      height: bandHeight,
-                      fallbackEmotion: _emotion,
-                    ),
-                  ),
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    child: _SpeechBubble(text: bubble, maxWidth: bubbleMax),
-                  ),
-                ],
+              child: TigerStageVideo(
+                height: bandHeight,
+                fallbackEmotion: _emotion,
               ),
             ),
           ],
@@ -951,37 +944,67 @@ class _SpeechBubble extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final bg = isDark ? Colors.white.withValues(alpha: 0.94) : Colors.white;
-    return Container(
-      constraints: BoxConstraints(maxWidth: maxWidth),
-      padding: const EdgeInsets.fromLTRB(12, 9, 12, 10),
-      decoration: BoxDecoration(
-        color: bg,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(
-          color: SoriColors.tiger.withValues(alpha: 0.30),
-          width: 1,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.12),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          constraints: BoxConstraints(maxWidth: maxWidth),
+          padding: const EdgeInsets.fromLTRB(13, 9, 13, 10),
+          decoration: BoxDecoration(
+            color: bg,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: SoriColors.tiger.withValues(alpha: 0.30),
+              width: 1,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.10),
+                blurRadius: 10,
+                offset: const Offset(0, 3),
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontFamily: 'Pretendard',
-          fontSize: 12.5,
-          fontWeight: FontWeight.w700,
-          color: isDark ? const Color(0xFF1F1A14) : s.text,
-          height: 1.35,
-          letterSpacing: -0.1,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: isDark ? const Color(0xFF1F1A14) : s.text,
+              height: 1.35,
+              letterSpacing: -0.1,
+            ),
+          ),
         ),
-      ),
+        // 아래로 향하는 작은 꼬리 → 호랑이를 가리킴.
+        CustomPaint(size: const Size(16, 7), painter: _BubbleTailPainter(bg)),
+      ],
     );
   }
+}
+
+/// 말풍선 아래 꼬리(중앙, 아래 방향).
+class _BubbleTailPainter extends CustomPainter {
+  final Color color;
+  const _BubbleTailPainter(this.color);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+    final path = Path()
+      ..moveTo(0, 0)
+      ..lineTo(size.width, 0)
+      ..lineTo(size.width / 2, size.height)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(_BubbleTailPainter old) => old.color != color;
 }
 
 // ════════════════════════════════════════════════════════════════════════

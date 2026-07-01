@@ -43,12 +43,11 @@ class AppTheme {
         scrolledUnderElevation: 0,
         titleTextStyle: TextStyle(
           color: s.text,
-          // 명조 serif (한지 에디토리얼). 한글 타이틀은 Pretendard 폴백.
-          fontFamily: SoriFonts.serif,
-          fontFamilyFallback: SoriFonts.serifFallback,
-          fontWeight: FontWeight.w700,
+          // 통일 Pretendard ExtraBold (2026-07-01 — 명조 혼용 폐기).
+          fontFamily: SoriFonts.sans,
+          fontWeight: FontWeight.w800,
           fontSize: 19,
-          letterSpacing: -0.2,
+          letterSpacing: -0.3,
         ),
       ),
 

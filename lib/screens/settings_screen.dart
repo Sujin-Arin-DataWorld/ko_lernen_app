@@ -19,6 +19,7 @@ import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
+import 'app_shell.dart';
 import '../services/book_analysis_service.dart';
 import '../services/cloud_sync.dart';
 import '../models/scenario.dart';
@@ -821,7 +822,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: SoriColors.darkSurface,
+        backgroundColor: SoriSurfaces.of(context).surface,
         title: Text(t.settingsUserLevel),
         content: RadioGroup<LearnerLevel>(
           groupValue: current,
@@ -1030,14 +1031,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
       return;
     }
     final t = AppL10n.of(context);
-    ScaffoldMessenger.of(context).showSnackBar(
+    final nav = Navigator.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    HapticFeedback.lightImpact();
+    // 홈으로 돌아가 즉시 안내 투어를 다시 띄운다(재시작 불필요).
+    nav.popUntil((r) => r.isFirst);
+    AppShell.replayHomeTour.value++;
+    messenger.showSnackBar(
       SnackBar(
         content: Text(t.settingsTutorialResetDone),
         behavior: SnackBarBehavior.floating,
         duration: const Duration(seconds: 2),
       ),
     );
-    HapticFeedback.lightImpact();
   }
 
   void _confirmReset() {
@@ -1045,7 +1051,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: SoriColors.darkSurface,
+        backgroundColor: SoriSurfaces.of(context).surface,
         title: Text(t.settingsReset),
         content: Text(t.settingsResetConfirm),
         actions: [
@@ -1104,7 +1110,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     showDialog<void>(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: SoriColors.darkSurface,
+        backgroundColor: SoriSurfaces.of(context).surface,
         title: Text(title),
         content: Text(body),
         actions: [

@@ -306,13 +306,19 @@ class SoriMotion {
 // TEXT — Pretendard 중앙 TextStyle 토큰
 // ─────────────────────────────────────────────────────────────────────────
 /// 앱 폰트 패밀리 상수 — 한 곳에서 교체 가능.
-/// - [sans] Pretendard: 본문·UI·모든 한국어(가독성).
-/// - [serif] GowunBatang(고운바탕 명조, 라틴 서브셋): 디스플레이/제목/큰 숫자
-///   — 에디토리얼 대비. 한글 글리프 없음 → serif TextStyle은 항상 [sans] 폴백.
+/// - [sans] Pretendard: **앱 전 표면 단일 폰트** (본문·UI·제목·숫자·한국어).
+///   400/500/600/700/800 번들 → 위계는 크기·굵기로만 표현(폰트 혼용 X).
+///
+/// **2026-07-01 통일**: 기존 [serif] GowunBatang(라틴 서브셋 명조)를 디스플레이/
+/// 제목/AppBar에 섞어 쓰던 걸 전면 폐기. 라틴엔 명조·한글엔 산세리프로 갈라져
+/// "제각각"으로 보였고 명조 서브셋 자체가 저품질 → Pretendard 하나로 수렴.
+/// [serif]/[serifFallback]는 하위호환용 alias(= sans)로만 남김.
 class SoriFonts {
   SoriFonts._();
   static const String sans = 'Pretendard';
-  static const String serif = 'GowunBatang';
+
+  /// @deprecated 명조 폐기 — sans의 alias. 신규 코드는 [sans] 사용.
+  static const String serif = sans;
   static const List<String> serifFallback = [sans];
 }
 
@@ -324,8 +330,9 @@ class SoriFonts {
 /// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
 /// 사이즈·weight·letter-spacing·height 만 중앙화.
 ///
-/// 타이포 보이스(한지 에디토리얼): 큰 제목(display/h1/h2)은 명조 serif,
-/// 본문·라벨은 산세리프 — serif↔sans 대비가 '범용 AI' 느낌을 걷어낸다.
+/// **타이포 보이스(2026-07-01 통일)**: 앱 전 표면 단일 폰트 Pretendard.
+/// 위계는 폰트 혼용이 아니라 **크기·굵기**로만 — 디스플레이/제목은 w800(ExtraBold),
+/// 본문 w500, 라벨 w700. (구 명조 serif 혼용은 라틴/한글 분열 + 저품질로 폐기.)
 class SoriTextTheme {
   final SoriSurfaces _s;
 
@@ -334,46 +341,41 @@ class SoriTextTheme {
   static SoriTextTheme of(BuildContext context) =>
       SoriTextTheme._(SoriSurfaces.of(context));
 
-  // ── Display / Heading (명조 serif — 에디토리얼) ───────────────────────
-  // GowunBatang은 400/700만 번들 → w700 사용(w800은 합성볼드라 회피).
+  // ── Display / Heading (Pretendard ExtraBold — 통일) ───────────────────
+  // 위계는 크기·굵기로만. Pretendard w800 번들 → 합성볼드 아닌 진짜 ExtraBold.
   TextStyle get display => _base(
     fontSize: 32,
-    weight: FontWeight.w700,
-    letterSpacing: -0.2,
-    height: 1.2,
-    serif: true,
+    weight: FontWeight.w800,
+    letterSpacing: -0.5,
+    height: 1.15,
   );
   TextStyle get h1 => _base(
     fontSize: 24,
-    weight: FontWeight.w700,
-    letterSpacing: -0.2,
+    weight: FontWeight.w800,
+    letterSpacing: -0.4,
     height: 1.25,
-    serif: true,
   );
   TextStyle get h2 => _base(
     fontSize: 20,
-    weight: FontWeight.w700,
-    letterSpacing: -0.1,
+    weight: FontWeight.w800,
+    letterSpacing: -0.3,
     height: 1.3,
-    serif: true,
   );
 
-  /// 히어로용 대형 명조 (온보딩·결과 헤드라인).
+  /// 히어로용 대형 헤드라인 (온보딩·결과).
   TextStyle get serifDisplay => _base(
     fontSize: 40,
-    weight: FontWeight.w700,
-    letterSpacing: -0.4,
+    weight: FontWeight.w800,
+    letterSpacing: -0.6,
     height: 1.1,
-    serif: true,
   );
 
-  /// 큰 통계 숫자 — 명조 + tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
+  /// 큰 통계 숫자 — tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
   TextStyle get numeral => _base(
     fontSize: 30,
-    weight: FontWeight.w700,
-    letterSpacing: 0,
+    weight: FontWeight.w800,
+    letterSpacing: -0.2,
     height: 1.1,
-    serif: true,
     tabular: true,
   );
   TextStyle get h3 => _base(
