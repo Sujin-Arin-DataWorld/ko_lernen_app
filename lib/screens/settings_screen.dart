@@ -1140,13 +1140,32 @@ class _Section extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 18, 20, 6),
-      child: Text(
-        label.toUpperCase(),
-        style: SoriTextTheme.of(context).cardSubtitle.copyWith(
-          fontWeight: FontWeight.w700,
-          letterSpacing: 0.8,
-        ),
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+      child: Row(
+        children: [
+          Flexible(
+            child: Text(
+              label.toUpperCase(),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: SoriTextTheme.of(context).cardSubtitle.copyWith(
+                fontWeight: FontWeight.w800,
+                letterSpacing: 0.8,
+              ),
+            ),
+          ),
+          if (label.isNotEmpty) const SizedBox(width: 10),
+          // 단청 골드 hairline — 잡지식 섹션 리듬(SoriSectionHeader와 동일 어휘).
+          Expanded(
+            child: Container(
+              height: 1.5,
+              decoration: BoxDecoration(
+                color: SoriColors.gold.withValues(alpha: 0.35),
+                borderRadius: BorderRadius.circular(1),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
