@@ -42,7 +42,11 @@ class ModuleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    // passthrough: wenn die Karte im Grid eine feste (gestretchte) Höhe bekommt
+    // (IntrinsicHeight + CrossAxisAlignment.stretch), füllt die SoriCard sie aus
+    // → gleich hohe Karten pro Reihe. Ohne feste Höhe = Inhaltshöhe wie bisher.
     return Stack(
+      fit: StackFit.passthrough,
       children: [
         SoriCard(
           variant: SoriCardVariant.base,

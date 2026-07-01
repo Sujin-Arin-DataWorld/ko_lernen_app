@@ -126,17 +126,19 @@ class WordbookHubScreen extends StatelessWidget {
         ),
         const SizedBox(height: Spacing.md),
         for (int i = 1; i < items.length; i += 2) ...[
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(child: _card(context, items[i])),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: i + 1 < items.length
-                    ? _card(context, items[i + 1])
-                    : const SizedBox.shrink(),
-              ),
-            ],
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(child: _card(context, items[i])),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: i + 1 < items.length
+                      ? _card(context, items[i + 1])
+                      : const SizedBox.shrink(),
+                ),
+              ],
+            ),
           ),
           if (i + 2 < items.length) const SizedBox(height: Spacing.md),
         ],
