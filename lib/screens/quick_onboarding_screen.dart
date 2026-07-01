@@ -4,12 +4,12 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/motion.dart';
-import '../widgets/sori/mascot.dart';
+import '../widgets/sori/tiger_video.dart';
 
 /// **빠른 온보딩 (30초)** — Duolingo 스타일.
 ///
 /// 4페이지 자동 스킵:
-/// 1. 호랑이 소개 (3초)
+/// 1. 호랑이 소개 — 인사 영상+음성 (4.6초)
 /// 2. 도전 설명 (3초)
 /// 3. 스트릭 설명 (3초)
 /// 4. 목표 선택 (대기)
@@ -26,25 +26,28 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
   late AnimationController _autoAnim;
   int _currentPage = 0;
 
+  // 페이지별 자동 넘김(ms). 페이지1은 인사 영상 4.0s + 여유 (마지막은 대기).
+  static const List<int> _pageMs = [4600, 3000, 3000];
+
   @override
   void initState() {
     super.initState();
     _pageCtrl = PageController();
 
-    // 각 페이지 3초 후 자동 넘김 (마지막 제외)
-    _autoAnim = AnimationController(
-      duration: const Duration(seconds: 3),
-      vsync: this,
-    )..addStatusListener((status) {
-        if (status == AnimationStatus.completed && _currentPage < 3) {
-          _pageCtrl.nextPage(
-            duration: const Duration(milliseconds: 600),
-            curve: Curves.easeInOut,
-          );
-          _autoAnim.reset();
-          _autoAnim.forward();
-        }
-      });
+    // 페이지별 시간 경과 후 자동 넘김 (마지막 제외) — 새 duration은
+    // onPageChanged에서 설정 후 forward.
+    _autoAnim =
+        AnimationController(
+          duration: Duration(milliseconds: _pageMs[0]),
+          vsync: this,
+        )..addStatusListener((status) {
+          if (status == AnimationStatus.completed && _currentPage < 3) {
+            _pageCtrl.nextPage(
+              duration: const Duration(milliseconds: 600),
+              curve: Curves.easeInOut,
+            );
+          }
+        });
 
     _autoAnim.forward();
   }
@@ -75,16 +78,12 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final darkMode =
-        MediaQuery.platformBrightnessOf(context) == Brightness.dark;
 
     return Scaffold(
       body: Stack(
         children: [
-          // 배경
-          Container(
-            color: darkMode ? SoriColors.darkBg : SoriColors.lightBg,
-          ),
+          // 배경 (앱은 라이트 전용 — 다크 미지원)
+          Container(color: SoriColors.lightBg),
 
           // 페이지뷰
           PageView(
@@ -93,6 +92,7 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
             onPageChanged: (i) {
               setState(() => _currentPage = i);
               if (i < 3) {
+                _autoAnim.duration = Duration(milliseconds: _pageMs[i]);
                 _autoAnim.forward(from: 0);
               } else {
                 _autoAnim.stop();
@@ -138,7 +138,7 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
   }
 }
 
-/// **페이지 1: 호랑이 소개**
+/// **페이지 1: 호랑이 소개** — 첫 만남: 인사 영상 + 음성 (다크/폴백은 마스코트)
 class _Page1MascotIntro extends StatelessWidget {
   final AppL10n t;
 
@@ -153,11 +153,11 @@ class _Page1MascotIntro extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Mascot(
-                kind: MascotKind.tiger,
-                emotion: MascotEmotion.smile,
-                size: 160,
-                animate: true,
+              // 첫 만남: 인사 영상 + 음성 (앱 라이트 전용 → 항상 영상)
+              const TigerGreetClip(
+                size: 200,
+                playAudio: true,
+                blendColor: SoriColors.lightBg,
               ),
               const SizedBox(height: Spacing.xl),
               Text(
@@ -304,10 +304,7 @@ class _Page4GoalSelection extends StatefulWidget {
   final AppL10n t;
   final void Function(Duration goal) onGoalSelected;
 
-  const _Page4GoalSelection({
-    required this.t,
-    required this.onGoalSelected,
-  });
+  const _Page4GoalSelection({required this.t, required this.onGoalSelected});
 
   @override
   State<_Page4GoalSelection> createState() => _Page4GoalSelectionState();
@@ -406,9 +403,7 @@ class _GoalButton extends StatelessWidget {
             vertical: Spacing.md,
           ),
           decoration: BoxDecoration(
-            color: isSelected
-                ? SoriColors.primary
-                : const Color(0xFFF5F5F5),
+            color: isSelected ? SoriColors.primary : const Color(0xFFF5F5F5),
             border: Border.all(
               color: isSelected ? SoriColors.primary : Colors.transparent,
               width: 2,
@@ -439,11 +434,7 @@ class _GoalButton extends StatelessWidget {
                 ),
               ),
               if (isSelected)
-                Icon(
-                  Icons.check_circle,
-                  color: Colors.white,
-                  size: 24,
-                ),
+                Icon(Icons.check_circle, color: Colors.white, size: 24),
             ],
           ),
         ),

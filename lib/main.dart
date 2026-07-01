@@ -56,9 +56,9 @@ import 'screens/kkeunmari_screen.dart';
 import 'screens/listening_screen.dart';
 import 'screens/chosung_quiz_screen.dart';
 import 'screens/cloze_game_screen.dart';
-import 'screens/speed_match_screen.dart';
 import 'screens/daily_challenge_screen.dart';
 import 'screens/satz_arcade_screen.dart';
+import 'screens/speed_match_screen.dart';
 import 'screens/wordle_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
@@ -69,6 +69,7 @@ import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
 import 'package:rive/rive.dart' show RiveNative;
 import 'widgets/sori/tiger_stage_rive.dart';
+import 'widgets/sori/tiger_video.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -132,6 +133,10 @@ Future<void> main() async {
       // 네이티브 미지원/초기화 실패 → 프레임 폴백 유지
     }
   }
+
+  // 호랑이 영상(홈 밴드·온보딩 인사) 활성화. 별도 init 불필요 — 플래그만.
+  // 테스트는 false 유지 → 프레임/마스코트 폴백(플러그인 채널 미호출).
+  TigerStageVideo.videoReady = true;
 
   // Portrait sperren
   await SystemChrome.setPreferredOrientations([
@@ -216,10 +221,10 @@ class KoLernenApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         // Dark Mode deaktiviert (v2.0): App immer im Light-Theme.
         // darkTheme spiegelt das Light-Theme, falls das System Dark erzwingt.
-        theme:      AppTheme.lightFor(paletteVariantNotifier.value),
-        darkTheme:  AppTheme.lightFor(paletteVariantNotifier.value),
-        themeMode:  ThemeMode.light,
-        locale:     localeNotifier.value,
+        theme: AppTheme.lightFor(paletteVariantNotifier.value),
+        darkTheme: AppTheme.lightFor(paletteVariantNotifier.value),
+        themeMode: ThemeMode.light,
+        locale: localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         // Tap außerhalb von Inputs → Tastatur weg
@@ -235,182 +240,267 @@ class KoLernenApp extends StatelessWidget {
           switch (settings.name) {
             case '/splash':
               return SoriTransitions.fadeScale(
-                  (_) => const SplashScreen(), settings: settings);
+                (_) => const SplashScreen(),
+                settings: settings,
+              );
             case '/quick_onboarding':
               return SoriTransitions.fadeScale(
-                  (_) => const QuickOnboardingScreen(), settings: settings);
+                (_) => const QuickOnboardingScreen(),
+                settings: settings,
+              );
             case '/character_selection':
               return SoriTransitions.fadeScale(
-                  (_) => const CharacterSelectionScreen(), settings: settings);
+                (_) => const CharacterSelectionScreen(),
+                settings: settings,
+              );
             case '/intro':
               return SoriTransitions.fadeScale(
-                  (_) => const IntroGateScreen(), settings: settings);
+                (_) => const IntroGateScreen(),
+                settings: settings,
+              );
             case '/':
               return SoriTransitions.fadeScale(
-                  (_) => const AppShell(), settings: settings);
+                (_) => const AppShell(),
+                settings: settings,
+              );
             case '/onboarding':
               return SoriTransitions.fadeScale(
-                  (_) => const OnboardingLevelScreen(), settings: settings);
+                (_) => const OnboardingLevelScreen(),
+                settings: settings,
+              );
             case '/vocab':
               // Phase 2 (stately-rising-jongga): default vocab entry =
               // Pack-Marktplatz (Grid).
               return SoriTransitions.fadeScale(
-                  (_) => const VocabPacksScreen(), settings: settings);
+                (_) => const VocabPacksScreen(),
+                settings: settings,
+              );
             case '/vocab/pack':
               final packId = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => VocabPackScreen(packId: packId),
-                  settings: settings);
+                (_) => VocabPackScreen(packId: packId),
+                settings: settings,
+              );
             case '/vocab/result':
               return SoriTransitions.fadeScale(
-                  (_) => VocabPackResultScreen.fromArgs(settings.arguments),
-                  settings: settings);
+                (_) => VocabPackResultScreen.fromArgs(settings.arguments),
+                settings: settings,
+              );
             case '/vocab/legacy':
               // Rollback / Power-User: alte single-card Ansicht (Phase 1
               // SRS-UX-Patch). Wird in Phase 3 entfernt, sobald Pack-UX
               // produktiv läuft.
               return SoriTransitions.fadeScale(
-                  (_) => const LegacyVocabScreen(), settings: settings);
+                (_) => const LegacyVocabScreen(),
+                settings: settings,
+              );
             case '/grammar':
               return SoriTransitions.fadeScale(
-                  (_) => const GrammarScreen(), settings: settings);
+                (_) => const GrammarScreen(),
+                settings: settings,
+              );
             case '/listening':
               return SoriTransitions.fadeScale(
-                  (_) => const ListeningScreen(), settings: settings);
+                (_) => const ListeningScreen(),
+                settings: settings,
+              );
             case '/kkeunmari':
               return SoriTransitions.fadeScale(
-                  (_) => const KkeunmariScreen(), settings: settings);
+                (_) => const KkeunmariScreen(),
+                settings: settings,
+              );
             case '/hangul':
               return SoriTransitions.fadeScale(
-                  (_) => const HangulScreen(), settings: settings);
+                (_) => const HangulScreen(),
+                settings: settings,
+              );
             case '/chosung':
               return SoriTransitions.fadeScale(
-                  (_) => const ChosungQuizScreen(), settings: settings);
+                (_) => const ChosungQuizScreen(),
+                settings: settings,
+              );
             case '/wordle':
               return SoriTransitions.fadeScale(
-                  (_) => const WordleScreen(), settings: settings);
+                (_) => const WordleScreen(),
+                settings: settings,
+              );
             case '/cloze':
               return SoriTransitions.fadeScale(
-                  (_) => const ClozeGameScreen(), settings: settings);
+                (_) => const ClozeGameScreen(),
+                settings: settings,
+              );
             case '/speed_match':
               return SoriTransitions.fadeScale(
-                  (_) => const SpeedMatchScreen(), settings: settings);
+                (_) => const SpeedMatchScreen(),
+                settings: settings,
+              );
             case '/daily':
               return SoriTransitions.fadeScale(
-                  (_) => const DailyChallengeScreen(), settings: settings);
+                (_) => const DailyChallengeScreen(),
+                settings: settings,
+              );
             case '/satz_arcade':
               return SoriTransitions.fadeScale(
-                  (_) => const SatzArcadeScreen(), settings: settings);
+                (_) => const SatzArcadeScreen(),
+                settings: settings,
+              );
             case '/settings':
               return SoriTransitions.fadeScale(
-                  (_) => const SettingsScreen(), settings: settings);
+                (_) => const SettingsScreen(),
+                settings: settings,
+              );
             case '/stats':
               return SoriTransitions.fadeScale(
-                  (_) => const StatsScreen(), settings: settings);
+                (_) => const StatsScreen(),
+                settings: settings,
+              );
             case '/profile':
               return SoriTransitions.fadeScale(
-                  (_) => const ProfileScreen(), settings: settings);
+                (_) => const ProfileScreen(),
+                settings: settings,
+              );
             case '/paywall':
               return SoriTransitions.fadeScale(
-                  (_) => const PaywallScreen(), settings: settings);
+                (_) => const PaywallScreen(),
+                settings: settings,
+              );
             case '/review':
               return SoriTransitions.fadeScale(
-                  (_) => const ReviewSessionScreen(), settings: settings);
+                (_) => const ReviewSessionScreen(),
+                settings: settings,
+              );
             case '/smalltalk':
               return SoriTransitions.fadeScale(
-                  (_) => const SmalltalkScreen(), settings: settings);
+                (_) => const SmalltalkScreen(),
+                settings: settings,
+              );
             case '/scenarios':
               return SoriTransitions.fadeScale(
-                  (_) => const ScenariosListScreen(), settings: settings);
+                (_) => const ScenariosListScreen(),
+                settings: settings,
+              );
             case '/quests':
               return SoriTransitions.fadeScale(
-                  (_) => const QuestsScreen(), settings: settings);
+                (_) => const QuestsScreen(),
+                settings: settings,
+              );
             // Phase 5 (stately-rising-jongga) — "책 한 컷"
             case '/book':
               return SoriTransitions.fadeScale(
-                  (_) => const BookCaptureScreen(), settings: settings);
+                (_) => const BookCaptureScreen(),
+                settings: settings,
+              );
             case '/book/preview':
-              final args = (settings.arguments as Map?)
-                      ?.cast<String, dynamic>() ??
+              final args =
+                  (settings.arguments as Map?)?.cast<String, dynamic>() ??
                   const <String, dynamic>{};
               return SoriTransitions.fadeScale(
-                  (_) => BookPreviewScreen(args: args),
-                  settings: settings);
+                (_) => BookPreviewScreen(args: args),
+                settings: settings,
+              );
             case '/book/result':
-              final args = (settings.arguments as Map?)
-                      ?.cast<String, dynamic>() ??
+              final args =
+                  (settings.arguments as Map?)?.cast<String, dynamic>() ??
                   const <String, dynamic>{};
               return SoriTransitions.fadeScale(
-                  (_) => BookResultScreen(args: args),
-                  settings: settings);
+                (_) => BookResultScreen(args: args),
+                settings: settings,
+              );
             // Phase 5.1 — Bookshelf + Custom Pack
             case '/bookshelf':
               return SoriTransitions.fadeScale(
-                  (_) => const BookshelfScreen(), settings: settings);
+                (_) => const BookshelfScreen(),
+                settings: settings,
+              );
             case '/bookshelf/page':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => BookshelfPageScreen(pageId: id),
-                  settings: settings);
+                (_) => BookshelfPageScreen(pageId: id),
+                settings: settings,
+              );
             case '/custom_pack/play':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => CustomPackPlayScreen(packId: id),
-                  settings: settings);
+                (_) => CustomPackPlayScreen(packId: id),
+                settings: settings,
+              );
             case '/custom_pack/edit':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => CustomPackEditScreen(packId: id),
-                  settings: settings);
+                (_) => CustomPackEditScreen(packId: id),
+                settings: settings,
+              );
             case '/custom_pack/quiz':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => CustomPackQuizScreen(packId: id),
-                  settings: settings);
+                (_) => CustomPackQuizScreen(packId: id),
+                settings: settings,
+              );
             case '/custom_pack/matching':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => CustomPackMatchingScreen(packId: id),
-                  settings: settings);
+                (_) => CustomPackMatchingScreen(packId: id),
+                settings: settings,
+              );
             case '/custom_pack/typing':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => CustomPackTypingScreen(packId: id),
-                  settings: settings);
+                (_) => CustomPackTypingScreen(packId: id),
+                settings: settings,
+              );
             case '/wordbook/search':
               return SoriTransitions.fadeScale(
-                  (_) => const WordbookSearchScreen(), settings: settings);
+                (_) => const WordbookSearchScreen(),
+                settings: settings,
+              );
             case '/hard_words':
               return SoriTransitions.fadeScale(
-                  (_) => const HardWordsScreen(), settings: settings);
+                (_) => const HardWordsScreen(),
+                settings: settings,
+              );
             case '/dojangcheop':
               return SoriTransitions.fadeScale(
-                  (_) => const DojangcheopScreen(), settings: settings);
+                (_) => const DojangcheopScreen(),
+                settings: settings,
+              );
             case '/gye/create':
               return SoriTransitions.fadeScale(
-                  (_) => const GyeCreateScreen(), settings: settings);
+                (_) => const GyeCreateScreen(),
+                settings: settings,
+              );
             case '/gye/join':
               return SoriTransitions.fadeScale(
-                  (_) => const GyeJoinScreen(), settings: settings);
+                (_) => const GyeJoinScreen(),
+                settings: settings,
+              );
             case '/gye':
               final gyeId = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => GyeScreen(gyeId: gyeId), settings: settings);
+                (_) => GyeScreen(gyeId: gyeId),
+                settings: settings,
+              );
             case '/gye/members':
               final gyeId = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => GyeMembersScreen(gyeId: gyeId), settings: settings);
+                (_) => GyeMembersScreen(gyeId: gyeId),
+                settings: settings,
+              );
             case '/path':
               return SoriTransitions.fadeScale(
-                  (_) => const LearningPathScreen(), settings: settings);
+                (_) => const LearningPathScreen(),
+                settings: settings,
+              );
             case '/scenario':
               final id = settings.arguments as String? ?? '';
               return SoriTransitions.fadeScale(
-                  (_) => ScenarioPlayerScreen(scenarioId: id),
-                  settings: settings);
+                (_) => ScenarioPlayerScreen(scenarioId: id),
+                settings: settings,
+              );
             default:
               return SoriTransitions.fadeScale(
-                  (_) => const AppShell(), settings: settings);
+                (_) => const AppShell(),
+                settings: settings,
+              );
           }
         },
       ),

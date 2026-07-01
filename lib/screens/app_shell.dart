@@ -157,11 +157,15 @@ class _AppShellState extends State<AppShell> {
     return Scaffold(
       body: IndexedStack(
         index: _index,
+        // TickerMode: 숨은 탭의 애니메이션·영상(TigerStageVideo) 정지 — 배터리.
         children: [
-          HomeScreen(pathTourKey: _pathTourKey),
-          const PracticeHubScreen(),
-          const GyeTabScreen(),
-          const ProfileScreen(),
+          TickerMode(
+            enabled: _index == 0,
+            child: HomeScreen(pathTourKey: _pathTourKey),
+          ),
+          TickerMode(enabled: _index == 1, child: const PracticeHubScreen()),
+          TickerMode(enabled: _index == 2, child: const GyeTabScreen()),
+          TickerMode(enabled: _index == 3, child: const ProfileScreen()),
         ],
       ),
       bottomNavigationBar: Stack(

@@ -35,7 +35,7 @@ import '../widgets/sori/path_node.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/sheet.dart';
-import '../widgets/sori/tiger_stage_rive.dart';
+import '../widgets/sori/tiger_video.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -899,7 +899,7 @@ class _TigerHero extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   Positioned.fill(
-                    child: TigerStageRive(
+                    child: TigerStageVideo(
                       height: bandHeight,
                       fallbackEmotion: _emotion,
                     ),
