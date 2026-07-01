@@ -7,24 +7,24 @@ import 'widgets/sori/tokens.dart';
 /// 기본 `.dark` / `.light` 게터는 단청 팔레트(v6.0). Teal 롤백은 [darkFor]/[lightFor]
 /// 에 [PaletteVariant.teal] 전달. main.dart에서 [paletteVariantNotifier] 연결.
 class AppTheme {
-  static ThemeData get dark  => darkFor(PaletteVariant.dancheong);
+  static ThemeData get dark => darkFor(PaletteVariant.dancheong);
   static ThemeData get light => lightFor(PaletteVariant.dancheong);
 
   static ThemeData darkFor(PaletteVariant v) => v == PaletteVariant.teal
       ? _build(SoriSurfaces.darkTeal, primary: SoriColorsTeal.primary)
-      : _build(SoriSurfaces.dark,     primary: SoriColors.primary);
+      : _build(SoriSurfaces.dark, primary: SoriColors.primary);
 
   static ThemeData lightFor(PaletteVariant v) => v == PaletteVariant.teal
       ? _build(SoriSurfaces.lightTeal, primary: SoriColorsTeal.primary)
-      : _build(SoriSurfaces.light,     primary: SoriColors.primary);
+      : _build(SoriSurfaces.light, primary: SoriColors.primary);
 
   static ThemeData _build(SoriSurfaces s, {required Color primary}) {
     final colorScheme = ColorScheme.fromSeed(
-      seedColor:  primary,
+      seedColor: primary,
       brightness: s.brightness,
-      primary:    primary,
-      surface:    s.surface,
-      onSurface:  s.text,
+      primary: primary,
+      surface: s.surface,
+      onSurface: s.text,
     );
 
     return ThemeData(
@@ -43,10 +43,12 @@ class AppTheme {
         scrolledUnderElevation: 0,
         titleTextStyle: TextStyle(
           color: s.text,
-          fontFamily: 'Pretendard',
-          fontWeight: FontWeight.w800,
-          fontSize: 18,
-          letterSpacing: -0.3,
+          // 명조 serif (한지 에디토리얼). 한글 타이틀은 Pretendard 폴백.
+          fontFamily: SoriFonts.serif,
+          fontFamilyFallback: SoriFonts.serifFallback,
+          fontWeight: FontWeight.w700,
+          fontSize: 19,
+          letterSpacing: -0.2,
         ),
       ),
 
@@ -56,7 +58,9 @@ class AppTheme {
           backgroundColor: primary,
           foregroundColor: Colors.white,
           minimumSize: const Size(0, 52),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SoriRadius.lg)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(SoriRadius.lg),
+          ),
           textStyle: const TextStyle(
             fontFamily: 'Pretendard',
             fontWeight: FontWeight.w700,
@@ -69,7 +73,9 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           minimumSize: const Size(0, 48),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(SoriRadius.lg)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(SoriRadius.lg),
+          ),
           foregroundColor: s.text,
           side: BorderSide(color: s.border, width: 1.5),
           textStyle: const TextStyle(
@@ -95,10 +101,22 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: s.surface,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        border:        OutlineInputBorder(borderRadius: SoriRadius.brLg, borderSide: BorderSide(color: s.border)),
-        enabledBorder: OutlineInputBorder(borderRadius: SoriRadius.brLg, borderSide: BorderSide(color: s.border)),
-        focusedBorder: OutlineInputBorder(borderRadius: SoriRadius.brLg, borderSide: BorderSide(color: primary, width: 2)),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 14,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: SoriRadius.brLg,
+          borderSide: BorderSide(color: s.border),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: SoriRadius.brLg,
+          borderSide: BorderSide(color: s.border),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: SoriRadius.brLg,
+          borderSide: BorderSide(color: primary, width: 2),
+        ),
         hintStyle: TextStyle(color: s.textDim, fontWeight: FontWeight.w500),
       ),
 
@@ -106,8 +124,18 @@ class AppTheme {
       chipTheme: ChipThemeData(
         backgroundColor: s.surface,
         selectedColor: primary,
-        labelStyle: TextStyle(color: s.text, fontFamily: 'Pretendard', fontWeight: FontWeight.w600, fontSize: 12),
-        secondaryLabelStyle: const TextStyle(color: Colors.white, fontFamily: 'Pretendard', fontWeight: FontWeight.w700, fontSize: 12),
+        labelStyle: TextStyle(
+          color: s.text,
+          fontFamily: 'Pretendard',
+          fontWeight: FontWeight.w600,
+          fontSize: 12,
+        ),
+        secondaryLabelStyle: const TextStyle(
+          color: Colors.white,
+          fontFamily: 'Pretendard',
+          fontWeight: FontWeight.w700,
+          fontSize: 12,
+        ),
         side: BorderSide(color: s.border),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brPill),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -126,7 +154,11 @@ class AppTheme {
       // ── Snackbar ─────────────────────────────────────────────────────
       snackBarTheme: SnackBarThemeData(
         backgroundColor: s.text,
-        contentTextStyle: TextStyle(color: s.bg, fontFamily: 'Pretendard', fontWeight: FontWeight.w600),
+        contentTextStyle: TextStyle(
+          color: s.bg,
+          fontFamily: 'Pretendard',
+          fontWeight: FontWeight.w600,
+        ),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brLg),
         behavior: SnackBarBehavior.floating,
       ),
@@ -136,8 +168,18 @@ class AppTheme {
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
         iconColor: s.textMuted,
         textColor: s.text,
-        titleTextStyle: TextStyle(color: s.text, fontFamily: 'Pretendard', fontWeight: FontWeight.w600, fontSize: 15),
-        subtitleTextStyle: TextStyle(color: s.textMuted, fontFamily: 'Pretendard', fontWeight: FontWeight.w500, fontSize: 12),
+        titleTextStyle: TextStyle(
+          color: s.text,
+          fontFamily: 'Pretendard',
+          fontWeight: FontWeight.w600,
+          fontSize: 15,
+        ),
+        subtitleTextStyle: TextStyle(
+          color: s.textMuted,
+          fontFamily: 'Pretendard',
+          fontWeight: FontWeight.w500,
+          fontSize: 12,
+        ),
       ),
 
       // ── NavigationBar ────────────────────────────────────────────────
@@ -171,7 +213,13 @@ class AppTheme {
   }
 
   static TextTheme _buildTextTheme(SoriSurfaces s) {
-    TextStyle base(double size, FontWeight w, {double height = 1.4, double spacing = 0, Color? color}) => TextStyle(
+    TextStyle base(
+      double size,
+      FontWeight w, {
+      double height = 1.4,
+      double spacing = 0,
+      Color? color,
+    }) => TextStyle(
       fontFamily: 'Pretendard',
       fontSize: size,
       fontWeight: w,
@@ -181,21 +229,21 @@ class AppTheme {
     );
 
     return TextTheme(
-      displayLarge:  base(44, FontWeight.w900, height: 1.1,  spacing: -1.5),
-      displayMedium: base(36, FontWeight.w800, height: 1.1,  spacing: -1.0),
-      displaySmall:  base(28, FontWeight.w800, height: 1.2,  spacing: -0.8),
+      displayLarge: base(44, FontWeight.w900, height: 1.1, spacing: -1.5),
+      displayMedium: base(36, FontWeight.w800, height: 1.1, spacing: -1.0),
+      displaySmall: base(28, FontWeight.w800, height: 1.2, spacing: -0.8),
       headlineLarge: base(24, FontWeight.w800, height: 1.25, spacing: -0.5),
-      headlineMedium:base(20, FontWeight.w700, height: 1.3,  spacing: -0.3),
+      headlineMedium: base(20, FontWeight.w700, height: 1.3, spacing: -0.3),
       headlineSmall: base(18, FontWeight.w700, height: 1.35, spacing: -0.2),
-      titleLarge:    base(16, FontWeight.w700, height: 1.4),
-      titleMedium:   base(14, FontWeight.w600, height: 1.4),
-      titleSmall:    base(13, FontWeight.w600, height: 1.4, color: s.textMuted),
-      bodyLarge:     base(15, FontWeight.w500, height: 1.5),
-      bodyMedium:    base(14, FontWeight.w500, height: 1.5),
-      bodySmall:     base(12, FontWeight.w500, height: 1.5, color: s.textMuted),
-      labelLarge:    base(14, FontWeight.w700),
-      labelMedium:   base(12, FontWeight.w700, color: s.textMuted),
-      labelSmall:    base(11, FontWeight.w700, color: s.textMuted, spacing: 0.5),
+      titleLarge: base(16, FontWeight.w700, height: 1.4),
+      titleMedium: base(14, FontWeight.w600, height: 1.4),
+      titleSmall: base(13, FontWeight.w600, height: 1.4, color: s.textMuted),
+      bodyLarge: base(15, FontWeight.w500, height: 1.5),
+      bodyMedium: base(14, FontWeight.w500, height: 1.5),
+      bodySmall: base(12, FontWeight.w500, height: 1.5, color: s.textMuted),
+      labelLarge: base(14, FontWeight.w700),
+      labelMedium: base(12, FontWeight.w700, color: s.textMuted),
+      labelSmall: base(11, FontWeight.w700, color: s.textMuted, spacing: 0.5),
     );
   }
 }

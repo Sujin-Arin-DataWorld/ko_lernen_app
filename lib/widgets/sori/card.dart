@@ -9,10 +9,13 @@ import 'tokens.dart';
 enum SoriCardVariant {
   /// 큰 hero card (24 padding, radius 20, 강조 색상 + 살짝 elevation).
   hero,
+
   /// 기본 카드 (16 padding, radius 16).
   base,
+
   /// 작은 compact 카드 (12 padding, radius 12).
   compact,
+
   /// 한지 텍스처 배경 카드 (v4 한옥 skin). hero급 padding, hanji bg, eaves corner 자동.
   hanji,
 }
@@ -71,17 +74,17 @@ class SoriCard extends StatelessWidget {
   });
 
   double get _radius => switch (variant) {
-    SoriCardVariant.hero    => SoriRadius.lg,
-    SoriCardVariant.base    => SoriRadius.md,
+    SoriCardVariant.hero => SoriRadius.lg,
+    SoriCardVariant.base => SoriRadius.md,
     SoriCardVariant.compact => SoriRadius.sm,
-    SoriCardVariant.hanji   => SoriRadius.lg,
+    SoriCardVariant.hanji => SoriRadius.lg,
   };
 
   EdgeInsetsGeometry get _defaultPadding => switch (variant) {
-    SoriCardVariant.hero    => const EdgeInsets.all(Spacing.xl),
-    SoriCardVariant.base    => const EdgeInsets.all(Spacing.lg),
+    SoriCardVariant.hero => const EdgeInsets.all(Spacing.xl),
+    SoriCardVariant.base => const EdgeInsets.all(Spacing.lg),
     SoriCardVariant.compact => const EdgeInsets.all(Spacing.md),
-    SoriCardVariant.hanji   => const EdgeInsets.all(Spacing.lg),
+    SoriCardVariant.hanji => const EdgeInsets.all(Spacing.lg),
   };
 
   /// hanji variant + 처마 옵션은 자동 eaves 처리.
@@ -101,12 +104,20 @@ class SoriCard extends StatelessWidget {
     final accentColor = accent ?? SoriColors.primary;
 
     final bgColor = tinted
-        ? Color.alphaBlend(accentColor.withValues(alpha: isLight ? 0.08 : 0.14), s.surface)
+        ? Color.alphaBlend(
+            accentColor.withValues(alpha: isLight ? 0.08 : 0.14),
+            s.surface,
+          )
         : s.surface;
 
+    // 소프트섀도우 폐지 후 분리는 hairline이 전담 → 무채색 카드 테두리를
+    // 한 톤 또렷하게(크림-온-크림에서 카드가 사라지지 않도록). ⚠️ 실기기 확인.
     final borderColor = accent != null
         ? accentColor.withValues(alpha: isLight ? 0.25 : 0.35)
-        : s.border;
+        : Color.alphaBlend(
+            s.textMuted.withValues(alpha: isLight ? 0.22 : 0.30),
+            s.border,
+          );
 
     // hanji variant — HanjiTexture가 배경, padding은 child에 적용
     final Widget cardContent = _useHanji
@@ -126,17 +137,14 @@ class SoriCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: bgColor,
               borderRadius: _borderRadius,
+              // 한지 에디토리얼: 평면 + 1px 잉크 hairline. 소프트 드롭섀도우 폐지
+              // (범용 AI 최대 신호). 분리는 hairline + 한지 바탕이 담당.
               border: Border.all(color: borderColor, width: 1),
-              boxShadow: isLight ? SoriElevation.low : null,
             ),
             child: child,
           );
 
-    final card = SizedBox(
-      width: width,
-      height: height,
-      child: cardContent,
-    );
+    final card = SizedBox(width: width, height: height, child: cardContent);
 
     if (onTap == null && onLongPress == null) {
       return semanticLabel == null
@@ -150,11 +158,12 @@ class SoriCard extends StatelessWidget {
       child: SoriPressable(
         onTap: onTap,
         onLongPress: onLongPress,
-        pressScale: (variant == SoriCardVariant.hero || variant == SoriCardVariant.hanji) ? 0.97 : 0.96,
-        child: ClipRRect(
-          borderRadius: _borderRadius,
-          child: card,
-        ),
+        pressScale:
+            (variant == SoriCardVariant.hero ||
+                variant == SoriCardVariant.hanji)
+            ? 0.97
+            : 0.96,
+        child: ClipRRect(borderRadius: _borderRadius, child: card),
       ),
     );
   }

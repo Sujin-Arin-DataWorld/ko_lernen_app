@@ -670,12 +670,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
-            Text(
-              t.settingsDataSourcesTitle,
-              style: SoriTextTheme.of(
-                ctx,
-              ).h2.copyWith(fontWeight: FontWeight.w900),
-            ),
+            Text(t.settingsDataSourcesTitle, style: SoriTextTheme.of(ctx).h2),
             const SizedBox(height: 6),
             Text(
               t.settingsDataSourcesIntro,

@@ -132,6 +132,14 @@ flutter:
           weight: 700
         - asset: assets/fonts/Pretendard/PretendardStd-ExtraBold.otf
           weight: 800
+    # Gowun Batang (고운바탕) — OFL 명조 serif, DISPLAY/제목 전용 (라틴 서브셋 ~56KB×2).
+    # 한국어 글리프 미포함 → 한글은 Pretendard 폴백(fontFamilyFallback). 에디토리얼 대비용.
+    - family: GowunBatang
+      fonts:
+        - asset: assets/fonts/GowunBatang/GowunBatang-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/GowunBatang/GowunBatang-Bold.ttf
+          weight: 700
 
 # ─────────────────────────────────────────────────────────
 # Launcher Icon — generiert mit:

@@ -305,6 +305,17 @@ class SoriMotion {
 // ─────────────────────────────────────────────────────────────────────────
 // TEXT — Pretendard 중앙 TextStyle 토큰
 // ─────────────────────────────────────────────────────────────────────────
+/// 앱 폰트 패밀리 상수 — 한 곳에서 교체 가능.
+/// - [sans] Pretendard: 본문·UI·모든 한국어(가독성).
+/// - [serif] GowunBatang(고운바탕 명조, 라틴 서브셋): 디스플레이/제목/큰 숫자
+///   — 에디토리얼 대비. 한글 글리프 없음 → serif TextStyle은 항상 [sans] 폴백.
+class SoriFonts {
+  SoriFonts._();
+  static const String sans = 'Pretendard';
+  static const String serif = 'GowunBatang';
+  static const List<String> serifFallback = [sans];
+}
+
 /// 모든 Sori 컴포넌트가 따르는 TextStyle 프리셋.
 ///
 /// 기존 컴포넌트는 `TextStyle(fontFamily: 'Pretendard', ...)` 하드코딩.
@@ -312,6 +323,9 @@ class SoriMotion {
 ///
 /// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
 /// 사이즈·weight·letter-spacing·height 만 중앙화.
+///
+/// 타이포 보이스(한지 에디토리얼): 큰 제목(display/h1/h2)은 명조 serif,
+/// 본문·라벨은 산세리프 — serif↔sans 대비가 '범용 AI' 느낌을 걷어낸다.
 class SoriTextTheme {
   final SoriSurfaces _s;
 
@@ -320,24 +334,47 @@ class SoriTextTheme {
   static SoriTextTheme of(BuildContext context) =>
       SoriTextTheme._(SoriSurfaces.of(context));
 
-  // ── Display / Heading ────────────────────────────────────────────────
+  // ── Display / Heading (명조 serif — 에디토리얼) ───────────────────────
+  // GowunBatang은 400/700만 번들 → w700 사용(w800은 합성볼드라 회피).
   TextStyle get display => _base(
     fontSize: 32,
-    weight: FontWeight.w800,
-    letterSpacing: -0.6,
-    height: 1.15,
+    weight: FontWeight.w700,
+    letterSpacing: -0.2,
+    height: 1.2,
+    serif: true,
   );
   TextStyle get h1 => _base(
     fontSize: 24,
-    weight: FontWeight.w800,
-    letterSpacing: -0.4,
-    height: 1.2,
+    weight: FontWeight.w700,
+    letterSpacing: -0.2,
+    height: 1.25,
+    serif: true,
   );
   TextStyle get h2 => _base(
     fontSize: 20,
-    weight: FontWeight.w800,
-    letterSpacing: -0.3,
-    height: 1.25,
+    weight: FontWeight.w700,
+    letterSpacing: -0.1,
+    height: 1.3,
+    serif: true,
+  );
+
+  /// 히어로용 대형 명조 (온보딩·결과 헤드라인).
+  TextStyle get serifDisplay => _base(
+    fontSize: 40,
+    weight: FontWeight.w700,
+    letterSpacing: -0.4,
+    height: 1.1,
+    serif: true,
+  );
+
+  /// 큰 통계 숫자 — 명조 + tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
+  TextStyle get numeral => _base(
+    fontSize: 30,
+    weight: FontWeight.w700,
+    letterSpacing: 0,
+    height: 1.1,
+    serif: true,
+    tabular: true,
   );
   TextStyle get h3 => _base(
     fontSize: 17,
@@ -397,12 +434,17 @@ class SoriTextTheme {
     required double letterSpacing,
     required double height,
     Color? color,
+    bool serif = false,
+    bool tabular = false,
   }) => TextStyle(
-    fontFamily: 'Pretendard',
+    fontFamily: serif ? SoriFonts.serif : SoriFonts.sans,
+    // serif엔 한글 글리프가 없다 → 한국어는 Pretendard로 자동 폴백(두부 방지).
+    fontFamilyFallback: serif ? SoriFonts.serifFallback : null,
     fontSize: fontSize,
     fontWeight: weight,
     letterSpacing: letterSpacing,
     height: height,
     color: color ?? _s.text,
+    fontFeatures: tabular ? const [FontFeature.tabularFigures()] : null,
   );
 }
