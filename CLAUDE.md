@@ -331,6 +331,8 @@ flutter run -d <android-id>   # 안드로이드
 
 **Git:** 3커밋(`7436ef2`·`47226d1`·`7aec1ae`) origin/main 푸시.
 
+**후속(Jin 선택 "K-컬처 연결", `66dfe42`):** 단어 학습 시 그 표현의 K-컬처 배경 노트(오빠·화이팅·빨리빨리·김치·우리·영화 등 14). **검증 가능한 문화 사실만** — 특정 곡/드라마 가사 인용은 정확성 검증(Jin) 후에만(§0, 환각 방지). `CultureNotesService`(`assets/data/culture_notes.json` 로더) + 재사용 `CultureNoteCard`(노트 없으면 SizedBox.shrink, kind별 아이콘·단청색) + legacy_vocab 플래시카드 배선. **적대검증 PASS**: 14/14 사실 정확(Parasite 2020 오스카·김치 사진관습·호칭 방향 전부 출처 확인·환각 0). l10n DE/EN 1키·테스트 3(로더·조회·시드 ko 전부 단어장 존재=노출 보장). ⚠️ **확장 방법**: Jin이 검수한 특정 곡/드라마 인용을 `culture_notes.json` `notes[]`에 `{ko,kind,de,en}`로 추가하면 자동 노출(ko는 단어장 korean과 정확히 일치해야 함). 다른 단어-표시 화면(review·vocab_pack)에도 `CultureNoteCard(korean:...)` drop-in 가능.
+
 ### 2026-07-01 (디자인 "클로드 냄새" 제거 D4·D5 완주 + 실기기 UI 피드백 6종 + Gye 재구성) — 커밋·푸시
 
 **범위:** Jin 실기기 스크린샷 피드백 → 폰트·말풍선·튜토리얼·프로필·호랑이영상 수정 → 이어서 디자인 플랜(`inherited-stirring-biscuit.md`) **D4·D5 완주**. Jin "자러갈거야, 묻지말고 계획 완성" → 자율 진행. plan: 위 파일 + 워크플로우 `design-d4-d5-gye`(11 agents 감사·Gye 판정단·적대검증).
