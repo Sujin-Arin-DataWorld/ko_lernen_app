@@ -5107,6 +5107,48 @@ abstract class AppL10n {
   /// **'K-Kultur'**
   String get cultureNoteTitle;
 
+  /// No description provided for @milestoneStreakTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Tage in Folge!'**
+  String milestoneStreakTitle(int count);
+
+  /// No description provided for @milestoneLevelTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Level {count} erreicht!'**
+  String milestoneLevelTitle(int count);
+
+  /// No description provided for @milestoneVocabTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Wörter gelernt!'**
+  String milestoneVocabTitle(int count);
+
+  /// No description provided for @milestoneStreakBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dranbleiben zahlt sich aus — weiter so!'**
+  String get milestoneStreakBody;
+
+  /// No description provided for @milestoneLevelBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Koreanisch wächst mit jedem Tag.'**
+  String get milestoneLevelBody;
+
+  /// No description provided for @milestoneVocabBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort für Wort kommst du ans Ziel!'**
+  String get milestoneVocabBody;
+
+  /// No description provided for @milestoneCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get milestoneCta;
+
   /// No description provided for @practiceSecLearn.
   ///
   /// In de, this message translates to:

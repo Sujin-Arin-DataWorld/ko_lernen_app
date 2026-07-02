@@ -220,6 +220,23 @@ class Storage {
   static bool get motivationAsked => _b('kl_motivation_asked');
   static Future<void> setMotivationAsked() => _sb('kl_motivation_asked', true);
 
+  // ───────── Meilensteine (달성 축하 1회 가드) ─────────
+  /// 이미 축하한 마일스톤 id 목록(중복 축하 방지).
+  static List<String> get celebratedMilestones => _l('kl_milestones');
+  static Future<void> markMilestonesCelebrated(List<String> ids) async {
+    final list = celebratedMilestones;
+    var changed = false;
+    for (final id in ids) {
+      if (!list.contains(id)) {
+        list.add(id);
+        changed = true;
+      }
+    }
+    if (changed) {
+      await _sl('kl_milestones', list);
+    }
+  }
+
   static String get preferredMascot =>
       _s('kl_preferred_mascot'); // 'tiger' or 'magpie'
   static Future<void> setPreferredMascot(String mascot) =>

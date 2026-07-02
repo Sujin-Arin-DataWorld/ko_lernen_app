@@ -2756,6 +2756,33 @@ class AppL10nEn extends AppL10n {
   String get cultureNoteTitle => 'K-Culture';
 
   @override
+  String milestoneStreakTitle(int count) {
+    return '$count-day streak!';
+  }
+
+  @override
+  String milestoneLevelTitle(int count) {
+    return 'Level $count reached!';
+  }
+
+  @override
+  String milestoneVocabTitle(int count) {
+    return '$count words learned!';
+  }
+
+  @override
+  String get milestoneStreakBody => 'Consistency pays off — keep it up!';
+
+  @override
+  String get milestoneLevelBody => 'Your Korean grows every single day.';
+
+  @override
+  String get milestoneVocabBody => 'Word by word, you\'re getting there!';
+
+  @override
+  String get milestoneCta => 'Keep going';
+
+  @override
   String get practiceSecLearn => 'Learn';
 
   @override

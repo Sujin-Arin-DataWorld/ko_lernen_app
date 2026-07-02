@@ -36,7 +36,9 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/motivation_sheet.dart';
+import '../widgets/sori/milestone_celebration.dart';
 import '../data/learner_motivation.dart';
+import '../data/milestone.dart';
 import '../widgets/sori/tiger_video.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -96,25 +98,82 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadToday();
     _loadPath();
     _checkHanokCinematic();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeAskMotivation());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
   }
 
-  /// 첫 진입 시 1회 — "왜 한국어를 배우나" 캡처(홈 투어 뒤에). 서양 학습자 어필.
-  Future<void> _maybeAskMotivation() async {
-    if (!mounted) {
+  /// 첫 프레임 뒤 순차: 동기 시트(1회) → 없으면 마일스톤 축하(있으면). 겹침 방지.
+  Future<void> _maybeShowIntroFlows() async {
+    final shownMotivation = await _maybeAskMotivation();
+    if (shownMotivation || !mounted) {
       return;
+    }
+    await _maybeCelebrateMilestone();
+  }
+
+  /// 첫 진입 시 1회 — "왜 한국어를 배우나" 캡처(홈 투어 뒤에). 시트 띄웠으면 true.
+  Future<bool> _maybeAskMotivation() async {
+    if (!mounted) {
+      return false;
     }
     // 온보딩 홈 투어를 먼저 보이고, 그 뒤에 동기 시트(겹침 방지).
     if (Storage.motivationAsked || !Storage.tutHomeTourSeen) {
-      return;
+      return false;
     }
     await Future<void>.delayed(const Duration(milliseconds: 450));
     if (!mounted) {
-      return;
+      return false;
     }
     await showMotivationSheet(context);
     if (mounted) {
       setState(() {}); // tiger bubble 개인화 반영
+    }
+    return true;
+  }
+
+  bool _celebrating = false;
+
+  /// 새로 달성한 마일스톤이 있으면 우선순위 1개 축하(나머지도 마킹 — 스팸 방지).
+  /// 홈 투어(오리엔테이션) 완료 후 + 재진입 가드(시트 중복 방지).
+  Future<void> _maybeCelebrateMilestone() async {
+    if (!mounted || _celebrating || !Storage.tutHomeTourSeen) {
+      return;
+    }
+    final newly = newlyReachedMilestones(
+      streak: Storage.streakDays,
+      level: Storage.xpLevel,
+      // 고유 단어 수(누적 정답 시도가 아님 — "N개 단어" 카피와 정합).
+      vocab: Storage.vokSeenIds.length,
+      celebrated: Storage.celebratedMilestones.toSet(),
+    );
+    if (newly.isEmpty) {
+      return;
+    }
+    await Storage.markMilestonesCelebrated(newly.map((m) => m.id).toList());
+    // 타입 우선순위(스트릭>레벨>단어) 후 값 최대 1개만 축하.
+    const priority = {
+      MilestoneType.streak: 3,
+      MilestoneType.level: 2,
+      MilestoneType.vocab: 1,
+    };
+    final top = newly.reduce((a, b) {
+      final pa = priority[a.type]!;
+      final pb = priority[b.type]!;
+      if (pa != pb) {
+        return pa > pb ? a : b;
+      }
+      return a.value >= b.value ? a : b;
+    });
+    if (!mounted) {
+      return;
+    }
+    _celebrating = true;
+    try {
+      await showMilestoneCelebration(context, top);
+    } finally {
+      _celebrating = false;
+    }
+    if (mounted) {
+      setState(() {});
     }
   }
 
@@ -473,6 +532,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             if (mounted) {
                               await _loadToday();
                               await _loadPath();
+                            }
+                            // 레슨 직후 달성한 마일스톤 즉시 축하.
+                            if (mounted) {
+                              await _maybeCelebrateMilestone();
                             }
                           },
                         ),
