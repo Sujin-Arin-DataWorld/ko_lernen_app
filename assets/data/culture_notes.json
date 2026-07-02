@@ -84,6 +84,66 @@
       "kind": "film",
       "de": "Koreanisches Kino ist weltberühmt — „Parasite“ gewann 2020 als erster nicht-englischer Film den Oscar für den besten Film.",
       "en": "Korean cinema is world-famous — “Parasite” became the first non-English film to win the Best Picture Oscar (2020)."
+    },
+    {
+      "ko": "커피",
+      "kind": "culture",
+      "de": "Korea liebt Cafés — sie sind überall, und viele lernen oder treffen sich stundenlang dort.",
+      "en": "Korea loves cafés — they're everywhere, and people study or hang out there for hours."
+    },
+    {
+      "ko": "라면",
+      "kind": "culture",
+      "de": "Instant-Ramyeon ist Kult — Koreaner essen davon pro Kopf am meisten weltweit, oft direkt aus dem Topf.",
+      "en": "Instant ramyeon is iconic — Koreans eat the most per person worldwide, often straight from the pot."
+    },
+    {
+      "ko": "지하철",
+      "kind": "culture",
+      "de": "Seouls U-Bahn ist berühmt: riesig, günstig und sauber — mit Handyempfang in jedem Tunnel.",
+      "en": "Seoul's subway is famous — huge, cheap and spotless, with mobile signal in every tunnel."
+    },
+    {
+      "ko": "선생님",
+      "kind": "culture",
+      "de": "„Seonsaengnim“ sagt man nicht nur zu Lehrern, sondern höflich zu vielen Fachleuten.",
+      "en": "“Seonsaengnim” isn't only for teachers — it's a polite title for many professionals."
+    },
+    {
+      "ko": "시험",
+      "kind": "culture",
+      "de": "Beim „Suneung“ (Uni-Aufnahmeprüfung) starten sogar keine Flugzeuge, damit der Hörtest ruhig bleibt.",
+      "en": "During the “Suneung” (college entrance exam), even planes are grounded so the listening test stays quiet."
+    },
+    {
+      "ko": "안녕",
+      "kind": "drama",
+      "de": "„Annyeong“ (ohne „-haseyo“) ist das lockere „Hi“ und „Tschüss“ unter Freunden — so wie Idole es sagen.",
+      "en": "“Annyeong” (without “-haseyo”) is the casual “hi” and “bye” among friends — the way idols say it."
+    },
+    {
+      "ko": "밥",
+      "kind": "culture",
+      "de": "„Bap meogeosseo?“ („Hast du gegessen?“) ist in Korea eine liebevolle Begrüßung — Fürsorge statt „Wie geht's?“.",
+      "en": "“Bap meogeosseo?” (“Have you eaten?”) is a caring Korean greeting — warmth instead of “How are you?”."
+    },
+    {
+      "ko": "눈",
+      "kind": "drama",
+      "de": "Der „erste Schnee“ (첫눈) gilt als romantisch — in K-Dramas trifft man sich dann mit dem Menschen, den man liebt.",
+      "en": "The “first snow” (cheotnun) is romantic — in K-dramas you meet the one you love when it falls."
+    },
+    {
+      "ko": "봄",
+      "kind": "culture",
+      "de": "Im Frühling feiert Korea die Kirschblüte (벚꽃) mit Festivals und unzähligen Fotos.",
+      "en": "In spring Korea celebrates the cherry blossoms (beotkkot) with festivals and endless photos."
+    },
+    {
+      "ko": "음악",
+      "kind": "kpop",
+      "de": "Koreanische Popmusik — K-Pop — ist zu einem weltweiten Phänomen geworden.",
+      "en": "Korean pop music — K-pop — has grown into a worldwide phenomenon."
     }
   ]
 }
