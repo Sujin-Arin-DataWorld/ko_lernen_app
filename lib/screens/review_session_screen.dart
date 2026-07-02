@@ -6,6 +6,8 @@ import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import '../services/review_deck_service.dart';
 import '../services/tts_service.dart';
+import '../services/culture_notes_service.dart';
+import '../widgets/sori/culture_note_card.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -89,6 +91,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     super.initState();
     _load();
     scheduleCoach();
+    // K-Culture 노트 로드 후 카드 반영.
+    CultureNotesService.load().then((_) {
+      if (mounted) {
+        setState(() {});
+      }
+    });
   }
 
   Future<void> _load() async {
@@ -442,6 +450,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           style: tt.bodySmall.copyWith(color: s.textMuted),
         ),
       ],
+      // K-Culture 노트(있을 때만). center Column이라 full-width로 감싸 텍스트 줄바꿈.
+      SizedBox(
+        width: double.infinity,
+        child: CultureNoteCard(korean: v.korean),
+      ),
     ];
   }
 }

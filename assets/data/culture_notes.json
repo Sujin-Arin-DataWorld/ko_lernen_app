@@ -144,6 +144,42 @@
       "kind": "kpop",
       "de": "Koreanische Popmusik — K-Pop — ist zu einem weltweiten Phänomen geworden.",
       "en": "Korean pop music — K-pop — has grown into a worldwide phenomenon."
+    },
+    {
+      "ko": "가족",
+      "kind": "culture",
+      "de": "An den großen Festen (추석·설날) reist ganz Korea nach Hause zur Familie — ein riesiger Reise-Ansturm.",
+      "en": "On the big holidays (Chuseok, Seollal), all of Korea travels home to family — a massive rush."
+    },
+    {
+      "ko": "인터넷",
+      "kind": "culture",
+      "de": "Südkorea hat eines der schnellsten und am dichtesten ausgebauten Internet-Netze der Welt.",
+      "en": "South Korea has one of the fastest, most widely wired internet networks in the world."
+    },
+    {
+      "ko": "집",
+      "kind": "culture",
+      "de": "Zu Hause zieht man die Schuhe aus, und der Boden wird beheizt (Ondol) — man sitzt gern am Boden.",
+      "en": "At home you take off your shoes, and the floor is heated (ondol) — people love sitting on the floor."
+    },
+    {
+      "ko": "친구",
+      "kind": "culture",
+      "de": "„Chingu“ heißt meist ein Freund im gleichen Alter — das Alter bestimmt, wie man miteinander spricht.",
+      "en": "“Chingu” usually means a friend of the same age — age shapes how people speak to each other."
+    },
+    {
+      "ko": "컴퓨터",
+      "kind": "culture",
+      "de": "Im „PC-bang“ (Gaming-Café) spielen Freunde stundenlang zusammen — Herz der koreanischen Gaming-Kultur.",
+      "en": "At a “PC-bang” (gaming café) friends play together for hours — the heart of Korean gaming culture."
+    },
+    {
+      "ko": "옷",
+      "kind": "culture",
+      "de": "Paare tragen in Korea gern „Couple-Looks“ — aufeinander abgestimmte Outfits als Zeichen der Liebe.",
+      "en": "Korean couples love matching “couple looks” — coordinated outfits as a sign of love."
     }
   ]
 }
