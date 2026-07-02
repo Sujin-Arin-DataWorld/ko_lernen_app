@@ -333,6 +333,8 @@ flutter run -d <android-id>   # 안드로이드
 
 **후속(Jin 선택 "K-컬처 연결", `66dfe42`):** 단어 학습 시 그 표현의 K-컬처 배경 노트(오빠·화이팅·빨리빨리·김치·우리·영화 등 14). **검증 가능한 문화 사실만** — 특정 곡/드라마 가사 인용은 정확성 검증(Jin) 후에만(§0, 환각 방지). `CultureNotesService`(`assets/data/culture_notes.json` 로더) + 재사용 `CultureNoteCard`(노트 없으면 SizedBox.shrink, kind별 아이콘·단청색) + legacy_vocab 플래시카드 배선. **적대검증 PASS**: 14/14 사실 정확(Parasite 2020 오스카·김치 사진관습·호칭 방향 전부 출처 확인·환각 0). l10n DE/EN 1키·테스트 3(로더·조회·시드 ko 전부 단어장 존재=노출 보장). ⚠️ **확장 방법**: Jin이 검수한 특정 곡/드라마 인용을 `culture_notes.json` `notes[]`에 `{ko,kind,de,en}`로 추가하면 자동 노출(ko는 단어장 korean과 정확히 일치해야 함). 다른 단어-표시 화면(review·vocab_pack)에도 `CultureNoteCard(korean:...)` drop-in 가능.
 
+**후속2(Jin "이어서", `03c7556`):** 밀스톤 축하 모먼트 — 스트릭(3·7·30)·레벨(5·10)·고유단어(10·100) 달성 순간 마스코트 celebrate + 축하 버스트 + 메시지 시트(showSoriSheet). `newlyReachedMilestones` 순수함수(임계·미축하만) + `celebratedMilestones` 1회 가드(신규 전부 마킹→재발화 0) + 투어후·`_celebrating` 재진입 가드로 스팸 방지, 타입 우선순위(스트릭>레벨>단어) 1개만. 홈 로드/레슨 복귀 트리거(투어 게이트로 테스트 무회귀). **적대검증(2회차 — 1회차 에이전트 오작동으로 재실행)**: vocab 지표를 누적정답(vokCorrect)→고유단어(vokSeenIds)로 정합(카피 "N개 단어" 진실화)·`_celebrating` 재진입 가드·top 타입 우선순위 반영. l10n DE/EN 10키·테스트 6. **STT(말하기)는 큰 베팅이라 범위 결정 후 별도.**
+
 ### 2026-07-01 (디자인 "클로드 냄새" 제거 D4·D5 완주 + 실기기 UI 피드백 6종 + Gye 재구성) — 커밋·푸시
 
 **범위:** Jin 실기기 스크린샷 피드백 → 폰트·말풍선·튜토리얼·프로필·호랑이영상 수정 → 이어서 디자인 플랜(`inherited-stirring-biscuit.md`) **D4·D5 완주**. Jin "자러갈거야, 묻지말고 계획 완성" → 자율 진행. plan: 위 파일 + 워크플로우 `design-d4-d5-gye`(11 agents 감사·Gye 판정단·적대검증).
