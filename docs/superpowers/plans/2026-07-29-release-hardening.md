@@ -138,13 +138,13 @@
 - Modify: `lib/screens/listening_screen.dart`
 - Create or modify focused Dart tests under `test/`
 
-- [ ] Add failing restore tests for every cumulative counter, cursor policy, Chosung wrong, all Wordle stats, app streak, and best streak.
-- [ ] Restore cumulative counters with max-merge; restore missing fields emitted by backup; keep local nonempty structured data from being clobbered.
-- [ ] Pass the current app language (`de` or `en`) from Book Result to analysis.
-- [ ] Make the Python grammar-analysis prompt and fallback output language-aware and add a pure unit test for German and English prompts.
-- [ ] Add an explicit playback-rate/multiplier input to TTS so cached/cloud audio and OS fallback use the same effective rate.
-- [ ] Remove Listening’s temporary writes to the global TTS preference; 0.75x, 1.0x, and 1.25x must be request-local and safe under overlap.
-- [ ] Run all focused Dart and Python tests.
+- [x] Add failing restore tests for every cumulative counter, cursor policy, Chosung wrong, all Wordle stats, app streak, and best streak.
+- [x] Restore cumulative counters with max-merge; restore missing fields emitted by backup; keep local nonempty structured data from being clobbered.
+- [x] Pass the current app language (`de` or `en`) from Book Result to analysis.
+- [x] Make the Python grammar-analysis prompt and fallback output language-aware and add a pure unit test for German and English prompts.
+- [x] Add an explicit playback-rate/multiplier input to TTS so cached/cloud audio and OS fallback use the same effective rate.
+- [x] Remove Listening’s temporary writes to the global TTS preference; 0.75x, 1.0x, and 1.25x must be request-local and safe under overlap.
+- [x] Run all focused Dart and Python tests.
 
 ## Task 7: Harden Gye ownership, suspension, caps, and deletion lifecycle
 
