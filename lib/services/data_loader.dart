@@ -10,7 +10,9 @@ class DataLoader {
   static String? lastError;
 
   static Future<List<Vocab>> loadVocab() async {
-    if (_vocabs != null) return _vocabs!;
+    if (_vocabs != null) {
+      return _vocabs!;
+    }
     try {
       final raw = await rootBundle.loadString('assets/data/korean_vocab.csv');
       final rows = _parseCsv(raw);
@@ -29,7 +31,9 @@ class DataLoader {
   }
 
   static Future<List<Grammar>> loadGrammar() async {
-    if (_grammars != null) return _grammars!;
+    if (_grammars != null) {
+      return _grammars!;
+    }
     try {
       final raw = await rootBundle.loadString('assets/data/grammar.csv');
       final rows = _parseCsv(raw);
