@@ -71,7 +71,11 @@ class BookshelfService {
     }
   }
 
-  static Future<void> save(BookPage page) async {
+  static Future<void> save(
+    BookPage page, {
+    CloudWriteSessionController? sessions,
+  }) async {
+    final selectedSessions = sessions ?? cloudWriteSessionController;
     await MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       raw[page.id] = page.toLocalJson();
@@ -79,7 +83,7 @@ class BookshelfService {
     });
     // best-effort Firestore sync
     // ignore: discarded_futures, unawaited_futures
-    _saveToFirestore(page, cloudWriteSessionController);
+    _saveToFirestore(page, selectedSessions);
   }
 
   static Future<BookPage> saveWithPendingImage(
@@ -98,7 +102,11 @@ class BookshelfService {
     return persisted;
   }
 
-  static Future<void> delete(String id) async {
+  static Future<void> delete(
+    String id, {
+    CloudWriteSessionController? sessions,
+  }) async {
+    final selectedSessions = sessions ?? cloudWriteSessionController;
     await MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final removed = raw.remove(id);
@@ -106,7 +114,7 @@ class BookshelfService {
       if (removed is Map) {
         final page = BookPage.fromJson(id, removed.cast<String, dynamic>());
         try {
-          await _collectGarbage(cloudWriteSessionController, [
+          await _collectGarbage(selectedSessions, [
             page.localThumbnailPath,
             ...page.words.map((word) => word.imagePath),
           ]);
@@ -117,7 +125,7 @@ class BookshelfService {
       }
     });
     // ignore: discarded_futures, unawaited_futures
-    _deleteFromFirestore(id, cloudWriteSessionController);
+    _deleteFromFirestore(id, selectedSessions);
   }
 
   // ── Internal helpers ──────────────────────────────────────────────
@@ -170,9 +178,23 @@ class BookshelfService {
       await _collectGarbageUnfenced(encodedRefs);
       return;
     }
-    await CloudWriteFence(
+    await collectGarbageWithSession(
+      sessions: sessions,
+      uid: session.uid,
+      prepare: () async {},
+      delete: () => _collectGarbageUnfenced(encodedRefs),
+    );
+  }
+
+  static Future<CloudWriteResult> collectGarbageWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<void> Function() prepare,
+    required Future<void> Function() delete,
+  }) {
+    return CloudWriteFence(
       sessions,
-    ).run(uid: session.uid, action: () => _collectGarbageUnfenced(encodedRefs));
+    ).run(uid: uid, prepare: prepare, action: delete);
   }
 
   static Future<void> _collectGarbageUnfenced(
@@ -213,7 +235,9 @@ class BookshelfService {
     try {
       CollectionReference<Map<String, dynamic>>? col;
       Map<String, dynamic>? payload;
-      await CloudWriteFence(sessions).run(
+      await saveWithSession(
+        page,
+        sessions: sessions,
         uid: uid,
         prepare: () async {
           final db = _db;
@@ -222,7 +246,7 @@ class BookshelfService {
           payload = Map<String, dynamic>.from(page.toFirestoreJson())
             ..['updatedAt'] = FieldValue.serverTimestamp();
         },
-        action: () async {
+        write: () async {
           final collection = col;
           final data = payload;
           if (collection != null && data != null) {
@@ -236,6 +260,18 @@ class BookshelfService {
     }
   }
 
+  static Future<CloudWriteResult> saveWithSession(
+    BookPage page, {
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<void> Function() prepare,
+    required Future<void> Function() write,
+  }) {
+    return CloudWriteFence(
+      sessions,
+    ).run(uid: uid, prepare: prepare, action: write);
+  }
+
   static Future<void> _deleteFromFirestore(
     String id,
     CloudWriteSessionController sessions,
@@ -244,7 +280,9 @@ class BookshelfService {
     if (uid == null) return;
     try {
       DocumentReference<Map<String, dynamic>>? doc;
-      await CloudWriteFence(sessions).run(
+      await deleteWithSession(
+        id,
+        sessions: sessions,
         uid: uid,
         prepare: () async {
           final db = _db;
@@ -256,12 +294,24 @@ class BookshelfService {
                 .doc(id);
           }
         },
-        action: () async {
+        delete: () async {
           await doc?.delete();
         },
       );
     } catch (e) {
       debugPrint('BookshelfService: Firestore delete skipped — $e');
     }
+  }
+
+  static Future<CloudWriteResult> deleteWithSession(
+    String id, {
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<void> Function() prepare,
+    required Future<void> Function() delete,
+  }) {
+    return CloudWriteFence(
+      sessions,
+    ).run(uid: uid, prepare: prepare, action: delete);
   }
 }

@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart' show visibleForTesting;
-
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import 'account/cloud_write_session.dart';
@@ -253,14 +251,18 @@ class PackProgressService {
       sessions: cloudWriteSessionController,
       uid: uid,
       loadRemote: FirestoreProgressService.loadAll,
+      loadLocal: getAll,
+      persistLocal: Storage.setManyPackProgressJson,
     );
   }
 
-  @visibleForTesting
   static Future<CloudWriteResult> pullFromCloudWithSession({
     required CloudWriteSessionController sessions,
     required String uid,
     required Future<Map<String, PackProgress>> Function() loadRemote,
+    required Map<String, PackProgress> Function() loadLocal,
+    required Future<void> Function(Map<String, Map<String, dynamic>> progress)
+    persistLocal,
   }) async {
     final fence = CloudWriteFence(sessions);
     final snapshot = fence.readySnapshot(uid);
@@ -271,7 +273,7 @@ class PackProgressService {
     if (remote.isEmpty) {
       return fence.verify(snapshot, uid: uid);
     }
-    final localBefore = getAll();
+    final localBefore = loadLocal();
     final merged = <String, Map<String, dynamic>>{};
     for (final entry in remote.entries) {
       merged[entry.key] = entry.value.toJson();
@@ -286,7 +288,7 @@ class PackProgressService {
     if (result != CloudWriteResult.completed) {
       return result;
     }
-    await Storage.setManyPackProgressJson(merged);
+    await persistLocal(merged);
     return fence.verify(snapshot, uid: uid);
   }
 
@@ -304,10 +306,37 @@ class PackProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
-    return FirestoreProgressService.saveManyWithSession(
-      local.values,
-      sessions: cloudWriteSessionController,
+    final sessions = cloudWriteSessionController;
+    return pushToCloudWithSession(
+      sessions: sessions,
       uid: uid,
+      loadLocal: () => local,
+      writeRemote: (progresses) async {
+        await FirestoreProgressService.saveManyWithSession(
+          progresses,
+          sessions: sessions,
+          uid: uid,
+        );
+      },
+    );
+  }
+
+  static Future<CloudWriteResult> pushToCloudWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Map<String, PackProgress> Function() loadLocal,
+    Future<void> Function()? prepareRemote,
+    required Future<void> Function(Iterable<PackProgress> progresses)
+    writeRemote,
+  }) async {
+    final local = loadLocal();
+    if (local.isEmpty) {
+      return CloudWriteResult.completed;
+    }
+    return CloudWriteFence(sessions).run(
+      uid: uid,
+      prepare: prepareRemote,
+      action: () => writeRemote(local.values),
     );
   }
 

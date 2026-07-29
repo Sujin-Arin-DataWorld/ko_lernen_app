@@ -167,8 +167,10 @@ class CustomPackService {
   static Future<CustomPack?> updateWord(
     String packId,
     int index,
-    ExtractedWord word,
-  ) async {
+    ExtractedWord word, {
+    CloudWriteSessionController? sessions,
+  }) async {
+    final selectedSessions = sessions ?? cloudWriteSessionController;
     return MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final pack = _packFromRaw(raw, packId);
@@ -181,9 +183,7 @@ class CustomPackService {
       final updated = pack.copyWith(words: words);
       raw[packId] = updated.toLocalJson();
       await _writeRawStrict(raw);
-      await _collectGarbageBestEffort(cloudWriteSessionController, [
-        oldReference,
-      ]);
+      await _collectGarbageBestEffort(selectedSessions, [oldReference]);
       return updated;
     });
   }
@@ -193,7 +193,9 @@ class CustomPackService {
     String packId,
     int index, {
     required ExtractedWord expectedOriginal,
+    CloudWriteSessionController? sessions,
   }) async {
+    final selectedSessions = sessions ?? cloudWriteSessionController;
     return MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final pack = _packFromRaw(raw, packId);
@@ -209,9 +211,7 @@ class CustomPackService {
       final updated = pack.copyWith(words: words);
       raw[packId] = updated.toLocalJson();
       await _writeRawStrict(raw);
-      await _collectGarbageBestEffort(cloudWriteSessionController, [
-        removedReference,
-      ]);
+      await _collectGarbageBestEffort(selectedSessions, [removedReference]);
       return updated;
     });
   }
@@ -231,7 +231,11 @@ class CustomPackService {
     });
   }
 
-  static Future<void> save(CustomPack pack) async {
+  static Future<void> save(
+    CustomPack pack, {
+    CloudWriteSessionController? sessions,
+  }) async {
+    final selectedSessions = sessions ?? cloudWriteSessionController;
     await MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final previous = _packFromRaw(raw, pack.id);
@@ -239,14 +243,18 @@ class CustomPackService {
       await _writeRawStrict(raw);
       if (previous != null) {
         await _collectGarbageBestEffort(
-          cloudWriteSessionController,
+          selectedSessions,
           previous.words.map((word) => word.imagePath),
         );
       }
     });
   }
 
-  static Future<void> delete(String id) async {
+  static Future<void> delete(
+    String id, {
+    CloudWriteSessionController? sessions,
+  }) async {
+    final selectedSessions = sessions ?? cloudWriteSessionController;
     await MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final previous = _packFromRaw(raw, id);
@@ -254,7 +262,7 @@ class CustomPackService {
       await _writeRawStrict(raw);
       if (previous != null) {
         await _collectGarbageBestEffort(
-          cloudWriteSessionController,
+          selectedSessions,
           previous.words.map((word) => word.imagePath),
         );
       }
@@ -323,7 +331,9 @@ class CustomPackService {
     required ExtractedWord word,
     PendingMediaLease? pendingLease,
     bool removePhoto = false,
+    CloudWriteSessionController? sessions,
   }) async {
+    final selectedSessions = sessions ?? cloudWriteSessionController;
     return MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final pack = _packFromRaw(raw, packId);
@@ -367,7 +377,7 @@ class CustomPackService {
         if (oldReference != null && oldReference != nextReference) {
           try {
             await _runMediaGc(
-              cloudWriteSessionController,
+              selectedSessions,
               () => store.deleteIfUnreferenced(
                 oldReference,
                 _referenceSnapshot(),
@@ -485,7 +495,23 @@ class CustomPackService {
       await action();
       return;
     }
-    await CloudWriteFence(sessions).run(uid: session.uid, action: action);
+    await collectGarbageWithSession(
+      sessions: sessions,
+      uid: session.uid,
+      prepare: () async {},
+      delete: action,
+    );
+  }
+
+  static Future<CloudWriteResult> collectGarbageWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<void> Function() prepare,
+    required Future<void> Function() delete,
+  }) {
+    return CloudWriteFence(
+      sessions,
+    ).run(uid: uid, prepare: prepare, action: delete);
   }
 
   static Future<void> _collectGarbageBestEffort(

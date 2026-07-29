@@ -135,11 +135,31 @@ class GyeService {
     Future<void> Function() action, {
     CloudWriteSession? snapshot,
   }) {
+    return writeWithSession(
+      sessions: sessions,
+      uid: uid,
+      write: action,
+      snapshot: snapshot,
+    );
+  }
+
+  static Future<CloudWriteResult> writeWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    Future<void> Function()? prepare,
+    required Future<void> Function() write,
+    CloudWriteSession? snapshot,
+  }) {
     final fence = CloudWriteFence(sessions);
     if (snapshot == null) {
-      return fence.run(uid: uid, action: action);
+      return fence.run(uid: uid, prepare: prepare, action: write);
     }
-    return fence.runWithSnapshot(snapshot: snapshot, uid: uid, action: action);
+    return fence.runWithSnapshot(
+      snapshot: snapshot,
+      uid: uid,
+      prepare: prepare,
+      action: write,
+    );
   }
 
   static CloudWriteSession? _readySnapshot(
@@ -149,11 +169,11 @@ class GyeService {
     return CloudWriteFence(sessions).readySnapshot(uid);
   }
 
-  static Stream<T> _bindStream<T>(
-    CloudWriteSessionController sessions,
-    String uid,
-    Stream<T> source,
-  ) {
+  static Stream<T> streamWithSession<T>({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Stream<T> source,
+  }) {
     return CloudWriteFence(sessions).bindStream(uid: uid, source: source);
   }
 
@@ -491,10 +511,10 @@ class GyeService {
     if (uid == null || db == null) {
       return Stream.value(null);
     }
-    return _bindStream(
-      cloudWriteSessionController,
-      uid,
-      db
+    return streamWithSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      source: db
           .collection(_collection)
           .doc(id)
           .snapshots()
@@ -509,10 +529,10 @@ class GyeService {
     if (uid == null || db == null) {
       return Stream.value(const []);
     }
-    return _bindStream(
-      cloudWriteSessionController,
-      uid,
-      db
+    return streamWithSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      source: db
           .collection(_collection)
           .doc(id)
           .collection('feed')
@@ -588,10 +608,10 @@ class GyeService {
     if (uid == null || db == null) {
       return Stream.value(const []);
     }
-    return _bindStream(
-      cloudWriteSessionController,
-      uid,
-      db
+    return streamWithSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      source: db
           .collection(_collection)
           .doc(id)
           .collection('members')
@@ -1056,10 +1076,10 @@ class GyeService {
     if (uid == null || db == null) {
       return Stream.value(const <String>{});
     }
-    return _bindStream(
-      cloudWriteSessionController,
-      uid,
-      db
+    return streamWithSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      source: db
           .collection('users')
           .doc(uid)
           .snapshots()

@@ -69,10 +69,28 @@ class FirestoreProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
+    CollectionReference<Map<String, dynamic>>? ref;
+    Map<String, dynamic>? payload;
     return savePackWithSession(
       p,
       sessions: cloudWriteSessionController,
       uid: uid,
+      prepare: () async {
+        final db = _db;
+        if (db == null) {
+          return;
+        }
+        ref = db.collection('users').doc(uid).collection('packs');
+        payload = Map<String, dynamic>.from(p.toJson())
+          ..['updatedAt'] = FieldValue.serverTimestamp();
+      },
+      write: () async {
+        final collection = ref;
+        final data = payload;
+        if (collection != null && data != null) {
+          await collection.doc(p.packId).set(data, SetOptions(merge: true));
+        }
+      },
     );
   }
 
@@ -80,29 +98,13 @@ class FirestoreProgressService {
     PackProgress p, {
     required CloudWriteSessionController sessions,
     required String uid,
+    required Future<void> Function() prepare,
+    required Future<void> Function() write,
   }) async {
-    CollectionReference<Map<String, dynamic>>? ref;
-    Map<String, dynamic>? payload;
     try {
-      return await CloudWriteFence(sessions).run(
-        uid: uid,
-        prepare: () async {
-          final db = _db;
-          if (db == null) {
-            return;
-          }
-          ref = db.collection('users').doc(uid).collection('packs');
-          payload = Map<String, dynamic>.from(p.toJson())
-            ..['updatedAt'] = FieldValue.serverTimestamp();
-        },
-        action: () async {
-          final collection = ref;
-          final data = payload;
-          if (collection != null && data != null) {
-            await collection.doc(p.packId).set(data, SetOptions(merge: true));
-          }
-        },
-      );
+      return await CloudWriteFence(
+        sessions,
+      ).run(uid: uid, prepare: prepare, action: write);
     } catch (_) {
       return CloudWriteResult.blocked;
     }
