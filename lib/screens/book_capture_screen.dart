@@ -23,6 +23,39 @@ import '../widgets/sori/tokens.dart';
 ///
 /// Flow: 카메라/갤러리 → image_cropper → ML Kit OCR →
 ///   Navigator.push '/book/preview' (args: { text, blockCount, imagePath })
+class RecoveredBookOcrLeaseOwner {
+  const RecoveredBookOcrLeaseOwner({
+    required this.claim,
+    required this.isDurablyRecovered,
+    required this.discard,
+  });
+
+  final Future<String?> Function(String expectedLease) claim;
+  final bool Function(PendingMediaLease lease) isDurablyRecovered;
+  final Future<void> Function(PendingMediaLease lease) discard;
+
+  Future<void> release(PendingMediaLease lease) async {
+    try {
+      final claimed = await claim(lease.encoded);
+      if (claimed != null || !isDurablyRecovered(lease)) {
+        await discard(lease);
+      }
+    } on PreferenceWriteException {
+      // Reload proved the recovery record is still durable.
+    } on PreferenceOutcomeUnknownException {
+      // The record may still be durable; preserve the lease until refresh.
+    }
+  }
+
+  Future<bool> keepForResult(PendingMediaLease lease, OcrResult result) async {
+    if (result.isSuccess) {
+      return true;
+    }
+    await release(lease);
+    return false;
+  }
+}
+
 class BookCaptureScreen extends StatefulWidget {
   const BookCaptureScreen({super.key});
 
@@ -72,12 +105,13 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
   }
 
   Future<void> _releaseRecoveredLease(PendingMediaLease lease) async {
-    final claimed = await Storage.claimRecoveredBookLease(
-      expectedLease: lease.encoded,
-    );
-    if (claimed != null || !_isDurablyRecovered(lease)) {
-      await (await BookImageService.store).discard(lease);
-    }
+    await RecoveredBookOcrLeaseOwner(
+      claim: (expectedLease) =>
+          Storage.claimRecoveredBookLease(expectedLease: expectedLease),
+      isDurablyRecovered: _isDurablyRecovered,
+      discard: (candidate) async =>
+          (await BookImageService.store).discard(candidate),
+    ).release(lease);
   }
 
   Future<void> _clearRecoveredAfterHandoff(PendingMediaLease lease) async {
@@ -179,9 +213,26 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
             ),
           );
       if (!mounted) {
+        await _releaseRecoveredLease(ocrLease);
+        croppedLease = null;
         return;
       }
-      if (!ocr.isSuccess) {
+      final keepOcrLease = await RecoveredBookOcrLeaseOwner(
+        claim: (expectedLease) =>
+            Storage.claimRecoveredBookLease(expectedLease: expectedLease),
+        isDurablyRecovered: _isDurablyRecovered,
+        discard: (candidate) async =>
+            (await BookImageService.store).discard(candidate),
+      ).keepForResult(ocrLease, ocr);
+      if (!mounted) {
+        if (keepOcrLease) {
+          await _releaseRecoveredLease(ocrLease);
+        }
+        croppedLease = null;
+        return;
+      }
+      if (!keepOcrLease) {
+        croppedLease = null;
         setState(() {
           _errorKey = ocr.failure == OcrFailure.noKoreanFound
               ? 'no_korean'

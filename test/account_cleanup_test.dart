@@ -64,18 +64,41 @@ void main() {
 }
 
 class _FakePreferenceRemovalStore implements PreferenceRemovalStore {
-  _FakePreferenceRemovalStore({required this.keys, required this.results});
+  _FakePreferenceRemovalStore({
+    required Set<String> keys,
+    required this.results,
+  }) : cache = {for (final key in keys) key: key},
+       durable = {for (final key in keys) key: key};
 
-  final Set<String> keys;
+  final Map<String, Object> cache;
+  final Map<String, Object> durable;
   final Map<String, bool> results;
   final List<String> removals = <String>[];
 
   @override
-  Set<String> getKeys() => keys;
+  Set<String> getKeys() => cache.keys.toSet();
+
+  @override
+  bool containsKey(String key) => cache.containsKey(key);
+
+  @override
+  Object? getValue(String key) => cache[key];
+
+  @override
+  Future<void> reload() async {
+    cache
+      ..clear()
+      ..addAll(durable);
+  }
 
   @override
   Future<bool> remove(String key) async {
     removals.add(key);
-    return results[key] ?? true;
+    cache.remove(key);
+    final result = results[key] ?? true;
+    if (result) {
+      durable.remove(key);
+    }
+    return result;
   }
 }

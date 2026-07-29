@@ -159,3 +159,72 @@
   therefore uses contained copy-before-write, atomic journal rename, strict
   durable records, marker/journal retry, reference validation, idempotent
   cleanup, rollback before persistence, and startup reconciliation.
+
+## Review-Fix Addendum — 2026-07-29
+
+### Fixed Review Findings
+
+- Strict SharedPreferences writes and removals now model the legacy cache
+  behavior explicitly. A `false` result or thrown platform future triggers
+  `reload()` and a durable-state comparison:
+  - the requested state is treated as a committed success;
+  - the exact prior state is restored in cache and reported as a confirmed
+    `PreferenceWriteException`;
+  - a third state, wrong value type, or failed reload raises the distinct
+    `PreferenceOutcomeUnknownException`.
+- Keys with an unknown outcome cannot be mutated again until a successful
+  refresh or process restart. Media callers distinguish the typed unknown
+  result and preserve every possibly referenced old, promoted, and pending
+  file. Claims return ownership only after removal is confirmed.
+- `CustomPackService.deleteWord` now requires the complete original local word
+  snapshot and compares it under `MediaMutationLock`. Missing, shifted, or
+  changed targets are conflicts. The edit screen serializes delete prompts,
+  and all post-commit custom-pack media GC is best effort so cleanup failure
+  cannot invite a destructive retry of a committed mutation.
+- Startup migration carries a reference-snapshot completeness flag. Any
+  malformed, wrong-kind, missing, or untrusted non-empty reference that is
+  sanitized disables committed-file GC for that startup; valid managed and
+  trusted legacy migrations remain complete.
+- Recovered-book OCR now compare-claims and releases its durable record and
+  pending lease for no-Korean, engine, and timeout results. Confirmed claim
+  failures and unknown outcomes preserve ownership safely for a later startup.
+
+### TDD Evidence
+
+- The focused RED run failed for the expected missing typed unknown-outcome
+  exception, expected-original delete contract, and recovered OCR ownership
+  helper before production changes were made.
+- Production-shaped preference doubles mutate cache before their futures
+  return and maintain a separate durable map. They cover false and thrown
+  effective commits, false and thrown confirmed rejection with cache restore,
+  third-state/reload-failure unknown outcomes, refresh-before-retry, and
+  confirmed versus unconfirmed record claims.
+- Added regression coverage for unknown media-write preservation, shifted and
+  concurrent word deletion, post-commit GC failure plus stale retry, corrupt
+  startup reference GC suppression, and all resumed OCR terminal failures.
+
+### Fix-Round Verification
+
+- `flutter analyze`
+  - exit 0; no issues found.
+- Focused Task 8 and compatibility suite:
+  - `flutter test test/book_media_route_ownership_test.dart
+    test/managed_media_store_test.dart test/media_serialization_test.dart
+    test/media_lifecycle_test.dart test/picker_lost_data_recovery_test.dart
+    test/crop_recovery_test.dart test/book_page_test.dart
+    test/account_cleanup_test.dart --reporter expanded`
+  - 100 tests passed.
+- Complete regression suite:
+  - `flutter test --reporter compact`
+  - 748 tests passed.
+- `git diff --check`
+  - exit 0; only expected Windows LF-to-CRLF conversion notices were printed
+    while displaying diffs.
+- Changed-file allowlist and secret-pattern scan:
+  - passed before this report-only addendum; no unrelated production files or
+    credential-like additions were found.
+
+### Boundaries
+
+- No push, merge, deployment, remote mutation, or device-only claim was made.
+- The Task 8 plan and progress-ledger completion state were not edited.

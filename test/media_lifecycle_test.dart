@@ -88,6 +88,28 @@ void main() {
   });
 
   test(
+    'unknown book persistence outcome preserves committed and pending copies',
+    () async {
+      final source = File('${sandbox.path}${Platform.pathSeparator}book.jpg')
+        ..writeAsBytesSync([1]);
+      final pending = await store.stage(source, ManagedMediaKind.book);
+      final workflow = BookMediaSaveWorkflow(
+        store: store,
+        persist: (_) async =>
+            throw const PreferenceOutcomeUnknownException('kl_bookshelf_v1'),
+      );
+
+      await expectLater(
+        workflow.save(pending),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+
+      expect(await store.listCommitted(ManagedMediaKind.book), hasLength(1));
+      expect(await store.resolvePending(pending), isNotNull);
+    },
+  );
+
+  test(
     'post-persist finalization failure is committed success exactly once',
     () async {
       final source = File('${sandbox.path}${Platform.pathSeparator}book.jpg')
@@ -222,6 +244,103 @@ void main() {
     },
   );
 
+  test('shifted delete index cannot remove a different word', () async {
+    final expected = detailedWord('').copyWithEditable(korean: 'expected');
+    final shifted = detailedWord('').copyWithEditable(korean: 'shifted');
+    await Storage.setCustomPacksRawJson(
+      jsonEncode({
+        'pack': CustomPack.manual(
+          id: 'pack',
+          name: 'Pack',
+          words: [shifted, expected],
+        ).toLocalJson(),
+      }),
+    );
+
+    await expectLater(
+      CustomPackService.deleteWord('pack', 0, expectedOriginal: expected),
+      throwsStateError,
+    );
+
+    expect(
+      CustomPackService.getById('pack')!.words.map((word) => word.korean),
+      ['shifted', 'expected'],
+    );
+  });
+
+  test(
+    'concurrent duplicate delete commits once and rejects the retry',
+    () async {
+      final expected = detailedWord('').copyWithEditable(korean: 'first');
+      final shifted = detailedWord('').copyWithEditable(korean: 'second');
+      await Storage.setCustomPacksRawJson(
+        jsonEncode({
+          'pack': CustomPack.manual(
+            id: 'pack',
+            name: 'Pack',
+            words: [expected, shifted],
+          ).toLocalJson(),
+        }),
+      );
+
+      Future<Object?> attempt() => CustomPackService.deleteWord(
+        'pack',
+        0,
+        expectedOriginal: expected,
+      ).then<Object?>((value) => value, onError: (Object error) => error);
+      final outcomes = await Future.wait([attempt(), attempt()]);
+
+      expect(outcomes.whereType<CustomPack>(), hasLength(1));
+      expect(outcomes.whereType<StateError>(), hasLength(1));
+      expect(
+        CustomPackService.getById('pack')!.words.map((word) => word.korean),
+        ['second'],
+      );
+    },
+  );
+
+  test(
+    'post-commit delete GC failure is best effort and stale retry is harmless',
+    () async {
+      final oldSource = File('${sandbox.path}${Platform.pathSeparator}old.jpg')
+        ..writeAsBytesSync([1]);
+      final oldPending = await store.stage(oldSource, ManagedMediaKind.word);
+      final oldPromotion = await store.promote(oldPending);
+      await store.finalize(oldPromotion);
+      final expected = detailedWord(
+        oldPromotion.reference.encoded,
+      ).copyWithEditable(korean: 'first');
+      final shifted = detailedWord('').copyWithEditable(korean: 'second');
+      await Storage.setCustomPacksRawJson(
+        jsonEncode({
+          'pack': CustomPack.manual(
+            id: 'pack',
+            name: 'Pack',
+            words: [expected, shifted],
+          ).toLocalJson(),
+        }),
+      );
+      BookImageService.setStoreForTesting(_DeleteFailingStore.from(store));
+
+      final updated = await CustomPackService.deleteWord(
+        'pack',
+        0,
+        expectedOriginal: expected,
+      );
+
+      expect(updated?.words.map((word) => word.korean), ['second']);
+      expect(await store.resolve(oldPromotion.reference), isNotNull);
+      await expectLater(
+        CustomPackService.deleteWord('pack', 0, expectedOriginal: expected),
+        throwsStateError,
+      );
+      expect(
+        CustomPackService.getById('pack')!.words.map((word) => word.korean),
+        ['second'],
+      );
+    },
+  );
+
   test('word recovery workflow fingerprints full homograph identity', () {
     final first = detailedWord('').copyWithEditable(translationDe: 'Bank');
     final homograph = first.copyWithEditable(translationDe: 'Sitzbank');
@@ -287,13 +406,80 @@ void main() {
       });
       await Storage.setRecoveredBookLease(record);
 
+      final preferences = _CacheMutatingRemovalStore(
+        key: 'kl_recovered_book_lease',
+        value: record,
+        result: _RemovalResult.falseAndRejected,
+      );
       await expectLater(
-        Storage.claimRecoveredBookLease(preferences: _FalseStringStore()),
+        Storage.claimRecoveredBookLease(preferences: preferences),
         throwsA(isA<PreferenceWriteException>()),
       );
 
       expect(Storage.recoveredBookLease, record);
+      expect(preferences.cache['kl_recovered_book_lease'], record);
+      expect(preferences.durable['kl_recovered_book_lease'], record);
       expect(await store.resolvePending(pending), isNotNull);
+    },
+  );
+
+  test(
+    'strict recovered-book claim accepts false or throw after durable removal',
+    () async {
+      for (final result in const [
+        _RemovalResult.falseButCommitted,
+        _RemovalResult.throwButCommitted,
+      ]) {
+        final record = jsonEncode({
+          'workflowId': 'book-flow',
+          'lease': 'pending:book:p_book_claim.jpg',
+        });
+        final preferences = _CacheMutatingRemovalStore(
+          key: 'kl_recovered_book_lease',
+          value: record,
+          result: result,
+        );
+
+        expect(
+          await Storage.claimRecoveredBookLease(preferences: preferences),
+          record,
+        );
+        expect(preferences.cache, isEmpty);
+        expect(preferences.durable, isEmpty);
+      }
+    },
+  );
+
+  test(
+    'strict recovered-book claim restores rejected throw and types third state',
+    () async {
+      final record = jsonEncode({
+        'workflowId': 'book-flow',
+        'lease': 'pending:book:p_book_claim.jpg',
+      });
+      final rejected = _CacheMutatingRemovalStore(
+        key: 'kl_recovered_book_lease',
+        value: record,
+        result: _RemovalResult.throwAndRejected,
+      );
+      await expectLater(
+        Storage.claimRecoveredBookLease(preferences: rejected),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+      expect(rejected.cache['kl_recovered_book_lease'], record);
+      expect(rejected.durable['kl_recovered_book_lease'], record);
+
+      final unknown = _CacheMutatingRemovalStore(
+        key: 'kl_recovered_book_lease',
+        value: record,
+        result: _RemovalResult.thirdState,
+      );
+      await expectLater(
+        Storage.claimRecoveredBookLease(preferences: unknown),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(unknown.cache['kl_recovered_book_lease'], 'third');
+      expect(unknown.durable['kl_recovered_book_lease'], 'third');
     },
   );
 
@@ -346,6 +532,35 @@ void main() {
 
       expect(await store.resolve(promotion.reference), isNotNull);
       expect(await store.resolvePending(pending), isNull);
+    },
+  );
+
+  test(
+    'discarded near-valid startup ref disables committed GC for that startup',
+    () async {
+      final committedSource = File(
+        '${sandbox.path}${Platform.pathSeparator}sentinel.jpg',
+      )..writeAsBytesSync([8]);
+      final committedLease = await store.stage(
+        committedSource,
+        ManagedMediaKind.book,
+      );
+      final sentinel = await store.promote(committedLease);
+      await store.finalize(sentinel);
+      await Storage.setBookshelfRawJson(
+        jsonEncode({
+          'page': {
+            'localThumbnailPath': 'book:almost/valid.jpg',
+            'words': const [],
+          },
+        }),
+      );
+      await Storage.setCustomPacksRawJson('{}');
+
+      await BookImageService.initialize();
+
+      expect(Storage.bookshelfRawJson, isNot(contains('almost/valid.jpg')));
+      expect(await store.resolve(sentinel.reference), isNotNull);
     },
   );
 
@@ -467,6 +682,40 @@ void main() {
   );
 
   test(
+    'unknown word persistence outcome preserves old new and pending media',
+    () async {
+      final oldSource = File('${sandbox.path}${Platform.pathSeparator}old.jpg')
+        ..writeAsBytesSync([1]);
+      final oldPending = await store.stage(oldSource, ManagedMediaKind.word);
+      final oldPromotion = await store.promote(oldPending);
+      await store.finalize(oldPromotion);
+      final newSource = File('${sandbox.path}${Platform.pathSeparator}new.jpg')
+        ..writeAsBytesSync([2]);
+      final newPending = await store.stage(newSource, ManagedMediaKind.word);
+      final workflow = WordMediaEditWorkflow(
+        store: store,
+        originalReference: oldPromotion.reference,
+      );
+      await workflow.select(newPending);
+
+      await expectLater(
+        workflow.commit(
+          persist: (_) async => throw const PreferenceOutcomeUnknownException(
+            'kl_custom_packs_v1',
+          ),
+          referencesAfterWrite: () =>
+              const ManagedMediaReferenceSnapshot.invalid(),
+        ),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+
+      expect(await store.resolve(oldPromotion.reference), isNotNull);
+      expect(await store.listCommitted(ManagedMediaKind.word), hasLength(2));
+      expect(await store.resolvePending(newPending), isNotNull);
+    },
+  );
+
+  test(
     'editing a word preserves every field and can explicitly clear photo',
     () {
       final original = detailedWord('word:old.jpg');
@@ -542,10 +791,76 @@ class _FilePicker extends ImagePicker {
   }) async => file;
 }
 
-class _FalseStringStore implements PreferenceStringStore {
+enum _RemovalResult {
+  falseButCommitted,
+  throwButCommitted,
+  falseAndRejected,
+  throwAndRejected,
+  thirdState,
+}
+
+class _CacheMutatingRemovalStore implements PreferenceStringStore {
+  _CacheMutatingRemovalStore({
+    required String key,
+    required String value,
+    required this.result,
+  }) : cache = {key: value},
+       durable = {key: value};
+
+  final Map<String, String> cache;
+  final Map<String, String> durable;
+  final _RemovalResult result;
+
   @override
-  Future<bool> remove(String key) async => false;
+  bool containsKey(String key) => cache.containsKey(key);
+
+  @override
+  String? getString(String key) => cache[key];
+
+  @override
+  Future<void> reload() async {
+    cache
+      ..clear()
+      ..addAll(durable);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    cache.remove(key);
+    switch (result) {
+      case _RemovalResult.falseButCommitted:
+        durable.remove(key);
+        return false;
+      case _RemovalResult.throwButCommitted:
+        durable.remove(key);
+        throw StateError('remove reported failure after commit');
+      case _RemovalResult.falseAndRejected:
+        return false;
+      case _RemovalResult.throwAndRejected:
+        throw StateError('remove rejected');
+      case _RemovalResult.thirdState:
+        durable[key] = 'third';
+        return false;
+    }
+  }
 
   @override
   Future<bool> setString(String key, String value) async => false;
+}
+
+class _DeleteFailingStore extends ManagedMediaStore {
+  _DeleteFailingStore.from(ManagedMediaStore source)
+    : super(
+        documentsDirectory: source.documentsDirectory,
+        temporaryDirectory: source.temporaryDirectory,
+        nonce: () => DateTime.now().microsecondsSinceEpoch.toString(),
+      );
+
+  @override
+  Future<void> deleteIfUnreferenced(
+    ManagedMediaRef reference,
+    ManagedMediaReferenceSnapshot snapshot,
+  ) async {
+    throw FileSystemException('post-commit GC failed');
+  }
 }

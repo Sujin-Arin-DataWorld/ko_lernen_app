@@ -1110,18 +1110,25 @@ class BookImageService {
         if (migratedBookshelf == null || migratedPacks == null) {
           throw StateError('Validated media collection changed shape.');
         }
-        if (migratedBookshelf != originalBookshelf) {
-          await persistBookshelf(migratedBookshelf);
+        if (migratedBookshelf.json != originalBookshelf) {
+          await persistBookshelf(migratedBookshelf.json);
         }
-        if (migratedPacks != originalPacks) {
-          await persistCustomPacks(migratedPacks);
+        if (migratedPacks.json != originalPacks) {
+          await persistCustomPacks(migratedPacks.json);
         }
-        await mediaStore.reconcile(
-          snapshot: ManagedMediaReferenceSnapshot.fromJson(
-            bookshelfJson: migratedBookshelf,
-            customPacksJson: migratedPacks,
-          ),
-        );
+        final snapshot =
+            migratedBookshelf.isComplete && migratedPacks.isComplete
+            ? ManagedMediaReferenceSnapshot.fromJson(
+                bookshelfJson: migratedBookshelf.json,
+                customPacksJson: migratedPacks.json,
+              )
+            : const ManagedMediaReferenceSnapshot.invalid();
+        await mediaStore.reconcile(snapshot: snapshot);
+      } on PreferenceOutcomeUnknownException {
+        // A migrated or original preference value may be durable. Preserve all
+        // old and newly migrated media and avoid compensating preference writes
+        // until a later startup can refresh the platform store.
+        rethrow;
       } on Object {
         var restored = true;
         try {
@@ -1183,13 +1190,13 @@ class BookImageService {
     }
   }
 
-  static Future<String?> _migrateCollection(
+  static Future<_MigratedCollection?> _migrateCollection(
     String source,
     ManagedMediaStore mediaStore, {
     required bool isBookshelf,
   }) async {
     if (source.trim().isEmpty) {
-      return source;
+      return _MigratedCollection(json: source, isComplete: true);
     }
     try {
       final decoded = jsonDecode(source);
@@ -1197,6 +1204,7 @@ class BookImageService {
         return null;
       }
       final result = <String, dynamic>{};
+      var isComplete = true;
       for (final entry in decoded.entries) {
         if (entry.key is! String || entry.value is! Map) {
           return null;
@@ -1209,18 +1217,20 @@ class BookImageService {
           owner[field.key as String] = field.value;
         }
         if (isBookshelf && owner.containsKey('localThumbnailPath')) {
-          owner['localThumbnailPath'] = await _migrateValue(
+          final migrated = await _migrateValue(
             owner['localThumbnailPath'],
             ManagedMediaKind.book,
             mediaStore,
           );
+          owner['localThumbnailPath'] = migrated.value;
+          isComplete = isComplete && migrated.isComplete;
         }
         if (owner.containsKey('words')) {
           final words = owner['words'];
           if (words is! List) {
             return null;
           }
-          owner['words'] = await Future.wait(
+          final migratedWords = await Future.wait(
             words.map((value) async {
               if (value is! Map) {
                 throw const FormatException('Malformed local word.');
@@ -1238,43 +1248,72 @@ class BookImageService {
                   ManagedMediaKind.word,
                   mediaStore,
                 );
-                if (migrated == null) {
+                if (migrated.value == null) {
                   word.remove('imagePath');
                 } else {
-                  word['imagePath'] = migrated;
+                  word['imagePath'] = migrated.value;
                 }
+                return (word: word, isComplete: migrated.isComplete);
               }
-              return word;
+              return (word: word, isComplete: true);
             }),
           );
+          owner['words'] = migratedWords
+              .map((migrated) => migrated.word)
+              .toList();
+          isComplete =
+              isComplete &&
+              migratedWords.every((migrated) => migrated.isComplete);
         }
         result[entry.key as String] = owner;
       }
-      return jsonEncode(result);
+      return _MigratedCollection(
+        json: jsonEncode(result),
+        isComplete: isComplete,
+      );
     } on FormatException {
       rethrow;
     }
   }
 
-  static Future<String?> _migrateValue(
+  static Future<_MigratedValue> _migrateValue(
     Object? value,
     ManagedMediaKind kind,
     ManagedMediaStore mediaStore,
   ) async {
     if (value == null || value == '') {
-      return null;
+      return const _MigratedValue(value: null, isComplete: true);
     }
     final managed = ManagedMediaRef.tryParse(value);
     if (managed != null) {
-      return managed.kind == kind ? managed.encoded : null;
+      return managed.kind == kind
+          ? _MigratedValue(value: managed.encoded, isComplete: true)
+          : const _MigratedValue(value: null, isComplete: false);
     }
     if (value is! String) {
-      return null;
+      return const _MigratedValue(value: null, isComplete: false);
     }
-    return (await mediaStore.migrateTrustedLegacy(value, kind))?.encoded;
+    final migrated = await mediaStore.migrateTrustedLegacy(value, kind);
+    return migrated == null
+        ? const _MigratedValue(value: null, isComplete: false)
+        : _MigratedValue(value: migrated.encoded, isComplete: true);
   }
 
   static void configureForTesting(ManagedMediaStore? value) {
     _store = value;
   }
+}
+
+class _MigratedCollection {
+  const _MigratedCollection({required this.json, required this.isComplete});
+
+  final String json;
+  final bool isComplete;
+}
+
+class _MigratedValue {
+  const _MigratedValue({required this.value, required this.isComplete});
+
+  final String? value;
+  final bool isComplete;
 }

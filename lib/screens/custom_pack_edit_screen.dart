@@ -41,6 +41,7 @@ class CustomPackEditScreen extends StatefulWidget {
 class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     with ScreenCoachMixin<CustomPackEditScreen> {
   CustomPack? _pack;
+  bool _wordDeleteInFlight = false;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _fabKey = GlobalKey();
@@ -129,39 +130,50 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
   }
 
   Future<void> _deleteWord(int index) async {
+    if (_wordDeleteInFlight) return;
     final pack = _pack;
-    if (pack == null) return;
-    final t = AppL10n.of(context);
-    final ok = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(t.wbDeleteWordTitle),
-        content: Text(t.wbDeleteWordBody),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text(t.btnCancel),
-          ),
-          FilledButton.tonal(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text(t.btnDelete),
-          ),
-        ],
-      ),
-    );
-    if (ok == true) {
-      try {
-        await CustomPackService.deleteWord(pack.id, index);
-        _reload();
-      } on Object {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(AppL10n.of(context).bookCaptureErrorUnknown),
+    if (pack == null || index < 0 || index >= pack.words.length) return;
+    final expectedOriginal = pack.words[index];
+    _wordDeleteInFlight = true;
+    try {
+      final t = AppL10n.of(context);
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(t.wbDeleteWordTitle),
+          content: Text(t.wbDeleteWordBody),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: Text(t.btnCancel),
             ),
+            FilledButton.tonal(
+              onPressed: () => Navigator.of(ctx).pop(true),
+              child: Text(t.btnDelete),
+            ),
+          ],
+        ),
+      );
+      if (ok == true) {
+        try {
+          await CustomPackService.deleteWord(
+            pack.id,
+            index,
+            expectedOriginal: expectedOriginal,
           );
+          _reload();
+        } on Object {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(AppL10n.of(context).bookCaptureErrorUnknown),
+              ),
+            );
+          }
         }
       }
+    } finally {
+      _wordDeleteInFlight = false;
     }
   }
 

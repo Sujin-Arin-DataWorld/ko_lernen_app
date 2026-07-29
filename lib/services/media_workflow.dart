@@ -1,4 +1,5 @@
 import 'book_image_service.dart';
+import 'storage_service.dart';
 
 class BookMediaSaveWorkflow {
   BookMediaSaveWorkflow({required this.store, required this.persist});
@@ -19,6 +20,11 @@ class BookMediaSaveWorkflow {
       persisted = true;
       await store.finalizeAfterPersistence(promotion);
       return promotion.reference;
+    } on PreferenceOutcomeUnknownException {
+      // Either the previous model or the requested model may be durable.
+      // Preserve both the promoted copy and its pending lease until startup
+      // reconciliation can inspect a refreshed preference snapshot.
+      rethrow;
     } on Object {
       if (!persisted) {
         await store.rollback(promotion);
@@ -87,6 +93,10 @@ class WordMediaEditWorkflow {
         await store.finalize(promotion);
       }
       _pending = null;
+    } on PreferenceOutcomeUnknownException {
+      // The old and requested model versions are both possible. Keep the old
+      // committed ref, the promoted replacement, and its pending lease.
+      rethrow;
     } on Object {
       if (promotion != null && !persisted) {
         await store.rollback(promotion);

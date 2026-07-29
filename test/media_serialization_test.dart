@@ -22,21 +22,90 @@ ExtractedWord fullWord({String imagePath = 'word:photo.jpg'}) => ExtractedWord(
   savedToPackId: 'cp_saved',
 );
 
-class _FalseStringStore implements PreferenceStringStore {
-  @override
-  Future<bool> remove(String key) async => false;
-
-  @override
-  Future<bool> setString(String key, String value) async => false;
+enum _MutationResult {
+  returnsTrue,
+  falseButCommitted,
+  throwButCommitted,
+  falseAndRejected,
+  throwAndRejected,
+  thirdState,
+  reloadFailure,
 }
 
-class _ThrowingStringStore implements PreferenceStringStore {
-  @override
-  Future<bool> remove(String key) async => throw StateError('remove failed');
+class _CacheMutatingStringStore implements PreferenceStringStore {
+  _CacheMutatingStringStore({
+    required Map<String, String> initial,
+    required this.result,
+  }) : cache = Map<String, String>.from(initial),
+       durable = Map<String, String>.from(initial);
+
+  final Map<String, String> cache;
+  final Map<String, String> durable;
+  _MutationResult result;
 
   @override
-  Future<bool> setString(String key, String value) async =>
-      throw StateError('write failed');
+  bool containsKey(String key) => cache.containsKey(key);
+
+  @override
+  String? getString(String key) => cache[key];
+
+  @override
+  Future<void> reload() async {
+    if (result == _MutationResult.reloadFailure) {
+      throw StateError('reload failed');
+    }
+    cache
+      ..clear()
+      ..addAll(durable);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    cache.remove(key);
+    switch (result) {
+      case _MutationResult.returnsTrue:
+        durable.remove(key);
+        return true;
+      case _MutationResult.falseButCommitted:
+        durable.remove(key);
+        return false;
+      case _MutationResult.throwButCommitted:
+        durable.remove(key);
+        throw StateError('remove reported failure after commit');
+      case _MutationResult.falseAndRejected:
+        return false;
+      case _MutationResult.throwAndRejected:
+      case _MutationResult.reloadFailure:
+        throw StateError('remove failed');
+      case _MutationResult.thirdState:
+        durable[key] = 'third';
+        return false;
+    }
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    cache[key] = value;
+    switch (result) {
+      case _MutationResult.returnsTrue:
+        durable[key] = value;
+        return true;
+      case _MutationResult.falseButCommitted:
+        durable[key] = value;
+        return false;
+      case _MutationResult.throwButCommitted:
+        durable[key] = value;
+        throw StateError('write reported failure after commit');
+      case _MutationResult.falseAndRejected:
+        return false;
+      case _MutationResult.throwAndRejected:
+      case _MutationResult.reloadFailure:
+        throw StateError('write failed');
+      case _MutationResult.thirdState:
+        durable[key] = 'third';
+        return false;
+    }
+  }
 }
 
 void main() {
@@ -156,19 +225,87 @@ void main() {
     },
   );
 
-  test('strict structured writes reject false and propagate exceptions', () {
-    expect(
-      Storage.setBookshelfRawJsonStrict('{}', preferences: _FalseStringStore()),
-      throwsA(isA<PreferenceWriteException>()),
-    );
-    expect(
-      Storage.setCustomPacksRawJsonStrict(
-        '{}',
-        preferences: _ThrowingStringStore(),
-      ),
-      throwsStateError,
-    );
-  });
+  test(
+    'strict writes accept false or throw when reload proves durable commit',
+    () async {
+      for (final result in const [
+        _MutationResult.falseButCommitted,
+        _MutationResult.throwButCommitted,
+      ]) {
+        final store = _CacheMutatingStringStore(
+          initial: const {'kl_bookshelf_v1': 'original'},
+          result: result,
+        );
+
+        await Storage.setBookshelfRawJsonStrict(
+          'requested',
+          preferences: store,
+        );
+
+        expect(store.cache['kl_bookshelf_v1'], 'requested');
+        expect(store.durable['kl_bookshelf_v1'], 'requested');
+      }
+    },
+  );
+
+  test(
+    'strict writes restore cache and reject when reload proves prior value',
+    () async {
+      for (final result in const [
+        _MutationResult.falseAndRejected,
+        _MutationResult.throwAndRejected,
+      ]) {
+        final store = _CacheMutatingStringStore(
+          initial: const {'kl_custom_packs_v1': 'original'},
+          result: result,
+        );
+
+        await expectLater(
+          Storage.setCustomPacksRawJsonStrict('requested', preferences: store),
+          throwsA(isA<PreferenceWriteException>()),
+        );
+
+        expect(store.cache['kl_custom_packs_v1'], 'original');
+        expect(store.durable['kl_custom_packs_v1'], 'original');
+      }
+    },
+  );
+
+  test(
+    'strict writes type unknown outcomes and require refresh before retry',
+    () async {
+      final thirdState = _CacheMutatingStringStore(
+        initial: const {'kl_bookshelf_v1': 'original'},
+        result: _MutationResult.thirdState,
+      );
+
+      await expectLater(
+        Storage.setBookshelfRawJsonStrict('requested', preferences: thirdState),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(thirdState.cache['kl_bookshelf_v1'], 'third');
+      expect(thirdState.durable['kl_bookshelf_v1'], 'third');
+
+      thirdState.result = _MutationResult.returnsTrue;
+      await Storage.setBookshelfRawJsonStrict('retry', preferences: thirdState);
+      expect(thirdState.durable['kl_bookshelf_v1'], 'retry');
+
+      Storage.resetForTesting();
+      final reloadFailure = _CacheMutatingStringStore(
+        initial: const {'kl_bookshelf_v1': 'original'},
+        result: _MutationResult.reloadFailure,
+      );
+      await expectLater(
+        Storage.setBookshelfRawJsonStrict(
+          'requested',
+          preferences: reloadFailure,
+        ),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(reloadFailure.cache['kl_bookshelf_v1'], 'requested');
+      expect(reloadFailure.durable['kl_bookshelf_v1'], 'original');
+    },
+  );
 
   test('cloud backup omits malformed structured local collections', () async {
     await Storage.setBookshelfRawJson('{broken');

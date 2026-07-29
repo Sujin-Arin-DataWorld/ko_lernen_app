@@ -180,25 +180,33 @@ class CustomPackService {
       final updated = pack.copyWith(words: words);
       raw[packId] = updated.toLocalJson();
       await _writeRawStrict(raw);
-      await _collectGarbage([oldReference]);
+      await _collectGarbageBestEffort([oldReference]);
       return updated;
     });
   }
 
   /// index 위치 단어 삭제 → 저장.
-  static Future<CustomPack?> deleteWord(String packId, int index) async {
+  static Future<CustomPack?> deleteWord(
+    String packId,
+    int index, {
+    required ExtractedWord expectedOriginal,
+  }) async {
     return MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final pack = _packFromRaw(raw, packId);
       if (pack == null || index < 0 || index >= pack.words.length) {
-        return pack;
+        throw StateError('The deleted word no longer exists.');
+      }
+      if (jsonEncode(pack.words[index].toLocalJson()) !=
+          jsonEncode(expectedOriginal.toLocalJson())) {
+        throw StateError('The deleted word changed before deletion.');
       }
       final removedReference = pack.words[index].imagePath;
       final words = List<ExtractedWord>.from(pack.words)..removeAt(index);
       final updated = pack.copyWith(words: words);
       raw[packId] = updated.toLocalJson();
       await _writeRawStrict(raw);
-      await _collectGarbage([removedReference]);
+      await _collectGarbageBestEffort([removedReference]);
       return updated;
     });
   }
@@ -219,7 +227,9 @@ class CustomPackService {
       raw[pack.id] = pack.toLocalJson();
       await _writeRawStrict(raw);
       if (previous != null) {
-        await _collectGarbage(previous.words.map((word) => word.imagePath));
+        await _collectGarbageBestEffort(
+          previous.words.map((word) => word.imagePath),
+        );
       }
     });
   }
@@ -231,7 +241,9 @@ class CustomPackService {
       raw.remove(id);
       await _writeRawStrict(raw);
       if (previous != null) {
-        await _collectGarbage(previous.words.map((word) => word.imagePath));
+        await _collectGarbageBestEffort(
+          previous.words.map((word) => word.imagePath),
+        );
       }
     });
   }
@@ -273,6 +285,10 @@ class CustomPackService {
         persisted = true;
         await store.finalizeAfterPersistence(promotion);
         return updated;
+      } on PreferenceOutcomeUnknownException {
+        // The durable pack may contain either version. Keep the promoted copy
+        // and pending lease so neither possible model references deleted media.
+        rethrow;
       } on Object {
         if (!persisted) {
           await store.rollback(promotion);
@@ -346,6 +362,10 @@ class CustomPackService {
           }
         }
         return updated;
+      } on PreferenceOutcomeUnknownException {
+        // A refresh could not prove whether the old or edited word is durable.
+        // Preserve old, promoted, and pending media for reconciliation.
+        rethrow;
       } on Object {
         if (promotion != null && !persisted) {
           await store.rollback(promotion);
@@ -428,6 +448,17 @@ class CustomPackService {
     final store = await BookImageService.store;
     for (final reference in references) {
       await store.deleteIfUnreferenced(reference, snapshot);
+    }
+  }
+
+  static Future<void> _collectGarbageBestEffort(
+    Iterable<String> encodedRefs,
+  ) async {
+    try {
+      await _collectGarbage(encodedRefs);
+    } on Object {
+      // The strict model write already committed. Startup reconciliation can
+      // safely retry GC; callers must not retry a committed mutation.
     }
   }
 }

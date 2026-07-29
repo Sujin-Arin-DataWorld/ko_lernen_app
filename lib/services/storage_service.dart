@@ -20,21 +20,107 @@ enum MasteryState {
 
 abstract interface class PreferenceRemovalStore {
   Set<String> getKeys();
+  bool containsKey(String key);
+  Object? getValue(String key);
+  Future<void> reload();
   Future<bool> remove(String key);
 }
 
 abstract interface class PreferenceStringStore {
+  bool containsKey(String key);
+  String? getString(String key);
+  Future<void> reload();
   Future<bool> setString(String key, String value);
   Future<bool> remove(String key);
 }
 
 class PreferenceWriteException implements Exception {
-  const PreferenceWriteException(this.key);
+  const PreferenceWriteException(this.key, {this.cause});
 
   final String key;
+  final Object? cause;
 
   @override
   String toString() => 'Preference write failed for $key.';
+}
+
+class PreferenceOutcomeUnknownException implements Exception {
+  const PreferenceOutcomeUnknownException(this.key, {this.cause});
+
+  final String key;
+  final Object? cause;
+
+  @override
+  String toString() => 'Preference outcome is unknown for $key.';
+}
+
+class _StringPreferenceState {
+  const _StringPreferenceState._({required this.isPresent, this.value});
+
+  const _StringPreferenceState.absent() : isPresent = false, value = null;
+
+  final bool isPresent;
+  final String? value;
+
+  static _StringPreferenceState read(PreferenceStringStore store, String key) {
+    if (!store.containsKey(key)) {
+      return const _StringPreferenceState.absent();
+    }
+    final value = store.getString(key);
+    if (value == null) {
+      throw StateError('Preference $key is not a string.');
+    }
+    return _StringPreferenceState._(isPresent: true, value: value);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is _StringPreferenceState &&
+      other.isPresent == isPresent &&
+      other.value == value;
+
+  @override
+  int get hashCode => Object.hash(isPresent, value);
+}
+
+class _PreferenceState {
+  const _PreferenceState._({required this.isPresent, this.value});
+
+  const _PreferenceState.absent() : isPresent = false, value = null;
+
+  final bool isPresent;
+  final Object? value;
+
+  static _PreferenceState read(PreferenceRemovalStore store, String key) {
+    if (!store.containsKey(key)) {
+      return const _PreferenceState.absent();
+    }
+    return _PreferenceState._(isPresent: true, value: store.getValue(key));
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is _PreferenceState &&
+      other.isPresent == isPresent &&
+      _preferenceValueEquals(other.value, value);
+
+  @override
+  int get hashCode => Object.hash(isPresent, value);
+}
+
+bool _preferenceValueEquals(Object? first, Object? second) {
+  if (first is List<String> && second is List<String>) {
+    if (first.length != second.length) {
+      return false;
+    }
+    for (var index = 0; index < first.length; index++) {
+      if (first[index] != second[index]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return first == second;
 }
 
 class PreferenceResetException implements Exception {
@@ -69,6 +155,15 @@ class _SharedPreferenceRemovalStore implements PreferenceRemovalStore {
   Set<String> getKeys() => preferences.getKeys();
 
   @override
+  bool containsKey(String key) => preferences.containsKey(key);
+
+  @override
+  Object? getValue(String key) => preferences.get(key);
+
+  @override
+  Future<void> reload() => preferences.reload();
+
+  @override
   Future<bool> remove(String key) => preferences.remove(key);
 }
 
@@ -76,6 +171,15 @@ class _SharedPreferenceStringStore implements PreferenceStringStore {
   const _SharedPreferenceStringStore(this.preferences);
 
   final SharedPreferences preferences;
+
+  @override
+  bool containsKey(String key) => preferences.containsKey(key);
+
+  @override
+  String? getString(String key) => preferences.getString(key);
+
+  @override
+  Future<void> reload() => preferences.reload();
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
@@ -122,6 +226,7 @@ class Storage {
   static SharedPreferences? _prefs;
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
+  static final Set<String> _unknownStrictKeys = <String>{};
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
@@ -137,6 +242,7 @@ class Storage {
     _srsCache = null;
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
+    _unknownStrictKeys.clear();
   }
 
   // ───────── Generic helpers ─────────
@@ -155,9 +261,164 @@ class Storage {
     final store =
         preferences ??
         (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
-    if (store == null || !await store.setString(key, value)) {
+    if (store == null) {
       throw PreferenceWriteException(key);
     }
+    final before = await _prepareStringMutation(store, key);
+    Object? failure;
+    var wrote = false;
+    try {
+      wrote = await store.setString(key, value);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (wrote) {
+      return;
+    }
+    final after = await _reloadStringState(
+      store,
+      key,
+      operationFailure: failure,
+    );
+    if (after.isPresent && after.value == value) {
+      return;
+    }
+    if (after == before) {
+      throw PreferenceWriteException(key, cause: failure);
+    }
+    _unknownStrictKeys.add(key);
+    throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
+  static Future<_StringPreferenceState> _prepareStringMutation(
+    PreferenceStringStore store,
+    String key,
+  ) async {
+    if (_unknownStrictKeys.contains(key)) {
+      try {
+        await store.reload();
+        _unknownStrictKeys.remove(key);
+      } on Object catch (error) {
+        throw PreferenceOutcomeUnknownException(key, cause: error);
+      }
+    }
+    try {
+      return _StringPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<_StringPreferenceState> _reloadStringState(
+    PreferenceStringStore store,
+    String key, {
+    Object? operationFailure,
+  }) async {
+    try {
+      await store.reload();
+      return _StringPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(
+        key,
+        cause: operationFailure ?? error,
+      );
+    }
+  }
+
+  static Future<String?> _removeStringStrict(
+    String key, {
+    PreferenceStringStore? preferences,
+    bool Function(String value)? matches,
+  }) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+    if (store == null) {
+      throw PreferenceWriteException(key);
+    }
+    final before = await _prepareStringMutation(store, key);
+    if (!before.isPresent) {
+      return null;
+    }
+    final value = before.value!;
+    if (matches != null && !matches(value)) {
+      return null;
+    }
+    Object? failure;
+    var removed = false;
+    try {
+      removed = await store.remove(key);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (removed) {
+      return value;
+    }
+    final after = await _reloadStringState(
+      store,
+      key,
+      operationFailure: failure,
+    );
+    if (!after.isPresent) {
+      return value;
+    }
+    if (after == before) {
+      throw PreferenceWriteException(key, cause: failure);
+    }
+    _unknownStrictKeys.add(key);
+    throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
+  static Future<void> _removeValueStrict(
+    PreferenceRemovalStore store,
+    String key,
+  ) async {
+    if (_unknownStrictKeys.contains(key)) {
+      try {
+        await store.reload();
+        _unknownStrictKeys.remove(key);
+      } on Object catch (error) {
+        throw PreferenceOutcomeUnknownException(key, cause: error);
+      }
+    }
+    late final _PreferenceState before;
+    try {
+      before = _PreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+    if (!before.isPresent) {
+      return;
+    }
+    Object? failure;
+    var removed = false;
+    try {
+      removed = await store.remove(key);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (removed) {
+      return;
+    }
+    late final _PreferenceState after;
+    try {
+      await store.reload();
+      after = _PreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: failure ?? error);
+    }
+    if (!after.isPresent) {
+      return;
+    }
+    if (after == before) {
+      throw PreferenceWriteException(key, cause: failure);
+    }
+    _unknownStrictKeys.add(key);
+    throw PreferenceOutcomeUnknownException(key, cause: failure);
   }
 
   static Future<void> _sd(String k, double v) async => _prefs?.setDouble(k, v);
@@ -1051,18 +1312,8 @@ class Storage {
     }),
   );
 
-  static Future<void> clearPickerLaunch() async {
-    final preferences = _prefs;
-    if (preferences == null) {
-      throw const PreferenceWriteException('kl_picker_recovery_marker_v1');
-    }
-    if (!preferences.containsKey('kl_picker_recovery_marker_v1')) {
-      return;
-    }
-    if (!await preferences.remove('kl_picker_recovery_marker_v1')) {
-      throw const PreferenceWriteException('kl_picker_recovery_marker_v1');
-    }
-  }
+  static Future<void> clearPickerLaunch() =>
+      _removeStrictIfPresent('kl_picker_recovery_marker_v1');
 
   static Future<void> markCropLaunch({required String workflowId}) => _ssStrict(
     'kl_crop_recovery_marker_v1',
@@ -1115,28 +1366,23 @@ class Storage {
     PreferenceStringStore? preferences,
     String? expectedLease,
   }) => _serializeRecoveredBookMutation(() async {
-    final source = recoveredBookLease;
-    if (source.isEmpty) {
-      return null;
-    }
-    if (expectedLease != null) {
+    bool matches(String source) {
+      if (expectedLease == null) {
+        return true;
+      }
       try {
         final decoded = jsonDecode(source);
-        if (decoded is! Map || decoded['lease'] != expectedLease) {
-          return null;
-        }
+        return decoded is Map && decoded['lease'] == expectedLease;
       } on Object {
-        return null;
+        return false;
       }
     }
-    if (preferences != null) {
-      if (!await preferences.remove('kl_recovered_book_lease')) {
-        throw const PreferenceWriteException('kl_recovered_book_lease');
-      }
-    } else {
-      await _removeStrictIfPresent('kl_recovered_book_lease');
-    }
-    return source;
+
+    return _removeStringStrict(
+      'kl_recovered_book_lease',
+      preferences: preferences,
+      matches: matches,
+    );
   });
 
   static Future<RecoveredWordClaim> claimRecoveredWordLease(
@@ -1243,16 +1489,7 @@ class Storage {
   }
 
   static Future<void> _removeStrictIfPresent(String key) async {
-    final preferences = _prefs;
-    if (preferences == null) {
-      throw PreferenceWriteException(key);
-    }
-    if (!preferences.containsKey(key)) {
-      return;
-    }
-    if (!await preferences.remove(key)) {
-      throw PreferenceWriteException(key);
-    }
+    await _removeStringStrict(key);
   }
 
   /// Tagessperre für "책 한 컷" Analyse-Aufrufe — DeepL Free 한도 보호.
@@ -1350,17 +1587,15 @@ class Storage {
     final store = preferences ?? _preferenceRemovalStore();
     final failedKeys = <String>[];
     final causes = <Object>[];
-    final keys = store.getKeys().where((key) => key.startsWith('kl_')).toList()
-      ..sort();
+    final keys = {
+      ...store.getKeys(),
+      ..._unknownStrictKeys,
+    }.where((key) => key.startsWith('kl_')).toList()..sort();
 
     try {
       for (final key in keys) {
         try {
-          final removed = await store.remove(key);
-          if (!removed) {
-            failedKeys.add(key);
-            causes.add(StateError('Shared preference removal returned false.'));
-          }
+          await _removeValueStrict(store, key);
         } catch (error) {
           failedKeys.add(key);
           causes.add(error);
