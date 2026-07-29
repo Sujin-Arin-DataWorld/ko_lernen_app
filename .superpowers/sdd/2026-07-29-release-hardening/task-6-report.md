@@ -144,7 +144,8 @@ exist.
   `1.0x`; `0.75` and `1.25` request multipliers have equivalent semantics on
   both paths. File rate is clamped to `0.5...2.0`.
 - File playback calls `play` before `setPlaybackRate`. A rate-setting failure
-  stops file playback and falls back to OS speech rather than claiming success.
+  falls back to OS speech only after cleanup succeeds; cleanup failure returns
+  false and never starts a potentially overlapping voice.
 - The coordinator serializes shared platform start/stop mutations, invalidates
   pending work on every newer request and on `stop`/`dispose`, and prevents a
   slow older resolution from performing any platform mutation.
@@ -159,10 +160,45 @@ exist.
   source-directory runbook and no longer claims a nonexistent Firebase
   codebase target.
 
+## Async Playback and Lifecycle Remediation
+
+### RED
+
+- The async failure suite reproduced uncaught file-start, rate-cleanup, file
+  completion, speech completion, and platform stop/start errors.
+- The unsafe cleanup case initially returned `true` through OS fallback even
+  though file playback cleanup had failed.
+- A resolver exception returned before OS fallback could start.
+- Lifecycle tests initially failed to compile because no injectable completion
+  timeout existed. The prior request also remained blocked in `resolveFile`
+  after `stop`/`dispose`, and a replacement request did not stop audible audio
+  until its own resolution completed.
+
+### GREEN
+
+- Production `_startFile` awaits the asynchronous file-start helper, so play
+  errors are caught. `TtsFilePlayback` returns `null` only after successful
+  cleanup and returns a false session when cleanup is unsafe.
+- Only an explicit `null` file-start result permits OS fallback. A thrown start
+  returns false because it may represent partially started playback.
+- New requests enqueue a serialized stop immediately, before cache/network
+  resolution finishes. Request cancellation races the wrapped resolver, so
+  replacement, `stop`, and `dispose` settle pending calls promptly while late
+  resolver errors remain handled.
+- File and speech completion errors resolve false. One engine-owned bounded
+  timeout reports an error, resolves false, and serially stops playback only if
+  that request is still current; stale timeout cleanup cannot stop newer audio.
+- The serialization tail handles early stop errors immediately and remains
+  healthy for subsequent requests.
+
 ## Final Verification
 
 - `flutter test test/cloud_sync_test.dart test/book_analysis_language_test.dart test/tts_request_rate_test.dart`
-  - 39 tests passed.
+  - 51 tests passed.
+- `flutter test test/tts_request_rate_test.dart test/account_cleanup_test.dart test/account_hardening_test.dart`
+  - 52 tests passed.
+- `flutter test test/tts_request_rate_test.dart`
+  - 21 tests passed.
 - `python -m unittest discover -s functions/analyze_korean_text -p "test_*.py"`
   - 6 tests passed.
 - `python -m py_compile functions/analyze_korean_text/main.py functions/analyze_korean_text/grammar_analysis.py functions/analyze_korean_text/test_main.py`
@@ -170,7 +206,7 @@ exist.
 - `flutter analyze`
   - no issues found.
 - `flutter test`
-  - 633 tests passed.
+  - 645 tests passed.
 - `git diff --check`
   - exit 0.
 
@@ -200,7 +236,9 @@ exist.
 - TTS cache identity remains `sha1("$voice|$text")`; playback rate is not part
   of resolution or generation.
 - `audioplayers` file mutation order is `play` then `setPlaybackRate`, with
-  explicit stop/fallback on rate failure.
+  explicit cleanup and safe-only fallback on rate failure.
+- Public TTS playback methods retain the bool-failure contract for asynchronous
+  platform, resolver, completion, and timeout failures.
 - `ListeningScreen` contains no temporary `Storage.ttsRate` writes/restores.
 - `BookResultScreen` reads locale in `didChangeDependencies`, not `initState`,
   and discards stale async results after a language change.

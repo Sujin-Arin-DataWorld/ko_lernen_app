@@ -13,6 +13,7 @@ import 'package:path_provider/path_provider.dart';
 import 'storage_service.dart';
 
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
+typedef TtsErrorReporter = void Function(String message);
 
 class TtsPlaybackRates {
   const TtsPlaybackRates({required this.speechRate, required this.fileRate});
@@ -54,13 +55,20 @@ class TtsFilePlayback {
     required Future<void> Function() play,
     required Future<void> Function(double rate) setRate,
     required Future<void> Function() stop,
+    void Function(Object error)? onError,
     required double rate,
   }) async {
-    await play();
     try {
+      await play();
       await setRate(rate);
-    } catch (_) {
-      await stop();
+    } catch (error) {
+      onError?.call(error);
+      try {
+        await stop();
+      } catch (stopError) {
+        onError?.call(stopError);
+        return TtsPlaybackSession(Future<bool>.value(false));
+      }
       return null;
     }
     return TtsPlaybackSession(completion);
@@ -69,10 +77,17 @@ class TtsFilePlayback {
 
 /// Executes one TTS request with an immutable, request-local playback rate.
 class TtsPlaybackEngine {
-  TtsPlaybackEngine({required this.resolveFile, required this.platform});
+  TtsPlaybackEngine({
+    required this.resolveFile,
+    required this.platform,
+    this.completionTimeout = const Duration(seconds: 30),
+    this.errorReporter,
+  });
 
   final TtsAudioResolver resolveFile;
   final TtsPlaybackPlatform platform;
+  final Duration completionTimeout;
+  final TtsErrorReporter? errorReporter;
   Future<void> _platformTail = Future<void>.value();
   Completer<void>? _cancellation;
   int _generation = 0;
@@ -98,34 +113,100 @@ class TtsPlaybackEngine {
       baseRate: baseRate,
       multiplier: rateMultiplier,
     );
-    final file = await resolveFile(trimmed, normalizedVoice);
+    final stopCurrent =
+        _serialize<void>(() async {
+          if (_disposed || generation != _generation) return;
+          await platform.stop();
+        }).then<bool>(
+          (_) => true,
+          onError: (Object error, StackTrace stack) {
+            errorReporter?.call('TTS platform stop failed: $error');
+            return false;
+          },
+        );
+    final resolution =
+        Future<File?>.sync(
+          () => resolveFile(trimmed, normalizedVoice),
+        ).then<_TtsResolution>(
+          (file) => _TtsResolution(file: file),
+          onError: (_, __) => const _TtsResolution(file: null),
+        );
+    final resolved = await Future.any<_TtsResolution>([
+      resolution,
+      cancellation.future.then((_) => const _TtsResolution.cancelled()),
+    ]);
+    if (resolved.wasCancelled || _disposed || generation != _generation) {
+      return false;
+    }
+    if (!await stopCurrent) {
+      return false;
+    }
     if (_disposed || generation != _generation) return false;
+    final file = resolved.file;
 
-    final session = await _serialize<TtsPlaybackSession?>(() async {
-      if (_disposed || generation != _generation) return null;
-      await platform.stop();
-      if (_disposed || generation != _generation) return null;
-      if (file != null) {
-        final fileSession = await platform.startFile(file, rates.fileRate);
-        if (fileSession != null) return fileSession;
+    TtsPlaybackSession? session;
+    try {
+      session = await _serialize<TtsPlaybackSession?>(() async {
         if (_disposed || generation != _generation) return null;
-      }
-      return platform.startSpeech(trimmed, rates.speechRate);
-    });
+        if (file != null) {
+          try {
+            final fileSession = await platform.startFile(file, rates.fileRate);
+            if (fileSession != null) return fileSession;
+          } catch (error) {
+            // A thrown start may mean playback began but cleanup failed.
+            errorReporter?.call('TTS file playback start failed: $error');
+            return null;
+          }
+          if (_disposed || generation != _generation) return null;
+        }
+        return platform.startSpeech(trimmed, rates.speechRate);
+      });
+    } catch (error) {
+      errorReporter?.call('TTS platform playback start failed: $error');
+      return false;
+    }
     if (session == null || _disposed || generation != _generation) {
       return false;
     }
-    return Future.any<bool>([
-      session.completion,
-      cancellation.future.then((_) => false),
-    ]);
+    bool completed;
+    try {
+      completed = await Future.any<bool>([
+        session.completion.timeout(
+          completionTimeout,
+          onTimeout: () {
+            errorReporter?.call('TTS playback completion timed out');
+            return false;
+          },
+        ),
+        cancellation.future.then((_) => false),
+      ]);
+    } catch (error) {
+      errorReporter?.call('TTS playback completion failed: $error');
+      completed = false;
+    }
+    if (!completed && !_disposed && generation == _generation) {
+      try {
+        await _serialize<void>(() async {
+          if (!_disposed && generation == _generation) {
+            await platform.stop();
+          }
+        });
+      } catch (_) {
+        // A failed cleanup must not escape the public bool contract.
+      }
+    }
+    return completed;
   }
 
   Future<void> stop() async {
     ++_generation;
     _cancellation?.complete();
     _cancellation = null;
-    await _serialize<void>(platform.stop);
+    try {
+      await _serialize<void>(platform.stop);
+    } catch (_) {
+      // Public stop is best effort and must not leak platform errors.
+    }
   }
 
   Future<void> dispose() async {
@@ -145,6 +226,14 @@ class TtsPlaybackEngine {
     });
     return result.future;
   }
+}
+
+class _TtsResolution {
+  const _TtsResolution({required this.file}) : wasCancelled = false;
+  const _TtsResolution.cancelled() : file = null, wasCancelled = true;
+
+  final File? file;
+  final bool wasCancelled;
 }
 
 class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
@@ -203,6 +292,8 @@ class TtsService {
   static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
     resolveFile: _resolveFile,
     platform: const _ServicePlaybackPlatform(),
+    completionTimeout: _playTimeout,
+    errorReporter: (message) => lastError = message,
   );
 
   /// 폴백(flutter_tts)에서 ko 음성 존재 여부. 화면 안내용.
@@ -312,21 +403,25 @@ class TtsService {
   ) async {
     try {
       // 완료 대기 future 를 play 전에 준비 (짧은 mp3 의 complete race 방지).
-      final done = _player.onPlayerComplete.first
-          .timeout(_playTimeout, onTimeout: () {})
-          .then((_) => true);
-      return TtsFilePlayback.start(
-        completion: done,
+      final done = _player.onPlayerComplete.first.then((_) => true);
+      return await TtsFilePlayback.start(
+        completion: _guardCompletion(done, errorPrefix: 'mp3 재생 완료 대기 실패'),
         play: () => _player.play(DeviceFileSource(file.path)),
         setRate: _player.setPlaybackRate,
         stop: _player.stop,
+        onError: (error) {
+          lastError = 'mp3 재생 속도 설정 실패: $error';
+        },
         rate: playbackRate,
       );
     } catch (e) {
       lastError = 'mp3 재생 실패: $e';
       try {
         await _player.stop();
-      } catch (_) {}
+      } catch (stopError) {
+        lastError = 'mp3 재생 실패: $e; 정지 실패: $stopError';
+        return TtsPlaybackSession(Future<bool>.value(false));
+      }
       return null;
     }
   }
@@ -338,11 +433,26 @@ class TtsService {
     try {
       await _initTts();
       await _tts.setSpeechRate(rate);
-      final completion = _tts.speak(text).then((result) => result == 1);
+      final completion = _guardCompletion(
+        _tts.speak(text).then((result) => result == 1),
+        errorPrefix: 'TTS 폴백 완료 대기 실패',
+      );
       return TtsPlaybackSession(completion);
     } catch (e) {
       lastError = 'TTS 폴백 실패: $e';
       return null;
+    }
+  }
+
+  static Future<bool> _guardCompletion(
+    Future<bool> completion, {
+    required String errorPrefix,
+  }) async {
+    try {
+      return await completion;
+    } catch (error) {
+      lastError = '$errorPrefix: $error';
+      return false;
     }
   }
 
