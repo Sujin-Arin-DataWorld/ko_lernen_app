@@ -167,6 +167,56 @@ void main() {
       expect(messaging.deleteTokenCalls, 1);
     },
   );
+
+  test(
+    'stored notification off still blocks auth when invalidation fails',
+    () async {
+      final events = <String>[];
+      final push = _FakePushTokenOwner(events)
+        ..removalFailure = StateError('invalidation failed');
+      final coordinator = PushOwnershipTransitionCoordinator(
+        push: push,
+        notificationsEnabled: () => false,
+      );
+      var transitioned = false;
+
+      await expectLater(
+        coordinator.run(
+          oldUid: 'old-uid',
+          transition: () async {
+            transitioned = true;
+          },
+        ),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(transitioned, isFalse);
+      expect(events, <String>['remove:old-uid']);
+    },
+  );
+
+  test(
+    'notification off during auth transition suppresses rebinding',
+    () async {
+      var notificationsEnabled = true;
+      final events = <String>[];
+      final push = _FakePushTokenOwner(events);
+      final coordinator = PushOwnershipTransitionCoordinator(
+        push: push,
+        notificationsEnabled: () => notificationsEnabled,
+      );
+
+      await coordinator.run(
+        oldUid: 'old-uid',
+        transition: () async {
+          events.add('auth-transition');
+          notificationsEnabled = false;
+        },
+      );
+
+      expect(events, <String>['remove:old-uid', 'auth-transition']);
+    },
+  );
 }
 
 class _FakePushMessaging implements PushMessagingClient {
@@ -255,6 +305,7 @@ class _FakePushTokenOwner implements PushTokenOwner {
   _FakePushTokenOwner(this.events);
 
   final List<String> events;
+  Object? removalFailure;
 
   @override
   Future<void> bindCurrentUser() async {
@@ -264,5 +315,8 @@ class _FakePushTokenOwner implements PushTokenOwner {
   @override
   Future<void> removeTokenFrom(String uid) async {
     events.add('remove:$uid');
+    if (removalFailure case final failure?) {
+      throw failure;
+    }
   }
 }

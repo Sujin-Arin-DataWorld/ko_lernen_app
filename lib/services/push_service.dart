@@ -412,15 +412,13 @@ class PushOwnershipTransitionCoordinator {
     required String oldUid,
     required Future<T> Function() transition,
   }) async {
-    if (!notificationsEnabled()) {
-      return transition();
-    }
-
     await push.removeTokenFrom(oldUid);
     try {
       return await transition();
     } finally {
-      await push.bindCurrentUser();
+      if (notificationsEnabled()) {
+        await push.bindCurrentUser();
+      }
     }
   }
 }

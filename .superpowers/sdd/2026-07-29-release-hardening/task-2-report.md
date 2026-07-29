@@ -220,3 +220,55 @@ shutdown or local token deletion cannot be proven, including an offline
 `deleteToken()` failure. Proceeding in that state could leave a deliverable
 token owned by the old UID. Firestore cleanup failure alone does not block once
 the local token is invalid.
+
+## Fix round 2/5
+
+The auth transition coordinator now always invokes strict old-user token
+invalidation, regardless of the stored notification preference. After the auth
+transition it re-reads the preference and binds the new/current UID only when
+notifications are still enabled.
+
+### RED command and exact terminal tail
+
+```text
+flutter test test/push_service_test.dart
+```
+
+```text
+00:00 +6 -2: Some tests failed.
+
+Failing tests:
+  C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/push_service_test.dart: notification off during auth transition suppresses rebinding
+  C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/push_service_test.dart: stored notification off still blocks auth when invalidation fails
+```
+
+### GREEN command and exact terminal tail
+
+```text
+flutter test test/push_service_test.dart
+```
+
+```text
+00:00 +0: loading C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/push_service_test.dart
+00:00 +0: PushService retries after a failed initialization and then becomes idempotent
+PushService: enable skipped — Bad state: transient
+00:00 +1: PushService does not enable FCM auto-init before notification permission
+00:00 +2: PushService disable removes and deletes the token and cancels subscriptions
+00:00 +3: PushService a later disable wins over an in-flight enable
+00:00 +4: ownership transition removes old UID before rebinding new UID
+00:00 +5: ownership transition blocks auth when local token invalidation fails
+00:00 +6: stored notification off still blocks auth when invalidation fails
+00:00 +7: notification off during auth transition suppresses rebinding
+00:00 +8: All tests passed!
+```
+
+### Additional verification
+
+```text
+flutter analyze lib/services/push_service.dart test/push_service_test.dart
+Analyzing 2 items...
+No issues found! (ran in 2.7s)
+
+git diff --check
+<no output; exit 0>
+```
