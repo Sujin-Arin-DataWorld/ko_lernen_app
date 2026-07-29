@@ -17,14 +17,12 @@ void main() {
               as Map<String, dynamic>;
       scenarios = ((scenarioRoot['scenarios'] as List?) ?? const [])
           .cast<Map<String, dynamic>>();
-      vocabRows = const CsvToListConverter(
-        eol: '\n',
-        shouldParseNumbers: false,
-      ).convert(File('assets/data/korean_vocab.csv').readAsStringSync());
-      grammarRows = const CsvToListConverter(
-        eol: '\n',
-        shouldParseNumbers: false,
-      ).convert(File('assets/data/grammar.csv').readAsStringSync());
+      vocabRows = _parseCsv(
+        File('assets/data/korean_vocab.csv').readAsStringSync(),
+      );
+      grammarRows = _parseCsv(
+        File('assets/data/grammar.csv').readAsStringSync(),
+      );
     });
 
     test('scenario pack is beta-sized and level-balanced enough', () {
@@ -238,6 +236,14 @@ void _expectLocalizedText(Object? value, String label) {
   final text = (value as Map<String, dynamic>);
   expect((text['de'] as String? ?? '').trim(), isNotEmpty, reason: '$label.de');
   expect((text['en'] as String? ?? '').trim(), isNotEmpty, reason: '$label.en');
+}
+
+List<List<dynamic>> _parseCsv(String raw) {
+  final normalized = raw.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
+  return const CsvToListConverter(
+    eol: '\n',
+    shouldParseNumbers: false,
+  ).convert(normalized);
 }
 
 void _expectHeader(List<dynamic> actual, List<String> expected) {
