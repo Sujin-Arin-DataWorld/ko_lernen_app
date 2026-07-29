@@ -118,11 +118,11 @@
 - Modify: `lib/l10n/app_en.arb`
 - Add focused tests under `test/`
 
-- [ ] Return the Apple authorization code from reauthentication and call `FirebaseAuth.revokeTokenWithAuthorizationCode` before deleting an Apple-linked Firebase account.
-- [ ] Treat either Google or Apple linking as a durable account in profile/nudge/provider labels.
-- [ ] Add an account-deletion warning that store subscriptions are not cancelled by account deletion and expose the platform subscription-management route.
-- [ ] Ensure cleanup/revocation failure does not show the success state.
-- [ ] Add tests for provider-state presentation and the deletion sequence through injected/fake account operations.
+- [x] Return the Apple authorization code from reauthentication and call `FirebaseAuth.revokeTokenWithAuthorizationCode` before deleting an Apple-linked Firebase account.
+- [x] Treat either Google or Apple linking as a durable account in profile/nudge/provider labels.
+- [x] Add an account-deletion warning that store subscriptions are not cancelled by account deletion and expose the platform subscription-management route.
+- [x] Ensure cleanup/revocation failure does not show the success state.
+- [x] Add tests for provider-state presentation and the deletion sequence through injected/fake account operations.
 
 ## Task 6: Repair restore semantics, English Book Analysis, and TTS playback speed
 
