@@ -163,15 +163,15 @@
 - Modify: `functions/gye/package-lock.json`
 - Add focused Dart tests under `test/`
 
-- [ ] Add failing tests proving an owner cannot use normal Leave and a failed leave write is surfaced instead of swallowed.
-- [ ] Block owner leave in `GyeService` and keep the screen open with a localized explanation. Do not expose normal leave until a deliberate ownership-transfer or group-deletion flow exists.
-- [ ] Add server-owned `bans/{uid}` tombstones when a member is suspended; rules must deny suspended-member deletion and deny member recreation while a ban exists.
-- [ ] Tighten member creation/update rules so `memberCount` cannot exceed 10 and the post-write user `gyeIds` list cannot exceed 3.
-- [ ] Add a retryable member-deletion trigger that irreversibly anonymizes the departed member’s feed/report identity in that Gye.
-- [ ] Add a retryable user-document deletion trigger that cleans or irreversibly anonymizes the user’s Gye feed/reports/shared packs, removes membership, and transfers owner role to an active member or deletes an empty group. Remove the conflicting client-side owner-membership deletion and let the durable trigger own that cleanup.
-- [ ] Extract pure lifecycle selection/anonymization helpers and cover them with Node’s built-in test runner.
-- [ ] Keep the 16+ check explicitly described as self-attested unless a verifiable server identity source is added; do not pretend local birth year is cryptographic age verification.
-- [ ] Run Dart tests, `npm test`, `node --check`, and Firestore rule compilation/emulator tests when the local Firebase emulator is available.
+- [x] Add failing tests proving an owner cannot use normal Leave and a failed leave write is surfaced instead of swallowed.
+- [x] Block owner leave in `GyeService` and keep the screen open with a localized explanation. Do not expose normal leave until a deliberate ownership-transfer or group-deletion flow exists.
+- [x] Add server-owned `bans/{uid}` tombstones when a member is suspended; rules must deny suspended-member deletion and deny member recreation while a ban exists.
+- [x] Tighten member creation/update rules so `memberCount` cannot exceed 10 and the post-write user `gyeIds` list cannot exceed 3.
+- [x] Add a retryable member-deletion trigger that irreversibly anonymizes the departed member’s feed/report identity in that Gye.
+- [x] Add a retryable user-document deletion trigger that cleans or irreversibly anonymizes the user’s Gye feed/reports/shared packs, removes membership, and transfers owner role to an active member or deletes an empty group. Remove the conflicting client-side owner-membership deletion and let the durable trigger own that cleanup.
+- [x] Extract pure lifecycle selection/anonymization helpers and cover them with Node’s built-in test runner.
+- [x] Keep the 16+ check explicitly described as self-attested unless a verifiable server identity source is added; do not pretend local birth year is cryptographic age verification.
+- [x] Run Dart tests, `npm test`, `node --check`, and Firestore rule compilation/emulator tests when the local Firebase emulator is available.
 
 ## Task 8: Stop orphaning captured and custom-word images
 
