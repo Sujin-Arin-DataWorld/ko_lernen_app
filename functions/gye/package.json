@@ -4,7 +4,7 @@
   "description": "계(契) Cloud Functions — Tier 3e",
   "main": "index.js",
   "scripts": {
-    "test": "node --test lifecycle.test.js",
+    "test": "node --test lifecycle.test.js runtime.test.js",
     "test:rules": "firebase --config ../../firebase.json emulators:exec --project demo-hangul-sori --only firestore \"node --test firestore.rules.test.js\"",
     "serve": "firebase emulators:start --only functions",
     "deploy:indexes": "firebase --config ../../firebase.json deploy --only firestore:indexes",

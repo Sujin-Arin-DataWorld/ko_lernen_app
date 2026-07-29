@@ -459,10 +459,17 @@ function notificationOutboxMaintenanceAction({
   state,
   completedAtMillis,
   leaseUntilMillis,
+  nextAttemptAtMillis,
   nowMillis,
   retentionMillis = 30 * 24 * 60 * 60 * 1000,
 }) {
-  if (state === "pending") return "deliver";
+  if (state === "pending") {
+    return Number.isFinite(nextAttemptAtMillis) &&
+      Number.isFinite(nowMillis) &&
+      nextAttemptAtMillis > nowMillis
+      ? "retain"
+      : "deliver";
+  }
   if (state === "sending") {
     return Number.isFinite(leaseUntilMillis) &&
       Number.isFinite(nowMillis) &&
@@ -480,6 +487,54 @@ function notificationOutboxMaintenanceAction({
 
 function notificationOutboxBelongsToUid(data, uid) {
   return Boolean(data && uid && data.uid === uid);
+}
+
+function notificationRetryDelayMillis(
+  attemptCount,
+  baseDelayMillis = 60 * 1000,
+  maximumDelayMillis = 60 * 60 * 1000,
+) {
+  const normalizedAttempt = Number.isInteger(attemptCount) && attemptCount > 0
+    ? attemptCount
+    : 0;
+  return Math.min(
+    baseDelayMillis * (2 ** Math.min(normalizedAttempt, 20)),
+    maximumDelayMillis,
+  );
+}
+
+function selectDueNotificationOutboxes(documents, nowMillis, limit = 100) {
+  return documents
+    .filter((document) =>
+      notificationOutboxMaintenanceAction({
+        state: document.state,
+        nextAttemptAtMillis: document.nextAttemptAtMillis,
+        leaseUntilMillis: document.leaseUntilMillis,
+        nowMillis,
+      }) === "deliver")
+    .slice()
+    .sort((left, right) => {
+      const leftDue = left.state === "sending"
+        ? left.leaseUntilMillis
+        : left.nextAttemptAtMillis;
+      const rightDue = right.state === "sending"
+        ? right.leaseUntilMillis
+        : right.nextAttemptAtMillis;
+      return (Number.isFinite(leftDue) ? leftDue : 0) -
+        (Number.isFinite(rightDue) ? rightDue : 0) ||
+        left.id.localeCompare(right.id);
+    })
+    .slice(0, limit);
+}
+
+function notificationTerminalExpiryMillis(
+  nowMillis,
+  retentionMillis = 30 * 24 * 60 * 60 * 1000,
+) {
+  if (!Number.isFinite(nowMillis)) {
+    throw new TypeError("A finite terminal receipt time is required.");
+  }
+  return nowMillis + retentionMillis;
 }
 
 function weeklyRolloverKey(scheduleTime) {
@@ -520,10 +575,13 @@ module.exports = {
   notificationOutboxMaintenanceAction,
   notificationOutboxBelongsToUid,
   notificationOutboxKey,
+  notificationRetryDelayMillis,
+  notificationTerminalExpiryMillis,
   processedPackKey,
   pendingReporterUids,
   runCleanupThenMarkComplete,
   selectSuccessor,
+  selectDueNotificationOutboxes,
   selectPushRecipientUids,
   selectWeeklyMvp,
   settledNotificationTokenHashes,

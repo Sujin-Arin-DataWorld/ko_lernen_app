@@ -7,6 +7,22 @@
         { "fieldPath": "state", "order": "ASCENDING" },
         { "fieldPath": "completedAt", "order": "ASCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "notification_outbox",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "state", "order": "ASCENDING" },
+        { "fieldPath": "nextAttemptAt", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "notification_outbox",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "state", "order": "ASCENDING" },
+        { "fieldPath": "deliveryLeaseUntil", "order": "ASCENDING" }
+      ]
     }
   ],
   "fieldOverrides": [
@@ -66,6 +82,19 @@
       "indexes": [
         { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" },
         { "order": "DESCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
+      "collectionGroup": "notification_outbox",
+      "fieldPath": "expiresAt",
+      "ttl": true,
+      "indexes": []
+    },
+    {
+      "collectionGroup": "users",
+      "fieldPath": "gyeIds",
+      "indexes": [
+        { "arrayConfig": "CONTAINS", "queryScope": "COLLECTION" }
       ]
     }
   ]

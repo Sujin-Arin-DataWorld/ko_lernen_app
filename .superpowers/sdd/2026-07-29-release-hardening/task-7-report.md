@@ -28,6 +28,10 @@
   written atomically with rollover. A retryable create trigger plus a bounded
   15-minute sweeper claims work with a five-minute lease, retries only
   unsettled recipients, and retains terminal receipts for 30 days.
+- Missing-parent orphan retries persist a revisioned canonical Gye target list
+  on the account marker before destructive work. A completion transaction must
+  match that exact revision. Orphan cleanup clears every surviving member and
+  stale `users.gyeIds` cache before recursive deletion.
 
 ## TDD Evidence
 
@@ -53,6 +57,11 @@
   outbox creation/multicast classification did not exist. Follow-up RED tests
   caught raw-token deletion for `messaging/invalid-argument`, absent settled
   token hashing, expired-lease starvation, and missing leave cleanup.
+- A second read-only review produced RED fixtures for a missing parent with
+  surviving descendants, a second retry after the member document disappeared,
+  concurrent discovery of an additional cleanup target, a stale user cache
+  without its member document, a future retry deadline, a 100-item poison
+  cohort, terminal TTL, and executable dependency-injected runtime wiring.
 
 ### GREEN
 
@@ -76,6 +85,15 @@
   retains incomplete markers and starts a fresh post-completion Auth-missing
   window. Account-deleting users remain excluded from successor and MVP
   selection while the marker is retained.
+- Cleanup targets are unioned in a transaction and versioned. Concurrent
+  executions cannot certify an older subset. If a parent vanished during
+  recursive deletion, the function creates a server-owned `deleting` claim,
+  unions member-derived and `users.gyeIds`-derived cache owners, clears those
+  caches transactionally, and must finish recursive deletion before receipt.
+- The daily abandoned-marker recovery remains intentionally narrow: it may
+  cancel only when the same marker generation is still current and both Auth
+  and Firestore user records exist. If the user document is missing, an
+  incomplete marker is always retained.
 - Goal rollover creates one deterministic, UID-hiding outbox ID per eligible
   member inside the rollover transaction. Delivery rechecks legacy-active Gye,
   membership, ban, account marker, and user state. Only invalid or unregistered
@@ -133,6 +151,15 @@
   unsettled current tokens. Terminal `sent`/`skipped` receipts, UID, and hashes
   expire after 30 days; pending work is preserved and expired delivery leases
   are reclaimed.
+- Pending work is ordered by `nextAttemptAt` with exponential backoff capped at
+  one hour; expired leases use their own due-time query. Persistent failures
+  therefore leave the first page and cannot indefinitely starve later work.
+  Firestore TTL on `expiresAt` is the unbounded retention backstop; the daily
+  bounded cleanup remains defense in depth.
+- `runtime.js` is the dependency-injected path used by production for ordered
+  deletion cleanup, missing-parent routing, atomic outbox staging, and
+  continue-all notification processing. Executable runtime tests verify those
+  wiring contracts in addition to pure lifecycle tests.
 
 ## Final Verification
 
@@ -144,12 +171,16 @@
   - exit 0.
 - `node --check functions/gye/lifecycle.js`
   - exit 0.
+- `node --check functions/gye/runtime.js`
+  - exit 0.
 - `npm test` in `functions/gye`
-  - 46 tests passed.
+  - 55 tests passed.
 - `npm run test:rules` in `functions/gye`
   - Firestore emulator compiled the rules; 32 tests passed.
 - `git diff --check`
   - exit 0 (line-ending conversion warnings only).
+- Credential-pattern scan across every changed and untracked file
+  - No credential-like patterns found.
 
 ## Deployment Order and External Boundaries
 
@@ -157,7 +188,8 @@ No production deployment was performed. The generic functions deploy script
 was removed. Deployment must use this order:
 
 1. `npm run deploy:indexes`
-2. Wait in Firebase Console until every new collection-group index is `READY`.
+2. Wait in Firebase Console until every new collection-group index is `READY`
+   and the `notification_outbox.expiresAt` TTL field policy is enabled.
 3. `npm run deploy:rules`
 4. `npm run deploy:functions`
 
@@ -195,6 +227,8 @@ Still requiring release-owner verification:
 - `functions/gye/index.js`
 - `functions/gye/lifecycle.js`
 - `functions/gye/lifecycle.test.js`
+- `functions/gye/runtime.js`
+- `functions/gye/runtime.test.js`
 - `functions/gye/firestore.rules.test.js`
 - `functions/gye/package.json`
 - `functions/gye/package-lock.json`

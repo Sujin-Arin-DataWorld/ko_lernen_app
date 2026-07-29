@@ -26,11 +26,14 @@ const {
   notificationOutboxMaintenanceAction,
   notificationOutboxBelongsToUid,
   notificationOutboxKey,
+  notificationRetryDelayMillis,
+  notificationTerminalExpiryMillis,
   processedPackKey,
   pendingReporterUids,
   runCleanupThenMarkComplete,
   selectSuccessor,
   selectPushRecipientUids,
+  selectDueNotificationOutboxes,
   selectWeeklyMvp,
   settledNotificationTokenHashes,
   shouldCreditPackClear,
@@ -851,6 +854,12 @@ test("outbox maintenance drains pending and expires only old terminal receipts",
   const now = 60 * day;
   assert.equal(notificationOutboxMaintenanceAction({
     state: "pending",
+    nextAttemptAtMillis: now + 1,
+    nowMillis: now,
+  }), "retain");
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "pending",
+    nextAttemptAtMillis: now,
     completedAtMillis: undefined,
     nowMillis: now,
   }), "deliver");
@@ -879,6 +888,35 @@ test("outbox maintenance drains pending and expires only old terminal receipts",
     leaseUntilMillis: now,
     nowMillis: now,
   }), "deliver");
+});
+
+test("retry backoff prevents a poison cohort from starving later due work", () => {
+  const now = 100000;
+  const poison = Array.from({ length: 100 }, (_, index) => ({
+    id: `poison-${index.toString().padStart(3, "0")}`,
+    state: "pending",
+    nextAttemptAtMillis: now + notificationRetryDelayMillis(6),
+  }));
+  const due = Array.from({ length: 5 }, (_, index) => ({
+    id: `due-${index}`,
+    state: "pending",
+    nextAttemptAtMillis: now,
+  }));
+  assert.deepEqual(
+    selectDueNotificationOutboxes([...poison, ...due], now, 100)
+      .map((document) => document.id),
+    due.map((document) => document.id),
+  );
+  assert.equal(notificationRetryDelayMillis(0), 60 * 1000);
+  assert.equal(notificationRetryDelayMillis(20), 60 * 60 * 1000);
+});
+
+test("terminal notification receipts receive a 30-day TTL boundary", () => {
+  const day = 24 * 60 * 60 * 1000;
+  assert.equal(
+    notificationTerminalExpiryMillis(10 * day),
+    40 * day,
+  );
 });
 
 test("normal leave outbox cleanup is UID-scoped and idempotent", () => {

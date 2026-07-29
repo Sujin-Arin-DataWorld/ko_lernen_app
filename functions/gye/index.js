@@ -54,9 +54,10 @@ const {
   memberDeleteTriggerPlan,
   notificationOutboxBelongsToUid,
   notificationOutboxMaintenanceAction,
+  notificationRetryDelayMillis,
+  notificationTerminalExpiryMillis,
   pendingReporterUids,
   processedPackKey,
-  runCleanupThenMarkComplete,
   selectWeeklyMvp,
   settledNotificationTokenHashes,
   shouldCreditPackClear,
@@ -64,6 +65,16 @@ const {
   shouldProcessWeeklyRollover,
   weeklyRolloverKey,
 } = require("./lifecycle");
+const {
+  buildDeletionCleanupTargetClaim,
+  cleanupGyeForDeletedUser,
+  deletionCleanupTargetClaimMatches,
+  mergeDeletionCleanupGyeIds,
+  orphanGyeCleanupUserIds,
+  processNotificationDocuments,
+  runDeletedUserCleanupRuntime,
+  stageNotificationOutboxWrites,
+} = require("./runtime");
 
 admin.initializeApp();
 const db = admin.firestore();
@@ -261,20 +272,14 @@ exports.weekly_goal_rollover = onSchedule(
               title: "Wochenziel erreicht! \u{1F389}",
               body: `${meta.name || "Euer Gye"} hat das Wochenziel geschafft.`,
             });
-            for (const notification of outbox) {
-              transaction.set(
-                gref
-                  .collection("notification_outbox")
-                  .doc(notification.id),
-                {
-                  ...notification,
-                  settledTokenHashes: [],
-                  attemptCount: 0,
-                  createdAt:
-                    admin.firestore.FieldValue.serverTimestamp(),
-                },
-              );
-            }
+            stageNotificationOutboxWrites({
+              transaction,
+              outboxCollection:
+                gref.collection("notification_outbox"),
+              notifications: outbox,
+              serverTimestamp:
+                admin.firestore.FieldValue.serverTimestamp(),
+            });
           }
           transaction.update(gref, metaUpdate);
           for (const member of membersSnapshot.docs) {
@@ -317,25 +322,31 @@ exports.pending_notification_outbox_drain = onSchedule(
     retryCount: 1,
   },
   async () => {
-    const pending = await db
-      .collectionGroup("notification_outbox")
-      .where("state", "in", ["pending", "sending"])
-      .limit(100)
-      .get();
-    const failures = [];
-    for (const document of pending.docs) {
-      try {
-        await deliverNotificationOutboxDocument(document.ref);
-      } catch (error) {
-        failures.push(error);
-      }
-    }
-    if (failures.length > 0) {
-      throw new Error(
-        `Notification outbox drain failed for ${failures.length} document(s).`,
-        { cause: failures[0] },
-      );
-    }
+    const now = admin.firestore.Timestamp.now();
+    const [pending, expiredLeases] = await Promise.all([
+      db
+        .collectionGroup("notification_outbox")
+        .where("state", "==", "pending")
+        .where("nextAttemptAt", "<=", now)
+        .orderBy("nextAttemptAt")
+        .limit(100)
+        .get(),
+      db
+        .collectionGroup("notification_outbox")
+        .where("state", "==", "sending")
+        .where("deliveryLeaseUntil", "<=", now)
+        .orderBy("deliveryLeaseUntil")
+        .limit(100)
+        .get(),
+    ]);
+    const documents = new Map();
+    [...pending.docs, ...expiredLeases.docs].forEach((document) => {
+      documents.set(document.ref.path, document);
+    });
+    await processNotificationDocuments(
+      Array.from(documents.values()),
+      (document) => deliverNotificationOutboxDocument(document.ref),
+    );
   },
 );
 
@@ -625,8 +636,20 @@ exports.on_user_deleted = onDocumentDeleted(
   async (event) => {
     const uid = event.params.uid;
     const before = event.data?.data() || {};
+    const accountMarkerRef = db.collection("account_deletions").doc(uid);
+    const accountMarker = await accountMarkerRef.get();
+    if (accountMarker.exists &&
+        (accountMarker.data() || {}).cleanupComplete === true) {
+      return;
+    }
+    const retainedCleanupGyeIds = accountMarker.exists
+      ? (accountMarker.data() || {}).cleanupGyeIds
+      : [];
     const gyeIds = new Set(
-      Array.isArray(before.gyeIds) ? before.gyeIds.filter(Boolean) : [],
+      mergeDeletionCleanupGyeIds(
+        retainedCleanupGyeIds,
+        Array.isArray(before.gyeIds) ? before.gyeIds : [],
+      ),
     );
 
     // New member documents carry uid for a collection-group safety net. The
@@ -679,36 +702,67 @@ exports.on_user_deleted = onDocumentDeleted(
         if (gyeRef) gyeIds.add(gyeRef.id);
       });
 
-    await runCleanupThenMarkComplete([
-      async () => {
+    const cleanupClaim = await db.runTransaction(async (transaction) => {
+      const currentMarker = await transaction.get(accountMarkerRef);
+      const currentData = currentMarker.exists
+        ? currentMarker.data() || {}
+        : {};
+      if (currentData.cleanupComplete === true) return null;
+      const claim = buildDeletionCleanupTargetClaim({
+        retainedGyeIds: currentData.cleanupGyeIds,
+        discoveredGyeIds: Array.from(gyeIds),
+        currentRevision: currentData.cleanupRevision,
+      });
+      if (currentMarker.exists) {
+        transaction.update(accountMarkerRef, {
+          cleanupGyeIds: claim.gyeIds,
+          cleanupRevision: claim.revision,
+        });
+      } else {
+        transaction.set(accountMarkerRef, {
+          state: "active",
+          createdAt: admin.firestore.FieldValue.serverTimestamp(),
+          cleanupGyeIds: claim.gyeIds,
+          cleanupRevision: claim.revision,
+        });
+      }
+      return claim;
+    });
+    if (!cleanupClaim) return;
+    gyeIds.clear();
+    cleanupClaim.gyeIds.forEach((gyeId) => gyeIds.add(gyeId));
+
+    await runDeletedUserCleanupRuntime({
+      cleanupGyes: async () => {
         for (const gyeId of Array.from(gyeIds).sort()) {
-          const member = await db
-            .collection("gye")
-            .doc(gyeId)
+          const gref = db.collection("gye").doc(gyeId);
+          const member = await gref
             .collection("members")
             .doc(uid)
             .get();
           const nickname = (member.data() || {}).nickname ||
             departureNicknames.get(gyeId) || "";
-          await anonymizeGyeIdentity(gyeId, uid, nickname);
-          await reconcileMembershipAfterDeletion(gyeId, uid);
+          await cleanupGyeForDeletedUser({
+            anonymizeIdentity: () =>
+              anonymizeGyeIdentity(gyeId, uid, nickname),
+            reconcileMembership: () =>
+              reconcileMembershipAfterDeletion(gyeId, uid),
+            cleanupOrphanTree: () =>
+              cleanupOrphanedGyeTree(gref, gyeId),
+          });
           // Suspension tombstones are durable while an account exists. Once
           // the account is gone, retaining its UID would be unnecessary PII.
-          await db
-            .collection("gye")
-            .doc(gyeId)
+          await gref
             .collection("bans")
             .doc(uid)
             .delete();
-          await db
-            .collection("gye")
-            .doc(gyeId)
+          await gref
             .collection("departures")
             .doc(uid)
             .delete();
         }
       },
-      async () => {
+      cleanupSharedPacks: async () => {
         const sharedPacks = await db
           .collection("shared_packs")
           .where("createdBy", "==", uid)
@@ -717,41 +771,42 @@ exports.on_user_deleted = onDocumentDeleted(
           batch.delete(doc.ref);
         });
       },
-      async () => {
+      cleanupProcessedPacks: async () => {
         await commitDocumentChunks(
           processedPacksSnapshot.docs,
           (batch, doc) => batch.delete(doc.ref),
         );
       },
-      async () => {
+      cleanupNotificationOutboxes: async () => {
         await commitDocumentChunks(
           notificationOutboxSnapshot.docs.filter((doc) =>
             notificationOutboxBelongsToUid(doc.data() || {}, uid)),
           (batch, doc) => batch.delete(doc.ref),
         );
       },
-    ], async () => {
-      const markerRef = db.collection("account_deletions").doc(uid);
-      await db.runTransaction(async (transaction) => {
-        const marker = await transaction.get(markerRef);
-        const receipt = {
-          cleanupComplete: true,
-          cleanupCompletedAt:
-            admin.firestore.FieldValue.serverTimestamp(),
-          authMissingSince: admin.firestore.FieldValue.delete(),
-        };
-        if (marker.exists) {
-          transaction.update(markerRef, receipt);
-        } else {
-          transaction.set(markerRef, {
-            state: "active",
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      markCleanupComplete: async () => {
+        await db.runTransaction(async (transaction) => {
+          const marker = await transaction.get(accountMarkerRef);
+          if (!marker.exists ||
+              !deletionCleanupTargetClaimMatches(
+                marker.data() || {},
+                cleanupClaim,
+              )) {
+            throw new Error(
+              "Account cleanup targets changed before completion.",
+            );
+          }
+          const receipt = {
             cleanupComplete: true,
             cleanupCompletedAt:
               admin.firestore.FieldValue.serverTimestamp(),
-          });
-        }
-      });
+            authMissingSince: admin.firestore.FieldValue.delete(),
+            cleanupGyeIds: admin.firestore.FieldValue.delete(),
+            cleanupRevision: admin.firestore.FieldValue.delete(),
+          };
+          transaction.update(accountMarkerRef, receipt);
+        });
+      },
     });
   },
 );
@@ -959,6 +1014,55 @@ async function anonymizeGyeIdentity(gyeId, uid, legacyNickname) {
   }
 }
 
+async function cleanupOrphanedGyeTree(gref, gyeId) {
+  const action = await db.runTransaction(async (transaction) => {
+    const parent = await transaction.get(gref);
+    if (parent.exists) {
+      return (parent.data() || {}).lifecycleState === "deleting"
+        ? "deleteTree"
+        : "retryActiveParent";
+    }
+    const members = await transaction.get(gref.collection("members"));
+    const cachedUsers = await transaction.get(
+      db.collection("users").where("gyeIds", "array-contains", gyeId),
+    );
+    const affectedUids = orphanGyeCleanupUserIds(
+      members.docs.map((document) => document.id),
+      cachedUsers.docs.map((document) => document.id),
+    );
+    const cachedUserIds = new Set(
+      cachedUsers.docs.map((document) => document.id),
+    );
+    const missingMemberUserRefs = affectedUids
+      .filter((uid) => !cachedUserIds.has(uid))
+      .map((uid) => db.collection("users").doc(uid));
+    const missingMemberUsers = missingMemberUserRefs.length === 0
+      ? []
+      : await transaction.getAll(
+        ...missingMemberUserRefs,
+      );
+    const affectedUsers = [...cachedUsers.docs, ...missingMemberUsers];
+    affectedUsers.forEach((user) => {
+      if (user.exists) {
+        transaction.update(user.ref, {
+          gyeIds: admin.firestore.FieldValue.arrayRemove(gyeId),
+        });
+      }
+    });
+    transaction.set(gref, {
+      lifecycleState: "deleting",
+      orphanCleanup: true,
+    });
+    return "deleteTree";
+  });
+  if (action !== "deleteTree") {
+    throw new Error(
+      `Gye ${gyeId} was recreated while orphan cleanup was starting.`,
+    );
+  }
+  await db.recursiveDelete(gref);
+}
+
 async function reconcileMembershipAfterDeletion(gyeId, uid) {
   const gref = db.collection("gye").doc(gyeId);
   const outcome = await db.runTransaction(async (transaction) => {
@@ -1041,6 +1145,7 @@ async function reconcileMembershipAfterDeletion(gyeId, uid) {
     // intentionally used after lifecycleState closes the client join race.
     await db.recursiveDelete(gref);
   }
+  return outcome.action;
 }
 
 /**
@@ -1074,12 +1179,14 @@ async function claimNotificationOutbox(outboxRef) {
     const action = notificationOutboxMaintenanceAction({
       state: data.state,
       leaseUntilMillis: data.deliveryLeaseUntil?.toMillis?.(),
+      nextAttemptAtMillis: data.nextAttemptAt?.toMillis?.(),
       nowMillis,
     });
     if (action !== "deliver") return null;
     transaction.update(outboxRef, {
       state: "sending",
       deliveryClaimId: claimId,
+      nextAttemptAt: admin.firestore.FieldValue.delete(),
       deliveryLeaseUntil: admin.firestore.Timestamp.fromMillis(
         nowMillis + 5 * 60 * 1000,
       ),
@@ -1125,15 +1232,34 @@ async function finishNotificationOutboxClaim({
   });
 }
 
-async function releaseNotificationOutboxClaim(outboxRef, claimId) {
+async function releaseNotificationOutboxClaim(
+  outboxRef,
+  claimId,
+  attemptCount,
+) {
+  const nextAttemptAt = admin.firestore.Timestamp.fromMillis(
+    Date.now() + notificationRetryDelayMillis(attemptCount),
+  );
   await finishNotificationOutboxClaim({
     outboxRef,
     claimId,
     update: {
       state: "pending",
       lastErrorAt: admin.firestore.FieldValue.serverTimestamp(),
+      nextAttemptAt,
     },
   });
+}
+
+function notificationTerminalFields() {
+  const nowMillis = Date.now();
+  return {
+    completedAt: admin.firestore.Timestamp.fromMillis(nowMillis),
+    expiresAt: admin.firestore.Timestamp.fromMillis(
+      notificationTerminalExpiryMillis(nowMillis),
+    ),
+    nextAttemptAt: admin.firestore.FieldValue.delete(),
+  };
 }
 
 async function deliverNotificationOutboxDocument(outboxRef) {
@@ -1151,7 +1277,7 @@ async function deliverNotificationOutboxDocument(outboxRef) {
       update: {
         state: "skipped",
         skipReason: "malformed",
-        completedAt: admin.firestore.FieldValue.serverTimestamp(),
+        ...notificationTerminalFields(),
       },
     });
     return;
@@ -1179,7 +1305,7 @@ async function deliverNotificationOutboxDocument(outboxRef) {
       update: {
         state: "skipped",
         skipReason: "ineligible",
-        completedAt: admin.firestore.FieldValue.serverTimestamp(),
+        ...notificationTerminalFields(),
       },
     });
     return;
@@ -1210,7 +1336,7 @@ async function deliverNotificationOutboxDocument(outboxRef) {
               permanentFailureCount: data.permanentFailureCount || 0,
             }
           : { skipReason: "no_tokens" }),
-        completedAt: admin.firestore.FieldValue.serverTimestamp(),
+        ...notificationTerminalFields(),
       },
     });
     return;
@@ -1226,7 +1352,11 @@ async function deliverNotificationOutboxDocument(outboxRef) {
       apns: { headers: { "apns-collapse-id": data.eventKey } },
     });
   } catch (error) {
-    await releaseNotificationOutboxClaim(outboxRef, claimId);
+    await releaseNotificationOutboxClaim(
+      outboxRef,
+      claimId,
+      data.attemptCount || 0,
+    );
     throw error;
   }
 
@@ -1266,10 +1396,15 @@ async function deliverNotificationOutboxDocument(outboxRef) {
         (data.permanentFailureCount || 0) +
         classification.permanentFailureTokens.length,
       ...(shouldRetry
-        ? {}
+        ? {
+            nextAttemptAt: admin.firestore.Timestamp.fromMillis(
+              Date.now() +
+              notificationRetryDelayMillis(data.attemptCount || 0),
+            ),
+          }
         : {
-            completedAt: admin.firestore.FieldValue.serverTimestamp(),
             sentAt: admin.firestore.FieldValue.serverTimestamp(),
+            ...notificationTerminalFields(),
           }),
     },
   });
