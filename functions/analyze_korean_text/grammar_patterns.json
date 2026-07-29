@@ -3,217 +3,279 @@
     "id": "g_progressive",
     "regex": "고 있[다어어요습니다습니까]",
     "name_de": "Progressiv (-고 있다)",
+    "name_en": "Progressive aspect (-고 있다)",
     "level": "A2",
-    "explanation_de": "Beschreibt eine gerade ablaufende Handlung. Entspricht 'gerade … tun / am … sein'."
+    "explanation_de": "Beschreibt eine gerade ablaufende Handlung. Entspricht 'gerade … tun / am … sein'.",
+    "explanation_en": "Describes an action currently in progress, equivalent to 'be doing'."
   },
   {
     "id": "g_progressive_past",
     "regex": "고 있었",
     "name_de": "Progressiv Vergangenheit (-고 있었-)",
+    "name_en": "Past progressive (-고 있었-)",
     "level": "A2",
-    "explanation_de": "War gerade dabei zu …"
+    "explanation_de": "War gerade dabei zu …",
+    "explanation_en": "Describes an action that was in progress in the past."
   },
   {
     "id": "g_reason",
     "regex": "[아어해]서",
     "name_de": "Begründung (-아/어/해서)",
+    "name_en": "Reason or cause (-아/어/해서)",
     "level": "A2",
-    "explanation_de": "Verknüpft Ursache und Folge: 'weil …, deswegen …'."
+    "explanation_de": "Verknüpft Ursache und Folge: 'weil …, deswegen …'.",
+    "explanation_en": "Links a cause to its result, meaning 'because' or 'so'."
   },
   {
     "id": "g_reason_nikka",
     "regex": "니까",
     "name_de": "Begründung (-(으)니까)",
+    "name_en": "Reason (-(으)니까)",
     "level": "A2",
-    "explanation_de": "Subjektive Begründung. Vor Befehlen/Vorschlägen statt -아/어서."
+    "explanation_de": "Subjektive Begründung. Vor Befehlen/Vorschlägen statt -아/어서.",
+    "explanation_en": "Gives a reason that often reflects the speaker's judgment and can precede commands or suggestions."
   },
   {
     "id": "g_future_will",
     "regex": "거예요|거에요|거야",
     "name_de": "Vermutung / Plan (-(으)ㄹ 거예요)",
+    "name_en": "Future plan or prediction (-(으)ㄹ 거예요)",
     "level": "A2",
-    "explanation_de": "Künftige Handlung oder Vermutung."
+    "explanation_de": "Künftige Handlung oder Vermutung.",
+    "explanation_en": "Expresses a future action, intention, or prediction."
   },
   {
     "id": "g_future_kkeyo",
     "regex": "게요",
     "name_de": "Versprechen (-(으)ㄹ게요)",
+    "name_en": "Promise or decision (-(으)ㄹ게요)",
     "level": "A2",
-    "explanation_de": "Sprecher-zentrierte Ankündigung / Versprechen."
+    "explanation_de": "Sprecher-zentrierte Ankündigung / Versprechen.",
+    "explanation_en": "Expresses the speaker's decision or promise to the listener."
   },
   {
     "id": "g_future_kkayo",
     "regex": "까요",
     "name_de": "Vorschlag / Frage (-(으)ㄹ까요?)",
+    "name_en": "Suggestion or speculation (-(으)ㄹ까요?)",
     "level": "A1",
-    "explanation_de": "'Sollen wir …?' / Vermutung."
+    "explanation_de": "'Sollen wir …?' / Vermutung.",
+    "explanation_en": "Asks 'Shall we...?' or wonders what may happen."
   },
   {
     "id": "g_concessive",
     "regex": "지만",
     "name_de": "Aber (-지만)",
+    "name_en": "Contrast (-지만)",
     "level": "A1",
-    "explanation_de": "Gegensatz: 'aber'."
+    "explanation_de": "Gegensatz: 'aber'.",
+    "explanation_en": "Connects contrasting clauses with the meaning 'but'."
   },
   {
     "id": "g_sequence",
     "regex": "고( |,|\\n)",
     "name_de": "Auflistung (-고)",
+    "name_en": "Sequence or listing (-고)",
     "level": "A1",
-    "explanation_de": "Verbindet aufeinanderfolgende Aktionen oder Aufzählungen."
+    "explanation_de": "Verbindet aufeinanderfolgende Aktionen oder Aufzählungen.",
+    "explanation_en": "Connects sequential actions or items in a list."
   },
   {
     "id": "g_intent_ryeogo",
     "regex": "려고",
     "name_de": "Absicht (-(으)려고)",
+    "name_en": "Intention or purpose (-(으)려고)",
     "level": "B1",
-    "explanation_de": "'Um zu …' — Zweck einer Handlung."
+    "explanation_de": "'Um zu …' — Zweck einer Handlung.",
+    "explanation_en": "Expresses an intention or the purpose 'in order to'."
   },
   {
     "id": "g_can",
     "regex": "수 있",
     "name_de": "Können (-(으)ㄹ 수 있다)",
+    "name_en": "Ability (-(으)ㄹ 수 있다)",
     "level": "A2",
-    "explanation_de": "'Können / kann …'."
+    "explanation_de": "'Können / kann …'.",
+    "explanation_en": "Expresses that someone can do something."
   },
   {
     "id": "g_cannot",
     "regex": "수 없",
     "name_de": "Nicht können (-(으)ㄹ 수 없다)",
+    "name_en": "Inability (-(으)ㄹ 수 없다)",
     "level": "A2",
-    "explanation_de": "Verneinte Fähigkeit."
+    "explanation_de": "Verneinte Fähigkeit.",
+    "explanation_en": "Expresses that someone cannot do something."
   },
   {
     "id": "g_must",
     "regex": "야 하|야 해|야 되|야 돼|야겠",
     "name_de": "Müssen (-아/어야 하다)",
+    "name_en": "Obligation (-아/어야 하다)",
     "level": "A2",
-    "explanation_de": "Notwendigkeit / Pflicht."
+    "explanation_de": "Notwendigkeit / Pflicht.",
+    "explanation_en": "Expresses necessity or obligation: 'must' or 'have to'."
   },
   {
     "id": "g_request",
     "regex": "주세요|주십시오",
     "name_de": "Höfliche Bitte (-아/어 주세요)",
+    "name_en": "Polite request (-아/어 주세요)",
     "level": "A1",
-    "explanation_de": "'Bitte tun Sie …' — höfliche Aufforderung."
+    "explanation_de": "'Bitte tun Sie …' — höfliche Aufforderung.",
+    "explanation_en": "Politely asks someone to perform an action."
   },
   {
     "id": "g_neg_an",
     "regex": "안 ",
     "name_de": "Verneinung (안 …)",
+    "name_en": "Short negation (안 …)",
     "level": "A1",
-    "explanation_de": "Einfache Verneinung vor Verb/Adjektiv."
+    "explanation_de": "Einfache Verneinung vor Verb/Adjektiv.",
+    "explanation_en": "Places 안 before a verb or adjective to negate it."
   },
   {
     "id": "g_neg_ji_anhda",
     "regex": "지 않",
     "name_de": "Verneinung (-지 않다)",
+    "name_en": "Long-form negation (-지 않다)",
     "level": "A2",
-    "explanation_de": "Längere/formellere Verneinungsform."
+    "explanation_de": "Längere/formellere Verneinungsform.",
+    "explanation_en": "Uses a longer, often more formal, negative construction."
   },
   {
     "id": "g_have_to_have_to_see",
     "regex": "야겠",
     "name_de": "Vorhaben (-아/어야겠다)",
+    "name_en": "Resolution (-아/어야겠다)",
     "level": "B1",
-    "explanation_de": "'Ich werde wohl …' — Entschluss / Selbstüberredung."
+    "explanation_de": "'Ich werde wohl …' — Entschluss / Selbstüberredung.",
+    "explanation_en": "Shows a realization or resolve that the speaker should act."
   },
   {
     "id": "g_attribute_present",
     "regex": "[는은] ",
     "name_de": "Attribut Gegenwart (-는/-은)",
+    "name_en": "Present attributive form (-는/-(으)ㄴ)",
     "level": "A2",
-    "explanation_de": "Verben/Adjektive werden zu Attributen vor einem Nomen."
+    "explanation_de": "Verben/Adjektive werden zu Attributen vor einem Nomen.",
+    "explanation_en": "Uses -는 for present action verbs and -(으)ㄴ for descriptive verbs or adjectives before a noun."
   },
   {
     "id": "g_attribute_past",
     "regex": "은 ",
     "name_de": "Attribut Vergangenheit (-(으)ㄴ)",
+    "name_en": "Past attributive form (-(으)ㄴ)",
     "level": "A2",
-    "explanation_de": "Vergangene Handlung als Attribut."
+    "explanation_de": "Vergangene Handlung als Attribut.",
+    "explanation_en": "Turns a completed past action into a modifier before a noun."
   },
   {
     "id": "g_attribute_future",
     "regex": "을 ",
     "name_de": "Attribut Zukunft (-(으)ㄹ)",
+    "name_en": "Future attributive form (-(으)ㄹ)",
     "level": "A2",
-    "explanation_de": "Zukünftige/hypothetische Handlung als Attribut."
+    "explanation_de": "Zukünftige/hypothetische Handlung als Attribut.",
+    "explanation_en": "Turns a future or hypothetical action into a noun modifier."
   },
   {
     "id": "g_too_much",
     "regex": "너무 ",
     "name_de": "Zu sehr (너무 …)",
+    "name_en": "Too / very (너무 …)",
     "level": "A1",
-    "explanation_de": "'(zu) sehr', oft negativ konnotiert."
+    "explanation_de": "'(zu) sehr', oft negativ konnotiert.",
+    "explanation_en": "Means 'too' or 'very'; context determines whether the degree is excessive."
   },
   {
     "id": "g_conditional",
     "regex": "으면|다면|라면|면 ",
     "name_de": "Bedingung (-(으)면)",
+    "name_en": "Condition (-(으)면)",
     "level": "A2",
-    "explanation_de": "'Wenn …, dann …' — allgemeine Bedingung."
+    "explanation_de": "'Wenn …, dann …' — allgemeine Bedingung.",
+    "explanation_en": "Expresses a general condition: 'if' or 'when'."
   },
   {
     "id": "g_conditional_seasonal",
     "regex": "다면",
     "name_de": "Hypothetisch (-다면)",
+    "name_en": "Hypothetical condition (-다면)",
     "level": "B1",
-    "explanation_de": "Hypothetische / kontrafaktische Bedingung."
+    "explanation_de": "Hypothetische / kontrafaktische Bedingung.",
+    "explanation_en": "Introduces a hypothetical or counterfactual condition."
   },
   {
     "id": "g_quote_indirect",
     "regex": "[다라자나]고( 했|해)",
     "name_de": "Indirekte Rede",
+    "name_en": "Indirect quotation",
     "level": "B1",
-    "explanation_de": "'… gesagt, dass …'. Form je nach Verbtyp."
+    "explanation_de": "'… gesagt, dass …'. Form je nach Verbtyp.",
+    "explanation_en": "Reports speech indirectly; the ending changes with statement, question, command, or proposal type and with the predicate form."
   },
   {
     "id": "g_change_dwaeda",
     "regex": "게 [되됐]",
     "name_de": "Werden (-게 되다)",
+    "name_en": "Change of state (-게 되다)",
     "level": "B1",
-    "explanation_de": "Eine Situation entsteht / wird zu etwas."
+    "explanation_de": "Eine Situation entsteht / wird zu etwas.",
+    "explanation_en": "Shows that circumstances lead to a new state or outcome."
   },
   {
     "id": "g_while",
     "regex": "면서",
     "name_de": "Während (-(으)면서)",
+    "name_en": "Simultaneous actions (-(으)면서)",
     "level": "A2",
-    "explanation_de": "Gleichzeitige Handlung."
+    "explanation_de": "Gleichzeitige Handlung.",
+    "explanation_en": "Expresses two actions happening at the same time."
   },
   {
     "id": "g_since_time",
     "regex": "지 [0-9]+|지가 |지 오래",
     "name_de": "Seit (-(으)ㄴ 지)",
+    "name_en": "Time since (-(으)ㄴ 지)",
     "level": "B1",
-    "explanation_de": "'Es ist X her, dass …'."
+    "explanation_de": "'Es ist X her, dass …'.",
+    "explanation_en": "States how much time has passed since an action."
   },
   {
     "id": "g_only_man",
     "regex": "만 ",
     "name_de": "Nur (-만)",
+    "name_en": "Only (-만)",
     "level": "A1",
-    "explanation_de": "'Nur / ausschließlich'."
+    "explanation_de": "'Nur / ausschließlich'.",
+    "explanation_en": "Restricts the meaning to 'only' or 'just'."
   },
   {
     "id": "g_with_hago",
     "regex": "하고 ",
     "name_de": "Mit / und (-하고)",
+    "name_en": "And / with (-하고)",
     "level": "A1",
-    "explanation_de": "Verbindung von Nomen."
+    "explanation_de": "Verbindung von Nomen.",
+    "explanation_en": "Connects nouns with the meaning 'and' or 'with'."
   },
   {
     "id": "g_to_eseo",
     "regex": "에서",
     "name_de": "Ort (Aktion) (-에서)",
+    "name_en": "Action location (-에서)",
     "level": "A1",
-    "explanation_de": "Ort, an dem eine Aktion stattfindet."
+    "explanation_de": "Ort, an dem eine Aktion stattfindet.",
+    "explanation_en": "Marks the place where an action occurs."
   },
   {
     "id": "g_to_e",
     "regex": "에 ",
     "name_de": "Ort / Zeit (-에)",
+    "name_en": "Location, destination, or time (-에)",
     "level": "A1",
-    "explanation_de": "Ort des Seins / Zielort / Zeitpunkt."
+    "explanation_de": "Ort des Seins / Zielort / Zeitpunkt.",
+    "explanation_en": "Marks the location where something exists, a destination, or a point in time."
   }
 ]

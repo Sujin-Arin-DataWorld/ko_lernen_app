@@ -185,7 +185,7 @@ class CloudSync {
     // ── Fortschritt (additiv / max) ──
     final progress = _map(data['progress']);
     await _maxMergeInt(progress['xp'], Storage.xp, Storage.setXp);
-    final lvl = _nonEmptyString(progress['level']);
+    final lvl = _supportedLevel(progress['level']);
     if (lvl != null && Storage.userLevelCode == null) {
       await Storage.setUserLevelCode(lvl); // aktives Level nicht überschreiben
     }
@@ -199,7 +199,7 @@ class CloudSync {
       if (questId is! String || completedAt is! String) {
         continue;
       }
-      final parsedAt = DateTime.tryParse(completedAt);
+      final parsedAt = _strictUtcTimestamp(completedAt);
       if (questId.isEmpty ||
           parsedAt == null ||
           Storage.hasQuestCompleted(questId)) {
@@ -218,14 +218,14 @@ class CloudSync {
     }
     final customPacksJson = _structuredJson(
       data['custom_packs_json'],
-      hasExpectedShape: (decoded) => decoded is List,
+      hasExpectedShape: (decoded) => decoded is Map,
     );
     if (customPacksJson != null && Storage.customPacksRawJson.isEmpty) {
       await Storage.setCustomPacksRawJson(customPacksJson);
     }
     final bookshelfJson = _structuredJson(
       data['bookshelf_json'],
-      hasExpectedShape: (decoded) => decoded is List,
+      hasExpectedShape: (decoded) => decoded is Map,
     );
     if (bookshelfJson != null && Storage.bookshelfRawJson.isEmpty) {
       await Storage.setBookshelfRawJson(bookshelfJson);
@@ -253,6 +253,24 @@ class CloudSync {
     }
     final trimmed = value.trim();
     return trimmed.isEmpty ? null : trimmed;
+  }
+
+  static String? _supportedLevel(Object? value) {
+    final level = _nonEmptyString(value)?.toLowerCase();
+    return const {'a1', 'a2', 'b1', 'b2'}.contains(level) ? level : null;
+  }
+
+  static DateTime? _strictUtcTimestamp(String value) {
+    if (!RegExp(
+      r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}(?:\d{3})?Z$',
+    ).hasMatch(value)) {
+      return null;
+    }
+    final parsed = DateTime.tryParse(value);
+    if (parsed == null || !parsed.isUtc || parsed.toIso8601String() != value) {
+      return null;
+    }
+    return parsed;
   }
 
   static String? _structuredJson(

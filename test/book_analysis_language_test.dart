@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/screens/book_result_screen.dart';
 import 'package:ko_lernen_app/services/book_analysis_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -78,6 +79,51 @@ void main() {
     });
   });
 
+  testWidgets(
+    'two successful locale requests both consume quota and only newest renders',
+    (tester) async {
+      final locale = ValueNotifier<Locale>(const Locale('de'));
+      final pending = <String, Completer<BookAnalysisResult>>{
+        'de': Completer<BookAnalysisResult>(),
+        'en': Completer<BookAnalysisResult>(),
+      };
+      BookAnalysisResult result(String marker) => BookAnalysisResult(
+        words: [ExtractedWord.manual(korean: marker, translationDe: marker)],
+        grammar: const [],
+        sentences: const [],
+        warnings: const [],
+      );
+
+      await tester.pumpWidget(
+        ValueListenableBuilder<Locale>(
+          valueListenable: locale,
+          builder: (context, value, child) => MaterialApp(
+            locale: value,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            supportedLocales: AppL10n.supportedLocales,
+            home: BookResultScreen(
+              args: const {'text': '공부하고 있어요'},
+              analyzer: ({required text, required targetLang}) =>
+                  pending[targetLang]!.future,
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      locale.value = const Locale('en');
+      await tester.pump();
+
+      pending['en']!.complete(result('NEWEST_EN'));
+      pending['de']!.complete(result('STALE_DE'));
+      await tester.pump();
+      await tester.pump();
+
+      expect(Storage.bookSnapCountToday(), 2);
+      expect(find.text('NEWEST_EN'), findsWidgets);
+      expect(find.text('STALE_DE'), findsNothing);
+    },
+  );
+
   test(
     'Dart offline grammar fallback is German for de and English for en',
     () async {
@@ -94,8 +140,11 @@ void main() {
       expect(german.grammar.first.nameDe, contains('Progressiv'));
       expect(german.grammar.first.explanationDe, contains('Handlung'));
       expect(english.grammar, isNotEmpty);
-      expect(english.grammar.first.nameDe, contains('Korean grammar'));
-      expect(english.grammar.first.explanationDe, contains('detected'));
+      expect(english.grammar.first.nameDe, 'Progressive aspect (-고 있다)');
+      expect(
+        english.grammar.first.explanationDe,
+        contains('currently in progress'),
+      );
       expect(english.grammar.first.explanationDe, isNot(contains('Handlung')));
     },
   );

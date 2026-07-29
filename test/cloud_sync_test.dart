@@ -2,7 +2,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/cloud_sync.dart';
+import 'package:ko_lernen_app/services/bookshelf_service.dart';
+import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/models/book_page.dart';
 
 typedef _IntReader = int Function();
 
@@ -56,8 +59,8 @@ void main() {
         'kl_stamps_earned': <String>['stamp1'],
         'kl_quests_completed_v1': '{"quest1":"2026-07-01T00:00:00.000Z"}',
         'kl_srs_v1': '{"srs":1}',
-        'kl_custom_packs_v1': '[{"id":"pack1"}]',
-        'kl_bookshelf_v1': '[{"id":"page1"}]',
+        'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
+        'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
       });
 
       expect(CloudSync.buildBackupPayload(), {
@@ -86,8 +89,8 @@ void main() {
           'quest_completions': {'quest1': '2026-07-01T00:00:00.000Z'},
         },
         'srs_json': '{"srs":1}',
-        'custom_packs_json': '[{"id":"pack1"}]',
-        'bookshelf_json': '[{"id":"page1"}]',
+        'custom_packs_json': '{"pack1":{"name":"Pack 1"}}',
+        'bookshelf_json': '{"page1":{"note":"Page 1"}}',
       });
     },
   );
@@ -213,8 +216,8 @@ void main() {
       'kl_stamps_earned': <String>['stamp1'],
       'kl_quests_completed_v1': '{"quest1":"2026-07-01T00:00:00.000Z"}',
       'kl_srs_v1': '{"srs":1}',
-      'kl_custom_packs_v1': '[{"id":"pack1"}]',
-      'kl_bookshelf_v1': '[{"id":"page1"}]',
+      'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
+      'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
     });
     final backup = CloudSync.buildBackupPayload();
 
@@ -242,9 +245,70 @@ void main() {
     expect(Storage.earnedStamps, ['stamp1']);
     expect(Storage.questCompletions, {'quest1': '2026-07-01T00:00:00.000Z'});
     expect(Storage.srsRawJson, '{"srs":1}');
-    expect(Storage.customPacksRawJson, '[{"id":"pack1"}]');
-    expect(Storage.bookshelfRawJson, '[{"id":"page1"}]');
+    expect(Storage.customPacksRawJson, '{"pack1":{"name":"Pack 1"}}');
+    expect(Storage.bookshelfRawJson, '{"page1":{"note":"Page 1"}}');
   });
+
+  test(
+    'production custom-pack and bookshelf services round-trip through backup',
+    () async {
+      final pack = await CustomPackService.createEmpty(name: 'Cloud pack');
+      final page = BookPage(
+        id: BookshelfService.generateId(),
+        localThumbnailPath: null,
+        extractedText: '한국어',
+        note: 'Cloud note',
+        words: const [],
+        grammar: const [],
+        sentences: const [],
+        capturedAtIso: '2026-07-29T08:30:00.000Z',
+        customPackId: pack.id,
+      );
+      await BookshelfService.save(page);
+      final backup = CloudSync.buildBackupPayload();
+
+      await _initializeStorage();
+      await CloudSync.applyRestorePayload(backup);
+
+      expect(CustomPackService.getById(pack.id)?.name, 'Cloud pack');
+      expect(BookshelfService.getById(page.id)?.note, 'Cloud note');
+      expect(BookshelfService.getById(page.id)?.customPackId, pack.id);
+    },
+  );
+
+  test(
+    'level restore normalizes supported levels and rejects garbage',
+    () async {
+      await CloudSync.applyRestorePayload({
+        'progress': {'level': ' A2 '},
+      });
+      expect(Storage.userLevelCode, 'a2');
+
+      await _initializeStorage();
+      await CloudSync.applyRestorePayload({
+        'progress': {'level': 'legendary'},
+      });
+      expect(Storage.userLevelCode, isNull);
+    },
+  );
+
+  test(
+    'quest restore accepts strict UTC timestamps and rejects overflow',
+    () async {
+      await CloudSync.applyRestorePayload({
+        'progress': {
+          'quest_completions': {
+            'valid': '2026-02-28T23:59:58.123Z',
+            'overflow-day': '2026-02-31T00:00:00.000Z',
+            'overflow-time': '2026-02-28T25:00:00.000Z',
+            'offset': '2026-02-28T23:59:58.123+01:00',
+          },
+        },
+      });
+
+      expect(Storage.questCompletions, {'valid': '2026-02-28T23:59:58.123Z'});
+    },
+  );
 
   test(
     'vocabulary cursor restores only into an uninitialized local domain',
@@ -418,8 +482,8 @@ void main() {
       'kl_stamps_earned': <String>['local-stamp'],
       'kl_quests_completed_v1': '{"local-quest":"2026-07-01T00:00:00.000Z"}',
       'kl_srs_v1': '{"local":1}',
-      'kl_custom_packs_v1': '[{"id":"local-pack"}]',
-      'kl_bookshelf_v1': '[{"id":"local-page"}]',
+      'kl_custom_packs_v1': '{"local-pack":{}}',
+      'kl_bookshelf_v1': '{"local-page":{}}',
     });
     await CloudSync.applyRestorePayload({
       'vok': {
@@ -445,8 +509,8 @@ void main() {
       containsAll(['local-quest', 'cloud-quest']),
     );
     expect(Storage.srsRawJson, '{"local":1}');
-    expect(Storage.customPacksRawJson, '[{"id":"local-pack"}]');
-    expect(Storage.bookshelfRawJson, '[{"id":"local-page"}]');
+    expect(Storage.customPacksRawJson, '{"local-pack":{}}');
+    expect(Storage.bookshelfRawJson, '{"local-page":{}}');
   });
 
   test(
@@ -454,7 +518,7 @@ void main() {
     () async {
       await CloudSync.applyRestorePayload({
         'srs_json': '[]',
-        'custom_packs_json': '{"pack":"wrong-shape"}',
+        'custom_packs_json': '[]',
         'bookshelf_json': 'not-json',
       });
 

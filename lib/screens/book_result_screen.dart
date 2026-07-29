@@ -79,6 +79,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
         text: _text,
         targetLang: targetLang,
       );
+      if (!res.warnings.contains('offline_stub')) {
+        await Storage.incBookSnapCountToday();
+      }
       if (!mounted || generation != _analysisGeneration) {
         return;
       }
@@ -86,9 +89,6 @@ class _BookResultScreenState extends State<BookResultScreen> {
         _result = res;
         _loading = false;
       });
-      if (!res.warnings.contains('offline_stub')) {
-        await Storage.incBookSnapCountToday();
-      }
     } catch (e) {
       if (!mounted || generation != _analysisGeneration) {
         return;

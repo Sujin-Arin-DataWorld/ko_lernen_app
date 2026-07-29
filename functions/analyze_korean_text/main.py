@@ -2,15 +2,15 @@
 
 Phase 5 (stately-rising-jongga) — Hangul Sori 책 한 컷 backend.
 
-**Deploy** (Jin):
-    cd functions/
-    firebase deploy --only functions:analyze_korean_text
+**Deploy** (Google Cloud Gen2 source directory):
+    See `docs/store/cloud-function-deploy.md` for the supported
+    `gcloud functions deploy analyze_korean_text --gen2 ...` command.
 
 **Env vars** — in `.env` (im selben Ordner, via .gitignore ausgeschlossen):
     DEEPL_API_KEY=...            # DeepL Übersetzung (DE/EN)
     URIMALSAEM_API_KEY=...       # 우리말샘 / NIKL — koreanische Definitionen
-    Firebase liest `.env` beim Deploy automatisch in die Runtime.
-    Vorlage: `.env.example`. Danach: firebase deploy --only functions
+    Vorlage: `.env.example`. Pass secrets through the supported gcloud
+    deployment flow described in the runbook; do not commit `.env`.
 
 **Request**:
     POST <function-url>
@@ -20,9 +20,9 @@ Phase 5 (stately-rising-jongga) — Hangul Sori 책 한 컷 backend.
 **Response** (success):
     { "words": [...], "grammar": [...], "sentences": [...], "warnings": [...] }
 
-**Status**: skeleton — Jin muss `requirements.txt` installieren + Deploy
-ausführen. Lokaler Stub im Flutter-Client (`book_analysis_service.dart`)
-arbeitet bis dahin als Fallback.
+**Status**: deployable Python Gen2 source directory; it is not a named Firebase
+Functions codebase in `firebase.json`. The Flutter client keeps a local fallback
+when the deployed endpoint is unavailable.
 """
 
 from __future__ import annotations

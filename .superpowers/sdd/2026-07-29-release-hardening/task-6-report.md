@@ -7,9 +7,10 @@
 - Book analysis carries the active app language as normalized `de` or `en`
   through `BookResultScreen`, `BookAnalysisService`, the HTTP request, the
   deterministic Python grammar path, and POS labels.
-- Listening playback speed is request-local. Cached/cloud audio and OS TTS
-  fallback receive the same composed effective rate, and overlapping requests
-  never mutate the user's stored TTS preference.
+- Listening playback speed is request-local. OS speech keeps its `0.1...1.0`
+  rate scale, while cached/cloud audio maps the stored default `0.42` to
+  platform-neutral `1.0x` and clamps to the Apple-supported `0.5...2.0`.
+  Overlapping requests never mutate the user's stored TTS preference.
 
 ## Restore Field Audit
 
@@ -37,8 +38,13 @@ Policies implemented and tested:
 - Restoring a current Wordle/app streak also maintains
   `best_streak >= current streak` for partial older backups.
 - Lists/maps merge by union or missing-key addition. Nonempty local JSON models
-  are preserved. Remote SRS must decode to an object; custom packs and bookshelf
-  must decode to arrays.
+  are preserved. Remote SRS, custom packs, and bookshelf data must decode to
+  objects. The latter two are ID-keyed maps in their production services.
+- A restored level is trimmed, lowercased, and accepted only when it is one of
+  `a1`, `a2`, `b1`, or `b2`.
+- Quest completions accept only strict UTC timestamps in the exact ISO form
+  emitted by local backup. Overflow dates/times and offset timestamps are
+  rejected by component round-trip validation.
 - Unsupported legacy types, negative counters, malformed dates/timestamps, and
   invalid structured JSON are ignored without a type crash.
 
@@ -60,7 +66,7 @@ Policies implemented and tested:
 
 `flutter test test/cloud_sync_test.dart`
 
-- Result: 23 tests passed.
+- Initial result: 23 tests passed before review remediation.
 
 ### Language RED
 
@@ -78,20 +84,20 @@ Policies implemented and tested:
 - Result: 3 tests passed.
 - An English `BookResultScreen` request was observed at the service boundary as
   `{"text":"공부하고 있어요.","lang":"en"}`.
-- Dart offline grammar output is German for `de` and explicit English fallback
-  text for `en`.
+- Dart offline grammar output is German for `de` and uses curated English
+  meanings for `en`.
 
 `python -m unittest discover -s functions/analyze_korean_text -p "test_*.py"`
 
-- Result: 4 tests passed.
+- Initial result: 4 tests passed before review remediation.
 - Covers normalization, German grammar output, English grammar fallback, and
   German/English POS labels.
 
-The Python backend has no production LLM prompt. The brief's prompt wording was
-therefore stale; the implemented production equivalent is the actual
-deterministic regex grammar-output path. Existing pattern data contains only
-German metadata, so English uses an explicit, German-free generic grammar name
-and explanation until curated `name_en` / `explanation_en` entries are added.
+The Python backend has no production LLM prompt. The implemented production
+equivalent is the deterministic regex grammar-output path. Both byte-identical
+pattern datasets now contain curated `name_en` and `explanation_en` content for
+all 31 rules; generic fallback remains only as defensive handling for genuinely
+missing future metadata.
 
 ### TTS RED
 
@@ -103,31 +109,76 @@ exist.
 
 `flutter test test/tts_request_rate_test.dart`
 
-- Result: 4 tests passed.
-- Covers `base preference * request multiplier`, clamp range `0.1...1.0`,
-  equal effective rate for file/fallback playback, rate-independent cache
-  resolution, and overlapping `0.75x` / `1.25x` requests.
-- The overlap case produced independent effective rates `0.30` and `0.50` from
-  base `0.40`, while `Storage.ttsRate` remained `0.40`.
+- Initial result: 4 tests passed before review remediation. That first model
+  incorrectly reused the OS rate scale for file playback and was superseded by
+  the explicit rate-pair coordinator described below.
+
+## Review Remediation TDD Evidence
+
+### RED
+
+- Production-shaped restore round-trip:
+  `flutter test test/cloud_sync_test.dart --plain-name "production custom-pack and bookshelf services round-trip through backup"`
+  failed because `CustomPackService.getById(...)` returned `null`.
+- Latest-request TTS adapter:
+  `flutter test test/tts_request_rate_test.dart --plain-name "older slow resolution performs no mutations after newer starts"`
+  failed to compile because the generation-aware platform/session API did not
+  yet exist.
+- Locale quota race:
+  `flutter test test/book_analysis_language_test.dart --plain-name "two successful locale requests both consume quota and only newest renders"`
+  reported `Actual: 1`, `Expected: 2`.
+- Curated English:
+  `python -m unittest functions/analyze_korean_text/test_main.py` failed with
+  missing `name_en` and returned `Korean grammar (g_progressive)` instead of
+  the rule meaning.
+- Independent English review distinctions were added test-first; the targeted
+  test failed against the not-yet-synchronized function dataset before the
+  corrected asset dataset was copied across.
+
+### GREEN
+
+- Restore validates production map shapes and round-trips objects through
+  `CustomPackService` and `BookshelfService`. Supported levels and strict UTC
+  quest timestamps have dedicated tests.
+- `TtsPlaybackRates` preserves the OS scale and maps default `0.42` to file
+  `1.0x`; `0.75` and `1.25` request multipliers have equivalent semantics on
+  both paths. File rate is clamped to `0.5...2.0`.
+- File playback calls `play` before `setPlaybackRate`. A rate-setting failure
+  stops file playback and falls back to OS speech rather than claiming success.
+- The coordinator serializes shared platform start/stop mutations, invalidates
+  pending work on every newer request and on `stop`/`dispose`, and prevents a
+  slow older resolution from performing any platform mutation.
+- Cache resolution remains keyed only by voice and text, independent of rate.
+- Both successful locale requests increment quota before stale UI results are
+  discarded; only the latest response is rendered.
+- Both grammar JSON files are byte-identical and contain distinct curated
+  English content for all 31 rules, including reviewed attributive, indirect
+  quotation, `-하고`, `-(으)ㄹ까요`, `-(으)니까`, `너무`, and location
+  particle `-에` distinctions.
+- Python deployment documentation now points to the supported gcloud Gen2
+  source-directory runbook and no longer claims a nonexistent Firebase
+  codebase target.
 
 ## Final Verification
 
 - `flutter test test/cloud_sync_test.dart test/book_analysis_language_test.dart test/tts_request_rate_test.dart`
-  - 30 tests passed.
+  - 39 tests passed.
 - `python -m unittest discover -s functions/analyze_korean_text -p "test_*.py"`
-  - 4 tests passed.
+  - 6 tests passed.
 - `python -m py_compile functions/analyze_korean_text/main.py functions/analyze_korean_text/grammar_analysis.py functions/analyze_korean_text/test_main.py`
   - exit 0.
 - `flutter analyze`
   - no issues found.
 - `flutter test`
-  - 624 tests passed.
+  - 633 tests passed.
 - `git diff --check`
   - exit 0.
 
 ## Files Changed
 
 - `.superpowers/sdd/2026-07-29-release-hardening/task-6-report.md`
+- `assets/data/grammar_patterns.json`
+- `functions/analyze_korean_text/grammar_patterns.json`
 - `functions/analyze_korean_text/grammar_analysis.py`
 - `functions/analyze_korean_text/main.py`
 - `functions/analyze_korean_text/test_main.py`
@@ -148,6 +199,8 @@ exist.
   intact.
 - TTS cache identity remains `sha1("$voice|$text")`; playback rate is not part
   of resolution or generation.
+- `audioplayers` file mutation order is `play` then `setPlaybackRate`, with
+  explicit stop/fallback on rate failure.
 - `ListeningScreen` contains no temporary `Storage.ttsRate` writes/restores.
 - `BookResultScreen` reads locale in `didChangeDependencies`, not `initState`,
   and discards stale async results after a language change.

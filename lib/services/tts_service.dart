@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -12,30 +13,70 @@ import 'package:path_provider/path_provider.dart';
 import 'storage_service.dart';
 
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
-typedef TtsFilePlayer = Future<bool> Function(File file, double playbackRate);
-typedef TtsFallbackPlayer =
-    Future<bool> Function(String text, double playbackRate);
 
-/// Executes one TTS request with an immutable, request-local playback rate.
-class TtsPlaybackEngine {
-  const TtsPlaybackEngine({
-    required this.resolveFile,
-    required this.playFile,
-    required this.playFallback,
-  });
+class TtsPlaybackRates {
+  const TtsPlaybackRates({required this.speechRate, required this.fileRate});
 
-  final TtsAudioResolver resolveFile;
-  final TtsFilePlayer playFile;
-  final TtsFallbackPlayer playFallback;
+  static const double defaultSpeechRate = 0.42;
+  final double speechRate;
+  final double fileRate;
 
-  static double composePlaybackRate({
+  static TtsPlaybackRates compose({
     required double baseRate,
     required double multiplier,
   }) {
-    final safeBaseRate = baseRate.isFinite ? baseRate : 0.42;
+    final safeBase = baseRate.isFinite ? baseRate : defaultSpeechRate;
     final safeMultiplier = multiplier.isFinite ? multiplier : 1.0;
-    return (safeBaseRate * safeMultiplier).clamp(0.1, 1.0).toDouble();
+    return TtsPlaybackRates(
+      speechRate: (safeBase * safeMultiplier).clamp(0.1, 1.0).toDouble(),
+      fileRate: ((safeBase / defaultSpeechRate) * safeMultiplier)
+          .clamp(0.5, 2.0)
+          .toDouble(),
+    );
   }
+}
+
+class TtsPlaybackSession {
+  const TtsPlaybackSession(this.completion);
+  final Future<bool> completion;
+}
+
+abstract interface class TtsPlaybackPlatform {
+  Future<TtsPlaybackSession?> startFile(File file, double rate);
+  Future<TtsPlaybackSession?> startSpeech(String text, double rate);
+  Future<void> stop();
+}
+
+/// Starts file playback in the order required by audioplayers on Apple hosts.
+class TtsFilePlayback {
+  static Future<TtsPlaybackSession?> start({
+    required Future<bool> completion,
+    required Future<void> Function() play,
+    required Future<void> Function(double rate) setRate,
+    required Future<void> Function() stop,
+    required double rate,
+  }) async {
+    await play();
+    try {
+      await setRate(rate);
+    } catch (_) {
+      await stop();
+      return null;
+    }
+    return TtsPlaybackSession(completion);
+  }
+}
+
+/// Executes one TTS request with an immutable, request-local playback rate.
+class TtsPlaybackEngine {
+  TtsPlaybackEngine({required this.resolveFile, required this.platform});
+
+  final TtsAudioResolver resolveFile;
+  final TtsPlaybackPlatform platform;
+  Future<void> _platformTail = Future<void>.value();
+  Completer<void>? _cancellation;
+  int _generation = 0;
+  bool _disposed = false;
 
   Future<bool> speak({
     required String text,
@@ -47,17 +88,78 @@ class TtsPlaybackEngine {
     if (trimmed.isEmpty) {
       return false;
     }
+    if (_disposed) return false;
+    final generation = ++_generation;
+    _cancellation?.complete();
+    final cancellation = Completer<void>();
+    _cancellation = cancellation;
     final normalizedVoice = voice == 'male' ? 'male' : 'female';
-    final effectiveRate = composePlaybackRate(
+    final rates = TtsPlaybackRates.compose(
       baseRate: baseRate,
       multiplier: rateMultiplier,
     );
     final file = await resolveFile(trimmed, normalizedVoice);
-    if (file != null) {
-      return playFile(file, effectiveRate);
+    if (_disposed || generation != _generation) return false;
+
+    final session = await _serialize<TtsPlaybackSession?>(() async {
+      if (_disposed || generation != _generation) return null;
+      await platform.stop();
+      if (_disposed || generation != _generation) return null;
+      if (file != null) {
+        final fileSession = await platform.startFile(file, rates.fileRate);
+        if (fileSession != null) return fileSession;
+        if (_disposed || generation != _generation) return null;
+      }
+      return platform.startSpeech(trimmed, rates.speechRate);
+    });
+    if (session == null || _disposed || generation != _generation) {
+      return false;
     }
-    return playFallback(trimmed, effectiveRate);
+    return Future.any<bool>([
+      session.completion,
+      cancellation.future.then((_) => false),
+    ]);
   }
+
+  Future<void> stop() async {
+    ++_generation;
+    _cancellation?.complete();
+    _cancellation = null;
+    await _serialize<void>(platform.stop);
+  }
+
+  Future<void> dispose() async {
+    if (_disposed) return;
+    _disposed = true;
+    await stop();
+  }
+
+  Future<T> _serialize<T>(Future<T> Function() action) {
+    final result = Completer<T>();
+    _platformTail = _platformTail.then((_) async {
+      try {
+        result.complete(await action());
+      } catch (error, stack) {
+        result.completeError(error, stack);
+      }
+    });
+    return result.future;
+  }
+}
+
+class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
+  const _ServicePlaybackPlatform();
+
+  @override
+  Future<TtsPlaybackSession?> startFile(File file, double rate) =>
+      TtsService._startFile(file, rate);
+
+  @override
+  Future<TtsPlaybackSession?> startSpeech(String text, double rate) =>
+      TtsService._startFallback(text, rate);
+
+  @override
+  Future<void> stop() => TtsService._stopPlatforms();
 }
 
 /// 고품질 한국어 발음 TTS — **캐시 우선 3단**.
@@ -100,8 +202,7 @@ class TtsService {
   static String? lastError;
   static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
     resolveFile: _resolveFile,
-    playFile: _playFile,
-    playFallback: _fallback,
+    platform: const _ServicePlaybackPlatform(),
   );
 
   /// 폴백(flutter_tts)에서 ko 음성 존재 여부. 화면 안내용.
@@ -131,7 +232,9 @@ class TtsService {
     return speak(text, voice: voice, rateMultiplier: 0.65);
   }
 
-  static Future<void> stop() async {
+  static Future<void> stop() => _playbackEngine.stop();
+
+  static Future<void> _stopPlatforms() async {
     try {
       await _player.stop();
     } catch (_) {}
@@ -203,37 +306,43 @@ class TtsService {
     return null;
   }
 
-  static Future<bool> _playFile(File file, double playbackRate) async {
+  static Future<TtsPlaybackSession?> _startFile(
+    File file,
+    double playbackRate,
+  ) async {
     try {
-      await stop();
       // 완료 대기 future 를 play 전에 준비 (짧은 mp3 의 complete race 방지).
-      final done = _player.onPlayerComplete.first;
-      try {
-        await _player.setPlaybackRate(playbackRate);
-      } catch (_) {
-        // 일부 플랫폼은 play 전 setPlaybackRate 미지원 — 무시.
-      }
-      await _player.play(DeviceFileSource(file.path));
-      await done.timeout(_playTimeout, onTimeout: () {});
-      return true;
+      final done = _player.onPlayerComplete.first
+          .timeout(_playTimeout, onTimeout: () {})
+          .then((_) => true);
+      return TtsFilePlayback.start(
+        completion: done,
+        play: () => _player.play(DeviceFileSource(file.path)),
+        setRate: _player.setPlaybackRate,
+        stop: _player.stop,
+        rate: playbackRate,
+      );
     } catch (e) {
       lastError = 'mp3 재생 실패: $e';
-      return false;
+      try {
+        await _player.stop();
+      } catch (_) {}
+      return null;
     }
   }
 
-  static Future<bool> _fallback(String text, double rate) async {
+  static Future<TtsPlaybackSession?> _startFallback(
+    String text,
+    double rate,
+  ) async {
     try {
       await _initTts();
-      try {
-        await _tts.stop();
-      } catch (_) {}
       await _tts.setSpeechRate(rate);
-      final result = await _tts.speak(text);
-      return result == 1;
+      final completion = _tts.speak(text).then((result) => result == 1);
+      return TtsPlaybackSession(completion);
     } catch (e) {
       lastError = 'TTS 폴백 실패: $e';
-      return false;
+      return null;
     }
   }
 
