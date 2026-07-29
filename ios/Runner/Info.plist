@@ -7,9 +7,11 @@
 		<!-- DSGVO/TTDSG §25: Analytics + Crashlytics sind OPT-IN. Erhebung ab
 		     Werk deaktiviert; wird erst nach expliziter Einwilligung zur
 		     Laufzeit aktiviert (PrivacyConsentService). -->
-		<key>FirebaseAnalyticsCollectionEnabled</key>
+		<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
 		<false/>
 		<key>FirebaseCrashlyticsCollectionEnabled</key>
+		<false/>
+		<key>FirebaseMessagingAutoInitEnabled</key>
 		<false/>
 		<!-- AdMob iOS ist in v1.0.0 nicht aktiv. Bei Reaktivierung in v1.1+:
 		     1. google_mobile_ads in pubspec.yaml enablen
@@ -23,7 +25,7 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
-		<string>Ko Lernen App</string>
+		<string>Hangul Sori</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -84,6 +86,10 @@
 		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>remote-notification</string>
+		</array>
 		<!-- Phase 5 (stately-rising-jongga) — "책 한 컷" Snap-and-Learn.
 		     Bild wird on-device per ML Kit OCR analysiert; nur extrahierter
 		     Text wird zum Cloud Function Server gesendet. -->
