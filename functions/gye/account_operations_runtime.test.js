@@ -768,6 +768,51 @@ test("claims once and reuses the opaque operation after public response loss", a
   );
 });
 
+test("makes Apple revocation sticky when a proof reuses a deletion operation", async () => {
+  const proof = rawProof(31);
+  const sharedUid = "shared-deletion-account";
+  const { firestore, handlers, repository, hashDeletionProof } =
+    createHarness({
+      proofs: [proof],
+      tokens: {
+        password: decodedToken({
+          uid: sharedUid,
+          provider: "password",
+        }),
+        apple: decodedToken({
+          uid: sharedUid,
+          provider: "apple.com",
+        }),
+      },
+    });
+  const existing = await handlers.requestAccountDeletion(callableRequest(
+    "password",
+    { requestKey: "existing-non-apple-deletion" },
+  ));
+  assert.equal(
+    firestore.valuesIn("account_operations")[0].appleRevocationRequired,
+    false,
+  );
+  await handlers.issueDeletionProof(callableRequest("apple"));
+  const publicHandler = runtime.createDeletionProofHttpHandler({
+    repository,
+    hashDeletionProof,
+    consumeRateLimit: async () => true,
+  });
+
+  await invokePublic(publicHandler, publicRequest(proof));
+  const afterClaim = firestore.valuesIn("account_operations");
+  await invokePublic(publicHandler, publicRequest(proof));
+  const afterReplay = firestore.valuesIn("account_operations");
+
+  assert.equal(afterClaim.length, 1);
+  assert.equal(afterClaim[0].id, existing.operationId);
+  assert.equal(afterClaim[0].appleRevocationRequired, true);
+  assert.equal(afterReplay.length, 1);
+  assert.equal(afterReplay[0].id, existing.operationId);
+  assert.equal(afterReplay[0].appleRevocationRequired, true);
+});
+
 test("returns the identical generic result for every proof state", async () => {
   const usedProof = rawProof(22);
   const expiredProof = rawProof(23);
@@ -951,6 +996,76 @@ test("registers the public endpoint with an exact first-party CORS origin", () =
     registeredHandler: handler,
   }]);
   assert.deepEqual(endpoint, registrations[0]);
+});
+
+test("derives domain-separated HMACs from a canonical 32-byte hex secret", () => {
+  const digest = runtime.createKeyedDeletionProofDigest({
+    getSecret: () =>
+      "000102030405060708090a0b0c0d0e0f" +
+      "101112131415161718191a1b1c1d1e1f",
+  });
+
+  assert.equal(
+    digest("proof", "test-proof"),
+    "d2d8a60cf5d45496f7aea8425abc930a650c4ab9b1a171fbaedc1605f44878be",
+  );
+  assert.equal(
+    digest("rate", "test-proof"),
+    "4e818ce4bcd5bc30e9a87cf7b0f04e979c6814250235a6dc17825b9c5a1129d4",
+  );
+});
+
+test("rejects missing short and malformed HMAC secrets with one safe error", () => {
+  const invalidSecrets = [
+    undefined,
+    "",
+    "00".repeat(31),
+    "AA".repeat(32),
+    "gg".repeat(32),
+    `${"00".repeat(32)}0`,
+  ];
+
+  for (const secret of invalidSecrets) {
+    const digest = runtime.createKeyedDeletionProofDigest({
+      getSecret: () => secret,
+    });
+    assert.throws(
+      () => digest("proof", "raw-proof-must-not-leak"),
+      (error) => {
+        assert.equal(error.message, "deletion-proof-secret-unavailable");
+        assert.equal(
+          JSON.stringify(error).includes("raw-proof-must-not-leak"),
+          false,
+        );
+        if (secret) {
+          assert.equal(JSON.stringify(error).includes(secret), false);
+        }
+        return true;
+      },
+    );
+  }
+
+  const accessorFailure = runtime.createKeyedDeletionProofDigest({
+    getSecret() {
+      throw new Error("provider detail containing raw-secret-material");
+    },
+  });
+  assert.throws(
+    () => accessorFailure("proof", "raw-proof-must-not-leak"),
+    (error) => {
+      assert.equal(error.message, "deletion-proof-secret-unavailable");
+      assert.equal(
+        JSON.stringify(error)
+          .includes("provider detail containing raw-secret-material"),
+        false,
+      );
+      assert.equal(
+        JSON.stringify(error).includes("raw-proof-must-not-leak"),
+        false,
+      );
+      return true;
+    },
+  );
 });
 
 test("allows only an operation participant to read a safe operation result", async () => {

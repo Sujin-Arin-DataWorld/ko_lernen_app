@@ -105,6 +105,36 @@ function requiredProofHash(value) {
   return value;
 }
 
+function createKeyedDeletionProofDigest({ getSecret } = {}) {
+  if (typeof getSecret !== "function") {
+    throw new TypeError("A deletion-proof secret accessor is required.");
+  }
+  return function keyedDeletionProofDigest(domain, value) {
+    let encodedSecret;
+    try {
+      encodedSecret = getSecret();
+    } catch {
+      throw new Error("deletion-proof-secret-unavailable");
+    }
+    const canonicalHex = typeof encodedSecret === "string" &&
+      encodedSecret.length >= 64 &&
+      encodedSecret.length % 2 === 0 &&
+      /^[0-9a-f]+$/.test(encodedSecret);
+    if (!canonicalHex) {
+      throw new Error("deletion-proof-secret-unavailable");
+    }
+    const keyBytes = Buffer.from(encodedSecret, "hex");
+    if (keyBytes.length < 32 ||
+        keyBytes.toString("hex") !== encodedSecret) {
+      throw new Error("deletion-proof-secret-unavailable");
+    }
+    return crypto
+      .createHmac("sha256", keyBytes)
+      .update(`${domain}\u0000${value}`, "utf8")
+      .digest("hex");
+  };
+}
+
 function persistedOperation(operation, previous, nowMillis) {
   return {
     ...operation,
@@ -448,6 +478,14 @@ function createFirestoreAccountOperationRepository({
       }
 
       let operation = creation.operation;
+      if (operation.kind === "deletion" &&
+          storedProof.appleRevocationRequired === true &&
+          operation.appleRevocationRequired !== true) {
+        operation = normalizeOperation({
+          ...operation,
+          appleRevocationRequired: true,
+        });
+      }
       if (operation.phase === "prepared") {
         operation = transitionOperation(operation, {
           toPhase: "deletionRequested",
@@ -457,7 +495,9 @@ function createFirestoreAccountOperationRepository({
       const currentTime = nowMillis();
       if (!creation.reused ||
           operation.phase !== existing?.phase ||
-          operation.version !== existing?.version) {
+          operation.version !== existing?.version ||
+          operation.appleRevocationRequired !==
+            existing?.appleRevocationRequired) {
         transaction.set(
           operations.doc(operation.id),
           persistedOperation(operation, existingStored, currentTime),
@@ -934,4 +974,5 @@ module.exports = {
   createDeletionProofHttpEndpoint,
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
+  createKeyedDeletionProofDigest,
 };

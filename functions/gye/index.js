@@ -28,7 +28,6 @@
  * ============================================================================
  */
 
-const crypto = require("node:crypto");
 const admin = require("firebase-admin");
 const functionsLogger = require("firebase-functions/logger");
 const { defineSecret } = require("firebase-functions/params");
@@ -86,23 +85,16 @@ const {
   createDeletionProofHttpEndpoint,
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
+  createKeyedDeletionProofDigest,
 } = require("./account_operations_runtime");
 
 admin.initializeApp();
 const db = admin.firestore();
 setGlobalOptions({ region: "europe-west3" });
 const deletionProofHmacKey = defineSecret("DELETION_PROOF_HMAC_KEY");
-
-function keyedDeletionProofDigest(domain, value) {
-  const secret = deletionProofHmacKey.value();
-  if (typeof secret !== "string" || secret.length < 32) {
-    throw new Error("deletion-proof-secret-unavailable");
-  }
-  return crypto
-    .createHmac("sha256", secret)
-    .update(`${domain}\u0000${value}`, "utf8")
-    .digest("hex");
-}
+const keyedDeletionProofDigest = createKeyedDeletionProofDigest({
+  getSecret: () => deletionProofHmacKey.value(),
+});
 
 const accountOperationRepository =
   createFirestoreAccountOperationRepository({ firestore: db });
