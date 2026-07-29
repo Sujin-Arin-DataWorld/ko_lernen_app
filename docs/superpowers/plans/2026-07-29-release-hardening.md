@@ -36,14 +36,14 @@
 - Modify: `pubspec.yaml`
 - Modify: `pubspec.lock`
 
-- [ ] Add a production-path test that calls `DataLoader.loadVocab()`, expects exactly 558 bundled vocabulary records, and checks representative records after quoted fields.
-- [ ] Run `flutter test test/data_loader_test.dart test/data_integrity_test.dart --reporter expanded` and record the 307-row failure.
-- [ ] Normalize `\r\n` and lone `\r` to `\n` before both vocabulary and grammar CSV parsing. Keep parsing in one shared private helper.
-- [ ] Make the integrity test line-ending independent so it validates content rather than checkout configuration.
-- [ ] Add `.gitattributes` rules forcing LF for `*.csv`, `*.json`, and `*.arb`.
-- [ ] Remove obsolete `synthetic-package` from `l10n.yaml`.
-- [ ] Move `flutter_native_splash` from `dev_dependencies` to normal `dependencies`; keep the locked version unless `flutter pub get` requires a compatible patch.
-- [ ] Run `flutter pub get`, `flutter gen-l10n`, and the focused tests. Confirm there is no synthetic-package warning.
+- [x] Add a production-path test that calls `DataLoader.loadVocab()`, expects exactly 558 bundled vocabulary records, and checks representative records after quoted fields.
+- [x] Run `flutter test test/data_loader_test.dart test/data_integrity_test.dart --reporter expanded` and record the 307-row failure.
+- [x] Normalize `\r\n` and lone `\r` to `\n` before both vocabulary and grammar CSV parsing. Keep parsing in one shared private helper.
+- [x] Make the integrity test line-ending independent so it validates content rather than checkout configuration.
+- [x] Add `.gitattributes` rules forcing LF for `*.csv`, `*.json`, and `*.arb`.
+- [x] Remove obsolete `synthetic-package` from `l10n.yaml`.
+- [x] Move `flutter_native_splash` from `dev_dependencies` to normal `dependencies`; keep the locked version unless `flutter pub get` requires a compatible patch.
+- [x] Run `flutter pub get`, `flutter gen-l10n`, and the focused tests. Confirm there is no synthetic-package warning.
 
 ## Task 2: Order cloud startup and enforce privacy-safe crash/push lifecycle
 
@@ -62,7 +62,7 @@
 - [ ] Add a coordinator test proving Firebase initialization and anonymous auth complete before Premium and Push, Push is skipped when notifications are off, and a failed Firebase initialization prevents dependent SDK access.
 - [ ] Make `_initFirebase()` return success/failure and invoke Premium/Push through the ordered coordinator without delaying `runApp()`.
 - [ ] Install Crashlytics handlers only as consent-aware handlers: when consent is off, report to the local Flutter error presentation path and do not call Crashlytics.
-- [ ] When Crashlytics consent is disabled, disable collection and delete unsent reports. Before enabling, delete pre-consent unsent reports, then enable collection.
+- [ ] When Crashlytics consent is disabled, disable collection and delete unsent reports. On an explicit off-to-on user transition, delete pre-consent unsent reports before enabling; on startup with already-stored consent, preserve reports recorded while consent was active.
 - [ ] Refactor `PushService` so it is idempotent, uses `FirebaseAuth` directly rather than importing `AuthService`, enables FCM auto-init only after notification permission, retries after a prior initialization failure, tracks subscriptions, and removes/deletes the token on disable.
 - [ ] Invoke Push enable/disable from the Settings notification switch. Local reminders must continue to work if optional FCM registration fails.
 - [ ] Remove the token from the old UID before sign-out/account deletion and persist the token for the new anonymous/current UID after the auth transition when notifications remain enabled.
@@ -164,10 +164,11 @@
 - Add focused Dart tests under `test/`
 
 - [ ] Add failing tests proving an owner cannot use normal Leave and a failed leave write is surfaced instead of swallowed.
-- [ ] Block owner leave in `GyeService` and keep the screen open with a localized explanation. Existing group deletion/ownership transfer must be used instead.
+- [ ] Block owner leave in `GyeService` and keep the screen open with a localized explanation. Do not expose normal leave until a deliberate ownership-transfer or group-deletion flow exists.
 - [ ] Add server-owned `bans/{uid}` tombstones when a member is suspended; rules must deny suspended-member deletion and deny member recreation while a ban exists.
 - [ ] Tighten member creation/update rules so `memberCount` cannot exceed 10 and the post-write user `gyeIds` list cannot exceed 3.
-- [ ] Add a retryable user-document deletion trigger that cleans or irreversibly anonymizes the user’s Gye feed/reports/shared packs, removes membership, and transfers owner role to an active member or deletes an empty group.
+- [ ] Add a retryable member-deletion trigger that irreversibly anonymizes the departed member’s feed/report identity in that Gye.
+- [ ] Add a retryable user-document deletion trigger that cleans or irreversibly anonymizes the user’s Gye feed/reports/shared packs, removes membership, and transfers owner role to an active member or deletes an empty group. Remove the conflicting client-side owner-membership deletion and let the durable trigger own that cleanup.
 - [ ] Extract pure lifecycle selection/anonymization helpers and cover them with Node’s built-in test runner.
 - [ ] Keep the 16+ check explicitly described as self-attested unless a verifiable server identity source is added; do not pretend local birth year is cryptographic age verification.
 - [ ] Run Dart tests, `npm test`, `node --check`, and Firestore rule compilation/emulator tests when the local Firebase emulator is available.
