@@ -32,4 +32,40 @@ void main() {
       'mode': 'cleanupPending',
     });
   });
+
+  test('rejects an unsupported journal version', () {
+    expect(
+      () => AccountTransitionJournal.fromJson({
+        'version': 2,
+        'uid': 'uid-a',
+        'epoch': 7,
+        'mode': 'ready',
+      }),
+      throwsA(isA<FormatException>()),
+    );
+  });
+
+  test('rejects a journal with a nonpositive epoch', () {
+    expect(
+      () => AccountTransitionJournal.fromJson({
+        'version': 1,
+        'uid': 'uid-a',
+        'epoch': 0,
+        'mode': 'ready',
+      }),
+      throwsA(isA<FormatException>()),
+    );
+  });
+
+  test('rejects a journal with an unknown mode', () {
+    expect(
+      () => AccountTransitionJournal.fromJson({
+        'version': 1,
+        'uid': 'uid-a',
+        'epoch': 7,
+        'mode': 'deleting',
+      }),
+      throwsA(isA<FormatException>()),
+    );
+  });
 }

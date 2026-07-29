@@ -12,7 +12,7 @@ void main() {
         mode: CloudWriteMode.ready,
       );
 
-      controller.resume(session);
+      controller.resume(session, expectedUid: 'uid-a');
 
       expect(session.uid, 'uid-a');
       expect(session.epoch, 1);
@@ -71,5 +71,24 @@ void main() {
         throwsStateError,
       );
     });
+
+    test(
+      'rejects a durable session for another authenticated account after restart',
+      () {
+        final restartedController = CloudWriteSessionController();
+        final durableSession = const CloudWriteSession(
+          uid: 'uid-a',
+          epoch: 7,
+          mode: CloudWriteMode.reconciling,
+        );
+
+        expect(
+          () =>
+              restartedController.resume(durableSession, expectedUid: 'uid-b'),
+          throwsStateError,
+        );
+        expect(restartedController.current, isNull);
+      },
+    );
   });
 }

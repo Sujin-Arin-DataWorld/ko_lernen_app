@@ -51,8 +51,17 @@ class CloudWriteSessionController {
   }
 
   /// Restores a durable session after an interrupted account operation.
-  CloudWriteSession resume(CloudWriteSession session) {
+  CloudWriteSession resume(
+    CloudWriteSession session, {
+    required String expectedUid,
+  }) {
     _validateSession(session);
+    _requireUid(expectedUid);
+    if (session.uid != expectedUid) {
+      throw StateError(
+        'Cloud-write session UID does not match the authenticated account.',
+      );
+    }
     final current = _current;
     if (current != null && current != session) {
       throw StateError('A different cloud-write session is already current.');
