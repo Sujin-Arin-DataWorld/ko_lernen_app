@@ -37,15 +37,18 @@ val releaseSigningError = run {
 
     null
 }
-val releaseTaskRequested = gradle.startParameter.taskNames.any { taskName ->
-    taskName.substringAfterLast(':').contains("release", ignoreCase = true)
-}
-if (releaseTaskRequested && releaseSigningError != null) {
-    throw GradleException(
-        "Release signing configuration is invalid. $releaseSigningError " +
-            "Provide a complete android/key.properties and an existing " +
-            "non-debug upload keystore."
-    )
+gradle.taskGraph.whenReady {
+    val releaseTaskScheduled = allTasks.any { task ->
+        task.project == project &&
+            task.name.contains("release", ignoreCase = true)
+    }
+    if (releaseTaskScheduled && releaseSigningError != null) {
+        throw GradleException(
+            "Release signing configuration is invalid. $releaseSigningError " +
+                "Provide a complete android/key.properties and an existing " +
+                "non-debug upload keystore."
+        )
+    }
 }
 val hasReleaseKey = releaseSigningError == null
 

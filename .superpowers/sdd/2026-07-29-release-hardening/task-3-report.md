@@ -64,10 +64,11 @@ was signed by Android Debug when no release credentials existed.
 - `NotificationService` references `ic_stat_hangul_sori`. The new drawable is a
   transparent Android vector whose only fill is opaque white (`#FFFFFFFF`), as
   required for a notification small icon.
-- Release signing no longer assigns the debug signing config. A release task
-  fails clearly when `android/key.properties` is absent, any required property
-  is blank/missing, or the configured keystore file does not exist. Debug tasks
-  do not trigger that failure.
+- Release signing no longer assigns the debug signing config. Gradle validates
+  the resolved task graph and fails when it contains an app release task while
+  `android/key.properties` is absent, any required property is blank/missing,
+  or the configured keystore file does not exist. Debug-only graphs do not
+  trigger that failure.
 
 ## Validation evidence
 
@@ -109,7 +110,10 @@ ANALYTICS_COLLECTION=false
 ICON_FILL_COLORS=#FFFFFFFF
 ```
 
-### Signing behavior without real credentials
+### Initial signing behavior without real credentials
+
+These commands record the initial implementation round. The final resolved-task
+graph evidence, including aggregate tasks, is in Fix round 1 below.
 
 Absent `android/key.properties`:
 
@@ -198,3 +202,67 @@ flutter test
   command-line-tools SDK XML version warning; these are outside Task 3.
 - Device QA should still visually confirm the small notification icon and both
   camera and system-gallery picker flows across supported Android versions.
+
+## Fix round 1/5
+
+### Reviewer reproduction and root cause
+
+Before this fix, the guard inspected only
+`gradle.startParameter.taskNames` for the literal word `release`.
+
+```text
+java.exe ... org.gradle.launcher.GradleMain :app:assemble --dry-run --console=plain
+:app:packageRelease SKIPPED
+:app:assembleRelease SKIPPED
+:app:assemble SKIPPED
+BUILD SUCCESSFUL in 20s
+exit 0
+```
+
+The aggregate task name was `assemble`, so configuration missed it even though
+Gradle's resolved graph contained app release packaging. The guard now evaluates
+`gradle.taskGraph.whenReady` and checks resolved tasks belonging to `:app`.
+
+### Final signing graph evidence
+
+Aggregate task with no `android/key.properties`:
+
+```text
+java.exe ... org.gradle.launcher.GradleMain :app:assemble --dry-run --console=plain
+Release signing configuration is invalid. android/key.properties is missing.
+Provide a complete android/key.properties and an existing non-debug upload keystore.
+BUILD FAILED in 20s
+exit 1
+```
+
+Debug-only task with no `android/key.properties`:
+
+```text
+java.exe ... org.gradle.launcher.GradleMain :app:assembleDebug --dry-run --console=plain
+:app:assembleDebug SKIPPED
+BUILD SUCCESSFUL in 7s
+exit 0
+```
+
+Direct release task with no `android/key.properties`:
+
+```text
+java.exe ... org.gradle.launcher.GradleMain :app:assembleRelease --dry-run --console=plain
+Release signing configuration is invalid. android/key.properties is missing.
+Provide a complete android/key.properties and an existing non-debug upload keystore.
+BUILD FAILED in 6s
+exit 1
+```
+
+`validateSigningRelease` is not used as final-state evidence: AGP does not create
+that task when the release build type has no signing config. The direct final
+check therefore uses the real `assembleRelease` packaging graph.
+
+### Fix-round self-review
+
+- Confirmed aggregate `assemble` resolves app release tasks and is now blocked.
+- Confirmed direct `assembleRelease` is blocked for the same intended reason.
+- Confirmed `assembleDebug` resolves no app release task and remains usable.
+- Confirmed validation filters to tasks owned by the app project, avoiding
+  false positives from unrelated projects' task names.
+- No signing properties or keystore were created for this fix round.
