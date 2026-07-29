@@ -98,13 +98,13 @@
 - Create: `ios/Podfile`
 - Create: `docs/store/ios-external-setup.md`
 
-- [ ] Change `CFBundleDisplayName` to `Hangul Sori`.
-- [ ] Replace misspelled `FirebaseAnalyticsCollectionEnabled` with exact `FIREBASE_ANALYTICS_COLLECTION_ENABLED=false`.
-- [ ] Add `FirebaseMessagingAutoInitEnabled=false` and `UIBackgroundModes` containing `remote-notification`.
-- [ ] Add Sign in with Apple and Push capabilities to the Runner target. Use development APNs entitlement for Debug and production APNs entitlement for Profile/Release.
-- [ ] Add the standard Flutter CocoaPods fallback Podfile at platform iOS 13 and include locked-compatible `GoogleMLKit/TextRecognitionKorean ~> 6.0.0`.
-- [ ] Document the exact bundle ID and external steps for Firebase iOS app creation, `GoogleService-Info.plist`, reversed Google client URL scheme, Apple team/profiles, Sign in with Apple, APNs `.p8`, and RevenueCat.
-- [ ] Do not add placeholder client IDs or fake Firebase options. The document must include commands that fail if any required value is absent.
+- [x] Change `CFBundleDisplayName` to `Hangul Sori`.
+- [x] Replace misspelled `FirebaseAnalyticsCollectionEnabled` with exact `FIREBASE_ANALYTICS_COLLECTION_ENABLED=false`.
+- [x] Add `FirebaseMessagingAutoInitEnabled=false` and `UIBackgroundModes` containing `remote-notification`.
+- [x] Add Sign in with Apple and Push capabilities to the Runner target. Use development APNs entitlement for Debug and production APNs entitlement for Profile/Release.
+- [x] Add the standard Flutter CocoaPods fallback Podfile at platform iOS 13 and include locked-compatible `GoogleMLKit/TextRecognitionKorean ~> 6.0.0`.
+- [x] Document the exact bundle ID and external steps for Firebase iOS app creation, `GoogleService-Info.plist`, reversed Google client URL scheme, Apple team/profiles, Sign in with Apple, APNs `.p8`, and RevenueCat.
+- [x] Do not add placeholder client IDs or fake Firebase options. The document must include commands that fail if any required value is absent.
 
 ## Task 5: Make account/provider behavior correct for Apple and subscriptions
 
