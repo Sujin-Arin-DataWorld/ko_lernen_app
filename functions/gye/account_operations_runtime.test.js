@@ -17,11 +17,24 @@ const CALLABLE_NAMES = [
   "commitReplacementReconciliation",
   "startSourceCleanup",
   "requestAccountDeletion",
+  "issueDeletionProof",
   "getAccountOperation",
 ];
 
 const NOW_MILLIS = 2_000_000_000_000;
 const NOW_SECONDS = Math.floor(NOW_MILLIS / 1000);
+const FIRST_PARTY_ORIGIN = "https://hangul-sori.com";
+const GENERIC_PUBLIC_RESULT = Object.freeze({
+  status: "request-received",
+});
+
+function rawProof(fill) {
+  return Buffer.alloc(32, fill).toString("base64url");
+}
+
+function keyedProofHash(proof) {
+  return `keyed-hash-${proof.slice(0, 8)}`;
+}
 
 class FakeSnapshot {
   constructor(value) {
@@ -77,10 +90,17 @@ class FakeFirestore {
         set: (reference, value) => {
           writes.set(reference.path, structuredClone(value));
         },
+        delete: (reference) => {
+          writes.set(reference.path, undefined);
+        },
       };
       const result = await callback(transaction);
       for (const [path, value] of writes) {
-        this.documents.set(path, value);
+        if (value === undefined) {
+          this.documents.delete(path);
+        } else {
+          this.documents.set(path, value);
+        }
       }
       return result;
     };
@@ -126,15 +146,22 @@ function createHarness({
     target: decodedToken({ uid: "durable-target" }),
     other: decodedToken({ uid: "other-account" }),
   },
+  proofs = [rawProof(1), rawProof(2), rawProof(3), rawProof(4)],
+  hashDeletionProof = async (proof) => keyedProofHash(proof),
+  logger = {
+    warn() {},
+  },
 } = {}) {
   assert.equal(typeof runtime.createFirestoreAccountOperationRepository, "function");
   assert.equal(typeof runtime.createAccountOperationRuntime, "function");
 
   const firestore = new FakeFirestore();
+  const clock = { now: NOW_MILLIS };
   let operationSequence = 0;
+  let proofSequence = 0;
   const repository = runtime.createFirestoreAccountOperationRepository({
     firestore,
-    nowMillis: () => NOW_MILLIS,
+    nowMillis: () => clock.now,
     newOperationId: () => `operation-${++operationSequence}`,
   });
   const verificationCalls = [];
@@ -161,12 +188,18 @@ function createHarness({
   const handlers = runtime.createAccountOperationRuntime({
     auth,
     repository,
-    nowMillis: () => NOW_MILLIS,
+    nowMillis: () => clock.now,
+    newDeletionProof: () => proofs[proofSequence++],
+    hashDeletionProof,
+    logger,
     makeError,
   });
   return {
+    clock,
     firestore,
     handlers,
+    hashDeletionProof,
+    logger,
     repository,
     verificationCalls,
   };
@@ -212,7 +245,59 @@ async function prepareReplacement(handlers, overrides = {}) {
   ));
 }
 
-test("registers all six protected callable names with the exact v2 options", () => {
+function publicRequest(proof, {
+  method = "POST",
+  origin = FIRST_PARTY_ORIGIN,
+  contentType = "application/json",
+  rawBody,
+  query = {},
+} = {}) {
+  const body = { proof };
+  const encodedBody = rawBody ?? Buffer.from(JSON.stringify(body), "utf8");
+  const headers = {
+    origin,
+    "content-type": contentType,
+    "content-length": String(encodedBody.length),
+  };
+  return {
+    body,
+    headers,
+    method,
+    query,
+    rawBody: encodedBody,
+    get(name) {
+      return headers[name.toLowerCase()];
+    },
+  };
+}
+
+function publicResponse() {
+  return {
+    body: undefined,
+    headers: {},
+    statusCode: 200,
+    set(name, value) {
+      this.headers[name.toLowerCase()] = value;
+      return this;
+    },
+    status(value) {
+      this.statusCode = value;
+      return this;
+    },
+    json(value) {
+      this.body = structuredClone(value);
+      return this;
+    },
+  };
+}
+
+async function invokePublic(handler, request) {
+  const response = publicResponse();
+  await handler(request, response);
+  return response;
+}
+
+test("registers all seven protected callable names with the exact v2 options", () => {
   assert.equal(typeof runtime.createAccountOperationCallables, "function");
   const handlers = Object.fromEntries(
     CALLABLE_NAMES.map((name) => [name, async () => name]),
@@ -586,6 +671,288 @@ test("creates or reuses deletionRequested without deleting any user data", async
   assert.equal(firestore.valuesIn("account_deletions").length, 0);
 });
 
+test("issues a server-generated 256-bit proof and persists no raw proof", async () => {
+  const proof = rawProof(11);
+  const { firestore, handlers } = createHarness({ proofs: [proof] });
+
+  const result = await handlers.issueDeletionProof(callableRequest("target"));
+  const storedProofs = firestore.valuesIn("account_deletion_proofs");
+
+  assert.deepEqual(result, {
+    proof,
+    expiresAtMillis: NOW_MILLIS + 86_400_000,
+  });
+  assert.equal(Buffer.from(result.proof, "base64url").length, 32);
+  assert.equal(storedProofs.length, 1);
+  assert.equal(storedProofs[0].proofHash, keyedProofHash(proof));
+  assert.equal(storedProofs[0].sourceUid, "durable-target");
+  assert.equal(storedProofs[0].claimedOperationId, null);
+  assert.equal(
+    JSON.stringify(Array.from(firestore.documents.entries())).includes(proof),
+    false,
+  );
+});
+
+test("rotates to one active proof per account", async () => {
+  const firstProof = rawProof(12);
+  const secondProof = rawProof(13);
+  const { firestore, handlers } = createHarness({
+    proofs: [firstProof, secondProof],
+  });
+
+  await handlers.issueDeletionProof(callableRequest("target"));
+  const second = await handlers.issueDeletionProof(callableRequest("target"));
+  const storedProofs = firestore.valuesIn("account_deletion_proofs");
+
+  assert.equal(second.proof, secondProof);
+  assert.equal(storedProofs.length, 1);
+  assert.equal(storedProofs[0].proofHash, keyedProofHash(secondProof));
+  assert.equal(JSON.stringify(storedProofs).includes(firstProof), false);
+  assert.equal(
+    JSON.stringify(Array.from(firestore.documents.keys()))
+      .includes(keyedProofHash(firstProof)),
+    false,
+  );
+});
+
+test("bounds proof issuance and returns only a safe callable error", async () => {
+  const proofs = [rawProof(14), rawProof(15), rawProof(16), rawProof(17)];
+  const { firestore, handlers } = createHarness({ proofs });
+
+  for (let index = 0; index < 3; index += 1) {
+    await handlers.issueDeletionProof(callableRequest("target"));
+  }
+  await rejectsWithSafeCode(
+    handlers.issueDeletionProof(callableRequest("target")),
+    "resource-exhausted",
+    "proof-issuance-rate-exceeded",
+  );
+
+  assert.equal(firestore.valuesIn("account_deletion_proofs").length, 1);
+  assert.equal(
+    JSON.stringify(Array.from(firestore.documents.entries()))
+      .includes(proofs[3]),
+    false,
+  );
+});
+
+test("claims once and reuses the opaque operation after public response loss", async () => {
+  const proof = rawProof(21);
+  const { firestore, handlers, repository, hashDeletionProof } =
+    createHarness({ proofs: [proof] });
+  await handlers.issueDeletionProof(callableRequest("target"));
+  const publicHandler = runtime.createDeletionProofHttpHandler({
+    repository,
+    hashDeletionProof,
+    consumeRateLimit: async () => true,
+  });
+
+  const first = await invokePublic(publicHandler, publicRequest(proof));
+  const replay = await invokePublic(publicHandler, publicRequest(proof));
+  const operations = firestore.valuesIn("account_operations");
+  const storedProof = firestore.valuesIn("account_deletion_proofs")[0];
+
+  assert.equal(first.statusCode, 202);
+  assert.deepEqual(first.body, GENERIC_PUBLIC_RESULT);
+  assert.equal(replay.statusCode, first.statusCode);
+  assert.deepEqual(replay.body, first.body);
+  assert.equal(operations.length, 1);
+  assert.equal(operations[0].id, storedProof.claimedOperationId);
+  assert.match(operations[0].id, /^[A-Za-z0-9_-]{1,128}$/);
+  assert.equal(operations[0].phase, "deletionRequested");
+  assert.equal(firestore.valuesIn("users").length, 0);
+  assert.equal(firestore.valuesIn("account_deletions").length, 0);
+  assert.equal(
+    JSON.stringify(Array.from(firestore.documents.entries())).includes(proof),
+    false,
+  );
+});
+
+test("returns the identical generic result for every proof state", async () => {
+  const usedProof = rawProof(22);
+  const expiredProof = rawProof(23);
+  const unknownProof = rawProof(24);
+  const { clock, firestore, handlers, repository, hashDeletionProof } =
+    createHarness({ proofs: [usedProof, expiredProof] });
+  const publicHandler = runtime.createDeletionProofHttpHandler({
+    repository,
+    hashDeletionProof,
+    consumeRateLimit: async () => true,
+  });
+
+  await handlers.issueDeletionProof(callableRequest("target"));
+  const accepted = await invokePublic(
+    publicHandler,
+    publicRequest(usedProof),
+  );
+  const used = await invokePublic(publicHandler, publicRequest(usedProof));
+  const claimedOperationId =
+    firestore.valuesIn("account_deletion_proofs")[0].claimedOperationId;
+  firestore.documents.delete(`account_operations/${claimedOperationId}`);
+  const deleted = await invokePublic(publicHandler, publicRequest(usedProof));
+
+  const issuedExpired =
+    await handlers.issueDeletionProof(callableRequest("target"));
+  clock.now = issuedExpired.expiresAtMillis;
+  const expired = await invokePublic(
+    publicHandler,
+    publicRequest(expiredProof),
+  );
+  const invalid = await invokePublic(
+    publicHandler,
+    publicRequest(unknownProof),
+  );
+  const malformed = await invokePublic(
+    publicHandler,
+    publicRequest("not-a-proof"),
+  );
+
+  for (const response of [
+    accepted,
+    used,
+    deleted,
+    expired,
+    invalid,
+    malformed,
+  ]) {
+    assert.equal(response.statusCode, 202);
+    assert.deepEqual(response.body, GENERIC_PUBLIC_RESULT);
+    assert.equal(response.headers["cache-control"], "no-store");
+    assert.equal(response.headers["referrer-policy"], "no-referrer");
+  }
+});
+
+test("rejects non-first-party, non-POST, non-JSON, query, and oversized requests", async () => {
+  let hashCalls = 0;
+  let rateCalls = 0;
+  const { repository } = createHarness();
+  const handler = runtime.createDeletionProofHttpHandler({
+    repository,
+    getRateLimitKey: async () => "safe-network-key",
+    hashDeletionProof: async () => {
+      hashCalls += 1;
+      return "must-not-run";
+    },
+    consumeRateLimit: async () => {
+      rateCalls += 1;
+      return true;
+    },
+  });
+  const proof = rawProof(25);
+  const cases = [
+    [publicRequest(proof, { origin: "https://attacker.example" }), 403],
+    [publicRequest(proof, { method: "GET" }), 405],
+    [publicRequest(proof, { contentType: "text/plain" }), 415],
+    [publicRequest(proof, { query: { proof } }), 400],
+    [publicRequest(proof, { rawBody: Buffer.alloc(1_025, 65) }), 413],
+  ];
+
+  for (const [request, expectedStatus] of cases) {
+    const response = await invokePublic(handler, request);
+    assert.equal(response.statusCode, expectedStatus);
+    assert.deepEqual(response.body, GENERIC_PUBLIC_RESULT);
+  }
+  assert.equal(hashCalls, 0);
+  assert.equal(rateCalls, 0);
+});
+
+test("applies the public rate hook before hashing the proof", async () => {
+  let hashCalls = 0;
+  let rateMetadata;
+  const { repository } = createHarness();
+  const handler = runtime.createDeletionProofHttpHandler({
+    repository,
+    getRateLimitKey: async () => "safe-network-key",
+    hashDeletionProof: async () => {
+      hashCalls += 1;
+      return "must-not-run";
+    },
+    consumeRateLimit: async (metadata) => {
+      rateMetadata = structuredClone(metadata);
+      return false;
+    },
+  });
+
+  const response = await invokePublic(
+    handler,
+    publicRequest(rawProof(26)),
+  );
+
+  assert.equal(response.statusCode, 429);
+  assert.deepEqual(response.body, GENERIC_PUBLIC_RESULT);
+  assert.equal(hashCalls, 0);
+  assert.deepEqual(rateMetadata, {
+    key: "safe-network-key",
+    origin: FIRST_PARTY_ORIGIN,
+  });
+});
+
+test("redacts raw proofs from callable errors and public logs", async () => {
+  const proof = rawProof(27);
+  const logEntries = [];
+  const logger = {
+    warn(message, metadata) {
+      logEntries.push({ message, metadata });
+    },
+  };
+  const failingHasher = async () => {
+    throw new Error(`sensitive hashing detail ${proof}`);
+  };
+  const { handlers, repository } = createHarness({
+    proofs: [proof],
+    hashDeletionProof: failingHasher,
+    logger,
+  });
+
+  let callableError;
+  try {
+    await handlers.issueDeletionProof(callableRequest("target"));
+  } catch (error) {
+    callableError = error;
+  }
+  const handler = runtime.createDeletionProofHttpHandler({
+    repository,
+    hashDeletionProof: failingHasher,
+    consumeRateLimit: async () => true,
+    logger,
+  });
+  const response = await invokePublic(handler, publicRequest(proof));
+
+  assert.equal(callableError.code, "internal");
+  assert.deepEqual(callableError.details, {
+    code: "account-operation-failed",
+  });
+  assert.equal(JSON.stringify(callableError).includes(proof), false);
+  assert.equal(response.statusCode, 202);
+  assert.deepEqual(response.body, GENERIC_PUBLIC_RESULT);
+  assert.equal(JSON.stringify(logEntries).includes(proof), false);
+  assert.deepEqual(logEntries, [{
+    message: "deletion-proof-request-failed",
+    metadata: { code: "proof-request-failed" },
+  }]);
+});
+
+test("registers the public endpoint with an exact first-party CORS origin", () => {
+  const handler = async () => {};
+  const registrations = [];
+  const endpoint = runtime.createDeletionProofHttpEndpoint({
+    handler,
+    onRequest(options, registeredHandler) {
+      registrations.push({ options, registeredHandler });
+      return { options, registeredHandler };
+    },
+  });
+
+  assert.deepEqual(registrations, [{
+    options: {
+      region: "europe-west3",
+      cors: [FIRST_PARTY_ORIGIN],
+    },
+    registeredHandler: handler,
+  }]);
+  assert.deepEqual(endpoint, registrations[0]);
+});
+
 test("allows only an operation participant to read a safe operation result", async () => {
   const { handlers } = createHarness();
   const prepared = await prepareReplacement(handlers);
@@ -640,9 +1007,14 @@ test("rejects operation IDs that cannot be opaque Firestore document IDs", async
   );
 });
 
-test("index exports the six required callable functions", () => {
+test("index exports the protected callables and public proof endpoint", () => {
   const deployed = require("./index");
   for (const name of CALLABLE_NAMES) {
     assert.equal(typeof deployed[name], "function", `${name} export`);
   }
+  assert.equal(
+    typeof deployed.requestDeletionByProof,
+    "function",
+    "requestDeletionByProof export",
+  );
 });

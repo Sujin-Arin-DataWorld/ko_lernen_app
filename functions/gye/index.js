@@ -28,12 +28,16 @@
  * ============================================================================
  */
 
+const crypto = require("node:crypto");
 const admin = require("firebase-admin");
+const functionsLogger = require("firebase-functions/logger");
+const { defineSecret } = require("firebase-functions/params");
 const { onDocumentWritten, onDocumentCreated, onDocumentDeleted } =
   require("firebase-functions/v2/firestore");
 const { onSchedule } = require("firebase-functions/v2/scheduler");
 const { setGlobalOptions } = require("firebase-functions/v2");
-const { HttpsError, onCall } = require("firebase-functions/v2/https");
+const { HttpsError, onCall, onRequest } =
+  require("firebase-functions/v2/https");
 const {
   accountTombstoneCleanupAction,
   anonymizeFeed,
@@ -79,17 +83,33 @@ const {
 const {
   createAccountOperationCallables,
   createAccountOperationRuntime,
+  createDeletionProofHttpEndpoint,
+  createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
 } = require("./account_operations_runtime");
 
 admin.initializeApp();
 const db = admin.firestore();
 setGlobalOptions({ region: "europe-west3" });
+const deletionProofHmacKey = defineSecret("DELETION_PROOF_HMAC_KEY");
+
+function keyedDeletionProofDigest(domain, value) {
+  const secret = deletionProofHmacKey.value();
+  if (typeof secret !== "string" || secret.length < 32) {
+    throw new Error("deletion-proof-secret-unavailable");
+  }
+  return crypto
+    .createHmac("sha256", secret)
+    .update(`${domain}\u0000${value}`, "utf8")
+    .digest("hex");
+}
 
 const accountOperationRepository =
   createFirestoreAccountOperationRepository({ firestore: db });
 const accountOperationHandlers = createAccountOperationRuntime({
   auth: admin.auth(),
+  hashDeletionProof: (proof) =>
+    keyedDeletionProofDigest("proof", proof),
   repository: accountOperationRepository,
   makeError: (status, safeCode) => new HttpsError(
     status,
@@ -102,8 +122,32 @@ Object.assign(
   createAccountOperationCallables({
     handlers: accountOperationHandlers,
     onCall,
+    optionsByName: {
+      issueDeletionProof: {
+        secrets: [deletionProofHmacKey],
+      },
+    },
   }),
 );
+const requestDeletionByProofHandler = createDeletionProofHttpHandler({
+  repository: accountOperationRepository,
+  hashDeletionProof: (proof) =>
+    keyedDeletionProofDigest("proof", proof),
+  getRateLimitKey: async (request) => keyedDeletionProofDigest(
+    "rate",
+    typeof request?.ip === "string" ? request.ip : "unknown",
+  ),
+  consumeRateLimit: ({ key }) =>
+    accountOperationRepository.consumePublicProofRequest({ key }),
+  logger: functionsLogger,
+});
+exports.requestDeletionByProof = createDeletionProofHttpEndpoint({
+  handler: requestDeletionByProofHandler,
+  onRequest,
+  options: {
+    secrets: [deletionProofHmacKey],
+  },
+});
 
 /**
  * 팩이 처음 cleared 되는 순간 계 진행도·피드 갱신.
