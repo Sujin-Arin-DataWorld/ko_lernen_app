@@ -59,15 +59,15 @@
 - Modify: `lib/services/auth_service.dart`
 - Create or modify focused tests under `test/`
 
-- [ ] Add a coordinator test proving Firebase initialization and anonymous auth complete before Premium and Push, Push is skipped when notifications are off, and a failed Firebase initialization prevents dependent SDK access.
-- [ ] Make `_initFirebase()` return success/failure and invoke Premium/Push through the ordered coordinator without delaying `runApp()`.
-- [ ] Install Crashlytics handlers only as consent-aware handlers: when consent is off, report to the local Flutter error presentation path and do not call Crashlytics.
-- [ ] When Crashlytics consent is disabled, disable collection and delete unsent reports. On an explicit off-to-on user transition, delete pre-consent unsent reports before enabling; on startup with already-stored consent, preserve reports recorded while consent was active.
-- [ ] Refactor `PushService` so it is idempotent, uses `FirebaseAuth` directly rather than importing `AuthService`, enables FCM auto-init only after notification permission, retries after a prior initialization failure, tracks subscriptions, and removes/deletes the token on disable.
-- [ ] Invoke Push enable/disable from the Settings notification switch. Local reminders must continue to work if optional FCM registration fails.
-- [ ] Remove the token from the old UID before sign-out/account deletion and persist the token for the new anonymous/current UID after the auth transition when notifications remain enabled.
-- [ ] Make RevenueCat binding start only after Firebase/auth initialization and update `_boundUid` only after a successful `Purchases.logIn`/`logOut`, allowing transient same-UID retries.
-- [ ] Add focused fake-based tests for initialization ordering, notification-off behavior, push retry/idempotency, old-user token removal/rebinding, and consent decisions.
+- [x] Add a coordinator test proving Firebase initialization and anonymous auth complete before Premium and Push, Push is skipped when notifications are off, and a failed Firebase initialization prevents dependent SDK access.
+- [x] Make `_initFirebase()` return success/failure and invoke Premium/Push through the ordered coordinator without delaying `runApp()`.
+- [x] Install Crashlytics handlers only as consent-aware handlers: when consent is off, report to the local Flutter error presentation path and do not call Crashlytics.
+- [x] When Crashlytics consent is disabled, disable collection and delete unsent reports. On an explicit off-to-on user transition, delete pre-consent unsent reports before enabling; on startup with already-stored consent, preserve reports recorded while consent was active.
+- [x] Refactor `PushService` so it is idempotent, uses `FirebaseAuth` directly rather than importing `AuthService`, enables FCM auto-init only after notification permission, retries after a prior initialization failure, tracks subscriptions, and removes/deletes the token on disable.
+- [x] Invoke Push enable/disable from the Settings notification switch. Local reminders must continue to work if optional FCM registration fails.
+- [x] Remove the token from the old UID before sign-out/account deletion and persist the token for the new anonymous/current UID after the auth transition when notifications remain enabled.
+- [x] Make RevenueCat binding start only after Firebase/auth initialization and update `_boundUid` only after a successful `Purchases.logIn`/`logOut`, allowing transient same-UID retries.
+- [x] Add focused fake-based tests for initialization ordering, notification-off behavior, push retry/idempotency, old-user token removal/rebinding, and consent decisions.
 
 ## Task 3: Fix Android picker policy, signing safety, notification icon, and manifest privacy
 
