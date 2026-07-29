@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../data/profanity_denylist.dart';
 import '../models/gye.dart';
+import 'account/cloud_write_session.dart';
 import 'age_gate_service.dart';
 import 'auth_service.dart';
 import 'storage_service.dart';
@@ -52,6 +53,47 @@ class GyeLeaveCoordinator {
 /// 6자리 bearer 코드, 충돌 재시도. 실패는 [GyeException]으로 표면화.
 /// 멤버십 인덱스는 `users/{uid}.gyeIds`(array) 캐시 — collectionGroup 불필요.
 /// plan §7.2/7.3.
+/// A rate limiter whose counters belong to one exact cloud-write session.
+///
+/// Reacquiring the same UID creates a new epoch and therefore a fresh bucket.
+class GyeActionRateLimiter {
+  GyeActionRateLimiter({
+    required this.limit,
+    this.window = const Duration(minutes: 1),
+  });
+
+  final int limit;
+  final Duration window;
+  CloudWriteSession? _session;
+  final List<DateTime> _attempts = <DateTime>[];
+
+  bool canAttempt(CloudWriteSession session, DateTime now) {
+    _prepare(session, now);
+    return _attempts.length < limit;
+  }
+
+  void record(CloudWriteSession session, DateTime now) {
+    _prepare(session, now);
+    _attempts.add(now);
+  }
+
+  bool tryAcquire(CloudWriteSession session, DateTime now) {
+    if (!canAttempt(session, now)) {
+      return false;
+    }
+    record(session, now);
+    return true;
+  }
+
+  void _prepare(CloudWriteSession session, DateTime now) {
+    if (_session != session) {
+      _session = session;
+      _attempts.clear();
+    }
+    _attempts.removeWhere((attempt) => now.difference(attempt) >= window);
+  }
+}
+
 class GyeService {
   static final math.Random _rng = math.Random.secure();
   static const String _collection = 'gye';
@@ -84,6 +126,28 @@ class GyeService {
     } catch (_) {
       return null;
     }
+  }
+
+  static Future<CloudWriteResult> _runWrite(
+    String uid,
+    Future<void> Function() action, {
+    CloudWriteSession? snapshot,
+  }) {
+    final fence = CloudWriteFence(cloudWriteSessionController);
+    if (snapshot == null) {
+      return fence.run(uid: uid, action: action);
+    }
+    return fence.runWithSnapshot(snapshot: snapshot, uid: uid, action: action);
+  }
+
+  static CloudWriteSession? _readySnapshot(String uid) {
+    return CloudWriteFence(cloudWriteSessionController).readySnapshot(uid);
+  }
+
+  static Stream<T> _bindStream<T>(String uid, Stream<T> source) {
+    return CloudWriteFence(
+      cloudWriteSessionController,
+    ).bindStream(uid: uid, source: source);
   }
 
   // ── 순수 헬퍼 (테스트 가능) ─────────────────────────────────────────────
@@ -144,6 +208,10 @@ class GyeService {
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      throw const GyeException(GyeError.network);
+    }
     final cleanName = validatedName(name, maxNameLen, GyeError.invalidName);
     final cleanNick = validatedName(
       nickname,
@@ -183,7 +251,10 @@ class GyeService {
         batch.set(db.collection('users').doc(uid), {
           'gyeIds': FieldValue.arrayUnion([code]),
         }, SetOptions(merge: true));
-        await batch.commit();
+        final write = await _runWrite(uid, batch.commit, snapshot: session);
+        if (write != CloudWriteResult.completed) {
+          throw const GyeException(GyeError.network);
+        }
         return meta;
       }
       throw const GyeException(GyeError.network); // 5회 충돌 (사실상 불가능)
@@ -203,6 +274,10 @@ class GyeService {
     final uid = AuthService.current?.uid;
     final db = _db;
     if (uid == null || db == null) {
+      throw const GyeException(GyeError.network);
+    }
+    final session = _readySnapshot(uid);
+    if (session == null) {
       throw const GyeException(GyeError.network);
     }
     final id = code.trim().toUpperCase();
@@ -250,7 +325,10 @@ class GyeService {
         batch.set(db.collection('users').doc(uid), {
           'gyeIds': FieldValue.arrayUnion([id]),
         }, SetOptions(merge: true));
-        await batch.commit();
+        final write = await _runWrite(uid, batch.commit, snapshot: session);
+        if (write != CloudWriteResult.completed) {
+          throw const GyeException(GyeError.network);
+        }
       }
       return meta;
     } on GyeException {
@@ -283,6 +361,10 @@ class GyeService {
     final uid = AuthService.current?.uid;
     final db = _db;
     if (uid == null || db == null) {
+      throw const GyeException(GyeError.network);
+    }
+    final session = _readySnapshot(uid);
+    if (session == null) {
       throw const GyeException(GyeError.network);
     }
     try {
@@ -320,7 +402,10 @@ class GyeService {
           batch.set(db.collection('users').doc(uid), {
             'gyeIds': FieldValue.arrayRemove([gyeId]),
           }, SetOptions(merge: true));
-          await batch.commit();
+          final write = await _runWrite(uid, batch.commit, snapshot: session);
+          if (write != CloudWriteResult.completed) {
+            throw const GyeException(GyeError.network);
+          }
         },
       ).leave(id);
     } on GyeException {
@@ -332,34 +417,43 @@ class GyeService {
 
   /// 계 메타 실시간 스트림 (없으면 null).
   static Stream<GyeMeta?> metaStream(String id) {
+    final uid = AuthService.current?.uid;
     final db = _db;
-    if (db == null) {
+    if (uid == null || db == null) {
       return Stream.value(null);
     }
-    return db
-        .collection(_collection)
-        .doc(id)
-        .snapshots()
-        .map((s) => s.exists ? GyeMeta.fromDoc(id, s.data()!) : null);
+    return _bindStream(
+      uid,
+      db
+          .collection(_collection)
+          .doc(id)
+          .snapshots()
+          .map((s) => s.exists ? GyeMeta.fromDoc(id, s.data()!) : null),
+    );
   }
 
   /// 피드 실시간 스트림 (최근 [limit]개, 최신순).
   static Stream<List<GyeFeedEvent>> feedStream(String id, {int limit = 20}) {
+    final uid = AuthService.current?.uid;
     final db = _db;
-    if (db == null) {
+    if (uid == null || db == null) {
       return Stream.value(const []);
     }
-    return db
-        .collection(_collection)
-        .doc(id)
-        .collection('feed')
-        .orderBy('createdAt', descending: true)
-        .limit(limit)
-        .snapshots()
-        .map(
-          (q) =>
-              q.docs.map((d) => GyeFeedEvent.fromDoc(d.id, d.data())).toList(),
-        );
+    return _bindStream(
+      uid,
+      db
+          .collection(_collection)
+          .doc(id)
+          .collection('feed')
+          .orderBy('createdAt', descending: true)
+          .limit(limit)
+          .snapshots()
+          .map(
+            (q) => q.docs
+                .map((d) => GyeFeedEvent.fromDoc(d.id, d.data()))
+                .toList(),
+          ),
+    );
   }
 
   /// 내가 속한 계 메타 목록 (입장 후 다시 들어가기용).
@@ -376,18 +470,23 @@ class GyeService {
 
   /// 멤버 실시간 스트림.
   static Stream<List<GyeMember>> membersStream(String id) {
+    final uid = AuthService.current?.uid;
     final db = _db;
-    if (db == null) {
+    if (uid == null || db == null) {
       return Stream.value(const []);
     }
-    return db
-        .collection(_collection)
-        .doc(id)
-        .collection('members')
-        .snapshots()
-        .map(
-          (q) => q.docs.map((d) => GyeMember.fromDoc(d.id, d.data())).toList(),
-        );
+    return _bindStream(
+      uid,
+      db
+          .collection(_collection)
+          .doc(id)
+          .collection('members')
+          .snapshots()
+          .map(
+            (q) =>
+                q.docs.map((d) => GyeMember.fromDoc(d.id, d.data())).toList(),
+          ),
+    );
   }
 
   /// 멤버 신고 — `reports`에 append. 본인 신고 불가. 실패 시 false.
@@ -403,22 +502,32 @@ class GyeService {
     if (uid == null || db == null || uid == targetUid) {
       return false;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return false;
+    }
     try {
-      await db
-          .collection(_collection)
-          .doc(gyeId)
-          .collection('reports')
-          .doc(GyeReport.documentIdFor(targetUid: targetUid, reporterUid: uid))
-          .set(
-            GyeReport(
-              id: '',
-              reporterUid: uid,
-              targetUid: targetUid,
-              reason: reason,
-              note: note.trim(),
-            ).toCreateJson(),
-          );
-      return true;
+      final result = await _runWrite(
+        uid,
+        () => db
+            .collection(_collection)
+            .doc(gyeId)
+            .collection('reports')
+            .doc(
+              GyeReport.documentIdFor(targetUid: targetUid, reporterUid: uid),
+            )
+            .set(
+              GyeReport(
+                id: '',
+                reporterUid: uid,
+                targetUid: targetUid,
+                reason: reason,
+                note: note.trim(),
+              ).toCreateJson(),
+            ),
+        snapshot: session,
+      );
+      return result == CloudWriteResult.completed;
     } catch (_) {
       return false;
     }
@@ -428,7 +537,9 @@ class GyeService {
   static String? get currentUid => AuthService.current?.uid;
 
   /// 클라 레이트 가드 — 분당 10개(인메모리). 일일 100개는 3e CF에서 강화.
-  static final List<DateTime> _recentStickerSends = [];
+  static final GyeActionRateLimiter _stickerRateLimiter = GyeActionRateLimiter(
+    limit: 10,
+  );
 
   /// 스티커 전송 — 피드에 이벤트(type: sticker, payload.stickerCode) append.
   /// 레이트 초과/실패 시 false.
@@ -441,9 +552,12 @@ class GyeService {
     if (uid == null || db == null) {
       return false;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return false;
+    }
     final now = DateTime.now();
-    _recentStickerSends.removeWhere((tt) => now.difference(tt).inSeconds >= 60);
-    if (_recentStickerSends.length >= 10) {
+    if (!_stickerRateLimiter.canAttempt(session, now)) {
       return false;
     }
     final ref = db.collection(_collection).doc(gyeId);
@@ -455,18 +569,23 @@ class GyeService {
       // 닉네임 없이도 전송은 진행
     }
     try {
-      await ref
-          .collection('feed')
-          .add(
-            GyeFeedEvent(
-              id: '',
-              type: GyeFeedType.sticker,
-              actorUid: uid,
-              actorNickname: nickname,
-              payload: {'stickerCode': code},
-            ).toCreateJson(),
-          );
-      _recentStickerSends.add(now);
+      final result = await _runWrite(uid, () async {
+        await ref
+            .collection('feed')
+            .add(
+              GyeFeedEvent(
+                id: '',
+                type: GyeFeedType.sticker,
+                actorUid: uid,
+                actorNickname: nickname,
+                payload: {'stickerCode': code},
+              ).toCreateJson(),
+            );
+      }, snapshot: session);
+      if (result != CloudWriteResult.completed) {
+        return false;
+      }
+      _stickerRateLimiter.record(session, now);
       return true;
     } catch (_) {
       return false;
@@ -487,9 +606,12 @@ class GyeService {
     if (uid == null || db == null || targetEventId.isEmpty) {
       return false;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return false;
+    }
     final now = DateTime.now();
-    _recentStickerSends.removeWhere((tt) => now.difference(tt).inSeconds >= 60);
-    if (_recentStickerSends.length >= 10) {
+    if (!_stickerRateLimiter.canAttempt(session, now)) {
       return false;
     }
     final ref = db.collection(_collection).doc(gyeId);
@@ -501,18 +623,23 @@ class GyeService {
       // 닉네임 없이도 전송 진행
     }
     try {
-      await ref
-          .collection('feed')
-          .add(
-            GyeFeedEvent(
-              id: '',
-              type: GyeFeedType.sticker,
-              actorUid: uid,
-              actorNickname: nickname,
-              payload: {'stickerCode': code, 'targetEventId': targetEventId},
-            ).toCreateJson(),
-          );
-      _recentStickerSends.add(now);
+      final result = await _runWrite(uid, () async {
+        await ref
+            .collection('feed')
+            .add(
+              GyeFeedEvent(
+                id: '',
+                type: GyeFeedType.sticker,
+                actorUid: uid,
+                actorNickname: nickname,
+                payload: {'stickerCode': code, 'targetEventId': targetEventId},
+              ).toCreateJson(),
+            );
+      }, snapshot: session);
+      if (result != CloudWriteResult.completed) {
+        return false;
+      }
+      _stickerRateLimiter.record(session, now);
       return true;
     } catch (_) {
       return false;
@@ -541,6 +668,10 @@ class GyeService {
     if (uid == null || db == null) {
       return;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return;
+    }
     final docId = 'allin_${_weekKey(DateTime.now())}';
     final ref = db.collection(_collection).doc(gyeId);
     var nickname = '';
@@ -552,17 +683,21 @@ class GyeService {
     }
     try {
       // create-only: 문서가 이미 있으면 set은 update가 되어 rules가 거부 → dedup.
-      await ref
-          .collection('feed')
-          .doc(docId)
-          .set(
-            GyeFeedEvent(
-              id: docId,
-              type: GyeFeedType.allInChallenge,
-              actorUid: uid,
-              actorNickname: nickname,
-            ).toCreateJson(),
-          );
+      await _runWrite(
+        uid,
+        () => ref
+            .collection('feed')
+            .doc(docId)
+            .set(
+              GyeFeedEvent(
+                id: docId,
+                type: GyeFeedType.allInChallenge,
+                actorUid: uid,
+                actorNickname: nickname,
+              ).toCreateJson(),
+            ),
+        snapshot: session,
+      );
     } catch (_) {
       // 이미 기록됨(다른 멤버가 먼저) 또는 권한 → 무시. burst는 화면이 담당.
     }
@@ -580,22 +715,31 @@ class GyeService {
     if (uid == null || db == null) {
       return;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return;
+    }
     for (final gid in await myGyeIds()) {
       try {
         final ref = db.collection(_collection).doc(gid);
         final m = await ref.collection('members').doc(uid).get();
         final nickname = m.data()?['nickname'] as String? ?? '';
-        await ref
-            .collection('feed')
-            .add(
-              GyeFeedEvent(
-                id: '',
-                type: type,
-                actorUid: uid,
-                actorNickname: nickname,
-                payload: payload,
-              ).toCreateJson(),
-            );
+        final result = await _runWrite(uid, () async {
+          await ref
+              .collection('feed')
+              .add(
+                GyeFeedEvent(
+                  id: '',
+                  type: type,
+                  actorUid: uid,
+                  actorNickname: nickname,
+                  payload: payload,
+                ).toCreateJson(),
+              );
+        }, snapshot: session);
+        if (result != CloudWriteResult.completed) {
+          return;
+        }
       } catch (_) {
         // 한 계 실패해도 나머지 진행
       }
@@ -620,15 +764,26 @@ class GyeService {
     if (uid == null || db == null) {
       return;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return;
+    }
     final stats = {'level': Storage.xpLevel, 'streakDays': Storage.streakDays};
     for (final gid in await myGyeIds()) {
       try {
-        await db
-            .collection(_collection)
-            .doc(gid)
-            .collection('members')
-            .doc(uid)
-            .set(stats, SetOptions(merge: true));
+        final result = await _runWrite(
+          uid,
+          () => db
+              .collection(_collection)
+              .doc(gid)
+              .collection('members')
+              .doc(uid)
+              .set(stats, SetOptions(merge: true)),
+          snapshot: session,
+        );
+        if (result != CloudWriteResult.completed) {
+          return;
+        }
       } catch (_) {
         // best-effort — 한 계 실패해도 나머지 진행
       }
@@ -636,7 +791,9 @@ class GyeService {
   }
 
   /// 응원 레이트 — 분당 10개(인메모리).
-  static final List<DateTime> _recentCheerSends = [];
+  static final GyeActionRateLimiter _cheerRateLimiter = GyeActionRateLimiter(
+    limit: 10,
+  );
 
   /// 응원 보내기 — 정형 격려(cheerCode 1~5)를 계 피드에 append (3픽 리텐션 훅).
   /// 자유 텍스트가 아니라 코드라 모더레이션 안전. 레이트 초과/실패 시 false.
@@ -651,9 +808,12 @@ class GyeService {
     if (uid == null || db == null) {
       return false;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return false;
+    }
     final now = DateTime.now();
-    _recentCheerSends.removeWhere((t) => now.difference(t).inSeconds >= 60);
-    if (_recentCheerSends.length >= 10) {
+    if (!_cheerRateLimiter.canAttempt(session, now)) {
       return false;
     }
     final ref = db.collection(_collection).doc(gyeId);
@@ -665,22 +825,27 @@ class GyeService {
       // 닉네임 없이도 전송 진행
     }
     try {
-      await ref
-          .collection('feed')
-          .add(
-            GyeFeedEvent(
-              id: '',
-              type: GyeFeedType.cheer,
-              actorUid: uid,
-              actorNickname: nickname,
-              payload: {
-                'targetUid': targetUid,
-                'targetNickname': targetNickname,
-                'cheerCode': cheerCode,
-              },
-            ).toCreateJson(),
-          );
-      _recentCheerSends.add(now);
+      final result = await _runWrite(uid, () async {
+        await ref
+            .collection('feed')
+            .add(
+              GyeFeedEvent(
+                id: '',
+                type: GyeFeedType.cheer,
+                actorUid: uid,
+                actorNickname: nickname,
+                payload: {
+                  'targetUid': targetUid,
+                  'targetNickname': targetNickname,
+                  'cheerCode': cheerCode,
+                },
+              ).toCreateJson(),
+            );
+      }, snapshot: session);
+      if (result != CloudWriteResult.completed) {
+        return false;
+      }
+      _cheerRateLimiter.record(session, now);
       return true;
     } catch (_) {
       return false;
@@ -699,11 +864,19 @@ class GyeService {
     if (uid == null || db == null || uid == targetUid) {
       return false;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return false;
+    }
     try {
-      await db.collection('users').doc(uid).set({
-        'blockedUids': FieldValue.arrayUnion([targetUid]),
-      }, SetOptions(merge: true));
-      return true;
+      final result = await _runWrite(
+        uid,
+        () => db.collection('users').doc(uid).set({
+          'blockedUids': FieldValue.arrayUnion([targetUid]),
+        }, SetOptions(merge: true)),
+        snapshot: session,
+      );
+      return result == CloudWriteResult.completed;
     } catch (_) {
       return false;
     }
@@ -716,11 +889,19 @@ class GyeService {
     if (uid == null || db == null) {
       return false;
     }
+    final session = _readySnapshot(uid);
+    if (session == null) {
+      return false;
+    }
     try {
-      await db.collection('users').doc(uid).set({
-        'blockedUids': FieldValue.arrayRemove([targetUid]),
-      }, SetOptions(merge: true));
-      return true;
+      final result = await _runWrite(
+        uid,
+        () => db.collection('users').doc(uid).set({
+          'blockedUids': FieldValue.arrayRemove([targetUid]),
+        }, SetOptions(merge: true)),
+        snapshot: session,
+      );
+      return result == CloudWriteResult.completed;
     } catch (_) {
       return false;
     }
@@ -733,15 +914,18 @@ class GyeService {
     if (uid == null || db == null) {
       return Stream.value(const <String>{});
     }
-    return db
-        .collection('users')
-        .doc(uid)
-        .snapshots()
-        .map(
-          (d) => ((d.data()?['blockedUids'] as List?) ?? const [])
-              .whereType<String>()
-              .toSet(),
-        );
+    return _bindStream(
+      uid,
+      db
+          .collection('users')
+          .doc(uid)
+          .snapshots()
+          .map(
+            (d) => ((d.data()?['blockedUids'] as List?) ?? const [])
+                .whereType<String>()
+                .toSet(),
+          ),
+    );
   }
 
   /// 차단 필터 — 차단한 사용자의 피드 이벤트 + 그를 향한/그가 보낸 응원 숨김.

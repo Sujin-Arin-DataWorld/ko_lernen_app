@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/pack_progress.dart';
+import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 
 /// Firestore CRUD for `users/{uid}/packs/{packId}` (Phase 1).
@@ -60,32 +61,81 @@ class FirestoreProgressService {
 
   /// 단일 팩 진행도 저장 (merge). 실패는 silently ignored.
   static Future<void> savePack(PackProgress p) async {
-    final ref = _packsCollection();
-    if (ref == null) return;
+    await savePackWithResult(p);
+  }
+
+  static Future<CloudWriteResult> savePackWithResult(PackProgress p) async {
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) {
+      return CloudWriteResult.blocked;
+    }
+    CollectionReference<Map<String, dynamic>>? ref;
+    Map<String, dynamic>? payload;
     try {
-      final payload = Map<String, dynamic>.from(p.toJson());
-      payload['updatedAt'] = FieldValue.serverTimestamp();
-      await ref.doc(p.packId).set(payload, SetOptions(merge: true));
+      return await CloudWriteFence(cloudWriteSessionController).run(
+        uid: uid,
+        prepare: () async {
+          final db = _db;
+          if (db == null) {
+            return;
+          }
+          ref = db.collection('users').doc(uid).collection('packs');
+          payload = Map<String, dynamic>.from(p.toJson())
+            ..['updatedAt'] = FieldValue.serverTimestamp();
+        },
+        action: () async {
+          final collection = ref;
+          final data = payload;
+          if (collection != null && data != null) {
+            await collection.doc(p.packId).set(data, SetOptions(merge: true));
+          }
+        },
+      );
     } catch (_) {
-      // best-effort
+      return CloudWriteResult.blocked;
     }
   }
 
   /// 배치 저장 — 마이그레이션 / 다중 팩 동시 update 용.
   static Future<void> saveMany(Iterable<PackProgress> progresses) async {
-    final ref = _packsCollection();
-    final db = _db;
-    if (ref == null || db == null) return;
+    await saveManyWithResult(progresses);
+  }
+
+  static Future<CloudWriteResult> saveManyWithResult(
+    Iterable<PackProgress> progresses,
+  ) async {
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) {
+      return CloudWriteResult.blocked;
+    }
+    WriteBatch? batch;
     try {
-      final batch = db.batch();
-      for (final p in progresses) {
-        final payload = Map<String, dynamic>.from(p.toJson());
-        payload['updatedAt'] = FieldValue.serverTimestamp();
-        batch.set(ref.doc(p.packId), payload, SetOptions(merge: true));
-      }
-      await batch.commit();
+      return await CloudWriteFence(cloudWriteSessionController).run(
+        uid: uid,
+        prepare: () async {
+          final db = _db;
+          if (db == null) {
+            return;
+          }
+          final ref = db.collection('users').doc(uid).collection('packs');
+          final pendingBatch = db.batch();
+          for (final p in progresses) {
+            final payload = Map<String, dynamic>.from(p.toJson());
+            payload['updatedAt'] = FieldValue.serverTimestamp();
+            pendingBatch.set(
+              ref.doc(p.packId),
+              payload,
+              SetOptions(merge: true),
+            );
+          }
+          batch = pendingBatch;
+        },
+        action: () async {
+          await batch?.commit();
+        },
+      );
     } catch (_) {
-      // best-effort
+      return CloudWriteResult.blocked;
     }
   }
 }

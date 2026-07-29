@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
+import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'storage_service.dart';
 
@@ -86,11 +87,25 @@ class CloudSync {
 
   /// Lokale Werte → Firestore. Idempotent.
   static Future<void> backup() async {
-    final ref = _doc;
-    if (ref == null) return;
-    final payload = buildBackupPayload();
-    payload['updated_at'] = FieldValue.serverTimestamp();
-    await ref.set(payload, SetOptions(merge: true));
+    await backupWithResult();
+  }
+
+  static Future<CloudWriteResult> backupWithResult() async {
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) {
+      return CloudWriteResult.blocked;
+    }
+    DocumentReference<Map<String, dynamic>>? ref;
+    Map<String, dynamic>? payload;
+    return CloudWriteFence(cloudWriteSessionController).run(
+      uid: uid,
+      prepare: () async {
+        ref = _db.collection('users').doc(uid);
+        payload = buildBackupPayload()
+          ..['updated_at'] = FieldValue.serverTimestamp();
+      },
+      action: () => ref!.set(payload!, SetOptions(merge: true)),
+    );
   }
 
   /// Payload → lokale Werte (additiv / max-merge). Testbar ohne Firestore.

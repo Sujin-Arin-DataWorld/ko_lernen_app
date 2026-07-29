@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
+import 'account/cloud_write_session.dart';
 import 'notification_service.dart';
 
 enum PushPermissionStatus { authorized, provisional, denied }
@@ -71,6 +72,24 @@ class PushOwnershipTransitionException implements Exception {
   String toString() =>
       'The identity transition and push rebind both failed: '
       '$transitionError; $rebindError';
+}
+
+/// The server authoritatively rejected the operation before creating a marker.
+///
+/// This is the only failure that permits restoring the source push binding.
+class ServerConfirmedPreMarkerRejection implements Exception {
+  const ServerConfirmedPreMarkerRejection(this.message);
+
+  final String message;
+
+  @override
+  String toString() => message;
+}
+
+/// A server accepted the operation, so source ownership stays frozen for
+/// inspection/resume even though the request call itself completed normally.
+class ServerAcceptedOwnershipFreeze {
+  const ServerAcceptedOwnershipFreeze();
 }
 
 typedef ShowPushNotification =
@@ -168,6 +187,7 @@ class PushService implements PushTokenOwner {
     required this.auth,
     required this.tokens,
     required this.showNotification,
+    required this.sessions,
   });
 
   factory PushService.production() {
@@ -175,6 +195,7 @@ class PushService implements PushTokenOwner {
       messaging: const FirebasePushMessagingClient(),
       auth: const FirebasePushAuthClient(),
       tokens: const FirestorePushTokenRepository(),
+      sessions: cloudWriteSessionController,
       showNotification: ({required String title, required String body}) {
         return NotificationService.showNow(title: title, body: body);
       },
@@ -185,6 +206,7 @@ class PushService implements PushTokenOwner {
   final PushAuthClient auth;
   final PushTokenRepository tokens;
   final ShowPushNotification showNotification;
+  final CloudWriteSessionController sessions;
 
   bool _ready = false;
   bool _desiredEnabled = false;
@@ -324,7 +346,7 @@ class PushService implements PushTokenOwner {
           label: 'token removal',
           strict: strict,
           failures: failures,
-          operation: () => tokens.removeToken(uid, token!),
+          operation: () => _removeToken(uid, token!),
         );
       }
     }
@@ -387,7 +409,7 @@ class PushService implements PushTokenOwner {
     // best-effort without leaving a deliverable token attached to the old UID.
     if (token != null) {
       try {
-        await tokens.removeToken(uid, token);
+        await _removeToken(uid, token);
       } catch (error) {
         debugPrint(
           'PushService: stale old-user token cleanup skipped — $error',
@@ -416,7 +438,18 @@ class PushService implements PushTokenOwner {
     if (uid == null) {
       throw StateError('Cannot persist a push token without a user ID.');
     }
-    await tokens.addToken(uid, token);
+    final result = await CloudWriteFence(
+      sessions,
+    ).run(uid: uid, action: () => tokens.addToken(uid, token));
+    if (result != CloudWriteResult.completed) {
+      return;
+    }
+  }
+
+  Future<void> _removeToken(String uid, String token) async {
+    await CloudWriteFence(
+      sessions,
+    ).run(uid: uid, action: () => tokens.removeToken(uid, token));
   }
 
   Future<void> _persistRefreshedToken(String token) async {
@@ -539,46 +572,72 @@ class PushOwnershipTransitionCoordinator {
   const PushOwnershipTransitionCoordinator({
     required this.push,
     required this.notificationsEnabled,
+    required this.sessions,
   });
 
   final PushTokenOwner push;
   final bool Function() notificationsEnabled;
+  final CloudWriteSessionController sessions;
 
-  Future<T> run<T>({
+  Future<CloudWriteResult> run<T>({
     required String oldUid,
     required Future<T> Function() transition,
   }) async {
-    await push.removeTokenFrom(oldUid);
+    final fence = CloudWriteFence(sessions);
+    final snapshot = fence.readySnapshot(oldUid);
+    if (snapshot == null) {
+      return CloudWriteResult.blocked;
+    }
+    final removal = await fence.run(
+      uid: oldUid,
+      action: () => push.removeTokenFrom(oldUid),
+    );
+    if (removal != CloudWriteResult.completed) {
+      return removal;
+    }
     Object? transitionError;
     StackTrace? transitionStackTrace;
-    late T result;
     try {
-      result = await transition();
+      await transition();
     } catch (error, stackTrace) {
       transitionError = error;
       transitionStackTrace = stackTrace;
     }
 
-    if (notificationsEnabled()) {
+    final mayRestoreSource =
+        transitionError is ServerConfirmedPreMarkerRejection;
+    final acceptedAndFrozen = transitionError == null;
+    var frozeAcceptedOwnership = false;
+    if (fence.verify(snapshot, uid: oldUid) == CloudWriteResult.completed) {
+      if (acceptedAndFrozen) {
+        sessions.transition(CloudWriteMode.cleanupPending);
+        frozeAcceptedOwnership = true;
+      } else if (!mayRestoreSource) {
+        sessions.transition(CloudWriteMode.blocked);
+      }
+    }
+    var sessionResult = fence.verify(snapshot, uid: oldUid);
+    if (notificationsEnabled() &&
+        sessionResult == CloudWriteResult.completed &&
+        !acceptedAndFrozen &&
+        mayRestoreSource) {
       try {
         await push.bindCurrentUser();
+        sessionResult = fence.verify(snapshot, uid: oldUid);
       } catch (rebindError, rebindStackTrace) {
-        if (transitionError != null) {
-          throw PushOwnershipTransitionException(
-            transitionError: transitionError,
-            transitionStackTrace: transitionStackTrace!,
-            rebindError: rebindError,
-            rebindStackTrace: rebindStackTrace,
-          );
-        }
-        Error.throwWithStackTrace(rebindError, rebindStackTrace);
+        throw PushOwnershipTransitionException(
+          transitionError: transitionError,
+          transitionStackTrace: transitionStackTrace!,
+          rebindError: rebindError,
+          rebindStackTrace: rebindStackTrace,
+        );
       }
     }
 
     if (transitionError != null) {
       Error.throwWithStackTrace(transitionError, transitionStackTrace!);
     }
-    return result;
+    return frozeAcceptedOwnership ? CloudWriteResult.blocked : sessionResult;
   }
 }
 

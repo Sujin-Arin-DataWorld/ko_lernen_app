@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
 
 import '../models/book_page.dart';
+import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'book_image_service.dart';
 import 'media_mutation_lock.dart';
@@ -161,20 +162,29 @@ class BookshelfService {
   }
 
   static Future<void> _collectGarbage(Iterable<String?> encodedRefs) async {
+    final session = cloudWriteSessionController.current;
+    if (session == null) {
+      await _collectGarbageUnfenced(encodedRefs);
+      return;
+    }
+    await CloudWriteFence(
+      cloudWriteSessionController,
+    ).run(uid: session.uid, action: () => _collectGarbageUnfenced(encodedRefs));
+  }
+
+  static Future<void> _collectGarbageUnfenced(
+    Iterable<String?> encodedRefs,
+  ) async {
     final snapshot = ManagedMediaReferenceSnapshot.fromJson(
       bookshelfJson: Storage.bookshelfRawJson,
       customPacksJson: Storage.customPacksRawJson,
     );
-    if (!snapshot.isComplete) {
-      return;
-    }
+    if (!snapshot.isComplete) return;
     final references = encodedRefs
         .map(ManagedMediaRef.tryParse)
         .whereType<ManagedMediaRef>()
         .toSet();
-    if (references.isEmpty) {
-      return;
-    }
+    if (references.isEmpty) return;
     final store = await BookImageService.store;
     for (final reference in references) {
       await store.deleteIfUnreferenced(reference, snapshot);
@@ -191,20 +201,29 @@ class BookshelfService {
     }
   }
 
-  static CollectionReference<Map<String, dynamic>>? _collection() {
-    final uid = AuthService.cloudBackupUid;
-    final db = _db;
-    if (uid == null || db == null) return null;
-    return db.collection('users').doc(uid).collection('bookshelf');
-  }
-
   static Future<void> _saveToFirestore(BookPage page) async {
-    final col = _collection();
-    if (col == null) return;
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) return;
     try {
-      final payload = Map<String, dynamic>.from(page.toFirestoreJson());
-      payload['updatedAt'] = FieldValue.serverTimestamp();
-      await col.doc(page.id).set(payload, SetOptions(merge: true));
+      CollectionReference<Map<String, dynamic>>? col;
+      Map<String, dynamic>? payload;
+      await CloudWriteFence(cloudWriteSessionController).run(
+        uid: uid,
+        prepare: () async {
+          final db = _db;
+          if (db == null) return;
+          col = db.collection('users').doc(uid).collection('bookshelf');
+          payload = Map<String, dynamic>.from(page.toFirestoreJson())
+            ..['updatedAt'] = FieldValue.serverTimestamp();
+        },
+        action: () async {
+          final collection = col;
+          final data = payload;
+          if (collection != null && data != null) {
+            await collection.doc(page.id).set(data, SetOptions(merge: true));
+          }
+        },
+      );
     } catch (e) {
       // best-effort — 로컬이 source of truth. 단 침묵 실패는 디버깅 불가라 로깅.
       debugPrint('BookshelfService: Firestore save skipped — $e');
@@ -212,10 +231,26 @@ class BookshelfService {
   }
 
   static Future<void> _deleteFromFirestore(String id) async {
-    final col = _collection();
-    if (col == null) return;
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) return;
     try {
-      await col.doc(id).delete();
+      DocumentReference<Map<String, dynamic>>? doc;
+      await CloudWriteFence(cloudWriteSessionController).run(
+        uid: uid,
+        prepare: () async {
+          final db = _db;
+          if (db != null) {
+            doc = db
+                .collection('users')
+                .doc(uid)
+                .collection('bookshelf')
+                .doc(id);
+          }
+        },
+        action: () async {
+          await doc?.delete();
+        },
+      );
     } catch (e) {
       debugPrint('BookshelfService: Firestore delete skipped — $e');
     }

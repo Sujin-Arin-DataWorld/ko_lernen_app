@@ -6,6 +6,7 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:path_provider/path_provider.dart';
 
+import 'account/cloud_write_session.dart';
 import 'media_mutation_lock.dart';
 import 'storage_service.dart';
 
@@ -276,6 +277,7 @@ class ManagedMediaStore {
   ManagedMediaStore({
     required this.documentsDirectory,
     required this.temporaryDirectory,
+    this.sessions,
     DateTime Function()? now,
     String Function()? nonce,
   }) : _now = now ?? DateTime.now,
@@ -283,6 +285,7 @@ class ManagedMediaStore {
 
   final Directory documentsDirectory;
   final Directory temporaryDirectory;
+  final CloudWriteSessionController? sessions;
   final DateTime Function() _now;
   final String Function() _nonce;
   int _sequence = 0;
@@ -708,9 +711,11 @@ class ManagedMediaStore {
     ManagedMediaRef reference,
     ManagedMediaReferenceSnapshot snapshot,
   ) async {
-    if (snapshot.isComplete && !snapshot.contains(reference)) {
-      await deleteCommitted(reference);
-    }
+    await _runGarbageCollection((session) async {
+      if (snapshot.isComplete && !snapshot.contains(reference)) {
+        await _deleteCommittedForGarbageCollection(reference, session);
+      }
+    });
   }
 
   Future<List<File>> listCommitted(ManagedMediaKind kind) async {
@@ -738,6 +743,20 @@ class ManagedMediaStore {
     required ManagedMediaReferenceSnapshot snapshot,
     Duration pendingTtl = const Duration(days: 2),
   }) async {
+    await _runGarbageCollection(
+      (session) => _reconcileUnfenced(
+        snapshot: snapshot,
+        pendingTtl: pendingTtl,
+        session: session,
+      ),
+    );
+  }
+
+  Future<void> _reconcileUnfenced({
+    required ManagedMediaReferenceSnapshot snapshot,
+    required Duration pendingTtl,
+    required CloudWriteSession? session,
+  }) async {
     if (await root.exists() && !await _isSafeManagedDirectory(root)) {
       return;
     }
@@ -751,7 +770,9 @@ class ManagedMediaStore {
         }
         final modified = await entity.lastModified();
         if (modified.isBefore(cutoff)) {
-          await entity.delete();
+          if (_garbageCollectionSessionIsCurrent(session)) {
+            await entity.delete();
+          }
         }
       }
     }
@@ -764,10 +785,44 @@ class ManagedMediaStore {
           '${kind.name}:${_basename(file.path)}',
         );
         if (!snapshot.contains(reference)) {
-          await deleteCommitted(reference);
+          await _deleteCommittedForGarbageCollection(reference, session);
         }
       }
     }
+  }
+
+  Future<void> _runGarbageCollection(
+    Future<void> Function(CloudWriteSession? session) action,
+  ) async {
+    final controller = sessions;
+    if (controller == null || !controller.hasBeenActivated) {
+      await action(null);
+      return;
+    }
+    final current = controller.current;
+    if (current == null || current.mode != CloudWriteMode.ready) {
+      return;
+    }
+    await action(current);
+  }
+
+  Future<void> _deleteCommittedForGarbageCollection(
+    ManagedMediaRef reference,
+    CloudWriteSession? session,
+  ) async {
+    final file = await resolve(reference);
+    if (file != null && _garbageCollectionSessionIsCurrent(session)) {
+      await file.delete();
+    }
+  }
+
+  bool _garbageCollectionSessionIsCurrent(CloudWriteSession? session) {
+    final controller = sessions;
+    if (session == null) {
+      return controller == null || !controller.hasBeenActivated;
+    }
+    return CloudWriteFence(controller!).verify(session, uid: session.uid) ==
+        CloudWriteResult.completed;
   }
 
   Future<ManagedMediaRef?> migrateTrustedLegacy(
@@ -1032,6 +1087,7 @@ class BookImageService {
     final created = ManagedMediaStore(
       documentsDirectory: await getApplicationDocumentsDirectory(),
       temporaryDirectory: await getTemporaryDirectory(),
+      sessions: cloudWriteSessionController,
     );
     _store = created;
     return created;

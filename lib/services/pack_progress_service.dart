@@ -1,5 +1,7 @@
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
+import 'account/cloud_write_session.dart';
+import 'auth_service.dart';
 import 'firestore_progress_service.dart';
 import 'storage_service.dart';
 import 'vocab_pack_service.dart';
@@ -125,7 +127,8 @@ class PackProgressService {
     VocabPack pack, {
     int? overrideCount,
   }) async {
-    final current = get(pack.id) ??
+    final current =
+        get(pack.id) ??
         PackProgress.fresh(
           packId: pack.id,
           level: pack.level,
@@ -153,13 +156,16 @@ class PackProgressService {
   ///
   /// Returns: aktualisierter Pack + ob Cleared-Übergang erfolgte
   /// (für UI-Zelebration).
-  static Future<({PackProgress progress, bool justCleared, VocabPack? nextUnlocked})>
-      recordBossAttempt(
+  static Future<
+    ({PackProgress progress, bool justCleared, VocabPack? nextUnlocked})
+  >
+  recordBossAttempt(
     VocabPack pack,
     List<VocabPack> allPacksInLevel, {
     required double bossAccuracy,
   }) async {
-    final current = get(pack.id) ??
+    final current =
+        get(pack.id) ??
         PackProgress.fresh(
           packId: pack.id,
           level: pack.level,
@@ -171,8 +177,9 @@ class PackProgressService {
     final nowCleared = bossAccuracy >= bossClearThreshold;
     final attempts = current.attempts + 1;
     // Best-attempt: speichere höchste Genauigkeit, nicht letzte.
-    final bestAccuracy =
-        bossAccuracy > current.bossAccuracy ? bossAccuracy : current.bossAccuracy;
+    final bestAccuracy = bossAccuracy > current.bossAccuracy
+        ? bossAccuracy
+        : current.bossAccuracy;
 
     // **Status-Regel** (Plan §4.2 + handover spec):
     //   - Einmal cleared → immer cleared (auch wenn spätere Versuche
@@ -199,8 +206,7 @@ class PackProgressService {
       final next = nextPackInLevel(pack.id, allPacksInLevel);
       if (next != null) {
         final nextExisting = get(next.id);
-        if (nextExisting == null ||
-            nextExisting.status == PackStatus.locked) {
+        if (nextExisting == null || nextExisting.status == PackStatus.locked) {
           await _persist(
             PackProgress.fresh(
               packId: next.id,
@@ -233,8 +239,23 @@ class PackProgressService {
   /// Firestore → lokal. Aufrufen bei Login / nach Reinstall.
   /// Behält lokale Werte, wenn Firestore-Eintrag fehlt.
   static Future<void> pullFromCloud() async {
+    await pullFromCloudWithResult();
+  }
+
+  static Future<CloudWriteResult> pullFromCloudWithResult() async {
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) {
+      return CloudWriteResult.blocked;
+    }
+    final fence = CloudWriteFence(cloudWriteSessionController);
+    final snapshot = fence.readySnapshot(uid);
+    if (snapshot == null) {
+      return CloudWriteResult.blocked;
+    }
     final remote = await FirestoreProgressService.loadAll();
-    if (remote.isEmpty) return;
+    if (remote.isEmpty) {
+      return fence.verify(snapshot, uid: uid);
+    }
     final localBefore = getAll();
     final merged = <String, Map<String, dynamic>>{};
     for (final entry in remote.entries) {
@@ -246,29 +267,38 @@ class PackProgressService {
         merged[entry.key] = entry.value.toJson();
       }
     }
+    final result = fence.verify(snapshot, uid: uid);
+    if (result != CloudWriteResult.completed) {
+      return result;
+    }
     await Storage.setManyPackProgressJson(merged);
+    return fence.verify(snapshot, uid: uid);
   }
 
   /// Lokal → Firestore (Batch). Idempotent.
   static Future<void> pushToCloud() async {
+    await pushToCloudWithResult();
+  }
+
+  static Future<CloudWriteResult> pushToCloudWithResult() async {
     final local = getAll();
-    if (local.isEmpty) return;
-    await FirestoreProgressService.saveMany(local.values);
+    if (local.isEmpty) {
+      return CloudWriteResult.completed;
+    }
+    return FirestoreProgressService.saveManyWithResult(local.values);
   }
 
   // ── Komfort-Wrapper für VocabPackService-Konsumenten ──────────────
 
   /// Lädt alle Packs eines Levels + deren Fortschritt-Status.
   /// Liefert eine Liste in Pack-Reihenfolge mit korrektem locked/available.
-  static Future<List<({VocabPack pack, PackProgress progress})>>
-      loadLevelView(String level) async {
+  static Future<List<({VocabPack pack, PackProgress progress})>> loadLevelView(
+    String level,
+  ) async {
     final packs = await VocabPackService.packsForLevel(level);
     final existing = getAll();
     return packs
-        .map((p) => (
-              pack: p,
-              progress: effectiveStatus(p, packs, existing),
-            ))
+        .map((p) => (pack: p, progress: effectiveStatus(p, packs, existing)))
         .toList();
   }
 }

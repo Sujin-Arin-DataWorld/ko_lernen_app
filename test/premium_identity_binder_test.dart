@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/premium_service.dart';
 
 void main() {
@@ -10,7 +11,8 @@ void main() {
       final identities = StreamController<String?>();
       final revenueCat = _FakeRevenueCatIdentityClient()
         ..loginFailures.add(StateError('transient'));
-      final binder = PremiumIdentityBinder(revenueCat);
+      final sessions = CloudWriteSessionController()..acquire('uid-1');
+      final binder = PremiumIdentityBinder(revenueCat, sessions: sessions);
       final errors = <Object>[];
       binder.start(identities.stream, onError: errors.add);
 

@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import 'account/cloud_write_session.dart';
 import 'push_service.dart';
 import 'storage_service.dart';
 
@@ -433,6 +434,7 @@ class AuthService {
       PushOwnershipTransitionCoordinator(
         push: pushService,
         notificationsEnabled: () => Storage.notificationsEnabled,
+        sessions: cloudWriteSessionController,
       );
 
   /// Firebase-Auth-Instanz — `null`, wenn Firebase nicht initialisiert
@@ -526,6 +528,19 @@ class AuthService {
     }
     if (auth.currentUser == null) {
       await auth.signInAnonymously();
+    }
+    _syncReadyCloudWriteSession(auth.currentUser?.uid);
+  }
+
+  static void _syncReadyCloudWriteSession(String? uid) {
+    if (uid == null || uid.trim().isEmpty) {
+      return;
+    }
+    final currentSession = cloudWriteSessionController.current;
+    if (currentSession == null ||
+        (currentSession.mode == CloudWriteMode.ready &&
+            currentSession.uid != uid)) {
+      cloudWriteSessionController.acquire(uid);
     }
   }
 

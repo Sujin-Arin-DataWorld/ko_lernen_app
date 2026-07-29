@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/push_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -154,7 +155,6 @@ void main() {
           'cloud-delete',
           'firebase-delete',
           'ensure-anonymous',
-          'push-bind',
         ]);
       },
     );
@@ -202,7 +202,6 @@ void main() {
           'firebase-delete',
           'google-sign-out',
           'ensure-anonymous',
-          'push-bind',
         ]);
       },
     );
@@ -229,7 +228,6 @@ void main() {
           'apple-reauth',
           'push-remove:user-1',
           'apple-revoke:apple-code',
-          'push-bind',
         ]);
       },
     );
@@ -253,7 +251,6 @@ void main() {
         'google-reauth',
         'push-remove:user-1',
         'cloud-delete',
-        'push-bind',
       ]);
     });
 
@@ -284,7 +281,6 @@ void main() {
         'google-reauth',
         'push-remove:user-1',
         'cloud-delete',
-        'push-bind',
       ]);
     });
 
@@ -312,7 +308,6 @@ void main() {
           'firebase-delete',
           'google-sign-out',
           'ensure-anonymous',
-          'push-bind',
         ]);
         expect(operations.deleteCalls, 1);
       },
@@ -356,7 +351,6 @@ void main() {
           'firebase-delete',
           'google-sign-out',
           'ensure-anonymous',
-          'push-bind',
           'local-reset',
           'push-disable',
           'image-delete',
@@ -390,14 +384,13 @@ void main() {
           'firebase-delete',
           'ensure-anonymous',
           'ensure-anonymous',
-          'push-bind',
         ]);
         expect(operations.deleteCalls, 1);
       },
     );
 
     test(
-      'anonymous recovery and missing-UID rebind failures are all retained',
+      'anonymous recovery failure freezes push without a rebind attempt',
       () async {
         final events = <String>[];
         final firstAnonymousFailure = StateError('anonymous failed once');
@@ -418,6 +411,7 @@ void main() {
           messaging: _AccountDeletionPushMessaging(),
           auth: pushAuth,
           tokens: _AccountDeletionPushTokenRepository(),
+          sessions: _readyCloudWriteSessions('user-1'),
           showNotification: ({required title, required body}) async {},
         );
         final coordinator = AccountDeletionCoordinator(
@@ -425,6 +419,7 @@ void main() {
           ownershipTransitions: PushOwnershipTransitionCoordinator(
             push: push,
             notificationsEnabled: () => true,
+            sessions: _readyCloudWriteSessions('user-1'),
           ),
         );
         final workflow = AccountDeletionWorkflow(
@@ -449,11 +444,6 @@ void main() {
               <Matcher>[
                 same(firstAnonymousFailure),
                 same(secondAnonymousFailure),
-                isA<StateError>().having(
-                  (error) => error.toString(),
-                  'message',
-                  contains('without a user ID'),
-                ),
               ],
             ),
           ),
@@ -499,7 +489,6 @@ void main() {
         'apple-revoke:retry-code',
         'firebase-delete',
         'ensure-anonymous',
-        'push-bind',
       ]);
       expect(operations.deleteCalls, 2);
     });
@@ -735,8 +724,15 @@ AccountDeletionCoordinator _remoteCoordinator(
     ownershipTransitions: PushOwnershipTransitionCoordinator(
       push: _FakePushTokenOwner(events),
       notificationsEnabled: () => true,
+      sessions: _readyCloudWriteSessions(operations.userId),
     ),
   );
+}
+
+CloudWriteSessionController _readyCloudWriteSessions(String uid) {
+  final sessions = CloudWriteSessionController();
+  sessions.acquire(uid);
+  return sessions;
 }
 
 class _FakeRemoteAccountOperations implements AccountDeletionOperations {

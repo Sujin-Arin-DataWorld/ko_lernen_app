@@ -5,6 +5,7 @@ import 'package:crypto/crypto.dart';
 
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import 'account/cloud_write_session.dart';
 import 'book_image_service.dart';
 import 'media_mutation_lock.dart';
 import 'storage_service.dart';
@@ -359,9 +360,11 @@ class CustomPackService {
         }
         if (oldReference != null && oldReference != nextReference) {
           try {
-            await store.deleteIfUnreferenced(
-              oldReference,
-              _referenceSnapshot(),
+            await _runMediaGc(
+              () => store.deleteIfUnreferenced(
+                oldReference,
+                _referenceSnapshot(),
+              ),
             );
           } on Object {
             // Startup reconciliation retries old-file GC.
@@ -440,6 +443,12 @@ class CustomPackService {
       );
 
   static Future<void> _collectGarbage(Iterable<String> encodedRefs) async {
+    await _runMediaGc(() => _collectGarbageUnfenced(encodedRefs));
+  }
+
+  static Future<void> _collectGarbageUnfenced(
+    Iterable<String> encodedRefs,
+  ) async {
     final snapshot = _referenceSnapshot();
     if (!snapshot.isComplete) {
       return;
@@ -455,6 +464,17 @@ class CustomPackService {
     for (final reference in references) {
       await store.deleteIfUnreferenced(reference, snapshot);
     }
+  }
+
+  static Future<void> _runMediaGc(Future<void> Function() action) async {
+    final session = cloudWriteSessionController.current;
+    if (session == null) {
+      await action();
+      return;
+    }
+    await CloudWriteFence(
+      cloudWriteSessionController,
+    ).run(uid: session.uid, action: action);
   }
 
   static Future<void> _collectGarbageBestEffort(

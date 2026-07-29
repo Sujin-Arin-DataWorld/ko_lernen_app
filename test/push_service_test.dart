@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/push_service.dart';
 
 void main() {
@@ -16,6 +17,7 @@ void main() {
           messaging: messaging,
           auth: _FakePushAuth('uid-1'),
           tokens: tokens,
+          sessions: _readySessions('uid-1'),
           showNotification: ({required title, required body}) async {},
         );
 
@@ -39,6 +41,7 @@ void main() {
           messaging: messaging,
           auth: _FakePushAuth('uid-1'),
           tokens: _FakePushTokenRepository(),
+          sessions: _readySessions('uid-1'),
           showNotification: ({required title, required body}) async {},
         );
 
@@ -59,6 +62,7 @@ void main() {
           messaging: messaging,
           auth: _FakePushAuth('uid-1'),
           tokens: tokens,
+          sessions: _readySessions('uid-1'),
           showNotification: ({required title, required body}) async {
             shown.add('$title:$body');
           },
@@ -90,6 +94,7 @@ void main() {
         messaging: messaging,
         auth: _FakePushAuth('uid-1'),
         tokens: _FakePushTokenRepository(),
+        sessions: _readySessions('uid-1'),
         showNotification: ({required title, required body}) async {},
       );
 
@@ -121,6 +126,7 @@ void main() {
           messaging: messaging,
           auth: _FakePushAuth('uid-1'),
           tokens: tokens,
+          sessions: _readySessions('uid-1'),
           showNotification: ({required title, required body}) async {},
         );
 
@@ -150,6 +156,7 @@ void main() {
           messaging: messaging,
           auth: _FakePushAuth(null),
           tokens: _FakePushTokenRepository(),
+          sessions: _readySessions('uid-1'),
           showNotification: ({required title, required body}) async {},
         );
 
@@ -163,48 +170,46 @@ void main() {
       },
     );
 
-    test('binding keeps notification permission denial as a non-error', () async {
-      final messaging = _FakePushMessaging()
-        ..permissionStatus = PushPermissionStatus.denied;
-      final service = PushService(
-        messaging: messaging,
-        auth: _FakePushAuth('uid-1'),
-        tokens: _FakePushTokenRepository(),
-        showNotification: ({required title, required body}) async {},
-      );
+    test(
+      'binding keeps notification permission denial as a non-error',
+      () async {
+        final messaging = _FakePushMessaging()
+          ..permissionStatus = PushPermissionStatus.denied;
+        final service = PushService(
+          messaging: messaging,
+          auth: _FakePushAuth('uid-1'),
+          tokens: _FakePushTokenRepository(),
+          sessions: _readySessions('uid-1'),
+          showNotification: ({required title, required body}) async {},
+        );
 
-      await service.bindCurrentUser();
+        await service.bindCurrentUser();
 
-      expect(service.isReady, isFalse);
-      expect(messaging.permissionRequests, 1);
-      expect(messaging.getTokenCalls, 0);
-    });
+        expect(service.isReady, isFalse);
+        expect(messaging.permissionRequests, 1);
+        expect(messaging.getTokenCalls, 0);
+      },
+    );
   });
 
-  test(
-    'ownership transition removes old UID before rebinding new UID',
-    () async {
-      final events = <String>[];
-      final push = _FakePushTokenOwner(events);
-      final coordinator = PushOwnershipTransitionCoordinator(
-        push: push,
-        notificationsEnabled: () => true,
-      );
+  test('plain transition success does not restore source ownership', () async {
+    final events = <String>[];
+    final push = _FakePushTokenOwner(events);
+    final coordinator = PushOwnershipTransitionCoordinator(
+      push: push,
+      notificationsEnabled: () => true,
+      sessions: _readySessions('old-uid'),
+    );
 
-      await coordinator.run(
-        oldUid: 'old-uid',
-        transition: () async {
-          events.add('auth-transition');
-        },
-      );
+    await coordinator.run(
+      oldUid: 'old-uid',
+      transition: () async {
+        events.add('auth-transition');
+      },
+    );
 
-      expect(events, <String>[
-        'remove:old-uid',
-        'auth-transition',
-        'bind-current',
-      ]);
-    },
-  );
+    expect(events, <String>['remove:old-uid', 'auth-transition']);
+  });
 
   test(
     'transition-only failure preserves the original error and stack',
@@ -215,6 +220,7 @@ void main() {
       final coordinator = PushOwnershipTransitionCoordinator(
         push: _FakePushTokenOwner(events),
         notificationsEnabled: () => true,
+        sessions: _readySessions('old-uid'),
       );
 
       Object? caughtError;
@@ -238,17 +244,18 @@ void main() {
 
       expect(caughtError, same(failure));
       expect(caughtStackTrace.toString(), originalStackTrace.toString());
-      expect(events, <String>['remove:old-uid', 'bind-current']);
+      expect(events, <String>['remove:old-uid']);
     },
   );
 
-  test('rebind-only failure preserves the original rebind error', () async {
+  test('explicit rejection preserves transition and rebind failures', () async {
     final events = <String>[];
     final failure = StateError('rebind failed');
     final push = _FakePushTokenOwner(events)..bindFailure = failure;
     final coordinator = PushOwnershipTransitionCoordinator(
       push: push,
       notificationsEnabled: () => true,
+      sessions: _readySessions('old-uid'),
     );
 
     Object? caughtError;
@@ -256,54 +263,51 @@ void main() {
     try {
       await coordinator.run(
         oldUid: 'old-uid',
-        transition: () async => events.add('auth-transition'),
+        transition: () async {
+          events.add('auth-transition');
+          throw const ServerConfirmedPreMarkerRejection('rejected');
+        },
       );
     } catch (error, stackTrace) {
       caughtError = error;
       caughtStackTrace = stackTrace;
     }
 
-    expect(caughtError, same(failure));
-    expect(caughtStackTrace.toString(), push.bindFailureStackTrace.toString());
+    expect(caughtError, isA<PushOwnershipTransitionException>());
+    final combined = caughtError! as PushOwnershipTransitionException;
+    expect(combined.transitionError, isA<ServerConfirmedPreMarkerRejection>());
+    expect(combined.rebindError, same(failure));
+    expect(
+      combined.rebindStackTrace.toString(),
+      push.bindFailureStackTrace.toString(),
+    );
+    expect(caughtStackTrace, isNotNull);
   });
 
-  test('dual failure retains a typed transition and rebind pair', () async {
-    final events = <String>[];
-    final transitionFailure = StateError('transition failed');
-    final rebindFailure = StateError('rebind failed');
-    final push = _FakePushTokenOwner(events)..bindFailure = rebindFailure;
-    final coordinator = PushOwnershipTransitionCoordinator(
-      push: push,
-      notificationsEnabled: () => true,
-    );
+  test(
+    'transition failure freezes ownership before a possible rebind',
+    () async {
+      final events = <String>[];
+      final transitionFailure = StateError('transition failed');
+      final rebindFailure = StateError('rebind failed');
+      final push = _FakePushTokenOwner(events)..bindFailure = rebindFailure;
+      final coordinator = PushOwnershipTransitionCoordinator(
+        push: push,
+        notificationsEnabled: () => true,
+        sessions: _readySessions('old-uid'),
+      );
 
-    await expectLater(
-      coordinator.run(
-        oldUid: 'old-uid',
-        transition: () async => throw transitionFailure,
-      ),
-      throwsA(
-        isA<PushOwnershipTransitionException>()
-            .having(
-              (error) => error.transitionError,
-              'transition error',
-              same(transitionFailure),
-            )
-            .having(
-              (error) => error.rebindError,
-              'rebind error',
-              same(rebindFailure),
-            )
-            .having(
-              (error) =>
-                  error.rebindStackTrace.toString() ==
-                  push.bindFailureStackTrace.toString(),
-              'original rebind stack',
-              isTrue,
-            ),
-      ),
-    );
-  });
+      await expectLater(
+        coordinator.run(
+          oldUid: 'old-uid',
+          transition: () async => throw transitionFailure,
+        ),
+        throwsA(same(transitionFailure)),
+      );
+      expect(events, <String>['remove:old-uid']);
+      expect(push.bindFailureStackTrace, isNull);
+    },
+  );
 
   test(
     'ownership transition blocks auth when local token invalidation fails',
@@ -315,11 +319,13 @@ void main() {
         messaging: messaging,
         auth: _FakePushAuth('old-uid'),
         tokens: _FakePushTokenRepository(),
+        sessions: _readySessions('old-uid'),
         showNotification: ({required title, required body}) async {},
       );
       final coordinator = PushOwnershipTransitionCoordinator(
         push: service,
         notificationsEnabled: () => true,
+        sessions: _readySessions('old-uid'),
       );
       var transitioned = false;
 
@@ -348,6 +354,7 @@ void main() {
       final coordinator = PushOwnershipTransitionCoordinator(
         push: push,
         notificationsEnabled: () => false,
+        sessions: _readySessions('old-uid'),
       );
       var transitioned = false;
 
@@ -375,6 +382,7 @@ void main() {
       final coordinator = PushOwnershipTransitionCoordinator(
         push: push,
         notificationsEnabled: () => notificationsEnabled,
+        sessions: _readySessions('old-uid'),
       );
 
       await coordinator.run(
@@ -390,18 +398,20 @@ void main() {
   );
 
   test(
-    'ownership transition fails rebinding when transition leaves no UID',
+    'explicit rejection fails safely when source UID cannot be rebound',
     () async {
       final auth = _FakePushAuth('old-uid');
       final service = PushService(
         messaging: _FakePushMessaging()..token = 'token-1',
         auth: auth,
         tokens: _FakePushTokenRepository(),
+        sessions: _readySessions('old-uid'),
         showNotification: ({required title, required body}) async {},
       );
       final coordinator = PushOwnershipTransitionCoordinator(
         push: service,
         notificationsEnabled: () => true,
+        sessions: _readySessions('old-uid'),
       );
 
       await expectLater(
@@ -409,14 +419,21 @@ void main() {
           oldUid: 'old-uid',
           transition: () async {
             auth.currentUid = null;
+            throw const ServerConfirmedPreMarkerRejection('rejected');
           },
         ),
-        throwsA(isA<StateError>()),
+        throwsA(isA<PushOwnershipTransitionException>()),
       );
 
       expect(service.isReady, isFalse);
     },
   );
+}
+
+CloudWriteSessionController _readySessions(String uid) {
+  final sessions = CloudWriteSessionController();
+  sessions.acquire(uid);
+  return sessions;
 }
 
 class _FakePushMessaging implements PushMessagingClient {

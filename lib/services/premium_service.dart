@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
+import 'account/cloud_write_session.dart';
 import 'storage_service.dart';
 
 /// Globaler Premium-Status. Wie [paletteVariantNotifier] ein Top-Level
@@ -34,11 +35,15 @@ class PurchasesIdentityClient implements RevenueCatIdentityClient {
 /// Serializes Firebase identity changes into RevenueCat identity changes.
 /// Binding state advances only after RevenueCat confirms the transition.
 class PremiumIdentityBinder {
-  PremiumIdentityBinder(this.client);
+  PremiumIdentityBinder(this.client, {required this.sessions});
 
   final RevenueCatIdentityClient client;
+  final CloudWriteSessionController sessions;
   String? _boundUid;
   StreamSubscription<void>? _subscription;
+  String? _pendingUid;
+  bool _hasPendingUid = false;
+  VoidCallback? _sessionListener;
 
   String? get boundUid => _boundUid;
 
@@ -48,34 +53,96 @@ class PremiumIdentityBinder {
     }
     _subscription = userIds
         .asyncMap((uid) async {
+          _pendingUid = uid;
+          _hasPendingUid = true;
           try {
-            await _bind(uid);
+            final result = await bind(uid);
+            if (result == CloudWriteResult.completed && uid == _pendingUid) {
+              _hasPendingUid = false;
+            }
           } catch (error) {
             onError?.call(error);
             debugPrint('PremiumService: logIn/logOut failed — $error');
           }
         })
         .listen((_) {});
+    _sessionListener = () {
+      if (_hasPendingUid) {
+        unawaited(_retryPending(onError));
+      }
+    };
+    sessions.changes.addListener(_sessionListener!);
   }
 
-  Future<void> _bind(String? uid) async {
+  Future<void> _retryPending(void Function(Object error)? onError) async {
+    final uid = _pendingUid;
+    try {
+      final result = await bind(uid);
+      if (result == CloudWriteResult.completed && uid == _pendingUid) {
+        _hasPendingUid = false;
+      }
+    } catch (error) {
+      onError?.call(error);
+      debugPrint('Premium identity retry failed: $error');
+    }
+  }
+
+  Future<CloudWriteResult> bind(String? uid) async {
+    final operationUid = uid ?? _boundUid;
+    if (operationUid == null) {
+      return CloudWriteResult.completed;
+    }
+    final fence = CloudWriteFence(sessions);
+    if (fence.readySnapshot(operationUid) == null) {
+      return CloudWriteResult.blocked;
+    }
     if (uid == _boundUid) {
-      return;
+      return CloudWriteResult.completed;
     }
-    if (uid != null) {
-      await client.logIn(uid);
-      _boundUid = uid;
-      return;
-    }
-    if (_boundUid != null) {
-      await client.logOut();
+
+    if (_boundUid != null && uid != _boundUid) {
+      final logoutResult = await fence.run(
+        uid: operationUid,
+        action: client.logOut,
+      );
+      if (logoutResult != CloudWriteResult.completed) {
+        return logoutResult;
+      }
       _boundUid = null;
     }
+
+    if (uid != null) {
+      final loginResult = await fence.run(
+        uid: uid,
+        action: () => client.logIn(uid),
+      );
+      if (loginResult != CloudWriteResult.completed) {
+        return loginResult;
+      }
+      _boundUid = uid;
+      return CloudWriteResult.completed;
+    }
+    if (_boundUid != null) {
+      final logoutResult = await fence.run(
+        uid: operationUid,
+        action: client.logOut,
+      );
+      if (logoutResult != CloudWriteResult.completed) {
+        return logoutResult;
+      }
+      _boundUid = null;
+    }
+    return CloudWriteResult.completed;
   }
 
   Future<void> dispose() async {
     await _subscription?.cancel();
     _subscription = null;
+    final listener = _sessionListener;
+    if (listener != null) {
+      sessions.changes.removeListener(listener);
+      _sessionListener = null;
+    }
   }
 }
 
@@ -143,6 +210,7 @@ class PremiumService {
     try {
       final binder = _identityBinder ??= PremiumIdentityBinder(
         const PurchasesIdentityClient(),
+        sessions: cloudWriteSessionController,
       );
       binder.start(
         FirebaseAuth.instance.userChanges().map((user) => user?.uid),

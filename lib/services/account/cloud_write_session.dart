@@ -3,6 +3,9 @@ import 'package:flutter/foundation.dart';
 /// The permission state for cloud writes during an account transition.
 enum CloudWriteMode { ready, quiesced, reconciling, cleanupPending, blocked }
 
+/// Benign outcome for work guarded by a cloud-write session.
+enum CloudWriteResult { completed, stale, blocked }
+
 /// A UID-bound lease for cloud writes.
 @immutable
 class CloudWriteSession {
@@ -36,8 +39,13 @@ class CloudWriteSession {
 class CloudWriteSessionController {
   CloudWriteSession? _current;
   int _latestEpoch = 0;
+  bool _hasBeenActivated = false;
+  final ValueNotifier<CloudWriteSession?> _changes =
+      ValueNotifier<CloudWriteSession?>(null);
 
   CloudWriteSession? get current => _current;
+  bool get hasBeenActivated => _hasBeenActivated;
+  ValueListenable<CloudWriteSession?> get changes => _changes;
 
   CloudWriteSession acquire(String uid) {
     _requireUid(uid);
@@ -46,7 +54,8 @@ class CloudWriteSessionController {
       epoch: ++_latestEpoch,
       mode: CloudWriteMode.ready,
     );
-    _current = session;
+    _hasBeenActivated = true;
+    _setCurrent(session);
     return session;
   }
 
@@ -70,7 +79,8 @@ class CloudWriteSessionController {
       throw StateError('Cannot resume a stale cloud-write session.');
     }
     _latestEpoch = session.epoch;
-    _current = session;
+    _hasBeenActivated = true;
+    _setCurrent(session);
     return session;
   }
 
@@ -81,7 +91,7 @@ class CloudWriteSessionController {
       epoch: ++_latestEpoch,
       mode: mode,
     );
-    _current = next;
+    _setCurrent(next);
     return next;
   }
 
@@ -102,7 +112,12 @@ class CloudWriteSessionController {
   }
 
   void clear() {
-    _current = null;
+    _setCurrent(null);
+  }
+
+  void _setCurrent(CloudWriteSession? session) {
+    _current = session;
+    _changes.value = session;
   }
 
   CloudWriteSession _requireCurrent() {
@@ -127,6 +142,104 @@ class CloudWriteSessionController {
   void _requireUid(String uid) {
     if (uid.trim().isEmpty) {
       throw ArgumentError.value(uid, 'uid', 'must not be empty');
+    }
+  }
+}
+
+/// Process-wide production session. Tests inject their own controller instead
+/// of mutating this instance.
+final CloudWriteSessionController cloudWriteSessionController =
+    CloudWriteSessionController();
+
+/// Re-validates a UID-bound session immediately before an irreversible action.
+///
+/// Preparatory reads may run between [readySnapshot] and [verify]. The action
+/// itself is invoked only while the same UID, epoch, and ready mode remain
+/// current. A late completion is reported as [CloudWriteResult.stale].
+class CloudWriteFence {
+  const CloudWriteFence(this.sessions);
+
+  final CloudWriteSessionController sessions;
+
+  CloudWriteSession? readySnapshot(String uid) {
+    final current = sessions.current;
+    if (current == null ||
+        current.uid != uid ||
+        current.mode != CloudWriteMode.ready) {
+      return null;
+    }
+    return current;
+  }
+
+  CloudWriteResult verify(CloudWriteSession snapshot, {required String uid}) {
+    if (snapshot.uid != uid || snapshot.mode != CloudWriteMode.ready) {
+      return CloudWriteResult.stale;
+    }
+    try {
+      sessions.assertCurrent(snapshot);
+      return CloudWriteResult.completed;
+    } on StateError {
+      return CloudWriteResult.stale;
+    }
+  }
+
+  Future<CloudWriteResult> run({
+    required String uid,
+    Future<void> Function()? prepare,
+    required Future<void> Function() action,
+  }) async {
+    final snapshot = readySnapshot(uid);
+    if (snapshot == null) {
+      return CloudWriteResult.blocked;
+    }
+    return runWithSnapshot(
+      snapshot: snapshot,
+      uid: uid,
+      prepare: prepare,
+      action: action,
+    );
+  }
+
+  Future<CloudWriteResult> runWithSnapshot({
+    required CloudWriteSession snapshot,
+    required String uid,
+    Future<void> Function()? prepare,
+    required Future<void> Function() action,
+  }) async {
+    final beforePreparation = verify(snapshot, uid: uid);
+    if (beforePreparation != CloudWriteResult.completed) {
+      return beforePreparation;
+    }
+    await prepare?.call();
+    final beforeAction = verify(snapshot, uid: uid);
+    if (beforeAction != CloudWriteResult.completed) {
+      return beforeAction;
+    }
+    try {
+      await action();
+    } catch (error, stackTrace) {
+      final afterFailure = verify(snapshot, uid: uid);
+      if (afterFailure != CloudWriteResult.completed) {
+        return afterFailure;
+      }
+      Error.throwWithStackTrace(error, stackTrace);
+    }
+    return verify(snapshot, uid: uid);
+  }
+
+  Stream<T> bindStream<T>({
+    required String uid,
+    required Stream<T> source,
+  }) async* {
+    final snapshot = readySnapshot(uid);
+    if (snapshot == null) {
+      return;
+    }
+    await for (final value in source) {
+      if (verify(snapshot, uid: uid) != CloudWriteResult.completed) {
+        return;
+      }
+      yield value;
     }
   }
 }
