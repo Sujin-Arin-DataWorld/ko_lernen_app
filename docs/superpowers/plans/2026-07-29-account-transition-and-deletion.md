@@ -16,7 +16,7 @@ Output:
 
 ## Global Constraints
 
-- Do not call signInWithCredential after a Google or Apple link collision. A collision is an operation that must be explicitly completed or cancelled.
+- Never sign the primary app session into a target account after a Google or Apple link collision. A collision is an operation that must be explicitly completed or cancelled; if credential verification is necessary after confirmation, use an isolated temporary FirebaseAuth context and prove the primary source user remains unchanged.
 - Only anonymous-to-existing-account replacement is in scope. A durable account switching to a different durable account is blocked with an actionable message; no export/import is inferred.
 - The only permitted transition order is prepare, verify target, reconcile, clean source, then activate target.
 - No direct client delete of users/{uid}, account_deletions/{uid}, or Firebase Auth users. Firebase Admin-only work happens inside callable functions.
@@ -174,10 +174,10 @@ Output:
 - Modify: test/services/auth_service_test.dart
 - Create: test/services/account/account_transition_coordinator_test.dart
 
-- [ ] Write failing tests that a Google/Apple credential collision returns ExistingAccountLinkConflict, does not change FirebaseAuth.currentUser, and starts a resumable anonymous transition only after explicit confirmation.
+- [ ] Write failing tests that a Google/Apple credential collision returns ExistingAccountLinkConflict, does not change FirebaseAuth.currentUser, that confirmed target verification also preserves the primary source user, and that a resumable anonymous transition starts only after explicit confirmation.
 - [ ] Run: flutter test test/services/auth_service_test.dart test/services/account/account_transition_coordinator_test.dart
   Expected: existing link methods sign in to the target account after collision.
-- [ ] Replace auto-sign-in collision catches with a typed conflict result containing only safe provider/operation metadata. Implement AccountTransitionCoordinator phases: prepare, target verification, account reconciliation, source cleanup, then target activation.
+- [ ] Replace auto-sign-in collision catches with a typed conflict result containing only safe provider/operation metadata. Implement AccountTransitionCoordinator phases: prepare, target verification in an isolated temporary FirebaseAuth context, account reconciliation, source cleanup, then target activation.
 - [ ] Make coordinator resume after app restart from the journal; block durable-to-durable transition; expose cancel only before source cleanup begins; and keep current user/session unchanged after failed target verification or reconciliation.
 - [ ] Run focused tests and flutter test test/services. Expected: no test observes target activation before cleanup success.
 - [ ] Commit: feat(auth): coordinate anonymous account replacement safely
@@ -244,4 +244,3 @@ Output:
 - [ ] External boundaries: Firebase configuration, Admin permissions, App Check providers, Apple revocation, CORS/CSP, Android SDK/device, and store-console actions are recorded as explicit gates rather than assumed complete.
 - [ ] Type consistency: operation state, session state, remote-read state, callable result, and UI state are represented as typed interfaces rather than nullable maps/strings.
 - [ ] Placeholder scan: the implementation contains no unimplemented-marker comments for safety-critical behavior.
-
