@@ -29,26 +29,32 @@ class BookAnalysisService {
   /// auch wenn die Cloud unerreichbar ist (degraded mode).
   static Future<BookAnalysisResult> analyze({
     required String text,
-    String targetLang = 'de',
+    String? targetLang = 'de',
+    http.Client? client,
   }) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty) {
       return BookAnalysisResult.empty();
     }
+    final language = normalizeTargetLanguage(targetLang);
 
     // 1. Cloud Function — wenn konfiguriert
     if (_endpoint.isNotEmpty) {
       try {
-        final res = await http
-            .post(
-              Uri.parse(_endpoint),
-              headers: {'Content-Type': 'application/json'},
-              body: jsonEncode({
-                'text': trimmed,
-                'lang': targetLang,
-              }),
-            )
-            .timeout(_timeout);
+        final requestBody = jsonEncode({'text': trimmed, 'lang': language});
+        final res =
+            await (client == null
+                    ? http.post(
+                        Uri.parse(_endpoint),
+                        headers: {'Content-Type': 'application/json'},
+                        body: requestBody,
+                      )
+                    : client.post(
+                        Uri.parse(_endpoint),
+                        headers: {'Content-Type': 'application/json'},
+                        body: requestBody,
+                      ))
+                .timeout(_timeout);
         if (res.statusCode == 200) {
           final body = jsonDecode(res.body) as Map<String, dynamic>;
           return _parseCloudResponse(body);
@@ -59,7 +65,18 @@ class BookAnalysisService {
     }
 
     // 2. Lokaler Stub — Grammar-Patterns matchen, Wörter mit Placeholders.
-    return _localStub(trimmed);
+    return _localStub(trimmed, language);
+  }
+
+  static String normalizeTargetLanguage(String? value) {
+    final normalized = value?.trim().toLowerCase().replaceAll('_', '-') ?? '';
+    if (normalized == 'en' || normalized.startsWith('en-')) {
+      return 'en';
+    }
+    if (normalized == 'de' || normalized.startsWith('de-')) {
+      return 'de';
+    }
+    return 'de';
   }
 
   /// "나만의 단어장" 자동 채우기 — 단어 하나의 번역/뜻풀이를 가져온다 (VoCat 식).
@@ -94,52 +111,44 @@ class BookAnalysisService {
     final warnings = <String>[];
 
     final wordsJson = (body['words'] as List?) ?? const [];
-    final words = wordsJson
-        .map((e) {
-          final m = (e as Map).cast<String, dynamic>();
-          return ExtractedWord(
-            korean: m['korean'] as String? ?? '',
-            romanization: m['romanization'] as String? ?? '',
-            posDe: m['pos'] as String? ?? '',
-            translationDe: (m['translation'] as String?) ?? '',
-            translationEn: (m['translationEn'] as String?) ?? '',
-            exampleKorean: m['example'] as String? ?? '',
-            exampleDe: m['exampleTranslation'] as String? ?? '',
-            definitionKo: m['definitionKo'] as String? ?? '',
-            savedToPackId: null,
-          );
-        })
-        .toList();
+    final words = wordsJson.map((e) {
+      final m = (e as Map).cast<String, dynamic>();
+      return ExtractedWord(
+        korean: m['korean'] as String? ?? '',
+        romanization: m['romanization'] as String? ?? '',
+        posDe: m['pos'] as String? ?? '',
+        translationDe: (m['translation'] as String?) ?? '',
+        translationEn: (m['translationEn'] as String?) ?? '',
+        exampleKorean: m['example'] as String? ?? '',
+        exampleDe: m['exampleTranslation'] as String? ?? '',
+        definitionKo: m['definitionKo'] as String? ?? '',
+        savedToPackId: null,
+      );
+    }).toList();
 
     final grammarJson = (body['grammar'] as List?) ?? const [];
-    final grammar = grammarJson
-        .map((e) {
-          final m = (e as Map).cast<String, dynamic>();
-          return GrammarHit(
-            patternId: m['id'] as String? ?? '',
-            nameDe: m['nameDe'] as String? ?? '',
-            matchedText: m['matched'] as String? ?? '',
-            level: m['level'] as String? ?? '',
-            explanationDe: m['explanationDe'] as String? ?? '',
-          );
-        })
-        .toList();
+    final grammar = grammarJson.map((e) {
+      final m = (e as Map).cast<String, dynamic>();
+      return GrammarHit(
+        patternId: m['id'] as String? ?? '',
+        nameDe: m['nameDe'] as String? ?? '',
+        matchedText: m['matched'] as String? ?? '',
+        level: m['level'] as String? ?? '',
+        explanationDe: m['explanationDe'] as String? ?? '',
+      );
+    }).toList();
 
     final sentJson = (body['sentences'] as List?) ?? const [];
-    final sentences = sentJson
-        .map((e) {
-          final m = (e as Map).cast<String, dynamic>();
-          return TranslatedSentence(
-            korean: m['korean'] as String? ?? '',
-            translationDe: m['translation'] as String? ?? '',
-          );
-        })
-        .toList();
+    final sentences = sentJson.map((e) {
+      final m = (e as Map).cast<String, dynamic>();
+      return TranslatedSentence(
+        korean: m['korean'] as String? ?? '',
+        translationDe: m['translation'] as String? ?? '',
+      );
+    }).toList();
 
     if ((body['warnings'] as List?)?.isNotEmpty ?? false) {
-      warnings.addAll(
-        (body['warnings'] as List).map((e) => e.toString()),
-      );
+      warnings.addAll((body['warnings'] as List).map((e) => e.toString()));
     }
 
     return BookAnalysisResult(
@@ -157,8 +166,9 @@ class BookAnalysisService {
   static Future<List<Map<String, dynamic>>> _loadGrammarPatterns() async {
     if (_grammarPatternsCache != null) return _grammarPatternsCache!;
     try {
-      final raw =
-          await rootBundle.loadString('assets/data/grammar_patterns.json');
+      final raw = await rootBundle.loadString(
+        'assets/data/grammar_patterns.json',
+      );
       final decoded = jsonDecode(raw);
       final list = (decoded is List)
           ? decoded.cast<Map<String, dynamic>>()
@@ -171,7 +181,10 @@ class BookAnalysisService {
     }
   }
 
-  static Future<BookAnalysisResult> _localStub(String text) async {
+  static Future<BookAnalysisResult> _localStub(
+    String text,
+    String targetLang,
+  ) async {
     final patterns = await _loadGrammarPatterns();
     final grammar = <GrammarHit>[];
     final usedPatternIds = <String>{};
@@ -185,13 +198,22 @@ class BookAnalysisService {
         final m = re.firstMatch(text);
         if (m != null) {
           usedPatternIds.add(id);
-          grammar.add(GrammarHit(
-            patternId: id,
-            nameDe: p['name_de'] as String? ?? id,
-            matchedText: m.group(0) ?? '',
-            level: p['level'] as String? ?? 'A2',
-            explanationDe: p['explanation_de'] as String? ?? '',
-          ));
+          final isEnglish = targetLang == 'en';
+          grammar.add(
+            GrammarHit(
+              patternId: id,
+              nameDe: isEnglish
+                  ? p['name_en'] as String? ?? 'Korean grammar ($id)'
+                  : p['name_de'] as String? ?? id,
+              matchedText: m.group(0) ?? '',
+              level: p['level'] as String? ?? 'A2',
+              explanationDe: isEnglish
+                  ? p['explanation_en'] as String? ??
+                        'This Korean grammar pattern was detected in the '
+                            'selected text.'
+                  : p['explanation_de'] as String? ?? '',
+            ),
+          );
         }
       } catch (_) {
         // bad regex — skip
@@ -203,10 +225,12 @@ class BookAnalysisService {
     final rawSentences = text
         .split(RegExp(r'(?<=[.!?。！？])\s+|\n+'))
         .where((s) => s.trim().isNotEmpty)
-        .map((s) => TranslatedSentence(
-              korean: s.trim(),
-              translationDe: '', // 번역 미실행
-            ))
+        .map(
+          (s) => TranslatedSentence(
+            korean: s.trim(),
+            translationDe: '', // 번역 미실행
+          ),
+        )
         .toList();
 
     return BookAnalysisResult(

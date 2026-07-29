@@ -172,6 +172,10 @@ class Storage {
   // ───────── Chosung Quiz ─────────
   static int get chosungCorrect => _i('kl_chosung_correct');
   static int get chosungWrong => _i('kl_chosung_wrong');
+  static Future<void> setChosungCorrect(int value) =>
+      _si('kl_chosung_correct', value);
+  static Future<void> setChosungWrong(int value) =>
+      _si('kl_chosung_wrong', value);
   static Future<void> incChosungCorrect() =>
       _si('kl_chosung_correct', chosungCorrect + 1);
   static Future<void> incChosungWrong() =>
@@ -182,6 +186,13 @@ class Storage {
   static int get wordleLosses => _i('kl_wordle_losses');
   static int get wordleStreak => _i('kl_wordle_streak');
   static int get wordleBestStreak => _i('kl_wordle_best_streak');
+  static Future<void> setWordleWins(int value) => _si('kl_wordle_wins', value);
+  static Future<void> setWordleLosses(int value) =>
+      _si('kl_wordle_losses', value);
+  static Future<void> setWordleStreak(int value) =>
+      _si('kl_wordle_streak', value);
+  static Future<void> setWordleBestStreak(int value) =>
+      _si('kl_wordle_best_streak', value);
   static Future<void> incWordleWins() async {
     await _si('kl_wordle_wins', wordleWins + 1);
     final s = wordleStreak + 1;
@@ -276,6 +287,10 @@ class Storage {
   static String get lastOpenDate => _s('kl_last_open_date'); // 'YYYY-MM-DD'
   static int get streakDays => _i('kl_streak_days');
   static int get bestStreak => _i('kl_best_streak');
+  static Future<void> setLastOpenDate(String value) =>
+      _ss('kl_last_open_date', value);
+  static Future<void> setStreakDays(int value) => _si('kl_streak_days', value);
+  static Future<void> setBestStreak(int value) => _si('kl_best_streak', value);
 
   /// Streak-Freeze Tokens. Verdient an jeder 7-Tage-Marke (Cap [kStreakFreezeMax]).
   /// Schützt automatisch genau einen verpassten Tag, damit der Streak überlebt.
@@ -715,6 +730,7 @@ class Storage {
   static int get xp => _i('kl_xp');
   static int get xpLevel => (xp ~/ 100) + 1;
   static int get xpToNext => 100 - (xp % 100);
+  static Future<void> setXp(int value) => _si('kl_xp', value);
   static Future<void> addXp(int amount) async {
     await _si('kl_xp', xp + amount);
     await _bumpXpToday(amount);

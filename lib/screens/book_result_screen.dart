@@ -22,9 +22,17 @@ import '../widgets/sori/wordbook_add.dart';
 /// Args: `{ text: String, imagePath: String? }`.
 /// Lädt `BookAnalysisService.analyze(text)` und zeigt Wörter, Grammatik,
 /// Sätze. "Speichern" → BookshelfService + Quota-Increment.
+typedef BookAnalyzer =
+    Future<BookAnalysisResult> Function({
+      required String text,
+      required String targetLang,
+    });
+
 class BookResultScreen extends StatefulWidget {
   final Map<String, dynamic> args;
-  const BookResultScreen({super.key, required this.args});
+  final BookAnalyzer? analyzer;
+
+  const BookResultScreen({super.key, required this.args, this.analyzer});
 
   @override
   State<BookResultScreen> createState() => _BookResultScreenState();
@@ -35,6 +43,8 @@ class _BookResultScreenState extends State<BookResultScreen> {
   String? _error;
   BookAnalysisResult? _result;
   bool _saved = false;
+  String? _analysisLanguage;
+  int _analysisGeneration = 0;
 
   String get _text => widget.args['text'] as String? ?? '';
   String? get _imagePath => widget.args['imagePath'] as String?;
@@ -42,18 +52,36 @@ class _BookResultScreenState extends State<BookResultScreen> {
   @override
   void initState() {
     super.initState();
-    _analyze();
   }
 
-  Future<void> _analyze() async {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final language = BookAnalysisService.normalizeTargetLanguage(
+      Localizations.localeOf(context).languageCode,
+    );
+    if (_analysisLanguage == language) {
+      return;
+    }
+    _analysisLanguage = language;
+    _analyze(language);
+  }
+
+  Future<void> _analyze(String targetLang) async {
+    final generation = ++_analysisGeneration;
     setState(() {
       _loading = true;
       _error = null;
     });
     try {
       // Quota erst nach erfolgreichem Aufruf erhöhen — Fehler zählen nicht.
-      final res = await BookAnalysisService.analyze(text: _text);
-      if (!mounted) return;
+      final res = await (widget.analyzer ?? BookAnalysisService.analyze)(
+        text: _text,
+        targetLang: targetLang,
+      );
+      if (!mounted || generation != _analysisGeneration) {
+        return;
+      }
       setState(() {
         _result = res;
         _loading = false;
@@ -62,7 +90,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
         await Storage.incBookSnapCountToday();
       }
     } catch (e) {
-      if (!mounted) return;
+      if (!mounted || generation != _analysisGeneration) {
+        return;
+      }
       setState(() {
         _loading = false;
         _error = e.toString();
@@ -114,7 +144,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
         appBar: AppBar(title: Text(t.bookResultTitle)),
         body: AppError(
           message: _error ?? 'unknown',
-          onRetry: _analyze,
+          onRetry: () => _analyze(_analysisLanguage ?? 'de'),
           asset: 'assets/illustrations/book/book_error.png',
         ),
       );

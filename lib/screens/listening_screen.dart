@@ -123,16 +123,16 @@ class _ListeningScreenState extends State<ListeningScreen>
 
   Future<void> _speakCurrent() async {
     final sc = _selected;
-    if (sc == null || _step >= sc.dialog.length) return;
+    if (sc == null || _step >= sc.dialog.length) {
+      return;
+    }
     final line = sc.dialog[_step];
     // 'narrator' 라인은 무성 (분위기 텍스트) — 그냥 표시만.
-    if (line.speaker == 'narrator' || line.ko.isEmpty) return;
-    // TtsService.speak이 항상 Storage.ttsRate를 다시 적용하므로
-    // 일시적으로 _rate를 곱해서 화면별 가속/감속을 지원한다.
-    final baseRate = Storage.ttsRate;
-    await TtsService.setRate((baseRate * _rate).clamp(0.1, 1.0));
-    await TtsService.speak(line.ko);
-    await TtsService.setRate(baseRate); // restore
+    if (line.speaker == 'narrator' || line.ko.isEmpty) {
+      return;
+    }
+    // 화면 속도는 요청에만 적용되며 사용자의 전역 TTS 설정은 보존한다.
+    await TtsService.speak(line.ko, rateMultiplier: _rate);
   }
 
   void _next() {

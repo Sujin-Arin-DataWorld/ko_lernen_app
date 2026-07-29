@@ -34,11 +34,11 @@ import os
 import re
 import urllib.parse
 import urllib.request
-from functools import lru_cache
 from typing import Any
 
 import functions_framework
 from flask import Request, Response
+from grammar_analysis import detect_grammar, localize_pos_tag, normalize_language
 
 # Lazy imports — nur initialisieren wenn aufgerufen.
 _KIWI = None
@@ -73,42 +73,6 @@ _load_dotenv()
 # ── Grammar patterns ─────────────────────────────────────────────────────
 
 
-@lru_cache(maxsize=1)
-def _load_grammar_patterns() -> list[dict[str, Any]]:
-    path = os.path.join(os.path.dirname(__file__), "grammar_patterns.json")
-    try:
-        with open(path, encoding="utf-8") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return []
-
-
-def detect_grammar(text: str) -> list[dict[str, Any]]:
-    out: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    for p in _load_grammar_patterns():
-        pid = p.get("id", "")
-        if pid in seen:
-            continue
-        regex = p.get("regex", "")
-        if not regex:
-            continue
-        try:
-            m = re.search(regex, text)
-        except re.error:
-            continue
-        if m:
-            seen.add(pid)
-            out.append({
-                "id": pid,
-                "nameDe": p.get("name_de", pid),
-                "matched": m.group(0),
-                "level": p.get("level", "A2"),
-                "explanationDe": p.get("explanation_de", ""),
-            })
-    return out
-
-
 # ── Sentence split ───────────────────────────────────────────────────────
 
 
@@ -122,9 +86,6 @@ def split_sentences(text: str) -> list[str]:
 # ── Kiwi word extraction (no Java needed) ────────────────────────────────
 
 _POS_KEEP = {"NNG", "NNP", "VV", "VA"}
-_POS_MAP = {"NNG": "Nomen", "NNP": "Nomen", "VV": "Verb", "VA": "Adjektiv"}
-
-
 def _get_kiwi():
     global _KIWI
     if _KIWI is None:
@@ -134,7 +95,11 @@ def _get_kiwi():
     return _KIWI
 
 
-def extract_words(text: str, max_words: int = 30) -> list[dict[str, Any]]:
+def extract_words(
+    text: str,
+    max_words: int = 30,
+    language: object = "de",
+) -> list[dict[str, Any]]:
     kiwi = _get_kiwi()
     seen: dict[str, str] = {}
     ordered: list[str] = []
@@ -154,7 +119,7 @@ def extract_words(text: str, max_words: int = 30) -> list[dict[str, Any]]:
         out.append({
             "korean": korean,
             "stem": w,
-            "pos": _POS_MAP.get(tag, "Wort"),
+            "pos": localize_pos_tag(tag, language),
         })
     return out
 
@@ -461,7 +426,7 @@ def analyze_korean_text(request: Request) -> Response:
         return Response("POST only", status=405)
     body = request.get_json(silent=True) or {}
     text = (body.get("text") or "").strip()
-    lang = (body.get("lang") or "de").lower()
+    lang = normalize_language(body.get("lang"))
     if not text:
         return Response(
             json.dumps({"warnings": ["empty_text"]}),
@@ -475,9 +440,9 @@ def analyze_korean_text(request: Request) -> Response:
             mimetype="application/json",
         )
 
-    grammar = detect_grammar(text)
+    grammar = detect_grammar(text, lang)
     sentences = split_sentences(text)
-    words = extract_words(text)
+    words = extract_words(text, language=lang)
 
     # 문장은 batch 번역(문장 자체가 문맥), 단어는 그 단어가 든 예문을 DeepL
     # context 로 실어 번역 → 다의어 해소("걸리다"=시간이면 dauern / 경찰이면

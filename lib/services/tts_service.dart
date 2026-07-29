@@ -11,6 +11,55 @@ import 'package:path_provider/path_provider.dart';
 
 import 'storage_service.dart';
 
+typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
+typedef TtsFilePlayer = Future<bool> Function(File file, double playbackRate);
+typedef TtsFallbackPlayer =
+    Future<bool> Function(String text, double playbackRate);
+
+/// Executes one TTS request with an immutable, request-local playback rate.
+class TtsPlaybackEngine {
+  const TtsPlaybackEngine({
+    required this.resolveFile,
+    required this.playFile,
+    required this.playFallback,
+  });
+
+  final TtsAudioResolver resolveFile;
+  final TtsFilePlayer playFile;
+  final TtsFallbackPlayer playFallback;
+
+  static double composePlaybackRate({
+    required double baseRate,
+    required double multiplier,
+  }) {
+    final safeBaseRate = baseRate.isFinite ? baseRate : 0.42;
+    final safeMultiplier = multiplier.isFinite ? multiplier : 1.0;
+    return (safeBaseRate * safeMultiplier).clamp(0.1, 1.0).toDouble();
+  }
+
+  Future<bool> speak({
+    required String text,
+    required String voice,
+    required double baseRate,
+    double rateMultiplier = 1.0,
+  }) async {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
+      return false;
+    }
+    final normalizedVoice = voice == 'male' ? 'male' : 'female';
+    final effectiveRate = composePlaybackRate(
+      baseRate: baseRate,
+      multiplier: rateMultiplier,
+    );
+    final file = await resolveFile(trimmed, normalizedVoice);
+    if (file != null) {
+      return playFile(file, effectiveRate);
+    }
+    return playFallback(trimmed, effectiveRate);
+  }
+}
+
 /// 고품질 한국어 발음 TTS — **캐시 우선 3단**.
 ///
 /// 1. 로컬 캐시 mp3 → 즉시 재생 (오프라인·무료)
@@ -49,6 +98,11 @@ class TtsService {
   static bool _ttsInit = false;
   static Directory? _cacheDir;
   static String? lastError;
+  static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
+    resolveFile: _resolveFile,
+    playFile: _playFile,
+    playFallback: _fallback,
+  );
 
   /// 폴백(flutter_tts)에서 ko 음성 존재 여부. 화면 안내용.
   static bool koVoiceAvailable = false;
@@ -59,13 +113,22 @@ class TtsService {
   // ── 공개 API ───────────────────────────────────────────────────────
 
   /// 표준 속도 재생. voice: 'female'(기본) / 'male'.
-  static Future<bool> speak(String text, {String voice = 'female'}) {
-    return _speak(text, voice: voice, playbackRate: 1.0);
+  static Future<bool> speak(
+    String text, {
+    String voice = 'female',
+    double rateMultiplier = 1.0,
+  }) {
+    return _playbackEngine.speak(
+      text: text,
+      voice: voice,
+      baseRate: Storage.ttsRate,
+      rateMultiplier: rateMultiplier,
+    );
   }
 
-  /// 느리게 재생 (학습 보조). 사전생성 mp3 는 0.65 배속, 폴백은 rate 0.30.
+  /// 느리게 재생 (학습 보조). 사용자 기본 속도에 요청 배수 0.65를 곱한다.
   static Future<bool> speakSlow(String text, {String voice = 'female'}) {
-    return _speak(text, voice: voice, playbackRate: 0.65, fallbackRate: 0.30);
+    return speak(text, voice: voice, rateMultiplier: 0.65);
   }
 
   static Future<void> stop() async {
@@ -87,26 +150,6 @@ class TtsService {
 
   // ── 핵심 흐름 ──────────────────────────────────────────────────────
 
-  static Future<bool> _speak(
-    String text, {
-    required String voice,
-    required double playbackRate,
-    double? fallbackRate,
-  }) async {
-    final t = text.trim();
-    if (t.isEmpty) {
-      return false;
-    }
-    final v = (voice == 'male') ? 'male' : 'female';
-
-    final File? file = await _resolveFile(t, v);
-    if (file != null) {
-      return _playFile(file, playbackRate);
-    }
-    // 4. flutter_tts 폴백
-    return _fallback(t, fallbackRate);
-  }
-
   /// 캐시 → Storage → CF 순으로 mp3 파일을 확보. 실패 시 null.
   static Future<File?> _resolveFile(String text, String voice) async {
     final dir = await _ensureCacheDir();
@@ -123,8 +166,9 @@ class TtsService {
 
     // 2. Firebase Storage (사전생성된 고정 콘텐츠)
     try {
-      final Uint8List? data =
-          await _storage.ref('tts/$voice/$hash.mp3').getData(_maxBytes);
+      final Uint8List? data = await _storage
+          .ref('tts/$voice/$hash.mp3')
+          .getData(_maxBytes);
       if (data != null && data.isNotEmpty) {
         await file.writeAsBytes(data, flush: true);
         return file;
@@ -178,13 +222,13 @@ class TtsService {
     }
   }
 
-  static Future<bool> _fallback(String text, double? rate) async {
+  static Future<bool> _fallback(String text, double rate) async {
     try {
       await _initTts();
       try {
         await _tts.stop();
       } catch (_) {}
-      await _tts.setSpeechRate(rate ?? Storage.ttsRate);
+      await _tts.setSpeechRate(rate);
       final result = await _tts.speak(text);
       return result == 1;
     } catch (e) {
