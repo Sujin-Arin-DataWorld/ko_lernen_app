@@ -82,6 +82,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
   }
 
   Future<void> _addOrEdit({int? index}) async {
+    if (_wordDeleteInFlight) return;
     final pack = _pack;
     if (pack == null) return;
     final existing = index != null ? pack.words[index] : null;
@@ -178,6 +179,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
   }
 
   Future<void> _rename() async {
+    if (_wordDeleteInFlight) return;
     final pack = _pack;
     if (pack == null) return;
     final t = AppL10n.of(context);
@@ -628,6 +630,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
     }
     PendingMediaLease? claimedLease;
     try {
+      await Storage.refreshRecoveredMediaRecords();
       final claim = await Storage.claimRecoveredWordLease(_workflowId);
       for (final encoded in claim.discardedLeases) {
         try {

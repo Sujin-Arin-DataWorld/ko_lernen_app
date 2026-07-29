@@ -25,7 +25,17 @@ class WordImageService {
     })?
     markLaunch,
     Future<void> Function()? clearLaunch,
+    Future<void> Function()? refreshRecoveryState,
+    bool Function()? hasRecoveryMarker,
   }) async {
+    final usePickerRecovery =
+        Platform.isAndroid || markLaunch != null || clearLaunch != null;
+    if (usePickerRecovery) {
+      await (refreshRecoveryState ?? Storage.refreshMediaRecoveryMarkers)();
+      if ((hasRecoveryMarker ?? () => Storage.hasMediaRecoveryMarker)()) {
+        throw StateError('An earlier picker recovery is still pending.');
+      }
+    }
     if (source == ImageSource.camera) {
       final status = await Permission.camera.request();
       if (!status.isGranted) {
@@ -34,12 +44,7 @@ class WordImageService {
     }
     final attemptId =
         '${workflowId}_picker_${DateTime.now().microsecondsSinceEpoch}';
-    final usePickerRecovery =
-        Platform.isAndroid || markLaunch != null || clearLaunch != null;
     if (usePickerRecovery && markLaunch == null) {
-      if (Storage.pickerRecoveryMarkerJson.isNotEmpty) {
-        throw StateError('An earlier picker recovery is still pending.');
-      }
       await Storage.markPickerLaunch(
         purpose: 'word',
         workflowId: workflowId,

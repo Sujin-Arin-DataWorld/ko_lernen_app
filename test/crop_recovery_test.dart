@@ -23,6 +23,45 @@ class _CropGateway implements CropRecoveryGateway {
   }
 }
 
+class _CacheMutatingMarkerStore implements PreferenceStringStore {
+  _CacheMutatingMarkerStore({required String key, required String value})
+    : cache = {key: value},
+      durable = {key: value};
+
+  final Map<String, String> cache;
+  final Map<String, String> durable;
+  bool reloadFails = true;
+
+  @override
+  bool containsKey(String key) => cache.containsKey(key);
+
+  @override
+  String? getString(String key) => cache[key];
+
+  @override
+  Future<void> reload() async {
+    if (reloadFails) {
+      throw StateError('platform reload failed');
+    }
+    cache
+      ..clear()
+      ..addAll(durable);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    cache.remove(key);
+    throw StateError('platform removal failed');
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    cache[key] = value;
+    durable[key] = value;
+    return true;
+  }
+}
+
 void main() {
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
@@ -190,6 +229,66 @@ void main() {
 
     expect(events, ['guard']);
   });
+
+  test(
+    'unknown crop marker refresh blocks native pre-drain and later launch',
+    () async {
+      const key = 'kl_crop_recovery_marker_v1';
+      const oldMarker = '{"workflowId":"old-crop"}';
+      final preferences = _CacheMutatingMarkerStore(key: key, value: oldMarker);
+      await expectLater(
+        Storage.clearCropLaunch(preferences: preferences),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(preferences.cache.containsKey(key), isFalse);
+      expect(preferences.durable[key], oldMarker);
+
+      final events = <String>[];
+      final session = BookCropSession(
+        isAndroid: true,
+        refreshRecoveryState: () =>
+            Storage.refreshMediaRecoveryMarkers(preferences: preferences),
+        ensureCanLaunch: () async {
+          events.add('guard');
+          if (preferences.getString(key)?.isNotEmpty ?? false) {
+            throw StateError('old crop is still recoverable');
+          }
+        },
+        markLaunch: (_) async => events.add('mark'),
+        clearLaunch: () async => events.add('clear-marker'),
+        clearCachedResult: () async => events.add('native-pre-drain'),
+      );
+
+      await expectLater(
+        session.run(
+          workflowId: 'new-crop',
+          crop: () async {
+            events.add('crop-launch');
+            return 'cropped';
+          },
+          acceptAndRecord: (result) async => result,
+        ),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(events, isEmpty);
+
+      preferences.reloadFails = false;
+      await expectLater(
+        session.run(
+          workflowId: 'new-crop',
+          crop: () async {
+            events.add('crop-launch');
+            return 'cropped';
+          },
+          acceptAndRecord: (result) async => result,
+        ),
+        throwsStateError,
+      );
+      expect(events, ['guard']);
+      expect(preferences.cache[key], oldMarker);
+      expect(preferences.durable[key], oldMarker);
+    },
+  );
 
   test(
     'crop acceptance failure preserves marker cache and picked raw lease',

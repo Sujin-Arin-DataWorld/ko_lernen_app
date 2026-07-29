@@ -190,8 +190,10 @@ class PickerRecoveryService {
     return _startupOperation ??= PickerRecoveryCoordinator(
       gateway: gateway ?? ImagePickerLostDataGateway(),
       isAndroid: isAndroid,
-      readMarker: () async =>
-          PickerRecoveryMarker.tryParse(Storage.pickerRecoveryMarkerJson),
+      readMarker: () async {
+        await Storage.refreshMediaRecoveryMarkers();
+        return PickerRecoveryMarker.tryParse(Storage.pickerRecoveryMarkerJson);
+      },
       clearMarker: Storage.clearPickerLaunch,
       recoverBook: (path, workflowId) =>
           recover(PickerPurpose.book, path, workflowId, workflowId),

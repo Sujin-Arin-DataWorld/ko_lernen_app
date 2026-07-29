@@ -228,3 +228,74 @@
 
 - No push, merge, deployment, remote mutation, or device-only claim was made.
 - The Task 8 plan and progress-ledger completion state were not edited.
+
+## Review-Fix Round 2 Addendum — 2026-07-29
+
+### Fixed Review Findings
+
+- A successful reload of a key whose prior strict outcome was unknown now
+  aborts that mutation without writing. The caller must explicitly retry and
+  reconstruct its payload from refreshed durable state, preventing stale
+  structured read-modify-write payloads from overwriting newer data.
+- Picker and crop recovery markers have an explicit refresh gate. Android book
+  capture, word-image picking, crop sessions, and startup picker/crop recovery
+  refresh unknown marker state before any guard, native cache drain, picker, or
+  crop call. A failed refresh performs no native action; a later successful
+  refresh exposes and blocks on the still-durable marker.
+- Recovered book and word records refresh before UI reads. Recovered setters
+  and claims also gate unknown structured state before reading it, so an
+  optimistic cache removal cannot silently hide a still-durable lease.
+- Book-result saves now keep one stable page ID and capture timestamp per
+  result screen. A typed unknown preference outcome moves the save intent to
+  an unresolved, non-retryable state and preserves the pending OCR image lease;
+  ordinary confirmed failures remain retryable with the same identity.
+- Custom-pack rename now performs a fresh read and name-only strict write
+  inside `MediaMutationLock`. Queued delete-then-rename operations therefore
+  cannot resurrect deleted words or their media references. The edit screen
+  also blocks rename and add/edit entry while a word deletion is active.
+
+### TDD Evidence
+
+- The initial focused RED run failed on the old retry behavior, stale
+  structured payload overwrite, missing marker/recovered refresh gates,
+  missing result-save intent state machine, and the delete/rename race.
+- Production-shaped preference doubles reproduce cache mutation before a
+  failed platform future while retaining a separate durable value. Regressions
+  prove that the refresh attempt performs no write/native launch, then that a
+  full retry rereads durable state.
+- Added pure save-intent tests cover stable identity, unknown-outcome
+  terminality, retryable confirmed failure, and lease-discard ownership.
+- Added a barrier-controlled service test queues deletion before rename and
+  proves the final pack retains only the survivor, contains no deleted media
+  reference, and leaves the old committed image eligible for deletion.
+
+### Fix-Round-2 Verification
+
+- `flutter analyze`
+  - exit 0; no issues found.
+- Focused four-file regression suite:
+  - `flutter test test/media_serialization_test.dart
+    test/media_lifecycle_test.dart test/book_media_route_ownership_test.dart
+    test/crop_recovery_test.dart --reporter expanded`
+  - 63 tests passed.
+- Focused Task 8 and compatibility suite:
+  - `flutter test test/book_media_route_ownership_test.dart
+    test/managed_media_store_test.dart test/media_serialization_test.dart
+    test/media_lifecycle_test.dart test/picker_lost_data_recovery_test.dart
+    test/crop_recovery_test.dart test/book_page_test.dart
+    test/account_cleanup_test.dart --reporter expanded`
+  - 107 tests passed.
+- Complete regression suite:
+  - `flutter test --reporter compact`
+  - 755 tests passed.
+- `git diff --check`
+  - exit 0; only expected Windows LF-to-CRLF conversion notices were printed
+    while displaying diffs.
+- Changed-file allowlist and credential-pattern scan:
+  - passed; no unrelated production files or credential-like additions were
+    found.
+
+### Boundaries
+
+- No push, merge, deployment, remote mutation, or device-only claim was made.
+- The Task 8 plan and progress-ledger completion state were not edited.

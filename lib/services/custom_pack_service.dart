@@ -213,11 +213,17 @@ class CustomPackService {
 
   /// 단어장 이름 변경 → 저장.
   static Future<CustomPack?> rename(String packId, String name) async {
-    final pack = getById(packId);
-    if (pack == null) return null;
-    final updated = pack.copyWith(name: name);
-    await save(updated);
-    return updated;
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final pack = _packFromRaw(raw, packId);
+      if (pack == null) {
+        return null;
+      }
+      final updated = pack.copyWith(name: name);
+      raw[packId] = updated.toLocalJson();
+      await _writeRawStrict(raw);
+      return updated;
+    });
   }
 
   static Future<void> save(CustomPack pack) async {

@@ -42,6 +42,7 @@ class _CacheMutatingStringStore implements PreferenceStringStore {
   final Map<String, String> cache;
   final Map<String, String> durable;
   _MutationResult result;
+  int setCalls = 0;
 
   @override
   bool containsKey(String key) => cache.containsKey(key);
@@ -85,6 +86,7 @@ class _CacheMutatingStringStore implements PreferenceStringStore {
 
   @override
   Future<bool> setString(String key, String value) async {
+    setCalls++;
     cache[key] = value;
     switch (result) {
       case _MutationResult.returnsTrue:
@@ -287,7 +289,16 @@ void main() {
       expect(thirdState.durable['kl_bookshelf_v1'], 'third');
 
       thirdState.result = _MutationResult.returnsTrue;
+      await expectLater(
+        Storage.setBookshelfRawJsonStrict('retry', preferences: thirdState),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+      expect(thirdState.setCalls, 1);
+      expect(thirdState.cache['kl_bookshelf_v1'], 'third');
+      expect(thirdState.durable['kl_bookshelf_v1'], 'third');
+
       await Storage.setBookshelfRawJsonStrict('retry', preferences: thirdState);
+      expect(thirdState.setCalls, 2);
       expect(thirdState.durable['kl_bookshelf_v1'], 'retry');
 
       Storage.resetForTesting();
@@ -304,6 +315,51 @@ void main() {
       );
       expect(reloadFailure.cache['kl_bookshelf_v1'], 'requested');
       expect(reloadFailure.durable['kl_bookshelf_v1'], 'original');
+    },
+  );
+
+  test(
+    'structured retry aborts stale payload then rereads durable model',
+    () async {
+      const key = 'kl_custom_packs_v1';
+      final store = _CacheMutatingStringStore(
+        initial: const {key: '{"durable":{"name":"kept"}}'},
+        result: _MutationResult.reloadFailure,
+      );
+
+      Future<void> addEntry(String id) async {
+        final decoded = (jsonDecode(store.getString(key)!) as Map)
+            .cast<String, dynamic>();
+        decoded[id] = {'name': id};
+        await Storage.setCustomPacksRawJsonStrict(
+          jsonEncode(decoded),
+          preferences: store,
+        );
+      }
+
+      await expectLater(
+        addEntry('optimistic'),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(store.setCalls, 1);
+      expect(store.durable[key], '{"durable":{"name":"kept"}}');
+      expect(store.cache[key], contains('optimistic'));
+
+      store.result = _MutationResult.returnsTrue;
+      await expectLater(
+        addEntry('stale-retry'),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+      expect(store.setCalls, 1);
+      expect(store.cache[key], '{"durable":{"name":"kept"}}');
+      expect(store.durable[key], '{"durable":{"name":"kept"}}');
+
+      await addEntry('fresh-retry');
+      expect(store.setCalls, 2);
+      expect(jsonDecode(store.durable[key]!) as Map, {
+        'durable': {'name': 'kept'},
+        'fresh-retry': {'name': 'fresh-retry'},
+      });
     },
   );
 

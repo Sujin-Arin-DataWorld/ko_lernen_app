@@ -31,6 +31,42 @@ typedef BookAnalyzer =
       required String targetLang,
     });
 
+enum _BookResultSaveState { idle, saving, saved, unresolved }
+
+class BookResultSaveIntent {
+  BookResultSaveIntent({required this.pageId, required this.capturedAtIso});
+
+  final String pageId;
+  final String capturedAtIso;
+  _BookResultSaveState _state = _BookResultSaveState.idle;
+
+  bool get canStart => _state == _BookResultSaveState.idle;
+  bool get isSaving => _state == _BookResultSaveState.saving;
+  bool get isSaved => _state == _BookResultSaveState.saved;
+  bool get isUnresolved => _state == _BookResultSaveState.unresolved;
+  bool get shouldDiscardLease => _state == _BookResultSaveState.idle;
+
+  Future<T> run<T>(
+    Future<T> Function(String pageId, String capturedAtIso) operation,
+  ) async {
+    if (!canStart) {
+      throw StateError('This book save intent cannot be retried.');
+    }
+    _state = _BookResultSaveState.saving;
+    try {
+      final result = await operation(pageId, capturedAtIso);
+      _state = _BookResultSaveState.saved;
+      return result;
+    } on PreferenceOutcomeUnknownException {
+      _state = _BookResultSaveState.unresolved;
+      rethrow;
+    } on Object {
+      _state = _BookResultSaveState.idle;
+      rethrow;
+    }
+  }
+}
+
 class BookResultScreen extends StatefulWidget {
   final Map<String, dynamic> args;
   final BookAnalyzer? analyzer;
@@ -45,22 +81,27 @@ class _BookResultScreenState extends State<BookResultScreen> {
   bool _loading = true;
   String? _error;
   BookAnalysisResult? _result;
-  bool _saved = false;
-  bool _saving = false;
+  late final BookResultSaveIntent _saveIntent;
   String? _analysisLanguage;
   int _analysisGeneration = 0;
 
+  bool get _saved => _saveIntent.isSaved;
+  bool get _saving => _saveIntent.isSaving;
   String get _text => widget.args['text'] as String? ?? '';
   String? get _imageLease => widget.args['imageLease'] as String?;
 
   @override
   void initState() {
     super.initState();
+    _saveIntent = BookResultSaveIntent(
+      pageId: BookshelfService.generateId(),
+      capturedAtIso: DateTime.now().toUtc().toIso8601String(),
+    );
   }
 
   @override
   void dispose() {
-    if (!_saved && !_saving) {
+    if (_saveIntent.shouldDiscardLease) {
       unawaited(
         BookImageService.discardEncoded(_imageLease).catchError((Object _) {}),
       );
@@ -116,28 +157,41 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
   Future<void> _save() async {
     final res = _result;
-    if (res == null || _saving || _saved) return;
-    setState(() => _saving = true);
-    final page = BookPage(
-      id: BookshelfService.generateId(),
-      localThumbnailPath: null,
-      extractedText: _text,
-      note: '',
-      words: res.words,
-      grammar: res.grammar,
-      sentences: res.sentences,
-      capturedAtIso: DateTime.now().toUtc().toIso8601String(),
-      customPackId: null,
-    );
-    try {
+    if (res == null || !_saveIntent.canStart) return;
+    final operation = _saveIntent.run((pageId, capturedAtIso) async {
+      final page = BookPage(
+        id: pageId,
+        localThumbnailPath: null,
+        extractedText: _text,
+        note: '',
+        words: res.words,
+        grammar: res.grammar,
+        sentences: res.sentences,
+        capturedAtIso: capturedAtIso,
+        customPackId: null,
+      );
       final lease = PendingMediaLease.tryParse(_imageLease);
       if (lease == null) {
         await BookshelfService.save(page);
       } else {
         await BookshelfService.saveWithPendingImage(page, lease);
       }
+    });
+    setState(() {});
+    try {
+      await operation;
       if (!mounted) return;
-      setState(() => _saved = true);
+      setState(() {});
+    } on PreferenceOutcomeUnknownException {
+      if (!mounted) return;
+      final t = AppL10n.of(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(t.bookCaptureErrorUnknown),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
     } on Object {
       if (!mounted) return;
       final t = AppL10n.of(context);
@@ -150,9 +204,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
       return;
     } finally {
       if (mounted) {
-        setState(() => _saving = false);
-      } else {
-        _saving = false;
+        setState(() {});
       }
     }
     if (!mounted) return;

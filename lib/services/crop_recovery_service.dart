@@ -30,6 +30,7 @@ class BookCropSession {
     required this.clearLaunch,
     required this.clearCachedResult,
     this.ensureCanLaunch,
+    this.refreshRecoveryState,
   });
 
   final bool isAndroid;
@@ -37,6 +38,7 @@ class BookCropSession {
   final Future<void> Function() clearLaunch;
   final Future<void> Function() clearCachedResult;
   final Future<void> Function()? ensureCanLaunch;
+  final Future<void> Function()? refreshRecoveryState;
 
   Future<R?> run<T, R>({
     required String workflowId,
@@ -47,6 +49,7 @@ class BookCropSession {
       final result = await crop();
       return result == null ? null : acceptAndRecord(result);
     }
+    await refreshRecoveryState?.call();
     await ensureCanLaunch?.call();
     // A surviving result from an older activity must never be paired with the
     // marker for this new workflow. Abort the new crop if the pre-drain fails.
@@ -134,6 +137,7 @@ class CropRecoveryService {
     required RecoveredBookPersistence persistRecoveredBook,
     required Future<void> Function() clearMarker,
   }) async {
+    await Storage.refreshMediaRecoveryMarkers();
     final markerSource = Storage.cropRecoveryMarkerJson;
     final marker = _cropMarker(markerSource);
     var recoveryReturned = false;

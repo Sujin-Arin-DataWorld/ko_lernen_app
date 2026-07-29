@@ -80,9 +80,9 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
   BookCropSession _cropSession(ImageCropper cropper) => BookCropSession(
     isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+    refreshRecoveryState: Storage.refreshMediaRecoveryMarkers,
     ensureCanLaunch: () async {
-      if (Storage.cropRecoveryMarkerJson.isNotEmpty ||
-          Storage.pickerRecoveryMarkerJson.isNotEmpty) {
+      if (Storage.hasMediaRecoveryMarker) {
         throw StateError('An earlier crop recovery is still pending.');
       }
     },
@@ -148,6 +148,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
     PendingMediaLease? sourceLease;
     PendingMediaLease? croppedLease;
     try {
+      await Storage.refreshRecoveredMediaRecords();
       final recovered = Storage.recoveredBookLease;
       if (recovered.isEmpty) {
         return;
@@ -331,10 +332,11 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
       final usePickerRecovery =
           !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
-      if (usePickerRecovery &&
-          (Storage.pickerRecoveryMarkerJson.isNotEmpty ||
-              Storage.cropRecoveryMarkerJson.isNotEmpty)) {
-        throw StateError('An earlier picker recovery is still pending.');
+      if (usePickerRecovery) {
+        await Storage.refreshMediaRecoveryMarkers();
+        if (Storage.hasMediaRecoveryMarker) {
+          throw StateError('An earlier picker recovery is still pending.');
+        }
       }
       final pickerWorkflowId = _newPickerWorkflowId();
       if (usePickerRecovery) {

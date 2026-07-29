@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -7,6 +8,7 @@ import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
 import 'package:ko_lernen_app/services/book_image_service.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
+import 'package:ko_lernen_app/services/media_mutation_lock.dart';
 import 'package:ko_lernen_app/services/media_workflow.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/word_image_service.dart';
@@ -208,6 +210,58 @@ void main() {
   );
 
   test(
+    'unknown picker marker refresh blocks picker launch then exposes old marker',
+    () async {
+      const key = 'kl_picker_recovery_marker_v1';
+      const oldMarker =
+          '{"purpose":"word","workflowId":"old-word",'
+          '"attemptId":"old-attempt"}';
+      final preferences = _CacheMutatingRemovalStore(
+        key: key,
+        value: oldMarker,
+        result: _RemovalResult.reloadFailure,
+      );
+      await expectLater(
+        Storage.clearPickerLaunch(preferences: preferences),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(preferences.cache.containsKey(key), isFalse);
+
+      final picked = File(
+        '${sandbox.path}${Platform.pathSeparator}blocked-picker.jpg',
+      )..writeAsBytesSync([4]);
+      final picker = _FilePicker(XFile(picked.path));
+      var marks = 0;
+
+      Future<PendingMediaLease?> launch() => WordImageService.pickPending(
+        ImageSource.gallery,
+        workflowId: 'new-word',
+        picker: picker,
+        refreshRecoveryState: () =>
+            Storage.refreshMediaRecoveryMarkers(preferences: preferences),
+        hasRecoveryMarker: () =>
+            preferences.getString(key)?.isNotEmpty ?? false,
+        markLaunch: ({required purpose, required workflowId}) async => marks++,
+        clearLaunch: () async {},
+      );
+
+      await expectLater(
+        launch(),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(picker.calls, 0);
+      expect(marks, 0);
+
+      preferences.result = _RemovalResult.falseAndRejected;
+      await expectLater(launch(), throwsStateError);
+      expect(preferences.cache[key], oldMarker);
+      expect(preferences.durable[key], oldMarker);
+      expect(picker.calls, 0);
+      expect(marks, 0);
+    },
+  );
+
+  test(
     'shifted edited word is rejected under lock and incoming lease discarded',
     () async {
       final original = detailedWord('');
@@ -338,6 +392,58 @@ void main() {
         CustomPackService.getById('pack')!.words.map((word) => word.korean),
         ['second'],
       );
+    },
+  );
+
+  test(
+    'queued delete then rename cannot resurrect stale word or image reference',
+    () async {
+      final oldSource = File('${sandbox.path}${Platform.pathSeparator}old.jpg')
+        ..writeAsBytesSync([1]);
+      final oldPending = await store.stage(oldSource, ManagedMediaKind.word);
+      final oldPromotion = await store.promote(oldPending);
+      await store.finalize(oldPromotion);
+      final deleted = detailedWord(
+        oldPromotion.reference.encoded,
+      ).copyWithEditable(korean: 'delete-me');
+      final survivor = detailedWord('').copyWithEditable(korean: 'survivor');
+      await Storage.setCustomPacksRawJson(
+        jsonEncode({
+          'pack': CustomPack.manual(
+            id: 'pack',
+            name: 'Before',
+            words: [deleted, survivor],
+          ).toLocalJson(),
+        }),
+      );
+
+      final lockEntered = Completer<void>();
+      final releaseLock = Completer<void>();
+      final blocker = MediaMutationLock.run(() async {
+        lockEntered.complete();
+        await releaseLock.future;
+      });
+      await lockEntered.future;
+      final deletion = CustomPackService.deleteWord(
+        'pack',
+        0,
+        expectedOriginal: deleted,
+      );
+      final rename = CustomPackService.rename('pack', 'After');
+      releaseLock.complete();
+
+      await Future.wait([blocker, deletion, rename]);
+
+      final result = CustomPackService.getById('pack')!;
+      expect(result.name, 'After');
+      expect(result.words.map((word) => word.korean), ['survivor']);
+      expect(
+        result.words.any(
+          (word) => word.imagePath == oldPromotion.reference.encoded,
+        ),
+        isFalse,
+      );
+      expect(await store.resolve(oldPromotion.reference), isNull);
     },
   );
 
@@ -480,6 +586,49 @@ void main() {
       );
       expect(unknown.cache['kl_recovered_book_lease'], 'third');
       expect(unknown.durable['kl_recovered_book_lease'], 'third');
+    },
+  );
+
+  test(
+    'recovered-word retry refreshes optimistic empty then aborts before claim',
+    () async {
+      const key = 'kl_recovered_word_lease';
+      final stored = jsonEncode({
+        'word-flow': {
+          'workflowId': 'word-flow',
+          'lease': 'pending:word:p_word_recovered.jpg',
+          'createdAt': DateTime.now().toUtc().toIso8601String(),
+        },
+      });
+      final preferences = _CacheMutatingRemovalStore(
+        key: key,
+        value: stored,
+        result: _RemovalResult.reloadFailure,
+      );
+
+      await expectLater(
+        Storage.claimRecoveredWordLease('word-flow', preferences: preferences),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+      expect(preferences.cache.containsKey(key), isFalse);
+      expect(preferences.durable[key], stored);
+
+      preferences.result = _RemovalResult.falseAndRejected;
+      await expectLater(
+        Storage.claimRecoveredWordLease('word-flow', preferences: preferences),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+      expect(preferences.cache[key], stored);
+      expect(preferences.durable[key], stored);
+
+      preferences.result = _RemovalResult.falseButCommitted;
+      final claim = await Storage.claimRecoveredWordLease(
+        'word-flow',
+        preferences: preferences,
+      );
+      expect(claim.record, contains('p_word_recovered.jpg'));
+      expect(preferences.cache, isEmpty);
+      expect(preferences.durable, isEmpty);
     },
   );
 
@@ -779,6 +928,7 @@ class _FilePicker extends ImagePicker {
   _FilePicker(this.file);
 
   final XFile file;
+  int calls = 0;
 
   @override
   Future<XFile?> pickImage({
@@ -788,7 +938,10 @@ class _FilePicker extends ImagePicker {
     int? imageQuality,
     CameraDevice preferredCameraDevice = CameraDevice.rear,
     bool requestFullMetadata = true,
-  }) async => file;
+  }) async {
+    calls++;
+    return file;
+  }
 }
 
 enum _RemovalResult {
@@ -797,6 +950,7 @@ enum _RemovalResult {
   falseAndRejected,
   throwAndRejected,
   thirdState,
+  reloadFailure,
 }
 
 class _CacheMutatingRemovalStore implements PreferenceStringStore {
@@ -809,7 +963,7 @@ class _CacheMutatingRemovalStore implements PreferenceStringStore {
 
   final Map<String, String> cache;
   final Map<String, String> durable;
-  final _RemovalResult result;
+  _RemovalResult result;
 
   @override
   bool containsKey(String key) => cache.containsKey(key);
@@ -819,6 +973,9 @@ class _CacheMutatingRemovalStore implements PreferenceStringStore {
 
   @override
   Future<void> reload() async {
+    if (result == _RemovalResult.reloadFailure) {
+      throw StateError('platform reload failed');
+    }
     cache
       ..clear()
       ..addAll(durable);
@@ -841,6 +998,8 @@ class _CacheMutatingRemovalStore implements PreferenceStringStore {
       case _RemovalResult.thirdState:
         durable[key] = 'third';
         return false;
+      case _RemovalResult.reloadFailure:
+        throw StateError('remove failed');
     }
   }
 

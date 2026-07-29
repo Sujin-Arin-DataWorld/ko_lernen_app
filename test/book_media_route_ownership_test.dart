@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/screens/book_result_screen.dart';
 import 'package:ko_lernen_app/screens/book_preview_screen.dart';
 import 'package:ko_lernen_app/screens/book_capture_screen.dart';
 import 'package:ko_lernen_app/services/book_image_service.dart';
@@ -118,5 +119,64 @@ void main() {
       isFalse,
     );
     expect(discarded, isFalse);
+  });
+
+  test(
+    'unknown result save keeps stable intent and preserves lease ownership',
+    () async {
+      final intent = BookResultSaveIntent(
+        pageId: 'page-stable',
+        capturedAtIso: '2026-07-29T00:00:00.000Z',
+      );
+      var writes = 0;
+
+      await expectLater(
+        intent.run((pageId, capturedAtIso) async {
+          writes++;
+          expect(pageId, 'page-stable');
+          expect(capturedAtIso, '2026-07-29T00:00:00.000Z');
+          throw const PreferenceOutcomeUnknownException('kl_bookshelf_v1');
+        }),
+        throwsA(isA<PreferenceOutcomeUnknownException>()),
+      );
+
+      expect(intent.isUnresolved, isTrue);
+      expect(intent.canStart, isFalse);
+      expect(intent.shouldDiscardLease, isFalse);
+      await expectLater(
+        intent.run((_, __) async => writes++),
+        throwsStateError,
+      );
+      expect(writes, 1);
+    },
+  );
+
+  test('retryable result save reuses page identity', () async {
+    final intent = BookResultSaveIntent(
+      pageId: 'page-stable',
+      capturedAtIso: '2026-07-29T00:00:00.000Z',
+    );
+    final identities = <String>[];
+
+    await expectLater(
+      intent.run((pageId, capturedAtIso) async {
+        identities.add('$pageId@$capturedAtIso');
+        throw StateError('retryable');
+      }),
+      throwsStateError,
+    );
+    expect(intent.canStart, isTrue);
+    expect(intent.shouldDiscardLease, isTrue);
+
+    await intent.run((pageId, capturedAtIso) async {
+      identities.add('$pageId@$capturedAtIso');
+    });
+
+    expect(identities, [
+      'page-stable@2026-07-29T00:00:00.000Z',
+      'page-stable@2026-07-29T00:00:00.000Z',
+    ]);
+    expect(intent.isSaved, isTrue);
+    expect(intent.shouldDiscardLease, isFalse);
   });
 }
