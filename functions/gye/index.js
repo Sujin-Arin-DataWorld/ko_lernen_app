@@ -861,6 +861,16 @@ exports.account_deletion_tombstone_cleanup = onSchedule(
           authUserExists,
           firestoreUserExists: currentUser.exists,
           cleanupComplete: currentData.cleanupComplete === true,
+          cleanupStarted:
+            currentData.cleanupComplete === true ||
+            Object.prototype.hasOwnProperty.call(
+              currentData,
+              "cleanupRevision",
+            ) ||
+            Object.prototype.hasOwnProperty.call(
+              currentData,
+              "cleanupGyeIds",
+            ),
           authMissingSinceMillis: currentData.authMissingSince?.toMillis?.(),
           nowMillis,
         });

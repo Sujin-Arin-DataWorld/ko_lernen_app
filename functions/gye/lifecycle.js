@@ -313,12 +313,17 @@ function accountTombstoneCleanupAction({
   authUserExists,
   firestoreUserExists,
   cleanupComplete,
+  cleanupStarted,
   authMissingSinceMillis,
   nowMillis,
   minimumAgeMillis = 24 * 60 * 60 * 1000,
 }) {
   if (authUserExists) {
-    if (firestoreUserExists) return "cancel";
+    if (firestoreUserExists) {
+      return cleanupComplete !== true && cleanupStarted !== true
+        ? "cancel"
+        : "retain";
+    }
     return Number.isFinite(authMissingSinceMillis) ? "clearMissing" : "retain";
   }
   if (cleanupComplete !== true) return "retain";

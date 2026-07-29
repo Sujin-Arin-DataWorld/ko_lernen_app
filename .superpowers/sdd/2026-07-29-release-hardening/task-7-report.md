@@ -77,9 +77,10 @@
   operational membership/token fields, while full account deletion removes the
   user document and lets the retryable Admin trigger own Gye cleanup.
 - An abandoned tombstone older than 24 hours is cancelled only when Auth and
-  Firestore user records still exist in a transaction. Missing Auth requires a
-  second 24-hour observation window. Auth-present/user-missing retains the
-  marker for deletion retry.
+  Firestore user records still exist in a transaction and no server cleanup
+  claim or completion receipt has ever been written. Missing Auth requires a
+  second 24-hour observation window. Auth-present/user-missing, claim-started,
+  and cleanup-complete markers are retained for the normal recovery path.
 - `on_user_deleted` writes `cleanupComplete=true` only after all cleanup steps
   return successfully and erases any stale `authMissingSince`. The scheduler
   retains incomplete markers and starts a fresh post-completion Auth-missing
@@ -91,9 +92,10 @@
   unions member-derived and `users.gyeIds`-derived cache owners, clears those
   caches transactionally, and must finish recursive deletion before receipt.
 - The daily abandoned-marker recovery remains intentionally narrow: it may
-  cancel only when the same marker generation is still current and both Auth
-  and Firestore user records exist. If the user document is missing, an
-  incomplete marker is always retained.
+  cancel only when the same marker generation is still current, both Auth and
+  Firestore user records exist, and neither `cleanupRevision` nor
+  `cleanupGyeIds` nor a completion receipt is present. If a cleanup claim has
+  started or the user document is missing, the marker is always retained.
 - Goal rollover creates one deterministic, UID-hiding outbox ID per eligible
   member inside the rollover transaction. Delivery rechecks legacy-active Gye,
   membership, ban, account marker, and user state. Only invalid or unregistered
@@ -174,7 +176,7 @@
 - `node --check functions/gye/runtime.js`
   - exit 0.
 - `npm test` in `functions/gye`
-  - 55 tests passed.
+  - 56 tests passed.
 - `npm run test:rules` in `functions/gye`
   - Firestore emulator compiled the rules; 32 tests passed.
 - `git diff --check`

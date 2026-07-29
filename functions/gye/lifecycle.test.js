@@ -669,6 +669,7 @@ test("abandoned account deletion unbricks only while both records exist", () => 
     authUserExists: true,
     firestoreUserExists: true,
     cleanupComplete: false,
+    cleanupStarted: false,
     authMissingSinceMillis: undefined,
     nowMillis: now,
   }), "cancel");
@@ -676,6 +677,28 @@ test("abandoned account deletion unbricks only while both records exist", () => 
     authUserExists: true,
     firestoreUserExists: false,
     cleanupComplete: false,
+    cleanupStarted: false,
+    authMissingSinceMillis: undefined,
+    nowMillis: now,
+  }), "retain");
+});
+
+test("server cleanup claims and receipts cannot be cancelled as abandoned", () => {
+  const day = 24 * 60 * 60 * 1000;
+  const now = 10 * day;
+  assert.equal(accountTombstoneCleanupAction({
+    authUserExists: true,
+    firestoreUserExists: true,
+    cleanupComplete: false,
+    cleanupStarted: true,
+    authMissingSinceMillis: undefined,
+    nowMillis: now,
+  }), "retain");
+  assert.equal(accountTombstoneCleanupAction({
+    authUserExists: true,
+    firestoreUserExists: true,
+    cleanupComplete: true,
+    cleanupStarted: true,
     authMissingSinceMillis: undefined,
     nowMillis: now,
   }), "retain");
