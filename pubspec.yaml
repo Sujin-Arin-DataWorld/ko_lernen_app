@@ -86,6 +86,9 @@ dependencies:
   crypto: ^3.0.7
   video_player: ^2.11.1
   flutter_native_splash: ^2.4.2
+  cloud_functions: ^5.6.2
+  firebase_app_check: ^0.3.2+10
+  flutter_secure_storage: ^10.3.1
 
 dev_dependencies:
   flutter_test:
