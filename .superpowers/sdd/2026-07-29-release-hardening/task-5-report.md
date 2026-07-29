@@ -268,3 +268,72 @@ git diff --check
 ```
 
 Result: exit 0 with only normal Windows line-ending conversion warnings.
+
+## Second review remediation: preserving dual failures
+
+The second review found that `finally` could replace a post-delete anonymous
+recovery failure with a later missing-UID push-rebind failure.
+
+### Second remediation RED
+
+Production-shaped command:
+
+```text
+flutter test test/account_hardening_test.dart --plain-name "anonymous recovery and missing-UID rebind failures are all retained"
+```
+
+Result before the second production change: exit 1. The test used the real
+`PushService`, `PushOwnershipTransitionCoordinator`,
+`AccountDeletionCoordinator`, and `AccountDeletionWorkflow`. It expected both
+anonymous-creation errors followed by the missing-UID rebind error, but the
+final `AccountDeletionRecoveryException` contained only:
+
+```text
+[StateError: Cannot bind push notifications without a user ID.]
+```
+
+This reproduced the exception replacement without changing production code.
+
+### Second remediation implementation
+
+- `PushOwnershipTransitionCoordinator` now captures transition and rebind
+  outcomes separately. A transition-only error or rebind-only error is rethrown
+  unchanged with its original stack trace.
+- If both fail, `PushOwnershipTransitionException` retains both original errors
+  and both stack traces instead of allowing the rebind error to replace the
+  transition error.
+- After irreversible Firebase deletion,
+  `AccountDeletionCoordinator` flattens a nested
+  `AccountDeletionRecoveryException` plus the rebind error into one final
+  recovery exception. The deleted Firebase user is never retried.
+- The integration regression asserts both anonymous errors and the missing-UID
+  error are retained, Firebase deletion occurs exactly once, and all local
+  privacy cleanup steps still run.
+
+### Second remediation focused GREEN
+
+```text
+flutter test test/account_hardening_test.dart test/push_service_test.dart
+00:02 +41: All tests passed!
+```
+
+This focused run also keeps the denied-permission behavior covered and directly
+proves the generic coordinator contract: transition-only and rebind-only
+failures retain their original error identity and stack trace, while a dual
+failure produces the typed pair. The unsupported-messaging early return is
+unchanged by this narrow coordinator fix.
+
+### Second remediation validation
+
+```text
+flutter analyze
+Analyzing ko_lernen_app-release-hardening...
+No issues found! (ran in 9.6s)
+```
+
+Fresh full regression:
+
+```text
+flutter test
+00:28 +600: All tests passed!
+```

@@ -207,6 +207,105 @@ void main() {
   );
 
   test(
+    'transition-only failure preserves the original error and stack',
+    () async {
+      final events = <String>[];
+      final failure = StateError('transition failed');
+      late StackTrace originalStackTrace;
+      final coordinator = PushOwnershipTransitionCoordinator(
+        push: _FakePushTokenOwner(events),
+        notificationsEnabled: () => true,
+      );
+
+      Object? caughtError;
+      StackTrace? caughtStackTrace;
+      try {
+        await coordinator.run(
+          oldUid: 'old-uid',
+          transition: () async {
+            try {
+              throw failure;
+            } catch (_, stackTrace) {
+              originalStackTrace = stackTrace;
+              rethrow;
+            }
+          },
+        );
+      } catch (error, stackTrace) {
+        caughtError = error;
+        caughtStackTrace = stackTrace;
+      }
+
+      expect(caughtError, same(failure));
+      expect(caughtStackTrace.toString(), originalStackTrace.toString());
+      expect(events, <String>['remove:old-uid', 'bind-current']);
+    },
+  );
+
+  test('rebind-only failure preserves the original rebind error', () async {
+    final events = <String>[];
+    final failure = StateError('rebind failed');
+    final push = _FakePushTokenOwner(events)..bindFailure = failure;
+    final coordinator = PushOwnershipTransitionCoordinator(
+      push: push,
+      notificationsEnabled: () => true,
+    );
+
+    Object? caughtError;
+    StackTrace? caughtStackTrace;
+    try {
+      await coordinator.run(
+        oldUid: 'old-uid',
+        transition: () async => events.add('auth-transition'),
+      );
+    } catch (error, stackTrace) {
+      caughtError = error;
+      caughtStackTrace = stackTrace;
+    }
+
+    expect(caughtError, same(failure));
+    expect(caughtStackTrace.toString(), push.bindFailureStackTrace.toString());
+  });
+
+  test('dual failure retains a typed transition and rebind pair', () async {
+    final events = <String>[];
+    final transitionFailure = StateError('transition failed');
+    final rebindFailure = StateError('rebind failed');
+    final push = _FakePushTokenOwner(events)..bindFailure = rebindFailure;
+    final coordinator = PushOwnershipTransitionCoordinator(
+      push: push,
+      notificationsEnabled: () => true,
+    );
+
+    await expectLater(
+      coordinator.run(
+        oldUid: 'old-uid',
+        transition: () async => throw transitionFailure,
+      ),
+      throwsA(
+        isA<PushOwnershipTransitionException>()
+            .having(
+              (error) => error.transitionError,
+              'transition error',
+              same(transitionFailure),
+            )
+            .having(
+              (error) => error.rebindError,
+              'rebind error',
+              same(rebindFailure),
+            )
+            .having(
+              (error) =>
+                  error.rebindStackTrace.toString() ==
+                  push.bindFailureStackTrace.toString(),
+              'original rebind stack',
+              isTrue,
+            ),
+      ),
+    );
+  });
+
+  test(
     'ownership transition blocks auth when local token invalidation fails',
     () async {
       final messaging = _FakePushMessaging()
@@ -415,10 +514,17 @@ class _FakePushTokenOwner implements PushTokenOwner {
 
   final List<String> events;
   Object? removalFailure;
+  Object? bindFailure;
+  StackTrace? bindFailureStackTrace;
 
   @override
   Future<void> bindCurrentUser() async {
     events.add('bind-current');
+    if (bindFailure case final failure?) {
+      final stackTrace = StackTrace.current;
+      bindFailureStackTrace = stackTrace;
+      Error.throwWithStackTrace(failure, stackTrace);
+    }
   }
 
   @override

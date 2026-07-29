@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -395,9 +397,12 @@ void main() {
     );
 
     test(
-      'anonymous identity recovery failure never retries user deletion',
+      'anonymous recovery and missing-UID rebind failures are all retained',
       () async {
         final events = <String>[];
+        final firstAnonymousFailure = StateError('anonymous failed once');
+        final secondAnonymousFailure = StateError('anonymous failed twice');
+        final pushAuth = _MutableAccountDeletionPushAuth('user-1');
         final operations = _FakeRemoteAccountOperations(events)
           ..providers = const AuthProviderState(
             isGoogleLinked: false,
@@ -405,18 +410,67 @@ void main() {
           )
           ..appleAuthorizationCode = 'apple-code'
           ..anonymousFailures.addAll([
-            StateError('anonymous failed once'),
-            StateError('anonymous failed twice'),
-          ]);
-        final coordinator = _remoteCoordinator(operations, events);
+            firstAnonymousFailure,
+            secondAnonymousFailure,
+          ])
+          ..onFirebaseDeleted = () => pushAuth.currentUid = null;
+        final push = PushService(
+          messaging: _AccountDeletionPushMessaging(),
+          auth: pushAuth,
+          tokens: _AccountDeletionPushTokenRepository(),
+          showNotification: ({required title, required body}) async {},
+        );
+        final coordinator = AccountDeletionCoordinator(
+          operations: operations,
+          ownershipTransitions: PushOwnershipTransitionCoordinator(
+            push: push,
+            notificationsEnabled: () => true,
+          ),
+        );
+        final workflow = AccountDeletionWorkflow(
+          AccountDeletionCleanupAdapter(
+            deleteRemote: coordinator.deleteAccount,
+            resetStorage: () async => events.add('local-reset'),
+            disablePush: () async => events.add('push-disable'),
+            deleteImages: () async => events.add('image-delete'),
+            clearTts: () async => events.add('tts-clear'),
+            resetMemory: () => events.add('memory-reset'),
+          ),
+        );
 
         await expectLater(
-          coordinator.deleteAccount(),
-          throwsA(isA<AccountDeletionRecoveryException>()),
+          workflow.run(),
+          throwsA(
+            isA<AccountDeletionFailure>().having(
+              (failure) =>
+                  (failure.causes.single as AccountDeletionRecoveryException)
+                      .causes,
+              'post-delete recovery causes',
+              <Matcher>[
+                same(firstAnonymousFailure),
+                same(secondAnonymousFailure),
+                isA<StateError>().having(
+                  (error) => error.toString(),
+                  'message',
+                  contains('without a user ID'),
+                ),
+              ],
+            ),
+          ),
         );
 
         expect(operations.deleteCalls, 1);
         expect(events.where((event) => event == 'ensure-anonymous').length, 2);
+        expect(
+          events,
+          containsAll(<String>[
+            'local-reset',
+            'push-disable',
+            'image-delete',
+            'tts-clear',
+            'memory-reset',
+          ]),
+        );
       },
     );
 
@@ -700,6 +754,7 @@ class _FakeRemoteAccountOperations implements AccountDeletionOperations {
   Object? signOutFailure;
   final List<Object> anonymousFailures = <Object>[];
   final List<Object> deleteFailures = <Object>[];
+  void Function()? onFirebaseDeleted;
   int deleteCalls = 0;
 
   @override
@@ -723,6 +778,7 @@ class _FakeRemoteAccountOperations implements AccountDeletionOperations {
     if (deleteFailures.isNotEmpty) {
       throw deleteFailures.removeAt(0);
     }
+    onFirebaseDeleted?.call();
   }
 
   @override
@@ -778,6 +834,45 @@ class _FakePushTokenOwner implements PushTokenOwner {
   Future<void> removeTokenFrom(String uid) async {
     events.add('push-remove:$uid');
   }
+}
+
+class _MutableAccountDeletionPushAuth implements PushAuthClient {
+  _MutableAccountDeletionPushAuth(this.currentUid);
+
+  @override
+  String? currentUid;
+}
+
+class _AccountDeletionPushTokenRepository implements PushTokenRepository {
+  @override
+  Future<void> addToken(String uid, String token) async {}
+
+  @override
+  Future<void> removeToken(String uid, String token) async {}
+}
+
+class _AccountDeletionPushMessaging implements PushMessagingClient {
+  @override
+  bool get isSupported => true;
+
+  @override
+  Stream<PushNotification> get messages => const Stream.empty();
+
+  @override
+  Stream<String> get tokenRefreshes => const Stream.empty();
+
+  @override
+  Future<void> deleteToken() async {}
+
+  @override
+  Future<String?> getToken() async => 'token-1';
+
+  @override
+  Future<PushPermissionStatus> requestPermission() async =>
+      PushPermissionStatus.authorized;
+
+  @override
+  Future<void> setAutoInitEnabled(bool enabled) async {}
 }
 
 class _FakeAccountCleanupOperations

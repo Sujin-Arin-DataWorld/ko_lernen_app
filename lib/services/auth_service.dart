@@ -127,13 +127,27 @@ class AccountDeletionCoordinator {
       if (accountDeleted && error is! AccountDeletionRecoveryException) {
         Error.throwWithStackTrace(
           AccountDeletionRecoveryException(
-            List<Object>.unmodifiable(<Object>[error]),
+            List<Object>.unmodifiable(_postDeleteRecoveryCauses(error)),
           ),
           stackTrace,
         );
       }
       rethrow;
     }
+  }
+
+  List<Object> _postDeleteRecoveryCauses(Object error) {
+    if (error is PushOwnershipTransitionException) {
+      final transitionError = error.transitionError;
+      return <Object>[
+        if (transitionError is AccountDeletionRecoveryException)
+          ...transitionError.causes
+        else
+          transitionError,
+        error.rebindError,
+      ];
+    }
+    return <Object>[error];
   }
 
   Future<void> _recoverIdentity(AuthProviderState providers) async {

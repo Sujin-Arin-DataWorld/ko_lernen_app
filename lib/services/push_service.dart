@@ -50,6 +50,29 @@ class PushCleanupException implements Exception {
   String toString() => 'Push cleanup failed in ${causes.length} step(s).';
 }
 
+/// Both the auth transition and its required push rebind failed. The original
+/// errors and stack traces remain available so callers can retain both causes.
+class PushOwnershipTransitionException implements Exception {
+  const PushOwnershipTransitionException({
+    required this.transitionError,
+    required this.transitionStackTrace,
+    required this.rebindError,
+    required this.rebindStackTrace,
+  });
+
+  final Object transitionError;
+  final StackTrace transitionStackTrace;
+  final Object rebindError;
+  final StackTrace rebindStackTrace;
+
+  List<Object> get causes => <Object>[transitionError, rebindError];
+
+  @override
+  String toString() =>
+      'The identity transition and push rebind both failed: '
+      '$transitionError; $rebindError';
+}
+
 typedef ShowPushNotification =
     Future<void> Function({required String title, required String body});
 
@@ -526,13 +549,36 @@ class PushOwnershipTransitionCoordinator {
     required Future<T> Function() transition,
   }) async {
     await push.removeTokenFrom(oldUid);
+    Object? transitionError;
+    StackTrace? transitionStackTrace;
+    late T result;
     try {
-      return await transition();
-    } finally {
-      if (notificationsEnabled()) {
+      result = await transition();
+    } catch (error, stackTrace) {
+      transitionError = error;
+      transitionStackTrace = stackTrace;
+    }
+
+    if (notificationsEnabled()) {
+      try {
         await push.bindCurrentUser();
+      } catch (rebindError, rebindStackTrace) {
+        if (transitionError != null) {
+          throw PushOwnershipTransitionException(
+            transitionError: transitionError,
+            transitionStackTrace: transitionStackTrace!,
+            rebindError: rebindError,
+            rebindStackTrace: rebindStackTrace,
+          );
+        }
+        Error.throwWithStackTrace(rebindError, rebindStackTrace);
       }
     }
+
+    if (transitionError != null) {
+      Error.throwWithStackTrace(transitionError, transitionStackTrace!);
+    }
+    return result;
   }
 }
 
