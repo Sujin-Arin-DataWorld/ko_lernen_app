@@ -138,3 +138,85 @@ Modified:
   still exercise Android and iOS permission prompts, token deletion/recreation,
   sign-out/account-deletion rebinding, and Crashlytics queued-report behavior on
   real Firebase projects/devices.
+
+## Fix round 1/5
+
+### Findings addressed
+
+- Explicit Crashlytics off-to-on now fails closed: queued-report deletion and
+  collection enable must both succeed before consent is persisted true. A
+  deletion failure propagates with collection and stored consent still off.
+- Crash reporting client methods now retain Firebase's `Future<void>` contract.
+  Flutter/platform callbacks attach async handling that presents the original
+  error locally when Crashlytics reporting later fails.
+- Push enable/disable now use a serialized desired-state lifecycle. A later
+  disable changes desired state immediately, every awaited enable boundary
+  rechecks it, and lifecycle effects complete in invocation order.
+- Auth transition preparation now cancels subscriptions, disables auto-init,
+  and deletes the local FCM token before sign-out/account deletion. Failure of
+  either safety-critical local operation propagates and blocks the auth
+  transition. Firestore cleanup becomes best-effort only after the local token
+  is definitively invalid.
+- Rebinding after a successful auth transition calls the full Push enable path,
+  creating and persisting a token for the new current/anonymous UID.
+- Task 3 native manifest configuration remains unchanged.
+
+### RED command and exact terminal tail
+
+Command:
+
+```text
+flutter test test/privacy_consent_service_test.dart test/push_service_test.dart
+```
+
+Output:
+
+```text
+00:00 +10 -5: Some tests failed.
+
+Failing tests:
+  C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/privacy_consent_service_test.dart: crash consent asynchronous framework report failures use local presentation
+  C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/privacy_consent_service_test.dart: crash consent asynchronous platform report failures use local presentation
+  C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/privacy_consent_service_test.dart: crash consent explicit off to on keeps consent off when report deletion fails
+  C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/push_service_test.dart: PushService a later disable wins over an in-flight enable
+  C:/Users/vjinn/OneDrive/Desktop/hangulsori/ko_lernen_app-release-hardening/test/push_service_test.dart: ownership transition blocks auth when local token invalidation fails
+```
+
+### GREEN command and exact terminal tail
+
+Command:
+
+```text
+flutter test test/privacy_consent_service_test.dart test/push_service_test.dart
+```
+
+Output:
+
+```text
+PrivacyConsent: crash report skipped — Bad state: async report failed
+PrivacyConsent: crash report skipped — Bad state: async report failed
+PushService: enable skipped — Bad state: transient
+00:00 +15: All tests passed!
+```
+
+### Additional verification
+
+```text
+flutter analyze lib/services/privacy_consent_service.dart lib/services/push_service.dart test/privacy_consent_service_test.dart test/push_service_test.dart
+Analyzing 4 items...
+No issues found! (ran in 3.1s)
+
+flutter test
+00:29 +560: All tests passed!
+
+git diff --check
+<no output; exit 0>
+```
+
+### Fix-round concern
+
+Sign-out/account deletion is intentionally blocked when local FCM auto-init
+shutdown or local token deletion cannot be proven, including an offline
+`deleteToken()` failure. Proceeding in that state could leave a deliverable
+token owned by the old UID. Firestore cleanup failure alone does not block once
+the local token is invalid.

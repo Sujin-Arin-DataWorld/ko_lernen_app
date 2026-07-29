@@ -155,7 +155,8 @@ class PushService implements PushTokenOwner {
   final ShowPushNotification showNotification;
 
   bool _ready = false;
-  Future<bool>? _enableInFlight;
+  bool _desiredEnabled = false;
+  Future<void> _lifecycleTail = Future<void>.value();
   StreamSubscription<String>? _tokenRefreshSubscription;
   StreamSubscription<PushNotification>? _messageSubscription;
 
@@ -163,41 +164,49 @@ class PushService implements PushTokenOwner {
 
   /// Requests notification permission first, then enables FCM auto-init.
   /// A failed attempt leaves the service retryable.
-  Future<bool> enable() async {
+  Future<bool> enable() {
     if (!messaging.isSupported) {
-      return false;
+      return Future<bool>.value(false);
     }
-    if (_ready) {
-      return true;
-    }
-    final inFlight = _enableInFlight;
-    if (inFlight != null) {
-      return inFlight;
-    }
-
-    final attempt = _enableOnce();
-    _enableInFlight = attempt;
-    try {
-      return await attempt;
-    } finally {
-      if (identical(_enableInFlight, attempt)) {
-        _enableInFlight = null;
+    _desiredEnabled = true;
+    return _enqueueLifecycle(() async {
+      if (!_desiredEnabled) {
+        return false;
       }
-    }
+      if (_ready) {
+        return true;
+      }
+      return _enableOnce();
+    });
   }
 
   Future<bool> _enableOnce() async {
     try {
       final permission = await messaging.requestPermission();
+      if (!_desiredEnabled) {
+        return false;
+      }
       if (permission == PushPermissionStatus.denied) {
         await messaging.setAutoInitEnabled(false);
         return false;
       }
 
       await messaging.setAutoInitEnabled(true);
+      if (!_desiredEnabled) {
+        await _quiesceRuntime();
+        return false;
+      }
       final token = await messaging.getToken();
+      if (!_desiredEnabled) {
+        await _quiesceRuntime();
+        return false;
+      }
       if (token != null) {
         await _persistTokenForCurrentUser(token);
+      }
+      if (!_desiredEnabled) {
+        await _quiesceRuntime();
+        return false;
       }
 
       _tokenRefreshSubscription = messaging.tokenRefreshes.listen(
@@ -220,6 +229,7 @@ class PushService implements PushTokenOwner {
       return true;
     } catch (error) {
       _ready = false;
+      await _quiesceRuntime();
       debugPrint('PushService: enable skipped — $error');
       return false;
     }
@@ -227,9 +237,20 @@ class PushService implements PushTokenOwner {
 
   /// Removes the current token from its user, disables auto-init, deletes the
   /// FCM token, and cancels all stream ownership.
-  Future<void> disable() async {
+  Future<void> disable() {
+    _desiredEnabled = false;
+    return _enqueueLifecycle(_disableBestEffort);
+  }
+
+  Future<void> _disableBestEffort() async {
     _ready = false;
     await _cancelSubscriptions();
+
+    try {
+      await messaging.setAutoInitEnabled(false);
+    } catch (error) {
+      debugPrint('PushService: auto-init disable skipped — $error');
+    }
 
     String? token;
     try {
@@ -252,35 +273,69 @@ class PushService implements PushTokenOwner {
     } catch (error) {
       debugPrint('PushService: token deletion skipped — $error');
     }
-    try {
-      await messaging.setAutoInitEnabled(false);
-    } catch (error) {
-      debugPrint('PushService: auto-init disable skipped — $error');
-    }
   }
 
   @override
-  Future<void> removeTokenFrom(String uid) async {
+  Future<void> removeTokenFrom(String uid) {
+    if (!messaging.isSupported) {
+      return Future<void>.value();
+    }
+    _desiredEnabled = false;
+    return _enqueueLifecycle(() => _invalidateTokenForIdentityTransition(uid));
+  }
+
+  Future<void> _invalidateTokenForIdentityTransition(String uid) async {
+    _ready = false;
+    await _cancelSubscriptions();
+
+    String? token;
     try {
-      final token = await messaging.getToken();
-      if (token != null) {
-        await tokens.removeToken(uid, token);
-      }
+      token = await messaging.getToken();
     } catch (error) {
-      debugPrint('PushService: old-user token removal skipped — $error');
+      debugPrint('PushService: old-user token lookup skipped — $error');
+    }
+
+    Object? autoInitError;
+    StackTrace? autoInitStack;
+    try {
+      await messaging.setAutoInitEnabled(false);
+    } catch (error, stack) {
+      autoInitError = error;
+      autoInitStack = stack;
+    }
+
+    Object? deletionError;
+    StackTrace? deletionStack;
+    try {
+      await messaging.deleteToken();
+    } catch (error, stack) {
+      deletionError = error;
+      deletionStack = stack;
+    }
+
+    if (autoInitError != null) {
+      Error.throwWithStackTrace(autoInitError, autoInitStack!);
+    }
+    if (deletionError != null) {
+      Error.throwWithStackTrace(deletionError, deletionStack!);
+    }
+
+    // The local token is now definitively invalid. Remote cleanup can be
+    // best-effort without leaving a deliverable token attached to the old UID.
+    if (token != null) {
+      try {
+        await tokens.removeToken(uid, token);
+      } catch (error) {
+        debugPrint(
+          'PushService: stale old-user token cleanup skipped — $error',
+        );
+      }
     }
   }
 
   @override
   Future<void> bindCurrentUser() async {
-    try {
-      final token = await messaging.getToken();
-      if (token != null) {
-        await _persistTokenForCurrentUser(token);
-      }
-    } catch (error) {
-      debugPrint('PushService: current-user token binding skipped — $error');
-    }
+    await enable();
   }
 
   Future<void> _persistTokenForCurrentUser(String token) async {
@@ -318,6 +373,28 @@ class PushService implements PushTokenOwner {
     if (messageSubscription != null) {
       await messageSubscription.cancel();
     }
+  }
+
+  Future<void> _quiesceRuntime() async {
+    _ready = false;
+    await _cancelSubscriptions();
+    try {
+      await messaging.setAutoInitEnabled(false);
+    } catch (error) {
+      debugPrint('PushService: stale enable cleanup skipped — $error');
+    }
+  }
+
+  Future<T> _enqueueLifecycle<T>(Future<T> Function() operation) {
+    final completer = Completer<T>();
+    _lifecycleTail = _lifecycleTail.then((_) async {
+      try {
+        completer.complete(await operation());
+      } catch (error, stack) {
+        completer.completeError(error, stack);
+      }
+    });
+    return completer.future;
   }
 }
 

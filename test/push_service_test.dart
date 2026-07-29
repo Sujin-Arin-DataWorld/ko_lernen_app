@@ -80,6 +80,33 @@ void main() {
         expect(service.isReady, isFalse);
       },
     );
+
+    test('a later disable wins over an in-flight enable', () async {
+      final permissionGate = Completer<PushPermissionStatus>();
+      final messaging = _FakePushMessaging()
+        ..permissionResult = permissionGate.future
+        ..token = 'token-1';
+      final service = PushService(
+        messaging: messaging,
+        auth: _FakePushAuth('uid-1'),
+        tokens: _FakePushTokenRepository(),
+        showNotification: ({required title, required body}) async {},
+      );
+
+      final enabling = service.enable();
+      await Future<void>.delayed(Duration.zero);
+      final disabling = service.disable();
+      permissionGate.complete(PushPermissionStatus.authorized);
+
+      expect(await enabling, isFalse);
+      await disabling;
+
+      expect(messaging.autoInitValues, isNot(contains(true)));
+      expect(messaging.autoInitValues.last, isFalse);
+      expect(service.isReady, isFalse);
+      expect(messaging.tokenRefreshController.hasListener, isFalse);
+      expect(messaging.messageController.hasListener, isFalse);
+    });
   });
 
   test(
@@ -106,10 +133,45 @@ void main() {
       ]);
     },
   );
+
+  test(
+    'ownership transition blocks auth when local token invalidation fails',
+    () async {
+      final messaging = _FakePushMessaging()
+        ..token = 'token-1'
+        ..deleteTokenFailures.add(StateError('delete failed'));
+      final service = PushService(
+        messaging: messaging,
+        auth: _FakePushAuth('old-uid'),
+        tokens: _FakePushTokenRepository(),
+        showNotification: ({required title, required body}) async {},
+      );
+      final coordinator = PushOwnershipTransitionCoordinator(
+        push: service,
+        notificationsEnabled: () => true,
+      );
+      var transitioned = false;
+
+      await expectLater(
+        coordinator.run(
+          oldUid: 'old-uid',
+          transition: () async {
+            transitioned = true;
+          },
+        ),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(transitioned, isFalse);
+      expect(messaging.autoInitValues, <bool>[false]);
+      expect(messaging.deleteTokenCalls, 1);
+    },
+  );
 }
 
 class _FakePushMessaging implements PushMessagingClient {
   PushPermissionStatus permissionStatus = PushPermissionStatus.authorized;
+  Future<PushPermissionStatus>? permissionResult;
   String? token;
   final List<Object> getTokenFailures = <Object>[];
   final List<String> events = <String>[];
@@ -121,6 +183,7 @@ class _FakePushMessaging implements PushMessagingClient {
   int permissionRequests = 0;
   int getTokenCalls = 0;
   int deleteTokenCalls = 0;
+  final List<Object> deleteTokenFailures = <Object>[];
 
   @override
   bool get isSupported => true;
@@ -134,6 +197,9 @@ class _FakePushMessaging implements PushMessagingClient {
   @override
   Future<void> deleteToken() async {
     deleteTokenCalls += 1;
+    if (deleteTokenFailures.isNotEmpty) {
+      throw deleteTokenFailures.removeAt(0);
+    }
   }
 
   @override
@@ -149,6 +215,10 @@ class _FakePushMessaging implements PushMessagingClient {
   Future<PushPermissionStatus> requestPermission() async {
     permissionRequests += 1;
     events.add('permission');
+    final result = permissionResult;
+    if (result != null) {
+      return result;
+    }
     return permissionStatus;
   }
 

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -11,8 +13,12 @@ abstract interface class AnalyticsConsentClient {
 abstract interface class CrashConsentClient {
   Future<void> setCollectionEnabled(bool enabled);
   Future<void> deleteUnsentReports();
-  void recordFlutterFatalError(FlutterErrorDetails details);
-  void recordError(Object error, StackTrace stack, {required bool fatal});
+  Future<void> recordFlutterFatalError(FlutterErrorDetails details);
+  Future<void> recordError(
+    Object error,
+    StackTrace stack, {
+    required bool fatal,
+  });
 }
 
 class FirebaseAnalyticsConsentClient implements AnalyticsConsentClient {
@@ -33,13 +39,17 @@ class FirebaseCrashConsentClient implements CrashConsentClient {
   }
 
   @override
-  void recordError(Object error, StackTrace stack, {required bool fatal}) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: fatal);
+  Future<void> recordError(
+    Object error,
+    StackTrace stack, {
+    required bool fatal,
+  }) {
+    return FirebaseCrashlytics.instance.recordError(error, stack, fatal: fatal);
   }
 
   @override
-  void recordFlutterFatalError(FlutterErrorDetails details) {
-    FirebaseCrashlytics.instance.recordFlutterFatalError(details);
+  Future<void> recordFlutterFatalError(FlutterErrorDetails details) {
+    return FirebaseCrashlytics.instance.recordFlutterFatalError(details);
   }
 
   @override
@@ -92,17 +102,29 @@ class PrivacyConsentController {
 
   Future<void> setCrash(bool enabled, {bool persist = true}) async {
     final wasEnabled = crashConsent();
-    if (persist) {
-      await persistCrashConsent(enabled);
-    }
-
     if (!enabled) {
+      if (persist) {
+        await persistCrashConsent(false);
+      }
       await _disableCrashCollectionAndDeleteReports();
       return;
     }
 
     if (persist && !wasEnabled) {
-      await _deleteCrashReports();
+      await _deleteCrashReportsRequired();
+      await _setCrashCollectionRequired(true);
+      try {
+        await persistCrashConsent(true);
+      } catch (_) {
+        await _setCrashCollection(false);
+        await _deleteCrashReports();
+        rethrow;
+      }
+      return;
+    }
+
+    if (persist) {
+      await persistCrashConsent(true);
     }
     await _setCrashCollection(true);
   }
@@ -119,10 +141,17 @@ class PrivacyConsentController {
     if (isDebug) {
       presentFlutterError(details);
     }
+    unawaited(_recordFlutterError(details, presentOnFailure: !isDebug));
+  }
+
+  Future<void> _recordFlutterError(
+    FlutterErrorDetails details, {
+    required bool presentOnFailure,
+  }) async {
     try {
-      crashClient.recordFlutterFatalError(details);
+      await crashClient.recordFlutterFatalError(details);
     } catch (error) {
-      if (!isDebug) {
+      if (presentOnFailure) {
         presentFlutterError(details);
       }
       debugPrint('PrivacyConsent: crash report skipped — $error');
@@ -141,8 +170,13 @@ class PrivacyConsentController {
       return true;
     }
 
+    unawaited(_recordPlatformError(error, stack));
+    return true;
+  }
+
+  Future<void> _recordPlatformError(Object error, StackTrace stack) async {
     try {
-      crashClient.recordError(error, stack, fatal: true);
+      await crashClient.recordError(error, stack, fatal: true);
     } catch (reportingError) {
       presentFlutterError(
         FlutterErrorDetails(
@@ -153,7 +187,6 @@ class PrivacyConsentController {
       );
       debugPrint('PrivacyConsent: crash report skipped — $reportingError');
     }
-    return true;
   }
 
   Future<void> _disableCrashCollectionAndDeleteReports() async {
@@ -183,6 +216,14 @@ class PrivacyConsentController {
     } catch (error) {
       debugPrint('PrivacyConsent: crash report deletion skipped — $error');
     }
+  }
+
+  Future<void> _deleteCrashReportsRequired() {
+    return crashClient.deleteUnsentReports();
+  }
+
+  Future<void> _setCrashCollectionRequired(bool enabled) {
+    return crashClient.setCollectionEnabled(enabled);
   }
 }
 
