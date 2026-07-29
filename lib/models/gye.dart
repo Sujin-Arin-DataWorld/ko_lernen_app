@@ -77,6 +77,7 @@ class GyeMeta {
   /// 지난주 최다 기여자 (축하 카드용 — `weekly_goal_rollover` CF가 기록).
   /// 경쟁 리더보드가 아니라 1명만, 축하 톤으로 표시한다.
   final String lastWeekMvp;
+  final String lastWeekMvpUid;
   final int lastWeekMvpPacks;
 
   const GyeMeta({
@@ -92,6 +93,7 @@ class GyeMeta {
     this.lifetimeGoalsAchieved = 0,
     this.xpBoostActive = false,
     this.lastWeekMvp = '',
+    this.lastWeekMvpUid = '',
     this.lastWeekMvpPacks = 0,
   });
 
@@ -108,6 +110,7 @@ class GyeMeta {
     lifetimeGoalsAchieved: (d['lifetimeGoalsAchieved'] as num?)?.toInt() ?? 0,
     xpBoostActive: d['xpBoostActive'] as bool? ?? false,
     lastWeekMvp: d['lastWeekMvp'] as String? ?? '',
+    lastWeekMvpUid: d['lastWeekMvpUid'] as String? ?? '',
     lastWeekMvpPacks: (d['lastWeekMvpPacks'] as num?)?.toInt() ?? 0,
   );
 
@@ -117,6 +120,7 @@ class GyeMeta {
     'code': code,
     'ownerId': ownerId,
     'memberCount': memberCount,
+    'lifecycleState': 'active',
     'createdAt': FieldValue.serverTimestamp(),
     'weeklyGoalPacks': weeklyGoalPacks,
     'weeklyGoalProgress': weeklyGoalProgress,
@@ -130,6 +134,7 @@ class GyeMeta {
 /// `gye/{gyeId}/members/{uid}`.
 class GyeMember {
   final String uid;
+  final String membershipId;
   final String nickname;
   final DateTime? joinedAt;
   final GyeRole role;
@@ -143,6 +148,7 @@ class GyeMember {
   const GyeMember({
     required this.uid,
     required this.nickname,
+    this.membershipId = 'legacy',
     this.joinedAt,
     this.role = GyeRole.member,
     this.weeklyPacksContributed = 0,
@@ -153,6 +159,7 @@ class GyeMember {
 
   factory GyeMember.fromDoc(String uid, Map<String, dynamic> d) => GyeMember(
     uid: uid,
+    membershipId: d['membershipId'] as String? ?? 'legacy',
     nickname: d['nickname'] as String? ?? '',
     joinedAt: _ts(d['joinedAt']),
     role: _enumByName(GyeRole.values, d['role'], GyeRole.member),
@@ -167,6 +174,8 @@ class GyeMember {
   );
 
   Map<String, dynamic> toCreateJson() => {
+    'uid': uid,
+    'membershipId': membershipId,
     'nickname': nickname,
     'joinedAt': FieldValue.serverTimestamp(),
     'role': role.name,
@@ -269,6 +278,14 @@ class GyeReport {
     this.createdAt,
     this.status = 'pending',
   });
+
+  /// One report per membership pair bounds server moderation reads. The report
+  /// is deleted when either member leaves, so a later membership can start a
+  /// fresh moderation generation.
+  static String documentIdFor({
+    required String targetUid,
+    required String reporterUid,
+  }) => '${targetUid}_$reporterUid';
 
   factory GyeReport.fromDoc(String id, Map<String, dynamic> d) => GyeReport(
     id: id,

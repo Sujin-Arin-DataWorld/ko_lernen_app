@@ -1107,14 +1107,15 @@ class AppL10nEn extends AppL10n {
   String get gyeErrProfanity => 'Please choose a different word.';
 
   @override
-  String get gyeErrAgeRestricted => 'Gye is for ages 16 and up (GDPR).';
+  String get gyeErrAgeRestricted =>
+      'Gye is for ages 16 and up. Because only your self-declared on-device birth year is stored, the conservative check unlocks at a year difference of at least 17.';
 
   @override
   String get gyeAgeYearTitle => 'Birth year';
 
   @override
   String get gyeAgeYearBody =>
-      'Gye is for ages 16 and up (GDPR). Please enter your birth year.';
+      'Gye is for ages 16 and up. Your birth year is self-declared, stored only on this device, and is not identity verification. Without month and day, the conservative check unlocks at a year difference of at least 17.';
 
   @override
   String get gyeAgeYearHint => 'e.g. 2005';
@@ -1254,6 +1255,10 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyeLeaveConfirm => 'Leave this gye?';
+
+  @override
+  String get gyeOwnerLeaveUnavailable =>
+      'The owner cannot leave until ownership transfer or group deletion is available.';
 
   @override
   String get gyeMembersTitle => 'Members';

@@ -2122,7 +2122,7 @@ abstract class AppL10n {
   /// No description provided for @gyeErrAgeRestricted.
   ///
   /// In de, this message translates to:
-  /// **'Gye ist erst ab 16 Jahren nutzbar (DSGVO).'**
+  /// **'Gye ist ab 16 Jahren nutzbar. Da nur dein lokal selbst angegebenes Geburtsjahr gespeichert wird, prüft die App konservativ und schaltet erst bei mindestens 17 Jahren Jahresdifferenz frei.'**
   String get gyeErrAgeRestricted;
 
   /// No description provided for @gyeAgeYearTitle.
@@ -2134,7 +2134,7 @@ abstract class AppL10n {
   /// No description provided for @gyeAgeYearBody.
   ///
   /// In de, this message translates to:
-  /// **'Gye ist erst ab 16 Jahren nutzbar (DSGVO). Bitte gib dein Geburtsjahr ein.'**
+  /// **'Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.'**
   String get gyeAgeYearBody;
 
   /// No description provided for @gyeAgeYearHint.
@@ -2388,6 +2388,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dieses Gye verlassen?'**
   String get gyeLeaveConfirm;
+
+  /// No description provided for @gyeOwnerLeaveUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Leitung kannst du das Gye erst nach einer Übertragung oder Löschung verlassen.'**
+  String get gyeOwnerLeaveUnavailable;
 
   /// No description provided for @gyeMembersTitle.
   ///

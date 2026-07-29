@@ -17,11 +17,11 @@ void main() {
     await Storage.setBirthYear(0);
   });
 
-  test('생년 미상 → 게이트 통과(차단 아님) + needsBirthYear', () {
+  test('생년 미상 → 서비스 차단 + needsBirthYear', () {
     expect(AgeGateService.needsBirthYear, isTrue);
     expect(AgeGateService.ageEstimate, isNull);
     expect(AgeGateService.isUnderMinAge, isFalse);
-    expect(AgeGateService.isGyeAllowed, isTrue);
+    expect(AgeGateService.isGyeAllowed, isFalse);
   });
 
   test('10세 → 차단', () async {
@@ -35,6 +35,13 @@ void main() {
   test('정확히 16세 → 허용(경계)', () async {
     await Storage.setBirthYear(nowYear - 16);
     expect(AgeGateService.ageEstimate, 16);
+    expect(AgeGateService.isUnderMinAge, isTrue);
+    expect(AgeGateService.isGyeAllowed, isFalse);
+  });
+
+  test('17-year difference passes conservative year-only boundary', () async {
+    await Storage.setBirthYear(nowYear - 17);
+    expect(AgeGateService.ageEstimate, 17);
     expect(AgeGateService.isUnderMinAge, isFalse);
     expect(AgeGateService.isGyeAllowed, isTrue);
   });
@@ -50,10 +57,12 @@ void main() {
     expect(AgeGateService.ageEstimate, 20);
   });
 
-  test('비현실 연도 → 미상 취급(차단 안 함)', () async {
+  test('비현실 연도 → 미상 취급 + 재입력 및 서비스 차단', () async {
     await Storage.setBirthYear(1700);
     expect(AgeGateService.ageEstimate, isNull);
     expect(AgeGateService.isUnderMinAge, isFalse);
+    expect(AgeGateService.needsBirthYear, isTrue);
+    expect(AgeGateService.isGyeAllowed, isFalse);
     expect(AgeGateService.isPlausibleYear(1700), isFalse);
   });
 

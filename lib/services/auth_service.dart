@@ -222,7 +222,9 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
 
   @override
   Future<void> deleteCloudData() {
-    return AuthService._deleteUserFirestoreTree(db, user.uid);
+    return UserDataDeletionCoordinator(
+      _FirestoreUserDataDeletionStore(db, user.uid),
+    ).deleteAccountData();
   }
 
   @override
@@ -256,6 +258,145 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   }
 }
 
+abstract interface class UserDataDeletionStore {
+  Future<void> beginAccountDeletion();
+  Future<void> deleteSubcollection(String name);
+  Future<void> removeUserFields(Set<String> fields);
+  Future<void> deleteUserDocument();
+}
+
+enum AccountDocumentDeletionPlan {
+  noOp,
+  createMarkerAndDelete,
+  deleteWithExistingMarker,
+}
+
+AccountDocumentDeletionPlan accountDocumentDeletionPlan({
+  required bool userExists,
+  required bool markerExists,
+}) {
+  if (!userExists) {
+    return AccountDocumentDeletionPlan.noOp;
+  }
+  return markerExists
+      ? AccountDocumentDeletionPlan.deleteWithExistingMarker
+      : AccountDocumentDeletionPlan.createMarkerAndDelete;
+}
+
+class UserDataDeletionCoordinator {
+  const UserDataDeletionCoordinator(this.store);
+
+  final UserDataDeletionStore store;
+
+  static const Set<String> operationalFields = {
+    'gyeIds',
+    'blockedUids',
+    'fcmTokens',
+  };
+
+  static const Set<String> backupFields = {
+    'vok',
+    'chosung',
+    'wordle',
+    'grammar',
+    'app',
+    'progress',
+    'srs_json',
+    'custom_packs_json',
+    'bookshelf_json',
+    'updated_at',
+  };
+
+  static const List<String> backupSubcollections = [
+    'packs',
+    'quests',
+    'bookshelf',
+    'custom_packs',
+    'custom_words',
+  ];
+
+  Future<void> deleteCloudBackup() async {
+    for (final collectionName in backupSubcollections) {
+      await store.deleteSubcollection(collectionName);
+    }
+    await store.removeUserFields(backupFields);
+  }
+
+  Future<void> deleteAccountData() async {
+    await store.beginAccountDeletion();
+    for (final collectionName in backupSubcollections) {
+      await store.deleteSubcollection(collectionName);
+    }
+    // Deleting this document is intentional: the retryable server trigger owns
+    // Gye membership/ownership and community-identity cleanup.
+    await store.deleteUserDocument();
+  }
+}
+
+class _FirestoreUserDataDeletionStore implements UserDataDeletionStore {
+  const _FirestoreUserDataDeletionStore(this.db, this.uid);
+
+  final FirebaseFirestore db;
+  final String uid;
+
+  DocumentReference<Map<String, dynamic>> get _userRef =>
+      db.collection('users').doc(uid);
+
+  @override
+  Future<void> beginAccountDeletion() async {
+    final markerRef = db.collection('account_deletions').doc(uid);
+    await db.runTransaction((transaction) async {
+      final marker = await transaction.get(markerRef);
+      final user = await transaction.get(_userRef);
+      if (marker.exists || !user.exists) {
+        return;
+      }
+      transaction.set(markerRef, {
+        'state': 'active',
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+    });
+  }
+
+  @override
+  Future<void> deleteSubcollection(String name) {
+    return AuthService._deleteCollection(_userRef.collection(name));
+  }
+
+  @override
+  Future<void> deleteUserDocument() async {
+    final markerRef = db.collection('account_deletions').doc(uid);
+    final snapshots = await Future.wait([_userRef.get(), markerRef.get()]);
+    final plan = accountDocumentDeletionPlan(
+      userExists: snapshots[0].exists,
+      markerExists: snapshots[1].exists,
+    );
+    if (plan == AccountDocumentDeletionPlan.noOp) {
+      return;
+    }
+    final batch = db.batch();
+    if (plan == AccountDocumentDeletionPlan.createMarkerAndDelete) {
+      batch.set(markerRef, {
+        'state': 'active',
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+    }
+    batch.delete(_userRef);
+    await batch.commit();
+  }
+
+  @override
+  Future<void> removeUserFields(Set<String> fields) async {
+    final snapshot = await _userRef.get();
+    if (!snapshot.exists) {
+      return;
+    }
+    await _userRef.update({
+      for (final field in fields) field: FieldValue.delete(),
+    });
+  }
+}
+
 /// Hybrid-Auth — **immer** anonym eingeloggt. Optional kann der
 /// User mit Google verlinken, um Cloud-Backup zu aktivieren.
 ///
@@ -272,14 +413,6 @@ class AuthService {
         push: pushService,
         notificationsEnabled: () => Storage.notificationsEnabled,
       );
-
-  static const List<String> _userSubcollections = [
-    'packs',
-    'quests',
-    'bookshelf',
-    'custom_packs',
-    'custom_words',
-  ];
 
   /// Firebase-Auth-Instanz — `null`, wenn Firebase nicht initialisiert
   /// (z.B. Web ohne Config). Wirft nie.
@@ -408,10 +541,9 @@ class AuthService {
       ],
       nonce: _sha256(rawNonce),
     );
-    final credential = OAuthProvider('apple.com').credential(
-      idToken: appleCredential.identityToken,
-      rawNonce: rawNonce,
-    );
+    final credential = OAuthProvider(
+      'apple.com',
+    ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
 
     final user = auth.currentUser;
     if (user != null && user.isAnonymous) {
@@ -441,10 +573,10 @@ class AuthService {
   ) async {
     if (user == null) return;
     if (user.displayName != null && user.displayName!.isNotEmpty) return;
-    final name = [c.givenName, c.familyName]
-        .where((e) => e != null && e.isNotEmpty)
-        .join(' ')
-        .trim();
+    final name = [
+      c.givenName,
+      c.familyName,
+    ].where((e) => e != null && e.isNotEmpty).join(' ').trim();
     if (name.isEmpty) return;
     try {
       await user.updateDisplayName(name);
@@ -461,7 +593,9 @@ class AuthService {
     if (uid == null || db == null) {
       throw StateError('Cloud account data is unavailable.');
     }
-    await _deleteUserFirestoreTree(db, uid);
+    await UserDataDeletionCoordinator(
+      _FirestoreUserDataDeletionStore(db, uid),
+    ).deleteCloudBackup();
   }
 
   /// Delete the Firebase account plus its Firestore backup.
@@ -549,54 +683,6 @@ class AuthService {
 
   static String _sha256(String input) =>
       sha256.convert(utf8.encode(input)).toString();
-
-  static Future<void> _deleteUserFirestoreTree(
-    FirebaseFirestore db,
-    String uid,
-  ) async {
-    final userRef = db.collection('users').doc(uid);
-
-    // gye 멤버십 정리 (GDPR: 사용자가 속한 모든 계에서 제거)
-    await _deleteUserFromGyeMembers(db, uid);
-
-    for (final collectionName in _userSubcollections) {
-      await _deleteCollection(userRef.collection(collectionName));
-    }
-    await userRef.delete();
-  }
-
-  /// 사용자가 속한 모든 gye에서 멤버 문서 삭제 + 멤버수 감소.
-  /// users/{uid}.gyeIds 배열 → 각 gye/{gyeId}/members/{uid} 삭제.
-  static Future<void> _deleteUserFromGyeMembers(
-    FirebaseFirestore db,
-    String uid,
-  ) async {
-    try {
-      // users/{uid} 문서에서 gyeIds 배열 읽기
-      final userDoc = await db.collection('users').doc(uid).get();
-      final gyeIds = List<String>.from(userDoc.get('gyeIds') ?? []);
-
-      if (gyeIds.isEmpty) return;
-
-      // 각 gye에서 멤버 문서 삭제 + 멤버수 감소
-      final batch = db.batch();
-      for (final gyeId in gyeIds) {
-        final memberRef = db.collection('gye').doc(gyeId).collection('members').doc(uid);
-        batch.delete(memberRef);
-
-        // memberCount 감소 (rules는 쓰기 막지만, 삭제 트리거는 문제 아님)
-        final metaRef = db.collection('gye').doc(gyeId);
-        batch.update(metaRef, {
-          'memberCount': FieldValue.increment(-1),
-        });
-      }
-
-      await batch.commit();
-    } catch (e) {
-      // 계 정리 실패는 무시 (사용자 삭제를 막지 않음 — GDPR)
-      debugPrint('[auth] gye cleanup error: $e');
-    }
-  }
 
   static Future<void> _deleteCollection(
     CollectionReference<Map<String, dynamic>> collection,

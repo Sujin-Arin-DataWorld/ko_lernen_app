@@ -1109,14 +1109,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeErrAgeRestricted =>
-      'Gye ist erst ab 16 Jahren nutzbar (DSGVO).';
+      'Gye ist ab 16 Jahren nutzbar. Da nur dein lokal selbst angegebenes Geburtsjahr gespeichert wird, prüft die App konservativ und schaltet erst bei mindestens 17 Jahren Jahresdifferenz frei.';
 
   @override
   String get gyeAgeYearTitle => 'Geburtsjahr';
 
   @override
   String get gyeAgeYearBody =>
-      'Gye ist erst ab 16 Jahren nutzbar (DSGVO). Bitte gib dein Geburtsjahr ein.';
+      'Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.';
 
   @override
   String get gyeAgeYearHint => 'z. B. 2005';
@@ -1258,6 +1258,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeLeaveConfirm => 'Dieses Gye verlassen?';
+
+  @override
+  String get gyeOwnerLeaveUnavailable =>
+      'Als Leitung kannst du das Gye erst nach einer Übertragung oder Löschung verlassen.';
 
   @override
   String get gyeMembersTitle => 'Mitglieder';

@@ -8,6 +8,44 @@ import 'age_gate_service.dart';
 import 'auth_service.dart';
 import 'storage_service.dart';
 
+class GyeLeaveMembership {
+  const GyeLeaveMembership({
+    required this.uid,
+    required this.role,
+    this.nickname = '',
+    this.membershipId = 'legacy',
+  });
+
+  final String uid;
+  final String role;
+  final String nickname;
+  final String membershipId;
+}
+
+class GyeLeaveCoordinator {
+  const GyeLeaveCoordinator({
+    required this.currentUid,
+    required this.loadMembership,
+    required this.commitLeave,
+  });
+
+  final String currentUid;
+  final Future<GyeLeaveMembership?> Function(String gyeId) loadMembership;
+  final Future<void> Function(String gyeId, GyeLeaveMembership membership)
+  commitLeave;
+
+  Future<void> leave(String gyeId) async {
+    final membership = await loadMembership(gyeId);
+    if (membership == null || membership.uid != currentUid) {
+      throw const GyeException(GyeError.network);
+    }
+    if (membership.role == GyeRole.owner.name) {
+      throw const GyeException(GyeError.ownerCannotLeave);
+    }
+    await commitLeave(gyeId, membership);
+  }
+}
+
 /// 계(契) CRUD + 입장 코드. Firestore `gye/{code}` (코드 = 문서 ID = gyeId).
 ///
 /// `SharedPackService` 패턴을 따름: nullable `_db`(웹 Firebase 미설정 안전),
@@ -26,6 +64,19 @@ class GyeService {
   static const int maxGyePerUser = 3;
   static const int maxNameLen = 20;
   static const int maxNicknameLen = 12;
+
+  static String generateMembershipId() {
+    final bytes = List<int>.generate(16, (_) => _rng.nextInt(256));
+    return bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+  }
+
+  /// On-device self-attestation only. This is not verified identity or
+  /// cryptographic proof of age.
+  static void validateAgeEligibility() {
+    if (!AgeGateService.isGyeAllowed) {
+      throw const GyeException(GyeError.ageRestricted);
+    }
+  }
 
   static FirebaseFirestore? get _db {
     try {
@@ -87,14 +138,11 @@ class GyeService {
     required String name,
     required String nickname,
   }) async {
+    validateAgeEligibility();
     final uid = AuthService.current?.uid;
     final db = _db;
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
-    }
-    // GDPR-K: 16세 미만은 계 생성 불가 (생년 미상은 통과 — UI가 사전 확인).
-    if (AgeGateService.isUnderMinAge) {
-      throw const GyeException(GyeError.ageRestricted);
     }
     final cleanName = validatedName(name, maxNameLen, GyeError.invalidName);
     final cleanNick = validatedName(
@@ -125,6 +173,7 @@ class GyeService {
           ref.collection('members').doc(uid),
           GyeMember(
             uid: uid,
+            membershipId: generateMembershipId(),
             nickname: cleanNick,
             role: GyeRole.owner,
             level: Storage.xpLevel,
@@ -150,14 +199,11 @@ class GyeService {
     required String code,
     required String nickname,
   }) async {
+    validateAgeEligibility();
     final uid = AuthService.current?.uid;
     final db = _db;
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
-    }
-    // GDPR-K: 16세 미만은 계 입장 불가 (생년 미상은 통과 — UI가 사전 확인).
-    if (AgeGateService.isUnderMinAge) {
-      throw const GyeException(GyeError.ageRestricted);
     }
     final id = code.trim().toUpperCase();
     if (!isValidCodeFormat(id)) {
@@ -193,6 +239,7 @@ class GyeService {
           memberRef,
           GyeMember(
             uid: uid,
+            membershipId: generateMembershipId(),
             nickname: cleanNick,
             level: Storage.xpLevel,
             streakDays: Storage.streakDays,
@@ -236,19 +283,50 @@ class GyeService {
     final uid = AuthService.current?.uid;
     final db = _db;
     if (uid == null || db == null) {
-      return;
+      throw const GyeException(GyeError.network);
     }
-    final ref = db.collection(_collection).doc(id);
     try {
-      final batch = db.batch();
-      batch.delete(ref.collection('members').doc(uid));
-      batch.update(ref, {'memberCount': FieldValue.increment(-1)});
-      batch.set(db.collection('users').doc(uid), {
-        'gyeIds': FieldValue.arrayRemove([id]),
-      }, SetOptions(merge: true));
-      await batch.commit();
+      await GyeLeaveCoordinator(
+        currentUid: uid,
+        loadMembership: (gyeId) async {
+          final snap = await db
+              .collection(_collection)
+              .doc(gyeId)
+              .collection('members')
+              .doc(uid)
+              .get();
+          if (!snap.exists) {
+            return null;
+          }
+          return GyeLeaveMembership(
+            uid: uid,
+            role: snap.data()?['role'] as String? ?? GyeRole.member.name,
+            nickname: snap.data()?['nickname'] as String? ?? '',
+            membershipId: snap.data()?['membershipId'] as String? ?? 'legacy',
+          );
+        },
+        commitLeave: (gyeId, membership) async {
+          final ref = db.collection(_collection).doc(gyeId);
+          final batch = db.batch();
+          batch.set(ref.collection('departures').doc(uid), {
+            'uid': uid,
+            'membershipId': membership.membershipId,
+            'nickname': membership.nickname,
+            'state': 'pending',
+            'createdAt': FieldValue.serverTimestamp(),
+          });
+          batch.delete(ref.collection('members').doc(uid));
+          batch.update(ref, {'memberCount': FieldValue.increment(-1)});
+          batch.set(db.collection('users').doc(uid), {
+            'gyeIds': FieldValue.arrayRemove([gyeId]),
+          }, SetOptions(merge: true));
+          await batch.commit();
+        },
+      ).leave(id);
+    } on GyeException {
+      rethrow;
     } catch (_) {
-      // best-effort
+      throw const GyeException(GyeError.network);
     }
   }
 
@@ -330,7 +408,8 @@ class GyeService {
           .collection(_collection)
           .doc(gyeId)
           .collection('reports')
-          .add(
+          .doc(GyeReport.documentIdFor(targetUid: targetUid, reporterUid: uid))
+          .set(
             GyeReport(
               id: '',
               reporterUid: uid,
@@ -693,6 +772,7 @@ enum GyeError {
   invalidNickname,
   profanity,
   ageRestricted,
+  ownerCannotLeave,
 }
 
 class GyeException implements Exception {

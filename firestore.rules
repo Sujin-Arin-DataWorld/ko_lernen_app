@@ -1,167 +1,603 @@
 rules_version = '2';
 
-// Hangul Sori — Firestore Security Rules
-//
-// Plan: docs/plans/stately-rising-jongga.md §3.3, §7.2
-//
-// 원칙:
-//  - 모든 사용자 데이터는 `/users/{uid}/...` 하위에 격리.
-//  - 본인만 read/write — 익명 / Google 링크된 anonymous 둘 다 허용.
-//  - Cloud Functions 가 별도 admin SDK 로 쓰는 부분은 client rules 무시.
-//  - Phase 5+ 의 Gye / Bookshelf / Custom Packs 는 별도 path 로 확장 예정.
-//
-// 배포:
-//   firebase deploy --only firestore:rules
-
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
 
-    // ── 사용자 개인 데이터 ─────────────────────────────────────────────
-    // 기존 cloud_sync.dart 가 쓰는 /users/{uid} 문서 (vok, chosung, wordle,
-    // grammar, app 통계) + Phase 1 신규 sub-collections:
-    //   /users/{uid}/packs/{packId}           — 팩 진행도
-    //   /users/{uid}/quests/{questId}         — 특별 퀘스트 (Phase 4)
-    //   /users/{uid}/bookshelf/{pageId}       — 책 한 컷 페이지 (Phase 5)
-    //   /users/{uid}/custom_packs/{packId}    — 책 한 컷 커스텀 팩 (Phase 5)
-    //   /users/{uid}/custom_words/{wordId}    — 책 한 컷 신규 단어 (Phase 5)
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.get('admin', false) == true;
+    }
+
+    function memberPath(gyeId, uid) {
+      return /databases/$(database)/documents/gye/$(gyeId)/members/$(uid);
+    }
+
+    function banPath(gyeId, uid) {
+      return /databases/$(database)/documents/gye/$(gyeId)/bans/$(uid);
+    }
+
+    function departurePath(gyeId, uid) {
+      return /databases/$(database)/documents/gye/$(gyeId)/departures/$(uid);
+    }
+
+    function accountDeletionPath(uid) {
+      return /databases/$(database)/documents/account_deletions/$(uid);
+    }
+
+    function metaPath(gyeId) {
+      return /databases/$(database)/documents/gye/$(gyeId);
+    }
+
+    function userPath(uid) {
+      return /databases/$(database)/documents/users/$(uid);
+    }
+
+    function isGyeMember(gyeId) {
+      return signedIn() && exists(memberPath(gyeId, request.auth.uid));
+    }
+
+    function isActiveGyeMember(gyeId) {
+      return isGyeMember(gyeId)
+        && !exists(accountDeletionPath(request.auth.uid))
+        && exists(metaPath(gyeId))
+        && get(metaPath(gyeId)).data.get('lifecycleState', 'active')
+             == 'active'
+        && get(memberPath(gyeId, request.auth.uid)).data.status == 'active'
+        && !exists(banPath(gyeId, request.auth.uid));
+    }
+
+    function isGyeOwner(gyeId) {
+      return isActiveGyeMember(gyeId)
+        && get(metaPath(gyeId)).data.ownerId == request.auth.uid;
+    }
+
+    function validGyeIds(ids) {
+      return ids is list
+        && ids.size() <= 3
+        && (ids.size() < 1
+          || existsAfter(memberPath(ids[0], request.auth.uid)))
+        && (ids.size() < 2
+          || existsAfter(memberPath(ids[1], request.auth.uid)))
+        && (ids.size() < 3
+          || existsAfter(memberPath(ids[2], request.auth.uid)));
+    }
+
+    function removedMembershipsAreDeleted(oldIds, newIds) {
+      let removedIds = oldIds.removeAll(newIds);
+      return oldIds is list
+        && oldIds.size() <= 3
+        && removedIds.size() <= 3
+        && (removedIds.size() < 1
+          || (!existsAfter(memberPath(removedIds[0], request.auth.uid))
+            && existsAfter(
+              departurePath(removedIds[0], request.auth.uid)
+            )))
+        && (removedIds.size() < 2
+          || (!existsAfter(memberPath(removedIds[1], request.auth.uid))
+            && existsAfter(
+              departurePath(removedIds[1], request.auth.uid)
+            )))
+        && (removedIds.size() < 3
+          || (!existsAfter(memberPath(removedIds[2], request.auth.uid))
+            && existsAfter(
+              departurePath(removedIds[2], request.auth.uid)
+            )));
+    }
+
+    function validUserGyeTransition() {
+      let oldIds = resource.data.get('gyeIds', []);
+      let newIds = request.resource.data.get('gyeIds', []);
+      return validGyeIds(newIds)
+        && removedMembershipsAreDeleted(oldIds, newIds);
+    }
+
+    function validMemberDocument(data, uid, role) {
+      return data.keys().hasOnly([
+          'uid', 'membershipId', 'nickname', 'joinedAt', 'role',
+          'weeklyPacksContributed', 'status', 'level', 'streakDays'
+        ])
+        && data.uid == uid
+        && data.membershipId is string
+        && data.membershipId.size() >= 16
+        && data.membershipId.size() <= 64
+        && data.nickname is string
+        && data.nickname.size() > 0
+        && data.nickname.size() <= 12
+        && data.joinedAt is timestamp
+        && data.joinedAt == request.time
+        && data.role == role
+        && data.weeklyPacksContributed == 0
+        && data.status == 'active'
+        && data.level is int
+        && data.level >= 0
+        && data.streakDays is int
+        && data.streakDays >= 0;
+    }
+
+    function parentIsJoinable(gyeId) {
+      let meta = get(metaPath(gyeId)).data;
+      return meta.get('lifecycleState', 'active') == 'active'
+        && meta.memberCount < 10;
+    }
+
+    function isStaticPackId(packId) {
+      return packId in [
+        'a1_body',
+        'a1_colors',
+        'a1_daily_1',
+        'a1_daily_2',
+        'a1_daily_3',
+        'a1_daily_4',
+        'a1_descriptions',
+        'a1_family_1',
+        'a1_family_2',
+        'a1_food_1',
+        'a1_food_2',
+        'a1_greetings_1',
+        'a1_greetings_2',
+        'a1_misc_1',
+        'a1_misc_2',
+        'a1_numbers_1',
+        'a1_numbers_2',
+        'a1_numbers_3',
+        'a1_position',
+        'a1_self_intro',
+        'a1_time_1',
+        'a1_time_2',
+        'a1_time_3',
+        'a1_transport',
+        'a2_daily_1',
+        'a2_daily_2',
+        'a2_daily_3',
+        'a2_descriptions_1',
+        'a2_descriptions_2',
+        'a2_education',
+        'a2_feelings_1',
+        'a2_feelings_2',
+        'a2_food_1',
+        'a2_food_2',
+        'a2_health_misc_1',
+        'a2_health_misc_2',
+        'a2_home_1',
+        'a2_money_1',
+        'a2_shopping_1',
+        'a2_shopping_2',
+        'a2_transport',
+        'a2_weather',
+        'a2_work',
+        'b1_daily_1',
+        'b1_daily_2',
+        'b1_daily_3',
+        'b1_descriptions_1',
+        'b1_descriptions_2',
+        'b1_emotions_relations_1',
+        'b1_emotions_relations_2',
+        'b1_emotions_relations_3',
+        'b1_health_education',
+        'b1_tech_society_1',
+        'b1_tech_society_2',
+        'b1_work',
+        'b2_communication',
+        'b2_education',
+        'b2_environment_1',
+        'b2_misc',
+        'b2_society_1',
+        'b2_society_2',
+        'b2_thinking_1',
+        'b2_thinking_2',
+        'b2_work'
+      ];
+    }
+
+    function validPackProgress(packId, data) {
+      return isStaticPackId(packId)
+        && data.keys().hasAll([
+          'level', 'status', 'wordsLearned', 'wordsTotal', 'bossAccuracy',
+          'attempts', 'clearedAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'level', 'status', 'wordsLearned', 'wordsTotal', 'bossAccuracy',
+          'attempts', 'clearedAt', 'updatedAt'
+        ])
+        && data.level in ['A1', 'A2', 'B1', 'B2']
+        && (
+          (packId.matches('^a1_.*') && data.level == 'A1')
+          || (packId.matches('^a2_.*') && data.level == 'A2')
+          || (packId.matches('^b1_.*') && data.level == 'B1')
+          || (packId.matches('^b2_.*') && data.level == 'B2')
+        )
+        && data.status in ['locked', 'available', 'inProgress', 'cleared']
+        && data.wordsLearned is int
+        && data.wordsTotal is int
+        && data.wordsTotal >= 1
+        && data.wordsTotal <= 100
+        && data.wordsLearned >= 0
+        && data.wordsLearned <= data.wordsTotal
+        && data.bossAccuracy is number
+        && data.bossAccuracy >= 0
+        && data.bossAccuracy <= 1
+        && data.attempts is int
+        && data.attempts >= 0
+        && data.attempts <= 10000
+        && (data.clearedAt == null
+          || (data.clearedAt is string
+            && data.clearedAt.size() >= 20
+            && data.clearedAt.size() <= 40))
+        && data.updatedAt is timestamp
+        && data.updatedAt == request.time
+        && (data.status != 'cleared'
+          || (data.bossAccuracy >= 0.7
+            && data.attempts >= 1
+            && data.clearedAt is string));
+    }
+
+    function validCheerPayload(gyeId, payload) {
+      let targetUid = payload.get('targetUid', '');
+      return payload.keys().hasAll([
+          'targetUid', 'targetNickname', 'cheerCode'
+        ])
+        && payload.keys().hasOnly([
+          'targetUid', 'targetNickname', 'cheerCode'
+        ])
+        && targetUid is string
+        && targetUid != request.auth.uid
+        && exists(memberPath(gyeId, targetUid))
+        && get(memberPath(gyeId, targetUid)).data.status == 'active'
+        && !exists(banPath(gyeId, targetUid))
+        && !exists(accountDeletionPath(targetUid))
+        && payload.targetNickname
+             == get(memberPath(gyeId, targetUid)).data.nickname
+        && payload.cheerCode is int
+        && payload.cheerCode >= 1
+        && payload.cheerCode <= 5;
+    }
+
+    function validClientFeedPayload(gyeId, data) {
+      let payload = data.payload;
+      return (data.type == 'quest_completed'
+          && payload.keys().hasOnly(['questId'])
+          && payload.questId is string
+          && payload.questId.size() > 0
+          && payload.questId.size() <= 64)
+        || (data.type == 'level_up'
+          && payload.keys().hasOnly(['level'])
+          && payload.level is int
+          && payload.level >= 1
+          && payload.level <= 10000)
+        || (data.type == 'all_in'
+          && payload.keys().hasOnly([]))
+        || (data.type == 'sticker'
+          && payload.keys().hasAll(['stickerCode'])
+          && payload.keys().hasOnly(['stickerCode', 'targetEventId'])
+          && payload.stickerCode is int
+          && payload.stickerCode >= 1
+          && payload.stickerCode <= 30
+          && payload.get('targetEventId', '') is string
+          && payload.get('targetEventId', '').size() <= 128)
+        || (data.type == 'cheer' && validCheerPayload(gyeId, payload));
+    }
+
     match /users/{uid} {
-      allow read, write: if isOwner(uid);
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid)
+        && !exists(accountDeletionPath(uid))
+        && validGyeIds(request.resource.data.get('gyeIds', []));
+      allow update: if isOwner(uid)
+        && !exists(accountDeletionPath(uid))
+        && (!request.resource.data.diff(resource.data).affectedKeys()
+              .hasAny(['gyeIds'])
+          || validUserGyeTransition());
+      // Account deletion intentionally removes only this document. A retryable
+      // Admin SDK trigger owns all Gye cleanup and therefore bypasses rules.
+      allow delete: if isOwner(uid)
+        && existsAfter(accountDeletionPath(uid));
 
-      match /{document=**} {
-        allow read, write: if isOwner(uid);
+      match /packs/{packId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid)
+          && !exists(accountDeletionPath(uid))
+          && validPackProgress(packId, request.resource.data);
+        allow update: if isOwner(uid)
+          && !exists(accountDeletionPath(uid))
+          && validPackProgress(packId, request.resource.data)
+          && (resource.data.status != 'cleared'
+            || request.resource.data.status == 'cleared');
+        allow delete: if isOwner(uid);
+      }
+
+      match /{collectionName}/{document=**} {
+        allow read: if isOwner(uid) && collectionName != 'packs';
+        allow create, update: if isOwner(uid)
+          && collectionName != 'packs'
+          && !exists(accountDeletionPath(uid));
+        allow delete: if isOwner(uid) && collectionName != 'packs';
       }
     }
 
-    // ── 번역 캐시 (Phase 5 — 책 한 컷) ────────────────────────────────
-    // Cloud Function 만 write. 모든 인증된 사용자가 read 가능 (캐시 hit).
-    match /cache/translations/{hash} {
-      allow read: if request.auth != null;
-      allow write: if false; // Cloud Function (admin SDK) 만
+    match /account_deletions/{uid} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['state', 'createdAt'])
+        && request.resource.data.state == 'active'
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.createdAt == request.time
+        && exists(userPath(uid));
+      allow update, delete: if false;
     }
 
-    // ── Gye (Phase 6) — 계(契) 그룹 ───────────────────────────────────
-    // gyeId == 6자리 입장 코드(bearer). 메타는 코드를 아는 인증 사용자면
-    // read(가입 전 미리보기); 멤버 명단·피드·스티커는 멤버 전용.
-    // memberCount/weeklyGoalProgress 정밀화 + 인원 상한은 3e Cloud Function.
+    match /cache/translations/{hash} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
     match /gye/{gyeId} {
-      allow read: if request.auth != null; // 코드 보유 = bearer (미리보기)
-      allow create: if request.auth != null
+      // A Gye code is a bearer-style join secret. Authenticated users may
+      // resolve a code they already know, but may not enumerate all groups.
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn()
+        && !exists(accountDeletionPath(request.auth.uid))
+        && request.resource.data.keys().hasOnly([
+          'name', 'code', 'ownerId', 'memberCount', 'createdAt',
+          'weeklyGoalPacks', 'weeklyGoalProgress', 'lifetimeGoalsAchieved',
+          'xpBoostActive', 'lifecycleState'
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 20
+        && request.resource.data.code is string
         && request.resource.data.ownerId == request.auth.uid
         && request.resource.data.code == gyeId
-        && request.resource.data.memberCount == 1;
-      // 계장은 전체 수정; 멤버는 memberCount 단일 필드만(가입/탈퇴 카운트).
-      // Härtung (defect-hunt #2): Nicht-Owner dürfen memberCount nur um ±1
-      // ändern (Beitritt/Austritt) — keine willkürlichen Werte (z.B. 9999 zum
-      // Blockieren aller Joins oder 5 zum Platzschaffen). ⚠️ Das absolute
-      // 10er-Limit braucht weiterhin eine Cloud Function (Rules können die
-      // members-Subcollection nicht zählen). ⚠️ Jin: emulators-Test vor Deploy.
-      allow update: if isGyeOwner(gyeId)
-        || (request.auth != null
-            && request.resource.data.diff(resource.data).affectedKeys()
-                 .hasOnly(['memberCount'])
-            && request.resource.data.memberCount is int
-            && request.resource.data.memberCount >= 1
-            && (request.resource.data.memberCount
-                  == resource.data.memberCount + 1
-                || request.resource.data.memberCount
-                  == resource.data.memberCount - 1));
-      allow delete: if isGyeOwner(gyeId);
+        && request.resource.data.memberCount == 1
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.weeklyGoalPacks is int
+        && request.resource.data.weeklyGoalPacks >= 1
+        && request.resource.data.weeklyGoalPacks <= 1000
+        && request.resource.data.weeklyGoalProgress == 0
+        && request.resource.data.lifetimeGoalsAchieved == 0
+        && request.resource.data.xpBoostActive == false
+        && request.resource.data.lifecycleState == 'active'
+        && existsAfter(memberPath(gyeId, request.auth.uid))
+        && getAfter(memberPath(gyeId, request.auth.uid)).data.role == 'owner'
+        && existsAfter(userPath(request.auth.uid))
+        && getAfter(userPath(request.auth.uid)).data.get('gyeIds', [])
+             .hasAny([gyeId]);
+
+      allow update: if
+        (isGyeOwner(gyeId)
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['name', 'weeklyGoalPacks'])
+          && request.resource.data.memberCount == resource.data.memberCount
+          && request.resource.data.ownerId == resource.data.ownerId
+          && request.resource.data.name is string
+          && request.resource.data.name.size() > 0
+          && request.resource.data.name.size() <= 20
+          && request.resource.data.weeklyGoalPacks is int
+          && request.resource.data.weeklyGoalPacks >= 1
+          && request.resource.data.weeklyGoalPacks <= 1000)
+        || (signedIn()
+          && resource.data.get('lifecycleState', 'active') == 'active'
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['memberCount'])
+          && request.resource.data.memberCount is int
+          && request.resource.data.memberCount >= 1
+          && request.resource.data.memberCount <= 10
+          && (
+            (request.resource.data.memberCount == resource.data.memberCount + 1
+              && !exists(memberPath(gyeId, request.auth.uid))
+              && existsAfter(memberPath(gyeId, request.auth.uid)))
+            || (request.resource.data.memberCount
+                  == resource.data.memberCount - 1
+              && exists(memberPath(gyeId, request.auth.uid))
+              && !existsAfter(memberPath(gyeId, request.auth.uid)))
+          ));
+      allow delete: if false;
 
       match /members/{memberUid} {
-        allow read: if isGyeMember(gyeId) || isAdmin();
-        // 가입 = 본인 멤버 문서 생성.
-        allow create: if request.auth != null
+        // Retain own-document access so a suspended/banned client can explain
+        // its state, without exposing the roster or other member documents.
+        allow get: if isActiveGyeMember(gyeId)
+          || (signedIn() && request.auth.uid == memberUid)
+          || isAdmin();
+        allow list: if isActiveGyeMember(gyeId) || isAdmin();
+        allow create: if signedIn()
           && request.auth.uid == memberUid
-          && request.resource.data.nickname is string
-          && request.resource.data.nickname.size() <= 20;
-        // 본인은 자기 멤버 문서 수정 가능 — 단 `status`는 제외(정지 회피 방지).
-        // status 변경은 계장/admin 또는 Cloud Function(on_report_created)만.
-        allow update: if isGyeOwner(gyeId) || isAdmin()
-          || (request.auth.uid == memberUid
-              && !request.resource.data.diff(resource.data)
-                   .affectedKeys().hasAny(['status']));
-        allow delete: if request.auth.uid == memberUid || isGyeOwner(gyeId);
+          && !exists(accountDeletionPath(memberUid))
+          && !exists(banPath(gyeId, memberUid))
+          && (!exists(departurePath(gyeId, memberUid))
+            || (get(departurePath(gyeId, memberUid)).data.state == 'complete'
+              && request.resource.data.membershipId
+                != get(departurePath(gyeId, memberUid)).data.membershipId))
+          && (
+            (!exists(metaPath(gyeId))
+              && validMemberDocument(request.resource.data, memberUid, 'owner')
+              && existsAfter(metaPath(gyeId))
+              && getAfter(metaPath(gyeId)).data.ownerId == memberUid
+              && getAfter(metaPath(gyeId)).data.memberCount == 1)
+            || (exists(metaPath(gyeId))
+              && parentIsJoinable(gyeId)
+              && validMemberDocument(
+                request.resource.data,
+                memberUid,
+                'member'
+              )
+              && getAfter(metaPath(gyeId)).data.memberCount
+                   == get(metaPath(gyeId)).data.memberCount + 1)
+          )
+          && existsAfter(userPath(memberUid))
+          && validGyeIds(
+            getAfter(userPath(memberUid)).data.get('gyeIds', [])
+          )
+          && getAfter(userPath(memberUid)).data.get('gyeIds', [])
+               .hasAny([gyeId]);
+
+        allow update: if isAdmin()
+          || (signedIn()
+            && request.auth.uid == memberUid
+            && !exists(accountDeletionPath(memberUid))
+            && get(metaPath(gyeId)).data.get('lifecycleState', 'active')
+                 == 'active'
+            && request.resource.data.diff(resource.data).affectedKeys()
+                 .hasOnly(['nickname', 'level', 'streakDays'])
+            && request.resource.data.uid == resource.data.uid
+            && request.resource.data.get('membershipId', 'legacy')
+                 == resource.data.get('membershipId', 'legacy')
+            && request.resource.data.role == resource.data.role
+            && request.resource.data.status == resource.data.status
+            && request.resource.data.joinedAt == resource.data.joinedAt
+            && request.resource.data.weeklyPacksContributed
+                 == resource.data.weeklyPacksContributed
+            && request.resource.data.nickname is string
+            && request.resource.data.nickname.size() > 0
+            && request.resource.data.nickname.size() <= 12
+            && request.resource.data.level is int
+            && request.resource.data.level >= 0
+            && request.resource.data.streakDays is int
+            && request.resource.data.streakDays >= 0);
+
+        allow delete: if signedIn()
+          && request.auth.uid == memberUid
+          && !exists(accountDeletionPath(memberUid))
+          && get(metaPath(gyeId)).data.get('lifecycleState', 'active')
+               == 'active'
+          && resource.data.role == 'member'
+          && resource.data.status == 'active'
+          && !exists(banPath(gyeId, memberUid))
+          && existsAfter(departurePath(gyeId, memberUid))
+          && getAfter(departurePath(gyeId, memberUid)).data.state == 'pending'
+          && getAfter(departurePath(gyeId, memberUid)).data.membershipId
+               == resource.data.get('membershipId', 'legacy')
+          && existsAfter(metaPath(gyeId))
+          && getAfter(metaPath(gyeId)).data.memberCount
+               == get(metaPath(gyeId)).data.memberCount - 1
+          && existsAfter(userPath(memberUid))
+          && !getAfter(userPath(memberUid)).data.get('gyeIds', [])
+               .hasAny([gyeId])
+          && validGyeIds(
+            getAfter(userPath(memberUid)).data.get('gyeIds', [])
+          );
+      }
+
+      match /departures/{departingUid} {
+        allow read: if (signedIn() && request.auth.uid == departingUid)
+          || isAdmin();
+        allow create, update: if signedIn()
+          && request.auth.uid == departingUid
+          && get(metaPath(gyeId)).data.get('lifecycleState', 'active')
+               == 'active'
+          && request.resource.data.keys().hasOnly([
+            'uid', 'membershipId', 'nickname', 'state', 'createdAt'
+          ])
+          && request.resource.data.uid == departingUid
+          && request.resource.data.membershipId
+               == get(memberPath(gyeId, departingUid)).data
+                    .get('membershipId', 'legacy')
+          && request.resource.data.nickname
+               == get(memberPath(gyeId, departingUid)).data.nickname
+          && request.resource.data.state == 'pending'
+          && request.resource.data.createdAt is timestamp
+          && request.resource.data.createdAt == request.time
+          && exists(memberPath(gyeId, departingUid))
+          && !existsAfter(memberPath(gyeId, departingUid))
+          && (!exists(departurePath(gyeId, departingUid))
+            || resource.data.state == 'complete');
+        allow delete: if false;
+      }
+
+      match /bans/{bannedUid} {
+        allow get: if isActiveGyeMember(gyeId)
+          || (signedIn() && request.auth.uid == bannedUid)
+          || isAdmin();
+        allow list: if isActiveGyeMember(gyeId) || isAdmin();
+        allow create, update, delete: if false;
       }
 
       match /feed/{eventId} {
-        allow read: if isGyeMember(gyeId);
-        // 정지된 멤버는 전송 불가 (active 멤버만 append).
-        // Härtung (defect-hunt #10): nur bekannte Event-Typen — kein Einschleusen
-        // gefälschter goal_achieved/all_in oder beliebiger type-Strings.
-        // ⚠️ Jin: emulators-Test vor Deploy (Liste == GyeFeedTypeWire.wire).
+        allow read: if isActiveGyeMember(gyeId);
         allow create: if isActiveGyeMember(gyeId)
+          && request.resource.data.keys().hasOnly([
+            'type', 'actorUid', 'actorNickname', 'payload', 'createdAt'
+          ])
           && request.resource.data.actorUid == request.auth.uid
-          && request.resource.data.type in ['pack_cleared', 'quest_completed',
-              'level_up', 'goal_achieved', 'all_in', 'sticker', 'cheer'];
-        allow update, delete: if false; // Cloud Function(admin)만 정리
+          && request.resource.data.actorNickname
+               == get(memberPath(gyeId, request.auth.uid)).data.nickname
+          && request.resource.data.payload is map
+          && request.resource.data.createdAt is timestamp
+          && request.resource.data.createdAt == request.time
+          && validClientFeedPayload(gyeId, request.resource.data);
+        allow update, delete: if false;
       }
 
       match /stickers/{stickerId} {
-        allow read: if isGyeMember(gyeId);
+        allow read: if isActiveGyeMember(gyeId);
         allow create: if isActiveGyeMember(gyeId)
+          && request.resource.data.keys().hasOnly([
+            'senderUid', 'senderNickname', 'stickerCode', 'createdAt'
+          ])
           && request.resource.data.senderUid == request.auth.uid
+          && request.resource.data.senderNickname
+               == get(memberPath(gyeId, request.auth.uid)).data.nickname
           && request.resource.data.stickerCode is int
           && request.resource.data.stickerCode >= 1
-          && request.resource.data.stickerCode <= 30;
+          && request.resource.data.stickerCode <= 30
+          && request.resource.data.createdAt is timestamp
+          && request.resource.data.createdAt == request.time;
         allow update, delete: if false;
       }
 
       match /reports/{reportId} {
-        // 계장 또는 admin(custom claim) — admin 패널 collectionGroup 조회.
         allow read: if isGyeOwner(gyeId) || isAdmin();
-        allow create: if isGyeMember(gyeId)
-          && request.resource.data.reporterUid == request.auth.uid;
-        // admin 검토 처리(status=reviewed/dismissed). 그 외 CF(admin SDK)만.
+        allow create: if isActiveGyeMember(gyeId)
+          && request.resource.data.keys().hasOnly([
+            'reporterUid', 'targetUid', 'reason', 'note', 'createdAt',
+            'status', 'reviewedBy', 'actionTaken'
+          ])
+          && request.resource.data.reporterUid == request.auth.uid
+          && request.resource.data.targetUid is string
+          && request.resource.data.targetUid != request.auth.uid
+          && reportId
+               == request.resource.data.targetUid + '_' + request.auth.uid
+          && exists(memberPath(gyeId, request.resource.data.targetUid))
+          && get(memberPath(gyeId, request.resource.data.targetUid))
+               .data.status == 'active'
+          && !exists(banPath(gyeId, request.resource.data.targetUid))
+          && !exists(
+            accountDeletionPath(request.resource.data.targetUid)
+          )
+          && request.resource.data.reason in [
+            'spam', 'inappropriate', 'harassment', 'other'
+          ]
+          && request.resource.data.note is string
+          && request.resource.data.note.size() <= 500
+          && request.resource.data.status == 'pending'
+          && request.resource.data.reviewedBy == null
+          && request.resource.data.actionTaken == null
+          && request.resource.data.createdAt is timestamp
+          && request.resource.data.createdAt == request.time;
         allow update: if isAdmin();
         allow delete: if false;
       }
     }
 
-    // ── 공유 단어팩 (Phase 5.2 — 친구코드) ────────────────────────────
-    // 코드(문서 ID) = bearer capability. 인증 사용자는 누구나 read(=import).
-    // create 는 본인(createdBy=uid)만 + wordCount 제한. update/delete 차단.
     match /shared_packs/{code} {
-      allow read: if request.auth != null;
-      allow create: if request.auth != null
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && !exists(accountDeletionPath(request.auth.uid))
         && request.resource.data.createdBy == request.auth.uid
         && request.resource.data.wordCount is int
         && request.resource.data.wordCount <= 100;
       allow update, delete: if false;
     }
 
-    // ── 그 외 ──────────────────────────────────────────────────────────
     match /{document=**} {
       allow read, write: if false;
     }
   }
-}
-
-// ── 헬퍼 ───────────────────────────────────────────────────────────────
-function isOwner(uid) {
-  return request.auth != null && request.auth.uid == uid;
-}
-
-// 계 멤버 여부 — 본인 멤버 문서 존재 검사.
-function isGyeMember(gyeId) {
-  return request.auth != null
-    && exists(/databases/(default)/documents/gye/$(gyeId)/members/$(request.auth.uid));
-}
-
-// 정지되지 않은 활성 멤버 — 전송(feed/sticker) 게이트. status 필드 검사(get 1회).
-function isActiveGyeMember(gyeId) {
-  return isGyeMember(gyeId)
-    && get(/databases/(default)/documents/gye/$(gyeId)/members/$(request.auth.uid))
-         .data.status != 'suspended';
-}
-
-// 계장 여부 — 메타 문서 ownerId 검사 (메타 미존재 시 get() 실패 → 거부).
-function isGyeOwner(gyeId) {
-  return request.auth != null
-    && get(/databases/(default)/documents/gye/$(gyeId)).data.ownerId == request.auth.uid;
-}
-
-// 운영자 — Firebase Auth Custom Claim `admin: true` (Jin uid에 set). plan §9.2.
-// admin 패널(tools/admin)이 reports collectionGroup 조회 + 멤버 status 변경에 사용.
-function isAdmin() {
-  return request.auth != null && request.auth.token.admin == true;
 }

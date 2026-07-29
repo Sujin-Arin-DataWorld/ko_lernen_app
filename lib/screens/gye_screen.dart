@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../l10n/gye_error_text.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
 import '../services/gye_service.dart';
@@ -128,7 +129,7 @@ class _GyeScreenState extends State<GyeScreen>
                   if (v == 'invite') {
                     _shareGyeCode(context, meta.code);
                   } else if (v == 'leave') {
-                    _confirmLeaveGye(context, widget.gyeId);
+                    confirmLeaveGye(context, widget.gyeId);
                   } else if (v == 'members') {
                     Navigator.of(
                       context,
@@ -141,7 +142,13 @@ class _GyeScreenState extends State<GyeScreen>
                     value: 'members',
                     child: Text(t.gyeMembersTitle),
                   ),
-                  PopupMenuItem(value: 'leave', child: Text(t.gyeLeave)),
+                  if (meta.ownerId != GyeService.currentUid)
+                    PopupMenuItem(value: 'leave', child: Text(t.gyeLeave)),
+                  if (meta.ownerId == GyeService.currentUid)
+                    PopupMenuItem(
+                      enabled: false,
+                      child: Text(t.gyeOwnerLeaveUnavailable),
+                    ),
                 ],
               ),
             ],
@@ -252,7 +259,11 @@ class _GyeScreenState extends State<GyeScreen>
 }
 
 /// 계 나가기 — 확인 후 탈퇴 + 홈 복귀. plan §7/9.
-Future<void> _confirmLeaveGye(BuildContext context, String gyeId) async {
+Future<void> confirmLeaveGye(
+  BuildContext context,
+  String gyeId, {
+  Future<void> Function(String gyeId) leave = GyeService.leaveGye,
+}) async {
   final t = AppL10n.of(context);
   final ok = await showDialog<bool>(
     context: context,
@@ -271,9 +282,23 @@ Future<void> _confirmLeaveGye(BuildContext context, String gyeId) async {
     ),
   );
   if (ok == true) {
-    await GyeService.leaveGye(gyeId);
-    if (context.mounted) {
-      Navigator.of(context).pop();
+    try {
+      await leave(gyeId);
+      if (context.mounted) {
+        Navigator.of(context).pop();
+      }
+    } on GyeException catch (error) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(gyeErrorMessage(t, error.error))),
+        );
+      }
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(t.gyeErrNetwork)));
+      }
     }
   }
 }
