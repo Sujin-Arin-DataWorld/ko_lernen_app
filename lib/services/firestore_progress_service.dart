@@ -24,7 +24,7 @@ class FirestoreProgressService {
 
   static CollectionReference<Map<String, dynamic>>? _packsCollection() {
     final db = _db;
-    final uid = AuthService.current?.uid;
+    final uid = AuthService.cloudBackupUid;
     if (db == null || uid == null) return null;
     return db.collection('users').doc(uid).collection('packs');
   }
@@ -37,7 +37,7 @@ class FirestoreProgressService {
       final snap = await ref.get();
       return {
         for (final doc in snap.docs)
-          doc.id: PackProgress.fromJson(doc.id, doc.data())
+          doc.id: PackProgress.fromJson(doc.id, doc.data()),
       };
     } catch (_) {
       // 네트워크 / 권한 오류 — 로컬 SoT 유지, 백업만 실패.

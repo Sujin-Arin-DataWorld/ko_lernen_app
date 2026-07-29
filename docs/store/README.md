@@ -1,48 +1,68 @@
 # Store Submission Pack — Hangul Sori
 
-> Materialien für Google Play Console + Apple App Store Connect.
-> Owner: Jin · Status: Pre-Launch · Target: Android + iOS gleichzeitig.
+Materials for Google Play Console and Apple App Store Connect.
 
----
+Status: **pre-launch**. Target: Android and iOS.
 
-## Checklist (Pre-Submission)
+Privacy answers in this repository are release-owner review worksheets, not
+verified console exports. Google Play Data Safety and Apple App Privacy use
+different categories and must be reviewed separately in `data-safety.md`
+against the final signed builds and live service configuration.
 
-### Google Play Console
-- [ ] Privacy Policy URL eingetragen: `https://hangul-sori.com/privacy.html`
-- [ ] App-Kategorie: Education → Language Learning
-- [ ] Inhaltsbewertung: PEGI 3 / ESRB Everyone (Fragebogen ausfüllen → `data-safety.md` referenzieren)
-- [ ] Data Safety-Formular: siehe `data-safety.md`
-- [ ] Feature Graphic 1024×500 PNG: `assets/store/feature_graphic.png`
-- [ ] Screenshots ≥ 2 (empfohlen 8) à 1080×1920 PNG: siehe `screenshot-shotlist.md`
-- [ ] Kurze Beschreibung (80 Zeichen DE/EN): siehe `listing-de.md` / `listing-en.md`
-- [ ] Vollständige Beschreibung (≤ 4000 Zeichen DE/EN): siehe Listings
-- [ ] App-Icon 512×512: `assets/icons/icon-512.png` (vorhanden)
-- [ ] App-Signatur (Play App Signing aktiviert?)
+## Google Play Console
 
-### Apple App Store Connect
-- [ ] Privacy Policy URL: `https://hangul-sori.com/privacy.html`
-- [ ] Primary Category: Education · Secondary: Reference
-- [ ] Age Rating: 4+ (Fragebogen)
-- [ ] App Privacy: gleiche Inhalte wie Play `data-safety.md`
-- [ ] Screenshots 6.7" iPhone 1290×2796 (≥ 3 Stk.) + 5.5" 1242×2208 (optional)
-- [ ] App Preview Video (optional, ≤ 30s)
-- [ ] Keywords (100 Zeichen total, kommagetrennt): siehe `listing-en.md`
-- [ ] Promotional Text (170 Zeichen): siehe Listings
-- [ ] App-Beschreibung (≤ 4000): siehe Listings
+- [ ] Privacy Policy URL entered:
+  `https://hangul-sori.com/privacy.html`
+- [ ] Account-deletion URL entered:
+  `https://hangul-sori.com/account-deletion.html`
+- [ ] App category and content-rating questionnaire completed from the actual
+  release features; do not rely on a guessed rating.
+- [ ] Google Play matrix in `data-safety.md` reconciled with the final signed
+  Android manifest, current Firebase/RevenueCat disclosures, and live console.
+- [ ] Closed-testing eligibility, required tester count, opt-in continuity, and
+  testing duration verified in the Play Console under the current Google rule.
+- [ ] Feature graphic and screenshots checked against the current app UI.
+- [ ] Play App Signing and the intended upload key confirmed.
 
-### Beide
-- [ ] Build hochgeladen (internes Testing zuerst)
-- [ ] Eigener Testlauf auf realem Android + iPhone
-- [ ] Release Notes (DE/EN) für v1.0.0
+## Apple App Store Connect
 
----
+- [ ] Privacy Policy URL entered:
+  `https://hangul-sori.com/privacy.html`
+- [ ] Apple App Privacy worksheet in `data-safety.md` reviewed separately; do
+  not copy Play answers field-for-field.
+- [ ] In-app account deletion, Apple reauthentication/revocation, subscription
+  management, and purchase restore verified on a signed iOS build.
+- [ ] App category, age-rating questionnaire, screenshots, keywords, and
+  description reviewed in App Store Connect.
+- [ ] Apple team, signing, entitlements, APNs, Firebase plist, and RevenueCat
+  iOS configuration verified on the release archive.
 
-## Dateien
+## Both stores
 
-| Datei | Zweck |
+- [ ] Android and iOS release candidates exercised on real devices.
+- [ ] Public English, German, and Korean tabs in `privacy.html` and
+  `account-deletion.html` reviewed.
+- [ ] Legal controller/address, live service regions, retention settings, and
+  RevenueCat integration blockers in `data-safety.md` resolved by the owner.
+- [ ] Subscriptions are described as requiring separate store cancellation;
+  account deletion is not described as cancelling billing.
+- [ ] Release notes and support contact
+  `hello@hangul-sori.com` verified.
+
+## Files
+
+| File | Purpose |
 |---|---|
-| `listing-de.md` | Google Play + App Store DE-Texte |
-| `listing-en.md` | Google Play + App Store EN-Texte (+ Keywords) |
-| `data-safety.md` | Play Console Data-Safety-Formular Antworten |
-| `screenshot-shotlist.md` | Welche Screens für welchen Slot |
-| `release-notes-v1.md` | Release Notes für ersten Launch |
+| `listing-de.md` | German store copy |
+| `listing-en.md` | English store copy and keywords |
+| `data-safety.md` | Separate Play and Apple privacy worksheets plus external blockers |
+| `closed-testing-checklist-v2.md` | Android closed-testing operational checklist |
+| `ios-external-setup.md` | iOS external signing/configuration checklist |
+| `subscription-setup-runbook.md` | Store and RevenueCat setup |
+| `screenshot-shotlist.md` | Required screenshot scenes and sizes |
+| `release-notes-v1.md`, `release-notes-v2.md` | Release-note drafts |
+
+Public pages:
+
+- `../privacy.html`
+- `../account-deletion.html`

@@ -32,6 +32,27 @@ class AuthProviderState {
   bool get isDurable => isGoogleLinked || isAppleLinked;
 }
 
+/// Selects the Firebase UID that may own learning-data cloud backups.
+///
+/// Anonymous Firebase Auth remains available to optional authenticated
+/// features, but it does not by itself authorize progress or bookshelf sync.
+@immutable
+class CloudBackupAccessPolicy {
+  const CloudBackupAccessPolicy._();
+
+  static String? uidFor({
+    required String? uid,
+    required Iterable<String> providerIds,
+  }) {
+    final normalizedUid = uid?.trim();
+    if (normalizedUid == null || normalizedUid.isEmpty) {
+      return null;
+    }
+    final providers = AuthProviderState.fromProviderIds(providerIds);
+    return providers.isDurable ? normalizedUid : null;
+  }
+}
+
 @immutable
 class AuthAccountSnapshot {
   const AuthAccountSnapshot({
@@ -453,6 +474,22 @@ class AuthService {
   static bool get isGoogleLinked => providerState.isGoogleLinked;
   static bool get isAppleLinked => providerState.isAppleLinked;
   static bool get isDurableLinked => providerState.isDurable;
+
+  /// UID eligible for learning-progress backup, or `null` for anonymous-only
+  /// and unavailable identities.
+  static String? get cloudBackupUid {
+    try {
+      final user = current;
+      return CloudBackupAccessPolicy.uidFor(
+        uid: user?.uid,
+        providerIds:
+            user?.providerData.map((provider) => provider.providerId) ??
+            const <String>[],
+      );
+    } catch (_) {
+      return null;
+    }
+  }
 
   /// Apple Sign-In ist nur auf Apple-Plattformen verfügbar (App-Store-
   /// Richtlinie 4.8 verlangt es, sobald Google-Login angeboten wird).

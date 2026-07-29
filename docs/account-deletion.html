@@ -1,540 +1,268 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Account & Daten löschen — Hangul Sori (한글소리)">
-<meta name="robots" content="index, follow">
-<title>Account Deletion / Konto löschen — Hangul Sori</title>
-<link rel="icon" type="image/svg+xml" href="icon.svg">
-<style>
-  :root {
-    --bg: #0F1419;
-    --bg-card: #1A1F2A;
-    --fg: #E8EAED;
-    --fg-muted: #9AA0A6;
-    --accent: #7B5BFF;
-    --korean: #FFD700;
-    --danger: #FF6B6B;
-    --border: #2A2F3A;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 32px 24px 64px;
-  }
-  .top-nav {
-    text-align: center;
-    padding: 16px 0 32px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 32px;
-  }
-  .top-nav a {
-    color: var(--fg-muted);
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 14px;
-  }
-  .top-nav a:hover { color: var(--accent); }
-  .lang-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 32px;
-    border-bottom: 1px solid var(--border);
-  }
-  .lang-tabs button {
-    background: transparent;
-    border: none;
-    color: var(--fg-muted);
-    padding: 12px 20px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-  }
-  .lang-tabs button.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-  .lang-tabs button:hover { color: var(--fg); }
-  h1 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: var(--korean);
-    letter-spacing: -0.02em;
-  }
-  .meta {
-    color: var(--fg-muted);
-    font-size: 14px;
-    margin-bottom: 32px;
-  }
-  h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin: 40px 0 12px;
-    color: var(--fg);
-  }
-  h3 {
-    font-size: 17px;
-    font-weight: 600;
-    margin: 24px 0 8px;
-    color: var(--fg);
-  }
-  p, ul, ol { margin-bottom: 16px; color: var(--fg); }
-  ul, ol { padding-left: 24px; }
-  li { margin-bottom: 6px; }
-  ol li::marker { color: var(--accent); font-weight: 700; }
-  strong { color: var(--accent); }
-  a { color: var(--accent); }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    background: var(--bg-card);
-    border-radius: 8px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  th, td {
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  th {
-    background: rgba(123, 91, 255, 0.1);
-    color: var(--accent);
-    font-weight: 600;
-  }
-  tr:last-child td { border-bottom: none; }
-  code {
-    background: var(--bg-card);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 13px;
-    color: var(--korean);
-  }
-  .cta-card {
-    background: var(--bg-card);
-    border: 1px solid var(--accent);
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin: 24px 0;
-  }
-  .cta-card .cta-mail {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 12px;
-  }
-  .cta-card .cta-mail:hover { opacity: 0.9; }
-  .badge-danger {
-    display: inline-block;
-    background: rgba(255, 107, 107, 0.15);
-    color: var(--danger);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-left: 6px;
-  }
-  .badge-keep {
-    display: inline-block;
-    background: rgba(123, 91, 255, 0.15);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-left: 6px;
-  }
-  .section { display: none; }
-  .section.active { display: block; }
-  footer {
-    text-align: center;
-    margin-top: 64px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-    color: var(--fg-muted);
-    font-size: 13px;
-  }
-  footer a { margin: 0 8px; }
-  @media (max-width: 480px) {
-    .container { padding: 16px 16px 48px; }
-    h1 { font-size: 26px; }
-    h2 { font-size: 19px; }
-    table { font-size: 13px; }
-    th, td { padding: 8px 10px; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Delete a Hangul Sori account or app data">
+  <meta name="robots" content="index, follow">
+  <title>Account &amp; Data Deletion — Hangul Sori</title>
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f1419;
+      --card: #1a1f2a;
+      --text: #e8eaed;
+      --muted: #aab0b6;
+      --accent: #9b87ff;
+      --danger: #ff7b7b;
+      --gold: #ffd700;
+      --border: #303744;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 24px 20px 64px; }
+    nav { display: flex; flex-wrap: wrap; gap: 14px; padding: 14px 0 24px; border-bottom: 1px solid var(--border); }
+    a { color: var(--accent); }
+    nav a { color: var(--muted); text-decoration: none; }
+    .lang-tabs { display: flex; gap: 8px; margin: 28px 0; border-bottom: 1px solid var(--border); }
+    .lang-tabs button {
+      border: 0;
+      border-bottom: 2px solid transparent;
+      padding: 11px 16px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+    }
+    .lang-tabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .section { display: none; }
+    .section.active { display: block; }
+    h1 { color: var(--gold); line-height: 1.2; }
+    h2 { margin-top: 36px; line-height: 1.3; }
+    h3 { margin-top: 22px; }
+    .meta, .note { color: var(--muted); }
+    .card {
+      margin: 18px 0;
+      padding: 17px 19px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--card);
+    }
+    .primary { border-left: 4px solid var(--accent); }
+    .warning { border-left: 4px solid var(--danger); }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.94rem; }
+    th, td { padding: 10px 12px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    th { color: var(--accent); background: var(--card); }
+    li { margin: 7px 0; }
+    footer { margin-top: 52px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); }
+    @media (max-width: 620px) {
+      .container { padding: 16px 14px 44px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="top-nav">
-      <a href="index.html">← Home</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>
-    </nav>
+<main class="container">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>
+  </nav>
 
-    <div class="lang-tabs">
-      <button class="active" onclick="showLang('en', this)">English</button>
-      <button onclick="showLang('de', this)">Deutsch</button>
-      <button onclick="showLang('ko', this)">한국어</button>
-    </div>
-
-    <!-- ─────────── ENGLISH ─────────── -->
-    <section class="section active" id="lang-en">
-      <h1>Account & Data Deletion</h1>
-      <p class="meta"><strong>App:</strong> Hangul Sori (한글소리) · <strong>Developer:</strong> Sujin Arin DataWorld · <strong>Last Updated:</strong> 2026-05-28</p>
-
-      <p>This page covers <strong>both full account deletion and partial data deletion</strong>. Pick the option that matches what you need:</p>
-
-      <div class="cta-card">
-        <h3 style="margin-top: 0;">→ I want to delete <em>some</em> of my data, but keep using the app</h3>
-        <ul style="margin-bottom: 0;">
-          <li><strong>Reset learning progress</strong> (XP, streak, vocab SRS, game scores) — open the app, <em>Settings → Reset</em>. Takes effect immediately, no email needed.</li>
-          <li><strong>Remove my Google account link</strong> (deletes email + display name we have for you) — <em>Settings → Sign out</em>. Account stays as anonymous, cloud data remains; use email path below to also delete cloud data.</li>
-          <li><strong>Delete specific data types only</strong> (e.g. just cloud progress but keep login) — email us with details (see step 2 below).</li>
-        </ul>
-      </div>
-
-      <div class="cta-card">
-        <h3 style="margin-top: 0;">→ I want to delete <em>everything</em> — my account and all data</h3>
-        <p style="margin-bottom: 0;">Email <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> — see steps in section 1 below. Completed within 14 days.</p>
-      </div>
-
-      <h2>1. How to Request Deletion</h2>
-
-      <div class="cta-card">
-        <strong style="color: var(--fg);">Send us an email to request deletion.</strong>
-        <p style="margin: 8px 0 0; color: var(--fg-muted); font-size: 14px;">
-          We don't yet offer an in-app delete button (planned for v1.0.1). Until then, email is the official channel.
-        </p>
-        <a class="cta-mail" href="mailto:hello@hangul-sori.com?subject=Account%20Deletion%20Request&amp;body=Please%20delete%20my%20Hangul%20Sori%20account%20and%20associated%20data.%0A%0AGoogle%20account%20email%20(if%20you%20used%20Google%20Sign-In):%0A%0AApproximate%20date%20of%20first%20app%20use:%0A%0A">
-          ✉ Email hello@hangul-sori.com
-        </a>
-      </div>
-
-      <h3>Steps:</h3>
-      <ol>
-        <li>Send an email to <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> with the subject "<strong>Account Deletion Request</strong>".</li>
-        <li>In the body, include either:
-          <ul>
-            <li>The Google account email you used to sign in (if you enabled Cloud Sync), <strong>or</strong></li>
-            <li>If you never signed in (anonymous user only), tell us the approximate date of your first app use and the device you used. We will use this to help identify your anonymous Firebase ID — but note that for fully anonymous users, the only way to delete your data is to also <strong>uninstall the app</strong>, since the anonymous ID is tied to your device.</li>
-          </ul>
-        </li>
-        <li>We will confirm receipt within <strong>3 business days</strong> and complete deletion within <strong>14 days</strong> (GDPR Art. 17 / Art. 12.3 timeline).</li>
-        <li>You will receive a final confirmation email when deletion is complete.</li>
-      </ol>
-
-      <h3>Self-service options (no email required)</h3>
-      <ul>
-        <li><strong>Reset all local progress</strong>: Open Hangul Sori → <em>Settings</em> → <em>Reset</em>. This wipes XP, streak, vocab SRS state, and game scores stored on your device.</li>
-        <li><strong>Sign out of Google</strong>: <em>Settings</em> → <em>Sign out</em>. Your account reverts to anonymous; the Google linkage is removed. (This does not delete your Firestore data — use the email path for full deletion.)</li>
-        <li><strong>Uninstall the app</strong>: This removes all on-device data, but anonymous Firebase ID and Crashlytics/Analytics data remain server-side until they auto-expire (see retention table below).</li>
-      </ul>
-
-      <h2>2. What Gets Deleted</h2>
-
-      <table>
-        <thead>
-          <tr><th>Data</th><th>Where it lives</th><th>Action</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Firebase Auth user record (anonymous + linked Google credentials)</td><td>Google Firebase (EU)</td><td><span class="badge-danger">Deleted</span></td></tr>
-          <tr><td>Google account email and display name</td><td>Firebase Auth (EU)</td><td><span class="badge-danger">Deleted</span></td></tr>
-          <tr><td>Cloud-synced learning progress (XP, streak, vocab SRS, scenario completion, badges, settings)</td><td>Cloud Firestore (EU)</td><td><span class="badge-danger">Deleted</span></td></tr>
-          <tr><td>Local on-device data</td><td>Your device only</td><td>Removed when you uninstall the app or use "Reset" in Settings</td></tr>
-        </tbody>
-      </table>
-
-      <h2>3. What Gets Retained (and Why)</h2>
-
-      <table>
-        <thead>
-          <tr><th>Data</th><th>Why retained</th><th>How long</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Crash logs (Firebase Crashlytics) — anonymized, no PII</td><td>Stability monitoring, bug fixes</td><td><span class="badge-keep">Auto-purged after 90 days</span></td></tr>
-          <tr><td>Aggregated, anonymized analytics events (Firebase Analytics) — app_open, screen_view, session_start</td><td>Understanding app usage patterns. Individual records are unlinkable to you once your Firebase UID is deleted.</td><td><span class="badge-keep">Auto-purged after 14 months</span> (Firebase default)</td></tr>
-          <tr><td>Anonymized payment records, IF any (currently no payments in v1.0.0)</td><td>Tax law (German HGB §257) requires 10-year retention of financial records.</td><td>Not applicable — no payments collected.</td></tr>
-          <tr><td>Email correspondence with our support address</td><td>Audit trail of the deletion request itself.</td><td><span class="badge-keep">3 years</span>, then deleted.</td></tr>
-        </tbody>
-      </table>
-
-      <p>Once your Firebase UID is deleted, any retained analytics or crash records cannot be re-linked back to you — they become statistically anonymous.</p>
-
-      <h2>4. Response Time</h2>
-      <ul>
-        <li><strong>Acknowledgement</strong>: within 3 business days</li>
-        <li><strong>Completion</strong>: within 14 days of acknowledgement (per GDPR Art. 12.3)</li>
-        <li><strong>Confirmation email</strong>: sent when all systems have purged your data</li>
-      </ul>
-
-      <h2>5. Your Rights</h2>
-      <p>Under GDPR (Art. 17, "Right to Erasure"), you have the unconditional right to request deletion of your personal data. You may also:</p>
-      <ul>
-        <li>Request a copy of your data (Art. 15)</li>
-        <li>Lodge a complaint with your national data protection authority (in Germany: <a href="https://www.bfdi.bund.de">bfdi.bund.de</a>)</li>
-      </ul>
-
-      <h2>6. Contact</h2>
-      <p>
-        <strong>Data Controller:</strong><br>
-        Sujin Park (Sujin Arin DataWorld)<br>
-        Frankfurt am Main, Germany<br>
-        Email: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>
-      </p>
-    </section>
-
-    <!-- ─────────── DEUTSCH ─────────── -->
-    <section class="section" id="lang-de">
-      <h1>Konto & Daten löschen</h1>
-      <p class="meta"><strong>App:</strong> Hangul Sori (한글소리) · <strong>Anbieter:</strong> Sujin Arin DataWorld · <strong>Zuletzt aktualisiert:</strong> 2026-05-28</p>
-
-      <p>Diese Seite deckt <strong>sowohl die vollständige Kontolöschung als auch die teilweise Datenlöschung</strong> ab. Wählen Sie die Option, die zu Ihrem Anliegen passt:</p>
-
-      <div class="cta-card">
-        <h3 style="margin-top: 0;">→ Ich möchte <em>einen Teil</em> meiner Daten löschen, die App aber weiter nutzen</h3>
-        <ul style="margin-bottom: 0;">
-          <li><strong>Lernfortschritt zurücksetzen</strong> (XP, Streak, Vokabel-SRS, Spielergebnisse) — App öffnen, <em>Einstellungen → Zurücksetzen</em>. Wirkt sofort, keine E-Mail nötig.</li>
-          <li><strong>Google-Konto-Verknüpfung entfernen</strong> (löscht E-Mail + Anzeigename, die wir von Ihnen haben) — <em>Einstellungen → Abmelden</em>. Konto bleibt anonym bestehen, Cloud-Daten bleiben; für Cloud-Löschung E-Mail-Weg unten verwenden.</li>
-          <li><strong>Nur bestimmte Datenkategorien löschen</strong> (z.B. nur Cloud-Daten, aber Anmeldung behalten) — mailen Sie uns mit Details (siehe Schritt 2 unten).</li>
-        </ul>
-      </div>
-
-      <div class="cta-card">
-        <h3 style="margin-top: 0;">→ Ich möchte <em>alles</em> löschen — Konto und alle Daten</h3>
-        <p style="margin-bottom: 0;">Mailen Sie an <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> — siehe Schritte in Abschnitt 1 unten. Abgeschlossen innerhalb von 14 Tagen.</p>
-      </div>
-
-      <h2>1. Löschung beantragen</h2>
-
-      <div class="cta-card">
-        <strong style="color: var(--fg);">Senden Sie uns eine E-Mail.</strong>
-        <p style="margin: 8px 0 0; color: var(--fg-muted); font-size: 14px;">
-          In der App gibt es derzeit keine Lösch-Schaltfläche (für v1.0.1 geplant). Bis dahin ist E-Mail der offizielle Weg.
-        </p>
-        <a class="cta-mail" href="mailto:hello@hangul-sori.com?subject=Konto%20l%C3%B6schen&amp;body=Bitte%20l%C3%B6schen%20Sie%20mein%20Hangul-Sori-Konto%20und%20alle%20zugeh%C3%B6rigen%20Daten.%0A%0AGoogle-Konto-E-Mail%20(falls%20Sie%20Google-Anmeldung%20verwendet%20haben):%0A%0AUngef%C3%A4hres%20Datum%20der%20ersten%20Nutzung:%0A%0A">
-          ✉ E-Mail an hello@hangul-sori.com
-        </a>
-      </div>
-
-      <h3>Schritte:</h3>
-      <ol>
-        <li>Senden Sie eine E-Mail an <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> mit dem Betreff "<strong>Konto löschen</strong>".</li>
-        <li>Im Text bitte angeben:
-          <ul>
-            <li>Die Google-Konto-E-Mail, mit der Sie sich angemeldet haben (falls Cloud-Sync aktiviert war), <strong>oder</strong></li>
-            <li>Falls Sie sich nie angemeldet haben (rein anonyme Nutzung): ungefähres Datum der ersten App-Nutzung und das verwendete Gerät. Wir versuchen damit, Ihre anonyme Firebase-ID zuzuordnen — bei vollständig anonymer Nutzung ist die einzige sichere Löschmethode allerdings die <strong>Deinstallation der App</strong>, da die anonyme ID an Ihr Gerät gebunden ist.</li>
-          </ul>
-        </li>
-        <li>Eingangsbestätigung innerhalb von <strong>3 Werktagen</strong>, Löschung abgeschlossen innerhalb von <strong>14 Tagen</strong> (Frist gemäß Art. 12 Abs. 3 DSGVO).</li>
-        <li>Sie erhalten eine abschließende Bestätigungs-E-Mail, sobald die Löschung in allen Systemen vollständig ist.</li>
-      </ol>
-
-      <h3>Selbstbedienungs-Optionen (ohne E-Mail)</h3>
-      <ul>
-        <li><strong>Lokalen Lernfortschritt zurücksetzen</strong>: Hangul Sori öffnen → <em>Einstellungen</em> → <em>Zurücksetzen</em>. Löscht XP, Streak, Vokabel-SRS-Status und Spielergebnisse, die auf Ihrem Gerät gespeichert sind.</li>
-        <li><strong>Aus Google-Konto ausloggen</strong>: <em>Einstellungen</em> → <em>Abmelden</em>. Ihr Konto wird wieder anonym, die Google-Verknüpfung entfernt. (Die Firestore-Cloud-Daten bleiben — für vollständige Löschung E-Mail verwenden.)</li>
-        <li><strong>App deinstallieren</strong>: Entfernt alle Daten auf dem Gerät. Anonyme Firebase-ID und Crashlytics/Analytics-Daten bleiben serverseitig bis zum automatischen Ablauf (siehe Aufbewahrungstabelle unten).</li>
-      </ul>
-
-      <h2>2. Was wird gelöscht</h2>
-
-      <table>
-        <thead>
-          <tr><th>Daten</th><th>Speicherort</th><th>Aktion</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Firebase-Auth-Benutzerdatensatz (anonym + verknüpfte Google-Credentials)</td><td>Google Firebase (EU)</td><td><span class="badge-danger">Gelöscht</span></td></tr>
-          <tr><td>Google-Konto-E-Mail und Anzeigename</td><td>Firebase Auth (EU)</td><td><span class="badge-danger">Gelöscht</span></td></tr>
-          <tr><td>Cloud-synchronisierter Lernfortschritt (XP, Streak, Vokabel-SRS, Szenario-Fortschritt, Badges, Einstellungen)</td><td>Cloud Firestore (EU)</td><td><span class="badge-danger">Gelöscht</span></td></tr>
-          <tr><td>Lokale Daten auf dem Gerät</td><td>Nur auf Ihrem Gerät</td><td>Entfernt bei Deinstallation oder "Zurücksetzen" in den Einstellungen</td></tr>
-        </tbody>
-      </table>
-
-      <h2>3. Was aufbewahrt wird (und warum)</h2>
-
-      <table>
-        <thead>
-          <tr><th>Daten</th><th>Grund</th><th>Dauer</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Crash-Logs (Firebase Crashlytics) — anonymisiert, keine PII</td><td>Stabilitätsüberwachung, Bugfixes</td><td><span class="badge-keep">Automatische Löschung nach 90 Tagen</span></td></tr>
-          <tr><td>Aggregierte, anonymisierte Analyse-Ereignisse (Firebase Analytics) — app_open, screen_view, session_start</td><td>Verständnis von Nutzungsmustern. Einzelne Datensätze sind nach Löschung Ihrer Firebase-UID nicht mehr Ihnen zuordenbar.</td><td><span class="badge-keep">Automatische Löschung nach 14 Monaten</span> (Firebase-Standard)</td></tr>
-          <tr><td>Anonymisierte Zahlungsdatensätze, falls vorhanden (in v1.0.0 keine Zahlungen)</td><td>HGB §257 verlangt 10-jährige Aufbewahrung von Finanzdatensätzen.</td><td>Nicht anwendbar — keine Zahlungsdaten erhoben.</td></tr>
-          <tr><td>E-Mail-Korrespondenz mit unserer Support-Adresse</td><td>Nachweis der Löschanforderung selbst.</td><td><span class="badge-keep">3 Jahre</span>, dann gelöscht.</td></tr>
-        </tbody>
-      </table>
-
-      <p>Sobald Ihre Firebase-UID gelöscht ist, lassen sich verbleibende Analytics- oder Crash-Datensätze nicht mehr auf Sie zurückführen — sie werden statistisch anonym.</p>
-
-      <h2>4. Bearbeitungszeit</h2>
-      <ul>
-        <li><strong>Eingangsbestätigung</strong>: innerhalb von 3 Werktagen</li>
-        <li><strong>Abschluss</strong>: innerhalb von 14 Tagen ab Eingang (Art. 12 Abs. 3 DSGVO)</li>
-        <li><strong>Bestätigungs-E-Mail</strong>: wenn alle Systeme Ihre Daten gelöscht haben</li>
-      </ul>
-
-      <h2>5. Ihre Rechte</h2>
-      <p>Gemäß Art. 17 DSGVO ("Recht auf Löschung") haben Sie das uneingeschränkte Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen. Außerdem können Sie:</p>
-      <ul>
-        <li>Eine Kopie Ihrer Daten anfordern (Art. 15 DSGVO)</li>
-        <li>Beschwerde bei der zuständigen Datenschutzbehörde einreichen (in Deutschland: <a href="https://www.bfdi.bund.de">bfdi.bund.de</a>)</li>
-      </ul>
-
-      <h2>6. Kontakt</h2>
-      <p>
-        <strong>Verantwortlicher (Art. 4 Nr. 7 DSGVO):</strong><br>
-        Sujin Park (Sujin Arin DataWorld)<br>
-        Frankfurt am Main, Deutschland<br>
-        E-Mail: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>
-      </p>
-    </section>
-
-    <!-- ─────────── 한국어 ─────────── -->
-    <section class="section" id="lang-ko">
-      <h1>계정 및 데이터 삭제</h1>
-      <p class="meta"><strong>앱:</strong> Hangul Sori (한글소리) · <strong>개발자:</strong> Sujin Arin DataWorld · <strong>최종 갱신:</strong> 2026-05-28</p>
-      <p style="background: var(--bg-card); padding: 12px 16px; border-radius: 8px; font-size: 14px;">
-        ※ 한국어는 참고용입니다. 법적 효력은 English / Deutsch 버전이 우선합니다.
-      </p>
-
-      <p>이 페이지는 <strong>전체 계정 삭제</strong>와 <strong>일부 데이터만 삭제</strong> 둘 다 다룹니다. 원하는 옵션을 선택하세요:</p>
-
-      <div class="cta-card">
-        <h3 style="margin-top: 0;">→ 일부 데이터만 삭제하고 앱은 계속 사용하고 싶음</h3>
-        <ul style="margin-bottom: 0;">
-          <li><strong>학습 진도 리셋</strong> (XP, Streak, 단어장 SRS, 게임 점수) — 앱 → <em>설정 → 리셋</em>. 즉시 반영, 이메일 불필요.</li>
-          <li><strong>Google 계정 연결 해제</strong> (가지고 있는 이메일 + 이름 삭제) — <em>설정 → 로그아웃</em>. 계정은 익명으로 유지, 클라우드 데이터는 남음; 클라우드 데이터까지 삭제하려면 아래 이메일 경로 사용.</li>
-          <li><strong>특정 데이터만 삭제</strong> (예: 클라우드 데이터만, 로그인은 유지) — 이메일로 상세 요청 (아래 2단계 참조).</li>
-        </ul>
-      </div>
-
-      <div class="cta-card">
-        <h3 style="margin-top: 0;">→ 모두 삭제 — 계정과 모든 데이터</h3>
-        <p style="margin-bottom: 0;"><a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> 로 이메일 — 아래 섹션 1 단계 참조. 14일 이내 완료.</p>
-      </div>
-
-      <h2>1. 삭제 요청 방법</h2>
-
-      <div class="cta-card">
-        <strong style="color: var(--fg);">이메일로 요청해주세요.</strong>
-        <p style="margin: 8px 0 0; color: var(--fg-muted); font-size: 14px;">
-          현재 앱 내 삭제 버튼은 없습니다 (v1.0.1 예정). 그동안은 이메일이 공식 경로입니다.
-        </p>
-        <a class="cta-mail" href="mailto:hello@hangul-sori.com?subject=%EA%B3%84%EC%A0%95%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD&amp;body=%ED%95%9C%EA%B8%80%EC%86%8C%EB%A6%AC%20%EA%B3%84%EC%A0%95%EA%B3%BC%20%EA%B4%80%EB%A0%A8%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%82%AD%EC%A0%9C%ED%95%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94.%0A%0AGoogle%20%EA%B3%84%EC%A0%95%20%EC%9D%B4%EB%A9%94%EC%9D%BC(Google%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%9C%20%EA%B2%BD%EC%9A%B0):%0A%0A%EC%B2%98%EC%9D%8C%20%EC%95%B1%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%9C%20%EB%82%A0%EC%A7%9C:%0A%0A">
-          ✉ hello@hangul-sori.com 로 이메일
-        </a>
-      </div>
-
-      <h3>단계:</h3>
-      <ol>
-        <li><a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> 로 제목 "<strong>계정 삭제 요청</strong>" 으로 이메일을 보냅니다.</li>
-        <li>본문에 다음 중 하나를 포함:
-          <ul>
-            <li>로그인에 사용한 Google 계정 이메일 (Cloud Sync 사용한 경우), <strong>또는</strong></li>
-            <li>로그인한 적 없음 (순수 익명 사용자): 첫 사용 대략 날짜와 사용 기기. 익명 Firebase ID 추적에 사용. 단, 완전 익명 사용자는 익명 ID가 기기에 묶여 있어 안전한 삭제 방법은 <strong>앱 삭제</strong>가 유일합니다.</li>
-          </ul>
-        </li>
-        <li><strong>영업일 기준 3일 이내</strong> 접수 확인 → <strong>14일 이내</strong> 삭제 완료 (GDPR Art. 12.3 기준).</li>
-        <li>모든 시스템에서 삭제가 완료되면 최종 확인 이메일을 보내드립니다.</li>
-      </ol>
-
-      <h3>이메일 없이 직접 처리 가능한 옵션</h3>
-      <ul>
-        <li><strong>로컬 학습 진도 리셋</strong>: 한글소리 앱 → <em>설정</em> → <em>리셋</em>. 기기에 저장된 XP, Streak, 단어장 SRS 상태, 게임 점수를 삭제.</li>
-        <li><strong>Google 계정에서 로그아웃</strong>: <em>설정</em> → <em>로그아웃</em>. 계정이 다시 익명으로, Google 연결 제거. (Firestore 클라우드 데이터는 남음 — 완전 삭제는 이메일 경로 사용)</li>
-        <li><strong>앱 삭제</strong>: 기기의 모든 로컬 데이터 제거. 익명 Firebase ID와 Crashlytics/Analytics 데이터는 서버 측 자동 만료까지 남음 (아래 보관 표 참조).</li>
-      </ul>
-
-      <h2>2. 삭제되는 데이터</h2>
-      <table>
-        <thead>
-          <tr><th>데이터</th><th>저장 위치</th><th>조치</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Firebase Auth 사용자 레코드 (익명 + 연결된 Google credentials)</td><td>Google Firebase (EU)</td><td><span class="badge-danger">삭제</span></td></tr>
-          <tr><td>Google 계정 이메일과 표시 이름</td><td>Firebase Auth (EU)</td><td><span class="badge-danger">삭제</span></td></tr>
-          <tr><td>클라우드 동기화된 학습 데이터 (XP, Streak, 단어장 SRS, 시나리오 진행, 배지, 설정)</td><td>Cloud Firestore (EU)</td><td><span class="badge-danger">삭제</span></td></tr>
-          <tr><td>기기 내 로컬 데이터</td><td>사용자 기기만</td><td>앱 삭제 또는 설정 → 리셋 시 제거</td></tr>
-        </tbody>
-      </table>
-
-      <h2>3. 보관되는 데이터 (사유 및 기간)</h2>
-      <table>
-        <thead>
-          <tr><th>데이터</th><th>보관 사유</th><th>기간</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>크래시 로그 (Firebase Crashlytics) — 익명화, PII 없음</td><td>안정성 모니터링, 버그 수정</td><td><span class="badge-keep">90일 후 자동 삭제</span></td></tr>
-          <tr><td>집계된 익명 분석 이벤트 (Firebase Analytics) — app_open, screen_view, session_start</td><td>사용 패턴 파악. Firebase UID 삭제 후 개별 레코드는 사용자와 재연결 불가.</td><td><span class="badge-keep">14개월 후 자동 삭제</span> (Firebase 기본값)</td></tr>
-          <tr><td>익명 결제 기록 (있는 경우)</td><td>독일 상법 §257 (10년 보관 의무).</td><td>해당 없음 — 결제 수집 없음.</td></tr>
-          <tr><td>지원 이메일 송수신 기록</td><td>삭제 요청 자체에 대한 감사 추적.</td><td><span class="badge-keep">3년</span> 후 삭제.</td></tr>
-        </tbody>
-      </table>
-      <p>Firebase UID 삭제 후에는 잔존 분석/크래시 데이터는 사용자와 재연결할 수 없어 통계적으로 익명입니다.</p>
-
-      <h2>4. 처리 시간</h2>
-      <ul>
-        <li><strong>접수 확인</strong>: 영업일 3일 이내</li>
-        <li><strong>완료</strong>: 접수 확인 후 14일 이내 (GDPR Art. 12.3)</li>
-        <li><strong>확인 이메일</strong>: 모든 시스템에서 삭제 완료 시 발송</li>
-      </ul>
-
-      <h2>5. 권리</h2>
-      <p>GDPR Art. 17 ("잊혀질 권리")에 따라 개인 데이터 삭제를 무조건 요청할 수 있습니다. 또한:</p>
-      <ul>
-        <li>데이터 사본 요청 (Art. 15)</li>
-        <li>국가 데이터 보호 기관에 신고 (독일: <a href="https://www.bfdi.bund.de">bfdi.bund.de</a>)</li>
-      </ul>
-
-      <h2>6. 문의</h2>
-      <p>
-        Sujin Park (Sujin Arin DataWorld)<br>
-        Frankfurt am Main, Germany<br>
-        이메일: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>
-      </p>
-    </section>
-
-    <footer>
-      <p>© 2026 Sujin Arin DataWorld · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a></p>
-    </footer>
+  <div class="lang-tabs" role="tablist" aria-label="Language">
+    <button class="active" type="button" role="tab" aria-selected="true" aria-controls="lang-en" data-lang="en">English</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="lang-de" data-lang="de">Deutsch</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="lang-ko" data-lang="ko">한국어</button>
   </div>
 
-  <script>
-    function showLang(lang, btn) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.getElementById('lang-' + lang).classList.add('active');
-      document.querySelectorAll('.lang-tabs button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.documentElement.lang = lang;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    // Auto-detect browser language
-    (function() {
-      const lang = (navigator.language || 'en').slice(0, 2);
-      if (['de', 'ko'].includes(lang)) {
-        const idx = lang === 'de' ? 1 : 2;
-        document.querySelectorAll('.lang-tabs button')[idx].click();
-      }
-    })();
-  </script>
+  <section class="section active" id="lang-en" lang="en" role="tabpanel">
+    <h1>Account &amp; Data Deletion</h1>
+    <p class="meta"><strong>Last updated:</strong> 29 July 2026</p>
+
+    <div class="card primary">
+      <h2 style="margin-top:0">Primary self-service method</h2>
+      <ol>
+        <li>Open Hangul Sori.</li>
+        <li>Open <strong>Settings</strong>, then the account section.</li>
+        <li>Choose <strong>Delete account</strong>, review the warning, and confirm.</li>
+        <li>If Google or Apple is linked, complete any requested reauthentication.</li>
+      </ol>
+      <p>This path is available for automatically created guest/anonymous Firebase accounts as well as Google- or Apple-linked accounts.</p>
+    </div>
+
+    <h2>Choose the action you need</h2>
+    <table>
+      <thead><tr><th>Action</th><th>What it does</th><th>What it does not do</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Reset local data</strong></td><td>Clears local learning state, app-managed book/word images, and local TTS cache on this device.</td><td>Does not prove deletion of a Firebase, RevenueCat, store, or previously transmitted Analytics/Crashlytics record.</td></tr>
+        <tr><td><strong>Delete cloud backup</strong></td><td>Deletes known learning-backup fields and backup subcollections under the current Firebase UID while keeping the Firebase account.</td><td>Does not cancel subscriptions or delete the account, RevenueCat customer, Gye identity, or local data.</td></tr>
+        <tr><td><strong>Delete account</strong></td><td>Runs the full workflow described below and removes the current Firebase Authentication account.</td><td>Does not automatically cancel store billing or directly erase the RevenueCat customer profile.</td></tr>
+        <tr><td><strong>Uninstall</strong></td><td>The operating system removes this installation's local app data.</td><td>Does not prove deletion of the existing Firebase/RevenueCat server identity or data already sent to providers.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What the in-app account workflow does</h2>
+    <p>The current release:</p>
+    <ul>
+      <li>reauthenticates linked Google/Apple accounts when required and revokes the Apple authorization code during Apple-linked deletion;</li>
+      <li>creates a durable account-deletion marker, deletes known Firestore backup collections/data and the user document, and deletes the Firebase Authentication user;</li>
+      <li>uses a retryable server workflow to clean or anonymize Gye memberships, ownership, contributions, reports, reactions, block/notification data, and related cleanup markers as applicable;</li>
+      <li>attempts all local privacy cleanup after the remote identity is irreversibly deleted: local storage, managed images/media, TTS cache, push state, and in-memory learning data;</li>
+      <li>creates a <strong>fresh, unlinked anonymous Firebase identity</strong> so the running app can continue anonymous local use. This new UID is not restoration of the deleted account.</li>
+    </ul>
+    <p>If remote deletion fails before the Firebase user is removed, destructive local cleanup stops so the user can retry. If a post-deletion recovery or local cleanup step fails, the app reports the aggregated failure instead of claiming everything succeeded.</p>
+
+    <h2>Subscriptions and RevenueCat</h2>
+    <div class="card warning">
+      <p><strong>Deleting an account does not cancel a subscription.</strong> Cancel it separately in Google Play or the App Store subscription settings. Store transaction history may be retained under store, accounting, tax, fraud-prevention, or other legal requirements.</p>
+    </div>
+    <p>The mobile deletion workflow does not currently delete the RevenueCat customer profile. For a processor-side RevenueCat erasure request, contact <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. We will help route the request, but cannot promise deletion of records that RevenueCat, Google, or Apple must retain legally or that remain under verified project/provider retention controls.</p>
+
+    <h2>Limits and timing</h2>
+    <p>Known mobile-controlled account data is deleted or scheduled for retry by the workflow. Gye cleanup and remote push-token cleanup are durable/retryable and may not finish synchronously. Turning off Crashlytics can delete only unsent local reports on a best-effort basis. Already transmitted Analytics, Crashlytics, translation-cache, TTS, purchase, transaction, or provider logs follow the applicable live project/provider settings; this repository does not prove one universal retention period.</p>
+
+    <h2>If you cannot use the app</h2>
+    <p>Email <a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20account%20deletion">hello@hangul-sori.com</a> with the subject “Hangul Sori account deletion”. State whether the account was guest-only, Google-linked, or Apple-linked and provide only the information needed to locate and verify the request. Support is a fallback and the contact for RevenueCat-side requests; the in-app button is the primary deletion method.</p>
+
+    <h2>Need another data request?</h2>
+    <p>For access, correction, export, or a targeted deletion question, email <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. See the <a href="privacy.html">Privacy Policy</a> for the data categories and services involved.</p>
+  </section>
+
+  <section class="section" id="lang-de" lang="de" role="tabpanel">
+    <h1>Konto &amp; Daten löschen</h1>
+    <p class="meta"><strong>Zuletzt aktualisiert:</strong> 29. Juli 2026</p>
+
+    <div class="card primary">
+      <h2 style="margin-top:0">Primärer Selbstbedienungsweg</h2>
+      <ol>
+        <li>Hangul Sori öffnen.</li>
+        <li><strong>Einstellungen</strong> und dort den Kontobereich öffnen.</li>
+        <li><strong>Konto löschen</strong> wählen, Warnung lesen und bestätigen.</li>
+        <li>Bei verknüpftem Google-/Apple-Konto eine angeforderte erneute Anmeldung abschließen.</li>
+      </ol>
+      <p>Dieser Weg gilt sowohl für automatisch angelegte Gast-/anonyme Firebase-Konten als auch für Google- oder Apple-verknüpfte Konten.</p>
+    </div>
+
+    <h2>Die passende Aktion auswählen</h2>
+    <table>
+      <thead><tr><th>Aktion</th><th>Wirkung</th><th>Nicht enthalten</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Lokale Daten zurücksetzen</strong></td><td>Löscht lokalen Lernstand, appverwaltete Wortbilder und lokalen TTS-Cache auf diesem Gerät.</td><td>Beweist keine Löschung von Firebase-/RevenueCat-/Store-Daten oder bereits übertragenen Analytics-/Crashlytics-Berichten.</td></tr>
+        <tr><td><strong>Cloud-Backup löschen</strong></td><td>Löscht bekannte Lern-Backup-Felder und -Unterkollektionen der aktuellen Firebase-UID; das Firebase-Konto bleibt bestehen.</td><td>Kündigt kein Abo und löscht weder Konto, RevenueCat-Kunde, Gye-Identität noch lokale Daten.</td></tr>
+        <tr><td><strong>Konto löschen</strong></td><td>Führt den vollständigen Ablauf unten aus und löscht das aktuelle Firebase-Authentication-Konto.</td><td>Kündigt keine Store-Zahlung automatisch und löscht das RevenueCat-Kundenprofil nicht direkt.</td></tr>
+        <tr><td><strong>Deinstallieren</strong></td><td>Das Betriebssystem entfernt lokale Daten dieser Installation.</td><td>Beweist keine Löschung der bestehenden Firebase-/RevenueCat-Serveridentität oder bereits übertragener Daten.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Was der In-App-Ablauf tut</h2>
+    <p>Die aktuelle Version:</p>
+    <ul>
+      <li>authentifiziert verknüpfte Google-/Apple-Konten bei Bedarf erneut und widerruft bei Apple-Verknüpfung den Apple-Autorisierungscode;</li>
+      <li>erstellt einen dauerhaften Löschmarker, löscht bekannte Firestore-Backup-Sammlungen/-Daten und das Nutzerdokument sowie den Firebase-Authentication-Nutzer;</li>
+      <li>bereinigt oder anonymisiert über einen wiederholbaren Serverablauf Gye-Mitgliedschaften, Eigentum, Beiträge, Meldungen, Reaktionen, Block-/Benachrichtigungsdaten und Bereinigungsmarker, soweit zutreffend;</li>
+      <li>versucht nach irreversibler Remote-Löschung jede lokale Datenschutzbereinigung: lokalen Speicher, verwaltete Bilder/Medien, TTS-Cache, Push-Status und In-Memory-Lerndaten;</li>
+      <li>erstellt eine <strong>neue, unverknüpfte anonyme Firebase-Identität</strong>, damit die laufende App weiter lokal-anonym nutzbar ist. Diese neue UID stellt das gelöschte Konto nicht wieder her.</li>
+    </ul>
+    <p>Scheitert die Remote-Löschung vor dem Entfernen des Firebase-Nutzers, wird die lokale destruktive Bereinigung gestoppt, damit ein erneuter Versuch möglich bleibt. Scheitert nach der Löschung eine Identitätswiederherstellung oder lokale Bereinigung, meldet die App die zusammengefassten Fehler, statt vollständigen Erfolg zu behaupten.</p>
+
+    <h2>Abos und RevenueCat</h2>
+    <div class="card warning">
+      <p><strong>Kontolöschung kündigt kein Abo.</strong> Die Kündigung muss separat in den Abonnement-Einstellungen von Google Play bzw. App Store erfolgen. Store-Transaktionsdaten können aufgrund von Store-, Buchhaltungs-, Steuer-, Betrugspräventions- oder anderen gesetzlichen Vorgaben aufbewahrt werden.</p>
+    </div>
+    <p>Der mobile Löschablauf löscht derzeit kein RevenueCat-Kundenprofil. Für eine RevenueCat-seitige Löschanfrage bitte <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a> kontaktieren. Wir helfen bei der Weiterleitung, versprechen aber keine Löschung von Daten, die RevenueCat, Google oder Apple gesetzlich aufbewahren müssen oder die verifizierten Projekt-/Providerfristen unterliegen.</p>
+
+    <h2>Grenzen und Dauer</h2>
+    <p>Bekannte, mobil kontrollierte Kontodaten werden gelöscht oder zur Wiederholung vorgemerkt. Gye-Bereinigung und entfernte Push-Token-Bereinigung sind dauerhaft wiederholbar und müssen nicht synchron abgeschlossen sein. Beim Ausschalten von Crashlytics können nur ungesendete lokale Berichte bestmöglich gelöscht werden. Bereits übertragene Analytics-, Crashlytics-, Übersetzungs-Cache-, TTS-, Kauf-, Transaktions- oder Provider-Logs folgen den Live-Projekt-/Provider-Einstellungen; das Repository belegt keine einheitliche Aufbewahrungsfrist.</p>
+
+    <h2>Wenn die App nicht nutzbar ist</h2>
+    <p>E-Mail an <a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20Konto%20loeschen">hello@hangul-sori.com</a> mit dem Betreff „Hangul Sori Konto löschen“. Bitte angeben, ob das Konto nur Gast, Google-verknüpft oder Apple-verknüpft war, und nur die zur Zuordnung/Prüfung nötigen Angaben senden. Support ist der Ausweichweg und Kontakt für RevenueCat-Anfragen; der In-App-Button ist der primäre Löschweg.</p>
+
+    <h2>Weitere Datenanfrage</h2>
+    <p>Für Auskunft, Berichtigung, Export oder eine gezielte Löschfrage: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. Kategorien und Dienste beschreibt die <a href="privacy.html">Datenschutzerklärung</a>.</p>
+  </section>
+
+  <section class="section" id="lang-ko" lang="ko" role="tabpanel">
+    <h1>계정 및 데이터 삭제</h1>
+    <p class="meta"><strong>최종 갱신:</strong> 2026년 7월 29일</p>
+
+    <div class="card primary">
+      <h2 style="margin-top:0">기본 직접 삭제 방법</h2>
+      <ol>
+        <li>한글소리 앱을 엽니다.</li>
+        <li><strong>설정</strong>에서 계정 섹션으로 이동합니다.</li>
+        <li><strong>계정 삭제</strong>를 선택하고 안내를 확인한 뒤 승인합니다.</li>
+        <li>Google 또는 Apple 계정이 연결되어 있으면 요청되는 재인증을 완료합니다.</li>
+      </ol>
+      <p>자동 생성된 게스트/익명 Firebase 계정과 Google/Apple 연결 계정 모두 이 방법을 사용할 수 있습니다.</p>
+    </div>
+
+    <h2>필요한 작업 선택</h2>
+    <table>
+      <thead><tr><th>작업</th><th>삭제되는 내용</th><th>삭제되지 않는 내용</th></tr></thead>
+      <tbody>
+        <tr><td><strong>로컬 데이터 초기화</strong></td><td>이 기기의 로컬 학습 상태, 앱 관리 단어 이미지, 로컬 TTS 캐시를 지웁니다.</td><td>Firebase, RevenueCat, 스토어 또는 이미 전송된 Analytics/Crashlytics 기록의 서버 삭제를 증명하지 않습니다.</td></tr>
+        <tr><td><strong>클라우드 백업 삭제</strong></td><td>Firebase 계정은 유지하면서 현재 UID의 알려진 학습 백업 필드와 하위 컬렉션을 삭제합니다.</td><td>구독, 계정, RevenueCat 고객, Gye 식별자 또는 로컬 데이터는 삭제하지 않습니다.</td></tr>
+        <tr><td><strong>계정 삭제</strong></td><td>아래 전체 절차를 실행하고 현재 Firebase Authentication 계정을 삭제합니다.</td><td>스토어 결제를 자동으로 취소하거나 RevenueCat 고객 프로필을 직접 삭제하지 않습니다.</td></tr>
+        <tr><td><strong>앱 제거</strong></td><td>운영체제가 이 설치의 로컬 앱 데이터를 제거합니다.</td><td>기존 Firebase/RevenueCat 서버 식별자나 이미 공급자에게 전송된 데이터의 삭제를 증명하지 않습니다.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>앱 내 계정 삭제 절차</h2>
+    <p>현재 릴리스는 다음을 수행합니다.</p>
+    <ul>
+      <li>필요한 경우 연결된 Google/Apple 계정을 재인증하고, Apple 연결 계정 삭제 시 Apple 승인 코드를 철회합니다.</li>
+      <li>지속 삭제 마커를 만들고 알려진 Firestore 백업 컬렉션/데이터와 사용자 문서를 삭제한 뒤 Firebase Authentication 사용자를 삭제합니다.</li>
+      <li>재시도 가능한 서버 절차로 해당되는 Gye 멤버십, 소유권, 기여, 신고, 반응, 차단/알림 데이터와 정리 마커를 삭제 또는 익명화합니다.</li>
+      <li>원격 식별자가 되돌릴 수 없이 삭제된 뒤 로컬 저장소, 관리 이미지/미디어, TTS 캐시, 푸시 상태와 메모리 내 학습 데이터의 정리를 모두 시도합니다.</li>
+      <li>앱을 계속 익명·로컬로 사용할 수 있도록 <strong>새로운 미연결 익명 Firebase 식별자</strong>를 만듭니다. 이 새 UID는 삭제한 계정을 복구한 것이 아닙니다.</li>
+    </ul>
+    <p>Firebase 사용자가 삭제되기 전에 원격 삭제가 실패하면 재시도할 수 있도록 로컬 파괴 작업을 중단합니다. 삭제 후 신원 복구나 로컬 정리가 실패하면 모든 오류를 모아 알리고 완전 성공이라고 표시하지 않습니다.</p>
+
+    <h2>구독 및 RevenueCat</h2>
+    <div class="card warning">
+      <p><strong>계정 삭제는 구독을 취소하지 않습니다.</strong> Google Play 또는 App Store 구독 설정에서 별도로 취소해야 합니다. 스토어 거래 내역은 스토어, 회계, 세금, 사기 방지 또는 기타 법적 의무에 따라 보관될 수 있습니다.</p>
+    </div>
+    <p>모바일 계정 삭제 절차는 현재 RevenueCat 고객 프로필을 삭제하지 않습니다. RevenueCat 측 삭제 요청은 <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>으로 문의하세요. 요청 전달을 지원하지만 RevenueCat, Google 또는 Apple이 법적으로 보관해야 하는 기록이나 확인된 프로젝트/공급자 보관 설정의 기록까지 삭제된다고 약속할 수는 없습니다.</p>
+
+    <h2>처리 한계와 시간</h2>
+    <p>모바일 앱이 제어하는 알려진 계정 데이터는 삭제하거나 재시도 대상으로 기록합니다. Gye 정리와 원격 푸시 토큰 정리는 지속적으로 재시도되므로 동시에 끝나지 않을 수 있습니다. Crashlytics를 끌 때는 전송 전 로컬 보고서만 최선의 방식으로 삭제할 수 있습니다. 이미 전송된 Analytics, Crashlytics, 번역 캐시, TTS, 구매, 거래 또는 공급자 로그는 실제 프로젝트/공급자 설정을 따르며, 저장소는 하나의 고정 보관 기간을 증명하지 않습니다.</p>
+
+    <h2>앱을 사용할 수 없는 경우</h2>
+    <p><a href="mailto:hello@hangul-sori.com?subject=Hangul%20Sori%20account%20deletion">hello@hangul-sori.com</a>으로 제목을 “Hangul Sori 계정 삭제”로 보내세요. 게스트 전용, Google 연결, Apple 연결 중 어떤 계정이었는지 적고 요청 확인에 필요한 최소 정보만 보내주세요. 지원 이메일은 보조 방법이자 RevenueCat 측 요청 창구이며, 앱 내 버튼이 기본 삭제 방법입니다.</p>
+
+    <h2>다른 데이터 요청</h2>
+    <p>열람, 정정, 내보내기 또는 특정 데이터 삭제 문의: <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a>. 관련 데이터와 서비스는 <a href="privacy.html">개인정보 처리방침</a>을 확인하세요.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Hangul Sori · <a href="privacy.html">Privacy Policy</a> · <a href="mailto:hello@hangul-sori.com">hello@hangul-sori.com</a></p>
+  </footer>
+</main>
+<script>
+  function showLanguage(lang) {
+    const target = document.getElementById('lang-' + lang);
+    if (!target) return;
+    document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+    document.querySelectorAll('.lang-tabs button').forEach(button => {
+      const active = button.dataset.lang === lang;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-selected', String(active));
+    });
+    target.classList.add('active');
+    document.documentElement.lang = lang;
+  }
+  document.querySelectorAll('.lang-tabs button').forEach(button => {
+    button.addEventListener('click', () => showLanguage(button.dataset.lang));
+  });
+  const browserLanguage = (navigator.language || 'en').slice(0, 2);
+  showLanguage(['en', 'de', 'ko'].includes(browserLanguage) ? browserLanguage : 'en');
+</script>
 </body>
 </html>

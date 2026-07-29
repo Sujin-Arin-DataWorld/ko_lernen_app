@@ -23,7 +23,7 @@ class CloudSync {
   static FirebaseFirestore get _db => FirebaseFirestore.instance;
 
   static DocumentReference<Map<String, dynamic>>? get _doc {
-    final uid = AuthService.current?.uid;
+    final uid = AuthService.cloudBackupUid;
     if (uid == null) return null;
     return _db.collection('users').doc(uid);
   }

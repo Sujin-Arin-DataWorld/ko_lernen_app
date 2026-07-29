@@ -192,7 +192,7 @@ class BookshelfService {
   }
 
   static CollectionReference<Map<String, dynamic>>? _collection() {
-    final uid = AuthService.current?.uid;
+    final uid = AuthService.cloudBackupUid;
     final db = _db;
     if (uid == null || db == null) return null;
     return db.collection('users').doc(uid).collection('bookshelf');
