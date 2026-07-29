@@ -1565,7 +1565,18 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsAccountDeleteConfirmBody =>
-      'This deletes your Firebase account, Google link, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google may ask you to sign in again to confirm.';
+      'This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.';
+
+  @override
+  String get settingsAccountDeleteSubscriptionWarning =>
+      'This does not cancel an App Store or Play Store subscription.';
+
+  @override
+  String get settingsManageSubscription => 'Manage store subscription';
+
+  @override
+  String get settingsManageSubscriptionFailed =>
+      'Subscription management could not be opened.';
 
   @override
   String get settingsAccountDeleteSuccess => 'Account and data deleted';
@@ -2581,7 +2592,12 @@ class AppL10nEn extends AppL10n {
       'Your progress lives only on this device. Save it with Google so it survives a phone change.';
 
   @override
-  String get profileConnectedBadge => 'Connected with Google';
+  String get profileConnectedBadge => 'Account connected';
+
+  @override
+  String profileConnectedProviderBadge(Object provider) {
+    return 'Connected with $provider';
+  }
 
   @override
   String get profileConnectedDesc =>
@@ -2617,6 +2633,15 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get authAppleSignIn => 'Sign in with Apple';
+
+  @override
+  String get authProviderGoogle => 'Google';
+
+  @override
+  String get authProviderApple => 'Apple';
+
+  @override
+  String get authProviderGoogleAndApple => 'Google & Apple';
 
   @override
   String get consentTitle => 'Welcome to Hangul Sori';

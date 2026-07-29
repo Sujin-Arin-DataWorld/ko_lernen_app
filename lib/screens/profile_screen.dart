@@ -14,6 +14,16 @@ import '../data/learner_motivation.dart';
 import '../widgets/sori/motivation_sheet.dart';
 import '../l10n/generated/app_localizations.dart';
 
+String _providerLabel(AppL10n t, AuthProviderState providers) {
+  if (providers.isGoogleLinked && providers.isAppleLinked) {
+    return t.authProviderGoogleAndApple;
+  }
+  if (providers.isAppleLinked) {
+    return t.authProviderApple;
+  }
+  return t.authProviderGoogle;
+}
+
 /// **ProfileScreen** (`/profile`) — Identitäts- & Konto-Hub.
 ///
 /// Duolingo-Muster: anonymer Start, aber das Konto ist *sichtbar* und lädt
@@ -21,7 +31,9 @@ import '../l10n/generated/app_localizations.dart';
 /// Statistik bleibt in [StatsScreen] (`/stats`); hier nur Identität,
 /// Konto-Status und eine Kurz-Übersicht (Streak · Level · Vokabeln).
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({super.key, this.account});
+
+  final AuthAccountSnapshot? account;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -98,9 +110,12 @@ class _ProfileScreenState extends State<ProfileScreen>
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final linked = AuthService.isGoogleLinked;
-    final name = AuthService.displayName;
-    final photo = AuthService.photoUrl;
+    final account = widget.account ?? AuthService.accountSnapshot;
+    final providers = account.providers;
+    final linked = providers.isDurable;
+    final providerLabel = _providerLabel(t, providers);
+    final name = account.displayName;
+    final photo = account.photoUrl;
 
     return Scaffold(
       appBar: AppBar(
@@ -129,7 +144,7 @@ class _ProfileScreenState extends State<ProfileScreen>
             const SizedBox(height: 12),
             Center(
               child: Text(
-                linked ? (name ?? t.profileGuestName) : t.profileGuestName,
+                linked ? (name ?? providerLabel) : t.profileGuestName,
                 style: TextStyle(
                   fontFamily: 'Pretendard',
                   fontSize: 20,
@@ -142,7 +157,9 @@ class _ProfileScreenState extends State<ProfileScreen>
             const SizedBox(height: 4),
             Center(
               child: Text(
-                linked ? t.profileConnectedBadge : t.profileGuestBadge,
+                linked
+                    ? t.profileConnectedProviderBadge(providerLabel)
+                    : t.profileGuestBadge,
                 style: TextStyle(fontSize: 13, color: s.textMuted),
               ),
             ),
@@ -152,7 +169,10 @@ class _ProfileScreenState extends State<ProfileScreen>
             KeyedSubtree(
               key: _accountCardKey,
               child: linked
-                  ? _ConnectedCard(name: name, onSignOut: _signOut)
+                  ? _ConnectedCard(
+                      name: name ?? providerLabel,
+                      onSignOut: _signOut,
+                    )
                   : _GuestCard(
                       busy: _busy,
                       onConnect: () => _connectWith(AuthService.linkWithGoogle),

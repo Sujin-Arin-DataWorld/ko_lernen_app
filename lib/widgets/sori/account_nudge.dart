@@ -12,10 +12,13 @@ import '../../l10n/generated/app_localizations.dart';
 /// Fortschritt per Google zu sichern.
 ///
 /// Duolingo-Muster: **nie blockieren**, immer "Später" anbieten. No-op,
-/// wenn bereits mit Google verbunden (oder Firebase nicht verfügbar →
-/// `isGoogleLinked == false`, Sheet zeigt sich, Verbinden bricht sauber ab).
-Future<void> showAccountNudgeSheet(BuildContext context) async {
-  if (AuthService.isGoogleLinked) {
+/// wenn bereits ein dauerhaftes Google- oder Apple-Konto verbunden ist.
+Future<void> showAccountNudgeSheet(
+  BuildContext context, {
+  AuthAccountSnapshot? account,
+}) async {
+  final snapshot = account ?? AuthService.accountSnapshot;
+  if (snapshot.providers.isDurable) {
     return;
   }
   await showSoriSheet<void>(

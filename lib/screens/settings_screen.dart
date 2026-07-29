@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
@@ -26,16 +27,91 @@ import '../services/cloud_sync.dart';
 import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
 
+abstract interface class AccountDeletionCleanupOperations {
+  Future<void> deleteRemoteAccount();
+  Future<void> resetLocalStorage();
+  Future<void> disablePush();
+  Future<void> deleteLocalImages();
+  Future<void> clearTtsCache();
+  void resetInMemoryData();
+}
+
+/// Runs every required remote and local account-deletion step. Any failure
+/// propagates, so callers cannot present deletion success prematurely.
+class AccountDeletionWorkflow {
+  const AccountDeletionWorkflow(this.operations);
+
+  final AccountDeletionCleanupOperations operations;
+
+  Future<void> run() async {
+    await operations.deleteRemoteAccount();
+    await operations.resetLocalStorage();
+    await operations.disablePush();
+    await operations.deleteLocalImages();
+    await operations.clearTtsCache();
+    operations.resetInMemoryData();
+  }
+}
+
+Uri subscriptionManagementUri(TargetPlatform platform) {
+  if (platform == TargetPlatform.iOS || platform == TargetPlatform.macOS) {
+    return Uri.parse('https://apps.apple.com/account/subscriptions');
+  }
+  return Uri.parse('https://play.google.com/store/account/subscriptions');
+}
+
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  const SettingsScreen({super.key, this.account, this.accountDeletionWorkflow});
+
+  final AuthAccountSnapshot? account;
+  final AccountDeletionWorkflow? accountDeletionWorkflow;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
+class _DefaultAccountDeletionCleanupOperations
+    implements AccountDeletionCleanupOperations {
+  const _DefaultAccountDeletionCleanupOperations();
+
+  @override
+  Future<void> clearTtsCache() {
+    return TtsService.clearCache();
+  }
+
+  @override
+  Future<void> deleteLocalImages() {
+    return WordImageService.deleteAll();
+  }
+
+  @override
+  Future<void> deleteRemoteAccount() {
+    return AuthService.deleteAccount();
+  }
+
+  @override
+  Future<void> disablePush() {
+    return pushService.disable();
+  }
+
+  @override
+  void resetInMemoryData() {
+    DataLoader.reset();
+  }
+
+  @override
+  Future<void> resetLocalStorage() {
+    return Storage.resetAll();
+  }
+}
+
 class _SettingsScreenState extends State<SettingsScreen> {
   late double _ttsRate;
   late final TextEditingController _endpointCtrl;
+
+  AccountDeletionWorkflow get _accountDeletionWorkflow =>
+      widget.accountDeletionWorkflow ??
+      const AccountDeletionWorkflow(_DefaultAccountDeletionCleanupOperations());
 
   @override
   void initState() {
@@ -202,10 +278,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
+  String _providerLabel(AppL10n t, AuthProviderState providers) {
+    if (providers.isGoogleLinked && providers.isAppleLinked) {
+      return t.authProviderGoogleAndApple;
+    }
+    if (providers.isAppleLinked) {
+      return t.authProviderApple;
+    }
+    return t.authProviderGoogle;
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final currentLocale = localeNotifier.value;
+    final account = widget.account ?? AuthService.accountSnapshot;
+    final providers = account.providers;
 
     return Scaffold(
       appBar: AppBar(
@@ -387,31 +475,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: SoriColors.primary,
               ),
               title: Text(
-                (AuthService.isGoogleLinked || AuthService.isAppleLinked)
+                providers.isDurable
                     ? t.settingsCloudSignedIn(
-                        AuthService.displayName ?? 'Google',
+                        account.displayName ?? _providerLabel(t, providers),
                       )
                     : t.settingsCloudSignInPrompt,
               ),
               subtitle: Text(
-                (AuthService.isGoogleLinked || AuthService.isAppleLinked)
+                providers.isDurable
                     ? t.settingsCloudSignedInDesc
                     : t.settingsCloudSignInDesc,
               ),
-              onTap: (AuthService.isGoogleLinked || AuthService.isAppleLinked)
-                  ? null
-                  : _onGoogleTap,
+              onTap: providers.isDurable ? null : _onGoogleTap,
             ),
-            if (!AuthService.isGoogleLinked &&
-                !AuthService.isAppleLinked &&
-                AuthService.appleSignInAvailable)
+            if (!providers.isDurable && AuthService.appleSignInAvailable)
               ListTile(
                 leading: const Icon(Icons.apple),
                 title: Text(t.authAppleSignIn),
                 subtitle: Text(t.settingsCloudSignInDesc),
                 onTap: _onAppleTap,
               ),
-            if (AuthService.isGoogleLinked || AuthService.isAppleLinked) ...[
+            if (providers.isDurable) ...[
               ListTile(
                 leading: const Icon(Icons.cloud_upload_outlined),
                 title: Text(t.settingsCloudBackupNow),
@@ -928,15 +1012,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final messenger = ScaffoldMessenger.of(context);
     final rootNav = Navigator.of(context);
     try {
-      await AuthService.deleteAccount();
-      await Storage.resetAll();
-      await pushService.disable();
-      // DSGVO Art. 17 — lokale Dateien außerhalb der SharedPreferences:
-      // Wortfotos (wordbook_images/) + TTS-Audio-Cache.
-      await WordImageService.deleteAll();
-      await TtsService.clearCache();
-      DataLoader.reset();
-      if (!mounted) return;
+      await _accountDeletionWorkflow.run();
+      if (!mounted) {
+        return;
+      }
       HapticFeedback.heavyImpact();
       messenger.showSnackBar(
         SnackBar(
@@ -946,9 +1025,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
       );
       rootNav.pushNamedAndRemoveUntil('/intro', (route) => false);
     } catch (e) {
-      if (!mounted) return;
+      if (!mounted) {
+        return;
+      }
       messenger.showSnackBar(
         SnackBar(content: Text(t.settingsAccountDeleteFailed(e.toString()))),
+      );
+    }
+  }
+
+  Future<void> _openSubscriptionManagement() async {
+    final t = AppL10n.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      final opened = await launchUrl(
+        subscriptionManagementUri(defaultTargetPlatform),
+        mode: LaunchMode.externalApplication,
+      );
+      if (!opened) {
+        throw StateError('The subscription management route could not open.');
+      }
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      messenger.showSnackBar(
+        SnackBar(content: Text(t.settingsManageSubscriptionFailed)),
       );
     }
   }
@@ -1104,6 +1206,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _showDangerConfirm(
       title: t.settingsAccountDeleteConfirmTitle,
       body: t.settingsAccountDeleteConfirmBody,
+      warning: t.settingsAccountDeleteSubscriptionWarning,
+      secondaryActionLabel: t.settingsManageSubscription,
+      onSecondaryAction: _openSubscriptionManagement,
       confirmLabel: t.btnDelete,
       onConfirm: _onDeleteAccount,
     );
@@ -1114,6 +1219,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required String body,
     required String confirmLabel,
     required Future<void> Function() onConfirm,
+    String? warning,
+    String? secondaryActionLabel,
+    Future<void> Function()? onSecondaryAction,
   }) {
     final t = AppL10n.of(context);
     showDialog<void>(
@@ -1121,8 +1229,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
       builder: (ctx) => AlertDialog(
         backgroundColor: SoriSurfaces.of(context).surface,
         title: Text(title),
-        content: Text(body),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(body),
+            if (warning != null) ...[
+              const SizedBox(height: Spacing.md),
+              Text(
+                warning,
+                style: const TextStyle(
+                  color: SoriColors.danger,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ],
+        ),
         actions: [
+          if (secondaryActionLabel != null && onSecondaryAction != null)
+            TextButton(
+              onPressed: onSecondaryAction,
+              child: Text(secondaryActionLabel),
+            ),
           TextButton(
             onPressed: () => Navigator.pop(ctx),
             child: Text(t.btnCancel),

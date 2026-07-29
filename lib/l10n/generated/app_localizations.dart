@@ -2962,8 +2962,26 @@ abstract class AppL10n {
   /// No description provided for @settingsAccountDeleteConfirmBody.
   ///
   /// In de, this message translates to:
-  /// **'Dadurch werden dein Firebase-Konto, die Google-Verknüpfung, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google bittet dich zur Bestätigung eventuell um eine erneute Anmeldung.'**
+  /// **'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.'**
   String get settingsAccountDeleteConfirmBody;
+
+  /// No description provided for @settingsAccountDeleteSubscriptionWarning.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.'**
+  String get settingsAccountDeleteSubscriptionWarning;
+
+  /// No description provided for @settingsManageSubscription.
+  ///
+  /// In de, this message translates to:
+  /// **'Store-Abo verwalten'**
+  String get settingsManageSubscription;
+
+  /// No description provided for @settingsManageSubscriptionFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Aboverwaltung konnte nicht geöffnet werden.'**
+  String get settingsManageSubscriptionFailed;
 
   /// No description provided for @settingsAccountDeleteSuccess.
   ///
@@ -4786,8 +4804,14 @@ abstract class AppL10n {
   /// No description provided for @profileConnectedBadge.
   ///
   /// In de, this message translates to:
-  /// **'Mit Google verbunden'**
+  /// **'Konto verbunden'**
   String get profileConnectedBadge;
+
+  /// No description provided for @profileConnectedProviderBadge.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit {provider} verbunden'**
+  String profileConnectedProviderBadge(Object provider);
 
   /// No description provided for @profileConnectedDesc.
   ///
@@ -4854,6 +4878,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mit Apple anmelden'**
   String get authAppleSignIn;
+
+  /// No description provided for @authProviderGoogle.
+  ///
+  /// In de, this message translates to:
+  /// **'Google'**
+  String get authProviderGoogle;
+
+  /// No description provided for @authProviderApple.
+  ///
+  /// In de, this message translates to:
+  /// **'Apple'**
+  String get authProviderApple;
+
+  /// No description provided for @authProviderGoogleAndApple.
+  ///
+  /// In de, this message translates to:
+  /// **'Google und Apple'**
+  String get authProviderGoogleAndApple;
 
   /// No description provided for @consentTitle.
   ///

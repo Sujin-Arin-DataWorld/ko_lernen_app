@@ -1571,7 +1571,18 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsAccountDeleteConfirmBody =>
-      'Dadurch werden dein Firebase-Konto, die Google-Verknüpfung, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google bittet dich zur Bestätigung eventuell um eine erneute Anmeldung.';
+      'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.';
+
+  @override
+  String get settingsAccountDeleteSubscriptionWarning =>
+      'Ein App-Store- oder Play-Store-Abo wird dadurch nicht gekündigt.';
+
+  @override
+  String get settingsManageSubscription => 'Store-Abo verwalten';
+
+  @override
+  String get settingsManageSubscriptionFailed =>
+      'Die Aboverwaltung konnte nicht geöffnet werden.';
 
   @override
   String get settingsAccountDeleteSuccess => 'Konto und Daten gelöscht';
@@ -2593,7 +2604,12 @@ class AppL10nDe extends AppL10n {
       'Dein Fortschritt ist nur auf diesem Gerät gespeichert. Sichere ihn mit Google — so bleibt er auch nach einem Handywechsel erhalten.';
 
   @override
-  String get profileConnectedBadge => 'Mit Google verbunden';
+  String get profileConnectedBadge => 'Konto verbunden';
+
+  @override
+  String profileConnectedProviderBadge(Object provider) {
+    return 'Mit $provider verbunden';
+  }
 
   @override
   String get profileConnectedDesc =>
@@ -2629,6 +2645,15 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get authAppleSignIn => 'Mit Apple anmelden';
+
+  @override
+  String get authProviderGoogle => 'Google';
+
+  @override
+  String get authProviderApple => 'Apple';
+
+  @override
+  String get authProviderGoogleAndApple => 'Google und Apple';
 
   @override
   String get consentTitle => 'Willkommen bei Hangul Sori';

@@ -11,6 +11,179 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'push_service.dart';
 import 'storage_service.dart';
 
+@immutable
+class AuthProviderState {
+  const AuthProviderState({
+    required this.isGoogleLinked,
+    required this.isAppleLinked,
+  });
+
+  factory AuthProviderState.fromProviderIds(Iterable<String> providerIds) {
+    final ids = providerIds.toSet();
+    return AuthProviderState(
+      isGoogleLinked: ids.contains('google.com'),
+      isAppleLinked: ids.contains('apple.com'),
+    );
+  }
+
+  final bool isGoogleLinked;
+  final bool isAppleLinked;
+
+  bool get isDurable => isGoogleLinked || isAppleLinked;
+}
+
+@immutable
+class AuthAccountSnapshot {
+  const AuthAccountSnapshot({
+    required this.providers,
+    this.displayName,
+    this.photoUrl,
+  });
+
+  final AuthProviderState providers;
+  final String? displayName;
+  final String? photoUrl;
+}
+
+abstract interface class AccountDeletionOperations {
+  String get userId;
+  AuthProviderState get providerState;
+
+  Future<void> reauthenticateWithGoogle();
+  Future<String?> reauthenticateWithApple();
+  Future<void> revokeAppleAuthorizationCode(String authorizationCode);
+  Future<void> deleteCloudData();
+  Future<void> deleteFirebaseUser();
+  Future<void> signOutGoogle();
+  Future<void> ensureAnonymousUser();
+}
+
+/// Orders sensitive remote account deletion operations around Task 2's strict
+/// push-ownership transition.
+class AccountDeletionCoordinator {
+  const AccountDeletionCoordinator({
+    required this.operations,
+    required this.ownershipTransitions,
+  });
+
+  final AccountDeletionOperations operations;
+  final PushOwnershipTransitionCoordinator ownershipTransitions;
+
+  Future<void> deleteAccount() async {
+    final providers = operations.providerState;
+    String? appleAuthorizationCode;
+
+    // Apple revocation is mandatory whenever Apple is linked, including
+    // dual-linked Google + Apple accounts.
+    if (providers.isAppleLinked) {
+      appleAuthorizationCode = _requireAppleAuthorizationCode(
+        await operations.reauthenticateWithApple(),
+      );
+    } else if (providers.isGoogleLinked) {
+      await operations.reauthenticateWithGoogle();
+    }
+
+    await ownershipTransitions.run(
+      oldUid: operations.userId,
+      transition: () async {
+        if (appleAuthorizationCode != null) {
+          await operations.revokeAppleAuthorizationCode(appleAuthorizationCode);
+        }
+
+        await operations.deleteCloudData();
+        try {
+          await operations.deleteFirebaseUser();
+        } on FirebaseAuthException catch (error) {
+          if (error.code != 'requires-recent-login') {
+            rethrow;
+          }
+          await _reauthenticateAndRevoke(providers);
+          await operations.deleteFirebaseUser();
+        }
+
+        await operations.signOutGoogle();
+        await operations.ensureAnonymousUser();
+      },
+    );
+  }
+
+  Future<void> _reauthenticateAndRevoke(AuthProviderState providers) async {
+    if (providers.isAppleLinked) {
+      final authorizationCode = _requireAppleAuthorizationCode(
+        await operations.reauthenticateWithApple(),
+      );
+      await operations.revokeAppleAuthorizationCode(authorizationCode);
+    } else if (providers.isGoogleLinked) {
+      await operations.reauthenticateWithGoogle();
+    }
+  }
+
+  String _requireAppleAuthorizationCode(String? authorizationCode) {
+    final code = authorizationCode?.trim();
+    if (code == null || code.isEmpty) {
+      throw StateError(
+        'Apple reauthentication did not return an authorization code.',
+      );
+    }
+    return code;
+  }
+}
+
+class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
+  const _FirebaseAccountDeletionOperations({
+    required this.auth,
+    required this.user,
+    required this.db,
+  });
+
+  final FirebaseAuth auth;
+  final User user;
+  final FirebaseFirestore db;
+
+  @override
+  String get userId => user.uid;
+
+  @override
+  AuthProviderState get providerState => AuthProviderState.fromProviderIds(
+    user.providerData.map((provider) => provider.providerId),
+  );
+
+  @override
+  Future<void> deleteCloudData() {
+    return AuthService._deleteUserFirestoreTree(db, user.uid);
+  }
+
+  @override
+  Future<void> deleteFirebaseUser() {
+    return user.delete();
+  }
+
+  @override
+  Future<void> ensureAnonymousUser() {
+    return AuthService.ensureSignedIn();
+  }
+
+  @override
+  Future<String?> reauthenticateWithApple() {
+    return AuthService._reauthenticateWithApple(user);
+  }
+
+  @override
+  Future<void> reauthenticateWithGoogle() {
+    return AuthService._reauthenticateWithGoogle(user);
+  }
+
+  @override
+  Future<void> revokeAppleAuthorizationCode(String authorizationCode) {
+    return auth.revokeTokenWithAuthorizationCode(authorizationCode);
+  }
+
+  @override
+  Future<void> signOutGoogle() {
+    return GoogleSignIn().signOut();
+  }
+}
+
 /// Hybrid-Auth — **immer** anonym eingeloggt. Optional kann der
 /// User mit Google verlinken, um Cloud-Backup zu aktivieren.
 ///
@@ -58,23 +231,23 @@ class AuthService {
   static bool get isSignedIn => current != null;
   static bool get isAnonymous => current?.isAnonymous ?? true;
 
-  static bool get isGoogleLinked {
+  static AuthProviderState get providerState {
     try {
-      return current?.providerData.any((p) => p.providerId == 'google.com') ??
-          false;
+      return AuthProviderState.fromProviderIds(
+        current?.providerData.map((provider) => provider.providerId) ??
+            const <String>[],
+      );
     } catch (_) {
-      return false;
+      return const AuthProviderState(
+        isGoogleLinked: false,
+        isAppleLinked: false,
+      );
     }
   }
 
-  static bool get isAppleLinked {
-    try {
-      return current?.providerData.any((p) => p.providerId == 'apple.com') ??
-          false;
-    } catch (_) {
-      return false;
-    }
-  }
+  static bool get isGoogleLinked => providerState.isGoogleLinked;
+  static bool get isAppleLinked => providerState.isAppleLinked;
+  static bool get isDurableLinked => providerState.isDurable;
 
   /// Apple Sign-In ist nur auf Apple-Plattformen verfügbar (App-Store-
   /// Richtlinie 4.8 verlangt es, sobald Google-Login angeboten wird).
@@ -88,6 +261,11 @@ class AuthService {
 
   static String? get displayName => current?.displayName ?? current?.email;
   static String? get photoUrl => current?.photoURL;
+  static AuthAccountSnapshot get accountSnapshot => AuthAccountSnapshot(
+    providers: providerState,
+    displayName: displayName,
+    photoUrl: photoUrl,
+  );
 
   static FirebaseFirestore? get _db {
     try {
@@ -208,7 +386,9 @@ class AuthService {
   static Future<void> deleteCloudData() async {
     final uid = current?.uid;
     final db = _db;
-    if (uid == null || db == null) return;
+    if (uid == null || db == null) {
+      throw StateError('Cloud account data is unavailable.');
+    }
     await _deleteUserFirestoreTree(db, uid);
   }
 
@@ -220,41 +400,19 @@ class AuthService {
   static Future<void> deleteAccount() async {
     final auth = _auth;
     final user = auth?.currentUser;
-    if (auth == null || user == null) return;
-
-    final wasGoogleLinked =
-        user.providerData.any((p) => p.providerId == 'google.com');
-    final wasAppleLinked =
-        user.providerData.any((p) => p.providerId == 'apple.com');
-    if (wasGoogleLinked) {
-      await _reauthenticateWithGoogle(user);
-    } else if (wasAppleLinked) {
-      await _reauthenticateWithApple(user);
+    final db = _db;
+    if (auth == null || user == null || db == null) {
+      throw StateError('The Firebase account is unavailable.');
     }
 
-    await _pushOwnershipTransitions.run(
-      oldUid: user.uid,
-      transition: () async {
-        await deleteCloudData();
-        try {
-          await user.delete();
-        } on FirebaseAuthException catch (e) {
-          if (e.code == 'requires-recent-login') {
-            if (wasGoogleLinked) {
-              await _reauthenticateWithGoogle(user);
-            } else if (wasAppleLinked) {
-              await _reauthenticateWithApple(user);
-            }
-            await user.delete();
-          } else {
-            rethrow;
-          }
-        }
-
-        await GoogleSignIn().signOut();
-        await ensureSignedIn();
-      },
-    );
+    await AccountDeletionCoordinator(
+      operations: _FirebaseAccountDeletionOperations(
+        auth: auth,
+        user: user,
+        db: db,
+      ),
+      ownershipTransitions: _pushOwnershipTransitions,
+    ).deleteAccount();
   }
 
   /// Aus Google-Account ausloggen → wieder anonym.
@@ -291,17 +449,18 @@ class AuthService {
     await user.reauthenticateWithCredential(credential);
   }
 
-  static Future<void> _reauthenticateWithApple(User user) async {
+  static Future<String?> _reauthenticateWithApple(User user) async {
     final rawNonce = _generateNonce();
     final appleCredential = await SignInWithApple.getAppleIDCredential(
       scopes: const [AppleIDAuthorizationScopes.email],
       nonce: _sha256(rawNonce),
     );
-    final credential = OAuthProvider('apple.com').credential(
-      idToken: appleCredential.identityToken,
-      rawNonce: rawNonce,
-    );
+    final credential = OAuthProvider(
+      'apple.com',
+    ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
     await user.reauthenticateWithCredential(credential);
+    final authorizationCode = appleCredential.authorizationCode.trim();
+    return authorizationCode.isEmpty ? null : authorizationCode;
   }
 
   /// Krypto-sicherer Nonce für Apple Sign-In (Replay-Schutz). Roh-Nonce geht
