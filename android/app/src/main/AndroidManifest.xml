@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <application
         android:label="Hangul Sori"
         android:name="${applicationName}"
@@ -41,6 +42,12 @@
             android:value="false" />
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
             android:value="false" />
 
         <!-- M3: flutter_local_notifications — geplante Erinnerungen +
@@ -85,22 +92,29 @@
     <!-- M3: lokale Benachrichtigungen (tägliche Lern-Erinnerung). Kein FCM. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- Android 13+ requires this permission when the app uses Advertising ID
-         via Firebase Analytics. No AdMob ads are included in v1.0.0. -->
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <!-- No ads or advertising identifiers. Keep these removals so transitive
+         Firebase/Play Services manifests cannot reintroduce them. -->
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.ACCESS_ADSERVICES_AD_ID"
+        tools:node="remove" />
 
     <!-- Phase 5 (stately-rising-jongga) — "책 한 컷" Snap-and-Learn.
-         Kamera zum Fotografieren von Lehrbuchseiten + Galeriezugriff für
-         vorhandene Fotos. OCR (ML Kit) läuft on-device, kein Cloud-Upload
+         Kamera zum Fotografieren von Lehrbuchseiten; die Galerie verwendet
+         den System-Picker ohne Medienberechtigung. OCR (ML Kit) läuft
+         on-device, kein Cloud-Upload
          des Bildes; nur der extrahierte Text wird zum Analysieren versendet.
          iOS Pendant siehe ios/Runner/Info.plist. -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <!-- Android 13+ (SDK 33+): granulare Medienberechtigung statt READ_EXTERNAL_STORAGE -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <!-- Fallback für ältere Android (≤ 12), max-sdk verhindert Doppel-Prompt -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        tools:node="remove" />
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.

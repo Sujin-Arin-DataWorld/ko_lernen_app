@@ -1,5 +1,4 @@
 import java.util.Properties
-import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
@@ -10,16 +9,45 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// ─── Release Keystore laden ──────────────────────────────────
-// android/key.properties (gitignored) enthält Passwörter.
-// Bei fehlender Datei → Release-Build fällt auf Debug-Key zurück
-// (nützlich für CI ohne Secrets, aber nicht für Play Store).
+// Release credentials remain local and gitignored. A release task must never
+// silently fall back to the Android debug key.
 val keystoreProperties = Properties()
 val keystorePropertiesFile = rootProject.file("key.properties")
-val hasReleaseKey = keystorePropertiesFile.exists()
-if (hasReleaseKey) {
-    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+val requiredSigningProperties =
+    listOf("storeFile", "storePassword", "keyAlias", "keyPassword")
+val releaseSigningError = run {
+    if (!keystorePropertiesFile.isFile) {
+        return@run "android/key.properties is missing."
+    }
+
+    keystorePropertiesFile.inputStream().use(keystoreProperties::load)
+    val missingProperties = requiredSigningProperties.filter { property ->
+        keystoreProperties.getProperty(property).isNullOrBlank()
+    }
+    if (missingProperties.isNotEmpty()) {
+        return@run "android/key.properties is missing required values: " +
+            missingProperties.joinToString(", ") + "."
+    }
+
+    val configuredStoreFile = file(keystoreProperties.getProperty("storeFile"))
+    if (!configuredStoreFile.isFile) {
+        return@run "The configured release keystore does not exist: " +
+            configuredStoreFile.absolutePath
+    }
+
+    null
 }
+val releaseTaskRequested = gradle.startParameter.taskNames.any { taskName ->
+    taskName.substringAfterLast(':').contains("release", ignoreCase = true)
+}
+if (releaseTaskRequested && releaseSigningError != null) {
+    throw GradleException(
+        "Release signing configuration is invalid. $releaseSigningError " +
+            "Provide a complete android/key.properties and an existing " +
+            "non-debug upload keystore."
+    )
+}
+val hasReleaseKey = releaseSigningError == null
 
 android {
     namespace = "com.sujinarin.ko_lernen_app"
@@ -55,10 +83,8 @@ android {
 
     buildTypes {
         release {
-            signingConfig = if (hasReleaseKey) {
-                signingConfigs.getByName("release")
-            } else {
-                signingConfigs.getByName("debug")
+            if (hasReleaseKey) {
+                signingConfig = signingConfigs.getByName("release")
             }
             isMinifyEnabled  = true
             isShrinkResources = true

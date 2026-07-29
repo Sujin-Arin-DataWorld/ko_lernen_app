@@ -49,7 +49,9 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
   }
 
   Future<void> _pick(ImageSource source) async {
-    if (_busy) return;
+    if (_busy) {
+      return;
+    }
     final l10n = AppL10n.of(context);
 
     // 웹은 "책 한 컷" 파이프라인(카메라 + dart:io File + ML Kit 온디바이스 OCR)을
@@ -77,19 +79,20 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
     });
 
     try {
-      // Permission
-      final perm = source == ImageSource.camera
-          ? await Permission.camera.request()
-          : (Platform.isAndroid && _isAndroid13Plus()
-                ? await Permission.photos.request()
-                : await Permission.storage.request());
-      if (!perm.isGranted) {
-        if (!mounted) return;
-        setState(() {
-          _busy = false;
-          _errorKey = 'permission';
-        });
-        return;
+      // image_picker_android opens the system picker for gallery images, so
+      // broad media-library permission is neither needed nor requested.
+      if (source == ImageSource.camera) {
+        final permission = await Permission.camera.request();
+        if (!permission.isGranted) {
+          if (!mounted) {
+            return;
+          }
+          setState(() {
+            _busy = false;
+            _errorKey = 'permission';
+          });
+          return;
+        }
       }
 
       // Pick
@@ -101,7 +104,9 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         imageQuality: 85,
       );
       if (picked == null) {
-        if (!mounted) return;
+        if (!mounted) {
+          return;
+        }
         setState(() => _busy = false);
         return;
       }
@@ -125,7 +130,9 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         ],
       );
       if (cropped == null) {
-        if (!mounted) return;
+        if (!mounted) {
+          return;
+        }
         setState(() => _busy = false);
         return;
       }
@@ -142,7 +149,9 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         ),
       );
       if (!ocr.isSuccess) {
-        if (!mounted) return;
+        if (!mounted) {
+          return;
+        }
         setState(() {
           _busy = false;
           _errorKey = ocr.failure == OcrFailure.noKoreanFound
@@ -152,7 +161,9 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         return;
       }
 
-      if (!mounted) return;
+      if (!mounted) {
+        return;
+      }
       setState(() => _busy = false);
 
       await Navigator.of(context).pushNamed(
@@ -164,21 +175,14 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         },
       );
     } catch (e) {
-      if (!mounted) return;
+      if (!mounted) {
+        return;
+      }
       setState(() {
         _busy = false;
         _errorKey = 'unknown';
       });
     }
-  }
-
-  // Heuristik — Material Android 13 (SDK 33)+ unterscheidet Storage vs Photos.
-  // permission_handler abstrahiert; wir checken via Platform versions check.
-  bool _isAndroid13Plus() {
-    // Wir haben kein direktes SDK-Level — wir behandeln einfach immer mit
-    // Permission.photos für moderne Android. permission_handler erkennt
-    // automatisch das richtige Manifest-Recht.
-    return true;
   }
 
   @override

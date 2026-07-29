@@ -41,7 +41,7 @@ class NotificationService {
         // Zeitzone nicht ermittelbar → tz.local bleibt UTC. Die Erinnerung
         // kann dann um den UTC-Offset abweichen, aber nichts crasht.
       }
-      const android = AndroidInitializationSettings('@mipmap/launcher_icon');
+      const android = AndroidInitializationSettings('ic_stat_hangul_sori');
       const darwin = DarwinInitializationSettings(
         requestAlertPermission: false,
         requestBadgePermission: false,
