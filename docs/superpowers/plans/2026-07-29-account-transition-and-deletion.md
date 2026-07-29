@@ -92,25 +92,42 @@ Output:
   Expected: all state-machine tests pass.
 - [ ] Commit: feat(functions): add idempotent account-operation state machine
 
-## Task 4: Add protected callable operations, deletion proof endpoint, and restrictive rules
+## Task 4: Add protected callable operation repository and authorization boundary
 
 **Files:**
 - Modify: functions/gye/index.js
+- Create: functions/gye/account_operations_runtime.js
 - Create: functions/gye/account_operations_runtime.test.js
+- Modify: functions/gye/package.json
+
+- [ ] Write failing runtime tests for prepareAnonymousReplacement, attachReplacementTarget, commitReplacementReconciliation, startSourceCleanup, requestAccountDeletion, and getAccountOperation. Test unauthenticated, request-body uid mismatch, revoked token, stale connected-account auth_time, stale anonymous iat, missing App Check, stale version, and duplicate-call paths.
+- [ ] Run: npm test -- --test account_operations_runtime.test.js
+  Expected: callable exports do not exist.
+- [ ] Implement 2nd-generation callable functions in europe-west3 with enforceAppCheck true and consumeAppCheckToken true. Verify the Authorization-header token with checkRevoked, derive the caller UID only from that token, enforce a 300-second auth_time for connected accounts or a 300-second iat for anonymous accounts, enforce operation-version matching, and persist/reuse operation records through a transaction-safe repository.
+- [ ] Make replacement callables advance only the pure state machine and return safe operation results. requestAccountDeletion may create/reuse a deletionRequested operation but must not delete any user data in this task; all runtime logs and errors use safe codes only.
+- [ ] Run: npm test. Expected: all existing and runtime-operation tests pass.
+- [ ] Commit: feat(functions): add protected account operation callables
+
+## Task 5: Add deletion proof, server worker, and restrictive rules
+
+**Files:**
+- Modify: functions/gye/index.js
+- Modify: functions/gye/account_operations_runtime.js
+- Modify: functions/gye/account_operations_runtime.test.js
 - Modify: functions/gye/package.json
 - Modify: firestore.rules
 - Modify: firebase.json
 
-- [ ] Write failing runtime tests for prepareAnonymousReplacement, attachReplacementTarget, commitReplacementReconciliation, startSourceCleanup, requestAccountDeletion, getAccountOperation, issueDeletionProof, and completeAppleRevocation. Test unauthenticated, request-body uid mismatch, revoked token, stale connected-account auth_time, stale anonymous iat, missing App Check, stale version, duplicate-call, proof replay, proof expiry, and generic public response paths.
+- [ ] Write failing runtime tests for issueDeletionProof, requestDeletionByProof, completeAppleRevocation, proof replay/expiry/response loss, generic public response, server-worker lease renewal, Auth user-not-found, and legacy client tombstone isolation.
 - [ ] Run: npm test -- --test account_operations_runtime.test.js
-  Expected: callable exports do not exist.
-- [ ] Implement 2nd-generation callable functions in europe-west3 with enforceAppCheck true and consumeAppCheckToken true. Verify the Authorization-header token with checkRevoked, derive the caller UID only from that token, enforce a 300-second auth_time for connected accounts or a 300-second iat for anonymous accounts, enforce operation-version matching, and use Admin SDK-only mutation for source user trees/Auth cleanup.
-- [ ] Issue 256-bit proofs server-side, persist only a keyed hash/expiry/issuance metadata, and atomically claim or reuse an opaque operation ID in a Firestore transaction. Add a minimal public HTTP requestDeletionByProof endpoint that consumes no raw proof after validation, returns the same generic response for invalid/expired/used/deleted cases, applies bounded request limits, and records only safe metadata. Remove client rule permission to create account_deletions or delete a user root; allow clients only the narrowly needed operation status reads for their own uid.
-- [ ] Run destructive user-tree cleanup outside transactions through a lease-based, paged server worker. Treat Auth user-not-found as terminal success; keep server-created markers distinct from abandoned client tombstones; preserve existing Gye/user-deletion cleanup behind server operation phases so a root delete cannot bypass community/processor status.
+  Expected: new proof/worker behavior is absent or fails its safety assertions.
+- [ ] Issue 256-bit proofs server-side, persist only a keyed hash/expiry/issuance metadata, and atomically claim or reuse an opaque operation ID in a Firestore transaction. Add a minimal public HTTP requestDeletionByProof endpoint that consumes no raw proof after validation, returns the same generic response for invalid/expired/used/deleted cases, applies bounded request limits, and records only safe metadata.
+- [ ] Run destructive user-tree cleanup outside transactions through a lease-based, paged server worker. Treat Auth user-not-found as terminal success; keep server-created markers distinct from abandoned client tombstones; complete Apple revocation only through a transient safe-code path; preserve existing Gye/user-deletion cleanup behind server operation phases so a root delete cannot bypass community/processor status.
+- [ ] Remove client rule permission to create account_deletions or delete a user root; allow clients only the narrowly needed operation status reads for their own uid. Add deployment configuration only for the new first-party endpoint, without deploying it.
 - [ ] Run: npm test and firebase firestore:rules:compile --project demo-project-id if the CLI permits an offline compile. Expected: all Node tests pass; if project validation requires credentials, record the exact authenticated command as an external gate.
-- [ ] Commit: feat(functions): move deletion and replacement operations server-side
+- [ ] Commit: feat(functions): add server-owned deletion proof and worker
 
-## Task 5: Initialize App Check and replace client-side deletion with typed callable clients
+## Task 6: Initialize App Check and replace client-side deletion with typed callable clients
 
 **Files:**
 - Create: lib/services/account/account_operation_client.dart
@@ -130,7 +147,7 @@ Output:
 - [ ] Run the focused Flutter tests, flutter analyze, and dart format --set-exit-if-changed on changed Dart files. Expected: all pass and all changed Dart files are formatted.
 - [ ] Commit: feat(account): use App Check and server deletion operations
 
-## Task 6: Add typed remote reads and deterministic reconciliation
+## Task 7: Add typed remote reads and deterministic reconciliation
 
 **Files:**
 - Create: lib/services/account/cloud_read_result.dart
@@ -152,7 +169,7 @@ Output:
 - [ ] Run the focused tests and the full relevant service test group. Expected: no data overwrite in divergent or offline cases.
 - [ ] Commit: feat(sync): reconcile remote account data deterministically
 
-## Task 7: Migrate bookshelf sync to immutable generations and guard media cleanup
+## Task 8: Migrate bookshelf sync to immutable generations and guard media cleanup
 
 **Files:**
 - Modify: lib/services/bookshelf_service.dart
@@ -171,7 +188,7 @@ Output:
 - [ ] Run focused tests and existing bookshelf/cloud tests. Expected: manifest failure preserves the prior visible generation.
 - [ ] Commit: feat(sync): make bookshelf migration generation-safe
 
-## Task 8: Implement anonymous collision coordination without accidental login
+## Task 9: Implement anonymous collision coordination without accidental login
 
 **Files:**
 - Create: lib/services/account/account_transition_coordinator.dart
@@ -187,7 +204,7 @@ Output:
 - [ ] Run focused tests and flutter test test/services. Expected: no test observes target activation before cleanup success.
 - [ ] Commit: feat(auth): coordinate anonymous account replacement safely
 
-## Task 9: Route all account UI through safe operations and localize user-facing states
+## Task 10: Route all account UI through safe operations and localize user-facing states
 
 **Files:**
 - Modify: lib/screens/settings_screen.dart
@@ -211,7 +228,7 @@ Output:
 - [ ] Run focused widget tests, flutter analyze, and full flutter test. Expected: all user-facing flows use typed state and localized messages.
 - [ ] Commit: feat(ui): present resumable safe account operations
 
-## Task 10: Publish a safe proof-consumption page and correct release documentation
+## Task 11: Publish a safe proof-consumption page and correct release documentation
 
 **Files:**
 - Create: docs/account-deletion-page.js
@@ -229,7 +246,7 @@ Output:
 - [ ] Run node --test docs/account-deletion-page.test.js and scan docs for live secrets, proof query parameters, third-party script URLs, and unsupported "current release" claims. Expected: tests pass and scan has no findings.
 - [ ] Commit: docs: add secure deletion proof page and release gates
 
-## Task 11: Verify the complete branch, perform independent review, and prepare handoff
+## Task 12: Verify the complete branch, perform independent review, and prepare handoff
 
 **Files:**
 - Modify if required by verified defects only: files identified by test/review evidence
