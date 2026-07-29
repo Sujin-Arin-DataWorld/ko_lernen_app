@@ -178,3 +178,93 @@ line-ending conversion warnings.
   fail-closed policy, routes, and presentation without requiring credentials.
 - Account deletion does not and cannot cancel a store subscription; users are
   routed to the appropriate store management page before deletion.
+
+## Review remediation
+
+The review follow-up was implemented as a separate strict TDD cycle. Ordinary
+push, image, TTS, and storage cleanup remains best effort; the account-deletion
+path now uses explicit strict variants.
+
+### Remediation RED
+
+Command:
+
+```text
+flutter test test/account_cleanup_test.dart test/account_hardening_test.dart test/push_service_test.dart
+```
+
+Expected result before remediation production changes: exit 1. Compilation
+failed on the requested contracts, including:
+
+```text
+Member not found: 'WordImageService.deleteAllStrict'
+Member not found: 'TtsService.clearCacheStrict'
+Member not found: 'Storage.resetAllStrict'
+The method 'disableStrict' isn't defined for the type 'PushService'
+Type 'AccountDeletionRecoveryException' not found
+Type 'AccountDeletionFailure' not found
+Method not found: 'AccountDeletionCleanupAdapter'
+Method not found: 'SubscriptionManagementLauncher'
+No named parameter with the name 'subscriptionManager'
+```
+
+No remediation production code had been changed before this RED run.
+
+### Remediation implementation
+
+- Added strict account-deletion cleanup variants for push ownership, app-owned
+  preferences, word images, and the TTS cache. Each independent cleanup is
+  attempted and failures are aggregated. The existing ordinary methods retain
+  best-effort behavior.
+- The production deletion adapter now exclusively invokes those strict
+  variants. The workflow stops local destruction for pre-delete remote errors,
+  but after irreversible Firebase-user deletion it still attempts storage,
+  push, image, TTS, and in-memory cleanup before returning one aggregate error.
+- Added a typed post-delete recovery failure. Google sign-out runs only for a
+  linked Google provider, anonymous recovery still runs after sign-out failure,
+  and a failed anonymous creation is retried once without retrying deletion of
+  the already-removed Firebase user.
+- Preserved Task 2's strict old-token invalidation. Push rebinding now fails on
+  a missing UID, while unsupported messaging and ordinary permission denial
+  remain non-errors.
+- Subscription management now returns no route for web, Windows, Linux, or
+  Fuchsia. The production launcher receives `kIsWeb`, and injected launcher
+  failure is surfaced through the existing localized Settings error state.
+- Added the recent-login retry test proving that a fresh Apple authorization
+  code is obtained and revoked before the retry deletion.
+
+### Remediation focused GREEN
+
+```text
+flutter test test/account_cleanup_test.dart test/account_hardening_test.dart test/push_service_test.dart
+00:03 +43: All tests passed!
+```
+
+The focused suite includes real coordinator-plus-workflow integration coverage:
+a pre-delete cloud failure performs no destructive local cleanup, while a
+post-delete recovery failure performs every local privacy cleanup and reports
+failure. It also covers strict failure aggregation, false preference-removal
+results, missing-UID rebinding, and denied-permission non-error behavior.
+
+### Remediation validation
+
+```text
+flutter analyze
+Analyzing ko_lernen_app-release-hardening...
+No issues found! (ran in 9.9s)
+```
+
+Fresh full regression:
+
+```text
+flutter test
+00:28 +597: All tests passed!
+```
+
+Whitespace verification:
+
+```text
+git diff --check
+```
+
+Result: exit 0 with only normal Windows line-ending conversion warnings.

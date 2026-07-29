@@ -41,6 +41,15 @@ abstract interface class PushTokenOwner {
   Future<void> bindCurrentUser();
 }
 
+class PushCleanupException implements Exception {
+  const PushCleanupException(this.causes);
+
+  final List<Object> causes;
+
+  @override
+  String toString() => 'Push cleanup failed in ${causes.length} step(s).';
+}
+
 typedef ShowPushNotification =
     Future<void> Function({required String title, required String body});
 
@@ -239,40 +248,71 @@ class PushService implements PushTokenOwner {
   /// FCM token, and cancels all stream ownership.
   Future<void> disable() {
     _desiredEnabled = false;
-    return _enqueueLifecycle(_disableBestEffort);
+    return _enqueueLifecycle(() => _disable(strict: false));
   }
 
-  Future<void> _disableBestEffort() async {
-    _ready = false;
-    await _cancelSubscriptions();
+  /// Account-deletion variant that attempts every independent cleanup step and
+  /// reports all failures after the attempts finish.
+  Future<void> disableStrict() {
+    _desiredEnabled = false;
+    return _enqueueLifecycle(() => _disable(strict: true));
+  }
 
-    try {
-      await messaging.setAutoInitEnabled(false);
-    } catch (error) {
-      debugPrint('PushService: auto-init disable skipped — $error');
+  Future<void> _disable({required bool strict}) async {
+    _ready = false;
+    final failures = <Object>[];
+    await _cancelSubscriptionsForCleanup(strict: strict, failures: failures);
+
+    if (!messaging.isSupported) {
+      _throwStrictCleanupFailures(strict, failures);
+      return;
     }
+
+    await _attemptCleanup(
+      label: 'auto-init disable',
+      strict: strict,
+      failures: failures,
+      operation: () => messaging.setAutoInitEnabled(false),
+    );
 
     String? token;
     try {
       token = await messaging.getToken();
     } catch (error) {
-      debugPrint('PushService: token lookup during disable skipped — $error');
+      _recordCleanupFailure(
+        label: 'token lookup during disable',
+        error: error,
+        strict: strict,
+        failures: failures,
+      );
     }
 
     final uid = auth.currentUid;
-    if (uid != null && token != null) {
-      try {
-        await tokens.removeToken(uid, token);
-      } catch (error) {
-        debugPrint('PushService: token removal skipped — $error');
+    if (token != null) {
+      if (uid == null) {
+        _recordCleanupFailure(
+          label: 'token owner lookup',
+          error: StateError('Cannot remove a push token without a user ID.'),
+          strict: strict,
+          failures: failures,
+        );
+      } else {
+        await _attemptCleanup(
+          label: 'token removal',
+          strict: strict,
+          failures: failures,
+          operation: () => tokens.removeToken(uid, token!),
+        );
       }
     }
 
-    try {
-      await messaging.deleteToken();
-    } catch (error) {
-      debugPrint('PushService: token deletion skipped — $error');
-    }
+    await _attemptCleanup(
+      label: 'token deletion',
+      strict: strict,
+      failures: failures,
+      operation: messaging.deleteToken,
+    );
+    _throwStrictCleanupFailures(strict, failures);
   }
 
   @override
@@ -335,13 +375,23 @@ class PushService implements PushTokenOwner {
 
   @override
   Future<void> bindCurrentUser() async {
+    if (!messaging.isSupported) {
+      return;
+    }
+    if (auth.currentUid == null) {
+      throw StateError('Cannot bind push notifications without a user ID.');
+    }
     await enable();
+    if (auth.currentUid == null) {
+      _ready = false;
+      throw StateError('Push notification identity disappeared during bind.');
+    }
   }
 
   Future<void> _persistTokenForCurrentUser(String token) async {
     final uid = auth.currentUid;
     if (uid == null) {
-      return;
+      throw StateError('Cannot persist a push token without a user ID.');
     }
     await tokens.addToken(uid, token);
   }
@@ -372,6 +422,69 @@ class PushService implements PushTokenOwner {
     }
     if (messageSubscription != null) {
       await messageSubscription.cancel();
+    }
+  }
+
+  Future<void> _cancelSubscriptionsForCleanup({
+    required bool strict,
+    required List<Object> failures,
+  }) async {
+    final tokenSubscription = _tokenRefreshSubscription;
+    final messageSubscription = _messageSubscription;
+    _tokenRefreshSubscription = null;
+    _messageSubscription = null;
+    if (tokenSubscription != null) {
+      await _attemptCleanup(
+        label: 'token refresh subscription cancellation',
+        strict: strict,
+        failures: failures,
+        operation: tokenSubscription.cancel,
+      );
+    }
+    if (messageSubscription != null) {
+      await _attemptCleanup(
+        label: 'message subscription cancellation',
+        strict: strict,
+        failures: failures,
+        operation: messageSubscription.cancel,
+      );
+    }
+  }
+
+  Future<void> _attemptCleanup({
+    required String label,
+    required bool strict,
+    required List<Object> failures,
+    required Future<void> Function() operation,
+  }) async {
+    try {
+      await operation();
+    } catch (error) {
+      _recordCleanupFailure(
+        label: label,
+        error: error,
+        strict: strict,
+        failures: failures,
+      );
+    }
+  }
+
+  void _recordCleanupFailure({
+    required String label,
+    required Object error,
+    required bool strict,
+    required List<Object> failures,
+  }) {
+    if (strict) {
+      failures.add(error);
+    } else {
+      debugPrint('PushService: $label skipped — $error');
+    }
+  }
+
+  void _throwStrictCleanupFailures(bool strict, List<Object> failures) {
+    if (strict && failures.isNotEmpty) {
+      throw PushCleanupException(List.unmodifiable(failures));
     }
   }
 

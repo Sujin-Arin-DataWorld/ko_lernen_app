@@ -58,6 +58,20 @@ abstract interface class AccountDeletionOperations {
   Future<void> ensureAnonymousUser();
 }
 
+/// The Firebase user is already deleted, but one or more post-delete identity
+/// recovery steps failed. Callers must continue local privacy cleanup and must
+/// not retry deletion of the removed user.
+class AccountDeletionRecoveryException implements Exception {
+  const AccountDeletionRecoveryException(this.causes);
+
+  final List<Object> causes;
+
+  @override
+  String toString() =>
+      'The account was deleted, but identity recovery failed '
+      '(${causes.length} failure(s)).';
+}
+
 /// Orders sensitive remote account deletion operations around Task 2's strict
 /// push-ownership transition.
 class AccountDeletionCoordinator {
@@ -83,28 +97,72 @@ class AccountDeletionCoordinator {
       await operations.reauthenticateWithGoogle();
     }
 
-    await ownershipTransitions.run(
-      oldUid: operations.userId,
-      transition: () async {
-        if (appleAuthorizationCode != null) {
-          await operations.revokeAppleAuthorizationCode(appleAuthorizationCode);
-        }
-
-        await operations.deleteCloudData();
-        try {
-          await operations.deleteFirebaseUser();
-        } on FirebaseAuthException catch (error) {
-          if (error.code != 'requires-recent-login') {
-            rethrow;
+    var accountDeleted = false;
+    try {
+      await ownershipTransitions.run(
+        oldUid: operations.userId,
+        transition: () async {
+          if (appleAuthorizationCode != null) {
+            await operations.revokeAppleAuthorizationCode(
+              appleAuthorizationCode,
+            );
           }
-          await _reauthenticateAndRevoke(providers);
-          await operations.deleteFirebaseUser();
-        }
 
+          await operations.deleteCloudData();
+          try {
+            await operations.deleteFirebaseUser();
+          } on FirebaseAuthException catch (error) {
+            if (error.code != 'requires-recent-login') {
+              rethrow;
+            }
+            await _reauthenticateAndRevoke(providers);
+            await operations.deleteFirebaseUser();
+          }
+          accountDeleted = true;
+
+          await _recoverIdentity(providers);
+        },
+      );
+    } catch (error, stackTrace) {
+      if (accountDeleted && error is! AccountDeletionRecoveryException) {
+        Error.throwWithStackTrace(
+          AccountDeletionRecoveryException(
+            List<Object>.unmodifiable(<Object>[error]),
+          ),
+          stackTrace,
+        );
+      }
+      rethrow;
+    }
+  }
+
+  Future<void> _recoverIdentity(AuthProviderState providers) async {
+    final failures = <Object>[];
+    if (providers.isGoogleLinked) {
+      try {
         await operations.signOutGoogle();
+      } catch (error) {
+        failures.add(error);
+      }
+    }
+
+    try {
+      await operations.ensureAnonymousUser();
+    } catch (error) {
+      try {
         await operations.ensureAnonymousUser();
-      },
-    );
+      } catch (retryError) {
+        failures
+          ..add(error)
+          ..add(retryError);
+      }
+    }
+
+    if (failures.isNotEmpty) {
+      throw AccountDeletionRecoveryException(
+        List<Object>.unmodifiable(failures),
+      );
+    }
   }
 
   Future<void> _reauthenticateAndRevoke(AuthProviderState providers) async {

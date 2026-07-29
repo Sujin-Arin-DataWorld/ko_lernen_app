@@ -107,6 +107,78 @@ void main() {
       expect(messaging.tokenRefreshController.hasListener, isFalse);
       expect(messaging.messageController.hasListener, isFalse);
     });
+
+    test(
+      'strict disable attempts every cleanup and aggregates failures',
+      () async {
+        final messaging = _FakePushMessaging()
+          ..token = 'token-1'
+          ..autoInitFailures.add(StateError('auto-init failed'))
+          ..deleteTokenFailures.add(StateError('delete failed'));
+        final tokens = _FakePushTokenRepository()
+          ..removalFailures.add(StateError('repository failed'));
+        final service = PushService(
+          messaging: messaging,
+          auth: _FakePushAuth('uid-1'),
+          tokens: tokens,
+          showNotification: ({required title, required body}) async {},
+        );
+
+        await expectLater(
+          service.disableStrict(),
+          throwsA(
+            isA<PushCleanupException>().having(
+              (error) => error.causes.length,
+              'cause count',
+              3,
+            ),
+          ),
+        );
+
+        expect(tokens.removals, <String>['uid-1:token-1']);
+        expect(messaging.deleteTokenCalls, 1);
+        expect(messaging.autoInitValues, <bool>[false]);
+        expect(service.isReady, isFalse);
+      },
+    );
+
+    test(
+      'binding fails without a current UID and never becomes ready',
+      () async {
+        final messaging = _FakePushMessaging()..token = 'token-1';
+        final service = PushService(
+          messaging: messaging,
+          auth: _FakePushAuth(null),
+          tokens: _FakePushTokenRepository(),
+          showNotification: ({required title, required body}) async {},
+        );
+
+        await expectLater(
+          service.bindCurrentUser(),
+          throwsA(isA<StateError>()),
+        );
+
+        expect(service.isReady, isFalse);
+        expect(messaging.permissionRequests, 0);
+      },
+    );
+
+    test('binding keeps notification permission denial as a non-error', () async {
+      final messaging = _FakePushMessaging()
+        ..permissionStatus = PushPermissionStatus.denied;
+      final service = PushService(
+        messaging: messaging,
+        auth: _FakePushAuth('uid-1'),
+        tokens: _FakePushTokenRepository(),
+        showNotification: ({required title, required body}) async {},
+      );
+
+      await service.bindCurrentUser();
+
+      expect(service.isReady, isFalse);
+      expect(messaging.permissionRequests, 1);
+      expect(messaging.getTokenCalls, 0);
+    });
   });
 
   test(
@@ -217,6 +289,35 @@ void main() {
       expect(events, <String>['remove:old-uid', 'auth-transition']);
     },
   );
+
+  test(
+    'ownership transition fails rebinding when transition leaves no UID',
+    () async {
+      final auth = _FakePushAuth('old-uid');
+      final service = PushService(
+        messaging: _FakePushMessaging()..token = 'token-1',
+        auth: auth,
+        tokens: _FakePushTokenRepository(),
+        showNotification: ({required title, required body}) async {},
+      );
+      final coordinator = PushOwnershipTransitionCoordinator(
+        push: service,
+        notificationsEnabled: () => true,
+      );
+
+      await expectLater(
+        coordinator.run(
+          oldUid: 'old-uid',
+          transition: () async {
+            auth.currentUid = null;
+          },
+        ),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(service.isReady, isFalse);
+    },
+  );
 }
 
 class _FakePushMessaging implements PushMessagingClient {
@@ -226,6 +327,7 @@ class _FakePushMessaging implements PushMessagingClient {
   final List<Object> getTokenFailures = <Object>[];
   final List<String> events = <String>[];
   final List<bool> autoInitValues = <bool>[];
+  final List<Object> autoInitFailures = <Object>[];
   final StreamController<String> tokenRefreshController =
       StreamController<String>.broadcast();
   final StreamController<PushNotification> messageController =
@@ -276,6 +378,9 @@ class _FakePushMessaging implements PushMessagingClient {
   Future<void> setAutoInitEnabled(bool enabled) async {
     events.add('auto-init:$enabled');
     autoInitValues.add(enabled);
+    if (autoInitFailures.isNotEmpty) {
+      throw autoInitFailures.removeAt(0);
+    }
   }
 }
 
@@ -289,6 +394,7 @@ class _FakePushAuth implements PushAuthClient {
 class _FakePushTokenRepository implements PushTokenRepository {
   final List<String> additions = <String>[];
   final List<String> removals = <String>[];
+  final List<Object> removalFailures = <Object>[];
 
   @override
   Future<void> addToken(String uid, String token) async {
@@ -298,6 +404,9 @@ class _FakePushTokenRepository implements PushTokenRepository {
   @override
   Future<void> removeToken(String uid, String token) async {
     removals.add('$uid:$token');
+    if (removalFailures.isNotEmpty) {
+      throw removalFailures.removeAt(0);
+    }
   }
 }
 

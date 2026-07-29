@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -150,7 +151,6 @@ void main() {
           'apple-revoke:apple-code',
           'cloud-delete',
           'firebase-delete',
-          'google-sign-out',
           'ensure-anonymous',
           'push-bind',
         ]);
@@ -255,21 +255,253 @@ void main() {
       ]);
     });
 
+    test('pre-delete remote failure stops destructive local cleanup', () async {
+      final events = <String>[];
+      final remoteOperations = _FakeRemoteAccountOperations(events)
+        ..providers = const AuthProviderState(
+          isGoogleLinked: true,
+          isAppleLinked: false,
+        )
+        ..cloudFailure = StateError('cleanup failed');
+      final remoteCoordinator = _remoteCoordinator(remoteOperations, events);
+      final adapter = AccountDeletionCleanupAdapter(
+        deleteRemote: remoteCoordinator.deleteAccount,
+        resetStorage: () async => events.add('local-reset'),
+        disablePush: () async => events.add('push-disable'),
+        deleteImages: () async => events.add('image-delete'),
+        clearTts: () async => events.add('tts-clear'),
+        resetMemory: () => events.add('memory-reset'),
+      );
+
+      await expectLater(
+        AccountDeletionWorkflow(adapter).run(),
+        throwsA(isA<StateError>()),
+      );
+
+      expect(events, <String>[
+        'google-reauth',
+        'push-remove:user-1',
+        'cloud-delete',
+        'push-bind',
+      ]);
+    });
+
     test(
-      'required local cleanup failure stops the deletion workflow',
+      'post-delete Google sign-out failure still restores anonymous identity',
+      () async {
+        final events = <String>[];
+        final operations = _FakeRemoteAccountOperations(events)
+          ..providers = const AuthProviderState(
+            isGoogleLinked: true,
+            isAppleLinked: false,
+          )
+          ..signOutFailure = StateError('Google sign-out failed');
+        final coordinator = _remoteCoordinator(operations, events);
+
+        await expectLater(
+          coordinator.deleteAccount(),
+          throwsA(isA<AccountDeletionRecoveryException>()),
+        );
+
+        expect(events, <String>[
+          'google-reauth',
+          'push-remove:user-1',
+          'cloud-delete',
+          'firebase-delete',
+          'google-sign-out',
+          'ensure-anonymous',
+          'push-bind',
+        ]);
+        expect(operations.deleteCalls, 1);
+      },
+    );
+
+    test(
+      'post-delete recovery failure still runs every local privacy cleanup',
+      () async {
+        final events = <String>[];
+        final remoteOperations = _FakeRemoteAccountOperations(events)
+          ..providers = const AuthProviderState(
+            isGoogleLinked: true,
+            isAppleLinked: false,
+          )
+          ..signOutFailure = StateError('Google sign-out failed');
+        final remoteCoordinator = _remoteCoordinator(remoteOperations, events);
+        final adapter = AccountDeletionCleanupAdapter(
+          deleteRemote: remoteCoordinator.deleteAccount,
+          resetStorage: () async => events.add('local-reset'),
+          disablePush: () async => events.add('push-disable'),
+          deleteImages: () async => events.add('image-delete'),
+          clearTts: () async => events.add('tts-clear'),
+          resetMemory: () => events.add('memory-reset'),
+        );
+
+        await expectLater(
+          AccountDeletionWorkflow(adapter).run(),
+          throwsA(
+            isA<AccountDeletionFailure>().having(
+              (error) => error.causes.length,
+              'cause count',
+              1,
+            ),
+          ),
+        );
+
+        expect(events, <String>[
+          'google-reauth',
+          'push-remove:user-1',
+          'cloud-delete',
+          'firebase-delete',
+          'google-sign-out',
+          'ensure-anonymous',
+          'push-bind',
+          'local-reset',
+          'push-disable',
+          'image-delete',
+          'tts-clear',
+          'memory-reset',
+        ]);
+        expect(remoteOperations.deleteCalls, 1);
+      },
+    );
+
+    test(
+      'anonymous identity creation retries after irreversible deletion',
+      () async {
+        final events = <String>[];
+        final operations = _FakeRemoteAccountOperations(events)
+          ..providers = const AuthProviderState(
+            isGoogleLinked: false,
+            isAppleLinked: true,
+          )
+          ..appleAuthorizationCode = 'apple-code'
+          ..anonymousFailures.add(StateError('anonymous failed once'));
+        final coordinator = _remoteCoordinator(operations, events);
+
+        await coordinator.deleteAccount();
+
+        expect(events, <String>[
+          'apple-reauth',
+          'push-remove:user-1',
+          'apple-revoke:apple-code',
+          'cloud-delete',
+          'firebase-delete',
+          'ensure-anonymous',
+          'ensure-anonymous',
+          'push-bind',
+        ]);
+        expect(operations.deleteCalls, 1);
+      },
+    );
+
+    test(
+      'anonymous identity recovery failure never retries user deletion',
+      () async {
+        final events = <String>[];
+        final operations = _FakeRemoteAccountOperations(events)
+          ..providers = const AuthProviderState(
+            isGoogleLinked: false,
+            isAppleLinked: true,
+          )
+          ..appleAuthorizationCode = 'apple-code'
+          ..anonymousFailures.addAll([
+            StateError('anonymous failed once'),
+            StateError('anonymous failed twice'),
+          ]);
+        final coordinator = _remoteCoordinator(operations, events);
+
+        await expectLater(
+          coordinator.deleteAccount(),
+          throwsA(isA<AccountDeletionRecoveryException>()),
+        );
+
+        expect(operations.deleteCalls, 1);
+        expect(events.where((event) => event == 'ensure-anonymous').length, 2);
+      },
+    );
+
+    test('recent-login retry obtains and revokes a fresh Apple code', () async {
+      final events = <String>[];
+      final operations = _FakeRemoteAccountOperations(events)
+        ..providers = const AuthProviderState(
+          isGoogleLinked: false,
+          isAppleLinked: true,
+        )
+        ..appleAuthorizationCodes.addAll(['first-code', 'retry-code'])
+        ..deleteFailures.add(
+          FirebaseAuthException(code: 'requires-recent-login'),
+        );
+      final coordinator = _remoteCoordinator(operations, events);
+
+      await coordinator.deleteAccount();
+
+      expect(events, <String>[
+        'apple-reauth',
+        'push-remove:user-1',
+        'apple-revoke:first-code',
+        'cloud-delete',
+        'firebase-delete',
+        'apple-reauth',
+        'apple-revoke:retry-code',
+        'firebase-delete',
+        'ensure-anonymous',
+        'push-bind',
+      ]);
+      expect(operations.deleteCalls, 2);
+    });
+
+    test(
+      'required local cleanup attempts every independent step before failing',
       () async {
         final events = <String>[];
         final operations = _FakeAccountCleanupOperations(events)
           ..imageCleanupFailure = StateError('image cleanup failed');
         final workflow = AccountDeletionWorkflow(operations);
 
-        await expectLater(workflow.run(), throwsA(isA<StateError>()));
+        await expectLater(
+          workflow.run(),
+          throwsA(
+            isA<AccountDeletionFailure>().having(
+              (error) => error.causes.length,
+              'cause count',
+              1,
+            ),
+          ),
+        );
 
         expect(events, <String>[
           'remote-delete',
           'local-reset',
           'push-disable',
           'image-delete',
+          'tts-clear',
+          'memory-reset',
+        ]);
+      },
+    );
+
+    test(
+      'production cleanup adapter invokes every injected strict operation',
+      () async {
+        final events = <String>[];
+        final adapter = AccountDeletionCleanupAdapter(
+          deleteRemote: () async => events.add('remote-delete'),
+          resetStorage: () async => events.add('local-reset'),
+          disablePush: () async => events.add('push-disable'),
+          deleteImages: () async => events.add('image-delete'),
+          clearTts: () async => events.add('tts-clear'),
+          resetMemory: () => events.add('memory-reset'),
+        );
+
+        await AccountDeletionWorkflow(adapter).run();
+
+        expect(events, <String>[
+          'remote-delete',
+          'local-reset',
+          'push-disable',
+          'image-delete',
+          'tts-clear',
+          'memory-reset',
         ]);
       },
     );
@@ -288,6 +520,37 @@ void main() {
         subscriptionManagementUri(TargetPlatform.android),
         Uri.parse('https://play.google.com/store/account/subscriptions'),
       );
+    });
+
+    test('unsupported and web platforms do not receive a store route', () {
+      expect(subscriptionManagementUri(TargetPlatform.windows), isNull);
+      expect(subscriptionManagementUri(TargetPlatform.linux), isNull);
+      expect(subscriptionManagementUri(TargetPlatform.fuchsia), isNull);
+      expect(
+        subscriptionManagementUri(TargetPlatform.iOS, isWeb: true),
+        isNull,
+      );
+    });
+
+    test('launcher false result is surfaced as a failure', () async {
+      final attempted = <Uri>[];
+      final manager = SubscriptionManagementLauncher(
+        platform: TargetPlatform.android,
+        isWeb: false,
+        launchExternal: (uri) async {
+          attempted.add(uri);
+          return false;
+        },
+      );
+
+      await expectLater(
+        manager.open(),
+        throwsA(isA<SubscriptionManagementException>()),
+      );
+
+      expect(attempted, <Uri>[
+        Uri.parse('https://play.google.com/store/account/subscriptions'),
+      ]);
     });
 
     testWidgets(
@@ -362,6 +625,50 @@ void main() {
       expect(find.textContaining('Löschung fehlgeschlagen:'), findsOneWidget);
       expect(find.text('Konto und Daten gelöscht'), findsNothing);
     });
+
+    testWidgets('launcher false result shows localized management failure', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      SharedPreferences.setMockInitialValues({});
+      await Storage.init();
+      final manager = SubscriptionManagementLauncher(
+        platform: TargetPlatform.android,
+        isWeb: false,
+        launchExternal: (_) async => false,
+      );
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            accountDeletionWorkflow: AccountDeletionWorkflow(
+              _FakeAccountCleanupOperations(<String>[]),
+            ),
+            subscriptionManager: manager,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final deleteTile = find.text('Konto und alle Daten löschen');
+      await tester.scrollUntilVisible(
+        deleteTile,
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(deleteTile);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Store-Abo verwalten'));
+      await tester.pump();
+
+      expect(
+        find.text('Die Aboverwaltung konnte nicht geöffnet werden.'),
+        findsOneWidget,
+      );
+    });
   });
 }
 
@@ -387,8 +694,13 @@ class _FakeRemoteAccountOperations implements AccountDeletionOperations {
     isAppleLinked: false,
   );
   String? appleAuthorizationCode;
+  final List<String?> appleAuthorizationCodes = <String?>[];
   Object? revokeFailure;
   Object? cloudFailure;
+  Object? signOutFailure;
+  final List<Object> anonymousFailures = <Object>[];
+  final List<Object> deleteFailures = <Object>[];
+  int deleteCalls = 0;
 
   @override
   String get userId => 'user-1';
@@ -407,16 +719,26 @@ class _FakeRemoteAccountOperations implements AccountDeletionOperations {
   @override
   Future<void> deleteFirebaseUser() async {
     events.add('firebase-delete');
+    deleteCalls += 1;
+    if (deleteFailures.isNotEmpty) {
+      throw deleteFailures.removeAt(0);
+    }
   }
 
   @override
   Future<void> ensureAnonymousUser() async {
     events.add('ensure-anonymous');
+    if (anonymousFailures.isNotEmpty) {
+      throw anonymousFailures.removeAt(0);
+    }
   }
 
   @override
   Future<String?> reauthenticateWithApple() async {
     events.add('apple-reauth');
+    if (appleAuthorizationCodes.isNotEmpty) {
+      return appleAuthorizationCodes.removeAt(0);
+    }
     return appleAuthorizationCode;
   }
 
@@ -436,6 +758,9 @@ class _FakeRemoteAccountOperations implements AccountDeletionOperations {
   @override
   Future<void> signOutGoogle() async {
     events.add('google-sign-out');
+    if (signOutFailure case final failure?) {
+      throw failure;
+    }
   }
 }
 

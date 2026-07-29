@@ -18,6 +18,36 @@ enum MasteryState {
   strong,
 }
 
+abstract interface class PreferenceRemovalStore {
+  Set<String> getKeys();
+  Future<bool> remove(String key);
+}
+
+class PreferenceResetException implements Exception {
+  const PreferenceResetException({
+    required this.failedKeys,
+    required this.causes,
+  });
+
+  final List<String> failedKeys;
+  final List<Object> causes;
+
+  @override
+  String toString() => 'Preference reset failed for ${failedKeys.join(', ')}.';
+}
+
+class _SharedPreferenceRemovalStore implements PreferenceRemovalStore {
+  const _SharedPreferenceRemovalStore(this.preferences);
+
+  final SharedPreferences preferences;
+
+  @override
+  Set<String> getKeys() => preferences.getKeys();
+
+  @override
+  Future<bool> remove(String key) => preferences.remove(key);
+}
+
 /// Spaced Repetition card state.
 /// Felder kurz benannt, damit JSON klein bleibt (viele tausend Vokabeln möglich).
 class SrsCard {
@@ -1010,6 +1040,50 @@ class Storage {
     }
     _srsCache = null;
     _packCache = null;
+  }
+
+  /// Account-deletion reset that verifies every app-owned preference removal.
+  static Future<void> resetAllStrict({
+    PreferenceRemovalStore? preferences,
+  }) async {
+    final store = preferences ?? _preferenceRemovalStore();
+    final failedKeys = <String>[];
+    final causes = <Object>[];
+    final keys = store.getKeys().where((key) => key.startsWith('kl_')).toList()
+      ..sort();
+
+    try {
+      for (final key in keys) {
+        try {
+          final removed = await store.remove(key);
+          if (!removed) {
+            failedKeys.add(key);
+            causes.add(StateError('Shared preference removal returned false.'));
+          }
+        } catch (error) {
+          failedKeys.add(key);
+          causes.add(error);
+        }
+      }
+    } finally {
+      _srsCache = null;
+      _packCache = null;
+    }
+
+    if (failedKeys.isNotEmpty) {
+      throw PreferenceResetException(
+        failedKeys: List.unmodifiable(failedKeys),
+        causes: List.unmodifiable(causes),
+      );
+    }
+  }
+
+  static PreferenceRemovalStore _preferenceRemovalStore() {
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw StateError('Storage has not been initialized.');
+    }
+    return _SharedPreferenceRemovalStore(preferences);
   }
 
   static Future<void> resetSession() async {

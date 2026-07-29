@@ -201,17 +201,36 @@ class TtsService {
   }
 
   /// 캐시된 음성 mp3 전부 삭제 — 계정 삭제/전체 초기화 시 호출.
-  static Future<void> clearCache() async {
+  static Future<void> clearCache({
+    Future<Directory> Function()? cacheDirectory,
+  }) async {
     try {
-      final dir = await _ensureCacheDir();
-      if (dir != null && await dir.exists()) {
-        await dir.delete(recursive: true);
-      }
+      await clearCacheStrict(cacheDirectory: cacheDirectory);
     } catch (_) {
       // best effort
+    }
+  }
+
+  /// Account-deletion variant: any lookup or filesystem failure propagates.
+  static Future<void> clearCacheStrict({
+    Future<Directory> Function()? cacheDirectory,
+  }) async {
+    try {
+      final dir = await (cacheDirectory ?? _strictCacheDirectory)();
+      if (await dir.exists()) {
+        await dir.delete(recursive: true);
+      }
     } finally {
       _cacheDir = null;
     }
+  }
+
+  static Future<Directory> _strictCacheDirectory() async {
+    if (_cacheDir case final cached?) {
+      return cached;
+    }
+    final base = await getApplicationCacheDirectory();
+    return Directory('${base.path}/tts_cache');
   }
 
   static Future<Directory?> _ensureCacheDir() async {

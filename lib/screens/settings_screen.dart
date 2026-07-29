@@ -36,73 +36,184 @@ abstract interface class AccountDeletionCleanupOperations {
   void resetInMemoryData();
 }
 
-/// Runs every required remote and local account-deletion step. Any failure
-/// propagates, so callers cannot present deletion success prematurely.
+class AccountDeletionFailure implements Exception {
+  const AccountDeletionFailure(this.causes);
+
+  final List<Object> causes;
+
+  @override
+  String toString() =>
+      'Account deletion did not complete cleanly (${causes.length} failure(s)).';
+}
+
+class AccountDeletionCleanupAdapter
+    implements AccountDeletionCleanupOperations {
+  factory AccountDeletionCleanupAdapter({
+    required Future<void> Function() deleteRemote,
+    required Future<void> Function() resetStorage,
+    required Future<void> Function() disablePush,
+    required Future<void> Function() deleteImages,
+    required Future<void> Function() clearTts,
+    required void Function() resetMemory,
+  }) => AccountDeletionCleanupAdapter._(
+    deleteRemote,
+    resetStorage,
+    disablePush,
+    deleteImages,
+    clearTts,
+    resetMemory,
+  );
+
+  const AccountDeletionCleanupAdapter._(
+    this._deleteRemote,
+    this._resetStorage,
+    this._disablePush,
+    this._deleteImages,
+    this._clearTts,
+    this._resetMemory,
+  );
+
+  factory AccountDeletionCleanupAdapter.production() =>
+      AccountDeletionCleanupAdapter(
+        deleteRemote: AuthService.deleteAccount,
+        resetStorage: Storage.resetAllStrict,
+        disablePush: pushService.disableStrict,
+        deleteImages: WordImageService.deleteAllStrict,
+        clearTts: TtsService.clearCacheStrict,
+        resetMemory: DataLoader.reset,
+      );
+
+  final Future<void> Function() _deleteRemote;
+  final Future<void> Function() _resetStorage;
+  final Future<void> Function() _disablePush;
+  final Future<void> Function() _deleteImages;
+  final Future<void> Function() _clearTts;
+  final void Function() _resetMemory;
+
+  @override
+  Future<void> clearTtsCache() => _clearTts();
+
+  @override
+  Future<void> deleteLocalImages() => _deleteImages();
+
+  @override
+  Future<void> deleteRemoteAccount() => _deleteRemote();
+
+  @override
+  Future<void> disablePush() => _disablePush();
+
+  @override
+  void resetInMemoryData() => _resetMemory();
+
+  @override
+  Future<void> resetLocalStorage() => _resetStorage();
+}
+
+/// Stops before local destruction when remote deletion fails. Once the remote
+/// identity is gone, every independent privacy cleanup is attempted and all
+/// failures are reported together.
 class AccountDeletionWorkflow {
   const AccountDeletionWorkflow(this.operations);
 
   final AccountDeletionCleanupOperations operations;
 
   Future<void> run() async {
-    await operations.deleteRemoteAccount();
-    await operations.resetLocalStorage();
-    await operations.disablePush();
-    await operations.deleteLocalImages();
-    await operations.clearTtsCache();
-    operations.resetInMemoryData();
+    final failures = <Object>[];
+    try {
+      await operations.deleteRemoteAccount();
+    } on AccountDeletionRecoveryException catch (error) {
+      failures.add(error);
+    }
+
+    await _attempt(operations.resetLocalStorage, failures);
+    await _attempt(operations.disablePush, failures);
+    await _attempt(operations.deleteLocalImages, failures);
+    await _attempt(operations.clearTtsCache, failures);
+    try {
+      operations.resetInMemoryData();
+    } catch (error) {
+      failures.add(error);
+    }
+
+    if (failures.isNotEmpty) {
+      throw AccountDeletionFailure(List<Object>.unmodifiable(failures));
+    }
+  }
+
+  Future<void> _attempt(
+    Future<void> Function() operation,
+    List<Object> failures,
+  ) async {
+    try {
+      await operation();
+    } catch (error) {
+      failures.add(error);
+    }
   }
 }
 
-Uri subscriptionManagementUri(TargetPlatform platform) {
+Uri? subscriptionManagementUri(TargetPlatform platform, {bool isWeb = false}) {
+  if (isWeb) {
+    return null;
+  }
   if (platform == TargetPlatform.iOS || platform == TargetPlatform.macOS) {
     return Uri.parse('https://apps.apple.com/account/subscriptions');
   }
-  return Uri.parse('https://play.google.com/store/account/subscriptions');
+  if (platform == TargetPlatform.android) {
+    return Uri.parse('https://play.google.com/store/account/subscriptions');
+  }
+  return null;
+}
+
+class SubscriptionManagementException implements Exception {
+  const SubscriptionManagementException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => message;
+}
+
+class SubscriptionManagementLauncher {
+  const SubscriptionManagementLauncher({
+    required this.platform,
+    required this.isWeb,
+    required this.launchExternal,
+  });
+
+  final TargetPlatform platform;
+  final bool isWeb;
+  final Future<bool> Function(Uri uri) launchExternal;
+
+  Future<void> open() async {
+    final uri = subscriptionManagementUri(platform, isWeb: isWeb);
+    if (uri == null) {
+      throw const SubscriptionManagementException(
+        'Subscription management is unavailable on this platform.',
+      );
+    }
+    if (!await launchExternal(uri)) {
+      throw const SubscriptionManagementException(
+        'The subscription management route could not open.',
+      );
+    }
+  }
 }
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key, this.account, this.accountDeletionWorkflow});
+  const SettingsScreen({
+    super.key,
+    this.account,
+    this.accountDeletionWorkflow,
+    this.subscriptionManager,
+  });
 
   final AuthAccountSnapshot? account;
   final AccountDeletionWorkflow? accountDeletionWorkflow;
+  final SubscriptionManagementLauncher? subscriptionManager;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
-}
-
-class _DefaultAccountDeletionCleanupOperations
-    implements AccountDeletionCleanupOperations {
-  const _DefaultAccountDeletionCleanupOperations();
-
-  @override
-  Future<void> clearTtsCache() {
-    return TtsService.clearCache();
-  }
-
-  @override
-  Future<void> deleteLocalImages() {
-    return WordImageService.deleteAll();
-  }
-
-  @override
-  Future<void> deleteRemoteAccount() {
-    return AuthService.deleteAccount();
-  }
-
-  @override
-  Future<void> disablePush() {
-    return pushService.disable();
-  }
-
-  @override
-  void resetInMemoryData() {
-    DataLoader.reset();
-  }
-
-  @override
-  Future<void> resetLocalStorage() {
-    return Storage.resetAll();
-  }
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
@@ -111,7 +222,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
-      const AccountDeletionWorkflow(_DefaultAccountDeletionCleanupOperations());
+      AccountDeletionWorkflow(AccountDeletionCleanupAdapter.production());
+
+  SubscriptionManagementLauncher get _subscriptionManager =>
+      widget.subscriptionManager ??
+      SubscriptionManagementLauncher(
+        platform: defaultTargetPlatform,
+        isWeb: kIsWeb,
+        launchExternal: (uri) =>
+            launchUrl(uri, mode: LaunchMode.externalApplication),
+      );
 
   @override
   void initState() {
@@ -1038,13 +1158,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppL10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
     try {
-      final opened = await launchUrl(
-        subscriptionManagementUri(defaultTargetPlatform),
-        mode: LaunchMode.externalApplication,
-      );
-      if (!opened) {
-        throw StateError('The subscription management route could not open.');
-      }
+      await _subscriptionManager.open();
     } catch (_) {
       if (!mounted) {
         return;
