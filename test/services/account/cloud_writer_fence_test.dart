@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/book_image_service.dart';
+import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/gye_service.dart';
 
 void main() {
@@ -49,18 +51,18 @@ void main() {
     expect(await result, CloudWriteResult.stale);
   });
 
-  test('an original snapshot stays stale after the UID becomes ready again', () {
-    final sessions = CloudWriteSessionController();
-    final original = sessions.acquire('uid-a');
-    final fence = CloudWriteFence(sessions);
-    sessions.acquire('uid-b');
-    sessions.acquire('uid-a');
+  test(
+    'an original snapshot stays stale after the UID becomes ready again',
+    () {
+      final sessions = CloudWriteSessionController();
+      final original = sessions.acquire('uid-a');
+      final fence = CloudWriteFence(sessions);
+      sessions.acquire('uid-b');
+      sessions.acquire('uid-a');
 
-    expect(
-      fence.verify(original, uid: 'uid-a'),
-      CloudWriteResult.stale,
-    );
-  });
+      expect(fence.verify(original, uid: 'uid-a'), CloudWriteResult.stale);
+    },
+  );
 
   for (final mode in <CloudWriteMode>[
     CloudWriteMode.quiesced,
@@ -102,6 +104,56 @@ void main() {
 
     expect(result, CloudWriteResult.completed);
     expect(events, <String>['prepare', 'write']);
+  });
+
+  test(
+    'normal identity replacement is ready before immediate backup',
+    () async {
+      final sessions = CloudWriteSessionController();
+      sessions.acquire('anonymous-uid');
+      final synchronizer = CloudWriteSessionSynchronizer(sessions);
+
+      expect(
+        synchronizer.synchronizeReady('existing-account-uid'),
+        CloudWriteResult.completed,
+      );
+      expect(sessions.current?.uid, 'existing-account-uid');
+      expect(sessions.current?.mode, CloudWriteMode.ready);
+    },
+  );
+
+  test('identity replacement cannot reopen a non-ready transition', () {
+    final sessions = CloudWriteSessionController();
+    sessions.acquire('source-uid');
+    sessions.transition(CloudWriteMode.quiesced);
+    final synchronizer = CloudWriteSessionSynchronizer(sessions);
+
+    expect(
+      synchronizer.synchronizeReady('target-uid'),
+      CloudWriteResult.blocked,
+    );
+    expect(sessions.current?.uid, 'source-uid');
+    expect(sessions.current?.mode, CloudWriteMode.quiesced);
+  });
+
+  test('CloudSync concrete seam rejects a session-A prepared backup', () async {
+    final sessions = CloudWriteSessionController();
+    sessions.acquire('uid-a');
+    final prepared = Completer<void>();
+    var writes = 0;
+
+    final result = CloudSync.backupWithSession(
+      sessions: sessions,
+      uid: 'uid-a',
+      prepare: () => prepared.future,
+      write: () async => writes++,
+    );
+    await Future<void>.delayed(Duration.zero);
+    sessions.acquire('uid-b');
+    prepared.complete();
+
+    expect(await result, CloudWriteResult.stale);
+    expect(writes, 0);
   });
 
   test('a stale media collection pass cannot garbage-collect', () async {
@@ -176,6 +228,84 @@ void main() {
     await source.close();
   });
 
+  test(
+    'an epoch-bound Gye stream cancels without another source event',
+    () async {
+      final sessions = CloudWriteSessionController();
+      sessions.acquire('uid-a');
+      final source = StreamController<int>();
+      final done = Completer<void>();
+
+      CloudWriteFence(sessions)
+          .bindStream(uid: 'uid-a', source: source.stream)
+          .listen((_) {}, onDone: done.complete);
+      await Future<void>.delayed(Duration.zero);
+      sessions.transition(CloudWriteMode.quiesced);
+
+      await done.future.timeout(const Duration(milliseconds: 250));
+      await source.close();
+    },
+  );
+
+  test('myGyeIds discards a stale one-shot read', () async {
+    final sessions = CloudWriteSessionController()..acquire('uid-a');
+    final loaded = Completer<List<String>>();
+
+    final result = GyeService.myGyeIdsForSession(
+      sessions: sessions,
+      uid: 'uid-a',
+      load: () => loaded.future,
+    );
+    await Future<void>.delayed(Duration.zero);
+    sessions.acquire('uid-b');
+    loaded.complete(<String>['gye-a']);
+
+    expect(await result, isEmpty);
+  });
+
+  test(
+    'fetchGye discards session-A data after session B becomes current',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final loaded = Completer<GyeMeta?>();
+
+      final result = GyeService.fetchGyeForSession(
+        sessions: sessions,
+        uid: 'uid-a',
+        load: () => loaded.future,
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      loaded.complete(_gyeMeta('gye-a'));
+
+      expect(await result, isNull);
+    },
+  );
+
+  test('myGyeMetas discards the whole stale read chain', () async {
+    final sessions = CloudWriteSessionController()..acquire('uid-a');
+    final firstMeta = Completer<GyeMeta?>();
+    var metaLoads = 0;
+
+    final result = GyeService.myGyeMetasForSession(
+      sessions: sessions,
+      uid: 'uid-a',
+      loadIds: () async => <String>['gye-a', 'gye-b'],
+      loadMeta: (id) {
+        metaLoads++;
+        return metaLoads == 1
+            ? firstMeta.future
+            : Future<GyeMeta?>.value(_gyeMeta(id));
+      },
+    );
+    await Future<void>.delayed(Duration.zero);
+    sessions.acquire('uid-b');
+    firstMeta.complete(_gyeMeta('gye-a'));
+
+    expect(await result, isEmpty);
+    expect(metaLoads, 1);
+  });
+
   test('Gye rate limits reset for a new session epoch', () {
     final limiter = GyeActionRateLimiter(limit: 2);
     const first = CloudWriteSession(
@@ -195,4 +325,8 @@ void main() {
     expect(limiter.tryAcquire(first, now), isFalse);
     expect(limiter.tryAcquire(second, now), isTrue);
   });
+}
+
+GyeMeta _gyeMeta(String id) {
+  return GyeMeta(id: id, name: id, code: id, ownerId: 'uid-a');
 }

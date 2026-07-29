@@ -97,15 +97,28 @@ class CloudSync {
     }
     DocumentReference<Map<String, dynamic>>? ref;
     Map<String, dynamic>? payload;
-    return CloudWriteFence(cloudWriteSessionController).run(
+    return backupWithSession(
+      sessions: cloudWriteSessionController,
       uid: uid,
       prepare: () async {
         ref = _db.collection('users').doc(uid);
         payload = buildBackupPayload()
           ..['updated_at'] = FieldValue.serverTimestamp();
       },
-      action: () => ref!.set(payload!, SetOptions(merge: true)),
+      write: () => ref!.set(payload!, SetOptions(merge: true)),
     );
+  }
+
+  @visibleForTesting
+  static Future<CloudWriteResult> backupWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<void> Function() prepare,
+    required Future<void> Function() write,
+  }) {
+    return CloudWriteFence(
+      sessions,
+    ).run(uid: uid, prepare: prepare, action: write);
   }
 
   /// Payload → lokale Werte (additiv / max-merge). Testbar ohne Firestore.

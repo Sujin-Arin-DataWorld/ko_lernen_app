@@ -181,7 +181,9 @@ class CustomPackService {
       final updated = pack.copyWith(words: words);
       raw[packId] = updated.toLocalJson();
       await _writeRawStrict(raw);
-      await _collectGarbageBestEffort([oldReference]);
+      await _collectGarbageBestEffort(cloudWriteSessionController, [
+        oldReference,
+      ]);
       return updated;
     });
   }
@@ -207,7 +209,9 @@ class CustomPackService {
       final updated = pack.copyWith(words: words);
       raw[packId] = updated.toLocalJson();
       await _writeRawStrict(raw);
-      await _collectGarbageBestEffort([removedReference]);
+      await _collectGarbageBestEffort(cloudWriteSessionController, [
+        removedReference,
+      ]);
       return updated;
     });
   }
@@ -235,6 +239,7 @@ class CustomPackService {
       await _writeRawStrict(raw);
       if (previous != null) {
         await _collectGarbageBestEffort(
+          cloudWriteSessionController,
           previous.words.map((word) => word.imagePath),
         );
       }
@@ -249,6 +254,7 @@ class CustomPackService {
       await _writeRawStrict(raw);
       if (previous != null) {
         await _collectGarbageBestEffort(
+          cloudWriteSessionController,
           previous.words.map((word) => word.imagePath),
         );
       }
@@ -361,6 +367,7 @@ class CustomPackService {
         if (oldReference != null && oldReference != nextReference) {
           try {
             await _runMediaGc(
+              cloudWriteSessionController,
               () => store.deleteIfUnreferenced(
                 oldReference,
                 _referenceSnapshot(),
@@ -442,8 +449,11 @@ class CustomPackService {
         customPacksJson: Storage.customPacksRawJson,
       );
 
-  static Future<void> _collectGarbage(Iterable<String> encodedRefs) async {
-    await _runMediaGc(() => _collectGarbageUnfenced(encodedRefs));
+  static Future<void> _collectGarbage(
+    CloudWriteSessionController sessions,
+    Iterable<String> encodedRefs,
+  ) async {
+    await _runMediaGc(sessions, () => _collectGarbageUnfenced(encodedRefs));
   }
 
   static Future<void> _collectGarbageUnfenced(
@@ -466,22 +476,24 @@ class CustomPackService {
     }
   }
 
-  static Future<void> _runMediaGc(Future<void> Function() action) async {
-    final session = cloudWriteSessionController.current;
+  static Future<void> _runMediaGc(
+    CloudWriteSessionController sessions,
+    Future<void> Function() action,
+  ) async {
+    final session = sessions.current;
     if (session == null) {
       await action();
       return;
     }
-    await CloudWriteFence(
-      cloudWriteSessionController,
-    ).run(uid: session.uid, action: action);
+    await CloudWriteFence(sessions).run(uid: session.uid, action: action);
   }
 
   static Future<void> _collectGarbageBestEffort(
+    CloudWriteSessionController sessions,
     Iterable<String> encodedRefs,
   ) async {
     try {
-      await _collectGarbage(encodedRefs);
+      await _collectGarbage(sessions, encodedRefs);
     } on Object {
       // The strict model write already committed. Startup reconciliation can
       // safely retry GC; callers must not retry a committed mutation.

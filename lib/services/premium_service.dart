@@ -35,7 +35,11 @@ class PurchasesIdentityClient implements RevenueCatIdentityClient {
 /// Serializes Firebase identity changes into RevenueCat identity changes.
 /// Binding state advances only after RevenueCat confirms the transition.
 class PremiumIdentityBinder {
-  PremiumIdentityBinder(this.client, {required this.sessions});
+  PremiumIdentityBinder(
+    this.client, {
+    required this.sessions,
+    String? initialUid,
+  }) : _boundUid = initialUid;
 
   final RevenueCatIdentityClient client;
   final CloudWriteSessionController sessions;
@@ -99,16 +103,8 @@ class PremiumIdentityBinder {
     if (uid == _boundUid) {
       return CloudWriteResult.completed;
     }
-
-    if (_boundUid != null && uid != _boundUid) {
-      final logoutResult = await fence.run(
-        uid: operationUid,
-        action: client.logOut,
-      );
-      if (logoutResult != CloudWriteResult.completed) {
-        return logoutResult;
-      }
-      _boundUid = null;
+    if (_boundUid == null) {
+      return CloudWriteResult.blocked;
     }
 
     if (uid != null) {
@@ -122,17 +118,7 @@ class PremiumIdentityBinder {
       _boundUid = uid;
       return CloudWriteResult.completed;
     }
-    if (_boundUid != null) {
-      final logoutResult = await fence.run(
-        uid: operationUid,
-        action: client.logOut,
-      );
-      if (logoutResult != CloudWriteResult.completed) {
-        return logoutResult;
-      }
-      _boundUid = null;
-    }
-    return CloudWriteResult.completed;
+    return CloudWriteResult.blocked;
   }
 
   Future<void> dispose() async {
@@ -144,6 +130,17 @@ class PremiumIdentityBinder {
       _sessionListener = null;
     }
   }
+}
+
+PurchasesConfiguration revenueCatConfiguration({
+  required String apiKey,
+  required String appUserId,
+}) {
+  final uid = appUserId.trim();
+  if (uid.isEmpty) {
+    throw ArgumentError.value(appUserId, 'appUserId', 'must not be empty');
+  }
+  return PurchasesConfiguration(apiKey)..appUserID = uid;
 }
 
 /// **PremiumService** — €5/Monat Abo über RevenueCat (`purchases_flutter`).
@@ -188,13 +185,26 @@ class PremiumService {
     if (kIsWeb) return;
     final key = _platformKey();
     if (key.isEmpty) return;
+    String? uid;
+    try {
+      uid = FirebaseAuth.instance.currentUser?.uid;
+    } catch (_) {
+      return;
+    }
+    if (uid == null ||
+        CloudWriteFence(cloudWriteSessionController).readySnapshot(uid) ==
+            null) {
+      return;
+    }
 
     // 3) RevenueCat konfigurieren + live aktualisieren.
     try {
-      await Purchases.configure(PurchasesConfiguration(key));
+      await Purchases.configure(
+        revenueCatConfiguration(apiKey: key, appUserId: uid),
+      );
       _configured = true;
       Purchases.addCustomerInfoUpdateListener(_onCustomerInfo);
-      _bindFirebaseIdentity();
+      _bindFirebaseIdentity(uid);
       _onCustomerInfo(await Purchases.getCustomerInfo());
     } catch (e) {
       debugPrint('PremiumService: init skipped — $e');
@@ -206,11 +216,12 @@ class PremiumService {
   /// gerätelokalen anonymen RC-ID. Reagiert auf UID-Wechsel (Konto-Wechsel oder
   /// Neu-Anmeldung nach Konto-Löschung). Best-effort — ohne Firebase passiert
   /// nichts, kein Crash.
-  static void _bindFirebaseIdentity() {
+  static void _bindFirebaseIdentity(String configuredUid) {
     try {
       final binder = _identityBinder ??= PremiumIdentityBinder(
         const PurchasesIdentityClient(),
         sessions: cloudWriteSessionController,
+        initialUid: configuredUid,
       );
       binder.start(
         FirebaseAuth.instance.userChanges().map((user) => user?.uid),

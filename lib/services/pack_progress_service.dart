@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart' show visibleForTesting;
+
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import 'account/cloud_write_session.dart';
@@ -247,12 +249,25 @@ class PackProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
-    final fence = CloudWriteFence(cloudWriteSessionController);
+    return pullFromCloudWithSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      loadRemote: FirestoreProgressService.loadAll,
+    );
+  }
+
+  @visibleForTesting
+  static Future<CloudWriteResult> pullFromCloudWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<Map<String, PackProgress>> Function() loadRemote,
+  }) async {
+    final fence = CloudWriteFence(sessions);
     final snapshot = fence.readySnapshot(uid);
     if (snapshot == null) {
       return CloudWriteResult.blocked;
     }
-    final remote = await FirestoreProgressService.loadAll();
+    final remote = await loadRemote();
     if (remote.isEmpty) {
       return fence.verify(snapshot, uid: uid);
     }
@@ -285,7 +300,15 @@ class PackProgressService {
     if (local.isEmpty) {
       return CloudWriteResult.completed;
     }
-    return FirestoreProgressService.saveManyWithResult(local.values);
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) {
+      return CloudWriteResult.blocked;
+    }
+    return FirestoreProgressService.saveManyWithSession(
+      local.values,
+      sessions: cloudWriteSessionController,
+      uid: uid,
+    );
   }
 
   // ── Komfort-Wrapper für VocabPackService-Konsumenten ──────────────

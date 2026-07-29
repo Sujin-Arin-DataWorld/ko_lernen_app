@@ -595,6 +595,7 @@ class PushOwnershipTransitionCoordinator {
     if (removal != CloudWriteResult.completed) {
       return removal;
     }
+    final quiescedSession = sessions.transition(CloudWriteMode.quiesced);
     Object? transitionError;
     StackTrace? transitionStackTrace;
     try {
@@ -607,23 +608,31 @@ class PushOwnershipTransitionCoordinator {
     final mayRestoreSource =
         transitionError is ServerConfirmedPreMarkerRejection;
     final acceptedAndFrozen = transitionError == null;
-    var frozeAcceptedOwnership = false;
-    if (fence.verify(snapshot, uid: oldUid) == CloudWriteResult.completed) {
+    final transitionStillOwned = sessions.current == quiescedSession;
+    if (transitionStillOwned) {
       if (acceptedAndFrozen) {
         sessions.transition(CloudWriteMode.cleanupPending);
-        frozeAcceptedOwnership = true;
+      } else if (mayRestoreSource) {
+        sessions.transition(CloudWriteMode.ready);
       } else if (!mayRestoreSource) {
         sessions.transition(CloudWriteMode.blocked);
       }
     }
-    var sessionResult = fence.verify(snapshot, uid: oldUid);
+    var sessionResult = transitionStillOwned
+        ? CloudWriteResult.blocked
+        : CloudWriteResult.stale;
     if (notificationsEnabled() &&
-        sessionResult == CloudWriteResult.completed &&
-        !acceptedAndFrozen &&
-        mayRestoreSource) {
+        transitionStillOwned &&
+        mayRestoreSource &&
+        sessions.current?.uid == oldUid &&
+        sessions.current?.mode == CloudWriteMode.ready) {
       try {
         await push.bindCurrentUser();
-        sessionResult = fence.verify(snapshot, uid: oldUid);
+        final current = sessions.current;
+        sessionResult =
+            current?.uid == oldUid && current?.mode == CloudWriteMode.ready
+            ? CloudWriteResult.completed
+            : CloudWriteResult.stale;
       } catch (rebindError, rebindStackTrace) {
         throw PushOwnershipTransitionException(
           transitionError: transitionError,
@@ -637,7 +646,7 @@ class PushOwnershipTransitionCoordinator {
     if (transitionError != null) {
       Error.throwWithStackTrace(transitionError, transitionStackTrace!);
     }
-    return frozeAcceptedOwnership ? CloudWriteResult.blocked : sessionResult;
+    return sessionResult;
   }
 }
 

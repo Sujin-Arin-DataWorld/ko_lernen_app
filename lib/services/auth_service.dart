@@ -533,15 +533,14 @@ class AuthService {
   }
 
   static void _syncReadyCloudWriteSession(String? uid) {
-    if (uid == null || uid.trim().isEmpty) {
-      return;
-    }
-    final currentSession = cloudWriteSessionController.current;
-    if (currentSession == null ||
-        (currentSession.mode == CloudWriteMode.ready &&
-            currentSession.uid != uid)) {
-      cloudWriteSessionController.acquire(uid);
-    }
+    CloudWriteSessionSynchronizer(
+      cloudWriteSessionController,
+    ).synchronizeReady(uid);
+  }
+
+  static User? _activateSignedInUser(User? user) {
+    _syncReadyCloudWriteSession(user?.uid);
+    return user;
   }
 
   /// Anonymen User mit Google-Account verlinken.
@@ -563,19 +562,19 @@ class AuthService {
     if (user != null && user.isAnonymous) {
       try {
         final result = await user.linkWithCredential(credential);
-        return result.user;
+        return _activateSignedInUser(result.user);
       } on FirebaseAuthException catch (e) {
         // Wenn Account bereits existiert → einfach einloggen
         if (e.code == 'credential-already-in-use' ||
             e.code == 'email-already-in-use') {
           final result = await auth.signInWithCredential(credential);
-          return result.user;
+          return _activateSignedInUser(result.user);
         }
         rethrow;
       }
     } else {
       final result = await auth.signInWithCredential(credential);
-      return result.user;
+      return _activateSignedInUser(result.user);
     }
   }
 
@@ -602,18 +601,18 @@ class AuthService {
       try {
         final result = await user.linkWithCredential(credential);
         await _maybeSetAppleName(result.user, appleCredential);
-        return result.user;
+        return _activateSignedInUser(result.user);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'credential-already-in-use' ||
             e.code == 'email-already-in-use') {
           final result = await auth.signInWithCredential(credential);
-          return result.user;
+          return _activateSignedInUser(result.user);
         }
         rethrow;
       }
     } else {
       final result = await auth.signInWithCredential(credential);
-      return result.user;
+      return _activateSignedInUser(result.user);
     }
   }
 

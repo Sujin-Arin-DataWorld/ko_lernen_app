@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import '../data/profanity_denylist.dart';
 import '../models/gye.dart';
@@ -129,25 +130,31 @@ class GyeService {
   }
 
   static Future<CloudWriteResult> _runWrite(
+    CloudWriteSessionController sessions,
     String uid,
     Future<void> Function() action, {
     CloudWriteSession? snapshot,
   }) {
-    final fence = CloudWriteFence(cloudWriteSessionController);
+    final fence = CloudWriteFence(sessions);
     if (snapshot == null) {
       return fence.run(uid: uid, action: action);
     }
     return fence.runWithSnapshot(snapshot: snapshot, uid: uid, action: action);
   }
 
-  static CloudWriteSession? _readySnapshot(String uid) {
-    return CloudWriteFence(cloudWriteSessionController).readySnapshot(uid);
+  static CloudWriteSession? _readySnapshot(
+    CloudWriteSessionController sessions,
+    String uid,
+  ) {
+    return CloudWriteFence(sessions).readySnapshot(uid);
   }
 
-  static Stream<T> _bindStream<T>(String uid, Stream<T> source) {
-    return CloudWriteFence(
-      cloudWriteSessionController,
-    ).bindStream(uid: uid, source: source);
+  static Stream<T> _bindStream<T>(
+    CloudWriteSessionController sessions,
+    String uid,
+    Stream<T> source,
+  ) {
+    return CloudWriteFence(sessions).bindStream(uid: uid, source: source);
   }
 
   // ── 순수 헬퍼 (테스트 가능) ─────────────────────────────────────────────
@@ -189,9 +196,32 @@ class GyeService {
     if (uid == null || db == null) {
       return const [];
     }
+    return myGyeIdsForSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      load: () async {
+        final snap = await db.collection('users').doc(uid).get();
+        return (snap.data()?['gyeIds'] as List?)?.cast<String>() ?? const [];
+      },
+    );
+  }
+
+  @visibleForTesting
+  static Future<List<String>> myGyeIdsForSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<List<String>> Function() load,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final snapshot = fence.readySnapshot(uid);
+    if (snapshot == null) {
+      return const [];
+    }
     try {
-      final snap = await db.collection('users').doc(uid).get();
-      return (snap.data()?['gyeIds'] as List?)?.cast<String>() ?? const [];
+      final ids = await load();
+      return fence.verify(snapshot, uid: uid) == CloudWriteResult.completed
+          ? ids
+          : const [];
     } catch (_) {
       return const [];
     }
@@ -208,7 +238,7 @@ class GyeService {
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       throw const GyeException(GyeError.network);
     }
@@ -251,7 +281,12 @@ class GyeService {
         batch.set(db.collection('users').doc(uid), {
           'gyeIds': FieldValue.arrayUnion([code]),
         }, SetOptions(merge: true));
-        final write = await _runWrite(uid, batch.commit, snapshot: session);
+        final write = await _runWrite(
+          cloudWriteSessionController,
+          uid,
+          batch.commit,
+          snapshot: session,
+        );
         if (write != CloudWriteResult.completed) {
           throw const GyeException(GyeError.network);
         }
@@ -276,7 +311,7 @@ class GyeService {
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       throw const GyeException(GyeError.network);
     }
@@ -325,7 +360,12 @@ class GyeService {
         batch.set(db.collection('users').doc(uid), {
           'gyeIds': FieldValue.arrayUnion([id]),
         }, SetOptions(merge: true));
-        final write = await _runWrite(uid, batch.commit, snapshot: session);
+        final write = await _runWrite(
+          cloudWriteSessionController,
+          uid,
+          batch.commit,
+          snapshot: session,
+        );
         if (write != CloudWriteResult.completed) {
           throw const GyeException(GyeError.network);
         }
@@ -340,16 +380,40 @@ class GyeService {
 
   /// 계 메타 1건 읽기 (없으면 null).
   static Future<GyeMeta?> fetchGye(String id) async {
+    final uid = AuthService.current?.uid;
     final db = _db;
-    if (db == null) {
+    if (uid == null || db == null) {
+      return null;
+    }
+    return fetchGyeForSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      load: () async {
+        final snap = await db.collection(_collection).doc(id).get();
+        if (!snap.exists) {
+          return null;
+        }
+        return GyeMeta.fromDoc(id, snap.data()!);
+      },
+    );
+  }
+
+  @visibleForTesting
+  static Future<GyeMeta?> fetchGyeForSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<GyeMeta?> Function() load,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final snapshot = fence.readySnapshot(uid);
+    if (snapshot == null) {
       return null;
     }
     try {
-      final snap = await db.collection(_collection).doc(id).get();
-      if (!snap.exists) {
-        return null;
-      }
-      return GyeMeta.fromDoc(id, snap.data()!);
+      final meta = await load();
+      return fence.verify(snapshot, uid: uid) == CloudWriteResult.completed
+          ? meta
+          : null;
     } catch (_) {
       return null;
     }
@@ -363,7 +427,7 @@ class GyeService {
     if (uid == null || db == null) {
       throw const GyeException(GyeError.network);
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       throw const GyeException(GyeError.network);
     }
@@ -402,7 +466,12 @@ class GyeService {
           batch.set(db.collection('users').doc(uid), {
             'gyeIds': FieldValue.arrayRemove([gyeId]),
           }, SetOptions(merge: true));
-          final write = await _runWrite(uid, batch.commit, snapshot: session);
+          final write = await _runWrite(
+            cloudWriteSessionController,
+            uid,
+            batch.commit,
+            snapshot: session,
+          );
           if (write != CloudWriteResult.completed) {
             throw const GyeException(GyeError.network);
           }
@@ -423,6 +492,7 @@ class GyeService {
       return Stream.value(null);
     }
     return _bindStream(
+      cloudWriteSessionController,
       uid,
       db
           .collection(_collection)
@@ -440,6 +510,7 @@ class GyeService {
       return Stream.value(const []);
     }
     return _bindStream(
+      cloudWriteSessionController,
       uid,
       db
           .collection(_collection)
@@ -458,14 +529,56 @@ class GyeService {
 
   /// 내가 속한 계 메타 목록 (입장 후 다시 들어가기용).
   static Future<List<GyeMeta>> myGyeMetas() async {
-    final out = <GyeMeta>[];
-    for (final id in await myGyeIds()) {
-      final m = await fetchGye(id);
-      if (m != null) {
-        out.add(m);
-      }
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null) {
+      return const [];
     }
-    return out;
+    return myGyeMetasForSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      loadIds: () async {
+        final snap = await db.collection('users').doc(uid).get();
+        return (snap.data()?['gyeIds'] as List?)?.cast<String>() ?? const [];
+      },
+      loadMeta: (id) async {
+        final snap = await db.collection(_collection).doc(id).get();
+        return snap.exists ? GyeMeta.fromDoc(id, snap.data()!) : null;
+      },
+    );
+  }
+
+  @visibleForTesting
+  static Future<List<GyeMeta>> myGyeMetasForSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<List<String>> Function() loadIds,
+    required Future<GyeMeta?> Function(String id) loadMeta,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final snapshot = fence.readySnapshot(uid);
+    if (snapshot == null) {
+      return const [];
+    }
+    try {
+      final ids = await loadIds();
+      if (fence.verify(snapshot, uid: uid) != CloudWriteResult.completed) {
+        return const [];
+      }
+      final out = <GyeMeta>[];
+      for (final id in ids) {
+        final meta = await loadMeta(id);
+        if (fence.verify(snapshot, uid: uid) != CloudWriteResult.completed) {
+          return const [];
+        }
+        if (meta != null) {
+          out.add(meta);
+        }
+      }
+      return out;
+    } catch (_) {
+      return const [];
+    }
   }
 
   /// 멤버 실시간 스트림.
@@ -476,6 +589,7 @@ class GyeService {
       return Stream.value(const []);
     }
     return _bindStream(
+      cloudWriteSessionController,
       uid,
       db
           .collection(_collection)
@@ -502,12 +616,13 @@ class GyeService {
     if (uid == null || db == null || uid == targetUid) {
       return false;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return false;
     }
     try {
       final result = await _runWrite(
+        cloudWriteSessionController,
         uid,
         () => db
             .collection(_collection)
@@ -552,7 +667,7 @@ class GyeService {
     if (uid == null || db == null) {
       return false;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return false;
     }
@@ -569,19 +684,24 @@ class GyeService {
       // 닉네임 없이도 전송은 진행
     }
     try {
-      final result = await _runWrite(uid, () async {
-        await ref
-            .collection('feed')
-            .add(
-              GyeFeedEvent(
-                id: '',
-                type: GyeFeedType.sticker,
-                actorUid: uid,
-                actorNickname: nickname,
-                payload: {'stickerCode': code},
-              ).toCreateJson(),
-            );
-      }, snapshot: session);
+      final result = await _runWrite(
+        cloudWriteSessionController,
+        uid,
+        () async {
+          await ref
+              .collection('feed')
+              .add(
+                GyeFeedEvent(
+                  id: '',
+                  type: GyeFeedType.sticker,
+                  actorUid: uid,
+                  actorNickname: nickname,
+                  payload: {'stickerCode': code},
+                ).toCreateJson(),
+              );
+        },
+        snapshot: session,
+      );
       if (result != CloudWriteResult.completed) {
         return false;
       }
@@ -606,7 +726,7 @@ class GyeService {
     if (uid == null || db == null || targetEventId.isEmpty) {
       return false;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return false;
     }
@@ -623,19 +743,27 @@ class GyeService {
       // 닉네임 없이도 전송 진행
     }
     try {
-      final result = await _runWrite(uid, () async {
-        await ref
-            .collection('feed')
-            .add(
-              GyeFeedEvent(
-                id: '',
-                type: GyeFeedType.sticker,
-                actorUid: uid,
-                actorNickname: nickname,
-                payload: {'stickerCode': code, 'targetEventId': targetEventId},
-              ).toCreateJson(),
-            );
-      }, snapshot: session);
+      final result = await _runWrite(
+        cloudWriteSessionController,
+        uid,
+        () async {
+          await ref
+              .collection('feed')
+              .add(
+                GyeFeedEvent(
+                  id: '',
+                  type: GyeFeedType.sticker,
+                  actorUid: uid,
+                  actorNickname: nickname,
+                  payload: {
+                    'stickerCode': code,
+                    'targetEventId': targetEventId,
+                  },
+                ).toCreateJson(),
+              );
+        },
+        snapshot: session,
+      );
       if (result != CloudWriteResult.completed) {
         return false;
       }
@@ -668,7 +796,7 @@ class GyeService {
     if (uid == null || db == null) {
       return;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return;
     }
@@ -684,6 +812,7 @@ class GyeService {
     try {
       // create-only: 문서가 이미 있으면 set은 update가 되어 rules가 거부 → dedup.
       await _runWrite(
+        cloudWriteSessionController,
         uid,
         () => ref
             .collection('feed')
@@ -715,7 +844,7 @@ class GyeService {
     if (uid == null || db == null) {
       return;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return;
     }
@@ -724,19 +853,24 @@ class GyeService {
         final ref = db.collection(_collection).doc(gid);
         final m = await ref.collection('members').doc(uid).get();
         final nickname = m.data()?['nickname'] as String? ?? '';
-        final result = await _runWrite(uid, () async {
-          await ref
-              .collection('feed')
-              .add(
-                GyeFeedEvent(
-                  id: '',
-                  type: type,
-                  actorUid: uid,
-                  actorNickname: nickname,
-                  payload: payload,
-                ).toCreateJson(),
-              );
-        }, snapshot: session);
+        final result = await _runWrite(
+          cloudWriteSessionController,
+          uid,
+          () async {
+            await ref
+                .collection('feed')
+                .add(
+                  GyeFeedEvent(
+                    id: '',
+                    type: type,
+                    actorUid: uid,
+                    actorNickname: nickname,
+                    payload: payload,
+                  ).toCreateJson(),
+                );
+          },
+          snapshot: session,
+        );
         if (result != CloudWriteResult.completed) {
           return;
         }
@@ -764,7 +898,7 @@ class GyeService {
     if (uid == null || db == null) {
       return;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return;
     }
@@ -772,6 +906,7 @@ class GyeService {
     for (final gid in await myGyeIds()) {
       try {
         final result = await _runWrite(
+          cloudWriteSessionController,
           uid,
           () => db
               .collection(_collection)
@@ -808,7 +943,7 @@ class GyeService {
     if (uid == null || db == null) {
       return false;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return false;
     }
@@ -825,23 +960,28 @@ class GyeService {
       // 닉네임 없이도 전송 진행
     }
     try {
-      final result = await _runWrite(uid, () async {
-        await ref
-            .collection('feed')
-            .add(
-              GyeFeedEvent(
-                id: '',
-                type: GyeFeedType.cheer,
-                actorUid: uid,
-                actorNickname: nickname,
-                payload: {
-                  'targetUid': targetUid,
-                  'targetNickname': targetNickname,
-                  'cheerCode': cheerCode,
-                },
-              ).toCreateJson(),
-            );
-      }, snapshot: session);
+      final result = await _runWrite(
+        cloudWriteSessionController,
+        uid,
+        () async {
+          await ref
+              .collection('feed')
+              .add(
+                GyeFeedEvent(
+                  id: '',
+                  type: GyeFeedType.cheer,
+                  actorUid: uid,
+                  actorNickname: nickname,
+                  payload: {
+                    'targetUid': targetUid,
+                    'targetNickname': targetNickname,
+                    'cheerCode': cheerCode,
+                  },
+                ).toCreateJson(),
+              );
+        },
+        snapshot: session,
+      );
       if (result != CloudWriteResult.completed) {
         return false;
       }
@@ -864,12 +1004,13 @@ class GyeService {
     if (uid == null || db == null || uid == targetUid) {
       return false;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return false;
     }
     try {
       final result = await _runWrite(
+        cloudWriteSessionController,
         uid,
         () => db.collection('users').doc(uid).set({
           'blockedUids': FieldValue.arrayUnion([targetUid]),
@@ -889,12 +1030,13 @@ class GyeService {
     if (uid == null || db == null) {
       return false;
     }
-    final session = _readySnapshot(uid);
+    final session = _readySnapshot(cloudWriteSessionController, uid);
     if (session == null) {
       return false;
     }
     try {
       final result = await _runWrite(
+        cloudWriteSessionController,
         uid,
         () => db.collection('users').doc(uid).set({
           'blockedUids': FieldValue.arrayRemove([targetUid]),
@@ -915,6 +1057,7 @@ class GyeService {
       return Stream.value(const <String>{});
     }
     return _bindStream(
+      cloudWriteSessionController,
       uid,
       db
           .collection('users')

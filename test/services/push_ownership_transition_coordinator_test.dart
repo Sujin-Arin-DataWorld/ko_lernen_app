@@ -90,6 +90,45 @@ void main() {
   });
 
   test(
+    'successful target sign-in stays quiesced until source cleanup is frozen',
+    () async {
+      final sessions = CloudWriteSessionController();
+      sessions.acquire('old-uid');
+      final push = _PushOwner();
+      final coordinator = PushOwnershipTransitionCoordinator(
+        push: push,
+        notificationsEnabled: () => true,
+        sessions: sessions,
+      );
+      final synchronizer = CloudWriteSessionSynchronizer(sessions);
+      var transitionWrites = 0;
+
+      final result = await coordinator.run<void>(
+        oldUid: 'old-uid',
+        transition: () async {
+          expect(sessions.current?.uid, 'old-uid');
+          expect(sessions.current?.mode, CloudWriteMode.quiesced);
+          expect(
+            synchronizer.synchronizeReady('target-uid'),
+            CloudWriteResult.blocked,
+          );
+          expect(
+            await CloudWriteFence(
+              sessions,
+            ).run(uid: 'old-uid', action: () async => transitionWrites++),
+            CloudWriteResult.blocked,
+          );
+        },
+      );
+
+      expect(result, CloudWriteResult.blocked);
+      expect(transitionWrites, 0);
+      expect(sessions.current?.uid, 'old-uid');
+      expect(sessions.current?.mode, CloudWriteMode.cleanupPending);
+    },
+  );
+
+  test(
     'only explicit pre-marker rejection may restore old ownership',
     () async {
       final sessions = CloudWriteSessionController();

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 
 /// The permission state for cloud writes during an account transition.
@@ -151,6 +153,33 @@ class CloudWriteSessionController {
 final CloudWriteSessionController cloudWriteSessionController =
     CloudWriteSessionController();
 
+/// Aligns ordinary auth changes with a ready cloud-write session without
+/// reopening an account transition that deliberately quiesced the source.
+class CloudWriteSessionSynchronizer {
+  const CloudWriteSessionSynchronizer(this.sessions);
+
+  final CloudWriteSessionController sessions;
+
+  CloudWriteResult synchronizeReady(String? uid) {
+    final normalizedUid = uid?.trim();
+    if (normalizedUid == null || normalizedUid.isEmpty) {
+      return CloudWriteResult.blocked;
+    }
+    final current = sessions.current;
+    if (current == null) {
+      sessions.acquire(normalizedUid);
+      return CloudWriteResult.completed;
+    }
+    if (current.mode != CloudWriteMode.ready) {
+      return CloudWriteResult.blocked;
+    }
+    if (current.uid != normalizedUid) {
+      sessions.acquire(normalizedUid);
+    }
+    return CloudWriteResult.completed;
+  }
+}
+
 /// Re-validates a UID-bound session immediately before an irreversible action.
 ///
 /// Preparatory reads may run between [readySnapshot] and [verify]. The action
@@ -227,19 +256,50 @@ class CloudWriteFence {
     return verify(snapshot, uid: uid);
   }
 
-  Stream<T> bindStream<T>({
-    required String uid,
-    required Stream<T> source,
-  }) async* {
+  Stream<T> bindStream<T>({required String uid, required Stream<T> source}) {
     final snapshot = readySnapshot(uid);
     if (snapshot == null) {
-      return;
+      return Stream<T>.empty();
     }
-    await for (final value in source) {
-      if (verify(snapshot, uid: uid) != CloudWriteResult.completed) {
+
+    late StreamController<T> controller;
+    StreamSubscription<T>? sourceSubscription;
+    late VoidCallback onSessionChanged;
+    var closed = false;
+
+    Future<void> close() async {
+      if (closed) {
         return;
       }
-      yield value;
+      closed = true;
+      sessions.changes.removeListener(onSessionChanged);
+      await sourceSubscription?.cancel();
+      await controller.close();
     }
+
+    onSessionChanged = () {
+      if (verify(snapshot, uid: uid) != CloudWriteResult.completed) {
+        unawaited(close());
+      }
+    };
+
+    controller = StreamController<T>(
+      onListen: () {
+        sessions.changes.addListener(onSessionChanged);
+        sourceSubscription = source.listen(
+          (value) {
+            if (verify(snapshot, uid: uid) == CloudWriteResult.completed) {
+              controller.add(value);
+            } else {
+              unawaited(close());
+            }
+          },
+          onError: controller.addError,
+          onDone: close,
+        );
+      },
+      onCancel: close,
+    );
+    return controller.stream;
   }
 }

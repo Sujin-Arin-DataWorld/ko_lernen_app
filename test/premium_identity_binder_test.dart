@@ -12,17 +12,22 @@ void main() {
       final revenueCat = _FakeRevenueCatIdentityClient()
         ..loginFailures.add(StateError('transient'));
       final sessions = CloudWriteSessionController()..acquire('uid-1');
-      final binder = PremiumIdentityBinder(revenueCat, sessions: sessions);
+      final binder = PremiumIdentityBinder(
+        revenueCat,
+        sessions: sessions,
+        initialUid: 'uid-1',
+      );
       final errors = <Object>[];
       binder.start(identities.stream, onError: errors.add);
+      sessions.acquire('uid-2');
 
-      identities.add('uid-1');
+      identities.add('uid-2');
       await Future<void>.delayed(Duration.zero);
-      identities.add('uid-1');
+      identities.add('uid-2');
       await Future<void>.delayed(Duration.zero);
 
-      expect(revenueCat.loginAttempts, <String>['uid-1', 'uid-1']);
-      expect(binder.boundUid, 'uid-1');
+      expect(revenueCat.loginAttempts, <String>['uid-2', 'uid-2']);
+      expect(binder.boundUid, 'uid-2');
       expect(errors, hasLength(1));
       await binder.dispose();
       await identities.close();

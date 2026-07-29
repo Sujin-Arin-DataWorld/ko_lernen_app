@@ -69,10 +69,22 @@ class FirestoreProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
+    return savePackWithSession(
+      p,
+      sessions: cloudWriteSessionController,
+      uid: uid,
+    );
+  }
+
+  static Future<CloudWriteResult> savePackWithSession(
+    PackProgress p, {
+    required CloudWriteSessionController sessions,
+    required String uid,
+  }) async {
     CollectionReference<Map<String, dynamic>>? ref;
     Map<String, dynamic>? payload;
     try {
-      return await CloudWriteFence(cloudWriteSessionController).run(
+      return await CloudWriteFence(sessions).run(
         uid: uid,
         prepare: () async {
           final db = _db;
@@ -108,9 +120,21 @@ class FirestoreProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
+    return saveManyWithSession(
+      progresses,
+      sessions: cloudWriteSessionController,
+      uid: uid,
+    );
+  }
+
+  static Future<CloudWriteResult> saveManyWithSession(
+    Iterable<PackProgress> progresses, {
+    required CloudWriteSessionController sessions,
+    required String uid,
+  }) async {
     WriteBatch? batch;
     try {
-      return await CloudWriteFence(cloudWriteSessionController).run(
+      return await CloudWriteFence(sessions).run(
         uid: uid,
         prepare: () async {
           final db = _db;
