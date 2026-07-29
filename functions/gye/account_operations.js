@@ -16,6 +16,13 @@ const OPERATION_PHASES = Object.freeze([
 ]);
 
 const TERMINAL_PHASES = new Set(["completed", "blocked"]);
+const BLOCKED_REASON_CODES = new Set([
+  "operation-blocked",
+  "durable-account-transition-not-supported",
+  "target-verification-failed",
+  "reconciliation-failed",
+  "source-cleanup-failed",
+]);
 function operationError(code, message) {
   const error = new Error(message);
   error.code = code;
@@ -31,6 +38,17 @@ function requiredString(value, name) {
 
 function nonNegativeInteger(value) {
   return Number.isInteger(value) && value >= 0 ? value : 0;
+}
+
+function requiredVersion(value) {
+  if (!Number.isInteger(value) || value < 0) {
+    throw operationError("invalid-operation", "Operation version must be a non-negative integer.");
+  }
+  return value;
+}
+
+function safeBlockedReason(value) {
+  return BLOCKED_REASON_CODES.has(value) ? value : "operation-blocked";
 }
 
 function normalizedPhaseAttempts(value) {
@@ -57,9 +75,10 @@ function normalizeOperation(operation) {
   }
   const sourceUid = requiredString(operation.sourceUid, "sourceUid");
   const id = requiredString(operation.id, "id");
-  const phase = OPERATION_PHASES.includes(operation.phase)
-    ? operation.phase
-    : "prepared";
+  if (!OPERATION_PHASES.includes(operation.phase)) {
+    throw operationError("invalid-operation", "Operation phase is not recognized.");
+  }
+  const phase = operation.phase;
   const targetUid = kind === "replacement"
     ? requiredString(operation.targetUid, "targetUid")
     : null;
@@ -77,7 +96,7 @@ function normalizeOperation(operation) {
     targetUid,
     requestKey: typeof operation.requestKey === "string" ? operation.requestKey : null,
     phase,
-    version: nonNegativeInteger(operation.version),
+    version: requiredVersion(operation.version),
     attemptCount: totalAttempts(phaseAttempts),
     phaseAttempts,
     appleRevocationRequired: kind === "deletion" &&
@@ -85,8 +104,8 @@ function normalizeOperation(operation) {
     retry: operation.retry && typeof operation.retry === "object"
       ? { classification: operation.retry.classification || "none" }
       : { classification: "none" },
-    blockedReason: phase === "blocked" && typeof operation.blockedReason === "string"
-      ? operation.blockedReason
+    blockedReason: phase === "blocked"
+      ? safeBlockedReason(operation.blockedReason)
       : null,
   };
 }
@@ -179,7 +198,7 @@ function transitionOperation(operation, { toPhase, expectedVersion, blockedReaso
     version: current.version + 1,
     retry: { classification: "none" },
     blockedReason: toPhase === "blocked"
-      ? (typeof blockedReason === "string" ? blockedReason : "operation-blocked")
+      ? safeBlockedReason(blockedReason)
       : null,
   });
 }

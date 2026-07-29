@@ -197,6 +197,28 @@ test("rejects a stale operation version before applying a transition", () => {
   );
 });
 
+test("fails closed for malformed persisted phases or versions even at version zero", () => {
+  const malformedRecords = [
+    { ...replacementRequest, phase: "unknownPersistedPhase", version: 0 },
+    { ...replacementRequest, phase: "prepared", version: -1 },
+    { ...replacementRequest, phase: "prepared", version: "0" },
+  ];
+
+  for (const record of malformedRecords) {
+    assert.throws(
+      () => normalizeOperation(record),
+      { code: "invalid-operation" },
+    );
+    assert.throws(
+      () => transitionOperation(record, {
+        toPhase: "targetVerified",
+        expectedVersion: 0,
+      }),
+      { code: "invalid-operation" },
+    );
+  }
+});
+
 test("keeps attempt counters monotonic and rejects out-of-order attempts", () => {
   const operation = createReplacement();
   const once = recordAttempt(operation, {
@@ -334,4 +356,26 @@ test("normalizes operation records and exposes only safe public result fields", 
   ]) {
     assert.equal(Object.hasOwn(result, forbidden), false);
   }
+});
+
+test("maps untrusted blocked reasons to a safe reason code before persistence or output", () => {
+  const secretLikeReason = "appleAuthorizationCode=top-secret-id-token";
+  const blocked = transitionOperation(createReplacement(), {
+    toPhase: "blocked",
+    expectedVersion: 0,
+    blockedReason: secretLikeReason,
+  });
+  const persistedUnsafeReason = {
+    ...createReplacement(),
+    phase: "blocked",
+    blockedReason: secretLikeReason,
+  };
+
+  assert.equal(blocked.blockedReason, "operation-blocked");
+  assert.equal(operationResult(blocked).blockedReason, "operation-blocked");
+  assert.equal(
+    operationResult(persistedUnsafeReason).blockedReason,
+    "operation-blocked",
+  );
+  assert.equal(JSON.stringify(operationResult(blocked)).includes(secretLikeReason), false);
 });
