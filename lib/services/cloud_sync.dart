@@ -30,44 +30,59 @@ class CloudSync {
 
   /// Reines Backup-Payload (ohne Firestore-I/O, ohne `updated_at`) — testbar.
   @visibleForTesting
-  static Map<String, dynamic> buildBackupPayload() => {
-    'vok': {
-      'correct': Storage.vokCorrect,
-      'wrong': Storage.vokWrong,
-      'skipped': Storage.vokSkipped,
-      'last_idx': Storage.vokLastIdx,
-      'seen_ids': Storage.vokSeenIds,
-    },
-    'chosung': {
-      'correct': Storage.chosungCorrect,
-      'wrong': Storage.chosungWrong,
-    },
-    'wordle': {
-      'wins': Storage.wordleWins,
-      'losses': Storage.wordleLosses,
-      'streak': Storage.wordleStreak,
-      'best_streak': Storage.wordleBestStreak,
-    },
-    'grammar': {
-      'last_idx': Storage.grammarLastIdx,
-      'seen': Storage.grammarSeen,
-    },
-    'app': {
-      'last_open': Storage.lastOpenDate,
-      'streak_days': Storage.streakDays,
-      'best_streak': Storage.bestStreak,
-    },
-    // Phase 1~8 Fortschritt (Reinstall/Gerätewechsel-Schutz).
-    'progress': {
-      'xp': Storage.xp,
-      'level': Storage.userLevelCode,
-      'earned_stamps': Storage.earnedStamps,
-      'quest_completions': Storage.questCompletions,
-    },
-    'srs_json': Storage.srsRawJson,
-    'custom_packs_json': Storage.customPacksRawJson,
-    'bookshelf_json': Storage.bookshelfRawJson,
-  };
+  static Map<String, dynamic> buildBackupPayload() {
+    final payload = <String, dynamic>{
+      'vok': {
+        'correct': Storage.vokCorrect,
+        'wrong': Storage.vokWrong,
+        'skipped': Storage.vokSkipped,
+        'last_idx': Storage.vokLastIdx,
+        'seen_ids': Storage.vokSeenIds,
+      },
+      'chosung': {
+        'correct': Storage.chosungCorrect,
+        'wrong': Storage.chosungWrong,
+      },
+      'wordle': {
+        'wins': Storage.wordleWins,
+        'losses': Storage.wordleLosses,
+        'streak': Storage.wordleStreak,
+        'best_streak': Storage.wordleBestStreak,
+      },
+      'grammar': {
+        'last_idx': Storage.grammarLastIdx,
+        'seen': Storage.grammarSeen,
+      },
+      'app': {
+        'last_open': Storage.lastOpenDate,
+        'streak_days': Storage.streakDays,
+        'best_streak': Storage.bestStreak,
+      },
+      // Phase 1~8 Fortschritt (Reinstall/Gerätewechsel-Schutz).
+      'progress': {
+        'xp': Storage.xp,
+        'level': Storage.userLevelCode,
+        'earned_stamps': Storage.earnedStamps,
+        'quest_completions': Storage.questCompletions,
+      },
+      'srs_json': Storage.srsRawJson,
+    };
+    final customPacks = _portableStructuredJson(
+      Storage.customPacksRawJson,
+      stripBookshelfThumbnail: false,
+    );
+    final bookshelf = _portableStructuredJson(
+      Storage.bookshelfRawJson,
+      stripBookshelfThumbnail: true,
+    );
+    if (customPacks != null) {
+      payload['custom_packs_json'] = customPacks;
+    }
+    if (bookshelf != null) {
+      payload['bookshelf_json'] = bookshelf;
+    }
+    return payload;
+  }
 
   /// Lokale Werte → Firestore. Idempotent.
   static Future<void> backup() async {
@@ -216,16 +231,16 @@ class CloudSync {
     if (srsJson != null && Storage.srsRawJson.isEmpty) {
       await Storage.setSrsRawJson(srsJson);
     }
-    final customPacksJson = _structuredJson(
+    final customPacksJson = _portableRestoreJson(
       data['custom_packs_json'],
-      hasExpectedShape: (decoded) => decoded is Map,
+      stripBookshelfThumbnail: false,
     );
     if (customPacksJson != null && Storage.customPacksRawJson.isEmpty) {
       await Storage.setCustomPacksRawJson(customPacksJson);
     }
-    final bookshelfJson = _structuredJson(
+    final bookshelfJson = _portableRestoreJson(
       data['bookshelf_json'],
-      hasExpectedShape: (decoded) => decoded is Map,
+      stripBookshelfThumbnail: true,
     );
     if (bookshelfJson != null && Storage.bookshelfRawJson.isEmpty) {
       await Storage.setBookshelfRawJson(bookshelfJson);
@@ -287,6 +302,99 @@ class CloudSync {
     } on FormatException {
       return null;
     }
+  }
+
+  static String? _portableStructuredJson(
+    String source, {
+    required bool stripBookshelfThumbnail,
+  }) {
+    if (source.trim().isEmpty) {
+      return source;
+    }
+    try {
+      final decoded = jsonDecode(source);
+      if (decoded is! Map) {
+        return null;
+      }
+      return jsonEncode(
+        _stripLocalMedia(
+          decoded,
+          stripBookshelfThumbnail: stripBookshelfThumbnail,
+        ),
+      );
+    } on FormatException {
+      return null;
+    }
+  }
+
+  static String? _portableRestoreJson(
+    Object? value, {
+    required bool stripBookshelfThumbnail,
+  }) {
+    final source = _nonEmptyString(value);
+    if (source == null) {
+      return null;
+    }
+    try {
+      final decoded = jsonDecode(source);
+      if (decoded is! Map) {
+        return null;
+      }
+      return jsonEncode(
+        _stripLocalMedia(
+          decoded,
+          stripBookshelfThumbnail: stripBookshelfThumbnail,
+        ),
+      );
+    } on FormatException {
+      return null;
+    }
+  }
+
+  static Map<String, dynamic> _stripLocalMedia(
+    Map<dynamic, dynamic> source, {
+    required bool stripBookshelfThumbnail,
+  }) {
+    final result = <String, dynamic>{};
+    for (final entry in source.entries) {
+      if (entry.key is! String || entry.value is! Map) {
+        throw const FormatException('Malformed portable collection.');
+      }
+      final owner = <String, dynamic>{};
+      for (final field in (entry.value as Map).entries) {
+        if (field.key is! String) {
+          throw const FormatException('Malformed portable entry.');
+        }
+        final key = field.key as String;
+        if (stripBookshelfThumbnail && key == 'localThumbnailPath') {
+          continue;
+        }
+        if (key == 'words') {
+          if (field.value is! List) {
+            throw const FormatException('Malformed portable words.');
+          }
+          owner[key] = (field.value as List).map((word) {
+            if (word is! Map) {
+              throw const FormatException('Malformed portable word.');
+            }
+            final portableWord = <String, dynamic>{};
+            for (final wordField in word.entries) {
+              if (wordField.key is! String) {
+                throw const FormatException('Malformed portable word field.');
+              }
+              if (wordField.key != 'imagePath') {
+                portableWord[wordField.key as String] = wordField.value;
+              }
+            }
+            return portableWord;
+          }).toList();
+        } else {
+          owner[key] = field.value;
+        }
+      }
+      result[entry.key as String] = owner;
+    }
+    return result;
   }
 
   static Iterable<String> _stringValues(Object? value) sync* {

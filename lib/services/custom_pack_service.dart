@@ -1,8 +1,12 @@
 import 'dart:convert';
 import 'dart:math' as math;
 
+import 'package:crypto/crypto.dart';
+
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import 'book_image_service.dart';
+import 'media_mutation_lock.dart';
 import 'storage_service.dart';
 
 /// Ergebnis von [CustomPackService.quickAdd].
@@ -17,6 +21,19 @@ class CustomPackService {
 
   /// Prozess-monotoner Zähler — siehe [BookshelfService.generateId].
   static int _seq = 0;
+
+  static String mediaWorkflowId(
+    String packId,
+    int? index,
+    ExtractedWord? original,
+  ) {
+    if (index == null || original == null) {
+      return 'word:$packId:new';
+    }
+    final canonical = jsonEncode(original.toLocalJson());
+    final fingerprint = sha256.convert(utf8.encode(canonical));
+    return 'word:$packId:$index:$fingerprint';
+  }
 
   /// 시간 기반 짧은 ID — BookshelfService 와 동일 패턴.
   /// epochMs(36) + Sequenz + 4 Zeichen Random: [_seq] garantiert
@@ -33,21 +50,33 @@ class CustomPackService {
   }
 
   static List<CustomPack> getAll() {
-    final raw = _readRaw();
-    return raw.entries
-        .map((e) => CustomPack.fromJson(
-              e.key,
-              (e.value as Map).cast<String, dynamic>(),
-            ))
-        .toList()
-      ..sort((a, b) => b.createdAtIso.compareTo(a.createdAtIso));
+    final raw = _readRawTolerant();
+    final packs = <CustomPack>[];
+    for (final entry in raw.entries) {
+      try {
+        packs.add(
+          CustomPack.fromJson(
+            entry.key,
+            (entry.value as Map).cast<String, dynamic>(),
+          ),
+        );
+      } on Object {
+        // Tolerant UI reads skip malformed nested entries.
+      }
+    }
+    packs.sort((a, b) => b.createdAtIso.compareTo(a.createdAtIso));
+    return packs;
   }
 
   static CustomPack? getById(String id) {
-    final raw = _readRaw();
+    final raw = _readRawTolerant();
     final entry = raw[id];
     if (entry == null) return null;
-    return CustomPack.fromJson(id, (entry as Map).cast<String, dynamic>());
+    try {
+      return CustomPack.fromJson(id, (entry as Map).cast<String, dynamic>());
+    } on Object {
+      return null;
+    }
   }
 
   /// 책장 페이지에서 새 팩 생성 + 저장. 새 팩의 id 반환.
@@ -101,48 +130,77 @@ class CustomPackService {
 
   /// 단어 추가 → 저장. 갱신된 팩 반환 (없으면 null).
   static Future<CustomPack?> addWord(String packId, ExtractedWord word) async {
-    final pack = getById(packId);
-    if (pack == null) return null;
-    final updated = pack.copyWith(words: [...pack.words, word]);
-    await save(updated);
-    return updated;
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final pack = _packFromRaw(raw, packId);
+      if (pack == null) {
+        return null;
+      }
+      final updated = pack.copyWith(words: [...pack.words, word]);
+      raw[packId] = updated.toLocalJson();
+      await _writeRawStrict(raw);
+      return updated;
+    });
   }
 
   /// 여러 단어 일괄 추가 (CSV 가져오기). 갱신된 팩 반환.
   static Future<CustomPack?> addWords(
-      String packId, List<ExtractedWord> words) async {
+    String packId,
+    List<ExtractedWord> words,
+  ) async {
     if (words.isEmpty) return getById(packId);
-    final pack = getById(packId);
-    if (pack == null) return null;
-    final updated = pack.copyWith(words: [...pack.words, ...words]);
-    await save(updated);
-    return updated;
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final pack = _packFromRaw(raw, packId);
+      if (pack == null) {
+        return null;
+      }
+      final updated = pack.copyWith(words: [...pack.words, ...words]);
+      raw[packId] = updated.toLocalJson();
+      await _writeRawStrict(raw);
+      return updated;
+    });
   }
 
   /// index 위치 단어 교체 → 저장.
   static Future<CustomPack?> updateWord(
-      String packId, int index, ExtractedWord word) async {
-    final pack = getById(packId);
-    if (pack == null || index < 0 || index >= pack.words.length) {
-      return pack;
-    }
-    final words = List<ExtractedWord>.from(pack.words);
-    words[index] = word;
-    final updated = pack.copyWith(words: words);
-    await save(updated);
-    return updated;
+    String packId,
+    int index,
+    ExtractedWord word,
+  ) async {
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final pack = _packFromRaw(raw, packId);
+      if (pack == null || index < 0 || index >= pack.words.length) {
+        return pack;
+      }
+      final oldReference = pack.words[index].imagePath;
+      final words = List<ExtractedWord>.from(pack.words);
+      words[index] = word;
+      final updated = pack.copyWith(words: words);
+      raw[packId] = updated.toLocalJson();
+      await _writeRawStrict(raw);
+      await _collectGarbage([oldReference]);
+      return updated;
+    });
   }
 
   /// index 위치 단어 삭제 → 저장.
   static Future<CustomPack?> deleteWord(String packId, int index) async {
-    final pack = getById(packId);
-    if (pack == null || index < 0 || index >= pack.words.length) {
-      return pack;
-    }
-    final words = List<ExtractedWord>.from(pack.words)..removeAt(index);
-    final updated = pack.copyWith(words: words);
-    await save(updated);
-    return updated;
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final pack = _packFromRaw(raw, packId);
+      if (pack == null || index < 0 || index >= pack.words.length) {
+        return pack;
+      }
+      final removedReference = pack.words[index].imagePath;
+      final words = List<ExtractedWord>.from(pack.words)..removeAt(index);
+      final updated = pack.copyWith(words: words);
+      raw[packId] = updated.toLocalJson();
+      await _writeRawStrict(raw);
+      await _collectGarbage([removedReference]);
+      return updated;
+    });
   }
 
   /// 단어장 이름 변경 → 저장.
@@ -155,30 +213,221 @@ class CustomPackService {
   }
 
   static Future<void> save(CustomPack pack) async {
-    final raw = Map<String, dynamic>.from(_readRaw());
-    raw[pack.id] = pack.toJson();
-    await _writeRaw(raw);
+    await MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final previous = _packFromRaw(raw, pack.id);
+      raw[pack.id] = pack.toLocalJson();
+      await _writeRawStrict(raw);
+      if (previous != null) {
+        await _collectGarbage(previous.words.map((word) => word.imagePath));
+      }
+    });
   }
 
   static Future<void> delete(String id) async {
-    final raw = Map<String, dynamic>.from(_readRaw());
-    raw.remove(id);
-    await _writeRaw(raw);
+    await MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final previous = _packFromRaw(raw, id);
+      raw.remove(id);
+      await _writeRawStrict(raw);
+      if (previous != null) {
+        await _collectGarbage(previous.words.map((word) => word.imagePath));
+      }
+    });
+  }
+
+  static Future<CustomPack?> addWordWithPendingImage(
+    String packId,
+    ExtractedWord word,
+    PendingMediaLease lease,
+  ) async {
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final pack = _packFromRaw(raw, packId);
+      final store = await BookImageService.store;
+      if (pack == null) {
+        await store.discard(lease);
+        return null;
+      }
+      final ManagedMediaPromotion promotion;
+      try {
+        promotion = await store.promote(lease);
+      } on Object {
+        try {
+          await store.discard(lease);
+        } on Object {
+          // Pending TTL reconciliation retries cleanup.
+        }
+        rethrow;
+      }
+      var persisted = false;
+      try {
+        final updated = pack.copyWith(
+          words: [
+            ...pack.words,
+            word.copyWithEditable(imagePath: promotion.reference.encoded),
+          ],
+        );
+        raw[packId] = updated.toLocalJson();
+        await _writeRawStrict(raw);
+        persisted = true;
+        await store.finalizeAfterPersistence(promotion);
+        return updated;
+      } on Object {
+        if (!persisted) {
+          await store.rollback(promotion);
+          try {
+            await store.discard(promotion.lease);
+          } on Object {
+            // Pending TTL reconciliation retries cleanup.
+          }
+        }
+        rethrow;
+      }
+    });
+  }
+
+  static Future<CustomPack?> updateWordWithMedia({
+    required String packId,
+    required int index,
+    required ExtractedWord expectedOriginal,
+    required ExtractedWord word,
+    PendingMediaLease? pendingLease,
+    bool removePhoto = false,
+  }) async {
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final pack = _packFromRaw(raw, packId);
+      final store = await BookImageService.store;
+      if (pack == null || index < 0 || index >= pack.words.length) {
+        if (pendingLease != null) {
+          await store.discard(pendingLease);
+        }
+        throw StateError('The edited word no longer exists.');
+      }
+      if (jsonEncode(pack.words[index].toLocalJson()) !=
+          jsonEncode(expectedOriginal.toLocalJson())) {
+        if (pendingLease != null) {
+          await store.discard(pendingLease);
+        }
+        throw StateError('The edited word changed before media was saved.');
+      }
+      final oldReference = ManagedMediaRef.tryParse(
+        pack.words[index].imagePath,
+      );
+      ManagedMediaPromotion? promotion;
+      var persisted = false;
+      try {
+        if (pendingLease != null) {
+          promotion = await store.promote(pendingLease);
+        }
+        final nextReference =
+            promotion?.reference ?? (removePhoto ? null : oldReference);
+        final words = List<ExtractedWord>.from(pack.words);
+        words[index] = word.copyWithEditable(
+          imagePath: nextReference?.encoded,
+          clearImage: nextReference == null,
+        );
+        final updated = pack.copyWith(words: words);
+        raw[packId] = updated.toLocalJson();
+        await _writeRawStrict(raw);
+        persisted = true;
+        if (promotion != null) {
+          await store.finalizeAfterPersistence(promotion);
+        }
+        if (oldReference != null && oldReference != nextReference) {
+          try {
+            await store.deleteIfUnreferenced(
+              oldReference,
+              _referenceSnapshot(),
+            );
+          } on Object {
+            // Startup reconciliation retries old-file GC.
+          }
+        }
+        return updated;
+      } on Object {
+        if (promotion != null && !persisted) {
+          await store.rollback(promotion);
+          try {
+            await store.discard(promotion.lease);
+          } on Object {
+            // Pending TTL reconciliation retries cleanup.
+          }
+        } else if (promotion == null && pendingLease != null) {
+          try {
+            await store.discard(pendingLease);
+          } on Object {
+            // Pending TTL reconciliation retries cleanup.
+          }
+        }
+        rethrow;
+      }
+    });
   }
 
   // ── helpers ────────────────────────────────────────────────────────
 
   static Map<String, dynamic> _readRaw() {
     final raw = Storage.customPacksRawJson;
-    if (raw.isEmpty) return const {};
+    if (raw.isEmpty) {
+      return const {};
+    }
+    final decoded = jsonDecode(raw);
+    if (decoded is! Map) {
+      throw const FormatException('Malformed custom-pack storage.');
+    }
+    final result = <String, dynamic>{};
+    for (final entry in decoded.entries) {
+      if (entry.key is! String || entry.value is! Map) {
+        throw const FormatException('Malformed custom-pack entry.');
+      }
+      result[entry.key as String] = entry.value;
+    }
+    return result;
+  }
+
+  static Map<String, dynamic> _readRawTolerant() {
     try {
-      return (jsonDecode(raw) as Map).cast<String, dynamic>();
-    } catch (_) {
+      return _readRaw();
+    } on Object {
       return const {};
     }
   }
 
-  static Future<void> _writeRaw(Map<String, dynamic> data) async {
-    await Storage.setCustomPacksRawJson(jsonEncode(data));
+  static CustomPack? _packFromRaw(Map<String, dynamic> raw, String id) {
+    final entry = raw[id];
+    if (entry is! Map) {
+      return null;
+    }
+    return CustomPack.fromJson(id, entry.cast<String, dynamic>());
+  }
+
+  static Future<void> _writeRawStrict(Map<String, dynamic> data) async {
+    await Storage.setCustomPacksRawJsonStrict(jsonEncode(data));
+  }
+
+  static ManagedMediaReferenceSnapshot _referenceSnapshot() =>
+      ManagedMediaReferenceSnapshot.fromJson(
+        bookshelfJson: Storage.bookshelfRawJson,
+        customPacksJson: Storage.customPacksRawJson,
+      );
+
+  static Future<void> _collectGarbage(Iterable<String> encodedRefs) async {
+    final snapshot = _referenceSnapshot();
+    if (!snapshot.isComplete) {
+      return;
+    }
+    final references = encodedRefs
+        .map(ManagedMediaRef.tryParse)
+        .whereType<ManagedMediaRef>()
+        .toSet();
+    if (references.isEmpty) {
+      return;
+    }
+    final store = await BookImageService.store;
+    for (final reference in references) {
+      await store.deleteIfUnreferenced(reference, snapshot);
+    }
   }
 }

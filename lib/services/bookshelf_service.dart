@@ -6,6 +6,9 @@ import 'package:flutter/foundation.dart' show debugPrint;
 
 import '../models/book_page.dart';
 import 'auth_service.dart';
+import 'book_image_service.dart';
+import 'media_mutation_lock.dart';
+import 'media_workflow.dart';
 import 'storage_service.dart';
 
 /// Phase 5 (stately-rising-jongga) — "내 책장" CRUD service.
@@ -38,38 +41,80 @@ class BookshelfService {
   // ── Local Read/Write ──────────────────────────────────────────────
 
   static List<BookPage> getAllLocal() {
-    final raw = _readRaw();
-    return raw.entries
-        .map(
-          (e) => BookPage.fromJson(
-            e.key,
-            (e.value as Map).cast<String, dynamic>(),
+    final raw = _readRawTolerant();
+    final pages = <BookPage>[];
+    for (final entry in raw.entries) {
+      try {
+        pages.add(
+          BookPage.fromJson(
+            entry.key,
+            (entry.value as Map).cast<String, dynamic>(),
           ),
-        )
-        .toList()
-      ..sort((a, b) => b.capturedAtIso.compareTo(a.capturedAtIso));
+        );
+      } on Object {
+        // Tolerant UI reads skip malformed nested entries.
+      }
+    }
+    pages.sort((a, b) => b.capturedAtIso.compareTo(a.capturedAtIso));
+    return pages;
   }
 
   static BookPage? getById(String id) {
-    final raw = _readRaw();
+    final raw = _readRawTolerant();
     final entry = raw[id];
     if (entry == null) return null;
-    return BookPage.fromJson(id, (entry as Map).cast<String, dynamic>());
+    try {
+      return BookPage.fromJson(id, (entry as Map).cast<String, dynamic>());
+    } on Object {
+      return null;
+    }
   }
 
   static Future<void> save(BookPage page) async {
-    final raw = Map<String, dynamic>.from(_readRaw());
-    raw[page.id] = page.toLocalJson();
-    await _writeRaw(raw);
+    await MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      raw[page.id] = page.toLocalJson();
+      await _writeRawStrict(raw);
+    });
     // best-effort Firestore sync
     // ignore: discarded_futures, unawaited_futures
     _saveToFirestore(page);
   }
 
+  static Future<BookPage> saveWithPendingImage(
+    BookPage page,
+    PendingMediaLease lease,
+  ) async {
+    late BookPage persisted;
+    final workflow = BookMediaSaveWorkflow(
+      store: await BookImageService.store,
+      persist: (reference) async {
+        persisted = page.copyWith(localThumbnailPath: reference.encoded);
+        await save(persisted);
+      },
+    );
+    await workflow.save(lease);
+    return persisted;
+  }
+
   static Future<void> delete(String id) async {
-    final raw = Map<String, dynamic>.from(_readRaw());
-    raw.remove(id);
-    await _writeRaw(raw);
+    await MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      final removed = raw.remove(id);
+      await _writeRawStrict(raw);
+      if (removed is Map) {
+        final page = BookPage.fromJson(id, removed.cast<String, dynamic>());
+        try {
+          await _collectGarbage([
+            page.localThumbnailPath,
+            ...page.words.map((word) => word.imagePath),
+          ]);
+        } on Object {
+          // The strict model delete already committed. Startup reconciliation
+          // safely retries media GC when the platform store is available.
+        }
+      }
+    });
     // ignore: discarded_futures, unawaited_futures
     _deleteFromFirestore(id);
   }
@@ -78,10 +123,27 @@ class BookshelfService {
 
   static Map<String, dynamic> _readRaw() {
     final raw = _prefsString();
-    if (raw.isEmpty) return const {};
+    if (raw.isEmpty) {
+      return const {};
+    }
+    final decoded = jsonDecode(raw);
+    if (decoded is! Map) {
+      throw const FormatException('Malformed bookshelf storage.');
+    }
+    final result = <String, dynamic>{};
+    for (final entry in decoded.entries) {
+      if (entry.key is! String || entry.value is! Map) {
+        throw const FormatException('Malformed bookshelf entry.');
+      }
+      result[entry.key as String] = entry.value;
+    }
+    return result;
+  }
+
+  static Map<String, dynamic> _readRawTolerant() {
     try {
-      return (jsonDecode(raw) as Map).cast<String, dynamic>();
-    } catch (_) {
+      return _readRaw();
+    } on Object {
       return const {};
     }
   }
@@ -94,8 +156,29 @@ class BookshelfService {
     return Storage.bookshelfRawJson;
   }
 
-  static Future<void> _writeRaw(Map<String, dynamic> data) async {
-    await Storage.setBookshelfRawJson(jsonEncode(data));
+  static Future<void> _writeRawStrict(Map<String, dynamic> data) async {
+    await Storage.setBookshelfRawJsonStrict(jsonEncode(data));
+  }
+
+  static Future<void> _collectGarbage(Iterable<String?> encodedRefs) async {
+    final snapshot = ManagedMediaReferenceSnapshot.fromJson(
+      bookshelfJson: Storage.bookshelfRawJson,
+      customPacksJson: Storage.customPacksRawJson,
+    );
+    if (!snapshot.isComplete) {
+      return;
+    }
+    final references = encodedRefs
+        .map(ManagedMediaRef.tryParse)
+        .whereType<ManagedMediaRef>()
+        .toSet();
+    if (references.isEmpty) {
+      return;
+    }
+    final store = await BookImageService.store;
+    for (final reference in references) {
+      await store.deleteIfUnreferenced(reference, snapshot);
+    }
   }
 
   // ── Firestore best-effort ──────────────────────────────────────────

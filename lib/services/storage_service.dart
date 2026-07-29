@@ -23,6 +23,20 @@ abstract interface class PreferenceRemovalStore {
   Future<bool> remove(String key);
 }
 
+abstract interface class PreferenceStringStore {
+  Future<bool> setString(String key, String value);
+  Future<bool> remove(String key);
+}
+
+class PreferenceWriteException implements Exception {
+  const PreferenceWriteException(this.key);
+
+  final String key;
+
+  @override
+  String toString() => 'Preference write failed for $key.';
+}
+
 class PreferenceResetException implements Exception {
   const PreferenceResetException({
     required this.failedKeys,
@@ -36,6 +50,16 @@ class PreferenceResetException implements Exception {
   String toString() => 'Preference reset failed for ${failedKeys.join(', ')}.';
 }
 
+class RecoveredWordClaim {
+  const RecoveredWordClaim({
+    required this.record,
+    required this.discardedLeases,
+  });
+
+  final String? record;
+  final List<String> discardedLeases;
+}
+
 class _SharedPreferenceRemovalStore implements PreferenceRemovalStore {
   const _SharedPreferenceRemovalStore(this.preferences);
 
@@ -46,6 +70,19 @@ class _SharedPreferenceRemovalStore implements PreferenceRemovalStore {
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
+}
+
+class _SharedPreferenceStringStore implements PreferenceStringStore {
+  const _SharedPreferenceStringStore(this.preferences);
+
+  final SharedPreferences preferences;
+
+  @override
+  Future<bool> remove(String key) => preferences.remove(key);
+
+  @override
+  Future<bool> setString(String key, String value) =>
+      preferences.setString(key, value);
 }
 
 /// Spaced Repetition card state.
@@ -83,6 +120,8 @@ class SrsCard {
 /// `SharedPreferences`, das auf iOS `NSUserDefaults` nutzt).
 class Storage {
   static SharedPreferences? _prefs;
+  static Future<void> _recoveredBookMutation = Future<void>.value();
+  static Future<void> _recoveredWordMutation = Future<void>.value();
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
@@ -96,6 +135,8 @@ class Storage {
   static void resetForTesting() {
     _prefs = null;
     _srsCache = null;
+    _recoveredBookMutation = Future<void>.value();
+    _recoveredWordMutation = Future<void>.value();
   }
 
   // ───────── Generic helpers ─────────
@@ -106,6 +147,19 @@ class Storage {
 
   static Future<void> _si(String k, int v) async => _prefs?.setInt(k, v);
   static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
+  static Future<void> _ssStrict(
+    String key,
+    String value, {
+    PreferenceStringStore? preferences,
+  }) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+    if (store == null || !await store.setString(key, value)) {
+      throw PreferenceWriteException(key);
+    }
+  }
+
   static Future<void> _sd(String k, double v) async => _prefs?.setDouble(k, v);
   static Future<void> _sl(String k, List<String> v) async =>
       _prefs?.setStringList(k, v);
@@ -957,6 +1011,10 @@ class Storage {
   static String get customPacksRawJson => _s('kl_custom_packs_v1');
   static Future<void> setCustomPacksRawJson(String json) =>
       _ss('kl_custom_packs_v1', json);
+  static Future<void> setCustomPacksRawJsonStrict(
+    String json, {
+    PreferenceStringStore? preferences,
+  }) => _ssStrict('kl_custom_packs_v1', json, preferences: preferences);
 
   static String get bookAnalysisEndpoint => _s('kl_book_analysis_endpoint');
   static Future<void> setBookAnalysisEndpoint(String url) =>
@@ -969,6 +1027,233 @@ class Storage {
   static String get bookshelfRawJson => _s('kl_bookshelf_v1');
   static Future<void> setBookshelfRawJson(String json) =>
       _ss('kl_bookshelf_v1', json);
+  static Future<void> setBookshelfRawJsonStrict(
+    String json, {
+    PreferenceStringStore? preferences,
+  }) => _ssStrict('kl_bookshelf_v1', json, preferences: preferences);
+
+  static String get pickerRecoveryMarkerJson =>
+      _s('kl_picker_recovery_marker_v1');
+  static String get cropRecoveryMarkerJson => _s('kl_crop_recovery_marker_v1');
+  static String get recoveredBookLease => _s('kl_recovered_book_lease');
+  static String get recoveredWordLease => _s('kl_recovered_word_lease');
+
+  static Future<void> markPickerLaunch({
+    required String purpose,
+    required String workflowId,
+    String? attemptId,
+  }) => _ssStrict(
+    'kl_picker_recovery_marker_v1',
+    jsonEncode({
+      'purpose': purpose,
+      'workflowId': workflowId,
+      if (attemptId != null) 'attemptId': attemptId,
+    }),
+  );
+
+  static Future<void> clearPickerLaunch() async {
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw const PreferenceWriteException('kl_picker_recovery_marker_v1');
+    }
+    if (!preferences.containsKey('kl_picker_recovery_marker_v1')) {
+      return;
+    }
+    if (!await preferences.remove('kl_picker_recovery_marker_v1')) {
+      throw const PreferenceWriteException('kl_picker_recovery_marker_v1');
+    }
+  }
+
+  static Future<void> markCropLaunch({required String workflowId}) => _ssStrict(
+    'kl_crop_recovery_marker_v1',
+    jsonEncode({'workflowId': workflowId}),
+  );
+
+  static Future<void> clearCropLaunch() =>
+      _removeStrictIfPresent('kl_crop_recovery_marker_v1');
+
+  static Future<String?> setRecoveredBookLease(String value) =>
+      _serializeRecoveredBookMutation(() async {
+        final previous = recoveredBookLease;
+        await _ssStrict('kl_recovered_book_lease', value);
+        return previous.isEmpty ? null : previous;
+      });
+  static Future<List<String>> setRecoveredWordLease(String value) =>
+      _serializeRecoveredWordMutation(() async {
+        final record = _recoveredWordRecord(value);
+        final workflowId = record['workflowId'] as String;
+        final records = _recoveredWordRecords();
+        final discarded = <String>[];
+        final cutoff = DateTime.now().toUtc().subtract(const Duration(days: 2));
+        for (final entry in records.entries.toList()) {
+          if (_recoveredWordRecordExpired(entry.value, cutoff)) {
+            records.remove(entry.key);
+            discarded.add(entry.value['lease'] as String);
+          }
+        }
+        final previous = records.remove(workflowId);
+        if (previous != null && previous['lease'] != record['lease']) {
+          discarded.add(previous['lease'] as String);
+        }
+        record['createdAt'] = DateTime.now().toUtc().toIso8601String();
+        records[workflowId] = record;
+        while (records.length > 8) {
+          final removed = records.remove(records.keys.first);
+          if (removed != null && removed['lease'] != record['lease']) {
+            discarded.add(removed['lease'] as String);
+          }
+        }
+        await _ssStrict('kl_recovered_word_lease', jsonEncode(records));
+        return List<String>.unmodifiable(discarded.toSet());
+      });
+  static Future<void> clearRecoveredBookLease() =>
+      _serializeRecoveredBookMutation(
+        () => _removeStrictIfPresent('kl_recovered_book_lease'),
+      );
+
+  static Future<String?> claimRecoveredBookLease({
+    PreferenceStringStore? preferences,
+    String? expectedLease,
+  }) => _serializeRecoveredBookMutation(() async {
+    final source = recoveredBookLease;
+    if (source.isEmpty) {
+      return null;
+    }
+    if (expectedLease != null) {
+      try {
+        final decoded = jsonDecode(source);
+        if (decoded is! Map || decoded['lease'] != expectedLease) {
+          return null;
+        }
+      } on Object {
+        return null;
+      }
+    }
+    if (preferences != null) {
+      if (!await preferences.remove('kl_recovered_book_lease')) {
+        throw const PreferenceWriteException('kl_recovered_book_lease');
+      }
+    } else {
+      await _removeStrictIfPresent('kl_recovered_book_lease');
+    }
+    return source;
+  });
+
+  static Future<RecoveredWordClaim> claimRecoveredWordLease(
+    String workflowId,
+  ) => _serializeRecoveredWordMutation(() async {
+    final records = _recoveredWordRecords();
+    final discarded = <String>[];
+    final cutoff = DateTime.now().toUtc().subtract(const Duration(days: 2));
+    for (final entry in records.entries.toList()) {
+      if (_recoveredWordRecordExpired(entry.value, cutoff)) {
+        records.remove(entry.key);
+        discarded.add(entry.value['lease'] as String);
+      }
+    }
+    final record = records.remove(workflowId);
+    if (record != null || discarded.isNotEmpty) {
+      if (records.isEmpty) {
+        await _removeStrictIfPresent('kl_recovered_word_lease');
+      } else {
+        await _ssStrict('kl_recovered_word_lease', jsonEncode(records));
+      }
+    }
+    return RecoveredWordClaim(
+      record: record == null ? null : jsonEncode(record),
+      discardedLeases: List<String>.unmodifiable(discarded.toSet()),
+    );
+  });
+
+  static bool _recoveredWordRecordExpired(
+    Map<String, dynamic> record,
+    DateTime cutoff,
+  ) {
+    final createdAt = DateTime.tryParse(record['createdAt'] as String? ?? '');
+    return createdAt == null || createdAt.toUtc().isBefore(cutoff);
+  }
+
+  static Map<String, Map<String, dynamic>> _recoveredWordRecords() {
+    final source = recoveredWordLease;
+    if (source.isEmpty) {
+      return <String, Map<String, dynamic>>{};
+    }
+    try {
+      final decoded = jsonDecode(source);
+      if (decoded is! Map) {
+        return <String, Map<String, dynamic>>{};
+      }
+      if (decoded['workflowId'] is String && decoded['lease'] is String) {
+        final record = _recoveredWordRecord(source);
+        return {record['workflowId'] as String: record};
+      }
+      final records = <String, Map<String, dynamic>>{};
+      for (final entry in decoded.entries) {
+        if (entry.key is! String || entry.value is! Map) {
+          continue;
+        }
+        final record = Map<String, dynamic>.from(entry.value as Map);
+        if (record['workflowId'] == entry.key && record['lease'] is String) {
+          records[entry.key as String] = record;
+        }
+      }
+      return records;
+    } on Object {
+      return <String, Map<String, dynamic>>{};
+    }
+  }
+
+  static Map<String, dynamic> _recoveredWordRecord(String value) {
+    final decoded = jsonDecode(value);
+    if (decoded is! Map ||
+        decoded['workflowId'] is! String ||
+        (decoded['workflowId'] as String).isEmpty ||
+        decoded['lease'] is! String ||
+        (decoded['lease'] as String).isEmpty) {
+      throw const FormatException('Invalid recovered word record.');
+    }
+    return {
+      'workflowId': decoded['workflowId'] as String,
+      'lease': decoded['lease'] as String,
+      if (decoded['createdAt'] is String)
+        'createdAt': decoded['createdAt'] as String,
+    };
+  }
+
+  static Future<T> _serializeRecoveredWordMutation<T>(
+    Future<T> Function() operation,
+  ) {
+    final result = _recoveredWordMutation.then((_) => operation());
+    _recoveredWordMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return result;
+  }
+
+  static Future<T> _serializeRecoveredBookMutation<T>(
+    Future<T> Function() operation,
+  ) {
+    final result = _recoveredBookMutation.then((_) => operation());
+    _recoveredBookMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return result;
+  }
+
+  static Future<void> _removeStrictIfPresent(String key) async {
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    if (!preferences.containsKey(key)) {
+      return;
+    }
+    if (!await preferences.remove(key)) {
+      throw PreferenceWriteException(key);
+    }
+  }
 
   /// Tagessperre für "책 한 컷" Analyse-Aufrufe — DeepL Free 한도 보호.
   /// Speichert `<isoDate>:<count>`.

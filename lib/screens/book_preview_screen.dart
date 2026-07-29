@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/book_image_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -19,29 +20,41 @@ class BookPreviewScreen extends StatefulWidget {
 
 class _BookPreviewScreenState extends State<BookPreviewScreen> {
   late final TextEditingController _ctrl;
+  late final BookPreviewMediaOwner _mediaOwner;
 
   @override
   void initState() {
     super.initState();
     _ctrl = TextEditingController(text: widget.args['text'] as String? ?? '');
+    _mediaOwner = BookPreviewMediaOwner(widget.args['imageLease'] as String?);
   }
 
   @override
   void dispose() {
+    _mediaOwner.release().catchError((Object _) {});
     _ctrl.dispose();
     super.dispose();
   }
 
   void _continue() {
+    if (!_mediaOwner.transfer()) return;
     final text = _ctrl.text.trim();
-    if (text.isEmpty) return;
-    Navigator.of(context).pushReplacementNamed(
-      '/book/result',
-      arguments: <String, dynamic>{
-        'text': text,
-        'imagePath': widget.args['imagePath'],
-      },
-    );
+    if (text.isEmpty) {
+      _mediaOwner.reclaim();
+      return;
+    }
+    try {
+      Navigator.of(context).pushReplacementNamed(
+        '/book/result',
+        arguments: <String, dynamic>{
+          'text': text,
+          'imageLease': widget.args['imageLease'],
+        },
+      );
+    } on Object {
+      _mediaOwner.reclaim();
+      rethrow;
+    }
   }
 
   @override
@@ -52,8 +65,10 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.bookPreviewTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
+        title: Text(
+          t.bookPreviewTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
       ),
       body: SafeArea(
         child: SoriCenterClamp(
@@ -71,7 +86,9 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                          color: s.text.withValues(alpha: 0.20), width: 1),
+                        color: s.text.withValues(alpha: 0.20),
+                        width: 1,
+                      ),
                       borderRadius: BorderRadius.circular(SoriRadius.md),
                     ),
                     padding: const EdgeInsets.all(Spacing.md),
@@ -81,7 +98,10 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                       expands: true,
                       textAlignVertical: TextAlignVertical.top,
                       style: const TextStyle(
-                          fontSize: 16, height: 1.5, fontWeight: FontWeight.w500),
+                        fontSize: 16,
+                        height: 1.5,
+                        fontWeight: FontWeight.w500,
+                      ),
                       decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: '한국어 텍스트…',
@@ -115,3 +135,38 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
     );
   }
 }
+
+class BookPreviewMediaOwner {
+  BookPreviewMediaOwner(
+    this.encodedLease, {
+    Future<void> Function(String? encoded)? discard,
+  }) : _discard = discard ?? BookImageService.discardEncoded;
+
+  final String? encodedLease;
+  final Future<void> Function(String? encoded) _discard;
+  _BookPreviewOwnership _ownership = _BookPreviewOwnership.owned;
+
+  bool transfer() {
+    if (_ownership != _BookPreviewOwnership.owned) {
+      return false;
+    }
+    _ownership = _BookPreviewOwnership.transferred;
+    return true;
+  }
+
+  void reclaim() {
+    if (_ownership == _BookPreviewOwnership.transferred) {
+      _ownership = _BookPreviewOwnership.owned;
+    }
+  }
+
+  Future<void> release() {
+    if (_ownership != _BookPreviewOwnership.owned) {
+      return Future<void>.value();
+    }
+    _ownership = _BookPreviewOwnership.released;
+    return _discard(encodedLease);
+  }
+}
+
+enum _BookPreviewOwnership { owned, transferred, released }

@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart'
+    show TargetPlatform, defaultTargetPlatform, kIsWeb;
 import 'package:flutter/services.dart';
 
 import 'theme.dart';
@@ -11,6 +12,9 @@ import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
 import 'services/book_analysis_service.dart';
+import 'services/book_image_service.dart';
+import 'services/crop_recovery_service.dart';
+import 'services/picker_recovery_service.dart';
 import 'services/tts_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
@@ -78,6 +82,25 @@ Future<void> main() async {
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
   await Storage.touchStreak();
+  try {
+    await BookImageService.initialize();
+  } catch (error) {
+    debugPrint('Managed media reconciliation skipped: $error');
+  }
+  try {
+    await CropRecoveryService.recoverAtStartup(
+      isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+    );
+  } catch (error) {
+    debugPrint('Android crop recovery skipped: $error');
+  }
+  try {
+    await PickerRecoveryService.recoverAtStartup(
+      isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+    );
+  } catch (error) {
+    debugPrint('Android picker recovery skipped: $error');
+  }
 
   // Phase 5 (stately-rising-jongga) — Cloud-Endpoint festlegen.
   // Priorität: Settings (persistent) > --dart-define > deployter Default.

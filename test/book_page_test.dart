@@ -8,40 +8,40 @@ import 'package:ko_lernen_app/services/bookshelf_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 BookPage _samplePage({String id = 'p_test_1'}) => BookPage(
-      id: id,
-      localThumbnailPath: '/tmp/img.jpg',
-      extractedText: '한국어 공부를 하고 있어요.',
-      note: 'Lektion 5',
-      words: const [
-        ExtractedWord(
-          korean: '공부',
-          romanization: 'gongbu',
-          posDe: 'Nomen',
-          translationDe: 'Studium',
-          translationEn: 'studying',
-          exampleKorean: '한국어 공부를 하고 있어요.',
-          exampleDe: 'Ich lerne gerade Koreanisch.',
-          savedToPackId: null,
-        ),
-      ],
-      grammar: const [
-        GrammarHit(
-          patternId: 'g_progressive',
-          nameDe: 'Progressiv (-고 있다)',
-          matchedText: '하고 있어요',
-          level: 'A2',
-          explanationDe: 'Beschreibt eine gerade ablaufende Handlung.',
-        ),
-      ],
-      sentences: const [
-        TranslatedSentence(
-          korean: '한국어 공부를 하고 있어요.',
-          translationDe: 'Ich lerne gerade Koreanisch.',
-        ),
-      ],
-      capturedAtIso: '2026-05-31T12:00:00Z',
-      customPackId: null,
-    );
+  id: id,
+  localThumbnailPath: 'book:img.jpg',
+  extractedText: '한국어 공부를 하고 있어요.',
+  note: 'Lektion 5',
+  words: const [
+    ExtractedWord(
+      korean: '공부',
+      romanization: 'gongbu',
+      posDe: 'Nomen',
+      translationDe: 'Studium',
+      translationEn: 'studying',
+      exampleKorean: '한국어 공부를 하고 있어요.',
+      exampleDe: 'Ich lerne gerade Koreanisch.',
+      savedToPackId: null,
+    ),
+  ],
+  grammar: const [
+    GrammarHit(
+      patternId: 'g_progressive',
+      nameDe: 'Progressiv (-고 있다)',
+      matchedText: '하고 있어요',
+      level: 'A2',
+      explanationDe: 'Beschreibt eine gerade ablaufende Handlung.',
+    ),
+  ],
+  sentences: const [
+    TranslatedSentence(
+      korean: '한국어 공부를 하고 있어요.',
+      translationDe: 'Ich lerne gerade Koreanisch.',
+    ),
+  ],
+  capturedAtIso: '2026-05-31T12:00:00Z',
+  customPackId: null,
+);
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -95,18 +95,32 @@ void main() {
     });
 
     test('getAllLocal sorted by capturedAt desc', () async {
-      await BookshelfService.save(BookPage(
-        id: 'a', localThumbnailPath: null,
-        extractedText: 'A', note: '', words: const [],
-        grammar: const [], sentences: const [],
-        capturedAtIso: '2026-01-01T00:00:00Z', customPackId: null,
-      ));
-      await BookshelfService.save(BookPage(
-        id: 'b', localThumbnailPath: null,
-        extractedText: 'B', note: '', words: const [],
-        grammar: const [], sentences: const [],
-        capturedAtIso: '2026-05-01T00:00:00Z', customPackId: null,
-      ));
+      await BookshelfService.save(
+        BookPage(
+          id: 'a',
+          localThumbnailPath: null,
+          extractedText: 'A',
+          note: '',
+          words: const [],
+          grammar: const [],
+          sentences: const [],
+          capturedAtIso: '2026-01-01T00:00:00Z',
+          customPackId: null,
+        ),
+      );
+      await BookshelfService.save(
+        BookPage(
+          id: 'b',
+          localThumbnailPath: null,
+          extractedText: 'B',
+          note: '',
+          words: const [],
+          grammar: const [],
+          sentences: const [],
+          capturedAtIso: '2026-05-01T00:00:00Z',
+          customPackId: null,
+        ),
+      );
       final all = BookshelfService.getAllLocal();
       expect(all.length, 2);
       expect(all.first.id, 'b'); // most recent first
@@ -137,8 +151,7 @@ void main() {
       for (var i = 0; i < Storage.kBookSnapDailyLimit; i++) {
         await Storage.incBookSnapCountToday();
       }
-      expect(Storage.bookSnapCountToday(),
-          Storage.kBookSnapDailyLimit);
+      expect(Storage.bookSnapCountToday(), Storage.kBookSnapDailyLimit);
       expect(Storage.bookSnapQuotaReached, isTrue);
     });
   });

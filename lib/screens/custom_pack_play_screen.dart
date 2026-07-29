@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,6 +7,7 @@ import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/flip_card.dart';
+import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
@@ -314,14 +313,11 @@ class _Front extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (word.imagePath.isNotEmpty) ...[
-              ClipRRect(
+              ManagedMediaImage(
+                reference: word.imagePath,
+                width: 220,
+                height: 120,
                 borderRadius: BorderRadius.circular(SoriRadius.md),
-                child: Image.file(
-                  File(word.imagePath),
-                  height: 120,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-                ),
               ),
               const SizedBox(height: Spacing.md),
             ],

@@ -38,9 +38,9 @@ class SharedPackService {
   }
 
   static String _generateCode() => List.generate(
-        _codeLength,
-        (_) => _codeAlphabet[_rng.nextInt(_codeAlphabet.length)],
-      ).join();
+    _codeLength,
+    (_) => _codeAlphabet[_rng.nextInt(_codeAlphabet.length)],
+  ).join();
 
   /// 팩을 업로드하고 공유 코드를 반환. 실패 시 [SharedPackException] throw.
   static Future<String> sharePack(CustomPack pack) async {
@@ -53,7 +53,10 @@ class SharedPackService {
       throw const SharedPackException(SharedPackError.empty);
     }
     final col = db.collection(_collectionPath);
-    final words = pack.words.take(maxWords).map((w) => w.toJson()).toList();
+    final words = pack.words
+        .take(maxWords)
+        .map((word) => word.toPortableJson())
+        .toList();
     try {
       // 코드 충돌 회피 — 최대 5회 재시도.
       for (var attempt = 0; attempt < 5; attempt++) {
@@ -111,8 +114,11 @@ class SharedPackService {
     }
 
     final words = ((data['words'] as List?) ?? const [])
-        .map((e) => ExtractedWord.fromJson((e as Map).cast<String, dynamic>())
-            .copyWith(clearSaved: true))
+        .map(
+          (e) => ExtractedWord.fromPortableJson(
+            (e as Map).cast<String, dynamic>(),
+          ).copyWith(clearSaved: true),
+        )
         .toList();
     if (words.isEmpty) {
       throw const SharedPackException(SharedPackError.empty);

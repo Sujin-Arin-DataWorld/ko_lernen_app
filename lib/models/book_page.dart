@@ -3,6 +3,13 @@
 // 사용자가 한국어 교재 페이지를 사진 찍어서 분석한 결과를 표현.
 // Local + Firestore 양쪽에 사용되는 plain DTO.
 
+import '../services/book_image_service.dart';
+
+String? _managedRefFor(Object? value, ManagedMediaKind kind) {
+  final reference = ManagedMediaRef.tryParse(value);
+  return reference?.kind == kind ? reference?.encoded : null;
+}
+
 class ExtractedWord {
   final String korean;
   final String romanization;
@@ -39,21 +46,20 @@ class ExtractedWord {
     String exampleDe = '',
     String definitionKo = '',
     String imagePath = '',
-  }) =>
-      ExtractedWord(
-        korean: korean,
-        romanization: romanization,
-        posDe: posDe,
-        translationDe: translationDe,
-        translationEn: translationEn,
-        exampleKorean: exampleKorean,
-        exampleDe: exampleDe,
-        definitionKo: definitionKo,
-        imagePath: imagePath,
-        savedToPackId: null,
-      );
+  }) => ExtractedWord(
+    korean: korean,
+    romanization: romanization,
+    posDe: posDe,
+    translationDe: translationDe,
+    translationEn: translationEn,
+    exampleKorean: exampleKorean,
+    exampleDe: exampleDe,
+    definitionKo: definitionKo,
+    imagePath: imagePath,
+    savedToPackId: null,
+  );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toLocalJson() => {
     'korean': korean,
     'romanization': romanization,
     'posDe': posDe,
@@ -62,11 +68,25 @@ class ExtractedWord {
     'exampleKorean': exampleKorean,
     'exampleDe': exampleDe,
     'definitionKo': definitionKo,
-    'imagePath': imagePath,
+    'imagePath': _managedRefFor(imagePath, ManagedMediaKind.word) ?? '',
     'savedToPackId': savedToPackId,
   };
 
-  factory ExtractedWord.fromJson(Map<String, dynamic> j) => ExtractedWord(
+  Map<String, dynamic> toPortableJson() => {
+    'korean': korean,
+    'romanization': romanization,
+    'posDe': posDe,
+    'translationDe': translationDe,
+    'translationEn': translationEn,
+    'exampleKorean': exampleKorean,
+    'exampleDe': exampleDe,
+    'definitionKo': definitionKo,
+    'savedToPackId': savedToPackId,
+  };
+
+  Map<String, dynamic> toJson() => toLocalJson();
+
+  factory ExtractedWord.fromLocalJson(Map<String, dynamic> j) => ExtractedWord(
     korean: j['korean'] as String? ?? '',
     romanization: j['romanization'] as String? ?? '',
     posDe: j['posDe'] as String? ?? '',
@@ -75,9 +95,26 @@ class ExtractedWord {
     exampleKorean: j['exampleKorean'] as String? ?? '',
     exampleDe: j['exampleDe'] as String? ?? '',
     definitionKo: j['definitionKo'] as String? ?? '',
-    imagePath: j['imagePath'] as String? ?? '',
+    imagePath: _managedRefFor(j['imagePath'], ManagedMediaKind.word) ?? '',
     savedToPackId: j['savedToPackId'] as String?,
   );
+
+  factory ExtractedWord.fromPortableJson(Map<String, dynamic> j) =>
+      ExtractedWord(
+        korean: j['korean'] as String? ?? '',
+        romanization: j['romanization'] as String? ?? '',
+        posDe: j['posDe'] as String? ?? '',
+        translationDe: j['translationDe'] as String? ?? '',
+        translationEn: j['translationEn'] as String? ?? '',
+        exampleKorean: j['exampleKorean'] as String? ?? '',
+        exampleDe: j['exampleDe'] as String? ?? '',
+        definitionKo: j['definitionKo'] as String? ?? '',
+        imagePath: '',
+        savedToPackId: j['savedToPackId'] as String?,
+      );
+
+  factory ExtractedWord.fromJson(Map<String, dynamic> j) =>
+      ExtractedWord.fromLocalJson(j);
 
   ExtractedWord copyWith({String? savedToPackId, bool clearSaved = false}) =>
       ExtractedWord(
@@ -94,6 +131,26 @@ class ExtractedWord {
             ? null
             : (savedToPackId ?? this.savedToPackId),
       );
+
+  ExtractedWord copyWithEditable({
+    String? korean,
+    String? translationDe,
+    String? exampleKorean,
+    String? definitionKo,
+    String? imagePath,
+    bool clearImage = false,
+  }) => ExtractedWord(
+    korean: korean ?? this.korean,
+    romanization: romanization,
+    posDe: posDe,
+    translationDe: translationDe ?? this.translationDe,
+    translationEn: translationEn,
+    exampleKorean: exampleKorean ?? this.exampleKorean,
+    exampleDe: exampleDe,
+    definitionKo: definitionKo ?? this.definitionKo,
+    imagePath: clearImage ? '' : (imagePath ?? this.imagePath),
+    savedToPackId: savedToPackId,
+  );
 }
 
 /// 문법 패턴 hit — `grammar_patterns.json` 의 한 entry 가 텍스트에 매치된 것.
@@ -203,7 +260,7 @@ class BookPage {
     // localThumbnailPath 는 의도적으로 제외 — 기기 로컬 경로는 다른 기기에서 의미 없음.
     'extractedText': extractedText,
     'note': note,
-    'words': words.map((w) => w.toJson()).toList(),
+    'words': words.map((w) => w.toPortableJson()).toList(),
     'grammar': grammar.map((g) => g.toJson()).toList(),
     'sentences': sentences.map((s) => s.toJson()).toList(),
     'capturedAt': capturedAtIso,
@@ -212,17 +269,32 @@ class BookPage {
 
   Map<String, dynamic> toLocalJson() => {
     'id': id,
-    'localThumbnailPath': localThumbnailPath,
-    ...toFirestoreJson(),
+    'localThumbnailPath': _managedRefFor(
+      localThumbnailPath,
+      ManagedMediaKind.book,
+    ),
+    'extractedText': extractedText,
+    'note': note,
+    'words': words.map((w) => w.toLocalJson()).toList(),
+    'grammar': grammar.map((g) => g.toJson()).toList(),
+    'sentences': sentences.map((s) => s.toJson()).toList(),
+    'capturedAt': capturedAtIso,
+    'customPackId': customPackId,
   };
 
   factory BookPage.fromJson(String id, Map<String, dynamic> j) => BookPage(
     id: id,
-    localThumbnailPath: j['localThumbnailPath'] as String?,
+    localThumbnailPath: _managedRefFor(
+      j['localThumbnailPath'],
+      ManagedMediaKind.book,
+    ),
     extractedText: j['extractedText'] as String? ?? '',
     note: j['note'] as String? ?? '',
     words: ((j['words'] as List?) ?? const [])
-        .map((e) => ExtractedWord.fromJson((e as Map).cast<String, dynamic>()))
+        .map(
+          (e) =>
+              ExtractedWord.fromLocalJson((e as Map).cast<String, dynamic>()),
+        )
         .toList(),
     grammar: ((j['grammar'] as List?) ?? const [])
         .map((e) => GrammarHit.fromJson((e as Map).cast<String, dynamic>()))
@@ -235,6 +307,45 @@ class BookPage {
         .toList(),
     capturedAtIso: j['capturedAt'] as String? ?? '',
     customPackId: j['customPackId'] as String?,
+  );
+
+  factory BookPage.fromPortableJson(String id, Map<String, dynamic> j) =>
+      BookPage(
+        id: id,
+        localThumbnailPath: null,
+        extractedText: j['extractedText'] as String? ?? '',
+        note: j['note'] as String? ?? '',
+        words: ((j['words'] as List?) ?? const [])
+            .map(
+              (e) => ExtractedWord.fromPortableJson(
+                (e as Map).cast<String, dynamic>(),
+              ),
+            )
+            .toList(),
+        grammar: ((j['grammar'] as List?) ?? const [])
+            .map((e) => GrammarHit.fromJson((e as Map).cast<String, dynamic>()))
+            .toList(),
+        sentences: ((j['sentences'] as List?) ?? const [])
+            .map(
+              (e) => TranslatedSentence.fromJson(
+                (e as Map).cast<String, dynamic>(),
+              ),
+            )
+            .toList(),
+        capturedAtIso: j['capturedAt'] as String? ?? '',
+        customPackId: j['customPackId'] as String?,
+      );
+
+  BookPage copyWith({String? localThumbnailPath}) => BookPage(
+    id: id,
+    localThumbnailPath: localThumbnailPath ?? this.localThumbnailPath,
+    extractedText: extractedText,
+    note: note,
+    words: words,
+    grammar: grammar,
+    sentences: sentences,
+    capturedAtIso: capturedAtIso,
+    customPackId: customPackId,
   );
 }
 

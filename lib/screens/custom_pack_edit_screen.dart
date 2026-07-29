@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:csv/csv.dart';
@@ -8,7 +9,9 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../services/book_analysis_service.dart';
+import '../services/book_image_service.dart';
 import '../services/custom_pack_service.dart';
+import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/button.dart';
@@ -18,6 +21,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/managed_media_image.dart';
 
 /// "나만의 단어장" 편집 화면 — 단어를 직접 추가·수정·삭제하고, 학습/퀴즈로 이동.
 ///
@@ -72,6 +76,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
   }
 
   void _reload() {
+    if (!mounted) return;
     setState(() => _pack = CustomPackService.getById(widget.packId));
   }
 
@@ -79,17 +84,48 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     final pack = _pack;
     if (pack == null) return;
     final existing = index != null ? pack.words[index] : null;
-    final result = await showSoriSheet<ExtractedWord>(
+    final result = await showSoriSheet<_WordEditorResult>(
       context: context,
-      builder: (_) => _WordEditorSheet(existing: existing),
+      builder: (_) => _WordEditorSheet(
+        existing: existing,
+        workflowId: CustomPackService.mediaWorkflowId(pack.id, index, existing),
+      ),
     );
     if (result == null) return;
-    if (index != null) {
-      await CustomPackService.updateWord(pack.id, index, result);
-    } else {
-      await CustomPackService.addWord(pack.id, result);
+    if (!mounted) {
+      final pending = result.pendingLease;
+      if (pending != null) {
+        await (await BookImageService.store).discard(pending);
+      }
+      return;
     }
-    _reload();
+    try {
+      if (index != null) {
+        await CustomPackService.updateWordWithMedia(
+          packId: pack.id,
+          index: index,
+          expectedOriginal: existing!,
+          word: result.word,
+          pendingLease: result.pendingLease,
+          removePhoto: result.removePhoto,
+        );
+      } else if (result.pendingLease != null) {
+        await CustomPackService.addWordWithPendingImage(
+          pack.id,
+          result.word,
+          result.pendingLease!,
+        );
+      } else {
+        await CustomPackService.addWord(pack.id, result.word);
+      }
+      _reload();
+    } on Object {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppL10n.of(context).bookCaptureErrorUnknown)),
+        );
+      }
+    }
   }
 
   Future<void> _deleteWord(int index) async {
@@ -114,8 +150,18 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
       ),
     );
     if (ok == true) {
-      await CustomPackService.deleteWord(pack.id, index);
-      _reload();
+      try {
+        await CustomPackService.deleteWord(pack.id, index);
+        _reload();
+      } on Object {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(AppL10n.of(context).bookCaptureErrorUnknown),
+            ),
+          );
+        }
+      }
     }
   }
 
@@ -458,19 +504,11 @@ class _WordTile extends StatelessWidget {
           child: Row(
             children: [
               if (word.imagePath.isNotEmpty) ...[
-                ClipRRect(
+                ManagedMediaImage(
+                  reference: word.imagePath,
+                  width: 44,
+                  height: 44,
                   borderRadius: BorderRadius.circular(SoriRadius.sm),
-                  child: Image.file(
-                    File(word.imagePath),
-                    width: 44,
-                    height: 44,
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Icon(
-                      Icons.image_not_supported_outlined,
-                      size: 22,
-                      color: s.textDim,
-                    ),
-                  ),
                 ),
                 const SizedBox(width: Spacing.md),
               ],
@@ -518,9 +556,22 @@ class _WordTile extends StatelessWidget {
 // ════════════════════════════════════════════════════════════════════════
 // 단어 추가/편집 시트 — 한국어 + 뜻 + 예문 + 자동 채우기 + TTS
 // ════════════════════════════════════════════════════════════════════════
+class _WordEditorResult {
+  const _WordEditorResult({
+    required this.word,
+    required this.pendingLease,
+    required this.removePhoto,
+  });
+
+  final ExtractedWord word;
+  final PendingMediaLease? pendingLease;
+  final bool removePhoto;
+}
+
 class _WordEditorSheet extends StatefulWidget {
   final ExtractedWord? existing;
-  const _WordEditorSheet({this.existing});
+  final String workflowId;
+  const _WordEditorSheet({this.existing, required this.workflowId});
 
   @override
   State<_WordEditorSheet> createState() => _WordEditorSheetState();
@@ -532,6 +583,11 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
   late final TextEditingController _example;
   String _definitionKo = '';
   String _imagePath = '';
+  PendingMediaLease? _pendingLease;
+  File? _pendingPreview;
+  bool _removePhotoRequested = false;
+  bool _submitted = false;
+  String get _workflowId => widget.workflowId;
   bool _autoLoading = false;
   bool _photoBusy = false;
   String? _autoNote;
@@ -548,27 +604,138 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
     );
     _definitionKo = widget.existing?.definitionKo ?? '';
     _imagePath = widget.existing?.imagePath ?? '';
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // ignore: discarded_futures
+      _consumeRecoveredWord();
+    });
+  }
+
+  Future<void> _consumeRecoveredWord() async {
+    if (!mounted) {
+      return;
+    }
+    PendingMediaLease? claimedLease;
+    try {
+      final claim = await Storage.claimRecoveredWordLease(_workflowId);
+      for (final encoded in claim.discardedLeases) {
+        try {
+          await BookImageService.discardEncoded(encoded);
+        } on Object {
+          // Pending TTL reconciliation retries cleanup.
+        }
+      }
+      final recovered = claim.record;
+      if (recovered == null) {
+        return;
+      }
+      final decoded = jsonDecode(recovered);
+      if (decoded is! Map || decoded['lease'] is! String) {
+        return;
+      }
+      final lease = PendingMediaLease.tryParse(decoded['lease']);
+      if (lease == null || lease.kind != ManagedMediaKind.word) {
+        return;
+      }
+      claimedLease = lease;
+      final mediaStore = await BookImageService.store;
+      final recoveredFile = await mediaStore.resolvePending(lease);
+      if (recoveredFile == null) {
+        return;
+      }
+      if (!mounted) {
+        await mediaStore.discard(lease);
+        claimedLease = null;
+        return;
+      }
+      setState(() {
+        _pendingLease = lease;
+        _pendingPreview = recoveredFile;
+        _removePhotoRequested = false;
+      });
+      claimedLease = null;
+    } on Object {
+      // A failed strict claim leaves the record and pending file untouched.
+    } finally {
+      if (claimedLease != null) {
+        try {
+          await (await BookImageService.store).discard(claimedLease);
+        } on Object {
+          // Pending TTL reconciliation retries cleanup.
+        }
+      }
+    }
   }
 
   Future<void> _pickImage(ImageSource source) async {
     if (_photoBusy) return;
     setState(() => _photoBusy = true);
-    final path = await WordImageService.pickAndSave(source);
-    if (!mounted) return;
-    setState(() {
-      _photoBusy = false;
-      if (path != null) {
-        _imagePath = path;
+    try {
+      final lease = await WordImageService.pickPending(
+        source,
+        workflowId: _workflowId,
+      );
+      if (lease == null) {
+        return;
       }
-    });
+      final previous = _pendingLease;
+      if (previous != null) {
+        try {
+          await (await BookImageService.store).discard(previous);
+        } on Object {
+          // The new lease remains durably recoverable for a later editor.
+          rethrow;
+        }
+      }
+      if (!mounted) {
+        return;
+      }
+      final mediaStore = await BookImageService.store;
+      setState(() {
+        _pendingLease = lease;
+        _pendingPreview = mediaStore.pendingFile(lease);
+        _removePhotoRequested = false;
+      });
+      try {
+        await Storage.claimRecoveredWordLease(_workflowId);
+      } on Object {
+        // The editor owns the lease; a duplicate durable recovery record is
+        // safe and will be ignored after the pending file is finalized.
+      }
+    } on Object {
+      if (mounted) {
+        setState(() => _autoNote = AppL10n.of(context).bookCaptureErrorUnknown);
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _photoBusy = false);
+      }
+    }
   }
 
-  void _removeImage() {
-    setState(() => _imagePath = '');
+  Future<void> _removeImage() async {
+    final pending = _pendingLease;
+    if (pending != null) {
+      await (await BookImageService.store).discard(pending);
+    }
+    if (mounted) {
+      setState(() {
+        _pendingLease = null;
+        _pendingPreview = null;
+        _imagePath = '';
+        _removePhotoRequested = true;
+      });
+    }
   }
 
   @override
   void dispose() {
+    final pending = _pendingLease;
+    if (!_submitted && pending != null) {
+      // ignore: discarded_futures
+      BookImageService.store
+          .then<void>((store) => store.discard(pending))
+          .catchError((Object _) {});
+    }
     _korean.dispose();
     _meaning.dispose();
     _example.dispose();
@@ -615,14 +782,28 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
       setState(() => _autoNote = t.wbNeedKorean);
       return;
     }
-    final word = ExtractedWord.manual(
-      korean: korean,
-      translationDe: _meaning.text.trim(),
-      exampleKorean: _example.text.trim(),
-      definitionKo: _definitionKo,
-      imagePath: _imagePath,
+    final existing = widget.existing;
+    final word = existing == null
+        ? ExtractedWord.manual(
+            korean: korean,
+            translationDe: _meaning.text.trim(),
+            exampleKorean: _example.text.trim(),
+            definitionKo: _definitionKo,
+          )
+        : existing.copyWithEditable(
+            korean: korean,
+            translationDe: _meaning.text.trim(),
+            exampleKorean: _example.text.trim(),
+            definitionKo: _definitionKo,
+          );
+    _submitted = true;
+    Navigator.of(context).pop(
+      _WordEditorResult(
+        word: word,
+        pendingLease: _pendingLease,
+        removePhoto: _removePhotoRequested,
+      ),
     );
-    Navigator.of(context).pop(word);
   }
 
   @override
@@ -705,11 +886,11 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
         // ── 사진 첨부 ──
         Row(
           children: [
-            if (_imagePath.isNotEmpty)
+            if (_pendingPreview != null)
               ClipRRect(
                 borderRadius: BorderRadius.circular(SoriRadius.sm),
                 child: Image.file(
-                  File(_imagePath),
+                  _pendingPreview!,
                   width: 56,
                   height: 56,
                   fit: BoxFit.cover,
@@ -718,6 +899,13 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
                     color: s.textDim,
                   ),
                 ),
+              )
+            else if (_imagePath.isNotEmpty)
+              ManagedMediaImage(
+                reference: _imagePath,
+                width: 56,
+                height: 56,
+                borderRadius: BorderRadius.circular(SoriRadius.sm),
               )
             else
               Container(
@@ -749,7 +937,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
                     icon: const Icon(Icons.photo_library_outlined, size: 18),
                     label: Text(t.wbPhotoGallery),
                   ),
-                  if (_imagePath.isNotEmpty)
+                  if (_imagePath.isNotEmpty || _pendingPreview != null)
                     TextButton.icon(
                       onPressed: _removeImage,
                       icon: const Icon(Icons.delete_outline, size: 18),

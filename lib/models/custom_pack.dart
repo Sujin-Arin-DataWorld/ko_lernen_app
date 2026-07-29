@@ -68,27 +68,50 @@ class CustomPack {
   bool get isManual => sourcePageId.isEmpty;
 
   CustomPack copyWith({String? name, List<ExtractedWord>? words}) => CustomPack(
-        id: id,
-        name: name ?? this.name,
-        sourcePageId: sourcePageId,
-        words: words ?? this.words,
-        createdAtIso: createdAtIso,
-      );
+    id: id,
+    name: name ?? this.name,
+    sourcePageId: sourcePageId,
+    words: words ?? this.words,
+    createdAtIso: createdAtIso,
+  );
 
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'sourcePageId': sourcePageId,
-        'words': words.map((w) => w.toJson()).toList(),
-        'createdAt': createdAtIso,
-      };
+  Map<String, dynamic> toLocalJson() => {
+    'name': name,
+    'sourcePageId': sourcePageId,
+    'words': words.map((w) => w.toLocalJson()).toList(),
+    'createdAt': createdAtIso,
+  };
+
+  Map<String, dynamic> toPortableJson() => {
+    'name': name,
+    'sourcePageId': sourcePageId,
+    'words': words.map((w) => w.toPortableJson()).toList(),
+    'createdAt': createdAtIso,
+  };
+
+  Map<String, dynamic> toJson() => toLocalJson();
 
   factory CustomPack.fromJson(String id, Map<String, dynamic> j) => CustomPack(
+    id: id,
+    name: j['name'] as String? ?? '',
+    sourcePageId: j['sourcePageId'] as String? ?? '',
+    words: ((j['words'] as List?) ?? const [])
+        .map((e) => ExtractedWord.fromJson((e as Map).cast<String, dynamic>()))
+        .toList(),
+    createdAtIso: j['createdAt'] as String? ?? '',
+  );
+
+  factory CustomPack.fromPortableJson(String id, Map<String, dynamic> j) =>
+      CustomPack(
         id: id,
         name: j['name'] as String? ?? '',
         sourcePageId: j['sourcePageId'] as String? ?? '',
         words: ((j['words'] as List?) ?? const [])
-            .map((e) => ExtractedWord.fromJson(
-                (e as Map).cast<String, dynamic>()))
+            .map(
+              (e) => ExtractedWord.fromPortableJson(
+                (e as Map).cast<String, dynamic>(),
+              ),
+            )
             .toList(),
         createdAtIso: j['createdAt'] as String? ?? '',
       );

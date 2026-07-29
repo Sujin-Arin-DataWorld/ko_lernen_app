@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -12,6 +11,7 @@ import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/managed_media_image.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
@@ -234,15 +234,11 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                     child: Column(
                       children: [
                         if (word.imagePath.isNotEmpty) ...[
-                          ClipRRect(
+                          ManagedMediaImage(
+                            reference: word.imagePath,
+                            width: 220,
+                            height: 110,
                             borderRadius: BorderRadius.circular(SoriRadius.md),
-                            child: Image.file(
-                              File(word.imagePath),
-                              height: 110,
-                              fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) =>
-                                  const SizedBox.shrink(),
-                            ),
                           ),
                           const SizedBox(height: Spacing.md),
                         ],

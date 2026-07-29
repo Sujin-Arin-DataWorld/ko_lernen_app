@@ -1,12 +1,14 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart'
+    show TargetPlatform, defaultTargetPlatform, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/book_image_service.dart';
+import '../services/crop_recovery_service.dart';
+import '../services/picker_recovery_service.dart';
 import '../services/snap_ocr_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
@@ -31,6 +33,61 @@ class BookCaptureScreen extends StatefulWidget {
 class _BookCaptureScreenState extends State<BookCaptureScreen> {
   bool _busy = false;
   String? _errorKey;
+  int _cropSequence = 0;
+  late final String _workflowId =
+      'book_${DateTime.now().microsecondsSinceEpoch}';
+
+  String _newCropWorkflowId() =>
+      '${_workflowId}_crop_${DateTime.now().microsecondsSinceEpoch}_'
+      '${_cropSequence++}';
+
+  String _newPickerWorkflowId() =>
+      '${_workflowId}_picker_${DateTime.now().microsecondsSinceEpoch}_'
+      '${_cropSequence++}';
+
+  BookCropSession _cropSession(ImageCropper cropper) => BookCropSession(
+    isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+    ensureCanLaunch: () async {
+      if (Storage.cropRecoveryMarkerJson.isNotEmpty ||
+          Storage.pickerRecoveryMarkerJson.isNotEmpty) {
+        throw StateError('An earlier crop recovery is still pending.');
+      }
+    },
+    markLaunch: (workflowId) => Storage.markCropLaunch(workflowId: workflowId),
+    clearLaunch: Storage.clearCropLaunch,
+    clearCachedResult: () async {
+      await cropper.recoverImage();
+    },
+  );
+
+  bool _isDurablyRecovered(PendingMediaLease lease) =>
+      RecoveredBookDraft.tryParse(Storage.recoveredBookLease)?.lease.encoded ==
+      lease.encoded;
+
+  Future<void> _discardUnlessDurablyRecovered(PendingMediaLease lease) async {
+    if (_isDurablyRecovered(lease)) {
+      return;
+    }
+    await (await BookImageService.store).discard(lease);
+  }
+
+  Future<void> _releaseRecoveredLease(PendingMediaLease lease) async {
+    final claimed = await Storage.claimRecoveredBookLease(
+      expectedLease: lease.encoded,
+    );
+    if (claimed != null || !_isDurablyRecovered(lease)) {
+      await (await BookImageService.store).discard(lease);
+    }
+  }
+
+  Future<void> _clearRecoveredAfterHandoff(PendingMediaLease lease) async {
+    try {
+      await Storage.claimRecoveredBookLease(expectedLease: lease.encoded);
+    } on Object {
+      // The destination route owns the lease. A duplicate durable record is
+      // harmless and startup recovery ignores it after finalization.
+    }
+  }
 
   @override
   void initState() {
@@ -45,7 +102,131 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         await showFeatureCoachSheet(context, FeatureCoach.book);
         await Storage.setTutBookSeen();
       }
+      await _resumeRecoveredBook();
     });
+  }
+
+  Future<void> _resumeRecoveredBook() async {
+    if (_busy || !mounted) {
+      return;
+    }
+    final cropTitle = AppL10n.of(context).bookCropTitle;
+    PendingMediaLease? sourceLease;
+    PendingMediaLease? croppedLease;
+    try {
+      final recovered = Storage.recoveredBookLease;
+      if (recovered.isEmpty) {
+        return;
+      }
+      final draft = RecoveredBookDraft.tryParse(recovered);
+      if (draft == null) {
+        return;
+      }
+      sourceLease = draft.lease;
+      final store = await BookImageService.store;
+      final recoveredSource = await store.resolvePending(sourceLease);
+      if (recoveredSource == null) {
+        return;
+      }
+      setState(() => _busy = true);
+      if (draft.phase == RecoveredBookPhase.cropped) {
+        croppedLease = sourceLease;
+        sourceLease = null;
+      } else {
+        final cropWorkflowId = _newCropWorkflowId();
+        final cropper = ImageCropper();
+        final accepted = await _cropSession(cropper).run(
+          workflowId: cropWorkflowId,
+          crop: () => cropper.cropImage(
+            sourcePath: recoveredSource.path,
+            uiSettings: [
+              AndroidUiSettings(
+                toolbarTitle: cropTitle,
+                toolbarColor: SoriColors.primary,
+                toolbarWidgetColor: Colors.white,
+                initAspectRatio: CropAspectRatioPreset.original,
+                lockAspectRatio: false,
+              ),
+              IOSUiSettings(title: cropTitle, aspectRatioLockEnabled: false),
+            ],
+          ),
+          acceptAndRecord: (cropped) =>
+              acceptBookCrop(path: cropped.path, workflowId: cropWorkflowId),
+        );
+        if (accepted == null) {
+          await _releaseRecoveredLease(sourceLease);
+          sourceLease = null;
+          return;
+        }
+        croppedLease = accepted.lease;
+        final displaced = accepted.displacedLease;
+        if (displaced != null && displaced.encoded != croppedLease.encoded) {
+          await store.discard(displaced);
+          if (sourceLease.encoded == displaced.encoded) {
+            sourceLease = null;
+          }
+        }
+      }
+      final ocrLease = croppedLease;
+      final ocr =
+          await SnapOcrService.recognizeKorean(
+            store.pendingFile(ocrLease),
+          ).timeout(
+            const Duration(seconds: 45),
+            onTimeout: () => OcrResult.failure(
+              reason: OcrFailure.engineError,
+              message: 'timeout',
+            ),
+          );
+      if (!mounted) {
+        return;
+      }
+      if (!ocr.isSuccess) {
+        setState(() {
+          _errorKey = ocr.failure == OcrFailure.noKoreanFound
+              ? 'no_korean'
+              : 'ocr_error';
+        });
+        return;
+      }
+      setState(() => _busy = false);
+      final navigation = Navigator.of(context).pushNamed(
+        '/book/preview',
+        arguments: <String, dynamic>{
+          'text': ocr.text,
+          'blockCount': ocr.blockCount,
+          'imageLease': ocrLease.encoded,
+        },
+      );
+      croppedLease = null;
+      await _clearRecoveredAfterHandoff(ocrLease);
+      await navigation;
+    } on Object {
+      if (mounted) {
+        setState(() => _errorKey = 'unknown');
+      }
+    } finally {
+      try {
+        if (sourceLease != null) {
+          try {
+            await _discardUnlessDurablyRecovered(sourceLease);
+          } on Object {
+            // Startup TTL reconciliation retries cleanup.
+          }
+        }
+        if (croppedLease != null) {
+          try {
+            await _discardUnlessDurablyRecovered(croppedLease);
+          } on Object {
+            // Startup TTL reconciliation retries cleanup.
+          }
+        }
+      } finally {
+        if (mounted) {
+          setState(() => _busy = false);
+        }
+      }
+    }
   }
 
   Future<void> _pick(ImageSource source) async {
@@ -78,6 +259,8 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       _errorKey = null;
     });
 
+    PendingMediaLease? pickedPending;
+    PendingMediaLease? pending;
     try {
       // image_picker_android opens the system picker for gallery images, so
       // broad media-library permission is neither needed nor requested.
@@ -95,14 +278,45 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         }
       }
 
-      // Pick
-      final picker = ImagePicker();
-      final picked = await picker.pickImage(
-        source: source,
-        maxWidth: 2400,
-        maxHeight: 2400,
-        imageQuality: 85,
-      );
+      final usePickerRecovery =
+          !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+      if (usePickerRecovery &&
+          (Storage.pickerRecoveryMarkerJson.isNotEmpty ||
+              Storage.cropRecoveryMarkerJson.isNotEmpty)) {
+        throw StateError('An earlier picker recovery is still pending.');
+      }
+      final pickerWorkflowId = _newPickerWorkflowId();
+      if (usePickerRecovery) {
+        await Storage.markPickerLaunch(
+          purpose: 'book',
+          workflowId: pickerWorkflowId,
+          attemptId: pickerWorkflowId,
+        );
+      }
+      final XFile? picked;
+      var pickerAccepted = false;
+      try {
+        picked = await ImagePicker().pickImage(
+          source: source,
+          maxWidth: 2400,
+          maxHeight: 2400,
+          imageQuality: 85,
+        );
+        if (picked == null) {
+          pickerAccepted = true;
+        } else {
+          pickedPending = await acceptPickedBook(
+            path: picked.path,
+            workflowId: pickerWorkflowId,
+            journalId: pickerWorkflowId,
+          );
+          pickerAccepted = true;
+        }
+      } finally {
+        if (usePickerRecovery && pickerAccepted) {
+          await Storage.clearPickerLaunch();
+        }
+      }
       if (picked == null) {
         if (!mounted) {
           return;
@@ -112,24 +326,35 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       }
 
       // Crop
+      final cropWorkflowId = _newCropWorkflowId();
       final cropper = ImageCropper();
-      final cropped = await cropper.cropImage(
-        sourcePath: picked.path,
-        uiSettings: [
-          AndroidUiSettings(
-            toolbarTitle: l10n.bookCropTitle,
-            toolbarColor: SoriColors.primary,
-            toolbarWidgetColor: Colors.white,
-            initAspectRatio: CropAspectRatioPreset.original,
-            lockAspectRatio: false,
-          ),
-          IOSUiSettings(
-            title: l10n.bookCropTitle,
-            aspectRatioLockEnabled: false,
-          ),
-        ],
+      final pickedFile = (await BookImageService.store).pendingFile(
+        pickedPending!,
       );
-      if (cropped == null) {
+      final accepted = await _cropSession(cropper).run(
+        workflowId: cropWorkflowId,
+        crop: () => cropper.cropImage(
+          sourcePath: pickedFile.path,
+          uiSettings: [
+            AndroidUiSettings(
+              toolbarTitle: l10n.bookCropTitle,
+              toolbarColor: SoriColors.primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              lockAspectRatio: false,
+            ),
+            IOSUiSettings(
+              title: l10n.bookCropTitle,
+              aspectRatioLockEnabled: false,
+            ),
+          ],
+        ),
+        acceptAndRecord: (cropped) =>
+            acceptBookCrop(path: cropped.path, workflowId: cropWorkflowId),
+      );
+      if (accepted == null) {
+        await _releaseRecoveredLease(pickedPending);
+        pickedPending = null;
         if (!mounted) {
           return;
         }
@@ -137,7 +362,19 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         return;
       }
 
-      final file = File(cropped.path);
+      pending = accepted.lease;
+      final displaced = accepted.displacedLease;
+      if (displaced != null && displaced.encoded != pending.encoded) {
+        try {
+          await (await BookImageService.store).discard(displaced);
+          if (pickedPending.encoded == displaced.encoded) {
+            pickedPending = null;
+          }
+        } on Object {
+          // Startup TTL reconciliation retries displaced-record cleanup.
+        }
+      }
+      final file = (await BookImageService.store).pendingFile(pending);
 
       // OCR — erster Aufruf lädt das ML-Kit-Korean-Modell herunter (kann
       // dauern). Endlos-Spinner vermeiden: 45s Timeout → Fehlerkarte.
@@ -149,6 +386,8 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         ),
       );
       if (!ocr.isSuccess) {
+        await _releaseRecoveredLease(pending);
+        pending = null;
         if (!mounted) {
           return;
         }
@@ -162,26 +401,50 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       }
 
       if (!mounted) {
+        await _releaseRecoveredLease(pending);
+        pending = null;
         return;
       }
       setState(() => _busy = false);
 
-      await Navigator.of(context).pushNamed(
+      final navigation = Navigator.of(context).pushNamed(
         '/book/preview',
         arguments: <String, dynamic>{
           'text': ocr.text,
           'blockCount': ocr.blockCount,
-          'imagePath': file.path,
+          'imageLease': pending.encoded,
         },
       );
+      final handedOff = pending;
+      pending = null;
+      await _clearRecoveredAfterHandoff(handedOff);
+      await navigation;
     } catch (e) {
       if (!mounted) {
         return;
       }
-      setState(() {
-        _busy = false;
-        _errorKey = 'unknown';
-      });
+      setState(() => _errorKey = 'unknown');
+    } finally {
+      try {
+        if (pickedPending != null) {
+          try {
+            await _discardUnlessDurablyRecovered(pickedPending);
+          } on Object {
+            // Startup recovery retains durable picker ownership.
+          }
+        }
+        if (pending != null) {
+          try {
+            await _discardUnlessDurablyRecovered(pending);
+          } on Object {
+            // Startup TTL reconciliation retries cleanup.
+          }
+        }
+      } finally {
+        if (mounted) {
+          setState(() => _busy = false);
+        }
+      }
     }
   }
 

@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../services/book_analysis_service.dart';
+import '../services/book_image_service.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
@@ -43,15 +46,26 @@ class _BookResultScreenState extends State<BookResultScreen> {
   String? _error;
   BookAnalysisResult? _result;
   bool _saved = false;
+  bool _saving = false;
   String? _analysisLanguage;
   int _analysisGeneration = 0;
 
   String get _text => widget.args['text'] as String? ?? '';
-  String? get _imagePath => widget.args['imagePath'] as String?;
+  String? get _imageLease => widget.args['imageLease'] as String?;
 
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    if (!_saved && !_saving) {
+      unawaited(
+        BookImageService.discardEncoded(_imageLease).catchError((Object _) {}),
+      );
+    }
+    super.dispose();
   }
 
   @override
@@ -102,10 +116,11 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
   Future<void> _save() async {
     final res = _result;
-    if (res == null) return;
+    if (res == null || _saving || _saved) return;
+    setState(() => _saving = true);
     final page = BookPage(
       id: BookshelfService.generateId(),
-      localThumbnailPath: _imagePath,
+      localThumbnailPath: null,
       extractedText: _text,
       note: '',
       words: res.words,
@@ -114,9 +129,33 @@ class _BookResultScreenState extends State<BookResultScreen> {
       capturedAtIso: DateTime.now().toUtc().toIso8601String(),
       customPackId: null,
     );
-    await BookshelfService.save(page);
+    try {
+      final lease = PendingMediaLease.tryParse(_imageLease);
+      if (lease == null) {
+        await BookshelfService.save(page);
+      } else {
+        await BookshelfService.saveWithPendingImage(page, lease);
+      }
+      if (!mounted) return;
+      setState(() => _saved = true);
+    } on Object {
+      if (!mounted) return;
+      final t = AppL10n.of(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('${t.bookCaptureErrorUnknown} ${t.btnRetry}'),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    } finally {
+      if (mounted) {
+        setState(() => _saving = false);
+      } else {
+        _saving = false;
+      }
+    }
     if (!mounted) return;
-    setState(() => _saved = true);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(AppL10n.of(context).bookResultSaved),
@@ -131,21 +170,25 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.bookResultTitle)),
-        body: AppLoading(
-          message: t.bookResultAnalyzing,
-          asset: 'assets/illustrations/book/book_analyzing.png',
+      return _guard(
+        Scaffold(
+          appBar: AppBar(title: Text(t.bookResultTitle)),
+          body: AppLoading(
+            message: t.bookResultAnalyzing,
+            asset: 'assets/illustrations/book/book_analyzing.png',
+          ),
         ),
       );
     }
     if (_error != null || _result == null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.bookResultTitle)),
-        body: AppError(
-          message: _error ?? 'unknown',
-          onRetry: () => _analyze(_analysisLanguage ?? 'de'),
-          asset: 'assets/illustrations/book/book_error.png',
+      return _guard(
+        Scaffold(
+          appBar: AppBar(title: Text(t.bookResultTitle)),
+          body: AppError(
+            message: _error ?? 'unknown',
+            onRetry: () => _analyze(_analysisLanguage ?? 'de'),
+            asset: 'assets/illustrations/book/book_error.png',
+          ),
         ),
       );
     }
@@ -154,131 +197,140 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final s = SoriSurfaces.of(context);
     final offlineStub = r.warnings.contains('offline_stub');
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.bookResultTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
+    return _guard(
+      Scaffold(
+        appBar: AppBar(
+          title: Text(
+            t.bookResultTitle,
+            style: const TextStyle(fontWeight: FontWeight.w800),
+          ),
         ),
-      ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) => SingleChildScrollView(
-            padding: soriClampPadding(
-              constraints.maxWidth,
-              base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Center(
-                  child: r.words.isNotEmpty
-                      ? Image.asset(
-                          'assets/illustrations/book/book_success.png',
-                          height: 150,
-                          fit: BoxFit.contain,
-                          errorBuilder: (_, __, ___) => const Mascot(
+        body: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              padding: soriClampPadding(
+                constraints.maxWidth,
+                base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Center(
+                    child: r.words.isNotEmpty
+                        ? Image.asset(
+                            'assets/illustrations/book/book_success.png',
+                            height: 150,
+                            fit: BoxFit.contain,
+                            errorBuilder: (_, __, ___) => const Mascot(
+                              kind: MascotKind.tiger,
+                              emotion: MascotEmotion.celebrate,
+                              size: 96,
+                            ),
+                          )
+                        : const Mascot(
                             kind: MascotKind.tiger,
-                            emotion: MascotEmotion.celebrate,
+                            emotion: MascotEmotion.thinking,
                             size: 96,
                           ),
-                        )
-                      : const Mascot(
-                          kind: MascotKind.tiger,
-                          emotion: MascotEmotion.thinking,
-                          size: 96,
-                        ),
-                ),
-                const SizedBox(height: Spacing.sm),
-                Center(
-                  child: Text(
-                    t.bookResultFoundN(r.words.length),
-                    style: SoriTextTheme.of(context).h3,
                   ),
-                ),
-                const SizedBox(height: Spacing.lg),
-                if (offlineStub) ...[
-                  SoriCard(
-                    variant: SoriCardVariant.compact,
-                    accent: SoriColors.warning,
-                    tinted: true,
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.cloud_off_outlined,
-                          color: SoriColors.warning,
-                          size: 18,
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                        Expanded(
-                          child: Text(
-                            t.bookResultOfflineNotice,
-                            style: TextStyle(fontSize: 12, color: s.textMuted),
-                          ),
-                        ),
-                      ],
+                  const SizedBox(height: Spacing.sm),
+                  Center(
+                    child: Text(
+                      t.bookResultFoundN(r.words.length),
+                      style: SoriTextTheme.of(context).h3,
                     ),
                   ),
-                  const SizedBox(height: Spacing.md),
-                ],
-                // 단어 카드
-                if (r.words.isNotEmpty) ...[
-                  _SectionLabel(label: t.bookResultSectionWords),
-                  ...r.words.map((w) => _WordCard(word: w)),
                   const SizedBox(height: Spacing.lg),
-                ],
-                // 문법 패턴
-                if (r.grammar.isNotEmpty) ...[
-                  _SectionLabel(label: t.bookResultSectionGrammar),
-                  ...r.grammar.map((g) => _GrammarCard(hit: g)),
-                  const SizedBox(height: Spacing.lg),
-                ],
-                // 문장
-                if (r.sentences.isNotEmpty) ...[
-                  _SectionLabel(label: t.bookResultSectionSentences),
-                  ...r.sentences.take(8).map((s) => _SentenceCard(sentence: s)),
-                  const SizedBox(height: Spacing.lg),
-                ],
-                const SizedBox(height: Spacing.md),
-                if (!_saved)
-                  SoriButton(
-                    label: t.bookResultSave,
-                    icon: Icons.bookmark_add_outlined,
-                    variant: SoriButtonVariant.filled,
-                    accent: SoriColors.primary,
-                    fullWidth: true,
-                    onTap: _save,
-                  )
-                else ...[
+                  if (offlineStub) ...[
+                    SoriCard(
+                      variant: SoriCardVariant.compact,
+                      accent: SoriColors.warning,
+                      tinted: true,
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.cloud_off_outlined,
+                            color: SoriColors.warning,
+                            size: 18,
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          Expanded(
+                            child: Text(
+                              t.bookResultOfflineNotice,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: s.textMuted,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                  ],
+                  // 단어 카드
                   if (r.words.isNotEmpty) ...[
+                    _SectionLabel(label: t.bookResultSectionWords),
+                    ...r.words.map((w) => _WordCard(word: w)),
+                    const SizedBox(height: Spacing.lg),
+                  ],
+                  // 문법 패턴
+                  if (r.grammar.isNotEmpty) ...[
+                    _SectionLabel(label: t.bookResultSectionGrammar),
+                    ...r.grammar.map((g) => _GrammarCard(hit: g)),
+                    const SizedBox(height: Spacing.lg),
+                  ],
+                  // 문장
+                  if (r.sentences.isNotEmpty) ...[
+                    _SectionLabel(label: t.bookResultSectionSentences),
+                    ...r.sentences
+                        .take(8)
+                        .map((s) => _SentenceCard(sentence: s)),
+                    const SizedBox(height: Spacing.lg),
+                  ],
+                  const SizedBox(height: Spacing.md),
+                  if (!_saved)
                     SoriButton(
-                      label: t.bookshelfCreatePackCta,
-                      icon: Icons.style_outlined,
+                      label: t.bookResultSave,
+                      icon: Icons.bookmark_add_outlined,
                       variant: SoriButtonVariant.filled,
                       accent: SoriColors.primary,
                       fullWidth: true,
-                      onTap: () => _createCustomPack(t),
+                      onTap: _save,
+                    )
+                  else ...[
+                    if (r.words.isNotEmpty) ...[
+                      SoriButton(
+                        label: t.bookshelfCreatePackCta,
+                        icon: Icons.style_outlined,
+                        variant: SoriButtonVariant.filled,
+                        accent: SoriColors.primary,
+                        fullWidth: true,
+                        onTap: () => _createCustomPack(t),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                    ],
+                    SoriButton(
+                      label: t.bookResultBackToCapture,
+                      icon: Icons.add_a_photo_outlined,
+                      variant: SoriButtonVariant.outlined,
+                      accent: SoriColors.info,
+                      fullWidth: true,
+                      onTap: () => Navigator.of(context).popUntil(
+                        (r) => r.settings.name == '/book' || r.isFirst,
+                      ),
                     ),
-                    const SizedBox(height: Spacing.sm),
                   ],
-                  SoriButton(
-                    label: t.bookResultBackToCapture,
-                    icon: Icons.add_a_photo_outlined,
-                    variant: SoriButtonVariant.outlined,
-                    accent: SoriColors.info,
-                    fullWidth: true,
-                    onTap: () => Navigator.of(
-                      context,
-                    ).popUntil((r) => r.settings.name == '/book' || r.isFirst),
-                  ),
                 ],
-              ],
+              ),
             ),
           ),
         ),
       ),
     );
   }
+
+  Widget _guard(Widget child) => PopScope(canPop: !_saving, child: child);
 
   Future<void> _createCustomPack(AppL10n t) async {
     final res = _result;
@@ -312,7 +364,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
     // 임시 BookPage 빌드 — 저장 안 됐을 수도 있으니 ephemeral.
     final tempPage = BookPage(
       id: 'temp_${DateTime.now().millisecondsSinceEpoch}',
-      localThumbnailPath: _imagePath,
+      localThumbnailPath: null,
       extractedText: _text,
       note: '',
       words: res.words,

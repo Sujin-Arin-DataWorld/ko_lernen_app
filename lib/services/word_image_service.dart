@@ -1,87 +1,144 @@
 import 'dart:io';
-import 'dart:math' as math;
 
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-/// "나만의 단어장" 단어 첨부 사진 — 촬영/선택 후 앱 문서 폴더에 영구 복사.
-///
-/// image_picker 가 주는 경로는 캐시/임시라 OS 가 지울 수 있으므로,
-/// 앱 문서 폴더 `wordbook_images/` 로 복사해 절대 경로를 반환한다.
-/// 표시 측은 항상 `Image.file(..., errorBuilder: ...)` 로 누락에 안전하게 대응.
-class WordImageService {
-  static final math.Random _rng = math.Random.secure();
+import 'book_image_service.dart';
+import 'picker_recovery_service.dart';
+import 'storage_service.dart';
 
-  /// 사진 촬영(camera) 또는 갤러리(gallery) → 영구 경로 반환. 취소/거부 시 null.
-  static Future<String?> pickAndSave(ImageSource source) async {
-    // 카메라는 런타임 권한 필요. 갤러리는 시스템 피커라 별도 권한 불필요.
+class ManagedMediaCleanupException implements Exception {
+  const ManagedMediaCleanupException(this.causes);
+
+  final List<Object> causes;
+}
+
+class WordImageService {
+  static Future<PendingMediaLease?> pickPending(
+    ImageSource source, {
+    required String workflowId,
+    ImagePicker? picker,
+    Future<void> Function({
+      required String purpose,
+      required String workflowId,
+    })?
+    markLaunch,
+    Future<void> Function()? clearLaunch,
+  }) async {
     if (source == ImageSource.camera) {
       final status = await Permission.camera.request();
       if (!status.isGranted) {
         return null;
       }
     }
-
-    final picker = ImagePicker();
-    final picked = await picker.pickImage(
-      source: source,
-      maxWidth: 1280,
-      maxHeight: 1280,
-      imageQuality: 80,
-    );
-    if (picked == null) {
-      return null;
+    final attemptId =
+        '${workflowId}_picker_${DateTime.now().microsecondsSinceEpoch}';
+    final usePickerRecovery =
+        Platform.isAndroid || markLaunch != null || clearLaunch != null;
+    if (usePickerRecovery && markLaunch == null) {
+      if (Storage.pickerRecoveryMarkerJson.isNotEmpty) {
+        throw StateError('An earlier picker recovery is still pending.');
+      }
+      await Storage.markPickerLaunch(
+        purpose: 'word',
+        workflowId: workflowId,
+        attemptId: attemptId,
+      );
+    } else if (usePickerRecovery) {
+      await markLaunch!(purpose: 'word', workflowId: attemptId);
     }
-
-    final docs = await getApplicationDocumentsDirectory();
-    final imgDir = Directory('${docs.path}/wordbook_images');
-    if (!await imgDir.exists()) {
-      await imgDir.create(recursive: true);
+    var pickerAccepted = false;
+    try {
+      final picked = await (picker ?? ImagePicker()).pickImage(
+        source: source,
+        maxWidth: 1280,
+        maxHeight: 1280,
+        imageQuality: 80,
+      );
+      if (picked == null) {
+        pickerAccepted = true;
+        return null;
+      }
+      final staged = await acceptPickedWord(
+        path: picked.path,
+        workflowId: workflowId,
+        journalId: attemptId,
+      );
+      pickerAccepted = true;
+      return staged;
+    } finally {
+      if (usePickerRecovery && pickerAccepted) {
+        await (clearLaunch ?? Storage.clearPickerLaunch)();
+      }
     }
-    final ts = DateTime.now().millisecondsSinceEpoch.toRadixString(36);
-    final tail = _rng.nextInt(1 << 31).toRadixString(36);
-    final dest = '${imgDir.path}/wb_${ts}_$tail.jpg';
-    await File(picked.path).copy(dest);
-    return dest;
   }
 
-  /// 모든 첨부 사진 삭제 — 계정 삭제/전체 초기화 시 호출 (DSGVO Art. 17:
-  /// SharedPreferences 만 지우면 `wordbook_images/` 의 jpg 가 기기에 남는다).
+  static Future<File?> resolve(String? encoded) async =>
+      BookImageService.resolve(encoded);
+
   static Future<void> deleteAll({
     Future<Directory> Function()? documentsDirectory,
   }) async {
     try {
       await deleteAllStrict(documentsDirectory: documentsDirectory);
-    } catch (_) {
-      // best effort — 웹/권한 실패 시 무시
+    } on Object {
+      // Ordinary reset is intentionally best effort.
     }
   }
 
-  /// Account-deletion variant: any lookup or filesystem failure propagates.
   static Future<void> deleteAllStrict({
     Future<Directory> Function()? documentsDirectory,
   }) async {
     final docs =
         await (documentsDirectory ?? getApplicationDocumentsDirectory)();
-    final imgDir = Directory('${docs.path}/wordbook_images');
-    if (await imgDir.exists()) {
-      await imgDir.delete(recursive: true);
+    final failures = <Object>[];
+    try {
+      final configuredStore = documentsDirectory == null
+          ? await BookImageService.store
+          : ManagedMediaStore(
+              documentsDirectory: docs,
+              temporaryDirectory: docs,
+            );
+      await configuredStore.deleteAllStrict();
+    } on Object catch (error) {
+      failures.add(error);
+    }
+    for (final name in const ['wordbook_images', 'book_images']) {
+      try {
+        final legacy = Directory('${docs.path}${Platform.pathSeparator}$name');
+        if (await legacy.exists()) {
+          final docsCanonical = await docs.resolveSymbolicLinks();
+          final legacyCanonical = await legacy.resolveSymbolicLinks();
+          final expectedCanonical =
+              '$docsCanonical${Platform.pathSeparator}$name';
+          if (await FileSystemEntity.type(legacy.path, followLinks: false) ==
+                  FileSystemEntityType.link ||
+              !_samePath(legacyCanonical, expectedCanonical)) {
+            throw StateError('Legacy media directory escaped documents.');
+          }
+          await legacy.delete(recursive: true);
+        }
+      } on Object catch (error) {
+        failures.add(error);
+      }
+    }
+    if (failures.isNotEmpty) {
+      throw ManagedMediaCleanupException(List<Object>.unmodifiable(failures));
     }
   }
 
-  /// 파일 삭제 (best effort). 사진 교체/삭제 시 옛 파일 정리용.
-  static Future<void> deleteIfExists(String path) async {
-    if (path.isEmpty) {
-      return;
-    }
-    try {
-      final f = File(path);
-      if (await f.exists()) {
-        await f.delete();
+  static bool _samePath(String first, String second) {
+    String normalize(String value) {
+      var normalized = value.replaceAll(r'\', '/');
+      if (Platform.isWindows) {
+        normalized = normalized.toLowerCase();
       }
-    } catch (_) {
-      // best effort — 실패해도 무시
+      return normalized.endsWith('/')
+          ? normalized.substring(0, normalized.length - 1)
+          : normalized;
     }
+
+    return normalize(first) == normalize(second);
   }
 }
