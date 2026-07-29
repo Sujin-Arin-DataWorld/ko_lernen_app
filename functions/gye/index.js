@@ -33,6 +33,7 @@ const { onDocumentWritten, onDocumentCreated, onDocumentDeleted } =
   require("firebase-functions/v2/firestore");
 const { onSchedule } = require("firebase-functions/v2/scheduler");
 const { setGlobalOptions } = require("firebase-functions/v2");
+const { HttpsError, onCall } = require("firebase-functions/v2/https");
 const {
   accountTombstoneCleanupAction,
   anonymizeFeed,
@@ -75,10 +76,34 @@ const {
   runDeletedUserCleanupRuntime,
   stageNotificationOutboxWrites,
 } = require("./runtime");
+const {
+  createAccountOperationCallables,
+  createAccountOperationRuntime,
+  createFirestoreAccountOperationRepository,
+} = require("./account_operations_runtime");
 
 admin.initializeApp();
 const db = admin.firestore();
 setGlobalOptions({ region: "europe-west3" });
+
+const accountOperationRepository =
+  createFirestoreAccountOperationRepository({ firestore: db });
+const accountOperationHandlers = createAccountOperationRuntime({
+  auth: admin.auth(),
+  repository: accountOperationRepository,
+  makeError: (status, safeCode) => new HttpsError(
+    status,
+    "Account operation request failed.",
+    { code: safeCode },
+  ),
+});
+Object.assign(
+  exports,
+  createAccountOperationCallables({
+    handlers: accountOperationHandlers,
+    onCall,
+  }),
+);
 
 /**
  * 팩이 처음 cleared 되는 순간 계 진행도·피드 갱신.
