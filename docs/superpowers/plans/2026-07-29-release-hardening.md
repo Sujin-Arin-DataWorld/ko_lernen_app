@@ -79,13 +79,13 @@
 - Modify: `lib/services/notification_service.dart`
 - Create: `android/app/src/main/res/drawable/ic_stat_hangul_sori.xml`
 
-- [ ] Remove manual gallery permission requests; keep contextual camera permission and let `image_picker_android` use the system picker.
-- [ ] Remove `READ_MEDIA_IMAGES` and legacy `READ_EXTERNAL_STORAGE`. Add `tools:node="remove"` entries if transitive manifests reintroduce broad media access.
-- [ ] Disable FCM native auto-init and Firebase Analytics Advertising ID collection in the application metadata.
-- [ ] Remove `AD_ID` from the merged manifest, including transitive reintroduction, because the app has no ads and does not need advertising identifiers.
-- [ ] Replace the opaque launcher bitmap notification icon with a white alpha-only Android vector small icon and reference it from `NotificationService`.
-- [ ] Replace release-to-debug signing fallback with a clear Gradle failure whenever a release task is requested without a complete `android/key.properties` and existing keystore.
-- [ ] Verify the missing-key release command fails for the intended reason. Later, use an ephemeral non-debug CI/test keystore to prove release compilation without representing it as the Play upload key.
+- [x] Remove manual gallery permission requests; keep contextual camera permission and let `image_picker_android` use the system picker.
+- [x] Remove `READ_MEDIA_IMAGES` and legacy `READ_EXTERNAL_STORAGE`. Add `tools:node="remove"` entries if transitive manifests reintroduce broad media access.
+- [x] Disable FCM native auto-init and Firebase Analytics Advertising ID collection in the application metadata.
+- [x] Remove `AD_ID` from the merged manifest, including transitive reintroduction, because the app has no ads and does not need advertising identifiers.
+- [x] Replace the opaque launcher bitmap notification icon with a white alpha-only Android vector small icon and reference it from `NotificationService`.
+- [x] Replace release-to-debug signing fallback with a clear Gradle failure whenever a release task is requested without a complete `android/key.properties` and existing keystore.
+- [x] Verify the missing-key release command fails for the intended reason. Later, use an ephemeral non-debug CI/test keystore to prove release compilation without representing it as the Play upload key.
 
 ## Task 4: Prepare correct iOS native capabilities without inventing credentials
 
