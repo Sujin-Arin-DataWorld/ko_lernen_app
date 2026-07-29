@@ -24,6 +24,7 @@ export GOOGLE_SERVICE_PLIST="$PWD/ios/Runner/GoogleService-Info.plist"
 command -v firebase >/dev/null
 command -v plutil >/dev/null
 test -f pubspec.yaml
+git check-ignore -q ios/Runner/GoogleService-Info.plist
 
 firebase apps:create IOS 'Hangul Sori iOS' \
   --bundle-id "$IOS_BUNDLE_ID" \

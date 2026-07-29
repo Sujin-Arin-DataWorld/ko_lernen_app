@@ -83,3 +83,17 @@ Ruby is unavailable in this Windows environment, so `ruby -c ios/Podfile` could 
 - On macOS, run `flutter pub get`, `pod install --repo-update`, the documented `xcodebuild -showBuildSettings` checks, an unsigned Debug build, and a signed Release IPA/archive with real external configuration.
 - Confirm `Podfile.lock` resolves `GoogleMLKit/TextRecognitionKorean`, inspect final signed entitlements, and test push delivery, Google sign-in, Sign in with Apple, and RevenueCat sandbox purchases on a physical device.
 - The real Apple team and profiles, Firebase plist and reversed URL scheme, APNs `.p8`, and RevenueCat public Apple SDK key must be supplied by the account owner through the documented process.
+
+## Fix round 1: Firebase plist ignore enforcement
+
+Reviewer feedback identified that the guide required `GoogleService-Info.plist` to remain uncommitted but the repository did not ignore its generated path.
+
+- Added the exact repository-root rule `/ios/Runner/GoogleService-Info.plist` to `.gitignore`.
+- Added `git check-ignore -q ios/Runner/GoogleService-Info.plist` to the fail-fast Firebase setup gate before the plist is generated.
+- Verified the rule without creating the credential file:
+
+```text
+.gitignore:87:/ios/Runner/GoogleService-Info.plist	ios/Runner/GoogleService-Info.plist
+```
+
+`git check-ignore -v ios/Runner/GoogleService-Info.plist` exited 0 while the file remained absent.
