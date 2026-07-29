@@ -104,6 +104,24 @@ function selectPushRecipientUids(members, bannedUids, deletingUids) {
     .map((member) => member.uid);
 }
 
+function selectWeeklyMvp(members, bannedUids, deletingUids) {
+  const candidates = members
+    .filter((member) =>
+      member &&
+      member.uid &&
+      member.status === "active" &&
+      !bannedUids.has(member.uid) &&
+      !deletingUids.has(member.uid))
+    .map((member) => ({
+      uid: member.uid,
+      nickname: member.nickname || "",
+      packs: parseInt(member.weeklyPacksContributed || 0, 10) || 0,
+    }))
+    .sort((left, right) =>
+      right.packs - left.packs || left.uid.localeCompare(right.uid));
+  return candidates[0] || { uid: "", nickname: "", packs: 0 };
+}
+
 function groupDeletionUserUids(members, additionalUid = null) {
   return Array.from(new Set([
     ...members.map((member) => member && member.uid).filter(Boolean),
@@ -294,6 +312,7 @@ function isAccountDeletionTombstoneOldEnough(
 function accountTombstoneCleanupAction({
   authUserExists,
   firestoreUserExists,
+  cleanupComplete,
   authMissingSinceMillis,
   nowMillis,
   minimumAgeMillis = 24 * 60 * 60 * 1000,
@@ -302,6 +321,7 @@ function accountTombstoneCleanupAction({
     if (firestoreUserExists) return "cancel";
     return Number.isFinite(authMissingSinceMillis) ? "clearMissing" : "retain";
   }
+  if (cleanupComplete !== true) return "retain";
   if (!Number.isFinite(authMissingSinceMillis)) return "markMissing";
   return isAccountDeletionTombstoneOldEnough(
     authMissingSinceMillis,
@@ -312,11 +332,154 @@ function accountTombstoneCleanupAction({
     : "retain";
 }
 
+async function runCleanupThenMarkComplete(cleanupSteps, markCleanupComplete) {
+  for (const cleanupStep of cleanupSteps) {
+    await cleanupStep();
+  }
+  await markCleanupComplete();
+}
+
 function processedPackKey(uid, packId) {
   return crypto
     .createHash("sha256")
     .update(`${uid}\0${packId}`, "utf8")
     .digest("hex");
+}
+
+function isDeliverableGyeLifecycle(lifecycleState) {
+  return lifecycleState !== "deleting";
+}
+
+function notificationOutboxKey(eventKey, uid) {
+  return crypto
+    .createHash("sha256")
+    .update(`${eventKey}\0${uid}`, "utf8")
+    .digest("hex");
+}
+
+function buildWeeklyNotificationOutbox({
+  gyeId,
+  rolloverKey,
+  members,
+  bannedUids,
+  deletingUids,
+  title,
+  body,
+}) {
+  const eventKey = `weekly:${gyeId}:${rolloverKey}`;
+  return selectPushRecipientUids(members, bannedUids, deletingUids)
+    .slice()
+    .sort()
+    .map((uid) => ({
+      id: notificationOutboxKey(eventKey, uid),
+      uid,
+      eventKey,
+      title,
+      body,
+      state: "pending",
+    }));
+}
+
+const PERMANENT_MESSAGING_ERROR_CODES = new Set([
+  "messaging/invalid-registration-token",
+  "messaging/registration-token-not-registered",
+]);
+
+function notificationTokenHash(token) {
+  return crypto
+    .createHash("sha256")
+    .update(token, "utf8")
+    .digest("hex");
+}
+
+function settledNotificationTokenHashes(existingHashes, tokens, responses) {
+  const hashes = new Set(existingHashes);
+  for (let index = 0; index < tokens.length; index += 1) {
+    const response = responses[index];
+    if (response?.success === true ||
+        PERMANENT_MESSAGING_ERROR_CODES.has(response?.error?.code)) {
+      hashes.add(notificationTokenHash(tokens[index]));
+    }
+  }
+  return Array.from(hashes).sort();
+}
+
+function filterUnsettledNotificationTokens(tokens, settledTokenHashes) {
+  const settled = new Set(settledTokenHashes);
+  return Array.from(new Set(tokens)).filter(
+    (token) => !settled.has(notificationTokenHash(token)),
+  );
+}
+
+function classifyMulticastResponses(tokens, responses) {
+  let successCount = 0;
+  let transientFailureCount = 0;
+  const permanentFailureTokens = [];
+
+  for (let index = 0; index < tokens.length; index += 1) {
+    const response = responses[index];
+    if (response?.success === true) {
+      successCount += 1;
+      continue;
+    }
+    const errorCode = response?.error?.code;
+    if (PERMANENT_MESSAGING_ERROR_CODES.has(errorCode)) {
+      permanentFailureTokens.push(tokens[index]);
+    } else {
+      transientFailureCount += 1;
+    }
+  }
+
+  return {
+    action: transientFailureCount > 0 ? "retry" : "sent",
+    successCount,
+    permanentFailureTokens,
+    transientFailureCount,
+  };
+}
+
+function buildNotificationDeliveryUpdate(classification) {
+  if (classification.action === "sent") {
+    return {
+      state: "sent",
+      successCount: classification.successCount,
+      permanentFailureCount: classification.permanentFailureTokens.length,
+      transientFailureCount: 0,
+    };
+  }
+  return {
+    state: "pending",
+    lastAttemptSuccessCount: classification.successCount,
+    permanentFailureCount: classification.permanentFailureTokens.length,
+    transientFailureCount: classification.transientFailureCount,
+  };
+}
+
+function notificationOutboxMaintenanceAction({
+  state,
+  completedAtMillis,
+  leaseUntilMillis,
+  nowMillis,
+  retentionMillis = 30 * 24 * 60 * 60 * 1000,
+}) {
+  if (state === "pending") return "deliver";
+  if (state === "sending") {
+    return Number.isFinite(leaseUntilMillis) &&
+      Number.isFinite(nowMillis) &&
+      leaseUntilMillis <= nowMillis
+      ? "deliver"
+      : "retain";
+  }
+  if (state !== "sent" && state !== "skipped") return "retain";
+  return Number.isFinite(completedAtMillis) &&
+    Number.isFinite(nowMillis) &&
+    completedAtMillis <= nowMillis - retentionMillis
+    ? "delete"
+    : "retain";
+}
+
+function notificationOutboxBelongsToUid(data, uid) {
+  return Boolean(data && uid && data.uid === uid);
 }
 
 function weeklyRolloverKey(scheduleTime) {
@@ -342,17 +505,28 @@ module.exports = {
   anonymizeReport,
   anonymizeSticker,
   buildGroupCleanupPlan,
+  buildNotificationDeliveryUpdate,
   buildOwnerSuspensionPlan,
+  buildWeeklyNotificationOutbox,
   chunkItems,
+  classifyMulticastResponses,
   eligibleModerationReporterUids,
+  filterUnsettledNotificationTokens,
   groupDeletionUserUids,
+  isDeliverableGyeLifecycle,
   isDurableReporterAuth,
   isAccountDeletionTombstoneOldEnough,
   memberDeleteTriggerPlan,
+  notificationOutboxMaintenanceAction,
+  notificationOutboxBelongsToUid,
+  notificationOutboxKey,
   processedPackKey,
   pendingReporterUids,
+  runCleanupThenMarkComplete,
   selectSuccessor,
   selectPushRecipientUids,
+  selectWeeklyMvp,
+  settledNotificationTokenHashes,
   shouldCreditPackClear,
   shouldDeleteReportForUid,
   shouldProcessWeeklyRollover,

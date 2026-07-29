@@ -957,6 +957,37 @@ test("deleting lifecycle blocks all late client mutations", async () => {
   await assertFails(join.commit());
 });
 
+test("notification outbox and delivery receipts are server-only", async () => {
+  await seedGye("ABC234", ["owner"]);
+  await environment.withSecurityRulesDisabled(async (context) => {
+    await setDoc(
+      doc(
+        context.firestore(),
+        "gye",
+        "ABC234",
+        "notification_outbox",
+        "message",
+      ),
+      {
+        uid: "owner",
+        eventKey: "weekly:ABC234:2026-07-27",
+        state: "pending",
+      },
+    );
+  });
+  const db = client("owner");
+  const outboxRef = doc(
+    db,
+    "gye",
+    "ABC234",
+    "notification_outbox",
+    "message",
+  );
+  await assertFails(getDoc(outboxRef));
+  await assertFails(setDoc(outboxRef, { state: "sent" }, { merge: true }));
+  await assertFails(deleteDoc(outboxRef));
+});
+
 test("only one of concurrent tenth and eleventh joins can succeed", async () => {
   const existing = Array.from({ length: 9 }, (_, index) => `u${index}`);
   await seedGye("ABC234", existing);

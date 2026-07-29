@@ -519,6 +519,10 @@ service cloud.firestore {
         allow create, update, delete: if false;
       }
 
+      match /notification_outbox/{messageId} {
+        allow read, write: if false;
+      }
+
       match /feed/{eventId} {
         allow read: if isActiveGyeMember(gyeId);
         allow create: if isActiveGyeMember(gyeId)

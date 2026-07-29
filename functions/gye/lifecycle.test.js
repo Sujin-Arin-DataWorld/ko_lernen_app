@@ -11,17 +11,28 @@ const {
   anonymizeReport,
   anonymizeSticker,
   buildGroupCleanupPlan,
+  buildNotificationDeliveryUpdate,
   buildOwnerSuspensionPlan,
+  buildWeeklyNotificationOutbox,
   chunkItems,
+  classifyMulticastResponses,
   eligibleModerationReporterUids,
+  filterUnsettledNotificationTokens,
   groupDeletionUserUids,
+  isDeliverableGyeLifecycle,
   isDurableReporterAuth,
   isAccountDeletionTombstoneOldEnough,
   memberDeleteTriggerPlan,
+  notificationOutboxMaintenanceAction,
+  notificationOutboxBelongsToUid,
+  notificationOutboxKey,
   processedPackKey,
   pendingReporterUids,
+  runCleanupThenMarkComplete,
   selectSuccessor,
   selectPushRecipientUids,
+  selectWeeklyMvp,
+  settledNotificationTokenHashes,
   shouldCreditPackClear,
   shouldDeleteReportForUid,
   shouldProcessWeeklyRollover,
@@ -529,27 +540,123 @@ test("account tombstone cleanup uses a second post-Auth safety window", () => {
   assert.equal(accountTombstoneCleanupAction({
     authUserExists: false,
     firestoreUserExists: false,
+    cleanupComplete: true,
     authMissingSinceMillis: undefined,
     nowMillis: now,
   }), "markMissing");
   assert.equal(accountTombstoneCleanupAction({
     authUserExists: false,
     firestoreUserExists: false,
+    cleanupComplete: true,
     authMissingSinceMillis: now - day + 1,
     nowMillis: now,
   }), "retain");
   assert.equal(accountTombstoneCleanupAction({
     authUserExists: false,
     firestoreUserExists: false,
+    cleanupComplete: true,
     authMissingSinceMillis: now - day,
     nowMillis: now,
   }), "delete");
   assert.equal(accountTombstoneCleanupAction({
     authUserExists: true,
     firestoreUserExists: false,
+    cleanupComplete: true,
     authMissingSinceMillis: now - day,
     nowMillis: now,
   }), "clearMissing");
+});
+
+test("account tombstone never advances before durable cleanup completion", () => {
+  const day = 24 * 60 * 60 * 1000;
+  const now = 10 * day;
+  assert.equal(accountTombstoneCleanupAction({
+    authUserExists: false,
+    firestoreUserExists: false,
+    cleanupComplete: false,
+    authMissingSinceMillis: undefined,
+    nowMillis: now,
+  }), "retain");
+  assert.equal(accountTombstoneCleanupAction({
+    authUserExists: false,
+    firestoreUserExists: false,
+    cleanupComplete: false,
+    authMissingSinceMillis: now - 9 * day,
+    nowMillis: now,
+  }), "retain");
+});
+
+test("cleanup completion starts a fresh Auth-missing safety window", () => {
+  const day = 24 * 60 * 60 * 1000;
+  const now = 10 * day;
+  assert.equal(accountTombstoneCleanupAction({
+    authUserExists: false,
+    firestoreUserExists: false,
+    cleanupComplete: false,
+    authMissingSinceMillis: now - 9 * day,
+    nowMillis: now,
+  }), "retain");
+  // The completion write removes stale authMissingSince. The next observation
+  // may only start a new window, never inherit the pre-completion timestamp.
+  assert.equal(accountTombstoneCleanupAction({
+    authUserExists: false,
+    firestoreUserExists: false,
+    cleanupComplete: true,
+    authMissingSinceMillis: undefined,
+    nowMillis: now,
+  }), "markMissing");
+});
+
+test("cleanup completion receipt is written only after every cleanup succeeds",
+async () => {
+  const calls = [];
+  await assert.rejects(
+    runCleanupThenMarkComplete([
+      async () => calls.push("membership"),
+      async () => {
+        calls.push("shared-pack");
+        throw new Error("transient cleanup failure");
+      },
+      async () => calls.push("outbox"),
+    ], async () => calls.push("complete")),
+    /transient cleanup failure/,
+  );
+  assert.deepEqual(calls, ["membership", "shared-pack"]);
+
+  calls.length = 0;
+  await runCleanupThenMarkComplete([
+    async () => calls.push("membership"),
+    async () => calls.push("shared-pack"),
+    async () => calls.push("outbox"),
+  ], async () => calls.push("complete"));
+  assert.deepEqual(calls, [
+    "membership",
+    "shared-pack",
+    "outbox",
+    "complete",
+  ]);
+});
+
+test("weekly MVP excludes deleting accounts even after their user doc is gone",
+() => {
+  assert.deepEqual(selectWeeklyMvp(
+    [
+      {
+        uid: "deleted",
+        nickname: "Deleted",
+        status: "active",
+        weeklyPacksContributed: 99,
+      },
+      {
+        uid: "safe",
+        nickname: "Safe",
+        status: "active",
+        weeklyPacksContributed: 3,
+      },
+    ],
+    new Set(),
+    new Set(["deleted"]),
+  ), { uid: "safe", nickname: "Safe", packs: 3 });
 });
 
 test("abandoned account deletion unbricks only while both records exist", () => {
@@ -558,12 +665,14 @@ test("abandoned account deletion unbricks only while both records exist", () => 
   assert.equal(accountTombstoneCleanupAction({
     authUserExists: true,
     firestoreUserExists: true,
+    cleanupComplete: false,
     authMissingSinceMillis: undefined,
     nowMillis: now,
   }), "cancel");
   assert.equal(accountTombstoneCleanupAction({
     authUserExists: true,
     firestoreUserExists: false,
+    cleanupComplete: false,
     authMissingSinceMillis: undefined,
     nowMillis: now,
   }), "retain");
@@ -577,6 +686,215 @@ test("pack processing key is deterministic and does not expose the UID", () => {
   assert.equal(first.includes("private-user"), false);
 });
 
+test("legacy Gye lifecycle remains deliverable unless explicitly deleting", () => {
+  assert.equal(isDeliverableGyeLifecycle(undefined), true);
+  assert.equal(isDeliverableGyeLifecycle("active"), true);
+  assert.equal(isDeliverableGyeLifecycle("deleting"), false);
+});
+
+test("weekly outbox is deterministic, per-recipient, and excludes tombstones",
+() => {
+  const input = {
+    gyeId: "ABC234",
+    rolloverKey: "2026-07-27",
+    members: [
+      { uid: "member", status: "active" },
+      { uid: "deleting", status: "active" },
+      { uid: "suspended", status: "suspended" },
+    ],
+    bannedUids: new Set(),
+    deletingUids: new Set(["deleting"]),
+    title: "Weekly goal",
+    body: "Complete",
+  };
+  const first = buildWeeklyNotificationOutbox(input);
+  const retry = buildWeeklyNotificationOutbox(input);
+  assert.deepEqual(retry, first);
+  assert.deepEqual(first, [{
+    id: "0edd02e399748eaadff00c0b1a7b40340372fef06a083d8ce7614ede23a202e5",
+    uid: "member",
+    eventKey: "weekly:ABC234:2026-07-27",
+    title: "Weekly goal",
+    body: "Complete",
+    state: "pending",
+  }]);
+  assert.equal(first[0].id.includes("member"), false);
+  assert.equal(
+    notificationOutboxKey("weekly:ABC234:2026-07-27", "member"),
+    first[0].id,
+  );
+});
+
+test("multicast outcomes distinguish permanent token errors from retryable ones",
+() => {
+  const terminal = classifyMulticastResponses(
+    ["ok", "gone"],
+    [
+      { success: true },
+      {
+        success: false,
+        error: { code: "messaging/registration-token-not-registered" },
+      },
+    ],
+  );
+  assert.deepEqual(terminal, {
+    action: "sent",
+    successCount: 1,
+    permanentFailureTokens: ["gone"],
+    transientFailureCount: 0,
+  });
+  assert.deepEqual(buildNotificationDeliveryUpdate(terminal), {
+    state: "sent",
+    successCount: 1,
+    permanentFailureCount: 1,
+    transientFailureCount: 0,
+  });
+
+  const transient = classifyMulticastResponses(
+    ["network-a", "network-b"],
+    [
+      {
+        success: false,
+        error: { code: "messaging/internal-error" },
+      },
+      {
+        success: false,
+        error: { code: "messaging/server-unavailable" },
+      },
+    ],
+  );
+  assert.deepEqual(transient, {
+    action: "retry",
+    successCount: 0,
+    permanentFailureTokens: [],
+    transientFailureCount: 2,
+  });
+  assert.deepEqual(buildNotificationDeliveryUpdate(transient), {
+    state: "pending",
+    lastAttemptSuccessCount: 0,
+    permanentFailureCount: 0,
+    transientFailureCount: 2,
+  });
+});
+
+test("partial multicast with a transient failure remains retryable", () => {
+  const tokens = ["delivered", "retry"];
+  const responses = [
+    { success: true },
+    {
+      success: false,
+      error: { code: "messaging/unavailable" },
+    },
+  ];
+  assert.deepEqual(classifyMulticastResponses(
+    tokens,
+    responses,
+  ), {
+    action: "retry",
+    successCount: 1,
+    permanentFailureTokens: [],
+    transientFailureCount: 1,
+  });
+  const settled = settledNotificationTokenHashes([], tokens, responses);
+  assert.deepEqual(settled, [
+    "373e0712c83cffe15ff427b60e788b549f82496fe5fd5391f7921832b04c6b20",
+  ]);
+  assert.deepEqual(
+    filterUnsettledNotificationTokens(tokens, settled),
+    ["retry"],
+  );
+});
+
+test("settled hashes include permanent failures without storing raw tokens",
+() => {
+  const hashes = settledNotificationTokenHashes(
+    ["existing-hash"],
+    ["delivered", "retry"],
+    [
+      { success: true },
+      {
+        success: false,
+        error: { code: "messaging/registration-token-not-registered" },
+      },
+    ],
+  );
+  assert.deepEqual(hashes, [
+    "06b29bb318814108e94270528fe7994c096308b3692923723bf1ae6f98d50b4f",
+    "373e0712c83cffe15ff427b60e788b549f82496fe5fd5391f7921832b04c6b20",
+    "existing-hash",
+  ]);
+  assert.equal(hashes.some((hash) => hash.includes("delivered")), false);
+  assert.equal(hashes.some((hash) => hash.includes("retry")), false);
+});
+
+test("message/config errors never delete a user's raw FCM token", () => {
+  const tokens = ["keep-token"];
+  const responses = [{
+    success: false,
+    error: { code: "messaging/invalid-argument" },
+  }];
+  assert.deepEqual(classifyMulticastResponses(tokens, responses), {
+    action: "retry",
+    successCount: 0,
+    permanentFailureTokens: [],
+    transientFailureCount: 1,
+  });
+  assert.deepEqual(
+    settledNotificationTokenHashes([], tokens, responses),
+    [],
+  );
+});
+
+test("outbox maintenance drains pending and expires only old terminal receipts",
+() => {
+  const day = 24 * 60 * 60 * 1000;
+  const now = 60 * day;
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "pending",
+    completedAtMillis: undefined,
+    nowMillis: now,
+  }), "deliver");
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "sent",
+    completedAtMillis: now - 30 * day + 1,
+    nowMillis: now,
+  }), "retain");
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "sent",
+    completedAtMillis: now - 30 * day,
+    nowMillis: now,
+  }), "delete");
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "skipped",
+    completedAtMillis: now - 31 * day,
+    nowMillis: now,
+  }), "delete");
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "sending",
+    leaseUntilMillis: now + 1,
+    nowMillis: now,
+  }), "retain");
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "sending",
+    leaseUntilMillis: now,
+    nowMillis: now,
+  }), "deliver");
+});
+
+test("normal leave outbox cleanup is UID-scoped and idempotent", () => {
+  const documents = [
+    { uid: "departing", id: "one" },
+    { uid: "other", id: "two" },
+    { uid: "departing", id: "three" },
+  ];
+  const once = documents.filter((document) =>
+    !notificationOutboxBelongsToUid(document, "departing"));
+  const twice = once.filter((document) =>
+    !notificationOutboxBelongsToUid(document, "departing"));
+  assert.deepEqual(once, [{ uid: "other", id: "two" }]);
+  assert.deepEqual(twice, once);
+});
+
 test("weekly rollover key is stable in Korea time and monotonic", () => {
   const key = weeklyRolloverKey("2026-07-26T15:00:00.000Z");
   assert.equal(key, "2026-07-27");
@@ -588,4 +906,16 @@ test("weekly rollover key is stable in Korea time and monotonic", () => {
     shouldProcessWeeklyRollover(key, "2026-08-03"),
     true,
   );
+});
+
+test("rollover retry skip does not suppress pending outbox maintenance", () => {
+  const rolloverKey = "2026-07-27";
+  assert.equal(
+    shouldProcessWeeklyRollover(rolloverKey, rolloverKey),
+    false,
+  );
+  assert.equal(notificationOutboxMaintenanceAction({
+    state: "pending",
+    nowMillis: Date.now(),
+  }), "deliver");
 });

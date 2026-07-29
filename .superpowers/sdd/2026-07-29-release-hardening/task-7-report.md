@@ -20,6 +20,14 @@
 - Normal leave and account deletion remove reports involving the departed user,
   anonymize retained feed/sticker/MVP identity, and prevent a rapid rejoin from
   being confused with the prior membership generation.
+- Account tombstones now require a server-only cleanup completion receipt.
+  Auth-missing observation and the final 24-hour deletion window cannot begin
+  until every Gye, shared-pack, processed-pack, and notification-outbox cleanup
+  step succeeds.
+- Weekly goal delivery now uses deterministic per-recipient outbox documents
+  written atomically with rollover. A retryable create trigger plus a bounded
+  15-minute sweeper claims work with a five-minute lease, retries only
+  unsettled recipients, and retains terminal receipts for 30 days.
 
 ## TDD Evidence
 
@@ -38,6 +46,13 @@
   rejoin ambiguity, deleting-account successor selection, Gye enumeration,
   suspended-member reads, pack-ID minting, client server-event spoofing,
   arbitrary/duplicate reports, and backdated/future lifecycle timestamps.
+- The review-fix RED run had 33 passes and seven failures: incomplete account
+  cleanup incorrectly started the Auth-missing clock, cleanup completion had
+  no ordered receipt boundary, deleting users could not be exercised through a
+  pure MVP selector, legacy lifecycle delivery had no contract, and durable
+  outbox creation/multicast classification did not exist. Follow-up RED tests
+  caught raw-token deletion for `messaging/invalid-argument`, absent settled
+  token hashing, expired-lease starvation, and missing leave cleanup.
 
 ### GREEN
 
@@ -56,6 +71,16 @@
   Firestore user records still exist in a transaction. Missing Auth requires a
   second 24-hour observation window. Auth-present/user-missing retains the
   marker for deletion retry.
+- `on_user_deleted` writes `cleanupComplete=true` only after all cleanup steps
+  return successfully and erases any stale `authMissingSince`. The scheduler
+  retains incomplete markers and starts a fresh post-completion Auth-missing
+  window. Account-deleting users remain excluded from successor and MVP
+  selection while the marker is retained.
+- Goal rollover creates one deterministic, UID-hiding outbox ID per eligible
+  member inside the rollover transaction. Delivery rechecks legacy-active Gye,
+  membership, ban, account marker, and user state. Only invalid or unregistered
+  token errors remove raw FCM tokens; message/config and transient failures
+  remain retryable.
 
 ## Firestore and Moderation Hardening
 
@@ -89,18 +114,25 @@
 ## Retry and Privacy Properties
 
 - `on_pack_cleared`, member deletion, user deletion, reporting, weekly rollover,
-  and tombstone cleanup are retry-safe. Pack and weekly feed IDs are
-  deterministic, receipt/rollover keys are durable, and errors are rethrown
-  where a retry is required.
+  outbox delivery/maintenance, and tombstone cleanup are retry-safe. Pack,
+  weekly feed, and per-recipient outbox IDs are deterministic; receipt/rollover
+  keys are durable; errors are rethrown where a retry is required.
 - Identity transforms re-read current documents in transactions, compose across
   concurrent departing users, preserve unrelated moderation fields, and do not
   recreate deleted documents.
 - Account cleanup discovers legacy/stale Gye references through collection
-  group queries on members, departures, bans, and processed pack receipts.
-  Required collection-group indexes were added.
+  group queries on members, departures, bans, processed pack receipts, and
+  notification outboxes. Required collection and collection-group indexes were
+  added. Normal leave and account deletion immediately remove matching outbox
+  documents.
 - Group deletion first sets `lifecycleState=deleting`, clears surviving user
   caches atomically, and then uses Admin recursive deletion. Retry observes the
   deleting state and resumes cleanup.
+- Outboxes store no raw FCM token. Successful and permanently invalid
+  recipients are tracked by SHA-256 token hashes so a partial retry sends only
+  unsettled current tokens. Terminal `sent`/`skipped` receipts, UID, and hashes
+  expire after 30 days; pending work is preserved and expired delivery leases
+  are reclaimed.
 
 ## Final Verification
 
@@ -113,9 +145,9 @@
 - `node --check functions/gye/lifecycle.js`
   - exit 0.
 - `npm test` in `functions/gye`
-  - 33 tests passed.
+  - 46 tests passed.
 - `npm run test:rules` in `functions/gye`
-  - Firestore emulator compiled the rules; 31 tests passed.
+  - Firestore emulator compiled the rules; 32 tests passed.
 - `git diff --check`
   - exit 0 (line-ending conversion warnings only).
 
@@ -130,14 +162,22 @@ was removed. Deployment must use this order:
 4. `npm run deploy:functions`
 
 The last command targets only `functions:gye-firebase-functions`. Activating the
-cleanup triggers before their indexes are ready is unsafe.
+cleanup and outbox triggers before their indexes are ready is unsafe.
 
 Still requiring release-owner verification:
 
 - Run deployed Firebase trigger/scheduler end-to-end tests against a staging
-  project, including Admin Auth provider lookup and recursive deletion.
+  project, including Admin Auth provider lookup, recursive deletion, FCM
+  partial delivery, lease recovery, and retention cleanup.
 - Confirm Scheduler/Blaze/API permissions and inspect production index readiness
   before functions deployment.
+- Delivery is accepted at-least-once. The lease prevents overlapping
+  trigger/sweeper sends, and settled token hashes prevent ordinary partial
+  retries. A process crash after FCM accepts a send but before Firestore writes
+  its receipt can still redeliver; deterministic Android `collapseKey`, APNs
+  `apns-collapse-id`, and the data `eventKey` mitigate but cannot mathematically
+  eliminate that provider boundary. Live APNs/FCM delivery still requires
+  staging credentials and device verification.
 - The age gate is a conservative local self-attestation, not identity or
   cryptographic age verification.
 - Pack completion is bounded self-reported gamification. Client feed actions
