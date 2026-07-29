@@ -188,11 +188,11 @@
 - Modify: `lib/screens/settings_screen.dart`
 - Add focused tests under `test/`
 
-- [ ] Add filesystem-oriented tests using temporary directories for copy, replace, cancel, page delete, word delete, pack delete, and delete-all.
-- [ ] Copy accepted crop output from cache into an app-documents `book_images` directory before persistence.
-- [ ] Delete temporary crop output when the flow is cancelled or fails and delete permanent page images when the page/account is deleted.
-- [ ] Track newly selected word images so cancel removes the new file, save removes the replaced old file, remove-photo deletes the file, and word/pack/account deletion removes all owned files.
-- [ ] Keep deletion best-effort for missing files but never leave persisted models pointing at a deliberately deleted path.
+- [x] Add filesystem-oriented tests using temporary directories for copy, replace, cancel, page delete, word delete, pack delete, and delete-all.
+- [x] Copy accepted crop output from cache into an app-documents `book_images` directory before persistence.
+- [x] Delete temporary crop output when the flow is cancelled or fails and delete permanent page images when the page/account is deleted.
+- [x] Track newly selected word images so cancel removes the new file, save removes the replaced old file, remove-photo deletes the file, and word/pack/account deletion removes all owned files.
+- [x] Keep deletion best-effort for missing files but never leave persisted models pointing at a deliberately deleted path.
 
 ## Task 9: Add release CI gates and reconcile store/privacy documentation
 
