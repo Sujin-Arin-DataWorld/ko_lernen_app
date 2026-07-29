@@ -10,6 +10,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/external_link.dart';
 import '../services/storage_service.dart';
 import '../services/notification_service.dart';
+import '../services/push_service.dart';
 import '../services/privacy_consent_service.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/sheet.dart';
@@ -88,14 +89,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
           title: t.notifStreakSaverTitle,
           body: t.notifStreakSaverBody,
         );
+        // FCM is optional. A failed cloud registration must not undo local
+        // reminder permission or scheduling.
+        await pushService.enable();
       } else {
         await Storage.setNotificationsEnabled(false);
+        await pushService.disable();
         messenger.showSnackBar(SnackBar(content: Text(t.settingsNotifDenied)));
       }
     } else {
       await NotificationService.cancelAll();
+      await pushService.disable();
     }
-    if (mounted) setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> _pickNotifTime() async {
@@ -922,6 +930,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     try {
       await AuthService.deleteAccount();
       await Storage.resetAll();
+      await pushService.disable();
       // DSGVO Art. 17 — lokale Dateien außerhalb der SharedPreferences:
       // Wortfotos (wordbook_images/) + TTS-Audio-Cache.
       await WordImageService.deleteAll();

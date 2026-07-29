@@ -8,6 +8,9 @@ import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import 'push_service.dart';
+import 'storage_service.dart';
+
 /// Hybrid-Auth — **immer** anonym eingeloggt. Optional kann der
 /// User mit Google verlinken, um Cloud-Backup zu aktivieren.
 ///
@@ -19,6 +22,12 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 /// sauber ab, wenn Firebase nicht verfügbar ist. Auf Android (mit
 /// google-services.json) greifen die Guards nie — normales Verhalten.
 class AuthService {
+  static final PushOwnershipTransitionCoordinator _pushOwnershipTransitions =
+      PushOwnershipTransitionCoordinator(
+        push: pushService,
+        notificationsEnabled: () => Storage.notificationsEnabled,
+      );
+
   static const List<String> _userSubcollections = [
     'packs',
     'quests',
@@ -92,7 +101,9 @@ class AuthService {
   /// Bricht still ab, wenn Firebase nicht verfügbar ist (Web ohne Config).
   static Future<void> ensureSignedIn() async {
     final auth = _auth;
-    if (auth == null) return;
+    if (auth == null) {
+      return;
+    }
     if (auth.currentUser == null) {
       await auth.signInAnonymously();
     }
@@ -221,33 +232,46 @@ class AuthService {
       await _reauthenticateWithApple(user);
     }
 
-    await deleteCloudData();
-    try {
-      await user.delete();
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'requires-recent-login') {
-        if (wasGoogleLinked) {
-          await _reauthenticateWithGoogle(user);
-        } else if (wasAppleLinked) {
-          await _reauthenticateWithApple(user);
+    await _pushOwnershipTransitions.run(
+      oldUid: user.uid,
+      transition: () async {
+        await deleteCloudData();
+        try {
+          await user.delete();
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'requires-recent-login') {
+            if (wasGoogleLinked) {
+              await _reauthenticateWithGoogle(user);
+            } else if (wasAppleLinked) {
+              await _reauthenticateWithApple(user);
+            }
+            await user.delete();
+          } else {
+            rethrow;
+          }
         }
-        await user.delete();
-      } else {
-        rethrow;
-      }
-    }
 
-    await GoogleSignIn().signOut();
-    await ensureSignedIn();
+        await GoogleSignIn().signOut();
+        await ensureSignedIn();
+      },
+    );
   }
 
   /// Aus Google-Account ausloggen → wieder anonym.
   static Future<void> signOut() async {
     final auth = _auth;
-    if (auth == null) return;
-    await GoogleSignIn().signOut();
-    await auth.signOut();
-    await ensureSignedIn(); // wieder anonym
+    final oldUid = auth?.currentUser?.uid;
+    if (auth == null || oldUid == null) {
+      return;
+    }
+    await _pushOwnershipTransitions.run(
+      oldUid: oldUid,
+      transition: () async {
+        await GoogleSignIn().signOut();
+        await auth.signOut();
+        await ensureSignedIn(); // wieder anonym
+      },
+    );
   }
 
   static Future<void> _reauthenticateWithGoogle(User user) async {

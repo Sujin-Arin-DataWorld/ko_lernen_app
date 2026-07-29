@@ -1,5 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb, kDebugMode;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
 
 import 'theme.dart';
@@ -15,10 +17,9 @@ import 'services/premium_service.dart';
 import 'services/notification_service.dart';
 import 'services/privacy_consent_service.dart';
 import 'services/push_service.dart';
-import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'firebase_options.dart';
+import 'services/app_startup_coordinator.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/splash_screen.dart';
 import 'screens/quick_onboarding_screen.dart';
@@ -101,25 +102,17 @@ Future<void> main() async {
         : 'https://europe-west3-ko-lernen-app.cloudfunctions.net/synthesize_tts',
   );
 
-  // Firebase best-effort — schlägt fehl wenn google-services.json fehlt
-  // ignore: discarded_futures, unawaited_futures
-  _initFirebase();
+  // Firebase, anonymous auth, RevenueCat, and optional FCM are ordered in the
+  // background so cloud startup never delays runApp().
+  unawaited(_startCloudServices());
 
   // AdMob best-effort initialisieren (im Hintergrund)
   // ignore: discarded_futures, unawaited_futures
   _initAds();
 
-  // Premium / Abo (RevenueCat) best-effort — ohne Keys "kostenlos"-Modus.
-  // ignore: discarded_futures, unawaited_futures
-  PremiumService.init();
-
   // Lokale Benachrichtigungen (M3) best-effort initialisieren.
   // ignore: discarded_futures, unawaited_futures
   NotificationService.init();
-
-  // FCM 푸시(계 피드 — 주간목표 달성) best-effort. 권한 거부/미설정 시 무동작.
-  // ignore: discarded_futures, unawaited_futures
-  PushService.init();
 
   // Rive(살아있는 호랑이) 런타임 best-effort. 실패해도 앱은 프레임 폴백으로 정상
   // — TigerStageRive가 riveReady=false면 기존 TigerStage(프레임)를 쓴다.
@@ -164,7 +157,24 @@ Future<void> main() async {
   runApp(const KoLernenApp());
 }
 
-Future<void> _initFirebase() async {
+Future<void> _startCloudServices() async {
+  final coordinator = AppStartupCoordinator(
+    initializeFirebase: _initFirebase,
+    ensureSignedIn: AuthService.ensureSignedIn,
+    initializePremium: PremiumService.init,
+    enablePush: () async {
+      await pushService.enable();
+    },
+    notificationsEnabled: () => Storage.notificationsEnabled,
+  );
+  try {
+    await coordinator.start();
+  } catch (error) {
+    debugPrint('Cloud startup skipped: $error');
+  }
+}
+
+Future<bool> _initFirebase() async {
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -174,29 +184,15 @@ Future<void> _initFirebase() async {
     // Manifest/Info.plist deaktiviert; hier wird die gespeicherte
     // Einwilligung (Default: aus) auf die SDKs angewendet.
     await PrivacyConsentService.applyStored();
-
-    // Pass all uncaught "fatal" errors from the framework to Crashlytics.
-    // In debug, also dump to the console so red-screen errors are diagnosable
-    // (the bare Crashlytics handler otherwise swallows the console stack trace).
-    FlutterError.onError = (details) {
-      if (kDebugMode) {
-        FlutterError.presentError(details);
-      }
-      FirebaseCrashlytics.instance.recordFlutterFatalError(details);
-    };
-    // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
-    PlatformDispatcher.instance.onError = (error, stack) {
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-      return true;
-    };
-
-    await AuthService.ensureSignedIn();
+    PrivacyConsentService.installErrorHandlers();
     // v6.0 단청 kill-switch — Remote Config 'palette_variant' 읽기 (best-effort).
     await PaletteService.fetchAndApply();
+    return true;
   } catch (e) {
     // google-services.json fehlt → Cloud-Sync deaktiviert, lokale App funktioniert weiter
     // ignore: avoid_print
     debugPrint('Firebase init skipped: $e');
+    return false;
   }
 }
 

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
@@ -9,6 +11,73 @@ import 'storage_service.dart';
 /// [ValueNotifier] — Screens können per [ValueListenableBuilder] live darauf
 /// reagieren (Lock-Badges ein-/ausblenden, Paywall-Sperren etc.).
 final ValueNotifier<bool> premiumNotifier = ValueNotifier<bool>(false);
+
+abstract interface class RevenueCatIdentityClient {
+  Future<void> logIn(String uid);
+  Future<void> logOut();
+}
+
+class PurchasesIdentityClient implements RevenueCatIdentityClient {
+  const PurchasesIdentityClient();
+
+  @override
+  Future<void> logIn(String uid) async {
+    await Purchases.logIn(uid);
+  }
+
+  @override
+  Future<void> logOut() async {
+    await Purchases.logOut();
+  }
+}
+
+/// Serializes Firebase identity changes into RevenueCat identity changes.
+/// Binding state advances only after RevenueCat confirms the transition.
+class PremiumIdentityBinder {
+  PremiumIdentityBinder(this.client);
+
+  final RevenueCatIdentityClient client;
+  String? _boundUid;
+  StreamSubscription<void>? _subscription;
+
+  String? get boundUid => _boundUid;
+
+  void start(Stream<String?> userIds, {void Function(Object error)? onError}) {
+    if (_subscription != null) {
+      return;
+    }
+    _subscription = userIds
+        .asyncMap((uid) async {
+          try {
+            await _bind(uid);
+          } catch (error) {
+            onError?.call(error);
+            debugPrint('PremiumService: logIn/logOut failed — $error');
+          }
+        })
+        .listen((_) {});
+  }
+
+  Future<void> _bind(String? uid) async {
+    if (uid == _boundUid) {
+      return;
+    }
+    if (uid != null) {
+      await client.logIn(uid);
+      _boundUid = uid;
+      return;
+    }
+    if (_boundUid != null) {
+      await client.logOut();
+      _boundUid = null;
+    }
+  }
+
+  Future<void> dispose() async {
+    await _subscription?.cancel();
+    _subscription = null;
+  }
+}
 
 /// **PremiumService** — €5/Monat Abo über RevenueCat (`purchases_flutter`).
 ///
@@ -33,7 +102,7 @@ class PremiumService {
   static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');
 
   static bool _configured = false;
-  static String? _boundUid;
+  static PremiumIdentityBinder? _identityBinder;
 
   /// `true` wenn echtes Abo aktiv ODER lokaler Dev-Override gesetzt ist.
   static bool get isPremium => premiumNotifier.value;
@@ -72,25 +141,12 @@ class PremiumService {
   /// nichts, kein Crash.
   static void _bindFirebaseIdentity() {
     try {
-      FirebaseAuth.instance.userChanges().listen((user) async {
-        final uid = user?.uid;
-        if (uid == _boundUid) {
-          return;
-        }
-        final prev = _boundUid;
-        _boundUid = uid;
-        try {
-          if (uid != null) {
-            await Purchases.logIn(uid);
-          } else if (prev != null) {
-            // Abmeldung: RC-Identität zurücksetzen, damit Premium nicht am
-            // vorigen Konto haften bleibt.
-            await Purchases.logOut();
-          }
-        } catch (e) {
-          debugPrint('PremiumService: logIn/logOut failed — $e');
-        }
-      });
+      final binder = _identityBinder ??= PremiumIdentityBinder(
+        const PurchasesIdentityClient(),
+      );
+      binder.start(
+        FirebaseAuth.instance.userChanges().map((user) => user?.uid),
+      );
     } catch (_) {
       // Firebase nicht verfügbar (z.B. Web ohne Config) — RC bleibt anonym.
     }
