@@ -660,10 +660,16 @@ test("advances replacement phases only for the verified target with version fenc
       operationId: prepared.operationId,
       expectedVersion: reconciling.version,
     }));
+  const duplicateCleanup =
+    await handlers.startSourceCleanup(callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: reconciling.version,
+    }));
 
   assert.equal(reconciling.phase, "reconciling");
   assert.equal(cleanupPending.phase, "sourceCleanupPending");
   assert.equal(cleanupPending.version, 3);
+  assert.deepEqual(duplicateCleanup, cleanupPending);
 });
 
 test("creates or reuses deletionRequested without deleting any user data", async () => {

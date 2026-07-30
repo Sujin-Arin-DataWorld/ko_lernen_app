@@ -1027,7 +1027,9 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
       await _signOutPrimary();
       throw const AccountLinkSafetyFailure();
     }
-    if (signedInUid != expectedTargetUid) {
+    if (signedInUid != expectedTargetUid ||
+        currentUid != expectedTargetUid ||
+        currentIsAnonymous) {
       await _signOutPrimary();
       throw const AccountLinkSafetyFailure();
     }

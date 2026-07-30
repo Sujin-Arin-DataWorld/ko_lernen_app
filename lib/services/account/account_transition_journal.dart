@@ -18,6 +18,7 @@ enum AccountReplacementPhase {
   attached,
   reconciling,
   reconciled,
+  cleanupStarting,
   cleanupPending,
   activationPending,
 }
@@ -379,6 +380,7 @@ class AccountTransitionJournal {
         session.mode == CloudWriteMode.reconciling && hasOperation,
       AccountReplacementPhase.reconciled =>
         session.mode == CloudWriteMode.reconciling && hasOperation && completed,
+      AccountReplacementPhase.cleanupStarting ||
       AccountReplacementPhase.cleanupPending ||
       AccountReplacementPhase.activationPending =>
         session.mode == CloudWriteMode.cleanupPending &&

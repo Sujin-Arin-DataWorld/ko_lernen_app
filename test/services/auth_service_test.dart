@@ -148,6 +148,79 @@ void main() {
         expect(primaryUid, 'anonymous-source');
       },
     );
+
+    test(
+      'primary activation rejects a returned target when live auth changed',
+      () async {
+        final sessions = CloudWriteSessionController()
+          ..acquire('anonymous-source');
+        final expected = sessions.transition(CloudWriteMode.cleanupPending);
+        String? currentUid = 'anonymous-source';
+        var currentIsAnonymous = true;
+        var signOutCalls = 0;
+        final identity = FirebaseAccountTransitionIdentity.test(
+          currentUid: () => currentUid,
+          currentIsAnonymous: () => currentIsAnonymous,
+          acquireCredential: (_) async =>
+              GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+          signIn: (_) async {
+            currentUid = 'unexpected-durable-account';
+            currentIsAnonymous = false;
+            return 'durable-target';
+          },
+          signOut: () async {
+            signOutCalls += 1;
+            currentUid = null;
+          },
+        );
+
+        await expectLater(
+          identity.activateTarget(
+            AccountLinkProvider.google,
+            expectedTargetUid: 'durable-target',
+            expectedSourceSession: expected,
+            sessions: sessions,
+            allowMissingSource: true,
+          ),
+          throwsA(isA<AccountLinkSafetyFailure>()),
+        );
+
+        expect(signOutCalls, 1);
+        expect(currentUid, isNull);
+      },
+    );
+
+    test('primary activation verifies the live expected target', () async {
+      final sessions = CloudWriteSessionController()
+        ..acquire('anonymous-source');
+      final expected = sessions.transition(CloudWriteMode.cleanupPending);
+      String? currentUid = 'anonymous-source';
+      var currentIsAnonymous = true;
+      var signOutCalls = 0;
+      final identity = FirebaseAccountTransitionIdentity.test(
+        currentUid: () => currentUid,
+        currentIsAnonymous: () => currentIsAnonymous,
+        acquireCredential: (_) async =>
+            GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+        signIn: (_) async {
+          currentUid = 'durable-target';
+          currentIsAnonymous = false;
+          return currentUid;
+        },
+        signOut: () async => signOutCalls += 1,
+      );
+
+      await identity.activateTarget(
+        AccountLinkProvider.google,
+        expectedTargetUid: 'durable-target',
+        expectedSourceSession: expected,
+        sessions: sessions,
+        allowMissingSource: true,
+      );
+
+      expect(currentUid, 'durable-target');
+      expect(signOutCalls, 0);
+    });
   });
 
   test(

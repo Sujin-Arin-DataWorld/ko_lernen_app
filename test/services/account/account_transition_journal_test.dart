@@ -265,6 +265,15 @@ void main() {
       },
       {
         ...base,
+        'mode': 'reconciling',
+        'replacementPhase': 'cleanupStarting',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 2,
+        'reconciliationOperationId': 'operation-1',
+        'reconciliationCheckpoint': 'completed',
+      },
+      {
+        ...base,
         'mode': 'cleanupPending',
         'replacementPhase': 'activationPending',
         'replacementOperationId': 'operation-1',
@@ -311,4 +320,27 @@ void main() {
       );
     },
   );
+
+  test('cleanup-starting journal requires durable cleanup invariants', () {
+    final journal = AccountTransitionJournal.fromJson({
+      'version': 1,
+      'uid': 'anonymous-source',
+      'epoch': 8,
+      'mode': 'cleanupPending',
+      'reconciliationOperationId': 'operation-1',
+      'reconciliationCheckpoint': 'completed',
+      'replacementProvider': 'google',
+      'replacementTargetUid': 'durable-target',
+      'replacementRequestKey': 'request-1',
+      'replacementPhase': 'cleanupStarting',
+      'replacementOperationId': 'operation-1',
+      'replacementOperationVersion': 2,
+    });
+
+    expect(journal.replacementPhase, AccountReplacementPhase.cleanupStarting);
+    expect(
+      AccountTransitionJournal.fromJson(journal.toJson()).toJson(),
+      journal.toJson(),
+    );
+  });
 }

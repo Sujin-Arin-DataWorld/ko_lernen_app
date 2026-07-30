@@ -306,6 +306,17 @@ class SharedPreferencesReplacementTransitionJournalStore
   Future<void> write(AccountTransitionJournal journal) => _store.write(journal);
 
   @override
+  Future<bool> writeIfCurrent({
+    required AccountTransitionJournal expected,
+    required AccountTransitionJournal next,
+    required bool Function() isCurrent,
+  }) => _store.writeIfCurrent(
+    expected: expected,
+    next: next,
+    isCurrent: isCurrent,
+  );
+
+  @override
   Future<bool> deleteIfCurrent({
     required AccountTransitionJournal expected,
     required bool Function() isCurrent,
@@ -665,16 +676,17 @@ class AccountTransitionCoordinator {
       operationId = prepared.operationId;
       operationVersion = prepared.version;
       final reconciling = sessions.transition(CloudWriteMode.reconciling);
-      journal = journal.copyWith(
+      final preparedJournal = journal.copyWith(
         session: reconciling,
         reconciliationOperationId: operationId,
         replacementPhase: AccountReplacementPhase.prepared,
         replacementOperationId: operationId,
         replacementOperationVersion: operationVersion,
       );
-      if (!await _writeJournalFenced(journal)) {
+      if (!await _writeJournalFenced(journal, preparedJournal)) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
+      journal = preparedJournal;
       phase = AccountReplacementPhase.prepared;
     }
 
@@ -698,13 +710,14 @@ class AccountTransitionCoordinator {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
       operationVersion = attached.version;
-      journal = journal.copyWith(
+      final attachedJournal = journal.copyWith(
         replacementPhase: AccountReplacementPhase.attached,
         replacementOperationVersion: operationVersion,
       );
-      if (!await _writeJournalFenced(journal)) {
+      if (!await _writeJournalFenced(journal, attachedJournal)) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
+      journal = attachedJournal;
       phase = AccountReplacementPhase.attached;
     }
 
@@ -715,12 +728,13 @@ class AccountTransitionCoordinator {
           !_journalFence(journal)) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
-      journal = journal.copyWith(
+      final reconcilingJournal = journal.copyWith(
         replacementPhase: AccountReplacementPhase.reconciling,
       );
-      if (!await _writeJournalFenced(journal)) {
+      if (!await _writeJournalFenced(journal, reconcilingJournal)) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
+      journal = reconcilingJournal;
       final reconciliation = await reconcile(
         target: target,
         session: journal.session,
@@ -768,16 +782,18 @@ class AccountTransitionCoordinator {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
       operationVersion = committed.version;
-      journal = journal.copyWith(
+      final reconciledJournal = journal.copyWith(
         replacementPhase: AccountReplacementPhase.reconciled,
         replacementOperationVersion: operationVersion,
       );
-      if (!await _writeJournalFenced(journal)) {
+      if (!await _writeJournalFenced(journal, reconciledJournal)) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
+      journal = reconciledJournal;
       phase = AccountReplacementPhase.reconciled;
     }
 
+    var cleanupWasJustStarted = false;
     if (phase == AccountReplacementPhase.reconciled) {
       if (operationId == null ||
           operationVersion == null ||
@@ -785,34 +801,122 @@ class AccountTransitionCoordinator {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
       final cleanupSession = sessions.transition(CloudWriteMode.cleanupPending);
-      journal = journal.copyWith(
+      final cleanupStartingJournal = journal.copyWith(
         session: cleanupSession,
-        replacementPhase: AccountReplacementPhase.cleanupPending,
+        replacementPhase: AccountReplacementPhase.cleanupStarting,
       );
-      if (!await _writeJournalFenced(journal, allowMissingSource: true)) {
+      if (!await _writeJournalFenced(
+        journal,
+        cleanupStartingJournal,
+        allowMissingSource: true,
+      )) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
-      if (!_journalFence(journal)) {
-        return const AccountTransitionResult(AccountTransitionStatus.blocked);
-      }
-      final cleanup = await operations.startSourceCleanup(
-        target: target,
-        operationId: operationId,
-        expectedVersion: operationVersion,
-      );
-      if (!_validSameOperation(
-            cleanup,
-            operationId,
-            AccountOperationPhase.sourceCleanupPending,
-          ) ||
+      journal = cleanupStartingJournal;
+      phase = AccountReplacementPhase.cleanupStarting;
+      cleanupWasJustStarted = true;
+    }
+
+    if (phase == AccountReplacementPhase.cleanupStarting) {
+      if (operationId == null ||
+          operationVersion == null ||
           !_journalFence(journal, allowMissingSource: true)) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
-      operationVersion = cleanup.version;
-      journal = journal.copyWith(replacementOperationVersion: operationVersion);
-      if (!await _writeJournalFenced(journal, allowMissingSource: true)) {
+      AccountOperationResult? cleanupState;
+      var cleanupRequestFailed = false;
+      if (!cleanupWasJustStarted) {
+        try {
+          cleanupState = await operations.getStatus(
+            target: target,
+            operationId: operationId,
+          );
+        } catch (_) {
+          return const AccountTransitionResult(
+            AccountTransitionStatus.cleanupPending,
+          );
+        }
+        if (!_validCleanupState(cleanupState, operationId, operationVersion) ||
+            !_journalFence(journal, allowMissingSource: true)) {
+          return const AccountTransitionResult(AccountTransitionStatus.blocked);
+        }
+      }
+      if (cleanupWasJustStarted ||
+          cleanupState?.phase == AccountOperationPhase.reconciling) {
+        try {
+          cleanupState = await operations.startSourceCleanup(
+            target: target,
+            operationId: operationId,
+            expectedVersion: operationVersion,
+          );
+        } catch (_) {
+          cleanupRequestFailed = true;
+          if (!_journalFence(journal, allowMissingSource: true)) {
+            return const AccountTransitionResult(
+              AccountTransitionStatus.blocked,
+            );
+          }
+          try {
+            cleanupState = await operations.getStatus(
+              target: target,
+              operationId: operationId,
+            );
+          } catch (_) {
+            return const AccountTransitionResult(
+              AccountTransitionStatus.cleanupPending,
+            );
+          }
+        }
+        if (!_journalFence(journal, allowMissingSource: true) ||
+            !_validCleanupState(cleanupState, operationId, operationVersion)) {
+          return const AccountTransitionResult(AccountTransitionStatus.blocked);
+        }
+      }
+      if (cleanupState?.phase == AccountOperationPhase.reconciling &&
+          cleanupRequestFailed) {
+        if (identity.currentUid != journal.session.uid ||
+            !identity.currentIsAnonymous) {
+          return const AccountTransitionResult(
+            AccountTransitionStatus.cleanupPending,
+          );
+        }
+        final reconcilingSession = sessions.transition(
+          CloudWriteMode.reconciling,
+        );
+        final retryableJournal = journal.copyWith(
+          session: reconcilingSession,
+          replacementPhase: AccountReplacementPhase.reconciled,
+        );
+        if (!await _writeJournalFenced(journal, retryableJournal)) {
+          return const AccountTransitionResult(AccountTransitionStatus.blocked);
+        }
+        return const AccountTransitionResult(
+          AccountTransitionStatus.cleanupPending,
+        );
+      }
+      if (cleanupState?.phase == AccountOperationPhase.blocked) {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
+      if (cleanupState?.phase != AccountOperationPhase.sourceCleanupPending &&
+          cleanupState?.phase != AccountOperationPhase.completed) {
+        return const AccountTransitionResult(AccountTransitionStatus.blocked);
+      }
+      operationVersion = cleanupState?.version;
+      if (operationVersion == null) {
+        return const AccountTransitionResult(AccountTransitionStatus.blocked);
+      }
+      final cleanupPendingJournal = journal.copyWith(
+        replacementPhase: AccountReplacementPhase.cleanupPending,
+        replacementOperationVersion: operationVersion,
+      );
+      if (!await _writeJournalFenced(
+        journal,
+        cleanupPendingJournal,
+        allowMissingSource: true,
+      )) {
+        return const AccountTransitionResult(AccountTransitionStatus.blocked);
+      }
+      journal = cleanupPendingJournal;
       phase = AccountReplacementPhase.cleanupPending;
     }
 
@@ -859,15 +963,20 @@ class AccountTransitionCoordinator {
           return const AccountTransitionResult(AccountTransitionStatus.blocked);
         }
         if (phase != AccountReplacementPhase.activationPending) {
-          journal = journal.copyWith(
+          final activationJournal = journal.copyWith(
             replacementPhase: AccountReplacementPhase.activationPending,
             replacementOperationVersion: status.version,
           );
-          if (!await _writeJournalFenced(journal, allowMissingSource: true)) {
+          if (!await _writeJournalFenced(
+            journal,
+            activationJournal,
+            allowMissingSource: true,
+          )) {
             return const AccountTransitionResult(
               AccountTransitionStatus.blocked,
             );
           }
+          journal = activationJournal;
           phase = AccountReplacementPhase.activationPending;
         }
         final alreadyActivated =
@@ -1017,18 +1126,25 @@ class AccountTransitionCoordinator {
   }
 
   Future<bool> _writeJournalFenced(
-    AccountTransitionJournal journal, {
+    AccountTransitionJournal expected,
+    AccountTransitionJournal next, {
     bool allowMissingSource = false,
   }) async {
-    if (!_journalFence(journal, allowMissingSource: allowMissingSource)) {
+    if (!_journalFence(next, allowMissingSource: allowMissingSource)) {
       return false;
     }
     try {
-      await journalStore.write(journal);
+      final written = await journalStore.writeIfCurrent(
+        expected: expected,
+        next: next,
+        isCurrent: () =>
+            _journalFence(next, allowMissingSource: allowMissingSource),
+      );
+      if (!written) return false;
     } catch (_) {
       return false;
     }
-    return _journalFence(journal, allowMissingSource: allowMissingSource);
+    return _journalFence(next, allowMissingSource: allowMissingSource);
   }
 
   Future<bool> _rollbackInitialJournal(
@@ -1052,6 +1168,7 @@ class AccountTransitionCoordinator {
   }
 
   static bool _isRecoveryPhase(AccountReplacementPhase? phase) =>
+      phase == AccountReplacementPhase.cleanupStarting ||
       phase == AccountReplacementPhase.cleanupPending ||
       phase == AccountReplacementPhase.activationPending;
 
@@ -1065,6 +1182,22 @@ class AccountTransitionCoordinator {
     String operationId,
     AccountOperationPhase phase,
   ) => result.operationId == operationId && _validOperation(result, phase);
+
+  static bool _validCleanupState(
+    AccountOperationResult result,
+    String operationId,
+    int expectedVersion,
+  ) {
+    if (!_validSameOperation(result, operationId, result.phase)) return false;
+    return switch (result.phase) {
+      AccountOperationPhase.reconciling => result.version == expectedVersion,
+      AccountOperationPhase.sourceCleanupPending =>
+        result.version == expectedVersion + 1,
+      AccountOperationPhase.completed => result.version > expectedVersion,
+      AccountOperationPhase.blocked => true,
+      _ => false,
+    };
+  }
 
   static AccountLinkProvider? _provider(String? value) => switch (value) {
     'google' => AccountLinkProvider.google,

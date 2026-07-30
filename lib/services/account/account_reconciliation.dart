@@ -375,6 +375,11 @@ class AccountReconciliationMerger {
 abstract interface class AccountTransitionJournalStore {
   Future<AccountTransitionJournal?> read();
   Future<void> write(AccountTransitionJournal journal);
+  Future<bool> writeIfCurrent({
+    required AccountTransitionJournal expected,
+    required AccountTransitionJournal next,
+    required bool Function() isCurrent,
+  });
   Future<bool> restoreIfAbsent({
     required AccountTransitionJournal expected,
     required bool Function() isCurrent,
@@ -396,6 +401,18 @@ class SharedPreferencesAccountTransitionJournalStore
   @override
   Future<void> write(AccountTransitionJournal journal) =>
       _serialized(() => _writeUnlocked(journal));
+
+  @override
+  Future<bool> writeIfCurrent({
+    required AccountTransitionJournal expected,
+    required AccountTransitionJournal next,
+    required bool Function() isCurrent,
+  }) => _serialized(() async {
+    final current = await _readUnlocked();
+    if (!_sameJournal(current, expected) || !isCurrent()) return false;
+    await _writeUnlocked(next);
+    return true;
+  });
 
   Future<bool> deleteIfCurrent({
     required AccountTransitionJournal expected,
@@ -690,7 +707,13 @@ class AccountReconciliationCoordinator {
           session,
           reconciliationOperationId: operationId,
         );
-        await _writeJournal(journal, session);
+        final restored = await journalStore.restoreIfAbsent(
+          expected: journal,
+          isCurrent: () => _isCurrent(session),
+        );
+        if (!restored || !_isCurrent(session)) {
+          throw StateError('Reconciliation session is stale.');
+        }
       }
     } catch (_) {
       return const AccountReconciliationResult(
@@ -721,12 +744,13 @@ class AccountReconciliationCoordinator {
       if (failedRead != null) return failedRead;
 
       final remote = remoteResult.value ?? AccountReconciliationSnapshot.empty;
-      journal = journal.copyWith(
+      final remoteReadJournal = journal.copyWith(
         reconciliationCheckpoint: ReconciliationCheckpoint.remoteRead,
         remoteRevision: remoteResult.revision,
       );
       try {
-        await _writeJournal(journal, session);
+        await _writeJournal(journal, remoteReadJournal, session);
+        journal = remoteReadJournal;
       } catch (_) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.unavailable,
@@ -750,10 +774,11 @@ class AccountReconciliationCoordinator {
       if (localCustomPackBaseIds == null) {
         localCustomPackBaseIds = currentLocalCustomPackIds;
         try {
-          journal = journal.copyWith(
+          final localBaseJournal = journal.copyWith(
             reconciliationLocalCustomPackBaseIds: localCustomPackBaseIds,
           );
-          await _writeJournal(journal, session);
+          await _writeJournal(journal, localBaseJournal, session);
+          journal = localBaseJournal;
         } catch (_) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,
@@ -785,10 +810,11 @@ class AccountReconciliationCoordinator {
           ...currentLocalCustomPackIds,
         };
         try {
-          journal = journal.copyWith(
+          final expandedBaseJournal = journal.copyWith(
             reconciliationLocalCustomPackBaseIds: localCustomPackBaseIds,
           );
-          await _writeJournal(journal, session);
+          await _writeJournal(journal, expandedBaseJournal, session);
+          journal = expandedBaseJournal;
         } catch (_) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,
@@ -807,12 +833,13 @@ class AccountReconciliationCoordinator {
         );
       }
       final merged = merge.merged!;
-      journal = journal.copyWith(
+      final mergedJournal = journal.copyWith(
         reconciliationCheckpoint: ReconciliationCheckpoint.merged,
         remoteRevision: remoteResult.revision,
       );
       try {
-        await _writeJournal(journal, session);
+        await _writeJournal(journal, mergedJournal, session);
+        journal = mergedJournal;
       } catch (_) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.unavailable,
@@ -846,12 +873,13 @@ class AccountReconciliationCoordinator {
         if (writeResult.status == ReconciliationWriteStatus.revisionConflict) {
           continue;
         }
-        journal = journal.copyWith(
+        final remoteWrittenJournal = journal.copyWith(
           reconciliationCheckpoint: ReconciliationCheckpoint.remoteWritten,
           remoteRevision: writeResult.revision,
         );
         try {
-          await _writeJournal(journal, session);
+          await _writeJournal(journal, remoteWrittenJournal, session);
+          journal = remoteWrittenJournal;
         } catch (_) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,
@@ -885,11 +913,12 @@ class AccountReconciliationCoordinator {
             AccountReconciliationStatus.stale,
           );
         }
-        journal = journal.copyWith(
+        final localWrittenJournal = journal.copyWith(
           reconciliationCheckpoint: ReconciliationCheckpoint.localWritten,
         );
         try {
-          await _writeJournal(journal, session);
+          await _writeJournal(journal, localWrittenJournal, session);
+          journal = localWrittenJournal;
         } catch (_) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,
@@ -897,11 +926,12 @@ class AccountReconciliationCoordinator {
         }
       }
 
-      journal = journal.copyWith(
+      final completedJournal = journal.copyWith(
         reconciliationCheckpoint: ReconciliationCheckpoint.completed,
       );
       try {
-        await _writeJournal(journal, session);
+        await _writeJournal(journal, completedJournal, session);
+        journal = completedJournal;
       } catch (_) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.unavailable,
@@ -928,13 +958,21 @@ class AccountReconciliationCoordinator {
   }
 
   Future<void> _writeJournal(
-    AccountTransitionJournal journal,
+    AccountTransitionJournal expected,
+    AccountTransitionJournal next,
     CloudWriteSession session,
   ) async {
     if (!_isCurrent(session)) {
       throw StateError('Reconciliation session is stale.');
     }
-    await journalStore.write(journal);
+    final written = await journalStore.writeIfCurrent(
+      expected: expected,
+      next: next,
+      isCurrent: () => _isCurrent(session),
+    );
+    if (!written) {
+      throw StateError('Reconciliation journal changed.');
+    }
     if (!_isCurrent(session)) {
       throw StateError('Reconciliation session is stale.');
     }
