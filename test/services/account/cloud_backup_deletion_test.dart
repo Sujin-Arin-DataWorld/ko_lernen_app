@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -213,6 +214,94 @@ void main() {
         expect(gateway.requestKeys, ['D' * 43, 'D' * 43]);
         expect(await journal.read(), isNull);
         expect(sessions.current!.mode, CloudWriteMode.ready);
+      },
+    );
+
+    test('completed A cannot clear a persisted newer B journal', () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      addTearDown(
+        () => SharedPreferences.setMockInitialValues(<String, Object>{}),
+      );
+      const durableStore = SharedPreferencesCloudBackupDeletionJournalStore();
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      CloudBackupDeletionJournal? replacementJournal;
+      CloudWriteSession? replacementSession;
+      final journal = _PersistingReplacementBeforeClearStore(
+        delegate: durableStore,
+        beforeClear: () async {
+          sessions.acquire('durable');
+          replacementSession = sessions.transition(
+            CloudWriteMode.cleanupPending,
+          );
+          replacementJournal = CloudBackupDeletionJournal.pending(
+            session: replacementSession!,
+            requestKey: 'B' * 43,
+          );
+          return replacementJournal!;
+        },
+      );
+      final coordinator = CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: journal,
+        gateway: _Gateway()
+          ..responses.add(CloudBackupDeletionRemoteState.completed),
+        createRequestKey: () => 'A' * 43,
+      );
+
+      expect(await coordinator.run(), CloudWriteResult.stale);
+      expect(await durableStore.read(), replacementJournal);
+      expect(sessions.current, replacementSession);
+      expect(sessions.current!.mode, CloudWriteMode.cleanupPending);
+      expect(
+        coordinator.journalState.value,
+        CloudBackupDeletionJournalState.pending,
+      );
+    });
+
+    test(
+      'clear reconciliation retains a persisted B journal after native failure',
+      () async {
+        SharedPreferences.setMockInitialValues(<String, Object>{});
+        addTearDown(
+          () => SharedPreferences.setMockInitialValues(<String, Object>{}),
+        );
+        const durableStore = SharedPreferencesCloudBackupDeletionJournalStore();
+        final sessions = CloudWriteSessionController()..acquire('durable');
+        CloudBackupDeletionJournal? replacementJournal;
+        CloudWriteSession? replacementSession;
+        final journal = _PersistingReplacementBeforeClearStore(
+          delegate: durableStore,
+          throwAfterReplacement: true,
+          beforeClear: () async {
+            sessions.acquire('durable');
+            replacementSession = sessions.transition(
+              CloudWriteMode.cleanupPending,
+            );
+            replacementJournal = CloudBackupDeletionJournal.pending(
+              session: replacementSession!,
+              requestKey: 'C' * 43,
+            );
+            return replacementJournal!;
+          },
+        );
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _Gateway()
+            ..responses.add(CloudBackupDeletionRemoteState.completed),
+          createRequestKey: () => 'A' * 43,
+        );
+
+        expect(await coordinator.run(), CloudWriteResult.blocked);
+        expect(await durableStore.read(), replacementJournal);
+        expect(sessions.current, replacementSession);
+        expect(sessions.current!.mode, CloudWriteMode.cleanupPending);
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.pending,
+        );
       },
     );
 
@@ -588,9 +677,68 @@ void main() {
     final preferences = await SharedPreferences.getInstance();
     expect(preferences.getKeys(), {CloudBackupDeletionJournal.storageKey});
     expect(await store.read(), isNotNull);
-    await store.clear();
+    expect(await store.clearIfCurrent(journal), isTrue);
     expect(await store.read(), isNull);
   });
+
+  test(
+    'shared preferences compare-delete retains a different full journal',
+    () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      const store = SharedPreferencesCloudBackupDeletionJournalStore();
+      final expected = CloudBackupDeletionJournal.pending(
+        session: const CloudWriteSession(
+          uid: 'durable',
+          epoch: 2,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'J' * 43,
+      );
+      final newer = CloudBackupDeletionJournal.pending(
+        session: const CloudWriteSession(
+          uid: 'durable',
+          epoch: 3,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'K' * 43,
+      );
+      await store.write(expected);
+      await store.write(newer);
+
+      expect(await store.clearIfCurrent(expected), isFalse);
+      expect(await store.read(), newer);
+    },
+  );
+
+  test(
+    'shared preferences keeps the journal when native removal returns false',
+    () async {
+      final originalPlatform = SharedPreferencesStorePlatform.instance;
+      addTearDown(() {
+        SharedPreferences.setMockInitialValues(<String, Object>{});
+        SharedPreferencesStorePlatform.instance = originalPlatform;
+      });
+      final journal = CloudBackupDeletionJournal.pending(
+        session: const CloudWriteSession(
+          uid: 'durable',
+          epoch: 4,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'L' * 43,
+      );
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      SharedPreferencesStorePlatform.instance =
+          _RetainingRemoveStore.withData(<String, Object>{
+            'flutter.${CloudBackupDeletionJournal.storageKey}': jsonEncode(
+              journal.toJson(),
+            ),
+          });
+      const store = SharedPreferencesCloudBackupDeletionJournalStore();
+
+      expect(await store.clearIfCurrent(journal), isFalse);
+      expect(await store.read(), journal);
+    },
+  );
 
   test(
     'shared preferences journal reads reload native state before recovery',
@@ -644,17 +792,19 @@ class _MemoryJournalStore implements CloudBackupDeletionJournalStore {
   void Function()? onClear;
 
   @override
-  Future<void> clear() async {
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async {
     onClear?.call();
     if (failedClears > 0) {
       failedClears -= 1;
       throw StateError('journal clear failed');
     }
+    if (value != expected) return false;
     value = null;
     if (clearThenThrow > 0) {
       clearThenThrow -= 1;
       throw StateError('journal clear failed after removal');
     }
+    return true;
   }
 
   @override
@@ -677,6 +827,46 @@ class _MemoryJournalStore implements CloudBackupDeletionJournalStore {
       throw StateError('journal write failed after persistence');
     }
   }
+}
+
+class _PersistingReplacementBeforeClearStore
+    implements CloudBackupDeletionJournalStore {
+  _PersistingReplacementBeforeClearStore({
+    required this.delegate,
+    required this.beforeClear,
+    this.throwAfterReplacement = false,
+  });
+
+  final CloudBackupDeletionJournalStore delegate;
+  final Future<CloudBackupDeletionJournal> Function() beforeClear;
+  final bool throwAfterReplacement;
+  bool _inserted = false;
+
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async {
+    if (!_inserted) {
+      _inserted = true;
+      await delegate.write(await beforeClear());
+    }
+    if (throwAfterReplacement) {
+      throw StateError('native compare-delete failed after replacement');
+    }
+    return delegate.clearIfCurrent(expected);
+  }
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() => delegate.read();
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) =>
+      delegate.write(journal);
+}
+
+class _RetainingRemoveStore extends InMemorySharedPreferencesStore {
+  _RetainingRemoveStore.withData(super.data) : super.withData();
+
+  @override
+  Future<bool> remove(String key) async => false;
 }
 
 class _Gateway implements CloudBackupDeletionGateway {

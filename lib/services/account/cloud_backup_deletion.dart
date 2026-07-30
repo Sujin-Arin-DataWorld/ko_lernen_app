@@ -163,6 +163,17 @@ class CloudBackupDeletionJournal {
     };
   }
 
+  @override
+  bool operator ==(Object other) {
+    return other is CloudBackupDeletionJournal &&
+        other.version == version &&
+        other.session == session &&
+        other.requestKey == requestKey;
+  }
+
+  @override
+  int get hashCode => Object.hash(version, session, requestKey);
+
   void _validate() {
     if (version != currentVersion ||
         session.uid.trim().isEmpty ||
@@ -178,7 +189,13 @@ class CloudBackupDeletionJournal {
 abstract interface class CloudBackupDeletionJournalStore {
   Future<CloudBackupDeletionJournal?> read();
   Future<void> write(CloudBackupDeletionJournal journal);
-  Future<void> clear();
+
+  /// Removes the durable journal only when it is still [expected].
+  ///
+  /// The coordinator invokes this while holding its shared serial gate, so a
+  /// second app-owned deletion cannot write a replacement between the durable
+  /// comparison and removal.
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected);
 }
 
 class SharedPreferencesCloudBackupDeletionJournalStore
@@ -186,15 +203,30 @@ class SharedPreferencesCloudBackupDeletionJournalStore
   const SharedPreferencesCloudBackupDeletionJournalStore();
 
   @override
-  Future<void> clear() async {
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async {
     final preferences = await SharedPreferences.getInstance();
-    final removed = await preferences.remove(
+    await preferences.reload();
+    final encoded = preferences.getString(
       CloudBackupDeletionJournal.storageKey,
     );
-    if (!removed &&
-        preferences.containsKey(CloudBackupDeletionJournal.storageKey)) {
-      throw StateError('Cloud backup deletion journal was not cleared.');
+    if (encoded == null || encoded.isEmpty) return false;
+    final decoded = jsonDecode(encoded);
+    if (decoded is! Map) {
+      throw const FormatException('Invalid cloud backup deletion journal.');
     }
+    final current = CloudBackupDeletionJournal.fromJson(
+      decoded.map((key, value) => MapEntry(key.toString(), value)),
+    );
+    if (current != expected) return false;
+    await preferences.remove(CloudBackupDeletionJournal.storageKey);
+    // Legacy SharedPreferences removes the local cache entry before the
+    // platform result arrives. Reload instead of trusting that cache so a
+    // native false/retained A or a replacement B remains a pending journal.
+    await preferences.reload();
+    final remaining = preferences.getString(
+      CloudBackupDeletionJournal.storageKey,
+    );
+    return remaining == null || remaining.isEmpty;
   }
 
   @override
@@ -330,12 +362,30 @@ class CloudBackupDeletionCoordinator {
   /// Runs an app-owned Firebase identity mutation only after a fresh durable
   /// journal read proves no resumable deletion exists.
   Future<T> runIdentityMutation<T>(Future<T> Function() mutation) {
+    return runWithClearJournalAdmission(
+      onAdmitted: mutation,
+      onBlocked: () => Future<T>.error(
+        const CloudBackupDeletionIdentityChangeBlockedException(),
+      ),
+    );
+  }
+
+  /// Runs a service operation only after a fresh durable journal read proves
+  /// that no cloud-backup deletion must be resumed.
+  ///
+  /// The callback remains inside the same serial lane as journal writes and
+  /// compare-delete, preventing a second app-owned operation from observing
+  /// or replacing the journal between admission and its side effect.
+  Future<T> runWithClearJournalAdmission<T>({
+    required Future<T> Function() onAdmitted,
+    required Future<T> Function() onBlocked,
+  }) {
     return _authGate.run(() async {
       final state = await _refreshJournalState();
       if (state != CloudBackupDeletionJournalState.clear) {
-        throw const CloudBackupDeletionIdentityChangeBlockedException();
+        return onBlocked();
       }
-      return mutation();
+      return onAdmitted();
     });
   }
 
@@ -465,7 +515,13 @@ class CloudBackupDeletionCoordinator {
     CloudBackupDeletionJournal journal,
   ) async {
     try {
-      await journalStore.clear();
+      final cleared = await journalStore.clearIfCurrent(journal);
+      if (!cleared) {
+        _setJournalState(CloudBackupDeletionJournalState.pending);
+        return sessions.current == journal.session
+            ? CloudWriteResult.blocked
+            : CloudWriteResult.stale;
+      }
     } catch (_) {
       if (!await _canProveJournalAbsent()) {
         _setJournalState(CloudBackupDeletionJournalState.pending);

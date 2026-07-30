@@ -59,8 +59,9 @@ void main() {
     'reset remains available after confirmed cloud deletion completion',
     () async {
       final store = const SharedPreferencesCloudBackupDeletionJournalStore();
-      await store.write(_pendingJournal());
-      await store.clear();
+      final journal = _pendingJournal();
+      await store.write(journal);
+      expect(await store.clearIfCurrent(journal), isTrue);
       final preferences = await SharedPreferences.getInstance();
       await preferences.setString('kl_progress_after_completion', 'remove-me');
 
@@ -111,6 +112,21 @@ void main() {
       expect(store.durable.containsKey('kl_progress'), isFalse);
     },
   );
+
+  test(
+    'ordinary reset fails closed when its final journal reload fails',
+    () async {
+      final store = _InterleavingPreferenceRemovalStore()..reloadFails = true;
+
+      await expectLater(
+        Storage.resetAll(preferences: store),
+        throwsA(isA<CloudBackupDeletionResetBlockedException>()),
+      );
+
+      expect(store.removals, isEmpty);
+      expect(store.durable['kl_progress'], 'remove-me');
+    },
+  );
 }
 
 CloudBackupDeletionJournal _pendingJournal() =>
@@ -132,6 +148,7 @@ class _InterleavingPreferenceRemovalStore implements PreferenceRemovalStore {
   };
   final List<String> removals = <String>[];
   bool _journalInserted = false;
+  bool reloadFails = false;
 
   @override
   bool containsKey(String key) => values.containsKey(key);
@@ -151,6 +168,9 @@ class _InterleavingPreferenceRemovalStore implements PreferenceRemovalStore {
 
   @override
   Future<void> reload() async {
+    if (reloadFails) {
+      throw StateError('native reload failed');
+    }
     values
       ..clear()
       ..addAll(durable);

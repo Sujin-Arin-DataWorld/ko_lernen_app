@@ -25,6 +25,8 @@ import 'storage_service.dart';
 /// input and is never emitted by this root-document writer.
 class CloudSync {
   static FirebaseFirestore get _db => FirebaseFirestore.instance;
+  static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
+  static Future<bool> Function()? _restoreForTesting;
 
   static DocumentReference<Map<String, dynamic>>? get _doc {
     final uid = AuthService.cloudBackupUid;
@@ -85,7 +87,17 @@ class CloudSync {
     await backupWithResult();
   }
 
-  static Future<CloudWriteResult> backupWithResult() async {
+  static Future<CloudWriteResult> backupWithResult() {
+    return AuthService.runCloudBackupDeletionAdmission(
+      onAdmitted: _backupWithResultAfterCloudBackupAdmission,
+      onBlocked: () async => CloudWriteResult.blocked,
+    );
+  }
+
+  static Future<CloudWriteResult>
+  _backupWithResultAfterCloudBackupAdmission() async {
+    final override = _backupWithResultForTesting;
+    if (override != null) return override();
     final uid = AuthService.cloudBackupUid;
     if (uid == null) {
       return CloudWriteResult.blocked;
@@ -584,7 +596,16 @@ class CloudSync {
   }
 
   /// Firestore → lokale Werte (additiv).
-  static Future<bool> restore() async {
+  static Future<bool> restore() {
+    return AuthService.runCloudBackupDeletionAdmission(
+      onAdmitted: _restoreAfterCloudBackupAdmission,
+      onBlocked: () async => false,
+    );
+  }
+
+  static Future<bool> _restoreAfterCloudBackupAdmission() async {
+    final override = _restoreForTesting;
+    if (override != null) return override();
     final uid = AuthService.cloudBackupUid;
     if (uid == null) return false;
     final result = await restoreWithSession(
@@ -605,6 +626,21 @@ class CloudSync {
       },
     );
     return result == CloudWriteResult.completed;
+  }
+
+  @visibleForTesting
+  static void overrideOperationsForTesting({
+    Future<CloudWriteResult> Function()? backupWithResult,
+    Future<bool> Function()? restore,
+  }) {
+    _backupWithResultForTesting = backupWithResult;
+    _restoreForTesting = restore;
+  }
+
+  @visibleForTesting
+  static void resetOperationsForTesting() {
+    _backupWithResultForTesting = null;
+    _restoreForTesting = null;
   }
 
   static Future<CloudWriteResult> restoreWithSession({

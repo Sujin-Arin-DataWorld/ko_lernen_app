@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -349,6 +351,107 @@ void main() {
     expect(cleanup.deleteCalls, 1);
     expect(cleanup.imageCalls, 2);
   });
+
+  testWidgets(
+    'reset closes its dialog and shows a safe retry message when a journal appears',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            resetAllData: () async {
+              throw const CloudBackupDeletionResetBlockedException();
+            },
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final reset = find.text('Alle Daten zurücksetzen');
+      await tester.scrollUntilVisible(
+        reset,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(reset);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('OK'));
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+      expect(find.text('Alle Daten zurücksetzen'), findsOneWidget);
+      expect(
+        find.text(
+          'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+          'Du kannst denselben Vorgang erneut versuchen.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.byType(AlertDialog), findsNothing);
+    },
+  );
+
+  testWidgets(
+    'reset does not pop settings when its dialog was already dismissed',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final startedReset = Completer<void>();
+      final releaseReset = Completer<void>();
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            resetAllData: () async {
+              startedReset.complete();
+              await releaseReset.future;
+              throw const CloudBackupDeletionResetBlockedException();
+            },
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final reset = find.text('Alle Daten zurücksetzen');
+      await tester.scrollUntilVisible(
+        reset,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(reset);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('OK'));
+      await startedReset.future;
+      await tester.pump();
+      await tester.tap(find.text('Abbrechen'));
+      await tester.pumpAndSettle();
+
+      releaseReset.complete();
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+      expect(find.text('Alle Daten zurücksetzen'), findsOneWidget);
+      expect(
+        find.text(
+          'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+          'Du kannst denselben Vorgang erneut versuchen.',
+        ),
+        findsOneWidget,
+      );
+    },
+  );
 }
 
 const _guest = AuthAccountSnapshot(

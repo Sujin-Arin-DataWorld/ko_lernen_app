@@ -1620,6 +1620,7 @@ class AuthService {
   }
 
   static CloudBackupDeletionCoordinator? _cloudBackupDeletion;
+  static Future<void> Function()? _deleteAccountForTesting;
 
   static CloudBackupDeletionCoordinator get _cloudBackupDeletionCoordinator =>
       _cloudBackupDeletion ??= CloudBackupDeletionCoordinator(
@@ -1647,6 +1648,39 @@ class AuthService {
   static Future<bool> refreshCloudBackupDeletionPending() =>
       _cloudBackupDeletionCoordinator.refreshPending();
 
+  /// Admits a cloud-data service operation only after a fresh durable read of
+  /// the backup-deletion journal. The operation remains in the same serial
+  /// lane as deletion recovery and identity changes.
+  static Future<T> runCloudBackupDeletionAdmission<T>({
+    required Future<T> Function() onAdmitted,
+    required Future<T> Function() onBlocked,
+  }) {
+    return _cloudBackupDeletionCoordinator.runWithClearJournalAdmission(
+      onAdmitted: onAdmitted,
+      onBlocked: onBlocked,
+    );
+  }
+
+  @visibleForTesting
+  static void overrideCloudBackupDeletionCoordinatorForTesting(
+    CloudBackupDeletionCoordinator coordinator,
+  ) {
+    _cloudBackupDeletion = coordinator;
+  }
+
+  @visibleForTesting
+  static void overrideDeleteAccountForTesting(
+    Future<void> Function()? operation,
+  ) {
+    _deleteAccountForTesting = operation;
+  }
+
+  @visibleForTesting
+  static void resetCloudBackupDeletionForTesting() {
+    _cloudBackupDeletion = null;
+    _deleteAccountForTesting = null;
+  }
+
   /// Requests bounded server-owned backup removal. Local data stays untouched.
   static Future<CloudWriteResult> deleteCloudData() =>
       _cloudBackupDeletionCoordinator.run();
@@ -1654,8 +1688,22 @@ class AuthService {
   /// Requests server-owned account deletion and polls its authoritative state.
   ///
   /// Caller clears local device data only after this completes.
-  static Future<void> deleteAccount() async {
-    await AccountDeletionRemoteGate(
+  static Future<void> deleteAccount() {
+    return runCloudBackupDeletionAdmission<void>(
+      onAdmitted: _deleteAccountAfterCloudBackupAdmission,
+      onBlocked: () => Future<void>.error(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      ),
+    );
+  }
+
+  static Future<void> _deleteAccountAfterCloudBackupAdmission() {
+    final override = _deleteAccountForTesting;
+    if (override != null) return override();
+    return AccountDeletionRemoteGate(
       readCheckpoint: _accountDeletionJournalStore.read,
       startOrResumeRemote: _startOrResumeRemoteAccountDeletion,
       recoverCompleted: _recoverCompletedAccountDeletion,
@@ -1751,7 +1799,20 @@ class AuthService {
       _accountDeletionJournalStore.read();
 
   /// Continues the exact durable server operation restored at startup.
-  static Future<void> resumePendingAccountDeletion() async {
+  static Future<void> resumePendingAccountDeletion() {
+    return runCloudBackupDeletionAdmission<void>(
+      onAdmitted: _resumePendingAccountDeletionAfterCloudBackupAdmission,
+      onBlocked: () => Future<void>.error(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      ),
+    );
+  }
+
+  static Future<void>
+  _resumePendingAccountDeletionAfterCloudBackupAdmission() async {
     final user = current;
     if (user == null) {
       throw const AccountOperationFailure(

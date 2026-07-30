@@ -247,6 +247,7 @@ class SettingsScreen extends StatefulWidget {
     this.accountOperations,
     this.cloudDataDeletion,
     this.cloudDataDeletionJournalState,
+    this.resetAllData,
   });
 
   final AuthAccountSnapshot? account;
@@ -256,6 +257,7 @@ class SettingsScreen extends StatefulWidget {
   final Future<CloudWriteResult> Function()? cloudDataDeletion;
   final ValueListenable<CloudBackupDeletionJournalState>?
   cloudDataDeletionJournalState;
+  final Future<void> Function()? resetAllData;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -1204,8 +1206,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppL10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
     try {
-      await CloudSync.backup();
+      final result = await CloudSync.backupWithResult();
       if (!mounted) return;
+      if (result != CloudWriteResult.completed) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(t.accountOperationRetryBody)),
+        );
+        return;
+      }
       messenger.showSnackBar(
         SnackBar(
           content: Text(t.settingsCloudBackupSuccess),
@@ -1429,14 +1437,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onPressed: () async {
               final dialogNav = Navigator.of(ctx);
               final rootNav = Navigator.of(context);
-              await Storage.resetAll();
-              await WordImageService.deleteAll();
-              await TtsService.clearCache();
-              DataLoader.reset();
-              if (!mounted) return;
-              dialogNav.pop();
-              rootNav.popUntil((r) => r.isFirst);
-              HapticFeedback.heavyImpact();
+              try {
+                await (widget.resetAllData?.call() ?? Storage.resetAll());
+                await WordImageService.deleteAll();
+                await TtsService.clearCache();
+                DataLoader.reset();
+                if (!mounted || !ctx.mounted) return;
+                dialogNav.pop();
+                rootNav.popUntil((r) => r.isFirst);
+                HapticFeedback.heavyImpact();
+              } on CloudBackupDeletionResetBlockedException {
+                if (!mounted) return;
+                if (ctx.mounted) {
+                  dialogNav.pop();
+                }
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(t.accountOperationRetryBody)),
+                );
+              }
             },
             child: Text(t.btnConfirm),
           ),
