@@ -18,6 +18,7 @@ enum AccountOperationPhase {
   processorCleanupPending,
   completed,
   blocked,
+  cancelled,
 }
 
 enum AccountOperationBlockedReason {
@@ -118,7 +119,8 @@ class AccountOperationResult {
 
   bool get isTerminal =>
       phase == AccountOperationPhase.completed ||
-      phase == AccountOperationPhase.blocked;
+      phase == AccountOperationPhase.blocked ||
+      phase == AccountOperationPhase.cancelled;
 
   Map<String, Object?> toJson() => {
     'operationId': operationId,
@@ -230,6 +232,10 @@ abstract interface class AccountOperationGateway {
   );
 
   Future<AccountOperationResult> startSourceCleanup(
+    ReplacementAdvanceRequest request,
+  );
+
+  Future<AccountOperationResult> cancelAnonymousReplacement(
     ReplacementAdvanceRequest request,
   );
 
@@ -392,6 +398,18 @@ class AccountOperationClient implements AccountOperationGateway {
     return _invoke(
       AccountOperationTransportCall(
         name: 'startSourceCleanup',
+        data: request.toJson(),
+      ),
+    );
+  }
+
+  @override
+  Future<AccountOperationResult> cancelAnonymousReplacement(
+    ReplacementAdvanceRequest request,
+  ) {
+    return _invoke(
+      AccountOperationTransportCall(
+        name: 'cancelAnonymousReplacement',
         data: request.toJson(),
       ),
     );

@@ -6,6 +6,7 @@ const test = require("node:test");
 const {
   OPERATION_PHASES,
   applyAttemptResult,
+  cancelReplacementOperation,
   claimDeletionProof,
   createOrReuseOperation,
   normalizeOperation,
@@ -58,7 +59,64 @@ test("exports every persisted account-operation phase", () => {
     "processorCleanupPending",
     "completed",
     "blocked",
+    "cancelled",
   ]);
+});
+
+test("cancels only a pre-cleanup replacement with an exact version", () => {
+  let operation = createReplacement();
+  for (const phase of ["prepared", "targetVerified", "reconciling"]) {
+    if (operation.phase !== phase) {
+      operation = transitionOperation(operation, {
+        toPhase: phase,
+        expectedVersion: operation.version,
+      });
+    }
+    const cancelled = cancelReplacementOperation(operation, {
+      expectedVersion: operation.version,
+    });
+    assert.equal(cancelled.phase, "cancelled");
+    assert.equal(cancelled.version, operation.version + 1);
+    assert.deepEqual(
+      cancelReplacementOperation(cancelled, {
+        expectedVersion: operation.version,
+      }),
+      cancelled,
+    );
+  }
+
+  assert.throws(
+    () => cancelReplacementOperation(createReplacement(), {
+      expectedVersion: 99,
+    }),
+    { code: "stale-operation-version" },
+  );
+  assert.throws(
+    () => cancelReplacementOperation(createDeletion(), {
+      expectedVersion: 0,
+    }),
+    { code: "invalid-operation-transition" },
+  );
+});
+
+test("rejects cancellation after source cleanup has been accepted", () => {
+  const cleanupPending = transitionOperation(
+    transitionOperation(
+      transitionOperation(createReplacement(), {
+        toPhase: "targetVerified",
+        expectedVersion: 0,
+      }),
+      { toPhase: "reconciling", expectedVersion: 1 },
+    ),
+    { toPhase: "sourceCleanupPending", expectedVersion: 2 },
+  );
+
+  assert.throws(
+    () => cancelReplacementOperation(cleanupPending, {
+      expectedVersion: cleanupPending.version,
+    }),
+    { code: "invalid-operation-transition" },
+  );
 });
 
 test("allows only the ordered anonymous replacement path", () => {

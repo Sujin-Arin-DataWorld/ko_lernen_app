@@ -239,10 +239,13 @@ void main() {
     });
 
     test(
-      'uses source auth only for anonymous replacement preparation',
+      'uses source auth for anonymous replacement preparation and cancellation',
       () async {
         final transport = _FakeTransport()
-          ..responses.add(_replacementResponse('prepared', version: 0));
+          ..responses.addAll([
+            _replacementResponse('prepared', version: 0),
+            _replacementResponse('cancelled', version: 1),
+          ]);
         final client = AccountOperationClient(transport: transport);
 
         await client.prepareAnonymousReplacement(
@@ -251,14 +254,23 @@ void main() {
             requestKey: 'request-1',
           ),
         );
+        await client.cancelAnonymousReplacement(
+          const ReplacementAdvanceRequest(
+            operationId: 'replacement-1',
+            expectedVersion: 0,
+          ),
+        );
 
-        expect(
-          transport.calls.single,
+        expect(transport.calls, <AccountOperationTransportCall>[
           const AccountOperationTransportCall(
             name: 'prepareAnonymousReplacement',
             data: {'targetUid': 'durable-target', 'requestKey': 'request-1'},
           ),
-        );
+          const AccountOperationTransportCall(
+            name: 'cancelAnonymousReplacement',
+            data: {'operationId': 'replacement-1', 'expectedVersion': 0},
+          ),
+        ]);
       },
     );
 

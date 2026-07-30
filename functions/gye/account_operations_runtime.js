@@ -2,6 +2,7 @@
 
 const crypto = require("node:crypto");
 const {
+  cancelReplacementOperation,
   claimDeletionProof,
   createOrReuseOperation,
   normalizeOperation,
@@ -17,6 +18,7 @@ const CALLABLE_NAMES = Object.freeze([
   "attachReplacementTarget",
   "commitReplacementReconciliation",
   "startSourceCleanup",
+  "cancelAnonymousReplacement",
   "requestAccountDeletion",
   "issueDeletionProof",
   "completeAppleRevocation",
@@ -27,7 +29,7 @@ const CALLABLE_OPTIONS = Object.freeze({
   enforceAppCheck: true,
   consumeAppCheckToken: true,
 });
-const TERMINAL_PHASES = new Set(["completed", "blocked"]);
+const TERMINAL_PHASES = new Set(["completed", "blocked", "cancelled"]);
 const AUTH_MAX_AGE_SECONDS = 300;
 const ANONYMOUS_RATE_WINDOW_MILLIS = 300_000;
 const ANONYMOUS_RATE_LIMIT = 20;
@@ -352,6 +354,43 @@ function createFirestoreAccountOperationRepository({
         persistedOperation(advanced, stored, nowMillis()),
       );
       return advanced;
+    });
+  }
+
+  async function cancelReplacement({
+    operationId,
+    actorUid,
+    expectedVersion,
+  }) {
+    const operationRef = operations.doc(operationId);
+    return firestore.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(operationRef);
+      if (!snapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const stored = snapshot.data();
+      const current = normalizeOperation(stored);
+      assertParticipant(current, actorUid, "source");
+      const ownerRef = owners.doc(stableKey(
+        "account-operation-owner",
+        current.sourceUid,
+      ));
+      const ownerSnapshot = await transaction.get(ownerRef);
+      const cancelled = cancelReplacementOperation(current, {
+        expectedVersion,
+      });
+      if (cancelled.version !== current.version ||
+          cancelled.phase !== current.phase) {
+        transaction.set(
+          operationRef,
+          persistedOperation(cancelled, stored, nowMillis()),
+        );
+      }
+      if (ownerSnapshot.exists &&
+          (ownerSnapshot.data() || {}).operationId === current.id) {
+        transaction.delete(ownerRef);
+      }
+      return cancelled;
     });
   }
 
@@ -753,6 +792,7 @@ function createFirestoreAccountOperationRepository({
 
   return Object.freeze({
     checkpointDeletionWork,
+    cancelReplacement,
     claimDeletionByProof,
     claimDeletionWork,
     consumeAnonymousRequest,
@@ -985,6 +1025,7 @@ function createAccountOperationRuntime({
       typeof repository.claimDeletionWork !== "function" ||
       typeof repository.renewDeletionLease !== "function" ||
       typeof repository.checkpointDeletionWork !== "function" ||
+      typeof repository.cancelReplacement !== "function" ||
       typeof repository.transition !== "function" ||
       typeof repository.get !== "function") {
     throw new TypeError("An account-operation repository is required.");
@@ -1132,6 +1173,17 @@ function createAccountOperationRuntime({
         role: "target",
         expectedVersion: requiredExpectedVersion(data.expectedVersion),
         toPhase: "sourceCleanupPending",
+      });
+      return operationResult(operation);
+    }),
+
+    cancelAnonymousReplacement: (request) => execute(async () => {
+      const identity = await authenticate(request, "anonymous");
+      const data = request.data || {};
+      const operation = await repository.cancelReplacement({
+        operationId: requiredOperationId(data.operationId),
+        actorUid: identity.uid,
+        expectedVersion: requiredExpectedVersion(data.expectedVersion),
       });
       return operationResult(operation);
     }),

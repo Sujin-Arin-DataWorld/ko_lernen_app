@@ -13,9 +13,15 @@ const OPERATION_PHASES = Object.freeze([
   "processorCleanupPending",
   "completed",
   "blocked",
+  "cancelled",
 ]);
 
-const TERMINAL_PHASES = new Set(["completed", "blocked"]);
+const TERMINAL_PHASES = new Set(["completed", "blocked", "cancelled"]);
+const CANCELLABLE_REPLACEMENT_PHASES = new Set([
+  "prepared",
+  "targetVerified",
+  "reconciling",
+]);
 const BLOCKED_REASON_CODES = new Set([
   "operation-blocked",
   "durable-account-transition-not-supported",
@@ -203,6 +209,30 @@ function transitionOperation(operation, { toPhase, expectedVersion, blockedReaso
   });
 }
 
+function cancelReplacementOperation(operation, { expectedVersion } = {}) {
+  const current = normalizeOperation(operation);
+  if (current.kind === "replacement" &&
+      current.phase === "cancelled" &&
+      current.version === expectedVersion + 1) {
+    return current;
+  }
+  requireExpectedVersion(current, expectedVersion);
+  if (current.kind !== "replacement" ||
+      !CANCELLABLE_REPLACEMENT_PHASES.has(current.phase)) {
+    throw operationError(
+      "invalid-operation-transition",
+      "Only a pre-cleanup replacement can be cancelled.",
+    );
+  }
+  return normalizeOperation({
+    ...current,
+    phase: "cancelled",
+    version: current.version + 1,
+    retry: { classification: "none" },
+    blockedReason: null,
+  });
+}
+
 function recordAttempt(operation, { phase, attempt, expectedVersion } = {}) {
   const current = normalizeOperation(operation);
   requireExpectedVersion(current, expectedVersion);
@@ -298,6 +328,7 @@ function operationResult(operation) {
 module.exports = {
   OPERATION_PHASES,
   applyAttemptResult,
+  cancelReplacementOperation,
   claimDeletionProof,
   classifyRetry,
   createOrReuseOperation,

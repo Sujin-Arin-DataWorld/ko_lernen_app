@@ -193,6 +193,11 @@ abstract interface class ReplacementAccountOperations {
     required int expectedVersion,
   });
 
+  Future<AccountOperationResult> cancel({
+    required String operationId,
+    required int expectedVersion,
+  });
+
   Future<AccountOperationResult> getStatus({
     required VerifiedTargetContext target,
     required String operationId,
@@ -263,6 +268,19 @@ class CallableReplacementAccountOperations
     required int expectedVersion,
   }) {
     return _target(target).startSourceCleanup(
+      ReplacementAdvanceRequest(
+        operationId: operationId,
+        expectedVersion: expectedVersion,
+      ),
+    );
+  }
+
+  @override
+  Future<AccountOperationResult> cancel({
+    required String operationId,
+    required int expectedVersion,
+  }) {
+    return source.cancelAnonymousReplacement(
       ReplacementAdvanceRequest(
         operationId: operationId,
         expectedVersion: expectedVersion,
@@ -605,11 +623,64 @@ class AccountTransitionCoordinator {
       return false;
     }
     if (journal == null ||
-        _isRecoveryPhase(journal.replacementPhase) ||
+        !_isLocallyCancellablePhase(journal.replacementPhase) ||
         !_journalFence(journal)) {
       return false;
     }
     final expectedJournal = journal;
+    var operationId = expectedJournal.replacementOperationId;
+    var operationVersion = expectedJournal.replacementOperationVersion;
+    if ((operationId == null) != (operationVersion == null)) return false;
+    if (operationId == null && operationVersion == null) {
+      final targetUid = expectedJournal.replacementTargetUid;
+      final requestKey = expectedJournal.replacementRequestKey;
+      if (targetUid == null || requestKey == null) return false;
+      AccountOperationResult prepared;
+      try {
+        if (!_journalFence(expectedJournal)) return false;
+        prepared = await operations.prepare(
+          targetUid: targetUid,
+          requestKey: requestKey,
+        );
+      } catch (_) {
+        return false;
+      }
+      if (!_journalFence(expectedJournal) ||
+          prepared.kind != AccountOperationKind.replacement) {
+        return false;
+      }
+      if (prepared.phase == AccountOperationPhase.cancelled) {
+        operationId = prepared.operationId;
+      } else if (_isServerCancellablePhase(prepared.phase)) {
+        operationId = prepared.operationId;
+        operationVersion = prepared.version;
+      } else {
+        return false;
+      }
+    }
+    if (operationId != null && operationVersion != null) {
+      AccountOperationResult cancelled;
+      try {
+        if (!_journalFence(expectedJournal)) return false;
+        cancelled = await operations.cancel(
+          operationId: operationId,
+          expectedVersion: operationVersion,
+        );
+      } catch (_) {
+        return false;
+      }
+      if (!_journalFence(expectedJournal) ||
+          !_validSameOperation(
+            cancelled,
+            operationId,
+            AccountOperationPhase.cancelled,
+          ) ||
+          cancelled.version != operationVersion + 1) {
+        return false;
+      }
+    } else if (operationId == null) {
+      return false;
+    }
     bool deleted;
     try {
       deleted = await journalStore.deleteIfCurrent(
@@ -1171,6 +1242,18 @@ class AccountTransitionCoordinator {
       phase == AccountReplacementPhase.cleanupStarting ||
       phase == AccountReplacementPhase.cleanupPending ||
       phase == AccountReplacementPhase.activationPending;
+
+  static bool _isLocallyCancellablePhase(AccountReplacementPhase? phase) =>
+      phase == AccountReplacementPhase.targetVerified ||
+      phase == AccountReplacementPhase.prepared ||
+      phase == AccountReplacementPhase.attached ||
+      phase == AccountReplacementPhase.reconciling ||
+      phase == AccountReplacementPhase.reconciled;
+
+  static bool _isServerCancellablePhase(AccountOperationPhase phase) =>
+      phase == AccountOperationPhase.prepared ||
+      phase == AccountOperationPhase.targetVerified ||
+      phase == AccountOperationPhase.reconciling;
 
   static bool _validOperation(
     AccountOperationResult result,

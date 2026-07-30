@@ -16,6 +16,7 @@ const CALLABLE_NAMES = [
   "attachReplacementTarget",
   "commitReplacementReconciliation",
   "startSourceCleanup",
+  "cancelAnonymousReplacement",
   "requestAccountDeletion",
   "issueDeletionProof",
   "completeAppleRevocation",
@@ -670,6 +671,165 @@ test("advances replacement phases only for the verified target with version fenc
   assert.equal(cleanupPending.phase, "sourceCleanupPending");
   assert.equal(cleanupPending.version, 3);
   assert.deepEqual(duplicateCleanup, cleanupPending);
+});
+
+test("cancels a replacement only for its verified anonymous source", async () => {
+  const { handlers } = createHarness({
+    tokens: {
+      anonymous: decodedToken({
+        uid: "anonymous-source",
+        provider: "anonymous",
+      }),
+      attacker: decodedToken({
+        uid: "other-anonymous",
+        provider: "anonymous",
+      }),
+      target: decodedToken({ uid: "durable-target" }),
+    },
+  });
+  const prepared = await prepareReplacement(handlers);
+
+  await rejectsWithSafeCode(
+    handlers.cancelAnonymousReplacement(callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+    })),
+    "failed-precondition",
+    "anonymous-account-required",
+  );
+  await rejectsWithSafeCode(
+    handlers.cancelAnonymousReplacement(callableRequest("attacker", {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+    })),
+    "permission-denied",
+    "operation-not-authorized",
+  );
+
+  const cancelled = await handlers.cancelAnonymousReplacement(callableRequest(
+    "anonymous",
+    {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+      sourceUid: "body-uid-must-not-authorize",
+    },
+  ));
+  const replay = await handlers.cancelAnonymousReplacement(callableRequest(
+    "anonymous",
+    {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+    },
+  ));
+
+  assert.deepEqual(replay, cancelled);
+  assert.equal(cancelled.phase, "cancelled");
+  assert.equal(cancelled.version, 1);
+  assert.equal(cancelled.retryable, false);
+});
+
+test("cancellation releases the owner for replacement and deletion retries", async () => {
+  for (const retryKind of [
+    "same-target-replacement",
+    "different-target-replacement",
+    "deletion",
+  ]) {
+    const { handlers } = createHarness();
+    const prepared = await prepareReplacement(handlers);
+    await handlers.cancelAnonymousReplacement(callableRequest("anonymous", {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+    }));
+
+    const retried = retryKind === "deletion"
+      ? await handlers.requestAccountDeletion(callableRequest("anonymous", {
+        requestKey: "after-cancel-deletion",
+      }))
+      : await prepareReplacement(handlers, {
+        requestKey: `after-cancel-${retryKind}`,
+        targetUid: retryKind === "same-target-replacement"
+          ? "durable-target"
+          : "different-target",
+      });
+
+    assert.notEqual(retried.operationId, prepared.operationId);
+    assert.equal(
+      retried.phase,
+      retryKind === "deletion" ? "deletionRequested" : "prepared",
+    );
+  }
+});
+
+test("an old cancellation replay never releases a newer operation owner", async () => {
+  const { handlers } = createHarness();
+  const first = await prepareReplacement(handlers);
+  await handlers.cancelAnonymousReplacement(callableRequest("anonymous", {
+    operationId: first.operationId,
+    expectedVersion: first.version,
+  }));
+  const newer = await prepareReplacement(handlers, {
+    requestKey: "newer-after-cancel",
+  });
+
+  const replay = await handlers.cancelAnonymousReplacement(callableRequest(
+    "anonymous",
+    {
+      operationId: first.operationId,
+      expectedVersion: first.version,
+    },
+  ));
+  assert.equal(replay.phase, "cancelled");
+  await rejectsWithSafeCode(
+    handlers.requestAccountDeletion(callableRequest("anonymous", {
+      requestKey: "must-not-bypass-new-owner",
+    })),
+    "failed-precondition",
+    "operation-in-progress",
+  );
+  const duplicate = await prepareReplacement(handlers, {
+    requestKey: "newer-after-cancel",
+  });
+  assert.equal(duplicate.operationId, newer.operationId);
+});
+
+test("rejects stale cancellation and cancellation after cleanup acceptance", async () => {
+  const { handlers } = createHarness();
+  const prepared = await prepareReplacement(handlers);
+  const attached = await handlers.attachReplacementTarget(callableRequest(
+    "target",
+    {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+    },
+  ));
+
+  await rejectsWithSafeCode(
+    handlers.cancelAnonymousReplacement(callableRequest("anonymous", {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+    })),
+    "aborted",
+    "stale-operation-version",
+  );
+  const reconciling =
+    await handlers.commitReplacementReconciliation(callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: attached.version,
+    }));
+  const cleanupPending =
+    await handlers.startSourceCleanup(callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: reconciling.version,
+    }));
+
+  await rejectsWithSafeCode(
+    handlers.cancelAnonymousReplacement(callableRequest("anonymous", {
+      operationId: prepared.operationId,
+      expectedVersion: cleanupPending.version,
+    })),
+    "failed-precondition",
+    "invalid-operation-transition",
+  );
 });
 
 test("creates or reuses deletionRequested without deleting any user data", async () => {

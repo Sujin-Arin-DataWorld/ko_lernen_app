@@ -332,6 +332,7 @@ void main() {
       final cancelled = await cancellable.coordinator.cancel();
 
       expect(cancelled, isTrue);
+      expect(cancellable.operations.cancelCalls, 1);
       expect(cancellable.journal.value, isNull);
       expect(cancellable.sessions.current?.uid, 'anonymous-source');
       expect(cancellable.sessions.current?.mode, CloudWriteMode.ready);
@@ -346,6 +347,7 @@ void main() {
       final journalBeforeCancel = pending.journal.value;
 
       expect(await pending.coordinator.cancel(), isFalse);
+      expect(pending.operations.cancelCalls, 0);
       expect(pending.journal.value, same(journalBeforeCancel));
       expect(pending.sessions.current?.mode, CloudWriteMode.cleanupPending);
       expect(
@@ -354,6 +356,100 @@ void main() {
       );
     },
   );
+
+  test(
+    'remote cancel failure preserves the exact journal and quiesced source',
+    () async {
+      final harness = _Harness()
+        ..reconciliationResult = const AccountReconciliationResult(
+          AccountReconciliationStatus.unavailable,
+        )
+        ..operations.cancelFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        );
+      await harness.coordinator.confirm(
+        const ExistingAccountLinkConflict(AccountLinkProvider.google),
+        catalog: const {},
+      );
+      final durable = harness.journal.value;
+
+      expect(await harness.coordinator.cancel(), isFalse);
+      expect(harness.operations.cancelCalls, 1);
+      expect(harness.journal.value, same(durable));
+      expect(harness.sessions.current?.mode, CloudWriteMode.reconciling);
+    },
+  );
+
+  test(
+    'cancel resolves an ambiguous prepare before deleting the initial journal',
+    () async {
+      final harness = _Harness();
+      final quiesced = harness.sessions.transition(CloudWriteMode.quiesced);
+      final journal = AccountTransitionJournal.fromSession(
+        quiesced,
+        replacementProvider: 'google',
+        replacementTargetUid: 'durable-target',
+        replacementRequestKey: 'request-key-1',
+        replacementPhase: AccountReplacementPhase.targetVerified,
+      );
+      harness.journal.value = journal;
+
+      expect(await harness.coordinator.cancel(), isTrue);
+      expect(harness.operations.prepareCalls, 1);
+      expect(harness.operations.cancelCalls, 1);
+      expect(harness.journal.value, isNull);
+      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+    },
+  );
+
+  test(
+    'source session race after remote cancel preserves the exact journal',
+    () async {
+      final harness = _Harness()
+        ..reconciliationResult = const AccountReconciliationResult(
+          AccountReconciliationStatus.unavailable,
+        );
+      await harness.coordinator.confirm(
+        const ExistingAccountLinkConflict(AccountLinkProvider.google),
+        catalog: const {},
+      );
+      final durable = harness.journal.value;
+      harness.operations.afterCancel = () {
+        harness.sessions
+          ..transition(CloudWriteMode.blocked)
+          ..transition(CloudWriteMode.reconciling);
+      };
+
+      expect(await harness.coordinator.cancel(), isFalse);
+      expect(harness.operations.cancelCalls, 1);
+      expect(harness.journal.value, same(durable));
+      expect(harness.journal.deleteCalls, 0);
+      expect(harness.sessions.current?.mode, CloudWriteMode.reconciling);
+    },
+  );
+
+  test('unconfirmed cancellation result preserves the exact journal', () async {
+    final harness = _Harness()
+      ..reconciliationResult = const AccountReconciliationResult(
+        AccountReconciliationStatus.unavailable,
+      );
+    await harness.coordinator.confirm(
+      const ExistingAccountLinkConflict(AccountLinkProvider.google),
+      catalog: const {},
+    );
+    final durable = harness.journal.value;
+    harness.operations.cancelResults.add(
+      _replacement(AccountOperationPhase.cancelled, version: 99),
+    );
+
+    expect(await harness.coordinator.cancel(), isFalse);
+    expect(harness.journal.value, same(durable));
+    expect(harness.journal.deleteCalls, 0);
+    expect(harness.sessions.current?.mode, CloudWriteMode.reconciling);
+  });
 
   test(
     'first journal failure restores only the exact quiesced source',
@@ -1034,13 +1130,17 @@ class _FakeOperations implements ReplacementAccountOperations {
   int prepareCalls = 0;
   int attachCalls = 0;
   int cleanupCalls = 0;
+  int cancelCalls = 0;
   int statusCalls = 0;
   String? primaryUidAtPrepare;
   String? primaryUidAtCleanup;
   AccountOperationPhase statusPhase = AccountOperationPhase.completed;
   final List<AccountOperationResult> statusResults = [];
   final List<Object> cleanupFailures = [];
+  final List<Object> cancelFailures = [];
+  final List<AccountOperationResult> cancelResults = [];
   void Function()? afterAttach;
+  void Function()? afterCancel;
   void Function()? afterStatus;
 
   @override
@@ -1087,6 +1187,24 @@ class _FakeOperations implements ReplacementAccountOperations {
     events.add('start-cleanup');
     if (cleanupFailures.isNotEmpty) throw cleanupFailures.removeAt(0);
     return _replacement(AccountOperationPhase.sourceCleanupPending, version: 3);
+  }
+
+  @override
+  Future<AccountOperationResult> cancel({
+    required String operationId,
+    required int expectedVersion,
+  }) async {
+    cancelCalls += 1;
+    events.add('cancel');
+    if (cancelFailures.isNotEmpty) throw cancelFailures.removeAt(0);
+    final result = cancelResults.isEmpty
+        ? _replacement(
+            AccountOperationPhase.cancelled,
+            version: expectedVersion + 1,
+          )
+        : cancelResults.removeAt(0);
+    afterCancel?.call();
+    return result;
   }
 
   @override
