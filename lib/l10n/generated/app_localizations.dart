@@ -1903,6 +1903,12 @@ abstract class AppL10n {
   /// **'Ergebnis'**
   String get bookResultTitle;
 
+  /// No description provided for @loadErrorTryAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Etwas ist schiefgelaufen. Bitte versuche es erneut.'**
+  String get loadErrorTryAgain;
+
   /// No description provided for @bookResultAnalyzing.
   ///
   /// In de, this message translates to:

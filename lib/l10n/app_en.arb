@@ -394,6 +394,7 @@
   "bookPreviewAnalyze":          "Analyze",
   "bookPreviewRetake":           "Retake",
   "bookResultTitle":             "Result",
+  "loadErrorTryAgain":           "Something went wrong. Please try again.",
   "bookResultAnalyzing":         "Looking up words & grammar …",
   "bookResultFoundN":            "{n} new words found",
   "@bookResultFoundN": {
