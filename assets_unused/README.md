@@ -35,10 +35,15 @@
 **"데드"의 뜻**: pubspec은 디렉터리를 **비재귀**로 등록하는데, 아래 두 폴더는 등록된 적이 없어
 APK에 들어간 적조차 없음. 코드 참조도 0. 순수 레포 보관물.
 
-| 폴더 | 원경로 | 무엇 |
-|---|---|---|
-| `illustrations/tiger_anim_archive/` (16) | `assets/illustrations/tiger_anim_archive/` | **구세대 호랑이 보행 프레임** — `walk_left_a~f`·`walk_right_a~f`(6프레임 보행)·`walk_start_right`·`walk_stop_left/right`·`thinking`. Jin이 다리 교차가 자연스러운 신형 8프레임(`tiger_anim/walk_*_01~08`)을 제작하며 대체된 아카이브 |
-| `illustrations/hanok/backup/` (6) | `assets/illustrations/hanok/backup/` | **인트로 대문 아트 원본 백업** — `gate_door_left.orig2`·`gate_door_right.orig`/`orig2`·`gate_final.orig`·`gate_final.with_gate`·`gate_frame.orig2`. 2026-06-01 대문 knockout(문/프레임 분리 투명화) 작업 전 원본들 |
+> **✅ 2026-07-30 Jin 검토 후 영구 삭제**: 아래 데드 아카이브 21장(walk 프레임 15 + gate 원본 백업 6)은
+> Jin이 직접 확인 후 삭제함(git에서 완전 제거). `tiger_anim_archive/thinking.png` 1장만 잔존.
+> 표는 기록 목적으로 유지 — 무엇이었는지 추적용.
+
+| 폴더 | 원경로 | 무엇 | 상태 |
+|---|---|---|---|
+| `illustrations/tiger_anim_archive/` walk 15 | `assets/illustrations/tiger_anim_archive/` | **구세대 호랑이 보행 프레임** — `walk_left_a~f`·`walk_right_a~f`(6프레임 보행)·`walk_start_right`·`walk_stop_left/right`. 신형 8프레임(`tiger_anim/walk_*_01~08`)으로 대체된 아카이브 | ❌ 삭제됨 |
+| `illustrations/tiger_anim_archive/thinking.png` | 〃 | 구 호랑이 "생각 중" 정지 프레임 | 📦 잔존 |
+| `illustrations/hanok/backup/` (6) | `assets/illustrations/hanok/backup/` | **인트로 대문 아트 원본 백업** — `gate_door_left.orig2`·`gate_door_right.orig`/`orig2`·`gate_final.orig`·`gate_final.with_gate`·`gate_frame.orig2`. 2026-06-01 대문 knockout(문/프레임 분리 투명화) 작업 전 원본들 | ❌ 삭제됨 |
 
 ---
 
