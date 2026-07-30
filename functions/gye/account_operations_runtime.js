@@ -178,11 +178,10 @@ async function fetchStagedActionableDeletionCandidates({
       typeof repository.backfillLegacyDeletionSchedule !== "function") {
     throw new TypeError("Account operation repository is required.");
   }
-  const migration = await repository.backfillLegacyDeletionSchedule({
+  await repository.backfillLegacyDeletionSchedule({
     limit: legacyBackfillLimit,
     nowMillis,
   });
-  if (migration.complete !== true) return [];
   return fetchActionableDeletionCandidates({
     collection,
     limit,

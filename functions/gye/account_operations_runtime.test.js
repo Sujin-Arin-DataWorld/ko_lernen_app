@@ -2191,15 +2191,33 @@ async () => {
   );
 });
 
-test("legacy scheduler stages bounded backfill before processing candidates",
+test("legacy scheduler keeps due-only work moving during bounded backfill",
 async () => {
   const harness = createHarness();
-  const first = await createDeletionOperation(harness.handlers);
-  const second = await createDeletionOperation(harness.handlers, "other");
-  for (const operationId of [first.operationId, second.operationId]) {
-    delete harness.firestore.documents
-      .get(`account_operations/${operationId}`).nextAttemptAtMillis;
-  }
+  const legacy = await createDeletionOperation(harness.handlers);
+  const currentDue = await createDeletionOperation(
+    harness.handlers,
+    "other",
+  );
+  delete harness.firestore.documents
+    .get(`account_operations/${legacy.operationId}`).nextAttemptAtMillis;
+  harness.firestore.documents.set("account_operations/operation-1a", {
+    id: "operation-1a",
+    kind: "deletion",
+    phase: "deletionRequested",
+    sourceUid: "second-legacy-account",
+    version: 1,
+    updatedAtMillis: NOW_MILLIS,
+  });
+  harness.firestore.documents.set("account_operations/zz-future", {
+    id: "zz-future",
+    kind: "deletion",
+    phase: "deletionRequested",
+    sourceUid: "future-account",
+    version: 1,
+    nextAttemptAtMillis: NOW_MILLIS + 1,
+    updatedAtMillis: NOW_MILLIS,
+  });
   const collection = fakeAccountOperationCollection(() =>
     harness.firestore.valuesIn("account_operations"));
   const options = {
@@ -2212,12 +2230,15 @@ async () => {
 
   const staged = await runtime.fetchStagedActionableDeletionCandidates(options);
 
-  assert.deepEqual(staged, []);
+  assert.deepEqual(
+    staged.map(({ id }) => id).sort(),
+    [legacy.operationId, currentDue.operationId].sort(),
+  );
   assert.equal(
     harness.firestore.valuesIn("account_operations")
       .filter((operation) => Number.isFinite(operation.nextAttemptAtMillis))
       .length,
-    1,
+    3,
   );
   assert.equal(
     harness.firestore.documents.get(
@@ -2225,20 +2246,17 @@ async () => {
     ).complete,
     false,
   );
-
-  const candidates = await runtime.fetchStagedActionableDeletionCandidates(
-    options,
-  );
-
-  assert.deepEqual(
-    candidates.map(({ id }) => id).sort(),
-    [first.operationId, second.operationId].sort(),
-  );
   assert.equal(
     harness.firestore.documents.get(
       "account_operation_migrations/deletion-scheduler-next-at-v1",
-    ).complete,
-    true,
+    ).backfilledCount,
+    1,
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operations/operation-1a",
+    ).nextAttemptAtMillis,
+    undefined,
   );
 });
 
