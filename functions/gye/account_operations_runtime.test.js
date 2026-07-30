@@ -18,6 +18,7 @@ const CALLABLE_NAMES = [
   "startSourceCleanup",
   "requestAccountDeletion",
   "issueDeletionProof",
+  "completeAppleRevocation",
   "getAccountOperation",
 ];
 
@@ -151,6 +152,7 @@ function createHarness({
   logger = {
     warn() {},
   },
+  revokeAppleAuthorizationCode = async () => {},
 } = {}) {
   assert.equal(typeof runtime.createFirestoreAccountOperationRepository, "function");
   assert.equal(typeof runtime.createAccountOperationRuntime, "function");
@@ -178,6 +180,7 @@ function createHarness({
       }
       return structuredClone(tokens[token]);
     },
+    async deleteUser() {},
   };
   const makeError = (status, safeCode) => {
     const error = new Error("account-operation-request-failed");
@@ -193,6 +196,7 @@ function createHarness({
     hashDeletionProof,
     logger,
     makeError,
+    revokeAppleAuthorizationCode,
   });
   return {
     clock,
@@ -203,6 +207,24 @@ function createHarness({
     repository,
     verificationCalls,
   };
+}
+
+async function createDeletionOperation(handlers, token = "target") {
+  return handlers.requestAccountDeletion(callableRequest(token, {
+    requestKey: `delete-${token}`,
+  }));
+}
+
+async function runWorkerUntil(worker, operationId, phase, limit = 20) {
+  let result;
+  for (let index = 0; index < limit; index += 1) {
+    result = await worker.processDeletionOperation({
+      operationId,
+      workerId: "worker-one",
+    });
+    if (result.phase === phase) return result;
+  }
+  assert.fail(`worker did not reach ${phase}`);
 }
 
 function callableRequest(token, data = {}, {
@@ -297,7 +319,7 @@ async function invokePublic(handler, request) {
   return response;
 }
 
-test("registers all seven protected callable names with the exact v2 options", () => {
+test("registers every protected callable name with the exact v2 options", () => {
   assert.equal(typeof runtime.createAccountOperationCallables, "function");
   const handlers = Object.fromEntries(
     CALLABLE_NAMES.map((name) => [name, async () => name]),
@@ -1122,6 +1144,393 @@ test("rejects operation IDs that cannot be opaque Firestore document IDs", async
   );
 });
 
+test("completes Apple revocation through a transient code without persisting or returning it",
+async () => {
+  const rawAppleCode = "apple-one-time-code-must-stay-transient";
+  const revokedCodes = [];
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-account",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async ({ authorizationCode, uid }) => {
+      revokedCodes.push({ authorizationCode, uid });
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+  const pending = await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "appleRevocationPending",
+  );
+
+  const result = await harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: pending.version,
+      authorizationCode: rawAppleCode,
+    }),
+  );
+
+  assert.equal(result.phase, "authDeleted");
+  assert.deepEqual(revokedCodes, [{
+    authorizationCode: rawAppleCode,
+    uid: "apple-account",
+  }]);
+  assert.equal(
+    JSON.stringify(Array.from(harness.firestore.documents.entries()))
+      .includes(rawAppleCode),
+    false,
+  );
+  assert.equal(JSON.stringify(result).includes(rawAppleCode), false);
+});
+
+test("keeps Apple revocation pending with only a safe resumable failure code",
+async () => {
+  const rawAppleCode = "apple-code-that-must-not-enter-a-failure";
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-failure-account",
+        provider: "apple.com",
+      }),
+    },
+    revokeAppleAuthorizationCode: async () => {
+      throw new Error(`provider rejected ${rawAppleCode}`);
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+  const pending = await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "appleRevocationPending",
+  );
+
+  await rejectsWithSafeCode(
+    harness.handlers.completeAppleRevocation(callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: pending.version,
+      authorizationCode: rawAppleCode,
+    })),
+    "internal",
+    "account-operation-failed",
+  );
+
+  const stored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(stored.phase, "appleRevocationPending");
+  assert.equal(
+    stored.deletionProgress.statusCode,
+    "apple-revocation-retryable",
+  );
+  assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
+});
+
+test("renews a server worker lease and fences the superseded lease token",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const first = await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "worker-one",
+    leaseMillis: 60_000,
+  });
+  assert.equal(
+    harness.firestore.documents
+      .get("account_deletions/durable-target")?.operationId,
+    requested.operationId,
+  );
+  harness.clock.now += 10_000;
+  const renewed = await harness.repository.renewDeletionLease({
+    operationId: requested.operationId,
+    workerId: "worker-one",
+    operationVersion: first.operation.version,
+    leaseVersion: first.leaseVersion,
+    leaseMillis: 60_000,
+  });
+
+  assert.equal(renewed.leaseVersion, first.leaseVersion + 1);
+  assert.equal(renewed.leaseUntilMillis, harness.clock.now + 60_000);
+  await assert.rejects(
+    harness.repository.checkpointDeletionWork({
+      operationId: requested.operationId,
+      workerId: "worker-one",
+      operationVersion: first.operation.version,
+      leaseVersion: first.leaseVersion,
+      progress: { cursor: "stale" },
+    }),
+    { code: "stale-worker-lease" },
+  );
+});
+
+test("replays a completed deletion worker operation without repeating destructive work",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const calls = [];
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser(uid) {
+        calls.push(`auth:${uid}`);
+      },
+    },
+    deleteUserTreePage: async ({ uid }) => {
+      calls.push(`tree:${uid}`);
+      return { done: true, nextCursor: null };
+    },
+    cleanupCommunity: async ({ uid }) => calls.push(`community:${uid}`),
+    cleanupProcessor: async ({ uid }) => calls.push(`processor:${uid}`),
+    nowMillis: () => harness.clock.now,
+  });
+
+  await runWorkerUntil(worker, requested.operationId, "completed");
+  const completedCalls = calls.slice();
+  const replay = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "worker-two",
+  });
+
+  assert.equal(replay.phase, "completed");
+  assert.deepEqual(calls, completedCalls);
+});
+
+test("treats Auth user-not-found as successful Auth deletion",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser() {
+        const error = new Error("no such user");
+        error.code = "auth/user-not-found";
+        throw error;
+      },
+    },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+
+  const result = await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "communityCleanupPending",
+  );
+
+  assert.equal(result.retryable, true);
+  const stored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(stored.phase, "communityCleanupPending");
+});
+
+test("server worker resumes Auth deletion only after persisted Apple revocation proof",
+async () => {
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-resume-account",
+        provider: "apple.com",
+      }),
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  const setupWorker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+  const pending = await runWorkerUntil(
+    setupWorker,
+    requested.operationId,
+    "appleRevocationPending",
+  );
+  let claim = await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "revocation-boundary",
+  });
+  claim = await harness.repository.renewDeletionLease({
+    operationId: requested.operationId,
+    workerId: "revocation-boundary",
+    operationVersion: pending.version,
+    leaseVersion: claim.leaseVersion,
+  });
+  await harness.repository.checkpointDeletionWork({
+    operationId: requested.operationId,
+    workerId: "revocation-boundary",
+    operationVersion: pending.version,
+    leaseVersion: claim.leaseVersion,
+    progress: { appleRevocationComplete: true },
+  });
+
+  let authDeletes = 0;
+  const recoveryWorker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser() {
+        authDeletes += 1;
+        const error = new Error("already gone after response loss");
+        error.code = "auth/user-not-found";
+        throw error;
+      },
+    },
+    deleteUserTreePage: async () => {
+      assert.fail("user tree must not be deleted again");
+    },
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+
+  const recovered = await recoveryWorker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "recovery-worker",
+  });
+
+  assert.equal(recovered.phase, "authDeleted");
+  assert.equal(authDeletes, 1);
+});
+
+test("persists paged user-tree continuation before Auth deletion",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const cursors = [];
+  let authDeletes = 0;
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser() {
+        authDeletes += 1;
+      },
+    },
+    deleteUserTreePage: async ({ cursor }) => {
+      cursors.push(cursor ?? null);
+      return cursor === "page-two"
+        ? { done: true, nextCursor: null }
+        : { done: false, nextCursor: "page-two" };
+    },
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+
+  const first = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "worker-one",
+  });
+  const firstStored = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  const second = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "worker-one",
+  });
+
+  assert.equal(first.phase, "userTreeDeleting");
+  assert.equal(firstStored.deletionProgress.cursor, "page-two");
+  assert.equal(second.phase, "userTreeDeleting");
+  assert.deepEqual(cursors, [null, "page-two"]);
+  assert.equal(authDeletes, 0);
+});
+
+test("does not complete before Gye community and processor cleanup phases finish",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const phases = [];
+  let releaseCommunity;
+  const communityGate = new Promise((resolve) => {
+    releaseCommunity = resolve;
+  });
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {
+      phases.push("community-started");
+      await communityGate;
+      phases.push("community-finished");
+    },
+    cleanupProcessor: async () => phases.push("processor-finished"),
+    nowMillis: () => harness.clock.now,
+  });
+  await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "communityCleanupPending",
+  );
+
+  const communityRun = worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "worker-one",
+  });
+  await new Promise((resolve) => setImmediate(resolve));
+  const during = harness.firestore
+    .valuesIn("account_operations")
+    .find((operation) => operation.id === requested.operationId);
+  assert.equal(during.phase, "communityCleanupPending");
+  releaseCommunity();
+  const afterCommunity = await communityRun;
+  assert.equal(afterCommunity.phase, "processorCleanupPending");
+  assert.deepEqual(phases, ["community-started", "community-finished"]);
+
+  const completed = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "worker-one",
+  });
+  assert.equal(completed.phase, "completed");
+  assert.deepEqual(phases, [
+    "community-started",
+    "community-finished",
+    "processor-finished",
+  ]);
+});
+
+test("never lets legacy tombstone cleanup abandon a server-owned marker",
+() => {
+  assert.equal(
+    runtime.legacyAccountTombstoneCleanupAction({
+      marker: {
+        state: "active",
+        serverOwned: true,
+        operationId: "operation-1",
+      },
+      authUserExists: true,
+      firestoreUserExists: true,
+      cleanupComplete: false,
+      cleanupStarted: false,
+      nowMillis: NOW_MILLIS,
+    }),
+    "retain",
+  );
+});
+
 test("index exports the protected callables and public proof endpoint", () => {
   const deployed = require("./index");
   for (const name of CALLABLE_NAMES) {
@@ -1131,5 +1540,10 @@ test("index exports the protected callables and public proof endpoint", () => {
     typeof deployed.requestDeletionByProof,
     "function",
     "requestDeletionByProof export",
+  );
+  assert.equal(
+    typeof deployed.account_deletion_worker,
+    "function",
+    "account_deletion_worker export",
   );
 });

@@ -83,8 +83,8 @@ test("allows only the ordered deletion path including Apple revocation", () => {
   for (const phase of [
     "deletionRequested",
     "userTreeDeleting",
-    "authDeleted",
     "appleRevocationPending",
+    "authDeleted",
     "communityCleanupPending",
     "processorCleanupPending",
     "completed",
@@ -96,6 +96,35 @@ test("allows only the ordered deletion path including Apple revocation", () => {
     assert.equal(operation.phase, phase);
   }
   assert.equal(operation.version, 7);
+});
+
+test("requires Apple revocation before Auth deletion for Apple-linked accounts",
+() => {
+  const requested = transitionOperation(createDeletion(), {
+    toPhase: "deletionRequested",
+    expectedVersion: 0,
+  });
+  const deleting = transitionOperation(requested, {
+    toPhase: "userTreeDeleting",
+    expectedVersion: 1,
+  });
+
+  assert.throws(
+    () => transitionOperation(deleting, {
+      toPhase: "authDeleted",
+      expectedVersion: 2,
+    }),
+    { code: "invalid-operation-transition" },
+  );
+  const revocationPending = transitionOperation(deleting, {
+    toPhase: "appleRevocationPending",
+    expectedVersion: 2,
+  });
+  const authDeleted = transitionOperation(revocationPending, {
+    toPhase: "authDeleted",
+    expectedVersion: 3,
+  });
+  assert.equal(authDeleted.phase, "authDeleted");
 });
 
 test("rejects skipped and cross-kind phases without changing the record", () => {
@@ -247,17 +276,16 @@ test("keeps attempt counters monotonic and rejects out-of-order attempts", () =>
 test("classifies retryable failures and retains a resumable Apple partial failure", () => {
   const operation = transitionOperation(
     transitionOperation(
-      transitionOperation(createDeletion(), {
+      createDeletion(), {
         toPhase: "deletionRequested",
         expectedVersion: 0,
-      }),
-      { toPhase: "userTreeDeleting", expectedVersion: 1 },
+      },
     ),
-    { toPhase: "authDeleted", expectedVersion: 2 },
+    { toPhase: "userTreeDeleting", expectedVersion: 1 },
   );
   const pendingApple = transitionOperation(operation, {
     toPhase: "appleRevocationPending",
-    expectedVersion: 3,
+    expectedVersion: 2,
   });
   const result = applyAttemptResult(pendingApple, {
     phase: "appleRevocationPending",
@@ -272,7 +300,13 @@ test("classifies retryable failures and retains a resumable Apple partial failur
 });
 
 test("treats Auth user-not-found as a terminal successful deletion result", () => {
-  let operation = createDeletion();
+  let operation = createOrReuseOperation({
+    existingOperations: [],
+    request: {
+      ...deletionRequest,
+      appleRevocationRequired: false,
+    },
+  }).operation;
   for (const phase of ["deletionRequested", "userTreeDeleting"]) {
     operation = transitionOperation(operation, {
       toPhase: phase,

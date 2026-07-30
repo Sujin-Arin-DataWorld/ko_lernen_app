@@ -160,13 +160,13 @@ function nextPhases(operation) {
     case "deletionRequested":
       return ["userTreeDeleting"];
     case "userTreeDeleting":
-      return ["authDeleted"];
-    case "authDeleted":
       return [operation.appleRevocationRequired
         ? "appleRevocationPending"
-        : "communityCleanupPending"];
-    case "appleRevocationPending":
+        : "authDeleted"];
+    case "authDeleted":
       return ["communityCleanupPending"];
+    case "appleRevocationPending":
+      return ["authDeleted"];
     case "communityCleanupPending":
       return ["processorCleanupPending"];
     case "processorCleanupPending":

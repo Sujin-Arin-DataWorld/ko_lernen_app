@@ -38,7 +38,6 @@ const { setGlobalOptions } = require("firebase-functions/v2");
 const { HttpsError, onCall, onRequest } =
   require("firebase-functions/v2/https");
 const {
-  accountTombstoneCleanupAction,
   anonymizeFeed,
   anonymizeMeta,
   anonymizeReport,
@@ -82,10 +81,12 @@ const {
 const {
   createAccountOperationCallables,
   createAccountOperationRuntime,
+  createDeletionWorkerRuntime,
   createDeletionProofHttpEndpoint,
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
+  legacyAccountTombstoneCleanupAction,
 } = require("./account_operations_runtime");
 
 admin.initializeApp();
@@ -103,6 +104,11 @@ const accountOperationHandlers = createAccountOperationRuntime({
   hashDeletionProof: (proof) =>
     keyedDeletionProofDigest("proof", proof),
   repository: accountOperationRepository,
+  revokeAppleAuthorizationCode: async () => {
+    const error = new Error("apple-revocation-adapter-unavailable");
+    error.code = "apple/revocation-unavailable";
+    throw error;
+  },
   makeError: (status, safeCode) => new HttpsError(
     status,
     "Account operation request failed.",
@@ -140,6 +146,54 @@ exports.requestDeletionByProof = createDeletionProofHttpEndpoint({
     secrets: [deletionProofHmacKey],
   },
 });
+
+const destructiveAdapterUnavailable = async () => {
+  const error = new Error("destructive-adapter-unavailable");
+  error.code = "failed-precondition";
+  throw error;
+};
+const accountDeletionWorkerRuntime = createDeletionWorkerRuntime({
+  repository: accountOperationRepository,
+  auth: admin.auth(),
+  deleteUserTreePage: destructiveAdapterUnavailable,
+  cleanupCommunity: destructiveAdapterUnavailable,
+  cleanupProcessor: destructiveAdapterUnavailable,
+});
+exports.account_deletion_worker = onSchedule(
+  {
+    schedule: "every 5 minutes",
+    timeZone: "Etc/UTC",
+    retryCount: 3,
+  },
+  async () => {
+    const candidates = await db
+      .collection("account_operations")
+      .where("phase", "in", [
+        "deletionRequested",
+        "userTreeDeleting",
+        "appleRevocationPending",
+        "authDeleted",
+        "communityCleanupPending",
+        "processorCleanupPending",
+      ])
+      .limit(50)
+      .get();
+    for (const candidate of candidates.docs) {
+      try {
+        await accountDeletionWorkerRuntime.processDeletionOperation({
+          operationId: candidate.id,
+          workerId: `scheduled-${candidate.id}`,
+        });
+      } catch (error) {
+        functionsLogger.warn("account-deletion-worker-failed", {
+          code: typeof error?.code === "string"
+            ? error.code
+            : "worker-failed",
+        });
+      }
+    }
+  },
+);
 
 /**
  * 팩이 처음 cleared 되는 순간 계 진행도·피드 갱신.
@@ -700,6 +754,10 @@ exports.on_user_deleted = onDocumentDeleted(
     const accountMarkerRef = db.collection("account_deletions").doc(uid);
     const accountMarker = await accountMarkerRef.get();
     if (accountMarker.exists &&
+        (accountMarker.data() || {}).serverOwned === true) {
+      return;
+    }
+    if (accountMarker.exists &&
         (accountMarker.data() || {}).cleanupComplete === true) {
       return;
     }
@@ -883,6 +941,7 @@ exports.account_deletion_tombstone_cleanup = onSchedule(
     const snapshot = await db.collection("account_deletions").get();
     for (const marker of snapshot.docs) {
       const markerData = marker.data() || {};
+      if (markerData.serverOwned === true) continue;
       const createdAtMillis = markerData.createdAt?.toMillis?.();
       if (!isAccountDeletionTombstoneOldEnough(
         createdAtMillis,
@@ -918,7 +977,8 @@ exports.account_deletion_tombstone_cleanup = onSchedule(
             )) {
           return;
         }
-        const action = accountTombstoneCleanupAction({
+        const action = legacyAccountTombstoneCleanupAction({
+          marker: currentData,
           authUserExists,
           firestoreUserExists: currentUser.exists,
           cleanupComplete: currentData.cleanupComplete === true,

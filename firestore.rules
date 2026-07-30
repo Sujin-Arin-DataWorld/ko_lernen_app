@@ -293,10 +293,8 @@ service cloud.firestore {
         && (!request.resource.data.diff(resource.data).affectedKeys()
               .hasAny(['gyeIds'])
           || validUserGyeTransition());
-      // Account deletion intentionally removes only this document. A retryable
-      // Admin SDK trigger owns all Gye cleanup and therefore bypasses rules.
-      allow delete: if isOwner(uid)
-        && existsAfter(accountDeletionPath(uid));
+      // Account roots are deleted only by the leased server worker.
+      allow delete: if false;
 
       match /packs/{packId} {
         allow read: if isOwner(uid);
@@ -321,14 +319,15 @@ service cloud.firestore {
     }
 
     match /account_deletions/{uid} {
-      allow read: if isOwner(uid);
-      allow create: if isOwner(uid)
-        && request.resource.data.keys().hasOnly(['state', 'createdAt'])
-        && request.resource.data.state == 'active'
-        && request.resource.data.createdAt is timestamp
-        && request.resource.data.createdAt == request.time
-        && exists(userPath(uid));
-      allow update, delete: if false;
+      allow get: if isOwner(uid);
+      allow list: if false;
+      allow create, update, delete: if false;
+    }
+
+    match /account_operations/{operationId} {
+      allow get: if signedIn()
+        && resource.data.sourceUid == request.auth.uid;
+      allow list, create, update, delete: if false;
     }
 
     match /cache/translations/{hash} {

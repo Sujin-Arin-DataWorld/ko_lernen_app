@@ -829,7 +829,7 @@ test("departure marker blocks rapid rejoin until server cleanup", async () => {
   await assertSucceeds(secondLeave.commit());
 });
 
-test("standalone user delete is denied; marker plus delete is allowed",
+test("clients cannot create deletion markers or delete user roots",
 async () => {
   await seedGye("ABC234", ["owner", "member"]);
   await seedUser("member", ["ABC234"]);
@@ -842,71 +842,61 @@ async () => {
   });
 
   await assertFails(deleteDoc(doc(db, "users", "member")));
-  await assertSucceeds(setDoc(doc(db, "account_deletions", "member"), {
+  await assertFails(setDoc(doc(db, "account_deletions", "member"), {
     state: "active",
     createdAt: serverTimestamp(),
   }));
-
-  await assertFails(setDoc(
-    doc(db, "users", "member", "packs", "late"),
-    { status: "cleared" },
-  ));
-  await assertFails(setDoc(
-    doc(db, "users", "member", "packs", "existing"),
-    { status: "changed" },
-    { merge: true },
-  ));
-  await assertSucceeds(deleteDoc(
-    doc(db, "users", "member", "packs", "existing"),
-  ));
-  await assertFails(setDoc(
-    doc(collection(db, "gye", "ABC234", "feed")),
-    feedData("member"),
-  ));
-  await assertFails(setDoc(doc(db, "shared_packs", "LATE23"), {
-    createdBy: "member",
-    wordCount: 1,
-  }));
-  await assertSucceeds(deleteDoc(doc(db, "users", "member")));
-  await assertFails(setDoc(doc(db, "users", "member"), { gyeIds: [] }));
-});
-
-test("account marker blocks stale owner and membership creation paths",
-async () => {
-  await seedGye("ABC234", ["owner"]);
-  await seedUser("owner", ["ABC234"]);
-  const ownerDb = client("owner");
-  await assertSucceeds(setDoc(doc(ownerDb, "account_deletions", "owner"), {
-    state: "active",
-    createdAt: serverTimestamp(),
-  }));
-
-  await assertFails(setDoc(
-    doc(ownerDb, "gye", "ABC234"),
-    { name: "Late rename" },
-    { merge: true },
-  ));
-  const createGye = writeBatch(ownerDb);
-  queueCreateGye(ownerDb, createGye, "NEW234", "owner");
-  await assertFails(createGye.commit());
-
   await environment.withSecurityRulesDisabled(async (context) => {
-    await deleteDoc(doc(
-      context.firestore(),
-      "gye",
-      "ABC234",
-      "members",
-      "owner",
-    ));
     await setDoc(
-      doc(context.firestore(), "gye", "ABC234"),
-      { memberCount: 0 },
-      { merge: true },
+      doc(context.firestore(), "account_deletions", "member"),
+      {
+        state: "active",
+        serverOwned: true,
+        operationId: "operation-member",
+      },
     );
   });
-  const recreateMember = writeBatch(ownerDb);
-  queueJoin(ownerDb, recreateMember, "ABC234", "owner", ["ABC234"]);
-  await assertFails(recreateMember.commit());
+  await assertSucceeds(getDoc(doc(db, "account_deletions", "member")));
+  await assertFails(setDoc(
+    doc(db, "account_deletions", "member"),
+    { state: "complete" },
+    { merge: true },
+  ));
+  await assertFails(deleteDoc(doc(db, "account_deletions", "member")));
+  await assertFails(deleteDoc(doc(db, "users", "member")));
+});
+
+test("owners can get only their own operation status and cannot write it",
+async () => {
+  await environment.withSecurityRulesDisabled(async (context) => {
+    const adminDb = context.firestore();
+    await setDoc(doc(adminDb, "account_operations", "owner-operation"), {
+      sourceUid: "owner",
+      kind: "deletion",
+      phase: "userTreeDeleting",
+      version: 2,
+    });
+    await setDoc(doc(adminDb, "account_operations", "other-operation"), {
+      sourceUid: "other",
+      kind: "deletion",
+      phase: "deletionRequested",
+      version: 1,
+    });
+  });
+  const ownerDb = client("owner");
+
+  await assertSucceeds(getDoc(
+    doc(ownerDb, "account_operations", "owner-operation"),
+  ));
+  await assertFails(getDoc(
+    doc(ownerDb, "account_operations", "other-operation"),
+  ));
+  await assertFails(getDocs(collection(ownerDb, "account_operations")));
+  await assertFails(setDoc(
+    doc(ownerDb, "account_operations", "owner-operation"),
+    { phase: "completed" },
+    { merge: true },
+  ));
 });
 
 test("deleting lifecycle blocks all late client mutations", async () => {

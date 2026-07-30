@@ -8,6 +8,9 @@ const {
   operationResult,
   transitionOperation,
 } = require("./account_operations");
+const {
+  accountTombstoneCleanupAction,
+} = require("./lifecycle");
 
 const CALLABLE_NAMES = Object.freeze([
   "prepareAnonymousReplacement",
@@ -16,6 +19,7 @@ const CALLABLE_NAMES = Object.freeze([
   "startSourceCleanup",
   "requestAccountDeletion",
   "issueDeletionProof",
+  "completeAppleRevocation",
   "getAccountOperation",
 ]);
 const CALLABLE_OPTIONS = Object.freeze({
@@ -41,6 +45,8 @@ const PUBLIC_ENDPOINT_OPTIONS = Object.freeze({
 const GENERIC_PUBLIC_RESULT = Object.freeze({
   status: "request-received",
 });
+const DEFAULT_WORKER_LEASE_MILLIS = 60_000;
+const DEFAULT_DELETE_PAGE_SIZE = 200;
 
 class BoundaryFailure extends Error {
   constructor(status, safeCode) {
@@ -174,6 +180,35 @@ function createFirestoreAccountOperationRepository({
     firestore.collection("account_deletion_proof_owners");
   const publicRateLimits =
     firestore.collection("account_deletion_proof_rate_limits");
+  const deletionMarkers = firestore.collection("account_deletions");
+
+  function workerProgress(stored) {
+    const progress = stored?.deletionProgress;
+    return {
+      cursor: typeof progress?.cursor === "string"
+        ? progress.cursor
+        : null,
+      userTreeComplete: progress?.userTreeComplete === true,
+      appleRevocationComplete:
+        progress?.appleRevocationComplete === true,
+      statusCode: typeof progress?.statusCode === "string"
+        ? progress.statusCode
+        : null,
+    };
+  }
+
+  function workerResult(stored) {
+    return {
+      operation: normalizeOperation(stored),
+      progress: workerProgress(stored),
+      leaseVersion: Number.isInteger(stored?.workerLease?.leaseVersion)
+        ? stored.workerLease.leaseVersion
+        : 0,
+      leaseUntilMillis: Number.isFinite(stored?.workerLease?.leaseUntilMillis)
+        ? stored.workerLease.leaseUntilMillis
+        : 0,
+    };
+  }
 
   async function createOrReuse(request, { deletionRequested = false } = {}) {
     const operationId = newOperationId();
@@ -542,8 +577,175 @@ function createFirestoreAccountOperationRepository({
     });
   }
 
+  async function claimDeletionWork({
+    operationId,
+    workerId,
+    leaseMillis = DEFAULT_WORKER_LEASE_MILLIS,
+  }) {
+    const operationRef = operations.doc(requiredOperationId(operationId));
+    requiredString(workerId, "worker-id-required");
+    return firestore.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(operationRef);
+      if (!snapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const stored = snapshot.data() || {};
+      let operation = normalizeOperation(stored);
+      if (operation.kind !== "deletion") {
+        throw repositoryFailure("invalid-operation");
+      }
+      const markerRef = deletionMarkers.doc(operation.sourceUid);
+      if (TERMINAL_PHASES.has(operation.phase)) {
+        return workerResult(stored);
+      }
+      const currentTime = nowMillis();
+      const activeLease = stored.workerLease || {};
+      if (activeLease.workerId !== workerId &&
+          Number.isFinite(activeLease.leaseUntilMillis) &&
+          activeLease.leaseUntilMillis > currentTime) {
+        throw repositoryFailure("worker-lease-held");
+      }
+      if (operation.phase === "deletionRequested") {
+        operation = transitionOperation(operation, {
+          toPhase: "userTreeDeleting",
+          expectedVersion: operation.version,
+        });
+      }
+      const leaseVersion = Number.isInteger(activeLease.leaseVersion)
+        ? activeLease.leaseVersion + 1
+        : 1;
+      const updated = {
+        ...persistedOperation(operation, stored, currentTime),
+        deletionProgress: workerProgress(stored),
+        workerLease: {
+          workerId,
+          leaseVersion,
+          leaseUntilMillis: currentTime + leaseMillis,
+        },
+      };
+      const markerSnapshot = await transaction.get(markerRef);
+      transaction.set(operationRef, updated);
+      transaction.set(markerRef, {
+        ...(markerSnapshot.exists ? markerSnapshot.data() || {} : {}),
+        state: "active",
+        serverOwned: true,
+        operationId,
+        sourceUid: operation.sourceUid,
+        createdAtMillis:
+          (markerSnapshot.data() || {}).createdAtMillis || currentTime,
+        updatedAtMillis: currentTime,
+      });
+      return workerResult(updated);
+    });
+  }
+
+  async function renewDeletionLease({
+    operationId,
+    workerId,
+    operationVersion,
+    leaseVersion,
+    leaseMillis = DEFAULT_WORKER_LEASE_MILLIS,
+  }) {
+    const operationRef = operations.doc(requiredOperationId(operationId));
+    return firestore.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(operationRef);
+      if (!snapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const stored = snapshot.data() || {};
+      const operation = normalizeOperation(stored);
+      const lease = stored.workerLease || {};
+      const currentTime = nowMillis();
+      if (operation.version !== operationVersion ||
+          lease.workerId !== workerId ||
+          lease.leaseVersion !== leaseVersion ||
+          !Number.isFinite(lease.leaseUntilMillis) ||
+          lease.leaseUntilMillis <= currentTime) {
+        throw repositoryFailure("stale-worker-lease");
+      }
+      const updated = {
+        ...stored,
+        updatedAtMillis: currentTime,
+        workerLease: {
+          workerId,
+          leaseVersion: leaseVersion + 1,
+          leaseUntilMillis: currentTime + leaseMillis,
+        },
+      };
+      transaction.set(operationRef, updated);
+      return workerResult(updated);
+    });
+  }
+
+  async function checkpointDeletionWork({
+    operationId,
+    workerId,
+    operationVersion,
+    leaseVersion,
+    progress,
+    toPhase,
+  }) {
+    const operationRef = operations.doc(requiredOperationId(operationId));
+    return firestore.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(operationRef);
+      if (!snapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const stored = snapshot.data() || {};
+      const current = normalizeOperation(stored);
+      const markerRef = deletionMarkers.doc(current.sourceUid);
+      const lease = stored.workerLease || {};
+      const currentTime = nowMillis();
+      if (current.version !== operationVersion ||
+          lease.workerId !== workerId ||
+          lease.leaseVersion !== leaseVersion ||
+          !Number.isFinite(lease.leaseUntilMillis) ||
+          lease.leaseUntilMillis <= currentTime) {
+        throw repositoryFailure("stale-worker-lease");
+      }
+      const operation = toPhase
+        ? transitionOperation(current, {
+          toPhase,
+          expectedVersion: current.version,
+        })
+        : current;
+      const nextProgress = {
+        ...workerProgress(stored),
+        ...(progress || {}),
+      };
+      const marker = operation.phase === "completed"
+        ? await transaction.get(markerRef)
+        : null;
+      const updated = {
+        ...persistedOperation(operation, stored, currentTime),
+        deletionProgress: nextProgress,
+        workerLease: {
+          workerId,
+          leaseVersion: leaseVersion + 1,
+          leaseUntilMillis: currentTime,
+        },
+      };
+      transaction.set(operationRef, updated);
+      if (operation.phase === "completed") {
+        transaction.set(markerRef, {
+          ...(marker?.exists ? marker.data() || {} : {}),
+          state: "complete",
+          serverOwned: true,
+          operationId,
+          sourceUid: operation.sourceUid,
+          cleanupComplete: true,
+          cleanupCompletedAtMillis: currentTime,
+          updatedAtMillis: currentTime,
+        });
+      }
+      return workerResult(updated);
+    });
+  }
+
   return Object.freeze({
+    checkpointDeletionWork,
     claimDeletionByProof,
+    claimDeletionWork,
     consumeAnonymousRequest,
     consumePublicProofRequest,
     createOrReuseDeletion: (request) =>
@@ -551,8 +753,151 @@ function createFirestoreAccountOperationRepository({
     createOrReuseReplacement: (request) => createOrReuse(request),
     get,
     issueDeletionProof,
+    renewDeletionLease,
     transition,
   });
+}
+
+function legacyAccountTombstoneCleanupAction({
+  marker,
+  ...context
+} = {}) {
+  if (marker?.serverOwned === true &&
+      typeof marker.operationId === "string" &&
+      marker.operationId.length > 0) {
+    return "retain";
+  }
+  return accountTombstoneCleanupAction(context);
+}
+
+function createDeletionWorkerRuntime({
+  repository,
+  auth,
+  deleteUserTreePage,
+  cleanupCommunity,
+  cleanupProcessor,
+  nowMillis = () => Date.now(),
+  leaseMillis = DEFAULT_WORKER_LEASE_MILLIS,
+  pageSize = DEFAULT_DELETE_PAGE_SIZE,
+} = {}) {
+  if (!repository ||
+      typeof repository.claimDeletionWork !== "function" ||
+      typeof repository.renewDeletionLease !== "function" ||
+      typeof repository.checkpointDeletionWork !== "function") {
+    throw new TypeError("A deletion-worker repository is required.");
+  }
+  if (!auth || typeof auth.deleteUser !== "function" ||
+      typeof deleteUserTreePage !== "function" ||
+      typeof cleanupCommunity !== "function" ||
+      typeof cleanupProcessor !== "function") {
+    throw new TypeError("Injected destructive worker adapters are required.");
+  }
+
+  async function processDeletionOperation({ operationId, workerId }) {
+    let claim = await repository.claimDeletionWork({
+      operationId,
+      workerId,
+      leaseMillis,
+    });
+    let operation = claim.operation;
+    if (TERMINAL_PHASES.has(operation.phase)) {
+      return operationResult(operation);
+    }
+
+    const renew = async () => {
+      claim = await repository.renewDeletionLease({
+        operationId,
+        workerId,
+        operationVersion: operation.version,
+        leaseVersion: claim.leaseVersion,
+        leaseMillis,
+      });
+      operation = claim.operation;
+      return claim;
+    };
+    const checkpoint = async (change) => {
+      claim = await repository.checkpointDeletionWork({
+        operationId,
+        workerId,
+        operationVersion: operation.version,
+        leaseVersion: claim.leaseVersion,
+        ...change,
+      });
+      operation = claim.operation;
+      return operationResult(operation);
+    };
+
+    if (operation.phase === "userTreeDeleting") {
+      if (!claim.progress.userTreeComplete) {
+        await renew();
+        const page = await deleteUserTreePage({
+          uid: operation.sourceUid,
+          cursor: claim.progress.cursor,
+          limit: pageSize,
+          operationId,
+        });
+        if (!page || typeof page.done !== "boolean" ||
+            (!page.done && typeof page.nextCursor !== "string")) {
+          throw repositoryFailure("invalid-deletion-page");
+        }
+        return checkpoint({
+          progress: {
+            cursor: page.done ? null : page.nextCursor,
+            userTreeComplete: page.done,
+          },
+        });
+      }
+      if (operation.appleRevocationRequired) {
+        return checkpoint({ toPhase: "appleRevocationPending" });
+      }
+      await renew();
+      try {
+        await auth.deleteUser(operation.sourceUid);
+      } catch (error) {
+        if (error?.code !== "auth/user-not-found") throw error;
+      }
+      return checkpoint({ toPhase: "authDeleted" });
+    }
+
+    if (operation.phase === "authDeleted") {
+      return checkpoint({ toPhase: "communityCleanupPending" });
+    }
+
+    if (operation.phase === "appleRevocationPending") {
+      if (claim.progress.appleRevocationComplete) {
+        await renew();
+        try {
+          await auth.deleteUser(operation.sourceUid);
+        } catch (error) {
+          if (error?.code !== "auth/user-not-found") throw error;
+        }
+        return checkpoint({ toPhase: "authDeleted" });
+      }
+      return operationResult(operation);
+    }
+
+    if (operation.phase === "communityCleanupPending") {
+      await renew();
+      await cleanupCommunity({
+        uid: operation.sourceUid,
+        operationId,
+      });
+      return checkpoint({ toPhase: "processorCleanupPending" });
+    }
+
+    if (operation.phase === "processorCleanupPending") {
+      await renew();
+      await cleanupProcessor({
+        uid: operation.sourceUid,
+        operationId,
+      });
+      return checkpoint({ toPhase: "completed" });
+    }
+
+    return operationResult(operation);
+  }
+
+  return Object.freeze({ processDeletionOperation });
 }
 
 function authorizationHeader(request) {
@@ -602,9 +947,11 @@ function createAccountOperationRuntime({
   nowMillis = () => Date.now(),
   newDeletionProof = () => crypto.randomBytes(32).toString("base64url"),
   hashDeletionProof,
+  revokeAppleAuthorizationCode,
   makeError,
 } = {}) {
-  if (!auth || typeof auth.verifyIdToken !== "function") {
+  if (!auth || typeof auth.verifyIdToken !== "function" ||
+      typeof auth.deleteUser !== "function") {
     throw new TypeError("A Firebase Auth verifier is required.");
   }
   if (!repository ||
@@ -612,12 +959,16 @@ function createAccountOperationRuntime({
       typeof repository.createOrReuseReplacement !== "function" ||
       typeof repository.createOrReuseDeletion !== "function" ||
       typeof repository.issueDeletionProof !== "function" ||
+      typeof repository.claimDeletionWork !== "function" ||
+      typeof repository.renewDeletionLease !== "function" ||
+      typeof repository.checkpointDeletionWork !== "function" ||
       typeof repository.transition !== "function" ||
       typeof repository.get !== "function") {
     throw new TypeError("An account-operation repository is required.");
   }
   if (typeof newDeletionProof !== "function" ||
-      typeof hashDeletionProof !== "function") {
+      typeof hashDeletionProof !== "function" ||
+      typeof revokeAppleAuthorizationCode !== "function") {
     throw new TypeError("Deletion-proof crypto adapters are required.");
   }
   if (typeof makeError !== "function") {
@@ -800,6 +1151,110 @@ function createAccountOperationRuntime({
       };
     }),
 
+    completeAppleRevocation: (request) => execute(async () => {
+      const identity = await authenticate(request, "connected");
+      const data = request.data || {};
+      const operationId = requiredOperationId(data.operationId);
+      const expectedVersion =
+        requiredExpectedVersion(data.expectedVersion);
+      const authorizationCode = requiredString(
+        data.authorizationCode,
+        "apple-authorization-code-required",
+      );
+      const visible = await repository.get({
+        operationId,
+        actorUid: identity.uid,
+      });
+      if (visible.kind !== "deletion" ||
+          visible.appleRevocationRequired !== true) {
+        throw repositoryFailure("invalid-operation");
+      }
+      if ([
+        "authDeleted",
+        "communityCleanupPending",
+        "processorCleanupPending",
+        "completed",
+      ].includes(visible.phase)) {
+        return operationResult(visible);
+      }
+      if (visible.phase !== "appleRevocationPending" ||
+          visible.version !== expectedVersion) {
+        throw repositoryFailure("stale-operation-version");
+      }
+
+      const workerId = stableKey(
+        "apple-revocation-worker",
+        operationId,
+        identity.uid,
+      );
+      let claim = await repository.claimDeletionWork({
+        operationId,
+        workerId,
+        leaseMillis: DEFAULT_WORKER_LEASE_MILLIS,
+      });
+      let operation = claim.operation;
+      if (operation.version !== expectedVersion ||
+          operation.phase !== "appleRevocationPending") {
+        throw repositoryFailure("stale-operation-version");
+      }
+      const renew = async () => {
+        claim = await repository.renewDeletionLease({
+          operationId,
+          workerId,
+          operationVersion: operation.version,
+          leaseVersion: claim.leaseVersion,
+          leaseMillis: DEFAULT_WORKER_LEASE_MILLIS,
+        });
+        operation = claim.operation;
+      };
+      const checkpoint = async (change) => {
+        claim = await repository.checkpointDeletionWork({
+          operationId,
+          workerId,
+          operationVersion: operation.version,
+          leaseVersion: claim.leaseVersion,
+          ...change,
+        });
+        operation = claim.operation;
+      };
+
+      if (!claim.progress.appleRevocationComplete) {
+        await renew();
+        try {
+          await revokeAppleAuthorizationCode({
+            authorizationCode,
+            uid: identity.uid,
+          });
+        } catch {
+          await checkpoint({
+            progress: { statusCode: "apple-revocation-retryable" },
+          });
+          throw repositoryFailure("apple-revocation-pending");
+        }
+        await checkpoint({
+          progress: {
+            appleRevocationComplete: true,
+            statusCode: null,
+          },
+        });
+        claim = await repository.claimDeletionWork({
+          operationId,
+          workerId,
+          leaseMillis: DEFAULT_WORKER_LEASE_MILLIS,
+        });
+        operation = claim.operation;
+      }
+
+      await renew();
+      try {
+        await auth.deleteUser(identity.uid);
+      } catch (error) {
+        if (error?.code !== "auth/user-not-found") throw error;
+      }
+      await checkpoint({ toPhase: "authDeleted" });
+      return operationResult(operation);
+    }),
+
     getAccountOperation: (request) => execute(async () => {
       const identity = await authenticate(request);
       const data = request.data || {};
@@ -971,8 +1426,10 @@ module.exports = {
   PUBLIC_ENDPOINT_OPTIONS,
   createAccountOperationCallables,
   createAccountOperationRuntime,
+  createDeletionWorkerRuntime,
   createDeletionProofHttpEndpoint,
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
+  legacyAccountTombstoneCleanupAction,
 };
