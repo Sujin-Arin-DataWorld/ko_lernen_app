@@ -70,13 +70,9 @@ const {
   weeklyRolloverKey,
 } = require("./lifecycle");
 const {
-  buildDeletionCleanupTargetClaim,
   cleanupGyeForDeletedUser,
-  deletionCleanupTargetClaimMatches,
-  mergeDeletionCleanupGyeIds,
   orphanGyeCleanupUserIds,
   processNotificationDocuments,
-  runDeletedUserCleanupRuntime,
   stageNotificationOutboxWrites,
 } = require("./runtime");
 const {
@@ -96,6 +92,10 @@ const {
   createGapicCollectionIdPager,
   createGapicDocumentPager,
 } = require("./deletion_adapters");
+const {
+  createDeletionCleanupAdapters,
+  createLegacyUserDeletionCleanupHandler,
+} = require("./deletion_cleanup_adapters");
 
 admin.initializeApp();
 const db = admin.firestore();
@@ -155,11 +155,6 @@ exports.requestDeletionByProof = createDeletionProofHttpEndpoint({
   },
 });
 
-const destructiveAdapterUnavailable = async () => {
-  const error = new Error("destructive-adapter-unavailable");
-  error.code = "failed-precondition";
-  throw error;
-};
 const accountDeletionPageSize = 20;
 const firestoreCollectionIdClient = new FirestoreClient();
 const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
@@ -175,12 +170,30 @@ const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
   }),
   pageSize: accountDeletionPageSize,
 });
+const deletionCleanupAdapters = createDeletionCleanupAdapters({
+  firestore: db,
+  fieldValue: admin.firestore.FieldValue,
+  documentIdFieldPath: admin.firestore.FieldPath.documentId(),
+  cleanupGyeForDeletedUser,
+  anonymizeGyeIdentity,
+  reconcileMembershipAfterDeletion,
+  cleanupOrphanedGyeTree,
+  notificationOutboxBelongsToUid,
+  commitDocumentChunks,
+  pageSize: accountDeletionPageSize,
+});
+const legacyUserDeletionCleanupHandler =
+  createLegacyUserDeletionCleanupHandler({
+    firestore: db,
+    fieldValue: admin.firestore.FieldValue,
+    cleanupAdapters: deletionCleanupAdapters,
+  });
 const accountDeletionWorkerRuntime = createDeletionWorkerRuntime({
   repository: accountOperationRepository,
   auth: admin.auth(),
   deleteUserTreePage: firestoreDeletionAdapters.deleteUserTreePage,
-  cleanupCommunity: destructiveAdapterUnavailable,
-  cleanupProcessor: destructiveAdapterUnavailable,
+  cleanupCommunity: deletionCleanupAdapters.cleanupCommunity,
+  cleanupProcessor: deletionCleanupAdapters.cleanupProcessor,
   pageSize: accountDeletionPageSize,
 });
 exports.account_deletion_worker = onSchedule(
@@ -762,183 +775,9 @@ exports.on_user_deleted = onDocumentDeleted(
     retry: true,
   },
   async (event) => {
-    const uid = event.params.uid;
-    const before = event.data?.data() || {};
-    const accountMarkerRef = db.collection("account_deletions").doc(uid);
-    const accountMarker = await accountMarkerRef.get();
-    if (accountMarker.exists &&
-        (accountMarker.data() || {}).serverOwned === true) {
-      return;
-    }
-    if (accountMarker.exists &&
-        (accountMarker.data() || {}).cleanupComplete === true) {
-      return;
-    }
-    const retainedCleanupGyeIds = accountMarker.exists
-      ? (accountMarker.data() || {}).cleanupGyeIds
-      : [];
-    const gyeIds = new Set(
-      mergeDeletionCleanupGyeIds(
-        retainedCleanupGyeIds,
-        Array.isArray(before.gyeIds) ? before.gyeIds : [],
-      ),
-    );
-
-    // New member documents carry uid for a collection-group safety net. The
-    // pre-delete gyeIds list remains the migration fallback for legacy docs.
-    const membershipSnapshot = await db
-      .collectionGroup("members")
-      .where("uid", "==", uid)
-      .get();
-    membershipSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) gyeIds.add(gyeRef.id);
-    });
-    const departureSnapshot = await db
-      .collectionGroup("departures")
-      .where("uid", "==", uid)
-      .get();
-    const departureNicknames = new Map();
-    departureSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) {
-        gyeIds.add(gyeRef.id);
-        departureNicknames.set(gyeRef.id, (doc.data() || {}).nickname || "");
-      }
-    });
-    const banSnapshot = await db
-      .collectionGroup("bans")
-      .where("uid", "==", uid)
-      .get();
-    banSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) gyeIds.add(gyeRef.id);
-    });
-    const processedPacksSnapshot = await db
-      .collectionGroup("processed_packs")
-      .where("uid", "==", uid)
-      .get();
-    processedPacksSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) gyeIds.add(gyeRef.id);
-    });
-    const notificationOutboxSnapshot = await db
-      .collectionGroup("notification_outbox")
-      .where("uid", "==", uid)
-      .get();
-    notificationOutboxSnapshot.docs
-      .filter((doc) =>
-        notificationOutboxBelongsToUid(doc.data() || {}, uid))
-      .forEach((doc) => {
-        const gyeRef = doc.ref.parent.parent;
-        if (gyeRef) gyeIds.add(gyeRef.id);
-      });
-
-    const cleanupClaim = await db.runTransaction(async (transaction) => {
-      const currentMarker = await transaction.get(accountMarkerRef);
-      const currentData = currentMarker.exists
-        ? currentMarker.data() || {}
-        : {};
-      if (currentData.cleanupComplete === true) return null;
-      const claim = buildDeletionCleanupTargetClaim({
-        retainedGyeIds: currentData.cleanupGyeIds,
-        discoveredGyeIds: Array.from(gyeIds),
-        currentRevision: currentData.cleanupRevision,
-      });
-      if (currentMarker.exists) {
-        transaction.update(accountMarkerRef, {
-          cleanupGyeIds: claim.gyeIds,
-          cleanupRevision: claim.revision,
-        });
-      } else {
-        transaction.set(accountMarkerRef, {
-          state: "active",
-          createdAt: admin.firestore.FieldValue.serverTimestamp(),
-          cleanupGyeIds: claim.gyeIds,
-          cleanupRevision: claim.revision,
-        });
-      }
-      return claim;
-    });
-    if (!cleanupClaim) return;
-    gyeIds.clear();
-    cleanupClaim.gyeIds.forEach((gyeId) => gyeIds.add(gyeId));
-
-    await runDeletedUserCleanupRuntime({
-      cleanupGyes: async () => {
-        for (const gyeId of Array.from(gyeIds).sort()) {
-          const gref = db.collection("gye").doc(gyeId);
-          const member = await gref
-            .collection("members")
-            .doc(uid)
-            .get();
-          const nickname = (member.data() || {}).nickname ||
-            departureNicknames.get(gyeId) || "";
-          await cleanupGyeForDeletedUser({
-            anonymizeIdentity: () =>
-              anonymizeGyeIdentity(gyeId, uid, nickname),
-            reconcileMembership: () =>
-              reconcileMembershipAfterDeletion(gyeId, uid),
-            cleanupOrphanTree: () =>
-              cleanupOrphanedGyeTree(gref, gyeId),
-          });
-          // Suspension tombstones are durable while an account exists. Once
-          // the account is gone, retaining its UID would be unnecessary PII.
-          await gref
-            .collection("bans")
-            .doc(uid)
-            .delete();
-          await gref
-            .collection("departures")
-            .doc(uid)
-            .delete();
-        }
-      },
-      cleanupSharedPacks: async () => {
-        const sharedPacks = await db
-          .collection("shared_packs")
-          .where("createdBy", "==", uid)
-          .get();
-        await commitDocumentChunks(sharedPacks.docs, (batch, doc) => {
-          batch.delete(doc.ref);
-        });
-      },
-      cleanupProcessedPacks: async () => {
-        await commitDocumentChunks(
-          processedPacksSnapshot.docs,
-          (batch, doc) => batch.delete(doc.ref),
-        );
-      },
-      cleanupNotificationOutboxes: async () => {
-        await commitDocumentChunks(
-          notificationOutboxSnapshot.docs.filter((doc) =>
-            notificationOutboxBelongsToUid(doc.data() || {}, uid)),
-          (batch, doc) => batch.delete(doc.ref),
-        );
-      },
-      markCleanupComplete: async () => {
-        await db.runTransaction(async (transaction) => {
-          const marker = await transaction.get(accountMarkerRef);
-          if (!marker.exists ||
-              !deletionCleanupTargetClaimMatches(
-                marker.data() || {},
-                cleanupClaim,
-              )) {
-            throw new Error(
-              "Account cleanup targets changed before completion.",
-            );
-          }
-          const receipt = {
-            cleanupComplete: true,
-            cleanupCompletedAt:
-              admin.firestore.FieldValue.serverTimestamp(),
-            authMissingSince: admin.firestore.FieldValue.delete(),
-            cleanupGyeIds: admin.firestore.FieldValue.delete(),
-            cleanupRevision: admin.firestore.FieldValue.delete(),
-          };
-          transaction.update(accountMarkerRef, receipt);
-        });
-      },
+    await legacyUserDeletionCleanupHandler({
+      uid: event.params.uid,
+      before: event.data?.data() || {},
     });
   },
 );
