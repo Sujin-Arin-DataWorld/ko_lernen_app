@@ -1655,6 +1655,129 @@ async () => {
   );
 });
 
+test("server deletion takeover clears a legacy completion receipt before " +
+    "community cleanup", async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  harness.firestore.documents.set("account_deletions/durable-target", {
+    state: "complete",
+    cleanupComplete: true,
+    cleanupCompletedAt: "legacy-server-time",
+    cleanupGyeIds: ["legacy-gye"],
+    cleanupRevision: 7,
+    retainedLegacyAudit: "keep",
+  });
+
+  await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "takeover-worker",
+    leaseMillis: 60_000,
+  });
+
+  const takenOver = harness.firestore.documents.get(
+    "account_deletions/durable-target",
+  );
+  assert.equal(takenOver.serverOwned, true);
+  assert.equal(takenOver.operationId, requested.operationId);
+  assert.equal(takenOver.cleanupComplete, false);
+  assert.deepEqual(takenOver.cleanupGyeIds, ["legacy-gye"]);
+  assert.equal(takenOver.retainedLegacyAudit, "keep");
+
+  harness.clock.now += 60_001;
+  let cleanupReceipt;
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {
+      cleanupReceipt = harness.firestore.documents.get(
+        "account_deletions/durable-target",
+      ).cleanupComplete;
+    },
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+
+  await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "processorCleanupPending",
+  );
+
+  assert.equal(cleanupReceipt, false);
+});
+
+test("source replacement takeover also clears a legacy completion receipt",
+async () => {
+  const harness = createHarness();
+  const prepared = await prepareReplacement(harness.handlers);
+  let operation = prepared;
+  for (const name of [
+    "attachReplacementTarget",
+    "commitReplacementReconciliation",
+    "startSourceCleanup",
+  ]) {
+    operation = await harness.handlers[name](callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: operation.version,
+    }));
+  }
+  harness.firestore.documents.set("account_deletions/anonymous-source", {
+    state: "complete",
+    cleanupComplete: true,
+    cleanupGyeIds: ["legacy-gye"],
+    cleanupRevision: 3,
+  });
+
+  await harness.repository.claimDeletionWork({
+    operationId: prepared.operationId,
+    workerId: "replacement-takeover-worker",
+    leaseMillis: 60_000,
+  });
+
+  const takenOver = harness.firestore.documents.get(
+    "account_deletions/anonymous-source",
+  );
+  assert.equal(operation.phase, "sourceCleanupPending");
+  assert.equal(takenOver.serverOwned, true);
+  assert.equal(takenOver.operationId, prepared.operationId);
+  assert.equal(takenOver.cleanupComplete, false);
+  assert.deepEqual(takenOver.cleanupGyeIds, ["legacy-gye"]);
+});
+
+test("an active server-owned operation retains its own cleanup receipt on " +
+    "lease recovery", async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "first-worker",
+    leaseMillis: 60_000,
+  });
+  const markerPath = "account_deletions/durable-target";
+  const activeMarker = harness.firestore.documents.get(markerPath);
+  harness.firestore.documents.set(markerPath, {
+    ...activeMarker,
+    cleanupComplete: true,
+    cleanupGyeIds: ["already-cleaned"],
+    cleanupRevision: 9,
+  });
+  harness.clock.now += 60_001;
+
+  await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "recovery-worker",
+    leaseMillis: 60_000,
+  });
+
+  const recovered = harness.firestore.documents.get(markerPath);
+  assert.equal(recovered.serverOwned, true);
+  assert.equal(recovered.operationId, requested.operationId);
+  assert.equal(recovered.cleanupComplete, true);
+  assert.deepEqual(recovered.cleanupGyeIds, ["already-cleaned"]);
+  assert.equal(recovered.cleanupRevision, 9);
+});
+
 test("rejects a second active claim even when it repeats the same worker ID",
 async () => {
   const harness = createHarness();

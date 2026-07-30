@@ -896,15 +896,28 @@ function createFirestoreAccountOperationRepository({
         },
       };
       const markerSnapshot = await transaction.get(markerRef);
+      const markerData = markerSnapshot.exists
+        ? markerSnapshot.data() || {}
+        : {};
+      const retainsServerCleanupReceipt =
+        markerData.serverOwned === true &&
+        markerData.operationId === operationId;
       transaction.set(operationRef, updated);
       transaction.set(markerRef, {
-        ...(markerSnapshot.exists ? markerSnapshot.data() || {} : {}),
+        ...markerData,
         state: "active",
         serverOwned: true,
         operationId,
         sourceUid: operation.sourceUid,
+        // A completed legacy cleanup is only a receipt for its legacy
+        // trigger. A newly leased server operation must run its own
+        // idempotent community cleanup; a reclaimed lease for the same
+        // server operation keeps its established receipt.
+        cleanupComplete: retainsServerCleanupReceipt
+          ? markerData.cleanupComplete === true
+          : false,
         createdAtMillis:
-          (markerSnapshot.data() || {}).createdAtMillis || currentTime,
+          markerData.createdAtMillis || currentTime,
         updatedAtMillis: currentTime,
       });
       return { ...workerResult(updated), leaseAcquired: true };
