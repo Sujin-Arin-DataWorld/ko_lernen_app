@@ -429,12 +429,57 @@ class BookshelfService {
   }
 
   static Future<bool> restoreRemote(String uid) async {
-    final db = _db;
-    if (db == null) return false;
-    return restoreRemoteWithRepository(
+    final expectedSession = CloudWriteFence(
+      cloudWriteSessionController,
+    ).readySnapshot(uid);
+    if (expectedSession == null) return false;
+    final result = await restoreRemoteForSession(
       uid: uid,
-      repository: _FirestoreBookshelfGenerationRepository(db),
+      expectedSession: expectedSession,
+      sessions: cloudWriteSessionController,
     );
+    return result == CloudWriteResult.completed;
+  }
+
+  static Future<CloudWriteResult> restoreRemoteForSession({
+    required String uid,
+    required CloudWriteSession expectedSession,
+    required CloudWriteSessionController sessions,
+    BookshelfGenerationRepository? repository,
+  }) async {
+    final db = _db;
+    final selectedRepository =
+        repository ??
+        (db == null ? null : _FirestoreBookshelfGenerationRepository(db));
+    if (selectedRepository == null) return CloudWriteResult.blocked;
+    final fence = CloudWriteFence(sessions);
+    final initial = fence.verify(expectedSession, uid: uid);
+    if (initial != CloudWriteResult.completed) return initial;
+    try {
+      final snapshot = await readRemoteWithRepository(
+        uid: uid,
+        repository: selectedRepository,
+      );
+      final afterRead = fence.verify(expectedSession, uid: uid);
+      if (afterRead != CloudWriteResult.completed) return afterRead;
+      final local = Map<String, dynamic>.from(_readRaw());
+      for (final id in snapshot.tombstoneIds) {
+        local.remove(id);
+      }
+      for (final entry in snapshot.entries.entries) {
+        local.putIfAbsent(
+          entry.key,
+          () => BookPage.fromPortableJson(entry.key, entry.value).toLocalJson(),
+        );
+      }
+      sessions.assertCurrent(expectedSession);
+      await _writeRawStrict(local);
+      return fence.verify(expectedSession, uid: uid);
+    } on StateError {
+      final current = fence.verify(expectedSession, uid: uid);
+      if (current != CloudWriteResult.completed) return current;
+      rethrow;
+    }
   }
 
   static Future<bool> restoreRemoteWithRepository({

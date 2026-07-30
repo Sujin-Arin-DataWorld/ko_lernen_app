@@ -29,6 +29,14 @@ const CALLABLE_OPTIONS = Object.freeze({
   enforceAppCheck: true,
   consumeAppCheckToken: true,
 });
+const ACTIONABLE_DELETION_PHASES = Object.freeze([
+  "sourceCleanupPending",
+  "deletionRequested",
+  "userTreeDeleting",
+  "authDeleted",
+  "communityCleanupPending",
+  "processorCleanupPending",
+]);
 const TERMINAL_PHASES = new Set(["completed", "blocked", "cancelled"]);
 const AUTH_MAX_AGE_SECONDS = 300;
 const ANONYMOUS_RATE_WINDOW_MILLIS = 300_000;
@@ -49,6 +57,36 @@ const GENERIC_PUBLIC_RESULT = Object.freeze({
 });
 const DEFAULT_WORKER_LEASE_MILLIS = 60_000;
 const DEFAULT_DELETE_PAGE_SIZE = 200;
+
+async function fetchActionableDeletionCandidates({
+  collection,
+  limit = 50,
+} = {}) {
+  if (!collection || typeof collection.where !== "function") {
+    throw new TypeError("Account operation collection is required.");
+  }
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new TypeError("Candidate limit must be a positive integer.");
+  }
+  const [phaseSnapshot, completedAppleSnapshot] = await Promise.all([
+    collection
+      .where("phase", "in", ACTIONABLE_DELETION_PHASES)
+      .limit(limit)
+      .get(),
+    collection
+      .where("phase", "==", "appleRevocationPending")
+      .where("deletionProgress.appleRevocationComplete", "==", true)
+      .limit(limit)
+      .get(),
+  ]);
+  const phaseDocs = Array.isArray(phaseSnapshot?.docs)
+    ? phaseSnapshot.docs
+    : [];
+  const completedAppleDocs = Array.isArray(completedAppleSnapshot?.docs)
+    ? completedAppleSnapshot.docs
+    : [];
+  return [...phaseDocs, ...completedAppleDocs];
+}
 
 class BoundaryFailure extends Error {
   constructor(status, safeCode) {
@@ -191,6 +229,9 @@ function createFirestoreAccountOperationRepository({
         ? progress.cursor
         : null,
       userTreeComplete: progress?.userTreeComplete === true,
+      authComplete: progress?.authComplete === true,
+      communityComplete: progress?.communityComplete === true,
+      processorComplete: progress?.processorComplete === true,
       appleRevocationComplete:
         progress?.appleRevocationComplete === true,
       statusCode: typeof progress?.statusCode === "string"
@@ -631,7 +672,10 @@ function createFirestoreAccountOperationRepository({
       }
       const stored = snapshot.data() || {};
       let operation = normalizeOperation(stored);
-      if (operation.kind !== "deletion") {
+      const isReplacementCleanup =
+        operation.kind === "replacement" &&
+        operation.phase === "sourceCleanupPending";
+      if (operation.kind !== "deletion" && !isReplacementCleanup) {
         throw repositoryFailure("invalid-operation");
       }
       const markerRef = deletionMarkers.doc(operation.sourceUid);
@@ -888,6 +932,55 @@ function createDeletionWorkerRuntime({
       operation = claim.operation;
       return operationResult(operation);
     };
+
+    if (operation.kind === "replacement" &&
+        operation.phase === "sourceCleanupPending") {
+      if (!claim.progress.userTreeComplete) {
+        await renew();
+        const page = await deleteUserTreePage({
+          uid: operation.sourceUid,
+          cursor: claim.progress.cursor,
+          limit: pageSize,
+          operationId,
+        });
+        if (!page || typeof page.done !== "boolean" ||
+            (!page.done && typeof page.nextCursor !== "string")) {
+          throw repositoryFailure("invalid-deletion-page");
+        }
+        return checkpoint({
+          progress: {
+            cursor: page.done ? null : page.nextCursor,
+            userTreeComplete: page.done,
+          },
+        });
+      }
+      if (!claim.progress.authComplete) {
+        await renew();
+        try {
+          await auth.deleteUser(operation.sourceUid);
+        } catch (error) {
+          if (error?.code !== "auth/user-not-found") throw error;
+        }
+        return checkpoint({ progress: { authComplete: true } });
+      }
+      if (!claim.progress.communityComplete) {
+        await renew();
+        await cleanupCommunity({
+          uid: operation.sourceUid,
+          operationId,
+        });
+        return checkpoint({ progress: { communityComplete: true } });
+      }
+      await renew();
+      await cleanupProcessor({
+        uid: operation.sourceUid,
+        operationId,
+      });
+      return checkpoint({
+        progress: { processorComplete: true },
+        toPhase: "completed",
+      });
+    }
 
     if (operation.phase === "userTreeDeleting") {
       if (!claim.progress.userTreeComplete) {
@@ -1502,6 +1595,7 @@ function createAccountOperationCallables({
 }
 
 module.exports = {
+  ACTIONABLE_DELETION_PHASES,
   CALLABLE_NAMES,
   CALLABLE_OPTIONS,
   FIRST_PARTY_ORIGIN,
@@ -1513,5 +1607,6 @@ module.exports = {
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
+  fetchActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
 };

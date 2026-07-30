@@ -86,6 +86,7 @@ const {
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
+  fetchActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
 } = require("./account_operations_runtime");
 
@@ -166,19 +167,11 @@ exports.account_deletion_worker = onSchedule(
     retryCount: 3,
   },
   async () => {
-    const candidates = await db
-      .collection("account_operations")
-      .where("phase", "in", [
-        "deletionRequested",
-        "userTreeDeleting",
-        "appleRevocationPending",
-        "authDeleted",
-        "communityCleanupPending",
-        "processorCleanupPending",
-      ])
-      .limit(50)
-      .get();
-    for (const candidate of candidates.docs) {
+    const candidates = await fetchActionableDeletionCandidates({
+      collection: db.collection("account_operations"),
+      limit: 50,
+    });
+    for (const candidate of candidates) {
       try {
         await accountDeletionWorkerRuntime.processDeletionOperation({
           operationId: candidate.id,

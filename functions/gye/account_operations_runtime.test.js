@@ -1544,6 +1544,61 @@ async () => {
   assert.deepEqual(calls, completedCalls);
 });
 
+test("server worker completes replacement source cleanup before target activation",
+async () => {
+  const harness = createHarness();
+  const prepared = await prepareReplacement(harness.handlers);
+  const attached = await harness.handlers.attachReplacementTarget(
+    callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: prepared.version,
+    }),
+  );
+  const reconciling =
+    await harness.handlers.commitReplacementReconciliation(
+      callableRequest("target", {
+        operationId: prepared.operationId,
+        expectedVersion: attached.version,
+      }),
+    );
+  const pending = await harness.handlers.startSourceCleanup(
+    callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: reconciling.version,
+    }),
+  );
+  const calls = [];
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser(uid) {
+        calls.push(`auth:${uid}`);
+      },
+    },
+    deleteUserTreePage: async ({ uid }) => {
+      calls.push(`tree:${uid}`);
+      return { done: true, nextCursor: null };
+    },
+    cleanupCommunity: async ({ uid }) => calls.push(`community:${uid}`),
+    cleanupProcessor: async ({ uid }) => calls.push(`processor:${uid}`),
+    nowMillis: () => harness.clock.now,
+  });
+
+  const completed = await runWorkerUntil(
+    worker,
+    pending.operationId,
+    "completed",
+  );
+
+  assert.equal(completed.kind, "replacement");
+  assert.deepEqual(calls, [
+    "tree:anonymous-source",
+    "auth:anonymous-source",
+    "community:anonymous-source",
+    "processor:anonymous-source",
+  ]);
+});
+
 test("treats Auth user-not-found as successful Auth deletion",
 async () => {
   const harness = createHarness();
@@ -1811,6 +1866,108 @@ test("never lets legacy tombstone cleanup abandon a server-owned marker",
       nowMillis: NOW_MILLIS,
     }),
     "retain",
+  );
+});
+
+test("scheduler candidates cannot be starved by more than fifty Apple waits",
+async () => {
+  const source = [
+    ...Array.from({ length: 51 }, (_, index) => ({
+      id: `apple-${index}`,
+      phase: "appleRevocationPending",
+    })),
+    { id: "actionable-deletion", phase: "deletionRequested" },
+  ];
+  let queriedPhases = [];
+  const valueAt = (candidate, field) => field
+    .split(".")
+    .reduce((value, part) => value?.[part], candidate);
+  const buildQuery = (conditions = []) => ({
+    where(field, operator, phases) {
+      if (operator === "in") queriedPhases = [...phases];
+      return buildQuery([
+        ...conditions,
+        { field, operator, value: phases },
+      ]);
+    },
+    limit(limit) {
+      return {
+        async get() {
+          return {
+            docs: source
+              .filter((candidate) => conditions.every((condition) => {
+                const actual = valueAt(candidate, condition.field);
+                return condition.operator === "in"
+                  ? condition.value.includes(actual)
+                  : actual === condition.value;
+              }))
+              .slice(0, limit),
+          };
+        },
+      };
+    },
+  });
+
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: buildQuery(),
+    limit: 50,
+  });
+
+  assert.equal(queriedPhases.includes("appleRevocationPending"), false);
+  assert.deepEqual(
+    candidates.map((candidate) => candidate.id),
+    ["actionable-deletion"],
+  );
+});
+
+test("scheduler includes completed Apple checkpoints but excludes incomplete waits",
+async () => {
+  const source = [
+    ...Array.from({ length: 51 }, (_, index) => ({
+      id: `incomplete-apple-${index}`,
+      phase: "appleRevocationPending",
+      deletionProgress: { appleRevocationComplete: false },
+    })),
+    {
+      id: "completed-apple-checkpoint",
+      phase: "appleRevocationPending",
+      deletionProgress: { appleRevocationComplete: true },
+    },
+    { id: "actionable-deletion", phase: "deletionRequested" },
+  ];
+  const valueAt = (candidate, field) => field
+    .split(".")
+    .reduce((value, part) => value?.[part], candidate);
+  const buildQuery = (conditions = []) => ({
+    where(field, operator, value) {
+      return buildQuery([...conditions, { field, operator, value }]);
+    },
+    limit(limit) {
+      return {
+        async get() {
+          return {
+            docs: source
+              .filter((candidate) => conditions.every((condition) => {
+                const actual = valueAt(candidate, condition.field);
+                return condition.operator === "in"
+                  ? condition.value.includes(actual)
+                  : actual === condition.value;
+              }))
+              .slice(0, limit),
+          };
+        },
+      };
+    },
+  });
+
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: buildQuery(),
+    limit: 50,
+  });
+
+  assert.deepEqual(
+    candidates.map((candidate) => candidate.id),
+    ["actionable-deletion", "completed-apple-checkpoint"],
   );
 });
 

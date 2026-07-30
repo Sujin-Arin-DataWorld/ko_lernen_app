@@ -1051,7 +1051,7 @@ class _PluginTemporaryFirebaseAuthContext
   _PluginTemporaryFirebaseAuthContext(this._app)
     : _auth = FirebaseAuth.instanceFor(app: _app),
       operationGateway = AccountOperationClient(
-        transport: FirebaseFunctionsAccountOperationTransport(
+        transport: FirebaseFunctionsAccountOperationTransport.fromFunctions(
           FirebaseFunctions.instanceFor(
             app: _app,
             region: AccountOperationClient.region,

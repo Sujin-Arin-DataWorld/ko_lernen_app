@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
+import 'account/cloud_read_result.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'bookshelf_service.dart';
@@ -586,12 +587,65 @@ class CloudSync {
   static Future<bool> restore() async {
     final uid = AuthService.cloudBackupUid;
     if (uid == null) return false;
-    final result = await CloudSyncService.readAccountDocument(uid: uid);
-    if (!result.isPresent || result.value == null) return false;
-    final accountData = Map<String, dynamic>.from(result.value!)
-      ..remove('bookshelf_json');
-    await applyRestorePayload(accountData);
-    return BookshelfService.restoreRemote(uid);
+    final result = await restoreWithSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      readAccount: () => CloudSyncService.readAccountDocument(uid: uid),
+      applyAccount: (data, beforeWrite) {
+        final accountData = Map<String, dynamic>.from(data)
+          ..remove('bookshelf_json');
+        return applyRestorePayload(accountData, beforeWrite: beforeWrite);
+      },
+      restoreBookshelf: (expectedSession) {
+        return BookshelfService.restoreRemoteForSession(
+          uid: uid,
+          expectedSession: expectedSession,
+          sessions: cloudWriteSessionController,
+        );
+      },
+    );
+    return result == CloudWriteResult.completed;
+  }
+
+  static Future<CloudWriteResult> restoreWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<CloudReadResult<Map<String, dynamic>>> Function()
+    readAccount,
+    required Future<void> Function(
+      Map<String, dynamic> data,
+      void Function() beforeWrite,
+    )
+    applyAccount,
+    required Future<CloudWriteResult> Function(
+      CloudWriteSession expectedSession,
+    )
+    restoreBookshelf,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final expectedSession = fence.readySnapshot(uid);
+    if (expectedSession == null) return CloudWriteResult.blocked;
+    try {
+      final remote = await readAccount();
+      final afterRead = fence.verify(expectedSession, uid: uid);
+      if (afterRead != CloudWriteResult.completed) return afterRead;
+      if (!remote.isPresent || remote.value == null) {
+        return CloudWriteResult.blocked;
+      }
+      await applyAccount(
+        remote.value!,
+        () => sessions.assertCurrent(expectedSession),
+      );
+      final afterAccount = fence.verify(expectedSession, uid: uid);
+      if (afterAccount != CloudWriteResult.completed) return afterAccount;
+      final bookshelf = await restoreBookshelf(expectedSession);
+      if (bookshelf != CloudWriteResult.completed) return bookshelf;
+      return fence.verify(expectedSession, uid: uid);
+    } on StateError {
+      final current = fence.verify(expectedSession, uid: uid);
+      if (current != CloudWriteResult.completed) return current;
+      rethrow;
+    }
   }
 
   /// Zeitstempel des letzten Cloud-Backups (zur Anzeige in Settings).

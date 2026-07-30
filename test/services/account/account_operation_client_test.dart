@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/firebase_app_check_initializer.dart';
@@ -42,6 +43,34 @@ void main() {
   });
 
   group('AccountOperationClient', () {
+    test('concrete transport requests a limited-use App Check token', () async {
+      String? callableName;
+      Map<String, Object?>? callableData;
+      HttpsCallableOptions? callableOptions;
+      final transport = FirebaseFunctionsAccountOperationTransport(({
+        required name,
+        required data,
+        required options,
+      }) async {
+        callableName = name;
+        callableData = data;
+        callableOptions = options;
+        return const <String, Object?>{'accepted': true};
+      });
+
+      final result = await transport.call(
+        const AccountOperationTransportCall(
+          name: 'getAccountOperation',
+          data: {'operationId': 'operation-1'},
+        ),
+      );
+
+      expect(callableName, 'getAccountOperation');
+      expect(callableData, {'operationId': 'operation-1'});
+      expect(callableOptions?.limitedUseAppCheckToken, isTrue);
+      expect(result, {'accepted': true});
+    });
+
     test('transport call equality has an order-independent hash', () {
       const first = AccountOperationTransportCall(
         name: 'getAccountOperation',

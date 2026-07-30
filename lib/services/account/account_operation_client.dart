@@ -402,6 +402,13 @@ abstract interface class AccountOperationTransport {
   Future<Object?> call(AccountOperationTransportCall call);
 }
 
+typedef FirebaseCallableInvoker =
+    Future<Object?> Function({
+      required String name,
+      required Map<String, Object?> data,
+      required HttpsCallableOptions options,
+    });
+
 @immutable
 class AccountOperationTransportException implements Exception {
   const AccountOperationTransportException({
@@ -420,23 +427,39 @@ class AccountOperationTransportException implements Exception {
 
 class FirebaseFunctionsAccountOperationTransport
     implements AccountOperationTransport {
-  FirebaseFunctionsAccountOperationTransport(this._functions);
+  FirebaseFunctionsAccountOperationTransport(this._invokeCallable);
 
   factory FirebaseFunctionsAccountOperationTransport.forRegion(String region) {
-    return FirebaseFunctionsAccountOperationTransport(
+    return FirebaseFunctionsAccountOperationTransport.fromFunctions(
       FirebaseFunctions.instanceFor(region: region),
     );
   }
 
-  final FirebaseFunctions _functions;
+  factory FirebaseFunctionsAccountOperationTransport.fromFunctions(
+    FirebaseFunctions functions,
+  ) {
+    return FirebaseFunctionsAccountOperationTransport(({
+      required name,
+      required data,
+      required options,
+    }) async {
+      final result = await functions
+          .httpsCallable(name, options: options)
+          .call<Object?>(data);
+      return result.data;
+    });
+  }
+
+  final FirebaseCallableInvoker _invokeCallable;
 
   @override
   Future<Object?> call(AccountOperationTransportCall call) async {
     try {
-      final result = await _functions
-          .httpsCallable(call.name)
-          .call<Object?>(call.data);
-      return result.data;
+      return await _invokeCallable(
+        name: call.name,
+        data: call.data,
+        options: HttpsCallableOptions(limitedUseAppCheckToken: true),
+      );
     } on FirebaseFunctionsException catch (error) {
       final details = error.details;
       final safeCode = details is Map && details['code'] is String

@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'custom_pack_service.dart';
 
@@ -62,19 +63,34 @@ class SharedPackService {
       for (var attempt = 0; attempt < 5; attempt++) {
         final code = _generateCode();
         final ref = col.doc(code);
-        final existing = await ref.get();
-        if (existing.exists) {
+        DocumentSnapshot<Map<String, dynamic>>? existing;
+        var published = false;
+        final result = await publishWithSession(
+          sessions: cloudWriteSessionController,
+          uid: uid,
+          prepare: () async {
+            existing = await ref.get();
+          },
+          write: () async {
+            if (existing!.exists) return;
+            await ref.set({
+              'schema': 1,
+              'name': pack.displayName(),
+              'words': words,
+              'wordCount': words.length,
+              'createdBy': uid,
+              'createdAt': FieldValue.serverTimestamp(),
+              'expiresAt': Timestamp.fromDate(DateTime.now().toUtc().add(_ttl)),
+            });
+            published = true;
+          },
+        );
+        if (result != CloudWriteResult.completed) {
+          throw const SharedPackException(SharedPackError.network);
+        }
+        if (!published) {
           continue;
         }
-        await ref.set({
-          'schema': 1,
-          'name': pack.displayName(),
-          'words': words,
-          'wordCount': words.length,
-          'createdBy': uid,
-          'createdAt': FieldValue.serverTimestamp(),
-          'expiresAt': Timestamp.fromDate(DateTime.now().toUtc().add(_ttl)),
-        });
         return code;
       }
     } catch (_) {
@@ -82,6 +98,17 @@ class SharedPackService {
     }
     // 5회 모두 충돌 (사실상 불가능).
     throw const SharedPackException(SharedPackError.network);
+  }
+
+  static Future<CloudWriteResult> publishWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<void> Function() prepare,
+    required Future<void> Function() write,
+  }) {
+    return CloudWriteFence(
+      sessions,
+    ).run(uid: uid, prepare: prepare, action: write);
   }
 
   /// 코드로 공유 팩을 가져와 로컬에 저장하고 [CustomPack] 반환.

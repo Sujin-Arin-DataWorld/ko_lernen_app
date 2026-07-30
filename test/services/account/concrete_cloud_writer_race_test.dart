@@ -4,13 +4,73 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/bookshelf_service.dart';
+import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/firestore_progress_service.dart';
 import 'package:ko_lernen_app/services/gye_service.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
+import 'package:ko_lernen_app/services/shared_pack_service.dart';
 
 void main() {
+  test(
+    'manual cloud restore cannot apply session-A data after A-to-B',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final loaded = Completer<CloudReadResult<Map<String, dynamic>>>();
+      var localWrites = 0;
+      var bookshelfRestores = 0;
+
+      final result = CloudSync.restoreWithSession(
+        sessions: sessions,
+        uid: 'uid-a',
+        readAccount: () => loaded.future,
+        applyAccount: (data, beforeWrite) async {
+          beforeWrite();
+          localWrites += 1;
+        },
+        restoreBookshelf: (expectedSession) async {
+          bookshelfRestores += 1;
+          return CloudWriteResult.completed;
+        },
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      loaded.complete(
+        const CloudReadResult.present(<String, dynamic>{
+          'progress': <String, dynamic>{'xp': 10},
+        }),
+      );
+
+      expect(await result, CloudWriteResult.stale);
+      expect(localWrites, 0);
+      expect(bookshelfRestores, 0);
+    },
+  );
+
+  test(
+    'shared-pack publish cannot write after its session goes stale',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final prepared = Completer<void>();
+      var writes = 0;
+
+      final result = SharedPackService.publishWithSession(
+        sessions: sessions,
+        uid: 'uid-a',
+        prepare: () => prepared.future,
+        write: () async => writes += 1,
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.transition(CloudWriteMode.quiesced);
+      prepared.complete();
+
+      expect(await result, CloudWriteResult.stale);
+      expect(writes, 0);
+    },
+  );
+
   test(
     'Firestore progress does not commit a prepared session-A save',
     () async {
