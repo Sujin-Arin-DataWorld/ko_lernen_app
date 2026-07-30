@@ -1093,6 +1093,264 @@ async () => {
   );
 });
 
+test("pending cloud-backup deletion fences every backup write but preserves FCM", async () => {
+  const normalUid = "backup-normal";
+  const pendingUid = "backup-pending";
+  const backupFields = [
+    "vok",
+    "chosung",
+    "wordle",
+    "grammar",
+    "app",
+    "progress",
+    "srs_json",
+    "custom_packs_json",
+    "bookshelf_json",
+    "updated_at",
+  ];
+  const genericRoots = ["quests", "bookshelf", "custom_packs", "custom_words"];
+
+  await seedUser(normalUid, []);
+  const normal = client(normalUid);
+  await assertSucceeds(setDoc(
+    doc(normal, "users", normalUid),
+    { progress: { rounds: 1 } },
+    { merge: true },
+  ));
+  await assertSucceeds(setDoc(
+    doc(normal, "users", normalUid, "packs", "a1_body"),
+    packData(),
+  ));
+  for (const root of genericRoots) {
+    await assertSucceeds(setDoc(
+      doc(normal, "users", normalUid, root, "normal"),
+      { normal: true },
+    ));
+  }
+  await assertSucceeds(setDoc(
+    doc(
+      normal,
+      "users",
+      normalUid,
+      "sync_generations",
+      "generation-one",
+      "bookshelf",
+      "record-one",
+    ),
+    bookshelfRecordData("record-one"),
+  ));
+  await assertSucceeds(setDoc(
+    doc(normal, "users", normalUid, "sync_metadata", "bookshelf_active"),
+    bookshelfManifestData("generation-one", 1, ["record-one"]),
+  ));
+  await assertSucceeds(setDoc(
+    doc(normal, "users", normalUid, "sync_metadata", "pack_progress"),
+    packMembershipData(1, ["a1_body"]),
+  ));
+
+  await seedUser(pendingUid, []);
+  await environment.withSecurityRulesDisabled(async (context) => {
+    const adminDb = context.firestore();
+    await setDoc(
+      doc(adminDb, "users", pendingUid, "packs", "a1_body"),
+      packData(),
+    );
+    for (const root of genericRoots) {
+      await setDoc(
+        doc(adminDb, "users", pendingUid, root, "existing"),
+        { seeded: true },
+      );
+    }
+    await setDoc(
+      doc(
+        adminDb,
+        "users",
+        pendingUid,
+        "sync_generations",
+        "generation-existing",
+        "bookshelf",
+        "record-existing",
+      ),
+      bookshelfRecordData("record-existing"),
+    );
+    await setDoc(
+      doc(
+        adminDb,
+        "users",
+        pendingUid,
+        "sync_metadata",
+        "bookshelf_active",
+      ),
+      bookshelfManifestData("generation-existing", 1, ["record-existing"]),
+    );
+    await setDoc(
+      doc(
+        adminDb,
+        "users",
+        pendingUid,
+        "sync_metadata",
+        "pack_progress",
+      ),
+      packMembershipData(1, ["a1_body"]),
+    );
+    await setDoc(
+      doc(adminDb, "cloud_backup_deletions", pendingUid),
+      {
+        uid: pendingUid,
+        requestDigest: "a".repeat(64),
+        state: { status: "pending" },
+      },
+    );
+  });
+
+  const pending = client(pendingUid);
+  for (const field of backupFields) {
+    await assertFails(setDoc(
+      doc(pending, "users", pendingUid),
+      { [field]: field == "updated_at" ? serverTimestamp() : { blocked: true } },
+      { merge: true },
+    ));
+  }
+  await assertSucceeds(setDoc(
+    doc(pending, "users", pendingUid),
+    { fcmTokens: ["still-operational"] },
+    { merge: true },
+  ));
+
+  await assertFails(setDoc(
+    doc(pending, "users", pendingUid, "packs", "a1_body"),
+    packData({ attempts: 2 }),
+    { merge: true },
+  ));
+  await assertFails(setDoc(
+    doc(pending, "users", pendingUid, "packs", "a1_colors"),
+    packData(),
+  ));
+  for (const root of genericRoots) {
+    await assertFails(setDoc(
+      doc(pending, "users", pendingUid, root, "existing"),
+      { client: "update" },
+      { merge: true },
+    ));
+  }
+  await assertFails(setDoc(
+    doc(
+      pending,
+      "users",
+      pendingUid,
+      "sync_generations",
+      "generation-recreated",
+      "bookshelf",
+      "record-recreated",
+    ),
+    bookshelfRecordData("record-recreated"),
+  ));
+  await assertFails(setDoc(
+    doc(
+      pending,
+      "users",
+      pendingUid,
+      "sync_metadata",
+      "bookshelf_active",
+    ),
+    bookshelfManifestData("generation-next", 2, ["record-existing"]),
+  ));
+  await assertFails(setDoc(
+    doc(
+      pending,
+      "users",
+      pendingUid,
+      "sync_metadata",
+      "pack_progress",
+    ),
+    packMembershipData(2, ["a1_body"]),
+  ));
+
+  // Simulate the worker having just removed records: clients still cannot
+  // recreate any backup payload while the authoritative marker is pending.
+  await environment.withSecurityRulesDisabled(async (context) => {
+    const adminDb = context.firestore();
+    await deleteDoc(
+      doc(adminDb, "users", pendingUid, "packs", "a1_body"),
+    );
+    for (const root of genericRoots) {
+      await deleteDoc(doc(adminDb, "users", pendingUid, root, "existing"));
+    }
+    await deleteDoc(
+      doc(
+        adminDb,
+        "users",
+        pendingUid,
+        "sync_generations",
+        "generation-existing",
+        "bookshelf",
+        "record-existing",
+      ),
+    );
+    await deleteDoc(
+      doc(
+        adminDb,
+        "users",
+        pendingUid,
+        "sync_metadata",
+        "bookshelf_active",
+      ),
+    );
+    await deleteDoc(
+      doc(
+        adminDb,
+        "users",
+        pendingUid,
+        "sync_metadata",
+        "pack_progress",
+      ),
+    );
+  });
+
+  await assertFails(setDoc(
+    doc(pending, "users", pendingUid, "packs", "a1_body"),
+    packData(),
+  ));
+  for (const root of genericRoots) {
+    await assertFails(setDoc(
+      doc(pending, "users", pendingUid, root, "existing"),
+      { client: "recreate" },
+    ));
+  }
+  await assertFails(setDoc(
+    doc(
+      pending,
+      "users",
+      pendingUid,
+      "sync_generations",
+      "generation-existing",
+      "bookshelf",
+      "record-existing",
+    ),
+    bookshelfRecordData("record-existing"),
+  ));
+  await assertFails(setDoc(
+    doc(
+      pending,
+      "users",
+      pendingUid,
+      "sync_metadata",
+      "bookshelf_active",
+    ),
+    bookshelfManifestData("generation-recreated", 1, ["record-existing"]),
+  ));
+  await assertFails(setDoc(
+    doc(
+      pending,
+      "users",
+      pendingUid,
+      "sync_metadata",
+      "pack_progress",
+    ),
+    packMembershipData(1, ["a1_body"]),
+  ));
+});
+
 test("owners can get only their own operation status and cannot write it",
 async () => {
   await environment.withSecurityRulesDisabled(async (context) => {

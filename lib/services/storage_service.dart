@@ -139,6 +139,15 @@ class PreferenceResetException implements Exception {
   String toString() => 'Preference reset failed for ${failedKeys.join(', ')}.';
 }
 
+/// A local reset must never erase the durable retry key for a server-owned
+/// cloud backup deletion.
+class CloudBackupDeletionResetBlockedException implements Exception {
+  const CloudBackupDeletionResetBlockedException();
+
+  @override
+  String toString() => 'Cloud backup deletion is still pending.';
+}
+
 class RecoveredWordClaim {
   const RecoveredWordClaim({
     required this.record,
@@ -232,6 +241,8 @@ class SrsCard {
 class Storage {
   static const accountDeletionCheckpointPreferenceKey =
       'kl_account_deletion_journal_v1';
+  static const cloudBackupDeletionJournalPreferenceKey =
+      'kl_cloud_backup_deletion_journal_v1';
   static const String _pickerRecoveryMarkerKey = 'kl_picker_recovery_marker_v1';
   static const String _cropRecoveryMarkerKey = 'kl_crop_recovery_marker_v1';
   static const String _recoveredBookLeaseKey = 'kl_recovered_book_lease';
@@ -1723,9 +1734,14 @@ class Storage {
 
   // ───────── Reset ─────────
   static Future<void> resetAll() async {
-    final keys = _prefs?.getKeys() ?? <String>{};
+    final preferences = _prefs;
+    if (preferences == null) return;
+    await _assertCloudBackupDeletionResetAllowed(
+      _SharedPreferenceRemovalStore(preferences),
+    );
+    final keys = preferences.getKeys();
     for (final k in keys) {
-      if (k.startsWith('kl_')) await _prefs?.remove(k);
+      if (k.startsWith('kl_')) await preferences.remove(k);
     }
     _srsCache = null;
     _packCache = null;
@@ -1738,6 +1754,7 @@ class Storage {
     canonicalizeAccountDeletionCheckpoint,
   }) async {
     final store = preferences ?? _preferenceRemovalStore();
+    await _assertCloudBackupDeletionResetAllowed(store);
     final failedKeys = <String>[];
     final causes = <Object>[];
     String? canonicalCheckpoint;
@@ -1810,6 +1827,21 @@ class Storage {
       throw StateError('Storage has not been initialized.');
     }
     return _SharedPreferenceRemovalStore(preferences);
+  }
+
+  static Future<void> _assertCloudBackupDeletionResetAllowed(
+    PreferenceRemovalStore store,
+  ) async {
+    try {
+      await store.reload();
+    } catch (_) {
+      // A stale preference cache must fail closed rather than risk deleting a
+      // journal created immediately before this reset call.
+      throw const CloudBackupDeletionResetBlockedException();
+    }
+    if (store.containsKey(cloudBackupDeletionJournalPreferenceKey)) {
+      throw const CloudBackupDeletionResetBlockedException();
+    }
   }
 
   static Future<void> resetSession() async {

@@ -5,6 +5,7 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../storage_service.dart';
 import 'cloud_write_session.dart';
 
 enum CloudBackupDeletionRemoteState { completed, pending }
@@ -79,7 +80,7 @@ class CloudBackupDeletionJournal {
   });
 
   static const currentVersion = 1;
-  static const storageKey = 'kl_cloud_backup_deletion_journal_v1';
+  static const storageKey = Storage.cloudBackupDeletionJournalPreferenceKey;
   static final RegExp _requestKeyPattern = RegExp(r'^[A-Za-z0-9_-]{43,128}$');
 
   final int version;

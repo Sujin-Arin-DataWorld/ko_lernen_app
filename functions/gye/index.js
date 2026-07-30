@@ -198,10 +198,11 @@ const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
   pageSize: accountDeletionPageSize,
 });
 const cloudBackupDeletionRepository =
-  createFirestoreCloudBackupDeletionRepository({ firestore: db });
+  createFirestoreCloudBackupDeletionRepository({
+    firestore: db,
+    fieldValue: admin.firestore.FieldValue,
+  });
 const cloudBackupDeletionStore = createFirestoreCloudBackupStore({
-  firestore: db,
-  fieldValue: admin.firestore.FieldValue,
   listCollectionIdsPage,
   listDocumentsPage,
 });

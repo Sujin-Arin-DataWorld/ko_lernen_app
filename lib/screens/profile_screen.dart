@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
@@ -33,10 +34,16 @@ String _providerLabel(AppL10n t, AuthProviderState providers) {
 /// Statistik bleibt in [StatsScreen] (`/stats`); hier nur Identität,
 /// Konto-Status und eine Kurz-Übersicht (Streak · Level · Vokabeln).
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key, this.account, this.accountOperations});
+  const ProfileScreen({
+    super.key,
+    this.account,
+    this.accountOperations,
+    this.cloudDataDeletionPending,
+  });
 
   final AuthAccountSnapshot? account;
   final AccountUiOperations? accountOperations;
+  final ValueListenable<bool>? cloudDataDeletionPending;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -45,9 +52,13 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with ScreenCoachMixin<ProfileScreen> {
   bool _busy = false;
+  bool _cloudDeletionPendingLoaded = false;
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
+
+  ValueListenable<bool> get _cloudDataDeletionPending =>
+      widget.cloudDataDeletionPending ?? AuthService.cloudBackupDeletionPending;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _accountCardKey = GlobalKey();
@@ -72,6 +83,15 @@ class _ProfileScreenState extends State<ProfileScreen>
   void initState() {
     super.initState();
     scheduleCoach();
+    _cloudDeletionPendingLoaded = widget.cloudDataDeletionPending != null;
+    if (!_cloudDeletionPendingLoaded) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await AuthService.refreshCloudBackupDeletionPending();
+        if (mounted) {
+          setState(() => _cloudDeletionPendingLoaded = true);
+        }
+      });
+    }
   }
 
   Future<void> _connectWith(AccountLinkProvider provider) async {
@@ -179,24 +199,34 @@ class _ProfileScreenState extends State<ProfileScreen>
             const SizedBox(height: 12),
             KeyedSubtree(
               key: _accountCardKey,
-              child: AccountNewLinkGuard(
-                operations: _accountOperations,
-                builder: (context, linkAvailable) => linked
-                    ? _ConnectedCard(
-                        name: name ?? providerLabel,
-                        onSignOut: _signOut,
-                      )
-                    : _GuestCard(
-                        busy: _busy,
-                        onConnect: linkAvailable
-                            ? () => _connectWith(AccountLinkProvider.google)
-                            : null,
-                        onConnectApple:
-                            linkAvailable &&
-                                _accountOperations.appleSignInAvailable
-                            ? () => _connectWith(AccountLinkProvider.apple)
-                            : null,
-                      ),
+              child: ValueListenableBuilder<bool>(
+                valueListenable: _cloudDataDeletionPending,
+                builder: (context, cloudDeletionPending, _) =>
+                    AccountNewLinkGuard(
+                      operations: _accountOperations,
+                      builder: (context, linkAvailable) => linked
+                          ? _ConnectedCard(
+                              name: name ?? providerLabel,
+                              onSignOut:
+                                  !_cloudDeletionPendingLoaded ||
+                                      cloudDeletionPending
+                                  ? null
+                                  : _signOut,
+                            )
+                          : _GuestCard(
+                              busy: _busy,
+                              onConnect: linkAvailable
+                                  ? () =>
+                                        _connectWith(AccountLinkProvider.google)
+                                  : null,
+                              onConnectApple:
+                                  linkAvailable &&
+                                      _accountOperations.appleSignInAvailable
+                                  ? () =>
+                                        _connectWith(AccountLinkProvider.apple)
+                                  : null,
+                            ),
+                    ),
               ),
             ),
             const SizedBox(height: 20),
@@ -355,7 +385,7 @@ class _GuestCard extends StatelessWidget {
 /// Verbunden: zeigt Status + Abmelden.
 class _ConnectedCard extends StatelessWidget {
   final String? name;
-  final VoidCallback onSignOut;
+  final VoidCallback? onSignOut;
   const _ConnectedCard({required this.name, required this.onSignOut});
 
   @override

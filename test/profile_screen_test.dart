@@ -5,8 +5,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
+import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 /// Smoke-Test für den Profil-Hub (Tier 1 — 2026-06-03).
 ///
@@ -22,8 +24,9 @@ void main() {
     await Storage.init();
   });
 
-  testWidgets('ProfileScreen baut im Gast-Modus ohne Firebase fehlerfrei',
-      (tester) async {
+  testWidgets('ProfileScreen baut im Gast-Modus ohne Firebase fehlerfrei', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -39,6 +42,38 @@ void main() {
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
+  });
+
+  testWidgets('pending cloud deletion disables connected-account sign out', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final pending = ValueNotifier<bool>(true);
+    addTearDown(pending.dispose);
+
+    await tester.pumpWidget(
+      _wrap(
+        ProfileScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+            displayName: 'Durable learner',
+          ),
+          cloudDataDeletionPending: pending,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final signOut = tester.widget<SoriButton>(
+      find.widgetWithText(SoriButton, 'Abmelden'),
+    );
+    expect(signOut.onTap, isNull);
   });
 
   testWidgets('ConsentScreen (Tier 0) baut fehlerfrei', (tester) async {
@@ -59,8 +94,7 @@ void main() {
     await tester.pump();
   });
 
-  testWidgets(
-      'ConsentScreen Opt-in: Analytics/Crash default AUS, '
+  testWidgets('ConsentScreen Opt-in: Analytics/Crash default AUS, '
       'nur Angekreuztes wird persistiert (TTDSG §25)', (tester) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;

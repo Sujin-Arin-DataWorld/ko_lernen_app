@@ -30,6 +30,37 @@ service cloud.firestore {
       return /databases/$(database)/documents/account_deletions/$(uid);
     }
 
+    function cloudBackupDeletionPath(uid) {
+      return /databases/$(database)/documents/cloud_backup_deletions/$(uid);
+    }
+
+    // This server-owned marker is the authoritative write fence for a cloud
+    // backup deletion. It intentionally protects a stable snapshot while the
+    // callable's paged worker drains every backup root.
+    function cloudBackupDeletionPending(uid) {
+      return exists(cloudBackupDeletionPath(uid))
+        && get(cloudBackupDeletionPath(uid)).data.state.status == 'pending';
+    }
+
+    function isCloudBackupRoot(collectionName) {
+      return collectionName in [
+        'packs', 'quests', 'bookshelf', 'custom_packs', 'custom_words',
+        'sync_generations', 'sync_metadata'
+      ];
+    }
+
+    function backupSubcollectionWriteAllowed(uid, collectionName) {
+      return !cloudBackupDeletionPending(uid)
+        || !isCloudBackupRoot(collectionName);
+    }
+
+    // FCM token cleanup may race an already-started deletion; it is the only
+    // root mutation that remains safe because it never recreates backup data.
+    function onlyFcmTokensChanged() {
+      return request.resource.data.diff(resource.data).affectedKeys()
+        .hasOnly(['fcmTokens']);
+    }
+
     function metaPath(gyeId) {
       return /databases/$(database)/documents/gye/$(gyeId);
     }
@@ -383,9 +414,11 @@ service cloud.firestore {
       allow read: if isOwner(uid);
       allow create: if isOwner(uid)
         && !exists(accountDeletionPath(uid))
+        && !cloudBackupDeletionPending(uid)
         && validGyeIds(request.resource.data.get('gyeIds', []));
       allow update: if isOwner(uid)
         && !exists(accountDeletionPath(uid))
+        && (!cloudBackupDeletionPending(uid) || onlyFcmTokensChanged())
         && (!request.resource.data.diff(resource.data).affectedKeys()
               .hasAny(['gyeIds'])
           || validUserGyeTransition());
@@ -396,9 +429,11 @@ service cloud.firestore {
         allow read: if isOwner(uid);
         allow create: if isOwner(uid)
           && !exists(accountDeletionPath(uid))
+          && !cloudBackupDeletionPending(uid)
           && validPackProgress(packId, request.resource.data);
         allow update: if isOwner(uid)
           && !exists(accountDeletionPath(uid))
+          && !cloudBackupDeletionPending(uid)
           && validPackProgress(packId, request.resource.data)
           && (resource.data.status != 'cleared'
             || request.resource.data.status == 'cleared');
@@ -411,6 +446,7 @@ service cloud.firestore {
         allow read: if isOwner(uid);
         allow create: if isOwner(uid)
           && !exists(accountDeletionPath(uid))
+          && !cloudBackupDeletionPending(uid)
           && generationId.size() > 0
           && generationId.size() <= 256
           && validBookshelfGenerationRecord(
@@ -424,10 +460,12 @@ service cloud.firestore {
         allow read: if isOwner(uid);
         allow create: if isOwner(uid)
           && !exists(accountDeletionPath(uid))
+          && !cloudBackupDeletionPending(uid)
           && validBookshelfManifest(request.resource.data)
           && request.resource.data.revision == 1;
         allow update: if isOwner(uid)
           && !exists(accountDeletionPath(uid))
+          && !cloudBackupDeletionPending(uid)
           && validBookshelfManifest(request.resource.data)
           && request.resource.data.revision == resource.data.revision + 1
           && request.resource.data.operation_id
@@ -441,10 +479,12 @@ service cloud.firestore {
         allow read: if isOwner(uid);
         allow create: if isOwner(uid)
           && !exists(accountDeletionPath(uid))
+          && !cloudBackupDeletionPending(uid)
           && validPackMembership(request.resource.data)
           && request.resource.data.revision == 1;
         allow update: if isOwner(uid)
           && !exists(accountDeletionPath(uid))
+          && !cloudBackupDeletionPending(uid)
           && validPackMembership(request.resource.data)
           && request.resource.data.revision == resource.data.revision + 1;
         allow delete: if false;
@@ -459,7 +499,8 @@ service cloud.firestore {
           && collectionName != 'packs'
           && collectionName != 'sync_generations'
           && collectionName != 'sync_metadata'
-          && !exists(accountDeletionPath(uid));
+          && !exists(accountDeletionPath(uid))
+          && backupSubcollectionWriteAllowed(uid, collectionName);
         allow delete: if isOwner(uid)
           && collectionName != 'packs'
           && collectionName != 'quests'
@@ -472,6 +513,10 @@ service cloud.firestore {
     }
 
     match /cloud_backup_deletions/{uid} {
+      allow read, write: if false;
+    }
+
+    match /cloud_backup_deletions/{uid}/{document=**} {
       allow read, write: if false;
     }
 

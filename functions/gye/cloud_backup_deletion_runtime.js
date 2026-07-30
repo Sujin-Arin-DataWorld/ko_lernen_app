@@ -1,5 +1,7 @@
 "use strict";
 
+const { createHash } = require("node:crypto");
+
 const BACKUP_ROOTS = Object.freeze([
   "packs",
   "quests",
@@ -28,10 +30,13 @@ const CALLABLE_OPTIONS = Object.freeze({
 });
 const REQUEST_KEY_PATTERN = /^[A-Za-z0-9_-]{43,128}$/;
 const DIGEST_PATTERN = /^[a-f0-9]{64}$/;
+const WORK_ID_PATTERN = /^[a-f0-9]{64}$/;
 const LEASE_MILLIS = 60_000;
-const DEFAULT_PAGE_SIZE = 40;
-const MAX_PAGE_SIZE = 200;
+const DEFAULT_WORK_UNITS = 40;
+const MAX_WORK_UNITS = 200;
 const MAX_PATH_BYTES = 6_000;
+const MAX_PATH_SEGMENTS = 200;
+const MAX_PAGE_TOKEN_BYTES = 16 * 1024;
 
 class BoundaryFailure extends Error {
   constructor(status, safeCode) {
@@ -56,6 +61,13 @@ function validUid(value) {
     !/[\u0000-\u001f\u007f]/.test(value);
 }
 
+function durableProvider(request) {
+  const provider = request?.auth?.token?.firebase?.sign_in_provider;
+  return typeof provider === "string" &&
+    provider.length > 0 &&
+    provider !== "anonymous";
+}
+
 function assertRequest(request) {
   if (!request?.app || typeof request.app.appId !== "string") {
     throw new BoundaryFailure(
@@ -76,6 +88,12 @@ function assertRequest(request) {
       "authentication-required",
     );
   }
+  if (!durableProvider(request)) {
+    throw new BoundaryFailure(
+      "unauthenticated",
+      "durable-authentication-required",
+    );
+  }
   const data = request.data;
   if (!data ||
       typeof data !== "object" ||
@@ -93,7 +111,8 @@ function pathSegments(path) {
     throw new Error("Invalid cloud backup deletion state.");
   }
   const segments = path.split("/");
-  if (segments.some((segment) => !validOpaqueSegment(segment))) {
+  if (segments.length > MAX_PATH_SEGMENTS ||
+      segments.some((segment) => !validOpaqueSegment(segment))) {
     throw new Error("Invalid cloud backup deletion state.");
   }
   return segments;
@@ -111,57 +130,181 @@ function assertBackupPath(path, uid, expectedParity) {
   return segments.join("/");
 }
 
+function opaquePageToken(value) {
+  if (value == null) return null;
+  if (typeof value !== "string" ||
+      value.length === 0 ||
+      Buffer.byteLength(value, "utf8") > MAX_PAGE_TOKEN_BYTES) {
+    throw new Error("Invalid cloud backup deletion page token.");
+  }
+  return value;
+}
+
+function validWorkId(value) {
+  return typeof value === "string" && WORK_ID_PATTERN.test(value);
+}
+
 function initialState() {
   return {
     status: "pending",
     rootIndex: 0,
-    stack: [],
+    currentWorkId: null,
     leaseOwner: null,
     leaseUntilMillis: 0,
   };
 }
 
-function normalizedState(raw, uid) {
+function normalizedState(raw) {
   if (!raw ||
-      raw.status !== "pending" ||
+      !["pending", "completed"].includes(raw.status) ||
       !Number.isInteger(raw.rootIndex) ||
       raw.rootIndex < 0 ||
       raw.rootIndex > BACKUP_ROOTS.length ||
-      !Array.isArray(raw.stack) ||
-      raw.stack.length > 100) {
+      (raw.currentWorkId !== null && !validWorkId(raw.currentWorkId))) {
     throw new Error("Invalid cloud backup deletion state.");
   }
-  const stack = raw.stack.map((frame) => {
-    if (!frame || !["collection", "document"].includes(frame.kind)) {
-      throw new Error("Invalid cloud backup deletion state.");
-    }
-    return {
-      kind: frame.kind,
-      path: assertBackupPath(
-        frame.path,
-        uid,
-        frame.kind === "collection" ? 1 : 0,
-      ),
-    };
-  });
+  if (raw.status === "completed" &&
+      (raw.rootIndex !== BACKUP_ROOTS.length ||
+        raw.currentWorkId !== null)) {
+    throw new Error("Invalid completed cloud backup deletion state.");
+  }
   return {
-    status: "pending",
+    status: raw.status,
     rootIndex: raw.rootIndex,
-    stack,
-    leaseOwner:
-      typeof raw.leaseOwner === "string" ? raw.leaseOwner : null,
+    currentWorkId: raw.currentWorkId,
+    leaseOwner: typeof raw.leaseOwner === "string" ? raw.leaseOwner : null,
     leaseUntilMillis: Number.isFinite(raw.leaseUntilMillis)
       ? raw.leaseUntilMillis
       : 0,
   };
 }
 
-function releasedState(state, status = "pending") {
+function workIdFor({ requestDigest, kind, path, parentWorkId }) {
+  if (!DIGEST_PATTERN.test(requestDigest || "") ||
+      !["collection", "document"].includes(kind) ||
+      (parentWorkId !== null && !validWorkId(parentWorkId))) {
+    throw new Error("Invalid cloud backup deletion work ID input.");
+  }
+  return createHash("sha256")
+    .update("cloud-backup-work-v1\0")
+    .update(requestDigest)
+    .update("\0")
+    .update(kind)
+    .update("\0")
+    .update(parentWorkId || "")
+    .update("\0")
+    .update(path)
+    .digest("hex");
+}
+
+function createWork({
+  uid,
+  requestDigest,
+  kind,
+  path,
+  parentWorkId,
+  rootIndex,
+}) {
+  if (!Number.isInteger(rootIndex) ||
+      rootIndex < 0 ||
+      rootIndex >= BACKUP_ROOTS.length ||
+      !["collection", "document"].includes(kind) ||
+      (parentWorkId !== null && !validWorkId(parentWorkId))) {
+    throw new Error("Invalid cloud backup deletion work.");
+  }
+  const normalizedPath = assertBackupPath(
+    path,
+    uid,
+    kind === "collection" ? 1 : 0,
+  );
+  if (parentWorkId === null &&
+      (kind !== "collection" ||
+        normalizedPath !== `users/${uid}/${BACKUP_ROOTS[rootIndex]}`)) {
+    throw new Error("Invalid cloud backup deletion root work.");
+  }
   return {
-    ...state,
-    status,
-    leaseOwner: null,
-    leaseUntilMillis: 0,
+    id: workIdFor({
+      requestDigest,
+      kind,
+      path: normalizedPath,
+      parentWorkId,
+    }),
+    kind,
+    path: normalizedPath,
+    parentWorkId,
+    rootIndex,
+    pageToken: null,
+  };
+}
+
+function normalizedWork(raw, uid, requestDigest) {
+  if (!raw ||
+      !validWorkId(raw.id) ||
+      !["collection", "document"].includes(raw.kind) ||
+      (raw.parentWorkId !== null && !validWorkId(raw.parentWorkId)) ||
+      !Number.isInteger(raw.rootIndex) ||
+      raw.rootIndex < 0 ||
+      raw.rootIndex >= BACKUP_ROOTS.length) {
+    throw new Error("Invalid cloud backup deletion work.");
+  }
+  const work = createWork({
+    uid,
+    requestDigest,
+    kind: raw.kind,
+    path: raw.path,
+    parentWorkId: raw.parentWorkId,
+    rootIndex: raw.rootIndex,
+  });
+  if (work.id !== raw.id) {
+    throw new Error("Invalid cloud backup deletion work ID.");
+  }
+  return {
+    ...work,
+    pageToken: opaquePageToken(raw.pageToken),
+  };
+}
+
+function sameWork(left, right) {
+  return left.id === right.id &&
+    left.kind === right.kind &&
+    left.path === right.path &&
+    left.parentWorkId === right.parentWorkId &&
+    left.rootIndex === right.rootIndex &&
+    left.pageToken === right.pageToken;
+}
+
+function assertParentChild(parent, child) {
+  const parentSegments = pathSegments(parent.path);
+  const childSegments = pathSegments(child.path);
+  if (child.parentWorkId !== parent.id ||
+      child.rootIndex !== parent.rootIndex ||
+      childSegments.length !== parentSegments.length + 1 ||
+      childSegments.slice(0, -1).join("/") !== parent.path ||
+      (parent.kind === "collection" && child.kind !== "document") ||
+      (parent.kind === "document" && child.kind !== "collection")) {
+    throw new Error("Invalid cloud backup deletion work relationship.");
+  }
+}
+
+function normalizedPage(page, itemName) {
+  if (!page || !Array.isArray(page[itemName]) || page[itemName].length > 1) {
+    throw new Error("Invalid cloud backup deletion discovery page.");
+  }
+  const item = page[itemName][0];
+  if (item !== undefined && !validOpaqueSegment(item)) {
+    throw new Error("Invalid cloud backup deletion discovery page.");
+  }
+  return {
+    item: item === undefined ? null : item,
+    nextPageToken: opaquePageToken(page.nextPageToken),
+  };
+}
+
+function resultFor(activeDigest, requestedDigest, state) {
+  return {
+    state: activeDigest === requestedDigest && state === "completed"
+      ? "completed"
+      : "pending",
   };
 }
 
@@ -171,18 +314,23 @@ function createCloudBackupDeletionRuntime({
   hashRequestKey,
   newInvocationId,
   nowMillis = () => Date.now(),
-  pageSize = DEFAULT_PAGE_SIZE,
+  pageSize = DEFAULT_WORK_UNITS,
   makeError,
 } = {}) {
   if (!repository ||
       typeof repository.claim !== "function" ||
-      typeof repository.checkpoint !== "function" ||
-      !store ||
-      typeof store.firstDocument !== "function" ||
-      typeof store.firstChildCollection !== "function" ||
-      typeof store.deleteDocument !== "function" ||
-      typeof store.removeBackupFields !== "function" ||
-      typeof hashRequestKey !== "function" ||
+      typeof repository.currentWork !== "function" ||
+      typeof repository.startRoot !== "function" ||
+       typeof repository.advanceWork !== "function" ||
+       typeof repository.spawnChild !== "function" ||
+       typeof repository.completeWork !== "function" ||
+       typeof repository.deleteDocumentAndCompleteWork !== "function" ||
+       typeof repository.removeBackupFieldsAndComplete !== "function" ||
+       typeof repository.release !== "function" ||
+       !store ||
+       typeof store.listCollectionIdsPage !== "function" ||
+       typeof store.listDocumentsPage !== "function" ||
+       typeof hashRequestKey !== "function" ||
       typeof newInvocationId !== "function" ||
       typeof nowMillis !== "function" ||
       typeof makeError !== "function") {
@@ -192,9 +340,9 @@ function createCloudBackupDeletionRuntime({
   }
   if (!Number.isInteger(pageSize) ||
       pageSize < 1 ||
-      pageSize > MAX_PAGE_SIZE) {
+      pageSize > MAX_WORK_UNITS) {
     throw new TypeError(
-      "Cloud backup deletion page size must be between 1 and 200.",
+      "Cloud backup deletion work units must be between 1 and 200.",
     );
   }
 
@@ -208,82 +356,205 @@ function createCloudBackupDeletionRuntime({
     if (!DIGEST_PATTERN.test(activeDigest || "")) {
       throw new Error("Invalid cloud backup deletion operation.");
     }
-    if (claim.state?.status === "completed") {
-      return {
-        state: activeDigest === requestedDigest ? "completed" : "pending",
-      };
+    let state = normalizedState(claim.state);
+    if (state.status === "completed") {
+      return resultFor(activeDigest, requestedDigest, "completed");
     }
     if (claim.busy === true) {
       return { state: "pending" };
     }
 
-    let state = normalizedState(claim.state, uid);
-    for (let unit = 0; unit < pageSize; unit += 1) {
-      if (state.stack.length === 0) {
-        if (state.rootIndex >= BACKUP_ROOTS.length) {
-          await store.removeBackupFields(uid, BACKUP_FIELDS);
-          state = releasedState({
-            ...state,
-            stack: [],
-          }, "completed");
-          await repository.checkpoint({
+    let completed = false;
+    try {
+      for (let unit = 0; unit < pageSize; unit += 1) {
+        if (state.currentWorkId === null) {
+          if (state.rootIndex >= BACKUP_ROOTS.length) {
+            await repository.removeBackupFieldsAndComplete({
+              uid,
+              requestDigest: activeDigest,
+              invocationId,
+              expectedState: state,
+              fields: BACKUP_FIELDS,
+              nowMillis: nowMillis(),
+            });
+            completed = true;
+            return resultFor(activeDigest, requestedDigest, "completed");
+          }
+          const rootWork = createWork({
+            uid,
+            requestDigest: activeDigest,
+            kind: "collection",
+            path: `users/${uid}/${BACKUP_ROOTS[state.rootIndex]}`,
+            parentWorkId: null,
+            rootIndex: state.rootIndex,
+          });
+          await repository.startRoot({
             uid,
             requestDigest: activeDigest,
             invocationId,
-            state,
+            expectedState: state,
+            work: rootWork,
             nowMillis: nowMillis(),
           });
-          return {
-            state: activeDigest === requestedDigest
-              ? "completed"
-              : "pending",
-          };
-        }
-        state.stack.push({
-          kind: "collection",
-          path: `users/${uid}/${BACKUP_ROOTS[state.rootIndex]}`,
-        });
-      }
-
-      const frame = state.stack.at(-1);
-      if (frame.kind === "collection") {
-        const documentPath = await store.firstDocument(frame.path);
-        if (documentPath === null) {
-          state.stack.pop();
-          if (state.stack.length === 0) {
-            state.rootIndex += 1;
-          }
+          state = { ...state, currentWorkId: rootWork.id };
           continue;
         }
-        state.stack.push({
-          kind: "document",
-          path: assertBackupPath(documentPath, uid, 0),
-        });
-        continue;
-      }
 
-      const childCollectionPath =
-        await store.firstChildCollection(frame.path);
-      if (childCollectionPath !== null) {
-        state.stack.push({
+        const work = await repository.currentWork({
+          uid,
+          requestDigest: activeDigest,
+          invocationId,
+          expectedState: state,
+          nowMillis: nowMillis(),
+        });
+        if (work == null) {
+          throw new Error("Missing current cloud backup deletion work.");
+        }
+        const normalized = normalizedWork(work, uid, activeDigest);
+        if (normalized.id !== state.currentWorkId) {
+          throw new Error("Mismatched current cloud backup deletion work.");
+        }
+
+        if (normalized.kind === "collection") {
+          const page = normalizedPage(
+            await store.listDocumentsPage({
+              collectionPath: normalized.path,
+              pageSize: 1,
+              pageToken: normalized.pageToken,
+            }),
+            "documentIds",
+          );
+          if (page.item === null) {
+            if (page.nextPageToken !== null) {
+              await repository.advanceWork({
+                uid,
+                requestDigest: activeDigest,
+                invocationId,
+                expectedWork: normalized,
+                nextPageToken: page.nextPageToken,
+                nowMillis: nowMillis(),
+              });
+              continue;
+            }
+            await repository.completeWork({
+              uid,
+              requestDigest: activeDigest,
+              invocationId,
+              expectedState: state,
+              expectedWork: normalized,
+              nowMillis: nowMillis(),
+            });
+            state = normalized.parentWorkId === null
+              ? {
+                ...state,
+                currentWorkId: null,
+                rootIndex: state.rootIndex + 1,
+              }
+              : { ...state, currentWorkId: normalized.parentWorkId };
+            continue;
+          }
+          const child = createWork({
+            uid,
+            requestDigest: activeDigest,
+            kind: "document",
+            path: assertBackupPath(
+              `${normalized.path}/${page.item}`,
+              uid,
+              0,
+            ),
+            parentWorkId: normalized.id,
+            rootIndex: normalized.rootIndex,
+          });
+          await repository.spawnChild({
+            uid,
+            requestDigest: activeDigest,
+            invocationId,
+            expectedState: state,
+            expectedParent: normalized,
+            child,
+            // Persist the opaque continuation cursor with the child receipt.
+            // The pager's contract is that this cursor resumes after the
+            // discovered item; the receipt makes a retry safe before any
+            // destructive child work starts.
+            parentNextPageToken: page.nextPageToken,
+            nowMillis: nowMillis(),
+          });
+          state = { ...state, currentWorkId: child.id };
+          continue;
+        }
+
+        const page = normalizedPage(
+          await store.listCollectionIdsPage({
+            parentPath: normalized.path,
+            pageSize: 1,
+            pageToken: normalized.pageToken,
+          }),
+          "collectionIds",
+        );
+        if (page.item === null) {
+          if (page.nextPageToken !== null) {
+            await repository.advanceWork({
+              uid,
+              requestDigest: activeDigest,
+              invocationId,
+              expectedWork: normalized,
+              nextPageToken: page.nextPageToken,
+              nowMillis: nowMillis(),
+            });
+            continue;
+          }
+          await repository.deleteDocumentAndCompleteWork({
+            uid,
+            requestDigest: activeDigest,
+            invocationId,
+            expectedState: state,
+            expectedWork: normalized,
+            nowMillis: nowMillis(),
+          });
+          state = normalized.parentWorkId === null
+            ? {
+              ...state,
+              currentWorkId: null,
+              rootIndex: state.rootIndex + 1,
+            }
+            : { ...state, currentWorkId: normalized.parentWorkId };
+          continue;
+        }
+        const child = createWork({
+          uid,
+          requestDigest: activeDigest,
           kind: "collection",
-          path: assertBackupPath(childCollectionPath, uid, 1),
+          path: assertBackupPath(
+            `${normalized.path}/${page.item}`,
+            uid,
+            1,
+          ),
+          parentWorkId: normalized.id,
+          rootIndex: normalized.rootIndex,
         });
-        continue;
+        await repository.spawnChild({
+          uid,
+          requestDigest: activeDigest,
+          invocationId,
+          expectedState: state,
+          expectedParent: normalized,
+          child,
+          parentNextPageToken: page.nextPageToken,
+          nowMillis: nowMillis(),
+        });
+        state = { ...state, currentWorkId: child.id };
       }
-      await store.deleteDocument(frame.path);
-      state.stack.pop();
+      return { state: "pending" };
+    } finally {
+      if (!completed) {
+        await repository.release({
+          uid,
+          requestDigest: activeDigest,
+          invocationId,
+          nowMillis: nowMillis(),
+        });
+      }
     }
-
-    state = releasedState(state);
-    await repository.checkpoint({
-      uid,
-      requestDigest: activeDigest,
-      invocationId,
-      state,
-      nowMillis: nowMillis(),
-    });
-    return { state: "pending" };
   }
 
   async function deleteCloudBackup(request) {
@@ -326,6 +597,7 @@ function createCloudBackupDeletionRuntime({
 
 function createFirestoreCloudBackupDeletionRepository({
   firestore,
+  fieldValue,
   collectionName = "cloud_backup_deletions",
 } = {}) {
   if (!firestore ||
@@ -335,7 +607,54 @@ function createFirestoreCloudBackupDeletionRepository({
       "Firestore cloud backup deletion repository is required.",
     );
   }
+  if (!fieldValue || typeof fieldValue.delete !== "function") {
+    throw new TypeError(
+      "Firestore cloud backup deletion field values are required.",
+    );
+  }
   const collection = firestore.collection(collectionName);
+
+  function operationRef(uid) {
+    return collection.doc(uid);
+  }
+
+  function workRef(uid, workId) {
+    return operationRef(uid).collection("work").doc(workId);
+  }
+
+  function normalizedRecord(snapshot, uid) {
+    if (!snapshot.exists) return null;
+    const record = snapshot.data() || {};
+    if (record.uid !== uid || !DIGEST_PATTERN.test(record.requestDigest || "")) {
+      throw new Error("Invalid cloud backup deletion operation.");
+    }
+    return { ...record, state: normalizedState(record.state) };
+  }
+
+  function assertLease(record, {
+    requestDigest,
+    invocationId,
+    expectedState,
+    nowMillis,
+  }) {
+    if (record.requestDigest !== requestDigest ||
+        record.state.status !== "pending" ||
+        record.state.leaseOwner !== invocationId ||
+        !Number.isFinite(nowMillis) ||
+        record.state.leaseUntilMillis <= nowMillis ||
+        (expectedState !== undefined &&
+          (record.state.rootIndex !== expectedState.rootIndex ||
+            record.state.currentWorkId !== expectedState.currentWorkId))) {
+      throw new Error("Stale cloud backup deletion lease.");
+    }
+  }
+
+  function normalizedSnapshotWork(snapshot, uid, requestDigest) {
+    if (!snapshot.exists) {
+      throw new Error("Missing cloud backup deletion work.");
+    }
+    return normalizedWork(snapshot.data() || {}, uid, requestDigest);
+  }
 
   async function claim({
     uid,
@@ -344,12 +663,12 @@ function createFirestoreCloudBackupDeletionRepository({
     nowMillis,
     leaseMillis,
   }) {
-    const ref = collection.doc(uid);
+    const ref = operationRef(uid);
     return firestore.runTransaction(async (transaction) => {
       const snapshot = await transaction.get(ref);
-      const stored = snapshot.exists ? snapshot.data() || {} : null;
+      const stored = normalizedRecord(snapshot, uid);
       if (!stored || (
-        stored.state?.status === "completed" &&
+        stored.state.status === "completed" &&
         stored.requestDigest !== requestDigest
       )) {
         const record = {
@@ -366,23 +685,18 @@ function createFirestoreCloudBackupDeletionRepository({
         transaction.set(ref, record);
         return record;
       }
-      if (stored.uid !== uid ||
-          !DIGEST_PATTERN.test(stored.requestDigest || "")) {
-        throw new Error("Invalid cloud backup deletion operation.");
-      }
-      if (stored.state?.status === "completed") {
+      if (stored.state.status === "completed") {
         return stored;
       }
-      const state = normalizedState(stored.state, uid);
-      if (state.leaseOwner !== null &&
-          state.leaseOwner !== invocationId &&
-          state.leaseUntilMillis > nowMillis) {
-        return { ...stored, state, busy: true };
+      if (stored.state.leaseOwner !== null &&
+          stored.state.leaseOwner !== invocationId &&
+          stored.state.leaseUntilMillis > nowMillis) {
+        return { ...stored, busy: true };
       }
       const claimed = {
         ...stored,
         state: {
-          ...state,
+          ...stored.state,
           leaseOwner: invocationId,
           leaseUntilMillis: nowMillis + leaseMillis,
         },
@@ -393,107 +707,393 @@ function createFirestoreCloudBackupDeletionRepository({
     });
   }
 
-  async function checkpoint({
+  async function currentWork({
     uid,
     requestDigest,
     invocationId,
-    state,
+    expectedState,
     nowMillis,
   }) {
-    const ref = collection.doc(uid);
+    const ref = operationRef(uid);
     return firestore.runTransaction(async (transaction) => {
-      const snapshot = await transaction.get(ref);
-      const stored = snapshot.exists ? snapshot.data() || {} : {};
-      if (stored.uid !== uid ||
-          stored.requestDigest !== requestDigest ||
-          stored.state?.leaseOwner !== invocationId) {
-        throw new Error("Stale cloud backup deletion lease.");
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null) {
+        throw new Error("Missing cloud backup deletion operation.");
       }
-      const next = {
-        ...stored,
-        state,
+      assertLease(record, {
+        requestDigest,
+        invocationId,
+        expectedState,
+        nowMillis,
+      });
+      if (record.state.currentWorkId === null) return null;
+      const snapshot = await transaction.get(
+        workRef(uid, record.state.currentWorkId),
+      );
+      return normalizedSnapshotWork(snapshot, uid, requestDigest);
+    });
+  }
+
+  async function startRoot({
+    uid,
+    requestDigest,
+    invocationId,
+    expectedState,
+    work,
+    nowMillis,
+  }) {
+    const ref = operationRef(uid);
+    const normalized = normalizedWork(work, uid, requestDigest);
+    return firestore.runTransaction(async (transaction) => {
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null) {
+        throw new Error("Missing cloud backup deletion operation.");
+      }
+      assertLease(record, {
+        requestDigest,
+        invocationId,
+        expectedState,
+        nowMillis,
+      });
+      if (record.state.currentWorkId !== null ||
+          record.state.rootIndex !== normalized.rootIndex ||
+          normalized.parentWorkId !== null) {
+        throw new Error("Invalid cloud backup deletion root transition.");
+      }
+      const childRef = workRef(uid, normalized.id);
+      const workSnapshot = await transaction.get(childRef);
+      if (workSnapshot.exists) {
+        throw new Error("Unexpected existing cloud backup root work.");
+      }
+      transaction.set(childRef, normalized);
+      transaction.set(ref, {
+        ...record,
+        state: { ...record.state, currentWorkId: normalized.id },
         updatedAtMillis: nowMillis,
+      });
+    });
+  }
+
+  async function advanceWork({
+    uid,
+    requestDigest,
+    invocationId,
+    expectedWork,
+    nextPageToken,
+    nowMillis,
+  }) {
+    const ref = operationRef(uid);
+    const expected = normalizedWork(expectedWork, uid, requestDigest);
+    const nextToken = opaquePageToken(nextPageToken);
+    return firestore.runTransaction(async (transaction) => {
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null) {
+        throw new Error("Missing cloud backup deletion operation.");
+      }
+      assertLease(record, { requestDigest, invocationId, nowMillis });
+      if (record.state.currentWorkId !== expected.id) {
+        throw new Error("Stale cloud backup deletion work.");
+      }
+      const current = normalizedSnapshotWork(
+        await transaction.get(workRef(uid, expected.id)),
+        uid,
+        requestDigest,
+      );
+      if (!sameWork(current, expected)) {
+        throw new Error("Stale cloud backup deletion work.");
+      }
+      transaction.set(workRef(uid, expected.id), {
+        ...current,
+        pageToken: nextToken,
+      });
+      transaction.set(ref, { ...record, updatedAtMillis: nowMillis });
+    });
+  }
+
+  async function spawnChild({
+    uid,
+    requestDigest,
+    invocationId,
+    expectedState,
+    expectedParent,
+    child,
+    parentNextPageToken,
+    nowMillis,
+  }) {
+    const ref = operationRef(uid);
+    const parent = normalizedWork(expectedParent, uid, requestDigest);
+    const next = normalizedWork(child, uid, requestDigest);
+    const nextToken = opaquePageToken(parentNextPageToken);
+    assertParentChild(parent, next);
+    return firestore.runTransaction(async (transaction) => {
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null) {
+        throw new Error("Missing cloud backup deletion operation.");
+      }
+      assertLease(record, {
+        requestDigest,
+        invocationId,
+        expectedState,
+        nowMillis,
+      });
+      if (record.state.currentWorkId !== parent.id) {
+        throw new Error("Stale cloud backup deletion parent work.");
+      }
+      const parentRef = workRef(uid, parent.id);
+      const childRef = workRef(uid, next.id);
+      const parentSnapshot = await transaction.get(parentRef);
+      const childSnapshot = await transaction.get(childRef);
+      const currentParent = normalizedSnapshotWork(
+        parentSnapshot,
+        uid,
+        requestDigest,
+      );
+      if (!sameWork(currentParent, parent) || childSnapshot.exists) {
+        throw new Error("Stale cloud backup deletion parent work.");
+      }
+      // The child receipt and the parent cursor are one transaction: a parent
+      // can never advance past a discovered descendant without durable work.
+      transaction.set(childRef, next);
+      transaction.set(parentRef, {
+        ...currentParent,
+        pageToken: nextToken,
+      });
+      transaction.set(ref, {
+        ...record,
+        state: { ...record.state, currentWorkId: next.id },
+        updatedAtMillis: nowMillis,
+      });
+    });
+  }
+
+  async function completeWorkInTransaction(transaction, {
+    uid,
+    requestDigest,
+    record,
+    expected,
+  }) {
+    if (record.state.currentWorkId !== expected.id) {
+      throw new Error("Stale cloud backup deletion work.");
+    }
+    const current = normalizedSnapshotWork(
+      await transaction.get(workRef(uid, expected.id)),
+      uid,
+      requestDigest,
+    );
+    if (!sameWork(current, expected)) {
+      throw new Error("Stale cloud backup deletion work.");
+    }
+    let nextState;
+    if (current.parentWorkId === null) {
+      if (record.state.rootIndex !== current.rootIndex) {
+        throw new Error("Invalid cloud backup deletion root completion.");
+      }
+      nextState = {
+        ...record.state,
+        currentWorkId: null,
+        rootIndex: record.state.rootIndex + 1,
       };
-      transaction.set(ref, next);
-      return next;
+    } else {
+      const parent = normalizedSnapshotWork(
+        await transaction.get(workRef(uid, current.parentWorkId)),
+        uid,
+        requestDigest,
+      );
+      assertParentChild(parent, current);
+      nextState = {
+        ...record.state,
+        currentWorkId: parent.id,
+      };
+    }
+    transaction.delete(workRef(uid, current.id));
+    return nextState;
+  }
+
+  async function completeWork({
+    uid,
+    requestDigest,
+    invocationId,
+    expectedState,
+    expectedWork,
+    nowMillis,
+  }) {
+    const ref = operationRef(uid);
+    const expected = normalizedWork(expectedWork, uid, requestDigest);
+    return firestore.runTransaction(async (transaction) => {
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null) {
+        throw new Error("Missing cloud backup deletion operation.");
+      }
+      assertLease(record, {
+        requestDigest,
+        invocationId,
+        expectedState,
+        nowMillis,
+      });
+      const nextState = await completeWorkInTransaction(transaction, {
+        uid,
+        requestDigest,
+        record,
+        expected,
+      });
+      transaction.set(ref, {
+        ...record,
+        state: nextState,
+        updatedAtMillis: nowMillis,
+      });
     });
   }
 
-  return Object.freeze({ claim, checkpoint });
-}
-
-function createFirestoreCloudBackupStore({
-  firestore,
-  fieldValue,
-  listCollectionIdsPage,
-  listDocumentsPage,
-} = {}) {
-  if (!firestore ||
-      typeof firestore.doc !== "function" ||
-      typeof firestore.runTransaction !== "function" ||
-      !fieldValue ||
-      typeof fieldValue.delete !== "function" ||
-      typeof listCollectionIdsPage !== "function" ||
-      typeof listDocumentsPage !== "function") {
-    throw new TypeError("Firestore cloud backup store is required.");
-  }
-
-  async function firstDocument(collectionPath) {
-    const page = await listDocumentsPage({
-      collectionPath,
-      pageSize: 1,
-      pageToken: null,
+  async function deleteDocumentAndCompleteWork({
+    uid,
+    requestDigest,
+    invocationId,
+    expectedState,
+    expectedWork,
+    nowMillis,
+  }) {
+    const ref = operationRef(uid);
+    const expected = normalizedWork(expectedWork, uid, requestDigest);
+    if (expected.kind !== "document") {
+      throw new Error("Invalid cloud backup deletion document work.");
+    }
+    return firestore.runTransaction(async (transaction) => {
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null) {
+        throw new Error("Missing cloud backup deletion operation.");
+      }
+      assertLease(record, {
+        requestDigest,
+        invocationId,
+        expectedState,
+        nowMillis,
+      });
+      const nextState = await completeWorkInTransaction(transaction, {
+        uid,
+        requestDigest,
+        record,
+        expected,
+      });
+      // The target delete and queue transition share the same transaction, so
+      // an expired invocation can never delete data after a successor starts.
+      // Complete work first because Firestore transactions require every read
+      // to happen before their writes.
+      transaction.delete(firestore.doc(expected.path));
+      transaction.set(ref, {
+        ...record,
+        state: nextState,
+        updatedAtMillis: nowMillis,
+      });
     });
-    if (!Array.isArray(page?.documentIds) ||
-        page.documentIds.length > 1) {
-      throw new Error("Invalid cloud backup document page.");
-    }
-    const documentId = page.documentIds[0];
-    if (documentId === undefined) return null;
-    if (!validOpaqueSegment(documentId)) {
-      throw new Error("Invalid cloud backup document page.");
-    }
-    return `${collectionPath}/${documentId}`;
   }
 
-  async function firstChildCollection(documentPath) {
-    const page = await listCollectionIdsPage({
-      parentPath: documentPath,
-      pageSize: 1,
-      pageToken: null,
+  async function removeBackupFieldsAndComplete({
+    uid,
+    requestDigest,
+    invocationId,
+    expectedState,
+    fields,
+    nowMillis,
+  }) {
+    if (!Array.isArray(fields) ||
+        fields.length !== BACKUP_FIELDS.length ||
+        fields.some((field, index) => field !== BACKUP_FIELDS[index])) {
+      throw new Error("Invalid cloud backup deletion fields.");
+    }
+    const ref = operationRef(uid);
+    const userRef = firestore.collection("users").doc(uid);
+    return firestore.runTransaction(async (transaction) => {
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null) {
+        throw new Error("Missing cloud backup deletion operation.");
+      }
+      assertLease(record, {
+        requestDigest,
+        invocationId,
+        expectedState,
+        nowMillis,
+      });
+      if (record.state.rootIndex !== BACKUP_ROOTS.length ||
+          record.state.currentWorkId !== null) {
+        throw new Error("Cloud backup deletion is not ready to complete.");
+      }
+      const userSnapshot = await transaction.get(userRef);
+      if (userSnapshot.exists) {
+        transaction.update(userRef, Object.fromEntries(
+          fields.map((field) => [field, fieldValue.delete()]),
+        ));
+      }
+      transaction.set(ref, {
+        ...record,
+        state: {
+          ...record.state,
+          status: "completed",
+          leaseOwner: null,
+          leaseUntilMillis: 0,
+        },
+        updatedAtMillis: nowMillis,
+      });
     });
-    if (!Array.isArray(page?.collectionIds) ||
-        page.collectionIds.length > 1) {
-      throw new Error("Invalid cloud backup collection page.");
-    }
-    const collectionId = page.collectionIds[0];
-    if (collectionId === undefined) return null;
-    if (!validOpaqueSegment(collectionId)) {
-      throw new Error("Invalid cloud backup collection page.");
-    }
-    return `${documentPath}/${collectionId}`;
   }
 
-  async function deleteDocument(documentPath) {
-    await firestore.doc(documentPath).delete();
-  }
-
-  async function removeBackupFields(uid, fields) {
-    const ref = firestore.collection("users").doc(uid);
-    await firestore.runTransaction(async (transaction) => {
-      const snapshot = await transaction.get(ref);
-      if (!snapshot.exists) return;
-      transaction.update(ref, Object.fromEntries(
-        fields.map((field) => [field, fieldValue.delete()]),
-      ));
+  async function release({
+    uid,
+    requestDigest,
+    invocationId,
+    nowMillis,
+  }) {
+    const ref = operationRef(uid);
+    return firestore.runTransaction(async (transaction) => {
+      const operationSnapshot = await transaction.get(ref);
+      const record = normalizedRecord(operationSnapshot, uid);
+      if (record === null || record.state.status === "completed") {
+        return;
+      }
+      assertLease(record, { requestDigest, invocationId, nowMillis });
+      transaction.set(ref, {
+        ...record,
+        state: {
+          ...record.state,
+          leaseOwner: null,
+          leaseUntilMillis: 0,
+        },
+        updatedAtMillis: nowMillis,
+      });
     });
   }
 
   return Object.freeze({
-    deleteDocument,
-    firstChildCollection,
-    firstDocument,
-    removeBackupFields,
+    advanceWork,
+    claim,
+    completeWork,
+    currentWork,
+    deleteDocumentAndCompleteWork,
+    removeBackupFieldsAndComplete,
+    release,
+    spawnChild,
+    startRoot,
+  });
+}
+
+function createFirestoreCloudBackupStore({
+  listCollectionIdsPage,
+  listDocumentsPage,
+} = {}) {
+  if (typeof listCollectionIdsPage !== "function" ||
+      typeof listDocumentsPage !== "function") {
+    throw new TypeError("Firestore cloud backup store is required.");
+  }
+
+  return Object.freeze({
+    listCollectionIdsPage,
+    listDocumentsPage,
   });
 }
 
