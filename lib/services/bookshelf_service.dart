@@ -7,6 +7,7 @@ import '../models/book_page.dart';
 import 'account/account_transition_journal.dart';
 import 'account/bookshelf_generation_manifest.dart';
 import 'account/bookshelf_sync_outbox.dart';
+import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
 import 'account/media_cleanup_gate.dart';
 import 'auth_service.dart';
@@ -475,22 +476,50 @@ class BookshelfService {
     required CloudWriteSession expectedSession,
     required CloudWriteSessionController sessions,
     BookshelfGenerationRepository? repository,
+  }) async => (await restoreRemoteForSessionWithResult(
+    uid: uid,
+    expectedSession: expectedSession,
+    sessions: sessions,
+    repository: repository,
+  )).status;
+
+  /// Restores a bookshelf generation with the exact source session and reports
+  /// whether the remote source contained any restorable entries or tombstones.
+  static Future<CloudRestoreComponentResult> restoreRemoteForSessionWithResult({
+    required String uid,
+    required CloudWriteSession expectedSession,
+    required CloudWriteSessionController sessions,
+    BookshelfGenerationRepository? repository,
   }) async {
     final db = _db;
     final selectedRepository =
         repository ??
         (db == null ? null : _FirestoreBookshelfGenerationRepository(db));
-    if (selectedRepository == null) return CloudWriteResult.blocked;
+    if (selectedRepository == null) {
+      return const CloudRestoreComponentResult(
+        status: CloudWriteResult.blocked,
+        hasRemoteData: false,
+      );
+    }
     final fence = CloudWriteFence(sessions);
     final initial = fence.verify(expectedSession, uid: uid);
-    if (initial != CloudWriteResult.completed) return initial;
+    if (initial != CloudWriteResult.completed) {
+      return CloudRestoreComponentResult(status: initial, hasRemoteData: false);
+    }
     try {
       final snapshot = await readRemoteWithRepository(
         uid: uid,
         repository: selectedRepository,
       );
       final afterRead = fence.verify(expectedSession, uid: uid);
-      if (afterRead != CloudWriteResult.completed) return afterRead;
+      if (afterRead != CloudWriteResult.completed) {
+        return CloudRestoreComponentResult(
+          status: afterRead,
+          hasRemoteData: false,
+        );
+      }
+      final hasRemoteData =
+          snapshot.entries.isNotEmpty || snapshot.tombstoneIds.isNotEmpty;
       final local = Map<String, dynamic>.from(_readRaw());
       for (final id in snapshot.tombstoneIds) {
         local.remove(id);
@@ -503,10 +532,19 @@ class BookshelfService {
       }
       sessions.assertCurrent(expectedSession);
       await _writeRawStrict(local);
-      return fence.verify(expectedSession, uid: uid);
+      final completed = fence.verify(expectedSession, uid: uid);
+      return CloudRestoreComponentResult(
+        status: completed,
+        hasRemoteData: completed == CloudWriteResult.completed && hasRemoteData,
+      );
     } on StateError {
       final current = fence.verify(expectedSession, uid: uid);
-      if (current != CloudWriteResult.completed) return current;
+      if (current != CloudWriteResult.completed) {
+        return CloudRestoreComponentResult(
+          status: current,
+          hasRemoteData: false,
+        );
+      }
       rethrow;
     }
   }

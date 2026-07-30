@@ -24,6 +24,7 @@ import '../services/auth_service.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
+import '../services/account/cloud_restore_result.dart';
 import '../services/account/cloud_write_session.dart';
 import 'app_shell.dart';
 import '../services/book_analysis_service.dart';
@@ -1241,15 +1242,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppL10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
     try {
-      final ok = await CloudSync.restore();
+      final result = await CloudSync.restoreWithResult();
       if (!mounted) return;
-      messenger.showSnackBar(
-        SnackBar(
-          content: Text(
-            ok ? t.settingsCloudRestoreSuccess : t.settingsCloudRestoreEmpty,
-          ),
-        ),
-      );
+      final message = switch (result) {
+        CloudRestoreResult.completed => t.settingsCloudRestoreSuccess,
+        CloudRestoreResult.empty => t.settingsCloudRestoreEmpty,
+        CloudRestoreResult.blocked ||
+        CloudRestoreResult.stale => t.accountOperationRetryBody,
+      };
+      messenger.showSnackBar(SnackBar(content: Text(message)));
       setState(() {});
     } catch (_) {
       if (!mounted) return;

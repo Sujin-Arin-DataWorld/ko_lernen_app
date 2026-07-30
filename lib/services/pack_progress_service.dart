@@ -1,6 +1,7 @@
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import 'account/cloud_read_result.dart';
+import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'firestore_progress_service.dart';
@@ -399,20 +400,57 @@ class PackProgressService {
     persistLocal,
   }) async {
     final fence = CloudWriteFence(sessions);
-    final snapshot = fence.readySnapshot(uid);
-    if (snapshot == null) {
+    final expectedSession = fence.readySnapshot(uid);
+    if (expectedSession == null) {
       return CloudWriteResult.blocked;
+    }
+    return (await pullTypedFromCloudWithSessionResult(
+      sessions: sessions,
+      uid: uid,
+      expectedSession: expectedSession,
+      loadRemote: loadRemote,
+      loadLocal: loadLocal,
+      persistLocal: persistLocal,
+    )).status;
+  }
+
+  /// Restores pack progress with an exact session and reports whether Firestore
+  /// contained remote progress rather than only an authoritative absence.
+  static Future<CloudRestoreComponentResult>
+  pullTypedFromCloudWithSessionResult({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required CloudWriteSession expectedSession,
+    required Future<CloudReadResult<FirestorePackSnapshot>> Function()
+    loadRemote,
+    required Map<String, PackProgress> Function() loadLocal,
+    required Future<void> Function(Map<String, Map<String, dynamic>> progress)
+    persistLocal,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final initial = fence.verify(expectedSession, uid: uid);
+    if (initial != CloudWriteResult.completed) {
+      return CloudRestoreComponentResult(status: initial, hasRemoteData: false);
     }
     final result = await loadRemote();
-    final afterRead = fence.verify(snapshot, uid: uid);
+    final afterRead = fence.verify(expectedSession, uid: uid);
     if (afterRead != CloudWriteResult.completed) {
-      return afterRead;
+      return CloudRestoreComponentResult(
+        status: afterRead,
+        hasRemoteData: false,
+      );
     }
     if (result.state == CloudReadState.absent) {
-      return CloudWriteResult.completed;
+      return const CloudRestoreComponentResult(
+        status: CloudWriteResult.completed,
+        hasRemoteData: false,
+      );
     }
     if (!result.isPresent || result.value == null) {
-      return CloudWriteResult.blocked;
+      return const CloudRestoreComponentResult(
+        status: CloudWriteResult.blocked,
+        hasRemoteData: false,
+      );
     }
     final remote = result.value!.progress;
     final localBefore = loadLocal();
@@ -421,12 +459,20 @@ class PackProgressService {
       for (final entry in localBefore.entries)
         if (!remote.containsKey(entry.key)) entry.key: entry.value.toJson(),
     };
-    final beforeWrite = fence.verify(snapshot, uid: uid);
+    final beforeWrite = fence.verify(expectedSession, uid: uid);
     if (beforeWrite != CloudWriteResult.completed) {
-      return beforeWrite;
+      return CloudRestoreComponentResult(
+        status: beforeWrite,
+        hasRemoteData: false,
+      );
     }
     await persistLocal(merged);
-    return fence.verify(snapshot, uid: uid);
+    final completed = fence.verify(expectedSession, uid: uid);
+    return CloudRestoreComponentResult(
+      status: completed,
+      hasRemoteData:
+          completed == CloudWriteResult.completed && remote.isNotEmpty,
+    );
   }
 
   static Future<CloudWriteResult> pullFromCloudWithSession({

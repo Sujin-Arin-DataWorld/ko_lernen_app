@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
+import 'package:ko_lernen_app/services/account/cloud_restore_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
@@ -147,6 +148,61 @@ void main() {
     }
   });
 
+  testWidgets(
+    'delayed persisted journal keeps every durable action locked on the first frame',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final refreshStarted = Completer<void>();
+      final releasePersistedRead = Completer<AccountUiPendingState>();
+      final operations = _DelayedJournalAccountOperations(
+        refreshStarted: refreshStarted,
+        readPersistedState: () => releasePersistedRead.future,
+      );
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: const AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: true,
+                isAppleLinked: false,
+              ),
+            ),
+            accountOperations: operations,
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
+        ),
+      );
+      await refreshStarted.future;
+
+      for (final label in <String>[
+        'Jetzt sichern',
+        'Von Cloud wiederherstellen',
+        'Abmelden',
+        'Cloud-Daten löschen',
+      ]) {
+        await _expectSettingsTileDisabled(tester, label);
+      }
+
+      releasePersistedRead.complete(
+        AccountUiPendingState.replacementCancellable,
+      );
+      await tester.pump();
+
+      for (final label in <String>[
+        'Jetzt sichern',
+        'Von Cloud wiederherstellen',
+        'Abmelden',
+        'Cloud-Daten löschen',
+      ]) {
+        await _expectSettingsTileDisabled(tester, label);
+      }
+    },
+  );
+
   testWidgets('backup shows success only for a completed cloud result', (
     tester,
   ) async {
@@ -203,6 +259,192 @@ void main() {
         'Du kannst denselben Vorgang erneut versuchen.',
       ),
       findsOneWidget,
+    );
+  });
+
+  testWidgets(
+    'restore shows retry feedback when a fresh admission finds a pending journal',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      final journal = _MutableCloudBackupDeletionJournalStore();
+      AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+        CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _UnusedCloudBackupDeletionGateway(),
+        ),
+      );
+      addTearDown(AuthService.resetCloudBackupDeletionForTesting);
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: const AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: true,
+                isAppleLinked: false,
+              ),
+            ),
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final restore = find.text('Von Cloud wiederherstellen');
+      await tester.scrollUntilVisible(
+        restore,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final tile = tester.widget<ListTile>(
+        find.ancestor(of: restore, matching: find.byType(ListTile)),
+      );
+      expect(tile.onTap, isNotNull);
+
+      journal.current = CloudBackupDeletionJournal.pending(
+        session: const CloudWriteSession(
+          uid: 'durable',
+          epoch: 2,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'P' * 43,
+      );
+      await tester.tap(restore);
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text(
+          'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+          'Du kannst denselben Vorgang erneut versuchen.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Keine Cloud-Daten'), findsNothing);
+    },
+  );
+
+  testWidgets('restore shows retry feedback for a typed stale result', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      restoreWithResult: () async => CloudRestoreResult.stale,
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final restore = find.text('Von Cloud wiederherstellen');
+    await tester.scrollUntilVisible(
+      restore,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(restore);
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text(
+        'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+        'Du kannst denselben Vorgang erneut versuchen.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Keine Cloud-Daten'), findsNothing);
+  });
+
+  testWidgets('restore shows no-backup feedback for a typed empty result', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      restoreWithResult: () async => CloudRestoreResult.empty,
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final restore = find.text('Von Cloud wiederherstellen');
+    await tester.scrollUntilVisible(
+      restore,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(restore);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Keine Cloud-Daten'), findsOneWidget);
+    expect(
+      find.text(
+        'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+        'Du kannst denselben Vorgang erneut versuchen.',
+      ),
+      findsNothing,
     );
   });
 
@@ -591,6 +833,26 @@ class _SettingsAccountOperations
       const AccountTransitionResult(AccountTransitionStatus.completed);
 }
 
+class _DelayedJournalAccountOperations extends _SettingsAccountOperations {
+  _DelayedJournalAccountOperations({
+    required this.refreshStarted,
+    required this.readPersistedState,
+  });
+
+  final Completer<void> refreshStarted;
+  final Future<AccountUiPendingState> Function() readPersistedState;
+
+  @override
+  Future<AccountUiPendingState> refreshPendingState() async {
+    if (!refreshStarted.isCompleted) {
+      refreshStarted.complete();
+    }
+    final state = await readPersistedState();
+    pending.value = state;
+    return state;
+  }
+}
+
 class _ClearCloudBackupDeletionJournalStore
     implements CloudBackupDeletionJournalStore {
   @override
@@ -603,6 +865,26 @@ class _ClearCloudBackupDeletionJournalStore
   @override
   Future<void> write(CloudBackupDeletionJournal journal) async {
     throw UnimplementedError();
+  }
+}
+
+class _MutableCloudBackupDeletionJournalStore
+    implements CloudBackupDeletionJournalStore {
+  CloudBackupDeletionJournal? current;
+
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async {
+    if (current != expected) return false;
+    current = null;
+    return true;
+  }
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() async => current;
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) async {
+    current = journal;
   }
 }
 
@@ -658,4 +940,19 @@ Widget _wrap(Widget child) {
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: child,
   );
+}
+
+Future<void> _expectSettingsTileDisabled(
+  WidgetTester tester,
+  String label,
+) async {
+  await tester.scrollUntilVisible(
+    find.text(label),
+    200,
+    scrollable: find.byType(Scrollable).first,
+  );
+  final tile = tester.widget<ListTile>(
+    find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+  );
+  expect(tile.onTap, isNull, reason: label);
 }

@@ -112,6 +112,43 @@ void main() {
     },
   );
 
+  test(
+    'typed bookshelf restore reports an active generation as restorable',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final repository = _MemoryRepository()
+        ..active = BookshelfGenerationManifest(
+          generationId: 'generation-a',
+          revision: 1,
+          recordIds: const {'book-a'},
+        )
+        ..generations['generation-a'] = {
+          'book-a': BookshelfGenerationRecord.live(
+            id: 'book-a',
+            revision: 1,
+            portable: const {
+              'note': 'restored',
+              'words': <Object>[],
+              'grammar': <Object>[],
+              'sentences': <Object>[],
+            },
+          ).toJson(),
+        };
+
+      final result = await BookshelfService.restoreRemoteForSessionWithResult(
+        uid: 'uid-a',
+        expectedSession: session,
+        sessions: sessions,
+        repository: repository,
+      );
+
+      expect(result.status, CloudWriteResult.completed);
+      expect(result.hasRemoteData, isTrue);
+      expect(BookshelfService.getById('book-a')?.note, 'restored');
+    },
+  );
+
   test('active tombstone removes a stale local bookshelf entry', () async {
     await Storage.setBookshelfRawJsonStrict(
       '{"book-deleted":{"note":"stale local","words":[],"grammar":[],"sentences":[]}}',

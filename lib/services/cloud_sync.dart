@@ -4,10 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import 'account/cloud_read_result.dart';
+import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'bookshelf_service.dart';
 import 'cloud_sync_service.dart';
+import 'firestore_progress_service.dart';
+import 'pack_progress_service.dart';
 import 'storage_service.dart';
 
 /// 1-Weg-Sync: Storage (lokal) ↔ Firestore (Cloud, `users/{uid}`).
@@ -26,6 +29,7 @@ import 'storage_service.dart';
 class CloudSync {
   static FirebaseFirestore get _db => FirebaseFirestore.instance;
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
+  static Future<CloudRestoreResult> Function()? _restoreWithResultForTesting;
   static Future<bool> Function()? _restoreForTesting;
 
   static DocumentReference<Map<String, dynamic>>? get _doc {
@@ -596,19 +600,34 @@ class CloudSync {
   }
 
   /// Firestore → lokale Werte (additiv).
-  static Future<bool> restore() {
+  /// Kept for existing callers that only need a success boolean. New UI code
+  /// must use [restoreWithResult] so an empty backup is never confused with a
+  /// blocked or stale admission.
+  static Future<bool> restore() async =>
+      (await restoreWithResult()) == CloudRestoreResult.completed;
+
+  static Future<CloudRestoreResult> restoreWithResult() {
     return AuthService.runCloudBackupDeletionAdmission(
-      onAdmitted: _restoreAfterCloudBackupAdmission,
-      onBlocked: () async => false,
+      onAdmitted: _restoreWithResultAfterCloudBackupAdmission,
+      onBlocked: () async => CloudRestoreResult.blocked,
     );
   }
 
-  static Future<bool> _restoreAfterCloudBackupAdmission() async {
-    final override = _restoreForTesting;
-    if (override != null) return override();
+  static Future<CloudRestoreResult>
+  _restoreWithResultAfterCloudBackupAdmission() async {
+    final typedOverride = _restoreWithResultForTesting;
+    if (typedOverride != null) return typedOverride();
+    final legacyOverride = _restoreForTesting;
+    if (legacyOverride != null) {
+      // Compatibility for old boolean test callers: `false` historically
+      // represented a non-restored backup, which maps to the old no-data UI.
+      return (await legacyOverride())
+          ? CloudRestoreResult.completed
+          : CloudRestoreResult.empty;
+    }
     final uid = AuthService.cloudBackupUid;
-    if (uid == null) return false;
-    final result = await restoreWithSession(
+    if (uid == null) return CloudRestoreResult.blocked;
+    return restoreWithSessionResult(
       sessions: cloudWriteSessionController,
       uid: uid,
       readAccount: () => CloudSyncService.readAccountDocument(uid: uid),
@@ -618,28 +637,40 @@ class CloudSync {
         return applyRestorePayload(accountData, beforeWrite: beforeWrite);
       },
       restoreBookshelf: (expectedSession) {
-        return BookshelfService.restoreRemoteForSession(
+        return BookshelfService.restoreRemoteForSessionWithResult(
           uid: uid,
           expectedSession: expectedSession,
           sessions: cloudWriteSessionController,
         );
       },
+      restorePacks: (expectedSession) {
+        return PackProgressService.pullTypedFromCloudWithSessionResult(
+          sessions: cloudWriteSessionController,
+          uid: uid,
+          expectedSession: expectedSession,
+          loadRemote: () => FirestoreProgressService.loadAllTyped(uid: uid),
+          loadLocal: PackProgressService.getAll,
+          persistLocal: Storage.setManyPackProgressJson,
+        );
+      },
     );
-    return result == CloudWriteResult.completed;
   }
 
   @visibleForTesting
   static void overrideOperationsForTesting({
     Future<CloudWriteResult> Function()? backupWithResult,
+    Future<CloudRestoreResult> Function()? restoreWithResult,
     Future<bool> Function()? restore,
   }) {
     _backupWithResultForTesting = backupWithResult;
+    _restoreWithResultForTesting = restoreWithResult;
     _restoreForTesting = restore;
   }
 
   @visibleForTesting
   static void resetOperationsForTesting() {
     _backupWithResultForTesting = null;
+    _restoreWithResultForTesting = null;
     _restoreForTesting = null;
   }
 
@@ -658,30 +689,103 @@ class CloudSync {
     )
     restoreBookshelf,
   }) async {
+    final result = await restoreWithSessionResult(
+      sessions: sessions,
+      uid: uid,
+      readAccount: readAccount,
+      applyAccount: applyAccount,
+      restoreBookshelf: (expectedSession) async {
+        final status = await restoreBookshelf(expectedSession);
+        return CloudRestoreComponentResult(
+          status: status,
+          hasRemoteData: false,
+        );
+      },
+      restorePacks: (_) async => const CloudRestoreComponentResult(
+        status: CloudWriteResult.completed,
+        hasRemoteData: false,
+      ),
+    );
+    return switch (result) {
+      CloudRestoreResult.completed => CloudWriteResult.completed,
+      CloudRestoreResult.stale => CloudWriteResult.stale,
+      CloudRestoreResult.empty ||
+      CloudRestoreResult.blocked => CloudWriteResult.blocked,
+    };
+  }
+
+  static Future<CloudRestoreResult> restoreWithSessionResult({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<CloudReadResult<Map<String, dynamic>>> Function()
+    readAccount,
+    required Future<void> Function(
+      Map<String, dynamic> data,
+      void Function() beforeWrite,
+    )
+    applyAccount,
+    required Future<CloudRestoreComponentResult> Function(
+      CloudWriteSession expectedSession,
+    )
+    restoreBookshelf,
+    required Future<CloudRestoreComponentResult> Function(
+      CloudWriteSession expectedSession,
+    )
+    restorePacks,
+  }) async {
     final fence = CloudWriteFence(sessions);
     final expectedSession = fence.readySnapshot(uid);
-    if (expectedSession == null) return CloudWriteResult.blocked;
+    if (expectedSession == null) return CloudRestoreResult.blocked;
     try {
       final remote = await readAccount();
       final afterRead = fence.verify(expectedSession, uid: uid);
-      if (afterRead != CloudWriteResult.completed) return afterRead;
-      if (!remote.isPresent || remote.value == null) {
-        return CloudWriteResult.blocked;
+      if (afterRead != CloudWriteResult.completed) {
+        return _restoreResultForWrite(afterRead);
       }
-      await applyAccount(
-        remote.value!,
-        () => sessions.assertCurrent(expectedSession),
-      );
-      final afterAccount = fence.verify(expectedSession, uid: uid);
-      if (afterAccount != CloudWriteResult.completed) return afterAccount;
+      var hasRootBackup = false;
+      if (remote.state == CloudReadState.present && remote.value != null) {
+        await applyAccount(
+          remote.value!,
+          () => sessions.assertCurrent(expectedSession),
+        );
+        final afterAccount = fence.verify(expectedSession, uid: uid);
+        if (afterAccount != CloudWriteResult.completed) {
+          return _restoreResultForWrite(afterAccount);
+        }
+        hasRootBackup = true;
+      } else if (remote.state != CloudReadState.absent) {
+        return CloudRestoreResult.blocked;
+      }
       final bookshelf = await restoreBookshelf(expectedSession);
-      if (bookshelf != CloudWriteResult.completed) return bookshelf;
-      return fence.verify(expectedSession, uid: uid);
+      if (bookshelf.status != CloudWriteResult.completed) {
+        return _restoreResultForWrite(bookshelf.status);
+      }
+      final packs = await restorePacks(expectedSession);
+      if (packs.status != CloudWriteResult.completed) {
+        return _restoreResultForWrite(packs.status);
+      }
+      final afterComponents = fence.verify(expectedSession, uid: uid);
+      if (afterComponents != CloudWriteResult.completed) {
+        return _restoreResultForWrite(afterComponents);
+      }
+      return hasRootBackup || bookshelf.hasRemoteData || packs.hasRemoteData
+          ? CloudRestoreResult.completed
+          : CloudRestoreResult.empty;
     } on StateError {
       final current = fence.verify(expectedSession, uid: uid);
-      if (current != CloudWriteResult.completed) return current;
+      if (current != CloudWriteResult.completed) {
+        return _restoreResultForWrite(current);
+      }
       rethrow;
     }
+  }
+
+  static CloudRestoreResult _restoreResultForWrite(CloudWriteResult result) {
+    return switch (result) {
+      CloudWriteResult.completed => CloudRestoreResult.completed,
+      CloudWriteResult.blocked => CloudRestoreResult.blocked,
+      CloudWriteResult.stale => CloudRestoreResult.stale,
+    };
   }
 
   /// Zeitstempel des letzten Cloud-Backups (zur Anzeige in Settings).

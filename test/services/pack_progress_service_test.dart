@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
+import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/firestore_progress_service.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -148,6 +150,32 @@ void main() {
 
     expect(result, CloudWriteResult.stale);
     expect(remoteWrites, 0);
+  });
+
+  test('typed pack restore reports remote progress as restorable', () async {
+    final sessions = CloudWriteSessionController()..acquire('uid-a');
+    final session = sessions.current!;
+    Map<String, Map<String, dynamic>>? persisted;
+
+    final result =
+        await PackProgressService.pullTypedFromCloudWithSessionResult(
+          sessions: sessions,
+          uid: 'uid-a',
+          expectedSession: session,
+          loadRemote: () async => CloudReadResult.present(
+            FirestorePackSnapshot(
+              progress: {'pack-a': _progress(wordsLearned: 4)},
+              revisions: const {'pack-a': 1},
+              membershipRevision: 1,
+            ),
+          ),
+          loadLocal: () => const <String, PackProgress>{},
+          persistLocal: (progress) async => persisted = progress,
+        );
+
+    expect(result.status, CloudWriteResult.completed);
+    expect(result.hasRemoteData, isTrue);
+    expect(persisted?['pack-a']?['wordsLearned'], 4);
   });
 }
 

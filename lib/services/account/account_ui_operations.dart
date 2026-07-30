@@ -35,6 +35,7 @@ class AccountUiLinkConflict extends AccountUiLinkResult {
 }
 
 enum AccountUiPendingState {
+  loading,
   none,
   replacementCancellable,
   replacementResumable,
@@ -68,7 +69,7 @@ class ProductionAccountUiOperations
   final AccountUiProviderLinker? providerLinker;
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
-      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
+      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.loading);
 
   @override
   ValueListenable<AccountUiPendingState> get pendingState => _pendingState;

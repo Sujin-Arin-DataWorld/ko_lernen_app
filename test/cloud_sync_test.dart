@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -7,6 +9,8 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/account/bookshelf_generation_manifest.dart';
 import 'package:ko_lernen_app/services/account/bookshelf_sync_outbox.dart';
+import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
+import 'package:ko_lernen_app/services/account/cloud_restore_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 
@@ -36,6 +40,139 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() => _initializeStorage());
+
+  test(
+    'typed restore applies first-link components when the root backup is absent',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final session = sessions.acquire('durable');
+      final events = <String>[];
+
+      final result = await CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'durable',
+        readAccount: () async =>
+            const CloudReadResult<Map<String, dynamic>>.absent(),
+        applyAccount: (data, beforeWrite) async {
+          fail('an absent root backup must not apply account data');
+        },
+        restoreBookshelf: (expectedSession) async {
+          expect(expectedSession, session);
+          events.add('bookshelf');
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: true,
+          );
+        },
+        restorePacks: (expectedSession) async {
+          expect(expectedSession, session);
+          events.add('packs');
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: true,
+          );
+        },
+      );
+
+      expect(result, CloudRestoreResult.completed);
+      expect(events, <String>['bookshelf', 'packs']);
+    },
+  );
+
+  test(
+    'typed restore reports empty only after every authoritative source is empty',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+
+      final result = await CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'durable',
+        readAccount: () async =>
+            const CloudReadResult<Map<String, dynamic>>.absent(),
+        applyAccount: (data, beforeWrite) async {
+          fail('an absent root backup must not apply account data');
+        },
+        restoreBookshelf: (_) async => const CloudRestoreComponentResult(
+          status: CloudWriteResult.completed,
+          hasRemoteData: false,
+        ),
+        restorePacks: (_) async => const CloudRestoreComponentResult(
+          status: CloudWriteResult.completed,
+          hasRemoteData: false,
+        ),
+      );
+
+      expect(result, CloudRestoreResult.empty);
+    },
+  );
+
+  test(
+    'typed restore propagates a blocked component instead of reporting empty',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      var restoredPacks = false;
+
+      final result = await CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'durable',
+        readAccount: () async =>
+            const CloudReadResult<Map<String, dynamic>>.absent(),
+        applyAccount: (data, beforeWrite) async {
+          fail('an absent root backup must not apply account data');
+        },
+        restoreBookshelf: (_) async => const CloudRestoreComponentResult(
+          status: CloudWriteResult.blocked,
+          hasRemoteData: false,
+        ),
+        restorePacks: (_) async {
+          restoredPacks = true;
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: false,
+          );
+        },
+      );
+
+      expect(result, CloudRestoreResult.blocked);
+      expect(restoredPacks, isFalse);
+    },
+  );
+
+  test(
+    'typed restore reports stale instead of empty after an A-to-B switch',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final loaded = Completer<CloudReadResult<Map<String, dynamic>>>();
+      var restoredComponents = 0;
+
+      final result = CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'uid-a',
+        readAccount: () => loaded.future,
+        applyAccount: (data, beforeWrite) async {},
+        restoreBookshelf: (_) async {
+          restoredComponents += 1;
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: false,
+          );
+        },
+        restorePacks: (_) async {
+          restoredComponents += 1;
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: false,
+          );
+        },
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      loaded.complete(const CloudReadResult<Map<String, dynamic>>.absent());
+
+      expect(await result, CloudRestoreResult.stale);
+      expect(restoredComponents, 0);
+    },
+  );
 
   test(
     'backup payload enumerates every locally stored restore field',
