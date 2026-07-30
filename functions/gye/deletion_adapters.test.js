@@ -5,11 +5,64 @@ const test = require("node:test");
 
 const {
   createFirestoreDeletionAdapters,
+  createGapicDocumentPager,
 } = require("./deletion_adapters");
 
 function clone(value) {
   return value === undefined ? undefined : structuredClone(value);
 }
+
+test("GAPIC document paging requests missing parents without auto pagination",
+async () => {
+  const calls = [];
+  const firestore = {
+    formattedName: "projects/test/databases/(default)",
+    doc(path) {
+      return {
+        formattedName:
+          `projects/test/databases/(default)/documents/${path}`,
+      };
+    },
+  };
+  const pager = createGapicDocumentPager({
+    firestore,
+    client: {
+      async listDocuments(request, options) {
+        calls.push({ request, options });
+        return [
+          [{
+            name: "projects/test/databases/(default)/documents/" +
+              "users/source/sync_generations/g1",
+          }],
+          { pageToken: "document-next" },
+          {},
+        ];
+      },
+    },
+  });
+
+  const page = await pager({
+    collectionPath: "users/source/sync_generations",
+    pageSize: 20,
+    pageToken: "document-current",
+  });
+
+  assert.deepEqual(page, {
+    documentIds: ["g1"],
+    nextPageToken: "document-next",
+  });
+  assert.deepEqual(calls, [{
+    request: {
+      parent:
+        "projects/test/databases/(default)/documents/users/source",
+      collectionId: "sync_generations",
+      pageSize: 20,
+      pageToken: "document-current",
+      showMissing: true,
+    },
+    options: { autoPaginate: false },
+  }]);
+});
 
 function directChildDocumentPaths(documents, collectionPath) {
   const prefix = `${collectionPath}/`;
@@ -18,6 +71,15 @@ function directChildDocumentPaths(documents, collectionPath) {
       if (!path.startsWith(prefix)) return false;
       return !path.slice(prefix.length).includes("/");
     })
+    .sort();
+}
+
+function directChildDocumentIdsIncludingMissing(documents, collectionPath) {
+  const prefix = `${collectionPath}/`;
+  return Array.from(new Set(Array.from(documents.keys())
+    .filter((path) => path.startsWith(prefix))
+    .map((path) => path.slice(prefix.length).split("/")[0])
+    .filter(Boolean)))
     .sort();
 }
 
@@ -76,6 +138,9 @@ class FakeQuery {
   }
 
   async get() {
+    if (this.collection.path.startsWith("users/")) {
+      this.collection.firestore.normalUserCollectionQueries += 1;
+    }
     let paths = directChildDocumentPaths(
       this.collection.firestore.documents,
       this.collection.path,
@@ -227,6 +292,7 @@ class FakeFirestore {
     this.documents = new Map();
     this.deletedPaths = [];
     this.unboundedListCollectionsCalls = 0;
+    this.normalUserCollectionQueries = 0;
     this.rootListCount = 0;
     this.injectLateRootOnListNumber = Number.POSITIVE_INFINITY;
     this.transactionTail = Promise.resolve();
@@ -312,6 +378,13 @@ class FakeFirestore {
       .map((value) => value.collectionPath)
       .sort();
   }
+
+  nodeDocuments(uid = "source") {
+    const prefix = `account_deletions/${uid}/user_tree_nodes/`;
+    return Array.from(this.documents.entries())
+      .filter(([path]) => path.startsWith(prefix))
+      .map(([, value]) => clone(value));
+  }
 }
 
 function createHarness({
@@ -343,7 +416,10 @@ function createHarness({
   });
   if (root !== null) firestore.seed("users/source", root);
   const pagerCalls = [];
+  const documentPagerCalls = [];
+  const documentListings = new Map();
   let failPage = null;
+  let failDocumentPage = null;
   const listCollectionIdsPage = pager || (async ({
     parentPath,
     pageSize: requestedPageSize,
@@ -391,11 +467,47 @@ function createHarness({
       nextPageToken: nextIndex < sorted.length ? `p:${nextIndex}` : null,
     };
   });
+  const listDocumentsPage = async ({
+    collectionPath,
+    pageSize: requestedPageSize,
+    pageToken,
+  }) => {
+    documentPagerCalls.push({
+      collectionPath,
+      pageSize: requestedPageSize,
+      pageToken: pageToken || null,
+    });
+    if (failDocumentPage &&
+        failDocumentPage.collectionPath === collectionPath &&
+        failDocumentPage.pageToken === (pageToken || null) &&
+        failDocumentPage.remaining > 0) {
+      failDocumentPage.remaining -= 1;
+      throw new Error("document provider detail must stay private");
+    }
+    if (!pageToken || !documentListings.has(collectionPath)) {
+      documentListings.set(
+        collectionPath,
+        directChildDocumentIdsIncludingMissing(
+          firestore.documents,
+          collectionPath,
+        ),
+      );
+    }
+    const sorted = documentListings.get(collectionPath);
+    const start = pageToken ? Number(pageToken.slice(2)) : 0;
+    const documentIds = sorted.slice(start, start + requestedPageSize);
+    const nextIndex = start + documentIds.length;
+    return {
+      documentIds,
+      nextPageToken: nextIndex < sorted.length ? `d:${nextIndex}` : null,
+    };
+  };
   const rawAdapters = createFirestoreDeletionAdapters({
     firestore,
     markerCollection: firestore.collection("account_deletions"),
     pageSize,
     listCollectionIdsPage,
+    listDocumentsPage,
     nowMillis: () => clock.now,
   });
   const adapters = {
@@ -419,8 +531,12 @@ function createHarness({
     clock,
     workerFence,
     pagerCalls,
+    documentPagerCalls,
     failNextPage(parentPath, pageToken = null) {
       failPage = { parentPath, pageToken, remaining: 1 };
+    },
+    failNextDocumentPage(collectionPath, pageToken = null) {
+      failDocumentPage = { collectionPath, pageToken, remaining: 1 };
     },
   };
 }
@@ -487,7 +603,6 @@ test("persists nested child work before deleting its parent document", async () 
 
   assert.deepEqual(page, { done: false, nextCursor: "work-v1" });
   assert.deepEqual(firestore.pendingWork(), [
-    "users/source/packs",
     "users/source/packs/p1/items",
   ]);
   assert.equal(firestore.documentExists("users/source/packs/p1"), false);
@@ -566,7 +681,9 @@ async () => {
     firestore.seed(`users/source/packs/p${index}`, { index });
   }
 
-  const before = firestore.deletedPaths.length;
+  const deletedPackPaths = () => firestore.deletedPaths.filter((path) =>
+    path.startsWith("users/source/packs/")).length;
+  const before = deletedPackPaths();
   const result = await adapters.deleteUserTreePage({
     uid: "source",
     operationId: "op",
@@ -581,7 +698,7 @@ async () => {
   });
 
   assert.deepEqual(second, { done: false, nextCursor: "work-v1" });
-  assert.equal(firestore.deletedPaths.length - before, 1);
+  assert.equal(deletedPackPaths() - before, 2);
   assert.equal(firestore.documentExists("users/source"), true);
 });
 
@@ -612,11 +729,11 @@ async () => {
 
 test("discovers high-fanout child collection IDs before deleting the parent",
 async () => {
-  const { adapters, firestore, pagerCalls } = createHarness({ pageSize: 2 });
+  const { adapters, firestore, pagerCalls } = createHarness({ pageSize: 20 });
   firestore.seed("users/source/packs/p1", { state: "active" });
-  for (let index = 0; index < 5; index += 1) {
+  for (let index = 0; index < 401; index += 1) {
     firestore.seed(
-      `users/source/packs/p1/child_${index}/doc`,
+      `users/source/packs/p1/child_${String(index).padStart(3, "0")}/doc`,
       { index },
     );
   }
@@ -625,34 +742,31 @@ async () => {
     uid: "source",
     operationId: "op",
     cursor: null,
-    limit: 2,
+    limit: 10_000,
   });
   await adapters.deleteUserTreePage({
     uid: "source",
     operationId: "op",
     cursor: "work-v1",
-    limit: 2,
+    limit: 10_000,
   });
 
-  assert.deepEqual(pagerCalls, [
-    {
-      parentPath: "users/source",
-      pageSize: 2,
-      pageToken: null,
-    },
-    {
-      parentPath: "users/source/packs/p1",
-      pageSize: 2,
-      pageToken: null,
-    },
-  ]);
+  const childPagerCalls = pagerCalls.filter((call) =>
+    call.parentPath === "users/source/packs/p1");
+  assert.equal(childPagerCalls.length, 20);
+  assert.deepEqual(childPagerCalls[0], {
+    parentPath: "users/source/packs/p1",
+    pageSize: 20,
+    pageToken: null,
+  });
+  assert.equal(childPagerCalls.at(-1).pageToken, "p:380");
   assert.equal(firestore.unboundedListCollectionsCalls, 0);
   assert.equal(firestore.documentExists("users/source/packs/p1"), true);
   assert.equal(
     firestore.pendingWork()
       .filter((path) => path.includes("/child_"))
       .length,
-    2,
+    400,
   );
 });
 
@@ -703,12 +817,6 @@ async () => {
     cursor: "work-v1",
     limit: 2,
   });
-  await adapters.deleteUserTreePage({
-    uid: "source",
-    operationId: "op",
-    cursor: "work-v1",
-    limit: 2,
-  });
 
   assert.deepEqual(
     pagerCalls
@@ -724,6 +832,96 @@ async () => {
     3,
   );
   assert.equal(firestore.documentExists("users/source/packs/p1"), false);
+});
+
+test("deletes descendants beneath a missing intermediate parent document",
+async () => {
+  const {
+    adapters,
+    firestore,
+    documentPagerCalls,
+  } = createHarness({ pageSize: 20 });
+  firestore.seed(
+    "users/source/sync_generations/g1/bookshelf/record",
+    { title: "saved" },
+  );
+
+  await drainPages(adapters, { limit: 20, maxPages: 30 });
+
+  assert.equal(
+    firestore.documentExists(
+      "users/source/sync_generations/g1/bookshelf/record",
+    ),
+    false,
+  );
+  assert(documentPagerCalls.some((call) =>
+    call.collectionPath === "users/source/sync_generations"));
+  assert(documentPagerCalls.some((call) =>
+    call.collectionPath ===
+      "users/source/sync_generations/g1/bookshelf"));
+  assert.equal(firestore.normalUserCollectionQueries, 0);
+});
+
+test("deletes a full bounded flat document page and resumes its page token",
+async () => {
+  const {
+    adapters,
+    firestore,
+    documentPagerCalls,
+  } = createHarness({ pageSize: 20 });
+  for (let index = 0; index < 25; index += 1) {
+    firestore.seed(
+      `users/source/packs/p${String(index).padStart(2, "0")}`,
+      { index },
+    );
+  }
+
+  const rootPage = await adapters.deleteUserTreePage({
+    uid: "source",
+    operationId: "op",
+    cursor: null,
+    limit: 10_000,
+  });
+  const deletedPackPaths = () => firestore.deletedPaths.filter((path) =>
+    path.startsWith("users/source/packs/")).length;
+  const before = deletedPackPaths();
+  const firstDocumentPage = await adapters.deleteUserTreePage({
+    uid: "source",
+    operationId: "op",
+    cursor: rootPage.nextCursor,
+    limit: 10_000,
+  });
+
+  assert.deepEqual(firstDocumentPage, {
+    done: false,
+    nextCursor: "work-v1",
+  });
+  assert.equal(deletedPackPaths() - before, 20);
+  assert.deepEqual(documentPagerCalls, [{
+    collectionPath: "users/source/packs",
+    pageSize: 20,
+    pageToken: null,
+  }]);
+  const packWork = firestore.workDocuments().find((work) =>
+    work.collectionPath === "users/source/packs");
+  assert.equal(packWork.documentPageToken, "d:20");
+  assert.equal(packWork.documentsExhausted, false);
+
+  const beforeContinuation = deletedPackPaths();
+  await adapters.deleteUserTreePage({
+    uid: "source",
+    operationId: "op",
+    cursor: firstDocumentPage.nextCursor,
+    limit: 10_000,
+  });
+
+  assert.equal(deletedPackPaths() - beforeContinuation, 5);
+  assert.deepEqual(documentPagerCalls.at(-1), {
+    collectionPath: "users/source/packs",
+    pageSize: 20,
+    pageToken: "d:20",
+  });
+  assert.equal(firestore.normalUserCollectionQueries, 0);
 });
 
 test("a reclaimed lease prevents the expired worker from mutating its page",
@@ -785,7 +983,7 @@ async () => {
 
   let cursor = null;
   let page;
-  for (let invocation = 0; invocation < 5; invocation += 1) {
+  for (let invocation = 0; invocation < 4; invocation += 1) {
     page = await adapters.deleteUserTreePage({
       uid: "source",
       operationId: "op",

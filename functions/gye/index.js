@@ -94,6 +94,7 @@ const {
 const {
   createFirestoreDeletionAdapters,
   createGapicCollectionIdPager,
+  createGapicDocumentPager,
 } = require("./deletion_adapters");
 
 admin.initializeApp();
@@ -165,6 +166,10 @@ const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
   firestore: db,
   markerCollection: db.collection("account_deletions"),
   listCollectionIdsPage: createGapicCollectionIdPager({
+    firestore: db,
+    client: firestoreCollectionIdClient,
+  }),
+  listDocumentsPage: createGapicDocumentPager({
     firestore: db,
     client: firestoreCollectionIdClient,
   }),
