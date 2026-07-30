@@ -460,9 +460,11 @@ class LocalAccountReconciliationStore {
     final ordinaryFields = snapshot.toCloudDocument()
       ..remove('srs_json')
       ..remove('custom_packs_json');
-    await CloudSync.applyRestorePayload(
+    await CloudSync.applyReconciledRestorePayload(
       ordinaryFields,
-      beforeWrite: () => _assertCurrent(session, sessions),
+      uid: session.uid,
+      session: session,
+      sessions: sessions,
     );
     _assertCurrent(session, sessions);
     _assertSrsGeneration(snapshot);

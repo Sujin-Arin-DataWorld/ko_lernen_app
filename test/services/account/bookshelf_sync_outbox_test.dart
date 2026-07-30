@@ -335,16 +335,18 @@ void main() {
   test(
     'v3 SharedPreferences preserves prepared deletion across restart',
     () async {
-      SharedPreferences.setMockInitialValues({});
+      SharedPreferences.setMockInitialValues({
+        SharedPreferencesBookshelfSyncOutboxStore.key: jsonEncode({
+          'version': 3,
+          'uid': 'uid-a',
+          'operation_id': 'operation-1',
+          'deleted_ids': <String>[],
+          'prepared_deleted_ids': ['book-a'],
+          'allow_parent_only_legacy': false,
+        }),
+      });
       const store = SharedPreferencesBookshelfSyncOutboxStore();
       var tokens = 0;
-      final preparing = BookshelfSyncQueue(
-        store: store,
-        tokenFactory: () => 'operation-${++tokens}',
-        attempt: (_) async => CloudWriteResult.completed,
-      );
-      await preparing.prepareDeletion('uid-a', {'book-a'});
-
       final restarted = BookshelfSyncQueue(
         store: store,
         tokenFactory: () => 'operation-${++tokens}',
@@ -356,6 +358,215 @@ void main() {
 
       expect((await store.read())?.preparedDeletedIds, isEmpty);
       expect((await store.read())?.deletedIds, {'book-a'});
+    },
+  );
+
+  test('v4 restart preserves explicit revival and later delete wins', () async {
+    SharedPreferences.setMockInitialValues({});
+    const store = SharedPreferencesBookshelfSyncOutboxStore();
+    var tokens = 0;
+    final firstProcess = BookshelfSyncQueue(
+      store: store,
+      tokenFactory: () => 'operation-${++tokens}',
+      attempt: (_) async => CloudWriteResult.blocked,
+    );
+    await firstProcess.markPending('uid-a', deletedIds: {'book-a'});
+    await firstProcess.markPending('uid-a', revivedIds: {'book-a'});
+
+    final afterRestart = await store.read();
+    expect(afterRestart?.deletedIds, isEmpty);
+    expect(afterRestart?.revivedIds, {'book-a'});
+
+    final restarted = BookshelfSyncQueue(
+      store: store,
+      tokenFactory: () => 'operation-${++tokens}',
+      attempt: (_) async => CloudWriteResult.blocked,
+    );
+    await restarted.prepareDeletion('uid-a', {'book-a'});
+    await restarted.commitDeletion('uid-a', {'book-a'});
+
+    final afterDelete = await store.read();
+    expect(afterDelete?.deletedIds, {'book-a'});
+    expect(afterDelete?.revivedIds, isEmpty);
+  });
+
+  test(
+    'write-ahead revival blocks drain until strict local save commits',
+    () async {
+      final store = _MemoryOutboxStore();
+      final attempted = <BookshelfSyncPending>[];
+      var tokens = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (pending) async {
+          attempted.add(pending);
+          return CloudWriteResult.blocked;
+        },
+      );
+      final workflow = BookshelfRevivalWorkflow(queue);
+      final releaseSave = Completer<void>();
+      final saveStarted = Completer<void>();
+      var writeAttempted = false;
+      final liveIds = <String>{};
+
+      final saving = workflow.run(
+        uid: 'uid-a',
+        ids: const {'book-a'},
+        saveLocal: () async {
+          expect(store.value?.preparedRevivedIds, {'book-a'});
+          saveStarted.complete();
+          await releaseSave.future;
+          writeAttempted = true;
+          liveIds.add('book-a');
+        },
+        readStrictLiveIds: () => liveIds,
+        localWriteWasAttempted: () => writeAttempted,
+      );
+      await saveStarted.future;
+
+      expect(await queue.drain(), CloudWriteResult.blocked);
+      expect(attempted, isEmpty);
+      releaseSave.complete();
+      await saving;
+
+      expect(store.value?.preparedRevivedIds, isEmpty);
+      expect(store.value?.revivedIds, {'book-a'});
+    },
+  );
+
+  test(
+    'restart reconciles prepared revival from strict local presence',
+    () async {
+      final store = _MemoryOutboxStore();
+      var tokens = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+      await queue.prepareRevival('uid-a', {'book-a'});
+
+      final restarted = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+      await restarted.reconcilePrepared('uid-a', {'book-a'});
+
+      expect(store.value?.preparedRevivedIds, isEmpty);
+      expect(store.value?.revivedIds, {'book-a'});
+    },
+  );
+
+  test(
+    'restart cancels prepared revival when strict local save is absent',
+    () async {
+      final store = _MemoryOutboxStore();
+      var tokens = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+      await queue.prepareRevival('uid-a', {'book-a'});
+
+      await queue.reconcilePrepared('uid-a', const {});
+
+      expect(store.value?.preparedRevivedIds, isEmpty);
+      expect(store.value?.revivedIds, isEmpty);
+    },
+  );
+
+  test('parse failure rolls back prepared deletion without restart', () async {
+    final store = _MemoryOutboxStore();
+    final queue = BookshelfSyncQueue(
+      store: store,
+      tokenFactory: () => 'operation',
+      attempt: (_) async => CloudWriteResult.completed,
+    );
+    final workflow = BookshelfDeletionWorkflow(queue);
+    var writeAttempted = false;
+
+    await expectLater(
+      workflow.run(
+        uid: 'uid-a',
+        ids: const {'book-a'},
+        deleteLocal: () async => throw const FormatException('bad local JSON'),
+        readStrictLiveIds: () => throw const FormatException('bad local JSON'),
+        localWriteWasAttempted: () => writeAttempted,
+      ),
+      throwsFormatException,
+    );
+
+    expect(await queue.drain(), CloudWriteResult.completed);
+    expect(store.value, isNull);
+  });
+
+  test('local write failure reconciles live record without restart', () async {
+    final store = _MemoryOutboxStore();
+    final queue = BookshelfSyncQueue(
+      store: store,
+      tokenFactory: () => 'operation',
+      attempt: (_) async => CloudWriteResult.completed,
+    );
+    final workflow = BookshelfDeletionWorkflow(queue);
+    var writeAttempted = false;
+
+    await expectLater(
+      workflow.run(
+        uid: 'uid-a',
+        ids: const {'book-a'},
+        deleteLocal: () async {
+          writeAttempted = true;
+          throw StateError('strict write failed');
+        },
+        readStrictLiveIds: () => {'book-a'},
+        localWriteWasAttempted: () => writeAttempted,
+      ),
+      throwsStateError,
+    );
+
+    expect(await queue.drain(), CloudWriteResult.completed);
+    expect(store.value, isNull);
+  });
+
+  test(
+    'commit failure reconciles absent record and resumes without restart',
+    () async {
+      final store = _FailOnceOutboxStore();
+      final attempted = <BookshelfSyncPending>[];
+      var tokens = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (pending) async {
+          attempted.add(pending);
+          return CloudWriteResult.completed;
+        },
+      );
+      final workflow = BookshelfDeletionWorkflow(queue);
+      final liveIds = <String>{'book-a'};
+      var writeAttempted = false;
+
+      await expectLater(
+        workflow.run(
+          uid: 'uid-a',
+          ids: const {'book-a'},
+          deleteLocal: () async {
+            writeAttempted = true;
+            liveIds.remove('book-a');
+            store.failNextWrite = true;
+          },
+          readStrictLiveIds: () => liveIds,
+          localWriteWasAttempted: () => writeAttempted,
+        ),
+        throwsStateError,
+      );
+
+      expect(await queue.drain(), CloudWriteResult.completed);
+      expect(attempted.single.deletedIds, {'book-a'});
+      expect(store.value, isNull);
     },
   );
 }
@@ -408,5 +619,18 @@ class _RacyOutboxStore implements BookshelfSyncOutboxStore {
   @override
   Future<void> write(BookshelfSyncPending pending) async {
     value = pending;
+  }
+}
+
+class _FailOnceOutboxStore extends _MemoryOutboxStore {
+  bool failNextWrite = false;
+
+  @override
+  Future<void> write(BookshelfSyncPending pending) async {
+    if (failNextWrite) {
+      failNextWrite = false;
+      throw StateError('outbox write failed');
+    }
+    await super.write(pending);
   }
 }

@@ -178,6 +178,38 @@ void main() {
     },
   );
 
+  test('durable explicit revival overrides an active tombstone', () async {
+    final repository = _MemoryBookshelfRepository()
+      ..active = BookshelfGenerationManifest(
+        generationId: 'generation-old',
+        revision: 3,
+        recordIds: const {'book-deleted'},
+      )
+      ..generations['generation-old'] = {
+        'book-deleted': BookshelfGenerationRecord.tombstone(
+          id: 'book-deleted',
+          revision: 3,
+        ).toJson(),
+      };
+
+    await BookshelfGenerationSync.stageAndActivate(
+      repository: repository,
+      uid: 'uid-a',
+      generationId: 'generation-new',
+      entries: const {
+        'book-deleted': {'note': 'intentional new save'},
+      },
+      revivedIds: const {'book-deleted'},
+      beforeWrite: () {},
+    );
+
+    final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+    expect(snapshot.entries, {
+      'book-deleted': {'note': 'intentional new save'},
+    });
+    expect(snapshot.tombstoneIds, isEmpty);
+  });
+
   test(
     'first generation merges a stale local edit with every legacy survivor',
     () async {

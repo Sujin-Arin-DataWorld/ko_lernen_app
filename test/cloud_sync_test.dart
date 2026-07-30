@@ -5,6 +5,9 @@ import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/bookshelf_service.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/account/bookshelf_generation_manifest.dart';
+import 'package:ko_lernen_app/services/account/bookshelf_sync_outbox.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 
 typedef _IntReader = int Function();
@@ -281,7 +284,83 @@ void main() {
     });
 
     expect(BookshelfService.getById('page1')?.note, 'Legacy page');
+    const store = SharedPreferencesBookshelfSyncOutboxStore();
+    expect(
+      await store.read(),
+      isNull,
+      reason: 'an arbitrary legacy restore must not approve parent migration',
+    );
   });
+
+  test(
+    'validated reconciled legacy restore durably approves first generation',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final session = sessions.acquire('uid-a');
+
+      await CloudSync.applyReconciledRestorePayload(
+        {'bookshelf_json': '{"page1":{"note":"Validated legacy page"}}'},
+        uid: 'uid-a',
+        session: session,
+        sessions: sessions,
+      );
+
+      const store = SharedPreferencesBookshelfSyncOutboxStore();
+      final pending = await store.read();
+      expect(pending?.allowParentOnlyLegacy, isTrue);
+
+      final repository = _LegacyBookshelfRepository()
+        ..legacyParent = {
+          'page1': {'note': 'Validated legacy page'},
+        };
+      await BookshelfGenerationSync.stageAndActivate(
+        repository: repository,
+        uid: 'uid-a',
+        generationId: 'generation-first',
+        operationId: pending!.operationId,
+        entries: const {},
+        allowParentOnlyLegacy: pending.allowParentOnlyLegacy,
+        beforeWrite: () {},
+      );
+
+      final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+      expect(snapshot.entries, {
+        'page1': {'note': 'Validated legacy page'},
+      });
+    },
+  );
+
+  test(
+    'invalid reconciled legacy restore remains unapproved and fail-closed',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final session = sessions.acquire('uid-a');
+
+      await CloudSync.applyReconciledRestorePayload(
+        {'bookshelf_json': 'not-json'},
+        uid: 'uid-a',
+        session: session,
+        sessions: sessions,
+      );
+
+      const store = SharedPreferencesBookshelfSyncOutboxStore();
+      expect(await store.read(), isNull);
+      final repository = _LegacyBookshelfRepository()
+        ..legacyParent = {
+          'page1': {'note': 'Untrusted parent'},
+        };
+      await expectLater(
+        BookshelfGenerationSync.stageAndActivate(
+          repository: repository,
+          uid: 'uid-a',
+          generationId: 'generation-first',
+          entries: const {},
+          beforeWrite: () {},
+        ),
+        throwsFormatException,
+      );
+    },
+  );
 
   test(
     'level restore normalizes supported levels and rejects garbage',
@@ -601,4 +680,52 @@ void main() {
       expect(Storage.srsRawJson, '{"local":1}');
     },
   );
+}
+
+class _LegacyBookshelfRepository implements BookshelfGenerationRepository {
+  BookshelfGenerationManifest? active;
+  final generations = <String, Map<String, Map<String, dynamic>>>{};
+  Map<String, Map<String, dynamic>> legacyParent = {};
+
+  @override
+  Future<bool> activateManifest({
+    required String uid,
+    required BookshelfGenerationManifest manifest,
+    required int expectedRevision,
+  }) async {
+    if ((active?.revision ?? 0) != expectedRevision) return false;
+    active = manifest;
+    return true;
+  }
+
+  @override
+  Future<BookshelfGenerationManifest?> readActiveManifest(String uid) async =>
+      active;
+
+  @override
+  Future<Map<String, dynamic>?> readGenerationRecord({
+    required String uid,
+    required String generationId,
+    required String recordId,
+  }) async => generations[generationId]?[recordId];
+
+  @override
+  Future<Map<String, Map<String, dynamic>>> readLegacyEntries(
+    String uid,
+  ) async => {};
+
+  @override
+  Future<Map<String, Map<String, dynamic>>> readLegacyParent(
+    String uid,
+  ) async => legacyParent;
+
+  @override
+  Future<void> writeGenerationRecord({
+    required String uid,
+    required String generationId,
+    required String recordId,
+    required Map<String, dynamic> data,
+  }) async {
+    generations.putIfAbsent(generationId, () => {})[recordId] = data;
+  }
 }

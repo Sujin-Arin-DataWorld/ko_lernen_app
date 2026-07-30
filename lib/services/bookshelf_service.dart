@@ -1,9 +1,7 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart' show debugPrint;
 
 import '../models/book_page.dart';
 import 'account/account_transition_journal.dart';
@@ -77,12 +75,20 @@ class BookshelfService {
   }
 
   static Future<void> save(BookPage page) async {
-    await MediaMutationLock.run(() async {
-      final raw = Map<String, dynamic>.from(_readRaw());
-      raw[page.id] = page.toLocalJson();
-      await _writeRawStrict(raw);
-    });
-    await _enqueueGenerationSync(revivedIds: {page.id});
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) {
+      await _saveLocal(page);
+      return;
+    }
+    var localWriteAttempted = false;
+    await BookshelfRevivalWorkflow(_productionSyncQueue).run(
+      uid: uid,
+      ids: {page.id},
+      saveLocal: () =>
+          _saveLocal(page, beforeWrite: () => localWriteAttempted = true),
+      readStrictLiveIds: () => _readRaw().keys.toSet(),
+      localWriteWasAttempted: () => localWriteAttempted,
+    );
   }
 
   static Future<BookPage> saveWithPendingImage(
@@ -106,10 +112,12 @@ class BookshelfService {
     CloudWriteSessionController? sessions,
   }) async {
     final selectedSessions = sessions ?? cloudWriteSessionController;
-    final syncUid = await _prepareGenerationDeletion({id});
-    await MediaMutationLock.run(() async {
+    final uid = AuthService.cloudBackupUid;
+    var localWriteAttempted = false;
+    Future<void> deleteLocal() => MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final removed = raw.remove(id);
+      localWriteAttempted = true;
       await _writeRawStrict(raw);
       if (removed is Map) {
         final page = BookPage.fromJson(id, removed.cast<String, dynamic>());
@@ -124,10 +132,17 @@ class BookshelfService {
         }
       }
     });
-    if (syncUid != null) {
-      await _productionSyncQueue.commitDeletion(syncUid, {id});
-      unawaited(_productionSyncQueue.drain());
+    if (uid == null) {
+      await deleteLocal();
+      return;
     }
+    await BookshelfDeletionWorkflow(_productionSyncQueue).run(
+      uid: uid,
+      ids: {id},
+      deleteLocal: deleteLocal,
+      readStrictLiveIds: () => _readRaw().keys.toSet(),
+      localWriteWasAttempted: () => localWriteAttempted,
+    );
   }
 
   // ── Internal helpers ──────────────────────────────────────────────
@@ -169,6 +184,18 @@ class BookshelfService {
 
   static Future<void> _writeRawStrict(Map<String, dynamic> data) async {
     await Storage.setBookshelfRawJsonStrict(jsonEncode(data));
+  }
+
+  static Future<void> _saveLocal(
+    BookPage page, {
+    void Function()? beforeWrite,
+  }) {
+    return MediaMutationLock.run(() async {
+      final raw = Map<String, dynamic>.from(_readRaw());
+      raw[page.id] = page.toLocalJson();
+      beforeWrite?.call();
+      await _writeRawStrict(raw);
+    });
   }
 
   static Future<void> _collectGarbage(
@@ -255,36 +282,6 @@ class BookshelfService {
     }
   }
 
-  static Future<void> _enqueueGenerationSync({
-    Set<String> deletedIds = const {},
-    Set<String> revivedIds = const {},
-  }) async {
-    final uid = AuthService.cloudBackupUid;
-    if (uid == null) return;
-    try {
-      await _productionSyncQueue.enqueue(
-        uid,
-        deletedIds: deletedIds,
-        revivedIds: revivedIds,
-      );
-    } catch (e) {
-      debugPrint('BookshelfService: sync outbox write failed — $e');
-      rethrow;
-    }
-  }
-
-  static Future<String?> _prepareGenerationDeletion(Set<String> ids) async {
-    final uid = AuthService.cloudBackupUid;
-    if (uid == null) return null;
-    try {
-      await _productionSyncQueue.prepareDeletion(uid, ids);
-      return uid;
-    } catch (e) {
-      debugPrint('BookshelfService: sync outbox write failed — $e');
-      rethrow;
-    }
-  }
-
   static final BookshelfSyncQueue _productionSyncQueue = BookshelfSyncQueue(
     store: const SharedPreferencesBookshelfSyncOutboxStore(),
     tokenFactory: _newGenerationId,
@@ -307,6 +304,7 @@ class BookshelfService {
       operationId: pending.operationId,
       entries: entries,
       deletedIds: pending.tombstonesAbsentFrom(entries.keys),
+      revivedIds: pending.revivedIds,
       allowParentOnlyLegacy: pending.allowParentOnlyLegacy,
       repository: _FirestoreBookshelfGenerationRepository(db),
     );
@@ -320,14 +318,42 @@ class BookshelfService {
     await _productionSyncQueue.drain();
   }
 
-  static Map<String, Map<String, dynamic>> _portableLocalEntries() {
+  static Future<void> recordValidatedParentOnlyLegacyRestore({
+    required String uid,
+    required String restoredJson,
+  }) async {
+    if (Storage.bookshelfRawJson != restoredJson) {
+      throw StateError('Validated bookshelf restore no longer matches local.');
+    }
+    validateParentOnlyLegacyRestore(restoredJson);
+    await _productionSyncQueue.markPending(uid, allowParentOnlyLegacy: true);
+  }
+
+  static void validateParentOnlyLegacyRestore(String restoredJson) {
+    _portableEntriesFromJson(restoredJson);
+  }
+
+  static Map<String, Map<String, dynamic>> _portableLocalEntries() =>
+      _portableEntriesFromJson(Storage.bookshelfRawJson);
+
+  static Map<String, Map<String, dynamic>> _portableEntriesFromJson(
+    String rawJson,
+  ) {
+    if (rawJson.isEmpty) return {};
+    final decoded = jsonDecode(rawJson);
+    if (decoded is! Map) {
+      throw const FormatException('Malformed bookshelf storage.');
+    }
     final entries = <String, Map<String, dynamic>>{};
-    for (final entry in _readRaw().entries) {
+    for (final entry in decoded.entries) {
+      if (entry.key is! String || entry.value is! Map) {
+        throw const FormatException('Malformed bookshelf entry.');
+      }
       final page = BookPage.fromJson(
-        entry.key,
+        entry.key as String,
         (entry.value as Map).cast<String, dynamic>(),
       );
-      entries[entry.key] = page.toFirestoreJson();
+      entries[entry.key as String] = page.toFirestoreJson();
     }
     return entries;
   }
@@ -350,6 +376,7 @@ class BookshelfService {
     String? operationId,
     required Map<String, Map<String, dynamic>> entries,
     Set<String> deletedIds = const {},
+    Set<String> revivedIds = const {},
     bool allowParentOnlyLegacy = false,
     required BookshelfGenerationRepository repository,
   }) async {
@@ -363,6 +390,7 @@ class BookshelfService {
         operationId: operationId,
         entries: entries,
         deletedIds: deletedIds,
+        revivedIds: revivedIds,
         allowParentOnlyLegacy: allowParentOnlyLegacy,
         beforeWrite: () => sessions.assertCurrent(snapshot),
       );

@@ -122,6 +122,44 @@ class CloudSync {
   static Future<void> applyRestorePayload(
     Map<String, dynamic> data, {
     void Function()? beforeWrite,
+  }) {
+    return _applyRestorePayload(data, beforeWrite: beforeWrite);
+  }
+
+  static Future<void> applyReconciledRestorePayload(
+    Map<String, dynamic> data, {
+    required String uid,
+    required CloudWriteSession session,
+    required CloudWriteSessionController sessions,
+  }) {
+    sessions.assertCurrent(session);
+    if (session.uid != uid) {
+      throw StateError('Validated bookshelf restore UID does not match.');
+    }
+    return _applyRestorePayload(
+      data,
+      beforeWrite: () => sessions.assertCurrent(session),
+      validateLegacyBookshelfRestore: (restoredJson) {
+        sessions.assertCurrent(session);
+        BookshelfService.validateParentOnlyLegacyRestore(restoredJson);
+      },
+      onValidatedLegacyBookshelfRestored: (restoredJson) async {
+        sessions.assertCurrent(session);
+        await BookshelfService.recordValidatedParentOnlyLegacyRestore(
+          uid: uid,
+          restoredJson: restoredJson,
+        );
+        sessions.assertCurrent(session);
+      },
+    );
+  }
+
+  static Future<void> _applyRestorePayload(
+    Map<String, dynamic> data, {
+    void Function()? beforeWrite,
+    void Function(String restoredJson)? validateLegacyBookshelfRestore,
+    Future<void> Function(String restoredJson)?
+    onValidatedLegacyBookshelfRestored,
   }) async {
     final vok = _map(data['vok']);
     final vocabularyWasUninitialized =
@@ -324,10 +362,19 @@ class CloudSync {
       stripBookshelfThumbnail: true,
     );
     if (bookshelfJson != null && Storage.bookshelfRawJson.isEmpty) {
+      validateLegacyBookshelfRestore?.call(bookshelfJson);
       await _guardedWrite(
         beforeWrite,
         () => Storage.setBookshelfRawJson(bookshelfJson),
       );
+      await onValidatedLegacyBookshelfRestored?.call(bookshelfJson);
+    } else if (bookshelfJson != null &&
+        onValidatedLegacyBookshelfRestored != null &&
+        Storage.bookshelfRawJson == bookshelfJson) {
+      // A prior strict local write may have succeeded while the durable
+      // approval write failed. Revalidate and complete the approval on retry.
+      validateLegacyBookshelfRestore?.call(bookshelfJson);
+      await onValidatedLegacyBookshelfRestored(bookshelfJson);
     }
   }
 

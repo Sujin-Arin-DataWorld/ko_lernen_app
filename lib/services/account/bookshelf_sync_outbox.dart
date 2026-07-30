@@ -11,13 +11,30 @@ class BookshelfSyncPending {
     required this.operationId,
     Set<String> deletedIds = const {},
     Set<String> preparedDeletedIds = const {},
+    Set<String> revivedIds = const {},
+    Set<String> preparedRevivedIds = const {},
     this.allowParentOnlyLegacy = false,
   }) : deletedIds = Set.unmodifiable(deletedIds),
-       preparedDeletedIds = Set.unmodifiable(preparedDeletedIds) {
-    if (deletedIds.any(preparedDeletedIds.contains)) {
+       preparedDeletedIds = Set.unmodifiable(preparedDeletedIds),
+       revivedIds = Set.unmodifiable(revivedIds),
+       preparedRevivedIds = Set.unmodifiable(preparedRevivedIds) {
+    final allIds = {
+      ...deletedIds,
+      ...preparedDeletedIds,
+      ...revivedIds,
+      ...preparedRevivedIds,
+    };
+    if (allIds.length !=
+        deletedIds.length +
+            preparedDeletedIds.length +
+            revivedIds.length +
+            preparedRevivedIds.length) {
       throw ArgumentError(
-        'Committed and prepared bookshelf deletions must be disjoint.',
+        'Bookshelf deletion and revival intents must be disjoint.',
       );
+    }
+    if (allIds.length > 400) {
+      throw const FormatException('Bookshelf outbox has too many intents.');
     }
   }
 
@@ -25,6 +42,8 @@ class BookshelfSyncPending {
   final String operationId;
   final Set<String> deletedIds;
   final Set<String> preparedDeletedIds;
+  final Set<String> revivedIds;
+  final Set<String> preparedRevivedIds;
   final bool allowParentOnlyLegacy;
 
   String get token => operationId;
@@ -43,7 +62,11 @@ class BookshelfSyncPending {
       other.deletedIds.length == deletedIds.length &&
       other.deletedIds.containsAll(deletedIds) &&
       other.preparedDeletedIds.length == preparedDeletedIds.length &&
-      other.preparedDeletedIds.containsAll(preparedDeletedIds);
+      other.preparedDeletedIds.containsAll(preparedDeletedIds) &&
+      other.revivedIds.length == revivedIds.length &&
+      other.revivedIds.containsAll(revivedIds) &&
+      other.preparedRevivedIds.length == preparedRevivedIds.length &&
+      other.preparedRevivedIds.containsAll(preparedRevivedIds);
 
   @override
   int get hashCode => Object.hash(
@@ -52,6 +75,8 @@ class BookshelfSyncPending {
     allowParentOnlyLegacy,
     Object.hashAllUnordered(deletedIds),
     Object.hashAllUnordered(preparedDeletedIds),
+    Object.hashAllUnordered(revivedIds),
+    Object.hashAllUnordered(preparedRevivedIds),
   );
 }
 
@@ -77,7 +102,8 @@ class SharedPreferencesBookshelfSyncOutboxStore
     if (decoded is! Map ||
         (decoded['version'] != 1 &&
             decoded['version'] != 2 &&
-            decoded['version'] != 3) ||
+            decoded['version'] != 3 &&
+            decoded['version'] != 4) ||
         decoded['uid'] is! String ||
         (decoded['operation_id'] ?? decoded['token']) is! String) {
       throw const FormatException('Invalid bookshelf sync outbox.');
@@ -87,6 +113,9 @@ class SharedPreferencesBookshelfSyncOutboxStore
     final rawDeletedIds = decoded['deleted_ids'] ?? const <Object>[];
     final rawPreparedDeletedIds =
         decoded['prepared_deleted_ids'] ?? const <Object>[];
+    final rawRevivedIds = decoded['revived_ids'] ?? const <Object>[];
+    final rawPreparedRevivedIds =
+        decoded['prepared_revived_ids'] ?? const <Object>[];
     final allowParentOnlyLegacy = decoded['allow_parent_only_legacy'] ?? false;
     if (uid.trim().isEmpty ||
         uid.length > 256 ||
@@ -94,6 +123,8 @@ class SharedPreferencesBookshelfSyncOutboxStore
         operationId.length > 256 ||
         rawDeletedIds is! List ||
         rawPreparedDeletedIds is! List ||
+        rawRevivedIds is! List ||
+        rawPreparedRevivedIds is! List ||
         allowParentOnlyLegacy is! bool) {
       throw const FormatException('Invalid bookshelf sync outbox.');
     }
@@ -111,13 +142,36 @@ class SharedPreferencesBookshelfSyncOutboxStore
         throw const FormatException('Invalid bookshelf sync outbox.');
       }
     }
+    final revivedIds = <String>{};
+    for (final value in rawRevivedIds) {
+      if (value is! String ||
+          !revivedIds.add(value) ||
+          deletedIds.contains(value) ||
+          preparedDeletedIds.contains(value)) {
+        throw const FormatException('Invalid bookshelf sync outbox.');
+      }
+    }
+    final preparedRevivedIds = <String>{};
+    for (final value in rawPreparedRevivedIds) {
+      if (value is! String ||
+          !preparedRevivedIds.add(value) ||
+          deletedIds.contains(value) ||
+          preparedDeletedIds.contains(value) ||
+          revivedIds.contains(value)) {
+        throw const FormatException('Invalid bookshelf sync outbox.');
+      }
+    }
     _requireRecordIds(deletedIds);
     _requireRecordIds(preparedDeletedIds);
+    _requireRecordIds(revivedIds);
+    _requireRecordIds(preparedRevivedIds);
     return BookshelfSyncPending(
       uid: uid,
       operationId: operationId,
       deletedIds: deletedIds,
       preparedDeletedIds: preparedDeletedIds,
+      revivedIds: revivedIds,
+      preparedRevivedIds: preparedRevivedIds,
       allowParentOnlyLegacy: allowParentOnlyLegacy,
     );
   }
@@ -126,15 +180,19 @@ class SharedPreferencesBookshelfSyncOutboxStore
   Future<void> write(BookshelfSyncPending pending) async {
     _requireRecordIds(pending.deletedIds);
     _requireRecordIds(pending.preparedDeletedIds);
+    _requireRecordIds(pending.revivedIds);
+    _requireRecordIds(pending.preparedRevivedIds);
     final preferences = await SharedPreferences.getInstance();
     final written = await preferences.setString(
       key,
       jsonEncode({
-        'version': 3,
+        'version': 4,
         'uid': pending.uid,
         'operation_id': pending.operationId,
         'deleted_ids': pending.deletedIds.toList()..sort(),
         'prepared_deleted_ids': pending.preparedDeletedIds.toList()..sort(),
+        'revived_ids': pending.revivedIds.toList()..sort(),
+        'prepared_revived_ids': pending.preparedRevivedIds.toList()..sort(),
         'allow_parent_only_legacy': pending.allowParentOnlyLegacy,
       }),
     );
@@ -204,27 +262,44 @@ class BookshelfSyncQueue {
     }
     _requireRecordIds(deletedIds);
     _requireRecordIds(revivedIds);
+    if (deletedIds.any(revivedIds.contains)) {
+      throw ArgumentError('Bookshelf delete and revive intents overlap.');
+    }
     await _runStoreMutation(() async {
       final current = await store.read();
-      final carriedDeletedIds = current?.uid == uid
-          ? current!.deletedIds
-          : const <String>{};
-      final carriedPreparedDeletedIds = current?.uid == uid
-          ? current!.preparedDeletedIds
-          : const <String>{};
-      final nextDeletedIds = <String>{...carriedDeletedIds, ...deletedIds}
-        ..removeAll(revivedIds);
-      final nextPreparedDeletedIds = <String>{...carriedPreparedDeletedIds}
-        ..removeAll(revivedIds)
-        ..removeAll(nextDeletedIds);
+      final sameUid = current?.uid == uid;
+      final nextDeletedIds = <String>{if (sameUid) ...current!.deletedIds};
+      final nextPreparedDeletedIds = <String>{
+        if (sameUid) ...current!.preparedDeletedIds,
+      };
+      final nextRevivedIds = <String>{if (sameUid) ...current!.revivedIds};
+      final nextPreparedRevivedIds = <String>{
+        if (sameUid) ...current!.preparedRevivedIds,
+      };
+      void replaceIntent(String id, Set<String> target) {
+        nextDeletedIds.remove(id);
+        nextPreparedDeletedIds.remove(id);
+        nextRevivedIds.remove(id);
+        nextPreparedRevivedIds.remove(id);
+        target.add(id);
+      }
+
+      for (final id in deletedIds) {
+        replaceIntent(id, nextDeletedIds);
+      }
+      for (final id in revivedIds) {
+        replaceIntent(id, nextRevivedIds);
+      }
       final pending = BookshelfSyncPending(
         uid: uid,
         operationId: token,
         deletedIds: nextDeletedIds,
         preparedDeletedIds: nextPreparedDeletedIds,
+        revivedIds: nextRevivedIds,
+        preparedRevivedIds: nextPreparedRevivedIds,
         allowParentOnlyLegacy:
             allowParentOnlyLegacy ??
-            (current?.uid == uid && current!.allowParentOnlyLegacy),
+            (sameUid && current!.allowParentOnlyLegacy),
       );
       await store.write(pending);
     });
@@ -238,8 +313,6 @@ class BookshelfSyncQueue {
     await _runStoreMutation(() async {
       final current = await store.read();
       final sameUid = current?.uid == uid;
-      final nextDeletedIds = <String>{if (sameUid) ...current!.deletedIds}
-        ..removeAll(ids);
       final nextPreparedDeletedIds = <String>{
         if (sameUid) ...current!.preparedDeletedIds,
         ...ids,
@@ -248,8 +321,19 @@ class BookshelfSyncQueue {
         BookshelfSyncPending(
           uid: uid,
           operationId: token,
-          deletedIds: nextDeletedIds,
+          deletedIds: {
+            if (sameUid)
+              ...current!.deletedIds.where((id) => !ids.contains(id)),
+          },
           preparedDeletedIds: nextPreparedDeletedIds,
+          revivedIds: {
+            if (sameUid)
+              ...current!.revivedIds.where((id) => !ids.contains(id)),
+          },
+          preparedRevivedIds: {
+            if (sameUid)
+              ...current!.preparedRevivedIds.where((id) => !ids.contains(id)),
+          },
           allowParentOnlyLegacy: sameUid && current!.allowParentOnlyLegacy,
         ),
       );
@@ -272,8 +356,84 @@ class BookshelfSyncQueue {
         BookshelfSyncPending(
           uid: uid,
           operationId: token,
-          deletedIds: {...?current?.deletedIds, ...ids},
+          deletedIds: {
+            ...?current?.deletedIds.where((id) => !ids.contains(id)),
+            ...ids,
+          },
           preparedDeletedIds: nextPreparedDeletedIds,
+          revivedIds: {
+            ...?current?.revivedIds.where((id) => !ids.contains(id)),
+          },
+          preparedRevivedIds: {
+            ...?current?.preparedRevivedIds.where((id) => !ids.contains(id)),
+          },
+          allowParentOnlyLegacy: current?.allowParentOnlyLegacy ?? false,
+        ),
+      );
+    });
+  }
+
+  Future<void> prepareRevival(String uid, Set<String> ids) async {
+    _requireUid(uid);
+    _requireRecordIds(ids);
+    if (ids.isEmpty) return;
+    final token = _newToken();
+    await _runStoreMutation(() async {
+      final current = await store.read();
+      final sameUid = current?.uid == uid;
+      await store.write(
+        BookshelfSyncPending(
+          uid: uid,
+          operationId: token,
+          deletedIds: {
+            if (sameUid)
+              ...current!.deletedIds.where((id) => !ids.contains(id)),
+          },
+          preparedDeletedIds: {
+            if (sameUid)
+              ...current!.preparedDeletedIds.where((id) => !ids.contains(id)),
+          },
+          revivedIds: {
+            if (sameUid)
+              ...current!.revivedIds.where((id) => !ids.contains(id)),
+          },
+          preparedRevivedIds: {
+            if (sameUid) ...current!.preparedRevivedIds,
+            ...ids,
+          },
+          allowParentOnlyLegacy: sameUid && current!.allowParentOnlyLegacy,
+        ),
+      );
+    });
+  }
+
+  Future<void> commitRevival(String uid, Set<String> ids) async {
+    _requireUid(uid);
+    _requireRecordIds(ids);
+    if (ids.isEmpty) return;
+    final token = _newToken();
+    await _runStoreMutation(() async {
+      final current = await store.read();
+      if (current != null && current.uid != uid) {
+        throw StateError('Bookshelf revival account changed before commit.');
+      }
+      await store.write(
+        BookshelfSyncPending(
+          uid: uid,
+          operationId: token,
+          deletedIds: {
+            ...?current?.deletedIds.where((id) => !ids.contains(id)),
+          },
+          preparedDeletedIds: {
+            ...?current?.preparedDeletedIds.where((id) => !ids.contains(id)),
+          },
+          revivedIds: {
+            ...?current?.revivedIds.where((id) => !ids.contains(id)),
+            ...ids,
+          },
+          preparedRevivedIds: {
+            ...?current?.preparedRevivedIds.where((id) => !ids.contains(id)),
+          },
           allowParentOnlyLegacy: current?.allowParentOnlyLegacy ?? false,
         ),
       );
@@ -287,15 +447,51 @@ class BookshelfSyncQueue {
       final current = await store.read();
       if (current == null ||
           current.uid != uid ||
-          current.preparedDeletedIds.isEmpty) {
+          (current.preparedDeletedIds.isEmpty &&
+              current.preparedRevivedIds.isEmpty)) {
         return;
       }
       final committedAfterCrash = current.preparedDeletedIds.difference(live);
+      final revivedAfterCrash = current.preparedRevivedIds.intersection(live);
       await store.write(
         BookshelfSyncPending(
           uid: uid,
           operationId: _newToken(),
           deletedIds: {...current.deletedIds, ...committedAfterCrash},
+          revivedIds: {...current.revivedIds, ...revivedAfterCrash},
+          allowParentOnlyLegacy: current.allowParentOnlyLegacy,
+        ),
+      );
+    });
+  }
+
+  Future<void> cancelPrepared(
+    String uid, {
+    Set<String> deletedIds = const {},
+    Set<String> revivedIds = const {},
+  }) async {
+    _requireUid(uid);
+    _requireRecordIds(deletedIds);
+    _requireRecordIds(revivedIds);
+    await _runStoreMutation(() async {
+      final current = await store.read();
+      if (current == null || current.uid != uid) return;
+      await store.write(
+        BookshelfSyncPending(
+          uid: uid,
+          operationId: _newToken(),
+          deletedIds: current.deletedIds,
+          preparedDeletedIds: {
+            ...current.preparedDeletedIds.where(
+              (id) => !deletedIds.contains(id),
+            ),
+          },
+          revivedIds: current.revivedIds,
+          preparedRevivedIds: {
+            ...current.preparedRevivedIds.where(
+              (id) => !revivedIds.contains(id),
+            ),
+          },
           allowParentOnlyLegacy: current.allowParentOnlyLegacy,
         ),
       );
@@ -324,7 +520,8 @@ class BookshelfSyncQueue {
     while (true) {
       final initial = await store.read();
       if (initial == null) return CloudWriteResult.completed;
-      if (initial.preparedDeletedIds.isNotEmpty) {
+      if (initial.preparedDeletedIds.isNotEmpty ||
+          initial.preparedRevivedIds.isNotEmpty) {
         return CloudWriteResult.blocked;
       }
       var pending = initial;
@@ -333,7 +530,8 @@ class BookshelfSyncQueue {
       for (var index = 0; index < maxImmediateAttempts; index += 1) {
         final latest = await store.read();
         if (latest == null) return CloudWriteResult.completed;
-        if (latest.preparedDeletedIds.isNotEmpty) {
+        if (latest.preparedDeletedIds.isNotEmpty ||
+            latest.preparedRevivedIds.isNotEmpty) {
           return CloudWriteResult.blocked;
         }
         pending = latest;
@@ -375,6 +573,82 @@ class BookshelfSyncQueue {
       throw StateError('Bookshelf sync token is empty.');
     }
     return token;
+  }
+}
+
+class BookshelfDeletionWorkflow {
+  const BookshelfDeletionWorkflow(this.queue);
+
+  final BookshelfSyncQueue queue;
+
+  Future<void> run({
+    required String uid,
+    required Set<String> ids,
+    required Future<void> Function() deleteLocal,
+    required Set<String> Function() readStrictLiveIds,
+    required bool Function() localWriteWasAttempted,
+  }) async {
+    await queue.prepareDeletion(uid, ids);
+    try {
+      await deleteLocal();
+      await queue.commitDeletion(uid, ids);
+    } on Object catch (error, stackTrace) {
+      await _recover(
+        uid: uid,
+        ids: ids,
+        readStrictLiveIds: readStrictLiveIds,
+        localWriteWasAttempted: localWriteWasAttempted,
+      );
+      unawaited(queue.drain());
+      Error.throwWithStackTrace(error, stackTrace);
+    }
+    unawaited(queue.drain());
+  }
+
+  Future<void> _recover({
+    required String uid,
+    required Set<String> ids,
+    required Set<String> Function() readStrictLiveIds,
+    required bool Function() localWriteWasAttempted,
+  }) async {
+    try {
+      await queue.reconcilePrepared(uid, readStrictLiveIds());
+    } on Object {
+      if (!localWriteWasAttempted()) {
+        await queue.cancelPrepared(uid, deletedIds: ids);
+      }
+    }
+  }
+}
+
+class BookshelfRevivalWorkflow {
+  const BookshelfRevivalWorkflow(this.queue);
+
+  final BookshelfSyncQueue queue;
+
+  Future<void> run({
+    required String uid,
+    required Set<String> ids,
+    required Future<void> Function() saveLocal,
+    required Set<String> Function() readStrictLiveIds,
+    required bool Function() localWriteWasAttempted,
+  }) async {
+    await queue.prepareRevival(uid, ids);
+    try {
+      await saveLocal();
+      await queue.commitRevival(uid, ids);
+    } on Object catch (error, stackTrace) {
+      try {
+        await queue.reconcilePrepared(uid, readStrictLiveIds());
+      } on Object {
+        if (!localWriteWasAttempted()) {
+          await queue.cancelPrepared(uid, revivedIds: ids);
+        }
+      }
+      unawaited(queue.drain());
+      Error.throwWithStackTrace(error, stackTrace);
+    }
+    unawaited(queue.drain());
   }
 }
 

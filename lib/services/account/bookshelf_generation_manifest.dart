@@ -338,6 +338,7 @@ class BookshelfGenerationSync {
     String? operationId,
     required Map<String, Map<String, dynamic>> entries,
     Set<String> deletedIds = const {},
+    Set<String> revivedIds = const {},
     bool allowParentOnlyLegacy = false,
     required void Function() beforeWrite,
   }) async {
@@ -345,6 +346,11 @@ class BookshelfGenerationSync {
     _requireIdentifier(generationId, 'generationId');
     _requireRecordIds(entries.keys.toSet());
     _requireRecordIds(deletedIds);
+    _requireRecordIds(revivedIds);
+    if (deletedIds.any(revivedIds.contains) ||
+        !entries.keys.toSet().containsAll(revivedIds)) {
+      throw const FormatException('Invalid bookshelf revival intent.');
+    }
     if (operationId != null) {
       _requireIdentifier(operationId, 'operationId');
     }
@@ -414,7 +420,7 @@ class BookshelfGenerationSync {
       final record =
           portable == null ||
               deletedIds.contains(id) ||
-              activeTombstones.contains(id)
+              (activeTombstones.contains(id) && !revivedIds.contains(id))
           ? BookshelfGenerationRecord.tombstone(id: id, revision: nextRevision)
           : BookshelfGenerationRecord.live(
               id: id,
