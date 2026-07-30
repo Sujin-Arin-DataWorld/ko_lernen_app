@@ -11,6 +11,7 @@ import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -412,11 +413,18 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                         tinted: true,
                         child: Row(
                           children: [
-                            const Mascot(
-                              kind: MascotKind.tiger,
-                              emotion: MascotEmotion.thinking,
+                            // 생각 중 클립 루프 — 카드가 tinted(tiger 8%)라
+                            // 같은 공식으로 blendColor를 맞춰 흰 배경 흡수.
+                            CharacterClipPlayer(
+                              asset: CharacterClips.tigerThinking,
                               size: 56,
-                              animate: false,
+                              loop: true,
+                              blendColor: Color.alphaBlend(
+                                SoriColors.tiger.withValues(alpha: 0.08),
+                                SoriSurfaces.of(context).surface,
+                              ),
+                              fallbackKind: MascotKind.tiger,
+                              fallbackEmotion: MascotEmotion.thinking,
                             ),
                             const SizedBox(width: Spacing.md),
                             Expanded(

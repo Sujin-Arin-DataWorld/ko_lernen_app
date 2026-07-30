@@ -13,6 +13,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
@@ -205,10 +206,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Mascot.tiger(
+            // 세션 완료 = 기지개 클립 (배치 계획 §2-11). 폴백은 기존 celebrate.
+            const CharacterClipPlayer(
+              asset: CharacterClips.tigerStretch,
               size: 120,
-              emotion: MascotEmotion.celebrate,
-              animate: true,
+              fallbackKind: MascotKind.tiger,
+              fallbackEmotion: MascotEmotion.celebrate,
             ),
             const SizedBox(height: Spacing.lg),
             Text(t.reviewDoneTitle, textAlign: TextAlign.center, style: tt.h1),

@@ -13,7 +13,9 @@ import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -1209,6 +1211,21 @@ class _ScenarioIntroArt extends StatelessWidget {
       );
     }
 
+    // 정지 백드롭 포스터 — 영상 게이트 통과 시 위로 앰비언트 루프가 페이드인.
+    final poster = Image.asset(
+      'assets/illustrations/scenes/$backdropKey.png',
+      fit: BoxFit.cover,
+      errorBuilder: (_, __, ___) => Container(
+        color: SoriColors.primary.withValues(alpha: 0.12),
+        alignment: Alignment.center,
+        child: mascot,
+      ),
+    );
+    // 챕터 헤더 앰비언트 루프 (배치 계획 §2-6): scenes/{key}.png 포스터 위에
+    // loops/scene_{key}.mp4 무음 루프. 영상 미존재·실패 시 포스터 유지.
+    final live =
+        TigerStageVideo.videoReady && !SoriMotion.reduceMotion(context);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.lg),
       child: SizedBox(
@@ -1217,15 +1234,13 @@ class _ScenarioIntroArt extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(
-              'assets/illustrations/scenes/$backdropKey.png',
-              fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
-                color: SoriColors.primary.withValues(alpha: 0.12),
-                alignment: Alignment.center,
-                child: mascot,
-              ),
-            ),
+            if (live)
+              SoriPosterLoop(
+                videoAsset: 'assets/video/loops/scene_$backdropKey.mp4',
+                poster: poster,
+              )
+            else
+              poster,
             DecoratedBox(
               decoration: BoxDecoration(
                 gradient: LinearGradient(

@@ -56,8 +56,8 @@ class TigerStageVideo extends StatefulWidget {
 
   // 2026-07-29 배치: 캐논 호랑이(엎드린 휴식 모델) 클립으로 교체.
   // greet = 엎드림→기상 인사(1회), pace = 엎드려 쉬는 아이들 루프.
-  // 구 tiger_greet/tiger_pace.mp4는 스타일 구버전 — 파일은 남아 있어
-  // 필요 시 상수만 되돌리면 즉시 롤백된다.
+  // 구 tiger_greet/tiger_pace.mp4는 assets_unused/video/로 이동(2026-07-30) —
+  // 롤백하려면 git mv로 assets/video/에 복원 후 아래 상수만 되돌리면 된다.
   static const String greetAsset = 'assets/video/character/tiger_rise.mp4';
   static const String paceAsset = 'assets/video/character/tiger_rest.mp4';
 

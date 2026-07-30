@@ -147,7 +147,8 @@ void main() {
         HanokStage.dancheong: 'dancheong',
         HanokStage.gate: 'gate',
         HanokStage.windows: 'windows',
-        HanokStage.sideBuilding: 'side_building',
+        // stage_sidebuilding_light.png 실파일명과 일치 (구 'side_building'은 404 오타).
+        HanokStage.sideBuilding: 'sidebuilding',
         HanokStage.jongga: 'jongga',
       };
       for (final entry in expected.entries) {

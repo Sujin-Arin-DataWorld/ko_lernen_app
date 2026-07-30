@@ -32,7 +32,9 @@ enum HanokStage {
         HanokStage.dancheong        => 'dancheong',
         HanokStage.gate             => 'gate',
         HanokStage.windows          => 'windows',
-        HanokStage.sideBuilding     => 'side_building',
+        // 파일명은 stage_sidebuilding_light.png (언더스코어 없음) — 과거
+        // 'side_building' 오타로 이 단계만 404 → 그라데이션 폴백이었음(2026-07-30 수정).
+        HanokStage.sideBuilding     => 'sidebuilding',
         HanokStage.jongga           => 'jongga',
       };
 

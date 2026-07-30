@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -124,6 +126,9 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                             index: 1,
                             imageAsset:
                                 'assets/illustrations/gye/gye_gate_grand.png',
+                            // 한옥이 지어지는 앰비언트 루프(배치 계획 §2-4①).
+                            videoAsset:
+                                'assets/video/loops/hanok_construction.mp4',
                             accentColor: SoriColors.primary,
                             title: t.previewPage2Title,
                             body: t.previewPage2Body,
@@ -185,6 +190,10 @@ class _PreviewPage extends StatelessWidget {
   /// != null → 이미지(book/한옥)를 마스코트 자리에 렌더. null → 호랑이 마스코트.
   final String? imageAsset;
 
+  /// != null → [imageAsset] 포스터 위에 풀프레임 무음 루프 영상 승격
+  /// (videoReady && !reduce-motion일 때만; 그 외/실패 시 정지 이미지 유지).
+  final String? videoAsset;
+
   /// 호랑이 마스코트 포즈 (imageAsset == null일 때만 사용).
   final MascotEmotion mascotEmotion;
 
@@ -199,6 +208,7 @@ class _PreviewPage extends StatelessWidget {
   const _PreviewPage({
     required this.index,
     this.imageAsset,
+    this.videoAsset,
     this.mascotEmotion = MascotEmotion.celebrate,
     this.useDokkaebi = false,
     required this.accentColor,
@@ -253,8 +263,36 @@ class _PreviewPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        // 메인 비주얼 — 이미지(page0/1) 또는 호랑이(page2)
-                        if (imageAsset != null)
+                        // 메인 비주얼 — 루프 영상(page1 live) / 이미지 / 호랑이
+                        if (imageAsset != null &&
+                            videoAsset != null &&
+                            TigerStageVideo.videoReady &&
+                            !SoriMotion.reduceMotion(context))
+                          Positioned(
+                            bottom: 0,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: SizedBox(
+                                height: 168,
+                                width: (c.maxWidth - 72).clamp(160.0, 280.0),
+                                child: SoriPosterLoop(
+                                  videoAsset: videoAsset!,
+                                  poster: Image.asset(
+                                    imageAsset!,
+                                    fit: BoxFit.cover,
+                                    filterQuality: FilterQuality.high,
+                                    errorBuilder: (_, __, ___) =>
+                                        const Mascot.tiger(
+                                      size: 150,
+                                      emotion: MascotEmotion.smile,
+                                      animate: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        else if (imageAsset != null)
                           Positioned(
                             bottom: 0,
                             child: Image.asset(

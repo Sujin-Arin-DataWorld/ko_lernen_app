@@ -9,6 +9,7 @@ import '../services/pack_progress_service.dart';
 import '../services/premium_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/decoration_layer.dart';
 import '../widgets/sori/path_node.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
@@ -245,27 +246,36 @@ class _HanokHeader extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 16 / 9,
-            child: Image.asset(
-              'assets/illustrations/hanok_stages/stage_${stage.assetSlug}_light.png',
-              fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      SoriColors.primarySoft,
-                      SoriColors.lightSurfaceAlt,
-                    ],
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Image.asset(
+                  'assets/illustrations/hanok_stages/stage_${stage.assetSlug}_light.png',
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          SoriColors.primarySoft,
+                          SoriColors.lightSurfaceAlt,
+                        ],
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child: const Icon(
+                      Icons.temple_buddhist_outlined,
+                      size: 56,
+                      color: SoriColors.primary,
+                    ),
                   ),
                 ),
-                alignment: Alignment.center,
-                child: const Icon(
-                  Icons.temple_buddhist_outlined,
-                  size: 56,
-                  color: SoriColors.primary,
-                ),
-              ),
+                // 완료한 특별 퀘스트의 장식을 한옥 위에 합성 — "내 학습이
+                // 마당을 꾸민다" 원설계 부활(2026-07-30, Jin 승인). 완료 0개면
+                // SizedBox.shrink. 좌표는 마당 시안값 — 실기기 육안 튜닝 대상.
+                const DecorationLayer(),
+              ],
             ),
           ),
           Padding(

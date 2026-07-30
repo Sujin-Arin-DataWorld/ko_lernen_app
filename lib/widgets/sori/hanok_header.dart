@@ -83,26 +83,36 @@ class HanokHeader extends StatelessWidget {
       borderRadius: BorderRadius.circular(radius),
       child: AspectRatio(
         aspectRatio: aspectRatio,
-        child: live ? _HeaderLoop(videoAsset: loop, poster: poster) : poster,
+        child: live ? SoriPosterLoop(videoAsset: loop, poster: poster) : poster,
       ),
     );
   }
 }
 
-/// png 포스터 → (영상 준비되면) 무음 루프 크로스페이드.
-/// 초기화 실패(영상 미존재 포함)는 조용히 포스터 유지 — 헤더마다 영상이
-/// 있을 필요가 없다.
-class _HeaderLoop extends StatefulWidget {
+/// **SoriPosterLoop** — png 포스터 → (영상 준비되면) 무음 루프 크로스페이드.
+///
+/// 초기화 실패(영상 미존재 포함)는 조용히 포스터 유지 — 콜사이트마다 영상이
+/// 있을 필요가 없다. [HanokHeader] 내부용이었다가 시나리오 인트로 아트·
+/// 온보딩 프리뷰 등 임의 포스터 위 루프 승격에 재사용하도록 공개(2026-07-30).
+///
+/// ⚠️ 게이트 책임은 호출측: `TigerStageVideo.videoReady &&
+/// !SoriMotion.reduceMotion(context)`일 때만 빌드할 것 — 이 위젯 자체는
+/// 항상 컨트롤러를 초기화한다.
+class SoriPosterLoop extends StatefulWidget {
   final String videoAsset;
   final Widget poster;
 
-  const _HeaderLoop({required this.videoAsset, required this.poster});
+  const SoriPosterLoop({
+    super.key,
+    required this.videoAsset,
+    required this.poster,
+  });
 
   @override
-  State<_HeaderLoop> createState() => _HeaderLoopState();
+  State<SoriPosterLoop> createState() => _SoriPosterLoopState();
 }
 
-class _HeaderLoopState extends State<_HeaderLoop> {
+class _SoriPosterLoopState extends State<SoriPosterLoop> {
   VideoPlayerController? _video;
   bool _ready = false;
 

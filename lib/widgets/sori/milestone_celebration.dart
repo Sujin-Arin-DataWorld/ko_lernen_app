@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../data/milestone.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/storage_service.dart';
 import 'button.dart';
 import 'celebration.dart';
+import 'character_clip.dart';
 import 'mascot.dart';
 import 'sheet.dart';
 import 'tokens.dart';
@@ -32,13 +34,22 @@ class _MilestoneBody extends StatelessWidget {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
+    // 선택 캐릭터 인식 축하 클립 — 호랑이: 포효 / 까치: 비행(2026-07-30 배선).
+    // 시트 배경(s.surface)에 multiply로 흡수. 폴백은 기존 정적 celebrate.
+    final kind = Storage.preferredMascot == 'magpie'
+        ? MascotKind.magpie
+        : MascotKind.tiger;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Mascot.tiger(
+        CharacterClipPlayer(
+          asset: kind == MascotKind.magpie
+              ? CharacterClips.magpieFlight
+              : CharacterClips.tigerRoar,
           size: 96,
-          emotion: MascotEmotion.celebrate,
-          animate: true,
+          blendColor: s.surface,
+          fallbackKind: kind,
+          fallbackEmotion: MascotEmotion.celebrate,
         ),
         const SizedBox(height: Spacing.md),
         Text(milestone.title(t), style: tt.h1, textAlign: TextAlign.center),

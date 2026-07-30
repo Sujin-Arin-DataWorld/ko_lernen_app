@@ -4,9 +4,13 @@ import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/character_clip.dart';
+import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
 import 'consent_screen.dart';
+
+/// 선택 확정 후 연출 단계 — 확정 목례/착지(choose) → 무언 인사(greet).
+enum _GreetPhase { choosing, greeting }
 
 /// **캐릭터 선택 + 첫 인사**
 ///
@@ -29,6 +33,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   MascotKind? _selected;
   bool _isLoading = false;
   bool _navigated = false;
+  _GreetPhase _phase = _GreetPhase.choosing;
 
   void _handleSelection(MascotKind kind) {
     if (_isLoading) return;
@@ -36,6 +41,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     setState(() {
       _selected = kind;
       _isLoading = true;
+      _phase = _GreetPhase.choosing;
     });
 
     // 선택한 캐릭터 저장
@@ -67,67 +73,108 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
 
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  t.characterSelectionTitle,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w800,
-                    height: 1.3,
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // 종가 마당 앰비언트 배너 — welcome_hero.mp4 루프
+                      // (포스터 파일명이 하이픈(welcome-hero)이라 자동 유도가
+                      //  안 돼 loopAsset 명시. videoReady/reduce-motion 게이트는
+                      //  HanokHeader 내부에서 처리 → 정지 포스터 폴백).
+                      const HanokHeader(
+                        asset: 'assets/illustrations/hanok/welcome-hero.png',
+                        loopAsset: 'assets/video/loops/welcome_hero.mp4',
+                        aspectRatio: 16 / 9,
+                        radius: 16,
+                        fallbackIcon: Icons.pets,
+                      ),
+                      const SizedBox(height: 28),
+                      Text(
+                        t.characterSelectionTitle,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w800,
+                          height: 1.3,
+                        ),
+                      ),
+                      const SizedBox(height: 28),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          _CharacterCard(
+                            kind: MascotKind.tiger,
+                            name: t.characterNameTiger,
+                            trait: t.characterTraitTiger,
+                            isSelected: _selected == MascotKind.tiger,
+                            onTap: _isLoading
+                                ? null
+                                : () => _handleSelection(MascotKind.tiger),
+                          ),
+                          _CharacterCard(
+                            kind: MascotKind.magpie,
+                            name: t.characterNameMagpie,
+                            trait: t.characterTraitMagpie,
+                            isSelected: _selected == MascotKind.magpie,
+                            onTap: _isLoading
+                                ? null
+                                : () => _handleSelection(MascotKind.magpie),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 28),
+                      // 선택 직후 2단 연출: ① 확정 목례/착지(choose 클립) →
+                      // ② 무언(無言) 인사(greet 클립) → 다음 화면.
+                      // videoReady=false(테스트)·reduce-motion 경로에서도
+                      // fallbackCompleteAfter 타이머가 체인 진행을 보장한다.
+                      if (_selected != null &&
+                          _phase == _GreetPhase.choosing)
+                        CharacterClipPlayer(
+                          key: ValueKey<String>('choose_${_selected!.name}'),
+                          asset: CharacterClips.chooseFor(_selected!),
+                          size: 160,
+                          fallbackKind: _selected!,
+                          fallbackEmotion: MascotEmotion.smile,
+                          fallbackCompleteAfter:
+                              const Duration(milliseconds: 900),
+                          onCompleted: () {
+                            if (mounted) {
+                              setState(
+                                () => _phase = _GreetPhase.greeting,
+                              );
+                            }
+                          },
+                        )
+                      else if (_selected != null)
+                        CharacterClipPlayer(
+                          key: ValueKey<String>('greet_${_selected!.name}'),
+                          asset: CharacterClips.greetFor(_selected!),
+                          size: 160,
+                          fallbackKind: _selected!,
+                          fallbackEmotion: MascotEmotion.celebrate,
+                          sfxAsset: _selected == MascotKind.magpie
+                              ? 'sfx/greet_magpie.mp3'
+                              : 'sfx/greet_tiger.mp3',
+                          fallbackCompleteAfter:
+                              const Duration(milliseconds: 1600),
+                          onCompleted: _proceed,
+                        )
+                      else if (_isLoading)
+                        const SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _CharacterCard(
-                      kind: MascotKind.tiger,
-                      name: t.characterNameTiger,
-                      trait: t.characterTraitTiger,
-                      isSelected: _selected == MascotKind.tiger,
-                      onTap: _isLoading
-                          ? null
-                          : () => _handleSelection(MascotKind.tiger),
-                    ),
-                    _CharacterCard(
-                      kind: MascotKind.magpie,
-                      name: t.characterNameMagpie,
-                      trait: t.characterTraitMagpie,
-                      isSelected: _selected == MascotKind.magpie,
-                      onTap: _isLoading
-                          ? null
-                          : () => _handleSelection(MascotKind.magpie),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 40),
-                // 선택 직후: 캐릭터의 무언(無言) 인사 클립 — 끝나면 다음 화면.
-                if (_selected != null)
-                  CharacterClipPlayer(
-                    key: ValueKey<MascotKind>(_selected!),
-                    asset: CharacterClips.greetFor(_selected!),
-                    size: 160,
-                    fallbackKind: _selected!,
-                    fallbackEmotion: MascotEmotion.celebrate,
-                    sfxAsset: _selected == MascotKind.magpie
-                        ? 'sfx/greet_magpie.mp3'
-                        : 'sfx/greet_tiger.mp3',
-                    fallbackCompleteAfter: const Duration(milliseconds: 1600),
-                    onCompleted: _proceed,
-                  )
-                else if (_isLoading)
-                  const SizedBox(
-                    width: 24,
-                    height: 24,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  ),
-              ],
+              ),
             ),
           ),
         ),
@@ -179,12 +226,27 @@ class _CharacterCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Mascot(
-                kind: kind,
-                emotion: MascotEmotion.smile,
-                size: 100,
-                animate: true,
-              ),
+              // 후보 카드 살아있는 미리보기 — 호랑이 바운스 / 까치 앉아 대기.
+              // 카드 배경이 순수 흰색이라 multiply(white)=무손실 → 심리스.
+              // 탭 후(onTap == null)엔 정적 마스코트로 강등해 디코더 해제.
+              if (onTap != null)
+                CharacterClipPlayer(
+                  asset: kind == MascotKind.magpie
+                      ? CharacterClips.magpiePerched
+                      : CharacterClips.tigerBob,
+                  size: 100,
+                  loop: true,
+                  blendColor: Colors.white,
+                  fallbackKind: kind,
+                  fallbackEmotion: MascotEmotion.smile,
+                )
+              else
+                Mascot(
+                  kind: kind,
+                  emotion: MascotEmotion.smile,
+                  size: 100,
+                  animate: true,
+                ),
               const SizedBox(height: 12),
               Text(
                 name,
