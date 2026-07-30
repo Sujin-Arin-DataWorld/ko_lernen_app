@@ -170,6 +170,13 @@ class _ProfileScreenState extends State<ProfileScreen>
             const SizedBox(height: 20),
 
             // ── Konto-Status ──
+            AccountPendingOperationPanel(
+              operations: _accountOperations,
+              onCompleted: () async {
+                if (mounted) setState(() {});
+              },
+            ),
+            const SizedBox(height: 12),
             KeyedSubtree(
               key: _accountCardKey,
               child: linked

@@ -1,11 +1,14 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../auth_service.dart';
 import '../pack_progress_service.dart';
 import '../vocab_pack_service.dart';
+import 'account_operation_client.dart';
 import 'account_transition_coordinator.dart';
+import 'account_transition_journal.dart';
 import 'cloud_write_session.dart';
 
 sealed class AccountUiLinkResult {
@@ -30,6 +33,19 @@ class AccountUiLinkConflict extends AccountUiLinkResult {
   final ExistingAccountLinkConflict conflict;
 }
 
+enum AccountUiPendingState {
+  none,
+  replacementCancellable,
+  replacementResumable,
+  deletionLocalCleanup,
+  blocked,
+}
+
+abstract interface class AccountUiPendingStateSource {
+  ValueListenable<AccountUiPendingState> get pendingState;
+  Future<AccountUiPendingState> refreshPendingState();
+}
+
 abstract interface class AccountUiOperations {
   bool get appleSignInAvailable;
 
@@ -41,8 +57,54 @@ abstract interface class AccountUiOperations {
   Future<bool> cancelReplacement();
 }
 
-class ProductionAccountUiOperations implements AccountUiOperations {
+class ProductionAccountUiOperations
+    implements AccountUiOperations, AccountUiPendingStateSource {
   const ProductionAccountUiOperations();
+
+  static final ValueNotifier<AccountUiPendingState> _pendingState =
+      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
+
+  @override
+  ValueListenable<AccountUiPendingState> get pendingState => _pendingState;
+
+  @override
+  Future<AccountUiPendingState> refreshPendingState() async {
+    AccountUiPendingState next;
+    try {
+      final preferences = await SharedPreferences.getInstance();
+      final replacement =
+          await SharedPreferencesReplacementTransitionJournalStore(
+            preferences,
+          ).read();
+      final deletion = await AuthService.readAccountDeletionCheckpoint();
+      if (replacement != null && deletion != null) {
+        next = AccountUiPendingState.blocked;
+      } else if (deletion != null) {
+        next = deletion.operation?.phase == AccountOperationPhase.completed
+            ? AccountUiPendingState.deletionLocalCleanup
+            : AccountUiPendingState.blocked;
+      } else if (replacement?.replacementPhase case final phase?) {
+        next = switch (phase) {
+          AccountReplacementPhase.targetVerified ||
+          AccountReplacementPhase.prepared ||
+          AccountReplacementPhase.attached ||
+          AccountReplacementPhase.reconciling ||
+          AccountReplacementPhase.reconciled =>
+            AccountUiPendingState.replacementCancellable,
+          AccountReplacementPhase.cleanupStarting ||
+          AccountReplacementPhase.cleanupPending ||
+          AccountReplacementPhase.activationPending =>
+            AccountUiPendingState.replacementResumable,
+        };
+      } else {
+        next = AccountUiPendingState.none;
+      }
+    } catch (_) {
+      next = AccountUiPendingState.blocked;
+    }
+    _pendingState.value = next;
+    return next;
+  }
 
   @override
   bool get appleSignInAvailable => AuthService.appleSignInAvailable;
@@ -67,7 +129,9 @@ class ProductionAccountUiOperations implements AccountUiOperations {
   @override
   Future<bool> cancelReplacement() async {
     final bundle = await _createCoordinator();
-    return bundle.coordinator.cancel();
+    final result = await bundle.coordinator.cancel();
+    await refreshPendingState();
+    return result;
   }
 
   @override
@@ -75,13 +139,20 @@ class ProductionAccountUiOperations implements AccountUiOperations {
     ExistingAccountLinkConflict conflict,
   ) async {
     final bundle = await _createCoordinator();
-    return bundle.coordinator.confirm(conflict, catalog: bundle.catalog);
+    final result = await bundle.coordinator.confirm(
+      conflict,
+      catalog: bundle.catalog,
+    );
+    await refreshPendingState();
+    return result;
   }
 
   @override
   Future<AccountTransitionResult> resumeReplacement() async {
     final bundle = await _createCoordinator();
-    return bundle.coordinator.resume(catalog: bundle.catalog);
+    final result = await bundle.coordinator.resume(catalog: bundle.catalog);
+    await refreshPendingState();
+    return result;
   }
 
   Future<_AccountTransitionBundle> _createCoordinator() async {

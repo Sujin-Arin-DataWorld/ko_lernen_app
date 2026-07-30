@@ -188,7 +188,7 @@ Future<void> _startCloudServices() async {
     initializeAppCheck: FirebaseAppCheckInitializer.production().initialize,
     ensureSignedIn: AuthService.ensureSignedIn,
     currentUserId: () => AuthService.current?.uid,
-    restoreCloudWriteSession: AuthService.restoreCloudWriteSession,
+    restorePendingAccountState: AuthService.restorePendingAccountState,
     synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
     resumeMediaCleanup: BookImageService.initialize,
     resumeBookshelfSync: BookshelfService.resumePendingSync,

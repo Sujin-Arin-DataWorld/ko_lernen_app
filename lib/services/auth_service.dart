@@ -17,6 +17,7 @@ import 'account/account_reconciliation.dart';
 import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
 import 'account/cloud_write_session.dart';
+import 'app_startup_coordinator.dart';
 import 'push_service.dart';
 import 'storage_service.dart';
 
@@ -99,6 +100,7 @@ abstract interface class AccountDeletionOperations {
 abstract interface class AccountDeletionJournalStore {
   Future<AccountDeletionJournal?> read();
   Future<void> write(AccountDeletionJournal journal);
+  Future<void> clearCompleted(String operationId);
 }
 
 @immutable
@@ -107,17 +109,20 @@ class AccountDeletionJournal {
     required this.version,
     required this.session,
     required this.requestKey,
+    this.sourceProviders = const <String>{},
     this.operation,
   });
 
   factory AccountDeletionJournal.pending({
     required CloudWriteSession session,
     required String requestKey,
+    Set<String> sourceProviders = const <String>{},
   }) {
     return AccountDeletionJournal(
       version: currentVersion,
       session: session,
       requestKey: requestKey,
+      sourceProviders: sourceProviders,
     );
   }
 
@@ -127,12 +132,22 @@ class AccountDeletionJournal {
       final requestKey = json['requestKey'];
       final rawSession = json['session'];
       final rawOperation = json['operation'];
+      final rawSourceProviders = json['sourceProviders'] ?? const <Object>[];
       if (version is! int ||
           version != currentVersion ||
           requestKey is! String ||
           requestKey.trim().isEmpty ||
-          rawSession is! Map) {
+          rawSession is! Map ||
+          rawSourceProviders is! List) {
         throw const FormatException();
+      }
+      final sourceProviders = <String>{};
+      for (final provider in rawSourceProviders) {
+        if (provider is! String ||
+            !const {'google', 'apple'}.contains(provider) ||
+            !sourceProviders.add(provider)) {
+          throw const FormatException();
+        }
       }
       final session = AccountTransitionJournal.fromJson(
         rawSession.map((key, value) => MapEntry(key.toString(), value)),
@@ -152,6 +167,7 @@ class AccountDeletionJournal {
         version: version,
         session: session,
         requestKey: requestKey,
+        sourceProviders: Set<String>.unmodifiable(sourceProviders),
         operation: operation,
       );
     } catch (_) {
@@ -167,6 +183,7 @@ class AccountDeletionJournal {
   final int version;
   final CloudWriteSession session;
   final String requestKey;
+  final Set<String> sourceProviders;
   final AccountOperationResult? operation;
 
   String? get operationId => operation?.operationId;
@@ -179,6 +196,7 @@ class AccountDeletionJournal {
       version: version,
       session: session ?? this.session,
       requestKey: requestKey,
+      sourceProviders: sourceProviders,
       operation: operation ?? this.operation,
     );
   }
@@ -187,8 +205,35 @@ class AccountDeletionJournal {
     'version': version,
     'session': AccountTransitionJournal.fromSession(session).toJson(),
     'requestKey': requestKey,
+    'sourceProviders': sourceProviders.toList()..sort(),
     'operation': operation?.toJson(),
   };
+}
+
+typedef CompletedDeletionCheckpointReader =
+    Future<AccountDeletionJournal?> Function();
+typedef CompletedDeletionRecovery =
+    Future<void> Function(AccountDeletionJournal checkpoint);
+
+class AccountDeletionRemoteGate {
+  const AccountDeletionRemoteGate({
+    required this.readCheckpoint,
+    required this.startOrResumeRemote,
+    required this.recoverCompleted,
+  });
+
+  final CompletedDeletionCheckpointReader readCheckpoint;
+  final Future<void> Function() startOrResumeRemote;
+  final CompletedDeletionRecovery recoverCompleted;
+
+  Future<void> run() async {
+    final checkpoint = await readCheckpoint();
+    if (checkpoint?.operation?.phase == AccountOperationPhase.completed) {
+      await recoverCompleted(checkpoint!);
+      return;
+    }
+    await startOrResumeRemote();
+  }
 }
 
 /// Retained for the local cleanup workflow's existing recovery contract.
@@ -266,6 +311,10 @@ class AccountDeletionCoordinator {
           journal = AccountDeletionJournal.pending(
             session: quiesced,
             requestKey: operations.createRequestKey(),
+            sourceProviders: {
+              if (operations.providerState.isGoogleLinked) 'google',
+              if (operations.providerState.isAppleLinked) 'apple',
+            },
           );
           await operations.writeDeletionJournal(journal!);
           final requested = await operations.requestAccountDeletion(
@@ -661,6 +710,26 @@ class _SharedPreferencesAccountDeletionJournalStore
   const _SharedPreferencesAccountDeletionJournalStore();
 
   static const _key = 'kl_account_deletion_journal_v1';
+
+  @override
+  Future<void> clearCompleted(String operationId) async {
+    final current = await read();
+    if (current?.operation?.phase != AccountOperationPhase.completed ||
+        current?.operationId != operationId) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    final preferences = await SharedPreferences.getInstance();
+    final removed = await preferences.remove(_key);
+    if (!removed && preferences.containsKey(_key)) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.unavailable,
+        retryable: true,
+      );
+    }
+  }
 
   @override
   Future<AccountDeletionJournal?> read() async {
@@ -1087,6 +1156,92 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
   }
 }
 
+typedef ReplacementJournalReader = Future<AccountTransitionJournal?> Function();
+typedef DeletionJournalReader = Future<AccountDeletionJournal?> Function();
+
+class AccountStartupJournalResolver {
+  const AccountStartupJournalResolver({
+    required this.sessions,
+    required this.readReplacement,
+    required this.readDeletion,
+  });
+
+  final CloudWriteSessionController sessions;
+  final ReplacementJournalReader readReplacement;
+  final DeletionJournalReader readDeletion;
+
+  Future<AccountStartupRestoration> restore(String? liveUid) async {
+    final normalizedUid = liveUid?.trim();
+    try {
+      final replacement = await readReplacement();
+      final deletion = await readDeletion();
+      replacement?.toJson();
+      deletion?.toJson();
+      if (replacement != null && deletion != null) {
+        return const AccountStartupRestoration.blocked();
+      }
+      if (replacement != null) {
+        return _restoreReplacement(replacement, normalizedUid);
+      }
+      if (deletion != null) {
+        return _restoreDeletion(deletion, normalizedUid);
+      }
+      return const AccountStartupRestoration.none();
+    } catch (_) {
+      return const AccountStartupRestoration.blocked();
+    }
+  }
+
+  AccountStartupRestoration _restoreReplacement(
+    AccountTransitionJournal journal,
+    String? liveUid,
+  ) {
+    if (liveUid == journal.session.uid) {
+      if (!_resumeExact(journal.session, liveUid!)) {
+        return const AccountStartupRestoration.blocked();
+      }
+      return AccountStartupRestoration.replacement(journal.session);
+    }
+    final sourceMayBeDeleted =
+        journal.replacementPhase == AccountReplacementPhase.cleanupStarting ||
+        journal.replacementPhase == AccountReplacementPhase.cleanupPending ||
+        journal.replacementPhase == AccountReplacementPhase.activationPending;
+    final targetIsLive =
+        liveUid != null && liveUid == journal.replacementTargetUid;
+    if (sourceMayBeDeleted && (liveUid == null || targetIsLive)) {
+      return const AccountStartupRestoration.replacement(null);
+    }
+    return const AccountStartupRestoration.blocked();
+  }
+
+  AccountStartupRestoration _restoreDeletion(
+    AccountDeletionJournal journal,
+    String? liveUid,
+  ) {
+    if (journal.operation?.phase == AccountOperationPhase.completed) {
+      return const AccountStartupRestoration.localCleanupPending();
+    }
+    if (liveUid == null ||
+        liveUid != journal.session.uid ||
+        !_resumeExact(journal.session, liveUid)) {
+      return const AccountStartupRestoration.blocked();
+    }
+    return AccountStartupRestoration.deletion(journal.session);
+  }
+
+  bool _resumeExact(CloudWriteSession session, String expectedUid) {
+    final current = sessions.current;
+    if (current == session) return true;
+    if (current != null) return false;
+    try {
+      sessions.resume(session, expectedUid: expectedUid);
+      return true;
+    } on StateError {
+      return false;
+    }
+  }
+}
+
 class AuthService {
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
@@ -1280,6 +1435,20 @@ class AuthService {
     );
   }
 
+  static Future<AccountStartupRestoration> restorePendingAccountState(
+    String? liveUid,
+  ) async {
+    final preferences = await SharedPreferences.getInstance();
+    final replacementStore = SharedPreferencesReplacementTransitionJournalStore(
+      preferences,
+    );
+    return AccountStartupJournalResolver(
+      sessions: cloudWriteSessionController,
+      readReplacement: replacementStore.read,
+      readDeletion: _accountDeletionJournalStore.read,
+    ).restore(liveUid);
+  }
+
   /// Anonymen User mit Google-Account verlinken.
   /// Existing-account collisions preserve the primary anonymous session and
   /// require explicit confirmation through [AccountTransitionCoordinator].
@@ -1392,6 +1561,14 @@ class AuthService {
   ///
   /// Caller clears local device data only after this completes.
   static Future<void> deleteAccount() async {
+    await AccountDeletionRemoteGate(
+      readCheckpoint: _accountDeletionJournalStore.read,
+      startOrResumeRemote: _startOrResumeRemoteAccountDeletion,
+      recoverCompleted: _recoverCompletedAccountDeletion,
+    ).run();
+  }
+
+  static Future<void> _startOrResumeRemoteAccountDeletion() async {
     final user = current;
     if (user == null) {
       throw StateError('The Firebase account is unavailable.');
@@ -1410,6 +1587,74 @@ class AuthService {
       sessions: cloudWriteSessionController,
     ).deleteAccount();
   }
+
+  static Future<void> _recoverCompletedAccountDeletion(
+    AccountDeletionJournal checkpoint,
+  ) async {
+    final failures = <Object>[];
+    final auth = _auth;
+    final live = current;
+    if (checkpoint.sourceProviders.isEmpty &&
+        live != null &&
+        live.uid != checkpoint.session.uid) {
+      throw const AccountDeletionRecoveryException(<Object>[
+        AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      ]);
+    }
+    if (checkpoint.sourceProviders.contains('google')) {
+      try {
+        await GoogleSignIn().signOut();
+      } catch (error) {
+        failures.add(error);
+      }
+    }
+    if (auth == null) {
+      failures.add(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.authenticationRequired,
+          retryable: false,
+        ),
+      );
+    } else if (live == null || live.uid == checkpoint.session.uid) {
+      try {
+        await auth.signOut();
+        await ensureSignedIn();
+      } catch (error) {
+        failures.add(error);
+      }
+    } else if (!live.isAnonymous) {
+      failures.add(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      );
+    }
+    if (failures.isNotEmpty) {
+      throw AccountDeletionRecoveryException(
+        List<Object>.unmodifiable(failures),
+      );
+    }
+  }
+
+  static Future<void> completeLocalAccountDeletionCleanup() async {
+    final checkpoint = await _accountDeletionJournalStore.read();
+    final operationId = checkpoint?.operationId;
+    if (checkpoint?.operation?.phase != AccountOperationPhase.completed ||
+        operationId == null) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    await _accountDeletionJournalStore.clearCompleted(operationId);
+  }
+
+  static Future<AccountDeletionJournal?> readAccountDeletionCheckpoint() =>
+      _accountDeletionJournalStore.read();
 
   /// Continues the exact durable server operation restored at startup.
   static Future<void> resumePendingAccountDeletion() async {

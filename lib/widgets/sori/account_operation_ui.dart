@@ -5,6 +5,111 @@ import '../../services/account/account_transition_coordinator.dart';
 import '../../services/account/account_ui_operations.dart';
 import 'tokens.dart';
 
+class AccountPendingOperationPanel extends StatefulWidget {
+  const AccountPendingOperationPanel({
+    super.key,
+    required this.operations,
+    this.retryLocalDeletion,
+    this.onCompleted,
+  });
+
+  final AccountUiOperations operations;
+  final Future<void> Function()? retryLocalDeletion;
+  final Future<void> Function()? onCompleted;
+
+  @override
+  State<AccountPendingOperationPanel> createState() =>
+      _AccountPendingOperationPanelState();
+}
+
+class _AccountPendingOperationPanelState
+    extends State<AccountPendingOperationPanel> {
+  AccountUiPendingStateSource? get _source =>
+      widget.operations is AccountUiPendingStateSource
+      ? widget.operations as AccountUiPendingStateSource
+      : null;
+
+  @override
+  void initState() {
+    super.initState();
+    _source?.refreshPendingState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final source = _source;
+    if (source == null) return const SizedBox.shrink();
+    return ValueListenableBuilder<AccountUiPendingState>(
+      valueListenable: source.pendingState,
+      builder: (context, state, _) {
+        if (state == AccountUiPendingState.none) {
+          return const SizedBox.shrink();
+        }
+        final t = AppL10n.of(context);
+        final deletion = state == AccountUiPendingState.deletionLocalCleanup;
+        final blocked = state == AccountUiPendingState.blocked;
+        return Card(
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  deletion
+                      ? t.accountDeletionPendingTitle
+                      : blocked
+                      ? t.accountOperationBlockedTitle
+                      : t.accountOperationResumeTitle,
+                  style: const TextStyle(fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  deletion
+                      ? t.accountDeletionPendingBody
+                      : blocked
+                      ? t.accountOperationBlockedBody
+                      : t.accountOperationResumeBody,
+                ),
+                const SizedBox(height: Spacing.md),
+                if (deletion && widget.retryLocalDeletion != null)
+                  FilledButton(
+                    onPressed: () async {
+                      await widget.retryLocalDeletion!();
+                      await source.refreshPendingState();
+                    },
+                    child: Text(t.btnRetry),
+                  )
+                else if (!blocked)
+                  Wrap(
+                    spacing: Spacing.sm,
+                    children: [
+                      if (state == AccountUiPendingState.replacementCancellable)
+                        TextButton(
+                          onPressed: () async {
+                            await widget.operations.cancelReplacement();
+                            await source.refreshPendingState();
+                          },
+                          child: Text(t.accountOperationCancel),
+                        ),
+                      FilledButton(
+                        onPressed: () => _resume(
+                          context,
+                          widget.operations,
+                          widget.onCompleted,
+                        ),
+                        child: Text(t.accountOperationResume),
+                      ),
+                    ],
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
 Future<void> runConfirmedAccountLink(
   BuildContext context, {
   required AccountUiOperations operations,

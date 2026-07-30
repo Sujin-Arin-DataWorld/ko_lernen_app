@@ -3,9 +3,42 @@ import 'account/cloud_write_session.dart';
 typedef FirebaseInitializer = Future<bool> Function();
 typedef StartupStep = Future<void> Function();
 typedef LiveUserIdReader = String? Function();
-typedef CloudWriteSessionRestorer =
+typedef PendingAccountStateRestorer =
+    Future<AccountStartupRestoration> Function(String? liveUid);
+typedef LegacyCloudWriteSessionRestorer =
     Future<CloudWriteSession?> Function(String expectedUid);
 typedef ReadySessionSynchronizer = void Function(String uid);
+
+enum AccountStartupRestorationKind {
+  none,
+  replacement,
+  deletion,
+  localCleanupPending,
+  blocked,
+}
+
+class AccountStartupRestoration {
+  const AccountStartupRestoration.none()
+    : kind = AccountStartupRestorationKind.none,
+      session = null;
+
+  const AccountStartupRestoration.replacement(this.session)
+    : kind = AccountStartupRestorationKind.replacement;
+
+  const AccountStartupRestoration.deletion(this.session)
+    : kind = AccountStartupRestorationKind.deletion;
+
+  const AccountStartupRestoration.localCleanupPending()
+    : kind = AccountStartupRestorationKind.localCleanupPending,
+      session = null;
+
+  const AccountStartupRestoration.blocked()
+    : kind = AccountStartupRestorationKind.blocked,
+      session = null;
+
+  final AccountStartupRestorationKind kind;
+  final CloudWriteSession? session;
+}
 
 /// Orders cloud SDK startup without coupling the sequence to Flutter's UI boot.
 class AppStartupCoordinator {
@@ -14,7 +47,8 @@ class AppStartupCoordinator {
     required this.initializeAppCheck,
     required this.ensureSignedIn,
     required this.currentUserId,
-    required this.restoreCloudWriteSession,
+    this.restorePendingAccountState,
+    this.restoreCloudWriteSession,
     required this.synchronizeReadySession,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
@@ -28,7 +62,8 @@ class AppStartupCoordinator {
   final StartupStep initializeAppCheck;
   final StartupStep ensureSignedIn;
   final LiveUserIdReader currentUserId;
-  final CloudWriteSessionRestorer restoreCloudWriteSession;
+  final PendingAccountStateRestorer? restorePendingAccountState;
+  final LegacyCloudWriteSessionRestorer? restoreCloudWriteSession;
   final ReadySessionSynchronizer synchronizeReadySession;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
@@ -46,15 +81,34 @@ class AppStartupCoordinator {
     // App Check must be active before auth-derived operation restoration or any
     // other protected Firebase-backed startup step.
     await initializeAppCheck();
+    if (restorePendingAccountState case final restore?) {
+      final restoration = await restore(currentUserId()?.trim());
+      switch (restoration.kind) {
+        case AccountStartupRestorationKind.replacement:
+        case AccountStartupRestorationKind.localCleanupPending:
+        case AccountStartupRestorationKind.blocked:
+          return true;
+        case AccountStartupRestorationKind.deletion:
+          if (restoration.session != null) {
+            await resumeAccountOperation();
+          }
+          return true;
+        case AccountStartupRestorationKind.none:
+          break;
+      }
+    }
+
     await ensureSignedIn();
     final liveUid = currentUserId()?.trim();
     if (liveUid == null || liveUid.isEmpty) {
       return false;
     }
-    final restored = await restoreCloudWriteSession(liveUid);
-    if (restored != null && restored.mode != CloudWriteMode.ready) {
-      await resumeAccountOperation();
-      return true;
+    if (restoreCloudWriteSession case final legacyRestore?) {
+      final restored = await legacyRestore(liveUid);
+      if (restored != null) {
+        await resumeAccountOperation();
+        return true;
+      }
     }
     synchronizeReadySession(liveUid);
     await resumeMediaCleanup();

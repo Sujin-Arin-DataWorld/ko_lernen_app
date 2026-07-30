@@ -13,9 +13,9 @@ void main() {
       initializeAppCheck: () async => events.add('app-check'),
       ensureSignedIn: () async => events.add('auth'),
       currentUserId: () => 'uid-live',
-      restoreCloudWriteSession: (expectedUid) async {
-        events.add('restore:$expectedUid');
-        return null;
+      restorePendingAccountState: (liveUid) async {
+        events.add('restore:$liveUid');
+        return const AccountStartupRestoration.none();
       },
       synchronizeReadySession: (uid) => events.add('ready:$uid'),
       resumeMediaCleanup: () async => events.add('media-resume'),
@@ -30,8 +30,8 @@ void main() {
     expect(events, [
       'firebase',
       'app-check',
-      'auth',
       'restore:uid-live',
+      'auth',
       'ready:uid-live',
       'media-resume',
       'bookshelf-resume',
@@ -55,9 +55,9 @@ void main() {
         initializeAppCheck: () async => events.add('app-check'),
         ensureSignedIn: () async => events.add('auth'),
         currentUserId: () => 'uid-live',
-        restoreCloudWriteSession: (expectedUid) async {
-          events.add('restore:$expectedUid');
-          return restored;
+        restorePendingAccountState: (liveUid) async {
+          events.add('restore:$liveUid');
+          return AccountStartupRestoration.deletion(restored);
         },
         synchronizeReadySession: (uid) => events.add('ready:$uid'),
         resumeMediaCleanup: () async => events.add('media-resume'),
@@ -69,12 +69,7 @@ void main() {
       );
 
       expect(await coordinator.start(), isTrue);
-      expect(events, [
-        'app-check',
-        'auth',
-        'restore:uid-live',
-        'resume-existing',
-      ]);
+      expect(events, ['app-check', 'restore:uid-live', 'resume-existing']);
     },
   );
 
@@ -88,7 +83,8 @@ void main() {
       },
       ensureSignedIn: () async => events.add('auth'),
       currentUserId: () => 'uid-live',
-      restoreCloudWriteSession: (_) async => null,
+      restorePendingAccountState: (_) async =>
+          const AccountStartupRestoration.none(),
       synchronizeReadySession: (_) {},
       resumeMediaCleanup: () async => events.add('media-resume'),
       resumeBookshelfSync: () async => events.add('bookshelf-resume'),
@@ -101,4 +97,85 @@ void main() {
     await expectLater(coordinator.start(), throwsStateError);
     expect(events, ['app-check']);
   });
+
+  test(
+    'replacement journal fences startup before auth creation or ready sync',
+    () async {
+      final events = <String>[];
+      final restored = const CloudWriteSession(
+        uid: 'anonymous-source',
+        epoch: 12,
+        mode: CloudWriteMode.reconciling,
+      );
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth-create'),
+        currentUserId: () => 'anonymous-source',
+        restorePendingAccountState: (liveUid) async {
+          events.add('restore:$liveUid');
+          return AccountStartupRestoration.replacement(restored);
+        },
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('deletion-resume'),
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>['app-check', 'restore:anonymous-source']);
+    },
+  );
+
+  test('blocked or malformed journal never unfreezes writers', () async {
+    final events = <String>[];
+    final coordinator = AppStartupCoordinator(
+      initializeFirebase: () async => true,
+      initializeAppCheck: () async => events.add('app-check'),
+      ensureSignedIn: () async => events.add('auth-create'),
+      currentUserId: () => null,
+      restorePendingAccountState: (liveUid) async {
+        events.add('restore:${liveUid ?? 'none'}');
+        return const AccountStartupRestoration.blocked();
+      },
+      synchronizeReadySession: (uid) => events.add('ready:$uid'),
+      resumeMediaCleanup: () async => events.add('media'),
+      resumeBookshelfSync: () async => events.add('bookshelf'),
+      resumeAccountOperation: () async => events.add('deletion-resume'),
+      initializePremium: () async => events.add('premium'),
+      enablePush: () async => events.add('push'),
+      notificationsEnabled: () => true,
+    );
+
+    expect(await coordinator.start(), isTrue);
+    expect(events, <String>['app-check', 'restore:none']);
+  });
+
+  test(
+    'remote-complete local-cleanup state never resumes remote deletion',
+    () async {
+      final events = <String>[];
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth-create'),
+        currentUserId: () => 'new-anonymous',
+        restorePendingAccountState: (_) async =>
+            const AccountStartupRestoration.localCleanupPending(),
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('remote-delete-resume'),
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>['app-check']);
+    },
+  );
 }

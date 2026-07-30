@@ -184,6 +184,31 @@ void main() {
         ]);
       },
     );
+
+    test(
+      'completed deletion checkpoint clears only after local retry succeeds',
+      () async {
+        final events = <String>[];
+        final operations = _FakeAccountCleanupOperations(events)
+          ..imageCleanupFailure = StateError('disk busy');
+        var checkpointClears = 0;
+        final workflow = AccountDeletionWorkflow(
+          operations,
+          completeCheckpoint: () async => checkpointClears += 1,
+        );
+
+        await expectLater(
+          workflow.run(),
+          throwsA(isA<AccountDeletionFailure>()),
+        );
+        expect(checkpointClears, 0);
+
+        operations.imageCleanupFailure = null;
+        await workflow.retryLocalCleanup();
+        expect(checkpointClears, 1);
+        expect(events.where((event) => event == 'remote-delete').length, 1);
+      },
+    );
   });
 
   group('subscription management', () {

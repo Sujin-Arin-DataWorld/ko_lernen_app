@@ -70,6 +70,12 @@ class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        AccountPendingOperationPanel(
+          operations: widget.accountOperations,
+          onCompleted: () async {
+            if (mounted) Navigator.of(context).pop();
+          },
+        ),
         const Mascot.tiger(
           size: 92,
           emotion: MascotEmotion.smile,

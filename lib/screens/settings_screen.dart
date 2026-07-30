@@ -120,9 +120,15 @@ class AccountDeletionCleanupAdapter
 /// identity is gone, every independent privacy cleanup is attempted and all
 /// failures are reported together.
 class AccountDeletionWorkflow {
-  const AccountDeletionWorkflow(this.operations);
+  const AccountDeletionWorkflow(
+    this.operations, {
+    Future<void> Function()? completeCheckpoint,
+  }) : _completeCheckpoint = completeCheckpoint ?? _noop;
 
   final AccountDeletionCleanupOperations operations;
+  final Future<void> Function() _completeCheckpoint;
+
+  static Future<void> _noop() async {}
 
   Future<void> run() async {
     final failures = <Object>[];
@@ -164,6 +170,7 @@ class AccountDeletionWorkflow {
         identityRecoveryPending: identityRecoveryPending,
       );
     }
+    await _completeCheckpoint();
   }
 
   Future<void> _attempt(
@@ -252,7 +259,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
-      AccountDeletionWorkflow(AccountDeletionCleanupAdapter.production());
+      AccountDeletionWorkflow(
+        AccountDeletionCleanupAdapter.production(),
+        completeCheckpoint: AuthService.completeLocalAccountDeletionCleanup,
+      );
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
@@ -622,6 +632,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             // ── Cloud-Backup (Firebase Auth) ──
             _Section(label: t.settingsCloudSection),
+            AccountPendingOperationPanel(
+              operations: _accountOperations,
+              retryLocalDeletion: _onDeleteAccount,
+              onCompleted: () async {
+                if (mounted) setState(() {});
+              },
+            ),
             ListTile(
               leading: const Icon(
                 Icons.cloud_outlined,

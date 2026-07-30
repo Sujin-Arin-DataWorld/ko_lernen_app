@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n/gye_error_text.dart';
@@ -21,14 +22,16 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/dure_board.dart';
 
 bool gyeActionsAvailable(CloudWriteSession? session) =>
-    session == null || session.mode == CloudWriteMode.ready;
+    session != null && session.mode == CloudWriteMode.ready;
 
 /// 계 마당 — 상단(이름·멤버수·주간 목표) / 중간(공동 한옥) / 하단(피드). plan §7.4.
 /// (스티커 FAB·전송 = Tier 3d. 피드는 3e Cloud Function이 채움.)
 class GyeScreen extends StatefulWidget {
   final String gyeId;
 
-  const GyeScreen({super.key, required this.gyeId});
+  const GyeScreen({super.key, required this.gyeId, this.accountSessions});
+
+  final ValueListenable<CloudWriteSession?>? accountSessions;
 
   @override
   State<GyeScreen> createState() => _GyeScreenState();
@@ -42,6 +45,7 @@ class _GyeScreenState extends State<GyeScreen>
 
   // 계 데이터 로드 여부 — StreamBuilder가 첫 데이터를 받으면 true.
   bool _metaLoaded = false;
+  bool _statsSynced = false;
 
   @override
   String get coachId => 'gye';
@@ -74,7 +78,6 @@ class _GyeScreenState extends State<GyeScreen>
     scheduleCoach();
     // 프로필 카드용 level/streak denormalize (best-effort, 진입 시 1회).
     // ignore: discarded_futures, unawaited_futures
-    GyeService.syncMyMemberStats();
   }
 
   @override
@@ -82,9 +85,15 @@ class _GyeScreenState extends State<GyeScreen>
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     return ValueListenableBuilder<CloudWriteSession?>(
-      valueListenable: cloudWriteSessionController.changes,
+      valueListenable:
+          widget.accountSessions ?? cloudWriteSessionController.changes,
       builder: (context, accountSession, _) {
         final actionsAvailable = gyeActionsAvailable(accountSession);
+        if (actionsAvailable && !_statsSynced) {
+          _statsSynced = true;
+          // ignore: discarded_futures, unawaited_futures
+          GyeService.syncMyMemberStats();
+        }
         return StreamBuilder<GyeMeta?>(
           stream: GyeService.metaStream(widget.gyeId),
           builder: (context, snap) {
@@ -223,6 +232,7 @@ class _GyeScreenState extends State<GyeScreen>
                             gyeId: widget.gyeId,
                             meta: meta,
                             myUid: GyeService.currentUid,
+                            writesAvailable: actionsAvailable,
                           ),
                         ),
                       ),

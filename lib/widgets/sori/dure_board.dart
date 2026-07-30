@@ -21,12 +21,14 @@ class DureBoard extends StatelessWidget {
   final String gyeId;
   final GyeMeta meta;
   final String? myUid;
+  final bool writesAvailable;
 
   const DureBoard({
     super.key,
     required this.gyeId,
     required this.meta,
     this.myUid,
+    this.writesAvailable = false,
   });
 
   /// 멤버 색 — 기여순 인덱스 → 단청 팔레트 (막대 세그먼트 == 칩 색점).
@@ -83,20 +85,22 @@ class DureBoard extends StatelessWidget {
                 color: SoriColors.tiger,
               ),
               title: Text(cheers[i]),
-              onTap: () async {
-                Navigator.of(sheetCtx).pop();
-                final ok = await GyeService.sendCheer(
-                  gyeId: gyeId,
-                  targetUid: targetUid,
-                  targetNickname: targetNickname,
-                  cheerCode: i + 1,
-                );
-                if (!ok && context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(t.gyeStickerRateLimited)),
-                  );
-                }
-              },
+              onTap: writesAvailable
+                  ? () async {
+                      Navigator.of(sheetCtx).pop();
+                      final ok = await GyeService.sendCheer(
+                        gyeId: gyeId,
+                        targetUid: targetUid,
+                        targetNickname: targetNickname,
+                        cheerCode: i + 1,
+                      );
+                      if (!ok && context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(t.gyeStickerRateLimited)),
+                        );
+                      }
+                    }
+                  : null,
             ),
           const SizedBox(height: Spacing.sm),
         ],
@@ -131,7 +135,10 @@ class DureBoard extends StatelessWidget {
             members.isNotEmpty && contributors.length == members.length;
 
         // 전원 참여 달성 순간 → 단청 burst(실행당 1회) + 피드 1회 기록(주 dedup).
-        if (allIn && members.length >= 2 && !_allInCelebrated.contains(gyeId)) {
+        if (writesAvailable &&
+            allIn &&
+            members.length >= 2 &&
+            !_allInCelebrated.contains(gyeId)) {
           _allInCelebrated.add(gyeId);
           // 피드 기록은 결정적 doc id로 중복 0 (GyeService가 보장).
           // ignore: discarded_futures, unawaited_futures
@@ -245,7 +252,7 @@ class DureBoard extends StatelessWidget {
                         t,
                         dureTitleFor(m, members, now: now),
                       ),
-                      onTap: m.uid == myUid
+                      onTap: !writesAvailable || m.uid == myUid
                           ? null
                           : () => _showCheerSheet(context, m.uid, m.nickname),
                     ),

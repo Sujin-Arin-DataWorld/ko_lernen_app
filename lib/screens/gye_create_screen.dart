@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../l10n/gye_error_text.dart';
 import '../services/gye_service.dart';
+import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
@@ -13,7 +15,9 @@ import '../widgets/sori/tokens.dart';
 /// 계 만들기 — 이름·닉네임 입력 → 6자리 코드 생성·공유. plan §7.3.
 /// (가입 후 계 마당은 Tier 3c에서 — 여기선 코드 생성·공유까지.)
 class GyeCreateScreen extends StatefulWidget {
-  const GyeCreateScreen({super.key});
+  const GyeCreateScreen({super.key, this.accountSessions});
+
+  final ValueListenable<CloudWriteSession?>? accountSessions;
 
   @override
   State<GyeCreateScreen> createState() => _GyeCreateScreenState();
@@ -65,26 +69,34 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(t.gyeCreateTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800)),
-      ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) => SingleChildScrollView(
-            padding: soriClampPadding(
-              constraints.maxWidth,
-              base: const EdgeInsets.all(Spacing.lg),
+    return ValueListenableBuilder<CloudWriteSession?>(
+      valueListenable:
+          widget.accountSessions ?? cloudWriteSessionController.changes,
+      builder: (context, session, _) => Scaffold(
+        appBar: AppBar(
+          title: Text(
+            t.gyeCreateTitle,
+            style: const TextStyle(fontWeight: FontWeight.w800),
+          ),
+        ),
+        body: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              padding: soriClampPadding(
+                constraints.maxWidth,
+                base: const EdgeInsets.all(Spacing.lg),
+              ),
+              child: _code == null
+                  ? _form(t, session?.mode == CloudWriteMode.ready)
+                  : _created(t),
             ),
-            child: _code == null ? _form(t) : _created(t),
           ),
         ),
       ),
     );
   }
 
-  Widget _form(AppL10n t) {
+  Widget _form(AppL10n t, bool writesAvailable) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -118,7 +130,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
             icon: Icons.add_home_outlined,
             accent: SoriColors.primary,
             fullWidth: true,
-            onTap: _create,
+            onTap: writesAvailable ? _create : null,
           ),
       ],
     );
@@ -134,8 +146,10 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
         const Icon(Icons.celebration_rounded, size: 56, color: SoriColors.gold),
         const SizedBox(height: Spacing.md),
         Center(
-          child: Text(t.gyeCreatedTitle,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+          child: Text(
+            t.gyeCreatedTitle,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+          ),
         ),
         const SizedBox(height: Spacing.xs),
         Center(
@@ -148,8 +162,10 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
           tinted: true,
           child: Column(
             children: [
-              Text(t.gyeCodeLabel,
-                  style: TextStyle(color: s.textMuted, fontSize: 12)),
+              Text(
+                t.gyeCodeLabel,
+                style: TextStyle(color: s.textMuted, fontSize: 12),
+              ),
               const SizedBox(height: 6),
               Text(
                 code,
@@ -189,8 +205,9 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
           variant: SoriButtonVariant.outlined,
           accent: SoriColors.primary,
           fullWidth: true,
-          onTap: () => Navigator.of(context)
-              .pushReplacementNamed('/gye', arguments: code),
+          onTap: () => Navigator.of(
+            context,
+          ).pushReplacementNamed('/gye', arguments: code),
         ),
         const SizedBox(height: Spacing.sm),
         SoriButton(

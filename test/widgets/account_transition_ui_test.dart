@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,7 +24,7 @@ void main() {
   });
 
   test('Gye actions are disabled for every non-ready account session', () {
-    expect(gyeActionsAvailable(null), isTrue);
+    expect(gyeActionsAvailable(null), isFalse);
     expect(
       gyeActionsAvailable(
         const CloudWriteSession(
@@ -73,6 +74,29 @@ void main() {
     expect(operations.linkCalls, <AccountLinkProvider>[
       AccountLinkProvider.google,
     ]);
+  });
+
+  testWidgets('profile surfaces persisted replacement before a new link', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..pending.value = AccountUiPendingState.replacementResumable;
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
+    );
+    await tester.pump();
+
+    expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
+    await tester.tap(find.text('Fortsetzen'));
+    await tester.pump();
+
+    expect(operations.resumeCalls, 1);
+    expect(operations.linkCalls, isEmpty);
   });
 
   testWidgets('collision is confirmed through coordinator and can be resumed', (
@@ -210,7 +234,8 @@ const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
 );
 
-class _FakeAccountUiOperations implements AccountUiOperations {
+class _FakeAccountUiOperations
+    implements AccountUiOperations, AccountUiPendingStateSource {
   final List<AccountLinkProvider> linkCalls = <AccountLinkProvider>[];
   AccountUiLinkResult linkResult = const AccountUiLinkCompleted();
   Object? linkFailure;
@@ -221,6 +246,14 @@ class _FakeAccountUiOperations implements AccountUiOperations {
   int resumeCalls = 0;
   int cancelCalls = 0;
   bool cancelResult = true;
+  final ValueNotifier<AccountUiPendingState> pending =
+      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
+
+  @override
+  ValueListenable<AccountUiPendingState> get pendingState => pending;
+
+  @override
+  Future<AccountUiPendingState> refreshPendingState() async => pending.value;
 
   @override
   bool get appleSignInAvailable => false;
