@@ -67,6 +67,8 @@ const QUEUE_BUDGETS = Object.freeze({
   deletion: 20,
   apple: 10,
 });
+const DELETION_SCHEDULER_MIGRATION_ID =
+  "deletion-scheduler-next-at-v1";
 const SAFE_DELETION_WORK_FAILURE_CODES = new Set(["worker-failed"]);
 
 function scaleQueueBudgets(limit) {
@@ -163,6 +165,29 @@ async function fetchActionableDeletionCandidates({
     ...docs(deletion),
     ...docs(apple),
   ]);
+}
+
+async function fetchStagedActionableDeletionCandidates({
+  repository,
+  collection,
+  limit = 50,
+  legacyBackfillLimit = 50,
+  nowMillis,
+} = {}) {
+  if (!repository ||
+      typeof repository.backfillLegacyDeletionSchedule !== "function") {
+    throw new TypeError("Account operation repository is required.");
+  }
+  const migration = await repository.backfillLegacyDeletionSchedule({
+    limit: legacyBackfillLimit,
+    nowMillis,
+  });
+  if (migration.complete !== true) return [];
+  return fetchActionableDeletionCandidates({
+    collection,
+    limit,
+    nowMillis,
+  });
 }
 
 class BoundaryFailure extends Error {
@@ -315,6 +340,68 @@ function createFirestoreAccountOperationRepository({
   const publicRateLimits =
     firestore.collection("account_deletion_proof_rate_limits");
   const deletionMarkers = firestore.collection("account_deletions");
+  const schedulerMigrations =
+    firestore.collection("account_operation_migrations");
+
+  async function backfillLegacyDeletionSchedule({
+    limit = 50,
+    nowMillis: migrationTimeMillis,
+  } = {}) {
+    if (!Number.isInteger(limit) || limit < 1 || limit > 500) {
+      throw repositoryFailure("invalid-migration-limit");
+    }
+    if (!Number.isFinite(migrationTimeMillis) ||
+        migrationTimeMillis < 0) {
+      throw repositoryFailure("invalid-migration-time");
+    }
+    const migrationRef =
+      schedulerMigrations.doc(DELETION_SCHEDULER_MIGRATION_ID);
+    return firestore.runTransaction(async (transaction) => {
+      const migrationSnapshot = await transaction.get(migrationRef);
+      const migration = migrationSnapshot.exists
+        ? migrationSnapshot.data() || {}
+        : {};
+      if (migration.complete === true) {
+        return { complete: true, backfilled: 0 };
+      }
+
+      let query = operations.orderBy("__name__");
+      if (typeof migration.cursor === "string" &&
+          migration.cursor.length > 0) {
+        query = query.startAfter(migration.cursor);
+      }
+      const snapshot = await transaction.get(query.limit(limit + 1));
+      const documents = Array.isArray(snapshot?.docs)
+        ? snapshot.docs
+        : [];
+      const page = documents.slice(0, limit);
+      let backfilled = 0;
+      for (const document of page) {
+        const stored = document.data() || {};
+        if (!TERMINAL_PHASES.has(stored.phase) &&
+            !Number.isFinite(stored.nextAttemptAtMillis)) {
+          transaction.set(document.ref, {
+            ...stored,
+            nextAttemptAtMillis: migrationTimeMillis,
+          });
+          backfilled += 1;
+        }
+      }
+
+      const complete = documents.length <= limit;
+      const cursor = complete ? null : page.at(-1)?.id;
+      transaction.set(migrationRef, {
+        complete,
+        cursor: typeof cursor === "string" ? cursor : null,
+        backfilledCount:
+          (Number.isInteger(migration.backfilledCount)
+            ? migration.backfilledCount
+            : 0) + backfilled,
+        updatedAtMillis: migrationTimeMillis,
+      });
+      return { complete, backfilled };
+    });
+  }
 
   function workerProgress(stored) {
     const progress = stored?.deletionProgress;
@@ -977,6 +1064,7 @@ function createFirestoreAccountOperationRepository({
   }
 
   return Object.freeze({
+    backfillLegacyDeletionSchedule,
     checkpointDeletionWork,
     cancelReplacement,
     claimDeletionByProof,
@@ -1810,6 +1898,7 @@ module.exports = {
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
   fetchActionableDeletionCandidates,
+  fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
   runScheduledDeletionCandidate,
 };

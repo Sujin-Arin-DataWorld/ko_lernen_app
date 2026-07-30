@@ -86,7 +86,7 @@ const {
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
-  fetchActionableDeletionCandidates,
+  fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
   runScheduledDeletionCandidate,
 } = require("./account_operations_runtime");
@@ -169,7 +169,8 @@ exports.account_deletion_worker = onSchedule(
   },
   async () => {
     const nowMillis = Date.now();
-    const candidates = await fetchActionableDeletionCandidates({
+    const candidates = await fetchStagedActionableDeletionCandidates({
+      repository: accountOperationRepository,
       collection: db.collection("account_operations"),
       limit: 50,
       nowMillis,

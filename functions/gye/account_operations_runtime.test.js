@@ -58,6 +58,136 @@ class FakeDocumentReference {
   }
 }
 
+class FakeQueryDocumentSnapshot extends FakeSnapshot {
+  constructor(firestore, path, value) {
+    super(value);
+    this.id = path.split("/").at(-1);
+    this.ref = new FakeDocumentReference(firestore, path);
+  }
+}
+
+class FakeQuery {
+  constructor(firestore, path, {
+    conditions = [],
+    orderings = [],
+    startAfterValues = null,
+    queryLimit = null,
+  } = {}) {
+    this.firestore = firestore;
+    this.path = path;
+    this.conditions = conditions;
+    this.orderings = orderings;
+    this.startAfterValues = startAfterValues;
+    this.queryLimit = queryLimit;
+  }
+
+  withChange(change) {
+    return new FakeQuery(this.firestore, this.path, {
+      conditions: this.conditions,
+      orderings: this.orderings,
+      startAfterValues: this.startAfterValues,
+      queryLimit: this.queryLimit,
+      ...change,
+    });
+  }
+
+  where(field, operator, value) {
+    return this.withChange({
+      conditions: [...this.conditions, { field, operator, value }],
+    });
+  }
+
+  orderBy(field, direction = "asc") {
+    return this.withChange({
+      orderings: [...this.orderings, { field, direction }],
+    });
+  }
+
+  startAfter(...values) {
+    return this.withChange({ startAfterValues: values });
+  }
+
+  limit(limit) {
+    return this.withChange({ queryLimit: limit });
+  }
+
+  valueAt(candidate, field) {
+    if (field === "__name__") return candidate.id;
+    return field
+      .split(".")
+      .reduce((value, part) => value?.[part], candidate.value);
+  }
+
+  compareValues(left, right) {
+    if (left === right) return 0;
+    return left < right ? -1 : 1;
+  }
+
+  compareCandidate(left, right) {
+    for (const ordering of this.orderings) {
+      const comparison = this.compareValues(
+        this.valueAt(left, ordering.field),
+        this.valueAt(right, ordering.field),
+      );
+      if (comparison !== 0) {
+        return ordering.direction === "desc" ? -comparison : comparison;
+      }
+    }
+    return 0;
+  }
+
+  compareToCursor(candidate) {
+    for (let index = 0; index < this.orderings.length; index += 1) {
+      const ordering = this.orderings[index];
+      const comparison = this.compareValues(
+        this.valueAt(candidate, ordering.field),
+        this.startAfterValues[index],
+      );
+      if (comparison !== 0) {
+        return ordering.direction === "desc" ? -comparison : comparison;
+      }
+    }
+    return 0;
+  }
+
+  async get() {
+    const prefix = `${this.path}/`;
+    let candidates = Array.from(this.firestore.documents.entries())
+      .filter(([path]) => {
+        if (!path.startsWith(prefix)) return false;
+        return !path.slice(prefix.length).includes("/");
+      })
+      .map(([path, value]) => ({
+        id: path.slice(prefix.length),
+        path,
+        value: structuredClone(value),
+      }))
+      .filter((candidate) => this.conditions.every((condition) => {
+        const actual = this.valueAt(candidate, condition.field);
+        if (condition.operator === "<=") {
+          return actual !== undefined && actual <= condition.value;
+        }
+        return actual === condition.value;
+      }))
+      .sort((left, right) => this.compareCandidate(left, right));
+    if (this.startAfterValues) {
+      candidates = candidates.filter(
+        (candidate) => this.compareToCursor(candidate) > 0,
+      );
+    }
+    if (this.queryLimit !== null) {
+      candidates = candidates.slice(0, this.queryLimit);
+    }
+    return {
+      docs: candidates.map((candidate) => new FakeQueryDocumentSnapshot(
+        this.firestore,
+        candidate.path,
+        candidate.value,
+      )),
+    };
+  }
+}
+
 class FakeCollectionReference {
   constructor(firestore, path) {
     this.firestore = firestore;
@@ -66,6 +196,16 @@ class FakeCollectionReference {
 
   doc(id) {
     return new FakeDocumentReference(this.firestore, `${this.path}/${id}`);
+  }
+
+  where(field, operator, value) {
+    return new FakeQuery(this.firestore, this.path)
+      .where(field, operator, value);
+  }
+
+  orderBy(field, direction) {
+    return new FakeQuery(this.firestore, this.path)
+      .orderBy(field, direction);
   }
 }
 
@@ -84,6 +224,9 @@ class FakeFirestore {
       const writes = new Map();
       const transaction = {
         get: async (reference) => {
+          if (reference instanceof FakeQuery) {
+            return reference.get();
+          }
           const value = writes.has(reference.path)
             ? writes.get(reference.path)
             : this.documents.get(reference.path);
@@ -142,7 +285,7 @@ function fakeAccountOperationCollection(source) {
       return buildQuery(conditions, orderings, limit);
     },
     async get() {
-      const docs = source
+      const docs = (typeof source === "function" ? source() : source)
         .filter((candidate) => conditions.every((condition) => {
           const actual = valueAt(candidate, condition.field);
           if (condition.operator === "in") {
@@ -2015,6 +2158,88 @@ test("failed worker work is deferred with a safe code", async () => {
   assert.deepEqual(warnings, [
     ["account-deletion-worker-failed", { code: "worker-failed" }],
   ]);
+});
+
+test("legacy scheduler backfills a due operation before due-only selection",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const operationPath = `account_operations/${requested.operationId}`;
+  const legacy = harness.firestore.documents.get(operationPath);
+  delete legacy.nextAttemptAtMillis;
+  const collection = fakeAccountOperationCollection(() =>
+    harness.firestore.valuesIn("account_operations"));
+
+  const candidates = await runtime.fetchStagedActionableDeletionCandidates({
+    repository: harness.repository,
+    collection,
+    limit: 50,
+    legacyBackfillLimit: 50,
+    nowMillis: NOW_MILLIS,
+  });
+
+  assert(candidates.some(({ id }) => id === requested.operationId));
+  assert.equal(
+    harness.firestore.documents.get(operationPath).nextAttemptAtMillis,
+    NOW_MILLIS,
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operation_migrations/deletion-scheduler-next-at-v1",
+    ).complete,
+    true,
+  );
+});
+
+test("legacy scheduler stages bounded backfill before processing candidates",
+async () => {
+  const harness = createHarness();
+  const first = await createDeletionOperation(harness.handlers);
+  const second = await createDeletionOperation(harness.handlers, "other");
+  for (const operationId of [first.operationId, second.operationId]) {
+    delete harness.firestore.documents
+      .get(`account_operations/${operationId}`).nextAttemptAtMillis;
+  }
+  const collection = fakeAccountOperationCollection(() =>
+    harness.firestore.valuesIn("account_operations"));
+  const options = {
+    repository: harness.repository,
+    collection,
+    limit: 50,
+    legacyBackfillLimit: 1,
+    nowMillis: NOW_MILLIS,
+  };
+
+  const staged = await runtime.fetchStagedActionableDeletionCandidates(options);
+
+  assert.deepEqual(staged, []);
+  assert.equal(
+    harness.firestore.valuesIn("account_operations")
+      .filter((operation) => Number.isFinite(operation.nextAttemptAtMillis))
+      .length,
+    1,
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operation_migrations/deletion-scheduler-next-at-v1",
+    ).complete,
+    false,
+  );
+
+  const candidates = await runtime.fetchStagedActionableDeletionCandidates(
+    options,
+  );
+
+  assert.deepEqual(
+    candidates.map(({ id }) => id).sort(),
+    [first.operationId, second.operationId].sort(),
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operation_migrations/deletion-scheduler-next-at-v1",
+    ).complete,
+    true,
+  );
 });
 
 test("scheduler candidates cannot be starved by more than fifty Apple waits",
