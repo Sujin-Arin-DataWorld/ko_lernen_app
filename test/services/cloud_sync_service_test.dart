@@ -143,4 +143,63 @@ void main() {
       expect(writes, 0);
     },
   );
+
+  test(
+    'post-pack root validation requires exact revision operation and payload',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      const data = {'srs_json': '{}', 'custom_packs_json': '{}'};
+      const payloadHash =
+          'fba91bf00be691c5c9f38c58bead1858754527bc90d01adce07de8d410b6e4ab';
+
+      Future<bool> validate(Map<String, dynamic> remote) =>
+          CloudSyncService.validateReconciledAccountDocument(
+            uid: 'uid-a',
+            data: data,
+            expectedRevision: 5,
+            operationId: 'operation-1',
+            session: session,
+            sessions: sessions,
+            reader: (_) async => CloudSyncDocument.present(remote),
+          );
+
+      expect(
+        await validate({
+          ...data,
+          'sync_revision': 5,
+          'reconciliation_operation_id': 'operation-1',
+          'reconciliation_payload_hash': payloadHash,
+        }),
+        isTrue,
+      );
+      expect(
+        await validate({
+          ...data,
+          'sync_revision': 6,
+          'reconciliation_operation_id': 'operation-1',
+          'reconciliation_payload_hash': payloadHash,
+        }),
+        isFalse,
+      );
+      expect(
+        await validate({
+          ...data,
+          'sync_revision': 5,
+          'reconciliation_operation_id': 'operation-2',
+          'reconciliation_payload_hash': payloadHash,
+        }),
+        isFalse,
+      );
+      expect(
+        await validate({
+          ...data,
+          'sync_revision': 5,
+          'reconciliation_operation_id': 'operation-1',
+          'reconciliation_payload_hash': 'wrong',
+        }),
+        isFalse,
+      );
+    },
+  );
 }

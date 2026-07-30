@@ -560,6 +560,113 @@ void main() {
   );
 
   test(
+    'post-pack root advance is re-read before any stale local effect',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      final adapter = FirebaseAccountReconciliationAdapter(
+        uid: 'uid-a',
+        session: session,
+        sessions: sessions,
+      );
+      var remote = _snapshot(srs: {'word-a': _srs(reviewCount: 1)});
+      var remoteRevision = 1;
+      var remoteReads = 0;
+      var rootWrites = 0;
+      var packWrites = 0;
+      var rootValidations = 0;
+      var localWrites = 0;
+      Map<String, dynamic>? lastRootData;
+      AccountReconciliationSnapshot? persistedLocal;
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async {
+          remoteReads += 1;
+          return CloudReadResult.present(remote, revision: remoteRevision);
+        },
+        loadLocal: () => AccountReconciliationSnapshot.empty,
+        writeRemote:
+            (snapshot, {required expectedRevision, required operationId}) =>
+                adapter.writeRemote(
+                  snapshot,
+                  expectedRevision: expectedRevision,
+                  operationId: operationId,
+                  rootWriter:
+                      ({
+                        required uid,
+                        required data,
+                        required expectedRevision,
+                        required operationId,
+                        required session,
+                        required sessions,
+                      }) async {
+                        rootWrites += 1;
+                        expect(expectedRevision, remoteRevision);
+                        lastRootData = Map<String, dynamic>.from(data);
+                        remote = snapshot;
+                        remoteRevision += 1;
+                        return CloudSyncCasResult.committed(remoteRevision);
+                      },
+                  packWriter:
+                      ({
+                        required uid,
+                        required progresses,
+                        required expectedRevisions,
+                        required expectedMembershipRevision,
+                        required expectedMembershipPackIds,
+                        required operationId,
+                        required session,
+                        required sessions,
+                      }) async {
+                        packWrites += 1;
+                        if (packWrites == 1) {
+                          remote = _snapshot(
+                            srs: {'word-a': _srs(reviewCount: 2)},
+                          );
+                          remoteRevision += 1;
+                        }
+                        return const FirestorePackCasResult.committed({});
+                      },
+                  rootValidator:
+                      ({
+                        required uid,
+                        required data,
+                        required expectedRevision,
+                        required operationId,
+                        required session,
+                        required sessions,
+                      }) async {
+                        rootValidations += 1;
+                        expect(uid, 'uid-a');
+                        expect(data, lastRootData);
+                        expect(operationId, 'operation-1');
+                        return expectedRevision == remoteRevision;
+                      },
+                ),
+        writeLocal: (snapshot, {required session, required sessions}) async {
+          localWrites += 1;
+          persistedLocal = snapshot;
+        },
+      );
+
+      final result = await coordinator.reconcile(
+        session: session,
+        operationId: 'operation-1',
+        catalog: const {},
+      );
+
+      expect(result.status, AccountReconciliationStatus.completed);
+      expect(remoteReads, 2);
+      expect(rootWrites, 2);
+      expect(packWrites, 2);
+      expect(rootValidations, 2);
+      expect(localWrites, 1);
+      expect(persistedLocal?.srsCards['word-a'], _srs(reviewCount: 2));
+    },
+  );
+
+  test(
     'SharedPreferences journal store durably round-trips safe metadata',
     () async {
       SharedPreferences.setMockInitialValues({});

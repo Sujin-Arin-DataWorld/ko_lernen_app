@@ -46,6 +46,16 @@ typedef CloudSyncCasWriter =
       required CloudWriteSessionController sessions,
     });
 
+typedef CloudSyncReconciliationValidator =
+    Future<bool> Function({
+      required String uid,
+      required Map<String, dynamic> data,
+      required int expectedRevision,
+      required String operationId,
+      required CloudWriteSession session,
+      required CloudWriteSessionController sessions,
+    });
+
 /// Typed account-document boundary used by reconciliation.
 ///
 /// The legacy [CloudSync] facade remains responsible for ready-session
@@ -124,6 +134,39 @@ class CloudSyncService {
     );
   }
 
+  static Future<bool> validateReconciledAccountDocument({
+    required String uid,
+    required Map<String, dynamic> data,
+    required int expectedRevision,
+    required String operationId,
+    required CloudWriteSession session,
+    required CloudWriteSessionController sessions,
+    CloudSyncDocumentReader? reader,
+  }) async {
+    if (uid.trim().isEmpty ||
+        session.mode != CloudWriteMode.reconciling ||
+        session.uid != uid) {
+      return false;
+    }
+    try {
+      sessions.assertCurrent(session);
+    } on StateError {
+      return false;
+    }
+    final document = await (reader ?? _readFirestoreDocument)(uid);
+    try {
+      sessions.assertCurrent(session);
+    } on StateError {
+      return false;
+    }
+    final currentData = document.data;
+    return document.exists &&
+        currentData != null &&
+        currentData['sync_revision'] == expectedRevision &&
+        currentData['reconciliation_operation_id'] == operationId &&
+        currentData['reconciliation_payload_hash'] == _payloadHash(data);
+  }
+
   static Future<CloudSyncDocument> _readFirestoreDocument(String uid) async {
     final snapshot = await FirebaseFirestore.instance
         .collection('users')
@@ -148,13 +191,7 @@ class CloudSyncService {
   }) {
     final firestore = FirebaseFirestore.instance;
     final reference = firestore.collection('users').doc(uid);
-    final payloadHash = sha256
-        .convert(
-          utf8.encode(
-            jsonEncode(_canonicalize(data), toEncodable: _firestoreJsonValue),
-          ),
-        )
-        .toString();
+    final payloadHash = _payloadHash(data);
     return firestore.runTransaction((transaction) async {
       final current = await transaction.get(reference);
       final currentData = current.data();
@@ -199,6 +236,14 @@ class CloudSyncService {
     }
     throw UnsupportedError('Unsupported remote value.');
   }
+
+  static String _payloadHash(Map<String, dynamic> data) => sha256
+      .convert(
+        utf8.encode(
+          jsonEncode(_canonicalize(data), toEncodable: _firestoreJsonValue),
+        ),
+      )
+      .toString();
 
   static Object? _canonicalize(Object? value) {
     if (value is Map) {

@@ -119,6 +119,13 @@ Each failure was observed against the prior production implementation before
 the durable journal guard, exact manifest membership validation, and
 always-CAS-before-local-effect changes.
 
+The subsequent concrete-adapter re-review added the exact remaining composite
+race. The root CAS committed, a ready writer then advanced the root while the
+pack CAS was in flight, the pack CAS succeeded, and the adapter returned
+success without revalidating root. Before the fix, the coordinator read remote
+only once, returned `completed`, and persisted the older SRS review count
+locally. The focused RED expected a second remote read but observed one.
+
 ## GREEN and verification
 
 Final focused Task 8 command:
@@ -127,7 +134,7 @@ Final focused Task 8 command:
 flutter test test/services/account/account_reconciliation_test.dart test/services/account/account_transition_journal_test.dart test/services/cloud_sync_service_test.dart test/services/firestore_progress_service_test.dart test/services/pack_progress_service_test.dart --reporter compact
 ```
 
-Result: 60/60 passed.
+Result: 62/62 passed.
 
 Relevant service and legacy commands:
 
@@ -136,7 +143,7 @@ flutter test test/services --reporter compact
 flutter test test/custom_pack_test.dart test/media_lifecycle_test.dart test/cloud_sync_test.dart test/services/account/concrete_cloud_writer_race_test.dart test/services/account/cloud_writer_fence_test.dart --reporter compact
 ```
 
-Results: 143/143 service tests and 91/91 related legacy/race tests passed.
+Results: 145/145 service tests and 91/91 related legacy/race tests passed.
 
 Full Flutter command:
 
@@ -144,21 +151,21 @@ Full Flutter command:
 flutter test --reporter compact
 ```
 
-Result: 891/891 passed, zero failures, exit 0 in 49.5 seconds on the final
-safety re-review gate (about 45 seconds of Flutter test-clock time).
+Result: 893/893 passed, zero failures, exit 0 on the final concrete-adapter
+re-review gate (about 51 seconds of Flutter test-clock time).
 
 Static and hygiene commands:
 
 ```text
 flutter analyze
-dart format --set-exit-if-changed <6 safety re-review Dart files>
+dart format --set-exit-if-changed <4 concrete-adapter follow-up Dart files>
 git diff --check
 ```
 
 Results:
 
 - `flutter analyze`: no issues found.
-- Dart format: 6 follow-up files checked, 0 changed.
+- Dart format: 4 follow-up files checked, 0 changed on the final pass.
 - `git diff --check`: clean; only informational LF-to-CRLF worktree warnings
   were emitted.
 
@@ -234,6 +241,13 @@ Results:
   remote. A conflict re-reads and re-merges before local persistence, so a
   remote mutation in that window cannot cause a stale local write. No
   remote/network await was added under `MediaMutationLock`.
+- After pack CAS commits, the concrete adapter reads root again and requires
+  the exact committed root revision, reconciliation operation ID, and
+  canonical payload SHA-256. A ready root writer advancing between root and
+  pack CAS therefore produces a typed revision conflict; the coordinator
+  re-reads and re-merges the newer root before any local effect. The exact
+  interleaving asserts two remote reads, two root/pack validations, and one
+  final local write containing the newer SRS history.
 - Ordinary field values are canonicalized before merge/hash/write: integral
   doubles become integers, ISO instants become UTC, nested map insertion order
   is stable, and mixed-type list unions use a type-tagged total ordering.
