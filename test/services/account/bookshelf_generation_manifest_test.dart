@@ -205,6 +205,85 @@ void main() {
     },
   );
 
+  test('partial local snapshot preserves active remote live records', () async {
+    final repository = _MemoryBookshelfRepository()
+      ..active = BookshelfGenerationManifest(
+        generationId: 'generation-active',
+        revision: 1,
+        recordIds: const {'book-a', 'book-b'},
+      )
+      ..generations['generation-active'] = {
+        'book-a': BookshelfGenerationRecord.live(
+          id: 'book-a',
+          revision: 1,
+          portable: const {'note': 'remote A'},
+        ).toJson(),
+        'book-b': BookshelfGenerationRecord.live(
+          id: 'book-b',
+          revision: 1,
+          portable: const {'note': 'remote B'},
+        ).toJson(),
+      };
+
+    await BookshelfGenerationSync.stageAndActivate(
+      repository: repository,
+      uid: 'uid-a',
+      generationId: 'generation-next',
+      entries: const {
+        'book-a': {'note': 'edited locally'},
+      },
+      beforeWrite: () {},
+    );
+
+    final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+    expect(snapshot.entries, {
+      'book-a': {'note': 'edited locally'},
+      'book-b': {'note': 'remote B'},
+    });
+    expect(snapshot.tombstoneIds, isEmpty);
+  });
+
+  test(
+    'explicit durable deletion tombstones an active remote live record',
+    () async {
+      final repository = _MemoryBookshelfRepository()
+        ..active = BookshelfGenerationManifest(
+          generationId: 'generation-active',
+          revision: 1,
+          recordIds: const {'book-a', 'book-b'},
+        )
+        ..generations['generation-active'] = {
+          'book-a': BookshelfGenerationRecord.live(
+            id: 'book-a',
+            revision: 1,
+            portable: const {'note': 'remote A'},
+          ).toJson(),
+          'book-b': BookshelfGenerationRecord.live(
+            id: 'book-b',
+            revision: 1,
+            portable: const {'note': 'remote B'},
+          ).toJson(),
+        };
+
+      await BookshelfGenerationSync.stageAndActivate(
+        repository: repository,
+        uid: 'uid-a',
+        generationId: 'generation-next',
+        entries: const {
+          'book-a': {'note': 'local A'},
+        },
+        deletedIds: const {'book-b'},
+        beforeWrite: () {},
+      );
+
+      final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+      expect(snapshot.entries, {
+        'book-a': {'note': 'local A'},
+      });
+      expect(snapshot.tombstoneIds, {'book-b'});
+    },
+  );
+
   test(
     'legacy per-document survivor set suppresses deleted parent-only records',
     () async {

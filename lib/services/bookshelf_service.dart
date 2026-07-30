@@ -106,7 +106,7 @@ class BookshelfService {
     CloudWriteSessionController? sessions,
   }) async {
     final selectedSessions = sessions ?? cloudWriteSessionController;
-    final shouldDrain = await _markGenerationSync(deletedIds: {id});
+    final syncUid = await _prepareGenerationDeletion({id});
     await MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final removed = raw.remove(id);
@@ -124,7 +124,10 @@ class BookshelfService {
         }
       }
     });
-    if (shouldDrain) unawaited(_productionSyncQueue.drain());
+    if (syncUid != null) {
+      await _productionSyncQueue.commitDeletion(syncUid, {id});
+      unawaited(_productionSyncQueue.drain());
+    }
   }
 
   // ── Internal helpers ──────────────────────────────────────────────
@@ -270,19 +273,12 @@ class BookshelfService {
     }
   }
 
-  static Future<bool> _markGenerationSync({
-    Set<String> deletedIds = const {},
-    Set<String> revivedIds = const {},
-  }) async {
+  static Future<String?> _prepareGenerationDeletion(Set<String> ids) async {
     final uid = AuthService.cloudBackupUid;
-    if (uid == null) return false;
+    if (uid == null) return null;
     try {
-      await _productionSyncQueue.markPending(
-        uid,
-        deletedIds: deletedIds,
-        revivedIds: revivedIds,
-      );
-      return true;
+      await _productionSyncQueue.prepareDeletion(uid, ids);
+      return uid;
     } catch (e) {
       debugPrint('BookshelfService: sync outbox write failed — $e');
       rethrow;
@@ -317,6 +313,10 @@ class BookshelfService {
   }
 
   static Future<void> resumePendingSync() async {
+    final uid = AuthService.cloudBackupUid;
+    if (uid != null) {
+      await _productionSyncQueue.reconcilePrepared(uid, _readRaw().keys);
+    }
     await _productionSyncQueue.drain();
   }
 

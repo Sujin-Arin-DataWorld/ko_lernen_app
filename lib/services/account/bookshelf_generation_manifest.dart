@@ -362,24 +362,9 @@ class BookshelfGenerationSync {
         revision: active!.revision,
       );
     }
-    final selectedEntries = active == null
-        ? {
-            ...await _readLegacy(
-              repository,
-              uid,
-              allowParentOnlyLegacy: allowParentOnlyLegacy,
-            ),
-            ...entries,
-          }
-        : entries;
     final expectedRevision = active?.revision ?? 0;
     final nextRevision = expectedRevision + 1;
-    final recordIds = <String>{
-      ...?active?.recordIds,
-      ...selectedEntries.keys,
-      ...deletedIds,
-    };
-    _requireRecordIds(recordIds);
+    final activeEntries = <String, Map<String, dynamic>>{};
     final activeTombstones = <String>{};
     if (active != null) {
       for (final id in active.recordIds) {
@@ -397,9 +382,29 @@ class BookshelfGenerationSync {
         if (record.id != id || record.revision != active.revision) {
           throw const FormatException('Invalid active bookshelf record.');
         }
-        if (record.deleted) activeTombstones.add(id);
+        if (record.deleted) {
+          activeTombstones.add(id);
+        } else {
+          activeEntries[id] = record.portable;
+        }
       }
     }
+    final selectedEntries = active == null
+        ? {
+            ...await _readLegacy(
+              repository,
+              uid,
+              allowParentOnlyLegacy: allowParentOnlyLegacy,
+            ),
+            ...entries,
+          }
+        : {...activeEntries, ...entries};
+    final recordIds = <String>{
+      ...?active?.recordIds,
+      ...selectedEntries.keys,
+      ...deletedIds,
+    };
+    _requireRecordIds(recordIds);
 
     final records = <String, BookshelfGenerationRecord>{};
     var generationBytes = 0;

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/bookshelf_sync_outbox.dart';
@@ -141,21 +142,17 @@ void main() {
   test(
     'v2 SharedPreferences marker restores deletion and legacy policy',
     () async {
-      SharedPreferences.setMockInitialValues({});
+      SharedPreferences.setMockInitialValues({
+        SharedPreferencesBookshelfSyncOutboxStore.key: jsonEncode({
+          'version': 2,
+          'uid': 'uid-a',
+          'operation_id': 'operation-1',
+          'deleted_ids': ['book-a'],
+          'allow_parent_only_legacy': true,
+        }),
+      });
       const store = SharedPreferencesBookshelfSyncOutboxStore();
       var captured = <BookshelfSyncPending>[];
-      final firstProcess = BookshelfSyncQueue(
-        store: store,
-        tokenFactory: () => 'operation-1',
-        attempt: (_) async => CloudWriteResult.blocked,
-      );
-      await firstProcess.enqueue(
-        'uid-a',
-        deletedIds: {'book-a'},
-        allowParentOnlyLegacy: true,
-      );
-      expect(await firstProcess.drain(), CloudWriteResult.blocked);
-
       final restarted = BookshelfSyncQueue(
         store: store,
         tokenFactory: () => 'operation-2',
@@ -207,6 +204,160 @@ void main() {
 
     expect(pending.tombstonesAbsentFrom({'still-live'}), {'deleted'});
   });
+
+  test(
+    'running drain cannot consume a prepared deletion before commit',
+    () async {
+      final store = _MemoryOutboxStore()
+        ..value = BookshelfSyncPending(
+          uid: 'uid-a',
+          operationId: 'operation-old',
+        );
+      final firstAttemptStarted = Completer<void>();
+      final releaseFirstAttempt = Completer<void>();
+      final attempted = <BookshelfSyncPending>[];
+      var tokens = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (pending) async {
+          attempted.add(pending);
+          if (pending.operationId == 'operation-old') {
+            firstAttemptStarted.complete();
+            await releaseFirstAttempt.future;
+          }
+          return CloudWriteResult.completed;
+        },
+      );
+
+      final firstDrain = queue.drain();
+      await firstAttemptStarted.future;
+      await queue.prepareDeletion('uid-a', {'book-a'});
+      releaseFirstAttempt.complete();
+
+      expect(await firstDrain, CloudWriteResult.blocked);
+      expect(attempted.map((pending) => pending.operationId), [
+        'operation-old',
+      ]);
+      expect(store.value?.preparedDeletedIds, {'book-a'});
+      expect(store.value?.deletedIds, isEmpty);
+
+      await queue.commitDeletion('uid-a', {'book-a'});
+      expect(await queue.drain(), CloudWriteResult.completed);
+      expect(attempted.last.deletedIds, {'book-a'});
+      expect(attempted.last.preparedDeletedIds, isEmpty);
+      expect(store.value, isNull);
+    },
+  );
+
+  test(
+    'restart cancels a prepared deletion when the local record is live',
+    () async {
+      final store = _MemoryOutboxStore();
+      var tokens = 0;
+      final preparing = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.completed,
+      );
+      await preparing.prepareDeletion('uid-a', {'book-a'});
+
+      final attempted = <BookshelfSyncPending>[];
+      final restarted = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (pending) async {
+          attempted.add(pending);
+          return CloudWriteResult.completed;
+        },
+      );
+      await restarted.reconcilePrepared('uid-a', {'book-a'});
+
+      expect(await restarted.drain(), CloudWriteResult.completed);
+      expect(attempted.single.deletedIds, isEmpty);
+      expect(attempted.single.preparedDeletedIds, isEmpty);
+      expect(store.value, isNull);
+    },
+  );
+
+  test(
+    'restart commits a prepared deletion when the local record is absent',
+    () async {
+      final store = _MemoryOutboxStore();
+      var tokens = 0;
+      final preparing = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.completed,
+      );
+      await preparing.prepareDeletion('uid-a', {'book-a'});
+
+      final attempted = <BookshelfSyncPending>[];
+      final restarted = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (pending) async {
+          attempted.add(pending);
+          return CloudWriteResult.completed;
+        },
+      );
+      await restarted.reconcilePrepared('uid-a', const {});
+
+      expect(await restarted.drain(), CloudWriteResult.completed);
+      expect(attempted.single.deletedIds, {'book-a'});
+      expect(attempted.single.preparedDeletedIds, isEmpty);
+      expect(store.value, isNull);
+    },
+  );
+
+  test(
+    'committed local delete recreates work after a concurrent revive',
+    () async {
+      final store = _MemoryOutboxStore();
+      var tokens = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.completed,
+      );
+      await queue.prepareDeletion('uid-a', {'book-a'});
+      await queue.enqueue('uid-a', revivedIds: {'book-a'});
+      expect(await queue.drain(), CloudWriteResult.completed);
+      expect(store.value, isNull);
+
+      await queue.commitDeletion('uid-a', {'book-a'});
+
+      expect(store.value?.deletedIds, {'book-a'});
+      expect(store.value?.preparedDeletedIds, isEmpty);
+    },
+  );
+
+  test(
+    'v3 SharedPreferences preserves prepared deletion across restart',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      const store = SharedPreferencesBookshelfSyncOutboxStore();
+      var tokens = 0;
+      final preparing = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.completed,
+      );
+      await preparing.prepareDeletion('uid-a', {'book-a'});
+
+      final restarted = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+      expect((await store.read())?.preparedDeletedIds, {'book-a'});
+
+      await restarted.reconcilePrepared('uid-a', const {});
+
+      expect((await store.read())?.preparedDeletedIds, isEmpty);
+      expect((await store.read())?.deletedIds, {'book-a'});
+    },
+  );
 }
 
 class _MemoryOutboxStore implements BookshelfSyncOutboxStore {
