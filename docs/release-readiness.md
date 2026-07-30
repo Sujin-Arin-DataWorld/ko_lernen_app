@@ -38,6 +38,10 @@ until the release owner attaches dated evidence from the production system.
   and
   [token revocation](https://developer.apple.com/documentation/signinwithapplerestapi/revoke-tokens)
   contracts.
+- [x] `tool/verify_ios_firebase_config.dart` checks checked-in source plus
+  local iOS paths for a generated Firebase iOS option, a local ignored
+  `GoogleService-Info.plist`, and Runner target membership. The accompanying
+  fixture-only Flutter test covers the absent-option failure path.
 - [ ] Production route evidence exists. `docs/CNAME` indicates that the public
   domain may currently be served by GitHub Pages, which does not apply the
   Firebase Hosting rewrite. Before release, prove either that the domain is
@@ -94,6 +98,14 @@ until the release owner attaches dated evidence from the production system.
 
 ## App Check, Firebase, and server configuration
 
+- [ ] On an authorized macOS release workstation, register the exact
+  case-sensitive iOS bundle ID with the intended Firebase project, run
+  `flutterfire configure --project "$FIREBASE_PROJECT_ID" --platforms ios`,
+  review the generated iOS branch in `lib/firebase_options.dart`, and enable
+  `GoogleService-Info.plist` in the Runner target. Keep the plist ignored and
+  run `dart run tool/verify_ios_firebase_config.dart`; it must exit 0 before
+  an iOS archive. Until then, its explicit nonzero result is an open release
+  gate, not a local test failure to suppress.
 - [ ] Register and enforce Android Play Integrity and Apple
   App Attest/DeviceCheck for protected callables. Record production metrics
   before enforcement and test valid, missing, expired, replayed, debug, and

@@ -28,6 +28,13 @@ Firestore emulator gates pass. However, the following release blockers remain:
    the deletion-proof route, App Check enforcement, least-privilege IAM,
    anonymous Auth cleanup behavior, Apple services, RevenueCat sandbox
    purchases, Google Play, or App Store Connect.
+4. iOS Firebase configuration is intentionally absent from this checkout.
+   `dart run tool/verify_ios_firebase_config.dart` therefore exits 1 with an
+   explicit missing-iOS-configuration result. This is an external release gate:
+   an authorized macOS operator must register the exact bundle ID, run
+   `flutterfire configure --project "$FIREBASE_PROJECT_ID" --platforms ios`,
+   review the generated iOS Firebase option, keep the generated plist ignored,
+   and enable its Runner target membership before a signed archive.
 
 Passing local tests means the tested code paths behaved as specified in this
 workspace. It does not mean the production services or stores are configured.
