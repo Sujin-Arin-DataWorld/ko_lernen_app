@@ -132,7 +132,11 @@ class _OutboxStore implements BookshelfSyncOutboxStore {
   Future<BookshelfSyncPending?> read() async => value;
 
   @override
-  Future<void> write(BookshelfSyncPending pending) async {
+  Future<void> write(
+    BookshelfSyncPending pending, {
+    void Function()? beforeEffect,
+  }) async {
+    beforeEffect?.call();
     value = pending;
   }
 }

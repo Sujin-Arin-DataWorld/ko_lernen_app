@@ -131,12 +131,17 @@ class CloudSync {
     required String uid,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
-  }) {
+  }) async {
     sessions.assertCurrent(session);
+    if (session.mode != CloudWriteMode.reconciling) {
+      throw StateError(
+        'Validated legacy restore requires a reconciling session.',
+      );
+    }
     if (session.uid != uid) {
       throw StateError('Validated bookshelf restore UID does not match.');
     }
-    return _applyRestorePayload(
+    await _applyRestorePayload(
       data,
       beforeWrite: () => sessions.assertCurrent(session),
       validateLegacyBookshelfRestore: (restoredJson) {
@@ -148,6 +153,8 @@ class CloudSync {
         await BookshelfService.recordValidatedParentOnlyLegacyRestore(
           uid: uid,
           restoredJson: restoredJson,
+          session: session,
+          sessions: sessions,
         );
         sessions.assertCurrent(session);
       },

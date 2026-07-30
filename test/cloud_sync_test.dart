@@ -296,7 +296,8 @@ void main() {
     'validated reconciled legacy restore durably approves first generation',
     () async {
       final sessions = CloudWriteSessionController();
-      final session = sessions.acquire('uid-a');
+      sessions.acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
 
       await CloudSync.applyReconciledRestorePayload(
         {'bookshelf_json': '{"page1":{"note":"Validated legacy page"}}'},
@@ -330,11 +331,31 @@ void main() {
     },
   );
 
+  test('ready session cannot approve parent-only legacy migration', () async {
+    final sessions = CloudWriteSessionController();
+    final session = sessions.acquire('uid-a');
+
+    await expectLater(
+      CloudSync.applyReconciledRestorePayload(
+        {'bookshelf_json': '{"page1":{"note":"Legacy page"}}'},
+        uid: 'uid-a',
+        session: session,
+        sessions: sessions,
+      ),
+      throwsStateError,
+    );
+
+    const store = SharedPreferencesBookshelfSyncOutboxStore();
+    expect(await store.read(), isNull);
+    expect(Storage.bookshelfRawJson, isEmpty);
+  });
+
   test(
     'invalid reconciled legacy restore remains unapproved and fail-closed',
     () async {
       final sessions = CloudWriteSessionController();
-      final session = sessions.acquire('uid-a');
+      sessions.acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
 
       await CloudSync.applyReconciledRestorePayload(
         {'bookshelf_json': 'not-json'},

@@ -321,12 +321,25 @@ class BookshelfService {
   static Future<void> recordValidatedParentOnlyLegacyRestore({
     required String uid,
     required String restoredJson,
+    required CloudWriteSession session,
+    required CloudWriteSessionController sessions,
   }) async {
+    if (session.mode != CloudWriteMode.reconciling) {
+      throw StateError(
+        'Parent-only legacy approval requires a reconciling session.',
+      );
+    }
+    sessions.assertCurrent(session);
+    if (session.uid != uid) {
+      throw StateError('Validated bookshelf restore UID does not match.');
+    }
     if (Storage.bookshelfRawJson != restoredJson) {
       throw StateError('Validated bookshelf restore no longer matches local.');
     }
     validateParentOnlyLegacyRestore(restoredJson);
-    await _productionSyncQueue.markPending(uid, allowParentOnlyLegacy: true);
+    await BookshelfParentOnlyLegacyApprovalWorkflow(
+      _productionSyncQueue,
+    ).run(uid: uid, session: session, sessions: sessions);
   }
 
   static void validateParentOnlyLegacyRestore(String restoredJson) {

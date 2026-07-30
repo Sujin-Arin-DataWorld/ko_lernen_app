@@ -391,6 +391,37 @@ void main() {
   });
 
   test(
+    'v4 prepared revival marker synthesizes a restart-compatible lease',
+    () async {
+      SharedPreferences.setMockInitialValues({
+        SharedPreferencesBookshelfSyncOutboxStore.key: jsonEncode({
+          'version': 4,
+          'uid': 'uid-a',
+          'operation_id': 'legacy-operation',
+          'deleted_ids': <String>[],
+          'prepared_deleted_ids': <String>[],
+          'revived_ids': <String>[],
+          'prepared_revived_ids': ['book-a'],
+          'allow_parent_only_legacy': false,
+        }),
+      });
+      const store = SharedPreferencesBookshelfSyncOutboxStore();
+      final restored = await store.read();
+      expect(restored?.preparedRevivalLeases, {'book-a': 'legacy-operation'});
+
+      final restarted = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-next',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+      await restarted.reconcilePrepared('uid-a', {'book-a'});
+
+      expect((await store.read())?.revivedIds, {'book-a'});
+      expect((await store.read())?.preparedRevivalLeases, isEmpty);
+    },
+  );
+
+  test(
     'write-ahead revival blocks drain until strict local save commits',
     () async {
       final store = _MemoryOutboxStore();
@@ -477,6 +508,88 @@ void main() {
       expect(store.value?.revivedIds, isEmpty);
     },
   );
+
+  test(
+    'late revival commit cannot erase a newer durable delete intent',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      const store = SharedPreferencesBookshelfSyncOutboxStore();
+      var tokens = 0;
+      final firstProcess = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+
+      final revivalLease = await firstProcess.prepareRevival('uid-a', {
+        'book-a',
+      });
+      expect((await store.read())?.preparedRevivalLeases, {
+        'book-a': revivalLease,
+      });
+      await firstProcess.prepareDeletion('uid-a', {'book-a'});
+      await firstProcess.commitRevival('uid-a', {
+        'book-a',
+      }, leaseToken: revivalLease);
+
+      final afterLateCommit = await store.read();
+      expect(afterLateCommit?.preparedDeletedIds, {'book-a'});
+      expect(afterLateCommit?.revivedIds, isEmpty);
+      expect(afterLateCommit?.preparedRevivedIds, isEmpty);
+
+      final attempted = <BookshelfSyncPending>[];
+      final restarted = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (pending) async {
+          attempted.add(pending);
+          return CloudWriteResult.completed;
+        },
+      );
+      // The crash happened before the newer deletion could remove local data.
+      // Recovery cancels that prepared delete, but must never infer a revival.
+      await restarted.reconcilePrepared('uid-a', {'book-a'});
+      expect((await store.read())?.revivedIds, isEmpty);
+      await restarted.drain();
+
+      expect(attempted.single.revivedIds, isEmpty);
+      expect(await store.read(), isNull);
+    },
+  );
+
+  for (final switchKind in ['uid', 'epoch', 'mode']) {
+    test(
+      'approval store write is fenced against stale $switchKind session',
+      () async {
+        final store = _DelayedReadOutboxStore();
+        final sessions = CloudWriteSessionController();
+        sessions.acquire('uid-a');
+        final session = sessions.transition(CloudWriteMode.reconciling);
+        final queue = BookshelfSyncQueue(
+          store: store,
+          tokenFactory: () => 'operation',
+          attempt: (_) async => CloudWriteResult.blocked,
+        );
+
+        final approval = BookshelfParentOnlyLegacyApprovalWorkflow(
+          queue,
+        ).run(uid: 'uid-a', session: session, sessions: sessions);
+        await store.readStarted.future;
+        if (switchKind == 'uid') {
+          sessions.acquire('uid-b');
+        } else if (switchKind == 'epoch') {
+          sessions.transition(CloudWriteMode.reconciling);
+        } else {
+          sessions.transition(CloudWriteMode.ready);
+        }
+        store.releaseRead.complete();
+
+        await expectLater(approval, throwsStateError);
+        expect(store.writeCount, 0);
+        expect(store.value, isNull);
+      },
+    );
+  }
 
   test('parse failure rolls back prepared deletion without restart', () async {
     final store = _MemoryOutboxStore();
@@ -589,7 +702,11 @@ class _MemoryOutboxStore implements BookshelfSyncOutboxStore {
   }
 
   @override
-  Future<void> write(BookshelfSyncPending pending) async {
+  Future<void> write(
+    BookshelfSyncPending pending, {
+    void Function()? beforeEffect,
+  }) async {
+    beforeEffect?.call();
     value = pending;
   }
 }
@@ -617,7 +734,11 @@ class _RacyOutboxStore implements BookshelfSyncOutboxStore {
   Future<BookshelfSyncPending?> read() async => value;
 
   @override
-  Future<void> write(BookshelfSyncPending pending) async {
+  Future<void> write(
+    BookshelfSyncPending pending, {
+    void Function()? beforeEffect,
+  }) async {
+    beforeEffect?.call();
     value = pending;
   }
 }
@@ -626,11 +747,37 @@ class _FailOnceOutboxStore extends _MemoryOutboxStore {
   bool failNextWrite = false;
 
   @override
-  Future<void> write(BookshelfSyncPending pending) async {
+  Future<void> write(
+    BookshelfSyncPending pending, {
+    void Function()? beforeEffect,
+  }) async {
     if (failNextWrite) {
       failNextWrite = false;
       throw StateError('outbox write failed');
     }
+    await super.write(pending, beforeEffect: beforeEffect);
+  }
+}
+
+class _DelayedReadOutboxStore extends _MemoryOutboxStore {
+  final readStarted = Completer<void>();
+  final releaseRead = Completer<void>();
+  var writeCount = 0;
+
+  @override
+  Future<BookshelfSyncPending?> read() async {
+    if (!readStarted.isCompleted) readStarted.complete();
+    await releaseRead.future;
+    return super.read();
+  }
+
+  @override
+  Future<void> write(
+    BookshelfSyncPending pending, {
+    void Function()? beforeEffect,
+  }) async {
+    beforeEffect?.call();
+    writeCount += 1;
     await super.write(pending);
   }
 }
