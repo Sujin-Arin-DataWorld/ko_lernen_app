@@ -55,24 +55,41 @@ Subsequent behavior-first self-review RED runs proved:
 
 Each regression failed for the named behavior before its production fix.
 
+Independent-review follow-up RED runs additionally proved:
+
+- a concurrently created pack could bypass the per-document pack CAS because
+  the reconciliation transaction had no complete collection generation;
+- a pack query crossing two membership generations was accepted;
+- portable reconciliation could race a regular custom-pack save and erase its
+  newly committed `imagePath`;
+- semantically equal `1`/`1.0`, equal instants with different offsets, and
+  mixed-type list values produced argument-order-dependent serialized output;
+  and
+- the concrete adapter had no per-call seam to reproduce root success followed
+  by a pack-generation conflict.
+
+The focused failures were observed before each production change. The new
+media test also demonstrates that the normal mutation remains queued until the
+reconciliation critical section releases the shared lock.
+
 ## GREEN and verification
 
 Final focused Task 8 command:
 
 ```text
-flutter test test/services/account/account_reconciliation_test.dart test/services/cloud_sync_service_test.dart test/services/firestore_progress_service_test.dart test/services/pack_progress_service_test.dart
+flutter test test/services/account/account_reconciliation_test.dart test/services/account/account_transition_journal_test.dart test/services/cloud_sync_service_test.dart test/services/firestore_progress_service_test.dart test/services/pack_progress_service_test.dart --reporter compact
 ```
 
-Result: 37/37 passed.
+Result: 49/49 passed.
 
 Relevant service and legacy commands:
 
 ```text
 flutter test test/services --reporter compact
-flutter test test/cloud_sync_test.dart test/custom_pack_test.dart test/pack_progress_service_test.dart test/pack_progress_test.dart
+flutter test test/custom_pack_test.dart test/media_lifecycle_test.dart test/cloud_sync_test.dart test/services/account/concrete_cloud_writer_race_test.dart test/services/account/cloud_writer_fence_test.dart --reporter compact
 ```
 
-Result: both commands passed with zero failures.
+Results: 132/132 service tests and 91/91 related legacy/race tests passed.
 
 Full Flutter command:
 
@@ -80,21 +97,21 @@ Full Flutter command:
 flutter test --reporter compact
 ```
 
-Result: 873/873 passed, zero skipped, exit 0 in 52.2 seconds on the first full
-gate and 44 seconds on the final combined gate.
+Result: 880/880 passed, zero failures, exit 0 in 51.5 seconds on the
+independent-review follow-up gate.
 
 Static and hygiene commands:
 
 ```text
 flutter analyze
-dart format --set-exit-if-changed <14 changed Dart files>
+dart format --set-exit-if-changed <5 follow-up Dart files>
 git diff --check
 ```
 
 Results:
 
 - `flutter analyze`: no issues found.
-- Dart format: 14 files checked, 0 changed.
+- Dart format: 5 follow-up files checked, 0 changed.
 - `git diff --check`: clean; only informational LF-to-CRLF worktree warnings
   were emitted.
 
@@ -119,6 +136,16 @@ Results:
 - CAS conflicts re-read and re-merge. Root and pack writes use Firestore
   transactions when revisions exist, and ordinary ready writes atomically
   increment those revisions so concurrent device activity is visible.
+- Pack collection membership has its own manifest generation under
+  `users/{uid}/sync_metadata/pack_progress`. Typed reads bracket the pack query
+  with the same generation; reconciliation CAS reads that generation, and
+  every regular single/batch pack writer updates the affected packs and
+  generation in one transaction. A generation conflict re-reads and re-merges,
+  including a newly created pack, before another write.
+- The manifest generation is the authoritative complete-membership guard.
+  Its sorted `pack_ids` list supports operation idempotency and becomes complete
+  on reconciliation; it is deliberately not used to reject legacy pack
+  documents before that bootstrap.
 - The operation ID is the idempotency identity. Root idempotency also binds a
   canonical payload hash; pack idempotency verifies the stored progress
   payload before accepting a repeated operation.
@@ -130,7 +157,15 @@ Results:
   local reconciliation uses strict preference writes for SRS, custom packs,
   and all pack progress.
 - Portable custom-pack reconciliation preserves matching local managed-media
-  references instead of replacing them with remote portable data.
+  references instead of replacing them with remote portable data. Its complete
+  read/compare/write critical section now uses the same `MediaMutationLock` as
+  normal save/delete/rename/media mutations.
+- Ordinary field values are canonicalized before merge/hash/write: integral
+  doubles become integers, ISO instants become UTC, nested map insertion order
+  is stable, and mixed-type list unions use a type-tagged total ordering.
+- The concrete root-success/pack-conflict adapter path now has regular per-call
+  writer seams and is covered as a typed revision conflict. Local durable
+  recovery is also tested across a `Storage` reset and reinitialization.
 - Interrupted remote-write response loss retries the same operation, re-reads
   the committed remote snapshot, and completes without a second blind write.
 - Bookshelf generation logic and media-generation cleanup remain untouched for
@@ -153,6 +188,12 @@ cannot contain its own final hash.
   transactions are covered through the concrete typed/CAS boundaries,
   injected per-call seams, race tests, and static analysis; live contention,
   permissions, offline retries, and transaction replay remain staging gates.
+- The new `users/{uid}/sync_metadata/pack_progress` document requires the
+  deployed security rules to permit the authenticated owner read and
+  transactional write. The checked-in generic owner subcollection rule appears
+  to cover it, but rules were explicitly out of Task 8 scope and no emulator
+  rules run was performed, so deployed-rules verification remains a release
+  integration gate.
 - Legacy pack records have only aggregate attempt counts and no stable
   per-attempt IDs. The deterministic idempotent policy therefore uses max
   rather than sum; it cannot reconstruct two independently created attempt

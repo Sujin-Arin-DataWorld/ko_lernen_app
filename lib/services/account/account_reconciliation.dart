@@ -22,6 +22,7 @@ class AccountReconciliationSnapshot {
     required this.customPacks,
     required this.packProgress,
     this.packRevisions = const {},
+    this.packMembershipRevision,
   });
 
   static const empty = AccountReconciliationSnapshot(
@@ -30,6 +31,7 @@ class AccountReconciliationSnapshot {
     customPacks: {},
     packProgress: {},
     packRevisions: {},
+    packMembershipRevision: null,
   );
 
   final Map<String, Object?> fields;
@@ -37,11 +39,13 @@ class AccountReconciliationSnapshot {
   final Map<String, Map<String, Object?>> customPacks;
   final Map<String, PackProgress> packProgress;
   final Map<String, int?> packRevisions;
+  final int? packMembershipRevision;
 
   static CloudReadResult<AccountReconciliationSnapshot> decodeCloudDocument(
     Map<String, dynamic> document, {
     Map<String, PackProgress> packProgress = const {},
     Map<String, int?> packRevisions = const {},
+    int? packMembershipRevision,
   }) {
     final srsResult = _decodeSrs(document['srs_json']);
     if (!srsResult.isPresent) {
@@ -53,6 +57,7 @@ class AccountReconciliationSnapshot {
             customPacks: const {},
             packProgress: packProgress,
             packRevisions: packRevisions,
+            packMembershipRevision: packMembershipRevision,
           ),
         ),
         CloudReadState.tooLarge => const CloudReadResult.tooLarge(),
@@ -75,6 +80,7 @@ class AccountReconciliationSnapshot {
         customPacks: customResult.value ?? const {},
         packProgress: packProgress,
         packRevisions: packRevisions,
+        packMembershipRevision: packMembershipRevision,
       ),
     );
   }
@@ -253,6 +259,7 @@ class AccountReconciliationMerger {
         customPacks: customPacks,
         packProgress: packResult.merged!,
         packRevisions: remote.packRevisions,
+        packMembershipRevision: remote.packMembershipRevision,
       ),
       conflicts: const [],
     );
@@ -289,9 +296,9 @@ class AccountReconciliationMerger {
       final hasLocal = local.containsKey(key);
       final hasRemote = remote.containsKey(key);
       if (!hasLocal) {
-        result[key] = remote[key];
+        result[key] = _canonicalFieldValue(remote[key]);
       } else if (!hasRemote) {
-        result[key] = local[key];
+        result[key] = _canonicalFieldValue(local[key]);
       } else {
         result[key] = _mergeFieldValue(key, local[key], remote[key], conflicts);
       }
@@ -305,20 +312,24 @@ class AccountReconciliationMerger {
     Object? remote,
     List<AccountReconciliationConflict> conflicts,
   ) {
-    if (_deepEquals(local, remote)) return local;
-    if (local is num && remote is num) {
-      return local >= remote ? local : remote;
+    final canonicalLocal = _canonicalFieldValue(local);
+    final canonicalRemote = _canonicalFieldValue(remote);
+    if (_deepEquals(canonicalLocal, canonicalRemote)) return canonicalLocal;
+    if (canonicalLocal is num && canonicalRemote is num) {
+      return canonicalLocal >= canonicalRemote
+          ? canonicalLocal
+          : canonicalRemote;
     }
-    if (local is Map && remote is Map) {
+    if (canonicalLocal is Map && canonicalRemote is Map) {
       return _mergeFields(
-        local.map((key, value) => MapEntry(key.toString(), value)),
-        remote.map((key, value) => MapEntry(key.toString(), value)),
+        canonicalLocal.map((key, value) => MapEntry(key.toString(), value)),
+        canonicalRemote.map((key, value) => MapEntry(key.toString(), value)),
         conflicts,
       );
     }
-    if (local is List && remote is List) {
-      final values = <Object?>[...local];
-      for (final value in remote) {
+    if (canonicalLocal is List && canonicalRemote is List) {
+      final values = <Object?>[...canonicalLocal];
+      for (final value in canonicalRemote) {
         if (!values.any((existing) => _deepEquals(existing, value))) {
           values.add(value);
         }
@@ -328,11 +339,13 @@ class AccountReconciliationMerger {
       );
       return values;
     }
-    if (local is String && remote is String) {
-      final leftDate = DateTime.tryParse(local);
-      final rightDate = DateTime.tryParse(remote);
-      if (leftDate != null && rightDate != null) {
-        return leftDate.isAfter(rightDate) ? local : remote;
+    if (canonicalLocal is String && canonicalRemote is String) {
+      final leftInstant = _canonicalInstant(canonicalLocal);
+      final rightInstant = _canonicalInstant(canonicalRemote);
+      if (leftInstant != null && rightInstant != null) {
+        return DateTime.parse(leftInstant).isAfter(DateTime.parse(rightInstant))
+            ? leftInstant
+            : rightInstant;
       }
     }
     conflicts.add(
@@ -341,7 +354,7 @@ class AccountReconciliationMerger {
         id: path,
       ),
     );
-    return local;
+    return canonicalLocal;
   }
 }
 
@@ -782,12 +795,14 @@ class FirebaseAccountReconciliationAdapter {
               customPacks: const {},
               packProgress: packSnapshot?.progress ?? const {},
               packRevisions: packSnapshot?.revisions ?? const {},
+              packMembershipRevision: packSnapshot?.membershipRevision,
             ),
           )
         : AccountReconciliationSnapshot.decodeCloudDocument(
             root.value!,
             packProgress: packSnapshot?.progress ?? const {},
             packRevisions: packSnapshot?.revisions ?? const {},
+            packMembershipRevision: packSnapshot?.membershipRevision,
           );
     if (!decoded.isPresent) return decoded;
     return CloudReadResult.present(decoded.value!, revision: root.revision);
@@ -797,6 +812,8 @@ class FirebaseAccountReconciliationAdapter {
     AccountReconciliationSnapshot snapshot, {
     required int? expectedRevision,
     required String operationId,
+    CloudSyncCasWriter? rootWriter,
+    FirestorePackCasWriter? packWriter,
   }) async {
     final rootResult = await CloudSyncService.writeReconciledAccountDocument(
       uid: uid,
@@ -805,6 +822,7 @@ class FirebaseAccountReconciliationAdapter {
       operationId: operationId,
       session: session,
       sessions: sessions,
+      writer: rootWriter,
     );
     if (rootResult.status == CloudSyncCasStatus.revisionConflict) {
       return const ReconciliationWriteResult.revisionConflict();
@@ -813,9 +831,11 @@ class FirebaseAccountReconciliationAdapter {
       uid: uid,
       progresses: snapshot.packProgress.values,
       expectedRevisions: snapshot.packRevisions,
+      expectedMembershipRevision: snapshot.packMembershipRevision,
       operationId: operationId,
       session: session,
       sessions: sessions,
+      writer: packWriter,
     );
     if (packResult.status == FirestorePackCasStatus.revisionConflict) {
       return const ReconciliationWriteResult.revisionConflict();
@@ -876,15 +896,57 @@ bool _deepEquals(Object? left, Object? right) {
 int _stableHash(Object? value) => _stableText(value).hashCode;
 
 String _stableText(Object? value) {
+  final canonical = _canonicalFieldValue(value);
+  if (canonical == null) return '0:null';
+  if (canonical is bool) return canonical ? '1:true' : '1:false';
+  if (canonical is num) return '2:${canonical.toString()}';
+  if (canonical is String) return '3:${jsonEncode(canonical)}';
+  if (canonical is List) {
+    return '4:[${canonical.map(_stableText).join(',')}]';
+  }
+  if (canonical is Map) {
+    final entries = canonical.entries.toList()
+      ..sort(
+        (left, right) => left.key.toString().compareTo(right.key.toString()),
+      );
+    return '5:{${entries.map((entry) => '${jsonEncode(entry.key.toString())}:${_stableText(entry.value)}').join(',')}}';
+  }
+  return '9:${canonical.runtimeType}:${canonical.toString()}';
+}
+
+Object? _canonicalFieldValue(Object? value) {
+  if (value is double) {
+    if (value.isFinite &&
+        value >= -9223372036854775808 &&
+        value <= 9223372036854775807 &&
+        value == value.truncateToDouble()) {
+      return value.toInt();
+    }
+    return value;
+  }
+  if (value is String) {
+    final instant = _canonicalInstant(value);
+    return instant ?? value;
+  }
   if (value is Map) {
     final entries = value.entries.toList()
       ..sort(
         (left, right) => left.key.toString().compareTo(right.key.toString()),
       );
-    return '{${entries.map((entry) => '${entry.key}:${_stableText(entry.value)}').join(',')}}';
+    return <String, Object?>{
+      for (final entry in entries)
+        entry.key.toString(): _canonicalFieldValue(entry.value),
+    };
   }
   if (value is List) {
-    return '[${value.map(_stableText).join(',')}]';
+    return value.map(_canonicalFieldValue).toList();
   }
-  return value.toString();
+  return value;
+}
+
+String? _canonicalInstant(String value) {
+  if (!RegExp(r'^\d{4}-\d{2}-\d{2}T.+(?:Z|[+-]\d{2}:\d{2})$').hasMatch(value)) {
+    return null;
+  }
+  return DateTime.tryParse(value)?.toUtc().toIso8601String();
 }

@@ -5,6 +5,16 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/firestore_progress_service.dart';
 
 void main() {
+  test('ready pack writes advance and retain manifest membership', () {
+    final next = const FirestorePackMembership(
+      revision: 4,
+      packIds: {'pack-a'},
+    ).afterWriting(const {'pack-b'});
+
+    expect(next.revision, 5);
+    expect(next.packIds, {'pack-a', 'pack-b'});
+  });
+
   group('FirestoreProgressService.loadAllTyped', () {
     test('does not collapse a query failure to an empty map', () async {
       final result = await FirestoreProgressService.loadAllTyped(
@@ -93,6 +103,39 @@ void main() {
 
       expect(result.state, CloudReadState.tooLarge);
     });
+
+    test(
+      'rejects a pack query observed across membership generations',
+      () async {
+        var membershipReads = 0;
+        final result = await FirestoreProgressService.loadAllTyped(
+          uid: 'uid-a',
+          reader: (_) async => [
+            FirestorePackDocument(
+              id: 'pack-a',
+              data: {
+                ...PackProgress.fresh(
+                  packId: 'pack-a',
+                  level: 'A1',
+                  wordsTotal: 10,
+                ).toJson(),
+                'sync_revision': 2,
+              },
+            ),
+          ],
+          membershipReader: (_) async {
+            membershipReads += 1;
+            return FirestorePackMembership(
+              revision: membershipReads == 1 ? 4 : 5,
+              packIds: const {'pack-a'},
+            );
+          },
+        );
+
+        expect(result.state, CloudReadState.unavailable);
+        expect(membershipReads, 2);
+      },
+    );
   });
 
   group('FirestoreProgressService.loadPackTyped', () {
@@ -129,6 +172,7 @@ void main() {
         uid: 'uid-a',
         progresses: [progress],
         expectedRevisions: const {'pack-a': 2},
+        expectedMembershipRevision: 7,
         operationId: 'operation-1',
         session: session,
         sessions: sessions,
@@ -137,12 +181,14 @@ void main() {
               required uid,
               required progresses,
               required expectedRevisions,
+              required expectedMembershipRevision,
               required operationId,
               required session,
               required sessions,
             }) async {
               writes += 1;
               expect(expectedRevisions, {'pack-a': 2});
+              expect(expectedMembershipRevision, 7);
               expect(operationId, 'operation-1');
               return const FirestorePackCasResult.committed({'pack-a': 3});
             },
@@ -151,6 +197,76 @@ void main() {
       expect(result.status, FirestorePackCasStatus.committed);
       expect(result.revisions, {'pack-a': 3});
       expect(writes, 1);
+    },
+  );
+
+  test(
+    'new pack creation changes membership and prevents stale reconciliation',
+    () async {
+      var membershipRevision = 4;
+      var committedWrites = 0;
+      final remote = <String, PackProgress>{
+        'pack-a': PackProgress.fresh(
+          packId: 'pack-a',
+          level: 'A1',
+          wordsTotal: 10,
+        ),
+      };
+      final initial = await FirestoreProgressService.loadAllTyped(
+        uid: 'uid-a',
+        reader: (_) async => [
+          for (final progress in remote.values)
+            FirestorePackDocument(
+              id: progress.packId,
+              data: {...progress.toJson(), 'sync_revision': 2},
+            ),
+        ],
+        membershipReader: (_) async => FirestorePackMembership(
+          revision: membershipRevision,
+          packIds: remote.keys.toSet(),
+        ),
+      );
+      expect(initial.state, CloudReadState.present);
+      expect(initial.value!.membershipRevision, 4);
+
+      remote['pack-b'] = PackProgress.fresh(
+        packId: 'pack-b',
+        level: 'A2',
+        wordsTotal: 12,
+      );
+      membershipRevision += 1;
+
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      final result = await FirestoreProgressService.saveManyReconciled(
+        uid: 'uid-a',
+        progresses: initial.value!.progress.values,
+        expectedRevisions: initial.value!.revisions,
+        expectedMembershipRevision: initial.value!.membershipRevision,
+        operationId: 'operation-1',
+        session: session,
+        sessions: sessions,
+        writer:
+            ({
+              required uid,
+              required progresses,
+              required expectedRevisions,
+              required expectedMembershipRevision,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              if (expectedMembershipRevision != membershipRevision) {
+                return const FirestorePackCasResult.revisionConflict();
+              }
+              committedWrites += 1;
+              return const FirestorePackCasResult.committed({'pack-a': 3});
+            },
+      );
+
+      expect(result.status, FirestorePackCasStatus.revisionConflict);
+      expect(committedWrites, 0);
+      expect(remote.keys, containsAll(<String>['pack-a', 'pack-b']));
     },
   );
 }

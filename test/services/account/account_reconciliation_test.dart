@@ -1,12 +1,16 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/models/custom_pack.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/account/account_reconciliation.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/cloud_sync_service.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
+import 'package:ko_lernen_app/services/firestore_progress_service.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -113,6 +117,99 @@ void main() {
           ),
         ),
       );
+    });
+
+    test(
+      'normalizes equal numeric and instant fields independent of argument order',
+      () {
+        final first = _snapshot(
+          fields: {
+            'count': 1,
+            'updated': '2026-07-30T12:00:00.000+02:00',
+            'latest': '2026-07-30T09:00:00.000Z',
+          },
+        );
+        final second = _snapshot(
+          fields: {
+            'count': 1.0,
+            'updated': '2026-07-30T10:00:00.000Z',
+            'latest': '2026-07-30T11:00:00.000+01:00',
+          },
+        );
+
+        final forward = AccountReconciliationMerger.merge(
+          local: first,
+          remote: second,
+          catalog: catalog,
+        );
+        final reverse = AccountReconciliationMerger.merge(
+          local: second,
+          remote: first,
+          catalog: catalog,
+        );
+
+        expect(forward.conflicts, isEmpty);
+        expect(reverse.conflicts, isEmpty);
+        expect(
+          jsonEncode(forward.merged!.toCloudDocument()),
+          jsonEncode(reverse.merged!.toCloudDocument()),
+        );
+        expect(forward.merged!.fields, {
+          'count': 1,
+          'updated': '2026-07-30T10:00:00.000Z',
+          'latest': '2026-07-30T10:00:00.000Z',
+        });
+        expect(forward.merged!.fields['count'], isA<int>());
+      },
+    );
+
+    test('canonically orders and normalizes mixed-type collection values', () {
+      final first = _snapshot(
+        fields: {
+          'items': [
+            1,
+            '1',
+            {'value': 1.0},
+            [1.0, '1'],
+          ],
+        },
+      );
+      final second = _snapshot(
+        fields: {
+          'items': [
+            [1, '1'],
+            {'value': 1},
+            '1',
+            1.0,
+            true,
+          ],
+        },
+      );
+
+      final forward = AccountReconciliationMerger.merge(
+        local: first,
+        remote: second,
+        catalog: catalog,
+      );
+      final reverse = AccountReconciliationMerger.merge(
+        local: second,
+        remote: first,
+        catalog: catalog,
+      );
+
+      expect(forward.conflicts, isEmpty);
+      expect(reverse.conflicts, isEmpty);
+      expect(
+        jsonEncode(forward.merged!.toCloudDocument()),
+        jsonEncode(reverse.merged!.toCloudDocument()),
+      );
+      expect(forward.merged!.fields['items'], [
+        true,
+        1,
+        '1',
+        [1, '1'],
+        {'value': 1},
+      ]);
     });
   });
 
@@ -241,6 +338,8 @@ void main() {
     test('a CAS conflict re-reads and re-merges before writing', () async {
       var reads = 0;
       final expectedRevisions = <int?>[];
+      final membershipRevisions = <int?>[];
+      final writtenPackIds = <Set<String>>[];
       final coordinator = AccountReconciliationCoordinator(
         sessions: sessions,
         journalStore: journalStore,
@@ -248,15 +347,26 @@ void main() {
           reads += 1;
           return CloudReadResult.present(
             reads == 1
-                ? _snapshot(fields: {'xp': 1})
-                : _snapshot(fields: {'xp': 2}),
+                ? _snapshot(fields: {'xp': 1}, packMembershipRevision: 4)
+                : _snapshot(
+                    fields: {'xp': 2},
+                    packs: {'pack-b': _progress(packId: 'pack-b', level: 'A2')},
+                    packRevisions: const {'pack-b': 1},
+                    packMembershipRevision: 5,
+                  ),
             revision: reads,
           );
         },
         loadLocal: () => _snapshot(fields: {'xp': 3}),
         writeRemote:
-            (_, {required expectedRevision, required operationId}) async {
+            (
+              snapshot, {
+              required expectedRevision,
+              required operationId,
+            }) async {
               expectedRevisions.add(expectedRevision);
+              membershipRevisions.add(snapshot.packMembershipRevision);
+              writtenPackIds.add(snapshot.packProgress.keys.toSet());
               return expectedRevision == 1
                   ? const ReconciliationWriteResult.revisionConflict()
                   : const ReconciliationWriteResult.committed(revision: 3);
@@ -267,12 +377,23 @@ void main() {
       final result = await coordinator.reconcile(
         session: reconciling,
         operationId: 'operation-1',
-        catalog: const {},
+        catalog: const {
+          'pack-b': PackCatalogEntry(
+            packId: 'pack-b',
+            level: 'A2',
+            wordsTotal: 10,
+          ),
+        },
       );
 
       expect(result.status, AccountReconciliationStatus.completed);
       expect(reads, 2);
       expect(expectedRevisions, [1, 2]);
+      expect(membershipRevisions, [4, 5]);
+      expect(writtenPackIds, [
+        <String>{},
+        {'pack-b'},
+      ]);
     });
 
     test(
@@ -335,6 +456,57 @@ void main() {
   });
 
   test(
+    'concrete adapter surfaces a pack conflict after the root write succeeds',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      final adapter = FirebaseAccountReconciliationAdapter(
+        uid: 'uid-a',
+        session: session,
+        sessions: sessions,
+      );
+      var rootWrites = 0;
+      var packWrites = 0;
+
+      final result = await adapter.writeRemote(
+        _snapshot(packMembershipRevision: 4),
+        expectedRevision: 2,
+        operationId: 'operation-1',
+        rootWriter:
+            ({
+              required uid,
+              required data,
+              required expectedRevision,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              rootWrites += 1;
+              return const CloudSyncCasResult.committed(3);
+            },
+        packWriter:
+            ({
+              required uid,
+              required progresses,
+              required expectedRevisions,
+              required expectedMembershipRevision,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              packWrites += 1;
+              expect(expectedMembershipRevision, 4);
+              return const FirestorePackCasResult.revisionConflict();
+            },
+      );
+
+      expect(result.status, ReconciliationWriteStatus.revisionConflict);
+      expect(rootWrites, 1);
+      expect(packWrites, 1);
+    },
+  );
+
+  test(
     'SharedPreferences journal store durably round-trips safe metadata',
     () async {
       SharedPreferences.setMockInitialValues({});
@@ -383,6 +555,9 @@ void main() {
       );
 
       await LocalAccountReconciliationStore.write(snapshot);
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      await Storage.init();
       final restored = LocalAccountReconciliationStore.load();
 
       expect(restored.srsCards, snapshot.srsCards);
@@ -454,6 +629,68 @@ void main() {
       );
     },
   );
+
+  test(
+    'reconciliation serializes with a concurrent custom-pack media mutation',
+    () async {
+      final portablePack = {
+        'name': 'Pack',
+        'sourcePageId': '',
+        'words': [
+          {
+            'korean': '?덈뀞',
+            'romanization': 'annyeong',
+            'posDe': '',
+            'translationDe': 'Hallo',
+            'translationEn': 'Hello',
+            'exampleKorean': '',
+            'exampleDe': '',
+            'definitionKo': '',
+            'savedToPackId': null,
+          },
+        ],
+        'createdAt': '2026-07-30T00:00:00.000Z',
+      };
+      SharedPreferences.setMockInitialValues({
+        'kl_custom_packs_v1': jsonEncode({'cp-a': portablePack}),
+      });
+      Storage.resetForTesting();
+      await Storage.init();
+
+      final reconciliationAtWrite = Completer<void>();
+      final allowReconciliationWrite = Completer<void>();
+      final reconciliation = CustomPackService.writeReconciledPortable(
+        {'cp-a': portablePack},
+        writer: (output) async {
+          reconciliationAtWrite.complete();
+          await allowReconciliationWrite.future;
+          await Storage.setCustomPacksRawJsonStrict(jsonEncode(output));
+        },
+      );
+      await reconciliationAtWrite.future;
+
+      final localWithMedia =
+          jsonDecode(jsonEncode(portablePack)) as Map<String, dynamic>;
+      ((localWithMedia['words'] as List).first
+              as Map<String, dynamic>)['imagePath'] =
+          'word:photo.png';
+      var mutationCompleted = false;
+      final mutation = CustomPackService.save(
+        CustomPack.fromJson('cp-a', localWithMedia),
+      ).then((_) => mutationCompleted = true);
+      await Future<void>.delayed(Duration.zero);
+      final completedBeforeReconciliation = mutationCompleted;
+
+      allowReconciliationWrite.complete();
+      await Future.wait<void>([reconciliation, mutation]);
+
+      expect(completedBeforeReconciliation, isFalse);
+      expect(
+        CustomPackService.getById('cp-a')!.words.single.imagePath,
+        'word:photo.png',
+      );
+    },
+  );
 }
 
 AccountReconciliationSnapshot _snapshot({
@@ -461,12 +698,16 @@ AccountReconciliationSnapshot _snapshot({
   Map<String, Map<String, Object?>> srs = const {},
   Map<String, Map<String, Object?>> customPacks = const {},
   Map<String, PackProgress> packs = const {},
+  Map<String, int?> packRevisions = const {},
+  int? packMembershipRevision,
 }) {
   return AccountReconciliationSnapshot(
     fields: fields,
     srsCards: srs,
     customPacks: customPacks,
     packProgress: packs,
+    packRevisions: packRevisions,
+    packMembershipRevision: packMembershipRevision,
   );
 }
 
@@ -486,6 +727,9 @@ Map<String, Object?> _pack({required String name}) => {
 
 PackProgress _progressForLocalStore() =>
     PackProgress.fresh(packId: 'pack-a', level: 'A1', wordsTotal: 10);
+
+PackProgress _progress({required String packId, required String level}) =>
+    PackProgress.fresh(packId: packId, level: level, wordsTotal: 10);
 
 class _MemoryJournalStore implements AccountTransitionJournalStore {
   AccountTransitionJournal? value;

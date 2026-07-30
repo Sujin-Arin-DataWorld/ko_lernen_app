@@ -157,26 +157,29 @@ class CustomPackService {
   }
 
   static Future<void> writeReconciledPortable(
-    Map<String, Map<String, Object?>> portable,
-  ) async {
-    final existingRaw = _readRaw();
-    final output = <String, dynamic>{};
-    final ids = portable.keys.toList()..sort();
-    for (final id in ids) {
-      final incoming = CustomPack.fromPortableJson(
-        id,
-        Map<String, dynamic>.from(portable[id]!),
-      );
-      final existing = _packFromRaw(existingRaw, id);
-      final samePortable =
-          existing != null &&
-          jsonEncode(existing.toPortableJson()) ==
-              jsonEncode(incoming.toPortableJson());
-      output[id] = samePortable
-          ? existing.toLocalJson()
-          : incoming.toLocalJson();
-    }
-    await _writeRawStrict(output);
+    Map<String, Map<String, Object?>> portable, {
+    Future<void> Function(Map<String, dynamic> output)? writer,
+  }) {
+    return MediaMutationLock.run(() async {
+      final existingRaw = _readRaw();
+      final output = <String, dynamic>{};
+      final ids = portable.keys.toList()..sort();
+      for (final id in ids) {
+        final incoming = CustomPack.fromPortableJson(
+          id,
+          Map<String, dynamic>.from(portable[id]!),
+        );
+        final existing = _packFromRaw(existingRaw, id);
+        final samePortable =
+            existing != null &&
+            jsonEncode(existing.toPortableJson()) ==
+                jsonEncode(incoming.toPortableJson());
+        output[id] = samePortable
+            ? existing.toLocalJson()
+            : incoming.toLocalJson();
+      }
+      await (writer ?? _writeRawStrict)(output);
+    });
   }
 
   static CustomPack? getById(String id) {

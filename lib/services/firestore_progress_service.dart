@@ -18,14 +18,37 @@ class FirestorePackSnapshot {
   const FirestorePackSnapshot({
     required this.progress,
     required this.revisions,
+    this.membershipRevision,
   });
 
   final Map<String, PackProgress> progress;
   final Map<String, int?> revisions;
+  final int? membershipRevision;
+}
+
+class FirestorePackMembership {
+  const FirestorePackMembership({
+    required this.revision,
+    required this.packIds,
+  });
+
+  final int revision;
+
+  /// Best-effort idempotency metadata. [revision], which every writer advances,
+  /// is the authoritative collection-membership generation.
+  final Set<String> packIds;
+
+  FirestorePackMembership afterWriting(Iterable<String> writtenPackIds) =>
+      FirestorePackMembership(
+        revision: revision + 1,
+        packIds: {...packIds, ...writtenPackIds},
+      );
 }
 
 typedef FirestorePackReader =
     Future<List<FirestorePackDocument>> Function(String uid);
+typedef FirestorePackMembershipReader =
+    Future<FirestorePackMembership?> Function(String uid);
 typedef FirestoreSinglePackReader =
     Future<FirestorePackDocument?> Function(String uid, String packId);
 
@@ -48,6 +71,7 @@ typedef FirestorePackCasWriter =
       required String uid,
       required Iterable<PackProgress> progresses,
       required Map<String, int?> expectedRevisions,
+      required int? expectedMembershipRevision,
       required String operationId,
       required CloudWriteSession session,
       required CloudWriteSessionController sessions,
@@ -101,9 +125,22 @@ class FirestoreProgressService {
   static Future<CloudReadResult<FirestorePackSnapshot>> loadAllTyped({
     required String uid,
     FirestorePackReader? reader,
+    FirestorePackMembershipReader? membershipReader,
     int maxBytes = defaultReadLimitBytes,
   }) async {
     if (uid.trim().isEmpty || maxBytes < 1) {
+      return const CloudReadResult.invalid();
+    }
+    final membershipBefore = await _readMembershipForTypedRead(
+      uid: uid,
+      reader: reader,
+      membershipReader: membershipReader,
+    );
+    if (membershipBefore.state == CloudReadState.unavailable) {
+      return const CloudReadResult.unavailable();
+    }
+    if (membershipBefore.state == CloudReadState.invalid ||
+        membershipBefore.state == CloudReadState.tooLarge) {
       return const CloudReadResult.invalid();
     }
     late List<FirestorePackDocument> documents;
@@ -112,8 +149,38 @@ class FirestoreProgressService {
     } catch (_) {
       return const CloudReadResult.unavailable();
     }
+    final membership = await _readMembershipForTypedRead(
+      uid: uid,
+      reader: reader,
+      membershipReader: membershipReader,
+    );
+    if (membership.state == CloudReadState.unavailable) {
+      return const CloudReadResult.unavailable();
+    }
+    if (membership.state == CloudReadState.invalid ||
+        membership.state == CloudReadState.tooLarge) {
+      return const CloudReadResult.invalid();
+    }
+    if (!_sameMembershipReads(membershipBefore, membership)) {
+      return const CloudReadResult.unavailable();
+    }
     if (documents.isEmpty) {
-      return const CloudReadResult.absent();
+      if (membership.state != CloudReadState.present) {
+        return switch (membership.state) {
+          CloudReadState.absent => const CloudReadResult.absent(),
+          CloudReadState.unavailable => const CloudReadResult.unavailable(),
+          CloudReadState.invalid => const CloudReadResult.invalid(),
+          CloudReadState.tooLarge => const CloudReadResult.tooLarge(),
+          CloudReadState.present => throw StateError('unreachable'),
+        };
+      }
+      return CloudReadResult.present(
+        FirestorePackSnapshot(
+          progress: const {},
+          revisions: const {},
+          membershipRevision: membership.value!.revision,
+        ),
+      );
     }
 
     final progress = <String, PackProgress>{};
@@ -145,7 +212,11 @@ class FirestoreProgressService {
       return const CloudReadResult.invalid();
     }
     return CloudReadResult.present(
-      FirestorePackSnapshot(progress: progress, revisions: revisions),
+      FirestorePackSnapshot(
+        progress: progress,
+        revisions: revisions,
+        membershipRevision: membership.value?.revision,
+      ),
     );
   }
 
@@ -153,6 +224,7 @@ class FirestoreProgressService {
     required String uid,
     required Iterable<PackProgress> progresses,
     required Map<String, int?> expectedRevisions,
+    required int? expectedMembershipRevision,
     required String operationId,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
@@ -170,6 +242,7 @@ class FirestoreProgressService {
       uid: uid,
       progresses: progresses,
       expectedRevisions: expectedRevisions,
+      expectedMembershipRevision: expectedMembershipRevision,
       operationId: operationId,
       session: session,
       sessions: sessions,
@@ -190,6 +263,60 @@ class FirestoreProgressService {
     ];
   }
 
+  static Future<CloudReadResult<FirestorePackMembership>>
+  _readMembershipForTypedRead({
+    required String uid,
+    required FirestorePackReader? reader,
+    required FirestorePackMembershipReader? membershipReader,
+  }) async {
+    final selected =
+        membershipReader ?? (reader == null ? _readMembership : null);
+    if (selected == null) {
+      return const CloudReadResult.absent();
+    }
+    try {
+      final membership = await selected(uid);
+      if (membership == null) {
+        return const CloudReadResult.absent();
+      }
+      if (membership.revision < 0 ||
+          membership.packIds.any((id) => id.trim().isEmpty)) {
+        return const CloudReadResult.invalid();
+      }
+      return CloudReadResult.present(membership);
+    } catch (error) {
+      return error is FormatException
+          ? const CloudReadResult.invalid()
+          : const CloudReadResult.unavailable();
+    }
+  }
+
+  static Future<FirestorePackMembership?> _readMembership(String uid) =>
+      _readMembershipOnce(uid);
+
+  static Future<FirestorePackMembership?> _readMembershipOnce(
+    String uid,
+  ) async {
+    final snapshot = await _membershipDocument(
+      FirebaseFirestore.instance,
+      uid,
+    ).get();
+    final data = snapshot.data();
+    if (!snapshot.exists || data == null) return null;
+    final revision = data['revision'];
+    final rawIds = data['pack_ids'];
+    if (revision is! int || revision < 0 || rawIds is! List) {
+      throw const FormatException('Invalid pack membership manifest.');
+    }
+    final ids = <String>{};
+    for (final value in rawIds) {
+      if (value is! String || value.trim().isEmpty || !ids.add(value)) {
+        throw const FormatException('Invalid pack membership manifest.');
+      }
+    }
+    return FirestorePackMembership(revision: revision, packIds: ids);
+  }
+
   static bool _validPackJson(Map<String, dynamic> data) {
     final status = data['status'];
     return data['level'] is String &&
@@ -206,6 +333,7 @@ class FirestoreProgressService {
     required String uid,
     required Iterable<PackProgress> progresses,
     required Map<String, int?> expectedRevisions,
+    required int? expectedMembershipRevision,
     required String operationId,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
@@ -215,28 +343,49 @@ class FirestoreProgressService {
         .collection('users')
         .doc(uid)
         .collection('packs');
+    final membershipRef = _membershipDocument(firestore, uid);
     final values = progresses.toList();
     return firestore.runTransaction((transaction) async {
+      final membershipSnapshot = await transaction.get(membershipRef);
+      final membershipData = membershipSnapshot.data();
       final snapshots = <String, DocumentSnapshot<Map<String, dynamic>>>{};
       for (final progress in values) {
         snapshots[progress.packId] = await transaction.get(
           collection.doc(progress.packId),
         );
       }
+      if (membershipData?['reconciliation_operation_id'] == operationId) {
+        final revision = membershipData?['revision'];
+        final ids = _manifestIds(membershipData);
+        if (revision is! int ||
+            ids == null ||
+            !_sameIds(ids, values.map((value) => value.packId).toSet())) {
+          return const FirestorePackCasResult.revisionConflict();
+        }
+        final revisions = <String, int>{};
+        for (final progress in values) {
+          final current = snapshots[progress.packId]?.data();
+          final packRevision = current?['sync_revision'];
+          if (current == null ||
+              current['reconciliation_operation_id'] != operationId ||
+              packRevision is! int ||
+              !_containsProgress(current, progress.toJson())) {
+            return const FirestorePackCasResult.revisionConflict();
+          }
+          revisions[progress.packId] = packRevision;
+        }
+        return FirestorePackCasResult.committed(revisions);
+      }
+      final currentMembershipRevision = membershipSnapshot.exists
+          ? (membershipData?['revision'])
+          : null;
+      if (currentMembershipRevision != expectedMembershipRevision) {
+        return const FirestorePackCasResult.revisionConflict();
+      }
       final revisions = <String, int>{};
       for (final progress in values) {
         final snapshot = snapshots[progress.packId]!;
         final current = snapshot.data();
-        if (current?['reconciliation_operation_id'] == operationId) {
-          final revision = current?['sync_revision'];
-          if (revision is! int ||
-              current == null ||
-              !_containsProgress(current, progress.toJson())) {
-            return const FirestorePackCasResult.revisionConflict();
-          }
-          revisions[progress.packId] = revision;
-          continue;
-        }
         final currentRevision = snapshot.exists && current != null
             ? current['sync_revision']
             : null;
@@ -249,9 +398,6 @@ class FirestoreProgressService {
         return const FirestorePackCasResult.revisionConflict();
       }
       for (final progress in values) {
-        if (revisions.containsKey(progress.packId)) {
-          continue;
-        }
         final nextRevision = (expectedRevisions[progress.packId] ?? 0) + 1;
         transaction.set(collection.doc(progress.packId), {
           ...progress.toJson(),
@@ -261,6 +407,12 @@ class FirestoreProgressService {
         });
         revisions[progress.packId] = nextRevision;
       }
+      transaction.set(membershipRef, {
+        'revision': (expectedMembershipRevision ?? 0) + 1,
+        'pack_ids': values.map((value) => value.packId).toList()..sort(),
+        'reconciliation_operation_id': operationId,
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
       return FirestorePackCasResult.committed(revisions);
     });
   }
@@ -327,7 +479,7 @@ class FirestoreProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
-    CollectionReference<Map<String, dynamic>>? ref;
+    FirebaseFirestore? firestore;
     Map<String, dynamic>? payload;
     return savePackWithSession(
       p,
@@ -338,17 +490,39 @@ class FirestoreProgressService {
         if (db == null) {
           return;
         }
-        ref = db.collection('users').doc(uid).collection('packs');
+        firestore = db;
         payload = Map<String, dynamic>.from(p.toJson())
           ..['updatedAt'] = FieldValue.serverTimestamp()
           ..['sync_revision'] = FieldValue.increment(1)
           ..['reconciliation_operation_id'] = FieldValue.delete();
       },
       write: () async {
-        final collection = ref;
+        final db = firestore;
         final data = payload;
-        if (collection != null && data != null) {
-          await collection.doc(p.packId).set(data, SetOptions(merge: true));
+        if (db != null && data != null) {
+          final collection = db
+              .collection('users')
+              .doc(uid)
+              .collection('packs');
+          final membershipRef = _membershipDocument(db, uid);
+          await db.runTransaction((transaction) async {
+            final membershipSnapshot = await transaction.get(membershipRef);
+            final current = _membershipFromData(
+              membershipSnapshot.data(),
+              exists: membershipSnapshot.exists,
+            );
+            final next = current.afterWriting([p.packId]);
+            transaction.set(
+              collection.doc(p.packId),
+              data,
+              SetOptions(merge: true),
+            );
+            transaction.set(membershipRef, {
+              'revision': next.revision,
+              'pack_ids': next.packIds.toList()..sort(),
+              'updatedAt': FieldValue.serverTimestamp(),
+            });
+          });
         }
       },
     );
@@ -394,7 +568,8 @@ class FirestoreProgressService {
     required CloudWriteSessionController sessions,
     required String uid,
   }) async {
-    WriteBatch? batch;
+    final values = progresses.toList();
+    FirebaseFirestore? firestore;
     try {
       return await CloudWriteFence(sessions).run(
         uid: uid,
@@ -403,23 +578,39 @@ class FirestoreProgressService {
           if (db == null) {
             return;
           }
-          final ref = db.collection('users').doc(uid).collection('packs');
-          final pendingBatch = db.batch();
-          for (final p in progresses) {
-            final payload = Map<String, dynamic>.from(p.toJson());
-            payload['updatedAt'] = FieldValue.serverTimestamp();
-            payload['sync_revision'] = FieldValue.increment(1);
-            payload['reconciliation_operation_id'] = FieldValue.delete();
-            pendingBatch.set(
-              ref.doc(p.packId),
-              payload,
-              SetOptions(merge: true),
-            );
-          }
-          batch = pendingBatch;
+          firestore = db;
         },
         action: () async {
-          await batch?.commit();
+          final db = firestore;
+          if (db == null || values.isEmpty) return;
+          final ref = db.collection('users').doc(uid).collection('packs');
+          final membershipRef = _membershipDocument(db, uid);
+          await db.runTransaction((transaction) async {
+            final membershipSnapshot = await transaction.get(membershipRef);
+            final current = _membershipFromData(
+              membershipSnapshot.data(),
+              exists: membershipSnapshot.exists,
+            );
+            final next = current.afterWriting(
+              values.map((value) => value.packId),
+            );
+            for (final p in values) {
+              final payload = Map<String, dynamic>.from(p.toJson());
+              payload['updatedAt'] = FieldValue.serverTimestamp();
+              payload['sync_revision'] = FieldValue.increment(1);
+              payload['reconciliation_operation_id'] = FieldValue.delete();
+              transaction.set(
+                ref.doc(p.packId),
+                payload,
+                SetOptions(merge: true),
+              );
+            }
+            transaction.set(membershipRef, {
+              'revision': next.revision,
+              'pack_ids': next.packIds.toList()..sort(),
+              'updatedAt': FieldValue.serverTimestamp(),
+            });
+          });
         },
       );
     } catch (_) {
@@ -436,4 +627,56 @@ class FirestoreProgressService {
     }
     return true;
   }
+
+  static DocumentReference<Map<String, dynamic>> _membershipDocument(
+    FirebaseFirestore firestore,
+    String uid,
+  ) => firestore
+      .collection('users')
+      .doc(uid)
+      .collection('sync_metadata')
+      .doc('pack_progress');
+
+  static Set<String>? _manifestIds(Map<String, dynamic>? data) {
+    final rawIds = data?['pack_ids'];
+    if (rawIds is! List) return null;
+    final ids = <String>{};
+    for (final value in rawIds) {
+      if (value is! String || value.trim().isEmpty || !ids.add(value)) {
+        return null;
+      }
+    }
+    return ids;
+  }
+
+  static FirestorePackMembership _membershipFromData(
+    Map<String, dynamic>? data, {
+    required bool exists,
+  }) {
+    if (!exists || data == null) {
+      return const FirestorePackMembership(revision: 0, packIds: {});
+    }
+    final revision = data['revision'];
+    final ids = _manifestIds(data);
+    if (revision is! int || revision < 0 || ids == null) {
+      throw const FormatException('Invalid pack membership manifest.');
+    }
+    return FirestorePackMembership(revision: revision, packIds: ids);
+  }
+
+  static bool _sameMembership(
+    FirestorePackMembership? left,
+    FirestorePackMembership? right,
+  ) => left?.revision == right?.revision;
+
+  static bool _sameMembershipReads(
+    CloudReadResult<FirestorePackMembership> left,
+    CloudReadResult<FirestorePackMembership> right,
+  ) =>
+      left.state == right.state &&
+      (left.state != CloudReadState.present ||
+          _sameMembership(left.value, right.value));
+
+  static bool _sameIds(Set<String> left, Set<String> right) =>
+      left.length == right.length && left.containsAll(right);
 }
