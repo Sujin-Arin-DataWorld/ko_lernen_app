@@ -1,9 +1,11 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 import '../services/storage_service.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/hanok/gate_art.dart';
+import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/tokens.dart';
 import '../motion/transitions.dart';
 import 'app_shell.dart';
@@ -12,6 +14,11 @@ import 'consent_screen.dart';
 import '../l10n/generated/app_localizations.dart';
 
 const _courtyardAsset = 'assets/illustrations/hanok/gate_final.png';
+
+/// 시네마틱 인트로 영상 (gate_entrance→gate_final 키프레임 8초, 무음).
+/// 배치 계획(docs/INTEGRATION_2026-07-29.md) §2-1. 로드 실패·reduce-motion·
+/// !videoReady → 기존 코드 연출(_scene)로 자동 폴백.
+const _introVideoAsset = 'assets/video/intro_gate_to_madang.mp4';
 const _gateFrameCanvas = Size(941, 1672);
 const _gatewayAlign = Alignment(0.0, 0.10);
 
@@ -42,30 +49,47 @@ class _IntroGateScreenState extends State<IntroGateScreen>
   bool _navigated = false;
   bool _reduceMotion = false;
 
+  /// 영상 인트로 모드 — 실패 시 코드 연출로 즉시 폴백.
+  bool _videoMode = TigerStageVideo.videoReady;
+  bool _codeStarted = false;
+
   @override
   void initState() {
     super.initState();
     final firstRun = !Storage.introSeen;
     // 첫 실행은 인상 깊게, 재실행은 답답하지 않게.
-    _ctrl =
-        AnimationController(
-          vsync: this,
-          duration: Duration(milliseconds: firstRun ? 3900 : 2300),
-        )..addStatusListener((s) {
-          if (s == AnimationStatus.completed) _finish();
-        });
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: firstRun ? 3900 : 2300),
+    )..addStatusListener((s) {
+      if (s == AnimationStatus.completed) _finish();
+    });
+    if (!_videoMode) _startCodeScene();
+  }
+
+  void _startCodeScene() {
+    if (_codeStarted) return;
+    _codeStarted = true;
     _ctrl.forward();
+  }
+
+  void _fallbackToCodeScene() {
+    if (!mounted || _navigated) return;
+    setState(() => _videoMode = false);
+    _startCodeScene();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // reduce-motion: 화려한 시네마틱 생략, 곧장 마당으로.
+    // reduce-motion: 화려한 시네마틱(영상 포함) 생략, 곧장 마당으로.
     final reduce = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
     if (reduce && !_reduceMotion) {
       _reduceMotion = true;
       _ctrl.duration = const Duration(milliseconds: 900);
+      _videoMode = false;
     }
+    if (!_videoMode) _startCodeScene();
   }
 
   @override
@@ -107,16 +131,21 @@ class _IntroGateScreenState extends State<IntroGateScreen>
       data: ThemeData(brightness: Brightness.light),
       child: Scaffold(
         backgroundColor: HanokColors.hanjiCream,
-        body: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: _skip,
-          child: LayoutBuilder(
-            builder: (context, c) => AnimatedBuilder(
-              animation: _ctrl,
-              builder: (_, __) => _scene(Size(c.maxWidth, c.maxHeight)),
-            ),
-          ),
-        ),
+        body: _videoMode
+            ? _IntroVideo(
+                onDone: _finish,
+                onFallback: _fallbackToCodeScene,
+              )
+            : GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: _skip,
+                child: LayoutBuilder(
+                  builder: (context, c) => AnimatedBuilder(
+                    animation: _ctrl,
+                    builder: (_, __) => _scene(Size(c.maxWidth, c.maxHeight)),
+                  ),
+                ),
+              ),
       ),
     );
   }
@@ -322,6 +351,97 @@ class _IntroGateScreenState extends State<IntroGateScreen>
 }
 
 double _unit(double value) => value.clamp(0.0, 1.0).toDouble();
+
+// ════════════════════════════════════════════════════════════════════════
+// 영상 인트로 — 대문이 열리며 마당으로 들어가는 8초 시네마틱 (무음).
+// 탭 = 즉시 완료. 초기화 실패 = 코드 연출 폴백. build-in 페이드로 시작.
+// ════════════════════════════════════════════════════════════════════════
+class _IntroVideo extends StatefulWidget {
+  final VoidCallback onDone;
+  final VoidCallback onFallback;
+
+  const _IntroVideo({required this.onDone, required this.onFallback});
+
+  @override
+  State<_IntroVideo> createState() => _IntroVideoState();
+}
+
+class _IntroVideoState extends State<_IntroVideo> {
+  VideoPlayerController? _video;
+  bool _ready = false;
+  bool _done = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _init();
+  }
+
+  Future<void> _init() async {
+    final video = VideoPlayerController.asset(_introVideoAsset);
+    _video = video;
+    try {
+      await video.initialize();
+      await video.setVolume(0);
+    } catch (_) {
+      if (mounted) widget.onFallback();
+      return;
+    }
+    if (!mounted) return;
+    video.addListener(_onTick);
+    setState(() => _ready = true);
+    await video.play();
+  }
+
+  void _onTick() {
+    final video = _video;
+    if (video == null || _done) return;
+    final v = video.value;
+    final ended = v.isInitialized &&
+        v.duration > Duration.zero &&
+        !v.isPlaying &&
+        v.position >= v.duration - const Duration(milliseconds: 100);
+    if (ended) _complete();
+  }
+
+  void _complete() {
+    if (_done) return;
+    _done = true;
+    widget.onDone();
+  }
+
+  @override
+  void dispose() {
+    _video?.removeListener(_onTick);
+    _video?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final video = _video;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: _complete, // 탭 = skip (기존 인트로와 동일한 어포던스)
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 250),
+        child: !_ready || video == null
+            ? const ColoredBox(color: HanokColors.hanjiCream)
+            : SizedBox.expand(
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  clipBehavior: Clip.hardEdge,
+                  child: SizedBox(
+                    width: video.value.size.width,
+                    height: video.value.size.height,
+                    child: VideoPlayer(video),
+                  ),
+                ),
+              ),
+      ),
+    );
+  }
+}
 
 class _Vignette extends StatelessWidget {
   final double strength;

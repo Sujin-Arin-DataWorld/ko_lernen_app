@@ -192,7 +192,10 @@ void main() {
           final asset = match.group(1)!;
           if (asset.contains(r'$') || asset.endsWith('/')) continue;
           if (pending.contains(asset)) continue;
-          if (!File(asset).existsSync()) {
+          // A bare base-directory constant (e.g. CharacterClips._base =
+          // 'assets/video/character', joined with a filename at use-site) is a
+          // valid on-disk reference even though it is not itself a file.
+          if (!File(asset).existsSync() && !Directory(asset).existsSync()) {
             missing.add('${file.path}: $asset');
           }
         }

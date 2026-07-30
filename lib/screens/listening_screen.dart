@@ -9,6 +9,7 @@ import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -590,11 +591,12 @@ class _CompleteCard extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          const Mascot(
-            kind: MascotKind.magpie,
-            emotion: MascotEmotion.celebrate,
-            size: 96,
-            animate: true,
+          // 완료 축하 — 까치 축하 클립(영상 게이트 통과 시), 아니면 정적 마스코트.
+          const CharacterClipPlayer(
+            asset: CharacterClips.magpieCelebrate,
+            size: 104,
+            fallbackKind: MascotKind.magpie,
+            fallbackEmotion: MascotEmotion.celebrate,
           ),
           const SizedBox(height: Spacing.md),
           Text(

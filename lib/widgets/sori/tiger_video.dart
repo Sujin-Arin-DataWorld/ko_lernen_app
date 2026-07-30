@@ -54,8 +54,12 @@ class TigerStageVideo extends StatefulWidget {
   ///   ⚠️ Flutter `video_player`의 알파 합성은 기기/코덱별이라 실기기 검증 후 켤 것.
   static bool hasAlpha = false;
 
-  static const String greetAsset = 'assets/video/tiger_greet.mp4';
-  static const String paceAsset = 'assets/video/tiger_pace.mp4';
+  // 2026-07-29 배치: 캐논 호랑이(엎드린 휴식 모델) 클립으로 교체.
+  // greet = 엎드림→기상 인사(1회), pace = 엎드려 쉬는 아이들 루프.
+  // 구 tiger_greet/tiger_pace.mp4는 스타일 구버전 — 파일은 남아 있어
+  // 필요 시 상수만 되돌리면 즉시 롤백된다.
+  static const String greetAsset = 'assets/video/character/tiger_rise.mp4';
+  static const String paceAsset = 'assets/video/character/tiger_rest.mp4';
 
   @override
   State<TigerStageVideo> createState() => _TigerStageVideoState();

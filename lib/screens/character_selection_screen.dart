@@ -3,15 +3,20 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
 import 'consent_screen.dart';
 
-/// **캐릭터 선택 + 음성 가이드**
+/// **캐릭터 선택 + 첫 인사**
 ///
-/// 첫 실행 후 호랑이/까치 중 선택 → 선택한 캐릭터의 음성으로 인사.
-/// 이후 homScreen에서 선택한 캐릭터가 메인 사이드킥이 됨.
+/// 첫 실행 후 호랑이/까치 중 선택 → 선택한 캐릭터가 **말 없이 몸짓으로**
+/// 인사한다 (호랑이: 앞발 번쩍 / 까치: 신나는 짹짹 클립).
+///
+/// 2026-07-29 배치 계획: A0 학습자에게 통문장 한국어 TTS 인사는 소외감을
+/// 주어 제거. 소리는 사람 목소리가 아닌 동물 SFX로만 —
+/// `assets/sfx/greet_tiger.mp3` / `greet_magpie.mp3`가 존재하면 자동 재생
+/// (없으면 무음, 클립만). 이후 homScreen에서 선택한 캐릭터가 메인 사이드킥.
 class CharacterSelectionScreen extends StatefulWidget {
   const CharacterSelectionScreen({super.key});
 
@@ -23,8 +28,9 @@ class CharacterSelectionScreen extends StatefulWidget {
 class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   MascotKind? _selected;
   bool _isLoading = false;
+  bool _navigated = false;
 
-  void _handleSelection(MascotKind kind) async {
+  void _handleSelection(MascotKind kind) {
     if (_isLoading) return;
 
     setState(() {
@@ -35,17 +41,14 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 선택한 캐릭터 저장
     Storage.setPreferredMascot(kind == MascotKind.tiger ? 'tiger' : 'magpie');
 
-    // TTS: 캐릭터 인사
-    final greeting = kind == MascotKind.tiger
-        ? '반갑습니다! 저는 든든이예요. 함께 한국어를 배워볼까요?'
-        : '안녕하세요! 저는 쌤쌤이예요. 재미있게 배워봐요!';
+    // 첫 인사는 말이 아니라 몸짓 — 선택된 캐릭터의 인사 클립이 재생되고,
+    // 클립이 끝나면(폴백 경로 포함) _proceed가 정확히 1회 호출된다.
+    // 사운드는 동물 SFX 훅만(best-effort) — 사람 목소리 TTS 없음.
+  }
 
-    await TtsService.speak(greeting, voice: 'female');
-
-    if (!mounted) return;
-    // 약간 대기 후 홈으로 이동
-    await Future.delayed(const Duration(milliseconds: 500));
-    if (!mounted) return;
+  void _proceed() {
+    if (!mounted || _navigated) return;
+    _navigated = true;
     // DSGVO Consent-Gate: 퀵 온보딩(첫 실행) 경로는 인트로를 거치지 않아
     // 동의 화면이 한 번도 안 뜨던 갭(2026-06-12 웹 검증에서 발견).
     // 미동의면 동의 화면으로 — 이후 단계(프리뷰/레벨/홈)는 ConsentScreen이 분기.
@@ -104,7 +107,21 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                   ],
                 ),
                 const SizedBox(height: 40),
-                if (_isLoading)
+                // 선택 직후: 캐릭터의 무언(無言) 인사 클립 — 끝나면 다음 화면.
+                if (_selected != null)
+                  CharacterClipPlayer(
+                    key: ValueKey<MascotKind>(_selected!),
+                    asset: CharacterClips.greetFor(_selected!),
+                    size: 160,
+                    fallbackKind: _selected!,
+                    fallbackEmotion: MascotEmotion.celebrate,
+                    sfxAsset: _selected == MascotKind.magpie
+                        ? 'sfx/greet_magpie.mp3'
+                        : 'sfx/greet_tiger.mp3',
+                    fallbackCompleteAfter: const Duration(milliseconds: 1600),
+                    onCompleted: _proceed,
+                  )
+                else if (_isLoading)
                   const SizedBox(
                     width: 24,
                     height: 24,

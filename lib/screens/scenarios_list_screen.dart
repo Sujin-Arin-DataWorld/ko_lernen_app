@@ -145,9 +145,11 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
           ),
           children: [
             // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+            // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
             const HanokHeader(
               asset: 'assets/illustrations/hanok/madang(light).png',
               fallbackIcon: Icons.travel_explore_outlined,
+              loopAsset: 'assets/video/loops/hanok_jongga.mp4',
             ),
             const SizedBox(height: Spacing.md),
             // Subtitle

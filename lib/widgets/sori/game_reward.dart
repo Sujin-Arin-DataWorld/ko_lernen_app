@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../services/sound_service.dart';
 import '../../services/storage_service.dart';
 import 'celebration.dart';
+import 'character_clip.dart';
 import 'mascot.dart';
 import 'sori_icon.dart';
 import 'tokens.dart';
@@ -145,6 +146,14 @@ class _GameOverCardState extends State<GameOverCard>
     super.dispose();
   }
 
+  /// 배치 계획 2026-07-29 §2: 감정에 맞는 캐릭터 클립(흰배경 mp4).
+  /// 없으면 null → 기존 정적 마스코트 유지.
+  String? get _feedbackClip => CharacterClips.feedbackFor(
+    widget.mascotKind,
+    widget.mascotEmotion,
+    newBest: widget.isNewBest,
+  );
+
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
@@ -159,12 +168,22 @@ class _GameOverCardState extends State<GameOverCard>
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Mascot(
-                      kind: widget.mascotKind,
-                      emotion: widget.mascotEmotion,
-                      size: 104,
-                      animate: true,
-                    ),
+                    // 클립이 있으면 영상(1회 재생, 게이트/실패 시 자동 폴백),
+                    // 없으면 기존 정적 마스코트 그대로.
+                    if (_feedbackClip == null)
+                      Mascot(
+                        kind: widget.mascotKind,
+                        emotion: widget.mascotEmotion,
+                        size: 104,
+                        animate: true,
+                      )
+                    else
+                      CharacterClipPlayer(
+                        asset: _feedbackClip!,
+                        size: 116,
+                        fallbackKind: widget.mascotKind,
+                        fallbackEmotion: widget.mascotEmotion,
+                      ),
                     const SizedBox(height: Spacing.md),
                     Text(
                       widget.headline,
