@@ -117,6 +117,8 @@ function bookshelfManifestData(generationId, revision, recordIds, overrides = {}
     revision,
     record_ids: recordIds,
     completed: true,
+    operation_id: `operation-${revision}`,
+    content_hash: "b".repeat(64),
     activated_at: serverTimestamp(),
     ...overrides,
   };
@@ -402,6 +404,18 @@ async () => {
   await assertFails(setDoc(
     manifestRef,
     bookshelfManifestData("g_generation_jump", 3, ["p_one"]),
+  ));
+  await assertFails(setDoc(
+    manifestRef,
+    bookshelfManifestData("g_generation_reused_operation", 2, ["p_one"], {
+      operation_id: "operation-1",
+    }),
+  ));
+  await assertFails(setDoc(
+    manifestRef,
+    bookshelfManifestData("g_generation_bad_hash", 2, ["p_one"], {
+      content_hash: "not-a-hash",
+    }),
   ));
   await assertSucceeds(setDoc(
     manifestRef,

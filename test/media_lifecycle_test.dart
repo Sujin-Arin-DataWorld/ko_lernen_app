@@ -6,6 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
+import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/book_image_service.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/media_mutation_lock.dart';
@@ -681,6 +683,45 @@ void main() {
 
       expect(await store.resolve(promotion.reference), isNotNull);
       expect(await store.resolvePending(pending), isNull);
+    },
+  );
+
+  test(
+    'BookImageService startup blocks GC before journal session rehydration',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final pendingJournal = AccountTransitionJournal.fromSession(
+        const CloudWriteSession(
+          uid: 'uid-a',
+          epoch: 4,
+          mode: CloudWriteMode.reconciling,
+        ),
+        reconciliationOperationId: 'operation-a',
+        reconciliationCheckpoint: ReconciliationCheckpoint.localWritten,
+      );
+      final guarded = ManagedMediaStore(
+        documentsDirectory: store.documentsDirectory,
+        temporaryDirectory: store.temporaryDirectory,
+        sessions: sessions,
+      );
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        jsonEncode(pendingJournal.toJson()),
+      );
+      BookImageService.setStoreForTesting(guarded);
+      final source = File(
+        '${sandbox.path}${Platform.pathSeparator}startup-orphan.jpg',
+      )..writeAsBytesSync([7]);
+      final lease = await guarded.stage(source, ManagedMediaKind.book);
+      final promotion = await guarded.promote(lease);
+      await guarded.finalize(promotion);
+      await Storage.setBookshelfRawJson('{}');
+      await Storage.setCustomPacksRawJson('{}');
+
+      await BookImageService.initialize();
+
+      expect(await guarded.resolve(promotion.reference), isNotNull);
     },
   );
 

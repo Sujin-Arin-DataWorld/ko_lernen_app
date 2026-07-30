@@ -18,6 +18,7 @@ void main() {
         return null;
       },
       synchronizeReadySession: (uid) => events.add('ready:$uid'),
+      resumeMediaCleanup: () async => events.add('media-resume'),
       resumeBookshelfSync: () async => events.add('bookshelf-resume'),
       resumeAccountOperation: () async => events.add('protected-resume'),
       initializePremium: () async => events.add('premium'),
@@ -32,6 +33,7 @@ void main() {
       'auth',
       'restore:uid-live',
       'ready:uid-live',
+      'media-resume',
       'bookshelf-resume',
       'premium',
       'push',
@@ -58,6 +60,7 @@ void main() {
           return restored;
         },
         synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeMediaCleanup: () async => events.add('media-resume'),
         resumeBookshelfSync: () async => events.add('bookshelf-resume'),
         resumeAccountOperation: () async => events.add('resume-existing'),
         initializePremium: () async => events.add('premium'),
@@ -87,6 +90,7 @@ void main() {
       currentUserId: () => 'uid-live',
       restoreCloudWriteSession: (_) async => null,
       synchronizeReadySession: (_) {},
+      resumeMediaCleanup: () async => events.add('media-resume'),
       resumeBookshelfSync: () async => events.add('bookshelf-resume'),
       resumeAccountOperation: () async => events.add('resume'),
       initializePremium: () async => events.add('premium'),

@@ -33,6 +33,9 @@ void main() {
         synchronizeReadySession: (uid) {
           events.add('ready:$uid');
         },
+        resumeMediaCleanup: () async {
+          events.add('media-resume');
+        },
         resumeBookshelfSync: () async {
           events.add('bookshelf-resume');
         },
@@ -71,6 +74,7 @@ void main() {
         'auth-done',
         'restore:uid-live',
         'ready:uid-live',
+        'media-resume',
         'bookshelf-resume',
         'premium',
         'push',
@@ -96,6 +100,9 @@ void main() {
       synchronizeReadySession: (uid) {
         events.add('ready:$uid');
       },
+      resumeMediaCleanup: () async {
+        events.add('media-resume');
+      },
       resumeBookshelfSync: () async {
         events.add('bookshelf-resume');
       },
@@ -117,6 +124,7 @@ void main() {
       'app-check',
       'auth',
       'ready:uid-live',
+      'media-resume',
       'bookshelf-resume',
       'premium',
     ]);
@@ -140,6 +148,9 @@ void main() {
         currentUserId: () => 'uid-live',
         restoreCloudWriteSession: (_) async => null,
         synchronizeReadySession: (_) {},
+        resumeMediaCleanup: () async {
+          events.add('media-resume');
+        },
         resumeBookshelfSync: () async {
           events.add('bookshelf-resume');
         },

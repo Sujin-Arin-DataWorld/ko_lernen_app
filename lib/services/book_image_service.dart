@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:path_provider/path_provider.dart';
 
 import 'account/cloud_write_session.dart';
+import 'account/media_cleanup_gate.dart';
 import 'media_mutation_lock.dart';
 import 'storage_service.dart';
 
@@ -278,6 +279,7 @@ class ManagedMediaStore {
     required this.documentsDirectory,
     required this.temporaryDirectory,
     this.sessions,
+    this.readJournal,
     DateTime Function()? now,
     String Function()? nonce,
   }) : _now = now ?? DateTime.now,
@@ -286,6 +288,7 @@ class ManagedMediaStore {
   final Directory documentsDirectory;
   final Directory temporaryDirectory;
   final CloudWriteSessionController? sessions;
+  final AccountTransitionJournalReader? readJournal;
   final DateTime Function() _now;
   final String Function() _nonce;
   int _sequence = 0;
@@ -795,15 +798,20 @@ class ManagedMediaStore {
     Future<void> Function(CloudWriteSession? session) action,
   ) async {
     final controller = sessions;
-    if (controller == null || !controller.hasBeenActivated) {
+    if (controller == null) {
       await action(null);
       return;
     }
     final current = controller.current;
-    if (current == null || current.mode != CloudWriteMode.ready) {
-      return;
-    }
-    await action(current);
+    await MediaCleanupGate(controller).run(
+      uid: current?.uid,
+      session: current,
+      readJournal:
+          readJournal ??
+          const SharedPreferencesAccountTransitionJournalReader().call,
+      prepare: () async {},
+      delete: () => action(current),
+    );
   }
 
   Future<void> _deleteCommittedForGarbageCollection(
@@ -819,10 +827,14 @@ class ManagedMediaStore {
   bool _garbageCollectionSessionIsCurrent(CloudWriteSession? session) {
     final controller = sessions;
     if (session == null) {
-      return controller == null || !controller.hasBeenActivated;
+      return controller == null;
     }
-    return CloudWriteFence(controller!).verify(session, uid: session.uid) ==
-        CloudWriteResult.completed;
+    try {
+      controller!.assertCurrent(session);
+      return true;
+    } on StateError {
+      return false;
+    }
   }
 
   Future<ManagedMediaRef?> migrateTrustedLegacy(

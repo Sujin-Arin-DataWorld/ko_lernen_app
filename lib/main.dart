@@ -190,6 +190,7 @@ Future<void> _startCloudServices() async {
     currentUserId: () => AuthService.current?.uid,
     restoreCloudWriteSession: AuthService.restoreCloudWriteSession,
     synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
+    resumeMediaCleanup: BookImageService.initialize,
     resumeBookshelfSync: BookshelfService.resumePendingSync,
     resumeAccountOperation: AuthService.resumePendingAccountDeletion,
     initializePremium: () async {

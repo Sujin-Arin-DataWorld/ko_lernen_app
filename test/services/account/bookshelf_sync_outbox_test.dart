@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/bookshelf_sync_outbox.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   test(
@@ -75,7 +76,7 @@ void main() {
   );
 
   test('outbox read failures are retained as blocked work', () async {
-    final store = _MemoryOutboxStore()..failReads = true;
+    final store = _MemoryOutboxStore();
     final queue = BookshelfSyncQueue(
       store: store,
       tokenFactory: () => 'token-1',
@@ -83,6 +84,7 @@ void main() {
     );
 
     await queue.enqueue('uid-a');
+    store.failReads = true;
 
     expect(await queue.drain(), CloudWriteResult.blocked);
     store.failReads = false;
@@ -115,6 +117,96 @@ void main() {
       expect(await store.read(), isNull);
     },
   );
+
+  test(
+    'deleted IDs survive coalescing and a later save revives its ID',
+    () async {
+      final store = _MemoryOutboxStore();
+      var tokens = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-${++tokens}',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+
+      await queue.enqueue('uid-a', deletedIds: {'book-a'});
+      await queue.enqueue('uid-a', deletedIds: {'book-b'});
+      expect((await store.read())?.deletedIds, {'book-a', 'book-b'});
+
+      await queue.enqueue('uid-a', revivedIds: {'book-a'});
+      expect((await store.read())?.deletedIds, {'book-b'});
+    },
+  );
+
+  test(
+    'v2 SharedPreferences marker restores deletion and legacy policy',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      const store = SharedPreferencesBookshelfSyncOutboxStore();
+      var captured = <BookshelfSyncPending>[];
+      final firstProcess = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-1',
+        attempt: (_) async => CloudWriteResult.blocked,
+      );
+      await firstProcess.enqueue(
+        'uid-a',
+        deletedIds: {'book-a'},
+        allowParentOnlyLegacy: true,
+      );
+      expect(await firstProcess.drain(), CloudWriteResult.blocked);
+
+      final restarted = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-2',
+        attempt: (pending) async {
+          captured = [pending];
+          return CloudWriteResult.completed;
+        },
+      );
+      expect(await restarted.drain(), CloudWriteResult.completed);
+
+      expect(captured.single.operationId, 'operation-1');
+      expect(captured.single.deletedIds, {'book-a'});
+      expect(captured.single.allowParentOnlyLegacy, isTrue);
+      expect(await store.read(), isNull);
+    },
+  );
+
+  test(
+    'markPending durably records work without starting an attempt',
+    () async {
+      final store = _MemoryOutboxStore();
+      var attempts = 0;
+      final queue = BookshelfSyncQueue(
+        store: store,
+        tokenFactory: () => 'operation-1',
+        attempt: (_) async {
+          attempts += 1;
+          return CloudWriteResult.completed;
+        },
+      );
+
+      await queue.markPending('uid-a', deletedIds: {'book-a'});
+
+      expect(attempts, 0);
+      expect(store.value?.deletedIds, {'book-a'});
+
+      expect(await queue.drain(), CloudWriteResult.completed);
+      expect(attempts, 1);
+      expect(store.value, isNull);
+    },
+  );
+
+  test('a still-live local record suppresses a pre-delete tombstone', () {
+    final pending = BookshelfSyncPending(
+      uid: 'uid-a',
+      operationId: 'operation-1',
+      deletedIds: {'deleted', 'still-live'},
+    );
+
+    expect(pending.tombstonesAbsentFrom({'still-live'}), {'deleted'});
+  });
 }
 
 class _MemoryOutboxStore implements BookshelfSyncOutboxStore {

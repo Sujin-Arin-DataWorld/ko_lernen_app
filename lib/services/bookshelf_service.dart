@@ -1,9 +1,9 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/book_page.dart';
 import 'account/account_transition_journal.dart';
@@ -82,7 +82,7 @@ class BookshelfService {
       raw[page.id] = page.toLocalJson();
       await _writeRawStrict(raw);
     });
-    await _enqueueGenerationSync();
+    await _enqueueGenerationSync(revivedIds: {page.id});
   }
 
   static Future<BookPage> saveWithPendingImage(
@@ -106,6 +106,7 @@ class BookshelfService {
     CloudWriteSessionController? sessions,
   }) async {
     final selectedSessions = sessions ?? cloudWriteSessionController;
+    final shouldDrain = await _markGenerationSync(deletedIds: {id});
     await MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       final removed = raw.remove(id);
@@ -123,7 +124,7 @@ class BookshelfService {
         }
       }
     });
-    await _enqueueGenerationSync();
+    if (shouldDrain) unawaited(_productionSyncQueue.drain());
   }
 
   // ── Internal helpers ──────────────────────────────────────────────
@@ -251,11 +252,37 @@ class BookshelfService {
     }
   }
 
-  static Future<void> _enqueueGenerationSync() async {
+  static Future<void> _enqueueGenerationSync({
+    Set<String> deletedIds = const {},
+    Set<String> revivedIds = const {},
+  }) async {
     final uid = AuthService.cloudBackupUid;
     if (uid == null) return;
     try {
-      await _productionSyncQueue.enqueue(uid);
+      await _productionSyncQueue.enqueue(
+        uid,
+        deletedIds: deletedIds,
+        revivedIds: revivedIds,
+      );
+    } catch (e) {
+      debugPrint('BookshelfService: sync outbox write failed — $e');
+      rethrow;
+    }
+  }
+
+  static Future<bool> _markGenerationSync({
+    Set<String> deletedIds = const {},
+    Set<String> revivedIds = const {},
+  }) async {
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) return false;
+    try {
+      await _productionSyncQueue.markPending(
+        uid,
+        deletedIds: deletedIds,
+        revivedIds: revivedIds,
+      );
+      return true;
     } catch (e) {
       debugPrint('BookshelfService: sync outbox write failed — $e');
       rethrow;
@@ -263,7 +290,7 @@ class BookshelfService {
   }
 
   static final BookshelfSyncQueue _productionSyncQueue = BookshelfSyncQueue(
-    store: const _SharedPreferencesBookshelfSyncOutboxStore(),
+    store: const SharedPreferencesBookshelfSyncOutboxStore(),
     tokenFactory: _newGenerationId,
     attempt: _attemptPendingSync,
   );
@@ -276,11 +303,15 @@ class BookshelfService {
     }
     final db = _db;
     if (db == null) return CloudWriteResult.blocked;
+    final entries = _portableLocalEntries();
     return syncGenerationWithSession(
       sessions: cloudWriteSessionController,
       uid: pending.uid,
-      generationId: pending.token,
-      entries: _portableLocalEntries(),
+      generationId: _newGenerationId(),
+      operationId: pending.operationId,
+      entries: entries,
+      deletedIds: pending.tombstonesAbsentFrom(entries.keys),
+      allowParentOnlyLegacy: pending.allowParentOnlyLegacy,
       repository: _FirestoreBookshelfGenerationRepository(db),
     );
   }
@@ -316,7 +347,10 @@ class BookshelfService {
     required CloudWriteSessionController sessions,
     required String uid,
     required String generationId,
+    String? operationId,
     required Map<String, Map<String, dynamic>> entries,
+    Set<String> deletedIds = const {},
+    bool allowParentOnlyLegacy = false,
     required BookshelfGenerationRepository repository,
   }) async {
     final snapshot = CloudWriteFence(sessions).readySnapshot(uid);
@@ -326,7 +360,10 @@ class BookshelfService {
         repository: repository,
         uid: uid,
         generationId: generationId,
+        operationId: operationId,
         entries: entries,
+        deletedIds: deletedIds,
+        allowParentOnlyLegacy: allowParentOnlyLegacy,
         beforeWrite: () => sessions.assertCurrent(snapshot),
       );
       if (!_isCurrentSession(sessions, snapshot)) {
@@ -579,57 +616,5 @@ class _FirestoreBookshelfGenerationRepository
       }).toList();
     }
     return result;
-  }
-}
-
-class _SharedPreferencesBookshelfSyncOutboxStore
-    implements BookshelfSyncOutboxStore {
-  const _SharedPreferencesBookshelfSyncOutboxStore();
-
-  static const key = 'kl_bookshelf_sync_outbox_v1';
-
-  @override
-  Future<BookshelfSyncPending?> read() async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.reload();
-    final raw = preferences.getString(key);
-    if (raw == null) return null;
-    final decoded = jsonDecode(raw);
-    if (decoded is! Map ||
-        decoded['version'] != 1 ||
-        decoded['uid'] is! String ||
-        decoded['token'] is! String) {
-      throw const FormatException('Invalid bookshelf sync outbox.');
-    }
-    final uid = decoded['uid'] as String;
-    final token = decoded['token'] as String;
-    if (uid.trim().isEmpty ||
-        uid.length > 256 ||
-        token.trim().isEmpty ||
-        token.length > 256) {
-      throw const FormatException('Invalid bookshelf sync outbox.');
-    }
-    return BookshelfSyncPending(uid: uid, token: token);
-  }
-
-  @override
-  Future<void> write(BookshelfSyncPending pending) async {
-    final preferences = await SharedPreferences.getInstance();
-    final written = await preferences.setString(
-      key,
-      jsonEncode({'version': 1, 'uid': pending.uid, 'token': pending.token}),
-    );
-    if (!written) throw StateError('Bookshelf sync outbox write failed.');
-  }
-
-  @override
-  Future<bool> clearIfMatches(BookshelfSyncPending pending) async {
-    final preferences = await SharedPreferences.getInstance();
-    await preferences.reload();
-    final current = await read();
-    if (current != pending) return false;
-    final removed = await preferences.remove(key);
-    if (!removed) throw StateError('Bookshelf sync outbox clear failed.');
-    return true;
   }
 }

@@ -226,6 +226,82 @@ void main() {
     },
   );
 
+  test(
+    'first generation persists a local legacy deletion as a tombstone',
+    () async {
+      final repository = _MemoryBookshelfRepository()
+        ..legacyEntries = {
+          'book-a': {'note': 'legacy A'},
+          'book-b': {'note': 'legacy B'},
+        };
+
+      await BookshelfGenerationSync.stageAndActivate(
+        repository: repository,
+        uid: 'uid-a',
+        generationId: 'generation-first',
+        operationId: 'operation-first',
+        entries: const {
+          'book-b': {'note': 'legacy B'},
+        },
+        deletedIds: const {'book-a'},
+        beforeWrite: () {},
+      );
+
+      final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+      expect(snapshot.entries.keys, ['book-b']);
+      expect(snapshot.tombstoneIds, {'book-a'});
+    },
+  );
+
+  test('empty per-document legacy with stale parent fails closed', () async {
+    final repository = _MemoryBookshelfRepository()
+      ..legacyParent = {
+        'book-a': {'note': 'stale parent A'},
+        'book-b': {'note': 'stale parent B'},
+      };
+
+    await expectLater(
+      BookshelfGenerationSync.stageAndActivate(
+        repository: repository,
+        uid: 'uid-a',
+        generationId: 'generation-first',
+        operationId: 'operation-first',
+        entries: const {},
+        deletedIds: const {'book-a', 'book-b'},
+        beforeWrite: () {},
+      ),
+      throwsFormatException,
+    );
+
+    expect(repository.active, isNull);
+    expect(repository.generations, isEmpty);
+  });
+
+  test(
+    'explicit parent-only legacy policy preserves a known safe source',
+    () async {
+      final repository = _MemoryBookshelfRepository()
+        ..legacyParent = {
+          'book-a': {'note': 'known parent-only'},
+        };
+
+      await BookshelfGenerationSync.stageAndActivate(
+        repository: repository,
+        uid: 'uid-a',
+        generationId: 'generation-first',
+        operationId: 'operation-first',
+        entries: const {},
+        allowParentOnlyLegacy: true,
+        beforeWrite: () {},
+      );
+
+      final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+      expect(snapshot.entries, {
+        'book-a': {'note': 'known parent-only'},
+      });
+    },
+  );
+
   test('manifest idempotency compares the complete record id set', () {
     final first = BookshelfGenerationManifest(
       generationId: 'generation-a',
@@ -291,6 +367,48 @@ void main() {
         throwsFormatException,
       );
     }
+  });
+
+  test(
+    'aggregate node budget rejects large graphs before canonicalization',
+    () {
+      final tooManyNodes = {
+        'groups': List.generate(512, (_) => List<Object?>.filled(16, null)),
+      };
+
+      expect(
+        () => BookshelfGenerationRecord.live(
+          id: 'book-a',
+          revision: 1,
+          portable: tooManyNodes,
+        ),
+        throwsFormatException,
+      );
+      expect(
+        BookshelfGenerationRecord.live(
+          id: 'book-b',
+          revision: 1,
+          portable: const {
+            'title': 'normal',
+            'words': [
+              {'korean': '한글', 'translation': 'Korean'},
+            ],
+          },
+        ).canonicalHash,
+        hasLength(64),
+      );
+    },
+  );
+
+  test('aggregate byte budget rejects multiple individually valid strings', () {
+    expect(
+      () => BookshelfGenerationRecord.live(
+        id: 'book-a',
+        revision: 1,
+        portable: {'first': 'x' * (128 * 1024), 'second': 'y' * (128 * 1024)},
+      ),
+      throwsFormatException,
+    );
   });
 
   test(

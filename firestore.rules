@@ -284,11 +284,11 @@ service cloud.firestore {
     function validBookshelfManifest(data) {
       return data.keys().hasAll([
           'schema_version', 'generation_id', 'revision', 'record_ids',
-          'completed', 'activated_at'
+          'completed', 'operation_id', 'content_hash', 'activated_at'
         ])
         && data.keys().hasOnly([
           'schema_version', 'generation_id', 'revision', 'record_ids',
-          'completed', 'activated_at'
+          'completed', 'operation_id', 'content_hash', 'activated_at'
         ])
         && data.schema_version == 1
         && data.generation_id is string
@@ -301,6 +301,14 @@ service cloud.firestore {
         && data.record_ids.size() <= 400
         && data.record_ids.toSet().size() == data.record_ids.size()
         && data.completed == true
+        && data.operation_id is string
+        && data.operation_id.size() > 0
+        && data.operation_id.size() <= 256
+        && data.operation_id.matches(
+          '^[A-Za-z0-9][A-Za-z0-9._:-]*$'
+        )
+        && data.content_hash is string
+        && data.content_hash.matches('^[0-9a-f]{64}$')
         && data.activated_at is timestamp
         && data.activated_at == request.time;
     }
@@ -420,6 +428,8 @@ service cloud.firestore {
           && !exists(accountDeletionPath(uid))
           && validBookshelfManifest(request.resource.data)
           && request.resource.data.revision == resource.data.revision + 1
+          && request.resource.data.operation_id
+            != resource.data.get('operation_id', '')
           && request.resource.data.generation_id
             != resource.data.generation_id;
         allow delete: if false;
