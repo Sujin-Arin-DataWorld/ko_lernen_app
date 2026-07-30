@@ -16,6 +16,7 @@ class AppStartupCoordinator {
     required this.currentUserId,
     required this.restoreCloudWriteSession,
     required this.synchronizeReadySession,
+    required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
     required this.initializePremium,
     required this.enablePush,
@@ -28,6 +29,7 @@ class AppStartupCoordinator {
   final LiveUserIdReader currentUserId;
   final CloudWriteSessionRestorer restoreCloudWriteSession;
   final ReadySessionSynchronizer synchronizeReadySession;
+  final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
   final StartupStep initializePremium;
   final StartupStep enablePush;
@@ -53,6 +55,7 @@ class AppStartupCoordinator {
       return true;
     }
     synchronizeReadySession(liveUid);
+    await resumeBookshelfSync();
     await initializePremium();
     if (notificationsEnabled()) {
       await enablePush();

@@ -3,11 +3,14 @@ import 'dart:math' as math;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/book_page.dart';
 import 'account/account_transition_journal.dart';
 import 'account/bookshelf_generation_manifest.dart';
+import 'account/bookshelf_sync_outbox.dart';
 import 'account/cloud_write_session.dart';
+import 'account/media_cleanup_gate.dart';
 import 'auth_service.dart';
 import 'book_image_service.dart';
 import 'media_mutation_lock.dart';
@@ -73,19 +76,13 @@ class BookshelfService {
     }
   }
 
-  static Future<void> save(
-    BookPage page, {
-    CloudWriteSessionController? sessions,
-  }) async {
-    final selectedSessions = sessions ?? cloudWriteSessionController;
+  static Future<void> save(BookPage page) async {
     await MediaMutationLock.run(() async {
       final raw = Map<String, dynamic>.from(_readRaw());
       raw[page.id] = page.toLocalJson();
       await _writeRawStrict(raw);
     });
-    // Best-effort immutable-generation Firestore sync.
-    // ignore: discarded_futures, unawaited_futures
-    _syncGenerationToFirestore(selectedSessions);
+    await _enqueueGenerationSync();
   }
 
   static Future<BookPage> saveWithPendingImage(
@@ -126,8 +123,7 @@ class BookshelfService {
         }
       }
     });
-    // ignore: discarded_futures, unawaited_futures
-    _syncGenerationToFirestore(selectedSessions);
+    await _enqueueGenerationSync();
   }
 
   // ── Internal helpers ──────────────────────────────────────────────
@@ -176,13 +172,14 @@ class BookshelfService {
     Iterable<String?> encodedRefs,
   ) async {
     final session = sessions.current;
-    if (session == null) {
-      await _collectGarbageUnfenced(encodedRefs);
-      return;
-    }
     await collectGarbageWithSession(
       sessions: sessions,
-      uid: session.uid,
+      uid: session?.uid ?? AuthService.cloudBackupUid,
+      session: session,
+      provenLocalOnly:
+          session == null &&
+          !sessions.hasBeenActivated &&
+          AuthService.cloudBackupUid == null,
       prepare: () async {},
       delete: () => _collectGarbageUnfenced(encodedRefs),
     );
@@ -190,52 +187,27 @@ class BookshelfService {
 
   static Future<CloudWriteResult> collectGarbageWithSession({
     required CloudWriteSessionController sessions,
-    required String uid,
+    String? uid,
     CloudWriteSession? session,
     AccountTransitionJournal? journal,
+    AccountTransitionJournalReader? readJournal,
+    bool provenLocalOnly = false,
     required Future<void> Function() prepare,
     required Future<void> Function() delete,
-  }) async {
-    final selectedSession = session;
-    if (selectedSession == null) {
-      return CloudWriteFence(
-        sessions,
-      ).run(uid: uid, prepare: prepare, action: delete);
-    }
-    if (selectedSession.uid != uid) {
-      return CloudWriteResult.stale;
-    }
-    if (selectedSession.mode == CloudWriteMode.ready) {
-      return CloudWriteFence(sessions).runWithSnapshot(
-        snapshot: selectedSession,
-        uid: uid,
-        prepare: prepare,
-        action: delete,
-      );
-    }
-    if (journal?.session != selectedSession ||
-        journal?.reconciliationCheckpoint !=
-            ReconciliationCheckpoint.completed) {
-      return CloudWriteResult.blocked;
-    }
-    if (!_isCurrentSession(sessions, selectedSession)) {
-      return CloudWriteResult.stale;
-    }
-    await prepare();
-    if (!_isCurrentSession(sessions, selectedSession)) {
-      return CloudWriteResult.stale;
-    }
-    try {
-      await delete();
-    } catch (error, stackTrace) {
-      if (!_isCurrentSession(sessions, selectedSession)) {
-        return CloudWriteResult.stale;
-      }
-      Error.throwWithStackTrace(error, stackTrace);
-    }
-    return _isCurrentSession(sessions, selectedSession)
-        ? CloudWriteResult.completed
-        : CloudWriteResult.stale;
+  }) {
+    final journalReader =
+        readJournal ??
+        (journal == null
+            ? const SharedPreferencesAccountTransitionJournalReader().call
+            : () async => journal);
+    return MediaCleanupGate(sessions).run(
+      uid: uid,
+      session: session,
+      readJournal: journalReader,
+      provenLocalOnly: provenLocalOnly,
+      prepare: prepare,
+      delete: delete,
+    );
   }
 
   static bool _isCurrentSession(
@@ -279,26 +251,42 @@ class BookshelfService {
     }
   }
 
-  static Future<void> _syncGenerationToFirestore(
-    CloudWriteSessionController sessions,
-  ) async {
+  static Future<void> _enqueueGenerationSync() async {
     final uid = AuthService.cloudBackupUid;
     if (uid == null) return;
-    final db = _db;
-    if (db == null) return;
     try {
-      await syncGenerationWithSession(
-        sessions: sessions,
-        uid: uid,
-        generationId: _newGenerationId(),
-        entries: _portableLocalEntries(),
-        repository: _FirestoreBookshelfGenerationRepository(db),
-      );
+      await _productionSyncQueue.enqueue(uid);
     } catch (e) {
-      // Local storage remains durable. A later mutation retries a complete
-      // snapshot and never exposes this partially staged generation.
-      debugPrint('BookshelfService: Firestore generation sync skipped — $e');
+      debugPrint('BookshelfService: sync outbox write failed — $e');
+      rethrow;
     }
+  }
+
+  static final BookshelfSyncQueue _productionSyncQueue = BookshelfSyncQueue(
+    store: const _SharedPreferencesBookshelfSyncOutboxStore(),
+    tokenFactory: _newGenerationId,
+    attempt: _attemptPendingSync,
+  );
+
+  static Future<CloudWriteResult> _attemptPendingSync(
+    BookshelfSyncPending pending,
+  ) async {
+    if (AuthService.cloudBackupUid != pending.uid) {
+      return CloudWriteResult.blocked;
+    }
+    final db = _db;
+    if (db == null) return CloudWriteResult.blocked;
+    return syncGenerationWithSession(
+      sessions: cloudWriteSessionController,
+      uid: pending.uid,
+      generationId: pending.token,
+      entries: _portableLocalEntries(),
+      repository: _FirestoreBookshelfGenerationRepository(db),
+    );
+  }
+
+  static Future<void> resumePendingSync() async {
+    await _productionSyncQueue.drain();
   }
 
   static Map<String, Map<String, dynamic>> _portableLocalEntries() {
@@ -540,9 +528,12 @@ class _FirestoreBookshelfGenerationRepository
       final currentData = current.data();
       if (current.exists && currentData != null) {
         final active = BookshelfGenerationManifest.fromJson(currentData);
-        if (active.generationId == manifest.generationId &&
-            active.revision == manifest.revision) {
+        if (active.hasSameContent(manifest)) {
           return true;
+        }
+        if (active.generationId == manifest.generationId ||
+            active.revision == manifest.revision) {
+          return false;
         }
         if (active.revision != expectedRevision) return false;
       } else if (expectedRevision != 0) {
@@ -588,5 +579,57 @@ class _FirestoreBookshelfGenerationRepository
       }).toList();
     }
     return result;
+  }
+}
+
+class _SharedPreferencesBookshelfSyncOutboxStore
+    implements BookshelfSyncOutboxStore {
+  const _SharedPreferencesBookshelfSyncOutboxStore();
+
+  static const key = 'kl_bookshelf_sync_outbox_v1';
+
+  @override
+  Future<BookshelfSyncPending?> read() async {
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.reload();
+    final raw = preferences.getString(key);
+    if (raw == null) return null;
+    final decoded = jsonDecode(raw);
+    if (decoded is! Map ||
+        decoded['version'] != 1 ||
+        decoded['uid'] is! String ||
+        decoded['token'] is! String) {
+      throw const FormatException('Invalid bookshelf sync outbox.');
+    }
+    final uid = decoded['uid'] as String;
+    final token = decoded['token'] as String;
+    if (uid.trim().isEmpty ||
+        uid.length > 256 ||
+        token.trim().isEmpty ||
+        token.length > 256) {
+      throw const FormatException('Invalid bookshelf sync outbox.');
+    }
+    return BookshelfSyncPending(uid: uid, token: token);
+  }
+
+  @override
+  Future<void> write(BookshelfSyncPending pending) async {
+    final preferences = await SharedPreferences.getInstance();
+    final written = await preferences.setString(
+      key,
+      jsonEncode({'version': 1, 'uid': pending.uid, 'token': pending.token}),
+    );
+    if (!written) throw StateError('Bookshelf sync outbox write failed.');
+  }
+
+  @override
+  Future<bool> clearIfMatches(BookshelfSyncPending pending) async {
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.reload();
+    final current = await read();
+    if (current != pending) return false;
+    final removed = await preferences.remove(key);
+    if (!removed) throw StateError('Bookshelf sync outbox clear failed.');
+    return true;
   }
 }

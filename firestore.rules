@@ -126,8 +126,8 @@ service cloud.firestore {
         && meta.memberCount < 10;
     }
 
-    function isStaticPackId(packId) {
-      return packId in [
+    function staticPackIds() {
+      return [
         'a1_body',
         'a1_colors',
         'a1_daily_1',
@@ -195,6 +195,10 @@ service cloud.firestore {
       ];
     }
 
+    function isStaticPackId(packId) {
+      return packId in staticPackIds();
+    }
+
     function validPackProgress(packId, data) {
       return isStaticPackId(packId)
         && data.keys().hasAll([
@@ -203,7 +207,8 @@ service cloud.firestore {
         ])
         && data.keys().hasOnly([
           'level', 'status', 'wordsLearned', 'wordsTotal', 'bossAccuracy',
-          'attempts', 'clearedAt', 'updatedAt'
+          'attempts', 'clearedAt', 'updatedAt', 'sync_revision',
+          'reconciliation_operation_id'
         ])
         && data.level in ['A1', 'A2', 'B1', 'B2']
         && (
@@ -231,10 +236,93 @@ service cloud.firestore {
             && data.clearedAt.size() <= 40))
         && data.updatedAt is timestamp
         && data.updatedAt == request.time
+        && data.get('sync_revision', 1) is int
+        && data.get('sync_revision', 1) >= 1
+        && data.get('sync_revision', 1) <= 1000000000
+        && validOptionalOperationId(
+          data.get('reconciliation_operation_id', '')
+        )
         && (data.status != 'cleared'
           || (data.bossAccuracy >= 0.7
             && data.attempts >= 1
             && data.clearedAt is string));
+    }
+
+    function validOptionalOperationId(operationId) {
+      return operationId is string
+        && operationId.size() <= 128
+        && (operationId == ''
+          || operationId.matches('^[A-Za-z0-9][A-Za-z0-9._:-]*$'));
+    }
+
+    function validBookshelfGenerationRecord(recordId, data) {
+      return data.keys().hasAll([
+          'schema_version', 'id', 'revision', 'deleted', 'portable',
+          'canonical_hash', 'updated_at'
+        ])
+        && data.keys().hasOnly([
+          'schema_version', 'id', 'revision', 'deleted', 'portable',
+          'canonical_hash', 'updated_at'
+        ])
+        && data.schema_version == 1
+        && data.id == recordId
+        && data.id is string
+        && data.id.size() > 0
+        && data.id.size() <= 256
+        && data.revision is int
+        && data.revision >= 1
+        && data.revision <= 1000000000
+        && data.deleted is bool
+        && data.portable is map
+        && (!data.deleted || data.portable.size() == 0)
+        && data.canonical_hash is string
+        && data.canonical_hash.matches('^[0-9a-f]{64}$')
+        && data.updated_at is timestamp
+        && data.updated_at == request.time;
+    }
+
+    function validBookshelfManifest(data) {
+      return data.keys().hasAll([
+          'schema_version', 'generation_id', 'revision', 'record_ids',
+          'completed', 'activated_at'
+        ])
+        && data.keys().hasOnly([
+          'schema_version', 'generation_id', 'revision', 'record_ids',
+          'completed', 'activated_at'
+        ])
+        && data.schema_version == 1
+        && data.generation_id is string
+        && data.generation_id.size() > 0
+        && data.generation_id.size() <= 256
+        && data.revision is int
+        && data.revision >= 1
+        && data.revision <= 1000000000
+        && data.record_ids is list
+        && data.record_ids.size() <= 400
+        && data.record_ids.toSet().size() == data.record_ids.size()
+        && data.completed == true
+        && data.activated_at is timestamp
+        && data.activated_at == request.time;
+    }
+
+    function validPackMembership(data) {
+      return data.keys().hasAll(['revision', 'pack_ids', 'updatedAt'])
+        && data.keys().hasOnly([
+          'revision', 'pack_ids', 'updatedAt',
+          'reconciliation_operation_id'
+        ])
+        && data.revision is int
+        && data.revision >= 1
+        && data.revision <= 1000000000
+        && data.pack_ids is list
+        && data.pack_ids.size() <= 100
+        && data.pack_ids.toSet().size() == data.pack_ids.size()
+        && data.pack_ids.toSet().hasOnly(staticPackIds())
+        && validOptionalOperationId(
+          data.get('reconciliation_operation_id', '')
+        )
+        && data.updatedAt is timestamp
+        && data.updatedAt == request.time;
     }
 
     function validCheerPayload(gyeId, payload) {
@@ -309,12 +397,61 @@ service cloud.firestore {
         allow delete: if isOwner(uid);
       }
 
+      match /sync_generations/{generationId}/bookshelf/{recordId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid)
+          && !exists(accountDeletionPath(uid))
+          && generationId.size() > 0
+          && generationId.size() <= 256
+          && validBookshelfGenerationRecord(
+            recordId,
+            request.resource.data
+          );
+        allow update, delete: if false;
+      }
+
+      match /sync_metadata/bookshelf_active {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid)
+          && !exists(accountDeletionPath(uid))
+          && validBookshelfManifest(request.resource.data)
+          && request.resource.data.revision == 1;
+        allow update: if isOwner(uid)
+          && !exists(accountDeletionPath(uid))
+          && validBookshelfManifest(request.resource.data)
+          && request.resource.data.revision == resource.data.revision + 1
+          && request.resource.data.generation_id
+            != resource.data.generation_id;
+        allow delete: if false;
+      }
+
+      match /sync_metadata/pack_progress {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid)
+          && !exists(accountDeletionPath(uid))
+          && validPackMembership(request.resource.data)
+          && request.resource.data.revision == 1;
+        allow update: if isOwner(uid)
+          && !exists(accountDeletionPath(uid))
+          && validPackMembership(request.resource.data)
+          && request.resource.data.revision == resource.data.revision + 1;
+        allow delete: if false;
+      }
+
       match /{collectionName}/{document=**} {
-        allow read: if isOwner(uid) && collectionName != 'packs';
+        allow read: if isOwner(uid)
+          && collectionName != 'packs'
+          && collectionName != 'sync_generations'
+          && collectionName != 'sync_metadata';
         allow create, update: if isOwner(uid)
           && collectionName != 'packs'
+          && collectionName != 'sync_generations'
+          && collectionName != 'sync_metadata'
           && !exists(accountDeletionPath(uid));
-        allow delete: if isOwner(uid) && collectionName != 'packs';
+        allow delete: if isOwner(uid)
+          && collectionName != 'packs'
+          && collectionName != 'sync_generations'
+          && collectionName != 'sync_metadata';
       }
     }
 

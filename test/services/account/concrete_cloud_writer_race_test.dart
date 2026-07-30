@@ -125,6 +125,7 @@ void main() {
     final result = BookshelfService.collectGarbageWithSession(
       sessions: sessions,
       uid: 'uid-a',
+      readJournal: () async => null,
       prepare: () => prepared.future,
       delete: () async => deletes++,
     );
@@ -144,6 +145,7 @@ void main() {
     final result = CustomPackService.collectGarbageWithSession(
       sessions: sessions,
       uid: 'uid-a',
+      readJournal: () async => null,
       prepare: () => prepared.future,
       delete: () async => deletes++,
     );

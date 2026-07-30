@@ -18,6 +18,7 @@ void main() {
         return null;
       },
       synchronizeReadySession: (uid) => events.add('ready:$uid'),
+      resumeBookshelfSync: () async => events.add('bookshelf-resume'),
       resumeAccountOperation: () async => events.add('protected-resume'),
       initializePremium: () async => events.add('premium'),
       enablePush: () async => events.add('push'),
@@ -31,6 +32,7 @@ void main() {
       'auth',
       'restore:uid-live',
       'ready:uid-live',
+      'bookshelf-resume',
       'premium',
       'push',
     ]);
@@ -56,6 +58,7 @@ void main() {
           return restored;
         },
         synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeBookshelfSync: () async => events.add('bookshelf-resume'),
         resumeAccountOperation: () async => events.add('resume-existing'),
         initializePremium: () async => events.add('premium'),
         enablePush: () async => events.add('push'),
@@ -84,6 +87,7 @@ void main() {
       currentUserId: () => 'uid-live',
       restoreCloudWriteSession: (_) async => null,
       synchronizeReadySession: (_) {},
+      resumeBookshelfSync: () async => events.add('bookshelf-resume'),
       resumeAccountOperation: () async => events.add('resume'),
       initializePremium: () async => events.add('premium'),
       enablePush: () async => events.add('push'),

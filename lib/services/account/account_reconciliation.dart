@@ -380,7 +380,7 @@ class SharedPreferencesAccountTransitionJournalStore
     implements AccountTransitionJournalStore {
   const SharedPreferencesAccountTransitionJournalStore(this.preferences);
 
-  static const key = 'kl_account_transition_journal_v1';
+  static const key = AccountTransitionJournal.storageKey;
 
   final SharedPreferences preferences;
 

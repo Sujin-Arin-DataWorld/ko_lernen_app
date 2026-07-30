@@ -4,6 +4,11 @@ import 'package:crypto/crypto.dart';
 
 const int _bookshelfSchemaVersion = 1;
 const int _maxBookshelfRecords = 400;
+const int _maxBookshelfRecordBytes = 256 * 1024;
+const int _maxBookshelfGenerationBytes = 4 * 1024 * 1024;
+const int _maxBookshelfStringBytes = 128 * 1024;
+const int _maxBookshelfCollectionLength = 512;
+const int _maxBookshelfNestingDepth = 16;
 
 enum BookshelfSnapshotSource { activeGeneration, legacy }
 
@@ -85,6 +90,12 @@ class BookshelfGenerationManifest {
       'completed': true,
     };
   }
+
+  bool hasSameContent(BookshelfGenerationManifest other) =>
+      generationId == other.generationId &&
+      revision == other.revision &&
+      recordIds.length == other.recordIds.length &&
+      recordIds.containsAll(other.recordIds);
 }
 
 class BookshelfGenerationRecord {
@@ -98,8 +109,15 @@ class BookshelfGenerationRecord {
     if (revision < 1) {
       throw ArgumentError.value(revision, 'revision', 'must be positive');
     }
-    _validatePortable(portable);
-    canonicalHash = _hashRecord(deleted: deleted, portable: portable);
+    final canonical = _validatePortable(portable);
+    encodedBytes = utf8.encode(jsonEncode(canonical)).length;
+    if (encodedBytes > _maxBookshelfRecordBytes) {
+      throw const FormatException('Bookshelf record is too large.');
+    }
+    canonicalHash = _hashCanonicalRecord(
+      deleted: deleted,
+      canonicalPortable: canonical,
+    );
   }
 
   factory BookshelfGenerationRecord.live({
@@ -127,6 +145,7 @@ class BookshelfGenerationRecord {
   final int revision;
   final bool deleted;
   final Map<String, dynamic> portable;
+  late final int encodedBytes;
   late final String canonicalHash;
 
   factory BookshelfGenerationRecord.fromJson(Map<String, dynamic> json) {
@@ -145,13 +164,20 @@ class BookshelfGenerationRecord {
         hash is! String) {
       throw const FormatException('Invalid bookshelf generation record.');
     }
+    final typedPortable = <String, dynamic>{};
+    for (final entry in portable.entries) {
+      if (entry.key is! String) {
+        throw const FormatException('Invalid bookshelf generation record.');
+      }
+      typedPortable[entry.key as String] = entry.value;
+    }
     late BookshelfGenerationRecord result;
     try {
       result = BookshelfGenerationRecord._(
         id: id,
         revision: revision,
         deleted: deleted,
-        portable: portable.map((key, value) => MapEntry(key.toString(), value)),
+        portable: typedPortable,
       );
     } on Object {
       throw const FormatException('Invalid bookshelf generation record.');
@@ -210,10 +236,7 @@ class BookshelfGenerationSync {
     _requireIdentifier(uid, 'uid');
     final manifest = await repository.readActiveManifest(uid);
     if (manifest == null) {
-      final parent = await repository.readLegacyParent(uid);
-      final entries = await repository.readLegacyEntries(uid);
-      final merged = {...parent, ...entries};
-      _requireRecordIds(merged.keys.toSet());
+      final merged = await _readLegacy(repository, uid);
       return BookshelfRemoteSnapshot(
         source: BookshelfSnapshotSource.legacy,
         entries: Map.unmodifiable(merged),
@@ -224,6 +247,7 @@ class BookshelfGenerationSync {
 
     final visible = <String, Map<String, dynamic>>{};
     final tombstones = <String>{};
+    var generationBytes = 0;
     final ids = manifest.recordIds.toList()..sort();
     for (final id in ids) {
       final raw = await repository.readGenerationRecord(
@@ -237,6 +261,10 @@ class BookshelfGenerationSync {
         );
       }
       final record = BookshelfGenerationRecord.fromJson(raw);
+      generationBytes += record.encodedBytes;
+      if (generationBytes > _maxBookshelfGenerationBytes) {
+        throw const FormatException('Bookshelf generation is too large.');
+      }
       if (record.id != id || record.revision != manifest.revision) {
         throw const FormatException('Invalid active bookshelf record.');
       }
@@ -266,9 +294,12 @@ class BookshelfGenerationSync {
     _requireRecordIds(entries.keys.toSet());
 
     final active = await repository.readActiveManifest(uid);
+    final selectedEntries = active == null
+        ? {...await _readLegacy(repository, uid), ...entries}
+        : entries;
     final expectedRevision = active?.revision ?? 0;
     final nextRevision = expectedRevision + 1;
-    final recordIds = <String>{...?active?.recordIds, ...entries.keys};
+    final recordIds = <String>{...?active?.recordIds, ...selectedEntries.keys};
     _requireRecordIds(recordIds);
     final activeTombstones = <String>{};
     if (active != null) {
@@ -291,9 +322,11 @@ class BookshelfGenerationSync {
       }
     }
 
+    final records = <String, BookshelfGenerationRecord>{};
+    var generationBytes = 0;
     final sortedIds = recordIds.toList()..sort();
     for (final id in sortedIds) {
-      final portable = entries[id];
+      final portable = selectedEntries[id];
       final record = portable == null || activeTombstones.contains(id)
           ? BookshelfGenerationRecord.tombstone(id: id, revision: nextRevision)
           : BookshelfGenerationRecord.live(
@@ -301,6 +334,14 @@ class BookshelfGenerationSync {
               revision: nextRevision,
               portable: portable,
             );
+      generationBytes += record.encodedBytes;
+      if (generationBytes > _maxBookshelfGenerationBytes) {
+        throw const FormatException('Bookshelf generation is too large.');
+      }
+      records[id] = record;
+    }
+    for (final id in sortedIds) {
+      final record = records[id]!;
       beforeWrite();
       await repository.writeGenerationRecord(
         uid: uid,
@@ -328,6 +369,32 @@ class BookshelfGenerationSync {
       revision: activated ? nextRevision : null,
     );
   }
+
+  static Future<Map<String, Map<String, dynamic>>> _readLegacy(
+    BookshelfGenerationRepository repository,
+    String uid,
+  ) async {
+    final parent = await repository.readLegacyParent(uid);
+    final entries = await repository.readLegacyEntries(uid);
+    // The per-document collection was the newer legacy writer. Once it has
+    // records, its survivor set is authoritative; stale parent-only records
+    // must not be resurrected.
+    final selected = entries.isNotEmpty ? entries : parent;
+    _requireRecordIds(selected.keys.toSet());
+    var totalBytes = 0;
+    for (final entry in selected.entries) {
+      final record = BookshelfGenerationRecord.live(
+        id: entry.key,
+        revision: 1,
+        portable: entry.value,
+      );
+      totalBytes += record.encodedBytes;
+      if (totalBytes > _maxBookshelfGenerationBytes) {
+        throw const FormatException('Bookshelf generation is too large.');
+      }
+    }
+    return Map.unmodifiable(selected);
+  }
 }
 
 void _requireRecordIds(Set<String> recordIds) {
@@ -348,41 +415,68 @@ void _requireIdentifier(String value, String name) {
   }
 }
 
-void _validatePortable(Map<String, dynamic> portable) {
-  try {
-    jsonEncode(_canonicalize(portable));
-  } on Object {
+Map<String, dynamic> _validatePortable(Map<String, dynamic> portable) {
+  final canonical = _validateAndCanonicalize(portable, depth: 0);
+  if (canonical is! Map<String, dynamic>) {
     throw const FormatException('Invalid portable bookshelf entry.');
   }
+  return canonical;
 }
 
-String _hashRecord({
+String _hashCanonicalRecord({
   required bool deleted,
-  required Map<String, dynamic> portable,
+  required Map<String, dynamic> canonicalPortable,
 }) => sha256
     .convert(
       utf8.encode(
-        jsonEncode({'deleted': deleted, 'portable': _canonicalize(portable)}),
+        jsonEncode({'deleted': deleted, 'portable': canonicalPortable}),
       ),
     )
     .toString();
 
-Object? _canonicalize(Object? value) {
+Object? _validateAndCanonicalize(Object? value, {required int depth}) {
+  if (depth > _maxBookshelfNestingDepth) {
+    throw const FormatException('Bookshelf entry is nested too deeply.');
+  }
   if (value is Map) {
+    if (value.length > _maxBookshelfCollectionLength) {
+      throw const FormatException('Bookshelf collection is too large.');
+    }
+    for (final key in value.keys) {
+      if (key is! String ||
+          utf8.encode(key).length > _maxBookshelfStringBytes) {
+        throw const FormatException('Invalid bookshelf map key.');
+      }
+    }
     final entries = value.entries.toList()
       ..sort(
         (left, right) => left.key.toString().compareTo(right.key.toString()),
       );
-    return {
+    return <String, dynamic>{
       for (final entry in entries)
-        entry.key.toString(): _canonicalize(entry.value),
+        entry.key as String: _validateAndCanonicalize(
+          entry.value,
+          depth: depth + 1,
+        ),
     };
   }
   if (value is List) {
-    return value.map(_canonicalize).toList();
+    if (value.length > _maxBookshelfCollectionLength) {
+      throw const FormatException('Bookshelf collection is too large.');
+    }
+    return value
+        .map((item) => _validateAndCanonicalize(item, depth: depth + 1))
+        .toList();
   }
-  if (value == null || value is bool || value is num || value is String) {
+  if (value is String) {
+    if (utf8.encode(value).length > _maxBookshelfStringBytes) {
+      throw const FormatException('Bookshelf string is too large.');
+    }
     return value;
   }
+  if (value is num && !value.isFinite) {
+    throw const FormatException('Invalid bookshelf number.');
+  }
+  if (value == null || value is bool || value is num) return value;
   throw const FormatException('Invalid portable bookshelf value.');
 }

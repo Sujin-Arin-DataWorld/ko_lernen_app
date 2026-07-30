@@ -104,7 +104,7 @@ void main() {
   });
 
   test(
-    'reader uses legacy parent and per-book data before first manifest',
+    'reader treats an existing per-book legacy set as authoritative',
     () async {
       final repository = _MemoryBookshelfRepository()
         ..legacyParent = {
@@ -120,7 +120,6 @@ void main() {
 
       expect(snapshot.source, BookshelfSnapshotSource.legacy);
       expect(snapshot.entries, {
-        'parent-only': {'note': 'parent'},
         'shared': {'note': 'newer per-book'},
         'entry-only': {'note': 'entry'},
       });
@@ -176,6 +175,153 @@ void main() {
         repository.generations['generation-new']?['book-deleted']?['deleted'],
         isTrue,
       );
+    },
+  );
+
+  test(
+    'first generation merges a stale local edit with every legacy survivor',
+    () async {
+      final repository = _MemoryBookshelfRepository()
+        ..legacyEntries = {
+          'book-a': {'note': 'legacy A'},
+          'book-b': {'note': 'legacy B'},
+        };
+
+      await BookshelfGenerationSync.stageAndActivate(
+        repository: repository,
+        uid: 'uid-a',
+        generationId: 'generation-first',
+        entries: const {
+          'book-a': {'note': 'edited locally'},
+        },
+        beforeWrite: () {},
+      );
+
+      final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+      expect(snapshot.entries, {
+        'book-a': {'note': 'edited locally'},
+        'book-b': {'note': 'legacy B'},
+      });
+    },
+  );
+
+  test(
+    'legacy per-document survivor set suppresses deleted parent-only records',
+    () async {
+      final repository = _MemoryBookshelfRepository()
+        ..legacyParent = {
+          'book-deleted': {'note': 'stale parent'},
+          'book-live': {'note': 'old parent'},
+        }
+        ..legacyEntries = {
+          'book-live': {'note': 'authoritative survivor'},
+        };
+
+      final snapshot = await BookshelfGenerationSync.read(repository, 'uid-a');
+
+      expect(snapshot.entries, {
+        'book-live': {'note': 'authoritative survivor'},
+      });
+      expect(snapshot.entries, isNot(contains('book-deleted')));
+    },
+  );
+
+  test('manifest idempotency compares the complete record id set', () {
+    final first = BookshelfGenerationManifest(
+      generationId: 'generation-a',
+      revision: 4,
+      recordIds: const {'book-a'},
+    );
+    final different = BookshelfGenerationManifest(
+      generationId: 'generation-a',
+      revision: 4,
+      recordIds: const {'book-a', 'book-b'},
+    );
+
+    expect(first.hasSameContent(different), isFalse);
+    expect(first.hasSameContent(first), isTrue);
+  });
+
+  test('portable records reject oversized strings before hashing', () {
+    expect(
+      () => BookshelfGenerationRecord.live(
+        id: 'book-a',
+        revision: 1,
+        portable: {'note': 'x' * (128 * 1024 + 1)},
+      ),
+      throwsFormatException,
+    );
+  });
+
+  test('portable records reject oversized collections before hashing', () {
+    expect(
+      () => BookshelfGenerationRecord.live(
+        id: 'book-a',
+        revision: 1,
+        portable: {'words': List<Object?>.filled(513, null)},
+      ),
+      throwsFormatException,
+    );
+  });
+
+  test('portable records reject excessive nesting before hashing', () {
+    Object? nested = 'leaf';
+    for (var depth = 0; depth < 18; depth += 1) {
+      nested = {'child': nested};
+    }
+
+    expect(
+      () => BookshelfGenerationRecord.live(
+        id: 'book-a',
+        revision: 1,
+        portable: {'root': nested},
+      ),
+      throwsFormatException,
+    );
+  });
+
+  test('portable records reject non-finite and unsupported values', () {
+    for (final value in <Object>[double.nan, double.infinity, DateTime(2026)]) {
+      expect(
+        () => BookshelfGenerationRecord.live(
+          id: 'book-a',
+          revision: 1,
+          portable: {'value': value},
+        ),
+        throwsFormatException,
+      );
+    }
+  });
+
+  test(
+    'portable records and complete generations enforce byte bounds',
+    () async {
+      expect(
+        () => BookshelfGenerationRecord.live(
+          id: 'book-a',
+          revision: 1,
+          portable: {'text': 'x' * (256 * 1024)},
+        ),
+        throwsFormatException,
+      );
+
+      final repository = _MemoryBookshelfRepository();
+      final entries = {
+        for (var index = 0; index < 20; index += 1)
+          'book-$index': {'text': 'x' * (220 * 1024)},
+      };
+      await expectLater(
+        BookshelfGenerationSync.stageAndActivate(
+          repository: repository,
+          uid: 'uid-a',
+          generationId: 'generation-large',
+          entries: entries,
+          beforeWrite: () {},
+        ),
+        throwsFormatException,
+      );
+      expect(repository.active, isNull);
+      expect(repository.generations, isEmpty);
     },
   );
 }

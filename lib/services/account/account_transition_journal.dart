@@ -25,6 +25,7 @@ class AccountTransitionJournal {
   });
 
   static const currentVersion = 1;
+  static const storageKey = 'kl_account_transition_journal_v1';
   static const maxLocalCustomPackBaseIds = 512;
   static const maxLocalCustomPackBaseIdBytes = 256;
   static const maxLocalCustomPackBaseIdsBytes = 64 * 1024;

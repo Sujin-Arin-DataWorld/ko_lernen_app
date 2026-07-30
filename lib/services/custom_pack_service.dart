@@ -7,6 +7,8 @@ import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import 'account/cloud_read_result.dart';
 import 'account/cloud_write_session.dart';
+import 'account/media_cleanup_gate.dart';
+import 'auth_service.dart';
 import 'book_image_service.dart';
 import 'media_mutation_lock.dart';
 import 'storage_service.dart';
@@ -618,13 +620,14 @@ class CustomPackService {
     Future<void> Function() action,
   ) async {
     final session = sessions.current;
-    if (session == null) {
-      await action();
-      return;
-    }
     await collectGarbageWithSession(
       sessions: sessions,
-      uid: session.uid,
+      uid: session?.uid ?? AuthService.cloudBackupUid,
+      session: session,
+      provenLocalOnly:
+          session == null &&
+          !sessions.hasBeenActivated &&
+          AuthService.cloudBackupUid == null,
       prepare: () async {},
       delete: action,
     );
@@ -632,13 +635,23 @@ class CustomPackService {
 
   static Future<CloudWriteResult> collectGarbageWithSession({
     required CloudWriteSessionController sessions,
-    required String uid,
+    String? uid,
+    CloudWriteSession? session,
+    AccountTransitionJournalReader? readJournal,
+    bool provenLocalOnly = false,
     required Future<void> Function() prepare,
     required Future<void> Function() delete,
   }) {
-    return CloudWriteFence(
-      sessions,
-    ).run(uid: uid, prepare: prepare, action: delete);
+    return MediaCleanupGate(sessions).run(
+      uid: uid,
+      session: session,
+      readJournal:
+          readJournal ??
+          const SharedPreferencesAccountTransitionJournalReader().call,
+      provenLocalOnly: provenLocalOnly,
+      prepare: prepare,
+      delete: delete,
+    );
   }
 
   static Future<void> _collectGarbageBestEffort(

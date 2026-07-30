@@ -13,6 +13,7 @@ import 'services/ad_service.dart';
 import 'services/auth_service.dart';
 import 'services/book_analysis_service.dart';
 import 'services/book_image_service.dart';
+import 'services/bookshelf_service.dart';
 import 'services/crop_recovery_service.dart';
 import 'services/picker_recovery_service.dart';
 import 'services/tts_service.dart';
@@ -189,6 +190,7 @@ Future<void> _startCloudServices() async {
     currentUserId: () => AuthService.current?.uid,
     restoreCloudWriteSession: AuthService.restoreCloudWriteSession,
     synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
+    resumeBookshelfSync: BookshelfService.resumePendingSync,
     resumeAccountOperation: AuthService.resumePendingAccountDeletion,
     initializePremium: () async {
       await PaletteService.fetchAndApply();

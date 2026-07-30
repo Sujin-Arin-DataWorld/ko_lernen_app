@@ -97,6 +97,40 @@ function packData(overrides = {}) {
   };
 }
 
+function bookshelfRecordData(id, overrides = {}) {
+  return {
+    schema_version: 1,
+    id,
+    revision: 1,
+    deleted: false,
+    portable: { title: "한국어", words: [] },
+    canonical_hash: "a".repeat(64),
+    updated_at: serverTimestamp(),
+    ...overrides,
+  };
+}
+
+function bookshelfManifestData(generationId, revision, recordIds, overrides = {}) {
+  return {
+    schema_version: 1,
+    generation_id: generationId,
+    revision,
+    record_ids: recordIds,
+    completed: true,
+    activated_at: serverTimestamp(),
+    ...overrides,
+  };
+}
+
+function packMembershipData(revision, packIds, overrides = {}) {
+  return {
+    revision,
+    pack_ids: packIds,
+    updatedAt: serverTimestamp(),
+    ...overrides,
+  };
+}
+
 function reportRef(db, gyeId, targetUid, reporterUid) {
   return doc(
     db,
@@ -303,6 +337,133 @@ test("cleared pack progress can never be downgraded", async () => {
     doc(client("member"), "users", "member", "packs", "a1_body"),
     { status: "inProgress", updatedAt: serverTimestamp() },
     { merge: true },
+  ));
+});
+
+test("bookshelf generation records are owner-readable and immutable",
+async () => {
+  await seedUser("member", []);
+  const db = client("member");
+  const generationId = "g_generation_one";
+  const recordRef = doc(
+    db,
+    "users",
+    "member",
+    "sync_generations",
+    generationId,
+    "bookshelf",
+    "p_one",
+  );
+
+  await assertSucceeds(setDoc(
+    recordRef,
+    bookshelfRecordData("p_one"),
+  ));
+  await assertSucceeds(getDoc(recordRef));
+  await assertFails(setDoc(
+    recordRef,
+    bookshelfRecordData("p_one", { revision: 2 }),
+  ));
+  await assertFails(deleteDoc(recordRef));
+  await assertFails(setDoc(
+    doc(
+      db,
+      "users",
+      "member",
+      "sync_generations",
+      generationId,
+      "bookshelf",
+      "p_invalid",
+    ),
+    bookshelfRecordData("different-id"),
+  ));
+});
+
+test("bookshelf active manifest requires bounded monotonic generations",
+async () => {
+  await seedUser("member", []);
+  const db = client("member");
+  const manifestRef = doc(
+    db,
+    "users",
+    "member",
+    "sync_metadata",
+    "bookshelf_active",
+  );
+
+  await assertSucceeds(setDoc(
+    manifestRef,
+    bookshelfManifestData("g_generation_one", 1, ["p_one"]),
+  ));
+  await assertFails(setDoc(
+    manifestRef,
+    bookshelfManifestData("g_generation_same_revision", 1, ["p_one"]),
+  ));
+  await assertFails(setDoc(
+    manifestRef,
+    bookshelfManifestData("g_generation_jump", 3, ["p_one"]),
+  ));
+  await assertSucceeds(setDoc(
+    manifestRef,
+    bookshelfManifestData("g_generation_two", 2, ["p_one", "p_two"]),
+  ));
+  await assertFails(deleteDoc(manifestRef));
+  await assertFails(setDoc(
+    manifestRef,
+    bookshelfManifestData(
+      "g_generation_too_large",
+      3,
+      Array.from({ length: 401 }, (_, index) => `p_${index}`),
+    ),
+  ));
+});
+
+test("pack sync metadata and reconciliation fields use bounded schemas",
+async () => {
+  await seedUser("member", []);
+  const db = client("member");
+  const packRef = doc(db, "users", "member", "packs", "a1_body");
+  const membershipRef = doc(
+    db,
+    "users",
+    "member",
+    "sync_metadata",
+    "pack_progress",
+  );
+
+  await assertSucceeds(setDoc(
+    packRef,
+    packData({
+      sync_revision: 1,
+      reconciliation_operation_id: "operation-one",
+    }),
+  ));
+  await assertSucceeds(setDoc(
+    membershipRef,
+    packMembershipData(1, ["a1_body"], {
+      reconciliation_operation_id: "operation-one",
+    }),
+  ));
+  await assertFails(setDoc(
+    membershipRef,
+    packMembershipData(1, ["a1_body", "a1_body"]),
+  ));
+  await assertFails(setDoc(
+    membershipRef,
+    packMembershipData(1, ["user_minted_pack"]),
+  ));
+  await assertFails(setDoc(
+    membershipRef,
+    packMembershipData(3, ["a1_body"]),
+  ));
+  await assertSucceeds(setDoc(
+    membershipRef,
+    packMembershipData(2, ["a1_body", "a1_food_1"]),
+  ));
+  await assertFails(deleteDoc(membershipRef));
+  await assertFails(setDoc(
+    doc(db, "users", "member", "sync_metadata", "arbitrary"),
+    { injected: true },
   ));
 });
 
