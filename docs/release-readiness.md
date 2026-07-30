@@ -16,8 +16,9 @@ until the release owner attaches dated evidence from the production system.
 - [x] The browser code uses a fixed first-party endpoint, `POST`,
   `redirect: error`, `mode: same-origin`, `credentials: omit`,
   `cache: no-store`, and `referrerPolicy: no-referrer`.
-- [x] Browser output uses fixed status codes/messages and never interpolates a
-  response body, exception, proof, UID, operation ID, or provider error.
+- [x] Browser output uses one neutral status for missing, malformed, invalid,
+  expired, used, successful, and network-failed outcomes. It never interpolates
+  a response body, exception, proof, UID, operation ID, or provider error.
 - [x] Node tests cover ordering, destination, redaction, generic receipts, and
   malformed/missing fragments:
   `node --test docs/account-deletion-page.test.js`.

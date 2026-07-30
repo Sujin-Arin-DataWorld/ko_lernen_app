@@ -72,12 +72,12 @@ test("never renders a proof or raw network error", async () => {
   await consumeDeletionProof(harness.options);
 
   assert.equal(harness.rendered.length, 1);
-  assert.equal(harness.rendered[0], "request-unavailable");
+  assert.equal(harness.rendered[0], "request-status");
   assert.equal(JSON.stringify(harness.rendered).includes(VALID_PROOF), false);
   assert.equal(JSON.stringify(harness.rendered).includes(secretBearingError.message), false);
 });
 
-test("renders the same generic receipt for valid, expired, and used proofs", async () => {
+test("renders the same neutral status for valid, expired, and used proofs", async () => {
   for (const serverDetail of ["accepted", "expired", "already-used"]) {
     const harness = browserHarness({
       fetchImpl: async () => ({
@@ -88,11 +88,11 @@ test("renders the same generic receipt for valid, expired, and used proofs", asy
 
     await consumeDeletionProof(harness.options);
 
-    assert.deepEqual(harness.rendered, ["request-received"]);
+    assert.deepEqual(harness.rendered, ["request-status"]);
   }
 });
 
-test("does not send a missing or malformed fragment value", async () => {
+test("does not send missing or malformed fragments and renders the same neutral status", async () => {
   for (const hash of ["", "#token=short", "#other=value"]) {
     const harness = browserHarness({ hash });
 
@@ -102,6 +102,34 @@ test("does not send a missing or malformed fragment value", async () => {
       harness.events.some((event) => event.type === "fetch"),
       false,
     );
-    assert.deepEqual(harness.rendered, ["request-unavailable"]);
+    assert.deepEqual(harness.rendered, ["request-status"]);
+  }
+});
+
+test("posts a valid proof when URLSearchParams.size is unavailable", async () => {
+  const sizeDescriptor = Object.getOwnPropertyDescriptor(
+    URLSearchParams.prototype,
+    "size",
+  );
+  assert.equal(Boolean(sizeDescriptor && sizeDescriptor.configurable), true);
+  delete URLSearchParams.prototype.size;
+  assert.equal("size" in URLSearchParams.prototype, false);
+
+  try {
+    const harness = browserHarness();
+
+    await consumeDeletionProof(harness.options);
+
+    assert.deepEqual(harness.events.map((event) => event.type), [
+      "replaceState",
+      "fetch",
+    ]);
+    assert.deepEqual(harness.rendered, ["request-status"]);
+  } finally {
+    Object.defineProperty(
+      URLSearchParams.prototype,
+      "size",
+      sizeDescriptor,
+    );
   }
 });

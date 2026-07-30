@@ -25,10 +25,19 @@
       return null;
     }
     const parameters = new URLSearchParams(fragment.slice(1));
-    if (parameters.size !== 1 || parameters.getAll("token").length !== 1) {
+    let parameterCount = 0;
+    let tokenCount = 0;
+    let proof = null;
+    parameters.forEach((value, key) => {
+      parameterCount += 1;
+      if (key === "token") {
+        tokenCount += 1;
+        proof = value;
+      }
+    });
+    if (parameterCount !== 1 || tokenCount !== 1) {
       return null;
     }
-    const proof = parameters.get("token");
     return typeof proof === "string" && PROOF_PATTERN.test(proof)
       ? proof
       : null;
@@ -40,21 +49,24 @@
     fetchImpl,
     renderStatus,
   }) {
-    const fragment = typeof location?.hash === "string" ? location.hash : "";
+    const fragment =
+      location && typeof location.hash === "string" ? location.hash : "";
     const cleanPath =
-      typeof location?.pathname === "string" && location.pathname.startsWith("/")
+      location &&
+      typeof location.pathname === "string" &&
+      location.pathname.startsWith("/")
         ? location.pathname
         : "/account-deletion.html";
     history.replaceState(null, "", cleanPath);
 
     const proof = proofFromFragment(fragment);
     if (!proof) {
-      renderStatus("request-unavailable");
+      renderStatus("request-status");
       return;
     }
 
     try {
-      const response = await fetchImpl(CONSUMPTION_ENDPOINT, {
+      await fetchImpl(CONSUMPTION_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,24 +78,18 @@
         redirect: "error",
         referrerPolicy: "no-referrer",
       });
-      renderStatus(
-        response?.status === 202 ? "request-received" : "request-unavailable",
-      );
-    } catch {
-      renderStatus("request-unavailable");
-    }
+    } catch {}
+    renderStatus("request-status");
   }
 
-  function renderBrowserStatus(document, status) {
-    const attribute =
-      status === "request-received" ? "receivedMessage" : "unavailableMessage";
+  function renderBrowserStatus(document) {
     for (const element of document.querySelectorAll("[data-deletion-status]")) {
-      const message = element.dataset[attribute];
+      const message = element.dataset.genericMessage;
       if (typeof message === "string") {
         element.textContent = message;
       }
       element.hidden = false;
-      element.dataset.state = status;
+      element.dataset.state = "request-status";
     }
   }
 
@@ -92,7 +98,7 @@
       location: root.location,
       history: root.history,
       fetchImpl: root.fetch.bind(root),
-      renderStatus: (status) => renderBrowserStatus(root.document, status),
+      renderStatus: () => renderBrowserStatus(root.document),
     });
   }
 
