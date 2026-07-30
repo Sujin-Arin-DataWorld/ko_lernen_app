@@ -18,7 +18,10 @@ import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
 import 'account/cloud_backup_deletion.dart';
 import 'account/cloud_write_session.dart';
+import 'account/first_link_backfill.dart';
 import 'app_startup_coordinator.dart';
+import 'bookshelf_service.dart';
+import 'pack_progress_service.dart';
 import 'push_service.dart';
 import 'storage_service.dart';
 
@@ -1465,10 +1468,49 @@ class AuthService {
     ).synchronizeReady(uid);
   }
 
-  static User? _activateSignedInUser(User? user) {
+  static final FirstDurableLinkBackfill _firstDurableLinkBackfill =
+      FirstDurableLinkBackfill(
+        sessions: cloudWriteSessionController,
+        currentUid: () => current?.uid,
+        hasReplacementJournal: _hasReplacementTransitionJournal,
+        uploadBookshelf: (session) =>
+            BookshelfService.uploadLocalGenerationForFirstDurableLink(
+              session: session,
+              sessions: cloudWriteSessionController,
+            ),
+        uploadPackProgress: (session) =>
+            PackProgressService.uploadLocalProgressForFirstDurableLink(
+              session: session,
+              sessions: cloudWriteSessionController,
+            ),
+      );
+
+  static final FirstDurableLinkActivation _firstDurableLinkActivation =
+      FirstDurableLinkActivation(
+        sessions: cloudWriteSessionController,
+        backfill: _firstDurableLinkBackfill,
+      );
+
+  static Future<bool> _hasReplacementTransitionJournal() async {
+    final preferences = await SharedPreferences.getInstance();
+    final journal = await SharedPreferencesReplacementTransitionJournalStore(
+      preferences,
+    ).read();
+    return journal?.replacementPhase != null;
+  }
+
+  static Future<User?> _activateSignedInUser(
+    User? user, {
+    required String sourceUid,
+  }) async {
     final uid = user?.uid;
     if (uid != null) {
       synchronizeReadyCloudWriteSession(uid);
+      await _firstDurableLinkActivation.activate(
+        sourceUid: sourceUid,
+        linkedUid: uid,
+        linkedIsAnonymous: user!.isAnonymous,
+      );
     }
     return user;
   }
@@ -1538,9 +1580,10 @@ class AuthService {
 
       final user = auth.currentUser;
       if (user != null && user.isAnonymous) {
+        final sourceUid = user.uid;
         final attempt = await attemptAnonymousCredentialLink<User?>(
           provider: AccountLinkProvider.google,
-          sourceUid: user.uid,
+          sourceUid: sourceUid,
           currentUid: () => auth.currentUser?.uid,
           linkCredential: () async {
             final result = await user.linkWithCredential(credential);
@@ -1552,6 +1595,7 @@ class AuthService {
         }
         return _activateSignedInUser(
           (attempt as AnonymousCredentialLinked<User?>).value,
+          sourceUid: sourceUid,
         );
       }
       throw const DurableAccountTransitionNotSupported();
@@ -1579,9 +1623,10 @@ class AuthService {
 
       final user = auth.currentUser;
       if (user != null && user.isAnonymous) {
+        final sourceUid = user.uid;
         final attempt = await attemptAnonymousCredentialLink<User?>(
           provider: AccountLinkProvider.apple,
-          sourceUid: user.uid,
+          sourceUid: sourceUid,
           currentUid: () => auth.currentUser?.uid,
           linkCredential: () async {
             final result = await user.linkWithCredential(credential);
@@ -1593,7 +1638,7 @@ class AuthService {
         }
         final linked = (attempt as AnonymousCredentialLinked<User?>).value;
         await _maybeSetAppleName(linked, appleCredential);
-        return _activateSignedInUser(linked);
+        return _activateSignedInUser(linked, sourceUid: sourceUid);
       }
       throw const DurableAccountTransitionNotSupported();
     });

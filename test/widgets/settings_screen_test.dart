@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
+import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -105,6 +106,104 @@ void main() {
     );
     expect(linkTile.onTap, isNull);
     expect(operations.linkCalls, 0);
+  });
+
+  testWidgets('account transition pending locks durable backup and restore', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final operations = _SettingsAccountOperations()
+      ..pending.value = AccountUiPendingState.replacementCancellable;
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: operations,
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    for (final label in ['Jetzt sichern', 'Von Cloud wiederherstellen']) {
+      await tester.scrollUntilVisible(
+        find.text(label),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final tile = tester.widget<ListTile>(
+        find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+      );
+      expect(tile.onTap, isNull, reason: label);
+    }
+  });
+
+  testWidgets('backup shows success only for a completed cloud result', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      backupWithResult: () async => CloudWriteResult.blocked,
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final backup = find.text('Jetzt sichern');
+    await tester.scrollUntilVisible(
+      backup,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(backup);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Backup erfolgreich ✓'), findsNothing);
+    expect(
+      find.text(
+        'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+        'Du kannst denselben Vorgang erneut versuchen.',
+      ),
+      findsOneWidget,
+    );
   });
 
   testWidgets('deletion failure is recoverable and redacts private details', (
@@ -490,6 +589,31 @@ class _SettingsAccountOperations
   @override
   Future<AccountTransitionResult> resumeReplacement() async =>
       const AccountTransitionResult(AccountTransitionStatus.completed);
+}
+
+class _ClearCloudBackupDeletionJournalStore
+    implements CloudBackupDeletionJournalStore {
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async =>
+      true;
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() async => null;
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) async {
+    throw UnimplementedError();
+  }
+}
+
+class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
+  @override
+  Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
+    String requestKey, {
+    required String expectedUid,
+  }) async {
+    throw UnimplementedError();
+  }
 }
 
 class _DeletionCleanup implements AccountDeletionCleanupOperations {

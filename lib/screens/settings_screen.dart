@@ -708,61 +708,72 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 subtitle: Text(t.settingsCloudSignedInDesc),
               ),
-              ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                valueListenable: _cloudDataDeletionJournalState,
-                builder: (context, cloudDeletionState, _) => ListTile(
-                  leading: const Icon(Icons.cloud_upload_outlined),
-                  title: Text(t.settingsCloudBackupNow),
-                  onTap:
-                      cloudDeletionState ==
-                          CloudBackupDeletionJournalState.clear
-                      ? _onBackupTap
-                      : null,
-                ),
-              ),
-              ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                valueListenable: _cloudDataDeletionJournalState,
-                builder: (context, cloudDeletionState, _) => ListTile(
-                  leading: const Icon(Icons.cloud_download_outlined),
-                  title: Text(t.settingsCloudRestore),
-                  onTap:
-                      cloudDeletionState ==
-                          CloudBackupDeletionJournalState.clear
-                      ? _onRestoreTap
-                      : null,
-                ),
-              ),
-              ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                valueListenable: _cloudDataDeletionJournalState,
-                builder: (context, cloudDeletionState, _) => ListTile(
-                  leading: const Icon(Icons.logout_rounded),
-                  title: Text(t.profileSignOut),
-                  onTap:
-                      cloudDeletionState ==
-                          CloudBackupDeletionJournalState.clear
-                      ? _onSignOutTap
-                      : null,
-                ),
-              ),
-              ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                valueListenable: _cloudDataDeletionJournalState,
-                builder: (context, cloudDeletionState, _) => ListTile(
-                  leading: const Icon(
-                    Icons.cloud_off_outlined,
-                    color: SoriColors.danger,
-                  ),
-                  title: Text(
-                    t.settingsCloudDeleteData,
-                    style: const TextStyle(color: SoriColors.danger),
-                  ),
-                  subtitle: Text(t.settingsCloudDeleteDataDesc),
-                  // A confirmed pending journal may resume the exact server
-                  // request; loading does not disclose or act on journal data.
-                  onTap:
-                      cloudDeletionState ==
-                          CloudBackupDeletionJournalState.loading
-                      ? null
-                      : _confirmCloudDelete,
+              AccountNewLinkGuard(
+                operations: _accountOperations,
+                builder: (context, accountActionsAvailable) => Column(
+                  children: [
+                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                      valueListenable: _cloudDataDeletionJournalState,
+                      builder: (context, cloudDeletionState, _) => ListTile(
+                        leading: const Icon(Icons.cloud_upload_outlined),
+                        title: Text(t.settingsCloudBackupNow),
+                        onTap:
+                            accountActionsAvailable &&
+                                cloudDeletionState ==
+                                    CloudBackupDeletionJournalState.clear
+                            ? _onBackupTap
+                            : null,
+                      ),
+                    ),
+                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                      valueListenable: _cloudDataDeletionJournalState,
+                      builder: (context, cloudDeletionState, _) => ListTile(
+                        leading: const Icon(Icons.cloud_download_outlined),
+                        title: Text(t.settingsCloudRestore),
+                        onTap:
+                            accountActionsAvailable &&
+                                cloudDeletionState ==
+                                    CloudBackupDeletionJournalState.clear
+                            ? _onRestoreTap
+                            : null,
+                      ),
+                    ),
+                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                      valueListenable: _cloudDataDeletionJournalState,
+                      builder: (context, cloudDeletionState, _) => ListTile(
+                        leading: const Icon(Icons.logout_rounded),
+                        title: Text(t.profileSignOut),
+                        onTap:
+                            accountActionsAvailable &&
+                                cloudDeletionState ==
+                                    CloudBackupDeletionJournalState.clear
+                            ? _onSignOutTap
+                            : null,
+                      ),
+                    ),
+                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                      valueListenable: _cloudDataDeletionJournalState,
+                      builder: (context, cloudDeletionState, _) => ListTile(
+                        leading: const Icon(
+                          Icons.cloud_off_outlined,
+                          color: SoriColors.danger,
+                        ),
+                        title: Text(
+                          t.settingsCloudDeleteData,
+                          style: const TextStyle(color: SoriColors.danger),
+                        ),
+                        subtitle: Text(t.settingsCloudDeleteDataDesc),
+                        // A confirmed pending journal may resume the exact server
+                        // request; loading does not disclose or act on journal data.
+                        onTap:
+                            accountActionsAvailable &&
+                                cloudDeletionState !=
+                                    CloudBackupDeletionJournalState.loading
+                            ? _confirmCloudDelete
+                            : null,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

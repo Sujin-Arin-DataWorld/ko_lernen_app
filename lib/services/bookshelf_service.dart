@@ -382,9 +382,35 @@ class BookshelfService {
     return 'g_${micros}_$random';
   }
 
+  /// Uploads the locally owned bookshelf only for the exact session that
+  /// completed a first anonymous-to-durable link. The cloud owner is derived
+  /// from [session], never supplied independently by a caller.
+  static Future<CloudWriteResult> uploadLocalGenerationForFirstDurableLink({
+    required CloudWriteSession session,
+    required CloudWriteSessionController sessions,
+    String? generationId,
+    BookshelfGenerationRepository? repository,
+  }) async {
+    final db = _db;
+    final selectedRepository =
+        repository ??
+        (db == null ? null : _FirestoreBookshelfGenerationRepository(db));
+    if (selectedRepository == null) return CloudWriteResult.blocked;
+    final entries = _portableLocalEntries();
+    return syncGenerationWithSession(
+      sessions: sessions,
+      uid: session.uid,
+      expectedSession: session,
+      generationId: generationId ?? _newGenerationId(),
+      entries: entries,
+      repository: selectedRepository,
+    );
+  }
+
   static Future<CloudWriteResult> syncGenerationWithSession({
     required CloudWriteSessionController sessions,
     required String uid,
+    CloudWriteSession? expectedSession,
     required String generationId,
     String? operationId,
     required Map<String, Map<String, dynamic>> entries,
@@ -393,8 +419,11 @@ class BookshelfService {
     bool allowParentOnlyLegacy = false,
     required BookshelfGenerationRepository repository,
   }) async {
-    final snapshot = CloudWriteFence(sessions).readySnapshot(uid);
+    final fence = CloudWriteFence(sessions);
+    final snapshot = expectedSession ?? fence.readySnapshot(uid);
     if (snapshot == null) return CloudWriteResult.blocked;
+    final initial = fence.verify(snapshot, uid: uid);
+    if (initial != CloudWriteResult.completed) return initial;
     try {
       final result = await BookshelfGenerationSync.stageAndActivate(
         repository: repository,

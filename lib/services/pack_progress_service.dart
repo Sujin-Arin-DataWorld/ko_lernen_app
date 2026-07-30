@@ -494,6 +494,45 @@ class PackProgressService {
     );
   }
 
+  /// Uploads locally owned pack progress only for the exact session that
+  /// completed a first anonymous-to-durable link. The target UID is derived
+  /// from [session], so callers cannot redirect this source upload.
+  static Future<CloudWriteResult> uploadLocalProgressForFirstDurableLink({
+    required CloudWriteSession session,
+    required CloudWriteSessionController sessions,
+    Future<CloudWriteResult> Function(Iterable<PackProgress> progresses)?
+    writeRemote,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final initial = fence.verify(session, uid: session.uid);
+    if (initial != CloudWriteResult.completed) return initial;
+    final local = getAll();
+    if (local.isEmpty) return fence.verify(session, uid: session.uid);
+
+    var remoteResult = CloudWriteResult.blocked;
+    try {
+      final fenced = await fence.runWithSnapshot(
+        snapshot: session,
+        uid: session.uid,
+        action: () async {
+          remoteResult =
+              await (writeRemote ??
+                  (progresses) => FirestoreProgressService.saveManyWithSession(
+                    progresses,
+                    sessions: sessions,
+                    uid: session.uid,
+                  ))(local.values);
+        },
+      );
+      return fenced == CloudWriteResult.completed ? remoteResult : fenced;
+    } catch (_) {
+      final afterFailure = fence.verify(session, uid: session.uid);
+      return afterFailure == CloudWriteResult.completed
+          ? CloudWriteResult.blocked
+          : afterFailure;
+    }
+  }
+
   static Future<CloudWriteResult> pushToCloudWithSession({
     required CloudWriteSessionController sessions,
     required String uid,

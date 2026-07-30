@@ -1,8 +1,19 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() async {
+    SharedPreferences.setMockInitialValues({});
+    Storage.resetForTesting();
+    await Storage.init();
+  });
+
   const catalog = {
     'pack-a': PackCatalogEntry(packId: 'pack-a', level: 'A1', wordsTotal: 10),
   };
@@ -85,6 +96,58 @@ void main() {
     expect(left.merged?['pack-a']?.bossAccuracy, 0.8);
     expect(left.merged?['pack-a']?.status, PackStatus.cleared);
     expect(left.merged?['pack-a']?.toJson(), right.merged?['pack-a']?.toJson());
+  });
+
+  test(
+    'first-link upload writes only local progress under its exact session',
+    () async {
+      await Storage.setPackProgressJson(
+        'pack-a',
+        _progress(
+          status: PackStatus.inProgress,
+          wordsLearned: 4,
+          attempts: 1,
+          bossAccuracy: 0.5,
+        ).toJson(),
+      );
+      final sessions = CloudWriteSessionController();
+      final session = sessions.acquire('source');
+      final uploaded = <PackProgress>[];
+
+      final result =
+          await PackProgressService.uploadLocalProgressForFirstDurableLink(
+            session: session,
+            sessions: sessions,
+            writeRemote: (progresses) async {
+              uploaded.addAll(progresses);
+              return CloudWriteResult.completed;
+            },
+          );
+
+      expect(result, CloudWriteResult.completed);
+      expect(uploaded.map((progress) => progress.packId), ['pack-a']);
+      expect(uploaded.single.wordsLearned, 4);
+    },
+  );
+
+  test('first-link upload rejects a newer session for the same UID', () async {
+    final sessions = CloudWriteSessionController();
+    final session = sessions.acquire('source');
+    sessions.acquire('source');
+    var remoteWrites = 0;
+
+    final result =
+        await PackProgressService.uploadLocalProgressForFirstDurableLink(
+          session: session,
+          sessions: sessions,
+          writeRemote: (progresses) async {
+            remoteWrites += 1;
+            return CloudWriteResult.completed;
+          },
+        );
+
+    expect(result, CloudWriteResult.stale);
+    expect(remoteWrites, 0);
   });
 }
 
