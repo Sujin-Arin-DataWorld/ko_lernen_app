@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -13,6 +14,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late _AdmissionJournalStore journal;
+  late _NoopGateway gateway;
   late List<String> operations;
 
   setUp(() {
@@ -21,11 +23,12 @@ void main() {
       const SharedPreferencesCloudBackupDeletionJournalStore(),
     );
     operations = <String>[];
+    gateway = _NoopGateway();
     final coordinator = CloudBackupDeletionCoordinator(
       sessions: CloudWriteSessionController()..acquire('durable'),
       currentUid: () => 'durable',
       journalStore: journal,
-      gateway: _NoopGateway(),
+      gateway: gateway,
       createRequestKey: () => 'A' * 43,
     );
     AuthService.overrideCloudBackupDeletionCoordinatorForTesting(coordinator);
@@ -106,6 +109,131 @@ void main() {
       );
 
       expect(operations, isEmpty);
+    },
+  );
+
+  test(
+    'direct account deletion does not start beside a replacement checkpoint',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        'replacement-pending',
+      );
+
+      await expectLater(
+        AuthService.deleteAccount(),
+        throwsA(
+          isA<AccountOperationFailure>()
+              .having(
+                (failure) => failure.code,
+                'code',
+                AccountOperationFailureCode.blocked,
+              )
+              .having((failure) => failure.retryable, 'retryable', isFalse),
+        ),
+      );
+
+      expect(operations, isEmpty);
+    },
+  );
+
+  test(
+    'direct sign out blocks a replacement checkpoint before identity work',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        'replacement-pending',
+      );
+
+      await expectLater(
+        AuthService.signOut(),
+        throwsA(isA<CloudBackupDeletionIdentityChangeBlockedException>()),
+      );
+    },
+  );
+
+  test(
+    'direct Google link blocks an account deletion checkpoint before identity work',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AuthService.accountDeletionCheckpointPreferenceKey,
+        'account-deletion-pending',
+      );
+
+      await expectLater(
+        AuthService.linkWithGoogle(),
+        throwsA(isA<CloudBackupDeletionIdentityChangeBlockedException>()),
+      );
+    },
+  );
+
+  test(
+    'direct Apple link blocks an account deletion checkpoint before identity work',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AuthService.accountDeletionCheckpointPreferenceKey,
+        'account-deletion-pending',
+      );
+
+      await expectLater(
+        AuthService.linkWithApple(),
+        throwsA(isA<CloudBackupDeletionIdentityChangeBlockedException>()),
+      );
+    },
+  );
+
+  test(
+    'account deletion admission permits its own durable checkpoint to resume',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AuthService.accountDeletionCheckpointPreferenceKey,
+        'account-deletion-pending',
+      );
+
+      await AuthService.deleteAccount();
+
+      expect(operations, <String>['delete-account']);
+    },
+  );
+
+  test(
+    'direct cloud deletion does not start beside a replacement checkpoint',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        'replacement-pending',
+      );
+
+      expect(await AuthService.deleteCloudData(), CloudWriteResult.blocked);
+      expect(gateway.deleteCalls, 0);
+    },
+  );
+
+  test(
+    'direct cloud deletion still starts when every durable checkpoint is clear',
+    () async {
+      expect(await AuthService.deleteCloudData(), CloudWriteResult.completed);
+      expect(gateway.deleteCalls, 1);
+    },
+  );
+
+  test(
+    'direct cloud deletion does not start beside an account deletion checkpoint',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AuthService.accountDeletionCheckpointPreferenceKey,
+        'account-deletion-pending',
+      );
+
+      expect(await AuthService.deleteCloudData(), CloudWriteResult.blocked);
+      expect(gateway.deleteCalls, 0);
     },
   );
 
@@ -215,9 +343,14 @@ class _AdmissionJournalStore implements CloudBackupDeletionJournalStore {
 }
 
 class _NoopGateway implements CloudBackupDeletionGateway {
+  int deleteCalls = 0;
+
   @override
   Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
     String requestKey, {
     required String expectedUid,
-  }) async => CloudBackupDeletionRemoteState.completed;
+  }) async {
+    deleteCalls += 1;
+    return CloudBackupDeletionRemoteState.completed;
+  }
 }

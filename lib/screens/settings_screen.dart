@@ -875,39 +875,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             // ── Reset ──
             _Section(label: ''),
-            ValueListenableBuilder<CloudBackupDeletionJournalState>(
-              valueListenable: _cloudDataDeletionJournalState,
-              builder: (context, cloudDeletionState, _) => ListTile(
-                leading: const Icon(
-                  Icons.delete_outline,
-                  color: SoriColors.danger,
-                ),
-                title: Text(
-                  t.settingsReset,
-                  style: const TextStyle(color: SoriColors.danger),
-                ),
-                onTap:
-                    cloudDeletionState == CloudBackupDeletionJournalState.clear
-                    ? _confirmReset
-                    : null,
-              ),
-            ),
-            ValueListenableBuilder<CloudBackupDeletionJournalState>(
-              valueListenable: _cloudDataDeletionJournalState,
-              builder: (context, cloudDeletionState, _) => ListTile(
-                leading: const Icon(
-                  Icons.person_remove_outlined,
-                  color: SoriColors.danger,
-                ),
-                title: Text(
-                  t.settingsAccountDelete,
-                  style: const TextStyle(color: SoriColors.danger),
-                ),
-                subtitle: Text(t.settingsAccountDeleteDesc),
-                onTap:
-                    cloudDeletionState == CloudBackupDeletionJournalState.clear
-                    ? _confirmAccountDelete
-                    : null,
+            AccountNewLinkGuard(
+              operations: _accountOperations,
+              builder: (context, accountActionsAvailable) => Column(
+                children: [
+                  ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                    valueListenable: _cloudDataDeletionJournalState,
+                    builder: (context, cloudDeletionState, _) => ListTile(
+                      leading: const Icon(
+                        Icons.delete_outline,
+                        color: SoriColors.danger,
+                      ),
+                      title: Text(
+                        t.settingsReset,
+                        style: const TextStyle(color: SoriColors.danger),
+                      ),
+                      onTap:
+                          accountActionsAvailable &&
+                              cloudDeletionState ==
+                                  CloudBackupDeletionJournalState.clear
+                          ? _confirmReset
+                          : null,
+                    ),
+                  ),
+                  ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                    valueListenable: _cloudDataDeletionJournalState,
+                    builder: (context, cloudDeletionState, _) => ListTile(
+                      leading: const Icon(
+                        Icons.person_remove_outlined,
+                        color: SoriColors.danger,
+                      ),
+                      title: Text(
+                        t.settingsAccountDelete,
+                        style: const TextStyle(color: SoriColors.danger),
+                      ),
+                      subtitle: Text(t.settingsAccountDeleteDesc),
+                      onTap:
+                          accountActionsAvailable &&
+                              cloudDeletionState ==
+                                  CloudBackupDeletionJournalState.clear
+                          ? _confirmAccountDelete
+                          : null,
+                    ),
+                  ),
+                ],
               ),
             ),
 

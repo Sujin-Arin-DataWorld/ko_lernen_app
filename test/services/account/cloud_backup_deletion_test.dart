@@ -385,7 +385,17 @@ void main() {
           createRequestKey: () => 'must-not-be-used',
         );
 
-        expect(await coordinator.run(), CloudWriteResult.completed);
+        var newRequestAdmissionCalls = 0;
+        expect(
+          await coordinator.run(
+            canStart: () async {
+              newRequestAdmissionCalls += 1;
+              return false;
+            },
+          ),
+          CloudWriteResult.completed,
+        );
+        expect(newRequestAdmissionCalls, 0);
         expect(gateway.requestKeys, ['C' * 43]);
         expect(restartedSessions.current!.uid, 'durable');
         expect(restartedSessions.current!.mode, CloudWriteMode.ready);

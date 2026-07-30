@@ -389,10 +389,14 @@ class CloudBackupDeletionCoordinator {
     });
   }
 
-  Future<CloudWriteResult> run() {
+  /// Starts a new cloud-backup deletion, or resumes its own persisted retry
+  /// journal. [canStart] is consulted only for a new request; a durable
+  /// journal must remain resumable even if another account action is now
+  /// pending.
+  Future<CloudWriteResult> run({Future<bool> Function()? canStart}) {
     final existing = _inFlight;
     if (existing != null) return existing;
-    final operation = _authGate.run(_run);
+    final operation = _authGate.run(() => _run(canStart: canStart));
     _inFlight = operation;
     return operation.whenComplete(() {
       if (identical(_inFlight, operation)) {
@@ -401,7 +405,7 @@ class CloudBackupDeletionCoordinator {
     });
   }
 
-  Future<CloudWriteResult> _run() async {
+  Future<CloudWriteResult> _run({Future<bool> Function()? canStart}) async {
     CloudBackupDeletionJournal? journal;
     _setJournalState(CloudBackupDeletionJournalState.loading);
     try {
@@ -436,6 +440,21 @@ class CloudBackupDeletionCoordinator {
     }
 
     if (journal == null) {
+      // This is the only point at which the operation can create its own
+      // durable retry key. Do not start beside a replacement or account-
+      // deletion checkpoint; an unreadable admission must fail closed.
+      if (canStart != null) {
+        var mayStart = false;
+        try {
+          mayStart = await canStart();
+        } catch (_) {
+          mayStart = false;
+        }
+        if (!mayStart) {
+          _setJournalState(CloudBackupDeletionJournalState.clear);
+          return CloudWriteResult.blocked;
+        }
+      }
       final current = sessions.current;
       if (current == null ||
           current.uid != liveUid ||

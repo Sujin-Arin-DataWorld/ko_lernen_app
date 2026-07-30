@@ -207,10 +207,11 @@ class _ProfileScreenState extends State<ProfileScreen>
                           ? _ConnectedCard(
                               name: name ?? providerLabel,
                               onSignOut:
-                                  cloudDeletionState !=
-                                      CloudBackupDeletionJournalState.clear
-                                  ? null
-                                  : _signOut,
+                                  linkAvailable &&
+                                      cloudDeletionState ==
+                                          CloudBackupDeletionJournalState.clear
+                                  ? _signOut
+                                  : null,
                             )
                           : _GuestCard(
                               busy: _busy,

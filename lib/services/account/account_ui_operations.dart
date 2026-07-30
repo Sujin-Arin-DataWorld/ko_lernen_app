@@ -62,59 +62,82 @@ abstract interface class AccountUiOperations {
 typedef AccountUiProviderLinker =
     Future<AccountUiLinkResult> Function(AccountLinkProvider provider);
 
+typedef AccountUiPendingStateReader = Future<AccountUiPendingState> Function();
+
 class ProductionAccountUiOperations
     implements AccountUiOperations, AccountUiPendingStateSource {
-  const ProductionAccountUiOperations({this.providerLinker});
+  const ProductionAccountUiOperations({
+    this.providerLinker,
+    @visibleForTesting this.pendingStateReader,
+  });
 
   final AccountUiProviderLinker? providerLinker;
+  final AccountUiPendingStateReader? pendingStateReader;
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.loading);
+  static int _pendingStateRefreshGeneration = 0;
 
   @override
   ValueListenable<AccountUiPendingState> get pendingState => _pendingState;
 
   @override
   Future<AccountUiPendingState> refreshPendingState() async {
+    final generation = ++_pendingStateRefreshGeneration;
     AccountUiPendingState next;
     try {
-      final preferences = await SharedPreferences.getInstance();
-      final replacement =
-          await SharedPreferencesReplacementTransitionJournalStore(
-            preferences,
-          ).read();
-      final deletion = await AuthService.readAccountDeletionCheckpoint();
-      final cloudBackupDeletion =
-          await const SharedPreferencesCloudBackupDeletionJournalStore().read();
-      if (cloudBackupDeletion != null) {
-        next = AccountUiPendingState.blocked;
-      } else if (replacement != null && deletion != null) {
-        next = AccountUiPendingState.blocked;
-      } else if (deletion != null) {
-        next = deletion.operation?.phase == AccountOperationPhase.completed
-            ? AccountUiPendingState.deletionLocalCleanup
-            : AccountUiPendingState.blocked;
-      } else if (replacement?.replacementPhase case final phase?) {
-        next = switch (phase) {
-          AccountReplacementPhase.targetVerified ||
-          AccountReplacementPhase.prepared ||
-          AccountReplacementPhase.attached ||
-          AccountReplacementPhase.reconciling ||
-          AccountReplacementPhase.reconciled =>
-            AccountUiPendingState.replacementCancellable,
-          AccountReplacementPhase.cleanupStarting ||
-          AccountReplacementPhase.cleanupPending ||
-          AccountReplacementPhase.activationPending =>
-            AccountUiPendingState.replacementResumable,
-        };
-      } else {
-        next = AccountUiPendingState.none;
-      }
+      next = await (pendingStateReader?.call() ?? _readPendingState());
     } catch (_) {
       next = AccountUiPendingState.blocked;
     }
+    // Multiple account widgets can refresh this shared durable state at once.
+    // Only the newest read may update the shared notifier; otherwise a late
+    // stale failure could keep fresh clear actions locked, or a late clear
+    // could unlock an action while a newer checkpoint is pending. Returning a
+    // stale clear result would also let its caller start provider OAuth, so a
+    // superseded read is blocked rather than treated as admission.
+    if (generation != _pendingStateRefreshGeneration) {
+      return AccountUiPendingState.blocked;
+    }
     _pendingState.value = next;
     return next;
+  }
+
+  static Future<AccountUiPendingState> _readPendingState() async {
+    final preferences = await SharedPreferences.getInstance();
+    final replacement =
+        await SharedPreferencesReplacementTransitionJournalStore(
+          preferences,
+        ).read();
+    final deletion = await AuthService.readAccountDeletionCheckpoint();
+    final cloudBackupDeletion =
+        await const SharedPreferencesCloudBackupDeletionJournalStore().read();
+    if (cloudBackupDeletion != null) {
+      return AccountUiPendingState.blocked;
+    }
+    if (replacement != null && deletion != null) {
+      return AccountUiPendingState.blocked;
+    }
+    if (deletion != null) {
+      return deletion.operation?.phase == AccountOperationPhase.completed
+          ? AccountUiPendingState.deletionLocalCleanup
+          : AccountUiPendingState.blocked;
+    }
+    if (replacement?.replacementPhase case final phase?) {
+      return switch (phase) {
+        AccountReplacementPhase.targetVerified ||
+        AccountReplacementPhase.prepared ||
+        AccountReplacementPhase.attached ||
+        AccountReplacementPhase.reconciling ||
+        AccountReplacementPhase.reconciled =>
+          AccountUiPendingState.replacementCancellable,
+        AccountReplacementPhase.cleanupStarting ||
+        AccountReplacementPhase.cleanupPending ||
+        AccountReplacementPhase.activationPending =>
+          AccountUiPendingState.replacementResumable,
+      };
+    }
+    return AccountUiPendingState.none;
   }
 
   @override

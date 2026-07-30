@@ -1566,7 +1566,7 @@ class AuthService {
   /// Existing-account collisions preserve the primary anonymous session and
   /// require explicit confirmation through [AccountTransitionCoordinator].
   static Future<User?> linkWithGoogle() {
-    return _cloudBackupDeletionCoordinator.runIdentityMutation(() async {
+    return _runDurableIdentityMutation(() async {
       final auth = _auth;
       if (auth == null) return null;
 
@@ -1605,7 +1605,7 @@ class AuthService {
   /// Anonymen User mit Apple-Account verlinken (iOS — App-Store-Pflicht 4.8).
   /// Existing-account collisions never activate the target implicitly.
   static Future<User?> linkWithApple() {
-    return _cloudBackupDeletionCoordinator.runIdentityMutation(() async {
+    return _runDurableIdentityMutation(() async {
       final auth = _auth;
       if (auth == null) return null;
 
@@ -1706,6 +1706,57 @@ class AuthService {
     );
   }
 
+  /// Admits a new account-affecting operation only when every durable account
+  /// journal is absent. The cloud backup deletion check and this fresh
+  /// replacement/deletion check run in the cloud coordinator's shared serial
+  /// lane, so public identity mutations cannot begin beside a retry journal.
+  ///
+  /// Account-deletion recovery is the one exception: its own durable
+  /// checkpoint must stay admissible so [AccountDeletionRemoteGate] can
+  /// resume or recover that exact operation.
+  static Future<T> runDurableAccountAdmission<T>({
+    required Future<T> Function() onAdmitted,
+    required Future<T> Function() onBlocked,
+    bool allowAccountDeletionCheckpoint = false,
+  }) {
+    return runCloudBackupDeletionAdmission<T>(
+      onAdmitted: () async {
+        final clear = await _otherDurableAccountJournalsAreClear(
+          allowAccountDeletionCheckpoint: allowAccountDeletionCheckpoint,
+        );
+        return clear ? onAdmitted() : onBlocked();
+      },
+      onBlocked: onBlocked,
+    );
+  }
+
+  static Future<bool> _otherDurableAccountJournalsAreClear({
+    required bool allowAccountDeletionCheckpoint,
+  }) async {
+    try {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.reload();
+      if (preferences.containsKey(AccountTransitionJournal.storageKey)) {
+        return false;
+      }
+      return allowAccountDeletionCheckpoint ||
+          !preferences.containsKey(accountDeletionCheckpointPreferenceKey);
+    } catch (_) {
+      return false;
+    }
+  }
+
+  static Future<T> _runDurableIdentityMutation<T>(
+    Future<T> Function() mutation,
+  ) {
+    return runDurableAccountAdmission<T>(
+      onAdmitted: mutation,
+      onBlocked: () => Future<T>.error(
+        const CloudBackupDeletionIdentityChangeBlockedException(),
+      ),
+    );
+  }
+
   @visibleForTesting
   static void overrideCloudBackupDeletionCoordinatorForTesting(
     CloudBackupDeletionCoordinator coordinator,
@@ -1727,14 +1778,23 @@ class AuthService {
   }
 
   /// Requests bounded server-owned backup removal. Local data stays untouched.
+  ///
+  /// A persisted cloud-deletion journal is still allowed to resume, but a new
+  /// deletion cannot begin while replacement or account-deletion recovery has
+  /// an outstanding durable checkpoint.
   static Future<CloudWriteResult> deleteCloudData() =>
-      _cloudBackupDeletionCoordinator.run();
+      _cloudBackupDeletionCoordinator.run(
+        canStart: () => _otherDurableAccountJournalsAreClear(
+          allowAccountDeletionCheckpoint: false,
+        ),
+      );
 
   /// Requests server-owned account deletion and polls its authoritative state.
   ///
   /// Caller clears local device data only after this completes.
   static Future<void> deleteAccount() {
-    return runCloudBackupDeletionAdmission<void>(
+    return runDurableAccountAdmission<void>(
+      allowAccountDeletionCheckpoint: true,
       onAdmitted: _deleteAccountAfterCloudBackupAdmission,
       onBlocked: () => Future<void>.error(
         const AccountOperationFailure(
@@ -1845,7 +1905,8 @@ class AuthService {
 
   /// Continues the exact durable server operation restored at startup.
   static Future<void> resumePendingAccountDeletion() {
-    return runCloudBackupDeletionAdmission<void>(
+    return runDurableAccountAdmission<void>(
+      allowAccountDeletionCheckpoint: true,
       onAdmitted: _resumePendingAccountDeletionAfterCloudBackupAdmission,
       onBlocked: () => Future<void>.error(
         const AccountOperationFailure(
@@ -1881,7 +1942,7 @@ class AuthService {
 
   /// Aus Google-Account ausloggen → wieder anonym.
   static Future<void> signOut() {
-    return _cloudBackupDeletionCoordinator.runIdentityMutation(() async {
+    return _runDurableIdentityMutation(() async {
       final auth = _auth;
       final oldUid = auth?.currentUser?.uid;
       if (auth == null || oldUid == null) {

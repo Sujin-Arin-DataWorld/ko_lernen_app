@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -40,6 +41,48 @@ void main() {
 
       expect(state, AccountUiPendingState.replacementCancellable);
       expect(operations.pendingState.value, state);
+    },
+  );
+
+  test(
+    'a late failed durable read cannot overwrite a newer clear admission',
+    () async {
+      final lateResult = Completer<AccountUiPendingState>();
+      final older = ProductionAccountUiOperations(
+        pendingStateReader: () => lateResult.future,
+      );
+      final newer = ProductionAccountUiOperations(
+        pendingStateReader: () async => AccountUiPendingState.none,
+      );
+
+      final olderRead = older.refreshPendingState();
+      expect(await newer.refreshPendingState(), AccountUiPendingState.none);
+      expect(newer.pendingState.value, AccountUiPendingState.none);
+
+      lateResult.completeError(StateError('stale durable read failed'));
+      expect(await olderRead, AccountUiPendingState.blocked);
+      expect(newer.pendingState.value, AccountUiPendingState.none);
+    },
+  );
+
+  test(
+    'a late clear durable read cannot unlock a newer blocked admission',
+    () async {
+      final lateResult = Completer<AccountUiPendingState>();
+      final older = ProductionAccountUiOperations(
+        pendingStateReader: () => lateResult.future,
+      );
+      final newer = ProductionAccountUiOperations(
+        pendingStateReader: () async => AccountUiPendingState.blocked,
+      );
+
+      final olderRead = older.refreshPendingState();
+      expect(await newer.refreshPendingState(), AccountUiPendingState.blocked);
+      expect(newer.pendingState.value, AccountUiPendingState.blocked);
+
+      lateResult.complete(AccountUiPendingState.none);
+      expect(await olderRead, AccountUiPendingState.blocked);
+      expect(newer.pendingState.value, AccountUiPendingState.blocked);
     },
   );
 

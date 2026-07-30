@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -41,6 +42,52 @@ void main() {
   );
 
   test(
+    'programmatic reset preserves a persisted replacement journal',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        'pending-replacement',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'keep-me');
+
+      await expectLater(
+        Storage.resetAll(),
+        throwsA(isA<CloudBackupDeletionResetBlockedException>()),
+      );
+
+      expect(
+        preferences.getString(AccountTransitionJournal.storageKey),
+        'pending-replacement',
+      );
+      expect(preferences.getString('kl_progress_for_reset_test'), 'keep-me');
+    },
+  );
+
+  test(
+    'programmatic reset preserves a persisted account deletion checkpoint',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        Storage.accountDeletionCheckpointPreferenceKey,
+        'pending-account-deletion',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'keep-me');
+
+      await expectLater(
+        Storage.resetAll(),
+        throwsA(isA<CloudBackupDeletionResetBlockedException>()),
+      );
+
+      expect(
+        preferences.getString(Storage.accountDeletionCheckpointPreferenceKey),
+        'pending-account-deletion',
+      );
+      expect(preferences.getString('kl_progress_for_reset_test'), 'keep-me');
+    },
+  );
+
+  test(
     'strict reset also preserves a persisted pending cloud deletion journal',
     () async {
       final store = const SharedPreferencesCloudBackupDeletionJournalStore();
@@ -52,6 +99,84 @@ void main() {
       );
 
       expect(await store.read(), isNotNull);
+    },
+  );
+
+  test(
+    'strict reset blocks an account deletion checkpoint without its cleanup canonicalizer',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        Storage.accountDeletionCheckpointPreferenceKey,
+        'pending-account-deletion',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'keep-me');
+
+      await expectLater(
+        Storage.resetAllStrict(),
+        throwsA(isA<CloudBackupDeletionResetBlockedException>()),
+      );
+
+      expect(
+        preferences.getString(Storage.accountDeletionCheckpointPreferenceKey),
+        'pending-account-deletion',
+      );
+      expect(preferences.getString('kl_progress_for_reset_test'), 'keep-me');
+    },
+  );
+
+  test(
+    'strict account-deletion cleanup retains and canonicalizes its completed checkpoint',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        Storage.accountDeletionCheckpointPreferenceKey,
+        'completed-account-deletion',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'remove-me');
+
+      await Storage.resetAllStrict(
+        canonicalizeAccountDeletionCheckpoint: (raw) => 'canonical:$raw',
+      );
+
+      expect(
+        preferences.getString(Storage.accountDeletionCheckpointPreferenceKey),
+        'canonical:completed-account-deletion',
+      );
+      expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
+    },
+  );
+
+  test(
+    'strict account-deletion cleanup blocks a replacement checkpoint',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AccountTransitionJournal.storageKey,
+        'pending-replacement',
+      );
+      await preferences.setString(
+        Storage.accountDeletionCheckpointPreferenceKey,
+        'completed-account-deletion',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'keep-me');
+
+      await expectLater(
+        Storage.resetAllStrict(
+          canonicalizeAccountDeletionCheckpoint: (raw) => 'canonical:$raw',
+        ),
+        throwsA(isA<CloudBackupDeletionResetBlockedException>()),
+      );
+
+      expect(
+        preferences.getString(AccountTransitionJournal.storageKey),
+        'pending-replacement',
+      );
+      expect(
+        preferences.getString(Storage.accountDeletionCheckpointPreferenceKey),
+        'completed-account-deletion',
+      );
+      expect(preferences.getString('kl_progress_for_reset_test'), 'keep-me');
     },
   );
 
@@ -114,6 +239,50 @@ void main() {
   );
 
   test(
+    'ordinary reset retains a replacement checkpoint written after admission',
+    () async {
+      final store = _InterleavingPreferenceRemovalStore(
+        insertedJournalKey: AccountTransitionJournal.storageKey,
+      );
+
+      await Storage.resetAll(preferences: store);
+
+      expect(
+        store.durable.containsKey(AccountTransitionJournal.storageKey),
+        isTrue,
+      );
+      expect(
+        store.removals,
+        isNot(contains(AccountTransitionJournal.storageKey)),
+      );
+      expect(store.durable.containsKey('kl_progress'), isFalse);
+    },
+  );
+
+  test(
+    'ordinary reset retains an account deletion checkpoint written after admission',
+    () async {
+      final store = _InterleavingPreferenceRemovalStore(
+        insertedJournalKey: Storage.accountDeletionCheckpointPreferenceKey,
+      );
+
+      await Storage.resetAll(preferences: store);
+
+      expect(
+        store.durable.containsKey(
+          Storage.accountDeletionCheckpointPreferenceKey,
+        ),
+        isTrue,
+      );
+      expect(
+        store.removals,
+        isNot(contains(Storage.accountDeletionCheckpointPreferenceKey)),
+      );
+      expect(store.durable.containsKey('kl_progress'), isFalse);
+    },
+  );
+
+  test(
     'ordinary reset fails closed when its final journal reload fails',
     () async {
       final store = _InterleavingPreferenceRemovalStore()..reloadFails = true;
@@ -140,6 +309,11 @@ CloudBackupDeletionJournal _pendingJournal() =>
     );
 
 class _InterleavingPreferenceRemovalStore implements PreferenceRemovalStore {
+  _InterleavingPreferenceRemovalStore({
+    this.insertedJournalKey = Storage.cloudBackupDeletionJournalPreferenceKey,
+  });
+
+  final String insertedJournalKey;
   final Map<String, Object> values = <String, Object>{
     'kl_progress': 'remove-me',
   };
@@ -157,8 +331,8 @@ class _InterleavingPreferenceRemovalStore implements PreferenceRemovalStore {
   Set<String> getKeys() {
     if (!_journalInserted) {
       _journalInserted = true;
-      values[Storage.cloudBackupDeletionJournalPreferenceKey] = 'retry-key';
-      durable[Storage.cloudBackupDeletionJournalPreferenceKey] = 'retry-key';
+      values[insertedJournalKey] = 'retry-key';
+      durable[insertedJournalKey] = 'retry-key';
     }
     return values.keys.toSet();
   }

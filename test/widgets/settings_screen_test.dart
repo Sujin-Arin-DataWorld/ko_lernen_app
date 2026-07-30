@@ -183,6 +183,8 @@ void main() {
         'Von Cloud wiederherstellen',
         'Abmelden',
         'Cloud-Daten löschen',
+        'Alle Daten zurücksetzen',
+        'Konto und alle Daten löschen',
       ]) {
         await _expectSettingsTileDisabled(tester, label);
       }
@@ -193,10 +195,8 @@ void main() {
       await tester.pump();
 
       for (final label in <String>[
-        'Jetzt sichern',
-        'Von Cloud wiederherstellen',
-        'Abmelden',
-        'Cloud-Daten löschen',
+        'Alle Daten zurücksetzen',
+        'Konto und alle Daten löschen',
       ]) {
         await _expectSettingsTileDisabled(tester, label);
       }
