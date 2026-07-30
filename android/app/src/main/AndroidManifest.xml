@@ -95,11 +95,12 @@
     <!-- M3: lokale Benachrichtigungen (tägliche Lern-Erinnerung). Kein FCM. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- No ads or advertising identifiers. Keep these removals so transitive
-         Firebase/Play Services manifests cannot reintroduce them. -->
-    <uses-permission
-        android:name="com.google.android.gms.permission.AD_ID"
-        tools:node="remove" />
+    <!-- 광고 ID: Play "광고 ID 사용=예" 선언에 맞춰 활성화 (2026-07-31).
+         실제 광고 SDK(AdMob 등)는 추후 통합 — 지금은 선언 일치 + 애널리틱스용.
+         Analytics는 opt-in이라 사용자 동의 전엔 AD_ID 미수집(GDPR). -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <!-- Privacy Sandbox(ACCESS_ADSERVICES_AD_ID)는 해당 SDK 도입 시 활성화 —
+         현재는 전이 매니페스트 유입 차단 유지. -->
     <uses-permission
         android:name="android.permission.ACCESS_ADSERVICES_AD_ID"
         tools:node="remove" />
