@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
+import 'bookshelf_service.dart';
 import 'cloud_sync_service.dart';
 import 'storage_service.dart';
 
@@ -18,9 +19,9 @@ import 'storage_service.dart';
 /// (xp/level/stamps/quests) + SRS-Deck + Custom-Packs + Bücherregal**
 /// (sonst Verlust bei Reinstall/Gerätewechsel). packs werden separat von
 /// `firestore_progress_service` synchronisiert → hier nicht dupliziert.
-/// Bücherregal: `bookshelf_service` schreibt zwar best-effort einzelne Docs,
-/// hatte aber **keinen Restore-Pfad** → seit 2026-06-12 hier als
-/// `bookshelf_json` mitgesichert/-wiederhergestellt (Gerätewechsel-Schutz).
+/// Bookshelf data is canonical in immutable generations owned by
+/// `BookshelfService`. `bookshelf_json` is accepted only as legacy restore
+/// input and is never emitted by this root-document writer.
 class CloudSync {
   static FirebaseFirestore get _db => FirebaseFirestore.instance;
 
@@ -72,15 +73,8 @@ class CloudSync {
       Storage.customPacksRawJson,
       stripBookshelfThumbnail: false,
     );
-    final bookshelf = _portableStructuredJson(
-      Storage.bookshelfRawJson,
-      stripBookshelfThumbnail: true,
-    );
     if (customPacks != null) {
       payload['custom_packs_json'] = customPacks;
-    }
-    if (bookshelf != null) {
-      payload['bookshelf_json'] = bookshelf;
     }
     return payload;
   }
@@ -540,8 +534,10 @@ class CloudSync {
     if (uid == null) return false;
     final result = await CloudSyncService.readAccountDocument(uid: uid);
     if (!result.isPresent || result.value == null) return false;
-    await applyRestorePayload(result.value!);
-    return true;
+    final accountData = Map<String, dynamic>.from(result.value!)
+      ..remove('bookshelf_json');
+    await applyRestorePayload(accountData);
+    return BookshelfService.restoreRemote(uid);
   }
 
   /// Zeitstempel des letzten Cloud-Backups (zur Anzeige in Settings).

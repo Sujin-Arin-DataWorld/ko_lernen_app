@@ -90,7 +90,6 @@ void main() {
         },
         'srs_json': '{"srs":1}',
         'custom_packs_json': '{"pack1":{"name":"Pack 1"}}',
-        'bookshelf_json': '{"page1":{"note":"Page 1"}}',
       });
     },
   );
@@ -246,11 +245,11 @@ void main() {
     expect(Storage.questCompletions, {'quest1': '2026-07-01T00:00:00.000Z'});
     expect(Storage.srsRawJson, '{"srs":1}');
     expect(Storage.customPacksRawJson, '{"pack1":{"name":"Pack 1"}}');
-    expect(Storage.bookshelfRawJson, '{"page1":{"note":"Page 1"}}');
+    expect(Storage.bookshelfRawJson, isEmpty);
   });
 
   test(
-    'production custom-pack and bookshelf services round-trip through backup',
+    'root backup round-trips custom packs but not canonical bookshelf data',
     () async {
       final pack = await CustomPackService.createEmpty(name: 'Cloud pack');
       final page = BookPage(
@@ -271,10 +270,18 @@ void main() {
       await CloudSync.applyRestorePayload(backup);
 
       expect(CustomPackService.getById(pack.id)?.name, 'Cloud pack');
-      expect(BookshelfService.getById(page.id)?.note, 'Cloud note');
-      expect(BookshelfService.getById(page.id)?.customPackId, pack.id);
+      expect(backup, isNot(contains('bookshelf_json')));
+      expect(BookshelfService.getById(page.id), isNull);
     },
   );
+
+  test('legacy root bookshelf remains readable during migration', () async {
+    await CloudSync.applyRestorePayload({
+      'bookshelf_json': '{"page1":{"note":"Legacy page"}}',
+    });
+
+    expect(BookshelfService.getById('page1')?.note, 'Legacy page');
+  });
 
   test(
     'level restore normalizes supported levels and rejects garbage',
