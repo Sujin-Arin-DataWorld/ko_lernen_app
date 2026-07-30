@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../models/pack_progress.dart';
@@ -23,7 +24,9 @@ class AccountReconciliationSnapshot {
     required this.packProgress,
     this.packRevisions = const {},
     this.packMembershipRevision,
+    this.localSrsGeneration,
     this.localCustomPackGeneration,
+    this.localPackProgressGeneration,
   });
 
   static const empty = AccountReconciliationSnapshot(
@@ -33,7 +36,9 @@ class AccountReconciliationSnapshot {
     packProgress: {},
     packRevisions: {},
     packMembershipRevision: null,
+    localSrsGeneration: null,
     localCustomPackGeneration: null,
+    localPackProgressGeneration: null,
   );
 
   final Map<String, Object?> fields;
@@ -42,7 +47,9 @@ class AccountReconciliationSnapshot {
   final Map<String, PackProgress> packProgress;
   final Map<String, int?> packRevisions;
   final int? packMembershipRevision;
+  final String? localSrsGeneration;
   final String? localCustomPackGeneration;
+  final String? localPackProgressGeneration;
 
   static CloudReadResult<AccountReconciliationSnapshot> decodeCloudDocument(
     Map<String, dynamic> document, {
@@ -263,7 +270,9 @@ class AccountReconciliationMerger {
         packProgress: packResult.merged!,
         packRevisions: remote.packRevisions,
         packMembershipRevision: remote.packMembershipRevision,
+        localSrsGeneration: local.localSrsGeneration,
         localCustomPackGeneration: local.localCustomPackGeneration,
+        localPackProgressGeneration: local.localPackProgressGeneration,
       ),
       conflicts: const [],
     );
@@ -405,15 +414,18 @@ class LocalAccountReconciliationStore {
   const LocalAccountReconciliationStore._();
 
   static AccountReconciliationSnapshot load() {
+    final srsGeneration = _hashText(Storage.srsRawJson);
     final customPackGeneration =
         CustomPackService.localReconciliationGeneration;
     final customPacks = CustomPackService.readLocalForReconciliation();
     if (!customPacks.isPresent) {
       throw const FormatException('Invalid local custom-pack data.');
     }
+    final packProgress = PackProgressService.getAll();
+    final packProgressGeneration = _packProgressGeneration(packProgress);
     final result = AccountReconciliationSnapshot.decodeCloudDocument(
       CloudSync.buildBackupPayload(),
-      packProgress: PackProgressService.getAll(),
+      packProgress: packProgress,
     );
     if (!result.isPresent || result.value == null) {
       throw const FormatException('Invalid local reconciliation data.');
@@ -426,22 +438,94 @@ class LocalAccountReconciliationStore {
       packProgress: snapshot.packProgress,
       packRevisions: snapshot.packRevisions,
       packMembershipRevision: snapshot.packMembershipRevision,
+      localSrsGeneration: srsGeneration,
       localCustomPackGeneration: customPackGeneration,
+      localPackProgressGeneration: packProgressGeneration,
     );
   }
 
-  static Future<void> write(AccountReconciliationSnapshot snapshot) async {
+  static Future<void> write(
+    AccountReconciliationSnapshot snapshot, {
+    required CloudWriteSession session,
+    required CloudWriteSessionController sessions,
+  }) async {
     await CustomPackService.writeReconciledPortable(
       snapshot.customPacks,
       expectedGeneration: snapshot.localCustomPackGeneration,
+      beforeWrite: () {
+        _assertCurrent(session, sessions);
+        _assertCompositeGeneration(snapshot);
+      },
     );
-    await CloudSync.applyRestorePayload(snapshot.toCloudDocument());
+    final ordinaryFields = snapshot.toCloudDocument()
+      ..remove('srs_json')
+      ..remove('custom_packs_json');
+    await CloudSync.applyRestorePayload(
+      ordinaryFields,
+      beforeWrite: () => _assertCurrent(session, sessions),
+    );
+    _assertCurrent(session, sessions);
+    _assertSrsGeneration(snapshot);
     await Storage.setSrsRawJsonStrict(jsonEncode(snapshot.srsCards));
+    _assertCurrent(session, sessions);
+    _assertPackProgressGeneration(snapshot);
     await Storage.setAllPackProgressJsonStrict({
       for (final entry in snapshot.packProgress.entries)
         entry.key: entry.value.toJson(),
     });
+    _assertCurrent(session, sessions);
   }
+
+  static void _assertCompositeGeneration(
+    AccountReconciliationSnapshot snapshot,
+  ) {
+    _assertSrsGeneration(snapshot);
+    if (snapshot.localCustomPackGeneration != null &&
+        CustomPackService.localReconciliationGeneration !=
+            snapshot.localCustomPackGeneration) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+    _assertPackProgressGeneration(snapshot);
+  }
+
+  static void _assertSrsGeneration(AccountReconciliationSnapshot snapshot) {
+    if (snapshot.localSrsGeneration != null &&
+        _hashText(Storage.srsRawJson) != snapshot.localSrsGeneration) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+  }
+
+  static void _assertPackProgressGeneration(
+    AccountReconciliationSnapshot snapshot,
+  ) {
+    if (snapshot.localPackProgressGeneration != null &&
+        _packProgressGeneration(PackProgressService.getAll()) !=
+            snapshot.localPackProgressGeneration) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+  }
+
+  static void _assertCurrent(
+    CloudWriteSession session,
+    CloudWriteSessionController sessions,
+  ) {
+    if (session.mode != CloudWriteMode.reconciling) {
+      throw const LocalReconciliationSessionConflict();
+    }
+    try {
+      sessions.assertCurrent(session);
+    } on StateError {
+      throw const LocalReconciliationSessionConflict();
+    }
+  }
+}
+
+class LocalReconciliationGenerationConflict implements Exception {
+  const LocalReconciliationGenerationConflict();
+}
+
+class LocalReconciliationSessionConflict implements Exception {
+  const LocalReconciliationSessionConflict();
 }
 
 enum ReconciliationWriteStatus { committed, revisionConflict }
@@ -468,7 +552,11 @@ typedef AccountRemoteWriter =
       required String operationId,
     });
 typedef AccountLocalWriter =
-    Future<void> Function(AccountReconciliationSnapshot snapshot);
+    Future<void> Function(
+      AccountReconciliationSnapshot snapshot, {
+      required CloudWriteSession session,
+      required CloudWriteSessionController sessions,
+    });
 
 enum AccountReconciliationStatus {
   completed,
@@ -558,6 +646,7 @@ class AccountReconciliationCoordinator {
       );
     }
 
+    Set<String>? previousLocalCustomPackIds;
     for (var attempt = 0; attempt < maxCasAttempts; attempt += 1) {
       if (!_isCurrent(session)) {
         return const AccountReconciliationResult(
@@ -605,6 +694,28 @@ class AccountReconciliationCoordinator {
           AccountReconciliationStatus.unavailable,
         );
       }
+      final currentLocalCustomPackIds = local.customPacks.keys.toSet();
+      final deletedLocalCustomPackIds = previousLocalCustomPackIds?.difference(
+        currentLocalCustomPackIds,
+      );
+      if (deletedLocalCustomPackIds != null &&
+          deletedLocalCustomPackIds.isNotEmpty) {
+        final conflicts =
+            deletedLocalCustomPackIds
+                .map(
+                  (id) => AccountReconciliationConflict(
+                    kind: AccountReconciliationConflictKind.customPackId,
+                    id: id,
+                  ),
+                )
+                .toList()
+              ..sort((left, right) => left.id.compareTo(right.id));
+        return AccountReconciliationResult(
+          AccountReconciliationStatus.blocked,
+          conflicts: conflicts,
+        );
+      }
+      previousLocalCustomPackIds = currentLocalCustomPackIds;
       final merge = AccountReconciliationMerger.merge(
         local: local,
         remote: remote,
@@ -675,9 +786,15 @@ class AccountReconciliationCoordinator {
           );
         }
         try {
-          await writeLocal(merged);
+          await writeLocal(merged, session: session, sessions: sessions);
         } on LocalCustomPackGenerationConflict {
           continue;
+        } on LocalReconciliationGenerationConflict {
+          continue;
+        } on LocalReconciliationSessionConflict {
+          return const AccountReconciliationResult(
+            AccountReconciliationStatus.stale,
+          );
         } catch (_) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,
@@ -914,6 +1031,14 @@ bool _deepEquals(Object? left, Object? right) {
 }
 
 int _stableHash(Object? value) => _stableText(value).hashCode;
+
+String _hashText(String value) => sha256.convert(utf8.encode(value)).toString();
+
+String _packProgressGeneration(Map<String, PackProgress> progress) => _hashText(
+  _stableText({
+    for (final entry in progress.entries) entry.key: entry.value.toJson(),
+  }),
+);
 
 String _stableText(Object? value) {
   final canonical = _canonicalFieldValue(value);

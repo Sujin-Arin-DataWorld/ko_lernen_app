@@ -81,6 +81,23 @@ local generation CAS rejects that stale commit, the coordinator re-reads and
 re-merges, and the divergent same-ID pack produces a typed conflict while both
 the edited text and promoted `imagePath` remain intact.
 
+The final data-safety review added four exact-order RED cases:
+
+- switching UID/session while the local writer was delayed still persisted the
+  old session's SRS payload before returning `stale`;
+- an SRS review completed during the paused remote write, but reconciliation
+  returned `completed` and restored the older review count;
+- a pack-progress update completed during the paused remote write, but no
+  local-generation retry occurred and the newer learned-word count was lost;
+  and
+- deleting a local custom pack during the paused remote write caused the retry
+  to treat the now-remote-only pack as new data, return `completed`, and
+  resurrect it locally.
+
+All four failures were observed against the preceding production code before
+the composite generation, effect-point session fence, and deletion-aware retry
+changes.
+
 ## GREEN and verification
 
 Final focused Task 8 command:
@@ -89,7 +106,7 @@ Final focused Task 8 command:
 flutter test test/services/account/account_reconciliation_test.dart test/services/account/account_transition_journal_test.dart test/services/cloud_sync_service_test.dart test/services/firestore_progress_service_test.dart test/services/pack_progress_service_test.dart --reporter compact
 ```
 
-Result: 50/50 passed.
+Result: 54/54 passed.
 
 Relevant service and legacy commands:
 
@@ -98,7 +115,7 @@ flutter test test/services --reporter compact
 flutter test test/custom_pack_test.dart test/media_lifecycle_test.dart test/cloud_sync_test.dart test/services/account/concrete_cloud_writer_race_test.dart test/services/account/cloud_writer_fence_test.dart --reporter compact
 ```
 
-Results: 133/133 service tests and 91/91 related legacy/race tests passed.
+Results: 137/137 service tests and 91/91 related legacy/race tests passed.
 
 Full Flutter command:
 
@@ -106,21 +123,21 @@ Full Flutter command:
 flutter test --reporter compact
 ```
 
-Result: 881/881 passed, zero failures, exit 0 in 57.9 seconds on the final
-stale-local follow-up gate (about 53 seconds of Flutter test-clock time).
+Result: 885/885 passed, zero failures, exit 0 in 54.6 seconds on the final
+data-safety follow-up gate (about 50 seconds of Flutter test-clock time).
 
 Static and hygiene commands:
 
 ```text
 flutter analyze
-dart format --set-exit-if-changed <3 stale-local follow-up Dart files>
+dart format --set-exit-if-changed <4 data-safety follow-up Dart files>
 git diff --check
 ```
 
 Results:
 
 - `flutter analyze`: no issues found.
-- Dart format: 3 follow-up files checked, 0 changed.
+- Dart format: 4 follow-up files checked, 0 changed.
 - `git diff --check`: clean; only informational LF-to-CRLF worktree warnings
   were emitted.
 
@@ -169,13 +186,21 @@ Results:
   references instead of replacing them with remote portable data. Its complete
   read/compare/write critical section now uses the same `MediaMutationLock` as
   normal save/delete/rename/media mutations.
-- The local snapshot also carries an opaque SHA-256 generation of the raw
-  custom-pack payload. The final custom-pack write compares that generation
-  inside `MediaMutationLock`, before any other local reconciliation domain is
-  written. A mismatch performs no partial local commit: the coordinator
-  re-reads and re-merges, preserving a concurrently completed media mutation
-  and surfacing a typed same-ID conflict when histories diverge. No remote
-  network await occurs while the media lock is held.
+- The local snapshot carries opaque SHA-256 generations for SRS, custom packs,
+  and pack progress. The first local effect performs a composite preflight
+  inside `MediaMutationLock`; SRS and pack progress are rechecked again at
+  their own effect points. A mismatch re-enters the coordinator read/merge
+  loop, so a completed SRS review, media mutation, or pack-progress update is
+  merged or surfaced as a typed conflict instead of being overwritten.
+- The exact reconciling UID/epoch/mode is passed into the concrete local writer.
+  Every ordinary restore effect and every strict reconciliation-owned write
+  revalidates it immediately before mutation. A session change while the
+  writer is delayed returns typed `stale` without persisting the old merge.
+  No remote/network await occurs while `MediaMutationLock` is held.
+- Retry state remembers the prior local custom-pack ID set. If a previously
+  observed local ID disappears, reconciliation returns a sorted
+  `customPackId` conflict before union merge, so a remote copy created by the
+  first attempt cannot resurrect the local deletion.
 - Ordinary field values are canonicalized before merge/hash/write: integral
   doubles become integers, ISO instants become UTC, nested map insertion order
   is stable, and mixed-type list unions use a type-tagged total ordering.

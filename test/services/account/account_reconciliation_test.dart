@@ -260,7 +260,8 @@ void main() {
               remoteWrites += 1;
               return const ReconciliationWriteResult.committed(revision: 1);
             },
-        writeLocal: (_) async => localWrites += 1,
+        writeLocal: (_, {required session, required sessions}) async =>
+            localWrites += 1,
       );
 
       final result = await coordinator.reconcile(
@@ -290,7 +291,8 @@ void main() {
                 writes += 1;
                 return const ReconciliationWriteResult.committed(revision: 1);
               },
-          writeLocal: (_) async => writes += 1,
+          writeLocal: (_, {required session, required sessions}) async =>
+              writes += 1,
         );
 
         final result = await coordinator.reconcile(
@@ -325,7 +327,7 @@ void main() {
             Future.value(
               const ReconciliationWriteResult.committed(revision: 1),
             ),
-        writeLocal: (_) async {},
+        writeLocal: (_, {required session, required sessions}) async {},
       );
 
       final result = await coordinator.reconcile(
@@ -337,6 +339,52 @@ void main() {
       expect(result.status, AccountReconciliationStatus.blocked);
       expect(reads, 0);
     });
+
+    test(
+      'session switch during delayed local write prevents the stale effect',
+      () async {
+        SharedPreferences.setMockInitialValues({});
+        Storage.resetForTesting();
+        Storage.resetPackProgressForTesting();
+        await Storage.init();
+        final localWriteStarted = Completer<void>();
+        final finishLocalWrite = Completer<void>();
+        final coordinator = AccountReconciliationCoordinator(
+          sessions: sessions,
+          journalStore: journalStore,
+          readRemote: () async => CloudReadResult.present(
+            _snapshot(srs: {'word-a': _srs(reviewCount: 1)}),
+            revision: 1,
+          ),
+          loadLocal: () => AccountReconciliationSnapshot.empty,
+          writeRemote:
+              (_, {required expectedRevision, required operationId}) async =>
+                  const ReconciliationWriteResult.committed(revision: 1),
+          writeLocal: (snapshot, {required session, required sessions}) async {
+            localWriteStarted.complete();
+            await finishLocalWrite.future;
+            await LocalAccountReconciliationStore.write(
+              snapshot,
+              session: session,
+              sessions: sessions,
+            );
+          },
+        );
+
+        final reconciliation = coordinator.reconcile(
+          session: reconciling,
+          operationId: 'operation-1',
+          catalog: const {},
+        );
+        await localWriteStarted.future;
+        sessions.acquire('uid-b');
+        finishLocalWrite.complete();
+        final result = await reconciliation;
+
+        expect(result.status, AccountReconciliationStatus.stale);
+        expect(Storage.srsRawJson, isEmpty);
+      },
+    );
 
     test('a CAS conflict re-reads and re-merges before writing', () async {
       var reads = 0;
@@ -374,7 +422,7 @@ void main() {
                   ? const ReconciliationWriteResult.revisionConflict()
                   : const ReconciliationWriteResult.committed(revision: 3);
             },
-        writeLocal: (_) async {},
+        writeLocal: (_, {required session, required sessions}) async {},
       );
 
       final result = await coordinator.reconcile(
@@ -432,7 +480,7 @@ void main() {
                       revision: 1,
                     );
                   },
-              writeLocal: (_) async {},
+              writeLocal: (_, {required session, required sessions}) async {},
             );
 
         final first = await coordinator().reconcile(
@@ -557,7 +605,13 @@ void main() {
         packs: {'pack-a': _progressForLocalStore()},
       );
 
-      await LocalAccountReconciliationStore.write(snapshot);
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      await LocalAccountReconciliationStore.write(
+        snapshot,
+        session: session,
+        sessions: sessions,
+      );
       Storage.resetForTesting();
       Storage.resetPackProgressForTesting();
       await Storage.init();
@@ -810,6 +864,244 @@ void main() {
         BookImageService.setStoreForTesting(null);
         await sandbox.delete(recursive: true);
       }
+    },
+  );
+
+  test(
+    'SRS review finishing during remote write is not overwritten by stale local commit',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      await Storage.init();
+      await Storage.setCustomPacksRawJsonStrict('{}');
+      await Storage.setSrsRawJsonStrict(
+        jsonEncode({'word-a': _srs(reviewCount: 1)}),
+      );
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      var remote = _snapshot(fields: {'cloudOnly': 1});
+      var remoteRevision = 1;
+      var remoteWrites = 0;
+      var localReads = 0;
+      final remoteWriteStarted = Completer<void>();
+      final finishRemoteWrite = Completer<void>();
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async =>
+            CloudReadResult.present(remote, revision: remoteRevision),
+        loadLocal: () {
+          localReads += 1;
+          return LocalAccountReconciliationStore.load();
+        },
+        writeRemote:
+            (
+              snapshot, {
+              required expectedRevision,
+              required operationId,
+            }) async {
+              remoteWrites += 1;
+              remote = snapshot;
+              remoteRevision += 1;
+              remoteWriteStarted.complete();
+              await finishRemoteWrite.future;
+              return ReconciliationWriteResult.committed(
+                revision: remoteRevision,
+              );
+            },
+        writeLocal: LocalAccountReconciliationStore.write,
+      );
+
+      final reconciliation = coordinator.reconcile(
+        session: session,
+        operationId: 'operation-1',
+        catalog: const {},
+      );
+      await remoteWriteStarted.future.timeout(
+        const Duration(seconds: 2),
+        onTimeout: () => throw StateError('remote SRS write did not start'),
+      );
+      await Storage.srsReview('word-a', gotIt: true).timeout(
+        const Duration(seconds: 2),
+        onTimeout: () => throw StateError('local SRS review did not finish'),
+      );
+      finishRemoteWrite.complete();
+      final result = await reconciliation;
+      final persisted =
+          (jsonDecode(Storage.srsRawJson) as Map)['word-a'] as Map;
+
+      expect(result.status, AccountReconciliationStatus.blocked);
+      expect(
+        result.conflicts,
+        contains(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.srsCardHistory,
+            id: 'word-a',
+          ),
+        ),
+      );
+      expect(remoteWrites, 1);
+      expect(localReads, 2);
+      expect(persisted['r'], 2);
+    },
+  );
+
+  test(
+    'pack progress finishing during remote write survives stale local commit',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      await Storage.init();
+      await Storage.setCustomPacksRawJsonStrict('{}');
+      final initial = _progressForLocalStore();
+      await Storage.setPackProgressJson('pack-a', initial.toJson());
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      var remote = _snapshot(fields: {'cloudOnly': 1});
+      var remoteRevision = 1;
+      var remoteWrites = 0;
+      var localReads = 0;
+      final remoteWriteStarted = Completer<void>();
+      final finishRemoteWrite = Completer<void>();
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async =>
+            CloudReadResult.present(remote, revision: remoteRevision),
+        loadLocal: () {
+          localReads += 1;
+          return LocalAccountReconciliationStore.load();
+        },
+        writeRemote:
+            (
+              snapshot, {
+              required expectedRevision,
+              required operationId,
+            }) async {
+              remoteWrites += 1;
+              remote = snapshot;
+              remoteRevision += 1;
+              if (remoteWrites == 1) {
+                remoteWriteStarted.complete();
+                await finishRemoteWrite.future;
+              }
+              return ReconciliationWriteResult.committed(
+                revision: remoteRevision,
+              );
+            },
+        writeLocal: LocalAccountReconciliationStore.write,
+      );
+
+      final reconciliation = coordinator.reconcile(
+        session: session,
+        operationId: 'operation-1',
+        catalog: const {
+          'pack-a': PackCatalogEntry(
+            packId: 'pack-a',
+            level: 'A1',
+            wordsTotal: 10,
+          ),
+        },
+      );
+      await remoteWriteStarted.future.timeout(
+        const Duration(seconds: 2),
+        onTimeout: () => throw StateError('remote pack write did not start'),
+      );
+      await Storage.setPackProgressJson(
+        'pack-a',
+        initial
+            .copyWith(status: PackStatus.inProgress, wordsLearned: 2)
+            .toJson(),
+      ).timeout(
+        const Duration(seconds: 2),
+        onTimeout: () => throw StateError('local pack update did not finish'),
+      );
+      finishRemoteWrite.complete();
+      final result = await reconciliation;
+      final persisted = PackProgressService.get('pack-a')!;
+
+      expect(result.status, AccountReconciliationStatus.completed);
+      expect(remoteWrites, 2);
+      expect(localReads, 2);
+      expect(persisted.status, PackStatus.inProgress);
+      expect(persisted.wordsLearned, 2);
+    },
+  );
+
+  test(
+    'local custom-pack delete during remote write is not resurrected on retry',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      await Storage.init();
+      final pack = CustomPack.manual(
+        id: 'cp-a',
+        name: 'Local',
+        words: const [],
+        createdAt: DateTime.utc(2026, 7, 30),
+      );
+      await CustomPackService.save(pack);
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      var remote = _snapshot(fields: {'cloudOnly': 1});
+      var remoteRevision = 1;
+      var remoteWrites = 0;
+      var localReads = 0;
+      final remoteWriteStarted = Completer<void>();
+      final finishRemoteWrite = Completer<void>();
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async =>
+            CloudReadResult.present(remote, revision: remoteRevision),
+        loadLocal: () {
+          localReads += 1;
+          return LocalAccountReconciliationStore.load();
+        },
+        writeRemote:
+            (
+              snapshot, {
+              required expectedRevision,
+              required operationId,
+            }) async {
+              remoteWrites += 1;
+              remote = snapshot;
+              remoteRevision += 1;
+              remoteWriteStarted.complete();
+              await finishRemoteWrite.future;
+              return ReconciliationWriteResult.committed(
+                revision: remoteRevision,
+              );
+            },
+        writeLocal: LocalAccountReconciliationStore.write,
+      );
+
+      final reconciliation = coordinator.reconcile(
+        session: session,
+        operationId: 'operation-1',
+        catalog: const {},
+      );
+      await remoteWriteStarted.future;
+      await CustomPackService.delete('cp-a');
+      finishRemoteWrite.complete();
+      final result = await reconciliation;
+
+      expect(result.status, AccountReconciliationStatus.blocked);
+      expect(
+        result.conflicts,
+        contains(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.customPackId,
+            id: 'cp-a',
+          ),
+        ),
+      );
+      expect(remoteWrites, 1);
+      expect(localReads, 2);
+      expect(CustomPackService.getById('cp-a'), isNull);
     },
   );
 }

@@ -166,9 +166,11 @@ class CustomPackService {
   static Future<void> writeReconciledPortable(
     Map<String, Map<String, Object?>> portable, {
     String? expectedGeneration,
+    void Function()? beforeWrite,
     Future<void> Function(Map<String, dynamic> output)? writer,
   }) {
     return MediaMutationLock.run(() async {
+      beforeWrite?.call();
       if (expectedGeneration != null &&
           localReconciliationGeneration != expectedGeneration) {
         throw const LocalCustomPackGenerationConflict();

@@ -125,7 +125,10 @@ class CloudSync {
   }
 
   /// Payload → lokale Werte (additiv / max-merge). Testbar ohne Firestore.
-  static Future<void> applyRestorePayload(Map<String, dynamic> data) async {
+  static Future<void> applyRestorePayload(
+    Map<String, dynamic> data, {
+    void Function()? beforeWrite,
+  }) async {
     final vok = _map(data['vok']);
     final vocabularyWasUninitialized =
         Storage.vokCorrect == 0 &&
@@ -137,19 +140,29 @@ class CloudSync {
       vok['correct'],
       Storage.vokCorrect,
       Storage.setVokCorrect,
+      beforeWrite: beforeWrite,
     );
-    await _maxMergeInt(vok['wrong'], Storage.vokWrong, Storage.setVokWrong);
+    await _maxMergeInt(
+      vok['wrong'],
+      Storage.vokWrong,
+      Storage.setVokWrong,
+      beforeWrite: beforeWrite,
+    );
     await _maxMergeInt(
       vok['skipped'],
       Storage.vokSkipped,
       Storage.setVokSkipped,
+      beforeWrite: beforeWrite,
     );
     final cloudVokCursor = _nonNegativeInt(vok['last_idx']);
     if (vocabularyWasUninitialized && cloudVokCursor != null) {
-      await Storage.setVokLastIdx(cloudVokCursor);
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.setVokLastIdx(cloudVokCursor),
+      );
     }
     for (final id in _stringValues(vok['seen_ids'])) {
-      await Storage.addVokSeen(id);
+      await _guardedWrite(beforeWrite, () => Storage.addVokSeen(id));
     }
 
     final ch = _map(data['chosung']);
@@ -157,11 +170,13 @@ class CloudSync {
       ch['correct'],
       Storage.chosungCorrect,
       Storage.setChosungCorrect,
+      beforeWrite: beforeWrite,
     );
     await _maxMergeInt(
       ch['wrong'],
       Storage.chosungWrong,
       Storage.setChosungWrong,
+      beforeWrite: beforeWrite,
     );
 
     final wordle = _map(data['wordle']);
@@ -174,22 +189,31 @@ class CloudSync {
       wordle['wins'],
       Storage.wordleWins,
       Storage.setWordleWins,
+      beforeWrite: beforeWrite,
     );
     await _maxMergeInt(
       wordle['losses'],
       Storage.wordleLosses,
       Storage.setWordleLosses,
+      beforeWrite: beforeWrite,
     );
     await _maxMergeInt(
       wordle['best_streak'],
       Storage.wordleBestStreak,
       Storage.setWordleBestStreak,
+      beforeWrite: beforeWrite,
     );
     final cloudWordleStreak = _nonNegativeInt(wordle['streak']);
     if (wordleWasUninitialized && cloudWordleStreak != null) {
-      await Storage.setWordleStreak(cloudWordleStreak);
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.setWordleStreak(cloudWordleStreak),
+      );
       if (cloudWordleStreak > Storage.wordleBestStreak) {
-        await Storage.setWordleBestStreak(cloudWordleStreak);
+        await _guardedWrite(
+          beforeWrite,
+          () => Storage.setWordleBestStreak(cloudWordleStreak),
+        );
       }
     }
 
@@ -198,10 +222,13 @@ class CloudSync {
         Storage.grammarLastIdx == 0 && Storage.grammarSeen.isEmpty;
     final cloudGrammarCursor = _nonNegativeInt(grammar['last_idx']);
     if (grammarWasUninitialized && cloudGrammarCursor != null) {
-      await Storage.setGrammarLastIdx(cloudGrammarCursor);
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.setGrammarLastIdx(cloudGrammarCursor),
+      );
     }
     for (final pat in _stringValues(grammar['seen'])) {
-      await Storage.addGrammarSeen(pat);
+      await _guardedWrite(beforeWrite, () => Storage.addGrammarSeen(pat));
     }
 
     final app = _map(data['app']);
@@ -209,6 +236,7 @@ class CloudSync {
       app['best_streak'],
       Storage.bestStreak,
       Storage.setBestStreak,
+      beforeWrite: beforeWrite,
     );
     final cloudLastOpen = _validIsoDate(app['last_open']);
     final cloudCurrentStreak = _nonNegativeInt(app['streak_days']);
@@ -216,26 +244,49 @@ class CloudSync {
       final localLastOpen = _validIsoDate(Storage.lastOpenDate);
       if (localLastOpen == null ||
           cloudLastOpen.date.isAfter(localLastOpen.date)) {
-        await Storage.setLastOpenDate(cloudLastOpen.source);
-        await Storage.setStreakDays(cloudCurrentStreak);
+        await _guardedWrite(
+          beforeWrite,
+          () => Storage.setLastOpenDate(cloudLastOpen.source),
+        );
+        await _guardedWrite(
+          beforeWrite,
+          () => Storage.setStreakDays(cloudCurrentStreak),
+        );
       } else if (cloudLastOpen.source == localLastOpen.source &&
           cloudCurrentStreak > Storage.streakDays) {
-        await Storage.setStreakDays(cloudCurrentStreak);
+        await _guardedWrite(
+          beforeWrite,
+          () => Storage.setStreakDays(cloudCurrentStreak),
+        );
       }
       if (Storage.streakDays > Storage.bestStreak) {
-        await Storage.setBestStreak(Storage.streakDays);
+        await _guardedWrite(
+          beforeWrite,
+          () => Storage.setBestStreak(Storage.streakDays),
+        );
       }
     }
 
     // ── Fortschritt (additiv / max) ──
     final progress = _map(data['progress']);
-    await _maxMergeInt(progress['xp'], Storage.xp, Storage.setXp);
+    await _maxMergeInt(
+      progress['xp'],
+      Storage.xp,
+      Storage.setXp,
+      beforeWrite: beforeWrite,
+    );
     final lvl = _supportedLevel(progress['level']);
     if (lvl != null && Storage.userLevelCode == null) {
-      await Storage.setUserLevelCode(lvl); // aktives Level nicht überschreiben
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.setUserLevelCode(lvl),
+      ); // aktives Level nicht überschreiben
     }
     for (final stamp in _stringValues(progress['earned_stamps'])) {
-      await Storage.addEarnedStamp(stamp); // Union
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.addEarnedStamp(stamp),
+      ); // Union
     }
     final questCompletions = _map(progress['quest_completions']);
     for (final entry in questCompletions.entries) {
@@ -250,7 +301,10 @@ class CloudSync {
           Storage.hasQuestCompleted(questId)) {
         continue;
       }
-      await Storage.markQuestCompleted(questId, at: parsedAt);
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.markQuestCompleted(questId, at: parsedAt),
+      );
     }
 
     // ── SRS-Deck & strukturierte Listen: nur lokal LEER ersetzen ──
@@ -259,21 +313,27 @@ class CloudSync {
       hasExpectedShape: (decoded) => decoded is Map,
     );
     if (srsJson != null && Storage.srsRawJson.isEmpty) {
-      await Storage.setSrsRawJson(srsJson);
+      await _guardedWrite(beforeWrite, () => Storage.setSrsRawJson(srsJson));
     }
     final customPacksJson = _portableRestoreJson(
       data['custom_packs_json'],
       stripBookshelfThumbnail: false,
     );
     if (customPacksJson != null && Storage.customPacksRawJson.isEmpty) {
-      await Storage.setCustomPacksRawJson(customPacksJson);
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.setCustomPacksRawJson(customPacksJson),
+      );
     }
     final bookshelfJson = _portableRestoreJson(
       data['bookshelf_json'],
       stripBookshelfThumbnail: true,
     );
     if (bookshelfJson != null && Storage.bookshelfRawJson.isEmpty) {
-      await Storage.setBookshelfRawJson(bookshelfJson);
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.setBookshelfRawJson(bookshelfJson),
+      );
     }
   }
 
@@ -441,12 +501,22 @@ class CloudSync {
   static Future<void> _maxMergeInt(
     Object? cloudValue,
     int localValue,
-    Future<void> Function(int) write,
-  ) async {
+    Future<void> Function(int) write, {
+    void Function()? beforeWrite,
+  }) async {
     final cloudInt = _nonNegativeInt(cloudValue);
     if (cloudInt != null && cloudInt > localValue) {
+      beforeWrite?.call();
       await write(cloudInt);
     }
+  }
+
+  static Future<void> _guardedWrite(
+    void Function()? beforeWrite,
+    Future<void> Function() write,
+  ) async {
+    beforeWrite?.call();
+    await write();
   }
 
   static _IsoDate? _validIsoDate(Object? value) {
