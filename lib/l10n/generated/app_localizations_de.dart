@@ -1564,6 +1564,10 @@ class AppL10nDe extends AppL10n {
   String get settingsCloudDeleteDataSuccess => 'Cloud-Daten gelöscht';
 
   @override
+  String get settingsCloudDeleteDataFailed =>
+      'Cloud-Daten konnten nicht gelöscht werden.';
+
+  @override
   String get settingsAccountDelete => 'Konto und alle Daten löschen';
 
   @override
@@ -2646,6 +2650,62 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get accountNudgeLater => 'Später';
+
+  @override
+  String get accountSafeConnectTitle => 'Konto sicher verbinden?';
+
+  @override
+  String get accountSafeConnectExplain =>
+      'Deine lokalen und Cloud-Daten werden geprüft, bevor etwas ersetzt wird. Ein bestehendes Konto wird nie automatisch überschrieben.';
+
+  @override
+  String get accountSafeConnectConfirm => 'Sicher verbinden';
+
+  @override
+  String get accountOperationInProgress =>
+      'Konto und Lernfortschritt werden sicher geprüft …';
+
+  @override
+  String get accountOperationResumeTitle => 'Kontowechsel fortsetzen';
+
+  @override
+  String get accountOperationResumeBody =>
+      'Der sichere Kontowechsel ist gespeichert. Deine Daten bleiben geschützt, bis alle Schritte abgeschlossen sind.';
+
+  @override
+  String get accountOperationResume => 'Fortsetzen';
+
+  @override
+  String get accountOperationCancel => 'Wechsel abbrechen';
+
+  @override
+  String get accountOperationBlockedTitle => 'Kontowechsel pausiert';
+
+  @override
+  String get accountOperationBlockedBody =>
+      'Dieses Konto kann nicht automatisch gewechselt werden. Deine vorhandenen Daten wurden nicht überschrieben.';
+
+  @override
+  String get accountOperationRetryTitle => 'Verbindung nicht abgeschlossen';
+
+  @override
+  String get accountOperationRetryBody =>
+      'Die sichere Prüfung konnte nicht abgeschlossen werden. Du kannst denselben Vorgang erneut versuchen.';
+
+  @override
+  String get accountOperationSupportBody =>
+      'Wenn der Vorgang weiter blockiert bleibt, wende dich an den Support. Teile keine Anmeldecodes oder Wiederherstellungsschlüssel.';
+
+  @override
+  String get accountDeletionPendingTitle => 'Löschung wird fortgesetzt';
+
+  @override
+  String get accountDeletionPendingBody =>
+      'Der sichere Löschvorgang ist noch nicht abgeschlossen. Versuche denselben Vorgang erneut; deine Anfrage wird nicht doppelt angelegt.';
+
+  @override
+  String get gyeAccountTransitionPaused =>
+      'Kontoänderung läuft. Gruppenaktionen sind geschützt pausiert und werden nach Abschluss wieder verfügbar.';
 
   @override
   String get authAppleSignIn => 'Mit Apple anmelden';

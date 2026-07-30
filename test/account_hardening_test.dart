@@ -301,7 +301,8 @@ void main() {
       await tester.tap(find.text('Löschen').last);
       await tester.pump();
 
-      expect(find.textContaining('Löschung fehlgeschlagen:'), findsOneWidget);
+      expect(find.text('Löschung wird fortgesetzt'), findsOneWidget);
+      expect(find.textContaining('image cleanup failed'), findsNothing);
       expect(find.text('Konto und Daten gelöscht'), findsNothing);
     });
 

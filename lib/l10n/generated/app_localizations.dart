@@ -2947,6 +2947,12 @@ abstract class AppL10n {
   /// **'Cloud-Daten gelöscht'**
   String get settingsCloudDeleteDataSuccess;
 
+  /// No description provided for @settingsCloudDeleteDataFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Daten konnten nicht gelöscht werden.'**
+  String get settingsCloudDeleteDataFailed;
+
   /// No description provided for @settingsAccountDelete.
   ///
   /// In de, this message translates to:
@@ -4878,6 +4884,102 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Später'**
   String get accountNudgeLater;
+
+  /// No description provided for @accountSafeConnectTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto sicher verbinden?'**
+  String get accountSafeConnectTitle;
+
+  /// No description provided for @accountSafeConnectExplain.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine lokalen und Cloud-Daten werden geprüft, bevor etwas ersetzt wird. Ein bestehendes Konto wird nie automatisch überschrieben.'**
+  String get accountSafeConnectExplain;
+
+  /// No description provided for @accountSafeConnectConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Sicher verbinden'**
+  String get accountSafeConnectConfirm;
+
+  /// No description provided for @accountOperationInProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Konto und Lernfortschritt werden sicher geprüft …'**
+  String get accountOperationInProgress;
+
+  /// No description provided for @accountOperationResumeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kontowechsel fortsetzen'**
+  String get accountOperationResumeTitle;
+
+  /// No description provided for @accountOperationResumeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Der sichere Kontowechsel ist gespeichert. Deine Daten bleiben geschützt, bis alle Schritte abgeschlossen sind.'**
+  String get accountOperationResumeBody;
+
+  /// No description provided for @accountOperationResume.
+  ///
+  /// In de, this message translates to:
+  /// **'Fortsetzen'**
+  String get accountOperationResume;
+
+  /// No description provided for @accountOperationCancel.
+  ///
+  /// In de, this message translates to:
+  /// **'Wechsel abbrechen'**
+  String get accountOperationCancel;
+
+  /// No description provided for @accountOperationBlockedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kontowechsel pausiert'**
+  String get accountOperationBlockedTitle;
+
+  /// No description provided for @accountOperationBlockedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Konto kann nicht automatisch gewechselt werden. Deine vorhandenen Daten wurden nicht überschrieben.'**
+  String get accountOperationBlockedBody;
+
+  /// No description provided for @accountOperationRetryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbindung nicht abgeschlossen'**
+  String get accountOperationRetryTitle;
+
+  /// No description provided for @accountOperationRetryBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die sichere Prüfung konnte nicht abgeschlossen werden. Du kannst denselben Vorgang erneut versuchen.'**
+  String get accountOperationRetryBody;
+
+  /// No description provided for @accountOperationSupportBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wenn der Vorgang weiter blockiert bleibt, wende dich an den Support. Teile keine Anmeldecodes oder Wiederherstellungsschlüssel.'**
+  String get accountOperationSupportBody;
+
+  /// No description provided for @accountDeletionPendingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Löschung wird fortgesetzt'**
+  String get accountDeletionPendingTitle;
+
+  /// No description provided for @accountDeletionPendingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Der sichere Löschvorgang ist noch nicht abgeschlossen. Versuche denselben Vorgang erneut; deine Anfrage wird nicht doppelt angelegt.'**
+  String get accountDeletionPendingBody;
+
+  /// No description provided for @gyeAccountTransitionPaused.
+  ///
+  /// In de, this message translates to:
+  /// **'Kontoänderung läuft. Gruppenaktionen sind geschützt pausiert und werden nach Abschluss wieder verfügbar.'**
+  String get gyeAccountTransitionPaused;
 
   /// No description provided for @authAppleSignIn.
   ///

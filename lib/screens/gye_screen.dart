@@ -4,6 +4,7 @@ import 'package:share_plus/share_plus.dart';
 import '../l10n/gye_error_text.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
+import '../services/account/cloud_write_session.dart';
 import '../services/gye_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -18,6 +19,9 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sticker_picker.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/dure_board.dart';
+
+bool gyeActionsAvailable(CloudWriteSession? session) =>
+    session == null || session.mode == CloudWriteMode.ready;
 
 /// 계 마당 — 상단(이름·멤버수·주간 목표) / 중간(공동 한옥) / 하단(피드). plan §7.4.
 /// (스티커 FAB·전송 = Tier 3d. 피드는 3e Cloud Function이 채움.)
@@ -77,181 +81,230 @@ class _GyeScreenState extends State<GyeScreen>
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    return StreamBuilder<GyeMeta?>(
-      stream: GyeService.metaStream(widget.gyeId),
-      builder: (context, snap) {
-        if (snap.connectionState == ConnectionState.waiting && !snap.hasData) {
-          return Scaffold(
-            appBar: AppBar(title: Text(t.gyeTitle)),
-            body: const AppLoading(),
-          );
-        }
-        final meta = snap.data;
-        if (meta == null) {
-          return Scaffold(
-            appBar: AppBar(title: Text(t.gyeTitle)),
-            body: Center(
-              child: SoriEmptyState(
-                icon: Icons.groups_2_outlined,
-                title: t.gyeNotFoundTitle,
-                body: t.gyeNotFoundBody,
-              ),
-            ),
-          );
-        }
-        // 첫 meta 수신 시 coachReady 게이트 열기
-        if (!_metaLoaded) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (mounted && !_metaLoaded) {
-              setState(() => _metaLoaded = true);
+    return ValueListenableBuilder<CloudWriteSession?>(
+      valueListenable: cloudWriteSessionController.changes,
+      builder: (context, accountSession, _) {
+        final actionsAvailable = gyeActionsAvailable(accountSession);
+        return StreamBuilder<GyeMeta?>(
+          stream: GyeService.metaStream(widget.gyeId),
+          builder: (context, snap) {
+            if (snap.connectionState == ConnectionState.waiting &&
+                !snap.hasData) {
+              return Scaffold(
+                appBar: AppBar(title: Text(t.gyeTitle)),
+                body: const AppLoading(),
+              );
             }
-          });
-        }
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(
-              meta.name,
-              style: const TextStyle(fontWeight: FontWeight.w800),
-            ),
-            actions: [
-              Center(
-                child: Text(
-                  t.gyeMembersN(meta.memberCount),
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: s.textMuted,
+            final meta = snap.data;
+            if (meta == null) {
+              return Scaffold(
+                appBar: AppBar(title: Text(t.gyeTitle)),
+                body: Center(
+                  child: SoriEmptyState(
+                    icon: Icons.groups_2_outlined,
+                    title: t.gyeNotFoundTitle,
+                    body: t.gyeNotFoundBody,
                   ),
                 ),
-              ),
-              PopupMenuButton<String>(
-                onSelected: (v) {
-                  if (v == 'invite') {
-                    _shareGyeCode(context, meta.code);
-                  } else if (v == 'leave') {
-                    confirmLeaveGye(context, widget.gyeId);
-                  } else if (v == 'members') {
-                    Navigator.of(
-                      context,
-                    ).pushNamed('/gye/members', arguments: widget.gyeId);
-                  }
-                },
-                itemBuilder: (_) => [
-                  PopupMenuItem(value: 'invite', child: Text(t.gyeShareCode)),
-                  PopupMenuItem(
-                    value: 'members',
-                    child: Text(t.gyeMembersTitle),
-                  ),
-                  if (meta.ownerId != GyeService.currentUid)
-                    PopupMenuItem(value: 'leave', child: Text(t.gyeLeave)),
-                  if (meta.ownerId == GyeService.currentUid)
-                    PopupMenuItem(
-                      enabled: false,
-                      child: Text(t.gyeOwnerLeaveUnavailable),
+              );
+            }
+            // 첫 meta 수신 시 coachReady 게이트 열기
+            if (!_metaLoaded) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (mounted && !_metaLoaded) {
+                  setState(() => _metaLoaded = true);
+                }
+              });
+            }
+            return Scaffold(
+              appBar: AppBar(
+                title: Text(
+                  meta.name,
+                  style: const TextStyle(fontWeight: FontWeight.w800),
+                ),
+                actions: [
+                  Center(
+                    child: Text(
+                      t.gyeMembersN(meta.memberCount),
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                        color: s.textMuted,
+                      ),
                     ),
+                  ),
+                  PopupMenuButton<String>(
+                    enabled: actionsAvailable,
+                    onSelected: (v) {
+                      if (v == 'invite') {
+                        _shareGyeCode(context, meta.code);
+                      } else if (v == 'leave') {
+                        confirmLeaveGye(context, widget.gyeId);
+                      } else if (v == 'members') {
+                        Navigator.of(
+                          context,
+                        ).pushNamed('/gye/members', arguments: widget.gyeId);
+                      }
+                    },
+                    itemBuilder: (_) => [
+                      PopupMenuItem(
+                        value: 'invite',
+                        child: Text(t.gyeShareCode),
+                      ),
+                      PopupMenuItem(
+                        value: 'members',
+                        child: Text(t.gyeMembersTitle),
+                      ),
+                      if (meta.ownerId != GyeService.currentUid)
+                        PopupMenuItem(value: 'leave', child: Text(t.gyeLeave)),
+                      if (meta.ownerId == GyeService.currentUid)
+                        PopupMenuItem(
+                          enabled: false,
+                          child: Text(t.gyeOwnerLeaveUnavailable),
+                        ),
+                    ],
+                  ),
                 ],
               ),
-            ],
-          ),
-          body: SafeArea(
-            child: SoriCenterClamp(
-              child: Column(
-                children: [
-                  // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
-                  if (meta.memberCount <= 1)
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        Spacing.lg,
-                        Spacing.lg,
-                        Spacing.lg,
-                        0,
-                      ),
-                      child: _SoloInviteCard(code: meta.code),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.all(Spacing.lg),
-                    child: KeyedSubtree(
-                      key: _dureBoardKey,
-                      child: DureBoard(
-                        gyeId: widget.gyeId,
-                        meta: meta,
-                        myUid: GyeService.currentUid,
-                      ),
-                    ),
-                  ),
-                  // 지난주 살림꾼 — 축하 톤 1줄 카드 (경쟁 리더보드 아님).
-                  if (meta.lastWeekMvp.isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        Spacing.lg,
-                        0,
-                        Spacing.lg,
-                        Spacing.sm,
-                      ),
-                      child: _MvpCard(
-                        nickname: meta.lastWeekMvp,
-                        packs: meta.lastWeekMvpPacks,
-                      ),
-                    ),
-                  LayoutBuilder(
-                    builder: (context, c) {
-                      final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
-                      return SizedBox(
-                        height: h,
-                        child: GyeHanok(meta: meta),
-                      );
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                      Spacing.lg,
-                      Spacing.md,
-                      Spacing.lg,
-                      Spacing.xs,
-                    ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        t.gyeFeedTitle,
-                        style: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    // 차단한 멤버의 이벤트는 숨김 (Play UGC — 사용자 주도).
-                    child: StreamBuilder<Set<String>>(
-                      stream: GyeService.blockedUidsStream(),
-                      builder: (context, bsnap) =>
-                          StreamBuilder<List<GyeFeedEvent>>(
-                            stream: GyeService.feedStream(widget.gyeId),
-                            builder: (context, fsnap) => GyeFeed(
-                              events: GyeService.filterBlocked(
-                                fsnap.data ?? const [],
-                                bsnap.data ?? const {},
+              body: SafeArea(
+                child: SoriCenterClamp(
+                  child: Column(
+                    children: [
+                      if (!actionsAvailable)
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            Spacing.lg,
+                            Spacing.md,
+                            Spacing.lg,
+                            0,
+                          ),
+                          child: Semantics(
+                            liveRegion: true,
+                            child: Container(
+                              padding: const EdgeInsets.all(Spacing.md),
+                              decoration: BoxDecoration(
+                                color: SoriColors.gold.withValues(alpha: 0.12),
+                                borderRadius: SoriRadius.brMd,
                               ),
-                              onReact: (eventId) => _openReactionPicker(
-                                context,
-                                widget.gyeId,
-                                eventId,
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.sync_lock_rounded,
+                                    color: SoriColors.gold,
+                                  ),
+                                  const SizedBox(width: Spacing.sm),
+                                  Expanded(
+                                    child: Text(t.gyeAccountTransitionPaused),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                    ),
+                        ),
+                      // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
+                      if (meta.memberCount <= 1)
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            Spacing.lg,
+                            Spacing.lg,
+                            Spacing.lg,
+                            0,
+                          ),
+                          child: _SoloInviteCard(
+                            code: meta.code,
+                            enabled: actionsAvailable,
+                          ),
+                        ),
+                      Padding(
+                        padding: const EdgeInsets.all(Spacing.lg),
+                        child: KeyedSubtree(
+                          key: _dureBoardKey,
+                          child: DureBoard(
+                            gyeId: widget.gyeId,
+                            meta: meta,
+                            myUid: GyeService.currentUid,
+                          ),
+                        ),
+                      ),
+                      // 지난주 살림꾼 — 축하 톤 1줄 카드 (경쟁 리더보드 아님).
+                      if (meta.lastWeekMvp.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            Spacing.lg,
+                            0,
+                            Spacing.lg,
+                            Spacing.sm,
+                          ),
+                          child: _MvpCard(
+                            nickname: meta.lastWeekMvp,
+                            packs: meta.lastWeekMvpPacks,
+                          ),
+                        ),
+                      LayoutBuilder(
+                        builder: (context, c) {
+                          final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
+                          return SizedBox(
+                            height: h,
+                            child: GyeHanok(meta: meta),
+                          );
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          Spacing.lg,
+                          Spacing.md,
+                          Spacing.lg,
+                          Spacing.xs,
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            t.gyeFeedTitle,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        // 차단한 멤버의 이벤트는 숨김 (Play UGC — 사용자 주도).
+                        child: StreamBuilder<Set<String>>(
+                          stream: GyeService.blockedUidsStream(),
+                          builder: (context, bsnap) =>
+                              StreamBuilder<List<GyeFeedEvent>>(
+                                stream: GyeService.feedStream(widget.gyeId),
+                                builder: (context, fsnap) => GyeFeed(
+                                  events: GyeService.filterBlocked(
+                                    fsnap.data ?? const [],
+                                    bsnap.data ?? const {},
+                                  ),
+                                  onReact: actionsAvailable
+                                      ? (eventId) => _openReactionPicker(
+                                          context,
+                                          widget.gyeId,
+                                          eventId,
+                                        )
+                                      : null,
+                                ),
+                              ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-          floatingActionButton: FloatingActionButton(
-            key: _fabKey,
-            onPressed: () => _openGyeStickerPicker(context, widget.gyeId),
-            backgroundColor: SoriColors.primary,
-            tooltip: t.gyeStickerSend,
-            child: const Icon(Icons.emoji_emotions_outlined),
-          ),
+              floatingActionButton: FloatingActionButton(
+                key: _fabKey,
+                onPressed: actionsAvailable
+                    ? () => _openGyeStickerPicker(context, widget.gyeId)
+                    : null,
+                backgroundColor: SoriColors.primary,
+                tooltip: t.gyeStickerSend,
+                child: const Icon(Icons.emoji_emotions_outlined),
+              ),
+            );
+          },
         );
       },
     );
@@ -399,7 +452,8 @@ class _MvpCard extends StatelessWidget {
 
 class _SoloInviteCard extends StatelessWidget {
   final String code;
-  const _SoloInviteCard({required this.code});
+  final bool enabled;
+  const _SoloInviteCard({required this.code, required this.enabled});
 
   @override
   Widget build(BuildContext context) {
@@ -459,7 +513,7 @@ class _SoloInviteCard extends StatelessWidget {
             icon: Icons.ios_share,
             accent: SoriColors.primary,
             fullWidth: true,
-            onTap: () => _shareGyeCode(context, code),
+            onTap: enabled ? () => _shareGyeCode(context, code) : null,
           ),
         ],
       ),

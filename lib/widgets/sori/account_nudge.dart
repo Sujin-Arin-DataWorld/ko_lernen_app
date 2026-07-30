@@ -5,7 +5,9 @@ import 'button.dart';
 import 'mascot.dart';
 import 'sheet.dart';
 import '../../services/auth_service.dart';
-import '../../services/cloud_sync.dart';
+import '../../services/account/account_transition_coordinator.dart';
+import '../../services/account/account_ui_operations.dart';
+import 'account_operation_ui.dart';
 import '../../l10n/generated/app_localizations.dart';
 
 /// Soft Konto-Nudge — Bottom-Sheet, der anonyme Nutzer einlädt, ihren
@@ -16,6 +18,7 @@ import '../../l10n/generated/app_localizations.dart';
 Future<void> showAccountNudgeSheet(
   BuildContext context, {
   AuthAccountSnapshot? account,
+  AccountUiOperations? accountOperations,
 }) async {
   final snapshot = account ?? AuthService.accountSnapshot;
   if (snapshot.providers.isDurable) {
@@ -23,12 +26,17 @@ Future<void> showAccountNudgeSheet(
   }
   await showSoriSheet<void>(
     context: context,
-    builder: (_) => const _AccountNudgeSheet(),
+    builder: (_) => _AccountNudgeSheet(
+      accountOperations:
+          accountOperations ?? const ProductionAccountUiOperations(),
+    ),
   );
 }
 
 class _AccountNudgeSheet extends StatefulWidget {
-  const _AccountNudgeSheet();
+  const _AccountNudgeSheet({required this.accountOperations});
+
+  final AccountUiOperations accountOperations;
 
   @override
   State<_AccountNudgeSheet> createState() => _AccountNudgeSheetState();
@@ -37,27 +45,20 @@ class _AccountNudgeSheet extends StatefulWidget {
 class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
   bool _busy = false;
 
-  Future<void> _connectWith(Future<dynamic> Function() link) async {
-    final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
+  Future<void> _connectWith(AccountLinkProvider provider) async {
     final nav = Navigator.of(context);
     setState(() => _busy = true);
     try {
-      final user = await link();
-      if (user != null) {
-        await CloudSync.backup();
-      }
-      if (mounted) {
-        nav.pop();
-      }
-    } catch (e) {
-      if (!mounted) {
-        return;
-      }
-      setState(() => _busy = false);
-      messenger.showSnackBar(
-        SnackBar(content: Text(t.settingsCloudAuthFailed(e.toString()))),
+      await runConfirmedAccountLink(
+        context,
+        operations: widget.accountOperations,
+        provider: provider,
+        onCompleted: () async {
+          if (mounted) nav.pop();
+        },
       );
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
   }
 
@@ -97,15 +98,15 @@ class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
           label: t.accountNudgeConnect,
           icon: Icons.cloud_upload_outlined,
           fullWidth: true,
-          onTap: _busy ? null : () => _connectWith(AuthService.linkWithGoogle),
+          onTap: _busy ? null : () => _connectWith(AccountLinkProvider.google),
         ),
-        if (AuthService.appleSignInAvailable) ...[
+        if (widget.accountOperations.appleSignInAvailable) ...[
           const SizedBox(height: 8),
           SoriButton.outlined(
             label: t.authAppleSignIn,
             icon: Icons.apple,
             fullWidth: true,
-            onTap: _busy ? null : () => _connectWith(AuthService.linkWithApple),
+            onTap: _busy ? null : () => _connectWith(AccountLinkProvider.apple),
           ),
         ],
         const SizedBox(height: 4),

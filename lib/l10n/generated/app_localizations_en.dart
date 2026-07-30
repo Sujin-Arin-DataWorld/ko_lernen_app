@@ -1559,6 +1559,10 @@ class AppL10nEn extends AppL10n {
   String get settingsCloudDeleteDataSuccess => 'Cloud data deleted';
 
   @override
+  String get settingsCloudDeleteDataFailed =>
+      'Cloud data could not be deleted.';
+
+  @override
   String get settingsAccountDelete => 'Delete account and all data';
 
   @override
@@ -2635,6 +2639,62 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get accountNudgeLater => 'Later';
+
+  @override
+  String get accountSafeConnectTitle => 'Connect this account safely?';
+
+  @override
+  String get accountSafeConnectExplain =>
+      'Your local and cloud data are reviewed before anything is replaced. An existing account is never overwritten automatically.';
+
+  @override
+  String get accountSafeConnectConfirm => 'Connect safely';
+
+  @override
+  String get accountOperationInProgress =>
+      'Checking your account and learning progress safely …';
+
+  @override
+  String get accountOperationResumeTitle => 'Resume account switch';
+
+  @override
+  String get accountOperationResumeBody =>
+      'The safe account switch is saved. Your data stays protected until every step is complete.';
+
+  @override
+  String get accountOperationResume => 'Resume';
+
+  @override
+  String get accountOperationCancel => 'Cancel switch';
+
+  @override
+  String get accountOperationBlockedTitle => 'Account switch paused';
+
+  @override
+  String get accountOperationBlockedBody =>
+      'This account cannot be switched automatically. Your existing data was not overwritten.';
+
+  @override
+  String get accountOperationRetryTitle => 'Connection not completed';
+
+  @override
+  String get accountOperationRetryBody =>
+      'The safe check could not be completed. You can retry the same operation.';
+
+  @override
+  String get accountOperationSupportBody =>
+      'If the operation stays blocked, contact support. Never share sign-in codes or recovery keys.';
+
+  @override
+  String get accountDeletionPendingTitle => 'Deletion will continue';
+
+  @override
+  String get accountDeletionPendingBody =>
+      'The safe deletion operation is not complete yet. Retry the same operation; your request will not be created twice.';
+
+  @override
+  String get gyeAccountTransitionPaused =>
+      'An account change is in progress. Group actions are safely paused and return when it is complete.';
 
   @override
   String get authAppleSignIn => 'Sign in with Apple';

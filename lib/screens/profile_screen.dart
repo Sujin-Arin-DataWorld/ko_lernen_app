@@ -8,10 +8,12 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../services/auth_service.dart';
-import '../services/cloud_sync.dart';
+import '../services/account/account_transition_coordinator.dart';
+import '../services/account/account_ui_operations.dart';
 import '../services/storage_service.dart';
 import '../data/learner_motivation.dart';
 import '../widgets/sori/motivation_sheet.dart';
+import '../widgets/sori/account_operation_ui.dart';
 import '../l10n/generated/app_localizations.dart';
 
 String _providerLabel(AppL10n t, AuthProviderState providers) {
@@ -31,9 +33,10 @@ String _providerLabel(AppL10n t, AuthProviderState providers) {
 /// Statistik bleibt in [StatsScreen] (`/stats`); hier nur Identität,
 /// Konto-Status und eine Kurz-Übersicht (Streak · Level · Vokabeln).
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key, this.account});
+  const ProfileScreen({super.key, this.account, this.accountOperations});
 
   final AuthAccountSnapshot? account;
+  final AccountUiOperations? accountOperations;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -42,6 +45,9 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with ScreenCoachMixin<ProfileScreen> {
   bool _busy = false;
+
+  AccountUiOperations get _accountOperations =>
+      widget.accountOperations ?? const ProductionAccountUiOperations();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _accountCardKey = GlobalKey();
@@ -68,18 +74,16 @@ class _ProfileScreenState extends State<ProfileScreen>
     scheduleCoach();
   }
 
-  Future<void> _connectWith(Future<dynamic> Function() link) async {
-    final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
+  Future<void> _connectWith(AccountLinkProvider provider) async {
     setState(() => _busy = true);
     try {
-      final user = await link();
-      if (user != null) {
-        await CloudSync.backup();
-      }
-    } catch (e) {
-      messenger.showSnackBar(
-        SnackBar(content: Text(t.settingsCloudAuthFailed(e.toString()))),
+      await runConfirmedAccountLink(
+        context,
+        operations: _accountOperations,
+        provider: provider,
+        onCompleted: () async {
+          if (mounted) setState(() {});
+        },
       );
     } finally {
       if (mounted) {
@@ -175,9 +179,9 @@ class _ProfileScreenState extends State<ProfileScreen>
                     )
                   : _GuestCard(
                       busy: _busy,
-                      onConnect: () => _connectWith(AuthService.linkWithGoogle),
-                      onConnectApple: AuthService.appleSignInAvailable
-                          ? () => _connectWith(AuthService.linkWithApple)
+                      onConnect: () => _connectWith(AccountLinkProvider.google),
+                      onConnectApple: _accountOperations.appleSignInAvailable
+                          ? () => _connectWith(AccountLinkProvider.apple)
                           : null,
                     ),
             ),
@@ -306,6 +310,11 @@ class _GuestCard extends StatelessWidget {
           Text(
             t.profileGuestDesc,
             style: TextStyle(fontSize: 13, height: 1.45, color: s.textMuted),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            t.accountSafeConnectExplain,
+            style: TextStyle(fontSize: 12.5, height: 1.4, color: s.textMuted),
           ),
           const SizedBox(height: 16),
           SoriButton.filled(

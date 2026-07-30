@@ -21,11 +21,14 @@ import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
+import '../services/account/account_transition_coordinator.dart';
+import '../services/account/account_ui_operations.dart';
 import 'app_shell.dart';
 import '../services/book_analysis_service.dart';
 import '../services/cloud_sync.dart';
 import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/sori/account_operation_ui.dart';
 
 abstract interface class AccountDeletionCleanupOperations {
   Future<void> deleteRemoteAccount();
@@ -37,9 +40,13 @@ abstract interface class AccountDeletionCleanupOperations {
 }
 
 class AccountDeletionFailure implements Exception {
-  const AccountDeletionFailure(this.causes);
+  const AccountDeletionFailure(
+    this.causes, {
+    this.identityRecoveryPending = false,
+  });
 
   final List<Object> causes;
+  final bool identityRecoveryPending;
 
   @override
   String toString() =>
@@ -119,12 +126,28 @@ class AccountDeletionWorkflow {
 
   Future<void> run() async {
     final failures = <Object>[];
+    var identityRecoveryPending = false;
     try {
       await operations.deleteRemoteAccount();
     } on AccountDeletionRecoveryException catch (error) {
       failures.add(error);
+      identityRecoveryPending = true;
     }
 
+    await _runLocalCleanup(
+      failures,
+      identityRecoveryPending: identityRecoveryPending,
+    );
+  }
+
+  Future<void> retryLocalCleanup() {
+    return _runLocalCleanup(<Object>[], identityRecoveryPending: false);
+  }
+
+  Future<void> _runLocalCleanup(
+    List<Object> failures, {
+    required bool identityRecoveryPending,
+  }) async {
     await _attempt(operations.resetLocalStorage, failures);
     await _attempt(operations.disablePush, failures);
     await _attempt(operations.deleteLocalImages, failures);
@@ -136,7 +159,10 @@ class AccountDeletionWorkflow {
     }
 
     if (failures.isNotEmpty) {
-      throw AccountDeletionFailure(List<Object>.unmodifiable(failures));
+      throw AccountDeletionFailure(
+        List<Object>.unmodifiable(failures),
+        identityRecoveryPending: identityRecoveryPending,
+      );
     }
   }
 
@@ -206,11 +232,15 @@ class SettingsScreen extends StatefulWidget {
     this.account,
     this.accountDeletionWorkflow,
     this.subscriptionManager,
+    this.accountOperations,
+    this.cloudDataDeletion,
   });
 
   final AuthAccountSnapshot? account;
   final AccountDeletionWorkflow? accountDeletionWorkflow;
   final SubscriptionManagementLauncher? subscriptionManager;
+  final AccountUiOperations? accountOperations;
+  final Future<void> Function()? cloudDataDeletion;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -223,6 +253,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
       AccountDeletionWorkflow(AccountDeletionCleanupAdapter.production());
+
+  AccountUiOperations get _accountOperations =>
+      widget.accountOperations ?? const ProductionAccountUiOperations();
 
   SubscriptionManagementLauncher get _subscriptionManager =>
       widget.subscriptionManager ??
@@ -1110,7 +1143,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppL10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
     try {
-      await AuthService.deleteCloudData();
+      await (widget.cloudDataDeletion ?? AuthService.deleteCloudData)();
       if (!mounted) return;
       HapticFeedback.heavyImpact();
       messenger.showSnackBar(
@@ -1119,20 +1152,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
           duration: const Duration(seconds: 2),
         ),
       );
-    } catch (e) {
+    } catch (_) {
       if (!mounted) return;
       messenger.showSnackBar(
-        SnackBar(content: Text(t.settingsAccountDeleteFailed(e.toString()))),
+        SnackBar(content: Text(t.settingsCloudDeleteDataFailed)),
       );
     }
   }
 
-  Future<void> _onDeleteAccount() async {
+  Future<void> _onDeleteAccount() {
+    return _runAccountDeletion(_accountDeletionWorkflow.run);
+  }
+
+  Future<void> _retryLocalAccountCleanup() {
+    return _runAccountDeletion(_accountDeletionWorkflow.retryLocalCleanup);
+  }
+
+  Future<void> _runAccountDeletion(Future<void> Function() operation) async {
     final t = AppL10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
     final rootNav = Navigator.of(context);
     try {
-      await _accountDeletionWorkflow.run();
+      await operation();
       if (!mounted) {
         return;
       }
@@ -1144,12 +1185,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       );
       rootNav.pushNamedAndRemoveUntil('/intro', (route) => false);
-    } catch (e) {
+    } on AccountDeletionFailure catch (failure) {
       if (!mounted) {
         return;
       }
-      messenger.showSnackBar(
-        SnackBar(content: Text(t.settingsAccountDeleteFailed(e.toString()))),
+      await showSafeAccountFailure(
+        context,
+        deletion: true,
+        retry: failure.identityRecoveryPending
+            ? _onDeleteAccount
+            : _retryLocalAccountCleanup,
+      );
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      await showSafeAccountFailure(
+        context,
+        deletion: true,
+        retry: _onDeleteAccount,
       );
     }
   }
@@ -1200,45 +1254,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _onGoogleTap() async {
-    try {
-      if (AuthService.isGoogleLinked) {
-        await AuthService.signOut();
-      } else {
-        final user = await AuthService.linkWithGoogle();
-        if (user != null) {
-          await CloudSync.backup();
-        }
-      }
-      if (mounted) setState(() {});
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            AppL10n.of(context).settingsCloudAuthFailed(e.toString()),
-          ),
-        ),
-      );
-    }
+    await runConfirmedAccountLink(
+      context,
+      operations: _accountOperations,
+      provider: AccountLinkProvider.google,
+      onCompleted: () async {
+        if (mounted) setState(() {});
+      },
+    );
   }
 
   Future<void> _onAppleTap() async {
-    try {
-      final user = await AuthService.linkWithApple();
-      if (user != null) {
-        await CloudSync.backup();
-      }
-      if (mounted) setState(() {});
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            AppL10n.of(context).settingsCloudAuthFailed(e.toString()),
-          ),
-        ),
-      );
-    }
+    await runConfirmedAccountLink(
+      context,
+      operations: _accountOperations,
+      provider: AccountLinkProvider.apple,
+      onCompleted: () async {
+        if (mounted) setState(() {});
+      },
+    );
   }
 
   Future<void> _onSignOutTap() async {
