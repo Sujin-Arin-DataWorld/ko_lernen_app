@@ -231,7 +231,11 @@ void main() {
               expect(expectedMembershipRevision, 7);
               expect(expectedMembershipPackIds, {'pack-a'});
               expect(operationId, 'operation-1');
-              return const FirestorePackCasResult.committed({'pack-a': 3});
+              return const FirestorePackCasResult.committed(
+                {'pack-a': 3},
+                membershipRevision: 8,
+                membershipPackIds: {'pack-a'},
+              );
             },
       );
 
@@ -302,7 +306,11 @@ void main() {
                 return const FirestorePackCasResult.revisionConflict();
               }
               committedWrites += 1;
-              return const FirestorePackCasResult.committed({'pack-a': 3});
+              return const FirestorePackCasResult.committed(
+                {'pack-a': 3},
+                membershipRevision: 8,
+                membershipPackIds: {'pack-a'},
+              );
             },
       );
 
@@ -341,7 +349,11 @@ void main() {
               required sessions,
             }) async {
               writes += 1;
-              return const FirestorePackCasResult.committed({'pack-a': 3});
+              return const FirestorePackCasResult.committed(
+                {'pack-a': 3},
+                membershipRevision: 8,
+                membershipPackIds: {'pack-a'},
+              );
             },
       );
 

@@ -22,6 +22,19 @@ class CloudSyncDocument {
 typedef CloudSyncDocumentReader =
     Future<CloudSyncDocument> Function(String uid);
 
+class CloudSyncCompositeDocuments {
+  const CloudSyncCompositeDocuments({
+    required this.root,
+    required this.packMembership,
+  });
+
+  final CloudSyncDocument root;
+  final CloudSyncDocument packMembership;
+}
+
+typedef CloudSyncCompositeReader =
+    Future<CloudSyncCompositeDocuments> Function(String uid);
+
 enum CloudSyncCasStatus { committed, revisionConflict }
 
 class CloudSyncCasResult {
@@ -46,11 +59,13 @@ typedef CloudSyncCasWriter =
       required CloudWriteSessionController sessions,
     });
 
-typedef CloudSyncReconciliationValidator =
+typedef CloudSyncCompositeValidator =
     Future<bool> Function({
       required String uid,
       required Map<String, dynamic> data,
       required int expectedRevision,
+      required int expectedMembershipRevision,
+      required Set<String> expectedMembershipPackIds,
       required String operationId,
       required CloudWriteSession session,
       required CloudWriteSessionController sessions,
@@ -134,18 +149,22 @@ class CloudSyncService {
     );
   }
 
-  static Future<bool> validateReconciledAccountDocument({
+  static Future<bool> validateReconciledAccountComposite({
     required String uid,
     required Map<String, dynamic> data,
     required int expectedRevision,
+    required int expectedMembershipRevision,
+    required Set<String> expectedMembershipPackIds,
     required String operationId,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
-    CloudSyncDocumentReader? reader,
+    CloudSyncCompositeReader? reader,
   }) async {
     if (uid.trim().isEmpty ||
         session.mode != CloudWriteMode.reconciling ||
-        session.uid != uid) {
+        session.uid != uid ||
+        expectedMembershipRevision < 0 ||
+        expectedMembershipPackIds.any((id) => id.trim().isEmpty)) {
       return false;
     }
     try {
@@ -153,18 +172,26 @@ class CloudSyncService {
     } on StateError {
       return false;
     }
-    final document = await (reader ?? _readFirestoreDocument)(uid);
+    final documents = await (reader ?? _readFirestoreComposite)(uid);
     try {
       sessions.assertCurrent(session);
     } on StateError {
       return false;
     }
-    final currentData = document.data;
-    return document.exists &&
-        currentData != null &&
-        currentData['sync_revision'] == expectedRevision &&
-        currentData['reconciliation_operation_id'] == operationId &&
-        currentData['reconciliation_payload_hash'] == _payloadHash(data);
+    final rootData = documents.root.data;
+    final membershipData = documents.packMembership.data;
+    final membershipPackIds = _packIds(membershipData);
+    return documents.root.exists &&
+        rootData != null &&
+        rootData['sync_revision'] == expectedRevision &&
+        rootData['reconciliation_operation_id'] == operationId &&
+        rootData['reconciliation_payload_hash'] == _payloadHash(data) &&
+        documents.packMembership.exists &&
+        membershipData != null &&
+        membershipData['revision'] == expectedMembershipRevision &&
+        membershipData['reconciliation_operation_id'] == operationId &&
+        membershipPackIds != null &&
+        _sameIds(membershipPackIds, expectedMembershipPackIds);
   }
 
   static Future<CloudSyncDocument> _readFirestoreDocument(String uid) async {
@@ -179,6 +206,30 @@ class CloudSyncService {
     return data == null
         ? const CloudSyncDocument.present({})
         : CloudSyncDocument.present(data);
+  }
+
+  static Future<CloudSyncCompositeDocuments> _readFirestoreComposite(
+    String uid,
+  ) {
+    final firestore = FirebaseFirestore.instance;
+    final rootReference = firestore.collection('users').doc(uid);
+    final membershipReference = rootReference
+        .collection('sync_metadata')
+        .doc('pack_progress');
+    return firestore.runTransaction((transaction) async {
+      final root = await transaction.get(rootReference);
+      final membership = await transaction.get(membershipReference);
+      final rootData = root.data();
+      final membershipData = membership.data();
+      return CloudSyncCompositeDocuments(
+        root: !root.exists
+            ? const CloudSyncDocument.missing()
+            : CloudSyncDocument.present(rootData ?? const {}),
+        packMembership: !membership.exists
+            ? const CloudSyncDocument.missing()
+            : CloudSyncDocument.present(membershipData ?? const {}),
+      );
+    });
   }
 
   static Future<CloudSyncCasResult> _writeFirestoreDocument({
@@ -244,6 +295,21 @@ class CloudSyncService {
         ),
       )
       .toString();
+
+  static Set<String>? _packIds(Map<String, dynamic>? data) {
+    final rawIds = data?['pack_ids'];
+    if (rawIds is! List) return null;
+    final ids = <String>{};
+    for (final value in rawIds) {
+      if (value is! String || value.trim().isEmpty || !ids.add(value)) {
+        return null;
+      }
+    }
+    return ids;
+  }
+
+  static bool _sameIds(Set<String> left, Set<String> right) =>
+      left.length == right.length && left.containsAll(right);
 
   static Object? _canonicalize(Object? value) {
     if (value is Map) {

@@ -574,7 +574,7 @@ void main() {
       var remoteReads = 0;
       var rootWrites = 0;
       var packWrites = 0;
-      var rootValidations = 0;
+      var compositeValidations = 0;
       var localWrites = 0;
       Map<String, dynamic>? lastRootData;
       AccountReconciliationSnapshot? persistedLocal;
@@ -626,20 +626,28 @@ void main() {
                           );
                           remoteRevision += 1;
                         }
-                        return const FirestorePackCasResult.committed({});
+                        return const FirestorePackCasResult.committed(
+                          {},
+                          membershipRevision: 1,
+                          membershipPackIds: {},
+                        );
                       },
-                  rootValidator:
+                  compositeValidator:
                       ({
                         required uid,
                         required data,
                         required expectedRevision,
+                        required expectedMembershipRevision,
+                        required expectedMembershipPackIds,
                         required operationId,
                         required session,
                         required sessions,
                       }) async {
-                        rootValidations += 1;
+                        compositeValidations += 1;
                         expect(uid, 'uid-a');
                         expect(data, lastRootData);
+                        expect(expectedMembershipRevision, 1);
+                        expect(expectedMembershipPackIds, isEmpty);
                         expect(operationId, 'operation-1');
                         return expectedRevision == remoteRevision;
                       },
@@ -660,9 +668,153 @@ void main() {
       expect(remoteReads, 2);
       expect(rootWrites, 2);
       expect(packWrites, 2);
-      expect(rootValidations, 2);
+      expect(compositeValidations, 2);
       expect(localWrites, 1);
       expect(persistedLocal?.srsCards['word-a'], _srs(reviewCount: 2));
+    },
+  );
+
+  test(
+    'post-pack membership advance is re-read before stale pack local effect',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      final adapter = FirebaseAccountReconciliationAdapter(
+        uid: 'uid-a',
+        session: session,
+        sessions: sessions,
+      );
+      final oldProgress = _progressForLocalStore();
+      final newProgress = oldProgress.copyWith(
+        status: PackStatus.inProgress,
+        wordsLearned: 2,
+      );
+      var remote = _snapshot(
+        packs: {'pack-a': oldProgress},
+        packRevisions: const {'pack-a': 1},
+        packMembershipRevision: 1,
+      );
+      var remoteRevision = 1;
+      var remoteReads = 0;
+      var rootWrites = 0;
+      var packWrites = 0;
+      var compositeValidations = 0;
+      var localWrites = 0;
+      AccountReconciliationSnapshot? persistedLocal;
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async {
+          remoteReads += 1;
+          return CloudReadResult.present(remote, revision: remoteRevision);
+        },
+        loadLocal: () => AccountReconciliationSnapshot.empty,
+        writeRemote:
+            (snapshot, {required expectedRevision, required operationId}) =>
+                adapter.writeRemote(
+                  snapshot,
+                  expectedRevision: expectedRevision,
+                  operationId: operationId,
+                  rootWriter:
+                      ({
+                        required uid,
+                        required data,
+                        required expectedRevision,
+                        required operationId,
+                        required session,
+                        required sessions,
+                      }) async {
+                        rootWrites += 1;
+                        expect(expectedRevision, remoteRevision);
+                        remote = snapshot;
+                        remoteRevision += 1;
+                        return CloudSyncCasResult.committed(remoteRevision);
+                      },
+                  packWriter:
+                      ({
+                        required uid,
+                        required progresses,
+                        required expectedRevisions,
+                        required expectedMembershipRevision,
+                        required expectedMembershipPackIds,
+                        required operationId,
+                        required session,
+                        required sessions,
+                      }) async {
+                        packWrites += 1;
+                        if (packWrites == 1) {
+                          remote = _snapshot(
+                            packs: {'pack-a': newProgress},
+                            packRevisions: const {'pack-a': 3},
+                            packMembershipRevision: 3,
+                          );
+                          return const FirestorePackCasResult.committed(
+                            {'pack-a': 2},
+                            membershipRevision: 2,
+                            membershipPackIds: {'pack-a'},
+                          );
+                        }
+                        remote = _snapshot(
+                          packs: {'pack-a': newProgress},
+                          packRevisions: const {'pack-a': 4},
+                          packMembershipRevision: 4,
+                        );
+                        return const FirestorePackCasResult.committed(
+                          {'pack-a': 4},
+                          membershipRevision: 4,
+                          membershipPackIds: {'pack-a'},
+                        );
+                      },
+                  compositeValidator:
+                      ({
+                        required uid,
+                        required data,
+                        required expectedRevision,
+                        required expectedMembershipRevision,
+                        required expectedMembershipPackIds,
+                        required operationId,
+                        required session,
+                        required sessions,
+                      }) async {
+                        compositeValidations += 1;
+                        return expectedRevision == remoteRevision &&
+                            expectedMembershipRevision ==
+                                remote.packMembershipRevision &&
+                            expectedMembershipPackIds.length ==
+                                remote.packProgress.length &&
+                            expectedMembershipPackIds.containsAll(
+                              remote.packProgress.keys,
+                            );
+                      },
+                ),
+        writeLocal: (snapshot, {required session, required sessions}) async {
+          localWrites += 1;
+          persistedLocal = snapshot;
+        },
+      );
+
+      final result = await coordinator.reconcile(
+        session: session,
+        operationId: 'operation-1',
+        catalog: const {
+          'pack-a': PackCatalogEntry(
+            packId: 'pack-a',
+            level: 'A1',
+            wordsTotal: 10,
+          ),
+        },
+      );
+
+      expect(result.status, AccountReconciliationStatus.completed);
+      expect(remoteReads, 2);
+      expect(rootWrites, 2);
+      expect(packWrites, 2);
+      expect(compositeValidations, 2);
+      expect(localWrites, 1);
+      expect(
+        persistedLocal?.packProgress['pack-a']?.toJson(),
+        newProgress.toJson(),
+      );
     },
   );
 

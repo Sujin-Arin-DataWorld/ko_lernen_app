@@ -145,23 +145,33 @@ void main() {
   );
 
   test(
-    'post-pack root validation requires exact revision operation and payload',
+    'composite validation requires exact root revision operation and payload',
     () async {
       final sessions = CloudWriteSessionController()..acquire('uid-a');
       final session = sessions.transition(CloudWriteMode.reconciling);
       const data = {'srs_json': '{}', 'custom_packs_json': '{}'};
       const payloadHash =
           'fba91bf00be691c5c9f38c58bead1858754527bc90d01adce07de8d410b6e4ab';
+      const membership = CloudSyncDocument.present({
+        'revision': 1,
+        'pack_ids': <String>[],
+        'reconciliation_operation_id': 'operation-1',
+      });
 
       Future<bool> validate(Map<String, dynamic> remote) =>
-          CloudSyncService.validateReconciledAccountDocument(
+          CloudSyncService.validateReconciledAccountComposite(
             uid: 'uid-a',
             data: data,
             expectedRevision: 5,
+            expectedMembershipRevision: 1,
+            expectedMembershipPackIds: const {},
             operationId: 'operation-1',
             session: session,
             sessions: sessions,
-            reader: (_) async => CloudSyncDocument.present(remote),
+            reader: (_) async => CloudSyncCompositeDocuments(
+              root: CloudSyncDocument.present(remote),
+              packMembership: membership,
+            ),
           );
 
       expect(
@@ -197,6 +207,63 @@ void main() {
           'sync_revision': 5,
           'reconciliation_operation_id': 'operation-1',
           'reconciliation_payload_hash': 'wrong',
+        }),
+        isFalse,
+      );
+    },
+  );
+
+  test(
+    'composite validation requires exact root and pack membership snapshot',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      const data = {'srs_json': '{}', 'custom_packs_json': '{}'};
+      const root = CloudSyncDocument.present({
+        ...data,
+        'sync_revision': 5,
+        'reconciliation_operation_id': 'operation-1',
+        'reconciliation_payload_hash':
+            'fba91bf00be691c5c9f38c58bead1858754527bc90d01adce07de8d410b6e4ab',
+      });
+
+      Future<bool> validate(Map<String, dynamic> membership) =>
+          CloudSyncService.validateReconciledAccountComposite(
+            uid: 'uid-a',
+            data: data,
+            expectedRevision: 5,
+            expectedMembershipRevision: 7,
+            expectedMembershipPackIds: const {'pack-a'},
+            operationId: 'operation-1',
+            session: session,
+            sessions: sessions,
+            reader: (_) async => CloudSyncCompositeDocuments(
+              root: root,
+              packMembership: CloudSyncDocument.present(membership),
+            ),
+          );
+
+      expect(
+        await validate(const {
+          'revision': 7,
+          'pack_ids': ['pack-a'],
+          'reconciliation_operation_id': 'operation-1',
+        }),
+        isTrue,
+      );
+      expect(
+        await validate(const {
+          'revision': 8,
+          'pack_ids': ['pack-a'],
+          'reconciliation_operation_id': 'operation-1',
+        }),
+        isFalse,
+      );
+      expect(
+        await validate(const {
+          'revision': 7,
+          'pack_ids': ['pack-a', 'pack-b'],
+          'reconciliation_operation_id': 'operation-1',
         }),
         isFalse,
       );

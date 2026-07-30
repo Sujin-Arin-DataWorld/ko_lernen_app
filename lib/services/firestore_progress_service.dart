@@ -55,15 +55,24 @@ typedef FirestoreSinglePackReader =
 enum FirestorePackCasStatus { committed, revisionConflict }
 
 class FirestorePackCasResult {
-  const FirestorePackCasResult.committed(this.revisions)
-    : status = FirestorePackCasStatus.committed;
+  const FirestorePackCasResult.committed(
+    this.revisions, {
+    required int membershipRevision,
+    required this.membershipPackIds,
+  }) : assert(membershipRevision >= 0),
+       membershipRevision = membershipRevision,
+       status = FirestorePackCasStatus.committed;
 
   const FirestorePackCasResult.revisionConflict()
     : status = FirestorePackCasStatus.revisionConflict,
-      revisions = const {};
+      revisions = const {},
+      membershipRevision = null,
+      membershipPackIds = const {};
 
   final FirestorePackCasStatus status;
   final Map<String, int> revisions;
+  final int? membershipRevision;
+  final Set<String> membershipPackIds;
 }
 
 typedef FirestorePackCasWriter =
@@ -391,7 +400,11 @@ class FirestoreProgressService {
           }
           revisions[progress.packId] = packRevision;
         }
-        return FirestorePackCasResult.committed(revisions);
+        return FirestorePackCasResult.committed(
+          revisions,
+          membershipRevision: revision,
+          membershipPackIds: ids,
+        );
       }
       final currentMembershipRevision = membershipSnapshot.exists
           ? (membershipData?['revision'])
@@ -437,7 +450,11 @@ class FirestoreProgressService {
         'reconciliation_operation_id': operationId,
         'updatedAt': FieldValue.serverTimestamp(),
       });
-      return FirestorePackCasResult.committed(revisions);
+      return FirestorePackCasResult.committed(
+        revisions,
+        membershipRevision: (expectedMembershipRevision ?? 0) + 1,
+        membershipPackIds: values.map((value) => value.packId).toSet(),
+      );
     });
   }
 

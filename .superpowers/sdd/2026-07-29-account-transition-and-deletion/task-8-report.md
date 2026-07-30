@@ -126,6 +126,13 @@ success without revalidating root. Before the fix, the coordinator read remote
 only once, returned `completed`, and persisted the older SRS review count
 locally. The focused RED expected a second remote read but observed one.
 
+The final composite-snapshot follow-up then proved the symmetric pack-only
+race. Root and pack CAS both committed, a ready pack writer advanced the pack
+membership manifest while leaving root unchanged, and the root-only
+post-validation accepted the stale pack result. Before the fix, the coordinator
+again read remote only once and could persist the older learned-word count
+locally. The focused RED expected two remote reads but observed one.
+
 ## GREEN and verification
 
 Final focused Task 8 command:
@@ -134,7 +141,7 @@ Final focused Task 8 command:
 flutter test test/services/account/account_reconciliation_test.dart test/services/account/account_transition_journal_test.dart test/services/cloud_sync_service_test.dart test/services/firestore_progress_service_test.dart test/services/pack_progress_service_test.dart --reporter compact
 ```
 
-Result: 62/62 passed.
+Result: 64/64 passed.
 
 Relevant service and legacy commands:
 
@@ -143,7 +150,7 @@ flutter test test/services --reporter compact
 flutter test test/custom_pack_test.dart test/media_lifecycle_test.dart test/cloud_sync_test.dart test/services/account/concrete_cloud_writer_race_test.dart test/services/account/cloud_writer_fence_test.dart --reporter compact
 ```
 
-Results: 145/145 service tests and 91/91 related legacy/race tests passed.
+Results: 147/147 service tests and 91/91 related legacy/race tests passed.
 
 Full Flutter command:
 
@@ -151,21 +158,21 @@ Full Flutter command:
 flutter test --reporter compact
 ```
 
-Result: 893/893 passed, zero failures, exit 0 on the final concrete-adapter
-re-review gate (about 51 seconds of Flutter test-clock time).
+Result: 895/895 passed, zero failures, exit 0 on the final composite-snapshot
+gate (about 45 seconds of Flutter test-clock time).
 
 Static and hygiene commands:
 
 ```text
 flutter analyze
-dart format --set-exit-if-changed <4 concrete-adapter follow-up Dart files>
+dart format --set-exit-if-changed <6 composite-snapshot follow-up Dart files>
 git diff --check
 ```
 
 Results:
 
 - `flutter analyze`: no issues found.
-- Dart format: 4 follow-up files checked, 0 changed on the final pass.
+- Dart format: 6 follow-up files checked, 0 changed on the final pass.
 - `git diff --check`: clean; only informational LF-to-CRLF worktree warnings
   were emitted.
 
@@ -241,13 +248,19 @@ Results:
   remote. A conflict re-reads and re-merges before local persistence, so a
   remote mutation in that window cannot cause a stale local write. No
   remote/network await was added under `MediaMutationLock`.
-- After pack CAS commits, the concrete adapter reads root again and requires
-  the exact committed root revision, reconciliation operation ID, and
-  canonical payload SHA-256. A ready root writer advancing between root and
-  pack CAS therefore produces a typed revision conflict; the coordinator
-  re-reads and re-merges the newer root before any local effect. The exact
-  interleaving asserts two remote reads, two root/pack validations, and one
-  final local write containing the newer SRS history.
+- A committed pack CAS result now carries the exact membership-manifest
+  revision and pack ID set for both a new commit and an idempotent replay.
+  After pack CAS commits, the concrete adapter performs one read-only Firestore
+  transaction that reads both root and the pack membership manifest from the
+  same transaction snapshot. It requires the exact committed root revision,
+  reconciliation operation ID, and canonical payload SHA-256, plus the exact
+  post-pack membership revision, operation ID, and ID set. A ready root or pack
+  writer advancing after either CAS therefore produces a typed revision
+  conflict; the coordinator re-reads and re-merges before any local effect.
+  The preserved root-only and new pack-only exact interleavings each assert two
+  remote reads, two root/pack/composite validations, one final local write, and
+  retention of the newer SRS or pack-progress history. No remote/network await
+  occurs while `MediaMutationLock` is held.
 - Ordinary field values are canonicalized before merge/hash/write: integral
   doubles become integers, ISO instants become UTC, nested map insertion order
   is stable, and mixed-type list unions use a type-tagged total ordering.

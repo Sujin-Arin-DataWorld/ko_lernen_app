@@ -979,7 +979,7 @@ class FirebaseAccountReconciliationAdapter {
     required String operationId,
     CloudSyncCasWriter? rootWriter,
     FirestorePackCasWriter? packWriter,
-    CloudSyncReconciliationValidator? rootValidator,
+    CloudSyncCompositeValidator? compositeValidator,
   }) async {
     final rootData = snapshot.toCloudDocument();
     final rootResult = await CloudSyncService.writeReconciledAccountDocument(
@@ -1011,17 +1011,24 @@ class FirebaseAccountReconciliationAdapter {
     if (committedRootRevision == null) {
       return const ReconciliationWriteResult.revisionConflict();
     }
-    final validateRoot =
-        rootValidator ?? CloudSyncService.validateReconciledAccountDocument;
-    final rootIsCurrent = await validateRoot(
+    final committedMembershipRevision = packResult.membershipRevision;
+    if (committedMembershipRevision == null) {
+      return const ReconciliationWriteResult.revisionConflict();
+    }
+    final validateComposite =
+        compositeValidator ??
+        CloudSyncService.validateReconciledAccountComposite;
+    final compositeIsCurrent = await validateComposite(
       uid: uid,
       data: rootData,
       expectedRevision: committedRootRevision,
+      expectedMembershipRevision: committedMembershipRevision,
+      expectedMembershipPackIds: packResult.membershipPackIds,
       operationId: operationId,
       session: session,
       sessions: sessions,
     );
-    if (!rootIsCurrent) {
+    if (!compositeIsCurrent) {
       return const ReconciliationWriteResult.revisionConflict();
     }
     return ReconciliationWriteResult.committed(revision: committedRootRevision);
