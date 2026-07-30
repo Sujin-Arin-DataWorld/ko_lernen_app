@@ -7,8 +7,10 @@ import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/bookshelf_service.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/account/bookshelf_generation_manifest.dart';
 import 'package:ko_lernen_app/services/account/bookshelf_sync_outbox.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_restore_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
@@ -171,6 +173,94 @@ void main() {
 
       expect(await result, CloudRestoreResult.stale);
       expect(restoredComponents, 0);
+    },
+  );
+
+  test(
+    'typed restore fails closed when a restore component throws unexpectedly',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      var restoredPacks = false;
+
+      final result = await CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'durable',
+        readAccount: () async =>
+            const CloudReadResult<Map<String, dynamic>>.absent(),
+        applyAccount: (data, beforeWrite) async {
+          fail('an absent root backup must not apply account data');
+        },
+        restoreBookshelf: (_) async =>
+            throw const FormatException('malformed bookshelf component'),
+        restorePacks: (_) async {
+          restoredPacks = true;
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: false,
+          );
+        },
+      );
+
+      expect(result, CloudRestoreResult.blocked);
+      expect(restoredPacks, isFalse);
+    },
+  );
+
+  test(
+    'typed restore reports stale when a component error finishes after an account switch',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final component = Completer<CloudRestoreComponentResult>();
+      var restoredPacks = false;
+
+      final result = CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'uid-a',
+        readAccount: () async =>
+            const CloudReadResult<Map<String, dynamic>>.absent(),
+        applyAccount: (data, beforeWrite) async {
+          fail('an absent root backup must not apply account data');
+        },
+        restoreBookshelf: (_) => component.future,
+        restorePacks: (_) async {
+          restoredPacks = true;
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: false,
+          );
+        },
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      component.completeError(const FormatException('malformed component'));
+
+      expect(await result, CloudRestoreResult.stale);
+      expect(restoredPacks, isFalse);
+    },
+  );
+
+  test(
+    'public restore fails closed when its admitted operation throws',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+        CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: const _ClearCloudBackupDeletionJournalStore(),
+          gateway: const _UnusedCloudBackupDeletionGateway(),
+        ),
+      );
+      CloudSync.overrideOperationsForTesting(
+        restoreWithResult: () async =>
+            throw const FormatException('unexpected restore failure'),
+      );
+      addTearDown(() {
+        CloudSync.resetOperationsForTesting();
+        AuthService.resetCloudBackupDeletionForTesting();
+      });
+
+      expect(await CloudSync.restoreWithResult(), CloudRestoreResult.blocked);
     },
   );
 
@@ -838,6 +928,35 @@ void main() {
       expect(Storage.srsRawJson, '{"local":1}');
     },
   );
+}
+
+class _ClearCloudBackupDeletionJournalStore
+    implements CloudBackupDeletionJournalStore {
+  const _ClearCloudBackupDeletionJournalStore();
+
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async =>
+      false;
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() async => null;
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) async {
+    throw UnsupportedError('not used by a restore admission');
+  }
+}
+
+class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
+  const _UnusedCloudBackupDeletionGateway();
+
+  @override
+  Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
+    String requestKey, {
+    required String expectedUid,
+  }) async {
+    throw UnsupportedError('not used by a restore admission');
+  }
 }
 
 class _LegacyBookshelfRepository implements BookshelfGenerationRepository {

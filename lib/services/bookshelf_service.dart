@@ -537,15 +537,14 @@ class BookshelfService {
         status: completed,
         hasRemoteData: completed == CloudWriteResult.completed && hasRemoteData,
       );
-    } on StateError {
+    } catch (_) {
       final current = fence.verify(expectedSession, uid: uid);
-      if (current != CloudWriteResult.completed) {
-        return CloudRestoreComponentResult(
-          status: current,
-          hasRemoteData: false,
-        );
-      }
-      rethrow;
+      return CloudRestoreComponentResult(
+        status: current == CloudWriteResult.completed
+            ? CloudWriteResult.blocked
+            : current,
+        hasRemoteData: false,
+      );
     }
   }
 

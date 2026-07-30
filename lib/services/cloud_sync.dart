@@ -606,11 +606,15 @@ class CloudSync {
   static Future<bool> restore() async =>
       (await restoreWithResult()) == CloudRestoreResult.completed;
 
-  static Future<CloudRestoreResult> restoreWithResult() {
-    return AuthService.runCloudBackupDeletionAdmission(
-      onAdmitted: _restoreWithResultAfterCloudBackupAdmission,
-      onBlocked: () async => CloudRestoreResult.blocked,
-    );
+  static Future<CloudRestoreResult> restoreWithResult() async {
+    try {
+      return await AuthService.runCloudBackupDeletionAdmission(
+        onAdmitted: _restoreWithResultAfterCloudBackupAdmission,
+        onBlocked: () async => CloudRestoreResult.blocked,
+      );
+    } catch (_) {
+      return CloudRestoreResult.blocked;
+    }
   }
 
   static Future<CloudRestoreResult>
@@ -771,12 +775,13 @@ class CloudSync {
       return hasRootBackup || bookshelf.hasRemoteData || packs.hasRemoteData
           ? CloudRestoreResult.completed
           : CloudRestoreResult.empty;
-    } on StateError {
+    } catch (_) {
       final current = fence.verify(expectedSession, uid: uid);
-      if (current != CloudWriteResult.completed) {
-        return _restoreResultForWrite(current);
-      }
-      rethrow;
+      return _restoreResultForWrite(
+        current == CloudWriteResult.completed
+            ? CloudWriteResult.blocked
+            : current,
+      );
     }
   }
 

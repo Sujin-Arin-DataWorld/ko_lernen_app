@@ -149,6 +149,53 @@ void main() {
     },
   );
 
+  test(
+    'typed bookshelf restore fails closed when the active generation is malformed',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final repository = _MemoryRepository()
+        ..active = BookshelfGenerationManifest(
+          generationId: 'generation-a',
+          revision: 1,
+          recordIds: const {'missing-record'},
+        );
+
+      final result = await BookshelfService.restoreRemoteForSessionWithResult(
+        uid: 'uid-a',
+        expectedSession: session,
+        sessions: sessions,
+        repository: repository,
+      );
+
+      expect(result.status, CloudWriteResult.blocked);
+      expect(result.hasRemoteData, isFalse);
+      expect(BookshelfService.getById('missing-record'), isNull);
+    },
+  );
+
+  test(
+    'typed bookshelf restore reports stale when a malformed read finishes after an account switch',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final manifest = Completer<BookshelfGenerationManifest?>();
+      final repository = _DelayedManifestRepository(manifest.future);
+
+      final result = BookshelfService.restoreRemoteForSessionWithResult(
+        uid: 'uid-a',
+        expectedSession: session,
+        sessions: sessions,
+        repository: repository,
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      manifest.completeError(const FormatException('malformed remote record'));
+
+      expect((await result).status, CloudWriteResult.stale);
+    },
+  );
+
   test('active tombstone removes a stale local bookshelf entry', () async {
     await Storage.setBookshelfRawJsonStrict(
       '{"book-deleted":{"note":"stale local","words":[],"grammar":[],"sentences":[]}}',

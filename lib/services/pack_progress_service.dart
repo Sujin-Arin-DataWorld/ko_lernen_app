@@ -432,47 +432,57 @@ class PackProgressService {
     if (initial != CloudWriteResult.completed) {
       return CloudRestoreComponentResult(status: initial, hasRemoteData: false);
     }
-    final result = await loadRemote();
-    final afterRead = fence.verify(expectedSession, uid: uid);
-    if (afterRead != CloudWriteResult.completed) {
+    try {
+      final result = await loadRemote();
+      final afterRead = fence.verify(expectedSession, uid: uid);
+      if (afterRead != CloudWriteResult.completed) {
+        return CloudRestoreComponentResult(
+          status: afterRead,
+          hasRemoteData: false,
+        );
+      }
+      if (result.state == CloudReadState.absent) {
+        return const CloudRestoreComponentResult(
+          status: CloudWriteResult.completed,
+          hasRemoteData: false,
+        );
+      }
+      if (!result.isPresent || result.value == null) {
+        return const CloudRestoreComponentResult(
+          status: CloudWriteResult.blocked,
+          hasRemoteData: false,
+        );
+      }
+      final remote = result.value!.progress;
+      final localBefore = loadLocal();
+      final merged = <String, Map<String, dynamic>>{
+        for (final entry in remote.entries) entry.key: entry.value.toJson(),
+        for (final entry in localBefore.entries)
+          if (!remote.containsKey(entry.key)) entry.key: entry.value.toJson(),
+      };
+      final beforeWrite = fence.verify(expectedSession, uid: uid);
+      if (beforeWrite != CloudWriteResult.completed) {
+        return CloudRestoreComponentResult(
+          status: beforeWrite,
+          hasRemoteData: false,
+        );
+      }
+      await persistLocal(merged);
+      final completed = fence.verify(expectedSession, uid: uid);
       return CloudRestoreComponentResult(
-        status: afterRead,
-        hasRemoteData: false,
+        status: completed,
+        hasRemoteData:
+            completed == CloudWriteResult.completed && remote.isNotEmpty,
       );
-    }
-    if (result.state == CloudReadState.absent) {
-      return const CloudRestoreComponentResult(
-        status: CloudWriteResult.completed,
-        hasRemoteData: false,
-      );
-    }
-    if (!result.isPresent || result.value == null) {
-      return const CloudRestoreComponentResult(
-        status: CloudWriteResult.blocked,
-        hasRemoteData: false,
-      );
-    }
-    final remote = result.value!.progress;
-    final localBefore = loadLocal();
-    final merged = <String, Map<String, dynamic>>{
-      for (final entry in remote.entries) entry.key: entry.value.toJson(),
-      for (final entry in localBefore.entries)
-        if (!remote.containsKey(entry.key)) entry.key: entry.value.toJson(),
-    };
-    final beforeWrite = fence.verify(expectedSession, uid: uid);
-    if (beforeWrite != CloudWriteResult.completed) {
+    } catch (_) {
+      final current = fence.verify(expectedSession, uid: uid);
       return CloudRestoreComponentResult(
-        status: beforeWrite,
+        status: current == CloudWriteResult.completed
+            ? CloudWriteResult.blocked
+            : current,
         hasRemoteData: false,
       );
     }
-    await persistLocal(merged);
-    final completed = fence.verify(expectedSession, uid: uid);
-    return CloudRestoreComponentResult(
-      status: completed,
-      hasRemoteData:
-          completed == CloudWriteResult.completed && remote.isNotEmpty,
-    );
   }
 
   static Future<CloudWriteResult> pullFromCloudWithSession({

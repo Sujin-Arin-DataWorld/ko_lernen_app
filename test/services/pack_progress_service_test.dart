@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
@@ -177,6 +179,47 @@ void main() {
     expect(result.hasRemoteData, isTrue);
     expect(persisted?['pack-a']?['wordsLearned'], 4);
   });
+
+  test('typed pack restore fails closed when the remote read throws', () async {
+    final sessions = CloudWriteSessionController()..acquire('uid-a');
+    final session = sessions.current!;
+
+    final result =
+        await PackProgressService.pullTypedFromCloudWithSessionResult(
+          sessions: sessions,
+          uid: 'uid-a',
+          expectedSession: session,
+          loadRemote: () async => throw const FormatException('bad remote'),
+          loadLocal: () => const <String, PackProgress>{},
+          persistLocal: (_) async {},
+        );
+
+    expect(result.status, CloudWriteResult.blocked);
+    expect(result.hasRemoteData, isFalse);
+  });
+
+  test(
+    'typed pack restore reports stale when a remote error finishes after an account switch',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final remote = Completer<CloudReadResult<FirestorePackSnapshot>>();
+
+      final result = PackProgressService.pullTypedFromCloudWithSessionResult(
+        sessions: sessions,
+        uid: 'uid-a',
+        expectedSession: session,
+        loadRemote: () => remote.future,
+        loadLocal: () => const <String, PackProgress>{},
+        persistLocal: (_) async {},
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      remote.completeError(const FormatException('bad remote'));
+
+      expect((await result).status, CloudWriteResult.stale);
+    },
+  );
 }
 
 PackProgress _progress({
