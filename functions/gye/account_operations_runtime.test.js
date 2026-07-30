@@ -1989,6 +1989,35 @@ async () => {
   assert.equal(authDeletes, 0);
 });
 
+test("passes the renewed operation lease fence into each destructive tree page",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const fences = [];
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async ({ workerFence }) => {
+      fences.push(workerFence);
+      return { done: false, nextCursor: "work-v1" };
+    },
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+
+  const result = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "scheduled-operation",
+  });
+
+  assert.equal(fences.length, 1);
+  assert.equal(typeof fences[0].workerId, "string");
+  assert(fences[0].workerId.length > 0);
+  assert.equal(fences[0].operationVersion, result.version);
+  assert.equal(fences[0].leaseVersion, 2);
+});
+
 test("does not complete before Gye community and processor cleanup phases finish",
 async () => {
   const harness = createHarness();

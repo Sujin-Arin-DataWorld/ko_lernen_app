@@ -6,7 +6,16 @@ const WORK_COLLECTION = "user_tree_work";
 const WORK_CURSOR = "work-v1";
 const DEFAULT_PAGE_SIZE = 200;
 const MAX_PAGE_SIZE = 200;
-const WRITE_BATCH_LIMIT = 400;
+const DISCOVERY_INITIAL = "initial";
+const DISCOVERY_INITIAL_COMPLETE = "initial-complete";
+const DISCOVERY_LATE = "late";
+const DISCOVERY_LATE_COMPLETE = "late-complete";
+const DISCOVERY_MODES = new Set([
+  DISCOVERY_INITIAL,
+  DISCOVERY_INITIAL_COMPLETE,
+  DISCOVERY_LATE,
+  DISCOVERY_LATE_COMPLETE,
+]);
 
 function adapterFailure(code) {
   const error = new Error("Account deletion adapter rejected unsafe state.");
@@ -22,6 +31,15 @@ function opaqueDocumentId(value, code) {
       value === ".." ||
       value.includes("/")) {
     throw adapterFailure(code);
+  }
+  return value;
+}
+
+function opaquePageToken(value) {
+  if (value === null || value === undefined || value === "") return null;
+  if (typeof value !== "string" ||
+      Buffer.byteLength(value, "utf8") > 4_096) {
+    throw adapterFailure("invalid-deletion-work");
   }
   return value;
 }
@@ -61,6 +79,27 @@ function normalizedCollectionPath(path, uid) {
       segments[1] !== uid ||
       segments.some((segment) =>
         segment.length < 1 ||
+        Buffer.byteLength(segment, "utf8") > 1_500 ||
+        segment === "." ||
+        segment === "..")) {
+    throw adapterFailure("invalid-deletion-work");
+  }
+  return segments.join("/");
+}
+
+function normalizedDocumentPath(path, uid) {
+  if (typeof path !== "string" ||
+      Buffer.byteLength(path, "utf8") > 6_000) {
+    throw adapterFailure("invalid-deletion-work");
+  }
+  const segments = path.split("/");
+  if (segments.length < 2 ||
+      segments.length % 2 !== 0 ||
+      segments[0] !== "users" ||
+      segments[1] !== uid ||
+      segments.some((segment) =>
+        segment.length < 1 ||
+        Buffer.byteLength(segment, "utf8") > 1_500 ||
         segment === "." ||
         segment === "..")) {
     throw adapterFailure("invalid-deletion-work");
@@ -77,24 +116,93 @@ function workId(operationId, collectionPath) {
     .digest("hex");
 }
 
-function chunks(items, size) {
-  const result = [];
-  for (let index = 0; index < items.length; index += size) {
-    result.push(items.slice(index, index + size));
+function validatedFence(workerFence) {
+  if (!workerFence ||
+      typeof workerFence.workerId !== "string" ||
+      workerFence.workerId.length < 1 ||
+      !Number.isInteger(workerFence.operationVersion) ||
+      workerFence.operationVersion < 0 ||
+      !Number.isInteger(workerFence.leaseVersion) ||
+      workerFence.leaseVersion < 1) {
+    throw adapterFailure("invalid-worker-fence");
   }
-  return result;
+  return {
+    workerId: workerFence.workerId,
+    operationVersion: workerFence.operationVersion,
+    leaseVersion: workerFence.leaseVersion,
+  };
+}
+
+function rootDiscovery(marker, operationId) {
+  const stored = marker?.userTreeDiscovery;
+  if (!stored || stored.operationId !== operationId) {
+    return {
+      operationId,
+      mode: DISCOVERY_INITIAL,
+      pageToken: null,
+    };
+  }
+  if (!DISCOVERY_MODES.has(stored.mode)) {
+    throw adapterFailure("invalid-deletion-work");
+  }
+  return {
+    operationId,
+    mode: stored.mode,
+    pageToken: opaquePageToken(stored.pageToken),
+  };
+}
+
+function sameDiscovery(left, right) {
+  return left.operationId === right.operationId &&
+    left.mode === right.mode &&
+    left.pageToken === right.pageToken;
+}
+
+function createGapicCollectionIdPager({ firestore, client } = {}) {
+  if (!firestore || typeof firestore.doc !== "function" ||
+      !client || typeof client.listCollectionIds !== "function") {
+    throw new TypeError("Firestore collection-ID pager dependencies required.");
+  }
+  return async function listCollectionIdsPage({
+    parentPath,
+    pageSize,
+    pageToken,
+  }) {
+    const parent = firestore.doc(parentPath).formattedName;
+    const request = {
+      parent,
+      pageSize,
+    };
+    if (pageToken) request.pageToken = pageToken;
+    const [collectionIds, nextRequest, response] =
+      await client.listCollectionIds(
+        request,
+        { autoPaginate: false },
+      );
+    const nextPageToken = response?.nextPageToken ||
+      nextRequest?.pageToken ||
+      null;
+    return {
+      collectionIds,
+      nextPageToken,
+    };
+  };
 }
 
 function createFirestoreDeletionAdapters({
   firestore,
   markerCollection,
+  listCollectionIdsPage,
+  nowMillis = () => Date.now(),
   pageSize = DEFAULT_PAGE_SIZE,
 } = {}) {
   if (!firestore ||
       typeof firestore.collection !== "function" ||
-      typeof firestore.batch !== "function" ||
+      typeof firestore.runTransaction !== "function" ||
       !markerCollection ||
-      typeof markerCollection.doc !== "function") {
+      typeof markerCollection.doc !== "function" ||
+      typeof listCollectionIdsPage !== "function" ||
+      typeof nowMillis !== "function") {
     throw new TypeError("Firestore deletion adapter dependencies are required.");
   }
   if (!Number.isInteger(pageSize) ||
@@ -114,13 +222,14 @@ function createFirestoreDeletionAdapters({
       uid: safeUid,
       operationId: safeOperationId,
       markerRef,
+      operationRef:
+        firestore.collection("account_operations").doc(safeOperationId),
       rootRef: firestore.collection("users").doc(safeUid),
       workCollection: markerRef.collection(WORK_COLLECTION),
     };
   }
 
-  async function requireOwnedMarker(context) {
-    const snapshot = await context.markerRef.get();
+  function requireOwnedMarker(snapshot, context) {
     const marker = snapshot.exists ? snapshot.data() || {} : {};
     if (!snapshot.exists ||
         marker.serverOwned !== true ||
@@ -131,86 +240,227 @@ function createFirestoreDeletionAdapters({
     return marker;
   }
 
+  function assertActiveLease(snapshot, fence) {
+    const operation = snapshot.exists ? snapshot.data() || {} : {};
+    const lease = operation.workerLease || {};
+    if (!snapshot.exists ||
+        operation.version !== fence.operationVersion ||
+        lease.workerId !== fence.workerId ||
+        lease.leaseVersion !== fence.leaseVersion ||
+        !Number.isFinite(lease.leaseUntilMillis) ||
+        lease.leaseUntilMillis <= nowMillis()) {
+      throw adapterFailure("stale-worker-lease");
+    }
+  }
+
+  async function runFencedTransaction(context, fence, callback) {
+    return firestore.runTransaction(async (transaction) => {
+      const operation = await transaction.get(context.operationRef);
+      assertActiveLease(operation, fence);
+      const markerSnapshot = await transaction.get(context.markerRef);
+      const marker = requireOwnedMarker(markerSnapshot, context);
+      return callback(transaction, marker, markerSnapshot);
+    });
+  }
+
   function validateWorkSnapshot(snapshot, context) {
     const data = snapshot.data() || {};
     const collectionPath = normalizedCollectionPath(
       data.collectionPath,
       context.uid,
     );
+    const activeDocumentId = data.activeDocumentId === null ||
+      data.activeDocumentId === undefined
+      ? null
+      : opaqueDocumentId(
+        data.activeDocumentId,
+        "invalid-deletion-work",
+      );
+    const lastDocumentId = data.lastDocumentId === null ||
+      data.lastDocumentId === undefined
+      ? null
+      : opaqueDocumentId(
+        data.lastDocumentId,
+        "invalid-deletion-work",
+      );
     if (snapshot.id !== workId(context.operationId, collectionPath) ||
         data.operationId !== context.operationId ||
         data.uid !== context.uid ||
-        !["pending", "complete"].includes(data.state) ||
-        (data.lastDocumentId !== null &&
-          data.lastDocumentId !== undefined &&
-          (typeof data.lastDocumentId !== "string" ||
-            data.lastDocumentId.length < 1 ||
-            data.lastDocumentId.includes("/")))) {
+        !["pending", "complete"].includes(data.state)) {
       throw adapterFailure("invalid-deletion-work");
     }
     return {
       ...data,
       collectionPath,
-      lastDocumentId: typeof data.lastDocumentId === "string"
-        ? data.lastDocumentId
-        : null,
+      activeDocumentId,
+      discoveryPageToken: opaquePageToken(data.discoveryPageToken),
+      lastDocumentId,
     };
   }
 
-  async function writeBatches(mutations) {
-    for (const mutationChunk of chunks(mutations, WRITE_BATCH_LIMIT)) {
-      const batch = firestore.batch();
-      for (const mutation of mutationChunk) {
-        if (mutation.kind === "delete") {
-          batch.delete(mutation.ref);
+  function newWork(context, collectionPath) {
+    return {
+      operationId: context.operationId,
+      uid: context.uid,
+      collectionPath,
+      state: "pending",
+      lastDocumentId: null,
+      activeDocumentId: null,
+      discoveryPageToken: null,
+    };
+  }
+
+  function collectionPathsFromPage(context, parentPath, response, limit) {
+    const collectionIds = Array.isArray(response?.collectionIds)
+      ? response.collectionIds
+      : null;
+    if (!collectionIds || collectionIds.length > limit) {
+      throw adapterFailure("invalid-discovery-page");
+    }
+    const parent = normalizedDocumentPath(parentPath, context.uid);
+    return Array.from(new Set(collectionIds.map((collectionId) => {
+      const id = opaqueDocumentId(
+        collectionId,
+        "invalid-discovery-page",
+      );
+      return normalizedCollectionPath(`${parent}/${id}`, context.uid);
+    }))).sort();
+  }
+
+  async function safeDiscoveryPage({
+    context,
+    parentPath,
+    pageToken,
+    limit,
+  }) {
+    let response;
+    try {
+      response = await listCollectionIdsPage({
+        parentPath,
+        pageSize: limit,
+        pageToken,
+      });
+    } catch {
+      throw adapterFailure("deletion-discovery-failed");
+    }
+    const collectionPaths = collectionPathsFromPage(
+      context,
+      parentPath,
+      response,
+      limit,
+    );
+    const nextPageToken = opaquePageToken(response.nextPageToken);
+    if (nextPageToken !== null && nextPageToken === pageToken) {
+      throw adapterFailure("invalid-discovery-page");
+    }
+    return { collectionPaths, nextPageToken };
+  }
+
+  async function captureCommunityTargets({
+    uid,
+    operationId,
+    workerFence,
+  }) {
+    const context = refs({ uid, operationId });
+    const fence = validatedFence(workerFence);
+    return runFencedTransaction(context, fence, async (
+      transaction,
+      marker,
+    ) => {
+      const user = await transaction.get(context.rootRef);
+      const cleanupGyeIds = normalizeGyeIds([
+        ...normalizeGyeIds(marker.cleanupGyeIds),
+        ...normalizeGyeIds(user.exists ? (user.data() || {}).gyeIds : []),
+      ]);
+      transaction.set(
+        context.markerRef,
+        { cleanupGyeIds },
+        { merge: true },
+      );
+      return cleanupGyeIds;
+    });
+  }
+
+  async function markerState(context) {
+    const snapshot = await context.markerRef.get();
+    const marker = requireOwnedMarker(snapshot, context);
+    return rootDiscovery(marker, context.operationId);
+  }
+
+  async function persistRootDiscoveryPage({
+    context,
+    fence,
+    state,
+    collectionPaths,
+    nextPageToken,
+  }) {
+    return runFencedTransaction(context, fence, async (
+      transaction,
+      marker,
+    ) => {
+      const current = rootDiscovery(marker, context.operationId);
+      if (!sameDiscovery(current, state)) {
+        throw adapterFailure("stale-deletion-work");
+      }
+      const work = [];
+      for (const collectionPath of collectionPaths) {
+        const ref = context.workCollection.doc(
+          workId(context.operationId, collectionPath),
+        );
+        work.push({ ref, snapshot: await transaction.get(ref), collectionPath });
+      }
+      for (const item of work) {
+        if (!item.snapshot.exists) {
+          transaction.set(
+            item.ref,
+            newWork(context, item.collectionPath),
+          );
         } else {
-          batch.set(mutation.ref, mutation.value, mutation.options);
+          validateWorkSnapshot(item.snapshot, context);
+          if (state.mode === DISCOVERY_LATE) {
+            transaction.set(item.ref, {
+              state: "pending",
+              lastDocumentId: null,
+              activeDocumentId: null,
+              discoveryPageToken: null,
+            }, { merge: true });
+          }
         }
       }
-      await batch.commit();
-    }
-  }
-
-  async function ensureCollectionWork(context, collectionRefs) {
-    const collectionPaths = Array.from(new Set(
-      collectionRefs.map((collectionRef) =>
-        normalizedCollectionPath(collectionRef.path, context.uid)),
-    )).sort();
-    const mutations = [];
-    for (const collectionPath of collectionPaths) {
-      const ref = context.workCollection.doc(
-        workId(context.operationId, collectionPath),
-      );
-      const existing = await ref.get();
-      if (existing.exists) {
-        validateWorkSnapshot(existing, context);
-        continue;
-      }
-      mutations.push({
-        kind: "set",
-        ref,
-        value: {
+      const mode = nextPageToken !== null
+        ? state.mode
+        : state.mode === DISCOVERY_INITIAL
+          ? DISCOVERY_INITIAL_COMPLETE
+          : DISCOVERY_LATE_COMPLETE;
+      transaction.set(context.markerRef, {
+        userTreeDiscovery: {
           operationId: context.operationId,
-          uid: context.uid,
-          collectionPath,
-          state: "pending",
-          lastDocumentId: null,
+          mode,
+          pageToken: nextPageToken,
         },
-      });
-    }
-    await writeBatches(mutations);
+      }, { merge: true });
+    });
   }
 
-  async function captureCommunityTargets({ uid, operationId }) {
-    const context = refs({ uid, operationId });
-    const marker = await requireOwnedMarker(context);
-    const user = await context.rootRef.get();
-    const cleanupGyeIds = normalizeGyeIds([
-      ...normalizeGyeIds(marker.cleanupGyeIds),
-      ...normalizeGyeIds(user.exists ? (user.data() || {}).gyeIds : []),
-    ]);
-    await context.markerRef.set({ cleanupGyeIds }, { merge: true });
-    return cleanupGyeIds;
+  async function processRootDiscoveryPage(context, fence, state, limit) {
+    if (state.mode !== DISCOVERY_INITIAL &&
+        state.mode !== DISCOVERY_LATE) {
+      return false;
+    }
+    const page = await safeDiscoveryPage({
+      context,
+      parentPath: context.rootRef.path,
+      pageToken: state.pageToken,
+      limit,
+    });
+    await persistRootDiscoveryPage({
+      context,
+      fence,
+      state,
+      collectionPaths: page.collectionPaths,
+      nextPageToken: page.nextPageToken,
+    });
+    return true;
   }
 
   async function nextPendingWork(context) {
@@ -227,82 +477,184 @@ function createFirestoreDeletionAdapters({
     };
   }
 
-  async function processCollectionPage(context, job, limit) {
-    let query = firestore
-      .collection(job.data.collectionPath)
-      .orderBy("__name__");
+  async function nextParentDocument(context, job) {
+    const collection = firestore.collection(job.data.collectionPath);
+    if (job.data.activeDocumentId !== null) {
+      const ref = collection.doc(job.data.activeDocumentId);
+      return {
+        id: job.data.activeDocumentId,
+        ref,
+        snapshot: await ref.get(),
+      };
+    }
+    let query = collection.orderBy("__name__");
     if (job.data.lastDocumentId !== null) {
       query = query.startAfter(job.data.lastDocumentId);
     }
-    const snapshot = await query.limit(limit).get();
-
-    for (const document of snapshot.docs) {
-      const childCollections = await document.ref.listCollections();
-      await ensureCollectionWork(context, childCollections);
-      await document.ref.delete();
-    }
-
-    const pageFull = snapshot.docs.length === limit;
-    const lastDocumentId = pageFull
-      ? snapshot.docs.at(-1).id
-      : null;
-    await job.ref.set({
-      state: pageFull ? "pending" : "complete",
-      lastDocumentId,
-    }, { merge: true });
+    const snapshot = await query.limit(1).get();
+    if (snapshot.docs.length === 0) return null;
+    const document = snapshot.docs[0];
+    return {
+      id: document.id,
+      ref: document.ref,
+      snapshot: document,
+    };
   }
 
-  async function reopenLateRootWork(context) {
-    const rootCollections = await context.rootRef.listCollections();
-    let reopened = false;
-    for (const collectionRef of rootCollections) {
-      const sample = await collectionRef.limit(1).get();
-      if (sample.docs.length === 0) continue;
-      reopened = true;
-      const collectionPath = normalizedCollectionPath(
-        collectionRef.path,
-        context.uid,
-      );
-      const ref = context.workCollection.doc(
-        workId(context.operationId, collectionPath),
-      );
-      const existing = await ref.get();
-      if (!existing.exists) {
-        await ref.set({
-          operationId: context.operationId,
-          uid: context.uid,
-          collectionPath,
-          state: "pending",
-          lastDocumentId: null,
-        });
-        continue;
+  function sameJobProgress(current, expected) {
+    return current.state === expected.state &&
+      current.lastDocumentId === expected.lastDocumentId &&
+      current.activeDocumentId === expected.activeDocumentId &&
+      current.discoveryPageToken === expected.discoveryPageToken;
+  }
+
+  async function completeEmptyCollection(context, fence, job) {
+    await runFencedTransaction(context, fence, async (transaction) => {
+      const currentSnapshot = await transaction.get(job.ref);
+      if (!currentSnapshot.exists) {
+        throw adapterFailure("stale-deletion-work");
       }
-      validateWorkSnapshot(existing, context);
-      await ref.set({
-        state: "pending",
-        lastDocumentId: null,
+      const current = validateWorkSnapshot(currentSnapshot, context);
+      if (!sameJobProgress(current, job.data)) {
+        throw adapterFailure("stale-deletion-work");
+      }
+      transaction.set(job.ref, {
+        state: "complete",
+        activeDocumentId: null,
+        discoveryPageToken: null,
       }, { merge: true });
-    }
-    return reopened;
+    });
   }
 
-  async function deleteRootAndCleanupReceipts(context, limit) {
-    const rootBatch = firestore.batch();
-    rootBatch.delete(context.rootRef);
-    rootBatch.set(context.markerRef, {
-      userTreeRootDeletedOperationId: context.operationId,
-    }, { merge: true });
-    await rootBatch.commit();
+  async function persistChildDiscoveryPage({
+    context,
+    fence,
+    job,
+    parent,
+    collectionPaths,
+    nextPageToken,
+  }) {
+    await runFencedTransaction(context, fence, async (transaction) => {
+      const currentSnapshot = await transaction.get(job.ref);
+      if (!currentSnapshot.exists) {
+        throw adapterFailure("stale-deletion-work");
+      }
+      const current = validateWorkSnapshot(currentSnapshot, context);
+      if (!sameJobProgress(current, job.data)) {
+        throw adapterFailure("stale-deletion-work");
+      }
+      const children = [];
+      for (const collectionPath of collectionPaths) {
+        const ref = context.workCollection.doc(
+          workId(context.operationId, collectionPath),
+        );
+        children.push({
+          ref,
+          snapshot: await transaction.get(ref),
+          collectionPath,
+        });
+      }
+      for (const child of children) {
+        if (!child.snapshot.exists) {
+          transaction.set(
+            child.ref,
+            newWork(context, child.collectionPath),
+          );
+        } else {
+          validateWorkSnapshot(child.snapshot, context);
+        }
+      }
+      if (nextPageToken !== null) {
+        transaction.set(job.ref, {
+          activeDocumentId: parent.id,
+          discoveryPageToken: nextPageToken,
+        }, { merge: true });
+        return;
+      }
+      transaction.delete(parent.ref);
+      transaction.set(job.ref, {
+        state: "pending",
+        lastDocumentId: parent.id,
+        activeDocumentId: null,
+        discoveryPageToken: null,
+      }, { merge: true });
+    });
+  }
 
+  async function processCollectionWork(context, fence, job, limit) {
+    const parent = await nextParentDocument(context, job);
+    if (!parent) {
+      await completeEmptyCollection(context, fence, job);
+      return;
+    }
+    const parentPath = normalizedDocumentPath(parent.ref.path, context.uid);
+    const page = await safeDiscoveryPage({
+      context,
+      parentPath,
+      pageToken: job.data.discoveryPageToken,
+      limit,
+    });
+    await persistChildDiscoveryPage({
+      context,
+      fence,
+      job,
+      parent,
+      collectionPaths: page.collectionPaths,
+      nextPageToken: page.nextPageToken,
+    });
+  }
+
+  async function startLateDiscovery(context, fence, expectedState) {
+    await runFencedTransaction(context, fence, async (
+      transaction,
+      marker,
+    ) => {
+      const current = rootDiscovery(marker, context.operationId);
+      if (!sameDiscovery(current, expectedState) ||
+          current.mode !== DISCOVERY_INITIAL_COMPLETE) {
+        throw adapterFailure("stale-deletion-work");
+      }
+      transaction.set(context.markerRef, {
+        userTreeDiscovery: {
+          operationId: context.operationId,
+          mode: DISCOVERY_LATE,
+          pageToken: null,
+        },
+      }, { merge: true });
+    });
+  }
+
+  async function deleteRootAndCleanupReceipts({
+    context,
+    fence,
+    expectedState,
+    limit,
+  }) {
     const work = await context.workCollection
       .where("operationId", "==", context.operationId)
       .limit(limit + 1)
       .get();
     const page = work.docs.slice(0, limit);
-    await writeBatches(page.map((document) => ({
-      kind: "delete",
-      ref: document.ref,
-    })));
+    for (const document of page) {
+      validateWorkSnapshot(document, context);
+    }
+    await runFencedTransaction(context, fence, async (
+      transaction,
+      marker,
+    ) => {
+      const current = rootDiscovery(marker, context.operationId);
+      if (!sameDiscovery(current, expectedState) ||
+          current.mode !== DISCOVERY_LATE_COMPLETE) {
+        throw adapterFailure("stale-deletion-work");
+      }
+      transaction.delete(context.rootRef);
+      for (const document of page) {
+        transaction.delete(document.ref);
+      }
+      transaction.set(context.markerRef, {
+        userTreeRootDeletedOperationId: context.operationId,
+      }, { merge: true });
+    });
     return work.docs.length <= limit;
   }
 
@@ -311,35 +663,56 @@ function createFirestoreDeletionAdapters({
     operationId,
     cursor,
     limit,
+    workerFence,
   }) {
     if (cursor !== null && cursor !== undefined && cursor !== WORK_CURSOR) {
       throw adapterFailure("invalid-deletion-cursor");
     }
     const boundedLimit = effectivePageLimit(limit, pageSize);
     const context = refs({ uid, operationId });
+    const fence = validatedFence(workerFence);
     await captureCommunityTargets({
       uid: context.uid,
       operationId: context.operationId,
+      workerFence: fence,
     });
-    await requireOwnedMarker(context);
 
-    const rootCollections = await context.rootRef.listCollections();
-    await ensureCollectionWork(context, rootCollections);
+    let state = await markerState(context);
+    if (await processRootDiscoveryPage(
+      context,
+      fence,
+      state,
+      boundedLimit,
+    )) {
+      return { done: false, nextCursor: WORK_CURSOR };
+    }
 
     const pending = await nextPendingWork(context);
     if (pending) {
-      await processCollectionPage(context, pending, boundedLimit);
+      await processCollectionWork(
+        context,
+        fence,
+        pending,
+        boundedLimit,
+      );
       return { done: false, nextCursor: WORK_CURSOR };
     }
 
-    if (await reopenLateRootWork(context)) {
+    state = await markerState(context);
+    if (state.mode === DISCOVERY_INITIAL_COMPLETE) {
+      await startLateDiscovery(context, fence, state);
       return { done: false, nextCursor: WORK_CURSOR };
     }
+    if (state.mode !== DISCOVERY_LATE_COMPLETE) {
+      throw adapterFailure("invalid-deletion-work");
+    }
 
-    const done = await deleteRootAndCleanupReceipts(
+    const done = await deleteRootAndCleanupReceipts({
       context,
-      boundedLimit,
-    );
+      fence,
+      expectedState: state,
+      limit: boundedLimit,
+    });
     return {
       done,
       nextCursor: done ? null : WORK_CURSOR,
@@ -354,4 +727,5 @@ function createFirestoreDeletionAdapters({
 
 module.exports = {
   createFirestoreDeletionAdapters,
+  createGapicCollectionIdPager,
 };

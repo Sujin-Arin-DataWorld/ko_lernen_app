@@ -1175,6 +1175,11 @@ function createDeletionWorkerRuntime({
           cursor: claim.progress.cursor,
           limit: pageSize,
           operationId,
+          workerFence: {
+            workerId: invocationWorkerId,
+            operationVersion: operation.version,
+            leaseVersion: claim.leaseVersion,
+          },
         });
         if (!page || typeof page.done !== "boolean" ||
             (!page.done && typeof page.nextCursor !== "string")) {
@@ -1223,6 +1228,11 @@ function createDeletionWorkerRuntime({
           cursor: claim.progress.cursor,
           limit: pageSize,
           operationId,
+          workerFence: {
+            workerId: invocationWorkerId,
+            operationVersion: operation.version,
+            leaseVersion: claim.leaseVersion,
+          },
         });
         if (!page || typeof page.done !== "boolean" ||
             (!page.done && typeof page.nextCursor !== "string")) {

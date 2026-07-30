@@ -29,6 +29,7 @@
  */
 
 const admin = require("firebase-admin");
+const { v1: { FirestoreClient } } = require("@google-cloud/firestore");
 const functionsLogger = require("firebase-functions/logger");
 const { defineSecret } = require("firebase-functions/params");
 const { onDocumentWritten, onDocumentCreated, onDocumentDeleted } =
@@ -92,6 +93,7 @@ const {
 } = require("./account_operations_runtime");
 const {
   createFirestoreDeletionAdapters,
+  createGapicCollectionIdPager,
 } = require("./deletion_adapters");
 
 admin.initializeApp();
@@ -158,9 +160,14 @@ const destructiveAdapterUnavailable = async () => {
   throw error;
 };
 const accountDeletionPageSize = 20;
+const firestoreCollectionIdClient = new FirestoreClient();
 const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
   firestore: db,
   markerCollection: db.collection("account_deletions"),
+  listCollectionIdsPage: createGapicCollectionIdPager({
+    firestore: db,
+    client: firestoreCollectionIdClient,
+  }),
   pageSize: accountDeletionPageSize,
 });
 const accountDeletionWorkerRuntime = createDeletionWorkerRuntime({
