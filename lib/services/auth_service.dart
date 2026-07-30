@@ -6,8 +6,11 @@ import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import 'account/account_operation_client.dart';
+import 'account/account_transition_journal.dart';
 import 'account/cloud_write_session.dart';
 import 'push_service.dart';
 import 'storage_service.dart';
@@ -73,16 +76,116 @@ abstract interface class AccountDeletionOperations {
 
   Future<void> reauthenticateWithGoogle();
   Future<String?> reauthenticateWithApple();
-  Future<void> revokeAppleAuthorizationCode(String authorizationCode);
-  Future<void> deleteCloudData();
-  Future<void> deleteFirebaseUser();
-  Future<void> signOutGoogle();
-  Future<void> ensureAnonymousUser();
+  String createRequestKey();
+  Future<AccountDeletionJournal?> readDeletionJournal();
+  Future<void> writeDeletionJournal(AccountDeletionJournal journal);
+  Future<AccountOperationResult> requestAccountDeletion(
+    AccountDeletionRequest request,
+  );
+  Future<AccountOperationResult> getAccountOperation(
+    AccountOperationStatusRequest request,
+  );
+  Future<AccountOperationResult> completeAppleRevocation(
+    AppleRevocationCompletionRequest request,
+  );
 }
 
-/// The Firebase user is already deleted, but one or more post-delete identity
-/// recovery steps failed. Callers must continue local privacy cleanup and must
-/// not retry deletion of the removed user.
+abstract interface class AccountDeletionJournalStore {
+  Future<AccountDeletionJournal?> read();
+  Future<void> write(AccountDeletionJournal journal);
+}
+
+@immutable
+class AccountDeletionJournal {
+  const AccountDeletionJournal({
+    required this.version,
+    required this.session,
+    required this.requestKey,
+    this.operation,
+  });
+
+  factory AccountDeletionJournal.pending({
+    required CloudWriteSession session,
+    required String requestKey,
+  }) {
+    return AccountDeletionJournal(
+      version: currentVersion,
+      session: session,
+      requestKey: requestKey,
+    );
+  }
+
+  factory AccountDeletionJournal.fromJson(Map<String, Object?> json) {
+    try {
+      final version = json['version'];
+      final requestKey = json['requestKey'];
+      final rawSession = json['session'];
+      final rawOperation = json['operation'];
+      if (version is! int ||
+          version != currentVersion ||
+          requestKey is! String ||
+          requestKey.trim().isEmpty ||
+          rawSession is! Map) {
+        throw const FormatException();
+      }
+      final session = AccountTransitionJournal.fromJson(
+        rawSession.map((key, value) => MapEntry(key.toString(), value)),
+      ).session;
+      final operation = rawOperation == null
+          ? null
+          : AccountOperationResult.fromJson(
+              (rawOperation as Map).map(
+                (key, value) => MapEntry(key.toString(), value),
+              ),
+            );
+      if (operation != null &&
+          operation.kind != AccountOperationKind.deletion) {
+        throw const FormatException();
+      }
+      return AccountDeletionJournal(
+        version: version,
+        session: session,
+        requestKey: requestKey,
+        operation: operation,
+      );
+    } catch (_) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      );
+    }
+  }
+
+  static const currentVersion = 1;
+
+  final int version;
+  final CloudWriteSession session;
+  final String requestKey;
+  final AccountOperationResult? operation;
+
+  String? get operationId => operation?.operationId;
+
+  AccountDeletionJournal copyWith({
+    CloudWriteSession? session,
+    AccountOperationResult? operation,
+  }) {
+    return AccountDeletionJournal(
+      version: version,
+      session: session ?? this.session,
+      requestKey: requestKey,
+      operation: operation ?? this.operation,
+    );
+  }
+
+  Map<String, Object?> toJson() => {
+    'version': version,
+    'session': AccountTransitionJournal.fromSession(session).toJson(),
+    'requestKey': requestKey,
+    'operation': operation?.toJson(),
+  };
+}
+
+/// Retained for the local cleanup workflow's existing recovery contract.
 class AccountDeletionRecoveryException implements Exception {
   const AccountDeletionRecoveryException(this.causes);
 
@@ -100,17 +203,26 @@ class AccountDeletionCoordinator {
   const AccountDeletionCoordinator({
     required this.operations,
     required this.ownershipTransitions,
-  });
+    required this.sessions,
+    this.pollDelay = _defaultAccountOperationPollDelay,
+    this.maxPolls = 30,
+  }) : assert(maxPolls > 0);
 
   final AccountDeletionOperations operations;
   final PushOwnershipTransitionCoordinator ownershipTransitions;
+  final CloudWriteSessionController sessions;
+  final Future<void> Function(Duration duration) pollDelay;
+  final int maxPolls;
 
   Future<void> deleteAccount() async {
+    final existing = await operations.readDeletionJournal();
+    if (existing != null) {
+      await resumePendingDeletion(journal: existing);
+      return;
+    }
+
     final providers = operations.providerState;
     String? appleAuthorizationCode;
-
-    // Apple revocation is mandatory whenever Apple is linked, including
-    // dual-linked Google + Apple accounts.
     if (providers.isAppleLinked) {
       appleAuthorizationCode = _requireAppleAuthorizationCode(
         await operations.reauthenticateWithApple(),
@@ -119,96 +231,133 @@ class AccountDeletionCoordinator {
       await operations.reauthenticateWithGoogle();
     }
 
-    var accountDeleted = false;
+    AccountDeletionJournal? journal;
     try {
       await ownershipTransitions.run(
         oldUid: operations.userId,
         transition: () async {
-          if (appleAuthorizationCode != null) {
-            await operations.revokeAppleAuthorizationCode(
-              appleAuthorizationCode,
+          final quiesced = sessions.current;
+          if (quiesced == null ||
+              quiesced.uid != operations.userId ||
+              quiesced.mode != CloudWriteMode.quiesced) {
+            throw const AccountOperationFailure(
+              AccountOperationFailureCode.blocked,
+              retryable: false,
             );
           }
-
-          await operations.deleteCloudData();
-          try {
-            await operations.deleteFirebaseUser();
-          } on FirebaseAuthException catch (error) {
-            if (error.code != 'requires-recent-login') {
-              rethrow;
-            }
-            await _reauthenticateAndRevoke(providers);
-            await operations.deleteFirebaseUser();
-          }
-          accountDeleted = true;
-
-          await _recoverIdentity(providers);
+          journal = AccountDeletionJournal.pending(
+            session: quiesced,
+            requestKey: operations.createRequestKey(),
+          );
+          await operations.writeDeletionJournal(journal!);
+          final requested = await operations.requestAccountDeletion(
+            AccountDeletionRequest(requestKey: journal!.requestKey),
+          );
+          _requireDeletionOperation(requested);
+          journal = journal!.copyWith(operation: requested);
+          await operations.writeDeletionJournal(journal!);
+          journal = await _pollToTerminal(
+            journal!,
+            appleAuthorizationCode: appleAuthorizationCode,
+          );
         },
       );
-    } catch (error, stackTrace) {
-      if (accountDeleted && error is! AccountDeletionRecoveryException) {
-        Error.throwWithStackTrace(
-          AccountDeletionRecoveryException(
-            List<Object>.unmodifiable(_postDeleteRecoveryCauses(error)),
-          ),
-          stackTrace,
+    } catch (_) {
+      if (journal != null && sessions.current != null) {
+        await operations.writeDeletionJournal(
+          journal!.copyWith(session: sessions.current),
         );
       }
       rethrow;
     }
-  }
-
-  List<Object> _postDeleteRecoveryCauses(Object error) {
-    if (error is PushOwnershipTransitionException) {
-      final transitionError = error.transitionError;
-      return <Object>[
-        if (transitionError is AccountDeletionRecoveryException)
-          ...transitionError.causes
-        else
-          transitionError,
-        error.rebindError,
-      ];
-    }
-    return <Object>[error];
-  }
-
-  Future<void> _recoverIdentity(AuthProviderState providers) async {
-    final failures = <Object>[];
-    if (providers.isGoogleLinked) {
-      try {
-        await operations.signOutGoogle();
-      } catch (error) {
-        failures.add(error);
-      }
-    }
-
-    try {
-      await operations.ensureAnonymousUser();
-    } catch (error) {
-      try {
-        await operations.ensureAnonymousUser();
-      } catch (retryError) {
-        failures
-          ..add(error)
-          ..add(retryError);
-      }
-    }
-
-    if (failures.isNotEmpty) {
-      throw AccountDeletionRecoveryException(
-        List<Object>.unmodifiable(failures),
+    if (journal != null && sessions.current != null) {
+      await operations.writeDeletionJournal(
+        journal!.copyWith(session: sessions.current),
       );
     }
   }
 
-  Future<void> _reauthenticateAndRevoke(AuthProviderState providers) async {
-    if (providers.isAppleLinked) {
-      final authorizationCode = _requireAppleAuthorizationCode(
-        await operations.reauthenticateWithApple(),
+  Future<void> resumePendingDeletion({AccountDeletionJournal? journal}) async {
+    final pending = journal ?? await operations.readDeletionJournal();
+    if (pending == null) {
+      return;
+    }
+    if (pending.session.uid != operations.userId) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.permissionDenied,
+        retryable: false,
       );
-      await operations.revokeAppleAuthorizationCode(authorizationCode);
-    } else if (providers.isGoogleLinked) {
-      await operations.reauthenticateWithGoogle();
+    }
+    if (pending.operation == null) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.unknown,
+        retryable: false,
+      );
+    }
+    final completed = await _pollToTerminal(pending);
+    final current = sessions.current;
+    if (completed.operation?.phase == AccountOperationPhase.completed &&
+        current != null &&
+        current.mode != CloudWriteMode.cleanupPending) {
+      sessions.transition(CloudWriteMode.cleanupPending);
+    }
+    await operations.writeDeletionJournal(
+      completed.copyWith(session: sessions.current ?? completed.session),
+    );
+  }
+
+  Future<AccountDeletionJournal> _pollToTerminal(
+    AccountDeletionJournal initial, {
+    String? appleAuthorizationCode,
+  }) async {
+    var journal = initial;
+    var result = journal.operation!;
+    for (var poll = 0; poll < maxPolls; poll += 1) {
+      _requireDeletionOperation(result);
+      if (result.phase == AccountOperationPhase.completed) {
+        return journal;
+      }
+      if (result.phase == AccountOperationPhase.blocked) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        );
+      }
+      if (result.phase == AccountOperationPhase.appleRevocationPending) {
+        final code =
+            appleAuthorizationCode ??
+            _requireAppleAuthorizationCode(
+              await operations.reauthenticateWithApple(),
+            );
+        appleAuthorizationCode = null;
+        result = await operations.completeAppleRevocation(
+          AppleRevocationCompletionRequest(
+            operationId: result.operationId,
+            expectedVersion: result.version,
+            authorizationCode: code,
+          ),
+        );
+      } else {
+        await pollDelay(const Duration(seconds: 2));
+        result = await operations.getAccountOperation(
+          AccountOperationStatusRequest(operationId: result.operationId),
+        );
+      }
+      journal = journal.copyWith(operation: result);
+      await operations.writeDeletionJournal(journal);
+    }
+    throw const AccountOperationFailure(
+      AccountOperationFailureCode.unavailable,
+      retryable: true,
+    );
+  }
+
+  void _requireDeletionOperation(AccountOperationResult result) {
+    if (result.kind != AccountOperationKind.deletion) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      );
     }
   }
 
@@ -223,16 +372,20 @@ class AccountDeletionCoordinator {
   }
 }
 
+Future<void> _defaultAccountOperationPollDelay(Duration duration) {
+  return Future<void>.delayed(duration);
+}
+
 class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   const _FirebaseAccountDeletionOperations({
-    required this.auth,
     required this.user,
-    required this.db,
+    required this.client,
+    required this.journalStore,
   });
 
-  final FirebaseAuth auth;
   final User user;
-  final FirebaseFirestore db;
+  final AccountOperationGateway client;
+  final AccountDeletionJournalStore journalStore;
 
   @override
   String get userId => user.uid;
@@ -243,20 +396,29 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   );
 
   @override
-  Future<void> deleteCloudData() {
-    return UserDataDeletionCoordinator(
-      _FirestoreUserDataDeletionStore(db, user.uid),
-    ).deleteAccountData();
+  Future<AccountOperationResult> completeAppleRevocation(
+    AppleRevocationCompletionRequest request,
+  ) {
+    return client.completeAppleRevocation(request);
   }
 
   @override
-  Future<void> deleteFirebaseUser() {
-    return user.delete();
+  String createRequestKey() {
+    final random = Random.secure();
+    final bytes = List<int>.generate(24, (_) => random.nextInt(256));
+    return base64Url.encode(bytes).replaceAll('=', '');
   }
 
   @override
-  Future<void> ensureAnonymousUser() {
-    return AuthService.ensureSignedIn();
+  Future<AccountOperationResult> getAccountOperation(
+    AccountOperationStatusRequest request,
+  ) {
+    return client.getAccountOperation(request);
+  }
+
+  @override
+  Future<AccountDeletionJournal?> readDeletionJournal() {
+    return journalStore.read();
   }
 
   @override
@@ -270,39 +432,65 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   }
 
   @override
-  Future<void> revokeAppleAuthorizationCode(String authorizationCode) {
-    return auth.revokeTokenWithAuthorizationCode(authorizationCode);
+  Future<AccountOperationResult> requestAccountDeletion(
+    AccountDeletionRequest request,
+  ) {
+    return client.requestAccountDeletion(request);
   }
 
   @override
-  Future<void> signOutGoogle() {
-    return GoogleSignIn().signOut();
+  Future<void> writeDeletionJournal(AccountDeletionJournal journal) {
+    return journalStore.write(journal);
+  }
+}
+
+class _SharedPreferencesAccountDeletionJournalStore
+    implements AccountDeletionJournalStore {
+  const _SharedPreferencesAccountDeletionJournalStore();
+
+  static const _key = 'kl_account_deletion_journal_v1';
+
+  @override
+  Future<AccountDeletionJournal?> read() async {
+    final encoded = (await SharedPreferences.getInstance()).getString(_key);
+    if (encoded == null || encoded.isEmpty) {
+      return null;
+    }
+    try {
+      final decoded = jsonDecode(encoded);
+      if (decoded is! Map) {
+        throw const FormatException();
+      }
+      return AccountDeletionJournal.fromJson(
+        decoded.map((key, value) => MapEntry(key.toString(), value)),
+      );
+    } catch (_) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      );
+    }
+  }
+
+  @override
+  Future<void> write(AccountDeletionJournal journal) async {
+    final preferences = await SharedPreferences.getInstance();
+    final wrote = await preferences.setString(
+      _key,
+      jsonEncode(journal.toJson()),
+    );
+    if (!wrote) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.unavailable,
+        retryable: true,
+      );
+    }
   }
 }
 
 abstract interface class UserDataDeletionStore {
-  Future<void> beginAccountDeletion();
   Future<void> deleteSubcollection(String name);
   Future<void> removeUserFields(Set<String> fields);
-  Future<void> deleteUserDocument();
-}
-
-enum AccountDocumentDeletionPlan {
-  noOp,
-  createMarkerAndDelete,
-  deleteWithExistingMarker,
-}
-
-AccountDocumentDeletionPlan accountDocumentDeletionPlan({
-  required bool userExists,
-  required bool markerExists,
-}) {
-  if (!userExists) {
-    return AccountDocumentDeletionPlan.noOp;
-  }
-  return markerExists
-      ? AccountDocumentDeletionPlan.deleteWithExistingMarker
-      : AccountDocumentDeletionPlan.createMarkerAndDelete;
 }
 
 class UserDataDeletionCoordinator {
@@ -343,16 +531,6 @@ class UserDataDeletionCoordinator {
     }
     await store.removeUserFields(backupFields);
   }
-
-  Future<void> deleteAccountData() async {
-    await store.beginAccountDeletion();
-    for (final collectionName in backupSubcollections) {
-      await store.deleteSubcollection(collectionName);
-    }
-    // Deleting this document is intentional: the retryable server trigger owns
-    // Gye membership/ownership and community-identity cleanup.
-    await store.deleteUserDocument();
-  }
 }
 
 class _FirestoreUserDataDeletionStore implements UserDataDeletionStore {
@@ -365,46 +543,8 @@ class _FirestoreUserDataDeletionStore implements UserDataDeletionStore {
       db.collection('users').doc(uid);
 
   @override
-  Future<void> beginAccountDeletion() async {
-    final markerRef = db.collection('account_deletions').doc(uid);
-    await db.runTransaction((transaction) async {
-      final marker = await transaction.get(markerRef);
-      final user = await transaction.get(_userRef);
-      if (marker.exists || !user.exists) {
-        return;
-      }
-      transaction.set(markerRef, {
-        'state': 'active',
-        'createdAt': FieldValue.serverTimestamp(),
-      });
-    });
-  }
-
-  @override
   Future<void> deleteSubcollection(String name) {
     return AuthService._deleteCollection(_userRef.collection(name));
-  }
-
-  @override
-  Future<void> deleteUserDocument() async {
-    final markerRef = db.collection('account_deletions').doc(uid);
-    final snapshots = await Future.wait([_userRef.get(), markerRef.get()]);
-    final plan = accountDocumentDeletionPlan(
-      userExists: snapshots[0].exists,
-      markerExists: snapshots[1].exists,
-    );
-    if (plan == AccountDocumentDeletionPlan.noOp) {
-      return;
-    }
-    final batch = db.batch();
-    if (plan == AccountDocumentDeletionPlan.createMarkerAndDelete) {
-      batch.set(markerRef, {
-        'state': 'active',
-        'createdAt': FieldValue.serverTimestamp(),
-      });
-    }
-    batch.delete(_userRef);
-    await batch.commit();
   }
 
   @override
@@ -430,6 +570,9 @@ class _FirestoreUserDataDeletionStore implements UserDataDeletionStore {
 /// sauber ab, wenn Firebase nicht verfügbar ist. Auf Android (mit
 /// google-services.json) greifen die Guards nie — normales Verhalten.
 class AuthService {
+  static const AccountDeletionJournalStore _accountDeletionJournalStore =
+      _SharedPreferencesAccountDeletionJournalStore();
+
   static final PushOwnershipTransitionCoordinator _pushOwnershipTransitions =
       PushOwnershipTransitionCoordinator(
         push: pushService,
@@ -529,18 +672,52 @@ class AuthService {
     if (auth.currentUser == null) {
       await auth.signInAnonymously();
     }
-    _syncReadyCloudWriteSession(auth.currentUser?.uid);
   }
 
-  static void _syncReadyCloudWriteSession(String? uid) {
+  static void synchronizeReadyCloudWriteSession(String uid) {
     CloudWriteSessionSynchronizer(
       cloudWriteSessionController,
     ).synchronizeReady(uid);
   }
 
   static User? _activateSignedInUser(User? user) {
-    _syncReadyCloudWriteSession(user?.uid);
+    final uid = user?.uid;
+    if (uid != null) {
+      synchronizeReadyCloudWriteSession(uid);
+    }
     return user;
+  }
+
+  /// Restores durable fencing only after [expectedUid] has been obtained from
+  /// the live Firebase Auth user. Journal metadata never supplies that value.
+  static Future<CloudWriteSession?> restoreCloudWriteSession(
+    String expectedUid,
+  ) async {
+    final liveUid = current?.uid;
+    if (liveUid == null || liveUid != expectedUid) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.permissionDenied,
+        retryable: false,
+      );
+    }
+    final journal = await _accountDeletionJournalStore.read();
+    if (journal == null) {
+      return null;
+    }
+    final currentSession = cloudWriteSessionController.current;
+    if (currentSession == journal.session) {
+      return currentSession;
+    }
+    if (currentSession != null) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    return cloudWriteSessionController.resume(
+      journal.session,
+      expectedUid: expectedUid,
+    );
   }
 
   /// Anonymen User mit Google-Account verlinken.
@@ -649,27 +826,44 @@ class AuthService {
     ).deleteCloudBackup();
   }
 
-  /// Delete the Firebase account plus its Firestore backup.
+  /// Requests server-owned account deletion and polls its authoritative state.
   ///
-  /// Caller is responsible for clearing local device data after this succeeds.
-  /// A fresh anonymous Firebase user is created afterwards so the anonymous-first
-  /// app contract remains true.
+  /// Caller clears local device data only after this completes.
   static Future<void> deleteAccount() async {
-    final auth = _auth;
-    final user = auth?.currentUser;
-    final db = _db;
-    if (auth == null || user == null || db == null) {
+    final user = current;
+    if (user == null) {
       throw StateError('The Firebase account is unavailable.');
     }
 
     await AccountDeletionCoordinator(
       operations: _FirebaseAccountDeletionOperations(
-        auth: auth,
         user: user,
-        db: db,
+        client: AccountOperationClient.firebase(),
+        journalStore: _accountDeletionJournalStore,
       ),
       ownershipTransitions: _pushOwnershipTransitions,
+      sessions: cloudWriteSessionController,
     ).deleteAccount();
+  }
+
+  /// Continues the exact durable server operation restored at startup.
+  static Future<void> resumePendingAccountDeletion() async {
+    final user = current;
+    if (user == null) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.authenticationRequired,
+        retryable: false,
+      );
+    }
+    await AccountDeletionCoordinator(
+      operations: _FirebaseAccountDeletionOperations(
+        user: user,
+        client: AccountOperationClient.firebase(),
+        journalStore: _accountDeletionJournalStore,
+      ),
+      ownershipTransitions: _pushOwnershipTransitions,
+      sessions: cloudWriteSessionController,
+    ).resumePendingDeletion();
   }
 
   /// Aus Google-Account ausloggen → wieder anonym.

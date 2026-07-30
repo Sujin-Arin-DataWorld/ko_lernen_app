@@ -196,25 +196,6 @@ void main() {
   });
 
   group('cloud backup deletion versus account deletion', () {
-    test('account document deletion planning is idempotent', () {
-      expect(
-        accountDocumentDeletionPlan(userExists: false, markerExists: true),
-        AccountDocumentDeletionPlan.noOp,
-      );
-      expect(
-        accountDocumentDeletionPlan(userExists: false, markerExists: false),
-        AccountDocumentDeletionPlan.noOp,
-      );
-      expect(
-        accountDocumentDeletionPlan(userExists: true, markerExists: false),
-        AccountDocumentDeletionPlan.createMarkerAndDelete,
-      );
-      expect(
-        accountDocumentDeletionPlan(userExists: true, markerExists: true),
-        AccountDocumentDeletionPlan.deleteWithExistingMarker,
-      );
-    });
-
     test(
       'cloud backup deletion preserves operational user fields and document',
       () async {
@@ -242,42 +223,6 @@ void main() {
           ]),
         );
         expect(store.events.last, startsWith('remove-fields:'));
-      },
-    );
-
-    test(
-      'account deletion removes the user document for durable trigger cleanup',
-      () async {
-        final store = _FakeUserDataDeletionStore();
-
-        await UserDataDeletionCoordinator(store).deleteAccountData();
-
-        expect(store.userDocumentDeleted, isTrue);
-        expect(store.removedFields, isEmpty);
-        expect(store.events.first, 'begin-account-deletion');
-        expect(store.events.last, 'delete-user-document');
-      },
-    );
-
-    test(
-      'account deletion stops before user document when backup cleanup fails',
-      () async {
-        final store = _FakeUserDataDeletionStore()
-          ..failingSubcollection = 'bookshelf';
-
-        await expectLater(
-          UserDataDeletionCoordinator(store).deleteAccountData(),
-          throwsA(isA<StateError>()),
-        );
-
-        expect(store.userDocumentDeleted, isFalse);
-        expect(store.events.first, 'begin-account-deletion');
-        expect(store.deletedSubcollections, <String>[
-          'packs',
-          'quests',
-          'bookshelf',
-        ]);
-        expect(store.events, isNot(contains('delete-user-document')));
       },
     );
   });
@@ -326,23 +271,12 @@ class _FakeUserDataDeletionStore implements UserDataDeletionStore {
   bool userDocumentDeleted = false;
 
   @override
-  Future<void> beginAccountDeletion() async {
-    events.add('begin-account-deletion');
-  }
-
-  @override
   Future<void> deleteSubcollection(String name) async {
     deletedSubcollections.add(name);
     events.add('delete-subcollection:$name');
     if (name == failingSubcollection) {
       throw StateError('subcollection failed: $name');
     }
-  }
-
-  @override
-  Future<void> deleteUserDocument() async {
-    userDocumentDeleted = true;
-    events.add('delete-user-document');
   }
 
   @override

@@ -17,10 +17,24 @@ void main() {
           events.add('firebase-done');
           return true;
         },
+        initializeAppCheck: () async {
+          events.add('app-check');
+        },
         ensureSignedIn: () async {
           events.add('auth-start');
           await authGate.future;
           events.add('auth-done');
+        },
+        currentUserId: () => 'uid-live',
+        restoreCloudWriteSession: (expectedUid) async {
+          events.add('restore:$expectedUid');
+          return null;
+        },
+        synchronizeReadySession: (uid) {
+          events.add('ready:$uid');
+        },
+        resumeAccountOperation: () async {
+          events.add('resume');
         },
         initializePremium: () async {
           events.add('premium');
@@ -37,15 +51,23 @@ void main() {
 
       firebaseGate.complete();
       await Future<void>.delayed(Duration.zero);
-      expect(events, <String>['firebase-start', 'firebase-done', 'auth-start']);
+      expect(events, <String>[
+        'firebase-start',
+        'firebase-done',
+        'app-check',
+        'auth-start',
+      ]);
 
       authGate.complete();
       expect(await startup, isTrue);
       expect(events, <String>[
         'firebase-start',
         'firebase-done',
+        'app-check',
         'auth-start',
         'auth-done',
+        'restore:uid-live',
+        'ready:uid-live',
         'premium',
         'push',
       ]);
@@ -59,8 +81,19 @@ void main() {
         events.add('firebase');
         return true;
       },
+      initializeAppCheck: () async {
+        events.add('app-check');
+      },
       ensureSignedIn: () async {
         events.add('auth');
+      },
+      currentUserId: () => 'uid-live',
+      restoreCloudWriteSession: (_) async => null,
+      synchronizeReadySession: (uid) {
+        events.add('ready:$uid');
+      },
+      resumeAccountOperation: () async {
+        events.add('resume');
       },
       initializePremium: () async {
         events.add('premium');
@@ -72,7 +105,13 @@ void main() {
     );
 
     expect(await coordinator.start(), isTrue);
-    expect(events, <String>['firebase', 'auth', 'premium']);
+    expect(events, <String>[
+      'firebase',
+      'app-check',
+      'auth',
+      'ready:uid-live',
+      'premium',
+    ]);
   });
 
   test(
@@ -84,8 +123,17 @@ void main() {
           events.add('firebase');
           return false;
         },
+        initializeAppCheck: () async {
+          events.add('app-check');
+        },
         ensureSignedIn: () async {
           events.add('auth');
+        },
+        currentUserId: () => 'uid-live',
+        restoreCloudWriteSession: (_) async => null,
+        synchronizeReadySession: (_) {},
+        resumeAccountOperation: () async {
+          events.add('resume');
         },
         initializePremium: () async {
           events.add('premium');

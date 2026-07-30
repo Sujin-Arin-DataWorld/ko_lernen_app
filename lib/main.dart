@@ -23,6 +23,7 @@ import 'services/privacy_consent_service.dart';
 import 'services/push_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'services/account/firebase_app_check_initializer.dart';
 import 'services/app_startup_coordinator.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/splash_screen.dart';
@@ -183,8 +184,16 @@ Future<void> main() async {
 Future<void> _startCloudServices() async {
   final coordinator = AppStartupCoordinator(
     initializeFirebase: _initFirebase,
+    initializeAppCheck: FirebaseAppCheckInitializer.production().initialize,
     ensureSignedIn: AuthService.ensureSignedIn,
-    initializePremium: PremiumService.init,
+    currentUserId: () => AuthService.current?.uid,
+    restoreCloudWriteSession: AuthService.restoreCloudWriteSession,
+    synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
+    resumeAccountOperation: AuthService.resumePendingAccountDeletion,
+    initializePremium: () async {
+      await PaletteService.fetchAndApply();
+      await PremiumService.init();
+    },
     enablePush: () async {
       await pushService.enable();
     },
@@ -192,8 +201,8 @@ Future<void> _startCloudServices() async {
   );
   try {
     await coordinator.start();
-  } catch (error) {
-    debugPrint('Cloud startup skipped: $error');
+  } catch (_) {
+    debugPrint('Cloud startup skipped.');
   }
 }
 
@@ -208,13 +217,11 @@ Future<bool> _initFirebase() async {
     // Einwilligung (Default: aus) auf die SDKs angewendet.
     await PrivacyConsentService.applyStored();
     PrivacyConsentService.installErrorHandlers();
-    // v6.0 단청 kill-switch — Remote Config 'palette_variant' 읽기 (best-effort).
-    await PaletteService.fetchAndApply();
     return true;
-  } catch (e) {
+  } catch (_) {
     // google-services.json fehlt → Cloud-Sync deaktiviert, lokale App funktioniert weiter
     // ignore: avoid_print
-    debugPrint('Firebase init skipped: $e');
+    debugPrint('Firebase init skipped.');
     return false;
   }
 }
