@@ -64,7 +64,7 @@ void main() {
       transition: () async => const ServerAcceptedOwnershipFreeze(),
     );
 
-    expect(result, CloudWriteResult.blocked);
+    expect(result, CloudWriteResult.completed);
     expect(push.events, <String>['remove:old-uid']);
     expect(sessions.current?.mode, CloudWriteMode.cleanupPending);
   });
@@ -84,7 +84,7 @@ void main() {
       transition: () async {},
     );
 
-    expect(result, CloudWriteResult.blocked);
+    expect(result, CloudWriteResult.completed);
     expect(push.events, <String>['remove:old-uid']);
     expect(sessions.current?.mode, CloudWriteMode.cleanupPending);
   });
@@ -121,7 +121,7 @@ void main() {
         },
       );
 
-      expect(result, CloudWriteResult.blocked);
+      expect(result, CloudWriteResult.completed);
       expect(transitionWrites, 0);
       expect(sessions.current?.uid, 'old-uid');
       expect(sessions.current?.mode, CloudWriteMode.cleanupPending);

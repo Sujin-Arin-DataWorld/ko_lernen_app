@@ -174,3 +174,84 @@ cannot contain its own final hash.
 - Eleven old tests that asserted the removed client-owned destructive sequence
   remain explicitly skipped for historical visibility. Their replacement
   coverage is in the new positive server-operation tests.
+
+---
+
+## Review fix round 1/5: deletion coordinator contracts
+
+This section supersedes the initial report's statements about eleven skipped
+legacy deletion tests. That skipped group and its obsolete direct-deletion
+fakes have now been removed. The replacement server-operation coverage is
+active, and the full Flutter suite contains no `skip:` declarations.
+
+### Findings resolved
+
+- The deletion coordinator now requires
+  `PushOwnershipTransitionCoordinator.run` to return
+  `CloudWriteResult.completed`. Missing, mismatched, stale, and otherwise
+  non-completed session outcomes fail with a safe typed blocked result before
+  local cleanup can report success.
+- A successful accepted ownership transition returns `completed` while the
+  session remains durably frozen in `cleanupPending`.
+- Missing Apple authorization, dual-linked provider selection, recent-auth
+  prerequisites, typed pre-request failures, server-blocked operations,
+  post-server identity recovery, and recovery-failure cleanup behavior all
+  have active server-contract tests.
+- Raw Firebase reauthentication and push-removal failures are converted at the
+  coordinator boundary to safe `AccountOperationFailure` values. Known recent
+  login, authentication, permission, network, and unavailable codes retain a
+  safe typed meaning; raw provider messages are never copied to display text.
+- Status and Apple-completion responses must match the requested operation ID
+  before they can replace or be written into the journal.
+- Resume requires the current cloud-write session to exactly equal the journal
+  session by UID, epoch, and mode before polling or transitioning. Missing and
+  unrelated sessions are rejected without polling, journaling, or mutation.
+- After server-confirmed deletion, the production adapter signs out linked
+  Google state when applicable, signs out Firebase Auth, and retries anonymous
+  identity creation once. Recovery failures retain the established safe
+  post-deletion cleanup contract.
+
+### RED evidence
+
+The focused regression command initially failed as expected:
+
+```text
+flutter test test/services/auth_service_test.dart test/services/push_ownership_transition_coordinator_test.dart
+```
+
+Observed failures proved that missing and mismatched ready sessions returned
+success, and that accepted ownership transitions returned `blocked` instead of
+an unambiguous successful result.
+
+### GREEN and final verification
+
+- Relevant account/transition/cleanup suite: 41/41 passed.
+- Full Flutter suite: 831/831 passed, zero skipped, exit 0.
+- `flutter analyze`: no issues found, exit 0.
+- `dart format --set-exit-if-changed` across the five fix-round Dart files:
+  0 files changed, exit 0.
+- `git diff --check`: clean; only Git's informational LF-to-CRLF worktree
+  warnings were emitted.
+- Repository-wide `rg -n "skip:" test`: no matches.
+
+### Fix-round files
+
+- `lib/services/auth_service.dart`
+- `lib/services/push_service.dart`
+- `test/services/auth_service_test.dart`
+- `test/services/push_ownership_transition_coordinator_test.dart`
+- `test/account_hardening_test.dart`
+
+### Remaining external gates
+
+The initial report's device App Check and live callable integration gates remain
+unchanged. No Functions, Firestore rules, Firebase configuration, deployment,
+UI localization, or public-page work was performed in this fix round.
+
+### Fix-round commit
+
+Requested subject:
+
+```text
+fix(account): harden deletion coordinator contracts
+```

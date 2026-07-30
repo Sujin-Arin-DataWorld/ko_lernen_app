@@ -76,6 +76,7 @@ abstract interface class AccountDeletionOperations {
 
   Future<void> reauthenticateWithGoogle();
   Future<String?> reauthenticateWithApple();
+  Future<void> recoverDeletedIdentity();
   String createRequestKey();
   Future<AccountDeletionJournal?> readDeletionJournal();
   Future<void> writeDeletionJournal(AccountDeletionJournal journal);
@@ -215,6 +216,18 @@ class AccountDeletionCoordinator {
   final int maxPolls;
 
   Future<void> deleteAccount() async {
+    try {
+      await _deleteAccount();
+    } on AccountOperationFailure {
+      rethrow;
+    } on AccountDeletionRecoveryException {
+      rethrow;
+    } catch (error, stackTrace) {
+      Error.throwWithStackTrace(_safeAccountDeletionFailure(error), stackTrace);
+    }
+  }
+
+  Future<void> _deleteAccount() async {
     final existing = await operations.readDeletionJournal();
     if (existing != null) {
       await resumePendingDeletion(journal: existing);
@@ -233,7 +246,7 @@ class AccountDeletionCoordinator {
 
     AccountDeletionJournal? journal;
     try {
-      await ownershipTransitions.run(
+      final transitionResult = await ownershipTransitions.run(
         oldUid: operations.userId,
         transition: () async {
           final quiesced = sessions.current;
@@ -262,48 +275,138 @@ class AccountDeletionCoordinator {
           );
         },
       );
-    } catch (_) {
-      if (journal != null && sessions.current != null) {
-        await operations.writeDeletionJournal(
-          journal!.copyWith(session: sessions.current),
+      if (transitionResult != CloudWriteResult.completed) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
         );
       }
+    } catch (_) {
+      await _persistCurrentOwnedSession(journal);
       rethrow;
     }
-    if (journal != null && sessions.current != null) {
-      await operations.writeDeletionJournal(
-        journal!.copyWith(session: sessions.current),
-      );
-    }
+    await _persistCurrentOwnedSession(journal);
+    await _recoverDeletedIdentity();
   }
 
   Future<void> resumePendingDeletion({AccountDeletionJournal? journal}) async {
-    final pending = journal ?? await operations.readDeletionJournal();
-    if (pending == null) {
-      return;
-    }
-    if (pending.session.uid != operations.userId) {
-      throw const AccountOperationFailure(
-        AccountOperationFailureCode.permissionDenied,
-        retryable: false,
+    try {
+      final pending = journal ?? await operations.readDeletionJournal();
+      if (pending == null) {
+        return;
+      }
+      if (pending.session.uid != operations.userId) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.permissionDenied,
+          retryable: false,
+        );
+      }
+      if (sessions.current != pending.session) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        );
+      }
+      if (pending.operation == null) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.unknown,
+          retryable: false,
+        );
+      }
+      final completed = await _pollToTerminal(pending);
+      if (completed.operation?.phase != AccountOperationPhase.completed) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        );
+      }
+      if (sessions.current == pending.session &&
+          pending.session.mode != CloudWriteMode.cleanupPending) {
+        sessions.transition(CloudWriteMode.cleanupPending);
+      }
+      final current = sessions.current;
+      if (current == null || current.uid != operations.userId) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        );
+      }
+      await operations.writeDeletionJournal(
+        completed.copyWith(session: current),
       );
+      await _recoverDeletedIdentity();
+    } on AccountOperationFailure {
+      rethrow;
+    } on AccountDeletionRecoveryException {
+      rethrow;
+    } catch (error, stackTrace) {
+      Error.throwWithStackTrace(_safeAccountDeletionFailure(error), stackTrace);
     }
-    if (pending.operation == null) {
-      throw const AccountOperationFailure(
-        AccountOperationFailureCode.unknown,
-        retryable: false,
-      );
+  }
+
+  AccountOperationFailure _safeAccountDeletionFailure(Object error) {
+    if (error is FirebaseAuthException) {
+      return switch (error.code) {
+        'requires-recent-login' => const AccountOperationFailure(
+          AccountOperationFailureCode.recentAuthenticationRequired,
+          retryable: false,
+        ),
+        'user-token-expired' ||
+        'invalid-user-token' => const AccountOperationFailure(
+          AccountOperationFailureCode.authenticationRequired,
+          retryable: false,
+        ),
+        'network-request-failed' => const AccountOperationFailure(
+          AccountOperationFailureCode.unavailable,
+          retryable: true,
+        ),
+        _ => const AccountOperationFailure(
+          AccountOperationFailureCode.unknown,
+          retryable: false,
+        ),
+      };
     }
-    final completed = await _pollToTerminal(pending);
-    final current = sessions.current;
-    if (completed.operation?.phase == AccountOperationPhase.completed &&
-        current != null &&
-        current.mode != CloudWriteMode.cleanupPending) {
-      sessions.transition(CloudWriteMode.cleanupPending);
+    if (error is FirebaseException) {
+      return switch (error.code) {
+        'permission-denied' => const AccountOperationFailure(
+          AccountOperationFailureCode.permissionDenied,
+          retryable: false,
+        ),
+        'unavailable' => const AccountOperationFailure(
+          AccountOperationFailureCode.unavailable,
+          retryable: true,
+        ),
+        _ => const AccountOperationFailure(
+          AccountOperationFailureCode.unknown,
+          retryable: false,
+        ),
+      };
     }
-    await operations.writeDeletionJournal(
-      completed.copyWith(session: sessions.current ?? completed.session),
+    return const AccountOperationFailure(
+      AccountOperationFailureCode.unknown,
+      retryable: false,
     );
+  }
+
+  Future<void> _persistCurrentOwnedSession(
+    AccountDeletionJournal? journal,
+  ) async {
+    final current = sessions.current;
+    if (journal != null &&
+        current != null &&
+        current.uid == operations.userId) {
+      await operations.writeDeletionJournal(journal.copyWith(session: current));
+    }
+  }
+
+  Future<void> _recoverDeletedIdentity() async {
+    try {
+      await operations.recoverDeletedIdentity();
+    } on AccountDeletionRecoveryException {
+      rethrow;
+    } catch (error) {
+      throw AccountDeletionRecoveryException(<Object>[error]);
+    }
   }
 
   Future<AccountDeletionJournal> _pollToTerminal(
@@ -313,7 +416,10 @@ class AccountDeletionCoordinator {
     var journal = initial;
     var result = journal.operation!;
     for (var poll = 0; poll < maxPolls; poll += 1) {
-      _requireDeletionOperation(result);
+      _requireDeletionOperation(
+        result,
+        expectedOperationId: journal.operationId,
+      );
       if (result.phase == AccountOperationPhase.completed) {
         return journal;
       }
@@ -323,6 +429,7 @@ class AccountDeletionCoordinator {
           retryable: false,
         );
       }
+      final expectedOperationId = result.operationId;
       if (result.phase == AccountOperationPhase.appleRevocationPending) {
         final code =
             appleAuthorizationCode ??
@@ -332,7 +439,7 @@ class AccountDeletionCoordinator {
         appleAuthorizationCode = null;
         result = await operations.completeAppleRevocation(
           AppleRevocationCompletionRequest(
-            operationId: result.operationId,
+            operationId: expectedOperationId,
             expectedVersion: result.version,
             authorizationCode: code,
           ),
@@ -340,9 +447,13 @@ class AccountDeletionCoordinator {
       } else {
         await pollDelay(const Duration(seconds: 2));
         result = await operations.getAccountOperation(
-          AccountOperationStatusRequest(operationId: result.operationId),
+          AccountOperationStatusRequest(operationId: expectedOperationId),
         );
       }
+      _requireDeletionOperation(
+        result,
+        expectedOperationId: expectedOperationId,
+      );
       journal = journal.copyWith(operation: result);
       await operations.writeDeletionJournal(journal);
     }
@@ -352,8 +463,13 @@ class AccountDeletionCoordinator {
     );
   }
 
-  void _requireDeletionOperation(AccountOperationResult result) {
-    if (result.kind != AccountOperationKind.deletion) {
+  void _requireDeletionOperation(
+    AccountOperationResult result, {
+    String? expectedOperationId,
+  }) {
+    if (result.kind != AccountOperationKind.deletion ||
+        (expectedOperationId != null &&
+            result.operationId != expectedOperationId)) {
       throw const AccountOperationFailure(
         AccountOperationFailureCode.invalidResponse,
         retryable: false,
@@ -364,8 +480,9 @@ class AccountDeletionCoordinator {
   String _requireAppleAuthorizationCode(String? authorizationCode) {
     final code = authorizationCode?.trim();
     if (code == null || code.isEmpty) {
-      throw StateError(
-        'Apple reauthentication did not return an authorization code.',
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.recentAuthenticationRequired,
+        retryable: false,
       );
     }
     return code;
@@ -394,6 +511,51 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   AuthProviderState get providerState => AuthProviderState.fromProviderIds(
     user.providerData.map((provider) => provider.providerId),
   );
+
+  @override
+  Future<void> recoverDeletedIdentity() async {
+    final failures = <Object>[];
+    if (providerState.isGoogleLinked) {
+      try {
+        await GoogleSignIn().signOut();
+      } catch (error) {
+        failures.add(error);
+      }
+    }
+    final auth = AuthService._auth;
+    if (auth == null) {
+      failures.add(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.authenticationRequired,
+          retryable: false,
+        ),
+      );
+    } else {
+      try {
+        await auth.signOut();
+      } catch (error) {
+        failures.add(error);
+      }
+      Object? lastAnonymousFailure;
+      for (var attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          await AuthService.ensureSignedIn();
+          lastAnonymousFailure = null;
+          break;
+        } catch (error) {
+          lastAnonymousFailure = error;
+        }
+      }
+      if (lastAnonymousFailure != null) {
+        failures.add(lastAnonymousFailure);
+      }
+    }
+    if (failures.isNotEmpty) {
+      throw AccountDeletionRecoveryException(
+        List<Object>.unmodifiable(failures),
+      );
+    }
+  }
 
   @override
   Future<AccountOperationResult> completeAppleRevocation(

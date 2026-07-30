@@ -618,9 +618,11 @@ class PushOwnershipTransitionCoordinator {
         sessions.transition(CloudWriteMode.blocked);
       }
     }
-    var sessionResult = transitionStillOwned
-        ? CloudWriteResult.blocked
-        : CloudWriteResult.stale;
+    var sessionResult = !transitionStillOwned
+        ? CloudWriteResult.stale
+        : acceptedAndFrozen
+        ? CloudWriteResult.completed
+        : CloudWriteResult.blocked;
     if (notificationsEnabled() &&
         transitionStillOwned &&
         mayRestoreSource &&
