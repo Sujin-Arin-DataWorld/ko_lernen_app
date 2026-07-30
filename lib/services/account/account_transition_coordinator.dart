@@ -281,9 +281,8 @@ class CallableReplacementAccountOperations
   }
 }
 
-abstract interface class ReplacementTransitionJournalStore {
-  Future<AccountTransitionJournal?> read();
-  Future<void> write(AccountTransitionJournal journal);
+abstract interface class ReplacementTransitionJournalStore
+    implements AccountTransitionJournalStore {
   Future<bool> deleteIfCurrent({
     required AccountTransitionJournal expected,
     required bool Function() isCurrent,
@@ -294,62 +293,29 @@ class SharedPreferencesReplacementTransitionJournalStore
     implements
         ReplacementTransitionJournalStore,
         AccountTransitionJournalStore {
-  const SharedPreferencesReplacementTransitionJournalStore(this.preferences);
+  SharedPreferencesReplacementTransitionJournalStore(
+    SharedPreferences preferences,
+  ) : _store = SharedPreferencesAccountTransitionJournalStore(preferences);
 
-  final SharedPreferences preferences;
-
-  @override
-  Future<AccountTransitionJournal?> read() async {
-    await preferences.reload();
-    final raw = preferences.getString(AccountTransitionJournal.storageKey);
-    if (raw == null) return null;
-    final decoded = jsonDecode(raw);
-    if (decoded is! Map) {
-      throw const FormatException('Invalid account transition journal.');
-    }
-    return AccountTransitionJournal.fromJson(
-      decoded.map((key, value) => MapEntry(key.toString(), value)),
-    );
-  }
+  final SharedPreferencesAccountTransitionJournalStore _store;
 
   @override
-  Future<void> write(AccountTransitionJournal journal) async {
-    final written = await preferences.setString(
-      AccountTransitionJournal.storageKey,
-      jsonEncode(journal.toJson()),
-    );
-    if (!written) {
-      throw StateError('Account transition journal write failed.');
-    }
-  }
+  Future<AccountTransitionJournal?> read() => _store.read();
+
+  @override
+  Future<void> write(AccountTransitionJournal journal) => _store.write(journal);
 
   @override
   Future<bool> deleteIfCurrent({
     required AccountTransitionJournal expected,
     required bool Function() isCurrent,
-  }) async {
-    await preferences.reload();
-    final raw = preferences.getString(AccountTransitionJournal.storageKey);
-    if (raw == null) return false;
-    final decoded = jsonDecode(raw);
-    if (decoded is! Map) return false;
-    final current = AccountTransitionJournal.fromJson(
-      decoded.map((key, value) => MapEntry(key.toString(), value)),
-    );
-    if (jsonEncode(current.toJson()) != jsonEncode(expected.toJson()) ||
-        !isCurrent()) {
-      return false;
-    }
-    final removed = await preferences.remove(
-      AccountTransitionJournal.storageKey,
-    );
-    if (!removed &&
-        preferences.containsKey(AccountTransitionJournal.storageKey)) {
-      throw StateError('Account transition journal delete failed.');
-    }
-    return removed ||
-        !preferences.containsKey(AccountTransitionJournal.storageKey);
-  }
+  }) => _store.deleteIfCurrent(expected: expected, isCurrent: isCurrent);
+
+  @override
+  Future<bool> restoreIfAbsent({
+    required AccountTransitionJournal expected,
+    required bool Function() isCurrent,
+  }) => _store.restoreIfAbsent(expected: expected, isCurrent: isCurrent);
 }
 
 typedef ReplacementReconciler =
@@ -645,7 +611,10 @@ class AccountTransitionCoordinator {
     if (!deleted) return false;
     if (!_journalFence(expectedJournal)) {
       try {
-        await journalStore.write(expectedJournal);
+        await journalStore.restoreIfAbsent(
+          expected: expectedJournal,
+          isCurrent: () => !_journalFence(expectedJournal),
+        );
       } catch (_) {}
       return false;
     }

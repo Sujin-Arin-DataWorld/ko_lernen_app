@@ -413,6 +413,53 @@ void main() {
     },
   );
 
+  test('cancel compensation never overwrites a newer journal', () async {
+    final harness = _Harness()
+      ..reconciliationResult = const AccountReconciliationResult(
+        AccountReconciliationStatus.unavailable,
+      );
+    await harness.coordinator.confirm(
+      const ExistingAccountLinkConflict(AccountLinkProvider.google),
+      catalog: const {},
+    );
+    final oldJournal = harness.journal.value!;
+    late AccountTransitionJournal newerJournal;
+    harness.journal.afterConditionalDelete = () {
+      harness.sessions
+        ..transition(CloudWriteMode.blocked)
+        ..transition(CloudWriteMode.reconciling);
+      final newerSession = harness.sessions.current;
+      expect(newerSession, isNotNull);
+      newerJournal = oldJournal.copyWith(session: newerSession);
+      harness.journal.value = newerJournal;
+    };
+
+    expect(await harness.coordinator.cancel(), isFalse);
+    expect(harness.journal.value, same(newerJournal));
+    expect(harness.journal.deleteCalls, 1);
+  });
+
+  test('cancel compensation restores old journal only while absent', () async {
+    final harness = _Harness()
+      ..reconciliationResult = const AccountReconciliationResult(
+        AccountReconciliationStatus.unavailable,
+      );
+    await harness.coordinator.confirm(
+      const ExistingAccountLinkConflict(AccountLinkProvider.google),
+      catalog: const {},
+    );
+    final oldJournal = harness.journal.value!;
+    harness.journal.afterConditionalDelete = () {
+      harness.sessions
+        ..transition(CloudWriteMode.blocked)
+        ..transition(CloudWriteMode.reconciling);
+    };
+
+    expect(await harness.coordinator.cancel(), isFalse);
+    expect(harness.journal.value, same(oldJournal));
+    expect(harness.journal.deleteCalls, 1);
+  });
+
   for (final terminal in <bool>[false, true]) {
     test(
       'cold restart with deleted source ${terminal ? "activates after terminal status" : "stays pending"}',
@@ -547,6 +594,24 @@ void main() {
         isTrue,
       );
       expect(await store.read(), isNull);
+
+      final reconciliationStore =
+          SharedPreferencesAccountTransitionJournalStore(preferences);
+      await reconciliationStore.write(different);
+      expect(
+        await store.restoreIfAbsent(expected: journal, isCurrent: () => true),
+        isFalse,
+      );
+      expect((await store.read())?.replacementOperationVersion, 5);
+      expect(
+        await store.deleteIfCurrent(expected: different, isCurrent: () => true),
+        isTrue,
+      );
+      expect(
+        await store.restoreIfAbsent(expected: journal, isCurrent: () => true),
+        isTrue,
+      );
+      expect((await store.read())?.replacementOperationVersion, 4);
     },
   );
 }
@@ -848,6 +913,7 @@ class _MemoryJournal
   int? failWriteAt;
   int? failAfterPersistAt;
   void Function()? beforeConditionalDelete;
+  void Function()? afterConditionalDelete;
   void Function(AccountTransitionJournal journal)? afterWrite;
 
   @override
@@ -859,11 +925,23 @@ class _MemoryJournal
     if (!isCurrent() || !identical(value, expected)) return false;
     deleteCalls += 1;
     value = null;
+    afterConditionalDelete?.call();
     return true;
   }
 
   @override
   Future<AccountTransitionJournal?> read() async => value;
+
+  @override
+  Future<bool> restoreIfAbsent({
+    required AccountTransitionJournal expected,
+    required bool Function() isCurrent,
+  }) async {
+    if (value != null) return identical(value, expected);
+    if (!isCurrent()) return false;
+    value = expected;
+    return true;
+  }
 
   @override
   Future<void> write(AccountTransitionJournal journal) async {

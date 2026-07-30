@@ -1637,6 +1637,17 @@ class _MemoryJournalStore implements AccountTransitionJournalStore {
   Future<AccountTransitionJournal?> read() async => value;
 
   @override
+  Future<bool> restoreIfAbsent({
+    required AccountTransitionJournal expected,
+    required bool Function() isCurrent,
+  }) async {
+    if (value != null) return identical(value, expected);
+    if (!isCurrent()) return false;
+    value = expected;
+    return true;
+  }
+
+  @override
   Future<void> write(AccountTransitionJournal journal) async {
     value = journal;
   }

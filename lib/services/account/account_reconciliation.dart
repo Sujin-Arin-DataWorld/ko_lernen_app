@@ -375,18 +375,54 @@ class AccountReconciliationMerger {
 abstract interface class AccountTransitionJournalStore {
   Future<AccountTransitionJournal?> read();
   Future<void> write(AccountTransitionJournal journal);
+  Future<bool> restoreIfAbsent({
+    required AccountTransitionJournal expected,
+    required bool Function() isCurrent,
+  });
 }
 
 class SharedPreferencesAccountTransitionJournalStore
     implements AccountTransitionJournalStore {
-  const SharedPreferencesAccountTransitionJournalStore(this.preferences);
+  SharedPreferencesAccountTransitionJournalStore(this.preferences);
 
   static const key = AccountTransitionJournal.storageKey;
+  static Future<void> _mutationTail = Future<void>.value();
 
   final SharedPreferences preferences;
 
   @override
-  Future<AccountTransitionJournal?> read() async {
+  Future<AccountTransitionJournal?> read() => _serialized(_readUnlocked);
+
+  @override
+  Future<void> write(AccountTransitionJournal journal) =>
+      _serialized(() => _writeUnlocked(journal));
+
+  Future<bool> deleteIfCurrent({
+    required AccountTransitionJournal expected,
+    required bool Function() isCurrent,
+  }) => _serialized(() async {
+    final current = await _readUnlocked();
+    if (!_sameJournal(current, expected) || !isCurrent()) return false;
+    final removed = await preferences.remove(key);
+    if (!removed && preferences.containsKey(key)) {
+      throw StateError('Account transition journal delete failed.');
+    }
+    return removed || !preferences.containsKey(key);
+  });
+
+  @override
+  Future<bool> restoreIfAbsent({
+    required AccountTransitionJournal expected,
+    required bool Function() isCurrent,
+  }) => _serialized(() async {
+    final current = await _readUnlocked();
+    if (current != null) return _sameJournal(current, expected);
+    if (!isCurrent()) return false;
+    await _writeUnlocked(expected);
+    return true;
+  });
+
+  Future<AccountTransitionJournal?> _readUnlocked() async {
     await preferences.reload();
     final raw = preferences.getString(key);
     if (raw == null) return null;
@@ -399,8 +435,7 @@ class SharedPreferencesAccountTransitionJournalStore
     );
   }
 
-  @override
-  Future<void> write(AccountTransitionJournal journal) async {
+  Future<void> _writeUnlocked(AccountTransitionJournal journal) async {
     final written = await preferences.setString(
       key,
       jsonEncode(journal.toJson()),
@@ -409,6 +444,20 @@ class SharedPreferencesAccountTransitionJournalStore
       throw StateError('Account transition journal write failed.');
     }
   }
+
+  static Future<T> _serialized<T>(Future<T> Function() operation) {
+    final result = _mutationTail.then((_) => operation());
+    _mutationTail = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return result;
+  }
+
+  static bool _sameJournal(
+    AccountTransitionJournal? left,
+    AccountTransitionJournal right,
+  ) => left != null && jsonEncode(left.toJson()) == jsonEncode(right.toJson());
 }
 
 class LocalAccountReconciliationStore {
