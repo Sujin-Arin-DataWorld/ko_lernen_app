@@ -69,6 +69,48 @@ void main() {
       expect(preferences.containsKey('kl_progress_after_completion'), isFalse);
     },
   );
+
+  test(
+    'ordinary reset retains a journal written after the admission check',
+    () async {
+      final store = _InterleavingPreferenceRemovalStore();
+
+      await Storage.resetAll(preferences: store);
+
+      expect(
+        store.durable.containsKey(
+          Storage.cloudBackupDeletionJournalPreferenceKey,
+        ),
+        isTrue,
+      );
+      expect(
+        store.removals,
+        isNot(contains(Storage.cloudBackupDeletionJournalPreferenceKey)),
+      );
+      expect(store.durable.containsKey('kl_progress'), isFalse);
+    },
+  );
+
+  test(
+    'strict reset retains a journal written after the admission check',
+    () async {
+      final store = _InterleavingPreferenceRemovalStore();
+
+      await Storage.resetAllStrict(preferences: store);
+
+      expect(
+        store.durable.containsKey(
+          Storage.cloudBackupDeletionJournalPreferenceKey,
+        ),
+        isTrue,
+      );
+      expect(
+        store.removals,
+        isNot(contains(Storage.cloudBackupDeletionJournalPreferenceKey)),
+      );
+      expect(store.durable.containsKey('kl_progress'), isFalse);
+    },
+  );
 }
 
 CloudBackupDeletionJournal _pendingJournal() =>
@@ -80,3 +122,52 @@ CloudBackupDeletionJournal _pendingJournal() =>
       ),
       requestKey: List<String>.filled(43, 'A').join(),
     );
+
+class _InterleavingPreferenceRemovalStore implements PreferenceRemovalStore {
+  final Map<String, Object> values = <String, Object>{
+    'kl_progress': 'remove-me',
+  };
+  final Map<String, Object> durable = <String, Object>{
+    'kl_progress': 'remove-me',
+  };
+  final List<String> removals = <String>[];
+  bool _journalInserted = false;
+
+  @override
+  bool containsKey(String key) => values.containsKey(key);
+
+  @override
+  Set<String> getKeys() {
+    if (!_journalInserted) {
+      _journalInserted = true;
+      values[Storage.cloudBackupDeletionJournalPreferenceKey] = 'retry-key';
+      durable[Storage.cloudBackupDeletionJournalPreferenceKey] = 'retry-key';
+    }
+    return values.keys.toSet();
+  }
+
+  @override
+  Object? getValue(String key) => values[key];
+
+  @override
+  Future<void> reload() async {
+    values
+      ..clear()
+      ..addAll(durable);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    removals.add(key);
+    values.remove(key);
+    durable.remove(key);
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    values[key] = value;
+    durable[key] = value;
+    return true;
+  }
+}

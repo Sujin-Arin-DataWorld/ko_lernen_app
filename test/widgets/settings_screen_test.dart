@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
@@ -14,11 +15,17 @@ import 'package:ko_lernen_app/theme.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  late ValueNotifier<CloudBackupDeletionJournalState> cloudJournalState;
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    cloudJournalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.clear,
+    );
   });
+
+  tearDown(() => cloudJournalState.dispose());
 
   testWidgets('settings link entry confirms before safe operation starts', (
     tester,
@@ -30,7 +37,13 @@ void main() {
     final operations = _SettingsAccountOperations();
 
     await tester.pumpWidget(
-      _wrap(SettingsScreen(account: _guest, accountOperations: operations)),
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: operations,
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
     );
     await tester.pump();
 
@@ -60,7 +73,13 @@ void main() {
       ..pending.value = AccountUiPendingState.replacementCancellable;
 
     await tester.pumpWidget(
-      _wrap(SettingsScreen(account: _guest, accountOperations: operations)),
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: operations,
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
     );
     await tester.pump();
     await tester.scrollUntilVisible(
@@ -102,6 +121,7 @@ void main() {
           account: _guest,
           accountOperations: _SettingsAccountOperations(),
           accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+          cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
     );
@@ -146,6 +166,7 @@ void main() {
           cloudDataDeletion: () async {
             throw StateError('proof-secret-456 raw Firestore detail');
           },
+          cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
     );
@@ -189,6 +210,7 @@ void main() {
           ),
           accountOperations: _SettingsAccountOperations(),
           cloudDataDeletion: () async => CloudWriteResult.blocked,
+          cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
     );
@@ -212,15 +234,17 @@ void main() {
     );
   });
 
-  testWidgets('pending cloud deletion locks backup restore sign-out and link', (
+  testWidgets('loading cloud deletion locks backup restore sign-out and link', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(400, 1000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    final pending = ValueNotifier<bool>(true);
-    addTearDown(pending.dispose);
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.loading,
+    );
+    addTearDown(journalState.dispose);
 
     await tester.pumpWidget(
       _wrap(
@@ -233,7 +257,7 @@ void main() {
           ),
           accountOperations: _SettingsAccountOperations(),
           cloudDataDeletion: () async => CloudWriteResult.blocked,
-          cloudDataDeletionPending: pending,
+          cloudDataDeletionJournalState: journalState,
         ),
       ),
     );
@@ -265,7 +289,14 @@ void main() {
     final retryDelete = tester.widget<ListTile>(
       find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
     );
-    expect(retryDelete.onTap, isNotNull);
+    expect(retryDelete.onTap, isNull);
+
+    journalState.value = CloudBackupDeletionJournalState.pending;
+    await tester.pump();
+    final retryAfterAuthoritativePending = tester.widget<ListTile>(
+      find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
+    );
+    expect(retryAfterAuthoritativePending.onTap, isNotNull);
 
     final accountDeleteLabel = find.text('Konto und alle Daten l\u00f6schen');
     await tester.scrollUntilVisible(
@@ -294,6 +325,7 @@ void main() {
           account: _guest,
           accountOperations: _SettingsAccountOperations(),
           accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+          cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
     );

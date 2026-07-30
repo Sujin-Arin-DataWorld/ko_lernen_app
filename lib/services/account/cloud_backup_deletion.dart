@@ -10,8 +10,25 @@ import 'cloud_write_session.dart';
 
 enum CloudBackupDeletionRemoteState { completed, pending }
 
+/// Durable journal visibility for actions that could change account identity.
+///
+/// Both [loading] and [pending] fail closed. Only an authoritative [clear]
+/// read permits a new backup, restore, link, or sign-out action.
+enum CloudBackupDeletionJournalState { loading, clear, pending }
+
+class CloudBackupDeletionIdentityChangeBlockedException implements Exception {
+  const CloudBackupDeletionIdentityChangeBlockedException();
+}
+
+class CloudBackupDeletionInvocationOwnershipLostException implements Exception {
+  const CloudBackupDeletionInvocationOwnershipLostException();
+}
+
 abstract interface class CloudBackupDeletionGateway {
-  Future<CloudBackupDeletionRemoteState> deleteCloudBackup(String requestKey);
+  Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
+    String requestKey, {
+    required String expectedUid,
+  });
 }
 
 typedef CloudBackupDeletionCallableInvoker =
@@ -22,9 +39,11 @@ typedef CloudBackupDeletionCallableInvoker =
     });
 
 class FirebaseCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
-  FirebaseCloudBackupDeletionGateway(this._invoke);
+  FirebaseCloudBackupDeletionGateway(this._invoke, {required this.currentUid});
 
-  factory FirebaseCloudBackupDeletionGateway.production() {
+  factory FirebaseCloudBackupDeletionGateway.production({
+    required String? Function() currentUid,
+  }) {
     return FirebaseCloudBackupDeletionGateway(({
       required callableName,
       required payload,
@@ -35,15 +54,21 @@ class FirebaseCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
           .httpsCallable(callableName, options: callableOptions)
           .call<Object?>(payload);
       return result.data;
-    });
+    }, currentUid: currentUid);
   }
 
   final CloudBackupDeletionCallableInvoker _invoke;
+  final String? Function() currentUid;
 
   @override
   Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
-    String requestKey,
-  ) async {
+    String requestKey, {
+    required String expectedUid,
+  }) async {
+    final liveUid = currentUid()?.trim();
+    if (liveUid == null || liveUid.isEmpty || liveUid != expectedUid) {
+      throw const CloudBackupDeletionInvocationOwnershipLostException();
+    }
     Object? raw;
     try {
       raw = await _invoke(
@@ -204,6 +229,21 @@ class SharedPreferencesCloudBackupDeletionJournalStore
 
 typedef CloudBackupDeletionRequestKeyFactory = String Function();
 
+/// Serializes backup deletion and app-owned identity changes.
+///
+/// The critical section intentionally spans the callable future. An app-owned
+/// sign-out or link action therefore cannot switch Firebase Auth identity
+/// between the coordinator's ownership check and its callable invocation.
+class CloudBackupDeletionAuthGate {
+  Future<void> _tail = Future<void>.value();
+
+  Future<T> run<T>(Future<T> Function() action) {
+    final operation = _tail.then((_) => action());
+    _tail = operation.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    return operation;
+  }
+}
+
 class CloudBackupDeletionCoordinator {
   CloudBackupDeletionCoordinator({
     required this.sessions,
@@ -211,14 +251,21 @@ class CloudBackupDeletionCoordinator {
     required this.journalStore,
     required this.gateway,
     CloudBackupDeletionRequestKeyFactory? createRequestKey,
-  }) : createRequestKey = createRequestKey ?? createSecureRequestKey;
+    CloudBackupDeletionAuthGate? authGate,
+  }) : createRequestKey = createRequestKey ?? createSecureRequestKey,
+       _authGate = authGate ?? CloudBackupDeletionAuthGate();
 
   final CloudWriteSessionController sessions;
   final String? Function() currentUid;
   final CloudBackupDeletionJournalStore journalStore;
   final CloudBackupDeletionGateway gateway;
   final CloudBackupDeletionRequestKeyFactory createRequestKey;
-  final ValueNotifier<bool> pending = ValueNotifier<bool>(false);
+  final CloudBackupDeletionAuthGate _authGate;
+  final ValueNotifier<CloudBackupDeletionJournalState> journalState =
+      ValueNotifier<CloudBackupDeletionJournalState>(
+        CloudBackupDeletionJournalState.loading,
+      );
+  final ValueNotifier<bool> pending = ValueNotifier<bool>(true);
 
   Future<CloudWriteResult>? _inFlight;
 
@@ -228,19 +275,46 @@ class CloudBackupDeletionCoordinator {
     return base64UrlEncode(bytes).replaceAll('=', '');
   }
 
+  void _setJournalState(CloudBackupDeletionJournalState state) {
+    journalState.value = state;
+    pending.value = state != CloudBackupDeletionJournalState.clear;
+  }
+
+  Future<CloudBackupDeletionJournalState> refreshJournalState() {
+    return _authGate.run(_refreshJournalState);
+  }
+
   Future<bool> refreshPending() async {
+    return (await refreshJournalState()) !=
+        CloudBackupDeletionJournalState.clear;
+  }
+
+  Future<CloudBackupDeletionJournalState> _refreshJournalState() async {
+    _setJournalState(CloudBackupDeletionJournalState.loading);
     try {
-      pending.value = await journalStore.read() != null;
+      final journal = await journalStore.read();
+      final state = journal == null
+          ? CloudBackupDeletionJournalState.clear
+          : CloudBackupDeletionJournalState.pending;
+      _setJournalState(state);
+      return state;
     } catch (_) {
-      pending.value = true;
+      _setJournalState(CloudBackupDeletionJournalState.pending);
+      return CloudBackupDeletionJournalState.pending;
     }
-    return pending.value;
   }
 
   Future<bool> _canProveJournalAbsent() async {
     try {
-      return await journalStore.read() == null;
+      final absent = await journalStore.read() == null;
+      _setJournalState(
+        absent
+            ? CloudBackupDeletionJournalState.clear
+            : CloudBackupDeletionJournalState.pending,
+      );
+      return absent;
     } catch (_) {
+      _setJournalState(CloudBackupDeletionJournalState.pending);
       return false;
     }
   }
@@ -253,10 +327,22 @@ class CloudBackupDeletionCoordinator {
         sessions.current == journal.session;
   }
 
+  /// Runs an app-owned Firebase identity mutation only after a fresh durable
+  /// journal read proves no resumable deletion exists.
+  Future<T> runIdentityMutation<T>(Future<T> Function() mutation) {
+    return _authGate.run(() async {
+      final state = await _refreshJournalState();
+      if (state != CloudBackupDeletionJournalState.clear) {
+        throw const CloudBackupDeletionIdentityChangeBlockedException();
+      }
+      return mutation();
+    });
+  }
+
   Future<CloudWriteResult> run() {
     final existing = _inFlight;
     if (existing != null) return existing;
-    final operation = _run();
+    final operation = _authGate.run(_run);
     _inFlight = operation;
     return operation.whenComplete(() {
       if (identical(_inFlight, operation)) {
@@ -267,16 +353,27 @@ class CloudBackupDeletionCoordinator {
 
   Future<CloudWriteResult> _run() async {
     CloudBackupDeletionJournal? journal;
+    _setJournalState(CloudBackupDeletionJournalState.loading);
     try {
       journal = await journalStore.read();
     } catch (_) {
-      pending.value = true;
+      _setJournalState(CloudBackupDeletionJournalState.pending);
       return CloudWriteResult.blocked;
     }
 
+    _setJournalState(
+      journal == null
+          ? CloudBackupDeletionJournalState.clear
+          : CloudBackupDeletionJournalState.pending,
+    );
+
     final liveUid = currentUid()?.trim();
     if (liveUid == null || liveUid.isEmpty) {
-      pending.value = journal != null;
+      _setJournalState(
+        journal == null
+            ? CloudBackupDeletionJournalState.clear
+            : CloudBackupDeletionJournalState.pending,
+      );
       return CloudWriteResult.blocked;
     }
 
@@ -284,7 +381,7 @@ class CloudBackupDeletionCoordinator {
       // A changed identity does not prove the old request completed. Keep the
       // UID-bound retry key until its original account can resume it or the
       // server confirms completion.
-      pending.value = true;
+      _setJournalState(CloudBackupDeletionJournalState.pending);
       return CloudWriteResult.blocked;
     }
 
@@ -293,12 +390,13 @@ class CloudBackupDeletionCoordinator {
       if (current == null ||
           current.uid != liveUid ||
           current.mode != CloudWriteMode.ready) {
-        pending.value = false;
+        _setJournalState(CloudBackupDeletionJournalState.clear);
         return current?.uid == liveUid
             ? CloudWriteResult.blocked
             : CloudWriteResult.stale;
       }
       final pendingSession = sessions.transition(CloudWriteMode.cleanupPending);
+      _setJournalState(CloudBackupDeletionJournalState.pending);
       CloudBackupDeletionJournal? attemptedJournal;
       try {
         attemptedJournal = CloudBackupDeletionJournal.pending(
@@ -314,9 +412,9 @@ class CloudBackupDeletionCoordinator {
           if (sessions.current == pendingSession) {
             sessions.transition(CloudWriteMode.ready);
           }
-          pending.value = false;
+          _setJournalState(CloudBackupDeletionJournalState.clear);
         } else {
-          pending.value = true;
+          _setJournalState(CloudBackupDeletionJournalState.pending);
         }
         return CloudWriteResult.blocked;
       }
@@ -326,11 +424,11 @@ class CloudBackupDeletionCoordinator {
         try {
           sessions.resume(journal.session, expectedUid: liveUid);
         } on StateError {
-          pending.value = true;
+          _setJournalState(CloudBackupDeletionJournalState.pending);
           return CloudWriteResult.blocked;
         }
       } else if (current != journal.session) {
-        pending.value = true;
+        _setJournalState(CloudBackupDeletionJournalState.pending);
         return CloudWriteResult.blocked;
       }
     }
@@ -338,27 +436,44 @@ class CloudBackupDeletionCoordinator {
     // An auth/session change during journal persistence must not send the old
     // request key under a different account's callable token.
     if (!_ownsJournal(journal)) {
-      pending.value = true;
+      _setJournalState(CloudBackupDeletionJournalState.pending);
       return CloudWriteResult.blocked;
     }
 
-    pending.value = true;
+    _setJournalState(CloudBackupDeletionJournalState.pending);
     CloudBackupDeletionRemoteState remote;
     try {
-      remote = await gateway.deleteCloudBackup(journal.requestKey);
+      remote = await gateway.deleteCloudBackup(
+        journal.requestKey,
+        expectedUid: journal.session.uid,
+      );
+    } on CloudBackupDeletionInvocationOwnershipLostException {
+      _setJournalState(CloudBackupDeletionJournalState.pending);
+      return CloudWriteResult.stale;
     } catch (_) {
+      _setJournalState(CloudBackupDeletionJournalState.pending);
       return CloudWriteResult.blocked;
     }
     if (remote == CloudBackupDeletionRemoteState.pending) {
       return CloudWriteResult.blocked;
     }
 
+    return _clearCompletedJournal(journal);
+  }
+
+  Future<CloudWriteResult> _clearCompletedJournal(
+    CloudBackupDeletionJournal journal,
+  ) async {
     try {
       await journalStore.clear();
     } catch (_) {
-      return CloudWriteResult.blocked;
+      if (!await _canProveJournalAbsent()) {
+        _setJournalState(CloudBackupDeletionJournalState.pending);
+        return CloudWriteResult.blocked;
+      }
     }
-    pending.value = false;
+
+    _setJournalState(CloudBackupDeletionJournalState.clear);
     if (sessions.current != journal.session) {
       return CloudWriteResult.stale;
     }

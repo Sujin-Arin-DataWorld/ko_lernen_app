@@ -1523,76 +1523,80 @@ class AuthService {
   /// Anonymen User mit Google-Account verlinken.
   /// Existing-account collisions preserve the primary anonymous session and
   /// require explicit confirmation through [AccountTransitionCoordinator].
-  static Future<User?> linkWithGoogle() async {
-    final auth = _auth;
-    if (auth == null) return null;
+  static Future<User?> linkWithGoogle() {
+    return _cloudBackupDeletionCoordinator.runIdentityMutation(() async {
+      final auth = _auth;
+      if (auth == null) return null;
 
-    final googleUser = await GoogleSignIn().signIn();
-    if (googleUser == null) return null;
-    final googleAuth = await googleUser.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    final user = auth.currentUser;
-    if (user != null && user.isAnonymous) {
-      final attempt = await attemptAnonymousCredentialLink<User?>(
-        provider: AccountLinkProvider.google,
-        sourceUid: user.uid,
-        currentUid: () => auth.currentUser?.uid,
-        linkCredential: () async {
-          final result = await user.linkWithCredential(credential);
-          return result.user;
-        },
+      final googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) return null;
+      final googleAuth = await googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
       );
-      if (attempt is ExistingAccountLinkConflict) {
-        throw attempt;
+
+      final user = auth.currentUser;
+      if (user != null && user.isAnonymous) {
+        final attempt = await attemptAnonymousCredentialLink<User?>(
+          provider: AccountLinkProvider.google,
+          sourceUid: user.uid,
+          currentUid: () => auth.currentUser?.uid,
+          linkCredential: () async {
+            final result = await user.linkWithCredential(credential);
+            return result.user;
+          },
+        );
+        if (attempt is ExistingAccountLinkConflict) {
+          throw attempt;
+        }
+        return _activateSignedInUser(
+          (attempt as AnonymousCredentialLinked<User?>).value,
+        );
       }
-      return _activateSignedInUser(
-        (attempt as AnonymousCredentialLinked<User?>).value,
-      );
-    }
-    throw const DurableAccountTransitionNotSupported();
+      throw const DurableAccountTransitionNotSupported();
+    });
   }
 
   /// Anonymen User mit Apple-Account verlinken (iOS — App-Store-Pflicht 4.8).
   /// Existing-account collisions never activate the target implicitly.
-  static Future<User?> linkWithApple() async {
-    final auth = _auth;
-    if (auth == null) return null;
+  static Future<User?> linkWithApple() {
+    return _cloudBackupDeletionCoordinator.runIdentityMutation(() async {
+      final auth = _auth;
+      if (auth == null) return null;
 
-    final rawNonce = _generateNonce();
-    final appleCredential = await SignInWithApple.getAppleIDCredential(
-      scopes: const [
-        AppleIDAuthorizationScopes.email,
-        AppleIDAuthorizationScopes.fullName,
-      ],
-      nonce: _sha256(rawNonce),
-    );
-    final credential = OAuthProvider(
-      'apple.com',
-    ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
-
-    final user = auth.currentUser;
-    if (user != null && user.isAnonymous) {
-      final attempt = await attemptAnonymousCredentialLink<User?>(
-        provider: AccountLinkProvider.apple,
-        sourceUid: user.uid,
-        currentUid: () => auth.currentUser?.uid,
-        linkCredential: () async {
-          final result = await user.linkWithCredential(credential);
-          return result.user;
-        },
+      final rawNonce = _generateNonce();
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        scopes: const [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+        nonce: _sha256(rawNonce),
       );
-      if (attempt is ExistingAccountLinkConflict) {
-        throw attempt;
+      final credential = OAuthProvider(
+        'apple.com',
+      ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
+
+      final user = auth.currentUser;
+      if (user != null && user.isAnonymous) {
+        final attempt = await attemptAnonymousCredentialLink<User?>(
+          provider: AccountLinkProvider.apple,
+          sourceUid: user.uid,
+          currentUid: () => auth.currentUser?.uid,
+          linkCredential: () async {
+            final result = await user.linkWithCredential(credential);
+            return result.user;
+          },
+        );
+        if (attempt is ExistingAccountLinkConflict) {
+          throw attempt;
+        }
+        final linked = (attempt as AnonymousCredentialLinked<User?>).value;
+        await _maybeSetAppleName(linked, appleCredential);
+        return _activateSignedInUser(linked);
       }
-      final linked = (attempt as AnonymousCredentialLinked<User?>).value;
-      await _maybeSetAppleName(linked, appleCredential);
-      return _activateSignedInUser(linked);
-    }
-    throw const DurableAccountTransitionNotSupported();
+      throw const DurableAccountTransitionNotSupported();
+    });
   }
 
   /// Apple liefert den Namen nur beim allerersten Login — übernehmen, wenn
@@ -1622,11 +1626,23 @@ class AuthService {
         sessions: cloudWriteSessionController,
         currentUid: () => cloudBackupUid,
         journalStore: _cloudBackupDeletionJournalStore,
-        gateway: FirebaseCloudBackupDeletionGateway.production(),
+        gateway: FirebaseCloudBackupDeletionGateway.production(
+          currentUid: () => cloudBackupUid,
+        ),
       );
 
+  static ValueListenable<CloudBackupDeletionJournalState>
+  get cloudBackupDeletionJournalState =>
+      _cloudBackupDeletionCoordinator.journalState;
+
+  // Kept as a binary projection for internal callers that only need an
+  // action lock. Both loading and an unresolved journal project to `true`.
   static ValueListenable<bool> get cloudBackupDeletionPending =>
       _cloudBackupDeletionCoordinator.pending;
+
+  static Future<CloudBackupDeletionJournalState>
+  refreshCloudBackupDeletionJournalState() =>
+      _cloudBackupDeletionCoordinator.refreshJournalState();
 
   static Future<bool> refreshCloudBackupDeletionPending() =>
       _cloudBackupDeletionCoordinator.refreshPending();
@@ -1758,20 +1774,22 @@ class AuthService {
   }
 
   /// Aus Google-Account ausloggen → wieder anonym.
-  static Future<void> signOut() async {
-    final auth = _auth;
-    final oldUid = auth?.currentUser?.uid;
-    if (auth == null || oldUid == null) {
-      return;
-    }
-    await _pushOwnershipTransitions.run(
-      oldUid: oldUid,
-      transition: () async {
-        await GoogleSignIn().signOut();
-        await auth.signOut();
-        await ensureSignedIn(); // wieder anonym
-      },
-    );
+  static Future<void> signOut() {
+    return _cloudBackupDeletionCoordinator.runIdentityMutation(() async {
+      final auth = _auth;
+      final oldUid = auth?.currentUser?.uid;
+      if (auth == null || oldUid == null) {
+        return;
+      }
+      await _pushOwnershipTransitions.run(
+        oldUid: oldUid,
+        transition: () async {
+          await GoogleSignIn().signOut();
+          await auth.signOut();
+          await ensureSignedIn(); // wieder anonym
+        },
+      );
+    });
   }
 
   static Future<void> _reauthenticateWithGoogle(User user) async {

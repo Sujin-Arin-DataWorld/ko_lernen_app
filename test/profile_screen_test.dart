@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -51,8 +52,10 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    final pending = ValueNotifier<bool>(true);
-    addTearDown(pending.dispose);
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.pending,
+    );
+    addTearDown(journalState.dispose);
 
     await tester.pumpWidget(
       _wrap(
@@ -64,7 +67,7 @@ void main() {
             ),
             displayName: 'Durable learner',
           ),
-          cloudDataDeletionPending: pending,
+          cloudDataDeletionJournalState: journalState,
         ),
       ),
     );
@@ -74,6 +77,39 @@ void main() {
       find.widgetWithText(SoriButton, 'Abmelden'),
     );
     expect(signOut.onTap, isNull);
+  });
+
+  testWidgets('loading cloud deletion disables a guest connection', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.loading,
+    );
+    addTearDown(journalState.dispose);
+
+    await tester.pumpWidget(
+      _wrap(
+        ProfileScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: false,
+              isAppleLinked: false,
+            ),
+          ),
+          cloudDataDeletionJournalState: journalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final connect = tester.widget<SoriButton>(
+      find.widgetWithText(SoriButton, 'Mit Google sichern'),
+    );
+    expect(connect.onTap, isNull);
   });
 
   testWidgets('ConsentScreen (Tier 0) baut fehlerfrei', (tester) async {

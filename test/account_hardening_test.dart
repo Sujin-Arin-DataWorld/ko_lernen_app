@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -509,9 +510,18 @@ void main() {
         final workflow = AccountDeletionWorkflow(
           _FakeAccountCleanupOperations(<String>[]),
         );
+        final cloudJournalState = ValueNotifier(
+          CloudBackupDeletionJournalState.clear,
+        );
+        addTearDown(cloudJournalState.dispose);
 
         await tester.pumpWidget(
-          _wrap(SettingsScreen(accountDeletionWorkflow: workflow)),
+          _wrap(
+            SettingsScreen(
+              accountDeletionWorkflow: workflow,
+              cloudDataDeletionJournalState: cloudJournalState,
+            ),
+          ),
         );
         await tester.pump();
 
@@ -545,11 +555,16 @@ void main() {
       await Storage.init();
       final operations = _FakeAccountCleanupOperations(<String>[])
         ..imageCleanupFailure = StateError('image cleanup failed');
+      final cloudJournalState = ValueNotifier(
+        CloudBackupDeletionJournalState.clear,
+      );
+      addTearDown(cloudJournalState.dispose);
 
       await tester.pumpWidget(
         _wrap(
           SettingsScreen(
             accountDeletionWorkflow: AccountDeletionWorkflow(operations),
+            cloudDataDeletionJournalState: cloudJournalState,
           ),
         ),
       );
@@ -585,6 +600,10 @@ void main() {
         isWeb: false,
         launchExternal: (_) async => false,
       );
+      final cloudJournalState = ValueNotifier(
+        CloudBackupDeletionJournalState.clear,
+      );
+      addTearDown(cloudJournalState.dispose);
 
       await tester.pumpWidget(
         _wrap(
@@ -593,6 +612,7 @@ void main() {
               _FakeAccountCleanupOperations(<String>[]),
             ),
             subscriptionManager: manager,
+            cloudDataDeletionJournalState: cloudJournalState,
           ),
         ),
       );

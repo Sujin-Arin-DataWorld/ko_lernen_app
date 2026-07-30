@@ -1733,15 +1733,17 @@ class Storage {
   }
 
   // ───────── Reset ─────────
-  static Future<void> resetAll() async {
-    final preferences = _prefs;
-    if (preferences == null) return;
-    await _assertCloudBackupDeletionResetAllowed(
-      _SharedPreferenceRemovalStore(preferences),
-    );
-    final keys = preferences.getKeys();
+  static Future<void> resetAll({PreferenceRemovalStore? preferences}) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceRemovalStore(_prefs!));
+    if (store == null) return;
+    await _assertCloudBackupDeletionResetAllowed(store);
+    final keys = store.getKeys();
     for (final k in keys) {
-      if (k.startsWith('kl_')) await preferences.remove(k);
+      if (k.startsWith('kl_') && k != cloudBackupDeletionJournalPreferenceKey) {
+        await store.remove(k);
+      }
     }
     _srsCache = null;
     _packCache = null;
@@ -1793,6 +1795,7 @@ class Storage {
             .where(
               (key) =>
                   key.startsWith('kl_') &&
+                  key != cloudBackupDeletionJournalPreferenceKey &&
                   (canonicalCheckpoint == null ||
                       key != accountDeletionCheckpointPreferenceKey),
             )

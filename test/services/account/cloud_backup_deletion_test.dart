@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,6 +10,113 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 
 void main() {
   group('CloudBackupDeletionCoordinator', () {
+    test(
+      'journal state stays loading until an authoritative absence read completes',
+      () async {
+        final readStarted = Completer<void>();
+        final releaseRead = Completer<void>();
+        final journal = _MemoryJournalStore()
+          ..readStarted = readStarted
+          ..readBarrier = releaseRead.future;
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: CloudWriteSessionController()..acquire('durable'),
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _Gateway(),
+          createRequestKey: () => 'A' * 43,
+        );
+
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.loading,
+        );
+        final refreshed = coordinator.refreshJournalState();
+        await readStarted.future;
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.loading,
+        );
+
+        releaseRead.complete();
+
+        expect(await refreshed, CloudBackupDeletionJournalState.clear);
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.clear,
+        );
+        expect(coordinator.pending.value, isFalse);
+      },
+    );
+
+    test(
+      'identity mutation fails closed when the journal is pending',
+      () async {
+        final sessions = CloudWriteSessionController()..acquire('durable');
+        final journal = _MemoryJournalStore()
+          ..value = CloudBackupDeletionJournal.pending(
+            session: sessions.transition(CloudWriteMode.cleanupPending),
+            requestKey: 'B' * 43,
+          );
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _Gateway(),
+          createRequestKey: () => 'unused',
+        );
+        var mutationCalls = 0;
+
+        await expectLater(
+          coordinator.runIdentityMutation(() async {
+            mutationCalls += 1;
+          }),
+          throwsA(isA<CloudBackupDeletionIdentityChangeBlockedException>()),
+        );
+
+        expect(mutationCalls, 0);
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.pending,
+        );
+        expect(coordinator.pending.value, isTrue);
+      },
+    );
+
+    test(
+      'identity mutation waits for an in-flight deletion then rechecks its journal',
+      () async {
+        final callStarted = Completer<void>();
+        final releaseCall = Completer<void>();
+        final gateway = _Gateway()
+          ..callStarted = callStarted
+          ..callBarrier = releaseCall.future
+          ..responses.add(CloudBackupDeletionRemoteState.pending);
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: CloudWriteSessionController()..acquire('durable'),
+          currentUid: () => 'durable',
+          journalStore: _MemoryJournalStore(),
+          gateway: gateway,
+          createRequestKey: () => 'C' * 43,
+        );
+        var mutationCalls = 0;
+
+        final deletion = coordinator.run();
+        await callStarted.future;
+        final mutation = coordinator.runIdentityMutation(() async {
+          mutationCalls += 1;
+        });
+
+        expect(mutationCalls, 0);
+        releaseCall.complete();
+        expect(await deletion, CloudWriteResult.blocked);
+        await expectLater(
+          mutation,
+          throwsA(isA<CloudBackupDeletionIdentityChangeBlockedException>()),
+        );
+        expect(mutationCalls, 0);
+      },
+    );
+
     test('unknown remote outcome keeps the exact session pending', () async {
       final sessions = CloudWriteSessionController()..acquire('durable');
       final journal = _MemoryJournalStore();
@@ -54,6 +163,115 @@ void main() {
       expect(sessions.current!.mode, CloudWriteMode.ready);
       expect(coordinator.pending.value, isFalse);
     });
+
+    test(
+      'clear that removes natively then throws completes the exact session',
+      () async {
+        final sessions = CloudWriteSessionController()..acquire('durable');
+        final journal = _MemoryJournalStore()..clearThenThrow = 1;
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _Gateway()
+            ..responses.add(CloudBackupDeletionRemoteState.completed),
+          createRequestKey: () => 'C' * 43,
+        );
+
+        expect(await coordinator.run(), CloudWriteResult.completed);
+        expect(await journal.read(), isNull);
+        expect(sessions.current!.mode, CloudWriteMode.ready);
+        expect(
+          coordinator.journalState.value,
+          CloudBackupDeletionJournalState.clear,
+        );
+      },
+    );
+
+    test(
+      'clear that retains the journal then throws stays pending for same-key retry',
+      () async {
+        final sessions = CloudWriteSessionController()..acquire('durable');
+        final journal = _MemoryJournalStore()..failedClears = 1;
+        final gateway = _Gateway()
+          ..responses.add(CloudBackupDeletionRemoteState.completed)
+          ..responses.add(CloudBackupDeletionRemoteState.completed);
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: gateway,
+          createRequestKey: () => 'D' * 43,
+        );
+
+        expect(await coordinator.run(), CloudWriteResult.blocked);
+        expect((await journal.read())!.requestKey, 'D' * 43);
+        expect(sessions.current!.mode, CloudWriteMode.cleanupPending);
+        expect(coordinator.pending.value, isTrue);
+
+        expect(await coordinator.run(), CloudWriteResult.completed);
+        expect(gateway.requestKeys, ['D' * 43, 'D' * 43]);
+        expect(await journal.read(), isNull);
+        expect(sessions.current!.mode, CloudWriteMode.ready);
+      },
+    );
+
+    test('clear reconciliation never mutates a newer session', () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      CloudWriteSession? replacement;
+      final journal = _MemoryJournalStore()
+        ..clearThenThrow = 1
+        ..onClear = () {
+          replacement = sessions.acquire('new-user');
+        };
+      final coordinator = CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: journal,
+        gateway: _Gateway()
+          ..responses.add(CloudBackupDeletionRemoteState.completed),
+        createRequestKey: () => 'E' * 43,
+      );
+
+      expect(await coordinator.run(), CloudWriteResult.stale);
+      expect(await journal.read(), isNull);
+      expect(sessions.current, same(replacement));
+      expect(sessions.current!.uid, 'new-user');
+      expect(sessions.current!.mode, CloudWriteMode.ready);
+    });
+
+    test(
+      'gateway boundary rejects a changed UID before the callable is invoked',
+      () async {
+        var liveUid = 'durable';
+        var callableInvocations = 0;
+        final gateway = FirebaseCloudBackupDeletionGateway(
+          ({
+            required callableName,
+            required payload,
+            required callableOptions,
+          }) async {
+            callableInvocations += 1;
+            return {'state': 'completed'};
+          },
+          currentUid: () {
+            liveUid = 'new-user';
+            return liveUid;
+          },
+        );
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: CloudWriteSessionController()..acquire('durable'),
+          currentUid: () => liveUid,
+          journalStore: _MemoryJournalStore(),
+          gateway: gateway,
+          createRequestKey: () => 'F' * 43,
+        );
+
+        expect(await coordinator.run(), CloudWriteResult.stale);
+        expect(callableInvocations, 0);
+        expect(coordinator.pending.value, isTrue);
+      },
+    );
 
     test(
       'restart resumes the exact UID-bound session and request key',
@@ -314,9 +532,12 @@ void main() {
         data = payload;
         options = callableOptions;
         return {'state': 'completed'};
-      });
+      }, currentUid: () => 'durable');
 
-      final result = await gateway.deleteCloudBackup('F' * 43);
+      final result = await gateway.deleteCloudBackup(
+        'F' * 43,
+        expectedUid: 'durable',
+      );
 
       expect(result, CloudBackupDeletionRemoteState.completed);
       expect(name, 'deleteCloudBackup');
@@ -415,15 +636,33 @@ class _MemoryJournalStore implements CloudBackupDeletionJournalStore {
   CloudBackupDeletionJournal? value;
   int failedWrites = 0;
   int writeThenThrow = 0;
+  int failedClears = 0;
+  int clearThenThrow = 0;
+  Completer<void>? readStarted;
+  Future<void>? readBarrier;
   void Function(CloudBackupDeletionJournal journal)? onWrite;
+  void Function()? onClear;
 
   @override
   Future<void> clear() async {
+    onClear?.call();
+    if (failedClears > 0) {
+      failedClears -= 1;
+      throw StateError('journal clear failed');
+    }
     value = null;
+    if (clearThenThrow > 0) {
+      clearThenThrow -= 1;
+      throw StateError('journal clear failed after removal');
+    }
   }
 
   @override
-  Future<CloudBackupDeletionJournal?> read() async => value;
+  Future<CloudBackupDeletionJournal?> read() async {
+    readStarted?.complete();
+    await readBarrier;
+    return value;
+  }
 
   @override
   Future<void> write(CloudBackupDeletionJournal journal) async {
@@ -443,13 +682,23 @@ class _MemoryJournalStore implements CloudBackupDeletionJournalStore {
 class _Gateway implements CloudBackupDeletionGateway {
   final List<CloudBackupDeletionRemoteState> responses = [];
   final List<String> requestKeys = [];
+  final List<String> expectedUids = [];
+  Completer<void>? callStarted;
+  Future<void>? callBarrier;
   Object? error;
 
   @override
   Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
-    String requestKey,
-  ) async {
+    String requestKey, {
+    required String expectedUid,
+  }) async {
     requestKeys.add(requestKey);
+    expectedUids.add(expectedUid);
+    final started = callStarted;
+    if (started != null && !started.isCompleted) {
+      started.complete();
+    }
+    await callBarrier;
     if (error case final failure?) {
       throw failure;
     }

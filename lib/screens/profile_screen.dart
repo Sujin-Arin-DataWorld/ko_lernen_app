@@ -11,6 +11,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../services/auth_service.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
+import '../services/account/cloud_backup_deletion.dart';
 import '../services/storage_service.dart';
 import '../data/learner_motivation.dart';
 import '../widgets/sori/motivation_sheet.dart';
@@ -38,12 +39,13 @@ class ProfileScreen extends StatefulWidget {
     super.key,
     this.account,
     this.accountOperations,
-    this.cloudDataDeletionPending,
+    this.cloudDataDeletionJournalState,
   });
 
   final AuthAccountSnapshot? account;
   final AccountUiOperations? accountOperations;
-  final ValueListenable<bool>? cloudDataDeletionPending;
+  final ValueListenable<CloudBackupDeletionJournalState>?
+  cloudDataDeletionJournalState;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -52,13 +54,14 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen>
     with ScreenCoachMixin<ProfileScreen> {
   bool _busy = false;
-  bool _cloudDeletionPendingLoaded = false;
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
 
-  ValueListenable<bool> get _cloudDataDeletionPending =>
-      widget.cloudDataDeletionPending ?? AuthService.cloudBackupDeletionPending;
+  ValueListenable<CloudBackupDeletionJournalState>
+  get _cloudDataDeletionJournalState =>
+      widget.cloudDataDeletionJournalState ??
+      AuthService.cloudBackupDeletionJournalState;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _accountCardKey = GlobalKey();
@@ -83,13 +86,9 @@ class _ProfileScreenState extends State<ProfileScreen>
   void initState() {
     super.initState();
     scheduleCoach();
-    _cloudDeletionPendingLoaded = widget.cloudDataDeletionPending != null;
-    if (!_cloudDeletionPendingLoaded) {
+    if (widget.cloudDataDeletionJournalState == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
-        await AuthService.refreshCloudBackupDeletionPending();
-        if (mounted) {
-          setState(() => _cloudDeletionPendingLoaded = true);
-        }
+        await AuthService.refreshCloudBackupDeletionJournalState();
       });
     }
   }
@@ -199,29 +198,34 @@ class _ProfileScreenState extends State<ProfileScreen>
             const SizedBox(height: 12),
             KeyedSubtree(
               key: _accountCardKey,
-              child: ValueListenableBuilder<bool>(
-                valueListenable: _cloudDataDeletionPending,
-                builder: (context, cloudDeletionPending, _) =>
+              child: ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                valueListenable: _cloudDataDeletionJournalState,
+                builder: (context, cloudDeletionState, _) =>
                     AccountNewLinkGuard(
                       operations: _accountOperations,
                       builder: (context, linkAvailable) => linked
                           ? _ConnectedCard(
                               name: name ?? providerLabel,
                               onSignOut:
-                                  !_cloudDeletionPendingLoaded ||
-                                      cloudDeletionPending
+                                  cloudDeletionState !=
+                                      CloudBackupDeletionJournalState.clear
                                   ? null
                                   : _signOut,
                             )
                           : _GuestCard(
                               busy: _busy,
-                              onConnect: linkAvailable
+                              onConnect:
+                                  linkAvailable &&
+                                      cloudDeletionState ==
+                                          CloudBackupDeletionJournalState.clear
                                   ? () =>
                                         _connectWith(AccountLinkProvider.google)
                                   : null,
                               onConnectApple:
                                   linkAvailable &&
-                                      _accountOperations.appleSignInAvailable
+                                      _accountOperations.appleSignInAvailable &&
+                                      cloudDeletionState ==
+                                          CloudBackupDeletionJournalState.clear
                                   ? () =>
                                         _connectWith(AccountLinkProvider.apple)
                                   : null,
