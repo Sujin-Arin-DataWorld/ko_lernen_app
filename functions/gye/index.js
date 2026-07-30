@@ -88,6 +88,7 @@ const {
   createKeyedDeletionProofDigest,
   fetchActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
+  runScheduledDeletionCandidate,
 } = require("./account_operations_runtime");
 
 admin.initializeApp();
@@ -167,23 +168,19 @@ exports.account_deletion_worker = onSchedule(
     retryCount: 3,
   },
   async () => {
+    const nowMillis = Date.now();
     const candidates = await fetchActionableDeletionCandidates({
       collection: db.collection("account_operations"),
       limit: 50,
+      nowMillis,
     });
     for (const candidate of candidates) {
-      try {
-        await accountDeletionWorkerRuntime.processDeletionOperation({
-          operationId: candidate.id,
-          workerId: `scheduled-${candidate.id}`,
-        });
-      } catch (error) {
-        functionsLogger.warn("account-deletion-worker-failed", {
-          code: typeof error?.code === "string"
-            ? error.code
-            : "worker-failed",
-        });
-      }
+      await runScheduledDeletionCandidate({
+        candidate,
+        repository: accountOperationRepository,
+        workerRuntime: accountDeletionWorkerRuntime,
+        logger: functionsLogger,
+      });
     }
   },
 );

@@ -29,13 +29,16 @@ const CALLABLE_OPTIONS = Object.freeze({
   enforceAppCheck: true,
   consumeAppCheckToken: true,
 });
-const ACTIONABLE_DELETION_PHASES = Object.freeze([
-  "sourceCleanupPending",
+const NORMAL_DELETION_PHASES = Object.freeze([
   "deletionRequested",
   "userTreeDeleting",
   "authDeleted",
   "communityCleanupPending",
   "processorCleanupPending",
+]);
+const ACTIONABLE_DELETION_PHASES = Object.freeze([
+  "sourceCleanupPending",
+  ...NORMAL_DELETION_PHASES,
 ]);
 const TERMINAL_PHASES = new Set(["completed", "blocked", "cancelled"]);
 const AUTH_MAX_AGE_SECONDS = 300;
@@ -56,11 +59,59 @@ const GENERIC_PUBLIC_RESULT = Object.freeze({
   status: "request-received",
 });
 const DEFAULT_WORKER_LEASE_MILLIS = 60_000;
+const DEFAULT_WORKER_RETRY_DELAY_MILLIS = 60_000;
+const MAX_WORKER_RETRY_DELAY_MILLIS = 3_600_000;
 const DEFAULT_DELETE_PAGE_SIZE = 200;
+const QUEUE_BUDGETS = Object.freeze({
+  replacement: 20,
+  deletion: 20,
+  apple: 10,
+});
+const SAFE_DELETION_WORK_FAILURE_CODES = new Set(["worker-failed"]);
+
+function scaleQueueBudgets(limit) {
+  const names = Object.keys(QUEUE_BUDGETS);
+  const totalWeight = Object.values(QUEUE_BUDGETS)
+    .reduce((total, weight) => total + weight, 0);
+  const minimum = limit >= names.length ? 1 : 0;
+  const budgets = Object.fromEntries(
+    names.map((name) => [name, minimum]),
+  );
+  let remaining = limit - (minimum * names.length);
+  const shares = names.map((name, index) => {
+    const exact = remaining * QUEUE_BUDGETS[name] / totalWeight;
+    const whole = Math.floor(exact);
+    budgets[name] += whole;
+    return { name, index, remainder: exact - whole };
+  });
+  remaining = limit - Object.values(budgets)
+    .reduce((total, budget) => total + budget, 0);
+  shares
+    .sort((left, right) =>
+      right.remainder - left.remainder || left.index - right.index)
+    .slice(0, remaining)
+    .forEach(({ name }) => {
+      budgets[name] += 1;
+    });
+  return budgets;
+}
+
+function dedupeCandidates(candidates) {
+  const seen = new Set();
+  return candidates.filter((candidate) => {
+    if (!candidate || typeof candidate.id !== "string" ||
+        seen.has(candidate.id)) {
+      return false;
+    }
+    seen.add(candidate.id);
+    return true;
+  });
+}
 
 async function fetchActionableDeletionCandidates({
   collection,
   limit = 50,
+  nowMillis,
 } = {}) {
   if (!collection || typeof collection.where !== "function") {
     throw new TypeError("Account operation collection is required.");
@@ -68,24 +119,50 @@ async function fetchActionableDeletionCandidates({
   if (!Number.isInteger(limit) || limit < 1) {
     throw new TypeError("Candidate limit must be a positive integer.");
   }
-  const [phaseSnapshot, completedAppleSnapshot] = await Promise.all([
-    collection
-      .where("phase", "in", ACTIONABLE_DELETION_PHASES)
-      .limit(limit)
-      .get(),
-    collection
-      .where("phase", "==", "appleRevocationPending")
-      .where("deletionProgress.appleRevocationComplete", "==", true)
-      .limit(limit)
-      .get(),
+  if (!Number.isFinite(nowMillis) || nowMillis < 0) {
+    throw new TypeError("Candidate time must be a non-negative number.");
+  }
+  const budget = scaleQueueBudgets(limit);
+  const getSnapshot = (query, queryLimit) => queryLimit > 0
+    ? query.limit(queryLimit).get()
+    : Promise.resolve({ docs: [] });
+  const [replacement, deletion, apple] = await Promise.all([
+    getSnapshot(
+      collection
+        .where("kind", "==", "replacement")
+        .where("phase", "==", "sourceCleanupPending")
+        .where("nextAttemptAtMillis", "<=", nowMillis)
+        .orderBy("nextAttemptAtMillis")
+        .orderBy("updatedAtMillis"),
+      budget.replacement,
+    ),
+    getSnapshot(
+      collection
+        .where("kind", "==", "deletion")
+        .where("phase", "in", NORMAL_DELETION_PHASES)
+        .where("nextAttemptAtMillis", "<=", nowMillis)
+        .orderBy("nextAttemptAtMillis")
+        .orderBy("updatedAtMillis"),
+      budget.deletion,
+    ),
+    getSnapshot(
+      collection
+        .where("phase", "==", "appleRevocationPending")
+        .where("deletionProgress.appleRevocationComplete", "==", true)
+        .where("nextAttemptAtMillis", "<=", nowMillis)
+        .orderBy("nextAttemptAtMillis")
+        .orderBy("updatedAtMillis"),
+      budget.apple,
+    ),
   ]);
-  const phaseDocs = Array.isArray(phaseSnapshot?.docs)
-    ? phaseSnapshot.docs
+  const docs = (snapshot) => Array.isArray(snapshot?.docs)
+    ? snapshot.docs
     : [];
-  const completedAppleDocs = Array.isArray(completedAppleSnapshot?.docs)
-    ? completedAppleSnapshot.docs
-    : [];
-  return [...phaseDocs, ...completedAppleDocs];
+  return dedupeCandidates([
+    ...docs(replacement),
+    ...docs(deletion),
+    ...docs(apple),
+  ]);
 }
 
 class BoundaryFailure extends Error {
@@ -100,6 +177,22 @@ function repositoryFailure(code) {
   const error = new Error(code);
   error.code = code;
   return error;
+}
+
+class DeletionWorkerFailure extends Error {
+  constructor(retryMetadata) {
+    super("deletion-worker-failed");
+    this.code = "worker-failed";
+    this.retryMetadata = Object.freeze({ ...retryMetadata });
+  }
+}
+
+function workerRetryDelayMillis(leaseVersion) {
+  const exponent = Math.min(Math.max(leaseVersion - 1, 0), 10);
+  return Math.min(
+    DEFAULT_WORKER_RETRY_DELAY_MILLIS * (2 ** exponent),
+    MAX_WORKER_RETRY_DELAY_MILLIS,
+  );
 }
 
 function stableKey(...parts) {
@@ -188,6 +281,7 @@ function persistedOperation(operation, previous, nowMillis) {
       ? previous.createdAtMillis
       : nowMillis,
     updatedAtMillis: nowMillis,
+    nextAttemptAtMillis: nowMillis,
   };
 }
 
@@ -834,6 +928,54 @@ function createFirestoreAccountOperationRepository({
     });
   }
 
+  async function recordDeletionWorkFailure({
+    operationId,
+    workerId,
+    operationVersion,
+    leaseVersion,
+    safeCode,
+    nowMillis: failureTimeMillis,
+  }) {
+    const operationRef = operations.doc(requiredOperationId(operationId));
+    requiredString(workerId, "worker-id-required");
+    if (!Number.isInteger(operationVersion) || operationVersion < 0 ||
+        !Number.isInteger(leaseVersion) || leaseVersion < 1) {
+      throw repositoryFailure("invalid-worker-version");
+    }
+    if (!SAFE_DELETION_WORK_FAILURE_CODES.has(safeCode)) {
+      throw repositoryFailure("invalid-worker-failure-code");
+    }
+    if (!Number.isFinite(failureTimeMillis) || failureTimeMillis < 0) {
+      throw repositoryFailure("invalid-worker-failure-time");
+    }
+    return firestore.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(operationRef);
+      if (!snapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const stored = snapshot.data() || {};
+      const operation = normalizeOperation(stored);
+      const lease = stored.workerLease || {};
+      if (operation.version !== operationVersion ||
+          lease.workerId !== workerId ||
+          lease.leaseVersion !== leaseVersion) {
+        throw repositoryFailure("stale-worker-lease");
+      }
+      const updated = {
+        ...stored,
+        updatedAtMillis: failureTimeMillis,
+        nextAttemptAtMillis:
+          failureTimeMillis + workerRetryDelayMillis(leaseVersion),
+        deletionProgress: {
+          ...workerProgress(stored),
+          statusCode: safeCode,
+        },
+      };
+      transaction.set(operationRef, updated);
+      return workerResult(updated);
+    });
+  }
+
   return Object.freeze({
     checkpointDeletionWork,
     cancelReplacement,
@@ -846,6 +988,7 @@ function createFirestoreAccountOperationRepository({
     createOrReuseReplacement: (request) => createOrReuse(request),
     get,
     issueDeletionProof,
+    recordDeletionWorkFailure,
     renewDeletionLease,
     transition,
   });
@@ -897,12 +1040,15 @@ function createDeletionWorkerRuntime({
         "worker-invocation-id-required",
       ),
     );
-    let claim = await repository.claimDeletionWork({
-      operationId,
-      workerId: invocationWorkerId,
-      leaseMillis,
-    });
-    let operation = claim.operation;
+    let claim;
+    let operation;
+    try {
+      claim = await repository.claimDeletionWork({
+        operationId,
+        workerId: invocationWorkerId,
+        leaseMillis,
+      });
+      operation = claim.operation;
     if (TERMINAL_PHASES.has(operation.phase)) {
       return operationResult(operation);
     }
@@ -1050,9 +1196,64 @@ function createDeletionWorkerRuntime({
     }
 
     return operationResult(operation);
+    } catch (error) {
+      if (claim?.leaseAcquired !== false && operation) {
+        throw new DeletionWorkerFailure({
+          operationId,
+          workerId: invocationWorkerId,
+          operationVersion: operation.version,
+          leaseVersion: claim.leaseVersion,
+        });
+      }
+      throw error;
+    }
   }
 
   return Object.freeze({ processDeletionOperation });
+}
+
+async function runScheduledDeletionCandidate({
+  candidate,
+  repository,
+  workerRuntime,
+  logger,
+  nowMillis = () => Date.now(),
+} = {}) {
+  if (!candidate || typeof candidate.id !== "string" ||
+      !repository ||
+      typeof repository.recordDeletionWorkFailure !== "function" ||
+      !workerRuntime ||
+      typeof workerRuntime.processDeletionOperation !== "function" ||
+      !logger ||
+      typeof logger.warn !== "function" ||
+      typeof nowMillis !== "function") {
+    throw new TypeError("Scheduled deletion dependencies are required.");
+  }
+  try {
+    return await workerRuntime.processDeletionOperation({
+      operationId: candidate.id,
+      workerId: `scheduled-${candidate.id}`,
+    });
+  } catch (error) {
+    if (error instanceof DeletionWorkerFailure) {
+      try {
+        await repository.recordDeletionWorkFailure({
+          ...error.retryMetadata,
+          safeCode: "worker-failed",
+          nowMillis: nowMillis(),
+        });
+      } catch {
+        logger.warn("account-deletion-worker-failure-recording-failed", {
+          code: "worker-failed",
+        });
+        return null;
+      }
+    }
+    logger.warn("account-deletion-worker-failed", {
+      code: "worker-failed",
+    });
+    return null;
+  }
 }
 
 function authorizationHeader(request) {
@@ -1599,6 +1800,7 @@ module.exports = {
   CALLABLE_NAMES,
   CALLABLE_OPTIONS,
   FIRST_PARTY_ORIGIN,
+  NORMAL_DELETION_PHASES,
   PUBLIC_ENDPOINT_OPTIONS,
   createAccountOperationCallables,
   createAccountOperationRuntime,
@@ -1609,4 +1811,5 @@ module.exports = {
   createKeyedDeletionProofDigest,
   fetchActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
+  runScheduledDeletionCandidate,
 };
