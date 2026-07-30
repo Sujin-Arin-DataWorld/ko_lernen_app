@@ -581,6 +581,7 @@ function createFirestoreAccountOperationRepository({
     operationId,
     workerId,
     leaseMillis = DEFAULT_WORKER_LEASE_MILLIS,
+    allowAppleRevocationInput = false,
   }) {
     const operationRef = operations.doc(requiredOperationId(operationId));
     requiredString(workerId, "worker-id-required");
@@ -596,12 +597,20 @@ function createFirestoreAccountOperationRepository({
       }
       const markerRef = deletionMarkers.doc(operation.sourceUid);
       if (TERMINAL_PHASES.has(operation.phase)) {
-        return workerResult(stored);
+        return { ...workerResult(stored), leaseAcquired: false };
+      }
+      const progress = workerProgress(stored);
+      if (operation.phase === "appleRevocationPending" &&
+          !progress.appleRevocationComplete &&
+          allowAppleRevocationInput !== true) {
+        return {
+          ...workerResult(stored),
+          leaseAcquired: false,
+        };
       }
       const currentTime = nowMillis();
       const activeLease = stored.workerLease || {};
-      if (activeLease.workerId !== workerId &&
-          Number.isFinite(activeLease.leaseUntilMillis) &&
+      if (Number.isFinite(activeLease.leaseUntilMillis) &&
           activeLease.leaseUntilMillis > currentTime) {
         throw repositoryFailure("worker-lease-held");
       }
@@ -635,7 +644,7 @@ function createFirestoreAccountOperationRepository({
           (markerSnapshot.data() || {}).createdAtMillis || currentTime,
         updatedAtMillis: currentTime,
       });
-      return workerResult(updated);
+      return { ...workerResult(updated), leaseAcquired: true };
     });
   }
 
@@ -779,6 +788,7 @@ function createDeletionWorkerRuntime({
   nowMillis = () => Date.now(),
   leaseMillis = DEFAULT_WORKER_LEASE_MILLIS,
   pageSize = DEFAULT_DELETE_PAGE_SIZE,
+  newWorkerInvocationId = () => crypto.randomUUID(),
 } = {}) {
   if (!repository ||
       typeof repository.claimDeletionWork !== "function" ||
@@ -789,25 +799,37 @@ function createDeletionWorkerRuntime({
   if (!auth || typeof auth.deleteUser !== "function" ||
       typeof deleteUserTreePage !== "function" ||
       typeof cleanupCommunity !== "function" ||
-      typeof cleanupProcessor !== "function") {
+      typeof cleanupProcessor !== "function" ||
+      typeof newWorkerInvocationId !== "function") {
     throw new TypeError("Injected destructive worker adapters are required.");
   }
 
   async function processDeletionOperation({ operationId, workerId }) {
+    const invocationWorkerId = stableKey(
+      "deletion-worker-invocation",
+      requiredString(workerId, "worker-id-required"),
+      requiredString(
+        newWorkerInvocationId(),
+        "worker-invocation-id-required",
+      ),
+    );
     let claim = await repository.claimDeletionWork({
       operationId,
-      workerId,
+      workerId: invocationWorkerId,
       leaseMillis,
     });
     let operation = claim.operation;
     if (TERMINAL_PHASES.has(operation.phase)) {
       return operationResult(operation);
     }
+    if (claim.leaseAcquired === false) {
+      return operationResult(operation);
+    }
 
     const renew = async () => {
       claim = await repository.renewDeletionLease({
         operationId,
-        workerId,
+        workerId: invocationWorkerId,
         operationVersion: operation.version,
         leaseVersion: claim.leaseVersion,
         leaseMillis,
@@ -818,7 +840,7 @@ function createDeletionWorkerRuntime({
     const checkpoint = async (change) => {
       claim = await repository.checkpointDeletionWork({
         operationId,
-        workerId,
+        workerId: invocationWorkerId,
         operationVersion: operation.version,
         leaseVersion: claim.leaseVersion,
         ...change,
@@ -946,6 +968,7 @@ function createAccountOperationRuntime({
   repository,
   nowMillis = () => Date.now(),
   newDeletionProof = () => crypto.randomBytes(32).toString("base64url"),
+  newWorkerInvocationId = () => crypto.randomUUID(),
   hashDeletionProof,
   revokeAppleAuthorizationCode,
   makeError,
@@ -967,6 +990,7 @@ function createAccountOperationRuntime({
     throw new TypeError("An account-operation repository is required.");
   }
   if (typeof newDeletionProof !== "function" ||
+      typeof newWorkerInvocationId !== "function" ||
       typeof hashDeletionProof !== "function" ||
       typeof revokeAppleAuthorizationCode !== "function") {
     throw new TypeError("Deletion-proof crypto adapters are required.");
@@ -1186,11 +1210,16 @@ function createAccountOperationRuntime({
         "apple-revocation-worker",
         operationId,
         identity.uid,
+        requiredString(
+          newWorkerInvocationId(),
+          "worker-invocation-id-required",
+        ),
       );
       let claim = await repository.claimDeletionWork({
         operationId,
         workerId,
         leaseMillis: DEFAULT_WORKER_LEASE_MILLIS,
+        allowAppleRevocationInput: true,
       });
       let operation = claim.operation;
       if (operation.version !== expectedVersion ||
@@ -1241,6 +1270,7 @@ function createAccountOperationRuntime({
           operationId,
           workerId,
           leaseMillis: DEFAULT_WORKER_LEASE_MILLIS,
+          allowAppleRevocationInput: true,
         });
         operation = claim.operation;
       }

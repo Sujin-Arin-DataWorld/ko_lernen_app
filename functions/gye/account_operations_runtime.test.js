@@ -1282,6 +1282,70 @@ async () => {
   );
 });
 
+test("rejects a second active claim even when it repeats the same worker ID",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "deterministic-worker-id",
+    leaseMillis: 60_000,
+  });
+
+  await assert.rejects(
+    harness.repository.claimDeletionWork({
+      operationId: requested.operationId,
+      workerId: "deterministic-worker-id",
+      leaseMillis: 60_000,
+    }),
+    { code: "worker-lease-held" },
+  );
+});
+
+test("same worker label cannot invoke a destructive adapter concurrently",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  let releaseFirst;
+  const firstGate = new Promise((resolve) => {
+    releaseFirst = resolve;
+  });
+  let deleteCalls = 0;
+  const nonces = ["invocation-one", "invocation-two"];
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => {
+      deleteCalls += 1;
+      if (deleteCalls === 1) await firstGate;
+      return { done: true, nextCursor: null };
+    },
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    newWorkerInvocationId: () => nonces.shift(),
+    nowMillis: () => harness.clock.now,
+  });
+  const first = worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "scheduled-operation-1",
+  });
+  await new Promise((resolve) => setImmediate(resolve));
+
+  try {
+    await assert.rejects(
+      worker.processDeletionOperation({
+        operationId: requested.operationId,
+        workerId: "scheduled-operation-1",
+      }),
+      { code: "worker-lease-held" },
+    );
+    assert.equal(deleteCalls, 1);
+  } finally {
+    releaseFirst();
+    await first.catch(() => {});
+  }
+});
+
 test("replays a completed deletion worker operation without repeating destructive work",
 async () => {
   const harness = createHarness();
@@ -1373,6 +1437,7 @@ async () => {
   let claim = await harness.repository.claimDeletionWork({
     operationId: requested.operationId,
     workerId: "revocation-boundary",
+    allowAppleRevocationInput: true,
   });
   claim = await harness.repository.renewDeletionLease({
     operationId: requested.operationId,
@@ -1414,6 +1479,58 @@ async () => {
 
   assert.equal(recovered.phase, "authDeleted");
   assert.equal(authDeletes, 1);
+});
+
+test("incomplete Apple input wait is never leased and can complete immediately",
+async () => {
+  const rawAppleCode = "immediate-apple-authorization-code";
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({
+        uid: "apple-wait-account",
+        provider: "apple.com",
+      }),
+    },
+  });
+  const requested = await createDeletionOperation(harness.handlers, "apple");
+  const schedulerWorker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    newWorkerInvocationId: () => "scheduler-invocation",
+    nowMillis: () => harness.clock.now,
+  });
+  const pending = await runWorkerUntil(
+    schedulerWorker,
+    requested.operationId,
+    "appleRevocationPending",
+  );
+  const beforeWait = structuredClone(
+    harness.firestore.documents.get(
+      `account_operations/${requested.operationId}`,
+    ),
+  );
+
+  const waiting = await schedulerWorker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: `scheduled-${requested.operationId}`,
+  });
+  const afterWait = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+
+  assert.equal(waiting.phase, "appleRevocationPending");
+  assert.deepEqual(afterWait.workerLease, beforeWait.workerLease);
+  const completed = await harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: requested.operationId,
+      expectedVersion: pending.version,
+      authorizationCode: rawAppleCode,
+    }),
+  );
+  assert.equal(completed.phase, "authDeleted");
 });
 
 test("persists paged user-tree continuation before Auth deletion",

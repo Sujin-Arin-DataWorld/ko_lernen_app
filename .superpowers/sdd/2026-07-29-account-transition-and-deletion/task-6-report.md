@@ -171,3 +171,106 @@ This report is included in that Task 6 commit.
 - The worker lease is 60 seconds. Each live page/phase adapter must remain
   bounded below that lease or add an adapter-specific renewal strategy before
   deployment.
+
+## Fix round 1/5: exclusive invocation leases and Apple wait isolation
+
+### Status
+
+Complete. This round changes only the Task 6 worker/runtime lease boundary and
+its Node tests. It does not change rules, Flutter, plans, ledgers, deployment
+configuration, or live adapters.
+
+### Root causes
+
+1. `claimDeletionWork` treated equality of `workerId` as lease ownership.
+   Scheduler and Apple IDs were deterministic labels, not possession of the
+   current lease token, so two invocations with the same label could both run
+   a destructive adapter.
+2. The scheduled runtime claimed every `appleRevocationPending` operation
+   before inspecting `appleRevocationComplete`. An operation still waiting for
+   client input therefore received a live lease and returned without a
+   checkpoint/release, temporarily excluding the authenticated completion
+   callable.
+
+### RED evidence
+
+Before production edits:
+
+```text
+node --test --test-name-pattern \
+  "second active claim|same worker label|incomplete Apple input wait" \
+  account_operations_runtime.test.js
+tests 3
+pass 0
+fail 3
+```
+
+The failures proved that a repeated same-ID claim resolved successfully, the
+same worker label invoked the page adapter twice, and an incomplete Apple wait
+changed `workerLease` from the released receipt to a new 60-second lease.
+
+### Fix
+
+- Every `createDeletionWorkerRuntime` invocation now derives an internal
+  worker ID from the caller's label plus a fresh cryptographic UUID. The Apple
+  completion boundary does the same. Tests inject deterministic nonces without
+  weakening the production default.
+- `claimDeletionWork` rejects every unexpired lease, including a lease whose
+  stored worker ID matches the new request. Only `renewDeletionLease` proves
+  ownership through the exact operation version, worker ID, lease version,
+  and unexpired lease.
+- An incomplete `appleRevocationPending` record returns
+  `leaseAcquired: false` without any Firestore write. Only the already
+  authenticated `completeAppleRevocation` path explicitly opts into that
+  claim. Once `appleRevocationComplete` is persisted, the normal server worker
+  can claim and resume Auth deletion.
+
+### GREEN evidence
+
+Focused concurrency and Apple regressions:
+
+```text
+node --test --test-name-pattern \
+  "second active claim|same worker label|incomplete Apple input wait|server worker resumes Auth deletion|completes Apple revocation" \
+  account_operations_runtime.test.js
+tests 5
+pass 5
+fail 0
+```
+
+Fresh configured verification:
+
+```text
+npm.cmd test
+tests 114
+pass 114
+fail 0
+
+$env:Path = 'C:\Program Files\Android\Android Studio\jbr\bin;' + $env:Path
+npm.cmd run test:rules
+tests 32
+pass 32
+fail 0
+```
+
+`node --check` passed for the runtime, runtime tests, and index. `git diff
+--check` exited zero.
+
+### Self-review and concerns
+
+- Same-ID claims are no longer an implicit renewal path. The only renewal API
+  requires the current lease token fields and is covered by the existing stale
+  token regression.
+- The concurrent test holds the first page adapter open and proves a second
+  invocation with the same public label is rejected before a second adapter
+  call.
+- Waiting for transient Apple input is now a read-only transaction result; it
+  does not increment lease version, extend expiry, or delay the callable.
+- Completed Apple revocation remains server-resumable and Auth
+  `user-not-found` remains terminal success.
+- The 60-second bounded-adapter/live-service gates from the original report
+  remain unchanged.
+
+### Commit
+
+`fix(functions): enforce exclusive deletion worker leases`
