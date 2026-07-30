@@ -101,4 +101,11 @@ class _FakePreferenceRemovalStore implements PreferenceRemovalStore {
     }
     return result;
   }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    cache[key] = value;
+    durable[key] = value;
+    return true;
+  }
 }

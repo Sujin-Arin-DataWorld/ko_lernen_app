@@ -259,7 +259,6 @@ void main() {
         'journal-write:operation-1',
         'status:operation-1',
         'journal-write:operation-1',
-        'journal-write:operation-1',
         'identity-recover',
       ]);
       expect(operations.requestCalls, 1);

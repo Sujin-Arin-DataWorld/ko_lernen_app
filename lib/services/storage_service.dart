@@ -24,7 +24,10 @@ abstract interface class PreferenceRemovalStore {
   Object? getValue(String key);
   Future<void> reload();
   Future<bool> remove(String key);
+  Future<bool> setString(String key, String value);
 }
+
+typedef AccountDeletionCheckpointCanonicalizer = String Function(String raw);
 
 abstract interface class PreferenceStringStore {
   bool containsKey(String key);
@@ -165,6 +168,10 @@ class _SharedPreferenceRemovalStore implements PreferenceRemovalStore {
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
+
+  @override
+  Future<bool> setString(String key, String value) =>
+      preferences.setString(key, value);
 }
 
 class _SharedPreferenceStringStore implements PreferenceStringStore {
@@ -470,6 +477,28 @@ class Storage {
     }
     _unknownStrictKeys.add(key);
     throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
+  static Future<void> _writeValueStrict(
+    PreferenceRemovalStore store,
+    String key,
+    String value,
+  ) async {
+    Object? failure;
+    var wrote = false;
+    try {
+      wrote = await store.setString(key, value);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (wrote) return;
+    try {
+      await store.reload();
+      if (store.getValue(key) == value) return;
+    } on Object catch (error) {
+      failure ??= error;
+    }
+    throw PreferenceWriteException(key, cause: failure);
   }
 
   static Future<void> _sd(String k, double v) async => _prefs?.setDouble(k, v);
@@ -1705,21 +1734,42 @@ class Storage {
   /// Account-deletion reset that verifies every app-owned preference removal.
   static Future<void> resetAllStrict({
     PreferenceRemovalStore? preferences,
-    bool preserveAccountDeletionCheckpoint = false,
+    AccountDeletionCheckpointCanonicalizer?
+    canonicalizeAccountDeletionCheckpoint,
   }) async {
     final store = preferences ?? _preferenceRemovalStore();
     final failedKeys = <String>[];
     final causes = <Object>[];
-    final keys =
-        {...store.getKeys(), ..._unknownStrictKeys}
-            .where(
-              (key) =>
-                  key.startsWith('kl_') &&
-                  (!preserveAccountDeletionCheckpoint ||
-                      key != accountDeletionCheckpointPreferenceKey),
-            )
-            .toList()
-          ..sort();
+    String? canonicalCheckpoint;
+    if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
+      try {
+        final raw = store.getValue(accountDeletionCheckpointPreferenceKey);
+        if (raw is! String || raw.isEmpty) {
+          throw const FormatException('Missing account deletion checkpoint.');
+        }
+        canonicalCheckpoint = canonicalize(raw);
+        if (canonicalCheckpoint.isEmpty) {
+          throw const FormatException('Empty account deletion checkpoint.');
+        }
+      } catch (error, stackTrace) {
+        try {
+          await _removeValueStrict(
+            store,
+            accountDeletionCheckpointPreferenceKey,
+          );
+        } catch (removalError) {
+          throw PreferenceResetException(
+            failedKeys: const <String>[accountDeletionCheckpointPreferenceKey],
+            causes: <Object>[error, removalError],
+          );
+        }
+        Error.throwWithStackTrace(error, stackTrace);
+      }
+    }
+    final keys = {
+      ...store.getKeys(),
+      ..._unknownStrictKeys,
+    }.where((key) => key.startsWith('kl_')).toList()..sort();
 
     try {
       for (final key in keys) {
@@ -1727,6 +1777,18 @@ class Storage {
           await _removeValueStrict(store, key);
         } catch (error) {
           failedKeys.add(key);
+          causes.add(error);
+        }
+      }
+      if (canonicalCheckpoint != null) {
+        try {
+          await _writeValueStrict(
+            store,
+            accountDeletionCheckpointPreferenceKey,
+            canonicalCheckpoint,
+          );
+        } catch (error) {
+          failedKeys.add(accountDeletionCheckpointPreferenceKey);
           causes.add(error);
         }
       }

@@ -83,8 +83,10 @@ class AccountDeletionCleanupAdapter
   factory AccountDeletionCleanupAdapter.production() =>
       AccountDeletionCleanupAdapter(
         deleteRemote: AuthService.deleteAccount,
-        resetStorage: () =>
-            Storage.resetAllStrict(preserveAccountDeletionCheckpoint: true),
+        resetStorage: () => Storage.resetAllStrict(
+          canonicalizeAccountDeletionCheckpoint:
+              AuthService.canonicalizeCompletedDeletionCheckpoint,
+        ),
         disablePush: pushService.disableStrict,
         deleteImages: WordImageService.deleteAllStrict,
         clearTts: TtsService.clearCacheStrict,

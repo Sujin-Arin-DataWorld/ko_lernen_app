@@ -128,17 +128,32 @@ class AccountDeletionJournal {
 
   factory AccountDeletionJournal.fromJson(Map<String, Object?> json) {
     try {
+      if (!setEquals(json.keys.toSet(), const <String>{
+        'version',
+        'session',
+        'requestKey',
+        'sourceProviders',
+        'operation',
+      })) {
+        throw const FormatException();
+      }
       final version = json['version'];
       final requestKey = json['requestKey'];
       final rawSession = json['session'];
       final rawOperation = json['operation'];
-      final rawSourceProviders = json['sourceProviders'] ?? const <Object>[];
+      final rawSourceProviders = json['sourceProviders'];
       if (version is! int ||
           version != currentVersion ||
           requestKey is! String ||
-          requestKey.trim().isEmpty ||
+          !_validCoordinationId(requestKey) ||
           rawSession is! Map ||
           rawSourceProviders is! List) {
+        throw const FormatException();
+      }
+      if (!setEquals(
+        rawSession.keys.map((key) => key.toString()).toSet(),
+        const <String>{'version', 'uid', 'epoch', 'mode'},
+      )) {
         throw const FormatException();
       }
       final sourceProviders = <String>{};
@@ -152,15 +167,39 @@ class AccountDeletionJournal {
       final session = AccountTransitionJournal.fromJson(
         rawSession.map((key, value) => MapEntry(key.toString(), value)),
       ).session;
-      final operation = rawOperation == null
-          ? null
-          : AccountOperationResult.fromJson(
-              (rawOperation as Map).map(
-                (key, value) => MapEntry(key.toString(), value),
-              ),
-            );
+      AccountOperationResult? operation;
+      if (rawOperation != null) {
+        if (rawOperation is! Map ||
+            !setEquals(
+              rawOperation.keys.map((key) => key.toString()).toSet(),
+              const <String>{
+                'operationId',
+                'kind',
+                'phase',
+                'version',
+                'attemptCount',
+                'retryable',
+                'blockedReason',
+              },
+            )) {
+          throw const FormatException();
+        }
+        operation = AccountOperationResult.fromJson(
+          rawOperation.map((key, value) => MapEntry(key.toString(), value)),
+        );
+      }
       if (operation != null &&
-          operation.kind != AccountOperationKind.deletion) {
+          (operation.kind != AccountOperationKind.deletion ||
+              !_validCoordinationId(operation.operationId))) {
+        throw const FormatException();
+      }
+      if (session.mode != CloudWriteMode.quiesced &&
+          session.mode != CloudWriteMode.cleanupPending) {
+        throw const FormatException();
+      }
+      if (operation?.phase == AccountOperationPhase.completed &&
+          (session.mode != CloudWriteMode.cleanupPending ||
+              operation!.retryable)) {
         throw const FormatException();
       }
       return AccountDeletionJournal(
@@ -179,6 +218,31 @@ class AccountDeletionJournal {
   }
 
   static const currentVersion = 1;
+
+  static bool _validCoordinationId(String value) =>
+      value.length <= 128 &&
+      RegExp(r'^[A-Za-z0-9][A-Za-z0-9._:-]*$').hasMatch(value);
+
+  static String canonicalizeCompleted(String encoded) {
+    try {
+      final decoded = jsonDecode(encoded);
+      if (decoded is! Map) throw const FormatException();
+      final checkpoint = AccountDeletionJournal.fromJson(
+        decoded.map((key, value) => MapEntry(key.toString(), value)),
+      );
+      if (checkpoint.operation?.phase != AccountOperationPhase.completed) {
+        throw const FormatException();
+      }
+      return jsonEncode(checkpoint.toJson());
+    } on AccountOperationFailure {
+      rethrow;
+    } catch (_) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      );
+    }
+  }
 
   final int version;
   final CloudWriteSession session;
@@ -521,6 +585,9 @@ class AccountDeletionCoordinator {
       );
       journal = journal.copyWith(operation: result);
       _requireExactSessionIfPresent(requiredSession);
+      if (result.phase == AccountOperationPhase.completed) {
+        return journal;
+      }
       await operations.writeDeletionJournal(journal);
       _requireExactSessionIfPresent(requiredSession);
     }
@@ -1247,6 +1314,9 @@ class AuthService {
       Storage.accountDeletionCheckpointPreferenceKey;
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
+
+  static String canonicalizeCompletedDeletionCheckpoint(String encoded) =>
+      AccountDeletionJournal.canonicalizeCompleted(encoded);
 
   static final PushOwnershipTransitionCoordinator _pushOwnershipTransitions =
       PushOwnershipTransitionCoordinator(

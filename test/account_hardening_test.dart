@@ -245,7 +245,9 @@ void main() {
               remoteCalls += 1;
               await preferences.setString(
                 AuthService.accountDeletionCheckpointPreferenceKey,
-                jsonEncode(_completedDeletionCheckpoint().toJson()),
+                const JsonEncoder.withIndent(
+                  '  ',
+                ).convert(_completedDeletionCheckpoint().toJson()),
               );
             },
             recoverCompleted: (_) async {},
@@ -255,8 +257,10 @@ void main() {
         AccountDeletionWorkflow newWorkflow() => AccountDeletionWorkflow(
           AccountDeletionCleanupAdapter(
             deleteRemote: remoteDelete,
-            resetStorage: () =>
-                Storage.resetAllStrict(preserveAccountDeletionCheckpoint: true),
+            resetStorage: () => Storage.resetAllStrict(
+              canonicalizeAccountDeletionCheckpoint:
+                  AuthService.canonicalizeCompletedDeletionCheckpoint,
+            ),
             disablePush: () async {
               if (failLocalCleanup) throw StateError('push unavailable');
             },
@@ -292,6 +296,12 @@ void main() {
           readCheckpoint()?.operation?.phase,
           AccountOperationPhase.completed,
         );
+        expect(
+          preferences.getString(
+            AuthService.accountDeletionCheckpointPreferenceKey,
+          ),
+          jsonEncode(_completedDeletionCheckpoint().toJson()),
+        );
 
         failLocalCleanup = false;
         await newWorkflow().run();
@@ -304,6 +314,49 @@ void main() {
         );
       },
     );
+
+    test('invalid raw checkpoint is removed before strict reset', () async {
+      final unknown = _completedDeletionCheckpoint().toJson()
+        ..['authorizationCode'] = 'private-secret';
+      final ready = _completedDeletionCheckpoint().toJson();
+      (ready['session']! as Map<String, Object?>)['mode'] = 'ready';
+      final missingOperation = _completedDeletionCheckpoint().toJson()
+        ..['operation'] = null;
+      final mismatched = _completedDeletionCheckpoint().toJson();
+      (mismatched['operation']! as Map<String, Object?>)['kind'] =
+          'replacement';
+      for (final invalid in <Map<String, Object?>>[
+        unknown,
+        ready,
+        missingOperation,
+        mismatched,
+      ]) {
+        final preferences = _MemoryPreferenceRemovalStore(<String, Object>{
+          'kl_learning_progress': 'must-not-erase-on-invalid-proof',
+          AuthService.accountDeletionCheckpointPreferenceKey: jsonEncode(
+            invalid,
+          ),
+        });
+        await expectLater(
+          Storage.resetAllStrict(
+            preferences: preferences,
+            canonicalizeAccountDeletionCheckpoint:
+                AuthService.canonicalizeCompletedDeletionCheckpoint,
+          ),
+          throwsA(isA<AccountOperationFailure>()),
+        );
+        expect(
+          preferences.values.containsKey(
+            AuthService.accountDeletionCheckpointPreferenceKey,
+          ),
+          isFalse,
+        );
+        expect(
+          preferences.values['kl_learning_progress'],
+          'must-not-erase-on-invalid-proof',
+        );
+      }
+    });
   });
 
   group('subscription management', () {
@@ -490,6 +543,37 @@ AccountDeletionJournal _completedDeletionCheckpoint() {
       retryable: false,
     ),
   );
+}
+
+class _MemoryPreferenceRemovalStore implements PreferenceRemovalStore {
+  _MemoryPreferenceRemovalStore(Map<String, Object> initial)
+    : values = Map<String, Object>.from(initial);
+
+  final Map<String, Object> values;
+
+  @override
+  bool containsKey(String key) => values.containsKey(key);
+
+  @override
+  Set<String> getKeys() => values.keys.toSet();
+
+  @override
+  Object? getValue(String key) => values[key];
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    values.remove(key);
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    values[key] = value;
+    return true;
+  }
 }
 
 class _FakeAccountCleanupOperations

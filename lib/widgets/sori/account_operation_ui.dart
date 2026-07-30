@@ -74,6 +74,27 @@ class _AccountPendingOperationPanelState
     _source?.refreshPendingState();
   }
 
+  Future<void> _cancelPersisted(AccountUiPendingStateSource source) async {
+    var failed = false;
+    try {
+      failed = !await widget.operations.cancelReplacement();
+    } catch (_) {
+      failed = true;
+    }
+    try {
+      await source.refreshPendingState();
+    } catch (_) {
+      failed = true;
+    }
+    if (failed && mounted) {
+      await showSafeAccountFailure(
+        context,
+        showSupport: true,
+        retry: () => _cancelPersisted(source),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final source = _source;
@@ -124,10 +145,7 @@ class _AccountPendingOperationPanelState
                     children: [
                       if (state == AccountUiPendingState.replacementCancellable)
                         TextButton(
-                          onPressed: () async {
-                            await widget.operations.cancelReplacement();
-                            await source.refreshPendingState();
-                          },
+                          onPressed: () => _cancelPersisted(source),
                           child: Text(t.accountOperationCancel),
                         ),
                       FilledButton(
@@ -218,6 +236,7 @@ Future<void> showSafeAccountFailure(
   BuildContext context, {
   required Future<void> Function() retry,
   bool deletion = false,
+  bool showSupport = false,
 }) {
   final t = AppL10n.of(context);
   return showDialog<void>(
@@ -227,7 +246,10 @@ Future<void> showSafeAccountFailure(
         deletion ? t.accountDeletionPendingTitle : t.accountOperationRetryTitle,
       ),
       content: Text(
-        deletion ? t.accountDeletionPendingBody : t.accountOperationRetryBody,
+        [
+          deletion ? t.accountDeletionPendingBody : t.accountOperationRetryBody,
+          if (showSupport) t.accountOperationSupportBody,
+        ].join('\n\n'),
       ),
       actions: [
         TextButton(

@@ -110,6 +110,68 @@ void main() {
     expect(operations.linkCalls, isEmpty);
   });
 
+  testWidgets('persisted cancel false stays recoverable without async error', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..pending.value = AccountUiPendingState.replacementCancellable
+      ..cancelResult = false;
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
+    );
+    await tester.pump();
+
+    await tester.tap(find.text('Wechsel abbrechen'));
+    await tester.pump();
+
+    expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
+    expect(find.textContaining('Support'), findsOneWidget);
+    expect(find.textContaining('private'), findsNothing);
+    expect(tester.takeException(), isNull);
+
+    operations.cancelResult = true;
+    await tester.tap(find.text('Erneut versuchen'));
+    await tester.pump();
+    expect(operations.cancelCalls, 2);
+    expect(operations.linkCalls, isEmpty);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('persisted cancel throw stays recoverable and redacted', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..pending.value = AccountUiPendingState.replacementCancellable
+      ..cancelFailure = StateError('private cancel proof');
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      _wrap(ProfileScreen(account: _guest, accountOperations: operations)),
+    );
+    await tester.pump();
+
+    await tester.tap(find.text('Wechsel abbrechen'));
+    await tester.pump();
+
+    expect(find.text('Verbindung nicht abgeschlossen'), findsOneWidget);
+    expect(find.textContaining('private cancel proof'), findsNothing);
+    expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+
+    operations.cancelFailure = null;
+    await tester.tap(find.text('Erneut versuchen'));
+    await tester.pump();
+    expect(operations.cancelCalls, 2);
+    expect(operations.linkCalls, isEmpty);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('collision is confirmed through coordinator and can be resumed', (
     tester,
   ) async {
@@ -286,6 +348,7 @@ class _FakeAccountUiOperations
   int resumeCalls = 0;
   int cancelCalls = 0;
   bool cancelResult = true;
+  Object? cancelFailure;
   final ValueNotifier<AccountUiPendingState> pending =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
 
@@ -301,6 +364,7 @@ class _FakeAccountUiOperations
   @override
   Future<bool> cancelReplacement() async {
     cancelCalls += 1;
+    if (cancelFailure case final failure?) throw failure;
     return cancelResult;
   }
 

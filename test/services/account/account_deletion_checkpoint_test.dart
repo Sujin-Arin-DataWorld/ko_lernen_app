@@ -81,6 +81,79 @@ void main() {
       throwsA(isA<AccountOperationFailure>()),
     );
   });
+
+  test('checkpoint rejects unknown fields and secret material', () {
+    final topLevel = _completedCheckpoint().toJson()
+      ..['authorizationCode'] = 'private-secret';
+    final nested = _completedCheckpoint().toJson();
+    (nested['session']! as Map<String, Object?>)['token'] = 'private-token';
+    final operation = _completedCheckpoint().toJson();
+    (operation['operation']! as Map<String, Object?>)['proof'] =
+        'private-proof';
+
+    for (final json in <Map<String, Object?>>[topLevel, nested, operation]) {
+      expect(
+        () => AccountDeletionJournal.fromJson(json),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+    }
+  });
+
+  test('completed checkpoint rejects ready session and retryable terminal', () {
+    final ready = _completedCheckpoint().toJson();
+    (ready['session']! as Map<String, Object?>)['mode'] = 'ready';
+    final retryable = _completedCheckpoint().toJson();
+    (retryable['operation']! as Map<String, Object?>)['retryable'] = true;
+
+    expect(
+      () => AccountDeletionJournal.fromJson(ready),
+      throwsA(isA<AccountOperationFailure>()),
+    );
+    expect(
+      () => AccountDeletionJournal.fromJson(retryable),
+      throwsA(isA<AccountOperationFailure>()),
+    );
+  });
+
+  test(
+    'missing operation is not completed and mismatched kind is rejected',
+    () async {
+      final pendingJson = _completedCheckpoint().toJson()..['operation'] = null;
+      final pending = AccountDeletionJournal.fromJson(pendingJson);
+      var remoteStarts = 0;
+      await AccountDeletionRemoteGate(
+        readCheckpoint: () async => pending,
+        startOrResumeRemote: () async => remoteStarts += 1,
+        recoverCompleted: (_) async => fail('must not recover'),
+      ).run();
+      expect(remoteStarts, 1);
+
+      final mismatched = _completedCheckpoint().toJson();
+      (mismatched['operation']! as Map<String, Object?>)['kind'] =
+          'replacement';
+      expect(
+        () => AccountDeletionJournal.fromJson(mismatched),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+    },
+  );
+
+  test('checkpoint read failure never routes completed recovery', () async {
+    var remoteStarts = 0;
+    var recoveryCalls = 0;
+    final gate = AccountDeletionRemoteGate(
+      readCheckpoint: () async => throw const AccountOperationFailure(
+        AccountOperationFailureCode.invalidResponse,
+        retryable: false,
+      ),
+      startOrResumeRemote: () async => remoteStarts += 1,
+      recoverCompleted: (_) async => recoveryCalls += 1,
+    );
+
+    await expectLater(gate.run(), throwsA(isA<AccountOperationFailure>()));
+    expect(remoteStarts, 0);
+    expect(recoveryCalls, 0);
+  });
 }
 
 AccountDeletionJournal _completedCheckpoint({
