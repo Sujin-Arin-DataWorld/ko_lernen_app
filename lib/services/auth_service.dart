@@ -1713,16 +1713,19 @@ class AuthService {
   ///
   /// Account-deletion recovery is the one exception: its own durable
   /// checkpoint must stay admissible so [AccountDeletionRemoteGate] can
-  /// resume or recover that exact operation.
+  /// resume or recover that exact operation. Replacement resume/cancel has
+  /// the equivalent exception for its own transition journal.
   static Future<T> runDurableAccountAdmission<T>({
     required Future<T> Function() onAdmitted,
     required Future<T> Function() onBlocked,
     bool allowAccountDeletionCheckpoint = false,
+    bool allowReplacementTransitionJournal = false,
   }) {
     return runCloudBackupDeletionAdmission<T>(
       onAdmitted: () async {
         final clear = await _otherDurableAccountJournalsAreClear(
           allowAccountDeletionCheckpoint: allowAccountDeletionCheckpoint,
+          allowReplacementTransitionJournal: allowReplacementTransitionJournal,
         );
         return clear ? onAdmitted() : onBlocked();
       },
@@ -1732,11 +1735,13 @@ class AuthService {
 
   static Future<bool> _otherDurableAccountJournalsAreClear({
     required bool allowAccountDeletionCheckpoint,
+    required bool allowReplacementTransitionJournal,
   }) async {
     try {
       final preferences = await SharedPreferences.getInstance();
       await preferences.reload();
-      if (preferences.containsKey(AccountTransitionJournal.storageKey)) {
+      if (!allowReplacementTransitionJournal &&
+          preferences.containsKey(AccountTransitionJournal.storageKey)) {
         return false;
       }
       return allowAccountDeletionCheckpoint ||
@@ -1786,6 +1791,7 @@ class AuthService {
       _cloudBackupDeletionCoordinator.run(
         canStart: () => _otherDurableAccountJournalsAreClear(
           allowAccountDeletionCheckpoint: false,
+          allowReplacementTransitionJournal: false,
         ),
       );
 
