@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
@@ -144,6 +145,33 @@ void main() {
         'canonical:completed-account-deletion',
       );
       expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
+    },
+  );
+
+  test(
+    'explicit reset and account-deletion cleanup intentionally discard first-link receipts',
+    () async {
+      const store = SharedPreferencesFirstDurableLinkBackfillJournalStore();
+      final pending = FirstDurableLinkBackfillJournal.pending(
+        uid: 'source',
+        token: 'first-link-token',
+      );
+
+      expect(await store.createIfAbsent(pending), isTrue);
+      await Storage.resetAll();
+      expect(await store.read(), isNull);
+
+      expect(await store.createIfAbsent(pending), isTrue);
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        Storage.accountDeletionCheckpointPreferenceKey,
+        'completed-account-deletion',
+      );
+      await Storage.resetAllStrict(
+        canonicalizeAccountDeletionCheckpoint: (raw) => 'canonical:$raw',
+      );
+
+      expect(await store.read(), isNull);
     },
   );
 

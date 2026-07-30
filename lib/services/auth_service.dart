@@ -19,6 +19,7 @@ import 'account/account_transition_journal.dart';
 import 'account/cloud_backup_deletion.dart';
 import 'account/cloud_write_session.dart';
 import 'account/first_link_backfill.dart';
+import 'account/first_link_backfill_journal.dart';
 import 'app_startup_coordinator.dart';
 import 'bookshelf_service.dart';
 import 'pack_progress_service.dart';
@@ -1471,14 +1472,17 @@ class AuthService {
   static final FirstDurableLinkBackfill _firstDurableLinkBackfill =
       FirstDurableLinkBackfill(
         sessions: cloudWriteSessionController,
-        currentUid: () => current?.uid,
-        hasReplacementJournal: _hasReplacementTransitionJournal,
-        uploadBookshelf: (session) =>
+        currentUid: () => cloudBackupUid,
+        hasBlockingAccountJournal: _hasAnyOtherDurableAccountJournal,
+        journalStore:
+            const SharedPreferencesFirstDurableLinkBackfillJournalStore(),
+        uploadBookshelf: (session, {required operationId}) =>
             BookshelfService.uploadLocalGenerationForFirstDurableLink(
               session: session,
               sessions: cloudWriteSessionController,
+              operationId: operationId,
             ),
-        uploadPackProgress: (session) =>
+        uploadPackProgress: (session, {required operationId}) =>
             PackProgressService.uploadLocalProgressForFirstDurableLink(
               session: session,
               sessions: cloudWriteSessionController,
@@ -1491,12 +1495,18 @@ class AuthService {
         backfill: _firstDurableLinkBackfill,
       );
 
-  static Future<bool> _hasReplacementTransitionJournal() async {
-    final preferences = await SharedPreferences.getInstance();
-    final journal = await SharedPreferencesReplacementTransitionJournalStore(
-      preferences,
-    ).read();
-    return journal?.replacementPhase != null;
+  static Future<bool> _hasAnyOtherDurableAccountJournal() async {
+    try {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.reload();
+      return preferences.containsKey(AccountTransitionJournal.storageKey) ||
+          preferences.containsKey(accountDeletionCheckpointPreferenceKey) ||
+          preferences.containsKey(
+            Storage.cloudBackupDeletionJournalPreferenceKey,
+          );
+    } catch (_) {
+      return true;
+    }
   }
 
   static Future<User?> _activateSignedInUser(
@@ -1513,6 +1523,23 @@ class AuthService {
       );
     }
     return user;
+  }
+
+  /// Resumes only a receipt owned by the current durable Firebase account.
+  ///
+  /// Startup enters the shared account admission lane before calling this.
+  /// The initial link path already owns that lane, so it calls the backfill
+  /// core directly through [_firstDurableLinkActivation] instead.
+  static Future<void> resumePendingFirstDurableLinkBackfill() async {
+    final expectedUid = cloudBackupUid;
+    if (expectedUid == null) return;
+    await runDurableAccountAdmission<CloudWriteResult>(
+      onAdmitted: () async {
+        if (cloudBackupUid != expectedUid) return CloudWriteResult.stale;
+        return _firstDurableLinkBackfill.resume(expectedUid: expectedUid);
+      },
+      onBlocked: () async => CloudWriteResult.blocked,
+    );
   }
 
   /// Restores durable fencing only after [expectedUid] has been obtained from

@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/first_link_backfill.dart';
+import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -234,12 +235,14 @@ void main() {
       final backfill = FirstDurableLinkBackfill(
         sessions: sessions,
         currentUid: () => liveUid,
-        hasReplacementJournal: () async => false,
-        uploadBookshelf: (session) async {
+        hasBlockingAccountJournal: () async => false,
+        journalStore:
+            const SharedPreferencesFirstDurableLinkBackfillJournalStore(),
+        uploadBookshelf: (session, {required operationId}) async {
           uploads.add('bookshelf:${session.uid}');
           return CloudWriteResult.completed;
         },
-        uploadPackProgress: (session) async {
+        uploadPackProgress: (session, {required operationId}) async {
           uploads.add('packs:${session.uid}');
           return CloudWriteResult.completed;
         },

@@ -9,6 +9,8 @@ typedef LegacyCloudWriteSessionRestorer =
     Future<CloudWriteSession?> Function(String expectedUid);
 typedef ReadySessionSynchronizer = void Function(String uid);
 
+Future<void> _noopStartupStep() async {}
+
 enum AccountStartupRestorationKind {
   none,
   replacement,
@@ -54,6 +56,7 @@ class AppStartupCoordinator {
     this.restorePendingAccountState,
     this.restoreCloudWriteSession,
     required this.synchronizeReadySession,
+    this.resumeFirstDurableLinkBackfill = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
@@ -69,6 +72,7 @@ class AppStartupCoordinator {
   final PendingAccountStateRestorer? restorePendingAccountState;
   final LegacyCloudWriteSessionRestorer? restoreCloudWriteSession;
   final ReadySessionSynchronizer synchronizeReadySession;
+  final StartupStep resumeFirstDurableLinkBackfill;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
@@ -116,6 +120,7 @@ class AppStartupCoordinator {
       }
     }
     synchronizeReadySession(liveUid);
+    await resumeFirstDurableLinkBackfill();
     await resumeMediaCleanup();
     await resumeBookshelfSync();
     await initializePremium();

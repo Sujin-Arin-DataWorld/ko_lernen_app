@@ -53,11 +53,13 @@ void main() {
             session: session,
             sessions: sessions,
             generationId: 'generation-first',
+            operationId: 'first-link:receipt-token',
             repository: repository,
           );
 
       expect(result, CloudWriteResult.completed);
       expect(repository.active?.generationId, 'generation-first');
+      expect(repository.active?.operationId, 'first-link:receipt-token');
       expect(repository.seenUids, {'source'});
     },
   );

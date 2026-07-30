@@ -390,6 +390,7 @@ class BookshelfService {
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
     String? generationId,
+    String? operationId,
     BookshelfGenerationRepository? repository,
   }) async {
     final db = _db;
@@ -403,6 +404,7 @@ class BookshelfService {
       uid: session.uid,
       expectedSession: session,
       generationId: generationId ?? _newGenerationId(),
+      operationId: operationId,
       entries: entries,
       repository: selectedRepository,
     );
