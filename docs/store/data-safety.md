@@ -1,6 +1,6 @@
 # Store privacy disclosure worksheet
 
-Last repository review: **2026-07-29**
+Last repository review: **2026-07-30**
 
 This is a release-owner worksheet for Google Play Data Safety and Apple App
 Privacy. It is not a console export and is not a substitute for reviewing the
@@ -19,7 +19,12 @@ Authoritative form guidance:
 - [RevenueCat customer profiles](https://www.revenuecat.com/docs/dashboard-and-metrics/customer-profile)
 - [RevenueCat customer identity](https://www.revenuecat.com/docs/customers/identifying-customers)
 
-## Repository-backed behavior summary
+## Repository-backed release-candidate behavior summary
+
+This section describes code in this branch, not proof that the same app build,
+Firebase functions, rules, hosting route, or provider configuration is live.
+Every store answer remains provisional until reconciled with the signed build
+and production consoles.
 
 - Firebase initializes in the background. After successful initialization, the
   app creates or reuses an anonymous Firebase Authentication user and contacts
@@ -31,10 +36,11 @@ Authoritative form guidance:
   Firestore only after the user deliberately links a durable Google or Apple
   provider to a non-empty Firebase UID.
 - Local storage remains the learning source of truth.
-- When a platform RevenueCat public SDK key is present, RevenueCat is configured
-  at startup, receives the current Firebase UID via `Purchases.logIn(uid)`,
-  returns customer/entitlement information, and processes purchase/transaction
-  state. It is not contacted only after a purchase.
+- When a platform RevenueCat public SDK key is present, the release-candidate
+  app waits for a ready matching Firebase session and configures RevenueCat
+  with that UID as its custom app user ID. It returns customer/entitlement
+  information and processes purchase/transaction state. It is not contacted
+  only after a purchase. Verify the exact signed build and live project.
 - Firebase Analytics and Crashlytics are independent optional opt-ins and are
   disabled by default in Android/iOS native configuration.
 - FCM auto-init is disabled. Permission and a registration token are requested
@@ -84,15 +90,19 @@ provider exception or a configured integration must be checked.
 ### Play form-level answers to review
 
 - **Encrypted in transit:** Yes — repository network endpoints use HTTPS/TLS.
-- **Users can request deletion:** Yes — the app has an in-app account deletion
-  path for guest/anonymous and Google/Apple-linked accounts, plus
-  `https://hangul-sori.com/account-deletion.html`.
+- **Users can request deletion:** Provisional Yes — the release-candidate code
+  has an in-app path for guest/anonymous and Google/Apple-linked accounts, and
+  `https://hangul-sori.com/account-deletion.html` provides instructions and an
+  email fallback. Confirm the signed build and public page before submitting
+  this answer.
 - **Account creation:** Firebase creates an anonymous account automatically; the
   account can later be linked to Google or Apple.
-- **Deletion scope:** In-app deletion covers known Firestore account data,
+- **Deletion scope:** After the protected backend and signed app are deployed
+  and verified, the designed in-app flow covers known Firestore account data,
   Firebase Authentication, local app data/media/cache, push transition, and a
   retryable Gye cleanup workflow. It does not itself cancel subscriptions or
-  delete the RevenueCat customer profile.
+  delete the RevenueCat customer profile. Do not submit this scope as live
+  behavior before the release gates pass.
 - **Independent security review:** No repository evidence. Do not answer Yes
   without a completed external review.
 - **Data sharing:** Do not copy “No” blindly. Confirm processor contracts and
@@ -101,8 +111,9 @@ provider exception or a configured integration must be checked.
 ## Apple App Privacy worksheet
 
 Apple categories and “linked to the user” are separate from Google Play’s form.
-Because this release passes the Firebase UID to RevenueCat, the RevenueCat user
-identifier and purchase history must be treated as linked to the user.
+Because the release candidate passes the Firebase UID to RevenueCat when
+configured, the RevenueCat user identifier and purchase history must be treated
+as linked to the user if that integration is present in the signed build.
 
 ### Data linked to the user — provisional
 
@@ -139,12 +150,14 @@ signed iOS binary and all live SDK integrations before submission.
 
 ## Account deletion and billing disclosure
 
-- The primary self-service route is Settings → account section → Delete
-  account. It applies to guest/anonymous and Google/Apple-linked accounts.
+- The release-candidate primary self-service route is Settings → account
+  section → Delete account. It is designed for guest/anonymous and
+  Google/Apple-linked accounts; verify it in the signed public build.
 - Local reset, cloud-backup deletion while keeping the account, and full
   account deletion are distinct actions.
-- Successful full deletion creates a fresh unlinked anonymous Firebase
-  identity for continued local use. It is not restoration of the deleted UID.
+- After the protected workflow is deployed and verified, successful full
+  deletion creates a fresh unlinked anonymous Firebase identity for continued
+  local use. It is not restoration of the deleted UID.
 - Uninstalling removes local installation data but does not prove deletion of
   the old Firebase or RevenueCat identity.
 - Google Play/App Store subscriptions must be cancelled separately.
@@ -154,6 +167,11 @@ signed iOS binary and all live SDK integrations before submission.
 - Already transmitted Analytics/Crashlytics records and other provider logs are
   governed by verified live retention controls. Crashlytics opt-out only asks
   for deletion of unsent local reports on a best-effort basis.
+- The one-time proof page and `/api/request-deletion-by-proof` route are release
+  prerequisites, not confirmed live behavior. `docs/CNAME` indicates the public
+  site may currently be served by GitHub Pages, while the rewrite exists only
+  in Firebase Hosting configuration. The release owner must prove that the
+  production domain serves the first-party route before enabling proof links.
 
 ## Location, retention, and legal-publication blockers
 
