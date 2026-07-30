@@ -175,6 +175,7 @@ class SharedPreferencesCloudBackupDeletionJournalStore
   @override
   Future<CloudBackupDeletionJournal?> read() async {
     final preferences = await SharedPreferences.getInstance();
+    await preferences.reload();
     final encoded = preferences.getString(
       CloudBackupDeletionJournal.storageKey,
     );
@@ -236,6 +237,22 @@ class CloudBackupDeletionCoordinator {
     return pending.value;
   }
 
+  Future<bool> _canProveJournalAbsent() async {
+    try {
+      return await journalStore.read() == null;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  bool _ownsJournal(CloudBackupDeletionJournal journal) {
+    final liveUid = currentUid()?.trim();
+    return liveUid != null &&
+        liveUid.isNotEmpty &&
+        liveUid == journal.session.uid &&
+        sessions.current == journal.session;
+  }
+
   Future<CloudWriteResult> run() {
     final existing = _inFlight;
     if (existing != null) return existing;
@@ -264,14 +281,11 @@ class CloudBackupDeletionCoordinator {
     }
 
     if (journal != null && journal.session.uid != liveUid) {
-      try {
-        await journalStore.clear();
-      } catch (_) {
-        pending.value = true;
-        return CloudWriteResult.blocked;
-      }
-      pending.value = false;
-      return CloudWriteResult.stale;
+      // A changed identity does not prove the old request completed. Keep the
+      // UID-bound retry key until its original account can resume it or the
+      // server confirms completion.
+      pending.value = true;
+      return CloudWriteResult.blocked;
     }
 
     if (journal == null) {
@@ -285,14 +299,25 @@ class CloudBackupDeletionCoordinator {
             : CloudWriteResult.stale;
       }
       final pendingSession = sessions.transition(CloudWriteMode.cleanupPending);
+      CloudBackupDeletionJournal? attemptedJournal;
       try {
-        journal = CloudBackupDeletionJournal.pending(
+        attemptedJournal = CloudBackupDeletionJournal.pending(
           session: pendingSession,
           requestKey: createRequestKey(),
         );
-        await journalStore.write(journal);
+        await journalStore.write(attemptedJournal);
+        journal = attemptedJournal;
       } catch (_) {
-        pending.value = true;
+        // A store may throw after a native write. Only restore the exact
+        // in-memory fence when a read proves no durable retry journal exists.
+        if (await _canProveJournalAbsent()) {
+          if (sessions.current == pendingSession) {
+            sessions.transition(CloudWriteMode.ready);
+          }
+          pending.value = false;
+        } else {
+          pending.value = true;
+        }
         return CloudWriteResult.blocked;
       }
     } else {
@@ -308,6 +333,13 @@ class CloudBackupDeletionCoordinator {
         pending.value = true;
         return CloudWriteResult.blocked;
       }
+    }
+
+    // An auth/session change during journal persistence must not send the old
+    // request key under a different account's callable token.
+    if (!_ownsJournal(journal)) {
+      pending.value = true;
+      return CloudWriteResult.blocked;
     }
 
     pending.value = true;

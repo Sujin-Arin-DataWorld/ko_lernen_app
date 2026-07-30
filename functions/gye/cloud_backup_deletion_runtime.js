@@ -286,7 +286,7 @@ function assertParentChild(parent, child) {
   }
 }
 
-function normalizedPage(page, itemName) {
+function normalizedPage(page, itemName, currentPageToken) {
   if (!page || !Array.isArray(page[itemName]) || page[itemName].length > 1) {
     throw new Error("Invalid cloud backup deletion discovery page.");
   }
@@ -294,9 +294,14 @@ function normalizedPage(page, itemName) {
   if (item !== undefined && !validOpaqueSegment(item)) {
     throw new Error("Invalid cloud backup deletion discovery page.");
   }
+  const nextPageToken = opaquePageToken(page.nextPageToken);
+  if (nextPageToken !== null &&
+      nextPageToken === opaquePageToken(currentPageToken)) {
+    throw new Error("Invalid cloud backup deletion discovery page.");
+  }
   return {
     item: item === undefined ? null : item,
-    nextPageToken: opaquePageToken(page.nextPageToken),
+    nextPageToken,
   };
 }
 
@@ -423,6 +428,7 @@ function createCloudBackupDeletionRuntime({
               pageToken: normalized.pageToken,
             }),
             "documentIds",
+            normalized.pageToken,
           );
           if (page.item === null) {
             if (page.nextPageToken !== null) {
@@ -490,6 +496,7 @@ function createCloudBackupDeletionRuntime({
             pageToken: normalized.pageToken,
           }),
           "collectionIds",
+          normalized.pageToken,
         );
         if (page.item === null) {
           if (page.nextPageToken !== null) {

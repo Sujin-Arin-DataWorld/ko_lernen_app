@@ -278,6 +278,8 @@ class MemoryOperationRepository {
     this.store = store;
     this.records = new Map();
     this.work = new Map();
+    this.advanceCalls = 0;
+    this.spawnCalls = 0;
     this.claims = 0;
     this.maxWorkCount = 0;
     this.maxOperationBytes = 0;
@@ -403,6 +405,7 @@ class MemoryOperationRepository {
     nextPageToken,
     nowMillis,
   }) {
+    this.advanceCalls += 1;
     const record = this.records.get(uid);
     this._assertLease(record, { requestDigest, invocationId });
     assert.equal(record.state.currentWorkId, expectedWork.id);
@@ -423,6 +426,7 @@ class MemoryOperationRepository {
     parentNextPageToken,
     nowMillis,
   }) {
+    this.spawnCalls += 1;
     const record = this.records.get(uid);
     this._assertLease(record, { requestDigest, invocationId, expectedState });
     assert.equal(record.state.currentWorkId, expectedParent.id);
@@ -672,6 +676,52 @@ class CursorPagingBackupStore extends MemoryBackupStore {
       };
     }
     throw new Error("unexpected opaque document cursor");
+  }
+}
+
+class NonAdvancingDocumentTokenBackupStore extends MemoryBackupStore {
+  async listDocumentsPage({ collectionPath, pageSize, pageToken }) {
+    if (collectionPath !== "users/durable/packs") {
+      return super.listDocumentsPage({ collectionPath, pageSize, pageToken });
+    }
+    assert.equal(pageSize, 1);
+    this.documentPages.push({ collectionPath, pageToken });
+    if (pageToken === null) {
+      return {
+        documentIds: ["first"],
+        nextPageToken: "after-first",
+      };
+    }
+    if (pageToken === "after-first") {
+      return {
+        documentIds: ["second"],
+        nextPageToken: "after-first",
+      };
+    }
+    throw new Error("unexpected opaque document cursor");
+  }
+}
+
+class NonAdvancingCollectionTokenBackupStore extends MemoryBackupStore {
+  async listCollectionIdsPage({ parentPath, pageSize, pageToken }) {
+    if (parentPath !== "users/durable/packs/parent") {
+      return super.listCollectionIdsPage({ parentPath, pageSize, pageToken });
+    }
+    assert.equal(pageSize, 1);
+    this.collectionPages.push({ parentPath, pageToken });
+    if (pageToken === null) {
+      return {
+        collectionIds: [],
+        nextPageToken: "after-empty-page",
+      };
+    }
+    if (pageToken === "after-empty-page") {
+      return {
+        collectionIds: [],
+        nextPageToken: "after-empty-page",
+      };
+    }
+    throw new Error("unexpected opaque collection cursor");
   }
 }
 
@@ -1006,6 +1056,78 @@ test("discovery persists the returned cursor before deleting a child", async () 
       page.pageToken === "after-first"),
     true,
   );
+});
+
+test("document discovery rejects a non-advancing opaque token before spawning", async () => {
+  const { handlers, repository, store } = createHarness({
+    pageSize: 1,
+    documents: [
+      "users/durable/packs/first",
+      "users/durable/packs/second",
+    ],
+    Store: NonAdvancingDocumentTokenBackupStore,
+  });
+  const request = callableRequest("durable", {
+    requestKey: "Q".repeat(43),
+  });
+
+  assert.deepEqual(await handlers.deleteCloudBackup(request), {
+    state: "pending",
+  });
+  assert.deepEqual(await handlers.deleteCloudBackup(request), {
+    state: "pending",
+  });
+  assert.deepEqual(await handlers.deleteCloudBackup(request), {
+    state: "pending",
+  });
+
+  await rejectsWithSafeCode(
+    handlers.deleteCloudBackup(request),
+    "unavailable",
+    "cloud-backup-deletion-unavailable",
+  );
+
+  const record = repository.records.get("durable");
+  const rootWork = repository.work.get(`durable/${record.state.currentWorkId}`);
+  assert.equal(rootWork.pageToken, "after-first");
+  assert.equal(repository.spawnCalls, 1);
+  assert.equal(repository.work.size, 1);
+  assert.equal(store.documents.has("users/durable/packs/second"), true);
+});
+
+test("collection discovery rejects a non-advancing opaque token before advancing", async () => {
+  const { handlers, repository } = createHarness({
+    pageSize: 1,
+    documents: ["users/durable/packs/parent"],
+    Store: NonAdvancingCollectionTokenBackupStore,
+  });
+  const request = callableRequest("durable", {
+    requestKey: "R".repeat(43),
+  });
+
+  assert.deepEqual(await handlers.deleteCloudBackup(request), {
+    state: "pending",
+  });
+  assert.deepEqual(await handlers.deleteCloudBackup(request), {
+    state: "pending",
+  });
+  assert.deepEqual(await handlers.deleteCloudBackup(request), {
+    state: "pending",
+  });
+
+  await rejectsWithSafeCode(
+    handlers.deleteCloudBackup(request),
+    "unavailable",
+    "cloud-backup-deletion-unavailable",
+  );
+
+  const record = repository.records.get("durable");
+  const documentWork = repository.work.get(
+    `durable/${record.state.currentWorkId}`,
+  );
+  assert.equal(documentWork.pageToken, "after-empty-page");
+  assert.equal(repository.advanceCalls, 1);
+  assert.equal(repository.work.size, 2);
 });
 
 test("destructive work carries the current operation and work fence", async () => {

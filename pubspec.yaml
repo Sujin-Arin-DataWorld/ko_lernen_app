@@ -94,6 +94,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  shared_preferences_platform_interface: ^2.4.2
 
   # ── Icon / Splash Generierung ───────────────────────────
   flutter_launcher_icons: ^0.14.1
