@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/firebase_app_check_initializer.dart';
 
 void main() {
@@ -306,6 +307,228 @@ void main() {
         }
       },
     );
+  });
+
+  group('anonymous source auth freshness', () {
+    test(
+      'a stale cached token succeeds after a forced refresh before the call',
+      () async {
+        final sessions = CloudWriteSessionController();
+        final expected = sessions.acquire('anonymous-source');
+        bool? forced;
+        String? refreshedUid;
+        final transport = _FakeTransport()
+          ..responses.add(_replacementResponse('prepared', version: 0));
+        final source = FreshAnonymousAccountOperationGateway(
+          gateway: AccountOperationClient(transport: transport),
+          freshness: FirebaseAnonymousSourceAuthFreshness(
+            sessions: sessions,
+            currentIdentity: () => (uid: 'anonymous-source', isAnonymous: true),
+            refreshIdToken:
+                ({required expectedUid, required forceRefresh}) async {
+                  refreshedUid = expectedUid;
+                  forced = forceRefresh;
+                },
+          ),
+        );
+
+        await source.prepareAnonymousReplacement(
+          expectedSession: expected,
+          request: const AnonymousReplacementPrepareRequest(
+            targetUid: 'durable-target',
+            requestKey: 'request-1',
+          ),
+        );
+
+        expect(refreshedUid, 'anonymous-source');
+        expect(forced, isTrue);
+        expect(transport.calls, hasLength(1));
+      },
+    );
+
+    for (final sourceCall in <String>[
+      'prepare',
+      'cancel',
+      'anonymous deletion',
+    ]) {
+      test(
+        '$sourceCall is not invoked when the exact session changes during refresh',
+        () async {
+          final sessions = CloudWriteSessionController();
+          final expected = sessions.acquire('anonymous-source');
+          final transport = _FakeTransport();
+          final source = FreshAnonymousAccountOperationGateway(
+            gateway: AccountOperationClient(transport: transport),
+            freshness: FirebaseAnonymousSourceAuthFreshness(
+              sessions: sessions,
+              currentIdentity: () =>
+                  (uid: 'anonymous-source', isAnonymous: true),
+              refreshIdToken:
+                  ({required expectedUid, required forceRefresh}) async {
+                    sessions.transition(CloudWriteMode.quiesced);
+                  },
+            ),
+          );
+
+          final call = switch (sourceCall) {
+            'prepare' => source.prepareAnonymousReplacement(
+              expectedSession: expected,
+              request: const AnonymousReplacementPrepareRequest(
+                targetUid: 'durable-target',
+                requestKey: 'request-1',
+              ),
+            ),
+            'cancel' => source.cancelAnonymousReplacement(
+              expectedSession: expected,
+              request: const ReplacementAdvanceRequest(
+                operationId: 'replacement-1',
+                expectedVersion: 0,
+              ),
+            ),
+            _ => source.requestAnonymousAccountDeletion(
+              expectedSession: expected,
+              request: const AccountDeletionRequest(requestKey: 'request-1'),
+            ),
+          };
+
+          await expectLater(
+            call,
+            throwsA(
+              isA<AccountOperationFailure>().having(
+                (failure) => failure.code,
+                'code',
+                AccountOperationFailureCode.blocked,
+              ),
+            ),
+          );
+          expect(transport.calls, isEmpty);
+        },
+      );
+    }
+
+    for (final sessionChange in <String>['uid', 'epoch', 'mode']) {
+      test(
+        '$sessionChange switch during refresh blocks the callable',
+        () async {
+          final sessions = CloudWriteSessionController();
+          final expected = sessions.acquire('anonymous-source');
+          final transport = _FakeTransport();
+          final source = FreshAnonymousAccountOperationGateway(
+            gateway: AccountOperationClient(transport: transport),
+            freshness: FirebaseAnonymousSourceAuthFreshness(
+              sessions: sessions,
+              currentIdentity: () =>
+                  (uid: 'anonymous-source', isAnonymous: true),
+              refreshIdToken:
+                  ({required expectedUid, required forceRefresh}) async {
+                    switch (sessionChange) {
+                      case 'uid':
+                        sessions.acquire('different-source');
+                      case 'epoch':
+                        sessions.transition(CloudWriteMode.ready);
+                      case 'mode':
+                        sessions
+                          ..clear()
+                          ..resume(
+                            expected.copyWith(mode: CloudWriteMode.quiesced),
+                            expectedUid: expected.uid,
+                          );
+                    }
+                  },
+            ),
+          );
+
+          await expectLater(
+            source.prepareAnonymousReplacement(
+              expectedSession: expected,
+              request: const AnonymousReplacementPrepareRequest(
+                targetUid: 'durable-target',
+                requestKey: 'request-1',
+              ),
+            ),
+            throwsA(
+              isA<AccountOperationFailure>().having(
+                (failure) => failure.code,
+                'code',
+                AccountOperationFailureCode.blocked,
+              ),
+            ),
+          );
+          expect(transport.calls, isEmpty);
+        },
+      );
+    }
+
+    test('refresh failure is safe and never invokes the callable', () async {
+      final sessions = CloudWriteSessionController();
+      final expected = sessions.acquire('anonymous-source');
+      final transport = _FakeTransport();
+      final source = FreshAnonymousAccountOperationGateway(
+        gateway: AccountOperationClient(transport: transport),
+        freshness: FirebaseAnonymousSourceAuthFreshness(
+          sessions: sessions,
+          currentIdentity: () => (uid: 'anonymous-source', isAnonymous: true),
+          refreshIdToken:
+              ({required expectedUid, required forceRefresh}) async {
+                throw StateError('raw token refresh detail');
+              },
+        ),
+      );
+
+      Object? caught;
+      try {
+        await source.prepareAnonymousReplacement(
+          expectedSession: expected,
+          request: const AnonymousReplacementPrepareRequest(
+            targetUid: 'durable-target',
+            requestKey: 'request-1',
+          ),
+        );
+      } catch (error) {
+        caught = error;
+      }
+
+      expect(caught, isA<AccountOperationFailure>());
+      expect(caught.toString(), isNot(contains('raw token refresh detail')));
+      expect(transport.calls, isEmpty);
+    });
+
+    test('live UID or anonymous-state mismatch fails before refresh', () async {
+      for (final identity in <({String uid, bool anonymous})>[
+        (uid: 'different-source', anonymous: true),
+        (uid: 'anonymous-source', anonymous: false),
+      ]) {
+        final sessions = CloudWriteSessionController();
+        final expected = sessions.acquire('anonymous-source');
+        var refreshCalls = 0;
+        final transport = _FakeTransport();
+        final source = FreshAnonymousAccountOperationGateway(
+          gateway: AccountOperationClient(transport: transport),
+          freshness: FirebaseAnonymousSourceAuthFreshness(
+            sessions: sessions,
+            currentIdentity: () =>
+                (uid: identity.uid, isAnonymous: identity.anonymous),
+            refreshIdToken:
+                ({required expectedUid, required forceRefresh}) async {
+                  refreshCalls += 1;
+                },
+          ),
+        );
+
+        await expectLater(
+          source.cancelAnonymousReplacement(
+            expectedSession: expected,
+            request: const ReplacementAdvanceRequest(
+              operationId: 'replacement-1',
+              expectedVersion: 0,
+            ),
+          ),
+          throwsA(isA<AccountOperationFailure>()),
+        );
+        expect(refreshCalls, 0);
+        expect(transport.calls, isEmpty);
+      }
+    });
   });
 }
 

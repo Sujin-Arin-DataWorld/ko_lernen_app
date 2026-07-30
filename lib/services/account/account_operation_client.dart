@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/foundation.dart';
 
+import 'cloud_write_session.dart';
+
 enum AccountOperationKind { replacement, deletion }
 
 enum AccountOperationPhase {
@@ -250,6 +252,126 @@ abstract interface class AccountOperationGateway {
   Future<AccountOperationResult> completeAppleRevocation(
     AppleRevocationCompletionRequest request,
   );
+}
+
+typedef AnonymousIdTokenRefresher =
+    Future<void> Function({
+      required String expectedUid,
+      required bool forceRefresh,
+    });
+typedef AnonymousSourceIdentityReader =
+    ({String? uid, bool isAnonymous}) Function();
+
+abstract interface class AnonymousSourceAuthFreshness {
+  Future<void> refresh(CloudWriteSession expectedSession);
+  void assertCurrent(CloudWriteSession expectedSession);
+}
+
+/// Refreshes the primary anonymous Firebase ID token without retaining or
+/// exposing the token value. Exact identity and session fences run on both
+/// sides of the asynchronous refresh boundary.
+class FirebaseAnonymousSourceAuthFreshness
+    implements AnonymousSourceAuthFreshness {
+  const FirebaseAnonymousSourceAuthFreshness({
+    required this.sessions,
+    required this.currentIdentity,
+    required this.refreshIdToken,
+  });
+
+  final CloudWriteSessionController sessions;
+  final AnonymousSourceIdentityReader currentIdentity;
+  final AnonymousIdTokenRefresher refreshIdToken;
+
+  @override
+  Future<void> refresh(CloudWriteSession expectedSession) async {
+    assertCurrent(expectedSession);
+    try {
+      await refreshIdToken(
+        expectedUid: expectedSession.uid,
+        forceRefresh: true,
+      );
+    } on AccountOperationFailure {
+      rethrow;
+    } catch (_) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.unavailable,
+        retryable: true,
+      );
+    }
+    assertCurrent(expectedSession);
+  }
+
+  @override
+  void assertCurrent(CloudWriteSession expectedSession) {
+    try {
+      sessions.assertCurrent(expectedSession);
+    } on StateError {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    final identity = currentIdentity();
+    if (identity.uid != expectedSession.uid || !identity.isAnonymous) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.authenticationRequired,
+        retryable: false,
+      );
+    }
+  }
+}
+
+/// The only route for protected callables authenticated as the anonymous
+/// primary source. Target-authenticated operations intentionally do not use it.
+class FreshAnonymousAccountOperationGateway {
+  const FreshAnonymousAccountOperationGateway({
+    required this.gateway,
+    required this.freshness,
+  });
+
+  final AccountOperationGateway gateway;
+  final AnonymousSourceAuthFreshness freshness;
+
+  Future<AccountOperationResult> prepareAnonymousReplacement({
+    required CloudWriteSession expectedSession,
+    required AnonymousReplacementPrepareRequest request,
+  }) {
+    return _invoke(
+      expectedSession,
+      () => gateway.prepareAnonymousReplacement(request),
+    );
+  }
+
+  Future<AccountOperationResult> cancelAnonymousReplacement({
+    required CloudWriteSession expectedSession,
+    required ReplacementAdvanceRequest request,
+  }) {
+    return _invoke(
+      expectedSession,
+      () => gateway.cancelAnonymousReplacement(request),
+    );
+  }
+
+  Future<AccountOperationResult> requestAnonymousAccountDeletion({
+    required CloudWriteSession expectedSession,
+    required AccountDeletionRequest request,
+  }) {
+    return _invoke(
+      expectedSession,
+      () => gateway.requestAccountDeletion(request),
+    );
+  }
+
+  Future<AccountOperationResult> _invoke(
+    CloudWriteSession expectedSession,
+    Future<AccountOperationResult> Function() operation,
+  ) async {
+    await freshness.refresh(expectedSession);
+    freshness.assertCurrent(expectedSession);
+    final result = await operation();
+    freshness.assertCurrent(expectedSession);
+    return result;
+  }
 }
 
 @immutable

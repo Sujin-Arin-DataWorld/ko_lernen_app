@@ -63,6 +63,34 @@ void main() {
   );
 
   test(
+    'source freshness failure preserves the initial journal and quiesced session',
+    () async {
+      final harness = _Harness()
+        ..operations.prepareFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        );
+
+      await expectLater(
+        harness.coordinator.confirm(
+          const ExistingAccountLinkConflict(AccountLinkProvider.google),
+          catalog: const {},
+        ),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+
+      expect(harness.operations.prepareCalls, 1);
+      expect(
+        harness.journal.value?.replacementPhase,
+        AccountReplacementPhase.targetVerified,
+      );
+      expect(harness.sessions.current?.mode, CloudWriteMode.quiesced);
+    },
+  );
+
+  test(
     'verified temporary target preserves the primary source through cleanup',
     () async {
       final harness = _Harness();
@@ -1138,6 +1166,7 @@ class _FakeOperations implements ReplacementAccountOperations {
   final List<AccountOperationResult> statusResults = [];
   final List<Object> cleanupFailures = [];
   final List<Object> cancelFailures = [];
+  final List<Object> prepareFailures = [];
   final List<AccountOperationResult> cancelResults = [];
   void Function()? afterAttach;
   void Function()? afterCancel;
@@ -1145,12 +1174,14 @@ class _FakeOperations implements ReplacementAccountOperations {
 
   @override
   Future<AccountOperationResult> prepare({
+    required CloudWriteSession sourceSession,
     required String targetUid,
     required String requestKey,
   }) async {
     prepareCalls += 1;
     primaryUidAtPrepare = identity.currentUid;
     events.add('prepare');
+    if (prepareFailures.isNotEmpty) throw prepareFailures.removeAt(0);
     return _replacement(AccountOperationPhase.prepared, version: 0);
   }
 
@@ -1191,6 +1222,7 @@ class _FakeOperations implements ReplacementAccountOperations {
 
   @override
   Future<AccountOperationResult> cancel({
+    required CloudWriteSession sourceSession,
     required String operationId,
     required int expectedVersion,
   }) async {

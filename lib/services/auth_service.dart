@@ -296,7 +296,7 @@ class AccountDeletionCoordinator {
 
   Future<void> resumePendingDeletion({AccountDeletionJournal? journal}) async {
     try {
-      final pending = journal ?? await operations.readDeletionJournal();
+      var pending = journal ?? await operations.readDeletionJournal();
       if (pending == null) {
         return;
       }
@@ -309,10 +309,15 @@ class AccountDeletionCoordinator {
       var expectedSession = pending.session;
       _requireExactSession(expectedSession);
       if (pending.operation == null) {
-        throw const AccountOperationFailure(
-          AccountOperationFailureCode.unknown,
-          retryable: false,
+        _requireExactSession(expectedSession);
+        final requested = await operations.requestAccountDeletion(
+          AccountDeletionRequest(requestKey: pending.requestKey),
         );
+        _requireExactSession(expectedSession);
+        _requireDeletionOperation(requested);
+        pending = pending.copyWith(operation: requested);
+        await operations.writeDeletionJournal(pending);
+        _requireExactSession(expectedSession);
       }
       final completed = await _pollToTerminal(
         pending,
@@ -525,11 +530,15 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   const _FirebaseAccountDeletionOperations({
     required this.user,
     required this.client,
+    required this.anonymousSource,
+    required this.sessions,
     required this.journalStore,
   });
 
   final User user;
   final AccountOperationGateway client;
+  final FreshAnonymousAccountOperationGateway anonymousSource;
+  final CloudWriteSessionController sessions;
   final AccountDeletionJournalStore journalStore;
 
   @override
@@ -625,6 +634,19 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
   Future<AccountOperationResult> requestAccountDeletion(
     AccountDeletionRequest request,
   ) {
+    if (user.isAnonymous) {
+      final expectedSession = sessions.current;
+      if (expectedSession == null || expectedSession.uid != user.uid) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        );
+      }
+      return anonymousSource.requestAnonymousAccountDeletion(
+        expectedSession: expectedSession,
+        request: request,
+      );
+    }
     return client.requestAccountDeletion(request);
   }
 
@@ -1086,6 +1108,48 @@ class AuthService {
     }
   }
 
+  static FirebaseAnonymousSourceAuthFreshness _anonymousSourceAuthFreshness() {
+    return FirebaseAnonymousSourceAuthFreshness(
+      sessions: cloudWriteSessionController,
+      currentIdentity: () {
+        final user = current;
+        return (uid: user?.uid, isAnonymous: user?.isAnonymous ?? false);
+      },
+      refreshIdToken:
+          ({required String expectedUid, required bool forceRefresh}) async {
+            final user = current;
+            if (user == null || user.uid != expectedUid || !user.isAnonymous) {
+              throw const AccountOperationFailure(
+                AccountOperationFailureCode.authenticationRequired,
+                retryable: false,
+              );
+            }
+            if ((await user.getIdToken(forceRefresh))?.isEmpty ?? true) {
+              throw const AccountOperationFailure(
+                AccountOperationFailureCode.authenticationRequired,
+                retryable: false,
+              );
+            }
+          },
+    );
+  }
+
+  static FreshAnonymousAccountOperationGateway _anonymousSourceOperationGateway(
+    AccountOperationGateway gateway,
+  ) {
+    return FreshAnonymousAccountOperationGateway(
+      gateway: gateway,
+      freshness: _anonymousSourceAuthFreshness(),
+    );
+  }
+
+  static ReplacementAccountOperations replacementAccountOperations() {
+    final gateway = AccountOperationClient.firebase();
+    return CallableReplacementAccountOperations(
+      source: _anonymousSourceOperationGateway(gateway),
+    );
+  }
+
   /// Aktueller User — null-safe, wirft nie (Web-Crash-Schutz).
   static User? get current {
     try {
@@ -1333,10 +1397,13 @@ class AuthService {
       throw StateError('The Firebase account is unavailable.');
     }
 
+    final client = AccountOperationClient.firebase();
     await AccountDeletionCoordinator(
       operations: _FirebaseAccountDeletionOperations(
         user: user,
-        client: AccountOperationClient.firebase(),
+        client: client,
+        anonymousSource: _anonymousSourceOperationGateway(client),
+        sessions: cloudWriteSessionController,
         journalStore: _accountDeletionJournalStore,
       ),
       ownershipTransitions: _pushOwnershipTransitions,
@@ -1353,10 +1420,13 @@ class AuthService {
         retryable: false,
       );
     }
+    final client = AccountOperationClient.firebase();
     await AccountDeletionCoordinator(
       operations: _FirebaseAccountDeletionOperations(
         user: user,
-        client: AccountOperationClient.firebase(),
+        client: client,
+        anonymousSource: _anonymousSourceOperationGateway(client),
+        sessions: cloudWriteSessionController,
         journalStore: _accountDeletionJournalStore,
       ),
       ownershipTransitions: _pushOwnershipTransitions,

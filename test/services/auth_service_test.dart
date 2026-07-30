@@ -369,6 +369,57 @@ void main() {
     expect(restartedSessions.current?.mode, CloudWriteMode.cleanupPending);
   });
 
+  test(
+    'a pre-call freshness failure keeps a pending deletion retryable',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..requestFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        );
+      final firstSessions = _readySessions();
+      final firstCoordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, firstSessions),
+        sessions: firstSessions,
+        pollDelay: (_) async {},
+      );
+
+      await expectLater(
+        firstCoordinator.deleteAccount(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+      final pending = operations.journal;
+      expect(pending, isNotNull);
+      expect(pending?.operation, isNull);
+      expect(operations.requestCalls, 1);
+
+      operations.requestResults.add(
+        _operation(AccountOperationPhase.completed),
+      );
+      final restartedSessions = CloudWriteSessionController();
+      restartedSessions.resume(
+        pending!.session,
+        expectedUid: operations.userId,
+      );
+      final restarted = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, restartedSessions),
+        sessions: restartedSessions,
+        pollDelay: (_) async {},
+      );
+
+      await restarted.resumePendingDeletion();
+
+      expect(operations.requestCalls, 2);
+      expect(operations.journal?.operationId, 'operation-1');
+      expect(operations.recoveryCalls, 1);
+    },
+  );
+
   test('missing Apple code is a safe typed pre-request failure', () async {
     final events = <String>[];
     final operations = _FakeDeletionOperations(events)
@@ -960,6 +1011,7 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
   AccountDeletionJournal? journal;
   final List<AccountDeletionJournal> journalWrites = [];
   final List<AccountOperationResult> requestResults = [];
+  final List<AccountOperationFailure> requestFailures = [];
   final List<AccountOperationResult> statusResults = [];
   final List<AccountOperationResult> appleResults = [];
   final List<AccountOperationFailure> statusFailures = [];
@@ -999,6 +1051,7 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
   ) async {
     requestCalls += 1;
     events.add('request:${request.requestKey}');
+    if (requestFailures.isNotEmpty) throw requestFailures.removeAt(0);
     return requestResults.removeAt(0);
   }
 

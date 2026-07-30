@@ -171,6 +171,7 @@ abstract interface class IsolatedTargetVerifier {
 
 abstract interface class ReplacementAccountOperations {
   Future<AccountOperationResult> prepare({
+    required CloudWriteSession sourceSession,
     required String targetUid,
     required String requestKey,
   });
@@ -194,6 +195,7 @@ abstract interface class ReplacementAccountOperations {
   });
 
   Future<AccountOperationResult> cancel({
+    required CloudWriteSession sourceSession,
     required String operationId,
     required int expectedVersion,
   });
@@ -208,7 +210,7 @@ class CallableReplacementAccountOperations
     implements ReplacementAccountOperations {
   const CallableReplacementAccountOperations({required this.source});
 
-  final AccountOperationGateway source;
+  final FreshAnonymousAccountOperationGateway source;
 
   AccountOperationGateway _target(VerifiedTargetContext target) {
     if (target is! AccountOperationTargetContext) {
@@ -222,11 +224,13 @@ class CallableReplacementAccountOperations
 
   @override
   Future<AccountOperationResult> prepare({
+    required CloudWriteSession sourceSession,
     required String targetUid,
     required String requestKey,
   }) {
     return source.prepareAnonymousReplacement(
-      AnonymousReplacementPrepareRequest(
+      expectedSession: sourceSession,
+      request: AnonymousReplacementPrepareRequest(
         targetUid: targetUid,
         requestKey: requestKey,
       ),
@@ -277,11 +281,13 @@ class CallableReplacementAccountOperations
 
   @override
   Future<AccountOperationResult> cancel({
+    required CloudWriteSession sourceSession,
     required String operationId,
     required int expectedVersion,
   }) {
     return source.cancelAnonymousReplacement(
-      ReplacementAdvanceRequest(
+      expectedSession: sourceSession,
+      request: ReplacementAdvanceRequest(
         operationId: operationId,
         expectedVersion: expectedVersion,
       ),
@@ -639,6 +645,7 @@ class AccountTransitionCoordinator {
       try {
         if (!_journalFence(expectedJournal)) return false;
         prepared = await operations.prepare(
+          sourceSession: expectedJournal.session,
           targetUid: targetUid,
           requestKey: requestKey,
         );
@@ -663,6 +670,7 @@ class AccountTransitionCoordinator {
       try {
         if (!_journalFence(expectedJournal)) return false;
         cancelled = await operations.cancel(
+          sourceSession: expectedJournal.session,
           operationId: operationId,
           expectedVersion: operationVersion,
         );
@@ -737,6 +745,7 @@ class AccountTransitionCoordinator {
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
       final prepared = await operations.prepare(
+        sourceSession: journal.session,
         targetUid: target.uid,
         requestKey: requestKey,
       );
