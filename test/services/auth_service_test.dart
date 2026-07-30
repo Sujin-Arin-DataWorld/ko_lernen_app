@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
@@ -570,6 +572,93 @@ void main() {
     });
   }
 
+  for (final replacement in <String>[
+    'null',
+    'different UID',
+    'same UID with different epoch',
+    'same UID with different mode',
+  ]) {
+    test(
+      'resume preserves its journal when session becomes $replacement mid-poll',
+      () async {
+        final events = <String>[];
+        const restoredSession = CloudWriteSession(
+          uid: 'user-1',
+          epoch: 7,
+          mode: CloudWriteMode.blocked,
+        );
+        final durableJournal = AccountDeletionJournal(
+          version: AccountDeletionJournal.currentVersion,
+          session: restoredSession,
+          requestKey: 'request-key-1',
+          operation: _operation(AccountOperationPhase.deletionRequested),
+        );
+        final statusStarted = Completer<void>();
+        final delayedStatus = Completer<AccountOperationResult>();
+        final operations = _FakeDeletionOperations(events)
+          ..journal = durableJournal
+          ..statusStarted = statusStarted
+          ..delayedStatusResult = delayedStatus
+          ..statusResults.add(
+            _operation(AccountOperationPhase.completed, version: 8),
+          );
+        final sessions = CloudWriteSessionController()
+          ..resume(restoredSession, expectedUid: 'user-1');
+        final coordinator = AccountDeletionCoordinator(
+          operations: operations,
+          ownershipTransitions: _ownership(events, sessions),
+          sessions: sessions,
+          pollDelay: (_) async {},
+        );
+
+        final resume = coordinator.resumePendingDeletion();
+        await statusStarted.future;
+        switch (replacement) {
+          case 'null':
+            sessions.clear();
+          case 'different UID':
+            sessions.acquire('other-user');
+          case 'same UID with different epoch':
+            sessions
+              ..transition(CloudWriteMode.ready)
+              ..transition(CloudWriteMode.blocked);
+          case 'same UID with different mode':
+            sessions
+              ..clear()
+              ..resume(
+                const CloudWriteSession(
+                  uid: 'user-1',
+                  epoch: 7,
+                  mode: CloudWriteMode.ready,
+                ),
+                expectedUid: 'user-1',
+              );
+        }
+        final replacementSession = sessions.current;
+        delayedStatus.complete(
+          _operation(AccountOperationPhase.userTreeDeleting, version: 2),
+        );
+
+        await expectLater(
+          resume,
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.code,
+              'code',
+              AccountOperationFailureCode.blocked,
+            ),
+          ),
+        );
+
+        expect(operations.statusCalls, 1);
+        expect(operations.journal, same(durableJournal));
+        expect(operations.journalWrites, isEmpty);
+        expect(operations.recoveryCalls, 0);
+        expect(sessions.current, replacementSession);
+      },
+    );
+  }
+
   for (final testCase in <String, CloudWriteSessionController>{
     'missing': CloudWriteSessionController(),
     'mismatched': CloudWriteSessionController()..acquire('other-user'),
@@ -662,6 +751,8 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
   final List<AccountOperationFailure> statusFailures = [];
   final List<String> statusOperationIds = [];
   final List<String> appleOperationIds = [];
+  Completer<void>? statusStarted;
+  Completer<AccountOperationResult>? delayedStatusResult;
   Object? googleReauthFailure;
   Object? appleReauthFailure;
   Object? recoveryFailure;
@@ -704,6 +795,15 @@ class _FakeDeletionOperations implements AccountDeletionOperations {
     statusCalls += 1;
     statusOperationIds.add(request.operationId);
     events.add('status:${request.operationId}');
+    final started = statusStarted;
+    if (started != null && !started.isCompleted) {
+      started.complete();
+    }
+    final delayed = delayedStatusResult;
+    if (delayed != null) {
+      delayedStatusResult = null;
+      return delayed.future;
+    }
     if (statusFailures.isNotEmpty) {
       throw statusFailures.removeAt(0);
     }

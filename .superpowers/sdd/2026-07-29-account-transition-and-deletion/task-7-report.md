@@ -255,3 +255,84 @@ Requested subject:
 ```text
 fix(account): harden deletion coordinator contracts
 ```
+
+---
+
+## Review fix round 2/5: continuous resume fencing
+
+### Finding resolved
+
+Resume now captures the exact restored `CloudWriteSession` and continuously
+fences the operation against that snapshot. Exact UID, epoch, and mode checks
+run after every asynchronous polling boundary and immediately before status
+requests, journal writes, identity recovery, and session transitions. The
+expected snapshot changes only when the coordinator performs its own transition
+to `cleanupPending`.
+
+If the current session becomes null, changes UID, changes epoch, or changes mode
+while a status request is in flight, resume returns a safe typed blocked
+failure. It does not issue another status request, journal the returned
+response, recover identity, or mutate the replacement session.
+
+The post-poll UID-only acceptance was removed. Journal writes, recovery, and
+transitions now require exact session equality.
+
+### RED evidence
+
+The four delayed-status regressions initially failed against the previous
+implementation:
+
+```text
+flutter test test/services/auth_service_test.dart --plain-name "mid-poll"
+```
+
+- Null and different-UID replacements made two status calls instead of one
+  after the first response was journaled.
+- Same-UID replacements with a different epoch or mode completed successfully
+  and recovered identity instead of returning a safe blocked failure.
+
+### Regression coverage
+
+Each delayed-status case begins with the exact durable journal session, waits
+until the status request has started, replaces the live session, and then
+releases a nonterminal response. Each case asserts:
+
+- exactly one status request;
+- the journal store still references the original `durableJournal`;
+- zero journal writes;
+- zero identity-recovery calls; and
+- the replacement or null live session remains unchanged.
+
+The four replacement states are null, different UID, same UID with a different
+epoch, and same UID with a different mode.
+
+### GREEN and final verification
+
+- Focused delayed-status regressions: 4/4 passed.
+- Relevant account/transition/cleanup suite: 45/45 passed.
+- Full Flutter suite: 835/835 passed, zero skipped, exit 0.
+- `flutter analyze`: no issues found, exit 0.
+- `dart format --set-exit-if-changed` across the two fix-round Dart files:
+  0 files changed, exit 0.
+- `git diff --check`: clean; only Git's informational LF-to-CRLF worktree
+  warning was emitted.
+- Repository-wide `rg -n "skip:" test`: no matches.
+
+### Fix-round files
+
+- `lib/services/auth_service.dart`
+- `test/services/auth_service_test.dart`
+
+### Remaining external gates
+
+The App Check device-verdict and live callable integration gates in the initial
+report remain unchanged. No Functions, Firestore rules, Firebase
+configuration, deployment, UI, localization, or public-page work was performed.
+
+### Fix-round commit
+
+Requested subject:
+
+```text
+fix(account): fence deletion resume continuously
+```

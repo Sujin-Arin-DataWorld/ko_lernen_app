@@ -301,40 +301,37 @@ class AccountDeletionCoordinator {
           retryable: false,
         );
       }
-      if (sessions.current != pending.session) {
-        throw const AccountOperationFailure(
-          AccountOperationFailureCode.blocked,
-          retryable: false,
-        );
-      }
+      var expectedSession = pending.session;
+      _requireExactSession(expectedSession);
       if (pending.operation == null) {
         throw const AccountOperationFailure(
           AccountOperationFailureCode.unknown,
           retryable: false,
         );
       }
-      final completed = await _pollToTerminal(pending);
+      final completed = await _pollToTerminal(
+        pending,
+        requiredSession: expectedSession,
+      );
+      _requireExactSession(expectedSession);
       if (completed.operation?.phase != AccountOperationPhase.completed) {
         throw const AccountOperationFailure(
           AccountOperationFailureCode.blocked,
           retryable: false,
         );
       }
-      if (sessions.current == pending.session &&
-          pending.session.mode != CloudWriteMode.cleanupPending) {
-        sessions.transition(CloudWriteMode.cleanupPending);
+      if (expectedSession.mode != CloudWriteMode.cleanupPending) {
+        _requireExactSession(expectedSession);
+        expectedSession = sessions.transition(CloudWriteMode.cleanupPending);
+        _requireExactSession(expectedSession);
       }
-      final current = sessions.current;
-      if (current == null || current.uid != operations.userId) {
-        throw const AccountOperationFailure(
-          AccountOperationFailureCode.blocked,
-          retryable: false,
-        );
-      }
+      _requireExactSession(expectedSession);
       await operations.writeDeletionJournal(
-        completed.copyWith(session: current),
+        completed.copyWith(session: expectedSession),
       );
+      _requireExactSession(expectedSession);
       await _recoverDeletedIdentity();
+      _requireExactSession(expectedSession);
     } on AccountOperationFailure {
       rethrow;
     } on AccountDeletionRecoveryException {
@@ -412,6 +409,7 @@ class AccountDeletionCoordinator {
   Future<AccountDeletionJournal> _pollToTerminal(
     AccountDeletionJournal initial, {
     String? appleAuthorizationCode,
+    CloudWriteSession? requiredSession,
   }) async {
     var journal = initial;
     var result = journal.operation!;
@@ -421,6 +419,7 @@ class AccountDeletionCoordinator {
         expectedOperationId: journal.operationId,
       );
       if (result.phase == AccountOperationPhase.completed) {
+        _requireExactSessionIfPresent(requiredSession);
         return journal;
       }
       if (result.phase == AccountOperationPhase.blocked) {
@@ -431,12 +430,15 @@ class AccountDeletionCoordinator {
       }
       final expectedOperationId = result.operationId;
       if (result.phase == AccountOperationPhase.appleRevocationPending) {
+        _requireExactSessionIfPresent(requiredSession);
         final code =
             appleAuthorizationCode ??
             _requireAppleAuthorizationCode(
               await operations.reauthenticateWithApple(),
             );
+        _requireExactSessionIfPresent(requiredSession);
         appleAuthorizationCode = null;
+        _requireExactSessionIfPresent(requiredSession);
         result = await operations.completeAppleRevocation(
           AppleRevocationCompletionRequest(
             operationId: expectedOperationId,
@@ -444,23 +446,44 @@ class AccountDeletionCoordinator {
             authorizationCode: code,
           ),
         );
+        _requireExactSessionIfPresent(requiredSession);
       } else {
+        _requireExactSessionIfPresent(requiredSession);
         await pollDelay(const Duration(seconds: 2));
+        _requireExactSessionIfPresent(requiredSession);
         result = await operations.getAccountOperation(
           AccountOperationStatusRequest(operationId: expectedOperationId),
         );
+        _requireExactSessionIfPresent(requiredSession);
       }
       _requireDeletionOperation(
         result,
         expectedOperationId: expectedOperationId,
       );
       journal = journal.copyWith(operation: result);
+      _requireExactSessionIfPresent(requiredSession);
       await operations.writeDeletionJournal(journal);
+      _requireExactSessionIfPresent(requiredSession);
     }
     throw const AccountOperationFailure(
       AccountOperationFailureCode.unavailable,
       retryable: true,
     );
+  }
+
+  void _requireExactSessionIfPresent(CloudWriteSession? expected) {
+    if (expected != null) {
+      _requireExactSession(expected);
+    }
+  }
+
+  void _requireExactSession(CloudWriteSession expected) {
+    if (sessions.current != expected) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
   }
 
   void _requireDeletionOperation(
