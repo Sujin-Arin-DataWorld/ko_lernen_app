@@ -1765,11 +1765,22 @@ class Storage {
         }
         Error.throwWithStackTrace(error, stackTrace);
       }
+      await _writeValueStrict(
+        store,
+        accountDeletionCheckpointPreferenceKey,
+        canonicalCheckpoint,
+      );
     }
-    final keys = {
-      ...store.getKeys(),
-      ..._unknownStrictKeys,
-    }.where((key) => key.startsWith('kl_')).toList()..sort();
+    final keys =
+        {...store.getKeys(), ..._unknownStrictKeys}
+            .where(
+              (key) =>
+                  key.startsWith('kl_') &&
+                  (canonicalCheckpoint == null ||
+                      key != accountDeletionCheckpointPreferenceKey),
+            )
+            .toList()
+          ..sort();
 
     try {
       for (final key in keys) {
@@ -1777,18 +1788,6 @@ class Storage {
           await _removeValueStrict(store, key);
         } catch (error) {
           failedKeys.add(key);
-          causes.add(error);
-        }
-      }
-      if (canonicalCheckpoint != null) {
-        try {
-          await _writeValueStrict(
-            store,
-            accountDeletionCheckpointPreferenceKey,
-            canonicalCheckpoint,
-          );
-        } catch (error) {
-          failedKeys.add(accountDeletionCheckpointPreferenceKey);
           causes.add(error);
         }
       }

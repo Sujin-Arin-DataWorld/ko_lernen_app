@@ -315,6 +315,98 @@ void main() {
       },
     );
 
+    test(
+      'canonical checkpoint is durable before a later key removal fails',
+      () async {
+        final checkpointKey =
+            AuthService.accountDeletionCheckpointPreferenceKey;
+        final canonical = jsonEncode(_completedDeletionCheckpoint().toJson());
+        final preferences = _MemoryPreferenceRemovalStore(
+          <String, Object>{
+            checkpointKey: const JsonEncoder.withIndent(
+              '  ',
+            ).convert(_completedDeletionCheckpoint().toJson()),
+            'kl_learning_progress': 'private-progress',
+            'kl_other_private_data': 'private-data',
+          },
+          removalResults: const {'kl_learning_progress': false},
+        );
+
+        await expectLater(
+          Storage.resetAllStrict(
+            preferences: preferences,
+            canonicalizeAccountDeletionCheckpoint:
+                AuthService.canonicalizeCompletedDeletionCheckpoint,
+          ),
+          throwsA(isA<PreferenceResetException>()),
+        );
+
+        expect(preferences.events.first, 'set:$checkpointKey');
+        expect(preferences.values[checkpointKey], canonical);
+        expect(preferences.values['kl_learning_progress'], 'private-progress');
+      },
+    );
+
+    test(
+      'canonical checkpoint write failure aborts before private data erase',
+      () async {
+        final checkpointKey =
+            AuthService.accountDeletionCheckpointPreferenceKey;
+        final raw = const JsonEncoder.withIndent(
+          '  ',
+        ).convert(_completedDeletionCheckpoint().toJson());
+        final preferences = _MemoryPreferenceRemovalStore(<String, Object>{
+          checkpointKey: raw,
+          'kl_learning_progress': 'must-remain',
+        }, setStringResult: false);
+
+        await expectLater(
+          Storage.resetAllStrict(
+            preferences: preferences,
+            canonicalizeAccountDeletionCheckpoint:
+                AuthService.canonicalizeCompletedDeletionCheckpoint,
+          ),
+          throwsA(isA<PreferenceWriteException>()),
+        );
+
+        expect(preferences.events, <String>['set:$checkpointKey']);
+        expect(preferences.values[checkpointKey], raw);
+        expect(preferences.values['kl_learning_progress'], 'must-remain');
+      },
+    );
+
+    test(
+      'strict reset excludes only the exact validated checkpoint key',
+      () async {
+        final checkpointKey =
+            AuthService.accountDeletionCheckpointPreferenceKey;
+        final canonical = jsonEncode(_completedDeletionCheckpoint().toJson());
+        final lookalikeKey = '${checkpointKey}_shadow';
+        final preferences = _MemoryPreferenceRemovalStore(<String, Object>{
+          checkpointKey: const JsonEncoder.withIndent(
+            '  ',
+          ).convert(_completedDeletionCheckpoint().toJson()),
+          'kl_learning_progress': 'private-progress',
+          lookalikeKey: 'must-not-bypass-reset',
+          'foreign_key': 'keep',
+        });
+
+        await Storage.resetAllStrict(
+          preferences: preferences,
+          canonicalizeAccountDeletionCheckpoint:
+              AuthService.canonicalizeCompletedDeletionCheckpoint,
+        );
+
+        expect(preferences.events.first, 'set:$checkpointKey');
+        expect(preferences.events, isNot(contains('remove:$checkpointKey')));
+        expect(preferences.events, contains('remove:$lookalikeKey'));
+        expect(preferences.values, <String, Object>{
+          checkpointKey: canonical,
+          'foreign_key': 'keep',
+        });
+      },
+    );
+
     test('invalid raw checkpoint is removed before strict reset', () async {
       final unknown = _completedDeletionCheckpoint().toJson()
         ..['authorizationCode'] = 'private-secret';
@@ -546,10 +638,18 @@ AccountDeletionJournal _completedDeletionCheckpoint() {
 }
 
 class _MemoryPreferenceRemovalStore implements PreferenceRemovalStore {
-  _MemoryPreferenceRemovalStore(Map<String, Object> initial)
-    : values = Map<String, Object>.from(initial);
+  _MemoryPreferenceRemovalStore(
+    Map<String, Object> initial, {
+    this.setStringResult = true,
+    this.removalResults = const <String, bool>{},
+  }) : values = Map<String, Object>.from(initial),
+       durableValues = Map<String, Object>.from(initial);
 
   final Map<String, Object> values;
+  final Map<String, Object> durableValues;
+  final bool setStringResult;
+  final Map<String, bool> removalResults;
+  final List<String> events = <String>[];
 
   @override
   bool containsKey(String key) => values.containsKey(key);
@@ -561,17 +661,28 @@ class _MemoryPreferenceRemovalStore implements PreferenceRemovalStore {
   Object? getValue(String key) => values[key];
 
   @override
-  Future<void> reload() async {}
+  Future<void> reload() async {
+    values
+      ..clear()
+      ..addAll(durableValues);
+  }
 
   @override
   Future<bool> remove(String key) async {
+    events.add('remove:$key');
+    final result = removalResults[key] ?? true;
+    if (!result) return false;
     values.remove(key);
+    durableValues.remove(key);
     return true;
   }
 
   @override
   Future<bool> setString(String key, String value) async {
+    events.add('set:$key');
+    if (!setStringResult) return false;
     values[key] = value;
+    durableValues[key] = value;
     return true;
   }
 }
