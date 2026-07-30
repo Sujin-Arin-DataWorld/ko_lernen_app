@@ -90,6 +90,9 @@ const {
   legacyAccountTombstoneCleanupAction,
   runScheduledDeletionCandidate,
 } = require("./account_operations_runtime");
+const {
+  createFirestoreDeletionAdapters,
+} = require("./deletion_adapters");
 
 admin.initializeApp();
 const db = admin.firestore();
@@ -154,12 +157,19 @@ const destructiveAdapterUnavailable = async () => {
   error.code = "failed-precondition";
   throw error;
 };
+const accountDeletionPageSize = 20;
+const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
+  firestore: db,
+  markerCollection: db.collection("account_deletions"),
+  pageSize: accountDeletionPageSize,
+});
 const accountDeletionWorkerRuntime = createDeletionWorkerRuntime({
   repository: accountOperationRepository,
   auth: admin.auth(),
-  deleteUserTreePage: destructiveAdapterUnavailable,
+  deleteUserTreePage: firestoreDeletionAdapters.deleteUserTreePage,
   cleanupCommunity: destructiveAdapterUnavailable,
   cleanupProcessor: destructiveAdapterUnavailable,
+  pageSize: accountDeletionPageSize,
 });
 exports.account_deletion_worker = onSchedule(
   {
