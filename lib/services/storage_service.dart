@@ -913,6 +913,14 @@ class Storage {
     _srsCache = null;
   }
 
+  static Future<void> setSrsRawJsonStrict(
+    String json, {
+    PreferenceStringStore? preferences,
+  }) async {
+    await _ssStrict('kl_srs_v1', json, preferences: preferences);
+    _srsCache = null;
+  }
+
   static String _isoOf(DateTime d) {
     final m = d.month.toString().padLeft(2, '0');
     final day = d.day.toString().padLeft(2, '0');
@@ -1304,6 +1312,18 @@ class Storage {
     cache.addAll(entries);
     _packCache = cache;
     await _ss(_packProgressKey, jsonEncode(cache));
+  }
+
+  static Future<void> setAllPackProgressJsonStrict(
+    Map<String, Map<String, dynamic>> entries, {
+    PreferenceStringStore? preferences,
+  }) async {
+    final encoded = jsonEncode(entries);
+    await _ssStrict(_packProgressKey, encoded, preferences: preferences);
+    _packCache = {
+      for (final entry in entries.entries)
+        entry.key: Map<String, dynamic>.from(entry.value),
+    };
   }
 
   /// Test-only: Pack-Cache invalidieren.

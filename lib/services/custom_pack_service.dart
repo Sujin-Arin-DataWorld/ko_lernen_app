@@ -5,6 +5,7 @@ import 'package:crypto/crypto.dart';
 
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import 'account/cloud_read_result.dart';
 import 'account/cloud_write_session.dart';
 import 'book_image_service.dart';
 import 'media_mutation_lock.dart';
@@ -18,6 +19,8 @@ enum WordbookAddResult { added, alreadyExists, failed }
 /// Lokal-only — Firestore sync 는 v1 에서 미구현 (사용자 1대 기기 가정).
 /// Cloud sync 가 필요해지면 BookshelfService 의 best-effort 패턴 그대로 추가.
 class CustomPackService {
+  static const int defaultRemoteReadLimitBytes = 512 * 1024;
+
   static final math.Random _rng = math.Random.secure();
 
   /// Prozess-monotoner Zähler — siehe [BookshelfService.generateId].
@@ -67,6 +70,113 @@ class CustomPackService {
     }
     packs.sort((a, b) => b.createdAtIso.compareTo(a.createdAtIso));
     return packs;
+  }
+
+  /// Strict portable custom-pack decoder for account reconciliation.
+  ///
+  /// Unlike the legacy tolerant local UI read, malformed, unavailable, and
+  /// absent data remain distinguishable at this boundary.
+  static CloudReadResult<Map<String, Map<String, Object?>>>
+  decodePortableRemote(
+    Object? value, {
+    int maxBytes = defaultRemoteReadLimitBytes,
+  }) {
+    if (value == null) {
+      return const CloudReadResult.absent();
+    }
+    if (value is! String || maxBytes < 1) {
+      return const CloudReadResult.invalid();
+    }
+    if (utf8.encode(value).length > maxBytes) {
+      return const CloudReadResult.tooLarge();
+    }
+    try {
+      final decoded = jsonDecode(value);
+      if (decoded is! Map) {
+        return const CloudReadResult.invalid();
+      }
+      final result = <String, Map<String, Object?>>{};
+      for (final entry in decoded.entries) {
+        if (entry.key is! String ||
+            (entry.key as String).trim().isEmpty ||
+            entry.value is! Map) {
+          return const CloudReadResult.invalid();
+        }
+        final data = (entry.value as Map).map(
+          (key, value) => MapEntry(key.toString(), value),
+        );
+        if (data['name'] is! String ||
+            data['sourcePageId'] is! String ||
+            data['words'] is! List ||
+            data['createdAt'] is! String) {
+          return const CloudReadResult.invalid();
+        }
+        final pack = CustomPack.fromPortableJson(entry.key as String, data);
+        if (pack.id != entry.key) {
+          return const CloudReadResult.invalid();
+        }
+        result[pack.id] = Map<String, Object?>.from(pack.toPortableJson());
+      }
+      return CloudReadResult.present(result);
+    } catch (_) {
+      return const CloudReadResult.invalid();
+    }
+  }
+
+  static CloudReadResult<Map<String, Map<String, Object?>>>
+  readLocalForReconciliation({int maxBytes = defaultRemoteReadLimitBytes}) {
+    final value = Storage.customPacksRawJson;
+    if (value.trim().isEmpty) {
+      return const CloudReadResult.present({});
+    }
+    if (utf8.encode(value).length > maxBytes) {
+      return const CloudReadResult.tooLarge();
+    }
+    try {
+      final decoded = jsonDecode(value);
+      if (decoded is! Map) {
+        return const CloudReadResult.invalid();
+      }
+      final result = <String, Map<String, Object?>>{};
+      for (final entry in decoded.entries) {
+        if (entry.key is! String ||
+            (entry.key as String).trim().isEmpty ||
+            entry.value is! Map) {
+          return const CloudReadResult.invalid();
+        }
+        final pack = CustomPack.fromJson(
+          entry.key as String,
+          (entry.value as Map).cast<String, dynamic>(),
+        );
+        result[pack.id] = Map<String, Object?>.from(pack.toPortableJson());
+      }
+      return CloudReadResult.present(result);
+    } catch (_) {
+      return const CloudReadResult.invalid();
+    }
+  }
+
+  static Future<void> writeReconciledPortable(
+    Map<String, Map<String, Object?>> portable,
+  ) async {
+    final existingRaw = _readRaw();
+    final output = <String, dynamic>{};
+    final ids = portable.keys.toList()..sort();
+    for (final id in ids) {
+      final incoming = CustomPack.fromPortableJson(
+        id,
+        Map<String, dynamic>.from(portable[id]!),
+      );
+      final existing = _packFromRaw(existingRaw, id);
+      final samePortable =
+          existing != null &&
+          jsonEncode(existing.toPortableJson()) ==
+              jsonEncode(incoming.toPortableJson());
+      output[id] = samePortable
+          ? existing.toLocalJson()
+          : incoming.toLocalJson();
+    }
+    await _writeRawStrict(output);
   }
 
   static CustomPack? getById(String id) {

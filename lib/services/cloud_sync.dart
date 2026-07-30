@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
+import 'cloud_sync_service.dart';
 import 'storage_service.dart';
 
 /// 1-Weg-Sync: Storage (lokal) ↔ Firestore (Cloud, `users/{uid}`).
@@ -30,7 +31,6 @@ class CloudSync {
   }
 
   /// Reines Backup-Payload (ohne Firestore-I/O, ohne `updated_at`) — testbar.
-  @visibleForTesting
   static Map<String, dynamic> buildBackupPayload() {
     final payload = <String, dynamic>{
       'vok': {
@@ -103,7 +103,10 @@ class CloudSync {
       prepare: () async {
         ref = _db.collection('users').doc(uid);
         payload = buildBackupPayload()
-          ..['updated_at'] = FieldValue.serverTimestamp();
+          ..['updated_at'] = FieldValue.serverTimestamp()
+          ..['sync_revision'] = FieldValue.increment(1)
+          ..['reconciliation_operation_id'] = FieldValue.delete()
+          ..['reconciliation_payload_hash'] = FieldValue.delete();
       },
       write: () => ref!.set(payload!, SetOptions(merge: true)),
     );
@@ -122,7 +125,6 @@ class CloudSync {
   }
 
   /// Payload → lokale Werte (additiv / max-merge). Testbar ohne Firestore.
-  @visibleForTesting
   static Future<void> applyRestorePayload(Map<String, dynamic> data) async {
     final vok = _map(data['vok']);
     final vocabularyWasUninitialized =
@@ -464,13 +466,11 @@ class CloudSync {
 
   /// Firestore → lokale Werte (additiv).
   static Future<bool> restore() async {
-    final ref = _doc;
-    if (ref == null) return false;
-    final snap = await ref.get();
-    if (!snap.exists) return false;
-    final data = snap.data();
-    if (data == null) return false;
-    await applyRestorePayload(data);
+    final uid = AuthService.cloudBackupUid;
+    if (uid == null) return false;
+    final result = await CloudSyncService.readAccountDocument(uid: uid);
+    if (!result.isPresent || result.value == null) return false;
+    await applyRestorePayload(result.value!);
     return true;
   }
 

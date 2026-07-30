@@ -68,4 +68,31 @@ void main() {
       throwsA(isA<FormatException>()),
     );
   });
+
+  test('reconciliation metadata is allowlisted without secret material', () {
+    final journal = AccountTransitionJournal.fromJson({
+      'version': 1,
+      'uid': 'uid-a',
+      'epoch': 4,
+      'mode': 'reconciling',
+      'reconciliationOperationId': 'operation-1',
+      'reconciliationCheckpoint': 'merged',
+      'remoteRevision': 7,
+      'credential': 'must-not-survive',
+      'proofToken': 'must-not-survive',
+    });
+
+    expect(journal.reconciliationOperationId, 'operation-1');
+    expect(journal.reconciliationCheckpoint, ReconciliationCheckpoint.merged);
+    expect(journal.remoteRevision, 7);
+    expect(journal.toJson(), {
+      'version': 1,
+      'uid': 'uid-a',
+      'epoch': 4,
+      'mode': 'reconciling',
+      'reconciliationOperationId': 'operation-1',
+      'reconciliationCheckpoint': 'merged',
+      'remoteRevision': 7,
+    });
+  });
 }

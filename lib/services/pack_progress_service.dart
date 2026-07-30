@@ -1,10 +1,38 @@
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
+import 'account/cloud_read_result.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'firestore_progress_service.dart';
 import 'storage_service.dart';
 import 'vocab_pack_service.dart';
+
+class PackCatalogEntry {
+  const PackCatalogEntry({
+    required this.packId,
+    required this.level,
+    required this.wordsTotal,
+  });
+
+  final String packId;
+  final String level;
+  final int wordsTotal;
+}
+
+class PackProgressMergeResult {
+  const PackProgressMergeResult._({required this.invalidPackIds, this.merged});
+
+  const PackProgressMergeResult.valid(Map<String, PackProgress> merged)
+    : this._(invalidPackIds: const [], merged: merged);
+
+  const PackProgressMergeResult.invalid(List<String> invalidPackIds)
+    : this._(invalidPackIds: invalidPackIds);
+
+  final List<String> invalidPackIds;
+  final Map<String, PackProgress>? merged;
+
+  bool get isValid => invalidPackIds.isEmpty && merged != null;
+}
 
 /// Orchestrator für Pack-Fortschritt — lokal als SoT, Firestore als Backup.
 ///
@@ -21,6 +49,111 @@ import 'vocab_pack_service.dart';
 class PackProgressService {
   /// Boss-Genauigkeit ab der ein Pack als geklärt gilt.
   static const double bossClearThreshold = 0.70;
+
+  /// Performs a commutative, idempotent monotonic merge after validating each
+  /// record against the immutable catalog.
+  ///
+  /// Attempt counts use max rather than sum because the legacy record has no
+  /// stable attempt IDs with which independent attempts could be deduplicated.
+  static PackProgressMergeResult mergeForReconciliation({
+    required Map<String, PackProgress> local,
+    required Map<String, PackProgress> remote,
+    required Map<String, PackCatalogEntry> catalog,
+  }) {
+    final invalid = <String>{};
+    for (final entry in [...local.entries, ...remote.entries]) {
+      final catalogEntry = catalog[entry.key];
+      if (catalogEntry == null ||
+          !_validForCatalog(entry.value, catalogEntry)) {
+        invalid.add(entry.key);
+      }
+    }
+    if (invalid.isNotEmpty) {
+      final sorted = invalid.toList()..sort();
+      return PackProgressMergeResult.invalid(sorted);
+    }
+
+    final ids = {...local.keys, ...remote.keys}.toList()..sort();
+    final merged = <String, PackProgress>{};
+    for (final id in ids) {
+      final left = local[id];
+      final right = remote[id];
+      if (left == null) {
+        merged[id] = right!;
+        continue;
+      }
+      if (right == null) {
+        merged[id] = left;
+        continue;
+      }
+      merged[id] = PackProgress(
+        packId: id,
+        level: left.level,
+        status: left.status.index >= right.status.index
+            ? left.status
+            : right.status,
+        wordsLearned: left.wordsLearned >= right.wordsLearned
+            ? left.wordsLearned
+            : right.wordsLearned,
+        wordsTotal: left.wordsTotal,
+        bossAccuracy: left.bossAccuracy >= right.bossAccuracy
+            ? left.bossAccuracy
+            : right.bossAccuracy,
+        attempts: left.attempts >= right.attempts
+            ? left.attempts
+            : right.attempts,
+        clearedAtIso: _earliestClearedAt(left.clearedAtIso, right.clearedAtIso),
+      );
+    }
+    return PackProgressMergeResult.valid(merged);
+  }
+
+  static bool _validForCatalog(
+    PackProgress progress,
+    PackCatalogEntry catalog,
+  ) {
+    if (progress.packId != catalog.packId ||
+        progress.level != catalog.level ||
+        progress.wordsTotal != catalog.wordsTotal ||
+        progress.wordsTotal < 0 ||
+        progress.wordsLearned < 0 ||
+        progress.wordsLearned > progress.wordsTotal ||
+        progress.attempts < 0 ||
+        !progress.bossAccuracy.isFinite ||
+        progress.bossAccuracy < 0 ||
+        progress.bossAccuracy > 1) {
+      return false;
+    }
+    switch (progress.status) {
+      case PackStatus.locked:
+      case PackStatus.available:
+        return progress.wordsLearned == 0 &&
+            progress.attempts == 0 &&
+            progress.bossAccuracy == 0 &&
+            progress.clearedAtIso == null;
+      case PackStatus.inProgress:
+        return (progress.wordsLearned > 0 || progress.attempts > 0) &&
+            progress.bossAccuracy < bossClearThreshold &&
+            (progress.attempts > 0 || progress.bossAccuracy == 0) &&
+            progress.clearedAtIso == null;
+      case PackStatus.cleared:
+        final clearedAt = progress.clearedAtIso == null
+            ? null
+            : DateTime.tryParse(progress.clearedAtIso!);
+        return progress.attempts > 0 &&
+            progress.bossAccuracy >= bossClearThreshold &&
+            clearedAt != null &&
+            clearedAt.isUtc;
+    }
+  }
+
+  static String? _earliestClearedAt(String? left, String? right) {
+    if (left == null) return right;
+    if (right == null) return left;
+    final leftTime = DateTime.parse(left);
+    final rightTime = DateTime.parse(right);
+    return leftTime.isBefore(rightTime) ? left : right;
+  }
 
   // ── Reads ──────────────────────────────────────────────────────────
 
@@ -247,13 +380,53 @@ class PackProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
-    return pullFromCloudWithSession(
+    return pullTypedFromCloudWithSession(
       sessions: cloudWriteSessionController,
       uid: uid,
-      loadRemote: FirestoreProgressService.loadAll,
+      loadRemote: () => FirestoreProgressService.loadAllTyped(uid: uid),
       loadLocal: getAll,
       persistLocal: Storage.setManyPackProgressJson,
     );
+  }
+
+  static Future<CloudWriteResult> pullTypedFromCloudWithSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Future<CloudReadResult<FirestorePackSnapshot>> Function()
+    loadRemote,
+    required Map<String, PackProgress> Function() loadLocal,
+    required Future<void> Function(Map<String, Map<String, dynamic>> progress)
+    persistLocal,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final snapshot = fence.readySnapshot(uid);
+    if (snapshot == null) {
+      return CloudWriteResult.blocked;
+    }
+    final result = await loadRemote();
+    final afterRead = fence.verify(snapshot, uid: uid);
+    if (afterRead != CloudWriteResult.completed) {
+      return afterRead;
+    }
+    if (result.state == CloudReadState.absent) {
+      return CloudWriteResult.completed;
+    }
+    if (!result.isPresent || result.value == null) {
+      return CloudWriteResult.blocked;
+    }
+    final remote = result.value!.progress;
+    final localBefore = loadLocal();
+    final merged = <String, Map<String, dynamic>>{
+      for (final entry in remote.entries) entry.key: entry.value.toJson(),
+      for (final entry in localBefore.entries)
+        if (!remote.containsKey(entry.key)) entry.key: entry.value.toJson(),
+    };
+    final beforeWrite = fence.verify(snapshot, uid: uid);
+    if (beforeWrite != CloudWriteResult.completed) {
+      return beforeWrite;
+    }
+    await persistLocal(merged);
+    return fence.verify(snapshot, uid: uid);
   }
 
   static Future<CloudWriteResult> pullFromCloudWithSession({
