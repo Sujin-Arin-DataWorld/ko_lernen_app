@@ -517,6 +517,12 @@ test("registers every protected callable name with the exact v2 options", () => 
   const handlers = Object.fromEntries(
     CALLABLE_NAMES.map((name) => [name, async () => name]),
   );
+  const appleSecrets = [
+    { name: "APPLE_REVOKE_CLIENT_ID" },
+    { name: "APPLE_REVOKE_TEAM_ID" },
+    { name: "APPLE_REVOKE_KEY_ID" },
+    { name: "APPLE_REVOKE_PRIVATE_KEY" },
+  ];
   const registrations = [];
   const callables = runtime.createAccountOperationCallables({
     handlers,
@@ -524,16 +530,25 @@ test("registers every protected callable name with the exact v2 options", () => 
       registrations.push({ options, handler });
       return { options, handler };
     },
+    optionsByName: {
+      completeAppleRevocation: {
+        secrets: appleSecrets,
+      },
+    },
   });
 
   assert.deepEqual(Object.keys(callables), CALLABLE_NAMES);
   assert.equal(registrations.length, CALLABLE_NAMES.length);
-  for (const registration of registrations) {
-    assert.deepEqual(registration.options, {
+  for (const [index, registration] of registrations.entries()) {
+    const expected = {
       region: "europe-west3",
       enforceAppCheck: true,
       consumeAppCheckToken: true,
-    });
+    };
+    if (CALLABLE_NAMES[index] === "completeAppleRevocation") {
+      expected.secrets = appleSecrets;
+    }
+    assert.deepEqual(registration.options, expected);
     assert.equal(typeof registration.handler, "function");
   }
 });
@@ -2375,4 +2390,30 @@ test("index exports the protected callables and public proof endpoint", () => {
     "function",
     "account_deletion_worker export",
   );
+  const appleSecretNames = [
+    "APPLE_REVOKE_CLIENT_ID",
+    "APPLE_REVOKE_TEAM_ID",
+    "APPLE_REVOKE_KEY_ID",
+    "APPLE_REVOKE_PRIVATE_KEY",
+  ];
+  assert.deepEqual(
+    deployed.completeAppleRevocation.__endpoint.secretEnvironmentVariables
+      .map((secret) => secret.key),
+    appleSecretNames,
+  );
+  assert.equal(
+    deployed.account_deletion_worker.__endpoint.secretEnvironmentVariables,
+    undefined,
+  );
+  for (const name of CALLABLE_NAMES.filter(
+    (callableName) => callableName !== "completeAppleRevocation",
+  )) {
+    const boundNames = (deployed[name].__endpoint.secretEnvironmentVariables ||
+      []).map((secret) => secret.key);
+    assert.equal(
+      boundNames.some((secretName) => appleSecretNames.includes(secretName)),
+      false,
+      `${name} must not bind Apple revocation secrets`,
+    );
+  }
 });

@@ -24,6 +24,20 @@ until the release owner attaches dated evidence from the production system.
   `node --test docs/account-deletion-page.test.js`.
 - [x] `firebase.json` stages a same-path Firebase Hosting rewrite to the
   `requestDeletionByProof` function in `europe-west3`.
+- [x] The Apple adapter follows Apple's documented two-step protocol: it sends
+  the fresh native authorization code only to
+  `https://appleid.apple.com/auth/token` with
+  `grant_type=authorization_code`, keeps the returned refresh token only in
+  memory, and sends that token only to
+  `https://appleid.apple.com/auth/revoke` with
+  `token_type_hint=refresh_token`. The previous direct
+  authorization-code-to-revoke design assumption was unsupported and is not
+  implemented. The current native authorization request supplies no redirect
+  URI, so the server does not invent one. See Apple's
+  [token validation](https://developer.apple.com/documentation/signinwithapplerestapi/generate-and-validate-tokens)
+  and
+  [token revocation](https://developer.apple.com/documentation/signinwithapplerestapi/revoke-tokens)
+  contracts.
 - [ ] Production route evidence exists. `docs/CNAME` indicates that the public
   domain may currently be served by GitHub Pages, which does not apply the
   Firebase Hosting rewrite. Before release, prove either that the domain is
@@ -92,6 +106,57 @@ until the release owner attaches dated evidence from the production system.
   manager with least-privilege access, rotation/recovery procedure, and no
   value in source, build artifacts, CI output, function environment dumps, or
   logs.
+- [ ] Provision the Apple authorization-revocation configuration as four
+  distinct Firebase Secret Manager secrets:
+  `APPLE_REVOKE_CLIENT_ID`, `APPLE_REVOKE_TEAM_ID`,
+  `APPLE_REVOKE_KEY_ID`, and `APPLE_REVOKE_PRIVATE_KEY`. The release operator
+  must enter each value only through the Firebase CLI's hidden prompt or an
+  equivalently reviewed secret-manager control. Do not put a value in a
+  command argument, redirected file, environment dump, CI output, repository,
+  support message, or deployment log. The private-key value is the complete
+  reviewed Apple `.p8` key material; this repository contains no such value.
+- [ ] From an authenticated release workstation, select and verify the intended
+  project, then create or rotate each secret without printing its value:
+
+  ```text
+  firebase functions:secrets:set APPLE_REVOKE_CLIENT_ID --project <production-project-id>
+  firebase functions:secrets:set APPLE_REVOKE_TEAM_ID --project <production-project-id>
+  firebase functions:secrets:set APPLE_REVOKE_KEY_ID --project <production-project-id>
+  firebase functions:secrets:set APPLE_REVOKE_PRIVATE_KEY --project <production-project-id>
+  ```
+
+  Attach dated evidence of the selected project ID and secret versions, but
+  never the values.
+- [ ] Deploy the reviewed revision of only
+  `functions:gye-firebase-functions:completeAppleRevocation` first:
+
+  ```text
+  firebase --config firebase.json deploy --only functions:gye-firebase-functions:completeAppleRevocation --project <production-project-id>
+  ```
+
+  Confirm in the deployed function configuration that all four Apple secrets
+  are bound to that callable and are not bound to
+  `account_deletion_worker` or unrelated functions. The scheduled worker
+  deliberately has no authorization code and only resumes after the callable
+  has persisted the safe `appleRevocationComplete` checkpoint.
+- [ ] In a production-equivalent Apple/Firebase staging environment, obtain a
+  fresh transient authorization code through Sign in with Apple
+  reauthentication and invoke the protected callable with valid, limited-use
+  App Check. Record HTTP 200 from both Apple's token exchange and revocation,
+  verify that the operation advances, and confirm retryable provider/network
+  failures retain only
+  `apple-revocation-retryable`. Inspect function, edge, Crashlytics, and alert
+  records to prove that no authorization code, generated five-minute client
+  secret JWT, refresh/access token, private key, request form, response body,
+  header, or raw exception was captured. Source tests do not satisfy this
+  external gate.
+- [ ] Resolve and test the no-token fallback before release. Apple's
+  [account-deletion guidance](https://developer.apple.com/documentation/technotes/tn3194-handling-account-deletions-and-revoking-tokens-for-sign-in-with-apple)
+  says that when no refresh token, access token, or authorization code is
+  available, the service must still delete the account data and direct the
+  user to revoke the Apple authorization manually. The current app retries the
+  protected exchange/revoke flow and has no reviewed manual-fallback state or
+  user handoff; source success for the normal path does not close this gate.
 - [ ] Verify Firebase project IDs, Android/iOS app IDs, signing fingerprints,
   Apple provider setup, OAuth clients, function regions, IAM invoker policy,
   service accounts, quotas, billing, scheduler, and alerting against the

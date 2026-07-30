@@ -96,13 +96,27 @@ const {
   createDeletionCleanupAdapters,
   createLegacyUserDeletionCleanupHandler,
 } = require("./deletion_cleanup_adapters");
+const {
+  createAppleRevocationAdapter,
+} = require("./apple_revocation_adapter");
 
 admin.initializeApp();
 const db = admin.firestore();
 setGlobalOptions({ region: "europe-west3" });
 const deletionProofHmacKey = defineSecret("DELETION_PROOF_HMAC_KEY");
+const appleRevokeClientId = defineSecret("APPLE_REVOKE_CLIENT_ID");
+const appleRevokeTeamId = defineSecret("APPLE_REVOKE_TEAM_ID");
+const appleRevokeKeyId = defineSecret("APPLE_REVOKE_KEY_ID");
+const appleRevokePrivateKey = defineSecret("APPLE_REVOKE_PRIVATE_KEY");
 const keyedDeletionProofDigest = createKeyedDeletionProofDigest({
   getSecret: () => deletionProofHmacKey.value(),
+});
+const revokeAppleAuthorizationCode = createAppleRevocationAdapter({
+  getClientId: () => appleRevokeClientId.value(),
+  getTeamId: () => appleRevokeTeamId.value(),
+  getKeyId: () => appleRevokeKeyId.value(),
+  getPrivateKey: () => appleRevokePrivateKey.value(),
+  fetch: globalThis.fetch,
 });
 
 const accountOperationRepository =
@@ -112,11 +126,7 @@ const accountOperationHandlers = createAccountOperationRuntime({
   hashDeletionProof: (proof) =>
     keyedDeletionProofDigest("proof", proof),
   repository: accountOperationRepository,
-  revokeAppleAuthorizationCode: async () => {
-    const error = new Error("apple-revocation-adapter-unavailable");
-    error.code = "apple/revocation-unavailable";
-    throw error;
-  },
+  revokeAppleAuthorizationCode,
   makeError: (status, safeCode) => new HttpsError(
     status,
     "Account operation request failed.",
@@ -131,6 +141,14 @@ Object.assign(
     optionsByName: {
       issueDeletionProof: {
         secrets: [deletionProofHmacKey],
+      },
+      completeAppleRevocation: {
+        secrets: [
+          appleRevokeClientId,
+          appleRevokeTeamId,
+          appleRevokeKeyId,
+          appleRevokePrivateKey,
+        ],
       },
     },
   }),
