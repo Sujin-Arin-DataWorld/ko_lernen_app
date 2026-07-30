@@ -1041,6 +1041,58 @@ async () => {
   await assertFails(deleteDoc(doc(db, "users", "member")));
 });
 
+test("clients cannot directly delete any server-owned cloud-backup state",
+async () => {
+  await seedUser("member", []);
+  const backupPaths = [
+    ["packs", "a1_body"],
+    ["quests", "daily"],
+    ["bookshelf", "book"],
+    ["custom_packs", "pack"],
+    ["custom_words", "word"],
+    ["sync_generations", "generation", "bookshelf", "record"],
+    ["sync_metadata", "bookshelf_active"],
+    ["sync_metadata", "pack_progress"],
+  ];
+  await environment.withSecurityRulesDisabled(async (context) => {
+    const adminDb = context.firestore();
+    for (const segments of backupPaths) {
+      await setDoc(
+        doc(adminDb, "users", "member", ...segments),
+        { seeded: true },
+      );
+    }
+    await setDoc(
+      doc(adminDb, "cloud_backup_deletions", "member"),
+      {
+        uid: "member",
+        requestDigest: "digest",
+        state: { status: "pending" },
+      },
+    );
+  });
+
+  const db = client("member");
+  for (const segments of backupPaths) {
+    await assertFails(
+      deleteDoc(doc(db, "users", "member", ...segments)),
+    );
+  }
+  await assertFails(
+    getDoc(doc(db, "cloud_backup_deletions", "member")),
+  );
+  await assertFails(
+    setDoc(
+      doc(db, "cloud_backup_deletions", "member"),
+      { state: { status: "completed" } },
+      { merge: true },
+    ),
+  );
+  await assertFails(
+    deleteDoc(doc(db, "cloud_backup_deletions", "member")),
+  );
+});
+
 test("owners can get only their own operation status and cannot write it",
 async () => {
   await environment.withSecurityRulesDisabled(async (context) => {

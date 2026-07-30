@@ -16,6 +16,7 @@ import 'account/account_operation_client.dart';
 import 'account/account_reconciliation.dart';
 import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
+import 'account/cloud_backup_deletion.dart';
 import 'account/cloud_write_session.dart';
 import 'app_startup_coordinator.dart';
 import 'push_service.dart';
@@ -871,6 +872,8 @@ class UserDataDeletionCoordinator {
     'bookshelf',
     'custom_packs',
     'custom_words',
+    'sync_generations',
+    'sync_metadata',
   ];
 
   Future<void> deleteCloudBackup() async {
@@ -878,32 +881,6 @@ class UserDataDeletionCoordinator {
       await store.deleteSubcollection(collectionName);
     }
     await store.removeUserFields(backupFields);
-  }
-}
-
-class _FirestoreUserDataDeletionStore implements UserDataDeletionStore {
-  const _FirestoreUserDataDeletionStore(this.db, this.uid);
-
-  final FirebaseFirestore db;
-  final String uid;
-
-  DocumentReference<Map<String, dynamic>> get _userRef =>
-      db.collection('users').doc(uid);
-
-  @override
-  Future<void> deleteSubcollection(String name) {
-    return AuthService._deleteCollection(_userRef.collection(name));
-  }
-
-  @override
-  Future<void> removeUserFields(Set<String> fields) async {
-    final snapshot = await _userRef.get();
-    if (!snapshot.exists) {
-      return;
-    }
-    await _userRef.update({
-      for (final field in fields) field: FieldValue.delete(),
-    });
   }
 }
 
@@ -1225,26 +1202,37 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
 
 typedef ReplacementJournalReader = Future<AccountTransitionJournal?> Function();
 typedef DeletionJournalReader = Future<AccountDeletionJournal?> Function();
+typedef CloudBackupDeletionJournalReader =
+    Future<CloudBackupDeletionJournal?> Function();
 
 class AccountStartupJournalResolver {
   const AccountStartupJournalResolver({
     required this.sessions,
     required this.readReplacement,
     required this.readDeletion,
+    this.readCloudBackupDeletion,
   });
 
   final CloudWriteSessionController sessions;
   final ReplacementJournalReader readReplacement;
   final DeletionJournalReader readDeletion;
+  final CloudBackupDeletionJournalReader? readCloudBackupDeletion;
 
   Future<AccountStartupRestoration> restore(String? liveUid) async {
     final normalizedUid = liveUid?.trim();
     try {
       final replacement = await readReplacement();
       final deletion = await readDeletion();
+      final cloudBackupDeletion = await readCloudBackupDeletion?.call();
       replacement?.toJson();
       deletion?.toJson();
-      if (replacement != null && deletion != null) {
+      cloudBackupDeletion?.toJson();
+      final journalCount = <Object?>[
+        replacement,
+        deletion,
+        cloudBackupDeletion,
+      ].where((journal) => journal != null).length;
+      if (journalCount > 1) {
         return const AccountStartupRestoration.blocked();
       }
       if (replacement != null) {
@@ -1252,6 +1240,9 @@ class AccountStartupJournalResolver {
       }
       if (deletion != null) {
         return _restoreDeletion(deletion, normalizedUid);
+      }
+      if (cloudBackupDeletion != null) {
+        return _restoreCloudBackupDeletion(cloudBackupDeletion, normalizedUid);
       }
       return const AccountStartupRestoration.none();
     } catch (_) {
@@ -1296,6 +1287,18 @@ class AccountStartupJournalResolver {
     return AccountStartupRestoration.deletion(journal.session);
   }
 
+  AccountStartupRestoration _restoreCloudBackupDeletion(
+    CloudBackupDeletionJournal journal,
+    String? liveUid,
+  ) {
+    if (liveUid == null ||
+        liveUid != journal.session.uid ||
+        !_resumeExact(journal.session, liveUid)) {
+      return const AccountStartupRestoration.blocked();
+    }
+    return AccountStartupRestoration.cloudBackupDeletion(journal.session);
+  }
+
   bool _resumeExact(CloudWriteSession session, String expectedUid) {
     final current = sessions.current;
     if (current == session) return true;
@@ -1314,6 +1317,9 @@ class AuthService {
       Storage.accountDeletionCheckpointPreferenceKey;
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
+  static const CloudBackupDeletionJournalStore
+  _cloudBackupDeletionJournalStore =
+      SharedPreferencesCloudBackupDeletionJournalStore();
 
   static String canonicalizeCompletedDeletionCheckpoint(String encoded) =>
       AccountDeletionJournal.canonicalizeCompleted(encoded);
@@ -1441,14 +1447,6 @@ class AuthService {
     photoUrl: photoUrl,
   );
 
-  static FirebaseFirestore? get _db {
-    try {
-      return FirebaseFirestore.instance;
-    } catch (_) {
-      return null;
-    }
-  }
-
   /// In `main()` aufrufen — sorgt dafür, dass IMMER ein User existiert.
   /// Bricht still ab, wenn Firebase nicht verfügbar ist (Web ohne Config).
   static Future<void> ensureSignedIn() async {
@@ -1518,6 +1516,7 @@ class AuthService {
       sessions: cloudWriteSessionController,
       readReplacement: replacementStore.read,
       readDeletion: _accountDeletionJournalStore.read,
+      readCloudBackupDeletion: _cloudBackupDeletionJournalStore.read,
     ).restore(liveUid);
   }
 
@@ -1616,18 +1615,25 @@ class AuthService {
     }
   }
 
-  /// Delete the signed-in user's Firestore backup document and known
-  /// subcollections. Local data stays untouched.
-  static Future<void> deleteCloudData() async {
-    final uid = current?.uid;
-    final db = _db;
-    if (uid == null || db == null) {
-      throw StateError('Cloud account data is unavailable.');
-    }
-    await UserDataDeletionCoordinator(
-      _FirestoreUserDataDeletionStore(db, uid),
-    ).deleteCloudBackup();
-  }
+  static CloudBackupDeletionCoordinator? _cloudBackupDeletion;
+
+  static CloudBackupDeletionCoordinator get _cloudBackupDeletionCoordinator =>
+      _cloudBackupDeletion ??= CloudBackupDeletionCoordinator(
+        sessions: cloudWriteSessionController,
+        currentUid: () => cloudBackupUid,
+        journalStore: _cloudBackupDeletionJournalStore,
+        gateway: FirebaseCloudBackupDeletionGateway.production(),
+      );
+
+  static ValueListenable<bool> get cloudBackupDeletionPending =>
+      _cloudBackupDeletionCoordinator.pending;
+
+  static Future<bool> refreshCloudBackupDeletionPending() =>
+      _cloudBackupDeletionCoordinator.refreshPending();
+
+  /// Requests bounded server-owned backup removal. Local data stays untouched.
+  static Future<CloudWriteResult> deleteCloudData() =>
+      _cloudBackupDeletionCoordinator.run();
 
   /// Requests server-owned account deletion and polls its authoritative state.
   ///
@@ -1842,19 +1848,4 @@ class AuthService {
 
   static String _sha256(String input) =>
       sha256.convert(utf8.encode(input)).toString();
-
-  static Future<void> _deleteCollection(
-    CollectionReference<Map<String, dynamic>> collection,
-  ) async {
-    while (true) {
-      final snap = await collection.limit(400).get();
-      if (snap.docs.isEmpty) return;
-
-      final batch = collection.firestore.batch();
-      for (final doc in snap.docs) {
-        batch.delete(doc.reference);
-      }
-      await batch.commit();
-    }
-  }
 }

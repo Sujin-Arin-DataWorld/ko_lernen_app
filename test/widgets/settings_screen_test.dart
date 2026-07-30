@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -167,6 +168,115 @@ void main() {
       find.text('Cloud-Daten konnten nicht gelöscht werden.'),
       findsOneWidget,
     );
+  });
+
+  testWidgets('cloud-data deletion reports success only when completed', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletion: () async => CloudWriteResult.blocked,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final delete = find.text('Cloud-Daten l\u00f6schen');
+    await tester.scrollUntilVisible(
+      delete,
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(delete);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('L\u00f6schen').last);
+    await tester.pump();
+
+    expect(find.text('Cloud-Daten wurden gel\u00f6scht.'), findsNothing);
+    expect(
+      find.text('Cloud-Daten konnten nicht gel\u00f6scht werden.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('pending cloud deletion locks backup restore sign-out and link', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final pending = ValueNotifier<bool>(true);
+    addTearDown(pending.dispose);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletion: () async => CloudWriteResult.blocked,
+          cloudDataDeletionPending: pending,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    for (final label in [
+      'Jetzt sichern',
+      'Von Cloud wiederherstellen',
+      'Abmelden',
+      'Alle Daten zurücksetzen',
+    ]) {
+      await tester.scrollUntilVisible(
+        find.text(label),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final tile = tester.widget<ListTile>(
+        find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+      );
+      expect(tile.onTap, isNull, reason: label);
+    }
+
+    final retryLabel = find.text('Cloud-Daten l\u00f6schen');
+    await tester.scrollUntilVisible(
+      retryLabel,
+      -200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    final retryDelete = tester.widget<ListTile>(
+      find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
+    );
+    expect(retryDelete.onTap, isNotNull);
+
+    final accountDeleteLabel = find.text('Konto und alle Daten l\u00f6schen');
+    await tester.scrollUntilVisible(
+      accountDeleteLabel,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    final accountDelete = tester.widget<ListTile>(
+      find.ancestor(of: accountDeleteLabel, matching: find.byType(ListTile)),
+    );
+    expect(accountDelete.onTap, isNull);
   });
 
   testWidgets('retry after local cleanup failure never deletes a new account', (

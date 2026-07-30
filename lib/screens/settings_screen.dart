@@ -23,6 +23,7 @@ import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
+import '../services/account/cloud_write_session.dart';
 import 'app_shell.dart';
 import '../services/book_analysis_service.dart';
 import '../services/cloud_sync.dart';
@@ -244,13 +245,15 @@ class SettingsScreen extends StatefulWidget {
     this.subscriptionManager,
     this.accountOperations,
     this.cloudDataDeletion,
+    this.cloudDataDeletionPending,
   });
 
   final AuthAccountSnapshot? account;
   final AccountDeletionWorkflow? accountDeletionWorkflow;
   final SubscriptionManagementLauncher? subscriptionManager;
   final AccountUiOperations? accountOperations;
-  final Future<void> Function()? cloudDataDeletion;
+  final Future<CloudWriteResult> Function()? cloudDataDeletion;
+  final ValueListenable<bool>? cloudDataDeletionPending;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -270,6 +273,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
 
+  ValueListenable<bool> get _cloudDataDeletionPending =>
+      widget.cloudDataDeletionPending ?? AuthService.cloudBackupDeletionPending;
+
   SubscriptionManagementLauncher get _subscriptionManager =>
       widget.subscriptionManager ??
       SubscriptionManagementLauncher(
@@ -284,6 +290,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.initState();
     _ttsRate = Storage.ttsRate;
     _endpointCtrl = TextEditingController(text: Storage.bookAnalysisEndpoint);
+    if (widget.cloudDataDeletionPending == null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await AuthService.refreshCloudBackupDeletionPending();
+      });
+    }
   }
 
   @override
@@ -643,28 +654,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
             ),
             if (!providers.isDurable)
-              AccountNewLinkGuard(
-                operations: _accountOperations,
-                builder: (context, linkAvailable) => Column(
-                  children: [
-                    ListTile(
-                      leading: const Icon(
-                        Icons.cloud_outlined,
-                        color: SoriColors.primary,
-                      ),
-                      title: Text(t.settingsCloudSignInPrompt),
-                      subtitle: Text(t.settingsCloudSignInDesc),
-                      onTap: linkAvailable ? _onGoogleTap : null,
+              ValueListenableBuilder<bool>(
+                valueListenable: _cloudDataDeletionPending,
+                builder: (context, cloudDeletionPending, _) {
+                  return AccountNewLinkGuard(
+                    operations: _accountOperations,
+                    builder: (context, linkAvailable) => Column(
+                      children: [
+                        ListTile(
+                          leading: const Icon(
+                            Icons.cloud_outlined,
+                            color: SoriColors.primary,
+                          ),
+                          title: Text(t.settingsCloudSignInPrompt),
+                          subtitle: Text(t.settingsCloudSignInDesc),
+                          onTap: linkAvailable && !cloudDeletionPending
+                              ? _onGoogleTap
+                              : null,
+                        ),
+                        if (AuthService.appleSignInAvailable)
+                          ListTile(
+                            leading: const Icon(Icons.apple),
+                            title: Text(t.authAppleSignIn),
+                            subtitle: Text(t.settingsCloudSignInDesc),
+                            onTap: linkAvailable && !cloudDeletionPending
+                                ? _onAppleTap
+                                : null,
+                          ),
+                      ],
                     ),
-                    if (AuthService.appleSignInAvailable)
-                      ListTile(
-                        leading: const Icon(Icons.apple),
-                        title: Text(t.authAppleSignIn),
-                        subtitle: Text(t.settingsCloudSignInDesc),
-                        onTap: linkAvailable ? _onAppleTap : null,
-                      ),
-                  ],
-                ),
+                  );
+                },
               ),
             if (providers.isDurable) ...[
               ListTile(
@@ -679,20 +699,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 subtitle: Text(t.settingsCloudSignedInDesc),
               ),
-              ListTile(
-                leading: const Icon(Icons.cloud_upload_outlined),
-                title: Text(t.settingsCloudBackupNow),
-                onTap: _onBackupTap,
+              ValueListenableBuilder<bool>(
+                valueListenable: _cloudDataDeletionPending,
+                builder: (context, cloudDeletionPending, _) => ListTile(
+                  leading: const Icon(Icons.cloud_upload_outlined),
+                  title: Text(t.settingsCloudBackupNow),
+                  onTap: cloudDeletionPending ? null : _onBackupTap,
+                ),
               ),
-              ListTile(
-                leading: const Icon(Icons.cloud_download_outlined),
-                title: Text(t.settingsCloudRestore),
-                onTap: _onRestoreTap,
+              ValueListenableBuilder<bool>(
+                valueListenable: _cloudDataDeletionPending,
+                builder: (context, cloudDeletionPending, _) => ListTile(
+                  leading: const Icon(Icons.cloud_download_outlined),
+                  title: Text(t.settingsCloudRestore),
+                  onTap: cloudDeletionPending ? null : _onRestoreTap,
+                ),
               ),
-              ListTile(
-                leading: const Icon(Icons.logout_rounded),
-                title: Text(t.profileSignOut),
-                onTap: _onSignOutTap,
+              ValueListenableBuilder<bool>(
+                valueListenable: _cloudDataDeletionPending,
+                builder: (context, cloudDeletionPending, _) => ListTile(
+                  leading: const Icon(Icons.logout_rounded),
+                  title: Text(t.profileSignOut),
+                  onTap: cloudDeletionPending ? null : _onSignOutTap,
+                ),
               ),
               ListTile(
                 leading: const Icon(
@@ -704,6 +733,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   style: const TextStyle(color: SoriColors.danger),
                 ),
                 subtitle: Text(t.settingsCloudDeleteDataDesc),
+                // This remains enabled only to resume the exact persisted
+                // server request.
                 onTap: _confirmCloudDelete,
               ),
             ],
@@ -804,28 +835,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
             // ── Reset ──
             _Section(label: ''),
-            ListTile(
-              leading: const Icon(
-                Icons.delete_outline,
-                color: SoriColors.danger,
+            ValueListenableBuilder<bool>(
+              valueListenable: _cloudDataDeletionPending,
+              builder: (context, cloudDeletionPending, _) => ListTile(
+                leading: const Icon(
+                  Icons.delete_outline,
+                  color: SoriColors.danger,
+                ),
+                title: Text(
+                  t.settingsReset,
+                  style: const TextStyle(color: SoriColors.danger),
+                ),
+                onTap: cloudDeletionPending ? null : _confirmReset,
               ),
-              title: Text(
-                t.settingsReset,
-                style: const TextStyle(color: SoriColors.danger),
-              ),
-              onTap: _confirmReset,
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.person_remove_outlined,
-                color: SoriColors.danger,
+            ValueListenableBuilder<bool>(
+              valueListenable: _cloudDataDeletionPending,
+              builder: (context, cloudDeletionPending, _) => ListTile(
+                leading: const Icon(
+                  Icons.person_remove_outlined,
+                  color: SoriColors.danger,
+                ),
+                title: Text(
+                  t.settingsAccountDelete,
+                  style: const TextStyle(color: SoriColors.danger),
+                ),
+                subtitle: Text(t.settingsAccountDeleteDesc),
+                onTap: cloudDeletionPending ? null : _confirmAccountDelete,
               ),
-              title: Text(
-                t.settingsAccountDelete,
-                style: const TextStyle(color: SoriColors.danger),
-              ),
-              subtitle: Text(t.settingsAccountDeleteDesc),
-              onTap: _confirmAccountDelete,
             ),
 
             // ── DEBUG: Premium-Override (nur im Debug-Build sichtbar) ──
@@ -1173,8 +1210,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppL10n.of(context);
     final messenger = ScaffoldMessenger.of(context);
     try {
-      await (widget.cloudDataDeletion ?? AuthService.deleteCloudData)();
+      final result =
+          await (widget.cloudDataDeletion ?? AuthService.deleteCloudData)();
       if (!mounted) return;
+      if (result != CloudWriteResult.completed) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(t.settingsCloudDeleteDataFailed)),
+        );
+        return;
+      }
       HapticFeedback.heavyImpact();
       messenger.showSnackBar(
         SnackBar(

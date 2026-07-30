@@ -13,6 +13,7 @@ enum AccountStartupRestorationKind {
   none,
   replacement,
   deletion,
+  cloudBackupDeletion,
   localCleanupPending,
   blocked,
 }
@@ -27,6 +28,9 @@ class AccountStartupRestoration {
 
   const AccountStartupRestoration.deletion(this.session)
     : kind = AccountStartupRestorationKind.deletion;
+
+  const AccountStartupRestoration.cloudBackupDeletion(this.session)
+    : kind = AccountStartupRestorationKind.cloudBackupDeletion;
 
   const AccountStartupRestoration.localCleanupPending()
     : kind = AccountStartupRestorationKind.localCleanupPending,
@@ -85,6 +89,7 @@ class AppStartupCoordinator {
       final restoration = await restore(currentUserId()?.trim());
       switch (restoration.kind) {
         case AccountStartupRestorationKind.replacement:
+        case AccountStartupRestorationKind.cloudBackupDeletion:
         case AccountStartupRestorationKind.localCleanupPending:
         case AccountStartupRestorationKind.blocked:
           return true;

@@ -9,6 +9,7 @@ import '../vocab_pack_service.dart';
 import 'account_operation_client.dart';
 import 'account_transition_coordinator.dart';
 import 'account_transition_journal.dart';
+import 'cloud_backup_deletion.dart';
 import 'cloud_write_session.dart';
 
 sealed class AccountUiLinkResult {
@@ -82,7 +83,11 @@ class ProductionAccountUiOperations
             preferences,
           ).read();
       final deletion = await AuthService.readAccountDeletionCheckpoint();
-      if (replacement != null && deletion != null) {
+      final cloudBackupDeletion =
+          await const SharedPreferencesCloudBackupDeletionJournalStore().read();
+      if (cloudBackupDeletion != null) {
+        next = AccountUiPendingState.blocked;
+      } else if (replacement != null && deletion != null) {
         next = AccountUiPendingState.blocked;
       } else if (deletion != null) {
         next = deletion.operation?.phase == AccountOperationPhase.completed

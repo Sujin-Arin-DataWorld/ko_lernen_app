@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/app_startup_coordinator.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -119,6 +120,33 @@ void main() {
     expect(restored.session, journal.session);
     expect(sessions.current, journal.session);
   });
+
+  test(
+    'pending cloud backup deletion restores its exact cleanup fence',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final journal = CloudBackupDeletionJournal.pending(
+        session: const CloudWriteSession(
+          uid: 'durable-source',
+          epoch: 9,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'Q' * 43,
+      );
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        readReplacement: () async => null,
+        readDeletion: () async => null,
+        readCloudBackupDeletion: () async => journal,
+      );
+
+      final restored = await resolver.restore('durable-source');
+
+      expect(restored.kind, AccountStartupRestorationKind.cloudBackupDeletion);
+      expect(restored.session, journal.session);
+      expect(sessions.current, journal.session);
+    },
+  );
 }
 
 AccountTransitionJournal _replacementJournal({

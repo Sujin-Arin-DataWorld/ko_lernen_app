@@ -29,6 +29,7 @@
  */
 
 const admin = require("firebase-admin");
+const { randomBytes } = require("node:crypto");
 const { v1: { FirestoreClient } } = require("@google-cloud/firestore");
 const functionsLogger = require("firebase-functions/logger");
 const { defineSecret } = require("firebase-functions/params");
@@ -99,6 +100,12 @@ const {
 const {
   createAppleRevocationAdapter,
 } = require("./apple_revocation_adapter");
+const {
+  createCloudBackupDeletionCallable,
+  createCloudBackupDeletionRuntime,
+  createFirestoreCloudBackupDeletionRepository,
+  createFirestoreCloudBackupStore,
+} = require("./cloud_backup_deletion_runtime");
 
 admin.initializeApp();
 const db = admin.firestore();
@@ -175,18 +182,45 @@ exports.requestDeletionByProof = createDeletionProofHttpEndpoint({
 
 const accountDeletionPageSize = 20;
 const firestoreCollectionIdClient = new FirestoreClient();
+const listCollectionIdsPage = createGapicCollectionIdPager({
+  firestore: db,
+  client: firestoreCollectionIdClient,
+});
+const listDocumentsPage = createGapicDocumentPager({
+  firestore: db,
+  client: firestoreCollectionIdClient,
+});
 const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
   firestore: db,
   markerCollection: db.collection("account_deletions"),
-  listCollectionIdsPage: createGapicCollectionIdPager({
-    firestore: db,
-    client: firestoreCollectionIdClient,
-  }),
-  listDocumentsPage: createGapicDocumentPager({
-    firestore: db,
-    client: firestoreCollectionIdClient,
-  }),
+  listCollectionIdsPage,
+  listDocumentsPage,
   pageSize: accountDeletionPageSize,
+});
+const cloudBackupDeletionRepository =
+  createFirestoreCloudBackupDeletionRepository({ firestore: db });
+const cloudBackupDeletionStore = createFirestoreCloudBackupStore({
+  firestore: db,
+  fieldValue: admin.firestore.FieldValue,
+  listCollectionIdsPage,
+  listDocumentsPage,
+});
+const cloudBackupDeletionHandlers = createCloudBackupDeletionRuntime({
+  repository: cloudBackupDeletionRepository,
+  store: cloudBackupDeletionStore,
+  hashRequestKey: ({ uid, requestKey }) =>
+    keyedDeletionProofDigest("cloud-backup", `${uid}\0${requestKey}`),
+  newInvocationId: () => randomBytes(16).toString("base64url"),
+  makeError: (status, safeCode) => new HttpsError(
+    status,
+    "Cloud backup deletion request failed.",
+    { code: safeCode },
+  ),
+});
+exports.deleteCloudBackup = createCloudBackupDeletionCallable({
+  handler: cloudBackupDeletionHandlers.deleteCloudBackup,
+  onCall,
+  secrets: [deletionProofHmacKey],
 });
 const deletionCleanupAdapters = createDeletionCleanupAdapters({
   firestore: db,

@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 
@@ -42,7 +43,12 @@ void main() {
     },
   );
 
-  for (final pending in <String>['replacement', 'activation', 'deletion']) {
+  for (final pending in <String>[
+    'replacement',
+    'activation',
+    'deletion',
+    'cloud-backup-deletion',
+  ]) {
     test('persisted $pending blocks provider OAuth before linker', () async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final preferences = await SharedPreferences.getInstance();
@@ -50,6 +56,20 @@ void main() {
         await preferences.setString(
           AuthService.accountDeletionCheckpointPreferenceKey,
           jsonEncode(_completedDeletion().toJson()),
+        );
+      } else if (pending == 'cloud-backup-deletion') {
+        await preferences.setString(
+          CloudBackupDeletionJournal.storageKey,
+          jsonEncode(
+            CloudBackupDeletionJournal.pending(
+              session: const CloudWriteSession(
+                uid: 'durable-source',
+                epoch: 6,
+                mode: CloudWriteMode.cleanupPending,
+              ),
+              requestKey: 'Z' * 43,
+            ).toJson(),
+          ),
         );
       } else {
         await SharedPreferencesReplacementTransitionJournalStore(
