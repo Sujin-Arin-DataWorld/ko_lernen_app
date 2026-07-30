@@ -72,6 +72,7 @@ typedef FirestorePackCasWriter =
       required Iterable<PackProgress> progresses,
       required Map<String, int?> expectedRevisions,
       required int? expectedMembershipRevision,
+      required Set<String> expectedMembershipPackIds,
       required String operationId,
       required CloudWriteSession session,
       required CloudWriteSessionController sessions,
@@ -164,6 +165,13 @@ class FirestoreProgressService {
     if (!_sameMembershipReads(membershipBefore, membership)) {
       return const CloudReadResult.unavailable();
     }
+    if (membership.state == CloudReadState.present &&
+        !_sameIds(
+          membership.value!.packIds,
+          documents.map((document) => document.id).toSet(),
+        )) {
+      return const CloudReadResult.invalid();
+    }
     if (documents.isEmpty) {
       if (membership.state != CloudReadState.present) {
         return switch (membership.state) {
@@ -238,11 +246,19 @@ class FirestoreProgressService {
     } on StateError {
       return Future.value(const FirestorePackCasResult.revisionConflict());
     }
+    final values = progresses.toList();
+    final targetIds = values.map((progress) => progress.packId).toSet();
+    final expectedMembershipPackIds = expectedRevisions.keys.toSet();
+    if (targetIds.length != values.length ||
+        !targetIds.containsAll(expectedMembershipPackIds)) {
+      return Future.value(const FirestorePackCasResult.revisionConflict());
+    }
     return (writer ?? _writeFirestorePacks)(
       uid: uid,
-      progresses: progresses,
+      progresses: values,
       expectedRevisions: expectedRevisions,
       expectedMembershipRevision: expectedMembershipRevision,
+      expectedMembershipPackIds: expectedMembershipPackIds,
       operationId: operationId,
       session: session,
       sessions: sessions,
@@ -334,6 +350,7 @@ class FirestoreProgressService {
     required Iterable<PackProgress> progresses,
     required Map<String, int?> expectedRevisions,
     required int? expectedMembershipRevision,
+    required Set<String> expectedMembershipPackIds,
     required String operationId,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
@@ -381,6 +398,13 @@ class FirestoreProgressService {
           : null;
       if (currentMembershipRevision != expectedMembershipRevision) {
         return const FirestorePackCasResult.revisionConflict();
+      }
+      if (membershipSnapshot.exists) {
+        final currentMembershipPackIds = _manifestIds(membershipData);
+        if (currentMembershipPackIds == null ||
+            !_sameIds(currentMembershipPackIds, expectedMembershipPackIds)) {
+          return const FirestorePackCasResult.revisionConflict();
+        }
       }
       final revisions = <String, int>{};
       for (final progress in values) {
@@ -667,7 +691,9 @@ class FirestoreProgressService {
   static bool _sameMembership(
     FirestorePackMembership? left,
     FirestorePackMembership? right,
-  ) => left?.revision == right?.revision;
+  ) =>
+      left?.revision == right?.revision &&
+      (left == null || right == null || _sameIds(left.packIds, right.packIds));
 
   static bool _sameMembershipReads(
     CloudReadResult<FirestorePackMembership> left,

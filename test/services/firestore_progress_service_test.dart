@@ -136,6 +136,45 @@ void main() {
         expect(membershipReads, 2);
       },
     );
+
+    for (final fixture in [
+      (
+        name: 'missing manifest document',
+        manifestIds: const {'pack-a', 'pack-b'},
+        documentIds: const ['pack-a'],
+      ),
+      (
+        name: 'unexpected query document',
+        manifestIds: const {'pack-a'},
+        documentIds: const ['pack-a', 'pack-b'],
+      ),
+    ]) {
+      test('rejects a stable manifest with ${fixture.name}', () async {
+        final result = await FirestoreProgressService.loadAllTyped(
+          uid: 'uid-a',
+          reader: (_) async => [
+            for (final id in fixture.documentIds)
+              FirestorePackDocument(
+                id: id,
+                data: {
+                  ...PackProgress.fresh(
+                    packId: id,
+                    level: 'A1',
+                    wordsTotal: 10,
+                  ).toJson(),
+                  'sync_revision': 2,
+                },
+              ),
+          ],
+          membershipReader: (_) async => FirestorePackMembership(
+            revision: 4,
+            packIds: fixture.manifestIds,
+          ),
+        );
+
+        expect(result.state, CloudReadState.invalid);
+      });
+    }
   });
 
   group('FirestoreProgressService.loadPackTyped', () {
@@ -182,6 +221,7 @@ void main() {
               required progresses,
               required expectedRevisions,
               required expectedMembershipRevision,
+              required expectedMembershipPackIds,
               required operationId,
               required session,
               required sessions,
@@ -189,6 +229,7 @@ void main() {
               writes += 1;
               expect(expectedRevisions, {'pack-a': 2});
               expect(expectedMembershipRevision, 7);
+              expect(expectedMembershipPackIds, {'pack-a'});
               expect(operationId, 'operation-1');
               return const FirestorePackCasResult.committed({'pack-a': 3});
             },
@@ -252,6 +293,7 @@ void main() {
               required progresses,
               required expectedRevisions,
               required expectedMembershipRevision,
+              required expectedMembershipPackIds,
               required operationId,
               required session,
               required sessions,
@@ -267,6 +309,44 @@ void main() {
       expect(result.status, FirestorePackCasStatus.revisionConflict);
       expect(committedWrites, 0);
       expect(remote.keys, containsAll(<String>['pack-a', 'pack-b']));
+    },
+  );
+
+  test(
+    'pack CAS cannot replace a complete manifest with an incomplete set',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      var writes = 0;
+
+      final result = await FirestoreProgressService.saveManyReconciled(
+        uid: 'uid-a',
+        progresses: [
+          PackProgress.fresh(packId: 'pack-a', level: 'A1', wordsTotal: 10),
+        ],
+        expectedRevisions: const {'pack-a': 2, 'pack-b': 3},
+        expectedMembershipRevision: 7,
+        operationId: 'operation-1',
+        session: session,
+        sessions: sessions,
+        writer:
+            ({
+              required uid,
+              required progresses,
+              required expectedRevisions,
+              required expectedMembershipRevision,
+              required expectedMembershipPackIds,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              writes += 1;
+              return const FirestorePackCasResult.committed({'pack-a': 3});
+            },
+      );
+
+      expect(result.status, FirestorePackCasStatus.revisionConflict);
+      expect(writes, 0);
     },
   );
 }

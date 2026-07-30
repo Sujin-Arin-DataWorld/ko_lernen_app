@@ -98,6 +98,27 @@ All four failures were observed against the preceding production code before
 the composite generation, effect-point session fence, and deletion-aware retry
 changes.
 
+The final safety re-review then added six exact RED cases:
+
+- deleting a local custom pack during the first paused attempt was blocked, but
+  reconstructing the coordinator from the same journal completed and
+  resurrected the deleted pack because the deletion base set was only in
+  memory;
+- the v1 journal did not persist the reconciliation local custom-pack base ID
+  set and did not reject oversized or duplicate sets;
+- a stable manifest whose `pack_ids` named a missing query document was
+  accepted;
+- a stable manifest with an unexpected query document was accepted;
+- a reconciliation CAS could replace a complete manifest with an incomplete
+  target set; and
+- when the merged snapshot initially equaled remote, a remote mutation after
+  that read but before local persistence caused zero remote validations and
+  stale local data to be written.
+
+Each failure was observed against the prior production implementation before
+the durable journal guard, exact manifest membership validation, and
+always-CAS-before-local-effect changes.
+
 ## GREEN and verification
 
 Final focused Task 8 command:
@@ -106,7 +127,7 @@ Final focused Task 8 command:
 flutter test test/services/account/account_reconciliation_test.dart test/services/account/account_transition_journal_test.dart test/services/cloud_sync_service_test.dart test/services/firestore_progress_service_test.dart test/services/pack_progress_service_test.dart --reporter compact
 ```
 
-Result: 54/54 passed.
+Result: 60/60 passed.
 
 Relevant service and legacy commands:
 
@@ -115,7 +136,7 @@ flutter test test/services --reporter compact
 flutter test test/custom_pack_test.dart test/media_lifecycle_test.dart test/cloud_sync_test.dart test/services/account/concrete_cloud_writer_race_test.dart test/services/account/cloud_writer_fence_test.dart --reporter compact
 ```
 
-Results: 137/137 service tests and 91/91 related legacy/race tests passed.
+Results: 143/143 service tests and 91/91 related legacy/race tests passed.
 
 Full Flutter command:
 
@@ -123,21 +144,21 @@ Full Flutter command:
 flutter test --reporter compact
 ```
 
-Result: 885/885 passed, zero failures, exit 0 in 54.6 seconds on the final
-data-safety follow-up gate (about 50 seconds of Flutter test-clock time).
+Result: 891/891 passed, zero failures, exit 0 in 49.5 seconds on the final
+safety re-review gate (about 45 seconds of Flutter test-clock time).
 
 Static and hygiene commands:
 
 ```text
 flutter analyze
-dart format --set-exit-if-changed <4 data-safety follow-up Dart files>
+dart format --set-exit-if-changed <6 safety re-review Dart files>
 git diff --check
 ```
 
 Results:
 
 - `flutter analyze`: no issues found.
-- Dart format: 4 follow-up files checked, 0 changed.
+- Dart format: 6 follow-up files checked, 0 changed.
 - `git diff --check`: clean; only informational LF-to-CRLF worktree warnings
   were emitted.
 
@@ -169,16 +190,21 @@ Results:
   generation in one transaction. A generation conflict re-reads and re-merges,
   including a newly created pack, before another write.
 - The manifest generation is the authoritative complete-membership guard.
-  Its sorted `pack_ids` list supports operation idempotency and becomes complete
-  on reconciliation; it is deliberately not used to reject legacy pack
-  documents before that bootstrap.
+  When the manifest exists, typed query reads require its exact `pack_ids` set
+  to equal the queried document IDs. Reconciliation CAS carries the exact
+  expected set into the transaction, revalidates it before writes, and rejects
+  duplicate or incomplete targets so a complete manifest cannot be replaced
+  by an incomplete set. The absent-manifest path remains deliberately
+  bootstrap-compatible with legacy pack documents.
 - The operation ID is the idempotency identity. Root idempotency also binds a
   canonical payload hash; pack idempotency verifies the stored progress
   payload before accepting a repeated operation.
 - The v1 transition journal remains backward-compatible. Its strict serializer
-  now optionally emits only bounded operation ID, checkpoint, and nonnegative
-  remote revision metadata. Unknown credential/proof/token fields are ignored
-  and never re-emitted.
+  now optionally emits only bounded operation ID, checkpoint, nonnegative
+  remote revision metadata, and a sorted reconciliation local custom-pack base
+  ID set. That set is limited to 512 unique nonempty IDs, 256 UTF-8 bytes per
+  ID, and 64 KiB total encoded size. Unknown credential/proof/token fields are
+  ignored and never re-emitted.
 - A concrete SharedPreferences journal store persists checkpoints. Concrete
   local reconciliation uses strict preference writes for SRS, custom packs,
   and all pack progress.
@@ -197,10 +223,17 @@ Results:
   revalidates it immediately before mutation. A session change while the
   writer is delayed returns typed `stale` without persisting the old merge.
   No remote/network await occurs while `MediaMutationLock` is held.
-- Retry state remembers the prior local custom-pack ID set. If a previously
-  observed local ID disappears, reconciliation returns a sorted
-  `customPackId` conflict before union merge, so a remote copy created by the
-  first attempt cannot resurrect the local deletion.
+- Before merge or any remote write, reconciliation durably journals the initial
+  local custom-pack ID base set and unions newly observed local IDs into it.
+  If a previously observed local ID disappears, reconciliation returns a
+  sorted `customPackId` conflict before union merge. The guard therefore
+  survives coordinator reconstruction or process restart and a remote copy
+  created by an earlier attempt cannot resurrect the local deletion.
+- Every path that needs a local effect first performs the existing root and
+  pack remote CAS linearization, even when the initial merged snapshot equals
+  remote. A conflict re-reads and re-merges before local persistence, so a
+  remote mutation in that window cannot cause a stale local write. No
+  remote/network await was added under `MediaMutationLock`.
 - Ordinary field values are canonicalized before merge/hash/write: integral
   doubles become integers, ISO instants become UTC, nested map insertion order
   is stable, and mixed-type list unions use a type-tagged total ordering.

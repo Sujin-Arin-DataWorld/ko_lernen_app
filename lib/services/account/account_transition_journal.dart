@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 
 import 'cloud_write_session.dart';
@@ -19,21 +21,27 @@ class AccountTransitionJournal {
     this.reconciliationOperationId,
     this.reconciliationCheckpoint,
     this.remoteRevision,
+    this.reconciliationLocalCustomPackBaseIds,
   });
 
   static const currentVersion = 1;
+  static const maxLocalCustomPackBaseIds = 512;
+  static const maxLocalCustomPackBaseIdBytes = 256;
+  static const maxLocalCustomPackBaseIdsBytes = 64 * 1024;
 
   final int version;
   final CloudWriteSession session;
   final String? reconciliationOperationId;
   final ReconciliationCheckpoint? reconciliationCheckpoint;
   final int? remoteRevision;
+  final Set<String>? reconciliationLocalCustomPackBaseIds;
 
   factory AccountTransitionJournal.fromSession(
     CloudWriteSession session, {
     String? reconciliationOperationId,
     ReconciliationCheckpoint? reconciliationCheckpoint,
     int? remoteRevision,
+    Set<String>? reconciliationLocalCustomPackBaseIds,
   }) {
     return AccountTransitionJournal(
       version: currentVersion,
@@ -41,6 +49,12 @@ class AccountTransitionJournal {
       reconciliationOperationId: reconciliationOperationId,
       reconciliationCheckpoint: reconciliationCheckpoint,
       remoteRevision: remoteRevision,
+      reconciliationLocalCustomPackBaseIds:
+          reconciliationLocalCustomPackBaseIds == null
+          ? null
+          : _parseLocalCustomPackBaseIds(
+              reconciliationLocalCustomPackBaseIds.toList(),
+            ),
     );
   }
 
@@ -52,6 +66,9 @@ class AccountTransitionJournal {
     final operationId = json['reconciliationOperationId'];
     final checkpoint = json['reconciliationCheckpoint'];
     final remoteRevision = json['remoteRevision'];
+    final localCustomPackBaseIds = _parseLocalCustomPackBaseIds(
+      json['reconciliationLocalCustomPackBaseIds'],
+    );
     if (version is! int || version != currentVersion) {
       throw FormatException('Unsupported account transition journal version.');
     }
@@ -104,13 +121,18 @@ class AccountTransitionJournal {
       reconciliationOperationId: operationId as String?,
       reconciliationCheckpoint: parsedCheckpoint,
       remoteRevision: remoteRevision as int?,
+      reconciliationLocalCustomPackBaseIds: localCustomPackBaseIds,
     );
   }
 
   AccountTransitionJournal copyWith({
     ReconciliationCheckpoint? reconciliationCheckpoint,
     int? remoteRevision,
+    Set<String>? reconciliationLocalCustomPackBaseIds,
   }) {
+    final selectedLocalCustomPackBaseIds =
+        reconciliationLocalCustomPackBaseIds ??
+        this.reconciliationLocalCustomPackBaseIds;
     return AccountTransitionJournal(
       version: version,
       session: session,
@@ -118,6 +140,12 @@ class AccountTransitionJournal {
       reconciliationCheckpoint:
           reconciliationCheckpoint ?? this.reconciliationCheckpoint,
       remoteRevision: remoteRevision ?? this.remoteRevision,
+      reconciliationLocalCustomPackBaseIds:
+          selectedLocalCustomPackBaseIds == null
+          ? null
+          : _parseLocalCustomPackBaseIds(
+              selectedLocalCustomPackBaseIds.toList(),
+            ),
     );
   }
 
@@ -132,6 +160,7 @@ class AccountTransitionJournal {
     final operationId = reconciliationOperationId;
     final checkpoint = reconciliationCheckpoint;
     final revision = remoteRevision;
+    final localCustomPackBaseIds = reconciliationLocalCustomPackBaseIds;
     if (operationId != null) {
       json['reconciliationOperationId'] = operationId;
     }
@@ -141,7 +170,48 @@ class AccountTransitionJournal {
     if (revision != null) {
       json['remoteRevision'] = revision;
     }
+    if (localCustomPackBaseIds != null) {
+      final validated = _parseLocalCustomPackBaseIds(
+        localCustomPackBaseIds.toList(),
+      )!;
+      json['reconciliationLocalCustomPackBaseIds'] = validated.toList()..sort();
+    }
     return json;
+  }
+
+  static Set<String>? _parseLocalCustomPackBaseIds(Object? value) {
+    if (value == null) return null;
+    if (value is! List || value.length > maxLocalCustomPackBaseIds) {
+      throw FormatException(
+        'Account transition journal has invalid custom-pack base IDs.',
+      );
+    }
+    var totalBytes = 0;
+    final ids = <String>{};
+    for (final item in value) {
+      if (item is! String || item.trim().isEmpty) {
+        throw FormatException(
+          'Account transition journal has invalid custom-pack base IDs.',
+        );
+      }
+      final bytes = utf8.encode(item).length;
+      totalBytes += bytes;
+      if (bytes > maxLocalCustomPackBaseIdBytes ||
+          totalBytes > maxLocalCustomPackBaseIdsBytes ||
+          !ids.add(item)) {
+        throw FormatException(
+          'Account transition journal has invalid custom-pack base IDs.',
+        );
+      }
+    }
+    final sorted = ids.toList()..sort();
+    if (utf8.encode(jsonEncode(sorted)).length >
+        maxLocalCustomPackBaseIdsBytes) {
+      throw FormatException(
+        'Account transition journal has invalid custom-pack base IDs.',
+      );
+    }
+    return Set.unmodifiable(ids);
   }
 
   static bool _validOperationId(String value) =>

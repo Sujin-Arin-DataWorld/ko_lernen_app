@@ -646,7 +646,6 @@ class AccountReconciliationCoordinator {
       );
     }
 
-    Set<String>? previousLocalCustomPackIds;
     for (var attempt = 0; attempt < maxCasAttempts; attempt += 1) {
       if (!_isCurrent(session)) {
         return const AccountReconciliationResult(
@@ -695,11 +694,24 @@ class AccountReconciliationCoordinator {
         );
       }
       final currentLocalCustomPackIds = local.customPacks.keys.toSet();
-      final deletedLocalCustomPackIds = previousLocalCustomPackIds?.difference(
+      var localCustomPackBaseIds = journal.reconciliationLocalCustomPackBaseIds;
+      if (localCustomPackBaseIds == null) {
+        localCustomPackBaseIds = currentLocalCustomPackIds;
+        try {
+          journal = journal.copyWith(
+            reconciliationLocalCustomPackBaseIds: localCustomPackBaseIds,
+          );
+          await _writeJournal(journal, session);
+        } catch (_) {
+          return const AccountReconciliationResult(
+            AccountReconciliationStatus.unavailable,
+          );
+        }
+      }
+      final deletedLocalCustomPackIds = localCustomPackBaseIds.difference(
         currentLocalCustomPackIds,
       );
-      if (deletedLocalCustomPackIds != null &&
-          deletedLocalCustomPackIds.isNotEmpty) {
+      if (deletedLocalCustomPackIds.isNotEmpty) {
         final conflicts =
             deletedLocalCustomPackIds
                 .map(
@@ -715,7 +727,22 @@ class AccountReconciliationCoordinator {
           conflicts: conflicts,
         );
       }
-      previousLocalCustomPackIds = currentLocalCustomPackIds;
+      if (!localCustomPackBaseIds.containsAll(currentLocalCustomPackIds)) {
+        localCustomPackBaseIds = {
+          ...localCustomPackBaseIds,
+          ...currentLocalCustomPackIds,
+        };
+        try {
+          journal = journal.copyWith(
+            reconciliationLocalCustomPackBaseIds: localCustomPackBaseIds,
+          );
+          await _writeJournal(journal, session);
+        } catch (_) {
+          return const AccountReconciliationResult(
+            AccountReconciliationStatus.unavailable,
+          );
+        }
+      }
       final merge = AccountReconciliationMerger.merge(
         local: local,
         remote: remote,
@@ -740,7 +767,8 @@ class AccountReconciliationCoordinator {
         );
       }
 
-      if (merged != remote) {
+      final needsLocalWrite = merged != local;
+      if (merged != remote || needsLocalWrite) {
         if (!_isCurrent(session)) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.stale,
@@ -779,7 +807,7 @@ class AccountReconciliationCoordinator {
         }
       }
 
-      if (merged != local) {
+      if (needsLocalWrite) {
         if (!_isCurrent(session)) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.stale,

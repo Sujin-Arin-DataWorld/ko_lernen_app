@@ -95,4 +95,50 @@ void main() {
       'remoteRevision': 7,
     });
   });
+
+  test(
+    'reconciliation custom-pack base ids round-trip sorted and allowlisted',
+    () {
+      final journal = AccountTransitionJournal.fromJson({
+        'version': 1,
+        'uid': 'uid-a',
+        'epoch': 4,
+        'mode': 'reconciling',
+        'reconciliationLocalCustomPackBaseIds': ['cp-b', 'cp-a'],
+        'credential': 'must-not-survive',
+      });
+
+      expect(journal.toJson()['reconciliationLocalCustomPackBaseIds'], [
+        'cp-a',
+        'cp-b',
+      ]);
+      expect(journal.toJson(), isNot(contains('credential')));
+    },
+  );
+
+  test('reconciliation custom-pack base ids are strictly bounded', () {
+    expect(
+      () => AccountTransitionJournal.fromJson({
+        'version': 1,
+        'uid': 'uid-a',
+        'epoch': 4,
+        'mode': 'reconciling',
+        'reconciliationLocalCustomPackBaseIds': List<String>.filled(
+          513,
+          'cp-a',
+        ),
+      }),
+      throwsA(isA<FormatException>()),
+    );
+    expect(
+      () => AccountTransitionJournal.fromJson({
+        'version': 1,
+        'uid': 'uid-a',
+        'epoch': 4,
+        'mode': 'reconciling',
+        'reconciliationLocalCustomPackBaseIds': ['cp-a', 'cp-a'],
+      }),
+      throwsA(isA<FormatException>()),
+    );
+  });
 }
