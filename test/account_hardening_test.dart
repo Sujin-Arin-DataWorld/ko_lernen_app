@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -5,6 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -209,6 +213,97 @@ void main() {
         expect(events.where((event) => event == 'remote-delete').length, 1);
       },
     );
+
+    test(
+      'real preference reset preserves completed checkpoint across restart',
+      () async {
+        SharedPreferences.setMockInitialValues(<String, Object>{
+          'kl_learning_progress': 'private-progress',
+          'foreign_key': 'keep',
+        });
+        await Storage.init();
+        final preferences = await SharedPreferences.getInstance();
+        var remoteCalls = 0;
+        var failLocalCleanup = true;
+
+        AccountDeletionJournal? readCheckpoint() {
+          final encoded = preferences.getString(
+            AuthService.accountDeletionCheckpointPreferenceKey,
+          );
+          if (encoded == null) return null;
+          return AccountDeletionJournal.fromJson(
+            (jsonDecode(encoded) as Map).map(
+              (key, value) => MapEntry(key.toString(), value),
+            ),
+          );
+        }
+
+        Future<void> remoteDelete() {
+          return AccountDeletionRemoteGate(
+            readCheckpoint: () async => readCheckpoint(),
+            startOrResumeRemote: () async {
+              remoteCalls += 1;
+              await preferences.setString(
+                AuthService.accountDeletionCheckpointPreferenceKey,
+                jsonEncode(_completedDeletionCheckpoint().toJson()),
+              );
+            },
+            recoverCompleted: (_) async {},
+          ).run();
+        }
+
+        AccountDeletionWorkflow newWorkflow() => AccountDeletionWorkflow(
+          AccountDeletionCleanupAdapter(
+            deleteRemote: remoteDelete,
+            resetStorage: () =>
+                Storage.resetAllStrict(preserveAccountDeletionCheckpoint: true),
+            disablePush: () async {
+              if (failLocalCleanup) throw StateError('push unavailable');
+            },
+            deleteImages: () async {
+              if (failLocalCleanup) throw StateError('images unavailable');
+            },
+            clearTts: () async {
+              if (failLocalCleanup) throw StateError('tts unavailable');
+            },
+            resetMemory: () {},
+          ),
+          completeCheckpoint: () async {
+            await preferences.remove(
+              AuthService.accountDeletionCheckpointPreferenceKey,
+            );
+          },
+        );
+
+        await expectLater(
+          newWorkflow().run(),
+          throwsA(
+            isA<AccountDeletionFailure>().having(
+              (failure) => failure.causes.length,
+              'independent cleanup failures',
+              3,
+            ),
+          ),
+        );
+        expect(remoteCalls, 1);
+        expect(preferences.containsKey('kl_learning_progress'), isFalse);
+        expect(preferences.getString('foreign_key'), 'keep');
+        expect(
+          readCheckpoint()?.operation?.phase,
+          AccountOperationPhase.completed,
+        );
+
+        failLocalCleanup = false;
+        await newWorkflow().run();
+        expect(remoteCalls, 1);
+        expect(
+          preferences.containsKey(
+            AuthService.accountDeletionCheckpointPreferenceKey,
+          ),
+          isFalse,
+        );
+      },
+    );
   });
 
   group('subscription management', () {
@@ -375,6 +470,26 @@ void main() {
       );
     });
   });
+}
+
+AccountDeletionJournal _completedDeletionCheckpoint() {
+  return AccountDeletionJournal(
+    version: AccountDeletionJournal.currentVersion,
+    session: const CloudWriteSession(
+      uid: 'deleted-source',
+      epoch: 4,
+      mode: CloudWriteMode.cleanupPending,
+    ),
+    requestKey: 'deletion-request-1',
+    operation: const AccountOperationResult(
+      operationId: 'deletion-operation-1',
+      kind: AccountOperationKind.deletion,
+      phase: AccountOperationPhase.completed,
+      version: 3,
+      attemptCount: 1,
+      retryable: false,
+    ),
+  );
 }
 
 class _FakeAccountCleanupOperations

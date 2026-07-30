@@ -22,6 +22,8 @@ class DureBoard extends StatelessWidget {
   final GyeMeta meta;
   final String? myUid;
   final bool writesAvailable;
+  final bool showPausedReason;
+  final Stream<List<GyeMember>>? memberUpdates;
 
   const DureBoard({
     super.key,
@@ -29,6 +31,8 @@ class DureBoard extends StatelessWidget {
     required this.meta,
     this.myUid,
     this.writesAvailable = false,
+    this.showPausedReason = true,
+    this.memberUpdates,
   });
 
   /// 멤버 색 — 기여순 인덱스 → 단청 팔레트 (막대 세그먼트 == 칩 색점).
@@ -113,7 +117,7 @@ class DureBoard extends StatelessWidget {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     return StreamBuilder<List<GyeMember>>(
-      stream: GyeService.membersStream(gyeId),
+      stream: memberUpdates ?? GyeService.membersStream(gyeId),
       builder: (context, snap) {
         final members = [...(snap.data ?? const <GyeMember>[])]
           ..sort(
@@ -153,6 +157,10 @@ class DureBoard extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if (!writesAvailable && showPausedReason) ...[
+              Text(t.gyeAccountTransitionPaused, textAlign: TextAlign.center),
+              const SizedBox(height: Spacing.md),
+            ],
             // 헤더 — 라벨 + 합계(주인공) / 목표
             Row(
               children: [

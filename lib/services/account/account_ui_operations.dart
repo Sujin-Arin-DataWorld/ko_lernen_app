@@ -57,9 +57,14 @@ abstract interface class AccountUiOperations {
   Future<bool> cancelReplacement();
 }
 
+typedef AccountUiProviderLinker =
+    Future<AccountUiLinkResult> Function(AccountLinkProvider provider);
+
 class ProductionAccountUiOperations
     implements AccountUiOperations, AccountUiPendingStateSource {
-  const ProductionAccountUiOperations();
+  const ProductionAccountUiOperations({this.providerLinker});
+
+  final AccountUiProviderLinker? providerLinker;
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
@@ -111,6 +116,12 @@ class ProductionAccountUiOperations
 
   @override
   Future<AccountUiLinkResult> link(AccountLinkProvider provider) async {
+    if (await refreshPendingState() != AccountUiPendingState.none) {
+      return const AccountUiLinkBlocked();
+    }
+    if (providerLinker case final linkProvider?) {
+      return linkProvider(provider);
+    }
     try {
       final user = switch (provider) {
         AccountLinkProvider.google => await AuthService.linkWithGoogle(),
@@ -129,9 +140,11 @@ class ProductionAccountUiOperations
   @override
   Future<bool> cancelReplacement() async {
     final bundle = await _createCoordinator();
-    final result = await bundle.coordinator.cancel();
-    await refreshPendingState();
-    return result;
+    try {
+      return await bundle.coordinator.cancel();
+    } finally {
+      await refreshPendingState();
+    }
   }
 
   @override
@@ -139,20 +152,24 @@ class ProductionAccountUiOperations
     ExistingAccountLinkConflict conflict,
   ) async {
     final bundle = await _createCoordinator();
-    final result = await bundle.coordinator.confirm(
-      conflict,
-      catalog: bundle.catalog,
-    );
-    await refreshPendingState();
-    return result;
+    try {
+      return await bundle.coordinator.confirm(
+        conflict,
+        catalog: bundle.catalog,
+      );
+    } finally {
+      await refreshPendingState();
+    }
   }
 
   @override
   Future<AccountTransitionResult> resumeReplacement() async {
     final bundle = await _createCoordinator();
-    final result = await bundle.coordinator.resume(catalog: bundle.catalog);
-    await refreshPendingState();
-    return result;
+    try {
+      return await bundle.coordinator.resume(catalog: bundle.catalog);
+    } finally {
+      await refreshPendingState();
+    }
   }
 
   Future<_AccountTransitionBundle> _createCoordinator() async {

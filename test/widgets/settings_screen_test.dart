@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -45,6 +46,43 @@ void main() {
     await tester.tap(find.text('Sicher verbinden'));
     await tester.pump();
     expect(operations.linkCalls, 1);
+  });
+
+  testWidgets('settings keeps pending resume visible and disables new link', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final operations = _SettingsAccountOperations()
+      ..pending.value = AccountUiPendingState.replacementCancellable;
+
+    await tester.pumpWidget(
+      _wrap(SettingsScreen(account: _guest, accountOperations: operations)),
+    );
+    await tester.pump();
+    await tester.scrollUntilVisible(
+      find.text('Kontowechsel fortsetzen'),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+
+    expect(find.text('Fortsetzen'), findsOneWidget);
+    expect(find.text('Wechsel abbrechen'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Mit Google sichern'),
+      150,
+      scrollable: find.byType(Scrollable).first,
+    );
+    final linkTile = tester.widget<ListTile>(
+      find.ancestor(
+        of: find.text('Mit Google sichern'),
+        matching: find.byType(ListTile),
+      ),
+    );
+    expect(linkTile.onTap, isNull);
+    expect(operations.linkCalls, 0);
   });
 
   testWidgets('deletion failure is recoverable and redacts private details', (
@@ -175,8 +213,17 @@ const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
 );
 
-class _SettingsAccountOperations implements AccountUiOperations {
+class _SettingsAccountOperations
+    implements AccountUiOperations, AccountUiPendingStateSource {
   int linkCalls = 0;
+  final ValueNotifier<AccountUiPendingState> pending =
+      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
+
+  @override
+  ValueListenable<AccountUiPendingState> get pendingState => pending;
+
+  @override
+  Future<AccountUiPendingState> refreshPendingState() async => pending.value;
 
   @override
   bool get appleSignInAvailable => false;

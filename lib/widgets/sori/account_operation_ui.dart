@@ -5,6 +5,45 @@ import '../../services/account/account_transition_coordinator.dart';
 import '../../services/account/account_ui_operations.dart';
 import 'tokens.dart';
 
+class AccountNewLinkGuard extends StatefulWidget {
+  const AccountNewLinkGuard({
+    super.key,
+    required this.operations,
+    required this.builder,
+  });
+
+  final AccountUiOperations operations;
+  final Widget Function(BuildContext context, bool available) builder;
+
+  @override
+  State<AccountNewLinkGuard> createState() => _AccountNewLinkGuardState();
+}
+
+class _AccountNewLinkGuardState extends State<AccountNewLinkGuard> {
+  AccountUiPendingStateSource? get _source =>
+      widget.operations is AccountUiPendingStateSource
+      ? widget.operations as AccountUiPendingStateSource
+      : null;
+
+  @override
+  void initState() {
+    super.initState();
+    _source?.refreshPendingState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final source = _source;
+    if (source == null) return widget.builder(context, true);
+    return ValueListenableBuilder<AccountUiPendingState>(
+      valueListenable: source.pendingState,
+      builder: (context, state, _) {
+        return widget.builder(context, state == AccountUiPendingState.none);
+      },
+    );
+  }
+}
+
 class AccountPendingOperationPanel extends StatefulWidget {
   const AccountPendingOperationPanel({
     super.key,

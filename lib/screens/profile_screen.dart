@@ -179,18 +179,25 @@ class _ProfileScreenState extends State<ProfileScreen>
             const SizedBox(height: 12),
             KeyedSubtree(
               key: _accountCardKey,
-              child: linked
-                  ? _ConnectedCard(
-                      name: name ?? providerLabel,
-                      onSignOut: _signOut,
-                    )
-                  : _GuestCard(
-                      busy: _busy,
-                      onConnect: () => _connectWith(AccountLinkProvider.google),
-                      onConnectApple: _accountOperations.appleSignInAvailable
-                          ? () => _connectWith(AccountLinkProvider.apple)
-                          : null,
-                    ),
+              child: AccountNewLinkGuard(
+                operations: _accountOperations,
+                builder: (context, linkAvailable) => linked
+                    ? _ConnectedCard(
+                        name: name ?? providerLabel,
+                        onSignOut: _signOut,
+                      )
+                    : _GuestCard(
+                        busy: _busy,
+                        onConnect: linkAvailable
+                            ? () => _connectWith(AccountLinkProvider.google)
+                            : null,
+                        onConnectApple:
+                            linkAvailable &&
+                                _accountOperations.appleSignInAvailable
+                            ? () => _connectWith(AccountLinkProvider.apple)
+                            : null,
+                      ),
+              ),
             ),
             const SizedBox(height: 20),
 
@@ -273,7 +280,7 @@ class _Avatar extends StatelessWidget {
 /// Gast: lädt zum Sichern ein (der Kern-Nudge).
 class _GuestCard extends StatelessWidget {
   final bool busy;
-  final VoidCallback onConnect;
+  final VoidCallback? onConnect;
   final VoidCallback? onConnectApple;
   const _GuestCard({
     required this.busy,

@@ -83,7 +83,8 @@ class AccountDeletionCleanupAdapter
   factory AccountDeletionCleanupAdapter.production() =>
       AccountDeletionCleanupAdapter(
         deleteRemote: AuthService.deleteAccount,
-        resetStorage: Storage.resetAllStrict,
+        resetStorage: () =>
+            Storage.resetAllStrict(preserveAccountDeletionCheckpoint: true),
         disablePush: pushService.disableStrict,
         deleteImages: WordImageService.deleteAllStrict,
         clearTts: TtsService.clearCacheStrict,
@@ -639,33 +640,43 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 if (mounted) setState(() {});
               },
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.cloud_outlined,
-                color: SoriColors.primary,
-              ),
-              title: Text(
-                providers.isDurable
-                    ? t.settingsCloudSignedIn(
-                        account.displayName ?? _providerLabel(t, providers),
-                      )
-                    : t.settingsCloudSignInPrompt,
-              ),
-              subtitle: Text(
-                providers.isDurable
-                    ? t.settingsCloudSignedInDesc
-                    : t.settingsCloudSignInDesc,
-              ),
-              onTap: providers.isDurable ? null : _onGoogleTap,
-            ),
-            if (!providers.isDurable && AuthService.appleSignInAvailable)
-              ListTile(
-                leading: const Icon(Icons.apple),
-                title: Text(t.authAppleSignIn),
-                subtitle: Text(t.settingsCloudSignInDesc),
-                onTap: _onAppleTap,
+            if (!providers.isDurable)
+              AccountNewLinkGuard(
+                operations: _accountOperations,
+                builder: (context, linkAvailable) => Column(
+                  children: [
+                    ListTile(
+                      leading: const Icon(
+                        Icons.cloud_outlined,
+                        color: SoriColors.primary,
+                      ),
+                      title: Text(t.settingsCloudSignInPrompt),
+                      subtitle: Text(t.settingsCloudSignInDesc),
+                      onTap: linkAvailable ? _onGoogleTap : null,
+                    ),
+                    if (AuthService.appleSignInAvailable)
+                      ListTile(
+                        leading: const Icon(Icons.apple),
+                        title: Text(t.authAppleSignIn),
+                        subtitle: Text(t.settingsCloudSignInDesc),
+                        onTap: linkAvailable ? _onAppleTap : null,
+                      ),
+                  ],
+                ),
               ),
             if (providers.isDurable) ...[
+              ListTile(
+                leading: const Icon(
+                  Icons.cloud_outlined,
+                  color: SoriColors.primary,
+                ),
+                title: Text(
+                  t.settingsCloudSignedIn(
+                    account.displayName ?? _providerLabel(t, providers),
+                  ),
+                ),
+                subtitle: Text(t.settingsCloudSignedInDesc),
+              ),
               ListTile(
                 leading: const Icon(Icons.cloud_upload_outlined),
                 title: Text(t.settingsCloudBackupNow),

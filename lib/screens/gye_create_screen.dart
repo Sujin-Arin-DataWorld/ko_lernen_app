@@ -100,6 +100,10 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        if (!writesAvailable) ...[
+          Text(t.gyeAccountTransitionPaused, textAlign: TextAlign.center),
+          const SizedBox(height: Spacing.md),
+        ],
         const SizedBox(height: Spacing.md),
         TextField(
           controller: _name,

@@ -82,6 +82,13 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  if (session?.mode != CloudWriteMode.ready) ...[
+                    Text(
+                      t.gyeAccountTransitionPaused,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: Spacing.md),
+                  ],
                   const SizedBox(height: Spacing.md),
                   TextField(
                     controller: _code,

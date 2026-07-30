@@ -100,21 +100,32 @@ class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
           style: TextStyle(fontSize: 13.5, height: 1.5, color: s.textMuted),
         ),
         const SizedBox(height: 20),
-        SoriButton.filled(
-          label: t.accountNudgeConnect,
-          icon: Icons.cloud_upload_outlined,
-          fullWidth: true,
-          onTap: _busy ? null : () => _connectWith(AccountLinkProvider.google),
-        ),
-        if (widget.accountOperations.appleSignInAvailable) ...[
-          const SizedBox(height: 8),
-          SoriButton.outlined(
-            label: t.authAppleSignIn,
-            icon: Icons.apple,
-            fullWidth: true,
-            onTap: _busy ? null : () => _connectWith(AccountLinkProvider.apple),
+        AccountNewLinkGuard(
+          operations: widget.accountOperations,
+          builder: (context, linkAvailable) => Column(
+            children: [
+              SoriButton.filled(
+                label: t.accountNudgeConnect,
+                icon: Icons.cloud_upload_outlined,
+                fullWidth: true,
+                onTap: !_busy && linkAvailable
+                    ? () => _connectWith(AccountLinkProvider.google)
+                    : null,
+              ),
+              if (widget.accountOperations.appleSignInAvailable) ...[
+                const SizedBox(height: 8),
+                SoriButton.outlined(
+                  label: t.authAppleSignIn,
+                  icon: Icons.apple,
+                  fullWidth: true,
+                  onTap: !_busy && linkAvailable
+                      ? () => _connectWith(AccountLinkProvider.apple)
+                      : null,
+                ),
+              ],
+            ],
           ),
-        ],
+        ),
         const SizedBox(height: 4),
         TextButton(
           onPressed: _busy ? null : () => Navigator.of(context).pop(),

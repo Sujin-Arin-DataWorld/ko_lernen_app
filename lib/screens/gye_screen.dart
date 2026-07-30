@@ -233,6 +233,7 @@ class _GyeScreenState extends State<GyeScreen>
                             meta: meta,
                             myUid: GyeService.currentUid,
                             writesAvailable: actionsAvailable,
+                            showPausedReason: false,
                           ),
                         ),
                       ),

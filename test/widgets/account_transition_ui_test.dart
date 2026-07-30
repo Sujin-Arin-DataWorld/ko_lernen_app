@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/account_nudge.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -80,7 +81,7 @@ void main() {
     tester,
   ) async {
     final operations = _FakeAccountUiOperations()
-      ..pending.value = AccountUiPendingState.replacementResumable;
+      ..pending.value = AccountUiPendingState.replacementCancellable;
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -92,6 +93,16 @@ void main() {
     await tester.pump();
 
     expect(find.text('Kontowechsel fortsetzen'), findsOneWidget);
+    expect(find.text('Wechsel abbrechen'), findsOneWidget);
+    final newLink = tester.widget<SoriButton>(
+      find.widgetWithText(SoriButton, 'Mit Google sichern'),
+    );
+    expect(newLink.onTap, isNull);
+    expect(operations.linkCalls, isEmpty);
+
+    await tester.tap(find.text('Wechsel abbrechen'));
+    await tester.pump();
+    expect(operations.cancelCalls, 1);
     await tester.tap(find.text('Fortsetzen'));
     await tester.pump();
 
@@ -225,6 +236,35 @@ void main() {
     ]);
 
     await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await shown;
+  });
+
+  testWidgets('account nudge disables new link while resume remains visible', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..pending.value = AccountUiPendingState.replacementCancellable;
+    await tester.pumpWidget(_wrap(const SizedBox()));
+    final context = tester.element(find.byType(SizedBox));
+
+    final shown = showAccountNudgeSheet(
+      context,
+      account: _guest,
+      accountOperations: operations,
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    final connect = tester.widget<SoriButton>(
+      find.widgetWithText(SoriButton, 'Mit Google verbinden'),
+    );
+    expect(connect.onTap, isNull);
+    expect(find.text('Fortsetzen'), findsOneWidget);
+    expect(find.text('Wechsel abbrechen'), findsOneWidget);
+    expect(operations.linkCalls, isEmpty);
+
+    Navigator.of(context).pop();
     await tester.pump(const Duration(milliseconds: 300));
     await shown;
   });

@@ -709,7 +709,7 @@ class _SharedPreferencesAccountDeletionJournalStore
     implements AccountDeletionJournalStore {
   const _SharedPreferencesAccountDeletionJournalStore();
 
-  static const _key = 'kl_account_deletion_journal_v1';
+  static const _key = AuthService.accountDeletionCheckpointPreferenceKey;
 
   @override
   Future<void> clearCompleted(String operationId) async {
@@ -1243,6 +1243,8 @@ class AccountStartupJournalResolver {
 }
 
 class AuthService {
+  static const accountDeletionCheckpointPreferenceKey =
+      Storage.accountDeletionCheckpointPreferenceKey;
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
 

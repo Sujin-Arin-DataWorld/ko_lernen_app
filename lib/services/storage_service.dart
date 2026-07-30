@@ -223,6 +223,8 @@ class SrsCard {
 /// Alle Schlüssel mit Präfix `kl_`. iOS und Android automatisch (über
 /// `SharedPreferences`, das auf iOS `NSUserDefaults` nutzt).
 class Storage {
+  static const accountDeletionCheckpointPreferenceKey =
+      'kl_account_deletion_journal_v1';
   static const String _pickerRecoveryMarkerKey = 'kl_picker_recovery_marker_v1';
   static const String _cropRecoveryMarkerKey = 'kl_crop_recovery_marker_v1';
   static const String _recoveredBookLeaseKey = 'kl_recovered_book_lease';
@@ -1703,14 +1705,21 @@ class Storage {
   /// Account-deletion reset that verifies every app-owned preference removal.
   static Future<void> resetAllStrict({
     PreferenceRemovalStore? preferences,
+    bool preserveAccountDeletionCheckpoint = false,
   }) async {
     final store = preferences ?? _preferenceRemovalStore();
     final failedKeys = <String>[];
     final causes = <Object>[];
-    final keys = {
-      ...store.getKeys(),
-      ..._unknownStrictKeys,
-    }.where((key) => key.startsWith('kl_')).toList()..sort();
+    final keys =
+        {...store.getKeys(), ..._unknownStrictKeys}
+            .where(
+              (key) =>
+                  key.startsWith('kl_') &&
+                  (!preserveAccountDeletionCheckpoint ||
+                      key != accountDeletionCheckpointPreferenceKey),
+            )
+            .toList()
+          ..sort();
 
     try {
       for (final key in keys) {

@@ -14,11 +14,15 @@ import '../widgets/sori/tokens.dart';
 class GyeMembersScreen extends StatelessWidget {
   final String gyeId;
   final ValueListenable<CloudWriteSession?>? accountSessions;
+  final Stream<Set<String>>? blockedUids;
+  final Stream<List<GyeMember>>? members;
 
   const GyeMembersScreen({
     super.key,
     required this.gyeId,
     this.accountSessions,
+    this.blockedUids,
+    this.members,
   });
 
   @override
@@ -38,118 +42,142 @@ class GyeMembersScreen extends StatelessWidget {
             ),
           ),
           body: SafeArea(
-            child: StreamBuilder<Set<String>>(
-              stream: GyeService.blockedUidsStream(),
-              builder: (context, bsnap) {
-                final blocked = bsnap.data ?? const <String>{};
-                return StreamBuilder<List<GyeMember>>(
-                  stream: GyeService.membersStream(gyeId),
-                  builder: (context, snap) {
-                    final members = snap.data ?? const <GyeMember>[];
-                    if (members.isEmpty) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                    final width = MediaQuery.sizeOf(context).width;
-                    return ListView.builder(
-                      padding: soriClampPadding(
-                        width,
-                        base: const EdgeInsets.symmetric(
-                          horizontal: Spacing.lg,
-                          vertical: Spacing.sm,
-                        ),
-                      ),
-                      itemCount: members.length,
-                      itemBuilder: (_, i) {
-                        final m = members[i];
-                        final isSelf = m.uid == me;
-                        final isBlocked = blocked.contains(m.uid);
-                        return ListTile(
-                          onTap: () => _showProfileCard(context, m, isSelf),
-                          leading: CircleAvatar(
-                            backgroundColor: isBlocked
-                                ? s.border
-                                : SoriColors.primary.withValues(alpha: 0.18),
-                            child: Text(
-                              m.nickname.isNotEmpty
-                                  ? m.nickname.substring(0, 1)
-                                  : '?',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                                color: isBlocked
-                                    ? s.textDim
-                                    : SoriColors.primary,
+            child: Column(
+              children: [
+                if (!writesAvailable)
+                  Padding(
+                    padding: const EdgeInsets.all(Spacing.md),
+                    child: Text(
+                      t.gyeAccountTransitionPaused,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                Expanded(
+                  child: StreamBuilder<Set<String>>(
+                    stream: blockedUids ?? GyeService.blockedUidsStream(),
+                    builder: (context, bsnap) {
+                      final blocked = bsnap.data ?? const <String>{};
+                      return StreamBuilder<List<GyeMember>>(
+                        stream: members ?? GyeService.membersStream(gyeId),
+                        builder: (context, snap) {
+                          final members = snap.data ?? const <GyeMember>[];
+                          if (members.isEmpty) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                          final width = MediaQuery.sizeOf(context).width;
+                          return ListView.builder(
+                            padding: soriClampPadding(
+                              width,
+                              base: const EdgeInsets.symmetric(
+                                horizontal: Spacing.lg,
+                                vertical: Spacing.sm,
                               ),
                             ),
-                          ),
-                          title: Text(
-                            m.nickname.isEmpty ? '…' : m.nickname,
-                            style: isBlocked
-                                ? TextStyle(
-                                    color: s.textDim,
-                                    decoration: TextDecoration.lineThrough,
-                                  )
-                                : null,
-                          ),
-                          subtitle: isBlocked
-                              ? Text(
-                                  t.gyeBlockedLabel,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: s.textDim,
-                                  ),
-                                )
-                              : m.role == GyeRole.owner
-                              ? Text(
-                                  t.gyeRoleOwner,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: s.textMuted,
-                                  ),
-                                )
-                              : null,
-                          trailing: isSelf
-                              ? Text(
-                                  t.gyeMemberSelf,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: s.textDim,
-                                  ),
-                                )
-                              : Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    IconButton(
-                                      icon: Icon(
-                                        isBlocked
-                                            ? Icons.person_add_alt_outlined
-                                            : Icons.block_outlined,
-                                      ),
-                                      tooltip: isBlocked
-                                          ? t.gyeUnblock
-                                          : t.gyeBlockTitle,
-                                      onPressed: writesAvailable
-                                          ? () => _toggleBlock(
-                                              context,
-                                              m,
-                                              isBlocked,
-                                            )
-                                          : null,
+                            itemCount: members.length,
+                            itemBuilder: (_, i) {
+                              final m = members[i];
+                              final isSelf = m.uid == me;
+                              final isBlocked = blocked.contains(m.uid);
+                              return ListTile(
+                                onTap: () =>
+                                    _showProfileCard(context, m, isSelf),
+                                leading: CircleAvatar(
+                                  backgroundColor: isBlocked
+                                      ? s.border
+                                      : SoriColors.primary.withValues(
+                                          alpha: 0.18,
+                                        ),
+                                  child: Text(
+                                    m.nickname.isNotEmpty
+                                        ? m.nickname.substring(0, 1)
+                                        : '?',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      color: isBlocked
+                                          ? s.textDim
+                                          : SoriColors.primary,
                                     ),
-                                    IconButton(
-                                      icon: const Icon(Icons.flag_outlined),
-                                      tooltip: t.gyeReportTitle,
-                                      onPressed: writesAvailable
-                                          ? () => _report(context, gyeId, m)
-                                          : null,
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                        );
-                      },
-                    );
-                  },
-                );
-              },
+                                title: Text(
+                                  m.nickname.isEmpty ? '…' : m.nickname,
+                                  style: isBlocked
+                                      ? TextStyle(
+                                          color: s.textDim,
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                        )
+                                      : null,
+                                ),
+                                subtitle: isBlocked
+                                    ? Text(
+                                        t.gyeBlockedLabel,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: s.textDim,
+                                        ),
+                                      )
+                                    : m.role == GyeRole.owner
+                                    ? Text(
+                                        t.gyeRoleOwner,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: s.textMuted,
+                                        ),
+                                      )
+                                    : null,
+                                trailing: isSelf
+                                    ? Text(
+                                        t.gyeMemberSelf,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: s.textDim,
+                                        ),
+                                      )
+                                    : Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          IconButton(
+                                            icon: Icon(
+                                              isBlocked
+                                                  ? Icons
+                                                        .person_add_alt_outlined
+                                                  : Icons.block_outlined,
+                                            ),
+                                            tooltip: isBlocked
+                                                ? t.gyeUnblock
+                                                : t.gyeBlockTitle,
+                                            onPressed: writesAvailable
+                                                ? () => _toggleBlock(
+                                                    context,
+                                                    m,
+                                                    isBlocked,
+                                                  )
+                                                : null,
+                                          ),
+                                          IconButton(
+                                            icon: const Icon(
+                                              Icons.flag_outlined,
+                                            ),
+                                            tooltip: t.gyeReportTitle,
+                                            onPressed: writesAvailable
+                                                ? () =>
+                                                      _report(context, gyeId, m)
+                                                : null,
+                                          ),
+                                        ],
+                                      ),
+                              );
+                            },
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         );
