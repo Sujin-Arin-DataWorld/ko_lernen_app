@@ -14,6 +14,10 @@ import 'storage_service.dart';
 /// Ergebnis von [CustomPackService.quickAdd].
 enum WordbookAddResult { added, alreadyExists, failed }
 
+class LocalCustomPackGenerationConflict implements Exception {
+  const LocalCustomPackGenerationConflict();
+}
+
 /// Phase 5.1 (stately-rising-jongga) — CustomPack CRUD service.
 ///
 /// Lokal-only — Firestore sync 는 v1 에서 미구현 (사용자 1대 기기 가정).
@@ -156,11 +160,19 @@ class CustomPackService {
     }
   }
 
+  static String get localReconciliationGeneration =>
+      sha256.convert(utf8.encode(Storage.customPacksRawJson)).toString();
+
   static Future<void> writeReconciledPortable(
     Map<String, Map<String, Object?>> portable, {
+    String? expectedGeneration,
     Future<void> Function(Map<String, dynamic> output)? writer,
   }) {
     return MediaMutationLock.run(() async {
+      if (expectedGeneration != null &&
+          localReconciliationGeneration != expectedGeneration) {
+        throw const LocalCustomPackGenerationConflict();
+      }
       final existingRaw = _readRaw();
       final output = <String, dynamic>{};
       final ids = portable.keys.toList()..sort();

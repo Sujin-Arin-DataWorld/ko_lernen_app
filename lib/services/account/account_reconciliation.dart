@@ -23,6 +23,7 @@ class AccountReconciliationSnapshot {
     required this.packProgress,
     this.packRevisions = const {},
     this.packMembershipRevision,
+    this.localCustomPackGeneration,
   });
 
   static const empty = AccountReconciliationSnapshot(
@@ -32,6 +33,7 @@ class AccountReconciliationSnapshot {
     packProgress: {},
     packRevisions: {},
     packMembershipRevision: null,
+    localCustomPackGeneration: null,
   );
 
   final Map<String, Object?> fields;
@@ -40,6 +42,7 @@ class AccountReconciliationSnapshot {
   final Map<String, PackProgress> packProgress;
   final Map<String, int?> packRevisions;
   final int? packMembershipRevision;
+  final String? localCustomPackGeneration;
 
   static CloudReadResult<AccountReconciliationSnapshot> decodeCloudDocument(
     Map<String, dynamic> document, {
@@ -260,6 +263,7 @@ class AccountReconciliationMerger {
         packProgress: packResult.merged!,
         packRevisions: remote.packRevisions,
         packMembershipRevision: remote.packMembershipRevision,
+        localCustomPackGeneration: local.localCustomPackGeneration,
       ),
       conflicts: const [],
     );
@@ -401,6 +405,8 @@ class LocalAccountReconciliationStore {
   const LocalAccountReconciliationStore._();
 
   static AccountReconciliationSnapshot load() {
+    final customPackGeneration =
+        CustomPackService.localReconciliationGeneration;
     final customPacks = CustomPackService.readLocalForReconciliation();
     if (!customPacks.isPresent) {
       throw const FormatException('Invalid local custom-pack data.');
@@ -412,13 +418,25 @@ class LocalAccountReconciliationStore {
     if (!result.isPresent || result.value == null) {
       throw const FormatException('Invalid local reconciliation data.');
     }
-    return result.value!;
+    final snapshot = result.value!;
+    return AccountReconciliationSnapshot(
+      fields: snapshot.fields,
+      srsCards: snapshot.srsCards,
+      customPacks: customPacks.value!,
+      packProgress: snapshot.packProgress,
+      packRevisions: snapshot.packRevisions,
+      packMembershipRevision: snapshot.packMembershipRevision,
+      localCustomPackGeneration: customPackGeneration,
+    );
   }
 
   static Future<void> write(AccountReconciliationSnapshot snapshot) async {
+    await CustomPackService.writeReconciledPortable(
+      snapshot.customPacks,
+      expectedGeneration: snapshot.localCustomPackGeneration,
+    );
     await CloudSync.applyRestorePayload(snapshot.toCloudDocument());
     await Storage.setSrsRawJsonStrict(jsonEncode(snapshot.srsCards));
-    await CustomPackService.writeReconciledPortable(snapshot.customPacks);
     await Storage.setAllPackProgressJsonStrict({
       for (final entry in snapshot.packProgress.entries)
         entry.key: entry.value.toJson(),
@@ -658,6 +676,8 @@ class AccountReconciliationCoordinator {
         }
         try {
           await writeLocal(merged);
+        } on LocalCustomPackGenerationConflict {
+          continue;
         } catch (_) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.unavailable,

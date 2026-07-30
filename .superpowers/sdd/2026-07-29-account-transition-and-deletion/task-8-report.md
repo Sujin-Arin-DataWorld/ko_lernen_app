@@ -72,6 +72,15 @@ The focused failures were observed before each production change. The new
 media test also demonstrates that the normal mutation remains queued until the
 reconciliation critical section releases the shared lock.
 
+The final stale-local follow-up used the exact inverse ordering that the shared
+lock test did not cover: the remote write was paused, a real media edit then
+completed, and only afterward did reconciliation attempt its stale local
+commit. Before the fix, reconciliation incorrectly returned `completed` and
+could silently overwrite the newer local custom-pack state. After the fix, the
+local generation CAS rejects that stale commit, the coordinator re-reads and
+re-merges, and the divergent same-ID pack produces a typed conflict while both
+the edited text and promoted `imagePath` remain intact.
+
 ## GREEN and verification
 
 Final focused Task 8 command:
@@ -80,7 +89,7 @@ Final focused Task 8 command:
 flutter test test/services/account/account_reconciliation_test.dart test/services/account/account_transition_journal_test.dart test/services/cloud_sync_service_test.dart test/services/firestore_progress_service_test.dart test/services/pack_progress_service_test.dart --reporter compact
 ```
 
-Result: 49/49 passed.
+Result: 50/50 passed.
 
 Relevant service and legacy commands:
 
@@ -89,7 +98,7 @@ flutter test test/services --reporter compact
 flutter test test/custom_pack_test.dart test/media_lifecycle_test.dart test/cloud_sync_test.dart test/services/account/concrete_cloud_writer_race_test.dart test/services/account/cloud_writer_fence_test.dart --reporter compact
 ```
 
-Results: 132/132 service tests and 91/91 related legacy/race tests passed.
+Results: 133/133 service tests and 91/91 related legacy/race tests passed.
 
 Full Flutter command:
 
@@ -97,21 +106,21 @@ Full Flutter command:
 flutter test --reporter compact
 ```
 
-Result: 880/880 passed, zero failures, exit 0 in 51.5 seconds on the
-independent-review follow-up gate.
+Result: 881/881 passed, zero failures, exit 0 in 57.9 seconds on the final
+stale-local follow-up gate (about 53 seconds of Flutter test-clock time).
 
 Static and hygiene commands:
 
 ```text
 flutter analyze
-dart format --set-exit-if-changed <5 follow-up Dart files>
+dart format --set-exit-if-changed <3 stale-local follow-up Dart files>
 git diff --check
 ```
 
 Results:
 
 - `flutter analyze`: no issues found.
-- Dart format: 5 follow-up files checked, 0 changed.
+- Dart format: 3 follow-up files checked, 0 changed.
 - `git diff --check`: clean; only informational LF-to-CRLF worktree warnings
   were emitted.
 
@@ -160,6 +169,13 @@ Results:
   references instead of replacing them with remote portable data. Its complete
   read/compare/write critical section now uses the same `MediaMutationLock` as
   normal save/delete/rename/media mutations.
+- The local snapshot also carries an opaque SHA-256 generation of the raw
+  custom-pack payload. The final custom-pack write compares that generation
+  inside `MediaMutationLock`, before any other local reconciliation domain is
+  written. A mismatch performs no partial local commit: the coordinator
+  re-reads and re-merges, preserving a concurrently completed media mutation
+  and surfacing a typed same-ID conflict when histories diverge. No remote
+  network await occurs while the media lock is held.
 - Ordinary field values are canonicalized before merge/hash/write: integral
   doubles become integers, ISO instants become UTC, nested map insertion order
   is stable, and mixed-type list unions use a type-tagged total ordering.
@@ -194,6 +210,11 @@ cannot contain its own final hash.
   to cover it, but rules were explicitly out of Task 8 scope and no emulator
   rules run was performed, so deployed-rules verification remains a release
   integration gate.
+- Legacy app clients that write pack documents without advancing the pack
+  manifest generation can still bypass the complete-membership guard. This is
+  an external rollout gate requiring client-version enforcement or a
+  server/rules migration; Task 8 cannot make an unmodified legacy writer
+  participate in the generation protocol.
 - Legacy pack records have only aggregate attempt counts and no stable
   per-attempt IDs. The deterministic idempotent policy therefore uses max
   rather than sum; it cannot reconstruct two independently created attempt

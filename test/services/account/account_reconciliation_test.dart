@@ -1,13 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/account/account_reconciliation.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/book_image_service.dart';
 import 'package:ko_lernen_app/services/cloud_sync_service.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/firestore_progress_service.dart';
@@ -689,6 +692,124 @@ void main() {
         CustomPackService.getById('cp-a')!.words.single.imagePath,
         'word:photo.png',
       );
+    },
+  );
+
+  test(
+    'media edit finishing during remote write is not overwritten by stale local commit',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      await Storage.init();
+      final original = ExtractedWord.manual(
+        korean: '?덈뀞',
+        translationDe: 'Hallo',
+      );
+      final pack = CustomPack.manual(
+        id: 'cp-a',
+        name: 'Pack',
+        words: [original],
+        createdAt: DateTime.utc(2026, 7, 30),
+      );
+      await Storage.setCustomPacksRawJsonStrict(
+        jsonEncode({'cp-a': pack.toLocalJson()}),
+      );
+
+      final sandbox = await Directory.systemTemp.createTemp(
+        'account_reconciliation_media_',
+      );
+      final documents = Directory(
+        '${sandbox.path}${Platform.pathSeparator}docs',
+      )..createSync();
+      final temporary = Directory(
+        '${sandbox.path}${Platform.pathSeparator}cache',
+      )..createSync();
+      final mediaStore = ManagedMediaStore(
+        documentsDirectory: documents,
+        temporaryDirectory: temporary,
+        nonce: () => 'edited-photo',
+      );
+      BookImageService.setStoreForTesting(mediaStore);
+      try {
+        final source = File(
+          '${sandbox.path}${Platform.pathSeparator}replacement.jpg',
+        )..writeAsBytesSync([1, 2, 3]);
+        final pending = await mediaStore.stage(source, ManagedMediaKind.word);
+        final sessions = CloudWriteSessionController()..acquire('uid-a');
+        final session = sessions.transition(CloudWriteMode.reconciling);
+        final journalStore = _MemoryJournalStore();
+        var remote = _snapshot(fields: {'cloudOnly': 1});
+        var remoteRevision = 1;
+        var remoteWrites = 0;
+        var localReads = 0;
+        final remoteWriteStarted = Completer<void>();
+        final finishRemoteWrite = Completer<void>();
+        final coordinator = AccountReconciliationCoordinator(
+          sessions: sessions,
+          journalStore: journalStore,
+          readRemote: () async =>
+              CloudReadResult.present(remote, revision: remoteRevision),
+          loadLocal: () {
+            localReads += 1;
+            return LocalAccountReconciliationStore.load();
+          },
+          writeRemote:
+              (
+                snapshot, {
+                required expectedRevision,
+                required operationId,
+              }) async {
+                remoteWrites += 1;
+                remote = snapshot;
+                remoteRevision += 1;
+                remoteWriteStarted.complete();
+                await finishRemoteWrite.future;
+                return ReconciliationWriteResult.committed(
+                  revision: remoteRevision,
+                );
+              },
+          writeLocal: LocalAccountReconciliationStore.write,
+        );
+
+        final reconciliation = coordinator.reconcile(
+          session: session,
+          operationId: 'operation-1',
+          catalog: const {},
+        );
+        await remoteWriteStarted.future;
+        final edited = await CustomPackService.updateWordWithMedia(
+          packId: 'cp-a',
+          index: 0,
+          expectedOriginal: original,
+          word: original.copyWithEditable(translationDe: 'Neu'),
+          pendingLease: pending,
+        );
+        final editedImagePath = edited!.words.single.imagePath;
+        expect(editedImagePath, isNotEmpty);
+
+        finishRemoteWrite.complete();
+        final result = await reconciliation;
+        final persisted = CustomPackService.getById('cp-a')!.words.single;
+
+        expect(result.status, AccountReconciliationStatus.blocked);
+        expect(
+          result.conflicts,
+          contains(
+            const AccountReconciliationConflict(
+              kind: AccountReconciliationConflictKind.customPackId,
+              id: 'cp-a',
+            ),
+          ),
+        );
+        expect(remoteWrites, 1);
+        expect(localReads, 2);
+        expect(persisted.translationDe, 'Neu');
+        expect(persisted.imagePath, editedImagePath);
+      } finally {
+        BookImageService.setStoreForTesting(null);
+        await sandbox.delete(recursive: true);
+      }
     },
   );
 }
