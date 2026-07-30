@@ -3,12 +3,110 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/push_service.dart';
 
 void main() {
+  group('anonymous credential linking', () {
+    for (final provider in AccountLinkProvider.values) {
+      test(
+        '${provider.name} collision is typed and preserves the primary user',
+        () async {
+          var primaryUid = 'anonymous-source';
+
+          final result = await attemptAnonymousCredentialLink<String>(
+            provider: provider,
+            sourceUid: primaryUid,
+            currentUid: () => primaryUid,
+            linkCredential: () async {
+              throw FirebaseAuthException(
+                code: 'credential-already-in-use',
+                message: 'unsafe provider detail',
+              );
+            },
+          );
+
+          expect(
+            result,
+            isA<ExistingAccountLinkConflict>().having(
+              (conflict) => conflict.provider,
+              'provider',
+              provider,
+            ),
+          );
+          expect(primaryUid, 'anonymous-source');
+          expect(result.toString(), isNot(contains('unsafe provider detail')));
+        },
+      );
+    }
+
+    test('durable-to-durable transition is blocked before credential use', () {
+      var linkCalls = 0;
+
+      expect(
+        () => attemptAnonymousCredentialLink<String>(
+          provider: AccountLinkProvider.google,
+          sourceUid: 'durable-source',
+          sourceIsAnonymous: false,
+          currentUid: () => 'durable-source',
+          linkCredential: () async {
+            linkCalls += 1;
+            return 'wrong-target';
+          },
+        ),
+        throwsA(isA<DurableAccountTransitionNotSupported>()),
+      );
+      expect(linkCalls, 0);
+    });
+
+    test(
+      'isolated Firebase verifier disposes its temporary app on failure',
+      () async {
+        final context = _FakeTemporaryAuthContext()
+          ..signInFailure = StateError('invalid target');
+        final verifier = FirebaseIsolatedTargetVerifier(
+          openContext: () async => context,
+          acquireCredential: (_) async =>
+              GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+        );
+
+        await expectLater(
+          verifier.verify(AccountLinkProvider.google),
+          throwsA(isA<StateError>()),
+        );
+
+        expect(context.disposeCalls, 1);
+      },
+    );
+
+    test(
+      'isolated Firebase target owns a secondary callable gateway',
+      () async {
+        final context = _FakeTemporaryAuthContext();
+        final verifier = FirebaseIsolatedTargetVerifier(
+          openContext: () async => context,
+          acquireCredential: (_) async =>
+              GoogleAuthProvider.credential(idToken: 'fresh-id-token'),
+        );
+
+        final target = await verifier.verify(AccountLinkProvider.google);
+
+        expect(target.uid, 'durable-target');
+        expect(target.isAnonymous, isFalse);
+        expect(target, isA<AccountOperationTargetContext>());
+        expect(
+          (target as AccountOperationTargetContext).operationGateway,
+          same(context.operationGateway),
+        );
+        await target.dispose();
+        expect(context.disposeCalls, 1);
+      },
+    );
+  });
+
   test(
     'deletion requests and polls the server without direct client deletion',
     () async {
@@ -890,4 +988,35 @@ class _CleanupOperations implements AccountDeletionCleanupOperations {
 
   @override
   void resetInMemoryData() => events.add('memory-reset');
+}
+
+class _FakeTemporaryAuthContext implements TemporaryFirebaseAuthContext {
+  _FakeTemporaryAuthContext()
+    : operationGateway = AccountOperationClient(
+        transport: _UnusedAccountOperationTransport(),
+      );
+
+  @override
+  final AccountOperationGateway operationGateway;
+  Object? signInFailure;
+  int disposeCalls = 0;
+
+  @override
+  Future<void> dispose() async => disposeCalls += 1;
+
+  @override
+  Future<TemporaryFirebaseUser> signIn(AuthCredential credential) async {
+    if (signInFailure != null) throw signInFailure!;
+    return const TemporaryFirebaseUser(
+      uid: 'durable-target',
+      isAnonymous: false,
+    );
+  }
+}
+
+class _UnusedAccountOperationTransport implements AccountOperationTransport {
+  @override
+  Future<Object?> call(AccountOperationTransportCall call) {
+    throw StateError('not used');
+  }
 }

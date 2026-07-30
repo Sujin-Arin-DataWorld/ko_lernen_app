@@ -99,6 +99,41 @@ typedef FirestorePackCasWriter =
 class FirestoreProgressService {
   static const int defaultReadLimitBytes = 512 * 1024;
 
+  static FirestorePackReader firestorePackReader(FirebaseFirestore firestore) =>
+      (uid) => _readFirestorePacks(firestore, uid);
+
+  static FirestorePackMembershipReader firestoreMembershipReader(
+    FirebaseFirestore firestore,
+  ) =>
+      (uid) => _readMembershipOnce(firestore, uid);
+
+  static FirestorePackCasWriter firestoreCasWriter({
+    required FirebaseFirestore firestore,
+    required String fenceUid,
+  }) {
+    return ({
+      required uid,
+      required progresses,
+      required expectedRevisions,
+      required expectedMembershipRevision,
+      required expectedMembershipPackIds,
+      required operationId,
+      required session,
+      required sessions,
+    }) => _writeFirestorePacks(
+      firestore: firestore,
+      uid: uid,
+      fenceUid: fenceUid,
+      progresses: progresses,
+      expectedRevisions: expectedRevisions,
+      expectedMembershipRevision: expectedMembershipRevision,
+      expectedMembershipPackIds: expectedMembershipPackIds,
+      operationId: operationId,
+      session: session,
+      sessions: sessions,
+    );
+  }
+
   /// Lazy getter — Firestore 초기화 실패 시 null.
   static FirebaseFirestore? get _db {
     try {
@@ -155,7 +190,10 @@ class FirestoreProgressService {
     }
     late List<FirestorePackDocument> documents;
     try {
-      documents = await (reader ?? _readFirestorePacks)(uid);
+      documents =
+          await (reader ?? firestorePackReader(FirebaseFirestore.instance))(
+            uid,
+          );
     } catch (_) {
       return const CloudReadResult.unavailable();
     }
@@ -239,6 +277,7 @@ class FirestoreProgressService {
 
   static Future<FirestorePackCasResult> saveManyReconciled({
     required String uid,
+    String? fenceUid,
     required Iterable<PackProgress> progresses,
     required Map<String, int?> expectedRevisions,
     required int? expectedMembershipRevision,
@@ -247,7 +286,9 @@ class FirestoreProgressService {
     required CloudWriteSessionController sessions,
     FirestorePackCasWriter? writer,
   }) {
-    if (session.mode != CloudWriteMode.reconciling || session.uid != uid) {
+    final expectedFenceUid = fenceUid ?? uid;
+    if (session.mode != CloudWriteMode.reconciling ||
+        session.uid != expectedFenceUid) {
       return Future.value(const FirestorePackCasResult.revisionConflict());
     }
     try {
@@ -262,7 +303,30 @@ class FirestoreProgressService {
         !targetIds.containsAll(expectedMembershipPackIds)) {
       return Future.value(const FirestorePackCasResult.revisionConflict());
     }
-    return (writer ?? _writeFirestorePacks)(
+    final selectedWriter =
+        writer ??
+        ({
+          required uid,
+          required progresses,
+          required expectedRevisions,
+          required expectedMembershipRevision,
+          required expectedMembershipPackIds,
+          required operationId,
+          required session,
+          required sessions,
+        }) => _writeFirestorePacks(
+          firestore: FirebaseFirestore.instance,
+          uid: uid,
+          fenceUid: expectedFenceUid,
+          progresses: progresses,
+          expectedRevisions: expectedRevisions,
+          expectedMembershipRevision: expectedMembershipRevision,
+          expectedMembershipPackIds: expectedMembershipPackIds,
+          operationId: operationId,
+          session: session,
+          sessions: sessions,
+        );
+    return selectedWriter(
       uid: uid,
       progresses: values,
       expectedRevisions: expectedRevisions,
@@ -275,9 +339,10 @@ class FirestoreProgressService {
   }
 
   static Future<List<FirestorePackDocument>> _readFirestorePacks(
+    FirebaseFirestore firestore,
     String uid,
   ) async {
-    final snapshot = await FirebaseFirestore.instance
+    final snapshot = await firestore
         .collection('users')
         .doc(uid)
         .collection('packs')
@@ -317,15 +382,13 @@ class FirestoreProgressService {
   }
 
   static Future<FirestorePackMembership?> _readMembership(String uid) =>
-      _readMembershipOnce(uid);
+      _readMembershipOnce(FirebaseFirestore.instance, uid);
 
   static Future<FirestorePackMembership?> _readMembershipOnce(
+    FirebaseFirestore firestore,
     String uid,
   ) async {
-    final snapshot = await _membershipDocument(
-      FirebaseFirestore.instance,
-      uid,
-    ).get();
+    final snapshot = await _membershipDocument(firestore, uid).get();
     final data = snapshot.data();
     if (!snapshot.exists || data == null) return null;
     final revision = data['revision'];
@@ -355,7 +418,9 @@ class FirestoreProgressService {
   }
 
   static Future<FirestorePackCasResult> _writeFirestorePacks({
+    required FirebaseFirestore firestore,
     required String uid,
+    required String fenceUid,
     required Iterable<PackProgress> progresses,
     required Map<String, int?> expectedRevisions,
     required int? expectedMembershipRevision,
@@ -364,7 +429,6 @@ class FirestoreProgressService {
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
   }) {
-    final firestore = FirebaseFirestore.instance;
     final collection = firestore
         .collection('users')
         .doc(uid)
@@ -431,7 +495,8 @@ class FirestoreProgressService {
         }
       }
       sessions.assertCurrent(session);
-      if (session.mode != CloudWriteMode.reconciling || session.uid != uid) {
+      if (session.mode != CloudWriteMode.reconciling ||
+          session.uid != fenceUid) {
         return const FirestorePackCasResult.revisionConflict();
       }
       for (final progress in values) {

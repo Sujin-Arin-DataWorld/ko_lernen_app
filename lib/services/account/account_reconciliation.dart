@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 
@@ -915,19 +916,66 @@ class AccountReconciliationCoordinator {
 /// The adapter is immutable and uses the services' regular per-call seams.
 /// Task 10 can supply local persistence and the durable journal without
 /// introducing mutable global hooks.
+class FirebaseAccountReconciliationRemote {
+  const FirebaseAccountReconciliationRemote({
+    required this.rootReader,
+    required this.packReader,
+    required this.membershipReader,
+    required this.rootWriter,
+    required this.packWriter,
+    required this.compositeReader,
+  });
+
+  factory FirebaseAccountReconciliationRemote.firestore({
+    required FirebaseFirestore firestore,
+    required String fenceUid,
+  }) {
+    return FirebaseAccountReconciliationRemote(
+      rootReader: CloudSyncService.firestoreDocumentReader(firestore),
+      packReader: FirestoreProgressService.firestorePackReader(firestore),
+      membershipReader: FirestoreProgressService.firestoreMembershipReader(
+        firestore,
+      ),
+      rootWriter: CloudSyncService.firestoreCasWriter(
+        firestore: firestore,
+        fenceUid: fenceUid,
+      ),
+      packWriter: FirestoreProgressService.firestoreCasWriter(
+        firestore: firestore,
+        fenceUid: fenceUid,
+      ),
+      compositeReader: CloudSyncService.firestoreCompositeReader(firestore),
+    );
+  }
+
+  final CloudSyncDocumentReader rootReader;
+  final FirestorePackReader packReader;
+  final FirestorePackMembershipReader membershipReader;
+  final CloudSyncCasWriter rootWriter;
+  final FirestorePackCasWriter packWriter;
+  final CloudSyncCompositeReader compositeReader;
+}
+
 class FirebaseAccountReconciliationAdapter {
   const FirebaseAccountReconciliationAdapter({
     required this.uid,
+    String? fenceUid,
     required this.session,
     required this.sessions,
-  });
+    this.remote,
+  }) : fenceUid = fenceUid ?? uid;
 
   final String uid;
+  final String fenceUid;
   final CloudWriteSession session;
   final CloudWriteSessionController sessions;
+  final FirebaseAccountReconciliationRemote? remote;
 
   Future<CloudReadResult<AccountReconciliationSnapshot>> readRemote() async {
-    final root = await CloudSyncService.readAccountDocument(uid: uid);
+    final root = await CloudSyncService.readAccountDocument(
+      uid: uid,
+      reader: remote?.rootReader,
+    );
     if (root.state == CloudReadState.unavailable) {
       return const CloudReadResult.unavailable();
     }
@@ -938,7 +986,11 @@ class FirebaseAccountReconciliationAdapter {
       return const CloudReadResult.tooLarge();
     }
 
-    final packs = await FirestoreProgressService.loadAllTyped(uid: uid);
+    final packs = await FirestoreProgressService.loadAllTyped(
+      uid: uid,
+      reader: remote?.packReader,
+      membershipReader: remote?.membershipReader,
+    );
     if (packs.state == CloudReadState.unavailable) {
       return const CloudReadResult.unavailable();
     }
@@ -986,25 +1038,27 @@ class FirebaseAccountReconciliationAdapter {
     final rootData = snapshot.toCloudDocument();
     final rootResult = await CloudSyncService.writeReconciledAccountDocument(
       uid: uid,
+      fenceUid: fenceUid,
       data: rootData,
       expectedRevision: expectedRevision,
       operationId: operationId,
       session: session,
       sessions: sessions,
-      writer: rootWriter,
+      writer: rootWriter ?? remote?.rootWriter,
     );
     if (rootResult.status == CloudSyncCasStatus.revisionConflict) {
       return const ReconciliationWriteResult.revisionConflict();
     }
     final packResult = await FirestoreProgressService.saveManyReconciled(
       uid: uid,
+      fenceUid: fenceUid,
       progresses: snapshot.packProgress.values,
       expectedRevisions: snapshot.packRevisions,
       expectedMembershipRevision: snapshot.packMembershipRevision,
       operationId: operationId,
       session: session,
       sessions: sessions,
-      writer: packWriter,
+      writer: packWriter ?? remote?.packWriter,
     );
     if (packResult.status == FirestorePackCasStatus.revisionConflict) {
       return const ReconciliationWriteResult.revisionConflict();
@@ -1017,19 +1071,29 @@ class FirebaseAccountReconciliationAdapter {
     if (committedMembershipRevision == null) {
       return const ReconciliationWriteResult.revisionConflict();
     }
-    final validateComposite =
-        compositeValidator ??
-        CloudSyncService.validateReconciledAccountComposite;
-    final compositeIsCurrent = await validateComposite(
-      uid: uid,
-      data: rootData,
-      expectedRevision: committedRootRevision,
-      expectedMembershipRevision: committedMembershipRevision,
-      expectedMembershipPackIds: packResult.membershipPackIds,
-      operationId: operationId,
-      session: session,
-      sessions: sessions,
-    );
+    final compositeIsCurrent = compositeValidator == null
+        ? await CloudSyncService.validateReconciledAccountComposite(
+            uid: uid,
+            fenceUid: fenceUid,
+            data: rootData,
+            expectedRevision: committedRootRevision,
+            expectedMembershipRevision: committedMembershipRevision,
+            expectedMembershipPackIds: packResult.membershipPackIds,
+            operationId: operationId,
+            session: session,
+            sessions: sessions,
+            reader: remote?.compositeReader,
+          )
+        : await compositeValidator(
+            uid: uid,
+            data: rootData,
+            expectedRevision: committedRootRevision,
+            expectedMembershipRevision: committedMembershipRevision,
+            expectedMembershipPackIds: packResult.membershipPackIds,
+            operationId: operationId,
+            session: session,
+            sessions: sessions,
+          );
     if (!compositeIsCurrent) {
       return const ReconciliationWriteResult.revisionConflict();
     }

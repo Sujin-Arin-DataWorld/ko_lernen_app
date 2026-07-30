@@ -1,15 +1,20 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'account/account_operation_client.dart';
+import 'account/account_reconciliation.dart';
+import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
 import 'account/cloud_write_session.dart';
 import 'push_service.dart';
@@ -754,6 +759,222 @@ class _FirestoreUserDataDeletionStore implements UserDataDeletionStore {
 /// Ausnahmen ab und liefern sichere Defaults; Aktions-Methoden brechen
 /// sauber ab, wenn Firebase nicht verfügbar ist. Auf Android (mit
 /// google-services.json) greifen die Guards nie — normales Verhalten.
+@immutable
+class TemporaryFirebaseUser {
+  const TemporaryFirebaseUser({required this.uid, required this.isAnonymous});
+
+  final String uid;
+  final bool isAnonymous;
+}
+
+abstract interface class TemporaryFirebaseAuthContext {
+  AccountOperationGateway get operationGateway;
+  Future<TemporaryFirebaseUser> signIn(AuthCredential credential);
+  Future<void> dispose();
+}
+
+abstract interface class TemporaryFirebaseReconciliationContext
+    implements TemporaryFirebaseAuthContext {
+  FirebaseAccountReconciliationRemote reconciliationRemote({
+    required String fenceUid,
+  });
+}
+
+typedef TemporaryFirebaseAuthContextFactory =
+    Future<TemporaryFirebaseAuthContext> Function();
+typedef FreshProviderCredential =
+    Future<AuthCredential> Function(AccountLinkProvider provider);
+
+class FirebaseIsolatedTargetVerifier implements IsolatedTargetVerifier {
+  FirebaseIsolatedTargetVerifier({
+    TemporaryFirebaseAuthContextFactory? openContext,
+    FreshProviderCredential? acquireCredential,
+  }) : _openContext = openContext ?? _openTemporaryFirebaseContext,
+       _acquireCredential =
+           acquireCredential ?? AuthService._acquireFreshProviderCredential;
+
+  final TemporaryFirebaseAuthContextFactory _openContext;
+  final FreshProviderCredential _acquireCredential;
+
+  @override
+  Future<VerifiedTargetContext> verify(AccountLinkProvider provider) async {
+    final context = await _openContext();
+    try {
+      final credential = await _acquireCredential(provider);
+      final user = await context.signIn(credential);
+      if (user.uid.trim().isEmpty || user.isAnonymous) {
+        throw const AccountLinkSafetyFailure();
+      }
+      if (context is TemporaryFirebaseReconciliationContext) {
+        return _FirebaseVerifiedReconciliationTargetContext(
+          context: context,
+          user: user,
+        );
+      }
+      return _FirebaseVerifiedTargetContext(context: context, user: user);
+    } catch (_) {
+      await context.dispose();
+      rethrow;
+    }
+  }
+
+  static Future<TemporaryFirebaseAuthContext>
+  _openTemporaryFirebaseContext() async {
+    final primary = Firebase.app();
+    final random = Random.secure();
+    final suffix = List<int>.generate(
+      16,
+      (_) => random.nextInt(256),
+    ).map((value) => value.toRadixString(16).padLeft(2, '0')).join();
+    final app = await Firebase.initializeApp(
+      name: 'account-transition-$suffix',
+      options: primary.options,
+    );
+    try {
+      await FirebaseAppCheck.instanceFor(app: app).activate(
+        androidProvider: kDebugMode
+            ? AndroidProvider.debug
+            : AndroidProvider.playIntegrity,
+        appleProvider: kDebugMode
+            ? AppleProvider.debug
+            : AppleProvider.appAttestWithDeviceCheckFallback,
+      );
+      return _PluginTemporaryFirebaseAuthContext(app);
+    } catch (_) {
+      await app.delete();
+      rethrow;
+    }
+  }
+}
+
+class _FirebaseVerifiedTargetContext implements AccountOperationTargetContext {
+  const _FirebaseVerifiedTargetContext({
+    required TemporaryFirebaseAuthContext context,
+    required TemporaryFirebaseUser user,
+  }) : this._(context, user);
+
+  const _FirebaseVerifiedTargetContext._(this._context, this._user);
+
+  final TemporaryFirebaseAuthContext _context;
+  final TemporaryFirebaseUser _user;
+
+  @override
+  String get uid => _user.uid;
+
+  @override
+  bool get isAnonymous => _user.isAnonymous;
+
+  @override
+  AccountOperationGateway get operationGateway => _context.operationGateway;
+
+  @override
+  Future<void> dispose() => _context.dispose();
+}
+
+class _FirebaseVerifiedReconciliationTargetContext
+    extends _FirebaseVerifiedTargetContext
+    implements AccountReconciliationTargetContext {
+  const _FirebaseVerifiedReconciliationTargetContext({
+    required TemporaryFirebaseReconciliationContext context,
+    required super.user,
+  }) : _reconciliationContext = context,
+       super(context: context);
+
+  final TemporaryFirebaseReconciliationContext _reconciliationContext;
+
+  @override
+  FirebaseAccountReconciliationRemote reconciliationRemote({
+    required String fenceUid,
+  }) => _reconciliationContext.reconciliationRemote(fenceUid: fenceUid);
+}
+
+class _PluginTemporaryFirebaseAuthContext
+    implements TemporaryFirebaseReconciliationContext {
+  _PluginTemporaryFirebaseAuthContext(this._app)
+    : _auth = FirebaseAuth.instanceFor(app: _app),
+      operationGateway = AccountOperationClient(
+        transport: FirebaseFunctionsAccountOperationTransport(
+          FirebaseFunctions.instanceFor(
+            app: _app,
+            region: AccountOperationClient.region,
+          ),
+        ),
+      );
+
+  final FirebaseApp _app;
+  final FirebaseAuth _auth;
+  late final FirebaseFirestore _firestore = FirebaseFirestore.instanceFor(
+    app: _app,
+  );
+  bool _disposed = false;
+
+  @override
+  final AccountOperationGateway operationGateway;
+
+  @override
+  FirebaseAccountReconciliationRemote reconciliationRemote({
+    required String fenceUid,
+  }) {
+    return FirebaseAccountReconciliationRemote.firestore(
+      firestore: _firestore,
+      fenceUid: fenceUid,
+    );
+  }
+
+  @override
+  Future<TemporaryFirebaseUser> signIn(AuthCredential credential) async {
+    if (_disposed) {
+      throw const AccountLinkSafetyFailure();
+    }
+    final result = await _auth.signInWithCredential(credential);
+    final user = result.user;
+    if (user == null) {
+      throw const AccountLinkSafetyFailure();
+    }
+    return TemporaryFirebaseUser(uid: user.uid, isAnonymous: user.isAnonymous);
+  }
+
+  @override
+  Future<void> dispose() async {
+    if (_disposed) return;
+    _disposed = true;
+    try {
+      await _auth.signOut();
+    } finally {
+      await _app.delete();
+    }
+  }
+}
+
+class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
+  const FirebaseAccountTransitionIdentity();
+
+  @override
+  String? get currentUid => AuthService.current?.uid;
+
+  @override
+  bool get currentIsAnonymous => AuthService.current?.isAnonymous ?? false;
+
+  @override
+  Future<void> activateTarget(
+    AccountLinkProvider provider, {
+    required String expectedTargetUid,
+  }) async {
+    final auth = AuthService._auth;
+    if (auth == null || expectedTargetUid.trim().isEmpty) {
+      throw const AccountLinkSafetyFailure();
+    }
+    final credential = await AuthService._acquireFreshProviderCredential(
+      provider,
+    );
+    final result = await auth.signInWithCredential(credential);
+    if (result.user?.uid != expectedTargetUid) {
+      await auth.signOut();
+      throw const AccountLinkSafetyFailure();
+    }
+  }
+}
+
 class AuthService {
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
@@ -906,8 +1127,8 @@ class AuthService {
   }
 
   /// Anonymen User mit Google-Account verlinken.
-  /// Wenn das Google-Konto bereits existiert (z.B. nach App-Reinstall) —
-  /// einfach mit dem bestehenden Account einloggen.
+  /// Existing-account collisions preserve the primary anonymous session and
+  /// require explicit confirmation through [AccountTransitionCoordinator].
   static Future<User?> linkWithGoogle() async {
     final auth = _auth;
     if (auth == null) return null;
@@ -922,26 +1143,27 @@ class AuthService {
 
     final user = auth.currentUser;
     if (user != null && user.isAnonymous) {
-      try {
-        final result = await user.linkWithCredential(credential);
-        return _activateSignedInUser(result.user);
-      } on FirebaseAuthException catch (e) {
-        // Wenn Account bereits existiert → einfach einloggen
-        if (e.code == 'credential-already-in-use' ||
-            e.code == 'email-already-in-use') {
-          final result = await auth.signInWithCredential(credential);
-          return _activateSignedInUser(result.user);
-        }
-        rethrow;
+      final attempt = await attemptAnonymousCredentialLink<User?>(
+        provider: AccountLinkProvider.google,
+        sourceUid: user.uid,
+        currentUid: () => auth.currentUser?.uid,
+        linkCredential: () async {
+          final result = await user.linkWithCredential(credential);
+          return result.user;
+        },
+      );
+      if (attempt is ExistingAccountLinkConflict) {
+        throw attempt;
       }
-    } else {
-      final result = await auth.signInWithCredential(credential);
-      return _activateSignedInUser(result.user);
+      return _activateSignedInUser(
+        (attempt as AnonymousCredentialLinked<User?>).value,
+      );
     }
+    throw const DurableAccountTransitionNotSupported();
   }
 
   /// Anonymen User mit Apple-Account verlinken (iOS — App-Store-Pflicht 4.8).
-  /// Wie [linkWithGoogle]: existiert das Apple-Konto bereits → einfach anmelden.
+  /// Existing-account collisions never activate the target implicitly.
   static Future<User?> linkWithApple() async {
     final auth = _auth;
     if (auth == null) return null;
@@ -960,22 +1182,23 @@ class AuthService {
 
     final user = auth.currentUser;
     if (user != null && user.isAnonymous) {
-      try {
-        final result = await user.linkWithCredential(credential);
-        await _maybeSetAppleName(result.user, appleCredential);
-        return _activateSignedInUser(result.user);
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'credential-already-in-use' ||
-            e.code == 'email-already-in-use') {
-          final result = await auth.signInWithCredential(credential);
-          return _activateSignedInUser(result.user);
-        }
-        rethrow;
+      final attempt = await attemptAnonymousCredentialLink<User?>(
+        provider: AccountLinkProvider.apple,
+        sourceUid: user.uid,
+        currentUid: () => auth.currentUser?.uid,
+        linkCredential: () async {
+          final result = await user.linkWithCredential(credential);
+          return result.user;
+        },
+      );
+      if (attempt is ExistingAccountLinkConflict) {
+        throw attempt;
       }
-    } else {
-      final result = await auth.signInWithCredential(credential);
-      return _activateSignedInUser(result.user);
+      final linked = (attempt as AnonymousCredentialLinked<User?>).value;
+      await _maybeSetAppleName(linked, appleCredential);
+      return _activateSignedInUser(linked);
     }
+    throw const DurableAccountTransitionNotSupported();
   }
 
   /// Apple liefert den Namen nur beim allerersten Login — übernehmen, wenn
@@ -1083,6 +1306,35 @@ class AuthService {
       idToken: googleAuth.idToken,
     );
     await user.reauthenticateWithCredential(credential);
+  }
+
+  static Future<AuthCredential> _acquireFreshProviderCredential(
+    AccountLinkProvider provider,
+  ) async {
+    switch (provider) {
+      case AccountLinkProvider.google:
+        final googleUser = await GoogleSignIn().signIn();
+        if (googleUser == null) {
+          throw FirebaseAuthException(
+            code: 'target-verification-cancelled',
+            message: 'Target verification was cancelled.',
+          );
+        }
+        final googleAuth = await googleUser.authentication;
+        return GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+      case AccountLinkProvider.apple:
+        final rawNonce = _generateNonce();
+        final apple = await SignInWithApple.getAppleIDCredential(
+          scopes: const [AppleIDAuthorizationScopes.email],
+          nonce: _sha256(rawNonce),
+        );
+        return OAuthProvider(
+          'apple.com',
+        ).credential(idToken: apple.identityToken, rawNonce: rawNonce);
+    }
   }
 
   static Future<String?> _reauthenticateWithApple(User user) async {

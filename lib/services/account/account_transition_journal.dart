@@ -12,6 +12,15 @@ enum ReconciliationCheckpoint {
   completed,
 }
 
+enum AccountReplacementPhase {
+  targetVerified,
+  prepared,
+  attached,
+  reconciling,
+  reconciled,
+  cleanupPending,
+}
+
 /// Versioned, non-secret state that can safely resume an account transition.
 @immutable
 class AccountTransitionJournal {
@@ -22,6 +31,12 @@ class AccountTransitionJournal {
     this.reconciliationCheckpoint,
     this.remoteRevision,
     this.reconciliationLocalCustomPackBaseIds,
+    this.replacementProvider,
+    this.replacementTargetUid,
+    this.replacementRequestKey,
+    this.replacementPhase,
+    this.replacementOperationId,
+    this.replacementOperationVersion,
   });
 
   static const currentVersion = 1;
@@ -36,6 +51,12 @@ class AccountTransitionJournal {
   final ReconciliationCheckpoint? reconciliationCheckpoint;
   final int? remoteRevision;
   final Set<String>? reconciliationLocalCustomPackBaseIds;
+  final String? replacementProvider;
+  final String? replacementTargetUid;
+  final String? replacementRequestKey;
+  final AccountReplacementPhase? replacementPhase;
+  final String? replacementOperationId;
+  final int? replacementOperationVersion;
 
   factory AccountTransitionJournal.fromSession(
     CloudWriteSession session, {
@@ -43,6 +64,12 @@ class AccountTransitionJournal {
     ReconciliationCheckpoint? reconciliationCheckpoint,
     int? remoteRevision,
     Set<String>? reconciliationLocalCustomPackBaseIds,
+    String? replacementProvider,
+    String? replacementTargetUid,
+    String? replacementRequestKey,
+    AccountReplacementPhase? replacementPhase,
+    String? replacementOperationId,
+    int? replacementOperationVersion,
   }) {
     return AccountTransitionJournal(
       version: currentVersion,
@@ -56,6 +83,12 @@ class AccountTransitionJournal {
           : _parseLocalCustomPackBaseIds(
               reconciliationLocalCustomPackBaseIds.toList(),
             ),
+      replacementProvider: replacementProvider,
+      replacementTargetUid: replacementTargetUid,
+      replacementRequestKey: replacementRequestKey,
+      replacementPhase: replacementPhase,
+      replacementOperationId: replacementOperationId,
+      replacementOperationVersion: replacementOperationVersion,
     );
   }
 
@@ -70,6 +103,12 @@ class AccountTransitionJournal {
     final localCustomPackBaseIds = _parseLocalCustomPackBaseIds(
       json['reconciliationLocalCustomPackBaseIds'],
     );
+    final replacementProvider = json['replacementProvider'];
+    final replacementTargetUid = json['replacementTargetUid'];
+    final replacementRequestKey = json['replacementRequestKey'];
+    final rawReplacementPhase = json['replacementPhase'];
+    final replacementOperationId = json['replacementOperationId'];
+    final replacementOperationVersion = json['replacementOperationVersion'];
     if (version is! int || version != currentVersion) {
       throw FormatException('Unsupported account transition journal version.');
     }
@@ -111,6 +150,38 @@ class AccountTransitionJournal {
         'Account transition journal has an invalid remote revision.',
       );
     }
+    final parsedReplacementPhase = rawReplacementPhase == null
+        ? null
+        : AccountReplacementPhase.values
+              .where((value) => value.name == rawReplacementPhase)
+              .firstOrNull;
+    final hasReplacementMetadata =
+        replacementProvider != null ||
+        replacementTargetUid != null ||
+        replacementRequestKey != null ||
+        rawReplacementPhase != null ||
+        replacementOperationId != null ||
+        replacementOperationVersion != null;
+    if (hasReplacementMetadata &&
+        (replacementProvider is! String ||
+            !const {'google', 'apple'}.contains(replacementProvider) ||
+            replacementTargetUid is! String ||
+            !_validUid(replacementTargetUid) ||
+            replacementRequestKey is! String ||
+            !_validOperationId(replacementRequestKey) ||
+            parsedReplacementPhase == null ||
+            (replacementOperationId != null &&
+                (replacementOperationId is! String ||
+                    !_validOperationId(replacementOperationId))) ||
+            (replacementOperationVersion != null &&
+                (replacementOperationVersion is! int ||
+                    replacementOperationVersion < 0)) ||
+            ((replacementOperationId == null) !=
+                (replacementOperationVersion == null)))) {
+      throw FormatException(
+        'Account transition journal has invalid replacement metadata.',
+      );
+    }
 
     return AccountTransitionJournal(
       version: version,
@@ -123,21 +194,33 @@ class AccountTransitionJournal {
       reconciliationCheckpoint: parsedCheckpoint,
       remoteRevision: remoteRevision as int?,
       reconciliationLocalCustomPackBaseIds: localCustomPackBaseIds,
+      replacementProvider: replacementProvider as String?,
+      replacementTargetUid: replacementTargetUid as String?,
+      replacementRequestKey: replacementRequestKey as String?,
+      replacementPhase: parsedReplacementPhase,
+      replacementOperationId: replacementOperationId as String?,
+      replacementOperationVersion: replacementOperationVersion as int?,
     );
   }
 
   AccountTransitionJournal copyWith({
+    String? reconciliationOperationId,
     ReconciliationCheckpoint? reconciliationCheckpoint,
     int? remoteRevision,
     Set<String>? reconciliationLocalCustomPackBaseIds,
+    CloudWriteSession? session,
+    AccountReplacementPhase? replacementPhase,
+    String? replacementOperationId,
+    int? replacementOperationVersion,
   }) {
     final selectedLocalCustomPackBaseIds =
         reconciliationLocalCustomPackBaseIds ??
         this.reconciliationLocalCustomPackBaseIds;
     return AccountTransitionJournal(
       version: version,
-      session: session,
-      reconciliationOperationId: reconciliationOperationId,
+      session: session ?? this.session,
+      reconciliationOperationId:
+          reconciliationOperationId ?? this.reconciliationOperationId,
       reconciliationCheckpoint:
           reconciliationCheckpoint ?? this.reconciliationCheckpoint,
       remoteRevision: remoteRevision ?? this.remoteRevision,
@@ -147,6 +230,14 @@ class AccountTransitionJournal {
           : _parseLocalCustomPackBaseIds(
               selectedLocalCustomPackBaseIds.toList(),
             ),
+      replacementProvider: replacementProvider,
+      replacementTargetUid: replacementTargetUid,
+      replacementRequestKey: replacementRequestKey,
+      replacementPhase: replacementPhase ?? this.replacementPhase,
+      replacementOperationId:
+          replacementOperationId ?? this.replacementOperationId,
+      replacementOperationVersion:
+          replacementOperationVersion ?? this.replacementOperationVersion,
     );
   }
 
@@ -162,6 +253,7 @@ class AccountTransitionJournal {
     final checkpoint = reconciliationCheckpoint;
     final revision = remoteRevision;
     final localCustomPackBaseIds = reconciliationLocalCustomPackBaseIds;
+    final replacementPhaseValue = replacementPhase;
     if (operationId != null) {
       json['reconciliationOperationId'] = operationId;
     }
@@ -176,6 +268,16 @@ class AccountTransitionJournal {
         localCustomPackBaseIds.toList(),
       )!;
       json['reconciliationLocalCustomPackBaseIds'] = validated.toList()..sort();
+    }
+    if (replacementProvider != null) {
+      json['replacementProvider'] = replacementProvider!;
+      json['replacementTargetUid'] = replacementTargetUid!;
+      json['replacementRequestKey'] = replacementRequestKey!;
+      json['replacementPhase'] = replacementPhaseValue!.name;
+      if (replacementOperationId != null) {
+        json['replacementOperationId'] = replacementOperationId!;
+        json['replacementOperationVersion'] = replacementOperationVersion!;
+      }
     }
     return json;
   }
@@ -218,4 +320,9 @@ class AccountTransitionJournal {
   static bool _validOperationId(String value) =>
       value.length <= 128 &&
       RegExp(r'^[A-Za-z0-9][A-Za-z0-9._:-]*$').hasMatch(value);
+
+  static bool _validUid(String value) =>
+      value.trim().isNotEmpty &&
+      value.length <= 128 &&
+      !RegExp(r'[\u0000-\u001f\u007f]').hasMatch(value);
 }

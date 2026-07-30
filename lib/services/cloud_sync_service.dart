@@ -79,6 +79,39 @@ typedef CloudSyncCompositeValidator =
 class CloudSyncService {
   const CloudSyncService._();
 
+  static CloudSyncDocumentReader firestoreDocumentReader(
+    FirebaseFirestore firestore,
+  ) =>
+      (uid) => _readFirestoreDocument(firestore, uid);
+
+  static CloudSyncCompositeReader firestoreCompositeReader(
+    FirebaseFirestore firestore,
+  ) =>
+      (uid) => _readFirestoreComposite(firestore, uid);
+
+  static CloudSyncCasWriter firestoreCasWriter({
+    required FirebaseFirestore firestore,
+    required String fenceUid,
+  }) {
+    return ({
+      required uid,
+      required data,
+      required expectedRevision,
+      required operationId,
+      required session,
+      required sessions,
+    }) => _writeFirestoreDocument(
+      firestore: firestore,
+      uid: uid,
+      fenceUid: fenceUid,
+      data: data,
+      expectedRevision: expectedRevision,
+      operationId: operationId,
+      session: session,
+      sessions: sessions,
+    );
+  }
+
   static Future<CloudReadResult<Map<String, dynamic>>> readAccountDocument({
     required String uid,
     CloudSyncDocumentReader? reader,
@@ -90,7 +123,10 @@ class CloudSyncService {
 
     late CloudSyncDocument document;
     try {
-      document = await (reader ?? _readFirestoreDocument)(uid);
+      document =
+          await (reader ?? firestoreDocumentReader(FirebaseFirestore.instance))(
+            uid,
+          );
     } catch (_) {
       return const CloudReadResult.unavailable();
     }
@@ -124,6 +160,7 @@ class CloudSyncService {
 
   static Future<CloudSyncCasResult> writeReconciledAccountDocument({
     required String uid,
+    String? fenceUid,
     required Map<String, dynamic> data,
     required int? expectedRevision,
     required String operationId,
@@ -131,7 +168,9 @@ class CloudSyncService {
     required CloudWriteSessionController sessions,
     CloudSyncCasWriter? writer,
   }) {
-    if (session.mode != CloudWriteMode.reconciling) {
+    final expectedFenceUid = fenceUid ?? uid;
+    if (session.mode != CloudWriteMode.reconciling ||
+        session.uid != expectedFenceUid) {
       return Future.value(const CloudSyncCasResult.revisionConflict());
     }
     try {
@@ -139,7 +178,26 @@ class CloudSyncService {
     } on StateError {
       return Future.value(const CloudSyncCasResult.revisionConflict());
     }
-    return (writer ?? _writeFirestoreDocument)(
+    final selectedWriter =
+        writer ??
+        ({
+          required uid,
+          required data,
+          required expectedRevision,
+          required operationId,
+          required session,
+          required sessions,
+        }) => _writeFirestoreDocument(
+          firestore: FirebaseFirestore.instance,
+          uid: uid,
+          fenceUid: expectedFenceUid,
+          data: data,
+          expectedRevision: expectedRevision,
+          operationId: operationId,
+          session: session,
+          sessions: sessions,
+        );
+    return selectedWriter(
       uid: uid,
       data: data,
       expectedRevision: expectedRevision,
@@ -151,6 +209,7 @@ class CloudSyncService {
 
   static Future<bool> validateReconciledAccountComposite({
     required String uid,
+    String? fenceUid,
     required Map<String, dynamic> data,
     required int expectedRevision,
     required int expectedMembershipRevision,
@@ -160,9 +219,10 @@ class CloudSyncService {
     required CloudWriteSessionController sessions,
     CloudSyncCompositeReader? reader,
   }) async {
+    final expectedFenceUid = fenceUid ?? uid;
     if (uid.trim().isEmpty ||
         session.mode != CloudWriteMode.reconciling ||
-        session.uid != uid ||
+        session.uid != expectedFenceUid ||
         expectedMembershipRevision < 0 ||
         expectedMembershipPackIds.any((id) => id.trim().isEmpty)) {
       return false;
@@ -172,7 +232,10 @@ class CloudSyncService {
     } on StateError {
       return false;
     }
-    final documents = await (reader ?? _readFirestoreComposite)(uid);
+    final documents =
+        await (reader ?? firestoreCompositeReader(FirebaseFirestore.instance))(
+          uid,
+        );
     try {
       sessions.assertCurrent(session);
     } on StateError {
@@ -194,11 +257,11 @@ class CloudSyncService {
         _sameIds(membershipPackIds, expectedMembershipPackIds);
   }
 
-  static Future<CloudSyncDocument> _readFirestoreDocument(String uid) async {
-    final snapshot = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(uid)
-        .get();
+  static Future<CloudSyncDocument> _readFirestoreDocument(
+    FirebaseFirestore firestore,
+    String uid,
+  ) async {
+    final snapshot = await firestore.collection('users').doc(uid).get();
     if (!snapshot.exists) {
       return const CloudSyncDocument.missing();
     }
@@ -209,9 +272,9 @@ class CloudSyncService {
   }
 
   static Future<CloudSyncCompositeDocuments> _readFirestoreComposite(
+    FirebaseFirestore firestore,
     String uid,
   ) {
-    final firestore = FirebaseFirestore.instance;
     final rootReference = firestore.collection('users').doc(uid);
     final membershipReference = rootReference
         .collection('sync_metadata')
@@ -233,14 +296,15 @@ class CloudSyncService {
   }
 
   static Future<CloudSyncCasResult> _writeFirestoreDocument({
+    required FirebaseFirestore firestore,
     required String uid,
+    required String fenceUid,
     required Map<String, dynamic> data,
     required int? expectedRevision,
     required String operationId,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
   }) {
-    final firestore = FirebaseFirestore.instance;
     final reference = firestore.collection('users').doc(uid);
     final payloadHash = _payloadHash(data);
     return firestore.runTransaction((transaction) async {
@@ -260,7 +324,8 @@ class CloudSyncService {
         return const CloudSyncCasResult.revisionConflict();
       }
       sessions.assertCurrent(session);
-      if (session.mode != CloudWriteMode.reconciling || session.uid != uid) {
+      if (session.mode != CloudWriteMode.reconciling ||
+          session.uid != fenceUid) {
         return const CloudSyncCasResult.revisionConflict();
       }
       final nextRevision = (expectedRevision ?? 0) + 1;

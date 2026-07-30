@@ -560,6 +560,86 @@ void main() {
   );
 
   test(
+    'secondary target adapter keeps the source fence distinct from remote UID',
+    () async {
+      final sessions = CloudWriteSessionController()
+        ..acquire('anonymous-source');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      var rootWrites = 0;
+      var packWrites = 0;
+      var compositeChecks = 0;
+      final adapter = FirebaseAccountReconciliationAdapter(
+        uid: 'durable-target',
+        fenceUid: 'anonymous-source',
+        session: session,
+        sessions: sessions,
+      );
+
+      final result = await adapter.writeRemote(
+        _snapshot(packMembershipRevision: 0),
+        expectedRevision: null,
+        operationId: 'operation-1',
+        rootWriter:
+            ({
+              required uid,
+              required data,
+              required expectedRevision,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              rootWrites += 1;
+              expect(uid, 'durable-target');
+              expect(session.uid, 'anonymous-source');
+              return const CloudSyncCasResult.committed(1);
+            },
+        packWriter:
+            ({
+              required uid,
+              required progresses,
+              required expectedRevisions,
+              required expectedMembershipRevision,
+              required expectedMembershipPackIds,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              packWrites += 1;
+              expect(uid, 'durable-target');
+              expect(session.uid, 'anonymous-source');
+              return const FirestorePackCasResult.committed(
+                {},
+                membershipRevision: 1,
+                membershipPackIds: {},
+              );
+            },
+        compositeValidator:
+            ({
+              required uid,
+              required data,
+              required expectedRevision,
+              required expectedMembershipRevision,
+              required expectedMembershipPackIds,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              compositeChecks += 1;
+              expect(uid, 'durable-target');
+              expect(session.uid, 'anonymous-source');
+              return true;
+            },
+      );
+
+      expect(result.status, ReconciliationWriteStatus.committed);
+      expect(rootWrites, 1);
+      expect(packWrites, 1);
+      expect(compositeChecks, 1);
+      expect(sessions.current, session);
+    },
+  );
+
+  test(
     'post-pack root advance is re-read before any stale local effect',
     () async {
       final sessions = CloudWriteSessionController()..acquire('uid-a');

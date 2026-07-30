@@ -237,7 +237,79 @@ void main() {
         ),
       );
     });
+
+    test(
+      'uses source auth only for anonymous replacement preparation',
+      () async {
+        final transport = _FakeTransport()
+          ..responses.add(_replacementResponse('prepared', version: 0));
+        final client = AccountOperationClient(transport: transport);
+
+        await client.prepareAnonymousReplacement(
+          const AnonymousReplacementPrepareRequest(
+            targetUid: 'durable-target',
+            requestKey: 'request-1',
+          ),
+        );
+
+        expect(
+          transport.calls.single,
+          const AccountOperationTransportCall(
+            name: 'prepareAnonymousReplacement',
+            data: {'targetUid': 'durable-target', 'requestKey': 'request-1'},
+          ),
+        );
+      },
+    );
+
+    test(
+      'replacement advances use the verified target auth transport',
+      () async {
+        final transport = _FakeTransport()
+          ..responses.addAll([
+            _replacementResponse('targetVerified', version: 1),
+            _replacementResponse('reconciling', version: 2),
+            _replacementResponse('sourceCleanupPending', version: 3),
+          ]);
+        final client = AccountOperationClient(transport: transport);
+        const request = ReplacementAdvanceRequest(
+          operationId: 'replacement-1',
+          expectedVersion: 0,
+        );
+
+        await client.attachReplacementTarget(request);
+        await client.commitReplacementReconciliation(request);
+        await client.startSourceCleanup(request);
+
+        expect(transport.calls.map((call) => call.name), <String>[
+          'attachReplacementTarget',
+          'commitReplacementReconciliation',
+          'startSourceCleanup',
+        ]);
+        for (final call in transport.calls) {
+          expect(call.data, {
+            'operationId': 'replacement-1',
+            'expectedVersion': 0,
+          });
+        }
+      },
+    );
   });
+}
+
+Map<String, Object?> _replacementResponse(
+  String phase, {
+  required int version,
+}) {
+  return {
+    'operationId': 'replacement-1',
+    'kind': 'replacement',
+    'phase': phase,
+    'version': version,
+    'attemptCount': 0,
+    'retryable': true,
+    'blockedReason': null,
+  };
 }
 
 class _FakeTransport implements AccountOperationTransport {

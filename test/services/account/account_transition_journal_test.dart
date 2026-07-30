@@ -141,4 +141,70 @@ void main() {
       throwsA(isA<FormatException>()),
     );
   });
+
+  test('replacement metadata round-trips without provider credentials', () {
+    final journal = AccountTransitionJournal.fromJson({
+      'version': 1,
+      'uid': 'anonymous-source',
+      'epoch': 4,
+      'mode': 'reconciling',
+      'replacementProvider': 'google',
+      'replacementTargetUid': 'durable-target',
+      'replacementRequestKey': 'request-key-1',
+      'replacementPhase': 'reconciling',
+      'replacementOperationId': 'operation-1',
+      'replacementOperationVersion': 2,
+      'credential': 'must-not-survive',
+      'idToken': 'must-not-survive',
+      'accessToken': 'must-not-survive',
+      'authorizationCode': 'must-not-survive',
+    });
+
+    expect(journal.replacementPhase, AccountReplacementPhase.reconciling);
+    expect(journal.toJson(), {
+      'version': 1,
+      'uid': 'anonymous-source',
+      'epoch': 4,
+      'mode': 'reconciling',
+      'replacementProvider': 'google',
+      'replacementTargetUid': 'durable-target',
+      'replacementRequestKey': 'request-key-1',
+      'replacementPhase': 'reconciling',
+      'replacementOperationId': 'operation-1',
+      'replacementOperationVersion': 2,
+    });
+  });
+
+  test('partial or unsupported replacement metadata is rejected', () {
+    for (final invalid in <Map<String, Object?>>[
+      {
+        'replacementProvider': 'google',
+        'replacementTargetUid': 'durable-target',
+      },
+      {
+        'replacementProvider': 'password',
+        'replacementTargetUid': 'durable-target',
+        'replacementRequestKey': 'request-1',
+        'replacementPhase': 'targetVerified',
+      },
+      {
+        'replacementProvider': 'apple',
+        'replacementTargetUid': 'durable-target',
+        'replacementRequestKey': 'request-1',
+        'replacementPhase': 'cleanupPending',
+        'replacementOperationId': 'operation-1',
+      },
+    ]) {
+      expect(
+        () => AccountTransitionJournal.fromJson({
+          'version': 1,
+          'uid': 'anonymous-source',
+          'epoch': 4,
+          'mode': 'reconciling',
+          ...invalid,
+        }),
+        throwsA(isA<FormatException>()),
+      );
+    }
+  });
 }
