@@ -947,31 +947,119 @@ class _PluginTemporaryFirebaseAuthContext
 }
 
 class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
-  const FirebaseAccountTransitionIdentity();
+  const FirebaseAccountTransitionIdentity()
+    : this._(null, null, null, null, null);
+
+  const FirebaseAccountTransitionIdentity._(
+    this._currentUid,
+    this._currentIsAnonymous,
+    this._acquireCredential,
+    this._signIn,
+    this._signOut,
+  );
+
+  @visibleForTesting
+  factory FirebaseAccountTransitionIdentity.test({
+    required String? Function() currentUid,
+    required bool Function() currentIsAnonymous,
+    required Future<AuthCredential> Function(AccountLinkProvider provider)
+    acquireCredential,
+    required Future<String?> Function(AuthCredential credential) signIn,
+    required Future<void> Function() signOut,
+  }) => FirebaseAccountTransitionIdentity._(
+    currentUid,
+    currentIsAnonymous,
+    acquireCredential,
+    signIn,
+    signOut,
+  );
+
+  final String? Function()? _currentUid;
+  final bool Function()? _currentIsAnonymous;
+  final Future<AuthCredential> Function(AccountLinkProvider provider)?
+  _acquireCredential;
+  final Future<String?> Function(AuthCredential credential)? _signIn;
+  final Future<void> Function()? _signOut;
 
   @override
-  String? get currentUid => AuthService.current?.uid;
+  String? get currentUid =>
+      _currentUid == null ? AuthService.current?.uid : _currentUid();
 
   @override
-  bool get currentIsAnonymous => AuthService.current?.isAnonymous ?? false;
+  bool get currentIsAnonymous =>
+      _currentIsAnonymous?.call() ??
+      (AuthService.current?.isAnonymous ?? false);
 
   @override
   Future<void> activateTarget(
     AccountLinkProvider provider, {
     required String expectedTargetUid,
+    required CloudWriteSession expectedSourceSession,
+    required CloudWriteSessionController sessions,
+    required bool allowMissingSource,
   }) async {
-    final auth = AuthService._auth;
-    if (auth == null || expectedTargetUid.trim().isEmpty) {
+    if (expectedTargetUid.trim().isEmpty) {
       throw const AccountLinkSafetyFailure();
     }
-    final credential = await AuthService._acquireFreshProviderCredential(
-      provider,
+    _assertSource(
+      expectedSourceSession,
+      sessions,
+      allowMissingSource: allowMissingSource,
     );
-    final result = await auth.signInWithCredential(credential);
-    if (result.user?.uid != expectedTargetUid) {
-      await auth.signOut();
+    final credential =
+        await (_acquireCredential?.call(provider) ??
+            AuthService._acquireFreshProviderCredential(provider));
+    _assertSource(
+      expectedSourceSession,
+      sessions,
+      allowMissingSource: allowMissingSource,
+    );
+    _assertSource(
+      expectedSourceSession,
+      sessions,
+      allowMissingSource: allowMissingSource,
+    );
+    final signedInUid =
+        await (_signIn?.call(credential) ?? _signInPrimary(credential));
+    try {
+      sessions.assertCurrent(expectedSourceSession);
+    } on StateError {
+      await _signOutPrimary();
       throw const AccountLinkSafetyFailure();
     }
+    if (signedInUid != expectedTargetUid) {
+      await _signOutPrimary();
+      throw const AccountLinkSafetyFailure();
+    }
+  }
+
+  void _assertSource(
+    CloudWriteSession expected,
+    CloudWriteSessionController sessions, {
+    required bool allowMissingSource,
+  }) {
+    try {
+      sessions.assertCurrent(expected);
+    } on StateError {
+      throw const AccountLinkSafetyFailure();
+    }
+    final uid = currentUid;
+    if (uid == expected.uid && currentIsAnonymous) return;
+    if (allowMissingSource && uid == null) return;
+    throw const AccountLinkSafetyFailure();
+  }
+
+  Future<String?> _signInPrimary(AuthCredential credential) async {
+    final auth = AuthService._auth;
+    if (auth == null) throw const AccountLinkSafetyFailure();
+    return (await auth.signInWithCredential(credential)).user?.uid;
+  }
+
+  Future<void> _signOutPrimary() async {
+    final testSignOut = _signOut;
+    if (testSignOut != null) return testSignOut();
+    final auth = AuthService._auth;
+    if (auth != null) await auth.signOut();
   }
 }
 

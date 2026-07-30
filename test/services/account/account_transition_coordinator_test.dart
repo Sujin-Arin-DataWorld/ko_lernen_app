@@ -5,6 +5,7 @@ import 'package:ko_lernen_app/services/account/account_transition_coordinator.da
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/cloud_sync_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   test('a conflict is inert until the user explicitly confirms', () {
@@ -16,6 +17,28 @@ void main() {
     expect(harness.sessions.current?.mode, CloudWriteMode.ready);
     expect(harness.journal.value, isNull);
   });
+
+  test(
+    'malformed durable replacement state fails closed without effects',
+    () async {
+      final harness = _Harness();
+      harness.journal.value = const AccountTransitionJournal(
+        version: AccountTransitionJournal.currentVersion,
+        session: CloudWriteSession(
+          uid: 'anonymous-source',
+          epoch: 1,
+          mode: CloudWriteMode.ready,
+        ),
+        replacementProvider: 'google',
+      );
+
+      final result = await harness.coordinator.resume(catalog: const {});
+
+      expect(result.status, AccountTransitionStatus.blocked);
+      expect(harness.events, isEmpty);
+      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+    },
+  );
 
   test(
     'failed isolated target verification preserves source and starts nothing',
@@ -121,6 +144,105 @@ void main() {
       expect(harness.journal.value, isNotNull);
     },
   );
+
+  test(
+    'epoch race after prepared journal write blocks target attach',
+    () async {
+      final harness = _Harness();
+      harness.journal.afterWrite = (journal) {
+        if (journal.replacementPhase == AccountReplacementPhase.prepared) {
+          harness.sessions
+            ..transition(CloudWriteMode.blocked)
+            ..transition(CloudWriteMode.reconciling);
+        }
+      };
+
+      final result = await harness.coordinator.confirm(
+        const ExistingAccountLinkConflict(AccountLinkProvider.google),
+        catalog: const {},
+      );
+
+      expect(result.status, AccountTransitionStatus.blocked);
+      expect(harness.operations.attachCalls, 0);
+      expect(harness.operations.cleanupCalls, 0);
+    },
+  );
+
+  test('mode race after cleanup journal write blocks cleanup effect', () async {
+    final harness = _Harness();
+    harness.journal.afterWrite = (journal) {
+      if (journal.replacementPhase == AccountReplacementPhase.cleanupPending &&
+          harness.operations.cleanupCalls == 0) {
+        harness.sessions.transition(CloudWriteMode.blocked);
+      }
+    };
+
+    final result = await harness.coordinator.confirm(
+      const ExistingAccountLinkConflict(AccountLinkProvider.google),
+      catalog: const {},
+    );
+
+    expect(result.status, AccountTransitionStatus.blocked);
+    expect(harness.operations.cleanupCalls, 0);
+    expect(harness.identity.activationCalls, 0);
+  });
+
+  test('UID race during polling delay blocks status and activation', () async {
+    final harness = _Harness();
+    harness.pollDelay = () async {
+      harness.identity.currentUid = 'different-source';
+      harness.sessions.acquire('different-source');
+    };
+
+    final result = await harness.coordinator.confirm(
+      const ExistingAccountLinkConflict(AccountLinkProvider.google),
+      catalog: const {},
+    );
+
+    expect(result.status, AccountTransitionStatus.blocked);
+    expect(harness.operations.statusCalls, 0);
+    expect(harness.identity.activationCalls, 0);
+  });
+
+  test('epoch race after status blocks dispose and activation', () async {
+    final harness = _Harness();
+    harness.operations.afterStatus = () {
+      harness.sessions
+        ..transition(CloudWriteMode.blocked)
+        ..transition(CloudWriteMode.cleanupPending);
+    };
+
+    final result = await harness.coordinator.confirm(
+      const ExistingAccountLinkConflict(AccountLinkProvider.google),
+      catalog: const {},
+    );
+
+    expect(result.status, AccountTransitionStatus.blocked);
+    expect(harness.identity.activationCalls, 0);
+    expect(
+      harness.events.where((event) => event == 'dispose-target'),
+      hasLength(1),
+    );
+  });
+
+  test('mode race while disposing target blocks primary activation', () async {
+    final harness = _Harness();
+    harness.verifier.onDispose = () {
+      harness.sessions.transition(CloudWriteMode.blocked);
+    };
+
+    final result = await harness.coordinator.confirm(
+      const ExistingAccountLinkConflict(AccountLinkProvider.google),
+      catalog: const {},
+    );
+
+    expect(result.status, AccountTransitionStatus.blocked);
+    expect(harness.identity.activationCalls, 0);
+    expect(
+      harness.journal.value?.replacementPhase,
+      AccountReplacementPhase.activationPending,
+    );
+  });
 
   test(
     'production reconciliation factory reads only the secondary target remote',
@@ -230,6 +352,223 @@ void main() {
       );
     },
   );
+
+  test(
+    'first journal failure restores only the exact quiesced source',
+    () async {
+      final harness = _Harness()..journal.failWriteAt = 1;
+
+      final result = await harness.coordinator.confirm(
+        const ExistingAccountLinkConflict(AccountLinkProvider.google),
+        catalog: const {},
+      );
+
+      expect(result.status, AccountTransitionStatus.blocked);
+      expect(harness.sessions.current?.uid, 'anonymous-source');
+      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+      expect(harness.operations.prepareCalls, 0);
+    },
+  );
+
+  test(
+    'partially persisted first journal is deleted before rollback',
+    () async {
+      final harness = _Harness()..journal.failAfterPersistAt = 1;
+
+      final result = await harness.coordinator.confirm(
+        const ExistingAccountLinkConflict(AccountLinkProvider.google),
+        catalog: const {},
+      );
+
+      expect(result.status, AccountTransitionStatus.blocked);
+      expect(harness.journal.value, isNull);
+      expect(harness.journal.deleteCalls, 1);
+      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+      expect(harness.operations.prepareCalls, 0);
+    },
+  );
+
+  test(
+    'cancel session race neither deletes nor transitions a replacement',
+    () async {
+      final harness = _Harness()
+        ..reconciliationResult = const AccountReconciliationResult(
+          AccountReconciliationStatus.unavailable,
+        );
+      await harness.coordinator.confirm(
+        const ExistingAccountLinkConflict(AccountLinkProvider.google),
+        catalog: const {},
+      );
+      final durable = harness.journal.value;
+      harness.journal.beforeConditionalDelete = () {
+        harness.sessions
+          ..transition(CloudWriteMode.blocked)
+          ..transition(CloudWriteMode.reconciling);
+      };
+
+      expect(await harness.coordinator.cancel(), isFalse);
+      expect(harness.journal.value, same(durable));
+      expect(harness.journal.deleteCalls, 0);
+      expect(harness.sessions.current?.mode, CloudWriteMode.reconciling);
+    },
+  );
+
+  for (final terminal in <bool>[false, true]) {
+    test(
+      'cold restart with deleted source ${terminal ? "activates after terminal status" : "stays pending"}',
+      () async {
+        final journal = _cleanupJournal(
+          phase: AccountReplacementPhase.cleanupPending,
+        );
+        final harness =
+            _Harness(
+                sourceUid: null,
+                initialJournal: journal,
+                restoreInitialSession: false,
+              )
+              ..operations.statusPhase = terminal
+                  ? AccountOperationPhase.completed
+                  : AccountOperationPhase.sourceCleanupPending;
+
+        final result = await harness.coordinator.resume(catalog: const {});
+
+        expect(
+          result.status,
+          terminal
+              ? AccountTransitionStatus.completed
+              : AccountTransitionStatus.cleanupPending,
+        );
+        expect(harness.operations.statusCalls, 1);
+        expect(harness.identity.activationCalls, terminal ? 1 : 0);
+        if (!terminal) {
+          expect(harness.journal.value, same(journal));
+        }
+      },
+    );
+  }
+
+  test('cold recovery rejects the wrong freshly verified target', () async {
+    final journal = _cleanupJournal(
+      phase: AccountReplacementPhase.cleanupPending,
+    );
+    final harness = _Harness(
+      sourceUid: null,
+      initialJournal: journal,
+      restoreInitialSession: false,
+    )..verifier.targetUid = 'wrong-target';
+
+    final result = await harness.coordinator.resume(catalog: const {});
+
+    expect(result.status, AccountTransitionStatus.targetVerificationFailed);
+    expect(harness.operations.statusCalls, 0);
+    expect(harness.identity.activationCalls, 0);
+    expect(harness.journal.value, same(journal));
+  });
+
+  test(
+    'activation failure persists activationPending and resumes safely',
+    () async {
+      final journal = _cleanupJournal(
+        phase: AccountReplacementPhase.cleanupPending,
+      );
+      final harness = _Harness(
+        sourceUid: null,
+        initialJournal: journal,
+        restoreInitialSession: false,
+      )..identity.activationFailure = StateError('provider unavailable');
+
+      final first = await harness.coordinator.resume(catalog: const {});
+
+      expect(first.status, AccountTransitionStatus.activationPending);
+      expect(
+        harness.journal.value?.replacementPhase,
+        AccountReplacementPhase.activationPending,
+      );
+      expect(harness.identity.activationCalls, 1);
+
+      harness.identity.activationFailure = null;
+      final second = await harness.coordinator.resume(catalog: const {});
+
+      expect(second.status, AccountTransitionStatus.completed);
+      expect(harness.identity.activationCalls, 2);
+      expect(harness.journal.value, isNull);
+    },
+  );
+
+  test(
+    'cold restart after primary sign-in completes the exact terminal journal',
+    () async {
+      final journal = _cleanupJournal(
+        phase: AccountReplacementPhase.activationPending,
+      );
+      final harness = _Harness(
+        sourceUid: 'durable-target',
+        initialJournal: journal,
+        restoreInitialSession: false,
+      );
+      final targetSession = harness.sessions.acquire('durable-target');
+
+      final result = await harness.coordinator.resume(catalog: const {});
+
+      expect(result.status, AccountTransitionStatus.completed);
+      expect(harness.operations.statusCalls, 1);
+      expect(harness.identity.activationCalls, 0);
+      expect(harness.journal.value, isNull);
+      expect(harness.sessions.current, targetSession);
+    },
+  );
+
+  test(
+    'preference journal deletion is exact and conditionally fenced',
+    () async {
+      SharedPreferences.setMockInitialValues(const {});
+      final preferences = await SharedPreferences.getInstance();
+      final store = SharedPreferencesReplacementTransitionJournalStore(
+        preferences,
+      );
+      final journal = _cleanupJournal(
+        phase: AccountReplacementPhase.activationPending,
+      );
+      await store.write(journal);
+      final different = journal.copyWith(replacementOperationVersion: 5);
+
+      expect(
+        await store.deleteIfCurrent(expected: different, isCurrent: () => true),
+        isFalse,
+      );
+      expect(await store.read(), isNotNull);
+      expect(
+        await store.deleteIfCurrent(expected: journal, isCurrent: () => false),
+        isFalse,
+      );
+      expect(await store.read(), isNotNull);
+      expect(
+        await store.deleteIfCurrent(expected: journal, isCurrent: () => true),
+        isTrue,
+      );
+      expect(await store.read(), isNull);
+    },
+  );
+}
+
+AccountTransitionJournal _cleanupJournal({
+  required AccountReplacementPhase phase,
+}) {
+  return AccountTransitionJournal.fromSession(
+    const CloudWriteSession(
+      uid: 'anonymous-source',
+      epoch: 8,
+      mode: CloudWriteMode.cleanupPending,
+    ),
+    replacementProvider: 'google',
+    replacementTargetUid: 'durable-target',
+    replacementRequestKey: 'request-1',
+    replacementPhase: phase,
+    replacementOperationId: 'replacement-operation-1',
+    replacementOperationVersion: 4,
+    reconciliationOperationId: 'replacement-operation-1',
+    reconciliationCheckpoint: ReconciliationCheckpoint.completed,
+  );
 }
 
 class _Harness {
@@ -237,19 +576,25 @@ class _Harness {
     this.sourceUid = 'anonymous-source',
     AccountTransitionJournal? initialJournal,
     CloudWriteSession? initialSession,
+    bool restoreInitialSession = true,
   }) {
     identity = _FakeIdentity(sourceUid, events);
     verifier = _FakeVerifier(events);
     operations = _FakeOperations(events, identity);
     journal.value = initialJournal;
-    if (initialSession == null) {
-      sessions.acquire(sourceUid);
+    final restoredSession = initialSession ?? initialJournal?.session;
+    if (!restoreInitialSession) {
+      return;
+    }
+    if (restoredSession == null) {
+      if (sourceUid == null) return;
+      sessions.acquire(sourceUid!);
     } else {
-      sessions.resume(initialSession, expectedUid: initialSession.uid);
+      sessions.resume(restoredSession, expectedUid: restoredSession.uid);
     }
   }
 
-  final String sourceUid;
+  final String? sourceUid;
   final events = <String>[];
   final sessions = CloudWriteSessionController();
   final journal = _MemoryJournal();
@@ -259,6 +604,9 @@ class _Harness {
   AccountReconciliationResult reconciliationResult =
       const AccountReconciliationResult(AccountReconciliationStatus.completed);
   int reconciliationCalls = 0;
+  Future<void> Function() pollDelay = _noDelay;
+
+  static Future<void> _noDelay() async {}
 
   AccountTransitionCoordinator get coordinator => AccountTransitionCoordinator(
     sessions: sessions,
@@ -290,6 +638,7 @@ class _Harness {
           return reconciliationResult;
         },
     maxStatusPolls: 1,
+    pollDelay: pollDelay,
   );
 }
 
@@ -300,6 +649,7 @@ class _FakeIdentity implements AccountTransitionIdentity {
   String? currentUid;
   final List<String> events;
   int activationCalls = 0;
+  Object? activationFailure;
 
   @override
   bool get currentIsAnonymous =>
@@ -309,9 +659,13 @@ class _FakeIdentity implements AccountTransitionIdentity {
   Future<void> activateTarget(
     AccountLinkProvider provider, {
     required String expectedTargetUid,
+    required CloudWriteSession expectedSourceSession,
+    required CloudWriteSessionController sessions,
+    required bool allowMissingSource,
   }) async {
     activationCalls += 1;
     events.add('activate:${provider.name}');
+    if (activationFailure != null) throw activationFailure!;
     expect(expectedTargetUid, 'durable-target');
     currentUid = expectedTargetUid;
   }
@@ -322,28 +676,35 @@ class _FakeVerifier implements IsolatedTargetVerifier {
 
   final List<String> events;
   Object? failure;
+  String targetUid = 'durable-target';
+  void Function()? onDispose;
 
   @override
   Future<VerifiedTargetContext> verify(AccountLinkProvider provider) async {
     events.add('verify:${provider.name}');
     if (failure != null) throw failure!;
-    return _FakeTarget(events);
+    return _FakeTarget(events, targetUid, onDispose);
   }
 }
 
 class _FakeTarget implements VerifiedTargetContext {
-  _FakeTarget(this.events);
+  _FakeTarget(this.events, this.targetUid, this.onDispose);
 
   final List<String> events;
+  final String targetUid;
+  final void Function()? onDispose;
 
   @override
-  String get uid => 'durable-target';
+  String get uid => targetUid;
 
   @override
   bool get isAnonymous => false;
 
   @override
-  Future<void> dispose() async => events.add('dispose-target');
+  Future<void> dispose() async {
+    events.add('dispose-target');
+    onDispose?.call();
+  }
 }
 
 class _FakeReconciliationTarget implements AccountReconciliationTargetContext {
@@ -413,10 +774,12 @@ class _FakeOperations implements ReplacementAccountOperations {
   int prepareCalls = 0;
   int attachCalls = 0;
   int cleanupCalls = 0;
+  int statusCalls = 0;
   String? primaryUidAtPrepare;
   String? primaryUidAtCleanup;
   AccountOperationPhase statusPhase = AccountOperationPhase.completed;
   void Function()? afterAttach;
+  void Function()? afterStatus;
 
   @override
   Future<AccountOperationResult> prepare({
@@ -468,7 +831,9 @@ class _FakeOperations implements ReplacementAccountOperations {
     required VerifiedTargetContext target,
     required String operationId,
   }) async {
+    statusCalls += 1;
     events.add('status:${statusPhase.name}');
+    afterStatus?.call();
     return _replacement(statusPhase, version: 4);
   }
 }
@@ -478,15 +843,40 @@ class _MemoryJournal
         ReplacementTransitionJournalStore,
         AccountTransitionJournalStore {
   AccountTransitionJournal? value;
+  int writeCalls = 0;
+  int deleteCalls = 0;
+  int? failWriteAt;
+  int? failAfterPersistAt;
+  void Function()? beforeConditionalDelete;
+  void Function(AccountTransitionJournal journal)? afterWrite;
 
   @override
-  Future<void> delete() async => value = null;
+  Future<bool> deleteIfCurrent({
+    required AccountTransitionJournal expected,
+    required bool Function() isCurrent,
+  }) async {
+    beforeConditionalDelete?.call();
+    if (!isCurrent() || !identical(value, expected)) return false;
+    deleteCalls += 1;
+    value = null;
+    return true;
+  }
 
   @override
   Future<AccountTransitionJournal?> read() async => value;
 
   @override
-  Future<void> write(AccountTransitionJournal journal) async => value = journal;
+  Future<void> write(AccountTransitionJournal journal) async {
+    writeCalls += 1;
+    if (writeCalls == failWriteAt) {
+      throw StateError('journal write failed');
+    }
+    value = journal;
+    if (writeCalls == failAfterPersistAt) {
+      throw StateError('journal write failed after persistence');
+    }
+    afterWrite?.call(journal);
+  }
 }
 
 AccountOperationResult _replacement(

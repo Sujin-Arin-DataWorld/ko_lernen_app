@@ -105,6 +105,49 @@ void main() {
         expect(context.disposeCalls, 1);
       },
     );
+
+    test(
+      'primary target activation is fenced after credential acquisition',
+      () async {
+        final sessions = CloudWriteSessionController()
+          ..acquire('anonymous-source');
+        final expected = sessions.transition(CloudWriteMode.cleanupPending);
+        var primaryUid = 'anonymous-source';
+        var primaryIsAnonymous = true;
+        var signInCalls = 0;
+        final identity = FirebaseAccountTransitionIdentity.test(
+          currentUid: () => primaryUid,
+          currentIsAnonymous: () => primaryIsAnonymous,
+          acquireCredential: (_) async {
+            sessions
+              ..transition(CloudWriteMode.blocked)
+              ..transition(CloudWriteMode.cleanupPending);
+            return GoogleAuthProvider.credential(idToken: 'fresh-id-token');
+          },
+          signIn: (_) async {
+            signInCalls += 1;
+            primaryUid = 'durable-target';
+            primaryIsAnonymous = false;
+            return primaryUid;
+          },
+          signOut: () async {},
+        );
+
+        await expectLater(
+          identity.activateTarget(
+            AccountLinkProvider.google,
+            expectedTargetUid: 'durable-target',
+            expectedSourceSession: expected,
+            sessions: sessions,
+            allowMissingSource: true,
+          ),
+          throwsA(isA<AccountLinkSafetyFailure>()),
+        );
+
+        expect(signInCalls, 0);
+        expect(primaryUid, 'anonymous-source');
+      },
+    );
   });
 
   test(

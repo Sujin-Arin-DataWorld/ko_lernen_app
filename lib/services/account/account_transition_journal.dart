@@ -19,6 +19,7 @@ enum AccountReplacementPhase {
   reconciling,
   reconciled,
   cleanupPending,
+  activationPending,
 }
 
 /// Versioned, non-secret state that can safely resume an account transition.
@@ -71,7 +72,7 @@ class AccountTransitionJournal {
     String? replacementOperationId,
     int? replacementOperationVersion,
   }) {
-    return AccountTransitionJournal(
+    final journal = AccountTransitionJournal(
       version: currentVersion,
       session: session,
       reconciliationOperationId: reconciliationOperationId,
@@ -90,6 +91,8 @@ class AccountTransitionJournal {
       replacementOperationId: replacementOperationId,
       replacementOperationVersion: replacementOperationVersion,
     );
+    journal._validate();
+    return journal;
   }
 
   factory AccountTransitionJournal.fromJson(Map<String, dynamic> json) {
@@ -183,7 +186,7 @@ class AccountTransitionJournal {
       );
     }
 
-    return AccountTransitionJournal(
+    final journal = AccountTransitionJournal(
       version: version,
       session: CloudWriteSession(
         uid: uid,
@@ -201,6 +204,8 @@ class AccountTransitionJournal {
       replacementOperationId: replacementOperationId as String?,
       replacementOperationVersion: replacementOperationVersion as int?,
     );
+    journal._validate();
+    return journal;
   }
 
   AccountTransitionJournal copyWith({
@@ -216,7 +221,7 @@ class AccountTransitionJournal {
     final selectedLocalCustomPackBaseIds =
         reconciliationLocalCustomPackBaseIds ??
         this.reconciliationLocalCustomPackBaseIds;
-    return AccountTransitionJournal(
+    final journal = AccountTransitionJournal(
       version: version,
       session: session ?? this.session,
       reconciliationOperationId:
@@ -239,10 +244,13 @@ class AccountTransitionJournal {
       replacementOperationVersion:
           replacementOperationVersion ?? this.replacementOperationVersion,
     );
+    journal._validate();
+    return journal;
   }
 
   /// Deliberately emits only durable coordination metadata, never credentials.
   Map<String, Object> toJson() {
+    _validate();
     final json = <String, Object>{
       'version': version,
       'uid': session.uid,
@@ -266,20 +274,122 @@ class AccountTransitionJournal {
     if (localCustomPackBaseIds != null) {
       final validated = _parseLocalCustomPackBaseIds(
         localCustomPackBaseIds.toList(),
-      )!;
-      json['reconciliationLocalCustomPackBaseIds'] = validated.toList()..sort();
+      );
+      if (validated != null) {
+        json['reconciliationLocalCustomPackBaseIds'] = validated.toList()
+          ..sort();
+      }
     }
-    if (replacementProvider != null) {
-      json['replacementProvider'] = replacementProvider!;
-      json['replacementTargetUid'] = replacementTargetUid!;
-      json['replacementRequestKey'] = replacementRequestKey!;
-      json['replacementPhase'] = replacementPhaseValue!.name;
-      if (replacementOperationId != null) {
-        json['replacementOperationId'] = replacementOperationId!;
-        json['replacementOperationVersion'] = replacementOperationVersion!;
+    final provider = replacementProvider;
+    final targetUid = replacementTargetUid;
+    final requestKey = replacementRequestKey;
+    if (provider != null &&
+        targetUid != null &&
+        requestKey != null &&
+        replacementPhaseValue != null) {
+      json['replacementProvider'] = provider;
+      json['replacementTargetUid'] = targetUid;
+      json['replacementRequestKey'] = requestKey;
+      json['replacementPhase'] = replacementPhaseValue.name;
+      final replacementId = replacementOperationId;
+      final replacementVersion = replacementOperationVersion;
+      if (replacementId != null && replacementVersion != null) {
+        json['replacementOperationId'] = replacementId;
+        json['replacementOperationVersion'] = replacementVersion;
       }
     }
     return json;
+  }
+
+  void _validate() {
+    if (version != currentVersion ||
+        !_validUid(session.uid) ||
+        session.epoch < 1) {
+      throw const FormatException('Invalid account transition journal.');
+    }
+    if (reconciliationOperationId case final operationId?) {
+      if (!_validOperationId(operationId)) {
+        throw const FormatException(
+          'Account transition journal has an invalid operation ID.',
+        );
+      }
+    }
+    if (remoteRevision case final revision?) {
+      if (revision < 0) {
+        throw const FormatException(
+          'Account transition journal has an invalid remote revision.',
+        );
+      }
+    }
+    if (reconciliationLocalCustomPackBaseIds case final ids?) {
+      _parseLocalCustomPackBaseIds(ids.toList());
+    }
+
+    final replacementValues = <Object?>[
+      replacementProvider,
+      replacementTargetUid,
+      replacementRequestKey,
+      replacementPhase,
+      replacementOperationId,
+      replacementOperationVersion,
+    ];
+    if (replacementValues.every((value) => value == null)) return;
+    final provider = replacementProvider;
+    final targetUid = replacementTargetUid;
+    final requestKey = replacementRequestKey;
+    final phase = replacementPhase;
+    final operationId = replacementOperationId;
+    final operationVersion = replacementOperationVersion;
+    if (provider == null ||
+        !const {'google', 'apple'}.contains(provider) ||
+        targetUid == null ||
+        !_validUid(targetUid) ||
+        requestKey == null ||
+        !_validOperationId(requestKey) ||
+        phase == null ||
+        ((operationId == null) != (operationVersion == null)) ||
+        (operationId != null && !_validOperationId(operationId)) ||
+        (operationVersion != null && operationVersion < 0)) {
+      throw const FormatException(
+        'Account transition journal has invalid replacement metadata.',
+      );
+    }
+
+    final hasOperation =
+        operationId != null &&
+        reconciliationOperationId == operationId &&
+        operationVersion != null;
+    final completed =
+        reconciliationCheckpoint == ReconciliationCheckpoint.completed;
+    final valid = switch (phase) {
+      AccountReplacementPhase.targetVerified =>
+        session.mode == CloudWriteMode.quiesced &&
+            operationId == null &&
+            reconciliationOperationId == null &&
+            reconciliationCheckpoint == null &&
+            remoteRevision == null &&
+            reconciliationLocalCustomPackBaseIds == null,
+      AccountReplacementPhase.prepared || AccountReplacementPhase.attached =>
+        session.mode == CloudWriteMode.reconciling &&
+            hasOperation &&
+            reconciliationCheckpoint == null &&
+            remoteRevision == null &&
+            reconciliationLocalCustomPackBaseIds == null,
+      AccountReplacementPhase.reconciling =>
+        session.mode == CloudWriteMode.reconciling && hasOperation,
+      AccountReplacementPhase.reconciled =>
+        session.mode == CloudWriteMode.reconciling && hasOperation && completed,
+      AccountReplacementPhase.cleanupPending ||
+      AccountReplacementPhase.activationPending =>
+        session.mode == CloudWriteMode.cleanupPending &&
+            hasOperation &&
+            completed,
+    };
+    if (!valid) {
+      throw const FormatException(
+        'Account transition journal phase invariants are invalid.',
+      );
+    }
   }
 
   static Set<String>? _parseLocalCustomPackBaseIds(Object? value) {

@@ -154,6 +154,7 @@ void main() {
       'replacementPhase': 'reconciling',
       'replacementOperationId': 'operation-1',
       'replacementOperationVersion': 2,
+      'reconciliationOperationId': 'operation-1',
       'credential': 'must-not-survive',
       'idToken': 'must-not-survive',
       'accessToken': 'must-not-survive',
@@ -166,6 +167,7 @@ void main() {
       'uid': 'anonymous-source',
       'epoch': 4,
       'mode': 'reconciling',
+      'reconciliationOperationId': 'operation-1',
       'replacementProvider': 'google',
       'replacementTargetUid': 'durable-target',
       'replacementRequestKey': 'request-key-1',
@@ -207,4 +209,106 @@ void main() {
       );
     }
   });
+
+  test('replacement phases enforce exact operation and session invariants', () {
+    final base = <String, Object?>{
+      'version': 1,
+      'uid': 'anonymous-source',
+      'epoch': 4,
+      'replacementProvider': 'google',
+      'replacementTargetUid': 'durable-target',
+      'replacementRequestKey': 'request-1',
+    };
+    final invalid = <Map<String, Object?>>[
+      {...base, 'mode': 'ready', 'replacementPhase': 'targetVerified'},
+      {...base, 'mode': 'quiesced', 'replacementPhase': 'prepared'},
+      {
+        ...base,
+        'mode': 'reconciling',
+        'replacementPhase': 'prepared',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 1,
+      },
+      {
+        ...base,
+        'mode': 'reconciling',
+        'replacementPhase': 'attached',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 1,
+        'reconciliationOperationId': 'operation-other',
+      },
+      {
+        ...base,
+        'mode': 'reconciling',
+        'replacementPhase': 'attached',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 1,
+        'reconciliationOperationId': 'operation-1',
+        'remoteRevision': 4,
+      },
+      {
+        ...base,
+        'mode': 'reconciling',
+        'replacementPhase': 'reconciled',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 2,
+        'reconciliationOperationId': 'operation-1',
+      },
+      {
+        ...base,
+        'mode': 'ready',
+        'replacementPhase': 'cleanupPending',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 3,
+        'reconciliationOperationId': 'operation-1',
+        'reconciliationCheckpoint': 'completed',
+      },
+      {
+        ...base,
+        'mode': 'cleanupPending',
+        'replacementPhase': 'activationPending',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 4,
+        'reconciliationOperationId': 'operation-1',
+      },
+    ];
+
+    for (final json in invalid) {
+      expect(
+        () => AccountTransitionJournal.fromJson(json),
+        throwsA(isA<FormatException>()),
+      );
+    }
+  });
+
+  test(
+    'activation-pending journal round-trips as a valid non-secret state',
+    () {
+      final journal = AccountTransitionJournal.fromJson({
+        'version': 1,
+        'uid': 'anonymous-source',
+        'epoch': 8,
+        'mode': 'cleanupPending',
+        'replacementProvider': 'apple',
+        'replacementTargetUid': 'durable-target',
+        'replacementRequestKey': 'request-1',
+        'replacementPhase': 'activationPending',
+        'replacementOperationId': 'operation-1',
+        'replacementOperationVersion': 4,
+        'reconciliationOperationId': 'operation-1',
+        'reconciliationCheckpoint': 'completed',
+        'authorizationCode': 'must-not-survive',
+      });
+
+      expect(
+        journal.replacementPhase,
+        AccountReplacementPhase.activationPending,
+      );
+      expect(journal.toJson(), isNot(contains('authorizationCode')));
+      expect(
+        AccountTransitionJournal.fromJson(journal.toJson()).toJson(),
+        journal.toJson(),
+      );
+    },
+  );
 }
