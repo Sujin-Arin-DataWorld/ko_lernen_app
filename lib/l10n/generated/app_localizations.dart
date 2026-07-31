@@ -5416,13 +5416,13 @@ abstract class AppL10n {
   /// No description provided for @previewPage1Title.
   ///
   /// In de, this message translates to:
-  /// **'Foto → Wortliste'**
+  /// **'Ein Foto statt 30-mal tippen'**
   String get previewPage1Title;
 
   /// No description provided for @previewPage1Body.
   ///
   /// In de, this message translates to:
-  /// **'Fotografiere dein Lehrbuch oder eine Speisekarte — die Wörter landen direkt in deiner Wortliste.'**
+  /// **'Fotografiere eine Lehrbuchseite oder Speisekarte — Sori erkennt Wörter, Grammatik und Sätze und legt sie in dein Bücherregal. Das Bild bleibt auf deinem Gerät.'**
   String get previewPage1Body;
 
   /// No description provided for @previewPage2Title.
@@ -5434,19 +5434,19 @@ abstract class AppL10n {
   /// No description provided for @previewPage2Body.
   ///
   /// In de, this message translates to:
-  /// **'Mit jedem Wortpack baust du dein eigenes koreanisches Haus — Stein für Stein.'**
+  /// **'Jedes gemeisterte Pack setzt einen Stein — vom Sockel über Säulen und Ziegeldach bis zum eigenen Jongga-Hof. 12 Stufen, die du wachsen siehst.'**
   String get previewPage2Body;
 
   /// No description provided for @previewPage3Title.
   ///
   /// In de, this message translates to:
-  /// **'Täglich mit dem Tiger'**
+  /// **'5 Minuten am Tag genügen'**
   String get previewPage3Title;
 
   /// No description provided for @previewPage3Body.
   ///
   /// In de, this message translates to:
-  /// **'Schon 5 Minuten täglich reichen, um dauerhaft voranzukommen. Der Tiger erinnert dich daran.'**
+  /// **'Der Tiger meldet sich einmal täglich und hält deinen Streak am Laufen. Und wenn ein Tag mal untergeht, fängt ihn der Streak-Schutz ab.'**
   String get previewPage3Body;
 
   /// No description provided for @hubLearnLevel.

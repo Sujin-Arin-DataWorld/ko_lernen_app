@@ -115,8 +115,12 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                         children: [
                           _PreviewPage(
                             index: 0,
+                            // 카메라 프레임 + 교재 + 까치가 이미 그려진 기존 에셋.
+                            // (book_success.png는 가운데가 빈 액자라 온보딩에서
+                            //  단독으로 쓰면 "무엇이 생기는지"가 보이지 않았다.)
                             imageAsset:
-                                'assets/illustrations/book/book_success.png',
+                                'assets/illustrations/book/book_camera_guide.png',
+                            wide: true,
                             accentColor: SoriColors.info,
                             title: t.previewPage1Title,
                             body: t.previewPage1Body,
@@ -136,8 +140,10 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                           ),
                           _PreviewPage(
                             index: 2,
-                            mascotEmotion: MascotEmotion.celebrate,
-                            useDokkaebi: true,
+                            // 마법 크리스탈 호랑이 (투명 PNG) — 정적 호랑이 +
+                            // 깨진 도깨비불 뱃지를 단일 이미지로 대체 (2026-07-31).
+                            imageAsset:
+                                'assets/illustrations/onboarding/tiger_crystal.png',
                             accentColor: SoriColors.tiger,
                             title: t.previewPage3Title,
                             body: t.previewPage3Body,
@@ -200,6 +206,9 @@ class _PreviewPage extends StatelessWidget {
   /// page2 전용 — 불 아이콘 자리에 도깨비불 PNG(미존재 시 글로우 폴백).
   final bool useDokkaebi;
 
+  /// 가로로 넓은 일러스트(4:3 이상) → 높이 대신 화면 너비에 맞춰 키운다.
+  final bool wide;
+
   final Color accentColor;
   final String title;
   final String body;
@@ -211,6 +220,7 @@ class _PreviewPage extends StatelessWidget {
     this.videoAsset,
     this.mascotEmotion = MascotEmotion.celebrate,
     this.useDokkaebi = false,
+    this.wide = false,
     required this.accentColor,
     required this.title,
     required this.body,
@@ -222,6 +232,12 @@ class _PreviewPage extends StatelessWidget {
     final delay = Duration(milliseconds: 80 + index * 40);
     return LayoutBuilder(
       builder: (context, c) {
+        // 세로로 긴 화면에서 비주얼이 점처럼 작아 보이지 않도록 무대 높이를
+        // 페이지 높이에 비례시킨다. 넓은 일러스트(4:3)는 너비 기준으로도 제한.
+        final imageW = (c.maxWidth - 56).clamp(200.0, 420.0);
+        final stageH = wide
+            ? (c.maxHeight * 0.34).clamp(190.0, imageW * 0.78)
+            : (c.maxHeight * 0.30).clamp(180.0, 260.0);
         return SingleChildScrollView(
           padding: soriClampPadding(
             c.maxWidth,
@@ -241,7 +257,7 @@ class _PreviewPage extends StatelessWidget {
                   slideY: 18,
                   startScale: 0.92,
                   child: SizedBox(
-                    height: 180,
+                    height: stageH,
                     child: Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
@@ -249,7 +265,7 @@ class _PreviewPage extends StatelessWidget {
                         Positioned(
                           bottom: 4,
                           child: Container(
-                            width: 180,
+                            width: wide ? imageW * 0.9 : 180,
                             height: 50,
                             decoration: BoxDecoration(
                               shape: BoxShape.rectangle,
@@ -273,7 +289,7 @@ class _PreviewPage extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(16),
                               child: SizedBox(
-                                height: 168,
+                                height: stageH - 12,
                                 width: (c.maxWidth - 72).clamp(160.0, 280.0),
                                 child: SoriPosterLoop(
                                   videoAsset: videoAsset!,
@@ -297,7 +313,8 @@ class _PreviewPage extends StatelessWidget {
                             bottom: 0,
                             child: Image.asset(
                               imageAsset!,
-                              height: 168,
+                              height: stageH - 12,
+                              width: wide ? imageW : null,
                               fit: BoxFit.contain,
                               filterQuality: FilterQuality.high,
                               errorBuilder: (_, __, ___) => const Mascot.tiger(
@@ -320,7 +337,9 @@ class _PreviewPage extends StatelessWidget {
                           // 도깨비불 뱃지 — PNG, 미존재 시 불 아이콘 글로우 폴백
                           if (useDokkaebi)
                             Positioned(
-                              top: 0,
+                              // 무대 높이가 커져도 호랑이 머리 옆에 붙어 있도록
+                              // 위쪽이 아니라 아래를 기준으로 배치한다.
+                              bottom: 108,
                               right: 4,
                               child: Image.asset(
                                 'assets/illustrations/decorations/dokkaebi_fire.png',
