@@ -60,6 +60,20 @@ Widget _host(List<SoriPathStop> stops, {double width = 360}) {
 }
 
 void main() {
+  // "지금" 노드(_NowDisc)의 무한 펄스 애니메이션 때문에 pumpAndSettle이 영영
+  // settle하지 못해 타임아웃한다. 위젯이 reduce-motion을 존중하므로 접근성
+  // "동작 줄이기"를 켜 펄스를 멈춘다 → pumpAndSettle 정상화(a11y 경로도 검증).
+  setUp(() {
+    TestWidgetsFlutterBinding.ensureInitialized()
+            .platformDispatcher
+            .accessibilityFeaturesTestValue =
+        const FakeAccessibilityFeatures(disableAnimations: true);
+  });
+  tearDown(() {
+    TestWidgetsFlutterBinding.instance.platformDispatcher
+        .clearAccessibilityFeaturesTestValue();
+  });
+
   testWidgets('레벨 하나의 팩 19개가 전부 탭된다 (하나도 빠지지 않음)',
       (tester) async {
     const n = 19;
@@ -176,7 +190,10 @@ void main() {
     final tapped = <String>{};
     await tester.pumpWidget(
       MediaQuery(
-        data: const MediaQueryData(textScaler: TextScaler.linear(1.8)),
+        data: const MediaQueryData(
+          textScaler: TextScaler.linear(1.8),
+          disableAnimations: true,
+        ),
         child: _host(_buildStops(n, tapped.add)),
       ),
     );
