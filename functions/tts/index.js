@@ -33,11 +33,12 @@ const ttsClient = new textToSpeech.TextToSpeechClient();
 const BUCKET = "ko-lernen-app.firebasestorage.app";
 
 // 클라/사전생성 스크립트와 반드시 동일한 voice 매핑.
+// male 은 --demo 로 고른 Chirp3-HD 채택본으로 generate_tts.py 와 함께 교체.
 const VOICES = {
   female: "ko-KR-Chirp3-HD-Aoede",
   male: "ko-KR-Neural2-C",
 };
-const RATE = 0.9; // 사전생성과 동일 속도
+const RATE = 1.0; // ⚠️ tool/generate_tts.py 의 RATE 와 반드시 동일 (0.9→1.0 자연 속도)
 
 exports.synthesize_tts = onRequest(
   { cors: true, memory: "256MiB", timeoutSeconds: 30 },

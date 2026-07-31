@@ -407,10 +407,10 @@ class _DiktatQuestState extends State<DiktatQuest> {
           ],
         ),
         Positioned(
-          top: 0,
-          right: 0,
-          child: MascotPop(
-            visible: _celebrated,
+          top: -12,
+          right: 12,
+          child: MascotPartner(
+            celebrating: _celebrated,
             size: 56,
             kind: MascotKind.magpie,
           ),

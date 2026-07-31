@@ -460,9 +460,13 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
           ],
         ),
         Positioned(
-          top: 0,
-          right: 0,
-          child: MascotPop(visible: _celebrated, size: 56, kind: MascotKind.magpie),
+          top: -12,
+          right: 12,
+          child: MascotPartner(
+            celebrating: _celebrated,
+            size: 56,
+            kind: MascotKind.magpie,
+          ),
         ),
       ],
     );

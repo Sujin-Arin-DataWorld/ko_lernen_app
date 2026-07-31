@@ -7,12 +7,14 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/scenario.dart';
 import '../services/premium_service.dart';
 import '../services/scenario_loader.dart';
+import '../services/scene_asset_resolver.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/chip.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
@@ -71,6 +73,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   int _firstTryPassedCount = 0;
   int _passedCount = 0;
   bool _questReady = true; // false → Quest läuft noch, Next-Button deaktiviert
+  // 시나리오 대화 재생 속도 배수 (요청 단위에만 적용 — 전역 Storage.ttsRate 보존).
+  double _dialogRate = 1.0;
   final PageController _pageCtrl = PageController();
   // Quest-Indizes, die der Nutzer NICHT bestanden hat. Wird in _persistResult
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
@@ -157,10 +161,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   // ─── Backdrop-Map ──────────────────────────────────────────────────────────
 
-  /// Scenario → scenes/ backdrop key. Delegates to
-  /// `ScenarioBackdrop.backdropKey` so the scenarios list tile reuses the
-  /// same mapping (single source of truth).
-  String? get _backdropKey => _scenario?.backdropKey;
+  /// Resolved scene poster / ambient loop for the current scenario. Prefers a
+  /// dedicated per-scenario asset (`scenes/{id}.png` · `loops/scene_{id}.mp4`)
+  /// and falls back to the category backdrop via SceneAssetResolver.
+  String? get _backdropPoster =>
+      _scenario == null ? null : SceneAssetResolver.posterAsset(_scenario!);
+  String? get _backdropLoop =>
+      _scenario == null ? null : SceneAssetResolver.loopAsset(_scenario!);
 
   // ─── Stage-Berechnung (plan-basiert, siehe buildScenarioStagePlan) ─────────
 
@@ -348,7 +355,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       child: Column(
         children: [
           _ScenarioIntroArt(
-            backdropKey: _backdropKey,
+            posterAsset: _backdropPoster,
+            loopAsset: _backdropLoop,
             emoji: s.emoji,
             sidekick: s.sidekick,
           ),
@@ -504,6 +512,37 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _StageTitle(t.scenarioDialogTitle, SoriColors.success),
+          const SizedBox(height: Spacing.sm),
+          // 재생 속도 조절 — 좁은 화면 대비 Wrap(오버플로 방지). 요청 단위 배수만 적용.
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            runSpacing: Spacing.xs,
+            children: [
+              Icon(Icons.speed_rounded, size: 16, color: ss.textMuted),
+              const SizedBox(width: Spacing.xs),
+              Text(
+                t.listeningSpeedLabel,
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(width: Spacing.md),
+              ...[0.75, 1.0, 1.25].map((r) {
+                final selected = (_dialogRate - r).abs() < 0.01;
+                return Padding(
+                  padding: const EdgeInsets.only(right: Spacing.xs),
+                  child: SoriChip(
+                    label: '${r}x',
+                    accent: SoriColors.info,
+                    selected: selected,
+                    variant: SoriChipVariant.soft,
+                    onTap: () => setState(() => _dialogRate = r),
+                    fontSize: 12,
+                  ),
+                );
+              }),
+            ],
+          ),
           const SizedBox(height: Spacing.lg),
           ...sc.dialog.map((line) {
             final isUser = line.speaker == 'user';
@@ -567,6 +606,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                           voice: line.speaker == 'user'
                                               ? 'female'
                                               : 'male',
+                                          rateMultiplier: _dialogRate,
                                         );
                                       },
                                       child: Icon(
@@ -1114,13 +1154,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       body: SoriScreenBackground(
         child: Stack(
           children: [
-            if (_backdropKey != null)
+            if (_backdropPoster != null)
               Positioned.fill(
                 child: IgnorePointer(
                   child: Opacity(
                     opacity: 0.08,
                     child: Image.asset(
-                      'assets/illustrations/scenes/${_backdropKey!}.png',
+                      _backdropPoster!,
                       fit: BoxFit.cover,
                       errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                     ),
@@ -1174,12 +1214,14 @@ class _StageScroll extends StatelessWidget {
 }
 
 class _ScenarioIntroArt extends StatelessWidget {
-  final String? backdropKey;
+  final String? posterAsset;
+  final String? loopAsset;
   final String emoji;
   final String? sidekick;
 
   const _ScenarioIntroArt({
-    required this.backdropKey,
+    required this.posterAsset,
+    required this.loopAsset,
     required this.emoji,
     required this.sidekick,
   });
@@ -1197,7 +1239,7 @@ class _ScenarioIntroArt extends StatelessWidget {
         Mascot.tiger(emotion: MascotEmotion.smile, size: 72, animate: true);
 
     // Backdrop만 표시 (호랑이 없이 — 배경 자체가 시각적 focal point)
-    if (backdropKey == null) {
+    if (posterAsset == null) {
       return Container(
         height: 140,
         width: double.infinity,
@@ -1213,7 +1255,7 @@ class _ScenarioIntroArt extends StatelessWidget {
 
     // 정지 백드롭 포스터 — 영상 게이트 통과 시 위로 앰비언트 루프가 페이드인.
     final poster = Image.asset(
-      'assets/illustrations/scenes/$backdropKey.png',
+      posterAsset!,
       fit: BoxFit.cover,
       errorBuilder: (_, __, ___) => Container(
         color: SoriColors.primary.withValues(alpha: 0.12),
@@ -1234,9 +1276,9 @@ class _ScenarioIntroArt extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            if (live)
+            if (live && loopAsset != null)
               SoriPosterLoop(
-                videoAsset: 'assets/video/loops/scene_$backdropKey.mp4',
+                videoAsset: loopAsset!,
                 poster: poster,
               )
             else
@@ -1250,8 +1292,6 @@ class _ScenarioIntroArt extends StatelessWidget {
                 ),
               ),
             ),
-            // 호랑이/까치를 오른쪽 하단에 배치 (배경과 구분)
-            Positioned(right: Spacing.md, bottom: Spacing.xs, child: mascot),
           ],
         ),
       ),
