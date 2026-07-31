@@ -56,6 +56,7 @@ class AppStartupCoordinator {
     this.restorePendingAccountState,
     this.restoreCloudWriteSession,
     required this.synchronizeReadySession,
+    this.resumeFeedbackOutbox = _noopStartupStep,
     this.resumeFirstDurableLinkBackfill = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
@@ -72,6 +73,7 @@ class AppStartupCoordinator {
   final PendingAccountStateRestorer? restorePendingAccountState;
   final LegacyCloudWriteSessionRestorer? restoreCloudWriteSession;
   final ReadySessionSynchronizer synchronizeReadySession;
+  final StartupStep resumeFeedbackOutbox;
   final StartupStep resumeFirstDurableLinkBackfill;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
@@ -120,6 +122,7 @@ class AppStartupCoordinator {
       }
     }
     synchronizeReadySession(liveUid);
+    await resumeFeedbackOutbox();
     await resumeFirstDurableLinkBackfill();
     await resumeMediaCleanup();
     await resumeBookshelfSync();
