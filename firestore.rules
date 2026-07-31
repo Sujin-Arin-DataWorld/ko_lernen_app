@@ -490,15 +490,28 @@ service cloud.firestore {
         allow delete: if false;
       }
 
+      match /tester_feedback/{document=**} {
+        allow read, create, update, delete: if false;
+      }
+
+      match /tester_passport/state {
+        allow get: if isOwner(uid);
+        allow list, create, update, delete: if false;
+      }
+
       match /{collectionName}/{document=**} {
         allow read: if isOwner(uid)
           && collectionName != 'packs'
           && collectionName != 'sync_generations'
-          && collectionName != 'sync_metadata';
+          && collectionName != 'sync_metadata'
+          && collectionName != 'tester_feedback'
+          && collectionName != 'tester_passport';
         allow create, update: if isOwner(uid)
           && collectionName != 'packs'
           && collectionName != 'sync_generations'
           && collectionName != 'sync_metadata'
+          && collectionName != 'tester_feedback'
+          && collectionName != 'tester_passport'
           && !exists(accountDeletionPath(uid))
           && backupSubcollectionWriteAllowed(uid, collectionName);
         allow delete: if isOwner(uid)
@@ -508,7 +521,9 @@ service cloud.firestore {
           && collectionName != 'custom_packs'
           && collectionName != 'custom_words'
           && collectionName != 'sync_generations'
-          && collectionName != 'sync_metadata';
+          && collectionName != 'sync_metadata'
+          && collectionName != 'tester_feedback'
+          && collectionName != 'tester_passport';
       }
     }
 

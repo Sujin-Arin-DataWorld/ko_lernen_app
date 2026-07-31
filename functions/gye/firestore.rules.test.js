@@ -1093,6 +1093,136 @@ async () => {
   );
 });
 
+test("tester feedback is server-only at every depth", async () => {
+  const uid = "feedback-owner";
+  await seedUser(uid, []);
+  await environment.withSecurityRulesDisabled(async (context) => {
+    const adminDb = context.firestore();
+    await setDoc(
+      doc(adminDb, "users", uid, "tester_feedback", "completion-existing"),
+      { message: "server-owned" },
+    );
+    await setDoc(
+      doc(
+        adminDb,
+        "users",
+        uid,
+        "tester_feedback",
+        "completion-existing",
+        "private",
+        "server-note",
+      ),
+      { serverOwned: true },
+    );
+  });
+
+  const db = client(uid);
+  const existingPaths = [
+    ["tester_feedback", "completion-existing"],
+    [
+      "tester_feedback",
+      "completion-existing",
+      "private",
+      "server-note",
+    ],
+  ];
+  const newPaths = [
+    ["tester_feedback", "completion-new"],
+    ["tester_feedback", "completion-new", "private", "client-note"],
+  ];
+
+  for (const segments of existingPaths) {
+    const protectedRef = doc(db, "users", uid, ...segments);
+    await assertFails(getDoc(protectedRef));
+    await assertFails(setDoc(protectedRef, { clientWrite: true }, { merge: true }));
+    await assertFails(deleteDoc(protectedRef));
+  }
+  for (const segments of newPaths) {
+    await assertFails(
+      setDoc(doc(db, "users", uid, ...segments), { clientWrite: true }),
+    );
+  }
+  await assertFails(
+    getDocs(collection(db, "users", uid, "tester_feedback")),
+  );
+  await assertFails(getDocs(collection(
+    db,
+    "users",
+    uid,
+    "tester_feedback",
+    "completion-existing",
+    "private",
+  )));
+});
+
+test("tester passport state permits only an owner get", async () => {
+  const uid = "passport-owner";
+  const emptyUid = "passport-empty";
+  await seedUser(uid, []);
+  await seedUser(emptyUid, []);
+  await environment.withSecurityRulesDisabled(async (context) => {
+    await setDoc(
+      doc(context.firestore(), "users", uid, "tester_passport", "state"),
+      { status: "eligible", serverOwned: true },
+    );
+  });
+
+  const ownerDb = client(uid);
+  const stateRef = doc(ownerDb, "users", uid, "tester_passport", "state");
+  await assertSucceeds(getDoc(stateRef));
+  await assertFails(getDoc(
+    doc(client("passport-other"), "users", uid, "tester_passport", "state"),
+  ));
+  await assertFails(
+    getDocs(collection(ownerDb, "users", uid, "tester_passport")),
+  );
+  await assertFails(setDoc(
+    doc(
+      client(emptyUid),
+      "users",
+      emptyUid,
+      "tester_passport",
+      "state",
+    ),
+    { status: "client-created" },
+  ));
+  await assertFails(setDoc(
+    stateRef,
+    { status: "client-updated" },
+    { merge: true },
+  ));
+  await assertFails(deleteDoc(stateRef));
+});
+
+test("generic owner subcollections keep their legacy CRUD behavior", async () => {
+  const uid = "generic-owner";
+  await seedUser(uid, []);
+  const ownerDb = client(uid);
+  const legacyRef = doc(
+    ownerDb,
+    "users",
+    uid,
+    "legacy_preferences",
+    "display",
+  );
+
+  await assertSucceeds(setDoc(legacyRef, { theme: "dark" }));
+  await assertSucceeds(getDoc(legacyRef));
+  await assertSucceeds(setDoc(
+    legacyRef,
+    { theme: "light" },
+    { merge: true },
+  ));
+  await assertFails(getDoc(doc(
+    client("generic-other"),
+    "users",
+    uid,
+    "legacy_preferences",
+    "display",
+  )));
+  await assertSucceeds(deleteDoc(legacyRef));
+});
+
 test("pending cloud-backup deletion fences every backup write but preserves FCM", async () => {
   const normalUid = "backup-normal";
   const pendingUid = "backup-pending";
