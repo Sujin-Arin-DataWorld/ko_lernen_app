@@ -4,10 +4,10 @@
 Text-to-Speech 로 합성해 Firebase Storage 에 업로드한다.
 
 키 규칙(클라 tts_service.dart / CF functions/tts 와 **동일**):
-    path = tts/{voice}/{ sha1("{voice}|{text}") }.mp3
+    path = tts/{revision}/{voice}/{ sha1("{voice}|{text}") }.mp3
 
-voice: 'female' = ko-KR-Chirp3-HD-Aoede  (단어·예문·대화 기본)
-       'male'   = ko-KR-Neural2-C        (현재 미사용 — 동적 CF on-demand)
+voice: 'female' = ko-KR-Chirp3-HD-Zephyr     (단어·예문·user 대화 기본)
+       'male'   = ko-KR-Chirp3-HD-Enceladus  (시나리오 NPC·narrator 대화)
 
 선행 조건:
   1. `gcloud auth login` (vjinny2@gmail.com) + 프로젝트 ko-lernen-app
@@ -34,10 +34,10 @@ import urllib.request
 # ⚠️ Firebase Storage 활성화 후 실제 버킷명으로 교정 (gs:// 없이).
 BUCKET = "ko-lernen-app.firebasestorage.app"
 PROJECT = "ko-lernen-app"
-TTS_CACHE_REVISION = "v2"
+TTS_CACHE_REVISION = "v3"
 
-# 시나리오 NPC(남)는 구형 Neural2-C 라 여성 Chirp3-HD 대비 덜 자연스러웠다.
-# `python tool/generate_tts.py --demo` 로 아래 후보 청취 후 채택본으로 교체.
+# 클라(tts_service.dart)·CF(functions/tts)와 반드시 동일한 voice 매핑.
+# 남성은 Chirp3-HD-Enceladus 채택본. `--demo` 는 후보 재청취용.
 VOICES = {"female": "ko-KR-Chirp3-HD-Zephyr", "male": "ko-KR-Chirp3-HD-Enceladus"}
 
 # 자연 속도. 과거 0.9(또박)가 "너무 느리다" 피드백 → 1.0.
@@ -127,7 +127,7 @@ def collect():
             for line in sc.get("dialog", []):
                 t = (line.get("ko") or "").strip()
                 if t:
-                    # 시나리오 대화: user=여(Aoede), 상대 NPC·narrator=남(Neural2-C).
+                    # 시나리오 대화: user=여(Zephyr), 상대 NPC·narrator=남(Enceladus).
                     # scenario_player_screen.dart 의 매핑과 반드시 동일하게 유지.
                     voice = "female" if line.get("speaker") == "user" else "male"
                     texts[(voice, t)] = None

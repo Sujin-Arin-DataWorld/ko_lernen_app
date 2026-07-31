@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 
-const TTS_CACHE_REVISION = "v2";
+const TTS_CACHE_REVISION = "v3";
 
 function normalizeVoice(voice) {
   return voice === "male" ? "male" : "female";

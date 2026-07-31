@@ -7,15 +7,15 @@ const {
   normalizeVoice,
 } = require("./tts_contract");
 
-test("v2 storage key matches the Flutter cache contract", () => {
+test("v3 storage key matches the Flutter cache contract", () => {
   const key = cacheKey("female", "안녕하세요");
 
-  assert.equal(TTS_CACHE_REVISION, "v2");
+  assert.equal(TTS_CACHE_REVISION, "v3");
   assert.equal(key.voice, "female");
   assert.equal(key.hash, "d84734f7d89bbd707dc52168c47309aed72b7f80");
   assert.equal(
     key.storagePath,
-    "tts/v2/female/d84734f7d89bbd707dc52168c47309aed72b7f80.mp3",
+    "tts/v3/female/d84734f7d89bbd707dc52168c47309aed72b7f80.mp3",
   );
 });
 

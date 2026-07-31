@@ -28,7 +28,7 @@ class TtsCacheKey {
     required this.hash,
   });
 
-  static const String currentRevision = 'v2';
+  static const String currentRevision = 'v3';
 
   factory TtsCacheKey.forRequest({
     required String voice,
@@ -293,7 +293,7 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
 /// 고품질 한국어 발음 TTS — **캐시 우선 3단**.
 ///
 /// 1. 로컬 캐시 mp3 → 즉시 재생 (오프라인·무료)
-/// 2. Firebase Storage `tts/v2/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
+/// 2. Firebase Storage `tts/v3/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
 ///    (사전생성된 고정 콘텐츠: 526 단어 + 526 예문 + 204 대화)
 /// 3. Cloud Function 합성 → base64 수신·캐시·재생
 ///    (동적 콘텐츠: 책 한 컷 OCR·내 단어장의 사용자 입력 단어)
@@ -301,7 +301,7 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
 ///
 /// 공개 인터페이스(`speak`/`speakSlow`/`stop`/`setRate`/`rate`)는 기존과
 /// 호환되므로 23개 호출 화면을 수정할 필요가 없다.
-/// `voice`: 'female'(Chirp3-HD-Aoede, 기본) / 'male'(Neural2-C).
+/// `voice`: 'female'(Chirp3-HD-Zephyr, 기본) / 'male'(Chirp3-HD-Enceladus).
 ///
 /// 웹에서는 path_provider 캐시 디렉토리가 없어 1~3단계가 자동 실패 →
 /// 기존 flutter_tts 폴백으로 동작 (웹은 개발 테스트용).
