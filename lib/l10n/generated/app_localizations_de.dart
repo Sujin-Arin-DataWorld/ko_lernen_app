@@ -1981,6 +1981,9 @@ class AppL10nDe extends AppL10n {
   String get dailyCharSubtitle => 'Strichfolge ansehen';
 
   @override
+  String get dailyCharFallbackSubtitle => 'Buchstaben des Tages ansehen';
+
+  @override
   String get dailyCharGuideHint =>
       'Fertig wird nach der vollständigen Strichfolge freigeschaltet.';
 

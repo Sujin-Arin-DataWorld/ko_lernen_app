@@ -44,7 +44,9 @@ void main() {
     await KkeunmariEngine.load();
   });
 
-  testWidgets('stroke guide reports animation completion', (tester) async {
+  testWidgets('stroke guide reports initial and replay completion', (
+    tester,
+  ) async {
     const perStroke = Duration(milliseconds: 100);
     final strokes = hangulStrokes['ㄷ']!;
     var completions = 0;
@@ -67,6 +69,13 @@ void main() {
       perStroke * strokes.length + const Duration(microseconds: 1),
     );
     expect(completions, 1);
+
+    await tester.tap(find.byType(StrokeCanvas));
+    await tester.pump();
+    await tester.pump(
+      perStroke * strokes.length + const Duration(microseconds: 1),
+    );
+    expect(completions, 2);
   });
 
   testWidgets('daily character requires the guide before completion feedback', (
@@ -149,6 +158,8 @@ void main() {
     await tester.tap(find.text('Open daily character'));
     await tester.pump(const Duration(milliseconds: 500));
 
+    expect(find.text('Look at today’s letter'), findsOneWidget);
+    expect(find.text('Watch the stroke-order guide'), findsNothing);
     expect(find.byType(StrokeCanvas), findsNothing);
     final done = tester.widget<SoriButton>(
       find.byWidgetPredicate(

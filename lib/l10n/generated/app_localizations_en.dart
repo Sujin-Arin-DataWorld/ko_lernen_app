@@ -1973,6 +1973,9 @@ class AppL10nEn extends AppL10n {
   String get dailyCharSubtitle => 'Watch the stroke-order guide';
 
   @override
+  String get dailyCharFallbackSubtitle => 'Look at today’s letter';
+
+  @override
   String get dailyCharGuideHint => 'Done unlocks after the guide finishes.';
 
   @override

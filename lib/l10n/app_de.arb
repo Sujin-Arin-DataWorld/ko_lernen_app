@@ -747,6 +747,7 @@
 
   "dailyCharTitle": "Buchstabe des Tages",
   "dailyCharSubtitle": "Strichfolge ansehen",
+  "dailyCharFallbackSubtitle": "Buchstaben des Tages ansehen",
   "dailyCharGuideHint": "Fertig wird nach der vollständigen Strichfolge freigeschaltet.",
   "dailyCharDoneToday": "Heute geschafft ✓",
   "dailyCharFinish": "Fertig",

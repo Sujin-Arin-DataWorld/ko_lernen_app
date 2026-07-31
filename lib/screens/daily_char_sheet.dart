@@ -163,7 +163,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
         ),
         const SizedBox(height: Spacing.xs),
         Text(
-          t.dailyCharSubtitle,
+          hasStrokes ? t.dailyCharSubtitle : t.dailyCharFallbackSubtitle,
           style: TextStyle(
             fontFamily: 'Pretendard',
             color: s.textMuted,

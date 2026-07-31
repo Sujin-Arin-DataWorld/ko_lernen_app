@@ -746,6 +746,7 @@
 
   "dailyCharTitle": "Letter of the day",
   "dailyCharSubtitle": "Watch the stroke-order guide",
+  "dailyCharFallbackSubtitle": "Look at today’s letter",
   "dailyCharGuideHint": "Done unlocks after the guide finishes.",
   "dailyCharDoneToday": "Done today ✓",
   "dailyCharFinish": "Done",

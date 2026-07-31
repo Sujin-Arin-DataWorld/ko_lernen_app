@@ -3697,6 +3697,12 @@ abstract class AppL10n {
   /// **'Strichfolge ansehen'**
   String get dailyCharSubtitle;
 
+  /// No description provided for @dailyCharFallbackSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchstaben des Tages ansehen'**
+  String get dailyCharFallbackSubtitle;
+
   /// No description provided for @dailyCharGuideHint.
   ///
   /// In de, this message translates to:
