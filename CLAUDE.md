@@ -1,7 +1,8 @@
 # CLAUDE.md — ko_lernen_app (Hangul Sori)
 
-> 세션 시작 시 이 파일 먼저 읽기. 그 다음 필요한 파일만 grep/Read.
+> **⛔ 세션 시작 시 이 파일(CLAUDE.md)을 먼저 끝까지 읽고 시작한다 — 예외 없음.** 그 다음 필요한 파일만 grep/Read.
 > 전역 운영 원칙은 `~/.claude/CLAUDE.md` 참조.
+> **⛔ 필수 기록 규칙 (예외 없음):** 코드·데이터·에셋·설정 등 **무엇이든 하나라도 변경하면 반드시** 이 CLAUDE.md "## 세션 로그"에 항목을 남긴다(무엇을·왜·검증·커밋해시). 커밋할 때 관련 로그 갱신을 **같은 커밋 또는 직후 커밋에 포함**. 기록 없이 변경만 커밋하는 것 금지. 프로젝트 밖 지속 사실은 `~/.claude/.../memory/`에도 남기고 MEMORY.md 인덱스에 한 줄 추가.
 > **작업 완료 시마다** "현재 진행 중인 작업" 체크리스트를 업데이트할 것 (완료 항목 체크, 새 항목 추가).
 > **비주얼 에셋 작업 전** `docs/ASSET_GENERATION_BIBLE.md` **하나만** 읽으면 됨 — 스타일 가이드·디자인 토큰·한옥/장식/도장/스티커/마스코트 프롬프트를 모두 흡수한 자급자족 AI 생성 바이블 (스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**). 일러스트/아이콘/마케팅 자산 신규 제작·이터레이션 시 이 파일을 프롬프트 소스로 사용. (구 `HANGUL_SORI_STYLE_GUIDE.md`·`HANGUL_SORI_DESIGN_TOKENS.md`·`stately-rising-jongga-assets.md`는 상세 레퍼런스로만.)
 > **마스코트(2026-06-02 v2)**: 업로드된 앉은 호랑이=`tiger_idle.png`, 갓 까치 비행 2프레임=`magpie_wingup/wingdown.png`가 캐릭터 source of truth. `tiger_sleepy`·`tiger_thinking`은 화풍 이질 → 교체 1순위. 상세는 BIBLE §2.
@@ -314,6 +315,23 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-07-31 (실기기 피드백 — Cloze/데일리챌린지 정답 단어 강조 + 여유로운 반응형) — 커밋 `9341b4f`
+
+**범위:** Jin 실기기 스크린샷(Tages-Challenge 빈칸퀴즈) 2건. ① 초보자가 "뭘 찾는지" 몰라 → 독일어 번역에서 정답 단어를 강조. ② 카드·선택지가 상단에 몰리고 하단이 텅 빔 → 여유로운 반응형. Q&A로 방향 확정: **iPhone풍 배지/필 요소 금지, 오직 문장 내 단어 강조** + 박스를 화면 전체에 여유 있게 분산. plan `dazzling-wondering-dragon.md`.
+
+**진단(§0 실측):** `daily_challenge_screen.dart`(스크린샷)와 `cloze_game_screen.dart`는 문제 카드·선택지 블록(≈207–263행)이 **완전 동일 쌍둥이**. `ClozeItem`(cloze_loader)에 `answer`(정답 한국어)·`de`(전체 문장 번역)는 있으나 **정답 단어의 독일어 뜻 필드는 없음**. 단, cloze.json은 `korean_vocab.csv`에서 생성돼 `answer`==CSV `korean`이고 뜻은 `german` 열에 존재. 선택지는 `Expanded>SingleChildScrollView>Column`이라 상단 고정→하단 공백.
+
+**Update:**
+- **신규 공유 위젯 `lib/widgets/sori/cloze_prompt.dart`** — 두 화면 중복 제거.
+  - 순수함수 `splitEmphasis(sentence, gloss)`: 독일어 문장을 정답 뜻 등장 구간으로 분할, 그 단어만 **w800·녹청·큰 폰트(18)** 강조. gloss는 `/` 분해·괄호 제거 후보를 **대소문자 무시 부분일치**(원문 casing 보존, 예 `lila`→`Lila`). 매칭 실패(어형 변화)/null/빈값 → 문장 원문 단일 구간(crash 0).
+  - `ClozePromptCard`: 한국어 문장 + `Text.rich`(강조) + TTS. 내부 여백 확대(vertical `xl`, 문장↔번역 `lg`).
+  - `ClozeOptionsList`: `LayoutBuilder`+`ConstrainedBox(minHeight)`+`IntrinsicHeight`+`Column(spaceEvenly)`(study_card_face 선례) → 선택지를 하단까지 **균등 분산**(빈 하단 제거), 큰 글자는 스크롤 폴백. `QuizChoice` 내부 무수정.
+- **뜻 조회는 런타임**: 두 화면 `_load()`에서 `DataLoader.loadVocab()`(정적 캐시) → `Map<String,Vocab> _vocabByKo` 구축, `_vocabByKo[item.answer]?.translationFor(lang)`(wordle_screen 동일 패턴). **cloze.json/build_cloze.py 무수정**(286항목 재생성 리스크 회피). 카드↔선택지 간격 `lg`→`xl`.
+
+**검증:** `flutter analyze`(변경 4파일) **0** · `flutter test`: cloze_prompt 9(강조 로직 — Zebrastreifen 부분일치·대소문자·슬래시·괄호·무매칭·null) + daily_challenge 9 + responsive 157(신규 레이아웃 `daily challenge @360px ×1.3` 오버플로 0) 통과. l10n 변경 없음(gen-l10n 불필요). ⚠️ 미검증(Jin 실기기): 독일어 단어 강조 시각·선택지 하단 분산·큰 글자 잘림.
+
+**Git:** 커밋 `9341b4f`(내 4파일만: cloze_game·daily_challenge·cloze_prompt·cloze_prompt_test). **동시세션 path_trail 작업**(learning_path_screen·path_node·tokens 수정 + path_trail.dart/test 신규 + 미디어)은 미스테이징·무접촉 — 그쪽 `path_trail_tap_test`는 진행 중이라 전체 스위트에서 실패하나 내 변경 무관. 머지 확인: `9341b4f`는 origin/main tip과 일치(푸시됨), 위에 동시세션 `f01c83a`(Deploy Checklist) 로컬 미푸시.
 
 ### 2026-07-01 (서양 학습자 어필 — "동기 & 모멘텀" 자율 구현) — 커밋·푸시
 
