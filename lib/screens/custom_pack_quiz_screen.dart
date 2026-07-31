@@ -136,7 +136,6 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackQuiz(
         packId: widget.packId,
-        contentLabel: _pack!.displayName(),
         correct: _score,
         total: _order.length,
       ),

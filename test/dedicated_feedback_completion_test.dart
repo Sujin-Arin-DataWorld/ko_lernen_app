@@ -180,7 +180,7 @@ void main() {
     expect(unambiguousReviewLevel(['A1', 'A2']), isNull);
   });
 
-  test('custom pack replay resets completion identity and learned totals', () {
+  test('custom pack replay keeps private valid feedback metadata', () {
     var allocations = 0;
     String createId() => 'custom-${++allocations}';
     final slot = FeedbackCompletionSlot();
@@ -189,7 +189,6 @@ void main() {
       () => FeedbackCompletion.customPackPlay(
         createId: createId,
         packId: 'cp_trip',
-        contentLabel: 'Reise',
         learned: 2,
         total: 3,
       ),
@@ -199,7 +198,6 @@ void main() {
       () => FeedbackCompletion.customPackPlay(
         createId: createId,
         packId: 'cp_trip',
-        contentLabel: 'Reise',
         learned: 3,
         total: 3,
       ),
@@ -209,9 +207,16 @@ void main() {
       'completionId': 'custom-1',
       'contentType': 'custom_wordbook',
       'contentId': 'custom_pack:cp_trip:play',
-      'contentLabel': 'Reise',
+      'contentLabel': 'custom_wordbook',
       'scoreSummary': 'learned:2; total:3',
     });
+    const userAuthoredPackName =
+        'private-name@example.com-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+    expect(first.context.validate().isValid, isTrue);
+    expect(
+      first.context.toWire().values.whereType<String>(),
+      isNot(contains(userAuthoredPackName)),
+    );
     expect(replay.context.completionId, 'custom-2');
     expect(replay.context.scoreSummary, 'learned:3; total:3');
   });

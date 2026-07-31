@@ -110,7 +110,6 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         _feedbackCompletion.complete(
           () => FeedbackCompletion.customPackPlay(
             packId: pack.id,
-            contentLabel: pack.displayName(),
             learned: _learned,
             total: pack.totalWords,
           ),

@@ -123,7 +123,6 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackTyping(
         packId: widget.packId,
-        contentLabel: _pack!.displayName(),
         correct: _score,
         total: _order.length,
       ),

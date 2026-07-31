@@ -234,7 +234,6 @@ class FeedbackCompletion {
   factory FeedbackCompletion.customPackQuiz({
     FeedbackCompletionIdFactory? createId,
     required String packId,
-    required String contentLabel,
     required int correct,
     required int total,
   }) => FeedbackCompletion._(
@@ -242,7 +241,6 @@ class FeedbackCompletion {
       createId: createId,
       packId: packId,
       mode: 'quiz',
-      contentLabel: contentLabel,
       scoreSummary: '$correct/$total',
     ),
   );
@@ -250,7 +248,6 @@ class FeedbackCompletion {
   factory FeedbackCompletion.customPackMatching({
     FeedbackCompletionIdFactory? createId,
     required String packId,
-    required String contentLabel,
     required int pairs,
     required int misses,
   }) => FeedbackCompletion._(
@@ -258,7 +255,6 @@ class FeedbackCompletion {
       createId: createId,
       packId: packId,
       mode: 'matching',
-      contentLabel: contentLabel,
       scoreSummary: 'pairs:$pairs; misses:$misses',
     ),
   );
@@ -266,7 +262,6 @@ class FeedbackCompletion {
   factory FeedbackCompletion.customPackTyping({
     FeedbackCompletionIdFactory? createId,
     required String packId,
-    required String contentLabel,
     required int correct,
     required int total,
   }) => FeedbackCompletion._(
@@ -274,7 +269,6 @@ class FeedbackCompletion {
       createId: createId,
       packId: packId,
       mode: 'typing',
-      contentLabel: contentLabel,
       scoreSummary: '$correct/$total',
     ),
   );
@@ -358,7 +352,6 @@ class FeedbackCompletion {
   factory FeedbackCompletion.customPackPlay({
     FeedbackCompletionIdFactory? createId,
     required String packId,
-    required String contentLabel,
     required int learned,
     required int total,
   }) => FeedbackCompletion._(
@@ -366,7 +359,7 @@ class FeedbackCompletion {
       createId: createId,
       contentType: 'custom_wordbook',
       contentId: 'custom_pack:$packId:play',
-      contentLabel: contentLabel,
+      contentLabel: 'custom_wordbook',
       scoreSummary: 'learned:$learned; total:$total',
     ),
   );
@@ -441,13 +434,12 @@ ContentFeedbackContext _customPackContext({
   FeedbackCompletionIdFactory? createId,
   required String packId,
   required String mode,
-  required String contentLabel,
   required String scoreSummary,
 }) => _context(
   createId: createId,
   contentType: 'custom_wordbook_game',
   contentId: 'custom_pack:$packId:$mode',
-  contentLabel: contentLabel,
+  contentLabel: 'custom_wordbook',
   scoreSummary: scoreSummary,
 );
 

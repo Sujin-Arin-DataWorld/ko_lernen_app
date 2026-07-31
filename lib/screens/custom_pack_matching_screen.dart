@@ -148,7 +148,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackMatching(
         packId: widget.packId,
-        contentLabel: _pack!.displayName(),
         pairs: _matched.length,
         misses: _misses,
       ),

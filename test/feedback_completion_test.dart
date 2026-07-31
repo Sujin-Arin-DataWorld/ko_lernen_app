@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/models/content_feedback.dart';
 import 'package:ko_lernen_app/models/feedback_completion.dart';
 
 void main() {
@@ -77,58 +78,55 @@ void main() {
       });
     });
 
-    test('builds the custom pack quiz aggregate context', () {
+    test('builds private and valid custom pack quiz feedback metadata', () {
       final completion = FeedbackCompletion.customPackQuiz(
         createId: () => 'quiz-completion',
         packId: 'pack-42',
-        contentLabel: 'Travel words',
         correct: 7,
         total: 9,
       );
 
-      expect(completion.context.toWire(), {
-        'completionId': 'quiz-completion',
-        'contentType': 'custom_wordbook_game',
-        'contentId': 'custom_pack:pack-42:quiz',
-        'contentLabel': 'Travel words',
-        'scoreSummary': '7/9',
-      });
+      expectPrivateCustomPackContext(
+        completion.context,
+        completionId: 'quiz-completion',
+        contentType: 'custom_wordbook_game',
+        contentId: 'custom_pack:pack-42:quiz',
+        scoreSummary: '7/9',
+      );
     });
 
-    test('builds the custom pack matching aggregate context', () {
+    test('builds private and valid custom pack matching feedback metadata', () {
       final completion = FeedbackCompletion.customPackMatching(
         createId: () => 'matching-completion',
         packId: 'pack-42',
-        contentLabel: 'Travel words',
         pairs: 6,
         misses: 2,
       );
 
-      expect(completion.context.toWire(), {
-        'completionId': 'matching-completion',
-        'contentType': 'custom_wordbook_game',
-        'contentId': 'custom_pack:pack-42:matching',
-        'contentLabel': 'Travel words',
-        'scoreSummary': 'pairs:6; misses:2',
-      });
+      expectPrivateCustomPackContext(
+        completion.context,
+        completionId: 'matching-completion',
+        contentType: 'custom_wordbook_game',
+        contentId: 'custom_pack:pack-42:matching',
+        scoreSummary: 'pairs:6; misses:2',
+      );
     });
 
-    test('builds the custom pack typing aggregate context', () {
+    test('builds private and valid custom pack typing feedback metadata', () {
       final completion = FeedbackCompletion.customPackTyping(
         createId: () => 'typing-completion',
         packId: 'pack-42',
-        contentLabel: 'Travel words',
         correct: 5,
         total: 9,
       );
 
-      expect(completion.context.toWire(), {
-        'completionId': 'typing-completion',
-        'contentType': 'custom_wordbook_game',
-        'contentId': 'custom_pack:pack-42:typing',
-        'contentLabel': 'Travel words',
-        'scoreSummary': '5/9',
-      });
+      expectPrivateCustomPackContext(
+        completion.context,
+        completionId: 'typing-completion',
+        contentType: 'custom_wordbook_game',
+        contentId: 'custom_pack:pack-42:typing',
+        scoreSummary: '5/9',
+      );
     });
   });
 
@@ -177,4 +175,26 @@ void main() {
     expect(replay.context.completionId, 'completion-2');
     expect(allocations, 2);
   });
+}
+
+void expectPrivateCustomPackContext(
+  ContentFeedbackContext context, {
+  required String completionId,
+  required String contentType,
+  required String contentId,
+  required String scoreSummary,
+}) {
+  const userAuthoredPackName =
+      'private-name@example.com-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+  final wire = context.toWire();
+
+  expect(context.validate().isValid, isTrue);
+  expect(wire, {
+    'completionId': completionId,
+    'contentType': contentType,
+    'contentId': contentId,
+    'contentLabel': 'custom_wordbook',
+    'scoreSummary': scoreSummary,
+  });
+  expect(wire.values.whereType<String>(), isNot(contains(userAuthoredPackName)));
 }
