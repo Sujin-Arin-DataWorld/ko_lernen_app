@@ -375,7 +375,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 // Phase 1 SRS-UX-Patch (stately-rising-jongga):
                 //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
                 //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
-                Row(
+                Wrap(
+                  spacing: Spacing.sm,
+                  runSpacing: Spacing.sm,
                   children: [
                     SoriChip(
                       label: t.vocabTodayBadge(
@@ -387,7 +389,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                       variant: SoriChipVariant.filled,
                       onTap: () => _setMode('due'),
                     ),
-                    const SizedBox(width: Spacing.sm),
                     SoriChip(
                       label: t.vocabFavoritesBadge(_favorites.length),
                       accent: SoriColors.warning,
@@ -395,7 +396,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                       variant: SoriChipVariant.filled,
                       onTap: () => _setMode('favorites'),
                     ),
-                    const SizedBox(width: Spacing.sm),
                     SoriChip(
                       label: t.vocabModeAll,
                       accent: SoriColors.info,

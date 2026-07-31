@@ -304,6 +304,32 @@ void main() {
 
     expect(find.byType(ContentFeedbackCard), findsNothing);
   });
+
+  testWidgets('listening controls fit a 390px portrait viewport', (
+    tester,
+  ) async {
+    _setViewport(const Size(390, 844));
+    await tester.pumpWidget(
+      _app(ListeningScreen(scenariosLoader: () async => [_listeningScenario])),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('legacy mode controls fit a 390px portrait viewport', (
+    tester,
+  ) async {
+    _setViewport(const Size(390, 844));
+    await tester.pumpWidget(
+      _app(LegacyVocabScreen(vocabLoader: () async => const [_word])),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
+  });
 }
 
 Future<void> _tapText(WidgetTester tester, String text) async {
@@ -344,3 +370,10 @@ Widget _app(Widget home) => MaterialApp(
     return null;
   },
 );
+
+void _setViewport(Size size) {
+  final view =
+      TestWidgetsFlutterBinding.instance.platformDispatcher.views.first;
+  view.physicalSize = size;
+  view.devicePixelRatio = 1;
+}

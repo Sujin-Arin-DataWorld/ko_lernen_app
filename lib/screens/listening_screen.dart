@@ -419,29 +419,28 @@ class _ControlsBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Speed row
-          Row(
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: Spacing.xs,
+            runSpacing: Spacing.xs,
             children: [
               Icon(Icons.speed_rounded, size: 16, color: s.textMuted),
-              const SizedBox(width: Spacing.xs),
               Text(
                 t.listeningSpeedLabel,
                 style: SoriTextTheme.of(
                   context,
                 ).caption.copyWith(fontWeight: FontWeight.w700),
               ),
-              const SizedBox(width: Spacing.md),
+              const SizedBox(width: Spacing.xs),
               ...[0.75, 1.0, 1.25].map((r) {
                 final selected = (rate - r).abs() < 0.01;
-                return Padding(
-                  padding: const EdgeInsets.only(right: Spacing.xs),
-                  child: SoriChip(
-                    label: '${r}x',
-                    accent: SoriColors.info,
-                    selected: selected,
-                    variant: SoriChipVariant.soft,
-                    onTap: () => onRate(r),
-                    fontSize: 12,
-                  ),
+                return SoriChip(
+                  label: '${r}x',
+                  accent: SoriColors.info,
+                  selected: selected,
+                  variant: SoriChipVariant.soft,
+                  onTap: () => onRate(r),
+                  fontSize: 12,
                 );
               }),
             ],
