@@ -12,6 +12,7 @@
 전부 통과 → exit 0, 하나라도 실패 → exit 1 (CI 친화).
 """
 import json
+import os
 import sys
 import urllib.error
 import urllib.request
@@ -21,11 +22,34 @@ DEFAULT_URL = (
 )
 
 
-def post(url, payload, timeout=40):
+def request_headers(id_token, app_check_token):
+    """Return the two credentials required by the production endpoint."""
+    return {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {id_token}",
+        "X-Firebase-AppCheck": app_check_token,
+    }
+
+
+def credentials_from_environment():
+    """Read test credentials without ever printing them to the console."""
+    id_token = os.environ.get("BOOK_ANALYSIS_ID_TOKEN", "").strip()
+    app_check_token = os.environ.get("BOOK_ANALYSIS_APP_CHECK_TOKEN", "").strip()
+    if not id_token or not app_check_token:
+        raise RuntimeError(
+            "Set BOOK_ANALYSIS_ID_TOKEN and BOOK_ANALYSIS_APP_CHECK_TOKEN "
+            "from a signed test app before running the authenticated smoke test."
+        )
+    return request_headers(id_token, app_check_token)
+
+
+def post(url, payload, headers=None, timeout=40):
+    if headers is None:
+        headers = credentials_from_environment()
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         url, data=data,
-        headers={"Content-Type": "application/json"}, method="POST",
+        headers=headers, method="POST",
     )
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -51,6 +75,11 @@ def check(name, ok, detail=""):
 
 def main():
     url = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_URL
+    try:
+        credentials_from_environment()
+    except RuntimeError as error:
+        print(f"authenticated smoke test not started: {error}", file=sys.stderr)
+        return 2
     print(f"→ POST {url}\n")
 
     # 1) 정상 독일어 요청
@@ -94,8 +123,8 @@ def main():
     print()
     passed, total = sum(_results), len(_results)
     print(f"{passed}/{total} 통과")
-    sys.exit(0 if passed == total else 1)
+    return 0 if passed == total else 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

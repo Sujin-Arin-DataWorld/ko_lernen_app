@@ -1346,6 +1346,10 @@ class AppL10nEn extends AppL10n {
       'Server unreachable — only grammar patterns detected offline.';
 
   @override
+  String get bookResultRateLimited =>
+      'Cloud analysis limit reached. Please try again in a minute.';
+
+  @override
   String get bookResultSectionWords => 'Words';
 
   @override
@@ -3368,6 +3372,9 @@ class AppL10nEn extends AppL10n {
   String get scenarioRoleplayTurn => 'Your reply';
 
   @override
-  String get scenarioRoleplayDone =>
-      'Role-play complete! You carried the conversation yourself.';
+  String get scenarioRoleplayDoneTitle => 'Role-play complete!';
+
+  @override
+  String get scenarioRoleplayDoneBody =>
+      'You carried the conversation yourself.';
 }

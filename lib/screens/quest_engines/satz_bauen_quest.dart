@@ -346,6 +346,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     final revealedOk = _completed && !_wrong;
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

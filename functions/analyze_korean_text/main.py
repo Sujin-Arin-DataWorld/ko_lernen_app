@@ -39,12 +39,21 @@ from typing import Any
 import functions_framework
 from flask import Request, Response
 from grammar_analysis import detect_grammar, localize_pos_tag, normalize_language
+from security import (
+    AuthenticationFailed,
+    FirestoreQuotaGate,
+    QuotaExceeded,
+    QuotaStoreUnavailable,
+    verify_caller,
+)
 
 # Lazy imports — nur initialisieren wenn aufgerufen.
 _KIWI = None
 _DEEPL = None
 _FS_CLIENT = None
 _FS_TRIED = False
+_QUOTA_GATE: FirestoreQuotaGate | None = None
+_MAX_REQUEST_BYTES = 20_000
 
 
 # ── .env Loader ──────────────────────────────────────────────────────────
@@ -68,6 +77,29 @@ def _load_dotenv() -> None:
 
 
 _load_dotenv()
+
+
+def _quota_gate() -> FirestoreQuotaGate:
+    global _QUOTA_GATE
+    if _QUOTA_GATE is None:
+        _QUOTA_GATE = FirestoreQuotaGate()
+    return _QUOTA_GATE
+
+
+def _warning_response(
+    warning: str,
+    status: int,
+    *,
+    retry_after_seconds: int | None = None,
+) -> Response:
+    response = Response(
+        json.dumps({"warnings": [warning]}),
+        status=status,
+        mimetype="application/json",
+    )
+    if retry_after_seconds is not None:
+        response.headers["Retry-After"] = str(retry_after_seconds)
+    return response
 
 
 # ── Grammar patterns ─────────────────────────────────────────────────────
@@ -424,7 +456,16 @@ def enrich_definitions(words: list[dict[str, Any]], max_lookups: int = 20) -> No
 def analyze_korean_text(request: Request) -> Response:
     if request.method != "POST":
         return Response("POST only", status=405)
-    body = request.get_json(silent=True) or {}
+    if request.content_length is not None and request.content_length > _MAX_REQUEST_BYTES:
+        return _warning_response("request_too_large", 413)
+    try:
+        caller = verify_caller(request)
+    except AuthenticationFailed:
+        return _warning_response("unauthenticated", 401)
+
+    body = request.get_json(silent=True)
+    if not isinstance(body, dict):
+        body = {}
     text = (body.get("text") or "").strip()
     lang = normalize_language(body.get("lang"))
     if not text:
@@ -439,6 +480,17 @@ def analyze_korean_text(request: Request) -> Response:
             status=400,
             mimetype="application/json",
         )
+
+    try:
+        _quota_gate().consume(caller.uid)
+    except QuotaExceeded as error:
+        return _warning_response(
+            "rate_limited",
+            429,
+            retry_after_seconds=error.retry_after_seconds,
+        )
+    except QuotaStoreUnavailable:
+        return _warning_response("service_unavailable", 503)
 
     grammar = detect_grammar(text, lang)
     sentences = split_sentences(text)

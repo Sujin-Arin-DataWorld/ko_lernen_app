@@ -153,10 +153,10 @@ class _Page1MascotIntro extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // 첫 만남: 인사 영상 + 음성 (앱 라이트 전용 → 항상 영상)
+              // 첫 만남: 인사 영상만 (음성 제거 — Jin 요청, 2026-07-31)
               const TigerGreetClip(
                 size: 200,
-                playAudio: true,
+                playAudio: false,
                 blendColor: SoriColors.lightBg,
               ),
               const SizedBox(height: Spacing.xl),

@@ -9,37 +9,37 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 BookPage _samplePage({String id = 'src_page_1'}) => BookPage(
-      id: id,
-      localThumbnailPath: '/tmp/img.jpg',
-      extractedText: '한국어 공부 중',
-      note: 'Lektion 5',
-      words: const [
-        ExtractedWord(
-          korean: '공부',
-          romanization: 'gongbu',
-          posDe: 'Nomen',
-          translationDe: 'Studium',
-          translationEn: 'study',
-          exampleKorean: '한국어 공부 중',
-          exampleDe: 'Mitten im Koreanisch-Lernen',
-          savedToPackId: null,
-        ),
-        ExtractedWord(
-          korean: '학교',
-          romanization: 'hakgyo',
-          posDe: 'Nomen',
-          translationDe: 'Schule',
-          translationEn: 'school',
-          exampleKorean: '',
-          exampleDe: '',
-          savedToPackId: null,
-        ),
-      ],
-      grammar: const [],
-      sentences: const [],
-      capturedAtIso: '2026-05-31T12:00:00Z',
-      customPackId: null,
-    );
+  id: id,
+  localThumbnailPath: '/tmp/img.jpg',
+  extractedText: '한국어 공부 중',
+  note: 'Lektion 5',
+  words: const [
+    ExtractedWord(
+      korean: '공부',
+      romanization: 'gongbu',
+      posDe: 'Nomen',
+      translationDe: 'Studium',
+      translationEn: 'study',
+      exampleKorean: '한국어 공부 중',
+      exampleDe: 'Mitten im Koreanisch-Lernen',
+      savedToPackId: null,
+    ),
+    ExtractedWord(
+      korean: '학교',
+      romanization: 'hakgyo',
+      posDe: 'Nomen',
+      translationDe: 'Schule',
+      translationEn: 'school',
+      exampleKorean: '',
+      exampleDe: '',
+      savedToPackId: null,
+    ),
+  ],
+  grammar: const [],
+  sentences: const [],
+  capturedAtIso: '2026-05-31T12:00:00Z',
+  customPackId: null,
+);
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -149,18 +149,6 @@ void main() {
       for (final id in ids) {
         expect(id.startsWith('cp_'), isTrue);
       }
-    });
-  });
-
-  group('Storage.bookAnalysisEndpoint', () {
-    test('default empty', () {
-      expect(Storage.bookAnalysisEndpoint, '');
-    });
-
-    test('setBookAnalysisEndpoint trims whitespace', () async {
-      await Storage.setBookAnalysisEndpoint(
-          '  https://example.com/fn  ');
-      expect(Storage.bookAnalysisEndpoint, 'https://example.com/fn');
     });
   });
 }

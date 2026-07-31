@@ -25,13 +25,16 @@ import csv
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
+import urllib.error
 import urllib.request
 
 # ⚠️ Firebase Storage 활성화 후 실제 버킷명으로 교정 (gs:// 없이).
 BUCKET = "ko-lernen-app.firebasestorage.app"
 PROJECT = "ko-lernen-app"
+TTS_CACHE_REVISION = "v2"
 
 # 시나리오 NPC(남)는 구형 Neural2-C 라 여성 Chirp3-HD 대비 덜 자연스러웠다.
 # `python tool/generate_tts.py --demo` 로 아래 후보 청취 후 채택본으로 교체.
@@ -60,14 +63,48 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, ".tts_pregen")  # 로컬 빌드 폴더 (gitignore 권장)
 ENDPOINT = "https://texttospeech.googleapis.com/v1/text:synthesize"
 
+# 인증: API 키(권장 — gcloud SDK 불필요) 우선, 없으면 gcloud 액세스 토큰 폴백.
+# 키는 환경변수 GOOGLE_TTS_API_KEY 또는 .env(cwd / functions/analyze_korean_text)에.
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    load_dotenv(os.path.join(ROOT, "functions", "analyze_korean_text", ".env"))
+except Exception:  # noqa: BLE001
+    pass
+API_KEY = os.environ.get("GOOGLE_TTS_API_KEY", "").strip()
+
 
 def token():
-    # Windows 의 gcloud 는 gcloud.cmd(배치)라 리스트 형태론 CreateProcess 가
-    # 확장자(PATHEXT)를 못 풀어 WinError 2 가 난다. shell=True 로 cmd/sh 에
-    # 위임하면 Windows·macOS·Linux 모두 동작한다.
     return subprocess.check_output(
-        "gcloud auth print-access-token", shell=True
-    ).decode().strip()
+        gcloud_argv("auth", "print-access-token"),
+        text=True,
+        encoding="utf-8",
+    ).strip()
+
+
+def gcloud_argv(*args):
+    """Resolve gcloud once and return an injection-safe argument vector."""
+    executable = shutil.which("gcloud") or shutil.which("gcloud.cmd")
+    if executable is None:
+        raise RuntimeError("gcloud was not found on PATH")
+    return [executable, *args]
+
+
+def normalize_voice(voice):
+    return "male" if voice == "male" else "female"
+
+
+def cache_relative_path(voice, text):
+    voice_key = normalize_voice(voice)
+    normalized_text = str(text).strip()
+    digest = hashlib.sha1(f"{voice_key}|{normalized_text}".encode("utf-8")).hexdigest()
+    return f"tts/{TTS_CACHE_REVISION}/{voice_key}/{digest}.mp3"
+
+
+def _auth():
+    """API 키가 설정돼 있으면 gcloud 불필요(None 반환). 없으면 gcloud 토큰."""
+    return None if API_KEY else token()
 
 
 def collect():
@@ -106,16 +143,17 @@ def _synth_raw(tok, voice_name, text, rate):
             "audioConfig": {"audioEncoding": "MP3", "speakingRate": rate},
         }
     ).encode()
-    req = urllib.request.Request(
-        ENDPOINT,
-        data=body,
-        headers={
-            "Authorization": "Bearer " + tok,
-            "x-goog-user-project": PROJECT,
-            "Content-Type": "application/json",
-        },
-    )
-    resp = json.load(urllib.request.urlopen(req))
+    url = ENDPOINT + (f"?key={API_KEY}" if API_KEY else "")
+    headers = {"Content-Type": "application/json"}
+    if not API_KEY:
+        headers["Authorization"] = "Bearer " + tok
+        headers["x-goog-user-project"] = PROJECT
+    req = urllib.request.Request(url, data=body, headers=headers)
+    try:
+        resp = json.load(urllib.request.urlopen(req))
+    except urllib.error.HTTPError as e:  # 403(API 미활성)·400 등 본문 노출.
+        detail = e.read().decode("utf-8", "ignore")[:400]
+        raise SystemExit(f"TTS API 오류 {e.code}: {detail}")
     return base64.b64decode(resp["audioContent"])
 
 
@@ -140,26 +178,31 @@ def demo(tok):
     probe = os.path.join(base, "_rate_probe")
     os.makedirs(probe, exist_ok=True)
     for rate in (0.5, 1.0):
+        data = _synth_raw(tok, VOICES["female"], DEMO_LINES[1], rate)
         with open(os.path.join(probe, f"aoede_{rate}.mp3"), "wb") as fh:
-            fh.write(_synth_raw(tok, VOICES["female"], DEMO_LINES[1], rate))
-        print(f"  여성 Aoede rate={rate}")
-    print(f"✅ 데모 완료 → {base}  (남성 목소리 선택 + ffprobe 로 rate 존중 확인)")
+            fh.write(data)
+        print(f"  여성 Aoede rate={rate}  ({len(data):,} bytes)")
+    print("  ↑ 0.5 파일이 1.0 보다 훨씬 크면 Chirp3-HD 가 속도를 존중(느려짐).")
+    print(f"✅ 데모 완료 → {base}  (남성 후보 청취 후 1종 선택)")
 
 
 def main():
+    if not API_KEY:
+        print("ℹ️  GOOGLE_TTS_API_KEY 미설정 → gcloud 인증 시도(SDK 필요).")
+        print("    API 키를 쓰면 gcloud 없이 됩니다(권장). 보고 참고.")
+
     if "--demo" in sys.argv:
-        demo(token())
+        demo(_auth())
         return
 
     pairs = collect()
     print(f"발화 {len(pairs)}개 (dedup 후)")
 
-    tok = token()
+    tok = _auth()
     made = 0
     skipped = 0
     for i, (voice, text) in enumerate(pairs):
-        h = hashlib.sha1(f"{voice}|{text}".encode("utf-8")).hexdigest()
-        path = os.path.join(OUT, "tts", voice, h + ".mp3")
+        path = os.path.join(OUT, *cache_relative_path(voice, text).split("/"))
         if os.path.exists(path) and os.path.getsize(path) > 0:
             skipped += 1
             continue
@@ -171,19 +214,25 @@ def main():
             made += 1
             if made % 50 == 0:
                 print(f"  합성 {made}…")
-            if made % 300 == 0:  # access token 1h 만료 방어
+            if not API_KEY and made % 300 == 0:  # gcloud 토큰 1h 만료 방어
                 tok = token()
         except Exception as e:  # noqa: BLE001
             print("FAIL", repr(text[:24]), str(e)[:100])
 
     print(f"합성 {made}개 / 건너뜀 {skipped}개 → 업로드 시작")
 
-    # 일괄 업로드 — 변경분만 (재실행 안전). .mp3 → audio/mpeg 자동.
-    # shell=True (token() 과 동일 이유 — Windows gcloud.cmd). 경로는 우리 상수뿐.
+    # Upload only this immutable revision.  Prior revision files stay untouched.
+    revision_root = os.path.join(OUT, "tts", TTS_CACHE_REVISION)
     subprocess.run(
-        f'gcloud storage rsync -r "{os.path.join(OUT, "tts")}" '
-        f'"gs://{BUCKET}/tts" --project {PROJECT}',
-        shell=True,
+        gcloud_argv(
+            "storage",
+            "rsync",
+            "-r",
+            revision_root,
+            f"gs://{BUCKET}/tts/{TTS_CACHE_REVISION}",
+            "--project",
+            PROJECT,
+        ),
         check=True,
     )
     print("✅ 완료")

@@ -11,12 +11,10 @@ import 'services/storage_service.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
-import 'services/book_analysis_service.dart';
 import 'services/book_image_service.dart';
 import 'services/bookshelf_service.dart';
 import 'services/crop_recovery_service.dart';
 import 'services/picker_recovery_service.dart';
-import 'services/tts_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
 import 'services/scene_asset_resolver.dart';
@@ -106,29 +104,6 @@ Future<void> main() async {
     debugPrint('Android picker recovery skipped: $error');
   }
 
-  // Phase 5 (stately-rising-jongga) — Cloud-Endpoint festlegen.
-  // Priorität: Settings (persistent) > --dart-define > deployter Default.
-  // So funktioniert "책 한 컷" für Closed-Test-Tester ohne manuelle Eingabe;
-  // ohne erreichbaren Endpoint fällt der Client sauber auf Offline-Grammatik.
-  const kEnvEndpoint = String.fromEnvironment('BOOK_ANALYSIS_ENDPOINT');
-  const kDefaultEndpoint =
-      'https://europe-west3-ko-lernen-app.cloudfunctions.net/analyze_korean_text';
-  final storedEndpoint = Storage.bookAnalysisEndpoint;
-  BookAnalysisService.setEndpoint(
-    storedEndpoint.isNotEmpty
-        ? storedEndpoint
-        : (kEnvEndpoint.isNotEmpty ? kEnvEndpoint : kDefaultEndpoint),
-  );
-
-  // 고품질 TTS 동적 합성 엔드포인트 (책 한 컷·내 단어장의 사용자 입력 단어).
-  // 사전생성된 고정 콘텐츠는 Storage 에서 직접 읽으므로 이 엔드포인트는 동적만.
-  const kTtsEndpoint = String.fromEnvironment('TTS_ENDPOINT');
-  TtsService.setEndpoint(
-    kTtsEndpoint.isNotEmpty
-        ? kTtsEndpoint
-        : 'https://europe-west3-ko-lernen-app.cloudfunctions.net/synthesize_tts',
-  );
-
   // Firebase, anonymous auth, RevenueCat, and optional FCM are ordered in the
   // background so cloud startup never delays runApp().
   unawaited(_startCloudServices());
@@ -158,10 +133,10 @@ Future<void> main() async {
   // 테스트는 false 유지 → 프레임/마스코트 폴백(플러그인 채널 미호출).
   TigerStageVideo.videoReady = true;
 
-  // 시나리오 씬 에셋 리졸버(전용 scenes/{id}.png·loops/scene_{id}.mp4 자동 배선)
-  // 매니페스트를 백그라운드로 1회 로드 — 실패/미완료 시 카테고리 폴백. runApp 무지연.
-  // ignore: discarded_futures, unawaited_futures
-  SceneAssetResolver.load();
+  // The resolver must finish before the first frame. Otherwise a dedicated
+  // per-scenario illustration can be silently replaced by its category
+  // fallback for the lifetime of the already-built screen.
+  await SceneAssetResolver.load();
 
   // 정답 축하 스프라이트(복주머니·엽전) 미리 디코딩 — 첫 정답에서 폴백이 뜨는 걸 막는다.
   // 실패해도 조용히 넘어가고 절차적 burst로 폴백. runApp 무지연.

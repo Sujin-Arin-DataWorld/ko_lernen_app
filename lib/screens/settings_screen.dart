@@ -27,7 +27,6 @@ import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_restore_result.dart';
 import '../services/account/cloud_write_session.dart';
 import 'app_shell.dart';
-import '../services/book_analysis_service.dart';
 import '../services/cloud_sync.dart';
 import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -266,7 +265,6 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   late double _ttsRate;
-  late final TextEditingController _endpointCtrl;
 
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
@@ -296,33 +294,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void initState() {
     super.initState();
     _ttsRate = Storage.ttsRate;
-    _endpointCtrl = TextEditingController(text: Storage.bookAnalysisEndpoint);
     if (widget.cloudDataDeletionJournalState == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await AuthService.refreshCloudBackupDeletionJournalState();
       });
     }
-  }
-
-  @override
-  void dispose() {
-    _endpointCtrl.dispose();
-    super.dispose();
-  }
-
-  Future<void> _saveEndpoint() async {
-    final url = _endpointCtrl.text.trim();
-    await Storage.setBookAnalysisEndpoint(url);
-    BookAnalysisService.setEndpoint(url);
-    if (!mounted) return;
-    final t = AppL10n.of(context);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(t.settingsBookEndpointSaved),
-        behavior: SnackBarBehavior.floating,
-        duration: const Duration(seconds: 2),
-      ),
-    );
   }
 
   // ── M3: Benachrichtigungen ──────────────────────────────────
@@ -793,47 +769,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 if (mounted) setState(() {});
               },
               activeThumbColor: SoriColors.primary,
-            ),
-
-            // ── Phase 5 — Cloud Analysis Endpoint ──
-            _Section(label: t.settingsBookEndpointSection),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: Spacing.lg,
-                vertical: Spacing.sm,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    t.settingsBookEndpointHint,
-                    style: SoriTextTheme.of(context).caption,
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  TextField(
-                    controller: _endpointCtrl,
-                    keyboardType: TextInputType.url,
-                    autocorrect: false,
-                    enableSuggestions: false,
-                    textInputAction: TextInputAction.done,
-                    onSubmitted: (_) => _saveEndpoint(),
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'https://us-central1-…/analyze_korean_text',
-                      isDense: true,
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: FilledButton.icon(
-                      icon: const Icon(Icons.save_outlined, size: 18),
-                      label: Text(t.settingsBookEndpointSave),
-                      onPressed: _saveEndpoint,
-                    ),
-                  ),
-                ],
-              ),
             ),
 
             // ── 안내 다시 보기 ──

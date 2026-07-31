@@ -38,9 +38,13 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
 
   String _prompt(String langCode) {
     if (langCode == 'en') {
-      return (widget.data['promptEn'] as String?) ?? (widget.data['promptDe'] as String?) ?? '';
+      return (widget.data['promptEn'] as String?) ??
+          (widget.data['promptDe'] as String?) ??
+          '';
     }
-    return (widget.data['promptDe'] as String?) ?? (widget.data['promptEn'] as String?) ?? '';
+    return (widget.data['promptDe'] as String?) ??
+        (widget.data['promptEn'] as String?) ??
+        '';
   }
 
   Future<void> _onOptionTap(int idx) async {
@@ -56,7 +60,9 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
         _celebrated = true;
       });
       await Future<void>.delayed(const Duration(milliseconds: 1200));
-      if (mounted) widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
+      if (mounted) {
+        widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
+      }
     } else {
       HapticFeedback.mediumImpact();
       _tries++;
@@ -66,7 +72,9 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
           _completed = true;
         });
         await Future<void>.delayed(const Duration(milliseconds: 1500));
-        if (mounted) widget.onComplete(QuestResult(passed: false, firstTry: false));
+        if (mounted) {
+          widget.onComplete(QuestResult(passed: false, firstTry: false));
+        }
       } else {
         await Future<void>.delayed(const Duration(milliseconds: 700));
         if (mounted) setState(() => _selected = -1);
@@ -92,6 +100,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
     final s = SoriSurfaces.of(context);
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -102,7 +111,10 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
               decoration: BoxDecoration(
                 color: SoriColors.primary.withAlpha(20),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: SoriColors.primary.withAlpha(80), width: 1.5),
+                border: Border.all(
+                  color: SoriColors.primary.withAlpha(80),
+                  width: 1.5,
+                ),
               ),
               child: Text(
                 _prompt(langCode),
@@ -136,7 +148,10 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
                     borderRadius: BorderRadius.circular(14),
                     onTap: () => _onOptionTap(idx),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 18,
+                        vertical: 14,
+                      ),
                       child: Row(
                         children: [
                           Container(
@@ -150,7 +165,9 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
                               child: Text(
                                 String.fromCharCode(65 + idx),
                                 style: TextStyle(
-                                  color: _selected == idx ? _borderColor(idx, s) : s.textMuted,
+                                  color: _selected == idx
+                                      ? _borderColor(idx, s)
+                                      : s.textMuted,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 13,
                                 ),

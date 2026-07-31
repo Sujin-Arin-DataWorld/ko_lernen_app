@@ -21,10 +21,11 @@ import 'tokens.dart';
 /// ])
 /// ```
 ///
-/// 연출은 단일 컨트롤러 위에 스태거로 겹친 3연발 스타카토다:
+/// 연출은 단일 컨트롤러 위에 스태거로 겹친 스타카토다:
 /// - 스쿼시&스트레치 스냅 (0.85→1.28→0.94→1.0)
 /// - 링 충격파 3개 (0 / 70 / 140ms)
-/// - 스프라이트 버스트 3회 + 햅틱 3연타 (0 / 80 / 170ms)
+/// - [DancheongBurst] 1회 — 복주머니·엽전 시트가 시차를 두고 "파-박"
+/// - 햅틱 2연타 (0 / 70ms) — 시트 두 장의 타이밍과 맞춘다
 ///
 /// `MediaQuery.disableAnimations`가 켜져 있으면 포즈 전환만 하고
 /// 버스트·햅틱 연타·스케일 시퀀스는 생략한다.
@@ -105,11 +106,13 @@ class _MascotPartnerState extends State<MascotPartner>
   }
 
   void _schedule(int ms, VoidCallback action) {
-    _timers.add(Timer(Duration(milliseconds: ms), () {
-      if (mounted) {
-        action();
-      }
-    }));
+    _timers.add(
+      Timer(Duration(milliseconds: ms), () {
+        if (mounted) {
+          action();
+        }
+      }),
+    );
   }
 
   /// 화면 좌표계 기준 마스코트 중심. 버스트 원점으로 쓴다.
@@ -142,21 +145,16 @@ class _MascotPartnerState extends State<MascotPartner>
 
     _ctrl.forward(from: 0);
 
-    // 파바박 — 짧고 날카로운 충격 3연발.
-    for (final ms in const [0, 80, 170]) {
-      _schedule(ms, () {
-        HapticFeedback.lightImpact();
-        final origin = _center();
-        if (origin != null) {
-          DancheongBurst.fire(
-            context,
-            origin: origin,
-            // 1차가 가장 굵고 뒤로 갈수록 잦아든다.
-            intensity: ms == 0 ? 1.0 : 0.55,
-          );
-        }
-      });
+    // 버스트는 한 번만 쏜다. "파-박" 두 박자는 이제 시트 두 장(복주머니 → 엽전)의
+    // 발사 시차가 만들므로, 여기서 여러 번 쏘면 통짜 시트가 겹쳐 뭉개진다.
+    final origin = _center();
+    if (origin != null) {
+      DancheongBurst.fire(context, origin: origin);
     }
+
+    // 햅틱은 시트 두 장의 타이밍에 맞춰 두 번 — 파박을 촉각으로 완성한다.
+    HapticFeedback.lightImpact();
+    _schedule(70, HapticFeedback.lightImpact);
   }
 
   @override
@@ -205,8 +203,9 @@ class _MascotPartnerState extends State<MascotPartner>
       padding: const EdgeInsets.all(4),
       child: Mascot(
         kind: widget.kind,
-        emotion:
-            _celebratePose ? MascotEmotion.celebrate : MascotEmotion.neutral,
+        emotion: _celebratePose
+            ? MascotEmotion.celebrate
+            : MascotEmotion.neutral,
         size: widget.size,
         animate: _celebratePose,
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart' show visibleForTesting;
-import 'package:flutter/services.dart' show AssetBundle, AssetManifest, rootBundle;
+import 'package:flutter/services.dart'
+    show AssetBundle, AssetManifest, rootBundle;
 
 import '../models/scenario.dart';
 

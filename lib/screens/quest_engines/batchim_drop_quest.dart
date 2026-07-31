@@ -51,7 +51,8 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
   String get _audioKo => (widget.data['audioKo'] as String?) ?? '';
   String get _targetWord => (widget.data['targetWord'] as String?) ?? '';
-  int get _targetIdx => (widget.data['targetSyllableIndex'] as num?)?.toInt() ?? 0;
+  int get _targetIdx =>
+      (widget.data['targetSyllableIndex'] as num?)?.toInt() ?? 0;
   int get _correctIndex => (widget.data['correctIndex'] as num?)?.toInt() ?? 0;
 
   List<String> get _options {
@@ -62,19 +63,45 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   String _explanation(String langCode) {
     if (langCode == 'en') {
       return (widget.data['explanationEn'] as String?) ??
-          (widget.data['explanationDe'] as String?) ?? '';
+          (widget.data['explanationDe'] as String?) ??
+          '';
     }
     return (widget.data['explanationDe'] as String?) ??
-        (widget.data['explanationEn'] as String?) ?? '';
+        (widget.data['explanationEn'] as String?) ??
+        '';
   }
 
   // ── 받침 jamo → 종성 코드 매핑 ─────────────────────────────────
 
   static const Map<String, int> _batchimCode = {
-    '': 0,   'ㄱ': 1,  'ㄲ': 2,  'ㄳ': 3,  'ㄴ': 4,  'ㄵ': 5,  'ㄶ': 6,
-    'ㄷ': 7,  'ㄹ': 8,  'ㄺ': 9,  'ㄻ': 10, 'ㄼ': 11, 'ㄽ': 12, 'ㄾ': 13,
-    'ㄿ': 14, 'ㅀ': 15, 'ㅁ': 16, 'ㅂ': 17, 'ㅄ': 18, 'ㅅ': 19, 'ㅆ': 20,
-    'ㅇ': 21, 'ㅈ': 22, 'ㅊ': 23, 'ㅋ': 24, 'ㅌ': 25, 'ㅍ': 26, 'ㅎ': 27,
+    '': 0,
+    'ㄱ': 1,
+    'ㄲ': 2,
+    'ㄳ': 3,
+    'ㄴ': 4,
+    'ㄵ': 5,
+    'ㄶ': 6,
+    'ㄷ': 7,
+    'ㄹ': 8,
+    'ㄺ': 9,
+    'ㄻ': 10,
+    'ㄼ': 11,
+    'ㄽ': 12,
+    'ㄾ': 13,
+    'ㄿ': 14,
+    'ㅀ': 15,
+    'ㅁ': 16,
+    'ㅂ': 17,
+    'ㅄ': 18,
+    'ㅅ': 19,
+    'ㅆ': 20,
+    'ㅇ': 21,
+    'ㅈ': 22,
+    'ㅊ': 23,
+    'ㅋ': 24,
+    'ㅌ': 25,
+    'ㅍ': 26,
+    'ㅎ': 27,
   };
 
   /// 음절에서 받침을 제거한 base 글자 반환 (예: 녕 → 녀)
@@ -153,10 +180,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   }
 
   void _onNextTap() {
-    widget.onComplete(QuestResult(
-      passed: _passed,
-      firstTry: _tries == 1 && _passed,
-    ));
+    widget.onComplete(
+      QuestResult(passed: _passed, firstTry: _tries == 1 && _passed),
+    );
   }
 
   // ── 음절 표시 위젯 ─────────────────────────────────────────────
@@ -243,10 +269,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
               height: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: slotBorder,
-                  width: 2,
-                ),
+                border: Border.all(color: slotBorder, width: 2),
                 color: slotBg,
               ),
               child: Center(
@@ -370,8 +393,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
                   const SizedBox(height: 14),
                   FilledButton(
                     style: FilledButton.styleFrom(
-                      backgroundColor:
-                          _passed ? SoriColors.success : SoriColors.danger,
+                      backgroundColor: _passed
+                          ? SoriColors.success
+                          : SoriColors.danger,
                     ),
                     onPressed: _onNextTap,
                     child: Text(t.questNext),
@@ -392,6 +416,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     final s = SoriSurfaces.of(context);
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

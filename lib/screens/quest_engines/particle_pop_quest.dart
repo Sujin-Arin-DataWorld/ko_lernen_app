@@ -48,10 +48,12 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   String _explanation(String langCode) {
     if (langCode == 'en') {
       return (widget.data['explanationEn'] as String?) ??
-          (widget.data['explanationDe'] as String?) ?? '';
+          (widget.data['explanationDe'] as String?) ??
+          '';
     }
     return (widget.data['explanationDe'] as String?) ??
-        (widget.data['explanationEn'] as String?) ?? '';
+        (widget.data['explanationEn'] as String?) ??
+        '';
   }
 
   String get _fullSentence =>
@@ -64,9 +66,10 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    _scaleAnim = Tween<double>(begin: 1.0, end: 1.2).animate(
-      CurvedAnimation(parent: _scaleCtrl, curve: Curves.easeOut),
-    );
+    _scaleAnim = Tween<double>(
+      begin: 1.0,
+      end: 1.2,
+    ).animate(CurvedAnimation(parent: _scaleCtrl, curve: Curves.easeOut));
   }
 
   @override
@@ -113,10 +116,12 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   }
 
   void _onNextTap() {
-    widget.onComplete(QuestResult(
-      passed: _tries < 2 && _droppedIndex == _correctIndex,
-      firstTry: _tries == 0,
-    ));
+    widget.onComplete(
+      QuestResult(
+        passed: _tries < 2 && _droppedIndex == _correctIndex,
+        firstTry: _tries == 0,
+      ),
+    );
   }
 
   Widget _buildSlot(String langCode, SoriSurfaces s) {
@@ -150,8 +155,8 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
             color: hasValue
                 ? slotColor.withAlpha(38)
                 : isHovering
-                    ? SoriColors.info.withAlpha(26)
-                    : Colors.transparent,
+                ? SoriColors.info.withAlpha(26)
+                : Colors.transparent,
           ),
           child: Center(
             child: hasValue
@@ -160,7 +165,9 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
                     child: Text(
                       _options[_droppedIndex!],
                       style: TextStyle(
-                        color: isCorrect ? SoriColors.success : SoriColors.danger,
+                        color: isCorrect
+                            ? SoriColors.success
+                            : SoriColors.danger,
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                       ),
@@ -232,7 +239,11 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     );
   }
 
-  Widget _particleContainer(String particle, SoriSurfaces s, {bool dragging = false}) {
+  Widget _particleContainer(
+    String particle,
+    SoriSurfaces s, {
+    bool dragging = false,
+  }) {
     return Container(
       width: 56,
       height: 44,
@@ -242,11 +253,19 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
             ? SoriColors.primary.withAlpha(230)
             : SoriColors.primary.withAlpha(40),
         border: Border.all(
-          color: dragging ? SoriColors.primary : SoriColors.primary.withAlpha(120),
+          color: dragging
+              ? SoriColors.primary
+              : SoriColors.primary.withAlpha(120),
           width: 1.5,
         ),
         boxShadow: dragging
-            ? [BoxShadow(color: SoriColors.primary.withAlpha(80), blurRadius: 12, spreadRadius: 2)]
+            ? [
+                BoxShadow(
+                  color: SoriColors.primary.withAlpha(80),
+                  blurRadius: 12,
+                  spreadRadius: 2,
+                ),
+              ]
             : null,
       ),
       child: Center(
@@ -271,10 +290,14 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
         margin: const EdgeInsets.only(top: 16),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: (passed ? SoriColors.success : SoriColors.danger).withAlpha(26),
+          color: (passed ? SoriColors.success : SoriColors.danger).withAlpha(
+            26,
+          ),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: (passed ? SoriColors.success : SoriColors.danger).withAlpha(80),
+            color: (passed ? SoriColors.success : SoriColors.danger).withAlpha(
+              80,
+            ),
             width: 1.5,
           ),
         ),
@@ -292,11 +315,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
             const SizedBox(height: 8),
             Text(
               _explanation(langCode),
-              style: TextStyle(
-                color: s.textMuted,
-                fontSize: 14,
-                height: 1.5,
-              ),
+              style: TextStyle(color: s.textMuted, fontSize: 14, height: 1.5),
             ),
             const SizedBox(height: 14),
             FilledButton(
@@ -316,6 +335,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     final s = SoriSurfaces.of(context);
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -323,10 +343,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
             // Hinweis
             Text(
               t.particlePopHint,
-              style: TextStyle(
-                color: s.textMuted,
-                fontSize: 13,
-              ),
+              style: TextStyle(color: s.textMuted, fontSize: 13),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),

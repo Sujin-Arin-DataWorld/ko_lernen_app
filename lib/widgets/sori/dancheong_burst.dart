@@ -5,51 +5,49 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 import 'celebration.dart';
-import 'hanok_tokens.dart';
 import 'tokens.dart';
 
-/// **DancheongBurst** — 복주머니·엽전 스프라이트가 터져 나가는 정답 축하 연출.
+/// **DancheongBurst** — 복주머니 시트와 엽전 시트가 "파박" 두 번 터지는 정답 축하.
 ///
-/// [SoriCelebration]의 Overlay 구조를 따르되 절차적 도형 대신 실제 PNG를 뿌린다.
-/// 복주머니는 오방색 4종(적·청·황·흑), 엽전 1종. 각자 회전하며 방사형으로
-/// 솟았다가 중력으로 떨어진다. 반짝임은 에셋에 넣지 않고 절차적으로 그린다.
+/// 입자를 절차적으로 흩뿌리지 않고, 작가가 배치까지 구성해 둔 두 장의 투명 PNG를
+/// **통째로** 확 키우며 터뜨린다. 반짝임 궤적·글로우가 원본 구성 그대로 살아난다.
+///
+/// 두 장을 살짝 어긋난 타이밍(0ms / 70ms)으로 쏘는 게 "파-박"의 핵심이다.
+/// 동시에 터지면 한 번의 뭉툭한 팝이 되고, 어긋나면 두 번 얻어맞는 느낌이 난다.
+/// 엽전이 조금 더 멀리 퍼지고 서로 반대로 미세하게 회전해, 두 장이 겹쳐 있다는
+/// 인상 대신 하나의 폭발이 두 겹으로 번지는 인상을 준다.
 ///
 /// ```dart
 /// DancheongBurst.fire(context, origin: mascotCenter);
 /// ```
 ///
-/// 스프라이트가 아직 로드되지 않았거나 PNG가 없으면 기존
-/// [SoriCelebration.burst]로 자동 폴백한다 — 에셋 없이도 정상 동작.
-/// `MediaQuery.disableAnimations`가 켜져 있으면 no-op.
+/// [SoriCelebration]의 Overlay 구조를 따르므로 카드 경계에 잘리지 않는다.
+/// 시트가 아직 디코딩되지 않았거나 PNG가 없으면 절차적 [SoriCelebration.burst]로
+/// 폴백한다 — 에셋 없이도 정상 동작. `MediaQuery.disableAnimations`면 no-op.
 class DancheongBurst {
   DancheongBurst._();
 
-  static const _pouchAssets = <String>[
-    'assets/illustrations/burst/burst_pouch_jeok.png',
-    'assets/illustrations/burst/burst_pouch_cheong.png',
-    'assets/illustrations/burst/burst_pouch_hwang.png',
-    'assets/illustrations/burst/burst_pouch_heuk.png',
-  ];
-  static const _coinAsset = 'assets/illustrations/burst/burst_coin.png';
+  static const _pouchSheet = 'assets/illustrations/burst/burst_pouches.png';
+  static const _coinSheet = 'assets/illustrations/burst/burst_coins.png';
 
-  static List<ui.Image>? _pouches;
-  static ui.Image? _coin;
+  static ui.Image? _pouches;
+  static ui.Image? _coins;
   static bool _loading = false;
   static bool _failed = false;
 
-  /// 스프라이트가 준비됐는지. 테스트/폴백 분기용.
-  static bool get ready => _pouches != null && _coin != null;
+  /// 시트가 준비됐는지. 테스트/폴백 분기용.
+  static bool get ready => _pouches != null && _coins != null;
 
-  /// 스프라이트를 미리 디코딩해 첫 정답에서 폴백이 뜨는 걸 막는다.
+  /// 시트를 미리 디코딩해 첫 정답에서 폴백이 뜨는 걸 막는다.
   /// 실패해도 조용히 넘어간다 (폴백 경로가 받아준다).
   static Future<void> preload() async {
     if (ready || _loading || _failed) return;
     _loading = true;
     try {
-      final pouches = await Future.wait(_pouchAssets.map(_decode));
-      final coin = await _decode(_coinAsset);
+      final pouches = await _decode(_pouchSheet);
+      final coins = await _decode(_coinSheet);
       _pouches = pouches;
-      _coin = coin;
+      _coins = coins;
     } catch (_) {
       _failed = true;
     } finally {
@@ -75,9 +73,9 @@ class DancheongBurst {
     return completer.future;
   }
 
-  /// 일회성 버스트를 [Overlay]에 띄운다. 900ms 후 스스로 사라진다.
+  /// 일회성 버스트를 [Overlay]에 띄운다. 780ms 후 스스로 사라진다.
   ///
-  /// [intensity]는 입자 수 배율 (0.5 = 절반, 1.0 = 기본).
+  /// [intensity]는 최종 크기 배율 (1.0 = 기본 폭 300dp).
   static void fire(
     BuildContext context, {
     required Offset origin,
@@ -88,11 +86,11 @@ class DancheongBurst {
     if (overlay == null) return;
 
     final pouches = _pouches;
-    final coin = _coin;
-    if (pouches == null || coin == null) {
-      // 스프라이트 미준비 → 절차적 버스트로 폴백 + 다음을 위해 로드 시작.
+    final coins = _coins;
+    if (pouches == null || coins == null) {
+      // 시트 미준비 → 절차적 버스트로 폴백 + 다음을 위해 로드 시작.
       unawaited(preload());
-      SoriCelebration.burst(context, origin: origin, particles: 22);
+      SoriCelebration.burst(context, origin: origin, particles: 26);
       return;
     }
 
@@ -101,7 +99,7 @@ class DancheongBurst {
       builder: (_) => _BurstLayer(
         origin: origin,
         pouches: pouches,
-        coin: coin,
+        coins: coins,
         intensity: intensity,
         onDone: () => entry.remove(),
       ),
@@ -112,17 +110,101 @@ class DancheongBurst {
 
 // ─────────────────────────────────────────────────────────────────────────
 
+/// A safe, paint-ready burst placement for the current overlay viewport.
+class DancheongBurstPlacement {
+  const DancheongBurstPlacement({
+    required this.origin,
+    required this.intensity,
+    required this.maxPaintBounds,
+  });
+
+  final Offset origin;
+  final double intensity;
+  final Rect maxPaintBounds;
+}
+
+/// Keeps the maximum expanded and rotated sheet inside a phone viewport.
+///
+/// Quest mascots intentionally live just above the top-right card edge. Their
+/// global centre is therefore a poor centre for a 300dp celebration sheet on a
+/// narrow phone. This helper shifts and, only when necessary, scales the burst
+/// while preserving its normal size on larger viewports.
+class DancheongBurstLayout {
+  DancheongBurstLayout._();
+
+  static const double baseWidth = 300;
+  static const double _maxReach = 1.26;
+  static const double _edgeMargin = 12;
+  static const double _rotationPadding = 0.08;
+  static const double _liftPadding = 0.06;
+
+  static DancheongBurstPlacement fit({
+    required Size viewport,
+    required Offset preferredOrigin,
+    required double intensity,
+    double heightOverWidth = 2 / 3,
+  }) {
+    final requestedIntensity = math.max(0.0, intensity).toDouble();
+    final safeHeightOverWidth = math.max(0.01, heightOverWidth).toDouble();
+    final requestedWidth = baseWidth * requestedIntensity * _maxReach;
+    final horizontalExtent = requestedWidth * (0.5 + _rotationPadding);
+    final verticalExtent =
+        requestedWidth *
+        (safeHeightOverWidth / 2 + _liftPadding + _rotationPadding);
+    final availableWidth = math
+        .max(0.0, viewport.width - 2 * _edgeMargin)
+        .toDouble();
+    final availableHeight = math
+        .max(0.0, viewport.height - 2 * _edgeMargin)
+        .toDouble();
+    final widthScale = horizontalExtent == 0
+        ? 1.0
+        : availableWidth / (horizontalExtent * 2);
+    final heightScale = verticalExtent == 0
+        ? 1.0
+        : availableHeight / (verticalExtent * 2);
+    final scale = math
+        .max(0.0, math.min(1.0, math.min(widthScale, heightScale)))
+        .toDouble();
+    final resolvedIntensity = requestedIntensity * scale;
+    final resolvedWidth = baseWidth * resolvedIntensity * _maxReach;
+    final resolvedHorizontalExtent = resolvedWidth * (0.5 + _rotationPadding);
+    final resolvedVerticalExtent =
+        resolvedWidth *
+        (safeHeightOverWidth / 2 + _liftPadding + _rotationPadding);
+    final origin = Offset(
+      _clampAxis(preferredOrigin.dx, viewport.width, resolvedHorizontalExtent),
+      _clampAxis(preferredOrigin.dy, viewport.height, resolvedVerticalExtent),
+    );
+
+    return DancheongBurstPlacement(
+      origin: origin,
+      intensity: resolvedIntensity,
+      maxPaintBounds: Rect.fromCenter(
+        center: origin,
+        width: resolvedHorizontalExtent * 2,
+        height: resolvedVerticalExtent * 2,
+      ),
+    );
+  }
+
+  static double _clampAxis(double value, double length, double extent) {
+    final inset = math.min(length / 2, _edgeMargin + extent).toDouble();
+    return value.clamp(inset, length - inset).toDouble();
+  }
+}
+
 class _BurstLayer extends StatefulWidget {
   final Offset origin;
-  final List<ui.Image> pouches;
-  final ui.Image coin;
+  final ui.Image pouches;
+  final ui.Image coins;
   final double intensity;
   final VoidCallback onDone;
 
   const _BurstLayer({
     required this.origin,
     required this.pouches,
-    required this.coin,
+    required this.coins,
     required this.intensity,
     required this.onDone,
   });
@@ -134,70 +216,19 @@ class _BurstLayer extends StatefulWidget {
 class _BurstLayerState extends State<_BurstLayer>
     with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl;
-  late final List<_Sprite> _sprites;
-  late final List<_Sparkle> _sparkles;
-
-  /// 반짝임 색 — 오방색 (백은 한지 배경 위에서 안 보여 제외).
-  static const _sparklePalette = <Color>[
-    HanokColors.jeok,
-    HanokColors.cheong,
-    HanokColors.hwang,
-    SoriColors.gold,
-  ];
 
   @override
   void initState() {
     super.initState();
-    // 트리거마다 재생성 — 매번 다른 모양으로 터진다.
-    final rnd = math.Random();
-    final pouchCount = (7 * widget.intensity).round().clamp(2, 14);
-    final coinCount = (9 * widget.intensity).round().clamp(2, 18);
-    final sparkleCount = (14 * widget.intensity).round().clamp(4, 28);
-
-    _sprites = [
-      for (var i = 0; i < pouchCount; i++)
-        _Sprite(
-          image: widget.pouches[rnd.nextInt(widget.pouches.length)],
-          angle: _launchAngle(rnd),
-          speed: 130 + rnd.nextDouble() * 190,
-          size: 26 + rnd.nextDouble() * 14,
-          spin: (rnd.nextDouble() - 0.5) * 7,
-          delay: rnd.nextDouble() * 0.10,
-        ),
-      for (var i = 0; i < coinCount; i++)
-        _Sprite(
-          image: widget.coin,
-          angle: _launchAngle(rnd),
-          speed: 170 + rnd.nextDouble() * 240,
-          size: 15 + rnd.nextDouble() * 9,
-          spin: (rnd.nextDouble() - 0.5) * 11,
-          delay: rnd.nextDouble() * 0.12,
-        ),
-    ];
-
-    _sparkles = [
-      for (var i = 0; i < sparkleCount; i++)
-        _Sparkle(
-          angle: rnd.nextDouble() * math.pi * 2,
-          speed: 230 + rnd.nextDouble() * 260,
-          size: 2.5 + rnd.nextDouble() * 3.5,
-          color: _sparklePalette[rnd.nextInt(_sparklePalette.length)],
-          delay: rnd.nextDouble() * 0.08,
-        ),
-    ];
-
-    _ctrl = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 900),
-    )..addStatusListener((s) {
-        if (s == AnimationStatus.completed) widget.onDone();
-      });
+    _ctrl =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 780),
+        )..addStatusListener((s) {
+          if (s == AnimationStatus.completed) widget.onDone();
+        });
     _ctrl.forward();
   }
-
-  /// 위쪽 반구 위주 (−170°~−10°) — 솟았다 떨어지는 궤적을 만든다.
-  static double _launchAngle(math.Random rnd) =>
-      -math.pi + rnd.nextDouble() * math.pi * 0.92 + 0.08;
 
   @override
   void dispose() {
@@ -213,10 +244,11 @@ class _BurstLayerState extends State<_BurstLayer>
           child: AnimatedBuilder(
             animation: _ctrl,
             builder: (_, __) => CustomPaint(
-              painter: _BurstPainter(
-                sprites: _sprites,
-                sparkles: _sparkles,
+              painter: _SheetBurstPainter(
+                pouches: widget.pouches,
+                coins: widget.coins,
                 origin: widget.origin,
+                intensity: widget.intensity,
                 t: _ctrl.value,
               ),
             ),
@@ -227,114 +259,95 @@ class _BurstLayerState extends State<_BurstLayer>
   }
 }
 
-class _Sprite {
+/// 한 장의 시트가 터지는 방식.
+class _Shot {
   final ui.Image image;
-  final double angle; // 발사 방향 (rad)
-  final double speed; // 초기 속도
-  final double size; // 목표 폭 (px)
-  final double spin; // 회전 속도 (rad)
-  final double delay; // 0~0.12 — 약간 어긋나게 터짐
 
-  const _Sprite({
-    required this.image,
-    required this.angle,
-    required this.speed,
-    required this.size,
-    required this.spin,
-    required this.delay,
-  });
-}
-
-class _Sparkle {
-  final double angle;
-  final double speed;
-  final double size;
-  final Color color;
+  /// 발사 지연 (0..1 정규화). 두 장을 어긋나게 해 "파-박"을 만든다.
   final double delay;
 
-  const _Sparkle({
-    required this.angle,
-    required this.speed,
-    required this.size,
-    required this.color,
+  /// 최종 폭 배율. 엽전이 더 멀리 퍼진다.
+  final double reach;
+
+  /// 총 회전량(rad). 서로 반대로 살짝 돌아 겹침 인상을 지운다.
+  final double spin;
+
+  const _Shot({
+    required this.image,
     required this.delay,
+    required this.reach,
+    required this.spin,
   });
 }
 
-class _BurstPainter extends CustomPainter {
-  final List<_Sprite> sprites;
-  final List<_Sparkle> sparkles;
+class _SheetBurstPainter extends CustomPainter {
+  final ui.Image pouches;
+  final ui.Image coins;
   final Offset origin;
+  final double intensity;
   final double t; // 0..1
 
-  _BurstPainter({
-    required this.sprites,
-    required this.sparkles,
+  _SheetBurstPainter({
+    required this.pouches,
+    required this.coins,
     required this.origin,
+    required this.intensity,
     required this.t,
   });
 
-  /// `celebration.dart`와 동일 상수 — 두 연출의 낙하감을 맞춘다.
-  static const double _gravity = 720;
+  /// 기본 폭(dp). intensity 1.0 기준.
+  static const double _baseWidth = DancheongBurstLayout.baseWidth;
 
-  /// 초반 폭발 후 급감속. 타격감의 핵심.
-  static double _reach(double lt) => Curves.easeOutExpo.transform(lt);
+  /// 터지기 직전의 응축 크기 — 작게 시작해야 확 벌어지는 맛이 산다.
+  static const double _startScale = 0.28;
 
   @override
   void paint(Canvas canvas, Size size) {
-    for (final s in sparkles) {
-      final lt = ((t - s.delay) / (1.0 - s.delay)).clamp(0.0, 1.0);
-      if (lt <= 0) {
-        continue;
-      }
-      final reach = _reach(lt);
-      final pos = origin +
-          Offset(
-            math.cos(s.angle) * s.speed * reach,
-            math.sin(s.angle) * s.speed * reach + _gravity * lt * lt * 0.35,
-          );
-      // 반짝임은 더 빨리 사라진다 (t=0.45부터).
-      final fade = lt < 0.45 ? 1.0 : (1 - (lt - 0.45) / 0.55);
-      if (fade <= 0) {
-        continue;
-      }
-      canvas.drawCircle(
-        pos,
-        s.size * (1 - lt * 0.4),
-        Paint()..color = s.color.withValues(alpha: fade.clamp(0.0, 1.0)),
-      );
-    }
+    final heightOverWidth = math
+        .max(pouches.height / pouches.width, coins.height / coins.width)
+        .toDouble();
+    final placement = DancheongBurstLayout.fit(
+      viewport: size,
+      preferredOrigin: origin,
+      intensity: intensity,
+      heightOverWidth: heightOverWidth,
+    );
+    final shots = <_Shot>[
+      // 복주머니가 먼저 — 크고 무거운 게 앞장서야 타격이 선다.
+      _Shot(image: pouches, delay: 0.0, reach: 1.06, spin: -0.06),
+      // 엽전이 70ms 뒤 더 멀리 — "파" 다음의 "박".
+      _Shot(image: coins, delay: 0.09, reach: 1.26, spin: 0.07),
+    ];
 
-    for (final s in sprites) {
-      final lt = ((t - s.delay) / (1.0 - s.delay)).clamp(0.0, 1.0);
+    for (final shot in shots) {
+      final lt = ((t - shot.delay) / (1.0 - shot.delay)).clamp(0.0, 1.0);
       if (lt <= 0) {
         continue;
       }
 
-      final reach = _reach(lt);
-      final pos = origin +
-          Offset(
-            math.cos(s.angle) * s.speed * reach,
-            math.sin(s.angle) * s.speed * reach + _gravity * lt * lt * 0.5,
-          );
+      // 초반 폭발 후 급감속 — 타격감의 핵심.
+      final eased = Curves.easeOutExpo.transform(lt);
+      final scale = _startScale + (shot.reach - _startScale) * eased;
 
-      // 끝 35%에서 페이드 + 축소 (1.0 → 0.7).
-      final fade = lt < 0.65 ? 1.0 : (1 - (lt - 0.65) / 0.35);
+      // 뒤쪽 42%에서 페이드.
+      final fade = lt < 0.42 ? 1.0 : (1 - (lt - 0.42) / 0.58);
       if (fade <= 0) {
         continue;
       }
-      final scale = 1.0 - lt * 0.3;
 
-      final img = s.image;
-      final w = s.size * scale;
+      final img = shot.image;
+      final w = _baseWidth * placement.intensity * scale;
       final h = w * (img.height / img.width);
       if (w <= 0 || h <= 0) {
         continue;
       }
 
+      // 살짝 떠오르며 퍼진다 — 바닥에 눌린 느낌을 없앤다.
+      final lift = -w * 0.05 * eased;
+
       canvas.save();
-      canvas.translate(pos.dx, pos.dy);
-      canvas.rotate(s.spin * lt);
+      canvas.translate(placement.origin.dx, placement.origin.dy + lift);
+      canvas.rotate(shot.spin * eased);
       canvas.drawImageRect(
         img,
         Rect.fromLTWH(0, 0, img.width.toDouble(), img.height.toDouble()),
@@ -348,5 +361,5 @@ class _BurstPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_BurstPainter old) => old.t != t;
+  bool shouldRepaint(_SheetBurstPainter old) => old.t != t;
 }

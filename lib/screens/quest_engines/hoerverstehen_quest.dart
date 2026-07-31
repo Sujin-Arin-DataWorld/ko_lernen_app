@@ -59,7 +59,9 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
         _celebrated = true;
       });
       await Future<void>.delayed(const Duration(milliseconds: 1200));
-      if (mounted) widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
+      if (mounted) {
+        widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
+      }
     } else {
       HapticFeedback.mediumImpact();
       _tries++;
@@ -70,7 +72,9 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
           _completed = true;
         });
         await Future<void>.delayed(const Duration(milliseconds: 1500));
-        if (mounted) widget.onComplete(QuestResult(passed: false, firstTry: false));
+        if (mounted) {
+          widget.onComplete(QuestResult(passed: false, firstTry: false));
+        }
       } else {
         await Future<void>.delayed(const Duration(milliseconds: 700));
         if (mounted) setState(() => _selected = -1);
@@ -119,10 +123,16 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: SoriColors.info.withAlpha(26),
-                              border: Border.all(color: SoriColors.info, width: 2),
+                              border: Border.all(
+                                color: SoriColors.info,
+                                width: 2,
+                              ),
                             ),
-                            child: const Icon(Icons.volume_up_rounded,
-                                color: SoriColors.info, size: 40),
+                            child: const Icon(
+                              Icons.volume_up_rounded,
+                              color: SoriColors.info,
+                              size: 40,
+                            ),
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -165,7 +175,10 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
                     borderRadius: BorderRadius.circular(14),
                     onTap: () => _onOptionTap(idx),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 18,
+                        vertical: 14,
+                      ),
                       child: Row(
                         children: [
                           Container(
@@ -179,7 +192,9 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
                               child: Text(
                                 String.fromCharCode(65 + idx), // A, B, C, D
                                 style: TextStyle(
-                                  color: _selected == idx ? _borderColor(idx, s) : s.textMuted,
+                                  color: _selected == idx
+                                      ? _borderColor(idx, s)
+                                      : s.textMuted,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 13,
                                 ),

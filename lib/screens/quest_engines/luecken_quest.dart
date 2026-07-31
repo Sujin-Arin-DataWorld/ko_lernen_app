@@ -13,11 +13,7 @@ class LueckenQuest extends StatefulWidget {
   final Map<String, dynamic> data;
   final void Function(QuestResult) onComplete;
 
-  const LueckenQuest({
-    super.key,
-    required this.data,
-    required this.onComplete,
-  });
+  const LueckenQuest({super.key, required this.data, required this.onComplete});
 
   @override
   State<LueckenQuest> createState() => _LueckenQuestState();
@@ -55,7 +51,9 @@ class _LueckenQuestState extends State<LueckenQuest> {
         _celebrated = true;
       });
       await Future<void>.delayed(const Duration(milliseconds: 1200));
-      if (mounted) widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
+      if (mounted) {
+        widget.onComplete(QuestResult(passed: true, firstTry: _tries == 0));
+      }
     } else {
       HapticFeedback.mediumImpact();
       _tries++;
@@ -66,7 +64,9 @@ class _LueckenQuestState extends State<LueckenQuest> {
           _completed = true;
         });
         await Future<void>.delayed(const Duration(milliseconds: 1500));
-        if (mounted) widget.onComplete(QuestResult(passed: false, firstTry: false));
+        if (mounted) {
+          widget.onComplete(QuestResult(passed: false, firstTry: false));
+        }
       } else {
         await Future<void>.delayed(const Duration(milliseconds: 700));
         if (mounted) {
@@ -122,7 +122,9 @@ class _LueckenQuestState extends State<LueckenQuest> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             border: Border.all(color: slotColor, width: 2),
-            color: _filledWord != null ? slotColor.withAlpha(26) : Colors.transparent,
+            color: _filledWord != null
+                ? slotColor.withAlpha(26)
+                : Colors.transparent,
           ),
           child: Text(
             _filledWord ?? '     ',
@@ -148,6 +150,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
     final s = SoriSurfaces.of(context);
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -178,13 +181,19 @@ class _LueckenQuestState extends State<LueckenQuest> {
                   decoration: BoxDecoration(
                     color: _chipBgColor(idx, s),
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: _chipBorderColor(idx, s), width: 1.5),
+                    border: Border.all(
+                      color: _chipBorderColor(idx, s),
+                      width: 1.5,
+                    ),
                   ),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(24),
                     onTap: () => _onChipTap(idx),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 18,
+                        vertical: 10,
+                      ),
                       child: Text(
                         label,
                         style: TextStyle(
