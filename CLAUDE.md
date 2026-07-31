@@ -316,6 +316,18 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-31 (시나리오 정답 보상 연출 + 온보딩 book_scan + path_trail 테스트 수정) — 커밋·푸시
+
+**범위:** Jin 실기기 피드백 기반. 고아 에셋 배선 → 시나리오 정답 보상 구현·버그수정 → path_trail 테스트 수정. 동시 세션과 파일 분리(스티커 감사·onboarding·scenario·celebration·path_trail 테스트만 손댐).
+
+- **스티커 감사(코드 무변)**: `assets/stickers` 30/30 전부 `StickerPicker`→`GyeService.sendSticker/sendReaction`로 배선됨 — 단 **계(Gye) 기능 안에서만 노출**(계 미가입 사용자는 못 봄). 고아 0.
+- **온보딩 book_scan(`88724a8`)**: 프리뷰 페이지0(책 한 컷) 비주얼 `book/book_camera_guide.png`→`onboarding/book_scan.png`(세로 941×1672) + 죽은 `wide` 파라미터 정리. ⚠️ **이후 동시 세션이 `onboarding_preview_screen`을 "풀블리드 히어로"로 재작성** — 현재 파일은 그 버전(내 book_scan 경로는 유지).
+- **시나리오 정답 보상 — 1차(`c5d1415`) 후 수정(`834baa3`)**: 처음에 지속 까치 `_ScenarioBuddy` + `SoriCelebration.coins`(엽전 `yupjeon.png`·복주머니 `bok.png` PNG 입자, celebration.dart 신설) 추가 → **실기기 문제 3종**(① 까치 2마리 겹침 ② `_dependents.isEmpty` 크래시 ③ 코너 소형 burst) → 수정: **`_ScenarioBuddy` 제거**(각 quest 엔진에 이미 `MascotPartner`=정답 시 팡+DancheongBurst하는 까치가 있어 중복이었음), 크래시는 **이벤트콜백 동기 호출 → `_next()`식 post-frame + 화면 context**(`_celebrateCorrect`)로 전환, `coins()` origin **화면 중앙**+크기/개수 확대. 정답 훅 = 전 quest `_onQuestComplete`(pass) + 역할극 `_RollenspielStage.onCorrect`.
+- **path_trail 테스트(`90a1713`)**: 동시 세션 `path_trail.dart` 위젯테스트가 "지금" 노드 `_NowDisc` **무한 펄스** 때문에 `pumpAndSettle` 타임아웃(탭 로직 자체는 정상) → **`disableAnimations`**(setUp `FakeAccessibilityFeatures` + 큰글자 테스트 명시 `MediaQuery`)로 안정화 → 9/9 통과. (위젯 무변경, 테스트 하네스만.)
+- **검증**: `flutter analyze` 0 · scenario+smoke 25~29 · path_trail 9/9. **⚠️ 미검증(Jin 실기기)**: 시나리오 정답 시 크래시 소거·중앙 엽전/복주머니 burst·까치 1마리(834baa3), book_scan 온보딩 시각.
+- **빌드 상기**: 위 전부 클라 Dart → **tts3 마무리 후 AAB 빌드하면 자동 포함**. 기존 뽑아둔 AAB 있으면 재빌드 필요. CF(`functions/tts`) 배포는 AAB와 별개.
+- **Git**: `88724a8`·`c5d1415`·`834baa3` origin/main 푸시. `90a1713`(path_trail 테스트)은 동시 세션 푸시에 딸려 origin/main 반영(내가 push 안 함). ⚠️ `90a1713` 제목이 내용(테스트 fix만)보다 넓게 적힘 — 이미 푸시돼 amend 안 함(force-push 위험).
+
 ### 2026-07-31 (실기기 피드백 — Cloze/데일리챌린지 정답 단어 강조 + 여유로운 반응형) — 커밋 `9341b4f`
 
 **범위:** Jin 실기기 스크린샷(Tages-Challenge 빈칸퀴즈) 2건. ① 초보자가 "뭘 찾는지" 몰라 → 독일어 번역에서 정답 단어를 강조. ② 카드·선택지가 상단에 몰리고 하단이 텅 빔 → 여유로운 반응형. Q&A로 방향 확정: **iPhone풍 배지/필 요소 금지, 오직 문장 내 단어 강조** + 박스를 화면 전체에 여유 있게 분산. plan `dazzling-wondering-dragon.md`.

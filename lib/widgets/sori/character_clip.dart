@@ -31,8 +31,15 @@ class CharacterClips {
   static const String tigerChoose = '$_base/tiger_choose.mp4'; // 선택 확정 목례
   static const String tigerGreetPawflash =
       '$_base/tiger_greet_pawflash.mp4'; // 첫 인사 — 앞발 번쩍
-  static const String tigerRoarSeatedBonus =
-      '$_base/tiger_roar_seated_bonus.mp4';
+
+  /// 신기록 보너스 포효.
+  ///
+  /// 전용 클립 `tiger_roar_seated_bonus.mp4` 는 에셋 폴더에 존재한 적이 없다
+  /// (2026-07-31 확인). 참조만 남아 있어 신기록을 내도 [CharacterClipPlayer]가
+  /// 로드 실패 → 정적 마스코트로 조용히 폴백, 연출이 통째로 사라진 상태였다.
+  /// Jin 지시로 기본 포효 클립으로 대체 — 전용 클립이 들어오면 이 한 줄만
+  /// 되돌리면 된다.
+  static const String tigerRoarSeatedBonus = tigerRoar;
 
   // ── 까치 ────────────────────────────────────────────────
   static const String magpieFlight = '$_base/magpie_flight.mp4'; // 인트로 비행
@@ -58,7 +65,7 @@ class CharacterClips {
   ///
   /// 감정에 맞는 클립이 없는 조합(예: 호랑이 worry)은 null → 호출측이
   /// 기존 정적 [Mascot]을 그대로 쓴다. [newBest]면 호랑이는 하이파이브
-  /// 대신 앉은 포효(신기록 보너스 연출).
+  /// 대신 포효([tigerRoarSeatedBonus] — 현재 `tiger_roar.mp4`).
   static String? feedbackFor(
     MascotKind kind,
     MascotEmotion emotion, {

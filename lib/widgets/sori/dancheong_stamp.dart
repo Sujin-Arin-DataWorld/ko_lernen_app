@@ -149,12 +149,20 @@ class _DancheongStampState extends State<DancheongStamp>
         intensity: widget.stamped ? 0.85 : 1.0,
       ),
     );
+    // 원본 PNG는 1254x1254 — 62dp 노드에 그대로 디코드하면 장당 6.3MB.
+    // cacheWidth 로 표시 크기(x DPR)에 맞춰 디코드해 경로 화면처럼 도장이
+    // 수십 개 깔리는 곳에서도 이미지 캐시가 터지지 않게 한다.
+    final cachePx = (widget.size * MediaQuery.devicePixelRatioOf(context))
+        .round()
+        .clamp(1, 1254);
     Widget stamp = Image.asset(
       'assets/illustrations/stamps/${_assetSlug(widget.motif)}.png',
       width: widget.size,
       height: widget.size,
       fit: BoxFit.contain,
       filterQuality: FilterQuality.medium,
+      cacheWidth: cachePx,
+      cacheHeight: cachePx,
       errorBuilder: (_, __, ___) => painter,
     );
     // stamped 도장은 약간 무광 (ink absorbed effect).

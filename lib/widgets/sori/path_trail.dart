@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/pack_progress.dart';
+import '../../services/storage_service.dart';
+import 'character_clip.dart';
+import 'dancheong_stamp.dart';
+import 'mascot.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
@@ -249,7 +253,17 @@ class _TrailNode extends StatelessWidget {
   }
 }
 
-/// 원 — 상태가 색이 아니라 **형태**로 읽히도록 넷 다 실루엣이 다르다.
+/// 원 — 상태는 **에셋 자체**가 말한다. Material 아이콘·수동 원은 쓰지 않는다.
+///
+/// - 완료 : 팩 주제의 단청 도장 (`stamps/stamp_*.png`) 원본 컬러.
+///          도장 PNG가 이미 원형 + 붉은 테두리라 별도 원/체크가 필요 없다.
+/// - 열림 : 같은 도장 + 황금 링 (지금 들어갈 수 있다는 신호).
+/// - 잠금 : 같은 도장을 회색조 45% — 자물쇠(벽)가 아니라 **받게 될 도장의
+///          미리보기**. 경로 전체가 "찍힌 도장 / 찍을 도장"으로 읽힌다.
+/// - 지금 : 마스코트 클립 (아래 [_NowDisc]).
+///
+/// 모티프는 기존 [motifForPackId] 매핑을 그대로 쓴다 — 인사=연꽃, 시간=국화,
+/// 감정=매화, 학교·직장=대나무, 날씨=구름, 음식·쇼핑=팔각, 교통=산, 몸=만자.
 class _Disc extends StatelessWidget {
   const _Disc({
     required this.stop,
@@ -261,87 +275,61 @@ class _Disc extends StatelessWidget {
   final bool cleared;
   final bool locked;
 
+  /// 휘도 기준 회색조 (Rec.709). 알파 행은 항등 — 투명도는 건드리지 않는다.
+  static const List<double> _greyscale = <double>[
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0, 0, 0, 1, 0, //
+  ];
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
 
     if (stop.isNow) {
       return _NowDisc(fraction: stop.fraction, badge: t.pathNodeNow);
     }
 
+    final motif = motifForPackId(stop.id);
+
     if (cleared) {
-      return SizedBox.square(
-        dimension: SoriPathTrail.discNormal + 16,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            // 지나온 자리를 표시하는 바깥 점선 링 — 도장 자국 느낌.
-            CustomPaint(
-              size: const Size.square(SoriPathTrail.discNormal + 16),
-              painter: _DashedRingPainter(
-                color: SoriColors.primary.withValues(alpha: 0.45),
-              ),
-            ),
-            Container(
-              width: SoriPathTrail.discNormal,
-              height: SoriPathTrail.discNormal,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: SoriColors.primary,
-                border: Border.all(color: SoriColors.primaryDark, width: 3),
-                boxShadow: [
-                  BoxShadow(
-                    color: SoriColors.primaryDark.withValues(alpha: 0.28),
-                    blurRadius: 10,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              // 흰 체크 on 녹청 = 5.2:1.
-              child: const Icon(Icons.check_rounded,
-                  size: 30, color: Colors.white),
-            ),
-          ],
-        ),
+      return DancheongStamp(
+        motif: motif,
+        size: SoriPathTrail.discNormal,
+        stamped: true,
       );
     }
 
     if (locked) {
-      return SizedBox.square(
-        dimension: SoriPathTrail.discLocked,
-        child: CustomPaint(
-          painter: _DashedRingPainter(
-            color: SoriColors.lightBorderStrong,
-            strokeWidth: 2.5,
-            fill: s.surface,
-          ),
-          child: Center(
-            child: Icon(Icons.lock_outline_rounded,
-                size: 22, color: SoriColors.lightBorderStrong),
+      return Opacity(
+        opacity: 0.45,
+        child: ColorFiltered(
+          colorFilter: const ColorFilter.matrix(_greyscale),
+          child: DancheongStamp(
+            motif: motif,
+            size: SoriPathTrail.discLocked,
           ),
         ),
       );
     }
 
     // available / inProgress — 열려 있지만 아직 "지금"은 아닌 팩.
-    return Container(
-      width: SoriPathTrail.discNormal,
-      height: SoriPathTrail.discNormal,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-        border: Border.all(color: SoriColors.gold, width: 3),
-        boxShadow: [
-          BoxShadow(
-            color: SoriColors.lightText.withValues(alpha: 0.08),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
+    return SizedBox.square(
+      dimension: SoriPathTrail.discNormal + 14,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          DecoratedBox(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: SoriColors.gold, width: 3),
+            ),
+            child: const SizedBox.expand(),
           ),
+          DancheongStamp(motif: motif, size: SoriPathTrail.discNormal - 4),
         ],
       ),
-      child: Icon(Icons.play_arrow_rounded,
-          size: 28, color: SoriColors.goldOnLight),
     );
   }
 }
@@ -359,6 +347,9 @@ class _NowDisc extends StatefulWidget {
 
 class _NowDiscState extends State<_NowDisc>
     with SingleTickerProviderStateMixin {
+  /// 원판 색 = 클립 multiply blendColor. 둘이 다르면 원 안에 사각 이음매가 뜬다.
+  static const Color _clipBlend = Colors.white;
+
   late final AnimationController _pulse;
 
   @override
@@ -392,6 +383,8 @@ class _NowDiscState extends State<_NowDisc>
   Widget build(BuildContext context) {
     const box = SoriPathTrail.discBox;
     const d = SoriPathTrail.discNow;
+    // 프로필과 같은 규칙 — 사용자가 고른 캐릭터를 경로에서도 유지한다.
+    final isMagpie = Storage.preferredMascot == 'magpie';
 
     return RepaintBoundary(
       child: SizedBox.square(
@@ -423,7 +416,9 @@ class _NowDiscState extends State<_NowDisc>
               height: d,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white,
+                // 흰 원판 — 클립이 흰 배경 mp4를 multiply로 녹이므로
+                // blendColor와 반드시 같은 색이어야 이음매가 안 보인다.
+                color: _clipBlend,
                 border: Border.all(color: SoriColors.tiger, width: 4),
                 boxShadow: [
                   BoxShadow(
@@ -433,8 +428,23 @@ class _NowDiscState extends State<_NowDisc>
                   ),
                 ],
               ),
-              child: Icon(Icons.play_arrow_rounded,
-                  size: 34, color: SoriColors.tigerOnLight),
+              child: ClipOval(
+                child: Center(
+                  child: CharacterClipPlayer(
+                    // 호랑이는 게임 대기 바운스, 까치는 앉아 대기 —
+                    // 둘 다 "네 차례야" 를 몸짓으로 말하는 아이들 루프.
+                    asset: isMagpie
+                        ? CharacterClips.magpiePerched
+                        : CharacterClips.tigerBob,
+                    size: d - 14,
+                    loop: true,
+                    blendColor: _clipBlend,
+                    fallbackKind:
+                        isMagpie ? MascotKind.magpie : MascotKind.tiger,
+                    fallbackEmotion: MascotEmotion.smile,
+                  ),
+                ),
+              ),
             ),
             // 진행 링 — 몇 % 남았는지 원 자체가 말해준다.
             if (widget.fraction > 0)
@@ -559,43 +569,6 @@ class _TrailPainter extends CustomPainter {
     }
     return true;
   }
-}
-
-class _DashedRingPainter extends CustomPainter {
-  _DashedRingPainter({
-    required this.color,
-    this.strokeWidth = 1.6,
-    this.fill,
-  });
-
-  final Color color;
-  final double strokeWidth;
-  final Color? fill;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final center = size.center(Offset.zero);
-    final r = (size.shortestSide - strokeWidth) / 2;
-    if (fill != null) {
-      canvas.drawCircle(center, r, Paint()..color = fill!);
-    }
-    final paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth
-      ..strokeCap = StrokeCap.round
-      ..color = color;
-
-    const seg = 14; // 점선 조각 수
-    const sweep = math.pi * 2 / seg;
-    final rect = Rect.fromCircle(center: center, radius: r);
-    for (var i = 0; i < seg; i++) {
-      canvas.drawArc(rect, i * sweep, sweep * 0.55, false, paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _DashedRingPainter old) =>
-      old.color != color || old.strokeWidth != strokeWidth || old.fill != fill;
 }
 
 class _ProgressRingPainter extends CustomPainter {
