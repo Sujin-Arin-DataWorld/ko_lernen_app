@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -8,6 +10,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
 import 'consent_screen.dart';
+import 'onboarding_level_screen.dart';
 
 /// 선택 확정 후 연출 단계 — 확정 목례/착지(choose) → 무언 인사(greet).
 enum _GreetPhase { choosing, greeting }
@@ -34,6 +37,34 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   bool _isLoading = false;
   bool _navigated = false;
   _GreetPhase _phase = _GreetPhase.choosing;
+
+  // 이 기기(SD678/MIUI)는 동시 영상 디코더 2개를 못 버텨 한쪽을 reclaim한다
+  // (logcat: "MediaCodec: keep callback message for reclaim" + ExoPlayer Release).
+  // 그 결과 두 캐릭터 클립을 동시에 틀면 나중에 뜬 쪽이 디코더를 가져가고
+  // 다른 쪽이 ~1초 뒤 빈 화면이 된다. → 선택 전 미리보기는 **한 번에 한
+  // 캐릭터만** 클립을 재생하고, 나머지는 호흡하는 정적 포스터로 두어 3.2초
+  // 간격으로 번갈아 살린다. 동시 디코더는 항상 1개 → 어느 쪽도 사라지지 않음.
+  MascotKind _livePreview = MascotKind.tiger;
+  Timer? _previewTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _previewTimer = Timer.periodic(const Duration(milliseconds: 3200), (_) {
+      if (!mounted || _selected != null) return;
+      setState(() {
+        _livePreview = _livePreview == MascotKind.tiger
+            ? MascotKind.magpie
+            : MascotKind.tiger;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _previewTimer?.cancel();
+    super.dispose();
+  }
 
   void _handleSelection(MascotKind kind) {
     if (_isLoading) return;
@@ -64,7 +95,9 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
       );
       return;
     }
-    Navigator.of(context).pushReplacementNamed('/');
+    Navigator.of(context).pushReplacement(
+      SoriTransitions.fadeScale((_) => const OnboardingLevelScreen()),
+    );
   }
 
   @override
@@ -83,13 +116,12 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // 종가 마당 앰비언트 배너 — welcome_hero.mp4 루프
-                      // (포스터 파일명이 하이픈(welcome-hero)이라 자동 유도가
-                      //  안 돼 loopAsset 명시. videoReady/reduce-motion 게이트는
-                      //  HanokHeader 내부에서 처리 → 정지 포스터 폴백).
+                      // 종가 마당 배너 — 정지 포스터.
+                      // (이 화면은 캐릭터 클립을 재생하므로 헤더까지 영상으로
+                      //  돌리면 동시 H.264 디코더 수가 늘어 reclaim 충돌이
+                      //  커진다. 헤더는 정지로 둔다.)
                       const HanokHeader(
                         asset: 'assets/illustrations/hanok/welcome-hero.png',
-                        loopAsset: 'assets/video/loops/welcome_hero.mp4',
                         aspectRatio: 16 / 9,
                         radius: 16,
                         fallbackIcon: Icons.pets,
@@ -105,23 +137,27 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                         ),
                       ),
                       const SizedBox(height: 28),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      // 세로 배열 — 위 호랑이 / 아래 까치. 미리보기는 한 번에
+                      // 하나만 영상(디코더 1개), 나머지는 호흡 포스터.
+                      Column(
                         children: [
                           _CharacterCard(
                             kind: MascotKind.tiger,
                             name: t.characterNameTiger,
                             trait: t.characterTraitTiger,
                             isSelected: _selected == MascotKind.tiger,
+                            live: _livePreview == MascotKind.tiger,
                             onTap: _isLoading
                                 ? null
                                 : () => _handleSelection(MascotKind.tiger),
                           ),
+                          const SizedBox(height: 16),
                           _CharacterCard(
                             kind: MascotKind.magpie,
                             name: t.characterNameMagpie,
                             trait: t.characterTraitMagpie,
                             isSelected: _selected == MascotKind.magpie,
+                            live: _livePreview == MascotKind.magpie,
                             onTap: _isLoading
                                 ? null
                                 : () => _handleSelection(MascotKind.magpie),
@@ -133,21 +169,19 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       // ② 무언(無言) 인사(greet 클립) → 다음 화면.
                       // videoReady=false(테스트)·reduce-motion 경로에서도
                       // fallbackCompleteAfter 타이머가 체인 진행을 보장한다.
-                      if (_selected != null &&
-                          _phase == _GreetPhase.choosing)
+                      if (_selected != null && _phase == _GreetPhase.choosing)
                         CharacterClipPlayer(
                           key: ValueKey<String>('choose_${_selected!.name}'),
                           asset: CharacterClips.chooseFor(_selected!),
                           size: 160,
                           fallbackKind: _selected!,
                           fallbackEmotion: MascotEmotion.smile,
-                          fallbackCompleteAfter:
-                              const Duration(milliseconds: 900),
+                          fallbackCompleteAfter: const Duration(
+                            milliseconds: 900,
+                          ),
                           onCompleted: () {
                             if (mounted) {
-                              setState(
-                                () => _phase = _GreetPhase.greeting,
-                              );
+                              setState(() => _phase = _GreetPhase.greeting);
                             }
                           },
                         )
@@ -161,8 +195,9 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                           sfxAsset: _selected == MascotKind.magpie
                               ? 'sfx/greet_magpie.mp3'
                               : 'sfx/greet_tiger.mp3',
-                          fallbackCompleteAfter:
-                              const Duration(milliseconds: 1600),
+                          fallbackCompleteAfter: const Duration(
+                            milliseconds: 1600,
+                          ),
                           onCompleted: _proceed,
                         )
                       else if (_isLoading)
@@ -188,6 +223,10 @@ class _CharacterCard extends StatelessWidget {
   final String name;
   final String trait;
   final bool isSelected;
+
+  /// 선택 전 미리보기에서 지금 영상 클립을 재생할 차례인지.
+  /// false면 호흡하는 정적 포스터로 표시 → 동시 디코더 1개 유지.
+  final bool live;
   final VoidCallback? onTap;
 
   const _CharacterCard({
@@ -195,6 +234,7 @@ class _CharacterCard extends StatelessWidget {
     required this.name,
     required this.trait,
     required this.isSelected,
+    this.live = false,
     this.onTap,
   });
 
@@ -235,15 +275,16 @@ class _CharacterCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              // 후보 카드 살아있는 미리보기 — 호랑이 바운스 / 까치 앉아 대기.
-              // 카드 배경이 순수 흰색이라 multiply(white)=무손실 → 심리스.
-              // 탭 후(onTap == null)엔 정적 마스코트로 강등해 디코더 해제.
-              if (onTap != null)
+              // 후보 카드 미리보기 — live 차례면 클립(디코더 1개), 아니면
+              // 호흡하는 정적 마스코트. 카드 배경이 순수 흰색이라
+              // multiply(white)=무손실 → 심리스. 탭 후(onTap == null)엔
+              // 정적 마스코트로 강등해 디코더를 해제한다.
+              if (onTap != null && live)
                 CharacterClipPlayer(
                   asset: kind == MascotKind.magpie
                       ? CharacterClips.magpiePerched
-                      : CharacterClips.tigerBob,
-                  size: 100,
+                      : CharacterClips.tigerRise,
+                  size: 150,
                   loop: true,
                   blendColor: Colors.white,
                   fallbackKind: kind,
@@ -253,8 +294,8 @@ class _CharacterCard extends StatelessWidget {
                 Mascot(
                   kind: kind,
                   emotion: MascotEmotion.smile,
-                  size: 100,
-                  animate: true,
+                  size: 150,
+                  animate: onTap != null,
                 ),
               const SizedBox(height: 12),
               Text(

@@ -5,6 +5,8 @@ import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/tiger_video.dart';
+import '../motion/transitions.dart';
+import 'consent_screen.dart';
 
 /// **빠른 온보딩 (30초)** — Duolingo 스타일.
 ///
@@ -62,9 +64,11 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
     final sessionCount = (Storage.sessionCount) + 1;
     Storage.setSessionCount(sessionCount);
 
-    // 캐릭터 선택으로
+    // 동의 화면으로 (캐릭터 선택은 튜토리얼 뒤로 이동: 프리뷰→캐릭터→레벨).
     if (mounted) {
-      Navigator.of(context).pushReplacementNamed('/character_selection');
+      Navigator.of(
+        context,
+      ).pushReplacement(SoriTransitions.fadeScale((_) => const ConsentScreen()));
     }
   }
 
