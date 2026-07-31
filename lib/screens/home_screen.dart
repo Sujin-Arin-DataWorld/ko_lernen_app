@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../data/hangul_strokes.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
 import '../models/pack_progress.dart';
@@ -62,10 +63,11 @@ class HomeScreen extends StatefulWidget {
   /// AppShell이 스포트라이트 투어 타겟으로 전달하는 학습경로 섹션 키.
   /// null이면 KeyedSubtree 래핑 없이 그냥 렌더 (독립 실행 등).
   final GlobalKey? pathTourKey;
+  final String? dailyCharacter;
 
   // Stage B 예약: final GlobalKey? bookTourKey;
 
-  const HomeScreen({super.key, this.pathTourKey});
+  const HomeScreen({super.key, this.pathTourKey, this.dailyCharacter});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -777,7 +779,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         delay: const Duration(milliseconds: 300),
                         slideY: 12,
                         child: _DailyCharCard(
-                          char: DailyCharService.today(),
+                          char:
+                              widget.dailyCharacter ?? DailyCharService.today(),
                           doneToday: Storage.calligraphyDoneToday,
                           onTap: () => showDailyCharSheet(context).then((_) {
                             if (mounted) setState(() {});
@@ -1363,7 +1366,11 @@ class _DailyCharCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  doneToday ? t.dailyCharDoneToday : t.dailyCharSubtitle,
+                  doneToday
+                      ? t.dailyCharDoneToday
+                      : hangulStrokes[char]?.isNotEmpty == true
+                      ? t.dailyCharSubtitle
+                      : t.dailyCharFallbackSubtitle,
                   style: SoriTextTheme.of(context).cardSubtitle.copyWith(
                     color: doneToday ? SoriColors.success : null,
                     fontWeight: doneToday ? FontWeight.w700 : null,

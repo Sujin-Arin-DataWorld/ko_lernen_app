@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
+import 'package:ko_lernen_app/screens/home_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/wordle_screen.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
@@ -76,6 +77,17 @@ void main() {
       perStroke * strokes.length + const Duration(microseconds: 1),
     );
     expect(completions, 2);
+  });
+
+  testWidgets('Home daily card uses fallback copy without stroke data', (
+    tester,
+  ) async {
+    await _setLargeView(tester);
+    await tester.pumpWidget(_wrap(const HomeScreen(dailyCharacter: '가')));
+    await tester.pump(const Duration(seconds: 2));
+
+    expect(find.text('Look at today’s letter'), findsOneWidget);
+    expect(find.text('Watch the stroke-order guide'), findsNothing);
   });
 
   testWidgets('daily character requires the guide before completion feedback', (
