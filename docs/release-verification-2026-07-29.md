@@ -28,7 +28,7 @@ index, secret, IAM binding, provider, or route is deployed.
 
 | Gate | Exact command | Observed result |
 | --- | --- | --- |
-| Definitive serialized Flutter suite | `flutter test --reporter compact --concurrency=1` | Exit 0; **1,197 passed**, 0 failed. This post-fix serialized run is the definitive Flutter evidence. |
+| Definitive serialized Flutter suite | `flutter test --reporter compact --concurrency=1` | Exit 0; **1,199 passed**, 0 failed. This post-fix serialized run is the definitive Flutter evidence. |
 | Dart analyzer | `flutter analyze` | Exit 0; `No issues found!`. |
 | Gye/Functions suite | `npm.cmd test` from `functions/gye` | Exit 0; **187 passed**, 0 failed, 0 skipped, 0 todo. |
 | Public account-deletion page | `node --test docs/account-deletion-page.test.js` | Exit 0; **5 passed**, 0 failed, 0 skipped, 0 todo. |
@@ -128,3 +128,12 @@ and source changes for each finding. The release controller still owns the
 post-commit disposition of this exact final diff and the claims above. No
 approval is claimed here, and the branch must not be treated as
 release-approved until that controller review has an evidence-backed result.
+
+A narrow residual I5 re-review then found two parser-only false passes: a
+complete PBX resource graph inside a block comment and a getter-local `ios`
+that shadows the verified static option. The validator now strips PBX block
+comments without changing quoted literals and rejects an ambiguous bare iOS
+return. The focused suite passed 15 tests; the definitive serialized Flutter
+suite was rerun at 1,199 passed and the full analyzer remained clean. This
+does not change the still-missing live iOS Firebase configuration or clear any
+external gate.

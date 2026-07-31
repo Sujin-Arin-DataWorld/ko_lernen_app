@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:xml/xml.dart';
 
 const _googleServicePlist = 'GoogleService-Info.plist';
@@ -13,6 +14,22 @@ class IosFirebaseConfigurationResult {
   final List<String> missing;
 
   bool get isValid => missing.isEmpty;
+}
+
+class _PriorLocalNameFinder extends RecursiveAstVisitor<void> {
+  _PriorLocalNameFinder({required this.name, required this.beforeOffset});
+
+  final String name;
+  final int beforeOffset;
+  var found = false;
+
+  @override
+  void visitVariableDeclaration(VariableDeclaration node) {
+    if (node.name.lexeme == name && node.offset < beforeOffset) {
+      found = true;
+    }
+    super.visitVariableDeclaration(node);
+  }
 }
 
 int? _matchingDelimiter(
@@ -92,22 +109,30 @@ bool _hasLiveIosFirebaseOptions(String firebaseOptionsSource) {
     return false;
   }
 
-  final hasIosDeclaration = classBody.members.whereType<FieldDeclaration>().any(
-    (field) =>
-        field.staticKeyword != null &&
-        field.fields.isConst &&
-        field.fields.type?.toSource() == 'FirebaseOptions' &&
-        field.fields.variables.any(
-          (variable) =>
-              variable.name.lexeme == 'ios' &&
-              RegExp(
-                r'^FirebaseOptions\s*\(',
-              ).hasMatch(variable.initializer?.toSource() ?? ''),
-        ),
-  );
-  if (!hasIosDeclaration) {
+  VariableDeclaration? iosDeclaration;
+  for (final field in classBody.members.whereType<FieldDeclaration>()) {
+    if (field.staticKeyword == null ||
+        !field.fields.isConst ||
+        field.fields.type?.toSource() != 'FirebaseOptions') {
+      continue;
+    }
+    for (final variable in field.fields.variables) {
+      if (variable.name.lexeme == 'ios' &&
+          RegExp(
+            r'^FirebaseOptions\s*\(',
+          ).hasMatch(variable.initializer?.toSource() ?? '')) {
+        iosDeclaration = variable;
+        break;
+      }
+    }
+    if (iosDeclaration != null) {
+      break;
+    }
+  }
+  if (iosDeclaration == null) {
     return false;
   }
+  final staticIosDeclaration = iosDeclaration;
 
   MethodDeclaration? currentPlatform;
   for (final member in classBody.members.whereType<MethodDeclaration>()) {
@@ -121,8 +146,9 @@ bool _hasLiveIosFirebaseOptions(String firebaseOptionsSource) {
   if (currentPlatform == null) {
     return false;
   }
+  final platformGetter = currentPlatform;
 
-  final body = currentPlatform.body;
+  final body = platformGetter.body;
   if (body is BlockFunctionBody) {
     for (final statement in body.block.statements) {
       if (statement is! SwitchStatement ||
@@ -143,9 +169,11 @@ bool _hasLiveIosFirebaseOptions(String firebaseOptionsSource) {
         if (caseExpression == 'TargetPlatform.iOS' &&
             member.statements.isNotEmpty &&
             member.statements.first is ReturnStatement &&
-            (member.statements.first as ReturnStatement).expression
-                    ?.toSource() ==
-                'ios') {
+            _referencesStaticIosDeclaration(
+              (member.statements.first as ReturnStatement).expression,
+              platformGetter,
+              staticIosDeclaration,
+            )) {
           return true;
         }
       }
@@ -163,11 +191,36 @@ bool _hasLiveIosFirebaseOptions(String firebaseOptionsSource) {
       return switchCase.guardedPattern.whenClause == null &&
           pattern is ConstantPattern &&
           pattern.expression.toSource() == 'TargetPlatform.iOS' &&
-          switchCase.expression.toSource() == 'ios';
+          _referencesStaticIosDeclaration(
+            switchCase.expression,
+            platformGetter,
+            staticIosDeclaration,
+          );
     });
   }
 
   return false;
+}
+
+bool _referencesStaticIosDeclaration(
+  Expression? expression,
+  MethodDeclaration currentPlatform,
+  VariableDeclaration iosDeclaration,
+) {
+  if (expression is! SimpleIdentifier ||
+      expression.name != iosDeclaration.name.lexeme) {
+    return false;
+  }
+
+  // parseString supplies syntax, not resolved elements. A bare `ios` can only
+  // be accepted when no earlier local declaration in this getter can shadow
+  // the verified static FirebaseOptions field; ambiguous source fails closed.
+  final finder = _PriorLocalNameFinder(
+    name: iosDeclaration.name.lexeme,
+    beforeOffset: expression.offset,
+  );
+  currentPlatform.body.accept(finder);
+  return !finder.found;
 }
 
 bool _isParseablePlist(String source) {
@@ -210,22 +263,76 @@ class _PbxObject {
   final String body;
 }
 
+String _stripPbxComments(String source) {
+  final output = StringBuffer();
+  var index = 0;
+  String? quote;
+
+  while (index < source.length) {
+    final current = source[index];
+    if (quote != null) {
+      output.write(current);
+      if (current == '\\' && index + 1 < source.length) {
+        output.write(source[index + 1]);
+        index += 2;
+        continue;
+      }
+      if (current == quote) {
+        quote = null;
+      }
+      index += 1;
+      continue;
+    }
+
+    if (current == '"' || current == "'") {
+      quote = current;
+      output.write(current);
+      index += 1;
+      continue;
+    }
+    if (source.startsWith('/*', index)) {
+      output.write('  ');
+      index += 2;
+      while (index < source.length && !source.startsWith('*/', index)) {
+        final commentCharacter = source[index];
+        output.write(
+          commentCharacter == '\n' || commentCharacter == '\r'
+              ? commentCharacter
+              : ' ',
+        );
+        index += 1;
+      }
+      if (source.startsWith('*/', index)) {
+        output.write('  ');
+        index += 2;
+      }
+      continue;
+    }
+
+    output.write(current);
+    index += 1;
+  }
+
+  return output.toString();
+}
+
 Map<String, _PbxObject> _parsePbxObjects(String source) {
+  final uncommentedSource = _stripPbxComments(source);
   final result = <String, _PbxObject>{};
   final starts = RegExp(
     r'^\s*([A-Za-z0-9_]+)(?:\s*/\*.*?\*/)?\s*=\s*\{',
     multiLine: true,
   );
-  for (final match in starts.allMatches(source)) {
-    final opening = source.indexOf('{', match.start);
-    final closing = _matchingDelimiter(source, opening, '{', '}');
+  for (final match in starts.allMatches(uncommentedSource)) {
+    final opening = uncommentedSource.indexOf('{', match.start);
+    final closing = _matchingDelimiter(uncommentedSource, opening, '{', '}');
     if (closing == null) {
       continue;
     }
     final id = match.group(1)!;
     result.putIfAbsent(
       id,
-      () => _PbxObject(id, source.substring(opening + 1, closing)),
+      () => _PbxObject(id, uncommentedSource.substring(opening + 1, closing)),
     );
   }
   return result;

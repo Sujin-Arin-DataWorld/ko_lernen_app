@@ -87,6 +87,23 @@ class DefaultFirebaseOptions {
 }
 ''';
 
+const _firebaseOptionsWithShadowedIos = '''
+class DefaultFirebaseOptions {
+  static FirebaseOptions get currentPlatform {
+    final FirebaseOptions ios = FirebaseOptions();
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.iOS:
+        return ios;
+      default:
+        return android;
+    }
+  }
+
+  static const FirebaseOptions android = FirebaseOptions();
+  static const FirebaseOptions ios = FirebaseOptions();
+}
+''';
+
 const _validPlist = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
@@ -152,6 +169,52 @@ const _validProjectSource = '''
     );
   };
 /* End PBXResourcesBuildPhase section */
+''';
+
+const _commentOnlyPbxGraph = '''
+/*
+  PLIST_BUILD = {
+    isa = PBXBuildFile;
+    fileRef = PLIST_REF;
+  };
+  PLIST_REF = {
+    isa = PBXFileReference;
+    path = GoogleService-Info.plist;
+    sourceTree = "<group>";
+  };
+  ROOT_GROUP = {
+    isa = PBXGroup;
+    children = (
+      RUNNER_GROUP,
+    );
+    sourceTree = "<group>";
+  };
+  RUNNER_GROUP = {
+    isa = PBXGroup;
+    children = (
+      PLIST_REF,
+    );
+    path = Runner;
+    sourceTree = "<group>";
+  };
+  PROJECT_OBJECT = {
+    isa = PBXProject;
+    mainGroup = ROOT_GROUP;
+  };
+  RUNNER_TARGET = {
+    isa = PBXNativeTarget;
+    buildPhases = (
+      RUNNER_RESOURCES,
+    );
+    name = Runner;
+  };
+  RUNNER_RESOURCES = {
+    isa = PBXResourcesBuildPhase;
+    files = (
+      PLIST_BUILD,
+    );
+  };
+*/
 ''';
 
 String _projectWith({
@@ -253,6 +316,16 @@ void main() {
     );
 
     expect(result.missing, contains('firebase_options iOS'));
+  });
+
+  test('release configuration rejects an iOS return shadowed by a local', () {
+    final result = inspectIosFirebaseConfiguration(
+      firebaseOptionsSource: _firebaseOptionsWithShadowedIos,
+      plistSource: _validPlist,
+      projectSource: _validProjectSource,
+    );
+
+    expect(result.missing, <String>['firebase_options iOS']);
   });
 
   test('release configuration rejects a missing local plist', () {
@@ -357,4 +430,16 @@ void main() {
       ]);
     },
   );
+
+  test('release configuration rejects a PBX graph inside a block comment', () {
+    final result = inspectIosFirebaseConfiguration(
+      firebaseOptionsSource: _firebaseOptionsWithLiveIos,
+      plistSource: _validPlist,
+      projectSource: _commentOnlyPbxGraph,
+    );
+
+    expect(result.missing, <String>[
+      'Xcode Runner target membership for GoogleService-Info.plist',
+    ]);
+  });
 }
