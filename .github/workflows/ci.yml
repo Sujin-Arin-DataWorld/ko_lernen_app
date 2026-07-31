@@ -31,5 +31,11 @@ jobs:
       - name: Analyze (error 0 강제 · warning·info 허용)
         run: flutter analyze --no-fatal-warnings --no-fatal-infos
 
+      # 2026-07-31 추가 — 그동안 CI가 테스트를 아예 안 돌리고 있었다.
+      # 골든 테스트가 없어 responsive_test(오버플로 검사)와 소스 가드 래칫이
+      # 유일한 회귀 그물이다. 이 스텝이 없으면 그 그물이 CI에서 무용지물.
+      - name: Test
+        run: flutter test
+
       - name: Build web (release)
         run: flutter build web --release

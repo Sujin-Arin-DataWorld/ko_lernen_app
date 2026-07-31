@@ -16,13 +16,17 @@ void main() {
   late List<_Source> sources;
 
   setUpAll(() {
-    sources = Directory('lib')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.dart'))
-        .map((f) => _Source(f.path.replaceAll(r'\', '/'), f.readAsStringSync()))
-        .toList()
-      ..sort((a, b) => a.path.compareTo(b.path));
+    sources =
+        Directory('lib')
+            .listSync(recursive: true)
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.dart'))
+            .map(
+              (f) =>
+                  _Source(f.path.replaceAll(r'\', '/'), f.readAsStringSync()),
+            )
+            .toList()
+          ..sort((a, b) => a.path.compareTo(b.path));
     expect(sources, isNotEmpty, reason: 'lib/ 에서 Dart 파일을 못 찾았다');
   });
 
@@ -38,11 +42,15 @@ void main() {
 
   test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {
     // 기준선 2026-07-31: 119곳 / 30파일. 목표 0.
+    // ⚠️ 이 패턴은 **문자열 리터럴 안에** 산다. clean 소스에서는 리터럴이
+    // 공백으로 지워져 있어 절대 매치되지 않는다(= 조용히 통과하는 가짜 가드).
+    // 반드시 raw 를 봐야 한다.
     _expectAtMost(
       sources,
       RegExp("fontFamily: 'Pretendard'"),
       119,
       "fontFamily: 'Pretendard'",
+      useRaw: true,
     );
   });
 
@@ -64,17 +72,21 @@ void main() {
     expect(
       total,
       lessThanOrEqualTo(74),
-      reason:
-          '아이콘 달린 SoriButton 이 74개를 넘었다 (실제 $total).\n${_report(perFile)}',
+      reason: '아이콘 달린 SoriButton 이 74개를 넘었다 (실제 $total).\n${_report(perFile)}',
     );
   });
 }
 
 /// 원본과 인덱스가 1:1 대응하는, 문자열·주석이 공백으로 지워진 사본을 함께 든다.
 class _Source {
-  _Source(this.path, String raw) : clean = _blankStringsAndComments(raw);
+  _Source(this.path, this.raw) : clean = _blankStringsAndComments(raw);
 
   final String path;
+
+  /// 파일 원본. 문자열 리터럴 **안에** 사는 패턴은 반드시 이걸 봐야 한다.
+  final String raw;
+
+  /// 문자열·주석이 공백으로 지워진 사본. 코드 토큰 검색과 괄호 짝맞춤용.
   final String clean;
 }
 
@@ -90,12 +102,13 @@ void _expectAtMost(
   List<_Source> sources,
   RegExp pattern,
   int ceiling,
-  String label,
-) {
+  String label, {
+  bool useRaw = false,
+}) {
   var total = 0;
   final perFile = <String, int>{};
   for (final s in sources) {
-    final n = pattern.allMatches(s.clean).length;
+    final n = pattern.allMatches(useRaw ? s.raw : s.clean).length;
     if (n > 0) {
       total += n;
       perFile[s.path] = n;
