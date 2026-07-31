@@ -39,6 +39,50 @@ void main() {
   });
 
   test(
+    'first-link upload derives the cloud owner from its exact session',
+    () async {
+      await Storage.setBookshelfRawJsonStrict(
+        '{"book-a":{"note":"local","words":[],"grammar":[],"sentences":[],"capturedAt":"2026-07-30T00:00:00.000Z"}}',
+      );
+      final sessions = CloudWriteSessionController();
+      final session = sessions.acquire('source');
+      final repository = _MemoryRepository();
+
+      final result =
+          await BookshelfService.uploadLocalGenerationForFirstDurableLink(
+            session: session,
+            sessions: sessions,
+            generationId: 'generation-first',
+            operationId: 'first-link:receipt-token',
+            repository: repository,
+          );
+
+      expect(result, CloudWriteResult.completed);
+      expect(repository.active?.generationId, 'generation-first');
+      expect(repository.active?.operationId, 'first-link:receipt-token');
+      expect(repository.seenUids, {'source'});
+    },
+  );
+
+  test('first-link upload rejects a newer session for the same UID', () async {
+    final sessions = CloudWriteSessionController();
+    final session = sessions.acquire('source');
+    sessions.acquire('source');
+    final repository = _MemoryRepository();
+
+    final result =
+        await BookshelfService.uploadLocalGenerationForFirstDurableLink(
+          session: session,
+          sessions: sessions,
+          generationId: 'generation-first',
+          repository: repository,
+        );
+
+    expect(result, CloudWriteResult.stale);
+    expect(repository.seenUids, isEmpty);
+  });
+
+  test(
     'bookshelf service restores the active generation into local data',
     () async {
       final repository = _MemoryRepository()
@@ -67,6 +111,90 @@ void main() {
 
       expect(restored, isTrue);
       expect(BookshelfService.getById('book-a')?.note, 'restored');
+    },
+  );
+
+  test(
+    'typed bookshelf restore reports an active generation as restorable',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final repository = _MemoryRepository()
+        ..active = BookshelfGenerationManifest(
+          generationId: 'generation-a',
+          revision: 1,
+          recordIds: const {'book-a'},
+        )
+        ..generations['generation-a'] = {
+          'book-a': BookshelfGenerationRecord.live(
+            id: 'book-a',
+            revision: 1,
+            portable: const {
+              'note': 'restored',
+              'words': <Object>[],
+              'grammar': <Object>[],
+              'sentences': <Object>[],
+            },
+          ).toJson(),
+        };
+
+      final result = await BookshelfService.restoreRemoteForSessionWithResult(
+        uid: 'uid-a',
+        expectedSession: session,
+        sessions: sessions,
+        repository: repository,
+      );
+
+      expect(result.status, CloudWriteResult.completed);
+      expect(result.hasRemoteData, isTrue);
+      expect(BookshelfService.getById('book-a')?.note, 'restored');
+    },
+  );
+
+  test(
+    'typed bookshelf restore fails closed when the active generation is malformed',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final repository = _MemoryRepository()
+        ..active = BookshelfGenerationManifest(
+          generationId: 'generation-a',
+          revision: 1,
+          recordIds: const {'missing-record'},
+        );
+
+      final result = await BookshelfService.restoreRemoteForSessionWithResult(
+        uid: 'uid-a',
+        expectedSession: session,
+        sessions: sessions,
+        repository: repository,
+      );
+
+      expect(result.status, CloudWriteResult.blocked);
+      expect(result.hasRemoteData, isFalse);
+      expect(BookshelfService.getById('missing-record'), isNull);
+    },
+  );
+
+  test(
+    'typed bookshelf restore reports stale when a malformed read finishes after an account switch',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final manifest = Completer<BookshelfGenerationManifest?>();
+      final repository = _DelayedManifestRepository(manifest.future);
+
+      final result = BookshelfService.restoreRemoteForSessionWithResult(
+        uid: 'uid-a',
+        expectedSession: session,
+        sessions: sessions,
+        repository: repository,
+      );
+      await Future<void>.delayed(Duration.zero);
+      sessions.acquire('uid-b');
+      manifest.completeError(const FormatException('malformed remote record'));
+
+      expect((await result).status, CloudWriteResult.stale);
     },
   );
 
@@ -140,6 +268,7 @@ void main() {
 class _MemoryRepository implements BookshelfGenerationRepository {
   BookshelfGenerationManifest? active;
   final generations = <String, Map<String, Map<String, dynamic>>>{};
+  final seenUids = <String>{};
 
   @override
   Future<bool> activateManifest({
@@ -147,31 +276,41 @@ class _MemoryRepository implements BookshelfGenerationRepository {
     required BookshelfGenerationManifest manifest,
     required int expectedRevision,
   }) async {
+    seenUids.add(uid);
     if ((active?.revision ?? 0) != expectedRevision) return false;
     active = manifest;
     return true;
   }
 
   @override
-  Future<BookshelfGenerationManifest?> readActiveManifest(String uid) async =>
-      active;
+  Future<BookshelfGenerationManifest?> readActiveManifest(String uid) async {
+    seenUids.add(uid);
+    return active;
+  }
 
   @override
   Future<Map<String, dynamic>?> readGenerationRecord({
     required String uid,
     required String generationId,
     required String recordId,
-  }) async => generations[generationId]?[recordId];
+  }) async {
+    seenUids.add(uid);
+    return generations[generationId]?[recordId];
+  }
 
   @override
   Future<Map<String, Map<String, dynamic>>> readLegacyEntries(
     String uid,
-  ) async => {};
+  ) async {
+    seenUids.add(uid);
+    return {};
+  }
 
   @override
-  Future<Map<String, Map<String, dynamic>>> readLegacyParent(
-    String uid,
-  ) async => {};
+  Future<Map<String, Map<String, dynamic>>> readLegacyParent(String uid) async {
+    seenUids.add(uid);
+    return {};
+  }
 
   @override
   Future<void> writeGenerationRecord({
@@ -180,6 +319,7 @@ class _MemoryRepository implements BookshelfGenerationRepository {
     required String recordId,
     required Map<String, dynamic> data,
   }) async {
+    seenUids.add(uid);
     generations.putIfAbsent(generationId, () => {})[recordId] = data;
   }
 }

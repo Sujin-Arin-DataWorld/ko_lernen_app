@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -5,8 +8,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
+import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
+import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
+import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 /// Smoke-Test für den Profil-Hub (Tier 1 — 2026-06-03).
 ///
@@ -22,8 +30,9 @@ void main() {
     await Storage.init();
   });
 
-  testWidgets('ProfileScreen baut im Gast-Modus ohne Firebase fehlerfrei',
-      (tester) async {
+  testWidgets('ProfileScreen baut im Gast-Modus ohne Firebase fehlerfrei', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -39,6 +48,121 @@ void main() {
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
+  });
+
+  testWidgets('pending cloud deletion disables connected-account sign out', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.pending,
+    );
+    addTearDown(journalState.dispose);
+
+    await tester.pumpWidget(
+      _wrap(
+        ProfileScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+            displayName: 'Durable learner',
+          ),
+          cloudDataDeletionJournalState: journalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final signOut = tester.widget<SoriButton>(
+      find.widgetWithText(SoriButton, 'Abmelden'),
+    );
+    expect(signOut.onTap, isNull);
+  });
+
+  testWidgets(
+    'linked profile sign out stays locked until the durable account journal is clear',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final refreshStarted = Completer<void>();
+      final releasePersistedRead = Completer<AccountUiPendingState>();
+      final operations = _DelayedLinkedAccountOperations(
+        refreshStarted: refreshStarted,
+        readPersistedState: () => releasePersistedRead.future,
+      );
+      addTearDown(operations.dispose);
+
+      await tester.pumpWidget(
+        _wrap(
+          ProfileScreen(
+            account: const AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: true,
+                isAppleLinked: false,
+              ),
+              displayName: 'Durable learner',
+            ),
+            accountOperations: operations,
+          ),
+        ),
+      );
+      await refreshStarted.future;
+
+      var signOut = tester.widget<SoriButton>(
+        find.widgetWithText(SoriButton, 'Abmelden'),
+      );
+      expect(signOut.onTap, isNull);
+
+      releasePersistedRead.complete(
+        AccountUiPendingState.replacementCancellable,
+      );
+      await tester.pump();
+
+      signOut = tester.widget<SoriButton>(
+        find.widgetWithText(SoriButton, 'Abmelden'),
+      );
+      expect(signOut.onTap, isNull);
+    },
+  );
+
+  testWidgets('loading cloud deletion disables a guest connection', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.loading,
+    );
+    addTearDown(journalState.dispose);
+
+    await tester.pumpWidget(
+      _wrap(
+        ProfileScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: false,
+              isAppleLinked: false,
+            ),
+          ),
+          cloudDataDeletionJournalState: journalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final connect = tester.widget<SoriButton>(
+      find.widgetWithText(SoriButton, 'Mit Google sichern'),
+    );
+    expect(connect.onTap, isNull);
   });
 
   testWidgets('ConsentScreen (Tier 0) baut fehlerfrei', (tester) async {
@@ -59,8 +183,7 @@ void main() {
     await tester.pump();
   });
 
-  testWidgets(
-      'ConsentScreen Opt-in: Analytics/Crash default AUS, '
+  testWidgets('ConsentScreen Opt-in: Analytics/Crash default AUS, '
       'nur Angekreuztes wird persistiert (TTDSG §25)', (tester) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
@@ -109,4 +232,51 @@ Widget _wrap(Widget child) {
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: child,
   );
+}
+
+class _DelayedLinkedAccountOperations
+    implements AccountUiOperations, AccountUiPendingStateSource {
+  _DelayedLinkedAccountOperations({
+    required this.refreshStarted,
+    required this.readPersistedState,
+  });
+
+  final Completer<void> refreshStarted;
+  final Future<AccountUiPendingState> Function() readPersistedState;
+  final ValueNotifier<AccountUiPendingState> pending =
+      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
+
+  @override
+  bool get appleSignInAvailable => false;
+
+  @override
+  ValueListenable<AccountUiPendingState> get pendingState => pending;
+
+  @override
+  Future<bool> cancelReplacement() async => false;
+
+  @override
+  Future<AccountTransitionResult> confirmReplacement(
+    ExistingAccountLinkConflict conflict,
+  ) async => const AccountTransitionResult(AccountTransitionStatus.blocked);
+
+  void dispose() => pending.dispose();
+
+  @override
+  Future<AccountUiLinkResult> link(AccountLinkProvider provider) async =>
+      const AccountUiLinkBlocked();
+
+  @override
+  Future<AccountUiPendingState> refreshPendingState() async {
+    if (!refreshStarted.isCompleted) {
+      refreshStarted.complete();
+    }
+    final state = await readPersistedState();
+    pending.value = state;
+    return state;
+  }
+
+  @override
+  Future<AccountTransitionResult> resumeReplacement() async =>
+      const AccountTransitionResult(AccountTransitionStatus.blocked);
 }

@@ -64,11 +64,11 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
         _packs = packs;
         _loading = false;
       });
-    } catch (e) {
+    } catch (_) {
       if (!mounted) return;
       setState(() {
         _loading = false;
-        _loadError = e.toString();
+        _loadError = AppL10n.of(context).loadErrorTryAgain;
       });
     }
   }
@@ -77,6 +77,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     if (level == _level) return;
     HapticFeedback.selectionClick();
     await Storage.setUserLevelCode(level.toLowerCase());
+    if (!mounted) return;
     setState(() => _level = level);
     await _load();
   }

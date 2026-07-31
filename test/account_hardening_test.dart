@@ -8,6 +8,9 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
+import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -509,9 +512,19 @@ void main() {
         final workflow = AccountDeletionWorkflow(
           _FakeAccountCleanupOperations(<String>[]),
         );
+        final cloudJournalState = ValueNotifier(
+          CloudBackupDeletionJournalState.clear,
+        );
+        addTearDown(cloudJournalState.dispose);
 
         await tester.pumpWidget(
-          _wrap(SettingsScreen(accountDeletionWorkflow: workflow)),
+          _wrap(
+            SettingsScreen(
+              accountDeletionWorkflow: workflow,
+              accountOperations: const _AlwaysReadyAccountOperations(),
+              cloudDataDeletionJournalState: cloudJournalState,
+            ),
+          ),
         );
         await tester.pump();
 
@@ -545,11 +558,17 @@ void main() {
       await Storage.init();
       final operations = _FakeAccountCleanupOperations(<String>[])
         ..imageCleanupFailure = StateError('image cleanup failed');
+      final cloudJournalState = ValueNotifier(
+        CloudBackupDeletionJournalState.clear,
+      );
+      addTearDown(cloudJournalState.dispose);
 
       await tester.pumpWidget(
         _wrap(
           SettingsScreen(
             accountDeletionWorkflow: AccountDeletionWorkflow(operations),
+            accountOperations: const _AlwaysReadyAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
           ),
         ),
       );
@@ -561,6 +580,10 @@ void main() {
         300,
         scrollable: find.byType(Scrollable).first,
       );
+      final deleteListTile = tester.widget<ListTile>(
+        find.ancestor(of: deleteTile, matching: find.byType(ListTile)),
+      );
+      expect(deleteListTile.onTap, isNotNull);
       await tester.tap(deleteTile);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Löschen').last);
@@ -585,6 +608,10 @@ void main() {
         isWeb: false,
         launchExternal: (_) async => false,
       );
+      final cloudJournalState = ValueNotifier(
+        CloudBackupDeletionJournalState.clear,
+      );
+      addTearDown(cloudJournalState.dispose);
 
       await tester.pumpWidget(
         _wrap(
@@ -593,6 +620,8 @@ void main() {
               _FakeAccountCleanupOperations(<String>[]),
             ),
             subscriptionManager: manager,
+            accountOperations: const _AlwaysReadyAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
           ),
         ),
       );
@@ -726,6 +755,29 @@ class _FakeAccountCleanupOperations
   Future<void> resetLocalStorage() async {
     events.add('local-reset');
   }
+}
+
+class _AlwaysReadyAccountOperations implements AccountUiOperations {
+  const _AlwaysReadyAccountOperations();
+
+  @override
+  bool get appleSignInAvailable => false;
+
+  @override
+  Future<bool> cancelReplacement() async => false;
+
+  @override
+  Future<AccountTransitionResult> confirmReplacement(
+    ExistingAccountLinkConflict conflict,
+  ) async => const AccountTransitionResult(AccountTransitionStatus.blocked);
+
+  @override
+  Future<AccountUiLinkResult> link(AccountLinkProvider provider) async =>
+      const AccountUiLinkBlocked();
+
+  @override
+  Future<AccountTransitionResult> resumeReplacement() async =>
+      const AccountTransitionResult(AccountTransitionStatus.blocked);
 }
 
 Widget _wrap(Widget child) {

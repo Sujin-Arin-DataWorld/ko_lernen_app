@@ -1,6 +1,7 @@
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import 'account/cloud_read_result.dart';
+import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'firestore_progress_service.dart';
@@ -399,34 +400,89 @@ class PackProgressService {
     persistLocal,
   }) async {
     final fence = CloudWriteFence(sessions);
-    final snapshot = fence.readySnapshot(uid);
-    if (snapshot == null) {
+    final expectedSession = fence.readySnapshot(uid);
+    if (expectedSession == null) {
       return CloudWriteResult.blocked;
     }
-    final result = await loadRemote();
-    final afterRead = fence.verify(snapshot, uid: uid);
-    if (afterRead != CloudWriteResult.completed) {
-      return afterRead;
+    return (await pullTypedFromCloudWithSessionResult(
+      sessions: sessions,
+      uid: uid,
+      expectedSession: expectedSession,
+      loadRemote: loadRemote,
+      loadLocal: loadLocal,
+      persistLocal: persistLocal,
+    )).status;
+  }
+
+  /// Restores pack progress with an exact session and reports whether Firestore
+  /// contained remote progress rather than only an authoritative absence.
+  static Future<CloudRestoreComponentResult>
+  pullTypedFromCloudWithSessionResult({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required CloudWriteSession expectedSession,
+    required Future<CloudReadResult<FirestorePackSnapshot>> Function()
+    loadRemote,
+    required Map<String, PackProgress> Function() loadLocal,
+    required Future<void> Function(Map<String, Map<String, dynamic>> progress)
+    persistLocal,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final initial = fence.verify(expectedSession, uid: uid);
+    if (initial != CloudWriteResult.completed) {
+      return CloudRestoreComponentResult(status: initial, hasRemoteData: false);
     }
-    if (result.state == CloudReadState.absent) {
-      return CloudWriteResult.completed;
+    try {
+      final result = await loadRemote();
+      final afterRead = fence.verify(expectedSession, uid: uid);
+      if (afterRead != CloudWriteResult.completed) {
+        return CloudRestoreComponentResult(
+          status: afterRead,
+          hasRemoteData: false,
+        );
+      }
+      if (result.state == CloudReadState.absent) {
+        return const CloudRestoreComponentResult(
+          status: CloudWriteResult.completed,
+          hasRemoteData: false,
+        );
+      }
+      if (!result.isPresent || result.value == null) {
+        return const CloudRestoreComponentResult(
+          status: CloudWriteResult.blocked,
+          hasRemoteData: false,
+        );
+      }
+      final remote = result.value!.progress;
+      final localBefore = loadLocal();
+      final merged = <String, Map<String, dynamic>>{
+        for (final entry in remote.entries) entry.key: entry.value.toJson(),
+        for (final entry in localBefore.entries)
+          if (!remote.containsKey(entry.key)) entry.key: entry.value.toJson(),
+      };
+      final beforeWrite = fence.verify(expectedSession, uid: uid);
+      if (beforeWrite != CloudWriteResult.completed) {
+        return CloudRestoreComponentResult(
+          status: beforeWrite,
+          hasRemoteData: false,
+        );
+      }
+      await persistLocal(merged);
+      final completed = fence.verify(expectedSession, uid: uid);
+      return CloudRestoreComponentResult(
+        status: completed,
+        hasRemoteData:
+            completed == CloudWriteResult.completed && remote.isNotEmpty,
+      );
+    } catch (_) {
+      final current = fence.verify(expectedSession, uid: uid);
+      return CloudRestoreComponentResult(
+        status: current == CloudWriteResult.completed
+            ? CloudWriteResult.blocked
+            : current,
+        hasRemoteData: false,
+      );
     }
-    if (!result.isPresent || result.value == null) {
-      return CloudWriteResult.blocked;
-    }
-    final remote = result.value!.progress;
-    final localBefore = loadLocal();
-    final merged = <String, Map<String, dynamic>>{
-      for (final entry in remote.entries) entry.key: entry.value.toJson(),
-      for (final entry in localBefore.entries)
-        if (!remote.containsKey(entry.key)) entry.key: entry.value.toJson(),
-    };
-    final beforeWrite = fence.verify(snapshot, uid: uid);
-    if (beforeWrite != CloudWriteResult.completed) {
-      return beforeWrite;
-    }
-    await persistLocal(merged);
-    return fence.verify(snapshot, uid: uid);
   }
 
   static Future<CloudWriteResult> pullFromCloudWithSession({
@@ -492,6 +548,45 @@ class PackProgressService {
         );
       },
     );
+  }
+
+  /// Uploads locally owned pack progress only for the exact session that
+  /// completed a first anonymous-to-durable link. The target UID is derived
+  /// from [session], so callers cannot redirect this source upload.
+  static Future<CloudWriteResult> uploadLocalProgressForFirstDurableLink({
+    required CloudWriteSession session,
+    required CloudWriteSessionController sessions,
+    Future<CloudWriteResult> Function(Iterable<PackProgress> progresses)?
+    writeRemote,
+  }) async {
+    final fence = CloudWriteFence(sessions);
+    final initial = fence.verify(session, uid: session.uid);
+    if (initial != CloudWriteResult.completed) return initial;
+    final local = getAll();
+    if (local.isEmpty) return fence.verify(session, uid: session.uid);
+
+    var remoteResult = CloudWriteResult.blocked;
+    try {
+      final fenced = await fence.runWithSnapshot(
+        snapshot: session,
+        uid: session.uid,
+        action: () async {
+          remoteResult =
+              await (writeRemote ??
+                  (progresses) => FirestoreProgressService.saveManyWithSession(
+                    progresses,
+                    sessions: sessions,
+                    uid: session.uid,
+                  ))(local.values);
+        },
+      );
+      return fenced == CloudWriteResult.completed ? remoteResult : fenced;
+    } catch (_) {
+      final afterFailure = fence.verify(session, uid: session.uid);
+      return afterFailure == CloudWriteResult.completed
+          ? CloudWriteResult.blocked
+          : afterFailure;
+    }
   }
 
   static Future<CloudWriteResult> pushToCloudWithSession({

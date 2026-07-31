@@ -29,13 +29,16 @@ const CALLABLE_OPTIONS = Object.freeze({
   enforceAppCheck: true,
   consumeAppCheckToken: true,
 });
-const ACTIONABLE_DELETION_PHASES = Object.freeze([
-  "sourceCleanupPending",
+const NORMAL_DELETION_PHASES = Object.freeze([
   "deletionRequested",
   "userTreeDeleting",
   "authDeleted",
   "communityCleanupPending",
   "processorCleanupPending",
+]);
+const ACTIONABLE_DELETION_PHASES = Object.freeze([
+  "sourceCleanupPending",
+  ...NORMAL_DELETION_PHASES,
 ]);
 const TERMINAL_PHASES = new Set(["completed", "blocked", "cancelled"]);
 const AUTH_MAX_AGE_SECONDS = 300;
@@ -56,11 +59,75 @@ const GENERIC_PUBLIC_RESULT = Object.freeze({
   status: "request-received",
 });
 const DEFAULT_WORKER_LEASE_MILLIS = 60_000;
+const DEFAULT_WORKER_RETRY_DELAY_MILLIS = 60_000;
+const MAX_WORKER_RETRY_DELAY_MILLIS = 3_600_000;
 const DEFAULT_DELETE_PAGE_SIZE = 200;
+const DEFAULT_DESTRUCTIVE_UNIT_TIMEOUT_MILLIS = 45_000;
+const SCHEDULE_TIMEOUT_SECONDS = 300;
+const SCHEDULE_WORKER_DEADLINE_MILLIS = 240_000;
+const QUEUE_BUDGETS = Object.freeze({
+  replacement: 20,
+  deletion: 20,
+  apple: 10,
+});
+const DELETION_SCHEDULER_MIGRATION_ID =
+  "deletion-scheduler-next-at-v1";
+const SAFE_DELETION_WORK_FAILURE_CODES = new Set(["worker-failed"]);
+
+function scaleQueueBudgets(limit) {
+  const names = Object.keys(QUEUE_BUDGETS);
+  const totalWeight = Object.values(QUEUE_BUDGETS)
+    .reduce((total, weight) => total + weight, 0);
+  const minimum = limit >= names.length ? 1 : 0;
+  const budgets = Object.fromEntries(
+    names.map((name) => [name, minimum]),
+  );
+  let remaining = limit - (minimum * names.length);
+  const shares = names.map((name, index) => {
+    const exact = remaining * QUEUE_BUDGETS[name] / totalWeight;
+    const whole = Math.floor(exact);
+    budgets[name] += whole;
+    return { name, index, remainder: exact - whole };
+  });
+  remaining = limit - Object.values(budgets)
+    .reduce((total, budget) => total + budget, 0);
+  shares
+    .sort((left, right) =>
+      right.remainder - left.remainder || left.index - right.index)
+    .slice(0, remaining)
+    .forEach(({ name }) => {
+      budgets[name] += 1;
+    });
+  return budgets;
+}
+
+function dedupeCandidates(candidates) {
+  const seen = new Set();
+  return candidates.filter((candidate) => {
+    if (!candidate || typeof candidate.id !== "string" ||
+        seen.has(candidate.id)) {
+      return false;
+    }
+    seen.add(candidate.id);
+    return true;
+  });
+}
+
+function interleaveCandidateQueues(queues) {
+  const result = [];
+  const largestQueue = Math.max(0, ...queues.map((queue) => queue.length));
+  for (let index = 0; index < largestQueue; index += 1) {
+    for (const queue of queues) {
+      if (queue[index]) result.push(queue[index]);
+    }
+  }
+  return result;
+}
 
 async function fetchActionableDeletionCandidates({
   collection,
   limit = 50,
+  nowMillis,
 } = {}) {
   if (!collection || typeof collection.where !== "function") {
     throw new TypeError("Account operation collection is required.");
@@ -68,24 +135,72 @@ async function fetchActionableDeletionCandidates({
   if (!Number.isInteger(limit) || limit < 1) {
     throw new TypeError("Candidate limit must be a positive integer.");
   }
-  const [phaseSnapshot, completedAppleSnapshot] = await Promise.all([
-    collection
-      .where("phase", "in", ACTIONABLE_DELETION_PHASES)
-      .limit(limit)
-      .get(),
-    collection
-      .where("phase", "==", "appleRevocationPending")
-      .where("deletionProgress.appleRevocationComplete", "==", true)
-      .limit(limit)
-      .get(),
+  if (!Number.isFinite(nowMillis) || nowMillis < 0) {
+    throw new TypeError("Candidate time must be a non-negative number.");
+  }
+  const budget = scaleQueueBudgets(limit);
+  const getSnapshot = (query, queryLimit) => queryLimit > 0
+    ? query.limit(queryLimit).get()
+    : Promise.resolve({ docs: [] });
+  const [replacement, deletion, apple] = await Promise.all([
+    getSnapshot(
+      collection
+        .where("kind", "==", "replacement")
+        .where("phase", "==", "sourceCleanupPending")
+        .where("nextAttemptAtMillis", "<=", nowMillis)
+        .orderBy("nextAttemptAtMillis")
+        .orderBy("updatedAtMillis"),
+      budget.replacement,
+    ),
+    getSnapshot(
+      collection
+        .where("kind", "==", "deletion")
+        .where("phase", "in", NORMAL_DELETION_PHASES)
+        .where("nextAttemptAtMillis", "<=", nowMillis)
+        .orderBy("nextAttemptAtMillis")
+        .orderBy("updatedAtMillis"),
+      budget.deletion,
+    ),
+    getSnapshot(
+      collection
+        .where("phase", "==", "appleRevocationPending")
+        .where("deletionProgress.appleRevocationComplete", "==", true)
+        .where("nextAttemptAtMillis", "<=", nowMillis)
+        .orderBy("nextAttemptAtMillis")
+        .orderBy("updatedAtMillis"),
+      budget.apple,
+    ),
   ]);
-  const phaseDocs = Array.isArray(phaseSnapshot?.docs)
-    ? phaseSnapshot.docs
+  const docs = (snapshot) => Array.isArray(snapshot?.docs)
+    ? snapshot.docs
     : [];
-  const completedAppleDocs = Array.isArray(completedAppleSnapshot?.docs)
-    ? completedAppleSnapshot.docs
-    : [];
-  return [...phaseDocs, ...completedAppleDocs];
+  return dedupeCandidates(interleaveCandidateQueues([
+    docs(replacement),
+    docs(deletion),
+    docs(apple),
+  ]));
+}
+
+async function fetchStagedActionableDeletionCandidates({
+  repository,
+  collection,
+  limit = 50,
+  legacyBackfillLimit = 50,
+  nowMillis,
+} = {}) {
+  if (!repository ||
+      typeof repository.backfillLegacyDeletionSchedule !== "function") {
+    throw new TypeError("Account operation repository is required.");
+  }
+  await repository.backfillLegacyDeletionSchedule({
+    limit: legacyBackfillLimit,
+    nowMillis,
+  });
+  return fetchActionableDeletionCandidates({
+    collection,
+    limit,
+    nowMillis,
+  });
 }
 
 class BoundaryFailure extends Error {
@@ -100,6 +215,23 @@ function repositoryFailure(code) {
   const error = new Error(code);
   error.code = code;
   return error;
+}
+
+class DeletionWorkerFailure extends Error {
+  constructor(retryMetadata, { failureRecorded = false } = {}) {
+    super("deletion-worker-failed");
+    this.code = "worker-failed";
+    this.retryMetadata = Object.freeze({ ...retryMetadata });
+    this.failureRecorded = failureRecorded;
+  }
+}
+
+function workerRetryDelayMillis(leaseVersion) {
+  const exponent = Math.min(Math.max(leaseVersion - 1, 0), 10);
+  return Math.min(
+    DEFAULT_WORKER_RETRY_DELAY_MILLIS * (2 ** exponent),
+    MAX_WORKER_RETRY_DELAY_MILLIS,
+  );
 }
 
 function stableKey(...parts) {
@@ -188,6 +320,7 @@ function persistedOperation(operation, previous, nowMillis) {
       ? previous.createdAtMillis
       : nowMillis,
     updatedAtMillis: nowMillis,
+    nextAttemptAtMillis: nowMillis,
   };
 }
 
@@ -221,6 +354,68 @@ function createFirestoreAccountOperationRepository({
   const publicRateLimits =
     firestore.collection("account_deletion_proof_rate_limits");
   const deletionMarkers = firestore.collection("account_deletions");
+  const schedulerMigrations =
+    firestore.collection("account_operation_migrations");
+
+  async function backfillLegacyDeletionSchedule({
+    limit = 50,
+    nowMillis: migrationTimeMillis,
+  } = {}) {
+    if (!Number.isInteger(limit) || limit < 1 || limit > 500) {
+      throw repositoryFailure("invalid-migration-limit");
+    }
+    if (!Number.isFinite(migrationTimeMillis) ||
+        migrationTimeMillis < 0) {
+      throw repositoryFailure("invalid-migration-time");
+    }
+    const migrationRef =
+      schedulerMigrations.doc(DELETION_SCHEDULER_MIGRATION_ID);
+    return firestore.runTransaction(async (transaction) => {
+      const migrationSnapshot = await transaction.get(migrationRef);
+      const migration = migrationSnapshot.exists
+        ? migrationSnapshot.data() || {}
+        : {};
+      if (migration.complete === true) {
+        return { complete: true, backfilled: 0 };
+      }
+
+      let query = operations.orderBy("__name__");
+      if (typeof migration.cursor === "string" &&
+          migration.cursor.length > 0) {
+        query = query.startAfter(migration.cursor);
+      }
+      const snapshot = await transaction.get(query.limit(limit + 1));
+      const documents = Array.isArray(snapshot?.docs)
+        ? snapshot.docs
+        : [];
+      const page = documents.slice(0, limit);
+      let backfilled = 0;
+      for (const document of page) {
+        const stored = document.data() || {};
+        if (!TERMINAL_PHASES.has(stored.phase) &&
+            !Number.isFinite(stored.nextAttemptAtMillis)) {
+          transaction.set(document.ref, {
+            ...stored,
+            nextAttemptAtMillis: migrationTimeMillis,
+          });
+          backfilled += 1;
+        }
+      }
+
+      const complete = documents.length <= limit;
+      const cursor = complete ? null : page.at(-1)?.id;
+      transaction.set(migrationRef, {
+        complete,
+        cursor: typeof cursor === "string" ? cursor : null,
+        backfilledCount:
+          (Number.isInteger(migration.backfilledCount)
+            ? migration.backfilledCount
+            : 0) + backfilled,
+        updatedAtMillis: migrationTimeMillis,
+      });
+      return { complete, backfilled };
+    });
+  }
 
   function workerProgress(stored) {
     const progress = stored?.deletionProgress;
@@ -716,15 +911,28 @@ function createFirestoreAccountOperationRepository({
         },
       };
       const markerSnapshot = await transaction.get(markerRef);
+      const markerData = markerSnapshot.exists
+        ? markerSnapshot.data() || {}
+        : {};
+      const retainsServerCleanupReceipt =
+        markerData.serverOwned === true &&
+        markerData.operationId === operationId;
       transaction.set(operationRef, updated);
       transaction.set(markerRef, {
-        ...(markerSnapshot.exists ? markerSnapshot.data() || {} : {}),
+        ...markerData,
         state: "active",
         serverOwned: true,
         operationId,
         sourceUid: operation.sourceUid,
+        // A completed legacy cleanup is only a receipt for its legacy
+        // trigger. A newly leased server operation must run its own
+        // idempotent community cleanup; a reclaimed lease for the same
+        // server operation keeps its established receipt.
+        cleanupComplete: retainsServerCleanupReceipt
+          ? markerData.cleanupComplete === true
+          : false,
         createdAtMillis:
-          (markerSnapshot.data() || {}).createdAtMillis || currentTime,
+          markerData.createdAtMillis || currentTime,
         updatedAtMillis: currentTime,
       });
       return { ...workerResult(updated), leaseAcquired: true };
@@ -834,7 +1042,60 @@ function createFirestoreAccountOperationRepository({
     });
   }
 
+  async function recordDeletionWorkFailure({
+    operationId,
+    workerId,
+    operationVersion,
+    leaseVersion,
+    safeCode,
+    nowMillis: failureTimeMillis,
+  }) {
+    const operationRef = operations.doc(requiredOperationId(operationId));
+    requiredString(workerId, "worker-id-required");
+    if (!Number.isInteger(operationVersion) || operationVersion < 0 ||
+        !Number.isInteger(leaseVersion) || leaseVersion < 1) {
+      throw repositoryFailure("invalid-worker-version");
+    }
+    if (!SAFE_DELETION_WORK_FAILURE_CODES.has(safeCode)) {
+      throw repositoryFailure("invalid-worker-failure-code");
+    }
+    if (!Number.isFinite(failureTimeMillis) || failureTimeMillis < 0) {
+      throw repositoryFailure("invalid-worker-failure-time");
+    }
+    return firestore.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(operationRef);
+      if (!snapshot.exists) {
+        throw repositoryFailure("operation-not-found");
+      }
+      const stored = snapshot.data() || {};
+      const operation = normalizeOperation(stored);
+      const lease = stored.workerLease || {};
+      if (operation.version !== operationVersion ||
+          lease.workerId !== workerId ||
+          lease.leaseVersion !== leaseVersion) {
+        throw repositoryFailure("stale-worker-lease");
+      }
+      const updated = {
+        ...stored,
+        updatedAtMillis: failureTimeMillis,
+        nextAttemptAtMillis:
+          failureTimeMillis + workerRetryDelayMillis(leaseVersion),
+        deletionProgress: {
+          ...workerProgress(stored),
+          statusCode: safeCode,
+        },
+        workerLease: {
+          ...lease,
+          leaseUntilMillis: failureTimeMillis,
+        },
+      };
+      transaction.set(operationRef, updated);
+      return workerResult(updated);
+    });
+  }
+
   return Object.freeze({
+    backfillLegacyDeletionSchedule,
     checkpointDeletionWork,
     cancelReplacement,
     claimDeletionByProof,
@@ -846,6 +1107,7 @@ function createFirestoreAccountOperationRepository({
     createOrReuseReplacement: (request) => createOrReuse(request),
     get,
     issueDeletionProof,
+    recordDeletionWorkFailure,
     renewDeletionLease,
     transition,
   });
@@ -872,23 +1134,40 @@ function createDeletionWorkerRuntime({
   nowMillis = () => Date.now(),
   leaseMillis = DEFAULT_WORKER_LEASE_MILLIS,
   pageSize = DEFAULT_DELETE_PAGE_SIZE,
+  unitTimeoutMillis = DEFAULT_DESTRUCTIVE_UNIT_TIMEOUT_MILLIS,
   newWorkerInvocationId = () => crypto.randomUUID(),
 } = {}) {
   if (!repository ||
       typeof repository.claimDeletionWork !== "function" ||
       typeof repository.renewDeletionLease !== "function" ||
-      typeof repository.checkpointDeletionWork !== "function") {
+      typeof repository.checkpointDeletionWork !== "function" ||
+      typeof repository.recordDeletionWorkFailure !== "function") {
     throw new TypeError("A deletion-worker repository is required.");
   }
   if (!auth || typeof auth.deleteUser !== "function" ||
       typeof deleteUserTreePage !== "function" ||
       typeof cleanupCommunity !== "function" ||
       typeof cleanupProcessor !== "function" ||
-      typeof newWorkerInvocationId !== "function") {
+      typeof newWorkerInvocationId !== "function" ||
+      !Number.isFinite(unitTimeoutMillis) ||
+      unitTimeoutMillis <= 0) {
     throw new TypeError("Injected destructive worker adapters are required.");
   }
 
-  async function processDeletionOperation({ operationId, workerId }) {
+  async function processDeletionOperation({
+    operationId,
+    workerId,
+    deadlineMillis,
+  }) {
+    if (deadlineMillis !== undefined &&
+        (!Number.isFinite(deadlineMillis) || deadlineMillis < 0)) {
+      throw new TypeError("Worker deadline must be a non-negative number.");
+    }
+    const assertWithinDeadline = () => {
+      if (deadlineMillis !== undefined && nowMillis() >= deadlineMillis) {
+        throw repositoryFailure("worker-deadline-exceeded");
+      }
+    };
     const invocationWorkerId = stableKey(
       "deletion-worker-invocation",
       requiredString(workerId, "worker-id-required"),
@@ -897,12 +1176,16 @@ function createDeletionWorkerRuntime({
         "worker-invocation-id-required",
       ),
     );
-    let claim = await repository.claimDeletionWork({
-      operationId,
-      workerId: invocationWorkerId,
-      leaseMillis,
-    });
-    let operation = claim.operation;
+    let claim;
+    let operation;
+    try {
+      assertWithinDeadline();
+      claim = await repository.claimDeletionWork({
+        operationId,
+        workerId: invocationWorkerId,
+        leaseMillis,
+      });
+      operation = claim.operation;
     if (TERMINAL_PHASES.has(operation.phase)) {
       return operationResult(operation);
     }
@@ -911,6 +1194,7 @@ function createDeletionWorkerRuntime({
     }
 
     const renew = async () => {
+      assertWithinDeadline();
       claim = await repository.renewDeletionLease({
         operationId,
         workerId: invocationWorkerId,
@@ -919,9 +1203,11 @@ function createDeletionWorkerRuntime({
         leaseMillis,
       });
       operation = claim.operation;
+      assertWithinDeadline();
       return claim;
     };
     const checkpoint = async (change) => {
+      assertWithinDeadline();
       claim = await repository.checkpointDeletionWork({
         operationId,
         workerId: invocationWorkerId,
@@ -930,19 +1216,75 @@ function createDeletionWorkerRuntime({
         ...change,
       });
       operation = claim.operation;
+      assertWithinDeadline();
       return operationResult(operation);
+    };
+    const workerFence = () => ({
+      workerId: invocationWorkerId,
+      operationVersion: operation.version,
+      leaseVersion: claim.leaseVersion,
+    });
+    const retryMetadata = () => ({
+      operationId,
+      workerId: invocationWorkerId,
+      operationVersion: operation.version,
+      leaseVersion: claim.leaseVersion,
+    });
+    const runDestructiveUnit = async (start) => {
+      assertWithinDeadline();
+      const remainingMillis = deadlineMillis === undefined
+        ? unitTimeoutMillis
+        : Math.max(0, deadlineMillis - nowMillis());
+      const timeoutMillis = Math.min(unitTimeoutMillis, remainingMillis);
+      if (timeoutMillis <= 0) {
+        throw repositoryFailure("worker-deadline-exceeded");
+      }
+      const abortController = new AbortController();
+      let timeout;
+      const timedOut = new Promise((_, reject) => {
+        timeout = setTimeout(async () => {
+          abortController.abort();
+          const metadata = retryMetadata();
+          let failureRecorded = false;
+          try {
+            await repository.recordDeletionWorkFailure({
+              ...metadata,
+              safeCode: "worker-failed",
+              nowMillis: nowMillis(),
+            });
+            failureRecorded = true;
+          } catch {
+            // The scheduler will make one bounded best-effort recording attempt.
+          }
+          reject(new DeletionWorkerFailure(metadata, {
+            failureRecorded,
+          }));
+        }, timeoutMillis);
+      });
+      try {
+        return await Promise.race([
+          Promise.resolve().then(() => start(abortController.signal)),
+          timedOut,
+        ]);
+      } finally {
+        clearTimeout(timeout);
+      }
     };
 
     if (operation.kind === "replacement" &&
         operation.phase === "sourceCleanupPending") {
       if (!claim.progress.userTreeComplete) {
         await renew();
-        const page = await deleteUserTreePage({
+        const page = await runDestructiveUnit((signal) => deleteUserTreePage({
           uid: operation.sourceUid,
           cursor: claim.progress.cursor,
           limit: pageSize,
           operationId,
-        });
+          workerFence: workerFence(),
+          deadlineMillis,
+          signal,
+        }));
+        assertWithinDeadline();
         if (!page || typeof page.done !== "boolean" ||
             (!page.done && typeof page.nextCursor !== "string")) {
           throw repositoryFailure("invalid-deletion-page");
@@ -957,40 +1299,58 @@ function createDeletionWorkerRuntime({
       if (!claim.progress.authComplete) {
         await renew();
         try {
-          await auth.deleteUser(operation.sourceUid);
+          await runDestructiveUnit(() =>
+            auth.deleteUser(operation.sourceUid));
         } catch (error) {
           if (error?.code !== "auth/user-not-found") throw error;
         }
+        assertWithinDeadline();
         return checkpoint({ progress: { authComplete: true } });
       }
       if (!claim.progress.communityComplete) {
         await renew();
-        await cleanupCommunity({
+        const cleanup = await runDestructiveUnit((signal) => cleanupCommunity({
           uid: operation.sourceUid,
           operationId,
+          workerFence: workerFence(),
+          deadlineMillis,
+          signal,
+        }));
+        assertWithinDeadline();
+        return checkpoint({
+          progress: {
+            communityComplete: cleanup?.done !== false,
+          },
         });
-        return checkpoint({ progress: { communityComplete: true } });
       }
       await renew();
-      await cleanupProcessor({
+      const cleanup = await runDestructiveUnit((signal) => cleanupProcessor({
         uid: operation.sourceUid,
         operationId,
-      });
+        workerFence: workerFence(),
+        deadlineMillis,
+        signal,
+      }));
+      assertWithinDeadline();
       return checkpoint({
-        progress: { processorComplete: true },
-        toPhase: "completed",
+        progress: { processorComplete: cleanup?.done !== false },
+        toPhase: cleanup?.done === false ? undefined : "completed",
       });
     }
 
     if (operation.phase === "userTreeDeleting") {
       if (!claim.progress.userTreeComplete) {
         await renew();
-        const page = await deleteUserTreePage({
+        const page = await runDestructiveUnit((signal) => deleteUserTreePage({
           uid: operation.sourceUid,
           cursor: claim.progress.cursor,
           limit: pageSize,
           operationId,
-        });
+          workerFence: workerFence(),
+          deadlineMillis,
+          signal,
+        }));
+        assertWithinDeadline();
         if (!page || typeof page.done !== "boolean" ||
             (!page.done && typeof page.nextCursor !== "string")) {
           throw repositoryFailure("invalid-deletion-page");
@@ -1007,10 +1367,12 @@ function createDeletionWorkerRuntime({
       }
       await renew();
       try {
-        await auth.deleteUser(operation.sourceUid);
+        await runDestructiveUnit(() =>
+          auth.deleteUser(operation.sourceUid));
       } catch (error) {
         if (error?.code !== "auth/user-not-found") throw error;
       }
+      assertWithinDeadline();
       return checkpoint({ toPhase: "authDeleted" });
     }
 
@@ -1022,10 +1384,12 @@ function createDeletionWorkerRuntime({
       if (claim.progress.appleRevocationComplete) {
         await renew();
         try {
-          await auth.deleteUser(operation.sourceUid);
+          await runDestructiveUnit(() =>
+            auth.deleteUser(operation.sourceUid));
         } catch (error) {
           if (error?.code !== "auth/user-not-found") throw error;
         }
+        assertWithinDeadline();
         return checkpoint({ toPhase: "authDeleted" });
       }
       return operationResult(operation);
@@ -1033,26 +1397,154 @@ function createDeletionWorkerRuntime({
 
     if (operation.phase === "communityCleanupPending") {
       await renew();
-      await cleanupCommunity({
+      const cleanup = await runDestructiveUnit((signal) => cleanupCommunity({
         uid: operation.sourceUid,
         operationId,
+        workerFence: workerFence(),
+        deadlineMillis,
+        signal,
+      }));
+      assertWithinDeadline();
+      return checkpoint({
+        toPhase: cleanup?.done === false
+          ? undefined
+          : "processorCleanupPending",
       });
-      return checkpoint({ toPhase: "processorCleanupPending" });
     }
 
     if (operation.phase === "processorCleanupPending") {
       await renew();
-      await cleanupProcessor({
+      const cleanup = await runDestructiveUnit((signal) => cleanupProcessor({
         uid: operation.sourceUid,
         operationId,
+        workerFence: workerFence(),
+        deadlineMillis,
+        signal,
+      }));
+      assertWithinDeadline();
+      return checkpoint({
+        toPhase: cleanup?.done === false ? undefined : "completed",
       });
-      return checkpoint({ toPhase: "completed" });
     }
 
     return operationResult(operation);
+    } catch (error) {
+      if (error instanceof DeletionWorkerFailure) {
+        throw error;
+      }
+      if (claim?.leaseAcquired !== false && operation) {
+        throw new DeletionWorkerFailure({
+          operationId,
+          workerId: invocationWorkerId,
+          operationVersion: operation.version,
+          leaseVersion: claim.leaseVersion,
+        });
+      }
+      throw error;
+    }
   }
 
   return Object.freeze({ processDeletionOperation });
+}
+
+async function runScheduledDeletionCandidate({
+  candidate,
+  repository,
+  workerRuntime,
+  logger,
+  deadlineMillis,
+  nowMillis = () => Date.now(),
+} = {}) {
+  if (!candidate || typeof candidate.id !== "string" ||
+      !repository ||
+      typeof repository.recordDeletionWorkFailure !== "function" ||
+      !workerRuntime ||
+      typeof workerRuntime.processDeletionOperation !== "function" ||
+      !logger ||
+      typeof logger.warn !== "function" ||
+      typeof nowMillis !== "function" ||
+      (deadlineMillis !== undefined &&
+        (!Number.isFinite(deadlineMillis) || deadlineMillis < 0))) {
+    throw new TypeError("Scheduled deletion dependencies are required.");
+  }
+  if (deadlineMillis !== undefined && nowMillis() >= deadlineMillis) {
+    return null;
+  }
+  try {
+    return await workerRuntime.processDeletionOperation({
+      operationId: candidate.id,
+      workerId: `scheduled-${candidate.id}`,
+      deadlineMillis,
+    });
+  } catch (error) {
+    if (error instanceof DeletionWorkerFailure) {
+      if (!error.failureRecorded) {
+        try {
+          await repository.recordDeletionWorkFailure({
+            ...error.retryMetadata,
+            safeCode: "worker-failed",
+            nowMillis: nowMillis(),
+          });
+        } catch {
+          logger.warn("account-deletion-worker-failure-recording-failed", {
+            code: "worker-failed",
+          });
+          return null;
+        }
+      }
+    }
+    logger.warn("account-deletion-worker-failed", {
+      code: "worker-failed",
+    });
+    return null;
+  }
+}
+
+function scheduledCandidateClass(candidate) {
+  if (candidate?.phase === "appleRevocationPending") return "apple";
+  if (candidate?.kind === "replacement") return "replacement";
+  return "deletion";
+}
+
+async function runScheduledDeletionBatch({
+  candidates,
+  repository,
+  workerRuntime,
+  logger,
+  deadlineMillis,
+  nowMillis = () => Date.now(),
+} = {}) {
+  if (!Array.isArray(candidates) ||
+      !Number.isFinite(deadlineMillis) ||
+      deadlineMillis < 0 ||
+      typeof nowMillis !== "function") {
+    throw new TypeError("Scheduled deletion batch dependencies are required.");
+  }
+  const queues = {
+    replacement: [],
+    deletion: [],
+    apple: [],
+  };
+  for (const candidate of dedupeCandidates(candidates)) {
+    queues[scheduledCandidateClass(candidate)].push(candidate);
+  }
+
+  const classOrder = ["replacement", "deletion", "apple"];
+  while (classOrder.some((name) => queues[name].length > 0)) {
+    if (nowMillis() >= deadlineMillis) break;
+    const wave = classOrder
+      .map((name) => queues[name].shift())
+      .filter(Boolean);
+    await Promise.all(wave.map((candidate) =>
+      runScheduledDeletionCandidate({
+        candidate,
+        repository,
+        workerRuntime,
+        logger,
+        deadlineMillis,
+        nowMillis,
+      })));
+  }
 }
 
 function authorizationHeader(request) {
@@ -1599,6 +2091,7 @@ module.exports = {
   CALLABLE_NAMES,
   CALLABLE_OPTIONS,
   FIRST_PARTY_ORIGIN,
+  NORMAL_DELETION_PHASES,
   PUBLIC_ENDPOINT_OPTIONS,
   createAccountOperationCallables,
   createAccountOperationRuntime,
@@ -1608,5 +2101,10 @@ module.exports = {
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
   fetchActionableDeletionCandidates,
+  fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
+  runScheduledDeletionCandidate,
+  runScheduledDeletionBatch,
+  SCHEDULE_TIMEOUT_SECONDS,
+  SCHEDULE_WORKER_DEADLINE_MILLIS,
 };

@@ -9,6 +9,7 @@ import '../vocab_pack_service.dart';
 import 'account_operation_client.dart';
 import 'account_transition_coordinator.dart';
 import 'account_transition_journal.dart';
+import 'cloud_backup_deletion.dart';
 import 'cloud_write_session.dart';
 
 sealed class AccountUiLinkResult {
@@ -34,6 +35,7 @@ class AccountUiLinkConflict extends AccountUiLinkResult {
 }
 
 enum AccountUiPendingState {
+  loading,
   none,
   replacementCancellable,
   replacementResumable,
@@ -60,55 +62,102 @@ abstract interface class AccountUiOperations {
 typedef AccountUiProviderLinker =
     Future<AccountUiLinkResult> Function(AccountLinkProvider provider);
 
+typedef AccountUiPendingStateReader = Future<AccountUiPendingState> Function();
+
+/// Test seam for exercising the UI-owned replacement route without Firebase.
+///
+/// Production always builds the coordinator-backed implementation below.
+@visibleForTesting
+abstract interface class AccountUiReplacementFlow {
+  Future<bool> cancel();
+  Future<AccountTransitionResult> confirm(ExistingAccountLinkConflict conflict);
+  Future<AccountTransitionResult> resume();
+}
+
+@visibleForTesting
+typedef AccountUiReplacementFlowFactory =
+    Future<AccountUiReplacementFlow> Function();
+
 class ProductionAccountUiOperations
     implements AccountUiOperations, AccountUiPendingStateSource {
-  const ProductionAccountUiOperations({this.providerLinker});
+  const ProductionAccountUiOperations({
+    this.providerLinker,
+    @visibleForTesting this.pendingStateReader,
+    @visibleForTesting this.replacementFlowFactory,
+  });
 
   final AccountUiProviderLinker? providerLinker;
+  final AccountUiPendingStateReader? pendingStateReader;
+  final AccountUiReplacementFlowFactory? replacementFlowFactory;
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
-      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.none);
+      ValueNotifier<AccountUiPendingState>(AccountUiPendingState.loading);
+  static int _pendingStateRefreshGeneration = 0;
 
   @override
   ValueListenable<AccountUiPendingState> get pendingState => _pendingState;
 
   @override
   Future<AccountUiPendingState> refreshPendingState() async {
+    final generation = ++_pendingStateRefreshGeneration;
+    // This notifier is shared by every Settings/Profile guard. Clear a prior
+    // admission synchronously so a sibling guard cannot start an account
+    // action while the newest durable read is still in flight.
+    _pendingState.value = AccountUiPendingState.loading;
     AccountUiPendingState next;
     try {
-      final preferences = await SharedPreferences.getInstance();
-      final replacement =
-          await SharedPreferencesReplacementTransitionJournalStore(
-            preferences,
-          ).read();
-      final deletion = await AuthService.readAccountDeletionCheckpoint();
-      if (replacement != null && deletion != null) {
-        next = AccountUiPendingState.blocked;
-      } else if (deletion != null) {
-        next = deletion.operation?.phase == AccountOperationPhase.completed
-            ? AccountUiPendingState.deletionLocalCleanup
-            : AccountUiPendingState.blocked;
-      } else if (replacement?.replacementPhase case final phase?) {
-        next = switch (phase) {
-          AccountReplacementPhase.targetVerified ||
-          AccountReplacementPhase.prepared ||
-          AccountReplacementPhase.attached ||
-          AccountReplacementPhase.reconciling ||
-          AccountReplacementPhase.reconciled =>
-            AccountUiPendingState.replacementCancellable,
-          AccountReplacementPhase.cleanupStarting ||
-          AccountReplacementPhase.cleanupPending ||
-          AccountReplacementPhase.activationPending =>
-            AccountUiPendingState.replacementResumable,
-        };
-      } else {
-        next = AccountUiPendingState.none;
-      }
+      next = await (pendingStateReader?.call() ?? _readPendingState());
     } catch (_) {
       next = AccountUiPendingState.blocked;
     }
+    // Multiple account widgets can refresh this shared durable state at once.
+    // Only the newest read may update the shared notifier; otherwise a late
+    // stale failure could keep fresh clear actions locked, or a late clear
+    // could unlock an action while a newer checkpoint is pending. Returning a
+    // stale clear result would also let its caller start provider OAuth, so a
+    // superseded read is blocked rather than treated as admission.
+    if (generation != _pendingStateRefreshGeneration) {
+      return AccountUiPendingState.blocked;
+    }
     _pendingState.value = next;
     return next;
+  }
+
+  static Future<AccountUiPendingState> _readPendingState() async {
+    final preferences = await SharedPreferences.getInstance();
+    final replacement =
+        await SharedPreferencesReplacementTransitionJournalStore(
+          preferences,
+        ).read();
+    final deletion = await AuthService.readAccountDeletionCheckpoint();
+    final cloudBackupDeletion =
+        await const SharedPreferencesCloudBackupDeletionJournalStore().read();
+    if (cloudBackupDeletion != null) {
+      return AccountUiPendingState.blocked;
+    }
+    if (replacement != null && deletion != null) {
+      return AccountUiPendingState.blocked;
+    }
+    if (deletion != null) {
+      return deletion.operation?.phase == AccountOperationPhase.completed
+          ? AccountUiPendingState.deletionLocalCleanup
+          : AccountUiPendingState.blocked;
+    }
+    if (replacement?.replacementPhase case final phase?) {
+      return switch (phase) {
+        AccountReplacementPhase.targetVerified ||
+        AccountReplacementPhase.prepared ||
+        AccountReplacementPhase.attached ||
+        AccountReplacementPhase.reconciling ||
+        AccountReplacementPhase.reconciled =>
+          AccountUiPendingState.replacementCancellable,
+        AccountReplacementPhase.cleanupStarting ||
+        AccountReplacementPhase.cleanupPending ||
+        AccountReplacementPhase.activationPending =>
+          AccountUiPendingState.replacementResumable,
+      };
+    }
+    return AccountUiPendingState.none;
   }
 
   @override
@@ -120,7 +169,12 @@ class ProductionAccountUiOperations
       return const AccountUiLinkBlocked();
     }
     if (providerLinker case final linkProvider?) {
-      return linkProvider(provider);
+      // The injectable linker represents the same provider wait as the real
+      // AuthService path, so keep it inside the durable admission lane too.
+      return AuthService.runDurableAccountAdmission<AccountUiLinkResult>(
+        onAdmitted: () => linkProvider(provider),
+        onBlocked: () async => const AccountUiLinkBlocked(),
+      );
     }
     try {
       final user = switch (provider) {
@@ -139,9 +193,15 @@ class ProductionAccountUiOperations
 
   @override
   Future<bool> cancelReplacement() async {
-    final bundle = await _createCoordinator();
     try {
-      return await bundle.coordinator.cancel();
+      return await AuthService.runDurableAccountAdmission<bool>(
+        allowReplacementTransitionJournal: true,
+        onAdmitted: () async {
+          final flow = await _createReplacementFlow();
+          return flow.cancel();
+        },
+        onBlocked: () async => false,
+      );
     } finally {
       await refreshPendingState();
     }
@@ -151,11 +211,16 @@ class ProductionAccountUiOperations
   Future<AccountTransitionResult> confirmReplacement(
     ExistingAccountLinkConflict conflict,
   ) async {
-    final bundle = await _createCoordinator();
     try {
-      return await bundle.coordinator.confirm(
-        conflict,
-        catalog: bundle.catalog,
+      return await AuthService.runDurableAccountAdmission<
+        AccountTransitionResult
+      >(
+        onAdmitted: () async {
+          final flow = await _createReplacementFlow();
+          return flow.confirm(conflict);
+        },
+        onBlocked: () async =>
+            const AccountTransitionResult(AccountTransitionStatus.blocked),
       );
     } finally {
       await refreshPendingState();
@@ -164,12 +229,28 @@ class ProductionAccountUiOperations
 
   @override
   Future<AccountTransitionResult> resumeReplacement() async {
-    final bundle = await _createCoordinator();
     try {
-      return await bundle.coordinator.resume(catalog: bundle.catalog);
+      return await AuthService.runDurableAccountAdmission<
+        AccountTransitionResult
+      >(
+        allowReplacementTransitionJournal: true,
+        onAdmitted: () async {
+          final flow = await _createReplacementFlow();
+          return flow.resume();
+        },
+        onBlocked: () async =>
+            const AccountTransitionResult(AccountTransitionStatus.blocked),
+      );
     } finally {
       await refreshPendingState();
     }
+  }
+
+  Future<AccountUiReplacementFlow> _createReplacementFlow() async {
+    final factory = replacementFlowFactory;
+    if (factory != null) return factory();
+    final bundle = await _createCoordinator();
+    return _CoordinatorAccountUiReplacementFlow(bundle);
   }
 
   Future<_AccountTransitionBundle> _createCoordinator() async {
@@ -237,4 +318,22 @@ class _AccountTransitionBundle {
 
   final AccountTransitionCoordinator coordinator;
   final Map<String, PackCatalogEntry> catalog;
+}
+
+class _CoordinatorAccountUiReplacementFlow implements AccountUiReplacementFlow {
+  const _CoordinatorAccountUiReplacementFlow(this._bundle);
+
+  final _AccountTransitionBundle _bundle;
+
+  @override
+  Future<bool> cancel() => _bundle.coordinator.cancel();
+
+  @override
+  Future<AccountTransitionResult> confirm(
+    ExistingAccountLinkConflict conflict,
+  ) => _bundle.coordinator.confirm(conflict, catalog: _bundle.catalog);
+
+  @override
+  Future<AccountTransitionResult> resume() =>
+      _bundle.coordinator.resume(catalog: _bundle.catalog);
 }

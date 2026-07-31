@@ -18,6 +18,8 @@ void main() {
         return const AccountStartupRestoration.none();
       },
       synchronizeReadySession: (uid) => events.add('ready:$uid'),
+      resumeFirstDurableLinkBackfill: () async =>
+          events.add('first-link-resume'),
       resumeMediaCleanup: () async => events.add('media-resume'),
       resumeBookshelfSync: () async => events.add('bookshelf-resume'),
       resumeAccountOperation: () async => events.add('protected-resume'),
@@ -33,6 +35,7 @@ void main() {
       'restore:uid-live',
       'auth',
       'ready:uid-live',
+      'first-link-resume',
       'media-resume',
       'bookshelf-resume',
       'premium',

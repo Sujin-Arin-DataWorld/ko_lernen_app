@@ -16,8 +16,13 @@ import 'account/account_operation_client.dart';
 import 'account/account_reconciliation.dart';
 import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
+import 'account/cloud_backup_deletion.dart';
 import 'account/cloud_write_session.dart';
+import 'account/first_link_backfill.dart';
+import 'account/first_link_backfill_journal.dart';
 import 'app_startup_coordinator.dart';
+import 'bookshelf_service.dart';
+import 'pack_progress_service.dart';
 import 'push_service.dart';
 import 'storage_service.dart';
 
@@ -871,6 +876,8 @@ class UserDataDeletionCoordinator {
     'bookshelf',
     'custom_packs',
     'custom_words',
+    'sync_generations',
+    'sync_metadata',
   ];
 
   Future<void> deleteCloudBackup() async {
@@ -878,32 +885,6 @@ class UserDataDeletionCoordinator {
       await store.deleteSubcollection(collectionName);
     }
     await store.removeUserFields(backupFields);
-  }
-}
-
-class _FirestoreUserDataDeletionStore implements UserDataDeletionStore {
-  const _FirestoreUserDataDeletionStore(this.db, this.uid);
-
-  final FirebaseFirestore db;
-  final String uid;
-
-  DocumentReference<Map<String, dynamic>> get _userRef =>
-      db.collection('users').doc(uid);
-
-  @override
-  Future<void> deleteSubcollection(String name) {
-    return AuthService._deleteCollection(_userRef.collection(name));
-  }
-
-  @override
-  Future<void> removeUserFields(Set<String> fields) async {
-    final snapshot = await _userRef.get();
-    if (!snapshot.exists) {
-      return;
-    }
-    await _userRef.update({
-      for (final field in fields) field: FieldValue.delete(),
-    });
   }
 }
 
@@ -1225,26 +1206,37 @@ class FirebaseAccountTransitionIdentity implements AccountTransitionIdentity {
 
 typedef ReplacementJournalReader = Future<AccountTransitionJournal?> Function();
 typedef DeletionJournalReader = Future<AccountDeletionJournal?> Function();
+typedef CloudBackupDeletionJournalReader =
+    Future<CloudBackupDeletionJournal?> Function();
 
 class AccountStartupJournalResolver {
   const AccountStartupJournalResolver({
     required this.sessions,
     required this.readReplacement,
     required this.readDeletion,
+    this.readCloudBackupDeletion,
   });
 
   final CloudWriteSessionController sessions;
   final ReplacementJournalReader readReplacement;
   final DeletionJournalReader readDeletion;
+  final CloudBackupDeletionJournalReader? readCloudBackupDeletion;
 
   Future<AccountStartupRestoration> restore(String? liveUid) async {
     final normalizedUid = liveUid?.trim();
     try {
       final replacement = await readReplacement();
       final deletion = await readDeletion();
+      final cloudBackupDeletion = await readCloudBackupDeletion?.call();
       replacement?.toJson();
       deletion?.toJson();
-      if (replacement != null && deletion != null) {
+      cloudBackupDeletion?.toJson();
+      final journalCount = <Object?>[
+        replacement,
+        deletion,
+        cloudBackupDeletion,
+      ].where((journal) => journal != null).length;
+      if (journalCount > 1) {
         return const AccountStartupRestoration.blocked();
       }
       if (replacement != null) {
@@ -1252,6 +1244,9 @@ class AccountStartupJournalResolver {
       }
       if (deletion != null) {
         return _restoreDeletion(deletion, normalizedUid);
+      }
+      if (cloudBackupDeletion != null) {
+        return _restoreCloudBackupDeletion(cloudBackupDeletion, normalizedUid);
       }
       return const AccountStartupRestoration.none();
     } catch (_) {
@@ -1296,6 +1291,18 @@ class AccountStartupJournalResolver {
     return AccountStartupRestoration.deletion(journal.session);
   }
 
+  AccountStartupRestoration _restoreCloudBackupDeletion(
+    CloudBackupDeletionJournal journal,
+    String? liveUid,
+  ) {
+    if (liveUid == null ||
+        liveUid != journal.session.uid ||
+        !_resumeExact(journal.session, liveUid)) {
+      return const AccountStartupRestoration.blocked();
+    }
+    return AccountStartupRestoration.cloudBackupDeletion(journal.session);
+  }
+
   bool _resumeExact(CloudWriteSession session, String expectedUid) {
     final current = sessions.current;
     if (current == session) return true;
@@ -1314,6 +1321,9 @@ class AuthService {
       Storage.accountDeletionCheckpointPreferenceKey;
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
+  static const CloudBackupDeletionJournalStore
+  _cloudBackupDeletionJournalStore =
+      SharedPreferencesCloudBackupDeletionJournalStore();
 
   static String canonicalizeCompletedDeletionCheckpoint(String encoded) =>
       AccountDeletionJournal.canonicalizeCompleted(encoded);
@@ -1441,14 +1451,6 @@ class AuthService {
     photoUrl: photoUrl,
   );
 
-  static FirebaseFirestore? get _db {
-    try {
-      return FirebaseFirestore.instance;
-    } catch (_) {
-      return null;
-    }
-  }
-
   /// In `main()` aufrufen — sorgt dafür, dass IMMER ein User existiert.
   /// Bricht still ab, wenn Firebase nicht verfügbar ist (Web ohne Config).
   static Future<void> ensureSignedIn() async {
@@ -1467,12 +1469,80 @@ class AuthService {
     ).synchronizeReady(uid);
   }
 
-  static User? _activateSignedInUser(User? user) {
+  static const FirstDurableLinkBackfillJournalStore
+  _firstDurableLinkBackfillJournalStore =
+      SharedPreferencesFirstDurableLinkBackfillJournalStore();
+
+  static final FirstDurableLinkBackfill _firstDurableLinkBackfill =
+      FirstDurableLinkBackfill(
+        sessions: cloudWriteSessionController,
+        currentUid: () => cloudBackupUid,
+        hasBlockingAccountJournal: _hasAnyOtherDurableAccountJournal,
+        journalStore: _firstDurableLinkBackfillJournalStore,
+        uploadBookshelf: (session, {required operationId}) =>
+            BookshelfService.uploadLocalGenerationForFirstDurableLink(
+              session: session,
+              sessions: cloudWriteSessionController,
+              operationId: operationId,
+            ),
+        uploadPackProgress: (session, {required operationId}) =>
+            PackProgressService.uploadLocalProgressForFirstDurableLink(
+              session: session,
+              sessions: cloudWriteSessionController,
+            ),
+      );
+
+  static final FirstDurableLinkActivation _firstDurableLinkActivation =
+      FirstDurableLinkActivation(
+        sessions: cloudWriteSessionController,
+        backfill: _firstDurableLinkBackfill,
+      );
+
+  static Future<bool> _hasAnyOtherDurableAccountJournal() async {
+    try {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.reload();
+      return preferences.containsKey(AccountTransitionJournal.storageKey) ||
+          preferences.containsKey(accountDeletionCheckpointPreferenceKey) ||
+          preferences.containsKey(
+            Storage.cloudBackupDeletionJournalPreferenceKey,
+          );
+    } catch (_) {
+      return true;
+    }
+  }
+
+  static Future<User?> _activateSignedInUser(
+    User? user, {
+    required String sourceUid,
+  }) async {
     final uid = user?.uid;
     if (uid != null) {
       synchronizeReadyCloudWriteSession(uid);
+      await _firstDurableLinkActivation.activate(
+        sourceUid: sourceUid,
+        linkedUid: uid,
+        linkedIsAnonymous: user!.isAnonymous,
+      );
     }
     return user;
+  }
+
+  /// Resumes only a receipt owned by the current durable Firebase account.
+  ///
+  /// Startup enters the shared account admission lane before calling this.
+  /// The initial link path already owns that lane, so it calls the backfill
+  /// core directly through [_firstDurableLinkActivation] instead.
+  static Future<void> resumePendingFirstDurableLinkBackfill() async {
+    final expectedUid = cloudBackupUid;
+    if (expectedUid == null) return;
+    await runDurableAccountAdmission<CloudWriteResult>(
+      onAdmitted: () async {
+        if (cloudBackupUid != expectedUid) return CloudWriteResult.stale;
+        return _firstDurableLinkBackfill.resume(expectedUid: expectedUid);
+      },
+      onBlocked: () async => CloudWriteResult.blocked,
+    );
   }
 
   /// Restores durable fencing only after [expectedUid] has been obtained from
@@ -1518,82 +1588,90 @@ class AuthService {
       sessions: cloudWriteSessionController,
       readReplacement: replacementStore.read,
       readDeletion: _accountDeletionJournalStore.read,
+      readCloudBackupDeletion: _cloudBackupDeletionJournalStore.read,
     ).restore(liveUid);
   }
 
   /// Anonymen User mit Google-Account verlinken.
   /// Existing-account collisions preserve the primary anonymous session and
   /// require explicit confirmation through [AccountTransitionCoordinator].
-  static Future<User?> linkWithGoogle() async {
-    final auth = _auth;
-    if (auth == null) return null;
+  static Future<User?> linkWithGoogle() {
+    return _runDurableIdentityMutation(() async {
+      final auth = _auth;
+      if (auth == null) return null;
 
-    final googleUser = await GoogleSignIn().signIn();
-    if (googleUser == null) return null;
-    final googleAuth = await googleUser.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    final user = auth.currentUser;
-    if (user != null && user.isAnonymous) {
-      final attempt = await attemptAnonymousCredentialLink<User?>(
-        provider: AccountLinkProvider.google,
-        sourceUid: user.uid,
-        currentUid: () => auth.currentUser?.uid,
-        linkCredential: () async {
-          final result = await user.linkWithCredential(credential);
-          return result.user;
-        },
+      final googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) return null;
+      final googleAuth = await googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
       );
-      if (attempt is ExistingAccountLinkConflict) {
-        throw attempt;
+
+      final user = auth.currentUser;
+      if (user != null && user.isAnonymous) {
+        final sourceUid = user.uid;
+        final attempt = await attemptAnonymousCredentialLink<User?>(
+          provider: AccountLinkProvider.google,
+          sourceUid: sourceUid,
+          currentUid: () => auth.currentUser?.uid,
+          linkCredential: () async {
+            final result = await user.linkWithCredential(credential);
+            return result.user;
+          },
+        );
+        if (attempt is ExistingAccountLinkConflict) {
+          throw attempt;
+        }
+        return _activateSignedInUser(
+          (attempt as AnonymousCredentialLinked<User?>).value,
+          sourceUid: sourceUid,
+        );
       }
-      return _activateSignedInUser(
-        (attempt as AnonymousCredentialLinked<User?>).value,
-      );
-    }
-    throw const DurableAccountTransitionNotSupported();
+      throw const DurableAccountTransitionNotSupported();
+    });
   }
 
   /// Anonymen User mit Apple-Account verlinken (iOS — App-Store-Pflicht 4.8).
   /// Existing-account collisions never activate the target implicitly.
-  static Future<User?> linkWithApple() async {
-    final auth = _auth;
-    if (auth == null) return null;
+  static Future<User?> linkWithApple() {
+    return _runDurableIdentityMutation(() async {
+      final auth = _auth;
+      if (auth == null) return null;
 
-    final rawNonce = _generateNonce();
-    final appleCredential = await SignInWithApple.getAppleIDCredential(
-      scopes: const [
-        AppleIDAuthorizationScopes.email,
-        AppleIDAuthorizationScopes.fullName,
-      ],
-      nonce: _sha256(rawNonce),
-    );
-    final credential = OAuthProvider(
-      'apple.com',
-    ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
-
-    final user = auth.currentUser;
-    if (user != null && user.isAnonymous) {
-      final attempt = await attemptAnonymousCredentialLink<User?>(
-        provider: AccountLinkProvider.apple,
-        sourceUid: user.uid,
-        currentUid: () => auth.currentUser?.uid,
-        linkCredential: () async {
-          final result = await user.linkWithCredential(credential);
-          return result.user;
-        },
+      final rawNonce = _generateNonce();
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        scopes: const [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+        nonce: _sha256(rawNonce),
       );
-      if (attempt is ExistingAccountLinkConflict) {
-        throw attempt;
+      final credential = OAuthProvider(
+        'apple.com',
+      ).credential(idToken: appleCredential.identityToken, rawNonce: rawNonce);
+
+      final user = auth.currentUser;
+      if (user != null && user.isAnonymous) {
+        final sourceUid = user.uid;
+        final attempt = await attemptAnonymousCredentialLink<User?>(
+          provider: AccountLinkProvider.apple,
+          sourceUid: sourceUid,
+          currentUid: () => auth.currentUser?.uid,
+          linkCredential: () async {
+            final result = await user.linkWithCredential(credential);
+            return result.user;
+          },
+        );
+        if (attempt is ExistingAccountLinkConflict) {
+          throw attempt;
+        }
+        final linked = (attempt as AnonymousCredentialLinked<User?>).value;
+        await _maybeSetAppleName(linked, appleCredential);
+        return _activateSignedInUser(linked, sourceUid: sourceUid);
       }
-      final linked = (attempt as AnonymousCredentialLinked<User?>).value;
-      await _maybeSetAppleName(linked, appleCredential);
-      return _activateSignedInUser(linked);
-    }
-    throw const DurableAccountTransitionNotSupported();
+      throw const DurableAccountTransitionNotSupported();
+    });
   }
 
   /// Apple liefert den Namen nur beim allerersten Login — übernehmen, wenn
@@ -1616,24 +1694,158 @@ class AuthService {
     }
   }
 
-  /// Delete the signed-in user's Firestore backup document and known
-  /// subcollections. Local data stays untouched.
-  static Future<void> deleteCloudData() async {
-    final uid = current?.uid;
-    final db = _db;
-    if (uid == null || db == null) {
-      throw StateError('Cloud account data is unavailable.');
-    }
-    await UserDataDeletionCoordinator(
-      _FirestoreUserDataDeletionStore(db, uid),
-    ).deleteCloudBackup();
+  static CloudBackupDeletionCoordinator? _cloudBackupDeletion;
+  static Future<void> Function()? _deleteAccountForTesting;
+
+  static CloudBackupDeletionCoordinator get _cloudBackupDeletionCoordinator =>
+      _cloudBackupDeletion ??= CloudBackupDeletionCoordinator(
+        sessions: cloudWriteSessionController,
+        currentUid: () => cloudBackupUid,
+        journalStore: _cloudBackupDeletionJournalStore,
+        firstLinkJournalStore: _firstDurableLinkBackfillJournalStore,
+        gateway: FirebaseCloudBackupDeletionGateway.production(
+          currentUid: () => cloudBackupUid,
+        ),
+      );
+
+  static ValueListenable<CloudBackupDeletionJournalState>
+  get cloudBackupDeletionJournalState =>
+      _cloudBackupDeletionCoordinator.journalState;
+
+  // Kept as a binary projection for internal callers that only need an
+  // action lock. Both loading and an unresolved journal project to `true`.
+  static ValueListenable<bool> get cloudBackupDeletionPending =>
+      _cloudBackupDeletionCoordinator.pending;
+
+  static Future<CloudBackupDeletionJournalState>
+  refreshCloudBackupDeletionJournalState() =>
+      _cloudBackupDeletionCoordinator.refreshJournalState();
+
+  static Future<bool> refreshCloudBackupDeletionPending() =>
+      _cloudBackupDeletionCoordinator.refreshPending();
+
+  /// Admits a cloud-data service operation only after a fresh durable read of
+  /// the backup-deletion journal. The operation remains in the same serial
+  /// lane as deletion recovery and identity changes.
+  static Future<T> runCloudBackupDeletionAdmission<T>({
+    required Future<T> Function() onAdmitted,
+    required Future<T> Function() onBlocked,
+  }) {
+    return _cloudBackupDeletionCoordinator.runWithClearJournalAdmission(
+      onAdmitted: onAdmitted,
+      onBlocked: onBlocked,
+    );
   }
+
+  /// Admits a new account-affecting operation only when every durable account
+  /// journal is absent. The cloud backup deletion check and this fresh
+  /// replacement/deletion check run in the cloud coordinator's shared serial
+  /// lane, so public identity mutations cannot begin beside a retry journal.
+  ///
+  /// Account-deletion recovery is the one exception: its own durable
+  /// checkpoint must stay admissible so [AccountDeletionRemoteGate] can
+  /// resume or recover that exact operation. Replacement resume/cancel has
+  /// the equivalent exception for its own transition journal.
+  static Future<T> runDurableAccountAdmission<T>({
+    required Future<T> Function() onAdmitted,
+    required Future<T> Function() onBlocked,
+    bool allowAccountDeletionCheckpoint = false,
+    bool allowReplacementTransitionJournal = false,
+  }) {
+    return runCloudBackupDeletionAdmission<T>(
+      onAdmitted: () async {
+        final clear = await _otherDurableAccountJournalsAreClear(
+          allowAccountDeletionCheckpoint: allowAccountDeletionCheckpoint,
+          allowReplacementTransitionJournal: allowReplacementTransitionJournal,
+        );
+        return clear ? onAdmitted() : onBlocked();
+      },
+      onBlocked: onBlocked,
+    );
+  }
+
+  static Future<bool> _otherDurableAccountJournalsAreClear({
+    required bool allowAccountDeletionCheckpoint,
+    required bool allowReplacementTransitionJournal,
+  }) async {
+    try {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.reload();
+      if (!allowReplacementTransitionJournal &&
+          preferences.containsKey(AccountTransitionJournal.storageKey)) {
+        return false;
+      }
+      return allowAccountDeletionCheckpoint ||
+          !preferences.containsKey(accountDeletionCheckpointPreferenceKey);
+    } catch (_) {
+      return false;
+    }
+  }
+
+  static Future<T> _runDurableIdentityMutation<T>(
+    Future<T> Function() mutation,
+  ) {
+    return runDurableAccountAdmission<T>(
+      onAdmitted: mutation,
+      onBlocked: () => Future<T>.error(
+        const CloudBackupDeletionIdentityChangeBlockedException(),
+      ),
+    );
+  }
+
+  @visibleForTesting
+  static void overrideCloudBackupDeletionCoordinatorForTesting(
+    CloudBackupDeletionCoordinator coordinator,
+  ) {
+    _cloudBackupDeletion = coordinator;
+  }
+
+  @visibleForTesting
+  static void overrideDeleteAccountForTesting(
+    Future<void> Function()? operation,
+  ) {
+    _deleteAccountForTesting = operation;
+  }
+
+  @visibleForTesting
+  static void resetCloudBackupDeletionForTesting() {
+    _cloudBackupDeletion = null;
+    _deleteAccountForTesting = null;
+  }
+
+  /// Requests bounded server-owned backup removal. Local data stays untouched.
+  ///
+  /// A persisted cloud-deletion journal is still allowed to resume, but a new
+  /// deletion cannot begin while replacement or account-deletion recovery has
+  /// an outstanding durable checkpoint.
+  static Future<CloudWriteResult> deleteCloudData() =>
+      _cloudBackupDeletionCoordinator.run(
+        canStart: () => _otherDurableAccountJournalsAreClear(
+          allowAccountDeletionCheckpoint: false,
+          allowReplacementTransitionJournal: false,
+        ),
+      );
 
   /// Requests server-owned account deletion and polls its authoritative state.
   ///
   /// Caller clears local device data only after this completes.
-  static Future<void> deleteAccount() async {
-    await AccountDeletionRemoteGate(
+  static Future<void> deleteAccount() {
+    return runDurableAccountAdmission<void>(
+      allowAccountDeletionCheckpoint: true,
+      onAdmitted: _deleteAccountAfterCloudBackupAdmission,
+      onBlocked: () => Future<void>.error(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      ),
+    );
+  }
+
+  static Future<void> _deleteAccountAfterCloudBackupAdmission() {
+    final override = _deleteAccountForTesting;
+    if (override != null) return override();
+    return AccountDeletionRemoteGate(
       readCheckpoint: _accountDeletionJournalStore.read,
       startOrResumeRemote: _startOrResumeRemoteAccountDeletion,
       recoverCompleted: _recoverCompletedAccountDeletion,
@@ -1729,7 +1941,21 @@ class AuthService {
       _accountDeletionJournalStore.read();
 
   /// Continues the exact durable server operation restored at startup.
-  static Future<void> resumePendingAccountDeletion() async {
+  static Future<void> resumePendingAccountDeletion() {
+    return runDurableAccountAdmission<void>(
+      allowAccountDeletionCheckpoint: true,
+      onAdmitted: _resumePendingAccountDeletionAfterCloudBackupAdmission,
+      onBlocked: () => Future<void>.error(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      ),
+    );
+  }
+
+  static Future<void>
+  _resumePendingAccountDeletionAfterCloudBackupAdmission() async {
     final user = current;
     if (user == null) {
       throw const AccountOperationFailure(
@@ -1752,20 +1978,22 @@ class AuthService {
   }
 
   /// Aus Google-Account ausloggen → wieder anonym.
-  static Future<void> signOut() async {
-    final auth = _auth;
-    final oldUid = auth?.currentUser?.uid;
-    if (auth == null || oldUid == null) {
-      return;
-    }
-    await _pushOwnershipTransitions.run(
-      oldUid: oldUid,
-      transition: () async {
-        await GoogleSignIn().signOut();
-        await auth.signOut();
-        await ensureSignedIn(); // wieder anonym
-      },
-    );
+  static Future<void> signOut() {
+    return _runDurableIdentityMutation(() async {
+      final auth = _auth;
+      final oldUid = auth?.currentUser?.uid;
+      if (auth == null || oldUid == null) {
+        return;
+      }
+      await _pushOwnershipTransitions.run(
+        oldUid: oldUid,
+        transition: () async {
+          await GoogleSignIn().signOut();
+          await auth.signOut();
+          await ensureSignedIn(); // wieder anonym
+        },
+      );
+    });
   }
 
   static Future<void> _reauthenticateWithGoogle(User user) async {
@@ -1842,19 +2070,4 @@ class AuthService {
 
   static String _sha256(String input) =>
       sha256.convert(utf8.encode(input)).toString();
-
-  static Future<void> _deleteCollection(
-    CollectionReference<Map<String, dynamic>> collection,
-  ) async {
-    while (true) {
-      final snap = await collection.limit(400).get();
-      if (snap.docs.isEmpty) return;
-
-      final batch = collection.firestore.batch();
-      for (final doc in snap.docs) {
-        batch.delete(doc.reference);
-      }
-      await batch.commit();
-    }
-  }
 }

@@ -29,6 +29,8 @@
  */
 
 const admin = require("firebase-admin");
+const { randomBytes } = require("node:crypto");
+const { v1: { FirestoreClient } } = require("@google-cloud/firestore");
 const functionsLogger = require("firebase-functions/logger");
 const { defineSecret } = require("firebase-functions/params");
 const { onDocumentWritten, onDocumentCreated, onDocumentDeleted } =
@@ -42,7 +44,6 @@ const {
   anonymizeMeta,
   anonymizeReport,
   anonymizeSticker,
-  buildGroupCleanupPlan,
   buildNotificationDeliveryUpdate,
   buildOwnerSuspensionPlan,
   buildWeeklyNotificationOutbox,
@@ -69,13 +70,7 @@ const {
   weeklyRolloverKey,
 } = require("./lifecycle");
 const {
-  buildDeletionCleanupTargetClaim,
-  cleanupGyeForDeletedUser,
-  deletionCleanupTargetClaimMatches,
-  mergeDeletionCleanupGyeIds,
-  orphanGyeCleanupUserIds,
   processNotificationDocuments,
-  runDeletedUserCleanupRuntime,
   stageNotificationOutboxWrites,
 } = require("./runtime");
 const {
@@ -86,16 +81,51 @@ const {
   createDeletionProofHttpHandler,
   createFirestoreAccountOperationRepository,
   createKeyedDeletionProofDigest,
-  fetchActionableDeletionCandidates,
+  fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
+  runScheduledDeletionBatch,
+  SCHEDULE_TIMEOUT_SECONDS,
+  SCHEDULE_WORKER_DEADLINE_MILLIS,
 } = require("./account_operations_runtime");
+const {
+  createFirestoreDeletionAdapters,
+  createGapicCollectionIdPager,
+  createGapicDocumentPager,
+} = require("./deletion_adapters");
+const {
+  createDeletionCleanupAdapters,
+  createLegacyUserDeletionCleanupHandler,
+} = require("./deletion_cleanup_adapters");
+const {
+  createGyeDeletionPageCleaner,
+} = require("./deletion_gye_page");
+const {
+  createAppleRevocationAdapter,
+} = require("./apple_revocation_adapter");
+const {
+  createCloudBackupDeletionCallable,
+  createCloudBackupDeletionRuntime,
+  createFirestoreCloudBackupDeletionRepository,
+  createFirestoreCloudBackupStore,
+} = require("./cloud_backup_deletion_runtime");
 
 admin.initializeApp();
 const db = admin.firestore();
 setGlobalOptions({ region: "europe-west3" });
 const deletionProofHmacKey = defineSecret("DELETION_PROOF_HMAC_KEY");
+const appleRevokeClientId = defineSecret("APPLE_REVOKE_CLIENT_ID");
+const appleRevokeTeamId = defineSecret("APPLE_REVOKE_TEAM_ID");
+const appleRevokeKeyId = defineSecret("APPLE_REVOKE_KEY_ID");
+const appleRevokePrivateKey = defineSecret("APPLE_REVOKE_PRIVATE_KEY");
 const keyedDeletionProofDigest = createKeyedDeletionProofDigest({
   getSecret: () => deletionProofHmacKey.value(),
+});
+const revokeAppleAuthorizationCode = createAppleRevocationAdapter({
+  getClientId: () => appleRevokeClientId.value(),
+  getTeamId: () => appleRevokeTeamId.value(),
+  getKeyId: () => appleRevokeKeyId.value(),
+  getPrivateKey: () => appleRevokePrivateKey.value(),
+  fetch: globalThis.fetch,
 });
 
 const accountOperationRepository =
@@ -105,11 +135,7 @@ const accountOperationHandlers = createAccountOperationRuntime({
   hashDeletionProof: (proof) =>
     keyedDeletionProofDigest("proof", proof),
   repository: accountOperationRepository,
-  revokeAppleAuthorizationCode: async () => {
-    const error = new Error("apple-revocation-adapter-unavailable");
-    error.code = "apple/revocation-unavailable";
-    throw error;
-  },
+  revokeAppleAuthorizationCode,
   makeError: (status, safeCode) => new HttpsError(
     status,
     "Account operation request failed.",
@@ -124,6 +150,14 @@ Object.assign(
     optionsByName: {
       issueDeletionProof: {
         secrets: [deletionProofHmacKey],
+      },
+      completeAppleRevocation: {
+        secrets: [
+          appleRevokeClientId,
+          appleRevokeTeamId,
+          appleRevokeKeyId,
+          appleRevokePrivateKey,
+        ],
       },
     },
   }),
@@ -148,43 +182,105 @@ exports.requestDeletionByProof = createDeletionProofHttpEndpoint({
   },
 });
 
-const destructiveAdapterUnavailable = async () => {
-  const error = new Error("destructive-adapter-unavailable");
-  error.code = "failed-precondition";
-  throw error;
-};
+const accountDeletionPageSize = 20;
+const firestoreCollectionIdClient = new FirestoreClient();
+const listCollectionIdsPage = createGapicCollectionIdPager({
+  firestore: db,
+  client: firestoreCollectionIdClient,
+});
+const listDocumentsPage = createGapicDocumentPager({
+  firestore: db,
+  client: firestoreCollectionIdClient,
+});
+const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
+  firestore: db,
+  markerCollection: db.collection("account_deletions"),
+  listCollectionIdsPage,
+  listDocumentsPage,
+  pageSize: accountDeletionPageSize,
+});
+const cloudBackupDeletionRepository =
+  createFirestoreCloudBackupDeletionRepository({
+    firestore: db,
+    fieldValue: admin.firestore.FieldValue,
+  });
+const cloudBackupDeletionStore = createFirestoreCloudBackupStore({
+  listCollectionIdsPage,
+  listDocumentsPage,
+});
+const cloudBackupDeletionHandlers = createCloudBackupDeletionRuntime({
+  auth: admin.auth(),
+  repository: cloudBackupDeletionRepository,
+  store: cloudBackupDeletionStore,
+  hashRequestKey: ({ uid, requestKey }) =>
+    keyedDeletionProofDigest("cloud-backup", `${uid}\0${requestKey}`),
+  newInvocationId: () => randomBytes(16).toString("base64url"),
+  makeError: (status, safeCode) => new HttpsError(
+    status,
+    "Cloud backup deletion request failed.",
+    { code: safeCode },
+  ),
+});
+exports.deleteCloudBackup = createCloudBackupDeletionCallable({
+  handler: cloudBackupDeletionHandlers.deleteCloudBackup,
+  onCall,
+  secrets: [deletionProofHmacKey],
+});
+const deletionCleanupAdapters = createDeletionCleanupAdapters({
+  firestore: db,
+  fieldValue: admin.firestore.FieldValue,
+  documentIdFieldPath: admin.firestore.FieldPath.documentId(),
+  cleanupGyeForDeletedUserPage: createGyeDeletionPageCleaner({
+    firestore: db,
+    fieldValue: admin.firestore.FieldValue,
+    documentIdFieldPath: admin.firestore.FieldPath.documentId(),
+    anonymizeMeta,
+    anonymizeFeed,
+    anonymizeReport,
+    anonymizeSticker,
+    shouldDeleteReportForUid,
+  }).cleanupPage,
+  notificationOutboxBelongsToUid,
+  pageSize: accountDeletionPageSize,
+});
+const legacyUserDeletionCleanupHandler =
+  createLegacyUserDeletionCleanupHandler({
+    firestore: db,
+    fieldValue: admin.firestore.FieldValue,
+    cleanupAdapters: deletionCleanupAdapters,
+  });
 const accountDeletionWorkerRuntime = createDeletionWorkerRuntime({
   repository: accountOperationRepository,
   auth: admin.auth(),
-  deleteUserTreePage: destructiveAdapterUnavailable,
-  cleanupCommunity: destructiveAdapterUnavailable,
-  cleanupProcessor: destructiveAdapterUnavailable,
+  deleteUserTreePage: firestoreDeletionAdapters.deleteUserTreePage,
+  cleanupCommunity: deletionCleanupAdapters.cleanupCommunity,
+  cleanupProcessor: deletionCleanupAdapters.cleanupProcessor,
+  pageSize: accountDeletionPageSize,
 });
 exports.account_deletion_worker = onSchedule(
   {
     schedule: "every 5 minutes",
     timeZone: "Etc/UTC",
     retryCount: 3,
+    timeoutSeconds: SCHEDULE_TIMEOUT_SECONDS,
   },
   async () => {
-    const candidates = await fetchActionableDeletionCandidates({
+    const nowMillis = Date.now();
+    const deadlineMillis =
+      nowMillis + SCHEDULE_WORKER_DEADLINE_MILLIS;
+    const candidates = await fetchStagedActionableDeletionCandidates({
+      repository: accountOperationRepository,
       collection: db.collection("account_operations"),
       limit: 50,
+      nowMillis,
     });
-    for (const candidate of candidates) {
-      try {
-        await accountDeletionWorkerRuntime.processDeletionOperation({
-          operationId: candidate.id,
-          workerId: `scheduled-${candidate.id}`,
-        });
-      } catch (error) {
-        functionsLogger.warn("account-deletion-worker-failed", {
-          code: typeof error?.code === "string"
-            ? error.code
-            : "worker-failed",
-        });
-      }
-    }
+    await runScheduledDeletionBatch({
+      candidates,
+      repository: accountOperationRepository,
+      workerRuntime: accountDeletionWorkerRuntime,
+      logger: functionsLogger,
+      deadlineMillis,
+    });
   },
 );
 
@@ -742,183 +838,9 @@ exports.on_user_deleted = onDocumentDeleted(
     retry: true,
   },
   async (event) => {
-    const uid = event.params.uid;
-    const before = event.data?.data() || {};
-    const accountMarkerRef = db.collection("account_deletions").doc(uid);
-    const accountMarker = await accountMarkerRef.get();
-    if (accountMarker.exists &&
-        (accountMarker.data() || {}).serverOwned === true) {
-      return;
-    }
-    if (accountMarker.exists &&
-        (accountMarker.data() || {}).cleanupComplete === true) {
-      return;
-    }
-    const retainedCleanupGyeIds = accountMarker.exists
-      ? (accountMarker.data() || {}).cleanupGyeIds
-      : [];
-    const gyeIds = new Set(
-      mergeDeletionCleanupGyeIds(
-        retainedCleanupGyeIds,
-        Array.isArray(before.gyeIds) ? before.gyeIds : [],
-      ),
-    );
-
-    // New member documents carry uid for a collection-group safety net. The
-    // pre-delete gyeIds list remains the migration fallback for legacy docs.
-    const membershipSnapshot = await db
-      .collectionGroup("members")
-      .where("uid", "==", uid)
-      .get();
-    membershipSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) gyeIds.add(gyeRef.id);
-    });
-    const departureSnapshot = await db
-      .collectionGroup("departures")
-      .where("uid", "==", uid)
-      .get();
-    const departureNicknames = new Map();
-    departureSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) {
-        gyeIds.add(gyeRef.id);
-        departureNicknames.set(gyeRef.id, (doc.data() || {}).nickname || "");
-      }
-    });
-    const banSnapshot = await db
-      .collectionGroup("bans")
-      .where("uid", "==", uid)
-      .get();
-    banSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) gyeIds.add(gyeRef.id);
-    });
-    const processedPacksSnapshot = await db
-      .collectionGroup("processed_packs")
-      .where("uid", "==", uid)
-      .get();
-    processedPacksSnapshot.docs.forEach((doc) => {
-      const gyeRef = doc.ref.parent.parent;
-      if (gyeRef) gyeIds.add(gyeRef.id);
-    });
-    const notificationOutboxSnapshot = await db
-      .collectionGroup("notification_outbox")
-      .where("uid", "==", uid)
-      .get();
-    notificationOutboxSnapshot.docs
-      .filter((doc) =>
-        notificationOutboxBelongsToUid(doc.data() || {}, uid))
-      .forEach((doc) => {
-        const gyeRef = doc.ref.parent.parent;
-        if (gyeRef) gyeIds.add(gyeRef.id);
-      });
-
-    const cleanupClaim = await db.runTransaction(async (transaction) => {
-      const currentMarker = await transaction.get(accountMarkerRef);
-      const currentData = currentMarker.exists
-        ? currentMarker.data() || {}
-        : {};
-      if (currentData.cleanupComplete === true) return null;
-      const claim = buildDeletionCleanupTargetClaim({
-        retainedGyeIds: currentData.cleanupGyeIds,
-        discoveredGyeIds: Array.from(gyeIds),
-        currentRevision: currentData.cleanupRevision,
-      });
-      if (currentMarker.exists) {
-        transaction.update(accountMarkerRef, {
-          cleanupGyeIds: claim.gyeIds,
-          cleanupRevision: claim.revision,
-        });
-      } else {
-        transaction.set(accountMarkerRef, {
-          state: "active",
-          createdAt: admin.firestore.FieldValue.serverTimestamp(),
-          cleanupGyeIds: claim.gyeIds,
-          cleanupRevision: claim.revision,
-        });
-      }
-      return claim;
-    });
-    if (!cleanupClaim) return;
-    gyeIds.clear();
-    cleanupClaim.gyeIds.forEach((gyeId) => gyeIds.add(gyeId));
-
-    await runDeletedUserCleanupRuntime({
-      cleanupGyes: async () => {
-        for (const gyeId of Array.from(gyeIds).sort()) {
-          const gref = db.collection("gye").doc(gyeId);
-          const member = await gref
-            .collection("members")
-            .doc(uid)
-            .get();
-          const nickname = (member.data() || {}).nickname ||
-            departureNicknames.get(gyeId) || "";
-          await cleanupGyeForDeletedUser({
-            anonymizeIdentity: () =>
-              anonymizeGyeIdentity(gyeId, uid, nickname),
-            reconcileMembership: () =>
-              reconcileMembershipAfterDeletion(gyeId, uid),
-            cleanupOrphanTree: () =>
-              cleanupOrphanedGyeTree(gref, gyeId),
-          });
-          // Suspension tombstones are durable while an account exists. Once
-          // the account is gone, retaining its UID would be unnecessary PII.
-          await gref
-            .collection("bans")
-            .doc(uid)
-            .delete();
-          await gref
-            .collection("departures")
-            .doc(uid)
-            .delete();
-        }
-      },
-      cleanupSharedPacks: async () => {
-        const sharedPacks = await db
-          .collection("shared_packs")
-          .where("createdBy", "==", uid)
-          .get();
-        await commitDocumentChunks(sharedPacks.docs, (batch, doc) => {
-          batch.delete(doc.ref);
-        });
-      },
-      cleanupProcessedPacks: async () => {
-        await commitDocumentChunks(
-          processedPacksSnapshot.docs,
-          (batch, doc) => batch.delete(doc.ref),
-        );
-      },
-      cleanupNotificationOutboxes: async () => {
-        await commitDocumentChunks(
-          notificationOutboxSnapshot.docs.filter((doc) =>
-            notificationOutboxBelongsToUid(doc.data() || {}, uid)),
-          (batch, doc) => batch.delete(doc.ref),
-        );
-      },
-      markCleanupComplete: async () => {
-        await db.runTransaction(async (transaction) => {
-          const marker = await transaction.get(accountMarkerRef);
-          if (!marker.exists ||
-              !deletionCleanupTargetClaimMatches(
-                marker.data() || {},
-                cleanupClaim,
-              )) {
-            throw new Error(
-              "Account cleanup targets changed before completion.",
-            );
-          }
-          const receipt = {
-            cleanupComplete: true,
-            cleanupCompletedAt:
-              admin.firestore.FieldValue.serverTimestamp(),
-            authMissingSince: admin.firestore.FieldValue.delete(),
-            cleanupGyeIds: admin.firestore.FieldValue.delete(),
-            cleanupRevision: admin.firestore.FieldValue.delete(),
-          };
-          transaction.update(accountMarkerRef, receipt);
-        });
-      },
+    await legacyUserDeletionCleanupHandler({
+      uid: event.params.uid,
+      before: event.data?.data() || {},
     });
   },
 );
@@ -984,6 +906,14 @@ exports.account_deletion_tombstone_cleanup = onSchedule(
             Object.prototype.hasOwnProperty.call(
               currentData,
               "cleanupGyeIds",
+            ) ||
+            Object.prototype.hasOwnProperty.call(
+              currentData,
+              "communityCleanupState",
+            ) ||
+            Object.prototype.hasOwnProperty.call(
+              currentData,
+              "processorCleanupState",
             ),
           authMissingSinceMillis: currentData.authMissingSince?.toMillis?.(),
           nowMillis,
@@ -1032,7 +962,11 @@ async function reviewPendingReports(reportDocuments, targetUid) {
   }
 }
 
-async function anonymizeGyeIdentity(gyeId, uid, legacyNickname) {
+async function anonymizeGyeIdentity(
+  gyeId,
+  uid,
+  legacyNickname,
+) {
   const gref = db.collection("gye").doc(gyeId);
   const meta = await gref.get();
   if (!meta.exists) return;
@@ -1136,140 +1070,6 @@ async function anonymizeGyeIdentity(gyeId, uid, legacyNickname) {
       });
     }
   }
-}
-
-async function cleanupOrphanedGyeTree(gref, gyeId) {
-  const action = await db.runTransaction(async (transaction) => {
-    const parent = await transaction.get(gref);
-    if (parent.exists) {
-      return (parent.data() || {}).lifecycleState === "deleting"
-        ? "deleteTree"
-        : "retryActiveParent";
-    }
-    const members = await transaction.get(gref.collection("members"));
-    const cachedUsers = await transaction.get(
-      db.collection("users").where("gyeIds", "array-contains", gyeId),
-    );
-    const affectedUids = orphanGyeCleanupUserIds(
-      members.docs.map((document) => document.id),
-      cachedUsers.docs.map((document) => document.id),
-    );
-    const cachedUserIds = new Set(
-      cachedUsers.docs.map((document) => document.id),
-    );
-    const missingMemberUserRefs = affectedUids
-      .filter((uid) => !cachedUserIds.has(uid))
-      .map((uid) => db.collection("users").doc(uid));
-    const missingMemberUsers = missingMemberUserRefs.length === 0
-      ? []
-      : await transaction.getAll(
-        ...missingMemberUserRefs,
-      );
-    const affectedUsers = [...cachedUsers.docs, ...missingMemberUsers];
-    affectedUsers.forEach((user) => {
-      if (user.exists) {
-        transaction.update(user.ref, {
-          gyeIds: admin.firestore.FieldValue.arrayRemove(gyeId),
-        });
-      }
-    });
-    transaction.set(gref, {
-      lifecycleState: "deleting",
-      orphanCleanup: true,
-    });
-    return "deleteTree";
-  });
-  if (action !== "deleteTree") {
-    throw new Error(
-      `Gye ${gyeId} was recreated while orphan cleanup was starting.`,
-    );
-  }
-  await db.recursiveDelete(gref);
-}
-
-async function reconcileMembershipAfterDeletion(gyeId, uid) {
-  const gref = db.collection("gye").doc(gyeId);
-  const outcome = await db.runTransaction(async (transaction) => {
-    const meta = await transaction.get(gref);
-    if (!meta.exists) return { action: "missing" };
-    if ((meta.data() || {}).lifecycleState === "deleting") {
-      return { action: "deleteGroup" };
-    }
-
-    const membersSnapshot = await transaction.get(gref.collection("members"));
-    const bansSnapshot = await transaction.get(gref.collection("bans"));
-    const memberDeletionMarkers = membersSnapshot.empty
-      ? []
-      : await transaction.getAll(
-        ...membersSnapshot.docs.map((doc) =>
-          db.collection("account_deletions").doc(doc.id)),
-      );
-    const members = membersSnapshot.docs.map((doc) => ({
-      uid: doc.id,
-      ...(doc.data() || {}),
-      joinedAtMillis: (doc.data() || {}).joinedAt?.toMillis?.(),
-    }));
-    const bannedUids = new Set(
-      bansSnapshot.docs
-        .filter((doc) => (doc.data() || {}).active !== false)
-        .map((doc) => doc.id),
-    );
-    memberDeletionMarkers
-      .filter((doc) => doc.exists)
-      .forEach((doc) => bannedUids.add(doc.id));
-    const plan = buildGroupCleanupPlan({
-      departingUid: uid,
-      ownerId: (meta.data() || {}).ownerId,
-      members,
-      bannedUids,
-    });
-
-    if (plan.action === "deleteGroup") {
-      const affectedUserRefs = groupDeletionUserUids(members)
-        .map((memberUid) => db.collection("users").doc(memberUid));
-      const affectedUsers = affectedUserRefs.length === 0
-        ? []
-        : await transaction.getAll(...affectedUserRefs);
-      affectedUsers.forEach((affectedUser) => {
-        if (affectedUser.exists) {
-          transaction.update(affectedUser.ref, {
-            gyeIds: admin.firestore.FieldValue.arrayRemove(gyeId),
-          });
-        }
-      });
-      transaction.set(gref, { lifecycleState: "deleting" }, { merge: true });
-      return plan;
-    }
-
-    const departingRef = gref.collection("members").doc(uid);
-    if (members.some((member) => member.uid === uid)) {
-      transaction.delete(departingRef);
-    }
-    if (plan.action === "transferOwner") {
-      transaction.update(gref, {
-        ownerId: plan.successorUid,
-        memberCount: plan.memberCount,
-        lifecycleState: "active",
-      });
-      transaction.update(gref.collection("members").doc(plan.successorUid), {
-        role: "owner",
-        status: "active",
-      });
-    } else {
-      const currentCount = (meta.data() || {}).memberCount;
-      if (currentCount !== plan.memberCount) {
-        transaction.update(gref, { memberCount: plan.memberCount });
-      }
-    }
-    return plan;
-  });
-
-  if (outcome.action === "deleteGroup") {
-    // Parent deletion does not remove subcollections. recursiveDelete is
-    // intentionally used after lifecycleState closes the client join race.
-    await db.recursiveDelete(gref);
-  }
-  return outcome.action;
 }
 
 /**

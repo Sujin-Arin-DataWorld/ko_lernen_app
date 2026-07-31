@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,19 +7,29 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
+import 'package:ko_lernen_app/services/account/cloud_restore_result.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
+import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  late ValueNotifier<CloudBackupDeletionJournalState> cloudJournalState;
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    cloudJournalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.clear,
+    );
   });
+
+  tearDown(() => cloudJournalState.dispose());
 
   testWidgets('settings link entry confirms before safe operation starts', (
     tester,
@@ -29,7 +41,13 @@ void main() {
     final operations = _SettingsAccountOperations();
 
     await tester.pumpWidget(
-      _wrap(SettingsScreen(account: _guest, accountOperations: operations)),
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: operations,
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
     );
     await tester.pump();
 
@@ -59,7 +77,13 @@ void main() {
       ..pending.value = AccountUiPendingState.replacementCancellable;
 
     await tester.pumpWidget(
-      _wrap(SettingsScreen(account: _guest, accountOperations: operations)),
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: operations,
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
     );
     await tester.pump();
     await tester.scrollUntilVisible(
@@ -85,6 +109,345 @@ void main() {
     expect(operations.linkCalls, 0);
   });
 
+  testWidgets('account transition pending locks durable backup and restore', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final operations = _SettingsAccountOperations()
+      ..pending.value = AccountUiPendingState.replacementCancellable;
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: operations,
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    for (final label in ['Jetzt sichern', 'Von Cloud wiederherstellen']) {
+      await tester.scrollUntilVisible(
+        find.text(label),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final tile = tester.widget<ListTile>(
+        find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+      );
+      expect(tile.onTap, isNull, reason: label);
+    }
+  });
+
+  testWidgets(
+    'delayed persisted journal keeps every durable action locked on the first frame',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final refreshStarted = Completer<void>();
+      final releasePersistedRead = Completer<AccountUiPendingState>();
+      final operations = _DelayedJournalAccountOperations(
+        refreshStarted: refreshStarted,
+        readPersistedState: () => releasePersistedRead.future,
+      );
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: const AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: true,
+                isAppleLinked: false,
+              ),
+            ),
+            accountOperations: operations,
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
+        ),
+      );
+      await refreshStarted.future;
+
+      for (final label in <String>[
+        'Jetzt sichern',
+        'Von Cloud wiederherstellen',
+        'Abmelden',
+        'Cloud-Daten löschen',
+        'Alle Daten zurücksetzen',
+        'Konto und alle Daten löschen',
+      ]) {
+        await _expectSettingsTileDisabled(tester, label);
+      }
+
+      releasePersistedRead.complete(
+        AccountUiPendingState.replacementCancellable,
+      );
+      await tester.pump();
+
+      for (final label in <String>[
+        'Alle Daten zurücksetzen',
+        'Konto und alle Daten löschen',
+      ]) {
+        await _expectSettingsTileDisabled(tester, label);
+      }
+    },
+  );
+
+  testWidgets('backup shows success only for a completed cloud result', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      backupWithResult: () async => CloudWriteResult.blocked,
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final backup = find.text('Jetzt sichern');
+    await tester.scrollUntilVisible(
+      backup,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(backup);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Backup erfolgreich ✓'), findsNothing);
+    expect(
+      find.text(
+        'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+        'Du kannst denselben Vorgang erneut versuchen.',
+      ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets(
+    'restore shows retry feedback when a fresh admission finds a pending journal',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      final journal = _MutableCloudBackupDeletionJournalStore();
+      AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+        CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journal,
+          gateway: _UnusedCloudBackupDeletionGateway(),
+        ),
+      );
+      addTearDown(AuthService.resetCloudBackupDeletionForTesting);
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: const AuthAccountSnapshot(
+              providers: AuthProviderState(
+                isGoogleLinked: true,
+                isAppleLinked: false,
+              ),
+            ),
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final restore = find.text('Von Cloud wiederherstellen');
+      await tester.scrollUntilVisible(
+        restore,
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final tile = tester.widget<ListTile>(
+        find.ancestor(of: restore, matching: find.byType(ListTile)),
+      );
+      expect(tile.onTap, isNotNull);
+
+      journal.current = CloudBackupDeletionJournal.pending(
+        session: const CloudWriteSession(
+          uid: 'durable',
+          epoch: 2,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'P' * 43,
+      );
+      await tester.tap(restore);
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text(
+          'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+          'Du kannst denselben Vorgang erneut versuchen.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Keine Cloud-Daten'), findsNothing);
+    },
+  );
+
+  testWidgets('restore shows retry feedback for a typed stale result', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      restoreWithResult: () async => CloudRestoreResult.stale,
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final restore = find.text('Von Cloud wiederherstellen');
+    await tester.scrollUntilVisible(
+      restore,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(restore);
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text(
+        'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+        'Du kannst denselben Vorgang erneut versuchen.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Keine Cloud-Daten'), findsNothing);
+  });
+
+  testWidgets('restore shows no-backup feedback for a typed empty result', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final sessions = CloudWriteSessionController()..acquire('durable');
+    AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+      CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: _ClearCloudBackupDeletionJournalStore(),
+        gateway: _UnusedCloudBackupDeletionGateway(),
+      ),
+    );
+    CloudSync.overrideOperationsForTesting(
+      restoreWithResult: () async => CloudRestoreResult.empty,
+    );
+    addTearDown(() {
+      CloudSync.resetOperationsForTesting();
+      AuthService.resetCloudBackupDeletionForTesting();
+    });
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final restore = find.text('Von Cloud wiederherstellen');
+    await tester.scrollUntilVisible(
+      restore,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(restore);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Keine Cloud-Daten'), findsOneWidget);
+    expect(
+      find.text(
+        'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+        'Du kannst denselben Vorgang erneut versuchen.',
+      ),
+      findsNothing,
+    );
+  });
+
   testWidgets('deletion failure is recoverable and redacts private details', (
     tester,
   ) async {
@@ -101,6 +464,7 @@ void main() {
           account: _guest,
           accountOperations: _SettingsAccountOperations(),
           accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+          cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
     );
@@ -145,6 +509,7 @@ void main() {
           cloudDataDeletion: () async {
             throw StateError('proof-secret-456 raw Firestore detail');
           },
+          cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
     );
@@ -169,6 +534,125 @@ void main() {
     );
   });
 
+  testWidgets('cloud-data deletion reports success only when completed', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletion: () async => CloudWriteResult.blocked,
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final delete = find.text('Cloud-Daten l\u00f6schen');
+    await tester.scrollUntilVisible(
+      delete,
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(delete);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('L\u00f6schen').last);
+    await tester.pump();
+
+    expect(find.text('Cloud-Daten wurden gel\u00f6scht.'), findsNothing);
+    expect(
+      find.text('Cloud-Daten konnten nicht gel\u00f6scht werden.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('loading cloud deletion locks backup restore sign-out and link', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+      CloudBackupDeletionJournalState.loading,
+    );
+    addTearDown(journalState.dispose);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: const AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+          ),
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletion: () async => CloudWriteResult.blocked,
+          cloudDataDeletionJournalState: journalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    for (final label in [
+      'Jetzt sichern',
+      'Von Cloud wiederherstellen',
+      'Abmelden',
+      'Alle Daten zurücksetzen',
+    ]) {
+      await tester.scrollUntilVisible(
+        find.text(label),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final tile = tester.widget<ListTile>(
+        find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+      );
+      expect(tile.onTap, isNull, reason: label);
+    }
+
+    final retryLabel = find.text('Cloud-Daten l\u00f6schen');
+    await tester.scrollUntilVisible(
+      retryLabel,
+      -200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    final retryDelete = tester.widget<ListTile>(
+      find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
+    );
+    expect(retryDelete.onTap, isNull);
+
+    journalState.value = CloudBackupDeletionJournalState.pending;
+    await tester.pump();
+    final retryAfterAuthoritativePending = tester.widget<ListTile>(
+      find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
+    );
+    expect(retryAfterAuthoritativePending.onTap, isNotNull);
+
+    final accountDeleteLabel = find.text('Konto und alle Daten l\u00f6schen');
+    await tester.scrollUntilVisible(
+      accountDeleteLabel,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    final accountDelete = tester.widget<ListTile>(
+      find.ancestor(of: accountDeleteLabel, matching: find.byType(ListTile)),
+    );
+    expect(accountDelete.onTap, isNull);
+  });
+
   testWidgets('retry after local cleanup failure never deletes a new account', (
     tester,
   ) async {
@@ -184,6 +668,7 @@ void main() {
           account: _guest,
           accountOperations: _SettingsAccountOperations(),
           accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+          cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
     );
@@ -207,6 +692,107 @@ void main() {
     expect(cleanup.deleteCalls, 1);
     expect(cleanup.imageCalls, 2);
   });
+
+  testWidgets(
+    'reset closes its dialog and shows a safe retry message when a journal appears',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            resetAllData: () async {
+              throw const CloudBackupDeletionResetBlockedException();
+            },
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final reset = find.text('Alle Daten zurücksetzen');
+      await tester.scrollUntilVisible(
+        reset,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(reset);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('OK'));
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+      expect(find.text('Alle Daten zurücksetzen'), findsOneWidget);
+      expect(
+        find.text(
+          'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+          'Du kannst denselben Vorgang erneut versuchen.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.byType(AlertDialog), findsNothing);
+    },
+  );
+
+  testWidgets(
+    'reset does not pop settings when its dialog was already dismissed',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final startedReset = Completer<void>();
+      final releaseReset = Completer<void>();
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            resetAllData: () async {
+              startedReset.complete();
+              await releaseReset.future;
+              throw const CloudBackupDeletionResetBlockedException();
+            },
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final reset = find.text('Alle Daten zurücksetzen');
+      await tester.scrollUntilVisible(
+        reset,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(reset);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('OK'));
+      await startedReset.future;
+      await tester.pump();
+      await tester.tap(find.text('Abbrechen'));
+      await tester.pumpAndSettle();
+
+      releaseReset.complete();
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+      expect(find.text('Alle Daten zurücksetzen'), findsOneWidget);
+      expect(
+        find.text(
+          'Die sichere Prüfung konnte nicht abgeschlossen werden. '
+          'Du kannst denselben Vorgang erneut versuchen.',
+        ),
+        findsOneWidget,
+      );
+    },
+  );
 }
 
 const _guest = AuthAccountSnapshot(
@@ -245,6 +831,71 @@ class _SettingsAccountOperations
   @override
   Future<AccountTransitionResult> resumeReplacement() async =>
       const AccountTransitionResult(AccountTransitionStatus.completed);
+}
+
+class _DelayedJournalAccountOperations extends _SettingsAccountOperations {
+  _DelayedJournalAccountOperations({
+    required this.refreshStarted,
+    required this.readPersistedState,
+  });
+
+  final Completer<void> refreshStarted;
+  final Future<AccountUiPendingState> Function() readPersistedState;
+
+  @override
+  Future<AccountUiPendingState> refreshPendingState() async {
+    if (!refreshStarted.isCompleted) {
+      refreshStarted.complete();
+    }
+    final state = await readPersistedState();
+    pending.value = state;
+    return state;
+  }
+}
+
+class _ClearCloudBackupDeletionJournalStore
+    implements CloudBackupDeletionJournalStore {
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async =>
+      true;
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() async => null;
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) async {
+    throw UnimplementedError();
+  }
+}
+
+class _MutableCloudBackupDeletionJournalStore
+    implements CloudBackupDeletionJournalStore {
+  CloudBackupDeletionJournal? current;
+
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async {
+    if (current != expected) return false;
+    current = null;
+    return true;
+  }
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() async => current;
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) async {
+    current = journal;
+  }
+}
+
+class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
+  @override
+  Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
+    String requestKey, {
+    required String expectedUid,
+  }) async {
+    throw UnimplementedError();
+  }
 }
 
 class _DeletionCleanup implements AccountDeletionCleanupOperations {
@@ -289,4 +940,19 @@ Widget _wrap(Widget child) {
     localizationsDelegates: AppL10n.localizationsDelegates,
     home: child,
   );
+}
+
+Future<void> _expectSettingsTileDisabled(
+  WidgetTester tester,
+  String label,
+) async {
+  await tester.scrollUntilVisible(
+    find.text(label),
+    200,
+    scrollable: find.byType(Scrollable).first,
+  );
+  final tile = tester.widget<ListTile>(
+    find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
+  );
+  expect(tile.onTap, isNull, reason: label);
 }

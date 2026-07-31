@@ -10,42 +10,41 @@ Do not replace it with a lowercase variant. Do not commit an Apple team ID, prov
 
 The source project declares Push Notifications and Sign in with Apple. Debug uses the APNs `development` entitlement; Profile and Release use `production`.
 
+`dart run tool/verify_ios_firebase_config.dart` is a checked-in release gate.
+It intentionally exits with code 1 in a clean checkout until the authorized
+release operator has generated the iOS Firebase configuration locally, kept
+`GoogleService-Info.plist` out of Git, and enabled its Runner target
+membership. Do not weaken or bypass this failure on Windows or by committing
+the generated plist.
+
 ## 1. Register the Firebase iOS app
 
-Use the existing Firebase project. The following macOS shell session deliberately stops when a required value or generated field is absent:
+Use the existing Firebase project and register the exact case-sensitive bundle
+ID above before generating local configuration. If the Firebase iOS app is not
+yet registered, create it in the Firebase Console or with the Firebase CLI; if
+it already exists, select that existing app. Then, from a macOS release
+workstation, use FlutterFire to generate the local iOS option:
 
 ```bash
 set -euo pipefail
 
 : "${FIREBASE_PROJECT_ID:?Set FIREBASE_PROJECT_ID to the existing Firebase project ID}"
-export IOS_BUNDLE_ID='com.sujinarin.koLernenApp'
-export GOOGLE_SERVICE_PLIST="$PWD/ios/Runner/GoogleService-Info.plist"
-
-command -v firebase >/dev/null
-command -v plutil >/dev/null
 test -f pubspec.yaml
+command -v flutterfire >/dev/null
 git check-ignore -q ios/Runner/GoogleService-Info.plist
 
-firebase apps:create IOS 'Hangul Sori iOS' \
-  --bundle-id "$IOS_BUNDLE_ID" \
-  --project "$FIREBASE_PROJECT_ID"
-
-firebase apps:list --project "$FIREBASE_PROJECT_ID"
-: "${FIREBASE_IOS_APP_ID:?Copy the new iOS app ID from firebase apps:list and export FIREBASE_IOS_APP_ID}"
-
-firebase apps:sdkconfig IOS "$FIREBASE_IOS_APP_ID" \
-  --project "$FIREBASE_PROJECT_ID" > "$GOOGLE_SERVICE_PLIST"
-
-test -s "$GOOGLE_SERVICE_PLIST"
-plutil -lint "$GOOGLE_SERVICE_PLIST"
-test "$(plutil -extract BUNDLE_ID raw "$GOOGLE_SERVICE_PLIST")" = "$IOS_BUNDLE_ID"
-test -n "$(plutil -extract GOOGLE_APP_ID raw "$GOOGLE_SERVICE_PLIST")"
-test -n "$(plutil -extract CLIENT_ID raw "$GOOGLE_SERVICE_PLIST")"
-export REVERSED_CLIENT_ID="$(plutil -extract REVERSED_CLIENT_ID raw "$GOOGLE_SERVICE_PLIST")"
+flutterfire configure --project "$FIREBASE_PROJECT_ID" --platforms ios
+test -s ios/Runner/GoogleService-Info.plist
+plutil -lint ios/Runner/GoogleService-Info.plist
+export REVERSED_CLIENT_ID="$(plutil -extract REVERSED_CLIENT_ID raw ios/Runner/GoogleService-Info.plist)"
 test -n "$REVERSED_CLIENT_ID"
 ```
 
-If the Firebase app already exists, skip `apps:create`, obtain its app ID from `firebase apps:list`, and continue with `apps:sdkconfig`.
+Review the generated `lib/firebase_options.dart` before any macOS archive: its
+`TargetPlatform.iOS` branch must return a generated `ios` Firebase option. The
+review must not copy generated values into source, a ticket, or a build log.
+Keep the generated `ios/Runner/GoogleService-Info.plist` local and ignored;
+never add it to a commit.
 
 Open `ios/Runner.xcworkspace` in Xcode. Add the real `ios/Runner/GoogleService-Info.plist` to the `Runner` group with “Copy items if needed” disabled and `Runner` target membership enabled. Under Runner > Info > URL Types, add one URL scheme whose value is the extracted `$REVERSED_CLIENT_ID`. This is the reversed Google client URL scheme, not the OAuth client ID itself.
 
@@ -57,6 +56,7 @@ test -s ios/Runner/GoogleService-Info.plist
 grep -Fq 'GoogleService-Info.plist' ios/Runner.xcodeproj/project.pbxproj
 grep -Fq "$(plutil -extract REVERSED_CLIENT_ID raw ios/Runner/GoogleService-Info.plist)" \
   ios/Runner/Info.plist
+dart run tool/verify_ios_firebase_config.dart
 ```
 
 Enable the required providers in Firebase Console > Authentication > Sign-in method:

@@ -989,6 +989,9 @@ class AppL10nEn extends AppL10n {
   String get bookResultTitle => 'Result';
 
   @override
+  String get loadErrorTryAgain => 'Something went wrong. Please try again.';
+
+  @override
   String get bookResultAnalyzing => 'Looking up words & grammar …';
 
   @override

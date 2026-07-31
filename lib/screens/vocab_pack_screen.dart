@@ -96,15 +96,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     });
     try {
       final pack = await VocabPackService.findById(widget.packId);
+      if (!mounted) return;
       if (pack == null) {
         setState(() {
           _loading = false;
-          _error = 'pack not found: ${widget.packId}';
+          _error = AppL10n.of(context).loadErrorTryAgain;
         });
         return;
       }
       // Sibling packs — Distractor 풀 보강용 (같은 level).
       final siblings = await VocabPackService.packsForLevel(pack.level);
+      if (!mounted) return;
       final pool = <Vocab>[
         ...pack.words,
         for (final p in siblings)
@@ -117,10 +119,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         _loading = false;
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
-    } catch (e) {
+    } catch (_) {
+      if (!mounted) return;
       setState(() {
         _loading = false;
-        _error = e.toString();
+        _error = AppL10n.of(context).loadErrorTryAgain;
       });
     }
   }

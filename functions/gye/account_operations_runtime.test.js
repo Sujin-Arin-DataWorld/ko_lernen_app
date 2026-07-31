@@ -58,6 +58,136 @@ class FakeDocumentReference {
   }
 }
 
+class FakeQueryDocumentSnapshot extends FakeSnapshot {
+  constructor(firestore, path, value) {
+    super(value);
+    this.id = path.split("/").at(-1);
+    this.ref = new FakeDocumentReference(firestore, path);
+  }
+}
+
+class FakeQuery {
+  constructor(firestore, path, {
+    conditions = [],
+    orderings = [],
+    startAfterValues = null,
+    queryLimit = null,
+  } = {}) {
+    this.firestore = firestore;
+    this.path = path;
+    this.conditions = conditions;
+    this.orderings = orderings;
+    this.startAfterValues = startAfterValues;
+    this.queryLimit = queryLimit;
+  }
+
+  withChange(change) {
+    return new FakeQuery(this.firestore, this.path, {
+      conditions: this.conditions,
+      orderings: this.orderings,
+      startAfterValues: this.startAfterValues,
+      queryLimit: this.queryLimit,
+      ...change,
+    });
+  }
+
+  where(field, operator, value) {
+    return this.withChange({
+      conditions: [...this.conditions, { field, operator, value }],
+    });
+  }
+
+  orderBy(field, direction = "asc") {
+    return this.withChange({
+      orderings: [...this.orderings, { field, direction }],
+    });
+  }
+
+  startAfter(...values) {
+    return this.withChange({ startAfterValues: values });
+  }
+
+  limit(limit) {
+    return this.withChange({ queryLimit: limit });
+  }
+
+  valueAt(candidate, field) {
+    if (field === "__name__") return candidate.id;
+    return field
+      .split(".")
+      .reduce((value, part) => value?.[part], candidate.value);
+  }
+
+  compareValues(left, right) {
+    if (left === right) return 0;
+    return left < right ? -1 : 1;
+  }
+
+  compareCandidate(left, right) {
+    for (const ordering of this.orderings) {
+      const comparison = this.compareValues(
+        this.valueAt(left, ordering.field),
+        this.valueAt(right, ordering.field),
+      );
+      if (comparison !== 0) {
+        return ordering.direction === "desc" ? -comparison : comparison;
+      }
+    }
+    return 0;
+  }
+
+  compareToCursor(candidate) {
+    for (let index = 0; index < this.orderings.length; index += 1) {
+      const ordering = this.orderings[index];
+      const comparison = this.compareValues(
+        this.valueAt(candidate, ordering.field),
+        this.startAfterValues[index],
+      );
+      if (comparison !== 0) {
+        return ordering.direction === "desc" ? -comparison : comparison;
+      }
+    }
+    return 0;
+  }
+
+  async get() {
+    const prefix = `${this.path}/`;
+    let candidates = Array.from(this.firestore.documents.entries())
+      .filter(([path]) => {
+        if (!path.startsWith(prefix)) return false;
+        return !path.slice(prefix.length).includes("/");
+      })
+      .map(([path, value]) => ({
+        id: path.slice(prefix.length),
+        path,
+        value: structuredClone(value),
+      }))
+      .filter((candidate) => this.conditions.every((condition) => {
+        const actual = this.valueAt(candidate, condition.field);
+        if (condition.operator === "<=") {
+          return actual !== undefined && actual <= condition.value;
+        }
+        return actual === condition.value;
+      }))
+      .sort((left, right) => this.compareCandidate(left, right));
+    if (this.startAfterValues) {
+      candidates = candidates.filter(
+        (candidate) => this.compareToCursor(candidate) > 0,
+      );
+    }
+    if (this.queryLimit !== null) {
+      candidates = candidates.slice(0, this.queryLimit);
+    }
+    return {
+      docs: candidates.map((candidate) => new FakeQueryDocumentSnapshot(
+        this.firestore,
+        candidate.path,
+        candidate.value,
+      )),
+    };
+  }
+}
+
 class FakeCollectionReference {
   constructor(firestore, path) {
     this.firestore = firestore;
@@ -66,6 +196,16 @@ class FakeCollectionReference {
 
   doc(id) {
     return new FakeDocumentReference(this.firestore, `${this.path}/${id}`);
+  }
+
+  where(field, operator, value) {
+    return new FakeQuery(this.firestore, this.path)
+      .where(field, operator, value);
+  }
+
+  orderBy(field, direction) {
+    return new FakeQuery(this.firestore, this.path)
+      .orderBy(field, direction);
   }
 }
 
@@ -84,6 +224,9 @@ class FakeFirestore {
       const writes = new Map();
       const transaction = {
         get: async (reference) => {
+          if (reference instanceof FakeQuery) {
+            return reference.get();
+          }
           const value = writes.has(reference.path)
             ? writes.get(reference.path)
             : this.documents.get(reference.path);
@@ -117,6 +260,55 @@ class FakeFirestore {
       .filter(([path]) => path.startsWith(prefix))
       .map(([, value]) => structuredClone(value));
   }
+}
+
+function fakeAccountOperationCollection(source) {
+  const valueAt = (candidate, field) => field
+    .split(".")
+    .reduce((value, part) => value?.[part], candidate);
+  const buildQuery = (conditions = [], orderings = [], queryLimit = null) => ({
+    where(field, operator, value) {
+      return buildQuery(
+        [...conditions, { field, operator, value }],
+        orderings,
+        queryLimit,
+      );
+    },
+    orderBy(field) {
+      return buildQuery(
+        conditions,
+        [...orderings, field],
+        queryLimit,
+      );
+    },
+    limit(limit) {
+      return buildQuery(conditions, orderings, limit);
+    },
+    async get() {
+      const docs = (typeof source === "function" ? source() : source)
+        .filter((candidate) => conditions.every((condition) => {
+          const actual = valueAt(candidate, condition.field);
+          if (condition.operator === "in") {
+            return condition.value.includes(actual);
+          }
+          if (condition.operator === "<=") {
+            return actual <= condition.value;
+          }
+          return actual === condition.value;
+        }))
+        .sort((left, right) => {
+          for (const field of orderings) {
+            const comparison = valueAt(left, field) - valueAt(right, field);
+            if (comparison !== 0) return comparison;
+          }
+          return 0;
+        });
+      return {
+        docs: queryLimit === null ? docs : docs.slice(0, queryLimit),
+      };
+    },
+  });
+  return buildQuery();
 }
 
 function decodedToken({
@@ -325,6 +517,12 @@ test("registers every protected callable name with the exact v2 options", () => 
   const handlers = Object.fromEntries(
     CALLABLE_NAMES.map((name) => [name, async () => name]),
   );
+  const appleSecrets = [
+    { name: "APPLE_REVOKE_CLIENT_ID" },
+    { name: "APPLE_REVOKE_TEAM_ID" },
+    { name: "APPLE_REVOKE_KEY_ID" },
+    { name: "APPLE_REVOKE_PRIVATE_KEY" },
+  ];
   const registrations = [];
   const callables = runtime.createAccountOperationCallables({
     handlers,
@@ -332,16 +530,25 @@ test("registers every protected callable name with the exact v2 options", () => 
       registrations.push({ options, handler });
       return { options, handler };
     },
+    optionsByName: {
+      completeAppleRevocation: {
+        secrets: appleSecrets,
+      },
+    },
   });
 
   assert.deepEqual(Object.keys(callables), CALLABLE_NAMES);
   assert.equal(registrations.length, CALLABLE_NAMES.length);
-  for (const registration of registrations) {
-    assert.deepEqual(registration.options, {
+  for (const [index, registration] of registrations.entries()) {
+    const expected = {
       region: "europe-west3",
       enforceAppCheck: true,
       consumeAppCheckToken: true,
-    });
+    };
+    if (CALLABLE_NAMES[index] === "completeAppleRevocation") {
+      expected.secrets = appleSecrets;
+    }
+    assert.deepEqual(registration.options, expected);
     assert.equal(typeof registration.handler, "function");
   }
 });
@@ -1448,6 +1655,129 @@ async () => {
   );
 });
 
+test("server deletion takeover clears a legacy completion receipt before " +
+    "community cleanup", async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  harness.firestore.documents.set("account_deletions/durable-target", {
+    state: "complete",
+    cleanupComplete: true,
+    cleanupCompletedAt: "legacy-server-time",
+    cleanupGyeIds: ["legacy-gye"],
+    cleanupRevision: 7,
+    retainedLegacyAudit: "keep",
+  });
+
+  await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "takeover-worker",
+    leaseMillis: 60_000,
+  });
+
+  const takenOver = harness.firestore.documents.get(
+    "account_deletions/durable-target",
+  );
+  assert.equal(takenOver.serverOwned, true);
+  assert.equal(takenOver.operationId, requested.operationId);
+  assert.equal(takenOver.cleanupComplete, false);
+  assert.deepEqual(takenOver.cleanupGyeIds, ["legacy-gye"]);
+  assert.equal(takenOver.retainedLegacyAudit, "keep");
+
+  harness.clock.now += 60_001;
+  let cleanupReceipt;
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {
+      cleanupReceipt = harness.firestore.documents.get(
+        "account_deletions/durable-target",
+      ).cleanupComplete;
+    },
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+
+  await runWorkerUntil(
+    worker,
+    requested.operationId,
+    "processorCleanupPending",
+  );
+
+  assert.equal(cleanupReceipt, false);
+});
+
+test("source replacement takeover also clears a legacy completion receipt",
+async () => {
+  const harness = createHarness();
+  const prepared = await prepareReplacement(harness.handlers);
+  let operation = prepared;
+  for (const name of [
+    "attachReplacementTarget",
+    "commitReplacementReconciliation",
+    "startSourceCleanup",
+  ]) {
+    operation = await harness.handlers[name](callableRequest("target", {
+      operationId: prepared.operationId,
+      expectedVersion: operation.version,
+    }));
+  }
+  harness.firestore.documents.set("account_deletions/anonymous-source", {
+    state: "complete",
+    cleanupComplete: true,
+    cleanupGyeIds: ["legacy-gye"],
+    cleanupRevision: 3,
+  });
+
+  await harness.repository.claimDeletionWork({
+    operationId: prepared.operationId,
+    workerId: "replacement-takeover-worker",
+    leaseMillis: 60_000,
+  });
+
+  const takenOver = harness.firestore.documents.get(
+    "account_deletions/anonymous-source",
+  );
+  assert.equal(operation.phase, "sourceCleanupPending");
+  assert.equal(takenOver.serverOwned, true);
+  assert.equal(takenOver.operationId, prepared.operationId);
+  assert.equal(takenOver.cleanupComplete, false);
+  assert.deepEqual(takenOver.cleanupGyeIds, ["legacy-gye"]);
+});
+
+test("an active server-owned operation retains its own cleanup receipt on " +
+    "lease recovery", async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "first-worker",
+    leaseMillis: 60_000,
+  });
+  const markerPath = "account_deletions/durable-target";
+  const activeMarker = harness.firestore.documents.get(markerPath);
+  harness.firestore.documents.set(markerPath, {
+    ...activeMarker,
+    cleanupComplete: true,
+    cleanupGyeIds: ["already-cleaned"],
+    cleanupRevision: 9,
+  });
+  harness.clock.now += 60_001;
+
+  await harness.repository.claimDeletionWork({
+    operationId: requested.operationId,
+    workerId: "recovery-worker",
+    leaseMillis: 60_000,
+  });
+
+  const recovered = harness.firestore.documents.get(markerPath);
+  assert.equal(recovered.serverOwned, true);
+  assert.equal(recovered.operationId, requested.operationId);
+  assert.equal(recovered.cleanupComplete, true);
+  assert.deepEqual(recovered.cleanupGyeIds, ["already-cleaned"]);
+  assert.equal(recovered.cleanupRevision, 9);
+});
+
 test("rejects a second active claim even when it repeats the same worker ID",
 async () => {
   const harness = createHarness();
@@ -1631,6 +1961,63 @@ async () => {
   assert.equal(stored.phase, "communityCleanupPending");
 });
 
+test("worker checkpoints bounded cleanup without advancing phase and passes "
+    + "the renewed lease fence", async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const setupWorker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => ({ done: true }),
+    cleanupProcessor: async () => ({ done: true }),
+    nowMillis: () => harness.clock.now,
+  });
+  await runWorkerUntil(
+    setupWorker,
+    requested.operationId,
+    "communityCleanupPending",
+  );
+  const fences = [];
+  let communityCalls = 0;
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async ({ workerFence }) => {
+      fences.push(workerFence);
+      communityCalls += 1;
+      return { done: communityCalls > 1 };
+    },
+    cleanupProcessor: async () => ({ done: true }),
+    newWorkerInvocationId: () => `cleanup-${communityCalls + 1}`,
+    nowMillis: () => harness.clock.now,
+  });
+
+  const bounded = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "scheduled",
+  });
+  assert.equal(bounded.phase, "communityCleanupPending");
+  assert.equal(communityCalls, 1);
+  assert.equal(typeof fences[0]?.workerId, "string");
+  assert.equal(fences[0]?.operationVersion, bounded.version);
+  const checkpointed = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+  assert.equal(
+    fences[0]?.leaseVersion + 1,
+    checkpointed.workerLease.leaseVersion,
+  );
+
+  const advanced = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "scheduled",
+  });
+  assert.equal(advanced.phase, "processorCleanupPending");
+  assert.equal(communityCalls, 2);
+});
+
 test("server worker resumes Auth deletion only after persisted Apple revocation proof",
 async () => {
   const harness = createHarness({
@@ -1797,6 +2184,35 @@ async () => {
   assert.equal(authDeletes, 0);
 });
 
+test("passes the renewed operation lease fence into each destructive tree page",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const fences = [];
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async ({ workerFence }) => {
+      fences.push(workerFence);
+      return { done: false, nextCursor: "work-v1" };
+    },
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    nowMillis: () => harness.clock.now,
+  });
+
+  const result = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "scheduled-operation",
+  });
+
+  assert.equal(fences.length, 1);
+  assert.equal(typeof fences[0].workerId, "string");
+  assert(fences[0].workerId.length > 0);
+  assert.equal(fences[0].operationVersion, result.version);
+  assert.equal(fences[0].leaseVersion, 2);
+});
+
 test("does not complete before Gye community and processor cleanup phases finish",
 async () => {
   const harness = createHarness();
@@ -1869,51 +2285,404 @@ test("never lets legacy tombstone cleanup abandon a server-owned marker",
   );
 });
 
+test("replacement backlog cannot exclude a due deletion candidate", async () => {
+  const source = [
+    ...Array.from({ length: 80 }, (_, index) => ({
+      id: `replacement-${index}`,
+      kind: "replacement",
+      phase: "sourceCleanupPending",
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS + index,
+    })),
+    {
+      id: "due-deletion",
+      kind: "deletion",
+      phase: "deletionRequested",
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS + 100,
+    },
+  ];
+
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: fakeAccountOperationCollection(source),
+    limit: 50,
+    nowMillis: NOW_MILLIS,
+  });
+
+  assert(candidates.some((candidate) => candidate.id === "due-deletion"));
+});
+
+test("scheduler interleaves replacement, deletion, and Apple queues", async () => {
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: fakeAccountOperationCollection([
+      {
+        id: "replacement-one",
+        kind: "replacement",
+        phase: "sourceCleanupPending",
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS,
+      },
+      {
+        id: "replacement-two",
+        kind: "replacement",
+        phase: "sourceCleanupPending",
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS + 1,
+      },
+      {
+        id: "deletion-one",
+        kind: "deletion",
+        phase: "deletionRequested",
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS,
+      },
+      {
+        id: "apple-one",
+        kind: "deletion",
+        phase: "appleRevocationPending",
+        deletionProgress: { appleRevocationComplete: true },
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS,
+      },
+    ]),
+    limit: 50,
+    nowMillis: NOW_MILLIS,
+  });
+
+  assert.deepEqual(
+    candidates.map(({ id }) => id),
+    [
+      "replacement-one",
+      "deletion-one",
+      "apple-one",
+      "replacement-two",
+    ],
+  );
+});
+
+test("scheduled execution gives every queue class wall-clock opportunity "
+    + "before slow replacement work finishes", async () => {
+  const events = [];
+  const startedAtMillis = Date.now();
+  const candidates = [
+    {
+      id: "slow-replacement",
+      kind: "replacement",
+      phase: "sourceCleanupPending",
+    },
+    {
+      id: "later-replacement",
+      kind: "replacement",
+      phase: "sourceCleanupPending",
+    },
+    {
+      id: "due-deletion",
+      kind: "deletion",
+      phase: "deletionRequested",
+    },
+    {
+      id: "due-apple",
+      kind: "deletion",
+      phase: "appleRevocationPending",
+      deletionProgress: { appleRevocationComplete: true },
+    },
+  ];
+
+  await runtime.runScheduledDeletionBatch({
+    candidates,
+    repository: {
+      async recordDeletionWorkFailure() {},
+    },
+    workerRuntime: {
+      async processDeletionOperation({ operationId }) {
+        events.push(`start:${operationId}`);
+        if (operationId === "slow-replacement") {
+          await new Promise((resolve) => setTimeout(resolve, 80));
+        }
+        events.push(`finish:${operationId}`);
+        return { phase: "completed" };
+      },
+    },
+    logger: { warn() {} },
+    deadlineMillis: startedAtMillis + 500,
+    nowMillis: () => Date.now(),
+  });
+
+  const slowFinished = events.indexOf("finish:slow-replacement");
+  assert.ok(events.indexOf("start:due-deletion") < slowFinished);
+  assert.ok(events.indexOf("start:due-apple") < slowFinished);
+  assert.ok(Date.now() - startedAtMillis < 400);
+});
+
+test("worker deadline records safe deferral before the outer schedule timeout",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const workerRuntime = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      return { done: false, nextCursor: "work-v1" };
+    },
+    cleanupCommunity: async () => ({ done: true }),
+    cleanupProcessor: async () => ({ done: true }),
+    newWorkerInvocationId: () => "deadline-invocation",
+    nowMillis: () => Date.now(),
+  });
+  const startedAtMillis = Date.now();
+
+  await runtime.runScheduledDeletionCandidate({
+    candidate: { id: requested.operationId },
+    repository: harness.repository,
+    workerRuntime,
+    logger: { warn() {} },
+    deadlineMillis: startedAtMillis + 20,
+    nowMillis: () => Date.now(),
+  });
+
+  const stored = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+  assert.ok(Date.now() - startedAtMillis < 180);
+  assert.equal(stored.deletionProgress.statusCode, "worker-failed");
+  assert.ok(stored.nextAttemptAtMillis > startedAtMillis);
+});
+
+test("a never-resolving destructive adapter expires its lease and defers work",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const workerRuntime = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => new Promise(() => {}),
+    cleanupCommunity: async () => ({ done: true }),
+    cleanupProcessor: async () => ({ done: true }),
+    newWorkerInvocationId: () => "hung-adapter-invocation",
+    nowMillis: () => Date.now(),
+    unitTimeoutMillis: 20,
+  });
+  const startedAtMillis = Date.now();
+
+  const result = await Promise.race([
+    runtime.runScheduledDeletionCandidate({
+      candidate: { id: requested.operationId },
+      repository: harness.repository,
+      workerRuntime,
+      logger: { warn() {} },
+      deadlineMillis: startedAtMillis + 500,
+      nowMillis: () => Date.now(),
+    }).then(() => "finished"),
+    new Promise((resolve) => setTimeout(() => resolve("hung"), 150)),
+  ]);
+
+  assert.equal(result, "finished");
+  const stored = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+  assert.equal(stored.deletionProgress.statusCode, "worker-failed");
+  assert.ok(stored.workerLease.leaseUntilMillis <= Date.now());
+  assert.ok(stored.nextAttemptAtMillis > startedAtMillis);
+});
+
+test("scheduler excludes deletion work whose retry time is not due", async () => {
+  const source = [
+    {
+      id: "due-deletion",
+      kind: "deletion",
+      phase: "deletionRequested",
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS,
+    },
+    {
+      id: "future-deletion",
+      kind: "deletion",
+      phase: "deletionRequested",
+      nextAttemptAtMillis: NOW_MILLIS + 1,
+      updatedAtMillis: NOW_MILLIS,
+    },
+  ];
+
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: fakeAccountOperationCollection(source),
+    limit: 50,
+    nowMillis: NOW_MILLIS,
+  });
+
+  assert.deepEqual(
+    candidates.map((candidate) => candidate.id),
+    ["due-deletion"],
+  );
+});
+
+test("failed worker work is deferred with a safe code", async () => {
+  const rawAdapterError = "provider-secret-error-detail";
+  const warnings = [];
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const workerRuntime = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => {
+      throw new Error(rawAdapterError);
+    },
+    cleanupCommunity: async () => {},
+    cleanupProcessor: async () => {},
+    newWorkerInvocationId: () => "failed-invocation",
+    nowMillis: () => harness.clock.now,
+  });
+
+  await runtime.runScheduledDeletionCandidate({
+    candidate: { id: requested.operationId },
+    repository: harness.repository,
+    workerRuntime,
+    logger: {
+      warn(...args) {
+        warnings.push(args);
+      },
+    },
+    nowMillis: () => harness.clock.now,
+  });
+
+  const stored = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+  assert.equal(stored.deletionProgress.statusCode, "worker-failed");
+  assert(stored.nextAttemptAtMillis > NOW_MILLIS);
+  assert(stored.nextAttemptAtMillis <= NOW_MILLIS + 3_600_000);
+  assert.equal(JSON.stringify(stored).includes(rawAdapterError), false);
+  assert.equal(JSON.stringify(warnings).includes(rawAdapterError), false);
+  assert.deepEqual(warnings, [
+    ["account-deletion-worker-failed", { code: "worker-failed" }],
+  ]);
+});
+
+test("legacy scheduler backfills a due operation before due-only selection",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const operationPath = `account_operations/${requested.operationId}`;
+  const legacy = harness.firestore.documents.get(operationPath);
+  delete legacy.nextAttemptAtMillis;
+  const collection = fakeAccountOperationCollection(() =>
+    harness.firestore.valuesIn("account_operations"));
+
+  const candidates = await runtime.fetchStagedActionableDeletionCandidates({
+    repository: harness.repository,
+    collection,
+    limit: 50,
+    legacyBackfillLimit: 50,
+    nowMillis: NOW_MILLIS,
+  });
+
+  assert(candidates.some(({ id }) => id === requested.operationId));
+  assert.equal(
+    harness.firestore.documents.get(operationPath).nextAttemptAtMillis,
+    NOW_MILLIS,
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operation_migrations/deletion-scheduler-next-at-v1",
+    ).complete,
+    true,
+  );
+});
+
+test("legacy scheduler keeps due-only work moving during bounded backfill",
+async () => {
+  const harness = createHarness();
+  const legacy = await createDeletionOperation(harness.handlers);
+  const currentDue = await createDeletionOperation(
+    harness.handlers,
+    "other",
+  );
+  delete harness.firestore.documents
+    .get(`account_operations/${legacy.operationId}`).nextAttemptAtMillis;
+  harness.firestore.documents.set("account_operations/operation-1a", {
+    id: "operation-1a",
+    kind: "deletion",
+    phase: "deletionRequested",
+    sourceUid: "second-legacy-account",
+    version: 1,
+    updatedAtMillis: NOW_MILLIS,
+  });
+  harness.firestore.documents.set("account_operations/zz-future", {
+    id: "zz-future",
+    kind: "deletion",
+    phase: "deletionRequested",
+    sourceUid: "future-account",
+    version: 1,
+    nextAttemptAtMillis: NOW_MILLIS + 1,
+    updatedAtMillis: NOW_MILLIS,
+  });
+  const collection = fakeAccountOperationCollection(() =>
+    harness.firestore.valuesIn("account_operations"));
+  const options = {
+    repository: harness.repository,
+    collection,
+    limit: 50,
+    legacyBackfillLimit: 1,
+    nowMillis: NOW_MILLIS,
+  };
+
+  const staged = await runtime.fetchStagedActionableDeletionCandidates(options);
+
+  assert.deepEqual(
+    staged.map(({ id }) => id).sort(),
+    [legacy.operationId, currentDue.operationId].sort(),
+  );
+  assert.equal(
+    harness.firestore.valuesIn("account_operations")
+      .filter((operation) => Number.isFinite(operation.nextAttemptAtMillis))
+      .length,
+    3,
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operation_migrations/deletion-scheduler-next-at-v1",
+    ).complete,
+    false,
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operation_migrations/deletion-scheduler-next-at-v1",
+    ).backfilledCount,
+    1,
+  );
+  assert.equal(
+    harness.firestore.documents.get(
+      "account_operations/operation-1a",
+    ).nextAttemptAtMillis,
+    undefined,
+  );
+});
+
 test("scheduler candidates cannot be starved by more than fifty Apple waits",
 async () => {
   const source = [
     ...Array.from({ length: 51 }, (_, index) => ({
       id: `apple-${index}`,
+      kind: "deletion",
       phase: "appleRevocationPending",
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS + index,
     })),
-    { id: "actionable-deletion", phase: "deletionRequested" },
+    {
+      id: "actionable-deletion",
+      kind: "deletion",
+      phase: "deletionRequested",
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS + 100,
+    },
   ];
-  let queriedPhases = [];
-  const valueAt = (candidate, field) => field
-    .split(".")
-    .reduce((value, part) => value?.[part], candidate);
-  const buildQuery = (conditions = []) => ({
-    where(field, operator, phases) {
-      if (operator === "in") queriedPhases = [...phases];
-      return buildQuery([
-        ...conditions,
-        { field, operator, value: phases },
-      ]);
-    },
-    limit(limit) {
-      return {
-        async get() {
-          return {
-            docs: source
-              .filter((candidate) => conditions.every((condition) => {
-                const actual = valueAt(candidate, condition.field);
-                return condition.operator === "in"
-                  ? condition.value.includes(actual)
-                  : actual === condition.value;
-              }))
-              .slice(0, limit),
-          };
-        },
-      };
-    },
-  });
 
   const candidates = await runtime.fetchActionableDeletionCandidates({
-    collection: buildQuery(),
+    collection: fakeAccountOperationCollection(source),
     limit: 50,
+    nowMillis: NOW_MILLIS,
   });
 
-  assert.equal(queriedPhases.includes("appleRevocationPending"), false);
   assert.deepEqual(
     candidates.map((candidate) => candidate.id),
     ["actionable-deletion"],
@@ -1925,44 +2694,33 @@ async () => {
   const source = [
     ...Array.from({ length: 51 }, (_, index) => ({
       id: `incomplete-apple-${index}`,
+      kind: "deletion",
       phase: "appleRevocationPending",
       deletionProgress: { appleRevocationComplete: false },
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS + index,
     })),
     {
       id: "completed-apple-checkpoint",
+      kind: "deletion",
       phase: "appleRevocationPending",
       deletionProgress: { appleRevocationComplete: true },
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS + 100,
     },
-    { id: "actionable-deletion", phase: "deletionRequested" },
+    {
+      id: "actionable-deletion",
+      kind: "deletion",
+      phase: "deletionRequested",
+      nextAttemptAtMillis: NOW_MILLIS,
+      updatedAtMillis: NOW_MILLIS + 101,
+    },
   ];
-  const valueAt = (candidate, field) => field
-    .split(".")
-    .reduce((value, part) => value?.[part], candidate);
-  const buildQuery = (conditions = []) => ({
-    where(field, operator, value) {
-      return buildQuery([...conditions, { field, operator, value }]);
-    },
-    limit(limit) {
-      return {
-        async get() {
-          return {
-            docs: source
-              .filter((candidate) => conditions.every((condition) => {
-                const actual = valueAt(candidate, condition.field);
-                return condition.operator === "in"
-                  ? condition.value.includes(actual)
-                  : actual === condition.value;
-              }))
-              .slice(0, limit),
-          };
-        },
-      };
-    },
-  });
 
   const candidates = await runtime.fetchActionableDeletionCandidates({
-    collection: buildQuery(),
+    collection: fakeAccountOperationCollection(source),
     limit: 50,
+    nowMillis: NOW_MILLIS,
   });
 
   assert.deepEqual(
@@ -1986,4 +2744,34 @@ test("index exports the protected callables and public proof endpoint", () => {
     "function",
     "account_deletion_worker export",
   );
+  const appleSecretNames = [
+    "APPLE_REVOKE_CLIENT_ID",
+    "APPLE_REVOKE_TEAM_ID",
+    "APPLE_REVOKE_KEY_ID",
+    "APPLE_REVOKE_PRIVATE_KEY",
+  ];
+  assert.deepEqual(
+    deployed.completeAppleRevocation.__endpoint.secretEnvironmentVariables
+      .map((secret) => secret.key),
+    appleSecretNames,
+  );
+  assert.equal(
+    deployed.account_deletion_worker.__endpoint.secretEnvironmentVariables,
+    undefined,
+  );
+  assert.equal(
+    deployed.account_deletion_worker.__endpoint.timeoutSeconds,
+    300,
+  );
+  for (const name of CALLABLE_NAMES.filter(
+    (callableName) => callableName !== "completeAppleRevocation",
+  )) {
+    const boundNames = (deployed[name].__endpoint.secretEnvironmentVariables ||
+      []).map((secret) => secret.key);
+    assert.equal(
+      boundNames.some((secretName) => appleSecretNames.includes(secretName)),
+      false,
+      `${name} must not bind Apple revocation secrets`,
+    );
+  }
 });

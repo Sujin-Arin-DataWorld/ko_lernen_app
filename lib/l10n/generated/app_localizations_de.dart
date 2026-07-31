@@ -990,6 +990,10 @@ class AppL10nDe extends AppL10n {
   String get bookResultTitle => 'Ergebnis';
 
   @override
+  String get loadErrorTryAgain =>
+      'Etwas ist schiefgelaufen. Bitte versuche es erneut.';
+
+  @override
   String get bookResultAnalyzing => 'Wörter & Grammatik werden analysiert …';
 
   @override

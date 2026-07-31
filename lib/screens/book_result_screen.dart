@@ -144,13 +144,13 @@ class _BookResultScreenState extends State<BookResultScreen> {
         _result = res;
         _loading = false;
       });
-    } catch (e) {
+    } catch (_) {
       if (!mounted || generation != _analysisGeneration) {
         return;
       }
       setState(() {
         _loading = false;
-        _error = e.toString();
+        _error = AppL10n.of(context).loadErrorTryAgain;
       });
     }
   }

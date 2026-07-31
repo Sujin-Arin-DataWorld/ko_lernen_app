@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
@@ -10,6 +11,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../services/auth_service.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
+import '../services/account/cloud_backup_deletion.dart';
 import '../services/storage_service.dart';
 import '../data/learner_motivation.dart';
 import '../widgets/sori/motivation_sheet.dart';
@@ -33,10 +35,17 @@ String _providerLabel(AppL10n t, AuthProviderState providers) {
 /// Statistik bleibt in [StatsScreen] (`/stats`); hier nur Identität,
 /// Konto-Status und eine Kurz-Übersicht (Streak · Level · Vokabeln).
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key, this.account, this.accountOperations});
+  const ProfileScreen({
+    super.key,
+    this.account,
+    this.accountOperations,
+    this.cloudDataDeletionJournalState,
+  });
 
   final AuthAccountSnapshot? account;
   final AccountUiOperations? accountOperations;
+  final ValueListenable<CloudBackupDeletionJournalState>?
+  cloudDataDeletionJournalState;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -48,6 +57,11 @@ class _ProfileScreenState extends State<ProfileScreen>
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
+
+  ValueListenable<CloudBackupDeletionJournalState>
+  get _cloudDataDeletionJournalState =>
+      widget.cloudDataDeletionJournalState ??
+      AuthService.cloudBackupDeletionJournalState;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _accountCardKey = GlobalKey();
@@ -72,6 +86,11 @@ class _ProfileScreenState extends State<ProfileScreen>
   void initState() {
     super.initState();
     scheduleCoach();
+    if (widget.cloudDataDeletionJournalState == null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await AuthService.refreshCloudBackupDeletionJournalState();
+      });
+    }
   }
 
   Future<void> _connectWith(AccountLinkProvider provider) async {
@@ -179,24 +198,40 @@ class _ProfileScreenState extends State<ProfileScreen>
             const SizedBox(height: 12),
             KeyedSubtree(
               key: _accountCardKey,
-              child: AccountNewLinkGuard(
-                operations: _accountOperations,
-                builder: (context, linkAvailable) => linked
-                    ? _ConnectedCard(
-                        name: name ?? providerLabel,
-                        onSignOut: _signOut,
-                      )
-                    : _GuestCard(
-                        busy: _busy,
-                        onConnect: linkAvailable
-                            ? () => _connectWith(AccountLinkProvider.google)
-                            : null,
-                        onConnectApple:
-                            linkAvailable &&
-                                _accountOperations.appleSignInAvailable
-                            ? () => _connectWith(AccountLinkProvider.apple)
-                            : null,
-                      ),
+              child: ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                valueListenable: _cloudDataDeletionJournalState,
+                builder: (context, cloudDeletionState, _) =>
+                    AccountNewLinkGuard(
+                      operations: _accountOperations,
+                      builder: (context, linkAvailable) => linked
+                          ? _ConnectedCard(
+                              name: name ?? providerLabel,
+                              onSignOut:
+                                  linkAvailable &&
+                                      cloudDeletionState ==
+                                          CloudBackupDeletionJournalState.clear
+                                  ? _signOut
+                                  : null,
+                            )
+                          : _GuestCard(
+                              busy: _busy,
+                              onConnect:
+                                  linkAvailable &&
+                                      cloudDeletionState ==
+                                          CloudBackupDeletionJournalState.clear
+                                  ? () =>
+                                        _connectWith(AccountLinkProvider.google)
+                                  : null,
+                              onConnectApple:
+                                  linkAvailable &&
+                                      _accountOperations.appleSignInAvailable &&
+                                      cloudDeletionState ==
+                                          CloudBackupDeletionJournalState.clear
+                                  ? () =>
+                                        _connectWith(AccountLinkProvider.apple)
+                                  : null,
+                            ),
+                    ),
               ),
             ),
             const SizedBox(height: 20),
@@ -355,7 +390,7 @@ class _GuestCard extends StatelessWidget {
 /// Verbunden: zeigt Status + Abmelden.
 class _ConnectedCard extends StatelessWidget {
   final String? name;
-  final VoidCallback onSignOut;
+  final VoidCallback? onSignOut;
   const _ConnectedCard({required this.name, required this.onSignOut});
 
   @override

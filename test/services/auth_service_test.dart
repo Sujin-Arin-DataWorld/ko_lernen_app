@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
+import 'package:ko_lernen_app/services/account/first_link_backfill.dart';
+import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -222,6 +224,45 @@ void main() {
       expect(signOutCalls, 0);
     });
   });
+
+  test(
+    'first durable-link activation never uploads a replacement identity',
+    () async {
+      final sessions = CloudWriteSessionController();
+      sessions.acquire('anonymous-source');
+      var liveUid = 'anonymous-source';
+      final uploads = <String>[];
+      final backfill = FirstDurableLinkBackfill(
+        sessions: sessions,
+        currentUid: () => liveUid,
+        hasBlockingAccountJournal: () async => false,
+        journalStore:
+            const SharedPreferencesFirstDurableLinkBackfillJournalStore(),
+        uploadBookshelf: (session, {required operationId}) async {
+          uploads.add('bookshelf:${session.uid}');
+          return CloudWriteResult.completed;
+        },
+        uploadPackProgress: (session, {required operationId}) async {
+          uploads.add('packs:${session.uid}');
+          return CloudWriteResult.completed;
+        },
+      );
+      final activation = FirstDurableLinkActivation(
+        sessions: sessions,
+        backfill: backfill,
+      );
+
+      final result = await activation.activate(
+        sourceUid: 'anonymous-source',
+        linkedUid: 'existing-account',
+        linkedIsAnonymous: false,
+      );
+
+      expect(result, CloudWriteResult.stale);
+      expect(uploads, isEmpty);
+      expect(liveUid, 'anonymous-source');
+    },
+  );
 
   test(
     'deletion requests and polls the server without direct client deletion',

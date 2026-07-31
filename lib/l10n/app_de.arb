@@ -395,6 +395,7 @@
   "bookPreviewAnalyze":          "Analysieren",
   "bookPreviewRetake":           "Neu aufnehmen",
   "bookResultTitle":             "Ergebnis",
+  "loadErrorTryAgain":           "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
   "bookResultAnalyzing":         "Wörter & Grammatik werden analysiert …",
   "bookResultFoundN":            "{n} neue Wörter gefunden",
   "@bookResultFoundN": {

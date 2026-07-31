@@ -23,6 +23,29 @@
         { "fieldPath": "state", "order": "ASCENDING" },
         { "fieldPath": "deliveryLeaseUntil", "order": "ASCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "account_operations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "kind", "order": "ASCENDING" },
+        { "fieldPath": "phase", "order": "ASCENDING" },
+        { "fieldPath": "nextAttemptAtMillis", "order": "ASCENDING" },
+        { "fieldPath": "updatedAtMillis", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "account_operations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "phase", "order": "ASCENDING" },
+        {
+          "fieldPath": "deletionProgress.appleRevocationComplete",
+          "order": "ASCENDING"
+        },
+        { "fieldPath": "nextAttemptAtMillis", "order": "ASCENDING" },
+        { "fieldPath": "updatedAtMillis", "order": "ASCENDING" }
+      ]
     }
   ],
   "fieldOverrides": [

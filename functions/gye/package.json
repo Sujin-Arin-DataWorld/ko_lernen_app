@@ -4,7 +4,7 @@
   "description": "계(契) Cloud Functions — Tier 3e",
   "main": "index.js",
   "scripts": {
-    "test": "node --test lifecycle.test.js runtime.test.js account_operations.test.js account_operations_runtime.test.js",
+    "test": "node --test lifecycle.test.js runtime.test.js account_operations.test.js account_operations_runtime.test.js deletion_adapters.test.js deletion_cleanup_adapters.test.js apple_revocation_adapter.test.js cloud_backup_deletion_runtime.test.js",
     "test:account-runtime": "node --test account_operations_runtime.test.js",
     "test:deletion-worker": "node --test account_operations.test.js account_operations_runtime.test.js",
     "test:rules": "firebase --config ../../firebase.json emulators:exec --project demo-hangul-sori --only firestore \"node --test firestore.rules.test.js\"",
@@ -15,6 +15,7 @@
     "smoke": "node smoke_test.js"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^7.11.6",
     "firebase-admin": "^12.0.0",
     "firebase-functions": "^5.0.0"
   },

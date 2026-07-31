@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -20,6 +22,9 @@ class AccountNewLinkGuard extends StatefulWidget {
 }
 
 class _AccountNewLinkGuardState extends State<AccountNewLinkGuard> {
+  bool _initialRefreshComplete = false;
+  int _refreshGeneration = 0;
+
   AccountUiPendingStateSource? get _source =>
       widget.operations is AccountUiPendingStateSource
       ? widget.operations as AccountUiPendingStateSource
@@ -28,7 +33,36 @@ class _AccountNewLinkGuardState extends State<AccountNewLinkGuard> {
   @override
   void initState() {
     super.initState();
-    _source?.refreshPendingState();
+    _beginInitialRefresh();
+  }
+
+  @override
+  void didUpdateWidget(covariant AccountNewLinkGuard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.operations != widget.operations) {
+      _beginInitialRefresh();
+    }
+  }
+
+  void _beginInitialRefresh() {
+    final source = _source;
+    if (source == null) return;
+    _initialRefreshComplete = false;
+    final generation = ++_refreshGeneration;
+    unawaited(_completeInitialRefresh(source, generation));
+  }
+
+  Future<void> _completeInitialRefresh(
+    AccountUiPendingStateSource source,
+    int generation,
+  ) async {
+    try {
+      await source.refreshPendingState();
+    } catch (_) {
+      return;
+    }
+    if (!mounted || generation != _refreshGeneration) return;
+    setState(() => _initialRefreshComplete = true);
   }
 
   @override
@@ -38,7 +72,10 @@ class _AccountNewLinkGuardState extends State<AccountNewLinkGuard> {
     return ValueListenableBuilder<AccountUiPendingState>(
       valueListenable: source.pendingState,
       builder: (context, state, _) {
-        return widget.builder(context, state == AccountUiPendingState.none);
+        return widget.builder(
+          context,
+          _initialRefreshComplete && state == AccountUiPendingState.none,
+        );
       },
     );
   }
@@ -102,7 +139,8 @@ class _AccountPendingOperationPanelState
     return ValueListenableBuilder<AccountUiPendingState>(
       valueListenable: source.pendingState,
       builder: (context, state, _) {
-        if (state == AccountUiPendingState.none) {
+        if (state == AccountUiPendingState.loading ||
+            state == AccountUiPendingState.none) {
           return const SizedBox.shrink();
         }
         final t = AppL10n.of(context);

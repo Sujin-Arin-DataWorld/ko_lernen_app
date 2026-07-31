@@ -9,10 +9,13 @@ typedef LegacyCloudWriteSessionRestorer =
     Future<CloudWriteSession?> Function(String expectedUid);
 typedef ReadySessionSynchronizer = void Function(String uid);
 
+Future<void> _noopStartupStep() async {}
+
 enum AccountStartupRestorationKind {
   none,
   replacement,
   deletion,
+  cloudBackupDeletion,
   localCleanupPending,
   blocked,
 }
@@ -27,6 +30,9 @@ class AccountStartupRestoration {
 
   const AccountStartupRestoration.deletion(this.session)
     : kind = AccountStartupRestorationKind.deletion;
+
+  const AccountStartupRestoration.cloudBackupDeletion(this.session)
+    : kind = AccountStartupRestorationKind.cloudBackupDeletion;
 
   const AccountStartupRestoration.localCleanupPending()
     : kind = AccountStartupRestorationKind.localCleanupPending,
@@ -50,6 +56,7 @@ class AppStartupCoordinator {
     this.restorePendingAccountState,
     this.restoreCloudWriteSession,
     required this.synchronizeReadySession,
+    this.resumeFirstDurableLinkBackfill = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
@@ -65,6 +72,7 @@ class AppStartupCoordinator {
   final PendingAccountStateRestorer? restorePendingAccountState;
   final LegacyCloudWriteSessionRestorer? restoreCloudWriteSession;
   final ReadySessionSynchronizer synchronizeReadySession;
+  final StartupStep resumeFirstDurableLinkBackfill;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
@@ -85,6 +93,7 @@ class AppStartupCoordinator {
       final restoration = await restore(currentUserId()?.trim());
       switch (restoration.kind) {
         case AccountStartupRestorationKind.replacement:
+        case AccountStartupRestorationKind.cloudBackupDeletion:
         case AccountStartupRestorationKind.localCleanupPending:
         case AccountStartupRestorationKind.blocked:
           return true;
@@ -111,6 +120,7 @@ class AppStartupCoordinator {
       }
     }
     synchronizeReadySession(liveUid);
+    await resumeFirstDurableLinkBackfill();
     await resumeMediaCleanup();
     await resumeBookshelfSync();
     await initializePremium();

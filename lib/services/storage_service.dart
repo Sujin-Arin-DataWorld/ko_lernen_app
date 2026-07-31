@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'account/account_transition_journal.dart';
+
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
 enum MasteryState {
@@ -27,6 +29,8 @@ abstract interface class PreferenceRemovalStore {
   Future<bool> setString(String key, String value);
 }
 
+/// Validates and returns a canonical representation of a completed
+/// account-deletion checkpoint before strict local cleanup retains it.
 typedef AccountDeletionCheckpointCanonicalizer = String Function(String raw);
 
 abstract interface class PreferenceStringStore {
@@ -139,6 +143,17 @@ class PreferenceResetException implements Exception {
   String toString() => 'Preference reset failed for ${failedKeys.join(', ')}.';
 }
 
+/// A local reset must never erase any durable account-operation retry key.
+///
+/// The legacy name remains part of the public error contract, although the
+/// fence also protects replacement and account-deletion checkpoints.
+class CloudBackupDeletionResetBlockedException implements Exception {
+  const CloudBackupDeletionResetBlockedException();
+
+  @override
+  String toString() => 'Cloud backup deletion is still pending.';
+}
+
 class RecoveredWordClaim {
   const RecoveredWordClaim({
     required this.record,
@@ -232,6 +247,13 @@ class SrsCard {
 class Storage {
   static const accountDeletionCheckpointPreferenceKey =
       'kl_account_deletion_journal_v1';
+  static const cloudBackupDeletionJournalPreferenceKey =
+      'kl_cloud_backup_deletion_journal_v1';
+  static const _durableAccountJournalPreferenceKeys = <String>{
+    AccountTransitionJournal.storageKey,
+    accountDeletionCheckpointPreferenceKey,
+    cloudBackupDeletionJournalPreferenceKey,
+  };
   static const String _pickerRecoveryMarkerKey = 'kl_picker_recovery_marker_v1';
   static const String _cropRecoveryMarkerKey = 'kl_crop_recovery_marker_v1';
   static const String _recoveredBookLeaseKey = 'kl_recovered_book_lease';
@@ -1722,22 +1744,39 @@ class Storage {
   }
 
   // ───────── Reset ─────────
-  static Future<void> resetAll() async {
-    final keys = _prefs?.getKeys() ?? <String>{};
+  static Future<void> resetAll({PreferenceRemovalStore? preferences}) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceRemovalStore(_prefs!));
+    if (store == null) return;
+    await _assertDurableAccountResetAllowed(store);
+    final keys = store.getKeys();
     for (final k in keys) {
-      if (k.startsWith('kl_')) await _prefs?.remove(k);
+      if (k.startsWith('kl_') &&
+          !_durableAccountJournalPreferenceKeys.contains(k)) {
+        await store.remove(k);
+      }
     }
     _srsCache = null;
     _packCache = null;
   }
 
   /// Account-deletion reset that verifies every app-owned preference removal.
+  ///
+  /// When supplied, [canonicalizeAccountDeletionCheckpoint] is the sole
+  /// exception to the durable-journal reset fence. It must reject anything
+  /// except the completed deletion checkpoint that local cleanup is resuming.
   static Future<void> resetAllStrict({
     PreferenceRemovalStore? preferences,
     AccountDeletionCheckpointCanonicalizer?
     canonicalizeAccountDeletionCheckpoint,
   }) async {
     final store = preferences ?? _preferenceRemovalStore();
+    await _assertDurableAccountResetAllowed(
+      store,
+      allowAccountDeletionCheckpoint:
+          canonicalizeAccountDeletionCheckpoint != null,
+    );
     final failedKeys = <String>[];
     final causes = <Object>[];
     String? canonicalCheckpoint;
@@ -1776,8 +1815,7 @@ class Storage {
             .where(
               (key) =>
                   key.startsWith('kl_') &&
-                  (canonicalCheckpoint == null ||
-                      key != accountDeletionCheckpointPreferenceKey),
+                  !_durableAccountJournalPreferenceKeys.contains(key),
             )
             .toList()
           ..sort();
@@ -1810,6 +1848,27 @@ class Storage {
       throw StateError('Storage has not been initialized.');
     }
     return _SharedPreferenceRemovalStore(preferences);
+  }
+
+  static Future<void> _assertDurableAccountResetAllowed(
+    PreferenceRemovalStore store, {
+    bool allowAccountDeletionCheckpoint = false,
+  }) async {
+    try {
+      await store.reload();
+    } catch (_) {
+      // A stale preference cache must fail closed rather than risk deleting a
+      // journal created immediately before this reset call.
+      throw const CloudBackupDeletionResetBlockedException();
+    }
+    final hasBlockingJournal =
+        store.containsKey(AccountTransitionJournal.storageKey) ||
+        store.containsKey(cloudBackupDeletionJournalPreferenceKey) ||
+        (!allowAccountDeletionCheckpoint &&
+            store.containsKey(accountDeletionCheckpointPreferenceKey));
+    if (hasBlockingJournal) {
+      throw const CloudBackupDeletionResetBlockedException();
+    }
   }
 
   static Future<void> resetSession() async {

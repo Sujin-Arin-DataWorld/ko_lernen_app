@@ -48,6 +48,31 @@ void main() {
     BookAnalysisService.setEndpoint('');
   });
 
+  testWidgets('book analysis failure never renders the raw exception', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: BookResultScreen(
+          args: const {'text': '공부하고 있어요.'},
+          analyzer: ({required text, required targetLang}) =>
+              Future.error(StateError('private backend detail')),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(find.textContaining('private backend detail'), findsNothing);
+    expect(
+      find.text('Something went wrong. Please try again.'),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('English BookResult sends normalized en through the service', (
     tester,
   ) async {

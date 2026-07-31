@@ -105,11 +105,11 @@ class _QuestsScreenState extends State<QuestsScreen>
           await Future.delayed(const Duration(milliseconds: 600));
         }
       }
-    } catch (e) {
+    } catch (_) {
       if (!mounted) return;
       setState(() {
         _loading = false;
-        _error = e.toString();
+        _error = AppL10n.of(context).loadErrorTryAgain;
       });
     }
   }

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -7,6 +8,7 @@ import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 
@@ -42,7 +44,54 @@ void main() {
     },
   );
 
-  for (final pending in <String>['replacement', 'activation', 'deletion']) {
+  test(
+    'a late failed durable read cannot overwrite a newer clear admission',
+    () async {
+      final lateResult = Completer<AccountUiPendingState>();
+      final older = ProductionAccountUiOperations(
+        pendingStateReader: () => lateResult.future,
+      );
+      final newer = ProductionAccountUiOperations(
+        pendingStateReader: () async => AccountUiPendingState.none,
+      );
+
+      final olderRead = older.refreshPendingState();
+      expect(await newer.refreshPendingState(), AccountUiPendingState.none);
+      expect(newer.pendingState.value, AccountUiPendingState.none);
+
+      lateResult.completeError(StateError('stale durable read failed'));
+      expect(await olderRead, AccountUiPendingState.blocked);
+      expect(newer.pendingState.value, AccountUiPendingState.none);
+    },
+  );
+
+  test(
+    'a late clear durable read cannot unlock a newer blocked admission',
+    () async {
+      final lateResult = Completer<AccountUiPendingState>();
+      final older = ProductionAccountUiOperations(
+        pendingStateReader: () => lateResult.future,
+      );
+      final newer = ProductionAccountUiOperations(
+        pendingStateReader: () async => AccountUiPendingState.blocked,
+      );
+
+      final olderRead = older.refreshPendingState();
+      expect(await newer.refreshPendingState(), AccountUiPendingState.blocked);
+      expect(newer.pendingState.value, AccountUiPendingState.blocked);
+
+      lateResult.complete(AccountUiPendingState.none);
+      expect(await olderRead, AccountUiPendingState.blocked);
+      expect(newer.pendingState.value, AccountUiPendingState.blocked);
+    },
+  );
+
+  for (final pending in <String>[
+    'replacement',
+    'activation',
+    'deletion',
+    'cloud-backup-deletion',
+  ]) {
     test('persisted $pending blocks provider OAuth before linker', () async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final preferences = await SharedPreferences.getInstance();
@@ -50,6 +99,20 @@ void main() {
         await preferences.setString(
           AuthService.accountDeletionCheckpointPreferenceKey,
           jsonEncode(_completedDeletion().toJson()),
+        );
+      } else if (pending == 'cloud-backup-deletion') {
+        await preferences.setString(
+          CloudBackupDeletionJournal.storageKey,
+          jsonEncode(
+            CloudBackupDeletionJournal.pending(
+              session: const CloudWriteSession(
+                uid: 'durable-source',
+                epoch: 6,
+                mode: CloudWriteMode.cleanupPending,
+              ),
+              requestKey: 'Z' * 43,
+            ).toJson(),
+          ),
         );
       } else {
         await SharedPreferencesReplacementTransitionJournalStore(
