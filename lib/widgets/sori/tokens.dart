@@ -131,6 +131,11 @@ class SoriColors {
   static const Color lightTextDim = Color(0xFF8B948E);
   static const Color lightBorder = Color(0xFFDAD3BE);
 
+  /// 한지 cream(`lightBg`) 위에서 카드/선택지 경계를 확실히 분리하는 강한 테두리.
+  /// `lightBorder`(1.2:1)는 cream 배경과 거의 구분되지 않아 선택 UI에는 부적합.
+  /// `#978C73` on `#FAF6EC` ≈ 3.1:1 → WCAG 2.1 SC 1.4.11 (non-text contrast) 충족.
+  static const Color lightBorderStrong = Color(0xFF978C73);
+
   // ── Dark surfaces (먹색 위에서) ──────────────────────────────────────
   // 완전 검정 회피 — 단청 정서와 어울리는 -5% 회녹 ink.
   static const Color darkBg = Color(0xFF0E1A18); // deep ink

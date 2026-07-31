@@ -211,8 +211,11 @@ class _CharacterCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
-              color: isSelected ? SoriColors.primary : Colors.grey[300]!,
-              width: isSelected ? 3 : 1,
+              // cream 배경 위 흰 카드 — grey[300](1.2:1)은 사실상 안 보임.
+              color: isSelected
+                  ? SoriColors.primary
+                  : SoriColors.lightBorderStrong,
+              width: isSelected ? 3 : 2,
             ),
             borderRadius: BorderRadius.circular(SoriRadius.lg),
             boxShadow: [
@@ -221,6 +224,12 @@ class _CharacterCard extends StatelessWidget {
                   color: SoriColors.primary.withValues(alpha: 0.2),
                   blurRadius: 12,
                   spreadRadius: 2,
+                )
+              else
+                BoxShadow(
+                  color: SoriColors.lightText.withValues(alpha: 0.07),
+                  blurRadius: 6,
+                  offset: const Offset(0, 2),
                 ),
             ],
           ),
@@ -253,13 +262,17 @@ class _CharacterCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
+                  color: SoriColors.lightText,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
                 trait,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 12, color: Color(0xFF999999)),
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: SoriColors.lightTextMuted,
+                ),
               ),
             ],
           ),
