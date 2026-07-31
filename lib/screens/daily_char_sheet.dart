@@ -3,12 +3,14 @@ import 'package:flutter/services.dart';
 
 import '../data/hangul_strokes.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../services/daily_char_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
@@ -35,7 +37,9 @@ class _DailyCharSheet extends StatefulWidget {
 
 class _DailyCharSheetState extends State<_DailyCharSheet> {
   late final String _char;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   bool _doneNow = false;
+  bool _finishing = false;
 
   @override
   void initState() {
@@ -44,17 +48,26 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
   }
 
   Future<void> _finish() async {
+    if (_finishing || _doneNow) return;
     HapticFeedback.heavyImpact();
     final today = DateTime.now();
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.dailyHangul(
+        contentLabel: _char,
+        finishedAt: today,
+        strokeCount: (hangulStrokes[_char] ?? const []).length,
+      ),
+    );
     final iso =
         '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
+    setState(() => _finishing = true);
     await Storage.addCalligraphyDate(iso);
     if (!mounted) return;
-    setState(() => _doneNow = true);
+    setState(() {
+      _doneNow = true;
+      _finishing = false;
+    });
     SoriCelebration.burst(context);
-    await Future<void>.delayed(const Duration(milliseconds: 1500));
-    if (!mounted) return;
-    Navigator.pop(context);
   }
 
   /// 자모 글자 → 자모 이름 변환 (예: "ㅊ" → "치읓")
@@ -117,6 +130,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final strokes = hangulStrokes[_char] ?? [];
     final hasStrokes = strokes.isNotEmpty;
 
@@ -210,7 +224,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                   label: t.dailyCharFinish,
                   icon: Icons.check_rounded,
                   accent: SoriColors.success,
-                  onTap: _finish,
+                  onTap: _finishing ? null : _finish,
                 ),
               ),
             ],
@@ -242,6 +256,23 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                   fontSize: 20,
                   fontWeight: FontWeight.w800,
                 ),
+              ),
+              if (_feedbackCompletion.current != null &&
+                  feedbackScope != null &&
+                  feedbackScope.featureGate.isEnabled) ...[
+                const SizedBox(height: Spacing.lg),
+                ContentFeedbackCard(
+                  feedbackContext: _feedbackCompletion.current!.context,
+                  featureGate: feedbackScope.featureGate,
+                  submitFeedback: feedbackScope.submitFeedback,
+                  completedMissionIds: feedbackScope.completedMissionIds,
+                ),
+              ],
+              const SizedBox(height: Spacing.lg),
+              SoriButton.filled(
+                label: t.btnClose,
+                fullWidth: true,
+                onTap: () => Navigator.pop(context),
               ),
             ],
           ),

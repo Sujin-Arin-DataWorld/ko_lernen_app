@@ -82,6 +82,118 @@ class FeedbackCompletion {
     ),
   );
 
+  factory FeedbackCompletion.dailyHangul({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required DateTime finishedAt,
+    required int strokeCount,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'daily_hangul',
+      contentId: 'daily-char:${_localIsoDate(finishedAt)}',
+      contentLabel: contentLabel,
+      scoreSummary: 'strokes:$strokeCount',
+    ),
+  );
+
+  factory FeedbackCompletion.chosung({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required String? level,
+    required int correct,
+    required int total,
+    required int averageDurationMs,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'game',
+      contentId: 'chosung',
+      contentLabel: contentLabel,
+      level: _level(level),
+      scoreSummary: '$correct/$total; avgMs:$averageDurationMs',
+    ),
+  );
+
+  factory FeedbackCompletion.wordle({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required String? level,
+    required bool random,
+    required bool won,
+    required int guessCount,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'game',
+      contentId: random ? 'wordle_random' : 'wordle_daily',
+      contentLabel: contentLabel,
+      level: _level(level),
+      scoreSummary: 'result:${won ? 'win' : 'loss'}; guesses:$guessCount',
+    ),
+  );
+
+  factory FeedbackCompletion.kkeunmari({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required int chainLength,
+    required String endReason,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'game',
+      contentId: 'kkeunmari',
+      contentLabel: contentLabel,
+      scoreSummary: 'chain:$chainLength; end:$endReason',
+    ),
+  );
+
+  factory FeedbackCompletion.grammarSession({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required String level,
+    required String type,
+    required String difficulty,
+    required int seenCount,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'grammar_session',
+      contentId: 'grammar:$level:$type:$difficulty',
+      contentLabel: contentLabel,
+      level: level == 'Alle' ? null : _level(level),
+      scoreSummary: 'seen:$seenCount',
+    ),
+  );
+
+  factory FeedbackCompletion.hangulCards({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required int interactionCount,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'hangul_cards',
+      contentId: 'hangul:cards',
+      contentLabel: contentLabel,
+      scoreSummary: 'interactions:$interactionCount',
+    ),
+  );
+
+  factory FeedbackCompletion.hangulWriting({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required int strokeCount,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'hangul_writing',
+      contentId: 'hangul:writing',
+      contentLabel: contentLabel,
+      scoreSummary: 'strokes:$strokeCount',
+    ),
+  );
+
   factory FeedbackCompletion.satzArcade({
     FeedbackCompletionIdFactory? createId,
     required String contentLabel,

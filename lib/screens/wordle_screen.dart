@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
@@ -8,6 +9,7 @@ import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -63,6 +65,8 @@ class _WordleScreenState extends State<WordleScreen>
   bool _lost = false;
   int _earnedXp = 0;
   String _error = '';
+  bool _randomRound = false;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
@@ -113,6 +117,8 @@ class _WordleScreenState extends State<WordleScreen>
   }
 
   Future<void> _load({bool random = false}) async {
+    _feedbackCompletion.reset();
+    _randomRound = random;
     final all = await DataLoader.loadVocab();
     final pool =
         all
@@ -288,6 +294,18 @@ class _WordleScreenState extends State<WordleScreen>
     final result = _check(input, _target);
     final won = result.every((s) => s == _LS.correct);
     final lost = !won && _guesses.length + 1 >= _max;
+
+    if (won || lost) {
+      _feedbackCompletion.complete(
+        () => FeedbackCompletion.wordle(
+          contentLabel: AppL10n.of(context).screenWordleTitle,
+          level: _targetVocab?.level,
+          random: _randomRound,
+          won: won,
+          guessCount: _guesses.length + 1,
+        ),
+      );
+    }
 
     setState(() {
       _error = '';
@@ -618,6 +636,7 @@ class _WordleScreenState extends State<WordleScreen>
                           german: _targetGerman,
                           earnedXp: _earnedXp,
                           bestTries: _won ? Storage.gameBest('wordle') : 0,
+                          feedbackCompletion: _feedbackCompletion.current,
                           onNew: () => _load(random: true),
                         ),
                       ),
@@ -755,6 +774,7 @@ class _ResultCard extends StatelessWidget {
   final String? german;
   final int earnedXp;
   final int bestTries;
+  final FeedbackCompletion? feedbackCompletion;
   final VoidCallback onNew;
 
   const _ResultCard({
@@ -763,6 +783,7 @@ class _ResultCard extends StatelessWidget {
     this.german,
     this.earnedXp = 0,
     this.bestTries = 0,
+    required this.feedbackCompletion,
     required this.onNew,
   });
 
@@ -770,6 +791,7 @@ class _ResultCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final color = won ? SoriColors.success : SoriColors.danger;
     return SoriCard(
       variant: SoriCardVariant.hero,
@@ -841,6 +863,17 @@ class _ResultCard extends StatelessWidget {
           ],
           // 방금 배운 단어를 내 단어장에 담기.
           AddToWordbookButton(korean: target, translationDe: german ?? ''),
+          if (feedbackCompletion != null &&
+              feedbackScope != null &&
+              feedbackScope.featureGate.isEnabled) ...[
+            const SizedBox(height: Spacing.lg),
+            ContentFeedbackCard(
+              feedbackContext: feedbackCompletion!.context,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              completedMissionIds: feedbackScope.completedMissionIds,
+            ),
+          ],
           const SizedBox(height: Spacing.sm),
           SoriButton.filled(
             label: t.wordleNewWordBtn,

@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/vocab.dart';
+import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -10,6 +11,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/sori_icon.dart';
@@ -227,6 +229,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   bool _roundComplete = false;
   int _roundXp = 0;
   bool _roundNewBest = false;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
@@ -239,6 +242,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   }
 
   Future<void> _load() async {
+    _feedbackCompletion.reset();
     final all = await DataLoader.loadVocab();
     final filtered =
         all
@@ -331,6 +335,19 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     if (!mounted) return;
     final completedRound = _roundIndex + 1 >= _roundSize;
     if (completedRound) {
+      final averageDurationMs = _roundDurationsMs.isEmpty
+          ? 0
+          : _roundDurationsMs.reduce((a, b) => a + b) ~/
+                _roundDurationsMs.length;
+      _feedbackCompletion.complete(
+        () => FeedbackCompletion.chosung(
+          contentLabel: AppL10n.of(context).gameChosungTitle,
+          level: _level,
+          correct: _roundCorrect,
+          total: _roundSize,
+          averageDurationMs: averageDurationMs,
+        ),
+      );
       setState(() {
         _roundIndex = _roundSize;
         _state = _State.waiting;
@@ -368,6 +385,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   void _startNewRound() {
     HapticFeedback.selectionClick();
+    _feedbackCompletion.reset();
     setState(() {
       _idx++;
       _roundIndex = 0;
@@ -568,6 +586,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                   earnedXp: _roundXp,
                                   isNewBest: _roundNewBest,
                                   recommendation: _recommendation(t),
+                                  feedbackCompletion:
+                                      _feedbackCompletion.current,
                                   onContinue: _startNewRound,
                                 );
                               },
@@ -666,6 +686,7 @@ class _RoundSummaryCard extends StatelessWidget {
   final int earnedXp;
   final bool isNewBest;
   final String? recommendation;
+  final FeedbackCompletion? feedbackCompletion;
   final VoidCallback onContinue;
 
   const _RoundSummaryCard({
@@ -675,6 +696,7 @@ class _RoundSummaryCard extends StatelessWidget {
     required this.earnedXp,
     required this.isNewBest,
     required this.recommendation,
+    required this.feedbackCompletion,
     required this.onContinue,
   });
 
@@ -682,6 +704,7 @@ class _RoundSummaryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final accuracy = total == 0 ? 0 : ((correct / total) * 100).round();
     final avgSec = durationsMs.isEmpty
         ? '0.0'
@@ -783,6 +806,17 @@ class _RoundSummaryCard extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
               textAlign: TextAlign.center,
+            ),
+          ],
+          if (feedbackCompletion != null &&
+              feedbackScope != null &&
+              feedbackScope.featureGate.isEnabled) ...[
+            const SizedBox(height: Spacing.lg),
+            ContentFeedbackCard(
+              feedbackContext: feedbackCompletion!.context,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              completedMissionIds: feedbackScope.completedMissionIds,
             ),
           ],
           const SizedBox(height: Spacing.lg),

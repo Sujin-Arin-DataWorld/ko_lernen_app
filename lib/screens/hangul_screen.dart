@@ -2,14 +2,17 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../models/feedback_completion.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../widgets/flip_card.dart';
@@ -28,6 +31,8 @@ class _HangulScreenState extends State<HangulScreen>
     with SingleTickerProviderStateMixin, ScreenCoachMixin<HangulScreen> {
   late final TabController _tabs;
   int _tabIndex = 0;
+  final FeedbackCompletionSlot _cardsCompletion = FeedbackCompletionSlot();
+  final FeedbackCompletionSlot _writingCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _tabBarKey = GlobalKey();
@@ -64,6 +69,71 @@ class _HangulScreenState extends State<HangulScreen>
     super.dispose();
   }
 
+  Future<void> _finishCards(int interactionCount) async {
+    final t = AppL10n.of(context);
+    final completion = _cardsCompletion.complete(
+      () => FeedbackCompletion.hangulCards(
+        contentLabel: t.hangulTabCards,
+        interactionCount: interactionCount,
+      ),
+    );
+    await _showCompletion(completion, t.testerFeedbackCompleteHangul);
+    _cardsCompletion.reset();
+  }
+
+  Future<void> _finishWriting(int strokeCount) async {
+    final t = AppL10n.of(context);
+    final completion = _writingCompletion.complete(
+      () => FeedbackCompletion.hangulWriting(
+        contentLabel: t.hangulTabWrite,
+        strokeCount: strokeCount,
+      ),
+    );
+    await _showCompletion(completion, t.testerFeedbackCompleteHangul);
+    _writingCompletion.reset();
+  }
+
+  Future<void> _showCompletion(
+    FeedbackCompletion completion,
+    String title,
+  ) async {
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) {
+        final t = AppL10n.of(sheetContext);
+        final feedbackScope = ContentFeedbackControllerScope.maybeOf(
+          sheetContext,
+        );
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              title,
+              style: SoriTextTheme.of(sheetContext).h2,
+              textAlign: TextAlign.center,
+            ),
+            if (feedbackScope != null &&
+                feedbackScope.featureGate.isEnabled) ...[
+              const SizedBox(height: Spacing.lg),
+              ContentFeedbackCard(
+                feedbackContext: completion.context,
+                featureGate: feedbackScope.featureGate,
+                submitFeedback: feedbackScope.submitFeedback,
+                completedMissionIds: feedbackScope.completedMissionIds,
+              ),
+            ],
+            const SizedBox(height: Spacing.lg),
+            SoriButton.filled(
+              label: t.btnClose,
+              fullWidth: true,
+              onTap: () => Navigator.pop(sheetContext),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -90,10 +160,10 @@ class _HangulScreenState extends State<HangulScreen>
           // 좌우 스와이프를 끈다. 손가락 그리기(pan)가 탭 넘김을 유발하지 않고,
           // Übersicht/Karten 탭은 정상 스와이프 유지. (탭 전환은 상단 탭 클릭)
           physics: _tabIndex == 2 ? const NeverScrollableScrollPhysics() : null,
-          children: const [
-            _OverviewTab(),
-            _CardsTab(),
-            _WriteTab(),
+          children: [
+            const _OverviewTab(),
+            _CardsTab(onFinish: _finishCards),
+            _WriteTab(onFinish: _finishWriting),
           ],
         ),
       ),
@@ -319,7 +389,8 @@ class _SyllableDemo extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _CardsTab extends StatefulWidget {
-  const _CardsTab();
+  const _CardsTab({required this.onFinish});
+  final Future<void> Function(int interactionCount) onFinish;
   @override
   State<_CardsTab> createState() => _CardsTabState();
 }
@@ -328,6 +399,7 @@ class _CardsTabState extends State<_CardsTab> {
   int _mode = 0;  // 0=consonants, 1=vowels, 2=syllables
   int _idx  = 0;
   bool _flipped = false;
+  int _sessionInteractions = 0;
 
   List<HangulChar> get _pool {
     switch (_mode) {
@@ -337,15 +409,22 @@ class _CardsTabState extends State<_CardsTab> {
     }
   }
 
-  void _next()   { HapticFeedback.selectionClick(); setState(() { _flipped = false; _idx = (_idx + 1) % _pool.length; }); }
-  void _prev()   { HapticFeedback.selectionClick(); setState(() { _flipped = false; _idx = (_idx - 1 + _pool.length) % _pool.length; }); }
-  void _random() { HapticFeedback.lightImpact();    setState(() { _flipped = false; _idx = math.Random().nextInt(_pool.length); }); }
-  void _onFlip() { HapticFeedback.selectionClick(); setState(() => _flipped = !_flipped); }
+  void _next()   { HapticFeedback.selectionClick(); setState(() { _sessionInteractions++; _flipped = false; _idx = (_idx + 1) % _pool.length; }); }
+  void _prev()   { HapticFeedback.selectionClick(); setState(() { _sessionInteractions++; _flipped = false; _idx = (_idx - 1 + _pool.length) % _pool.length; }); }
+  void _random() { HapticFeedback.lightImpact();    setState(() { _sessionInteractions++; _flipped = false; _idx = math.Random().nextInt(_pool.length); }); }
+  void _onFlip() { HapticFeedback.selectionClick(); setState(() { _sessionInteractions++; _flipped = !_flipped; }); }
 
   void _setMode(int m) {
     if (_mode == m) return;
     HapticFeedback.selectionClick();
-    setState(() { _mode = m; _idx = 0; _flipped = false; });
+    setState(() { _sessionInteractions++; _mode = m; _idx = 0; _flipped = false; });
+  }
+
+  Future<void> _finish() async {
+    if (_sessionInteractions == 0) return;
+    await widget.onFinish(_sessionInteractions);
+    if (!mounted) return;
+    setState(() => _sessionInteractions = 0);
   }
 
   @override
@@ -456,6 +535,14 @@ class _CardsTabState extends State<_CardsTab> {
             onTap: _random,
             fullWidth: true,
           ),
+          const SizedBox(height: 8),
+          SoriButton.filled(
+            key: const Key('hangul-cards-finish'),
+            label: AppL10n.of(context).testerFeedbackCompleteHangul,
+            accent: SoriColors.hangul,
+            onTap: _sessionInteractions == 0 ? null : _finish,
+            fullWidth: true,
+          ),
         ],
       ),
       ),
@@ -487,7 +574,8 @@ class _HangulCardFace extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _WriteTab extends StatefulWidget {
-  const _WriteTab();
+  const _WriteTab({required this.onFinish});
+  final Future<void> Function(int strokeCount) onFinish;
   @override
   State<_WriteTab> createState() => _WriteTabState();
 }
@@ -495,6 +583,7 @@ class _WriteTab extends StatefulWidget {
 class _WriteTabState extends State<_WriteTab> {
   int _mode = 0;  // 0=cons, 1=vowels
   int _idx = 0;
+  int _strokeCount = 0;
   final _practiceKey = GlobalKey<_PracticeCanvasState>();
 
   List<HangulChar> get _pool => _mode == 0 ? consonants : vowels;
@@ -514,6 +603,16 @@ class _WriteTabState extends State<_WriteTab> {
     if (_mode == m) return;
     HapticFeedback.selectionClick();
     setState(() { _mode = m; _idx = 0; });
+    _practiceKey.currentState?.clear();
+  }
+
+  void _onStrokeEnd() => setState(() => _strokeCount++);
+
+  Future<void> _finish() async {
+    if (_strokeCount == 0) return;
+    await widget.onFinish(_strokeCount);
+    if (!mounted) return;
+    setState(() => _strokeCount = 0);
     _practiceKey.currentState?.clear();
   }
 
@@ -614,6 +713,7 @@ class _WriteTabState extends State<_WriteTab> {
                               key: _practiceKey,
                               ghost: c.letter,
                               color: SoriColors.success,
+                              onStrokeEnd: _onStrokeEnd,
                             ),
                           ),
                         ),
@@ -658,6 +758,14 @@ class _WriteTabState extends State<_WriteTab> {
             onTap: () => TtsService.speak(c.letter),
             fullWidth: true,
           ),
+          const SizedBox(height: 8),
+          SoriButton.filled(
+            key: const Key('hangul-writing-finish'),
+            label: t.testerFeedbackCompleteHangul,
+            accent: SoriColors.hangul,
+            onTap: _strokeCount == 0 ? null : _finish,
+            fullWidth: true,
+          ),
         ],
       ),
     );
@@ -668,10 +776,13 @@ class _WriteTabState extends State<_WriteTab> {
 class _PracticeCanvas extends StatefulWidget {
   final String ghost;
   final Color color;
-  /// 명시적 size. null → 부모 (Expanded/AspectRatio) 가 결정.
-  final double? size;
-  // ignore: unused_element_parameter
-  const _PracticeCanvas({super.key, required this.ghost, required this.color, this.size});
+  final VoidCallback onStrokeEnd;
+  const _PracticeCanvas({
+    super.key,
+    required this.ghost,
+    required this.color,
+    required this.onStrokeEnd,
+  });
 
   @override
   State<_PracticeCanvas> createState() => _PracticeCanvasState();
@@ -693,6 +804,7 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.md),
       child: GestureDetector(
+        key: const Key('hangul-practice-canvas'),
         // Pan gesture for drawing strokes (handles all drags: horizontal, vertical, diagonal)
         onPanStart: (d) {
           setState(() {
@@ -704,8 +816,10 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
           setState(() => _current?.add(d.localPosition));
         },
         onPanEnd: (_) {
+          if (_current == null) return;
           HapticFeedback.lightImpact();
-          _current = null;
+          setState(() => _current = null);
+          widget.onStrokeEnd();
         },
         child: CustomPaint(
           painter: _PracticePainter(

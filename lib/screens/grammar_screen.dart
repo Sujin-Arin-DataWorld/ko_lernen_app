@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../models/grammar.dart';
+import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
 import '../services/storage_service.dart';
@@ -12,6 +13,7 @@ import '../widgets/app_error.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
@@ -42,6 +44,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   String _difficulty = 'Alle'; // Alle / Leicht / Schwer
   bool _loading = true;
   bool _loadFailed = false;
+  final Set<String> _sessionSeen = <String>{};
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
@@ -157,8 +161,68 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   void _onFlip() {
     HapticFeedback.selectionClick();
-    setState(() => _flipped = !_flipped);
+    final revealsAnswer = !_flipped;
+    setState(() {
+      _flipped = !_flipped;
+      if (revealsAnswer && _current != null) {
+        _sessionSeen.add(_current!.pattern);
+      }
+    });
     if (_flipped && _current != null) Storage.addGrammarSeen(_current!.pattern);
+  }
+
+  Future<void> _finishSession() async {
+    if (_sessionSeen.isEmpty) return;
+    final t = AppL10n.of(context);
+    final completion = _feedbackCompletion.complete(
+      () => FeedbackCompletion.grammarSession(
+        contentLabel: t.screenGrammarTitle,
+        level: _level,
+        type: _type,
+        difficulty: _difficulty,
+        seenCount: _sessionSeen.length,
+      ),
+    );
+
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) {
+        final feedbackScope = ContentFeedbackControllerScope.maybeOf(
+          sheetContext,
+        );
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              t.testerFeedbackCompleteGrammar,
+              style: SoriTextTheme.of(sheetContext).h2,
+              textAlign: TextAlign.center,
+            ),
+            if (feedbackScope != null &&
+                feedbackScope.featureGate.isEnabled) ...[
+              const SizedBox(height: Spacing.lg),
+              ContentFeedbackCard(
+                feedbackContext: completion.context,
+                featureGate: feedbackScope.featureGate,
+                submitFeedback: feedbackScope.submitFeedback,
+                completedMissionIds: feedbackScope.completedMissionIds,
+              ),
+            ],
+            const SizedBox(height: Spacing.lg),
+            SoriButton.filled(
+              label: t.btnClose,
+              fullWidth: true,
+              onTap: () => Navigator.pop(sheetContext),
+            ),
+          ],
+        );
+      },
+    );
+    if (!mounted) return;
+    setState(() {
+      _sessionSeen.clear();
+      _feedbackCompletion.reset();
+    });
   }
 
   List<String> get _levels {
@@ -345,6 +409,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   label: t.grammarEasy,
                                   icon: Icons.thumb_up_alt_outlined,
                                   onTap: () async {
+                                    setState(() => _sessionSeen.add(g.pattern));
                                     await Storage.markGrammarEasy(g.pattern);
                                     _next();
                                   },
@@ -357,6 +422,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   icon: Icons.psychology_outlined,
                                   destructive: true,
                                   onTap: () async {
+                                    setState(() => _sessionSeen.add(g.pattern));
                                     await Storage.markGrammarHard(g.pattern);
                                     _next();
                                   },
@@ -373,30 +439,53 @@ class _GrammarScreenState extends State<GrammarScreen>
                   // 하단 액션 위계: Weiter(primary) > Hören·Zurück(secondary) > Zufällig(tertiary).
                   SoriEntrance(
                     delay: const Duration(milliseconds: 80),
-                    child: StudyActionBar(
-                      accent: SoriColors.warning,
-                      secondary: [
-                        StudyAction(
-                          label: t.btnHoeren,
-                          icon: Icons.volume_up,
-                          onTap: () => TtsService.speak(g.exampleKorean),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        StudyActionBar(
+                          accent: SoriColors.warning,
+                          secondary: [
+                            StudyAction(
+                              label: t.btnHoeren,
+                              icon: Icons.volume_up,
+                              onTap: () => TtsService.speak(g.exampleKorean),
+                            ),
+                            StudyAction(
+                              label: t.btnPrev,
+                              icon: Icons.arrow_back,
+                              onTap: _prev,
+                            ),
+                          ],
+                          primary: StudyAction(
+                            label: t.btnNext,
+                            icon: Icons.arrow_forward,
+                            onTap: _next,
+                          ),
                         ),
-                        StudyAction(
-                          label: t.btnPrev,
-                          icon: Icons.arrow_back,
-                          onTap: _prev,
+                        const SizedBox(height: Spacing.xs),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: SoriButton.ghost(
+                                label: t.btnRandom,
+                                size: SoriButtonSize.sm,
+                                onTap: _random,
+                              ),
+                            ),
+                            const SizedBox(width: Spacing.sm),
+                            Expanded(
+                              child: SoriButton.ghost(
+                                key: const Key('grammar-finish-session'),
+                                label: t.testerFeedbackCompleteGrammar,
+                                size: SoriButtonSize.sm,
+                                onTap: _sessionSeen.isEmpty
+                                    ? null
+                                    : _finishSession,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
-                      primary: StudyAction(
-                        label: t.btnNext,
-                        icon: Icons.arrow_forward,
-                        onTap: _next,
-                      ),
-                      tertiary: StudyAction(
-                        label: t.btnRandom,
-                        icon: Icons.shuffle,
-                        onTap: _random,
-                      ),
                     ),
                   ),
                 ],

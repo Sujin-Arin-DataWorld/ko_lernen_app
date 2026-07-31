@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/kkeunmari_engine.dart';
 import '../services/storage_service.dart';
@@ -11,6 +12,7 @@ import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
@@ -54,6 +56,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   _End _end = _End.none;
   bool _newBest = false; // diese Runde = längste Kette aller Zeiten?
   String _errorMsg = '';
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   KkeunmariWord? _last; // 마지막으로 낸 단어 (chain 마지막)
 
   Timer? _timer;
@@ -106,6 +109,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   Future<void> _start() async {
+    _feedbackCompletion.reset();
     await KkeunmariEngine.load();
     if (!mounted) return;
     // M1: Vokabel-Keys laden → nur Kkeunmari-Wörter, die echte Vokabeln sind,
@@ -246,6 +250,19 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     if (_end != _End.none) return;
     _stopTimer();
     HapticFeedback.heavyImpact();
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.kkeunmari(
+        contentLabel: AppL10n.of(context).kkeunmariTitle,
+        chainLength: _chain.length,
+        endReason: switch (reason) {
+          _End.tigerStuck => 'tiger_stuck',
+          _End.userStuck => 'user_stuck',
+          _End.deadEnd => 'dead_end',
+          _End.timeUp => 'time_up',
+          _End.none => 'none',
+        },
+      ),
+    );
     setState(() => _end = reason);
     // 사용자 승 (tigerStuck, deadEnd) → 셀러브레이션 + Phase 4 Quest-Tracking.
     final didWin = reason == _End.tigerStuck || reason == _End.deadEnd;
@@ -336,6 +353,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                       chainLength: _chain.length,
                       xpEarned: (_chain.length * 10).clamp(20, 500),
                       isNewBest: _newBest,
+                      feedbackCompletion: _feedbackCompletion.current,
                       onAgain: _start,
                       onHome: () => Navigator.pop(context),
                     )
@@ -680,6 +698,7 @@ class _ResultCard extends StatelessWidget {
   final int chainLength;
   final int xpEarned;
   final bool isNewBest;
+  final FeedbackCompletion? feedbackCompletion;
   final VoidCallback onAgain;
   final VoidCallback onHome;
 
@@ -688,6 +707,7 @@ class _ResultCard extends StatelessWidget {
     required this.chainLength,
     required this.xpEarned,
     required this.isNewBest,
+    required this.feedbackCompletion,
     required this.onAgain,
     required this.onHome,
   });
@@ -696,6 +716,7 @@ class _ResultCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final won = end == _End.tigerStuck || end == _End.deadEnd;
     final color = won ? SoriColors.success : SoriColors.warning;
     final reasonLabel = switch (end) {
@@ -766,6 +787,17 @@ class _ResultCard extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ],
+          if (feedbackCompletion != null &&
+              feedbackScope != null &&
+              feedbackScope.featureGate.isEnabled) ...[
+            const SizedBox(height: Spacing.lg),
+            ContentFeedbackCard(
+              feedbackContext: feedbackCompletion!.context,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              completedMissionIds: feedbackScope.completedMissionIds,
             ),
           ],
           const SizedBox(height: Spacing.lg),
