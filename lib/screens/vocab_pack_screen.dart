@@ -605,9 +605,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ),
         ),
         const SizedBox(height: Spacing.lg),
-        // 4 choices — 중앙 정렬 + 스크롤 안전
+        // 4 choices — 프롬프트 카드 **바로 아래**(상단 정렬) + 스크롤 안전.
+        // 이전엔 Center 로 남은 공간에 세로 중앙 정렬해 단어와 보기가 크게
+        // 벌어져 보였음. topCenter 로 붙여 간격을 없앤다.
         Expanded(
-          child: Center(
+          child: Align(
+            alignment: Alignment.topCenter,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
