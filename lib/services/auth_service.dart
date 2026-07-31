@@ -1469,13 +1469,16 @@ class AuthService {
     ).synchronizeReady(uid);
   }
 
+  static const FirstDurableLinkBackfillJournalStore
+  _firstDurableLinkBackfillJournalStore =
+      SharedPreferencesFirstDurableLinkBackfillJournalStore();
+
   static final FirstDurableLinkBackfill _firstDurableLinkBackfill =
       FirstDurableLinkBackfill(
         sessions: cloudWriteSessionController,
         currentUid: () => cloudBackupUid,
         hasBlockingAccountJournal: _hasAnyOtherDurableAccountJournal,
-        journalStore:
-            const SharedPreferencesFirstDurableLinkBackfillJournalStore(),
+        journalStore: _firstDurableLinkBackfillJournalStore,
         uploadBookshelf: (session, {required operationId}) =>
             BookshelfService.uploadLocalGenerationForFirstDurableLink(
               session: session,
@@ -1699,6 +1702,7 @@ class AuthService {
         sessions: cloudWriteSessionController,
         currentUid: () => cloudBackupUid,
         journalStore: _cloudBackupDeletionJournalStore,
+        firstLinkJournalStore: _firstDurableLinkBackfillJournalStore,
         gateway: FirebaseCloudBackupDeletionGateway.production(
           currentUid: () => cloudBackupUid,
         ),

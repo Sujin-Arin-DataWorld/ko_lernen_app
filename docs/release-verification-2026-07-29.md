@@ -1,8 +1,8 @@
 # Account operation release verification — 2026-07-31 source gate
 
 Verification was executed on **2026-07-31 (Europe/Berlin)** from
-`codex/release-blockers-2026-07-30` at
-`fff94a38d25e5a7f1b6ccaa28833e3bc5cb59b44`, compared with
+`codex/release-blockers-2026-07-30` for the final fix wave based on
+`86df4e99a32c3e440bb86a1925f6aa2783703e49`, compared with
 `origin/main` at `0b95a6e4f09e3d4875d7d05ae343d2d807d52dc0`.
 
 This record covers repository source and local automated verification only. No
@@ -11,30 +11,31 @@ physical-device run, sandbox purchase, or store-console action was performed.
 
 ## Release verdict
 
-The complete prescribed **source-level gate passes** at the commit above. This
-does **not** clear the app for external testers or store release: the external
-gates listed below remain unverified until evidence from the intended Firebase,
-Apple, Google Play, RevenueCat, device, and store environments exists.
+The complete prescribed **source-level gate passes** for the final fix wave.
+This does **not** clear the app for external testers or store release: the
+external gates listed below remain unverified until evidence from the intended
+Firebase, Apple, Google Play, RevenueCat, device, and store environments exists.
 
 The reviewed source now has concrete worker adapters for bounded user-tree,
-community, processor, and Apple-revocation work. Local tests cover their worker
-wiring, lease/retry behavior, scheduler fairness, cloud-backup deletion
-journal, and resumable first-link backfill. These are source-test claims, not
-evidence that any production function, scheduler, rule, index, secret, IAM
-binding, provider, or route is deployed.
+per-Gye community, processor, and Apple-revocation work. Local tests cover
+their worker wiring, lease/retry and takeover fencing, scheduler fairness and
+hung-unit deferral, revocation-aware cloud-backup deletion, same-UID
+first-link receipt retirement, and resumable first-link backfill. These are
+source-test claims, not evidence that any production function, scheduler, rule,
+index, secret, IAM binding, provider, or route is deployed.
 
 ## Fresh command evidence
 
 | Gate | Exact command | Observed result |
 | --- | --- | --- |
-| Full Flutter suite required by the brief | `flutter test --reporter compact` | Exit 0; **1,186 passed**, 0 failed. A preliminary 5-second command-wrapper timeout was discarded and the command was rerun to completion. |
-| Definitive serialized Flutter suite | `flutter test --reporter compact --concurrency=1` | Exit 0; **1,186 passed**, 0 failed. This serialized run is the definitive Flutter evidence. |
+| Definitive serialized Flutter suite | `flutter test --reporter compact --concurrency=1` | Exit 0; **1,197 passed**, 0 failed. This post-fix serialized run is the definitive Flutter evidence. |
 | Dart analyzer | `flutter analyze` | Exit 0; `No issues found!`. |
-| Gye/Functions suite | `npm.cmd test` from `functions/gye` | Exit 0; **176 passed**, 0 failed, 0 skipped, 0 todo. |
+| Gye/Functions suite | `npm.cmd test` from `functions/gye` | Exit 0; **187 passed**, 0 failed, 0 skipped, 0 todo. |
 | Public account-deletion page | `node --test docs/account-deletion-page.test.js` | Exit 0; **5 passed**, 0 failed, 0 skipped, 0 todo. |
 | Firestore rules emulator | `$env:JAVA_HOME='C:\Program Files\Android\Android Studio\jbr'; $env:Path='C:\Program Files\Android\Android Studio\jbr\bin;'+$env:Path; npm.cmd run test:rules` from `functions/gye` | Exit 0 against demo project `demo-hangul-sori`; **37 passed**, 0 failed, 0 skipped, 0 todo; emulator shut down. The JBR environment change was command-scoped. Expected `PERMISSION_DENIED` messages were assertions of rejected client operations. |
-| Branch whitespace | `git diff --check origin/main...HEAD` | Exit 0; no output. |
-| Changed-Dart formatting | `$dartFiles = @(git diff --name-only origin/main...HEAD -- '*.dart'); dart format --output=none --set-exit-if-changed @dartFiles` | Exit 0; **43 files** checked, 0 changed. |
+| Branch whitespace | `git diff --check origin/main` | Exit 0; no errors. Git emitted only Windows LF-to-CRLF working-copy notices. |
+| Changed-Dart formatting | `$dartFiles = @(git diff --name-only origin/main -- '*.dart'); dart format --output=none --set-exit-if-changed @dartFiles` | Exit 0; **43 files** checked, 0 changed. |
+| Live iOS Firebase release gate | `dart run tool/verify_ios_firebase_config.dart` | Expected exit 1: live iOS `FirebaseOptions`, `ios/Runner/GoogleService-Info.plist`, and reachable Runner PBX membership are all absent. The source gate correctly remains closed pending authorized macOS/Firebase setup. |
 
 Passing these commands means the tested local source behaved as specified. It
 does not prove production deployment, device behavior, signing, or store
@@ -70,10 +71,10 @@ systems redact production values.
 
 | Area | Repository/local evidence | Limit of the claim |
 | --- | --- | --- |
-| Concrete deletion worker wiring | The 176-test Functions suite loads the exported index and exercises bounded tree deletion, community cleanup, processor cleanup, Apple revocation, leases, retries, and terminal replay. | The real Firebase project, deployed revisions, runtime service accounts, quotas, timeouts, and provider credentials were not inspected. |
-| Scheduler fairness and recovery | Functions tests exercise due deletion/replacement selection, bounded legacy backfill, Apple-wait starvation resistance, completed Apple checkpoint recovery, and retry deferral. | No deployed Cloud Scheduler job, alert, retry policy, or production backlog was observed. |
-| Cloud-backup deletion journal | The serialized Flutter suite and Functions suite exercise durable admission, UID/operation fencing, bounded work discovery, restart/retry, and completion-only success. Rules tests deny client writes to server-owned deletion state. | No production Firestore dataset or real callable invocation was used. |
-| First-link path | The serialized Flutter suite exercises durable first-link admission, pending-journal resume, local backfill, exact-session fences, and safe UI locking. | Google/Apple first-link flows were not run on a signed device against real providers. |
+| Concrete deletion worker wiring | The 187-test Functions suite loads the exported index and exercises bounded tree deletion, durable per-Gye pages, processor cleanup, Apple revocation, leases, retries, legacy-to-server takeover, and terminal replay. | The real Firebase project, deployed revisions, runtime service accounts, quotas, timeouts, and provider credentials were not inspected. |
+| Scheduler fairness and recovery | Functions tests exercise due deletion/replacement selection, queue-class wall-clock opportunity, bounded legacy backfill, Apple-wait starvation resistance, completed Apple checkpoint recovery, and transactional deferral of a never-resolving unit. | No deployed Cloud Scheduler job, alert, retry policy, or production backlog was observed. |
+| Cloud-backup deletion journal | The serialized Flutter suite and Functions suite exercise durable admission, revocation-aware bearer verification, UID/provider matching, UID/operation fencing, bounded work discovery, restart/retry, and completion-only success. Rules tests deny client writes to server-owned deletion state. | No production Firestore dataset or real callable invocation was used. |
+| First-link path | The serialized Flutter suite exercises durable first-link admission, pending-journal resume, local backfill, exact-session fences, safe UI locking, and same-UID receipt retirement before a completed cloud deletion can return the session to ready. | Google/Apple first-link flows were not run on a signed device against real providers. |
 | Raw errors and sensitive proofs | Required scans were adjudicated above; Flutter/Node tests cover safe UI/public results and proof/log redaction. | Production logs, proxies, crash reporting, analytics, and support tooling remain external gates. |
 
 ## External gates — explicitly not verified
@@ -119,11 +120,11 @@ document.
 
 ## Independent review
 
-Independent review is **not completed by this source-verification record**.
-The release controller owns the fresh read-only review of the final Task 9 diff
-and the claims above. That review must still check concrete worker wiring,
-scheduler fairness, cloud-backup journal behavior, the first-link path,
-raw-error redaction, sensitive-value leakage, and the separation between source
-verification and external deployment evidence. No approval is claimed here,
-and the branch must not be treated as release-approved until that separate
-review has an evidence-backed disposition.
+A fresh read-only review of the pre-fix wave found additional false-pass and
+takeover gaps: unbounded per-Gye helper internals, cooperative-only scheduler
+deadlines, decoy/unreachable iOS source acceptance, an empty plist dictionary,
+and a detached Runner PBX group. The final fix wave added regression coverage
+and source changes for each finding. The release controller still owns the
+post-commit disposition of this exact final diff and the claims above. No
+approval is claimed here, and the branch must not be treated as
+release-approved until that controller review has an evidence-backed result.

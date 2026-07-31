@@ -3,13 +3,29 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
 
-const { cleanupGyeForDeletedUser } = require("./runtime");
 const {
   createDeletionCleanupAdapters,
   createLegacyUserDeletionCleanupHandler,
 } = require("./deletion_cleanup_adapters");
+const {
+  createGyeDeletionPageCleaner,
+} = require("./deletion_gye_page");
+const {
+  anonymizeFeed,
+  anonymizeMeta,
+  anonymizeReport,
+  anonymizeSticker,
+  shouldDeleteReportForUid,
+} = require("./lifecycle");
 
 const DELETE_FIELD = Symbol("delete-field");
+const ARRAY_REMOVE_FIELD = "array-remove-field";
+const NOW_MILLIS = 1_000;
+const WORKER_FENCE = Object.freeze({
+  workerId: "worker-one",
+  operationVersion: 1,
+  leaseVersion: 1,
+});
 
 function clone(value) {
   return value === undefined
@@ -19,6 +35,7 @@ function clone(value) {
 
 function fieldValue() {
   return {
+    arrayRemove: (...values) => ({ kind: ARRAY_REMOVE_FIELD, values }),
     delete: () => DELETE_FIELD,
     serverTimestamp: () => "server-time",
   };
@@ -29,6 +46,11 @@ function applyFields(current, fields) {
   for (const [key, value] of Object.entries(fields || {})) {
     if (value === DELETE_FIELD) {
       delete next[key];
+    } else if (value?.kind === ARRAY_REMOVE_FIELD) {
+      const currentValues = Array.isArray(next[key]) ? next[key] : [];
+      next[key] = currentValues.filter(
+        (entry) => !value.values.includes(entry),
+      );
     } else {
       next[key] = clone(value);
     }
@@ -101,6 +123,13 @@ class FakeCollectionReference {
       filters: [{ field, operator, value }],
     });
   }
+
+  orderBy() {
+    return new FakeQuery(this.firestore, {
+      collectionPath: this.path,
+      ordered: true,
+    });
+  }
 }
 
 class FakeQuery {
@@ -143,8 +172,15 @@ class FakeQuery {
     return this.copy({ ordered: true });
   }
 
-  startAfter(snapshot) {
-    return this.copy({ afterPath: snapshot.ref.path });
+  startAfter(cursor) {
+    const raw = typeof cursor === "string" ? cursor : cursor.ref.path;
+    return this.copy({
+      afterPath: this.collectionPath &&
+          typeof raw === "string" &&
+          !raw.includes("/")
+        ? `${this.collectionPath}/${raw}`
+        : raw,
+    });
   }
 
   limit(value) {
@@ -174,8 +210,13 @@ class FakeQuery {
       })
       .filter((path) => {
         const data = this.firestore.documents.get(path) || {};
-        return this.filters.every(({ field, operator, value }) =>
-          operator === "==" && data[field] === value);
+        return this.filters.every(({ field, operator, value }) => {
+          if (operator === "==") return data[field] === value;
+          if (operator === "array-contains") {
+            return Array.isArray(data[field]) && data[field].includes(value);
+          }
+          return false;
+        });
       })
       .filter((path) => !this.afterPath || path > this.afterPath)
       .sort()
@@ -223,9 +264,17 @@ class FakeFirestore {
   async runTransaction(callback) {
     const transaction = {
       get: (ref) => ref.get(),
+      getAll: (...refs) => Promise.all(refs.map((ref) => ref.get())),
       set: (ref, fields, options) => this.write(ref.path, fields, options),
       update: (ref, fields) => this.write(ref.path, fields, { merge: true }),
-      delete: (ref) => this.documents.delete(ref.path),
+      delete: (ref) => {
+        if (this.failProcessedCommitOnce &&
+            ref.path.includes("/processed_packs/")) {
+          this.failProcessedCommitOnce = false;
+          throw new Error("transient batch failure");
+        }
+        this.documents.delete(ref.path);
+      },
     };
     return callback(transaction);
   }
@@ -246,7 +295,7 @@ class FakeFirestore {
   }
 }
 
-function createHarness({ serverOwned = true } = {}) {
+function createHarness({ serverOwned = true, cleanupPage } = {}) {
   const firestore = new FakeFirestore();
   firestore.seed("account_deletions/source", {
     serverOwned,
@@ -254,38 +303,92 @@ function createHarness({ serverOwned = true } = {}) {
     cleanupGyeIds: ["legacy-gye"],
     cleanupRevision: 0,
   });
+  if (serverOwned) {
+    firestore.seed("account_operations/op", {
+      id: "op",
+      kind: "deletion",
+      phase: "communityCleanupPending",
+      sourceUid: "source",
+      version: WORKER_FENCE.operationVersion,
+      workerLease: {
+        workerId: WORKER_FENCE.workerId,
+        leaseVersion: WORKER_FENCE.leaseVersion,
+        leaseUntilMillis: NOW_MILLIS + 60_000,
+      },
+    });
+  }
   const anonymized = [];
   const reconciled = [];
-  const orphaned = [];
-  const adapters = createDeletionCleanupAdapters({
+  const fakeCleanupPage = async ({
+    targetRef,
+    gyeId,
+    uid,
+    nickname,
+    workerFence,
+    runFencedTransaction,
+  }) => {
+    anonymized.push({ gyeId, uid, nickname, workerFence });
+    reconciled.push(gyeId);
+    assert.deepEqual(workerFence, serverOwned ? WORKER_FENCE : undefined);
+    await runFencedTransaction(async ({ transaction }) => {
+      transaction.set(
+        targetRef,
+        { workState: { stage: "done", version: 1, cursor: null } },
+        { merge: true },
+      );
+    });
+    return { done: true };
+  };
+  const makeAdapters = () => createDeletionCleanupAdapters({
     firestore,
     fieldValue: fieldValue(),
     documentIdFieldPath: "__name__",
-    cleanupGyeForDeletedUser,
-    anonymizeGyeIdentity: async (gyeId, uid, nickname) => {
-      anonymized.push({ gyeId, uid, nickname });
-    },
-    reconcileMembershipAfterDeletion: async (gyeId) => {
-      reconciled.push(gyeId);
-      return "retained";
-    },
-    cleanupOrphanedGyeTree: async (_gref, gyeId) => {
-      orphaned.push(gyeId);
-    },
+    cleanupGyeForDeletedUserPage: cleanupPage || fakeCleanupPage,
     notificationOutboxBelongsToUid: (data, uid) => data.uid === uid,
-    commitDocumentChunks: async (documents, appendMutation) => {
-      const batch = firestore.batch();
-      documents.forEach((document) => appendMutation(batch, document));
-      await batch.commit();
-    },
+    nowMillis: () => NOW_MILLIS,
     pageSize: 2,
   });
-  return { adapters, anonymized, firestore, orphaned, reconciled };
+  const adapters = makeAdapters();
+  return {
+    adapters,
+    anonymized,
+    firestore,
+    makeAdapters,
+    reconciled,
+  };
+}
+
+function createRealAdapters(firestore) {
+  const values = fieldValue();
+  const cleaner = createGyeDeletionPageCleaner({
+    firestore,
+    fieldValue: values,
+    documentIdFieldPath: "__name__",
+    anonymizeMeta,
+    anonymizeFeed,
+    anonymizeReport,
+    anonymizeSticker,
+    shouldDeleteReportForUid,
+  });
+  return createDeletionCleanupAdapters({
+    firestore,
+    fieldValue: values,
+    documentIdFieldPath: "__name__",
+    cleanupGyeForDeletedUserPage: cleaner.cleanupPage,
+    notificationOutboxBelongsToUid: (data, uid) => data.uid === uid,
+    nowMillis: () => NOW_MILLIS,
+    pageSize: 2,
+  });
 }
 
 test("community cleanup retains a pre-root legacy Gye target and discovers "
     + "current relationships in bounded pages", async () => {
-  const { adapters, anonymized, firestore, reconciled } = createHarness();
+  const {
+    anonymized,
+    firestore,
+    makeAdapters,
+    reconciled,
+  } = createHarness();
   firestore.seed(
     "gye/discovered-gye/processed_packs/pack",
     { uid: "source" },
@@ -299,10 +402,21 @@ test("community cleanup retains a pre-root legacy Gye target and discovers "
     nickname: "legacy-member",
   });
 
-  const claim = await adapters.cleanupCommunity({
-    uid: "source",
-    operationId: "op",
-  });
+  let claim;
+  let invocations = 0;
+  do {
+    const queryCount = firestore.queryCalls.length;
+    claim = await makeAdapters().cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+    assert.ok(
+      firestore.queryCalls.length - queryCount <= 1,
+      "one invocation must consume at most one discovery page",
+    );
+  } while (!claim.done && invocations < 30);
 
   assert.deepEqual(reconciled, ["discovered-gye", "legacy-gye"]);
   assert.deepEqual(
@@ -312,7 +426,8 @@ test("community cleanup retains a pre-root legacy Gye target and discovers "
       { gyeId: "legacy-gye", nickname: "legacy-member" },
     ],
   );
-  assert.deepEqual(claim.gyeIds, ["discovered-gye", "legacy-gye"]);
+  assert.equal(claim.done, true);
+  assert.ok(invocations > 1);
   assert.equal(
     firestore.documents.has("gye/discovered-gye/departures/source"),
     false,
@@ -345,8 +460,19 @@ test("processor cleanup is idempotent and deletes only source-owned "
     { uid: "foreign" },
   );
 
-  await adapters.cleanupProcessor({ uid: "source", operationId: "op" });
-  await adapters.cleanupProcessor({ uid: "source", operationId: "op" });
+  let result;
+  do {
+    result = await adapters.cleanupProcessor({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+  } while (!result.done);
+  await adapters.cleanupProcessor({
+    uid: "source",
+    operationId: "op",
+    workerFence: WORKER_FENCE,
+  });
 
   assert.equal(firestore.documents.has("shared_packs/source-pack"), false);
   assert.equal(
@@ -386,23 +512,279 @@ async () => {
   );
   firestore.failProcessedCommitOnce = true;
 
-  await assert.rejects(
-    adapters.cleanupProcessor({ uid: "source", operationId: "op" }),
-    /transient batch failure/,
-  );
+  const first = await adapters.cleanupProcessor({
+    uid: "source",
+    operationId: "op",
+    workerFence: WORKER_FENCE,
+  });
+  assert.equal(first.done, false);
   assert.equal(firestore.documents.has("shared_packs/source-pack"), false);
   assert.equal(
     firestore.documents.has("gye/one/processed_packs/source-pack"),
     true,
   );
+  await assert.rejects(
+    adapters.cleanupProcessor({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    }),
+    /transient batch failure/,
+  );
 
-  await adapters.cleanupProcessor({ uid: "source", operationId: "op" });
+  let result;
+  do {
+    result = await adapters.cleanupProcessor({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+  } while (!result.done);
 
   assert.equal(
     Array.from(firestore.documents.keys())
       .some((path) => path.includes("source-pack") ||
         path.endsWith("source-message")),
     false,
+  );
+});
+
+test("high-fanout community discovery resumes from durable bounded progress",
+async () => {
+  const {
+    firestore,
+    makeAdapters,
+    reconciled,
+  } = createHarness();
+  for (let index = 0; index < 7; index += 1) {
+    const gyeId = `gye-${index}`;
+    firestore.seed(`gye/${gyeId}/members/source`, {
+      uid: "source",
+      nickname: `member-${index}`,
+    });
+  }
+
+  let result;
+  let invocations = 0;
+  do {
+    const beforeQueries = firestore.queryCalls.length;
+    result = await makeAdapters().cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+    assert.ok(firestore.queryCalls.length - beforeQueries <= 1);
+    assert.ok(reconciled.length <= invocations);
+  } while (!result.done && invocations < 50);
+
+  assert.equal(result.done, true);
+  assert.ok(invocations > 7);
+  assert.deepEqual(
+    reconciled.slice().sort(),
+    [
+      "gye-0",
+      "gye-1",
+      "gye-2",
+      "gye-3",
+      "gye-4",
+      "gye-5",
+      "gye-6",
+      "legacy-gye",
+    ],
+  );
+});
+
+test("stale cleanup worker cannot delete after a successor reclaims the lease",
+async () => {
+  const { adapters, firestore, reconciled } = createHarness();
+  firestore.seed("shared_packs/source-pack", { createdBy: "source" });
+  firestore.seed("account_operations/op", {
+    id: "op",
+    kind: "deletion",
+    phase: "processorCleanupPending",
+    sourceUid: "source",
+    version: WORKER_FENCE.operationVersion,
+    workerLease: {
+      workerId: "successor",
+      leaseVersion: WORKER_FENCE.leaseVersion + 1,
+      leaseUntilMillis: NOW_MILLIS + 60_000,
+    },
+  });
+
+  await assert.rejects(
+    adapters.cleanupProcessor({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    }),
+    { code: "stale-worker-lease" },
+  );
+  assert.equal(firestore.documents.has("shared_packs/source-pack"), true);
+  assert.deepEqual(reconciled, []);
+
+  const successorFence = {
+    workerId: "successor",
+    operationVersion: WORKER_FENCE.operationVersion,
+    leaseVersion: WORKER_FENCE.leaseVersion + 1,
+  };
+  const successor = await adapters.cleanupProcessor({
+    uid: "source",
+    operationId: "op",
+    workerFence: successorFence,
+  });
+  assert.equal(successor.done, false);
+  assert.equal(firestore.documents.has("shared_packs/source-pack"), false);
+});
+
+test("per-Gye cleanup pages bound high-fanout work and resume to tree deletion",
+async () => {
+  const { firestore } = createHarness();
+  firestore.seed("account_deletions/source", {
+    serverOwned: true,
+    operationId: "op",
+    cleanupGyeIds: ["fanout-gye"],
+    cleanupRevision: 0,
+  });
+  firestore.seed("gye/fanout-gye", {
+    ownerId: "source",
+    memberCount: 4,
+    lifecycleState: "active",
+    lastWeekMvpUid: "source",
+    lastWeekMvp: "Source",
+  });
+  for (const [index, memberUid] of [
+    "source",
+    "inactive-a",
+    "inactive-b",
+    "inactive-c",
+  ].entries()) {
+    firestore.seed(`gye/fanout-gye/members/${memberUid}`, {
+      uid: memberUid,
+      nickname: memberUid,
+      status: memberUid === "source" ? "active" : "inactive",
+      joinedAtMillis: index,
+    });
+    firestore.seed(`users/${memberUid}`, {
+      gyeIds: ["fanout-gye", "retained-gye"],
+    });
+  }
+  for (let index = 0; index < 7; index += 1) {
+    firestore.seed(`gye/fanout-gye/feed/feed-${index}`, {
+      actorUid: "source",
+      actorNickname: "Source",
+      payload: {},
+    });
+  }
+  const adapters = createRealAdapters(firestore);
+
+  let result = { done: false };
+  let invocations = 0;
+  while (!result.done && invocations < 100) {
+    result = await adapters.cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+  }
+
+  assert.equal(result.done, true);
+  assert.ok(invocations > 20);
+  assert.equal(
+    Array.from(firestore.documents.keys())
+      .some((path) => path === "gye/fanout-gye" ||
+        path.startsWith("gye/fanout-gye/")),
+    false,
+  );
+  for (const memberUid of [
+    "source",
+    "inactive-a",
+    "inactive-b",
+    "inactive-c",
+  ]) {
+    assert.deepEqual(
+      firestore.value(`users/${memberUid}`).gyeIds,
+      ["retained-gye"],
+    );
+  }
+  assert(
+    firestore.queryCalls.every(
+      (call) => call.ordered && call.limit <= 2,
+    ),
+  );
+});
+
+test("paused legacy Gye page cannot mutate after server takeover", async () => {
+  let pageStarted;
+  let releasePage;
+  const started = new Promise((resolve) => {
+    pageStarted = resolve;
+  });
+  const gate = new Promise((resolve) => {
+    releasePage = resolve;
+  });
+  const cleanupPage = async ({ targetRef, runFencedTransaction }) => {
+    pageStarted();
+    await gate;
+    await runFencedTransaction(async ({ transaction }) => {
+      transaction.set(
+        targetRef,
+        { staleLegacyMutation: true },
+        { merge: true },
+      );
+    });
+    return { done: false };
+  };
+  const { adapters, firestore } = createHarness({
+    serverOwned: false,
+    cleanupPage,
+  });
+  firestore.seed("account_deletions/source", {
+    serverOwned: false,
+    legacyCleanupGeneration: "legacy-generation-one",
+    communityCleanupState: {
+      operationId: "legacy-source",
+      collectionIndex: 5,
+      cursor: null,
+      discoveryComplete: true,
+      done: false,
+    },
+  });
+  firestore.seed(
+    "account_deletions/source/cleanup_targets/gye-one",
+    { operationId: "legacy-source", gyeId: "gye-one" },
+  );
+
+  const paused = adapters.cleanupCommunity({
+    uid: "source",
+    operationId: "legacy-source",
+    legacyGeneration: "legacy-generation-one",
+  });
+  await started;
+  firestore.seed("account_deletions/source", {
+    serverOwned: true,
+    operationId: "op",
+  });
+  firestore.seed("account_operations/op", {
+    sourceUid: "source",
+    version: WORKER_FENCE.operationVersion,
+    workerLease: {
+      workerId: WORKER_FENCE.workerId,
+      leaseVersion: WORKER_FENCE.leaseVersion,
+      leaseUntilMillis: NOW_MILLIS + 60_000,
+    },
+  });
+  releasePage();
+
+  await assert.rejects(paused, {
+    code: "cleanup-operation-mismatch",
+  });
+  assert.equal(
+    firestore.value(
+      "account_deletions/source/cleanup_targets/gye-one",
+    ).staleLegacyMutation,
+    undefined,
   );
 });
 

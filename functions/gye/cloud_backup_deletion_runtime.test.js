@@ -18,7 +18,11 @@ function callableRequest(uid, data = {}, {
   app = true,
   alreadyConsumed = false,
   signInProvider = "google.com",
+  bearerToken,
 } = {}) {
+  const token = bearerToken === undefined && uid != null
+    ? `unit-token|${uid}|${signInProvider}`
+    : bearerToken;
   return {
     auth: uid == null
       ? undefined
@@ -28,6 +32,9 @@ function callableRequest(uid, data = {}, {
       },
     app: app ? { appId: "test-app", alreadyConsumed } : undefined,
     data,
+    rawRequest: {
+      headers: token == null ? {} : { authorization: `Bearer ${token}` },
+    },
   };
 }
 
@@ -262,6 +269,17 @@ function createTransactionalFirestoreHarness({
   const clock = { now: 1_000 };
   let invocation = 0;
   const handlers = createCloudBackupDeletionRuntime({
+    auth: {
+      async verifyIdToken(token, checkRevoked) {
+        assert.equal(checkRevoked, true);
+        const match = /^unit-token\|([^|]+)\|([^|]+)$/.exec(token);
+        if (!match) throw new Error("invalid unit token");
+        return {
+          uid: match[1],
+          firebase: { sign_in_provider: match[2] },
+        };
+      },
+    },
     repository,
     store,
     hashRequestKey: () => "a".repeat(64),
@@ -759,12 +777,26 @@ function createHarness({
   documents = [],
   user = {},
   Store = MemoryBackupStore,
+  auth,
 } = {}) {
   const store = new Store({ documents, user });
   const repository = new MemoryOperationRepository(store);
   let invocation = 0;
   const seenHashInputs = [];
+  const verificationCalls = [];
+  const verifier = auth || {
+    async verifyIdToken(token, checkRevoked) {
+      verificationCalls.push({ token, checkRevoked });
+      const match = /^unit-token\|([^|]+)\|([^|]+)$/.exec(token);
+      if (!match) throw new Error("invalid unit token");
+      return {
+        uid: match[1],
+        firebase: { sign_in_provider: match[2] },
+      };
+    },
+  };
   const handlers = createCloudBackupDeletionRuntime({
+    auth: verifier,
     repository,
     store,
     hashRequestKey({ uid, requestKey }) {
@@ -780,7 +812,13 @@ function createHarness({
     pageSize,
     makeError: safeError,
   });
-  return { handlers, repository, seenHashInputs, store };
+  return {
+    handlers,
+    repository,
+    seenHashInputs,
+    store,
+    verificationCalls,
+  };
 }
 
 test("cloud backup deletion removes every root and descendant while preserving operational fields", async () => {
@@ -951,6 +989,65 @@ test("callable rejects an anonymous Firebase token without hashing the request",
   );
 
   assert.deepEqual(seenHashInputs, []);
+});
+
+test("callable rejects a revoked bearer token before hashing the request",
+async () => {
+  const verificationCalls = [];
+  const { handlers, seenHashInputs } = createHarness({
+    auth: {
+      async verifyIdToken(token, checkRevoked) {
+        verificationCalls.push({ token, checkRevoked });
+        throw new Error("revoked token detail");
+      },
+    },
+  });
+
+  await rejectsWithSafeCode(
+    handlers.deleteCloudBackup(callableRequest("durable", {
+      requestKey: "V".repeat(43),
+    })),
+    "unauthenticated",
+    "invalid-auth-token",
+  );
+
+  assert.deepEqual(verificationCalls, [{
+    token: "unit-token|durable|google.com",
+    checkRevoked: true,
+  }]);
+  assert.deepEqual(seenHashInputs, []);
+});
+
+test("callable rejects verified UID and provider mismatches before hashing",
+async () => {
+  for (const decoded of [
+    {
+      uid: "different-account",
+      firebase: { sign_in_provider: "google.com" },
+    },
+    {
+      uid: "durable",
+      firebase: { sign_in_provider: "apple.com" },
+    },
+  ]) {
+    const { handlers, seenHashInputs } = createHarness({
+      auth: {
+        async verifyIdToken(_token, checkRevoked) {
+          assert.equal(checkRevoked, true);
+          return decoded;
+        },
+      },
+    });
+
+    await rejectsWithSafeCode(
+      handlers.deleteCloudBackup(callableRequest("durable", {
+        requestKey: "W".repeat(43),
+      })),
+      "unauthenticated",
+      "invalid-auth-token",
+    );
+    assert.deepEqual(seenHashInputs, []);
+  }
 });
 
 test("a valid 100-collection-depth chain resumes to completion", async () => {

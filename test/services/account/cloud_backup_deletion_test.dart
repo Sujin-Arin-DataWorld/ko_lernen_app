@@ -8,9 +8,16 @@ import 'package:shared_preferences_platform_interface/shared_preferences_platfor
 
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   group('CloudBackupDeletionCoordinator', () {
+    setUp(() {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+    });
+
     test(
       'journal state stays loading until an authoritative absence read completes',
       () async {
@@ -163,6 +170,82 @@ void main() {
       expect(await journal.read(), isNull);
       expect(sessions.current!.mode, CloudWriteMode.ready);
       expect(coordinator.pending.value, isFalse);
+    });
+
+    test(
+      'completed remote deletion retains its journal until the same-UID '
+      'first-link receipt clears, then restart resumes the exact request',
+      () async {
+        final firstSessions = CloudWriteSessionController()..acquire('durable');
+        final deletionJournal = _MemoryJournalStore();
+        final firstLinkJournal = _MemoryFirstLinkJournalStore()
+          ..value = FirstDurableLinkBackfillJournal.pending(
+            uid: 'durable',
+            token: 'pending-first-link',
+          )
+          ..failedClears = 1;
+        final gateway = _Gateway()
+          ..responses.addAll(<CloudBackupDeletionRemoteState>[
+            CloudBackupDeletionRemoteState.completed,
+            CloudBackupDeletionRemoteState.completed,
+          ]);
+        final firstCoordinator = CloudBackupDeletionCoordinator(
+          sessions: firstSessions,
+          currentUid: () => 'durable',
+          journalStore: deletionJournal,
+          firstLinkJournalStore: firstLinkJournal,
+          gateway: gateway,
+          createRequestKey: () => 'R' * 43,
+        );
+
+        expect(await firstCoordinator.run(), CloudWriteResult.blocked);
+        final retainedDeletion = await deletionJournal.read();
+        expect(retainedDeletion, isNotNull);
+        expect(await firstLinkJournal.read(), isNotNull);
+        expect(firstSessions.current!.mode, CloudWriteMode.cleanupPending);
+
+        final restartedSessions = CloudWriteSessionController();
+        final restartedCoordinator = CloudBackupDeletionCoordinator(
+          sessions: restartedSessions,
+          currentUid: () => 'durable',
+          journalStore: deletionJournal,
+          firstLinkJournalStore: firstLinkJournal,
+          gateway: gateway,
+          createRequestKey: () => 'unused',
+        );
+
+        expect(await restartedCoordinator.run(), CloudWriteResult.completed);
+        expect(await deletionJournal.read(), isNull);
+        expect(await firstLinkJournal.read(), isNull);
+        expect(restartedSessions.current!.mode, CloudWriteMode.ready);
+        expect(gateway.requestKeys, <String>['R' * 43, 'R' * 43]);
+      },
+    );
+
+    test('first-link compare-clear that throws after removal is accepted only '
+        'after a reread proves the same-UID receipt absent', () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      final deletionJournal = _MemoryJournalStore();
+      final firstLinkJournal = _MemoryFirstLinkJournalStore()
+        ..value = FirstDurableLinkBackfillJournal.pending(
+          uid: 'durable',
+          token: 'removed-before-error',
+        )
+        ..clearThenThrow = 1;
+      final coordinator = CloudBackupDeletionCoordinator(
+        sessions: sessions,
+        currentUid: () => 'durable',
+        journalStore: deletionJournal,
+        firstLinkJournalStore: firstLinkJournal,
+        gateway: _Gateway()
+          ..responses.add(CloudBackupDeletionRemoteState.completed),
+        createRequestKey: () => 'S' * 43,
+      );
+
+      expect(await coordinator.run(), CloudWriteResult.completed);
+      expect(await deletionJournal.read(), isNull);
+      expect(await firstLinkJournal.read(), isNull);
+      expect(sessions.current!.mode, CloudWriteMode.ready);
     });
 
     test(
@@ -836,6 +919,48 @@ class _MemoryJournalStore implements CloudBackupDeletionJournalStore {
       writeThenThrow -= 1;
       throw StateError('journal write failed after persistence');
     }
+  }
+}
+
+class _MemoryFirstLinkJournalStore
+    implements FirstDurableLinkBackfillJournalStore {
+  FirstDurableLinkBackfillJournal? value;
+  int failedClears = 0;
+  int clearThenThrow = 0;
+
+  @override
+  Future<bool> clearIfCurrent(FirstDurableLinkBackfillJournal expected) async {
+    if (failedClears > 0) {
+      failedClears -= 1;
+      throw StateError('first-link receipt clear failed');
+    }
+    if (value != expected) return false;
+    value = null;
+    if (clearThenThrow > 0) {
+      clearThenThrow -= 1;
+      throw StateError('first-link receipt clear failed after removal');
+    }
+    return true;
+  }
+
+  @override
+  Future<bool> createIfAbsent(FirstDurableLinkBackfillJournal journal) async {
+    if (value != null) return false;
+    value = journal;
+    return true;
+  }
+
+  @override
+  Future<FirstDurableLinkBackfillJournal?> read() async => value;
+
+  @override
+  Future<bool> replaceIfCurrent({
+    required FirstDurableLinkBackfillJournal expected,
+    required FirstDurableLinkBackfillJournal next,
+  }) async {
+    if (value != expected) return false;
+    value = next;
+    return true;
   }
 }
 

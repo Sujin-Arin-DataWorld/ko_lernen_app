@@ -109,6 +109,43 @@ void main() {
   );
 
   test(
+    'typed restore reports empty for an operational-only user root',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      var appliedRoot = false;
+
+      final result = await CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'durable',
+        readAccount: () async =>
+            const CloudReadResult<Map<String, dynamic>>.present(
+              <String, dynamic>{
+                'gyeIds': <String>['gye-a'],
+                'blockedUids': <String>['blocked'],
+                'fcmTokens': <String>['operational-token'],
+                'displayName': 'retained profile',
+              },
+            ),
+        applyAccount: (data, beforeWrite) async {
+          beforeWrite();
+          appliedRoot = true;
+        },
+        restoreBookshelf: (_) async => const CloudRestoreComponentResult(
+          status: CloudWriteResult.completed,
+          hasRemoteData: false,
+        ),
+        restorePacks: (_) async => const CloudRestoreComponentResult(
+          status: CloudWriteResult.completed,
+          hasRemoteData: false,
+        ),
+      );
+
+      expect(appliedRoot, isTrue);
+      expect(result, CloudRestoreResult.empty);
+    },
+  );
+
+  test(
     'typed restore propagates a blocked component instead of reporting empty',
     () async {
       final sessions = CloudWriteSessionController()..acquire('durable');

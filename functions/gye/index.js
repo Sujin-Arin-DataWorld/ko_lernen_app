@@ -44,7 +44,6 @@ const {
   anonymizeMeta,
   anonymizeReport,
   anonymizeSticker,
-  buildGroupCleanupPlan,
   buildNotificationDeliveryUpdate,
   buildOwnerSuspensionPlan,
   buildWeeklyNotificationOutbox,
@@ -71,8 +70,6 @@ const {
   weeklyRolloverKey,
 } = require("./lifecycle");
 const {
-  cleanupGyeForDeletedUser,
-  orphanGyeCleanupUserIds,
   processNotificationDocuments,
   stageNotificationOutboxWrites,
 } = require("./runtime");
@@ -86,7 +83,9 @@ const {
   createKeyedDeletionProofDigest,
   fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
-  runScheduledDeletionCandidate,
+  runScheduledDeletionBatch,
+  SCHEDULE_TIMEOUT_SECONDS,
+  SCHEDULE_WORKER_DEADLINE_MILLIS,
 } = require("./account_operations_runtime");
 const {
   createFirestoreDeletionAdapters,
@@ -97,6 +96,9 @@ const {
   createDeletionCleanupAdapters,
   createLegacyUserDeletionCleanupHandler,
 } = require("./deletion_cleanup_adapters");
+const {
+  createGyeDeletionPageCleaner,
+} = require("./deletion_gye_page");
 const {
   createAppleRevocationAdapter,
 } = require("./apple_revocation_adapter");
@@ -207,6 +209,7 @@ const cloudBackupDeletionStore = createFirestoreCloudBackupStore({
   listDocumentsPage,
 });
 const cloudBackupDeletionHandlers = createCloudBackupDeletionRuntime({
+  auth: admin.auth(),
   repository: cloudBackupDeletionRepository,
   store: cloudBackupDeletionStore,
   hashRequestKey: ({ uid, requestKey }) =>
@@ -227,12 +230,17 @@ const deletionCleanupAdapters = createDeletionCleanupAdapters({
   firestore: db,
   fieldValue: admin.firestore.FieldValue,
   documentIdFieldPath: admin.firestore.FieldPath.documentId(),
-  cleanupGyeForDeletedUser,
-  anonymizeGyeIdentity,
-  reconcileMembershipAfterDeletion,
-  cleanupOrphanedGyeTree,
+  cleanupGyeForDeletedUserPage: createGyeDeletionPageCleaner({
+    firestore: db,
+    fieldValue: admin.firestore.FieldValue,
+    documentIdFieldPath: admin.firestore.FieldPath.documentId(),
+    anonymizeMeta,
+    anonymizeFeed,
+    anonymizeReport,
+    anonymizeSticker,
+    shouldDeleteReportForUid,
+  }).cleanupPage,
   notificationOutboxBelongsToUid,
-  commitDocumentChunks,
   pageSize: accountDeletionPageSize,
 });
 const legacyUserDeletionCleanupHandler =
@@ -254,23 +262,25 @@ exports.account_deletion_worker = onSchedule(
     schedule: "every 5 minutes",
     timeZone: "Etc/UTC",
     retryCount: 3,
+    timeoutSeconds: SCHEDULE_TIMEOUT_SECONDS,
   },
   async () => {
     const nowMillis = Date.now();
+    const deadlineMillis =
+      nowMillis + SCHEDULE_WORKER_DEADLINE_MILLIS;
     const candidates = await fetchStagedActionableDeletionCandidates({
       repository: accountOperationRepository,
       collection: db.collection("account_operations"),
       limit: 50,
       nowMillis,
     });
-    for (const candidate of candidates) {
-      await runScheduledDeletionCandidate({
-        candidate,
-        repository: accountOperationRepository,
-        workerRuntime: accountDeletionWorkerRuntime,
-        logger: functionsLogger,
-      });
-    }
+    await runScheduledDeletionBatch({
+      candidates,
+      repository: accountOperationRepository,
+      workerRuntime: accountDeletionWorkerRuntime,
+      logger: functionsLogger,
+      deadlineMillis,
+    });
   },
 );
 
@@ -896,6 +906,14 @@ exports.account_deletion_tombstone_cleanup = onSchedule(
             Object.prototype.hasOwnProperty.call(
               currentData,
               "cleanupGyeIds",
+            ) ||
+            Object.prototype.hasOwnProperty.call(
+              currentData,
+              "communityCleanupState",
+            ) ||
+            Object.prototype.hasOwnProperty.call(
+              currentData,
+              "processorCleanupState",
             ),
           authMissingSinceMillis: currentData.authMissingSince?.toMillis?.(),
           nowMillis,
@@ -944,7 +962,11 @@ async function reviewPendingReports(reportDocuments, targetUid) {
   }
 }
 
-async function anonymizeGyeIdentity(gyeId, uid, legacyNickname) {
+async function anonymizeGyeIdentity(
+  gyeId,
+  uid,
+  legacyNickname,
+) {
   const gref = db.collection("gye").doc(gyeId);
   const meta = await gref.get();
   if (!meta.exists) return;
@@ -1048,140 +1070,6 @@ async function anonymizeGyeIdentity(gyeId, uid, legacyNickname) {
       });
     }
   }
-}
-
-async function cleanupOrphanedGyeTree(gref, gyeId) {
-  const action = await db.runTransaction(async (transaction) => {
-    const parent = await transaction.get(gref);
-    if (parent.exists) {
-      return (parent.data() || {}).lifecycleState === "deleting"
-        ? "deleteTree"
-        : "retryActiveParent";
-    }
-    const members = await transaction.get(gref.collection("members"));
-    const cachedUsers = await transaction.get(
-      db.collection("users").where("gyeIds", "array-contains", gyeId),
-    );
-    const affectedUids = orphanGyeCleanupUserIds(
-      members.docs.map((document) => document.id),
-      cachedUsers.docs.map((document) => document.id),
-    );
-    const cachedUserIds = new Set(
-      cachedUsers.docs.map((document) => document.id),
-    );
-    const missingMemberUserRefs = affectedUids
-      .filter((uid) => !cachedUserIds.has(uid))
-      .map((uid) => db.collection("users").doc(uid));
-    const missingMemberUsers = missingMemberUserRefs.length === 0
-      ? []
-      : await transaction.getAll(
-        ...missingMemberUserRefs,
-      );
-    const affectedUsers = [...cachedUsers.docs, ...missingMemberUsers];
-    affectedUsers.forEach((user) => {
-      if (user.exists) {
-        transaction.update(user.ref, {
-          gyeIds: admin.firestore.FieldValue.arrayRemove(gyeId),
-        });
-      }
-    });
-    transaction.set(gref, {
-      lifecycleState: "deleting",
-      orphanCleanup: true,
-    });
-    return "deleteTree";
-  });
-  if (action !== "deleteTree") {
-    throw new Error(
-      `Gye ${gyeId} was recreated while orphan cleanup was starting.`,
-    );
-  }
-  await db.recursiveDelete(gref);
-}
-
-async function reconcileMembershipAfterDeletion(gyeId, uid) {
-  const gref = db.collection("gye").doc(gyeId);
-  const outcome = await db.runTransaction(async (transaction) => {
-    const meta = await transaction.get(gref);
-    if (!meta.exists) return { action: "missing" };
-    if ((meta.data() || {}).lifecycleState === "deleting") {
-      return { action: "deleteGroup" };
-    }
-
-    const membersSnapshot = await transaction.get(gref.collection("members"));
-    const bansSnapshot = await transaction.get(gref.collection("bans"));
-    const memberDeletionMarkers = membersSnapshot.empty
-      ? []
-      : await transaction.getAll(
-        ...membersSnapshot.docs.map((doc) =>
-          db.collection("account_deletions").doc(doc.id)),
-      );
-    const members = membersSnapshot.docs.map((doc) => ({
-      uid: doc.id,
-      ...(doc.data() || {}),
-      joinedAtMillis: (doc.data() || {}).joinedAt?.toMillis?.(),
-    }));
-    const bannedUids = new Set(
-      bansSnapshot.docs
-        .filter((doc) => (doc.data() || {}).active !== false)
-        .map((doc) => doc.id),
-    );
-    memberDeletionMarkers
-      .filter((doc) => doc.exists)
-      .forEach((doc) => bannedUids.add(doc.id));
-    const plan = buildGroupCleanupPlan({
-      departingUid: uid,
-      ownerId: (meta.data() || {}).ownerId,
-      members,
-      bannedUids,
-    });
-
-    if (plan.action === "deleteGroup") {
-      const affectedUserRefs = groupDeletionUserUids(members)
-        .map((memberUid) => db.collection("users").doc(memberUid));
-      const affectedUsers = affectedUserRefs.length === 0
-        ? []
-        : await transaction.getAll(...affectedUserRefs);
-      affectedUsers.forEach((affectedUser) => {
-        if (affectedUser.exists) {
-          transaction.update(affectedUser.ref, {
-            gyeIds: admin.firestore.FieldValue.arrayRemove(gyeId),
-          });
-        }
-      });
-      transaction.set(gref, { lifecycleState: "deleting" }, { merge: true });
-      return plan;
-    }
-
-    const departingRef = gref.collection("members").doc(uid);
-    if (members.some((member) => member.uid === uid)) {
-      transaction.delete(departingRef);
-    }
-    if (plan.action === "transferOwner") {
-      transaction.update(gref, {
-        ownerId: plan.successorUid,
-        memberCount: plan.memberCount,
-        lifecycleState: "active",
-      });
-      transaction.update(gref.collection("members").doc(plan.successorUid), {
-        role: "owner",
-        status: "active",
-      });
-    } else {
-      const currentCount = (meta.data() || {}).memberCount;
-      if (currentCount !== plan.memberCount) {
-        transaction.update(gref, { memberCount: plan.memberCount });
-      }
-    }
-    return plan;
-  });
-
-  if (outcome.action === "deleteGroup") {
-    // Parent deletion does not remove subcollections. recursiveDelete is
-    // intentionally used after lifecycleState closes the client join race.
-    await db.recursiveDelete(gref);
-  }
-  return outcome.action;
 }
 
 /**

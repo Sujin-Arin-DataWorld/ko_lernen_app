@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../storage_service.dart';
 import 'cloud_write_session.dart';
+import 'first_link_backfill_journal.dart';
 
 enum CloudBackupDeletionRemoteState { completed, pending }
 
@@ -282,15 +283,20 @@ class CloudBackupDeletionCoordinator {
     required this.currentUid,
     required this.journalStore,
     required this.gateway,
+    FirstDurableLinkBackfillJournalStore? firstLinkJournalStore,
     CloudBackupDeletionRequestKeyFactory? createRequestKey,
     CloudBackupDeletionAuthGate? authGate,
   }) : createRequestKey = createRequestKey ?? createSecureRequestKey,
+       firstLinkJournalStore =
+           firstLinkJournalStore ??
+           const SharedPreferencesFirstDurableLinkBackfillJournalStore(),
        _authGate = authGate ?? CloudBackupDeletionAuthGate();
 
   final CloudWriteSessionController sessions;
   final String? Function() currentUid;
   final CloudBackupDeletionJournalStore journalStore;
   final CloudBackupDeletionGateway gateway;
+  final FirstDurableLinkBackfillJournalStore firstLinkJournalStore;
   final CloudBackupDeletionRequestKeyFactory createRequestKey;
   final CloudBackupDeletionAuthGate _authGate;
   final ValueNotifier<CloudBackupDeletionJournalState> journalState =
@@ -527,7 +533,37 @@ class CloudBackupDeletionCoordinator {
       return CloudWriteResult.blocked;
     }
 
+    if (!await _clearSameUidFirstLinkReceipt(journal.session.uid)) {
+      _setJournalState(CloudBackupDeletionJournalState.pending);
+      return sessions.current == journal.session
+          ? CloudWriteResult.blocked
+          : CloudWriteResult.stale;
+    }
     return _clearCompletedJournal(journal);
+  }
+
+  Future<bool> _clearSameUidFirstLinkReceipt(String uid) async {
+    FirstDurableLinkBackfillJournal? receipt;
+    try {
+      receipt = await firstLinkJournalStore.read();
+    } catch (_) {
+      return false;
+    }
+    if (receipt == null || receipt.uid != uid) return true;
+
+    try {
+      if (await firstLinkJournalStore.clearIfCurrent(receipt)) return true;
+    } catch (_) {
+      // A platform store may throw after native removal. Only a fresh read
+      // can distinguish that completed removal from an unresolved receipt.
+    }
+
+    try {
+      final remaining = await firstLinkJournalStore.read();
+      return remaining == null || remaining.uid != uid;
+    } catch (_) {
+      return false;
+    }
   }
 
   Future<CloudWriteResult> _clearCompletedJournal(

@@ -28,6 +28,17 @@ import 'storage_service.dart';
 /// input and is never emitted by this root-document writer.
 class CloudSync {
   static FirebaseFirestore get _db => FirebaseFirestore.instance;
+  static const Set<String> _restorableAccountFields = <String>{
+    'vok',
+    'chosung',
+    'wordle',
+    'grammar',
+    'app',
+    'progress',
+    'srs_json',
+    'custom_packs_json',
+    'bookshelf_json',
+  };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
   static Future<CloudRestoreResult> Function()? _restoreWithResultForTesting;
   static Future<bool> Function()? _restoreForTesting;
@@ -756,7 +767,9 @@ class CloudSync {
         if (afterAccount != CloudWriteResult.completed) {
           return _restoreResultForWrite(afterAccount);
         }
-        hasRootBackup = true;
+        hasRootBackup = remote.value!.keys.any(
+          _restorableAccountFields.contains,
+        );
       } else if (remote.state != CloudReadState.absent) {
         return CloudRestoreResult.blocked;
       }

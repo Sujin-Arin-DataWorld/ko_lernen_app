@@ -1961,6 +1961,63 @@ async () => {
   assert.equal(stored.phase, "communityCleanupPending");
 });
 
+test("worker checkpoints bounded cleanup without advancing phase and passes "
+    + "the renewed lease fence", async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const setupWorker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => ({ done: true }),
+    cleanupProcessor: async () => ({ done: true }),
+    nowMillis: () => harness.clock.now,
+  });
+  await runWorkerUntil(
+    setupWorker,
+    requested.operationId,
+    "communityCleanupPending",
+  );
+  const fences = [];
+  let communityCalls = 0;
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async ({ workerFence }) => {
+      fences.push(workerFence);
+      communityCalls += 1;
+      return { done: communityCalls > 1 };
+    },
+    cleanupProcessor: async () => ({ done: true }),
+    newWorkerInvocationId: () => `cleanup-${communityCalls + 1}`,
+    nowMillis: () => harness.clock.now,
+  });
+
+  const bounded = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "scheduled",
+  });
+  assert.equal(bounded.phase, "communityCleanupPending");
+  assert.equal(communityCalls, 1);
+  assert.equal(typeof fences[0]?.workerId, "string");
+  assert.equal(fences[0]?.operationVersion, bounded.version);
+  const checkpointed = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+  assert.equal(
+    fences[0]?.leaseVersion + 1,
+    checkpointed.workerLease.leaseVersion,
+  );
+
+  const advanced = await worker.processDeletionOperation({
+    operationId: requested.operationId,
+    workerId: "scheduled",
+  });
+  assert.equal(advanced.phase, "processorCleanupPending");
+  assert.equal(communityCalls, 2);
+});
+
 test("server worker resumes Auth deletion only after persisted Apple revocation proof",
 async () => {
   const harness = createHarness({
@@ -2255,6 +2312,180 @@ test("replacement backlog cannot exclude a due deletion candidate", async () => 
   assert(candidates.some((candidate) => candidate.id === "due-deletion"));
 });
 
+test("scheduler interleaves replacement, deletion, and Apple queues", async () => {
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: fakeAccountOperationCollection([
+      {
+        id: "replacement-one",
+        kind: "replacement",
+        phase: "sourceCleanupPending",
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS,
+      },
+      {
+        id: "replacement-two",
+        kind: "replacement",
+        phase: "sourceCleanupPending",
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS + 1,
+      },
+      {
+        id: "deletion-one",
+        kind: "deletion",
+        phase: "deletionRequested",
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS,
+      },
+      {
+        id: "apple-one",
+        kind: "deletion",
+        phase: "appleRevocationPending",
+        deletionProgress: { appleRevocationComplete: true },
+        nextAttemptAtMillis: NOW_MILLIS,
+        updatedAtMillis: NOW_MILLIS,
+      },
+    ]),
+    limit: 50,
+    nowMillis: NOW_MILLIS,
+  });
+
+  assert.deepEqual(
+    candidates.map(({ id }) => id),
+    [
+      "replacement-one",
+      "deletion-one",
+      "apple-one",
+      "replacement-two",
+    ],
+  );
+});
+
+test("scheduled execution gives every queue class wall-clock opportunity "
+    + "before slow replacement work finishes", async () => {
+  const events = [];
+  const startedAtMillis = Date.now();
+  const candidates = [
+    {
+      id: "slow-replacement",
+      kind: "replacement",
+      phase: "sourceCleanupPending",
+    },
+    {
+      id: "later-replacement",
+      kind: "replacement",
+      phase: "sourceCleanupPending",
+    },
+    {
+      id: "due-deletion",
+      kind: "deletion",
+      phase: "deletionRequested",
+    },
+    {
+      id: "due-apple",
+      kind: "deletion",
+      phase: "appleRevocationPending",
+      deletionProgress: { appleRevocationComplete: true },
+    },
+  ];
+
+  await runtime.runScheduledDeletionBatch({
+    candidates,
+    repository: {
+      async recordDeletionWorkFailure() {},
+    },
+    workerRuntime: {
+      async processDeletionOperation({ operationId }) {
+        events.push(`start:${operationId}`);
+        if (operationId === "slow-replacement") {
+          await new Promise((resolve) => setTimeout(resolve, 80));
+        }
+        events.push(`finish:${operationId}`);
+        return { phase: "completed" };
+      },
+    },
+    logger: { warn() {} },
+    deadlineMillis: startedAtMillis + 500,
+    nowMillis: () => Date.now(),
+  });
+
+  const slowFinished = events.indexOf("finish:slow-replacement");
+  assert.ok(events.indexOf("start:due-deletion") < slowFinished);
+  assert.ok(events.indexOf("start:due-apple") < slowFinished);
+  assert.ok(Date.now() - startedAtMillis < 400);
+});
+
+test("worker deadline records safe deferral before the outer schedule timeout",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const workerRuntime = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      return { done: false, nextCursor: "work-v1" };
+    },
+    cleanupCommunity: async () => ({ done: true }),
+    cleanupProcessor: async () => ({ done: true }),
+    newWorkerInvocationId: () => "deadline-invocation",
+    nowMillis: () => Date.now(),
+  });
+  const startedAtMillis = Date.now();
+
+  await runtime.runScheduledDeletionCandidate({
+    candidate: { id: requested.operationId },
+    repository: harness.repository,
+    workerRuntime,
+    logger: { warn() {} },
+    deadlineMillis: startedAtMillis + 20,
+    nowMillis: () => Date.now(),
+  });
+
+  const stored = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+  assert.ok(Date.now() - startedAtMillis < 180);
+  assert.equal(stored.deletionProgress.statusCode, "worker-failed");
+  assert.ok(stored.nextAttemptAtMillis > startedAtMillis);
+});
+
+test("a never-resolving destructive adapter expires its lease and defers work",
+async () => {
+  const harness = createHarness();
+  const requested = await createDeletionOperation(harness.handlers);
+  const workerRuntime = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { async deleteUser() {} },
+    deleteUserTreePage: async () => new Promise(() => {}),
+    cleanupCommunity: async () => ({ done: true }),
+    cleanupProcessor: async () => ({ done: true }),
+    newWorkerInvocationId: () => "hung-adapter-invocation",
+    nowMillis: () => Date.now(),
+    unitTimeoutMillis: 20,
+  });
+  const startedAtMillis = Date.now();
+
+  const result = await Promise.race([
+    runtime.runScheduledDeletionCandidate({
+      candidate: { id: requested.operationId },
+      repository: harness.repository,
+      workerRuntime,
+      logger: { warn() {} },
+      deadlineMillis: startedAtMillis + 500,
+      nowMillis: () => Date.now(),
+    }).then(() => "finished"),
+    new Promise((resolve) => setTimeout(() => resolve("hung"), 150)),
+  ]);
+
+  assert.equal(result, "finished");
+  const stored = harness.firestore.documents.get(
+    `account_operations/${requested.operationId}`,
+  );
+  assert.equal(stored.deletionProgress.statusCode, "worker-failed");
+  assert.ok(stored.workerLease.leaseUntilMillis <= Date.now());
+  assert.ok(stored.nextAttemptAtMillis > startedAtMillis);
+});
+
 test("scheduler excludes deletion work whose retry time is not due", async () => {
   const source = [
     {
@@ -2527,6 +2758,10 @@ test("index exports the protected callables and public proof endpoint", () => {
   assert.equal(
     deployed.account_deletion_worker.__endpoint.secretEnvironmentVariables,
     undefined,
+  );
+  assert.equal(
+    deployed.account_deletion_worker.__endpoint.timeoutSeconds,
+    300,
   );
   for (const name of CALLABLE_NAMES.filter(
     (callableName) => callableName !== "completeAppleRevocation",

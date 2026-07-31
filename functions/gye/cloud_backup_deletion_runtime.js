@@ -61,14 +61,23 @@ function validUid(value) {
     !/[\u0000-\u001f\u007f]/.test(value);
 }
 
-function durableProvider(request) {
-  const provider = request?.auth?.token?.firebase?.sign_in_provider;
-  return typeof provider === "string" &&
-    provider.length > 0 &&
-    provider !== "anonymous";
+function authorizationHeader(request) {
+  const headers = request?.rawRequest?.headers;
+  const header = headers?.authorization ??
+    request?.rawRequest?.get?.("authorization");
+  if (typeof header !== "string") return null;
+  const match = /^Bearer ([^\s]+)$/i.exec(header);
+  return match ? match[1] : null;
 }
 
-function assertRequest(request) {
+function signInProvider(token) {
+  const provider = token?.firebase?.sign_in_provider;
+  return typeof provider === "string" && provider.length > 0
+    ? provider
+    : null;
+}
+
+async function assertRequest(request, auth) {
   if (!request?.app || typeof request.app.appId !== "string") {
     throw new BoundaryFailure(
       "failed-precondition",
@@ -88,7 +97,29 @@ function assertRequest(request) {
       "authentication-required",
     );
   }
-  if (!durableProvider(request)) {
+  const contextProvider = signInProvider(request?.auth?.token);
+  const bearerToken = authorizationHeader(request);
+  if (contextProvider === null || bearerToken === null) {
+    throw new BoundaryFailure(
+      "unauthenticated",
+      "authentication-required",
+    );
+  }
+  let decoded;
+  try {
+    decoded = await auth.verifyIdToken(bearerToken, true);
+  } catch {
+    throw new BoundaryFailure("unauthenticated", "invalid-auth-token");
+  }
+  const verifiedUid = decoded?.uid;
+  const verifiedProvider = signInProvider(decoded);
+  if (!validUid(verifiedUid) ||
+      verifiedProvider === null ||
+      verifiedUid !== uid ||
+      verifiedProvider !== contextProvider) {
+    throw new BoundaryFailure("unauthenticated", "invalid-auth-token");
+  }
+  if (verifiedProvider === "anonymous") {
     throw new BoundaryFailure(
       "unauthenticated",
       "durable-authentication-required",
@@ -102,7 +133,7 @@ function assertRequest(request) {
       !REQUEST_KEY_PATTERN.test(data.requestKey || "")) {
     throw new BoundaryFailure("invalid-argument", "invalid-request");
   }
-  return { uid, requestKey: data.requestKey };
+  return { uid: verifiedUid, requestKey: data.requestKey };
 }
 
 function pathSegments(path) {
@@ -314,6 +345,7 @@ function resultFor(activeDigest, requestedDigest, state) {
 }
 
 function createCloudBackupDeletionRuntime({
+  auth,
   repository,
   store,
   hashRequestKey,
@@ -322,7 +354,9 @@ function createCloudBackupDeletionRuntime({
   pageSize = DEFAULT_WORK_UNITS,
   makeError,
 } = {}) {
-  if (!repository ||
+  if (!auth ||
+      typeof auth.verifyIdToken !== "function" ||
+      !repository ||
       typeof repository.claim !== "function" ||
       typeof repository.currentWork !== "function" ||
       typeof repository.startRoot !== "function" ||
@@ -566,7 +600,7 @@ function createCloudBackupDeletionRuntime({
 
   async function deleteCloudBackup(request) {
     try {
-      const { uid, requestKey } = assertRequest(request);
+      const { uid, requestKey } = await assertRequest(request, auth);
       const requestedDigest = await hashRequestKey({ uid, requestKey });
       if (!DIGEST_PATTERN.test(requestedDigest || "")) {
         throw new Error("Invalid cloud backup deletion digest.");

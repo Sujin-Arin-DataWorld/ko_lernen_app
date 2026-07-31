@@ -62,6 +62,9 @@ const DEFAULT_WORKER_LEASE_MILLIS = 60_000;
 const DEFAULT_WORKER_RETRY_DELAY_MILLIS = 60_000;
 const MAX_WORKER_RETRY_DELAY_MILLIS = 3_600_000;
 const DEFAULT_DELETE_PAGE_SIZE = 200;
+const DEFAULT_DESTRUCTIVE_UNIT_TIMEOUT_MILLIS = 45_000;
+const SCHEDULE_TIMEOUT_SECONDS = 300;
+const SCHEDULE_WORKER_DEADLINE_MILLIS = 240_000;
 const QUEUE_BUDGETS = Object.freeze({
   replacement: 20,
   deletion: 20,
@@ -108,6 +111,17 @@ function dedupeCandidates(candidates) {
     seen.add(candidate.id);
     return true;
   });
+}
+
+function interleaveCandidateQueues(queues) {
+  const result = [];
+  const largestQueue = Math.max(0, ...queues.map((queue) => queue.length));
+  for (let index = 0; index < largestQueue; index += 1) {
+    for (const queue of queues) {
+      if (queue[index]) result.push(queue[index]);
+    }
+  }
+  return result;
 }
 
 async function fetchActionableDeletionCandidates({
@@ -160,11 +174,11 @@ async function fetchActionableDeletionCandidates({
   const docs = (snapshot) => Array.isArray(snapshot?.docs)
     ? snapshot.docs
     : [];
-  return dedupeCandidates([
-    ...docs(replacement),
-    ...docs(deletion),
-    ...docs(apple),
-  ]);
+  return dedupeCandidates(interleaveCandidateQueues([
+    docs(replacement),
+    docs(deletion),
+    docs(apple),
+  ]));
 }
 
 async function fetchStagedActionableDeletionCandidates({
@@ -204,10 +218,11 @@ function repositoryFailure(code) {
 }
 
 class DeletionWorkerFailure extends Error {
-  constructor(retryMetadata) {
+  constructor(retryMetadata, { failureRecorded = false } = {}) {
     super("deletion-worker-failed");
     this.code = "worker-failed";
     this.retryMetadata = Object.freeze({ ...retryMetadata });
+    this.failureRecorded = failureRecorded;
   }
 }
 
@@ -1069,6 +1084,10 @@ function createFirestoreAccountOperationRepository({
           ...workerProgress(stored),
           statusCode: safeCode,
         },
+        workerLease: {
+          ...lease,
+          leaseUntilMillis: failureTimeMillis,
+        },
       };
       transaction.set(operationRef, updated);
       return workerResult(updated);
@@ -1115,23 +1134,40 @@ function createDeletionWorkerRuntime({
   nowMillis = () => Date.now(),
   leaseMillis = DEFAULT_WORKER_LEASE_MILLIS,
   pageSize = DEFAULT_DELETE_PAGE_SIZE,
+  unitTimeoutMillis = DEFAULT_DESTRUCTIVE_UNIT_TIMEOUT_MILLIS,
   newWorkerInvocationId = () => crypto.randomUUID(),
 } = {}) {
   if (!repository ||
       typeof repository.claimDeletionWork !== "function" ||
       typeof repository.renewDeletionLease !== "function" ||
-      typeof repository.checkpointDeletionWork !== "function") {
+      typeof repository.checkpointDeletionWork !== "function" ||
+      typeof repository.recordDeletionWorkFailure !== "function") {
     throw new TypeError("A deletion-worker repository is required.");
   }
   if (!auth || typeof auth.deleteUser !== "function" ||
       typeof deleteUserTreePage !== "function" ||
       typeof cleanupCommunity !== "function" ||
       typeof cleanupProcessor !== "function" ||
-      typeof newWorkerInvocationId !== "function") {
+      typeof newWorkerInvocationId !== "function" ||
+      !Number.isFinite(unitTimeoutMillis) ||
+      unitTimeoutMillis <= 0) {
     throw new TypeError("Injected destructive worker adapters are required.");
   }
 
-  async function processDeletionOperation({ operationId, workerId }) {
+  async function processDeletionOperation({
+    operationId,
+    workerId,
+    deadlineMillis,
+  }) {
+    if (deadlineMillis !== undefined &&
+        (!Number.isFinite(deadlineMillis) || deadlineMillis < 0)) {
+      throw new TypeError("Worker deadline must be a non-negative number.");
+    }
+    const assertWithinDeadline = () => {
+      if (deadlineMillis !== undefined && nowMillis() >= deadlineMillis) {
+        throw repositoryFailure("worker-deadline-exceeded");
+      }
+    };
     const invocationWorkerId = stableKey(
       "deletion-worker-invocation",
       requiredString(workerId, "worker-id-required"),
@@ -1143,6 +1179,7 @@ function createDeletionWorkerRuntime({
     let claim;
     let operation;
     try {
+      assertWithinDeadline();
       claim = await repository.claimDeletionWork({
         operationId,
         workerId: invocationWorkerId,
@@ -1157,6 +1194,7 @@ function createDeletionWorkerRuntime({
     }
 
     const renew = async () => {
+      assertWithinDeadline();
       claim = await repository.renewDeletionLease({
         operationId,
         workerId: invocationWorkerId,
@@ -1165,9 +1203,11 @@ function createDeletionWorkerRuntime({
         leaseMillis,
       });
       operation = claim.operation;
+      assertWithinDeadline();
       return claim;
     };
     const checkpoint = async (change) => {
+      assertWithinDeadline();
       claim = await repository.checkpointDeletionWork({
         operationId,
         workerId: invocationWorkerId,
@@ -1176,24 +1216,75 @@ function createDeletionWorkerRuntime({
         ...change,
       });
       operation = claim.operation;
+      assertWithinDeadline();
       return operationResult(operation);
+    };
+    const workerFence = () => ({
+      workerId: invocationWorkerId,
+      operationVersion: operation.version,
+      leaseVersion: claim.leaseVersion,
+    });
+    const retryMetadata = () => ({
+      operationId,
+      workerId: invocationWorkerId,
+      operationVersion: operation.version,
+      leaseVersion: claim.leaseVersion,
+    });
+    const runDestructiveUnit = async (start) => {
+      assertWithinDeadline();
+      const remainingMillis = deadlineMillis === undefined
+        ? unitTimeoutMillis
+        : Math.max(0, deadlineMillis - nowMillis());
+      const timeoutMillis = Math.min(unitTimeoutMillis, remainingMillis);
+      if (timeoutMillis <= 0) {
+        throw repositoryFailure("worker-deadline-exceeded");
+      }
+      const abortController = new AbortController();
+      let timeout;
+      const timedOut = new Promise((_, reject) => {
+        timeout = setTimeout(async () => {
+          abortController.abort();
+          const metadata = retryMetadata();
+          let failureRecorded = false;
+          try {
+            await repository.recordDeletionWorkFailure({
+              ...metadata,
+              safeCode: "worker-failed",
+              nowMillis: nowMillis(),
+            });
+            failureRecorded = true;
+          } catch {
+            // The scheduler will make one bounded best-effort recording attempt.
+          }
+          reject(new DeletionWorkerFailure(metadata, {
+            failureRecorded,
+          }));
+        }, timeoutMillis);
+      });
+      try {
+        return await Promise.race([
+          Promise.resolve().then(() => start(abortController.signal)),
+          timedOut,
+        ]);
+      } finally {
+        clearTimeout(timeout);
+      }
     };
 
     if (operation.kind === "replacement" &&
         operation.phase === "sourceCleanupPending") {
       if (!claim.progress.userTreeComplete) {
         await renew();
-        const page = await deleteUserTreePage({
+        const page = await runDestructiveUnit((signal) => deleteUserTreePage({
           uid: operation.sourceUid,
           cursor: claim.progress.cursor,
           limit: pageSize,
           operationId,
-          workerFence: {
-            workerId: invocationWorkerId,
-            operationVersion: operation.version,
-            leaseVersion: claim.leaseVersion,
-          },
-        });
+          workerFence: workerFence(),
+          deadlineMillis,
+          signal,
+        }));
+        assertWithinDeadline();
         if (!page || typeof page.done !== "boolean" ||
             (!page.done && typeof page.nextCursor !== "string")) {
           throw repositoryFailure("invalid-deletion-page");
@@ -1208,45 +1299,58 @@ function createDeletionWorkerRuntime({
       if (!claim.progress.authComplete) {
         await renew();
         try {
-          await auth.deleteUser(operation.sourceUid);
+          await runDestructiveUnit(() =>
+            auth.deleteUser(operation.sourceUid));
         } catch (error) {
           if (error?.code !== "auth/user-not-found") throw error;
         }
+        assertWithinDeadline();
         return checkpoint({ progress: { authComplete: true } });
       }
       if (!claim.progress.communityComplete) {
         await renew();
-        await cleanupCommunity({
+        const cleanup = await runDestructiveUnit((signal) => cleanupCommunity({
           uid: operation.sourceUid,
           operationId,
+          workerFence: workerFence(),
+          deadlineMillis,
+          signal,
+        }));
+        assertWithinDeadline();
+        return checkpoint({
+          progress: {
+            communityComplete: cleanup?.done !== false,
+          },
         });
-        return checkpoint({ progress: { communityComplete: true } });
       }
       await renew();
-      await cleanupProcessor({
+      const cleanup = await runDestructiveUnit((signal) => cleanupProcessor({
         uid: operation.sourceUid,
         operationId,
-      });
+        workerFence: workerFence(),
+        deadlineMillis,
+        signal,
+      }));
+      assertWithinDeadline();
       return checkpoint({
-        progress: { processorComplete: true },
-        toPhase: "completed",
+        progress: { processorComplete: cleanup?.done !== false },
+        toPhase: cleanup?.done === false ? undefined : "completed",
       });
     }
 
     if (operation.phase === "userTreeDeleting") {
       if (!claim.progress.userTreeComplete) {
         await renew();
-        const page = await deleteUserTreePage({
+        const page = await runDestructiveUnit((signal) => deleteUserTreePage({
           uid: operation.sourceUid,
           cursor: claim.progress.cursor,
           limit: pageSize,
           operationId,
-          workerFence: {
-            workerId: invocationWorkerId,
-            operationVersion: operation.version,
-            leaseVersion: claim.leaseVersion,
-          },
-        });
+          workerFence: workerFence(),
+          deadlineMillis,
+          signal,
+        }));
+        assertWithinDeadline();
         if (!page || typeof page.done !== "boolean" ||
             (!page.done && typeof page.nextCursor !== "string")) {
           throw repositoryFailure("invalid-deletion-page");
@@ -1263,10 +1367,12 @@ function createDeletionWorkerRuntime({
       }
       await renew();
       try {
-        await auth.deleteUser(operation.sourceUid);
+        await runDestructiveUnit(() =>
+          auth.deleteUser(operation.sourceUid));
       } catch (error) {
         if (error?.code !== "auth/user-not-found") throw error;
       }
+      assertWithinDeadline();
       return checkpoint({ toPhase: "authDeleted" });
     }
 
@@ -1278,10 +1384,12 @@ function createDeletionWorkerRuntime({
       if (claim.progress.appleRevocationComplete) {
         await renew();
         try {
-          await auth.deleteUser(operation.sourceUid);
+          await runDestructiveUnit(() =>
+            auth.deleteUser(operation.sourceUid));
         } catch (error) {
           if (error?.code !== "auth/user-not-found") throw error;
         }
+        assertWithinDeadline();
         return checkpoint({ toPhase: "authDeleted" });
       }
       return operationResult(operation);
@@ -1289,24 +1397,41 @@ function createDeletionWorkerRuntime({
 
     if (operation.phase === "communityCleanupPending") {
       await renew();
-      await cleanupCommunity({
+      const cleanup = await runDestructiveUnit((signal) => cleanupCommunity({
         uid: operation.sourceUid,
         operationId,
+        workerFence: workerFence(),
+        deadlineMillis,
+        signal,
+      }));
+      assertWithinDeadline();
+      return checkpoint({
+        toPhase: cleanup?.done === false
+          ? undefined
+          : "processorCleanupPending",
       });
-      return checkpoint({ toPhase: "processorCleanupPending" });
     }
 
     if (operation.phase === "processorCleanupPending") {
       await renew();
-      await cleanupProcessor({
+      const cleanup = await runDestructiveUnit((signal) => cleanupProcessor({
         uid: operation.sourceUid,
         operationId,
+        workerFence: workerFence(),
+        deadlineMillis,
+        signal,
+      }));
+      assertWithinDeadline();
+      return checkpoint({
+        toPhase: cleanup?.done === false ? undefined : "completed",
       });
-      return checkpoint({ toPhase: "completed" });
     }
 
     return operationResult(operation);
     } catch (error) {
+      if (error instanceof DeletionWorkerFailure) {
+        throw error;
+      }
       if (claim?.leaseAcquired !== false && operation) {
         throw new DeletionWorkerFailure({
           operationId,
@@ -1327,6 +1452,7 @@ async function runScheduledDeletionCandidate({
   repository,
   workerRuntime,
   logger,
+  deadlineMillis,
   nowMillis = () => Date.now(),
 } = {}) {
   if (!candidate || typeof candidate.id !== "string" ||
@@ -1336,33 +1462,88 @@ async function runScheduledDeletionCandidate({
       typeof workerRuntime.processDeletionOperation !== "function" ||
       !logger ||
       typeof logger.warn !== "function" ||
-      typeof nowMillis !== "function") {
+      typeof nowMillis !== "function" ||
+      (deadlineMillis !== undefined &&
+        (!Number.isFinite(deadlineMillis) || deadlineMillis < 0))) {
     throw new TypeError("Scheduled deletion dependencies are required.");
+  }
+  if (deadlineMillis !== undefined && nowMillis() >= deadlineMillis) {
+    return null;
   }
   try {
     return await workerRuntime.processDeletionOperation({
       operationId: candidate.id,
       workerId: `scheduled-${candidate.id}`,
+      deadlineMillis,
     });
   } catch (error) {
     if (error instanceof DeletionWorkerFailure) {
-      try {
-        await repository.recordDeletionWorkFailure({
-          ...error.retryMetadata,
-          safeCode: "worker-failed",
-          nowMillis: nowMillis(),
-        });
-      } catch {
-        logger.warn("account-deletion-worker-failure-recording-failed", {
-          code: "worker-failed",
-        });
-        return null;
+      if (!error.failureRecorded) {
+        try {
+          await repository.recordDeletionWorkFailure({
+            ...error.retryMetadata,
+            safeCode: "worker-failed",
+            nowMillis: nowMillis(),
+          });
+        } catch {
+          logger.warn("account-deletion-worker-failure-recording-failed", {
+            code: "worker-failed",
+          });
+          return null;
+        }
       }
     }
     logger.warn("account-deletion-worker-failed", {
       code: "worker-failed",
     });
     return null;
+  }
+}
+
+function scheduledCandidateClass(candidate) {
+  if (candidate?.phase === "appleRevocationPending") return "apple";
+  if (candidate?.kind === "replacement") return "replacement";
+  return "deletion";
+}
+
+async function runScheduledDeletionBatch({
+  candidates,
+  repository,
+  workerRuntime,
+  logger,
+  deadlineMillis,
+  nowMillis = () => Date.now(),
+} = {}) {
+  if (!Array.isArray(candidates) ||
+      !Number.isFinite(deadlineMillis) ||
+      deadlineMillis < 0 ||
+      typeof nowMillis !== "function") {
+    throw new TypeError("Scheduled deletion batch dependencies are required.");
+  }
+  const queues = {
+    replacement: [],
+    deletion: [],
+    apple: [],
+  };
+  for (const candidate of dedupeCandidates(candidates)) {
+    queues[scheduledCandidateClass(candidate)].push(candidate);
+  }
+
+  const classOrder = ["replacement", "deletion", "apple"];
+  while (classOrder.some((name) => queues[name].length > 0)) {
+    if (nowMillis() >= deadlineMillis) break;
+    const wave = classOrder
+      .map((name) => queues[name].shift())
+      .filter(Boolean);
+    await Promise.all(wave.map((candidate) =>
+      runScheduledDeletionCandidate({
+        candidate,
+        repository,
+        workerRuntime,
+        logger,
+        deadlineMillis,
+        nowMillis,
+      })));
   }
 }
 
@@ -1923,4 +2104,7 @@ module.exports = {
   fetchStagedActionableDeletionCandidates,
   legacyAccountTombstoneCleanupAction,
   runScheduledDeletionCandidate,
+  runScheduledDeletionBatch,
+  SCHEDULE_TIMEOUT_SECONDS,
+  SCHEDULE_WORKER_DEADLINE_MILLIS,
 };
