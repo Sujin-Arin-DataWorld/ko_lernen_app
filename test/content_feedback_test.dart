@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/data/beta_mission_catalog.dart';
@@ -31,13 +32,27 @@ void main() {
       expect(draft.toWire()['message'], '');
     });
 
-    test('rejects free text beyond 1,000 characters', () {
-      final draft = ContentFeedbackDraft(
+    test('accepts exactly 1,000 characters and rejects 1,001', () {
+      final accepted = ContentFeedbackDraft(
         category: FeedbackCategory.other,
-        message: 'x' * 1001,
+        message: 'x' * contentFeedbackMaxMessageLength,
+      );
+      final rejected = ContentFeedbackDraft(
+        category: FeedbackCategory.other,
+        message: 'x' * (contentFeedbackMaxMessageLength + 1),
       );
 
-      expect(draft.validate().isValid, isFalse);
+      expect(accepted.validate().isValid, isTrue);
+      expect(rejected.validate().isValid, isFalse);
+    });
+
+    test('rejects other feedback without nonblank text', () {
+      const draft = ContentFeedbackDraft(
+        category: FeedbackCategory.other,
+        message: '   ',
+      );
+
+      expect(draft.validate().errors, contains('messageRequired'));
     });
 
     test('serializes feedback and completion identifiers separately', () {
@@ -65,7 +80,10 @@ void main() {
   });
 
   group('TesterFeedbackFeatureGate', () {
-    test('is disabled by default without a Dart define', () {
+    test('is disabled by default on Android without a Dart define', () {
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
+      addTearDown(() => debugDefaultTargetPlatformOverride = null);
+
       expect(const TesterFeedbackFeatureGate().isEnabled, isFalse);
     });
 
@@ -75,32 +93,75 @@ void main() {
   });
 
   group('BetaMissionCatalog', () {
-    test('maps every supported content type to its stable mission', () {
-      expect(missionFor(context)?.id, 'beta_scenario');
+    test('maps every supported content type to the stable mission catalog', () {
+      const expectedCatalog = <String, ({String labelKey, Set<String> types})>{
+        'beta_scenario': (
+          labelKey: 'testerFeedbackMissionScenario',
+          types: {'scenario'},
+        ),
+        'beta_word_work': (
+          labelKey: 'testerFeedbackMissionWordWork',
+          types: {
+            'vocab_pack',
+            'review',
+            'custom_wordbook',
+            'custom_wordbook_game',
+            'legacy_vocab',
+          },
+        ),
+        'beta_listening': (
+          labelKey: 'testerFeedbackMissionListening',
+          types: {'listening'},
+        ),
+        'beta_games': (labelKey: 'testerFeedbackMissionGames', types: {'game'}),
+        'beta_language_form': (
+          labelKey: 'testerFeedbackMissionLanguageForm',
+          types: {
+            'grammar_session',
+            'hangul_cards',
+            'hangul_writing',
+            'daily_hangul',
+          },
+        ),
+      };
+
+      expect(betaMissionCatalogVersion, 1);
       expect(
-        missionFor(
-          const ContentFeedbackContext(
-            completionId: 'completion-43',
-            contentType: 'review',
-            contentId: 'today',
-            contentLabel: 'Today',
-            scoreSummary: '4 cards',
-          ),
-        )?.id,
-        'beta_word_work',
+        betaMissionCatalog.map((mission) => mission.id),
+        expectedCatalog.keys,
       );
-      expect(
-        missionFor(
-          const ContentFeedbackContext(
-            completionId: 'completion-44',
-            contentType: 'grammar_session',
-            contentId: 'particles',
-            contentLabel: 'Particles',
+
+      for (final mission in betaMissionCatalog) {
+        final expected = expectedCatalog[mission.id];
+        expect(expected, isNotNull, reason: mission.id);
+        expect(mission.labelKey, expected!.labelKey, reason: mission.id);
+        expect(mission.allowedContentTypes, expected.types, reason: mission.id);
+
+        for (final contentType in expected.types) {
+          final mappedContext = ContentFeedbackContext(
+            completionId: 'completion-$contentType',
+            contentType: contentType,
+            contentId: 'content-$contentType',
+            contentLabel: contentType,
             scoreSummary: 'complete',
-          ),
-        )?.id,
-        'beta_language_form',
-      );
+          );
+          expect(
+            missionFor(mappedContext)?.id,
+            mission.id,
+            reason: contentType,
+          );
+          expect(
+            nextMission(const <String>{}, mappedContext)?.id,
+            mission.id,
+            reason: contentType,
+          );
+          expect(
+            nextMission({mission.id}, mappedContext),
+            isNull,
+            reason: contentType,
+          );
+        }
+      }
     });
 
     test('selects the first incomplete matching mission', () {
