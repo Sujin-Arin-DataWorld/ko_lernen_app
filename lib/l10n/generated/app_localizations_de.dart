@@ -3541,4 +3541,42 @@ class AppL10nDe extends AppL10n {
   @override
   String get testerFeedbackCompleteDailyHangul =>
       'Heutiges Zeichen abschließen';
+
+  @override
+  String get testerFeedbackPromptScenario =>
+      'Gab es eine Stelle, die du in dieser Situation wirklich sagen würdest?';
+
+  @override
+  String get testerFeedbackPromptWordWork =>
+      'Fühlen sich diese Wörter nützlich und einprägsam an?';
+
+  @override
+  String get testerFeedbackPromptGrammar =>
+      'Machen Erklärung und Beispiele die Regel verständlich?';
+
+  @override
+  String get testerFeedbackPromptHangul =>
+      'Fühlt sich die Verbindung zwischen Buchstabenform und Laut natürlich an?';
+
+  @override
+  String get testerFeedbackPromptGame =>
+      'Würdest du dieses Spiel noch einmal spielen? Was würdest du ändern?';
+
+  @override
+  String get testerFeedbackPromptListening =>
+      'Sind Tempo und Stimmen gut verständlich?';
+
+  @override
+  String get testerFeedbackPromptGeneric =>
+      'Was würde diese Lernaktivität besser machen?';
+
+  @override
+  String testerFeedbackPassportProgress(int completed, int total) {
+    return 'Testerpass $completed / $total';
+  }
+
+  @override
+  String testerFeedbackNextMission(String mission) {
+    return 'Nächste Beta-Mission: $mission';
+  }
 }

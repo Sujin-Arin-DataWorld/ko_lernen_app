@@ -1,0 +1,436 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/content_feedback.dart';
+import 'package:ko_lernen_app/services/content_feedback_service.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
+import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/sheet.dart';
+
+const _feedbackContext = ContentFeedbackContext(
+  completionId: 'completion-1',
+  contentType: 'scenario',
+  contentId: 'scenario:cafe',
+  contentLabel: 'Cafe',
+  level: 'A1',
+  scoreSummary: '4/5',
+);
+
+void main() {
+  testWidgets('disabled feedback gate renders no card', (tester) async {
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: false),
+        submitFeedback: (_, __) => throw StateError('must not submit'),
+      ),
+    );
+
+    expect(find.byKey(const Key('content-feedback-card')), findsNothing);
+    expect(find.byType(SoriSheetShell), findsNothing);
+  });
+
+  testWidgets('enabled feedback card never auto-opens its sheet', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byKey(const Key('content-feedback-card')), findsOneWidget);
+    expect(find.byType(SoriSheetShell), findsNothing);
+  });
+
+  testWidgets('card opens feedback through the Sori sheet', (tester) async {
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+        ),
+      ),
+    );
+
+    await tester.tap(find.byKey(const Key('content-feedback-open')));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(SoriSheetShell), findsOneWidget);
+    expect(find.byKey(const Key('feedback-category-bug')), findsOneWidget);
+    expect(find.byKey(const Key('feedback-category-content')), findsOneWidget);
+    expect(find.byKey(const Key('feedback-category-other')), findsOneWidget);
+  });
+
+  testWidgets('bug feedback requires a message and can become pending', (
+    tester,
+  ) async {
+    ContentFeedbackDraft? submitted;
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, draft) async {
+          submitted = draft;
+          return const ContentFeedbackSubmitResult(
+            status: ContentFeedbackSubmitStatus.pending,
+          );
+        },
+      ),
+    );
+    await _openSheet(tester);
+
+    await tester.tap(find.byKey(const Key('feedback-category-bug')));
+    await tester.pump();
+    expect(find.byKey(const Key('feedback-issue-area-fields')), findsOneWidget);
+    expect(
+      find.byKey(const Key('feedback-content-signal-fields')),
+      findsNothing,
+    );
+
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pump();
+    expect(find.byKey(const Key('feedback-validation-error')), findsOneWidget);
+    expect(submitted, isNull);
+
+    await tester.ensureVisible(find.byKey(const Key('feedback-message')));
+    await tester.enterText(
+      find.byKey(const Key('feedback-message')),
+      'The answer button stopped responding.',
+    );
+    await _tapVisible(tester, const Key('feedback-issue-answer'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    expect(submitted?.category, FeedbackCategory.bug);
+    expect(submitted?.issueArea, FeedbackIssueArea.answer);
+    expect(submitted?.message, 'The answer button stopped responding.');
+    expect(find.byKey(const Key('content-feedback-pending')), findsOneWidget);
+  });
+
+  testWidgets('content feedback accepts structured ratings without a message', (
+    tester,
+  ) async {
+    ContentFeedbackDraft? submitted;
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, draft) async {
+          submitted = draft;
+          return const ContentFeedbackSubmitResult(
+            status: ContentFeedbackSubmitStatus.accepted,
+            stampAccepted: true,
+            passportCompletedMissionIds: <String>{'beta_scenario'},
+            nextMissionId: 'beta_word_work',
+          );
+        },
+      ),
+    );
+    await _openSheet(tester);
+
+    await tester.tap(find.byKey(const Key('feedback-category-content')));
+    await tester.pump();
+    expect(
+      find.byKey(const Key('feedback-content-signal-fields')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key('feedback-content-focus-fields')),
+      findsOneWidget,
+    );
+    expect(find.byKey(const Key('feedback-issue-area-fields')), findsNothing);
+
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pump();
+    expect(find.byKey(const Key('feedback-validation-error')), findsOneWidget);
+    expect(submitted, isNull);
+
+    await _tapVisible(tester, const Key('feedback-signal-right'));
+    await _tapVisible(tester, const Key('feedback-focus-examples'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    expect(submitted?.category, FeedbackCategory.content);
+    expect(submitted?.contentSignal, FeedbackContentSignal.right);
+    expect(submitted?.contentFocus, FeedbackContentFocus.examples);
+    expect(submitted?.message, isEmpty);
+    expect(find.byKey(const Key('content-feedback-delivered')), findsOneWidget);
+    expect(
+      find.byKey(const Key('content-feedback-next-mission')),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('other feedback requires text and hides structured fields', (
+    tester,
+  ) async {
+    ContentFeedbackDraft? submitted;
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, draft) async {
+          submitted = draft;
+          return const ContentFeedbackSubmitResult(
+            status: ContentFeedbackSubmitStatus.accepted,
+          );
+        },
+      ),
+    );
+    await _openSheet(tester);
+
+    await tester.tap(find.byKey(const Key('feedback-category-other')));
+    await tester.pump();
+    expect(find.byKey(const Key('feedback-issue-area-fields')), findsNothing);
+    expect(
+      find.byKey(const Key('feedback-content-signal-fields')),
+      findsNothing,
+    );
+
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pump();
+    expect(find.byKey(const Key('feedback-validation-error')), findsOneWidget);
+    expect(submitted, isNull);
+
+    await tester.ensureVisible(find.byKey(const Key('feedback-message')));
+    await tester.enterText(
+      find.byKey(const Key('feedback-message')),
+      'I have another suggestion.',
+    );
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    expect(submitted?.category, FeedbackCategory.other);
+    expect(submitted?.message, 'I have another suggestion.');
+  });
+
+  testWidgets(
+    'GameOverCard adds feedback only for a supplied context and keeps actions usable',
+    (tester) async {
+      var actionTaps = 0;
+      await tester.pumpWidget(_gameOverHost(action: () => actionTaps += 1));
+      await tester.pump();
+
+      expect(find.byKey(const Key('content-feedback-card')), findsNothing);
+      await tester.tap(find.byKey(const Key('game-over-action')));
+      expect(actionTaps, 1);
+
+      await tester.pumpWidget(
+        _gameOverHost(
+          feedbackContext: _feedbackContext,
+          action: () => actionTaps += 1,
+        ),
+      );
+      await tester.pump();
+
+      expect(find.byKey(const Key('content-feedback-card')), findsOneWidget);
+      await tester.tap(find.byKey(const Key('game-over-action')));
+      expect(actionTaps, 2);
+    },
+  );
+
+  testWidgets('reduce motion keeps the delivered card static', (tester) async {
+    await tester.pumpWidget(
+      _host(
+        disableAnimations: true,
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+          stampAccepted: true,
+          passportCompletedMissionIds: <String>{'beta_scenario'},
+          nextMissionId: 'beta_word_work',
+        ),
+      ),
+    );
+    await _openSheet(tester);
+    await tester.tap(find.byKey(const Key('feedback-category-content')));
+    await tester.pump();
+    await _tapVisible(tester, const Key('feedback-signal-right'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    final mascot = tester.widget<Mascot>(find.byType(Mascot));
+    expect(mascot.animate, isFalse);
+    expect(find.byKey(const Key('content-feedback-delivered')), findsOneWidget);
+    expect(tester.binding.hasScheduledFrame, isFalse);
+  });
+
+  testWidgets('submission closes the sheet before delivery completes', (
+    tester,
+  ) async {
+    final delivery = Completer<ContentFeedbackSubmitResult>();
+    var actionTaps = 0;
+    await tester.pumpWidget(
+      _gameOverHost(
+        feedbackContext: _feedbackContext,
+        feedbackSubmitter: (_, __) => delivery.future,
+        action: () => actionTaps += 1,
+      ),
+    );
+    await tester.pump();
+
+    await _tapVisible(tester, const Key('content-feedback-open'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('feedback-category-content')));
+    await tester.pump();
+    await _tapVisible(tester, const Key('feedback-signal-right'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(SoriSheetShell), findsNothing);
+    expect(find.byKey(const Key('content-feedback-pending')), findsOneWidget);
+    await tester.tap(find.byKey(const Key('game-over-action')));
+    expect(actionTaps, 1);
+
+    delivery.complete(
+      const ContentFeedbackSubmitResult(
+        status: ContentFeedbackSubmitStatus.accepted,
+        stampAccepted: true,
+        passportCompletedMissionIds: <String>{'beta_scenario'},
+        nextMissionId: 'beta_word_work',
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('content-feedback-delivered')), findsOneWidget);
+  });
+
+  testWidgets('accepted feedback does not infer that a stamp was accepted', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        disableAnimations: true,
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+        ),
+      ),
+    );
+    await _openSheet(tester);
+    await tester.tap(find.byKey(const Key('feedback-category-content')));
+    await tester.pump();
+    await _tapVisible(tester, const Key('feedback-signal-right'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const Key('content-feedback-delivered')), findsOneWidget);
+    expect(
+      find.byKey(const Key('content-feedback-next-mission')),
+      findsNothing,
+    );
+  });
+
+  testWidgets('GameOverCard resolves its submitter from feedback scope', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: ContentFeedbackControllerScope(
+          featureGate: const TesterFeedbackFeatureGate(enabled: true),
+          submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+            status: ContentFeedbackSubmitStatus.accepted,
+          ),
+          child: const Scaffold(
+            body: GameOverCard(
+              headline: 'Result',
+              xpGained: 0,
+              celebrate: false,
+              feedbackContext: _feedbackContext,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byKey(const Key('content-feedback-card')), findsOneWidget);
+  });
+}
+
+Future<void> _openSheet(WidgetTester tester) async {
+  await tester.tap(find.byKey(const Key('content-feedback-open')));
+  await tester.pumpAndSettle();
+}
+
+Future<void> _tapVisible(WidgetTester tester, Key key) async {
+  final finder = find.byKey(key);
+  await tester.ensureVisible(finder);
+  await tester.pump();
+  await tester.tap(finder);
+  await tester.pump();
+}
+
+Widget _host({
+  bool disableAnimations = false,
+  required TesterFeedbackFeatureGate gate,
+  required Future<ContentFeedbackSubmitResult> Function(
+    ContentFeedbackContext context,
+    ContentFeedbackDraft draft,
+  )
+  submitFeedback,
+}) {
+  return MaterialApp(
+    locale: const Locale('en'),
+    localizationsDelegates: AppL10n.localizationsDelegates,
+    supportedLocales: AppL10n.supportedLocales,
+    home: MediaQuery(
+      data: MediaQueryData(disableAnimations: disableAnimations),
+      child: Scaffold(
+        body: ContentFeedbackCard(
+          feedbackContext: _feedbackContext,
+          featureGate: gate,
+          submitFeedback: submitFeedback,
+        ),
+      ),
+    ),
+  );
+}
+
+Widget _gameOverHost({
+  ContentFeedbackContext? feedbackContext,
+  Future<ContentFeedbackSubmitResult> Function(
+    ContentFeedbackContext context,
+    ContentFeedbackDraft draft,
+  )?
+  feedbackSubmitter,
+  required VoidCallback action,
+}) {
+  return MaterialApp(
+    locale: const Locale('en'),
+    localizationsDelegates: AppL10n.localizationsDelegates,
+    supportedLocales: AppL10n.supportedLocales,
+    home: MediaQuery(
+      data: const MediaQueryData(disableAnimations: true),
+      child: Scaffold(
+        body: GameOverCard(
+          headline: 'Result',
+          xpGained: 0,
+          celebrate: false,
+          feedbackContext: feedbackContext,
+          feedbackFeatureGate: const TesterFeedbackFeatureGate(enabled: true),
+          feedbackSubmitter:
+              feedbackSubmitter ??
+              (_, __) async => const ContentFeedbackSubmitResult(
+                status: ContentFeedbackSubmitStatus.accepted,
+              ),
+          actions: [
+            ElevatedButton(
+              key: const Key('game-over-action'),
+              onPressed: action,
+              child: const Text('Continue'),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}

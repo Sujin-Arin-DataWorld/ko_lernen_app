@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../config/tester_feedback_feature.dart';
+import '../../models/content_feedback.dart';
 import '../../services/sound_service.dart';
 import '../../services/storage_service.dart';
 import 'celebration.dart';
 import 'character_clip.dart';
+import 'content_feedback_card.dart';
+import 'content_feedback_sheet.dart';
 import 'mascot.dart';
 import 'sori_icon.dart';
 import 'tokens.dart';
@@ -94,6 +98,10 @@ class GameOverCard extends StatefulWidget {
   final MascotEmotion mascotEmotion;
   final bool celebrate; // Burst beim Erscheinen
   final List<Widget> actions;
+  final ContentFeedbackContext? feedbackContext;
+  final TesterFeedbackFeatureGate? feedbackFeatureGate;
+  final ContentFeedbackSubmitter? feedbackSubmitter;
+  final Iterable<String>? feedbackCompletedMissionIds;
 
   const GameOverCard({
     super.key,
@@ -108,6 +116,10 @@ class GameOverCard extends StatefulWidget {
     this.mascotEmotion = MascotEmotion.celebrate,
     this.celebrate = true,
     this.actions = const [],
+    this.feedbackContext,
+    this.feedbackFeatureGate,
+    this.feedbackSubmitter,
+    this.feedbackCompletedMissionIds,
   });
 
   @override
@@ -157,6 +169,17 @@ class _GameOverCardState extends State<GameOverCard>
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
+    final feedbackFeatureGate =
+        widget.feedbackFeatureGate ??
+        feedbackScope?.featureGate ??
+        const TesterFeedbackFeatureGate();
+    final feedbackSubmitter =
+        widget.feedbackSubmitter ?? feedbackScope?.submitFeedback;
+    final feedbackCompletedMissionIds =
+        widget.feedbackCompletedMissionIds ??
+        feedbackScope?.completedMissionIds ??
+        const <String>{};
     return Padding(
       padding: const EdgeInsets.all(Spacing.lg),
       child: Column(
@@ -250,6 +273,18 @@ class _GameOverCardState extends State<GameOverCard>
                         SoriGlyph.streak,
                         widget.streakLabel!,
                         SoriColors.tiger,
+                      ),
+                    ],
+                    if (widget.feedbackContext != null &&
+                        feedbackSubmitter != null &&
+                        feedbackFeatureGate.isEnabled) ...[
+                      const SizedBox(height: Spacing.lg),
+                      ContentFeedbackCard(
+                        feedbackContext: widget.feedbackContext!,
+                        featureGate: feedbackFeatureGate,
+                        submitFeedback: feedbackSubmitter,
+                        mascotKind: widget.mascotKind,
+                        completedMissionIds: feedbackCompletedMissionIds,
                       ),
                     ],
                   ],

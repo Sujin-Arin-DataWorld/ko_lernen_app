@@ -1319,5 +1319,25 @@
   "testerFeedbackMissionLanguageForm": "Practise grammar or Hangul",
   "testerFeedbackCompleteGrammar": "Finish grammar practice",
   "testerFeedbackCompleteHangul": "Finish Hangul practice",
-  "testerFeedbackCompleteDailyHangul": "Finish today's character"
+  "testerFeedbackCompleteDailyHangul": "Finish today's character",
+  "testerFeedbackPromptScenario": "Did any part feel like something you could really say in this situation?",
+  "testerFeedbackPromptWordWork": "Do these words feel useful and memorable?",
+  "testerFeedbackPromptGrammar": "Do the explanation and examples make the rule clear?",
+  "testerFeedbackPromptHangul": "Does the connection between letter shape and sound feel natural?",
+  "testerFeedbackPromptGame": "Would you play this game again? What would you change?",
+  "testerFeedbackPromptListening": "Are the pace and voices easy to follow?",
+  "testerFeedbackPromptGeneric": "What would make this activity better?",
+  "testerFeedbackPassportProgress": "Tester passport {completed} / {total}",
+  "@testerFeedbackPassportProgress": {
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "testerFeedbackNextMission": "Next beta mission: {mission}",
+  "@testerFeedbackNextMission": {
+    "placeholders": {
+      "mission": { "type": "String" }
+    }
+  }
 }

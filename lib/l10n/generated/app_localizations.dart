@@ -6468,6 +6468,60 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Heutiges Zeichen abschließen'**
   String get testerFeedbackCompleteDailyHangul;
+
+  /// No description provided for @testerFeedbackPromptScenario.
+  ///
+  /// In de, this message translates to:
+  /// **'Gab es eine Stelle, die du in dieser Situation wirklich sagen würdest?'**
+  String get testerFeedbackPromptScenario;
+
+  /// No description provided for @testerFeedbackPromptWordWork.
+  ///
+  /// In de, this message translates to:
+  /// **'Fühlen sich diese Wörter nützlich und einprägsam an?'**
+  String get testerFeedbackPromptWordWork;
+
+  /// No description provided for @testerFeedbackPromptGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Machen Erklärung und Beispiele die Regel verständlich?'**
+  String get testerFeedbackPromptGrammar;
+
+  /// No description provided for @testerFeedbackPromptHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Fühlt sich die Verbindung zwischen Buchstabenform und Laut natürlich an?'**
+  String get testerFeedbackPromptHangul;
+
+  /// No description provided for @testerFeedbackPromptGame.
+  ///
+  /// In de, this message translates to:
+  /// **'Würdest du dieses Spiel noch einmal spielen? Was würdest du ändern?'**
+  String get testerFeedbackPromptGame;
+
+  /// No description provided for @testerFeedbackPromptListening.
+  ///
+  /// In de, this message translates to:
+  /// **'Sind Tempo und Stimmen gut verständlich?'**
+  String get testerFeedbackPromptListening;
+
+  /// No description provided for @testerFeedbackPromptGeneric.
+  ///
+  /// In de, this message translates to:
+  /// **'Was würde diese Lernaktivität besser machen?'**
+  String get testerFeedbackPromptGeneric;
+
+  /// No description provided for @testerFeedbackPassportProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Testerpass {completed} / {total}'**
+  String testerFeedbackPassportProgress(int completed, int total);
+
+  /// No description provided for @testerFeedbackNextMission.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Beta-Mission: {mission}'**
+  String testerFeedbackNextMission(String mission);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -1335,5 +1335,25 @@
   "testerFeedbackMissionLanguageForm": "Grammatik oder Hangul üben",
   "testerFeedbackCompleteGrammar": "Grammatikübung abschließen",
   "testerFeedbackCompleteHangul": "Hangul-Übung abschließen",
-  "testerFeedbackCompleteDailyHangul": "Heutiges Zeichen abschließen"
+  "testerFeedbackCompleteDailyHangul": "Heutiges Zeichen abschließen",
+  "testerFeedbackPromptScenario": "Gab es eine Stelle, die du in dieser Situation wirklich sagen würdest?",
+  "testerFeedbackPromptWordWork": "Fühlen sich diese Wörter nützlich und einprägsam an?",
+  "testerFeedbackPromptGrammar": "Machen Erklärung und Beispiele die Regel verständlich?",
+  "testerFeedbackPromptHangul": "Fühlt sich die Verbindung zwischen Buchstabenform und Laut natürlich an?",
+  "testerFeedbackPromptGame": "Würdest du dieses Spiel noch einmal spielen? Was würdest du ändern?",
+  "testerFeedbackPromptListening": "Sind Tempo und Stimmen gut verständlich?",
+  "testerFeedbackPromptGeneric": "Was würde diese Lernaktivität besser machen?",
+  "testerFeedbackPassportProgress": "Testerpass {completed} / {total}",
+  "@testerFeedbackPassportProgress": {
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "testerFeedbackNextMission": "Nächste Beta-Mission: {mission}",
+  "@testerFeedbackNextMission": {
+    "placeholders": {
+      "mission": { "type": "String" }
+    }
+  }
 }

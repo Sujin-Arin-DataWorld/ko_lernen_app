@@ -3521,4 +3521,42 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get testerFeedbackCompleteDailyHangul => 'Finish today\'s character';
+
+  @override
+  String get testerFeedbackPromptScenario =>
+      'Did any part feel like something you could really say in this situation?';
+
+  @override
+  String get testerFeedbackPromptWordWork =>
+      'Do these words feel useful and memorable?';
+
+  @override
+  String get testerFeedbackPromptGrammar =>
+      'Do the explanation and examples make the rule clear?';
+
+  @override
+  String get testerFeedbackPromptHangul =>
+      'Does the connection between letter shape and sound feel natural?';
+
+  @override
+  String get testerFeedbackPromptGame =>
+      'Would you play this game again? What would you change?';
+
+  @override
+  String get testerFeedbackPromptListening =>
+      'Are the pace and voices easy to follow?';
+
+  @override
+  String get testerFeedbackPromptGeneric =>
+      'What would make this activity better?';
+
+  @override
+  String testerFeedbackPassportProgress(int completed, int total) {
+    return 'Tester passport $completed / $total';
+  }
+
+  @override
+  String testerFeedbackNextMission(String mission) {
+    return 'Next beta mission: $mission';
+  }
 }

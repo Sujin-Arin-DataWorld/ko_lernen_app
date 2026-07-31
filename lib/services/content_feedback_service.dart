@@ -32,11 +32,17 @@ class ContentFeedbackSubmitResult {
     required this.status,
     this.feedbackId,
     this.failure,
+    this.stampAccepted = false,
+    this.passportCompletedMissionIds = const <String>{},
+    this.nextMissionId,
   });
 
   final ContentFeedbackSubmitStatus status;
   final String? feedbackId;
   final ContentFeedbackFailureCategory? failure;
+  final bool stampAccepted;
+  final Set<String> passportCompletedMissionIds;
+  final String? nextMissionId;
 }
 
 class ContentFeedbackResumeResult {

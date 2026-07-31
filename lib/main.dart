@@ -76,6 +76,7 @@ import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
 import 'package:rive/rive.dart' show RiveNative;
 import 'widgets/sori/dancheong_burst.dart';
+import 'widgets/sori/content_feedback_card.dart';
 import 'widgets/sori/tiger_stage_rive.dart';
 import 'widgets/sori/tiger_video.dart';
 
@@ -267,10 +268,14 @@ class KoLernenApp extends StatelessWidget {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         // Tap außerhalb von Inputs → Tastatur weg
-        builder: (context, child) => GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-          child: child,
+        builder: (context, child) => ContentFeedbackControllerScope(
+          featureGate: _contentFeedbackService.featureGate,
+          submitFeedback: _contentFeedbackService.submit,
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: child,
+          ),
         ),
         // 로고 스플래시(2초) → 솟을대문 인트로 → 온보딩/홈
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
