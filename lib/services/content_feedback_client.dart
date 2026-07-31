@@ -41,12 +41,12 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
   ContentFeedbackCallableClient(this._invoke);
 
   factory ContentFeedbackCallableClient.firebase() {
-    final functions = FirebaseFunctions.instanceFor(region: region);
     return ContentFeedbackCallableClient(({
       required callableName,
       required payload,
       required callableOptions,
     }) async {
+      final functions = FirebaseFunctions.instanceFor(region: region);
       final result = await functions
           .httpsCallable(callableName, options: callableOptions)
           .call<Object?>(payload);

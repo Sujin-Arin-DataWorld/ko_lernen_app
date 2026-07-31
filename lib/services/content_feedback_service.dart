@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:uuid/uuid.dart';
+
 import '../config/tester_feedback_feature.dart';
 import '../data/beta_mission_catalog.dart';
 import '../models/content_feedback.dart';
@@ -68,6 +70,27 @@ class ContentFeedbackService {
     required this.locale,
     required this.deletionActive,
   });
+
+  factory ContentFeedbackService.production({
+    required ContentFeedbackUidReader currentUid,
+    required ContentFeedbackDeletionStateReader deletionActive,
+    required ContentFeedbackStringReader platform,
+    required ContentFeedbackStringReader locale,
+    TesterFeedbackFeatureGate featureGate = const TesterFeedbackFeatureGate(),
+  }) {
+    return ContentFeedbackService(
+      featureGate: featureGate,
+      outboxStore: SecureFeedbackOutboxStore(),
+      client: ContentFeedbackCallableClient.firebase(),
+      currentUid: currentUid,
+      versionProvider: const PackageContentFeedbackVersionProvider(),
+      createFeedbackId: const Uuid().v4,
+      now: DateTime.now,
+      platform: platform,
+      locale: locale,
+      deletionActive: deletionActive,
+    );
+  }
 
   final TesterFeedbackFeatureGate featureGate;
   final FeedbackOutboxStore outboxStore;
@@ -214,7 +237,15 @@ class ContentFeedbackService {
       );
     }
     if (_validatedCurrentUid() != original.ownerUid) {
-      await _discardById(queue, original.submission.feedbackId);
+      try {
+        await _discardById(queue, original.submission.feedbackId);
+      } catch (_) {
+        return ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.pending,
+          feedbackId: original.submission.feedbackId,
+          failure: ContentFeedbackFailureCategory.storageUnavailable,
+        );
+      }
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.failed,
         feedbackId: original.submission.feedbackId,

@@ -14,6 +14,7 @@ import 'services/auth_service.dart';
 import 'services/book_image_service.dart';
 import 'services/bookshelf_service.dart';
 import 'services/crop_recovery_service.dart';
+import 'services/content_feedback_service.dart';
 import 'services/picker_recovery_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
@@ -177,6 +178,9 @@ Future<void> _startCloudServices() async {
     currentUserId: () => AuthService.current?.uid,
     restorePendingAccountState: AuthService.restorePendingAccountState,
     synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
+    resumeFeedbackOutbox: () async {
+      await _contentFeedbackService.resumePending();
+    },
     resumeFirstDurableLinkBackfill:
         AuthService.resumePendingFirstDurableLinkBackfill,
     resumeMediaCleanup: BookImageService.initialize,
@@ -197,6 +201,23 @@ Future<void> _startCloudServices() async {
     debugPrint('Cloud startup skipped.');
   }
 }
+
+final ContentFeedbackService _contentFeedbackService =
+    ContentFeedbackService.production(
+      currentUid: () => AuthService.current?.uid,
+      deletionActive: () => AuthService.runDurableAccountAdmission<bool>(
+        onAdmitted: () async => false,
+        onBlocked: () async => true,
+      ),
+      platform: () =>
+          defaultTargetPlatform == TargetPlatform.iOS ? 'ios' : 'android',
+      locale: () {
+        final languageCode =
+            localeNotifier.value?.languageCode ??
+            WidgetsBinding.instance.platformDispatcher.locale.languageCode;
+        return languageCode == 'en' ? 'en' : 'de';
+      },
+    );
 
 Future<bool> _initFirebase() async {
   try {

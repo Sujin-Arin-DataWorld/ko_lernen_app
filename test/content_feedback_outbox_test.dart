@@ -173,6 +173,36 @@ void main() {
       },
     );
 
+    test(
+      'keeps the initial write pending when UID changes and discard fails',
+      () async {
+        var liveUid = 'current-uid';
+        final store = MemoryFeedbackOutboxStore(
+          failNextClear: true,
+          onWrite: (writeCount) {
+            if (writeCount == 1) liveUid = 'replacement-uid';
+          },
+        );
+        final client = FakeFeedbackClient();
+        final service = buildService(
+          store: store,
+          client: client,
+          currentUid: () => liveUid,
+        );
+
+        final result = await service.submit(context, draft);
+
+        expect(result.status, ContentFeedbackSubmitStatus.pending);
+        expect(result.feedbackId, 'new-feedback');
+        expect(
+          result.failure,
+          ContentFeedbackFailureCategory.storageUnavailable,
+        );
+        expect(client.feedbackIds, isEmpty);
+        expect(store.items.single.submission.feedbackId, 'new-feedback');
+      },
+    );
+
     test('discards another UID and drains only the current UID', () async {
       final store = MemoryFeedbackOutboxStore(
         items: [
@@ -250,6 +280,20 @@ void main() {
       expect(store.readCount, 0);
       expect(store.writeCount, 0);
       expect(client.feedbackIds, isEmpty);
+    });
+
+    test('production service preserves the disabled no-op gate', () async {
+      final service = ContentFeedbackService.production(
+        featureGate: const TesterFeedbackFeatureGate(enabled: false),
+        currentUid: () => throw StateError('auth must not be read'),
+        deletionActive: () => throw StateError('gate must not be read'),
+        platform: () => throw StateError('platform must not be read'),
+        locale: () => throw StateError('locale must not be read'),
+      );
+
+      final result = await service.resumePending();
+
+      expect(result.disabled, isTrue);
     });
   });
 
