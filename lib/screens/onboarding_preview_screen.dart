@@ -194,7 +194,7 @@ class _PreviewPage extends StatelessWidget {
   final int index;
 
   /// != null → 이미지(book/한옥)를 마스코트 자리에 렌더. null → 호랑이 마스코트.
-  final String? imageAsset;
+  final String imageAsset;
 
   /// != null → [imageAsset] 포스터 위에 풀프레임 무음 루프 영상 승격
   /// (videoReady && !reduce-motion일 때만; 그 외/실패 시 정지 이미지 유지).
@@ -210,7 +210,7 @@ class _PreviewPage extends StatelessWidget {
 
   const _PreviewPage({
     required this.index,
-    this.imageAsset,
+    required this.imageAsset,
     this.videoAsset,
     this.wide = false,
     required this.accentColor,
@@ -272,8 +272,7 @@ class _PreviewPage extends StatelessWidget {
                           ),
                         ),
                         // 메인 비주얼 — 루프 영상(page1 live) / 이미지 / 호랑이
-                        if (imageAsset != null &&
-                            videoAsset != null &&
+                        if (videoAsset != null &&
                             TigerStageVideo.videoReady &&
                             !SoriMotion.reduceMotion(context))
                           Positioned(
@@ -286,25 +285,25 @@ class _PreviewPage extends StatelessWidget {
                                 child: SoriPosterLoop(
                                   videoAsset: videoAsset!,
                                   poster: Image.asset(
-                                    imageAsset!,
+                                    imageAsset,
                                     fit: BoxFit.cover,
                                     filterQuality: FilterQuality.high,
                                     errorBuilder: (_, __, ___) =>
                                         const Mascot.tiger(
-                                      size: 150,
-                                      emotion: MascotEmotion.smile,
-                                      animate: true,
-                                    ),
+                                          size: 150,
+                                          emotion: MascotEmotion.smile,
+                                          animate: true,
+                                        ),
                                   ),
                                 ),
                               ),
                             ),
                           )
-                        else if (imageAsset != null)
+                        else
                           Positioned(
                             bottom: 0,
                             child: Image.asset(
-                              imageAsset!,
+                              imageAsset,
                               height: stageH - 12,
                               width: wide ? imageW : null,
                               fit: BoxFit.contain,
