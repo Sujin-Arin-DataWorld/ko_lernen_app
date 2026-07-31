@@ -161,7 +161,12 @@ class _BookshelfScreenState extends State<BookshelfScreen>
     if (_pages.isEmpty && _packs.isEmpty) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(t.bookshelfTitle),
+          titleSpacing: 0,
+          title: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Text(t.bookshelfTitle),
+          ),
           actions: [_createAction(t), _redeemAction(t)],
         ),
         body: Center(
@@ -182,9 +187,14 @@ class _BookshelfScreenState extends State<BookshelfScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          t.bookshelfTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
+        titleSpacing: 0,
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: Text(
+            t.bookshelfTitle,
+            style: const TextStyle(fontWeight: FontWeight.w800),
+          ),
         ),
         actions: [
           IconButton(
