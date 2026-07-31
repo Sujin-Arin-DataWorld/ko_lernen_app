@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart'
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
+import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/push_service.dart';
 
 void main() {
@@ -535,7 +536,10 @@ void main() {
     final cleanup = _CleanupOperations(events, coordinator.deleteAccount);
 
     await expectLater(
-      AccountDeletionWorkflow(cleanup).run(),
+      AccountDeletionWorkflow(
+        cleanup,
+        feedbackOutbox: const _NoopFeedbackOutbox(),
+      ).run(),
       throwsA(isA<AccountOperationFailure>()),
     );
 
@@ -599,7 +603,10 @@ void main() {
     final cleanup = _CleanupOperations(events, coordinator.deleteAccount);
 
     await expectLater(
-      AccountDeletionWorkflow(cleanup).run(),
+      AccountDeletionWorkflow(
+        cleanup,
+        feedbackOutbox: const _NoopFeedbackOutbox(),
+      ).run(),
       throwsA(
         isA<AccountOperationFailure>().having(
           (failure) => failure.code,
@@ -629,6 +636,7 @@ void main() {
 
       await AccountDeletionWorkflow(
         _CleanupOperations(events, coordinator.deleteAccount),
+        feedbackOutbox: const _NoopFeedbackOutbox(),
       ).run();
 
       expect(
@@ -657,6 +665,7 @@ void main() {
       await expectLater(
         AccountDeletionWorkflow(
           _CleanupOperations(events, coordinator.deleteAccount),
+          feedbackOutbox: const _NoopFeedbackOutbox(),
         ).run(),
         throwsA(
           isA<AccountDeletionFailure>().having(
@@ -1197,6 +1206,13 @@ class _CleanupOperations implements AccountDeletionCleanupOperations {
 
   @override
   void resetInMemoryData() => events.add('memory-reset');
+}
+
+class _NoopFeedbackOutbox implements FeedbackOutbox {
+  const _NoopFeedbackOutbox();
+
+  @override
+  Future<void> closeAndDiscard() async {}
 }
 
 class _FakeTemporaryAuthContext implements TemporaryFirebaseAuthContext {

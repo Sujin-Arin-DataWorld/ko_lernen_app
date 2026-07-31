@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:cloud_functions/cloud_functions.dart';
@@ -251,6 +252,28 @@ void main() {
       expect(store.items, isEmpty);
     });
 
+    test(
+      'post-delete restart discards the old anonymous UID without sending',
+      () async {
+        final store = MemoryFeedbackOutboxStore(
+          items: [pendingItem('old-feedback', ownerUid: 'old-anonymous')],
+        );
+        final client = FakeFeedbackClient();
+        final service = buildService(
+          store: store,
+          client: client,
+          currentUid: () => 'new-anonymous',
+        );
+
+        final result = await service.resumePending();
+
+        expect(result.discarded, 1);
+        expect(result.delivered, 0);
+        expect(client.feedbackIds, isEmpty);
+        expect(store.items, isEmpty);
+      },
+    );
+
     test('does not read or drain while deletion is active', () async {
       final store = MemoryFeedbackOutboxStore(
         items: [pendingItem('pending-feedback')],
@@ -286,6 +309,79 @@ void main() {
       expect(submitted.status, ContentFeedbackSubmitStatus.closed);
       expect(client.feedbackIds, isEmpty);
     });
+
+    test(
+      'closeAndDiscard stops a submit paused in its final deletion gate',
+      () async {
+        final finalGateStarted = Completer<void>();
+        final releaseFinalGate = Completer<bool>();
+        var deletionReads = 0;
+        final store = MemoryFeedbackOutboxStore();
+        final client = FakeFeedbackClient();
+        final service = buildService(
+          store: store,
+          client: client,
+          deletionActive: () {
+            deletionReads += 1;
+            if (deletionReads == 3) {
+              finalGateStarted.complete();
+              return releaseFinalGate.future;
+            }
+            return Future<bool>.value(false);
+          },
+        );
+
+        final submit = service.submit(context, draft);
+        await finalGateStarted.future;
+        final discard = service.closeAndDiscard();
+        releaseFinalGate.complete(false);
+
+        final result = await submit;
+        await discard;
+
+        expect(result.status, ContentFeedbackSubmitStatus.closed);
+        expect(client.feedbackIds, isEmpty);
+        expect(store.items, isEmpty);
+      },
+    );
+
+    test(
+      'closeAndDiscard stops a resume paused in its final deletion gate',
+      () async {
+        final finalGateStarted = Completer<void>();
+        final releaseFinalGate = Completer<bool>();
+        var deletionReads = 0;
+        final store = MemoryFeedbackOutboxStore(
+          items: [pendingItem('pending-feedback')],
+        );
+        final client = FakeFeedbackClient();
+        final service = buildService(
+          store: store,
+          client: client,
+          deletionActive: () {
+            deletionReads += 1;
+            if (deletionReads == 3) {
+              finalGateStarted.complete();
+              return releaseFinalGate.future;
+            }
+            return Future<bool>.value(false);
+          },
+        );
+
+        final resume = service.resumePending();
+        await finalGateStarted.future;
+        final discard = service.closeAndDiscard();
+        releaseFinalGate.complete(false);
+
+        final result = await resume;
+        await discard;
+
+        expect(result.delivered, 0);
+        expect(result.closed, isTrue);
+        expect(client.feedbackIds, isEmpty);
+        expect(store.items, isEmpty);
+      },
+    );
 
     test('disabled feature is a dependency-free no-op', () async {
       final store = MemoryFeedbackOutboxStore();

@@ -63,7 +63,11 @@ class ContentFeedbackResumeResult {
   final bool blockedByDeletion;
 }
 
-class ContentFeedbackService {
+abstract interface class FeedbackOutbox {
+  Future<void> closeAndDiscard();
+}
+
+class ContentFeedbackService implements FeedbackOutbox {
   ContentFeedbackService({
     required this.featureGate,
     required this.outboxStore,
@@ -133,6 +137,7 @@ class ContentFeedbackService {
     return _runExclusive(_resumePending);
   }
 
+  @override
   Future<void> closeAndDiscard() {
     _closed = true;
     return _runExclusive(outboxStore.clear);
@@ -153,7 +158,13 @@ class ContentFeedbackService {
         failure: ContentFeedbackFailureCategory.invalidRequest,
       );
     }
-    if (await _deletionIsActive()) {
+    final deletionActive = await _deletionIsActive();
+    if (_closed) {
+      return const ContentFeedbackSubmitResult(
+        status: ContentFeedbackSubmitStatus.closed,
+      );
+    }
+    if (deletionActive) {
       return const ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.blockedByDeletion,
       );
@@ -234,7 +245,14 @@ class ContentFeedbackService {
     List<ContentFeedbackOutboxItem> queue,
     ContentFeedbackOutboxItem original,
   ) async {
-    if (_closed || await _deletionIsActive()) {
+    if (_closed) {
+      return ContentFeedbackSubmitResult(
+        status: ContentFeedbackSubmitStatus.closed,
+        feedbackId: original.submission.feedbackId,
+      );
+    }
+    final deletionActive = await _deletionIsActive();
+    if (_closed || deletionActive) {
       return ContentFeedbackSubmitResult(
         status: _closed
             ? ContentFeedbackSubmitStatus.closed
@@ -277,7 +295,14 @@ class ContentFeedbackService {
         feedbackId: original.submission.feedbackId,
       );
     }
-    if (await _deletionIsActive()) {
+    final deletionActiveAfterWrite = await _deletionIsActive();
+    if (_closed) {
+      return ContentFeedbackSubmitResult(
+        status: ContentFeedbackSubmitStatus.closed,
+        feedbackId: original.submission.feedbackId,
+      );
+    }
+    if (deletionActiveAfterWrite) {
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.blockedByDeletion,
         feedbackId: original.submission.feedbackId,
@@ -348,7 +373,9 @@ class ContentFeedbackService {
 
   Future<ContentFeedbackResumeResult> _resumePending() async {
     if (_closed) return const ContentFeedbackResumeResult(closed: true);
-    if (await _deletionIsActive()) {
+    final deletionActive = await _deletionIsActive();
+    if (_closed) return const ContentFeedbackResumeResult(closed: true);
+    if (deletionActive) {
       return const ContentFeedbackResumeResult(blockedByDeletion: true);
     }
     final uid = _validatedCurrentUid();
@@ -380,7 +407,9 @@ class ContentFeedbackService {
         .toList(growable: false);
     for (final original in candidates) {
       if (_closed) break;
-      if (await _deletionIsActive()) {
+      final deletionActiveBeforeWrite = await _deletionIsActive();
+      if (_closed) break;
+      if (deletionActiveBeforeWrite) {
         return ContentFeedbackResumeResult(
           delivered: delivered,
           discarded: discarded,
@@ -398,7 +427,9 @@ class ContentFeedbackService {
         break;
       }
       if (_closed) break;
-      if (await _deletionIsActive()) {
+      final deletionActiveAfterWrite = await _deletionIsActive();
+      if (_closed) break;
+      if (deletionActiveAfterWrite) {
         return ContentFeedbackResumeResult(
           delivered: delivered,
           discarded: discarded,

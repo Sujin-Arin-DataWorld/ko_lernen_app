@@ -100,6 +100,9 @@ class AppStartupCoordinator {
         case AccountStartupRestorationKind.blocked:
           return true;
         case AccountStartupRestorationKind.deletion:
+          // A deletion checkpoint owns startup until its exact operation is
+          // resumed. In particular, do not admit the feedback outbox while
+          // the old account identity is still being retired.
           if (restoration.session != null) {
             await resumeAccountOperation();
           }
@@ -122,6 +125,9 @@ class AppStartupCoordinator {
       }
     }
     synchronizeReadySession(liveUid);
+    // This is reachable only when every durable account journal was clear.
+    // The production feedback service performs its own fresh deletion-state
+    // read as a second gate before touching secure outbox contents.
     await resumeFeedbackOutbox();
     await resumeFirstDurableLinkBackfill();
     await resumeMediaCleanup();

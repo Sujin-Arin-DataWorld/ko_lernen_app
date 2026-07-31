@@ -28,6 +28,7 @@ import '../services/account/cloud_restore_result.dart';
 import '../services/account/cloud_write_session.dart';
 import 'app_shell.dart';
 import '../services/cloud_sync.dart';
+import '../services/content_feedback_service.dart';
 import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/sori/account_operation_ui.dart';
@@ -125,12 +126,22 @@ class AccountDeletionCleanupAdapter
 /// identity is gone, every independent privacy cleanup is attempted and all
 /// failures are reported together.
 class AccountDeletionWorkflow {
+  factory AccountDeletionWorkflow.production({
+    required FeedbackOutbox feedbackOutbox,
+  }) => AccountDeletionWorkflow(
+    AccountDeletionCleanupAdapter.production(),
+    feedbackOutbox: feedbackOutbox,
+    completeCheckpoint: AuthService.completeLocalAccountDeletionCleanup,
+  );
+
   const AccountDeletionWorkflow(
     this.operations, {
+    required this.feedbackOutbox,
     Future<void> Function()? completeCheckpoint,
   }) : _completeCheckpoint = completeCheckpoint ?? _noop;
 
   final AccountDeletionCleanupOperations operations;
+  final FeedbackOutbox feedbackOutbox;
   final Future<void> Function() _completeCheckpoint;
 
   static Future<void> _noop() async {}
@@ -138,6 +149,7 @@ class AccountDeletionWorkflow {
   Future<void> run() async {
     final failures = <Object>[];
     var identityRecoveryPending = false;
+    await feedbackOutbox.closeAndDiscard();
     try {
       await operations.deleteRemoteAccount();
     } on AccountDeletionRecoveryException catch (error) {
@@ -268,10 +280,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
-      AccountDeletionWorkflow(
-        AccountDeletionCleanupAdapter.production(),
-        completeCheckpoint: AuthService.completeLocalAccountDeletionCleanup,
-      );
+      (throw StateError('Account deletion workflow is not configured.'));
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();

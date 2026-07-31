@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/account/account_transition_coordinator.da
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
+import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -463,7 +464,10 @@ void main() {
         SettingsScreen(
           account: _guest,
           accountOperations: _SettingsAccountOperations(),
-          accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+          accountDeletionWorkflow: AccountDeletionWorkflow(
+            cleanup,
+            feedbackOutbox: const _NoopFeedbackOutbox(),
+          ),
           cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
@@ -667,7 +671,10 @@ void main() {
         SettingsScreen(
           account: _guest,
           accountOperations: _SettingsAccountOperations(),
-          accountDeletionWorkflow: AccountDeletionWorkflow(cleanup),
+          accountDeletionWorkflow: AccountDeletionWorkflow(
+            cleanup,
+            feedbackOutbox: const _NoopFeedbackOutbox(),
+          ),
           cloudDataDeletionJournalState: cloudJournalState,
         ),
       ),
@@ -930,6 +937,13 @@ class _DeletionCleanup implements AccountDeletionCleanupOperations {
 
   @override
   Future<void> resetLocalStorage() async {}
+}
+
+class _NoopFeedbackOutbox implements FeedbackOutbox {
+  const _NoopFeedbackOutbox();
+
+  @override
+  Future<void> closeAndDiscard() async {}
 }
 
 Widget _wrap(Widget child) {

@@ -390,7 +390,11 @@ class KoLernenApp extends StatelessWidget {
               );
             case '/settings':
               return SoriTransitions.fadeScale(
-                (_) => const SettingsScreen(),
+                (_) => SettingsScreen(
+                  accountDeletionWorkflow: AccountDeletionWorkflow.production(
+                    feedbackOutbox: _contentFeedbackService,
+                  ),
+                ),
                 settings: settings,
               );
             case '/stats':

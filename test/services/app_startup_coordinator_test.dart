@@ -65,6 +65,7 @@ void main() {
           return AccountStartupRestoration.deletion(restored);
         },
         synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
         resumeMediaCleanup: () async => events.add('media-resume'),
         resumeBookshelfSync: () async => events.add('bookshelf-resume'),
         resumeAccountOperation: () async => events.add('resume-existing'),
@@ -171,6 +172,7 @@ void main() {
         restorePendingAccountState: (_) async =>
             const AccountStartupRestoration.localCleanupPending(),
         synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
         resumeMediaCleanup: () async => events.add('media'),
         resumeBookshelfSync: () async => events.add('bookshelf'),
         resumeAccountOperation: () async => events.add('remote-delete-resume'),
