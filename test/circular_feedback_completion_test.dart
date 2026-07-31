@@ -3,12 +3,12 @@ import 'package:ko_lernen_app/models/feedback_completion.dart';
 
 void main() {
   group('circular activity feedback contexts', () {
-    test('daily Hangul contains only the character and stroke count', () {
+    test('daily Hangul reports the guided stroke count', () {
       final completion = FeedbackCompletion.dailyHangul(
         createId: () => 'daily-hangul-1',
         contentLabel: 'ㄱ',
         finishedAt: DateTime(2026, 7, 31, 23, 59),
-        strokeCount: 2,
+        guidedStrokeCount: 2,
       );
 
       expect(completion.context.toWire(), {
@@ -16,7 +16,7 @@ void main() {
         'contentType': 'daily_hangul',
         'contentId': 'daily-char:2026-07-31',
         'contentLabel': 'ㄱ',
-        'scoreSummary': 'strokes:2',
+        'scoreSummary': 'guide_strokes:2',
       });
     });
 

@@ -21,15 +21,20 @@ import '../widgets/stroke_canvas.dart';
 /// ```dart
 /// showDailyCharSheet(context);
 /// ```
-Future<void> showDailyCharSheet(BuildContext context) async {
+Future<void> showDailyCharSheet(
+  BuildContext context, {
+  String? character,
+}) async {
   await showSoriSheet<void>(
     context: context,
-    builder: (_) => const _DailyCharSheet(),
+    builder: (_) => _DailyCharSheet(character: character),
   );
 }
 
 class _DailyCharSheet extends StatefulWidget {
-  const _DailyCharSheet();
+  const _DailyCharSheet({this.character});
+
+  final String? character;
 
   @override
   State<_DailyCharSheet> createState() => _DailyCharSheetState();
@@ -40,22 +45,24 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   bool _doneNow = false;
   bool _finishing = false;
+  bool _guideCompleted = false;
 
   @override
   void initState() {
     super.initState();
-    _char = DailyCharService.today();
+    _char = widget.character ?? DailyCharService.today();
+    _guideCompleted = (hangulStrokes[_char] ?? const []).isEmpty;
   }
 
   Future<void> _finish() async {
-    if (_finishing || _doneNow) return;
+    if (_finishing || _doneNow || !_guideCompleted) return;
     HapticFeedback.heavyImpact();
     final today = DateTime.now();
     _feedbackCompletion.complete(
       () => FeedbackCompletion.dailyHangul(
         contentLabel: _char,
         finishedAt: today,
-        strokeCount: (hangulStrokes[_char] ?? const []).length,
+        guidedStrokeCount: (hangulStrokes[_char] ?? const []).length,
       ),
     );
     final iso =
@@ -68,6 +75,11 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
       _finishing = false;
     });
     SoriCelebration.burst(context);
+  }
+
+  void _markGuideCompleted() {
+    if (_guideCompleted) return;
+    setState(() => _guideCompleted = true);
   }
 
   /// 자모 글자 → 자모 이름 변환 (예: "ㅊ" → "치읓")
@@ -173,6 +185,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                 strokes: strokes,
                 size: 220,
                 color: SoriColors.hangul,
+                onCompleted: _markGuideCompleted,
               ),
             ),
           )
@@ -202,6 +215,19 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
 
         const SizedBox(height: Spacing.lg),
 
+        if (hasStrokes) ...[
+          Text(
+            t.dailyCharGuideHint,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              color: s.textDim,
+              fontSize: 11,
+            ),
+          ),
+          const SizedBox(height: Spacing.sm),
+        ],
+
         // TTS + Finish
         if (!_doneNow) ...[
           Row(
@@ -224,7 +250,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                   label: t.dailyCharFinish,
                   icon: Icons.check_rounded,
                   accent: SoriColors.success,
-                  onTap: _finishing ? null : _finish,
+                  onTap: _finishing || !_guideCompleted ? null : _finish,
                 ),
               ),
             ],

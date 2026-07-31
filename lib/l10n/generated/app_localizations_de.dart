@@ -1978,7 +1978,11 @@ class AppL10nDe extends AppL10n {
   String get dailyCharTitle => 'Buchstabe des Tages';
 
   @override
-  String get dailyCharSubtitle => '1 Minute nachzeichnen';
+  String get dailyCharSubtitle => 'Strichfolge ansehen';
+
+  @override
+  String get dailyCharGuideHint =>
+      'Fertig wird nach der vollständigen Strichfolge freigeschaltet.';
 
   @override
   String get dailyCharDoneToday => 'Heute geschafft ✓';

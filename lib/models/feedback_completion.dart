@@ -88,14 +88,14 @@ class FeedbackCompletion {
     FeedbackCompletionIdFactory? createId,
     required String contentLabel,
     required DateTime finishedAt,
-    required int strokeCount,
+    required int guidedStrokeCount,
   }) => FeedbackCompletion._(
     _context(
       createId: createId,
       contentType: 'daily_hangul',
       contentId: 'daily-char:${_localIsoDate(finishedAt)}',
       contentLabel: contentLabel,
-      scoreSummary: 'strokes:$strokeCount',
+      scoreSummary: 'guide_strokes:$guidedStrokeCount',
     ),
   );
 

@@ -16,6 +16,7 @@ class StrokeCanvas extends StatefulWidget {
   final Color guideColor;
   final bool showNumbers;
   final Duration perStroke;
+  final VoidCallback? onCompleted;
 
   const StrokeCanvas({
     super.key,
@@ -26,13 +27,15 @@ class StrokeCanvas extends StatefulWidget {
     this.guideColor = const Color(0x33845EF7),
     this.showNumbers = true,
     this.perStroke = const Duration(milliseconds: 700),
+    this.onCompleted,
   });
 
   @override
   State<StrokeCanvas> createState() => _StrokeCanvasState();
 }
 
-class _StrokeCanvasState extends State<StrokeCanvas> with SingleTickerProviderStateMixin {
+class _StrokeCanvasState extends State<StrokeCanvas>
+    with SingleTickerProviderStateMixin {
   late AnimationController _ctrl;
 
   @override
@@ -45,14 +48,21 @@ class _StrokeCanvasState extends State<StrokeCanvas> with SingleTickerProviderSt
     _ctrl = AnimationController(
       vsync: this,
       duration: widget.perStroke * widget.strokes.length,
-    );
+    )..addStatusListener(_handleStatus);
     _ctrl.forward();
+  }
+
+  void _handleStatus(AnimationStatus status) {
+    if (status == AnimationStatus.completed) {
+      widget.onCompleted?.call();
+    }
   }
 
   @override
   void didUpdateWidget(covariant StrokeCanvas old) {
     super.didUpdateWidget(old);
-    if (old.letter != widget.letter || old.strokes.length != widget.strokes.length) {
+    if (old.letter != widget.letter ||
+        old.strokes.length != widget.strokes.length) {
       // Controller wiederverwenden (nur Dauer anpassen), statt einen neuen zu
       // erzeugen — SingleTickerProviderStateMixin erlaubt nur einen Ticker.
       _ctrl.duration = widget.perStroke * widget.strokes.length;
@@ -101,12 +111,12 @@ class _StrokeCanvasState extends State<StrokeCanvas> with SingleTickerProviderSt
 
 class _Painter extends CustomPainter {
   final List<Stroke> strokes;
-  final double progress;       // 0..1 für alle Striche zusammen
+  final double progress; // 0..1 für alle Striche zusammen
   final Color color;
   final Color guideColor;
   final bool showNumbers;
   final String letter;
-  final Size source;            // 220×220 reference
+  final Size source; // 220×220 reference
 
   _Painter({
     required this.strokes,
@@ -120,9 +130,9 @@ class _Painter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final scaleX = size.width  / source.width;
+    final scaleX = size.width / source.width;
     final scaleY = size.height / source.height;
-    final scale  = math.min(scaleX, scaleY);
+    final scale = math.min(scaleX, scaleY);
 
     Offset s(Offset o) => Offset(o.dx * scale, o.dy * scale);
 
@@ -142,7 +152,7 @@ class _Painter extends CustomPainter {
     final perStroke = 1.0 / n;
     for (var i = 0; i < n; i++) {
       final localStart = i * perStroke;
-      final localEnd   = (i + 1) * perStroke;
+      final localEnd = (i + 1) * perStroke;
       double prog = (progress - localStart) / (localEnd - localStart);
       prog = prog.clamp(0.0, 1.0);
       if (prog == 0) break;
@@ -161,7 +171,13 @@ class _Painter extends CustomPainter {
     }
   }
 
-  void _drawStroke(Canvas canvas, Stroke st, Paint paint, Offset Function(Offset) s, double prog) {
+  void _drawStroke(
+    Canvas canvas,
+    Stroke st,
+    Paint paint,
+    Offset Function(Offset) s,
+    double prog,
+  ) {
     if (st is LineStroke) {
       final pts = st.points.map(s).toList();
       final path = _partialPath(pts, prog);
@@ -170,7 +186,13 @@ class _Painter extends CustomPainter {
       final c = s(st.center);
       final r = st.radius * (paint.strokeWidth / 11);
       final sweep = 2 * math.pi * prog;
-      canvas.drawArc(Rect.fromCircle(center: c, radius: r), -math.pi / 2, sweep, false, paint);
+      canvas.drawArc(
+        Rect.fromCircle(center: c, radius: r),
+        -math.pi / 2,
+        sweep,
+        false,
+        paint,
+      );
     }
   }
 
@@ -194,7 +216,7 @@ class _Painter extends CustomPainter {
         acc += l;
       } else {
         final remain = target - acc;
-        final ratio  = remain / l;
+        final ratio = remain / l;
         final p = Offset.lerp(pts[i], pts[i + 1], ratio)!;
         path.lineTo(p.dx, p.dy);
         break;
@@ -203,7 +225,13 @@ class _Painter extends CustomPainter {
     return path;
   }
 
-  void _drawNumber(Canvas canvas, Stroke st, int n, Offset Function(Offset) s, double scale) {
+  void _drawNumber(
+    Canvas canvas,
+    Stroke st,
+    int n,
+    Offset Function(Offset) s,
+    double scale,
+  ) {
     Offset pos;
     if (st is LineStroke) {
       pos = s(st.points.first);

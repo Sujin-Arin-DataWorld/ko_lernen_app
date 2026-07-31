@@ -745,7 +745,8 @@
   "settingsThemeDark": "Dark",
 
   "dailyCharTitle": "Letter of the day",
-  "dailyCharSubtitle": "1-min trace",
+  "dailyCharSubtitle": "Watch the stroke-order guide",
+  "dailyCharGuideHint": "Done unlocks after the guide finishes.",
   "dailyCharDoneToday": "Done today ✓",
   "dailyCharFinish": "Done",
   "dailyCharStreak": "{n} days total",

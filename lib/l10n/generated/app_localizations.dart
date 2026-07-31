@@ -3694,8 +3694,14 @@ abstract class AppL10n {
   /// No description provided for @dailyCharSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'1 Minute nachzeichnen'**
+  /// **'Strichfolge ansehen'**
   String get dailyCharSubtitle;
+
+  /// No description provided for @dailyCharGuideHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Fertig wird nach der vollständigen Strichfolge freigeschaltet.'**
+  String get dailyCharGuideHint;
 
   /// No description provided for @dailyCharDoneToday.
   ///

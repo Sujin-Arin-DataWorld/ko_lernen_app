@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
+import 'package:ko_lernen_app/data/hangul_strokes.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
@@ -21,6 +22,7 @@ import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
+import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -42,7 +44,32 @@ void main() {
     await KkeunmariEngine.load();
   });
 
-  testWidgets('daily character stays open with feedback and explicit Close', (
+  testWidgets('stroke guide reports animation completion', (tester) async {
+    const perStroke = Duration(milliseconds: 100);
+    final strokes = hangulStrokes['ㄷ']!;
+    var completions = 0;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Center(
+          child: StrokeCanvas(
+            letter: 'ㄷ',
+            strokes: strokes,
+            perStroke: perStroke,
+            onCompleted: () => completions++,
+          ),
+        ),
+      ),
+    );
+
+    expect(completions, 0);
+    await tester.pump(
+      perStroke * strokes.length + const Duration(microseconds: 1),
+    );
+    expect(completions, 1);
+  });
+
+  testWidgets('daily character requires the guide before completion feedback', (
     tester,
   ) async {
     await _setLargeView(tester);
@@ -52,7 +79,7 @@ void main() {
           builder: (context) => Scaffold(
             body: Center(
               child: ElevatedButton(
-                onPressed: () => showDailyCharSheet(context),
+                onPressed: () => showDailyCharSheet(context, character: 'ㄷ'),
                 child: const Text('Open daily character'),
               ),
             ),
@@ -63,17 +90,32 @@ void main() {
 
     await tester.tap(find.text('Open daily character'));
     await tester.pump(const Duration(milliseconds: 500));
-    tester
-        .widget<SoriButton>(
-          find.byWidgetPredicate(
-            (widget) => widget is SoriButton && widget.label == 'Done',
-          ),
-        )
-        .onTap!();
+
+    final doneFinder = find.byWidgetPredicate(
+      (widget) => widget is SoriButton && widget.label == 'Done',
+    );
+    var done = tester.widget<SoriButton>(doneFinder);
+    final guide = tester.widget<StrokeCanvas>(find.byType(StrokeCanvas));
+    expect(guide.strokes, isNotEmpty);
+    expect(done.onTap, isNull);
+    expect(find.byType(ContentFeedbackCard), findsNothing);
+
+    await tester.pump(
+      guide.perStroke * guide.strokes.length + const Duration(microseconds: 1),
+    );
+    done = tester.widget<SoriButton>(doneFinder);
+    expect(done.onTap, isNotNull);
+    done.onTap!();
     await tester.pump(const Duration(seconds: 2));
 
     expect(find.text('Great job!'), findsOneWidget);
-    expect(find.byType(ContentFeedbackCard), findsOneWidget);
+    final feedback = tester.widget<ContentFeedbackCard>(
+      find.byType(ContentFeedbackCard),
+    );
+    expect(
+      feedback.feedbackContext.scoreSummary,
+      'guide_strokes:${guide.strokes.length}',
+    );
     expect(find.text('Close'), findsOneWidget);
 
     tester
@@ -83,6 +125,44 @@ void main() {
           ),
         )
         .onTap!();
+  });
+
+  testWidgets('daily character without strokes allows fallback completion', (
+    tester,
+  ) async {
+    await _setLargeView(tester);
+    await tester.pumpWidget(
+      _wrap(
+        Builder(
+          builder: (context) => Scaffold(
+            body: Center(
+              child: ElevatedButton(
+                onPressed: () => showDailyCharSheet(context, character: '가'),
+                child: const Text('Open daily character'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Open daily character'));
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(find.byType(StrokeCanvas), findsNothing);
+    final done = tester.widget<SoriButton>(
+      find.byWidgetPredicate(
+        (widget) => widget is SoriButton && widget.label == 'Done',
+      ),
+    );
+    expect(done.onTap, isNotNull);
+    done.onTap!();
+    await tester.pump(const Duration(seconds: 2));
+
+    final feedback = tester.widget<ContentFeedbackCard>(
+      find.byType(ContentFeedbackCard),
+    );
+    expect(feedback.feedbackContext.scoreSummary, 'guide_strokes:0');
   });
 
   testWidgets('Chosung renders feedback and resets identity for a new round', (

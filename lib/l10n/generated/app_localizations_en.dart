@@ -1970,7 +1970,10 @@ class AppL10nEn extends AppL10n {
   String get dailyCharTitle => 'Letter of the day';
 
   @override
-  String get dailyCharSubtitle => '1-min trace';
+  String get dailyCharSubtitle => 'Watch the stroke-order guide';
+
+  @override
+  String get dailyCharGuideHint => 'Done unlocks after the guide finishes.';
 
   @override
   String get dailyCharDoneToday => 'Done today ✓';

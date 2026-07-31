@@ -746,7 +746,8 @@
   "settingsThemeDark": "Dunkel",
 
   "dailyCharTitle": "Buchstabe des Tages",
-  "dailyCharSubtitle": "1 Minute nachzeichnen",
+  "dailyCharSubtitle": "Strichfolge ansehen",
+  "dailyCharGuideHint": "Fertig wird nach der vollständigen Strichfolge freigeschaltet.",
   "dailyCharDoneToday": "Heute geschafft ✓",
   "dailyCharFinish": "Fertig",
   "dailyCharStreak": "{n} Tage gesamt",
