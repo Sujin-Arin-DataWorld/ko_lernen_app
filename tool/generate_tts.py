@@ -38,7 +38,7 @@ TTS_CACHE_REVISION = "v2"
 
 # 시나리오 NPC(남)는 구형 Neural2-C 라 여성 Chirp3-HD 대비 덜 자연스러웠다.
 # `python tool/generate_tts.py --demo` 로 아래 후보 청취 후 채택본으로 교체.
-VOICES = {"female": "ko-KR-Chirp3-HD-Aoede", "male": "ko-KR-Neural2-C"}
+VOICES = {"female": "ko-KR-Chirp3-HD-Zephyr", "male": "ko-KR-Chirp3-HD-Enceladus"}
 
 # 자연 속도. 과거 0.9(또박)가 "너무 느리다" 피드백 → 1.0.
 # ⚠️ functions/tts/index.js 의 RATE 와 반드시 동일하게 유지.
