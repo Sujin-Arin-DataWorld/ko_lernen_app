@@ -519,6 +519,7 @@
   "gyeAllInCelebrate": "Everyone contributed this week!",
   "gyeReactTooltip":             "React",
   "bookResultOfflineNotice":     "Server unreachable — only grammar patterns detected offline.",
+  "bookResultRateLimited":       "Cloud analysis limit reached. Please try again in a minute.",
   "bookResultSectionWords":      "Words",
   "bookResultSectionGrammar":    "Grammar",
   "bookResultSectionSentences":  "Sentences",
@@ -1269,5 +1270,6 @@
   "scenarioRoleplayTitle": "Role-play",
   "scenarioRoleplayHint": "Your turn now — build your own replies",
   "scenarioRoleplayTurn": "Your reply",
-  "scenarioRoleplayDone": "Role-play complete! You carried the conversation yourself."
+  "scenarioRoleplayDoneTitle": "Role-play complete!",
+  "scenarioRoleplayDoneBody": "You carried the conversation yourself."
 }

@@ -520,6 +520,7 @@
   "gyeAllInCelebrate": "Alle haben diese Woche beigetragen!",
   "gyeReactTooltip":             "Reagieren",
   "bookResultOfflineNotice":     "Server nicht erreichbar — nur Grammatikmuster offline erkannt.",
+  "bookResultRateLimited":       "Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.",
   "bookResultSectionWords":      "Wörter",
   "bookResultSectionGrammar":    "Grammatik",
   "bookResultSectionSentences":  "Sätze",
@@ -1285,5 +1286,6 @@
   "scenarioRoleplayTitle": "Rollenspiel",
   "scenarioRoleplayHint": "Jetzt bist du dran — bau deine Antworten selbst",
   "scenarioRoleplayTurn": "Deine Antwort",
-  "scenarioRoleplayDone": "Rollenspiel geschafft! Du hast das Gespräch selbst geführt."
+  "scenarioRoleplayDoneTitle": "Rollenspiel geschafft!",
+  "scenarioRoleplayDoneBody": "Du hast das Gespräch selbst geführt."
 }

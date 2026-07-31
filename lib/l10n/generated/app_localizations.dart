@@ -2545,6 +2545,12 @@ abstract class AppL10n {
   /// **'Server nicht erreichbar — nur Grammatikmuster offline erkannt.'**
   String get bookResultOfflineNotice;
 
+  /// No description provided for @bookResultRateLimited.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.'**
+  String get bookResultRateLimited;
+
   /// No description provided for @bookResultSectionWords.
   ///
   /// In de, this message translates to:
@@ -6175,11 +6181,17 @@ abstract class AppL10n {
   /// **'Deine Antwort'**
   String get scenarioRoleplayTurn;
 
-  /// No description provided for @scenarioRoleplayDone.
+  /// No description provided for @scenarioRoleplayDoneTitle.
   ///
   /// In de, this message translates to:
-  /// **'Rollenspiel geschafft! Du hast das Gespräch selbst geführt.'**
-  String get scenarioRoleplayDone;
+  /// **'Rollenspiel geschafft!'**
+  String get scenarioRoleplayDoneTitle;
+
+  /// No description provided for @scenarioRoleplayDoneBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast das Gespräch selbst geführt.'**
+  String get scenarioRoleplayDoneBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -5,15 +5,54 @@ import 'dart:typed_data';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:crypto/crypto.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 import 'storage_service.dart';
 
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
+
+/// Immutable, revisioned address for one synthesized TTS request.
+///
+/// The same `{voice}|{text}` SHA-1 input is deliberately shared with the
+/// Cloud Function and the pre-generation script.  A revision in the object
+/// path prevents an audio-setting change from reusing an immutable old object
+/// from Firebase Storage or a CDN.
+class TtsCacheKey {
+  const TtsCacheKey._({
+    required this.revision,
+    required this.voice,
+    required this.hash,
+  });
+
+  static const String currentRevision = 'v2';
+
+  factory TtsCacheKey.forRequest({
+    required String voice,
+    required String text,
+  }) {
+    final normalizedVoice = voice == 'male' ? 'male' : 'female';
+    final normalizedText = text.trim();
+    final hash = sha1
+        .convert(utf8.encode('$normalizedVoice|$normalizedText'))
+        .toString();
+    return TtsCacheKey._(
+      revision: currentRevision,
+      voice: normalizedVoice,
+      hash: hash,
+    );
+  }
+
+  final String revision;
+  final String voice;
+  final String hash;
+
+  String get storagePath => 'tts/$revision/$voice/$hash.mp3';
+  String get localFileName => 'tts_${revision}_${voice}_$hash.mp3';
+}
 
 class TtsPlaybackRates {
   const TtsPlaybackRates({required this.speechRate, required this.fileRate});
@@ -254,7 +293,7 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
 /// 고품질 한국어 발음 TTS — **캐시 우선 3단**.
 ///
 /// 1. 로컬 캐시 mp3 → 즉시 재생 (오프라인·무료)
-/// 2. Firebase Storage `tts/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
+/// 2. Firebase Storage `tts/v2/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
 ///    (사전생성된 고정 콘텐츠: 526 단어 + 526 예문 + 204 대화)
 /// 3. Cloud Function 합성 → base64 수신·캐시·재생
 ///    (동적 콘텐츠: 책 한 컷 OCR·내 단어장의 사용자 입력 단어)
@@ -274,10 +313,10 @@ class TtsService {
   /// (신형 프로젝트는 `*.firebasestorage.app`, 구형은 `*.appspot.com`).
   static const String _bucket = 'gs://ko-lernen-app.firebasestorage.app';
 
-  /// 동적 합성 Cloud Function 엔드포인트. main.dart / RemoteConfig 에서 주입.
-  /// 빈 값이면 3단계(CF)를 건너뛰고 flutter_tts 폴백으로 간다.
-  static String ttsFnEndpoint = '';
-  static void setEndpoint(String url) => ttsFnEndpoint = url.trim();
+  /// Dynamic synthesis is a Firebase callable, so Auth and App Check tokens
+  /// are attached by the SDK instead of exposing an unauthenticated HTTP URL.
+  static const String _functionRegion = 'europe-west3';
+  static const String _functionName = 'synthesize_tts';
 
   static const Duration _netTimeout = Duration(seconds: 12);
   static const Duration _playTimeout = Duration(seconds: 30);
@@ -301,6 +340,8 @@ class TtsService {
 
   static FirebaseStorage get _storage =>
       FirebaseStorage.instanceFor(bucket: _bucket);
+  static FirebaseFunctions get _functions =>
+      FirebaseFunctions.instanceFor(region: _functionRegion);
 
   // ── 공개 API ───────────────────────────────────────────────────────
 
@@ -344,19 +385,14 @@ class TtsService {
 
   // ── 핵심 흐름 ──────────────────────────────────────────────────────
 
-  /// 로컬 캐시 파일명 버전. 서버 재생성(목소리·속도 교체)으로 Storage 오디오가
-  /// 바뀌어도 sha1 키·Storage 경로는 불변이라 기존 로컬 캐시가 그대로 남는다.
-  /// 이 토큰을 올리면 로컬만 1회 미스 → Tier 2(Storage)에서 새 오디오를 재수신.
-  static const String _localCacheVersion = 'v2';
-
   /// 캐시 → Storage → CF 순으로 mp3 파일을 확보. 실패 시 null.
   static Future<File?> _resolveFile(String text, String voice) async {
     final dir = await _ensureCacheDir();
     if (dir == null) {
       return null;
     }
-    final hash = _hash(voice, text);
-    final file = File('${dir.path}/${voice}_${hash}_$_localCacheVersion.mp3');
+    final key = TtsCacheKey.forRequest(voice: voice, text: text);
+    final file = File('${dir.path}/${key.localFileName}');
 
     // 1. 로컬 캐시
     if (await file.exists() && await file.length() > 0) {
@@ -366,7 +402,7 @@ class TtsService {
     // 2. Firebase Storage (사전생성된 고정 콘텐츠)
     try {
       final Uint8List? data = await _storage
-          .ref('tts/$voice/$hash.mp3')
+          .ref(key.storagePath)
           .getData(_maxBytes);
       if (data != null && data.isNotEmpty) {
         await file.writeAsBytes(data, flush: true);
@@ -376,28 +412,25 @@ class TtsService {
       // object-not-found / 오프라인 → CF 시도
     }
 
-    // 3. Cloud Function (동적 합성)
-    if (ttsFnEndpoint.isNotEmpty) {
-      try {
-        final res = await http
-            .post(
-              Uri.parse(ttsFnEndpoint),
-              headers: {'Content-Type': 'application/json'},
-              body: jsonEncode({'text': text, 'voice': voice}),
-            )
-            .timeout(_netTimeout);
-        if (res.statusCode == 200) {
-          final body = jsonDecode(res.body) as Map<String, dynamic>;
-          final b64 = body['audioBase64'] as String?;
-          if (b64 != null && b64.isNotEmpty) {
-            final bytes = base64Decode(b64);
-            await file.writeAsBytes(bytes, flush: true);
-            return file;
-          }
-        }
-      } catch (_) {
-        // 폴백으로
+    // 3. Authenticated Firebase callable (dynamic synthesis).
+    try {
+      final result = await _functions
+          .httpsCallable(
+            _functionName,
+            options: HttpsCallableOptions(
+              timeout: _netTimeout,
+              limitedUseAppCheckToken: true,
+            ),
+          )
+          .call<Map<String, dynamic>>({'text': text, 'voice': key.voice});
+      final b64 = result.data['audioBase64'] as String?;
+      if (b64 != null && b64.isNotEmpty) {
+        final bytes = base64Decode(b64);
+        await file.writeAsBytes(bytes, flush: true);
+        return file;
       }
+    } catch (_) {
+      // Firebase/Auth/App Check unavailable → OS TTS fallback.
     }
     return null;
   }
@@ -462,11 +495,6 @@ class TtsService {
   }
 
   // ── 헬퍼 ───────────────────────────────────────────────────────────
-
-  /// 사전생성 스크립트(Python)와 **동일한** 키 규칙: sha1("$voice|$text").
-  static String _hash(String voice, String text) {
-    return sha1.convert(utf8.encode('$voice|$text')).toString();
-  }
 
   /// 캐시된 음성 mp3 전부 삭제 — 계정 삭제/전체 초기화 시 호출.
   static Future<void> clearCache({

@@ -1351,6 +1351,10 @@ class AppL10nDe extends AppL10n {
       'Server nicht erreichbar — nur Grammatikmuster offline erkannt.';
 
   @override
+  String get bookResultRateLimited =>
+      'Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.';
+
+  @override
   String get bookResultSectionWords => 'Wörter';
 
   @override
@@ -3386,6 +3390,8 @@ class AppL10nDe extends AppL10n {
   String get scenarioRoleplayTurn => 'Deine Antwort';
 
   @override
-  String get scenarioRoleplayDone =>
-      'Rollenspiel geschafft! Du hast das Gespräch selbst geführt.';
+  String get scenarioRoleplayDoneTitle => 'Rollenspiel geschafft!';
+
+  @override
+  String get scenarioRoleplayDoneBody => 'Du hast das Gespräch selbst geführt.';
 }

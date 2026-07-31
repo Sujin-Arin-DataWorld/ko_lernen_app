@@ -4,6 +4,7 @@
   "description": "고품질 TTS 동적 합성 — Cloud TTS + Storage 캐시",
   "main": "index.js",
   "scripts": {
+    "test": "node --test",
     "deploy": "firebase deploy --only functions:tts-firebase-functions"
   },
   "dependencies": {

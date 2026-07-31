@@ -7,7 +7,7 @@
  *
  * 흐름:
  *   1. sha1("{voice}|{text}") 로 키 계산 (클라/사전생성 스크립트와 동일 규칙)
- *   2. Storage `tts/{voice}/{hash}.mp3` 이미 있으면 다운로드해 반환 (재합성 방지)
+ *   2. Storage `tts/v2/{voice}/{hash}.mp3` 이미 있으면 다운로드해 반환 (재합성 방지)
  *   3. 없으면 Cloud TTS 합성 → Storage 저장(다음 사용자 캐시) → 반환
  *   응답: { audioBase64 }  — 클라가 디코드해 즉시 재생 + 로컬 캐시
  *
@@ -17,11 +17,16 @@
  * ============================================================================
  */
 
-const { onRequest } = require("firebase-functions/v2/https");
+const { HttpsError, onCall } = require("firebase-functions/v2/https");
 const { setGlobalOptions } = require("firebase-functions/v2");
 const admin = require("firebase-admin");
-const crypto = require("crypto");
 const textToSpeech = require("@google-cloud/text-to-speech");
+const { cacheKey } = require("./tts_contract");
+const {
+  CALLABLE_OPTIONS,
+  TtsRequestError,
+  validateTtsRequest,
+} = require("./tts_request_guard");
 
 admin.initializeApp();
 setGlobalOptions({ region: "europe-west3" });
@@ -40,29 +45,13 @@ const VOICES = {
 };
 const RATE = 1.0; // ⚠️ tool/generate_tts.py 의 RATE 와 반드시 동일 (0.9→1.0 자연 속도)
 
-exports.synthesize_tts = onRequest(
-  { cors: true, memory: "256MiB", timeoutSeconds: 30 },
-  async (req, res) => {
+exports.synthesize_tts = onCall(CALLABLE_OPTIONS, async (request) => {
     try {
-      const text = ((req.body && req.body.text) || "").trim();
-      const voiceKey = (req.body && req.body.voice) === "male" ? "male" : "female";
+      const { text, voice } = validateTtsRequest(request);
+      const key = cacheKey(voice, text);
+      const voiceKey = key.voice;
 
-      if (!text) {
-        res.status(400).json({ error: "empty" });
-        return;
-      }
-      // 동적 합성 abuse 방지 — 학습 단어/짧은 문장만.
-      if (text.length > 500) {
-        res.status(400).json({ error: "too_long" });
-        return;
-      }
-
-      const hash = crypto
-        .createHash("sha1")
-        .update(`${voiceKey}|${text}`)
-        .digest("hex");
-      const path = `tts/${voiceKey}/${hash}.mp3`;
-      const fileRef = admin.storage().bucket(BUCKET).file(path);
+      const fileRef = admin.storage().bucket(BUCKET).file(key.storagePath);
 
       let audioBuffer;
       const [exists] = await fileRef.exists();
@@ -83,10 +72,15 @@ exports.synthesize_tts = onRequest(
         });
       }
 
-      res.status(200).json({ audioBase64: audioBuffer.toString("base64") });
+      return { audioBase64: audioBuffer.toString("base64") };
     } catch (e) {
+      if (e instanceof TtsRequestError) {
+        throw new HttpsError(e.code, e.message);
+      }
+      if (e instanceof HttpsError) {
+        throw e;
+      }
       console.error("synthesize_tts error", e);
-      res.status(500).json({ error: "synth_failed" });
+      throw new HttpsError("internal", "TTS synthesis failed.");
     }
-  }
-);
+  });

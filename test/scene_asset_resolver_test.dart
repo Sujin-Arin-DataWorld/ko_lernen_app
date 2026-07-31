@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/services/scene_asset_resolver.dart';
@@ -50,6 +52,15 @@ void main() {
   });
 
   group('SceneAssetResolver — convention-first with category fallback', () {
+    test('main waits for the manifest before the first app frame', () {
+      final source = File('lib/main.dart').readAsStringSync();
+      final resolverLoad = source.indexOf('await SceneAssetResolver.load();');
+      final firstRunApp = source.indexOf('runApp(const KoLernenApp());');
+
+      expect(resolverLoad, greaterThanOrEqualTo(0));
+      expect(firstRunApp, greaterThan(resolverLoad));
+    });
+
     test('no manifest loaded → category poster + loop', () {
       final s = scn('airport_arrival');
       expect(
@@ -80,23 +91,26 @@ void main() {
       );
     });
 
-    test('dedicated poster but no dedicated loop → poster dedicated, loop category', () {
-      SceneAssetResolver.debugSetAssets(<String>{
-        'assets/illustrations/scenes/directions.png',
-        'assets/video/loops/scene_directions.mp4',
-        'assets/illustrations/scenes/airport_arrival.png',
-        // deliberately no scene_airport_arrival.mp4
-      });
-      final s = scn('airport_arrival');
-      expect(
-        SceneAssetResolver.posterAsset(s),
-        'assets/illustrations/scenes/airport_arrival.png',
-      );
-      expect(
-        SceneAssetResolver.loopAsset(s),
-        'assets/video/loops/scene_directions.mp4',
-      );
-    });
+    test(
+      'dedicated poster but no dedicated loop → poster dedicated, loop category',
+      () {
+        SceneAssetResolver.debugSetAssets(<String>{
+          'assets/illustrations/scenes/directions.png',
+          'assets/video/loops/scene_directions.mp4',
+          'assets/illustrations/scenes/airport_arrival.png',
+          // deliberately no scene_airport_arrival.mp4
+        });
+        final s = scn('airport_arrival');
+        expect(
+          SceneAssetResolver.posterAsset(s),
+          'assets/illustrations/scenes/airport_arrival.png',
+        );
+        expect(
+          SceneAssetResolver.loopAsset(s),
+          'assets/video/loops/scene_directions.mp4',
+        );
+      },
+    );
 
     test('mart_grocery resolves to market category assets', () {
       SceneAssetResolver.debugSetAssets(<String>{

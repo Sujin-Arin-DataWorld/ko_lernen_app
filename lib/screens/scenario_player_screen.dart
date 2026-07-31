@@ -14,9 +14,11 @@ import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/motion.dart' show SoriEntrance;
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
@@ -1068,28 +1070,15 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // ─── Rollenspiel-Stage (inline produktive Antworten) ───────────────────────
 
   Widget _buildRollenspiel(AppL10n t, String lang) {
-    return _StageScroll(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _StageTitle(t.scenarioRoleplayTitle, SoriColors.tiger),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            t.scenarioRoleplayHint,
-            style: SoriTextTheme.of(
-              context,
-            ).bodySmall.copyWith(color: SoriSurfaces.of(context).textMuted),
-          ),
-          const SizedBox(height: Spacing.lg),
-          _RollenspielStage(
-            scenario: _scenario!,
-            lang: lang,
-            onDone: () {
-              if (mounted) setState(() => _questReady = true);
-            },
-          ),
-        ],
-      ),
+    // 헤더(_StageTitle·hint)와 스크롤은 _RollenspielStage가 소유한다 —
+    // 완료 상태에선 "Jetzt bist du dran"이 더 이상 참이 아니라 헤더째 사라지고,
+    // 축하 패널이 스테이지 전체를 중앙 정렬로 차지해야 하기 때문.
+    return _RollenspielStage(
+      scenario: _scenario!,
+      lang: lang,
+      onDone: () {
+        if (mounted) setState(() => _questReady = true);
+      },
     );
   }
 
@@ -1195,20 +1184,42 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 class _StageScroll extends StatelessWidget {
   final Widget child;
 
-  const _StageScroll({required this.child});
+  /// 콘텐츠가 viewport보다 짧을 때 세로를 채워 중앙 정렬할지.
+  ///
+  /// **기본 false** — 나머지 6개 호출부는 위젯 트리가 그대로라 회귀 0.
+  /// `minHeight`만 주고 `maxHeight`는 건드리지 않으므로 오버플로가 구조적으로
+  /// 불가능하다. 긴 콘텐츠는 지금처럼 위 정렬 + 스크롤로 degrade 된다.
+  ///
+  /// ⚠️ 이 분기 아래에는 `Expanded`/`Flexible`/`Spacer`를 넣으면 안 된다 —
+  /// `maxHeight`가 infinity로 남아 flex child가 assert 한다.
+  final bool fill;
+
+  const _StageScroll({required this.child, this.fill = false});
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    return SingleChildScrollView(
-      padding: soriClampPadding(
-        width,
-        base: const EdgeInsets.symmetric(
-          horizontal: Spacing.lg,
-          vertical: Spacing.xl,
+    final pad = soriClampPadding(
+      width,
+      base: const EdgeInsets.symmetric(
+        horizontal: Spacing.lg,
+        vertical: Spacing.xl,
+      ),
+    );
+    if (!fill) {
+      return SingleChildScrollView(padding: pad, child: child);
+    }
+    // PageView가 각 페이지에 tight 높이를 주므로 c.maxHeight는 유한하다.
+    return LayoutBuilder(
+      builder: (context, c) => SingleChildScrollView(
+        padding: pad,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: math.max(0.0, c.maxHeight - pad.vertical),
+          ),
+          child: child,
         ),
       ),
-      child: child,
     );
   }
 }
@@ -1277,10 +1288,7 @@ class _ScenarioIntroArt extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             if (live && loopAsset != null)
-              SoriPosterLoop(
-                videoAsset: loopAsset!,
-                poster: poster,
-              )
+              SoriPosterLoop(videoAsset: loopAsset!, poster: poster)
             else
               poster,
             DecoratedBox(
@@ -1398,6 +1406,11 @@ class _RollenspielStageState extends State<_RollenspielStage> {
   int _idx = 0;
   bool _done = false;
 
+  /// 온보딩에서 사용자가 고른 캐릭터. 축하 클립을 여기에 맞춘다.
+  late final MascotKind _kind;
+  late final String? _clip;
+  bool _burstFired = false;
+
   @override
   void initState() {
     super.initState();
@@ -1420,6 +1433,14 @@ class _RollenspielStageState extends State<_RollenspielStage> {
       }
     }
     _pool = pool.toList()..sort();
+
+    // milestone_celebration.dart:39 과 동일 표현. 미설정('') → 호랑이.
+    _kind = Storage.preferredMascot == 'magpie'
+        ? MascotKind.magpie
+        : MascotKind.tiger;
+    // celebrate는 두 캐릭터 모두 클립이 있어 사실상 non-null이지만,
+    // game_reward.dart 패턴대로 null 분기는 유지한다.
+    _clip = CharacterClips.feedbackFor(_kind, MascotEmotion.celebrate);
 
     if (_turns.isEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -1448,6 +1469,14 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     if (_idx + 1 >= _turns.length) {
       setState(() => _done = true);
       widget.onDone();
+      // 직접 해낸 경우에만 축하 — 턴이 없는 시나리오는 조용히 넘어간다.
+      if (!_burstFired) {
+        _burstFired = true;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          // reduce-motion·Overlay 부재 시 no-op (celebration.dart:20-22).
+          if (mounted) SoriCelebration.burst(context);
+        });
+      }
     } else {
       setState(() => _idx++);
     }
@@ -1458,24 +1487,16 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
 
+    // ── 완료: 스테이지 전체를 차지하는 중앙 정렬 축하 패널 ──────────────────
     if (_done || _turns.isEmpty) {
-      return SoriCard(
-        variant: SoriCardVariant.base,
-        accent: SoriColors.success,
-        tinted: true,
-        width: double.infinity,
-        child: Row(
+      return _StageScroll(
+        fill: true,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Mascot.tiger(emotion: MascotEmotion.celebrate, size: 48),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: Text(
-                t.scenarioRoleplayDone,
-                style: SoriTextTheme.of(context).body.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: SoriColors.success,
-                ),
-              ),
+            SoriEntrance(
+              child: _RollenspielDoneCard(kind: _kind, clip: _clip),
             ),
           ],
         ),
@@ -1485,50 +1506,165 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     final turn = _turns[_idx];
     final ctx = turn.context;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          '${t.scenarioRoleplayTurn} ${_idx + 1}/${_turns.length}',
-          style: SoriTextTheme.of(context).caption.copyWith(color: s.textMuted),
-        ),
-        const SizedBox(height: Spacing.sm),
-        if (ctx != null) ...[
-          SoriCard(
-            variant: SoriCardVariant.compact,
-            accent: SoriColors.success,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  ctx.ko,
-                  style: TextStyle(
-                    color: s.text,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    height: 1.4,
+    // ── 진행 중: 기존 위 정렬 유지 (회귀 0) ────────────────────────────────
+    return _StageScroll(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          _StageTitle(t.scenarioRoleplayTitle, SoriColors.tiger),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.scenarioRoleplayHint,
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.lg),
+          Text(
+            '${t.scenarioRoleplayTurn} ${_idx + 1}/${_turns.length}',
+            style: SoriTextTheme.of(
+              context,
+            ).caption.copyWith(color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.sm),
+          if (ctx != null) ...[
+            SoriCard(
+              variant: SoriCardVariant.compact,
+              accent: SoriColors.success,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    ctx.ko,
+                    style: TextStyle(
+                      color: s.text,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      height: 1.4,
+                    ),
+                  ),
+                  if (ctx.pick(widget.lang).isNotEmpty) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      ctx.pick(widget.lang),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).bodySmall.copyWith(color: s.textDim),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+            const SizedBox(height: Spacing.md),
+          ],
+          SatzBauenQuest(
+            key: ValueKey('roleplay_${turn.user.ko}_$_idx'),
+            data: _dataFor(turn.user),
+            onComplete: _onTurnComplete,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Rollenspiel 완료 패널 — 캐릭터 클립 히어로 + 축하 문구.
+///
+/// 온보딩에서 고른 캐릭터의 축하 영상을 재생한다(미설정이면 호랑이).
+/// 이름 있는 위젯이라 위젯 테스트에서 턴을 주행하지 않고 바로 pump 할 수 있다.
+class _RollenspielDoneCard extends StatelessWidget {
+  final MascotKind kind;
+  final String? clip;
+
+  const _RollenspielDoneCard({required this.kind, this.clip});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+
+    // ⚠️ 단일 진실원천 — well 배경과 blendColor가 **같은 상수**여야 한다.
+    // 영상은 알파가 없고 배경이 정확히 (255,255,255)이라, multiply
+    // (out = src·dst/255, src=255 → out = dst) 로 배경이 well 색에 정확히
+    // 수렴해 사라진다. 이 클립을 well 밖(한지 텍스처·backdrop 위)으로 옮기면
+    // 불투명한 평면 패치가 그대로 보인다.
+    final wellColor = s.surface;
+
+    // 960² 소스의 56~66%가 흰 여백이라 기존 정적 Mascot(48)보다 크게 잡아야
+    // 캐릭터가 히어로로 읽힌다. 폭·높이 양쪽 클램프 → 어떤 뷰포트에서도 안전.
+    final screen = MediaQuery.sizeOf(context);
+    final cardInner =
+        math.min(screen.width, SoriBreakpoints.content) -
+        (Spacing.lg * 2) - // _StageScroll 좌우
+        (Spacing.lg * 2) - // 카드 좌우
+        2; // hairline
+    final clipSize = math
+        .min(cardInner - (Spacing.sm * 2) - 2, screen.height * 0.26)
+        .clamp(132.0, 200.0);
+
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      accent: SoriColors.success,
+      tinted: true,
+      width: double.infinity,
+      child: Semantics(
+        container: true,
+        liveRegion: true,
+        label: '${t.scenarioRoleplayDoneTitle} ${t.scenarioRoleplayDoneBody}',
+        child: ExcludeSemantics(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // ── 한지 창(well) — 평면 substrate 보장 + 의도된 인셋 액자 ──
+              Container(
+                padding: const EdgeInsets.all(Spacing.sm),
+                decoration: BoxDecoration(
+                  color: wellColor,
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                  border: Border.all(
+                    color: SoriColors.success.withValues(alpha: 0.18),
                   ),
                 ),
-                if (ctx.pick(widget.lang).isNotEmpty) ...[
-                  const SizedBox(height: Spacing.xs),
-                  Text(
-                    ctx.pick(widget.lang),
-                    style: SoriTextTheme.of(
-                      context,
-                    ).bodySmall.copyWith(color: s.textDim),
-                  ),
-                ],
-              ],
-            ),
+                // ClipRRect 없음 — 영상 테두리 링이 100% 흰색이라 모서리가
+                // wellColor로 수렴한다. 클립은 saveLayer 낭비.
+                child: clip == null
+                    ? Mascot(
+                        kind: kind,
+                        emotion: MascotEmotion.celebrate,
+                        size: clipSize * 0.85,
+                        animate: true,
+                      )
+                    : CharacterClipPlayer(
+                        key: ValueKey('roleplay_done_${kind.name}'),
+                        asset: clip!,
+                        size: clipSize,
+                        // ⚠️ loop 금지 — PageView가 "Weiter" 후에도 페이지를
+                        // 살려둬서 960² 디코더가 세션 내내 돌게 된다.
+                        loop: false,
+                        blendColor: wellColor,
+                        fallbackKind: kind,
+                        fallbackEmotion: MascotEmotion.celebrate,
+                        // onCompleted 미전달 → Timer 자체가 생성되지 않는다.
+                        // "Weiter"는 이미 onDone()에서 열렸다.
+                      ),
+              ),
+              const SizedBox(height: Spacing.lg),
+              Text(
+                t.scenarioRoleplayDoneTitle,
+                textAlign: TextAlign.center,
+                style: tt.h2.copyWith(color: SoriColors.success),
+              ),
+              const SizedBox(height: Spacing.xs),
+              Text(
+                t.scenarioRoleplayDoneBody,
+                textAlign: TextAlign.center,
+                style: tt.bodySmall,
+              ),
+            ],
           ),
-          const SizedBox(height: Spacing.md),
-        ],
-        SatzBauenQuest(
-          key: ValueKey('roleplay_${turn.user.ko}_$_idx'),
-          data: _dataFor(turn.user),
-          onComplete: _onTurnComplete,
         ),
-      ],
+      ),
     );
   }
 }

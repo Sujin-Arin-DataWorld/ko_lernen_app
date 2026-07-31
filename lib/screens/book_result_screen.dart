@@ -248,6 +248,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final r = _result!;
     final s = SoriSurfaces.of(context);
     final offlineStub = r.warnings.contains('offline_stub');
+    final rateLimited = r.warnings.contains('server_rate_limited');
 
     return _guard(
       Scaffold(
@@ -308,7 +309,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
                           const SizedBox(width: Spacing.sm),
                           Expanded(
                             child: Text(
-                              t.bookResultOfflineNotice,
+                              rateLimited
+                                  ? t.bookResultRateLimited
+                                  : t.bookResultOfflineNotice,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: s.textMuted,

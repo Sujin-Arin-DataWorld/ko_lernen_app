@@ -247,6 +247,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     }
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

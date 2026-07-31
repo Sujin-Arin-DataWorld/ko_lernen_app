@@ -41,11 +41,6 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     Storage.resetForTesting();
     await Storage.init();
-    BookAnalysisService.setEndpoint('');
-  });
-
-  tearDown(() {
-    BookAnalysisService.setEndpoint('');
   });
 
   testWidgets('book analysis failure never renders the raw exception', (
@@ -77,8 +72,6 @@ void main() {
     tester,
   ) async {
     final client = _RecordingClient();
-    BookAnalysisService.setEndpoint('https://example.invalid/analyze');
-
     await tester.pumpWidget(
       MaterialApp(
         locale: const Locale('en', 'US'),
@@ -91,6 +84,10 @@ void main() {
               text: text,
               targetLang: targetLang,
               client: client,
+              credentialsProvider: () async => const BookAnalysisCredentials(
+                idToken: 'test-id-token',
+                appCheckToken: 'test-app-check-token',
+              ),
             );
           },
         ),
@@ -102,6 +99,34 @@ void main() {
       'text': '공부하고 있어요.',
       'lang': 'en',
     });
+  });
+
+  testWidgets('rate-limited analysis explains when to retry', (tester) async {
+    const rateLimited = BookAnalysisResult(
+      words: [],
+      grammar: [],
+      sentences: [],
+      warnings: ['offline_stub', 'server_rate_limited'],
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: BookResultScreen(
+          args: const {'text': 'test'},
+          analyzer: ({required text, required targetLang}) async => rateLimited,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(
+      find.text('Cloud analysis limit reached. Please try again in a minute.'),
+      findsOneWidget,
+    );
   });
 
   testWidgets(

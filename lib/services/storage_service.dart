@@ -1385,10 +1385,9 @@ class Storage {
     _packCache = null;
   }
 
-  // ── Phase 5.1 (stately-rising-jongga) ── Custom Packs + Endpoint ────
+  // ── Phase 5.1 (stately-rising-jongga) ── Custom Packs ───────────────
   //
   // CustomPack JSON map: { packId: { name, sourcePageId, words: [...], ... } }
-  // Endpoint: BookAnalysisService 가 부르는 Cloud Function URL (Settings UI).
   // ────────────────────────────────────────────────────────────────────
 
   static String get customPacksRawJson => _s('kl_custom_packs_v1');
@@ -1398,10 +1397,6 @@ class Storage {
     String json, {
     PreferenceStringStore? preferences,
   }) => _ssStrict('kl_custom_packs_v1', json, preferences: preferences);
-
-  static String get bookAnalysisEndpoint => _s('kl_book_analysis_endpoint');
-  static Future<void> setBookAnalysisEndpoint(String url) =>
-      _ss('kl_book_analysis_endpoint', url.trim());
 
   // ── Phase 5 (stately-rising-jongga) ── 책 한 컷 / Bookshelf Storage ──
   //
