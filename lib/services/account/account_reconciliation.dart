@@ -1266,11 +1266,25 @@ String _stableText(Object? value) {
   return '9:${canonical.runtimeType}:${canonical.toString()}';
 }
 
+/// int64 경계를 **double 리터럴**로 표현한 값.
+///
+/// dart2js 는 JS number(IEEE-754 double)로 정확히 표현할 수 없는 정수 리터럴을
+/// 거부한다. int 최댓값 2^63-1 이 정확히 그 경우라 `flutter build web` 이 깨졌다:
+///   Error: The integer literal 9223372036854775807 can't be represented
+///          exactly in JavaScript.
+///
+/// 2^63 은 2의 거듭제곱이라 double 로 정확히 표현된다. 그래서 상한을
+/// "2^63 미만"으로 바꾼다 — double 도메인에서는 두 조건이 동치다. 2^63 미만의
+/// 가장 큰 double 은 2^63-1024 이고, 2^63-1 은 애초에 double 로 표현되지 않아
+/// 기존 리터럴도 비교 시점에 2^63 으로 반올림되고 있었다.
+const double _int64LowerBoundInclusive = -9223372036854775808.0; // -2^63
+const double _int64UpperBoundExclusive = 9223372036854775808.0; //  2^63
+
 Object? _canonicalFieldValue(Object? value) {
   if (value is double) {
     if (value.isFinite &&
-        value >= -9223372036854775808 &&
-        value <= 9223372036854775807 &&
+        value >= _int64LowerBoundInclusive &&
+        value < _int64UpperBoundExclusive &&
         value == value.truncateToDouble()) {
       return value.toInt();
     }
