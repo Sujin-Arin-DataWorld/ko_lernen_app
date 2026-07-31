@@ -11,7 +11,8 @@ import 'storage_service.dart';
 /// Globaler Premium-Status. Wie [paletteVariantNotifier] ein Top-Level
 /// [ValueNotifier] — Screens können per [ValueListenableBuilder] live darauf
 /// reagieren (Lock-Badges ein-/ausblenden, Paywall-Sperren etc.).
-final ValueNotifier<bool> premiumNotifier = ValueNotifier<bool>(false);
+final ValueNotifier<bool> premiumNotifier =
+    ValueNotifier<bool>(PremiumService.betaUnlockAll);
 
 abstract interface class RevenueCatIdentityClient {
   Future<void> logIn(String uid);
@@ -162,14 +163,20 @@ class PremiumService {
   /// Entitlement-ID aus dem RevenueCat-Dashboard.
   static const String entitlementId = 'premium';
 
+  /// 🧪 베타 기간: 모든 프리미엄 콘텐츠를 전 사용자에게 무료 해제.
+  /// 출시(유료화) 시 반드시 `false`로 되돌릴 것.
+  /// (빌드 시 `--dart-define=BETA_UNLOCK_ALL=false`로도 끌 수 있음.)
+  static const bool betaUnlockAll =
+      bool.fromEnvironment('BETA_UNLOCK_ALL', defaultValue: true);
+
   static const String _androidKey = String.fromEnvironment('RC_ANDROID_KEY');
   static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');
 
   static bool _configured = false;
   static PremiumIdentityBinder? _identityBinder;
 
-  /// `true` wenn echtes Abo aktiv ODER lokaler Dev-Override gesetzt ist.
-  static bool get isPremium => premiumNotifier.value;
+  /// `true` wenn echtes Abo aktiv, lokaler Dev-Override, ODER Beta-Unlock.
+  static bool get isPremium => betaUnlockAll || premiumNotifier.value;
 
   /// Ob RevenueCat erfolgreich konfiguriert wurde (für Settings/Debug-Anzeige).
   static bool get isConfigured => _configured;
@@ -247,9 +254,10 @@ class PremiumService {
     Storage.setPremiumCached(active);
   }
 
-  /// Effektiver Status = echtes Entitlement ODER lokaler Dev-Override.
+  /// Effektiver Status = echtes Entitlement, lokaler Dev-Override, ODER Beta-Unlock.
   static void _applyEntitlement(bool active) {
-    premiumNotifier.value = active || Storage.devPremiumOverride;
+    premiumNotifier.value =
+        betaUnlockAll || active || Storage.devPremiumOverride;
   }
 
   /// Aktuelles Offering (für die Paywall). `null` wenn nicht konfiguriert
