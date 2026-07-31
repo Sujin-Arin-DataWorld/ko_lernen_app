@@ -3377,4 +3377,148 @@ class AppL10nEn extends AppL10n {
   @override
   String get scenarioRoleplayDoneBody =>
       'You carried the conversation yourself.';
+
+  @override
+  String get testerFeedbackCardTitle => 'Help us improve';
+
+  @override
+  String get testerFeedbackCardBody =>
+      'Your short note helps us make this learning activity better.';
+
+  @override
+  String get testerFeedbackCardCta => 'Send the tiger a note';
+
+  @override
+  String get testerFeedbackCategoryBug => 'Report a problem';
+
+  @override
+  String get testerFeedbackCategoryContent => 'Rate the learning content';
+
+  @override
+  String get testerFeedbackCategoryOther => 'Something else';
+
+  @override
+  String get testerFeedbackIssueAreaLabel => 'What is affected?';
+
+  @override
+  String get testerFeedbackIssueAreaUi => 'Controls and display';
+
+  @override
+  String get testerFeedbackIssueAreaAnswer => 'Answer or scoring';
+
+  @override
+  String get testerFeedbackIssueAreaAudio => 'Audio or pronunciation';
+
+  @override
+  String get testerFeedbackIssueAreaTranslation => 'Translation';
+
+  @override
+  String get testerFeedbackIssueAreaNavigation => 'Navigation';
+
+  @override
+  String get testerFeedbackIssueAreaOther => 'Something else';
+
+  @override
+  String get testerFeedbackContentSignalLabel => 'How was the difficulty?';
+
+  @override
+  String get testerFeedbackContentSignalTooEasy => 'Too easy';
+
+  @override
+  String get testerFeedbackContentSignalRight => 'Just right';
+
+  @override
+  String get testerFeedbackContentSignalTooHard => 'Too hard';
+
+  @override
+  String get testerFeedbackContentSignalUnclear => 'Unclear';
+
+  @override
+  String get testerFeedbackContentFocusLabel => 'What is your note about?';
+
+  @override
+  String get testerFeedbackContentFocusExplanation => 'Explanation';
+
+  @override
+  String get testerFeedbackContentFocusExamples => 'Examples';
+
+  @override
+  String get testerFeedbackContentFocusQuestions => 'Questions';
+
+  @override
+  String get testerFeedbackContentFocusPace => 'Pace';
+
+  @override
+  String get testerFeedbackContentFocusTranslation => 'Translation';
+
+  @override
+  String get testerFeedbackContentFocusOther => 'Something else';
+
+  @override
+  String get testerFeedbackMessageLabel => 'Your message';
+
+  @override
+  String get testerFeedbackMessageHint => 'Briefly describe what happened.';
+
+  @override
+  String get testerFeedbackMessageRequired => 'Please write a short message.';
+
+  @override
+  String get testerFeedbackContentFeedbackRequired =>
+      'Choose at least one rating or write a message.';
+
+  @override
+  String get testerFeedbackMessageTooLong =>
+      'Your message can be at most 1,000 characters.';
+
+  @override
+  String get testerFeedbackSubmit => 'Send feedback';
+
+  @override
+  String get testerFeedbackCancel => 'Cancel';
+
+  @override
+  String get testerFeedbackSubmitting => 'Sending feedback …';
+
+  @override
+  String get testerFeedbackSubmitted => 'Thanks, your feedback has arrived.';
+
+  @override
+  String get testerFeedbackPending =>
+      'Your feedback is waiting for a connection.';
+
+  @override
+  String get testerFeedbackSubmitFailed =>
+      'Your feedback could not be sent yet.';
+
+  @override
+  String get testerFeedbackRetry => 'Try again';
+
+  @override
+  String get testerFeedbackPrivacyReminder =>
+      'Please do not send personal data, answers, or screenshots.';
+
+  @override
+  String get testerFeedbackMissionScenario => 'Complete a scenario';
+
+  @override
+  String get testerFeedbackMissionWordWork => 'Practise with words';
+
+  @override
+  String get testerFeedbackMissionListening => 'Complete a listening activity';
+
+  @override
+  String get testerFeedbackMissionGames => 'Complete a game round';
+
+  @override
+  String get testerFeedbackMissionLanguageForm => 'Practise grammar or Hangul';
+
+  @override
+  String get testerFeedbackCompleteGrammar => 'Finish grammar practice';
+
+  @override
+  String get testerFeedbackCompleteHangul => 'Finish Hangul practice';
+
+  @override
+  String get testerFeedbackCompleteDailyHangul => 'Finish today\'s character';
 }
