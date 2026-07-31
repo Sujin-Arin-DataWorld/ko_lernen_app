@@ -98,9 +98,9 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                             t.previewSkip,
                             style: TextStyle(
                               fontFamily: 'Pretendard',
-                              color: Colors.white.withValues(alpha: 0.75),
+                              color: Colors.white.withValues(alpha: 0.85),
                               fontWeight: FontWeight.w600,
-                              fontSize: 14,
+                              fontSize: 15.5,
                             ),
                           ),
                         ),
@@ -220,8 +220,9 @@ class _PreviewPage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, c) {
         // 세로로 긴 화면에서 비주얼이 점처럼 작아 보이지 않도록 무대 높이를
-        // 페이지 높이에 비례시킨다.
-        final stageH = (c.maxHeight * 0.30).clamp(180.0, 260.0);
+        // 페이지 높이에 비례시킨다. 이미지·영상이 확실히 크게 보이도록 비율과
+        // 상·하한을 키웠다(가독성 개선).
+        final stageH = (c.maxHeight * 0.42).clamp(260.0, 400.0);
         return SingleChildScrollView(
           padding: soriClampPadding(
             c.maxWidth,
@@ -273,7 +274,7 @@ class _PreviewPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(16),
                               child: SizedBox(
                                 height: stageH - 12,
-                                width: (c.maxWidth - 72).clamp(160.0, 280.0),
+                                width: (c.maxWidth - 56).clamp(200.0, 360.0),
                                 child: SoriPosterLoop(
                                   videoAsset: videoAsset!,
                                   poster: Image.asset(
@@ -284,7 +285,7 @@ class _PreviewPage extends StatelessWidget {
                                         const Mascot.tiger(
                                           size: 150,
                                           emotion: MascotEmotion.smile,
-                                          animate: true,
+                                          animate: false,
                                         ),
                                   ),
                                 ),
@@ -302,7 +303,7 @@ class _PreviewPage extends StatelessWidget {
                               errorBuilder: (_, __, ___) => const Mascot.tiger(
                                 size: 150,
                                 emotion: MascotEmotion.smile,
-                                animate: true,
+                                animate: false,
                               ),
                             ),
                           ),
@@ -322,11 +323,11 @@ class _PreviewPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 24,
+                      fontSize: 31,
                       fontWeight: FontWeight.w900,
                       color: Colors.white,
                       letterSpacing: -0.4,
-                      height: 1.15,
+                      height: 1.18,
                       shadows: [
                         Shadow(
                           color: Color(0x44000000),
@@ -349,9 +350,10 @@ class _PreviewPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Pretendard',
-                      fontSize: 14.5,
-                      height: 1.6,
-                      color: Colors.white.withValues(alpha: 0.80),
+                      fontSize: 17.5,
+                      height: 1.55,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white.withValues(alpha: 0.94),
                     ),
                   ),
                 ),
