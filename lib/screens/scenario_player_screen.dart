@@ -591,6 +591,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             variant: SoriCardVariant.compact,
                             accent: bubbleAccent,
                             tinted: isUser,
+                            // 스피커 아이콘뿐 아니라 **버블 전체**를 탭하면 재생.
+                            // SoriCard.onTap 이 SoriPressable+버튼 시맨틱으로 감싼다.
+                            onTap: () {
+                              HapticFeedback.selectionClick();
+                              TtsService.speak(
+                                line.ko,
+                                voice: line.speaker == 'user'
+                                    ? 'female'
+                                    : 'male',
+                                rateMultiplier: _dialogRate,
+                              );
+                            },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -611,24 +623,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                       ),
                                     ),
                                     const SizedBox(width: Spacing.sm),
-                                    GestureDetector(
-                                      onTap: () {
-                                        HapticFeedback.selectionClick();
-                                        TtsService.speak(
-                                          line.ko,
-                                          voice: line.speaker == 'user'
-                                              ? 'female'
-                                              : 'male',
-                                          rateMultiplier: _dialogRate,
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.volume_up_rounded,
-                                        color: bubbleAccent.withValues(
-                                          alpha: 0.7,
-                                        ),
-                                        size: 18,
-                                      ),
+                                    // 버블 전체가 탭 대상이므로 아이콘은 시각적
+                                    // 힌트만 담당(별도 GestureDetector 불필요).
+                                    Icon(
+                                      Icons.volume_up_rounded,
+                                      color: bubbleAccent.withValues(alpha: 0.7),
+                                      size: 18,
                                     ),
                                   ],
                                 ),
