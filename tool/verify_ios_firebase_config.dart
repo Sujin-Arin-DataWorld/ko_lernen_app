@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
-import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:xml/xml.dart';
 
 const _googleServicePlist = 'GoogleService-Info.plist';
@@ -14,22 +13,6 @@ class IosFirebaseConfigurationResult {
   final List<String> missing;
 
   bool get isValid => missing.isEmpty;
-}
-
-class _PriorLocalNameFinder extends RecursiveAstVisitor<void> {
-  _PriorLocalNameFinder({required this.name, required this.beforeOffset});
-
-  final String name;
-  final int beforeOffset;
-  var found = false;
-
-  @override
-  void visitVariableDeclaration(VariableDeclaration node) {
-    if (node.name.lexeme == name && node.offset < beforeOffset) {
-      found = true;
-    }
-    super.visitVariableDeclaration(node);
-  }
 }
 
 int? _matchingDelimiter(
@@ -212,15 +195,34 @@ bool _referencesStaticIosDeclaration(
     return false;
   }
 
-  // parseString supplies syntax, not resolved elements. A bare `ios` can only
-  // be accepted when no earlier local declaration in this getter can shadow
-  // the verified static FirebaseOptions field; ambiguous source fails closed.
-  final finder = _PriorLocalNameFinder(
-    name: iosDeclaration.name.lexeme,
-    beforeOffset: expression.offset,
-  );
-  currentPlatform.body.accept(finder);
-  return !finder.found;
+  return _isOnlyIosTokenInGetter(currentPlatform.body, expression);
+}
+
+bool _isOnlyIosTokenInGetter(
+  FunctionBody body,
+  SimpleIdentifier returnedIdentifier,
+) {
+  // Analyzer 10 represents declaration names, including pattern bindings, as
+  // tokens rather than SimpleIdentifier nodes. Comparing parser-owned token
+  // identity lets this reject every other `ios` occurrence without listing
+  // declaration AST subclasses or matching source text.
+  final returnedToken = returnedIdentifier.token;
+  final endToken = body.endToken;
+  var token = body.beginToken;
+  while (true) {
+    if (token.lexeme == returnedIdentifier.name &&
+        !identical(token, returnedToken)) {
+      return false;
+    }
+    if (identical(token, endToken)) {
+      return true;
+    }
+    final next = token.next;
+    if (next == null) {
+      return false;
+    }
+    token = next;
+  }
 }
 
 bool _isParseablePlist(String source) {

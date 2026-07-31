@@ -104,6 +104,23 @@ class DefaultFirebaseOptions {
 }
 ''';
 
+const _firebaseOptionsWithPatternShadowedIos = '''
+class DefaultFirebaseOptions {
+  static FirebaseOptions get currentPlatform {
+    final (ios,) = (android,);
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.iOS:
+        return ios;
+      default:
+        return android;
+    }
+  }
+
+  static const FirebaseOptions android = FirebaseOptions();
+  static const FirebaseOptions ios = FirebaseOptions();
+}
+''';
+
 const _validPlist = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
@@ -321,6 +338,16 @@ void main() {
   test('release configuration rejects an iOS return shadowed by a local', () {
     final result = inspectIosFirebaseConfiguration(
       firebaseOptionsSource: _firebaseOptionsWithShadowedIos,
+      plistSource: _validPlist,
+      projectSource: _validProjectSource,
+    );
+
+    expect(result.missing, <String>['firebase_options iOS']);
+  });
+
+  test('release configuration rejects an iOS return shadowed by a pattern', () {
+    final result = inspectIosFirebaseConfiguration(
+      firebaseOptionsSource: _firebaseOptionsWithPatternShadowedIos,
       plistSource: _validPlist,
       projectSource: _validProjectSource,
     );
