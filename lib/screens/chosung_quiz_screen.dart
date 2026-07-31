@@ -916,7 +916,7 @@ class _QuizCard extends StatelessWidget {
               german,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
                 color: s.text,
                 fontWeight: FontWeight.w700,
               ),

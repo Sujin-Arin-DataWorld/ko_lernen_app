@@ -475,7 +475,7 @@ class _WordleScreenState extends State<WordleScreen>
                                   style: TextStyle(
                                     fontFamily: 'Pretendard',
                                     color: ss.text,
-                                    fontSize: 15,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w800,
                                     height: 1.3,
                                   ),
