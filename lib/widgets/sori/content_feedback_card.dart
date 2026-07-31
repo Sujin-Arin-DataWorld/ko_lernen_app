@@ -18,12 +18,14 @@ class ContentFeedbackControllerScope extends InheritedWidget {
     super.key,
     required this.featureGate,
     required this.submitFeedback,
+    this.readPassportState = _emptyPassportState,
     this.completedMissionIds = const <String>{},
     required super.child,
   });
 
   final TesterFeedbackFeatureGate featureGate;
   final ContentFeedbackSubmitter submitFeedback;
+  final ContentFeedbackPassportStateReader readPassportState;
   final Set<String> completedMissionIds;
 
   static ContentFeedbackControllerScope? maybeOf(BuildContext context) =>
@@ -34,8 +36,11 @@ class ContentFeedbackControllerScope extends InheritedWidget {
   bool updateShouldNotify(ContentFeedbackControllerScope oldWidget) =>
       featureGate.isEnabled != oldWidget.featureGate.isEnabled ||
       submitFeedback != oldWidget.submitFeedback ||
+      readPassportState != oldWidget.readPassportState ||
       completedMissionIds != oldWidget.completedMissionIds;
 }
+
+Future<Set<String>> _emptyPassportState() async => const <String>{};
 
 class ContentFeedbackCard extends StatefulWidget {
   const ContentFeedbackCard({
@@ -62,11 +67,22 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
   late Set<String> _completedMissionIds;
   bool _acceptedStamp = false;
   String? _nextMissionId;
+  ContentFeedbackPassportStateReader? _passportStateReader;
+  String? _passportReadCompletionId;
+  int _passportReadGeneration = 0;
+  bool _hasAuthoritativeSubmissionState = false;
 
   @override
   void initState() {
     super.initState();
     _completedMissionIds = widget.completedMissionIds.toSet();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final scope = ContentFeedbackControllerScope.maybeOf(context);
+    _startPassportRestore(scope?.readPassportState);
   }
 
   @override
@@ -78,9 +94,41 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
       _acceptedStamp = false;
       _nextMissionId = null;
       _completedMissionIds = widget.completedMissionIds.toSet();
+      _hasAuthoritativeSubmissionState = false;
+      _passportReadCompletionId = null;
+      _passportReadGeneration += 1;
+      _startPassportRestore(_passportStateReader);
     } else {
       _completedMissionIds.addAll(widget.completedMissionIds);
     }
+  }
+
+  void _startPassportRestore(
+    ContentFeedbackPassportStateReader? readPassportState,
+  ) {
+    if (!widget.featureGate.isEnabled || readPassportState == null) return;
+    final completionId = widget.feedbackContext.completionId;
+    if (_passportReadCompletionId == completionId &&
+        identical(_passportStateReader, readPassportState)) {
+      return;
+    }
+    _passportStateReader = readPassportState;
+    _passportReadCompletionId = completionId;
+    final generation = ++_passportReadGeneration;
+    readPassportState()
+        .then((completedMissionIds) {
+          if (!mounted ||
+              generation != _passportReadGeneration ||
+              _hasAuthoritativeSubmissionState ||
+              !widget.featureGate.isEnabled) {
+            return;
+          }
+          if (completedMissionIds.isEmpty) return;
+          setState(() => _completedMissionIds.addAll(completedMissionIds));
+        })
+        .catchError((Object _) {
+          // The read-only reader already redacts failures; the UI stays empty.
+        });
   }
 
   Future<void> _openFeedback() async {
@@ -100,7 +148,12 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
       );
     }
     if (!mounted) return;
-    if (result.passportCompletedMissionIds.isNotEmpty) {
+    final delivered =
+        result.status == ContentFeedbackSubmitStatus.accepted ||
+        result.status == ContentFeedbackSubmitStatus.duplicateCompletion;
+    if (delivered && result.passportStateAuthoritative) {
+      _hasAuthoritativeSubmissionState = true;
+      _passportReadGeneration += 1;
       _completedMissionIds = result.passportCompletedMissionIds.toSet();
     }
     setState(() {

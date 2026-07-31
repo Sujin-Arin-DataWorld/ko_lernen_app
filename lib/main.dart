@@ -219,6 +219,8 @@ final ContentFeedbackService _contentFeedbackService =
         return languageCode == 'en' ? 'en' : 'de';
       },
     );
+final ContentFeedbackPassportStateReader _contentFeedbackPassportStateReader =
+    _contentFeedbackService.readPassportState;
 
 Future<bool> _initFirebase() async {
   try {
@@ -271,6 +273,7 @@ class KoLernenApp extends StatelessWidget {
         builder: (context, child) => ContentFeedbackControllerScope(
           featureGate: _contentFeedbackService.featureGate,
           submitFeedback: _contentFeedbackService.submit,
+          readPassportState: _contentFeedbackPassportStateReader,
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),

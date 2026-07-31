@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 
 void main() {
@@ -239,6 +240,45 @@ void main() {
       find.byType(ContentFeedbackCard),
     );
     expect(secondCard.feedbackContext.completionId, isNot(firstCompletionId));
+  });
+
+  testWidgets('grammar level filter resets the current study interaction set', (
+    tester,
+  ) async {
+    await _setLargeView(tester);
+    await tester.pumpWidget(_wrap(const GrammarScreen()));
+    await _pumpUntil(tester, find.byType(FlipCard));
+
+    await tester.tap(find.byType(FlipCard));
+    await tester.pump();
+    expect(
+      tester
+          .widget<SoriButton>(find.byKey(const Key('grammar-finish-session')))
+          .onTap,
+      isNotNull,
+    );
+
+    final a2Filter = find.widgetWithText(SoriChip, 'A2');
+    await tester.ensureVisible(a2Filter);
+    await tester.tap(a2Filter);
+    await tester.pump();
+
+    expect(
+      tester
+          .widget<SoriButton>(find.byKey(const Key('grammar-finish-session')))
+          .onTap,
+      isNull,
+    );
+
+    await tester.tap(find.byType(FlipCard));
+    await tester.pump();
+    await tester.tap(find.byKey(const Key('grammar-finish-session')));
+    await tester.pump(const Duration(milliseconds: 500));
+    final card = tester.widget<ContentFeedbackCard>(
+      find.byType(ContentFeedbackCard),
+    );
+    expect(card.feedbackContext.contentId, contains('grammar:A2:'));
+    expect(card.feedbackContext.scoreSummary, 'seen:1');
   });
 
   testWidgets('same-index Hangul random does not enable finish', (

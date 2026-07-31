@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
 import '../data/beta_mission_catalog.dart';
@@ -8,12 +9,14 @@ enum ContentFeedbackAcknowledgement { accepted, duplicateCompletion }
 class ContentFeedbackDelivery {
   const ContentFeedbackDelivery({
     required this.acknowledgement,
+    this.passportStateAuthoritative = false,
     this.stampAccepted = false,
     this.passportCompletedMissionIds = const <String>{},
     this.nextMissionId,
   });
 
   final ContentFeedbackAcknowledgement acknowledgement;
+  final bool passportStateAuthoritative;
   final bool stampAccepted;
   final Set<String> passportCompletedMissionIds;
   final String? nextMissionId;
@@ -41,6 +44,87 @@ class ContentFeedbackClientFailure implements Exception {
 
 abstract interface class ContentFeedbackClient {
   Future<ContentFeedbackDelivery> submit(ContentFeedbackSubmission submission);
+}
+
+typedef ContentFeedbackPassportDocumentReader =
+    Future<Object?> Function({
+      required String ownerUid,
+      required String collectionId,
+      required String documentId,
+    });
+
+class ContentFeedbackPassportReader {
+  const ContentFeedbackPassportReader({
+    required this.currentUid,
+    required this.readDocument,
+  });
+
+  factory ContentFeedbackPassportReader.firebase({
+    required String? Function() currentUid,
+  }) {
+    return ContentFeedbackPassportReader(
+      currentUid: currentUid,
+      readDocument:
+          ({
+            required ownerUid,
+            required collectionId,
+            required documentId,
+          }) async {
+            final snapshot = await FirebaseFirestore.instance
+                .collection('users')
+                .doc(ownerUid)
+                .collection(collectionId)
+                .doc(documentId)
+                .get();
+            return snapshot.data();
+          },
+    );
+  }
+
+  final String? Function() currentUid;
+  final ContentFeedbackPassportDocumentReader readDocument;
+
+  Future<Set<String>> readCompletedMissionIds() async {
+    final ownerUid = _safeCurrentUid();
+    if (ownerUid == null) return const <String>{};
+
+    Object? raw;
+    try {
+      raw = await readDocument(
+        ownerUid: ownerUid,
+        collectionId: 'tester_passport',
+        documentId: 'state',
+      );
+    } catch (_) {
+      return const <String>{};
+    }
+    if (_safeCurrentUid() != ownerUid || raw is! Map) {
+      return const <String>{};
+    }
+    if (raw['catalogVersion'] != betaMissionCatalogVersion) {
+      return const <String>{};
+    }
+    final completed = _parseCompletedMissionIds(raw['completedMissionIds']);
+    return completed.isAuthoritative ? completed.missionIds : const <String>{};
+  }
+
+  String? _safeCurrentUid() {
+    try {
+      final raw = currentUid();
+      final value = raw?.trim();
+      if (raw == null ||
+          value == null ||
+          value.isEmpty ||
+          value != raw ||
+          value.length > 128 ||
+          value.contains('/')) {
+        return null;
+      }
+      return value;
+    } catch (_) {
+      return null;
+    }
+  }
 }
 
 typedef ContentFeedbackCallableInvoker =
@@ -129,6 +213,7 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
     );
     return ContentFeedbackDelivery(
       acknowledgement: acknowledgement,
+      passportStateAuthoritative: passport.isAuthoritative,
       stampAccepted: passport.stampAccepted,
       passportCompletedMissionIds: passport.missionIds,
       nextMissionId: passport.nextMissionId,
@@ -137,12 +222,14 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
 }
 
 typedef _ParsedPassport = ({
+  bool isAuthoritative,
   bool stampAccepted,
   Set<String> missionIds,
   String? nextMissionId,
 });
 
 const _emptyPassport = (
+  isAuthoritative: false,
   stampAccepted: false,
   missionIds: <String>{},
   nextMissionId: null,
@@ -178,6 +265,7 @@ _ParsedPassport _parsePassportResponse({
   }
 
   return (
+    isAuthoritative: true,
     stampAccepted: rawStampAccepted,
     missionIds: completed.missionIds,
     nextMissionId: next?.id,

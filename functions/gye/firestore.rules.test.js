@@ -1155,6 +1155,62 @@ test("tester feedback is server-only at every depth", async () => {
   )));
 });
 
+test("tester feedback rate limits are server-only at every depth", async () => {
+  const uid = "feedback-rate-owner";
+  const appHash = "a".repeat(64);
+  await seedUser(uid, []);
+  await environment.withSecurityRulesDisabled(async (context) => {
+    const adminDb = context.firestore();
+    await setDoc(
+      doc(adminDb, "users", uid, "tester_feedback_rate_limits", appHash),
+      {
+        schemaVersion: 1,
+        acceptedAtMillis: [1],
+        serverOwned: true,
+      },
+    );
+    await setDoc(
+      doc(
+        adminDb,
+        "users",
+        uid,
+        "tester_feedback_rate_limits",
+        appHash,
+        "private",
+        "server-note",
+      ),
+      { serverOwned: true },
+    );
+  });
+
+  const db = client(uid);
+  const existingPaths = [
+    ["tester_feedback_rate_limits", appHash],
+    [
+      "tester_feedback_rate_limits",
+      appHash,
+      "private",
+      "server-note",
+    ],
+  ];
+  for (const segments of existingPaths) {
+    const protectedRef = doc(db, "users", uid, ...segments);
+    await assertFails(getDoc(protectedRef));
+    await assertFails(setDoc(protectedRef, { clientWrite: true }, { merge: true }));
+    await assertFails(deleteDoc(protectedRef));
+  }
+  await assertFails(setDoc(
+    doc(db, "users", uid, "tester_feedback_rate_limits", "b".repeat(64)),
+    { acceptedAtMillis: [] },
+  ));
+  await assertFails(getDocs(collection(
+    db,
+    "users",
+    uid,
+    "tester_feedback_rate_limits",
+  )));
+});
+
 test("tester passport state permits only an owner get", async () => {
   const uid = "passport-owner";
   const emptyUid = "passport-empty";

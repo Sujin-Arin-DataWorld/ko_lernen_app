@@ -494,6 +494,10 @@ service cloud.firestore {
         allow read, create, update, delete: if false;
       }
 
+      match /tester_feedback_rate_limits/{document=**} {
+        allow read, create, update, delete: if false;
+      }
+
       match /tester_passport/state {
         allow get: if isOwner(uid);
         allow list, create, update, delete: if false;
@@ -505,12 +509,14 @@ service cloud.firestore {
           && collectionName != 'sync_generations'
           && collectionName != 'sync_metadata'
           && collectionName != 'tester_feedback'
+          && collectionName != 'tester_feedback_rate_limits'
           && collectionName != 'tester_passport';
         allow create, update: if isOwner(uid)
           && collectionName != 'packs'
           && collectionName != 'sync_generations'
           && collectionName != 'sync_metadata'
           && collectionName != 'tester_feedback'
+          && collectionName != 'tester_feedback_rate_limits'
           && collectionName != 'tester_passport'
           && !exists(accountDeletionPath(uid))
           && backupSubcollectionWriteAllowed(uid, collectionName);
@@ -523,6 +529,7 @@ service cloud.firestore {
           && collectionName != 'sync_generations'
           && collectionName != 'sync_metadata'
           && collectionName != 'tester_feedback'
+          && collectionName != 'tester_feedback_rate_limits'
           && collectionName != 'tester_passport';
       }
     }

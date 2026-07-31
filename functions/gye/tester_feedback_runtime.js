@@ -1,5 +1,7 @@
 "use strict";
 
+const { createHash } = require("node:crypto");
+
 const CALLABLE_OPTIONS = Object.freeze({
   region: "europe-west3",
   enforceAppCheck: true,
@@ -7,6 +9,21 @@ const CALLABLE_OPTIONS = Object.freeze({
 });
 
 const CATALOG_VERSION = 1;
+// Tester-friendly production quota: at most 20 newly accepted completions for
+// the same authenticated UID and verified App Check app in any rolling 24h.
+const FEEDBACK_RATE_LIMIT_MAX = 20;
+const FEEDBACK_RATE_LIMIT_WINDOW_MILLIS = 24 * 60 * 60 * 1000;
+const ACCOUNT_DELETION_INACTIVE_PHASES = new Set(["cancelled", "completed"]);
+const REPLACEMENT_DELETION_PHASES = new Set([
+  "sourceCleanupPending",
+  "deletionRequested",
+  "userTreeDeleting",
+  "authDeleting",
+  "communityDeleting",
+  "processorDeleting",
+  "appleRevocationPending",
+  "blocked",
+]);
 const MISSION_CATALOG = Object.freeze([
   Object.freeze({
     id: "beta_scenario",
@@ -271,7 +288,51 @@ function validateRequestContext(request) {
       "authentication-required",
     );
   }
-  return uid;
+  return { uid, appId: request.app.appId };
+}
+
+function appIdDocumentId(appId) {
+  return createHash("sha256").update(appId, "utf8").digest("hex");
+}
+
+function accountOperationOwnerDocumentId(uid) {
+  return createHash("sha256")
+    .update(`account-operation-owner\u0000${uid}`, "utf8")
+    .digest("hex");
+}
+
+async function activeDeletionOperation({ firestore, transaction, uid }) {
+  const ownerRef = firestore.doc(
+    `account_operation_owners/${accountOperationOwnerDocumentId(uid)}`,
+  );
+  const ownerSnapshot = await transaction.get(ownerRef);
+  if (!ownerSnapshot.exists) return false;
+
+  const operationId = (ownerSnapshot.data() || {}).operationId;
+  if (typeof operationId !== "string" ||
+      !/^[A-Za-z0-9_-]{1,128}$/.test(operationId)) {
+    return true;
+  }
+  const operationSnapshot = await transaction.get(
+    firestore.doc(`account_operations/${operationId}`),
+  );
+  if (!operationSnapshot.exists) return true;
+  const operation = operationSnapshot.data() || {};
+  if (operation.sourceUid !== uid) return true;
+  if (operation.kind === "deletion") {
+    return !ACCOUNT_DELETION_INACTIVE_PHASES.has(operation.phase);
+  }
+  return operation.kind === "replacement" &&
+    REPLACEMENT_DELETION_PHASES.has(operation.phase);
+}
+
+function recentAcceptedCompletionMillis(raw, nowMillis) {
+  if (!Array.isArray(raw)) return [];
+  const cutoff = nowMillis - FEEDBACK_RATE_LIMIT_WINDOW_MILLIS;
+  return raw
+    .filter((value) => Number.isSafeInteger(value) && value >= 0 && value > cutoff)
+    .sort((left, right) => left - right)
+    .slice(-FEEDBACK_RATE_LIMIT_MAX);
 }
 
 function normalizedCompletedMissionIds(raw) {
@@ -314,6 +375,7 @@ function existingStampWasAccepted(existing, completedMissionIds) {
 function createTesterFeedbackRuntime({
   firestore,
   serverTimestamp,
+  serverNowMillis = Date.now,
   makeError,
 } = {}) {
   if (
@@ -325,6 +387,9 @@ function createTesterFeedbackRuntime({
   }
   if (typeof serverTimestamp !== "function") {
     throw new TypeError("A server timestamp adapter is required.");
+  }
+  if (typeof serverNowMillis !== "function") {
+    throw new TypeError("A server clock adapter is required.");
   }
   if (typeof makeError !== "function") {
     throw new TypeError("A safe callable error adapter is required.");
@@ -343,7 +408,7 @@ function createTesterFeedbackRuntime({
 
   async function submitTesterFeedback(request) {
     return execute(async () => {
-      const uid = validateRequestContext(request);
+      const { uid, appId } = validateRequestContext(request);
       const data = validatePayload(request.data);
       const feedbackRef = firestore.doc(
         `users/${uid}/tester_feedback/${data.completionId}`,
@@ -351,8 +416,31 @@ function createTesterFeedbackRuntime({
       const passportRef = firestore.doc(
         `users/${uid}/tester_passport/state`,
       );
+      const accountDeletionRef = firestore.doc(`account_deletions/${uid}`);
+      const rateLimitRef = firestore.doc(
+        `users/${uid}/tester_feedback_rate_limits/${appIdDocumentId(appId)}`,
+      );
 
       return firestore.runTransaction(async (transaction) => {
+        const accountDeletionSnapshot = await transaction.get(
+          accountDeletionRef,
+        );
+        if (accountDeletionSnapshot.exists) {
+          throw new BoundaryFailure(
+            "failed-precondition",
+            "account-deletion-active",
+          );
+        }
+        if (await activeDeletionOperation({
+          firestore,
+          transaction,
+          uid,
+        })) {
+          throw new BoundaryFailure(
+            "failed-precondition",
+            "account-deletion-active",
+          );
+        }
         const feedbackSnapshot = await transaction.get(feedbackRef);
         const passportSnapshot = await transaction.get(passportRef);
         const passport = passportSnapshot.exists
@@ -383,6 +471,24 @@ function createTesterFeedbackRuntime({
           });
         }
 
+        const rateLimitSnapshot = await transaction.get(rateLimitRef);
+        const nowMillis = serverNowMillis();
+        if (!Number.isSafeInteger(nowMillis) || nowMillis < 0) {
+          throw new Error("Server clock is unavailable.");
+        }
+        const acceptedAtMillis = recentAcceptedCompletionMillis(
+          rateLimitSnapshot.exists
+            ? (rateLimitSnapshot.data() || {}).acceptedAtMillis
+            : undefined,
+          nowMillis,
+        );
+        if (acceptedAtMillis.length >= FEEDBACK_RATE_LIMIT_MAX) {
+          throw new BoundaryFailure(
+            "resource-exhausted",
+            "feedback-rate-limit-exceeded",
+          );
+        }
+
         const stampAccepted = data.betaMissionId !== undefined &&
           missionMatches(data.betaMissionId, data.contentType) &&
           !completedMissionIds.includes(data.betaMissionId);
@@ -407,6 +513,11 @@ function createTesterFeedbackRuntime({
             updatedAt: timestamp,
           }, { merge: true });
         }
+        transaction.set(rateLimitRef, {
+          schemaVersion: 1,
+          acceptedAtMillis: [...acceptedAtMillis, nowMillis],
+          updatedAt: timestamp,
+        });
 
         return response({
           accepted: true,

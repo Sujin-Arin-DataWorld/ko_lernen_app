@@ -124,6 +124,8 @@ class _GrammarScreenState extends State<GrammarScreen>
       }).toList();
       _idx = 0;
       _flipped = false;
+      _sessionSeen.clear();
+      _feedbackCompletion.reset();
     });
   }
 

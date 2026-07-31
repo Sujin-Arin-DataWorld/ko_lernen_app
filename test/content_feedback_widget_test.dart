@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/progress.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 
 const _feedbackContext = ContentFeedbackContext(
@@ -23,15 +24,126 @@ const _feedbackContext = ContentFeedbackContext(
 
 void main() {
   testWidgets('disabled feedback gate renders no card', (tester) async {
+    var passportReads = 0;
     await tester.pumpWidget(
       _host(
         gate: const TesterFeedbackFeatureGate(enabled: false),
         submitFeedback: (_, __) => throw StateError('must not submit'),
+        readPassportState: () async {
+          passportReads += 1;
+          return const <String>{'beta_scenario'};
+        },
       ),
     );
+    await tester.pump();
 
     expect(find.byKey(const Key('content-feedback-card')), findsNothing);
     expect(find.byType(SoriSheetShell), findsNothing);
+    expect(passportReads, 0);
+  });
+
+  testWidgets('card restores passport progress through controller scope', (
+    tester,
+  ) async {
+    var passportReads = 0;
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+        ),
+        readPassportState: () async {
+          passportReads += 1;
+          return const <String>{'beta_scenario', 'beta_listening'};
+        },
+      ),
+    );
+    await tester.pump();
+
+    expect(passportReads, 1);
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      0.4,
+    );
+  });
+
+  testWidgets('authoritative submission state wins over an in-flight restore', (
+    tester,
+  ) async {
+    final restore = Completer<Set<String>>();
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+          passportStateAuthoritative: true,
+          stampAccepted: true,
+          passportCompletedMissionIds: <String>{'beta_scenario'},
+          nextMissionId: 'beta_word_work',
+        ),
+        readPassportState: () => restore.future,
+      ),
+    );
+    await tester.pump();
+
+    await _openSheet(tester);
+    await tester.tap(find.byKey(const Key('feedback-category-content')));
+    await tester.pump();
+    await _tapVisible(tester, const Key('feedback-signal-right'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      0.2,
+    );
+
+    restore.complete(const <String>{
+      'beta_scenario',
+      'beta_word_work',
+      'beta_listening',
+    });
+    await tester.pump();
+
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      0.2,
+    );
+  });
+
+  testWidgets('malformed delivery keeps valid restored passport progress', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+          passportStateAuthoritative: false,
+        ),
+        readPassportState: () async => const <String>{
+          'beta_scenario',
+          'beta_listening',
+        },
+      ),
+    );
+    await tester.pump();
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      0.4,
+    );
+
+    await _openSheet(tester);
+    await tester.tap(find.byKey(const Key('feedback-category-content')));
+    await tester.pump();
+    await _tapVisible(tester, const Key('feedback-signal-right'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const Key('content-feedback-delivered')), findsOneWidget);
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      0.4,
+    );
   });
 
   testWidgets('enabled feedback card never auto-opens its sheet', (
@@ -126,6 +238,7 @@ void main() {
           submitted = draft;
           return const ContentFeedbackSubmitResult(
             status: ContentFeedbackSubmitStatus.accepted,
+            passportStateAuthoritative: true,
             stampAccepted: true,
             passportCompletedMissionIds: <String>{'beta_scenario'},
             nextMissionId: 'beta_word_work',
@@ -242,6 +355,7 @@ void main() {
         gate: const TesterFeedbackFeatureGate(enabled: true),
         submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
           status: ContentFeedbackSubmitStatus.accepted,
+          passportStateAuthoritative: true,
           stampAccepted: true,
           passportCompletedMissionIds: <String>{'beta_scenario'},
           nextMissionId: 'beta_word_work',
@@ -291,6 +405,7 @@ void main() {
     delivery.complete(
       const ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.accepted,
+        passportStateAuthoritative: true,
         stampAccepted: true,
         passportCompletedMissionIds: <String>{'beta_scenario'},
         nextMissionId: 'beta_word_work',
@@ -377,23 +492,31 @@ Widget _host({
     ContentFeedbackDraft draft,
   )
   submitFeedback,
+  ContentFeedbackPassportStateReader? readPassportState,
 }) {
   return MaterialApp(
     locale: const Locale('en'),
     localizationsDelegates: AppL10n.localizationsDelegates,
     supportedLocales: AppL10n.supportedLocales,
-    home: MediaQuery(
-      data: MediaQueryData(disableAnimations: disableAnimations),
-      child: Scaffold(
-        body: ContentFeedbackCard(
-          feedbackContext: _feedbackContext,
-          featureGate: gate,
-          submitFeedback: submitFeedback,
+    home: ContentFeedbackControllerScope(
+      featureGate: gate,
+      submitFeedback: submitFeedback,
+      readPassportState: readPassportState ?? _emptyPassportState,
+      child: MediaQuery(
+        data: MediaQueryData(disableAnimations: disableAnimations),
+        child: Scaffold(
+          body: ContentFeedbackCard(
+            feedbackContext: _feedbackContext,
+            featureGate: gate,
+            submitFeedback: submitFeedback,
+          ),
         ),
       ),
     ),
   );
 }
+
+Future<Set<String>> _emptyPassportState() async => const <String>{};
 
 Widget _gameOverHost({
   ContentFeedbackContext? feedbackContext,

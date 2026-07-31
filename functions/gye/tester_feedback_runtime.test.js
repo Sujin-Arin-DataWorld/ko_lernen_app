@@ -11,7 +11,18 @@ const {
 } = require("./tester_feedback_runtime");
 
 const SERVER_TIMESTAMP = Object.freeze({ kind: "server-timestamp" });
+const SERVER_NOW_MILLIS = Date.UTC(2026, 6, 31, 12, 0, 0);
+const RATE_LIMIT_WINDOW_MILLIS = 24 * 60 * 60 * 1000;
 const SAFE_UID = "anonymous-user";
+const PRIVATE_OWNER_OPERATION_PATH =
+  "account_operation_owners/" +
+  "37d23a855c0ae1fc8a7168d3373783460412ac6bcef2e76a5cb1a507abd8385f";
+const DEFAULT_OWNER_OPERATION_PATH =
+  "account_operation_owners/" +
+  "2403cb0bf68b674c57577d39f86f3c26aec72f3e2468aae7309f6991754cda9c";
+const DEFAULT_RATE_LIMIT_PATH =
+  "users/anonymous-user/tester_feedback_rate_limits/" +
+  "5d59ba64d93a7a3c7af8856d2fbcdfc18c11436fdc93dfb2ec568ddf611cb9d4";
 
 const BASE_PAYLOAD = Object.freeze({
   schemaVersion: 1,
@@ -72,14 +83,20 @@ function clone(value) {
 }
 
 class FakeFirestore {
-  constructor(initial = {}) {
+  constructor(initial = {}, { beforeFirstCommit } = {}) {
     this.documents = new Map(
       Object.entries(initial).map(([path, value]) => [path, clone(value)]),
+    );
+    this.versions = new Map(
+      [...this.documents.keys()].map((path) => [path, 1]),
     );
     this.readPaths = [];
     this.referencedPaths = [];
     this.writeHistory = [];
     this.transactionCount = 0;
+    this.transactionAttemptCount = 0;
+    this.beforeFirstCommit = beforeFirstCommit;
+    this.beforeFirstCommitCalled = false;
   }
 
   doc(path) {
@@ -89,49 +106,70 @@ class FakeFirestore {
 
   async runTransaction(callback) {
     this.transactionCount += 1;
-    const pendingWrites = [];
-    const transaction = {
-      get: async (reference) => {
-        this.readPaths.push(reference.path);
-        const exists = this.documents.has(reference.path);
-        const value = exists ? clone(this.documents.get(reference.path)) : null;
-        return {
-          exists,
-          data: () => clone(value),
-        };
-      },
-      create: (reference, value) => {
-        pendingWrites.push({ type: "create", reference, value: clone(value) });
-      },
-      set: (reference, value, options) => {
-        pendingWrites.push({
-          type: "set",
-          reference,
-          value: clone(value),
-          options: clone(options),
-        });
-      },
-    };
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      this.transactionAttemptCount += 1;
+      const pendingWrites = [];
+      const readVersions = new Map();
+      const transaction = {
+        get: async (reference) => {
+          this.readPaths.push(reference.path);
+          readVersions.set(reference.path, this.versions.get(reference.path) || 0);
+          const exists = this.documents.has(reference.path);
+          const value = exists ? clone(this.documents.get(reference.path)) : null;
+          return {
+            exists,
+            data: () => clone(value),
+          };
+        },
+        create: (reference, value) => {
+          pendingWrites.push({ type: "create", reference, value: clone(value) });
+        },
+        set: (reference, value, options) => {
+          pendingWrites.push({
+            type: "set",
+            reference,
+            value: clone(value),
+            options: clone(options),
+          });
+        },
+      };
 
-    const result = await callback(transaction);
-    for (const write of pendingWrites) {
-      const path = write.reference.path;
-      if (write.type === "create" && this.documents.has(path)) {
-        throw new Error("document already exists");
+      const result = await callback(transaction);
+      if (!this.beforeFirstCommitCalled && this.beforeFirstCommit) {
+        this.beforeFirstCommitCalled = true;
+        await this.beforeFirstCommit(this);
       }
-      const existing = this.documents.get(path);
-      const next = write.options?.merge === true && existing
-        ? { ...clone(existing), ...clone(write.value) }
-        : clone(write.value);
-      this.documents.set(path, next);
-      this.writeHistory.push({
-        type: write.type,
-        path,
-        value: clone(write.value),
-        options: clone(write.options),
-      });
+      const staleRead = [...readVersions].some(
+        ([path, version]) => (this.versions.get(path) || 0) !== version,
+      );
+      if (staleRead) continue;
+
+      for (const write of pendingWrites) {
+        const path = write.reference.path;
+        if (write.type === "create" && this.documents.has(path)) {
+          throw new Error("document already exists");
+        }
+        const existing = this.documents.get(path);
+        const next = write.options?.merge === true && existing
+          ? { ...clone(existing), ...clone(write.value) }
+          : clone(write.value);
+        this.documents.set(path, next);
+        this.versions.set(path, (this.versions.get(path) || 0) + 1);
+        this.writeHistory.push({
+          type: write.type,
+          path,
+          value: clone(write.value),
+          options: clone(write.options),
+        });
+      }
+      return result;
     }
-    return result;
+    throw new Error("transaction retry limit exceeded");
+  }
+
+  setConcurrent(path, value) {
+    this.documents.set(path, clone(value));
+    this.versions.set(path, (this.versions.get(path) || 0) + 1);
   }
 
   value(path) {
@@ -143,11 +181,15 @@ class FakeFirestore {
   }
 }
 
-function createHarness(initial = {}) {
-  const firestore = new FakeFirestore(initial);
+function createHarness(initial = {}, {
+  beforeFirstCommit,
+  serverNowMillis = () => SERVER_NOW_MILLIS,
+} = {}) {
+  const firestore = new FakeFirestore(initial, { beforeFirstCommit });
   const handlers = createTesterFeedbackRuntime({
     firestore,
     serverTimestamp: () => SERVER_TIMESTAMP,
+    serverNowMillis,
     makeError: safeCallableError,
   });
   return { firestore, handlers };
@@ -342,6 +384,178 @@ test("never returns free text, UID, or token detail in validation errors", async
   assert.deepEqual(Object.keys(caught).sort(), ["safeCode", "status"]);
 });
 
+test("a concurrent account-deletion intent retries and rejects the feedback transaction", async () => {
+  const privateUid = "private-account-owner";
+  const privateText = "DO-NOT-ECHO-CONCURRENT-FEEDBACK";
+  const operationPath = "account_operations/server-owned-deletion";
+  const { firestore, handlers } = createHarness({}, {
+    beforeFirstCommit: async (database) => {
+      database.setConcurrent(PRIVATE_OWNER_OPERATION_PATH, {
+        operationId: "server-owned-deletion",
+      });
+      database.setConcurrent(operationPath, {
+        id: "server-owned-deletion",
+        kind: "deletion",
+        sourceUid: privateUid,
+        phase: "deletionRequested",
+      });
+    },
+  });
+
+  let caught;
+  try {
+    await handlers.submitTesterFeedback(callableRequest(
+      payload({ message: privateText }),
+      { uid: privateUid },
+    ));
+  } catch (error) {
+    caught = error;
+  }
+
+  assert.ok(caught);
+  assert.equal(caught.status, "failed-precondition");
+  assert.equal(caught.safeCode, "account-deletion-active");
+  assert.doesNotMatch(JSON.stringify(caught), /private-account-owner|DO-NOT-ECHO/);
+  assert.deepEqual(Object.keys(caught).sort(), ["safeCode", "status"]);
+  assert.equal(firestore.transactionAttemptCount, 2);
+  assert.deepEqual(firestore.writeHistory, []);
+  assert.deepEqual(firestore.paths(), [
+    PRIVATE_OWNER_OPERATION_PATH,
+    operationPath,
+  ]);
+});
+
+test("the rolling quota rejects a twenty-first new completion without leaking data", async () => {
+  const privateUid = "quota-private-owner";
+  const privateText = "DO-NOT-ECHO-QUOTA-FEEDBACK";
+  const rateLimitPath =
+    `users/${privateUid}/tester_feedback_rate_limits/` +
+    "5d59ba64d93a7a3c7af8856d2fbcdfc18c11436fdc93dfb2ec568ddf611cb9d4";
+  const { firestore, handlers } = createHarness();
+
+  for (let index = 1; index <= 20; index += 1) {
+    const result = await handlers.submitTesterFeedback(callableRequest(payload({
+      feedbackId: `quota-feedback-${index}`,
+      completionId: `quota-completion-${index}`,
+      message: privateText,
+    }), { uid: privateUid }));
+    assert.equal(result.accepted, true);
+  }
+
+  let caught;
+  try {
+    await handlers.submitTesterFeedback(callableRequest(payload({
+      feedbackId: "quota-feedback-21",
+      completionId: "quota-completion-21",
+      message: privateText,
+    }), { uid: privateUid }));
+  } catch (error) {
+    caught = error;
+  }
+
+  assert.ok(caught);
+  assert.equal(caught.status, "resource-exhausted");
+  assert.equal(caught.safeCode, "feedback-rate-limit-exceeded");
+  assert.doesNotMatch(JSON.stringify(caught), /quota-private-owner|DO-NOT-ECHO/);
+  assert.deepEqual(Object.keys(caught).sort(), ["safeCode", "status"]);
+  assert.deepEqual(firestore.value(rateLimitPath), {
+    schemaVersion: 1,
+    acceptedAtMillis: Array(20).fill(SERVER_NOW_MILLIS),
+    updatedAt: SERVER_TIMESTAMP,
+  });
+  assert.equal(
+    firestore.value(
+      `users/${privateUid}/tester_feedback/quota-completion-21`,
+    ),
+    undefined,
+  );
+});
+
+test("idempotent retry and duplicate acknowledgement consume no quota slots", async () => {
+  const { firestore, handlers } = createHarness();
+
+  await handlers.submitTesterFeedback(callableRequest());
+  await handlers.submitTesterFeedback(callableRequest());
+  await handlers.submitTesterFeedback(callableRequest(payload({
+    feedbackId: "feedback-collision",
+    message: "A different private message.",
+  })));
+
+  assert.deepEqual(firestore.value(DEFAULT_RATE_LIMIT_PATH), {
+    schemaVersion: 1,
+    acceptedAtMillis: [SERVER_NOW_MILLIS],
+    updatedAt: SERVER_TIMESTAMP,
+  });
+  assert.equal(
+    firestore.writeHistory.filter(
+      ({ path }) => path === DEFAULT_RATE_LIMIT_PATH,
+    ).length,
+    1,
+  );
+});
+
+test("the quota is isolated by the verified App Check app ID and hashes its path", async () => {
+  const firstAppId = "private/app/id";
+  const secondAppId = "other/app/id";
+  const firstRatePath =
+    "users/anonymous-user/tester_feedback_rate_limits/" +
+    "f20a03d6e8c70ad43edaf62463328c961b88ebf89b56dc4d65f93f47568026dc";
+  const secondRatePath =
+    "users/anonymous-user/tester_feedback_rate_limits/" +
+    "1746e1671dd302b3a7df2d8c6f6bc661e355e40c0362826e72462c4980be9e93";
+  const { firestore, handlers } = createHarness();
+
+  for (let index = 1; index <= 20; index += 1) {
+    await handlers.submitTesterFeedback(callableRequest(payload({
+      feedbackId: `first-app-feedback-${index}`,
+      completionId: `first-app-completion-${index}`,
+    }), { appId: firstAppId }));
+  }
+  const secondAppResult = await handlers.submitTesterFeedback(callableRequest(
+    payload({
+      feedbackId: "second-app-feedback-1",
+      completionId: "second-app-completion-1",
+    }),
+    { appId: secondAppId },
+  ));
+
+  assert.equal(secondAppResult.accepted, true);
+  assert.equal(firestore.value(firstRatePath).acceptedAtMillis.length, 20);
+  assert.deepEqual(
+    firestore.value(secondRatePath).acceptedAtMillis,
+    [SERVER_NOW_MILLIS],
+  );
+  assert.doesNotMatch(
+    JSON.stringify(firestore.referencedPaths),
+    /private\/app\/id|other\/app\/id/,
+  );
+});
+
+test("quota slots expire outside the rolling twenty-four-hour window", async () => {
+  let nowMillis = SERVER_NOW_MILLIS;
+  const { firestore, handlers } = createHarness({}, {
+    serverNowMillis: () => nowMillis,
+  });
+  for (let index = 1; index <= 20; index += 1) {
+    await handlers.submitTesterFeedback(callableRequest(payload({
+      feedbackId: `window-feedback-${index}`,
+      completionId: `window-completion-${index}`,
+    })));
+  }
+
+  nowMillis += RATE_LIMIT_WINDOW_MILLIS + 1;
+  const result = await handlers.submitTesterFeedback(callableRequest(payload({
+    feedbackId: "window-feedback-21",
+    completionId: "window-completion-21",
+  })));
+
+  assert.equal(result.accepted, true);
+  assert.deepEqual(
+    firestore.value(DEFAULT_RATE_LIMIT_PATH).acceptedAtMillis,
+    [nowMillis],
+  );
+});
+
 test("writes the completion sentinel and passport stamp in one transaction", async () => {
   const { firestore, handlers } = createHarness();
 
@@ -358,11 +572,18 @@ test("writes the completion sentinel and passport stamp in one transaction", asy
   assert.equal(firestore.transactionCount, 1);
   assert.deepEqual(firestore.paths(), [
     "users/anonymous-user/tester_feedback/completion-1",
+    DEFAULT_RATE_LIMIT_PATH,
     "users/anonymous-user/tester_passport/state",
-  ]);
+  ].sort());
   assert.deepEqual(
     [...new Set(firestore.referencedPaths)].sort(),
-    firestore.paths(),
+    [
+      "account_deletions/anonymous-user",
+      DEFAULT_OWNER_OPERATION_PATH,
+      "users/anonymous-user/tester_feedback/completion-1",
+      DEFAULT_RATE_LIMIT_PATH,
+      "users/anonymous-user/tester_passport/state",
+    ].sort(),
   );
   assert.deepEqual(
     firestore.value("users/anonymous-user/tester_feedback/completion-1"),
@@ -391,6 +612,10 @@ test("writes the completion sentinel and passport stamp in one transaction", asy
       {
         type: "set",
         path: "users/anonymous-user/tester_passport/state",
+      },
+      {
+        type: "set",
+        path: DEFAULT_RATE_LIMIT_PATH,
       },
     ],
   );
@@ -434,7 +659,7 @@ test("same completion with a different feedback ID is a safe duplicate", async (
     ).feedbackId,
     "feedback-1",
   );
-  assert.equal(firestore.paths().length, 2);
+  assert.equal(firestore.paths().length, 3);
 });
 
 test("mission mismatch records feedback but never writes a passport stamp", async () => {
@@ -454,8 +679,9 @@ test("mission mismatch records feedback but never writes a passport stamp", asyn
   });
   assert.deepEqual(firestore.paths(), [
     "users/anonymous-user/tester_feedback/completion-1",
-  ]);
-  assert.equal(firestore.writeHistory.length, 1);
+    DEFAULT_RATE_LIMIT_PATH,
+  ].sort());
+  assert.equal(firestore.writeHistory.length, 2);
 });
 
 test("a mission can stamp only once across different completions", async () => {
@@ -484,8 +710,9 @@ test("a mission can stamp only once across different completions", async () => {
   assert.deepEqual(firestore.paths(), [
     "users/anonymous-user/tester_feedback/completion-1",
     "users/anonymous-user/tester_feedback/completion-2",
+    DEFAULT_RATE_LIMIT_PATH,
     "users/anonymous-user/tester_passport/state",
-  ]);
+  ].sort());
 });
 
 test("the server mission allowlist matches every catalog content mapping", async (t) => {

@@ -10,6 +10,7 @@ const runtime = (() => {
     return {};
   }
 })();
+const { createTesterFeedbackRuntime } = require("./tester_feedback_runtime");
 
 const CALLABLE_NAMES = [
   "prepareAnonymousReplacement",
@@ -217,6 +218,10 @@ class FakeFirestore {
 
   collection(name) {
     return new FakeCollectionReference(this, name);
+  }
+
+  doc(path) {
+    return new FakeDocumentReference(this, path);
   }
 
   runTransaction(callback) {
@@ -1064,6 +1069,60 @@ test("creates or reuses deletionRequested without deleting any user data", async
   assert.equal(firestore.valuesIn("account_operations").length, 1);
   assert.equal(firestore.valuesIn("users").length, 0);
   assert.equal(firestore.valuesIn("account_deletions").length, 0);
+});
+
+test("feedback rejects the authoritative operation created by requestAccountDeletion", async () => {
+  const { firestore, handlers } = createHarness();
+  const requested = await handlers.requestAccountDeletion(callableRequest(
+    "target",
+    { requestKey: "feedback-deletion-fence" },
+  ));
+  const feedback = createTesterFeedbackRuntime({
+    firestore,
+    serverTimestamp: () => ({ kind: "server-timestamp" }),
+    serverNowMillis: () => NOW_MILLIS,
+    makeError: (status, safeCode) => Object.assign(
+      new Error("tester-feedback-request-failed"),
+      { status, safeCode },
+    ),
+  });
+
+  await assert.rejects(
+    feedback.submitTesterFeedback({
+      auth: { uid: "durable-target" },
+      app: { appId: "test-app-id" },
+      data: {
+        schemaVersion: 1,
+        feedbackId: "feedback-after-deletion-request",
+        completionId: "completion-after-deletion-request",
+        contentType: "scenario",
+        contentId: "cafe-order",
+        contentLabel: "At the cafe",
+        level: "A1",
+        scoreSummary: "7/10",
+        category: "bug",
+        message: "must not persist",
+        issueArea: "audio",
+        appVersion: "1.2.3+45",
+        platform: "android",
+        locale: "de",
+        betaMissionId: "beta_scenario",
+      },
+    }),
+    (error) => {
+      assert.equal(error.status, "failed-precondition");
+      assert.equal(error.safeCode, "account-deletion-active");
+      assert.doesNotMatch(JSON.stringify(error), /must not persist|durable-target/);
+      return true;
+    },
+  );
+  assert.equal(requested.phase, "deletionRequested");
+  assert.equal(firestore.valuesIn("account_deletions").length, 0);
+  assert.equal(
+    [...firestore.documents.keys()].some((path) =>
+      path.includes("/tester_feedback/")),
+    false,
+  );
 });
 
 test("issues a server-generated 256-bit proof and persists no raw proof", async () => {

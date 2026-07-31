@@ -106,6 +106,7 @@ void main() {
             responses: const [
               ContentFeedbackDelivery(
                 acknowledgement: ContentFeedbackAcknowledgement.accepted,
+                passportStateAuthoritative: true,
                 stampAccepted: true,
                 passportCompletedMissionIds: <String>{'beta_scenario'},
                 nextMissionId: 'beta_word_work',
@@ -117,6 +118,7 @@ void main() {
         final result = await service.submit(context, draft);
 
         expect(result.status, ContentFeedbackSubmitStatus.accepted);
+        expect(result.passportStateAuthoritative, isTrue);
         expect(result.stampAccepted, isTrue);
         expect(result.passportCompletedMissionIds, <String>{'beta_scenario'});
         expect(result.nextMissionId, 'beta_word_work');
@@ -853,6 +855,7 @@ void main() {
         );
 
         expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+        expect(result.passportStateAuthoritative, isTrue);
         expect(result.stampAccepted, isTrue);
         expect(result.passportCompletedMissionIds, <String>{'beta_scenario'});
         expect(result.nextMissionId, 'beta_word_work');
@@ -886,6 +889,7 @@ void main() {
         );
 
         expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+        expect(result.passportStateAuthoritative, isFalse);
         expect(result.stampAccepted, isFalse);
         expect(result.passportCompletedMissionIds, isEmpty);
         expect(result.nextMissionId, isNull);

@@ -14,6 +14,7 @@ typedef ContentFeedbackIdFactory = String Function();
 typedef ContentFeedbackClock = DateTime Function();
 typedef ContentFeedbackStringReader = String Function();
 typedef ContentFeedbackDeletionStateReader = Future<bool> Function();
+typedef ContentFeedbackPassportStateReader = Future<Set<String>> Function();
 
 enum ContentFeedbackSubmitStatus {
   disabled,
@@ -32,6 +33,7 @@ class ContentFeedbackSubmitResult {
     required this.status,
     this.feedbackId,
     this.failure,
+    this.passportStateAuthoritative = false,
     this.stampAccepted = false,
     this.passportCompletedMissionIds = const <String>{},
     this.nextMissionId,
@@ -40,6 +42,7 @@ class ContentFeedbackSubmitResult {
   final ContentFeedbackSubmitStatus status;
   final String? feedbackId;
   final ContentFeedbackFailureCategory? failure;
+  final bool passportStateAuthoritative;
   final bool stampAccepted;
   final Set<String> passportCompletedMissionIds;
   final String? nextMissionId;
@@ -79,6 +82,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     required this.platform,
     required this.locale,
     required this.deletionActive,
+    this.passportReader,
   });
 
   factory ContentFeedbackService.production({
@@ -99,6 +103,9 @@ class ContentFeedbackService implements FeedbackOutbox {
       platform: platform,
       locale: locale,
       deletionActive: deletionActive,
+      passportReader: ContentFeedbackPassportReader.firebase(
+        currentUid: currentUid,
+      ),
     );
   }
 
@@ -112,6 +119,7 @@ class ContentFeedbackService implements FeedbackOutbox {
   final ContentFeedbackStringReader platform;
   final ContentFeedbackStringReader locale;
   final ContentFeedbackDeletionStateReader deletionActive;
+  final ContentFeedbackPassportReader? passportReader;
 
   Future<void> _tail = Future<void>.value();
   bool _closed = false;
@@ -135,6 +143,17 @@ class ContentFeedbackService implements FeedbackOutbox {
       return Future.value(const ContentFeedbackResumeResult(disabled: true));
     }
     return _runExclusive(_resumePending);
+  }
+
+  Future<Set<String>> readPassportState() async {
+    if (!featureGate.isEnabled) return const <String>{};
+    final reader = passportReader;
+    if (reader == null) return const <String>{};
+    try {
+      return await reader.readCompletedMissionIds();
+    } catch (_) {
+      return const <String>{};
+    }
   }
 
   @override
@@ -365,6 +384,7 @@ class ContentFeedbackService implements FeedbackOutbox {
             ? ContentFeedbackSubmitStatus.accepted
             : ContentFeedbackSubmitStatus.duplicateCompletion,
         feedbackId: attempted.submission.feedbackId,
+        passportStateAuthoritative: delivery.passportStateAuthoritative,
         stampAccepted: delivery.stampAccepted,
         passportCompletedMissionIds: delivery.passportCompletedMissionIds,
         nextMissionId: delivery.nextMissionId,

@@ -52,6 +52,7 @@ void main() {
         message: '   ',
       );
 
+      expect(draft.validate().isValid, isFalse);
       expect(draft.validate().errors, contains('messageRequired'));
     });
 
