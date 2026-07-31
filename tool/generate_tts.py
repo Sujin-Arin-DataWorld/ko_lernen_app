@@ -163,8 +163,8 @@ def synth(tok, voice, text):
 
 def demo(tok):
     """업로드 없이 남성 후보 + 여성 rate-존중 프로브를 로컬 합성(청취용).
-    산출: .tts_pregen/_demo/{voice}/{i}.mp3, .../_rate_probe/aoede_{rate}.mp3.
-    Chirp3-HD 가 speakingRate 를 존중하면 aoede_0.5 가 aoede_1.0 보다 길다
+    산출: .tts_pregen/_demo/{voice}/{i}.mp3, .../_rate_probe/zephyr_{rate}.mp3.
+    Chirp3-HD 가 speakingRate 를 존중하면 zephyr_0.5 가 zephyr_1.0 보다 길다
     (ffprobe 로 확인). 무시하면 두 길이가 같다 → 서버측 속도 조절 불가."""
     base = os.path.join(OUT, "_demo")
     for name in MALE_CANDIDATES:
@@ -179,9 +179,9 @@ def demo(tok):
     os.makedirs(probe, exist_ok=True)
     for rate in (0.5, 1.0):
         data = _synth_raw(tok, VOICES["female"], DEMO_LINES[1], rate)
-        with open(os.path.join(probe, f"aoede_{rate}.mp3"), "wb") as fh:
+        with open(os.path.join(probe, f"zephyr_{rate}.mp3"), "wb") as fh:
             fh.write(data)
-        print(f"  여성 Aoede rate={rate}  ({len(data):,} bytes)")
+        print(f"  여성 Zephyr rate={rate}  ({len(data):,} bytes)")
     print("  ↑ 0.5 파일이 1.0 보다 훨씬 크면 Chirp3-HD 가 속도를 존중(느려짐).")
     print(f"✅ 데모 완료 → {base}  (남성 후보 청취 후 1종 선택)")
 
