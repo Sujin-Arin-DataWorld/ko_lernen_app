@@ -64,7 +64,11 @@ class ContentFeedbackContext {
 
   ContentFeedbackValidationResult validate() {
     final errors = <String>[];
-    if (_isBlank(completionId) || completionId.length > 64) {
+    if (_isBlank(completionId) ||
+        completionId.length > 64 ||
+        completionId.contains('/') ||
+        completionId == '.' ||
+        completionId == '..') {
       errors.add('completionId');
     }
     if (_isBlank(contentType) || contentType.length > 48) {

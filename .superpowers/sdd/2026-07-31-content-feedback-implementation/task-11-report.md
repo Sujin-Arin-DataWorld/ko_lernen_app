@@ -129,3 +129,50 @@ Regression and verification evidence:
 - `flutter analyze --no-pub` — no issues found.
 - `git diff --check` — exit 0; only the repository's LF-to-CRLF checkout
   warnings were printed.
+
+## Final whole-branch review fixes
+
+The final whole-branch review identified one filter-sheet state mismatch and
+one client/server validation mismatch.
+
+### Dismissed Grammar filters
+
+The Grammar filter sheet previously wrote `_level` and `_type` on every
+dropdown selection, while the filtered deck and explicit study session were
+reset only by Apply. Dismissing the sheet could therefore retain the old deck
+and interactions while `_finishSession()` labeled them with uncommitted filter
+fields.
+
+The sheet now stages level and type in local modal variables. Only Apply copies
+those values into the screen state and calls `_applyFilters()`. Back, barrier,
+or drag dismissal leaves the visible filter selection, deck, session
+interactions, completion slot, and eventual feedback context unchanged.
+
+The widget regression changes A1 to A2 in the real dismissible sheet, dismisses
+with Back, and proves A1 remains selected, Finish remains available for the
+existing interaction, and the resulting feedback context is still
+`grammar:A1:...` with `seen:1`. Before the fix it failed with
+`grammar:A2:Alle:Alle`; after the fix it passed 1/1.
+
+### Completion document-ID parity
+
+`ContentFeedbackContext.validate()` now mirrors the server's Firestore
+document-ID rules for `completionId`: values containing `/`, or equal to `.` or
+`..`, are rejected client-side in addition to the existing blank and 64-character
+length bounds. A normal generated-UUID-shaped value remains valid, so the UUID
+generation flow is unchanged.
+
+The contract regression rejected the three invalid literal IDs and accepted
+`550e8400-e29b-41d4-a716-446655440000`. Before the fix `contains/slash` was
+accepted; after the fix the targeted test passed 1/1.
+
+### Final-fix verification
+
+- `flutter test --no-pub test/circular_feedback_widget_test.dart
+  test/content_feedback_test.dart` — 20/20 passed.
+- `flutter test --no-pub` — 1,331/1,331 passed.
+- `flutter analyze --no-pub` — no issues found.
+- `git diff --check` — exit 0; only the repository's LF-to-CRLF checkout
+  warnings were printed.
+- No Korean UI strings, generated localization files, Functions code, Firebase
+  deployment state, or Android artifacts were changed.

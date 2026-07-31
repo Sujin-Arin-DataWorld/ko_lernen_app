@@ -501,6 +501,8 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   void _showFilterSheet() {
     final t = AppL10n.of(context);
+    var stagedLevel = _level;
+    var stagedType = _type;
     showSoriSheet<void>(
       context: context,
       builder: (ctx) {
@@ -511,20 +513,20 @@ class _GrammarScreenState extends State<GrammarScreen>
             children: [
               Text(t.filterTitle, style: SoriTextTheme.of(ctx).h3),
               const SizedBox(height: Spacing.md),
-              _dropdown(t.filterLevel, _level, _levels, (v) {
-                setLocal(() => _level = v!);
-                _level = v!;
+              _dropdown(t.filterLevel, stagedLevel, _levels, (v) {
+                setLocal(() => stagedLevel = v!);
               }),
               const SizedBox(height: Spacing.sm + 2),
-              _dropdown(t.filterType, _type, _types, (v) {
-                setLocal(() => _type = v!);
-                _type = v!;
+              _dropdown(t.filterType, stagedType, _types, (v) {
+                setLocal(() => stagedType = v!);
               }),
               const SizedBox(height: Spacing.lg),
               SoriButton.filled(
                 label: t.btnApply,
                 fullWidth: true,
                 onTap: () {
+                  _level = stagedLevel;
+                  _type = stagedType;
                   _applyFilters();
                   Navigator.pop(ctx);
                 },

@@ -281,6 +281,46 @@ void main() {
     expect(card.feedbackContext.scoreSummary, 'seen:1');
   });
 
+  testWidgets(
+    'dismissing staged grammar filters preserves the active session',
+    (tester) async {
+      await _setLargeView(tester);
+      await tester.pumpWidget(_wrap(const GrammarScreen()));
+      await _pumpUntil(tester, find.byType(FlipCard));
+
+      await tester.tap(find.byType(FlipCard));
+      await tester.pump();
+      await tester.tap(find.byIcon(Icons.tune));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byType(DropdownButton<String>).first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('A2').last);
+      await tester.pumpAndSettle();
+      await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+
+      final a1Filter = tester.widget<SoriChip>(
+        find.widgetWithText(SoriChip, 'A1').first,
+      );
+      expect(a1Filter.selected, isTrue);
+      expect(
+        tester
+            .widget<SoriButton>(find.byKey(const Key('grammar-finish-session')))
+            .onTap,
+        isNotNull,
+      );
+
+      await tester.tap(find.byKey(const Key('grammar-finish-session')));
+      await tester.pump(const Duration(milliseconds: 500));
+      final card = tester.widget<ContentFeedbackCard>(
+        find.byType(ContentFeedbackCard),
+      );
+      expect(card.feedbackContext.contentId, contains('grammar:A1:'));
+      expect(card.feedbackContext.scoreSummary, 'seen:1');
+    },
+  );
+
   testWidgets('same-index Hangul random does not enable finish', (
     tester,
   ) async {

@@ -80,6 +80,35 @@ void main() {
     });
   });
 
+  group('ContentFeedbackContext', () {
+    test('rejects Firestore-invalid completion document IDs', () {
+      const invalidIds = <String>['contains/slash', '.', '..'];
+
+      for (final completionId in invalidIds) {
+        final invalid = ContentFeedbackContext(
+          completionId: completionId,
+          contentType: 'scenario',
+          contentId: 'cafe-order',
+          contentLabel: 'At the cafe',
+          level: 'A1',
+          scoreSummary: '7/10',
+        ).validate();
+        expect(invalid.isValid, isFalse, reason: completionId);
+        expect(invalid.errors, contains('completionId'), reason: completionId);
+      }
+
+      const uuidContext = ContentFeedbackContext(
+        completionId: '550e8400-e29b-41d4-a716-446655440000',
+        contentType: 'scenario',
+        contentId: 'cafe-order',
+        contentLabel: 'At the cafe',
+        level: 'A1',
+        scoreSummary: '7/10',
+      );
+      expect(uuidContext.validate().isValid, isTrue);
+    });
+  });
+
   group('TesterFeedbackFeatureGate', () {
     test('is disabled by default on Android without a Dart define', () {
       debugDefaultTargetPlatformOverride = TargetPlatform.android;
