@@ -248,7 +248,11 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
   }
 
   Widget _buildTooltip(BuildContext context, SpotlightStep step) {
-    final screenSize = MediaQuery.of(context).size;
+    final mq = MediaQuery.of(context);
+    final screenSize = mq.size;
+    // 시스템 하단 인셋(제스처바·네비게이션바) — 이걸 무시하고 bottom:24 로
+    // 고정하면 말풍선이 네비게이션바 뒤로 잘린다(시나리오 튜토리얼 하단 잘림).
+    final safeBottom = mq.padding.bottom;
     final rect = _targetRect!;
     final spaceAbove = rect.top;
     final spaceBelow = screenSize.height - rect.bottom;
@@ -267,7 +271,12 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
     // 타겟이 화면 대부분을 차지해 위·아래가 모두 좁으면 화면 하단에 고정해
     // 말풍선이 화면 밖으로 잘리지 않게 한다(타겟 일부를 가리더라도 가독성 우선).
     if (avail < 180) {
-      return Positioned(left: 16, right: 16, bottom: 24, child: tooltip);
+      return Positioned(
+        left: 16,
+        right: 16,
+        bottom: 24 + safeBottom,
+        child: tooltip,
+      );
     }
     if (placeAbove) {
       return Positioned(
