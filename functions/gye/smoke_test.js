@@ -17,11 +17,12 @@
  * 테스트 데이터는 `SMOKE…` 프리픽스로 만들고 끝나면 recursiveDelete 로 정리한다.
  * admin SDK 는 rules 를 우회하므로 임의 doc id 사용 가능.
  */
-const admin = require("firebase-admin");
+const { initializeApp } = require("firebase-admin/app");
+const { FieldValue, getFirestore } = require("firebase-admin/firestore");
 
-admin.initializeApp({ projectId: process.env.GCLOUD_PROJECT || "ko-lernen-app" });
-const db = admin.firestore();
-const TS = admin.firestore.FieldValue.serverTimestamp();
+initializeApp({ projectId: process.env.GCLOUD_PROJECT || "ko-lernen-app" });
+const db = getFirestore();
+const TS = FieldValue.serverTimestamp();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function poll(label, fn, { tries = 20, delay = 1500 } = {}) {

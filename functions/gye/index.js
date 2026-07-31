@@ -28,7 +28,15 @@
  * ============================================================================
  */
 
-const admin = require("firebase-admin");
+const { initializeApp } = require("firebase-admin/app");
+const {
+  FieldPath,
+  FieldValue,
+  getFirestore,
+  Timestamp,
+} = require("firebase-admin/firestore");
+const { getAuth } = require("firebase-admin/auth");
+const { getMessaging } = require("firebase-admin/messaging");
 const { randomBytes } = require("node:crypto");
 const { v1: { FirestoreClient } } = require("@google-cloud/firestore");
 const functionsLogger = require("firebase-functions/logger");
@@ -109,8 +117,10 @@ const {
   createFirestoreCloudBackupStore,
 } = require("./cloud_backup_deletion_runtime");
 
-admin.initializeApp();
-const db = admin.firestore();
+initializeApp();
+const db = getFirestore();
+const auth = getAuth();
+const messaging = getMessaging();
 setGlobalOptions({ region: "europe-west3" });
 const deletionProofHmacKey = defineSecret("DELETION_PROOF_HMAC_KEY");
 const appleRevokeClientId = defineSecret("APPLE_REVOKE_CLIENT_ID");
@@ -131,7 +141,7 @@ const revokeAppleAuthorizationCode = createAppleRevocationAdapter({
 const accountOperationRepository =
   createFirestoreAccountOperationRepository({ firestore: db });
 const accountOperationHandlers = createAccountOperationRuntime({
-  auth: admin.auth(),
+  auth,
   hashDeletionProof: (proof) =>
     keyedDeletionProofDigest("proof", proof),
   repository: accountOperationRepository,
@@ -202,14 +212,14 @@ const firestoreDeletionAdapters = createFirestoreDeletionAdapters({
 const cloudBackupDeletionRepository =
   createFirestoreCloudBackupDeletionRepository({
     firestore: db,
-    fieldValue: admin.firestore.FieldValue,
+    fieldValue: FieldValue,
   });
 const cloudBackupDeletionStore = createFirestoreCloudBackupStore({
   listCollectionIdsPage,
   listDocumentsPage,
 });
 const cloudBackupDeletionHandlers = createCloudBackupDeletionRuntime({
-  auth: admin.auth(),
+  auth,
   repository: cloudBackupDeletionRepository,
   store: cloudBackupDeletionStore,
   hashRequestKey: ({ uid, requestKey }) =>
@@ -228,12 +238,12 @@ exports.deleteCloudBackup = createCloudBackupDeletionCallable({
 });
 const deletionCleanupAdapters = createDeletionCleanupAdapters({
   firestore: db,
-  fieldValue: admin.firestore.FieldValue,
-  documentIdFieldPath: admin.firestore.FieldPath.documentId(),
+  fieldValue: FieldValue,
+  documentIdFieldPath: FieldPath.documentId(),
   cleanupGyeForDeletedUserPage: createGyeDeletionPageCleaner({
     firestore: db,
-    fieldValue: admin.firestore.FieldValue,
-    documentIdFieldPath: admin.firestore.FieldPath.documentId(),
+    fieldValue: FieldValue,
+    documentIdFieldPath: FieldPath.documentId(),
     anonymizeMeta,
     anonymizeFeed,
     anonymizeReport,
@@ -246,12 +256,12 @@ const deletionCleanupAdapters = createDeletionCleanupAdapters({
 const legacyUserDeletionCleanupHandler =
   createLegacyUserDeletionCleanupHandler({
     firestore: db,
-    fieldValue: admin.firestore.FieldValue,
+    fieldValue: FieldValue,
     cleanupAdapters: deletionCleanupAdapters,
   });
 const accountDeletionWorkerRuntime = createDeletionWorkerRuntime({
   repository: accountOperationRepository,
-  auth: admin.auth(),
+  auth,
   deleteUserTreePage: firestoreDeletionAdapters.deleteUserTreePage,
   cleanupCommunity: deletionCleanupAdapters.cleanupCommunity,
   cleanupProcessor: deletionCleanupAdapters.cleanupProcessor,
@@ -343,21 +353,21 @@ exports.on_pack_cleared = onDocumentWritten(
             return;
           }
           transaction.update(gref, {
-            weeklyGoalProgress: admin.firestore.FieldValue.increment(1),
+            weeklyGoalProgress: FieldValue.increment(1),
           });
           transaction.update(memberRef, {
-            weeklyPacksContributed: admin.firestore.FieldValue.increment(1),
+            weeklyPacksContributed: FieldValue.increment(1),
           });
           transaction.set(feedRef, {
             type: "pack_cleared",
             actorUid: uid,
             actorNickname: (member.data() || {}).nickname || "",
             payload: { packId },
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+            createdAt: FieldValue.serverTimestamp(),
           });
           transaction.set(processedRef, {
             uid,
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+            createdAt: FieldValue.serverTimestamp(),
           });
         });
       }
@@ -453,7 +463,7 @@ exports.weekly_goal_rollover = onSchedule(
           };
           if (achieved) {
             metaUpdate.lifetimeGoalsAchieved =
-              admin.firestore.FieldValue.increment(1);
+              FieldValue.increment(1);
             transaction.set(feedRef, {
               type: "goal_achieved",
               actorUid: "",
@@ -465,7 +475,7 @@ exports.weekly_goal_rollover = onSchedule(
                 mvpUid: mvp.uid,
                 mvpPacks: mvp.packs,
               },
-              createdAt: admin.firestore.FieldValue.serverTimestamp(),
+              createdAt: FieldValue.serverTimestamp(),
             });
             const outbox = buildWeeklyNotificationOutbox({
               gyeId: gdoc.id,
@@ -482,7 +492,7 @@ exports.weekly_goal_rollover = onSchedule(
                 gref.collection("notification_outbox"),
               notifications: outbox,
               serverTimestamp:
-                admin.firestore.FieldValue.serverTimestamp(),
+                FieldValue.serverTimestamp(),
             });
           }
           transaction.update(gref, metaUpdate);
@@ -526,7 +536,7 @@ exports.pending_notification_outbox_drain = onSchedule(
     retryCount: 1,
   },
   async () => {
-    const now = admin.firestore.Timestamp.now();
+    const now = Timestamp.now();
     const [pending, expiredLeases] = await Promise.all([
       db
         .collectionGroup("notification_outbox")
@@ -562,7 +572,7 @@ exports.notification_outbox_retention_cleanup = onSchedule(
   },
   async () => {
     const nowMillis = Date.now();
-    const cutoff = admin.firestore.Timestamp.fromMillis(
+    const cutoff = Timestamp.fromMillis(
       nowMillis - 30 * 24 * 60 * 60 * 1000,
     );
     const terminal = await db
@@ -620,7 +630,7 @@ exports.on_report_created = onDocumentCreated(
     for (const reporterUid of candidateReporterUids) {
       let reporterAuth;
       try {
-        reporterAuth = await admin.auth().getUser(reporterUid);
+        reporterAuth = await auth.getUser(reporterUid);
       } catch (error) {
         if (error?.code === "auth/user-not-found") continue;
         throw error;
@@ -721,7 +731,7 @@ exports.on_report_created = onDocumentCreated(
         uid: targetUid,
         active: true,
         reason: "automatic_report_threshold",
-        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
       }, { merge: true });
       if (member.exists && (member.data() || {}).status !== "suspended") {
         transaction.update(memberRef, {
@@ -741,7 +751,7 @@ exports.on_report_created = onDocumentCreated(
         affectedUsers.forEach((affectedUser) => {
           if (affectedUser.exists) {
             transaction.update(affectedUser.ref, {
-              gyeIds: admin.firestore.FieldValue.arrayRemove(gyeId),
+              gyeIds: FieldValue.arrayRemove(gyeId),
             });
           }
         });
@@ -809,8 +819,8 @@ exports.on_gye_member_deleted = onDocumentDeleted(
         if (!currentPlan.completeDepartureMarker) return;
         transaction.update(markerRef, {
           state: "complete",
-          nickname: admin.firestore.FieldValue.delete(),
-          completedAt: admin.firestore.FieldValue.serverTimestamp(),
+          nickname: FieldValue.delete(),
+          completedAt: FieldValue.serverTimestamp(),
         });
       });
     }
@@ -866,7 +876,7 @@ exports.account_deletion_tombstone_cleanup = onSchedule(
       }
       let authUserExists = true;
       try {
-        await admin.auth().getUser(marker.id);
+        await auth.getUser(marker.id);
       } catch (error) {
         if (error?.code === "auth/user-not-found") {
           authUserExists = false;
@@ -922,11 +932,11 @@ exports.account_deletion_tombstone_cleanup = onSchedule(
           transaction.delete(currentMarker.ref);
         } else if (action === "markMissing") {
           transaction.update(currentMarker.ref, {
-            authMissingSince: admin.firestore.FieldValue.serverTimestamp(),
+            authMissingSince: FieldValue.serverTimestamp(),
           });
         } else if (action === "clearMissing") {
           transaction.update(currentMarker.ref, {
-            authMissingSince: admin.firestore.FieldValue.delete(),
+            authMissingSince: FieldValue.delete(),
           });
         }
       });
@@ -1110,12 +1120,12 @@ async function claimNotificationOutbox(outboxRef) {
     transaction.update(outboxRef, {
       state: "sending",
       deliveryClaimId: claimId,
-      nextAttemptAt: admin.firestore.FieldValue.delete(),
-      deliveryLeaseUntil: admin.firestore.Timestamp.fromMillis(
+      nextAttemptAt: FieldValue.delete(),
+      deliveryLeaseUntil: Timestamp.fromMillis(
         nowMillis + 5 * 60 * 1000,
       ),
-      lastAttemptAt: admin.firestore.FieldValue.serverTimestamp(),
-      attemptCount: admin.firestore.FieldValue.increment(1),
+      lastAttemptAt: FieldValue.serverTimestamp(),
+      attemptCount: FieldValue.increment(1),
     });
     return { claimId, data };
   });
@@ -1142,15 +1152,15 @@ async function finishNotificationOutboxClaim({
     }
     if (currentUser?.exists) {
       transaction.update(userRef, {
-        fcmTokens: admin.firestore.FieldValue.arrayRemove(
+        fcmTokens: FieldValue.arrayRemove(
           ...permanentFailureTokens,
         ),
       });
     }
     transaction.update(outboxRef, {
       ...update,
-      deliveryClaimId: admin.firestore.FieldValue.delete(),
-      deliveryLeaseUntil: admin.firestore.FieldValue.delete(),
+      deliveryClaimId: FieldValue.delete(),
+      deliveryLeaseUntil: FieldValue.delete(),
     });
     return true;
   });
@@ -1161,7 +1171,7 @@ async function releaseNotificationOutboxClaim(
   claimId,
   attemptCount,
 ) {
-  const nextAttemptAt = admin.firestore.Timestamp.fromMillis(
+  const nextAttemptAt = Timestamp.fromMillis(
     Date.now() + notificationRetryDelayMillis(attemptCount),
   );
   await finishNotificationOutboxClaim({
@@ -1169,7 +1179,7 @@ async function releaseNotificationOutboxClaim(
     claimId,
     update: {
       state: "pending",
-      lastErrorAt: admin.firestore.FieldValue.serverTimestamp(),
+      lastErrorAt: FieldValue.serverTimestamp(),
       nextAttemptAt,
     },
   });
@@ -1178,11 +1188,11 @@ async function releaseNotificationOutboxClaim(
 function notificationTerminalFields() {
   const nowMillis = Date.now();
   return {
-    completedAt: admin.firestore.Timestamp.fromMillis(nowMillis),
-    expiresAt: admin.firestore.Timestamp.fromMillis(
+    completedAt: Timestamp.fromMillis(nowMillis),
+    expiresAt: Timestamp.fromMillis(
       notificationTerminalExpiryMillis(nowMillis),
     ),
-    nextAttemptAt: admin.firestore.FieldValue.delete(),
+    nextAttemptAt: FieldValue.delete(),
   };
 }
 
@@ -1268,7 +1278,7 @@ async function deliverNotificationOutboxDocument(outboxRef) {
 
   let response;
   try {
-    response = await admin.messaging().sendEachForMulticast({
+    response = await messaging.sendEachForMulticast({
       tokens,
       notification: { title: data.title, body: data.body },
       data: { eventKey: data.eventKey },
@@ -1321,13 +1331,13 @@ async function deliverNotificationOutboxDocument(outboxRef) {
         classification.permanentFailureTokens.length,
       ...(shouldRetry
         ? {
-            nextAttemptAt: admin.firestore.Timestamp.fromMillis(
+            nextAttemptAt: Timestamp.fromMillis(
               Date.now() +
               notificationRetryDelayMillis(data.attemptCount || 0),
             ),
           }
         : {
-            sentAt: admin.firestore.FieldValue.serverTimestamp(),
+            sentAt: FieldValue.serverTimestamp(),
             ...notificationTerminalFields(),
           }),
     },
