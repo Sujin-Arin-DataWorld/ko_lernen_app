@@ -1,8 +1,23 @@
 import 'package:cloud_functions/cloud_functions.dart';
 
+import '../data/beta_mission_catalog.dart';
 import '../models/content_feedback.dart';
 
 enum ContentFeedbackAcknowledgement { accepted, duplicateCompletion }
+
+class ContentFeedbackDelivery {
+  const ContentFeedbackDelivery({
+    required this.acknowledgement,
+    this.stampAccepted = false,
+    this.passportCompletedMissionIds = const <String>{},
+    this.nextMissionId,
+  });
+
+  final ContentFeedbackAcknowledgement acknowledgement;
+  final bool stampAccepted;
+  final Set<String> passportCompletedMissionIds;
+  final String? nextMissionId;
+}
 
 enum ContentFeedbackFailureCategory {
   invalidRequest,
@@ -25,9 +40,7 @@ class ContentFeedbackClientFailure implements Exception {
 }
 
 abstract interface class ContentFeedbackClient {
-  Future<ContentFeedbackAcknowledgement> submit(
-    ContentFeedbackSubmission submission,
-  );
+  Future<ContentFeedbackDelivery> submit(ContentFeedbackSubmission submission);
 }
 
 typedef ContentFeedbackCallableInvoker =
@@ -60,7 +73,7 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
   final ContentFeedbackCallableInvoker _invoke;
 
   @override
-  Future<ContentFeedbackAcknowledgement> submit(
+  Future<ContentFeedbackDelivery> submit(
     ContentFeedbackSubmission submission,
   ) async {
     final validation = submission.validate();
@@ -97,17 +110,65 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
     }
     final accepted = raw['accepted'];
     final duplicate = raw['duplicate'];
+    final ContentFeedbackAcknowledgement acknowledgement;
     if (accepted == true && duplicate == false) {
-      return ContentFeedbackAcknowledgement.accepted;
+      acknowledgement = ContentFeedbackAcknowledgement.accepted;
+    } else if (accepted == false && duplicate == true) {
+      acknowledgement = ContentFeedbackAcknowledgement.duplicateCompletion;
+    } else {
+      throw const ContentFeedbackClientFailure(
+        ContentFeedbackFailureCategory.unknown,
+        retryable: true,
+      );
     }
-    if (accepted == false && duplicate == true) {
-      return ContentFeedbackAcknowledgement.duplicateCompletion;
-    }
-    throw const ContentFeedbackClientFailure(
-      ContentFeedbackFailureCategory.unknown,
-      retryable: true,
+
+    final passport = _parseCompletedMissionIds(
+      raw['passportCompletedMissionIds'],
+    );
+    final submittedMissionId = submission.betaMissionId;
+    return ContentFeedbackDelivery(
+      acknowledgement: acknowledgement,
+      stampAccepted:
+          acknowledgement == ContentFeedbackAcknowledgement.accepted &&
+          raw['stampAccepted'] == true &&
+          passport.isAuthoritative &&
+          submittedMissionId != null &&
+          passport.missionIds.contains(submittedMissionId),
+      passportCompletedMissionIds: passport.missionIds,
+      nextMissionId: passport.isAuthoritative
+          ? _parseNextMissionId(raw['nextMissionId'], passport.missionIds)
+          : null,
     );
   }
+}
+
+final Set<String> _knownMissionIds = Set.unmodifiable(
+  betaMissionCatalog.map((mission) => mission.id),
+);
+
+({Set<String> missionIds, bool isAuthoritative}) _parseCompletedMissionIds(
+  Object? raw,
+) {
+  if (raw is! List) {
+    return (missionIds: const <String>{}, isAuthoritative: false);
+  }
+  final result = <String>{};
+  for (final value in raw) {
+    if (value is! String || !_knownMissionIds.contains(value)) {
+      return (missionIds: const <String>{}, isAuthoritative: false);
+    }
+    result.add(value);
+  }
+  return (missionIds: Set.unmodifiable(result), isAuthoritative: true);
+}
+
+String? _parseNextMissionId(Object? raw, Set<String> completedMissionIds) {
+  if (raw is! String ||
+      !_knownMissionIds.contains(raw) ||
+      completedMissionIds.contains(raw)) {
+    return null;
+  }
+  return raw;
 }
 
 ContentFeedbackClientFailure _safeFailureForFirebaseCode(String code) {

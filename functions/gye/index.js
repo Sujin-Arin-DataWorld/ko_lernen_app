@@ -116,6 +116,10 @@ const {
   createFirestoreCloudBackupDeletionRepository,
   createFirestoreCloudBackupStore,
 } = require("./cloud_backup_deletion_runtime");
+const {
+  createTesterFeedbackCallable,
+  createTesterFeedbackRuntime,
+} = require("./tester_feedback_runtime");
 
 initializeApp();
 const db = getFirestore();
@@ -235,6 +239,19 @@ exports.deleteCloudBackup = createCloudBackupDeletionCallable({
   handler: cloudBackupDeletionHandlers.deleteCloudBackup,
   onCall,
   secrets: [deletionProofHmacKey],
+});
+const testerFeedbackHandlers = createTesterFeedbackRuntime({
+  firestore: db,
+  serverTimestamp: () => FieldValue.serverTimestamp(),
+  makeError: (status, safeCode) => new HttpsError(
+    status,
+    "Tester feedback request failed.",
+    { code: safeCode },
+  ),
+});
+exports.submitTesterFeedback = createTesterFeedbackCallable({
+  handler: testerFeedbackHandlers.submitTesterFeedback,
+  onCall,
 });
 const deletionCleanupAdapters = createDeletionCleanupAdapters({
   firestore: db,

@@ -300,9 +300,9 @@ class ContentFeedbackService {
       );
     }
 
-    ContentFeedbackAcknowledgement acknowledgement;
+    ContentFeedbackDelivery delivery;
     try {
-      acknowledgement = await client.submit(attempted.submission);
+      delivery = await client.submit(attempted.submission);
     } on ContentFeedbackClientFailure catch (failure) {
       await _retainFailure(queue, attempted, failure);
       return ContentFeedbackSubmitResult(
@@ -328,10 +328,14 @@ class ContentFeedbackService {
     try {
       await _discardById(queue, attempted.submission.feedbackId);
       return ContentFeedbackSubmitResult(
-        status: acknowledgement == ContentFeedbackAcknowledgement.accepted
+        status:
+            delivery.acknowledgement == ContentFeedbackAcknowledgement.accepted
             ? ContentFeedbackSubmitStatus.accepted
             : ContentFeedbackSubmitStatus.duplicateCompletion,
         feedbackId: attempted.submission.feedbackId,
+        stampAccepted: delivery.stampAccepted,
+        passportCompletedMissionIds: delivery.passportCompletedMissionIds,
+        nextMissionId: delivery.nextMissionId,
       );
     } catch (_) {
       return ContentFeedbackSubmitResult(

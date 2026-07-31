@@ -95,6 +95,34 @@ void main() {
       expect(store.items, isEmpty);
     });
 
+    test(
+      'returns authoritative passport values after durable delivery',
+      () async {
+        final store = MemoryFeedbackOutboxStore();
+        final service = buildService(
+          store: store,
+          client: FakeFeedbackClient(
+            responses: const [
+              ContentFeedbackDelivery(
+                acknowledgement: ContentFeedbackAcknowledgement.accepted,
+                stampAccepted: true,
+                passportCompletedMissionIds: <String>{'beta_scenario'},
+                nextMissionId: 'beta_word_work',
+              ),
+            ],
+          ),
+        );
+
+        final result = await service.submit(context, draft);
+
+        expect(result.status, ContentFeedbackSubmitStatus.accepted);
+        expect(result.stampAccepted, isTrue);
+        expect(result.passportCompletedMissionIds, <String>{'beta_scenario'});
+        expect(result.nextMissionId, 'beta_word_work');
+        expect(store.items, isEmpty);
+      },
+    );
+
     test('keeps an acknowledged item pending when local erase fails', () async {
       final store = MemoryFeedbackOutboxStore(failNextClear: true);
       final service = buildService(store: store, client: FakeFeedbackClient());
@@ -374,10 +402,108 @@ void main() {
 
         final result = await client.submit(submission);
 
-        expect(result, ContentFeedbackAcknowledgement.accepted);
+        expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+        expect(result.stampAccepted, isFalse);
+        expect(result.passportCompletedMissionIds, isEmpty);
+        expect(result.nextMissionId, isNull);
         expect(name, 'submitTesterFeedback');
         expect(data, submission.toWire());
         expect(options?.limitedUseAppCheckToken, isTrue);
+      },
+    );
+
+    test(
+      'parses authoritative passport values from an accepted response',
+      () async {
+        final client = ContentFeedbackCallableClient(({
+          required callableName,
+          required payload,
+          required callableOptions,
+        }) async {
+          return {
+            'accepted': true,
+            'duplicate': false,
+            'stampAccepted': true,
+            'passportCompletedMissionIds': ['beta_scenario'],
+            'nextMissionId': 'beta_word_work',
+            'nextMissionLabelKey': 'testerFeedbackMissionWordWork',
+          };
+        });
+
+        final result = await client.submit(
+          pendingItem(
+            'feedback-authoritative',
+            betaMissionId: 'beta_scenario',
+          ).submission,
+        );
+
+        expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+        expect(result.stampAccepted, isTrue);
+        expect(result.passportCompletedMissionIds, <String>{'beta_scenario'});
+        expect(result.nextMissionId, 'beta_word_work');
+      },
+    );
+
+    test(
+      'defaults malformed passport fields without trusting server prose',
+      () async {
+        final client = ContentFeedbackCallableClient(({
+          required callableName,
+          required payload,
+          required callableOptions,
+        }) async {
+          return {
+            'accepted': true,
+            'duplicate': false,
+            'stampAccepted': true,
+            'passportCompletedMissionIds': ['beta_scenario', 7],
+            'nextMissionId': 'beta_injected',
+            'nextMissionLabelKey': 'Untrusted instructions',
+          };
+        });
+
+        final result = await client.submit(
+          pendingItem(
+            'feedback-malformed-response',
+            betaMissionId: 'beta_scenario',
+          ).submission,
+        );
+
+        expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+        expect(result.stampAccepted, isFalse);
+        expect(result.passportCompletedMissionIds, isEmpty);
+        expect(result.nextMissionId, isNull);
+      },
+    );
+
+    test(
+      'never accepts a stamp from a duplicate-completion response',
+      () async {
+        final client = ContentFeedbackCallableClient(({
+          required callableName,
+          required payload,
+          required callableOptions,
+        }) async {
+          return {
+            'accepted': false,
+            'duplicate': true,
+            'stampAccepted': true,
+            'passportCompletedMissionIds': ['beta_scenario'],
+            'nextMissionId': 'beta_word_work',
+          };
+        });
+
+        final result = await client.submit(
+          pendingItem('feedback-duplicate-response').submission,
+        );
+
+        expect(
+          result.acknowledgement,
+          ContentFeedbackAcknowledgement.duplicateCompletion,
+        );
+        expect(result.stampAccepted, isFalse);
+        expect(result.passportCompletedMissionIds, <String>{'beta_scenario'});
+        expect(result.nextMissionId, 'beta_word_work');
       },
     );
   });
@@ -409,6 +535,7 @@ ContentFeedbackService buildService({
 ContentFeedbackOutboxItem pendingItem(
   String feedbackId, {
   String ownerUid = 'current-uid',
+  String? betaMissionId,
 }) {
   return ContentFeedbackOutboxItem.pending(
     submission: ContentFeedbackSubmission(
@@ -429,6 +556,7 @@ ContentFeedbackOutboxItem pendingItem(
       appVersion: '2.0.1+6',
       platform: 'android',
       locale: 'de',
+      betaMissionId: betaMissionId,
     ),
     createdAt: DateTime.utc(2026, 7, 31, 10),
     ownerUid: ownerUid,
@@ -512,7 +640,7 @@ class FakeFeedbackClient implements ContentFeedbackClient {
   final List<String> feedbackIds = [];
 
   @override
-  Future<ContentFeedbackAcknowledgement> submit(
+  Future<ContentFeedbackDelivery> submit(
     ContentFeedbackSubmission submission,
   ) async {
     feedbackIds.add(submission.feedbackId);
@@ -521,7 +649,10 @@ class FakeFeedbackClient implements ContentFeedbackClient {
         ? ContentFeedbackAcknowledgement.accepted
         : responses.removeAt(0);
     if (response is ContentFeedbackClientFailure) throw response;
-    return response as ContentFeedbackAcknowledgement;
+    if (response is ContentFeedbackDelivery) return response;
+    return ContentFeedbackDelivery(
+      acknowledgement: response as ContentFeedbackAcknowledgement,
+    );
   }
 }
 
