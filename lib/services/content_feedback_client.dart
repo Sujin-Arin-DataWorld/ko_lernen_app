@@ -122,29 +122,84 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
       );
     }
 
-    final passport = _parseCompletedMissionIds(
-      raw['passportCompletedMissionIds'],
+    final passport = _parsePassportResponse(
+      raw: raw,
+      acknowledgement: acknowledgement,
+      submission: submission,
     );
-    final submittedMissionId = submission.betaMissionId;
     return ContentFeedbackDelivery(
       acknowledgement: acknowledgement,
-      stampAccepted:
-          acknowledgement == ContentFeedbackAcknowledgement.accepted &&
-          raw['stampAccepted'] == true &&
-          passport.isAuthoritative &&
-          submittedMissionId != null &&
-          passport.missionIds.contains(submittedMissionId),
+      stampAccepted: passport.stampAccepted,
       passportCompletedMissionIds: passport.missionIds,
-      nextMissionId: passport.isAuthoritative
-          ? _parseNextMissionId(raw['nextMissionId'], passport.missionIds)
-          : null,
+      nextMissionId: passport.nextMissionId,
     );
   }
 }
 
-final Set<String> _knownMissionIds = Set.unmodifiable(
-  betaMissionCatalog.map((mission) => mission.id),
+typedef _ParsedPassport = ({
+  bool stampAccepted,
+  Set<String> missionIds,
+  String? nextMissionId,
+});
+
+const _emptyPassport = (
+  stampAccepted: false,
+  missionIds: <String>{},
+  nextMissionId: null,
 );
+
+_ParsedPassport _parsePassportResponse({
+  required Map<dynamic, dynamic> raw,
+  required ContentFeedbackAcknowledgement acknowledgement,
+  required ContentFeedbackSubmission submission,
+}) {
+  final rawStampAccepted = raw['stampAccepted'];
+  if (rawStampAccepted is! bool) return _emptyPassport;
+
+  final completed = _parseCompletedMissionIds(
+    raw['passportCompletedMissionIds'],
+  );
+  if (!completed.isAuthoritative) return _emptyPassport;
+
+  final next = _firstIncompleteMission(completed.missionIds);
+  if (raw['nextMissionId'] != next?.id ||
+      raw['nextMissionLabelKey'] != next?.labelKey) {
+    return _emptyPassport;
+  }
+
+  if (acknowledgement == ContentFeedbackAcknowledgement.duplicateCompletion) {
+    if (rawStampAccepted) return _emptyPassport;
+  } else if (!_stampMatchesSubmission(
+    stampAccepted: rawStampAccepted,
+    completedMissionIds: completed.missionIds,
+    submission: submission,
+  )) {
+    return _emptyPassport;
+  }
+
+  return (
+    stampAccepted: rawStampAccepted,
+    missionIds: completed.missionIds,
+    nextMissionId: next?.id,
+  );
+}
+
+bool _stampMatchesSubmission({
+  required bool stampAccepted,
+  required Set<String> completedMissionIds,
+  required ContentFeedbackSubmission submission,
+}) {
+  final submittedMissionId = submission.betaMissionId;
+  final matchingMission = missionFor(submission.context);
+  final submissionMatchesMission =
+      submittedMissionId != null && matchingMission?.id == submittedMissionId;
+  if (stampAccepted) {
+    return submissionMatchesMission &&
+        completedMissionIds.contains(submittedMissionId);
+  }
+  return !submissionMatchesMission ||
+      completedMissionIds.contains(submittedMissionId);
+}
 
 ({Set<String> missionIds, bool isAuthoritative}) _parseCompletedMissionIds(
   Object? raw,
@@ -153,22 +208,28 @@ final Set<String> _knownMissionIds = Set.unmodifiable(
     return (missionIds: const <String>{}, isAuthoritative: false);
   }
   final result = <String>{};
+  var previousCatalogIndex = -1;
   for (final value in raw) {
-    if (value is! String || !_knownMissionIds.contains(value)) {
+    if (value is! String) {
       return (missionIds: const <String>{}, isAuthoritative: false);
     }
+    final catalogIndex = betaMissionCatalog.indexWhere(
+      (mission) => mission.id == value,
+    );
+    if (catalogIndex <= previousCatalogIndex) {
+      return (missionIds: const <String>{}, isAuthoritative: false);
+    }
+    previousCatalogIndex = catalogIndex;
     result.add(value);
   }
   return (missionIds: Set.unmodifiable(result), isAuthoritative: true);
 }
 
-String? _parseNextMissionId(Object? raw, Set<String> completedMissionIds) {
-  if (raw is! String ||
-      !_knownMissionIds.contains(raw) ||
-      completedMissionIds.contains(raw)) {
-    return null;
+BetaMission? _firstIncompleteMission(Set<String> completedMissionIds) {
+  for (final mission in betaMissionCatalog) {
+    if (!completedMissionIds.contains(mission.id)) return mission;
   }
-  return raw;
+  return null;
 }
 
 ContentFeedbackClientFailure _safeFailureForFirebaseCode(String code) {

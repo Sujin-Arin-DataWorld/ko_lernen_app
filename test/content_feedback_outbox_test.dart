@@ -445,6 +445,100 @@ void main() {
     );
 
     test(
+      'defaults passport data when the stamped mission mismatches content',
+      () async {
+        final client = ContentFeedbackCallableClient(({
+          required callableName,
+          required payload,
+          required callableOptions,
+        }) async {
+          return {
+            'accepted': true,
+            'duplicate': false,
+            'stampAccepted': true,
+            'passportCompletedMissionIds': ['beta_scenario'],
+            'nextMissionId': 'beta_word_work',
+            'nextMissionLabelKey': 'testerFeedbackMissionWordWork',
+          };
+        });
+
+        final result = await client.submit(
+          pendingItem(
+            'feedback-mission-content-mismatch',
+            betaMissionId: 'beta_scenario',
+            contentType: 'listening',
+          ).submission,
+        );
+
+        expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+        expect(result.stampAccepted, isFalse);
+        expect(result.passportCompletedMissionIds, isEmpty);
+        expect(result.nextMissionId, isNull);
+      },
+    );
+
+    test('defaults passport data when completed mission IDs repeat', () async {
+      final client = ContentFeedbackCallableClient(({
+        required callableName,
+        required payload,
+        required callableOptions,
+      }) async {
+        return {
+          'accepted': true,
+          'duplicate': false,
+          'stampAccepted': true,
+          'passportCompletedMissionIds': ['beta_scenario', 'beta_scenario'],
+          'nextMissionId': 'beta_word_work',
+          'nextMissionLabelKey': 'testerFeedbackMissionWordWork',
+        };
+      });
+
+      final result = await client.submit(
+        pendingItem(
+          'feedback-duplicate-mission-ids',
+          betaMissionId: 'beta_scenario',
+        ).submission,
+      );
+
+      expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+      expect(result.stampAccepted, isFalse);
+      expect(result.passportCompletedMissionIds, isEmpty);
+      expect(result.nextMissionId, isNull);
+    });
+
+    test(
+      'defaults passport data when next mission is known but not first',
+      () async {
+        final client = ContentFeedbackCallableClient(({
+          required callableName,
+          required payload,
+          required callableOptions,
+        }) async {
+          return {
+            'accepted': true,
+            'duplicate': false,
+            'stampAccepted': true,
+            'passportCompletedMissionIds': ['beta_scenario'],
+            'nextMissionId': 'beta_listening',
+            'nextMissionLabelKey': 'testerFeedbackMissionListening',
+          };
+        });
+
+        final result = await client.submit(
+          pendingItem(
+            'feedback-wrong-next-mission',
+            betaMissionId: 'beta_scenario',
+          ).submission,
+        );
+
+        expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
+        expect(result.stampAccepted, isFalse);
+        expect(result.passportCompletedMissionIds, isEmpty);
+        expect(result.nextMissionId, isNull);
+      },
+    );
+
+    test(
       'defaults malformed passport fields without trusting server prose',
       () async {
         final client = ContentFeedbackCallableClient(({
@@ -477,7 +571,7 @@ void main() {
     );
 
     test(
-      'never accepts a stamp from a duplicate-completion response',
+      'defaults passport data when a duplicate response claims a stamp',
       () async {
         final client = ContentFeedbackCallableClient(({
           required callableName,
@@ -502,8 +596,8 @@ void main() {
           ContentFeedbackAcknowledgement.duplicateCompletion,
         );
         expect(result.stampAccepted, isFalse);
-        expect(result.passportCompletedMissionIds, <String>{'beta_scenario'});
-        expect(result.nextMissionId, 'beta_word_work');
+        expect(result.passportCompletedMissionIds, isEmpty);
+        expect(result.nextMissionId, isNull);
       },
     );
   });
@@ -536,13 +630,14 @@ ContentFeedbackOutboxItem pendingItem(
   String feedbackId, {
   String ownerUid = 'current-uid',
   String? betaMissionId,
+  String contentType = 'scenario',
 }) {
   return ContentFeedbackOutboxItem.pending(
     submission: ContentFeedbackSubmission(
       feedbackId: feedbackId,
-      context: const ContentFeedbackContext(
+      context: ContentFeedbackContext(
         completionId: 'completion-42',
-        contentType: 'scenario',
+        contentType: contentType,
         contentId: 'cafe-order',
         contentLabel: 'At the cafe',
         level: 'A1',
