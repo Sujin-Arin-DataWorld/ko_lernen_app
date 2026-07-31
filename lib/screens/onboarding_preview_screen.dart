@@ -115,12 +115,11 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                         children: [
                           _PreviewPage(
                             index: 0,
-                            // 카메라 프레임 + 교재 + 까치가 이미 그려진 기존 에셋.
-                            // (book_success.png는 가운데가 빈 액자라 온보딩에서
-                            //  단독으로 쓰면 "무엇이 생기는지"가 보이지 않았다.)
+                            // 책 한 컷 전용 세로 일러스트 (941×1672, 2026-07-31 추가).
+                            // 세로 비율이라 wide 없이 높이 기준 배치. 로드 실패 시
+                            // errorBuilder가 호랑이 마스코트로 폴백.
                             imageAsset:
-                                'assets/illustrations/book/book_camera_guide.png',
-                            wide: true,
+                                'assets/illustrations/onboarding/book_scan.png',
                             accentColor: SoriColors.info,
                             title: t.previewPage1Title,
                             body: t.previewPage1Body,
@@ -200,9 +199,6 @@ class _PreviewPage extends StatelessWidget {
   /// (videoReady && !reduce-motion일 때만; 그 외/실패 시 정지 이미지 유지).
   final String? videoAsset;
 
-  /// 가로로 넓은 일러스트(4:3 이상) → 높이 대신 화면 너비에 맞춰 키운다.
-  final bool wide;
-
   final Color accentColor;
   final String title;
   final String body;
@@ -212,7 +208,6 @@ class _PreviewPage extends StatelessWidget {
     required this.index,
     required this.imageAsset,
     this.videoAsset,
-    this.wide = false,
     required this.accentColor,
     required this.title,
     required this.body,
@@ -225,11 +220,8 @@ class _PreviewPage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, c) {
         // 세로로 긴 화면에서 비주얼이 점처럼 작아 보이지 않도록 무대 높이를
-        // 페이지 높이에 비례시킨다. 넓은 일러스트(4:3)는 너비 기준으로도 제한.
-        final imageW = (c.maxWidth - 56).clamp(200.0, 420.0);
-        final stageH = wide
-            ? (c.maxHeight * 0.34).clamp(190.0, imageW * 0.78)
-            : (c.maxHeight * 0.30).clamp(180.0, 260.0);
+        // 페이지 높이에 비례시킨다.
+        final stageH = (c.maxHeight * 0.30).clamp(180.0, 260.0);
         return SingleChildScrollView(
           padding: soriClampPadding(
             c.maxWidth,
@@ -257,7 +249,7 @@ class _PreviewPage extends StatelessWidget {
                         Positioned(
                           bottom: 4,
                           child: Container(
-                            width: wide ? imageW * 0.9 : 180,
+                            width: 180,
                             height: 50,
                             decoration: BoxDecoration(
                               shape: BoxShape.rectangle,
@@ -305,7 +297,6 @@ class _PreviewPage extends StatelessWidget {
                             child: Image.asset(
                               imageAsset,
                               height: stageH - 12,
-                              width: wide ? imageW : null,
                               fit: BoxFit.contain,
                               filterQuality: FilterQuality.high,
                               errorBuilder: (_, __, ___) => const Mascot.tiger(
