@@ -182,11 +182,13 @@ class ContentFeedbackService implements FeedbackOutbox {
     try {
       appVersion = await versionProvider.readVersion();
     } catch (_) {
+      if (_closed) return _closedSubmission();
       return const ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.failed,
         failure: ContentFeedbackFailureCategory.unavailable,
       );
     }
+    if (_closed) return _closedSubmission();
 
     String feedbackId;
     try {
@@ -221,6 +223,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     List<ContentFeedbackOutboxItem> queue;
     try {
       queue = List.of(await outboxStore.read());
+      if (_closed) return _closedSubmission(feedbackId);
       queue.removeWhere((queued) => queued.ownerUid != uid);
       if (queue.length >= feedbackOutboxMaxItems) {
         return ContentFeedbackSubmitResult(
@@ -231,12 +234,14 @@ class ContentFeedbackService implements FeedbackOutbox {
       queue.add(item);
       await outboxStore.write(queue);
     } catch (_) {
+      if (_closed) return _closedSubmission(feedbackId);
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.failed,
         feedbackId: feedbackId,
         failure: ContentFeedbackFailureCategory.storageUnavailable,
       );
     }
+    if (_closed) return _closedSubmission(feedbackId);
 
     return _deliverSubmitted(queue, item);
   }
@@ -246,10 +251,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     ContentFeedbackOutboxItem original,
   ) async {
     if (_closed) {
-      return ContentFeedbackSubmitResult(
-        status: ContentFeedbackSubmitStatus.closed,
-        feedbackId: original.submission.feedbackId,
-      );
+      return _closedSubmission(original.submission.feedbackId);
     }
     final deletionActive = await _deletionIsActive();
     if (_closed || deletionActive) {
@@ -264,12 +266,14 @@ class ContentFeedbackService implements FeedbackOutbox {
       try {
         await _discardById(queue, original.submission.feedbackId);
       } catch (_) {
+        if (_closed) return _closedSubmission(original.submission.feedbackId);
         return ContentFeedbackSubmitResult(
           status: ContentFeedbackSubmitStatus.pending,
           feedbackId: original.submission.feedbackId,
           failure: ContentFeedbackFailureCategory.storageUnavailable,
         );
       }
+      if (_closed) return _closedSubmission(original.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.failed,
         feedbackId: original.submission.feedbackId,
@@ -282,6 +286,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     try {
       await outboxStore.write(queue);
     } catch (_) {
+      if (_closed) return _closedSubmission(original.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.failed,
         feedbackId: original.submission.feedbackId,
@@ -290,17 +295,11 @@ class ContentFeedbackService implements FeedbackOutbox {
     }
 
     if (_closed) {
-      return ContentFeedbackSubmitResult(
-        status: ContentFeedbackSubmitStatus.closed,
-        feedbackId: original.submission.feedbackId,
-      );
+      return _closedSubmission(original.submission.feedbackId);
     }
     final deletionActiveAfterWrite = await _deletionIsActive();
     if (_closed) {
-      return ContentFeedbackSubmitResult(
-        status: ContentFeedbackSubmitStatus.closed,
-        feedbackId: original.submission.feedbackId,
-      );
+      return _closedSubmission(original.submission.feedbackId);
     }
     if (deletionActiveAfterWrite) {
       return ContentFeedbackSubmitResult(
@@ -312,12 +311,14 @@ class ContentFeedbackService implements FeedbackOutbox {
       try {
         await _discardById(queue, original.submission.feedbackId);
       } catch (_) {
+        if (_closed) return _closedSubmission(original.submission.feedbackId);
         return ContentFeedbackSubmitResult(
           status: ContentFeedbackSubmitStatus.pending,
           feedbackId: original.submission.feedbackId,
           failure: ContentFeedbackFailureCategory.storageUnavailable,
         );
       }
+      if (_closed) return _closedSubmission(original.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.failed,
         feedbackId: original.submission.feedbackId,
@@ -329,7 +330,9 @@ class ContentFeedbackService implements FeedbackOutbox {
     try {
       delivery = await client.submit(attempted.submission);
     } on ContentFeedbackClientFailure catch (failure) {
+      if (_closed) return _closedSubmission(attempted.submission.feedbackId);
       await _retainFailure(queue, attempted, failure);
+      if (_closed) return _closedSubmission(attempted.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status: failure.retryable
             ? ContentFeedbackSubmitStatus.pending
@@ -342,16 +345,20 @@ class ContentFeedbackService implements FeedbackOutbox {
         ContentFeedbackFailureCategory.unknown,
         retryable: true,
       );
+      if (_closed) return _closedSubmission(attempted.submission.feedbackId);
       await _retainFailure(queue, attempted, failure);
+      if (_closed) return _closedSubmission(attempted.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.pending,
         feedbackId: attempted.submission.feedbackId,
         failure: failure.category,
       );
     }
+    if (_closed) return _closedSubmission(attempted.submission.feedbackId);
 
     try {
       await _discardById(queue, attempted.submission.feedbackId);
+      if (_closed) return _closedSubmission(attempted.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status:
             delivery.acknowledgement == ContentFeedbackAcknowledgement.accepted
@@ -363,6 +370,7 @@ class ContentFeedbackService implements FeedbackOutbox {
         nextMissionId: delivery.nextMissionId,
       );
     } catch (_) {
+      if (_closed) return _closedSubmission(attempted.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.pending,
         feedbackId: attempted.submission.feedbackId,
@@ -385,8 +393,10 @@ class ContentFeedbackService implements FeedbackOutbox {
     try {
       queue = List.of(await outboxStore.read());
     } catch (_) {
+      if (_closed) return const ContentFeedbackResumeResult(closed: true);
       return const ContentFeedbackResumeResult();
     }
+    if (_closed) return const ContentFeedbackResumeResult(closed: true);
     final beforeOwnershipFilter = queue.length;
     queue.removeWhere((item) => item.ownerUid != uid);
     var discarded = beforeOwnershipFilter - queue.length;
@@ -394,11 +404,13 @@ class ContentFeedbackService implements FeedbackOutbox {
       try {
         await _writeQueue(queue);
       } catch (_) {
+        if (_closed) return const ContentFeedbackResumeResult(closed: true);
         return ContentFeedbackResumeResult(
           discarded: 0,
           remaining: beforeOwnershipFilter,
         );
       }
+      if (_closed) return const ContentFeedbackResumeResult(closed: true);
     }
 
     var delivered = 0;
@@ -424,6 +436,7 @@ class ContentFeedbackService implements FeedbackOutbox {
       try {
         await outboxStore.write(queue);
       } catch (_) {
+        if (_closed) break;
         break;
       }
       if (_closed) break;
@@ -445,11 +458,13 @@ class ContentFeedbackService implements FeedbackOutbox {
             ..removeWhere((item) => item.ownerUid != liveUid);
           try {
             await _writeQueue(retained);
+            if (_closed) break;
             queue
               ..clear()
               ..addAll(retained);
             discarded += beforeLiveFilter - retained.length;
           } catch (_) {
+            if (_closed) break;
             // Do not report a discard unless its durable write succeeded.
           }
         }
@@ -457,12 +472,16 @@ class ContentFeedbackService implements FeedbackOutbox {
       }
       try {
         await client.submit(attempted.submission);
+        if (_closed) break;
         await _discardById(queue, attempted.submission.feedbackId);
+        if (_closed) break;
         delivered += 1;
       } on ContentFeedbackClientFailure catch (failure) {
+        if (_closed) break;
         await _retainFailure(queue, attempted, failure);
         break;
       } catch (_) {
+        if (_closed) break;
         await _retainFailure(
           queue,
           attempted,
@@ -473,6 +492,13 @@ class ContentFeedbackService implements FeedbackOutbox {
         );
         break;
       }
+    }
+    if (_closed) {
+      return ContentFeedbackResumeResult(
+        delivered: delivered,
+        discarded: discarded,
+        closed: true,
+      );
     }
     return ContentFeedbackResumeResult(
       delivered: delivered,
@@ -501,12 +527,21 @@ class ContentFeedbackService implements FeedbackOutbox {
     ContentFeedbackOutboxItem attempted,
     ContentFeedbackClientFailure failure,
   ) async {
+    if (_closed) return;
     _replaceById(queue, attempted.recordFailure(failure));
+    if (_closed) return;
     try {
       await outboxStore.write(queue);
     } catch (_) {
       // The previously persisted attempted item remains safe and retryable.
     }
+  }
+
+  ContentFeedbackSubmitResult _closedSubmission([String? feedbackId]) {
+    return ContentFeedbackSubmitResult(
+      status: ContentFeedbackSubmitStatus.closed,
+      feedbackId: feedbackId,
+    );
   }
 
   Future<void> _discardById(

@@ -310,6 +310,89 @@ void main() {
       expect(client.feedbackIds, isEmpty);
     });
 
+    test('close during version lookup never admits the submission', () async {
+      final versionProvider = GatedVersionProvider();
+      final store = MemoryFeedbackOutboxStore();
+      final client = FakeFeedbackClient();
+      final service = buildService(
+        store: store,
+        client: client,
+        versionProvider: versionProvider,
+      );
+
+      final submit = service.submit(context, draft);
+      await versionProvider.started.future;
+      final discard = service.closeAndDiscard();
+      versionProvider.version.complete('2.0.1+6');
+
+      final result = await submit;
+      await discard;
+
+      expect(result.status, ContentFeedbackSubmitStatus.closed);
+      expect(store.readCount, 0);
+      expect(store.writeCount, 0);
+      expect(store.items, isEmpty);
+      expect(client.feedbackIds, isEmpty);
+    });
+
+    test('close during outbox read never starts an outbox write', () async {
+      final readStarted = Completer<void>();
+      final releaseRead = Completer<void>();
+      final store = MemoryFeedbackOutboxStore(
+        onReadAsync: (_) async {
+          readStarted.complete();
+          await releaseRead.future;
+        },
+      );
+      final client = FakeFeedbackClient();
+      final service = buildService(store: store, client: client);
+
+      final submit = service.submit(context, draft);
+      await readStarted.future;
+      final discard = service.closeAndDiscard();
+      releaseRead.complete();
+
+      final result = await submit;
+      await discard;
+
+      expect(result.status, ContentFeedbackSubmitStatus.closed);
+      expect(store.writeCount, 0);
+      expect(store.items, isEmpty);
+      expect(client.feedbackIds, isEmpty);
+    });
+
+    test(
+      'close during an admitted outbox write clears it without network work',
+      () async {
+        final writeStarted = Completer<void>();
+        final releaseWrite = Completer<void>();
+        final store = MemoryFeedbackOutboxStore(
+          onWriteAsync: (writeCount) async {
+            if (writeCount == 1) {
+              writeStarted.complete();
+              await releaseWrite.future;
+            }
+          },
+        );
+        final client = FakeFeedbackClient();
+        final service = buildService(store: store, client: client);
+
+        final submit = service.submit(context, draft);
+        await writeStarted.future;
+        final discard = service.closeAndDiscard();
+        releaseWrite.complete();
+
+        final result = await submit;
+        await discard;
+
+        expect(result.status, ContentFeedbackSubmitStatus.closed);
+        expect(store.writeCount, 1);
+        expect(store.clearCount, 1);
+        expect(store.items, isEmpty);
+        expect(client.feedbackIds, isEmpty);
+      },
+    );
+
     test(
       'closeAndDiscard stops a submit paused in its final deletion gate',
       () async {
@@ -382,6 +465,242 @@ void main() {
         expect(store.items, isEmpty);
       },
     );
+
+    test('close during resume outbox read returns no retained state', () async {
+      final readStarted = Completer<void>();
+      final releaseRead = Completer<void>();
+      final store = MemoryFeedbackOutboxStore(
+        items: [pendingItem('pending-feedback')],
+        onReadAsync: (_) async {
+          readStarted.complete();
+          await releaseRead.future;
+        },
+      );
+      final client = FakeFeedbackClient();
+      final service = buildService(store: store, client: client);
+
+      final resume = service.resumePending();
+      await readStarted.future;
+      final discard = service.closeAndDiscard();
+      releaseRead.complete();
+
+      final result = await resume;
+      await discard;
+
+      expect(result.closed, isTrue);
+      expect(result.delivered, 0);
+      expect(result.remaining, 0);
+      expect(store.writeCount, 0);
+      expect(store.items, isEmpty);
+      expect(client.feedbackIds, isEmpty);
+    });
+
+    test(
+      'close during resume attempt write clears without network work',
+      () async {
+        final writeStarted = Completer<void>();
+        final releaseWrite = Completer<void>();
+        final store = MemoryFeedbackOutboxStore(
+          items: [pendingItem('pending-feedback')],
+          onWriteAsync: (writeCount) async {
+            if (writeCount == 1) {
+              writeStarted.complete();
+              await releaseWrite.future;
+            }
+          },
+        );
+        final client = FakeFeedbackClient();
+        final service = buildService(store: store, client: client);
+
+        final resume = service.resumePending();
+        await writeStarted.future;
+        final discard = service.closeAndDiscard();
+        releaseWrite.complete();
+
+        final result = await resume;
+        await discard;
+
+        expect(result.closed, isTrue);
+        expect(result.delivered, 0);
+        expect(result.remaining, 0);
+        expect(store.writeCount, 1);
+        expect(store.clearCount, 1);
+        expect(store.items, isEmpty);
+        expect(client.feedbackIds, isEmpty);
+      },
+    );
+
+    test('submit success after close does not mutate its outbox', () async {
+      final store = MemoryFeedbackOutboxStore();
+      final client = GatedFeedbackClient();
+      final service = buildService(store: store, client: client);
+
+      final submit = service.submit(context, draft);
+      await client.started.future;
+      final writesBeforeClose = store.writeCount;
+      final discard = service.closeAndDiscard();
+      client.response.complete(ContentFeedbackAcknowledgement.accepted);
+
+      final result = await submit;
+      await discard;
+
+      expect(result.status, ContentFeedbackSubmitStatus.closed);
+      expect(client.feedbackIds, ['new-feedback']);
+      expect(store.writeCount, writesBeforeClose);
+      expect(store.clearCount, 1);
+      expect(store.items, isEmpty);
+    });
+
+    test('submit failure after close is not retained', () async {
+      final store = MemoryFeedbackOutboxStore();
+      final client = GatedFeedbackClient();
+      final service = buildService(store: store, client: client);
+
+      final submit = service.submit(context, draft);
+      await client.started.future;
+      final writesBeforeClose = store.writeCount;
+      final discard = service.closeAndDiscard();
+      client.response.complete(
+        const ContentFeedbackClientFailure(
+          ContentFeedbackFailureCategory.unavailable,
+          retryable: true,
+        ),
+      );
+
+      final result = await submit;
+      await discard;
+
+      expect(result.status, ContentFeedbackSubmitStatus.closed);
+      expect(store.writeCount, writesBeforeClose);
+      expect(store.clearCount, 1);
+      expect(store.items, isEmpty);
+    });
+
+    test('close during submit failure retention returns closed', () async {
+      final retentionStarted = Completer<void>();
+      final releaseRetention = Completer<void>();
+      final store = MemoryFeedbackOutboxStore(
+        onWriteAsync: (writeCount) async {
+          if (writeCount == 3) {
+            retentionStarted.complete();
+            await releaseRetention.future;
+          }
+        },
+      );
+      final client = FakeFeedbackClient(
+        responses: [
+          const ContentFeedbackClientFailure(
+            ContentFeedbackFailureCategory.unavailable,
+            retryable: true,
+          ),
+        ],
+      );
+      final service = buildService(store: store, client: client);
+
+      final submit = service.submit(context, draft);
+      await retentionStarted.future;
+      final discard = service.closeAndDiscard();
+      releaseRetention.complete();
+
+      final result = await submit;
+      await discard;
+
+      expect(result.status, ContentFeedbackSubmitStatus.closed);
+      expect(store.writeCount, 3);
+      expect(store.clearCount, 1);
+      expect(store.items, isEmpty);
+    });
+
+    test('resume success after close is not reported or persisted', () async {
+      final store = MemoryFeedbackOutboxStore(
+        items: [pendingItem('pending-feedback')],
+      );
+      final client = GatedFeedbackClient();
+      final service = buildService(store: store, client: client);
+
+      final resume = service.resumePending();
+      await client.started.future;
+      final writesBeforeClose = store.writeCount;
+      final discard = service.closeAndDiscard();
+      client.response.complete(ContentFeedbackAcknowledgement.accepted);
+
+      final result = await resume;
+      await discard;
+
+      expect(result.closed, isTrue);
+      expect(result.delivered, 0);
+      expect(result.remaining, 0);
+      expect(store.writeCount, writesBeforeClose);
+      expect(store.clearCount, 1);
+      expect(store.items, isEmpty);
+    });
+
+    test('resume failure after close is not retained', () async {
+      final store = MemoryFeedbackOutboxStore(
+        items: [pendingItem('pending-feedback')],
+      );
+      final client = GatedFeedbackClient();
+      final service = buildService(store: store, client: client);
+
+      final resume = service.resumePending();
+      await client.started.future;
+      final writesBeforeClose = store.writeCount;
+      final discard = service.closeAndDiscard();
+      client.response.complete(
+        const ContentFeedbackClientFailure(
+          ContentFeedbackFailureCategory.unavailable,
+          retryable: true,
+        ),
+      );
+
+      final result = await resume;
+      await discard;
+
+      expect(result.closed, isTrue);
+      expect(result.delivered, 0);
+      expect(result.remaining, 0);
+      expect(store.writeCount, writesBeforeClose);
+      expect(store.clearCount, 1);
+      expect(store.items, isEmpty);
+    });
+
+    test('close during resume failure retention does not re-admit', () async {
+      final retentionStarted = Completer<void>();
+      final releaseRetention = Completer<void>();
+      final store = MemoryFeedbackOutboxStore(
+        items: [pendingItem('pending-feedback')],
+        onWriteAsync: (writeCount) async {
+          if (writeCount == 2) {
+            retentionStarted.complete();
+            await releaseRetention.future;
+          }
+        },
+      );
+      final client = FakeFeedbackClient(
+        responses: [
+          const ContentFeedbackClientFailure(
+            ContentFeedbackFailureCategory.unavailable,
+            retryable: true,
+          ),
+        ],
+      );
+      final service = buildService(store: store, client: client);
+
+      final resume = service.resumePending();
+      await retentionStarted.future;
+      final discard = service.closeAndDiscard();
+      releaseRetention.complete();
+
+      final result = await resume;
+      await discard;
+
+      expect(result.closed, isTrue);
+      expect(result.delivered, 0);
+      expect(result.remaining, 0);
+      expect(store.writeCount, 2);
+      expect(store.clearCount, 1);
+      expect(store.items, isEmpty);
+    });
 
     test('disabled feature is a dependency-free no-op', () async {
       final store = MemoryFeedbackOutboxStore();
@@ -761,6 +1080,8 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
     this.failNextWrite = false,
     this.failNextClear = false,
     this.onWrite,
+    this.onReadAsync,
+    this.onWriteAsync,
   }) : items = List.of(items ?? const []);
 
   List<ContentFeedbackOutboxItem> items;
@@ -768,6 +1089,8 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
   bool failNextWrite;
   bool failNextClear;
   final void Function(int writeCount)? onWrite;
+  final Future<void> Function(int readCount)? onReadAsync;
+  final Future<void> Function(int writeCount)? onWriteAsync;
   int readCount = 0;
   int writeCount = 0;
   int clearCount = 0;
@@ -785,6 +1108,7 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
   @override
   Future<List<ContentFeedbackOutboxItem>> read() async {
     readCount += 1;
+    await onReadAsync?.call(readCount);
     return List.of(items);
   }
 
@@ -792,6 +1116,7 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
   Future<void> write(List<ContentFeedbackOutboxItem> value) async {
     writeCount += 1;
     onWrite?.call(writeCount);
+    await onWriteAsync?.call(writeCount);
     if (failNextWrite) {
       failNextWrite = false;
       throw StateError('write failed');
@@ -847,6 +1172,26 @@ class FakeFeedbackClient implements ContentFeedbackClient {
   }
 }
 
+class GatedFeedbackClient implements ContentFeedbackClient {
+  final Completer<void> started = Completer<void>();
+  final Completer<Object> response = Completer<Object>();
+  final List<String> feedbackIds = [];
+
+  @override
+  Future<ContentFeedbackDelivery> submit(
+    ContentFeedbackSubmission submission,
+  ) async {
+    feedbackIds.add(submission.feedbackId);
+    started.complete();
+    final value = await response.future;
+    if (value is ContentFeedbackClientFailure) throw value;
+    if (value is ContentFeedbackDelivery) return value;
+    return ContentFeedbackDelivery(
+      acknowledgement: value as ContentFeedbackAcknowledgement,
+    );
+  }
+}
+
 class ThrowingVersionProvider implements ContentFeedbackVersionProvider {
   @override
   Future<String> readVersion() => throw StateError('version must not be read');
@@ -859,4 +1204,15 @@ class FixedVersionProvider implements ContentFeedbackVersionProvider {
 
   @override
   Future<String> readVersion() async => version;
+}
+
+class GatedVersionProvider implements ContentFeedbackVersionProvider {
+  final Completer<void> started = Completer<void>();
+  final Completer<String> version = Completer<String>();
+
+  @override
+  Future<String> readVersion() {
+    started.complete();
+    return version.future;
+  }
 }
