@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../models/vocab.dart';
+import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
@@ -14,6 +15,7 @@ import '../widgets/app_error.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
@@ -56,6 +58,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   int _todayNewCount = 0;
   int _todayReviewCount = 0;
   Set<String> _favorites = {};
+  final LegacyDueFeedbackSession _dueFeedback = LegacyDueFeedbackSession();
 
   bool _loading = true;
   bool _loadFailed = false;
@@ -104,6 +107,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     setState(() {
       _loading = true;
       _loadFailed = false;
+      _dueFeedback.reset();
     });
     DataLoader.loadVocab().then((v) {
       if (!mounted) return;
@@ -168,6 +172,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   void _setMode(String m) {
     if (_mode == m) return;
     HapticFeedback.selectionClick();
+    _dueFeedback.reset();
     setState(() {
       _mode = m;
       _filtered = _filterList();
@@ -210,6 +215,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     final cur = _current;
     setState(() {
       _correct++;
+      if (_mode == 'due' && cur != null && _dueIds.contains(cur.korean)) {
+        _dueFeedback.record(known: true);
+      }
       if (cur != null) _dueIds.remove(cur.korean);
     });
     Storage.setVokCorrect(_correct);
@@ -227,6 +235,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     final cur = _current;
     setState(() {
       _wrong++;
+      if (_mode == 'due' && cur != null && _dueIds.contains(cur.korean)) {
+        _dueFeedback.record(known: false);
+      }
       // Falsch → morgen wieder fällig, also heute nicht mehr in der due-Liste.
       if (cur != null) _dueIds.remove(cur.korean);
     });
@@ -248,6 +259,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           if (_idx >= _filtered.length) _idx = 0;
           _flipped = false;
         }
+        _dueFeedback.completeIfEligible(
+          isDueMode: true,
+          dueIsEmpty: _dueIds.isEmpty,
+          contentLabel: AppL10n.of(context).vocabDueEmptyTitle,
+          level: null,
+        );
       });
       _persistIdx();
     } else {
@@ -300,17 +317,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     if (v == null) {
       // Im 'due' Modus: heute alles erledigt → eigene Empty-State.
       if (_mode == 'due') {
-        return Scaffold(
-          appBar: AppBar(title: Text(t.screenVocabTitle)),
-          body: SoriEmptyState(
-            asset: 'assets/illustrations/empty/celebrate_complete.png',
-            icon: Icons.celebration_outlined,
-            title: t.vocabDueEmptyTitle,
-            body: t.vocabDueEmptyBody,
-            ctaLabel: t.vocabDueEmptyAction,
-            onCta: () => _setMode('all'),
-          ),
-        );
+        return _buildDueResult(t);
       }
       // Im 'favorites' Modus: noch keine Sternchen → Hinweis-State.
       if (_mode == 'favorites') {
@@ -571,6 +578,48 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                       color: SoriSurfaces.of(context).textDim,
                     ),
                   ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDueResult(AppL10n t) {
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
+    final completion = _dueFeedback.current;
+    return Scaffold(
+      appBar: AppBar(title: Text(t.screenVocabTitle)),
+      body: SafeArea(
+        child: SoriCenterClamp(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SoriEmptyState(
+                  asset: 'assets/illustrations/empty/celebrate_complete.png',
+                  icon: Icons.celebration_outlined,
+                  title: t.vocabDueEmptyTitle,
+                  body: t.vocabDueEmptyBody,
+                ),
+                if (completion != null &&
+                    feedbackScope != null &&
+                    feedbackScope.featureGate.isEnabled) ...[
+                  ContentFeedbackCard(
+                    feedbackContext: completion.context,
+                    featureGate: feedbackScope.featureGate,
+                    submitFeedback: feedbackScope.submitFeedback,
+                    completedMissionIds: feedbackScope.completedMissionIds,
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                SoriButton.filled(
+                  label: t.vocabDueEmptyAction,
+                  fullWidth: true,
+                  onTap: () => _setMode('all'),
                 ),
               ],
             ),

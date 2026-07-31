@@ -414,7 +414,9 @@ class KoLernenApp extends StatelessWidget {
               );
             case '/review':
               return SoriTransitions.fadeScale(
-                (_) => const ReviewSessionScreen(),
+                (_) => const ReviewSessionScreen(
+                  feedbackContentId: 'today_review',
+                ),
                 settings: settings,
               );
             case '/smalltalk':

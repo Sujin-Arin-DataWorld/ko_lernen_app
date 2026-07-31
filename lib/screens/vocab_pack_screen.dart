@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import '../services/pack_progress_service.dart';
@@ -46,6 +47,31 @@ class VocabPackScreen extends StatefulWidget {
 }
 
 enum _Stage { learn, quiz, boss }
+
+Map<String, dynamic> vocabPackResultArguments({
+  required String packId,
+  required String packLevel,
+  required double bossAccuracy,
+  required int bossCorrect,
+  required int bossTotal,
+  required int quizCorrect,
+  required int quizTotal,
+  required bool justCleared,
+  required String? nextUnlockedPackId,
+  required FeedbackCompletion feedbackCompletion,
+}) => <String, dynamic>{
+  'packId': packId,
+  'packLevel': packLevel,
+  'bossAccuracy': bossAccuracy,
+  'bossCorrect': bossCorrect,
+  'bossTotal': bossTotal,
+  'quizCorrect': quizCorrect,
+  'quizTotal': quizTotal,
+  'justCleared': justCleared,
+  'nextUnlockedPackId': nextUnlockedPackId,
+  'completionId': feedbackCompletion.context.completionId,
+  'feedbackContext': feedbackCompletion.context,
+};
 
 class _VocabPackScreenState extends State<VocabPackScreen> {
   bool _loading = true;
@@ -372,6 +398,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }) async {
     final pack = _pack;
     if (pack == null) return;
+    final lang = Localizations.localeOf(context).languageCode;
+    final feedbackCompletion = FeedbackCompletion.vocabPack(
+      packId: pack.id,
+      contentLabel: VocabPackService.displayLabel(pack.id, lang: lang),
+      level: pack.level,
+      bossCorrect: bossCorrect,
+      bossTotal: bossTotal,
+      quizCorrect: _quizCorrect,
+      quizTotal: _normalWords.length,
+    );
     // SiblingPacks 같은 level (이미 _siblingPacks). 정렬된 pack list.
     final result = await PackProgressService.recordBossAttempt(
       pack,
@@ -388,16 +424,18 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (!mounted) return;
     Navigator.of(context).pushReplacementNamed(
       '/vocab/result',
-      arguments: <String, dynamic>{
-        'packId': pack.id,
-        'bossAccuracy': bossAccuracy,
-        'bossCorrect': bossCorrect,
-        'bossTotal': bossTotal,
-        'quizCorrect': _quizCorrect,
-        'quizTotal': _normalWords.length,
-        'justCleared': result.justCleared,
-        'nextUnlockedPackId': result.nextUnlocked?.id,
-      },
+      arguments: vocabPackResultArguments(
+        packId: pack.id,
+        packLevel: pack.level,
+        bossAccuracy: bossAccuracy,
+        bossCorrect: bossCorrect,
+        bossTotal: bossTotal,
+        quizCorrect: _quizCorrect,
+        quizTotal: _normalWords.length,
+        justCleared: result.justCleared,
+        nextUnlockedPackId: result.nextUnlocked?.id,
+        feedbackCompletion: feedbackCompletion,
+      ),
     );
   }
 

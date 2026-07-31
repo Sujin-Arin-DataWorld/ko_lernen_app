@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/custom_pack.dart';
+import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -11,6 +12,7 @@ import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
@@ -43,6 +45,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   int _idx = 0;
   bool _flipped = false;
   int _learned = 0;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
@@ -103,6 +106,16 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     setState(() {
       _flipped = false;
       _idx++;
+      if (_idx >= pack.words.length) {
+        _feedbackCompletion.complete(
+          () => FeedbackCompletion.customPackPlay(
+            packId: pack.id,
+            contentLabel: pack.displayName(),
+            learned: _learned,
+            total: pack.totalWords,
+          ),
+        );
+      }
     });
   }
 
@@ -226,6 +239,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   }
 
   Widget _buildDone(AppL10n t, CustomPack pack) {
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -238,7 +252,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         child: SoriCenterClamp(
           child: Padding(
             padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
+            child: ListView(
               children: [
                 const SizedBox(height: Spacing.xl),
                 const Mascot(
@@ -265,7 +279,18 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                     color: SoriSurfaces.of(context).textMuted,
                   ),
                 ),
-                const Spacer(),
+                if (_feedbackCompletion.current != null &&
+                    feedbackScope != null &&
+                    feedbackScope.featureGate.isEnabled) ...[
+                  const SizedBox(height: Spacing.xl),
+                  ContentFeedbackCard(
+                    feedbackContext: _feedbackCompletion.current!.context,
+                    featureGate: feedbackScope.featureGate,
+                    submitFeedback: feedbackScope.submitFeedback,
+                    completedMissionIds: feedbackScope.completedMissionIds,
+                  ),
+                ],
+                const SizedBox(height: Spacing.xl),
                 SoriButton(
                   label: t.customPackResultAgain,
                   icon: Icons.refresh_rounded,
@@ -276,6 +301,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                     _idx = 0;
                     _learned = 0;
                     _flipped = false;
+                    _feedbackCompletion.reset();
                   }),
                 ),
                 const SizedBox(height: Spacing.sm),

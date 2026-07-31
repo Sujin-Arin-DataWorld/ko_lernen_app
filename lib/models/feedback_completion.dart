@@ -135,6 +135,163 @@ class FeedbackCompletion {
       scoreSummary: '$correct/$total',
     ),
   );
+
+  factory FeedbackCompletion.scenario({
+    FeedbackCompletionIdFactory? createId,
+    required String scenarioId,
+    required String contentLabel,
+    required String? level,
+    required int passed,
+    required int firstTryPassed,
+    required int total,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'scenario',
+      contentId: scenarioId,
+      contentLabel: contentLabel,
+      level: _level(level),
+      scoreSummary: 'passed:$passed/$total; firstTry:$firstTryPassed/$total',
+    ),
+  );
+
+  factory FeedbackCompletion.vocabPack({
+    FeedbackCompletionIdFactory? createId,
+    required String packId,
+    required String contentLabel,
+    required String level,
+    required int bossCorrect,
+    required int bossTotal,
+    required int quizCorrect,
+    required int quizTotal,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'vocab_pack',
+      contentId: packId,
+      contentLabel: contentLabel,
+      level: _level(level),
+      scoreSummary:
+          'boss:$bossCorrect/$bossTotal; quiz:$quizCorrect/$quizTotal',
+    ),
+  );
+
+  factory FeedbackCompletion.listening({
+    FeedbackCompletionIdFactory? createId,
+    required String scenarioId,
+    required String contentLabel,
+    required String? level,
+    required int lines,
+    required double rate,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'listening',
+      contentId: scenarioId,
+      contentLabel: contentLabel,
+      level: _level(level),
+      scoreSummary: 'lines:$lines; rate:${_rate(rate)}x',
+    ),
+  );
+
+  factory FeedbackCompletion.review({
+    FeedbackCompletionIdFactory? createId,
+    required String contentId,
+    required String contentLabel,
+    required String? level,
+    required int reviewed,
+    required int total,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'review',
+      contentId: contentId,
+      contentLabel: contentLabel,
+      level: _level(level),
+      scoreSummary: 'reviewed:$reviewed; total:$total',
+    ),
+  );
+
+  factory FeedbackCompletion.customPackPlay({
+    FeedbackCompletionIdFactory? createId,
+    required String packId,
+    required String contentLabel,
+    required int learned,
+    required int total,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'custom_wordbook',
+      contentId: 'custom_pack:$packId:play',
+      contentLabel: contentLabel,
+      scoreSummary: 'learned:$learned; total:$total',
+    ),
+  );
+
+  factory FeedbackCompletion.legacyDue({
+    FeedbackCompletionIdFactory? createId,
+    required String contentLabel,
+    required String? level,
+    required int processed,
+    required int known,
+    required int retry,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'legacy_vocab',
+      contentId: 'due_session',
+      contentLabel: contentLabel,
+      level: _level(level),
+      scoreSummary: 'processed:$processed; known:$known; retry:$retry',
+    ),
+  );
+}
+
+/// Session-only eligibility gate for the legacy due-card result.
+class LegacyDueFeedbackSession {
+  final FeedbackCompletionSlot _completion = FeedbackCompletionSlot();
+  int _processed = 0;
+  int _known = 0;
+  int _retry = 0;
+
+  FeedbackCompletion? get current => _completion.current;
+  int get processed => _processed;
+
+  void record({required bool known}) {
+    _processed++;
+    if (known) {
+      _known++;
+    } else {
+      _retry++;
+    }
+  }
+
+  FeedbackCompletion? completeIfEligible({
+    required bool isDueMode,
+    required bool dueIsEmpty,
+    required String contentLabel,
+    required String? level,
+    FeedbackCompletionIdFactory? createId,
+  }) {
+    if (!isDueMode || !dueIsEmpty || _processed == 0) return null;
+    return _completion.complete(
+      () => FeedbackCompletion.legacyDue(
+        createId: createId,
+        contentLabel: contentLabel,
+        level: level,
+        processed: _processed,
+        known: _known,
+        retry: _retry,
+      ),
+    );
+  }
+
+  void reset() {
+    _completion.reset();
+    _processed = 0;
+    _known = 0;
+    _retry = 0;
+  }
 }
 
 ContentFeedbackContext _customPackContext({
@@ -170,6 +327,9 @@ ContentFeedbackContext _context({
 String _createCompletionId() => const Uuid().v4();
 
 String? _level(String? level) => level?.toUpperCase();
+
+String _rate(double rate) =>
+    rate.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '');
 
 int _percent(int count, int total) =>
     total == 0 ? 0 : ((count / total) * 100).round();

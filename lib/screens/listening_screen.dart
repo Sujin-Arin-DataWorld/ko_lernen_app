@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/content_feedback.dart';
+import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
@@ -11,6 +13,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
@@ -44,6 +47,7 @@ class _ListeningScreenState extends State<ListeningScreen>
   double _rate = 1.0; // 0.75 / 1.0 / 1.25 — TTS speech rate multiplier
   _SubMode _subs = _SubMode.both;
   bool _completed = false;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _scenarioChipKey = GlobalKey();
@@ -118,6 +122,7 @@ class _ListeningScreenState extends State<ListeningScreen>
       _selected = s;
       _step = 0;
       _completed = false;
+      _feedbackCompletion.reset();
     });
     _speakCurrent();
   }
@@ -158,6 +163,16 @@ class _ListeningScreenState extends State<ListeningScreen>
   Future<void> _finish() async {
     final sc = _selected;
     if (sc == null) return;
+    final lang = Localizations.localeOf(context).languageCode;
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.listening(
+        scenarioId: sc.id,
+        contentLabel: sc.title.pick(lang),
+        level: sc.level.display,
+        lines: sc.dialog.length,
+        rate: _rate,
+      ),
+    );
     HapticFeedback.heavyImpact();
     final earned = (sc.dialog.length * 8).clamp(40, 120);
     await Storage.addXp(earned);
@@ -170,6 +185,7 @@ class _ListeningScreenState extends State<ListeningScreen>
     setState(() {
       _step = 0;
       _completed = false;
+      _feedbackCompletion.reset();
     });
     _speakCurrent();
   }
@@ -281,6 +297,7 @@ class _ListeningScreenState extends State<ListeningScreen>
                     _CompleteCard(
                       lines: _selected!.dialog.length,
                       xpEarned: (_selected!.dialog.length * 8).clamp(40, 120),
+                      feedbackContext: _feedbackCompletion.current?.context,
                       onReplay: _restart,
                       onClose: () => Navigator.pop(context),
                     )
@@ -571,12 +588,14 @@ class _LineCard extends StatelessWidget {
 class _CompleteCard extends StatelessWidget {
   final int lines;
   final int xpEarned;
+  final ContentFeedbackContext? feedbackContext;
   final VoidCallback onReplay;
   final VoidCallback onClose;
 
   const _CompleteCard({
     required this.lines,
     required this.xpEarned,
+    required this.feedbackContext,
     required this.onReplay,
     required this.onClose,
   });
@@ -584,6 +603,7 @@ class _CompleteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
@@ -616,6 +636,18 @@ class _CompleteCard extends StatelessWidget {
           ),
           const SizedBox(height: Spacing.md),
           SoriBadge.xp(xpEarned, size: 28),
+          if (feedbackContext != null &&
+              feedbackScope != null &&
+              feedbackScope.featureGate.isEnabled) ...[
+            const SizedBox(height: Spacing.lg),
+            ContentFeedbackCard(
+              feedbackContext: feedbackContext!,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              mascotKind: MascotKind.magpie,
+              completedMissionIds: feedbackScope.completedMissionIds,
+            ),
+          ],
           const SizedBox(height: Spacing.lg),
           Row(
             children: [

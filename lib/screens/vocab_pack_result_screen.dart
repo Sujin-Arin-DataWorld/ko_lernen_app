@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/content_feedback.dart';
 import '../services/pack_progress_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
@@ -28,6 +30,9 @@ import '../widgets/sori/tokens.dart';
 ///   - `quizTotal`: int
 ///   - `justCleared`: bool
 ///   - `nextUnlockedPackId`: String?
+///   - `completionId`: String
+///   - `packLevel`: String
+///   - `feedbackContext`: ContentFeedbackContext
 class VocabPackResultScreen extends StatelessWidget {
   final String packId;
   final double bossAccuracy;
@@ -37,6 +42,9 @@ class VocabPackResultScreen extends StatelessWidget {
   final int quizTotal;
   final bool justCleared;
   final String? nextUnlockedPackId;
+  final String? completionId;
+  final String? packLevel;
+  final ContentFeedbackContext? feedbackContext;
 
   const VocabPackResultScreen({
     super.key,
@@ -48,6 +56,9 @@ class VocabPackResultScreen extends StatelessWidget {
     required this.quizTotal,
     required this.justCleared,
     required this.nextUnlockedPackId,
+    this.completionId,
+    this.packLevel,
+    this.feedbackContext,
   });
 
   /// Factory aus Navigator-args. Falls Map fehlt → defaults.
@@ -62,6 +73,9 @@ class VocabPackResultScreen extends StatelessWidget {
       quizTotal: (m['quizTotal'] as num?)?.toInt() ?? 0,
       justCleared: m['justCleared'] as bool? ?? false,
       nextUnlockedPackId: m['nextUnlockedPackId'] as String?,
+      completionId: m['completionId'] as String?,
+      packLevel: m['packLevel'] as String?,
+      feedbackContext: m['feedbackContext'] as ContentFeedbackContext?,
     );
   }
 
@@ -73,6 +87,7 @@ class VocabPackResultScreen extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final title = VocabPackService.displayLabel(packId);
     final motif = motifForPackId(packId);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -86,7 +101,7 @@ class VocabPackResultScreen extends StatelessWidget {
         child: SoriCenterClamp(
           child: Padding(
             padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
+            child: ListView(
               children: [
                 const SizedBox(height: Spacing.md),
                 Text(
@@ -183,7 +198,18 @@ class VocabPackResultScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Spacer(),
+                if (feedbackContext != null &&
+                    feedbackScope != null &&
+                    feedbackScope.featureGate.isEnabled) ...[
+                  const SizedBox(height: Spacing.xl),
+                  ContentFeedbackCard(
+                    feedbackContext: feedbackContext!,
+                    featureGate: feedbackScope.featureGate,
+                    submitFeedback: feedbackScope.submitFeedback,
+                    completedMissionIds: feedbackScope.completedMissionIds,
+                  ),
+                ],
+                const SizedBox(height: Spacing.xl),
                 if (_cleared && nextUnlockedPackId != null)
                   SoriEntrance(
                     delay: const Duration(milliseconds: 920),

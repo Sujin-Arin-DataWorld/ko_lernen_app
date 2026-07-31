@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/premium_service.dart';
 import '../services/scenario_loader.dart';
@@ -16,6 +17,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
@@ -58,6 +60,15 @@ List<ScenarioStage> buildScenarioStagePlan({
   ];
 }
 
+/// Preserves the scenario result contract: persist once, then navigate.
+Future<void> runScenarioResultAction({
+  required Future<void> Function() persistResult,
+  required Future<void> Function() navigate,
+}) async {
+  await persistResult();
+  await navigate();
+}
+
 class ScenarioPlayerScreen extends StatefulWidget {
   final String scenarioId;
 
@@ -85,6 +96,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
   // review).
   final Set<int> _failedQuestIndices = <int>{};
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _stageAreaKey = GlobalKey();
@@ -204,6 +216,22 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final nextNeedsCompletion =
         nextKind == ScenarioStage.quest ||
         nextKind == ScenarioStage.rollenspiel;
+    if (nextKind == ScenarioStage.result) {
+      final sc = _scenario;
+      if (sc != null) {
+        final lang = Localizations.localeOf(context).languageCode;
+        _feedbackCompletion.complete(
+          () => FeedbackCompletion.scenario(
+            scenarioId: sc.id,
+            contentLabel: sc.title.pick(lang),
+            level: sc.level.display,
+            passed: _passedCount,
+            firstTryPassed: _firstTryPassedCount,
+            total: sc.quests.length,
+          ),
+        );
+      }
+    }
     setState(() {
       _stage = nextStage;
       _questReady = !nextNeedsCompletion;
@@ -290,17 +318,25 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Future<void> _complete(int stars, int earnedXp) async {
-    await _persistResult(stars, earnedXp);
-    if (mounted) Navigator.pop(context);
+    await runScenarioResultAction(
+      persistResult: () => _persistResult(stars, earnedXp),
+      navigate: () async {
+        if (mounted) Navigator.pop(context);
+      },
+    );
   }
 
   Future<void> _openNext(int stars, int earnedXp, String nextId) async {
-    await _persistResult(stars, earnedXp);
-    if (mounted) {
-      Navigator.of(
-        context,
-      ).pushReplacementNamed('/scenario', arguments: nextId);
-    }
+    await runScenarioResultAction(
+      persistResult: () => _persistResult(stars, earnedXp),
+      navigate: () async {
+        if (mounted) {
+          Navigator.of(
+            context,
+          ).pushReplacementNamed('/scenario', arguments: nextId);
+        }
+      },
+    );
   }
 
   /// Nächstes empfohlenes Szenario im aktuellen Level.
@@ -783,6 +819,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   Widget _buildResult(AppL10n t, String lang) {
     final sc = _scenario!;
     final ss = SoriSurfaces.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final stars = _starsFor(
       _passedCount,
       _firstTryPassedCount,
@@ -962,6 +999,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   ),
                 ],
               ),
+            ),
+            const SizedBox(height: Spacing.xl),
+          ],
+
+          if (_feedbackCompletion.current != null &&
+              feedbackScope != null &&
+              feedbackScope.featureGate.isEnabled) ...[
+            ContentFeedbackCard(
+              feedbackContext: _feedbackCompletion.current!.context,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              mascotKind: mascotKind,
+              completedMissionIds: feedbackScope.completedMissionIds,
             ),
             const SizedBox(height: Spacing.xl),
           ],

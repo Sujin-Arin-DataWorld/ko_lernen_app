@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../models/smalltalk.dart';
 import '../models/vocab.dart';
 import '../services/review_deck_service.dart';
@@ -14,6 +15,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
@@ -23,6 +25,13 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/wordbook_add.dart';
+
+String? unambiguousReviewLevel(Iterable<String> deckLevels) {
+  const supported = {'A1', 'A2', 'B1', 'B2'};
+  final levels = deckLevels.map((level) => level.trim().toUpperCase()).toSet();
+  if (levels.length != 1 || !supported.contains(levels.single)) return null;
+  return levels.single;
+}
 
 /// **Review Session (M2)** — "Heute lernen / 오늘의 학습".
 ///
@@ -35,6 +44,8 @@ class ReviewSessionScreen extends StatefulWidget {
   /// lädt selbst die heute fälligen SRS-Karten (Standard "Heute lernen").
   final List<Vocab>? deck;
   final String? title;
+  final String feedbackContentId;
+  final String? feedbackContentLabel;
 
   /// M5: optionaler Small-talk-Satz, der am Kursende als "한마디" gezeigt wird.
   final SmalltalkPhrase? bonusPhrase;
@@ -43,6 +54,8 @@ class ReviewSessionScreen extends StatefulWidget {
     this.deck,
     this.title,
     this.bonusPhrase,
+    this.feedbackContentId = 'today_review',
+    this.feedbackContentLabel,
   });
 
   @override
@@ -57,6 +70,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   bool _flipped = false;
   int _reviewed = 0;
   bool _done = false;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
@@ -129,12 +143,28 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   Vocab get _card => _deck[_idx];
 
+  String? get _unambiguousDeckLevel {
+    return unambiguousReviewLevel(_deck.map((word) => word.level));
+  }
+
   void _answer(bool gotIt) {
     // 답변 순간 촉각 피드백 — 맞으면 강하게, 틀리면 가볍게.
     gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
     Storage.srsReview(_card.korean, gotIt: gotIt);
     _reviewed++;
     if (_idx + 1 >= _deck.length) {
+      _feedbackCompletion.complete(
+        () => FeedbackCompletion.review(
+          contentId: widget.feedbackContentId,
+          contentLabel:
+              widget.feedbackContentLabel ??
+              widget.title ??
+              AppL10n.of(context).reviewTitle,
+          level: _unambiguousDeckLevel,
+          reviewed: _reviewed,
+          total: _deck.length,
+        ),
+      );
       Storage.addXp(_reviewed * 2);
       setState(() => _done = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -200,7 +230,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   Widget _buildDone(AppL10n t, SoriSurfaces s) {
     final tt = SoriTextTheme.of(context);
-    return Center(
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
+    return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(Spacing.xl),
         child: Column(
@@ -267,6 +298,17 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ),
                   ],
                 ),
+              ),
+            ],
+            if (_feedbackCompletion.current != null &&
+                feedbackScope != null &&
+                feedbackScope.featureGate.isEnabled) ...[
+              const SizedBox(height: Spacing.xl),
+              ContentFeedbackCard(
+                feedbackContext: _feedbackCompletion.current!.context,
+                featureGate: feedbackScope.featureGate,
+                submitFeedback: feedbackScope.submitFeedback,
+                completedMissionIds: feedbackScope.completedMissionIds,
               ),
             ],
             const SizedBox(height: Spacing.xl),

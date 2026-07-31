@@ -212,6 +212,8 @@ class _HardWordsScreenState extends State<HardWordsScreen>
                         builder: (_) => ReviewSessionScreen(
                           deck: _hard,
                           title: t.hardWordsTitle,
+                          feedbackContentId: 'hard_words',
+                          feedbackContentLabel: t.hardWordsTitle,
                         ),
                       ),
                     );

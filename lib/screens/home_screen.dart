@@ -329,6 +329,8 @@ class _HomeScreenState extends State<HomeScreen> {
           deck: deck,
           title: t.homeCourseTitle,
           bonusPhrase: bonus.isNotEmpty ? bonus.first : null,
+          feedbackContentId: 'personalized_course',
+          feedbackContentLabel: t.homeCourseTitle,
         ),
       ),
     );
