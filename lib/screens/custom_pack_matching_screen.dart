@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -46,6 +47,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
   // ── 코치마크 타겟 ──
   final GlobalKey _boardKey = GlobalKey();
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   @override
   String get coachId => 'cpMatching';
@@ -103,6 +105,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _selLeft = null;
     _wrongRight = null;
     _misses = 0;
+    _feedbackCompletion.reset();
   }
 
   void _tapLeft(int i) {
@@ -142,6 +145,14 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   }
 
   Future<void> _finish() async {
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.customPackMatching(
+        packId: widget.packId,
+        contentLabel: _pack!.displayName(),
+        pairs: _matched.length,
+        misses: _misses,
+      ),
+    );
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
     final xp = _misses == 0 ? _round.length * 4 : _round.length * 3;
     await recordGameResult(gameId: 'cp_matching', xp: xp);
@@ -268,6 +279,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     return GameOverCard(
       headline: t.wbMatchingDone,
       scoreLabel: t.wbMatchingDoneBody,
+      feedbackContext: _feedbackCompletion.current?.context,
       xpGained: _round.length * 4,
       mascotKind: MascotKind.magpie,
       mascotEmotion: MascotEmotion.celebrate,

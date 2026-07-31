@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../services/cloze_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -57,6 +58,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   String? _picked;
   GameOutcome? _outcome;
   int _streak = 0;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   @override
   void initState() {
@@ -103,6 +105,14 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   }
 
   Future<void> _finish() async {
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.dailyChallenge(
+        contentLabel: AppL10n.of(context).dailyTitle,
+        finishedAt: DateTime.now(),
+        correct: _score,
+        total: _round.length,
+      ),
+    );
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     // Bonus nur beim ERSTEN Abschluss heute (kein Doppel-Bonus beim Üben).
     final firstToday = !Storage.dailyChallengeDoneToday();
@@ -285,6 +295,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
           child: GameOverCard(
             headline: t.quizResultTitle,
             scoreLabel: t.quizScore(_score, _round.length),
+            feedbackContext: _feedbackCompletion.current?.context,
             // tatsächlich gutgeschriebener Wert (eine Quelle der Wahrheit).
             xpGained: _outcome?.xpGained ?? (_score * 5),
             // echter Genauigkeits-Rekord (vom recordGameResult), nicht der Streak.

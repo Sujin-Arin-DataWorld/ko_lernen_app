@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../services/satz_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
@@ -39,6 +40,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   int _idx = 0;
   int _passed = 0;
   GameOutcome? _outcome;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   @override
   void initState() {
@@ -69,6 +71,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       _idx = 0;
       _passed = 0;
       _outcome = null;
+      _feedbackCompletion.reset();
     });
   }
 
@@ -98,6 +101,14 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   }
 
   Future<void> _finish() async {
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.satzArcade(
+        contentLabel: AppL10n.of(context).satzArcadeTitle,
+        level: _level,
+        passed: _passed,
+        total: _round.length,
+      ),
+    );
     final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
     final outcome = await recordGameResult(
       gameId: 'satz_arcade',
@@ -232,6 +243,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
           child: GameOverCard(
             headline: t.quizResultTitle,
             scoreLabel: t.quizScore(_passed, _round.length),
+            feedbackContext: _feedbackCompletion.current?.context,
             xpGained: _outcome?.xpGained ?? (_passed * 5),
             isNewBest: _outcome?.isNewBest ?? false,
             newBestLabel: t.gameNewBest,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../services/cloze_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -44,6 +45,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   int _score = 0;
   String? _picked;
   GameOutcome? _outcome;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   @override
   void initState() {
@@ -76,6 +78,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       _score = 0;
       _picked = null;
       _outcome = null;
+      _feedbackCompletion.reset();
     });
   }
 
@@ -108,6 +111,14 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   }
 
   Future<void> _finish() async {
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.cloze(
+        contentLabel: AppL10n.of(context).clozeTitle,
+        level: _level,
+        correct: _score,
+        total: _round.length,
+      ),
+    );
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     final outcome = await recordGameResult(
       gameId: 'cloze',
@@ -311,6 +322,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
           child: GameOverCard(
             headline: t.quizResultTitle,
             scoreLabel: t.quizScore(_score, _round.length),
+            feedbackContext: _feedbackCompletion.current?.context,
             xpGained: _score * 5,
             isNewBest: _outcome?.isNewBest ?? false,
             newBestLabel: t.gameNewBest,

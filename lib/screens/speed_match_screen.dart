@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
@@ -54,6 +55,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   Timer? _timer;
   bool _running = false;
   GameOutcome? _outcome;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   @override
   void initState() {
@@ -110,6 +112,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
       _selLeftKo = null;
       _wrongRightKo = null;
       _outcome = null;
+      _feedbackCompletion.reset();
       _running = _active.length >= 2;
       _reshuffleRight();
     });
@@ -175,6 +178,13 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
     if (!_running) return;
     _timer?.cancel();
     _running = false;
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.speedMatch(
+        contentLabel: AppL10n.of(context).speedMatchTitle,
+        level: _level,
+        score: _score,
+      ),
+    );
     HapticFeedback.heavyImpact();
     final outcome = await recordGameResult(
       gameId: 'speed_match',
@@ -365,6 +375,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
           child: GameOverCard(
             headline: t.quizResultTitle,
             scoreLabel: t.speedMatchScore(_score),
+            feedbackContext: _feedbackCompletion.current?.context,
             xpGained: _score * 3,
             isNewBest: _outcome?.isNewBest ?? false,
             newBestLabel: t.gameNewBest,

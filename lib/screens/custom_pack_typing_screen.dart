@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -40,6 +41,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   int _score = 0;
   bool? _correct; // null = 미제출
   GameOutcome? _outcome;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _inputKey = GlobalKey();
@@ -118,6 +120,14 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   }
 
   Future<void> _finish() async {
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.customPackTyping(
+        packId: widget.packId,
+        contentLabel: _pack!.displayName(),
+        correct: _score,
+        total: _order.length,
+      ),
+    );
     final pct = ((_score / _order.length) * 100).round();
     final outcome = await recordGameResult(
       gameId: 'cp_typing',
@@ -294,6 +304,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
           child: GameOverCard(
             headline: t.quizResultTitle,
             scoreLabel: t.quizScore(_score, _order.length),
+            feedbackContext: _feedbackCompletion.current?.context,
             xpGained: _score * 5,
             isNewBest: _outcome?.isNewBest ?? false,
             newBestLabel: t.gameNewBest,
@@ -317,6 +328,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
                   _score = 0;
                   _correct = null;
                   _outcome = null;
+                  _feedbackCompletion.reset();
                   _input.clear();
                 }),
               ),

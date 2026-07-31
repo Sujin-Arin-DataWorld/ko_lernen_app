@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
+import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -45,6 +46,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   List<String> _options = const [];
   String? _picked; // 선택한 답 (null = 미선택)
   GameOutcome? _outcome;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _optionsKey = GlobalKey();
@@ -131,6 +133,14 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   Future<void> _finish() async {
+    _feedbackCompletion.complete(
+      () => FeedbackCompletion.customPackQuiz(
+        packId: widget.packId,
+        contentLabel: _pack!.displayName(),
+        correct: _score,
+        total: _order.length,
+      ),
+    );
     final pct = ((_score / _order.length) * 100).round();
     final outcome = await recordGameResult(
       gameId: 'cp_quiz',
@@ -146,6 +156,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       _qIdx = 0;
       _score = 0;
       _outcome = null;
+      _feedbackCompletion.reset();
       _buildOptions();
     });
   }
@@ -301,6 +312,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
           child: GameOverCard(
             headline: t.quizResultTitle,
             scoreLabel: t.quizScore(_score, _order.length),
+            feedbackContext: _feedbackCompletion.current?.context,
             xpGained: _score * 4,
             isNewBest: _outcome?.isNewBest ?? false,
             newBestLabel: t.gameNewBest,
