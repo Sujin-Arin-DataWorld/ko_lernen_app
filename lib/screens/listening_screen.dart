@@ -500,7 +500,7 @@ class _LineCard extends StatelessWidget {
       line.speaker,
       size: 56,
       emotion: MascotEmotion.smile,
-      animate: true,
+      animate: false,
     );
 
     return SoriCard(

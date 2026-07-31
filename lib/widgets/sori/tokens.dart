@@ -398,7 +398,7 @@ class SoriTextTheme {
     height: 1.45,
   );
   TextStyle get bodySmall => _base(
-    fontSize: 13.5,
+    fontSize: 14,
     weight: FontWeight.w500,
     letterSpacing: -0.05,
     height: 1.4,
@@ -407,14 +407,14 @@ class SoriTextTheme {
 
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(
-    fontSize: 12,
+    fontSize: 12.5,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.35,
     color: _s.textMuted,
   );
   TextStyle get label => _base(
-    fontSize: 12.5,
+    fontSize: 13,
     weight: FontWeight.w700,
     letterSpacing: 0.2,
     height: 1.2,
@@ -428,7 +428,7 @@ class SoriTextTheme {
     height: 1.3,
   );
   TextStyle get cardSubtitle => _base(
-    fontSize: 11.5,
+    fontSize: 12,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.35,

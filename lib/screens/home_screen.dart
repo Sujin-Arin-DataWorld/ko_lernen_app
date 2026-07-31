@@ -1460,11 +1460,6 @@ class _TodayScenarioCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              _ScenarioAvatar(
-                emoji: scenario!.emoji,
-                sidekick: scenario!.sidekick,
-              ),
-              const SizedBox(width: Spacing.md),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1474,7 +1469,7 @@ class _TodayScenarioCard extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'Pretendard',
                         color: SoriColors.primary,
-                        fontSize: 11,
+                        fontSize: 12,
                         fontWeight: FontWeight.w800,
                         letterSpacing: 0.3,
                       ),
@@ -1484,7 +1479,7 @@ class _TodayScenarioCard extends StatelessWidget {
                       title,
                       style: SoriTextTheme.of(
                         context,
-                      ).h3.copyWith(fontWeight: FontWeight.w800),
+                      ).h3.copyWith(fontWeight: FontWeight.w800, fontSize: 19),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -1507,7 +1502,7 @@ class _TodayScenarioCard extends StatelessWidget {
                             style: const TextStyle(
                               fontFamily: 'Pretendard',
                               color: SoriColors.primary,
-                              fontSize: 10,
+                              fontSize: 11,
                               fontWeight: FontWeight.w900,
                               letterSpacing: 0.4,
                             ),
@@ -1558,7 +1553,7 @@ class _TodayScenarioCard extends StatelessWidget {
                         fontFamily: 'Pretendard',
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
-                        fontSize: 13,
+                        fontSize: 15,
                       ),
                     ),
                     const SizedBox(width: 4),
@@ -1574,35 +1569,6 @@ class _TodayScenarioCard extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _ScenarioAvatar extends StatelessWidget {
-  final String emoji;
-  final String? sidekick;
-  const _ScenarioAvatar({required this.emoji, this.sidekick});
-
-  @override
-  Widget build(BuildContext context) {
-    final mascot = Mascot.forSpeaker(
-      sidekick ?? '',
-      size: 60,
-      emotion: MascotEmotion.smile,
-      animate: true,
-    );
-    if (mascot != null) {
-      return SizedBox(width: 60, height: 60, child: mascot);
-    }
-    return Container(
-      width: 60,
-      height: 60,
-      decoration: BoxDecoration(
-        color: SoriColors.primary.withValues(alpha: 0.18),
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-      ),
-      alignment: Alignment.center,
-      child: Text(emoji, style: const TextStyle(fontSize: 30)),
     );
   }
 }

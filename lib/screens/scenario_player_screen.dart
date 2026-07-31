@@ -822,7 +822,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               kind: mascotKind,
               emotion: mascotEmotion,
               size: 120,
-              animate: true,
+              animate: false,
             ),
           ),
           const SizedBox(height: Spacing.lg),
@@ -1256,9 +1256,9 @@ class _ScenarioIntroArt extends StatelessWidget {
           sidekick ?? '',
           size: 72,
           emotion: MascotEmotion.smile,
-          animate: true,
+          animate: false,
         ) ??
-        Mascot.tiger(emotion: MascotEmotion.smile, size: 72, animate: true);
+        Mascot.tiger(emotion: MascotEmotion.smile, size: 72, animate: false);
 
     // Backdrop만 표시 (호랑이 없이 — 배경 자체가 시각적 focal point)
     if (posterAsset == null) {

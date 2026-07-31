@@ -135,7 +135,7 @@ class _QuizChoiceState extends State<QuizChoice>
                 Text(
                   widget.text,
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 17,
                     fontWeight: FontWeight.w600,
                     color: fg,
                   ),
@@ -145,7 +145,7 @@ class _QuizChoiceState extends State<QuizChoice>
                   const SizedBox(height: 2),
                   Text(
                     widget.subtitle!,
-                    style: TextStyle(fontSize: 12, color: s.textMuted),
+                    style: TextStyle(fontSize: 13, color: s.textMuted),
                   ),
                 ],
               ],

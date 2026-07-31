@@ -39,7 +39,7 @@ class _MotivationSheetBody extends StatelessWidget {
           child: Mascot.tiger(
             size: 68,
             emotion: MascotEmotion.smile,
-            animate: true,
+            animate: false,
           ),
         ),
         const SizedBox(height: Spacing.sm),

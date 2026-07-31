@@ -308,7 +308,7 @@ class _TigerWelcome extends StatelessWidget {
               child: Mascot.tiger(
                 size: 170,
                 emotion: MascotEmotion.smile,
-                animate: true,
+                animate: false,
               ),
             ),
             // Speech bubble

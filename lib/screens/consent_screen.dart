@@ -84,7 +84,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
                           child: Mascot.tiger(
                             size: 104,
                             emotion: MascotEmotion.smile,
-                            animate: true,
+                            animate: false,
                           ),
                         ),
                         const SizedBox(height: 20),

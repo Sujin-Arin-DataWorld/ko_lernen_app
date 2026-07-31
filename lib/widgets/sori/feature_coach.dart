@@ -61,7 +61,7 @@ class _FeatureCoachSheet extends StatelessWidget {
         const Mascot.tiger(
           size: 88,
           emotion: MascotEmotion.smile,
-          animate: true,
+          animate: false,
         ),
         const SizedBox(height: 12),
 

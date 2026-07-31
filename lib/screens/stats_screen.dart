@@ -145,12 +145,12 @@ class _StatsScreenState extends State<StatsScreen>
                       Positioned(
                         left: 20,
                         bottom: 0,
-                        child: Mascot.tiger(size: 156, animate: true),
+                        child: Mascot.tiger(size: 156, animate: false),
                       ),
                       Positioned(
                         right: 18,
                         top: 10,
-                        child: Mascot.magpie(size: 86, animate: true),
+                        child: Mascot.magpie(size: 86, animate: false),
                       ),
                     ],
                   ),
