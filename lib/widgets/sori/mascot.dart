@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import 'tokens.dart';
+
 /// Sori mascot widget backed by separated tiger and magpie pose PNGs.
 ///
 /// The public API stays compatible with the older combined welcome-hero based
@@ -124,7 +126,14 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    if (widget.animate) _startMotion();
+    // Motion is started in didChangeDependencies once MediaQuery is available —
+    // starting the ticker here would ignore the OS "reduce motion" setting.
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _syncMotion();
   }
 
   void _startMotion() {
@@ -134,15 +143,24 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
     )..repeat();
   }
 
-  @override
-  void didUpdateWidget(covariant Mascot old) {
-    super.didUpdateWidget(old);
-    if (widget.animate && _motion == null) {
+  /// Runs the idle ticker only when the caller asked for motion AND the OS
+  /// "reduce motion" accessibility setting is off (WCAG 2.3.3). Reduce-motion →
+  /// no ticker → static pose. Called from didChangeDependencies + didUpdateWidget
+  /// so both widget.animate flips and MediaQuery changes are honoured.
+  void _syncMotion() {
+    final wantMotion = widget.animate && !SoriMotion.reduceMotion(context);
+    if (wantMotion && _motion == null) {
       _startMotion();
-    } else if (!widget.animate && _motion != null) {
+    } else if (!wantMotion && _motion != null) {
       _motion!.dispose();
       _motion = null;
     }
+  }
+
+  @override
+  void didUpdateWidget(covariant Mascot old) {
+    super.didUpdateWidget(old);
+    _syncMotion();
   }
 
   @override
@@ -151,13 +169,15 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  String _assetFor(double t) {
+  String _assetFor(double t, {required bool animating}) {
     if (_isMagpie) {
       switch (widget.emotion) {
         case MascotEmotion.celebrate:
           // animate 시 축하↔춤 교대로 신나는 분위기, 정지 시 축하 포즈.
-          if (widget.animate) {
-            return math.sin(t * math.pi * 4) >= 0 ? _magpieCelebrate : _magpieDance;
+          if (animating) {
+            return math.sin(t * math.pi * 4) >= 0
+                ? _magpieCelebrate
+                : _magpieDance;
           }
           return _magpieCelebrate;
         case MascotEmotion.worry:
@@ -169,13 +189,13 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
         case MascotEmotion.surprised:
           return _magpieSing;
         case MascotEmotion.neutral:
-          if (widget.animate) {
+          if (animating) {
             final flap = math.sin(t * math.pi * 10);
             return flap >= 0 ? _magpieWingUp : _magpieWingDown;
           }
           return _magpiePerched;
         case MascotEmotion.smile:
-          if (widget.animate) {
+          if (animating) {
             final flap = math.sin(t * math.pi * 10);
             return flap >= 0 ? _magpieWingUp : _magpieWingDown;
           }
@@ -196,14 +216,14 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
         return _tigerSurprised;
       case MascotEmotion.smile:
         // 부드러운 미소 — animate 시 깜빡임 + 가끔 idle 프레임으로 다양성.
-        if (widget.animate) {
+        if (animating) {
           if (t > 0.82 && t < 0.90) return _tigerBlink;
           if (t > 0.40 && t < 0.46) return _tigerIdle;
         }
         return _tigerSmile;
       case MascotEmotion.neutral:
         // 중립 정면 — animate 시 가끔 깜빡임 + idle 프레임 교차.
-        if (widget.animate) {
+        if (animating) {
           if (t > 0.82 && t < 0.90) return _tigerBlink;
           if (t > 0.40 && t < 0.46) return _tigerIdle;
         }
@@ -229,10 +249,10 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final motion = _motion;
     final pose = motion == null
-        ? _buildPose(0)
+        ? _buildPose(0, animating: false)
         : AnimatedBuilder(
             animation: motion,
-            builder: (_, __) => _buildPose(motion.value),
+            builder: (_, __) => _buildPose(motion.value, animating: true),
           );
 
     return Semantics(
@@ -256,16 +276,16 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildPose(double t) {
+  Widget _buildPose(double t, {required bool animating}) {
     final wave = math.sin(t * math.pi * 2);
-    final bob = _isMagpie && widget.animate ? wave * widget.size * 0.035 : 0.0;
-    final scale = widget.animate && !_isMagpie ? 1.0 + (wave + 1) * 0.018 : 1.0;
-    final asset = _assetFor(t);
+    final bob = _isMagpie && animating ? wave * widget.size * 0.035 : 0.0;
+    final scale = animating && !_isMagpie ? 1.0 + (wave + 1) * 0.018 : 1.0;
+    final asset = _assetFor(t, animating: animating);
 
     // 호랑이: 프레임 전환(smile↔blink↔idle)을 150ms 크로스페이드로 부드럽게 →
     // 정면↔눈감기 하드컷 끊김 해소. ValueKey(asset)이 바뀔 때만 전환 발동.
     // 까치: 날갯짓이 빠른 교대(~5Hz)라 페이드하면 뭉개짐 → 즉시 교대 유지.
-    final framed = (_isMagpie || !widget.animate)
+    final framed = (_isMagpie || !animating)
         ? _img(asset)
         : AnimatedSwitcher(
             duration: const Duration(milliseconds: 150),
