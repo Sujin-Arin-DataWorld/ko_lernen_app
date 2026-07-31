@@ -324,7 +324,7 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
-### 2026-07-31 (프로필 선택 마스코트 랜덤 초상 + 자홍색 영상 원인) — 로컬 커밋 요청 · 푸시 미요청
+### 2026-07-31 (프로필 선택 마스코트 랜덤 초상 + 자홍색 영상 원인) — 로컬 커밋 `85f3ad6` · 푸시 미요청
 
 **범위:** Jin 요청 — 프로필이 사용자가 선택한 호랑이/까치를 표시하고, 지정된 기존 MP4 포즈 중 하나를 랜덤으로 표시. 프로필의 자홍색 영상 배경 원인도 코드·에셋 계약으로 진단.
 
@@ -336,7 +336,7 @@ flutter run -d <android-id>   # 안드로이드
 
 **검증:** TDD red 확인 — 신규 카탈로그 API 부재로 `character_clip_test` 컴파일 실패, 연결 계정 사진이 선택 까치를 덮는 기존 동작을 위젯 테스트로 실패 확인. 구현 후 `dart format` · 프로필/캐릭터 선택/Lernpfad 관련 9개 Dart 파일 `flutter analyze` **성공** · `flutter test test/character_clip_test.dart test/profile_screen_test.dart test/widgets/profile_screen_test.dart test/path_trail_tap_test.dart` **19 passed**. 전체 `flutter test`는 122초 도구 제한에서 출력 파이프가 닫혀 종료되어 전체 통과 증거는 아님. ⚠️ 실기기 미검증: Profile 탭 재진입 시 포즈 변화, 각 MP4의 구도, 순백 매트 재출력 후 자홍색 제거, 그리고 Redmi Note 10의 홈 영상↔프로필 영상 디코더 reclaim.
 
-**변경 파일:** `lib/screens/profile_screen.dart` · `lib/widgets/sori/character_clip.dart` · `test/character_clip_test.dart`(신규) · `test/profile_screen_test.dart` · `docs/superpowers/plans/2026-07-31-profile-character-randomization.md` · `AGENTS.md`. 로컬 커밋 요청됨 · 푸시 미요청.
+**변경 파일:** `lib/screens/profile_screen.dart` · `lib/widgets/sori/character_clip.dart` · `test/character_clip_test.dart`(신규) · `test/profile_screen_test.dart` · `docs/superpowers/plans/2026-07-31-profile-character-randomization.md` · `AGENTS.md`. 로컬 커밋 `85f3ad6` · 푸시 미요청.
 
 ### 2026-07-31 (문서 통합 — CLAUDE.md + memory → AGENTS.md SSoT) — 커밋 예정
 
