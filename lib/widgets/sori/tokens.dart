@@ -156,6 +156,18 @@ class SoriColors {
   static const Color primaryOnLight = primaryDark; // alias for clarity
   static const Color primaryOnDark = darkPrimary; // dark mode text-on-surface
 
+  /// `gold`·`tiger`는 **밝은** 계열이라 크림 배경 위 텍스트로 쓸 수 없다
+  /// (`gold` 2.4:1, `tiger` 2.1:1 — AA 4.5 미달). 아이콘/텍스트에는 아래
+  /// 다크 변형을, 채움(fill)에는 원래 색을 쓴다.
+  /// `#7A5810` on `lightBg` = 6.0:1, `#A8490B` on `lightBg` = 5.4:1.
+  static const Color goldOnLight = Color(0xFF7A5810);
+  static const Color tigerOnLight = Color(0xFFA8490B);
+
+  /// 반대로 `gold`·`tiger`를 **채움**으로 쓸 땐 그 위에 흰 글씨를 얹지 않는다
+  /// (흰 on tiger = 2.3:1). 먹색을 얹으면 7.2:1.
+  static const Color onTigerFill = lightText;
+  static const Color onGoldFill = lightText;
+
   // ── Celebration palette (입자/축하 모션 4색) ─────────────────────────
   // SoriCelebration._palette에서 사용. 외부 토큰화로 테마 변경 시 일관 유지.
   static const List<Color> celebrationPalette = [

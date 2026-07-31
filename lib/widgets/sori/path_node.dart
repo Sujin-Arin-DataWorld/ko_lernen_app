@@ -148,7 +148,8 @@ class PathNode extends StatelessWidget {
         style: const TextStyle(
           fontSize: 11,
           fontWeight: FontWeight.w800,
-          color: Colors.white,
+          // 흰 글씨 on tiger = 2.3:1 (AA 미달). 먹색이면 7.2:1.
+          color: SoriColors.onTigerFill,
           letterSpacing: 0.3,
         ),
       ),

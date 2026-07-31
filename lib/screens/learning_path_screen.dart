@@ -10,7 +10,7 @@ import '../services/premium_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
-import '../widgets/sori/path_node.dart';
+import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -201,15 +201,22 @@ class _LearningPathScreenState extends State<LearningPathScreen>
           ],
         ),
       ),
-      for (final e in g.packs)
-        PathNode(
-          key: e.pack.id == _nowPackId ? _nowNodeKey : null,
-          label: VocabPackService.displayLabel(e.pack.id, lang: lang),
-          status: e.progress.status,
-          fraction: e.progress.progressFraction,
-          isNow: e.pack.id == _nowPackId,
-          onTap: () => _openPack(e.pack, e.progress.status),
-        ),
+      // 지그재그 경로 — 팩을 하나도 빠뜨리지 않고 전부 노드로 만든다.
+      // (접거나 "+N개 더"로 숨기지 않음 → 모든 팩이 항상 탭 가능)
+      SoriPathTrail(
+        stops: [
+          for (final e in g.packs)
+            SoriPathStop(
+              id: e.pack.id,
+              label: VocabPackService.displayLabel(e.pack.id, lang: lang),
+              status: e.progress.status,
+              fraction: e.progress.progressFraction,
+              isNow: e.pack.id == _nowPackId,
+              nodeKey: e.pack.id == _nowPackId ? _nowNodeKey : null,
+              onTap: () => _openPack(e.pack, e.progress.status),
+            ),
+        ],
+      ),
       const SizedBox(height: Spacing.lg),
     ];
   }
