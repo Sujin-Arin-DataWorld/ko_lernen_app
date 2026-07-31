@@ -71,9 +71,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     with ScreenCoachMixin<ScenarioPlayerScreen> {
   Scenario? _scenario;
   List<ScenarioStage> _plan = const [];
-
-  /// 정답 순간 코인 burst를 띄우는 지속 까치 컴패니언(채점 단계에서만 상주).
-  final GlobalKey<_ScenarioBuddyState> _buddyKey = GlobalKey();
   int _stage = 0;
   int _firstTryPassedCount = 0;
   int _passedCount = 0;
@@ -230,15 +227,17 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (result.passed) _passedCount++;
     if (result.firstTry && result.passed) _firstTryPassedCount++;
     if (!result.passed) _failedQuestIndices.add(_currentQuestIndex);
-    if (result.passed) _buddyKey.currentState?.celebrate();
+    if (result.passed) _celebrateCorrect();
     setState(() => _questReady = true);
   }
 
-  /// 채점 단계(퀘스트·역할극)에서만 까치 컴패니언을 상주시킨다.
-  bool get _isGradedStage {
-    if (_stage < 0 || _stage >= _plan.length) return false;
-    final k = _plan[_stage];
-    return k == ScenarioStage.quest || k == ScenarioStage.rollenspiel;
+  /// 정답 순간 — 화면 중앙에 엽전·복주머니 코인 burst. post-frame + 화면 State의
+  /// 안정적 context로 호출한다(이벤트 콜백에서 동기 호출 시 InheritedWidget 의존성
+  /// 오염 → _dependents.isEmpty. _next()의 검증된 안전 패턴과 동일).
+  void _celebrateCorrect() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) SoriCelebration.coins(context);
+    });
   }
 
   // ─── Stern-Berechnung ──────────────────────────────────────────────────────
@@ -1087,7 +1086,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     return _RollenspielStage(
       scenario: _scenario!,
       lang: lang,
-      onCorrect: () => _buddyKey.currentState?.celebrate(),
+      onCorrect: _celebrateCorrect,
       onDone: () {
         if (mounted) setState(() => _questReady = true);
       },
@@ -1184,13 +1183,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                 ],
               ),
             ),
-            // 채점 단계에서만 상주하는 까치 컴패니언 — 정답마다 날갯짓 + 코인 burst.
-            if (_isGradedStage)
-              Positioned(
-                top: Spacing.sm,
-                right: Spacing.md,
-                child: _ScenarioBuddy(key: _buddyKey),
-              ),
           ],
         ),
       ),
@@ -1199,66 +1191,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 }
 
 // ─── Hilfs-Widgets ─────────────────────────────────────────────────────────
-
-/// 시나리오 플레이 중 우상단에 상주하는 까치 컴패니언.
-/// [_ScenarioBuddyState.celebrate] 호출 시 짧게 팡 튀며 엽전/복 코인 burst를
-/// 자기 위치에서 띄운다. 채점 단계(퀘스트·역할극)에서만 마운트된다.
-class _ScenarioBuddy extends StatefulWidget {
-  const _ScenarioBuddy({super.key});
-
-  @override
-  State<_ScenarioBuddy> createState() => _ScenarioBuddyState();
-}
-
-class _ScenarioBuddyState extends State<_ScenarioBuddy>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _pop;
-
-  @override
-  void initState() {
-    super.initState();
-    _pop = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 440),
-    );
-  }
-
-  @override
-  void dispose() {
-    _pop.dispose();
-    super.dispose();
-  }
-
-  /// 정답 순간 — 까치 팝 스케일 + 코인 burst(까치 중심 기준).
-  void celebrate() {
-    if (!mounted) return;
-    if (!SoriMotion.reduceMotion(context)) {
-      _pop.forward(from: 0);
-    }
-    final box = context.findRenderObject() as RenderBox?;
-    final origin = (box != null && box.hasSize)
-        ? box.localToGlobal(box.size.center(Offset.zero))
-        : null;
-    SoriCelebration.coins(context, origin: origin);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _pop,
-      builder: (_, child) {
-        final scale = 1.0 + math.sin(_pop.value * math.pi) * 0.28;
-        return Transform.scale(scale: scale, child: child);
-      },
-      child: Mascot(
-        kind: MascotKind.magpie,
-        emotion: MascotEmotion.smile,
-        size: 60,
-        animate: true,
-      ),
-    );
-  }
-}
 
 class _StageScroll extends StatelessWidget {
   final Widget child;
