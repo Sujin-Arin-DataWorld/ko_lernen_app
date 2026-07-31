@@ -47,7 +47,8 @@ class _ListeningScreenState extends State<ListeningScreen>
   double _rate = 1.0; // 0.75 / 1.0 / 1.25 — TTS speech rate multiplier
   _SubMode _subs = _SubMode.both;
   bool _completed = false;
-  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  final ListeningFeedbackCompletionState _feedbackCompletion =
+      ListeningFeedbackCompletionState();
 
   // ── 코치마크 타겟 ──
   final GlobalKey _scenarioChipKey = GlobalKey();
@@ -164,8 +165,11 @@ class _ListeningScreenState extends State<ListeningScreen>
     final sc = _selected;
     if (sc == null) return;
     final lang = Localizations.localeOf(context).languageCode;
-    _feedbackCompletion.complete(
-      () => FeedbackCompletion.listening(
+    HapticFeedback.heavyImpact();
+    final earned = (sc.dialog.length * 8).clamp(40, 120);
+    final completion = await _feedbackCompletion.finish(
+      persistXp: () => Storage.addXp(earned),
+      create: () => FeedbackCompletion.listening(
         scenarioId: sc.id,
         contentLabel: sc.title.pick(lang),
         level: sc.level.display,
@@ -173,10 +177,7 @@ class _ListeningScreenState extends State<ListeningScreen>
         rate: _rate,
       ),
     );
-    HapticFeedback.heavyImpact();
-    final earned = (sc.dialog.length * 8).clamp(40, 120);
-    await Storage.addXp(earned);
-    if (!mounted) return;
+    if (!mounted || completion == null) return;
     setState(() => _completed = true);
   }
 

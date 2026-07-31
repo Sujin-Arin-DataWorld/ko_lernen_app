@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/feedback_completion.dart';
 import 'package:ko_lernen_app/screens/review_session_screen.dart';
@@ -112,6 +114,32 @@ void main() {
     expect(first.context.scoreSummary, 'lines:6; rate:1.25x');
     expect(replay.context.completionId, 'listening-2');
     expect(replay.context.scoreSummary, 'lines:6; rate:0.75x');
+  });
+
+  test('listening ignores a stale finish after scenario reset', () async {
+    final persistXp = Completer<void>();
+    final lifecycle = ListeningFeedbackCompletionState();
+
+    final oldFinish = lifecycle.finish(
+      persistXp: () => persistXp.future,
+      create: () => FeedbackCompletion.listening(
+        createId: () => 'old-completion',
+        scenarioId: 'station',
+        contentLabel: 'Am Bahnhof',
+        level: 'A2',
+        lines: 6,
+        rate: 1,
+      ),
+    );
+
+    expect(lifecycle.current?.context.completionId, 'old-completion');
+    lifecycle.reset();
+    expect(lifecycle.current, isNull);
+
+    persistXp.complete();
+
+    expect(await oldFinish, isNull);
+    expect(lifecycle.current, isNull);
   });
 
   test('review callers remain distinguishable without word-list data', () {

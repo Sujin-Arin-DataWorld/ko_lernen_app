@@ -16,6 +16,33 @@ class FeedbackCompletionSlot {
   void reset() => _current = null;
 }
 
+/// Guards a listening finish across its asynchronous XP persistence.
+class ListeningFeedbackCompletionState {
+  final FeedbackCompletionSlot _completion = FeedbackCompletionSlot();
+  int _generation = 0;
+
+  FeedbackCompletion? get current => _completion.current;
+
+  Future<FeedbackCompletion?> finish({
+    required Future<void> Function() persistXp,
+    required FeedbackCompletion Function() create,
+  }) async {
+    final generation = _generation;
+    final completion = _completion.complete(create);
+    await persistXp();
+    if (generation != _generation ||
+        !identical(_completion.current, completion)) {
+      return null;
+    }
+    return completion;
+  }
+
+  void reset() {
+    _generation++;
+    _completion.reset();
+  }
+}
+
 /// Immutable feedback context allocated once when a learning round finishes.
 class FeedbackCompletion {
   const FeedbackCompletion._(this.context);
