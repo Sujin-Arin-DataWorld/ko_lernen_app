@@ -505,7 +505,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       SoriEntrance(
                         delay: const Duration(milliseconds: 120),
                         slideY: 14,
-                        child: const _DailyGoalCard(),
+                        // ⚠️ const 로 두면 안 된다 — const 위젯은 부모 리빌드
+                        // 시 동일 canonical 인스턴스라 Flutter 가 rebuild 를
+                        // 건너뛴다. 그러면 팩 클리어로 XP 를 얻어도 Tagesziel
+                        // 카드가 첫 값(0)에 고정된다. xpToday/goal 을 인자로
+                        // 넘겨(부모 build 에서 fresh 읽기) 매번 갱신되게 한다.
+                        child: _DailyGoalCard(
+                          xpToday: Storage.xpToday,
+                          goal: Storage.dailyGoalXp,
+                        ),
                       ),
                       const SizedBox(height: Spacing.md),
 
@@ -1106,14 +1114,15 @@ class _BubbleTailPainter extends CustomPainter {
 // C2. Daily goal progress — 오늘 XP / 목표 (모멘텀·리텐션)
 // ════════════════════════════════════════════════════════════════════════
 class _DailyGoalCard extends StatelessWidget {
-  const _DailyGoalCard();
+  final int xpToday;
+  final int goal;
+  const _DailyGoalCard({required this.xpToday, required this.goal});
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final today = Storage.xpToday;
-    final goal = Storage.dailyGoalXp;
+    final today = xpToday;
     final done = goal > 0 && today >= goal;
     final ratio = goal > 0 ? (today / goal).clamp(0.0, 1.0) : 0.0;
     final accent = done ? SoriColors.success : SoriColors.tiger;
