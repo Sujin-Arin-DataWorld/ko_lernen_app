@@ -200,12 +200,6 @@ class _PreviewPage extends StatelessWidget {
   /// (videoReady && !reduce-motion일 때만; 그 외/실패 시 정지 이미지 유지).
   final String? videoAsset;
 
-  /// 호랑이 마스코트 포즈 (imageAsset == null일 때만 사용).
-  final MascotEmotion mascotEmotion;
-
-  /// page2 전용 — 불 아이콘 자리에 도깨비불 PNG(미존재 시 글로우 폴백).
-  final bool useDokkaebi;
-
   /// 가로로 넓은 일러스트(4:3 이상) → 높이 대신 화면 너비에 맞춰 키운다.
   final bool wide;
 
@@ -218,8 +212,6 @@ class _PreviewPage extends StatelessWidget {
     required this.index,
     this.imageAsset,
     this.videoAsset,
-    this.mascotEmotion = MascotEmotion.celebrate,
-    this.useDokkaebi = false,
     this.wide = false,
     required this.accentColor,
     required this.title,
@@ -323,55 +315,7 @@ class _PreviewPage extends StatelessWidget {
                                 animate: true,
                               ),
                             ),
-                          )
-                        else ...[
-                          Positioned(
-                            bottom: 0,
-                            left: 28,
-                            child: Mascot.tiger(
-                              size: 150,
-                              emotion: mascotEmotion,
-                              animate: true,
-                            ),
                           ),
-                          // 도깨비불 뱃지 — PNG, 미존재 시 불 아이콘 글로우 폴백
-                          if (useDokkaebi)
-                            Positioned(
-                              // 무대 높이가 커져도 호랑이 머리 옆에 붙어 있도록
-                              // 위쪽이 아니라 아래를 기준으로 배치한다.
-                              bottom: 108,
-                              right: 4,
-                              child: Image.asset(
-                                'assets/illustrations/decorations/dokkaebi_fire.png',
-                                width: 72,
-                                height: 72,
-                                fit: BoxFit.contain,
-                                filterQuality: FilterQuality.high,
-                                errorBuilder: (_, __, ___) => Container(
-                                  width: 56,
-                                  height: 56,
-                                  decoration: BoxDecoration(
-                                    color: accentColor,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: accentColor.withValues(
-                                          alpha: 0.45,
-                                        ),
-                                        blurRadius: 16,
-                                        offset: const Offset(0, 4),
-                                      ),
-                                    ],
-                                  ),
-                                  child: const Icon(
-                                    Icons.local_fire_department_rounded,
-                                    color: Colors.white,
-                                    size: 28,
-                                  ),
-                                ),
-                              ),
-                            ),
-                        ],
                       ],
                     ),
                   ),
