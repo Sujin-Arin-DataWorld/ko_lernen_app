@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -123,7 +125,23 @@ void main() {
     await _pumpUntil(tester, find.byType(TextField));
 
     final first = await _loseWordle(tester);
+    final answerText = tester.widget<Text>(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Text && widget.data?.startsWith('Answer: ') == true,
+      ),
+    );
+    final actualTarget = answerText.data!.substring('Answer: '.length);
+    final firstWire = first.feedbackContext.toWire();
+    for (final field in ['contentId', 'contentLabel', 'scoreSummary']) {
+      expect(
+        firstWire[field],
+        isNot(contains(actualTarget)),
+        reason: '$field must not contain the live Wordle target',
+      );
+    }
     expect(first.feedbackContext.contentId, 'wordle_daily');
+    expect(first.feedbackContext.contentLabel, 'Wordle');
     expect(first.feedbackContext.scoreSummary, 'result:loss; guesses:6');
 
     await tester.tap(find.text('New word').first);
@@ -194,6 +212,59 @@ void main() {
     );
     expect(card.feedbackContext.contentType, 'grammar_session');
     expect(card.feedbackContext.scoreSummary, 'seen:1');
+
+    final firstCompletionId = card.feedbackContext.completionId;
+    await _closeFeedbackResult(tester);
+    finish = tester.widget<SoriButton>(
+      find.byKey(const Key('grammar-finish-session')),
+    );
+    expect(finish.onTap, isNull);
+    expect(find.byType(ContentFeedbackCard), findsNothing);
+
+    tester
+        .widget<SoriButton>(
+          find.byWidgetPredicate(
+            (widget) => widget is SoriButton && widget.label == 'Got it',
+          ),
+        )
+        .onTap!();
+    await tester.pump();
+    finish = tester.widget<SoriButton>(
+      find.byKey(const Key('grammar-finish-session')),
+    );
+    expect(finish.onTap, isNotNull);
+    await tester.tap(find.byKey(const Key('grammar-finish-session')));
+    await tester.pump(const Duration(milliseconds: 500));
+    final secondCard = tester.widget<ContentFeedbackCard>(
+      find.byType(ContentFeedbackCard),
+    );
+    expect(secondCard.feedbackContext.completionId, isNot(firstCompletionId));
+  });
+
+  testWidgets('same-index Hangul random does not enable finish', (
+    tester,
+  ) async {
+    await _setLargeView(tester);
+    await tester.pumpWidget(
+      _wrap(HangulScreen(cardsRandom: _SameIndexRandom())),
+    );
+    tester.widget<TabBar>(find.byType(TabBar)).controller!.index = 1;
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    tester
+        .widget<SoriButton>(
+          find.byWidgetPredicate(
+            (widget) => widget is SoriButton && widget.label == 'Random',
+          ),
+        )
+        .onTap!();
+    await tester.pump();
+
+    final finish = tester.widget<SoriButton>(
+      find.byKey(const Key('hangul-cards-finish')),
+    );
+    expect(finish.onTap, isNull);
   });
 
   testWidgets('Hangul cards finish requires a view or flip interaction', (
@@ -225,6 +296,33 @@ void main() {
     );
     expect(card.feedbackContext.contentType, 'hangul_cards');
     expect(card.feedbackContext.level, isNull);
+
+    final firstCompletionId = card.feedbackContext.completionId;
+    await _closeFeedbackResult(tester);
+    finish = tester.widget<SoriButton>(
+      find.byKey(const Key('hangul-cards-finish')),
+    );
+    expect(finish.onTap, isNull);
+    expect(find.byType(ContentFeedbackCard), findsNothing);
+
+    tester
+        .widget<SoriButton>(
+          find.byWidgetPredicate(
+            (widget) => widget is SoriButton && widget.label == 'Next',
+          ),
+        )
+        .onTap!();
+    await tester.pump();
+    finish = tester.widget<SoriButton>(
+      find.byKey(const Key('hangul-cards-finish')),
+    );
+    expect(finish.onTap, isNotNull);
+    await tester.tap(find.byKey(const Key('hangul-cards-finish')));
+    await tester.pump(const Duration(milliseconds: 500));
+    final secondCard = tester.widget<ContentFeedbackCard>(
+      find.byType(ContentFeedbackCard),
+    );
+    expect(secondCard.feedbackContext.completionId, isNot(firstCompletionId));
   });
 
   testWidgets('Hangul writing finish requires a completed canvas stroke', (
@@ -242,17 +340,7 @@ void main() {
     expect(finish.onTap, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
-    final canvas = tester.widget<GestureDetector>(
-      find.byKey(const Key('hangul-practice-canvas')),
-    );
-    canvas.onPanStart!(
-      DragStartDetails(
-        globalPosition: Offset(10, 10),
-        localPosition: Offset(10, 10),
-      ),
-    );
-    canvas.onPanEnd!(DragEndDetails());
-    await tester.pump();
+    await _drawHangulStroke(tester);
 
     finish = tester.widget<SoriButton>(
       find.byKey(const Key('hangul-writing-finish')),
@@ -267,7 +355,52 @@ void main() {
     expect(card.feedbackContext.contentType, 'hangul_writing');
     expect(card.feedbackContext.scoreSummary, 'strokes:1');
     expect(card.feedbackContext.level, isNull);
+
+    final firstCompletionId = card.feedbackContext.completionId;
+    await _closeFeedbackResult(tester);
+    finish = tester.widget<SoriButton>(
+      find.byKey(const Key('hangul-writing-finish')),
+    );
+    expect(finish.onTap, isNull);
+    expect(find.byType(ContentFeedbackCard), findsNothing);
+
+    await _drawHangulStroke(tester);
+    finish = tester.widget<SoriButton>(
+      find.byKey(const Key('hangul-writing-finish')),
+    );
+    expect(finish.onTap, isNotNull);
+    await tester.tap(find.byKey(const Key('hangul-writing-finish')));
+    await tester.pump(const Duration(milliseconds: 500));
+    final secondCard = tester.widget<ContentFeedbackCard>(
+      find.byType(ContentFeedbackCard),
+    );
+    expect(secondCard.feedbackContext.completionId, isNot(firstCompletionId));
   });
+}
+
+Future<void> _closeFeedbackResult(WidgetTester tester) async {
+  tester
+      .widget<SoriButton>(
+        find.byWidgetPredicate(
+          (widget) => widget is SoriButton && widget.label == 'Close',
+        ),
+      )
+      .onTap!();
+  await tester.pumpAndSettle();
+}
+
+Future<void> _drawHangulStroke(WidgetTester tester) async {
+  final canvas = tester.widget<GestureDetector>(
+    find.byKey(const Key('hangul-practice-canvas')),
+  );
+  canvas.onPanStart!(
+    DragStartDetails(
+      globalPosition: Offset(10, 10),
+      localPosition: Offset(10, 10),
+    ),
+  );
+  canvas.onPanEnd!(DragEndDetails());
+  await tester.pump();
 }
 
 Future<void> _skipChosungRound(WidgetTester tester) async {
@@ -331,4 +464,15 @@ Widget _wrap(Widget child) {
       home: child,
     ),
   );
+}
+
+class _SameIndexRandom implements math.Random {
+  @override
+  bool nextBool() => false;
+
+  @override
+  double nextDouble() => 0;
+
+  @override
+  int nextInt(int max) => 0;
 }

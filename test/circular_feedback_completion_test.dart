@@ -41,12 +41,10 @@ void main() {
     });
 
     test('daily Wordle payload excludes its target answer', () {
-      const target = '비밀';
       final completion = FeedbackCompletion.wordle(
         createId: () => 'wordle-1',
-        contentLabel: 'Korean Wordle',
         level: 'a2',
-        random: false,
+        roundKind: WordleRoundKind.daily,
         won: true,
         guessCount: 3,
       );
@@ -56,19 +54,17 @@ void main() {
         'completionId': 'wordle-1',
         'contentType': 'game',
         'contentId': 'wordle_daily',
-        'contentLabel': 'Korean Wordle',
+        'contentLabel': 'Wordle',
         'level': 'A2',
         'scoreSummary': 'result:win; guesses:3',
       });
-      expect(wire.values.join('|'), isNot(contains(target)));
     });
 
     test('random Wordle uses a generic identity and loss aggregate', () {
       final completion = FeedbackCompletion.wordle(
         createId: () => 'wordle-2',
-        contentLabel: 'Korean Wordle',
         level: null,
-        random: true,
+        roundKind: WordleRoundKind.random,
         won: false,
         guessCount: 6,
       );

@@ -4,6 +4,8 @@ import 'content_feedback.dart';
 
 typedef FeedbackCompletionIdFactory = String Function();
 
+enum WordleRoundKind { daily, random }
+
 /// State-owned lifecycle for one immutable completion per game round.
 class FeedbackCompletionSlot {
   FeedbackCompletion? _current;
@@ -117,17 +119,19 @@ class FeedbackCompletion {
 
   factory FeedbackCompletion.wordle({
     FeedbackCompletionIdFactory? createId,
-    required String contentLabel,
     required String? level,
-    required bool random,
+    required WordleRoundKind roundKind,
     required bool won,
     required int guessCount,
   }) => FeedbackCompletion._(
     _context(
       createId: createId,
       contentType: 'game',
-      contentId: random ? 'wordle_random' : 'wordle_daily',
-      contentLabel: contentLabel,
+      contentId: switch (roundKind) {
+        WordleRoundKind.daily => 'wordle_daily',
+        WordleRoundKind.random => 'wordle_random',
+      },
+      contentLabel: 'Wordle',
       level: _level(level),
       scoreSummary: 'result:${won ? 'win' : 'loss'}; guesses:$guessCount',
     ),

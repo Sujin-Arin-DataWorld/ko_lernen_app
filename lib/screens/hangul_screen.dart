@@ -21,7 +21,8 @@ import '../services/tts_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class HangulScreen extends StatefulWidget {
-  const HangulScreen({super.key});
+  const HangulScreen({super.key, this.cardsRandom});
+  final math.Random? cardsRandom;
 
   @override
   State<HangulScreen> createState() => _HangulScreenState();
@@ -162,7 +163,10 @@ class _HangulScreenState extends State<HangulScreen>
           physics: _tabIndex == 2 ? const NeverScrollableScrollPhysics() : null,
           children: [
             const _OverviewTab(),
-            _CardsTab(onFinish: _finishCards),
+            _CardsTab(
+              onFinish: _finishCards,
+              random: widget.cardsRandom ?? math.Random(),
+            ),
             _WriteTab(onFinish: _finishWriting),
           ],
         ),
@@ -389,8 +393,9 @@ class _SyllableDemo extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _CardsTab extends StatefulWidget {
-  const _CardsTab({required this.onFinish});
+  const _CardsTab({required this.onFinish, required this.random});
   final Future<void> Function(int interactionCount) onFinish;
+  final math.Random random;
   @override
   State<_CardsTab> createState() => _CardsTabState();
 }
@@ -411,7 +416,12 @@ class _CardsTabState extends State<_CardsTab> {
 
   void _next()   { HapticFeedback.selectionClick(); setState(() { _sessionInteractions++; _flipped = false; _idx = (_idx + 1) % _pool.length; }); }
   void _prev()   { HapticFeedback.selectionClick(); setState(() { _sessionInteractions++; _flipped = false; _idx = (_idx - 1 + _pool.length) % _pool.length; }); }
-  void _random() { HapticFeedback.lightImpact();    setState(() { _sessionInteractions++; _flipped = false; _idx = math.Random().nextInt(_pool.length); }); }
+  void _random() {
+    final candidate = widget.random.nextInt(_pool.length);
+    if (candidate == _idx) return;
+    HapticFeedback.lightImpact();
+    setState(() { _sessionInteractions++; _flipped = false; _idx = candidate; });
+  }
   void _onFlip() { HapticFeedback.selectionClick(); setState(() { _sessionInteractions++; _flipped = !_flipped; }); }
 
   void _setMode(int m) {

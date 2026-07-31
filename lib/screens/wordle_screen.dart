@@ -298,9 +298,10 @@ class _WordleScreenState extends State<WordleScreen>
     if (won || lost) {
       _feedbackCompletion.complete(
         () => FeedbackCompletion.wordle(
-          contentLabel: AppL10n.of(context).screenWordleTitle,
           level: _targetVocab?.level,
-          random: _randomRound,
+          roundKind: _randomRound
+              ? WordleRoundKind.random
+              : WordleRoundKind.daily,
           won: won,
           guessCount: _guesses.length + 1,
         ),
