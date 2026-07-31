@@ -119,6 +119,7 @@ flutter:
     - assets/illustrations/scenes/
     - assets/illustrations/empty/
     - assets/illustrations/error/
+    - assets/illustrations/onboarding/
     - assets/stickers/
     - assets/sfx/
     - assets/rive/

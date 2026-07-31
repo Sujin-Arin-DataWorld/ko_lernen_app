@@ -2933,25 +2933,25 @@ class AppL10nEn extends AppL10n {
   String get previewStart => 'Let\'s go';
 
   @override
-  String get previewPage1Title => 'Photo → Word list';
+  String get previewPage1Title => 'One photo beats 30 taps';
 
   @override
   String get previewPage1Body =>
-      'Snap a photo of your textbook or a menu — words land straight in your word list.';
+      'Snap a textbook page or a menu — Sori pulls out the words, grammar and sentences and files them on your bookshelf. The picture never leaves your device.';
 
   @override
   String get previewPage2Title => 'Your hanok grows';
 
   @override
   String get previewPage2Body =>
-      'Every word pack you finish builds your own Korean house — brick by brick.';
+      'Every pack you master lays another stone — foundation, pillars, tiled roof, all the way to your own jongga courtyard. 12 stages you can watch grow.';
 
   @override
-  String get previewPage3Title => 'Daily with the Tiger';
+  String get previewPage3Title => 'Five minutes a day is enough';
 
   @override
   String get previewPage3Body =>
-      'Even 5 minutes a day adds up. The Tiger will remind you.';
+      'The Tiger checks in once a day and keeps your streak alive. Miss one? Streak Shield catches it for you.';
 
   @override
   String hubLearnLevel(int level) {
