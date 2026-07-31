@@ -22,7 +22,15 @@ import 'scenario_player_screen.dart';
 /// Szenarien-Hub. Listet alle Szenarien gruppiert nach CEFR-Level.
 /// Gesperrte Level (über `Storage.userLevelCode`) erscheinen ausgegraut.
 class ScenariosListScreen extends StatefulWidget {
-  const ScenariosListScreen({super.key});
+  /// `hanok_jongga.mp4` is 1280x720. Keep the viewport matched to the
+  /// original media so [SoriPosterLoop]'s cover fit never crops the scene.
+  static const double heroAspectRatio = 16 / 9;
+
+  /// Optional source for deterministic previews and widget tests. Production
+  /// keeps the bundled [ScenarioLoader] by leaving this null.
+  final Future<List<Scenario>> Function()? loadScenarios;
+
+  const ScenariosListScreen({super.key, this.loadScenarios});
 
   @override
   State<ScenariosListScreen> createState() => _ScenariosListScreenState();
@@ -69,7 +77,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       _loading = true;
       _loadFailed = false;
     });
-    final list = await ScenarioLoader.load();
+    final list = await (widget.loadScenarios?.call() ?? ScenarioLoader.load());
     if (!mounted) return;
     setState(() {
       _all = list;
@@ -144,12 +152,13 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
             ),
           ),
           children: [
-            // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+            // 모듈 헤더 — 16:9 원본 영상과 같은 비율을 유지한다.
             // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
             const HanokHeader(
               asset: 'assets/illustrations/hanok/madang(light).png',
               fallbackIcon: Icons.travel_explore_outlined,
               loopAsset: 'assets/video/loops/hanok_jongga.mp4',
+              aspectRatio: ScenariosListScreen.heroAspectRatio,
             ),
             const SizedBox(height: Spacing.md),
             // Subtitle
@@ -241,27 +250,43 @@ class _LevelSection extends StatelessWidget {
               size: 26,
             ),
             const SizedBox(width: Spacing.sm),
-            Text(
-              t.scenariosLevelBadge(level.display),
-              style: TextStyle(
-                color: locked ? s.textDim : s.textMuted,
-                fontSize: 13,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 0.4,
+            Expanded(
+              child: Text(
+                t.scenariosLevelBadge(level.display),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: locked ? s.textDim : s.textMuted,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 0.4,
+                ),
               ),
             ),
-            const Spacer(),
             if (locked)
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.lock_outline_rounded, size: 13, color: s.textDim),
-                  const SizedBox(width: Spacing.xs),
-                  Text(
-                    t.scenariosLocked(level.display),
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: Spacing.sm),
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: Icon(
+                            Icons.lock_outline_rounded,
+                            size: 13,
+                            color: s.textDim,
+                          ),
+                        ),
+                        const WidgetSpan(child: SizedBox(width: Spacing.xs)),
+                        TextSpan(text: t.scenariosLocked(level.display)),
+                      ],
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: s.textDim, fontSize: 11),
                   ),
-                ],
+                ),
               ),
           ],
         ),
@@ -442,12 +467,16 @@ class _ScenarioCardBody extends StatelessWidget {
                         size: 20,
                       ),
                       const SizedBox(width: Spacing.xs),
-                      Text(
-                        '5–7 min · +${scenario.xpReward} XP',
-                        style: TextStyle(
-                          color: s.textDim,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
+                      Expanded(
+                        child: Text(
+                          '5–7 min · +${scenario.xpReward} XP',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: s.textDim,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ],
@@ -536,16 +565,24 @@ class _LessonPathHeader extends StatelessWidget {
             children: [
               Icon(Icons.route_rounded, size: 18, color: SoriColors.primary),
               const SizedBox(width: Spacing.sm),
-              Text(
-                t.scenariosPathTitle,
-                style: SoriTextTheme.of(context).cardTitle,
+              Expanded(
+                child: Text(
+                  t.scenariosPathTitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: SoriTextTheme.of(context).cardTitle,
+                ),
               ),
-              const Spacer(),
-              Text(
-                t.scenariosPathProgress(totalUnlocked, totalAll),
-                style: SoriTextTheme.of(
-                  context,
-                ).cardSubtitle.copyWith(fontWeight: FontWeight.w600),
+              Flexible(
+                child: Text(
+                  t.scenariosPathProgress(totalUnlocked, totalAll),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardSubtitle.copyWith(fontWeight: FontWeight.w600),
+                ),
               ),
             ],
           ),
