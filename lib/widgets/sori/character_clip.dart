@@ -43,8 +43,7 @@ class CharacterClips {
 
   // ── 까치 ────────────────────────────────────────────────
   static const String magpieFlight = '$_base/magpie_flight.mp4'; // 인트로 비행
-  static const String magpieCelebrate =
-      '$_base/magpie_celebrate.mp4'; // 정답 축하
+  static const String magpieCelebrate = '$_base/magpie_celebrate.mp4'; // 정답 축하
   static const String magpieWorry = '$_base/magpie_worry.mp4'; // 오답 위로
   static const String magpiePerched = '$_base/magpie_perched.mp4'; // 듣기 대기
   static const String magpieMoon = '$_base/magpie_moon.mp4'; // 프로필 초상(달)
@@ -52,10 +51,36 @@ class CharacterClips {
   static const String magpieGreetChirp =
       '$_base/magpie_greet_chirp.mp4'; // 첫 인사 — 신나는 짹짹
 
+  /// 프로필 초상에 사용할 포즈. 프로필 화면은 생성 시 하나를 골라 해당
+  /// 화면이 살아 있는 동안 유지한다.
+  static const List<String> _tigerProfileClips = [
+    tigerStretch,
+    tigerSitting2,
+    tigerRest,
+    tigerBob,
+    tigerChoose,
+  ];
+  static const List<String> _magpieProfileClips = [
+    magpiePerched,
+    magpieChoose,
+    magpieFlight,
+  ];
+
+  /// [kind]의 프로필 포즈 수.
+  static int profileClipCountFor(MascotKind kind) =>
+      _profileClipsFor(kind).length;
+
+  /// [choice]번째 프로필 포즈. 호출 측은 [profileClipCountFor] 범위의
+  /// 무작위 인덱스를 전달한다.
+  static String profileClipFor(MascotKind kind, int choice) =>
+      _profileClipsFor(kind)[choice];
+
+  static List<String> _profileClipsFor(MascotKind kind) =>
+      kind == MascotKind.magpie ? _magpieProfileClips : _tigerProfileClips;
+
   /// 첫 인사 클립 (말 없이 — 동물 몸짓만; 소리는 별도 SFX 훅).
-  static String greetFor(MascotKind kind) => kind == MascotKind.magpie
-      ? magpieGreetChirp
-      : tigerGreetPawflash;
+  static String greetFor(MascotKind kind) =>
+      kind == MascotKind.magpie ? magpieGreetChirp : tigerGreetPawflash;
 
   /// 선택 확정 클립.
   static String chooseFor(MascotKind kind) =>
@@ -198,7 +223,8 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     final video = _video;
     if (video == null || _completedFired) return;
     final v = video.value;
-    final done = v.isInitialized &&
+    final done =
+        v.isInitialized &&
         v.duration > Duration.zero &&
         !v.isPlaying &&
         v.position >= v.duration - const Duration(milliseconds: 80);

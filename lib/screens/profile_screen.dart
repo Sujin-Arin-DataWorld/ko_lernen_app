@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
@@ -139,7 +141,6 @@ class _ProfileScreenState extends State<ProfileScreen>
     final linked = providers.isDurable;
     final providerLabel = _providerLabel(t, providers);
     final name = account.displayName;
-    final photo = account.photoUrl;
 
     return Scaffold(
       appBar: AppBar(
@@ -162,9 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           ),
           children: [
             // ── Avatar + Name ──
-            Center(
-              child: _Avatar(linked: linked, photo: photo),
-            ),
+            Center(child: const _Avatar()),
             const SizedBox(height: 12),
             Center(
               child: Text(
@@ -261,25 +260,34 @@ class _ProfileScreenState extends State<ProfileScreen>
 
 // ─────────────────────────────────────────────────────────────────────────
 
-class _Avatar extends StatelessWidget {
-  final bool linked;
-  final String? photo;
-  const _Avatar({required this.linked, required this.photo});
+class _Avatar extends StatefulWidget {
+  const _Avatar();
 
+  @override
+  State<_Avatar> createState() => _AvatarState();
+}
+
+class _AvatarState extends State<_Avatar> {
   static const double _d = 104;
+  static const Color _medallionFill = SoriColors.lightSurface;
+  late final MascotKind _kind;
+  late final String _asset;
+
+  @override
+  void initState() {
+    super.initState();
+    _kind = Storage.preferredMascot == 'magpie'
+        ? MascotKind.magpie
+        : MascotKind.tiger;
+    _asset = CharacterClips.profileClipFor(
+      _kind,
+      Random().nextInt(CharacterClips.profileClipCountFor(_kind)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final Widget inner = (linked && photo != null && photo!.isNotEmpty)
-        ? Image.network(
-            photo!,
-            width: _d,
-            height: _d,
-            fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => _tigerInner(),
-          )
-        : _tigerInner();
-    // 원형 메달리온 프레임 — 떠 있던 마스코트를 '의도된 초상'으로 감싼다.
+    // 선택한 마스코트가 계정 사진보다 우선하는 원형 메달리온.
     return Container(
       width: _d,
       height: _d,
@@ -301,29 +309,18 @@ class _Avatar extends StatelessWidget {
           ...SoriElevation.low,
         ],
       ),
-      child: ClipOval(child: inner),
-    );
-  }
-
-  /// 메달리온 내부 색 — 클립 multiply blendColor와 반드시 같아야 한다.
-  static const Color _medallionFill = SoriColors.lightSurface;
-
-  /// 초상화용 아이들 클립 — 선택 캐릭터(preferredMascot)에 맞춰 영상 전환.
-  /// tiger=tiger_sitting2(앉은 초상), magpie=magpie_moon(달빛 초상). 둘 다 앉은/
-  /// 정적 자세라 원형 메달리온에 맞다. 영상 게이트/저모션이면 정적 Mascot 폴백.
-  Widget _tigerInner() {
-    final isMagpie = Storage.preferredMascot == 'magpie';
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: CharacterClipPlayer(
-        asset: isMagpie
-            ? CharacterClips.magpieMoon
-            : CharacterClips.tigerSitting2,
-        size: _d - 10,
-        loop: true,
-        blendColor: _medallionFill,
-        fallbackKind: isMagpie ? MascotKind.magpie : MascotKind.tiger,
-        fallbackEmotion: MascotEmotion.smile,
+      child: ClipOval(
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: CharacterClipPlayer(
+            asset: _asset,
+            size: _d - 10,
+            loop: true,
+            blendColor: _medallionFill,
+            fallbackKind: _kind,
+            fallbackEmotion: MascotEmotion.smile,
+          ),
+        ),
       ),
     );
   }

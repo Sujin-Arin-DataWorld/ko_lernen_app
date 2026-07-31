@@ -324,6 +324,20 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-07-31 (프로필 선택 마스코트 랜덤 초상 + 자홍색 영상 원인) — 로컬 커밋 요청 · 푸시 미요청
+
+**범위:** Jin 요청 — 프로필이 사용자가 선택한 호랑이/까치를 표시하고, 지정된 기존 MP4 포즈 중 하나를 랜덤으로 표시. 프로필의 자홍색 영상 배경 원인도 코드·에셋 계약으로 진단.
+
+**Update:**
+- `CharacterClips`에 순수 프로필 포즈 카탈로그를 추가: 호랑이=`tiger_stretch`·`tiger_sitting2`·`tiger_rest`·`tiger_bob`·`tiger_choose`, 까치=`magpie_perched`·`magpie_choose`·`magpie_flight`. 테스트 가능한 `profileClipCountFor`/`profileClipFor` API로 경로를 단일화.
+- `ProfileScreen._Avatar`를 StatefulWidget으로 전환. `Storage.preferredMascot`을 화면 생성 때 읽어 해당 캐릭터의 포즈 한 개를 랜덤 선택하고 `late final`로 보존한다. 따라서 일반 rebuild 중에는 포즈가 바뀌지 않으며, 선택 마스코트는 연결된 Google/Apple 계정 사진보다 항상 우선한다.
+- 자홍색은 Flutter/MediaCodec 고장이 아니라 **불투명 자홍색 매트가 들어간 H.264 MP4**와 `CharacterClipPlayer`의 `BlendMode.multiply` 계약 불일치다. multiply는 흰 배경만 크림으로 흡수하며 크로마키가 아니다. H.264에는 알파가 없으므로 안전한 코드 색필터로는 제거 불가 — 해당 클립은 같은 경로로 **순백(#FFFFFF) 매트 버전으로 재출력**해야 한다. 색 행렬/가짜 키잉은 호랑이·까치 색을 함께 훼손하므로 미적용.
+- 계획: `docs/superpowers/plans/2026-07-31-profile-character-randomization.md`.
+
+**검증:** TDD red 확인 — 신규 카탈로그 API 부재로 `character_clip_test` 컴파일 실패, 연결 계정 사진이 선택 까치를 덮는 기존 동작을 위젯 테스트로 실패 확인. 구현 후 `dart format` · 프로필/캐릭터 선택/Lernpfad 관련 9개 Dart 파일 `flutter analyze` **성공** · `flutter test test/character_clip_test.dart test/profile_screen_test.dart test/widgets/profile_screen_test.dart test/path_trail_tap_test.dart` **19 passed**. 전체 `flutter test`는 122초 도구 제한에서 출력 파이프가 닫혀 종료되어 전체 통과 증거는 아님. ⚠️ 실기기 미검증: Profile 탭 재진입 시 포즈 변화, 각 MP4의 구도, 순백 매트 재출력 후 자홍색 제거, 그리고 Redmi Note 10의 홈 영상↔프로필 영상 디코더 reclaim.
+
+**변경 파일:** `lib/screens/profile_screen.dart` · `lib/widgets/sori/character_clip.dart` · `test/character_clip_test.dart`(신규) · `test/profile_screen_test.dart` · `docs/superpowers/plans/2026-07-31-profile-character-randomization.md` · `AGENTS.md`. 로컬 커밋 요청됨 · 푸시 미요청.
+
 ### 2026-07-31 (문서 통합 — CLAUDE.md + memory → AGENTS.md SSoT) — 커밋 예정
 
 **범위:** Jin "어떤 세션(Codex·Claude 등)에서 시작해도 먼저 읽게 AGENTS.md에 강력한 규칙 박고, memory·CLAUDE 전부 AGENTS.md로 옮겨." → `CLAUDE.md` 전체 본문 + `~/.claude/.../memory/` 3건(android-video-decoder-reclaim·cloze-shared-prompt-widget·jin-no-ios-style-badges)을 **루트 `AGENTS.md`(크로스에이전트 자동 로드)로 통합**해 단일 진입점·SSoT화. `CLAUDE.md`는 5행 포인터로 축소(모든 세션이 AGENTS.md를 먼저 끝까지 읽도록). 최상단 ⛔ 규칙(필독·필수 기록·커밋 게이트) 명문화. 이후 모든 기록은 이 AGENTS.md "세션 로그"에만 남긴다. (memory/ 파일은 Claude 자동로드용으로 잔존하나 내용은 여기로 통합.)

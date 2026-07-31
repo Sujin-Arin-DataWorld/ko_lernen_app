@@ -50,6 +50,37 @@ void main() {
     await tester.pump();
   });
 
+  testWidgets('selected magpie portrait overrides a linked account photo', (
+    tester,
+  ) async {
+    await Storage.setPreferredMascot('magpie');
+
+    await tester.pumpWidget(
+      _wrap(
+        const ProfileScreen(
+          account: AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+            displayName: 'Magpie learner',
+            photoUrl: 'https://example.test/profile.png',
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final networkImages = tester
+        .widgetList<Image>(find.byType(Image))
+        .where((image) => image.image is NetworkImage);
+    expect(networkImages, isEmpty);
+    expect(find.bySemanticsLabel('마스코트 까치, 미소'), findsOneWidget);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
   testWidgets('pending cloud deletion disables connected-account sign out', (
     tester,
   ) async {
