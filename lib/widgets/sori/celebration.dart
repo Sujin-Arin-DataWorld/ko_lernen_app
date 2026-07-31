@@ -35,6 +35,28 @@ class SoriCelebration {
     );
     overlay.insert(entry);
   }
+
+  /// 정답 순간용 — 엽전·복 코인이 팡팡 튀어 나온다. [origin] 미지정 시 화면
+  /// 우상단(까치 컴패니언 자리) 근처. reduce-motion 시 no-op.
+  static void coins(BuildContext context, {Offset? origin, int count = 14}) {
+    if (SoriMotion.reduceMotion(context)) return;
+    final overlay = Overlay.maybeOf(context);
+    if (overlay == null) return;
+    final media = MediaQuery.maybeOf(context);
+    final from = origin ??
+        Offset((media?.size.width ?? 360) - 52,
+            (media?.size.height ?? 720) * 0.22);
+
+    late OverlayEntry entry;
+    entry = OverlayEntry(
+      builder: (_) => _CoinBurstLayer(
+        origin: from,
+        count: count,
+        onDone: () => entry.remove(),
+      ),
+    );
+    overlay.insert(entry);
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -211,4 +233,138 @@ class _ConfettiPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_ConfettiPainter old) => old.t != t;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// 코인 burst — 엽전·복 PNG 입자 (정답 피드백). 별/다이아와 달리 실제 이미지라
+// CustomPainter 대신 위젯(Image.asset) 기반 입자로 렌더한다.
+// ─────────────────────────────────────────────────────────────────────────
+
+class _CoinBurstLayer extends StatefulWidget {
+  final Offset origin;
+  final int count;
+  final VoidCallback onDone;
+
+  const _CoinBurstLayer({
+    required this.origin,
+    required this.count,
+    required this.onDone,
+  });
+
+  @override
+  State<_CoinBurstLayer> createState() => _CoinBurstLayerState();
+}
+
+class _CoinBurstLayerState extends State<_CoinBurstLayer>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl;
+  late final List<_Coin> _coins;
+
+  static const _assets = [
+    'assets/illustrations/mascot/yupjeon.png',
+    'assets/illustrations/mascot/bok.png',
+  ];
+
+  static const double _gravity = 680;
+
+  @override
+  void initState() {
+    super.initState();
+    final rnd = math.Random();
+    _coins = List.generate(widget.count, (i) {
+      // 위쪽 반구 위주로 분사 (−170°~−10°).
+      final angle = -math.pi + rnd.nextDouble() * math.pi * 0.92 - 0.08;
+      return _Coin(
+        angle: angle,
+        speed: 150 + rnd.nextDouble() * 260,
+        asset: _assets[i % _assets.length],
+        size: 22 + rnd.nextDouble() * 16,
+        spin: (rnd.nextDouble() - 0.5) * 10,
+        delay: rnd.nextDouble() * 0.14,
+      );
+    });
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1300),
+    )..addStatusListener((s) {
+        if (s == AnimationStatus.completed) widget.onDone();
+      });
+    _ctrl.forward();
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned.fill(
+      child: IgnorePointer(
+        child: RepaintBoundary(
+          child: AnimatedBuilder(
+            animation: _ctrl,
+            builder: (_, __) => Stack(
+              clipBehavior: Clip.none,
+              children: [for (final c in _coins) _coin(c, _ctrl.value)],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _coin(_Coin c, double t) {
+    final lt = ((t - c.delay) / (1.0 - c.delay)).clamp(0.0, 1.0);
+    if (lt <= 0) return const SizedBox.shrink();
+    // 바깥으로 뻗다 감속 + 중력 낙하 (별/다이아 입자와 동일 물리).
+    final reach = 1 - math.pow(1 - lt, 2).toDouble(); // easeOut
+    final dx = math.cos(c.angle) * c.speed * reach;
+    final dy =
+        math.sin(c.angle) * c.speed * reach + _gravity * lt * lt * 0.5;
+    final fade = lt < 0.6 ? 1.0 : (1 - (lt - 0.6) / 0.4);
+    final scale =
+        (0.5 + reach * 0.5 - (lt > 0.7 ? (lt - 0.7) * 0.6 : 0)).clamp(0.0, 1.2);
+    if (fade <= 0 || scale <= 0) return const SizedBox.shrink();
+    return Positioned(
+      left: widget.origin.dx + dx - c.size / 2,
+      top: widget.origin.dy + dy - c.size / 2,
+      child: Opacity(
+        opacity: fade.clamp(0.0, 1.0),
+        child: Transform.rotate(
+          angle: c.spin * lt,
+          child: Transform.scale(
+            scale: scale,
+            child: Image.asset(
+              c.asset,
+              width: c.size,
+              height: c.size,
+              filterQuality: FilterQuality.medium,
+              errorBuilder: (_, __, ___) =>
+                  Icon(Icons.brightness_1, size: c.size, color: SoriColors.gold),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Coin {
+  final double angle;
+  final double speed;
+  final String asset;
+  final double size;
+  final double spin;
+  final double delay;
+
+  const _Coin({
+    required this.angle,
+    required this.speed,
+    required this.asset,
+    required this.size,
+    required this.spin,
+    required this.delay,
+  });
 }
