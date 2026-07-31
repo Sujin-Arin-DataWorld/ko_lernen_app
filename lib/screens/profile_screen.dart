@@ -6,6 +6,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../services/auth_service.dart';
@@ -284,32 +285,48 @@ class _Avatar extends StatelessWidget {
       height: _d,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: RadialGradient(
-          center: const Alignment(0, -0.2),
-          radius: 0.95,
-          colors: [
-            SoriColors.lightSurface,
-            SoriColors.tiger.withValues(alpha: 0.14),
-          ],
-        ),
+        // 평면 fill — 클립은 흰 배경 mp4를 multiply로 녹이므로 뒤가 그라데이션
+        // 이면 이음매가 드러난다. 주황 글로우는 그라데이션 대신 바깥 그림자로.
+        color: _medallionFill,
         border: Border.all(
-          color: SoriColors.tiger.withValues(alpha: 0.38),
+          color: SoriColors.tiger.withValues(alpha: 0.55),
           width: 2.5,
         ),
-        boxShadow: SoriElevation.low,
+        boxShadow: [
+          BoxShadow(
+            color: SoriColors.tiger.withValues(alpha: 0.22),
+            blurRadius: 18,
+            spreadRadius: 1,
+          ),
+          ...SoriElevation.low,
+        ],
       ),
       child: ClipOval(child: inner),
     );
   }
 
-  Widget _tigerInner() => const Padding(
-    padding: EdgeInsets.all(5),
-    child: Mascot.tiger(
-      size: _d - 10,
-      emotion: MascotEmotion.smile,
-      animate: true,
-    ),
-  );
+  /// 메달리온 내부 색 — 클립 multiply blendColor와 반드시 같아야 한다.
+  static const Color _medallionFill = SoriColors.lightSurface;
+
+  /// 초상화용 아이들 클립 — 선택 캐릭터(preferredMascot)에 맞춰 영상 전환.
+  /// tiger=tiger_sitting2(앉은 초상), magpie=magpie_moon(달빛 초상). 둘 다 앉은/
+  /// 정적 자세라 원형 메달리온에 맞다. 영상 게이트/저모션이면 정적 Mascot 폴백.
+  Widget _tigerInner() {
+    final isMagpie = Storage.preferredMascot == 'magpie';
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: CharacterClipPlayer(
+        asset: isMagpie
+            ? CharacterClips.magpieMoon
+            : CharacterClips.tigerSitting2,
+        size: _d - 10,
+        loop: true,
+        blendColor: _medallionFill,
+        fallbackKind: isMagpie ? MascotKind.magpie : MascotKind.tiger,
+        fallbackEmotion: MascotEmotion.smile,
+      ),
+    );
+  }
 }
 
 /// Gast: lädt zum Sichern ein (der Kern-Nudge).

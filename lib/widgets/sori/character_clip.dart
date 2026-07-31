@@ -24,6 +24,7 @@ class CharacterClips {
   static const String tigerCelebrateHifive =
       '$_base/tiger_celebrate_hifive.mp4'; // 정답 하이파이브
   static const String tigerRest = '$_base/tiger_rest.mp4'; // 아이들(귀·깜빡임)
+  static const String tigerSitting2 = '$_base/tiger_sitting2.mp4'; // 프로필 초상
   static const String tigerBob = '$_base/tiger_bob.mp4'; // 게임 대기 바운스
   static const String tigerStretch = '$_base/tiger_stretch.mp4'; // 세션 완료
   static const String tigerThinking = '$_base/tiger_thinking.mp4'; // 퀴즈 생각
@@ -39,6 +40,7 @@ class CharacterClips {
       '$_base/magpie_celebrate.mp4'; // 정답 축하
   static const String magpieWorry = '$_base/magpie_worry.mp4'; // 오답 위로
   static const String magpiePerched = '$_base/magpie_perched.mp4'; // 듣기 대기
+  static const String magpieMoon = '$_base/magpie_moon.mp4'; // 프로필 초상(달)
   static const String magpieChoose = '$_base/magpie_choose.mp4'; // 선택 확정 착지
   static const String magpieGreetChirp =
       '$_base/magpie_greet_chirp.mp4'; // 첫 인사 — 신나는 짹짹
