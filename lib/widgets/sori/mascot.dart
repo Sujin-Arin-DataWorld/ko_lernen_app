@@ -110,6 +110,12 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   static const _magpieCelebrate =
       'assets/illustrations/mascot/magpie_celebrate.png';
   static const _magpieWorry = 'assets/illustrations/mascot/magpie_worry.png';
+  static const _magpieDance = 'assets/illustrations/mascot/magpie_dance.png';
+  static const _magpieEncourage =
+      'assets/illustrations/mascot/magpie_encourage.png';
+  static const _magpieSing = 'assets/illustrations/mascot/magpie_sing.png';
+  static const _magpieSleep = 'assets/illustrations/mascot/magpie_sleep.png';
+  static const _magpieWave = 'assets/illustrations/mascot/magpie_wave.png';
 
   AnimationController? _motion;
 
@@ -149,20 +155,31 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
     if (_isMagpie) {
       switch (widget.emotion) {
         case MascotEmotion.celebrate:
+          // animate 시 축하↔춤 교대로 신나는 분위기, 정지 시 축하 포즈.
+          if (widget.animate) {
+            return math.sin(t * math.pi * 4) >= 0 ? _magpieCelebrate : _magpieDance;
+          }
           return _magpieCelebrate;
         case MascotEmotion.worry:
           return _magpieWorry;
         case MascotEmotion.sleepy:
-          return _magpiePerched;
+          return _magpieSleep;
         case MascotEmotion.thinking:
+          return _magpieEncourage;
         case MascotEmotion.surprised:
+          return _magpieSing;
         case MascotEmotion.neutral:
-        case MascotEmotion.smile:
           if (widget.animate) {
             final flap = math.sin(t * math.pi * 10);
             return flap >= 0 ? _magpieWingUp : _magpieWingDown;
           }
           return _magpiePerched;
+        case MascotEmotion.smile:
+          if (widget.animate) {
+            final flap = math.sin(t * math.pi * 10);
+            return flap >= 0 ? _magpieWingUp : _magpieWingDown;
+          }
+          return _magpieWave;
       }
     }
 

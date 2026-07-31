@@ -332,46 +332,56 @@ class Scenario {
   );
 }
 
-/// Scenario ID -> scenes/ backdrop key. Shared by ScenarioPlayer (full-screen
-/// 0.08 opacity background) and the scenarios list (tile thumbnail).
-/// Adding a new scene PNG only requires a new entry here.
+/// Scenario ID -> category scene key (one of cafe/directions/market/restaurant/
+/// hotel). This is the **fallback** backdrop used when a scenario has no
+/// dedicated per-scenario asset; `SceneAssetResolver` overrides it automatically
+/// when `scenes/{id}.png` / `video/loops/scene_{id}.mp4` are present.
+///
+/// Exact-id keys (not substring) so ids like `mart_grocery` map correctly and
+/// order no longer matters. All 33 scenarios are listed → every scenario always
+/// resolves to an existing category backdrop. Add new scenarios here.
 extension ScenarioBackdrop on Scenario {
-  static const _map = <String, String>{
-    'cafe': 'cafe',
-    'starbucks': 'cafe',
-    'bunshik': 'restaurant',
-    'bunsik': 'restaurant',
-    'tteokbokki': 'restaurant',
-    'dinner': 'restaurant',
-    'hoeshik': 'restaurant',
-    'market': 'market',
-    'shopping': 'market',
-    'myeongdong': 'market',
-    'convenience': 'market',
-    'store': 'market',
-    'pharmacy': 'market',
-    'hotel': 'hotel',
-    'directions': 'directions',
-    'airport': 'directions',
-    'arrival': 'directions',
-    'taxi': 'directions',
-    'subway': 'directions',
-    'transfer': 'directions',
-    'introduce': 'cafe',
-    'encouragement': 'cafe',
-    'warm': 'cafe',
-    'couple': 'cafe',
-    'argument': 'cafe',
-    'plans': 'cafe',
-    'postpone': 'cafe',
-    'cancel': 'cafe',
-    'late': 'directions',
+  static const _categoryById = <String, String>{
+    // cafe — indoor / casual meetups / formal-indoor (office, bank, interview)
+    'cafe_starbucks_basic': 'cafe',
+    'introduce_yourself': 'cafe',
+    'warm_encouragement': 'cafe',
+    'couple_argument': 'cafe',
+    'plans_with_friend': 'cafe',
+    'postpone_plans': 'cafe',
+    'cancel_plans': 'cafe',
+    'cafe_study': 'cafe',
+    'love_confession': 'cafe',
+    'friend_birthday': 'cafe',
+    'business_meeting_intro': 'cafe',
+    'bank_account': 'cafe',
+    'job_interview': 'cafe',
+    // directions — transit / travel / out-and-about
+    'airport_arrival': 'directions',
+    'taxi_kakao': 'directions',
+    'subway_transfer': 'directions',
+    'taxi_street': 'directions',
+    'running_late': 'directions',
+    'subway_directions': 'directions',
+    'ktx_ticket': 'directions',
+    'lost_phone': 'directions',
+    // market — shops / errands / health counter
+    'convenience_store': 'market',
+    'pharmacy_headache': 'market',
+    'myeongdong_shopping': 'market',
+    'mart_grocery': 'market',
+    'complaint_delivery': 'market',
+    'doctor_consultation': 'market',
+    'feeling_sick': 'market',
+    'gym_signup': 'market',
+    // restaurant — food service
+    'bunshik_tteokbokki': 'restaurant',
+    'company_dinner_hoeshik': 'restaurant',
+    'food_delivery': 'restaurant',
+    // hotel
+    'hotel_checkin': 'hotel',
   };
 
-  String? get backdropKey {
-    for (final entry in _map.entries) {
-      if (id.contains(entry.key)) return entry.value;
-    }
-    return null;
-  }
+  /// Category scene key for this scenario, or null if the id is unregistered.
+  String? get backdropKey => _categoryById[id];
 }

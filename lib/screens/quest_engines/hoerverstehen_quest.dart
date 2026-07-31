@@ -100,27 +100,46 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // TTS-Button
+            // TTS-Button + 상주 마스코트 — 한 덩어리로 묶는다.
+            // 까치를 코너에 따로 띄우면 "동떨어져 처박힌" 느낌이 나고
+            // 스피커와 시선이 경쟁한다. 나란히 두면 "듣고 있는" 관계가 생긴다.
             Center(
-              child: GestureDetector(
-                onTap: _playTts,
-                child: Container(
-                  width: 84,
-                  height: 84,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: SoriColors.info.withAlpha(26),
-                    border: Border.all(color: SoriColors.info, width: 2),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GestureDetector(
+                          onTap: _playTts,
+                          child: Container(
+                            width: 84,
+                            height: 84,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: SoriColors.info.withAlpha(26),
+                              border: Border.all(color: SoriColors.info, width: 2),
+                            ),
+                            child: const Icon(Icons.volume_up_rounded,
+                                color: SoriColors.info, size: 40),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          '▶ Tap to play',
+                          style: TextStyle(color: s.textMuted, fontSize: 13),
+                        ),
+                      ],
+                    ),
                   ),
-                  child: const Icon(Icons.volume_up_rounded, color: SoriColors.info, size: 40),
-                ),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Center(
-              child: Text(
-                '▶ Tap to play',
-                style: TextStyle(color: s.textMuted, fontSize: 13),
+                  const SizedBox(width: Spacing.lg),
+                  MascotPartner(
+                    celebrating: _celebrated,
+                    size: 56,
+                    kind: MascotKind.magpie,
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 28),
@@ -186,11 +205,6 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
               );
             }),
           ],
-        ),
-        Positioned(
-          top: 0,
-          right: 0,
-          child: MascotPop(visible: _celebrated, size: 56, kind: MascotKind.magpie),
         ),
       ],
     );

@@ -344,6 +344,11 @@ class TtsService {
 
   // ── 핵심 흐름 ──────────────────────────────────────────────────────
 
+  /// 로컬 캐시 파일명 버전. 서버 재생성(목소리·속도 교체)으로 Storage 오디오가
+  /// 바뀌어도 sha1 키·Storage 경로는 불변이라 기존 로컬 캐시가 그대로 남는다.
+  /// 이 토큰을 올리면 로컬만 1회 미스 → Tier 2(Storage)에서 새 오디오를 재수신.
+  static const String _localCacheVersion = 'v2';
+
   /// 캐시 → Storage → CF 순으로 mp3 파일을 확보. 실패 시 null.
   static Future<File?> _resolveFile(String text, String voice) async {
     final dir = await _ensureCacheDir();
@@ -351,7 +356,7 @@ class TtsService {
       return null;
     }
     final hash = _hash(voice, text);
-    final file = File('${dir.path}/${voice}_$hash.mp3');
+    final file = File('${dir.path}/${voice}_${hash}_$_localCacheVersion.mp3');
 
     // 1. 로컬 캐시
     if (await file.exists() && await file.length() > 0) {

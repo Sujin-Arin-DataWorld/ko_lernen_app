@@ -1,14 +1,15 @@
-# 에셋 파일명 ↔ 트리거 1:1 매핑 (2026-07-30 최신)
+# 에셋 파일명 ↔ 트리거 1:1 매핑 (2026-07-31 갱신)
 
 > 현재 `assets/`에 실제 존재하는 **미디어 파일 193개**를 **파일명 ↔ 코드가 렌더하는 실제 위치**로 1:1 매핑.
 > 배선·이동·삭제(커밋 `8866ca8` + 영상 배선분) 반영. 미사용분은 `assets_unused/`로 빠져 여기 없음.
+> **2026-07-31 갱신**: 시나리오 씬은 `SceneAssetResolver`가 **전용(`scenes/{id}.png`·`loops/scene_{id}.mp4`) 우선 + 카테고리 폴백**으로 해상. `backdropKey`는 33개 id 정확 매핑(부분문자열 폐기 → `mart_grocery` 버그 수정, 백드롭 없던 13개 커버). **미트리거 6장 재발견**(아래 orphan 표기 — 기존 "미트리거 0"은 stale이었음).
 >
 > **범례**: ✅ 상시 도달 · ⚠️ 조건부(이벤트/상태) · 🎬 영상(videoReady && !reduce-motion 게이트, 실패 시 정적 폴백) · 📁 폴백 경로 전용
 > **서사·정정 이력은** `docs/ASSET_TRIGGER_AUDIT_2026-07-30.md` 참조. 이 파일은 순수 조회용.
 
 ---
 
-## assets/illustrations/mascot/ (14) — `Mascot` 위젯 (emotion→png)
+## assets/illustrations/mascot/ (19; 전부 사용) — `Mascot` 위젯 (emotion→png)
 
 | 파일 | 트리거 |
 |---|---|
@@ -26,6 +27,11 @@
 | `magpie_wingdown.png` | ✅ magpie animate 날갯짓(하강) |
 | `magpie_celebrate.png` | ✅ Mascot(magpie, celebrate) |
 | `magpie_worry.png` | ✅ Mascot(magpie, worry) |
+| `magpie_dance.png` | ✅ Mascot(magpie, celebrate) animate 시 축하와 교대 (2026-07-31) |
+| `magpie_sleep.png` | ✅ Mascot(magpie, sleepy) (2026-07-31) |
+| `magpie_encourage.png` | ✅ Mascot(magpie, thinking) (2026-07-31) |
+| `magpie_sing.png` | ✅ Mascot(magpie, surprised) (2026-07-31) |
+| `magpie_wave.png` | ✅ Mascot(magpie, smile) 정지 포즈 (2026-07-31) |
 
 ## assets/illustrations/tiger_anim/ (44) — `TigerStage` 프레임 📁
 
@@ -100,7 +106,7 @@
 | `decoration_chuseok_moon.png` | q_chuseok — 추석 음식단어 12 |
 | `decoration_hangeulday_plaque.png` | q_hangeulday — 한글날 서예 7일 |
 | `decoration_kite.png` | q_kite — 어린이날 서예 5연속 |
-| `dokkaebi_fire.png` | ⚠️ 온보딩 프리뷰 page2 (도깨비불) |
+| `dokkaebi_fire.png` | ❌ **orphan** — 온보딩 크리스탈 호랑이 전환(`1a7dd39`/`2514a84`)으로 참조 삭제. `assets_unused/` 이동 후보(Jin 확인). |
 
 ## assets/illustrations/stamps/ (8) — `DancheongStamp` (도장첩·팩카드·클리어 결과)
 
@@ -132,17 +138,19 @@
 | `gye_pond_large.png` | 연못 |
 | `gye_bridge.png` | 다리 |
 
-## assets/illustrations/scenes/ (5) — 시나리오 백드롭 ⚠️
+## assets/illustrations/scenes/ (5 공용 + 전용 선택) — 시나리오 백드롭 ⚠️
 
-> ① 시나리오 목록 per-row 썸네일 ② 플레이어 인트로 아트 포스터(위에 scene_*.mp4 루프) ③ 플레이어 전체배경 wash(0.08). 시나리오 id→key 매핑.
+> ① 시나리오 목록 per-row 썸네일 ② 플레이어 인트로 아트 포스터(위에 `scene_*.mp4` 루프) ③ 플레이어 전체배경 wash(0.08).
+> **해상(`SceneAssetResolver`)**: 전용 `scenes/{id}.png`가 번들에 있으면 그것, 없으면 아래 카테고리 폴백. 33개 시나리오 전부 카테고리로 커버(부분문자열 매핑 폐기 → id 정확 매핑, `mart_grocery` 정상화).
 
-| 파일 | 커버 시나리오 |
+| 파일 (카테고리 폴백) | 커버 시나리오 (전용 없을 때) |
 |---|---|
-| `cafe.png` | 카페·자기소개·연인·약속 등 |
-| `restaurant.png` | 식당·분식·회식·저녁 |
-| `market.png` | 시장·쇼핑·편의점·약국 |
+| `cafe.png` | 카페·자기소개·연인·약속·생일·고백 + 회사/은행/면접 |
+| `restaurant.png` | 분식·회식·배달음식 |
+| `market.png` | 시장·쇼핑·편의점·약국·마트·병원·약·헬스 |
 | `hotel.png` | 호텔 |
-| `directions.png` | 공항·택시·지하철·길찾기·지각 |
+| `directions.png` | 공항·택시·지하철·길찾기·지각·KTX·분실 |
+| `{id}.png` (전용, 선택) | 해당 id 전용 포스터 — 있으면 카테고리보다 우선 |
 
 ## assets/illustrations/book/ (5) — 책 한 컷 플로우 ⚠️
 
@@ -201,11 +209,12 @@
 | `study_scholar.mp4` | ⚠️ 문법·배우기허브·설정 헤더 |
 | `welcome_hero.mp4` | ⚠️ 캐릭터 선택 헤더 (명시 loopAsset, 2026-07-30) |
 | `hanok_construction.mp4` | ⚠️ 온보딩 프리뷰 page1 (2026-07-30) |
-| `scene_cafe.mp4` | ⚠️ 시나리오 인트로 아트 — cafe (2026-07-30) |
-| `scene_directions.mp4` | ⚠️ 〃 directions |
+| `scene_cafe.mp4` | ⚠️ 시나리오 인트로 아트 루프 — cafe 카테고리 폴백 |
+| `scene_directions.mp4` | ⚠️ 〃 directions 카테고리 (공항 포함) |
 | `scene_hotel.mp4` | ⚠️ 〃 hotel |
 | `scene_market.mp4` | ⚠️ 〃 market |
 | `scene_restaurant.mp4` | ⚠️ 〃 restaurant |
+| `scene_{id}.mp4` (전용, 선택) | ⚠️ 해당 id 전용 루프 — 있으면 카테고리보다 우선 (예: `scene_airport_arrival.mp4`) |
 
 ### video/character/ (16) — 흰배경 캐릭터 클립 (multiply 블렌드)
 | 파일 | 트리거 |
@@ -229,20 +238,33 @@
 
 ---
 
+## 시나리오 전용 씬 에셋 규약 (2026-07-31)
+
+전용 영상/이미지를 원하는 시나리오는 **파일만 아래 이름으로 떨구면 자동 적용**(코드·pubspec 무수정 — `scenes/`·`video/loops/`가 폴더로 등록됨). 없으면 카테고리 폴백이 뜬다. `SceneAssetResolver`가 앱 시작 시 매니페스트를 읽어 존재 여부로 분기.
+- 포스터: `assets/illustrations/scenes/{scenarioId}.png`
+- 루프 영상: `assets/video/loops/scene_{scenarioId}.mp4`
+
+전 33개 시나리오 id (전용 배선 체크리스트 — 공항부터 권장):
+`cafe_starbucks_basic` · `airport_arrival` · `introduce_yourself` · `warm_encouragement` · `couple_argument` · `taxi_kakao` · `bunshik_tteokbokki` · `subway_transfer` · `company_dinner_hoeshik` · `hotel_checkin` · `convenience_store` · `pharmacy_headache` · `myeongdong_shopping` · `business_meeting_intro` · `complaint_delivery` · `doctor_consultation` · `taxi_street` · `plans_with_friend` · `running_late` · `postpone_plans` · `cancel_plans` · `subway_directions` · `ktx_ticket` · `cafe_study` · `food_delivery` · `mart_grocery` · `gym_signup` · `bank_account` · `job_interview` · `love_confession` · `feeling_sick` · `lost_phone` · `friend_birthday`
+
+> ⚠️ 인트로 루프는 140px 아트 박스에서 `videoReady && !reduce-motion`일 때만 재생. 기기 "애니메이션 줄이기" ON이면 정적 포스터로 폴백(정상). 전체배경 wash(0.08)는 항상 정적 PNG.
+
+---
+
 ## 요약
 | 카테고리 | 개수 | 상태 |
 |---|---:|---|
-| mascot | 14 | ✅ 전부 사용 |
+| mascot | 19 | ✅ 14 사용 · ❌ 5 orphan |
 | tiger_anim | 44 | 📁 영상 폴백 전용 |
 | hanok | 13 | ✅ 헤더·대문 |
 | hanok_stages | 12 | ✅ 학습경로 진행도별 |
-| decorations | 18 | ✅ 퀘스트·마당 |
+| decorations | 18 | ✅ 17 사용 · ❌ 1 orphan(dokkaebi_fire) |
 | stamps | 8 | ✅ 도장 |
 | gye | 8 | ⚠️ 계 공동한옥 |
-| scenes | 5 | ⚠️ 시나리오 백드롭 |
+| scenes | 5 (+전용 선택) | ⚠️ 시나리오 백드롭 (전용 우선·카테고리 폴백) |
 | book/empty/error/icons | 11 | 상태·아이콘 |
 | stickers | 30 | ⚠️ 계 스티커 |
 | video (root/loops/character) | 30 | 🎬 영상 |
-| **합계** | **193** | **미트리거 0** |
+| **합계** | **193** | **미트리거 6** (mascot 5 · dokkaebi 1) |
 
-*미사용 에셋은 `assets_unused/`(README 참조). 기준 커밋: `8866ca8` + 영상 배선 커밋.*
+*orphan 6장은 코드 미참조 — `assets_unused/` 이동 후보(Jin 확인 후 비파괴 이동). 나머지 미사용 에셋은 이미 `assets_unused/`(README 참조). 기준 커밋: `8866ca8` + 영상 배선 + 시나리오 씬 리졸버(2026-07-31).*

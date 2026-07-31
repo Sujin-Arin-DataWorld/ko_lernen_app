@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../models/scenario.dart';
 import '../services/scenario_loader.dart';
+import '../services/scene_asset_resolver.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/badge.dart';
@@ -878,7 +879,7 @@ class _ScenarioThumbnail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    final key = scenario.backdropKey;
+    final poster = SceneAssetResolver.posterAsset(scenario);
     final mascotSize = size * 0.62;
 
     final base = ClipRRect(
@@ -889,9 +890,9 @@ class _ScenarioThumbnail extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            if (key != null)
+            if (poster != null)
               Image.asset(
-                'assets/illustrations/scenes/$key.png',
+                poster,
                 fit: BoxFit.cover,
                 filterQuality: FilterQuality.medium,
                 errorBuilder: (_, __, ___) => _gradient(s),
@@ -930,7 +931,7 @@ class _ScenarioThumbnail extends StatelessWidget {
             ),
             // No backdrop? show the emoji small in the top-left so the tile
             // still carries the scenario's own identity glyph.
-            if (key == null)
+            if (poster == null)
               Positioned(
                 left: 4,
                 top: 2,

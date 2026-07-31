@@ -19,6 +19,7 @@ import 'services/picker_recovery_service.dart';
 import 'services/tts_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
+import 'services/scene_asset_resolver.dart';
 import 'services/notification_service.dart';
 import 'services/privacy_consent_service.dart';
 import 'services/push_service.dart';
@@ -75,6 +76,7 @@ import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
 import 'package:rive/rive.dart' show RiveNative;
+import 'widgets/sori/dancheong_burst.dart';
 import 'widgets/sori/tiger_stage_rive.dart';
 import 'widgets/sori/tiger_video.dart';
 
@@ -155,6 +157,16 @@ Future<void> main() async {
   // 호랑이 영상(홈 밴드·온보딩 인사) 활성화. 별도 init 불필요 — 플래그만.
   // 테스트는 false 유지 → 프레임/마스코트 폴백(플러그인 채널 미호출).
   TigerStageVideo.videoReady = true;
+
+  // 시나리오 씬 에셋 리졸버(전용 scenes/{id}.png·loops/scene_{id}.mp4 자동 배선)
+  // 매니페스트를 백그라운드로 1회 로드 — 실패/미완료 시 카테고리 폴백. runApp 무지연.
+  // ignore: discarded_futures, unawaited_futures
+  SceneAssetResolver.load();
+
+  // 정답 축하 스프라이트(복주머니·엽전) 미리 디코딩 — 첫 정답에서 폴백이 뜨는 걸 막는다.
+  // 실패해도 조용히 넘어가고 절차적 burst로 폴백. runApp 무지연.
+  // ignore: discarded_futures, unawaited_futures
+  DancheongBurst.preload();
 
   // Portrait sperren
   await SystemChrome.setPreferredOrientations([
