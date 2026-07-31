@@ -32,7 +32,9 @@ enum _SubMode { both, koOnly, nativeOnly, off }
 /// v1.0 minimum: 시나리오 선택 → 발화 카드 한 줄씩 보기 → TTS 재생 →
 /// 다음으로 진행. 완료 시 XP 보상 + Storage 누적.
 class ListeningScreen extends StatefulWidget {
-  const ListeningScreen({super.key});
+  final Future<List<Scenario>> Function()? scenariosLoader;
+
+  const ListeningScreen({super.key, this.scenariosLoader});
 
   @override
   State<ListeningScreen> createState() => _ListeningScreenState();
@@ -94,7 +96,10 @@ class _ListeningScreenState extends State<ListeningScreen>
   }
 
   Future<void> _load() async {
-    final list = await ScenarioLoader.load();
+    final providedLoader = widget.scenariosLoader;
+    final list = providedLoader != null
+        ? await providedLoader()
+        : await ScenarioLoader.load();
     if (!mounted) return;
     final userLevel =
         LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;

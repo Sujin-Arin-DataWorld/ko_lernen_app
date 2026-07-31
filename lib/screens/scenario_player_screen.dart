@@ -71,8 +71,13 @@ Future<void> runScenarioResultAction({
 
 class ScenarioPlayerScreen extends StatefulWidget {
   final String scenarioId;
+  final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
 
-  const ScenarioPlayerScreen({super.key, required this.scenarioId});
+  const ScenarioPlayerScreen({
+    super.key,
+    required this.scenarioId,
+    this.scenarioLoader,
+  });
 
   @override
   State<ScenarioPlayerScreen> createState() => _ScenarioPlayerScreenState();
@@ -148,8 +153,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Future<void> _loadScenario() async {
-    await ScenarioLoader.load();
-    final s = ScenarioLoader.byId(widget.scenarioId);
+    final providedLoader = widget.scenarioLoader;
+    final s = providedLoader != null
+        ? await providedLoader(widget.scenarioId)
+        : await _loadScenarioFromCatalog(widget.scenarioId);
     if (s == null) {
       if (mounted) Navigator.pop(context);
       return;
@@ -174,6 +181,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         );
       });
     }
+  }
+
+  Future<Scenario?> _loadScenarioFromCatalog(String scenarioId) async {
+    await ScenarioLoader.load();
+    return ScenarioLoader.byId(scenarioId);
   }
 
   // ─── Backdrop-Map ──────────────────────────────────────────────────────────

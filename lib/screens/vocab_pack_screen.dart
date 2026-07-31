@@ -40,7 +40,15 @@ import '../widgets/sori/wordbook_add.dart';
 /// **Args (routes)**: `packId: String` (Navigator.pushNamed argument).
 class VocabPackScreen extends StatefulWidget {
   final String packId;
-  const VocabPackScreen({super.key, required this.packId});
+  final Future<VocabPack?> Function(String packId)? packLoader;
+  final Future<List<VocabPack>> Function(String level)? siblingPacksLoader;
+
+  const VocabPackScreen({
+    super.key,
+    required this.packId,
+    this.packLoader,
+    this.siblingPacksLoader,
+  });
 
   @override
   State<VocabPackScreen> createState() => _VocabPackScreenState();
@@ -121,7 +129,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _error = null;
     });
     try {
-      final pack = await VocabPackService.findById(widget.packId);
+      final providedPackLoader = widget.packLoader;
+      final pack = providedPackLoader != null
+          ? await providedPackLoader(widget.packId)
+          : await VocabPackService.findById(widget.packId);
       if (!mounted) return;
       if (pack == null) {
         setState(() {
@@ -131,7 +142,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         return;
       }
       // Sibling packs — Distractor 풀 보강용 (같은 level).
-      final siblings = await VocabPackService.packsForLevel(pack.level);
+      final providedSiblingLoader = widget.siblingPacksLoader;
+      final siblings = providedSiblingLoader != null
+          ? await providedSiblingLoader(pack.level)
+          : await VocabPackService.packsForLevel(pack.level);
       if (!mounted) return;
       final pool = <Vocab>[
         ...pack.words,

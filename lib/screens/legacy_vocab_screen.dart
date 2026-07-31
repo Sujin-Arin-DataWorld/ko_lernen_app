@@ -27,7 +27,9 @@ import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class LegacyVocabScreen extends StatefulWidget {
-  const LegacyVocabScreen({super.key});
+  final Future<List<Vocab>> Function()? vocabLoader;
+
+  const LegacyVocabScreen({super.key, this.vocabLoader});
 
   @override
   State<LegacyVocabScreen> createState() => _LegacyVocabScreenState();
@@ -109,7 +111,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       _loadFailed = false;
       _dueFeedback.reset();
     });
-    DataLoader.loadVocab().then((v) {
+    final providedLoader = widget.vocabLoader;
+    final loader = providedLoader ?? DataLoader.loadVocab;
+    loader().then((v) {
       if (!mounted) return;
       // Phase 1 SRS-UX-Patch: nicht ALLE due (= Schock), sondern Tagesziel
       // (10 neu + 15 Wdh., respektiert CSV/pack_order).
