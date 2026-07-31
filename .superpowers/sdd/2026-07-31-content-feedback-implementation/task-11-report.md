@@ -98,3 +98,34 @@ integrated through the parent workflow.
 The pre-existing untracked
 `docs/superpowers/plans/2026-07-31-content-feedback-implementation.md` file was
 not edited or staged.
+
+## Fix round 1: stale delivery after completion change
+
+A fresh review identified that `_openFeedback()` awaited the submitter without
+retaining the completion session that started the request. If the card changed
+to a new completion while the delivery was pending, the old result could mark
+the new card delivered, replace its restored passport progress, and invalidate
+the new restore generation.
+
+The card now increments a dedicated completion generation whenever the
+completion ID changes. `_openFeedback()` captures that generation and the
+original feedback context before opening the sheet, submits only that captured
+context, and ignores continuations after either asynchronous boundary if the
+completion generation changed. This also prevents a draft from an old sheet
+from being submitted into a newer completion.
+
+Regression and verification evidence:
+
+- Before the production fix,
+  `flutter test --no-pub test/content_feedback_widget_test.dart --plain-name
+  "pending delivery cannot update a newer completion card"` failed because the
+  old delivery rendered `content-feedback-delivered` on the newer card.
+- After the fix, the same command passed 1/1. The test also proves the newer
+  card retains its 2/5 restored passport progress and remains ready for its own
+  feedback.
+- `flutter test --no-pub test/content_feedback_widget_test.dart` — 15/15
+  passed.
+- `flutter test --no-pub` — 1,329/1,329 passed.
+- `flutter analyze --no-pub` — no issues found.
+- `git diff --check` — exit 0; only the repository's LF-to-CRLF checkout
+  warnings were printed.

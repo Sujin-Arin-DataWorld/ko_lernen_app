@@ -22,6 +22,15 @@ const _feedbackContext = ContentFeedbackContext(
   scoreSummary: '4/5',
 );
 
+const _nextFeedbackContext = ContentFeedbackContext(
+  completionId: 'completion-2',
+  contentType: 'listening',
+  contentId: 'listening:market',
+  contentLabel: 'Market listening',
+  level: 'A2',
+  scoreSummary: '5/5',
+);
+
 void main() {
   testWidgets('disabled feedback gate renders no card', (tester) async {
     var passportReads = 0;
@@ -415,6 +424,74 @@ void main() {
     expect(find.byKey(const Key('content-feedback-delivered')), findsOneWidget);
   });
 
+  testWidgets('pending delivery cannot update a newer completion card', (
+    tester,
+  ) async {
+    final delivery = Completer<ContentFeedbackSubmitResult>();
+    var passportReads = 0;
+    Future<Set<String>> readPassportState() async {
+      passportReads += 1;
+      return passportReads == 1
+          ? const <String>{}
+          : const <String>{'beta_scenario', 'beta_listening'};
+    }
+
+    Future<ContentFeedbackSubmitResult> submitFeedback(
+      ContentFeedbackContext _,
+      ContentFeedbackDraft __,
+    ) => delivery.future;
+
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: submitFeedback,
+        readPassportState: readPassportState,
+      ),
+    );
+    await tester.pump();
+    await _openSheet(tester);
+    await tester.tap(find.byKey(const Key('feedback-category-content')));
+    await tester.pump();
+    await _tapVisible(tester, const Key('feedback-signal-right'));
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('content-feedback-pending')), findsOneWidget);
+
+    await tester.pumpWidget(
+      _host(
+        feedbackContext: _nextFeedbackContext,
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: submitFeedback,
+        readPassportState: readPassportState,
+      ),
+    );
+    await tester.pump();
+    expect(find.byKey(const Key('content-feedback-pending')), findsNothing);
+    expect(find.byKey(const Key('content-feedback-open')), findsOneWidget);
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      0.4,
+    );
+
+    delivery.complete(
+      const ContentFeedbackSubmitResult(
+        status: ContentFeedbackSubmitStatus.accepted,
+        passportStateAuthoritative: true,
+        stampAccepted: true,
+        passportCompletedMissionIds: <String>{'beta_scenario'},
+        nextMissionId: 'beta_word_work',
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const Key('content-feedback-delivered')), findsNothing);
+    expect(find.byKey(const Key('content-feedback-open')), findsOneWidget);
+    expect(
+      tester.widget<SoriProgressBar>(find.byType(SoriProgressBar)).value,
+      0.4,
+    );
+  });
+
   testWidgets('accepted feedback does not infer that a stamp was accepted', (
     tester,
   ) async {
@@ -486,6 +563,7 @@ Future<void> _tapVisible(WidgetTester tester, Key key) async {
 
 Widget _host({
   bool disableAnimations = false,
+  ContentFeedbackContext feedbackContext = _feedbackContext,
   required TesterFeedbackFeatureGate gate,
   required Future<ContentFeedbackSubmitResult> Function(
     ContentFeedbackContext context,
@@ -506,7 +584,7 @@ Widget _host({
         data: MediaQueryData(disableAnimations: disableAnimations),
         child: Scaffold(
           body: ContentFeedbackCard(
-            feedbackContext: _feedbackContext,
+            feedbackContext: feedbackContext,
             featureGate: gate,
             submitFeedback: submitFeedback,
           ),

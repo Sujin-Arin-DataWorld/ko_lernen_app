@@ -70,6 +70,7 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
   ContentFeedbackPassportStateReader? _passportStateReader;
   String? _passportReadCompletionId;
   int _passportReadGeneration = 0;
+  int _completionGeneration = 0;
   bool _hasAuthoritativeSubmissionState = false;
 
   @override
@@ -90,6 +91,7 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.feedbackContext.completionId !=
         widget.feedbackContext.completionId) {
+      _completionGeneration += 1;
       _status = null;
       _acceptedStamp = false;
       _nextMissionId = null;
@@ -132,22 +134,28 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
   }
 
   Future<void> _openFeedback() async {
+    final feedbackContext = widget.feedbackContext;
+    final completionGeneration = _completionGeneration;
     final draft = await showContentFeedbackSheet(
       context: context,
-      feedbackContext: widget.feedbackContext,
+      feedbackContext: feedbackContext,
     );
-    if (!mounted || draft == null) return;
+    if (!mounted ||
+        draft == null ||
+        completionGeneration != _completionGeneration) {
+      return;
+    }
     setState(() => _status = ContentFeedbackSubmitStatus.pending);
 
     ContentFeedbackSubmitResult result;
     try {
-      result = await widget.submitFeedback(widget.feedbackContext, draft);
+      result = await widget.submitFeedback(feedbackContext, draft);
     } catch (_) {
       result = const ContentFeedbackSubmitResult(
         status: ContentFeedbackSubmitStatus.failed,
       );
     }
-    if (!mounted) return;
+    if (!mounted || completionGeneration != _completionGeneration) return;
     final delivered =
         result.status == ContentFeedbackSubmitStatus.accepted ||
         result.status == ContentFeedbackSubmitStatus.duplicateCompletion;
