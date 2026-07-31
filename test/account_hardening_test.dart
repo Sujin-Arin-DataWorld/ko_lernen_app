@@ -534,6 +534,8 @@ void main() {
           300,
           scrollable: find.byType(Scrollable).first,
         );
+        await tester.ensureVisible(deleteTile);
+        await tester.pumpAndSettle();
         await tester.tap(deleteTile);
         await tester.pumpAndSettle();
 
@@ -580,6 +582,8 @@ void main() {
         300,
         scrollable: find.byType(Scrollable).first,
       );
+      await tester.ensureVisible(deleteTile);
+      await tester.pumpAndSettle();
       final deleteListTile = tester.widget<ListTile>(
         find.ancestor(of: deleteTile, matching: find.byType(ListTile)),
       );
@@ -633,6 +637,8 @@ void main() {
         300,
         scrollable: find.byType(Scrollable).first,
       );
+      await tester.ensureVisible(deleteTile);
+      await tester.pumpAndSettle();
       await tester.tap(deleteTile);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Store-Abo verwalten'));
