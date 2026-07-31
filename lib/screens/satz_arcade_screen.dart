@@ -21,7 +21,10 @@ import 'quest_engines/satz_bauen_quest.dart';
 /// Nutzt die bestehende [SatzBauenQuest]-Engine, befüllt aus geprüften
 /// Beispielsätzen (assets/data/satz_sentences.json). Selbst-Wettbewerb.
 class SatzArcadeScreen extends StatefulWidget {
-  const SatzArcadeScreen({super.key});
+  /// Optional test fixture; production loads the curated sentence set.
+  final List<SatzSentence>? items;
+
+  const SatzArcadeScreen({super.key, this.items});
 
   @override
   State<SatzArcadeScreen> createState() => _SatzArcadeScreenState();
@@ -49,7 +52,8 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   }
 
   Future<void> _load() async {
-    final all = await SatzLoader.load();
+    final loaded = widget.items ?? await SatzLoader.load();
+    final all = List<SatzSentence>.of(loaded);
     if (!mounted) return;
     final user = Storage.userLevelCode;
     final start = (user != null && all.any((c) => c.level == user))

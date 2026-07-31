@@ -26,7 +26,10 @@ import '../widgets/sori/tokens.dart';
 /// die Mechanik (Aufwärm-/Geschwindigkeitsschicht), Abruf liefern die anderen
 /// Spiele. Selbst-Wettbewerb (persönliche Bestleistung) — keine Rangliste.
 class SpeedMatchScreen extends StatefulWidget {
-  const SpeedMatchScreen({super.key});
+  /// Optional test fixture; production loads the curated vocabulary set.
+  final List<Vocab>? items;
+
+  const SpeedMatchScreen({super.key, this.items});
 
   @override
   State<SpeedMatchScreen> createState() => _SpeedMatchScreenState();
@@ -64,7 +67,9 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   }
 
   Future<void> _load() async {
-    final all = await DataLoader.loadVocab();
+    final all = widget.items != null
+        ? await Future<List<Vocab>>.value(widget.items!)
+        : await DataLoader.loadVocab();
     if (!mounted) return;
     final lang = Localizations.localeOf(context).languageCode;
     // Nach koreanischem Wort dedupen → kein Homograph-Doppel (removeWhere würde
@@ -96,7 +101,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
 
   void _startRound() {
     _timer?.cancel();
-    final pool = _filtered()..shuffle(_rng);
+    final pool = List<Vocab>.of(_filtered())..shuffle(_rng);
     _pool
       ..clear()
       ..addAll(pool);

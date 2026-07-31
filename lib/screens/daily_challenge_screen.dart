@@ -25,7 +25,10 @@ import '../widgets/sori/tokens.dart';
 /// schlägt jede Einzel-Funktion (Forschung); Belohnung = Bonus-XP + persönlicher
 /// Tages-Streak. **Keine Rangliste** (Selbst-Wettbewerb, kein Dark-Pattern).
 class DailyChallengeScreen extends StatefulWidget {
-  const DailyChallengeScreen({super.key});
+  /// Optional test fixture; production uses the curated daily selection.
+  final List<ClozeItem>? items;
+
+  const DailyChallengeScreen({super.key, this.items});
 
   /// Tages-Seed: lokale Tage seit Epoche → deterministisch. Lokal (nicht UTC),
   /// damit Puzzle-Tag und Streak-Tag (Storage nutzt lokales Datum) niemals
@@ -67,7 +70,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   }
 
   Future<void> _load() async {
-    final all = await ClozeLoader.load();
+    final all = widget.items ?? await ClozeLoader.load();
     if (!mounted) return;
     final round = DailyChallengeScreen.pickDaily(
       all,

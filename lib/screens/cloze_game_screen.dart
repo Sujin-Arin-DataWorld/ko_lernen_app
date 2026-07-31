@@ -25,7 +25,10 @@ import '../widgets/sori/tokens.dart';
 /// Wiedererkennen. Sätze + Übersetzungen stammen aus geprüften Vokabel-
 /// Beispielen (assets/data/cloze.json).
 class ClozeGameScreen extends StatefulWidget {
-  const ClozeGameScreen({super.key});
+  /// Optional test fixture; production loads the curated cloze asset.
+  final List<ClozeItem>? items;
+
+  const ClozeGameScreen({super.key, this.items});
 
   @override
   State<ClozeGameScreen> createState() => _ClozeGameScreenState();
@@ -54,7 +57,8 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   }
 
   Future<void> _load() async {
-    final all = await ClozeLoader.load();
+    final loaded = widget.items ?? await ClozeLoader.load();
+    final all = List<ClozeItem>.of(loaded);
     if (!mounted) return;
     // Startlevel = Nutzerlevel, falls es dafür Items gibt; sonst alle.
     final user = Storage.userLevelCode;

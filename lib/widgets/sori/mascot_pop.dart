@@ -88,7 +88,13 @@ class _MascotPartnerState extends State<MascotPartner>
   void didUpdateWidget(covariant MascotPartner old) {
     super.didUpdateWidget(old);
     if (widget.celebrating && !old.celebrating) {
-      _fire();
+      // The parent can flip this flag while it is building. Overlay insertion
+      // must wait until that frame has completed.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && widget.celebrating) {
+          _fire();
+        }
+      });
     } else if (!widget.celebrating && old.celebrating) {
       _cancelTimers();
       _ctrl.value = 0;
