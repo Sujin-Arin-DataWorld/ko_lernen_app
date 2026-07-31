@@ -2,7 +2,7 @@
 
 > 현재 `assets/`에 실제 존재하는 **미디어 파일 193개**를 **파일명 ↔ 코드가 렌더하는 실제 위치**로 1:1 매핑.
 > 배선·이동·삭제(커밋 `8866ca8` + 영상 배선분) 반영. 미사용분은 `assets_unused/`로 빠져 여기 없음.
-> **2026-07-31 갱신**: 시나리오 씬은 `SceneAssetResolver`가 **전용(`scenes/{id}.png`·`loops/scene_{id}.mp4`) 우선 + 카테고리 폴백**으로 해상. `backdropKey`는 33개 id 정확 매핑(부분문자열 폐기 → `mart_grocery` 버그 수정, 백드롭 없던 13개 커버). **미트리거 6장 재발견**(아래 orphan 표기 — 기존 "미트리거 0"은 stale이었음).
+> **2026-07-31 갱신**: 시나리오 씬은 `SceneAssetResolver`가 **전용(`scenes/{id}.png`·`loops/scene_{id}.mp4`) 우선 + 카테고리 폴백**으로 해상. `backdropKey`는 33개 id 정확 매핑(부분문자열 폐기 → `mart_grocery` 버그 수정, 백드롭 없던 13개 커버). 까치 5포즈(`magpie_dance/encourage/sing/sleep/wave`)를 마스코트 emotion에 배선 → **잔여 orphan은 `dokkaebi_fire` 1장**(기존 "미트리거 0"은 stale이었음).
 >
 > **범례**: ✅ 상시 도달 · ⚠️ 조건부(이벤트/상태) · 🎬 영상(videoReady && !reduce-motion 게이트, 실패 시 정적 폴백) · 📁 폴백 경로 전용
 > **서사·정정 이력은** `docs/ASSET_TRIGGER_AUDIT_2026-07-30.md` 참조. 이 파일은 순수 조회용.
@@ -254,7 +254,7 @@
 ## 요약
 | 카테고리 | 개수 | 상태 |
 |---|---:|---|
-| mascot | 19 | ✅ 14 사용 · ❌ 5 orphan |
+| mascot | 19 | ✅ 전부 사용 (까치 5포즈 2026-07-31 배선) |
 | tiger_anim | 44 | 📁 영상 폴백 전용 |
 | hanok | 13 | ✅ 헤더·대문 |
 | hanok_stages | 12 | ✅ 학습경로 진행도별 |
@@ -265,6 +265,6 @@
 | book/empty/error/icons | 11 | 상태·아이콘 |
 | stickers | 30 | ⚠️ 계 스티커 |
 | video (root/loops/character) | 30 | 🎬 영상 |
-| **합계** | **193** | **미트리거 6** (mascot 5 · dokkaebi 1) |
+| **합계** | **193** | **미트리거 1** (dokkaebi_fire) |
 
-*orphan 6장은 코드 미참조 — `assets_unused/` 이동 후보(Jin 확인 후 비파괴 이동). 나머지 미사용 에셋은 이미 `assets_unused/`(README 참조). 기준 커밋: `8866ca8` + 영상 배선 + 시나리오 씬 리졸버(2026-07-31).*
+*잔여 orphan 1장(`dokkaebi_fire`)만 코드 미참조 — `assets_unused/` 이동 후보(Jin 확인 후 비파괴 이동). 까치 5포즈는 2026-07-31 마스코트에 배선됨. 나머지 미사용 에셋은 이미 `assets_unused/`(README 참조). 기준 커밋: `8866ca8` + 영상 배선 + 시나리오 씬 리졸버 + 까치 마스코트 확장(2026-07-31).*
