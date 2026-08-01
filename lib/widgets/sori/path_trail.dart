@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/pack_progress.dart';
-import '../../services/storage_service.dart';
 import 'character_clip.dart';
 import 'dancheong_stamp.dart';
 import 'mascot.dart';
+import 'mascot_preference.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
@@ -227,8 +227,10 @@ class _TrailNode extends StatelessWidget {
                       color: s.bg,
                       borderRadius: SoriRadius.brSm,
                     ),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 7,
+                      vertical: 1,
+                    ),
                     child: Text(
                       stop.label,
                       maxLines: 1,
@@ -306,10 +308,7 @@ class _Disc extends StatelessWidget {
         opacity: 0.45,
         child: ColorFiltered(
           colorFilter: const ColorFilter.matrix(_greyscale),
-          child: DancheongStamp(
-            motif: motif,
-            size: SoriPathTrail.discLocked,
-          ),
+          child: DancheongStamp(motif: motif, size: SoriPathTrail.discLocked),
         ),
       );
     }
@@ -384,7 +383,7 @@ class _NowDiscState extends State<_NowDisc>
     const box = SoriPathTrail.discBox;
     const d = SoriPathTrail.discNow;
     // 프로필과 같은 규칙 — 사용자가 고른 캐릭터를 경로에서도 유지한다.
-    final isMagpie = Storage.preferredMascot == 'magpie';
+    final isMagpie = MascotPreference.kind.value == MascotKind.magpie;
 
     return RepaintBoundary(
       child: SizedBox.square(
@@ -403,8 +402,7 @@ class _NowDiscState extends State<_NowDisc>
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: SoriColors.tiger
-                          .withValues(alpha: 0.38 * (1 - v)),
+                      color: SoriColors.tiger.withValues(alpha: 0.38 * (1 - v)),
                       width: 2.5,
                     ),
                   ),
@@ -439,8 +437,9 @@ class _NowDiscState extends State<_NowDisc>
                     size: d - 14,
                     loop: true,
                     blendColor: _clipBlend,
-                    fallbackKind:
-                        isMagpie ? MascotKind.magpie : MascotKind.tiger,
+                    fallbackKind: isMagpie
+                        ? MascotKind.magpie
+                        : MascotKind.tiger,
                     fallbackEmotion: MascotEmotion.smile,
                   ),
                 ),
@@ -456,8 +455,7 @@ class _NowDiscState extends State<_NowDisc>
             Positioned(
               bottom: 0,
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 9, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 2),
                 decoration: BoxDecoration(
                   color: SoriColors.tiger,
                   borderRadius: SoriRadius.brPill,
@@ -520,9 +518,12 @@ class _TrailPainter extends CustomPainter {
       final path = Path()
         ..moveTo(from.dx, from.dy)
         ..cubicTo(
-          from.dx, from.dy + dy * 0.45,
-          to.dx, to.dy - dy * 0.45,
-          to.dx, to.dy,
+          from.dx,
+          from.dy + dy * 0.45,
+          to.dx,
+          to.dy - dy * 0.45,
+          to.dx,
+          to.dy,
         );
 
       final done = stops[i].status == PackStatus.cleared;
@@ -535,8 +536,8 @@ class _TrailPainter extends CustomPainter {
         ..color = done
             ? travelled.withValues(alpha: 0.55)
             : next
-                ? upcoming
-                : ahead.withValues(alpha: 0.75);
+            ? upcoming
+            : ahead.withValues(alpha: 0.75);
 
       canvas.drawPath(done ? path : _dashed(path), paint);
     }

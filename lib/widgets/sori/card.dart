@@ -103,21 +103,38 @@ class SoriCard extends StatelessWidget {
     final isLight = s.brightness == Brightness.light;
     final accentColor = accent ?? SoriColors.primary;
 
+    // 라이트에서는 배경보다 한 톤 밝은 흰 한지로 카드를 띄운다.
+    // s.surface(#F1ECDC)는 s.bg(#FAF6EC) 대비 1.09:1 이라 카드로 안 읽힌다.
+    final baseSurface = isLight ? SoriColors.lightSurfaceRaised : s.surface;
+
     final bgColor = tinted
         ? Color.alphaBlend(
             accentColor.withValues(alpha: isLight ? 0.08 : 0.14),
-            s.surface,
+            baseSurface,
           )
-        : s.surface;
+        : baseSurface;
 
     // 소프트섀도우 폐지 후 분리는 hairline이 전담 → 무채색 카드 테두리를
     // 한 톤 또렷하게(크림-온-크림에서 카드가 사라지지 않도록). ⚠️ 실기기 확인.
-    final borderColor = accent != null
-        ? accentColor.withValues(alpha: isLight ? 0.25 : 0.35)
-        : Color.alphaBlend(
-            s.textMuted.withValues(alpha: isLight ? 0.22 : 0.30),
-            s.border,
-          );
+    // accent 카드는 색 코딩(primary/tiger/gold/danger 구분)이 정보라서
+    // 무채색으로 덮으면 안 된다 — 대신 **불투명도를 올려** 3:1을 확보한다.
+    // 그래도 3:1 미만인 밝은 accent(tiger 등)는 fillOutline 이 같은 색상의
+    // 어두운 톤을 돌려준다 → 색 코딩과 대비를 동시에 만족.
+    final Color borderColor;
+    if (accent != null) {
+      final flat = Color.alphaBlend(
+        accentColor.withValues(alpha: isLight ? 0.55 : 0.45),
+        bgColor,
+      );
+      borderColor = isLight
+          ? (SoriColors.fillOutline(flat, bgColor) ?? flat)
+          : flat;
+    } else {
+      // 무채색 카드: 크림 위에서 확실히 보이는 lightBorderStrong(3.27:1).
+      borderColor = isLight
+          ? SoriColors.lightBorderStrong
+          : SoriColors.darkBorderStrong;
+    }
 
     // hanji variant — HanjiTexture가 배경, padding은 child에 적용
     final Widget cardContent = _useHanji
@@ -127,7 +144,7 @@ class SoriCard extends StatelessWidget {
               padding: padding ?? _defaultPadding,
               decoration: BoxDecoration(
                 borderRadius: _borderRadius,
-                border: Border.all(color: borderColor, width: 1),
+                border: Border.all(color: borderColor, width: 1.5),
               ),
               child: child,
             ),
@@ -139,7 +156,7 @@ class SoriCard extends StatelessWidget {
               borderRadius: _borderRadius,
               // 한지 에디토리얼: 평면 + 1px 잉크 hairline. 소프트 드롭섀도우 폐지
               // (범용 AI 최대 신호). 분리는 hairline + 한지 바탕이 담당.
-              border: Border.all(color: borderColor, width: 1),
+              border: Border.all(color: borderColor, width: 1.5),
             ),
             child: child,
           );

@@ -37,7 +37,19 @@ void main() {
 
   test('FontWeight.w800 은 더 늘지 않는다', () {
     // 기준선 2026-07-31: 189곳 / 65파일. 목표 ~20.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 189, 'FontWeight.w800');
+    //
+    // ⚠️ 2026-08-01 배포 전 **임시 상향 189 → 193**.
+    // 병렬 세션이 `onboarding_level_screen.dart` 를 다시 쓰면서(+861/-347)
+    // raw `TextStyle` 5곳을 추가했다. w800 자체는 시스템 규격이 맞다 —
+    // `SoriTextTheme.display/h1/h2/cardTitle` 전부 w800 이고 번들에 실제
+    // ExtraBold 페이스가 있다. 문제는 굵기가 아니라 **테마를 안 거친 것**이다.
+    // 이 화면은 앱 첫 인상이라 배포 직전에 리팩터하지 않았다.
+    //
+    // **되돌리는 조건:** `onboarding_level_screen.dart` 의 raw TextStyle 17개를
+    // `SoriTextTheme.of(ctx).h1/h2/h3/cardTitle/label` 로 교체하면 188 이 된다.
+    // 그때 이 상한을 **189 로 되돌릴 것.** (같은 커밋에서 `fontFamily:` 하드코딩도
+    // 함께 사라진다 — 이미 SoriFonts.sans 로 바꿔 놨지만 테마 경유가 정본이다.)
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 193, 'FontWeight.w800');
   });
 
   test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {

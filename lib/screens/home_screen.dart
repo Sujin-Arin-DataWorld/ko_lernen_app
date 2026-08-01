@@ -24,6 +24,7 @@ import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
 import 'review_session_screen.dart';
 import '../widgets/sori/age_gate_prompt.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -355,15 +356,21 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   /// 말풍선 텍스트 — streak·진척·학습 이유(motivation)에 따라. 순수 함수 위임.
-  String _tigerBubble(AppL10n t) => homeTigerBubble(
+  String _tigerBubble(AppL10n t, MascotKind kind) => homeTigerBubble(
     t,
     streak: Storage.streakDays,
     xp: Storage.xp,
     motivation: learnerMotivationFromId(Storage.motivation),
+    kind: kind,
   );
 
-  /// Phase E — hero subline. 추천이 있으면 "▶ {행동} · {팩 이름}",
+  /// Phase E — hero subline. 추천이 있으면 "{행동} · {팩 이름}",
   /// 없으면(전부 클리어/로드 전) 기본 학습 카피.
+  ///
+  /// 재생 삼각형은 **문자열에 넣지 않는다** — U+25B6 은 안드로이드에서
+  /// Noto Color Emoji 가 가져가 문장 한가운데 주황 사각형이 박힌다
+  /// (test/no_emoji_glyph_test.dart). 아이콘은 [_TigerHero] 가
+  /// `Icons.play_arrow_rounded` WidgetSpan 으로 그린다.
   String _heroSubline(AppL10n t, String lang) {
     final rec = _recommendation;
     if (rec == null) {
@@ -373,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ? t.homeHeroActionContinue
         : t.homeHeroActionStart;
     final label = VocabPackService.displayLabel(rec.packId, lang: lang);
-    return '▶ $action · $label';
+    return '$action · $label';
   }
 
   /// Phase E — hero 탭. 추천 팩으로 직행(없으면 단어팩 그리드).
@@ -472,15 +479,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       _TopBar(),
                       const SizedBox(height: Spacing.lg),
 
-                      // ── B. Tiger hero — 시간대별 인사 + 말풍선 + 큰 호랑이 ──
+                      // ── B. 캐릭터 히어로 — 인사 + 말풍선 + 큰 캐릭터 ──
+                      // 홈은 IndexedStack 안이라 설정에서 캐릭터를 바꿔도
+                      // setState 가 안 온다 → notifier 를 직접 구독한다.
                       SoriEntrance(
                         delay: const Duration(milliseconds: 40),
-                        child: _TigerHero(
-                          greeting: _greeting(t),
-                          bubble: _tigerBubble(t),
-                          subline: _heroSubline(t, lang),
-                          phase: _phase,
-                          onTap: _onHeroTap,
+                        child: ValueListenableBuilder<MascotKind>(
+                          valueListenable: MascotPreference.kind,
+                          builder: (context, kind, _) => _TigerHero(
+                            greeting: _greeting(t),
+                            bubble: _tigerBubble(t, kind),
+                            subline: _heroSubline(t, lang),
+                            phase: _phase,
+                            onTap: _onHeroTap,
+                            kind: kind,
+                          ),
                         ),
                       ),
                       const SizedBox(height: Spacing.lg),
@@ -510,10 +523,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         // 건너뛴다. 그러면 팩 클리어로 XP 를 얻어도 Tagesziel
                         // 카드가 첫 값(0)에 고정된다. xpToday/goal 을 인자로
                         // 넘겨(부모 build 에서 fresh 읽기) 매번 갱신되게 한다.
-                        child: _DailyGoalCard(
-                          xpToday: Storage.xpToday,
-                          goal: Storage.dailyGoalXp,
-                        ),
+                        // 스트릭이 없으면(첫날 또는 끊긴 뒤) 0% 게이지 대신
+                        // 이번 주 디딤돌 7칸. "너는 아무것도 안 했다"로 시작하지
+                        // 않으면서 오늘 자리를 보여준다. 기준은 가입일이 아니라
+                        // **스트릭** — 쉬었다 돌아온 사람도 같은 화면을 받는다.
+                        child: Storage.streakDays < 2
+                            ? _SteppingStonesRow(
+                                streak: Storage.streakDays,
+                                xpToday: Storage.xpToday,
+                                goal: Storage.dailyGoalXp,
+                              )
+                            : _DailyGoalCard(
+                                xpToday: Storage.xpToday,
+                                goal: Storage.dailyGoalXp,
+                              ),
                       ),
                       const SizedBox(height: Spacing.md),
 
@@ -698,7 +721,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
 
                       // ── P0-G7. Streak 0 회복 메시지 ──
-                      if (Storage.streakDays == 0) ...[
+                      // ⚠️ 이 카드는 "스트릭이 **끊긴**" 사용자를 되돌리는 복구
+                      // 카드다("Willkommen zurück!"). 스트릭 0 조건만 보면
+                      // 방금 온보딩을 끝낸 신규 사용자에게도 떠서, 첫 화면이
+                      // "다시 오신 걸 환영합니다"로 시작한다(2026-07-31 발견).
+                      // XP 가 쌓인 적이 있어야 "돌아온 것" — 그때만 보여준다.
+                      // (1일차 인사 자체는 learner_motivation.dart:83 이 이미 분기한다.)
+                      if (Storage.streakDays == 0 && Storage.xp > 0) ...[
                         SoriEntrance(
                           delay: const Duration(milliseconds: 200),
                           slideY: 14,
@@ -708,10 +737,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             tinted: true,
                             child: Row(
                               children: [
-                                const Mascot(
-                                  kind: MascotKind.tiger,
-                                  emotion: MascotEmotion.smile,
-                                  size: 60,
+                                ValueListenableBuilder<MascotKind>(
+                                  valueListenable: MascotPreference.kind,
+                                  builder: (context, kind, _) => Mascot(
+                                    kind: kind,
+                                    emotion: MascotEmotion.smile,
+                                    size: 60,
+                                  ),
                                 ),
                                 const SizedBox(width: Spacing.md),
                                 Expanded(
@@ -798,7 +830,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           t.footerCheer,
                           style: SoriTextTheme.of(
                             context,
-                          ).caption.copyWith(color: s.textDim),
+                          ).caption.copyWith(color: s.textMuted),
                         ),
                       ),
                     ],
@@ -841,6 +873,7 @@ class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
 
     return Column(
       children: [
@@ -870,23 +903,13 @@ class _TopBar extends StatelessWidget {
                 ),
               ),
             ),
-            _RoundIconButton(
-              icon: Icons.groups_2_outlined,
-              onTap: () => showGyeChooser(context),
-            ),
-            const SizedBox(width: Spacing.xs),
-            _RoundIconButton(
-              icon: Icons.person_outline_rounded,
-              onTap: () => Navigator.pushNamed(context, '/profile'),
-            ),
-            const SizedBox(width: Spacing.xs),
-            _RoundIconButton(
-              icon: Icons.bar_chart_rounded,
-              onTap: () => Navigator.pushNamed(context, '/stats'),
-            ),
-            const SizedBox(width: Spacing.xs),
+            // 2026-07-31: 아이콘 4개 → 1개.
+            // 학습그룹·프로필은 하단 탭(#2·#3)에 이미 있어 중복 진입점이었고
+            // (SC 3.2.3), 통계는 프로필 안에서 갈 수 있다. 설정만 남긴다 —
+            // 하단 탭에 없는 유일한 목적지.
             _RoundIconButton(
               icon: Icons.settings_outlined,
+              semanticLabel: t.settingsTitle,
               onTap: () => Navigator.pushNamed(context, '/settings'),
             ),
           ],
@@ -900,23 +923,40 @@ class _TopBar extends StatelessWidget {
 class _RoundIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
-  const _RoundIconButton({required this.icon, required this.onTap});
+  final String? semanticLabel;
+  const _RoundIconButton({
+    required this.icon,
+    required this.onTap,
+    this.semanticLabel,
+  });
 
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return SoriPressable(
-      onTap: onTap,
-      haptic: SoriHaptic.selection,
-      child: Container(
-        width: 36,
-        height: 36,
-        decoration: BoxDecoration(
-          color: s.surface.withValues(alpha: 0.62),
-          shape: BoxShape.circle,
-          border: Border.all(color: s.border),
+    // 눌리는 영역은 48dp(Material 최소 권고), 보이는 원판은 40dp.
+    // 이전엔 36dp 원판이 곧 터치 타깃이라 손가락으로 놓치기 쉬웠다.
+    return Semantics(
+      button: true,
+      label: semanticLabel,
+      child: SoriPressable(
+        onTap: onTap,
+        haptic: SoriHaptic.selection,
+        child: SizedBox(
+          width: 48,
+          height: 48,
+          child: Center(
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: s.surface.withValues(alpha: 0.62),
+                shape: BoxShape.circle,
+                border: Border.all(color: SoriColors.lightBorderStrong),
+              ),
+              child: Icon(icon, size: 20, color: s.textMuted),
+            ),
+          ),
         ),
-        child: Icon(icon, size: 18, color: s.textMuted),
       ),
     );
   }
@@ -931,6 +971,9 @@ class _TigerHero extends StatelessWidget {
   final String subline;
   final _DayPhase phase;
 
+  /// 표시 캐릭터 — 말풍선 액센트·밴드·폴백이 전부 이걸 따른다.
+  final MascotKind kind;
+
   /// Phase E — hero 탭 시 추천 팩으로 직행(있으면). null = 비탭.
   final VoidCallback? onTap;
 
@@ -939,6 +982,7 @@ class _TigerHero extends StatelessWidget {
     required this.bubble,
     required this.subline,
     required this.phase,
+    required this.kind,
     this.onTap,
   });
 
@@ -985,24 +1029,53 @@ class _TigerHero extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             // 추천이 있으면(onTap != null) subline 을 primary CTA 로 강조.
-            Text(
-              subline,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: onTap != null ? 13 : 12,
-                color: onTap != null ? SoriColors.primary : s.textMuted,
-                height: 1.4,
-                fontWeight: onTap != null ? FontWeight.w800 : FontWeight.w500,
-                letterSpacing: onTap != null ? -0.2 : 0,
-              ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+            Builder(
+              builder: (context) {
+                final style = TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: onTap != null ? 13 : 12,
+                  color: onTap != null ? SoriColors.primary : s.textMuted,
+                  height: 1.4,
+                  fontWeight: onTap != null ? FontWeight.w800 : FontWeight.w500,
+                  letterSpacing: onTap != null ? -0.2 : 0,
+                );
+                // 재생 표식은 MaterialIcons 사용자정의영역 코드포인트로만 —
+                // 문자열 U+25B6 은 컬러 이모지로 뒤바뀐다.
+                return Text.rich(
+                  TextSpan(
+                    children: [
+                      if (onTap != null)
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 3),
+                            child: Icon(
+                              Icons.play_arrow_rounded,
+                              size: 15,
+                              color: SoriColors.primary,
+                            ),
+                          ),
+                        ),
+                      TextSpan(text: subline),
+                    ],
+                  ),
+                  style: style,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                );
+              },
             ),
             SizedBox(height: veryNarrow ? 6 : 8),
             // 말풍선을 호랑이 *위*에 두고 아래로 꼬리를 내려 지시 — 얼굴을 덮지
             // 않으면서 "호랑이가 말하는" 느낌 유지(기존 오버레이는 얼굴을 가림).
             Center(
-              child: _SpeechBubble(text: bubble, maxWidth: bubbleMax),
+              child: _SpeechBubble(
+                text: bubble,
+                maxWidth: bubbleMax,
+                accent: kind == MascotKind.magpie
+                    ? SoriColors.highlight
+                    : SoriColors.tigerOnLight,
+              ),
             ),
             // 살아있는 호랑이 밴드
             SizedBox(
@@ -1011,6 +1084,7 @@ class _TigerHero extends StatelessWidget {
               child: TigerStageVideo(
                 height: bandHeight,
                 fallbackEmotion: _emotion,
+                kind: kind,
               ),
             ),
           ],
@@ -1037,7 +1111,14 @@ class _TigerHero extends StatelessWidget {
 class _SpeechBubble extends StatelessWidget {
   final String text;
   final double maxWidth;
-  const _SpeechBubble({required this.text, this.maxWidth = 220});
+
+  /// 캐릭터 액센트 — 테두리·꼬리에 쓴다. 호랑이/까치가 눈에 띄게 갈리는 지점.
+  final Color accent;
+  const _SpeechBubble({
+    required this.text,
+    this.maxWidth = 220,
+    this.accent = SoriColors.tigerOnLight,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -1054,8 +1135,8 @@ class _SpeechBubble extends StatelessWidget {
             color: bg,
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: SoriColors.tiger.withValues(alpha: 0.30),
-              width: 1,
+              color: accent.withValues(alpha: 0.42),
+              width: 1.5,
             ),
             boxShadow: [
               BoxShadow(
@@ -1113,6 +1194,134 @@ class _BubbleTailPainter extends CustomPainter {
 // ════════════════════════════════════════════════════════════════════════
 // C2. Daily goal progress — 오늘 XP / 목표 (모멘텀·리텐션)
 // ════════════════════════════════════════════════════════════════════════
+/// **디딤돌** — 첫 주(또는 스트릭이 끊긴 뒤)의 진행 표시.
+///
+/// 0%짜리 진행바 두 개로 첫 화면을 시작하지 않기 위한 대체물.
+/// 이번 주 7칸 중 오늘 칸을 밝히고, 스트릭에 해당하는 지난 칸을 채운다.
+/// 주 시작(월/일)과 요일 약칭은 [MaterialLocalizations] 를 따라 로케일별로
+/// 자동 정렬된다 — 독일어는 월요일 시작, 영어는 일요일 시작.
+class _SteppingStonesRow extends StatelessWidget {
+  final int streak;
+  final int xpToday;
+  final int goal;
+  const _SteppingStonesRow({
+    required this.streak,
+    required this.xpToday,
+    required this.goal,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final ml = MaterialLocalizations.of(context);
+    final now = DateTime.now();
+    // 이번 주 첫 날 (로케일의 주 시작 요일 기준).
+    final firstDayIdx = ml.firstDayOfWeekIndex; // 0 = 일요일
+    final todayIdx = now.weekday % 7; // DateTime: 월=1..일=7 → 일=0
+    final offset = (todayIdx - firstDayIdx + 7) % 7;
+
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      semanticLabel: t.homeFirstWeekTitle,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            t.homeFirstWeekTitle,
+            style: SoriTextTheme.of(context).cardTitle,
+          ),
+          const SizedBox(height: Spacing.md),
+          Row(
+            children: [
+              for (var i = 0; i < 7; i++)
+                Expanded(
+                  child: _Stone(
+                    label: ml.narrowWeekdays[(firstDayIdx + i) % 7],
+                    isToday: i == offset,
+                    // 오늘 이전 칸 중 스트릭 안에 드는 날은 채운다.
+                    isDone: i < offset && (offset - i) <= streak,
+                  ),
+                ),
+            ],
+          ),
+          if (goal > 0) ...[
+            const SizedBox(height: Spacing.sm),
+            Text(
+              '$xpToday / $goal XP',
+              style: SoriTextTheme.of(context).caption,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _Stone extends StatelessWidget {
+  final String label;
+  final bool isToday;
+  final bool isDone;
+  const _Stone({
+    required this.label,
+    required this.isToday,
+    required this.isDone,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final Color fill;
+    final Color border;
+    final Color fg;
+    if (isToday) {
+      fill = SoriColors.gold.withValues(alpha: 0.18);
+      border = SoriColors.goldOnLight;
+      fg = SoriColors.goldOnLight;
+    } else if (isDone) {
+      fill = SoriColors.primarySoft;
+      border = SoriColors.primary;
+      fg = SoriColors.primaryOnLight;
+    } else {
+      fill = Colors.transparent;
+      border = SoriColors.lightBorderStrong;
+      fg = s.textMuted;
+    }
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 3),
+      child: Column(
+        children: [
+          Container(
+            height: 30,
+            decoration: BoxDecoration(
+              color: fill,
+              borderRadius: BorderRadius.circular(SoriRadius.xs),
+              border: Border.all(color: border, width: 1.5),
+            ),
+            alignment: Alignment.center,
+            child: Icon(
+              isDone
+                  ? Icons.check_rounded
+                  : (isToday ? Icons.circle : Icons.remove),
+              size: isToday ? 9 : 13,
+              color: fg,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              fontFamily: 'Pretendard',
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+              color: isToday ? SoriColors.goldOnLight : s.textMuted,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _DailyGoalCard extends StatelessWidget {
   final int xpToday;
   final int goal;

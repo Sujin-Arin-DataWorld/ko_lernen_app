@@ -253,6 +253,30 @@ abstract class AppL10n {
   /// **'Wer ist dein Lernfreund?'**
   String get characterSelectionTitle;
 
+  /// No description provided for @homeMagpieBubbleStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Fangen wir in Ruhe an – Zeichen für Zeichen.'**
+  String get homeMagpieBubbleStart;
+
+  /// No description provided for @homeMagpieBubbleResume.
+  ///
+  /// In de, this message translates to:
+  /// **'Schön, dich zu sehen. Sollen wir kurz wiederholen?'**
+  String get homeMagpieBubbleResume;
+
+  /// No description provided for @homeLearnNowCtaMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'In Ruhe weiter'**
+  String get homeLearnNowCtaMagpie;
+
+  /// No description provided for @homeFirstWeekTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine erste Woche'**
+  String get homeFirstWeekTitle;
+
   /// No description provided for @characterNameTiger.
   ///
   /// In de, this message translates to:
@@ -3238,8 +3262,104 @@ abstract class AppL10n {
   /// No description provided for @onboardingTigerGreeting.
   ///
   /// In de, this message translates to:
-  /// **'환영해요!\n어떤 레벨부터 시작할까요?'**
+  /// **'Willkommen!\nWo möchtest du starten?'**
   String get onboardingTigerGreeting;
+
+  /// No description provided for @onboardingDifficulty.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierigkeit'**
+  String get onboardingDifficulty;
+
+  /// No description provided for @onboardingExampleLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'So klingt dieses Level'**
+  String get onboardingExampleLabel;
+
+  /// No description provided for @onboardingCompareCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsicher? Level vergleichen'**
+  String get onboardingCompareCta;
+
+  /// No description provided for @onboardingCompareTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ändert sich pro Level?'**
+  String get onboardingCompareTitle;
+
+  /// No description provided for @onboardingCompareIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Frühere Level bleiben immer offen — du kannst dein Level jederzeit in den Einstellungen ändern.'**
+  String get onboardingCompareIntro;
+
+  /// No description provided for @onboardingCompareColCan.
+  ///
+  /// In de, this message translates to:
+  /// **'Das kannst du schon'**
+  String get onboardingCompareColCan;
+
+  /// No description provided for @onboardingCompareColLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Das lernst du hier'**
+  String get onboardingCompareColLearn;
+
+  /// No description provided for @onboardingCompareClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Verstanden'**
+  String get onboardingCompareClose;
+
+  /// No description provided for @onboardingLevelA1Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch (fast) nichts — vielleicht ein paar Wörter.'**
+  String get onboardingLevelA1Can;
+
+  /// No description provided for @onboardingLevelA1Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul lesen und schreiben, dich vorstellen, Zahlen.'**
+  String get onboardingLevelA1Learn;
+
+  /// No description provided for @onboardingLevelA2Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du liest Hangeul und kennst einfache Begrüßungen.'**
+  String get onboardingLevelA2Can;
+
+  /// No description provided for @onboardingLevelA2Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestellen, einkaufen, nach dem Weg fragen, die Höflichkeitsform -요.'**
+  String get onboardingLevelA2Learn;
+
+  /// No description provided for @onboardingLevelB1Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du führst einfache Gespräche über den Alltag.'**
+  String get onboardingLevelB1Can;
+
+  /// No description provided for @onboardingLevelB1Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Erzählen, Meinung äußern, Sätze verbinden, Vergangenheit.'**
+  String get onboardingLevelB1Learn;
+
+  /// No description provided for @onboardingLevelB2Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du sprichst flüssig über Alltagsthemen.'**
+  String get onboardingLevelB2Can;
+
+  /// No description provided for @onboardingLevelB2Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.'**
+  String get onboardingLevelB2Learn;
 
   /// No description provided for @homeHeroGreetingMorning.
   ///

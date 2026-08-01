@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 /// Smoke-Test für den Profil-Hub (Tier 1 — 2026-06-03).
 ///
@@ -28,6 +29,7 @@ void main() {
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    MascotPreference.load();
   });
 
   testWidgets('ProfileScreen baut im Gast-Modus ohne Firebase fehlerfrei', (
@@ -54,6 +56,7 @@ void main() {
     tester,
   ) async {
     await Storage.setPreferredMascot('magpie');
+    MascotPreference.load();
 
     await tester.pumpWidget(
       _wrap(

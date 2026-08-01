@@ -77,6 +77,8 @@ import 'package:rive/rive.dart' show RiveNative;
 import 'widgets/sori/dancheong_burst.dart';
 import 'widgets/sori/tiger_stage_rive.dart';
 import 'widgets/sori/tiger_video.dart';
+import 'widgets/sori/mascot_preference.dart';
+import 'widgets/sori/route_observer.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -132,6 +134,10 @@ Future<void> main() async {
   // 호랑이 영상(홈 밴드·온보딩 인사) 활성화. 별도 init 불필요 — 플래그만.
   // 테스트는 false 유지 → 프레임/마스코트 폴백(플러그인 채널 미호출).
   TigerStageVideo.videoReady = true;
+
+  // 선택된 캐릭터를 전역 notifier 로 올린다. Storage 초기화 뒤여야 한다.
+  // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).
+  MascotPreference.load();
 
   // The resolver must finish before the first frame. Otherwise a dedicated
   // per-scenario illustration can be silently replaced by its category
@@ -242,6 +248,9 @@ class KoLernenApp extends StatelessWidget {
         theme: AppTheme.lightFor(paletteVariantNotifier.value),
         darkTheme: AppTheme.lightFor(paletteVariantNotifier.value),
         themeMode: ThemeMode.light,
+        // 영상 위젯이 "내 화면 위에 다른 화면이 올라왔는지"를 알아야
+        // 디코더를 놓을 수 있다 (route_observer.dart 주석 참조).
+        navigatorObservers: [soriRouteObserver],
         locale: localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,

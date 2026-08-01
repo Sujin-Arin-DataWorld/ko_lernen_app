@@ -189,8 +189,17 @@ void main() {
       for (final file in dartFiles) {
         final source = file.readAsStringSync();
         for (final match in assetPattern.allMatches(source)) {
-          final asset = match.group(1)!;
-          if (asset.contains(r'$') || asset.endsWith('/')) continue;
+          var asset = match.group(1)!;
+          // 보간 문자열('$_base/x.mp4')을 통째로 건너뛰면 안 된다 — 이 스킵
+          // 때문에 CharacterClips.tigerRoarSeatedBonus 가 존재하지 않는 파일을
+          // 가리킨 채 몇 세션을 통과했다(2026-07-31 발견). 같은 파일에서
+          // 베이스 상수를 찾아 치환한 뒤 검사한다.
+          if (asset.contains(r'$')) {
+            final resolved = _resolveBase(asset, source);
+            if (resolved == null) continue; // 베이스를 못 찾으면 종전대로 스킵
+            asset = resolved;
+          }
+          if (asset.endsWith('/')) continue;
           if (pending.contains(asset)) continue;
           // A bare base-directory constant (e.g. CharacterClips._base =
           // 'assets/video/character', joined with a filename at use-site) is a
@@ -411,4 +420,24 @@ void _expectStringOptions(Object? value, String label, {int min = 4}) {
   for (final option in options) {
     expect(option.toString().trim(), isNotEmpty);
   }
+}
+
+/// `'$_base/tiger_roar.mp4'` 처럼 같은 파일 안의 베이스 상수를 참조하는
+/// 보간 자산 경로를 실제 경로로 푼다. 베이스를 못 찾으면 `null`.
+///
+/// 지원 형태: `static const String _base = 'assets/...';` (선행 `_` 유무 무관)
+String? _resolveBase(String raw, String source) {
+  final ref = RegExp(r'\$\{?(\w+)\}?').firstMatch(raw);
+  if (ref == null) return null;
+  final name = ref.group(1)!;
+  final decl = RegExp(
+    "(?:static\\s+)?const\\s+String\\s+$name\\s*=\\s*'([^']+)'",
+  ).firstMatch(source);
+  if (decl == null) return null;
+  final resolved = raw.replaceAll(
+    RegExp(r'\$\{?' + name + r'\}?'),
+    decl.group(1)!,
+  );
+  // 남은 보간이 있으면 검사 불가 — 스킵.
+  return resolved.contains(r'$') ? null : resolved;
 }

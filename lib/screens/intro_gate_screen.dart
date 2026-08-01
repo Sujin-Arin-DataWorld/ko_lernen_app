@@ -1,12 +1,15 @@
+import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/hanok/gate_art.dart';
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/video_lease.dart';
 import '../motion/transitions.dart';
 import 'app_shell.dart';
 import 'onboarding_level_screen.dart';
@@ -58,12 +61,13 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     super.initState();
     final firstRun = !Storage.introSeen;
     // 첫 실행은 인상 깊게, 재실행은 답답하지 않게.
-    _ctrl = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: firstRun ? 3900 : 2300),
-    )..addStatusListener((s) {
-      if (s == AnimationStatus.completed) _finish();
-    });
+    _ctrl =
+        AnimationController(
+          vsync: this,
+          duration: Duration(milliseconds: firstRun ? 3900 : 2300),
+        )..addStatusListener((s) {
+          if (s == AnimationStatus.completed) _finish();
+        });
     if (!_videoMode) _startCodeScene();
   }
 
@@ -132,10 +136,7 @@ class _IntroGateScreenState extends State<IntroGateScreen>
       child: Scaffold(
         backgroundColor: HanokColors.hanjiCream,
         body: _videoMode
-            ? _IntroVideo(
-                onDone: _finish,
-                onFallback: _fallbackToCodeScene,
-              )
+            ? _IntroVideo(onDone: _finish, onFallback: _fallbackToCodeScene)
             : GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: _skip,
@@ -368,36 +369,71 @@ class _IntroVideo extends StatefulWidget {
 
 class _IntroVideoState extends State<_IntroVideo> {
   VideoPlayerController? _video;
+  VideoLeaseRequest<VideoPlayerController>? _lease;
+  late final VideoLeaseEligibilityBinding _eligibility;
   bool _ready = false;
   bool _done = false;
 
   @override
   void initState() {
     super.initState();
-    _init();
+    _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
+    _lease = soriVideoLease.register(
+      asset: _introVideoAsset,
+      eligible: false,
+      prepare: (video) => video.setVolume(SoundService.enabled ? 0.8 : 0),
+      onGranted: _onGranted,
+      onRevoked: _onRevoked,
+      onFailed: _onFailed,
+    );
   }
 
-  Future<void> _init() async {
-    final video = VideoPlayerController.asset(_introVideoAsset);
-    _video = video;
-    try {
-      await video.initialize();
-      await video.setVolume(0);
-    } catch (_) {
-      if (mounted) widget.onFallback();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _eligibility.attach(context);
+    _syncEligibility();
+  }
+
+  void _syncEligibility() {
+    if (!mounted) {
       return;
     }
-    if (!mounted) return;
+    _lease?.setEligible(
+      _eligibility.isEligible(context, videoReady: TigerStageVideo.videoReady),
+    );
+  }
+
+  void _onGranted(VideoPlayerController video) {
+    _video = video;
     video.addListener(_onTick);
-    setState(() => _ready = true);
-    await video.play();
+    if (mounted) {
+      setState(() => _ready = true);
+    }
+    unawaited(video.play());
+  }
+
+  void _onRevoked() {
+    _video?.removeListener(_onTick);
+    _video = null;
+    _ready = false;
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _onFailed(Object _, StackTrace __) {
+    if (mounted) {
+      widget.onFallback();
+    }
   }
 
   void _onTick() {
     final video = _video;
     if (video == null || _done) return;
     final v = video.value;
-    final ended = v.isInitialized &&
+    final ended =
+        v.isInitialized &&
         v.duration > Duration.zero &&
         !v.isPlaying &&
         v.position >= v.duration - const Duration(milliseconds: 100);
@@ -407,13 +443,19 @@ class _IntroVideoState extends State<_IntroVideo> {
   void _complete() {
     if (_done) return;
     _done = true;
+    _lease?.setEligible(false);
     widget.onDone();
   }
 
   @override
   void dispose() {
     _video?.removeListener(_onTick);
-    _video?.dispose();
+    _eligibility.disposeBinding();
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      unawaited(lease.release());
+    }
     super.dispose();
   }
 

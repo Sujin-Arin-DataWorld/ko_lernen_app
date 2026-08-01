@@ -93,3 +93,11 @@ ko-lernen-app-key.json
 
 # content_factory 캐시 (시드 다운로드·stdict 응답 캐시 — 재생성 가능, 커밋 금지)
 tools/content_factory/.cache/
+
+# lib 소스 평탄화 백업 (`docs/_backup_YYYY-MM-DD/lib__…dart`) — 상대 import가
+# 깨져 `flutter analyze` 를 오염시킨다. 로컬 롤백용일 뿐 repo에 넣지 않는다.
+docs/_backup_*/
+
+# 오디오/알파 마스터 — pubspec 미등록이라 APK 에는 안 들어가지만
+# 레포를 무겁게 한다(webm 알파 마스터 ~1.4MB/개). 재출력용 원본은 로컬 보관.
+masters/

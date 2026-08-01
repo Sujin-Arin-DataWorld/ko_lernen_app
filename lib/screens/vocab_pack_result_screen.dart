@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/pack_progress_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/dancheong_stamp.dart';
@@ -105,12 +106,12 @@ class VocabPackResultScreen extends StatelessWidget {
                         motif: motif,
                         justCleared: justCleared,
                       )
-                    : const SoriEntrance(
+                    : SoriEntrance(  // const 불가 — MascotPreference.kind.value 는 런타임 값
                         child: SizedBox(
                           height: 160,
                           child: Center(
                             child: Mascot(
-                              kind: MascotKind.tiger,
+                              kind: MascotPreference.kind.value,
                               emotion: MascotEmotion.worry,
                               size: 130,
                             ),
@@ -410,8 +411,8 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                   child: Transform.scale(
                     scale: (0.5 + 0.5 * _tigerIn.value).clamp(0.0, 1.2),
                     alignment: Alignment.bottomCenter,
-                    child: const Mascot(
-                      kind: MascotKind.tiger,
+                    child: Mascot(
+                      kind: MascotPreference.kind.value,
                       emotion: MascotEmotion.celebrate,
                       size: 96,
                       animate: true,

@@ -96,6 +96,20 @@ class AppL10nEn extends AppL10n {
   String get characterSelectionTitle => 'Who\'s your study buddy?';
 
   @override
+  String get homeMagpieBubbleStart =>
+      'Let\'s start calmly – one character at a time.';
+
+  @override
+  String get homeMagpieBubbleResume =>
+      'Good to see you. Shall we review a little first?';
+
+  @override
+  String get homeLearnNowCtaMagpie => 'Continue calmly';
+
+  @override
+  String get homeFirstWeekTitle => 'Your first week';
+
+  @override
   String get characterNameTiger => '든든이';
 
   @override
@@ -1716,7 +1730,63 @@ class AppL10nEn extends AppL10n {
       'Tap your level — you can change it in Settings.';
 
   @override
-  String get onboardingTigerGreeting => '환영해요!\n어떤 레벨부터 시작할까요?';
+  String get onboardingTigerGreeting => 'Welcome!\nWhere do you want to start?';
+
+  @override
+  String get onboardingDifficulty => 'Difficulty';
+
+  @override
+  String get onboardingExampleLabel => 'What this level sounds like';
+
+  @override
+  String get onboardingCompareCta => 'Not sure? Compare the levels';
+
+  @override
+  String get onboardingCompareTitle => 'What changes at each level?';
+
+  @override
+  String get onboardingCompareIntro =>
+      'Earlier levels always stay open — you can change your level anytime in Settings.';
+
+  @override
+  String get onboardingCompareColCan => 'What you can already do';
+
+  @override
+  String get onboardingCompareColLearn => 'What you\'ll learn here';
+
+  @override
+  String get onboardingCompareClose => 'Got it';
+
+  @override
+  String get onboardingLevelA1Can => 'Not much yet — maybe a few words.';
+
+  @override
+  String get onboardingLevelA1Learn =>
+      'Reading and writing Hangeul, introducing yourself, numbers.';
+
+  @override
+  String get onboardingLevelA2Can =>
+      'You read Hangeul and know simple greetings.';
+
+  @override
+  String get onboardingLevelA2Learn =>
+      'Ordering, shopping, asking for directions, the polite -요 form.';
+
+  @override
+  String get onboardingLevelB1Can =>
+      'You handle simple everyday conversations.';
+
+  @override
+  String get onboardingLevelB1Learn =>
+      'Telling stories, giving opinions, linking sentences, past tense.';
+
+  @override
+  String get onboardingLevelB2Can =>
+      'You speak fluently about everyday topics.';
+
+  @override
+  String get onboardingLevelB2Learn =>
+      'Work and news, nuance, idioms, honorifics.';
 
   @override
   String get homeHeroGreetingMorning => 'Good morning!';

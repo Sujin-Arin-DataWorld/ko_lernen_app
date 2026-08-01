@@ -111,11 +111,18 @@ class SoriButton extends StatelessWidget {
         : (accent ??
             (isLight ? SoriColors.primaryOnLight : SoriColors.primaryOnDark));
 
+    // filled 채움이 배경에서 3:1로 안 떨어지면(예: tiger 2.14:1) 같은 색상의
+    // 어두운 테두리를 자동으로 붙인다 — SC 1.4.11. 충분하면 null.
+    final Color? fillEdge = (variant == SoriButtonVariant.filled && !disabled)
+        ? SoriColors.fillOutline(color, s.bg)
+        : null;
+
     final (Color bg, Color fg, BoxBorder? border) = switch (variant) {
       SoriButtonVariant.filled => (
         disabled ? s.surfaceAlt : color,
-        disabled ? s.textDim    : Colors.white,
-        null,
+        // 흰 글씨 고정 금지 — 밝은 채움(tiger/gold/warning)에선 먹색으로 자동 전환.
+        disabled ? s.textDim    : SoriColors.onFill(color),
+        fillEdge == null ? null : Border.all(color: fillEdge, width: 1.5),
       ),
       SoriButtonVariant.outlined => (
         Colors.transparent,

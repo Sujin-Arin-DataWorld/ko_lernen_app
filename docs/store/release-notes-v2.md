@@ -1,4 +1,4 @@
-# Release Notes — v2.0.1 (Closed Testing, Build 2.0.1+4)
+# Release Notes — v2.0.1 (Closed Testing, Build 2.0.1+6)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -67,7 +67,7 @@ Enjoy building your hanok!
 
 ### Release prep
 
-- Build tag: **v2.0.1+4** — matches `pubspec.yaml` `version: 2.0.1+4` (2026-06-12)
+- Build tag: **v2.0.1+6** — matches `pubspec.yaml` `version: 2.0.1+6` (2026-08-01)
 - Branch: `main` after Phase 5.2 verification
 - Track: **Closed Testing** (5-10 testers from v1.0 user pool)
 - Rollout: 100% to Closed track, monitor 1 week before considering Production

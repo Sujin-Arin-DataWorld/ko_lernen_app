@@ -6,6 +6,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/character_clip.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
@@ -75,8 +76,8 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
       _phase = _GreetPhase.choosing;
     });
 
-    // 선택한 캐릭터 저장
-    Storage.setPreferredMascot(kind == MascotKind.tiger ? 'tiger' : 'magpie');
+    // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
+    MascotPreference.set(kind);
 
     // 첫 인사는 말이 아니라 몸짓 — 선택된 캐릭터의 인사 클립이 재생되고,
     // 클립이 끝나면(폴백 경로 포함) _proceed가 정확히 1회 호출된다.
@@ -122,6 +123,10 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       //  커진다. 헤더는 정지로 둔다.)
                       const HanokHeader(
                         asset: 'assets/illustrations/hanok/welcome-hero.png',
+                        // ⚠️ loopAsset 을 빼는 것만으로는 정지되지 않는다 —
+                        // HanokHeader 는 png 이름에서 mp4 를 유도한다.
+                        // 정지 포스터를 원하면 animate:false 를 명시해야 한다.
+                        animate: false,
                         aspectRatio: 16 / 9,
                         radius: 16,
                         fallbackIcon: Icons.pets,

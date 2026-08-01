@@ -4,9 +4,12 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../services/sound_service.dart';
 import 'mascot.dart';
+import 'mascot_preference.dart';
 import 'tiger_video.dart';
 import 'tokens.dart';
+import 'video_lease.dart';
 
 /// **캐릭터 클립 카탈로그** — `assets/video/character/`의 흰 배경 H.264 mp4.
 ///
@@ -81,6 +84,14 @@ class CharacterClips {
   static String greetFor(MascotKind kind) =>
       kind == MascotKind.magpie ? magpieGreetChirp : tigerGreetPawflash;
 
+  /// 세션/레슨 완료 클립 — 캐릭터별. 호랑이는 기지개, 까치는 축하 날갯짓.
+  static String sessionCompleteFor(MascotKind kind) =>
+      kind == MascotKind.magpie ? magpieCelebrate : tigerStretch;
+
+  /// "생각 중" 루프 — 호랑이만 전용 클립이 있고 까치는 대기 자세를 쓴다.
+  static String thinkingFor(MascotKind kind) =>
+      kind == MascotKind.magpie ? magpiePerched : tigerThinking;
+
   /// 선택 확정 클립.
   static String chooseFor(MascotKind kind) =>
       kind == MascotKind.magpie ? magpieChoose : tigerChoose;
@@ -107,6 +118,34 @@ class CharacterClips {
         return null;
     }
   }
+
+  /// 클립 → 동반 효과음(`assets/sfx/*.mp3`).
+  ///
+  /// **캐릭터 mp4에는 오디오 트랙이 없다** — 소스가 크로마키 합성이라 출력
+  /// 단계에서 소리가 실리지 않았다. 그래서 포효·짹짹은 영상이 아니라 이
+  /// 별도 mp3로 재생한다(볼륨·설정 제어가 쉽다는 이점도 있다).
+  /// 파일이 없으면 [SoundService]와 같은 철학으로 조용히 무음.
+  ///
+  /// 매핑이 없는 클립(대기 루프·생각 중 등)은 null — 상시 루프에까지 소리를
+  /// 붙이면 TTS와 겹쳐 학습을 방해한다. **일회성 연출에만** 소리를 준다.
+  static String? sfxFor(String clipAsset) {
+    switch (clipAsset) {
+      case tigerGreetPawflash:
+      case tigerRise:
+        return 'sfx/greet_tiger.mp3';
+      case magpieGreetChirp:
+        return 'sfx/greet_magpie.mp3';
+      case tigerCelebrateHifive:
+      case tigerRoar:
+      case tigerStretch:
+        return 'sfx/celebrate_tiger.mp3';
+      case magpieCelebrate:
+      case magpieFlight:
+        return 'sfx/celebrate_magpie.mp3';
+      default:
+        return null;
+    }
+  }
 }
 
 /// **CharacterClipPlayer** — 캐릭터 클립 범용 재생 위젯.
@@ -125,7 +164,9 @@ class CharacterClipPlayer extends StatefulWidget {
   final double size;
   final bool loop;
   final Color blendColor;
-  final MascotKind fallbackKind;
+
+  /// 폴백 마스코트. `null`이면 [MascotPreference] 의 선택 캐릭터를 쓴다.
+  final MascotKind? fallbackKind;
   final MascotEmotion fallbackEmotion;
   final VoidCallback? onCompleted;
   final Duration fallbackCompleteAfter;
@@ -137,7 +178,7 @@ class CharacterClipPlayer extends StatefulWidget {
     this.size = 180,
     this.loop = false,
     this.blendColor = SoriColors.lightBg,
-    this.fallbackKind = MascotKind.tiger,
+    this.fallbackKind,
     this.fallbackEmotion = MascotEmotion.smile,
     this.onCompleted,
     this.fallbackCompleteAfter = const Duration(milliseconds: 1200),
@@ -150,94 +191,159 @@ class CharacterClipPlayer extends StatefulWidget {
 
 class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   VideoPlayerController? _video;
+  VideoLeaseRequest<VideoPlayerController>? _lease;
+  late final VideoLeaseEligibilityBinding _eligibility;
+  late final OneShotVideoLeaseCompletion? _completion;
   AudioPlayer? _audio;
-  bool _initStarted = false;
   bool _ready = false;
   bool _failed = false;
-  bool _completedFired = false;
-  Timer? _fallbackTimer;
+  bool _sfxStarted = false;
 
-  bool _live(BuildContext context) =>
-      TigerStageVideo.videoReady && !SoriMotion.reduceMotion(context);
+  @override
+  void initState() {
+    super.initState();
+    _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
+    _completion = widget.loop
+        ? null
+        : OneShotVideoLeaseCompletion(
+            fallbackCompleteAfter: widget.fallbackCompleteAfter,
+            onRelease: _releaseAfterCompletion,
+            onCompleted: () => widget.onCompleted?.call(),
+          );
+    _lease = soriVideoLease.register(
+      asset: widget.asset,
+      eligible: false,
+      prepare: (video) async {
+        // 캐릭터 mp4에는 오디오 트랙이 없다. 효과음은 별도 mp3가 담당한다.
+        await video.setVolume(0);
+        await video.setLooping(widget.loop);
+      },
+      onGranted: _onGranted,
+      onRevoked: _onRevoked,
+      onFailed: _onFailed,
+    );
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (_initStarted) return;
-    _initStarted = true;
-    if (_live(context)) {
-      _init();
-    } else {
-      _armFallbackCompletion();
+    _eligibility.attach(context);
+    _syncEligibility();
+    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
+      // 영상이 꺼져 있어도(reduce-motion 포함) 소리는 남긴다 —
+      // "애니메이션 줄이기"는 움직임에 대한 설정이지 소리에 대한 설정이 아니다.
+      _playSfxOnce();
+      _completion?.fallbackNeeded();
     }
   }
 
-  /// 폴백(정적 이미지) 경로에서도 원샷 시맨틱 보장.
-  void _armFallbackCompletion() {
-    if (widget.loop || widget.onCompleted == null) return;
-    _fallbackTimer = Timer(widget.fallbackCompleteAfter, _fireCompleted);
-  }
-
-  void _fireCompleted() {
-    if (_completedFired) return;
-    _completedFired = true;
-    widget.onCompleted?.call();
-  }
-
-  Future<void> _init() async {
-    final video = VideoPlayerController.asset(widget.asset);
-    _video = video;
-    try {
-      await video.initialize();
-      await video.setVolume(0);
-      await video.setLooping(widget.loop);
-    } catch (_) {
-      if (mounted) {
-        setState(() => _failed = true);
-      } else {
-        _failed = true;
-      }
-      _armFallbackCompletion();
+  void _syncEligibility() {
+    if (!mounted) {
       return;
     }
-    if (!mounted) return;
+    _completion?.visibilityChanged(_eligibility.isVisible(context));
+    final eligible = _eligibility.isEligible(
+      context,
+      videoReady: TigerStageVideo.videoReady,
+    );
+    if (eligible) {
+      _completion?.leaseRequested();
+    }
+    _lease?.setEligible(eligible);
+    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
+      _completion?.fallbackNeeded();
+    }
+  }
+
+  /// 동반 효과음 — 명시 지정([CharacterClipPlayer.sfxAsset])이 없으면
+  /// 클립에서 자동 유도. [SoundService.enabled]가 마스터 스위치다.
+  Future<void> _playSfxOnce() async {
+    if (!SoundService.enabled) return;
+    final sfx = widget.sfxAsset ?? CharacterClips.sfxFor(widget.asset);
+    if (sfx == null) return;
+    if (_sfxStarted) return;
+    _sfxStarted = true;
+    try {
+      final audio = AudioPlayer();
+      _audio = audio;
+      await audio.setReleaseMode(ReleaseMode.release);
+      await audio.play(AssetSource(sfx), volume: 0.7);
+    } catch (_) {
+      // 효과음은 항상 best-effort — 파일이 없으면 무음.
+    }
+  }
+
+  void _onGranted(VideoPlayerController video) {
+    _video = video;
+    _completion?.leaseGranted();
     if (!widget.loop) {
       video.addListener(_onTick);
     }
-    setState(() => _ready = true);
-    await video.play();
-    final sfx = widget.sfxAsset;
-    if (sfx != null) {
-      try {
-        final audio = AudioPlayer();
-        _audio = audio;
-        await audio.play(AssetSource(sfx));
-      } catch (_) {
-        // 효과음은 항상 best-effort.
-      }
+    if (mounted) {
+      setState(() {
+        _ready = true;
+        _failed = false;
+      });
     }
+    unawaited(video.play());
+    unawaited(_playSfxOnce());
+  }
+
+  void _onRevoked() {
+    _video?.removeListener(_onTick);
+    _video = null;
+    _ready = false;
+    _completion?.leaseRevoked();
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _onFailed(Object _, StackTrace __) {
+    _failed = true;
+    if (mounted) {
+      setState(() {});
+    }
+    unawaited(_playSfxOnce());
+    _completion?.fallbackNeeded();
   }
 
   void _onTick() {
     final video = _video;
-    if (video == null || _completedFired) return;
+    final completion = _completion;
+    if (video == null || completion == null) return;
     final v = video.value;
-    final done =
-        v.isInitialized &&
-        v.duration > Duration.zero &&
-        !v.isPlaying &&
-        v.position >= v.duration - const Duration(milliseconds: 80);
-    if (done) {
+    if (completion.completeFromPlayback(
+      isInitialized: v.isInitialized,
+      duration: v.duration,
+      isPlaying: v.isPlaying,
+      position: v.position,
+    )) {
       video.removeListener(_onTick);
-      _fireCompleted();
+    }
+  }
+
+  Future<void> _releaseAfterCompletion() async {
+    // Remove the final texture immediately; coordinator disposal remains the
+    // single native release path and is awaited before another owner creates.
+    _onRevoked();
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      await lease.release();
     }
   }
 
   @override
   void dispose() {
-    _fallbackTimer?.cancel();
+    _completion?.dispose();
     _video?.removeListener(_onTick);
-    _video?.dispose();
+    _eligibility.disposeBinding();
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      unawaited(lease.release());
+    }
     _audio?.dispose();
     super.dispose();
   }
@@ -245,20 +351,17 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   @override
   Widget build(BuildContext context) {
     final video = _video;
-    final live = _live(context) && !_failed;
     return SizedBox.square(
       dimension: widget.size,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
-        child: !live
+        child: _failed || !_ready || video == null
             ? Mascot(
-                kind: widget.fallbackKind,
+                kind: widget.fallbackKind ?? MascotPreference.kind.value,
                 emotion: widget.fallbackEmotion,
                 size: widget.size * 0.85,
                 animate: true,
               )
-            : (!_ready || video == null)
-            ? const SizedBox.shrink()
             : ColorFiltered(
                 colorFilter: ColorFilter.mode(
                   widget.blendColor,

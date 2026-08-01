@@ -52,11 +52,7 @@ void main() {
     await tester.pump();
 
     final link = find.text('Mit Google sichern');
-    await tester.scrollUntilVisible(
-      link,
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, link);
     await tester.tap(link);
     await tester.pumpAndSettle();
 
@@ -86,19 +82,14 @@ void main() {
       ),
     );
     await tester.pump();
-    await tester.scrollUntilVisible(
+    await _ensureSettingsActionVisible(
+      tester,
       find.text('Kontowechsel fortsetzen'),
-      250,
-      scrollable: find.byType(Scrollable).first,
     );
 
     expect(find.text('Fortsetzen'), findsOneWidget);
     expect(find.text('Wechsel abbrechen'), findsOneWidget);
-    await tester.scrollUntilVisible(
-      find.text('Mit Google sichern'),
-      150,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, find.text('Mit Google sichern'));
     final linkTile = tester.widget<ListTile>(
       find.ancestor(
         of: find.text('Mit Google sichern'),
@@ -136,11 +127,7 @@ void main() {
     await tester.pump();
 
     for (final label in ['Jetzt sichern', 'Von Cloud wiederherstellen']) {
-      await tester.scrollUntilVisible(
-        find.text(label),
-        200,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await _ensureSettingsActionVisible(tester, find.text(label));
       final tile = tester.widget<ListTile>(
         find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
       );
@@ -244,11 +231,7 @@ void main() {
     await tester.pump();
 
     final backup = find.text('Jetzt sichern');
-    await tester.scrollUntilVisible(
-      backup,
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, backup);
     await tester.tap(backup);
     await tester.pumpAndSettle();
 
@@ -298,11 +281,7 @@ void main() {
       await tester.pump();
 
       final restore = find.text('Von Cloud wiederherstellen');
-      await tester.scrollUntilVisible(
-        restore,
-        200,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await _ensureSettingsActionVisible(tester, restore);
       final tile = tester.widget<ListTile>(
         find.ancestor(of: restore, matching: find.byType(ListTile)),
       );
@@ -371,11 +350,7 @@ void main() {
     await tester.pump();
 
     final restore = find.text('Von Cloud wiederherstellen');
-    await tester.scrollUntilVisible(
-      restore,
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, restore);
     await tester.tap(restore);
     await tester.pumpAndSettle();
 
@@ -430,11 +405,7 @@ void main() {
     await tester.pump();
 
     final restore = find.text('Von Cloud wiederherstellen');
-    await tester.scrollUntilVisible(
-      restore,
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, restore);
     await tester.tap(restore);
     await tester.pumpAndSettle();
 
@@ -471,11 +442,7 @@ void main() {
     await tester.pump();
 
     final delete = find.text('Konto und alle Daten löschen');
-    await tester.scrollUntilVisible(
-      delete,
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, delete);
     await tester.tap(delete);
     await tester.pumpAndSettle();
     expect(cleanup.deleteCalls, 0);
@@ -516,11 +483,7 @@ void main() {
     await tester.pump();
 
     final delete = find.text('Cloud-Daten löschen');
-    await tester.scrollUntilVisible(
-      delete,
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, delete);
     await tester.tap(delete);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Löschen').last);
@@ -560,11 +523,7 @@ void main() {
     await tester.pump();
 
     final delete = find.text('Cloud-Daten l\u00f6schen');
-    await tester.scrollUntilVisible(
-      delete,
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, delete);
     await tester.tap(delete);
     await tester.pumpAndSettle();
     await tester.tap(find.text('L\u00f6schen').last);
@@ -612,11 +571,7 @@ void main() {
       'Abmelden',
       'Alle Daten zurücksetzen',
     ]) {
-      await tester.scrollUntilVisible(
-        find.text(label),
-        200,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await _ensureSettingsActionVisible(tester, find.text(label));
       final tile = tester.widget<ListTile>(
         find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
       );
@@ -624,11 +579,7 @@ void main() {
     }
 
     final retryLabel = find.text('Cloud-Daten l\u00f6schen');
-    await tester.scrollUntilVisible(
-      retryLabel,
-      -200,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, retryLabel, scrollDelta: -200);
     final retryDelete = tester.widget<ListTile>(
       find.ancestor(of: retryLabel, matching: find.byType(ListTile)),
     );
@@ -642,11 +593,7 @@ void main() {
     expect(retryAfterAuthoritativePending.onTap, isNotNull);
 
     final accountDeleteLabel = find.text('Konto und alle Daten l\u00f6schen');
-    await tester.scrollUntilVisible(
-      accountDeleteLabel,
-      200,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, accountDeleteLabel);
     final accountDelete = tester.widget<ListTile>(
       find.ancestor(of: accountDeleteLabel, matching: find.byType(ListTile)),
     );
@@ -675,11 +622,7 @@ void main() {
     await tester.pump();
 
     final delete = find.text('Konto und alle Daten löschen');
-    await tester.scrollUntilVisible(
-      delete,
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _ensureSettingsActionVisible(tester, delete);
     await tester.tap(delete);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Löschen').last);
@@ -716,11 +659,7 @@ void main() {
       await tester.pump();
 
       final reset = find.text('Alle Daten zurücksetzen');
-      await tester.scrollUntilVisible(
-        reset,
-        250,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await _ensureSettingsActionVisible(tester, reset);
       await tester.tap(reset);
       await tester.pumpAndSettle();
       await tester.tap(find.text('OK'));
@@ -766,11 +705,7 @@ void main() {
       await tester.pump();
 
       final reset = find.text('Alle Daten zurücksetzen');
-      await tester.scrollUntilVisible(
-        reset,
-        250,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await _ensureSettingsActionVisible(tester, reset);
       await tester.tap(reset);
       await tester.pumpAndSettle();
       await tester.tap(find.text('OK'));
@@ -946,13 +881,23 @@ Future<void> _expectSettingsTileDisabled(
   WidgetTester tester,
   String label,
 ) async {
-  await tester.scrollUntilVisible(
-    find.text(label),
-    200,
-    scrollable: find.byType(Scrollable).first,
-  );
+  await _ensureSettingsActionVisible(tester, find.text(label));
   final tile = tester.widget<ListTile>(
     find.ancestor(of: find.text(label), matching: find.byType(ListTile)),
   );
   expect(tile.onTap, isNull, reason: label);
+}
+
+Future<void> _ensureSettingsActionVisible(
+  WidgetTester tester,
+  Finder finder, {
+  double scrollDelta = 200,
+}) async {
+  await tester.scrollUntilVisible(
+    finder,
+    scrollDelta,
+    scrollable: find.byType(Scrollable).first,
+  );
+  await tester.ensureVisible(finder);
+  await tester.pump();
 }

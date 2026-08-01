@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
@@ -276,9 +277,7 @@ class _AvatarState extends State<_Avatar> {
   @override
   void initState() {
     super.initState();
-    _kind = Storage.preferredMascot == 'magpie'
-        ? MascotKind.magpie
-        : MascotKind.tiger;
+    _kind = MascotPreference.kind.value;
     _asset = CharacterClips.profileClipFor(
       _kind,
       Random().nextInt(CharacterClips.profileClipCountFor(_kind)),

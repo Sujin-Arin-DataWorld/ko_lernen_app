@@ -11,6 +11,7 @@ import '../services/scene_asset_resolver.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
@@ -1450,9 +1451,7 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     _pool = pool.toList()..sort();
 
     // milestone_celebration.dart:39 과 동일 표현. 미설정('') → 호랑이.
-    _kind = Storage.preferredMascot == 'magpie'
-        ? MascotKind.magpie
-        : MascotKind.tiger;
+    _kind = MascotPreference.kind.value;
     // celebrate는 두 캐릭터 모두 클립이 있어 사실상 non-null이지만,
     // game_reward.dart 패턴대로 null 분기는 유지한다.
     _clip = CharacterClips.feedbackFor(_kind, MascotEmotion.celebrate);

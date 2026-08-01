@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/sori/button.dart';
+import '../widgets/sori/mascot_preference.dart';
+import '../widgets/sori/mascot.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
@@ -531,6 +533,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: SoriColors.darkTextMuted,
               ),
               onTap: _showLevelDialog,
+            ),
+
+            // ── Lernbegleiter (캐릭터) ──
+            // 2026-07-31 신설. 이전에는 `/character_selection` 으로 가는
+            // 진입점이 앱 전체에 0개라 온보딩에서 한 번 고르면 영원히 못 바꿨다.
+            // 여기서 바꾸면 MascotPreference 통지로 홈·게임이 즉시 따라온다.
+            _Section(label: t.characterSelectionTitle),
+            ValueListenableBuilder<MascotKind>(
+              valueListenable: MascotPreference.kind,
+              builder: (context, kind, _) {
+                final isMagpie = kind == MascotKind.magpie;
+                return ListTile(
+                  leading: Mascot(kind: kind, size: 34),
+                  title: Text(
+                    isMagpie ? t.characterNameMagpie : t.characterNameTiger,
+                  ),
+                  subtitle: Text(
+                    isMagpie ? t.characterTraitMagpie : t.characterTraitTiger,
+                    style: SoriTextTheme.of(context).caption,
+                  ),
+                  trailing: const Icon(
+                    Icons.chevron_right,
+                    color: SoriColors.lightTextMuted,
+                  ),
+                  onTap: () => _showMascotDialog(kind),
+                );
+              },
             ),
 
             // ── TTS Speed ──
@@ -1110,6 +1139,61 @@ class _SettingsScreenState extends State<SettingsScreen> {
       LearnerLevel.b2 => t.onboardingLevelB2,
     };
     return '${lvl.display} — $name';
+  }
+
+
+  /// 학습 동반 캐릭터 변경. 저장은 [MascotPreference.set] 하나로 통일 —
+  /// 온보딩 선택 화면과 완전히 같은 경로라 두 곳이 어긋날 수 없다.
+  Future<void> _showMascotDialog(MascotKind current) async {
+    final t = AppL10n.of(context);
+    final picked = await showDialog<MascotKind>(
+      context: context,
+      builder: (ctx) => SimpleDialog(
+        title: Text(t.characterSelectionTitle),
+        children: [
+          for (final option in MascotPreference.selectableKinds)
+            SimpleDialogOption(
+              onPressed: () => Navigator.pop(ctx, option),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  children: [
+                    Mascot(kind: option, size: 44),
+                    const SizedBox(width: Spacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            option == MascotKind.magpie
+                                ? t.characterNameMagpie
+                                : t.characterNameTiger,
+                            style: SoriTextTheme.of(ctx).cardTitle,
+                          ),
+                          Text(
+                            option == MascotKind.magpie
+                                ? t.characterTraitMagpie
+                                : t.characterTraitTiger,
+                            style: SoriTextTheme.of(ctx).caption,
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (option == current)
+                      const Icon(
+                        Icons.check_circle_rounded,
+                        color: SoriColors.primary,
+                      ),
+                  ],
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+    if (picked != null && picked != current) {
+      await MascotPreference.set(picked);
+    }
   }
 
   void _showLevelDialog() {

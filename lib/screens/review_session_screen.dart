@@ -8,6 +8,7 @@ import '../services/review_deck_service.dart';
 import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -207,10 +208,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             // 세션 완료 = 기지개 클립 (배치 계획 §2-11). 폴백은 기존 celebrate.
-            const CharacterClipPlayer(
-              asset: CharacterClips.tigerStretch,
+            CharacterClipPlayer(
+              asset: CharacterClips.sessionCompleteFor(
+                MascotPreference.kind.value,
+              ),
               size: 120,
-              fallbackKind: MascotKind.tiger,
               fallbackEmotion: MascotEmotion.celebrate,
             ),
             const SizedBox(height: Spacing.lg),

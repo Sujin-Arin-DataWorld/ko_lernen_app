@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../services/sound_service.dart';
 import 'hanok_tokens.dart';
 import 'tiger_video.dart' show TigerStageVideo;
 import 'tokens.dart' show SoriMotion;
+import 'video_lease.dart';
 
 /// **HanokHeader** — 모듈 상단 wide 한옥 일러스트 배너.
 ///
@@ -52,14 +56,45 @@ class HanokHeader extends StatelessWidget {
     this.loopAsset,
   });
 
+  /// `assets/video/loops/` 에 **실제로 존재하는** 루프 파일 이름.
+  ///
+  /// [_derivedLoop] 이 png 이름으로 mp4 경로를 추측하기만 하고 존재 여부를
+  /// 확인하지 않아서, 짝 없는 히어로 png마다 ExoPlayer를 하나씩 만들고
+  /// `FileNotFoundException`으로 실패시키고 있었다(2026-07-31 logcat:
+  /// `ExoPlaybackException: Source error … flutter_assets/assets/video/loops/
+  /// calligraphy.mp4`). 실패해도 포스터가 남아 눈엔 안 보였지만 플레이어
+  /// 인스턴스는 낭비됐다.
+  ///
+  /// ⚠️ `assets/video/loops/` 에 파일을 추가·삭제하면 **이 집합도 함께**
+  /// 고쳐야 한다.
+  static const Set<String> kLoopAssets = {
+    'hanok_construction',
+    'hanok_jongga',
+    'kkeunmari_hero',
+    'listening_hero',
+    'porch',
+    'scene_cafe',
+    'scene_directions',
+    'scene_hotel',
+    'scene_market',
+    'scene_restaurant',
+    'study_classroom',
+    'study_scholar',
+    'welcome-hero',
+  };
+
   /// 'assets/illustrations/hanok/listening_hero.png'
   ///   → 'assets/video/loops/listening_hero.mp4'
+  ///
+  /// 짝이 되는 루프가 [kLoopAssets] 에 없으면 **null** — 없는 파일로
+  /// 플레이어를 만들지 않는다.
   String? get _derivedLoop {
     if (loopAsset != null) return loopAsset;
     final slash = asset.lastIndexOf('/');
     final dot = asset.lastIndexOf('.');
     if (slash < 0 || dot <= slash) return null;
     final name = asset.substring(slash + 1, dot);
+    if (!kLoopAssets.contains(name)) return null;
     return 'assets/video/loops/$name.mp4';
   }
 
@@ -74,7 +109,8 @@ class HanokHeader extends StatelessWidget {
     );
 
     final loop = _derivedLoop;
-    final live = animate &&
+    final live =
+        animate &&
         loop != null &&
         TigerStageVideo.videoReady &&
         !SoriMotion.reduceMotion(context);
@@ -102,10 +138,17 @@ class SoriPosterLoop extends StatefulWidget {
   final String videoAsset;
   final Widget poster;
 
+  /// 루프 음량. **기본 0(무음)이 의도된 값**이다 — 이 위젯은 화면 상단에
+  /// 상시 떠 있는 배경 루프라, 소리를 켜면 발음 TTS와 계속 겹치고 한 화면에
+  /// 여러 개가 뜨면 소리도 겹친다. 일회성 연출(대문 인트로 등)만 소리를 쓴다.
+  /// 특정 콜사이트에서 앰비언스를 원하면 0.15~0.3 정도를 넘길 것.
+  final double volume;
+
   const SoriPosterLoop({
     super.key,
     required this.videoAsset,
     required this.poster,
+    this.volume = 0,
   });
 
   @override
@@ -114,33 +157,75 @@ class SoriPosterLoop extends StatefulWidget {
 
 class _SoriPosterLoopState extends State<SoriPosterLoop> {
   VideoPlayerController? _video;
+  VideoLeaseRequest<VideoPlayerController>? _lease;
+  late final VideoLeaseEligibilityBinding _eligibility;
   bool _ready = false;
 
   @override
   void initState() {
     super.initState();
-    _init();
+    _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
+    _lease = soriVideoLease.register(
+      asset: widget.videoAsset,
+      eligible: false,
+      prepare: (video) async {
+        await video.setVolume(SoundService.enabled ? widget.volume : 0);
+        await video.setLooping(true);
+      },
+      onGranted: _onGranted,
+      onRevoked: _onRevoked,
+      onFailed: _onFailed,
+    );
   }
 
-  Future<void> _init() async {
-    final video = VideoPlayerController.asset(widget.videoAsset);
-    _video = video;
-    try {
-      await video.initialize();
-      await video.setVolume(0);
-      await video.setLooping(true);
-    } catch (_) {
-      // 영상 없음/실패 — 포스터 유지.
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _eligibility.attach(context);
+    _syncEligibility();
+  }
+
+  void _syncEligibility() {
+    if (!mounted) {
       return;
     }
-    if (!mounted) return;
-    setState(() => _ready = true);
-    await video.play();
+    _lease?.setEligible(
+      _eligibility.isEligible(context, videoReady: TigerStageVideo.videoReady),
+    );
+  }
+
+  void _onGranted(VideoPlayerController video) {
+    _video = video;
+    if (mounted) {
+      setState(() => _ready = true);
+    }
+    unawaited(video.play());
+  }
+
+  void _onRevoked() {
+    _video = null;
+    _ready = false;
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _onFailed(Object _, StackTrace __) {
+    _video = null;
+    _ready = false;
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
   void dispose() {
-    _video?.dispose();
+    _eligibility.disposeBinding();
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      unawaited(lease.release());
+    }
     super.dispose();
   }
 

@@ -9,6 +9,7 @@ import '../services/tts_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
@@ -241,8 +242,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
             child: Column(
               children: [
                 const SizedBox(height: Spacing.xl),
-                const Mascot(
-                  kind: MascotKind.tiger,
+                Mascot(
+                  kind: MascotPreference.kind.value,
                   emotion: MascotEmotion.celebrate,
                   size: 96,
                   animate: true,

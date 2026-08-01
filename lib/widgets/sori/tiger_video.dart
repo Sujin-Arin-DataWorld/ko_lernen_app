@@ -1,11 +1,14 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 import 'mascot.dart';
+import 'mascot_preference.dart';
 import 'tiger_stage_rive.dart';
 import 'tokens.dart';
+import 'video_lease.dart';
 
 /// **살아있는 호랑이 — 영상 버전** (Jin 제작 mp4, 2026-06-12).
 ///
@@ -34,11 +37,16 @@ class TigerStageVideo extends StatefulWidget {
   /// 보이면 이 값을 현지 배경에 더 가깝게 조정.
   final Color blendColor;
 
+  /// 표시할 캐릭터. `null`이면 [MascotPreference.kind]를 구독해 따라간다.
+  /// 홈은 null로 두면 된다 — 설정에서 캐릭터를 바꾸면 즉시 반영된다.
+  final MascotKind? kind;
+
   const TigerStageVideo({
     super.key,
     this.height = 168,
     this.fallbackEmotion = MascotEmotion.smile,
     this.blendColor = const Color(0xFFF8F2E4),
+    this.kind,
   });
 
   /// main()에서만 true. 테스트/미배선 환경은 false → 프레임 폴백
@@ -58,6 +66,19 @@ class TigerStageVideo extends StatefulWidget {
   // greet = 엎드림→기상 인사(1회), pace = 엎드려 쉬는 아이들 루프.
   // 구 tiger_greet/tiger_pace.mp4는 assets_unused/video/로 이동(2026-07-30) —
   // 롤백하려면 git mv로 assets/video/에 복원 후 아래 상수만 되돌리면 된다.
+  // 2026-07-31: 캐릭터 대응. 이전에는 호랑이 상수 2개로 고정돼 있어서
+  // 까치를 골라도 홈 히어로가 100% 호랑이였다. 4종 모두 실재 파일이다.
+  /// 진입 인사 클립 (1회 재생).
+  static String greetFor(MascotKind kind) => kind == MascotKind.magpie
+      ? 'assets/video/character/magpie_greet_chirp.mp4'
+      : 'assets/video/character/tiger_rise.mp4';
+
+  /// 인사 후 아이들 루프.
+  static String paceFor(MascotKind kind) => kind == MascotKind.magpie
+      ? 'assets/video/character/magpie_perched.mp4'
+      : 'assets/video/character/tiger_rest.mp4';
+
+  /// 호랑이 기본값 — 하위호환용. 신규 코드는 [greetFor]/[paceFor]를 쓸 것.
   static const String greetAsset = 'assets/video/character/tiger_rise.mp4';
   static const String paceAsset = 'assets/video/character/tiger_rest.mp4';
 
@@ -65,165 +86,227 @@ class TigerStageVideo extends StatefulWidget {
   State<TigerStageVideo> createState() => _TigerStageVideoState();
 }
 
-class _TigerStageVideoState extends State<TigerStageVideo>
-    with WidgetsBindingObserver {
+class _TigerStageVideoState extends State<TigerStageVideo> {
   /// 인사는 앱 launch당 1회 ([TigerStage]의 `_introPlayedThisLaunch` 패턴).
   static bool _greetPlayedThisLaunch = false;
 
-  VideoPlayerController? _greet;
-  VideoPlayerController? _pace;
-
-  bool _initStarted = false;
-  bool _ready = false; // 두 컨트롤러 initialize 완료
+  VideoPlayerController? _video;
+  VideoLeaseRequest<VideoPlayerController>? _lease;
+  late final VideoLeaseEligibilityBinding _eligibility;
+  MascotKind? _builtFor;
+  bool _ready = false;
   bool _failed = false;
   bool _showPace = false;
   bool _greetStarted = false;
-  bool _appPaused = false;
+  bool _handoffStarted = false;
+  int _transitionGeneration = 0;
 
-  ValueListenable<TickerModeData>? _tickerMode;
+  /// 이 위젯이 그려야 할 캐릭터. 명시 인자 > 전역 선택값.
+  MascotKind get _kind => widget.kind ?? MascotPreference.kind.value;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    _showPace = _greetPlayedThisLaunch;
+    _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
+    if (widget.kind == null) {
+      MascotPreference.kind.addListener(_onKindChanged);
+    }
+  }
+
+  @override
+  void didUpdateWidget(TigerStageVideo oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.kind != widget.kind) {
+      _onKindChanged();
+    }
+  }
+
+  void _onKindChanged() {
+    if (!mounted || _builtFor == _kind) {
+      return;
+    }
+    unawaited(_restartForCurrentKind());
+  }
+
+  Future<void> _restartForCurrentKind() async {
+    final transition = ++_transitionGeneration;
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      await lease.release();
+    }
+    if (!mounted || transition != _transitionGeneration) {
+      return;
+    }
+    _showPace = _greetPlayedThisLaunch;
+    _greetStarted = false;
+    _handoffStarted = false;
+    _failed = false;
+    _registerCurrentPhase();
+    _syncEligibility();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // 탭 비가시(IndexedStack TickerMode off) 시 디코더 정지.
-    final notifier = TickerMode.getValuesNotifier(context);
-    if (!identical(notifier, _tickerMode)) {
-      _tickerMode?.removeListener(_syncPlayState);
-      _tickerMode = notifier..addListener(_syncPlayState);
+    _eligibility.attach(context);
+    if (_lease == null) {
+      _registerCurrentPhase();
     }
-    // reduce-motion/다크에선 컨트롤러 자체를 만들지 않는다(낭비 방지).
-    if (!_initStarted && _shouldPlay(context)) {
-      _initStarted = true;
-      _init();
-    }
+    _syncEligibility();
   }
 
-  // 앱은 라이트 전용(themeMode.light) — 다크 분기 없음. multiply 블렌드는
-  // 항상 밝은 배경 위에서 동작한다.
-  bool _shouldPlay(BuildContext context) =>
-      TigerStageVideo.videoReady && !SoriMotion.reduceMotion(context);
-
-  Future<void> _init() async {
-    final greet = VideoPlayerController.asset(TigerStageVideo.greetAsset);
-    final pace = VideoPlayerController.asset(TigerStageVideo.paceAsset);
-    _greet = greet;
-    _pace = pace;
-    try {
-      await greet.initialize();
-      await pace.initialize();
-      // 홈은 항상 무음 — 임베디드 AAC 트랙 차단.
-      await greet.setVolume(0);
-      await pace.setVolume(0);
-      await pace.setLooping(true);
-    } catch (_) {
-      if (mounted) {
-        setState(() => _failed = true);
-      } else {
-        _failed = true;
-      }
+  void _registerCurrentPhase() {
+    if (_lease != null) {
       return;
     }
+    final kind = _kind;
+    final pacePhase = _showPace;
+    _builtFor = kind;
+    _lease = soriVideoLease.register(
+      asset: pacePhase
+          ? TigerStageVideo.paceFor(kind)
+          : TigerStageVideo.greetFor(kind),
+      eligible: false,
+      prepare: (video) async {
+        await video.setVolume(0);
+        if (pacePhase) {
+          await video.setLooping(true);
+        }
+      },
+      onGranted: (video) => _onGranted(video, pacePhase: pacePhase),
+      onRevoked: _onRevoked,
+      onFailed: _onFailed,
+    );
+  }
+
+  void _syncEligibility() {
     if (!mounted) {
       return;
     }
-    if (_greetPlayedThisLaunch) {
-      _showPace = true;
-    } else {
-      _greetPlayedThisLaunch = true;
-      greet.addListener(_onGreetTick);
-    }
-    setState(() => _ready = true);
-    _syncPlayState();
+    _lease?.setEligible(
+      _eligibility.isEligible(context, videoReady: TigerStageVideo.videoReady),
+    );
   }
 
-  /// 인사 영상 종료 감지 → 150ms 크로스페이드로 pacing 루프 전환.
+  bool _shouldPlay(BuildContext context) =>
+      TigerStageVideo.videoReady && !SoriMotion.reduceMotion(context);
+
+  void _onGranted(VideoPlayerController video, {required bool pacePhase}) {
+    _video = video;
+    if (!pacePhase) {
+      video.addListener(_onGreetTick);
+    }
+    if (mounted) {
+      setState(() {
+        _ready = true;
+        _failed = false;
+      });
+    }
+    _greetStarted = !pacePhase;
+    unawaited(video.play());
+  }
+
+  void _onRevoked() {
+    _video?.removeListener(_onGreetTick);
+    _video = null;
+    _ready = false;
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _onFailed(Object _, StackTrace __) {
+    _video = null;
+    _ready = false;
+    _failed = true;
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   void _onGreetTick() {
-    final greet = _greet;
-    if (greet == null || _showPace || !_greetStarted) {
+    final video = _video;
+    if (video == null || _showPace || !_greetStarted || _handoffStarted) {
       return;
     }
-    final v = greet.value;
+    final v = video.value;
     final done =
         v.isInitialized &&
         v.duration > Duration.zero &&
         !v.isPlaying &&
         v.position >= v.duration - const Duration(milliseconds: 80);
     if (done) {
-      greet.removeListener(_onGreetTick);
-      if (mounted) {
-        setState(() => _showPace = true);
-      }
-      _syncPlayState();
+      _handoffStarted = true;
+      video.removeListener(_onGreetTick);
+      _greetPlayedThisLaunch = true;
+      unawaited(_handoffToPace());
     }
   }
 
-  /// 현재 보여야 할 영상만 재생, 나머지/비가시/백그라운드는 pause.
-  void _syncPlayState() {
-    if (!_ready || _failed) {
+  /// Greeting ownership is fully revoked and disposed before pace competes.
+  Future<void> _handoffToPace() async {
+    final transition = ++_transitionGeneration;
+    final greetingLease = _lease;
+    _lease = null;
+    if (greetingLease != null) {
+      await greetingLease.release();
+    }
+    if (!mounted || transition != _transitionGeneration) {
       return;
     }
-    final visible = (_tickerMode?.value.enabled ?? true) && !_appPaused;
-    final active = _showPace ? _pace : _greet;
-    final idle = _showPace ? _greet : _pace;
-    idle?.pause();
-    if (visible) {
-      active?.play();
-      if (!_showPace) {
-        _greetStarted = true;
-      }
-    } else {
-      active?.pause();
-    }
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.paused) {
-      _appPaused = true;
-      _syncPlayState();
-    } else if (state == AppLifecycleState.resumed) {
-      _appPaused = false;
-      _syncPlayState();
-    }
+    setState(() {
+      _showPace = true;
+      _ready = false;
+      _failed = false;
+    });
+    _registerCurrentPhase();
+    _syncEligibility();
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    _tickerMode?.removeListener(_syncPlayState);
-    _greet?.removeListener(_onGreetTick);
-    _greet?.dispose();
-    _pace?.dispose();
+    _transitionGeneration += 1;
+    if (widget.kind == null) {
+      MascotPreference.kind.removeListener(_onKindChanged);
+    }
+    _eligibility.disposeBinding();
+    _video?.removeListener(_onGreetTick);
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      unawaited(lease.release());
+    }
     super.dispose();
   }
 
-  Widget _fallback() => TigerStageRive(
-    height: widget.height,
-    fallbackEmotion: widget.fallbackEmotion,
-  );
+  /// 폴백도 캐릭터를 따른다 — 호랑이만 Rive/프레임 시퀀스가 있고,
+  /// 까치는 정적 [Mascot] 이 정본이다.
+  Widget _fallback() => _kind == MascotKind.magpie
+      ? Center(
+          child: Mascot(
+            kind: MascotKind.magpie,
+            emotion: widget.fallbackEmotion,
+            size: widget.height * 0.82,
+            animate: true,
+          ),
+        )
+      : TigerStageRive(
+          height: widget.height,
+          fallbackEmotion: widget.fallbackEmotion,
+        );
 
   @override
   Widget build(BuildContext context) {
-    if (!_shouldPlay(context) || _failed) {
+    final active = _video;
+    if (!_shouldPlay(context) || _failed || !_ready || active == null) {
       return _fallback();
     }
-    final active = _showPace ? _pace : _greet;
     return SizedBox(
       height: widget.height,
       width: double.infinity,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 150),
-        child: !_ready || active == null
-            // init 중(~0.2s)엔 빈 밴드 → 페이드인 (프레임 인트로와 겹침 방지).
-            ? const SizedBox.shrink()
-            : Center(key: ValueKey<bool>(_showPace), child: _tigerView(active)),
-      ),
+      child: Center(key: ValueKey<bool>(_showPace), child: _tigerView(active)),
     );
   }
 
@@ -256,7 +339,11 @@ class _TigerStageVideoState extends State<TigerStageVideo>
         color: widget.blendColor,
         borderRadius: BorderRadius.circular(SoriRadius.lg),
         border: Border.all(
-          color: SoriColors.tiger.withValues(alpha: 0.28),
+          color:
+              (_kind == MascotKind.magpie
+                      ? SoriColors.highlight
+                      : SoriColors.tiger)
+                  .withValues(alpha: 0.28),
           width: 2,
         ),
         boxShadow: SoriElevation.low,
@@ -277,6 +364,9 @@ class TigerGreetClip extends StatefulWidget {
   final double size;
   final bool playAudio;
 
+  /// 표시할 캐릭터. `null`이면 [MascotPreference.kind] 현재값.
+  final MascotKind? kind;
+
   /// multiply 블렌드 색 — 화면의 플랫 배경색과 일치시키면 완전히 녹는다.
   final Color blendColor;
 
@@ -285,6 +375,7 @@ class TigerGreetClip extends StatefulWidget {
     this.size = 200,
     this.playAudio = false,
     this.blendColor = SoriColors.lightBg,
+    this.kind,
   });
 
   @override
@@ -293,42 +384,130 @@ class TigerGreetClip extends StatefulWidget {
 
 class _TigerGreetClipState extends State<TigerGreetClip> {
   VideoPlayerController? _video;
+  VideoLeaseRequest<VideoPlayerController>? _lease;
+  late final VideoLeaseEligibilityBinding _eligibility;
+  late final OneShotVideoLeaseCompletion _completion;
   AudioPlayer? _audio;
-  bool _initStarted = false;
   bool _ready = false;
   bool _failed = false;
+  bool _audioStarted = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
+    _completion = OneShotVideoLeaseCompletion(
+      fallbackCompleteAfter: const Duration(milliseconds: 1200),
+      onRelease: _releaseAfterCompletion,
+    );
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (!_initStarted &&
-        TigerStageVideo.videoReady &&
-        !SoriMotion.reduceMotion(context)) {
-      _initStarted = true;
-      _init();
+    _eligibility.attach(context);
+    if (_lease == null) {
+      _registerLease();
     }
+    _syncEligibility();
   }
 
-  Future<void> _init() async {
-    final video = VideoPlayerController.asset(TigerStageVideo.greetAsset);
-    _video = video;
-    try {
-      await video.initialize();
-      await video.setVolume(0);
-    } catch (_) {
-      if (mounted) {
-        setState(() => _failed = true);
-      } else {
-        _failed = true;
-      }
-      return;
-    }
+  MascotKind get _kind => widget.kind ?? MascotPreference.kind.value;
+
+  void _registerLease() {
+    _lease = soriVideoLease.register(
+      asset: TigerStageVideo.greetFor(_kind),
+      eligible: false,
+      prepare: (video) => video.setVolume(0),
+      onGranted: _onGranted,
+      onRevoked: _onRevoked,
+      onFailed: _onFailed,
+    );
+  }
+
+  void _syncEligibility() {
     if (!mounted) {
       return;
     }
-    setState(() => _ready = true);
-    await video.play();
-    if (widget.playAudio) {
+    _completion.visibilityChanged(_eligibility.isVisible(context));
+    final eligible = _eligibility.isEligible(
+      context,
+      videoReady: TigerStageVideo.videoReady,
+    );
+    if (eligible) {
+      _completion.leaseRequested();
+    }
+    _lease?.setEligible(eligible);
+    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
+      _completion.fallbackNeeded();
+    }
+  }
+
+  void _onGranted(VideoPlayerController video) {
+    _video = video;
+    _completion.leaseGranted();
+    video.addListener(_onTick);
+    if (mounted) {
+      setState(() {
+        _ready = true;
+        _failed = false;
+      });
+    }
+    unawaited(video.play());
+    unawaited(_playAudioOnce());
+  }
+
+  void _onRevoked() {
+    _video?.removeListener(_onTick);
+    _video = null;
+    _ready = false;
+    _completion.leaseRevoked();
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _onFailed(Object _, StackTrace __) {
+    _video = null;
+    _ready = false;
+    _failed = true;
+    if (mounted) {
+      setState(() {});
+    }
+    _completion.fallbackNeeded();
+  }
+
+  void _onTick() {
+    final video = _video;
+    if (video == null) {
+      return;
+    }
+    final value = video.value;
+    if (_completion.completeFromPlayback(
+      isInitialized: value.isInitialized,
+      duration: value.duration,
+      isPlaying: value.isPlaying,
+      position: value.position,
+    )) {
+      video.removeListener(_onTick);
+    }
+  }
+
+  Future<void> _releaseAfterCompletion() async {
+    _onRevoked();
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      await lease.release();
+    }
+  }
+
+  Future<void> _playAudioOnce() async {
+    // ⚠️ 까치용 인사 SFX 파일이 아직 없다 (assets/sfx/ 에 tiger_greet.mp3 하나).
+    // 호랑이 소리를 까치에 붙이면 캐릭터가 깨지므로, 파일이 생길 때까지
+    // 까치는 무음으로 둔다 — 인사는 몸짓 클립만으로도 성립한다.
+    if (!_audioStarted && widget.playAudio && _kind == MascotKind.tiger) {
+      _audioStarted = true;
       // best-effort — 웹 autoplay 차단 등은 조용히 무시.
       try {
         final audio = AudioPlayer();
@@ -342,7 +521,14 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
 
   @override
   void dispose() {
-    _video?.dispose();
+    _completion.dispose();
+    _eligibility.disposeBinding();
+    _video?.removeListener(_onTick);
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) {
+      unawaited(lease.release());
+    }
     _audio?.dispose();
     super.dispose();
   }
@@ -350,23 +536,17 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
   @override
   Widget build(BuildContext context) {
     final video = _video;
-    final live =
-        TigerStageVideo.videoReady &&
-        !SoriMotion.reduceMotion(context) &&
-        !_failed;
     return SizedBox.square(
       dimension: widget.size,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
-        child: !live
+        child: _failed || !_ready || video == null
             ? Mascot(
-                kind: MascotKind.tiger,
+                kind: _kind,
                 emotion: MascotEmotion.smile,
                 size: widget.size * 0.8,
                 animate: true,
               )
-            : (!_ready || video == null)
-            ? const SizedBox.shrink()
             : ColorFiltered(
                 colorFilter: ColorFilter.mode(
                   widget.blendColor,
