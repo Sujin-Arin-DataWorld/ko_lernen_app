@@ -46,7 +46,6 @@ class CharacterClips {
   static const String magpieCelebrate = '$_base/magpie_celebrate.mp4'; // 정답 축하
   static const String magpieWorry = '$_base/magpie_worry.mp4'; // 오답 위로
   static const String magpiePerched = '$_base/magpie_perched.mp4'; // 듣기 대기
-  static const String magpieMoon = '$_base/magpie_moon.mp4'; // 프로필 초상(달)
   static const String magpieChoose = '$_base/magpie_choose.mp4'; // 선택 확정 착지
   static const String magpieGreetChirp =
       '$_base/magpie_greet_chirp.mp4'; // 첫 인사 — 신나는 짹짹
