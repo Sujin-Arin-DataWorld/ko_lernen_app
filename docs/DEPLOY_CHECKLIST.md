@@ -19,10 +19,10 @@
 | `flutter analyze` | ✅ `No issues found` (2026-08-01) |
 | `flutter test` | ✅ **1,293개** 통과, 직렬 실행 (2026-08-01) |
 | 매트 리포트 신선도 | ✅ `python tool/check_clip_matte.py` **16/16** 통과·리포트 갱신 |
-| 서명 AAB | ✅ `app-release.aab` 235.4 MB 생성 (§4) |
-| 릴리스 APK | ✅ `app-release.apk` 255.8 MB, `versionCode=6`·v2 서명 확인 |
+| 서명 AAB | ✅ `app-release.aab` 235.4 MB, SHA-256 `BB20DC29…6A8D019` (§4) |
+| 릴리스 APK | ✅ `app-release.apk` 255.8 MB, SHA-256 `FDCAE3E1…1D2AF1C`, `versionCode=6`·v2 서명 확인 |
 | 실기기 릴리스 설치 | 🟡 기존 debug 앱 제거 후 MIUI가 `INSTALL_FAILED_USER_RESTRICTED`로 설치 취소 (§5) |
-| 미커밋 변경 | 🟡 검증된 후보의 범위 지정 커밋·푸시 대기 (§3) |
+| 후보 Git | ✅ `eda4c37`·`0e3ad8f`가 `origin/main`에 푸시됨; 임시 로그·백업은 의도적으로 미추적 (§3) |
 | `assets/` 용량 | 🟡 **136 MB** |
 | iOS `GoogleService-Info.plist` | ⬜ 없음 (Android 전용이면 무관) |
 
@@ -68,7 +68,7 @@ git tag --sort=-creatordate | head -3    # 현재 최신 태그: v1.0.1
 
 ## 3. 커밋 — 태그를 붙일 수 있는 상태로 만든다
 
-현재 후보는 소스 게이트와 서명 산출물까지 검증됐지만 아직 커밋되지 않았다. Git에 넣을 때는 임시 로그·백업·루트 중복 문서를 섞지 말고 **검토한 경로만** 명시적으로 스테이징한다.
+**2026-08-01 실측:** 후보 소스·에셋·테스트 90개 파일은 `eda4c37`로, SSoT 기록은 `0e3ad8f`로 커밋되어 `origin/main`에 푸시됐다. 푸시 직후 `git rev-list --left-right --count HEAD...origin/main`은 `0 0`이었다. 이후에도 임시 로그·백업·루트 중복 문서는 섞지 말고 **검토한 경로만** 명시적으로 스테이징한다.
 
 ```bash
 git status --short
@@ -78,8 +78,8 @@ git commit -m "release: v2.0.1 (versionCode 6)"
 git push origin main
 ```
 
-- [ ] 범위 지정 커밋
-- [ ] `origin/main` 푸시 후 upstream 일치 확인
+- [x] 범위 지정 후보 커밋 (`eda4c37`)
+- [x] SSoT 기록 커밋 (`0e3ad8f`) 및 `origin/main` 동기화 확인
 
 > 커밋·푸시는 Jin 이 명시적으로 요청한 경우에만 실행한다. 이 릴리스 세션은 요청을 받았으나, 실기기 설치 확인이 남아 있다.
 
@@ -94,7 +94,8 @@ flutter build appbundle --release
 산출물: `build/app/outputs/bundle/release/app-release.aab`
 
 - [x] 빌드 성공 — 2026-08-01 `flutter build appbundle --release`
-- [x] AAB 크기 확인 — **235.4 MB**, SHA-256은 최종 AGENTS 세션 로그에 기록
+- [x] 현재 HEAD 뒤 AAB 재생성 — **246,845,826 B (235.4 MB)**, SHA-256 `BB20DC29E4EC5D3F564583722E5FE979E8759B6351AC02CA46484FC666A8D019`
+- [x] 같은 현재 HEAD 뒤 APK 재생성 — **268,247,409 B (255.8 MB)**, SHA-256 `FDCAE3E18B5DF5AA812D6A247A7C0ACE2BBC6563A130B6ACA72FF64601D2AF1C`
 
 ### 용량 내역 (참고)
 
@@ -121,7 +122,7 @@ flutter install --release      # 또는 AAB → bundletool → 설치
 
 **신규 설치**(앱 데이터 삭제 후)로 확인:
 
-> 2026-08-01 실측: M2101K6G / Android 12에 기존 `DEBUGGABLE` 패키지가 있었고, 데이터 보존 `adb install -r`은 서명 불일치로 안전하게 거부됐다. 확인된 앱 패키지를 제거한 뒤 릴리스 APK 설치를 시도했지만, MIUI가 `INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`로 취소했다. 릴리스 UI·logcat 스모크는 **아직 수행되지 않았다**. 휴대폰 잠금 해제 후 USB 설치/설치 확인을 허용한 다음 같은 APK로 재개한다.
+> 2026-08-01 실측: M2101K6G / Android 12에 기존 `DEBUGGABLE` 패키지가 있었고, 데이터 보존 `adb install -r`은 서명 불일치로 안전하게 거부됐다. 확인된 앱 패키지를 제거한 뒤 최신 release APK (`FDCAE3E…D2AF1C`) 설치를 두 번 시도했지만, MIUI가 모두 `INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`로 취소했다. 릴리스 UI·logcat 스모크는 **아직 수행되지 않았다**. 휴대폰 잠금 해제 후 USB 설치/설치 확인을 허용한 다음 같은 APK로 재개한다.
 
 - [ ] 첫 실행 — 대문 인트로 영상 + **소리** 재생 (`intro_gate_to_madang.mp4`)
 - [ ] 온보딩 첫 화면 — 배경과 선택지가 **구분되는지** (2026-07-31 대비 수정분)
@@ -154,7 +155,7 @@ adb logcat | findstr /i "ExoPlayerImpl reclaim CodecException"
 
 | 자료 | 파일 | 상태 |
 |---|---|---|
-| 릴리스 노트 DE/EN | `docs/store/release-notes-v2.md` | ⚠️ **Build 2.0.1+4 기준** — +6 으로 갱신 필요 |
+| 릴리스 노트 DE/EN | `docs/store/release-notes-v2.md` | ✅ **Build 2.0.1+6** 기준 |
 | 스토어 설명 | `docs/store/listing-de.md` · `listing-en.md` | ✅ |
 | 데이터 보안 양식 | `docs/store/data-safety.md` | ✅ |
 | 비공개 테스트 체크리스트 | `docs/store/closed-testing-checklist-v2.md` | ✅ |
@@ -163,7 +164,7 @@ adb logcat | findstr /i "ExoPlayerImpl reclaim CodecException"
 | 구독 설정 런북 | `docs/store/subscription-setup-runbook.md` | ✅ |
 
 - [ ] **내부 테스트 트랙**에 먼저 올린다 (프로덕션 직행 금지)
-- [ ] `release-notes-v2.md` 를 **이번 빌드 기준으로 갱신** 후 Console 에 붙여넣기
+- [x] `release-notes-v2.md` 를 **Build 2.0.1+6** 기준으로 갱신
 - [ ] `data-safety.md` 가 현재 권한과 맞는지 재확인
       (`INTERNET`, `POST_NOTIFICATIONS`, `RECEIVE_BOOT_COMPLETED`, `CAMERA` 등)
 - [ ] 스크린샷이 2.0 UI 와 일치하는지 (홈 개편·Lernpfad 지그재그·온보딩 대비 수정 반영본)

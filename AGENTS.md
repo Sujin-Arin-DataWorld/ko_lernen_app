@@ -226,7 +226,7 @@ flutter run -d <android-id>   # 안드로이드
 - [~] Redmi M2101K6G 물리 검증: debug 서명 불일치로 안전한 업데이트가 거부된 뒤, debug 앱 제거까지 완료. release 설치는 MIUI의 `INSTALL_FAILED_USER_RESTRICTED` 승인 대기
 - [ ] USB 설치 승인 뒤 cold-start·영상 경로·logcat 확인
 - [x] 소스 후보 범위 커밋: `eda4c375dd3a06ef422e90ae0ab4dba3c5f8dbaf`
-- [~] SSoT 기록 커밋·원격 푸시: 물리 검증 보류를 명시해 진행
+- [x] SSoT 기록·원격 푸시: `0e3ad8f7d8a1ab3c84bb5013e059b4f438055421`까지 완료 (최신 산출물 매니페스트는 아래 세션 로그에 기록)
 
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
@@ -338,9 +338,10 @@ flutter run -d <android-id>   # 안드로이드
 - **범위:** 현재 후보의 UI/에셋·캐릭터 영상·SFX·로컬라이제이션·영상 수명 관리·회귀 테스트를 정리했다. 어두운 `magpie_moon.mp4`는 이미 번들 경로에서 제거됐고, `VideoPlayerController.asset`의 직접 생성은 `lib/widgets/sori/video_lease.dart` 한 곳으로 제한했다.
 - **영상 수명 최종 정정:** `TigerGreetClip` 자연 종료 반납, 보이지만 lease를 받지 못한 one-shot의 제한 시간 완료, `dispose()` 오류 뒤 다음 후보 handoff를 추가하고 독립 재검토를 받았다. lease 테스트 **23/23**, 관련 media 테스트 **55/55** 통과.
 - **최종 소스 게이트:** `flutter analyze --no-fatal-warnings --no-fatal-infos` = 0 issues; `flutter test --reporter compact --concurrency=1` = **1,293 통과**; `PYTHONUTF8=1 python tool/check_clip_matte.py` = **16/16 통과**. 초기 매트 검사 실패는 Python 환경에 ffmpeg가 없던 문제였고 `imageio-ffmpeg` 설치 후 재실행으로 해소됐다.
-- **서명 산출물:** `flutter build appbundle --release` 및 `flutter build apk --release` 성공. AAB 235.4 MB SHA-256 `3FECC9D357FCD3C46EECBC2D333748825D541109D8D58C9E0BE7EE391BEBE6DF`; APK 255.8 MB SHA-256 `2739870187CA4B37A8676B69DA4A9F127F25000FE7A0C301B94C80AD42F2C3D6`; package `com.sujinarin.ko_lernen_app`, `versionCode=6`, v2 서명 확인.
-- **Redmi 물리 검증 경계:** M2101K6G / Android 12에서 기존 debug 앱과 release APK의 서명이 달라 `adb install -r`가 안전하게 거부됐다. 사용자 승인 범위에서 debug 앱을 제거했으므로 **그 앱의 로컬 데이터는 삭제됐다**; cloud 삭제 명령은 실행하지 않았다. 이후 release APK 설치 시도는 모두 MIUI의 `INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`로 취소됐다. 따라서 release cold-start·영상 UI·logcat은 아직 주장하지 않으며, USB 설치 승인이 필요하다.
-- **커밋:** 후보 소스·에셋·테스트·정확한 배포 문서 **90개 파일** `eda4c375dd3a06ef422e90ae0ab4dba3c5f8dbaf` (`feat(release): prepare v2.0.1 candidate`). 임시 로그·백업·루트 중복 문서·미배선 `growl_tiger.mp3`는 제외했다. 이 SSoT 기록은 직후 별도 커밋한다.
+- **최신 서명 산출물 (현재 HEAD 뒤 재생성):** AAB 246,845,826 B (235.4 MB) SHA-256 `BB20DC29E4EC5D3F564583722E5FE979E8759B6351AC02CA46484FC666A8D019`; APK 268,247,409 B (255.8 MB) SHA-256 `FDCAE3E18B5DF5AA812D6A247A7C0ACE2BBC6563A130B6ACA72FF64601D2AF1C`. package `com.sujinarin.ko_lernen_app`, `versionName=2.0.1`, `versionCode=6`; APK v2와 AAB의 signer SHA-256은 같은 `F5:AF:E8:36:B0:ED:23:FE:B5:2A:16:F5:02:CE:22:6D:D4:DA:A7:4C:FB:C0:CD:E3:0B:9A:4B:CE:DB:4F:AA:D3`다.
+- **번들 계약 재검증:** AAB에 `magpie_perched`, `tiger_greet_pawflash`, `tiger_sitting2`, `intro_gate_to_madang`, `welcome-hero` MP4가 포함됐고 `magpie_moon.mp4`는 없다.
+- **Redmi 물리 검증 경계:** M2101K6G / Android 12에서 기존 debug 앱과 release APK의 서명이 달라 `adb install -r`가 안전하게 거부됐다. 사용자 승인 범위에서 debug 앱을 제거했으므로 **그 앱의 로컬 데이터는 삭제됐다**; cloud 삭제 명령은 실행하지 않았다. 최신 APK `FDCAE3E…D2AF1C`로도 재시도했지만 MIUI가 다시 `INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`로 취소했다. 따라서 release cold-start·영상 UI·logcat은 아직 주장하지 않으며, USB 설치 승인이 필요하다.
+- **커밋·원격:** 후보 소스·에셋·테스트·정확한 배포 문서 **90개 파일** `eda4c375dd3a06ef422e90ae0ab4dba3c5f8dbaf` (`feat(release): prepare v2.0.1 candidate`)와 SSoT 기록 `0e3ad8f7d8a1ab3c84bb5013e059b4f438055421`를 `origin/main`에 푸시했다. 푸시 직후 ahead/behind는 `0 0`이었다. 임시 로그·백업·루트 중복 문서·미배선 `growl_tiger.mp3`는 제외했다.
 
 ### 2026-08-01 (Cowork) — 배포 차단 래칫 2건 해제 — 커밋 미요청
 
