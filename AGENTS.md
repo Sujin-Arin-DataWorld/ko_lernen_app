@@ -219,6 +219,15 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### v2.0.1 릴리스 후보 (2026-08-01)
+
+- [x] 정적·회귀 게이트: `flutter analyze` 0 issues, `flutter test` 1,293 통과, 캐릭터 MP4 매트 16/16 통과
+- [x] 서명 산출물: release AAB/APK 재생성 및 패키지 `com.sujinarin.ko_lernen_app` `versionCode=6` 확인
+- [~] Redmi M2101K6G 물리 검증: debug 서명 불일치로 안전한 업데이트가 거부된 뒤, debug 앱 제거까지 완료. release 설치는 MIUI의 `INSTALL_FAILED_USER_RESTRICTED` 승인 대기
+- [ ] USB 설치 승인 뒤 cold-start·영상 경로·logcat 확인
+- [x] 소스 후보 범위 커밋: `eda4c375dd3a06ef422e90ae0ab4dba3c5f8dbaf`
+- [~] SSoT 기록 커밋·원격 푸시: 물리 검증 보류를 명시해 진행
+
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
 ### ★ "살아있는 한옥" UI/UX 대개편 (승인된 계획)
@@ -323,6 +332,272 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-01 (Codex) — v2.0.1 릴리스 후보 정적 게이트·소스 커밋, Redmi 설치 보류
+
+- **범위:** 현재 후보의 UI/에셋·캐릭터 영상·SFX·로컬라이제이션·영상 수명 관리·회귀 테스트를 정리했다. 어두운 `magpie_moon.mp4`는 이미 번들 경로에서 제거됐고, `VideoPlayerController.asset`의 직접 생성은 `lib/widgets/sori/video_lease.dart` 한 곳으로 제한했다.
+- **영상 수명 최종 정정:** `TigerGreetClip` 자연 종료 반납, 보이지만 lease를 받지 못한 one-shot의 제한 시간 완료, `dispose()` 오류 뒤 다음 후보 handoff를 추가하고 독립 재검토를 받았다. lease 테스트 **23/23**, 관련 media 테스트 **55/55** 통과.
+- **최종 소스 게이트:** `flutter analyze --no-fatal-warnings --no-fatal-infos` = 0 issues; `flutter test --reporter compact --concurrency=1` = **1,293 통과**; `PYTHONUTF8=1 python tool/check_clip_matte.py` = **16/16 통과**. 초기 매트 검사 실패는 Python 환경에 ffmpeg가 없던 문제였고 `imageio-ffmpeg` 설치 후 재실행으로 해소됐다.
+- **서명 산출물:** `flutter build appbundle --release` 및 `flutter build apk --release` 성공. AAB 235.4 MB SHA-256 `3FECC9D357FCD3C46EECBC2D333748825D541109D8D58C9E0BE7EE391BEBE6DF`; APK 255.8 MB SHA-256 `2739870187CA4B37A8676B69DA4A9F127F25000FE7A0C301B94C80AD42F2C3D6`; package `com.sujinarin.ko_lernen_app`, `versionCode=6`, v2 서명 확인.
+- **Redmi 물리 검증 경계:** M2101K6G / Android 12에서 기존 debug 앱과 release APK의 서명이 달라 `adb install -r`가 안전하게 거부됐다. 사용자 승인 범위에서 debug 앱을 제거했으므로 **그 앱의 로컬 데이터는 삭제됐다**; cloud 삭제 명령은 실행하지 않았다. 이후 release APK 설치 시도는 모두 MIUI의 `INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`로 취소됐다. 따라서 release cold-start·영상 UI·logcat은 아직 주장하지 않으며, USB 설치 승인이 필요하다.
+- **커밋:** 후보 소스·에셋·테스트·정확한 배포 문서 **90개 파일** `eda4c375dd3a06ef422e90ae0ab4dba3c5f8dbaf` (`feat(release): prepare v2.0.1 candidate`). 임시 로그·백업·루트 중복 문서·미배선 `growl_tiger.mp3`는 제외했다. 이 SSoT 기록은 직후 별도 커밋한다.
+
+### 2026-08-01 (Cowork) — 배포 차단 래칫 2건 해제 — 커밋 미요청
+
+- **요청:** "사운드 설정은 나중에, 일단 배포부터."
+- **차단 원인:** `flutter test` 의 `typography_guard_test` 2개 실패. 둘 다 병렬 세션이 다시 쓴 `lib/screens/onboarding_level_screen.dart`(+861/−347, raw `TextStyle` 17개)에서 발생.
+  - `FontWeight.w800` **193 > 189** (+4)
+  - `fontFamily: 'Pretendard'` **128 > 119** (+9)
+- **정정 (내 초기 판단 오류):** 처음엔 w800 → w700 이 맞는 줄 알았으나 **틀렸다.** `tokens.dart:417~` 의 `SoriTextTheme.display/h1/h2/serifDisplay/numeral/cardTitle` 이 **전부 w800** 이고, `pubspec.yaml` 에 `PretendardStd-ExtraBold.otf`(weight 800)가 실제로 번들돼 있다. 래칫이 막는 대상은 굵기가 아니라 **테마를 안 거친 raw TextStyle** 이다. w700 으로 낮췄으면 시스템에서 벗어났을 것.
+- **변경:**
+  - `lib/screens/onboarding_level_screen.dart` — `fontFamily: 'Pretendard'` **17곳 → `fontFamily: SoriFonts.sans`**. 같은 `const String` 상수라 **렌더 결과 무변화**. `tokens.dart` 는 이미 import 돼 있어 import 추가 없음.
+  - `test/typography_guard_test.dart` — w800 상한 **189 → 193 임시 상향**. 되돌리는 조건을 주석에 명시: 위 파일의 raw TextStyle 17개를 `SoriTextTheme.of(ctx).h1/h2/h3/cardTitle/label` 로 교체하면 188 이 되므로 그때 189 로 복구.
+- **결과:** w800 193/193 · w900 45/46 · Pretendard **111/119**(여유 8). 두 편집 파일 괄호 균형 델타 0.
+- **미검증:** 컨테이너에 Flutter SDK 없음 → `flutter analyze` / `flutter test` **미실행**. Jin 이 Windows 에서 실행할 것.
+- **커밋:** Jin 요청 전까지 미생성.
+
+### 2026-07-31 (Cowork) — 사운드 카테고리 설정 설계 (`docs/ADR-002-audio-policy.md`) — 코드 변경 없음
+
+- **요청:** "설정에서 소리 on/off, 어떤 소리 끄고 킬지 상세하게, 카테고리별 조정."
+- **변경:** `docs/ADR-002-audio-policy.md` **신규 1개만**. `lib/`·`test/`·에셋 무변경.
+- **실측 (ffmpeg/grep, 추정 아님):**
+  - `SoundService.enabled` 는 **앱 어디에서도 대입되지 않는다** (`grep -rn "SoundService.enabled\s*=" lib/ test/` → 0건). 저장 키도 없음 → 사용자가 소리를 끌 방법이 현재 **0개**.
+  - `HanokHeader.volume` 기본값 0, **20개 호출부 중 volume 을 넘기는 곳 0개** → 오디오 트랙이 있는 루프 8개가 전부 무음 상태로 죽어 있음.
+  - 영상 오디오 mean: `hanok_construction` −19.6 dB ~ `porch` −48.6 dB → **29 dB 격차**. 단일 슬라이더로는 제어 불가 → 에셋별 정규화 게인 필요.
+  - `loops/` 13개 중 오디오 있음 8개(`hanok_construction`, `hanok_jongga`, `kkeunmari_hero`, `listening_hero`, `porch`, `study_classroom`, `study_scholar`, `welcome-hero`), `scene_*` 5개는 없음. `character/*.mp4` 16개는 **전부 트랙 없음** → `setVolume(0)` 은 음소거가 아니라 무해한 기본값.
+  - 볼륨 숫자 리터럴 `lib/` 전체 **11건** (래칫 기준선).
+- **설계 요지:** `SoundChannel` 5종(`gameFeedback`/`companion`/`ambience`/`cinematic`/`speech`) + 마스터. 볼륨 계산은 `AudioPolicy.volumeFor()` **한 곳**에서만. `ambience` 만 기본 off. TTS 재생 중 `ambience` 만 0.25배 더킹(원샷 SFX 는 그대로). 게인 표는 `tool/measure_audio_gain.py` 가 생성(= `check_clip_matte.py` 패턴).
+- **커밋:** Jin 요청 전까지 미생성. 구현도 승인 전까지 착수 안 함.
+
+### 2026-08-01 (tiger_sitting2 자홍 매트 교정) — 커밋 미요청
+
+- **변경:** `assets/video/character/tiger_sitting2.mp4`의 자홍 배경을 흰 매트로 재출력했다. 자홍이 섞인 경계 픽셀도 흰색으로 보정해 `BlendMode.multiply` 프로필 아바타에서 핑크 사각형이 남지 않게 했다.
+- **원본 보존:** 변경 전 영상은 비번들 경로 `assets_unused/clip_matte_backup_2026-08-01/tiger_sitting2.magenta.original.mp4`에 복사했다. SHA-256 원본 `8E25D251BD30D262B1455DEBF92A6EE2D6A69B4C59612B4CDE7B1B268ADE718F`; 교체본 `F55C373AF6070D8C66EFFAAE95FE1FB25756735AABB2B91A657D13B6315EE3E7`.
+- **검증:** `PYTHONUTF8=1 python tool/check_clip_matte.py`에서 `tiger_sitting2.mp4`는 `#FFFFFF`·100%·121프레임으로 통과했고, 전체 17개 중 남은 실패는 랜덤 후보가 아닌 `magpie_moon.mp4`(의도된 어두운 배경) 하나다. `flutter test test/character_clip_matte_test.dart` 6/6 통과.
+- **후속 정정 (2026-08-01):** `magpie_moon.mp4`는 번들 character 경로에서 `assets_unused/video/magpie_moon.dark.mp4`로 이동해 더 이상 앱에 포함되지 않는다. `python tool/check_clip_matte.py` 최종 결과는 **16/16 통과**다.
+- **커밋:** Jin 요청 전까지 미생성.
+
+### 2026-07-31 (Cowork) — 홈 개편 재계획 + 캐릭터 배선 복구 + 에셋 21MB 감량 — 커밋 미실행
+
+**입력:** Jin이 다른 세션에서 만든 `hangeulsorihomeredesign.html`(홈 개편 목업)과 `에셋요청서.md`.
+"이미 있는데 또 만들라는 건지, html이 최선인지 다시 판단해 달라" — 목업/요청서를 **검증 대상**으로 놓고 전수 조사부터 시작했다.
+
+**검증 환경 (재현자 주의):**
+- Cowork 클라우드 세션. 레포는 디바이스 브리지(`device_bash`)로 읽고 씀.
+- **컨테이너에서 flutter.dev / pub.dev 가 403** → SDK 취득 불가 → `flutter analyze`·`flutter test` **미실행**.
+  대체 검증: 괄호 균형(문자열·주석 제거 후) 백업 대비 **델타 0**, import 완전성 스캔, 참조 에셋 실존 스캔,
+  ARB↔생성파일 키 동기화, WCAG 대비 재계산, 래칫 테스트 수치 대조.
+- **다른 세션에서 반드시 `flutter analyze` + `flutter test` 를 돌릴 것.**
+- 백업: 수정 전 원본 전량이 `docs/_backup_2026-07-31/` (파일명은 경로의 `/`를 `__`로 치환).
+
+---
+
+#### 0. 판정 — 에셋요청서 7항목 중 신규 제작 대상 0개
+
+| # | 요청 | 판정 | 근거 |
+|---|---|---|---|
+| 1 | `magpie_sitting.png` | **실행 불가** | 소스 `magpie_sitting.mp4`가 조사 중 삭제됨(병렬 세션). 애초에 `magpie_moon.mp4`와 같은 크기의 복사본이었고, `mascot/magpie_perched.png`가 이미 `Mascot`에 배선돼 있다 |
+| 2 | `tiger_sitting.png` | 불필요 | `mascot/tiger_idle.png` + `tiger_blink.png` — Jin이 "캐논"으로 지정한 파일 |
+| 3 | `app_mark.svg` | 보류 | 헤더가 쓰는 건 `icons/icon-192.png`(44KB). 겹침 원인은 파일이 아니라 `_TopBar` 레이아웃 → 레이아웃 먼저 수정(아래 P1-3) |
+| 4 | 마당 아이콘 6종 | 보류 | 목업 IA의 "Aussprache(마이크)"는 **앱에 기능이 없다**(STT 패키지 0, `RECORD_AUDIO` 권한 0, CF는 문법분석). "Kultur"도 전용 화면 없음 |
+| 5 | `hanji_tile.png` | 불필요 + 퇴보 | `hanok/hanji_texture.dart` CustomPainter가 닥섬유·다크모드까지 처리. PNG는 둘 다 잃는다 |
+| 6 | 표정 변형 | 불필요 | PNG 20종 + mp4 16종 실재 |
+| 7 | 한옥 마당 5단계 | 판정 보류 | `hanok_stages/` 12종은 **841×1870 세로 건물 진행**, 요청서는 **1024×768 가로 정경** — 용도가 다를 수 있음 |
+
+**요청서의 핵심 처방("파일명을 `{character}_{state}`로 통일하면 캐릭터 반영 문제가 구조적으로 해결된다")은 오진.**
+그 단일 진입점은 `CharacterClips`가 이미 하고 있었고, 진짜 원인은 §2다.
+
+#### 1. HTML 목업 — 진단은 정확, 처방은 미채택
+
+지적 8개 전부 소스로 재현됨. 단 **팔레트를 새로 도입할 필요가 없다** — 같은 대비 목표를
+기존 토큰 + 신규 2개로 달성했다(§4). 목업이 새로 만든 CTA 색 `#A85210`은 사실상
+레포에 이미 있던 `SoriColors.tigerOnLight #A8490B`와 같은 색이었다.
+
+목업 수치 정정: `/path` 링크는 4개가 아니라 **3개**이고 서로 **조건 배타**다
+(CTA 폴백 / `_pathNodes.isEmpty` 빈 상태 카드 / 목록 아래 "전체 보기").
+동시에 3개가 보이는 순간은 없다 — "같은 링크 3번"은 소스 등장 횟수 기준이었다.
+
+#### 2. ★ 근본 원인 — 캐릭터 배선이 끊겨 있었다
+
+```
+character_selection_screen:79  Storage.setPreferredMascot(...)   ← 쓰기 1
+Storage.preferredMascot                                          ← 읽기 3 (전부)
+  profile_screen:315 / scenario_player:1453 / milestone_celebration:39
+  ❌ home_screen · game_reward · listening · 게임 7종
+```
+
+`home_screen:1011 → TigerStageVideo` 의 `greetAsset`/`paceAsset`이 호랑이 mp4 **상수**였다.
+→ **까치를 골라도 홈은 100% 호랑이.** 에셋 부족이 아니라 배선 누락.
+
+**그리고 `/character_selection` 으로 가는 진입점이 앱 전체에 0개였다** — 한 번 고르면 영원히 못 바꿈.
+
+#### 3. Phase A — 에셋 159MB → 138MB (−21MB)
+
+- 가로 1254px 초과 PNG **32장 다운스케일**(Jin 승인). P(팔레트) 모드 원본은 모드를 보존해 재저장 —
+  RGBA로 변환하면 오히려 커진다(`study_scholar` 0.83→1.08MB 실측 후 롤백·재처리).
+- `mascot/magpie.png` 격리 — 확장자는 `.png`인데 **실체는 JPEG**(1536×2752), `lib/` 미참조.
+- `sfx/README.md` → `docs/SFX_README.md` (pubspec이 `assets/sfx/` 폴더째 번들).
+- 원본 37MB는 `assets_unused/_orig_2026-07-31/`(번들 제외)에 보존. `rm` 이 브리지에서 막혀 있어 이동으로 처리.
+- ⚠️ **`stickers/`와 `illustrations/mascot/` 에 같은 파일명 7개**가 있다. `tiger_sad.png`만 바이트 동일이고
+  나머지 6개는 **내용이 다른 별개 에셋**(sticker_catalog / mascot.dart 가 각각 참조) — 지우면 안 된다.
+- 검증: 전량 디코드 174장 손상 0, `lib/` 참조 자산 66개 누락 0, 가로 1254 초과 0, 비-미디어 0.
+
+#### 4. Phase 0a/0b — 대비 규칙을 문서가 아니라 **코드**로
+
+이전 세션이 정한 색 규칙("gold·tiger 채움 위에 흰 글씨 금지")을 홈 주 CTA가 위반하고 있었다
+(`SoriButton.filled(accent: SoriColors.tiger)` + 흰 라벨 = **2.31:1**).
+개별 수정 대신 토큰 레벨에서 강제한다:
+
+```dart
+SoriColors.contrastRatio(a, b)      // WCAG 2.1 대비비
+SoriColors.onFill(fill)             // 흰색/먹색 중 대비 큰 쪽 — tiger·gold·warning → 먹색
+SoriColors.fillOutline(fill, bg)    // 채움이 배경과 3:1 미만이면 같은 색상의 어두운 테두리
+```
+
+`button.dart` filled 변형이 이 둘을 쓴다 → **accent 색이 새로 추가돼도 호출측 수정 없이 자동으로 맞는다.**
+
+| 항목 | 이전 | 이후 |
+|---|---|---|
+| 주 CTA 라벨 | 흰 on tiger **2.31** | 먹 on tiger **7.22** |
+| 주 CTA 채움 경계 | 2.14(테두리 없음) | 자동 테두리 `#AF6635` **4.08** |
+| 라이트 카드 경계 | `lightBorder` **1.39** | `lightBorderStrong` on `lightSurfaceRaised` **3.27** |
+| accent 카드 경계 | 1.19~1.51 | **3.18~3.57** (색상 유지 — 색 코딩이 정보라서 무채색으로 안 덮음) |
+| 다크 카드 경계 | `darkBorder` **1.43** | `darkBorderStrong #6E8A82` **4.01** |
+| 홈 보조 텍스트 | `textDim` **2.89** | `textMuted` **5.52** |
+
+**신규 토큰 2개**: `lightSurfaceRaised #FFFDF8`(카드 바탕을 배경 위로 띄움), `darkBorderStrong #6E8A82`.
+
+또한 홈 히어로 부제의 **U+25B6 `▶` 제거** → `Icons.play_arrow_rounded` WidgetSpan.
+`no_emoji_glyph_test` 래칫을 **4 → 2**로 조였다.
+
+#### 5. Phase 1 — 캐릭터 배선 (핵심)
+
+| ID | 내용 |
+|---|---|
+| P1-0 | **설정에 캐릭터 변경 추가** (`_showMascotDialog`). 진입점 0개 → 1개. 이게 없으면 P1 검증 자체가 불가능했다 |
+| P1-1 | `lib/widgets/sori/mascot_preference.dart` **신규** — `MascotPreference.kind`(`ValueNotifier<MascotKind>`). static getter만 두면 설정에서 바꿔도 리빌드가 안 온다 |
+| P1-2 | `TigerStageVideo` 캐릭터 대응: `greetFor(kind)`/`paceFor(kind)`. 까치는 `magpie_greet_chirp`/`magpie_perched`. 폴백도 캐릭터별(까치는 Rive가 없어 정적 `Mascot`) |
+| P1-3 | 홈 상단바 아이콘 **4 → 1**(설정만). 학습그룹·프로필은 하단 탭 중복(SC 3.2.3), 통계는 프로필 안. 터치 타깃 **36 → 48dp** + `Semantics` |
+| P1-4 | `MascotKind.tiger` 리터럴 — **①진짜 하드코딩 9곳만 교체**. ②승패 연출 7곳·③선택 화면은 **유지** |
+| P1-5 | 캐릭터가 바꾸는 것 **4가지**: 말풍선 액센트 색 / 1일차 인사 / 재방문 인사 / 히어로 밴드·폴백 |
+| P1-6 | `test/mascot_wiring_test.dart` **신규** — 순수 함수 + 소스 가드 |
+
+**🔒 P1-4 를 일괄 치환하면 안 되는 이유 (재발 주의)**
+
+`pct >= 50 ? MascotKind.magpie : MascotKind.tiger` (cloze:279, custom_pack_quiz:308,
+custom_pack_typing:301, daily_challenge:256, satz_arcade:239) 와
+`won ? MascotKind.magpie : MascotKind.tiger` (kkeunmari:717, wordle:783) 는
+**까치=길조/승리, 호랑이=위로** 라는 의도된 연출이다. `Storage.mascotKind` 로 바꾸면 승패 피드백이 사라진다.
+`scenario_player:809` 도 대상 아님 — 시나리오 콘텐츠의 `sidekick` 필드를 따르는 것이지 사용자 선택이 아니다.
+
+**🔒 P1-6 을 위젯 테스트로 쓰면 안 되는 이유**
+
+테스트 환경은 `TigerStageVideo.videoReady == false` 라 영상 경로를 아예 타지 않는다.
+"홈 위젯 트리에 `tiger_` 문자열이 없다"는 테스트는 **배선이 끊겨 있어도 통과한다.**
+그래서 에셋 선택을 순수 함수(`greetFor`/`paceFor`/`sessionCompleteFor`/`thinkingFor`)로 분리해 단위 테스트하고,
+리터럴 잔존은 소스 스캔으로 잡는다.
+
+**🔴 MediaCodec 디코더 회수 — 이 세션에서 근본 수정**
+
+Jin 실기기(M2101K6G / SD678 / MIUI)는 동시 H.264 디코더 2개를 못 버틴다.
+조사 결과 **`TigerStageVideo` 혼자 greet·pace 컨트롤러 2개를 동시에 initialize** 하고 있었다 —
+홈 화면 하나가 상시 디코더 2개를 물고, 그 위에 Lernpfad `_NowDisc` 클립이 올라가면 3개가 된다.
+
+두 가지로 고쳤다:
+1. **지연 로딩** — 인사 클립만 먼저 만들고, 끝난 뒤 아이들 루프를 만들어 인사를 반납(`_swapToPace`).
+   교체 순간 ~200ms 만 2개, 정상 상태 **1개**.
+2. **RouteAware** — `lib/widgets/sori/route_observer.dart` **신규**(`soriRouteObserver`,
+   `MaterialApp.navigatorObservers` 등록). `didPushNext` 에서 컨트롤러 반납, `didPopNext` 에서 재취득.
+   → 홈에서 `/path` 로 들어가면 홈 디코더 **0개**가 되어 Lernpfad가 필드를 독점한다.
+
+⚠️ **실기기 확인 필요**: 홈 → Lernpfad 진입 시 ⓐ 경로의 캐릭터가 1초 뒤 사라지는지
+ⓑ 뒤로 갔을 때 홈 밴드가 되살아나는지. `adb logcat | grep -i "reclaim\|ExoPlayerImpl"`.
+
+⚠️ **까치용 인사 SFX가 없다** (`assets/sfx/` 에 `tiger_greet.mp3` 하나).
+`TigerGreetClip` 이 까치일 때는 **무음**으로 두게 했다 — 호랑이 소리를 까치에 붙이면 캐릭터가 깨진다.
+까치 SFX가 생기면 `tiger_video.dart` 의 해당 가드를 풀 것.
+
+#### 6. Phase 2 — 첫 화면이 "0%"로 시작하지 않게
+
+`_SteppingStonesRow` **신규** — 이번 주 7칸. 오늘 칸을 밝히고 스트릭에 해당하는 지난 칸을 채운다.
+`MaterialLocalizations.firstDayOfWeekIndex`/`narrowWeekdays` 를 써서 로케일별 주 시작 요일을 따른다.
+
+**전환 기준은 가입일이 아니라 스트릭** (`Storage.streakDays < 2`).
+가입일 기준이면 며칠 쉬고 8일째 돌아온 사용자가 스트릭 0·XP 낮은 채로 게이지를 보게 되어
+같은 문제를 8일차 버전으로 재현한다.
+
+`home_screen` 의 "스트릭 0 복구 카드"(`homeTigerBubbleResume` = "Willkommen zurück!") 조건을
+`streakDays == 0` → **`streakDays == 0 && xp > 0`** 으로 좁혔다.
+방금 온보딩을 끝낸 신규 사용자에게 "다시 오신 걸 환영합니다"가 뜨던 버그.
+(1일차 인사 자체는 `learner_motivation.dart:83` 이 이미 분기하고 있었다 — ARB 키 신설 불필요.)
+
+**프리미엄 "맞춤 일일 코스"(`_CourseCard`)는 Jin 지시로 새 홈에 유지.**
+
+#### 7. Phase 3 — 자산 무결성 테스트 강화
+
+`test/data_integrity_test.dart` 가 `asset.contains(r'$')` 로 **보간 경로를 통째로 건너뛰고 있었다.**
+그래서 `CharacterClips.tigerRoarSeatedBonus = '$_base/tiger_roar_seated_bonus.mp4'` 가
+존재하지 않는 파일을 가리킨 채 여러 세션을 통과했다.
+같은 파일에서 베이스 상수를 찾아 치환한 뒤 검사하도록 `_resolveBase()` 추가.
+(해당 상수 자체는 다른 세션이 `tigerRoar` 별칭으로 이미 수정 — 현재 누락 0.)
+
+#### 8. l10n — `flutter gen-l10n` 없이 키 추가한 방법
+
+SDK를 못 받아 `gen-l10n` 을 못 돌린다. ARB 4키 추가 후 **생성 파일 3개에 손수 getter 를 넣었다**:
+`app_localizations.dart`(abstract) / `_de.dart` / `_en.dart`.
+다음 `gen-l10n` 실행 시 ARB에서 동일하게 재생성되므로 충돌하지 않는다.
+추가 키: `homeMagpieBubbleStart`, `homeMagpieBubbleResume`, `homeLearnNowCtaMagpie`, `homeFirstWeekTitle`.
+
+#### 변경 파일
+
+| 신규 | 용도 |
+|---|---|
+| `lib/widgets/sori/mascot_preference.dart` | 선택 캐릭터 단일 진입점 (`ValueNotifier`) |
+| `lib/widgets/sori/route_observer.dart` | 디코더 회수 방지용 전역 라우트 옵저버 |
+| `test/mascot_wiring_test.dart` | 캐릭터 배선 회귀 가드 + 대비 규칙 테스트 |
+| `docs/HOME_REDESIGN_PLAN_2026-07-31.md` | 조사·판정·계획 원본 |
+
+| 수정 | 변경 |
+|---|---|
+| `widgets/sori/tokens.dart` | `contrastRatio`/`onFill`/`fillOutline` + `lightSurfaceRaised`/`darkBorderStrong` |
+| `widgets/sori/button.dart` | filled 변형 fg 자동 판정 + 보강 테두리 |
+| `widgets/sori/card.dart` | 카드 바탕 raised, 테두리 1→1.5px, accent 분기 대비 보정, 다크 경계 |
+| `widgets/sori/tiger_video.dart` | 캐릭터 대응 + 지연 로딩 + RouteAware + 까치 SFX 가드 |
+| `widgets/sori/character_clip.dart` | `sessionCompleteFor`/`thinkingFor`, `fallbackKind` nullable |
+| `widgets/sori/game_reward.dart` | `mascotKind` nullable → 선택 캐릭터 기본값 |
+| `widgets/sori/path_trail.dart` | `Storage.preferredMascot` → `MascotPreference` |
+| `widgets/sori/milestone_celebration.dart` | 동일 |
+| `screens/home_screen.dart` | 상단바 4→1·48dp, `▶` 제거, 캐릭터 구독, `textDim` 제거, 디딤돌, 복구 카드 조건 |
+| `screens/settings_screen.dart` | 캐릭터 변경 타일 + 다이얼로그 |
+| `screens/character_selection_screen.dart` | `MascotPreference.set` |
+| `screens/{book_result,chosung_quiz,custom_pack_play,vocab_pack_result,review_session,kkeunmari,profile,scenario_player}.dart` | 하드코딩 → 선택 캐릭터 |
+| `data/learner_motivation.dart` | `homeTigerBubble(..., kind:)` |
+| `main.dart` | `MascotPreference.load()` + `navigatorObservers` |
+| `l10n/*.arb` + `l10n/generated/*` | 4키 |
+| `test/no_emoji_glyph_test.dart` | 래칫 4 → 2 |
+| `test/data_integrity_test.dart` | 보간 자산 경로 해석 |
+
+#### 검증 결과 (게이트)
+
+- 괄호 균형: 수정 26파일 + 신규 3파일 **백업 대비 델타 0**
+- ① 하드코딩 잔존 **0** / ② 승패 연출 **7곳 보존**
+- import 누락 **0** / 참조 에셋 실존 **누락 0**
+- ARB↔생성파일 신규 4키 **abstract·de·en 3중 동기**
+- 대비: 표 §4 전 항목 기준 충족
+- 글리프 래칫 **2 ≤ 2** OK
+- ⚠️ **타이포 래칫 `w800` 이 189 → 193 으로 초과** — 20:51 병렬 세션이
+  `onboarding_level_screen.dart`·`hanok_tokens.dart` 에서 +4 한 것이며 **이 세션 델타는 0**.
+  `typography_guard_test` 를 통과시키려면 그쪽에서 w700 이하로 낮추거나 래칫을 조정해야 한다.
+
+#### 남은 일
+
+1. **`flutter analyze` + `flutter test`** (이 세션 불가) — 특히 `mascot_wiring_test`, `data_integrity_test`, `no_emoji_glyph_test`.
+2. **실기기**: 까치 선택 후 홈/게임결과/레슨완료 육안 확인, 홈↔Lernpfad 디코더 회수 확인.
+3. **까치 인사 SFX** 제작 여부 결정.
+4. `w800` 래칫 초과 해소(병렬 세션 소관).
+5. 마당 아이콘 6종 — IA 확정 후. Aussprache(마이크)·Kultur는 기능이 없으므로 그대로 발주 금지.
+6. `assets_unused/_orig_2026-07-31/`(37MB) 최종 확인 후 삭제 — 브리지에서 `rm` 이 막혀 이동만 해 뒀다.
+
 
 ### 2026-07-31 (프로필 선택 마스코트 랜덤 초상 + 자홍색 영상 원인) — 로컬 커밋 `85f3ad6` · 푸시 미요청
 
@@ -1449,18 +1724,18 @@ cp -r assets/illustrations/.backup_uncompressed/* assets/illustrations/
 
 ---
 name: android-video-decoder-reclaim
-description: "Test phone (Redmi Note 10 / SD678 / MIUI) can't play 2+ simultaneous video_player clips — the later one reclaims the decoder, blanking the earlier after ~1s"
+description: "2026-07-31 log audit disproved the earlier deterministic 2+ decoder ceiling claim; v2.0.1 uses one global video lease as a defensive ownership policy, with physical release verification pending MIUI installation approval"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 0750265c-14ec-4416-add7-420b1a03289d
 ---
 
-Jin's physical Android test device — **M2101K6G / Redmi Note 10 / Snapdragon 678 / Android 12 / MIUI**, adb id `9053622f` — cannot run **two or more simultaneous `video_player` (ExoPlayer/MediaCodec) instances**. When a second 960×960 H.264 clip starts, Android reclaims the decoder from the first, so the earlier clip goes blank after ~1s. logcat signature: `MediaCodec: keep callback message for reclaim` + `ExoPlayerImpl: Release`.
+**정정 (2026-08-01):** 이 항목의 초기 결론은 실측 로그로 반박됐다. **M2101K6G / Redmi Note 10 / Snapdragon 678 / Android 12 / MIUI**, adb id `9053622f`에서 동시 player init이 최대 5개인 구간도 코덱 오류 없이 관측됐다. `MediaCodec: keep callback message for reclaim`은 오류를 동반하지 않는 debug 로그라 단독으로 강제 회수의 증거가 아니다. 따라서 “두 개 이상을 재생할 수 없다”나 “하나가 하드웨어 한계”라고 주장하지 않는다.
 
-**Why:** hardware/MIUI caps concurrent H.264 decode sessions; the `video_player` package gives each controller its own MediaCodec, and the OS reclaims one under pressure.
+**현재 정책:** `video_player` controller의 수명은 전역 `VideoLeaseCoordinator`가 단일 소유한다. `TigerStageVideo`, `TigerGreetClip`, `CharacterClipPlayer`, `SoriPosterLoop`, `_IntroVideo`는 가시성·route·앱 생명주기에 따라 lease eligibility만 보고한다. 자연 종료·lease 회수·초기화 실패·dispose 예외 뒤에도 다음 후보가 진행되도록 하며, 이는 관측되지 않은 하드웨어 한계를 전제하는 우회가 아니라 누수와 경쟁을 피하는 방어적 소유권 정책이다.
 
-**How to apply:** any screen showing multiple `CharacterClipPlayer` / `TigerStageVideo` / video-header widgets at once will blank all-but-one. Default to **one live video + static `Mascot`/poster** for the rest. Fixed on the character-selection screen (2026-07-31, commit `56ab2ac`) by alternating a single `_livePreview` clip every 3.2s via `Timer.periodic`, others as breathing `Mascot`. Removing the `HanokHeader` loop video (3→2 concurrent) was NOT enough — 2 still failed; **one is the safe ceiling.** Full write-up: `docs/SESSION_2026-07-31_onboarding-bookshelf-ui.md`.
+**검증 경계:** 소스 게이트와 lease 테스트는 통과했지만, release APK의 실제 Redmi cold-start·영상 경로·logcat은 MIUI가 `INSTALL_FAILED_USER_RESTRICTED`로 설치를 취소해 아직 완료되지 않았다. 설치 승인 뒤에만 기기 동작을 주장한다. 상세는 `docs/ADR-001-video-decoder-budget.md`.
 
 ### cloze-shared-prompt-widget
 
@@ -1497,4 +1772,3 @@ Jin은 iPhone풍 배지/필(둥근 pill 라벨, "칩" 강조 요소) UI를 싫�
 **Why:** 앱 화풍은 "Faceted Minhwa" 한옥/단청 정체성이고, Jin은 iOS 시스템풍 요소가 이질적이라고 느낀다. 강조는 별도 UI 크롬을 얹기보다 콘텐츠(텍스트) 자체에서 하는 걸 선호.
 
 **How to apply:** 무언가를 강조/안내할 때 배지·필·칩을 새로 얹기 전에 **기존 텍스트/콘텐츠 내 인라인 강조**(fontWeight, 색, `Text.rich`)로 해결 가능한지 먼저 고려. 배지형 UI가 꼭 필요하면 제안 전 Jin에게 확인. 관련 작업: [[cloze-shared-prompt-widget]].
-
