@@ -108,3 +108,6 @@ app_logcat.txt
 video_logcat_after_fix.txt
 assets_unused/_orig_2026-07-31/
 assets_unused/clip_matte_backup_2026-08-01/
+
+# 세션 편집 백업 (커밋 대상 아님)
+_bak_*/

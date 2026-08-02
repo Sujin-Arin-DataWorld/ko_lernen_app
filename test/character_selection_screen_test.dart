@@ -1,0 +1,99 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/character_selection_screen.dart';
+import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
+
+/// 캐릭터 선택 화면 (2026-08-03 일월 무대 리디자인) 스모크.
+///
+/// 테스트 기본값은 `TigerStageVideo.videoReady == false` → 클립은 정적
+/// 폴백 + `fallbackCompleteAfter` 워치독 경로. Mascot `animate: true`는
+/// 무한 호흡 애니메이션이라 `pumpAndSettle` 금지 — 유한 `pump`만 쓴다.
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() async {
+    SharedPreferences.setMockInitialValues({});
+    await Storage.init();
+    MascotPreference.load();
+  });
+
+  Widget wrap() => const MaterialApp(
+    localizationsDelegates: AppL10n.localizationsDelegates,
+    supportedLocales: AppL10n.supportedLocales,
+    locale: Locale('de'),
+    home: CharacterSelectionScreen(),
+  );
+
+  testWidgets('이름·로마자·특성·설명·탭 힌트가 모두 렌더된다', (tester) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(wrap());
+    await tester.pump(const Duration(milliseconds: 900));
+
+    // 이름(한글) — Text.rich 이름줄에만 존재. 로마자(Taego/Joy)는 이름줄과
+    // 설명 양쪽에 나올 수 있어 findsWidgets 로 존재만 확인.
+    expect(find.textContaining('태고', findRichText: true), findsOneWidget);
+    expect(find.textContaining('조이', findRichText: true), findsOneWidget);
+    expect(find.textContaining('Taego', findRichText: true), findsWidgets);
+    expect(find.textContaining('Joy', findRichText: true), findsWidgets);
+    expect(find.text('Verlässlich & mutig'), findsOneWidget);
+    expect(find.text('Fröhlich & lebendig'), findsOneWidget);
+    // 민속 상징 설명 — 산군(호랑이)·길조(까치).
+    expect(find.textContaining('Herr der Berge'), findsOneWidget);
+    expect(find.textContaining('Glücksbotin'), findsOneWidget);
+    expect(find.text('Tipp deinen Lernfreund an'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('좁은 폭 308px × 글자배율 1.3 에서 오버플로 없음', (tester) async {
+    tester.view.physicalSize = const Size(308, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(
+      MediaQuery(
+        data: const MediaQueryData(textScaler: TextScaler.linear(1.3)),
+        child: wrap(),
+      ),
+    );
+    await tester.pump(const Duration(milliseconds: 900));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('호랑이 탭 → choose→greet 체인 → 동의 화면으로 진행', (tester) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(wrap());
+    await tester.pump(const Duration(milliseconds: 700));
+
+    await tester.tap(find.textContaining('태고', findRichText: true));
+    await tester.pump();
+
+    // choose 단계 — 클립 플레이어(폴백 마스코트) 등장.
+    expect(find.byType(CharacterClipPlayer), findsOneWidget);
+
+    // choose 워치독 900ms → greet 단계로.
+    await tester.pump(const Duration(milliseconds: 1000));
+    expect(find.byType(CharacterClipPlayer), findsOneWidget);
+
+    // greet 워치독 1600ms → 미동의 상태이므로 ConsentScreen 으로 이동.
+    await tester.pump(const Duration(milliseconds: 1700));
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.byType(ConsentScreen), findsOneWidget);
+
+    // 화면 해제 — 남은 타이머·애니메이션 정리.
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(tester.takeException(), isNull);
+  });
+}

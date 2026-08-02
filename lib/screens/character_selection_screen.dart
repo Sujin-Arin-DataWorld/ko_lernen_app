@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -6,6 +8,7 @@ import '../services/storage_service.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/motion.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
 import 'consent_screen.dart';
@@ -13,6 +16,14 @@ import 'onboarding_level_screen.dart';
 
 /// 선택 확정 후 연출 단계 — 확정 목례/착지(choose) → 무언 인사(greet).
 enum _GreetPhase { choosing, greeting }
+
+// 일월(日月) 무대 팔레트 — ASSET_GENERATION_BIBLE §1.3 의 일러스트 전용 hex.
+// (UI 토큰과 의도적으로 분리 — 카드 안 "무대"는 일러스트 세계의 색을 쓴다.)
+// 민화 일월오봉도 도상: 호랑이=해(금, 오른쪽) / 까치=달(백, 왼쪽).
+const Color _kTigerStagePanel = Color(0xFFF4E8D0); // Hanji Ivory
+const Color _kTigerStageSun = Color(0xFFDFA951); // Dancheong Gold
+const Color _kMagpieStagePanel = Color(0xFFD8E5DC); // Sky Celadon
+const Color _kMagpieStageMoon = Color(0xFFFFFCF2); // Hanji Light
 
 /// **캐릭터 선택 + 첫 인사**
 ///
@@ -36,6 +47,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   bool _isLoading = false;
   bool _navigated = false;
   _GreetPhase _phase = _GreetPhase.choosing;
+  final ScrollController _scroll = ScrollController();
 
   // 선택 전 미리보기는 **정적 호흡 마스코트만** 쓴다 (2026-08-02 실기기 검수).
   // 이전에는 3.2초마다 호랑이↔까치 클립을 교대 재생했는데, 이 기기(SD678/
@@ -44,6 +56,12 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   // 교대될 때마다 흰 프레임이 번쩍였고, tiger_rise 루프에 매핑된 인사
   // 효과음이 교대 주기마다 반복 재생됐다. 영상 연출은 선택 확정 후
   // choose→greet 체인(디코더 1개, 일회성)에만 남긴다.
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
 
   void _handleSelection(MascotKind kind) {
     if (_isLoading) return;
@@ -56,6 +74,23 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
 
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
     MascotPreference.set(kind);
+
+    // 선택 연출(choose→greet 클립)은 카드 아래에 붙는다 — 작은 화면에선
+    // 스크롤 밖이라 연출을 통째로 못 보는 경우가 있어(2026-08-03 디자인
+    // 검수), 다음 프레임에 연출 위치까지 스크롤을 내려 준다.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_scroll.hasClients) return;
+      final target = _scroll.position.maxScrollExtent;
+      if (SoriMotion.reduceMotion(context)) {
+        _scroll.jumpTo(target);
+      } else {
+        _scroll.animateTo(
+          target,
+          duration: const Duration(milliseconds: 420),
+          curve: Curves.easeOutCubic,
+        );
+      }
+    });
 
     // 첫 인사는 말이 아니라 몸짓 — 선택된 캐릭터의 인사 클립이 재생되고,
     // 클립이 끝나면(폴백 경로 포함) _proceed가 정확히 1회 호출된다.
@@ -87,6 +122,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) => SingleChildScrollView(
+            controller: _scroll,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: Center(
@@ -95,63 +131,99 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // 종가 마당 배너 — 정지 포스터.
-                      // (이 화면은 캐릭터 클립을 재생하므로 헤더까지 영상으로
-                      //  돌리면 동시 H.264 디코더 수가 늘어 reclaim 충돌이
-                      //  커진다. 헤더는 정지로 둔다.)
-                      //
-                      // welcome-hero.png 는 1254×1254 정사각 — 16:9 cover 로
-                      // 넣으면 상하 44%가 잘려 호랑이 머리가 절단된다(2026-08-02
-                      // 실기기 검수). 폭을 제한한 1:1 로 원본 구도를 통째로 보인다.
-                      ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 240),
-                        child: const HanokHeader(
-                          asset: 'assets/illustrations/hanok/welcome-hero.png',
-                          // ⚠️ loopAsset 을 빼는 것만으로는 정지되지 않는다 —
-                          // HanokHeader 는 png 이름에서 mp4 를 유도한다.
-                          // 정지 포스터를 원하면 animate:false 를 명시해야 한다.
-                          animate: false,
-                          aspectRatio: 1,
-                          radius: 16,
-                          fallbackIcon: Icons.pets,
+                      // 종가 마당 배너 — **welcome-hero.mp4 무음 루프** (Jin
+                      // 2026-08-03: "같이 있는 이미지 대신 비디오"). 영상은
+                      // 1280×720(16:9)·5.1s — 박스도 16:9 로 맞춰 크롭 0.
+                      // 이 화면의 라이브 영상은 이 하나 — 카드까지 영상을 걸면
+                      // 단일 디코더 lease(ADR-001) 때문에 마지막 등록만 살고
+                      // 나머지는 정지된다. 캐릭터 클립(roar/perched)은 선택
+                      // 순간(greet)에 재생. 탭 후엔 greet 클립이 lease 를
+                      // 가져가고 히어로는 포스터로 자연 강등된다.
+                      // (poster png 는 정사각이라 16:9 cover 시 상하 크롭 —
+                      // 영상 로드 전/reduce-motion 폴백에서만 잠깐 보인다.)
+                      SoriEntrance(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 280),
+                          child: const HanokHeader(
+                            asset:
+                                'assets/illustrations/hanok/welcome-hero.png',
+                            aspectRatio: 16 / 9,
+                            radius: 16,
+                            fallbackIcon: Icons.pets,
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 28),
-                      Text(
-                        t.characterSelectionTitle,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w800,
-                          height: 1.3,
+                      const SizedBox(height: 24),
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 90),
+                        child: Column(
+                          children: [
+                            Text(
+                              t.characterSelectionTitle,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.w800,
+                                height: 1.3,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            // 탭 유도 한 줄 — 카드가 눌리는 것임을 말로 알려
+                            // 준다 (배지/필 금지 원칙 → 본문 인라인 힌트).
+                            Text(
+                              t.characterSelectionHint,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 13.5,
+                                color: SoriColors.lightTextMuted,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 28),
+                      const SizedBox(height: 24),
                       // 세로 배열 — 위 호랑이 / 아래 까치. 둘 다 정적 호흡
                       // 마스코트 (영상 미리보기는 화이트 플래시·반복음 때문에
-                      // 폐기 — State 상단 주석 참조).
+                      // 폐기 — State 상단 주석 참조). 성격 대비는 일월(日月)
+                      // 무대로: 호랑이=해(금빛 아침)·까치=달(청자빛 저녁).
                       Column(
                         children: [
-                          _CharacterCard(
-                            kind: MascotKind.tiger,
-                            name: t.characterNameTiger,
-                            trait: t.characterTraitTiger,
-                            description: t.characterDescTiger,
-                            isSelected: _selected == MascotKind.tiger,
-                            onTap: _isLoading
-                                ? null
-                                : () => _handleSelection(MascotKind.tiger),
+                          SoriEntrance(
+                            delay: const Duration(milliseconds: 180),
+                            child: _CharacterCard(
+                              kind: MascotKind.tiger,
+                              name: t.characterNameTiger,
+                              roman: t.characterRomanTiger,
+                              trait: t.characterTraitTiger,
+                              description: t.characterDescTiger,
+                              accent: SoriColors.tigerOnLight,
+                              panelColor: _kTigerStagePanel,
+                              discColor: _kTigerStageSun,
+                              discAtRight: true,
+                              isSelected: _selected == MascotKind.tiger,
+                              onTap: _isLoading
+                                  ? null
+                                  : () => _handleSelection(MascotKind.tiger),
+                            ),
                           ),
                           const SizedBox(height: 16),
-                          _CharacterCard(
-                            kind: MascotKind.magpie,
-                            name: t.characterNameMagpie,
-                            trait: t.characterTraitMagpie,
-                            description: t.characterDescMagpie,
-                            isSelected: _selected == MascotKind.magpie,
-                            onTap: _isLoading
-                                ? null
-                                : () => _handleSelection(MascotKind.magpie),
+                          SoriEntrance(
+                            delay: const Duration(milliseconds: 300),
+                            child: _CharacterCard(
+                              kind: MascotKind.magpie,
+                              name: t.characterNameMagpie,
+                              roman: t.characterRomanMagpie,
+                              trait: t.characterTraitMagpie,
+                              description: t.characterDescMagpie,
+                              accent: SoriColors.primary,
+                              panelColor: _kMagpieStagePanel,
+                              discColor: _kMagpieStageMoon,
+                              discAtRight: false,
+                              isSelected: _selected == MascotKind.magpie,
+                              onTap: _isLoading
+                                  ? null
+                                  : () => _handleSelection(MascotKind.magpie),
+                            ),
                           ),
                         ],
                       ),
@@ -179,7 +251,12 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       else if (_selected != null)
                         CharacterClipPlayer(
                           key: ValueKey<String>('greet_${_selected!.name}'),
-                          asset: CharacterClips.greetFor(_selected!),
+                          // Jin 지정 클립(2026-08-03): 태고=산군의 포효,
+                          // 조이=사뿐히 앉은 길조. (기본 greetFor 의
+                          // pawflash/chirp 대체 — 이 화면 한정.)
+                          asset: _selected == MascotKind.magpie
+                              ? CharacterClips.magpiePerched
+                              : CharacterClips.tigerRoar,
                           size: 160,
                           fallbackKind: _selected!,
                           fallbackEmotion: MascotEmotion.celebrate,
@@ -212,18 +289,38 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
 class _CharacterCard extends StatelessWidget {
   final MascotKind kind;
   final String name;
+
+  /// 로마자 병기 — A0 학습자는 아직 한글 이름을 못 읽는다 (2026-08-03).
+  final String roman;
   final String trait;
 
   /// 캐릭터 소개 2~3줄 — 이름·특성 아래 본문 (2026-08-02 Jin 요청).
   final String description;
+
+  /// 캐릭터 고유 강조색 — 특성 라벨·선택 테두리·글로우.
+  /// 호랑이 = [SoriColors.tigerOnLight](크림 위 대비 확보된 주황),
+  /// 까치 = [SoriColors.primary](녹청). 성격 대비를 색으로 표현한다.
+  final Color accent;
+
+  /// 일월(日月) 무대 — 캐릭터가 흰 허공이 아니라 자기 세계 위에 선다.
+  final Color panelColor;
+  final Color discColor;
+
+  /// 일월오봉도 배치 관례 — 해는 오른쪽, 달은 왼쪽.
+  final bool discAtRight;
   final bool isSelected;
   final VoidCallback? onTap;
 
   const _CharacterCard({
     required this.kind,
     required this.name,
+    required this.roman,
     required this.trait,
     required this.description,
+    required this.accent,
+    required this.panelColor,
+    required this.discColor,
+    required this.discAtRight,
     required this.isSelected,
     this.onTap,
   });
@@ -233,26 +330,24 @@ class _CharacterCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: AnimatedScale(
-        scale: isSelected ? 1.1 : 1.0,
+        scale: isSelected ? 1.05 : 1.0,
         duration: const Duration(milliseconds: 200),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
               // cream 배경 위 흰 카드 — grey[300](1.2:1)은 사실상 안 보임.
-              color: isSelected
-                  ? SoriColors.primary
-                  : SoriColors.lightBorderStrong,
+              color: isSelected ? accent : SoriColors.lightBorderStrong,
               width: isSelected ? 3 : 2,
             ),
             borderRadius: BorderRadius.circular(SoriRadius.lg),
             boxShadow: [
               if (isSelected)
                 BoxShadow(
-                  color: SoriColors.primary.withValues(alpha: 0.2),
-                  blurRadius: 12,
+                  color: accent.withValues(alpha: 0.22),
+                  blurRadius: 14,
                   spreadRadius: 2,
                 )
               else
@@ -265,32 +360,69 @@ class _CharacterCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              // 정적 호흡 마스코트 — 영상 미리보기는 화이트 플래시·반복
-              // 효과음 때문에 폐기(State 상단 주석). 탭 후(onTap == null)엔
-              // 호흡도 멈춘다.
-              Mascot(
-                kind: kind,
-                emotion: MascotEmotion.smile,
-                size: 150,
-                animate: onTap != null,
+              // 일월 무대 + 정지 마스코트 — 카드 상시 영상은 단일 디코더
+              // lease·화이트 플래시 때문에 불가(State 상단 주석), 호흡
+              // 애니메이션도 Jin 요청("까딱이는 이미지 삭제", 2026-08-03)으로
+              // 제거. 캐릭터의 "살아있음"은 히어로 영상과 선택 순간의
+              // roar/perched 클립이 담당한다.
+              ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: SizedBox(
+                  height: 172,
+                  width: double.infinity,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      CustomPaint(
+                        painter: _SunMoonStagePainter(
+                          panel: panelColor,
+                          disc: discColor,
+                          discAtRight: discAtRight,
+                        ),
+                      ),
+                      Center(
+                        child: Mascot(
+                          kind: kind,
+                          emotion: MascotEmotion.smile,
+                          size: 148,
+                          animate: false,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
               const SizedBox(height: 12),
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w800,
-                  color: SoriColors.lightText,
+              Text.rich(
+                TextSpan(
+                  text: name,
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w800,
+                    color: SoriColors.lightText,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: '  $roman',
+                      style: const TextStyle(
+                        fontSize: 12.5,
+                        fontWeight: FontWeight.w600,
+                        color: SoriColors.lightTextMuted,
+                      ),
+                    ),
+                  ],
                 ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 4),
               Text(
                 trait,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
-                  color: SoriColors.primary,
+                  letterSpacing: 0.2,
+                  color: accent,
                 ),
               ),
               const SizedBox(height: 8),
@@ -309,4 +441,65 @@ class _CharacterCard extends StatelessWidget {
       ),
     );
   }
+}
+
+/// 면분할(faceted) 해/달 원판 + 단청 점 1군집 — BIBLE §1.2(윤곽선 없는 평면
+/// 색면)·§1.4(강조는 군집, 흩뿌리기 금지) 준수. 난수 없이 고정 정점 배율만
+/// 쓰는 결정적 페인터라 리빌드마다 모양이 흔들리지 않는다.
+class _SunMoonStagePainter extends CustomPainter {
+  final Color panel;
+  final Color disc;
+  final bool discAtRight;
+
+  const _SunMoonStagePainter({
+    required this.panel,
+    required this.disc,
+    required this.discAtRight,
+  });
+
+  /// 12각 원판의 정점별 반지름 배율 — 살짝 우둘투둘한 "잘라낸 색종이" 느낌.
+  static const List<double> _radii = [
+    1.0, 0.95, 1.03, 0.96, 1.0, 0.97, 1.04, 0.95, 1.0, 0.98, 1.02, 0.94, //
+  ];
+
+  // 단청 점 — BIBLE §1.3 (red/gold/teal).
+  static const Color _dotRed = Color(0xFFC24A45);
+  static const Color _dotGold = Color(0xFFDFA951);
+  static const Color _dotTeal = Color(0xFF3D9A7F);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawRect(Offset.zero & size, Paint()..color = panel);
+
+    // 해/달 원판 — 상단에 반쯤 걸치는 배치. 마스코트 머리 뒤 후광처럼 읽힌다.
+    final cx = size.width * (discAtRight ? 0.76 : 0.24);
+    const cy = 46.0;
+    const r = 44.0;
+    final path = Path();
+    for (var i = 0; i < _radii.length; i++) {
+      final a = (i / _radii.length) * 2 * math.pi - math.pi / 2;
+      final rr = r * _radii[i];
+      final p = Offset(cx + rr * math.cos(a), cy + rr * math.sin(a));
+      if (i == 0) {
+        path.moveTo(p.dx, p.dy);
+      } else {
+        path.lineTo(p.dx, p.dy);
+      }
+    }
+    path.close();
+    canvas.drawPath(path, Paint()..color = disc);
+
+    // 단청 점 1군집 — 원판 반대편 하단 (양극 균형, §1.4-3).
+    final dx = size.width * (discAtRight ? 0.16 : 0.84);
+    final dy = size.height - 26.0;
+    canvas.drawCircle(Offset(dx, dy), 3.4, Paint()..color = _dotRed);
+    canvas.drawCircle(Offset(dx + 12, dy - 7), 2.6, Paint()..color = _dotTeal);
+    canvas.drawCircle(Offset(dx - 4, dy - 13), 2.2, Paint()..color = _dotGold);
+  }
+
+  @override
+  bool shouldRepaint(_SunMoonStagePainter oldDelegate) =>
+      oldDelegate.panel != panel ||
+      oldDelegate.disc != disc ||
+      oldDelegate.discAtRight != discAtRight;
 }
