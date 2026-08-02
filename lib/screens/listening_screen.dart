@@ -441,6 +441,7 @@ class _ControlsBar extends StatelessWidget {
                   variant: SoriChipVariant.soft,
                   onTap: () => onRate(r),
                   fontSize: 12,
+                  minInteractiveHeight: 44,
                 );
               }),
             ],
@@ -485,6 +486,7 @@ class _ControlsBar extends StatelessWidget {
       variant: SoriChipVariant.soft,
       onTap: () => onSubs(mode),
       fontSize: 11.5,
+      minInteractiveHeight: 44,
     );
   }
 }

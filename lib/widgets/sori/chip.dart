@@ -16,11 +16,17 @@ enum SoriChipVariant { soft, filled, outlined }
 class SoriChip extends StatelessWidget {
   final String label;
   final IconData? icon;
-  final Color? accent;        // 모드별 색
-  final bool selected;        // choice mode
+  final Color? accent; // 모드별 색
+  final bool selected; // choice mode
   final SoriChipVariant variant;
   final VoidCallback? onTap;
   final double fontSize;
+
+  /// Optional minimum hit-target height for an interactive chip.
+  ///
+  /// These targets keep their intrinsic width so they can remain inline in a
+  /// [Wrap] on wider layouts.
+  final double? minInteractiveHeight;
 
   const SoriChip({
     super.key,
@@ -31,6 +37,7 @@ class SoriChip extends StatelessWidget {
     this.variant = SoriChipVariant.soft,
     this.onTap,
     this.fontSize = 12,
+    this.minInteractiveHeight,
   });
 
   @override
@@ -61,7 +68,7 @@ class SoriChip extends StatelessWidget {
       duration: SoriMotion.fast,
       padding: EdgeInsets.symmetric(
         horizontal: icon == null ? 12 : 10,
-        vertical: 8, // 5 → 8 (44px tap target 보강)
+        vertical: 8,
       ),
       decoration: BoxDecoration(
         color: bg,
@@ -95,14 +102,24 @@ class SoriChip extends StatelessWidget {
       ),
     );
 
+    final minimumHeight = minInteractiveHeight;
+    final content = onTap != null && minimumHeight != null
+        ? IntrinsicWidth(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: minimumHeight),
+              child: Center(child: chip),
+            ),
+          )
+        : chip;
+
     if (onTap == null) {
-      return Semantics(label: label, child: chip);
+      return Semantics(label: label, child: content);
     }
     return Semantics(
       button: true,
       label: label,
       selected: selected,
-      child: SoriPressable(onTap: onTap, child: chip),
+      child: SoriPressable(onTap: onTap, child: content),
     );
   }
 }

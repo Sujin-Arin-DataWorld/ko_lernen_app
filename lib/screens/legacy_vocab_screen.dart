@@ -388,6 +388,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                       selected: _mode == 'due',
                       variant: SoriChipVariant.filled,
                       onTap: () => _setMode('due'),
+                      minInteractiveHeight: 44,
                     ),
                     SoriChip(
                       label: t.vocabFavoritesBadge(_favorites.length),
@@ -395,6 +396,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                       selected: _mode == 'favorites',
                       variant: SoriChipVariant.filled,
                       onTap: () => _setMode('favorites'),
+                      minInteractiveHeight: 44,
                     ),
                     SoriChip(
                       label: t.vocabModeAll,
@@ -402,6 +404,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                       selected: _mode == 'all',
                       variant: SoriChipVariant.filled,
                       onTap: () => _setMode('all'),
+                      minInteractiveHeight: 44,
                     ),
                   ],
                 ),

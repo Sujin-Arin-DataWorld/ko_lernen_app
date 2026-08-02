@@ -17,6 +17,8 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -305,6 +307,20 @@ void main() {
     expect(find.byType(ContentFeedbackCard), findsNothing);
   });
 
+  testWidgets('loaded non-due legacy session has no feedback card', (
+    tester,
+  ) async {
+    await Storage.srsReview(_word.korean, gotIt: true);
+    await tester.pumpWidget(
+      _app(LegacyVocabScreen(vocabLoader: () async => const [_word])),
+    );
+    await tester.pump();
+    await tester.pump();
+
+    expect(find.byType(FlipCard), findsOneWidget);
+    expect(find.byType(ContentFeedbackCard), findsNothing);
+  });
+
   testWidgets('listening controls fit a 390px portrait viewport', (
     tester,
   ) async {
@@ -315,6 +331,40 @@ void main() {
     await tester.pump();
     await tester.pump();
 
+    const speedChoices = ['0.75x', '1.0x', '1.25x'];
+    const subtitleChoices = ['Beides', 'Koreanisch', 'Übersetzung', 'Aus'];
+    final controls = [
+      ...speedChoices.map(_chip),
+      ...subtitleChoices.map(_chip),
+    ];
+    for (final finder in controls) {
+      expect(finder, findsOneWidget);
+      expect(tester.getSize(finder).height, inInclusiveRange(44, 48));
+    }
+    _expectInsideViewport(tester, controls, const Size(390, 844));
+    expect(tester.takeException(), isNull);
+    for (final selectedLabel in speedChoices) {
+      await tester.tap(_chip(selectedLabel));
+      await tester.pump();
+      expect(tester.takeException(), isNull);
+      for (final label in speedChoices) {
+        expect(
+          tester.widget<SoriChip>(_chip(label)).selected,
+          label == selectedLabel,
+        );
+      }
+    }
+    for (final selectedLabel in subtitleChoices) {
+      await tester.tap(_chip(selectedLabel));
+      await tester.pump();
+      expect(tester.takeException(), isNull);
+      for (final label in subtitleChoices) {
+        expect(
+          tester.widget<SoriChip>(_chip(label)).selected,
+          label == selectedLabel,
+        );
+      }
+    }
     expect(tester.takeException(), isNull);
   });
 
@@ -322,12 +372,61 @@ void main() {
     tester,
   ) async {
     _setViewport(const Size(390, 844));
+    await Storage.toggleVokFavorite(_word.korean);
     await tester.pumpWidget(
       _app(LegacyVocabScreen(vocabLoader: () async => const [_word])),
     );
     await tester.pump();
     await tester.pump();
 
+    final today = _chipWhere((label) => label.startsWith('Heute ('));
+    final favorites = _chip('1');
+    final all = _chip('Alle');
+    final modes = [today, favorites, all];
+    for (final finder in modes) {
+      expect(finder, findsOneWidget);
+      expect(tester.getSize(finder).height, inInclusiveRange(44, 48));
+    }
+    _expectInsideViewport(tester, modes, const Size(390, 844));
+    expect(tester.takeException(), isNull);
+    for (final selectedMode in modes) {
+      await tester.tap(selectedMode);
+      await tester.pump();
+      expect(tester.takeException(), isNull);
+      for (final mode in modes) {
+        expect(tester.widget<SoriChip>(mode).selected, mode == selectedMode);
+      }
+    }
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('wide listening and legacy controls retain their inline layout', (
+    tester,
+  ) async {
+    _setViewport(const Size(600, 900));
+    await tester.pumpWidget(
+      _app(ListeningScreen(scenariosLoader: () async => [_listeningScenario])),
+    );
+    await tester.pump();
+    await tester.pump();
+    _expectSameRow(tester, ['0.75x', '1.0x', '1.25x']);
+    _expectSameRow(tester, ['Beides', 'Koreanisch']);
+    _expectSameRow(tester, ['Übersetzung', 'Aus']);
+    expect(
+      tester.getTopLeft(_chip('Übersetzung')).dy,
+      greaterThan(tester.getTopLeft(_chip('Beides')).dy),
+    );
+
+    await tester.pumpWidget(
+      _app(LegacyVocabScreen(vocabLoader: () async => const [_word])),
+    );
+    await tester.pump();
+    await tester.pump();
+    _expectSameRow(tester, [
+      _chipWhere((label) => label.startsWith('Heute (')),
+      _chip('0'),
+      _chip('Alle'),
+    ]);
     expect(tester.takeException(), isNull);
   });
 }
@@ -335,6 +434,8 @@ void main() {
 Future<void> _tapText(WidgetTester tester, String text) async {
   final finder = find.text(text);
   expect(finder, findsWidgets);
+  await tester.ensureVisible(finder.last);
+  await tester.pump();
   await tester.tap(finder.last);
 }
 
@@ -348,6 +449,42 @@ ContentFeedbackCard _expectFeedback(
   expect(card.feedbackContext.contentType, type);
   expect(card.feedbackContext.completionId, isNotEmpty);
   return card;
+}
+
+Finder _chip(String label) => _chipWhere((candidate) => candidate == label);
+
+Finder _chipWhere(bool Function(String label) matches) => find
+    .byWidgetPredicate((widget) => widget is SoriChip && matches(widget.label));
+
+void _expectSameRow(WidgetTester tester, List<Object> controls) {
+  final finders = controls.map((control) {
+    return switch (control) {
+      String label => _chip(label),
+      Finder finder => finder,
+      _ => throw ArgumentError.value(control, 'control'),
+    };
+  }).toList();
+  for (final finder in finders) {
+    expect(finder, findsOneWidget);
+  }
+  final top = tester.getTopLeft(finders.first).dy;
+  for (final finder in finders.skip(1)) {
+    expect(tester.getTopLeft(finder).dy, closeTo(top, 0.1));
+  }
+}
+
+void _expectInsideViewport(
+  WidgetTester tester,
+  Iterable<Finder> controls,
+  Size viewport,
+) {
+  for (final finder in controls) {
+    final rect = tester.getRect(finder);
+    expect(rect.left, greaterThanOrEqualTo(0));
+    expect(rect.top, greaterThanOrEqualTo(0));
+    expect(rect.right, lessThanOrEqualTo(viewport.width));
+    expect(rect.bottom, lessThanOrEqualTo(viewport.height));
+  }
 }
 
 Widget _app(Widget home) => MaterialApp(
