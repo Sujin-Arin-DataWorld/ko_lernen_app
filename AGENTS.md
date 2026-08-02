@@ -341,6 +341,7 @@ flutter run -d <android-id>   # 안드로이드
 - **재빌드 (공식 절차 `clean→pub get→build`)**: 8/1 구본은 3e4a058 Dart 변경(사운드 설정)이 없어 **폐기**. 신규: **AAB 246,949,257B(235.5MB) SHA `599a1acb…9d483eb`** · **APK 268,280,553B(255.9MB) SHA `8ae02e97…fa4f605`**. 번들 계약 zipfile 실측: growl 포함·magpie_moon 부재·mp4 30.
 - **문서**: [`docs/RELEASE_RUNBOOK_2026-08-02.md`](docs/RELEASE_RUNBOOK_2026-08-02.md) 신규 — 게이트 상태표(전부 ✅)·매니페스트·**Jin 절차 5단계**(스모크→Play Console 내부 테스트 업로드→테스터 옵트인 링크→태그 v2.0.1→24h 감시)·이번 빌드 델타·미포함 목록·리스크(keystore 백업 미확인 등). `release-notes-v2.md`에 이번 릴리스용 DE/EN 노트 블록(사운드 설정). `DEPLOY_CHECKLIST` 매니페스트 갱신(구 SHA 폐기 표시).
 - **남은 것 전부 Jin측**: 실기기 스모크(10+사운드 8) → 업로드 → 테스터 초대. 코드측 차단 0.
+- **후속 정정**: Jin 실행에서 `adb` PATH 부재 확인 → 런북 §3-1을 전체 경로(`%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe`) PowerShell 명령으로 교체(+PATH 영구 추가 팁).
 
 ### 2026-08-02 (AudioPolicy 구현 — ADR-002 이행 + 검수 §6 일괄 처리) — 커밋·푸시
 

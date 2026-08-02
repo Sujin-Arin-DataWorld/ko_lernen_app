@@ -36,10 +36,13 @@
 
 **전제: 반드시 앱 데이터 삭제 후 신규 설치.** MIUI `INSTALL_FAILED_USER_RESTRICTED` 시: 개발자 옵션 → "USB를 통한 설치" 허용 + MIUI 최적화 끄기(+ Mi 계정 로그인). 다른 안드로이드 기기가 있으면 그쪽이 빠름.
 
+```powershell
+# adb 는 PATH 에 없음 — SDK 전체 경로로 실행 (sdk.dir = %LOCALAPPDATA%\Android\Sdk)
+& "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" install -r build\app\outputs\flutter-apk\app-release.apk
+& "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" logcat | Select-String "ExoPlayerImpl|reclaim|CodecException"
 ```
-adb install -r build\app\outputs\flutter-apk\app-release.apk
-adb logcat | findstr "ExoPlayerImpl reclaim CodecException"
-```
+
+> PATH 에 영구 추가하려면(선택): 시스템 환경 변수 `Path` 에 `%LOCALAPPDATA%\Android\Sdk\platform-tools` 추가 후 터미널 재시작.
 
 체크 (DEPLOY_CHECKLIST §5 10항목 + 이번 빌드 추가):
 1. 인트로 영상 + **소리**(0.8) 2. 온보딩 대비 3. 프로필 핑크 사각형 없음 4. Lernpfad 전 노드 탭 5. TTS — 발음 후 캐시에 `tts_v3_*.mp3` 생성 확인(기기음성 폴백 아님) 6. 캐릭터 선택 2종 7. 게임 결과 마스코트=선택 캐릭터 8. 로그인/백업 9. 알림 권한 10. 재실행 진행도
