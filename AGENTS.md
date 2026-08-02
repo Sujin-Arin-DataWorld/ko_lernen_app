@@ -333,6 +333,27 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-02 (v2.0.1+7 최종 빌드 + 1:1 전수 검수 + 병렬 세션 수습) — 커밋·푸시
+
+**Jin 지시:** "+7 빌드·업로드 준비 + AAB6 업데이트 리스트업·100% 구현 1:1 전체검수."
+
+- **1:1 검수 (ultracode `wf_a9400976-636`): 21/21 IMPLEMENTED** — 코드 13(AudioPolicy 코어·Ton UI·growl 미리듣기·SoundService getter화·TTS 게이트/더킹/duckOthers·전역 AudioContext·listening voice·resolvedBackground·admission 픽스·주석 4·exempt 3·테스트 4종·홈 지그재그 체인) + 문서 8(arb 19키 parity 1057=1057·gen-l10n·README·ADR Accepted·pubspec·릴리스노트·런북·로그). PARTIAL/MISSING 0, file:line 증거 전건.
+- **병렬 세션 수습**: 아래 "캐릭터 선택 결함 4종" 항목이 검증 완료(analyze 0·1306)인데 미커밋 상태로 발견 → `df65c12` 로 커밋(+7 에 포함). 18:38 중간 빌드는 미커밋 혼입 가능성으로 폐기.
+- **최종 +7 매니페스트 (HEAD `415541e` 커밋 후 빌드, 코드 clean 실측)**: **AAB 246,925,354B SHA `9257aaf7…3af2fe`** · APK 268,280,481B SHA `e0710908…1cd25f`. 번들 계약 ✓. 릴리스 노트 +7 블록(언어 태그 통짜·지그재그 항목·움라우트 정상). 상세 런북 §2-B.
+- 남은 것: Jin — +7 AAB 업로드 · 실기기 스모크(홈 지그재그·캐릭터 선택 재확인 포함).
+
+### 2026-08-02 (캐릭터 선택 화면 실기기 결함 4종 + 캐릭터 설명 구현) — `df65c12` 커밋(+7 포함)
+
+**Jin 실기기 제보:** "화면이 하얗게 바꼈다 다시 돌아오고, 호랑이랑 까치 같이 있는 것도 짤리고, 호랑이 소리 이상하고, 쌤쌤이는 소리도 안 나고, 캐릭터별 설명도 구현 안 됐네." 전 항목 근본 원인 실측 후 수정.
+
+- **하얀 번쩍임** — 카드 미리보기가 3.2s마다 호랑이↔까치 클립을 교대 재생 → 디코더 교대마다 Impeller가 새 비디오 텍스처 fence 를 못 기다려(`ImageTextureEntry can't wait on the fence on Android < 33`, SD678/API31) 흰 프레임 플래시. → **미리보기 영상 폐기, 정적 호흡 Mascot** (`character_selection_screen.dart`: `_livePreview`/`_previewTimer` 제거). 영상은 선택 후 choose→greet 체인만.
+- **호랑이 소리 반복(이상한 소리)** — 미리보기 루프 `tigerRise`에 `sfxFor` 자동 매핑(greet_tiger.mp3)이 걸려 교대 주기마다 재생. → **`CharacterClipPlayer`: loop 재생은 자동 유도 SFX 금지**(명시 `sfxAsset`만 허용). 부수 해결: 프로필 초상 루프(tigerStretch·magpieFlight)의 celebrate 음 오발사 잠복 버그.
+- **까치 인사 무음** — SFX 가 lease grant 시점에만 재생돼, 디코더 핸드오프가 fallback 워치독(1600ms)보다 느리면 grant 전 화면 전환 → 무음. → **SFX 를 영상과 분리, didChangeDependencies 에서 visible 즉시 재생**(`_sfxStarted` 가드로 1회 보장, 숨은 탭에선 안 남).
+- **히어로 잘림** — `welcome-hero.png` 1254×1254 정사각을 16:9 cover 로 상하 44% 크롭. → `ConstrainedBox(maxWidth:240)` + `aspectRatio:1` 로 원본 구도 전체 표시.
+- **캐릭터별 설명 신규** — l10n `characterDescTiger/Magpie` DE/EN 추가(parity 1057=1057), 카드에 이름·특성(primary 강조)·2줄 소개 렌더.
+- **검증**: analyze 0 · **전체 테스트 1306 통과** · 적대 리뷰 에이전트 결함 0(오버플로 308~800px·×1.3 자체 위젯테스트 포함) · 실기기 재배포 완료(디버그, Jin 육안 확인 대기). ⚠️ greet_tiger.mp3 **음질 자체**는 청취 불가 — 수정 후에도 이상하면 파일 교체 필요. ⚠️ 디버그 설치가 릴리스 서명본을 대체하며 로컬 데이터(SharedPreferences) 초기화됨.
+- 변경: `character_selection_screen.dart` · `character_clip.dart` · `app_de/en.arb`(+generated). 동시 세션 파일(home_screen·path_trail) 무접촉.
+
 ### 2026-08-02 (홈 Lernpfad 지그재그 이행 + v4/v6 혼선 해소) — 커밋·푸시
 
 **Jin 지시:** "홈화면에도 Lernpfad 새로 만든 거 접목시켜서 구현해줘." (선행 이슈: 내부 테스트 설치본이 옛 화면 — 원인은 코드가 아니라 **Play가 전파 지연 중 versionCode 4 구빌드를 내려준 것**. adb 실측 v4/minSdk29 → Play 재설치로 v6/minSdk24 확인. AAB 자체는 처음부터 정상.)

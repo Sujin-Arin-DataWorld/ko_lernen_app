@@ -30,16 +30,21 @@
 
 번들 계약 스팟체크(zipfile 실측): **growl_tiger.mp3 포함 ✓ · magpie_moon.mp4 부재 ✓ · mp4 30개 ✓**. 빌드: `flutter clean` → `pub get` → `build appbundle --release`(582s) → `build apk --release`(871s), 2026-08-02 16:22/16:37.
 
-### §2-B. ⚠️ 최신 — versionCode 7 재빌드 (2026-08-02 저녁, HEAD 9f2576a+) — **이게 업로드 대상**
-
-+6 업로드 직후 코드가 더 들어가(홈 지그재그 등) **+7 로 범프 후 재빌드**. +6 매니페스트는 폐기.
+### §2-B. ⚠️ 최종 — versionCode 7 (2026-08-02 18:50, **HEAD `415541e` 커밋 완료 후 빌드**) — **이게 업로드 대상**
 
 | 산출물 | 크기 | SHA-256 |
 |---|---|---|
-| `app-release.aab` (versionCode **7**) | **246,925,338 B (235.5 MB)** | `4a4046af4ff2a2492bef67d3b6b823ededa549ee6320c89490668fbc20604cef` |
-| `app-release.apk` (스모크용) | **268,280,481 B (255.9 MB)** | `0cd05d32228dd73b1933d0a10f5867c8dd2928c63bc38d3a20aa857d874daf5b` |
+| `app-release.aab` (versionCode **7**) | **246,925,354 B (235.5 MB)** | `9257aaf7a491b6072ffd90aeb715671240052668f179005fb2e0def6bd3af2fe` |
+| `app-release.apk` (스모크용) | **268,280,481 B (255.9 MB)** | `e071090872832bddbc65f704e207250729a67a5b09cf561d41680b4ab51cd25f` |
 
-번들 계약: growl ✓ · magpie_moon 부재 ✓ · mp4 30 ✓ (18:38/18:43). **+7 포함 델타**: 사운드 카테고리 설정 전체(+6과 동일) + **홈 Lernpfad 지그재그**(liveNowNode 정적 강등). 1:1 검수 21/21 IMPLEMENTED(코드 13·문서 8, `wf_a9400976-636`).
+번들 계약: growl ✓ · magpie_moon 부재 ✓ · mp4 30 ✓. 빌드 전 `git status`로 코드 clean 실측 — **git HEAD 와 1:1 대응 보장**. (18:38 중간 빌드는 병렬 세션 미커밋 코드 혼입 가능성으로 폐기.)
+
+**+7 포함 델타 (v6 대비):**
+1. 사운드 카테고리 설정 전체 (ADR-002 — v6 재빌드분과 동일)
+2. **홈 Lernpfad 지그재그** (`liveNowNode` 정적 강등 — 디코더 경합 차단)
+3. **캐릭터 선택 실기기 결함 4종 수정** (병렬 세션, `df65c12`): 하얀 번쩍임(미리보기 영상→정적 Mascot) · 호랑이 인사음 반복(loop 자동 SFX 금지) · 까치 인사 무음(SFX를 grant 와 분리) · welcome-hero 크롭 + **캐릭터별 설명 신규**(DE/EN)
+
+검수: 1:1 전수 **21/21 IMPLEMENTED**(코드 13·문서 8, `wf_a9400976-636`) + 병렬 세션 자체 검증(analyze 0·전체 1,306·적대 리뷰 0).
 
 ## §3. 유저(테스터)에게 도달하기까지 — Jin 실행 절차 (순서대로)
 
