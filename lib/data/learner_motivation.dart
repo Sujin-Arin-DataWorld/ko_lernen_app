@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/sori/mascot.dart';
 
 import '../l10n/generated/app_localizations.dart';
 
@@ -79,9 +80,13 @@ String homeTigerBubble(
   required int streak,
   required int xp,
   LearnerMotivation? motivation,
+  MascotKind kind = MascotKind.tiger,
 }) {
+  // 캐릭터별 목소리 — 호랑이는 밀어주고(도전), 까치는 짚어준다(이해).
+  // 레이아웃·진도·콘텐츠는 절대 안 바뀐다. 바뀌는 건 어조뿐.
+  final isMagpie = kind == MascotKind.magpie;
   if (streak == 0 && xp == 0) {
-    return t.homeTigerBubbleStart;
+    return isMagpie ? t.homeMagpieBubbleStart : t.homeTigerBubbleStart;
   }
   if (streak >= 3) {
     return t.homeTigerBubbleStreak;
@@ -89,5 +94,5 @@ String homeTigerBubble(
   if (motivation != null) {
     return motivation.tigerLine(t);
   }
-  return t.homeTigerBubbleResume;
+  return isMagpie ? t.homeMagpieBubbleResume : t.homeTigerBubbleResume;
 }

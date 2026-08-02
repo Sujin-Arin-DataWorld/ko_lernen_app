@@ -97,27 +97,62 @@ class SoriCard extends StatelessWidget {
       ? EavesCorner.borderRadius(base: _radius, boost: 6)
       : BorderRadius.circular(_radius);
 
+  /// 카드가 실제로 칠하는 배경색 — build 와 **같은 계산**을 외부에 노출한다.
+  /// `CharacterClipPlayer.blendColor`(multiply 합성)처럼 카드 배경과 정확히
+  /// 일치해야 하는 소비자는 반드시 이걸 쓸 것 — 수식을 복제하면 어긋난 순간
+  /// 흰 영상 배경이 사각형으로 비친다(핑크 사각형 계열 재발 방지).
+  /// ⚠️ hanji variant 는 HanjiTexture 가 배경을 그리므로 이 값과 다르다 —
+  /// hanji 카드 위 multiply 합성에는 쓰지 말 것.
+  static Color resolvedBackground(
+    BuildContext context, {
+    Color? accent,
+    bool tinted = false,
+  }) {
+    final s = SoriSurfaces.of(context);
+    final isLight = s.brightness == Brightness.light;
+    final accentColor = accent ?? SoriColors.primary;
+
+    // 라이트에서는 배경보다 한 톤 밝은 흰 한지로 카드를 띄운다.
+    // s.surface(#F1ECDC)는 s.bg(#FAF6EC) 대비 1.09:1 이라 카드로 안 읽힌다.
+    final baseSurface = isLight ? SoriColors.lightSurfaceRaised : s.surface;
+    if (!tinted) {
+      return baseSurface;
+    }
+    return Color.alphaBlend(
+      accentColor.withValues(alpha: isLight ? 0.08 : 0.14),
+      baseSurface,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final isLight = s.brightness == Brightness.light;
     final accentColor = accent ?? SoriColors.primary;
 
-    final bgColor = tinted
-        ? Color.alphaBlend(
-            accentColor.withValues(alpha: isLight ? 0.08 : 0.14),
-            s.surface,
-          )
-        : s.surface;
+    final bgColor = resolvedBackground(context, accent: accent, tinted: tinted);
 
     // 소프트섀도우 폐지 후 분리는 hairline이 전담 → 무채색 카드 테두리를
     // 한 톤 또렷하게(크림-온-크림에서 카드가 사라지지 않도록). ⚠️ 실기기 확인.
-    final borderColor = accent != null
-        ? accentColor.withValues(alpha: isLight ? 0.25 : 0.35)
-        : Color.alphaBlend(
-            s.textMuted.withValues(alpha: isLight ? 0.22 : 0.30),
-            s.border,
-          );
+    // accent 카드는 색 코딩(primary/tiger/gold/danger 구분)이 정보라서
+    // 무채색으로 덮으면 안 된다 — 대신 **불투명도를 올려** 3:1을 확보한다.
+    // 그래도 3:1 미만인 밝은 accent(tiger 등)는 fillOutline 이 같은 색상의
+    // 어두운 톤을 돌려준다 → 색 코딩과 대비를 동시에 만족.
+    final Color borderColor;
+    if (accent != null) {
+      final flat = Color.alphaBlend(
+        accentColor.withValues(alpha: isLight ? 0.55 : 0.45),
+        bgColor,
+      );
+      borderColor = isLight
+          ? (SoriColors.fillOutline(flat, bgColor) ?? flat)
+          : flat;
+    } else {
+      // 무채색 카드: 크림 위에서 확실히 보이는 lightBorderStrong(3.27:1).
+      borderColor = isLight
+          ? SoriColors.lightBorderStrong
+          : SoriColors.darkBorderStrong;
+    }
 
     // hanji variant — HanjiTexture가 배경, padding은 child에 적용
     final Widget cardContent = _useHanji
@@ -127,7 +162,7 @@ class SoriCard extends StatelessWidget {
               padding: padding ?? _defaultPadding,
               decoration: BoxDecoration(
                 borderRadius: _borderRadius,
-                border: Border.all(color: borderColor, width: 1),
+                border: Border.all(color: borderColor, width: 1.5),
               ),
               child: child,
             ),
@@ -139,7 +174,7 @@ class SoriCard extends StatelessWidget {
               borderRadius: _borderRadius,
               // 한지 에디토리얼: 평면 + 1px 잉크 hairline. 소프트 드롭섀도우 폐지
               // (범용 AI 최대 신호). 분리는 hairline + 한지 바탕이 담당.
-              border: Border.all(color: borderColor, width: 1),
+              border: Border.all(color: borderColor, width: 1.5),
             ),
             child: child,
           );

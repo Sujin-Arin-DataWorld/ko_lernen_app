@@ -120,7 +120,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
                 _prompt(langCode),
                 style: TextStyle(
                   color: s.text,
-                  fontSize: 20,
+                  fontSize: 22,
                   fontWeight: FontWeight.w600,
                   height: 1.4,
                 ),
@@ -180,7 +180,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
                               label,
                               style: TextStyle(
                                 color: s.text,
-                                fontSize: 18,
+                                fontSize: 19,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

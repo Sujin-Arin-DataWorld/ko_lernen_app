@@ -9,6 +9,7 @@ import 'character_clip.dart';
 import 'content_feedback_card.dart';
 import 'content_feedback_sheet.dart';
 import 'mascot.dart';
+import 'mascot_preference.dart';
 import 'sori_icon.dart';
 import 'tokens.dart';
 
@@ -94,7 +95,9 @@ class GameOverCard extends StatefulWidget {
   /// Score tonal stimmig.
   final String? streakLabel;
 
-  final MascotKind mascotKind;
+  /// `null`이면 [MascotPreference] 의 선택 캐릭터. 승패로 캐릭터를 바꾸는
+  /// 게임들은 명시적으로 넘긴다(까치=승리, 호랑이=위로 — 의도된 연출).
+  final MascotKind? mascotKind;
   final MascotEmotion mascotEmotion;
   final bool celebrate; // Burst beim Erscheinen
   final List<Widget> actions;
@@ -112,7 +115,7 @@ class GameOverCard extends StatefulWidget {
     this.isNewBest = false,
     this.newBestLabel,
     this.streakLabel,
-    this.mascotKind = MascotKind.tiger,
+    this.mascotKind,
     this.mascotEmotion = MascotEmotion.celebrate,
     this.celebrate = true,
     this.actions = const [],
@@ -161,10 +164,13 @@ class _GameOverCardState extends State<GameOverCard>
   /// 배치 계획 2026-07-29 §2: 감정에 맞는 캐릭터 클립(흰배경 mp4).
   /// 없으면 null → 기존 정적 마스코트 유지.
   String? get _feedbackClip => CharacterClips.feedbackFor(
-    widget.mascotKind,
+    kindOrPreferred,
     widget.mascotEmotion,
     newBest: widget.isNewBest,
   );
+
+  MascotKind get kindOrPreferred =>
+      widget.mascotKind ?? MascotPreference.kind.value;
 
   @override
   Widget build(BuildContext context) {
@@ -195,7 +201,7 @@ class _GameOverCardState extends State<GameOverCard>
                     // 없으면 기존 정적 마스코트 그대로.
                     if (_feedbackClip == null)
                       Mascot(
-                        kind: widget.mascotKind,
+                        kind: kindOrPreferred,
                         emotion: widget.mascotEmotion,
                         size: 104,
                         animate: true,
@@ -204,7 +210,7 @@ class _GameOverCardState extends State<GameOverCard>
                       CharacterClipPlayer(
                         asset: _feedbackClip!,
                         size: 116,
-                        fallbackKind: widget.mascotKind,
+                        fallbackKind: kindOrPreferred,
                         fallbackEmotion: widget.mascotEmotion,
                       ),
                     const SizedBox(height: Spacing.md),

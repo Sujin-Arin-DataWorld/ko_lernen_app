@@ -5,6 +5,8 @@ import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/tiger_video.dart';
+import '../motion/transitions.dart';
+import 'consent_screen.dart';
 
 /// **빠른 온보딩 (30초)** — Duolingo 스타일.
 ///
@@ -62,9 +64,11 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
     final sessionCount = (Storage.sessionCount) + 1;
     Storage.setSessionCount(sessionCount);
 
-    // 캐릭터 선택으로
+    // 동의 화면으로 (캐릭터 선택은 튜토리얼 뒤로 이동: 프리뷰→캐릭터→레벨).
     if (mounted) {
-      Navigator.of(context).pushReplacementNamed('/character_selection');
+      Navigator.of(
+        context,
+      ).pushReplacement(SoriTransitions.fadeScale((_) => const ConsentScreen()));
     }
   }
 
@@ -124,7 +128,7 @@ class _QuickOnboardingScreenState extends State<QuickOnboardingScreen>
                     decoration: BoxDecoration(
                       color: _currentPage == i
                           ? SoriColors.primary
-                          : SoriColors.primary.withValues(alpha: 0.3),
+                          : SoriColors.lightBorderStrong,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -167,6 +171,7 @@ class _Page1MascotIntro extends StatelessWidget {
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
                   height: 1.3,
+                  color: SoriColors.lightText,
                 ),
               ),
               const SizedBox(height: Spacing.md),
@@ -175,7 +180,7 @@ class _Page1MascotIntro extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 16,
-                  color: Color(0xFF666666),
+                  color: SoriColors.lightTextMuted,
                   height: 1.5,
                 ),
               ),
@@ -223,6 +228,7 @@ class _Page2Challenge extends StatelessWidget {
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
                   height: 1.3,
+                  color: SoriColors.lightText,
                 ),
               ),
               const SizedBox(height: Spacing.md),
@@ -231,7 +237,7 @@ class _Page2Challenge extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 16,
-                  color: Color(0xFF666666),
+                  color: SoriColors.lightTextMuted,
                   height: 1.5,
                 ),
               ),
@@ -279,6 +285,7 @@ class _Page3Streak extends StatelessWidget {
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
                   height: 1.3,
+                  color: SoriColors.lightText,
                 ),
               ),
               const SizedBox(height: Spacing.md),
@@ -287,7 +294,7 @@ class _Page3Streak extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 16,
-                  color: Color(0xFF666666),
+                  color: SoriColors.lightTextMuted,
                   height: 1.5,
                 ),
               ),
@@ -329,6 +336,7 @@ class _Page4GoalSelectionState extends State<_Page4GoalSelection> {
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
                   height: 1.3,
+                  color: SoriColors.lightText,
                 ),
               ),
               const SizedBox(height: Spacing.xl),
@@ -403,12 +411,25 @@ class _GoalButton extends StatelessWidget {
             vertical: Spacing.md,
           ),
           decoration: BoxDecoration(
-            color: isSelected ? SoriColors.primary : const Color(0xFFF5F5F5),
+            // 한지 cream 배경(#FAF6EC) 위 — 흰 카드 + 강한 테두리로 확실히 분리.
+            // (기존 #F5F5F5 fill은 배경 대비 1.01:1로 사실상 구분 불가였음)
+            color: isSelected ? SoriColors.primary : Colors.white,
             border: Border.all(
-              color: isSelected ? SoriColors.primary : Colors.transparent,
+              color: isSelected
+                  ? SoriColors.primaryDark
+                  : SoriColors.lightBorderStrong,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(SoriRadius.md),
+            boxShadow: [
+              BoxShadow(
+                color: SoriColors.lightText.withValues(
+                  alpha: isSelected ? 0.18 : 0.07,
+                ),
+                blurRadius: isSelected ? 12 : 6,
+                offset: const Offset(0, 2),
+              ),
+            ],
           ),
           child: Row(
             children: [
@@ -427,7 +448,7 @@ class _GoalButton extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        color: isSelected ? Colors.white : Colors.black87,
+                        color: isSelected ? Colors.white : SoriColors.lightText,
                       ),
                     ),
                   ],

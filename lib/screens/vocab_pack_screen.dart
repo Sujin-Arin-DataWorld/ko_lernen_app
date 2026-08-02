@@ -5,8 +5,10 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
+import '../models/curriculum.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
+import '../services/course_activity_reporter.dart';
 import '../services/pack_progress_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -332,6 +334,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _selectedChoice = i;
       _choiceLocked = true;
     });
+    // Only scored recall stages become course evidence. The earlier card
+    // self-rating stays in SRS only, so a tap cannot unlock a mission.
+    // ignore: discarded_futures
+    CourseActivityReporter.recordContentAttempt(
+      CurriculumContentKind.vocab,
+      cur.id,
+      isCorrect,
+      errorReason: isCorrect ? null : MasteryErrorReason.vocabularyRecall,
+    );
     if (isCorrect) {
       // 정답 순간 보상 — 햅틱 + 효과음 + 색종이 burst + 콤보.
       HapticFeedback.lightImpact();
@@ -657,9 +668,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ),
         ),
         const SizedBox(height: Spacing.lg),
-        // 4 choices — 중앙 정렬 + 스크롤 안전
+        // 4 choices — 프롬프트 카드 **바로 아래**(상단 정렬) + 스크롤 안전.
+        // 이전엔 Center 로 남은 공간에 세로 중앙 정렬해 단어와 보기가 크게
+        // 벌어져 보였음. topCenter 로 붙여 간격을 없앤다.
         Expanded(
-          child: Center(
+          child: Align(
+            alignment: Alignment.topCenter,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,

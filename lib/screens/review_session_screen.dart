@@ -9,6 +9,7 @@ import '../services/review_deck_service.dart';
 import '../services/tts_service.dart';
 import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -238,10 +239,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             // 세션 완료 = 기지개 클립 (배치 계획 §2-11). 폴백은 기존 celebrate.
-            const CharacterClipPlayer(
-              asset: CharacterClips.tigerStretch,
+            CharacterClipPlayer(
+              asset: CharacterClips.sessionCompleteFor(
+                MascotPreference.kind.value,
+              ),
               size: 120,
-              fallbackKind: MascotKind.tiger,
               fallbackEmotion: MascotEmotion.celebrate,
             ),
             const SizedBox(height: Spacing.lg),
@@ -370,9 +372,17 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             padding: const EdgeInsets.all(Spacing.lg),
             child: LayoutBuilder(
               builder: (context, constraints) {
-                // 카드는 글자 수와 무관하게 영역의 고정 비율(82%) 높이를 유지한다
-                // (단어가 짧아도 쪼그라들지 않음). 남는 위/아래 여백이 코치마크
-                // 말풍선·버튼 공간이 되어 잘림을 막는다.
+                // 카드 크기는 **글자 수와 완전히 무관하게** 기기 화면에만 맞춰
+                // 고정한다:
+                //  · 높이 = 가용 영역의 82% (짧은 단어여도 쪼그라들지 않음, 남는
+                //    상하 여백이 코치마크 말풍선·버튼 공간).
+                //  · 너비 = 가용 너비 가득(`width: double.infinity`). ⚠️ 이 너비
+                //    고정이 없으면 SoriCard 가 세로 스크롤 자식의 콘텐츠 폭에
+                //    맞춰 줄어들어(SingleChildScrollView 는 가로 제약을 그대로
+                //    통과시킴) "단어 길이에 따라 카드가 커졌다 작아졌다" 하는
+                //    회귀가 재발한다. 절대 지우지 말 것.
+                // 가용 폭 자체는 SoriCenterClamp 이 기기별로 최적 클램프하므로
+                // 기기 최적화 + 콘텐츠 불변이 동시에 성립한다.
                 final h = constraints.maxHeight.isFinite
                     ? constraints.maxHeight
                     : 360.0;
@@ -383,6 +393,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     onTap: () => setState(() => _flipped = !_flipped),
                     haptic: SoriHaptic.selection,
                     child: SizedBox(
+                      width: double.infinity,
                       height: cardH,
                       child: SoriCard(
                         variant: SoriCardVariant.hero,

@@ -253,6 +253,30 @@ abstract class AppL10n {
   /// **'Wer ist dein Lernfreund?'**
   String get characterSelectionTitle;
 
+  /// No description provided for @homeMagpieBubbleStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Fangen wir in Ruhe an – Zeichen für Zeichen.'**
+  String get homeMagpieBubbleStart;
+
+  /// No description provided for @homeMagpieBubbleResume.
+  ///
+  /// In de, this message translates to:
+  /// **'Schön, dich zu sehen. Sollen wir kurz wiederholen?'**
+  String get homeMagpieBubbleResume;
+
+  /// No description provided for @homeLearnNowCtaMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'In Ruhe weiter'**
+  String get homeLearnNowCtaMagpie;
+
+  /// No description provided for @homeFirstWeekTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine erste Woche'**
+  String get homeFirstWeekTitle;
+
   /// No description provided for @characterNameTiger.
   ///
   /// In de, this message translates to:
@@ -265,6 +289,12 @@ abstract class AppL10n {
   /// **'Verlässlich & mutig'**
   String get characterTraitTiger;
 
+  /// No description provided for @characterDescTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein ruhiger, treuer Tiger, der dich Schritt für Schritt begleitet und dir Mut macht, wenn es mal schwer wird.'**
+  String get characterDescTiger;
+
   /// No description provided for @characterNameMagpie.
   ///
   /// In de, this message translates to:
@@ -276,6 +306,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Fröhlich & lebendig'**
   String get characterTraitMagpie;
+
+  /// No description provided for @characterDescMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine quirlige Elster mit Hut, die jeden Erfolg lautstark feiert und gute Laune in jede Lektion bringt.'**
+  String get characterDescMagpie;
 
   /// No description provided for @reviewTitle.
   ///
@@ -1212,6 +1248,120 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Schnell'**
   String get settingsTtsRateFast;
+
+  /// No description provided for @settingsSoundSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton'**
+  String get settingsSoundSection;
+
+  /// No description provided for @settingsSoundMaster.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton'**
+  String get settingsSoundMaster;
+
+  /// No description provided for @settingsSoundMasterDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Schaltet alle Töne der App ein oder aus'**
+  String get settingsSoundMasterDesc;
+
+  /// No description provided for @settingsSoundMasterVolume.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesamtlautstärke'**
+  String get settingsSoundMasterVolume;
+
+  /// No description provided for @settingsSoundGame.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiel-Feedback'**
+  String get settingsSoundGame;
+
+  /// No description provided for @settingsSoundGameDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig, falsch, Combo, Level-up'**
+  String get settingsSoundGameDesc;
+
+  /// No description provided for @settingsSoundCompanion.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfreunde'**
+  String get settingsSoundCompanion;
+
+  /// No description provided for @settingsSoundCompanionDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Tiger und Elster: Begrüßung und Jubel'**
+  String get settingsSoundCompanionDesc;
+
+  /// No description provided for @settingsSoundAmbience.
+  ///
+  /// In de, this message translates to:
+  /// **'Hintergrundklänge'**
+  String get settingsSoundAmbience;
+
+  /// No description provided for @settingsSoundAmbienceDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Leise Hanok-Atmosphäre auf manchen Bildschirmen'**
+  String get settingsSoundAmbienceDesc;
+
+  /// No description provided for @settingsSoundCinematic.
+  ///
+  /// In de, this message translates to:
+  /// **'Intro beim Start'**
+  String get settingsSoundCinematic;
+
+  /// No description provided for @settingsSoundCinematicDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Klang des Hoftors beim Öffnen der App'**
+  String get settingsSoundCinematicDesc;
+
+  /// No description provided for @settingsSoundSpeech.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanische Aussprache'**
+  String get settingsSoundSpeech;
+
+  /// No description provided for @settingsSoundSpeechDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorlesen der koreanischen Wörter'**
+  String get settingsSoundSpeechDesc;
+
+  /// No description provided for @settingsSoundSpeechWarn.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne diesen Ton hörst du keine Aussprache'**
+  String get settingsSoundSpeechWarn;
+
+  /// No description provided for @settingsSoundDuck.
+  ///
+  /// In de, this message translates to:
+  /// **'Bei Aussprache leiser'**
+  String get settingsSoundDuck;
+
+  /// No description provided for @settingsSoundDuckDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Hintergrundklänge werden leiser, während Koreanisch vorgelesen wird'**
+  String get settingsSoundDuckDesc;
+
+  /// No description provided for @settingsSoundRespectSilent.
+  ///
+  /// In de, this message translates to:
+  /// **'Stumm-Schalter beachten'**
+  String get settingsSoundRespectSilent;
+
+  /// No description provided for @settingsSoundRespectSilentDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Kein Ton, wenn das Gerät stumm geschaltet ist'**
+  String get settingsSoundRespectSilentDesc;
 
   /// No description provided for @settingsReset.
   ///
@@ -3238,8 +3388,104 @@ abstract class AppL10n {
   /// No description provided for @onboardingTigerGreeting.
   ///
   /// In de, this message translates to:
-  /// **'환영해요!\n어떤 레벨부터 시작할까요?'**
+  /// **'Willkommen!\nWo möchtest du starten?'**
   String get onboardingTigerGreeting;
+
+  /// No description provided for @onboardingDifficulty.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierigkeit'**
+  String get onboardingDifficulty;
+
+  /// No description provided for @onboardingExampleLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'So klingt dieses Level'**
+  String get onboardingExampleLabel;
+
+  /// No description provided for @onboardingCompareCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsicher? Level vergleichen'**
+  String get onboardingCompareCta;
+
+  /// No description provided for @onboardingCompareTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ändert sich pro Level?'**
+  String get onboardingCompareTitle;
+
+  /// No description provided for @onboardingCompareIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Frühere Level bleiben immer offen — du kannst dein Level jederzeit in den Einstellungen ändern.'**
+  String get onboardingCompareIntro;
+
+  /// No description provided for @onboardingCompareColCan.
+  ///
+  /// In de, this message translates to:
+  /// **'Das kannst du schon'**
+  String get onboardingCompareColCan;
+
+  /// No description provided for @onboardingCompareColLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Das lernst du hier'**
+  String get onboardingCompareColLearn;
+
+  /// No description provided for @onboardingCompareClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Verstanden'**
+  String get onboardingCompareClose;
+
+  /// No description provided for @onboardingLevelA1Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch (fast) nichts — vielleicht ein paar Wörter.'**
+  String get onboardingLevelA1Can;
+
+  /// No description provided for @onboardingLevelA1Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul lesen und schreiben, dich vorstellen, Zahlen.'**
+  String get onboardingLevelA1Learn;
+
+  /// No description provided for @onboardingLevelA2Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du liest Hangeul und kennst einfache Begrüßungen.'**
+  String get onboardingLevelA2Can;
+
+  /// No description provided for @onboardingLevelA2Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestellen, einkaufen, nach dem Weg fragen, die Höflichkeitsform -요.'**
+  String get onboardingLevelA2Learn;
+
+  /// No description provided for @onboardingLevelB1Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du führst einfache Gespräche über den Alltag.'**
+  String get onboardingLevelB1Can;
+
+  /// No description provided for @onboardingLevelB1Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Erzählen, Meinung äußern, Sätze verbinden, Vergangenheit.'**
+  String get onboardingLevelB1Learn;
+
+  /// No description provided for @onboardingLevelB2Can.
+  ///
+  /// In de, this message translates to:
+  /// **'Du sprichst flüssig über Alltagsthemen.'**
+  String get onboardingLevelB2Can;
+
+  /// No description provided for @onboardingLevelB2Learn.
+  ///
+  /// In de, this message translates to:
+  /// **'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.'**
+  String get onboardingLevelB2Learn;
 
   /// No description provided for @homeHeroGreetingMorning.
   ///

@@ -9,6 +9,7 @@ import 'celebration.dart';
 import 'character_clip.dart';
 import 'content_feedback_card.dart';
 import 'mascot.dart';
+import 'mascot_preference.dart';
 import 'sheet.dart';
 import 'tokens.dart';
 
@@ -45,9 +46,7 @@ class _MilestoneBody extends StatelessWidget {
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     // 선택 캐릭터 인식 축하 클립 — 호랑이: 포효 / 까치: 비행(2026-07-30 배선).
     // 시트 배경(s.surface)에 multiply로 흡수. 폴백은 기존 정적 celebrate.
-    final kind = Storage.preferredMascot == 'magpie'
-        ? MascotKind.magpie
-        : MascotKind.tiger;
+    final kind = MascotPreference.kind.value;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

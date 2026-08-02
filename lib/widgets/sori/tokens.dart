@@ -120,16 +120,29 @@ class SoriColors {
   static const Color success = Color(0xFF1F7A6B); // 정답/완료 = primary 재사용
   static const Color warning = Color(0xFFD4A22E); // streak/주의 (황 lifted)
   static const Color danger = Color(0xFFC44F40); // 오답/삭제 (단청 적 lifted)
-  static const Color info = Color(0xFF5A7BA0); // 정보 (청금석)
+  static const Color info = Color(0xFF57799E); // 정보 (청금석, white 4.53:1)
 
   // ── Light surfaces (한지 위에서) ─────────────────────────────────────
   static const Color lightBg = Color(0xFFFAF6EC); // 한지 cream
   static const Color lightSurface = Color(0xFFF1ECDC); // 한지 깊은 톤
   static const Color lightSurfaceAlt = Color(0xFFE5DCC4);
+
+  /// 크림 배경(`lightBg`) 위에서 **떠올라야 하는** 카드 바탕.
+  ///
+  /// `lightSurface` #F1ECDC 는 `lightBg` 대비 1.09:1 — 수치상 같은 색이라
+  /// 어떤 레이아웃을 짜도 카드가 배경에서 분리되지 않았다("답답하다"의 실제 원인).
+  /// 종이보다 한 톤 밝은 흰 한지로 올리면 `lightBorderStrong` 테두리 대비가
+  /// 2.81:1 → **3.27:1** 로 올라 SC 1.4.11 을 여유 있게 넘긴다.
+  static const Color lightSurfaceRaised = Color(0xFFFFFDF8);
   static const Color lightText = Color(0xFF1A1F1D); // 먹 (warm dark)
   static const Color lightTextMuted = Color(0xFF5C6660);
   static const Color lightTextDim = Color(0xFF8B948E);
   static const Color lightBorder = Color(0xFFDAD3BE);
+
+  /// 한지 cream(`lightBg`) 위에서 카드/선택지 경계를 확실히 분리하는 강한 테두리.
+  /// `lightBorder`(1.2:1)는 cream 배경과 거의 구분되지 않아 선택 UI에는 부적합.
+  /// `#978C73` on `#FAF6EC` ≈ 3.1:1 → WCAG 2.1 SC 1.4.11 (non-text contrast) 충족.
+  static const Color lightBorderStrong = Color(0xFF978C73);
 
   // ── Dark surfaces (먹색 위에서) ──────────────────────────────────────
   // 완전 검정 회피 — 단청 정서와 어울리는 -5% 회녹 ink.
@@ -141,6 +154,12 @@ class SoriColors {
   static const Color darkTextDim = Color(0xFF6B7570);
   static const Color darkBorder = Color(0xFF2E443E);
 
+  /// 다크 카드 경계. `darkBorder` #2E443E 는 `darkSurface` #1A2A26 대비
+  /// **1.43:1** 로 라이트의 `lightBorder` 문제를 그대로 갖고 있다.
+  /// 앱이 `themeMode.light` 고정이라 지금은 안 드러나지만, 다크를 켜는 순간
+  /// 같은 결함이 나온다. #6E8A82 on darkSurface ≈ 3.4:1.
+  static const Color darkBorderStrong = Color(0xFF6E8A82);
+
   // ── Dark mode brand raises (대비 위해 light에서 한 톤 위로) ──────────
   static const Color darkPrimary = Color(0xFF4FB6A0); // 녹청 다크에서 lift
   static const Color darkAccent = Color(0xFFC77268); // 석간주 다크에서 lift
@@ -150,6 +169,58 @@ class SoriColors {
   // primaryDark `#0E443B` on lightSurface ≈ 12.6:1 → outlined/ghost 텍스트에 사용.
   static const Color primaryOnLight = primaryDark; // alias for clarity
   static const Color primaryOnDark = darkPrimary; // dark mode text-on-surface
+
+  /// `gold`·`tiger`는 **밝은** 계열이라 크림 배경 위 텍스트로 쓸 수 없다
+  /// (`gold` 2.4:1, `tiger` 2.1:1 — AA 4.5 미달). 아이콘/텍스트에는 아래
+  /// 다크 변형을, 채움(fill)에는 원래 색을 쓴다.
+  /// `#7A5810` on `lightBg` = 6.0:1, `#A8490B` on `lightBg` = 5.4:1.
+  static const Color goldOnLight = Color(0xFF7A5810);
+  static const Color tigerOnLight = Color(0xFFA8490B);
+
+  /// 반대로 `gold`·`tiger`를 **채움**으로 쓸 땐 그 위에 흰 글씨를 얹지 않는다
+  /// (흰 on tiger = 2.3:1). 먹색을 얹으면 7.2:1.
+  static const Color onTigerFill = lightText;
+  static const Color onGoldFill = lightText;
+
+  // ── 대비 자동 판정 (WCAG 2.1) ────────────────────────────────────────
+  // 위 두 규칙("밝은 채움 위엔 먹색", "채움이 배경과 3:1 미만이면 테두리")을
+  // 사람이 매번 지키는 대신 계산으로 강제한다. accent 색이 새로 추가돼도
+  // 호출측 수정 없이 올바른 글자색·테두리가 자동으로 나온다.
+  // (2026-07-31: 홈 주 CTA가 `tiger` 채움 + 흰 글씨 2.31:1로 이 규칙을
+  //  위반하고 있었다 — 규칙을 문서가 아니라 코드로 옮긴 이유.)
+
+  /// 두 색의 WCAG 2.1 명도 대비비 (1.0 ~ 21.0).
+  static double contrastRatio(Color a, Color b) {
+    final la = a.computeLuminance();
+    final lb = b.computeLuminance();
+    final hi = la > lb ? la : lb;
+    final lo = la > lb ? lb : la;
+    return (hi + 0.05) / (lo + 0.05);
+  }
+
+  /// [fill] 채움 위에 얹을 글자·아이콘 색 — 흰색/먹색 중 대비가 큰 쪽. SC 1.4.3.
+  ///
+  /// `primary`·`accent`·`danger`·`info` → 흰색(기존 동작 유지),
+  /// `tiger`(7.22:1)·`gold`(6.48:1)·`warning`(7.16:1) → 먹색.
+  static Color onFill(Color fill) =>
+      contrastRatio(Colors.white, fill) >= contrastRatio(lightText, fill)
+          ? Colors.white
+          : lightText;
+
+  /// [fill] 채움이 [bg] 배경에서 3:1로 분리되지 않을 때 필요한 보강 테두리 색.
+  /// 이미 충분히 분리되면 `null`. SC 1.4.11.
+  ///
+  /// 채움을 먹색 쪽으로 단계적으로 눌러 최초로 3:1을 넘는 색을 고른다 —
+  /// 색상(hue)이 유지되므로 브랜드 인상은 그대로다.
+  /// 예) `tiger` #FF8C42 → #AF6635 (배경 대비 4.08:1).
+  static Color? fillOutline(Color fill, Color bg) {
+    if (contrastRatio(fill, bg) >= 3.0) return null;
+    for (final a in const [0.25, 0.35, 0.45, 0.55, 0.65]) {
+      final c = Color.alphaBlend(lightText.withValues(alpha: a), fill);
+      if (contrastRatio(c, bg) >= 3.0) return c;
+    }
+    return lightText;
+  }
 
   // ── Celebration palette (입자/축하 모션 4색) ─────────────────────────
   // SoriCelebration._palette에서 사용. 외부 토큰화로 테마 변경 시 일관 유지.
@@ -393,7 +464,7 @@ class SoriTextTheme {
     height: 1.45,
   );
   TextStyle get bodySmall => _base(
-    fontSize: 13.5,
+    fontSize: 14,
     weight: FontWeight.w500,
     letterSpacing: -0.05,
     height: 1.4,
@@ -402,14 +473,14 @@ class SoriTextTheme {
 
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(
-    fontSize: 12,
+    fontSize: 12.5,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.35,
     color: _s.textMuted,
   );
   TextStyle get label => _base(
-    fontSize: 12.5,
+    fontSize: 13,
     weight: FontWeight.w700,
     letterSpacing: 0.2,
     height: 1.2,
@@ -423,7 +494,7 @@ class SoriTextTheme {
     height: 1.3,
   );
   TextStyle get cardSubtitle => _base(
-    fontSize: 11.5,
+    fontSize: 12,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.35,

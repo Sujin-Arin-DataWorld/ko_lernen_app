@@ -144,7 +144,13 @@ class _ListeningScreenState extends State<ListeningScreen>
       return;
     }
     // 화면 속도는 요청에만 적용되며 사용자의 전역 TTS 설정은 보존한다.
-    await TtsService.speak(line.ko, rateMultiplier: _rate);
+    // 화자→voice 는 scenario_player 와 동일 규칙 — NPC 대사는 male 사전생성
+    // 캐시(tts/v3)에 적중해야 재합성·화자 불일치가 없다.
+    await TtsService.speak(
+      line.ko,
+      voice: line.speaker == 'user' ? 'female' : 'male',
+      rateMultiplier: _rate,
+    );
   }
 
   void _next() {
@@ -524,7 +530,7 @@ class _LineCard extends StatelessWidget {
       line.speaker,
       size: 56,
       emotion: MascotEmotion.smile,
-      animate: true,
+      animate: false,
     );
 
     return SoriCard(
@@ -619,9 +625,16 @@ class _CompleteCard extends StatelessWidget {
       child: Column(
         children: [
           // 완료 축하 — 까치 축하 클립(영상 게이트 통과 시), 아니면 정적 마스코트.
-          const CharacterClipPlayer(
+          // tinted 카드(success 8%) 실배경과 같은 함수로 blendColor를 맞춰
+          // multiply 사각 이음매를 막는다.
+          CharacterClipPlayer(
             asset: CharacterClips.magpieCelebrate,
             size: 104,
+            blendColor: SoriCard.resolvedBackground(
+              context,
+              accent: SoriColors.success,
+              tinted: true,
+            ),
             fallbackKind: MascotKind.magpie,
             fallbackEmotion: MascotEmotion.celebrate,
           ),

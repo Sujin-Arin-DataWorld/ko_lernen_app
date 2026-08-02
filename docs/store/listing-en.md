@@ -29,6 +29,56 @@
 
 ---
 
+## Full Description — 콘솔 붙여넣기용 플레인 텍스트 (2026-08-02, MT 소스)
+
+> Jin 규칙: 사용자 대면 카피에 em-dash(—)·마크다운(`**`) 금지(스토어는 마크다운 미렌더),
+> **기계번역 소스에는 한국어 혼입 금지.** 아래 블록을 그대로 콘솔에 붙여넣는다.
+
+```text
+Hangul Sori is a carefully crafted Korean learning app for German and English speakers who want to actually understand Korean, from the alphabet to real conversations.
+
+Instead of dry vocabulary lists, you live inside a hanok, a traditional Korean house that grows with you. A tiger and a magpie guide you from your first syllable to your first small talk in a Seoul cafe.
+
+WHAT YOU LEARN
+
+• Hangul from the ground up: consonants, vowels and final consonants. Recognize, write, hear.
+• 526 vocab words in 61 themed packs from A1 to B2, organized by topic: greetings, family, numbers, food, transport and more. Each pack ends with boss words, and 70 percent unlocks the next.
+• Real-life scenarios: cafe, market, hotel, subway, pharmacy. Not textbook sentences, but how Korean actually sounds.
+• Grammar in context: no endless tables. You see the form, hear it, use it.
+• Snap-and-Learn: photograph a textbook page and the app extracts words and grammar with translation. Photos stay on your device.
+• Hanok system: your virtual courtyard grows stage by stage as you learn, from an empty lot to a grand family estate.
+• 17 special quests: plum tree, stone wall, stone lantern and seasonal events.
+• Mini-games: initial-consonant quiz, Korean Wordle, the Kkeunmari word-chain game against the tiger, plus fill-in-the-blanks, listening and translation quests.
+
+WHAT MAKES HANGUL SORI DIFFERENT
+
+• German and English interface, fully localized. No machine translation.
+• Illustrated in the style of Korean folk painting (Minhwa), with traditional Dancheong colors and paper textures.
+• An app that feels like a place: the hanok gate opens at the start, a magpie flies across the roof, plum blossoms drift in the background.
+• Offline-capable: most content works without internet. Optional Google sign-in for cloud backup.
+• Ad-free learning sessions.
+
+WHO IS IT FOR
+
+• You are starting Korean and do not want to get lost in an endless lesson tree.
+• You know the basics but need the leap to real spoken language.
+• You are planning a trip or an exchange, or you have Korean friends and want more than a simple hello.
+
+LEVELS
+
+A1 to B2. Pick yours at first launch and change it any time.
+
+PRIVACY
+
+No personal data is collected without your consent. Anonymous use is fully supported. Optional Google sign-in backs up your progress. Details: https://hangul-sori.com/privacy.html
+
+FEEDBACK
+
+Hangul Sori is a young project by a Korean-German team. We welcome feedback, in the app or by email.
+
+Happy Korean learning!
+```
+
 ## Full Description (max. 4000 chars)
 
 **한글소리 — Learn Korean like learning a song.**

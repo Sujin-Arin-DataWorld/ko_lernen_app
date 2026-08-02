@@ -96,16 +96,38 @@ class AppL10nEn extends AppL10n {
   String get characterSelectionTitle => 'Who\'s your study buddy?';
 
   @override
+  String get homeMagpieBubbleStart =>
+      'Let\'s start calmly – one character at a time.';
+
+  @override
+  String get homeMagpieBubbleResume =>
+      'Good to see you. Shall we review a little first?';
+
+  @override
+  String get homeLearnNowCtaMagpie => 'Continue calmly';
+
+  @override
+  String get homeFirstWeekTitle => 'Your first week';
+
+  @override
   String get characterNameTiger => '든든이';
 
   @override
   String get characterTraitTiger => 'Reliable & brave';
 
   @override
+  String get characterDescTiger =>
+      'A calm, loyal tiger who walks with you step by step and cheers you up when things get tough.';
+
+  @override
   String get characterNameMagpie => '쌤쌤이';
 
   @override
   String get characterTraitMagpie => 'Cheerful & lively';
+
+  @override
+  String get characterDescMagpie =>
+      'A lively magpie in a little hat who loudly celebrates every win and brings good energy to every lesson.';
 
   @override
   String get reviewTitle => 'Today\'s review';
@@ -593,6 +615,69 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsTtsRateFast => 'Fast';
+
+  @override
+  String get settingsSoundSection => 'Sound';
+
+  @override
+  String get settingsSoundMaster => 'Sound';
+
+  @override
+  String get settingsSoundMasterDesc => 'Turns all app sounds on or off';
+
+  @override
+  String get settingsSoundMasterVolume => 'Overall volume';
+
+  @override
+  String get settingsSoundGame => 'Game feedback';
+
+  @override
+  String get settingsSoundGameDesc => 'Correct, wrong, combo, level-up';
+
+  @override
+  String get settingsSoundCompanion => 'Study buddies';
+
+  @override
+  String get settingsSoundCompanionDesc =>
+      'Tiger and magpie: greetings and cheers';
+
+  @override
+  String get settingsSoundAmbience => 'Background ambience';
+
+  @override
+  String get settingsSoundAmbienceDesc =>
+      'Quiet Hanok atmosphere on some screens';
+
+  @override
+  String get settingsSoundCinematic => 'Intro on launch';
+
+  @override
+  String get settingsSoundCinematicDesc =>
+      'The sound of the gate when the app opens';
+
+  @override
+  String get settingsSoundSpeech => 'Korean pronunciation';
+
+  @override
+  String get settingsSoundSpeechDesc => 'Reads Korean words aloud';
+
+  @override
+  String get settingsSoundSpeechWarn =>
+      'Without this sound you won\'t hear any pronunciation';
+
+  @override
+  String get settingsSoundDuck => 'Quieter during pronunciation';
+
+  @override
+  String get settingsSoundDuckDesc =>
+      'Background sounds get quieter while Korean is being read';
+
+  @override
+  String get settingsSoundRespectSilent => 'Respect silent mode';
+
+  @override
+  String get settingsSoundRespectSilentDesc =>
+      'No sound while the device is muted';
 
   @override
   String get settingsReset => 'Reset all data';
@@ -1716,7 +1801,63 @@ class AppL10nEn extends AppL10n {
       'Tap your level — you can change it in Settings.';
 
   @override
-  String get onboardingTigerGreeting => '환영해요!\n어떤 레벨부터 시작할까요?';
+  String get onboardingTigerGreeting => 'Welcome!\nWhere do you want to start?';
+
+  @override
+  String get onboardingDifficulty => 'Difficulty';
+
+  @override
+  String get onboardingExampleLabel => 'What this level sounds like';
+
+  @override
+  String get onboardingCompareCta => 'Not sure? Compare the levels';
+
+  @override
+  String get onboardingCompareTitle => 'What changes at each level?';
+
+  @override
+  String get onboardingCompareIntro =>
+      'Earlier levels always stay open — you can change your level anytime in Settings.';
+
+  @override
+  String get onboardingCompareColCan => 'What you can already do';
+
+  @override
+  String get onboardingCompareColLearn => 'What you\'ll learn here';
+
+  @override
+  String get onboardingCompareClose => 'Got it';
+
+  @override
+  String get onboardingLevelA1Can => 'Not much yet — maybe a few words.';
+
+  @override
+  String get onboardingLevelA1Learn =>
+      'Reading and writing Hangeul, introducing yourself, numbers.';
+
+  @override
+  String get onboardingLevelA2Can =>
+      'You read Hangeul and know simple greetings.';
+
+  @override
+  String get onboardingLevelA2Learn =>
+      'Ordering, shopping, asking for directions, the polite -요 form.';
+
+  @override
+  String get onboardingLevelB1Can =>
+      'You handle simple everyday conversations.';
+
+  @override
+  String get onboardingLevelB1Learn =>
+      'Telling stories, giving opinions, linking sentences, past tense.';
+
+  @override
+  String get onboardingLevelB2Can =>
+      'You speak fluently about everyday topics.';
+
+  @override
+  String get onboardingLevelB2Learn =>
+      'Work and news, nuance, idioms, honorifics.';
 
   @override
   String get homeHeroGreetingMorning => 'Good morning!';

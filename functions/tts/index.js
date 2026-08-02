@@ -7,7 +7,7 @@
  *
  * 흐름:
  *   1. sha1("{voice}|{text}") 로 키 계산 (클라/사전생성 스크립트와 동일 규칙)
- *   2. Storage `tts/v2/{voice}/{hash}.mp3` 이미 있으면 다운로드해 반환 (재합성 방지)
+ *   2. Storage `tts/v3/{voice}/{hash}.mp3` 이미 있으면 다운로드해 반환 (재합성 방지)
  *   3. 없으면 Cloud TTS 합성 → Storage 저장(다음 사용자 캐시) → 반환
  *   응답: { audioBase64 }  — 클라가 디코드해 즉시 재생 + 로컬 캐시
  *

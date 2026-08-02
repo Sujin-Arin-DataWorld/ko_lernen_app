@@ -1,4 +1,10 @@
+import 'content_id.dart';
+
 class Grammar {
+  /// Immutable graph identity, independent from the learner-facing pattern.
+  /// New corpus rows provide this as the final `id` CSV column. Legacy test
+  /// fixtures without it retain a deterministic semantic fallback.
+  final String _sourceId;
   final String pattern;
   final String level;
   final String typeDe;
@@ -15,6 +21,7 @@ class Grammar {
   final String noteEn;
 
   const Grammar({
+    String id = '',
     required this.pattern,
     required this.level,
     required this.typeDe,
@@ -26,23 +33,32 @@ class Grammar {
     this.explanationEn = '',
     this.exampleEn = '',
     this.noteEn = '',
-  });
+  }) : _sourceId = id;
+
+  /// A durable ID for graph links. [pattern] is presentation/source text and
+  /// can change without invalidating the explicit CSV identity.
+  String get id => _sourceId.trim().isNotEmpty
+      ? _sourceId.trim()
+      : stableContentId('grammar_legacy', [level, typeDe, pattern]);
+
+  bool get hasExplicitId => _sourceId.trim().isNotEmpty;
 
   /// row 가 짧아도 IndexError 없이 빈 값으로 채운다. (구 7-컬럼 / 신 11-컬럼 호환)
   factory Grammar.fromRow(List<dynamic> row) {
     String s(int i) => i < row.length ? row[i].toString() : '';
     return Grammar(
-      pattern:       s(0),
-      level:         s(1),
-      typeDe:        s(2),
+      pattern: s(0),
+      level: s(1),
+      typeDe: s(2),
       explanationDe: s(3),
       exampleKorean: s(4),
       exampleGerman: s(5),
-      note:          s(6),
-      typeEn:        s(7),
+      note: s(6),
+      typeEn: s(7),
       explanationEn: s(8),
-      exampleEn:     s(9),
-      noteEn:        s(10),
+      exampleEn: s(9),
+      noteEn: s(10),
+      id: s(11),
     );
   }
 
@@ -52,8 +68,8 @@ class Grammar {
 
   String explanationFor(String lang) =>
       (lang == 'en' && explanationEn.trim().isNotEmpty)
-          ? explanationEn
-          : explanationDe;
+      ? explanationEn
+      : explanationDe;
 
   String exampleFor(String lang) =>
       (lang == 'en' && exampleEn.trim().isNotEmpty) ? exampleEn : exampleGerman;

@@ -96,7 +96,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
     if (parts.length < 2) {
       return Text(
         _sentence,
-        style: TextStyle(color: s.text, fontSize: 20, height: 1.5),
+        style: TextStyle(color: s.text, fontSize: 22, height: 1.5),
         textAlign: TextAlign.center,
       );
     }
@@ -112,7 +112,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
       children: [
         Text(
           parts[0],
-          style: TextStyle(color: s.text, fontSize: 20, height: 1.5),
+          style: TextStyle(color: s.text, fontSize: 22, height: 1.5),
         ),
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
@@ -139,7 +139,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
         ),
         Text(
           parts[1],
-          style: TextStyle(color: s.text, fontSize: 20, height: 1.5),
+          style: TextStyle(color: s.text, fontSize: 22, height: 1.5),
         ),
       ],
     );

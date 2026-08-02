@@ -17,6 +17,11 @@ analyzer:
     - macos/**
     - linux/**
     - functions/**/node_modules/**
+    # docs/ 는 문서 폴더 — 앱 코드가 아니다. `_backup_*/` 에 lib 파일을
+    # 평탄화 복사(`lib__widgets__sori__button.dart`)해 두면 상대 import가
+    # 전부 깨져 `flutter analyze` 가 수백 개 undefined_identifier 로 실패한다.
+    # (2026-07-31 실제 발생) 문서 폴더는 통째로 제외한다.
+    - docs/**
 
 include: package:flutter_lints/flutter.yaml
 

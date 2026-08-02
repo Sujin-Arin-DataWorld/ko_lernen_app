@@ -7,6 +7,7 @@ import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
@@ -737,7 +738,7 @@ class _RoundSummaryCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Mascot(
-                  kind: MascotKind.tiger,
+                  kind: MascotPreference.kind.value,
                   emotion: MascotEmotion.celebrate,
                   size: 76,
                   animate: true,
@@ -753,7 +754,7 @@ class _RoundSummaryCard extends StatelessWidget {
             )
           else
             Mascot(
-              kind: MascotKind.tiger,
+              kind: MascotPreference.kind.value,
               emotion: mascotEmotion,
               size: 88,
               animate: true,
@@ -950,7 +951,7 @@ class _QuizCard extends StatelessWidget {
               german,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
                 color: s.text,
                 fontWeight: FontWeight.w700,
               ),

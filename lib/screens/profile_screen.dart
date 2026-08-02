@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../services/auth_service.dart';
@@ -138,7 +142,6 @@ class _ProfileScreenState extends State<ProfileScreen>
     final linked = providers.isDurable;
     final providerLabel = _providerLabel(t, providers);
     final name = account.displayName;
-    final photo = account.photoUrl;
 
     return Scaffold(
       appBar: AppBar(
@@ -161,9 +164,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           ),
           children: [
             // ── Avatar + Name ──
-            Center(
-              child: _Avatar(linked: linked, photo: photo),
-            ),
+            Center(child: const _Avatar()),
             const SizedBox(height: 12),
             Center(
               child: Text(
@@ -260,56 +261,68 @@ class _ProfileScreenState extends State<ProfileScreen>
 
 // ─────────────────────────────────────────────────────────────────────────
 
-class _Avatar extends StatelessWidget {
-  final bool linked;
-  final String? photo;
-  const _Avatar({required this.linked, required this.photo});
+class _Avatar extends StatefulWidget {
+  const _Avatar();
 
+  @override
+  State<_Avatar> createState() => _AvatarState();
+}
+
+class _AvatarState extends State<_Avatar> {
   static const double _d = 104;
+  static const Color _medallionFill = SoriColors.lightSurface;
+  late final MascotKind _kind;
+  late final String _asset;
+
+  @override
+  void initState() {
+    super.initState();
+    _kind = MascotPreference.kind.value;
+    _asset = CharacterClips.profileClipFor(
+      _kind,
+      Random().nextInt(CharacterClips.profileClipCountFor(_kind)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final Widget inner = (linked && photo != null && photo!.isNotEmpty)
-        ? Image.network(
-            photo!,
-            width: _d,
-            height: _d,
-            fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => _tigerInner(),
-          )
-        : _tigerInner();
-    // 원형 메달리온 프레임 — 떠 있던 마스코트를 '의도된 초상'으로 감싼다.
+    // 선택한 마스코트가 계정 사진보다 우선하는 원형 메달리온.
     return Container(
       width: _d,
       height: _d,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: RadialGradient(
-          center: const Alignment(0, -0.2),
-          radius: 0.95,
-          colors: [
-            SoriColors.lightSurface,
-            SoriColors.tiger.withValues(alpha: 0.14),
-          ],
-        ),
+        // 평면 fill — 클립은 흰 배경 mp4를 multiply로 녹이므로 뒤가 그라데이션
+        // 이면 이음매가 드러난다. 주황 글로우는 그라데이션 대신 바깥 그림자로.
+        color: _medallionFill,
         border: Border.all(
-          color: SoriColors.tiger.withValues(alpha: 0.38),
+          color: SoriColors.tiger.withValues(alpha: 0.55),
           width: 2.5,
         ),
-        boxShadow: SoriElevation.low,
+        boxShadow: [
+          BoxShadow(
+            color: SoriColors.tiger.withValues(alpha: 0.22),
+            blurRadius: 18,
+            spreadRadius: 1,
+          ),
+          ...SoriElevation.low,
+        ],
       ),
-      child: ClipOval(child: inner),
+      child: ClipOval(
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: CharacterClipPlayer(
+            asset: _asset,
+            size: _d - 10,
+            loop: true,
+            blendColor: _medallionFill,
+            fallbackKind: _kind,
+            fallbackEmotion: MascotEmotion.smile,
+          ),
+        ),
+      ),
     );
   }
-
-  Widget _tigerInner() => const Padding(
-    padding: EdgeInsets.all(5),
-    child: Mascot.tiger(
-      size: _d - 10,
-      emotion: MascotEmotion.smile,
-      animate: true,
-    ),
-  );
 }
 
 /// Gast: lädt zum Sichern ein (der Kern-Nudge).

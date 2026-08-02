@@ -44,11 +44,12 @@ void main() {
       }
     }
 
-    // 기준선 2026-07-31: 4곳 (home_screen 문자열 1 + 문서 주석 1,
-    // hoerverstehen_quest 1, particle_pop_quest 1). 목표 0 — Phase 5·7 에서 제거.
+    // 기준선 2026-07-31(개편 세션): 2곳 — hoerverstehen_quest 1,
+    // particle_pop_quest 1. home_screen 2곳(문자열+주석)은 제거 완료
+    // (Icons.play_arrow_rounded WidgetSpan 으로 대체). 목표 0.
     expect(
       offenders.length,
-      lessThanOrEqualTo(4),
+      lessThanOrEqualTo(2),
       reason:
           '이모지로 뒤바뀌는 글리프가 늘었다 (${offenders.length}곳):\n'
           '${offenders.join('\n')}',

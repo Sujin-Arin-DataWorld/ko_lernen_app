@@ -5,13 +5,16 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
+import '../models/curriculum.dart';
 import '../models/scenario.dart';
+import '../services/course_activity_reporter.dart';
 import '../services/premium_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
@@ -87,9 +90,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     with ScreenCoachMixin<ScenarioPlayerScreen> {
   Scenario? _scenario;
   List<ScenarioStage> _plan = const [];
-
-  /// 정답 순간 코인 burst를 띄우는 지속 까치 컴패니언(채점 단계에서만 상주).
-  final GlobalKey<_ScenarioBuddyState> _buddyKey = GlobalKey();
   int _stage = 0;
   int _firstTryPassedCount = 0;
   int _passedCount = 0;
@@ -267,18 +267,44 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   void _onQuestComplete(QuestResult result) {
+    final scenario = _scenario;
+    if (scenario != null &&
+        _currentQuestIndex >= 0 &&
+        _currentQuestIndex < scenario.quests.length) {
+      final quest = scenario.quests[_currentQuestIndex];
+      // Only audited pilot quest metadata writes concept evidence. Untagged
+      // legacy quests still feed the scenario checkpoint at completion, which
+      // avoids pretending that a single particle mistake affected every form
+      // used elsewhere in the dialogue.
+      if (quest.hasExplicitId && quest.conceptIds.isNotEmpty) {
+        for (final conceptId in quest.conceptIds) {
+          // ignore: discarded_futures
+          CourseActivityReporter.recordContentAttempt(
+            CurriculumContentKind.scenario,
+            scenario.id,
+            result.passed,
+            conceptId: conceptId,
+            errorReason: result.passed
+                ? null
+                : masteryErrorForQuestType(quest.type),
+          );
+        }
+      }
+    }
     if (result.passed) _passedCount++;
     if (result.firstTry && result.passed) _firstTryPassedCount++;
     if (!result.passed) _failedQuestIndices.add(_currentQuestIndex);
-    if (result.passed) _buddyKey.currentState?.celebrate();
+    if (result.passed) _celebrateCorrect();
     setState(() => _questReady = true);
   }
 
-  /// 채점 단계(퀘스트·역할극)에서만 까치 컴패니언을 상주시킨다.
-  bool get _isGradedStage {
-    if (_stage < 0 || _stage >= _plan.length) return false;
-    final k = _plan[_stage];
-    return k == ScenarioStage.quest || k == ScenarioStage.rollenspiel;
+  /// 정답 순간 — 화면 중앙에 엽전·복주머니 코인 burst. post-frame + 화면 State의
+  /// 안정적 context로 호출한다(이벤트 콜백에서 동기 호출 시 InheritedWidget 의존성
+  /// 오염 → _dependents.isEmpty. _next()의 검증된 안전 패턴과 동일).
+  void _celebrateCorrect() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) SoriCelebration.coins(context);
+    });
   }
 
   // ─── Stern-Berechnung ──────────────────────────────────────────────────────
@@ -304,6 +330,16 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       Storage.setScenarioStars(s.id, stars),
       Storage.addCompletedScenario(s.id),
     ]);
+
+    // Scenario completion is a checkpoint alongside, not a replacement for,
+    // the concept-level evidence collected by vocabulary and game activities.
+    // A replayed future scenario is retained by the engine as browse history
+    // and never unlocks the current mission retroactively.
+    await CourseActivityReporter.recordScenarioCheckpoint(
+      s.id,
+      passed: _passedCount,
+      total: s.quests.length,
+    );
 
     // Erster Abschluss → Badge
     if (!Storage.earnedBadges.contains('cafe_starter')) {
@@ -639,6 +675,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             variant: SoriCardVariant.compact,
                             accent: bubbleAccent,
                             tinted: isUser,
+                            // 스피커 아이콘뿐 아니라 **버블 전체**를 탭하면 재생.
+                            // SoriCard.onTap 이 SoriPressable+버튼 시맨틱으로 감싼다.
+                            onTap: () {
+                              HapticFeedback.selectionClick();
+                              TtsService.speak(
+                                line.ko,
+                                voice: line.speaker == 'user'
+                                    ? 'female'
+                                    : 'male',
+                                rateMultiplier: _dialogRate,
+                              );
+                            },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -659,24 +707,14 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                       ),
                                     ),
                                     const SizedBox(width: Spacing.sm),
-                                    GestureDetector(
-                                      onTap: () {
-                                        HapticFeedback.selectionClick();
-                                        TtsService.speak(
-                                          line.ko,
-                                          voice: line.speaker == 'user'
-                                              ? 'female'
-                                              : 'male',
-                                          rateMultiplier: _dialogRate,
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.volume_up_rounded,
-                                        color: bubbleAccent.withValues(
-                                          alpha: 0.7,
-                                        ),
-                                        size: 18,
+                                    // 버블 전체가 탭 대상이므로 아이콘은 시각적
+                                    // 힌트만 담당(별도 GestureDetector 불필요).
+                                    Icon(
+                                      Icons.volume_up_rounded,
+                                      color: bubbleAccent.withValues(
+                                        alpha: 0.7,
                                       ),
+                                      size: 18,
                                     ),
                                   ],
                                 ),
@@ -872,7 +910,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               kind: mascotKind,
               emotion: mascotEmotion,
               size: 120,
-              animate: true,
+              animate: false,
             ),
           ),
           const SizedBox(height: Spacing.lg),
@@ -1149,7 +1187,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     return _RollenspielStage(
       scenario: _scenario!,
       lang: lang,
-      onCorrect: () => _buddyKey.currentState?.celebrate(),
+      onCorrect: _celebrateCorrect,
       onDone: () {
         if (mounted) setState(() => _questReady = true);
       },
@@ -1246,13 +1284,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                 ],
               ),
             ),
-            // 채점 단계에서만 상주하는 까치 컴패니언 — 정답마다 날갯짓 + 코인 burst.
-            if (_isGradedStage)
-              Positioned(
-                top: Spacing.sm,
-                right: Spacing.md,
-                child: _ScenarioBuddy(key: _buddyKey),
-              ),
           ],
         ),
       ),
@@ -1261,66 +1292,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 }
 
 // ─── Hilfs-Widgets ─────────────────────────────────────────────────────────
-
-/// 시나리오 플레이 중 우상단에 상주하는 까치 컴패니언.
-/// [_ScenarioBuddyState.celebrate] 호출 시 짧게 팡 튀며 엽전/복 코인 burst를
-/// 자기 위치에서 띄운다. 채점 단계(퀘스트·역할극)에서만 마운트된다.
-class _ScenarioBuddy extends StatefulWidget {
-  const _ScenarioBuddy({super.key});
-
-  @override
-  State<_ScenarioBuddy> createState() => _ScenarioBuddyState();
-}
-
-class _ScenarioBuddyState extends State<_ScenarioBuddy>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _pop;
-
-  @override
-  void initState() {
-    super.initState();
-    _pop = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 440),
-    );
-  }
-
-  @override
-  void dispose() {
-    _pop.dispose();
-    super.dispose();
-  }
-
-  /// 정답 순간 — 까치 팝 스케일 + 코인 burst(까치 중심 기준).
-  void celebrate() {
-    if (!mounted) return;
-    if (!SoriMotion.reduceMotion(context)) {
-      _pop.forward(from: 0);
-    }
-    final box = context.findRenderObject() as RenderBox?;
-    final origin = (box != null && box.hasSize)
-        ? box.localToGlobal(box.size.center(Offset.zero))
-        : null;
-    SoriCelebration.coins(context, origin: origin);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _pop,
-      builder: (_, child) {
-        final scale = 1.0 + math.sin(_pop.value * math.pi) * 0.28;
-        return Transform.scale(scale: scale, child: child);
-      },
-      child: Mascot(
-        kind: MascotKind.magpie,
-        emotion: MascotEmotion.smile,
-        size: 60,
-        animate: true,
-      ),
-    );
-  }
-}
 
 class _StageScroll extends StatelessWidget {
   final Widget child;
@@ -1386,9 +1357,9 @@ class _ScenarioIntroArt extends StatelessWidget {
           sidekick ?? '',
           size: 72,
           emotion: MascotEmotion.smile,
-          animate: true,
+          animate: false,
         ) ??
-        Mascot.tiger(emotion: MascotEmotion.smile, size: 72, animate: true);
+        Mascot.tiger(emotion: MascotEmotion.smile, size: 72, animate: false);
 
     // Backdrop만 표시 (호랑이 없이 — 배경 자체가 시각적 focal point)
     if (posterAsset == null) {
@@ -1580,9 +1551,7 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     _pool = pool.toList()..sort();
 
     // milestone_celebration.dart:39 과 동일 표현. 미설정('') → 호랑이.
-    _kind = Storage.preferredMascot == 'magpie'
-        ? MascotKind.magpie
-        : MascotKind.tiger;
+    _kind = MascotPreference.kind.value;
     // celebrate는 두 캐릭터 모두 클립이 있어 사실상 non-null이지만,
     // game_reward.dart 패턴대로 null 분기는 유지한다.
     _clip = CharacterClips.feedbackFor(_kind, MascotEmotion.celebrate);

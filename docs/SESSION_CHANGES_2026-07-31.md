@@ -143,6 +143,14 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/app/outpu
 > gs://ko-lernen-app.firebasestorage.app/tts/v2/ | head` — 비었으면 `python3
 > tool/generate_tts.py`(rate 1.0으로 재합성 + v2 업로드) 실행 후 재테스트.
 > sha1 키(`{voice}|{text}`)엔 rate가 없어 재실행해도 경로만 새 v2라 정상 재생성된다.
+>
+> **📌 정정(2026-07-31 후속): 캐시 리비전을 `v2`→`v3`으로 올림.** 음성이
+> Zephyr(여)/Enceladus(남)로 바뀌었는데 sha1 키엔 voice 이름이 없어 v2 경로가
+> 옛 Aoede/Neural2 오디오를 그대로 재사용하는 문제 → 리비전 버스트로 해소.
+> 클라(`tts_service.dart:31`)·CF(`tts_contract.js:3`)·스크립트(`generate_tts.py:37`)
+> 3계층 모두 `v3`. 위 명령의 경로도 **`tts/v3/`** 로 읽을 것:
+> `gsutil ls gs://ko-lernen-app.firebasestorage.app/tts/v3/ | head` 가 비었으면
+> `python tool/generate_tts.py`(Zephyr/Enceladus 재합성 + `tts/v3` rsync 업로드) 실행.
 
 빠르게 실기기만 확인하려면:
 

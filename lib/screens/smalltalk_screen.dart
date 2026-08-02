@@ -308,6 +308,7 @@ class _PhraseCard extends StatefulWidget {
 
 class _PhraseCardState extends State<_PhraseCard> {
   bool _showReply = false;
+  bool _showConversationGuide = false;
 
   @override
   Widget build(BuildContext context) {
@@ -405,6 +406,39 @@ class _PhraseCardState extends State<_PhraseCard> {
                 ],
               ),
             ),
+            const SizedBox(height: Spacing.sm),
+            Text(
+              lang == 'de'
+                  ? 'Passend für: ${p.relationshipContext.labelFor(lang)}'
+                  : 'Use with: ${p.relationshipContext.labelFor(lang)}',
+              style: TextStyle(
+                fontFamily: 'Pretendard',
+                fontSize: 12.5,
+                color: s.textMuted,
+                height: 1.3,
+              ),
+            ),
+            if (!_showConversationGuide)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  onPressed: () => setState(
+                    () => _showConversationGuide = true,
+                  ),
+                  icon: const Icon(Icons.alt_route_rounded, size: 16),
+                  label: Text(
+                    lang == 'de'
+                        ? 'Sichere Alternative und nächster Schritt'
+                        : 'Safer alternative and next turn',
+                  ),
+                ),
+              )
+            else
+              _ConversationGuide(
+                alternative: p.safeAlternativeQuestions.first,
+                followUp: p.followUp,
+                lang: lang,
+              ),
             // Catch-ball: Beispielantwort (nur bei Fragen).
             if (hasReply) ...[
               const SizedBox(height: Spacing.xs),
@@ -426,6 +460,128 @@ class _PhraseCardState extends State<_PhraseCard> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _ConversationGuide extends StatelessWidget {
+  final SmalltalkTurn alternative;
+  final SmalltalkTurn followUp;
+  final String lang;
+
+  const _ConversationGuide({
+    required this.alternative,
+    required this.followUp,
+    required this.lang,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final german = lang == 'de';
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: Spacing.xs),
+      padding: const EdgeInsets.all(Spacing.md),
+      decoration: BoxDecoration(
+        color: SoriColors.primary.withValues(alpha: 0.06),
+        borderRadius: SoriRadius.brSm,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _ConversationTurn(
+            label: german ? 'Sichere Alternative' : 'Safer alternative',
+            turn: alternative,
+            lang: lang,
+          ),
+          const Divider(height: Spacing.lg),
+          _ConversationTurn(
+            label: german ? 'Nächster Gesprächsschritt' : 'Next turn',
+            turn: followUp,
+            lang: lang,
+            textColor: s.text,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ConversationTurn extends StatelessWidget {
+  final String label;
+  final SmalltalkTurn turn;
+  final String lang;
+  final Color? textColor;
+
+  const _ConversationTurn({
+    required this.label,
+    required this.turn,
+    required this.lang,
+    this.textColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final foreground = textColor ?? SoriColors.primaryOnLight;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(
+          turn.turnKind == SmalltalkTurnKind.question
+              ? Icons.help_outline_rounded
+              : Icons.forum_outlined,
+          size: 16,
+          color: SoriColors.primary.withValues(alpha: 0.8),
+        ),
+        const SizedBox(width: Spacing.sm),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                label,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 11.5,
+                  fontWeight: FontWeight.w700,
+                  color: s.textMuted,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                turn.ko,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 14.5,
+                  fontWeight: FontWeight.w700,
+                  color: foreground,
+                  height: 1.3,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                turn.translation(lang),
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 12,
+                  color: s.textMuted,
+                  height: 1.3,
+                ),
+              ),
+            ],
+          ),
+        ),
+        InkWell(
+          onTap: () => TtsService.speak(turn.ko),
+          child: Icon(
+            Icons.volume_up_rounded,
+            color: SoriColors.primary.withValues(alpha: 0.7),
+            size: 19,
+          ),
+        ),
+      ],
     );
   }
 }

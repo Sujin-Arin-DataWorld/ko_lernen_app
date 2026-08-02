@@ -94,6 +94,77 @@ class HanokColors {
   static const Color madangGroundDark = Color(0xFF15201A);
 }
 
+/// **레벨 사다리 팔레트 (사계 단청)** — CEFR 4단계를 봄·여름·가을·겨울
+/// 단청 4색으로 매핑한다. 온보딩 레벨 선택 화면과 이후 레벨 배지가 공유하는
+/// 단일 소스.
+///
+/// **왜 [SoriColors]를 그대로 못 쓰는가 (2026-07-31 감사)**
+/// 기존 온보딩은 A1=`SoriColors.success`, A2=`SoriColors.primary`를 썼는데
+/// 두 토큰은 v6.0에서 **같은 값 `#1F7A6B`** 이 되었다 → A1·A2 배지가 픽셀
+/// 단위로 동일해 레벨 구분이 사라져 있었다. 또 B1=`warning`(황),
+/// B2는 `hangul`(석간주 적)이라 "초록=안전 / 노랑=주의 / 빨강=위험"이라는
+/// 신호등 의미가 얹혀, 상급 레벨이 *위험*으로 읽히는 부작용이 있었다.
+/// 이 팔레트는 기능색(success/warning/danger)과 완전히 분리된 **서열색**이다.
+///
+/// **대비 검증 (한지 크림 `#FAF6EC` 기준, WCAG 2.1)**
+/// | 레벨 | 색 | 흰 글씨 대비 | 크림 위 도형 대비 |
+/// |------|-----|------------|-----------------|
+/// | A1 청 | `#2E7D68` | 4.94:1 ✅ | 4.58:1 ✅ |
+/// | A2 황 | `#8F6C14` | 4.86:1 ✅ | 4.50:1 ✅ |
+/// | B1 적 | `#A0403C` | 6.38:1 ✅ | 5.91:1 ✅ |
+/// | B2 청금 | `#44607F` | 6.51:1 ✅ | 6.03:1 ✅ |
+///
+/// ⚠️ **색만으로 서열을 전달하지 말 것.** 네 색의 상호 명도 대비는
+/// 1.02~1.34:1로, 색각 이상 사용자에게는 서열이 보이지 않는다. 반드시
+/// [rankOf]가 주는 채움 도트(1~4개) 같은 **비색상 신호**를 함께 쓴다.
+class HanokLevelPalette {
+  HanokLevelPalette._();
+
+  /// A1 — 봄 청(靑). 시작·새싹.
+  static const Color a1 = Color(0xFF2E7D68);
+
+  /// A2 — 여름 황(黃). 자람. (`HanokColors.hwang`를 흰 글씨 AA까지 어둡게)
+  static const Color a2 = Color(0xFF8F6C14);
+
+  /// B1 — 가을 적(赤). 여묾. (`HanokColors.jeok` 어둡게)
+  static const Color b1 = Color(0xFFA0403C);
+
+  /// B2 — 겨울 청금(靑金). 완숙. (`SoriColors.highlight` 어둡게)
+  static const Color b2 = Color(0xFF44607F);
+
+  /// 레벨 코드(`a1`/`a2`/`b1`/`b2`, 대소문자 무관) → 사계 색.
+  /// 미지의 코드는 A1 색으로 안전 폴백한다.
+  static Color of(String levelCode) {
+    switch (levelCode.toLowerCase()) {
+      case 'a2':
+        return a2;
+      case 'b1':
+        return b1;
+      case 'b2':
+        return b2;
+      default:
+        return a1;
+    }
+  }
+
+  /// 레벨 코드 → 서열(1~4). 채움 도트 개수·`Semantics` 라벨에 쓴다.
+  static int rankOf(String levelCode) {
+    switch (levelCode.toLowerCase()) {
+      case 'a2':
+        return 2;
+      case 'b1':
+        return 3;
+      case 'b2':
+        return 4;
+      default:
+        return 1;
+    }
+  }
+
+  /// 서열 총 단계 수 — 도트 개수·"n / 4" 라벨의 분모.
+  static const int rankCount = 4;
+}
+
 /// 한옥 décor 치수 단위 — [Spacing]과 별도로 décor 전용.
 class HanokSizing {
   HanokSizing._();

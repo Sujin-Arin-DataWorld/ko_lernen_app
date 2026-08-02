@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 /// Smoke-Test für den Profil-Hub (Tier 1 — 2026-06-03).
 ///
@@ -28,6 +29,7 @@ void main() {
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    MascotPreference.load();
   });
 
   testWidgets('ProfileScreen baut im Gast-Modus ohne Firebase fehlerfrei', (
@@ -45,6 +47,38 @@ void main() {
     // Gast-Karte → Sichern-CTA (settingsCloudSignInPrompt, de).
     expect(find.text('Mit Google sichern'), findsOneWidget);
     expect(tester.takeException(), isNull);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
+  testWidgets('selected magpie portrait overrides a linked account photo', (
+    tester,
+  ) async {
+    await Storage.setPreferredMascot('magpie');
+    MascotPreference.load();
+
+    await tester.pumpWidget(
+      _wrap(
+        const ProfileScreen(
+          account: AuthAccountSnapshot(
+            providers: AuthProviderState(
+              isGoogleLinked: true,
+              isAppleLinked: false,
+            ),
+            displayName: 'Magpie learner',
+            photoUrl: 'https://example.test/profile.png',
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final networkImages = tester
+        .widgetList<Image>(find.byType(Image))
+        .where((image) => image.image is NetworkImage);
+    expect(networkImages, isEmpty);
+    expect(find.bySemanticsLabel('마스코트 까치, 미소'), findsOneWidget);
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();

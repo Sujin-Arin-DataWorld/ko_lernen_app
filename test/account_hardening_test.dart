@@ -130,7 +130,13 @@ void main() {
         );
         await tester.pump();
 
-        expect(find.text('Angemeldet: Apple'), findsOneWidget);
+        final signedIn = find.text('Angemeldet: Apple');
+        await tester.scrollUntilVisible(
+          signedIn,
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(signedIn, findsOneWidget);
         expect(find.text('Mit Google sichern'), findsNothing);
       },
     );

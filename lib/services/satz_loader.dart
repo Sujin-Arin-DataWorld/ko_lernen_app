@@ -2,10 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../models/content_id.dart';
+
 /// Ein Satzbau-Item: ein echter Beispielsatz + Distraktor-Kacheln.
 /// Quelle: `assets/data/satz_sentences.json` (build_satzbauen.py, aus
 /// muttersprachlich geprüften Beispielsätzen — keine neue Übersetzung).
 class SatzSentence {
+  /// Immutable source identity from `assets/data/satz_sentences.json`.
+  final String _sourceId;
   final String level;
   final String targetKo;
   final String promptDe;
@@ -17,15 +21,25 @@ class SatzSentence {
   final String vocabKo;
 
   const SatzSentence({
+    String id = '',
     required this.level,
     required this.targetKo,
     required this.promptDe,
     required this.promptEn,
     required this.distractors,
     this.vocabKo = '',
-  });
+  }) : _sourceId = id;
+
+  /// The shipped corpus uses the raw `id`; this fallback is only for legacy
+  /// fixtures and is never acceptable for catalog-linked production content.
+  String get id => hasExplicitId
+      ? _sourceId.trim()
+      : stableContentId('satz_legacy', [level, targetKo, vocabKo]);
+
+  bool get hasExplicitId => _sourceId.trim().isNotEmpty;
 
   factory SatzSentence.fromJson(Map<String, dynamic> j) => SatzSentence(
+    id: j['id']?.toString() ?? '',
     level: (j['level'] as String? ?? '').toLowerCase(),
     targetKo: j['targetKo'] as String? ?? '',
     promptDe: j['promptDe'] as String? ?? '',

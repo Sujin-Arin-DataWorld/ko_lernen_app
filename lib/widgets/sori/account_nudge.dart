@@ -79,7 +79,7 @@ class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
         const Mascot.tiger(
           size: 92,
           emotion: MascotEmotion.smile,
-          animate: true,
+          animate: false,
         ),
         const SizedBox(height: 12),
         Text(

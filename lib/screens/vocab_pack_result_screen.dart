@@ -5,6 +5,7 @@ import '../models/content_feedback.dart';
 import '../services/pack_progress_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
@@ -120,12 +121,12 @@ class VocabPackResultScreen extends StatelessWidget {
                         motif: motif,
                         justCleared: justCleared,
                       )
-                    : const SoriEntrance(
+                    : SoriEntrance(  // const 불가 — MascotPreference.kind.value 는 런타임 값
                         child: SizedBox(
                           height: 160,
                           child: Center(
                             child: Mascot(
-                              kind: MascotKind.tiger,
+                              kind: MascotPreference.kind.value,
                               emotion: MascotEmotion.worry,
                               size: 130,
                             ),
@@ -393,7 +394,12 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
 
   @override
   Widget build(BuildContext context) {
+    // ⚠️ 명시적 width 필수 — Stack 은 non-positioned 자식(도장)에만 맞춰
+    // 크기가 잡혀 폭이 도장 크기(~118)로 쪼그라든다. 그러면 left/right 로
+    // 배치한 호랑이·까치가 도장 위로 뭉쳐 겹쳐 보인다(보상 스티커 중복).
+    // 넉넉한 폭을 줘 좌우로 벌려 도장을 감싸게 한다.
     return SizedBox(
+      width: 280,
       height: 160,
       child: AnimatedBuilder(
         animation: _ctrl,
@@ -431,8 +437,8 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                   child: Transform.scale(
                     scale: (0.5 + 0.5 * _tigerIn.value).clamp(0.0, 1.2),
                     alignment: Alignment.bottomCenter,
-                    child: const Mascot(
-                      kind: MascotKind.tiger,
+                    child: Mascot(
+                      kind: MascotPreference.kind.value,
                       emotion: MascotEmotion.celebrate,
                       size: 96,
                       animate: true,

@@ -14,6 +14,7 @@ import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
@@ -298,14 +299,14 @@ class _BookResultScreenState extends State<BookResultScreen> {
                             'assets/illustrations/book/book_success.png',
                             height: 150,
                             fit: BoxFit.contain,
-                            errorBuilder: (_, __, ___) => const Mascot(
-                              kind: MascotKind.tiger,
+                            errorBuilder: (_, __, ___) => Mascot(
+                              kind: MascotPreference.kind.value,
                               emotion: MascotEmotion.celebrate,
                               size: 96,
                             ),
                           )
-                        : const Mascot(
-                            kind: MascotKind.tiger,
+                        : Mascot(
+                            kind: MascotPreference.kind.value,
                             emotion: MascotEmotion.thinking,
                             size: 96,
                           ),

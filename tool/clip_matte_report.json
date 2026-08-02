@@ -1,0 +1,150 @@
+{
+  "note": "tool/check_clip_matte.py 가 생성한다. 직접 고치지 말 것. 클립을 추가·교체하면 이 스크립트를 다시 돌릴 것.",
+  "white_min": 248,
+  "clips": [
+    {
+      "path": "magpie_celebrate.mp4",
+      "bytes": 1239996,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "magpie_choose.mp4",
+      "bytes": 1178659,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "magpie_flight.mp4",
+      "bytes": 1591503,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "magpie_greet_chirp.mp4",
+      "bytes": 1512369,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "magpie_perched.mp4",
+      "bytes": 711544,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "magpie_worry.mp4",
+      "bytes": 740629,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "tiger_bob.mp4",
+      "bytes": 1153236,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "tiger_celebrate_hifive.mp4",
+      "bytes": 1048681,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "tiger_choose.mp4",
+      "bytes": 1679976,
+      "ok": true,
+      "matte": "#E5E5E5",
+      "white_ratio": 0.985,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "tiger_greet_pawflash.mp4",
+      "bytes": 1112935,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "tiger_rest.mp4",
+      "bytes": 859191,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 121,
+      "reason": ""
+    },
+    {
+      "path": "tiger_rise.mp4",
+      "bytes": 1626452,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 121,
+      "reason": ""
+    },
+    {
+      "path": "tiger_roar.mp4",
+      "bytes": 1326318,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "tiger_sitting2.mp4",
+      "bytes": 857491,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 121,
+      "reason": ""
+    },
+    {
+      "path": "tiger_stretch.mp4",
+      "bytes": 976578,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "tiger_thinking.mp4",
+      "bytes": 737979,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 97,
+      "reason": ""
+    }
+  ]
+}

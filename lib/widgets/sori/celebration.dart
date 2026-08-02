@@ -38,14 +38,15 @@ class SoriCelebration {
 
   /// 정답 순간용 — 엽전·복 코인이 팡팡 튀어 나온다. [origin] 미지정 시 화면
   /// 우상단(까치 컴패니언 자리) 근처. reduce-motion 시 no-op.
-  static void coins(BuildContext context, {Offset? origin, int count = 14}) {
+  static void coins(BuildContext context, {Offset? origin, int count = 20}) {
     if (SoriMotion.reduceMotion(context)) return;
     final overlay = Overlay.maybeOf(context);
     if (overlay == null) return;
     final media = MediaQuery.maybeOf(context);
+    // origin 미지정 시 화면 중앙(살짝 위)에서 크게 터진다 — 정답 페이오프.
     final from = origin ??
-        Offset((media?.size.width ?? 360) - 52,
-            (media?.size.height ?? 720) * 0.22);
+        Offset((media?.size.width ?? 360) / 2,
+            (media?.size.height ?? 720) * 0.42);
 
     late OverlayEntry entry;
     entry = OverlayEntry(
@@ -276,9 +277,9 @@ class _CoinBurstLayerState extends State<_CoinBurstLayer>
       final angle = -math.pi + rnd.nextDouble() * math.pi * 0.92 - 0.08;
       return _Coin(
         angle: angle,
-        speed: 150 + rnd.nextDouble() * 260,
+        speed: 180 + rnd.nextDouble() * 320,
         asset: _assets[i % _assets.length],
-        size: 22 + rnd.nextDouble() * 16,
+        size: 36 + rnd.nextDouble() * 26,
         spin: (rnd.nextDouble() - 0.5) * 10,
         delay: rnd.nextDouble() * 0.14,
       );

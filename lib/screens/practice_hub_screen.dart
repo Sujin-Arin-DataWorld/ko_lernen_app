@@ -42,6 +42,7 @@ class PracticeHubScreen extends StatelessWidget {
             children: [
               HanokHeader(
                 asset: 'assets/illustrations/hanok/porch.png',
+                loopAsset: 'assets/video/loops/porch.mp4',
                 fallbackIcon: Icons.sports_esports_rounded,
               ),
               const SizedBox(height: Spacing.md),

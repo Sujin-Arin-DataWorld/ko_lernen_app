@@ -12,12 +12,15 @@ import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
-import 'onboarding_level_screen.dart';
+import 'character_selection_screen.dart';
 
 /// **온보딩 3장 캐러셀** — Consent→레벨 선택 사이 핵심 기능 미리보기.
 ///
-/// 3페이지: ①사진→단어장(책 한 컷) ②한옥이 자라요 ③호랑이와 매일 한 발.
-/// 상단 Skip 항상 노출(비차단). 마지막 페이지에서 "시작하기" 버튼.
+/// 레이아웃(2026-07-31 개편, "풀블리드 상단 히어로"): 각 페이지는 화면 위쪽
+/// ~56%를 이미지/영상이 **가장자리까지 가득**(BoxFit.cover) 채우고, 밑변은
+/// 어둠(#0E1A18)으로 그라데이션 스크림 처리 → 그 아래 제목·본문. 비주얼이
+/// 주인공이 되도록 카드형 배치를 폐지했다. 투명 PNG(호랑이)는 잘림 방지로
+/// contain+글로우. Skip / dot·버튼은 히어로 위 오버레이(항상 노출·비차단).
 /// `Storage.introPreviewSeen` 플래그로 1회성.
 class OnboardingPreviewScreen extends StatefulWidget {
   const OnboardingPreviewScreen({super.key});
@@ -31,6 +34,8 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
   final PageController _controller = PageController();
   int _page = 0;
   static const int _total = 3;
+
+  static const Color _bg = Color(0xFF0E1A18);
 
   @override
   void dispose() {
@@ -58,125 +63,135 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
       return;
     }
     Navigator.of(context).pushReplacement(
-      SoriTransitions.fadeScale((_) => const OnboardingLevelScreen()),
+      SoriTransitions.fadeScale((_) => const CharacterSelectionScreen()),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final isLast = _page == _total - 1;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0E1A18),
+      backgroundColor: _bg,
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // ── Ambient 입자 ──
+          // ── Ambient 입자(배경) ──
           const Positioned.fill(
             child: IgnorePointer(child: AmbientParticles(count: 10)),
           ),
 
-          // ── Content ──
+          // ── 풀스크린 PageView (각 페이지: 상단 풀블리드 히어로 + 하단 텍스트) ──
+          Positioned.fill(
+            child: SafeArea(
+              bottom: false,
+              child: PageView(
+                controller: _controller,
+                onPageChanged: (i) => setState(() => _page = i),
+                children: [
+                  _PreviewPage(
+                    index: 0,
+                    // 책 한 컷 전용 세로 일러스트. cover 로 풀블리드.
+                    imageAsset:
+                        'assets/illustrations/onboarding/book_scan.png',
+                    accentColor: SoriColors.info,
+                    title: t.previewPage1Title,
+                    body: t.previewPage1Body,
+                  ),
+                  _PreviewPage(
+                    index: 1,
+                    imageAsset:
+                        'assets/illustrations/gye/gye_gate_grand.png',
+                    // 한옥이 지어지는 앰비언트 루프 — 풀블리드 히어로로 재생.
+                    videoAsset:
+                        'assets/video/loops/hanok_construction.mp4',
+                    accentColor: SoriColors.primary,
+                    title: t.previewPage2Title,
+                    body: t.previewPage2Body,
+                  ),
+                  _PreviewPage(
+                    index: 2,
+                    // 마법 크리스탈 호랑이(투명 PNG) → 잘림 방지 contain+글로우.
+                    imageAsset:
+                        'assets/illustrations/onboarding/tiger_crystal.png',
+                    accentColor: SoriColors.tiger,
+                    title: t.previewPage3Title,
+                    body: t.previewPage3Body,
+                    heroFullBleed: false,
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // ── 상단 Skip (히어로 위 오버레이 — 대비용 반투명 pill) ──
           SafeArea(
-            child: LayoutBuilder(
-              builder: (context, c) {
-                return Column(
-                  children: [
-                    // ── 상단 Skip 버튼 ──
-                    Padding(
-                      padding: soriClampPadding(
-                        c.maxWidth,
-                        base: const EdgeInsets.fromLTRB(8, 8, 16, 0),
-                      ),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: _done,
-                          child: Text(
-                            t.previewSkip,
-                            style: TextStyle(
-                              fontFamily: 'Pretendard',
-                              color: Colors.white.withValues(alpha: 0.75),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(8, 6, 12, 0),
+                child: TextButton(
+                  onPressed: _done,
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black.withValues(alpha: 0.24),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
                     ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 6,
+                    ),
+                  ),
+                  child: Text(
+                    t.previewSkip,
+                    style: const TextStyle(
+                      fontFamily: 'Pretendard',
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15.5,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
 
-                    // ── PageView ──
-                    Expanded(
-                      child: PageView(
-                        controller: _controller,
-                        onPageChanged: (i) => setState(() => _page = i),
-                        children: [
-                          _PreviewPage(
-                            index: 0,
-                            // 책 한 컷 전용 세로 일러스트 (941×1672, 2026-07-31 추가).
-                            // 세로 비율이라 wide 없이 높이 기준 배치. 로드 실패 시
-                            // errorBuilder가 호랑이 마스코트로 폴백.
-                            imageAsset:
-                                'assets/illustrations/onboarding/book_scan.png',
-                            accentColor: SoriColors.info,
-                            title: t.previewPage1Title,
-                            body: t.previewPage1Body,
-                            surfaces: s,
-                          ),
-                          _PreviewPage(
-                            index: 1,
-                            imageAsset:
-                                'assets/illustrations/gye/gye_gate_grand.png',
-                            // 한옥이 지어지는 앰비언트 루프(배치 계획 §2-4①).
-                            videoAsset:
-                                'assets/video/loops/hanok_construction.mp4',
-                            accentColor: SoriColors.primary,
-                            title: t.previewPage2Title,
-                            body: t.previewPage2Body,
-                            surfaces: s,
-                          ),
-                          _PreviewPage(
-                            index: 2,
-                            // 마법 크리스탈 호랑이 (투명 PNG) — 정적 호랑이 +
-                            // 깨진 도깨비불 뱃지를 단일 이미지로 대체 (2026-07-31).
-                            imageAsset:
-                                'assets/illustrations/onboarding/tiger_crystal.png',
-                            accentColor: SoriColors.tiger,
-                            title: t.previewPage3Title,
-                            body: t.previewPage3Body,
-                            surfaces: s,
-                          ),
-                        ],
+          // ── 하단 dot + 버튼(오버레이, 위로 어둠 그라데이션으로 텍스트와 분리) ──
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0x000E1A18), Color(0xFF0E1A18)],
+                ),
+              ),
+              child: SafeArea(
+                top: false,
+                child: Padding(
+                  padding: soriClampPadding(
+                    MediaQuery.sizeOf(context).width,
+                    base: const EdgeInsets.fromLTRB(24, 28, 24, 20),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _DotIndicator(current: _page, total: _total),
+                      const SizedBox(height: 18),
+                      SoriButton.filled(
+                        label: isLast ? t.previewStart : t.previewNext,
+                        icon: isLast
+                            ? Icons.arrow_forward_rounded
+                            : Icons.navigate_next_rounded,
+                        fullWidth: true,
+                        onTap: _advance,
                       ),
-                    ),
-
-                    // ── 하단 dot indicator + 버튼 ──
-                    Padding(
-                      padding: soriClampPadding(
-                        c.maxWidth,
-                        base: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          _DotIndicator(current: _page, total: _total),
-                          const SizedBox(height: 20),
-                          SoriButton.filled(
-                            label: isLast ? t.previewStart : t.previewNext,
-                            icon: isLast
-                                ? Icons.arrow_forward_rounded
-                                : Icons.navigate_next_rounded,
-                            fullWidth: true,
-                            onTap: _advance,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                );
-              },
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
         ],
@@ -186,13 +201,13 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// 개별 프리뷰 페이지
+// 개별 프리뷰 페이지 — 상단 풀블리드 히어로 + 하단 텍스트
 // ─────────────────────────────────────────────────────────────────────────
 
 class _PreviewPage extends StatelessWidget {
   final int index;
 
-  /// != null → 이미지(book/한옥)를 마스코트 자리에 렌더. null → 호랑이 마스코트.
+  /// 히어로에 렌더할 이미지(포스터). 로드 실패 시 호랑이 마스코트 폴백.
   final String imageAsset;
 
   /// != null → [imageAsset] 포스터 위에 풀프레임 무음 루프 영상 승격
@@ -202,7 +217,10 @@ class _PreviewPage extends StatelessWidget {
   final Color accentColor;
   final String title;
   final String body;
-  final SoriSurfaces surfaces;
+
+  /// true(기본) → 이미지/영상을 히어로에 cover 로 가득(풀블리드). false →
+  /// 투명 PNG 등을 contain 중앙 배치(글로우 포함)해 잘리지 않게 한다.
+  final bool heroFullBleed;
 
   const _PreviewPage({
     required this.index,
@@ -211,155 +229,167 @@ class _PreviewPage extends StatelessWidget {
     required this.accentColor,
     required this.title,
     required this.body,
-    required this.surfaces,
+    this.heroFullBleed = true,
   });
+
+  static Widget _heroFallback(BuildContext _, Object __, StackTrace? ___) =>
+      const Center(
+        child: Mascot.tiger(
+          size: 150,
+          emotion: MascotEmotion.smile,
+          animate: false,
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     final delay = Duration(milliseconds: 80 + index * 40);
     return LayoutBuilder(
       builder: (context, c) {
-        // 세로로 긴 화면에서 비주얼이 점처럼 작아 보이지 않도록 무대 높이를
-        // 페이지 높이에 비례시킨다.
-        final stageH = (c.maxHeight * 0.30).clamp(180.0, 260.0);
-        return SingleChildScrollView(
-          padding: soriClampPadding(
-            c.maxWidth,
-            base: const EdgeInsets.symmetric(horizontal: 28),
-          ),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: c.maxHeight - 16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 16),
+        // 히어로 = 페이지 높이의 56%(상·하한 클램프). 비주얼이 주인공.
+        final heroH = (c.maxHeight * 0.56).clamp(280.0, 520.0);
+        final useVideo =
+            videoAsset != null &&
+            TigerStageVideo.videoReady &&
+            !SoriMotion.reduceMotion(context);
 
-                // ── 메인 비주얼: 이미지(book/한옥) 또는 호랑이 + 도깨비불 ──
-                SoriEntrance(
-                  delay: delay,
-                  duration: const Duration(milliseconds: 700),
-                  slideY: 18,
-                  startScale: 0.92,
-                  child: SizedBox(
-                    height: stageH,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        // 글로우 halo
-                        Positioned(
-                          bottom: 4,
-                          child: Container(
-                            width: 180,
-                            height: 50,
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // ── 상단 풀블리드 히어로 ──
+            SizedBox(
+              height: heroH,
+              width: double.infinity,
+              child: SoriEntrance(
+                delay: delay,
+                duration: const Duration(milliseconds: 700),
+                slideY: 0,
+                startScale: 0.98,
+                child: heroFullBleed
+                    ? Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          if (useVideo)
+                            SoriPosterLoop(
+                              videoAsset: videoAsset!,
+                              poster: Image.asset(
+                                imageAsset,
+                                fit: BoxFit.cover,
+                                filterQuality: FilterQuality.high,
+                                errorBuilder: _heroFallback,
+                              ),
+                            )
+                          else
+                            Image.asset(
+                              imageAsset,
+                              fit: BoxFit.cover,
+                              alignment: Alignment.center,
+                              filterQuality: FilterQuality.high,
+                              errorBuilder: _heroFallback,
+                            ),
+                          // 밑변 스크림 — 히어로를 어둠 배경으로 자연스레 연결.
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Container(
+                              height: heroH * 0.42,
+                              decoration: const BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    Color(0x000E1A18),
+                                    Color(0xFF0E1A18),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    // 투명 PNG(호랑이) → contain 중앙 + 글로우 (잘림 없음).
+                    : Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: 240,
+                            height: 130,
                             decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(100),
+                              borderRadius: BorderRadius.circular(130),
                               gradient: RadialGradient(
                                 colors: [
-                                  accentColor.withValues(alpha: 0.35),
+                                  accentColor.withValues(alpha: 0.32),
                                   accentColor.withValues(alpha: 0.0),
                                 ],
                               ),
                             ),
                           ),
-                        ),
-                        // 메인 비주얼 — 루프 영상(page1 live) / 이미지 / 호랑이
-                        if (videoAsset != null &&
-                            TigerStageVideo.videoReady &&
-                            !SoriMotion.reduceMotion(context))
-                          Positioned(
-                            bottom: 0,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: SizedBox(
-                                height: stageH - 12,
-                                width: (c.maxWidth - 72).clamp(160.0, 280.0),
-                                child: SoriPosterLoop(
-                                  videoAsset: videoAsset!,
-                                  poster: Image.asset(
-                                    imageAsset,
-                                    fit: BoxFit.cover,
-                                    filterQuality: FilterQuality.high,
-                                    errorBuilder: (_, __, ___) =>
-                                        const Mascot.tiger(
-                                          size: 150,
-                                          emotion: MascotEmotion.smile,
-                                          animate: true,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
-                        else
-                          Positioned(
-                            bottom: 0,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24),
                             child: Image.asset(
                               imageAsset,
-                              height: stageH - 12,
+                              height: heroH * 0.88,
                               fit: BoxFit.contain,
                               filterQuality: FilterQuality.high,
-                              errorBuilder: (_, __, ___) => const Mascot.tiger(
-                                size: 150,
-                                emotion: MascotEmotion.smile,
-                                animate: true,
-                              ),
+                              errorBuilder: _heroFallback,
                             ),
                           ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 28),
-
-                // ── 제목 ──
-                SoriEntrance(
-                  delay: Duration(milliseconds: delay.inMilliseconds + 160),
-                  slideY: 10,
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 24,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                      letterSpacing: -0.4,
-                      height: 1.15,
-                      shadows: [
-                        Shadow(
-                          color: Color(0x44000000),
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 12),
-
-                // ── 한 줄 설명 ──
-                SoriEntrance(
-                  delay: Duration(milliseconds: delay.inMilliseconds + 240),
-                  slideY: 6,
-                  child: Text(
-                    body,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 14.5,
-                      height: 1.6,
-                      color: Colors.white.withValues(alpha: 0.80),
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 16),
-              ],
+                        ],
+                      ),
+              ),
             ),
-          ),
+
+            // ── 하단 텍스트(제목 + 본문) ──
+            Expanded(
+              child: SingleChildScrollView(
+                padding: soriClampPadding(
+                  c.maxWidth,
+                  // bottom 150 = 하단 dot·버튼 오버레이 여유.
+                  base: const EdgeInsets.fromLTRB(28, 22, 28, 150),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SoriEntrance(
+                      delay: Duration(
+                        milliseconds: delay.inMilliseconds + 160,
+                      ),
+                      slideY: 10,
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: 'Pretendard',
+                          fontSize: 30,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white,
+                          letterSpacing: -0.4,
+                          height: 1.18,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 14),
+                    SoriEntrance(
+                      delay: Duration(
+                        milliseconds: delay.inMilliseconds + 240,
+                      ),
+                      slideY: 6,
+                      child: Text(
+                        body,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pretendard',
+                          fontSize: 17.5,
+                          height: 1.55,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white.withValues(alpha: 0.94),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         );
       },
     );

@@ -1,23 +1,55 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/hanok_tokens.dart';
+import '../widgets/sori/hanok/giwa_pattern.dart';
+import '../widgets/sori/hanok/hanji_texture.dart';
 import '../widgets/sori/ambient_particles.dart';
+import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/sheet.dart';
+import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/account_nudge.dart';
 import '../models/scenario.dart';
+import '../services/course_progress_service.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/sori/responsive.dart';
+import 'placement_diagnostic_screen.dart';
 
 /// Erstes-Launch Onboarding — Nutzer wählt CEFR-Level.
 ///
-/// **v3 (2026-05-29) — Option 3 Cinematic 시퀀스**
-/// 인트로(솟을대문 시네마틱)의 직접 연속. 사용자는 게이트를 통과해 마당에 도착했고,
-/// 호랑이가 마당에서 환영하는 풍경. gate_final 풍경이 full-bleed 배경.
-/// 호랑이 + 말풍선이 hero, 4 level은 2×2 grid의 단청 carved sign으로.
+/// **v4 (2026-07-31) — 「마당의 아침」 한지 재구축**
+///
+/// v3는 `gate_final.png`(어두운 사진) full-bleed 위에 흰 글씨를 얹는
+/// 시네마틱 구성이었다. 아래 문제로 전면 재설계했다 —
+/// 진단 근거는 `docs/DESIGN_CRITIQUE_ONBOARDING_2026-07-31.md`.
+///
+/// 1. **대비가 사진에 종속** — Ken Burns 팬(1.08배)으로 배경이 계속 움직여
+///    같은 글씨가 프레임마다 2.49:1 ~ 19.4:1 사이를 오갔다. 온보딩 첫
+///    *의사결정* 화면은 정보 밀도가 높아 사진 위 텍스트에 부적합.
+///    → 한지 크림 위 먹색으로 **13.0:1 이상 고정**.
+/// 2. **레벨 설명 잘림** — `maxLines: 1` + ellipsis라 A2가
+///    "Begrüßungen, einfache Be…"로 끊겼다. 레벨 선택에 가장 필요한 정보가
+///    바로 그 문장인데. → 줄 수 제한 제거, 폰트 11 → 13.5.
+/// 3. **A1·A2 배지 색이 동일** — `SoriColors.success`와 `.primary`가 v6.0에서
+///    같은 `#1F7A6B`가 됐다. → [HanokLevelPalette] 사계 4색 + **채움 도트**로
+///    서열을 색 없이도 읽히게 (색각 이상 대응).
+/// 4. **한국어 예문에 번역이 없음** — A0 학습자가 「아메리카노 톨」을 읽을 수
+///    없다. arb에 `onboardingExample*Trans`가 이미 있는데 **한 번도 쓰이지
+///    않고 있었다**. → 예문 아래 모국어 뜻 병기.
+/// 5. **호랑이 인사가 한글 고정** — 한글을 못 읽는 첫 화면 사용자에게
+///    「환영해요!」는 소외 신호. → `onboardingTigerGreeting`을 de/en으로 번역
+///    (기기 언어 자동).
+///
+/// **한옥 어휘**: 한지 결([HanjiTexture]) · 기와 처마([GiwaPattern]) ·
+/// 사계 단청 색띠 · 벚꽃 입자([AmbientParticles]). 인트로 솟을대문과의 연속성은
+/// 사진이 아니라 **히어로 영상 속 마당 풍경 + 떨어지는 꽃잎**이 잇는다.
 class OnboardingLevelScreen extends StatefulWidget {
   const OnboardingLevelScreen({super.key});
 
@@ -26,59 +58,69 @@ class OnboardingLevelScreen extends StatefulWidget {
 }
 
 class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
-  // Lern-Beispiele bleiben hartkodiert (sprach-agnostisch — koreanischer Inhalt).
+  /// 히어로 루프 영상 — `welcome-hero.mp4` 채택 (기존 underscore 파일 대신).
+  ///
+  /// 전 121프레임 픽셀 스캔 비교 (2026-07-31):
+  /// | 항목 | welcome_hero | welcome_hero2 |
+  /// |------|--------------|---------------|
+  /// | 해상도 | **960×960** (프로젝트 규격) | 1280×720 (16:9) |
+  /// | 피사체 점유 면적 | **44.6%** | 25.7% |
+  /// | 루프 이음새 diff | 14.5 (인접의 11.9배) | 5.3 (인접의 10.4배) |
+  ///
+  /// 세로 폰 히어로는 정사각이 맞다 — 16:9를 정사각 슬롯에 넣으면 좌우 40%가
+  /// 잘려 어깨 위 까치가 화면 밖으로 나간다. 같은 슬롯 크기에서 호랑이 얼굴이
+  /// 약 1.7배 커서 마스코트 첫 대면 인상도 우세. 둘 다 이음새가 있으나
+  /// (최적 루프 구간 f12~f110, 양쪽 공통) 정제는 원본 에셋 보존을 위해
+  /// 별도 작업으로 남긴다.
+  static const String _heroVideo = 'assets/video/loops/welcome-hero.mp4';
+  static const String _heroPoster =
+      'assets/illustrations/hanok/welcome-hero.png';
+
+  /// 히어로 영상 배경의 실측 가장자리 색(#ECDDCD) — 페이지 상단을 이 색으로
+  /// 깔아 영상 사각형의 이음매를 눈에 보이지 않게 한다. 값을 바꾸면 히어로
+  /// 주변에 옅은 사각 테두리가 드러나므로 영상 교체 시 재측정할 것.
+  static const Color _heroBackdrop = Color(0xFFECDDCD);
+
+  /// 학습 예문은 언어 무관(한국어 콘텐츠)이라 하드코딩.
+  ///
+  /// **v4에서 문장을 완성형으로 복원**: v3의 「아메리카노 톨」·「영화 봤어요」·
+  /// 「회의가 길어서」는 조각 문장이라 arb의 번역
+  /// (`onboardingExampleB1Trans` = "Gestern war ich mit einem Freund im Kino…")
+  /// 과 짝이 맞지 않았다. 번역문이 가리키던 원래 문장으로 되돌린다.
+  /// **문장 길이 자체가 레벨 차이의 가장 직관적인 신호**이기도 하다.
   static const _exampleKo = {
     LearnerLevel.a1: '안녕하세요',
-    LearnerLevel.a2: '아메리카노 톨',
-    LearnerLevel.b1: '영화 봤어요',
-    LearnerLevel.b2: '회의가 길어서',
+    LearnerLevel.a2: '아메리카노 한 잔 주세요',
+    LearnerLevel.b1: '어제 친구랑 영화 봤어요',
+    LearnerLevel.b2: '회의가 길어져서 좀 늦을 것 같아요',
   };
 
-  Color _colorFor(LearnerLevel level) {
-    switch (level) {
-      case LearnerLevel.a1:
-        return SoriColors.success;
-      case LearnerLevel.a2:
-        return SoriColors.primary;
-      case LearnerLevel.b1:
-        return SoriColors.warning;
-      case LearnerLevel.b2:
-        return SoriColors.hangul;
-    }
-  }
+  String _titleFor(AppL10n t, LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => t.onboardingLevelA1,
+    LearnerLevel.a2 => t.onboardingLevelA2,
+    LearnerLevel.b1 => t.onboardingLevelB1,
+    LearnerLevel.b2 => t.onboardingLevelB2,
+  };
 
-  String _titleFor(AppL10n t, LearnerLevel level) {
-    switch (level) {
-      case LearnerLevel.a1:
-        return t.onboardingLevelA1;
-      case LearnerLevel.a2:
-        return t.onboardingLevelA2;
-      case LearnerLevel.b1:
-        return t.onboardingLevelB1;
-      case LearnerLevel.b2:
-        return t.onboardingLevelB2;
-    }
-  }
+  String _descFor(AppL10n t, LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => t.onboardingLevelA1Desc,
+    LearnerLevel.a2 => t.onboardingLevelA2Desc,
+    LearnerLevel.b1 => t.onboardingLevelB1Desc,
+    LearnerLevel.b2 => t.onboardingLevelB2Desc,
+  };
 
-  String _descFor(AppL10n t, LearnerLevel level) {
-    switch (level) {
-      case LearnerLevel.a1:
-        return t.onboardingLevelA1Desc;
-      case LearnerLevel.a2:
-        return t.onboardingLevelA2Desc;
-      case LearnerLevel.b1:
-        return t.onboardingLevelB1Desc;
-      case LearnerLevel.b2:
-        return t.onboardingLevelB2Desc;
-    }
-  }
+  String _glossFor(AppL10n t, LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => t.onboardingExampleA1Trans,
+    LearnerLevel.a2 => t.onboardingExampleA2Trans,
+    LearnerLevel.b1 => t.onboardingExampleB1Trans,
+    LearnerLevel.b2 => t.onboardingExampleB2Trans,
+  };
 
   Future<void> _select(BuildContext context, LearnerLevel level) async {
     HapticFeedback.mediumImpact();
-    await Storage.setUserLevelCode(level.code);
+    await CourseProgressService.shared.initializeForPlacement(level.code);
+    await Storage.setBrowseLevelCode(level.code);
     if (!context.mounted) return;
-    // P1-2: G8 첫날 환영 모달 (이미지 준비 후 활성화)
-    // await _showWelcomeModal(context, level);
     await showAccountNudgeSheet(context);
     if (!context.mounted) return;
     Navigator.pushReplacementNamed(context, '/');
@@ -86,87 +128,162 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
 
   Future<void> _skip(BuildContext context) async {
     HapticFeedback.selectionClick();
-    await Storage.setUserLevelCode(LearnerLevel.a1.code);
-    if (!context.mounted) return;
-    await showAccountNudgeSheet(context);
-    if (!context.mounted) return;
-    Navigator.pushReplacementNamed(context, '/');
+    await _select(context, LearnerLevel.a1);
+  }
+
+  Future<void> _openDiagnostic(BuildContext context) async {
+    HapticFeedback.selectionClick();
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => PlacementDiagnosticScreen(
+          onChooseLevel: (levelCode) {
+            final level = LearnerLevel.fromCode(levelCode);
+            if (level == null) {
+              throw FormatException('Unsupported placement level: $levelCode');
+            }
+            return _select(context, level);
+          },
+        ),
+      ),
+    );
+  }
+
+  String _diagnosticLabel(BuildContext context) =>
+      Localizations.localeOf(context).languageCode == 'en'
+      ? 'Not sure? Take 8 questions'
+      : 'Unsicher? 8 Fragen beantworten';
+
+  Future<void> _openCompare(BuildContext context) async {
+    HapticFeedback.selectionClick();
+    await showSoriSheet<void>(
+      context: context,
+      builder: (ctx) => _LevelCompareSheet(
+        titleFor: _titleFor,
+        exampleKo: _exampleKo,
+        onSelect: (lvl) {
+          Navigator.of(ctx).pop();
+          _select(context, lvl);
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
-    return Scaffold(
-      backgroundColor: const Color(0xFF0E1A18),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          // ── 1. 마당 풍경 fullbleed — 인트로의 직접 연속 ──────────────
-          // 사용자가 솟을대문을 통과해 도착한 마당. Ken Burns 미세 줌으로 호흡.
-          Positioned.fill(
-            child: SoriKenBurns(
-              period: const Duration(seconds: 50),
-              maxScale: 1.08,
-              panAmount: 0.06,
-              child: Image.asset(
-                'assets/illustrations/hanok/gate_final.png',
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-                filterQuality: FilterQuality.medium,
-              ),
-            ),
-          ),
-
-          // ── 2. 가독성 gradient overlay (위:어둠 → 아래: 더 어둠) ──────
-          Positioned.fill(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.black.withValues(alpha: 0.10),
-                    Colors.black.withValues(alpha: 0.45),
-                    Colors.black.withValues(alpha: 0.80),
-                  ],
-                  stops: const [0.0, 0.45, 1.0],
+    // 한지 배경은 밝다 → 상태바 아이콘을 어둡게 강제(그렇지 않으면 흰 아이콘이
+    // 크림 위에서 사라진다). 인트로가 dark 스타일로 두고 나가므로 명시 필요.
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark, // Android
+        statusBarBrightness: Brightness.light, // iOS
+      ),
+      child: Scaffold(
+        backgroundColor: HanokColors.hanjiCream,
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            // ── 1. 아침 마당 그라데이션 ────────────────────────────────
+            // 상단 32%는 히어로 영상의 실측 배경색(#ECDDCD)으로 평평하게 깔아
+            // 영상 사각형 경계를 지운다. 그 아래로 한지 크림으로 밝아진다.
+            const Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      _heroBackdrop,
+                      _heroBackdrop,
+                      HanokColors.hanjiCream,
+                      HanokColors.hanjiCream,
+                    ],
+                    stops: [0.0, 0.32, 0.62, 1.0],
+                  ),
                 ),
               ),
             ),
-          ),
 
-          // ── 3. Ambient 입자 — 따뜻한 불씨 ────────────────────────────
-          const Positioned.fill(
-            child: IgnorePointer(child: AmbientParticles(count: 14)),
-          ),
+            // ── 2. 한지 결 ─────────────────────────────────────────────
+            // base color의 **알파는 0**(아래 그라데이션을 덮지 않음)이지만 RGB는
+            // 크림이다. `_HanjiPainter`가 `baseColor.computeLuminance() > 0.5`로
+            // 밝기 분기를 하는데 `Colors.transparent`(RGB 0,0,0)를 주면 다크
+            // 모드 섬유색(거의 흰색)이 선택돼 결이 통째로 사라진다.
+            const Positioned.fill(
+              child: IgnorePointer(
+                child: HanjiTexture(
+                  color: Color(0x00FAF6EC),
+                  noiseAlpha: 0.09,
+                  child: SizedBox.expand(),
+                ),
+              ),
+            ),
 
-          // ── 4. Content ───────────────────────────────────────────────
-          SafeArea(
-            child: LayoutBuilder(
-              builder: (context, c) {
-                return SingleChildScrollView(
-                  padding: soriClampPadding(
-                    c.maxWidth,
-                    base: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                  ),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: c.maxHeight - 32,
+            // ── 3. 벚꽃 입자 — 인트로에서 이어지는 유일한 연속성 장치 ──
+            const Positioned.fill(
+              child: IgnorePointer(child: AmbientParticles(count: 12)),
+            ),
+
+            // ── 4. Content ─────────────────────────────────────────────
+            SafeArea(
+              child: LayoutBuilder(
+                builder: (context, c) {
+                  // 히어로 정사각 한 변. 오른쪽 말풍선이 최소 폭을 확보하도록
+                  // **콘텐츠 폭의 절반**을 넘지 않게 한다.
+                  // `clamp`는 num을 돌려주고 상·하한이 뒤집히면 assert가 터지므로
+                  // (아주 좁은 창) min/max로 명시 계산한다.
+                  final contentW =
+                      math.min(c.maxWidth, SoriBreakpoints.content) -
+                      Spacing.lg * 2;
+                  final double hero = math.max(
+                    108.0,
+                    math.min(
+                      math.min(c.maxHeight * 0.21, 200.0),
+                      contentW * 0.50,
+                    ),
+                  );
+
+                  return SingleChildScrollView(
+                    padding: soriClampPadding(
+                      c.maxWidth,
+                      base: const EdgeInsets.fromLTRB(
+                        Spacing.lg,
+                        Spacing.sm,
+                        Spacing.lg,
+                        Spacing.xl,
+                      ),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const SizedBox(height: 12),
-
-                        // ── Tiger + 말풍선 hero ──
-                        _TigerWelcome(
+                        // ── 호랑이 히어로 + 말풍선 ──
+                        _WelcomeHero(
+                          side: hero,
                           greeting: t.onboardingTigerGreeting,
+                          videoAsset: _heroVideo,
+                          posterAsset: _heroPoster,
                         ),
 
-                        const SizedBox(height: 20),
+                        // ── 기와 처마 — 히어로와 본문을 가르는 지붕선 ──
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 320),
+                          slideY: 6,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: Spacing.sm,
+                              bottom: Spacing.lg,
+                            ),
+                            child: GiwaPattern(
+                              height: HanokSizing.giwaRowHeight,
+                              tileWidth: 15,
+                              color: HanokColors.hwangto.withValues(alpha: 0.5),
+                            ),
+                          ),
+                        ),
 
-                        // ── Title (smaller, more grounded) ──
+                        // ── 타이틀 ──
                         SoriEntrance(
                           delay: const Duration(milliseconds: 380),
                           slideY: 12,
@@ -174,148 +291,196 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                             t.onboardingTitle,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              fontFamily: 'Pretendard',
-                              fontSize: 22,
-                              fontWeight: FontWeight.w900,
-                              color: Colors.white,
-                              letterSpacing: -0.3,
-                              height: 1.15,
-                              shadows: [
-                                Shadow(
-                                  color: Color(0x55000000),
-                                  blurRadius: 8,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
+                              fontFamily: SoriFonts.sans,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w800,
+                              color: SoriColors.lightText,
+                              letterSpacing: -0.4,
+                              height: 1.2,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: Spacing.sm),
                         SoriEntrance(
                           delay: const Duration(milliseconds: 440),
                           slideY: 8,
                           child: Text(
                             t.onboardingSubtitle,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Pretendard',
-                              fontSize: 12.5,
-                              color: Colors.white.withValues(alpha: 0.78),
+                            style: const TextStyle(
+                              fontFamily: SoriFonts.sans,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: SoriColors.lightTextMuted,
                               height: 1.45,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 22),
+                        const SizedBox(height: Spacing.xl),
 
-                        // ── 4-card 2×2 grid (단청 sign style) ──
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 540),
-                          slideY: 22,
-                          child: _LevelGrid(
-                            t: t,
-                            colorFor: _colorFor,
-                            titleFor: _titleFor,
-                            descFor: _descFor,
-                            exampleKo: _exampleKo,
-                            onSelect: (lvl) => _select(context, lvl),
+                        // ── 레벨 사다리 (세로 4단) ──
+                        for (
+                          var i = 0;
+                          i < LearnerLevel.values.length;
+                          i++
+                        ) ...[
+                          SoriEntrance(
+                            delay: Duration(milliseconds: 520 + i * 70),
+                            slideY: 18,
+                            child: _LevelCard(
+                              level: LearnerLevel.values[i],
+                              title: _titleFor(t, LearnerLevel.values[i]),
+                              desc: _descFor(t, LearnerLevel.values[i]),
+                              exampleKo: _exampleKo[LearnerLevel.values[i]]!,
+                              gloss: _glossFor(t, LearnerLevel.values[i]),
+                              difficultyLabel: t.onboardingDifficulty,
+                              onTap: () =>
+                                  _select(context, LearnerLevel.values[i]),
+                            ),
                           ),
-                        ),
+                          if (i < LearnerLevel.values.length - 1)
+                            const SizedBox(height: Spacing.md),
+                        ],
 
-                        const SizedBox(height: 18),
+                        const SizedBox(height: Spacing.lg),
 
-                        // ── 작은 안내 + skip ──
+                        // ── 「뭐가 다른가요?」 비교 시트 진입 ──
                         SoriEntrance(
-                          delay: const Duration(milliseconds: 720),
+                          delay: const Duration(milliseconds: 820),
                           slideY: 6,
-                          child: Text(
-                            t.onboardingPrompt,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Pretendard',
-                              fontSize: 11,
-                              color: Colors.white.withValues(alpha: 0.55),
-                            ),
+                          child: _CompareCta(
+                            label: t.onboardingCompareCta,
+                            onTap: () => _openCompare(context),
                           ),
                         ),
-                        const SizedBox(height: 6),
-                        Center(
-                          child: TextButton(
-                            onPressed: () => _skip(context),
-                            child: Text(
-                              t.onboardingSkip,
-                              style: TextStyle(
-                                fontFamily: 'Pretendard',
-                                color: Colors.white.withValues(alpha: 0.75),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 13,
+
+                        const SizedBox(height: Spacing.sm),
+
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 850),
+                          slideY: 6,
+                          child: _CompareCta(
+                            label: _diagnosticLabel(context),
+                            onTap: () => _openDiagnostic(context),
+                          ),
+                        ),
+
+                        const SizedBox(height: Spacing.sm),
+
+                        // ── 안내문 + 나중에 결정 ──
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 880),
+                          slideY: 4,
+                          child: Column(
+                            children: [
+                              Text(
+                                t.onboardingPrompt,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontFamily: SoriFonts.sans,
+                                  fontSize: 12.5,
+                                  fontWeight: FontWeight.w500,
+                                  color: SoriColors.lightTextMuted,
+                                  height: 1.4,
+                                ),
                               ),
-                            ),
+                              const SizedBox(height: Spacing.xs),
+                              // 최소 터치 타깃 48dp 보장.
+                              TextButton(
+                                onPressed: () => _skip(context),
+                                style: TextButton.styleFrom(
+                                  minimumSize: const Size(0, 48),
+                                  foregroundColor: SoriColors.primary,
+                                ),
+                                child: Text(
+                                  t.onboardingSkip,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontFamily: SoriFonts.sans,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
+                                    color: SoriColors.primary,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// Tiger welcome with speech bubble
+// 히어로 — 정사각 루프 영상 + 말풍선
 // ─────────────────────────────────────────────────────────────────────────
 
-class _TigerWelcome extends StatelessWidget {
+/// 호랑이 루프 영상(정사각)과 인사 말풍선.
+///
+/// 영상은 **자르지 않는다** — 원 구도를 그대로 보여주고, 페이지 상단을 영상의
+/// 실측 배경색으로 깔아 사각형 경계를 지운다. `videoReady`가 아니거나
+/// reduce-motion이면 포스터 png, 그마저 없으면 정적 [Mascot]으로 조용히 폴백.
+class _WelcomeHero extends StatelessWidget {
+  final double side;
   final String greeting;
-  const _TigerWelcome({required this.greeting});
+  final String videoAsset;
+  final String posterAsset;
+
+  const _WelcomeHero({
+    required this.side,
+    required this.greeting,
+    required this.videoAsset,
+    required this.posterAsset,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final live =
+        TigerStageVideo.videoReady && !SoriMotion.reduceMotion(context);
+
+    final poster = Image.asset(
+      posterAsset,
+      fit: BoxFit.contain,
+      filterQuality: FilterQuality.medium,
+      errorBuilder: (_, __, ___) => Center(
+        child: Mascot.tiger(size: side * 0.82, emotion: MascotEmotion.smile),
+      ),
+    );
+
+    // 호랑이(왼쪽) ↔ 말풍선(오른쪽)을 나란히 둔다. 말풍선을 영상 위에 겹치면
+    // 글자 길이·언어·시스템 글자 배율에 따라 호랑이 얼굴을 가리는 경우가
+    // 생긴다(독일어는 영어보다 평균 20% 길다). Row는 어떤 길이에서도 충돌 0.
     return SoriEntrance(
       duration: const Duration(milliseconds: 820),
-      slideY: 24,
-      startScale: 0.92,
+      slideY: 20,
+      startScale: 0.94,
       child: SizedBox(
-        height: 200,
-        child: Stack(
-          alignment: Alignment.bottomCenter,
+        height: side,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Soft glow halo behind tiger
-            Positioned(
-              bottom: 6,
-              child: Container(
-                width: 200,
-                height: 60,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(100),
-                  gradient: RadialGradient(
-                    colors: [
-                      SoriColors.gold.withValues(alpha: 0.42),
-                      SoriColors.gold.withValues(alpha: 0.0),
-                    ],
-                  ),
-                ),
-              ),
+            SizedBox.square(
+              dimension: side,
+              child: live
+                  ? SoriPosterLoop(videoAsset: videoAsset, poster: poster)
+                  : poster,
             ),
-            // Tiger (animate: breathe + blink)
-            const Positioned(
-              bottom: 0,
-              child: Mascot.tiger(
-                size: 170,
-                emotion: MascotEmotion.smile,
-                animate: true,
+            const SizedBox(width: Spacing.md),
+            // Align이 loose 제약을 넘겨 말풍선이 글자 길이만큼만 shrink-wrap 된다
+            // (Expanded 직속이면 짧은 영어 문구에도 꽉 찬 상자가 돼 어색하다).
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: _SpeechBubble(text: greeting),
               ),
-            ),
-            // Speech bubble
-            Positioned(
-              top: 0,
-              right: 18,
-              child: _SpeechBubble(text: greeting),
             ),
           ],
         ),
@@ -331,30 +496,25 @@ class _SpeechBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: _BubbleTailPainter(
-        bgColor: Colors.white.withValues(alpha: 0.96),
-      ),
+      painter: _BubbleTailPainter(bgColor: HanokColors.baek),
       child: Container(
-        constraints: const BoxConstraints(maxWidth: 200),
-        padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
+        padding: const EdgeInsets.fromLTRB(14, 11, 14, 13),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.96),
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.18),
-              blurRadius: 14,
-              offset: const Offset(0, 4),
-            ),
-          ],
+          color: HanokColors.baek,
+          borderRadius: BorderRadius.circular(SoriRadius.md),
+          border: Border.all(
+            color: HanokColors.hwangto.withValues(alpha: 0.35),
+            width: 1,
+          ),
+          boxShadow: SoriElevation.medium,
         ),
         child: Text(
           text,
           style: const TextStyle(
-            fontFamily: 'Pretendard',
-            fontSize: 13.5,
+            fontFamily: SoriFonts.sans,
+            fontSize: 15,
             fontWeight: FontWeight.w700,
-            color: Color(0xFF1F1A14),
+            color: HanokColors.hanjiInk, // #2C2419 on #F5F0E6 → 13.6:1
             height: 1.35,
             letterSpacing: -0.1,
           ),
@@ -367,199 +527,588 @@ class _SpeechBubble extends StatelessWidget {
 class _BubbleTailPainter extends CustomPainter {
   final Color bgColor;
   _BubbleTailPainter({required this.bgColor});
+
   @override
   void paint(Canvas canvas, Size size) {
     final p = Paint()..color = bgColor;
-    // Tail pointing down-left (toward tiger)
+    // 꼬리는 **왼쪽**(호랑이 방향)으로. CustomPaint는 기본적으로 자식 경계를
+    // 클립하지 않으므로 x<0 영역에 그려도 잘리지 않는다.
+    final cy = size.height * 0.42;
     final tail = Path()
-      ..moveTo(size.width * 0.15, size.height - 2)
-      ..lineTo(size.width * 0.05, size.height + 14)
-      ..lineTo(size.width * 0.30, size.height - 2)
+      ..moveTo(2, cy - 9)
+      ..lineTo(-11, cy + 2)
+      ..lineTo(2, cy + 11)
       ..close();
     canvas.drawPath(tail, p);
   }
 
   @override
-  bool shouldRepaint(_BubbleTailPainter old) => false;
+  bool shouldRepaint(_BubbleTailPainter old) => old.bgColor != bgColor;
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// 4-level grid (2×2) — 단청 carved wood sign style
+// 레벨 카드 — 세로 사다리 1단
 // ─────────────────────────────────────────────────────────────────────────
 
-class _LevelGrid extends StatelessWidget {
-  final AppL10n t;
-  final Color Function(LearnerLevel) colorFor;
-  final String Function(AppL10n, LearnerLevel) titleFor;
-  final String Function(AppL10n, LearnerLevel) descFor;
-  final Map<LearnerLevel, String> exampleKo;
-  final void Function(LearnerLevel) onSelect;
-
-  const _LevelGrid({
-    required this.t,
-    required this.colorFor,
-    required this.titleFor,
-    required this.descFor,
-    required this.exampleKo,
-    required this.onSelect,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final levels = LearnerLevel.values;
-    return Column(
-      children: [
-        for (int row = 0; row < 2; row++) ...[
-          Row(
-            children: [
-              for (int col = 0; col < 2; col++) ...[
-                Expanded(
-                  child: _LevelSign(
-                    level: levels[row * 2 + col],
-                    color: colorFor(levels[row * 2 + col]),
-                    title: titleFor(t, levels[row * 2 + col]),
-                    desc: descFor(t, levels[row * 2 + col]),
-                    exampleKo: exampleKo[levels[row * 2 + col]]!,
-                    onTap: () => onSelect(levels[row * 2 + col]),
-                  ),
-                ),
-                if (col == 0) const SizedBox(width: 12),
-              ],
-            ],
-          ),
-          if (row == 0) const SizedBox(height: 12),
-        ],
-      ],
-    );
-  }
-}
-
-class _LevelSign extends StatelessWidget {
+/// 한 레벨 = 한지 카드 + 좌측 사계 단청 색띠.
+///
+/// 정보 순서는 학습자가 실제로 판단하는 순서를 따른다:
+/// **배지 → 난이도 도트 → 이름 → 설명 → 이 레벨의 한국어 예문 + 모국어 뜻.**
+/// 어떤 텍스트에도 `maxLines`를 걸지 않는다 — 잘린 설명이 v3의 최대 결함이었고,
+/// 시스템 글자 크기를 200%로 키워도 문장이 온전히 보이게 하기 위함이다.
+class _LevelCard extends StatelessWidget {
   final LearnerLevel level;
-  final Color color;
   final String title;
   final String desc;
   final String exampleKo;
+  final String gloss;
+  final String difficultyLabel;
   final VoidCallback onTap;
 
-  const _LevelSign({
+  const _LevelCard({
     required this.level,
-    required this.color,
     required this.title,
     required this.desc,
     required this.exampleKo,
+    required this.gloss,
+    required this.difficultyLabel,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SoriPressable(
+    final color = HanokLevelPalette.of(level.code);
+    final rank = HanokLevelPalette.rankOf(level.code);
+
+    // 카드 전체를 하나의 접근성 노드로 합친다 — 스크린리더가 배지·점·화살표를
+    // 따로 읽지 않고 "A2 · Grundkenntnisse … Schwierigkeit 2/4" 한 번에 읽는다.
+    return Semantics(
+      button: true,
       onTap: onTap,
-      haptic: SoriHaptic.light,
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(12, 12, 12, 14),
-        decoration: BoxDecoration(
-          // Glass-like translucent dancheong wood sign
-          color: Colors.white.withValues(alpha: 0.10),
-          borderRadius: BorderRadius.circular(SoriRadius.lg),
-          border: Border.all(
-            color: color.withValues(alpha: 0.55),
-            width: 1.4,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.30),
-              blurRadius: 16,
-              offset: const Offset(0, 6),
+      label:
+          '${level.display} · $title. $desc. '
+          '$difficultyLabel $rank/${HanokLevelPalette.rankCount}.',
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          onTap: onTap,
+          haptic: SoriHaptic.light,
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              color: HanokColors.baek,
+              // 처마 곡선 — 위쪽 모서리를 더 크게.
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(
+                  SoriRadius.md + HanokSizing.eavesBoostTop,
+                ),
+                topRight: Radius.circular(
+                  SoriRadius.md + HanokSizing.eavesBoostTop,
+                ),
+                bottomLeft: Radius.circular(SoriRadius.md),
+                bottomRight: Radius.circular(SoriRadius.md),
+              ),
+              border: Border.all(
+                // 크림 배경과 3:1 이상 — WCAG 2.1 SC 1.4.11.
+                color: SoriColors.lightBorderStrong.withValues(alpha: 0.55),
+                width: 1,
+              ),
+              boxShadow: SoriElevation.low,
             ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Level badge + arrow
-            Row(
+            // Stack + Positioned(top·bottom) 으로 색띠를 카드 높이만큼 늘린다.
+            // `IntrinsicHeight`를 쓰면 여러 줄 Text의 intrinsic 측정이 매 프레임
+            // 두 번 도는 데다 텍스트 배율이 커질수록 오차가 생긴다.
+            child: Stack(
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  decoration: BoxDecoration(
-                    color: color,
-                    borderRadius: BorderRadius.circular(SoriRadius.sm),
-                  ),
-                  child: Text(
-                    level.display,
-                    style: const TextStyle(
-                      fontFamily: 'Pretendard',
-                      fontSize: 12,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                      letterSpacing: 0.6,
-                    ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 12, 12, 13),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // 배지 + 이름 + 난이도 도트 + chevron
+                      Row(
+                        children: [
+                          _LevelBadge(text: level.display, color: color),
+                          const SizedBox(width: Spacing.sm),
+                          Expanded(
+                            child: Text(
+                              title,
+                              style: const TextStyle(
+                                fontFamily: SoriFonts.sans,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w800,
+                                color: SoriColors.lightText,
+                                letterSpacing: -0.2,
+                                height: 1.2,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          _RankDots(rank: rank, color: color),
+                          const SizedBox(width: Spacing.xs),
+                          const Icon(
+                            Icons.chevron_right_rounded,
+                            size: 22,
+                            color: SoriColors.lightTextMuted,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      // 설명 — 잘리지 않는다.
+                      Text(
+                        desc,
+                        style: const TextStyle(
+                          fontFamily: SoriFonts.sans,
+                          fontSize: 13.5,
+                          fontWeight: FontWeight.w500,
+                          color: SoriColors.lightTextMuted,
+                          height: 1.35,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      // 이 레벨에서 다루는 한국어 + 모국어 뜻.
+                      _ExampleRow(ko: exampleKo, gloss: gloss, color: color),
+                    ],
                   ),
                 ),
-                const Spacer(),
-                Icon(
-                  Icons.arrow_forward_rounded,
-                  size: 18,
-                  color: Colors.white.withValues(alpha: 0.85),
+                // 사계 단청 색띠 — 카드 왼쪽 전체 높이.
+                Positioned(
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  width: 6,
+                  child: ColoredBox(color: color),
                 ),
               ],
             ),
-            const SizedBox(height: 10),
-            // Title
-            Text(
-              title,
-              style: const TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 14,
-                fontWeight: FontWeight.w800,
-                color: Colors.white,
-                letterSpacing: -0.2,
-                height: 1.15,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 2),
-            // Desc (1 line)
-            Text(
-              desc,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 11,
-                color: Colors.white.withValues(alpha: 0.70),
-                height: 1.3,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 8),
-            // Korean example chip
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _LevelBadge extends StatelessWidget {
+  final String text;
+  final Color color;
+  const _LevelBadge({required this.text, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+      decoration: BoxDecoration(color: color, borderRadius: SoriRadius.brSm),
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontFamily: SoriFonts.sans,
+          fontSize: 13,
+          fontWeight: FontWeight.w900,
+          color: Colors.white, // 네 색 모두 흰 글씨 4.86:1 이상
+          letterSpacing: 0.6,
+          height: 1.1,
+        ),
+      ),
+    );
+  }
+}
+
+/// 난이도 서열을 **색이 아닌 형태**로 전달하는 채움 도트 (rank/4).
+///
+/// [HanokLevelPalette]의 사계 4색은 상호 명도 대비가 1.02~1.34:1이라 색각
+/// 이상 사용자에겐 서열이 보이지 않는다. 이 도트가 그 정보를 대신 전달한다.
+class _RankDots extends StatelessWidget {
+  final int rank;
+  final Color color;
+  const _RankDots({required this.rank, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (var i = 1; i <= HanokLevelPalette.rankCount; i++)
+          Padding(
+            padding: const EdgeInsets.only(left: 3),
+            child: Container(
+              width: HanokSizing.dancheongDotMd + 1,
+              height: HanokSizing.dancheongDotMd + 1,
               decoration: BoxDecoration(
-                color: Colors.black.withValues(alpha: 0.32),
-                borderRadius: BorderRadius.circular(SoriRadius.sm),
+                shape: BoxShape.circle,
+                color: i <= rank ? color : Colors.transparent,
+                border: i <= rank
+                    ? null
+                    : Border.all(
+                        color: SoriColors.lightBorderStrong.withValues(
+                          alpha: 0.7,
+                        ),
+                        width: 1,
+                      ),
               ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+/// 한국어 예문 + 모국어 뜻.
+///
+/// 한글은 라틴 문자보다 같은 px에서 작아 보이므로 16px/w700로 키운다.
+/// 뜻은 12.5px muted — 예문이 주인공, 뜻은 이해를 위한 보조.
+class _ExampleRow extends StatelessWidget {
+  final String ko;
+  final String gloss;
+  final Color color;
+  const _ExampleRow({
+    required this.ko,
+    required this.gloss,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(11, 9, 11, 10),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.07),
+        borderRadius: SoriRadius.brSm,
+        border: Border(
+          left: BorderSide(color: color.withValues(alpha: 0.45), width: 2),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            ko,
+            style: const TextStyle(
+              fontFamily: SoriFonts.sans,
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: SoriColors.lightText,
+              height: 1.3,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            gloss,
+            style: const TextStyle(
+              fontFamily: SoriFonts.sans,
+              fontSize: 12.5,
+              fontWeight: FontWeight.w500,
+              color: SoriColors.lightTextMuted,
+              height: 1.35,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// 「뭐가 다른가요?」 — 비교 CTA + 시트
+// ─────────────────────────────────────────────────────────────────────────
+
+class _CompareCta extends StatelessWidget {
+  final String label;
+  final VoidCallback onTap;
+  const _CompareCta({required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return SoriPressable(
+      onTap: onTap,
+      haptic: SoriHaptic.selection,
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 48),
+        padding: const EdgeInsets.symmetric(
+          horizontal: Spacing.lg,
+          vertical: Spacing.md,
+        ),
+        decoration: BoxDecoration(
+          color: SoriColors.primarySoft.withValues(alpha: 0.75),
+          borderRadius: SoriRadius.brMd,
+          border: Border.all(
+            color: SoriColors.primary.withValues(alpha: 0.30),
+            width: 1,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.help_outline_rounded,
+              size: 19,
+              color: SoriColors.primaryDark,
+            ),
+            const SizedBox(width: Spacing.sm),
+            Flexible(
               child: Text(
-                exampleKo,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 12,
+                label,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontFamily: SoriFonts.sans,
+                  fontSize: 14,
                   fontWeight: FontWeight.w700,
-                  color: color.computeLuminance() < 0.5
-                      ? Colors.white
-                      : Colors.white,
-                  height: 1.2,
+                  color: SoriColors.primaryDark, // #0E443B on #DCEEE8 → 9.9:1
+                  height: 1.3,
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
               ),
+            ),
+            const SizedBox(width: Spacing.xs),
+            const Icon(
+              Icons.expand_more_rounded,
+              size: 19,
+              color: SoriColors.primaryDark,
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+/// 레벨 4단을 「이미 할 수 있는 것 / 여기서 배우는 것」 두 축으로 비교한다.
+///
+/// 카드 한 장에 다 넣으면 첫 화면이 무거워지므로 시트로 분리했다.
+/// 시트 안에서도 곧바로 선택할 수 있어 되돌아가는 단계가 없다.
+class _LevelCompareSheet extends StatelessWidget {
+  final String Function(AppL10n, LearnerLevel) titleFor;
+  final Map<LearnerLevel, String> exampleKo;
+  final void Function(LearnerLevel) onSelect;
+
+  const _LevelCompareSheet({
+    required this.titleFor,
+    required this.exampleKo,
+    required this.onSelect,
+  });
+
+  String _canFor(AppL10n t, LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => t.onboardingLevelA1Can,
+    LearnerLevel.a2 => t.onboardingLevelA2Can,
+    LearnerLevel.b1 => t.onboardingLevelB1Can,
+    LearnerLevel.b2 => t.onboardingLevelB2Can,
+  };
+
+  String _learnFor(AppL10n t, LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => t.onboardingLevelA1Learn,
+    LearnerLevel.a2 => t.onboardingLevelA2Learn,
+    LearnerLevel.b1 => t.onboardingLevelB1Learn,
+    LearnerLevel.b2 => t.onboardingLevelB2Learn,
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          t.onboardingCompareTitle,
+          style: const TextStyle(
+            fontFamily: SoriFonts.sans,
+            fontSize: 20,
+            fontWeight: FontWeight.w800,
+            color: SoriColors.lightText,
+            letterSpacing: -0.3,
+            height: 1.25,
+          ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          t.onboardingCompareIntro,
+          style: const TextStyle(
+            fontFamily: SoriFonts.sans,
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: SoriColors.lightTextMuted,
+            height: 1.45,
+          ),
+        ),
+        const SizedBox(height: Spacing.lg),
+        for (final lvl in LearnerLevel.values) ...[
+          _CompareRow(
+            level: lvl,
+            title: titleFor(t, lvl),
+            can: _canFor(t, lvl),
+            learn: _learnFor(t, lvl),
+            exampleKo: exampleKo[lvl]!,
+            canLabel: t.onboardingCompareColCan,
+            learnLabel: t.onboardingCompareColLearn,
+            exampleLabel: t.onboardingExampleLabel,
+            difficultyLabel: t.onboardingDifficulty,
+            onTap: () => onSelect(lvl),
+          ),
+          const SizedBox(height: Spacing.md),
+        ],
+        const SizedBox(height: Spacing.xs),
+        SizedBox(
+          height: 48,
+          child: TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            style: TextButton.styleFrom(foregroundColor: SoriColors.primary),
+            child: Text(
+              t.onboardingCompareClose,
+              style: const TextStyle(
+                fontFamily: SoriFonts.sans,
+                fontSize: 14,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CompareRow extends StatelessWidget {
+  final LearnerLevel level;
+  final String title;
+  final String can;
+  final String learn;
+  final String exampleKo;
+  final String canLabel;
+  final String learnLabel;
+  final String exampleLabel;
+  final String difficultyLabel;
+  final VoidCallback onTap;
+
+  const _CompareRow({
+    required this.level,
+    required this.title,
+    required this.can,
+    required this.learn,
+    required this.exampleKo,
+    required this.canLabel,
+    required this.learnLabel,
+    required this.exampleLabel,
+    required this.difficultyLabel,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final color = HanokLevelPalette.of(level.code);
+    final rank = HanokLevelPalette.rankOf(level.code);
+
+    return Semantics(
+      button: true,
+      onTap: onTap,
+      label:
+          '${level.display} · $title. '
+          '$difficultyLabel $rank/${HanokLevelPalette.rankCount}. '
+          '$canLabel: $can. $learnLabel: $learn. '
+          '$exampleLabel: $exampleKo.',
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          onTap: onTap,
+          haptic: SoriHaptic.light,
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              color: HanokColors.hanjiCream,
+              borderRadius: SoriRadius.brMd,
+              border: Border.all(
+                color: SoriColors.lightBorderStrong.withValues(alpha: 0.5),
+                width: 1,
+              ),
+            ),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(19, 12, 13, 13),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: [
+                          _LevelBadge(text: level.display, color: color),
+                          const SizedBox(width: Spacing.sm),
+                          Expanded(
+                            child: Text(
+                              title,
+                              style: const TextStyle(
+                                fontFamily: SoriFonts.sans,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w800,
+                                color: SoriColors.lightText,
+                                height: 1.2,
+                              ),
+                            ),
+                          ),
+                          _RankDots(rank: rank, color: color),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      _CompareLine(label: canLabel, value: can),
+                      const SizedBox(height: 7),
+                      _CompareLine(
+                        label: learnLabel,
+                        value: learn,
+                        accent: color,
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  width: 6,
+                  child: ColoredBox(color: color),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _CompareLine extends StatelessWidget {
+  final String label;
+  final String value;
+  final Color? accent;
+  const _CompareLine({required this.label, required this.value, this.accent});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          label.toUpperCase(),
+          style: TextStyle(
+            fontFamily: SoriFonts.sans,
+            fontSize: 10.5,
+            fontWeight: FontWeight.w800,
+            color: accent ?? SoriColors.lightTextMuted,
+            letterSpacing: 0.7,
+            height: 1.2,
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          value,
+          style: const TextStyle(
+            fontFamily: SoriFonts.sans,
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: SoriColors.lightText,
+            height: 1.4,
+          ),
+        ),
+      ],
     );
   }
 }

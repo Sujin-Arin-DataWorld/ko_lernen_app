@@ -3,10 +3,14 @@ import 'dart:math';
 
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../models/content_id.dart';
+
 /// Ein Lückentext-Item (Cloze): ein echter Beispielsatz mit einer Lücke.
 /// Quelle: `assets/data/cloze.json` (von tools/content_factory/build_cloze.py
 /// aus muttersprachlich geprüften Sätzen erzeugt — keine neue Übersetzung).
 class ClozeItem {
+  /// Immutable source identity from `assets/data/cloze.json`.
+  final String _sourceId;
   final String level; // a1 / a2 / b1 / b2
   final String sentenceKo; // mit ＿＿＿ als Lücke
   final String answer; // das fehlende Wort
@@ -17,6 +21,7 @@ class ClozeItem {
   final String topic;
 
   const ClozeItem({
+    String id = '',
     required this.level,
     required this.sentenceKo,
     required this.answer,
@@ -25,9 +30,24 @@ class ClozeItem {
     required this.en,
     required this.distractors,
     this.topic = '',
-  });
+  }) : _sourceId = id;
+
+  /// The shipped corpus uses the raw `id`. The hash is exclusively a legacy
+  /// compatibility fallback for fixtures that predate explicit IDs.
+  String get id => hasExplicitId
+      ? _sourceId.trim()
+      : stableContentId('cloze_legacy', [
+          level,
+          sentenceKo,
+          answer,
+          fullKo,
+          topic,
+        ]);
+
+  bool get hasExplicitId => _sourceId.trim().isNotEmpty;
 
   factory ClozeItem.fromJson(Map<String, dynamic> j) => ClozeItem(
+    id: j['id']?.toString() ?? '',
     level: (j['level'] as String? ?? '').toLowerCase(),
     sentenceKo: j['sentenceKo'] as String? ?? '',
     answer: j['answer'] as String? ?? '',

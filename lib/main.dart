@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'theme.dart';
 import 'motion/transitions.dart';
 import 'services/storage_service.dart';
+import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
@@ -73,6 +74,7 @@ import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
 import 'screens/onboarding_level_screen.dart';
+import 'screens/course_mission_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
@@ -81,6 +83,8 @@ import 'widgets/sori/dancheong_burst.dart';
 import 'widgets/sori/content_feedback_card.dart';
 import 'widgets/sori/tiger_stage_rive.dart';
 import 'widgets/sori/tiger_video.dart';
+import 'widgets/sori/mascot_preference.dart';
+import 'widgets/sori/route_observer.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -88,6 +92,8 @@ Future<void> main() async {
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
   await Storage.touchStreak();
+  // SFX 전역 오디오 세션: 타 앱 음악과 mix + 무음 스위치 존중 (ADR-002 §5-3).
+  await AudioPolicy.instance.applyPlatformAudioContext();
   try {
     await BookImageService.initialize();
   } catch (error) {
@@ -136,6 +142,10 @@ Future<void> main() async {
   // 호랑이 영상(홈 밴드·온보딩 인사) 활성화. 별도 init 불필요 — 플래그만.
   // 테스트는 false 유지 → 프레임/마스코트 폴백(플러그인 채널 미호출).
   TigerStageVideo.videoReady = true;
+
+  // 선택된 캐릭터를 전역 notifier 로 올린다. Storage 초기화 뒤여야 한다.
+  // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).
+  MascotPreference.load();
 
   // The resolver must finish before the first frame. Otherwise a dedicated
   // per-scenario illustration can be silently replaced by its category
@@ -376,6 +386,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
         theme: AppTheme.lightFor(paletteVariantNotifier.value),
         darkTheme: AppTheme.lightFor(paletteVariantNotifier.value),
         themeMode: ThemeMode.light,
+        // 영상 위젯이 "내 화면 위에 다른 화면이 올라왔는지"를 알아야
+        // 디코더를 놓을 수 있다 (route_observer.dart 주석 참조).
+        navigatorObservers: [soriRouteObserver],
         locale: localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
@@ -434,8 +447,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/vocab':
               // Phase 2 (stately-rising-jongga): default vocab entry =
               // Pack-Marktplatz (Grid).
+              final vocabCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
-                (_) => const VocabPacksScreen(),
+                (_) => VocabPacksScreen(courseUnitId: vocabCourseUnitId),
                 settings: settings,
               );
             case '/vocab/pack':
@@ -488,8 +502,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/cloze':
+              final clozeCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
-                (_) => const ClozeGameScreen(),
+                (_) => ClozeGameScreen(courseUnitId: clozeCourseUnitId),
                 settings: settings,
               );
             case '/speed_match':
@@ -503,8 +518,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/satz_arcade':
+              final satzCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
-                (_) => const SatzArcadeScreen(),
+                (_) => SatzArcadeScreen(courseUnitId: satzCourseUnitId),
                 settings: settings,
               );
             case '/settings':
@@ -655,6 +671,12 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/path':
               return SoriTransitions.fadeScale(
                 (_) => const LearningPathScreen(),
+                settings: settings,
+              );
+            case '/course/mission':
+              final missionCourseUnitId = settings.arguments as String?;
+              return SoriTransitions.fadeScale(
+                (_) => CourseMissionScreen(courseUnitId: missionCourseUnitId),
                 settings: settings,
               );
             case '/scenario':

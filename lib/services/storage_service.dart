@@ -266,6 +266,7 @@ class Storage {
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static final Set<String> _unknownStrictKeys = <String>{};
+  static String? _courseMasteryCache;
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
@@ -282,6 +283,7 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _unknownStrictKeys.clear();
+    _courseMasteryCache = null;
   }
 
   // ───────── Generic helpers ─────────
@@ -801,6 +803,26 @@ class Storage {
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 
+  // ── 사운드 (ADR-002 §3-4 확정 키 스킴 — 임의 키명 금지) ──────────────
+  // 기본값은 AudioPolicy 가 인자로 넘긴다. 여기서 기본을 박으면 채널 기본값
+  // 표(ADR §3-1)와 이중 진실이 된다.
+  static bool get sndMaster => _b('kl_snd_master', true);
+  static Future<void> setSndMaster(bool v) => _sb('kl_snd_master', v);
+  static double get sndMasterVol => _d('kl_snd_master_vol', 1.0);
+  static Future<void> setSndMasterVol(double v) => _sd('kl_snd_master_vol', v);
+  static bool sndChannelOn(String id, bool dflt) => _b('kl_snd_$id', dflt);
+  static Future<void> setSndChannelOn(String id, bool v) =>
+      _sb('kl_snd_$id', v);
+  static double sndChannelVol(String id, double dflt) =>
+      _d('kl_snd_${id}_vol', dflt);
+  static Future<void> setSndChannelVol(String id, double v) =>
+      _sd('kl_snd_${id}_vol', v);
+  static bool get sndDuck => _b('kl_snd_duck', true);
+  static Future<void> setSndDuck(bool v) => _sb('kl_snd_duck', v);
+  static bool get sndRespectSilent => _b('kl_snd_respect_silent', true);
+  static Future<void> setSndRespectSilent(bool v) =>
+      _sb('kl_snd_respect_silent', v);
+
   /// Werbung anzeigen? Default true. User kann in Settings deaktivieren.
   static bool get adsEnabled => _prefs?.getBool('kl_ads_enabled') ?? true;
   static Future<void> setAdsEnabled(bool v) async =>
@@ -1153,6 +1175,83 @@ class Storage {
 
   static Future<void> setUserLevelCode(String code) =>
       _ss('kl_user_level', code);
+
+  // ───────── Kursplatzierung und Kursgraph (v1) ─────────
+  // These keys intentionally do not reuse `kl_user_level`: that legacy key
+  // still drives old library filters and must remain readable while screens
+  // migrate to the course graph. Only an explicit placement mirrors it.
+  static const String placementLevelPreferenceKey = 'kl_placement_level_v1';
+  static const String browseLevelPreferenceKey = 'kl_browse_level_v1';
+  static const String courseUnitPreferenceKey = 'kl_course_unit_v1';
+  static const String courseMasteryPreferenceKey = 'kl_course_mastery_v1';
+
+  static String? _optionalString(String key) {
+    final value = _s(key).trim();
+    return value.isEmpty ? null : value;
+  }
+
+  /// Placement comes from the diagnostic or direct start-level selection.
+  /// Fallback keeps users of the pre-course app on their existing level until
+  /// a new placement has been saved.
+  static String? get placementLevelCode =>
+      _optionalString(placementLevelPreferenceKey) ?? userLevelCode;
+
+  /// The library filter never changes the actual course placement or legacy
+  /// user level. It is deliberately independent from sequential progress.
+  static String? get browseLevelCode =>
+      _optionalString(browseLevelPreferenceKey);
+
+  /// The one active sequential course mission, independent from a library
+  /// level filter and from vocabulary-pack progress.
+  static String? get courseUnitId => _optionalString(courseUnitPreferenceKey);
+
+  /// JSON owned by [CourseMasteryService]. Storage does not parse it so the
+  /// service can reject malformed or catalog-incompatible evidence strictly.
+  static String get courseMasteryRawJson =>
+      _courseMasteryCache ?? _s(courseMasteryPreferenceKey);
+
+  static Future<void> setPlacementLevelCode(String code) async {
+    final normalized = code.trim().toLowerCase();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(code, 'code', 'must not be empty');
+    }
+    await _ss(placementLevelPreferenceKey, normalized);
+    // Compatibility mirror only. Browse-level writes must not do this.
+    await setUserLevelCode(normalized);
+  }
+
+  static Future<void> setBrowseLevelCode(String code) async {
+    final normalized = code.trim().toLowerCase();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(code, 'code', 'must not be empty');
+    }
+    await _ss(browseLevelPreferenceKey, normalized);
+  }
+
+  static Future<void> setCourseUnitId(String unitId) async {
+    final normalized = unitId.trim();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(unitId, 'unitId', 'must not be empty');
+    }
+    await _ss(courseUnitPreferenceKey, normalized);
+  }
+
+  static Future<void> setCourseMasteryRawJson(
+    String json, {
+    PreferenceStringStore? preferences,
+  }) async {
+    // Course unlock state must not get ahead of durable storage. The strict
+    // path also resolves a platform call that reported failure after commit.
+    await _ssStrict(courseMasteryPreferenceKey, json, preferences: preferences);
+    _courseMasteryCache = json;
+  }
+
+  /// Test-only: forgets the in-memory mirror; mocked preferences remain the
+  /// persistence boundary so a subsequent [Storage.init] can exercise reload.
+  @visibleForTesting
+  static void resetCourseMasteryForTesting() {
+    _courseMasteryCache = null;
+  }
 
   /// XP-Gesamtpunkte. Level = (xp / 100) + 1.
   static int get xp => _i('kl_xp');

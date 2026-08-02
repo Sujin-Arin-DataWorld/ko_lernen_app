@@ -3,17 +3,20 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
+import '../models/curriculum.dart';
+import '../models/vocab.dart';
 import '../services/cloze_loader.dart';
+import '../services/course_activity_reporter.dart';
+import '../services/curriculum_catalog.dart';
+import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/cloze_prompt.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
@@ -28,7 +31,11 @@ class ClozeGameScreen extends StatefulWidget {
   /// Optional test fixture; production loads the curated cloze asset.
   final List<ClozeItem>? items;
 
-  const ClozeGameScreen({super.key, this.items});
+  /// When opened from a course mission, only graph-linked items are drawn.
+  /// Library entry keeps the existing all-level behavior.
+  final String? courseUnitId;
+
+  const ClozeGameScreen({super.key, this.items, this.courseUnitId});
 
   @override
   State<ClozeGameScreen> createState() => _ClozeGameScreenState();
@@ -39,6 +46,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   static const _levels = ['a1', 'a2', 'b1', 'b2'];
 
   List<ClozeItem> _all = const [];
+  Map<String, Vocab> _vocabByKo = const {};
   bool _loading = true;
   String? _level; // null = alle
   int _roundId = 0;
@@ -59,15 +67,30 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   Future<void> _load() async {
     final loaded = widget.items ?? await ClozeLoader.load();
     final all = List<ClozeItem>.of(loaded);
+    final vocab = await DataLoader.loadVocab();
+    final catalog = widget.courseUnitId == null
+        ? null
+        : await CurriculumCatalog.load();
     if (!mounted) return;
     // Startlevel = Nutzerlevel, falls es dafür Items gibt; sonst alle.
-    final user = Storage.userLevelCode;
+    final user = Storage.browseLevelCode ?? Storage.placementLevelCode;
     final start = (user != null && all.any((c) => c.level == user))
         ? user
         : null;
+    final courseIds = catalog == null
+        ? const <String>{}
+        : catalog
+              .linksForCourseUnit(widget.courseUnitId!)
+              .where((link) => link.contentKind == CurriculumContentKind.cloze)
+              .map((link) => link.contentId)
+              .toSet();
+    final scoped = catalog == null
+        ? all
+        : all.where((item) => courseIds.contains(item.id)).toList();
     setState(() {
-      _all = all;
-      _level = start;
+      _all = scoped;
+      _vocabByKo = {for (final v in vocab) v.korean: v};
+      _level = catalog == null ? start : null;
       _loading = false;
     });
     _newRound();
@@ -96,6 +119,13 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final ok = option == item.answer;
     setState(() => _picked = option);
     Storage.srsReview(item.answer, gotIt: ok); // Kontext-Abruf → Haupt-SRS
+    // ignore: discarded_futures
+    CourseActivityReporter.recordContentAttempt(
+      CurriculumContentKind.cloze,
+      item.id,
+      ok,
+      errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
+    );
     if (ok) {
       _score++;
       HapticFeedback.lightImpact();
@@ -218,62 +248,20 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                     t.clozeInstruction,
                     style: TextStyle(fontSize: 13, color: s.textMuted),
                   ),
-                  const SizedBox(height: Spacing.sm),
-                  SoriCard(
-                    variant: SoriCardVariant.hero,
-                    accent: SoriColors.primary,
-                    tinted: true,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: Spacing.lg,
-                        horizontal: Spacing.sm,
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            item.sentenceKo,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 26,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                          const SizedBox(height: Spacing.sm),
-                          Text(
-                            item.meaning(lang),
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 14, color: s.textMuted),
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.volume_up_rounded, size: 24),
-                            onPressed: () => TtsService.speak(item.fullKo),
-                          ),
-                        ],
-                      ),
-                    ),
+                  const SizedBox(height: Spacing.md),
+                  ClozePromptCard(
+                    item: item,
+                    lang: lang,
+                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
                   ),
-                  const SizedBox(height: Spacing.lg),
+                  const SizedBox(height: Spacing.xl),
                   Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          for (final opt in options)
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                bottom: Spacing.sm,
-                              ),
-                              child: QuizChoice(
-                                text: opt,
-                                isCorrect: opt == item.answer,
-                                isSelected: _picked == opt,
-                                revealed: revealed,
-                                onSelected: revealed
-                                    ? null
-                                    : () => _pick(item, opt),
-                              ),
-                            ),
-                        ],
-                      ),
+                    child: ClozeOptionsList(
+                      options: options,
+                      answer: item.answer,
+                      picked: _picked,
+                      revealed: revealed,
+                      onPick: (opt) => _pick(item, opt),
                     ),
                   ),
                 ],
@@ -286,6 +274,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   }
 
   Widget _levelBar(AppL10n t) {
+    if (widget.courseUnitId != null) return const SizedBox.shrink();
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.only(bottom: Spacing.sm),
