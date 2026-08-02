@@ -31,6 +31,29 @@ void main() {
 
   tearDown(() => cloudJournalState.dispose());
 
+  testWidgets('settings shows the current release version', (tester) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final version = find.text('Version 2.0.3');
+    await _ensureSettingsActionVisible(tester, version);
+
+    expect(version, findsOneWidget);
+  });
+
   testWidgets('settings link entry confirms before safe operation starts', (
     tester,
   ) async {

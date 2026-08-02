@@ -1,4 +1,4 @@
-# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.2+8)
+# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.3+9)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -50,6 +50,30 @@ Enjoy building your hanok!
 ```
 
 (ca. 470 chars)
+
+---
+
+## 이번 내부 테스트 릴리스 노트 — Build 2.0.3+9 (2026-08-03)
+
+> Play Console 내부 테스트 "출시 노트"에는 아래 **독일어·영어 태그 포함 텍스트만** 붙여넣기.
+> 출시 이름: `9 · Testerfeedback + Ergebnisstabilität`
+
+```text
+<de-DE>
+Neu in diesem Build:
+• Tiger Pulse: Nach jedem Lernergebnis kannst du direkt Feedback zu Qualität und Schwierigkeit geben
+• Fehler melden: Beschreibe Bereich, erwartetes und tatsächliches Ergebnis sowie Häufigkeit
+• Ergebnisverbesserungen: Deine gewählte Begleitfigur bleibt auch in der Feedback-Karte erhalten
+• Besser auf kleinen Bildschirmen: Antworten im persönlichen Vokabelquiz lassen sich jetzt scrollen
+</de-DE>
+<en-US>
+New in this build:
+• Tiger Pulse: Share direct feedback on quality and difficulty after every learning result
+• Report bugs with the affected area, expected and actual result, and frequency
+• Improved results: Your selected companion stays with the feedback card
+• Better on smaller screens: Personal wordbook quiz answers can now scroll
+</en-US>
+```
 
 ---
 
