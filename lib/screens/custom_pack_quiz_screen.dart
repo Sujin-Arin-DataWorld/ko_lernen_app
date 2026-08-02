@@ -270,22 +270,30 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                   ),
                 ),
                 const SizedBox(height: Spacing.lg),
-                KeyedSubtree(
-                  key: _optionsKey,
-                  child: Column(
-                    children: _options.map((opt) {
-                      final revealed = _picked != null;
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: Spacing.sm),
-                        child: QuizChoice(
-                          text: opt,
-                          isCorrect: opt == correct,
-                          isSelected: _picked == opt,
-                          revealed: revealed,
-                          onSelected: revealed ? null : () => _pick(opt),
-                        ),
-                      );
-                    }).toList(),
+                // Four choices can exceed a short device viewport once the
+                // prompt card is present. Keep the learning prompt visible
+                // and make only the answer list scroll, rather than letting
+                // the whole result route overflow below the fold.
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: KeyedSubtree(
+                      key: _optionsKey,
+                      child: Column(
+                        children: _options.map((opt) {
+                          final revealed = _picked != null;
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: Spacing.sm),
+                            child: QuizChoice(
+                              text: opt,
+                              isCorrect: opt == correct,
+                              isSelected: _picked == opt,
+                              revealed: revealed,
+                              onSelected: revealed ? null : () => _pick(opt),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ),
                   ),
                 ),
               ],

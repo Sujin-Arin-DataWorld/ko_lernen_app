@@ -260,7 +260,14 @@ Future<void> _tapCorrectChoice(WidgetTester tester) async {
   final choice = find.byWidgetPredicate(
     (widget) => widget is QuizChoice && widget.isCorrect && !widget.revealed,
   );
+  // The cloze and daily screens finish their first state update from initState.
+  // Wait for the rendered choice rather than assuming one pump is enough.
+  for (var attempt = 0; attempt < 20 && choice.evaluate().isEmpty; attempt++) {
+    await tester.pump(const Duration(milliseconds: 25));
+  }
   expect(choice, findsOneWidget);
+  await tester.ensureVisible(choice);
+  await tester.pump();
   await tester.tap(choice);
   await tester.pump();
 }

@@ -289,7 +289,7 @@ class _GameOverCardState extends State<GameOverCard>
                         feedbackContext: widget.feedbackContext!,
                         featureGate: feedbackFeatureGate,
                         submitFeedback: feedbackSubmitter,
-                        mascotKind: widget.mascotKind,
+                        mascotKind: kindOrPreferred,
                         completedMissionIds: feedbackCompletedMissionIds,
                       ),
                     ],

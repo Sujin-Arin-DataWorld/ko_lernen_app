@@ -72,7 +72,11 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
 
   Future<void> _load() async {
     final all = widget.items ?? await ClozeLoader.load();
-    final vocab = await DataLoader.loadVocab();
+    // Keep injected item fixtures independent from the vocabulary asset. The
+    // production path still loads it to enrich the translation gloss.
+    final vocab = widget.items == null
+        ? await DataLoader.loadVocab()
+        : const <Vocab>[];
     if (!mounted) return;
     final round = DailyChallengeScreen.pickDaily(
       all,

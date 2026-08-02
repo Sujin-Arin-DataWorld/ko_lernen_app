@@ -67,7 +67,12 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   Future<void> _load() async {
     final loaded = widget.items ?? await ClozeLoader.load();
     final all = List<ClozeItem>.of(loaded);
-    final vocab = await DataLoader.loadVocab();
+    // An injected item list is a deterministic test fixture, not a partial
+    // production dataset. It must not wait on an unrelated asset load before
+    // showing the supplied round.
+    final vocab = widget.items == null
+        ? await DataLoader.loadVocab()
+        : const <Vocab>[];
     final catalog = widget.courseUnitId == null
         ? null
         : await CurriculumCatalog.load();

@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/widgets/sori/content_feedback_sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/progress.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 
@@ -1121,6 +1122,44 @@ void main() {
 
     expect(find.byKey(const Key('content-feedback-card')), findsOneWidget);
   });
+
+  testWidgets(
+    'GameOverCard forwards the selected preferred mascot to feedback when no override is set',
+    (tester) async {
+      final originalKind = MascotPreference.kind.value;
+      addTearDown(() => MascotPreference.kind.value = originalKind);
+      MascotPreference.kind.value = MascotKind.magpie;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('en'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: ContentFeedbackControllerScope(
+            featureGate: const TesterFeedbackFeatureGate(enabled: true),
+            submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+              status: ContentFeedbackSubmitStatus.accepted,
+            ),
+            resumePending: _emptyResumeResult,
+            child: const Scaffold(
+              body: GameOverCard(
+                headline: 'Result',
+                xpGained: 0,
+                celebrate: false,
+                feedbackContext: _feedbackContext,
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final feedbackCard = tester.widget<ContentFeedbackCard>(
+        find.byType(ContentFeedbackCard),
+      );
+      expect(feedbackCard.mascotKind, MascotKind.magpie);
+    },
+  );
 }
 
 Future<void> _openSheet(WidgetTester tester) async {
