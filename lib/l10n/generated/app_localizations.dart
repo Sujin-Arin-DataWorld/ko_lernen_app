@@ -289,6 +289,12 @@ abstract class AppL10n {
   /// **'Verlässlich & mutig'**
   String get characterTraitTiger;
 
+  /// No description provided for @characterDescTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein ruhiger, treuer Tiger, der dich Schritt für Schritt begleitet und dir Mut macht, wenn es mal schwer wird.'**
+  String get characterDescTiger;
+
   /// No description provided for @characterNameMagpie.
   ///
   /// In de, this message translates to:
@@ -300,6 +306,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Fröhlich & lebendig'**
   String get characterTraitMagpie;
+
+  /// No description provided for @characterDescMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine quirlige Elster mit Hut, die jeden Erfolg lautstark feiert und gute Laune in jede Lektion bringt.'**
+  String get characterDescMagpie;
 
   /// No description provided for @reviewTitle.
   ///

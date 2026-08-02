@@ -35,8 +35,10 @@
   "homeFirstWeekTitle": "Deine erste Woche",
   "characterNameTiger": "든든이",
   "characterTraitTiger": "Verlässlich & mutig",
+  "characterDescTiger": "Ein ruhiger, treuer Tiger, der dich Schritt für Schritt begleitet und dir Mut macht, wenn es mal schwer wird.",
   "characterNameMagpie": "쌤쌤이",
   "characterTraitMagpie": "Fröhlich & lebendig",
+  "characterDescMagpie": "Eine quirlige Elster mit Hut, die jeden Erfolg lautstark feiert und gute Laune in jede Lektion bringt.",
 
   "reviewTitle": "Heute wiederholen",
   "reviewEmptyTitle": "Alles erledigt!",

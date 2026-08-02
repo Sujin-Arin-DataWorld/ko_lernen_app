@@ -157,8 +157,10 @@ class CharacterClips {
 /// - [loop]=false(원샷)일 때 종료되면 [onCompleted] 1회 호출 — 실패·폴백
 ///   경로에서도 [fallbackCompleteAfter] 뒤에 반드시 호출되므로 네비게이션
 ///   체인에 안전하게 쓸 수 있다.
-/// - [sfxAsset]: 클립 시작과 동시에 best-effort로 재생할 효과음
-///   (예: 'sfx/greet_tiger.mp3'). 파일이 없거나 실패해도 조용히 무시.
+/// - [sfxAsset]: 위젯 표시와 동시에 best-effort로 재생할 효과음
+///   (예: 'sfx/greet_tiger.mp3'). 영상 lease grant 를 **기다리지 않는다** —
+///   느린 디코더 핸드오프에 소리가 유실되지 않게. 파일이 없거나 실패해도
+///   조용히 무시.
 class CharacterClipPlayer extends StatefulWidget {
   final String asset;
   final double size;
@@ -231,10 +233,15 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     super.didChangeDependencies();
     _eligibility.attach(context);
     _syncEligibility();
-    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
-      // 영상이 꺼져 있어도(reduce-motion 포함) 소리는 남긴다 —
-      // "애니메이션 줄이기"는 움직임에 대한 설정이지 소리에 대한 설정이 아니다.
+    // 효과음은 영상 lease 와 **독립**으로, 위젯이 보이는 순간 바로 재생한다.
+    // grant 를 기다리면 디코더 핸드오프가 느린 기기에서 워치독
+    // (fallbackCompleteAfter)이 먼저 화면을 넘겨 소리가 통째로 사라진다
+    // (2026-08-02 실기기: 까치 첫 인사 무음). reduce-motion 이어도 재생 —
+    // "애니메이션 줄이기"는 움직임에 대한 설정이지 소리에 대한 설정이 아니다.
+    if (_eligibility.isVisible(context)) {
       _playSfxOnce();
+    }
+    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
       _completion?.fallbackNeeded();
     }
   }
@@ -259,10 +266,17 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   /// 동반 효과음 — 명시 지정([CharacterClipPlayer.sfxAsset])이 없으면
   /// 클립에서 자동 유도. 볼륨·on/off 는 [AudioPolicy] companion 채널이 결정한다.
+  ///
+  /// **루프 재생은 자동 유도를 무시한다** — [CharacterClips.sfxFor]의 인사·
+  /// 축하음은 일회성 연출용인데, 같은 클립을 대기 루프로 쓰는 화면(구 캐릭터
+  /// 선택 미리보기 tiger_rise, 프로필 초상 tigerStretch·magpieFlight)에서
+  /// 마운트마다 소리가 반복 재생되는 사고가 났다(2026-08-02 실기기).
   Future<void> _playSfxOnce() async {
     final volume = AudioPolicy.instance.volumeFor(SoundChannel.companion);
     if (volume <= 0) return;
-    final sfx = widget.sfxAsset ?? CharacterClips.sfxFor(widget.asset);
+    final sfx =
+        widget.sfxAsset ??
+        (widget.loop ? null : CharacterClips.sfxFor(widget.asset));
     if (sfx == null) return;
     if (_sfxStarted) return;
     _sfxStarted = true;

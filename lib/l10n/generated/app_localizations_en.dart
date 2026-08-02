@@ -116,10 +116,18 @@ class AppL10nEn extends AppL10n {
   String get characterTraitTiger => 'Reliable & brave';
 
   @override
+  String get characterDescTiger =>
+      'A calm, loyal tiger who walks with you step by step and cheers you up when things get tough.';
+
+  @override
   String get characterNameMagpie => '쌤쌤이';
 
   @override
   String get characterTraitMagpie => 'Cheerful & lively';
+
+  @override
+  String get characterDescMagpie =>
+      'A lively magpie in a little hat who loudly celebrates every win and brings good energy to every lesson.';
 
   @override
   String get reviewTitle => 'Today\'s review';
