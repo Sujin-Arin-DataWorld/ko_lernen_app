@@ -131,9 +131,12 @@ class AccountDeletionCleanupAdapter
 class AccountDeletionWorkflow {
   factory AccountDeletionWorkflow.production({
     required FeedbackOutbox feedbackOutbox,
+    AccountDeletionFeedbackActivator? activateFeedback,
   }) => AccountDeletionWorkflow(
     AccountDeletionCleanupAdapter.production(feedbackOutbox: feedbackOutbox),
-    completeCheckpoint: AuthService.completeLocalAccountDeletionCleanup,
+    completeCheckpoint: () => AuthService.completeLocalAccountDeletionCleanup(
+      activateFeedback: activateFeedback,
+    ),
   );
 
   const AccountDeletionWorkflow(

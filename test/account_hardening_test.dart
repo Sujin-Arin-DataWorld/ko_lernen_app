@@ -230,6 +230,33 @@ void main() {
     );
 
     test(
+      'checkpoint removal precedes feedback activation with the deleted UID',
+      () async {
+        SharedPreferences.setMockInitialValues(<String, Object>{
+          AuthService.accountDeletionCheckpointPreferenceKey: jsonEncode(
+            _completedDeletionCheckpoint().toJson(),
+          ),
+        });
+        final preferences = await SharedPreferences.getInstance();
+        String? activatedDeletedUid;
+        var checkpointPresentDuringActivation = true;
+
+        await AuthService.completeLocalAccountDeletionCleanup(
+          activateFeedback: (deletedUid) async {
+            activatedDeletedUid = deletedUid;
+            checkpointPresentDuringActivation = preferences.containsKey(
+              AuthService.accountDeletionCheckpointPreferenceKey,
+            );
+            return true;
+          },
+        );
+
+        expect(activatedDeletedUid, _completedDeletionCheckpoint().session.uid);
+        expect(checkpointPresentDuringActivation, isFalse);
+      },
+    );
+
+    test(
       'real preference reset preserves completed checkpoint across restart',
       () async {
         SharedPreferences.setMockInitialValues(<String, Object>{

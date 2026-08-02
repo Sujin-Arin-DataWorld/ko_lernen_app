@@ -1134,6 +1134,46 @@ void main() {
 
       expect(result.disabled, isTrue);
     });
+
+    test(
+      'an active deletion journal blocks submit resume and passport before IO',
+      () async {
+        final store = MemoryFeedbackOutboxStore(
+          items: [pendingItem('must-not-resume')],
+        );
+        final client = FakeFeedbackClient();
+        var passportReads = 0;
+        final service = buildService(
+          store: store,
+          client: client,
+          deletionActive: () async => true,
+          passportReader: ContentFeedbackPassportReader(
+            currentUid: () => 'current-uid',
+            readDocument:
+                ({
+                  required ownerUid,
+                  required collectionId,
+                  required documentId,
+                }) async {
+                  passportReads += 1;
+                  return const <String, Object?>{};
+                },
+          ),
+        );
+
+        final submitted = await service.submit(context, draft);
+        final resumed = await service.resumePending();
+        final passport = await service.readPassportState();
+
+        expect(submitted.status, ContentFeedbackSubmitStatus.blockedByDeletion);
+        expect(resumed.blockedByDeletion, isTrue);
+        expect(passport, isEmpty);
+        expect(store.readCount, 0);
+        expect(store.writeCount, 0);
+        expect(client.feedbackIds, isEmpty);
+        expect(passportReads, 0);
+      },
+    );
   });
 
   group('SecureFeedbackOutboxStore', () {
@@ -1437,6 +1477,7 @@ ContentFeedbackService buildService({
   Future<bool> Function()? deletionActive,
   ContentFeedbackVersionProvider? versionProvider,
   String Function()? createFeedbackId,
+  ContentFeedbackPassportReader? passportReader,
 }) {
   return ContentFeedbackService(
     featureGate: TesterFeedbackFeatureGate(enabled: featureEnabled),
@@ -1449,6 +1490,7 @@ ContentFeedbackService buildService({
     platform: () => 'android',
     locale: () => 'de',
     deletionActive: deletionActive ?? () async => false,
+    passportReader: passportReader,
   );
 }
 

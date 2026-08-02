@@ -284,6 +284,22 @@ typedef CompletedDeletionCheckpointReader =
 typedef CompletedDeletionRecovery =
     Future<void> Function(AccountDeletionJournal checkpoint);
 typedef AccountDeletionFeedbackCloser = Future<void> Function();
+typedef AccountDeletionFeedbackActivator =
+    Future<bool> Function(String deletedUid);
+
+bool isCompletedDeletionAlreadyRecovered({
+  required String deletedUid,
+  required String? currentUid,
+  required bool currentIsAnonymous,
+}) {
+  final deleted = deletedUid.trim();
+  final current = currentUid?.trim();
+  return deleted.isNotEmpty &&
+      current != null &&
+      current.isNotEmpty &&
+      current != deleted &&
+      currentIsAnonymous;
+}
 
 Future<void> _noopAccountDeletionFeedbackCloser() async {}
 
@@ -1899,15 +1915,12 @@ class AuthService {
     final failures = <Object>[];
     final auth = _auth;
     final live = current;
-    if (checkpoint.sourceProviders.isEmpty &&
-        live != null &&
-        live.uid != checkpoint.session.uid) {
-      throw const AccountDeletionRecoveryException(<Object>[
-        AccountOperationFailure(
-          AccountOperationFailureCode.blocked,
-          retryable: false,
-        ),
-      ]);
+    if (isCompletedDeletionAlreadyRecovered(
+      deletedUid: checkpoint.session.uid,
+      currentUid: live?.uid,
+      currentIsAnonymous: live?.isAnonymous ?? false,
+    )) {
+      return;
     }
     if (checkpoint.sourceProviders.contains('google')) {
       try {
@@ -1930,7 +1943,7 @@ class AuthService {
       } catch (error) {
         failures.add(error);
       }
-    } else if (!live.isAnonymous) {
+    } else {
       failures.add(
         const AccountOperationFailure(
           AccountOperationFailureCode.blocked,
@@ -1945,7 +1958,9 @@ class AuthService {
     }
   }
 
-  static Future<void> completeLocalAccountDeletionCleanup() async {
+  static Future<void> completeLocalAccountDeletionCleanup({
+    AccountDeletionFeedbackActivator? activateFeedback,
+  }) async {
     final checkpoint = await _accountDeletionJournalStore.read();
     final operationId = checkpoint?.operationId;
     if (checkpoint?.operation?.phase != AccountOperationPhase.completed ||
@@ -1956,6 +1971,7 @@ class AuthService {
       );
     }
     await _accountDeletionJournalStore.clearCompleted(operationId);
+    await activateFeedback?.call(checkpoint!.session.uid);
   }
 
   static Future<AccountDeletionJournal?> readAccountDeletionCheckpoint() =>

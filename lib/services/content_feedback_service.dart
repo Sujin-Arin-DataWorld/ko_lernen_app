@@ -148,6 +148,9 @@ class ContentFeedbackService implements FeedbackOutbox {
 
   Future<Set<String>> readPassportState() async {
     if (!featureGate.isEnabled) return const <String>{};
+    if (_closed) return const <String>{};
+    final deletionActive = await _deletionIsActive();
+    if (_closed || deletionActive) return const <String>{};
     final reader = passportReader;
     if (reader == null) return const <String>{};
     try {

@@ -18,6 +18,30 @@ import 'package:ko_lernen_app/services/content_feedback_version_provider.dart';
 import 'package:ko_lernen_app/services/push_service.dart';
 
 void main() {
+  group('completed deletion identity recovery', () {
+    test('recognizes a different anonymous UID as already recovered', () {
+      expect(
+        isCompletedDeletionAlreadyRecovered(
+          deletedUid: 'deleted-uid',
+          currentUid: 'new-anonymous-uid',
+          currentIsAnonymous: true,
+        ),
+        isTrue,
+      );
+    });
+
+    test('rejects a different non-anonymous UID as recovery', () {
+      expect(
+        isCompletedDeletionAlreadyRecovered(
+          deletedUid: 'deleted-uid',
+          currentUid: 'linked-user',
+          currentIsAnonymous: false,
+        ),
+        isFalse,
+      );
+    });
+  });
+
   group('anonymous credential linking', () {
     for (final provider in AccountLinkProvider.values) {
       test(

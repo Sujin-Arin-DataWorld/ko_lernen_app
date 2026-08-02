@@ -15,6 +15,7 @@ import 'services/book_image_service.dart';
 import 'services/bookshelf_service.dart';
 import 'services/crop_recovery_service.dart';
 import 'services/content_feedback_service.dart';
+import 'services/content_feedback_lifecycle.dart';
 import 'services/picker_recovery_service.dart';
 import 'services/palette_service.dart';
 import 'services/premium_service.dart';
@@ -180,14 +181,14 @@ Future<void> _startCloudServices() async {
     restorePendingAccountState: AuthService.restorePendingAccountState,
     synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
     resumeFeedbackOutbox: () async {
-      await _contentFeedbackService.resumePending();
+      await _contentFeedbackLifecycle.resumePending();
     },
     resumeFirstDurableLinkBackfill:
         AuthService.resumePendingFirstDurableLinkBackfill,
     resumeMediaCleanup: BookImageService.initialize,
     resumeBookshelfSync: BookshelfService.resumePendingSync,
     resumeAccountOperation: () => AuthService.resumePendingAccountDeletion(
-      closeFeedback: _contentFeedbackService.closeAndDiscard,
+      closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
     ),
     initializePremium: () async {
       await PaletteService.fetchAndApply();
@@ -205,13 +206,16 @@ Future<void> _startCloudServices() async {
   }
 }
 
-final ContentFeedbackService _contentFeedbackService =
+Future<bool> _contentFeedbackDeletionActive() =>
+    AuthService.runDurableAccountAdmission<bool>(
+      onAdmitted: () async => false,
+      onBlocked: () async => true,
+    );
+
+ContentFeedbackService _createContentFeedbackService() =>
     ContentFeedbackService.production(
       currentUid: () => AuthService.current?.uid,
-      deletionActive: () => AuthService.runDurableAccountAdmission<bool>(
-        onAdmitted: () async => false,
-        onBlocked: () async => true,
-      ),
+      deletionActive: _contentFeedbackDeletionActive,
       platform: () =>
           defaultTargetPlatform == TargetPlatform.iOS ? 'ios' : 'android',
       locale: () {
@@ -221,8 +225,17 @@ final ContentFeedbackService _contentFeedbackService =
         return languageCode == 'en' ? 'en' : 'de';
       },
     );
-final ContentFeedbackPassportStateReader _contentFeedbackPassportStateReader =
-    _contentFeedbackService.readPassportState;
+
+final ContentFeedbackLifecycle _contentFeedbackLifecycle =
+    ContentFeedbackLifecycle(
+      initialService: _createContentFeedbackService(),
+      createService: _createContentFeedbackService,
+      currentIdentity: () => (
+        uid: AuthService.current?.uid,
+        isAnonymous: AuthService.current?.isAnonymous ?? false,
+      ),
+      durableJournalActive: _contentFeedbackDeletionActive,
+    );
 
 Future<bool> _initFirebase() async {
   try {
@@ -273,9 +286,9 @@ class KoLernenApp extends StatelessWidget {
         localizationsDelegates: AppL10n.localizationsDelegates,
         // Tap außerhalb von Inputs → Tastatur weg
         builder: (context, child) => ContentFeedbackControllerScope(
-          featureGate: _contentFeedbackService.featureGate,
-          submitFeedback: _contentFeedbackService.submit,
-          readPassportState: _contentFeedbackPassportStateReader,
+          featureGate: _contentFeedbackLifecycle.featureGate,
+          submitFeedback: _contentFeedbackLifecycle.submit,
+          readPassportState: _contentFeedbackLifecycle.readPassportState,
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -397,7 +410,9 @@ class KoLernenApp extends StatelessWidget {
               return SoriTransitions.fadeScale(
                 (_) => SettingsScreen(
                   accountDeletionWorkflow: AccountDeletionWorkflow.production(
-                    feedbackOutbox: _contentFeedbackService,
+                    feedbackOutbox: _contentFeedbackLifecycle,
+                    activateFeedback: _contentFeedbackLifecycle
+                        .activateAfterCompletedDeletion,
                   ),
                 ),
                 settings: settings,
