@@ -212,6 +212,13 @@ Future<bool> _contentFeedbackDeletionActive() =>
       onBlocked: () async => true,
     );
 
+Future<bool> _contentFeedbackActivationBlocked(String deletedUid) =>
+    AuthService.runCompletedDeletionFeedbackActivationAdmission<bool>(
+      deletedUid: deletedUid,
+      onAdmitted: () async => false,
+      onBlocked: () async => true,
+    );
+
 ContentFeedbackService _createContentFeedbackService() =>
     ContentFeedbackService.production(
       currentUid: () => AuthService.current?.uid,
@@ -234,7 +241,7 @@ final ContentFeedbackLifecycle _contentFeedbackLifecycle =
         uid: AuthService.current?.uid,
         isAnonymous: AuthService.current?.isAnonymous ?? false,
       ),
-      durableJournalActive: _contentFeedbackDeletionActive,
+      durableJournalActive: _contentFeedbackActivationBlocked,
     );
 
 Future<bool> _initFirebase() async {

@@ -247,11 +247,14 @@ class SrsCard {
 class Storage {
   static const accountDeletionCheckpointPreferenceKey =
       'kl_account_deletion_journal_v1';
+  static const accountDeletionFeedbackActivationCheckpointPreferenceKey =
+      'kl_account_deletion_feedback_activation_v1';
   static const cloudBackupDeletionJournalPreferenceKey =
       'kl_cloud_backup_deletion_journal_v1';
   static const _durableAccountJournalPreferenceKeys = <String>{
     AccountTransitionJournal.storageKey,
     accountDeletionCheckpointPreferenceKey,
+    accountDeletionFeedbackActivationCheckpointPreferenceKey,
     cloudBackupDeletionJournalPreferenceKey,
   };
   static const String _pickerRecoveryMarkerKey = 'kl_picker_recovery_marker_v1';
@@ -1774,36 +1777,41 @@ class Storage {
     );
     final failedKeys = <String>[];
     final causes = <Object>[];
-    String? canonicalCheckpoint;
+    final canonicalCheckpointKeys = <String>[];
     if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
-      try {
-        final raw = store.getValue(accountDeletionCheckpointPreferenceKey);
-        if (raw is! String || raw.isEmpty) {
-          throw const FormatException('Missing account deletion checkpoint.');
-        }
-        canonicalCheckpoint = canonicalize(raw);
-        if (canonicalCheckpoint.isEmpty) {
-          throw const FormatException('Empty account deletion checkpoint.');
-        }
-      } catch (error, stackTrace) {
-        try {
-          await _removeValueStrict(
-            store,
-            accountDeletionCheckpointPreferenceKey,
-          );
-        } catch (removalError) {
-          throw PreferenceResetException(
-            failedKeys: const <String>[accountDeletionCheckpointPreferenceKey],
-            causes: <Object>[error, removalError],
-          );
-        }
-        Error.throwWithStackTrace(error, stackTrace);
-      }
-      await _writeValueStrict(
-        store,
-        accountDeletionCheckpointPreferenceKey,
-        canonicalCheckpoint,
+      canonicalCheckpointKeys.addAll(
+        <String>[
+          accountDeletionCheckpointPreferenceKey,
+          accountDeletionFeedbackActivationCheckpointPreferenceKey,
+        ].where(store.containsKey),
       );
+      if (canonicalCheckpointKeys.isEmpty) {
+        throw const FormatException('Missing account deletion checkpoint.');
+      }
+      for (final checkpointKey in canonicalCheckpointKeys) {
+        String canonicalCheckpoint;
+        try {
+          final raw = store.getValue(checkpointKey);
+          if (raw is! String || raw.isEmpty) {
+            throw const FormatException('Missing account deletion checkpoint.');
+          }
+          canonicalCheckpoint = canonicalize(raw);
+          if (canonicalCheckpoint.isEmpty) {
+            throw const FormatException('Empty account deletion checkpoint.');
+          }
+        } catch (error, stackTrace) {
+          try {
+            await _removeValueStrict(store, checkpointKey);
+          } catch (removalError) {
+            throw PreferenceResetException(
+              failedKeys: <String>[checkpointKey],
+              causes: <Object>[error, removalError],
+            );
+          }
+          Error.throwWithStackTrace(error, stackTrace);
+        }
+        await _writeValueStrict(store, checkpointKey, canonicalCheckpoint);
+      }
     }
     final keys =
         {...store.getKeys(), ..._unknownStrictKeys}
@@ -1860,7 +1868,10 @@ class Storage {
         store.containsKey(AccountTransitionJournal.storageKey) ||
         store.containsKey(cloudBackupDeletionJournalPreferenceKey) ||
         (!allowAccountDeletionCheckpoint &&
-            store.containsKey(accountDeletionCheckpointPreferenceKey));
+            (store.containsKey(accountDeletionCheckpointPreferenceKey) ||
+                store.containsKey(
+                  accountDeletionFeedbackActivationCheckpointPreferenceKey,
+                )));
     if (hasBlockingJournal) {
       throw const CloudBackupDeletionResetBlockedException();
     }

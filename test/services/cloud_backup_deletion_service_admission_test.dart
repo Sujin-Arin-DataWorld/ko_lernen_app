@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -135,6 +136,42 @@ void main() {
       );
 
       expect(operations, isEmpty);
+    },
+  );
+
+  test(
+    'activation handoff blocks ordinary work but admits only its exact UID',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AuthService.accountDeletionFeedbackActivationCheckpointPreferenceKey,
+        _completedActivationCheckpointJson(),
+      );
+
+      final ordinary = await AuthService.runDurableAccountAdmission<bool>(
+        onAdmitted: () async => true,
+        onBlocked: () async => false,
+      );
+      final exact =
+          await AuthService.runCompletedDeletionFeedbackActivationAdmission<
+            bool
+          >(
+            deletedUid: 'deleted-source',
+            onAdmitted: () async => true,
+            onBlocked: () async => false,
+          );
+      final wrong =
+          await AuthService.runCompletedDeletionFeedbackActivationAdmission<
+            bool
+          >(
+            deletedUid: 'different-source',
+            onAdmitted: () async => true,
+            onBlocked: () async => false,
+          );
+
+      expect(ordinary, isFalse);
+      expect(exact, isTrue);
+      expect(wrong, isFalse);
     },
   );
 
@@ -307,6 +344,28 @@ void main() {
       ]);
       expect(journal.readCalls, 4);
     },
+  );
+}
+
+String _completedActivationCheckpointJson() {
+  return jsonEncode(
+    AccountDeletionJournal(
+      version: AccountDeletionJournal.currentVersion,
+      session: const CloudWriteSession(
+        uid: 'deleted-source',
+        epoch: 9,
+        mode: CloudWriteMode.cleanupPending,
+      ),
+      requestKey: 'activation-request-1',
+      operation: const AccountOperationResult(
+        operationId: 'activation-operation-1',
+        kind: AccountOperationKind.deletion,
+        phase: AccountOperationPhase.completed,
+        version: 3,
+        attemptCount: 1,
+        retryable: false,
+      ),
+    ).toJson(),
   );
 }
 

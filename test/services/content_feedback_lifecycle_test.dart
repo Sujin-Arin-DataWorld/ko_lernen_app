@@ -3,6 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/models/content_feedback.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
+import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/content_feedback_client.dart';
 import 'package:ko_lernen_app/services/content_feedback_lifecycle.dart';
 import 'package:ko_lernen_app/services/content_feedback_outbox.dart';
@@ -51,7 +54,7 @@ void main() {
           );
         },
         currentIdentity: () => (uid: uid, isAnonymous: anonymous),
-        durableJournalActive: () async => journalActive,
+        durableJournalActive: (_) async => journalActive,
       );
       final stableSubmit = lifecycle.submit;
 
@@ -71,6 +74,80 @@ void main() {
       expect(oldResume.closed, isTrue);
       expect(oldClient.expectedOwnerUids, isEmpty);
       expect(oldStore.items, isEmpty);
+    },
+  );
+
+  test(
+    'marker-clear retry replaces the feedback service closed by recovery',
+    () async {
+      const deletedUid = 'deleted-uid';
+      const replacementUid = 'new-anonymous-uid';
+      final clients = <_Client>[];
+      var factoryCalls = 0;
+      final lifecycle = ContentFeedbackLifecycle(
+        initialService: _service(
+          store: _Store(),
+          client: _Client(),
+          currentUid: () => replacementUid,
+          deletionActive: () async => false,
+        ),
+        createService: () {
+          factoryCalls += 1;
+          final client = _Client();
+          clients.add(client);
+          return _service(
+            store: _Store(),
+            client: client,
+            currentUid: () => replacementUid,
+            deletionActive: () async => false,
+          );
+        },
+        currentIdentity: () => (uid: replacementUid, isAnonymous: true),
+        durableJournalActive: (_) async => false,
+      );
+      final checkpoint = AccountDeletionJournal(
+        version: AccountDeletionJournal.currentVersion,
+        session: const CloudWriteSession(
+          uid: deletedUid,
+          epoch: 5,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'feedback-handoff-request',
+        operation: const AccountOperationResult(
+          operationId: 'feedback-handoff-operation',
+          kind: AccountOperationKind.deletion,
+          phase: AccountOperationPhase.completed,
+          version: 1,
+          attemptCount: 1,
+          retryable: false,
+        ),
+      );
+      final completed = _JournalStore(checkpoint);
+      final handoff = _JournalStore(null, failClearCounts: const {1});
+      final coordinator = CompletedDeletionFeedbackActivationCoordinator(
+        completedStore: completed,
+        activationStore: handoff,
+        activateFeedback: lifecycle.activateAfterCompletedDeletion,
+      );
+
+      await expectLater(
+        coordinator.run(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+      expect(factoryCalls, 1);
+      expect(handoff.journal, isNotNull);
+
+      // A retry of the completed remote gate retires the published service
+      // before local cleanup and activation are attempted again.
+      await lifecycle.closeAndDiscard();
+      await coordinator.run();
+      final submitted = await lifecycle.submit(context, draft);
+
+      expect(factoryCalls, 2);
+      expect(handoff.journal, isNull);
+      expect(submitted.status, ContentFeedbackSubmitStatus.accepted);
+      expect(clients.first.expectedOwnerUids, isEmpty);
+      expect(clients.last.expectedOwnerUids, [replacementUid]);
     },
   );
 
@@ -111,7 +188,7 @@ void main() {
           );
         },
         currentIdentity: () => (uid: unsafe.uid, isAnonymous: unsafe.anonymous),
-        durableJournalActive: () async => unsafe.journal,
+        durableJournalActive: (_) async => unsafe.journal,
       );
 
       expect(
@@ -146,7 +223,7 @@ void main() {
         );
       },
       currentIdentity: () => (uid: 'new-anonymous-uid', isAnonymous: true),
-      durableJournalActive: () async => false,
+      durableJournalActive: (_) async => false,
     );
 
     expect(
@@ -181,7 +258,7 @@ void main() {
           deletionActive: () async => journalActive,
         ),
         currentIdentity: () => (uid: uid, isAnonymous: true),
-        durableJournalActive: () async => journalActive,
+        durableJournalActive: (_) async => journalActive,
       );
       final events = <String>[];
       final operations = _CleanupOperations(
@@ -246,7 +323,7 @@ void main() {
           );
         },
         currentIdentity: () => (uid: 'deleted-uid', isAnonymous: true),
-        durableJournalActive: () async => journalActive,
+        durableJournalActive: (_) async => journalActive,
       );
       final operations = _CleanupOperations(
         events: <String>[],
@@ -293,7 +370,7 @@ void main() {
         );
       },
       currentIdentity: () => (uid: uid, isAnonymous: true),
-      durableJournalActive: () async => journalActive,
+      durableJournalActive: (_) async => journalActive,
     );
     final operations = _CleanupOperations(
       events: <String>[],
@@ -399,6 +476,33 @@ class _Store implements FeedbackOutboxStore {
   Future<void> write(List<ContentFeedbackOutboxItem> value) async {
     writeCount += 1;
     items = List.of(value);
+  }
+}
+
+class _JournalStore implements AccountDeletionJournalStore {
+  _JournalStore(this.journal, {this.failClearCounts = const <int>{}});
+
+  AccountDeletionJournal? journal;
+  final Set<int> failClearCounts;
+  int clearCount = 0;
+
+  @override
+  Future<AccountDeletionJournal?> read() async => journal;
+
+  @override
+  Future<void> write(AccountDeletionJournal value) async => journal = value;
+
+  @override
+  Future<void> clearCompleted(String operationId) async {
+    clearCount += 1;
+    if (failClearCounts.contains(clearCount)) {
+      throw StateError('marker clear failed');
+    }
+    if (journal?.operationId != operationId ||
+        journal?.operation?.phase != AccountOperationPhase.completed) {
+      throw StateError('completed journal mismatch');
+    }
+    journal = null;
   }
 }
 

@@ -149,6 +149,30 @@ void main() {
   );
 
   test(
+    'strict cleanup preserves a feedback-activation checkpoint after restart',
+    () async {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        Storage.accountDeletionFeedbackActivationCheckpointPreferenceKey,
+        'completed-feedback-activation',
+      );
+      await preferences.setString('kl_progress_for_reset_test', 'remove-me');
+
+      await Storage.resetAllStrict(
+        canonicalizeAccountDeletionCheckpoint: (raw) => 'canonical:$raw',
+      );
+
+      expect(
+        preferences.getString(
+          Storage.accountDeletionFeedbackActivationCheckpointPreferenceKey,
+        ),
+        'canonical:completed-feedback-activation',
+      );
+      expect(preferences.containsKey('kl_progress_for_reset_test'), isFalse);
+    },
+  );
+
+  test(
     'explicit reset and account-deletion cleanup intentionally discard first-link receipts',
     () async {
       const store = SharedPreferencesFirstDurableLinkBackfillJournalStore();

@@ -286,6 +286,8 @@ typedef CompletedDeletionRecovery =
 typedef AccountDeletionFeedbackCloser = Future<void> Function();
 typedef AccountDeletionFeedbackActivator =
     Future<bool> Function(String deletedUid);
+typedef CompletedDeletionProviderCleanup = Future<void> Function();
+typedef CompletedDeletionFirebaseRecovery = Future<void> Function();
 
 bool isCompletedDeletionAlreadyRecovered({
   required String deletedUid,
@@ -299,6 +301,167 @@ bool isCompletedDeletionAlreadyRecovered({
       current.isNotEmpty &&
       current != deleted &&
       currentIsAnonymous;
+}
+
+Future<void> recoverCompletedDeletionIdentity({
+  required AccountDeletionJournal checkpoint,
+  required String? currentUid,
+  required bool currentIsAnonymous,
+  CompletedDeletionProviderCleanup? cleanupGoogleProvider,
+  required CompletedDeletionFirebaseRecovery recoverFirebaseIdentity,
+}) async {
+  final failures = <Object>[];
+  if (checkpoint.sourceProviders.contains('google')) {
+    try {
+      final cleanup = cleanupGoogleProvider;
+      if (cleanup == null) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.unavailable,
+          retryable: true,
+        );
+      }
+      await cleanup();
+    } catch (error) {
+      failures.add(error);
+    }
+  }
+
+  final alreadyRecovered = isCompletedDeletionAlreadyRecovered(
+    deletedUid: checkpoint.session.uid,
+    currentUid: currentUid,
+    currentIsAnonymous: currentIsAnonymous,
+  );
+  final normalizedCurrent = currentUid?.trim();
+  if (!alreadyRecovered) {
+    if (normalizedCurrent == null ||
+        normalizedCurrent.isEmpty ||
+        normalizedCurrent == checkpoint.session.uid) {
+      try {
+        await recoverFirebaseIdentity();
+      } catch (error) {
+        failures.add(error);
+      }
+    } else {
+      failures.add(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      );
+    }
+  }
+
+  if (failures.isNotEmpty) {
+    throw AccountDeletionRecoveryException(List<Object>.unmodifiable(failures));
+  }
+}
+
+class CompletedDeletionFeedbackActivationCoordinator {
+  const CompletedDeletionFeedbackActivationCoordinator({
+    required this.completedStore,
+    required this.activationStore,
+    required this.activateFeedback,
+  });
+
+  final AccountDeletionJournalStore completedStore;
+  final AccountDeletionJournalStore activationStore;
+  final AccountDeletionFeedbackActivator activateFeedback;
+
+  Future<void> run() async {
+    final completed = await _read(completedStore);
+    final activation = await _read(activationStore);
+    final checkpoint = completed ?? activation;
+    if (checkpoint?.operation?.phase != AccountOperationPhase.completed ||
+        checkpoint?.operationId == null ||
+        (completed != null &&
+            activation != null &&
+            jsonEncode(completed.toJson()) !=
+                jsonEncode(activation.toJson()))) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    final durableCheckpoint = checkpoint!;
+
+    if (activation == null) {
+      await _write(activationStore, durableCheckpoint);
+    }
+    if (completed != null) {
+      await _clear(completedStore, durableCheckpoint.operationId!);
+    }
+
+    bool activated;
+    try {
+      activated = await activateFeedback(durableCheckpoint.session.uid);
+    } catch (_) {
+      await _restore(durableCheckpoint);
+      throw _retryableFailure();
+    }
+    if (!activated) {
+      await _restore(durableCheckpoint);
+      throw _retryableFailure();
+    }
+
+    await _clear(activationStore, durableCheckpoint.operationId!);
+  }
+
+  Future<void> _restore(AccountDeletionJournal checkpoint) async {
+    try {
+      await completedStore.write(checkpoint);
+    } catch (_) {
+      // The activation journal was persisted before the completed checkpoint
+      // was removed, so a failed restore remains restart-safe.
+      throw _retryableFailure();
+    }
+    try {
+      await activationStore.clearCompleted(checkpoint.operationId!);
+    } catch (_) {
+      // Both copies are valid completed checkpoints. Keeping either one is a
+      // fail-closed retry state; a later run verifies they are identical.
+      throw _retryableFailure();
+    }
+  }
+
+  Future<AccountDeletionJournal?> _read(
+    AccountDeletionJournalStore store,
+  ) async {
+    try {
+      return await store.read();
+    } on AccountOperationFailure {
+      rethrow;
+    } catch (_) {
+      throw _retryableFailure();
+    }
+  }
+
+  Future<void> _write(
+    AccountDeletionJournalStore store,
+    AccountDeletionJournal checkpoint,
+  ) async {
+    try {
+      await store.write(checkpoint);
+    } catch (_) {
+      throw _retryableFailure();
+    }
+  }
+
+  Future<void> _clear(
+    AccountDeletionJournalStore store,
+    String operationId,
+  ) async {
+    try {
+      await store.clearCompleted(operationId);
+    } catch (_) {
+      throw _retryableFailure();
+    }
+  }
+
+  static AccountOperationFailure _retryableFailure() =>
+      const AccountOperationFailure(
+        AccountOperationFailureCode.unavailable,
+        retryable: true,
+      );
 }
 
 Future<void> _noopAccountDeletionFeedbackCloser() async {}
@@ -806,9 +969,11 @@ class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
 
 class _SharedPreferencesAccountDeletionJournalStore
     implements AccountDeletionJournalStore {
-  const _SharedPreferencesAccountDeletionJournalStore();
+  const _SharedPreferencesAccountDeletionJournalStore([
+    this.key = AuthService.accountDeletionCheckpointPreferenceKey,
+  ]);
 
-  static const _key = AuthService.accountDeletionCheckpointPreferenceKey;
+  final String key;
 
   @override
   Future<void> clearCompleted(String operationId) async {
@@ -821,8 +986,8 @@ class _SharedPreferencesAccountDeletionJournalStore
       );
     }
     final preferences = await SharedPreferences.getInstance();
-    final removed = await preferences.remove(_key);
-    if (!removed && preferences.containsKey(_key)) {
+    final removed = await preferences.remove(key);
+    if (!removed && preferences.containsKey(key)) {
       throw const AccountOperationFailure(
         AccountOperationFailureCode.unavailable,
         retryable: true,
@@ -832,7 +997,7 @@ class _SharedPreferencesAccountDeletionJournalStore
 
   @override
   Future<AccountDeletionJournal?> read() async {
-    final encoded = (await SharedPreferences.getInstance()).getString(_key);
+    final encoded = (await SharedPreferences.getInstance()).getString(key);
     if (encoded == null || encoded.isEmpty) {
       return null;
     }
@@ -856,7 +1021,7 @@ class _SharedPreferencesAccountDeletionJournalStore
   Future<void> write(AccountDeletionJournal journal) async {
     final preferences = await SharedPreferences.getInstance();
     final wrote = await preferences.setString(
-      _key,
+      key,
       jsonEncode(journal.toJson()),
     );
     if (!wrote) {
@@ -1346,8 +1511,15 @@ class AccountStartupJournalResolver {
 class AuthService {
   static const accountDeletionCheckpointPreferenceKey =
       Storage.accountDeletionCheckpointPreferenceKey;
+  static const accountDeletionFeedbackActivationCheckpointPreferenceKey =
+      Storage.accountDeletionFeedbackActivationCheckpointPreferenceKey;
   static const AccountDeletionJournalStore _accountDeletionJournalStore =
       _SharedPreferencesAccountDeletionJournalStore();
+  static const AccountDeletionJournalStore
+  _accountDeletionFeedbackActivationJournalStore =
+      _SharedPreferencesAccountDeletionJournalStore(
+        accountDeletionFeedbackActivationCheckpointPreferenceKey,
+      );
   static const CloudBackupDeletionJournalStore
   _cloudBackupDeletionJournalStore =
       SharedPreferencesCloudBackupDeletionJournalStore();
@@ -1532,6 +1704,9 @@ class AuthService {
       return preferences.containsKey(AccountTransitionJournal.storageKey) ||
           preferences.containsKey(accountDeletionCheckpointPreferenceKey) ||
           preferences.containsKey(
+            accountDeletionFeedbackActivationCheckpointPreferenceKey,
+          ) ||
+          preferences.containsKey(
             Storage.cloudBackupDeletionJournalPreferenceKey,
           );
     } catch (_) {
@@ -1614,7 +1789,7 @@ class AuthService {
     return AccountStartupJournalResolver(
       sessions: cloudWriteSessionController,
       readReplacement: replacementStore.read,
-      readDeletion: _accountDeletionJournalStore.read,
+      readDeletion: readAccountDeletionCheckpoint,
       readCloudBackupDeletion: _cloudBackupDeletionJournalStore.read,
     ).restore(liveUid);
   }
@@ -1778,14 +1953,52 @@ class AuthService {
     required Future<T> Function() onBlocked,
     bool allowAccountDeletionCheckpoint = false,
     bool allowReplacementTransitionJournal = false,
+    bool allowFeedbackActivationCheckpoint = false,
   }) {
     return runCloudBackupDeletionAdmission<T>(
       onAdmitted: () async {
         final clear = await _otherDurableAccountJournalsAreClear(
           allowAccountDeletionCheckpoint: allowAccountDeletionCheckpoint,
           allowReplacementTransitionJournal: allowReplacementTransitionJournal,
+          allowFeedbackActivationCheckpoint: allowFeedbackActivationCheckpoint,
         );
         return clear ? onAdmitted() : onBlocked();
+      },
+      onBlocked: onBlocked,
+    );
+  }
+
+  /// Admits the feedback handoff only after the primary deletion,
+  /// replacement, and cloud-deletion journals are gone. The dedicated
+  /// activation marker remains durable during this narrow handoff.
+  static Future<T> runCompletedDeletionFeedbackActivationAdmission<T>({
+    required String deletedUid,
+    required Future<T> Function() onAdmitted,
+    required Future<T> Function() onBlocked,
+  }) {
+    return runCloudBackupDeletionAdmission<T>(
+      onAdmitted: () async {
+        try {
+          final normalizedDeletedUid = deletedUid.trim();
+          if (normalizedDeletedUid.isEmpty) return onBlocked();
+          final completed = await _accountDeletionJournalStore.read();
+          final activation =
+              await _accountDeletionFeedbackActivationJournalStore.read();
+          if (completed != null ||
+              activation?.operation?.phase != AccountOperationPhase.completed ||
+              activation?.operationId == null ||
+              activation?.session.uid != normalizedDeletedUid) {
+            return onBlocked();
+          }
+          final clear = await _otherDurableAccountJournalsAreClear(
+            allowAccountDeletionCheckpoint: false,
+            allowReplacementTransitionJournal: false,
+            allowFeedbackActivationCheckpoint: true,
+          );
+          return clear ? onAdmitted() : onBlocked();
+        } catch (_) {
+          return onBlocked();
+        }
       },
       onBlocked: onBlocked,
     );
@@ -1794,6 +2007,7 @@ class AuthService {
   static Future<bool> _otherDurableAccountJournalsAreClear({
     required bool allowAccountDeletionCheckpoint,
     required bool allowReplacementTransitionJournal,
+    bool allowFeedbackActivationCheckpoint = false,
   }) async {
     try {
       final preferences = await SharedPreferences.getInstance();
@@ -1802,8 +2016,14 @@ class AuthService {
           preferences.containsKey(AccountTransitionJournal.storageKey)) {
         return false;
       }
-      return allowAccountDeletionCheckpoint ||
-          !preferences.containsKey(accountDeletionCheckpointPreferenceKey);
+      return (allowAccountDeletionCheckpoint ||
+              !preferences.containsKey(
+                accountDeletionCheckpointPreferenceKey,
+              )) &&
+          (allowFeedbackActivationCheckpoint ||
+              !preferences.containsKey(
+                accountDeletionFeedbackActivationCheckpointPreferenceKey,
+              ));
     } catch (_) {
       return false;
     }
@@ -1861,6 +2081,7 @@ class AuthService {
   }) {
     return runDurableAccountAdmission<void>(
       allowAccountDeletionCheckpoint: true,
+      allowFeedbackActivationCheckpoint: true,
       onAdmitted: () =>
           _deleteAccountAfterCloudBackupAdmission(closeFeedback: closeFeedback),
       onBlocked: () => Future<void>.error(
@@ -1878,7 +2099,7 @@ class AuthService {
     final override = _deleteAccountForTesting;
     if (override != null) return override();
     return AccountDeletionRemoteGate(
-      readCheckpoint: _accountDeletionJournalStore.read,
+      readCheckpoint: readAccountDeletionCheckpoint,
       startOrResumeRemote: () =>
           _startOrResumeRemoteAccountDeletion(closeFeedback: closeFeedback),
       recoverCompleted: _recoverCompletedAccountDeletion,
@@ -1912,70 +2133,60 @@ class AuthService {
   static Future<void> _recoverCompletedAccountDeletion(
     AccountDeletionJournal checkpoint,
   ) async {
-    final failures = <Object>[];
     final auth = _auth;
     final live = current;
-    if (isCompletedDeletionAlreadyRecovered(
-      deletedUid: checkpoint.session.uid,
+    await recoverCompletedDeletionIdentity(
+      checkpoint: checkpoint,
       currentUid: live?.uid,
       currentIsAnonymous: live?.isAnonymous ?? false,
-    )) {
-      return;
-    }
-    if (checkpoint.sourceProviders.contains('google')) {
-      try {
+      cleanupGoogleProvider: () async {
         await GoogleSignIn().signOut();
-      } catch (error) {
-        failures.add(error);
-      }
-    }
-    if (auth == null) {
-      failures.add(
-        const AccountOperationFailure(
-          AccountOperationFailureCode.authenticationRequired,
-          retryable: false,
-        ),
-      );
-    } else if (live == null || live.uid == checkpoint.session.uid) {
-      try {
+      },
+      recoverFirebaseIdentity: () async {
+        if (auth == null) {
+          throw const AccountOperationFailure(
+            AccountOperationFailureCode.authenticationRequired,
+            retryable: false,
+          );
+        }
         await auth.signOut();
         await ensureSignedIn();
-      } catch (error) {
-        failures.add(error);
-      }
-    } else {
-      failures.add(
-        const AccountOperationFailure(
-          AccountOperationFailureCode.blocked,
-          retryable: false,
-        ),
-      );
-    }
-    if (failures.isNotEmpty) {
-      throw AccountDeletionRecoveryException(
-        List<Object>.unmodifiable(failures),
-      );
-    }
+      },
+    );
   }
 
   static Future<void> completeLocalAccountDeletionCleanup({
     AccountDeletionFeedbackActivator? activateFeedback,
   }) async {
-    final checkpoint = await _accountDeletionJournalStore.read();
-    final operationId = checkpoint?.operationId;
-    if (checkpoint?.operation?.phase != AccountOperationPhase.completed ||
-        operationId == null) {
+    await CompletedDeletionFeedbackActivationCoordinator(
+      completedStore: _accountDeletionJournalStore,
+      activationStore: _accountDeletionFeedbackActivationJournalStore,
+      activateFeedback: activateFeedback ?? (_) async => true,
+    ).run();
+  }
+
+  static Future<AccountDeletionJournal?> readAccountDeletionCheckpoint() async {
+    final completed = await _accountDeletionJournalStore.read();
+    final activation = await _accountDeletionFeedbackActivationJournalStore
+        .read();
+    if (activation != null &&
+        (activation.operation?.phase != AccountOperationPhase.completed ||
+            activation.operationId == null)) {
       throw const AccountOperationFailure(
         AccountOperationFailureCode.blocked,
         retryable: false,
       );
     }
-    await _accountDeletionJournalStore.clearCompleted(operationId);
-    await activateFeedback?.call(checkpoint!.session.uid);
+    if (completed != null &&
+        activation != null &&
+        jsonEncode(completed.toJson()) != jsonEncode(activation.toJson())) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    return completed ?? activation;
   }
-
-  static Future<AccountDeletionJournal?> readAccountDeletionCheckpoint() =>
-      _accountDeletionJournalStore.read();
 
   /// Continues the exact durable server operation restored at startup.
   static Future<void> resumePendingAccountDeletion({

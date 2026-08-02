@@ -40,6 +40,114 @@ void main() {
         isFalse,
       );
     });
+
+    test(
+      'already-recovered anonymous identity still retries Google cleanup',
+      () async {
+        var googleCleanupCalls = 0;
+        var firebaseRecoveryCalls = 0;
+        var failGoogleCleanup = true;
+        final checkpoint = _completedDeletionJournal(
+          sourceProviders: const {'google'},
+        );
+
+        Future<void> recover() => recoverCompletedDeletionIdentity(
+          checkpoint: checkpoint,
+          currentUid: 'new-anonymous-uid',
+          currentIsAnonymous: true,
+          cleanupGoogleProvider: () async {
+            googleCleanupCalls += 1;
+            if (failGoogleCleanup) {
+              throw StateError('provider cleanup unavailable');
+            }
+          },
+          recoverFirebaseIdentity: () async {
+            firebaseRecoveryCalls += 1;
+          },
+        );
+
+        await expectLater(
+          recover(),
+          throwsA(isA<AccountDeletionRecoveryException>()),
+        );
+        failGoogleCleanup = false;
+        await recover();
+
+        expect(googleCleanupCalls, 2);
+        expect(firebaseRecoveryCalls, 0);
+      },
+    );
+  });
+
+  group('completed deletion feedback activation', () {
+    test(
+      'false activation restores the checkpoint and a retry succeeds',
+      () async {
+        final checkpoint = _completedDeletionJournal();
+        final completed = _DeletionJournalStore(checkpoint);
+        final activation = _DeletionJournalStore(null);
+        final activationResults = <bool>[false, true];
+        final checkpointPresenceDuringActivation = <bool>[];
+        final coordinator = CompletedDeletionFeedbackActivationCoordinator(
+          completedStore: completed,
+          activationStore: activation,
+          activateFeedback: (_) async {
+            checkpointPresenceDuringActivation.add(completed.journal != null);
+            return activationResults.removeAt(0);
+          },
+        );
+
+        await expectLater(
+          coordinator.run(),
+          throwsA(
+            isA<AccountOperationFailure>()
+                .having((failure) => failure.retryable, 'retryable', isTrue)
+                .having(
+                  (failure) => failure.code,
+                  'code',
+                  AccountOperationFailureCode.unavailable,
+                ),
+          ),
+        );
+        expect(completed.journal?.toJson(), checkpoint.toJson());
+        expect(activation.journal, isNull);
+
+        await coordinator.run();
+
+        expect(completed.journal, isNull);
+        expect(activation.journal, isNull);
+        expect(checkpointPresenceDuringActivation, [false, false]);
+      },
+    );
+
+    test(
+      'failed checkpoint restoration retains the activation journal',
+      () async {
+        final checkpoint = _completedDeletionJournal();
+        final completed = _DeletionJournalStore(checkpoint)
+          ..failNextWrite = true;
+        final activation = _DeletionJournalStore(null);
+        final coordinator = CompletedDeletionFeedbackActivationCoordinator(
+          completedStore: completed,
+          activationStore: activation,
+          activateFeedback: (_) async => false,
+        );
+
+        await expectLater(
+          coordinator.run(),
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.retryable,
+              'retryable',
+              isTrue,
+            ),
+          ),
+        );
+
+        expect(completed.journal, isNull);
+        expect(activation.journal?.toJson(), checkpoint.toJson());
+      },
+    );
   });
 
   group('anonymous credential linking', () {
@@ -1278,6 +1386,22 @@ AccountOperationResult _operation(
   );
 }
 
+AccountDeletionJournal _completedDeletionJournal({
+  Set<String> sourceProviders = const <String>{},
+}) {
+  return AccountDeletionJournal(
+    version: AccountDeletionJournal.currentVersion,
+    session: const CloudWriteSession(
+      uid: 'deleted-uid',
+      epoch: 7,
+      mode: CloudWriteMode.cleanupPending,
+    ),
+    requestKey: 'request-key-completed',
+    sourceProviders: sourceProviders,
+    operation: _operation(AccountOperationPhase.completed),
+  );
+}
+
 CloudWriteSessionController _readySessions() {
   final sessions = CloudWriteSessionController();
   sessions.acquire('user-1');
@@ -1367,6 +1491,34 @@ class _DeletionFeedbackVersionProvider
     implements ContentFeedbackVersionProvider {
   @override
   Future<String> readVersion() async => '2.0.1+6';
+}
+
+class _DeletionJournalStore implements AccountDeletionJournalStore {
+  _DeletionJournalStore(this.journal);
+
+  AccountDeletionJournal? journal;
+  bool failNextWrite = false;
+
+  @override
+  Future<AccountDeletionJournal?> read() async => journal;
+
+  @override
+  Future<void> write(AccountDeletionJournal value) async {
+    if (failNextWrite) {
+      failNextWrite = false;
+      throw StateError('journal write failed');
+    }
+    journal = value;
+  }
+
+  @override
+  Future<void> clearCompleted(String operationId) async {
+    if (journal?.operationId != operationId ||
+        journal?.operation?.phase != AccountOperationPhase.completed) {
+      throw StateError('completed journal mismatch');
+    }
+    journal = null;
+  }
 }
 
 class _FakeDeletionOperations implements AccountDeletionOperations {

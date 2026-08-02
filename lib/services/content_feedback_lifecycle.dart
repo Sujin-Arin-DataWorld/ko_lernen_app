@@ -7,7 +7,8 @@ import 'content_feedback_service.dart';
 typedef ContentFeedbackServiceFactory = ContentFeedbackService Function();
 typedef ContentFeedbackIdentityReader =
     ({String? uid, bool isAnonymous}) Function();
-typedef ContentFeedbackDurableJournalReader = Future<bool> Function();
+typedef ContentFeedbackDurableJournalReader =
+    Future<bool> Function(String deletedUid);
 
 /// Owns the process-local feedback service across an account deletion.
 ///
@@ -60,9 +61,10 @@ class ContentFeedbackLifecycle implements FeedbackOutbox {
     final deletedUid = _normalizedUid(rawDeletedUid);
     if (deletedUid == null) return false;
 
-    if (_activatedDeletedUid == deletedUid) {
+    if (_activatedDeletedUid == deletedUid &&
+        !identical(_successfullyClosed, _current)) {
       return _safeReplacementIdentity(deletedUid) != null &&
-          !await _journalIsActive();
+          !await _journalIsActive(deletedUid);
     }
 
     final oldService = _current;
@@ -76,7 +78,7 @@ class ContentFeedbackLifecycle implements FeedbackOutbox {
       _successfullyClosed = oldService;
     }
 
-    if (await _journalIsActive()) return false;
+    if (await _journalIsActive(deletedUid)) return false;
     final identity = _safeReplacementIdentity(deletedUid);
     if (identity == null) return false;
 
@@ -89,7 +91,7 @@ class ContentFeedbackLifecycle implements FeedbackOutbox {
 
     // A second authoritative check keeps a journal or identity transition
     // that began during construction from receiving a live service.
-    if (await _journalIsActive() ||
+    if (await _journalIsActive(deletedUid) ||
         _safeReplacementIdentity(deletedUid) != identity ||
         !identical(_current, oldService)) {
       try {
@@ -122,9 +124,9 @@ class ContentFeedbackLifecycle implements FeedbackOutbox {
     }
   }
 
-  Future<bool> _journalIsActive() async {
+  Future<bool> _journalIsActive(String deletedUid) async {
     try {
-      return await durableJournalActive();
+      return await durableJournalActive(deletedUid);
     } catch (_) {
       return true;
     }

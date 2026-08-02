@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/services/account/account_transition_coordinator.da
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/app_startup_coordinator.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -253,6 +254,100 @@ void main() {
 
         expect(activatedDeletedUid, _completedDeletionCheckpoint().session.uid);
         expect(checkpointPresentDuringActivation, isFalse);
+      },
+    );
+
+    test(
+      'failed feedback activation restores the checkpoint for a later retry',
+      () async {
+        final checkpoint = _completedDeletionCheckpoint();
+        SharedPreferences.setMockInitialValues(<String, Object>{
+          AuthService.accountDeletionCheckpointPreferenceKey: jsonEncode(
+            checkpoint.toJson(),
+          ),
+        });
+        final preferences = await SharedPreferences.getInstance();
+        var activationCalls = 0;
+        var allowActivation = false;
+
+        Future<void> complete() =>
+            AuthService.completeLocalAccountDeletionCleanup(
+              activateFeedback: (_) async {
+                activationCalls += 1;
+                expect(
+                  preferences.containsKey(
+                    AuthService.accountDeletionCheckpointPreferenceKey,
+                  ),
+                  isFalse,
+                );
+                return allowActivation;
+              },
+            );
+
+        await expectLater(
+          complete(),
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.retryable,
+              'retryable',
+              isTrue,
+            ),
+          ),
+        );
+        expect(
+          preferences.getString(
+            AuthService.accountDeletionCheckpointPreferenceKey,
+          ),
+          jsonEncode(checkpoint.toJson()),
+        );
+
+        allowActivation = true;
+        await complete();
+
+        expect(activationCalls, 2);
+        expect(
+          preferences.containsKey(
+            AuthService.accountDeletionCheckpointPreferenceKey,
+          ),
+          isFalse,
+        );
+        expect(
+          preferences.containsKey(
+            AuthService
+                .accountDeletionFeedbackActivationCheckpointPreferenceKey,
+          ),
+          isFalse,
+        );
+      },
+    );
+
+    test(
+      'handoff-only restart recovers completed deletion and never starts remote',
+      () async {
+        final checkpoint = _completedDeletionCheckpoint();
+        SharedPreferences.setMockInitialValues(<String, Object>{
+          AuthService.accountDeletionFeedbackActivationCheckpointPreferenceKey:
+              jsonEncode(checkpoint.toJson()),
+        });
+        var remoteStarts = 0;
+        var recoveries = 0;
+        final gate = AccountDeletionRemoteGate(
+          readCheckpoint: AuthService.readAccountDeletionCheckpoint,
+          startOrResumeRemote: () async => remoteStarts += 1,
+          recoverCompleted: (_) async => recoveries += 1,
+        );
+
+        await gate.run();
+        final restoration = await AuthService.restorePendingAccountState(
+          'new-anonymous-uid',
+        );
+
+        expect(remoteStarts, 0);
+        expect(recoveries, 1);
+        expect(
+          restoration.kind,
+          AccountStartupRestorationKind.localCleanupPending,
+        );
       },
     );
 
