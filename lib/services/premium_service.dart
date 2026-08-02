@@ -167,7 +167,7 @@ class PremiumService {
   /// 출시(유료화) 시 반드시 `false`로 되돌릴 것.
   /// (빌드 시 `--dart-define=BETA_UNLOCK_ALL=false`로도 끌 수 있음.)
   static const bool betaUnlockAll =
-      bool.fromEnvironment('BETA_UNLOCK_ALL', defaultValue: true);
+      bool.fromEnvironment('BETA_UNLOCK_ALL', defaultValue: false);
 
   static const String _androidKey = String.fromEnvironment('RC_ANDROID_KEY');
   static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');

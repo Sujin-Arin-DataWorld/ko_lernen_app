@@ -100,7 +100,7 @@
 코드 업데이트 후:
 ```bash
 cd /Users/sujinpark/Developer/ko_lernen_app
-flutter build apk --release --split-per-abi
+flutter build apk --release --split-per-abi --dart-define=BETA_UNLOCK_ALL=true
 # → 새 APK 생성 (1-2분)
 # → 친구에게 새 파일 다시 보내기
 ```
