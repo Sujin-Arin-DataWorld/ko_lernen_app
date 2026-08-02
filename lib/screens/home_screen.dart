@@ -32,7 +32,7 @@ import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
-import '../widgets/sori/path_node.dart';
+import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/sheet.dart';
@@ -601,46 +601,57 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              for (final e in _pathNodes)
-                                PathNode(
-                                  label: VocabPackService.displayLabel(
-                                    e.pack.id,
-                                    lang: lang,
-                                  ),
-                                  status: e.progress.status,
-                                  fraction: e.progress.progressFraction,
-                                  isNow: e.pack.id == _nowPackId,
-                                  onTap: () async {
-                                    if (e.progress.status ==
-                                        PackStatus.locked) {
-                                      ScaffoldMessenger.of(
-                                        context,
-                                      ).showSnackBar(
-                                        SnackBar(
-                                          content: Text(t.pathLockedHint),
-                                        ),
-                                      );
-                                      return;
-                                    }
-                                    if (e.pack.level.toUpperCase() != 'A1' &&
-                                        !PremiumService.isPremium) {
-                                      final ok = await PremiumService.gate(
-                                        context,
-                                      );
-                                      if (!ok) return;
-                                    }
-                                    if (!context.mounted) return;
-                                    await Navigator.pushNamed(
-                                      context,
-                                      '/vocab/pack',
-                                      arguments: e.pack.id,
-                                    );
-                                    if (mounted) {
-                                      await _loadToday();
-                                      await _loadPath();
-                                    }
-                                  },
-                                ),
+                              // 지그재그 트레일 — /path 전용 화면과 같은 시각
+                              // 언어(도장 노드·황금 링·사인파 경로)를 홈에도.
+                              // 홈 히어로 영상과 단일 lease 경합을 막기 위해
+                              // "지금" 노드는 정적 마스코트(liveNowNode:false).
+                              SoriPathTrail(
+                                liveNowNode: false,
+                                stops: [
+                                  for (final e in _pathNodes)
+                                    SoriPathStop(
+                                      id: e.pack.id,
+                                      label: VocabPackService.displayLabel(
+                                        e.pack.id,
+                                        lang: lang,
+                                      ),
+                                      status: e.progress.status,
+                                      fraction: e.progress.progressFraction,
+                                      isNow: e.pack.id == _nowPackId,
+                                      onTap: () async {
+                                        if (e.progress.status ==
+                                            PackStatus.locked) {
+                                          ScaffoldMessenger.of(
+                                            context,
+                                          ).showSnackBar(
+                                            SnackBar(
+                                              content: Text(t.pathLockedHint),
+                                            ),
+                                          );
+                                          return;
+                                        }
+                                        if (e.pack.level.toUpperCase() !=
+                                                'A1' &&
+                                            !PremiumService.isPremium) {
+                                          final ok = await PremiumService.gate(
+                                            context,
+                                          );
+                                          if (!ok) return;
+                                        }
+                                        if (!context.mounted) return;
+                                        await Navigator.pushNamed(
+                                          context,
+                                          '/vocab/pack',
+                                          arguments: e.pack.id,
+                                        );
+                                        if (mounted) {
+                                          await _loadToday();
+                                          await _loadPath();
+                                        }
+                                      },
+                                    ),
+                                ],
+                              ),
                               const SizedBox(height: Spacing.xs),
                               TextButton(
                                 onPressed: () async {

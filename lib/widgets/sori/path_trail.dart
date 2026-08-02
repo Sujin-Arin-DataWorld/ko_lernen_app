@@ -70,9 +70,19 @@ class SoriPathStop {
 /// [swayAt]과 [centerXFor]는 노드 배치와 연결선 painter가 **같은 식**을
 /// 쓰도록 하는 단일 진실 공급원이다. 둘이 어긋나면 선이 원을 빗나간다.
 class SoriPathTrail extends StatelessWidget {
-  const SoriPathTrail({super.key, required this.stops});
+  const SoriPathTrail({
+    super.key,
+    required this.stops,
+    this.liveNowNode = true,
+  });
 
   final List<SoriPathStop> stops;
+
+  /// "지금" 노드에 살아있는 캐릭터 클립을 쓸지. **홈 임베드는 false** —
+  /// 홈 히어로(TigerStageVideo)와 단일 영상 lease 를 두고 경합하면
+  /// SD678 계열에서 히어로가 reclaim 으로 꺼진다(ADR-001). false 면
+  /// 정적 Mascot 으로 강등되어 디코더를 아예 요청하지 않는다.
+  final bool liveNowNode;
 
   /// 노드 열 폭 = 탭 타깃 가로 크기이자 지그재그 진폭의 기준.
   static const double nodeWidth = 132;
@@ -162,6 +172,7 @@ class SoriPathTrail extends StatelessWidget {
                           stop: stops[i],
                           width: nodeW,
                           height: slotH,
+                          liveNow: liveNowNode,
                         ),
                       ),
                     ),
@@ -184,7 +195,10 @@ class _TrailNode extends StatelessWidget {
     required this.stop,
     required this.width,
     required this.height,
+    required this.liveNow,
   });
+
+  final bool liveNow;
 
   final SoriPathStop stop;
   final double width;
@@ -215,7 +229,12 @@ class _TrailNode extends StatelessWidget {
               SizedBox(
                 height: SoriPathTrail.discBox,
                 child: Center(
-                  child: _Disc(stop: stop, cleared: cleared, locked: locked),
+                  child: _Disc(
+                    stop: stop,
+                    cleared: cleared,
+                    locked: locked,
+                    liveNow: liveNow,
+                  ),
                 ),
               ),
               Expanded(
@@ -271,11 +290,13 @@ class _Disc extends StatelessWidget {
     required this.stop,
     required this.cleared,
     required this.locked,
+    required this.liveNow,
   });
 
   final SoriPathStop stop;
   final bool cleared;
   final bool locked;
+  final bool liveNow;
 
   /// 휘도 기준 회색조 (Rec.709). 알파 행은 항등 — 투명도는 건드리지 않는다.
   static const List<double> _greyscale = <double>[
@@ -290,7 +311,11 @@ class _Disc extends StatelessWidget {
     final t = AppL10n.of(context);
 
     if (stop.isNow) {
-      return _NowDisc(fraction: stop.fraction, badge: t.pathNodeNow);
+      return _NowDisc(
+        fraction: stop.fraction,
+        badge: t.pathNodeNow,
+        live: liveNow,
+      );
     }
 
     final motif = motifForPackId(stop.id);
@@ -335,10 +360,15 @@ class _Disc extends StatelessWidget {
 
 /// "지금 여기" 노드 — 진행 링 + 숨쉬는 후광 + Jetzt 배지.
 class _NowDisc extends StatefulWidget {
-  const _NowDisc({required this.fraction, required this.badge});
+  const _NowDisc({
+    required this.fraction,
+    required this.badge,
+    required this.live,
+  });
 
   final double fraction;
   final String badge;
+  final bool live;
 
   @override
   State<_NowDisc> createState() => _NowDiscState();
@@ -428,20 +458,29 @@ class _NowDiscState extends State<_NowDisc>
               ),
               child: ClipOval(
                 child: Center(
-                  child: CharacterClipPlayer(
-                    // 호랑이는 게임 대기 바운스, 까치는 앉아 대기 —
-                    // 둘 다 "네 차례야" 를 몸짓으로 말하는 아이들 루프.
-                    asset: isMagpie
-                        ? CharacterClips.magpiePerched
-                        : CharacterClips.tigerBob,
-                    size: d - 14,
-                    loop: true,
-                    blendColor: _clipBlend,
-                    fallbackKind: isMagpie
-                        ? MascotKind.magpie
-                        : MascotKind.tiger,
-                    fallbackEmotion: MascotEmotion.smile,
-                  ),
+                  // live=false(홈 임베드): 디코더 lease 를 아예 요청하지 않는
+                  // 정적 마스코트 — 홈 히어로 영상과의 경합 원천 차단.
+                  child: widget.live
+                      ? CharacterClipPlayer(
+                          // 호랑이는 게임 대기 바운스, 까치는 앉아 대기 —
+                          // 둘 다 "네 차례야" 를 몸짓으로 말하는 아이들 루프.
+                          asset: isMagpie
+                              ? CharacterClips.magpiePerched
+                              : CharacterClips.tigerBob,
+                          size: d - 14,
+                          loop: true,
+                          blendColor: _clipBlend,
+                          fallbackKind: isMagpie
+                              ? MascotKind.magpie
+                              : MascotKind.tiger,
+                          fallbackEmotion: MascotEmotion.smile,
+                        )
+                      : Mascot(
+                          kind: isMagpie ? MascotKind.magpie : MascotKind.tiger,
+                          emotion: MascotEmotion.smile,
+                          size: d - 14,
+                          animate: false,
+                        ),
                 ),
               ),
             ),

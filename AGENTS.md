@@ -333,6 +333,14 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-02 (홈 Lernpfad 지그재그 이행 + v4/v6 혼선 해소) — 커밋·푸시
+
+**Jin 지시:** "홈화면에도 Lernpfad 새로 만든 거 접목시켜서 구현해줘." (선행 이슈: 내부 테스트 설치본이 옛 화면 — 원인은 코드가 아니라 **Play가 전파 지연 중 versionCode 4 구빌드를 내려준 것**. adb 실측 v4/minSdk29 → Play 재설치로 v6/minSdk24 확인. AAB 자체는 처음부터 정상.)
+
+- **`SoriPathTrail.liveNowNode` 파라미터 신설**(기본 true — /path 화면 불변): false 면 "지금" 노드가 CharacterClipPlayer 대신 **정적 Mascot** — 디코더 lease 를 아예 요청하지 않음. 홈 히어로(TigerStageVideo)와 단일 lease 경합 → SD678 reclaim(ADR-001) 원천 차단용. 체인 4단(트레일→_TrailNode→_Disc→_NowDisc) 관통.
+- **home_screen Lernpfad 임베드 교체**: PathNode 세로 리스트 → `SoriPathTrail(liveNowNode:false)`. 탭 핸들러(잠금 스낵바·A1 외 프리미엄 게이트·팩 직행·복귀 리로드) **불변**. `path_node.dart` import 제거(홈이 유일 소비자였음 — 공유 PathNode 위젯은 소비자 0으로 잔존, 다음 정리 후보).
+- **검증**: analyze 0 · path_trail_tap 9 + responsive 157(홈 308~1280px·×1.3 오버플로 0) · 전체 스위트 결과는 커밋 직전 실측. 실기기 시각(홈 지그재그·히어로 영상 공존)은 Jin.
+
 ### 2026-08-02 (v2.0.1+6 내부 테스트 릴리스 빌드 + 배포 런북) — 커밋·푸시
 
 **Jin 지시:** "내부테스트용 AAB 최종 빌드 + 유저에게 보이기까지 해야 할 작업 리스트업·상태 확인·작업·전부 문서화."
