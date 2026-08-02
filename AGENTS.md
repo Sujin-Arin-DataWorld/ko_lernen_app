@@ -333,6 +333,24 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-02 (미커밋·미푸시·리모트 차이 전수 흡수) — 커밋·푸시
+
+**Jin 지시:** "미커밋, 커밋됐는데 푸시 안 된 것, 다른 레포 상황과 main의 차이를 조사해서 전부 코드 손실 없이 main으로 흡수."
+
+**조사 결과 (차이 전수):**
+- **미푸시 커밋 1개**: `2edbdb3`(사운드 ADR + 세션 로그) — 본 세션에서 푸시.
+- **리모트 PR 손실 0 확정**: PR #1·#2·#4 MERGED, **PR #3(+3197줄)은 CLOSED였으나** `git cherry` 5/5 전 커밋의 패치 동등물이 main에 리베이스 사본으로 실재(`68428ed`·`6629396`·`01409a7`·`b65ef88`·`10ae1c2`) + PR #4 squash=`e20b524`. PR에만 있는 파일 0, PR #4 잔여 diff 0. **회수할 코드 없음.**
+- 다른 클론·워크트리·스태시 없음. 태그 v1.0.1 양쪽 동기.
+
+**미추적 23경로 처분 (Jin Q&A 확정):**
+- **docs 커밋 12건**: 세션 로그·핸드오프·설계 문서(AUDIO_HANDOFF·NEXT_STEPS·SESSION_lernpfad·DESIGN_CRITIQUE/HANDOFF_ONBOARDING·HOME_REDESIGN_PLAN v1/v2·superpowers 플랜) + 루트 문서 docs/로 이동(hangeulsori-home-redesign.html·에셋-요청서.md).
+- **구초안 4건 → `docs/archive/2026-07-31/`** (한 글자도 안 버림, 상단에 최종본 경로 표기): 루트 ADR-001/ADR-002 초안·구 SFX_README·루트 DEPLOY_CHECKLIST 초안. ⚠️ 루트 DEPLOY_CHECKLIST는 이동 중 tracked 최신본(정정 포함)을 덮었다가 **HEAD에서 복원**(diff로 tracked가 최신임을 확인).
+- **루트 중복 3건 삭제**: docs/ 사본과 `git hash-object` **바이트 동일 검증 후** 삭제. `_to_delete/` 제거(COMMIT_MSG는 2edbdb3 메시지로 보존).
+- **`assets/sfx/growl_tiger.mp3` 커밋**: Jin — "사운드 설정에서 유저가 세밀하게 조정하게 하려고 만든 것." 배선(SoundService 영속화+설정 UI)은 ADR-002대로 **다음 사이클 1순위 그대로**.
+- **gitignore 4경로**(로컬 보존): app_logcat.txt·video_logcat_after_fix.txt·assets_unused/_orig_2026-07-31/·clip_matte_backup_2026-08-01/ — 직전 릴리스 커밋의 의도적 제외를 영구화, 로그 증거는 ADR-001에 정리돼 있음.
+
+**검증:** 삭제 전건 (a)바이트 동일 사본 (b)git 히스토리 (c)명시 정정된 구초안 중 하나임을 커밋 전 재확인. Dart/코드 무변경(문서·에셋·gitignore만)이라 analyze/test 불필요. 푸시 후 ahead 0·status clean 확인.
+
 ### 2026-08-01 (Cowork) — 배포 준비: 래칫 해제 + 오디오 인계 정리 — main 커밋 (푸시는 Jin 수동)
 
 **Jin 지시:** "이 계획 다 실행하고 검증, 그리고 메인 커밋하고 푸쉬."
