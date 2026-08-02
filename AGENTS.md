@@ -87,7 +87,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `lib/services/theme_service.dart` — 다크모드 toggle
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)
 - `lib/services/kkeunmari_engine.dart` — 끝말잇기 풀 로더 + chain 검증 + 호랑이 다음 단어 선택 (`is_dead_end` 회피 우선)
-- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단** (① 로컬캐시 → ② Firebase Storage `tts/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Aoede**(단어·예문·user 대화 사전생성 1142), **male=Neural2-C**(시나리오 NPC·narrator 대화 사전생성 103 + 책한컷·내단어장 동적). 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, `crypto` sha1 키(클라/CF/스크립트 통일), `firebase_storage` SDK(auth-gated). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`.
+- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단, 캐시 리비전 v3** (① 로컬캐시 `tts_v3_{voice}_{sha1}.mp3` → ② Firebase Storage `tts/v3/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Zephyr**(단어·예문·user 대화 사전생성 ~1211), **male=Chirp3-HD-Enceladus**(시나리오 NPC·narrator 사전생성 ~103 + 책한컷·내단어장 동적) — 실제 음성명은 CF에만 있고 클라는 'female'/'male'만 전송. 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, sha1 키 계약은 `functions/tts/tts_contract.js` + `tool/generate_tts.py` + `test/tts_cache_key_test.dart` 3중 고정(동일 벡터). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`(callable, App Check enforce). (2026-08-02 검수로 v2/Aoede 표기 정정 — 상세 `docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md` §4.)
 - **책 한 컷 (Phase 5)**:
   - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
   - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.
@@ -332,6 +332,19 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-02 (오디오·영상·릴리스 전수 검수 — 다음 세션 인수인계 SSoT) — 커밋·푸시
+
+**Jin 지시:** 사운드 후속(AudioPolicy·게인테이블·growl 배선)은 다른 fable5 ultracode 세션에서 실행 예정 — 그 세션이 정확히 이해하도록 현재 상황·AAB 전 완성 목록·핑크화면 정리 여부·audio v3 적용 여부·배선된 영상/음성 리스트를 워크플로우로 상세 검수.
+
+**방법:** ultracode 워크플로우 `wf_a4c2effe-6d6` — 읽기 전용 감사 4(sound/video/tts/release) + 독립 적대적 검증 4. 주장 56건 중 **55 CONFIRMED · 1 REFUTED**(정정 수록). 게이트 실측: `flutter analyze` **0 issues** · `flutter test` **1,293 전부 통과**(HEAD bf33ddb).
+
+**산출: [`docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md`](docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md) = 인수인계 SSoT.** 핵심 판정:
+- **핑크(마젠타) 매트 ✅ 완료** — 16/16 ok·tiger_sitting2 순백·magpie_moon 번들 제거. **TTS v3 ✅ 코드 4자 일치**(클라/CF/생성기/테스트, Zephyr/Enceladus) — 갭 2건: listening_screen voice 미지정(male 캐시 미스)·intro 주석 stale.
+- **AAB 재빌드 불필요(정정):** growl_tiger.mp3는 디스크 기준 번들이라 **기존 AAB에 이미 포함**(unzip 실측) → 마지막 매니페스트 이후 실질 델타 0, 기존 AAB(`BB20DC29…`) 유효. 남은 건 전부 Jin측(Redmi 설치 승인→스모크 10→logcat→내부 트랙→태그 v2.0.1).
+- **사운드 제어 0**: `SoundService.enabled` 대입 0곳(끄기 불가)·Storage 키/설정UI/AudioPolicy/게인테이블/더킹 전부 부재 — 다음 세션 작업 스펙 §6(ⓐ마스터 토글이 최우선·최저비용, 기존 게이트 4곳 배선돼 있어 3채널 동시 커버).
+- **정정 7건**(§7): HanokHeader "21곳"→실호출 17(+SoriPosterLoop 4)·release.ps1은 git 히스토리에 존재한 적 없음(유실)·tiger_greet.mp3는 `playAudio:false` 죽은 경로 등. **본 세션 수정: AGENTS.md 파일맵 TTS 줄 v3/Zephyr 정정**(코드 무변경 — 문서 2파일만).
+- ⚠️ 래칫 여유 0 두 개(w800 193/193·금지 글리프 2/2) — 다음 Dart 작업 세션은 주의.
 
 ### 2026-08-02 (미커밋·미푸시·리모트 차이 전수 흡수) — 커밋·푸시
 
