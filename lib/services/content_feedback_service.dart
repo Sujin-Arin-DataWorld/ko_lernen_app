@@ -135,14 +135,14 @@ class ContentFeedbackService implements FeedbackOutbox {
         ),
       );
     }
-    return _runExclusive(() => _submit(context, draft));
+    return _runExclusiveWithClosedCleanup(() => _submit(context, draft));
   }
 
   Future<ContentFeedbackResumeResult> resumePending() {
     if (!featureGate.isEnabled) {
       return Future.value(const ContentFeedbackResumeResult(disabled: true));
     }
-    return _runExclusive(_resumePending);
+    return _runExclusiveWithClosedCleanup(_resumePending);
   }
 
   Future<Set<String>> readPassportState() async {
@@ -159,7 +159,11 @@ class ContentFeedbackService implements FeedbackOutbox {
   @override
   Future<void> closeAndDiscard() {
     _closed = true;
-    return _runExclusive(outboxStore.clear);
+    // Deletion invokes this while holding the same durable admission lane
+    // that an already queued feedback operation may be waiting to enter.
+    // Clear immediately; the operation wrapper performs a final sweep if a
+    // previously admitted storage write finishes after this clear.
+    return outboxStore.clear();
   }
 
   Future<ContentFeedbackSubmitResult> _submit(
@@ -509,8 +513,9 @@ class ContentFeedbackService implements FeedbackOutbox {
         );
         if (_closed) break;
         if (_validatedCurrentUid() != attempted.ownerUid) {
-          await _discardById(queue, attempted.submission.feedbackId);
-          discarded += 1;
+          if (await _tryDiscardChangedOwnerOnResume(queue, attempted)) {
+            discarded += 1;
+          }
           break;
         }
         await _discardById(queue, attempted.submission.feedbackId);
@@ -519,8 +524,9 @@ class ContentFeedbackService implements FeedbackOutbox {
       } on ContentFeedbackClientFailure catch (failure) {
         if (_closed) break;
         if (_validatedCurrentUid() != attempted.ownerUid) {
-          await _discardById(queue, attempted.submission.feedbackId);
-          discarded += 1;
+          if (await _tryDiscardChangedOwnerOnResume(queue, attempted)) {
+            discarded += 1;
+          }
           break;
         }
         await _retainFailure(queue, attempted, failure);
@@ -528,8 +534,9 @@ class ContentFeedbackService implements FeedbackOutbox {
       } catch (_) {
         if (_closed) break;
         if (_validatedCurrentUid() != attempted.ownerUid) {
-          await _discardById(queue, attempted.submission.feedbackId);
-          discarded += 1;
+          if (await _tryDiscardChangedOwnerOnResume(queue, attempted)) {
+            discarded += 1;
+          }
           break;
         }
         await _retainFailure(
@@ -607,6 +614,20 @@ class ContentFeedbackService implements FeedbackOutbox {
     );
   }
 
+  Future<bool> _tryDiscardChangedOwnerOnResume(
+    List<ContentFeedbackOutboxItem> queue,
+    ContentFeedbackOutboxItem attempted,
+  ) async {
+    try {
+      await _discardById(queue, attempted.submission.feedbackId);
+      return true;
+    } catch (_) {
+      // Fail closed. The record remains owner-bound and the next account's
+      // resume pass filters it before any callable can start.
+      return false;
+    }
+  }
+
   ContentFeedbackSubmitResult _closedSubmission([String? feedbackId]) {
     return ContentFeedbackSubmitResult(
       status: ContentFeedbackSubmitStatus.closed,
@@ -645,5 +666,24 @@ class ContentFeedbackService implements FeedbackOutbox {
     final operation = _tail.then((_) => action());
     _tail = operation.then<void>((_) {}, onError: (Object _, StackTrace __) {});
     return operation;
+  }
+
+  Future<T> _runExclusiveWithClosedCleanup<T>(Future<T> Function() action) {
+    final mayNeedCloseSweep = !_closed;
+    return _runExclusive(() async {
+      try {
+        return await action();
+      } finally {
+        if (mayNeedCloseSweep && _closed) {
+          try {
+            await outboxStore.clear();
+          } catch (_) {
+            // closeAndDiscard reports its own authoritative clear failure.
+            // This sweep only prevents a previously admitted write from
+            // restoring data after that close attempt.
+          }
+        }
+      }
+    });
   }
 }

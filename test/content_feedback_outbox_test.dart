@@ -3,14 +3,20 @@ import 'dart:convert';
 
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/models/content_feedback.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/content_feedback_client.dart';
 import 'package:ko_lernen_app/services/content_feedback_outbox.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/content_feedback_version_provider.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   const context = ContentFeedbackContext(
     completionId: 'completion-42',
     contentType: 'scenario',
@@ -276,34 +282,81 @@ void main() {
       },
     );
 
-    test(
-      'binds an in-flight submission to its immutable outbox owner',
-      () async {
-        var liveUid = 'account-a';
-        final store = MemoryFeedbackOutboxStore();
-        final client = GatedFeedbackClient();
-        final service = buildService(
-          store: store,
-          client: client,
-          currentUid: () => liveUid,
-        );
+    for (final response in <Object>[
+      ContentFeedbackAcknowledgement.accepted,
+      const ContentFeedbackClientFailure(
+        ContentFeedbackFailureCategory.unavailable,
+        retryable: true,
+      ),
+    ]) {
+      final outcome = response is ContentFeedbackClientFailure
+          ? 'failure'
+          : 'success';
 
-        final submit = service.submit(context, draft);
-        await client.started.future;
-        liveUid = 'account-b';
-        client.response.complete(
-          const ContentFeedbackClientFailure(
-            ContentFeedbackFailureCategory.unavailable,
-            retryable: true,
-          ),
-        );
+      test(
+        'immediate $outcome stays bound to account A after A to B race',
+        () async {
+          var liveUid = 'account-a';
+          final store = MemoryFeedbackOutboxStore();
+          final client = GatedFeedbackClient();
+          final service = buildService(
+            store: store,
+            client: client,
+            currentUid: () => liveUid,
+          );
 
-        await submit;
+          final submit = service.submit(context, draft);
+          await client.started.future;
+          liveUid = 'account-b';
+          client.response.complete(response);
 
-        expect(client.expectedOwnerUids, <String>['account-a']);
-        expect(await store.read(), isEmpty);
-      },
-    );
+          final result = await submit;
+          final secondResume = await service.resumePending();
+
+          expect(result.status, ContentFeedbackSubmitStatus.failed);
+          expect(
+            result.failure,
+            ContentFeedbackFailureCategory.authenticationRequired,
+          );
+          expect(client.expectedOwnerUids, <String>['account-a']);
+          expect(client.feedbackIds, <String>['new-feedback']);
+          expect(secondResume.delivered, 0);
+          expect(await store.read(), isEmpty);
+        },
+      );
+
+      test(
+        'resume $outcome stays bound to account A after A to B race',
+        () async {
+          var liveUid = 'account-a';
+          final store = MemoryFeedbackOutboxStore(
+            items: [pendingItem('account-a-feedback', ownerUid: 'account-a')],
+          );
+          final client = GatedFeedbackClient();
+          final service = buildService(
+            store: store,
+            client: client,
+            currentUid: () => liveUid,
+          );
+
+          final resume = service.resumePending();
+          await client.started.future;
+          liveUid = 'account-b';
+          client.response.complete(response);
+
+          final result = await resume;
+          final secondResume = await service.resumePending();
+
+          expect(result.delivered, 0);
+          expect(result.discarded, 1);
+          expect(result.remaining, 0);
+          expect(client.expectedOwnerUids, <String>['account-a']);
+          expect(client.feedbackIds, <String>['account-a-feedback']);
+          expect(secondResume.delivered, 0);
+          expect(store.items, isEmpty);
+        },
+      );
+    }
 
     test('resumes a pending item with its immutable outbox owner', () async {
       final store = MemoryFeedbackOutboxStore(
@@ -351,12 +404,132 @@ void main() {
       final resumed = await service.resumePending();
       final submitted = await service.submit(context, draft);
 
-      expect(store.clearCount, 1);
+      expect(store.clearCount, greaterThanOrEqualTo(1));
       expect(store.items, isEmpty);
       expect(resumed.closed, isTrue);
       expect(submitted.status, ContentFeedbackSubmitStatus.closed);
       expect(client.feedbackIds, isEmpty);
     });
+
+    test(
+      'closeAndDiscard completes inside the production durable admission lane',
+      () async {
+        SharedPreferences.setMockInitialValues(<String, Object>{});
+        final coordinator = CloudBackupDeletionCoordinator(
+          sessions: CloudWriteSessionController()..acquire('account-a'),
+          currentUid: () => 'account-a',
+          journalStore:
+              const SharedPreferencesCloudBackupDeletionJournalStore(),
+          gateway: _UnusedCloudBackupDeletionGateway(),
+        );
+        AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+          coordinator,
+        );
+
+        final laneAcquired = Completer<void>();
+        final feedbackAdmissionRequested = Completer<void>();
+        final closeObserved = Completer<bool>();
+        final releaseLane = Completer<void>();
+        Future<void>? close;
+        var closeCompleted = false;
+        final store = MemoryFeedbackOutboxStore(
+          items: [pendingItem('account-a-feedback', ownerUid: 'account-a')],
+        );
+        final service = buildService(
+          store: store,
+          client: FakeFeedbackClient(),
+          currentUid: () => 'account-a',
+          deletionActive: () {
+            if (!feedbackAdmissionRequested.isCompleted) {
+              feedbackAdmissionRequested.complete();
+            }
+            return AuthService.runDurableAccountAdmission<bool>(
+              onAdmitted: () async => false,
+              onBlocked: () async => true,
+            );
+          },
+        );
+
+        try {
+          final deletionLane = AuthService.runDurableAccountAdmission<void>(
+            onAdmitted: () async {
+              laneAcquired.complete();
+              await feedbackAdmissionRequested.future;
+              close = service.closeAndDiscard();
+              unawaited(
+                close!.then((_) {
+                  closeCompleted = true;
+                }),
+              );
+              await Future<void>.delayed(Duration.zero);
+              closeObserved.complete(closeCompleted);
+              await releaseLane.future;
+            },
+            onBlocked: () async => fail('deletion admission was blocked'),
+          );
+
+          await laneAcquired.future;
+          final resume = service.resumePending();
+          final completedWhileLaneHeld = await closeObserved.future;
+          releaseLane.complete();
+
+          await deletionLane;
+          await close;
+          final result = await resume;
+
+          expect(completedWhileLaneHeld, isTrue);
+          expect(result.closed, isTrue);
+          expect(store.items, isEmpty);
+        } finally {
+          if (!releaseLane.isCompleted) releaseLane.complete();
+          AuthService.resetCloudBackupDeletionForTesting();
+        }
+      },
+    );
+
+    for (final response in <Object>[
+      ContentFeedbackAcknowledgement.accepted,
+      const ContentFeedbackClientFailure(
+        ContentFeedbackFailureCategory.unavailable,
+        retryable: true,
+      ),
+    ]) {
+      final outcome = response is ContentFeedbackClientFailure
+          ? 'failure'
+          : 'success';
+
+      test(
+        'resume $outcome fails closed when changed-owner secure deletion fails',
+        () async {
+          var liveUid = 'account-a';
+          final store = MemoryFeedbackOutboxStore(
+            items: [pendingItem('account-a-feedback', ownerUid: 'account-a')],
+            failEveryClear: true,
+          );
+          final client = GatedFeedbackClient();
+          final service = buildService(
+            store: store,
+            client: client,
+            currentUid: () => liveUid,
+          );
+
+          final resume = service.resumePending();
+          await client.started.future;
+          liveUid = 'account-b';
+          client.response.complete(response);
+
+          final result = await resume;
+          final retryAsAccountB = await service.resumePending();
+
+          expect(result.delivered, 0);
+          expect(result.discarded, 0);
+          expect(result.remaining, 1);
+          expect(retryAsAccountB.delivered, 0);
+          expect(client.expectedOwnerUids, <String>['account-a']);
+          expect(store.items.single.ownerUid, 'account-a');
+        },
+      );
+    }
 
     test('close during version lookup never admits the submission', () async {
       final versionProvider = GatedVersionProvider();
@@ -435,7 +608,7 @@ void main() {
 
         expect(result.status, ContentFeedbackSubmitStatus.closed);
         expect(store.writeCount, 1);
-        expect(store.clearCount, 1);
+        expect(store.clearCount, greaterThanOrEqualTo(1));
         expect(store.items, isEmpty);
         expect(client.feedbackIds, isEmpty);
       },
@@ -572,7 +745,7 @@ void main() {
         expect(result.delivered, 0);
         expect(result.remaining, 0);
         expect(store.writeCount, 1);
-        expect(store.clearCount, 1);
+        expect(store.clearCount, greaterThanOrEqualTo(1));
         expect(store.items, isEmpty);
         expect(client.feedbackIds, isEmpty);
       },
@@ -595,7 +768,7 @@ void main() {
       expect(result.status, ContentFeedbackSubmitStatus.closed);
       expect(client.feedbackIds, ['new-feedback']);
       expect(store.writeCount, writesBeforeClose);
-      expect(store.clearCount, 1);
+      expect(store.clearCount, greaterThanOrEqualTo(1));
       expect(store.items, isEmpty);
     });
 
@@ -620,7 +793,7 @@ void main() {
 
       expect(result.status, ContentFeedbackSubmitStatus.closed);
       expect(store.writeCount, writesBeforeClose);
-      expect(store.clearCount, 1);
+      expect(store.clearCount, greaterThanOrEqualTo(1));
       expect(store.items, isEmpty);
     });
 
@@ -655,7 +828,7 @@ void main() {
 
       expect(result.status, ContentFeedbackSubmitStatus.closed);
       expect(store.writeCount, 3);
-      expect(store.clearCount, 1);
+      expect(store.clearCount, greaterThanOrEqualTo(1));
       expect(store.items, isEmpty);
     });
 
@@ -679,7 +852,7 @@ void main() {
       expect(result.delivered, 0);
       expect(result.remaining, 0);
       expect(store.writeCount, writesBeforeClose);
-      expect(store.clearCount, 1);
+      expect(store.clearCount, greaterThanOrEqualTo(1));
       expect(store.items, isEmpty);
     });
 
@@ -708,7 +881,7 @@ void main() {
       expect(result.delivered, 0);
       expect(result.remaining, 0);
       expect(store.writeCount, writesBeforeClose);
-      expect(store.clearCount, 1);
+      expect(store.clearCount, greaterThanOrEqualTo(1));
       expect(store.items, isEmpty);
     });
 
@@ -746,7 +919,7 @@ void main() {
       expect(result.delivered, 0);
       expect(result.remaining, 0);
       expect(store.writeCount, 2);
-      expect(store.clearCount, 1);
+      expect(store.clearCount, greaterThanOrEqualTo(1));
       expect(store.items, isEmpty);
     });
 
@@ -1142,6 +1315,7 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
     this.events,
     this.failNextWrite = false,
     this.failNextClear = false,
+    this.failEveryClear = false,
     this.onWrite,
     this.onReadAsync,
     this.onWriteAsync,
@@ -1151,6 +1325,7 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
   final List<String>? events;
   bool failNextWrite;
   bool failNextClear;
+  final bool failEveryClear;
   final void Function(int writeCount)? onWrite;
   final Future<void> Function(int readCount)? onReadAsync;
   final Future<void> Function(int writeCount)? onWriteAsync;
@@ -1161,7 +1336,7 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
   @override
   Future<void> clear() async {
     clearCount += 1;
-    if (failNextClear) {
+    if (failEveryClear || failNextClear) {
       failNextClear = false;
       throw StateError('clear failed');
     }
@@ -1191,6 +1366,14 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
           : 'write:${value.last.submission.feedbackId}',
     );
   }
+}
+
+class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
+  @override
+  Future<CloudBackupDeletionRemoteState> deleteCloudBackup(
+    String requestKey, {
+    required String expectedUid,
+  }) => throw StateError('gateway must not be called');
 }
 
 class MemoryFeedbackSecureStorage implements FeedbackSecureStorage {
