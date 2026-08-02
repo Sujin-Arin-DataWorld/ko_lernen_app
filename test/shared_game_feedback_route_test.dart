@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
@@ -16,6 +17,9 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/models/content_feedback.dart';
+import 'package:ko_lernen_app/services/content_feedback_service.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -196,10 +200,20 @@ void main() {
     final card = _expectTerminalFeedback(tester);
     final context = card.feedbackContext!;
     expect(context.contentLabel, 'custom_wordbook');
-    expect(
-      context.toWire().values.whereType<String>(),
-      isNot(contains(_packName)),
-    );
+    final serialized = context.toWire().values.whereType<String>();
+    for (final personalText in [
+      _packName,
+      for (final word in _packWords) ...[
+        word.korean,
+        word.translationDe,
+        word.translationEn,
+      ],
+    ]) {
+      expect(
+        serialized.every((value) => !value.contains(personalText)),
+        isTrue,
+      );
+    }
   });
 
   testWidgets('custom matching terminal route exposes feedback context', (
@@ -256,6 +270,7 @@ GameOverCard _expectTerminalFeedback(WidgetTester tester) {
   expect(cardFinder, findsOneWidget);
   final card = tester.widget<GameOverCard>(cardFinder);
   expect(card.feedbackContext, isNotNull);
+  expect(find.byType(ContentFeedbackCard), findsOneWidget);
   return card;
 }
 
@@ -265,6 +280,17 @@ Widget _wrap(Widget child) {
     locale: const Locale('de'),
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
-    home: child,
+    home: ContentFeedbackControllerScope(
+      featureGate: const TesterFeedbackFeatureGate(enabled: true),
+      submitFeedback: _inertFeedbackSubmitter,
+      child: child,
+    ),
   );
 }
+
+Future<ContentFeedbackSubmitResult> _inertFeedbackSubmitter(
+  ContentFeedbackContext context,
+  ContentFeedbackDraft draft,
+) async => const ContentFeedbackSubmitResult(
+  status: ContentFeedbackSubmitStatus.disabled,
+);

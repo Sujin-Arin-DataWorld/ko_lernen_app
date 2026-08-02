@@ -262,7 +262,11 @@ class ContentFeedbackService implements FeedbackOutbox {
     try {
       queue = List.of(await _readOutbox());
       if (_closed) return _closedSubmission(feedbackId);
-      queue.removeWhere((queued) => queued.ownerUid != uid);
+      queue.removeWhere(
+        (queued) =>
+            queued.ownerUid != uid ||
+            queued.status == FeedbackOutboxLocalStatus.blocked,
+      );
       if (queue.length >= feedbackOutboxMaxItems) {
         return ContentFeedbackSubmitResult(
           status: ContentFeedbackSubmitStatus.queueFull,
@@ -375,7 +379,16 @@ class ContentFeedbackService implements FeedbackOutbox {
       if (_validatedCurrentUid() != attempted.ownerUid) {
         return _discardChangedOwnerSubmission(queue, attempted);
       }
-      await _retainFailure(queue, attempted, failure);
+      if (failure.retryable) {
+        await _retainFailure(queue, attempted, failure);
+      } else {
+        try {
+          await _discardById(queue, attempted.submission.feedbackId);
+        } catch (_) {
+          // The attempt was durably persisted before the callable. Keep that
+          // pending record when cleanup itself cannot be persisted.
+        }
+      }
       if (_closed) return _closedSubmission(attempted.submission.feedbackId);
       return ContentFeedbackSubmitResult(
         status: failure.retryable
@@ -449,7 +462,11 @@ class ContentFeedbackService implements FeedbackOutbox {
     }
     if (_closed) return const ContentFeedbackResumeResult(closed: true);
     final beforeOwnershipFilter = queue.length;
-    queue.removeWhere((item) => item.ownerUid != uid);
+    queue.removeWhere(
+      (item) =>
+          item.ownerUid != uid ||
+          item.status == FeedbackOutboxLocalStatus.blocked,
+    );
     var discarded = beforeOwnershipFilter - queue.length;
     if (discarded > 0) {
       try {
@@ -544,7 +561,17 @@ class ContentFeedbackService implements FeedbackOutbox {
           }
           break;
         }
-        await _retainFailure(queue, attempted, failure);
+        if (failure.retryable) {
+          await _retainFailure(queue, attempted, failure);
+        } else {
+          try {
+            await _discardById(queue, attempted.submission.feedbackId);
+            discarded += 1;
+          } catch (_) {
+            // The prior attempted item remains durably pending. Do not turn a
+            // failed cleanup into a permanently non-resumable blocked item.
+          }
+        }
         break;
       } catch (_) {
         if (_closed) break;

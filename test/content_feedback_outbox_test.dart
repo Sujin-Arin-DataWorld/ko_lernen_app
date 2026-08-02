@@ -143,6 +143,63 @@ void main() {
       expect(store.items.single.submission.feedbackId, 'new-feedback');
     });
 
+    test(
+      'reclaims a terminal delivery failure so later feedback is admitted',
+      () async {
+        final store = MemoryFeedbackOutboxStore();
+        final service = buildService(
+          store: store,
+          client: FakeFeedbackClient(
+            responses: const [
+              ContentFeedbackClientFailure(
+                ContentFeedbackFailureCategory.permissionDenied,
+                retryable: false,
+              ),
+              ContentFeedbackAcknowledgement.accepted,
+            ],
+          ),
+        );
+
+        final terminal = await service.submit(context, draft);
+        final later = await service.submit(context, draft);
+
+        expect(terminal.status, ContentFeedbackSubmitStatus.failed);
+        expect(
+          terminal.failure,
+          ContentFeedbackFailureCategory.permissionDenied,
+        );
+        expect(await store.read(), isEmpty);
+        expect(later.status, ContentFeedbackSubmitStatus.accepted);
+        expect(await store.read(), isEmpty);
+      },
+    );
+
+    test(
+      'keeps the attempted pending record when terminal failure cleanup fails',
+      () async {
+        final store = MemoryFeedbackOutboxStore(failNextClear: true);
+        final service = buildService(
+          store: store,
+          client: FakeFeedbackClient(
+            responses: const [
+              ContentFeedbackClientFailure(
+                ContentFeedbackFailureCategory.permissionDenied,
+                retryable: false,
+              ),
+            ],
+          ),
+        );
+
+        final result = await service.submit(context, draft);
+
+        expect(result.status, ContentFeedbackSubmitStatus.failed);
+        expect(result.failure, ContentFeedbackFailureCategory.permissionDenied);
+        expect(store.items, hasLength(1));
+        expect(store.items.single.status, FeedbackOutboxLocalStatus.pending);
+        expect(store.items.single.retry.attemptCount, 1);
+      },
+    );
+
     test('refuses item 21 without deleting the existing 20', () async {
       final existing = List<ContentFeedbackOutboxItem>.generate(
         feedbackOutboxMaxItems,
@@ -161,6 +218,30 @@ void main() {
       );
       expect(client.feedbackIds, isEmpty);
     });
+
+    test(
+      'submission reclaims legacy blocked records before applying the cap',
+      () async {
+        final blocked = List<ContentFeedbackOutboxItem>.generate(
+          feedbackOutboxMaxItems,
+          (index) => pendingItem('legacy-$index').recordFailure(
+            const ContentFeedbackClientFailure(
+              ContentFeedbackFailureCategory.permissionDenied,
+              retryable: false,
+            ),
+          ),
+        );
+        final store = MemoryFeedbackOutboxStore(items: blocked);
+        final client = FakeFeedbackClient();
+        final service = buildService(store: store, client: client);
+
+        final result = await service.submit(context, draft);
+
+        expect(result.status, ContentFeedbackSubmitStatus.accepted);
+        expect(client.feedbackIds, ['new-feedback']);
+        expect(await store.read(), isEmpty);
+      },
+    );
 
     test(
       'submission discards stale-UID records before applying the cap',
@@ -259,6 +340,55 @@ void main() {
       expect(client.feedbackIds, ['current-feedback']);
       expect(store.items, isEmpty);
     });
+
+    test(
+      'resume reclaims legacy blocked records without calling the network',
+      () async {
+        final store = MemoryFeedbackOutboxStore(
+          items: [
+            pendingItem('legacy-terminal').recordFailure(
+              const ContentFeedbackClientFailure(
+                ContentFeedbackFailureCategory.permissionDenied,
+                retryable: false,
+              ),
+            ),
+          ],
+        );
+        final client = FakeFeedbackClient();
+        final service = buildService(store: store, client: client);
+
+        final result = await service.resumePending();
+
+        expect(result, isA<ContentFeedbackResumeResult>());
+        expect(result.discarded, 1);
+        expect(await store.read(), isEmpty);
+        expect(client.feedbackIds, isEmpty);
+      },
+    );
+
+    test(
+      'resume reclaims a terminal client failure without blocking it',
+      () async {
+        final store = MemoryFeedbackOutboxStore(
+          items: [pendingItem('terminal-resume')],
+        );
+        final client = FakeFeedbackClient(
+          responses: const [
+            ContentFeedbackClientFailure(
+              ContentFeedbackFailureCategory.permissionDenied,
+              retryable: false,
+            ),
+          ],
+        );
+        final service = buildService(store: store, client: client);
+
+        final result = await service.resumePending();
+
+        expect(result.discarded, 1);
+        expect(await store.read(), isEmpty);
+        expect(client.feedbackIds, ['terminal-resume']);
+      },
+    );
 
     test(
       'post-delete restart discards the old anonymous UID without sending',
