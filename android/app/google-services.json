@@ -14,11 +14,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "573567222361-clvvao1nbjue9a8seic223cue51pa5cp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sujinarin.ko_lernen_app",
+            "certificate_hash": "ab6118fe34c948ab221f1c2e5e864858efcc1453"
+          }
+        },
+        {
           "client_id": "573567222361-ie6fko7oi2nd0p8eo78l20b30i44v7rt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.sujinarin.ko_lernen_app",
             "certificate_hash": "927593a43e591b305e579270dba2d5425c5286ed"
+          }
+        },
+        {
+          "client_id": "573567222361-o5r0c222m5dndvoh52nscgfojk3quotk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sujinarin.ko_lernen_app",
+            "certificate_hash": "6e94e73b7c19b1f8d959e62e7e9b1fe5884ad807"
           }
         },
         {
