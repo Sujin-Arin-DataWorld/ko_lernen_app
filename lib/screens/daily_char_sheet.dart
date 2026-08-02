@@ -220,7 +220,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
             t.dailyCharGuideHint,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               color: s.textDim,
               fontSize: 11,
             ),
