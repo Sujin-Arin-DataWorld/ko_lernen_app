@@ -414,17 +414,18 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                         tinted: true,
                         child: Row(
                           children: [
-                            // 생각 중 클립 루프 — 카드가 tinted(tiger 8%)라
-                            // 같은 공식으로 blendColor를 맞춰 흰 배경 흡수.
+                            // 생각 중 클립 루프 — 카드 실배경과 **같은 함수**로
+                            // blendColor를 맞춰 흰 배경 흡수(수식 복제 금지).
                             CharacterClipPlayer(
                               asset: CharacterClips.thinkingFor(
                                 MascotPreference.kind.value,
                               ),
                               size: 56,
                               loop: true,
-                              blendColor: Color.alphaBlend(
-                                SoriColors.tiger.withValues(alpha: 0.08),
-                                SoriSurfaces.of(context).surface,
+                              blendColor: SoriCard.resolvedBackground(
+                                context,
+                                accent: SoriColors.tiger,
+                                tinted: true,
                               ),
                               fallbackEmotion: MascotEmotion.thinking,
                             ),

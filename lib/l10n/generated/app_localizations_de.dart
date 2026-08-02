@@ -609,6 +609,70 @@ class AppL10nDe extends AppL10n {
   String get settingsTtsRateFast => 'Schnell';
 
   @override
+  String get settingsSoundSection => 'Ton';
+
+  @override
+  String get settingsSoundMaster => 'Ton';
+
+  @override
+  String get settingsSoundMasterDesc =>
+      'Schaltet alle Töne der App ein oder aus';
+
+  @override
+  String get settingsSoundMasterVolume => 'Gesamtlautstärke';
+
+  @override
+  String get settingsSoundGame => 'Spiel-Feedback';
+
+  @override
+  String get settingsSoundGameDesc => 'Richtig, falsch, Combo, Level-up';
+
+  @override
+  String get settingsSoundCompanion => 'Lernfreunde';
+
+  @override
+  String get settingsSoundCompanionDesc =>
+      'Tiger und Elster: Begrüßung und Jubel';
+
+  @override
+  String get settingsSoundAmbience => 'Hintergrundklänge';
+
+  @override
+  String get settingsSoundAmbienceDesc =>
+      'Leise Hanok-Atmosphäre auf manchen Bildschirmen';
+
+  @override
+  String get settingsSoundCinematic => 'Intro beim Start';
+
+  @override
+  String get settingsSoundCinematicDesc =>
+      'Der Klang des Hoftors beim Öffnen der App';
+
+  @override
+  String get settingsSoundSpeech => 'Koreanische Aussprache';
+
+  @override
+  String get settingsSoundSpeechDesc => 'Vorlesen der koreanischen Wörter';
+
+  @override
+  String get settingsSoundSpeechWarn =>
+      'Ohne diesen Ton hörst du keine Aussprache';
+
+  @override
+  String get settingsSoundDuck => 'Bei Aussprache leiser';
+
+  @override
+  String get settingsSoundDuckDesc =>
+      'Hintergrundklänge werden leiser, während Koreanisch vorgelesen wird';
+
+  @override
+  String get settingsSoundRespectSilent => 'Stumm-Schalter beachten';
+
+  @override
+  String get settingsSoundRespectSilentDesc =>
+      'Kein Ton, wenn das Gerät stumm geschaltet ist';
+
+  @override
   String get settingsReset => 'Alle Daten zurücksetzen';
 
   @override

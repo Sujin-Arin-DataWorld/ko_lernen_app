@@ -172,6 +172,17 @@ flutter test --reporter compact                        →  +1293: All tests pas
 
 ## §6. 다음 세션 작업 스펙 (우선순위순)
 
+> ✅ **2026-08-02 저녁 — 본 세션이 직접 구현 완료** (Jin: "다른 세션한테 굳이 넘기지말고 이 세션에서 진행하자"):
+> **ⓐ 완료**(마스터 토글 + 채널 5종 설정 UI + `kl_snd_*` 키 + `SoundService.enabled` 읽기 전용 getter화) ·
+> **ⓑ 코어 완료**(AudioPolicy·volumeFor·게인표·AudioContext mix/respectSilence — 잔여: 게인 자동화 도구 §4-1, ambience 화면 배선 §9-6=Jin §11-1 결정 대기) ·
+> **ⓒ 완료**(growl = 설정 Ton→Lernbegleiter 미리듣기, 호랑이 선택 시) ·
+> **ⓓ 완료**(listening 화자→voice 규칙 이식) ·
+> **ⓔ 완료**(TtsService.speaking + AudioPolicy 더킹 ×0.25/200ms — ambience 배선 시 자동 발효) ·
+> **ⓕ 부분**(주석 4건 정정 — levelUp 배선·tiger_greet 처분은 Jin 결정 대기) ·
+> **ⓖ 완료**(`SoriCard.resolvedBackground` 헬퍼 + kkeunmari·listening 수정).
+> 테스트 신설 4: audio_policy(9)·audio_policy_guard(래칫: 리터럴 0+exempt≤3)·sound_channel_coverage·l10n_parity(델타 0).
+> 남은 것: ADR-002 Status 블록의 잔여 목록 + 실기기 확인(§10) = Jin. 아래 원문은 이력 보존용.
+
 > 공통 주의: ① 래칫 여유 0(§5-1) — 새 위젯에 w800·`▶◀` 금지 ② arb 키 추가 시 `flutter gen-l10n` 필수(DE/EN parity) ③ 영상 코드는 lease 경유 강제(§1 불변식) ④ Dart 수정 후 `flutter analyze` + `flutter test` (기준 1,293개).
 
 - **ⓐ 사운드 마스터 토글 (가장 싸고 가장 급함)** — ⚠️ **Storage 키는 임의 이름(`soundEnabled` 등)을 만들지 말고 ADR-002 §3-4의 확정 스킴을 그대로 쓸 것**: `kl_snd_master`(+ 이후 `kl_snd_master_vol`/`kl_snd_$id`/`kl_snd_${id}_vol`/`kl_snd_duck`/`kl_snd_respect_silent`). `SoundService.enabled`는 ADR §3-6대로 **읽기 전용 getter**(`@Deprecated` + `AudioPolicy.instance.masterOn` 위임)로 전환 — 컴파일러가 대입을 막는 구조가 정답. **저장값 없을 때 기본 true 필수**(false로 떨어지면 신규 사용자가 무음 앱을 받음). settings_screen에 SwitchListTile 1개 + arb 2키(DE/EN, gen-l10n). **기존 게이트 읽기 4곳이 이미 배선돼 있어 이 작업만으로 3채널(게임 SFX·캐릭터 SFX·인트로) 동시 커버.** TTS는 ADR §8이 "마스터 밖" 안을 기각(speech 채널로 마스터 안에 + 음소거 시 되돌리기 스낵바 설계 §7-1) — 최소안 단계에서는 현상 유지 가능, AudioPolicy 단계에서 speech 편입.

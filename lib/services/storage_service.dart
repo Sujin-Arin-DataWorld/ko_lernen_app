@@ -798,6 +798,26 @@ class Storage {
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 
+  // ── 사운드 (ADR-002 §3-4 확정 키 스킴 — 임의 키명 금지) ──────────────
+  // 기본값은 AudioPolicy 가 인자로 넘긴다. 여기서 기본을 박으면 채널 기본값
+  // 표(ADR §3-1)와 이중 진실이 된다.
+  static bool get sndMaster => _b('kl_snd_master', true);
+  static Future<void> setSndMaster(bool v) => _sb('kl_snd_master', v);
+  static double get sndMasterVol => _d('kl_snd_master_vol', 1.0);
+  static Future<void> setSndMasterVol(double v) => _sd('kl_snd_master_vol', v);
+  static bool sndChannelOn(String id, bool dflt) => _b('kl_snd_$id', dflt);
+  static Future<void> setSndChannelOn(String id, bool v) =>
+      _sb('kl_snd_$id', v);
+  static double sndChannelVol(String id, double dflt) =>
+      _d('kl_snd_${id}_vol', dflt);
+  static Future<void> setSndChannelVol(String id, double v) =>
+      _sd('kl_snd_${id}_vol', v);
+  static bool get sndDuck => _b('kl_snd_duck', true);
+  static Future<void> setSndDuck(bool v) => _sb('kl_snd_duck', v);
+  static bool get sndRespectSilent => _b('kl_snd_respect_silent', true);
+  static Future<void> setSndRespectSilent(bool v) =>
+      _sb('kl_snd_respect_silent', v);
+
   /// Werbung anzeigen? Default true. User kann in Settings deaktivieren.
   static bool get adsEnabled => _prefs?.getBool('kl_ads_enabled') ?? true;
   static Future<void> setAdsEnabled(bool v) async =>

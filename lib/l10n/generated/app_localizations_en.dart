@@ -609,6 +609,69 @@ class AppL10nEn extends AppL10n {
   String get settingsTtsRateFast => 'Fast';
 
   @override
+  String get settingsSoundSection => 'Sound';
+
+  @override
+  String get settingsSoundMaster => 'Sound';
+
+  @override
+  String get settingsSoundMasterDesc => 'Turns all app sounds on or off';
+
+  @override
+  String get settingsSoundMasterVolume => 'Overall volume';
+
+  @override
+  String get settingsSoundGame => 'Game feedback';
+
+  @override
+  String get settingsSoundGameDesc => 'Correct, wrong, combo, level-up';
+
+  @override
+  String get settingsSoundCompanion => 'Study buddies';
+
+  @override
+  String get settingsSoundCompanionDesc =>
+      'Tiger and magpie: greetings and cheers';
+
+  @override
+  String get settingsSoundAmbience => 'Background ambience';
+
+  @override
+  String get settingsSoundAmbienceDesc =>
+      'Quiet Hanok atmosphere on some screens';
+
+  @override
+  String get settingsSoundCinematic => 'Intro on launch';
+
+  @override
+  String get settingsSoundCinematicDesc =>
+      'The sound of the gate when the app opens';
+
+  @override
+  String get settingsSoundSpeech => 'Korean pronunciation';
+
+  @override
+  String get settingsSoundSpeechDesc => 'Reads Korean words aloud';
+
+  @override
+  String get settingsSoundSpeechWarn =>
+      'Without this sound you won\'t hear any pronunciation';
+
+  @override
+  String get settingsSoundDuck => 'Quieter during pronunciation';
+
+  @override
+  String get settingsSoundDuckDesc =>
+      'Background sounds get quieter while Korean is being read';
+
+  @override
+  String get settingsSoundRespectSilent => 'Respect silent mode';
+
+  @override
+  String get settingsSoundRespectSilentDesc =>
+      'No sound while the device is muted';
+
+  @override
   String get settingsReset => 'Reset all data';
 
   @override

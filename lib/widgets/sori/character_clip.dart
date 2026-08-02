@@ -4,7 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../services/sound_service.dart';
+import '../../services/audio_policy.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'tiger_video.dart';
@@ -124,7 +124,7 @@ class CharacterClips {
   /// **캐릭터 mp4에는 오디오 트랙이 없다** — 소스가 크로마키 합성이라 출력
   /// 단계에서 소리가 실리지 않았다. 그래서 포효·짹짹은 영상이 아니라 이
   /// 별도 mp3로 재생한다(볼륨·설정 제어가 쉽다는 이점도 있다).
-  /// 파일이 없으면 [SoundService]와 같은 철학으로 조용히 무음.
+  /// 파일이 없으면 SoundService 와 같은 철학으로 조용히 무음.
   ///
   /// 매핑이 없는 클립(대기 루프·생각 중 등)은 null — 상시 루프에까지 소리를
   /// 붙이면 TTS와 겹쳐 학습을 방해한다. **일회성 연출에만** 소리를 준다.
@@ -214,7 +214,9 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
       asset: widget.asset,
       eligible: false,
       prepare: (video) async {
-        // 캐릭터 mp4에는 오디오 트랙이 없다. 효과음은 별도 mp3가 담당한다.
+        // 캐릭터 mp4 내장 트랙은 정책상 상시 무음 — 2개(greet_pawflash·perched)는
+        // 트랙이 있지만 소리는 companion 채널 mp3 가 담당한다 (ADR-002 §11-정정).
+        // audio-policy: exempt — 내장 트랙 상시 무음(정책), 채널 볼륨 아님
         await video.setVolume(0);
         await video.setLooping(widget.loop);
       },
@@ -256,9 +258,10 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   }
 
   /// 동반 효과음 — 명시 지정([CharacterClipPlayer.sfxAsset])이 없으면
-  /// 클립에서 자동 유도. [SoundService.enabled]가 마스터 스위치다.
+  /// 클립에서 자동 유도. 볼륨·on/off 는 [AudioPolicy] companion 채널이 결정한다.
   Future<void> _playSfxOnce() async {
-    if (!SoundService.enabled) return;
+    final volume = AudioPolicy.instance.volumeFor(SoundChannel.companion);
+    if (volume <= 0) return;
     final sfx = widget.sfxAsset ?? CharacterClips.sfxFor(widget.asset);
     if (sfx == null) return;
     if (_sfxStarted) return;
@@ -267,7 +270,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
       final audio = AudioPlayer();
       _audio = audio;
       await audio.setReleaseMode(ReleaseMode.release);
-      await audio.play(AssetSource(sfx), volume: 0.7);
+      await audio.play(AssetSource(sfx), volume: volume);
     } catch (_) {
       // 효과음은 항상 best-effort — 파일이 없으면 무음.
     }

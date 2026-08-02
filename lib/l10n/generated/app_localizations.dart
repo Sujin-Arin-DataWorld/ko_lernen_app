@@ -1237,6 +1237,120 @@ abstract class AppL10n {
   /// **'Schnell'**
   String get settingsTtsRateFast;
 
+  /// No description provided for @settingsSoundSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton'**
+  String get settingsSoundSection;
+
+  /// No description provided for @settingsSoundMaster.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton'**
+  String get settingsSoundMaster;
+
+  /// No description provided for @settingsSoundMasterDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Schaltet alle Töne der App ein oder aus'**
+  String get settingsSoundMasterDesc;
+
+  /// No description provided for @settingsSoundMasterVolume.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesamtlautstärke'**
+  String get settingsSoundMasterVolume;
+
+  /// No description provided for @settingsSoundGame.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiel-Feedback'**
+  String get settingsSoundGame;
+
+  /// No description provided for @settingsSoundGameDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig, falsch, Combo, Level-up'**
+  String get settingsSoundGameDesc;
+
+  /// No description provided for @settingsSoundCompanion.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfreunde'**
+  String get settingsSoundCompanion;
+
+  /// No description provided for @settingsSoundCompanionDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Tiger und Elster: Begrüßung und Jubel'**
+  String get settingsSoundCompanionDesc;
+
+  /// No description provided for @settingsSoundAmbience.
+  ///
+  /// In de, this message translates to:
+  /// **'Hintergrundklänge'**
+  String get settingsSoundAmbience;
+
+  /// No description provided for @settingsSoundAmbienceDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Leise Hanok-Atmosphäre auf manchen Bildschirmen'**
+  String get settingsSoundAmbienceDesc;
+
+  /// No description provided for @settingsSoundCinematic.
+  ///
+  /// In de, this message translates to:
+  /// **'Intro beim Start'**
+  String get settingsSoundCinematic;
+
+  /// No description provided for @settingsSoundCinematicDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Klang des Hoftors beim Öffnen der App'**
+  String get settingsSoundCinematicDesc;
+
+  /// No description provided for @settingsSoundSpeech.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanische Aussprache'**
+  String get settingsSoundSpeech;
+
+  /// No description provided for @settingsSoundSpeechDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorlesen der koreanischen Wörter'**
+  String get settingsSoundSpeechDesc;
+
+  /// No description provided for @settingsSoundSpeechWarn.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne diesen Ton hörst du keine Aussprache'**
+  String get settingsSoundSpeechWarn;
+
+  /// No description provided for @settingsSoundDuck.
+  ///
+  /// In de, this message translates to:
+  /// **'Bei Aussprache leiser'**
+  String get settingsSoundDuck;
+
+  /// No description provided for @settingsSoundDuckDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Hintergrundklänge werden leiser, während Koreanisch vorgelesen wird'**
+  String get settingsSoundDuckDesc;
+
+  /// No description provided for @settingsSoundRespectSilent.
+  ///
+  /// In de, this message translates to:
+  /// **'Stumm-Schalter beachten'**
+  String get settingsSoundRespectSilent;
+
+  /// No description provided for @settingsSoundRespectSilentDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Kein Ton, wenn das Gerät stumm geschaltet ist'**
+  String get settingsSoundRespectSilentDesc;
+
   /// No description provided for @settingsReset.
   ///
   /// In de, this message translates to:

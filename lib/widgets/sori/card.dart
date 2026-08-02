@@ -97,8 +97,17 @@ class SoriCard extends StatelessWidget {
       ? EavesCorner.borderRadius(base: _radius, boost: 6)
       : BorderRadius.circular(_radius);
 
-  @override
-  Widget build(BuildContext context) {
+  /// 카드가 실제로 칠하는 배경색 — build 와 **같은 계산**을 외부에 노출한다.
+  /// `CharacterClipPlayer.blendColor`(multiply 합성)처럼 카드 배경과 정확히
+  /// 일치해야 하는 소비자는 반드시 이걸 쓸 것 — 수식을 복제하면 어긋난 순간
+  /// 흰 영상 배경이 사각형으로 비친다(핑크 사각형 계열 재발 방지).
+  /// ⚠️ hanji variant 는 HanjiTexture 가 배경을 그리므로 이 값과 다르다 —
+  /// hanji 카드 위 multiply 합성에는 쓰지 말 것.
+  static Color resolvedBackground(
+    BuildContext context, {
+    Color? accent,
+    bool tinted = false,
+  }) {
     final s = SoriSurfaces.of(context);
     final isLight = s.brightness == Brightness.light;
     final accentColor = accent ?? SoriColors.primary;
@@ -106,13 +115,22 @@ class SoriCard extends StatelessWidget {
     // 라이트에서는 배경보다 한 톤 밝은 흰 한지로 카드를 띄운다.
     // s.surface(#F1ECDC)는 s.bg(#FAF6EC) 대비 1.09:1 이라 카드로 안 읽힌다.
     final baseSurface = isLight ? SoriColors.lightSurfaceRaised : s.surface;
+    if (!tinted) {
+      return baseSurface;
+    }
+    return Color.alphaBlend(
+      accentColor.withValues(alpha: isLight ? 0.08 : 0.14),
+      baseSurface,
+    );
+  }
 
-    final bgColor = tinted
-        ? Color.alphaBlend(
-            accentColor.withValues(alpha: isLight ? 0.08 : 0.14),
-            baseSurface,
-          )
-        : baseSurface;
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final isLight = s.brightness == Brightness.light;
+    final accentColor = accent ?? SoriColors.primary;
+
+    final bgColor = resolvedBackground(context, accent: accent, tinted: tinted);
 
     // 소프트섀도우 폐지 후 분리는 hairline이 전담 → 무채색 카드 테두리를
     // 한 톤 또렷하게(크림-온-크림에서 카드가 사라지지 않도록). ⚠️ 실기기 확인.

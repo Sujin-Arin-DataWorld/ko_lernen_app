@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
@@ -12,6 +13,8 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/external_link.dart';
 import '../services/storage_service.dart';
+import '../services/audio_policy.dart';
+import '../services/sound_service.dart';
 import '../services/notification_service.dart';
 import '../services/push_service.dart';
 import '../services/privacy_consent_service.dart';
@@ -296,6 +299,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void initState() {
     super.initState();
     _ttsRate = Storage.ttsRate;
+    // 계정 pending 저널 admission 을 **화면 진입 즉시** 시작한다.
+    // 계정 섹션은 lazy ListView 하단이라 위젯 마운트(AccountNewLinkGuard
+    // initState)에만 맡기면 위쪽 콘텐츠가 길어질수록 admission 이 스크롤
+    // 시점으로 밀린다 — "첫 프레임부터 잠금" 보장을 여기서 앵커한다.
+    // (마운트 시 재호출은 idempotent — refreshPendingState 는 상태 재읽기.)
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) {
+        return;
+      }
+      final ops = _accountOperations;
+      // AccountUiPendingStateSource 는 AccountUiOperations 의 서브타입이 아니라
+      // is-승격이 안 됨 — account_operation_ui.dart 의 _source 와 같은 캐스트.
+      final source = ops is AccountUiPendingStateSource
+          ? ops as AccountUiPendingStateSource
+          : null;
+      source?.refreshPendingState();
+    });
     if (widget.cloudDataDeletionJournalState == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await AuthService.refreshCloudBackupDeletionJournalState();
@@ -561,6 +581,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 );
               },
             ),
+
+            // ── Ton (ADR-002 §7) — AudioPolicy 단일 진실원천 ──
+            _Section(label: t.settingsSoundSection),
+            const _SoundSettings(),
 
             // ── TTS Speed ──
             _Section(label: t.settingsTtsRate),
@@ -1140,7 +1164,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     };
     return '${lvl.display} — $name';
   }
-
 
   /// 학습 동반 캐릭터 변경. 저장은 [MascotPreference.set] 하나로 통일 —
   /// 온보딩 선택 화면과 완전히 같은 경로라 두 곳이 어긋날 수 없다.
@@ -1760,6 +1783,256 @@ class _DataSourceCard extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// 사운드 설정 (ADR-002 §7) — AudioPolicy 가 단일 진실원천.
+// 마스터 off 는 하위를 숨기지 않고 비활성(구조 유지, §7-1).
+// ═══════════════════════════════════════════════════════════════════════
+
+class _SoundSettings extends StatelessWidget {
+  const _SoundSettings();
+
+  /// 미리듣기 — 호랑이는 growl(그르릉, "사운드 설정에서 세밀 조정"용으로
+  /// 제작된 전용 사운드), 까치는 인사 짹짹. 현재 볼륨 그대로 재생.
+  static Future<void> _previewCompanion() async {
+    final volume = AudioPolicy.instance.volumeFor(SoundChannel.companion);
+    if (volume <= 0) {
+      return;
+    }
+    final asset = MascotPreference.kind.value == MascotKind.tiger
+        ? 'sfx/growl_tiger.mp3'
+        : 'sfx/greet_magpie.mp3';
+    AudioPlayer? player;
+    try {
+      player = AudioPlayer();
+      await player.setReleaseMode(ReleaseMode.release);
+      player.onPlayerComplete.listen((_) {
+        player?.dispose();
+      });
+      await player.play(AssetSource(asset), volume: volume);
+    } catch (_) {
+      await player?.dispose();
+    }
+  }
+
+  static void _previewSpeech() {
+    TtsService.speak('안녕하세요');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final policy = AudioPolicy.instance;
+    return ListenableBuilder(
+      listenable: policy,
+      builder: (context, _) {
+        final master = policy.masterOn;
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SwitchListTile(
+              secondary: const Icon(
+                Icons.volume_up_outlined,
+                color: SoriColors.primary,
+              ),
+              title: Text(t.settingsSoundMaster),
+              subtitle: Text(t.settingsSoundMasterDesc),
+              value: master,
+              onChanged: (v) {
+                HapticFeedback.selectionClick();
+                policy.setMasterOn(v);
+              },
+            ),
+            if (master)
+              _SoundVolumeSlider(
+                semanticLabel: t.settingsSoundMasterVolume,
+                value: policy.masterVolume,
+                onChanged: (v) {
+                  policy.setMasterVolume(v);
+                },
+              ),
+            _SoundChannelTile(
+              channel: SoundChannel.gameFeedback,
+              icon: Icons.sports_esports_outlined,
+              title: t.settingsSoundGame,
+              subtitle: t.settingsSoundGameDesc,
+              master: master,
+              onPreview: SoundService.correct,
+            ),
+            _SoundChannelTile(
+              channel: SoundChannel.companion,
+              icon: Icons.pets,
+              title: t.settingsSoundCompanion,
+              subtitle: t.settingsSoundCompanionDesc,
+              master: master,
+              onPreview: _previewCompanion,
+            ),
+            _SoundChannelTile(
+              channel: SoundChannel.ambience,
+              icon: Icons.landscape_outlined,
+              title: t.settingsSoundAmbience,
+              subtitle: t.settingsSoundAmbienceDesc,
+              master: master,
+            ),
+            _SoundChannelTile(
+              channel: SoundChannel.cinematic,
+              icon: Icons.door_front_door_outlined,
+              title: t.settingsSoundCinematic,
+              subtitle: t.settingsSoundCinematicDesc,
+              master: master,
+            ),
+            _SoundChannelTile(
+              channel: SoundChannel.speech,
+              icon: Icons.record_voice_over_outlined,
+              title: t.settingsSoundSpeech,
+              subtitle: t.settingsSoundSpeechDesc,
+              offWarning: t.settingsSoundSpeechWarn,
+              master: master,
+              onPreview: _previewSpeech,
+            ),
+            // 채널 타일과 동일하게 — 마스터 off 시 비활성 + 흐림(시각 일관).
+            Opacity(
+              opacity: master ? 1.0 : 0.4,
+              child: SwitchListTile(
+                secondary: const Icon(
+                  Icons.volume_down_outlined,
+                  color: SoriColors.primary,
+                ),
+                title: Text(t.settingsSoundDuck),
+                subtitle: Text(t.settingsSoundDuckDesc),
+                value: policy.duckOnSpeech,
+                onChanged: master
+                    ? (v) {
+                        policy.setDuckOnSpeech(v);
+                      }
+                    : null,
+              ),
+            ),
+            Opacity(
+              opacity: master ? 1.0 : 0.4,
+              child: SwitchListTile(
+                secondary: const Icon(
+                  Icons.notifications_paused_outlined,
+                  color: SoriColors.primary,
+                ),
+                title: Text(t.settingsSoundRespectSilent),
+                subtitle: Text(t.settingsSoundRespectSilentDesc),
+                value: policy.respectSilentMode,
+                onChanged: master
+                    ? (v) {
+                        policy.setRespectSilentMode(v);
+                      }
+                    : null,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _SoundChannelTile extends StatelessWidget {
+  final SoundChannel channel;
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final String? offWarning;
+  final bool master;
+  final VoidCallback? onPreview;
+
+  const _SoundChannelTile({
+    required this.channel,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.master,
+    this.offWarning,
+    this.onPreview,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final policy = AudioPolicy.instance;
+    final on = policy.isOn(channel);
+    final body = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ListTile(
+          leading: Icon(icon, color: SoriColors.primary),
+          title: Text(title),
+          // speech 를 끈 뒤에는 경고를 본문 자리에 보여준다 — 끄기 전
+          // 확인 다이얼로그는 두지 않는다 (ADR §7-1).
+          subtitle: Text(!on && offWarning != null ? offWarning! : subtitle),
+          // Switch 에 채널명 라벨 병합 — raw ListTile+trailing 구조라
+          // 스크린리더가 켜짐/꺼짐만 읽는 것을 방지 (ADR §7-2).
+          trailing: Semantics(
+            label: title,
+            child: Switch(
+              value: on,
+              onChanged: master
+                  ? (v) {
+                      HapticFeedback.selectionClick();
+                      policy.setChannelOn(channel, v);
+                    }
+                  : null,
+            ),
+          ),
+          // 행 본문 탭 = 그 카테고리 대표 소리 미리듣기 (현재 볼륨 그대로).
+          onTap: master && on && onPreview != null ? onPreview : null,
+        ),
+        // 슬라이더는 켜졌을 때만 — 항상 펼치면 설정이 슬라이더 벽이 된다.
+        AnimatedSize(
+          duration: const Duration(milliseconds: 150),
+          child: (master && on)
+              ? _SoundVolumeSlider(
+                  semanticLabel: title,
+                  value: policy.sliderOf(channel),
+                  onChanged: (v) {
+                    policy.setChannelVolume(channel, v);
+                  },
+                  onChangeEnd: onPreview,
+                )
+              : const SizedBox.shrink(),
+        ),
+      ],
+    );
+    return master ? body : Opacity(opacity: 0.4, child: body);
+  }
+}
+
+class _SoundVolumeSlider extends StatelessWidget {
+  final String semanticLabel;
+  final double value;
+  final ValueChanged<double> onChanged;
+  final VoidCallback? onChangeEnd;
+
+  const _SoundVolumeSlider({
+    required this.semanticLabel,
+    required this.value,
+    required this.onChanged,
+    this.onChangeEnd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final percent = (value * 100).round();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Semantics(
+        label: semanticLabel,
+        value: '$percent %',
+        child: Slider(
+          value: value.clamp(0.0, 1.0),
+          divisions: 10,
+          label: '$percent %',
+          onChanged: onChanged,
+          onChangeEnd: (_) => onChangeEnd?.call(),
         ),
       ),
     );

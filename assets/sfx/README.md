@@ -31,6 +31,7 @@
 | `celebrate_tiger.mp3` | 1.04s | 〃 | `tiger_celebrate_hifive`, `tiger_roar`, `tiger_roar_seated_bonus`, `tiger_stretch` |
 | `greet_magpie.mp3` | 1.44s | 〃 | `magpie_greet_chirp` |
 | `celebrate_magpie.mp3` | 0.94s | 〃 | `magpie_celebrate`, `magpie_flight` |
+| `growl_tiger.mp3` | 1.28s | 〃 (모델 생성 오디오에서 잘라냄) | 설정 → Ton → Lernbegleiter 미리듣기(호랑이 선택 시, `settings_screen._previewCompanion`) |
 | `tiger_greet.mp3` | — | 구본 | `tiger_video.dart` 2곳 |
 
 전부 `loudnorm I=-16 / TP=-1.5` 로 통일.

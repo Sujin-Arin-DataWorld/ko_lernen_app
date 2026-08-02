@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-import '../services/sound_service.dart';
+import '../services/audio_policy.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/hanok/gate_art.dart';
@@ -18,7 +18,8 @@ import '../l10n/generated/app_localizations.dart';
 
 const _courtyardAsset = 'assets/illustrations/hanok/gate_final.png';
 
-/// 시네마틱 인트로 영상 (gate_entrance→gate_final 키프레임 8초, 무음).
+/// 시네마틱 인트로 영상 (gate_entrance→gate_final 키프레임 8초, 오디오 내장
+/// −28.9dB — cinematic 채널이 볼륨 결정).
 /// 배치 계획(docs/INTEGRATION_2026-07-29.md) §2-1. 로드 실패·reduce-motion·
 /// !videoReady → 기존 코드 연출(_scene)로 자동 폴백.
 const _introVideoAsset = 'assets/video/intro_gate_to_madang.mp4';
@@ -381,7 +382,9 @@ class _IntroVideoState extends State<_IntroVideo> {
     _lease = soriVideoLease.register(
       asset: _introVideoAsset,
       eligible: false,
-      prepare: (video) => video.setVolume(SoundService.enabled ? 0.8 : 0),
+      prepare: (video) => video.setVolume(
+        AudioPolicy.instance.volumeFor(SoundChannel.cinematic),
+      ),
       onGranted: _onGranted,
       onRevoked: _onRevoked,
       onFailed: _onFailed,

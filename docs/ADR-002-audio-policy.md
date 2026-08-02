@@ -1,6 +1,18 @@
 # ADR-002: 소리를 카테고리별로 끄고 켠다 — AudioPolicy
 
-**Status:** Proposed — Jin 승인 대기 (코드 변경 없음, 이 문서만 추가)
+**Status:** Accepted — 2026-08-02 구현 (Jin 지시 "이 세션에서 진행"). §9 단계 1·3·4·5 완료:
+`lib/services/audio_policy.dart` + `kl_snd_*` Storage 키 + 설정 UI(Ton 섹션) + 볼륨 리터럴
+이관(래칫 `test/audio_policy_guard_test.dart`) + 더킹 훅(`TtsService.speaking`) + AudioContext.
+**잔여:** §9-2 게인 자동화 도구(`tool/measure_audio_gain.py` — 현재는 §4 실측표를
+audio_policy.dart 상수로 이관) · §9-6 ambience 화면 배선(§11-1 Jin 결정 대기 — 그 전까지
+설정의 Hintergrundklänge·더킹 토글은 가청 효과 없음) · §7-1 speech 음소거 스낵바 +
+ambience/cinematic 미리듣기 2종(영상 오디오라 lease 경유 필요) · §5-2 복원 250ms 램프
+(현재 200ms 지연 후 즉시 복원 — ambience 배선 시 함께) · §6-5 설정 위젯 테스트 ·
+§3-6 `@Deprecated` 어노테이션(hanok_header 가 아직 enabled 를 읽어 §9-6 과 함께).
+**구현 정정 2건:** ① iOS 는 mixWithOthers 옵션+respectSilence 병용도 금지(assert) →
+전역 컨텍스트는 iOS 만 ambient/playback 카테고리로 직접 구성 ② §10 실기기 목록에 추가:
+iOS 에서 TTS(per-player duckOthers)가 공유 AVAudioSession 을 덮어 첫 발화 후 SFX 가
+무음 스위치를 무시하는지 확인 — 문제면 TTS 종료 시 applyPlatformAudioContext() 재호출.
 **Date:** 2026-07-31
 **Deciders:** Jin
 **증거:** 아래 §1 은 전부 `ffmpeg`/`ffprobe` 실측과 `grep` 결과다. 추정치 없음.

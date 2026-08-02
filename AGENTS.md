@@ -333,6 +333,25 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-02 (AudioPolicy 구현 — ADR-002 이행 + 검수 §6 일괄 처리) — 커밋·푸시
+
+**Jin 지시:** "다른 세션한테 굳이 넘기지말고 이 세션에서 진행하자." → 검수 SSoT §6 작업을 본 세션이 직접 구현. ADR-002 **Status: Proposed→Accepted**.
+
+**구현 (ADR-002 §9 단계 1·3·4·5):**
+- **`lib/services/audio_policy.dart` 신규** — `SoundChannel` 5(gameFeedback 0.55·companion 0.70·ambience 0.35 **기본 off**·cinematic 0.80·speech 1.00) + `volumeFor(c,{asset})` 단일 결정 지점(마스터×채널×슬라이더×게인×더킹) + `kl_snd_*` Storage 키(ADR §3-4 스킴, storage_service에 getter/setter 12종) + 더킹(ambience ×0.25, 종료 200ms 지연 복원) + ambience 게인표(ADR §4 실측, −40dB 기준) + `applyPlatformAudioContext()`(전역 mixWithOthers+respectSilence — main.dart 초기화 배선).
+- **호출부 이관(볼륨 리터럴 0)**: sound_service(gameFeedback — `enabled`는 **읽기 전용 getter**로 전환, 대입 컴파일 차단) · character_clip(companion) · intro_gate(cinematic) · tts_service(speech: mp3 volume + flutter_tts setVolume + **speech off 시 speak() false 반환** + `speaking` ValueNotifier + duckOthers 컨텍스트 — iOS 제약상 respectSilence 미병용 주석). 정책상 상시 무음 3곳(character_clip·tiger_video×2)은 `// audio-policy: exempt` 주석.
+- **설정 UI**: settings_screen "Ton" 섹션(Charakter↔TTS속도 사이, ADR §7) — 마스터 토글+전체볼륨, 채널 5타일(스위치=토글·**행 탭=미리듣기**·켜진 것만 슬라이더 AnimatedSize·speech off 시 경고문 인라인), 더킹·무음스위치 토글. 마스터 off = 숨김 아닌 비활성(Opacity 0.4). **growl_tiger.mp3 배선**: Lernbegleiter 미리듣기(호랑이 선택 시; 까치=greet_magpie) — Jin 제작 의도("사운드 설정에서 세밀 조정") 이행, sfx/README 표 등재. arb DE/EN **19키**(ADR §7 독일어 라벨 그대로) + gen-l10n.
+- **검수 §6 잔여 픽스**: ⓓ listening 화자→voice(male 캐시 적중) · ⓖ blendColor 2건 — **`SoriCard.resolvedBackground()` 헬퍼 신설**(build와 같은 함수, 수식 복제 금지)로 kkeunmari·listening 수정 · ⓕ 주석 정정 4(tts 526→558·sound_service .wav·intro "무음"·character_clip "트랙 없다").
+- **테스트 신설 4**: `audio_policy_test`(9 — 기본값 회귀·마스터/채널 off·클램프·게인·왕복·더킹) · `audio_policy_guard_test`(**볼륨 리터럴 래칫: 비exempt 0·exempt≤3**) · `sound_channel_coverage_test`(채널↔arb 라벨) · `l10n_parity_test`(**DE=EN 델타 0 래칫**).
+
+**적대적 검증(ultracode, 3렌즈 12건) → 반영:** 🔴 **iOS AudioContext 금지 조합 실결함**(mixWithOthers 옵션+respectSilence 도 validateIOS assert 금지 — catch가 삼켜 무증상 미적용) → iOS 만 ambient/playback 카테고리 직접 구성으로 수정 · tiger_video 죽은 경로 `_playAudioOnce`에 companion 게이트+볼륨(부활 시 설정 뚫는 유일 소리 방지) · 채널 Switch Semantics 라벨(접근성) · duck/무음 토글 Opacity 일관 · DE "Lernbegleiter"→**"Lernfreunde"**(기존 'Lernfreund' 용어 통일, EN "Study buddies") · resolvedBackground hanji 한계 문서화 · ADR 잔여 목록 보강(미리듣기 2종·복원 램프·iOS TTS 세션 §10 항목). 기각/보류: ambience 죽은 컨트롤 노출(ADR 의도 — §9-6 문서화됨) · divisions 스냅.
+
+**🔴 회귀 1건 자체 발견·수정 — settings_screen_test 행(hang):** "delayed persisted journal … first frame" 테스트가 10분 타임아웃. **원인:** 설정 본문이 lazy `ListView`인데 계정 pending 저널 admission(`refreshPendingState`)이 하단 계정 위젯 마운트 initState에만 걸려 있었고, Ton 섹션이 그 위젯을 초기 뷰포트+cacheExtent 밖으로 밀어 admission이 스크롤 시점으로 밀림 → 테스트의 `await refreshStarted.future`가 영원히 대기. 앱 관점에서도 갭(위 콘텐츠가 길수록 잠금 준비 지연). **수정:** SettingsScreen.initState post-frame에서 `AccountUiPendingStateSource` 캐스트 후 선제 `refreshPendingState()` (마운트 시 재호출은 idempotent) — 테스트 5초 통과, settings 파일 15/15.
+
+**검증:** `flutter analyze --no-fatal-warnings --no-fatal-infos` **0 issues** · 신규 테스트 13/13 · settings 15/15 · dart format · 전체 `flutter test` 최종 수치는 커밋 직전 실측(아래). **⚠️ 미검증(Jin 실기기, ADR §10)**: 설정 토글→소리 꺼짐→재시작 유지 · 무음 스위치(iOS ambient 경로 포함) · Spotify 병주 · 블루투스 착탈 · 미리듣기 체감 · combo/complete 0.55 통일 체감.
+
+**의도적 보류(ADR Status 블록에 명시):** ambience 화면 배선(§9-6 — §11-1 Jin 결정: 어느 화면에 켤지) · 게인 자동화 도구(§4-1) · speech 음소거 스낵바(§7-1) · 설정 위젯 테스트(§6-5) · levelUp() 배선·tiger_greet.mp3 처분(Jin).
+
 ### 2026-08-02 (병렬 세션 교차 검증 + CRLF 정규화) — 커밋·푸시
 
 **범위:** 병렬 fable5 세션(디바이스 VM)이 산출한 `~/Downloads/HANDOFF_PROMPT_hangulsori.md`(1,026줄)를 본 검수 SSoT와 교차 대조 — 이 Windows 클론(진실 원천)에서 전 주장 독립 재검증. 상세 = **`docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md` §8**(그쪽 문서를 쓸 세션은 §8-2 반증 목록 필독).

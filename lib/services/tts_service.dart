@@ -1,15 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:crypto/crypto.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'audio_policy.dart';
 import 'storage_service.dart';
 
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
@@ -294,7 +295,7 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
 ///
 /// 1. 로컬 캐시 mp3 → 즉시 재생 (오프라인·무료)
 /// 2. Firebase Storage `tts/v3/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
-///    (사전생성된 고정 콘텐츠: 526 단어 + 526 예문 + 204 대화)
+///    (사전생성된 고정 콘텐츠: 558 단어 + 558 예문 + 204 대화 — dedup 후 1,314)
 /// 3. Cloud Function 합성 → base64 수신·캐시·재생
 ///    (동적 콘텐츠: 책 한 컷 OCR·내 단어장의 사용자 입력 단어)
 /// 4. flutter_tts 폴백 (오프라인 + 미캐시 → 기존 OS 음성)
@@ -338,6 +339,11 @@ class TtsService {
   /// 폴백(flutter_tts)에서 ko 음성 존재 여부. 화면 안내용.
   static bool koVoiceAvailable = false;
 
+  /// 발화 중 여부 — [AudioPolicy] 더킹·UI 표시용 (ADR-002 §5-2).
+  static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
+  static int _speakToken = 0;
+  static bool _speechContextApplied = false;
+
   static FirebaseStorage get _storage =>
       FirebaseStorage.instanceFor(bucket: _bucket);
   static FirebaseFunctions get _functions =>
@@ -346,17 +352,33 @@ class TtsService {
   // ── 공개 API ───────────────────────────────────────────────────────
 
   /// 표준 속도 재생. voice: 'female'(기본) / 'male'.
+  /// speech 채널이 꺼져 있으면(설정) 재생하지 않고 false 를 반환한다.
   static Future<bool> speak(
     String text, {
     String voice = 'female',
     double rateMultiplier = 1.0,
   }) {
-    return _playbackEngine.speak(
+    if (AudioPolicy.instance.volumeFor(SoundChannel.speech) <= 0) {
+      lastError = 'speech 채널이 꺼져 있음 (설정 → Ton)';
+      return Future<bool>.value(false);
+    }
+    final token = ++_speakToken;
+    speaking.value = true;
+    AudioPolicy.instance.noteSpeechStarted();
+    final result = _playbackEngine.speak(
       text: text,
       voice: voice,
       baseRate: Storage.ttsRate,
       rateMultiplier: rateMultiplier,
     );
+    result.whenComplete(() {
+      // 새 발화가 이미 시작됐으면(토큰 불일치) 종료 처리를 그쪽에 맡긴다.
+      if (token == _speakToken) {
+        speaking.value = false;
+        AudioPolicy.instance.noteSpeechEnded();
+      }
+    });
+    return result;
   }
 
   /// 느리게 재생 (학습 보조). 사용자 기본 속도에 요청 배수 0.65를 곱한다.
@@ -440,11 +462,15 @@ class TtsService {
     double playbackRate,
   ) async {
     try {
+      await _ensureSpeechAudioContext();
       // 완료 대기 future 를 play 전에 준비 (짧은 mp3 의 complete race 방지).
       final done = _player.onPlayerComplete.first.then((_) => true);
       return await TtsFilePlayback.start(
         completion: _guardCompletion(done, errorPrefix: 'mp3 재생 완료 대기 실패'),
-        play: () => _player.play(DeviceFileSource(file.path)),
+        play: () => _player.play(
+          DeviceFileSource(file.path),
+          volume: AudioPolicy.instance.volumeFor(SoundChannel.speech),
+        ),
         setRate: _player.setPlaybackRate,
         stop: _player.stop,
         onError: (error) {
@@ -471,6 +497,7 @@ class TtsService {
     try {
       await _initTts();
       await _tts.setSpeechRate(rate);
+      await _tts.setVolume(AudioPolicy.instance.volumeFor(SoundChannel.speech));
       final completion = _guardCompletion(
         _tts.speak(text).then((result) => result == 1),
         errorPrefix: 'TTS 폴백 완료 대기 실패',
@@ -547,6 +574,24 @@ class TtsService {
     }
   }
 
+  /// TTS 플레이어 오디오 세션 — 발음은 들려야 하므로 duckOthers (ADR-002 §5-3).
+  /// iOS 는 duckOthers 와 respectSilence 병용이 금지(playAndRecord 강제)라
+  /// 여기서는 respectSilence 를 걸지 않는다 — 무음 스위치 존중은 SFX 전역
+  /// 컨텍스트([AudioPolicy.applyPlatformAudioContext]) 몫.
+  static Future<void> _ensureSpeechAudioContext() async {
+    if (_speechContextApplied) {
+      return;
+    }
+    _speechContextApplied = true;
+    try {
+      await _player.setAudioContext(
+        AudioContextConfig(focus: AudioContextConfigFocus.duckOthers).build(),
+      );
+    } catch (_) {
+      // best-effort — 실패 시 플랫폼 기본 세션으로 재생.
+    }
+  }
+
   static Future<void> _initTts() async {
     if (_ttsInit) {
       return;
@@ -557,7 +602,7 @@ class TtsService {
       await _trySelectKoreanVoice();
       await _tts.setSpeechRate(Storage.ttsRate);
       await _tts.setPitch(1.0);
-      await _tts.setVolume(1.0);
+      await _tts.setVolume(AudioPolicy.instance.volumeFor(SoundChannel.speech));
       _ttsInit = true;
     } catch (e) {
       lastError = 'TTS 초기화 실패: $e';

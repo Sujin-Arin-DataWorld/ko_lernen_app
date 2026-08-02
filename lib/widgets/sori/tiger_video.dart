@@ -4,6 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../services/audio_policy.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'tiger_stage_rive.dart';
@@ -170,6 +171,7 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
           : TigerStageVideo.greetFor(kind),
       eligible: false,
       prepare: (video) async {
+        // audio-policy: exempt — 홈 히어로 영상은 정책상 상시 무음(트랙 없음)
         await video.setVolume(0);
         if (pacePhase) {
           await video.setLooping(true);
@@ -418,6 +420,7 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
     _lease = soriVideoLease.register(
       asset: TigerStageVideo.greetFor(_kind),
       eligible: false,
+      // audio-policy: exempt — 온보딩 인사 클립 정책상 무음(음성은 별도 mp3)
       prepare: (video) => video.setVolume(0),
       onGranted: _onGranted,
       onRevoked: _onRevoked,
@@ -507,12 +510,18 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
     // 호랑이 소리를 까치에 붙이면 캐릭터가 깨지므로, 파일이 생길 때까지
     // 까치는 무음으로 둔다 — 인사는 몸짓 클립만으로도 성립한다.
     if (!_audioStarted && widget.playAudio && _kind == MascotKind.tiger) {
+      // companion 채널 게이트 — 현재 유일 호출부가 playAudio:false 라 죽은
+      // 경로지만, 되살아나는 순간 설정을 뚫는 유일한 소리가 되는 걸 막는다.
+      final volume = AudioPolicy.instance.volumeFor(SoundChannel.companion);
+      if (volume <= 0) {
+        return;
+      }
       _audioStarted = true;
       // best-effort — 웹 autoplay 차단 등은 조용히 무시.
       try {
         final audio = AudioPlayer();
         _audio = audio;
-        await audio.play(AssetSource('sfx/tiger_greet.mp3'));
+        await audio.play(AssetSource('sfx/tiger_greet.mp3'), volume: volume);
       } catch (_) {
         // 음성 실패해도 영상은 계속.
       }

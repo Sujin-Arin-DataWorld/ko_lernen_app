@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'theme.dart';
 import 'motion/transitions.dart';
 import 'services/storage_service.dart';
+import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
@@ -86,6 +87,8 @@ Future<void> main() async {
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
   await Storage.touchStreak();
+  // SFX 전역 오디오 세션: 타 앱 음악과 mix + 무음 스위치 존중 (ADR-002 §5-3).
+  await AudioPolicy.instance.applyPlatformAudioContext();
   try {
     await BookImageService.initialize();
   } catch (error) {
