@@ -342,6 +342,7 @@ flutter run -d <android-id>   # 안드로이드
 - **문서**: [`docs/RELEASE_RUNBOOK_2026-08-02.md`](docs/RELEASE_RUNBOOK_2026-08-02.md) 신규 — 게이트 상태표(전부 ✅)·매니페스트·**Jin 절차 5단계**(스모크→Play Console 내부 테스트 업로드→테스터 옵트인 링크→태그 v2.0.1→24h 감시)·이번 빌드 델타·미포함 목록·리스크(keystore 백업 미확인 등). `release-notes-v2.md`에 이번 릴리스용 DE/EN 노트 블록(사운드 설정). `DEPLOY_CHECKLIST` 매니페스트 갱신(구 SHA 폐기 표시).
 - **남은 것 전부 Jin측**: 실기기 스모크(10+사운드 8) → 업로드 → 테스터 초대. 코드측 차단 0.
 - **후속 정정**: Jin 실행에서 `adb` PATH 부재 확인 → 런북 §3-1을 전체 경로(`%LOCALAPPDATA%\Android\Sdk\platform-tools\adb.exe`) PowerShell 명령으로 교체(+PATH 영구 추가 팁).
+- **카피 규칙 신설(Jin 지시, memory 저장)**: 사용자 대면 DE/EN 텍스트에 em-dash(—)·마크다운 금지(스토어 미렌더·AI 티), MT 소스에 한국어 혼입 금지 → `listing-en.md`에 콘솔 붙여넣기용 플레인 텍스트 Full Description 신설.
 - **업로드 실전(Jin) 발견 2건 → 런북 §3-2 기록**: ① **AD_ID 선언 불일치 오류** — 매니페스트는 광고 ID 제거(광고 없음)인데 콘솔 선언이 "사용함"으로 낡음 → 정책→앱 콘텐츠→광고 ID→"아니요"로 해소(재빌드 불필요) ② 신규 설치 크기 실측 **165MB**(한도 200MB 내) — 감축 메뉴(P3): 일러스트 74MB WebP 변환(−30~45MB 최대효과)·tiger_anim 30.5MB·영상 재인코딩. 41MB 디버그 심볼은 다운로드에 미포함(오해 주의).
 
 ### 2026-08-02 (AudioPolicy 구현 — ADR-002 이행 + 검수 §6 일괄 처리) — 커밋·푸시
