@@ -11,6 +11,7 @@ void main() {
       AccountDeletionJournal? checkpoint;
       var remoteStarts = 0;
       var recoveryCalls = 0;
+      final events = <String>[];
       final gate = AccountDeletionRemoteGate(
         readCheckpoint: () async => checkpoint,
         startOrResumeRemote: () async {
@@ -22,7 +23,9 @@ void main() {
         },
         recoverCompleted: (_) async {
           recoveryCalls += 1;
+          events.add('recover');
         },
+        closeFeedback: () async => events.add('close-feedback'),
       );
 
       await expectLater(
@@ -33,6 +36,7 @@ void main() {
 
       expect(remoteStarts, 1);
       expect(recoveryCalls, 1);
+      expect(events, <String>['close-feedback', 'recover']);
     },
   );
 

@@ -25,7 +25,8 @@ const DEFAULT_RATE_LIMIT_PATH =
   "5d59ba64d93a7a3c7af8856d2fbcdfc18c11436fdc93dfb2ec568ddf611cb9d4";
 
 const BASE_PAYLOAD = Object.freeze({
-  schemaVersion: 1,
+  schemaVersion: 2,
+  expectedOwnerUid: SAFE_UID,
   feedbackId: "feedback-1",
   completionId: "completion-1",
   contentType: "scenario",
@@ -40,6 +41,9 @@ const BASE_PAYLOAD = Object.freeze({
   platform: "android",
   locale: "de",
   betaMissionId: "beta_scenario",
+});
+const VALID_PAYLOAD_V2 = Object.freeze({
+  ...BASE_PAYLOAD,
 });
 
 function payload(overrides = {}) {
@@ -247,6 +251,64 @@ test("requires Auth UID and live App Check context but allows anonymous auth", a
   assert.equal(result.duplicate, false);
 });
 
+test("binds schema v2 to Auth UID before any transaction or write", async (t) => {
+  await t.test("matching immutable owner is accepted", async () => {
+    const { firestore, handlers } = createHarness();
+
+    const result = await handlers.submitTesterFeedback(
+      callableRequest(VALID_PAYLOAD_V2),
+    );
+
+    assert.equal(result.accepted, true);
+    assert.equal(firestore.transactionCount, 1);
+    assert.equal(
+      Object.hasOwn(
+        firestore.value("users/anonymous-user/tester_feedback/completion-1"),
+        "expectedOwnerUid",
+      ),
+      false,
+    );
+  });
+
+  for (const [name, data, uid, status, safeCode] of [
+    [
+      "forged expected owner",
+      { ...VALID_PAYLOAD_V2, expectedOwnerUid: "account-a" },
+      "account-b",
+      "permission-denied",
+      "feedback-owner-mismatch",
+    ],
+    [
+      "missing expected owner",
+      { ...VALID_PAYLOAD_V2, expectedOwnerUid: undefined },
+      SAFE_UID,
+      "invalid-argument",
+      "invalid-feedback-payload",
+    ],
+    [
+      "legacy schema v1",
+      { ...BASE_PAYLOAD, schemaVersion: 1 },
+      SAFE_UID,
+      "invalid-argument",
+      "invalid-feedback-payload",
+    ],
+  ]) {
+    await t.test(name, async () => {
+      const { firestore, handlers } = createHarness();
+
+      await rejectsWithSafeCode(
+        handlers.submitTesterFeedback(callableRequest(data, { uid })),
+        status,
+        safeCode,
+      );
+
+      assert.equal(firestore.transactionCount, 0);
+      assert.deepEqual(firestore.writeHistory, []);
+      assert.deepEqual(firestore.paths(), []);
+    });
+  }
+});
+
 test("rejects unknown fields and any payload UID", async (t) => {
   for (const [name, data] of [
     ["unknown field", payload({ unexpected: true })],
@@ -266,7 +328,7 @@ test("rejects unknown fields and any payload UID", async (t) => {
 
 test("rejects invalid enums, bounds, and category-specific combinations", async (t) => {
   const cases = [
-    ["schema version", { schemaVersion: 2 }],
+    ["schema version", { schemaVersion: 1 }],
     ["blank feedback ID", { feedbackId: " " }],
     ["long feedback ID", { feedbackId: "f".repeat(65) }],
     ["blank completion ID", { completionId: "" }],
@@ -371,7 +433,10 @@ test("never returns free text, UID, or token detail in validation errors", async
   let caught;
   try {
     await handlers.submitTesterFeedback(callableRequest(
-      payload({ message: privateText.repeat(100) }),
+      payload({
+        expectedOwnerUid: privateUid,
+        message: privateText.repeat(100),
+      }),
       { uid: privateUid },
     ));
   } catch (error) {
@@ -405,7 +470,7 @@ test("a concurrent account-deletion intent retries and rejects the feedback tran
   let caught;
   try {
     await handlers.submitTesterFeedback(callableRequest(
-      payload({ message: privateText }),
+      payload({ expectedOwnerUid: privateUid, message: privateText }),
       { uid: privateUid },
     ));
   } catch (error) {
@@ -435,6 +500,7 @@ test("the rolling quota rejects a twenty-first new completion without leaking da
 
   for (let index = 1; index <= 20; index += 1) {
     const result = await handlers.submitTesterFeedback(callableRequest(payload({
+      expectedOwnerUid: privateUid,
       feedbackId: `quota-feedback-${index}`,
       completionId: `quota-completion-${index}`,
       message: privateText,
@@ -445,6 +511,7 @@ test("the rolling quota rejects a twenty-first new completion without leaking da
   let caught;
   try {
     await handlers.submitTesterFeedback(callableRequest(payload({
+      expectedOwnerUid: privateUid,
       feedbackId: "quota-feedback-21",
       completionId: "quota-completion-21",
       message: privateText,
@@ -588,7 +655,21 @@ test("writes the completion sentinel and passport stamp in one transaction", asy
   assert.deepEqual(
     firestore.value("users/anonymous-user/tester_feedback/completion-1"),
     {
-      ...BASE_PAYLOAD,
+      schemaVersion: 2,
+      feedbackId: "feedback-1",
+      completionId: "completion-1",
+      contentType: "scenario",
+      contentId: "cafe-order",
+      contentLabel: "At the cafe",
+      level: "A1",
+      scoreSummary: "7/10",
+      category: "bug",
+      message: "The audio stopped.",
+      issueArea: "audio",
+      appVersion: "1.2.3+45",
+      platform: "android",
+      locale: "de",
+      betaMissionId: "beta_scenario",
       status: "new",
       createdAt: SERVER_TIMESTAMP,
       stampAccepted: true,

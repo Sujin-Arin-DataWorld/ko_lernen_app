@@ -1092,7 +1092,8 @@ test("feedback rejects the authoritative operation created by requestAccountDele
       auth: { uid: "durable-target" },
       app: { appId: "test-app-id" },
       data: {
-        schemaVersion: 1,
+        schemaVersion: 2,
+        expectedOwnerUid: "durable-target",
         feedbackId: "feedback-after-deletion-request",
         completionId: "completion-after-deletion-request",
         contentType: "scenario",

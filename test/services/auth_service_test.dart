@@ -9,7 +9,6 @@ import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart'
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
-import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/push_service.dart';
 
 void main() {
@@ -310,6 +309,137 @@ void main() {
   );
 
   test(
+    'request failure before the server barrier leaves feedback open',
+    () async {
+      final events = <String>[];
+      var closeCalls = 0;
+      final operations = _FakeDeletionOperations(events)
+        ..providers = const AuthProviderState(
+          isGoogleLinked: true,
+          isAppleLinked: false,
+        )
+        ..requestFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.unavailable,
+            retryable: true,
+          ),
+        );
+      final sessions = _readySessions();
+      final coordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, sessions),
+        sessions: sessions,
+        closeFeedback: () async {
+          closeCalls += 1;
+          events.add('feedback-close');
+        },
+        pollDelay: (_) async {},
+      );
+
+      await expectLater(
+        coordinator.deleteAccount(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+
+      expect(closeCalls, 0);
+      expect(events, isNot(contains('feedback-close')));
+      expect(operations.statusCalls, 0);
+      expect(operations.journal?.operation, isNull);
+    },
+  );
+
+  test(
+    'journals the deletion barrier before closing feedback and polling',
+    () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..requestResults.add(
+          _operation(AccountOperationPhase.deletionRequested),
+        )
+        ..statusResults.add(
+          _operation(AccountOperationPhase.completed, version: 8),
+        );
+      final sessions = _readySessions();
+      final coordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, sessions),
+        sessions: sessions,
+        closeFeedback: () async => events.add('feedback-close'),
+        pollDelay: (_) async {},
+      );
+
+      await coordinator.deleteAccount();
+
+      expect(
+        events,
+        containsAllInOrder(<String>[
+          'request:request-key-1',
+          'journal-write:operation-1',
+          'feedback-close',
+          'status:operation-1',
+        ]),
+      );
+    },
+  );
+
+  test(
+    'resume retries a failed feedback close before the first poll',
+    () async {
+      final events = <String>[];
+      var closeAttempts = 0;
+      final operations = _FakeDeletionOperations(events)
+        ..requestResults.add(
+          _operation(AccountOperationPhase.deletionRequested),
+        );
+      final firstSessions = _readySessions();
+      final firstCoordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, firstSessions),
+        sessions: firstSessions,
+        closeFeedback: () async {
+          closeAttempts += 1;
+          events.add('feedback-close-failed');
+          throw StateError('secure outbox unavailable');
+        },
+        pollDelay: (_) async {},
+      );
+
+      await expectLater(
+        firstCoordinator.deleteAccount(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+
+      expect(closeAttempts, 1);
+      expect(operations.journal?.operationId, 'operation-1');
+      expect(operations.statusCalls, 0);
+
+      operations.statusResults.add(
+        _operation(AccountOperationPhase.completed, version: 8),
+      );
+      final restartedSessions = CloudWriteSessionController()
+        ..resume(operations.journal!.session, expectedUid: operations.userId);
+      final restartedCoordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, restartedSessions),
+        sessions: restartedSessions,
+        closeFeedback: () async {
+          closeAttempts += 1;
+          events.add('feedback-close');
+        },
+        pollDelay: (_) async {},
+      );
+
+      await restartedCoordinator.resumePendingDeletion();
+
+      expect(closeAttempts, 2);
+      expect(
+        events.sublist(events.indexOf('feedback-close-failed') + 1),
+        containsAllInOrder(<String>['feedback-close', 'status:operation-1']),
+      );
+    },
+  );
+
+  test(
     'Apple code is transient and completed only through the server',
     () async {
       final events = <String>[];
@@ -536,10 +666,7 @@ void main() {
     final cleanup = _CleanupOperations(events, coordinator.deleteAccount);
 
     await expectLater(
-      AccountDeletionWorkflow(
-        cleanup,
-        feedbackOutbox: const _NoopFeedbackOutbox(),
-      ).run(),
+      AccountDeletionWorkflow(cleanup).run(),
       throwsA(isA<AccountOperationFailure>()),
     );
 
@@ -603,10 +730,7 @@ void main() {
     final cleanup = _CleanupOperations(events, coordinator.deleteAccount);
 
     await expectLater(
-      AccountDeletionWorkflow(
-        cleanup,
-        feedbackOutbox: const _NoopFeedbackOutbox(),
-      ).run(),
+      AccountDeletionWorkflow(cleanup).run(),
       throwsA(
         isA<AccountOperationFailure>().having(
           (failure) => failure.code,
@@ -636,7 +760,6 @@ void main() {
 
       await AccountDeletionWorkflow(
         _CleanupOperations(events, coordinator.deleteAccount),
-        feedbackOutbox: const _NoopFeedbackOutbox(),
       ).run();
 
       expect(
@@ -665,7 +788,6 @@ void main() {
       await expectLater(
         AccountDeletionWorkflow(
           _CleanupOperations(events, coordinator.deleteAccount),
-          feedbackOutbox: const _NoopFeedbackOutbox(),
         ).run(),
         throwsA(
           isA<AccountDeletionFailure>().having(
@@ -1206,13 +1328,6 @@ class _CleanupOperations implements AccountDeletionCleanupOperations {
 
   @override
   void resetInMemoryData() => events.add('memory-reset');
-}
-
-class _NoopFeedbackOutbox implements FeedbackOutbox {
-  const _NoopFeedbackOutbox();
-
-  @override
-  Future<void> closeAndDiscard() async {}
 }
 
 class _FakeTemporaryAuthContext implements TemporaryFirebaseAuthContext {

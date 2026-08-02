@@ -609,12 +609,18 @@ test("persists nested child work before deleting its parent document", async () 
   assert.equal(firestore.documentExists("users/source/packs/p1/items/i1"), true);
 });
 
-test("drains an arbitrarily nested tree and deletes the user root last", async () => {
+test("drains feedback state with the user tree and deletes the root last", async () => {
   const { adapters, firestore } = createHarness();
   firestore.seed("users/source/packs/p1", { state: "active" });
   firestore.seed("users/source/packs/p1/items/i1", { word: "one" });
   firestore.seed("users/source/packs/p1/items/i1/audio/a1", { url: "safe" });
   firestore.seed("users/source/quests/q1", { progress: 1 });
+  firestore.seed("users/source/tester_feedback/completion-1", { status: "new" });
+  firestore.seed("users/source/tester_passport/state", { catalogVersion: 1 });
+  firestore.seed(
+    "users/source/tester_feedback_rate_limits/app-hash",
+    { schemaVersion: 1 },
+  );
 
   await drainPages(adapters);
 
@@ -630,6 +636,9 @@ test("drains an arbitrarily nested tree and deletes the user root last", async (
     "users/source/packs/p1/items/i1",
     "users/source/packs/p1/items/i1/audio/a1",
     "users/source/quests/q1",
+    "users/source/tester_feedback/completion-1",
+    "users/source/tester_passport/state",
+    "users/source/tester_feedback_rate_limits/app-hash",
   ]) {
     assert(firestore.deletedPaths.indexOf(path) < rootDelete);
   }

@@ -22,6 +22,9 @@ const {
   setDoc,
   writeBatch,
 } = require("firebase/firestore");
+const { initializeApp, deleteApp } = require("firebase-admin/app");
+const { getFirestore } = require("firebase-admin/firestore");
+const { createFirestoreDeletionAdapters } = require("./deletion_adapters");
 
 const projectId = "demo-hangul-sori";
 let environment;
@@ -48,6 +51,16 @@ test.beforeEach(async () => {
 
 function client(uid) {
   return environment.authenticatedContext(uid).firestore();
+}
+
+function emulatorPage(values, pageSize, pageToken) {
+  const start = pageToken == null ? 0 : Number(pageToken);
+  const page = values.slice(start, start + pageSize);
+  const next = start + page.length;
+  return {
+    page,
+    nextPageToken: next < values.length ? String(next) : null,
+  };
 }
 
 function membershipIdFor(uid, generation = "one") {
@@ -1248,6 +1261,108 @@ test("tester passport state permits only an owner get", async () => {
     { merge: true },
   ));
   await assertFails(deleteDoc(stateRef));
+});
+
+test("account tree deletion removes pre-barrier feedback state", async (t) => {
+  const uid = "feedback-deletion-owner";
+  const operationId = "feedback-deletion-operation";
+  const nowMillis = Date.now();
+  const adminApp = initializeApp(
+    { projectId },
+    `feedback-deletion-${nowMillis}`,
+  );
+  t.after(() => deleteApp(adminApp));
+  const adminDb = getFirestore(adminApp);
+  const targetPaths = [
+    `users/${uid}`,
+    `users/${uid}/tester_feedback/completion-1`,
+    `users/${uid}/tester_passport/state`,
+    `users/${uid}/tester_feedback_rate_limits/app-hash`,
+  ];
+  await Promise.all([
+    adminDb.doc(targetPaths[0]).set({ gyeIds: [] }),
+    adminDb.doc(targetPaths[1]).set({ status: "new" }),
+    adminDb.doc(targetPaths[2]).set({ catalogVersion: 1 }),
+    adminDb.doc(targetPaths[3]).set({ schemaVersion: 1 }),
+    adminDb.doc(`users/feedback-foreign/tester_feedback/retained`).set({
+      status: "new",
+    }),
+    adminDb.doc(`account_deletions/${uid}`).set({
+      serverOwned: true,
+      operationId,
+      sourceUid: uid,
+    }),
+    adminDb.doc(`account_operations/${operationId}`).set({
+      id: operationId,
+      kind: "deletion",
+      sourceUid: uid,
+      phase: "userTreeDeleting",
+      version: 1,
+      workerLease: {
+        workerId: "emulator-worker",
+        leaseVersion: 1,
+        leaseUntilMillis: nowMillis + 60_000,
+      },
+    }),
+  ]);
+
+  const adapters = createFirestoreDeletionAdapters({
+    firestore: adminDb,
+    markerCollection: adminDb.collection("account_deletions"),
+    pageSize: 2,
+    nowMillis: () => nowMillis,
+    listCollectionIdsPage: async ({ parentPath, pageSize, pageToken }) => {
+      const collections = await adminDb.doc(parentPath).listCollections();
+      const ids = collections.map((value) => value.id).sort();
+      const result = emulatorPage(ids, pageSize, pageToken);
+      return {
+        collectionIds: result.page,
+        nextPageToken: result.nextPageToken,
+      };
+    },
+    listDocumentsPage: async ({ collectionPath, pageSize, pageToken }) => {
+      const documents = await adminDb.collection(collectionPath).listDocuments();
+      const ids = documents.map((value) => value.id).sort();
+      const result = emulatorPage(ids, pageSize, pageToken);
+      return {
+        documentIds: result.page,
+        nextPageToken: result.nextPageToken,
+      };
+    },
+  });
+  const workerFence = {
+    workerId: "emulator-worker",
+    operationVersion: 1,
+    leaseVersion: 1,
+  };
+  let cursor = null;
+  let completed = false;
+  for (let page = 0; page < 100; page += 1) {
+    const result = await adapters.deleteUserTreePage({
+      uid,
+      operationId,
+      cursor,
+      limit: 2,
+      workerFence,
+    });
+    if (result.done) {
+      completed = true;
+      break;
+    }
+    cursor = result.nextCursor;
+  }
+
+  assert.equal(completed, true);
+  const snapshots = await Promise.all(
+    targetPaths.map((value) => adminDb.doc(value).get()),
+  );
+  assert.equal(snapshots.every((snapshot) => !snapshot.exists), true);
+  assert.equal(
+    (await adminDb.doc(
+      "users/feedback-foreign/tester_feedback/retained",
+    ).get()).exists,
+    true,
+  );
 });
 
 test("generic owner subcollections keep their legacy CRUD behavior", async () => {

@@ -63,7 +63,7 @@ void main() {
 
       final backup = CloudSync.backupWithResult();
       final restore = CloudSync.restore();
-      final deletion = AuthService.deleteAccount();
+      final deletion = AuthService.deleteAccount(closeFeedback: () async {});
 
       await readStarted.future;
       expect(operations, isEmpty);
@@ -96,7 +96,7 @@ void main() {
       expect(await CloudSync.backupWithResult(), CloudWriteResult.blocked);
       expect(await CloudSync.restore(), isFalse);
       await expectLater(
-        AuthService.deleteAccount(),
+        AuthService.deleteAccount(closeFeedback: () async {}),
         throwsA(
           isA<AccountOperationFailure>()
               .having(
@@ -122,7 +122,7 @@ void main() {
       );
 
       await expectLater(
-        AuthService.deleteAccount(),
+        AuthService.deleteAccount(closeFeedback: () async {}),
         throwsA(
           isA<AccountOperationFailure>()
               .having(
@@ -195,7 +195,7 @@ void main() {
         'account-deletion-pending',
       );
 
-      await AuthService.deleteAccount();
+      await AuthService.deleteAccount(closeFeedback: () async {});
 
       expect(operations, <String>['delete-account']);
     },
@@ -244,7 +244,7 @@ void main() {
     expect(await CloudSync.backupWithResult(), CloudWriteResult.blocked);
     expect(await CloudSync.restore(), isFalse);
     await expectLater(
-      AuthService.deleteAccount(),
+      AuthService.deleteAccount(closeFeedback: () async {}),
       throwsA(
         isA<AccountOperationFailure>().having(
           (failure) => failure.code,
@@ -276,7 +276,7 @@ void main() {
     final backup = CloudSync.backupWithResult();
     await backupStarted.future;
     final restore = CloudSync.restore();
-    final deletion = AuthService.deleteAccount();
+    final deletion = AuthService.deleteAccount(closeFeedback: () async {});
     await Future<void>.delayed(Duration.zero);
 
     expect(operations, <String>['backup']);
@@ -297,7 +297,7 @@ void main() {
       await CloudSync.backup();
       expect(await CloudSync.backupWithResult(), CloudWriteResult.completed);
       expect(await CloudSync.restore(), isTrue);
-      await AuthService.deleteAccount();
+      await AuthService.deleteAccount(closeFeedback: () async {});
 
       expect(operations, <String>[
         'backup',

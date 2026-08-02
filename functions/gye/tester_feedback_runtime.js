@@ -71,6 +71,7 @@ const ALLOWED_CONTENT_TYPES = new Set(
 );
 const ALLOWED_FIELDS = new Set([
   "schemaVersion",
+  "expectedOwnerUid",
   "feedbackId",
   "completionId",
   "contentType",
@@ -168,7 +169,12 @@ function validatePayload(raw) {
   for (const key of Object.keys(raw)) {
     if (!ALLOWED_FIELDS.has(key)) invalidPayload();
   }
-  if (raw.schemaVersion !== 1) invalidPayload();
+  if (raw.schemaVersion !== 2) invalidPayload();
+
+  const expectedOwnerUid = requireString(raw, "expectedOwnerUid", {
+    minLength: 1,
+    maxLength: 128,
+  });
 
   const feedbackId = requireString(raw, "feedbackId", {
     minLength: 1,
@@ -239,7 +245,8 @@ function validatePayload(raw) {
   }
 
   return {
-    schemaVersion: 1,
+    expectedOwnerUid,
+    schemaVersion: 2,
     feedbackId,
     completionId,
     contentType,
@@ -410,6 +417,12 @@ function createTesterFeedbackRuntime({
     return execute(async () => {
       const { uid, appId } = validateRequestContext(request);
       const data = validatePayload(request.data);
+      if (data.expectedOwnerUid !== uid) {
+        throw new BoundaryFailure(
+          "permission-denied",
+          "feedback-owner-mismatch",
+        );
+      }
       const feedbackRef = firestore.doc(
         `users/${uid}/tester_feedback/${data.completionId}`,
       );
@@ -500,8 +513,9 @@ function createTesterFeedbackRuntime({
           : completedMissionIds;
         const timestamp = serverTimestamp();
 
+        const { expectedOwnerUid: _, ...storedData } = data;
         transaction.create(feedbackRef, {
-          ...data,
+          ...storedData,
           status: "new",
           createdAt: timestamp,
           stampAccepted,

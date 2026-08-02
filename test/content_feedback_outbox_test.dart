@@ -276,6 +276,52 @@ void main() {
       },
     );
 
+    test(
+      'binds an in-flight submission to its immutable outbox owner',
+      () async {
+        var liveUid = 'account-a';
+        final store = MemoryFeedbackOutboxStore();
+        final client = GatedFeedbackClient();
+        final service = buildService(
+          store: store,
+          client: client,
+          currentUid: () => liveUid,
+        );
+
+        final submit = service.submit(context, draft);
+        await client.started.future;
+        liveUid = 'account-b';
+        client.response.complete(
+          const ContentFeedbackClientFailure(
+            ContentFeedbackFailureCategory.unavailable,
+            retryable: true,
+          ),
+        );
+
+        await submit;
+
+        expect(client.expectedOwnerUids, <String>['account-a']);
+        expect(await store.read(), isEmpty);
+      },
+    );
+
+    test('resumes a pending item with its immutable outbox owner', () async {
+      final store = MemoryFeedbackOutboxStore(
+        items: [pendingItem('account-a-feedback', ownerUid: 'account-a')],
+      );
+      final client = FakeFeedbackClient();
+      final service = buildService(
+        store: store,
+        client: client,
+        currentUid: () => 'account-a',
+      );
+
+      await service.resumePending();
+
+      expect(client.expectedOwnerUids, <String>['account-a']);
+      expect(store.items, isEmpty);
+    });
+
     test('does not read or drain while deletion is active', () async {
       final store = MemoryFeedbackOutboxStore(
         items: [pendingItem('pending-feedback')],
@@ -817,14 +863,21 @@ void main() {
         });
         final submission = pendingItem('feedback-callable').submission;
 
-        final result = await client.submit(submission);
+        final result = await client.submit(
+          submission,
+          expectedOwnerUid: 'account-a',
+        );
 
         expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
         expect(result.stampAccepted, isFalse);
         expect(result.passportCompletedMissionIds, isEmpty);
         expect(result.nextMissionId, isNull);
         expect(name, 'submitTesterFeedback');
-        expect(data, submission.toWire());
+        expect(data, <String, Object?>{
+          ...submission.toWire(),
+          'schemaVersion': 2,
+          'expectedOwnerUid': 'account-a',
+        });
         expect(options?.limitedUseAppCheckToken, isTrue);
       },
     );
@@ -852,6 +905,7 @@ void main() {
             'feedback-authoritative',
             betaMissionId: 'beta_scenario',
           ).submission,
+          expectedOwnerUid: 'account-a',
         );
 
         expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
@@ -886,6 +940,7 @@ void main() {
             betaMissionId: 'beta_scenario',
             contentType: 'listening',
           ).submission,
+          expectedOwnerUid: 'account-a',
         );
 
         expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
@@ -917,6 +972,7 @@ void main() {
           'feedback-duplicate-mission-ids',
           betaMissionId: 'beta_scenario',
         ).submission,
+        expectedOwnerUid: 'account-a',
       );
 
       expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
@@ -948,6 +1004,7 @@ void main() {
             'feedback-wrong-next-mission',
             betaMissionId: 'beta_scenario',
           ).submission,
+          expectedOwnerUid: 'account-a',
         );
 
         expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
@@ -980,6 +1037,7 @@ void main() {
             'feedback-malformed-response',
             betaMissionId: 'beta_scenario',
           ).submission,
+          expectedOwnerUid: 'account-a',
         );
 
         expect(result.acknowledgement, ContentFeedbackAcknowledgement.accepted);
@@ -1008,6 +1066,7 @@ void main() {
 
         final result = await client.submit(
           pendingItem('feedback-duplicate-response').submission,
+          expectedOwnerUid: 'account-a',
         );
 
         expect(
@@ -1158,12 +1217,15 @@ class FakeFeedbackClient implements ContentFeedbackClient {
   final List<String>? events;
   final List<Object> responses;
   final List<String> feedbackIds = [];
+  final List<String> expectedOwnerUids = [];
 
   @override
   Future<ContentFeedbackDelivery> submit(
-    ContentFeedbackSubmission submission,
-  ) async {
+    ContentFeedbackSubmission submission, {
+    required String expectedOwnerUid,
+  }) async {
     feedbackIds.add(submission.feedbackId);
+    expectedOwnerUids.add(expectedOwnerUid);
     events?.add('call:${submission.feedbackId}');
     final response = responses.isEmpty
         ? ContentFeedbackAcknowledgement.accepted
@@ -1180,12 +1242,15 @@ class GatedFeedbackClient implements ContentFeedbackClient {
   final Completer<void> started = Completer<void>();
   final Completer<Object> response = Completer<Object>();
   final List<String> feedbackIds = [];
+  final List<String> expectedOwnerUids = [];
 
   @override
   Future<ContentFeedbackDelivery> submit(
-    ContentFeedbackSubmission submission,
-  ) async {
+    ContentFeedbackSubmission submission, {
+    required String expectedOwnerUid,
+  }) async {
     feedbackIds.add(submission.feedbackId);
+    expectedOwnerUids.add(expectedOwnerUid);
     started.complete();
     final value = await response.future;
     if (value is ContentFeedbackClientFailure) throw value;

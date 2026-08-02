@@ -83,18 +83,21 @@ class AccountDeletionCleanupAdapter
     this._resetMemory,
   );
 
-  factory AccountDeletionCleanupAdapter.production() =>
-      AccountDeletionCleanupAdapter(
-        deleteRemote: AuthService.deleteAccount,
-        resetStorage: () => Storage.resetAllStrict(
-          canonicalizeAccountDeletionCheckpoint:
-              AuthService.canonicalizeCompletedDeletionCheckpoint,
-        ),
-        disablePush: pushService.disableStrict,
-        deleteImages: WordImageService.deleteAllStrict,
-        clearTts: TtsService.clearCacheStrict,
-        resetMemory: DataLoader.reset,
-      );
+  factory AccountDeletionCleanupAdapter.production({
+    required FeedbackOutbox feedbackOutbox,
+  }) => AccountDeletionCleanupAdapter(
+    deleteRemote: () => AuthService.deleteAccount(
+      closeFeedback: feedbackOutbox.closeAndDiscard,
+    ),
+    resetStorage: () => Storage.resetAllStrict(
+      canonicalizeAccountDeletionCheckpoint:
+          AuthService.canonicalizeCompletedDeletionCheckpoint,
+    ),
+    disablePush: pushService.disableStrict,
+    deleteImages: WordImageService.deleteAllStrict,
+    clearTts: TtsService.clearCacheStrict,
+    resetMemory: DataLoader.reset,
+  );
 
   final Future<void> Function() _deleteRemote;
   final Future<void> Function() _resetStorage;
@@ -129,19 +132,16 @@ class AccountDeletionWorkflow {
   factory AccountDeletionWorkflow.production({
     required FeedbackOutbox feedbackOutbox,
   }) => AccountDeletionWorkflow(
-    AccountDeletionCleanupAdapter.production(),
-    feedbackOutbox: feedbackOutbox,
+    AccountDeletionCleanupAdapter.production(feedbackOutbox: feedbackOutbox),
     completeCheckpoint: AuthService.completeLocalAccountDeletionCleanup,
   );
 
   const AccountDeletionWorkflow(
     this.operations, {
-    required this.feedbackOutbox,
     Future<void> Function()? completeCheckpoint,
   }) : _completeCheckpoint = completeCheckpoint ?? _noop;
 
   final AccountDeletionCleanupOperations operations;
-  final FeedbackOutbox feedbackOutbox;
   final Future<void> Function() _completeCheckpoint;
 
   static Future<void> _noop() async {}
@@ -149,7 +149,6 @@ class AccountDeletionWorkflow {
   Future<void> run() async {
     final failures = <Object>[];
     var identityRecoveryPending = false;
-    await feedbackOutbox.closeAndDiscard();
     try {
       await operations.deleteRemoteAccount();
     } on AccountDeletionRecoveryException catch (error) {

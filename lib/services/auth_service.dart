@@ -283,21 +283,27 @@ typedef CompletedDeletionCheckpointReader =
     Future<AccountDeletionJournal?> Function();
 typedef CompletedDeletionRecovery =
     Future<void> Function(AccountDeletionJournal checkpoint);
+typedef AccountDeletionFeedbackCloser = Future<void> Function();
+
+Future<void> _noopAccountDeletionFeedbackCloser() async {}
 
 class AccountDeletionRemoteGate {
   const AccountDeletionRemoteGate({
     required this.readCheckpoint,
     required this.startOrResumeRemote,
     required this.recoverCompleted,
+    this.closeFeedback = _noopAccountDeletionFeedbackCloser,
   });
 
   final CompletedDeletionCheckpointReader readCheckpoint;
   final Future<void> Function() startOrResumeRemote;
   final CompletedDeletionRecovery recoverCompleted;
+  final AccountDeletionFeedbackCloser closeFeedback;
 
   Future<void> run() async {
     final checkpoint = await readCheckpoint();
     if (checkpoint?.operation?.phase == AccountOperationPhase.completed) {
+      await closeFeedback();
       await recoverCompleted(checkpoint!);
       return;
     }
@@ -324,6 +330,7 @@ class AccountDeletionCoordinator {
     required this.operations,
     required this.ownershipTransitions,
     required this.sessions,
+    this.closeFeedback = _noopAccountDeletionFeedbackCloser,
     this.pollDelay = _defaultAccountOperationPollDelay,
     this.maxPolls = 30,
   }) : assert(maxPolls > 0);
@@ -331,6 +338,7 @@ class AccountDeletionCoordinator {
   final AccountDeletionOperations operations;
   final PushOwnershipTransitionCoordinator ownershipTransitions;
   final CloudWriteSessionController sessions;
+  final AccountDeletionFeedbackCloser closeFeedback;
   final Future<void> Function(Duration duration) pollDelay;
   final int maxPolls;
 
@@ -392,6 +400,7 @@ class AccountDeletionCoordinator {
           _requireDeletionOperation(requested);
           journal = journal!.copyWith(operation: requested);
           await operations.writeDeletionJournal(journal!);
+          await closeFeedback();
           journal = await _pollToTerminal(
             journal!,
             appleAuthorizationCode: appleAuthorizationCode,
@@ -437,6 +446,8 @@ class AccountDeletionCoordinator {
         await operations.writeDeletionJournal(pending);
         _requireExactSession(expectedSession);
       }
+      await closeFeedback();
+      _requireExactSession(expectedSession);
       final completed = await _pollToTerminal(
         pending,
         requiredSession: expectedSession,
@@ -1829,10 +1840,13 @@ class AuthService {
   /// Requests server-owned account deletion and polls its authoritative state.
   ///
   /// Caller clears local device data only after this completes.
-  static Future<void> deleteAccount() {
+  static Future<void> deleteAccount({
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) {
     return runDurableAccountAdmission<void>(
       allowAccountDeletionCheckpoint: true,
-      onAdmitted: _deleteAccountAfterCloudBackupAdmission,
+      onAdmitted: () =>
+          _deleteAccountAfterCloudBackupAdmission(closeFeedback: closeFeedback),
       onBlocked: () => Future<void>.error(
         const AccountOperationFailure(
           AccountOperationFailureCode.blocked,
@@ -1842,17 +1856,23 @@ class AuthService {
     );
   }
 
-  static Future<void> _deleteAccountAfterCloudBackupAdmission() {
+  static Future<void> _deleteAccountAfterCloudBackupAdmission({
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) {
     final override = _deleteAccountForTesting;
     if (override != null) return override();
     return AccountDeletionRemoteGate(
       readCheckpoint: _accountDeletionJournalStore.read,
-      startOrResumeRemote: _startOrResumeRemoteAccountDeletion,
+      startOrResumeRemote: () =>
+          _startOrResumeRemoteAccountDeletion(closeFeedback: closeFeedback),
       recoverCompleted: _recoverCompletedAccountDeletion,
+      closeFeedback: closeFeedback,
     ).run();
   }
 
-  static Future<void> _startOrResumeRemoteAccountDeletion() async {
+  static Future<void> _startOrResumeRemoteAccountDeletion({
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) async {
     final user = current;
     if (user == null) {
       throw StateError('The Firebase account is unavailable.');
@@ -1869,6 +1889,7 @@ class AuthService {
       ),
       ownershipTransitions: _pushOwnershipTransitions,
       sessions: cloudWriteSessionController,
+      closeFeedback: closeFeedback,
     ).deleteAccount();
   }
 
@@ -1941,10 +1962,14 @@ class AuthService {
       _accountDeletionJournalStore.read();
 
   /// Continues the exact durable server operation restored at startup.
-  static Future<void> resumePendingAccountDeletion() {
+  static Future<void> resumePendingAccountDeletion({
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) {
     return runDurableAccountAdmission<void>(
       allowAccountDeletionCheckpoint: true,
-      onAdmitted: _resumePendingAccountDeletionAfterCloudBackupAdmission,
+      onAdmitted: () => _resumePendingAccountDeletionAfterCloudBackupAdmission(
+        closeFeedback: closeFeedback,
+      ),
       onBlocked: () => Future<void>.error(
         const AccountOperationFailure(
           AccountOperationFailureCode.blocked,
@@ -1954,8 +1979,9 @@ class AuthService {
     );
   }
 
-  static Future<void>
-  _resumePendingAccountDeletionAfterCloudBackupAdmission() async {
+  static Future<void> _resumePendingAccountDeletionAfterCloudBackupAdmission({
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) async {
     final user = current;
     if (user == null) {
       throw const AccountOperationFailure(
@@ -1974,6 +2000,7 @@ class AuthService {
       ),
       ownershipTransitions: _pushOwnershipTransitions,
       sessions: cloudWriteSessionController,
+      closeFeedback: closeFeedback,
     ).resumePendingDeletion();
   }
 

@@ -13,7 +13,6 @@ import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
-import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/account_nudge.dart';
@@ -138,15 +137,12 @@ void main() {
 
   group('local account deletion cleanup', () {
     test(
-      'feedback discard immediately precedes remote deletion and cleanup continues',
+      'remote deletion barrier precedes local cleanup and cleanup continues',
       () async {
         final events = <String>[];
         final operations = _FakeAccountCleanupOperations(events)
           ..imageCleanupFailure = StateError('image cleanup failed');
-        final workflow = AccountDeletionWorkflow(
-          operations,
-          feedbackOutbox: _FakeFeedbackOutbox(events: events),
-        );
+        final workflow = AccountDeletionWorkflow(operations);
 
         await expectLater(
           workflow.run(),
@@ -160,7 +156,6 @@ void main() {
         );
 
         expect(events, <String>[
-          'feedback-discard',
           'remote-delete',
           'local-reset',
           'push-disable',
@@ -171,20 +166,16 @@ void main() {
       },
     );
 
-    test('feedback discard failure aborts before remote deletion', () async {
+    test('remote request failure leaves local cleanup untouched', () async {
       final events = <String>[];
-      final discardFailure = StateError('secure storage unavailable');
-      final workflow = AccountDeletionWorkflow(
-        _FakeAccountCleanupOperations(events),
-        feedbackOutbox: _FakeFeedbackOutbox(
-          events: events,
-          failure: discardFailure,
-        ),
-      );
+      final remoteFailure = StateError('remote request unavailable');
+      final operations = _FakeAccountCleanupOperations(events)
+        ..remoteDeletionFailure = remoteFailure;
+      final workflow = AccountDeletionWorkflow(operations);
 
-      await expectLater(workflow.run(), throwsA(same(discardFailure)));
+      await expectLater(workflow.run(), throwsA(same(remoteFailure)));
 
-      expect(events, <String>['feedback-discard']);
+      expect(events, <String>['remote-delete']);
     });
 
     test(
@@ -200,13 +191,9 @@ void main() {
           resetMemory: () => events.add('memory-reset'),
         );
 
-        await AccountDeletionWorkflow(
-          adapter,
-          feedbackOutbox: _FakeFeedbackOutbox(events: events),
-        ).run();
+        await AccountDeletionWorkflow(adapter).run();
 
         expect(events, <String>[
-          'feedback-discard',
           'remote-delete',
           'local-reset',
           'push-disable',
@@ -226,7 +213,6 @@ void main() {
         var checkpointClears = 0;
         final workflow = AccountDeletionWorkflow(
           operations,
-          feedbackOutbox: _FakeFeedbackOutbox(),
           completeCheckpoint: () async => checkpointClears += 1,
         );
 
@@ -301,7 +287,6 @@ void main() {
             },
             resetMemory: () {},
           ),
-          feedbackOutbox: _FakeFeedbackOutbox(),
           completeCheckpoint: () async {
             await preferences.remove(
               AuthService.accountDeletionCheckpointPreferenceKey,
@@ -538,7 +523,6 @@ void main() {
         await Storage.init();
         final workflow = AccountDeletionWorkflow(
           _FakeAccountCleanupOperations(<String>[]),
-          feedbackOutbox: _FakeFeedbackOutbox(),
         );
         final cloudJournalState = ValueNotifier(
           CloudBackupDeletionJournalState.clear,
@@ -596,10 +580,7 @@ void main() {
       await tester.pumpWidget(
         _wrap(
           SettingsScreen(
-            accountDeletionWorkflow: AccountDeletionWorkflow(
-              operations,
-              feedbackOutbox: _FakeFeedbackOutbox(),
-            ),
+            accountDeletionWorkflow: AccountDeletionWorkflow(operations),
             accountOperations: const _AlwaysReadyAccountOperations(),
             cloudDataDeletionJournalState: cloudJournalState,
           ),
@@ -653,7 +634,6 @@ void main() {
           SettingsScreen(
             accountDeletionWorkflow: AccountDeletionWorkflow(
               _FakeAccountCleanupOperations(<String>[]),
-              feedbackOutbox: _FakeFeedbackOutbox(),
             ),
             subscriptionManager: manager,
             accountOperations: const _AlwaysReadyAccountOperations(),
@@ -760,6 +740,7 @@ class _FakeAccountCleanupOperations
 
   final List<String> events;
   Object? imageCleanupFailure;
+  Object? remoteDeletionFailure;
 
   @override
   Future<void> clearTtsCache() async {
@@ -777,6 +758,9 @@ class _FakeAccountCleanupOperations
   @override
   Future<void> deleteRemoteAccount() async {
     events.add('remote-delete');
+    if (remoteDeletionFailure case final failure?) {
+      throw failure;
+    }
   }
 
   @override
@@ -792,19 +776,6 @@ class _FakeAccountCleanupOperations
   @override
   Future<void> resetLocalStorage() async {
     events.add('local-reset');
-  }
-}
-
-class _FakeFeedbackOutbox implements FeedbackOutbox {
-  _FakeFeedbackOutbox({this.events, this.failure});
-
-  final List<String>? events;
-  final Object? failure;
-
-  @override
-  Future<void> closeAndDiscard() async {
-    events?.add('feedback-discard');
-    if (failure case final failure?) throw failure;
   }
 }
 

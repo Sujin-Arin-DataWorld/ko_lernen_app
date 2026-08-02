@@ -186,7 +186,9 @@ Future<void> _startCloudServices() async {
         AuthService.resumePendingFirstDurableLinkBackfill,
     resumeMediaCleanup: BookImageService.initialize,
     resumeBookshelfSync: BookshelfService.resumePendingSync,
-    resumeAccountOperation: AuthService.resumePendingAccountDeletion,
+    resumeAccountOperation: () => AuthService.resumePendingAccountDeletion(
+      closeFeedback: _contentFeedbackService.closeAndDiscard,
+    ),
     initializePremium: () async {
       await PaletteService.fetchAndApply();
       await PremiumService.init();

@@ -43,7 +43,10 @@ class ContentFeedbackClientFailure implements Exception {
 }
 
 abstract interface class ContentFeedbackClient {
-  Future<ContentFeedbackDelivery> submit(ContentFeedbackSubmission submission);
+  Future<ContentFeedbackDelivery> submit(
+    ContentFeedbackSubmission submission, {
+    required String expectedOwnerUid,
+  });
 }
 
 typedef ContentFeedbackPassportDocumentReader =
@@ -158,10 +161,14 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
 
   @override
   Future<ContentFeedbackDelivery> submit(
-    ContentFeedbackSubmission submission,
-  ) async {
+    ContentFeedbackSubmission submission, {
+    required String expectedOwnerUid,
+  }) async {
     final validation = submission.validate();
-    if (!validation.isValid) {
+    if (!validation.isValid ||
+        expectedOwnerUid.trim().isEmpty ||
+        expectedOwnerUid.length > 128 ||
+        expectedOwnerUid.contains('/')) {
       throw const ContentFeedbackClientFailure(
         ContentFeedbackFailureCategory.invalidRequest,
         retryable: false,
@@ -172,7 +179,11 @@ class ContentFeedbackCallableClient implements ContentFeedbackClient {
     try {
       raw = await _invoke(
         callableName: callableName,
-        payload: submission.toWire(),
+        payload: <String, Object?>{
+          ...submission.toWire(),
+          'schemaVersion': 2,
+          'expectedOwnerUid': expectedOwnerUid,
+        },
         callableOptions: HttpsCallableOptions(limitedUseAppCheckToken: true),
       );
     } on FirebaseFunctionsException catch (error) {
