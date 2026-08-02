@@ -1,4 +1,4 @@
-# Release Notes — v2.0.1 (Closed Testing, Build 2.0.1+7)
+# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.2+8)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -53,27 +53,29 @@ Enjoy building your hanok!
 
 ---
 
-## 이번 내부 테스트 릴리스 노트 — Build 2.0.1+7 (2026-08-02)
+## 이번 내부 테스트 릴리스 노트 — Build 2.0.2+8 (2026-08-02)
 
 > Play Console 내부 테스트 "새 릴리스" 노트 필드에 **언어 태그 포함 통째로** 붙여넣기.
-> (규칙: em-dash·마크다운·한국어 혼입 금지 — memory jin-no-em-dash-copy)
+> 출시 이름: `8 · 레벨 연동 커리큘럼(코스 미션+진단)` (규칙: em-dash·마크다운·한국어 혼입 금지)
 
 ```text
 <de-DE>
 Neu in diesem Build:
-• Ton-Einstellungen: Master-Schalter und 5 Kategorien (Spiel-Feedback, Lernfreunde, Hintergrundklänge, Intro, Aussprache) mit Lautstärke-Reglern und Vorhören
-• Lernpfad jetzt auch auf dem Startbildschirm im neuen Zickzack-Design mit Stempel-Stationen
-• Hören-Screen: NPC-Zeilen jetzt mit männlicher Stimme, wie in den Szenarien
-• Feinschliff: Charakter-Videos passen exakt zur Kartenfarbe
+• Neuer Lernplan: Kurs-Missionen mit echten Alltagssituationen, verknüpft mit deinem Niveau (Start: 16 Missionen für A1)
+• Einstufung beim Start: 8 kurze Fragen empfehlen dir die passende Mission, jederzeit überspringbar
+• Vokabeln, Grammatik, Spiele und Szenarien zählen jetzt als Fortschritt für deine Missionen
 </de-DE>
 <en-US>
 New in this build:
-• Sound settings: master switch and 5 categories (game feedback, study buddies, background ambience, intro, pronunciation) with volume sliders and preview
-• The learning path now uses the new zigzag design with stamp stations on the home screen too
-• Listening screen: NPC lines now use the male voice, matching the scenarios
-• Polish: character videos blend exactly with card colors
+• New study plan: course missions built on real everyday situations, linked to your level (start: 16 missions for A1)
+• Placement at start: 8 quick questions recommend the right mission, skippable any time
+• Vocabulary, grammar, games and scenarios now count as progress toward your missions
 </en-US>
 ```
+
+### (기록) Build 2.0.1+7 — 업로드 완료 2026-08-02
+
+사운드 설정(마스터+5채널) · 홈 지그재그 Lernpfad · 캐릭터 선택 결함 4종 수정 · listening NPC male voice.
 
 ---
 
