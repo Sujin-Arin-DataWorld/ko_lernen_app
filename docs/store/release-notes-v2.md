@@ -53,6 +53,30 @@ Enjoy building your hanok!
 
 ---
 
+## 이번 내부 테스트 릴리스 노트 — Build 2.0.1+6, 2026-08-02 재빌드 (3e4a058)
+
+> Play Console 내부 테스트 "새 릴리스"의 릴리스 노트 필드에 붙여넣기 (릴리스별 노트).
+
+### DE
+
+```
+Neu in diesem Build:
+• Ton-Einstellungen — Master-Schalter + 5 Kategorien (Spiel-Feedback, Lernfreunde, Hintergrundklänge, Intro, Aussprache) mit Lautstärke-Reglern und Vorhören
+• Hören-Screen: NPC-Zeilen jetzt mit männlicher Stimme (wie in den Szenarien)
+• Feinschliff: Charakter-Videos passen jetzt exakt zur Kartenfarbe
+```
+
+### EN
+
+```
+New in this build:
+• Sound settings — master switch + 5 categories (game feedback, study buddies, background ambience, intro, pronunciation) with volume sliders and preview
+• Listening screen: NPC lines now use the male voice (matching scenarios)
+• Polish: character videos now blend exactly with card colors
+```
+
+---
+
 ## Internal Notes (do not paste into store)
 
 ### v1 → v2 highlights

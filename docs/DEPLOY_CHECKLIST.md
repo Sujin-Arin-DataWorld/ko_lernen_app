@@ -19,8 +19,8 @@
 | `flutter analyze` | ✅ `No issues found` (2026-08-01) |
 | `flutter test` | ✅ **1,293개** 통과, 직렬 실행 (2026-08-01) |
 | 매트 리포트 신선도 | ✅ `python tool/check_clip_matte.py` **16/16** 통과·리포트 갱신 |
-| 서명 AAB | ✅ `app-release.aab` 235.4 MB, SHA-256 `BB20DC29…6A8D019` (§4) |
-| 릴리스 APK | ✅ `app-release.apk` 255.8 MB, SHA-256 `FDCAE3E1…1D2AF1C`, `versionCode=6`·v2 서명 확인 |
+| 서명 AAB | ✅ **2026-08-02 재빌드(3e4a058, 사운드 설정 포함)** `app-release.aab` 235.5 MB, SHA-256 `599a1acb…9d483eb` — 구본(8/1 `BB20DC29…`)은 폐기. 상세 `RELEASE_RUNBOOK_2026-08-02.md` §2 |
+| 릴리스 APK | ✅ 〃 재빌드 `app-release.apk` 255.9 MB, SHA-256 `8ae02e97…fa4f605` (스모크용) |
 | 실기기 릴리스 설치 | 🟡 기존 debug 앱 제거 후 MIUI가 `INSTALL_FAILED_USER_RESTRICTED`로 설치 취소 (§5) |
 | 후보 Git | ✅ `eda4c37`·`0e3ad8f`가 `origin/main`에 푸시됨; 임시 로그·백업은 의도적으로 미추적 (§3) |
 | `assets/` 용량 | 🟡 **136 MB** |
@@ -94,8 +94,10 @@ flutter build appbundle --release
 산출물: `build/app/outputs/bundle/release/app-release.aab`
 
 - [x] 빌드 성공 — 2026-08-01 `flutter build appbundle --release`
-- [x] 현재 HEAD 뒤 AAB 재생성 — **246,845,826 B (235.4 MB)**, SHA-256 `BB20DC29E4EC5D3F564583722E5FE979E8759B6351AC02CA46484FC666A8D019`
-- [x] 같은 현재 HEAD 뒤 APK 재생성 — **268,247,409 B (255.8 MB)**, SHA-256 `FDCAE3E18B5DF5AA812D6A247A7C0ACE2BBC6563A130B6ACA72FF64601D2AF1C`
+- [x] ~~8/1 빌드~~ → **2026-08-02 재빌드 (HEAD 3e4a058, 사운드 설정 포함 — 구본 폐기):**
+- [x] AAB — **246,949,257 B (235.5 MB)**, SHA-256 `599a1acbeb7b556d4b9c1fc93549b0cd701b572691688ea9a0b09c4d89d483eb`
+- [x] APK — **268,280,553 B (255.9 MB)**, SHA-256 `8ae02e9731a3b3818759ff8552b06e82692b19d9c23a2664e254f5839fa4f605`
+- [x] 번들 계약: growl_tiger.mp3 포함 · magpie_moon.mp4 부재 · mp4 30 (zipfile 실측)
 
 ### 용량 내역 (참고)
 

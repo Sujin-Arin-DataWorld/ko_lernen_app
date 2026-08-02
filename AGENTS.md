@@ -333,6 +333,15 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-02 (v2.0.1+6 내부 테스트 릴리스 빌드 + 배포 런북) — 커밋·푸시
+
+**Jin 지시:** "내부테스트용 AAB 최종 빌드 + 유저에게 보이기까지 해야 할 작업 리스트업·상태 확인·작업·전부 문서화."
+
+- **프리플라이트 ✅**: keystore 실존(2,760B)·key.properties·version `2.0.1+6`(Play 최신 4라 그대로)·클립/매트 무변경·CI(3e4a058) **completed/success**.
+- **재빌드 (공식 절차 `clean→pub get→build`)**: 8/1 구본은 3e4a058 Dart 변경(사운드 설정)이 없어 **폐기**. 신규: **AAB 246,949,257B(235.5MB) SHA `599a1acb…9d483eb`** · **APK 268,280,553B(255.9MB) SHA `8ae02e97…fa4f605`**. 번들 계약 zipfile 실측: growl 포함·magpie_moon 부재·mp4 30.
+- **문서**: [`docs/RELEASE_RUNBOOK_2026-08-02.md`](docs/RELEASE_RUNBOOK_2026-08-02.md) 신규 — 게이트 상태표(전부 ✅)·매니페스트·**Jin 절차 5단계**(스모크→Play Console 내부 테스트 업로드→테스터 옵트인 링크→태그 v2.0.1→24h 감시)·이번 빌드 델타·미포함 목록·리스크(keystore 백업 미확인 등). `release-notes-v2.md`에 이번 릴리스용 DE/EN 노트 블록(사운드 설정). `DEPLOY_CHECKLIST` 매니페스트 갱신(구 SHA 폐기 표시).
+- **남은 것 전부 Jin측**: 실기기 스모크(10+사운드 8) → 업로드 → 테스터 초대. 코드측 차단 0.
+
 ### 2026-08-02 (AudioPolicy 구현 — ADR-002 이행 + 검수 §6 일괄 처리) — 커밋·푸시
 
 **Jin 지시:** "다른 세션한테 굳이 넘기지말고 이 세션에서 진행하자." → 검수 SSoT §6 작업을 본 세션이 직접 구현. ADR-002 **Status: Proposed→Accepted**.
