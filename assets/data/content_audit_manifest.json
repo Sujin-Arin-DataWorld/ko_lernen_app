@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "baselineDate": "2026-08-02",
+  "sources": [
+    {"kind": "vocab", "count": 558, "source": "korean_vocab.csv", "requiresExplicitId": true},
+    {"kind": "grammar", "count": 88, "source": "grammar.csv", "requiresExplicitId": true},
+    {"kind": "scenario", "count": 39, "source": "scenarios.json", "requiresExplicitId": true},
+    {"kind": "scenarioQuest", "count": 150, "source": "scenarios.json", "requiresExplicitId": false},
+    {"kind": "smalltalk", "count": 145, "source": "smalltalk.json", "requiresExplicitId": true},
+    {"kind": "cloze", "count": 286, "source": "cloze.json", "requiresExplicitId": true},
+    {"kind": "satz", "count": 191, "source": "satz_sentences.json", "requiresExplicitId": true}
+  ],
+  "graph": {
+    "courseUnits": 36,
+    "a1CourseUnits": 16,
+    "formFamilies": 4,
+    "checkpointThreshold": 0.7,
+    "orphanContent": "blocked by automated validation",
+    "prerequisiteCycles": "blocked by automated validation"
+  },
+  "qualityAssurance": {
+    "schemaAndLinkValidation": "automated",
+    "translationAndDuplicateChecks": "automated",
+    "koreanNaturalnessRelationshipCultureBatchim": "native-speaker review required before new bulk content"
+  }
+}

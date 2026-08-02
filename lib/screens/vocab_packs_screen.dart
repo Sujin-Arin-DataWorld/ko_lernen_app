@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../services/pack_progress_service.dart';
 import '../services/premium_service.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
@@ -26,7 +28,11 @@ import '../widgets/sori/tokens.dart';
 /// 상단에는 진행 요약 ("A1: 3 / 24 클리어 — 기둥 세우는 중") +
 /// HanokHeader 이미지.
 class VocabPacksScreen extends StatefulWidget {
-  const VocabPacksScreen({super.key});
+  const VocabPacksScreen({super.key, this.courseUnitId});
+
+  /// Restricts the library to packs that contain graph-linked practice for a
+  /// mission. A null value remains the unrestricted browse library.
+  final String? courseUnitId;
 
   @override
   State<VocabPacksScreen> createState() => _VocabPacksScreenState();
@@ -41,7 +47,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   @override
   void initState() {
     super.initState();
-    final code = Storage.userLevelCode;
+    // Library browsing is intentionally independent from diagnosis/placement
+    // and the sequential course mission.
+    final code = Storage.browseLevelCode ?? Storage.placementLevelCode;
     _level = _normalizeLevel(code);
     _load();
   }
@@ -59,9 +67,30 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     });
     try {
       final packs = await PackProgressService.loadLevelView(_level);
+      final catalog = widget.courseUnitId == null
+          ? null
+          : await CurriculumCatalog.load();
       if (!mounted) return;
+      final contentIds = catalog == null
+          ? const <String>{}
+          : catalog
+                .linksForCourseUnit(widget.courseUnitId!)
+                .where(
+                  (link) => link.contentKind == CurriculumContentKind.vocab,
+                )
+                .map((link) => link.contentId)
+                .toSet();
+      final scoped = catalog == null
+          ? packs
+          : packs
+                .where(
+                  (entry) => entry.pack.words.any(
+                    (word) => contentIds.contains(word.id),
+                  ),
+                )
+                .toList();
       setState(() {
-        _packs = packs;
+        _packs = scoped;
         _loading = false;
       });
     } catch (_) {
@@ -74,9 +103,10 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   Future<void> _switchLevel(String level) async {
+    if (widget.courseUnitId != null) return;
     if (level == _level) return;
     HapticFeedback.selectionClick();
-    await Storage.setUserLevelCode(level.toLowerCase());
+    await Storage.setBrowseLevelCode(level.toLowerCase());
     if (!mounted) return;
     setState(() => _level = level);
     await _load();
@@ -159,17 +189,18 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
             tooltip: t.dojangTitle,
             onPressed: () => Navigator.of(context).pushNamed('/dojangcheop'),
           ),
-          PopupMenuButton<String>(
-            icon: const Icon(Icons.swap_horiz),
-            tooltip: t.vocabPacksLevelMenu,
-            onSelected: _switchLevel,
-            itemBuilder: (_) => const [
-              PopupMenuItem(value: 'A1', child: Text('A1')),
-              PopupMenuItem(value: 'A2', child: Text('A2')),
-              PopupMenuItem(value: 'B1', child: Text('B1')),
-              PopupMenuItem(value: 'B2', child: Text('B2')),
-            ],
-          ),
+          if (widget.courseUnitId == null)
+            PopupMenuButton<String>(
+              icon: const Icon(Icons.swap_horiz),
+              tooltip: t.vocabPacksLevelMenu,
+              onSelected: _switchLevel,
+              itemBuilder: (_) => const [
+                PopupMenuItem(value: 'A1', child: Text('A1')),
+                PopupMenuItem(value: 'A2', child: Text('A2')),
+                PopupMenuItem(value: 'B1', child: Text('B1')),
+                PopupMenuItem(value: 'B2', child: Text('B2')),
+              ],
+            ),
         ],
       ),
       body: SoriScreenBackground(

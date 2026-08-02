@@ -71,6 +71,7 @@ import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
 import 'screens/onboarding_level_screen.dart';
+import 'screens/course_mission_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
@@ -301,8 +302,9 @@ class KoLernenApp extends StatelessWidget {
             case '/vocab':
               // Phase 2 (stately-rising-jongga): default vocab entry =
               // Pack-Marktplatz (Grid).
+              final vocabCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
-                (_) => const VocabPacksScreen(),
+                (_) => VocabPacksScreen(courseUnitId: vocabCourseUnitId),
                 settings: settings,
               );
             case '/vocab/pack':
@@ -355,8 +357,9 @@ class KoLernenApp extends StatelessWidget {
                 settings: settings,
               );
             case '/cloze':
+              final clozeCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
-                (_) => const ClozeGameScreen(),
+                (_) => ClozeGameScreen(courseUnitId: clozeCourseUnitId),
                 settings: settings,
               );
             case '/speed_match':
@@ -370,8 +373,9 @@ class KoLernenApp extends StatelessWidget {
                 settings: settings,
               );
             case '/satz_arcade':
+              final satzCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
-                (_) => const SatzArcadeScreen(),
+                (_) => SatzArcadeScreen(courseUnitId: satzCourseUnitId),
                 settings: settings,
               );
             case '/settings':
@@ -518,6 +522,12 @@ class KoLernenApp extends StatelessWidget {
             case '/path':
               return SoriTransitions.fadeScale(
                 (_) => const LearningPathScreen(),
+                settings: settings,
+              );
+            case '/course/mission':
+              final missionCourseUnitId = settings.arguments as String?;
+              return SoriTransitions.fadeScale(
+                (_) => CourseMissionScreen(courseUnitId: missionCourseUnitId),
                 settings: settings,
               );
             case '/scenario':

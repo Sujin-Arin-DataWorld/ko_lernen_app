@@ -4,12 +4,17 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/hanok_stage.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
+import '../models/course_mastery.dart';
+import '../models/curriculum.dart';
+import '../services/course_progress_service.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/premium_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
@@ -46,6 +51,8 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   int _clearedTotal = 0;
   int _packTotal = 0;
   String? _nowPackId; // 첫 미완 + 잠금해제 팩 = "지금 할 것"
+  CurriculumCatalog? _courseCatalog;
+  CourseMasterySnapshot? _courseSnapshot;
 
   static const List<String> _levels = ['A1', 'A2', 'B1', 'B2'];
 
@@ -99,6 +106,19 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         }
       }
     }
+    CurriculumCatalog? courseCatalog;
+    CourseMasterySnapshot? courseSnapshot;
+    try {
+      courseCatalog = await CurriculumCatalog.load();
+      courseSnapshot = await CourseProgressService.shared.refresh();
+      if (courseSnapshot.currentCourseUnitId == null) {
+        courseSnapshot = await CourseProgressService.shared
+            .initializeForPlacement(courseSnapshot.placementLevel ?? 'a1');
+      }
+    } catch (_) {
+      // Existing pack path remains usable if a local curriculum asset is
+      // invalid; the mission screen will surface the actionable error.
+    }
     if (!mounted) {
       return;
     }
@@ -110,6 +130,8 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       _clearedTotal = cleared;
       _packTotal = total;
       _nowPackId = now;
+      _courseCatalog = courseCatalog;
+      _courseSnapshot = courseSnapshot;
       _loading = false;
     });
   }
@@ -155,6 +177,22 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                     base: const EdgeInsets.fromLTRB(16, 8, 16, 48),
                   ),
                   children: [
+                    if (_courseCatalog != null && _courseSnapshot != null) ...[
+                      _CourseMissionPath(
+                        catalog: _courseCatalog!,
+                        snapshot: _courseSnapshot!,
+                        lang: Localizations.localeOf(context).languageCode,
+                        onTapUnit: (unit) async {
+                          await Navigator.pushNamed(
+                            context,
+                            '/course/mission',
+                            arguments: unit.id,
+                          );
+                          if (mounted) await _load();
+                        },
+                      ),
+                      const SizedBox(height: Spacing.xl),
+                    ],
                     _HanokHeader(
                       stage: _stage,
                       cleared: _clearedTotal,
@@ -219,6 +257,164 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       ),
       const SizedBox(height: Spacing.lg),
     ];
+  }
+}
+
+/// Sequential missions sit above the older pack path. Future missions are
+/// intentionally previewable, but only the active one can collect progress.
+class _CourseMissionPath extends StatelessWidget {
+  const _CourseMissionPath({
+    required this.catalog,
+    required this.snapshot,
+    required this.lang,
+    required this.onTapUnit,
+  });
+
+  final CurriculumCatalog catalog;
+  final CourseMasterySnapshot snapshot;
+  final String lang;
+  final ValueChanged<CourseUnit> onTapUnit;
+
+  @override
+  Widget build(BuildContext context) {
+    final grouped = <String, List<CourseUnit>>{
+      for (final level in const ['a1', 'a2', 'b1', 'b2']) level: <CourseUnit>[],
+    };
+    for (final unit in catalog.courseUnits) {
+      grouped.putIfAbsent(unit.level, () => <CourseUnit>[]).add(unit);
+    }
+    for (final units in grouped.values) {
+      units.sort((left, right) => left.order.compareTo(right.order));
+    }
+    final english = lang == 'en';
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          english ? 'Course missions' : 'Kursmissionen',
+          style: SoriTextTheme.of(context).h2,
+        ),
+        const SizedBox(height: Spacing.xs),
+        Text(
+          english
+              ? 'One sequence connects vocabulary, grammar, games, and scenarios.'
+              : 'Eine Reihenfolge verbindet Wortschatz, Grammatik, Spiele und Szenarien.',
+          style: SoriTextTheme.of(context).bodySmall,
+        ),
+        const SizedBox(height: Spacing.md),
+        for (final entry in grouped.entries)
+          if (entry.value.isNotEmpty) ...[
+            Text(
+              entry.key.toUpperCase(),
+              style: SoriTextTheme.of(
+                context,
+              ).label.copyWith(color: SoriSurfaces.of(context).textMuted),
+            ),
+            const SizedBox(height: Spacing.xs),
+            for (final unit in entry.value)
+              Padding(
+                padding: const EdgeInsets.only(bottom: Spacing.sm),
+                child: _CourseMissionNode(
+                  unit: unit,
+                  status: _statusFor(unit),
+                  lang: lang,
+                  onTap: () => onTapUnit(unit),
+                ),
+              ),
+            const SizedBox(height: Spacing.sm),
+          ],
+      ],
+    );
+  }
+
+  _MissionPathStatus _statusFor(CourseUnit unit) {
+    if (snapshot.currentCourseUnitId == unit.id) {
+      return _MissionPathStatus.current;
+    }
+    if (snapshot.completedUnitIds.contains(unit.id)) {
+      return _MissionPathStatus.completed;
+    }
+    if (snapshot.bypassedPrerequisiteUnitIds.contains(unit.id)) {
+      return _MissionPathStatus.bypassed;
+    }
+    return _MissionPathStatus.preview;
+  }
+}
+
+enum _MissionPathStatus { current, completed, bypassed, preview }
+
+class _CourseMissionNode extends StatelessWidget {
+  const _CourseMissionNode({
+    required this.unit,
+    required this.status,
+    required this.lang,
+    required this.onTap,
+  });
+
+  final CourseUnit unit;
+  final _MissionPathStatus status;
+  final String lang;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final english = lang == 'en';
+    final (icon, color, statusText) = switch (status) {
+      _MissionPathStatus.current => (
+        Icons.play_circle_outline_rounded,
+        SoriColors.primary,
+        english ? 'Current' : 'Jetzt',
+      ),
+      _MissionPathStatus.completed => (
+        Icons.check_circle_outline_rounded,
+        SoriColors.success,
+        english ? 'Completed' : 'Erledigt',
+      ),
+      _MissionPathStatus.bypassed => (
+        Icons.fast_forward_rounded,
+        SoriColors.info,
+        english ? 'Start-level bypass' : 'Startstufe übersprungen',
+      ),
+      _MissionPathStatus.preview => (
+        Icons.visibility_outlined,
+        SoriColors.warning,
+        english ? 'Preview' : 'Vorschau',
+      ),
+    };
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: color,
+      onTap: onTap,
+      child: Row(
+        children: [
+          Icon(icon, color: color),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  unit.title.pick(lang),
+                  style: SoriTextTheme.of(context).label,
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  unit.canDo.pick(lang),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: SoriTextTheme.of(context).bodySmall,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: Spacing.sm),
+          Text(
+            statusText,
+            style: SoriTextTheme.of(context).caption.copyWith(color: color),
+          ),
+        ],
+      ),
+    );
   }
 }
 

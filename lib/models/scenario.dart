@@ -7,13 +7,15 @@
 ///   ├── title  (ko/de/en)
 ///   ├── intro  (de/en — Hook in der Muttersprache)
 ///   ├── vocab[]      → VocabRef
-///   ├── grammarIds[] → Strings, verweisen auf grammar.csv `pattern`
+///   ├── grammarIds[] → Strings, verweisen auf grammar.csv `id`
 ///   ├── dialog[]     → DialogLine
 ///   ├── quests[]     → QuestSpec
 ///   ├── culturalNote (optional)
 ///   └── xpReward
 /// ```
 library;
+
+import 'curriculum.dart' show SpeechStyle, SpeechStyleX;
 
 /// CEFR-Stufe — auch Storage-Schlüssel via [code].
 enum LearnerLevel {
@@ -166,15 +168,28 @@ enum QuestType {
 /// Eine konkrete Quest-Instanz. `data` ist typ-spezifisch und wird vom
 /// jeweiligen Quest-Widget interpretiert (siehe lib/screens/quest_engines/).
 class QuestSpec {
+  /// Optional raw source ID. Pilot quests use this to make their concept
+  /// mapping auditable without inventing an unstable index-based identifier.
+  final String id;
   final QuestType type;
   final Map<String, dynamic> data;
+  final List<String> conceptIds;
 
-  const QuestSpec({required this.type, required this.data});
+  const QuestSpec({
+    this.id = '',
+    required this.type,
+    required this.data,
+    this.conceptIds = const [],
+  });
 
   factory QuestSpec.fromJson(Map<String, dynamic> j) => QuestSpec(
+    id: (j['id'] as String?)?.trim() ?? '',
     type: QuestType.fromCode((j['type'] as String?) ?? 'hoerverstehen'),
     data: (j['data'] as Map<String, dynamic>?) ?? const {},
+    conceptIds: ((j['conceptIds'] as List?) ?? const []).cast<String>(),
   );
+
+  bool get hasExplicitId => id.isNotEmpty;
 
   /// Korean vocabulary keys this quest tests. Used for error-aware SRS:
   /// failing the quest marks these keys as "didn't get it" so they surface
@@ -260,15 +275,26 @@ enum Register {
   business, // 합쇼체 — Meeting, Vorstellung
   intimate; // 친밀한 반말 — Partner, enge Freunde
 
-  static Register fromCode(String c) {
+  static Register? tryFromCode(String? c) {
+    // Legacy assets used `formal`; the product's canonical equivalent is the
+    // business/official register rather than the polite fallback.
+    final normalized = c?.trim().toLowerCase();
+    if (normalized == 'formal') return Register.business;
     for (final r in values) {
-      if (r.name == c) return r;
+      if (r.name == normalized) return r;
     }
+    return null;
+  }
+
+  static Register fromCode(String c) {
+    final parsed = tryFromCode(c);
+    if (parsed != null) return parsed;
     return Register.polite;
   }
 }
 
 class Scenario {
+  /// Scenarios are source-keyed; a blank ID is invalid for curriculum links.
   final String id;
   final LearnerLevel level;
   final String emoji;
@@ -276,6 +302,12 @@ class Scenario {
   final LocalizedText title;
   final LocalizedText intro;
   final List<VocabRef> vocab;
+  final String courseUnitId;
+  final SpeechStyle? speechStyle;
+  final String relationshipContext;
+  final String intent;
+  final List<String> conceptIds;
+  final List<String> surfaceFormIds;
   final List<String> grammarIds;
   final GrammarBlock? grammarBlock; // inline grammar if not in grammar.csv
   final List<DialogLine> dialog;
@@ -296,6 +328,12 @@ class Scenario {
     required this.grammarIds,
     required this.dialog,
     required this.quests,
+    this.courseUnitId = '',
+    this.speechStyle,
+    this.relationshipContext = '',
+    this.intent = '',
+    this.conceptIds = const [],
+    this.surfaceFormIds = const [],
     this.grammarBlock,
     this.culturalNote,
     this.xpReward = 100,
@@ -317,6 +355,12 @@ class Scenario {
     vocab: ((j['vocab'] as List?) ?? const [])
         .map((e) => VocabRef.fromJson(e as Map<String, dynamic>))
         .toList(),
+    courseUnitId: (j['courseUnitId'] as String?) ?? '',
+    speechStyle: SpeechStyleX.tryFromCode(j['speechStyle']?.toString()),
+    relationshipContext: (j['relationshipContext'] as String?) ?? '',
+    intent: (j['intent'] as String?) ?? '',
+    conceptIds: ((j['conceptIds'] as List?) ?? const []).cast<String>(),
+    surfaceFormIds: ((j['surfaceFormIds'] as List?) ?? const []).cast<String>(),
     grammarIds: ((j['grammarIds'] as List?) ?? const []).cast<String>(),
     grammarBlock: GrammarBlock.fromJsonOrNull(j['grammarBlock']),
     dialog: ((j['dialog'] as List?) ?? const [])
@@ -330,6 +374,8 @@ class Scenario {
     sidekick: j['sidekick'] as String?,
     preferredVoice: j['preferredVoice'] as String?,
   );
+
+  bool get hasExplicitId => id.trim().isNotEmpty;
 }
 
 /// Scenario ID -> category scene key (one of cafe/directions/market/restaurant/

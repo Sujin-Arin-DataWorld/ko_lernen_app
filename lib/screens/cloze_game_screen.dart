@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/curriculum.dart';
 import '../models/vocab.dart';
 import '../services/cloze_loader.dart';
+import '../services/course_activity_reporter.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -24,7 +27,11 @@ import '../widgets/sori/tokens.dart';
 /// Wiedererkennen. Sätze + Übersetzungen stammen aus geprüften Vokabel-
 /// Beispielen (assets/data/cloze.json).
 class ClozeGameScreen extends StatefulWidget {
-  const ClozeGameScreen({super.key});
+  const ClozeGameScreen({super.key, this.courseUnitId});
+
+  /// When opened from a course mission, only graph-linked items are drawn.
+  /// Library entry keeps the existing all-level behavior.
+  final String? courseUnitId;
 
   @override
   State<ClozeGameScreen> createState() => _ClozeGameScreenState();
@@ -55,16 +62,29 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   Future<void> _load() async {
     final all = await ClozeLoader.load();
     final vocab = await DataLoader.loadVocab();
+    final catalog = widget.courseUnitId == null
+        ? null
+        : await CurriculumCatalog.load();
     if (!mounted) return;
     // Startlevel = Nutzerlevel, falls es dafür Items gibt; sonst alle.
-    final user = Storage.userLevelCode;
+    final user = Storage.browseLevelCode ?? Storage.placementLevelCode;
     final start = (user != null && all.any((c) => c.level == user))
         ? user
         : null;
+    final courseIds = catalog == null
+        ? const <String>{}
+        : catalog
+              .linksForCourseUnit(widget.courseUnitId!)
+              .where((link) => link.contentKind == CurriculumContentKind.cloze)
+              .map((link) => link.contentId)
+              .toSet();
+    final scoped = catalog == null
+        ? all
+        : all.where((item) => courseIds.contains(item.id)).toList();
     setState(() {
-      _all = all;
+      _all = scoped;
       _vocabByKo = {for (final v in vocab) v.korean: v};
-      _level = start;
+      _level = catalog == null ? start : null;
       _loading = false;
     });
     _newRound();
@@ -92,6 +112,13 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final ok = option == item.answer;
     setState(() => _picked = option);
     Storage.srsReview(item.answer, gotIt: ok); // Kontext-Abruf → Haupt-SRS
+    // ignore: discarded_futures
+    CourseActivityReporter.recordContentAttempt(
+      CurriculumContentKind.cloze,
+      item.id,
+      ok,
+      errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
+    );
     if (ok) {
       _score++;
       HapticFeedback.lightImpact();
@@ -232,6 +259,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   }
 
   Widget _levelBar(AppL10n t) {
+    if (widget.courseUnitId != null) return const SizedBox.shrink();
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.only(bottom: Spacing.sm),

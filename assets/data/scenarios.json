@@ -7,6 +7,12 @@
    "level": "a2",
    "emoji": "☕",
    "register": "polite",
+   "courseUnitId": "a2_05_delivery_services",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "order_and_pay",
+   "conceptIds": ["concept_a2_services","concept_request_polite"],
+   "surfaceFormIds": ["surface_keopireul"],
    "sidekick": "minsu",
    "xpReward": 140,
    "title": {
@@ -94,7 +100,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_polite_request"],
    "grammarBlock": {
     "title": {
      "ko": "N(으)로 주세요",
@@ -244,6 +250,12 @@
    "level": "a1",
    "emoji": "✈️",
    "register": "polite",
+   "courseUnitId": "a1_01_greetings_hangul",
+   "speechStyle": "polite",
+   "relationshipContext": "traveler_and_service_staff",
+   "intent": "arrival_and_clarification",
+   "conceptIds": ["concept_greeting_politeness","concept_a1_clarification"],
+   "surfaceFormIds": ["surface_ieyo_yeyo"],
    "sidekick": "jieun",
    "xpReward": 120,
    "title": {
@@ -306,7 +318,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_copula_polite"],
    "grammarBlock": {
     "title": {
      "ko": "N + 이에요/예요",
@@ -359,6 +371,8 @@
    ],
    "quests": [
     {
+     "id": "quest_airport_arrival_01",
+     "conceptIds": ["concept_greeting_politeness"],
      "type": "hoerverstehen",
      "data": {
       "audioKo": "한국 처음이세요?",
@@ -384,6 +398,8 @@
      }
     },
     {
+     "id": "quest_airport_arrival_02",
+     "conceptIds": ["concept_identity_polite"],
      "type": "luecken",
      "data": {
       "sentence": "한국 처음 ___ .",
@@ -397,6 +413,8 @@
      }
     },
     {
+     "id": "quest_airport_arrival_03",
+     "conceptIds": ["concept_identity_polite"],
      "type": "uebersetzen",
      "data": {
       "promptDe": "Eine Woche.",
@@ -419,6 +437,8 @@
      }
     },
     {
+     "id": "quest_airport_arrival_04",
+     "conceptIds": ["concept_greeting_politeness"],
      "type": "satzBauen",
      "data": {
       "targetKo": "네, 여기 있어요.",
@@ -433,6 +453,8 @@
      }
     },
     {
+     "id": "quest_airport_arrival_05",
+     "conceptIds": ["concept_request_polite"],
      "type": "diktat",
      "data": {
       "targetKo": "여권 보여주세요.",
@@ -460,6 +482,12 @@
    "level": "a1",
    "emoji": "👋",
    "register": "polite",
+   "courseUnitId": "a1_02_self_intro_identity",
+   "speechStyle": "polite",
+   "relationshipContext": "new_acquaintances",
+   "intent": "self_introduction",
+   "conceptIds": ["concept_identity_formal","concept_identity_polite","concept_a1_first_meeting"],
+   "surfaceFormIds": ["surface_imnida","surface_ieyo_yeyo"],
    "sidekick": "minsu",
    "xpReward": 150,
    "title": {
@@ -522,7 +550,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_topic_particle","grammar_a1_copula_polite"],
    "grammarBlock": {
     "title": {
      "ko": "N은/는 + N이에요/예요",
@@ -575,6 +603,8 @@
    ],
    "quests": [
     {
+     "id": "quest_introduce_yourself_01",
+     "conceptIds": ["concept_topic_particle"],
      "type": "particlePop",
      "data": {
       "prefix": "저",
@@ -593,6 +623,8 @@
      }
     },
     {
+     "id": "quest_introduce_yourself_02",
+     "conceptIds": ["concept_identity_polite"],
      "type": "uebersetzen",
      "data": {
       "promptDe": "Woher kommen Sie?",
@@ -615,6 +647,8 @@
      }
     },
     {
+     "id": "quest_introduce_yourself_03",
+     "conceptIds": ["concept_identity_formal"],
      "type": "hoerverstehen",
      "data": {
       "audioKo": "잘 부탁드립니다.",
@@ -640,6 +674,8 @@
      }
     },
     {
+     "id": "quest_introduce_yourself_04",
+     "conceptIds": ["concept_hangul_batchim"],
      "type": "batchimDrop",
      "data": {
       "audioKo": "안녕하세요",
@@ -657,6 +693,8 @@
      }
     },
     {
+     "id": "quest_introduce_yourself_05",
+     "conceptIds": ["concept_identity_polite"],
      "type": "diktat",
      "data": {
       "targetKo": "어디서 오셨어요?",
@@ -684,6 +722,12 @@
    "level": "b1",
    "emoji": "💗",
    "register": "intimate",
+   "courseUnitId": "b1_04_relationships",
+   "speechStyle": "intimate",
+   "relationshipContext": "close_friends",
+   "intent": "encourage",
+   "conceptIds": ["concept_b1_relationships"],
+   "surfaceFormIds": [],
    "sidekick": "partner",
    "xpReward": 150,
    "title": {
@@ -746,7 +790,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_favor"],
    "grammarBlock": {
     "title": {
      "ko": "V-아/어 줄게",
@@ -877,6 +921,12 @@
    "level": "b1",
    "emoji": "💢",
    "register": "intimate",
+   "courseUnitId": "b1_06_life_capstone",
+   "speechStyle": "intimate",
+   "relationshipContext": "romantic_partners",
+   "intent": "resolve_conflict",
+   "conceptIds": ["concept_b1_relationships","concept_b1_life"],
+   "surfaceFormIds": [],
    "sidekick": "partner",
    "xpReward": 150,
    "title": {
@@ -939,7 +989,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_short_negation"],
    "grammarBlock": {
     "title": {
      "ko": "V-(으)ㄴ 거 아니야",
@@ -1075,6 +1125,12 @@
    "level": "a1",
    "emoji": "🚕",
    "register": "polite",
+   "courseUnitId": "a1_06_transport_directions",
+   "speechStyle": "polite",
+   "relationshipContext": "passenger_and_driver",
+   "intent": "confirm_destination",
+   "conceptIds": ["concept_a1_directions","concept_a1_contact_address"],
+   "surfaceFormIds": ["surface_automatic_payment_ieyo"],
    "sidekick": "minsu",
    "xpReward": 120,
    "title": {
@@ -1140,7 +1196,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_from_to"],
    "grammarBlock": {
     "title": {
      "ko": "N까지",
@@ -1193,6 +1249,8 @@
    ],
    "quests": [
     {
+     "id": "quest_taxi_kakao_01",
+     "conceptIds": ["concept_a1_directions"],
      "type": "particlePop",
      "data": {
       "prefix": "강남역",
@@ -1299,6 +1357,12 @@
    "level": "a1",
    "emoji": "🍽️",
    "register": "polite",
+   "courseUnitId": "a1_04_order_request_object",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "order_and_request",
+   "conceptIds": ["concept_object_particle","concept_request_polite"],
+   "surfaceFormIds": ["surface_babeul","surface_keopireul","surface_deweo_juseyo"],
    "sidekick": "jieun",
    "xpReward": 130,
    "title": {
@@ -1361,7 +1425,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_object_particle","grammar_a1_polite_request"],
    "grammarBlock": {
     "title": {
      "ko": "V-게 해주세요",
@@ -1414,6 +1478,8 @@
    ],
    "quests": [
     {
+     "id": "quest_bunshik_tteokbokki_01",
+     "conceptIds": ["concept_request_polite"],
      "type": "luecken",
      "data": {
       "sentence": "안 ___ 해주세요.",
@@ -1427,6 +1493,8 @@
      }
     },
     {
+     "id": "quest_bunshik_tteokbokki_02",
+     "conceptIds": ["concept_request_polite"],
      "type": "hoerverstehen",
      "data": {
       "audioKo": "매운맛은 어떻게 해드릴까요?",
@@ -1452,6 +1520,8 @@
      }
     },
     {
+     "id": "quest_bunshik_tteokbokki_03",
+     "conceptIds": ["concept_request_polite"],
      "type": "uebersetzen",
      "data": {
       "promptDe": "Eine Portion Tteokbokki, bitte.",
@@ -1474,6 +1544,8 @@
      }
     },
     {
+     "id": "quest_bunshik_tteokbokki_04",
+     "conceptIds": ["concept_request_polite"],
      "type": "satzBauen",
      "data": {
       "targetKo": "떡볶이 한 인분이랑 김밥 하나 주세요.",
@@ -1488,12 +1560,34 @@
      }
     },
     {
+     "id": "quest_bunshik_tteokbokki_05",
+     "conceptIds": ["concept_identity_polite"],
      "type": "diktat",
      "data": {
       "targetKo": "사이다 한 캔이요.",
       "audioKo": "사이다 한 캔이요.",
       "promptDe": "Eine Dose Limo.",
       "promptEn": "One can of Sprite."
+     }
+    },
+    {
+     "id": "quest_bunshik_tteokbokki_06",
+     "conceptIds": ["concept_object_particle"],
+     "type": "particlePop",
+     "data": {
+      "prefix": "김밥",
+      "suffix": " 하나 주세요.",
+      "options": [
+       "을",
+       "를",
+       "이",
+       "가",
+       "은",
+       "는"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "김밥 endet auf einem Konsonanten (ㅂ), daher lautet die Objektpartikel 을.",
+      "explanationEn": "김밥 ends in a consonant (ㅂ), so the object particle is 을."
      }
     }
    ],
@@ -1515,6 +1609,12 @@
    "level": "a2",
    "emoji": "🚇",
    "register": "polite",
+   "courseUnitId": "a2_07_travel_repair",
+   "speechStyle": "polite",
+   "relationshipContext": "traveler_and_stranger",
+   "intent": "ask_for_transfer",
+   "conceptIds": ["concept_a2_travel_repair"],
+   "surfaceFormIds": [],
    "sidekick": "jieun",
    "xpReward": 140,
    "title": {
@@ -1577,7 +1677,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_direction_time_particle"],
    "grammarBlock": {
     "title": {
      "ko": "N에서 N(으)로",
@@ -1727,6 +1827,12 @@
    "level": "b1",
    "emoji": "💼",
    "register": "polite",
+   "courseUnitId": "b1_02_indirect_speech",
+   "speechStyle": "polite",
+   "relationshipContext": "colleagues",
+   "intent": "participate_in_company_dinner",
+   "conceptIds": ["concept_b1_indirect_speech","concept_b1_softening"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 160,
    "title": {
@@ -1803,7 +1909,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_promise"],
    "grammarBlock": {
     "title": {
      "ko": "V-(으)ㄹ게요",
@@ -1934,6 +2040,12 @@
    "level": "a1",
    "emoji": "🏨",
    "register": "polite",
+   "courseUnitId": "a1_07_contact_address",
+   "speechStyle": "polite",
+   "relationshipContext": "guest_and_hotel_staff",
+   "intent": "check_in",
+   "conceptIds": ["concept_a1_contact_address","concept_a1_time_numbers"],
+   "surfaceFormIds": [],
    "sidekick": "jieun",
    "xpReward": 120,
    "title": {
@@ -1996,7 +2108,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_subject_particle"],
    "grammarBlock": {
     "title": {
      "ko": "N이/가 있어요/없어요",
@@ -2049,6 +2161,8 @@
    ],
    "quests": [
     {
+     "id": "quest_hotel_checkin_01",
+     "conceptIds": ["concept_a1_contact_address"],
      "type": "particlePop",
      "data": {
       "prefix": "예약",
@@ -2112,6 +2226,22 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "id": "quest_hotel_checkin_04",
+     "conceptIds": ["concept_a1_contact_address"],
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "와이파이 비밀번호 좀 알려주세요.",
+      "promptDe": "Können Sie mir das WLAN-Passwort sagen?",
+      "promptEn": "Could you tell me the WiFi password?",
+      "distractors": [
+       "강남역",
+       "떡볶이",
+       "자동 결제"
+      ],
+      "audioKo": "와이파이 비밀번호 좀 알려주세요."
+     }
     }
    ],
    "culturalNote": {
@@ -2132,6 +2262,12 @@
    "level": "a1",
    "emoji": "🛒",
    "register": "polite",
+   "courseUnitId": "a1_14_payment_delivery",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "buy_and_pay",
+   "conceptIds": ["concept_a1_payment_delivery","concept_request_polite","concept_object_particle"],
+   "surfaceFormIds": ["surface_automatic_payment_ieyo"],
    "sidekick": "minsu",
    "xpReward": 110,
    "title": {
@@ -2194,7 +2330,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_also_particle"],
    "grammarBlock": {
     "title": {
      "ko": "N도 주세요",
@@ -2247,6 +2383,8 @@
    ],
    "quests": [
     {
+     "id": "quest_convenience_store_01",
+     "conceptIds": ["concept_request_polite"],
      "type": "luecken",
      "data": {
       "sentence": "봉지 ___ 주세요.",
@@ -2305,6 +2443,42 @@
       ],
       "correctIndex": 0
      }
+    },
+    {
+     "id": "quest_convenience_store_04",
+     "conceptIds": ["concept_object_particle"],
+     "type": "particlePop",
+     "data": {
+      "prefix": "김밥",
+      "suffix": " 데워주세요.",
+      "options": [
+       "을",
+       "를",
+       "이",
+       "가",
+       "은",
+       "는"
+      ],
+      "correctIndex": 0,
+      "explanationDe": "김밥 endet auf einem Konsonanten (ㅂ), daher wird die Objektpartikel 을 verwendet.",
+      "explanationEn": "김밥 ends in a consonant (ㅂ), so use the object particle 을."
+     }
+    },
+    {
+     "id": "quest_convenience_store_05",
+     "conceptIds": ["concept_request_polite"],
+     "type": "satzBauen",
+     "data": {
+      "targetKo": "이거 데워주세요.",
+      "promptDe": "Bitte wärmen Sie das auf.",
+      "promptEn": "Please heat this up.",
+      "distractors": [
+       "영수증",
+       "강남역",
+       "안 매워"
+      ],
+      "audioKo": "이거 데워주세요."
+     }
     }
    ],
    "culturalNote": {
@@ -2325,6 +2499,12 @@
    "level": "a2",
    "emoji": "💊",
    "register": "polite",
+   "courseUnitId": "a2_04_feelings_health",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_pharmacist",
+   "intent": "describe_symptom",
+   "conceptIds": ["concept_a2_feelings"],
+   "surfaceFormIds": [],
    "sidekick": "jieun",
    "xpReward": 130,
    "title": {
@@ -2387,7 +2567,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_subject_particle"],
    "grammarBlock": {
     "title": {
      "ko": "N이/가 아파요",
@@ -2532,6 +2712,12 @@
    "level": "a2",
    "emoji": "🛍️",
    "register": "polite",
+   "courseUnitId": "a2_05_delivery_services",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_shop_staff",
+   "intent": "shop_and_negotiate",
+   "conceptIds": ["concept_a2_services"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 130,
    "title": {
@@ -2594,7 +2780,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_permission"],
    "grammarBlock": {
     "title": {
      "ko": "V-아/어도 돼요",
@@ -2724,7 +2910,13 @@
    "id": "business_meeting_intro",
    "level": "b2",
    "emoji": "💼",
-   "register": "formal",
+   "register": "business",
+   "courseUnitId": "b2_01_formal_opening",
+   "speechStyle": "business",
+   "relationshipContext": "professional_colleagues",
+   "intent": "open_business_meeting",
+   "conceptIds": ["concept_b2_formal_opening","concept_b2_opinion"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 200,
    "title": {
@@ -2835,7 +3027,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_b2_formal_intention"],
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄴ/는 편이다",
@@ -2977,6 +3169,12 @@
    "level": "b2",
    "emoji": "📦",
    "register": "polite",
+   "courseUnitId": "b2_04_complaint_resolution",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_delivery_support",
+   "intent": "make_formal_complaint",
+   "conceptIds": ["concept_b2_complaint","concept_b2_precise_requests"],
+   "surfaceFormIds": [],
    "sidekick": "jihye",
    "xpReward": 200,
    "title": {
@@ -3079,7 +3277,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_b2_counterfactual_past"],
    "grammarBlock": {
     "title": {
      "ko": "-았/었더라면 -았/었을 텐데",
@@ -3221,6 +3419,12 @@
    "level": "b2",
    "emoji": "🏥",
    "register": "polite",
+   "courseUnitId": "b2_03_precise_requests",
+   "speechStyle": "polite",
+   "relationshipContext": "patient_and_doctor",
+   "intent": "consult_doctor",
+   "conceptIds": ["concept_b2_precise_requests"],
+   "surfaceFormIds": [],
    "sidekick": "subin",
    "xpReward": 200,
    "title": {
@@ -3331,7 +3535,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_probability"],
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄴ/는 것 같다  +  -(으)면 좋겠다",
@@ -3473,6 +3677,12 @@
    "level": "a2",
    "emoji": "🚕",
    "register": "polite",
+   "courseUnitId": "a2_07_travel_repair",
+   "speechStyle": "polite",
+   "relationshipContext": "passenger_and_driver",
+   "intent": "hail_taxi",
+   "conceptIds": ["concept_a2_travel_repair"],
+   "surfaceFormIds": [],
    "sidekick": "junho",
    "xpReward": 140,
    "title": {
@@ -3551,7 +3761,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_polite_request"],
    "grammarBlock": {
     "title": {
      "ko": "-(아/어) 주세요 — 부탁 표현",
@@ -3693,6 +3903,12 @@
    "level": "a2",
    "emoji": "📅",
    "register": "casual",
+   "courseUnitId": "a2_02_plans_proposals",
+   "speechStyle": "casual",
+   "relationshipContext": "friends",
+   "intent": "make_plans",
+   "conceptIds": ["concept_proposal_polite","concept_proposal_casual"],
+   "surfaceFormIds": ["surface_halkkayo","surface_hallaeyo","surface_haja","surface_hallae"],
    "sidekick": "yuna",
    "xpReward": 140,
    "title": {
@@ -3771,7 +3987,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_polite_proposal","grammar_a2_preference_question"],
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄹ래? / -(으)ㄹ까? — 제안하기",
@@ -3907,6 +4123,12 @@
    "level": "a2",
    "emoji": "😅",
    "register": "casual",
+   "courseUnitId": "a2_03_chat_relationships",
+   "speechStyle": "casual",
+   "relationshipContext": "friends",
+   "intent": "update_plan",
+   "conceptIds": ["concept_a2_relationships"],
+   "surfaceFormIds": [],
    "sidekick": "jinho",
    "xpReward": 140,
    "title": {
@@ -3985,7 +4207,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_progressive","grammar_b1_future_probability"],
    "grammarBlock": {
     "title": {
      "ko": "-고 있어 + -(으)ㄹ 것 같아 — 진행과 예측",
@@ -4127,6 +4349,12 @@
    "level": "b1",
    "emoji": "🗓️",
    "register": "casual",
+   "courseUnitId": "b1_01_experience_reasons",
+   "speechStyle": "casual",
+   "relationshipContext": "friends",
+   "intent": "postpone_plan",
+   "conceptIds": ["concept_b1_reasons_experience","concept_b1_softening"],
+   "surfaceFormIds": [],
    "sidekick": "yuna",
    "xpReward": 160,
    "title": {
@@ -4205,7 +4433,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_change"],
    "grammarBlock": {
     "title": {
      "ko": "-게 됐어 — 뜻밖의 상황 설명하기",
@@ -4347,6 +4575,12 @@
    "level": "b1",
    "emoji": "😔",
    "register": "casual",
+   "courseUnitId": "b1_01_experience_reasons",
+   "speechStyle": "casual",
+   "relationshipContext": "friends",
+   "intent": "cancel_plan",
+   "conceptIds": ["concept_b1_reasons_experience","concept_b1_softening"],
+   "surfaceFormIds": [],
    "sidekick": "jinho",
    "xpReward": 160,
    "title": {
@@ -4425,7 +4659,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_cause_sequence","grammar_b1_future_probability"],
    "grammarBlock": {
     "title": {
      "ko": "-아/어서 + 못 -(으)ㄹ 것 같아 — 이유와 결과",
@@ -4561,6 +4795,12 @@
    "level": "a2",
    "emoji": "🚇",
    "register": "polite",
+   "courseUnitId": "a2_07_travel_repair",
+   "speechStyle": "polite",
+   "relationshipContext": "traveler_and_stranger",
+   "intent": "ask_for_directions",
+   "conceptIds": ["concept_a2_travel_repair"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 140,
    "title": {
@@ -4623,7 +4863,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_direction_time_particle"],
    "grammarBlock": {
     "title": {
      "ko": "어떻게 가요?",
@@ -4759,6 +4999,12 @@
    "level": "a2",
    "emoji": "🚄",
    "register": "polite",
+   "courseUnitId": "a2_08_home_money",
+   "speechStyle": "polite",
+   "relationshipContext": "traveler_and_ticket_staff",
+   "intent": "buy_ticket",
+   "conceptIds": ["concept_a2_home_money","concept_a1_time_numbers"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 140,
    "title": {
@@ -4821,7 +5067,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_direction_time_particle"],
    "grammarBlock": {
     "title": {
      "ko": "N행",
@@ -4980,6 +5226,12 @@
    "level": "a2",
    "emoji": "📶",
    "register": "polite",
+   "courseUnitId": "a2_06_study_work",
+   "speechStyle": "polite",
+   "relationshipContext": "classmates",
+   "intent": "study_together",
+   "conceptIds": ["concept_a2_work_study","concept_action_polite"],
+   "surfaceFormIds": ["surface_haeyo"],
    "sidekick": "minsu",
    "xpReward": 130,
    "title": {
@@ -5042,7 +5294,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_permission"],
    "grammarBlock": {
     "title": {
      "ko": "-아/어도 돼요?",
@@ -5201,6 +5453,12 @@
    "level": "b1",
    "emoji": "🛵",
    "register": "polite",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_delivery_staff",
+   "intent": "resolve_delivery_issue",
+   "conceptIds": ["concept_b1_complaint_resolution"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 160,
    "title": {
@@ -5263,7 +5521,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_favor"],
    "grammarBlock": {
     "title": {
      "ko": "-아/어 주시겠어요?",
@@ -5399,6 +5657,12 @@
    "level": "a1",
    "emoji": "🛒",
    "register": "polite",
+   "courseUnitId": "a1_03_topic_subject_particles",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_store_staff",
+   "intent": "buy_groceries",
+   "conceptIds": ["concept_topic_particle","concept_subject_particle","concept_object_particle"],
+   "surfaceFormIds": ["surface_sujineun","surface_sujiniga","surface_babeul"],
    "sidekick": "minsu",
    "xpReward": 110,
    "title": {
@@ -5461,7 +5725,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_subject_particle","grammar_a1_object_particle"],
    "grammarBlock": {
     "title": {
      "ko": "얼마예요?",
@@ -5514,6 +5778,8 @@
    ],
    "quests": [
     {
+     "id": "quest_mart_grocery_01",
+     "conceptIds": ["concept_topic_particle"],
      "type": "hoerverstehen",
      "data": {
       "audioKo": "다섯 개에 오천 원이에요.",
@@ -5539,6 +5805,8 @@
      }
     },
     {
+     "id": "quest_mart_grocery_02",
+     "conceptIds": ["concept_topic_particle"],
      "type": "uebersetzen",
      "data": {
       "promptDe": "Wie viel kosten die Äpfel?",
@@ -5561,6 +5829,8 @@
      }
     },
     {
+     "id": "quest_mart_grocery_03",
+     "conceptIds": ["concept_object_particle"],
      "type": "particlePop",
      "data": {
       "prefix": "사과",
@@ -5579,6 +5849,7 @@
      }
     },
     {
+     "id": "quest_mart_grocery_04",
      "type": "satzBauen",
      "data": {
       "targetKo": "저기요, 우유 어디 있어요?",
@@ -5593,6 +5864,8 @@
      }
     },
     {
+     "id": "quest_mart_grocery_05",
+     "conceptIds": ["concept_topic_particle"],
      "type": "diktat",
      "data": {
       "targetKo": "사과는 얼마예요?",
@@ -5620,6 +5893,12 @@
    "level": "a2",
    "emoji": "💪",
    "register": "polite",
+   "courseUnitId": "a2_04_feelings_health",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_gym_staff",
+   "intent": "sign_up",
+   "conceptIds": ["concept_a2_feelings","concept_a2_services"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 140,
    "title": {
@@ -5682,7 +5961,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a1_want"],
    "grammarBlock": {
     "title": {
      "ko": "-고 싶어요",
@@ -5818,6 +6097,12 @@
    "level": "b1",
    "emoji": "🏦",
    "register": "polite",
+   "courseUnitId": "b1_03_work_softening",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_bank_staff",
+   "intent": "open_account",
+   "conceptIds": ["concept_b1_softening","concept_b1_complaint_resolution"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 170,
    "title": {
@@ -5880,7 +6165,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_b1_intention"],
    "grammarBlock": {
     "title": {
      "ko": "-(으)려고 하다",
@@ -6015,7 +6300,13 @@
    "id": "job_interview",
    "level": "b2",
    "emoji": "💼",
-   "register": "formal",
+   "register": "business",
+   "courseUnitId": "b2_05_interview",
+   "speechStyle": "business",
+   "relationshipContext": "candidate_and_interviewer",
+   "intent": "interview",
+   "conceptIds": ["concept_b2_interview","concept_b2_formal_opening"],
+   "surfaceFormIds": ["surface_hamnida"],
    "sidekick": "minsu",
    "xpReward": 200,
    "title": {
@@ -6078,7 +6369,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_ability"],
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄹ 수 있습니다",
@@ -6214,6 +6505,12 @@
    "level": "b1",
    "emoji": "❤️",
    "register": "casual",
+   "courseUnitId": "b1_04_relationships",
+   "speechStyle": "casual",
+   "relationshipContext": "close_friends_or_romantic_interest",
+   "intent": "express_feelings",
+   "conceptIds": ["concept_b1_relationships"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 170,
    "title": {
@@ -6276,7 +6573,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_promise"],
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄹ게",
@@ -6412,6 +6709,12 @@
    "level": "a2",
    "emoji": "🤒",
    "register": "casual",
+   "courseUnitId": "a2_04_feelings_health",
+   "speechStyle": "casual",
+   "relationshipContext": "friends",
+   "intent": "describe_feeling",
+   "conceptIds": ["concept_a2_feelings"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 130,
    "title": {
@@ -6474,7 +6777,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_probability"],
    "grammarBlock": {
     "title": {
      "ko": "-(으)ㄴ/는 것 같아",
@@ -6610,6 +6913,12 @@
    "level": "a2",
    "emoji": "📱",
    "register": "polite",
+   "courseUnitId": "a2_07_travel_repair",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_support_staff",
+   "intent": "report_loss",
+   "conceptIds": ["concept_a2_travel_repair","concept_a1_clarification"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 150,
    "title": {
@@ -6672,7 +6981,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_change"],
    "grammarBlock": {
     "title": {
      "ko": "-아/어 버리다",
@@ -6808,6 +7117,12 @@
    "level": "a2",
    "emoji": "🎂",
    "register": "casual",
+   "courseUnitId": "a2_02_plans_proposals",
+   "speechStyle": "casual",
+   "relationshipContext": "friends",
+   "intent": "celebrate_friend",
+   "conceptIds": ["concept_proposal_casual","concept_a2_relationships"],
+   "surfaceFormIds": [],
    "sidekick": "minsu",
    "xpReward": 130,
    "title": {
@@ -6870,7 +7185,7 @@
      }
     }
    ],
-   "grammarIds": [],
+   "grammarIds": ["grammar_a2_favor"],
    "grammarBlock": {
     "title": {
      "ko": "-아/어 줄게",
@@ -7000,6 +7315,1349 @@
      "en": "In Korea you eat 미역국 (seaweed soup) on your birthday. Wishing: '생일 축하해' (casual) / '생일 축하합니다' (polite). Gifts are often opened later, not right away in front of everyone."
     }
    }
-  }
- ]
+   },
+   {
+    "id": "first_class_meeting",
+    "level": "a1",
+    "emoji": "🏫",
+    "register": "polite",
+    "courseUnitId": "a1_15_first_class_work",
+    "speechStyle": "polite",
+    "relationshipContext": "new_student_and_class_staff",
+    "intent": "introduce_at_first_class",
+    "conceptIds": ["concept_a1_first_meeting", "concept_identity_formal", "concept_identity_polite", "concept_object_particle", "concept_request_polite"],
+    "surfaceFormIds": ["surface_imnida", "surface_ieyo_yeyo"],
+    "sidekick": "jieun",
+    "xpReward": 125,
+    "title": {
+     "ko": "첫 한국어 수업에서",
+     "de": "Beim ersten Koreanischkurs",
+     "en": "At your first Korean class"
+    },
+    "intro": {
+     "ko": "",
+     "de": "Dein erster Abendkurs beginnt gleich. Du meldest dich an, stellst dich kurz vor und fragst nach dem Ablauf.",
+     "en": "Your first evening Korean class is about to begin. You check in, introduce yourself briefly, and ask about the class."
+    },
+    "vocab": [
+     {
+      "korean": "수업",
+      "note": {
+       "ko": "",
+       "de": "Unterricht / Kurs. 수업이 6시에 시작해요 = Der Kurs beginnt um 6 Uhr.",
+       "en": "class / lesson. 수업이 6시에 시작해요 = The class starts at 6."
+      }
+     },
+     {
+      "korean": "처음",
+      "note": {
+       "ko": "",
+       "de": "zum ersten Mal. 처음이에요 = Es ist mein erstes Mal.",
+       "en": "first time. 처음이에요 = It is my first time."
+      }
+     },
+     {
+      "korean": "이름",
+      "note": {
+       "ko": "",
+       "de": "Name. 이름을 적어 주세요 = Bitte schreiben Sie Ihren Namen auf.",
+       "en": "name. 이름을 적어 주세요 = Please write your name down."
+      }
+     },
+     {
+      "korean": "시작하다",
+      "note": {
+       "ko": "",
+       "de": "anfangen. 수업은 6시에 시작해요 = Der Kurs beginnt um 6 Uhr.",
+       "en": "to start. 수업은 6시에 시작해요 = Class starts at 6."
+      }
+     },
+     {
+      "korean": "알겠습니다",
+      "note": {
+       "ko": "",
+       "de": "Verstanden. Eine sichere, höfliche Antwort auf Anweisungen.",
+      "en": "I understand. A safe, polite response to instructions."
+     }
+    },
+    {
+     "korean": "출석",
+     "note": {
+      "ko": "",
+      "de": "Anwesenheit. Bei der ersten Stunde wird oft kurz geprüft, wer da ist.",
+      "en": "attendance. At a first class, the teacher often briefly checks who is present."
+     }
+    }
+    ],
+    "grammarIds": ["grammar_a1_copula_polite", "grammar_a1_object_particle", "grammar_a1_polite_request"],
+    "grammarBlock": {
+     "title": {
+      "ko": "첫 만남의 소개: 저는 …입니다",
+      "de": "Vorstellen beim ersten Treffen: 저는 …입니다",
+      "en": "Introducing yourself at a first meeting: 저는 …입니다"
+     },
+     "explanation": {
+      "ko": "",
+      "de": "In einer neuen Klasse ist 저는 안나입니다 eine sichere formelle Vorstellung. Danach hörst du oft die alltagshöfliche Form 안나예요. Beide sind höflich; -입니다 klingt offizieller.",
+      "en": "In a new class, 저는 안나입니다 is a safe formal introduction. You will also often hear the everyday-polite 안나예요. Both are polite; -입니다 sounds more official."
+     }
+    },
+    "dialog": [
+     {
+      "speaker": "jieun",
+      "ko": "안녕하세요. 한국어 수업 처음이세요?",
+      "de": "Hallo. Ist das Ihr erster Koreanischkurs?",
+      "en": "Hello. Is this your first Korean class?"
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 처음이에요. 저는 안나입니다.",
+      "de": "Ja, mein erster. Ich bin Anna.",
+      "en": "Yes, it is my first time. I am Anna."
+     },
+     {
+      "speaker": "jieun",
+      "ko": "반갑습니다, 안나 씨. 이름을 여기 적어 주세요.",
+      "de": "Freut mich, Anna. Schreiben Sie Ihren Namen bitte hier auf.",
+      "en": "Nice to meet you, Anna. Please write your name here."
+     },
+     {
+      "speaker": "user",
+      "ko": "네. 전화번호도 적을까요?",
+      "de": "Ja. Soll ich auch meine Telefonnummer aufschreiben?",
+      "en": "Yes. Shall I write down my phone number too?"
+     },
+     {
+      "speaker": "jieun",
+      "ko": "네, 부탁드려요. 수업은 6시에 시작해요.",
+      "de": "Ja, bitte. Der Kurs beginnt um 6 Uhr.",
+      "en": "Yes, please. Class starts at 6."
+     },
+     {
+      "speaker": "user",
+      "ko": "알겠습니다. 감사합니다.",
+      "de": "Verstanden. Danke.",
+      "en": "I understand. Thank you."
+     }
+    ],
+    "quests": [
+     {
+      "id": "quest_first_class_meeting_01",
+      "conceptIds": ["concept_a1_first_meeting"],
+      "type": "hoerverstehen",
+      "data": {
+       "audioKo": "한국어 수업 처음이세요?",
+       "options": [
+        {
+         "de": "Ist das Ihr erster Koreanischkurs?",
+         "en": "Is this your first Korean class?"
+        },
+        {
+         "de": "Wann beginnt der Kurs?",
+         "en": "When does class start?"
+        },
+        {
+         "de": "Haben Sie Ihre Hausaufgaben?",
+         "en": "Do you have your homework?"
+        },
+        {
+         "de": "Wo ist das Klassenzimmer?",
+         "en": "Where is the classroom?"
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_first_class_meeting_02",
+      "conceptIds": ["concept_identity_formal"],
+      "type": "luecken",
+      "data": {
+       "sentence": "저는 안나___ .",
+       "options": ["입니다", "이에요", "예요", "이야"],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_first_class_meeting_03",
+      "conceptIds": ["concept_object_particle", "concept_request_polite"],
+      "type": "uebersetzen",
+      "data": {
+       "promptDe": "Bitte schreiben Sie Ihren Namen hier auf.",
+       "promptEn": "Please write your name here.",
+       "options": [
+        {
+         "ko": "이름을 여기 적어 주세요."
+        },
+        {
+         "ko": "이름이 여기예요."
+        },
+        {
+         "ko": "수업은 처음이에요."
+        },
+        {
+         "ko": "전화번호가 뭐예요?"
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_first_class_meeting_04",
+      "conceptIds": ["concept_object_particle"],
+      "type": "particlePop",
+      "data": {
+       "prefix": "이름",
+       "suffix": " 여기 적어 주세요.",
+       "options": ["을", "를", "이", "가", "은", "는"],
+       "correctIndex": 0,
+       "explanationDe": "이름 endet auf einem Konsonanten (ㅁ) → Objektpartikel 을.",
+       "explanationEn": "이름 ends in a consonant (ㅁ) → use the object particle 을."
+      }
+     },
+     {
+      "id": "quest_first_class_meeting_05",
+      "conceptIds": ["concept_identity_formal"],
+      "type": "diktat",
+      "data": {
+       "targetKo": "저는 안나입니다.",
+       "audioKo": "저는 안나입니다.",
+       "promptDe": "Ich bin Anna.",
+       "promptEn": "I am Anna."
+      }
+     }
+    ],
+    "culturalNote": {
+     "title": {
+      "ko": "첫 수업에서의 안나 씨",
+      "de": "-씨 im ersten Kurs",
+      "en": "Using -씨 in a first class"
+     },
+     "body": {
+      "ko": "",
+      "de": "In einer neuen Klasse ist Vorname + 씨 eine sichere höfliche Anrede zwischen Erwachsenen. Du musst nicht sofort 반말 benutzen; mit -요 und -입니다 liegst du am Anfang richtig.",
+      "en": "In a new class, first name + 씨 is a safe polite form of address between adults. You do not need to switch to 반말 right away; -요 and -입니다 are safe at the start."
+     }
+    }
+   },
+   {
+    "id": "phone_messenger_reply",
+    "level": "a1",
+    "emoji": "💬",
+    "register": "polite",
+    "courseUnitId": "a1_07_contact_address",
+    "speechStyle": "polite",
+    "relationshipContext": "new_classmates",
+    "intent": "exchange_contact_details_by_messenger",
+    "conceptIds": ["concept_a1_contact_address", "concept_identity_polite", "concept_topic_particle", "concept_request_polite"],
+    "surfaceFormIds": ["surface_ieyo_yeyo", "surface_jeoneun"],
+    "sidekick": "minsu",
+    "xpReward": 125,
+    "title": {
+     "ko": "카카오톡으로 연락하기",
+     "de": "Über KakaoTalk Kontakt aufnehmen",
+     "en": "Replying on KakaoTalk"
+    },
+    "intro": {
+     "ko": "",
+     "de": "Ein neuer Mitschüler schreibt dir nach dem Kurs. Ihr tauscht Telefonnummer und Adresse für die Kursunterlagen aus.",
+     "en": "A new classmate messages you after class. You exchange a phone number and address for class materials."
+    },
+    "vocab": [
+     {
+      "korean": "전화번호",
+      "note": {
+       "ko": "",
+       "de": "Telefonnummer. Langsam vorlesen oder in Blöcke schreiben hilft.",
+       "en": "phone number. Reading it slowly or writing it in groups helps."
+      }
+     },
+     {
+      "korean": "주소",
+      "note": {
+       "ko": "",
+       "de": "Adresse. 도로명 주소 = Straßenadresse.",
+       "en": "address. 도로명 주소 = street-name address."
+      }
+     },
+     {
+      "korean": "수업 자료",
+      "note": {
+       "ko": "",
+       "de": "Kursmaterialien.",
+       "en": "class materials."
+      }
+     },
+     {
+      "korean": "보내다",
+      "note": {
+       "ko": "",
+       "de": "senden. 카카오톡으로 보내 주세요 = Bitte schicken Sie es über KakaoTalk.",
+       "en": "to send. 카카오톡으로 보내 주세요 = Please send it on KakaoTalk."
+      }
+     },
+     {
+      "korean": "확인하다",
+      "note": {
+       "ko": "",
+       "de": "bestätigen / prüfen.",
+      "en": "to confirm / check."
+     }
+    },
+    {
+     "korean": "메시지",
+     "note": {
+      "ko": "",
+      "de": "Nachricht. 메시지로 보내 주세요 = Bitte senden Sie es als Nachricht.",
+      "en": "message. 메시지로 보내 주세요 = Please send it as a message."
+     }
+    }
+    ],
+    "grammarIds": ["grammar_a1_topic_particle", "grammar_a1_copula_polite", "grammar_a1_polite_request"],
+    "grammarBlock": {
+     "title": {
+      "ko": "제 전화번호는 …이에요",
+      "de": "제 전화번호는 …이에요",
+      "en": "제 전화번호는 …이에요"
+     },
+     "explanation": {
+      "ko": "",
+      "de": "는 markiert hier das Thema: 제 전화번호는 …. Telefonnummern und Straßenadressen enden oft auf Ziffern; in dieser A1-Szene lernst du die ganze feste Form als nützliche Nachricht.",
+      "en": "는 marks the topic here: 제 전화번호는 …. Phone numbers and street addresses often end in digits; in this A1 scene, learn the whole pattern as a useful message."
+     }
+    },
+    "dialog": [
+     {
+      "speaker": "minsu",
+      "ko": "안녕하세요, 안나 씨. 저는 민수예요. 한국어 수업 같이 들어요.",
+      "de": "Hallo, Anna. Ich bin Minsu. Wir sind zusammen im Koreanischkurs.",
+      "en": "Hello, Anna. I am Minsu. We are in the Korean class together."
+     },
+     {
+      "speaker": "user",
+      "ko": "안녕하세요, 민수 씨. 반가워요. 제 전화번호는 010-1234-5678이에요.",
+      "de": "Hallo, Minsu. Freut mich. Meine Telefonnummer ist 010-1234-5678.",
+      "en": "Hello, Minsu. Nice to meet you. My phone number is 010-1234-5678."
+     },
+     {
+      "speaker": "minsu",
+      "ko": "감사합니다. 카카오톡으로 수업 자료 보내 드릴게요.",
+      "de": "Danke. Ich schicke dir die Kursunterlagen über KakaoTalk.",
+      "en": "Thanks. I will send you the class materials on KakaoTalk."
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 감사합니다. 제 주소는 서울시 마포구 성산로 15예요.",
+      "de": "Ja, danke. Meine Adresse ist Seongsan-ro 15, Mapo-gu, Seoul.",
+      "en": "Yes, thank you. My address is 15 Seongsan-ro, Mapo-gu, Seoul."
+     },
+     {
+      "speaker": "minsu",
+      "ko": "네, 확인했어요. 내일 수업에서 봐요.",
+      "de": "Ja, ich habe es bestätigt. Bis morgen im Kurs.",
+      "en": "Yes, I have confirmed it. See you in class tomorrow."
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 내일 수업에서 봬요. 고마워요.",
+      "de": "Ja, bis morgen im Kurs. Danke.",
+      "en": "Yes, see you in class tomorrow. Thank you."
+     }
+    ],
+    "quests": [
+     {
+      "id": "quest_phone_messenger_reply_01",
+      "conceptIds": ["concept_a1_contact_address"],
+      "type": "hoerverstehen",
+      "data": {
+       "audioKo": "카카오톡으로 수업 자료 보내 드릴게요.",
+       "options": [
+        {
+         "de": "Ich schicke dir die Kursunterlagen über KakaoTalk.",
+         "en": "I will send you the class materials on KakaoTalk."
+        },
+        {
+         "de": "Wann beginnt der Unterricht?",
+         "en": "When does class begin?"
+        },
+        {
+         "de": "Ich habe meine Adresse vergessen.",
+         "en": "I forgot my address."
+        },
+        {
+         "de": "Ruf bitte den Fahrer an.",
+         "en": "Please call the driver."
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_phone_messenger_reply_02",
+      "conceptIds": ["concept_topic_particle"],
+      "type": "luecken",
+      "data": {
+       "sentence": "제 전화번호___ 010-1234-5678이에요.",
+       "options": ["는", "가", "을", "도"],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_phone_messenger_reply_03",
+      "conceptIds": ["concept_a1_contact_address", "concept_identity_polite"],
+      "type": "uebersetzen",
+      "data": {
+       "promptDe": "Meine Adresse ist Seongsan-ro 15, Mapo-gu, Seoul.",
+       "promptEn": "My address is 15 Seongsan-ro, Mapo-gu, Seoul.",
+       "options": [
+        {
+         "ko": "제 주소는 서울시 마포구 성산로 15예요."
+        },
+        {
+         "ko": "제 전화번호가 어디예요?"
+        },
+        {
+         "ko": "수업 자료가 아니에요."
+        },
+        {
+         "ko": "민수 씨가 맞아요."
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_phone_messenger_reply_04",
+      "conceptIds": ["concept_request_polite"],
+      "type": "satzBauen",
+      "data": {
+       "targetKo": "카카오톡으로 수업 자료 보내 주세요.",
+       "promptDe": "Bitte schicken Sie die Kursunterlagen über KakaoTalk.",
+       "promptEn": "Please send the class materials on KakaoTalk.",
+       "distractors": ["강남역", "떡볶이", "비싸요"],
+       "audioKo": "카카오톡으로 수업 자료 보내 주세요."
+      }
+     },
+     {
+      "id": "quest_phone_messenger_reply_05",
+      "conceptIds": ["concept_a1_contact_address", "concept_topic_particle"],
+      "type": "diktat",
+      "data": {
+       "targetKo": "제 전화번호는 010-1234-5678이에요.",
+       "audioKo": "제 전화번호는 010-1234-5678이에요.",
+       "promptDe": "Meine Telefonnummer ist 010-1234-5678.",
+       "promptEn": "My phone number is 010-1234-5678."
+      }
+     }
+    ],
+    "culturalNote": {
+     "title": {
+      "ko": "처음 카카오톡을 보낼 때",
+      "de": "Die erste KakaoTalk-Nachricht",
+      "en": "Your first KakaoTalk message"
+     },
+     "body": {
+      "ko": "",
+      "de": "Bei neuen Kontakten ist 안녕하세요, [Name] 씨 eine sichere Eröffnung. Teile nur die Kontaktdaten, die die Situation wirklich braucht; du musst nicht sofort privat werden.",
+      "en": "With a new contact, 안녕하세요, [Name] 씨 is a safe opening. Share only the contact details the situation needs; you do not need to become personal right away."
+     }
+    }
+   },
+   {
+    "id": "delivery_address_confirmation",
+    "level": "a1",
+    "emoji": "🛵",
+    "register": "polite",
+    "courseUnitId": "a1_14_payment_delivery",
+    "speechStyle": "polite",
+    "relationshipContext": "customer_and_delivery_staff",
+    "intent": "confirm_delivery_address",
+    "conceptIds": ["concept_a1_payment_delivery", "concept_identity_polite", "concept_subject_particle", "concept_request_polite"],
+    "surfaceFormIds": ["surface_automatic_payment_ieyo", "surface_ieyo_yeyo"],
+    "sidekick": "minsu",
+    "xpReward": 125,
+    "title": {
+     "ko": "배달 주소 확인 전화",
+     "de": "Adresse bei einer Lieferung bestätigen",
+     "en": "Confirming a delivery address"
+    },
+    "intro": {
+     "ko": "",
+     "de": "Deine Lieferung ist fast da. Der Fahrer ruft kurz an, um Gebäude und Zimmernummer zu bestätigen.",
+     "en": "Your delivery is almost there. The driver calls briefly to confirm the building and room number."
+    },
+    "vocab": [
+     {
+      "korean": "배달 기사",
+      "note": {
+       "ko": "",
+       "de": "Lieferfahrer / Zusteller.",
+       "en": "delivery driver."
+      }
+     },
+     {
+      "korean": "주소",
+      "note": {
+       "ko": "",
+       "de": "Adresse.",
+       "en": "address."
+      }
+     },
+     {
+      "korean": "공동현관",
+      "note": {
+       "ko": "",
+       "de": "gemeinsame Haustür eines Mehrfamilienhauses.",
+       "en": "shared building entrance in an apartment building."
+      }
+     },
+     {
+      "korean": "문 앞",
+      "note": {
+       "ko": "",
+       "de": "vor der Tür. 문 앞에 놓아 주세요 = Bitte vor die Tür stellen.",
+       "en": "in front of the door. 문 앞에 놓아 주세요 = Please leave it at the door."
+      }
+     },
+     {
+      "korean": "자동 결제",
+      "note": {
+       "ko": "",
+       "de": "automatische Zahlung in der Liefer-App.",
+      "en": "automatic payment in the delivery app."
+     }
+    },
+    {
+     "korean": "호수",
+     "note": {
+      "ko": "",
+      "de": "Wohnungs- oder Zimmernummer. Sie ist für die Lieferung genauso wichtig wie die Straße.",
+      "en": "apartment or room number. It is as important for delivery as the street address."
+     }
+    }
+    ],
+    "grammarIds": ["grammar_a1_subject_particle", "grammar_a1_copula_polite", "grammar_a1_polite_request"],
+    "grammarBlock": {
+     "title": {
+      "ko": "주소가 맞으세요?",
+      "de": "주소가 맞으세요? — Stimmt die Adresse?",
+      "en": "주소가 맞으세요? — Is the address correct?"
+     },
+     "explanation": {
+      "ko": "",
+      "de": "Für eine Bestätigung hörst du oft 맞으세요? oder 맞아요? Eine kurze sichere Antwort ist 네, 맞아요. Danach kannst du eine höfliche Bitte ergänzen: 공동현관 앞에서 전화해 주세요.",
+      "en": "For confirmation, you will often hear 맞으세요? or 맞아요? A short safe reply is 네, 맞아요. Then add a polite request: 공동현관 앞에서 전화해 주세요."
+     }
+    },
+    "dialog": [
+     {
+      "speaker": "minsu",
+      "ko": "안녕하세요. 배달 기사입니다. 주소가 서울시 마포구 성산로 15, 302호 맞으세요?",
+      "de": "Hallo, hier ist Ihr Lieferfahrer. Ist die Adresse Seongsan-ro 15, Mapo-gu, Seoul, Zimmer 302 korrekt?",
+      "en": "Hello, this is your delivery driver. Is the address 15 Seongsan-ro, Mapo-gu, Seoul, room 302 correct?"
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 맞아요. 공동현관 앞에서 전화해 주세요.",
+      "de": "Ja, das stimmt. Rufen Sie mich bitte vor dem Hauseingang an.",
+      "en": "Yes, that is correct. Please call me at the building entrance."
+     },
+     {
+      "speaker": "minsu",
+      "ko": "네, 문 앞에 놓아 드릴게요. 자동 결제예요.",
+      "de": "Gut, ich stelle es vor die Tür. Die Zahlung erfolgt automatisch.",
+      "en": "Okay, I will leave it at the door. Payment is automatic."
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 감사합니다.",
+      "de": "Ja, danke.",
+      "en": "Yes, thank you."
+     },
+     {
+      "speaker": "minsu",
+      "ko": "도착하면 메시지 보내 드릴게요.",
+      "de": "Ich schicke Ihnen eine Nachricht, wenn ich ankomme.",
+      "en": "I will send you a message when I arrive."
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 메시지 확인할게요. 감사합니다.",
+      "de": "Ja, ich prüfe dann die Nachricht. Danke.",
+      "en": "Yes, I will check the message then. Thank you."
+     }
+    ],
+    "quests": [
+     {
+      "id": "quest_delivery_address_confirmation_01",
+      "conceptIds": ["concept_a1_payment_delivery"],
+      "type": "hoerverstehen",
+      "data": {
+       "audioKo": "주소가 서울시 마포구 성산로 15, 302호 맞으세요?",
+       "options": [
+        {
+         "de": "Ist die Adresse Seongsan-ro 15, Mapo-gu, Seoul, Zimmer 302 korrekt?",
+         "en": "Is the address 15 Seongsan-ro, Mapo-gu, Seoul, room 302 correct?"
+        },
+        {
+         "de": "Möchten Sie heute bestellen?",
+         "en": "Would you like to order today?"
+        },
+        {
+         "de": "Wie lange dauert die Lieferung?",
+         "en": "How long will delivery take?"
+        },
+        {
+         "de": "Wo ist das Restaurant?",
+         "en": "Where is the restaurant?"
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_delivery_address_confirmation_02",
+      "conceptIds": ["concept_identity_polite", "concept_a1_payment_delivery"],
+      "type": "luecken",
+      "data": {
+       "sentence": "자동 결제___ .",
+       "options": ["예요", "이에요", "이야", "입니다"],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_delivery_address_confirmation_03",
+      "conceptIds": ["concept_request_polite"],
+      "type": "uebersetzen",
+      "data": {
+       "promptDe": "Rufen Sie mich bitte am Hauseingang an.",
+       "promptEn": "Please call me at the building entrance.",
+       "options": [
+        {
+         "ko": "공동현관 앞에서 전화해 주세요."
+        },
+        {
+         "ko": "주소가 자동 결제예요."
+        },
+        {
+         "ko": "문 앞이 맞으세요?"
+        },
+        {
+         "ko": "배달 기사가 아니에요."
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_delivery_address_confirmation_04",
+      "conceptIds": ["concept_subject_particle"],
+      "type": "particlePop",
+      "data": {
+       "prefix": "주소",
+       "suffix": " 맞으세요?",
+       "options": ["가", "이", "을", "를", "은", "는"],
+       "correctIndex": 0,
+       "explanationDe": "주소 endet auf einem Vokal (ㅗ) → Subjektpartikel 가.",
+       "explanationEn": "주소 ends in a vowel (ㅗ) → use the subject particle 가."
+      }
+     },
+     {
+      "id": "quest_delivery_address_confirmation_05",
+      "conceptIds": ["concept_a1_payment_delivery", "concept_subject_particle"],
+      "type": "diktat",
+      "data": {
+       "targetKo": "주소가 서울시 마포구 성산로 15, 302호 맞으세요?",
+       "audioKo": "주소가 서울시 마포구 성산로 15, 302호 맞으세요?",
+       "promptDe": "Ist die Adresse Seongsan-ro 15, Mapo-gu, Seoul, Zimmer 302 korrekt?",
+       "promptEn": "Is the address 15 Seongsan-ro, Mapo-gu, Seoul, room 302 correct?"
+      }
+     }
+    ],
+    "culturalNote": {
+     "title": {
+      "ko": "배달 주소와 개인 정보",
+      "de": "Lieferadresse und Privatsphäre",
+      "en": "Delivery addresses and privacy"
+     },
+     "body": {
+      "ko": "",
+      "de": "Bei einer Lieferung ist es normal, Gebäude und Zimmernummer kurz zu bestätigen. Teile Zugangscodes oder persönliche Angaben nur, wenn sie für die konkrete Lieferung nötig sind, und nie öffentlich im Profil.",
+      "en": "For a delivery, it is normal to confirm the building and room number briefly. Share access codes or personal details only when needed for that delivery, never publicly in a profile."
+     }
+    }
+   },
+   {
+    "id": "clarify_repeat",
+    "level": "a1",
+    "emoji": "🔁",
+    "register": "polite",
+    "courseUnitId": "a1_08_clarify_repair",
+    "speechStyle": "polite",
+    "relationshipContext": "traveler_and_information_staff",
+    "intent": "ask_to_repeat_and_slow_down",
+    "conceptIds": ["concept_a1_clarification", "concept_request_polite", "concept_action_polite"],
+    "surfaceFormIds": ["surface_haeyo"],
+    "sidekick": "jieun",
+    "xpReward": 120,
+    "title": {
+     "ko": "못 알아들었을 때 다시 묻기",
+     "de": "Nachfragen, wenn du etwas nicht verstehst",
+     "en": "Asking again when you did not understand"
+    },
+    "intro": {
+     "ko": "",
+     "de": "Am Informationsschalter hörst du die Abfahrtszeit zu schnell. Du musst nicht raten: Bitte höflich um Wiederholung.",
+     "en": "At an information desk, the departure time is spoken too quickly. You do not have to guess: ask politely for a repetition."
+    },
+    "vocab": [
+     {
+      "korean": "다시",
+      "note": {
+       "ko": "",
+       "de": "noch einmal. 다시 말씀해 주세요 = Bitte sagen Sie es noch einmal.",
+       "en": "again. 다시 말씀해 주세요 = Please say it again."
+      }
+     },
+     {
+      "korean": "천천히",
+      "note": {
+       "ko": "",
+       "de": "langsam. 천천히 말해 주세요 = Bitte sprechen Sie langsam.",
+       "en": "slowly. 천천히 말해 주세요 = Please speak slowly."
+      }
+     },
+     {
+      "korean": "버스",
+      "note": {
+       "ko": "",
+       "de": "Bus.",
+       "en": "bus."
+      }
+     },
+     {
+      "korean": "후",
+      "note": {
+       "ko": "",
+       "de": "nach / später. 10분 후 = in zehn Minuten.",
+       "en": "after / later. 10분 후 = in ten minutes."
+      }
+     },
+     {
+      "korean": "죄송하지만",
+      "note": {
+       "ko": "",
+       "de": "Entschuldigung, aber … Eine höfliche Einleitung für eine Bitte.",
+      "en": "Excuse me, but … A polite opening for a request."
+     }
+    },
+    {
+     "korean": "이해하다",
+     "note": {
+      "ko": "",
+      "de": "verstehen. 잘 이해하지 못했어요 = Ich habe es nicht gut verstanden.",
+      "en": "to understand. 잘 이해하지 못했어요 = I did not understand it well."
+     }
+    }
+    ],
+    "grammarIds": ["grammar_a1_polite_request", "grammar_a1_polite_present"],
+    "grammarBlock": {
+     "title": {
+      "ko": "다시 말씀해 주세요",
+      "de": "다시 말씀해 주세요 — Bitte sagen Sie es noch einmal",
+      "en": "다시 말씀해 주세요 — Please say it again"
+     },
+     "explanation": {
+      "ko": "",
+      "de": "Für einen höflichen Neustart des Gesprächs: 죄송하지만, 다시 말씀해 주세요. Wenn Tempo das Problem ist, ergänze 천천히 말해 주세요. Das ist sicherer als so zu tun, als hättest du alles verstanden.",
+      "en": "For a polite reset in a conversation: 죄송하지만, 다시 말씀해 주세요. If speed is the problem, add 천천히 말해 주세요. This is safer than pretending you understood everything."
+     }
+    },
+    "dialog": [
+     {
+      "speaker": "jieun",
+      "ko": "다음 버스는 10분 후에 와요.",
+      "de": "Der nächste Bus kommt in zehn Minuten.",
+      "en": "The next bus comes in ten minutes."
+     },
+     {
+      "speaker": "user",
+      "ko": "죄송하지만, 다시 말씀해 주세요.",
+      "de": "Entschuldigung, aber sagen Sie das bitte noch einmal.",
+      "en": "Excuse me, but please say that again."
+     },
+     {
+      "speaker": "jieun",
+      "ko": "다음 버스는 10분 후에 와요.",
+      "de": "Der nächste Bus kommt in zehn Minuten.",
+      "en": "The next bus comes in ten minutes."
+     },
+     {
+      "speaker": "user",
+      "ko": "아, 10분 후에 와요?",
+      "de": "Ah, er kommt in zehn Minuten?",
+      "en": "Ah, it comes in ten minutes?"
+     },
+     {
+      "speaker": "jieun",
+      "ko": "네, 맞아요. 천천히 말씀드릴게요.",
+      "de": "Ja, genau. Ich spreche langsam.",
+      "en": "Yes, that is right. I will speak slowly."
+     },
+     {
+      "speaker": "user",
+      "ko": "감사합니다.",
+      "de": "Danke.",
+      "en": "Thank you."
+     }
+    ],
+    "quests": [
+     {
+      "id": "quest_clarify_repeat_01",
+      "conceptIds": ["concept_a1_clarification"],
+      "type": "hoerverstehen",
+      "data": {
+       "audioKo": "다음 버스는 10분 후에 와요.",
+       "options": [
+        {
+         "de": "Der nächste Bus kommt in zehn Minuten.",
+         "en": "The next bus comes in ten minutes."
+        },
+        {
+         "de": "Der Bus fährt jetzt los.",
+         "en": "The bus leaves now."
+        },
+        {
+         "de": "Die Bushaltestelle ist geschlossen.",
+         "en": "The bus stop is closed."
+        },
+        {
+         "de": "Der nächste Bus kostet 10.000 Won.",
+         "en": "The next bus costs 10,000 won."
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_clarify_repeat_02",
+      "conceptIds": ["concept_action_polite"],
+      "type": "luecken",
+      "data": {
+       "sentence": "다음 버스는 10분 후에 ___ .",
+       "options": ["와요", "왔어요", "가요", "왔나요"],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_clarify_repeat_03",
+      "conceptIds": ["concept_a1_clarification", "concept_request_polite"],
+      "type": "uebersetzen",
+      "data": {
+       "promptDe": "Bitte sagen Sie das noch einmal.",
+       "promptEn": "Please say that again.",
+       "options": [
+        {
+         "ko": "다시 말씀해 주세요."
+        },
+        {
+         "ko": "버스가 어디예요?"
+        },
+        {
+         "ko": "10분이에요."
+        },
+        {
+         "ko": "천천히 가세요."
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_clarify_repeat_04",
+      "conceptIds": ["concept_action_polite"],
+      "type": "satzBauen",
+      "data": {
+       "targetKo": "다음 버스는 10분 후에 와요.",
+       "promptDe": "Der nächste Bus kommt in zehn Minuten.",
+       "promptEn": "The next bus comes in ten minutes.",
+       "distractors": ["주소", "김밥", "비싸요"],
+       "audioKo": "다음 버스는 10분 후에 와요."
+      }
+     },
+     {
+      "id": "quest_clarify_repeat_05",
+      "conceptIds": ["concept_a1_clarification", "concept_request_polite"],
+      "type": "diktat",
+      "data": {
+       "targetKo": "다시 말씀해 주세요.",
+       "audioKo": "다시 말씀해 주세요.",
+       "promptDe": "Bitte sagen Sie das noch einmal.",
+       "promptEn": "Please say that again."
+      }
+     }
+    ],
+    "culturalNote": {
+     "title": {
+      "ko": "못 알아들었을 때의 안전한 선택",
+      "de": "Sicher nachfragen",
+      "en": "A safe way to ask again"
+     },
+     "body": {
+      "ko": "",
+      "de": "In Alltag, Schule und Amt ist Nachfragen völlig normal. 죄송하지만 + 다시 말씀해 주세요 klingt höflich und gibt der anderen Person einen klaren nächsten Schritt.",
+      "en": "Asking again is completely normal in daily life, class, and public offices. 죄송하지만 + 다시 말씀해 주세요 sounds polite and gives the other person a clear next step."
+     }
+    }
+   },
+   {
+    "id": "titles_relationship_distance",
+    "level": "a1",
+    "emoji": "🤝",
+    "register": "polite",
+    "courseUnitId": "a1_11_titles_relationships",
+    "speechStyle": "polite",
+    "relationshipContext": "new_acquaintances",
+    "intent": "choose_a_safe_form_of_address",
+    "conceptIds": ["concept_a1_titles_relationships", "concept_identity_formal", "concept_identity_polite", "concept_greeting_politeness"],
+    "surfaceFormIds": ["surface_imnida", "surface_ieyo_yeyo", "surface_iya_ya"],
+    "sidekick": "minsu",
+    "xpReward": 125,
+    "title": {
+     "ko": "처음 만난 사람을 부를 때",
+     "de": "Jemanden beim ersten Treffen anreden",
+     "en": "Addressing someone you just met"
+    },
+    "intro": {
+     "ko": "",
+     "de": "Du triffst einen neuen Kontakt aus deinem Kurs. Statt sofort 반말 oder 너 zu benutzen, wählst du eine sichere höfliche Anrede.",
+     "en": "You meet a new contact from class. Instead of immediately using 반말 or 너, choose a safe polite form of address."
+    },
+    "vocab": [
+     {
+      "korean": "처음 뵙겠습니다",
+      "note": {
+       "ko": "",
+       "de": "Sehr höfliches 'Freut mich / Schön, Sie kennenzulernen' beim ersten Treffen.",
+       "en": "A very polite 'Nice to meet you' for a first meeting."
+      }
+     },
+     {
+      "korean": "부르다",
+      "note": {
+       "ko": "",
+       "de": "rufen / nennen. 민수 씨라고 불러도 될까요? = Darf ich Sie Minsu-ssi nennen?",
+       "en": "to call. 민수 씨라고 불러도 될까요? = May I call you Minsu-ssi?"
+      }
+     },
+     {
+      "korean": "씨",
+      "note": {
+       "ko": "",
+       "de": "höfliche Anrede nach dem Vornamen, z. B. 민수 씨.",
+       "en": "a polite suffix after a given name, e.g. 민수 씨."
+      }
+     },
+     {
+      "korean": "선생님",
+      "note": {
+       "ko": "",
+       "de": "Lehrkraft / respektvolle Anrede für eine Person mit bekannter Rolle.",
+       "en": "teacher / respectful address for someone whose role you know."
+      }
+     },
+     {
+      "korean": "반말",
+      "note": {
+       "ko": "",
+       "de": "informelle Sprache. Nicht automatisch nach einem ersten Treffen wechseln.",
+      "en": "casual speech. Do not switch automatically after a first meeting."
+     }
+    },
+    {
+     "korean": "호칭",
+     "note": {
+      "ko": "",
+      "de": "Anrede. Bei neuen Bekanntschaften ist eine sichere Anrede wichtiger als schnell 반말 zu benutzen.",
+      "en": "form of address. With a new acquaintance, a safe form of address matters more than quickly using casual speech."
+     }
+    }
+    ],
+    "grammarIds": ["grammar_a1_copula_polite", "grammar_a1_polite_request"],
+    "grammarBlock": {
+     "title": {
+      "ko": "민수 씨라고 불러도 될까요?",
+      "de": "Kann ich Sie Minsu-ssi nennen?",
+      "en": "May I call you Minsu-ssi?"
+     },
+     "explanation": {
+      "ko": "",
+      "de": "Die ganze Frage ist ein nützlicher Höflichkeitsbaustein. In dieser A1-Szene musst du die Grammatik noch nicht zerlegen: Du lernst, beim ersten Treffen zuerst Namen + 씨, eine bekannte Rolle oder Auslassung zu wählen.",
+      "en": "The whole question is a useful politeness chunk. In this A1 scene, you do not need to analyse every grammar part yet: at a first meeting, choose name + 씨, a known role, or omit the address."
+     }
+    },
+    "dialog": [
+     {
+      "speaker": "user",
+      "ko": "안녕하세요. 저는 안나입니다.",
+      "de": "Hallo. Ich bin Anna.",
+      "en": "Hello. I am Anna."
+     },
+     {
+      "speaker": "minsu",
+      "ko": "안녕하세요. 저는 민수예요.",
+      "de": "Hallo. Ich bin Minsu.",
+      "en": "Hello. I am Minsu."
+     },
+     {
+      "speaker": "user",
+      "ko": "처음 뵙겠습니다. 민수 씨라고 불러도 될까요?",
+      "de": "Schön, Sie kennenzulernen. Darf ich Sie Minsu-ssi nennen?",
+      "en": "Nice to meet you. May I call you Minsu-ssi?"
+     },
+     {
+      "speaker": "minsu",
+      "ko": "네, 좋아요. 저는 안나 씨라고 부를게요.",
+      "de": "Ja, gern. Ich nenne Sie Anna-ssi.",
+      "en": "Yes, that is fine. I will call you Anna-ssi."
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 감사합니다.",
+      "de": "Ja, danke.",
+      "en": "Yes, thank you."
+     },
+     {
+      "speaker": "minsu",
+      "ko": "네, 저도 반갑습니다. 다음에 봬요.",
+      "de": "Ja, mich freut es auch. Bis zum nächsten Mal.",
+      "en": "Yes, nice to meet you too. See you next time."
+     }
+    ],
+    "quests": [
+     {
+      "id": "quest_titles_relationship_distance_01",
+      "conceptIds": ["concept_a1_titles_relationships"],
+      "type": "hoerverstehen",
+      "data": {
+       "audioKo": "민수 씨라고 불러도 될까요?",
+       "options": [
+        {
+         "de": "Darf ich Sie Minsu-ssi nennen?",
+         "en": "May I call you Minsu-ssi?"
+        },
+        {
+         "de": "Wo wohnt Minsu?",
+         "en": "Where does Minsu live?"
+        },
+        {
+         "de": "Ist Minsu heute im Kurs?",
+         "en": "Is Minsu in class today?"
+        },
+        {
+         "de": "Minsu, ruf mich bitte an.",
+         "en": "Minsu, please call me."
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_titles_relationship_distance_02",
+      "conceptIds": ["concept_identity_polite"],
+      "type": "luecken",
+      "data": {
+       "sentence": "저는 민수___ .",
+       "options": ["예요", "이에요", "입니다", "이야"],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_titles_relationship_distance_03",
+      "conceptIds": ["concept_greeting_politeness"],
+      "type": "uebersetzen",
+      "data": {
+       "promptDe": "Schön, Sie kennenzulernen.",
+       "promptEn": "Nice to meet you.",
+       "options": [
+        {
+         "ko": "처음 뵙겠습니다."
+        },
+        {
+         "ko": "잘 자요."
+        },
+        {
+         "ko": "괜찮아요."
+        },
+        {
+         "ko": "어디예요?"
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_titles_relationship_distance_04",
+      "conceptIds": ["concept_a1_titles_relationships"],
+      "type": "satzBauen",
+      "data": {
+       "targetKo": "민수 씨라고 불러도 될까요?",
+       "promptDe": "Darf ich Sie Minsu-ssi nennen?",
+       "promptEn": "May I call you Minsu-ssi?",
+       "distractors": ["김밥", "비싸요", "병원"],
+       "audioKo": "민수 씨라고 불러도 될까요?"
+      }
+     },
+     {
+      "id": "quest_titles_relationship_distance_05",
+      "conceptIds": ["concept_identity_formal"],
+      "type": "diktat",
+      "data": {
+       "targetKo": "저는 안나입니다.",
+       "audioKo": "저는 안나입니다.",
+       "promptDe": "Ich bin Anna.",
+       "promptEn": "I am Anna."
+      }
+     }
+    ],
+    "culturalNote": {
+     "title": {
+      "ko": "너보다 안전한 선택",
+      "de": "Sicherere Wahl als 너",
+      "en": "A safer choice than 너"
+     },
+     "body": {
+      "ko": "",
+      "de": "너 ist nicht automatisch falsch, kann bei neuen oder unklaren Beziehungen aber zu direkt wirken. Nutze zunächst Name + 씨, eine Rolle wie 선생님 oder lass die Anrede weg. Wechsel zu 반말 erst, wenn Beziehung und Einverständnis klar sind.",
+      "en": "너 is not automatically wrong, but it can feel too direct in a new or unclear relationship. Start with name + 씨, a role such as 선생님, or omit the address. Switch to 반말 only when the relationship and mutual agreement are clear."
+     }
+    }
+   },
+   {
+    "id": "clinic_safety",
+    "level": "a1",
+    "emoji": "🏥",
+    "register": "polite",
+    "courseUnitId": "a1_10_health_safety",
+    "speechStyle": "polite",
+    "relationshipContext": "patient_and_clinic_staff",
+    "intent": "describe_symptoms_and_seek_help",
+    "conceptIds": ["concept_a1_health_safety", "concept_subject_particle", "concept_request_polite", "concept_action_polite"],
+    "surfaceFormIds": ["surface_haeyo"],
+    "sidekick": "jieun",
+    "xpReward": 130,
+    "title": {
+     "ko": "병원 접수와 안전한 도움 요청",
+     "de": "Anmeldung in der Klinik und sicher Hilfe holen",
+     "en": "Clinic reception and getting help safely"
+    },
+    "intro": {
+     "ko": "",
+     "de": "Du fühlst dich krank und gehst zur Rezeption einer Klinik. Du sagst kurz, was los ist, und hörst einen wichtigen Sicherheitshinweis.",
+     "en": "You feel sick and go to a clinic reception. You briefly say what is wrong and hear an important safety instruction."
+    },
+    "vocab": [
+     {
+      "korean": "열",
+      "note": {
+       "ko": "",
+       "de": "Fieber. 열이 있어요 = Ich habe Fieber.",
+       "en": "fever. 열이 있어요 = I have a fever."
+      }
+     },
+     {
+      "korean": "머리",
+      "note": {
+       "ko": "",
+       "de": "Kopf. 머리가 아파요 = Ich habe Kopfschmerzen.",
+       "en": "head. 머리가 아파요 = I have a headache."
+      }
+     },
+     {
+      "korean": "불편하다",
+      "note": {
+       "ko": "",
+       "de": "sich unwohl fühlen / Beschwerden haben. 어디가 불편하세요? = Was tut Ihnen weh?",
+       "en": "to feel unwell / have discomfort. 어디가 불편하세요? = What is bothering you?"
+      }
+     },
+     {
+      "korean": "진료",
+      "note": {
+       "ko": "",
+       "de": "ärztliche Behandlung / Sprechstunde.",
+       "en": "medical consultation / treatment."
+      }
+     },
+     {
+      "korean": "도움",
+      "note": {
+       "ko": "",
+       "de": "Hilfe. 도움을 주세요 = Bitte helfen Sie mir.",
+      "en": "help. 도움을 주세요 = Please help me."
+     }
+    },
+    {
+     "korean": "증상",
+     "note": {
+      "ko": "",
+      "de": "Symptom. Sagen Sie zuerst, was weh tut oder sich unangenehm anfühlt.",
+      "en": "symptom. First say what hurts or feels uncomfortable."
+     }
+    }
+    ],
+    "grammarIds": ["grammar_a1_subject_particle", "grammar_a1_sequence_connector", "grammar_a1_polite_request"],
+    "grammarBlock": {
+     "title": {
+      "ko": "열이 있고 머리가 아파요",
+      "de": "열이 있고 머리가 아파요 — Fieber und Kopfschmerzen",
+      "en": "열이 있고 머리가 아파요 — I have a fever and a headache"
+     },
+     "explanation": {
+      "ko": "",
+      "de": "Mit N이/가 + 있어요 sagst du kurz, was da ist: 열이 있어요. Mit -고 verbindest du zwei einfache Informationen: 열이 있고 머리가 아파요. Für Hilfe kannst du 도움을 주세요 sagen.",
+      "en": "Use N이/가 + 있어요 to say briefly what you have: 열이 있어요. Use -고 to join two simple pieces of information: 열이 있고 머리가 아파요. To ask for help, say 도움을 주세요."
+     }
+    },
+    "dialog": [
+     {
+      "speaker": "jieun",
+      "ko": "안녕하세요. 어디가 불편하세요?",
+      "de": "Hallo. Was tut Ihnen weh?",
+      "en": "Hello. What is bothering you?"
+     },
+     {
+      "speaker": "user",
+      "ko": "열이 있고 머리가 아파요.",
+      "de": "Ich habe Fieber und Kopfschmerzen.",
+      "en": "I have a fever and a headache."
+     },
+     {
+      "speaker": "jieun",
+      "ko": "네. 오늘 진료 가능한 의사 선생님이 계세요. 신분증 있으세요?",
+      "de": "Verstanden. Heute ist eine Ärztin oder ein Arzt verfügbar. Haben Sie einen Ausweis?",
+      "en": "Okay. A doctor is available today. Do you have an ID?"
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 여기 있어요.",
+      "de": "Ja, hier bitte.",
+      "en": "Yes, here it is."
+     },
+     {
+      "speaker": "jieun",
+      "ko": "숨쉬기 어렵거나 통증이 심하면 바로 119에 전화하세요.",
+      "de": "Wenn Ihnen das Atmen schwerfällt oder die Schmerzen stark sind, rufen Sie sofort 119 an.",
+      "en": "If breathing is difficult or the pain is severe, call 119 right away."
+     },
+     {
+      "speaker": "user",
+      "ko": "네, 알겠습니다. 감사합니다.",
+      "de": "Verstanden. Danke.",
+      "en": "I understand. Thank you."
+     }
+    ],
+    "quests": [
+     {
+      "id": "quest_clinic_safety_01",
+      "conceptIds": ["concept_a1_health_safety"],
+      "type": "hoerverstehen",
+      "data": {
+       "audioKo": "어디가 불편하세요?",
+       "options": [
+        {
+         "de": "Was tut Ihnen weh?",
+         "en": "What is bothering you?"
+        },
+        {
+         "de": "Wo ist die Apotheke?",
+         "en": "Where is the pharmacy?"
+        },
+        {
+         "de": "Wann essen Sie?",
+         "en": "When do you eat?"
+        },
+        {
+         "de": "Wie viel kostet das Taxi?",
+         "en": "How much is the taxi?"
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_clinic_safety_02",
+      "conceptIds": ["concept_subject_particle"],
+      "type": "particlePop",
+      "data": {
+       "prefix": "열",
+       "suffix": " 있고 머리가 아파요.",
+       "options": ["이", "가", "을", "를", "은", "는"],
+       "correctIndex": 0,
+       "explanationDe": "열 endet auf einem Konsonanten (ㄹ) → Subjektpartikel 이.",
+       "explanationEn": "열 ends in a consonant (ㄹ) → use the subject particle 이."
+      }
+     },
+     {
+      "id": "quest_clinic_safety_03",
+      "conceptIds": ["concept_a1_health_safety", "concept_subject_particle"],
+      "type": "uebersetzen",
+      "data": {
+       "promptDe": "Ich habe Fieber und Kopfschmerzen.",
+       "promptEn": "I have a fever and a headache.",
+       "options": [
+        {
+         "ko": "열이 있고 머리가 아파요."
+        },
+        {
+         "ko": "병원이 어디예요?"
+        },
+        {
+         "ko": "오늘 수업이 있어요."
+        },
+        {
+         "ko": "자동 결제예요."
+        }
+       ],
+       "correctIndex": 0
+      }
+     },
+     {
+      "id": "quest_clinic_safety_04",
+      "conceptIds": ["concept_a1_health_safety"],
+      "type": "satzBauen",
+      "data": {
+       "targetKo": "열이 있고 머리가 아파요.",
+       "promptDe": "Ich habe Fieber und Kopfschmerzen.",
+       "promptEn": "I have a fever and a headache.",
+       "distractors": ["강남역", "김밥", "와이파이"],
+       "audioKo": "열이 있고 머리가 아파요."
+      }
+     },
+     {
+      "id": "quest_clinic_safety_05",
+      "conceptIds": ["concept_a1_health_safety"],
+      "type": "diktat",
+      "data": {
+       "targetKo": "어디가 불편하세요?",
+       "audioKo": "어디가 불편하세요?",
+       "promptDe": "Was tut Ihnen weh?",
+       "promptEn": "What is bothering you?"
+      }
+     }
+    ],
+    "culturalNote": {
+     "title": {
+      "ko": "아플 때 도움 요청하기",
+      "de": "Bei Krankheit Hilfe holen",
+      "en": "Getting help when you are unwell"
+     },
+     "body": {
+      "ko": "",
+      "de": "Diese Szene übt Sprache, nicht medizinische Einschätzung. Wenn du glaubst, dass es ein Notfall ist, kannst du in Korea 119 anrufen oder Menschen in deiner Nähe um Hilfe bitten.",
+      "en": "This scene practises language, not medical assessment. If you think it is an emergency, in Korea you can call 119 or ask people nearby for help."
+     }
+    }
+   }
+  ]
 }

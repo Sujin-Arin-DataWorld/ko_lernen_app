@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/curriculum.dart';
+import '../services/course_activity_reporter.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/satz_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
@@ -20,7 +23,11 @@ import 'quest_engines/satz_bauen_quest.dart';
 /// Nutzt die bestehende [SatzBauenQuest]-Engine, befüllt aus geprüften
 /// Beispielsätzen (assets/data/satz_sentences.json). Selbst-Wettbewerb.
 class SatzArcadeScreen extends StatefulWidget {
-  const SatzArcadeScreen({super.key});
+  const SatzArcadeScreen({super.key, this.courseUnitId});
+
+  /// A mission passes its ID so sentence practice cannot accidentally draw a
+  /// future-level library item and turn it into course evidence.
+  final String? courseUnitId;
 
   @override
   State<SatzArcadeScreen> createState() => _SatzArcadeScreenState();
@@ -48,14 +55,27 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
 
   Future<void> _load() async {
     final all = await SatzLoader.load();
+    final catalog = widget.courseUnitId == null
+        ? null
+        : await CurriculumCatalog.load();
     if (!mounted) return;
-    final user = Storage.userLevelCode;
+    final user = Storage.browseLevelCode ?? Storage.placementLevelCode;
     final start = (user != null && all.any((c) => c.level == user))
         ? user
         : null;
+    final courseIds = catalog == null
+        ? const <String>{}
+        : catalog
+              .linksForCourseUnit(widget.courseUnitId!)
+              .where((link) => link.contentKind == CurriculumContentKind.satz)
+              .map((link) => link.contentId)
+              .toSet();
+    final scoped = catalog == null
+        ? all
+        : all.where((item) => courseIds.contains(item.id)).toList();
     setState(() {
-      _all = all;
-      _level = start;
+      _all = scoped;
+      _level = catalog == null ? start : null;
       _loading = false;
     });
     _newRound();
@@ -82,10 +102,18 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     // Produktiver Abruf → Haupt-SRS. Key = Headword (vocabKo), NICHT der ganze
     // Satz → sonst Geisterkarten, die in der Wiederholung nie auftauchen.
     if (_idx < _round.length) {
-      final ko = _round[_idx].vocabKo;
+      final item = _round[_idx];
+      final ko = item.vocabKo;
       if (ko.isNotEmpty) {
         Storage.srsReview(ko, gotIt: result.passed);
       }
+      // ignore: discarded_futures
+      CourseActivityReporter.recordContentAttempt(
+        CurriculumContentKind.satz,
+        item.id,
+        result.passed,
+        errorReason: result.passed ? null : MasteryErrorReason.wordOrder,
+      );
     }
     if (result.passed) _passed++;
     Future.delayed(const Duration(milliseconds: 300), () {
@@ -192,6 +220,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   }
 
   Widget _levelBar(AppL10n t) {
+    if (widget.courseUnitId != null) return const SizedBox.shrink();
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.only(bottom: Spacing.sm),

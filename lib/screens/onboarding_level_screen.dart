@@ -16,9 +16,11 @@ import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/account_nudge.dart';
 import '../models/scenario.dart';
+import '../services/course_progress_service.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/sori/responsive.dart';
+import 'placement_diagnostic_screen.dart';
 
 /// Erstes-Launch Onboarding — Nutzer wählt CEFR-Level.
 ///
@@ -94,29 +96,30 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
   };
 
   String _titleFor(AppL10n t, LearnerLevel level) => switch (level) {
-        LearnerLevel.a1 => t.onboardingLevelA1,
-        LearnerLevel.a2 => t.onboardingLevelA2,
-        LearnerLevel.b1 => t.onboardingLevelB1,
-        LearnerLevel.b2 => t.onboardingLevelB2,
-      };
+    LearnerLevel.a1 => t.onboardingLevelA1,
+    LearnerLevel.a2 => t.onboardingLevelA2,
+    LearnerLevel.b1 => t.onboardingLevelB1,
+    LearnerLevel.b2 => t.onboardingLevelB2,
+  };
 
   String _descFor(AppL10n t, LearnerLevel level) => switch (level) {
-        LearnerLevel.a1 => t.onboardingLevelA1Desc,
-        LearnerLevel.a2 => t.onboardingLevelA2Desc,
-        LearnerLevel.b1 => t.onboardingLevelB1Desc,
-        LearnerLevel.b2 => t.onboardingLevelB2Desc,
-      };
+    LearnerLevel.a1 => t.onboardingLevelA1Desc,
+    LearnerLevel.a2 => t.onboardingLevelA2Desc,
+    LearnerLevel.b1 => t.onboardingLevelB1Desc,
+    LearnerLevel.b2 => t.onboardingLevelB2Desc,
+  };
 
   String _glossFor(AppL10n t, LearnerLevel level) => switch (level) {
-        LearnerLevel.a1 => t.onboardingExampleA1Trans,
-        LearnerLevel.a2 => t.onboardingExampleA2Trans,
-        LearnerLevel.b1 => t.onboardingExampleB1Trans,
-        LearnerLevel.b2 => t.onboardingExampleB2Trans,
-      };
+    LearnerLevel.a1 => t.onboardingExampleA1Trans,
+    LearnerLevel.a2 => t.onboardingExampleA2Trans,
+    LearnerLevel.b1 => t.onboardingExampleB1Trans,
+    LearnerLevel.b2 => t.onboardingExampleB2Trans,
+  };
 
   Future<void> _select(BuildContext context, LearnerLevel level) async {
     HapticFeedback.mediumImpact();
-    await Storage.setUserLevelCode(level.code);
+    await CourseProgressService.shared.initializeForPlacement(level.code);
+    await Storage.setBrowseLevelCode(level.code);
     if (!context.mounted) return;
     await showAccountNudgeSheet(context);
     if (!context.mounted) return;
@@ -125,12 +128,30 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
 
   Future<void> _skip(BuildContext context) async {
     HapticFeedback.selectionClick();
-    await Storage.setUserLevelCode(LearnerLevel.a1.code);
-    if (!context.mounted) return;
-    await showAccountNudgeSheet(context);
-    if (!context.mounted) return;
-    Navigator.pushReplacementNamed(context, '/');
+    await _select(context, LearnerLevel.a1);
   }
+
+  Future<void> _openDiagnostic(BuildContext context) async {
+    HapticFeedback.selectionClick();
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => PlacementDiagnosticScreen(
+          onChooseLevel: (levelCode) {
+            final level = LearnerLevel.fromCode(levelCode);
+            if (level == null) {
+              throw FormatException('Unsupported placement level: $levelCode');
+            }
+            return _select(context, level);
+          },
+        ),
+      ),
+    );
+  }
+
+  String _diagnosticLabel(BuildContext context) =>
+      Localizations.localeOf(context).languageCode == 'en'
+      ? 'Not sure? Take 8 questions'
+      : 'Unsicher? 8 Fragen beantworten';
 
   Future<void> _openCompare(BuildContext context) async {
     HapticFeedback.selectionClick();
@@ -213,10 +234,8 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                   // **콘텐츠 폭의 절반**을 넘지 않게 한다.
                   // `clamp`는 num을 돌려주고 상·하한이 뒤집히면 assert가 터지므로
                   // (아주 좁은 창) min/max로 명시 계산한다.
-                  final contentW = math.min(
-                        c.maxWidth,
-                        SoriBreakpoints.content,
-                      ) -
+                  final contentW =
+                      math.min(c.maxWidth, SoriBreakpoints.content) -
                       Spacing.lg * 2;
                   final double hero = math.max(
                     108.0,
@@ -300,9 +319,11 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                         const SizedBox(height: Spacing.xl),
 
                         // ── 레벨 사다리 (세로 4단) ──
-                        for (var i = 0;
-                            i < LearnerLevel.values.length;
-                            i++) ...[
+                        for (
+                          var i = 0;
+                          i < LearnerLevel.values.length;
+                          i++
+                        ) ...[
                           SoriEntrance(
                             delay: Duration(milliseconds: 520 + i * 70),
                             slideY: 18,
@@ -330,6 +351,17 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                           child: _CompareCta(
                             label: t.onboardingCompareCta,
                             onTap: () => _openCompare(context),
+                          ),
+                        ),
+
+                        const SizedBox(height: Spacing.sm),
+
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 850),
+                          slideY: 6,
+                          child: _CompareCta(
+                            label: _diagnosticLabel(context),
+                            onTap: () => _openDiagnostic(context),
                           ),
                         ),
 
@@ -553,7 +585,8 @@ class _LevelCard extends StatelessWidget {
     return Semantics(
       button: true,
       onTap: onTap,
-      label: '${level.display} · $title. $desc. '
+      label:
+          '${level.display} · $title. $desc. '
           '$difficultyLabel $rank/${HanokLevelPalette.rankCount}.',
       child: ExcludeSemantics(
         child: SoriPressable(
@@ -706,8 +739,9 @@ class _RankDots extends StatelessWidget {
                 border: i <= rank
                     ? null
                     : Border.all(
-                        color:
-                            SoriColors.lightBorderStrong.withValues(alpha: 0.7),
+                        color: SoriColors.lightBorderStrong.withValues(
+                          alpha: 0.7,
+                        ),
                         width: 1,
                       ),
               ),
@@ -854,18 +888,18 @@ class _LevelCompareSheet extends StatelessWidget {
   });
 
   String _canFor(AppL10n t, LearnerLevel level) => switch (level) {
-        LearnerLevel.a1 => t.onboardingLevelA1Can,
-        LearnerLevel.a2 => t.onboardingLevelA2Can,
-        LearnerLevel.b1 => t.onboardingLevelB1Can,
-        LearnerLevel.b2 => t.onboardingLevelB2Can,
-      };
+    LearnerLevel.a1 => t.onboardingLevelA1Can,
+    LearnerLevel.a2 => t.onboardingLevelA2Can,
+    LearnerLevel.b1 => t.onboardingLevelB1Can,
+    LearnerLevel.b2 => t.onboardingLevelB2Can,
+  };
 
   String _learnFor(AppL10n t, LearnerLevel level) => switch (level) {
-        LearnerLevel.a1 => t.onboardingLevelA1Learn,
-        LearnerLevel.a2 => t.onboardingLevelA2Learn,
-        LearnerLevel.b1 => t.onboardingLevelB1Learn,
-        LearnerLevel.b2 => t.onboardingLevelB2Learn,
-      };
+    LearnerLevel.a1 => t.onboardingLevelA1Learn,
+    LearnerLevel.a2 => t.onboardingLevelA2Learn,
+    LearnerLevel.b1 => t.onboardingLevelB1Learn,
+    LearnerLevel.b2 => t.onboardingLevelB2Learn,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -967,7 +1001,8 @@ class _CompareRow extends StatelessWidget {
     return Semantics(
       button: true,
       onTap: onTap,
-      label: '${level.display} · $title. '
+      label:
+          '${level.display} · $title. '
           '$difficultyLabel $rank/${HanokLevelPalette.rankCount}. '
           '$canLabel: $can. $learnLabel: $learn. '
           '$exampleLabel: $exampleKo.',

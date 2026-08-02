@@ -228,6 +228,18 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 소스 후보 범위 커밋: `eda4c375dd3a06ef422e90ae0ab4dba3c5f8dbaf`
 - [x] SSoT 기록·원격 푸시: `0e3ad8f7d8a1ab3c84bb5013e059b4f438055421`까지 완료 (최신 산출물 매니페스트는 아래 세션 로그에 기록)
 
+### 레벨 연동형 실전 한국어 커리큘럼 (2026-08-02) — 구조·트리거·전 레벨 재연결 및 A1 생활 시나리오 확장, main 병합
+
+- [x] `CourseUnit → Concept → ContentLink` 그래프와 `FormFamily`·`SurfaceForm`·`MasteryEvidence` 계약, 콘텐츠 기준선 매니페스트 및 명시적 안정 ID를 추가했다.
+- [x] 배치 레벨·현재 코스 위치·라이브러리 탐색 레벨을 분리하고, 70% 개념/시나리오 체크포인트 해금과 조사·말투·활용 오답 보정 큐를 기존 단어 SRS와 병행한다.
+- [x] 홈 첫 CTA·학습 경로·온보딩 직접 선택/8문항 추천 진단을 현재 코스 미션에 연결했다. A1의 인사/한글 병행·자기소개/입니다·주제/주어 조사·주문/을·를 4개 파일럿을 실제 게임·시나리오 증거와 연결했다.
+- [x] Phase 5: A1 16개 미션의 체크포인트에 A1 시나리오 13개를 배치했다. 수업 첫 만남·전화/메신저·배달 주소 확인·되묻기·호칭/거리 조절·병원/안전의 6개 현실 시나리오를 더하고, **모든 A1 시나리오**에 조사/활용 보정과 직접 산출 퀘스트를 연결했다.
+- [x] Phase 6: 145개 스몰토크 모두에 상대/관계·안전한 대안 질문·다음 턴을 추가했다. A2의 `할까요? / 할래요? / 하자 / 할래?` 관계별 예문을 넣고 화면에서 관계와 안전한 대안을 확인할 수 있게 했다.
+- [x] Phase 7: B1 6개·B2 6개 코스 미션 모두에 명시적 시나리오 평가 링크를 배치해, 기존 상위 레벨 콘텐츠를 이유·간접화법·완곡함·공식 말투 선택으로 재연결했다.
+- [x] 최종 자동 검증: `dart analyze` 0 issues, 기능 브랜치 `flutter test --no-pub --concurrency=1` **1,479 통과**, 최신 `main` 병합 상태 **1,496 통과**, `git diff --check` 통과. 브라우저에서 캐릭터 선택 → 레벨 직접 선택·진단 진입 → 홈 `Jetzt lernen` → A1 첫 미션까지 확인했다.
+- [~] 새 원문을 추가/배포하기 전에는 자동 검수와 별도로 한국어 화자가 자연스러움·관계 적절성·문화 맥락·받침/활용 정확성을 최종 검수한다.
+- 기능 커밋: `49ce0a3`; 로컬 `main` 병합, 원격 푸시 없음.
+
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
 ### ★ "살아있는 한옥" UI/UX 대개편 (승인된 계획)
@@ -392,6 +404,20 @@ flutter run -d <android-id>   # 안드로이드
 **검증:** `flutter analyze --no-fatal-warnings --no-fatal-infos` **0 issues** · 신규 테스트 13/13 · settings 15/15 · dart format · 전체 `flutter test` 최종 수치는 커밋 직전 실측(아래). **⚠️ 미검증(Jin 실기기, ADR §10)**: 설정 토글→소리 꺼짐→재시작 유지 · 무음 스위치(iOS ambient 경로 포함) · Spotify 병주 · 블루투스 착탈 · 미리듣기 체감 · combo/complete 0.55 통일 체감.
 
 **의도적 보류(ADR Status 블록에 명시):** ambience 화면 배선(§9-6 — §11-1 Jin 결정: 어느 화면에 켤지) · 게인 자동화 도구(§4-1) · speech 음소거 스낵바(§7-1) · 설정 위젯 테스트(§6-5) · levelUp() 배선·tiger_greet.mp3 처분(Jin).
+### 2026-08-02 (레벨 연동형 실전 한국어 커리큘럼 — 구조·트리거·전 레벨 재연결) — main 병합
+
+**Jin 지시:** 기존 한글소리의 단어·문법·게임·스몰토크·시나리오를 레벨별로 서로 트리거하는 현실형 코스로 재구성. 별도 코스 탭을 만들지 않고 홈과 기존 활동을 코스 미션의 도입·연습·평가·복습 노드로 전환. 브랜치 생성 및 Codex 메모/SSoT 기록 포함.
+
+**브랜치/범위:** `codex/level-linked-curriculum-2026-08-02`, worktree `C:\Users\vjinn\AppData\Local\Temp\hangulsori-level-linked-curriculum-20260802`; 기능 커밋 `49ce0a3`으로 구조·트리거·온보딩·A1 생활 시나리오·A2 관계형 스몰토크·B1/B2 재연결을 고정하고 로컬 `main`에 병합했다. 원격 푸시는 하지 않았다.
+
+- **Phase 0–1:** `assets/data/content_audit_manifest.json`에 실제 기준선(단어 558·문법 88·시나리오 39·시나리오 퀘스트 150·스몰토크 145·cloze 286·satz 191)을 고정. 모든 원본 학습 데이터에 명시적 안정 ID를 부여하고 `curriculum_manifest.json`에 36개 미션(16 A1)·45개 개념·4개 표현 가족·SurfaceForm·의미 기반 ContentLink 매핑을 작성했다. 모든 시나리오의 빈 문법 링크를 채우고 `formal`을 `business`로 정규화, 말투·관계·의도·개념 메타를 타입화했다.
+- **Phase 2:** `CourseMasteryService`/`CourseProgressService`를 추가해 placement/course/browse 상태를 분리, 현재 미션의 필수 개념과 **각** 시나리오 체크포인트가 70%에 도달해야 다음 미션을 해금하게 했다. 게임/단어/퀘스트 결과는 Concept 증거로 기록하며, 조사·받침·어순·말투·철자 오답은 링크된 짧은 보정 활동으로 향한다. 자유 탐색의 미래 레벨 증거는 보존하되 해금에는 쓰지 않는다.
+- **Phase 3–4:** `/course/mission` 화면과 홈 우선 CTA, 학습 경로, 직접 레벨 선택·선택적 8문항 진단을 추가했다. A1 파일럿은 `a1_01` 인사·한글/받침, `a1_02` 자기소개/입니다, `a1_03` 주제·주어 조사, `a1_04` 주문/을·를이며 기존 공항·자기소개·마트·분식 시나리오의 감사된 퀘스트 ID로 직접 증거를 남긴다. 표현 가족/SurfaceForm의 내부 키가 화면에 노출되지 않도록 DE/EN 학습자 문구로 정규화했다.
+- **Phase 5:** A1 16개 미션에 A1 시나리오 13개를 체크포인트로 배치했다. `first_class_meeting`, `phone_messenger_reply`, `delivery_address_confirmation`, `clarify_repeat`, `titles_relationship_distance`, `clinic_safety`의 6개 현실 시나리오를 추가했고, 기존 A1 시나리오까지 포함해 모두 조사/활용 보정 퀘스트와 직접 산출 퀘스트를 가진다.
+- **Phase 6:** `smalltalk.json`의 145개 노드에 `relationshipContext`, `safeAlternativeQuestions`, `followUp`을 추가했다. A2 제안의 `할까요? / 할래요? / 하자 / 할래?`를 학급 동료·동료·친한 친구 맥락으로 연결했고, 스몰토크 카드에서 관계·안전한 대안·다음 턴을 노출한다.
+- **Phase 7:** B1 6개와 B2 6개 미션에 각각 명시적 `scenario` 평가 `ContentLink`를 추가해 기존 상위 레벨 자료를 생활/직장/관계의 이유·간접화법·완곡함·공식 말투 선택으로 재배치했다.
+- **검증:** `dart analyze` → **No issues found**. 기능 브랜치 `flutter test --no-pub --concurrency=1` → **1,479 passed**; 최신 `main` 병합 상태 → **1,496 passed**. `git diff --check` → 통과. 브라우저 실사용 경로는 캐릭터 선택 → A1 직접 선택 → 8문항 진단 화면 → 계정 연결 건너뛰기 → 동기 선택 → 홈 `Jetzt lernen` → `Grußformeln und Hangul-Laute` 첫 미션까지 확인. 최초 화면 검토에서 표현 축 내부 키 노출을 발견해 문구 매핑으로 수정했다. 전체 재시작 브라우저 검증은 아래의 별도 계정 UI 런타임 경계 때문에 추가 증명하지 않는다.
+- **브라우저 재기동 관찰(후속 별도 이슈):** 새 debug 런에서 `account_ui_operations.dart:106`의 `ValueNotifier<AccountUiPendingState>`가 build 중 notify하여 Flutter `setState()/markNeedsBuild()` assertion이 발생했고, fresh release/local 재기동은 빈 한지 배경에 머물렀다. 스택에 본 커리큘럼 코드 경로는 없고 전체 테스트는 통과했으나, 이 계정 UI 초기화 문제는 본 콘텐츠 범위를 벗어난 별도 런타임 검증 항목으로 남긴다.
 
 ### 2026-08-02 (병렬 세션 교차 검증 + CRLF 정규화) — 커밋·푸시
 

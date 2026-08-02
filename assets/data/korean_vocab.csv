@@ -1,559 +1,559 @@
-korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english
-안녕하세요,annyeonghaseyo,Guten Tag / Hallo (formell),A1,Ausdruck,"안녕하세요, 처음 뵙겠습니다.",Guten Tag!,Begrüßung,a1_greetings_1,1,false,Hello / Good day (formal),Expression,Hello!
-안녕,annyeong,Hallo / Tschüss (informell),A1,Ausdruck,"안녕, 오랜만이야!",Hallo!,Begrüßung,a1_greetings_1,2,false,Hi / Bye (informal),Expression,Hi!
-감사합니다,gamsahamnida,Vielen Dank (sehr formell),A1,Ausdruck,도와주셔서 감사합니다.,Vielen Dank!,Höflichkeit,a1_greetings_1,3,false,Thank you (very formal),Expression,Thank you!
-고마워요,gomawoyo,Danke (informell),A1,Ausdruck,정말 고마워요.,Danke!,Höflichkeit,a1_greetings_1,4,false,Thanks (informal),Expression,Thanks!
-죄송합니다,joesonghamnida,Entschuldigung (formell),A1,Ausdruck,늦어서 죄송합니다.,Entschuldigung.,Höflichkeit,a1_greetings_1,5,false,I'm sorry (formal),Expression,I'm sorry.
-미안해요,mianhaeyo,Es tut mir leid,A1,Ausdruck,진짜 미안해요.,Es tut mir leid.,Höflichkeit,a1_greetings_1,6,false,I'm sorry,Expression,I'm sorry.
-괜찮아요,gwaenchanayo,Kein Problem / Es ist okay,A1,Ausdruck,저는 괜찮아요.,Ist es okay?,Alltag,a1_daily_1,1,false,It's okay / No problem,Expression,Are you okay?
-네,ne,Ja,A1,Ausdruck,"네, 알겠어요.","Ja, das stimmt.",Alltag,a1_daily_1,2,false,Yes,Expression,"Yes, that's right."
-아니요,aniyo,Nein,A1,Ausdruck,"아니요, 저는 안 갈래요.","Nein, das ist falsch.",Alltag,a1_daily_1,3,false,No,Expression,"No, that's wrong."
-이름,ireum,Name,A1,Nomen,제 이름은 크리스티안이에요.,Mein Name ist Christian.,Person,a1_self_intro,1,false,name,Noun,My name is Christian.
-나이,nai,Alter,A1,Nomen,나이가 어떻게 되세요?,Wie alt bist du?,Person,a1_self_intro,2,false,age,Noun,How old are you?
-나라,nara,Land,A1,Nomen,어느 나라 사람이에요?,Aus welchem Land kommst du?,Geographie,a1_misc_1,1,false,country,Noun,Which country are you from?
-학생,haksaeng,Student/Schüler,A1,Nomen,저는 학생이에요.,Ich bin Student.,Person,a1_self_intro,3,false,student / pupil,Noun,I am a student.
-선생님,seonsaengnim,Lehrer/in,A1,Nomen,"선생님, 안녕하세요.","Danke, Lehrerin.",Person,a1_self_intro,4,false,teacher,Noun,"Thank you, teacher."
-친구,chingu,Freund/Freundin,A1,Nomen,이 사람 제 친구예요.,Das ist mein Freund.,Beziehungen,a1_family_1,1,false,friend,Noun,This is my friend.
-남자친구,namjachingu,Freund (Beziehung),A1,Nomen,남자친구가 있어요.,Ich habe einen Freund.,Beziehungen,a1_family_1,2,false,boyfriend,Noun,I have a boyfriend.
-여자친구,yeojachingu,Freundin (Beziehung),A1,Nomen,여자친구가 있어요.,Ich habe eine Freundin.,Beziehungen,a1_family_1,3,false,girlfriend,Noun,I have a girlfriend.
-가족,gajok,Familie,A1,Nomen,저희 가족은 네 명이에요.,Wie viele Familienmitglieder hast du?,Familie,a1_family_1,4,false,family,Noun,How many people are in your family?
-집,jip,Haus / Zuhause,A1,Nomen,집에 가요.,Ich gehe nach Hause.,Alltag,a1_daily_1,4,false,house / home,Noun,I'm going home.
-학교,hakgyo,Schule,A1,Nomen,학교에 가요.,Ich gehe zur Schule.,Bildung,a1_misc_1,2,false,school,Noun,I go to school.
-물,mul,Wasser,A1,Nomen,물 주세요.,Wasser bitte.,Essen & Trinken,a1_food_1,1,false,water,Noun,"Water, please."
-밥,bap,Reis / Mahlzeit,A1,Nomen,밥 먹었어요?,Hast du gegessen?,Essen & Trinken,a1_food_1,2,false,rice / meal,Noun,Have you eaten?
-커피,keopi,Kaffee,A1,Nomen,커피 마셔요.,Ich trinke Kaffee.,Essen & Trinken,a1_food_1,3,false,coffee,Noun,I drink coffee.
-빵,ppang,Brot,A1,Nomen,빵을 먹어요.,Ich esse Brot.,Essen & Trinken,a1_food_1,4,false,bread,Noun,I eat bread.
-책,chaek,Buch,A1,Nomen,책을 읽어요.,Ich lese ein Buch.,Bildung,a1_misc_1,3,false,book,Noun,I read a book.
-핸드폰,haendeupon,Handy,A1,Nomen,핸드폰이 있어요?,Hast du ein Handy?,Technologie,a1_misc_1,4,false,cellphone,Noun,Do you have a cellphone?
-버스,beoseu,Bus,A1,Nomen,버스를 타요.,Ich nehme den Bus.,Verkehr,a1_transport,1,false,bus,Noun,I take the bus.
-지하철,jihacheol,U-Bahn,A1,Nomen,지하철역이 어디예요?,Wo ist die U-Bahn-Station?,Verkehr,a1_transport,2,false,subway,Noun,Where is the subway station?
-오늘,oneul,heute,A1,Adverb,오늘 뭐 해요?,Was machst du heute?,Zeit,a1_time_1,1,false,today,Adverb,What are you doing today?
-내일,naeil,morgen,A1,Adverb,내일 만나요.,Wir treffen uns morgen.,Zeit,a1_time_1,2,false,tomorrow,Adverb,See you tomorrow.
-어제,eoje,gestern,A1,Adverb,어제 어디 갔어요?,Wo bist du gestern hingegangen?,Zeit,a1_time_1,3,false,yesterday,Adverb,Where did you go yesterday?
-아버지,abeoji,Vater (formell),A1,Nomen,아버지가 집에 있어요.,Mein Vater ist zu Hause.,Familie,a1_family_1,5,false,father (formal),Noun,My father is at home.
-어머니,eomeoni,Mutter (formell),A1,Nomen,어머니한테 전화해요.,Ich rufe meine Mutter an.,Familie,a1_family_1,6,false,mother (formal),Noun,I call my mother.
-아빠,appa,Papa (informell),A1,Nomen,아빠 사랑해요.,"Ich liebe dich, Papa.",Familie,a1_family_1,7,false,dad (informal),Noun,"I love you, Dad."
-엄마,eomma,Mama (informell),A1,Nomen,엄마 어디 있어요?,"Wo bist du, Mama?",Familie,a1_family_1,8,true,mom (informal),Noun,"Where are you, Mom?"
-형,hyeong,älterer Bruder (Sicht des Mannes),A1,Nomen,우리 형은 요리를 잘해요.,Mein älterer Bruder kocht.,Familie,a1_family_1,9,true,older brother (for a male),Noun,My older brother cooks.
-오빠,oppa,älterer Bruder (Sicht der Frau),A1,Nomen,우리 오빠 정말 착해요.,Mein älterer Bruder ist toll.,Familie,a1_family_2,1,false,older brother (for a female),Noun,My older brother is cool.
-누나,nuna,ältere Schwester (Sicht des Mannes),A1,Nomen,우리 누나 진짜 예뻐요.,Meine ältere Schwester lacht.,Familie,a1_family_2,2,false,older sister (for a male),Noun,My older sister is laughing.
-언니,eonni,ältere Schwester (Sicht der Frau),A1,Nomen,언니랑 같이 가요.,Ich gehe mit meiner Schwester.,Familie,a1_family_2,3,false,older sister (for a female),Noun,I'm going with my older sister.
-남동생,namdongsaeng,jüngerer Bruder,A1,Nomen,남동생은 학생이에요.,Mein jüngerer Bruder ist Schüler.,Familie,a1_family_2,4,false,younger brother,Noun,My younger brother is a student.
-여동생,yeodongsaeng,jüngere Schwester,A1,Nomen,제 여동생이 정말 귀여워요.,Meine jüngere Schwester ist süß.,Familie,a1_family_2,5,false,younger sister,Noun,My younger sister is cute.
-남편,nampyeon,Ehemann,A1,Nomen,우리 남편은 요리를 잘해요.,Mein Ehemann kocht.,Familie,a1_family_2,6,false,husband,Noun,My husband cooks.
-아내,anae,Ehefrau,A1,Nomen,제 아내는 회사에 다녀요.,Meine Ehefrau arbeitet.,Familie,a1_family_2,7,false,wife,Noun,My wife works.
-머리,meori,Kopf / Haare,A1,Nomen,머리가 아파요.,Mein Kopf tut weh.,Körper,a1_body,1,false,head / hair,Noun,My head hurts.
-눈,nun,Auge,A1,Nomen,오늘 눈이 좀 피곤하네요.,Meine Augen sind müde.,Körper,a1_body,2,false,eye,Noun,My eyes are tired.
-코,ko,Nase,A1,Nomen,코가 아파요.,Meine Nase tut weh.,Körper,a1_body,3,false,nose,Noun,My nose hurts.
-입,ip,Mund,A1,Nomen,입을 열어요.,Öffne den Mund.,Körper,a1_body,4,false,mouth,Noun,Open your mouth.
-귀,gwi,Ohr,A1,Nomen,귀가 좀 아파요.,Meine Ohren sind gut.,Körper,a1_body,5,false,ear,Noun,My ears are good.
-손,son,Hand,A1,Nomen,손을 씻어요.,Ich wasche meine Hände.,Körper,a1_body,6,false,hand,Noun,I wash my hands.
-발,bal,Fuß,A1,Nomen,발이 아파요.,Mein Fuß tut weh.,Körper,a1_body,7,false,foot,Noun,My foot hurts.
-다리,dari,Bein,A1,Nomen,다리가 길어요.,Die Beine sind lang.,Körper,a1_body,8,false,leg,Noun,The legs are long.
-몸,mom,Körper / Leib,A1,Nomen,몸이 좀 안 좋아요.,Ich fühle mich nicht gut.,Körper,a1_body,9,true,body,Noun,I don't feel well.
-빨간색,ppalgan saek,rot,A1,Nomen,저는 빨간색을 제일 좋아해요.,Ich mag die Farbe Rot.,Farben,a1_colors,1,false,red,Noun,I like the color red.
-파란색,paran saek,blau,A1,Nomen,오늘 하늘이 정말 파래요.,Der Himmel ist blau.,Farben,a1_colors,2,false,blue,Noun,The sky is blue.
-초록색,chorok saek,grün,A1,Nomen,이 초록색 옷이 예뻐요.,Die Blätter sind grün.,Farben,a1_colors,3,false,green,Noun,The leaves are green.
-노란색,noran saek,gelb,A1,Nomen,노란색 우산을 새로 샀어요.,Die Banane ist gelb.,Farben,a1_colors,4,false,yellow,Noun,The banana is yellow.
-흰색,hinsaek,weiß,A1,Nomen,흰색 옷을 입어요.,Ich trage weiße Kleidung.,Farben,a1_colors,5,true,white,Noun,I wear white clothes.
-검은색,geomeun saek,schwarz,A1,Nomen,검은색 가방이에요.,Das ist eine schwarze Tasche.,Farben,a1_colors,6,true,black,Noun,That's a black bag.
-고기,gogi,Fleisch,A1,Nomen,고기를 먹어요.,Ich esse Fleisch.,Essen & Trinken,a1_food_1,5,false,meat,Noun,I eat meat.
-생선,saengseon,Fisch (als Essen),A1,Nomen,생선을 좋아해요?,Magst du Fisch?,Essen & Trinken,a1_food_1,6,false,fish (as food),Noun,Do you like fish?
-채소,chaeso,Gemüse,A1,Nomen,채소를 많이 먹어요.,Ich esse viel Gemüse.,Essen & Trinken,a1_food_1,7,false,vegetable,Noun,I eat a lot of vegetables.
-과일,gwail,Obst,A1,Nomen,과일이 맛있어요.,Das Obst ist lecker.,Essen & Trinken,a1_food_1,8,true,fruit,Noun,The fruit is delicious.
-라면,ramyeon,Ramen / Instant-Nudeln,A1,Nomen,오늘 저녁은 라면 어때요?,Ich koche Ramen.,Essen & Trinken,a1_food_1,9,true,ramen / instant noodles,Noun,I cook ramen.
-김치,kimchi,Kimchi (fermentierter Kohl),A1,Nomen,김치가 매워요.,Kimchi ist scharf.,Essen & Trinken,a1_food_2,1,false,kimchi (fermented cabbage),Noun,Kimchi is spicy.
-사과,sagwa,Apfel,A1,Nomen,매일 아침 사과 하나 먹어요.,Ich esse einen Apfel.,Essen & Trinken,a1_food_2,2,false,apple,Noun,I eat an apple.
-계란,gyeran,Ei,A1,Nomen,아침에 계란 두 개 먹었어요.,Ich koche ein Ei.,Essen & Trinken,a1_food_2,3,false,egg,Noun,I boil an egg.
-차,cha,Tee,A1,Nomen,자기 전에 따뜻한 차 마셔요.,Ich trinke Tee.,Essen & Trinken,a1_food_2,4,false,tea,Noun,I drink tea.
-화장실,hwajangsil,Toilette / Badezimmer,A1,Nomen,화장실이 어디예요?,Wo ist die Toilette?,Alltag,a1_daily_1,5,false,toilet / bathroom,Noun,Where is the bathroom?
-편의점,pyeonijeom,Convenience Store,A1,Nomen,편의점에서 사요.,Ich kaufe im Convenience Store.,Alltag,a1_daily_1,6,false,convenience store,Noun,I buy it at the convenience store.
-공원,gongwon,Park,A1,Nomen,공원에서 산책해요.,Ich gehe im Park spazieren.,Freizeit,a1_misc_1,5,false,park,Noun,I take a walk in the park.
-도서관,doseogwan,Bibliothek,A1,Nomen,도서관에서 공부해요.,Ich lerne in der Bibliothek.,Bildung,a1_misc_1,6,false,library,Noun,I study at the library.
-방,bang,Zimmer / Raum,A1,Nomen,제 방이 작아요.,Mein Zimmer ist klein.,Alltag,a1_daily_1,7,false,room,Noun,My room is small.
-침대,chimdae,Bett,A1,Nomen,침대에서 자요.,Ich schlafe im Bett.,Alltag,a1_daily_1,8,true,bed,Noun,I sleep in the bed.
-의자,uija,Stuhl,A1,Nomen,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag,a1_daily_1,9,true,chair,Noun,I sit on the chair.
-문,mun,Tür,A1,Nomen,문을 열어요.,Ich öffne die Tür.,Alltag,a1_daily_2,1,false,door,Noun,I open the door.
-옷,ot,Kleidung,A1,Nomen,새 옷을 샀어요.,Ich habe neue Kleidung gekauft.,Alltag,a1_daily_2,2,false,clothes,Noun,I bought new clothes.
-지금,jigeum,jetzt / gerade,A1,Adverb,지금 뭐 해요?,Was machst du gerade?,Zeit,a1_time_1,4,false,now / right now,Adverb,What are you doing now?
-아침,achim,Morgen / Frühstück,A1,Nomen,아침을 먹어요.,Ich esse Frühstück.,Zeit,a1_time_1,5,false,morning / breakfast,Noun,I eat breakfast.
-점심,jeomsim,Mittag / Mittagessen,A1,Nomen,점심 같이 먹어요.,Lass uns zusammen Mittagessen.,Zeit,a1_time_1,6,false,noon / lunch,Noun,Let's have lunch together.
-저녁,jeonyeok,Abend / Abendessen,A1,Nomen,저녁에 운동해요.,Ich mache abends Sport.,Zeit,a1_time_1,7,false,evening / dinner,Noun,I exercise in the evening.
-밤,bam,Nacht,A1,Nomen,요즘 밤에 늦게 자요.,Ich schlafe nachts.,Zeit,a1_time_1,8,true,night,Noun,I sleep at night.
-주말,jumal,Wochenende,A1,Nomen,주말에 뭐 해요?,Was machst du am Wochenende?,Zeit,a1_time_1,9,true,weekend,Noun,What do you do on the weekend?
-매일,maeil,jeden Tag / täglich,A1,Adverb,저는 매일 아침 운동해요.,Ich mache jeden Tag Sport.,Zeit,a1_time_2,1,false,every day / daily,Adverb,I exercise every day.
-항상,hangsang,immer,A1,Adverb,항상 도와주셔서 감사해요.,Ich bin immer dankbar.,Alltag,a1_daily_2,3,false,always,Adverb,I'm always grateful.
-가끔,gakkeum,manchmal / gelegentlich,A1,Adverb,가끔 영화를 봐요.,Ich schaue manchmal Filme.,Alltag,a1_daily_2,4,false,sometimes / occasionally,Adverb,I sometimes watch movies.
-빨리,ppalli,schnell / beeile dich,A1,Adverb,"늦었어요, 빨리 가요!",Komm schnell.,Alltag,a1_daily_2,5,false,quickly / hurry up,Adverb,Come quickly.
-가다,gada,gehen,A1,Verb,학교에 가요.,Ich gehe zur Schule.,Bewegung,a1_transport,3,true,to go,Verb,I go to school.
-오다,oda,kommen,A1,Verb,집에 와요.,Ich komme nach Hause.,Bewegung,a1_transport,4,true,to come,Verb,I come home.
-먹다,meokda,essen,A1,Verb,밥을 먹어요.,Ich esse Reis.,Essen & Trinken,a1_food_2,5,false,to eat,Verb,I eat rice.
-마시다,masida,trinken,A1,Verb,커피를 마셔요.,Ich trinke Kaffee.,Essen & Trinken,a1_food_2,6,false,to drink,Verb,I drink coffee.
-있다,itda,sein / haben (existieren),A1,Verb,집에 있어요.,Ich bin zu Hause.,Alltag,a1_daily_2,6,false,to be / to have (to exist),Verb,I'm at home.
-없다,eopda,nicht haben / nicht sein,A1,Verb,시간이 없어요.,Ich habe keine Zeit.,Alltag,a1_daily_2,7,false,to not have / to not exist,Verb,I have no time.
-하다,hada,machen / tun,A1,Verb,뭐 해요?,Was machst du?,Alltag,a1_daily_2,8,true,to do,Verb,What are you doing?
-보다,boda,sehen / schauen,A1,Verb,TV를 봐요.,Ich schaue fern.,Freizeit,a1_misc_1,7,false,to see / to watch,Verb,I watch TV.
-듣다,deutda,hören,A1,Verb,음악을 들어요.,Ich höre Musik.,Freizeit,a1_misc_1,8,false,to listen / to hear,Verb,I listen to music.
-읽다,ikda,lesen,A1,Verb,책을 읽어요.,Ich lese ein Buch.,Bildung,a1_misc_1,9,true,to read,Verb,I read a book.
-자다,jada,schlafen,A1,Verb,일찍 자요.,Ich schlafe früh.,Alltag,a1_daily_2,9,true,to sleep,Verb,I sleep early.
-만나다,mannada,treffen,A1,Verb,친구를 만나요.,Ich treffe einen Freund.,Beziehungen,a1_family_2,8,true,to meet,Verb,I meet a friend.
-좋아하다,joahada,mögen / gerne haben,A1,Verb,한국어를 좋아해요.,Ich mag Koreanisch.,Gefühle,a1_misc_1,10,true,to like,Verb,I like Korean.
-싫어하다,sireohada,nicht mögen / ablehnen,A1,Verb,저는 매운 거 진짜 싫어해요.,Ich mag kein Gemüse.,Gefühle,a1_misc_2,1,false,to dislike,Verb,I dislike vegetables.
-사랑하다,saranghada,lieben,A1,Verb,우리 가족을 정말 사랑해요.,Ich liebe dich.,Gefühle,a1_misc_2,2,false,to love,Verb,I love you.
-사다,sada,kaufen,A1,Verb,옷을 사요.,Ich kaufe Kleidung.,Einkaufen,a1_misc_2,3,false,to buy,Verb,I buy clothes.
-말하다,malhada,sprechen / sagen,A1,Verb,한국어로 말해요.,Ich spreche auf Koreanisch.,Kommunikation,a1_misc_2,4,false,to speak / to say,Verb,I speak in Korean.
-쓰다,sseuda,schreiben / benutzen,A1,Verb,편지를 써요.,Ich schreibe einen Brief.,Bildung,a1_misc_2,5,false,to write / to use,Verb,I write a letter.
-알다,alda,wissen / kennen,A1,Verb,그건 저도 알아요.,Ich weiß!,Alltag,a1_daily_3,1,false,to know,Verb,I know!
-모르다,moreuda,nicht wissen,A1,Verb,"죄송해요, 잘 몰라요.",Ich weiß es nicht.,Alltag,a1_daily_3,2,false,to not know,Verb,I don't know.
-주다,juda,geben,A1,Verb,이거 친구 선물로 줄 거예요.,Ich gebe es meinem Freund.,Alltag,a1_daily_3,3,false,to give,Verb,I give it to my friend.
-받다,batda,bekommen / empfangen,A1,Verb,선물을 받았어요.,Ich habe ein Geschenk bekommen.,Alltag,a1_daily_3,4,false,to receive / to get,Verb,I received a gift.
-앉다,anda,sitzen,A1,Verb,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag,a1_daily_3,5,false,to sit,Verb,I sit on the chair.
-서다,seoda,stehen,A1,Verb,여기 잠깐 서 있어요.,Ich stehe hier.,Alltag,a1_daily_3,6,false,to stand,Verb,I stand here.
-열다,yeolda,öffnen,A1,Verb,문을 열어요.,Ich öffne die Tür.,Alltag,a1_daily_3,7,false,to open,Verb,I open the door.
-닫다,datda,schließen,A1,Verb,창문을 닫아요.,Ich schließe das Fenster.,Alltag,a1_daily_3,8,true,to close,Verb,I close the window.
-입다,ipda,anziehen / tragen (Kleidung),A1,Verb,옷을 입어요.,Ich ziehe mich an.,Alltag,a1_daily_3,9,true,to wear / to put on (clothes),Verb,I get dressed.
-일하다,ilhada,arbeiten,A1,Verb,회사에서 일해요.,Ich arbeite in einer Firma.,Beruf,a1_misc_2,6,false,to work,Verb,I work at a company.
-좋다,jota,gut / schön,A1,Adjektiv,날씨가 좋아요.,Das Wetter ist schön.,Beschreibung,a1_descriptions,1,false,good / nice,Adjective,The weather is nice.
-크다,keuda,groß,A1,Adjektiv,집이 커요.,Das Haus ist groß.,Beschreibung,a1_descriptions,2,false,big,Adjective,The house is big.
-작다,jakda,klein,A1,Adjektiv,방이 작아요.,Das Zimmer ist klein.,Beschreibung,a1_descriptions,3,false,small,Adjective,The room is small.
-많다,manta,viel,A1,Adjektiv,오늘 카페에 사람이 정말 많아요.,Es gibt viele Menschen.,Menge,a1_numbers_1,1,false,many / much,Adjective,There are many people.
-비싸다,bissada,teuer,A1,Adjektiv,이 옷은 비싸요.,Diese Kleidung ist teuer.,Einkaufen,a1_misc_2,7,false,expensive,Adjective,These clothes are expensive.
-싸다,ssada,billig / günstig,A1,Adjektiv,여기 진짜 싸요.,Dieses Essen ist günstig.,Einkaufen,a1_misc_2,8,true,cheap,Adjective,This food is cheap.
-맛있다,masitda,lecker,A1,Adjektiv,이 음식은 맛있어요.,Dieses Essen ist lecker.,Essen & Trinken,a1_food_2,7,true,delicious,Adjective,This food is delicious.
-귀엽다,gwiyeopda,niedlich / süß,A1,Adjektiv,강아지가 귀여워요.,Der Hund ist süß.,Beschreibung,a1_descriptions,4,false,cute,Adjective,The puppy is cute.
-조용하다,joyonghada,leise / ruhig,A1,Adjektiv,도서관이 조용해요.,Die Bibliothek ist ruhig.,Beschreibung,a1_descriptions,5,false,quiet,Adjective,The library is quiet.
-시끄럽다,sikkeureopda,laut,A1,Adjektiv,밖이 시끄러워요.,Draußen ist es laut.,Beschreibung,a1_descriptions,6,false,loud / noisy,Adjective,It's noisy outside.
-어렵다,eoryeopda,schwierig / schwer,A1,Adjektiv,한국어가 어려워요.,Koreanisch ist schwierig.,Beschreibung,a1_descriptions,7,false,difficult / hard,Adjective,Korean is difficult.
-쉽다,swipda,einfach / leicht,A1,Adjektiv,이 문제는 쉬워요.,Diese Aufgabe ist einfach.,Beschreibung,a1_descriptions,8,false,easy,Adjective,This task is easy.
-배고프다,baegopuda,hungrig sein,A1,Adjektiv,"아, 진짜 배고파요.",Ich bin hungrig.,Körper,a1_body,10,true,to be hungry,Adjective,I'm hungry.
-길다,gilda,lang,A1,Adjektiv,머리가 길어요.,Meine Haare sind lang.,Beschreibung,a1_descriptions,9,false,long,Adjective,My hair is long.
-짧다,jjalda,kurz,A1,Adjektiv,치마가 짧아요.,Der Rock ist kurz.,Beschreibung,a1_descriptions,10,false,short,Adjective,The skirt is short.
-회사,hoesa,Firma / Unternehmen,A2,Nomen,요즘 회사 일이 좀 많아요.,Ich gehe zur Arbeit.,Beruf,a2_work,1,false,company / firm,Noun,I go to work.
-직업,jigeop,Beruf,A2,Nomen,직업이 어떻게 되세요?,Was ist dein Beruf?,Beruf,a2_work,2,false,occupation / job,Noun,What is your occupation?
-취미,chwimi,Hobby,A2,Nomen,저는 취미가 사진 찍는 거예요.,Was ist dein Hobby?,Freizeit,a2_health_misc_1,1,false,hobby,Noun,What is your hobby?
-날씨,nalssi,Wetter,A2,Nomen,오늘 날씨 진짜 좋네요.,Wie ist das Wetter?,Wetter,a2_weather,1,false,weather,Noun,How is the weather?
-계절,gyejeol,Jahreszeit,A2,Nomen,어떤 계절을 좋아해요?,Welche Jahreszeit magst du?,Wetter,a2_weather,2,false,season,Noun,Which season do you like?
-봄,bom,Frühling,A2,Nomen,이제 봄이 왔네요.,Der Frühling ist da.,Wetter,a2_weather,3,false,spring,Noun,Spring is here.
-여름,yeoreum,Sommer,A2,Nomen,한국 여름은 진짜 더워요.,Der Sommer ist heiß.,Wetter,a2_weather,4,false,summer,Noun,Summer is hot.
-가을,gaeul,Herbst,A2,Nomen,가을 단풍이 정말 예뻐요.,Das Herbstlaub ist schön.,Wetter,a2_weather,5,false,autumn / fall,Noun,The autumn leaves are beautiful.
-겨울,gyeoul,Winter,A2,Nomen,한국 겨울은 좀 추워요.,Der Winter ist kalt.,Wetter,a2_weather,6,false,winter,Noun,Winter is cold.
-병원,byeongwon,Krankenhaus,A2,Nomen,감기가 심해서 병원에 다녀왔어요.,Ich gehe ins Krankenhaus.,Gesundheit,a2_health_misc_1,2,false,hospital,Noun,I go to the hospital.
-약,yak,Medizin / Medikament,A2,Nomen,감기약 좀 사러 왔어요.,Ich nehme Medizin.,Gesundheit,a2_health_misc_1,3,false,medicine / medication,Noun,I take medicine.
-식당,sikdang,Restaurant,A2,Nomen,이 근처에 맛있는 식당 있어요?,Ich esse im Restaurant.,Essen & Trinken,a2_food_1,1,false,restaurant,Noun,I eat at the restaurant.
-시장,sijang,Markt,A2,Nomen,주말에 시장에 다녀왔어요.,Ich kaufe auf dem Markt.,Einkaufen,a2_shopping_1,1,false,market,Noun,I buy at the market.
-은행,eunhaeng,Bank,A2,Nomen,은행이 몇 시까지 열어요?,Ich gehe zur Bank.,Alltag,a2_daily_1,1,false,bank,Noun,I go to the bank.
-여행,yeohaeng,Reise,A2,Nomen,다음 달에 제주도로 여행 가요.,Ich gehe auf Reise.,Reise,a2_health_misc_1,4,false,trip / travel,Noun,I'm going on a trip.
-비행기,bihaenggi,Flugzeug,A2,Nomen,비행기가 곧 도착해요.,Ich nehme das Flugzeug.,Verkehr,a2_transport,1,false,airplane,Noun,I take the airplane.
-호텔,hotel,Hotel,A2,Nomen,이번 호텔 진짜 좋았어요.,Ich übernachte im Hotel.,Reise,a2_health_misc_1,5,false,hotel,Noun,I stay at a hotel.
-음악,eumak,Musik,A2,Nomen,요즘 이 음악 자주 들어요.,Ich höre Musik.,Freizeit,a2_health_misc_1,6,false,music,Noun,I listen to music.
-영화,yeonghwa,Film,A2,Nomen,주말에 영화 한 편 봤어요.,Ich schaue einen Film.,Freizeit,a2_health_misc_1,7,false,movie / film,Noun,I watch a movie.
-시험,siheom,Prüfung / Test,A2,Nomen,다음 주에 시험이 있어서 걱정이에요.,Morgen habe ich eine Prüfung.,Bildung,a2_education,1,false,exam / test,Noun,I have an exam tomorrow.
-숙제,sukje,Hausaufgaben,A2,Nomen,숙제 다 했어요?,Ich mache Hausaufgaben.,Bildung,a2_education,2,false,homework,Noun,I do homework.
-성적,seongjeok,Noten / Ergebnis,A2,Nomen,이번엔 성적이 좀 올랐어요.,Meine Noten sind gut.,Bildung,a2_education,3,false,grades / results,Noun,My grades are good.
-휴가,hyuga,Urlaub / Freizeit,A2,Nomen,다음 주부터 휴가예요.,Ich genieße meinen Urlaub.,Beruf,a2_work,3,false,vacation / time off,Noun,I enjoy my vacation.
-회의,hoeui,Meeting / Besprechung,A2,Nomen,지금 회의 중이에요.,Ich habe ein Meeting.,Beruf,a2_work,4,false,meeting,Noun,I have a meeting.
-택시,taeksi,Taxi,A2,Nomen,여기서 택시 잡기 힘들어요.,Ich nehme ein Taxi.,Verkehr,a2_transport,2,false,taxi,Noun,I take a taxi.
-기차,gicha,Zug / Bahn,A2,Nomen,기차 시간에 늦었어요.,Ich fahre mit dem Zug.,Verkehr,a2_transport,3,false,train,Noun,I go by train.
-자전거,jajeongeo,Fahrrad,A2,Nomen,요즘 자전거로 출근해요.,Ich fahre Fahrrad.,Verkehr,a2_transport,4,false,bicycle,Noun,I ride a bicycle.
-전화,jeonhwa,Telefon / Anruf,A2,Nomen,아까 부재중 전화 왔어요.,Ich habe einen Anruf bekommen.,Kommunikation,a2_health_misc_1,8,true,phone / call,Noun,I got a call.
-문자,munja,Nachricht (SMS),A2,Nomen,답장 문자 못 봤어요?,Hast du eine Nachricht geschickt?,Kommunikation,a2_health_misc_1,9,true,text message,Noun,Did you send a message?
-인터넷,inteonet,Internet,A2,Nomen,여기 인터넷 좀 느리네요.,Ich nutze das Internet.,Technologie,a2_health_misc_2,1,false,internet,Noun,I use the internet.
-컴퓨터,keompyuteo,Computer,A2,Nomen,컴퓨터가 갑자기 꺼졌어요.,Ich arbeite am Computer.,Technologie,a2_health_misc_2,2,false,computer,Noun,I work on the computer.
-지갑,jigap,Geldbörse / Portemonnaie,A2,Nomen,"아, 지갑을 집에 두고 왔어요.",Ich habe keine Geldbörse.,Alltag,a2_daily_1,2,false,wallet / purse,Noun,I don't have a wallet.
-열쇠,yeolsoe,Schlüssel,A2,Nomen,열쇠를 잃어버렸어요.,Ich habe den Schlüssel verloren.,Alltag,a2_daily_1,3,false,key,Noun,I lost the key.
-우산,usan,Regenschirm,A2,Nomen,우산 안 가져왔는데 어떡해요?,Hast du einen Regenschirm?,Wetter,a2_weather,7,false,umbrella,Noun,Do you have an umbrella?
-얼마,eolma,wie viel (Geld),A2,Ausdruck,이거 다 해서 얼마예요?,Wie viel kostet das?,Einkaufen,a2_shopping_1,2,false,how much (money),Expression,How much is this?
-할인,halin,Rabatt / Ermäßigung,A2,Nomen,학생 할인 되나요?,Gibt es einen Rabatt?,Einkaufen,a2_shopping_1,3,false,discount,Noun,Is there a discount?
-영수증,yeongsujeung,Quittung / Kassenbon,A2,Nomen,영수증 좀 주시겠어요?,Die Quittung bitte.,Einkaufen,a2_shopping_1,4,false,receipt,Noun,"The receipt, please."
-카드,kadeu,Kreditkarte / Karte,A2,Nomen,카드로 결제할게요.,Ich zahle mit Karte.,Einkaufen,a2_shopping_1,5,false,card / credit card,Noun,I pay by card.
-공부하다,gongbuhada,lernen / studieren,A2,Verb,요즘 한국어를 공부하고 있어요.,Ich lerne Koreanisch.,Bildung,a2_education,4,false,to study / to learn,Verb,I study Korean.
-운동하다,undonghada,Sport machen,A2,Verb,요즘 매일 운동하려고 해요.,Ich treibe täglich Sport.,Sport,a2_health_misc_2,3,false,to exercise,Verb,I exercise every day.
-여행하다,yeohaenghada,reisen,A2,Verb,여름에 유럽을 여행하고 싶어요.,Ich reise nach Korea.,Reise,a2_health_misc_2,4,false,to travel,Verb,I travel to Korea.
-요리하다,yorihada,kochen,A2,Verb,저는 주말에 요리하는 걸 좋아해요.,Ich koche.,Essen & Trinken,a2_food_1,2,false,to cook,Verb,I cook.
-전화하다,jeonhwahada,anrufen,A2,Verb,이따 다시 전화할게요.,Ich rufe einen Freund an.,Kommunikation,a2_health_misc_2,5,false,to call (on the phone),Verb,I call a friend.
-도착하다,dochakhada,ankommen,A2,Verb,지금 막 도착했어요.,Ich bin in der Schule angekommen.,Bewegung,a2_transport,5,false,to arrive,Verb,I arrived at school.
-쉬다,swida,sich ausruhen,A2,Verb,오늘은 그냥 집에서 쉴래요.,Ich ruhe mich zu Hause aus.,Alltag,a2_daily_1,4,false,to rest,Verb,I rest at home.
-기억하다,gieokada,sich erinnern,A2,Verb,이름이 기억이 안 나요.,Erinnerst du dich an den Namen?,Alltag,a2_daily_1,5,false,to remember,Verb,Do you remember the name?
-이해하다,ihaehada,verstehen,A2,Verb,무슨 말인지 이해했어요.,Verstehst du?,Bildung,a2_education,5,false,to understand,Verb,Do you understand?
-배우다,baeuda,lernen / etwas Neues erlernen,A2,Verb,요즘 기타를 배우고 있어요.,Ich lerne Gitarre.,Bildung,a2_education,6,true,to learn (something new),Verb,I learn guitar.
-가르치다,gareuchida,lehren / unterrichten,A2,Verb,저희 언니가 영어를 가르쳐요.,Ich unterrichte Englisch.,Bildung,a2_education,7,true,to teach,Verb,I teach English.
-찾다,chatda,suchen / finden,A2,Verb,지금 열쇠를 찾고 있어요.,Ich suche den Schlüssel.,Alltag,a2_daily_1,6,false,to look for / to find,Verb,I look for the key.
-만들다,mandeulda,machen / herstellen,A2,Verb,친구 생일에 케이크를 만들었어요.,Ich backe einen Kuchen.,Alltag,a2_daily_1,7,true,to make,Verb,I bake a cake.
-예약하다,yeyakhada,reservieren / buchen,A2,Verb,저녁 7시로 예약했어요.,Ich buche ein Hotel.,Reise,a2_health_misc_2,6,false,to reserve / to book,Verb,I book a hotel.
-보내다,bonaeda,schicken / senden,A2,Verb,방금 사진 보냈어요.,Ich schicke eine Nachricht.,Kommunikation,a2_health_misc_2,7,false,to send,Verb,I send a message.
-잃어버리다,ireobeorida,verlieren,A2,Verb,지갑을 잃어버려서 큰일 났어요.,Ich habe meine Brieftasche verloren.,Alltag,a2_daily_1,8,true,to lose,Verb,I lost my wallet.
-바꾸다,bakkuda,wechseln / ändern / tauschen,A2,Verb,이거 다른 걸로 바꿀 수 있어요?,Ich habe die Nummer gewechselt.,Alltag,a2_daily_2,1,false,to change / to swap,Verb,I changed the number.
-걷다,geotda,zu Fuß gehen / laufen,A2,Verb,회사까지 30분 걸어요.,Ich gehe zur Schule zu Fuß.,Bewegung,a2_transport,6,false,to walk,Verb,I walk to school.
-걱정하다,geokjeonghada,sich sorgen / besorgt sein,A2,Verb,너무 걱정하지 마세요.,Mach dir keine Sorgen.,Gefühle,a2_feelings_1,1,false,to worry,Verb,Don't worry.
-계산하다,gyesanhada,bezahlen / abrechnen,A2,Verb,여기 계산 좀 부탁드려요.,Ich möchte bitte bezahlen.,Einkaufen,a2_shopping_1,6,true,to pay / to calculate,Verb,"I'd like to pay, please."
-덥다,deopda,heiß (sein),A2,Adjektiv,오늘 진짜 덥네요.,Heute ist es sehr heiß.,Wetter,a2_weather,8,true,to be hot (weather),Adjective,It's very hot today.
-춥다,chupda,kalt (sein),A2,Adjektiv,밖에 날씨가 많이 추워요.,Im Winter ist es kalt.,Wetter,a2_weather,9,true,to be cold (weather),Adjective,It's cold in winter.
-바쁘다,bappeuda,beschäftigt (sein),A2,Adjektiv,요즘 회사 일 때문에 좀 바빠요.,Ich bin zurzeit sehr beschäftigt.,Alltag,a2_daily_2,2,false,to be busy,Adjective,I'm very busy these days.
-피곤하다,pigonhada,müde (sein),A2,Adjektiv,오늘따라 좀 피곤하네요.,Heute bin ich müde.,Gefühle,a2_feelings_1,2,false,to be tired,Adjective,I'm tired today.
-행복하다,haengbokhada,glücklich (sein),A2,Adjektiv,요즘 진짜 행복해요.,Jetzt bin ich glücklich.,Gefühle,a2_feelings_1,3,false,to be happy,Adjective,I'm happy now.
-슬프다,seulpeuda,traurig (sein),A2,Adjektiv,그 얘기 들으니까 슬퍼요.,Heute bin ich traurig.,Gefühle,a2_feelings_1,4,false,to be sad,Adjective,I'm sad today.
-예쁘다,yeppeuda,hübsch / schön (sein),A2,Adjektiv,이 옷 진짜 예뻐요.,Die Blume ist hübsch.,Beschreibung,a2_descriptions_1,1,false,to be pretty,Adjective,The flower is pretty.
-재미있다,jaemiitda,interessant / lustig (sein),A2,Adjektiv,그 드라마 진짜 재미있어요.,Koreanisch ist interessant.,Beschreibung,a2_descriptions_1,2,false,to be interesting / fun,Adjective,Korean is interesting.
-무섭다,museobda,Angst einflößend / beängstigend,A2,Adjektiv,그 영화 좀 무서웠어요.,Geister machen mir Angst.,Gefühle,a2_feelings_1,5,false,to be scary,Adjective,Ghosts scare me.
-건강하다,geonganghada,gesund sein,A2,Adjektiv,부모님이 건강하셨으면 좋겠어요.,Ich bin gesund.,Gesundheit,a2_health_misc_2,8,true,to be healthy,Adjective,I'm healthy.
-아프다,apeuda,krank sein / schmerzen,A2,Adjektiv,아침부터 배가 너무 아파요.,Mein Bauch tut weh.,Gesundheit,a2_health_misc_2,9,true,to be sick / to hurt,Adjective,My stomach hurts.
-빠르다,ppareuda,schnell sein,A2,Adjektiv,택시가 지하철보다 빨라요.,Der Bus ist schnell.,Beschreibung,a2_descriptions_1,3,false,to be fast,Adjective,The bus is fast.
-느리다,neurida,langsam sein,A2,Adjektiv,오늘따라 인터넷이 좀 느리네요.,Die Schildkröte ist langsam.,Beschreibung,a2_descriptions_1,4,false,to be slow,Adjective,The turtle is slow.
-무겁다,mugeopda,schwer sein,A2,Adjektiv,가방이 왜 이렇게 무거워요?,Die Tasche ist schwer.,Beschreibung,a2_descriptions_1,5,false,to be heavy,Adjective,The bag is heavy.
-가볍다,gabyeopda,leicht sein,A2,Adjektiv,이 노트북 진짜 가벼워요.,Diese Tasche ist leicht.,Beschreibung,a2_descriptions_1,6,false,to be light,Adjective,This bag is light.
-넓다,neolda,breit / geräumig sein,A2,Adjektiv,새 집이 생각보다 넓어요.,Der Park ist groß und weit.,Beschreibung,a2_descriptions_1,7,true,to be wide / spacious,Adjective,The park is wide and spacious.
-좁다,jobda,eng / schmal sein,A2,Adjektiv,여기 자리가 좀 좁네요.,Dieses Zimmer ist eng.,Beschreibung,a2_descriptions_1,8,true,to be narrow / cramped,Adjective,This room is cramped.
-달다,dalda,süß sein,A2,Adjektiv,이 케이크 너무 달아요.,Dieser Kuchen ist süß.,Essen & Trinken,a2_food_1,3,false,to be sweet,Adjective,This cake is sweet.
-맵다,maepda,scharf sein,A2,Adjektiv,"아, 김치 진짜 맵네요.",Kimchi ist scharf.,Essen & Trinken,a2_food_1,4,false,to be spicy,Adjective,Kimchi is spicy.
-그립다,geuripda,vermissen / sich sehnen,A2,Adjektiv,요즘 고향이 많이 그리워요.,Ich vermisse meine Heimat.,Gefühle,a2_feelings_1,6,false,to miss / to long for,Adjective,I miss my hometown.
-외롭다,oeroepda,einsam sein,A2,Adjektiv,혼자 살면 가끔 외로울 때 있어요.,Ich bin alleine und fühle mich einsam.,Gefühle,a2_feelings_1,7,true,to be lonely,Adjective,I'm alone and lonely.
-정말,jeongmal,wirklich / tatsächlich,A2,Adverb,이거 정말 맛있네요.,Das ist wirklich lecker!,Alltag,a2_daily_2,3,false,really / truly,Adverb,It's really delicious!
-너무,neomu,zu sehr / sehr,A2,Adverb,오늘 너무 덥지 않아요?,Es ist zu heiß.,Alltag,a2_daily_2,4,false,too / very,Adverb,It's too hot.
-조금,jogeum,ein bisschen / etwas,A2,Adverb,조금만 더 주세요.,Noch ein bisschen mehr bitte.,Alltag,a2_daily_2,5,false,a little / a bit,Adverb,"A little more, please."
-많이,mani,viel / sehr,A2,Adverb,오늘 진짜 많이 먹었어요.,Ich habe viel gegessen.,Alltag,a2_daily_2,6,false,a lot / much,Adverb,I ate a lot.
-혼자,honja,alleine,A2,Adverb,저 혼자 살고 있어요.,Ich wohne alleine.,Alltag,a2_daily_2,7,true,alone,Adverb,I live alone.
-같이,gachi,zusammen / gemeinsam,A2,Adverb,우리 같이 갈까요?,Lass uns zusammen gehen.,Alltag,a2_daily_2,8,true,together,Adverb,Let's go together.
-또,tto,auch / wieder / nochmal,A2,Adverb,저 사람 또 왔네요.,Ich bin wieder gekommen.,Alltag,a2_daily_3,1,false,again / also,Adverb,I came again.
-경험,gyeongheom,Erfahrung,B1,Nomen,그게 저한테는 정말 좋은 경험이었어요.,Ich mache neue Erfahrungen.,Alltag,b1_daily_1,1,false,experience,Noun,I'm having new experiences.
-문화,munhwa,Kultur,B1,Nomen,한국 문화가 정말 매력적이에요.,Ich lerne die koreanische Kultur.,Gesellschaft,b1_tech_society_1,1,false,culture,Noun,I learn about Korean culture.
-사회,sahoe,Gesellschaft,B1,Nomen,요즘 사회 문제에 관심이 많아요.,Wir leben in einer vielfältigen Gesellschaft.,Gesellschaft,b1_tech_society_1,2,false,society,Noun,We live in a diverse society.
-환경,hwangyeong,Umwelt,B1,Nomen,환경 문제는 우리 모두의 책임이에요.,Wir müssen die Umwelt schützen.,Umwelt,b1_health_education,1,false,environment,Noun,We must protect the environment.
-관계,gwangye,Beziehung / Verhältnis,B1,Nomen,사람 관계가 제일 어려운 것 같아요.,Ich pflege gute Beziehungen.,Beziehungen,b1_emotions_relations_1,1,false,relationship,Noun,I maintain good relationships.
-목표,mokpyo,Ziel / Vorhaben,B1,Nomen,올해 목표는 한국어 자격증 따는 거예요.,Ich setze mir Ziele.,Motivation,b1_emotions_relations_1,2,false,goal / objective,Noun,I set goals.
-방법,bangbeop,Methode / Weg,B1,Nomen,혹시 더 좋은 방법 있으세요?,Gibt es eine gute Methode?,Alltag,b1_daily_1,2,false,method / way,Noun,Is there a good way?
-문제,munje,Problem / Aufgabe,B1,Nomen,이 문제 좀 같이 볼까요?,Gibt es ein Problem?,Alltag,b1_daily_1,3,false,problem / question,Noun,Is there a problem?
-해결,haegyeol,Lösung,B1,Nomen,이 문제는 빨리 해결해야 해요.,Ich löse das Problem.,Alltag,b1_daily_1,4,false,solution,Noun,I solve the problem.
-정치,jeongchi,Politik,B1,Nomen,저는 정치 얘기는 잘 안 해요.,Interessierst du dich für Politik?,Gesellschaft,b1_tech_society_1,3,false,politics,Noun,Are you interested in politics?
-경제,gyeongje,Wirtschaft,B1,Nomen,요즘 경제가 진짜 어렵네요.,Die Wirtschaft ist schwierig.,Gesellschaft,b1_tech_society_1,4,false,economy,Noun,The economy is struggling.
-교육,gyoyuk,Bildung / Erziehung,B1,Nomen,교육에 진짜 돈이 많이 들어요.,Bildung ist wichtig.,Gesellschaft,b1_tech_society_1,5,false,education,Noun,Education is important.
-건강,geongang,Gesundheit,B1,Nomen,뭐니 뭐니 해도 건강이 최고예요.,Gesundheit ist das Wichtigste.,Gesundheit,b1_health_education,2,false,health,Noun,Health is the most important thing.
-기술,gisul,Technologie / Technik,B1,Nomen,기술 발전 속도가 진짜 빠르네요.,Die Technologie hat sich entwickelt.,Gesellschaft,b1_tech_society_1,6,false,technology / technique,Noun,Technology has advanced.
-스트레스,seuteuleseu,Stress,B1,Nomen,요즘 스트레스가 너무 심해요.,Ich habe Stress.,Alltag,b1_daily_1,5,false,stress,Noun,I'm stressed.
-습관,seupgwan,Gewohnheit,B1,Nomen,일찍 자는 습관을 들이려고 해요.,Ich ändere meine schlechten Gewohnheiten.,Alltag,b1_daily_1,6,false,habit,Noun,I change my bad habits.
-기회,gihoe,Gelegenheit / Chance,B1,Nomen,이건 정말 좋은 기회 같아요.,Das ist eine gute Gelegenheit.,Motivation,b1_emotions_relations_1,3,false,opportunity / chance,Noun,This is a good opportunity.
-과정,gwajeong,Prozess / Vorgang,B1,Nomen,결과보다 과정이 더 중요하다고 생각해요.,Der Lernprozess ist wichtig.,Bildung,b1_health_education,3,false,process,Noun,The learning process is important.
-상황,sanghwang,Situation / Lage,B1,Nomen,지금 상황이 좀 애매해요.,Die Situation ist schwierig.,Alltag,b1_daily_1,7,false,situation,Noun,The situation is difficult.
-원인,wonin,Ursache / Grund,B1,Nomen,원인을 정확히 알아야 해결이 되죠.,Ich suche die Ursache des Problems.,Alltag,b1_daily_1,8,true,cause,Noun,I'm looking for the cause of the problem.
-결과,gyeolgwa,Ergebnis / Folge,B1,Nomen,결과가 생각보다 잘 나왔어요.,Das Ergebnis ist gut.,Alltag,b1_daily_1,9,true,result / outcome,Noun,The result is good.
-생각,saenggak,Gedanke / Meinung,B1,Nomen,제 생각도 좀 들어보실래요?,Meine Meinung ist anders.,Kommunikation,b1_emotions_relations_1,4,false,thought / opinion,Noun,My opinion is different.
-의견,uigyeon,Meinung / Standpunkt,B1,Nomen,다른 의견 있으신 분 계세요?,Bitte sagen Sie Ihre Meinung.,Kommunikation,b1_emotions_relations_1,5,false,opinion / view,Noun,Please share your opinion.
-이유,iyu,Grund / Ursache,B1,Nomen,특별한 이유가 있는 건 아니에요.,Was ist der Grund?,Alltag,b1_daily_2,1,false,reason,Noun,What is the reason?
-조건,jogeon,Bedingung / Voraussetzung,B1,Nomen,조건이 좀 까다롭네요.,Die Bedingungen stimmen.,Alltag,b1_daily_2,2,false,condition / requirement,Noun,The conditions are right.
-정보,jeongbo,Information,B1,Nomen,인터넷에 정보가 너무 많아서 헷갈려요.,Ich suche Informationen.,Alltag,b1_daily_2,3,false,information,Noun,I look for information.
-연락,yeollak,Kontakt / Kommunikation,B1,Nomen,도착하면 연락 주세요.,Bitte kontaktiere mich.,Kommunikation,b1_emotions_relations_1,6,false,contact / communication,Noun,Please get in touch.
-결정하다,gyeoljeongada,entscheiden,B1,Verb,그건 저 혼자 결정하기 어려워요.,Ich habe alleine entschieden.,Alltag,b1_daily_2,4,false,to decide,Verb,I decided on my own.
-설명하다,seolmyeonghada,erklären,B1,Verb,좀 더 자세히 설명해 주시겠어요?,Bitte erkläre es langsam.,Kommunikation,b1_emotions_relations_1,7,true,to explain,Verb,Please explain it slowly.
-비교하다,bigohada,vergleichen,B1,Verb,두 개를 비교해 보고 결정할게요.,Ich vergleiche die zwei Dinge.,Alltag,b1_daily_2,5,false,to compare,Verb,I compare the two things.
-준비하다,junbihada,vorbereiten,B1,Verb,발표 준비 잘 하고 계세요?,Ich bereite mich auf die Prüfung vor.,Bildung,b1_health_education,4,false,to prepare,Verb,I prepare for the exam.
-포기하다,pogihada,aufgeben,B1,Verb,여기까지 왔는데 포기하지 마세요.,Gib niemals auf!,Motivation,b1_emotions_relations_1,8,true,to give up,Verb,Never give up!
-도전하다,dojeonhada,eine Herausforderung annehmen,B1,Verb,새로운 일에 도전해 보고 싶어요.,Ich nehme neue Herausforderungen an.,Motivation,b1_emotions_relations_2,1,false,to take on a challenge,Verb,I take on new challenges.
-발전하다,baljeonhada,sich entwickeln / Fortschritte machen,B1,Verb,짧은 시간에 실력이 많이 발전했네요.,Meine Fähigkeiten haben sich verbessert.,Bildung,b1_health_education,5,false,to develop / to improve,Verb,My skills have improved.
-노력하다,noryeokhada,sich anstrengen / bemühen,B1,Verb,저도 나름대로 노력하고 있어요.,Ich strenge mich sehr an.,Motivation,b1_emotions_relations_2,2,false,to make an effort,Verb,I try very hard.
-참여하다,chamyeohada,teilnehmen / mitmachen,B1,Verb,이번 행사에 꼭 참여해 주세요.,Ich nehme an der Veranstaltung teil.,Alltag,b1_daily_2,6,false,to participate,Verb,I take part in the event.
-선택하다,seontaekhada,auswählen / sich entscheiden,B1,Verb,어떤 걸 선택하든 다 좋아요.,Ich wähle das Gute.,Alltag,b1_daily_2,7,false,to choose / to select,Verb,I choose the good one.
-실패하다,silpaekhada,scheitern / versagen,B1,Verb,몇 번 실패해도 괜찮아요.,Hab keine Angst vor dem Scheitern.,Motivation,b1_emotions_relations_2,3,false,to fail,Verb,Don't be afraid of failure.
-성공하다,seonggonghada,erfolgreich sein / Erfolg haben,B1,Verb,결국 성공하실 거예요.,Du kannst Erfolg haben.,Motivation,b1_emotions_relations_2,4,false,to succeed,Verb,You can succeed.
-극복하다,geukbokhada,überwinden,B1,Verb,이번 어려움도 잘 극복하시길 바라요.,Ich überwinde die Schwierigkeiten.,Motivation,b1_emotions_relations_2,5,false,to overcome,Verb,I overcome the difficulties.
-표현하다,pyohyeonhada,ausdrücken,B1,Verb,감정을 잘 표현하는 편이 아니에요.,Ich drücke meine Gefühle aus.,Kommunikation,b1_emotions_relations_2,6,true,to express,Verb,I express my feelings.
-집중하다,jipjunghada,sich konzentrieren,B1,Verb,요즘 일에 집중이 잘 안 돼요.,Ich konzentriere mich auf das Lernen.,Bildung,b1_health_education,6,false,to concentrate,Verb,I concentrate on studying.
-인정하다,injeonghada,anerkennen / zugeben,B1,Verb,제 실수를 인정할게요.,Ich gebe meinen Fehler zu.,Alltag,b1_daily_2,8,true,to acknowledge / to admit,Verb,I admit my mistake.
-중요하다,jungnyohada,wichtig (sein),B1,Adjektiv,무엇보다 건강이 제일 중요해요.,Lernen ist wichtig.,Beschreibung,b1_descriptions_1,1,false,to be important,Adjective,Studying is important.
-다양하다,dayanghada,vielfältig / verschieden (sein),B1,Adjektiv,요즘은 정말 방법이 다양해요.,Es gibt verschiedene Methoden.,Beschreibung,b1_descriptions_1,2,false,to be diverse / various,Adjective,There are various methods.
-복잡하다,bokjaphada,kompliziert sein,B1,Adjektiv,이 문제는 생각보다 복잡해요.,Die Situation ist kompliziert.,Beschreibung,b1_descriptions_1,3,false,to be complicated,Adjective,The situation is complicated.
-단순하다,dansunhada,einfach / schlicht sein,B1,Adjektiv,생각보다 답은 단순하더라고요.,Die Methode ist einfach.,Beschreibung,b1_descriptions_1,4,false,to be simple,Adjective,The method is simple.
-정확하다,jeonghwakhada,genau / korrekt sein,B1,Adjektiv,시간 좀 정확하게 알려주세요.,Das sind genaue Informationen.,Beschreibung,b1_descriptions_1,5,false,to be accurate / correct,Adjective,That's accurate information.
-효율적이다,hyoyuljeogida,effizient sein,B1,Adjektiv,이 방법이 훨씬 효율적이에요.,Diese Methode ist effizient.,Beschreibung,b1_descriptions_1,6,false,to be efficient,Adjective,This method is efficient.
-결국,gyeolguk,schließlich / letztendlich,B1,Adverb,결국 오늘도 야근이네요.,Letztendlich hat es geklappt.,Alltag,b1_daily_2,9,true,in the end / eventually,Adverb,"In the end, it worked out."
-오히려,ohiryeo,eher / vielmehr,B1,Adverb,말 안 했으면 오히려 좋았을 텐데요.,Es hat mir eher geholfen.,Alltag,b1_daily_3,1,false,rather / instead,Adverb,"It helped me, if anything."
-게다가,gedaga,außerdem / darüber hinaus,B1,Adverb,일도 힘든데 게다가 몸까지 안 좋네요.,Außerdem ist es auch lecker.,Alltag,b1_daily_3,2,false,moreover / on top of that,Adverb,"On top of that, it's tasty too."
-따라서,ttaraseo,daher / deshalb / folglich,B1,Adverb,규칙에 따라서 처리해 드리겠습니다.,Daher muss man vorsichtig sein.,Alltag,b1_daily_3,3,false,therefore / accordingly,Adverb,"Therefore, one must be careful."
-특히,teuki,besonders / vor allem,B1,Adverb,특히 매운 음식을 좋아해요.,Ich mag besonders koreanisches Essen.,Alltag,b1_daily_3,4,false,especially / above all,Adverb,I especially like Korean food.
-갑자기,gapjagi,plötzlich,B1,Adverb,갑자기 비가 쏟아졌어요.,Es hat plötzlich geregnet.,Alltag,b1_daily_3,5,false,suddenly,Adverb,It suddenly started to rain.
-드디어,deudieo,endlich / schließlich,B1,Adverb,드디어 주말이네요!,Es ist endlich vorbei!,Alltag,b1_daily_3,6,false,finally / at last,Adverb,It's finally over!
-반면,banmyeon,andererseits / hingegen,B1,Adverb,가격은 비싼 반면 품질은 좋아요.,"Es ist gut, aber teuer.",Alltag,b1_daily_3,7,false,on the other hand / whereas,Adverb,It's good but expensive.
-갈등,galdeung,Konflikt,B2,Nomen,부서 간 갈등을 잘 조율해야 해요.,Wir müssen den Konflikt lösen.,Gesellschaft,b2_society_1,1,false,conflict,Noun,We must resolve the conflict.
-관점,gwanjeom,Standpunkt / Perspektive,B2,Nomen,이 문제는 다양한 관점에서 봐야 해요.,Es gibt verschiedene Standpunkte.,Denken,b2_thinking_1,1,false,viewpoint / perspective,Noun,There are various viewpoints.
-가치관,gachigwan,Wertvorstellung,B2,Nomen,사람마다 가치관이 다르니까 존중해야죠.,Wir haben unterschiedliche Wertvorstellungen.,Gesellschaft,b2_society_1,2,false,values / set of values,Noun,We have different values.
-논리,nolli,Logik / Argumentation,B2,Nomen,말씀의 논리가 좀 부족한 것 같아요.,Ich denke logisch.,Denken,b2_thinking_1,2,false,logic / reasoning,Noun,I think logically.
-이론,iron,Theorie,B2,Nomen,이론과 실제는 좀 다르더라고요.,Ich studiere die Theorie.,Bildung,b2_education,1,false,theory,Noun,I study the theory.
-연구,yeongu,Forschung / Studie,B2,Nomen,이 연구 결과가 최근에 발표됐어요.,Das ist ein neues Forschungsergebnis.,Wissenschaft,b2_misc,1,false,research / study,Noun,This is a new research finding.
-결론,gyeollon,Schlussfolgerung / Fazit,B2,Nomen,결론부터 말씀드리자면 반대예요.,Ich ziehe eine Schlussfolgerung.,Denken,b2_thinking_1,3,false,conclusion,Noun,I draw a conclusion.
-근거,geungeo,Grundlage / Beweis / Beleg,B2,Nomen,이 주장의 근거가 뭐예요?,Es gibt keinen Beweis.,Denken,b2_thinking_1,4,false,basis / evidence,Noun,There is no evidence.
-현상,hyeonsang,Phänomen / Erscheinung,B2,Nomen,이건 요즘 사회에서 흔한 현상이에요.,Das ist ein gesellschaftliches Phänomen.,Gesellschaft,b2_society_1,3,false,phenomenon,Noun,It's a social phenomenon.
-전제,jeonje,Voraussetzung / Prämisse,B2,Nomen,이 전제 자체가 잘못됐다고 생각해요.,Die Voraussetzung ist falsch.,Denken,b2_thinking_1,5,false,premise / precondition,Noun,The premise is wrong.
-맥락,maengnak,Kontext / Zusammenhang,B2,Nomen,그 발언은 맥락을 봐야 이해가 돼요.,Ich verstehe den Kontext.,Denken,b2_thinking_1,6,false,context,Noun,I understand the context.
-복지,bokji,Wohlfahrt / Sozialleistungen,B2,Nomen,복지 정책 개선이 시급합니다.,Soziale Wohlfahrt ist wichtig.,Gesellschaft,b2_society_1,4,false,welfare,Noun,Social welfare is important.
-민주주의,minjujuui,Demokratie,B2,Nomen,민주주의는 참여에서 시작돼요.,Wir schützen die Demokratie.,Gesellschaft,b2_society_1,5,false,democracy,Noun,We protect democracy.
-자유,jayu,Freiheit,B2,Nomen,표현의 자유는 존중되어야 해요.,Freiheit ist wichtig.,Gesellschaft,b2_society_1,6,false,freedom,Noun,Freedom is important.
-주장하다,jujangada,behaupten / argumentieren,B2,Verb,본인의 입장을 분명히 주장하셔야 해요.,Ich vertrete meine eigene Meinung.,Kommunikation,b2_communication,1,false,to claim / to argue,Verb,I assert my own opinion.
-분석하다,bunseokada,analysieren,B2,Verb,이 데이터를 좀 더 분석해 볼게요.,Ich analysiere die Situation.,Denken,b2_thinking_1,7,false,to analyze,Verb,I analyze the situation.
-평가하다,pyeonggahada,bewerten / beurteilen,B2,Verb,성과는 객관적으로 평가해야 해요.,Ich bewerte die Leistung.,Alltag,b2_misc,2,false,to evaluate / to assess,Verb,I evaluate the performance.
-비판하다,bipanhada,kritisieren,B2,Verb,건설적으로 비판하는 게 중요하죠.,Ich kritisiere konstruktiv.,Kommunikation,b2_communication,2,false,to criticize,Verb,I criticize constructively.
-강조하다,gangjohada,betonen / hervorheben,B2,Verb,이 부분을 다시 한번 강조하고 싶어요.,Ich betone die Wichtigkeit.,Kommunikation,b2_communication,3,false,to emphasize,Verb,I emphasize the importance.
-검토하다,geomtohada,überprüfen / untersuchen,B2,Verb,제안서 다시 한번 검토해 주세요.,Ich überprüfe den Plan.,Alltag,b2_misc,3,false,to review / to examine,Verb,I review the plan.
-제시하다,jesihada,vorstellen / präsentieren,B2,Verb,구체적인 대안을 제시해 주시겠어요?,Ich präsentiere eine neue Idee.,Kommunikation,b2_communication,4,false,to present / to put forward,Verb,I present a new idea.
-논의하다,nonuihada,diskutieren / erörtern,B2,Verb,이 부분은 다음 회의에서 논의하죠.,Wir diskutieren das Problem.,Kommunikation,b2_communication,5,false,to discuss,Verb,We discuss the problem.
-인식하다,insikhada,erkennen / wahrnehmen,B2,Verb,문제를 정확히 인식하는 게 먼저예요.,Ich erkenne das Problem.,Denken,b2_thinking_1,8,true,to recognize / to perceive,Verb,I recognize the problem.
-해석하다,haeseokhada,interpretieren / auslegen,B2,Verb,이 조항을 어떻게 해석해야 할까요?,Ich interpretiere die Situation.,Denken,b2_thinking_1,9,true,to interpret,Verb,I interpret the situation.
-반박하다,banbakhada,widerlegen / widersprechen,B2,Verb,그 부분은 반박하고 싶은데요.,Ich widerlege die Behauptung.,Kommunikation,b2_communication,6,false,to refute / to counter,Verb,I refute the claim.
-적용하다,jeogyonghada,anwenden,B2,Verb,새 규정이 다음 달부터 적용됩니다.,Ich wende die Theorie an.,Alltag,b2_misc,4,false,to apply,Verb,I apply the theory.
-실현하다,silhyeonhada,verwirklichen / realisieren,B2,Verb,언젠가는 그 꿈을 실현하고 싶어요.,Ich verwirkliche meinen Traum.,Motivation,b2_misc,5,false,to realize / to bring about,Verb,I realize my dream.
-지속하다,jisokhada,fortsetzen / aufrechterhalten,B2,Verb,지금 방식을 계속 지속하기는 어렵겠어요.,Ich setze meine Bemühungen fort.,Motivation,b2_misc,6,false,to continue / to sustain,Verb,I continue my efforts.
-추상적이다,chusangjeoida,abstrakt sein,B2,Adjektiv,설명이 좀 추상적이지 않았어요?,Das ist ein abstraktes Konzept.,Denken,b2_thinking_2,1,false,to be abstract,Adjective,It's an abstract concept.
-구체적이다,gucheijeoida,konkret sein,B2,Adjektiv,좀 더 구체적으로 말씀해 주시겠어요?,Ich gebe ein konkretes Beispiel.,Denken,b2_thinking_2,2,false,to be concrete,Adjective,I give a concrete example.
-객관적이다,gaekgwanjeoida,objektiv sein,B2,Adjektiv,객관적으로 봐도 이 결과가 맞아요.,Ich urteile objektiv.,Denken,b2_thinking_2,3,false,to be objective,Adjective,I judge objectively.
-주관적이다,jugwanjeoida,subjektiv sein,B2,Adjektiv,그건 너무 주관적인 판단이에요.,Das ist eine subjektive Meinung.,Denken,b2_thinking_2,4,false,to be subjective,Adjective,That's a subjective opinion.
-일,il,eins (sino-koreanisch),A1,Nomen,일층에 가요.,Ich gehe in die erste Etage.,Zahlen,a1_numbers_1,2,false,one (Sino-Korean),Noun,I go to the first floor.
-이,i,zwei (sino-koreanisch),A1,Nomen,이층이에요.,Es ist im zweiten Stock.,Zahlen,a1_numbers_1,3,false,two (Sino-Korean),Noun,It's on the second floor.
-삼,sam,drei (sino-koreanisch),A1,Nomen,삼번 버스를 타요.,Ich nehme den Bus Nummer drei.,Zahlen,a1_numbers_1,4,false,three (Sino-Korean),Noun,I take bus number three.
-사,sa,vier (sino-koreanisch),A1,Nomen,사월에 만나요.,Wir treffen uns im April.,Zahlen,a1_numbers_1,5,false,four (Sino-Korean),Noun,We meet in April.
-오,o,fünf (sino-koreanisch),A1,Nomen,오천 원이에요.,Das kostet fünftausend Won.,Zahlen,a1_numbers_1,6,false,five (Sino-Korean),Noun,It costs five thousand won.
-육,yuk,sechs (sino-koreanisch),A1,Nomen,저는 육 층에 살아요.,Ich stehe um sechs auf.,Zahlen,a1_numbers_1,7,false,six (Sino-Korean),Noun,I get up at six.
-칠,chil,sieben (sino-koreanisch),A1,Nomen,칠월은 더워요.,Der Juli ist heiß.,Zahlen,a1_numbers_1,8,true,seven (Sino-Korean),Noun,July is hot.
-팔,pal,acht (sino-koreanisch),A1,Nomen,팔월에 휴가예요.,Im August habe ich Urlaub.,Zahlen,a1_numbers_1,9,true,eight (Sino-Korean),Noun,I'm on vacation in August.
-구,gu,neun (sino-koreanisch),A1,Nomen,새 학기가 구월에 시작해요.,Im September fängt die Schule an.,Zahlen,a1_numbers_2,1,false,nine (Sino-Korean),Noun,School starts in September.
-십,sip,zehn (sino-koreanisch),A1,Nomen,십 분만 기다려요.,Ich warte nur zehn Minuten.,Zahlen,a1_numbers_2,2,false,ten (Sino-Korean),Noun,I'll wait just ten minutes.
-백,baek,hundert,A1,Nomen,백 명이 왔어요.,Hundert Leute sind gekommen.,Zahlen,a1_numbers_2,3,false,hundred,Noun,A hundred people came.
-천,cheon,tausend,A1,Nomen,천 원만 빌려주세요.,Leih mir bitte tausend Won.,Zahlen,a1_numbers_2,4,false,thousand,Noun,Please lend me just a thousand won.
-만,man,zehntausend,A1,Nomen,만 원이에요.,Es kostet zehntausend Won.,Zahlen,a1_numbers_2,5,false,ten thousand,Noun,It costs ten thousand won.
-하나,hana,eins (rein-koreanisch),A1,Nomen,하나만 주세요.,Nur eins bitte.,Zahlen,a1_numbers_2,6,false,one (native Korean),Noun,"Just one, please."
-둘,dul,zwei (rein-koreanisch),A1,Nomen,둘이 같이 가요.,Wir gehen zu zweit.,Zahlen,a1_numbers_2,7,false,two (native Korean),Noun,"We go together, the two of us."
-셋,set,drei (rein-koreanisch),A1,Nomen,저희 셋이서 갈게요.,Drei Äpfel bitte.,Zahlen,a1_numbers_2,8,true,three (native Korean),Noun,"Three apples, please."
-넷,net,vier (rein-koreanisch),A1,Nomen,우리 넷이서 같이 가요.,Wir sind zu viert.,Zahlen,a1_numbers_2,9,true,four (native Korean),Noun,There are four of us.
-다섯,daseot,fünf (rein-koreanisch),A1,Nomen,다섯 시에 만나요.,Wir treffen uns um fünf.,Zahlen,a1_numbers_3,1,false,five (native Korean),Noun,We meet at five.
-여섯,yeoseot,sechs (rein-koreanisch),A1,Nomen,여섯 명이 와요.,Sechs Leute kommen.,Zahlen,a1_numbers_3,2,false,six (native Korean),Noun,Six people are coming.
-일곱,ilgop,sieben (rein-koreanisch),A1,Nomen,일곱 시에 출발해요.,Wir starten um sieben.,Zahlen,a1_numbers_3,3,false,seven (native Korean),Noun,We leave at seven.
-여덟,yeodeol,acht (rein-koreanisch),A1,Nomen,여덟 살이에요.,Ich bin acht Jahre alt.,Zahlen,a1_numbers_3,4,false,eight (native Korean),Noun,I'm eight years old.
-아홉,ahop,neun (rein-koreanisch),A1,Nomen,아홉 시예요.,Es ist neun Uhr.,Zahlen,a1_numbers_3,5,false,nine (native Korean),Noun,It's nine o'clock.
-열,yeol,zehn (rein-koreanisch),A1,Nomen,열 시까지 와요.,Komm bis zehn Uhr.,Zahlen,a1_numbers_3,6,false,ten (native Korean),Noun,Come by ten o'clock.
-시,si,Uhr (Stunde),A1,Nomen,지금 몇 시예요?,Wie spät ist es jetzt?,Zeit,a1_time_2,2,false,o'clock (hour),Noun,What time is it now?
-분,bun,Minute,A1,Nomen,십 분 남았어요.,Es bleiben noch zehn Minuten.,Zeit,a1_time_2,3,false,minute,Noun,There are ten minutes left.
-초,cho,Sekunde,A1,Nomen,일 초만 기다려요.,Warte nur eine Sekunde.,Zeit,a1_time_2,4,false,second,Noun,Wait just one second.
-시간,sigan,Zeit / Stunde,A1,Nomen,시간이 없어요.,Ich habe keine Zeit.,Zeit,a1_time_2,5,false,time / hour,Noun,I have no time.
-요일,yoil,Wochentag,A1,Nomen,무슨 요일이에요?,Welcher Wochentag ist heute?,Zeit,a1_time_2,6,false,day of the week,Noun,What day of the week is it?
-월요일,woryoil,Montag,A1,Nomen,월요일에 다시 만나요.,Wir fangen am Montag an.,Zeit,a1_time_2,7,true,Monday,Noun,We start on Monday.
-화요일,hwayoil,Dienstag,A1,Nomen,화요일에 만나요.,Wir treffen uns am Dienstag.,Zeit,a1_time_2,8,true,Tuesday,Noun,We meet on Tuesday.
-수요일,suyoil,Mittwoch,A1,Nomen,이번 주 수요일에 만날까요?,Mittwoch passt mir gut.,Zeit,a1_time_3,1,false,Wednesday,Noun,Wednesday works for me.
-목요일,mogyoil,Donnerstag,A1,Nomen,이번 주 목요일에 봐요.,Komm am Donnerstag.,Zeit,a1_time_3,2,false,Thursday,Noun,Come on Thursday.
-금요일,geumyoil,Freitag,A1,Nomen,금요일 저녁에 만나요.,Wir treffen uns Freitagabend.,Zeit,a1_time_3,3,false,Friday,Noun,We meet on Friday evening.
-토요일,toyoil,Samstag,A1,Nomen,토요일에 쉬어요.,Am Samstag ruhe ich mich aus.,Zeit,a1_time_3,4,false,Saturday,Noun,I rest on Saturday.
-일요일,iryoil,Sonntag,A1,Nomen,일요일에는 늦잠 자요.,Sonntags gehe ich in die Kirche.,Zeit,a1_time_3,5,false,Sunday,Noun,I go to church on Sundays.
-안녕히 가세요,annyeonghi gaseyo,Auf Wiedersehen (zum Gehenden),A1,Ausdruck,조심히 안녕히 가세요.,"Auf Wiedersehen! (zu dem, der geht)",Begrüßung,a1_greetings_1,7,false,Goodbye (to someone leaving),Expression,Goodbye! (to the one leaving)
-안녕히 계세요,annyeonghi gyeseyo,Auf Wiedersehen (zum Bleibenden),A1,Ausdruck,저 먼저 갈게요. 안녕히 계세요.,"Auf Wiedersehen! (zu dem, der bleibt)",Begrüßung,a1_greetings_1,8,true,Goodbye (to someone staying),Expression,Goodbye! (to the one staying)
-잘 자요,jal jayo,Gute Nacht,A1,Ausdruck,오늘 수고했어요. 잘 자요.,Gute Nacht!,Begrüßung,a1_greetings_1,9,true,Good night,Expression,Good night!
-잘 지내요?,jal jinaeyo,Wie geht es dir?,A1,Ausdruck,요즘 잘 지내요?,Wie geht es dir in letzter Zeit?,Begrüßung,a1_greetings_2,1,false,How are you?,Expression,How have you been lately?
-처음 뵙겠습니다,cheoeum boepgesseumnida,Sehr erfreut Sie kennenzulernen,A1,Ausdruck,처음 뵙겠습니다. 잘 부탁드려요.,Sehr erfreut Sie kennenzulernen! (formell),Begrüßung,a1_greetings_2,2,false,Pleased to meet you (formal),Expression,Pleased to meet you! (formal)
-만나서 반가워요,mannaseo bangawoyo,Schön dich kennenzulernen,A1,Ausdruck,정말 만나서 반가워요.,Schön dich kennenzulernen!,Begrüßung,a1_greetings_2,3,false,Nice to meet you,Expression,Nice to meet you!
-잘 부탁드려요,jal butakdeuryeoyo,Ich bitte um gute Zusammenarbeit,A1,Ausdruck,앞으로 잘 부탁드려요.,Ich bitte um gute Zusammenarbeit in Zukunft.,Höflichkeit,a1_greetings_2,4,false,I look forward to working with you,Expression,I look forward to working with you.
-천만에요,cheonmaneyo,Gern geschehen / Keine Ursache,A1,Ausdruck,"아니에요, 천만에요.",Gern geschehen!,Höflichkeit,a1_greetings_2,5,false,You're welcome,Expression,You're welcome!
-별말씀을요,byeolmalsseumeurueyo,Keine Ursache (höflich),A1,Ausdruck,"별말씀을요, 당연한 거예요.",Keine Ursache.,Höflichkeit,a1_greetings_2,6,false,Don't mention it (polite),Expression,Don't mention it.
-실례합니다,sillyehamnida,Entschuldigen Sie,A1,Ausdruck,"실례합니다, 화장실이 어디예요?","Entschuldigung, einen Moment.",Höflichkeit,a1_greetings_2,7,true,Excuse me,Expression,Excuse me — one moment.
-잠시만요,jamsimanyo,Einen Moment bitte,A1,Ausdruck,"잠시만요, 금방 갈게요.",Einen Moment bitte!,Höflichkeit,a1_greetings_2,8,true,"One moment, please",Expression,"One moment, please!"
-화이팅,hwaiting,Du schaffst das! / Viel Erfolg!,A1,Ausdruck,우리 팀 화이팅!,"Koreanisch, du schaffst das!",Motivation,a1_misc_2,9,true,You can do it! / Good luck!,Expression,Korean — you can do it!
-위,wi,oben / über,A1,Nomen,책상 위에 있어요.,Es liegt auf dem Tisch.,Position,a1_position,1,false,top / above,Noun,It's on the desk.
-아래,arae,unten / unter,A1,Nomen,의자 아래에 가방이 있어요.,Unter dem Stuhl steht eine Tasche.,Position,a1_position,2,false,bottom / below,Noun,There's a bag under the chair.
-앞,ap,vorne / vor,A1,Nomen,학교 앞에서 만나요.,Wir treffen uns vor der Schule.,Position,a1_position,3,false,front / in front of,Noun,We meet in front of the school.
-뒤,dwi,hinten / hinter,A1,Nomen,집 뒤에 공원이 있어요.,Hinter dem Haus ist ein Park.,Position,a1_position,4,false,back / behind,Noun,There's a park behind the house.
-옆,yeop,neben / Seite,A1,Nomen,옆에 앉아도 돼요?,Darf ich neben dir sitzen?,Position,a1_position,5,false,next to / side,Noun,May I sit next to you?
-안,an,drinnen / in,A1,Nomen,가방 안에 책이 있어요.,In der Tasche ist ein Buch.,Position,a1_position,6,false,inside / in,Noun,There's a book in the bag.
-밖,bak,draußen / außerhalb,A1,Nomen,밖에 비가 와요.,Draußen regnet es.,Position,a1_position,7,false,outside,Noun,It's raining outside.
-사이,sai,zwischen / Zwischenraum,A1,Nomen,우리 사이는 좋아요.,Wir verstehen uns gut.,Beziehungen,a1_family_2,9,true,between / gap,Noun,We get along well.
-왼쪽,oenjjok,links,A1,Nomen,왼쪽으로 가세요.,Gehen Sie nach links.,Position,a1_position,8,false,left,Noun,Go to the left.
-오른쪽,oreunjjok,rechts,A1,Nomen,오른쪽에 화장실이 있어요.,Rechts ist die Toilette.,Position,a1_position,9,false,right,Noun,The bathroom is on the right.
-저,jeo,ich (höflich),A1,Pronomen,저는 한국어를 배워요.,Ich lerne Koreanisch.,Person,a1_self_intro,5,false,I (polite),Pronoun,I'm learning Korean.
-나,na,ich (informell),A1,Pronomen,나도 갈래.,Ich komme auch mit.,Person,a1_self_intro,6,false,I (informal),Pronoun,I'll come too.
-너,neo,du (informell),A1,Pronomen,너 어디 가?,Wohin gehst du?,Person,a1_self_intro,7,true,you (informal),Pronoun,Where are you going?
-우리,uri,wir,A1,Pronomen,우리 같이 가요.,Lass uns zusammen gehen.,Person,a1_self_intro,8,true,we,Pronoun,Let's go together.
-이거,igeo,das (hier),A1,Pronomen,이거 얼마예요?,Wie viel kostet das?,Alltag,a1_daily_4,1,false,this (one),Pronoun,How much is this?
-그거,geugeo,das (da),A1,Pronomen,그거 주세요.,Das da bitte.,Alltag,a1_daily_4,2,false,that (one),Pronoun,"That one, please."
-저거,jeogeo,das (dort),A1,Pronomen,저거 뭐예요?,Was ist das dort?,Alltag,a1_daily_4,3,false,that (over there),Pronoun,What's that over there?
-여기,yeogi,hier,A1,Nomen,여기 앉으세요.,Setzen Sie sich bitte hier hin.,Position,a1_position,10,true,here,Noun,Please sit here.
-거기,geogi,da,A1,Nomen,거기 가 본 적 있어요.,Da war ich schon mal.,Position,a1_position,11,true,there,Noun,I've been there before.
-저기,jeogi,dort,A1,Nomen,저기 보세요.,Schauen Sie dort hin.,Position,a1_position,12,true,over there,Noun,Look over there.
-새,sae,neu (attributiv),A1,Adjektiv,새 옷이 마음에 들어요.,Die neue Kleidung gefällt mir.,Beschreibung,a1_descriptions,11,true,new (attributive),Adjective,I like the new clothes.
-다른,dareun,andere/r/s,A1,Adjektiv,다른 색깔도 있어요?,Gibt es auch andere Farben?,Beschreibung,a1_descriptions,12,true,other / different,Adjective,Are there other colors too?
-같은,gateun,gleich / dasselbe,A1,Adjektiv,같은 학교에 다녀요.,Wir gehen zur gleichen Schule.,Beschreibung,a1_descriptions,13,true,same,Adjective,We go to the same school.
-모든,modeun,alle / sämtliche,A1,Adjektiv,모든 사람이 좋아해요.,Alle Leute mögen es.,Menge,a1_numbers_3,7,true,all / every,Adjective,Everyone likes it.
-몇,myeot,wie viele,A1,Adjektiv,몇 명이에요?,Wie viele Personen?,Menge,a1_numbers_3,8,true,how many,Adjective,How many people?
-잠깐,jamkkan,kurz / einen Moment,A1,Adverb,잠깐만 기다려 주세요.,Warte einen Moment.,Zeit,a1_time_3,6,false,for a moment / briefly,Adverb,Wait a moment.
-천천히,cheoncheonhi,langsam,A1,Adverb,천천히 말해 주세요.,Bitte sprechen Sie langsam.,Alltag,a1_daily_4,4,false,slowly,Adverb,Please speak slowly.
-일찍,iljjik,früh,A1,Adverb,오늘 일찍 자고 싶어요.,Ich gehe früh schlafen.,Zeit,a1_time_3,7,true,early,Adverb,I go to bed early.
-늦게,neutge,spät,A1,Adverb,어제 늦게 잤어요.,Gestern bin ich spät schlafen gegangen.,Zeit,a1_time_3,8,true,late,Adverb,I went to bed late yesterday.
-자주,jaju,oft,A1,Adverb,저는 커피를 자주 마셔요.,Wir treffen uns oft.,Alltag,a1_daily_4,5,false,often,Adverb,We meet often.
-별로,byeolro,nicht besonders,A1,Adverb,별로 안 좋아해요.,Ich mag es nicht besonders.,Alltag,a1_daily_4,6,false,not really / not particularly,Adverb,I don't really like it.
-진짜,jinjja,echt / wirklich (umgangssprachlich),A1,Adverb,진짜 맛있어요!,Das ist echt lecker!,Alltag,a1_daily_4,7,false,really / for real (colloquial),Adverb,It's really delicious!
-맛없다,masseopda,nicht lecker sein,A1,Adjektiv,음식이 좀 맛없어요.,Das Essen ist nicht so lecker.,Essen & Trinken,a1_food_2,8,true,to taste bad,Adjective,The food isn't very tasty.
-더,deo,mehr,A1,Adverb,더 주세요.,Mehr bitte.,Alltag,a1_daily_4,8,true,more,Adverb,"More, please."
-덜,deol,weniger,A1,Adverb,설탕은 덜 넣어요.,Ich gebe weniger Zucker hinein.,Alltag,a1_daily_4,9,true,less,Adverb,I put in less sugar.
-주문하다,jumunhada,bestellen,A2,Verb,저희 아직 주문 안 했어요.,Ich bestelle von der Speisekarte.,Essen & Trinken,a2_food_1,5,false,to order,Verb,I order from the menu.
-메뉴,menyu,Menü / Speisekarte,A2,Nomen,메뉴판 좀 볼 수 있을까요?,Die Speisekarte bitte.,Essen & Trinken,a2_food_1,6,true,menu,Noun,"The menu, please."
-추천하다,chucheonhada,empfehlen,A2,Verb,여기서 뭐가 제일 맛있어요?,Was empfehlen Sie?,Essen & Trinken,a2_food_1,7,true,to recommend,Verb,What do you recommend?
-맛,mat,Geschmack,A2,Nomen,이 집 김치찌개 맛이 진짜예요.,Wie schmeckt es?,Essen & Trinken,a2_food_2,1,false,taste / flavor,Noun,How does it taste?
-짜다,jjada,salzig sein,A2,Adjektiv,국이 좀 짜네요.,Die Suppe ist etwas salzig.,Essen & Trinken,a2_food_2,2,false,to be salty,Adjective,The soup is a bit salty.
-시다,sida,sauer sein,A2,Adjektiv,이 귤 좀 셔요.,Die Zitrone ist sauer.,Essen & Trinken,a2_food_2,3,false,to be sour,Adjective,The lemon is sour.
-싱겁다,singgeopda,fade / wenig gewürzt sein,A2,Adjektiv,국이 좀 싱거워요.,Das Essen ist fade.,Essen & Trinken,a2_food_2,4,false,to be bland,Adjective,The food is bland.
-포장하다,pojanghada,zum Mitnehmen / verpacken,A2,Verb,이거 포장해 주세요.,Zum Mitnehmen bitte.,Essen & Trinken,a2_food_2,5,false,to pack / to take away,Verb,"To go, please."
-배달,baedal,Lieferdienst / Lieferung,A2,Nomen,오늘 저녁은 그냥 배달시켜요.,Lass uns liefern lassen.,Essen & Trinken,a2_food_2,6,true,delivery service,Noun,Let's order delivery.
-매콤하다,maekomhada,leicht scharf sein,A2,Adjektiv,이 떡볶이 딱 매콤해요.,Diese Soße ist leicht scharf.,Essen & Trinken,a2_food_2,7,true,to be mildly spicy,Adjective,This sauce is mildly spicy.
-사이즈,saijeu,Größe,A2,Nomen,혹시 한 사이즈 큰 거 있어요?,Welche Größe haben Sie?,Einkaufen,a2_shopping_1,7,true,size,Noun,What size do you take?
-색깔,saekkkal,Farbe,A2,Nomen,다른 색깔도 있어요?,Gibt es auch andere Farben?,Einkaufen,a2_shopping_2,1,false,color,Noun,Are there other colors too?
-입어보다,ibeoboda,anprobieren,A2,Verb,이거 한번 입어봐도 될까요?,Darf ich es mal anprobieren?,Einkaufen,a2_shopping_2,2,false,to try on,Verb,May I try it on?
-어울리다,eoullida,passen / stehen,A2,Verb,이 색이 진짜 잘 어울려요.,Es steht dir gut!,Einkaufen,a2_shopping_2,3,false,to suit / to look good on,Verb,It suits you well!
-환불,hwanbul,Rückerstattung,A2,Nomen,환불 좀 하고 싶은데요.,Kann ich Geld zurückbekommen?,Einkaufen,a2_shopping_2,4,false,refund,Noun,Can I get a refund?
-교환,gyohwan,Umtausch,A2,Nomen,다른 사이즈로 교환할 수 있을까요?,Ist Umtausch möglich?,Einkaufen,a2_shopping_2,5,false,exchange,Noun,Is an exchange possible?
-손님,sonnim,Kunde / Gast,A2,Nomen,오늘 손님이 많으시네요.,Es sind viele Gäste da.,Einkaufen,a2_shopping_2,6,true,customer / guest,Noun,There are many guests.
-점원,jeomwon,Verkäufer/in,A2,Nomen,점원분이 진짜 친절했어요.,Der Verkäufer war freundlich.,Einkaufen,a2_shopping_2,7,true,shop assistant / clerk,Noun,The clerk was friendly.
-길,gil,Weg / Straße,A2,Nomen,가다가 길을 잃어버렸어요.,Ich habe mich verlaufen.,Verkehr,a2_transport,7,false,road / way,Noun,I got lost.
-곧장,gotjang,geradeaus,A2,Adverb,여기서 곧장 가시면 돼요.,Gehen Sie geradeaus.,Verkehr,a2_transport,8,false,straight ahead,Adverb,Go straight ahead.
-신호등,sinhodeung,Ampel,A2,Nomen,저 신호등에서 오른쪽으로 가세요.,An der Ampel links abbiegen.,Verkehr,a2_transport,9,false,traffic light,Noun,Turn left at the traffic light.
-횡단보도,hoengdanbodo,Zebrastreifen,A2,Nomen,횡단보도 건너서 왼쪽이에요.,Bitte am Zebrastreifen überqueren.,Verkehr,a2_transport,10,true,crosswalk,Noun,Please cross at the crosswalk.
-교차로,gyochalo,Kreuzung,A2,Nomen,다음 교차로에서 내려주세요.,Wir treffen uns an der nächsten Kreuzung.,Verkehr,a2_transport,11,true,intersection,Noun,Let's meet at the next intersection.
-안내하다,annaehada,führen / Auskunft geben,A2,Verb,제가 길을 안내해 드릴게요.,Ich zeige Ihnen den Weg.,Verkehr,a2_transport,12,true,to guide / to give directions,Verb,I'll show you the way.
-가깝다,gakkapda,nah sein,A2,Adjektiv,집이랑 회사가 가까워서 좋아요.,Die Firma ist nah am Haus.,Beschreibung,a2_descriptions_2,1,false,to be near,Adjective,The company is near my home.
-멀다,meolda,weit sein,A2,Adjektiv,집이 너무 멀어서 힘들어요.,Die Schule ist zu weit.,Beschreibung,a2_descriptions_2,2,false,to be far,Adjective,The school is too far.
-화나다,hwanada,wütend werden,A2,Verb,그 말 듣고 진짜 화났어요.,Ich war wirklich sauer.,Gefühle,a2_feelings_1,8,true,to get angry,Verb,I was really angry.
-부끄럽다,bukkeureopda,sich schämen / schüchtern sein,A2,Adjektiv,생각만 해도 부끄러워요.,Das ist mir sehr peinlich.,Gefühle,a2_feelings_2,1,false,to be embarrassed / shy,Adjective,That's very embarrassing.
-놀라다,nollada,überrascht sein / sich erschrecken,A2,Verb,깜짝 놀랐잖아요!,Ich war total überrascht!,Gefühle,a2_feelings_2,2,false,to be surprised / startled,Verb,I was totally surprised!
-기쁘다,gippeuda,sich freuen / froh sein,A2,Adjektiv,합격했다니 정말 기뻐요.,"Ich freue mich, dich zu treffen.",Gefühle,a2_feelings_2,3,false,to be glad / joyful,Adjective,I'm glad to meet you.
-답답하다,dapdapada,beklemmend / frustrierend sein,A2,Adjektiv,말이 안 통해서 답답해요.,Es ist so beklemmend — ich halte es kaum aus.,Gefühle,a2_feelings_2,4,false,to feel stifled / frustrated,Adjective,It's so frustrating — I can hardly stand it.
-신나다,sinnada,aufgeregt sein / freudig erregt,A2,Verb,내일 여행 가서 진짜 신나요.,Ich freue mich auf die Reise!,Gefühle,a2_feelings_2,5,false,to be excited,Verb,I'm excited about the trip!
-지루하다,jiruhada,langweilig sein,A2,Adjektiv,그 영화 좀 지루하지 않았어요?,Der Film ist langweilig.,Gefühle,a2_feelings_2,6,true,to be boring,Adjective,The movie is boring.
-긴장하다,ginjanghada,nervös / angespannt sein,A2,Verb,면접 앞두고 좀 긴장돼요.,Wegen des Vorstellungsgesprächs bin ich nervös.,Gefühle,a2_feelings_2,7,true,to be nervous / tense,Verb,I'm nervous about the interview.
-동료,dongryo,Kollege/in,A2,Nomen,회사 동료들이 다 좋아요.,Ich esse mit den Kollegen zu Mittag.,Beruf,a2_work,5,false,colleague,Noun,I have lunch with my colleagues.
-사장,sajang,Chef / Firmeninhaber,A2,Nomen,사장님이 진짜 좋으신 분이세요.,Der Chef ist freundlich.,Beruf,a2_work,6,false,boss / company owner,Noun,The boss is kind.
-상사,sangsa,Vorgesetzte/r,A2,Nomen,저희 상사 분은 좀 까다로우세요.,Ich habe meinem Vorgesetzten Bericht erstattet.,Beruf,a2_work,7,false,superior / supervisor,Noun,I reported to my supervisor.
-출근하다,chulgeunhada,zur Arbeit gehen,A2,Verb,매일 아홉 시에 출근해요.,Ich gehe morgens um neun zur Arbeit.,Beruf,a2_work,8,false,to go to work,Verb,I go to work at nine in the morning.
-퇴근하다,toegeunhada,Feierabend machen,A2,Verb,오늘은 좀 일찍 퇴근하고 싶어요.,Ich mache normalerweise um sechs Feierabend.,Beruf,a2_work,9,false,to leave work,Verb,I usually leave work at six.
-야근하다,yageunhada,Überstunden machen,A2,Verb,이번 주 계속 야근했어요.,Heute muss ich Überstunden machen.,Beruf,a2_work,10,true,to work overtime,Verb,I have to work overtime today.
-월급,wolgeup,Monatsgehalt,A2,Nomen,이번 달 월급이 좀 올랐어요.,Mein Gehalt wurde erhöht.,Beruf,a2_work,11,true,monthly salary,Noun,My salary went up.
-면접,myeonjeop,Vorstellungsgespräch,A2,Nomen,내일 오후에 면접이 있어요.,Morgen habe ich ein Vorstellungsgespräch.,Beruf,a2_work,12,true,job interview,Noun,I have a job interview tomorrow.
-일어나다,ireonada,aufstehen / aufwachen,A2,Verb,요즘 아침에 일찍 일어나기 힘들어요.,Ich stehe jeden Tag um sieben auf.,Alltag,a2_daily_3,2,false,to get up / to wake up,Verb,I get up at seven every day.
-씻다,ssitda,sich waschen / putzen,A2,Verb,자기 전에 꼭 씻어요.,Vor dem Schlafen wasche ich mich.,Alltag,a2_daily_3,3,false,to wash (oneself),Verb,I wash up before sleeping.
-화장하다,hwajangada,Make-up auflegen,A2,Verb,저는 화장을 잘 안 해요.,Vor der Arbeit schminke ich mich.,Alltag,a2_daily_3,4,false,to put on makeup,Verb,I put on makeup before work.
-빨래하다,ppallaehada,Wäsche waschen,A2,Verb,주말마다 빨래해요.,Am Wochenende mache ich Wäsche.,Alltag,a2_daily_3,5,false,to do laundry,Verb,I do laundry on the weekend.
-청소하다,cheongsohada,putzen / sauber machen,A2,Verb,오늘 방 청소 좀 해야겠어요.,Ich putze die Wohnung.,Alltag,a2_daily_3,6,false,to clean,Verb,I clean the apartment.
-정리하다,jeongnihada,aufräumen / ordnen,A2,Verb,책상 좀 정리했어요.,Ich habe den Schreibtisch aufgeräumt.,Alltag,a2_daily_3,7,true,to tidy up / to organize,Verb,I tidied up the desk.
-설거지하다,seolgeojihada,Geschirr spülen,A2,Verb,밥 먹고 설거지는 제가 할게요.,Ich habe nach dem Abendessen abgewaschen.,Alltag,a2_daily_3,8,true,to wash the dishes,Verb,I washed the dishes after dinner.
-분홍색,bunhongsaek,rosa,A2,Nomen,저 분홍색 진짜 잘 어울리네요.,Rosa ist hübsch.,Farben,a2_descriptions_2,3,false,pink,Noun,Pink is pretty.
-보라색,borasaek,lila / violett,A2,Nomen,보라색 옷은 잘 안 입어요.,Ich mag Lila.,Farben,a2_descriptions_2,4,false,purple / violet,Noun,I like purple.
-갈색,galsaek,braun,A2,Nomen,저는 갈색 머리로 염색했어요.,Die braune Tasche ist schön.,Farben,a2_descriptions_2,5,false,brown,Noun,The brown bag is nice.
-회색,hoesaek,grau,A2,Nomen,오늘은 회색 코트 입을래요.,Ich trug einen grauen Mantel.,Farben,a2_descriptions_2,6,true,gray,Noun,I wore a gray coat.
-주황색,juhwangsaek,orange,A2,Nomen,가을엔 주황색이 예뻐요.,Orange steht dir gut.,Farben,a2_descriptions_2,7,true,orange,Noun,Orange suits you well.
-영상,yeongsang,Video / Bildmaterial,B1,Nomen,그 유튜브 영상 봤어요?,Ich schaue YouTube-Videos.,Technologie,b1_tech_society_1,7,false,video / footage,Noun,I watch YouTube videos.
-댓글,daetgeul,Kommentar (online),B1,Nomen,제 댓글에 답장 달아 주셔서 감사해요.,Ich habe einen Kommentar hinterlassen.,Technologie,b1_tech_society_1,8,true,comment (online),Noun,I left a comment.
-좋아요,joayo,Like (Social Media),B1,Nomen,제 게시물에 좋아요 눌러 주세요.,Ich habe ein Like gegeben.,Technologie,b1_tech_society_1,9,true,Like (social media),Noun,I hit Like.
-팔로워,palloweo,Follower,B1,Nomen,요즘 팔로워가 좀 늘었어요.,Meine Followerzahl ist gewachsen.,Technologie,b1_tech_society_2,1,false,follower,Noun,My follower count grew.
-게시물,gesimul,Post / Beitrag,B1,Nomen,오늘 아침에 게시물 하나 올렸어요.,Ich habe einen Beitrag hochgeladen.,Technologie,b1_tech_society_2,2,false,post,Noun,I uploaded a post.
-업로드하다,eoprodeuhada,hochladen,B1,Verb,여행 사진 업로드해 놨어요.,Ich lade Fotos hoch.,Technologie,b1_tech_society_2,3,false,to upload,Verb,I upload photos.
-검색하다,geomsaekhada,recherchieren / online suchen,B1,Verb,그건 인터넷에서 검색해 보시면 나와요.,Ich recherchiere Informationen.,Technologie,b1_tech_society_2,4,false,to search (online),Verb,I search for information.
-다운로드,daunrodeu,Download,B1,Nomen,앱 다운로드부터 받으셔야 해요.,Ich lade die Datei herunter.,Technologie,b1_tech_society_2,5,false,download,Noun,I download the file.
-공유하다,gongyuhada,teilen (Social Media),B1,Verb,이 링크 좀 공유해 주실 수 있어요?,Ich teile es mit Freunden.,Technologie,b1_tech_society_2,6,false,to share (social media),Verb,I share it with friends.
-협력하다,hyeoryeokhada,zusammenarbeiten / kooperieren,B1,Verb,다른 부서랑 협력해서 진행할 예정이에요.,Wir arbeiten mit anderen Teams zusammen.,Beruf,b1_work,1,false,to cooperate / to collaborate,Verb,We collaborate with other teams.
-책임지다,chaegimjida,Verantwortung übernehmen,B1,Verb,이번 프로젝트는 제가 책임지고 진행할게요.,Ich übernehme die Verantwortung für diese Aufgabe.,Beruf,b1_work,2,false,to take responsibility,Verb,I'll take responsibility for this task.
-보고하다,bogohada,Bericht erstatten,B1,Verb,결과가 나오면 바로 보고드릴게요.,Ich berichte die Ergebnisse.,Beruf,b1_work,3,false,to report,Verb,I report the results.
-진행하다,jinhaenghada,durchführen / voranbringen,B1,Verb,일정대로 진행하고 있어요.,Wir führen das Projekt durch.,Beruf,b1_work,4,false,to carry out / to proceed with,Verb,We carry out the project.
-마감,magam,Deadline / Abgabefrist,B1,Nomen,마감이 이번 주 금요일이에요.,Die Deadline ist nächste Woche.,Beruf,b1_work,5,false,deadline,Noun,The deadline is next week.
-일정,iljeong,Terminplan / Zeitplan,B1,Nomen,다음 주 일정 좀 알려주세요.,Bitte überprüfen Sie den Terminplan.,Beruf,b1_work,6,false,schedule,Noun,Please check the schedule.
-회의록,hoeuirok,Sitzungsprotokoll,B1,Nomen,회의록 정리해서 공유해 드릴게요.,Ich schreibe das Sitzungsprotokoll.,Beruf,b1_work,7,false,meeting minutes,Noun,I write the meeting minutes.
-제안하다,jeanhada,vorschlagen,B1,Verb,괜찮은 아이디어가 있어서 제안드릴게요.,Ich schlage eine neue Idee vor.,Beruf,b1_work,8,false,to propose / to suggest,Verb,I propose a new idea.
-거절하다,geojeolhada,ablehnen,B1,Verb,정중하게 거절하는 게 쉽지 않네요.,Ich habe es höflich abgelehnt.,Beruf,b1_work,9,true,to refuse / to decline,Verb,I declined politely.
-동의하다,donguihada,zustimmen,B1,Verb,그 의견에 저도 동의해요.,Ich stimme dieser Meinung zu.,Kommunikation,b1_emotions_relations_2,7,true,to agree,Verb,I agree with that opinion.
-다이어트,daieoteu,Diät,B1,Nomen,요즘 다이어트 중이라 야식 안 먹어요.,Ich mache gerade eine Diät.,Gesundheit,b1_health_education,7,false,diet,Noun,I'm on a diet.
-명상,myeongsang,Meditation,B1,Nomen,매일 아침 10분씩 명상해요.,Ich meditiere jeden Morgen.,Gesundheit,b1_health_education,8,false,meditation,Noun,I meditate every morning.
-식단,sikdan,Ernährungsplan,B1,Nomen,요즘 식단 관리를 좀 하고 있어요.,Ich achte auf meine Ernährung.,Gesundheit,b1_health_education,9,false,meal plan / diet,Noun,I watch my diet.
-균형,gyunhyeong,Balance / Gleichgewicht,B1,Nomen,일과 삶의 균형이 정말 중요해요.,Work-Life-Balance ist wichtig.,Gesellschaft,b1_tech_society_2,7,true,balance,Noun,Work-life balance is important.
-휴식,hyusik,Erholung / Pause,B1,Nomen,잠깐이라도 휴식이 필요해요.,Ich mache eine kurze Pause.,Alltag,b1_daily_3,8,true,rest / break,Noun,I take a short break.
-취향,chwihyang,Vorliebe / Geschmack,B1,Nomen,사람마다 취향이 다르잖아요.,Jeder hat einen anderen Geschmack.,Beschreibung,b1_descriptions_1,7,true,preference / taste,Noun,Everyone has a different taste.
-의미,uimi,Bedeutung / Sinn,B1,Nomen,이 표현 정확한 의미가 뭐예요?,Was bedeutet dieses Wort?,Kommunikation,b1_emotions_relations_3,1,false,meaning,Noun,What does this word mean?
-변화,byeonhwa,Veränderung / Wandel,B1,Nomen,요즘 저한테 큰 변화가 좀 있었어요.,Es gab eine große Veränderung.,Alltag,b1_daily_3,9,true,change,Noun,There was a big change.
-영향,yeonghyang,Einfluss / Wirkung,B1,Nomen,이번 결정이 큰 영향을 줄 것 같아요.,Es hat einen guten Einfluss.,Gesellschaft,b1_tech_society_2,8,true,influence / effect,Noun,It has a good influence.
-차이,chai,Unterschied,B1,Nomen,한국이랑 독일 문화 차이가 진짜 커요.,Der Unterschied zwischen den beiden Ländern ist groß.,Beschreibung,b1_descriptions_1,8,true,difference,Noun,The difference between the two countries is big.
-공통점,gongtongjeom,Gemeinsamkeit,B1,Nomen,저희 둘 공통점이 의외로 많더라고요.,Wir haben viele Gemeinsamkeiten.,Beziehungen,b1_emotions_relations_3,2,false,common point / similarity,Noun,We have a lot in common.
-가능성,ganeungseong,Möglichkeit,B1,Nomen,성공 가능성이 없진 않아요.,Es gibt eine Möglichkeit.,Denken,b1_health_education,10,true,possibility,Noun,There is a possibility.
-한계,hangye,Grenze / Limit,B1,Nomen,이제 정말 제 한계인 것 같아요.,Ich kenne meine Grenzen.,Denken,b1_health_education,11,true,limit,Noun,I know my limits.
-책임,chaegim,Verantwortung,B1,Nomen,이번 일은 제 책임이에요.,Die Verantwortung ist groß.,Beruf,b1_work,10,true,responsibility,Noun,The responsibility is heavy.
-솔직하다,soljikhada,ehrlich / aufrichtig sein,B1,Adjektiv,저는 솔직한 사람이 좋아요.,Sagen Sie es bitte ehrlich.,Beschreibung,b1_descriptions_2,1,false,to be honest / frank,Adjective,Please tell me honestly.
-겸손하다,gyeomsonhada,bescheiden sein,B1,Adjektiv,그분 진짜 겸손하시더라고요.,Diese Person ist wirklich bescheiden.,Beschreibung,b1_descriptions_2,2,false,to be humble,Adjective,That person is really humble.
-친절하다,chinjeolhada,freundlich / hilfsbereit sein,B1,Adjektiv,여기 직원분들이 정말 친절하세요.,Der Verkäufer ist freundlich.,Beschreibung,b1_descriptions_2,3,false,to be kind / helpful,Adjective,The clerk is kind.
-게으르다,geeureuda,faul sein,B1,Adjektiv,저는 주말엔 좀 게을러져요.,Am Wochenende bin ich etwas faul.,Beschreibung,b1_descriptions_2,4,false,to be lazy,Adjective,I'm a bit lazy on weekends.
-부지런하다,bujireonhada,fleißig sein,B1,Adjektiv,저희 엄마는 진짜 부지런하세요.,Er ist ein fleißiger Mensch.,Beschreibung,b1_descriptions_2,5,false,to be diligent,Adjective,He is a diligent person.
-적극적이다,jeokgeukjeogida,aktiv / engagiert sein,B1,Adjektiv,회의 때 좀 더 적극적으로 참여해 주세요.,Ich beteilige mich aktiv.,Beschreibung,b1_descriptions_2,6,false,to be active / proactive,Adjective,I participate actively.
-소극적이다,sogeukjeogida,passiv / zurückhaltend sein,B1,Adjektiv,성격이 좀 소극적인 편이에요.,Am Anfang war ich zurückhaltend.,Beschreibung,b1_descriptions_2,7,true,to be passive / reserved,Adjective,At first I was reserved.
-책임감,chaegimgam,Verantwortungsbewusstsein,B1,Nomen,그 사람은 책임감이 정말 강해요.,Sie hat ein starkes Verantwortungsbewusstsein.,Beschreibung,b1_descriptions_2,8,true,sense of responsibility,Noun,She has a strong sense of responsibility.
-신경 쓰다,singyeong sseuda,sich Sorgen machen / sich kümmern,B1,Verb,너무 신경 쓰지 말고 편하게 하세요.,Mach dir nicht so viele Sorgen.,Gefühle,b1_emotions_relations_3,3,false,to worry / to care about,Verb,Don't worry about it too much.
-마음에 들다,maeume deulda,gefallen,B1,Verb,이 색깔 진짜 마음에 드네요.,Das gefällt mir sehr!,Gefühle,b1_emotions_relations_3,4,false,to be pleasing / to like,Verb,I really like it!
-약속하다,yaksokhada,versprechen,B1,Verb,다시는 안 그러겠다고 약속할게요.,"Ich verspreche, es einzuhalten.",Kommunikation,b1_emotions_relations_3,5,false,to promise,Verb,I promise I'll keep it.
-후회하다,huhoehada,bereuen,B1,Verb,결정한 거 후회 안 해요.,Ich bereue es nicht.,Gefühle,b1_emotions_relations_3,6,true,to regret,Verb,I don't regret it.
-기대하다,gidaehada,erwarten / sich freuen auf,B1,Verb,다음 편이 진짜 기대돼요.,Ich freue mich sehr darauf.,Gefühle,b1_emotions_relations_3,7,true,to expect / to look forward to,Verb,I'm really looking forward to it.
-협상,hyeopsang,Verhandlung,B2,Nomen,이번 협상이 생각보다 잘 풀렸어요.,Die Verhandlung lief gut.,Beruf,b2_work,1,false,negotiation,Noun,The negotiation went well.
-계약,gyeyak,Vertrag,B2,Nomen,계약서 다시 한번 확인해 주세요.,Wir haben den Vertrag abgeschlossen.,Beruf,b2_work,2,false,contract,Noun,We signed the contract.
-투자,tuja,Investition,B2,Nomen,이 분야는 투자 가치가 충분해요.,Eine Investition ist nötig.,Gesellschaft,b2_society_1,7,false,investment,Noun,An investment is needed.
-수익,suik,Gewinn / Ertrag,B2,Nomen,올해 수익이 작년보다 늘었어요.,Der Gewinn ist gestiegen.,Gesellschaft,b2_society_1,8,false,profit / revenue,Noun,Profits have risen.
-비용,biyong,Kosten,B2,Nomen,비용을 좀 줄일 수 있을까요?,Es kostet viel.,Gesellschaft,b2_society_1,9,true,cost,Noun,It costs a lot.
-생산성,saengsanseong,Produktivität,B2,Nomen,재택근무 이후로 생산성이 오히려 올랐어요.,Wir müssen die Produktivität steigern.,Beruf,b2_work,3,false,productivity,Noun,We need to raise productivity.
-경쟁력,gyeongjaengnyeok,Wettbewerbsfähigkeit,B2,Nomen,우리 팀은 경쟁력이 확실해요.,Die Wettbewerbsfähigkeit ist stark.,Gesellschaft,b2_society_1,10,true,competitiveness,Noun,Its competitiveness is strong.
-전략,jeollyak,Strategie,B2,Nomen,장기적인 전략을 세워야 해요.,Wir haben eine neue Strategie entwickelt.,Beruf,b2_work,4,false,strategy,Noun,We developed a new strategy.
-위기,wigi,Krise,B2,Nomen,위기를 기회로 삼아야죠.,Wir haben die Krise überwunden.,Gesellschaft,b2_society_2,1,false,crisis,Noun,We overcame the crisis.
-협업,hyeobeop,Zusammenarbeit (formell),B2,Nomen,다른 회사와의 협업도 검토 중이에요.,Die Zusammenarbeit der beiden Firmen begann.,Beruf,b2_work,5,false,collaboration (formal),Noun,The collaboration between the two companies began.
-법,beop,Gesetz,B2,Nomen,법적으로 문제가 없는지 확인해 봐야 해요.,Wir müssen das Gesetz einhalten.,Gesellschaft,b2_society_2,2,false,law,Noun,We must obey the law.
-정책,jeongchaek,Politik / Strategie (staatlich),B2,Nomen,새 정책이 다음 달부터 시행돼요.,Eine neue Politik wurde angekündigt.,Gesellschaft,b2_society_2,3,false,policy (governmental),Noun,A new policy was announced.
-제도,jedo,System / Institution,B2,Nomen,이 제도는 개선이 필요하다고 봐요.,Das Bildungssystem ändert sich.,Gesellschaft,b2_society_2,4,false,system / institution,Noun,The education system is changing.
-의무,uimu,Pflicht / Verpflichtung,B2,Nomen,국민으로서의 의무를 다해야죠.,Ich erfülle meine Pflicht.,Gesellschaft,b2_society_2,5,false,duty / obligation,Noun,I fulfill my duty.
-평등,pyeongdeung,Gleichheit / Gleichberechtigung,B2,Nomen,성 평등이 아직 갈 길이 멀어요.,Gleichberechtigung ist wichtig.,Gesellschaft,b2_society_2,6,false,equality,Noun,Equality is important.
-차별,chabyeol,Diskriminierung,B2,Nomen,직장 내 차별은 없어야 해요.,Diskriminierung muss verschwinden.,Gesellschaft,b2_society_2,7,false,discrimination,Noun,Discrimination must disappear.
-인권,ingwon,Menschenrechte,B2,Nomen,인권은 절대 양보할 수 없는 가치예요.,Wir schützen die Menschenrechte.,Gesellschaft,b2_society_2,8,true,human rights,Noun,We protect human rights.
-양극화,yanggeukhwa,Polarisierung / Spaltung,B2,Nomen,빈부 양극화가 점점 심해지고 있어요.,Die gesellschaftliche Spaltung verschärft sich.,Gesellschaft,b2_society_2,9,true,polarization,Noun,Social polarization is worsening.
-강점,gangjeom,Stärke,B2,Nomen,본인의 강점이 뭐라고 생각하세요?,Meine Stärke ist Ausdauer.,Beruf,b2_work,6,false,strength,Noun,My strength is perseverance.
-약점,yakjeom,Schwäche,B2,Nomen,약점은 오히려 인정하는 게 나아요.,Man muss auch seine Schwächen anerkennen.,Beruf,b2_work,7,false,weakness,Noun,You have to acknowledge your weaknesses too.
-경력,gyeongnyeok,Berufserfahrung / Werdegang,B2,Nomen,관련 경력이 어느 정도 되세요?,Ich habe zehn Jahre Berufserfahrung.,Beruf,b2_work,8,true,career / work experience,Noun,I have ten years of work experience.
-자격증,jagyeokjeung,Zertifikat / Qualifikation,B2,Nomen,이 분야는 자격증이 꼭 필요해요.,Welche Zertifikate haben Sie?,Beruf,b2_work,9,true,certificate / qualification,Noun,What certificates do you have?
-자신감,jasingam,Selbstvertrauen,B2,Nomen,요즘 조금씩 자신감이 붙고 있어요.,Ich habe Selbstvertrauen gewonnen.,Gefühle,b2_misc,7,false,self-confidence,Noun,I've gained self-confidence.
-끈기,kkeungi,Ausdauer / Beharrlichkeit,B2,Nomen,끈기가 결국 실력이 되더라고요.,Ich strenge mich beharrlich an.,Beschreibung,b2_misc,8,false,perseverance,Noun,I work with perseverance.
-잠재력,jamjaeryeok,Potenzial,B2,Nomen,이 팀의 잠재력이 무궁무진해요.,Sie entfaltet ihr Potenzial.,Beschreibung,b2_misc,9,false,potential,Noun,She brings out her potential.
-동기,donggi,Motivation / Anreiz,B2,Nomen,요즘 동기 부여가 잘 안 돼요.,Mir fehlt die Motivation.,Motivation,b2_misc,10,true,motivation / incentive,Noun,I lack motivation.
-분야,bunya,Bereich / Fach / Gebiet,B2,Nomen,저는 마케팅 분야에서 일하고 있어요.,Sie ist Expertin auf diesem Gebiet.,Bildung,b2_education,2,false,field / area,Noun,She is an expert in this field.
-전공,jeongong,Hauptfach / Studienfach,B2,Nomen,대학교 때 무슨 전공이셨어요?,Was studierst du?,Bildung,b2_education,3,false,major / field of study,Noun,What's your major?
-학위,hagwi,akademischer Grad,B2,Nomen,석사 학위까지 마치셨더라고요.,Sie hat den Doktortitel erworben.,Bildung,b2_education,4,false,academic degree,Noun,She earned a doctoral degree.
-논문,nonmun,wissenschaftlicher Aufsatz / Arbeit,B2,Nomen,논문 마감 때문에 요즘 정신없어요.,Ich habe einen Aufsatz veröffentlicht.,Bildung,b2_education,5,true,academic paper / thesis,Noun,I published a paper.
-발표하다,balpyohada,präsentieren / vortragen,B2,Verb,다음 주에 학회에서 발표하기로 했어요.,Nächste Woche halte ich eine Präsentation.,Kommunikation,b2_communication,7,false,to present / to give a talk,Verb,I give a presentation next week.
-인용하다,inyonghada,zitieren,B2,Verb,출처를 정확히 인용해 주세요.,Ich zitiere die Quelle.,Bildung,b2_education,6,true,to quote / to cite,Verb,I cite the source.
-통계,tonggye,Statistik,B2,Nomen,이 통계는 좀 오래된 자료예요.,Die Statistik ist genau.,Denken,b2_thinking_2,5,false,statistics,Noun,The statistics are accurate.
-가설,gaseol,Hypothese,B2,Nomen,우선 가설부터 세워 봅시다.,Ich habe eine Hypothese aufgestellt.,Denken,b2_thinking_2,6,false,hypothesis,Noun,I set up a hypothesis.
-진정한,jinjeonghan,wahr / echt,B2,Adjektiv,진정한 친구는 힘들 때 알아봐요.,Ich suche einen echten Freund.,Beschreibung,b2_misc,11,true,true / genuine,Adjective,I'm looking for a true friend.
-본질적이다,bonjiljeogida,wesentlich / essenziell sein,B2,Adjektiv,본질적인 원인부터 짚어야 해요.,Das ist ein wesentliches Problem.,Denken,b2_thinking_2,7,true,to be essential,Adjective,It's an essential problem.
-적절하다,jeokjeolhada,angemessen / passend sein,B2,Adjektiv,타이밍이 아주 적절했어요.,Das ist eine angemessene Reaktion.,Beschreibung,b2_misc,12,true,to be appropriate / suitable,Adjective,That's an appropriate reaction.
-명확하다,myeonghwakhada,eindeutig / klar sein,B2,Adjektiv,입장을 좀 명확하게 밝혀 주세요.,Bitte geben Sie eine klare Antwort.,Kommunikation,b2_communication,8,true,to be clear / unambiguous,Adjective,Please give a clear answer.
-모호하다,mohohada,vage / unklar sein,B2,Adjektiv,답변이 좀 모호하시네요.,Die Antwort ist vage.,Kommunikation,b2_communication,9,true,to be vague / unclear,Adjective,The answer is vague.
-합리적이다,hamnijeogida,rational / vernünftig sein,B2,Adjektiv,합리적인 가격이라 결정했어요.,Wir entscheiden vernünftig.,Denken,b2_thinking_2,8,true,to be rational / reasonable,Adjective,We decide reasonably.
-거실,geosil,Wohnzimmer,A2,Nomen,저희 집 거실이 좀 좁아요.,Das Wohnzimmer ist geräumig.,Wohnen,a2_home_1,1,false,living room,Noun,The living room is spacious.
-부엌,bueok,Küche,A2,Nomen,저희 부엌에서 요리 자주 해요.,Ich koche in der Küche.,Wohnen,a2_home_1,2,false,kitchen,Noun,I cook in the kitchen.
-냉장고,naengjanggo,Kühlschrank,A2,Nomen,냉장고에 뭐 먹을 거 있어요?,Im Kühlschrank ist Milch.,Wohnen,a2_home_1,3,false,refrigerator,Noun,There is milk in the fridge.
-세탁기,setakgi,Waschmaschine,A2,Nomen,세탁기 좀 고장 났어요.,Ich lasse die Waschmaschine laufen.,Wohnen,a2_home_1,4,false,washing machine,Noun,I run the washing machine.
-청소기,cheongsogi,Staubsauger,A2,Nomen,청소기 좀 돌리고 나갈게요.,Ich sauge mit dem Staubsauger.,Wohnen,a2_home_1,5,false,vacuum cleaner,Noun,I vacuum the floor.
-가구,gagu,Möbel,A2,Nomen,이번에 가구를 좀 새로 샀어요.,Ich habe neue Möbel gekauft.,Wohnen,a2_home_1,6,false,furniture,Noun,I bought new furniture.
-이사하다,isahada,umziehen,A2,Verb,다음 달에 이사 갈 예정이에요.,Ich ziehe nächsten Monat um.,Wohnen,a2_home_1,7,false,to move (house),Verb,I'm moving next month.
-월세,wolse,Monatsmiete,A2,Nomen,이 동네 월세가 좀 비싸요.,Die Monatsmiete ist teuer.,Wohnen,a2_home_1,8,false,monthly rent,Noun,The monthly rent is expensive.
-보증금,bojeunggeum,Kaution,A2,Nomen,보증금은 얼마 정도예요?,Ich habe die Kaution bezahlt.,Wohnen,a2_home_1,9,true,deposit,Noun,I paid the deposit.
-집주인,jipjuin,Vermieter,A2,Nomen,집주인 아저씨한테 연락해 볼게요.,Ich habe den Vermieter angerufen.,Wohnen,a2_home_1,10,true,landlord,Noun,I called the landlord.
-현금,hyeongeum,Bargeld,A2,Nomen,현금 없는데 카드 돼요?,Ich zahle bar.,Geld,a2_money_1,1,false,cash,Noun,I'll pay in cash.
-통장,tongjang,Bankbuch,A2,Nomen,새 통장을 만들려고 왔어요.,Ich habe ein Konto eröffnet.,Geld,a2_money_1,2,false,bankbook,Noun,I opened a bank account.
-입금하다,ipgeumhada,einzahlen,A2,Verb,방금 입금해 드렸어요.,Das Gehalt wurde eingezahlt.,Geld,a2_money_1,3,false,to deposit,Verb,The salary was deposited.
-출금하다,chulgeumhada,abheben,A2,Verb,만 원만 출금할게요.,Ich habe Bargeld abgehoben.,Geld,a2_money_1,4,false,to withdraw,Verb,I withdrew cash.
-송금하다,songgeumhada,überweisen,A2,Verb,친구한테 십만 원 송금했어요.,Ich habe einem Freund Geld überwiesen.,Geld,a2_money_1,5,false,to transfer money,Verb,I transferred money to a friend.
-잔액,janaek,Kontostand,A2,Nomen,잔액이 얼마나 남았어요?,Der Kontostand reicht nicht.,Geld,a2_money_1,6,false,balance,Noun,The balance is insufficient.
-수수료,susuryo,Gebühr,A2,Nomen,송금 수수료 얼마예요?,Gibt es eine Gebühr?,Geld,a2_money_1,7,false,fee,Noun,Is there a fee?
-환전하다,hwanjeonhada,Geld wechseln,A2,Verb,공항에서 유로로 환전했어요.,Ich habe am Flughafen Geld gewechselt.,Geld,a2_money_1,8,false,to exchange money,Verb,I exchanged money at the airport.
-통화,tonghwa,Währung,A2,Nomen,유로로 계산해도 될까요?,In welcher Währung soll ich zahlen?,Geld,a2_money_1,9,true,currency,Noun,Which currency should I pay in?
-저축하다,jeochukhada,sparen,A2,Verb,매달 조금씩이라도 저축하려고 해요.,Ich spare jeden Monat.,Geld,a2_money_1,10,true,to save money,Verb,I save every month.
-온난화,onnanhwa,Erwärmung,B2,Nomen,지구 온난화가 생각보다 심각해요.,Die globale Erwärmung ist ernst.,Umwelt,b2_environment_1,1,false,global warming,Noun,Global warming is serious.
-오염,oyeom,Verschmutzung,B2,Nomen,미세먼지 오염이 갈수록 심해지네요.,Die Luftverschmutzung wird immer schlimmer.,Umwelt,b2_environment_1,2,false,pollution,Noun,Air pollution is getting worse.
-배출,baechul,Ausstoß,B2,Nomen,탄소 배출을 줄여야 할 때예요.,Wir müssen den CO2-Ausstoß senken.,Umwelt,b2_environment_1,3,false,emission,Noun,We must reduce carbon emissions.
-재활용,jaehwaryong,Recycling,B2,Nomen,저희 집에서는 재활용 철저히 해요.,Ich recycle immer.,Umwelt,b2_environment_1,4,false,recycling,Noun,I always recycle.
-멸종,myeoljong,Aussterben,B2,Nomen,멸종 위기에 처한 동물이 너무 많아요.,Viele Tiere sind vom Aussterben bedroht.,Umwelt,b2_environment_1,5,false,extinction,Noun,Many animals face extinction.
-생태계,saengtaegye,Ökosystem,B2,Nomen,생태계 보호는 우리 모두의 몫이에요.,Wir müssen das Ökosystem schützen.,Umwelt,b2_environment_1,6,false,ecosystem,Noun,We must protect the ecosystem.
-자원,jawon,Ressource,B2,Nomen,자원은 무한하지 않으니까 아껴 써야죠.,Wir müssen sparsam mit Ressourcen umgehen.,Umwelt,b2_environment_1,7,false,resource,Noun,We must use resources sparingly.
-폐기물,pyegimul,Abfall,B2,Nomen,산업 폐기물 처리가 큰 문제예요.,Abfall zu reduzieren ist wichtig.,Umwelt,b2_environment_1,8,false,waste,Noun,Reducing waste is important.
-태양광,taeyanggwang,Solarenergie,B2,Nomen,태양광 에너지가 점점 늘고 있어요.,Solarenergie nimmt zu.,Umwelt,b2_environment_1,9,false,solar power,Noun,Solar energy is increasing.
-온실가스,onsilgaseu,Treibhausgas,B2,Nomen,온실가스 배출량을 줄여야 해요.,Treibhausgase erwärmen die Erde.,Umwelt,b2_environment_1,10,true,greenhouse gas,Noun,Greenhouse gases warm the earth.
-친환경,chinhwangyeong,umweltfreundlich,B2,Adjektiv,요즘은 친환경 제품이 많이 나와요.,Ich kaufe oft umweltfreundliche Produkte.,Umwelt,b2_environment_1,11,true,eco-friendly,Adjective,I often buy eco-friendly products.
-지속 가능성,jisok ganeungseong,Nachhaltigkeit,B2,Nomen,지속 가능성을 고려한 결정이 필요해요.,Nachhaltigkeit ist sehr wichtig.,Umwelt,b2_environment_1,12,true,sustainability,Noun,Sustainability is very important.
+korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english,id
+안녕하세요,annyeonghaseyo,Guten Tag / Hallo (formell),A1,Ausdruck,"안녕하세요, 처음 뵙겠습니다.",Guten Tag!,Begrüßung,a1_greetings_1,1,false,Hello / Good day (formal),Expression,Hello!,vocab_a1_0001
+안녕,annyeong,Hallo / Tschüss (informell),A1,Ausdruck,"안녕, 오랜만이야!",Hallo!,Begrüßung,a1_greetings_1,2,false,Hi / Bye (informal),Expression,Hi!,vocab_a1_0002
+감사합니다,gamsahamnida,Vielen Dank (sehr formell),A1,Ausdruck,도와주셔서 감사합니다.,Vielen Dank!,Höflichkeit,a1_greetings_1,3,false,Thank you (very formal),Expression,Thank you!,vocab_a1_0003
+고마워요,gomawoyo,Danke (informell),A1,Ausdruck,정말 고마워요.,Danke!,Höflichkeit,a1_greetings_1,4,false,Thanks (informal),Expression,Thanks!,vocab_a1_0004
+죄송합니다,joesonghamnida,Entschuldigung (formell),A1,Ausdruck,늦어서 죄송합니다.,Entschuldigung.,Höflichkeit,a1_greetings_1,5,false,I'm sorry (formal),Expression,I'm sorry.,vocab_a1_0005
+미안해요,mianhaeyo,Es tut mir leid,A1,Ausdruck,진짜 미안해요.,Es tut mir leid.,Höflichkeit,a1_greetings_1,6,false,I'm sorry,Expression,I'm sorry.,vocab_a1_0006
+괜찮아요,gwaenchanayo,Kein Problem / Es ist okay,A1,Ausdruck,저는 괜찮아요.,Ist es okay?,Alltag,a1_daily_1,1,false,It's okay / No problem,Expression,Are you okay?,vocab_a1_0007
+네,ne,Ja,A1,Ausdruck,"네, 알겠어요.","Ja, das stimmt.",Alltag,a1_daily_1,2,false,Yes,Expression,"Yes, that's right.",vocab_a1_0008
+아니요,aniyo,Nein,A1,Ausdruck,"아니요, 저는 안 갈래요.","Nein, das ist falsch.",Alltag,a1_daily_1,3,false,No,Expression,"No, that's wrong.",vocab_a1_0009
+이름,ireum,Name,A1,Nomen,제 이름은 크리스티안이에요.,Mein Name ist Christian.,Person,a1_self_intro,1,false,name,Noun,My name is Christian.,vocab_a1_0010
+나이,nai,Alter,A1,Nomen,나이가 어떻게 되세요?,Wie alt bist du?,Person,a1_self_intro,2,false,age,Noun,How old are you?,vocab_a1_0011
+나라,nara,Land,A1,Nomen,어느 나라 사람이에요?,Aus welchem Land kommst du?,Geographie,a1_misc_1,1,false,country,Noun,Which country are you from?,vocab_a1_0012
+학생,haksaeng,Student/Schüler,A1,Nomen,저는 학생이에요.,Ich bin Student.,Person,a1_self_intro,3,false,student / pupil,Noun,I am a student.,vocab_a1_0013
+선생님,seonsaengnim,Lehrer/in,A1,Nomen,"선생님, 안녕하세요.","Danke, Lehrerin.",Person,a1_self_intro,4,false,teacher,Noun,"Thank you, teacher.",vocab_a1_0014
+친구,chingu,Freund/Freundin,A1,Nomen,이 사람 제 친구예요.,Das ist mein Freund.,Beziehungen,a1_family_1,1,false,friend,Noun,This is my friend.,vocab_a1_0015
+남자친구,namjachingu,Freund (Beziehung),A1,Nomen,남자친구가 있어요.,Ich habe einen Freund.,Beziehungen,a1_family_1,2,false,boyfriend,Noun,I have a boyfriend.,vocab_a1_0016
+여자친구,yeojachingu,Freundin (Beziehung),A1,Nomen,여자친구가 있어요.,Ich habe eine Freundin.,Beziehungen,a1_family_1,3,false,girlfriend,Noun,I have a girlfriend.,vocab_a1_0017
+가족,gajok,Familie,A1,Nomen,저희 가족은 네 명이에요.,Wie viele Familienmitglieder hast du?,Familie,a1_family_1,4,false,family,Noun,How many people are in your family?,vocab_a1_0018
+집,jip,Haus / Zuhause,A1,Nomen,집에 가요.,Ich gehe nach Hause.,Alltag,a1_daily_1,4,false,house / home,Noun,I'm going home.,vocab_a1_0019
+학교,hakgyo,Schule,A1,Nomen,학교에 가요.,Ich gehe zur Schule.,Bildung,a1_misc_1,2,false,school,Noun,I go to school.,vocab_a1_0020
+물,mul,Wasser,A1,Nomen,물 주세요.,Wasser bitte.,Essen & Trinken,a1_food_1,1,false,water,Noun,"Water, please.",vocab_a1_0021
+밥,bap,Reis / Mahlzeit,A1,Nomen,밥 먹었어요?,Hast du gegessen?,Essen & Trinken,a1_food_1,2,false,rice / meal,Noun,Have you eaten?,vocab_a1_0022
+커피,keopi,Kaffee,A1,Nomen,커피 마셔요.,Ich trinke Kaffee.,Essen & Trinken,a1_food_1,3,false,coffee,Noun,I drink coffee.,vocab_a1_0023
+빵,ppang,Brot,A1,Nomen,빵을 먹어요.,Ich esse Brot.,Essen & Trinken,a1_food_1,4,false,bread,Noun,I eat bread.,vocab_a1_0024
+책,chaek,Buch,A1,Nomen,책을 읽어요.,Ich lese ein Buch.,Bildung,a1_misc_1,3,false,book,Noun,I read a book.,vocab_a1_0025
+핸드폰,haendeupon,Handy,A1,Nomen,핸드폰이 있어요?,Hast du ein Handy?,Technologie,a1_misc_1,4,false,cellphone,Noun,Do you have a cellphone?,vocab_a1_0026
+버스,beoseu,Bus,A1,Nomen,버스를 타요.,Ich nehme den Bus.,Verkehr,a1_transport,1,false,bus,Noun,I take the bus.,vocab_a1_0027
+지하철,jihacheol,U-Bahn,A1,Nomen,지하철역이 어디예요?,Wo ist die U-Bahn-Station?,Verkehr,a1_transport,2,false,subway,Noun,Where is the subway station?,vocab_a1_0028
+오늘,oneul,heute,A1,Adverb,오늘 뭐 해요?,Was machst du heute?,Zeit,a1_time_1,1,false,today,Adverb,What are you doing today?,vocab_a1_0029
+내일,naeil,morgen,A1,Adverb,내일 만나요.,Wir treffen uns morgen.,Zeit,a1_time_1,2,false,tomorrow,Adverb,See you tomorrow.,vocab_a1_0030
+어제,eoje,gestern,A1,Adverb,어제 어디 갔어요?,Wo bist du gestern hingegangen?,Zeit,a1_time_1,3,false,yesterday,Adverb,Where did you go yesterday?,vocab_a1_0031
+아버지,abeoji,Vater (formell),A1,Nomen,아버지가 집에 있어요.,Mein Vater ist zu Hause.,Familie,a1_family_1,5,false,father (formal),Noun,My father is at home.,vocab_a1_0032
+어머니,eomeoni,Mutter (formell),A1,Nomen,어머니한테 전화해요.,Ich rufe meine Mutter an.,Familie,a1_family_1,6,false,mother (formal),Noun,I call my mother.,vocab_a1_0033
+아빠,appa,Papa (informell),A1,Nomen,아빠 사랑해요.,"Ich liebe dich, Papa.",Familie,a1_family_1,7,false,dad (informal),Noun,"I love you, Dad.",vocab_a1_0034
+엄마,eomma,Mama (informell),A1,Nomen,엄마 어디 있어요?,"Wo bist du, Mama?",Familie,a1_family_1,8,true,mom (informal),Noun,"Where are you, Mom?",vocab_a1_0035
+형,hyeong,älterer Bruder (Sicht des Mannes),A1,Nomen,우리 형은 요리를 잘해요.,Mein älterer Bruder kocht.,Familie,a1_family_1,9,true,older brother (for a male),Noun,My older brother cooks.,vocab_a1_0036
+오빠,oppa,älterer Bruder (Sicht der Frau),A1,Nomen,우리 오빠 정말 착해요.,Mein älterer Bruder ist toll.,Familie,a1_family_2,1,false,older brother (for a female),Noun,My older brother is cool.,vocab_a1_0037
+누나,nuna,ältere Schwester (Sicht des Mannes),A1,Nomen,우리 누나 진짜 예뻐요.,Meine ältere Schwester lacht.,Familie,a1_family_2,2,false,older sister (for a male),Noun,My older sister is laughing.,vocab_a1_0038
+언니,eonni,ältere Schwester (Sicht der Frau),A1,Nomen,언니랑 같이 가요.,Ich gehe mit meiner Schwester.,Familie,a1_family_2,3,false,older sister (for a female),Noun,I'm going with my older sister.,vocab_a1_0039
+남동생,namdongsaeng,jüngerer Bruder,A1,Nomen,남동생은 학생이에요.,Mein jüngerer Bruder ist Schüler.,Familie,a1_family_2,4,false,younger brother,Noun,My younger brother is a student.,vocab_a1_0040
+여동생,yeodongsaeng,jüngere Schwester,A1,Nomen,제 여동생이 정말 귀여워요.,Meine jüngere Schwester ist süß.,Familie,a1_family_2,5,false,younger sister,Noun,My younger sister is cute.,vocab_a1_0041
+남편,nampyeon,Ehemann,A1,Nomen,우리 남편은 요리를 잘해요.,Mein Ehemann kocht.,Familie,a1_family_2,6,false,husband,Noun,My husband cooks.,vocab_a1_0042
+아내,anae,Ehefrau,A1,Nomen,제 아내는 회사에 다녀요.,Meine Ehefrau arbeitet.,Familie,a1_family_2,7,false,wife,Noun,My wife works.,vocab_a1_0043
+머리,meori,Kopf / Haare,A1,Nomen,머리가 아파요.,Mein Kopf tut weh.,Körper,a1_body,1,false,head / hair,Noun,My head hurts.,vocab_a1_0044
+눈,nun,Auge,A1,Nomen,오늘 눈이 좀 피곤하네요.,Meine Augen sind müde.,Körper,a1_body,2,false,eye,Noun,My eyes are tired.,vocab_a1_0045
+코,ko,Nase,A1,Nomen,코가 아파요.,Meine Nase tut weh.,Körper,a1_body,3,false,nose,Noun,My nose hurts.,vocab_a1_0046
+입,ip,Mund,A1,Nomen,입을 열어요.,Öffne den Mund.,Körper,a1_body,4,false,mouth,Noun,Open your mouth.,vocab_a1_0047
+귀,gwi,Ohr,A1,Nomen,귀가 좀 아파요.,Meine Ohren sind gut.,Körper,a1_body,5,false,ear,Noun,My ears are good.,vocab_a1_0048
+손,son,Hand,A1,Nomen,손을 씻어요.,Ich wasche meine Hände.,Körper,a1_body,6,false,hand,Noun,I wash my hands.,vocab_a1_0049
+발,bal,Fuß,A1,Nomen,발이 아파요.,Mein Fuß tut weh.,Körper,a1_body,7,false,foot,Noun,My foot hurts.,vocab_a1_0050
+다리,dari,Bein,A1,Nomen,다리가 길어요.,Die Beine sind lang.,Körper,a1_body,8,false,leg,Noun,The legs are long.,vocab_a1_0051
+몸,mom,Körper / Leib,A1,Nomen,몸이 좀 안 좋아요.,Ich fühle mich nicht gut.,Körper,a1_body,9,true,body,Noun,I don't feel well.,vocab_a1_0052
+빨간색,ppalgan saek,rot,A1,Nomen,저는 빨간색을 제일 좋아해요.,Ich mag die Farbe Rot.,Farben,a1_colors,1,false,red,Noun,I like the color red.,vocab_a1_0053
+파란색,paran saek,blau,A1,Nomen,오늘 하늘이 정말 파래요.,Der Himmel ist blau.,Farben,a1_colors,2,false,blue,Noun,The sky is blue.,vocab_a1_0054
+초록색,chorok saek,grün,A1,Nomen,이 초록색 옷이 예뻐요.,Die Blätter sind grün.,Farben,a1_colors,3,false,green,Noun,The leaves are green.,vocab_a1_0055
+노란색,noran saek,gelb,A1,Nomen,노란색 우산을 새로 샀어요.,Die Banane ist gelb.,Farben,a1_colors,4,false,yellow,Noun,The banana is yellow.,vocab_a1_0056
+흰색,hinsaek,weiß,A1,Nomen,흰색 옷을 입어요.,Ich trage weiße Kleidung.,Farben,a1_colors,5,true,white,Noun,I wear white clothes.,vocab_a1_0057
+검은색,geomeun saek,schwarz,A1,Nomen,검은색 가방이에요.,Das ist eine schwarze Tasche.,Farben,a1_colors,6,true,black,Noun,That's a black bag.,vocab_a1_0058
+고기,gogi,Fleisch,A1,Nomen,고기를 먹어요.,Ich esse Fleisch.,Essen & Trinken,a1_food_1,5,false,meat,Noun,I eat meat.,vocab_a1_0059
+생선,saengseon,Fisch (als Essen),A1,Nomen,생선을 좋아해요?,Magst du Fisch?,Essen & Trinken,a1_food_1,6,false,fish (as food),Noun,Do you like fish?,vocab_a1_0060
+채소,chaeso,Gemüse,A1,Nomen,채소를 많이 먹어요.,Ich esse viel Gemüse.,Essen & Trinken,a1_food_1,7,false,vegetable,Noun,I eat a lot of vegetables.,vocab_a1_0061
+과일,gwail,Obst,A1,Nomen,과일이 맛있어요.,Das Obst ist lecker.,Essen & Trinken,a1_food_1,8,true,fruit,Noun,The fruit is delicious.,vocab_a1_0062
+라면,ramyeon,Ramen / Instant-Nudeln,A1,Nomen,오늘 저녁은 라면 어때요?,Ich koche Ramen.,Essen & Trinken,a1_food_1,9,true,ramen / instant noodles,Noun,I cook ramen.,vocab_a1_0063
+김치,kimchi,Kimchi (fermentierter Kohl),A1,Nomen,김치가 매워요.,Kimchi ist scharf.,Essen & Trinken,a1_food_2,1,false,kimchi (fermented cabbage),Noun,Kimchi is spicy.,vocab_a1_0064
+사과,sagwa,Apfel,A1,Nomen,매일 아침 사과 하나 먹어요.,Ich esse einen Apfel.,Essen & Trinken,a1_food_2,2,false,apple,Noun,I eat an apple.,vocab_a1_0065
+계란,gyeran,Ei,A1,Nomen,아침에 계란 두 개 먹었어요.,Ich koche ein Ei.,Essen & Trinken,a1_food_2,3,false,egg,Noun,I boil an egg.,vocab_a1_0066
+차,cha,Tee,A1,Nomen,자기 전에 따뜻한 차 마셔요.,Ich trinke Tee.,Essen & Trinken,a1_food_2,4,false,tea,Noun,I drink tea.,vocab_a1_0067
+화장실,hwajangsil,Toilette / Badezimmer,A1,Nomen,화장실이 어디예요?,Wo ist die Toilette?,Alltag,a1_daily_1,5,false,toilet / bathroom,Noun,Where is the bathroom?,vocab_a1_0068
+편의점,pyeonijeom,Convenience Store,A1,Nomen,편의점에서 사요.,Ich kaufe im Convenience Store.,Alltag,a1_daily_1,6,false,convenience store,Noun,I buy it at the convenience store.,vocab_a1_0069
+공원,gongwon,Park,A1,Nomen,공원에서 산책해요.,Ich gehe im Park spazieren.,Freizeit,a1_misc_1,5,false,park,Noun,I take a walk in the park.,vocab_a1_0070
+도서관,doseogwan,Bibliothek,A1,Nomen,도서관에서 공부해요.,Ich lerne in der Bibliothek.,Bildung,a1_misc_1,6,false,library,Noun,I study at the library.,vocab_a1_0071
+방,bang,Zimmer / Raum,A1,Nomen,제 방이 작아요.,Mein Zimmer ist klein.,Alltag,a1_daily_1,7,false,room,Noun,My room is small.,vocab_a1_0072
+침대,chimdae,Bett,A1,Nomen,침대에서 자요.,Ich schlafe im Bett.,Alltag,a1_daily_1,8,true,bed,Noun,I sleep in the bed.,vocab_a1_0073
+의자,uija,Stuhl,A1,Nomen,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag,a1_daily_1,9,true,chair,Noun,I sit on the chair.,vocab_a1_0074
+문,mun,Tür,A1,Nomen,문을 열어요.,Ich öffne die Tür.,Alltag,a1_daily_2,1,false,door,Noun,I open the door.,vocab_a1_0075
+옷,ot,Kleidung,A1,Nomen,새 옷을 샀어요.,Ich habe neue Kleidung gekauft.,Alltag,a1_daily_2,2,false,clothes,Noun,I bought new clothes.,vocab_a1_0076
+지금,jigeum,jetzt / gerade,A1,Adverb,지금 뭐 해요?,Was machst du gerade?,Zeit,a1_time_1,4,false,now / right now,Adverb,What are you doing now?,vocab_a1_0077
+아침,achim,Morgen / Frühstück,A1,Nomen,아침을 먹어요.,Ich esse Frühstück.,Zeit,a1_time_1,5,false,morning / breakfast,Noun,I eat breakfast.,vocab_a1_0078
+점심,jeomsim,Mittag / Mittagessen,A1,Nomen,점심 같이 먹어요.,Lass uns zusammen Mittagessen.,Zeit,a1_time_1,6,false,noon / lunch,Noun,Let's have lunch together.,vocab_a1_0079
+저녁,jeonyeok,Abend / Abendessen,A1,Nomen,저녁에 운동해요.,Ich mache abends Sport.,Zeit,a1_time_1,7,false,evening / dinner,Noun,I exercise in the evening.,vocab_a1_0080
+밤,bam,Nacht,A1,Nomen,요즘 밤에 늦게 자요.,Ich schlafe nachts.,Zeit,a1_time_1,8,true,night,Noun,I sleep at night.,vocab_a1_0081
+주말,jumal,Wochenende,A1,Nomen,주말에 뭐 해요?,Was machst du am Wochenende?,Zeit,a1_time_1,9,true,weekend,Noun,What do you do on the weekend?,vocab_a1_0082
+매일,maeil,jeden Tag / täglich,A1,Adverb,저는 매일 아침 운동해요.,Ich mache jeden Tag Sport.,Zeit,a1_time_2,1,false,every day / daily,Adverb,I exercise every day.,vocab_a1_0083
+항상,hangsang,immer,A1,Adverb,항상 도와주셔서 감사해요.,Ich bin immer dankbar.,Alltag,a1_daily_2,3,false,always,Adverb,I'm always grateful.,vocab_a1_0084
+가끔,gakkeum,manchmal / gelegentlich,A1,Adverb,가끔 영화를 봐요.,Ich schaue manchmal Filme.,Alltag,a1_daily_2,4,false,sometimes / occasionally,Adverb,I sometimes watch movies.,vocab_a1_0085
+빨리,ppalli,schnell / beeile dich,A1,Adverb,"늦었어요, 빨리 가요!",Komm schnell.,Alltag,a1_daily_2,5,false,quickly / hurry up,Adverb,Come quickly.,vocab_a1_0086
+가다,gada,gehen,A1,Verb,학교에 가요.,Ich gehe zur Schule.,Bewegung,a1_transport,3,true,to go,Verb,I go to school.,vocab_a1_0087
+오다,oda,kommen,A1,Verb,집에 와요.,Ich komme nach Hause.,Bewegung,a1_transport,4,true,to come,Verb,I come home.,vocab_a1_0088
+먹다,meokda,essen,A1,Verb,밥을 먹어요.,Ich esse Reis.,Essen & Trinken,a1_food_2,5,false,to eat,Verb,I eat rice.,vocab_a1_0089
+마시다,masida,trinken,A1,Verb,커피를 마셔요.,Ich trinke Kaffee.,Essen & Trinken,a1_food_2,6,false,to drink,Verb,I drink coffee.,vocab_a1_0090
+있다,itda,sein / haben (existieren),A1,Verb,집에 있어요.,Ich bin zu Hause.,Alltag,a1_daily_2,6,false,to be / to have (to exist),Verb,I'm at home.,vocab_a1_0091
+없다,eopda,nicht haben / nicht sein,A1,Verb,시간이 없어요.,Ich habe keine Zeit.,Alltag,a1_daily_2,7,false,to not have / to not exist,Verb,I have no time.,vocab_a1_0092
+하다,hada,machen / tun,A1,Verb,뭐 해요?,Was machst du?,Alltag,a1_daily_2,8,true,to do,Verb,What are you doing?,vocab_a1_0093
+보다,boda,sehen / schauen,A1,Verb,TV를 봐요.,Ich schaue fern.,Freizeit,a1_misc_1,7,false,to see / to watch,Verb,I watch TV.,vocab_a1_0094
+듣다,deutda,hören,A1,Verb,음악을 들어요.,Ich höre Musik.,Freizeit,a1_misc_1,8,false,to listen / to hear,Verb,I listen to music.,vocab_a1_0095
+읽다,ikda,lesen,A1,Verb,책을 읽어요.,Ich lese ein Buch.,Bildung,a1_misc_1,9,true,to read,Verb,I read a book.,vocab_a1_0096
+자다,jada,schlafen,A1,Verb,일찍 자요.,Ich schlafe früh.,Alltag,a1_daily_2,9,true,to sleep,Verb,I sleep early.,vocab_a1_0097
+만나다,mannada,treffen,A1,Verb,친구를 만나요.,Ich treffe einen Freund.,Beziehungen,a1_family_2,8,true,to meet,Verb,I meet a friend.,vocab_a1_0098
+좋아하다,joahada,mögen / gerne haben,A1,Verb,한국어를 좋아해요.,Ich mag Koreanisch.,Gefühle,a1_misc_1,10,true,to like,Verb,I like Korean.,vocab_a1_0099
+싫어하다,sireohada,nicht mögen / ablehnen,A1,Verb,저는 매운 거 진짜 싫어해요.,Ich mag kein Gemüse.,Gefühle,a1_misc_2,1,false,to dislike,Verb,I dislike vegetables.,vocab_a1_0100
+사랑하다,saranghada,lieben,A1,Verb,우리 가족을 정말 사랑해요.,Ich liebe dich.,Gefühle,a1_misc_2,2,false,to love,Verb,I love you.,vocab_a1_0101
+사다,sada,kaufen,A1,Verb,옷을 사요.,Ich kaufe Kleidung.,Einkaufen,a1_misc_2,3,false,to buy,Verb,I buy clothes.,vocab_a1_0102
+말하다,malhada,sprechen / sagen,A1,Verb,한국어로 말해요.,Ich spreche auf Koreanisch.,Kommunikation,a1_misc_2,4,false,to speak / to say,Verb,I speak in Korean.,vocab_a1_0103
+쓰다,sseuda,schreiben / benutzen,A1,Verb,편지를 써요.,Ich schreibe einen Brief.,Bildung,a1_misc_2,5,false,to write / to use,Verb,I write a letter.,vocab_a1_0104
+알다,alda,wissen / kennen,A1,Verb,그건 저도 알아요.,Ich weiß!,Alltag,a1_daily_3,1,false,to know,Verb,I know!,vocab_a1_0105
+모르다,moreuda,nicht wissen,A1,Verb,"죄송해요, 잘 몰라요.",Ich weiß es nicht.,Alltag,a1_daily_3,2,false,to not know,Verb,I don't know.,vocab_a1_0106
+주다,juda,geben,A1,Verb,이거 친구 선물로 줄 거예요.,Ich gebe es meinem Freund.,Alltag,a1_daily_3,3,false,to give,Verb,I give it to my friend.,vocab_a1_0107
+받다,batda,bekommen / empfangen,A1,Verb,선물을 받았어요.,Ich habe ein Geschenk bekommen.,Alltag,a1_daily_3,4,false,to receive / to get,Verb,I received a gift.,vocab_a1_0108
+앉다,anda,sitzen,A1,Verb,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag,a1_daily_3,5,false,to sit,Verb,I sit on the chair.,vocab_a1_0109
+서다,seoda,stehen,A1,Verb,여기 잠깐 서 있어요.,Ich stehe hier.,Alltag,a1_daily_3,6,false,to stand,Verb,I stand here.,vocab_a1_0110
+열다,yeolda,öffnen,A1,Verb,문을 열어요.,Ich öffne die Tür.,Alltag,a1_daily_3,7,false,to open,Verb,I open the door.,vocab_a1_0111
+닫다,datda,schließen,A1,Verb,창문을 닫아요.,Ich schließe das Fenster.,Alltag,a1_daily_3,8,true,to close,Verb,I close the window.,vocab_a1_0112
+입다,ipda,anziehen / tragen (Kleidung),A1,Verb,옷을 입어요.,Ich ziehe mich an.,Alltag,a1_daily_3,9,true,to wear / to put on (clothes),Verb,I get dressed.,vocab_a1_0113
+일하다,ilhada,arbeiten,A1,Verb,회사에서 일해요.,Ich arbeite in einer Firma.,Beruf,a1_misc_2,6,false,to work,Verb,I work at a company.,vocab_a1_0114
+좋다,jota,gut / schön,A1,Adjektiv,날씨가 좋아요.,Das Wetter ist schön.,Beschreibung,a1_descriptions,1,false,good / nice,Adjective,The weather is nice.,vocab_a1_0115
+크다,keuda,groß,A1,Adjektiv,집이 커요.,Das Haus ist groß.,Beschreibung,a1_descriptions,2,false,big,Adjective,The house is big.,vocab_a1_0116
+작다,jakda,klein,A1,Adjektiv,방이 작아요.,Das Zimmer ist klein.,Beschreibung,a1_descriptions,3,false,small,Adjective,The room is small.,vocab_a1_0117
+많다,manta,viel,A1,Adjektiv,오늘 카페에 사람이 정말 많아요.,Es gibt viele Menschen.,Menge,a1_numbers_1,1,false,many / much,Adjective,There are many people.,vocab_a1_0118
+비싸다,bissada,teuer,A1,Adjektiv,이 옷은 비싸요.,Diese Kleidung ist teuer.,Einkaufen,a1_misc_2,7,false,expensive,Adjective,These clothes are expensive.,vocab_a1_0119
+싸다,ssada,billig / günstig,A1,Adjektiv,여기 진짜 싸요.,Dieses Essen ist günstig.,Einkaufen,a1_misc_2,8,true,cheap,Adjective,This food is cheap.,vocab_a1_0120
+맛있다,masitda,lecker,A1,Adjektiv,이 음식은 맛있어요.,Dieses Essen ist lecker.,Essen & Trinken,a1_food_2,7,true,delicious,Adjective,This food is delicious.,vocab_a1_0121
+귀엽다,gwiyeopda,niedlich / süß,A1,Adjektiv,강아지가 귀여워요.,Der Hund ist süß.,Beschreibung,a1_descriptions,4,false,cute,Adjective,The puppy is cute.,vocab_a1_0122
+조용하다,joyonghada,leise / ruhig,A1,Adjektiv,도서관이 조용해요.,Die Bibliothek ist ruhig.,Beschreibung,a1_descriptions,5,false,quiet,Adjective,The library is quiet.,vocab_a1_0123
+시끄럽다,sikkeureopda,laut,A1,Adjektiv,밖이 시끄러워요.,Draußen ist es laut.,Beschreibung,a1_descriptions,6,false,loud / noisy,Adjective,It's noisy outside.,vocab_a1_0124
+어렵다,eoryeopda,schwierig / schwer,A1,Adjektiv,한국어가 어려워요.,Koreanisch ist schwierig.,Beschreibung,a1_descriptions,7,false,difficult / hard,Adjective,Korean is difficult.,vocab_a1_0125
+쉽다,swipda,einfach / leicht,A1,Adjektiv,이 문제는 쉬워요.,Diese Aufgabe ist einfach.,Beschreibung,a1_descriptions,8,false,easy,Adjective,This task is easy.,vocab_a1_0126
+배고프다,baegopuda,hungrig sein,A1,Adjektiv,"아, 진짜 배고파요.",Ich bin hungrig.,Körper,a1_body,10,true,to be hungry,Adjective,I'm hungry.,vocab_a1_0127
+길다,gilda,lang,A1,Adjektiv,머리가 길어요.,Meine Haare sind lang.,Beschreibung,a1_descriptions,9,false,long,Adjective,My hair is long.,vocab_a1_0128
+짧다,jjalda,kurz,A1,Adjektiv,치마가 짧아요.,Der Rock ist kurz.,Beschreibung,a1_descriptions,10,false,short,Adjective,The skirt is short.,vocab_a1_0129
+회사,hoesa,Firma / Unternehmen,A2,Nomen,요즘 회사 일이 좀 많아요.,Ich gehe zur Arbeit.,Beruf,a2_work,1,false,company / firm,Noun,I go to work.,vocab_a2_0001
+직업,jigeop,Beruf,A2,Nomen,직업이 어떻게 되세요?,Was ist dein Beruf?,Beruf,a2_work,2,false,occupation / job,Noun,What is your occupation?,vocab_a2_0002
+취미,chwimi,Hobby,A2,Nomen,저는 취미가 사진 찍는 거예요.,Was ist dein Hobby?,Freizeit,a2_health_misc_1,1,false,hobby,Noun,What is your hobby?,vocab_a2_0003
+날씨,nalssi,Wetter,A2,Nomen,오늘 날씨 진짜 좋네요.,Wie ist das Wetter?,Wetter,a2_weather,1,false,weather,Noun,How is the weather?,vocab_a2_0004
+계절,gyejeol,Jahreszeit,A2,Nomen,어떤 계절을 좋아해요?,Welche Jahreszeit magst du?,Wetter,a2_weather,2,false,season,Noun,Which season do you like?,vocab_a2_0005
+봄,bom,Frühling,A2,Nomen,이제 봄이 왔네요.,Der Frühling ist da.,Wetter,a2_weather,3,false,spring,Noun,Spring is here.,vocab_a2_0006
+여름,yeoreum,Sommer,A2,Nomen,한국 여름은 진짜 더워요.,Der Sommer ist heiß.,Wetter,a2_weather,4,false,summer,Noun,Summer is hot.,vocab_a2_0007
+가을,gaeul,Herbst,A2,Nomen,가을 단풍이 정말 예뻐요.,Das Herbstlaub ist schön.,Wetter,a2_weather,5,false,autumn / fall,Noun,The autumn leaves are beautiful.,vocab_a2_0008
+겨울,gyeoul,Winter,A2,Nomen,한국 겨울은 좀 추워요.,Der Winter ist kalt.,Wetter,a2_weather,6,false,winter,Noun,Winter is cold.,vocab_a2_0009
+병원,byeongwon,Krankenhaus,A2,Nomen,감기가 심해서 병원에 다녀왔어요.,Ich gehe ins Krankenhaus.,Gesundheit,a2_health_misc_1,2,false,hospital,Noun,I go to the hospital.,vocab_a2_0010
+약,yak,Medizin / Medikament,A2,Nomen,감기약 좀 사러 왔어요.,Ich nehme Medizin.,Gesundheit,a2_health_misc_1,3,false,medicine / medication,Noun,I take medicine.,vocab_a2_0011
+식당,sikdang,Restaurant,A2,Nomen,이 근처에 맛있는 식당 있어요?,Ich esse im Restaurant.,Essen & Trinken,a2_food_1,1,false,restaurant,Noun,I eat at the restaurant.,vocab_a2_0012
+시장,sijang,Markt,A2,Nomen,주말에 시장에 다녀왔어요.,Ich kaufe auf dem Markt.,Einkaufen,a2_shopping_1,1,false,market,Noun,I buy at the market.,vocab_a2_0013
+은행,eunhaeng,Bank,A2,Nomen,은행이 몇 시까지 열어요?,Ich gehe zur Bank.,Alltag,a2_daily_1,1,false,bank,Noun,I go to the bank.,vocab_a2_0014
+여행,yeohaeng,Reise,A2,Nomen,다음 달에 제주도로 여행 가요.,Ich gehe auf Reise.,Reise,a2_health_misc_1,4,false,trip / travel,Noun,I'm going on a trip.,vocab_a2_0015
+비행기,bihaenggi,Flugzeug,A2,Nomen,비행기가 곧 도착해요.,Ich nehme das Flugzeug.,Verkehr,a2_transport,1,false,airplane,Noun,I take the airplane.,vocab_a2_0016
+호텔,hotel,Hotel,A2,Nomen,이번 호텔 진짜 좋았어요.,Ich übernachte im Hotel.,Reise,a2_health_misc_1,5,false,hotel,Noun,I stay at a hotel.,vocab_a2_0017
+음악,eumak,Musik,A2,Nomen,요즘 이 음악 자주 들어요.,Ich höre Musik.,Freizeit,a2_health_misc_1,6,false,music,Noun,I listen to music.,vocab_a2_0018
+영화,yeonghwa,Film,A2,Nomen,주말에 영화 한 편 봤어요.,Ich schaue einen Film.,Freizeit,a2_health_misc_1,7,false,movie / film,Noun,I watch a movie.,vocab_a2_0019
+시험,siheom,Prüfung / Test,A2,Nomen,다음 주에 시험이 있어서 걱정이에요.,Morgen habe ich eine Prüfung.,Bildung,a2_education,1,false,exam / test,Noun,I have an exam tomorrow.,vocab_a2_0020
+숙제,sukje,Hausaufgaben,A2,Nomen,숙제 다 했어요?,Ich mache Hausaufgaben.,Bildung,a2_education,2,false,homework,Noun,I do homework.,vocab_a2_0021
+성적,seongjeok,Noten / Ergebnis,A2,Nomen,이번엔 성적이 좀 올랐어요.,Meine Noten sind gut.,Bildung,a2_education,3,false,grades / results,Noun,My grades are good.,vocab_a2_0022
+휴가,hyuga,Urlaub / Freizeit,A2,Nomen,다음 주부터 휴가예요.,Ich genieße meinen Urlaub.,Beruf,a2_work,3,false,vacation / time off,Noun,I enjoy my vacation.,vocab_a2_0023
+회의,hoeui,Meeting / Besprechung,A2,Nomen,지금 회의 중이에요.,Ich habe ein Meeting.,Beruf,a2_work,4,false,meeting,Noun,I have a meeting.,vocab_a2_0024
+택시,taeksi,Taxi,A2,Nomen,여기서 택시 잡기 힘들어요.,Ich nehme ein Taxi.,Verkehr,a2_transport,2,false,taxi,Noun,I take a taxi.,vocab_a2_0025
+기차,gicha,Zug / Bahn,A2,Nomen,기차 시간에 늦었어요.,Ich fahre mit dem Zug.,Verkehr,a2_transport,3,false,train,Noun,I go by train.,vocab_a2_0026
+자전거,jajeongeo,Fahrrad,A2,Nomen,요즘 자전거로 출근해요.,Ich fahre Fahrrad.,Verkehr,a2_transport,4,false,bicycle,Noun,I ride a bicycle.,vocab_a2_0027
+전화,jeonhwa,Telefon / Anruf,A2,Nomen,아까 부재중 전화 왔어요.,Ich habe einen Anruf bekommen.,Kommunikation,a2_health_misc_1,8,true,phone / call,Noun,I got a call.,vocab_a2_0028
+문자,munja,Nachricht (SMS),A2,Nomen,답장 문자 못 봤어요?,Hast du eine Nachricht geschickt?,Kommunikation,a2_health_misc_1,9,true,text message,Noun,Did you send a message?,vocab_a2_0029
+인터넷,inteonet,Internet,A2,Nomen,여기 인터넷 좀 느리네요.,Ich nutze das Internet.,Technologie,a2_health_misc_2,1,false,internet,Noun,I use the internet.,vocab_a2_0030
+컴퓨터,keompyuteo,Computer,A2,Nomen,컴퓨터가 갑자기 꺼졌어요.,Ich arbeite am Computer.,Technologie,a2_health_misc_2,2,false,computer,Noun,I work on the computer.,vocab_a2_0031
+지갑,jigap,Geldbörse / Portemonnaie,A2,Nomen,"아, 지갑을 집에 두고 왔어요.",Ich habe keine Geldbörse.,Alltag,a2_daily_1,2,false,wallet / purse,Noun,I don't have a wallet.,vocab_a2_0032
+열쇠,yeolsoe,Schlüssel,A2,Nomen,열쇠를 잃어버렸어요.,Ich habe den Schlüssel verloren.,Alltag,a2_daily_1,3,false,key,Noun,I lost the key.,vocab_a2_0033
+우산,usan,Regenschirm,A2,Nomen,우산 안 가져왔는데 어떡해요?,Hast du einen Regenschirm?,Wetter,a2_weather,7,false,umbrella,Noun,Do you have an umbrella?,vocab_a2_0034
+얼마,eolma,wie viel (Geld),A2,Ausdruck,이거 다 해서 얼마예요?,Wie viel kostet das?,Einkaufen,a2_shopping_1,2,false,how much (money),Expression,How much is this?,vocab_a2_0035
+할인,halin,Rabatt / Ermäßigung,A2,Nomen,학생 할인 되나요?,Gibt es einen Rabatt?,Einkaufen,a2_shopping_1,3,false,discount,Noun,Is there a discount?,vocab_a2_0036
+영수증,yeongsujeung,Quittung / Kassenbon,A2,Nomen,영수증 좀 주시겠어요?,Die Quittung bitte.,Einkaufen,a2_shopping_1,4,false,receipt,Noun,"The receipt, please.",vocab_a2_0037
+카드,kadeu,Kreditkarte / Karte,A2,Nomen,카드로 결제할게요.,Ich zahle mit Karte.,Einkaufen,a2_shopping_1,5,false,card / credit card,Noun,I pay by card.,vocab_a2_0038
+공부하다,gongbuhada,lernen / studieren,A2,Verb,요즘 한국어를 공부하고 있어요.,Ich lerne Koreanisch.,Bildung,a2_education,4,false,to study / to learn,Verb,I study Korean.,vocab_a2_0039
+운동하다,undonghada,Sport machen,A2,Verb,요즘 매일 운동하려고 해요.,Ich treibe täglich Sport.,Sport,a2_health_misc_2,3,false,to exercise,Verb,I exercise every day.,vocab_a2_0040
+여행하다,yeohaenghada,reisen,A2,Verb,여름에 유럽을 여행하고 싶어요.,Ich reise nach Korea.,Reise,a2_health_misc_2,4,false,to travel,Verb,I travel to Korea.,vocab_a2_0041
+요리하다,yorihada,kochen,A2,Verb,저는 주말에 요리하는 걸 좋아해요.,Ich koche.,Essen & Trinken,a2_food_1,2,false,to cook,Verb,I cook.,vocab_a2_0042
+전화하다,jeonhwahada,anrufen,A2,Verb,이따 다시 전화할게요.,Ich rufe einen Freund an.,Kommunikation,a2_health_misc_2,5,false,to call (on the phone),Verb,I call a friend.,vocab_a2_0043
+도착하다,dochakhada,ankommen,A2,Verb,지금 막 도착했어요.,Ich bin in der Schule angekommen.,Bewegung,a2_transport,5,false,to arrive,Verb,I arrived at school.,vocab_a2_0044
+쉬다,swida,sich ausruhen,A2,Verb,오늘은 그냥 집에서 쉴래요.,Ich ruhe mich zu Hause aus.,Alltag,a2_daily_1,4,false,to rest,Verb,I rest at home.,vocab_a2_0045
+기억하다,gieokada,sich erinnern,A2,Verb,이름이 기억이 안 나요.,Erinnerst du dich an den Namen?,Alltag,a2_daily_1,5,false,to remember,Verb,Do you remember the name?,vocab_a2_0046
+이해하다,ihaehada,verstehen,A2,Verb,무슨 말인지 이해했어요.,Verstehst du?,Bildung,a2_education,5,false,to understand,Verb,Do you understand?,vocab_a2_0047
+배우다,baeuda,lernen / etwas Neues erlernen,A2,Verb,요즘 기타를 배우고 있어요.,Ich lerne Gitarre.,Bildung,a2_education,6,true,to learn (something new),Verb,I learn guitar.,vocab_a2_0048
+가르치다,gareuchida,lehren / unterrichten,A2,Verb,저희 언니가 영어를 가르쳐요.,Ich unterrichte Englisch.,Bildung,a2_education,7,true,to teach,Verb,I teach English.,vocab_a2_0049
+찾다,chatda,suchen / finden,A2,Verb,지금 열쇠를 찾고 있어요.,Ich suche den Schlüssel.,Alltag,a2_daily_1,6,false,to look for / to find,Verb,I look for the key.,vocab_a2_0050
+만들다,mandeulda,machen / herstellen,A2,Verb,친구 생일에 케이크를 만들었어요.,Ich backe einen Kuchen.,Alltag,a2_daily_1,7,true,to make,Verb,I bake a cake.,vocab_a2_0051
+예약하다,yeyakhada,reservieren / buchen,A2,Verb,저녁 7시로 예약했어요.,Ich buche ein Hotel.,Reise,a2_health_misc_2,6,false,to reserve / to book,Verb,I book a hotel.,vocab_a2_0052
+보내다,bonaeda,schicken / senden,A2,Verb,방금 사진 보냈어요.,Ich schicke eine Nachricht.,Kommunikation,a2_health_misc_2,7,false,to send,Verb,I send a message.,vocab_a2_0053
+잃어버리다,ireobeorida,verlieren,A2,Verb,지갑을 잃어버려서 큰일 났어요.,Ich habe meine Brieftasche verloren.,Alltag,a2_daily_1,8,true,to lose,Verb,I lost my wallet.,vocab_a2_0054
+바꾸다,bakkuda,wechseln / ändern / tauschen,A2,Verb,이거 다른 걸로 바꿀 수 있어요?,Ich habe die Nummer gewechselt.,Alltag,a2_daily_2,1,false,to change / to swap,Verb,I changed the number.,vocab_a2_0055
+걷다,geotda,zu Fuß gehen / laufen,A2,Verb,회사까지 30분 걸어요.,Ich gehe zur Schule zu Fuß.,Bewegung,a2_transport,6,false,to walk,Verb,I walk to school.,vocab_a2_0056
+걱정하다,geokjeonghada,sich sorgen / besorgt sein,A2,Verb,너무 걱정하지 마세요.,Mach dir keine Sorgen.,Gefühle,a2_feelings_1,1,false,to worry,Verb,Don't worry.,vocab_a2_0057
+계산하다,gyesanhada,bezahlen / abrechnen,A2,Verb,여기 계산 좀 부탁드려요.,Ich möchte bitte bezahlen.,Einkaufen,a2_shopping_1,6,true,to pay / to calculate,Verb,"I'd like to pay, please.",vocab_a2_0058
+덥다,deopda,heiß (sein),A2,Adjektiv,오늘 진짜 덥네요.,Heute ist es sehr heiß.,Wetter,a2_weather,8,true,to be hot (weather),Adjective,It's very hot today.,vocab_a2_0059
+춥다,chupda,kalt (sein),A2,Adjektiv,밖에 날씨가 많이 추워요.,Im Winter ist es kalt.,Wetter,a2_weather,9,true,to be cold (weather),Adjective,It's cold in winter.,vocab_a2_0060
+바쁘다,bappeuda,beschäftigt (sein),A2,Adjektiv,요즘 회사 일 때문에 좀 바빠요.,Ich bin zurzeit sehr beschäftigt.,Alltag,a2_daily_2,2,false,to be busy,Adjective,I'm very busy these days.,vocab_a2_0061
+피곤하다,pigonhada,müde (sein),A2,Adjektiv,오늘따라 좀 피곤하네요.,Heute bin ich müde.,Gefühle,a2_feelings_1,2,false,to be tired,Adjective,I'm tired today.,vocab_a2_0062
+행복하다,haengbokhada,glücklich (sein),A2,Adjektiv,요즘 진짜 행복해요.,Jetzt bin ich glücklich.,Gefühle,a2_feelings_1,3,false,to be happy,Adjective,I'm happy now.,vocab_a2_0063
+슬프다,seulpeuda,traurig (sein),A2,Adjektiv,그 얘기 들으니까 슬퍼요.,Heute bin ich traurig.,Gefühle,a2_feelings_1,4,false,to be sad,Adjective,I'm sad today.,vocab_a2_0064
+예쁘다,yeppeuda,hübsch / schön (sein),A2,Adjektiv,이 옷 진짜 예뻐요.,Die Blume ist hübsch.,Beschreibung,a2_descriptions_1,1,false,to be pretty,Adjective,The flower is pretty.,vocab_a2_0065
+재미있다,jaemiitda,interessant / lustig (sein),A2,Adjektiv,그 드라마 진짜 재미있어요.,Koreanisch ist interessant.,Beschreibung,a2_descriptions_1,2,false,to be interesting / fun,Adjective,Korean is interesting.,vocab_a2_0066
+무섭다,museobda,Angst einflößend / beängstigend,A2,Adjektiv,그 영화 좀 무서웠어요.,Geister machen mir Angst.,Gefühle,a2_feelings_1,5,false,to be scary,Adjective,Ghosts scare me.,vocab_a2_0067
+건강하다,geonganghada,gesund sein,A2,Adjektiv,부모님이 건강하셨으면 좋겠어요.,Ich bin gesund.,Gesundheit,a2_health_misc_2,8,true,to be healthy,Adjective,I'm healthy.,vocab_a2_0068
+아프다,apeuda,krank sein / schmerzen,A2,Adjektiv,아침부터 배가 너무 아파요.,Mein Bauch tut weh.,Gesundheit,a2_health_misc_2,9,true,to be sick / to hurt,Adjective,My stomach hurts.,vocab_a2_0069
+빠르다,ppareuda,schnell sein,A2,Adjektiv,택시가 지하철보다 빨라요.,Der Bus ist schnell.,Beschreibung,a2_descriptions_1,3,false,to be fast,Adjective,The bus is fast.,vocab_a2_0070
+느리다,neurida,langsam sein,A2,Adjektiv,오늘따라 인터넷이 좀 느리네요.,Die Schildkröte ist langsam.,Beschreibung,a2_descriptions_1,4,false,to be slow,Adjective,The turtle is slow.,vocab_a2_0071
+무겁다,mugeopda,schwer sein,A2,Adjektiv,가방이 왜 이렇게 무거워요?,Die Tasche ist schwer.,Beschreibung,a2_descriptions_1,5,false,to be heavy,Adjective,The bag is heavy.,vocab_a2_0072
+가볍다,gabyeopda,leicht sein,A2,Adjektiv,이 노트북 진짜 가벼워요.,Diese Tasche ist leicht.,Beschreibung,a2_descriptions_1,6,false,to be light,Adjective,This bag is light.,vocab_a2_0073
+넓다,neolda,breit / geräumig sein,A2,Adjektiv,새 집이 생각보다 넓어요.,Der Park ist groß und weit.,Beschreibung,a2_descriptions_1,7,true,to be wide / spacious,Adjective,The park is wide and spacious.,vocab_a2_0074
+좁다,jobda,eng / schmal sein,A2,Adjektiv,여기 자리가 좀 좁네요.,Dieses Zimmer ist eng.,Beschreibung,a2_descriptions_1,8,true,to be narrow / cramped,Adjective,This room is cramped.,vocab_a2_0075
+달다,dalda,süß sein,A2,Adjektiv,이 케이크 너무 달아요.,Dieser Kuchen ist süß.,Essen & Trinken,a2_food_1,3,false,to be sweet,Adjective,This cake is sweet.,vocab_a2_0076
+맵다,maepda,scharf sein,A2,Adjektiv,"아, 김치 진짜 맵네요.",Kimchi ist scharf.,Essen & Trinken,a2_food_1,4,false,to be spicy,Adjective,Kimchi is spicy.,vocab_a2_0077
+그립다,geuripda,vermissen / sich sehnen,A2,Adjektiv,요즘 고향이 많이 그리워요.,Ich vermisse meine Heimat.,Gefühle,a2_feelings_1,6,false,to miss / to long for,Adjective,I miss my hometown.,vocab_a2_0078
+외롭다,oeroepda,einsam sein,A2,Adjektiv,혼자 살면 가끔 외로울 때 있어요.,Ich bin alleine und fühle mich einsam.,Gefühle,a2_feelings_1,7,true,to be lonely,Adjective,I'm alone and lonely.,vocab_a2_0079
+정말,jeongmal,wirklich / tatsächlich,A2,Adverb,이거 정말 맛있네요.,Das ist wirklich lecker!,Alltag,a2_daily_2,3,false,really / truly,Adverb,It's really delicious!,vocab_a2_0080
+너무,neomu,zu sehr / sehr,A2,Adverb,오늘 너무 덥지 않아요?,Es ist zu heiß.,Alltag,a2_daily_2,4,false,too / very,Adverb,It's too hot.,vocab_a2_0081
+조금,jogeum,ein bisschen / etwas,A2,Adverb,조금만 더 주세요.,Noch ein bisschen mehr bitte.,Alltag,a2_daily_2,5,false,a little / a bit,Adverb,"A little more, please.",vocab_a2_0082
+많이,mani,viel / sehr,A2,Adverb,오늘 진짜 많이 먹었어요.,Ich habe viel gegessen.,Alltag,a2_daily_2,6,false,a lot / much,Adverb,I ate a lot.,vocab_a2_0083
+혼자,honja,alleine,A2,Adverb,저 혼자 살고 있어요.,Ich wohne alleine.,Alltag,a2_daily_2,7,true,alone,Adverb,I live alone.,vocab_a2_0084
+같이,gachi,zusammen / gemeinsam,A2,Adverb,우리 같이 갈까요?,Lass uns zusammen gehen.,Alltag,a2_daily_2,8,true,together,Adverb,Let's go together.,vocab_a2_0085
+또,tto,auch / wieder / nochmal,A2,Adverb,저 사람 또 왔네요.,Ich bin wieder gekommen.,Alltag,a2_daily_3,1,false,again / also,Adverb,I came again.,vocab_a2_0086
+경험,gyeongheom,Erfahrung,B1,Nomen,그게 저한테는 정말 좋은 경험이었어요.,Ich mache neue Erfahrungen.,Alltag,b1_daily_1,1,false,experience,Noun,I'm having new experiences.,vocab_b1_0001
+문화,munhwa,Kultur,B1,Nomen,한국 문화가 정말 매력적이에요.,Ich lerne die koreanische Kultur.,Gesellschaft,b1_tech_society_1,1,false,culture,Noun,I learn about Korean culture.,vocab_b1_0002
+사회,sahoe,Gesellschaft,B1,Nomen,요즘 사회 문제에 관심이 많아요.,Wir leben in einer vielfältigen Gesellschaft.,Gesellschaft,b1_tech_society_1,2,false,society,Noun,We live in a diverse society.,vocab_b1_0003
+환경,hwangyeong,Umwelt,B1,Nomen,환경 문제는 우리 모두의 책임이에요.,Wir müssen die Umwelt schützen.,Umwelt,b1_health_education,1,false,environment,Noun,We must protect the environment.,vocab_b1_0004
+관계,gwangye,Beziehung / Verhältnis,B1,Nomen,사람 관계가 제일 어려운 것 같아요.,Ich pflege gute Beziehungen.,Beziehungen,b1_emotions_relations_1,1,false,relationship,Noun,I maintain good relationships.,vocab_b1_0005
+목표,mokpyo,Ziel / Vorhaben,B1,Nomen,올해 목표는 한국어 자격증 따는 거예요.,Ich setze mir Ziele.,Motivation,b1_emotions_relations_1,2,false,goal / objective,Noun,I set goals.,vocab_b1_0006
+방법,bangbeop,Methode / Weg,B1,Nomen,혹시 더 좋은 방법 있으세요?,Gibt es eine gute Methode?,Alltag,b1_daily_1,2,false,method / way,Noun,Is there a good way?,vocab_b1_0007
+문제,munje,Problem / Aufgabe,B1,Nomen,이 문제 좀 같이 볼까요?,Gibt es ein Problem?,Alltag,b1_daily_1,3,false,problem / question,Noun,Is there a problem?,vocab_b1_0008
+해결,haegyeol,Lösung,B1,Nomen,이 문제는 빨리 해결해야 해요.,Ich löse das Problem.,Alltag,b1_daily_1,4,false,solution,Noun,I solve the problem.,vocab_b1_0009
+정치,jeongchi,Politik,B1,Nomen,저는 정치 얘기는 잘 안 해요.,Interessierst du dich für Politik?,Gesellschaft,b1_tech_society_1,3,false,politics,Noun,Are you interested in politics?,vocab_b1_0010
+경제,gyeongje,Wirtschaft,B1,Nomen,요즘 경제가 진짜 어렵네요.,Die Wirtschaft ist schwierig.,Gesellschaft,b1_tech_society_1,4,false,economy,Noun,The economy is struggling.,vocab_b1_0011
+교육,gyoyuk,Bildung / Erziehung,B1,Nomen,교육에 진짜 돈이 많이 들어요.,Bildung ist wichtig.,Gesellschaft,b1_tech_society_1,5,false,education,Noun,Education is important.,vocab_b1_0012
+건강,geongang,Gesundheit,B1,Nomen,뭐니 뭐니 해도 건강이 최고예요.,Gesundheit ist das Wichtigste.,Gesundheit,b1_health_education,2,false,health,Noun,Health is the most important thing.,vocab_b1_0013
+기술,gisul,Technologie / Technik,B1,Nomen,기술 발전 속도가 진짜 빠르네요.,Die Technologie hat sich entwickelt.,Gesellschaft,b1_tech_society_1,6,false,technology / technique,Noun,Technology has advanced.,vocab_b1_0014
+스트레스,seuteuleseu,Stress,B1,Nomen,요즘 스트레스가 너무 심해요.,Ich habe Stress.,Alltag,b1_daily_1,5,false,stress,Noun,I'm stressed.,vocab_b1_0015
+습관,seupgwan,Gewohnheit,B1,Nomen,일찍 자는 습관을 들이려고 해요.,Ich ändere meine schlechten Gewohnheiten.,Alltag,b1_daily_1,6,false,habit,Noun,I change my bad habits.,vocab_b1_0016
+기회,gihoe,Gelegenheit / Chance,B1,Nomen,이건 정말 좋은 기회 같아요.,Das ist eine gute Gelegenheit.,Motivation,b1_emotions_relations_1,3,false,opportunity / chance,Noun,This is a good opportunity.,vocab_b1_0017
+과정,gwajeong,Prozess / Vorgang,B1,Nomen,결과보다 과정이 더 중요하다고 생각해요.,Der Lernprozess ist wichtig.,Bildung,b1_health_education,3,false,process,Noun,The learning process is important.,vocab_b1_0018
+상황,sanghwang,Situation / Lage,B1,Nomen,지금 상황이 좀 애매해요.,Die Situation ist schwierig.,Alltag,b1_daily_1,7,false,situation,Noun,The situation is difficult.,vocab_b1_0019
+원인,wonin,Ursache / Grund,B1,Nomen,원인을 정확히 알아야 해결이 되죠.,Ich suche die Ursache des Problems.,Alltag,b1_daily_1,8,true,cause,Noun,I'm looking for the cause of the problem.,vocab_b1_0020
+결과,gyeolgwa,Ergebnis / Folge,B1,Nomen,결과가 생각보다 잘 나왔어요.,Das Ergebnis ist gut.,Alltag,b1_daily_1,9,true,result / outcome,Noun,The result is good.,vocab_b1_0021
+생각,saenggak,Gedanke / Meinung,B1,Nomen,제 생각도 좀 들어보실래요?,Meine Meinung ist anders.,Kommunikation,b1_emotions_relations_1,4,false,thought / opinion,Noun,My opinion is different.,vocab_b1_0022
+의견,uigyeon,Meinung / Standpunkt,B1,Nomen,다른 의견 있으신 분 계세요?,Bitte sagen Sie Ihre Meinung.,Kommunikation,b1_emotions_relations_1,5,false,opinion / view,Noun,Please share your opinion.,vocab_b1_0023
+이유,iyu,Grund / Ursache,B1,Nomen,특별한 이유가 있는 건 아니에요.,Was ist der Grund?,Alltag,b1_daily_2,1,false,reason,Noun,What is the reason?,vocab_b1_0024
+조건,jogeon,Bedingung / Voraussetzung,B1,Nomen,조건이 좀 까다롭네요.,Die Bedingungen stimmen.,Alltag,b1_daily_2,2,false,condition / requirement,Noun,The conditions are right.,vocab_b1_0025
+정보,jeongbo,Information,B1,Nomen,인터넷에 정보가 너무 많아서 헷갈려요.,Ich suche Informationen.,Alltag,b1_daily_2,3,false,information,Noun,I look for information.,vocab_b1_0026
+연락,yeollak,Kontakt / Kommunikation,B1,Nomen,도착하면 연락 주세요.,Bitte kontaktiere mich.,Kommunikation,b1_emotions_relations_1,6,false,contact / communication,Noun,Please get in touch.,vocab_b1_0027
+결정하다,gyeoljeongada,entscheiden,B1,Verb,그건 저 혼자 결정하기 어려워요.,Ich habe alleine entschieden.,Alltag,b1_daily_2,4,false,to decide,Verb,I decided on my own.,vocab_b1_0028
+설명하다,seolmyeonghada,erklären,B1,Verb,좀 더 자세히 설명해 주시겠어요?,Bitte erkläre es langsam.,Kommunikation,b1_emotions_relations_1,7,true,to explain,Verb,Please explain it slowly.,vocab_b1_0029
+비교하다,bigohada,vergleichen,B1,Verb,두 개를 비교해 보고 결정할게요.,Ich vergleiche die zwei Dinge.,Alltag,b1_daily_2,5,false,to compare,Verb,I compare the two things.,vocab_b1_0030
+준비하다,junbihada,vorbereiten,B1,Verb,발표 준비 잘 하고 계세요?,Ich bereite mich auf die Prüfung vor.,Bildung,b1_health_education,4,false,to prepare,Verb,I prepare for the exam.,vocab_b1_0031
+포기하다,pogihada,aufgeben,B1,Verb,여기까지 왔는데 포기하지 마세요.,Gib niemals auf!,Motivation,b1_emotions_relations_1,8,true,to give up,Verb,Never give up!,vocab_b1_0032
+도전하다,dojeonhada,eine Herausforderung annehmen,B1,Verb,새로운 일에 도전해 보고 싶어요.,Ich nehme neue Herausforderungen an.,Motivation,b1_emotions_relations_2,1,false,to take on a challenge,Verb,I take on new challenges.,vocab_b1_0033
+발전하다,baljeonhada,sich entwickeln / Fortschritte machen,B1,Verb,짧은 시간에 실력이 많이 발전했네요.,Meine Fähigkeiten haben sich verbessert.,Bildung,b1_health_education,5,false,to develop / to improve,Verb,My skills have improved.,vocab_b1_0034
+노력하다,noryeokhada,sich anstrengen / bemühen,B1,Verb,저도 나름대로 노력하고 있어요.,Ich strenge mich sehr an.,Motivation,b1_emotions_relations_2,2,false,to make an effort,Verb,I try very hard.,vocab_b1_0035
+참여하다,chamyeohada,teilnehmen / mitmachen,B1,Verb,이번 행사에 꼭 참여해 주세요.,Ich nehme an der Veranstaltung teil.,Alltag,b1_daily_2,6,false,to participate,Verb,I take part in the event.,vocab_b1_0036
+선택하다,seontaekhada,auswählen / sich entscheiden,B1,Verb,어떤 걸 선택하든 다 좋아요.,Ich wähle das Gute.,Alltag,b1_daily_2,7,false,to choose / to select,Verb,I choose the good one.,vocab_b1_0037
+실패하다,silpaekhada,scheitern / versagen,B1,Verb,몇 번 실패해도 괜찮아요.,Hab keine Angst vor dem Scheitern.,Motivation,b1_emotions_relations_2,3,false,to fail,Verb,Don't be afraid of failure.,vocab_b1_0038
+성공하다,seonggonghada,erfolgreich sein / Erfolg haben,B1,Verb,결국 성공하실 거예요.,Du kannst Erfolg haben.,Motivation,b1_emotions_relations_2,4,false,to succeed,Verb,You can succeed.,vocab_b1_0039
+극복하다,geukbokhada,überwinden,B1,Verb,이번 어려움도 잘 극복하시길 바라요.,Ich überwinde die Schwierigkeiten.,Motivation,b1_emotions_relations_2,5,false,to overcome,Verb,I overcome the difficulties.,vocab_b1_0040
+표현하다,pyohyeonhada,ausdrücken,B1,Verb,감정을 잘 표현하는 편이 아니에요.,Ich drücke meine Gefühle aus.,Kommunikation,b1_emotions_relations_2,6,true,to express,Verb,I express my feelings.,vocab_b1_0041
+집중하다,jipjunghada,sich konzentrieren,B1,Verb,요즘 일에 집중이 잘 안 돼요.,Ich konzentriere mich auf das Lernen.,Bildung,b1_health_education,6,false,to concentrate,Verb,I concentrate on studying.,vocab_b1_0042
+인정하다,injeonghada,anerkennen / zugeben,B1,Verb,제 실수를 인정할게요.,Ich gebe meinen Fehler zu.,Alltag,b1_daily_2,8,true,to acknowledge / to admit,Verb,I admit my mistake.,vocab_b1_0043
+중요하다,jungnyohada,wichtig (sein),B1,Adjektiv,무엇보다 건강이 제일 중요해요.,Lernen ist wichtig.,Beschreibung,b1_descriptions_1,1,false,to be important,Adjective,Studying is important.,vocab_b1_0044
+다양하다,dayanghada,vielfältig / verschieden (sein),B1,Adjektiv,요즘은 정말 방법이 다양해요.,Es gibt verschiedene Methoden.,Beschreibung,b1_descriptions_1,2,false,to be diverse / various,Adjective,There are various methods.,vocab_b1_0045
+복잡하다,bokjaphada,kompliziert sein,B1,Adjektiv,이 문제는 생각보다 복잡해요.,Die Situation ist kompliziert.,Beschreibung,b1_descriptions_1,3,false,to be complicated,Adjective,The situation is complicated.,vocab_b1_0046
+단순하다,dansunhada,einfach / schlicht sein,B1,Adjektiv,생각보다 답은 단순하더라고요.,Die Methode ist einfach.,Beschreibung,b1_descriptions_1,4,false,to be simple,Adjective,The method is simple.,vocab_b1_0047
+정확하다,jeonghwakhada,genau / korrekt sein,B1,Adjektiv,시간 좀 정확하게 알려주세요.,Das sind genaue Informationen.,Beschreibung,b1_descriptions_1,5,false,to be accurate / correct,Adjective,That's accurate information.,vocab_b1_0048
+효율적이다,hyoyuljeogida,effizient sein,B1,Adjektiv,이 방법이 훨씬 효율적이에요.,Diese Methode ist effizient.,Beschreibung,b1_descriptions_1,6,false,to be efficient,Adjective,This method is efficient.,vocab_b1_0049
+결국,gyeolguk,schließlich / letztendlich,B1,Adverb,결국 오늘도 야근이네요.,Letztendlich hat es geklappt.,Alltag,b1_daily_2,9,true,in the end / eventually,Adverb,"In the end, it worked out.",vocab_b1_0050
+오히려,ohiryeo,eher / vielmehr,B1,Adverb,말 안 했으면 오히려 좋았을 텐데요.,Es hat mir eher geholfen.,Alltag,b1_daily_3,1,false,rather / instead,Adverb,"It helped me, if anything.",vocab_b1_0051
+게다가,gedaga,außerdem / darüber hinaus,B1,Adverb,일도 힘든데 게다가 몸까지 안 좋네요.,Außerdem ist es auch lecker.,Alltag,b1_daily_3,2,false,moreover / on top of that,Adverb,"On top of that, it's tasty too.",vocab_b1_0052
+따라서,ttaraseo,daher / deshalb / folglich,B1,Adverb,규칙에 따라서 처리해 드리겠습니다.,Daher muss man vorsichtig sein.,Alltag,b1_daily_3,3,false,therefore / accordingly,Adverb,"Therefore, one must be careful.",vocab_b1_0053
+특히,teuki,besonders / vor allem,B1,Adverb,특히 매운 음식을 좋아해요.,Ich mag besonders koreanisches Essen.,Alltag,b1_daily_3,4,false,especially / above all,Adverb,I especially like Korean food.,vocab_b1_0054
+갑자기,gapjagi,plötzlich,B1,Adverb,갑자기 비가 쏟아졌어요.,Es hat plötzlich geregnet.,Alltag,b1_daily_3,5,false,suddenly,Adverb,It suddenly started to rain.,vocab_b1_0055
+드디어,deudieo,endlich / schließlich,B1,Adverb,드디어 주말이네요!,Es ist endlich vorbei!,Alltag,b1_daily_3,6,false,finally / at last,Adverb,It's finally over!,vocab_b1_0056
+반면,banmyeon,andererseits / hingegen,B1,Adverb,가격은 비싼 반면 품질은 좋아요.,"Es ist gut, aber teuer.",Alltag,b1_daily_3,7,false,on the other hand / whereas,Adverb,It's good but expensive.,vocab_b1_0057
+갈등,galdeung,Konflikt,B2,Nomen,부서 간 갈등을 잘 조율해야 해요.,Wir müssen den Konflikt lösen.,Gesellschaft,b2_society_1,1,false,conflict,Noun,We must resolve the conflict.,vocab_b2_0001
+관점,gwanjeom,Standpunkt / Perspektive,B2,Nomen,이 문제는 다양한 관점에서 봐야 해요.,Es gibt verschiedene Standpunkte.,Denken,b2_thinking_1,1,false,viewpoint / perspective,Noun,There are various viewpoints.,vocab_b2_0002
+가치관,gachigwan,Wertvorstellung,B2,Nomen,사람마다 가치관이 다르니까 존중해야죠.,Wir haben unterschiedliche Wertvorstellungen.,Gesellschaft,b2_society_1,2,false,values / set of values,Noun,We have different values.,vocab_b2_0003
+논리,nolli,Logik / Argumentation,B2,Nomen,말씀의 논리가 좀 부족한 것 같아요.,Ich denke logisch.,Denken,b2_thinking_1,2,false,logic / reasoning,Noun,I think logically.,vocab_b2_0004
+이론,iron,Theorie,B2,Nomen,이론과 실제는 좀 다르더라고요.,Ich studiere die Theorie.,Bildung,b2_education,1,false,theory,Noun,I study the theory.,vocab_b2_0005
+연구,yeongu,Forschung / Studie,B2,Nomen,이 연구 결과가 최근에 발표됐어요.,Das ist ein neues Forschungsergebnis.,Wissenschaft,b2_misc,1,false,research / study,Noun,This is a new research finding.,vocab_b2_0006
+결론,gyeollon,Schlussfolgerung / Fazit,B2,Nomen,결론부터 말씀드리자면 반대예요.,Ich ziehe eine Schlussfolgerung.,Denken,b2_thinking_1,3,false,conclusion,Noun,I draw a conclusion.,vocab_b2_0007
+근거,geungeo,Grundlage / Beweis / Beleg,B2,Nomen,이 주장의 근거가 뭐예요?,Es gibt keinen Beweis.,Denken,b2_thinking_1,4,false,basis / evidence,Noun,There is no evidence.,vocab_b2_0008
+현상,hyeonsang,Phänomen / Erscheinung,B2,Nomen,이건 요즘 사회에서 흔한 현상이에요.,Das ist ein gesellschaftliches Phänomen.,Gesellschaft,b2_society_1,3,false,phenomenon,Noun,It's a social phenomenon.,vocab_b2_0009
+전제,jeonje,Voraussetzung / Prämisse,B2,Nomen,이 전제 자체가 잘못됐다고 생각해요.,Die Voraussetzung ist falsch.,Denken,b2_thinking_1,5,false,premise / precondition,Noun,The premise is wrong.,vocab_b2_0010
+맥락,maengnak,Kontext / Zusammenhang,B2,Nomen,그 발언은 맥락을 봐야 이해가 돼요.,Ich verstehe den Kontext.,Denken,b2_thinking_1,6,false,context,Noun,I understand the context.,vocab_b2_0011
+복지,bokji,Wohlfahrt / Sozialleistungen,B2,Nomen,복지 정책 개선이 시급합니다.,Soziale Wohlfahrt ist wichtig.,Gesellschaft,b2_society_1,4,false,welfare,Noun,Social welfare is important.,vocab_b2_0012
+민주주의,minjujuui,Demokratie,B2,Nomen,민주주의는 참여에서 시작돼요.,Wir schützen die Demokratie.,Gesellschaft,b2_society_1,5,false,democracy,Noun,We protect democracy.,vocab_b2_0013
+자유,jayu,Freiheit,B2,Nomen,표현의 자유는 존중되어야 해요.,Freiheit ist wichtig.,Gesellschaft,b2_society_1,6,false,freedom,Noun,Freedom is important.,vocab_b2_0014
+주장하다,jujangada,behaupten / argumentieren,B2,Verb,본인의 입장을 분명히 주장하셔야 해요.,Ich vertrete meine eigene Meinung.,Kommunikation,b2_communication,1,false,to claim / to argue,Verb,I assert my own opinion.,vocab_b2_0015
+분석하다,bunseokada,analysieren,B2,Verb,이 데이터를 좀 더 분석해 볼게요.,Ich analysiere die Situation.,Denken,b2_thinking_1,7,false,to analyze,Verb,I analyze the situation.,vocab_b2_0016
+평가하다,pyeonggahada,bewerten / beurteilen,B2,Verb,성과는 객관적으로 평가해야 해요.,Ich bewerte die Leistung.,Alltag,b2_misc,2,false,to evaluate / to assess,Verb,I evaluate the performance.,vocab_b2_0017
+비판하다,bipanhada,kritisieren,B2,Verb,건설적으로 비판하는 게 중요하죠.,Ich kritisiere konstruktiv.,Kommunikation,b2_communication,2,false,to criticize,Verb,I criticize constructively.,vocab_b2_0018
+강조하다,gangjohada,betonen / hervorheben,B2,Verb,이 부분을 다시 한번 강조하고 싶어요.,Ich betone die Wichtigkeit.,Kommunikation,b2_communication,3,false,to emphasize,Verb,I emphasize the importance.,vocab_b2_0019
+검토하다,geomtohada,überprüfen / untersuchen,B2,Verb,제안서 다시 한번 검토해 주세요.,Ich überprüfe den Plan.,Alltag,b2_misc,3,false,to review / to examine,Verb,I review the plan.,vocab_b2_0020
+제시하다,jesihada,vorstellen / präsentieren,B2,Verb,구체적인 대안을 제시해 주시겠어요?,Ich präsentiere eine neue Idee.,Kommunikation,b2_communication,4,false,to present / to put forward,Verb,I present a new idea.,vocab_b2_0021
+논의하다,nonuihada,diskutieren / erörtern,B2,Verb,이 부분은 다음 회의에서 논의하죠.,Wir diskutieren das Problem.,Kommunikation,b2_communication,5,false,to discuss,Verb,We discuss the problem.,vocab_b2_0022
+인식하다,insikhada,erkennen / wahrnehmen,B2,Verb,문제를 정확히 인식하는 게 먼저예요.,Ich erkenne das Problem.,Denken,b2_thinking_1,8,true,to recognize / to perceive,Verb,I recognize the problem.,vocab_b2_0023
+해석하다,haeseokhada,interpretieren / auslegen,B2,Verb,이 조항을 어떻게 해석해야 할까요?,Ich interpretiere die Situation.,Denken,b2_thinking_1,9,true,to interpret,Verb,I interpret the situation.,vocab_b2_0024
+반박하다,banbakhada,widerlegen / widersprechen,B2,Verb,그 부분은 반박하고 싶은데요.,Ich widerlege die Behauptung.,Kommunikation,b2_communication,6,false,to refute / to counter,Verb,I refute the claim.,vocab_b2_0025
+적용하다,jeogyonghada,anwenden,B2,Verb,새 규정이 다음 달부터 적용됩니다.,Ich wende die Theorie an.,Alltag,b2_misc,4,false,to apply,Verb,I apply the theory.,vocab_b2_0026
+실현하다,silhyeonhada,verwirklichen / realisieren,B2,Verb,언젠가는 그 꿈을 실현하고 싶어요.,Ich verwirkliche meinen Traum.,Motivation,b2_misc,5,false,to realize / to bring about,Verb,I realize my dream.,vocab_b2_0027
+지속하다,jisokhada,fortsetzen / aufrechterhalten,B2,Verb,지금 방식을 계속 지속하기는 어렵겠어요.,Ich setze meine Bemühungen fort.,Motivation,b2_misc,6,false,to continue / to sustain,Verb,I continue my efforts.,vocab_b2_0028
+추상적이다,chusangjeoida,abstrakt sein,B2,Adjektiv,설명이 좀 추상적이지 않았어요?,Das ist ein abstraktes Konzept.,Denken,b2_thinking_2,1,false,to be abstract,Adjective,It's an abstract concept.,vocab_b2_0029
+구체적이다,gucheijeoida,konkret sein,B2,Adjektiv,좀 더 구체적으로 말씀해 주시겠어요?,Ich gebe ein konkretes Beispiel.,Denken,b2_thinking_2,2,false,to be concrete,Adjective,I give a concrete example.,vocab_b2_0030
+객관적이다,gaekgwanjeoida,objektiv sein,B2,Adjektiv,객관적으로 봐도 이 결과가 맞아요.,Ich urteile objektiv.,Denken,b2_thinking_2,3,false,to be objective,Adjective,I judge objectively.,vocab_b2_0031
+주관적이다,jugwanjeoida,subjektiv sein,B2,Adjektiv,그건 너무 주관적인 판단이에요.,Das ist eine subjektive Meinung.,Denken,b2_thinking_2,4,false,to be subjective,Adjective,That's a subjective opinion.,vocab_b2_0032
+일,il,eins (sino-koreanisch),A1,Nomen,일층에 가요.,Ich gehe in die erste Etage.,Zahlen,a1_numbers_1,2,false,one (Sino-Korean),Noun,I go to the first floor.,vocab_a1_0130
+이,i,zwei (sino-koreanisch),A1,Nomen,이층이에요.,Es ist im zweiten Stock.,Zahlen,a1_numbers_1,3,false,two (Sino-Korean),Noun,It's on the second floor.,vocab_a1_0131
+삼,sam,drei (sino-koreanisch),A1,Nomen,삼번 버스를 타요.,Ich nehme den Bus Nummer drei.,Zahlen,a1_numbers_1,4,false,three (Sino-Korean),Noun,I take bus number three.,vocab_a1_0132
+사,sa,vier (sino-koreanisch),A1,Nomen,사월에 만나요.,Wir treffen uns im April.,Zahlen,a1_numbers_1,5,false,four (Sino-Korean),Noun,We meet in April.,vocab_a1_0133
+오,o,fünf (sino-koreanisch),A1,Nomen,오천 원이에요.,Das kostet fünftausend Won.,Zahlen,a1_numbers_1,6,false,five (Sino-Korean),Noun,It costs five thousand won.,vocab_a1_0134
+육,yuk,sechs (sino-koreanisch),A1,Nomen,저는 육 층에 살아요.,Ich stehe um sechs auf.,Zahlen,a1_numbers_1,7,false,six (Sino-Korean),Noun,I get up at six.,vocab_a1_0135
+칠,chil,sieben (sino-koreanisch),A1,Nomen,칠월은 더워요.,Der Juli ist heiß.,Zahlen,a1_numbers_1,8,true,seven (Sino-Korean),Noun,July is hot.,vocab_a1_0136
+팔,pal,acht (sino-koreanisch),A1,Nomen,팔월에 휴가예요.,Im August habe ich Urlaub.,Zahlen,a1_numbers_1,9,true,eight (Sino-Korean),Noun,I'm on vacation in August.,vocab_a1_0137
+구,gu,neun (sino-koreanisch),A1,Nomen,새 학기가 구월에 시작해요.,Im September fängt die Schule an.,Zahlen,a1_numbers_2,1,false,nine (Sino-Korean),Noun,School starts in September.,vocab_a1_0138
+십,sip,zehn (sino-koreanisch),A1,Nomen,십 분만 기다려요.,Ich warte nur zehn Minuten.,Zahlen,a1_numbers_2,2,false,ten (Sino-Korean),Noun,I'll wait just ten minutes.,vocab_a1_0139
+백,baek,hundert,A1,Nomen,백 명이 왔어요.,Hundert Leute sind gekommen.,Zahlen,a1_numbers_2,3,false,hundred,Noun,A hundred people came.,vocab_a1_0140
+천,cheon,tausend,A1,Nomen,천 원만 빌려주세요.,Leih mir bitte tausend Won.,Zahlen,a1_numbers_2,4,false,thousand,Noun,Please lend me just a thousand won.,vocab_a1_0141
+만,man,zehntausend,A1,Nomen,만 원이에요.,Es kostet zehntausend Won.,Zahlen,a1_numbers_2,5,false,ten thousand,Noun,It costs ten thousand won.,vocab_a1_0142
+하나,hana,eins (rein-koreanisch),A1,Nomen,하나만 주세요.,Nur eins bitte.,Zahlen,a1_numbers_2,6,false,one (native Korean),Noun,"Just one, please.",vocab_a1_0143
+둘,dul,zwei (rein-koreanisch),A1,Nomen,둘이 같이 가요.,Wir gehen zu zweit.,Zahlen,a1_numbers_2,7,false,two (native Korean),Noun,"We go together, the two of us.",vocab_a1_0144
+셋,set,drei (rein-koreanisch),A1,Nomen,저희 셋이서 갈게요.,Drei Äpfel bitte.,Zahlen,a1_numbers_2,8,true,three (native Korean),Noun,"Three apples, please.",vocab_a1_0145
+넷,net,vier (rein-koreanisch),A1,Nomen,우리 넷이서 같이 가요.,Wir sind zu viert.,Zahlen,a1_numbers_2,9,true,four (native Korean),Noun,There are four of us.,vocab_a1_0146
+다섯,daseot,fünf (rein-koreanisch),A1,Nomen,다섯 시에 만나요.,Wir treffen uns um fünf.,Zahlen,a1_numbers_3,1,false,five (native Korean),Noun,We meet at five.,vocab_a1_0147
+여섯,yeoseot,sechs (rein-koreanisch),A1,Nomen,여섯 명이 와요.,Sechs Leute kommen.,Zahlen,a1_numbers_3,2,false,six (native Korean),Noun,Six people are coming.,vocab_a1_0148
+일곱,ilgop,sieben (rein-koreanisch),A1,Nomen,일곱 시에 출발해요.,Wir starten um sieben.,Zahlen,a1_numbers_3,3,false,seven (native Korean),Noun,We leave at seven.,vocab_a1_0149
+여덟,yeodeol,acht (rein-koreanisch),A1,Nomen,여덟 살이에요.,Ich bin acht Jahre alt.,Zahlen,a1_numbers_3,4,false,eight (native Korean),Noun,I'm eight years old.,vocab_a1_0150
+아홉,ahop,neun (rein-koreanisch),A1,Nomen,아홉 시예요.,Es ist neun Uhr.,Zahlen,a1_numbers_3,5,false,nine (native Korean),Noun,It's nine o'clock.,vocab_a1_0151
+열,yeol,zehn (rein-koreanisch),A1,Nomen,열 시까지 와요.,Komm bis zehn Uhr.,Zahlen,a1_numbers_3,6,false,ten (native Korean),Noun,Come by ten o'clock.,vocab_a1_0152
+시,si,Uhr (Stunde),A1,Nomen,지금 몇 시예요?,Wie spät ist es jetzt?,Zeit,a1_time_2,2,false,o'clock (hour),Noun,What time is it now?,vocab_a1_0153
+분,bun,Minute,A1,Nomen,십 분 남았어요.,Es bleiben noch zehn Minuten.,Zeit,a1_time_2,3,false,minute,Noun,There are ten minutes left.,vocab_a1_0154
+초,cho,Sekunde,A1,Nomen,일 초만 기다려요.,Warte nur eine Sekunde.,Zeit,a1_time_2,4,false,second,Noun,Wait just one second.,vocab_a1_0155
+시간,sigan,Zeit / Stunde,A1,Nomen,시간이 없어요.,Ich habe keine Zeit.,Zeit,a1_time_2,5,false,time / hour,Noun,I have no time.,vocab_a1_0156
+요일,yoil,Wochentag,A1,Nomen,무슨 요일이에요?,Welcher Wochentag ist heute?,Zeit,a1_time_2,6,false,day of the week,Noun,What day of the week is it?,vocab_a1_0157
+월요일,woryoil,Montag,A1,Nomen,월요일에 다시 만나요.,Wir fangen am Montag an.,Zeit,a1_time_2,7,true,Monday,Noun,We start on Monday.,vocab_a1_0158
+화요일,hwayoil,Dienstag,A1,Nomen,화요일에 만나요.,Wir treffen uns am Dienstag.,Zeit,a1_time_2,8,true,Tuesday,Noun,We meet on Tuesday.,vocab_a1_0159
+수요일,suyoil,Mittwoch,A1,Nomen,이번 주 수요일에 만날까요?,Mittwoch passt mir gut.,Zeit,a1_time_3,1,false,Wednesday,Noun,Wednesday works for me.,vocab_a1_0160
+목요일,mogyoil,Donnerstag,A1,Nomen,이번 주 목요일에 봐요.,Komm am Donnerstag.,Zeit,a1_time_3,2,false,Thursday,Noun,Come on Thursday.,vocab_a1_0161
+금요일,geumyoil,Freitag,A1,Nomen,금요일 저녁에 만나요.,Wir treffen uns Freitagabend.,Zeit,a1_time_3,3,false,Friday,Noun,We meet on Friday evening.,vocab_a1_0162
+토요일,toyoil,Samstag,A1,Nomen,토요일에 쉬어요.,Am Samstag ruhe ich mich aus.,Zeit,a1_time_3,4,false,Saturday,Noun,I rest on Saturday.,vocab_a1_0163
+일요일,iryoil,Sonntag,A1,Nomen,일요일에는 늦잠 자요.,Sonntags gehe ich in die Kirche.,Zeit,a1_time_3,5,false,Sunday,Noun,I go to church on Sundays.,vocab_a1_0164
+안녕히 가세요,annyeonghi gaseyo,Auf Wiedersehen (zum Gehenden),A1,Ausdruck,조심히 안녕히 가세요.,"Auf Wiedersehen! (zu dem, der geht)",Begrüßung,a1_greetings_1,7,false,Goodbye (to someone leaving),Expression,Goodbye! (to the one leaving),vocab_a1_0165
+안녕히 계세요,annyeonghi gyeseyo,Auf Wiedersehen (zum Bleibenden),A1,Ausdruck,저 먼저 갈게요. 안녕히 계세요.,"Auf Wiedersehen! (zu dem, der bleibt)",Begrüßung,a1_greetings_1,8,true,Goodbye (to someone staying),Expression,Goodbye! (to the one staying),vocab_a1_0166
+잘 자요,jal jayo,Gute Nacht,A1,Ausdruck,오늘 수고했어요. 잘 자요.,Gute Nacht!,Begrüßung,a1_greetings_1,9,true,Good night,Expression,Good night!,vocab_a1_0167
+잘 지내요?,jal jinaeyo,Wie geht es dir?,A1,Ausdruck,요즘 잘 지내요?,Wie geht es dir in letzter Zeit?,Begrüßung,a1_greetings_2,1,false,How are you?,Expression,How have you been lately?,vocab_a1_0168
+처음 뵙겠습니다,cheoeum boepgesseumnida,Sehr erfreut Sie kennenzulernen,A1,Ausdruck,처음 뵙겠습니다. 잘 부탁드려요.,Sehr erfreut Sie kennenzulernen! (formell),Begrüßung,a1_greetings_2,2,false,Pleased to meet you (formal),Expression,Pleased to meet you! (formal),vocab_a1_0169
+만나서 반가워요,mannaseo bangawoyo,Schön dich kennenzulernen,A1,Ausdruck,정말 만나서 반가워요.,Schön dich kennenzulernen!,Begrüßung,a1_greetings_2,3,false,Nice to meet you,Expression,Nice to meet you!,vocab_a1_0170
+잘 부탁드려요,jal butakdeuryeoyo,Ich bitte um gute Zusammenarbeit,A1,Ausdruck,앞으로 잘 부탁드려요.,Ich bitte um gute Zusammenarbeit in Zukunft.,Höflichkeit,a1_greetings_2,4,false,I look forward to working with you,Expression,I look forward to working with you.,vocab_a1_0171
+천만에요,cheonmaneyo,Gern geschehen / Keine Ursache,A1,Ausdruck,"아니에요, 천만에요.",Gern geschehen!,Höflichkeit,a1_greetings_2,5,false,You're welcome,Expression,You're welcome!,vocab_a1_0172
+별말씀을요,byeolmalsseumeurueyo,Keine Ursache (höflich),A1,Ausdruck,"별말씀을요, 당연한 거예요.",Keine Ursache.,Höflichkeit,a1_greetings_2,6,false,Don't mention it (polite),Expression,Don't mention it.,vocab_a1_0173
+실례합니다,sillyehamnida,Entschuldigen Sie,A1,Ausdruck,"실례합니다, 화장실이 어디예요?","Entschuldigung, einen Moment.",Höflichkeit,a1_greetings_2,7,true,Excuse me,Expression,Excuse me — one moment.,vocab_a1_0174
+잠시만요,jamsimanyo,Einen Moment bitte,A1,Ausdruck,"잠시만요, 금방 갈게요.",Einen Moment bitte!,Höflichkeit,a1_greetings_2,8,true,"One moment, please",Expression,"One moment, please!",vocab_a1_0175
+화이팅,hwaiting,Du schaffst das! / Viel Erfolg!,A1,Ausdruck,우리 팀 화이팅!,"Koreanisch, du schaffst das!",Motivation,a1_misc_2,9,true,You can do it! / Good luck!,Expression,Korean — you can do it!,vocab_a1_0176
+위,wi,oben / über,A1,Nomen,책상 위에 있어요.,Es liegt auf dem Tisch.,Position,a1_position,1,false,top / above,Noun,It's on the desk.,vocab_a1_0177
+아래,arae,unten / unter,A1,Nomen,의자 아래에 가방이 있어요.,Unter dem Stuhl steht eine Tasche.,Position,a1_position,2,false,bottom / below,Noun,There's a bag under the chair.,vocab_a1_0178
+앞,ap,vorne / vor,A1,Nomen,학교 앞에서 만나요.,Wir treffen uns vor der Schule.,Position,a1_position,3,false,front / in front of,Noun,We meet in front of the school.,vocab_a1_0179
+뒤,dwi,hinten / hinter,A1,Nomen,집 뒤에 공원이 있어요.,Hinter dem Haus ist ein Park.,Position,a1_position,4,false,back / behind,Noun,There's a park behind the house.,vocab_a1_0180
+옆,yeop,neben / Seite,A1,Nomen,옆에 앉아도 돼요?,Darf ich neben dir sitzen?,Position,a1_position,5,false,next to / side,Noun,May I sit next to you?,vocab_a1_0181
+안,an,drinnen / in,A1,Nomen,가방 안에 책이 있어요.,In der Tasche ist ein Buch.,Position,a1_position,6,false,inside / in,Noun,There's a book in the bag.,vocab_a1_0182
+밖,bak,draußen / außerhalb,A1,Nomen,밖에 비가 와요.,Draußen regnet es.,Position,a1_position,7,false,outside,Noun,It's raining outside.,vocab_a1_0183
+사이,sai,zwischen / Zwischenraum,A1,Nomen,우리 사이는 좋아요.,Wir verstehen uns gut.,Beziehungen,a1_family_2,9,true,between / gap,Noun,We get along well.,vocab_a1_0184
+왼쪽,oenjjok,links,A1,Nomen,왼쪽으로 가세요.,Gehen Sie nach links.,Position,a1_position,8,false,left,Noun,Go to the left.,vocab_a1_0185
+오른쪽,oreunjjok,rechts,A1,Nomen,오른쪽에 화장실이 있어요.,Rechts ist die Toilette.,Position,a1_position,9,false,right,Noun,The bathroom is on the right.,vocab_a1_0186
+저,jeo,ich (höflich),A1,Pronomen,저는 한국어를 배워요.,Ich lerne Koreanisch.,Person,a1_self_intro,5,false,I (polite),Pronoun,I'm learning Korean.,vocab_a1_0187
+나,na,ich (informell),A1,Pronomen,나도 갈래.,Ich komme auch mit.,Person,a1_self_intro,6,false,I (informal),Pronoun,I'll come too.,vocab_a1_0188
+너,neo,du (informell),A1,Pronomen,너 어디 가?,Wohin gehst du?,Person,a1_self_intro,7,true,you (informal),Pronoun,Where are you going?,vocab_a1_0189
+우리,uri,wir,A1,Pronomen,우리 같이 가요.,Lass uns zusammen gehen.,Person,a1_self_intro,8,true,we,Pronoun,Let's go together.,vocab_a1_0190
+이거,igeo,das (hier),A1,Pronomen,이거 얼마예요?,Wie viel kostet das?,Alltag,a1_daily_4,1,false,this (one),Pronoun,How much is this?,vocab_a1_0191
+그거,geugeo,das (da),A1,Pronomen,그거 주세요.,Das da bitte.,Alltag,a1_daily_4,2,false,that (one),Pronoun,"That one, please.",vocab_a1_0192
+저거,jeogeo,das (dort),A1,Pronomen,저거 뭐예요?,Was ist das dort?,Alltag,a1_daily_4,3,false,that (over there),Pronoun,What's that over there?,vocab_a1_0193
+여기,yeogi,hier,A1,Nomen,여기 앉으세요.,Setzen Sie sich bitte hier hin.,Position,a1_position,10,true,here,Noun,Please sit here.,vocab_a1_0194
+거기,geogi,da,A1,Nomen,거기 가 본 적 있어요.,Da war ich schon mal.,Position,a1_position,11,true,there,Noun,I've been there before.,vocab_a1_0195
+저기,jeogi,dort,A1,Nomen,저기 보세요.,Schauen Sie dort hin.,Position,a1_position,12,true,over there,Noun,Look over there.,vocab_a1_0196
+새,sae,neu (attributiv),A1,Adjektiv,새 옷이 마음에 들어요.,Die neue Kleidung gefällt mir.,Beschreibung,a1_descriptions,11,true,new (attributive),Adjective,I like the new clothes.,vocab_a1_0197
+다른,dareun,andere/r/s,A1,Adjektiv,다른 색깔도 있어요?,Gibt es auch andere Farben?,Beschreibung,a1_descriptions,12,true,other / different,Adjective,Are there other colors too?,vocab_a1_0198
+같은,gateun,gleich / dasselbe,A1,Adjektiv,같은 학교에 다녀요.,Wir gehen zur gleichen Schule.,Beschreibung,a1_descriptions,13,true,same,Adjective,We go to the same school.,vocab_a1_0199
+모든,modeun,alle / sämtliche,A1,Adjektiv,모든 사람이 좋아해요.,Alle Leute mögen es.,Menge,a1_numbers_3,7,true,all / every,Adjective,Everyone likes it.,vocab_a1_0200
+몇,myeot,wie viele,A1,Adjektiv,몇 명이에요?,Wie viele Personen?,Menge,a1_numbers_3,8,true,how many,Adjective,How many people?,vocab_a1_0201
+잠깐,jamkkan,kurz / einen Moment,A1,Adverb,잠깐만 기다려 주세요.,Warte einen Moment.,Zeit,a1_time_3,6,false,for a moment / briefly,Adverb,Wait a moment.,vocab_a1_0202
+천천히,cheoncheonhi,langsam,A1,Adverb,천천히 말해 주세요.,Bitte sprechen Sie langsam.,Alltag,a1_daily_4,4,false,slowly,Adverb,Please speak slowly.,vocab_a1_0203
+일찍,iljjik,früh,A1,Adverb,오늘 일찍 자고 싶어요.,Ich gehe früh schlafen.,Zeit,a1_time_3,7,true,early,Adverb,I go to bed early.,vocab_a1_0204
+늦게,neutge,spät,A1,Adverb,어제 늦게 잤어요.,Gestern bin ich spät schlafen gegangen.,Zeit,a1_time_3,8,true,late,Adverb,I went to bed late yesterday.,vocab_a1_0205
+자주,jaju,oft,A1,Adverb,저는 커피를 자주 마셔요.,Wir treffen uns oft.,Alltag,a1_daily_4,5,false,often,Adverb,We meet often.,vocab_a1_0206
+별로,byeolro,nicht besonders,A1,Adverb,별로 안 좋아해요.,Ich mag es nicht besonders.,Alltag,a1_daily_4,6,false,not really / not particularly,Adverb,I don't really like it.,vocab_a1_0207
+진짜,jinjja,echt / wirklich (umgangssprachlich),A1,Adverb,진짜 맛있어요!,Das ist echt lecker!,Alltag,a1_daily_4,7,false,really / for real (colloquial),Adverb,It's really delicious!,vocab_a1_0208
+맛없다,masseopda,nicht lecker sein,A1,Adjektiv,음식이 좀 맛없어요.,Das Essen ist nicht so lecker.,Essen & Trinken,a1_food_2,8,true,to taste bad,Adjective,The food isn't very tasty.,vocab_a1_0209
+더,deo,mehr,A1,Adverb,더 주세요.,Mehr bitte.,Alltag,a1_daily_4,8,true,more,Adverb,"More, please.",vocab_a1_0210
+덜,deol,weniger,A1,Adverb,설탕은 덜 넣어요.,Ich gebe weniger Zucker hinein.,Alltag,a1_daily_4,9,true,less,Adverb,I put in less sugar.,vocab_a1_0211
+주문하다,jumunhada,bestellen,A2,Verb,저희 아직 주문 안 했어요.,Ich bestelle von der Speisekarte.,Essen & Trinken,a2_food_1,5,false,to order,Verb,I order from the menu.,vocab_a2_0087
+메뉴,menyu,Menü / Speisekarte,A2,Nomen,메뉴판 좀 볼 수 있을까요?,Die Speisekarte bitte.,Essen & Trinken,a2_food_1,6,true,menu,Noun,"The menu, please.",vocab_a2_0088
+추천하다,chucheonhada,empfehlen,A2,Verb,여기서 뭐가 제일 맛있어요?,Was empfehlen Sie?,Essen & Trinken,a2_food_1,7,true,to recommend,Verb,What do you recommend?,vocab_a2_0089
+맛,mat,Geschmack,A2,Nomen,이 집 김치찌개 맛이 진짜예요.,Wie schmeckt es?,Essen & Trinken,a2_food_2,1,false,taste / flavor,Noun,How does it taste?,vocab_a2_0090
+짜다,jjada,salzig sein,A2,Adjektiv,국이 좀 짜네요.,Die Suppe ist etwas salzig.,Essen & Trinken,a2_food_2,2,false,to be salty,Adjective,The soup is a bit salty.,vocab_a2_0091
+시다,sida,sauer sein,A2,Adjektiv,이 귤 좀 셔요.,Die Zitrone ist sauer.,Essen & Trinken,a2_food_2,3,false,to be sour,Adjective,The lemon is sour.,vocab_a2_0092
+싱겁다,singgeopda,fade / wenig gewürzt sein,A2,Adjektiv,국이 좀 싱거워요.,Das Essen ist fade.,Essen & Trinken,a2_food_2,4,false,to be bland,Adjective,The food is bland.,vocab_a2_0093
+포장하다,pojanghada,zum Mitnehmen / verpacken,A2,Verb,이거 포장해 주세요.,Zum Mitnehmen bitte.,Essen & Trinken,a2_food_2,5,false,to pack / to take away,Verb,"To go, please.",vocab_a2_0094
+배달,baedal,Lieferdienst / Lieferung,A2,Nomen,오늘 저녁은 그냥 배달시켜요.,Lass uns liefern lassen.,Essen & Trinken,a2_food_2,6,true,delivery service,Noun,Let's order delivery.,vocab_a2_0095
+매콤하다,maekomhada,leicht scharf sein,A2,Adjektiv,이 떡볶이 딱 매콤해요.,Diese Soße ist leicht scharf.,Essen & Trinken,a2_food_2,7,true,to be mildly spicy,Adjective,This sauce is mildly spicy.,vocab_a2_0096
+사이즈,saijeu,Größe,A2,Nomen,혹시 한 사이즈 큰 거 있어요?,Welche Größe haben Sie?,Einkaufen,a2_shopping_1,7,true,size,Noun,What size do you take?,vocab_a2_0097
+색깔,saekkkal,Farbe,A2,Nomen,다른 색깔도 있어요?,Gibt es auch andere Farben?,Einkaufen,a2_shopping_2,1,false,color,Noun,Are there other colors too?,vocab_a2_0098
+입어보다,ibeoboda,anprobieren,A2,Verb,이거 한번 입어봐도 될까요?,Darf ich es mal anprobieren?,Einkaufen,a2_shopping_2,2,false,to try on,Verb,May I try it on?,vocab_a2_0099
+어울리다,eoullida,passen / stehen,A2,Verb,이 색이 진짜 잘 어울려요.,Es steht dir gut!,Einkaufen,a2_shopping_2,3,false,to suit / to look good on,Verb,It suits you well!,vocab_a2_0100
+환불,hwanbul,Rückerstattung,A2,Nomen,환불 좀 하고 싶은데요.,Kann ich Geld zurückbekommen?,Einkaufen,a2_shopping_2,4,false,refund,Noun,Can I get a refund?,vocab_a2_0101
+교환,gyohwan,Umtausch,A2,Nomen,다른 사이즈로 교환할 수 있을까요?,Ist Umtausch möglich?,Einkaufen,a2_shopping_2,5,false,exchange,Noun,Is an exchange possible?,vocab_a2_0102
+손님,sonnim,Kunde / Gast,A2,Nomen,오늘 손님이 많으시네요.,Es sind viele Gäste da.,Einkaufen,a2_shopping_2,6,true,customer / guest,Noun,There are many guests.,vocab_a2_0103
+점원,jeomwon,Verkäufer/in,A2,Nomen,점원분이 진짜 친절했어요.,Der Verkäufer war freundlich.,Einkaufen,a2_shopping_2,7,true,shop assistant / clerk,Noun,The clerk was friendly.,vocab_a2_0104
+길,gil,Weg / Straße,A2,Nomen,가다가 길을 잃어버렸어요.,Ich habe mich verlaufen.,Verkehr,a2_transport,7,false,road / way,Noun,I got lost.,vocab_a2_0105
+곧장,gotjang,geradeaus,A2,Adverb,여기서 곧장 가시면 돼요.,Gehen Sie geradeaus.,Verkehr,a2_transport,8,false,straight ahead,Adverb,Go straight ahead.,vocab_a2_0106
+신호등,sinhodeung,Ampel,A2,Nomen,저 신호등에서 오른쪽으로 가세요.,An der Ampel links abbiegen.,Verkehr,a2_transport,9,false,traffic light,Noun,Turn left at the traffic light.,vocab_a2_0107
+횡단보도,hoengdanbodo,Zebrastreifen,A2,Nomen,횡단보도 건너서 왼쪽이에요.,Bitte am Zebrastreifen überqueren.,Verkehr,a2_transport,10,true,crosswalk,Noun,Please cross at the crosswalk.,vocab_a2_0108
+교차로,gyochalo,Kreuzung,A2,Nomen,다음 교차로에서 내려주세요.,Wir treffen uns an der nächsten Kreuzung.,Verkehr,a2_transport,11,true,intersection,Noun,Let's meet at the next intersection.,vocab_a2_0109
+안내하다,annaehada,führen / Auskunft geben,A2,Verb,제가 길을 안내해 드릴게요.,Ich zeige Ihnen den Weg.,Verkehr,a2_transport,12,true,to guide / to give directions,Verb,I'll show you the way.,vocab_a2_0110
+가깝다,gakkapda,nah sein,A2,Adjektiv,집이랑 회사가 가까워서 좋아요.,Die Firma ist nah am Haus.,Beschreibung,a2_descriptions_2,1,false,to be near,Adjective,The company is near my home.,vocab_a2_0111
+멀다,meolda,weit sein,A2,Adjektiv,집이 너무 멀어서 힘들어요.,Die Schule ist zu weit.,Beschreibung,a2_descriptions_2,2,false,to be far,Adjective,The school is too far.,vocab_a2_0112
+화나다,hwanada,wütend werden,A2,Verb,그 말 듣고 진짜 화났어요.,Ich war wirklich sauer.,Gefühle,a2_feelings_1,8,true,to get angry,Verb,I was really angry.,vocab_a2_0113
+부끄럽다,bukkeureopda,sich schämen / schüchtern sein,A2,Adjektiv,생각만 해도 부끄러워요.,Das ist mir sehr peinlich.,Gefühle,a2_feelings_2,1,false,to be embarrassed / shy,Adjective,That's very embarrassing.,vocab_a2_0114
+놀라다,nollada,überrascht sein / sich erschrecken,A2,Verb,깜짝 놀랐잖아요!,Ich war total überrascht!,Gefühle,a2_feelings_2,2,false,to be surprised / startled,Verb,I was totally surprised!,vocab_a2_0115
+기쁘다,gippeuda,sich freuen / froh sein,A2,Adjektiv,합격했다니 정말 기뻐요.,"Ich freue mich, dich zu treffen.",Gefühle,a2_feelings_2,3,false,to be glad / joyful,Adjective,I'm glad to meet you.,vocab_a2_0116
+답답하다,dapdapada,beklemmend / frustrierend sein,A2,Adjektiv,말이 안 통해서 답답해요.,Es ist so beklemmend — ich halte es kaum aus.,Gefühle,a2_feelings_2,4,false,to feel stifled / frustrated,Adjective,It's so frustrating — I can hardly stand it.,vocab_a2_0117
+신나다,sinnada,aufgeregt sein / freudig erregt,A2,Verb,내일 여행 가서 진짜 신나요.,Ich freue mich auf die Reise!,Gefühle,a2_feelings_2,5,false,to be excited,Verb,I'm excited about the trip!,vocab_a2_0118
+지루하다,jiruhada,langweilig sein,A2,Adjektiv,그 영화 좀 지루하지 않았어요?,Der Film ist langweilig.,Gefühle,a2_feelings_2,6,true,to be boring,Adjective,The movie is boring.,vocab_a2_0119
+긴장하다,ginjanghada,nervös / angespannt sein,A2,Verb,면접 앞두고 좀 긴장돼요.,Wegen des Vorstellungsgesprächs bin ich nervös.,Gefühle,a2_feelings_2,7,true,to be nervous / tense,Verb,I'm nervous about the interview.,vocab_a2_0120
+동료,dongryo,Kollege/in,A2,Nomen,회사 동료들이 다 좋아요.,Ich esse mit den Kollegen zu Mittag.,Beruf,a2_work,5,false,colleague,Noun,I have lunch with my colleagues.,vocab_a2_0121
+사장,sajang,Chef / Firmeninhaber,A2,Nomen,사장님이 진짜 좋으신 분이세요.,Der Chef ist freundlich.,Beruf,a2_work,6,false,boss / company owner,Noun,The boss is kind.,vocab_a2_0122
+상사,sangsa,Vorgesetzte/r,A2,Nomen,저희 상사 분은 좀 까다로우세요.,Ich habe meinem Vorgesetzten Bericht erstattet.,Beruf,a2_work,7,false,superior / supervisor,Noun,I reported to my supervisor.,vocab_a2_0123
+출근하다,chulgeunhada,zur Arbeit gehen,A2,Verb,매일 아홉 시에 출근해요.,Ich gehe morgens um neun zur Arbeit.,Beruf,a2_work,8,false,to go to work,Verb,I go to work at nine in the morning.,vocab_a2_0124
+퇴근하다,toegeunhada,Feierabend machen,A2,Verb,오늘은 좀 일찍 퇴근하고 싶어요.,Ich mache normalerweise um sechs Feierabend.,Beruf,a2_work,9,false,to leave work,Verb,I usually leave work at six.,vocab_a2_0125
+야근하다,yageunhada,Überstunden machen,A2,Verb,이번 주 계속 야근했어요.,Heute muss ich Überstunden machen.,Beruf,a2_work,10,true,to work overtime,Verb,I have to work overtime today.,vocab_a2_0126
+월급,wolgeup,Monatsgehalt,A2,Nomen,이번 달 월급이 좀 올랐어요.,Mein Gehalt wurde erhöht.,Beruf,a2_work,11,true,monthly salary,Noun,My salary went up.,vocab_a2_0127
+면접,myeonjeop,Vorstellungsgespräch,A2,Nomen,내일 오후에 면접이 있어요.,Morgen habe ich ein Vorstellungsgespräch.,Beruf,a2_work,12,true,job interview,Noun,I have a job interview tomorrow.,vocab_a2_0128
+일어나다,ireonada,aufstehen / aufwachen,A2,Verb,요즘 아침에 일찍 일어나기 힘들어요.,Ich stehe jeden Tag um sieben auf.,Alltag,a2_daily_3,2,false,to get up / to wake up,Verb,I get up at seven every day.,vocab_a2_0129
+씻다,ssitda,sich waschen / putzen,A2,Verb,자기 전에 꼭 씻어요.,Vor dem Schlafen wasche ich mich.,Alltag,a2_daily_3,3,false,to wash (oneself),Verb,I wash up before sleeping.,vocab_a2_0130
+화장하다,hwajangada,Make-up auflegen,A2,Verb,저는 화장을 잘 안 해요.,Vor der Arbeit schminke ich mich.,Alltag,a2_daily_3,4,false,to put on makeup,Verb,I put on makeup before work.,vocab_a2_0131
+빨래하다,ppallaehada,Wäsche waschen,A2,Verb,주말마다 빨래해요.,Am Wochenende mache ich Wäsche.,Alltag,a2_daily_3,5,false,to do laundry,Verb,I do laundry on the weekend.,vocab_a2_0132
+청소하다,cheongsohada,putzen / sauber machen,A2,Verb,오늘 방 청소 좀 해야겠어요.,Ich putze die Wohnung.,Alltag,a2_daily_3,6,false,to clean,Verb,I clean the apartment.,vocab_a2_0133
+정리하다,jeongnihada,aufräumen / ordnen,A2,Verb,책상 좀 정리했어요.,Ich habe den Schreibtisch aufgeräumt.,Alltag,a2_daily_3,7,true,to tidy up / to organize,Verb,I tidied up the desk.,vocab_a2_0134
+설거지하다,seolgeojihada,Geschirr spülen,A2,Verb,밥 먹고 설거지는 제가 할게요.,Ich habe nach dem Abendessen abgewaschen.,Alltag,a2_daily_3,8,true,to wash the dishes,Verb,I washed the dishes after dinner.,vocab_a2_0135
+분홍색,bunhongsaek,rosa,A2,Nomen,저 분홍색 진짜 잘 어울리네요.,Rosa ist hübsch.,Farben,a2_descriptions_2,3,false,pink,Noun,Pink is pretty.,vocab_a2_0136
+보라색,borasaek,lila / violett,A2,Nomen,보라색 옷은 잘 안 입어요.,Ich mag Lila.,Farben,a2_descriptions_2,4,false,purple / violet,Noun,I like purple.,vocab_a2_0137
+갈색,galsaek,braun,A2,Nomen,저는 갈색 머리로 염색했어요.,Die braune Tasche ist schön.,Farben,a2_descriptions_2,5,false,brown,Noun,The brown bag is nice.,vocab_a2_0138
+회색,hoesaek,grau,A2,Nomen,오늘은 회색 코트 입을래요.,Ich trug einen grauen Mantel.,Farben,a2_descriptions_2,6,true,gray,Noun,I wore a gray coat.,vocab_a2_0139
+주황색,juhwangsaek,orange,A2,Nomen,가을엔 주황색이 예뻐요.,Orange steht dir gut.,Farben,a2_descriptions_2,7,true,orange,Noun,Orange suits you well.,vocab_a2_0140
+영상,yeongsang,Video / Bildmaterial,B1,Nomen,그 유튜브 영상 봤어요?,Ich schaue YouTube-Videos.,Technologie,b1_tech_society_1,7,false,video / footage,Noun,I watch YouTube videos.,vocab_b1_0058
+댓글,daetgeul,Kommentar (online),B1,Nomen,제 댓글에 답장 달아 주셔서 감사해요.,Ich habe einen Kommentar hinterlassen.,Technologie,b1_tech_society_1,8,true,comment (online),Noun,I left a comment.,vocab_b1_0059
+좋아요,joayo,Like (Social Media),B1,Nomen,제 게시물에 좋아요 눌러 주세요.,Ich habe ein Like gegeben.,Technologie,b1_tech_society_1,9,true,Like (social media),Noun,I hit Like.,vocab_b1_0060
+팔로워,palloweo,Follower,B1,Nomen,요즘 팔로워가 좀 늘었어요.,Meine Followerzahl ist gewachsen.,Technologie,b1_tech_society_2,1,false,follower,Noun,My follower count grew.,vocab_b1_0061
+게시물,gesimul,Post / Beitrag,B1,Nomen,오늘 아침에 게시물 하나 올렸어요.,Ich habe einen Beitrag hochgeladen.,Technologie,b1_tech_society_2,2,false,post,Noun,I uploaded a post.,vocab_b1_0062
+업로드하다,eoprodeuhada,hochladen,B1,Verb,여행 사진 업로드해 놨어요.,Ich lade Fotos hoch.,Technologie,b1_tech_society_2,3,false,to upload,Verb,I upload photos.,vocab_b1_0063
+검색하다,geomsaekhada,recherchieren / online suchen,B1,Verb,그건 인터넷에서 검색해 보시면 나와요.,Ich recherchiere Informationen.,Technologie,b1_tech_society_2,4,false,to search (online),Verb,I search for information.,vocab_b1_0064
+다운로드,daunrodeu,Download,B1,Nomen,앱 다운로드부터 받으셔야 해요.,Ich lade die Datei herunter.,Technologie,b1_tech_society_2,5,false,download,Noun,I download the file.,vocab_b1_0065
+공유하다,gongyuhada,teilen (Social Media),B1,Verb,이 링크 좀 공유해 주실 수 있어요?,Ich teile es mit Freunden.,Technologie,b1_tech_society_2,6,false,to share (social media),Verb,I share it with friends.,vocab_b1_0066
+협력하다,hyeoryeokhada,zusammenarbeiten / kooperieren,B1,Verb,다른 부서랑 협력해서 진행할 예정이에요.,Wir arbeiten mit anderen Teams zusammen.,Beruf,b1_work,1,false,to cooperate / to collaborate,Verb,We collaborate with other teams.,vocab_b1_0067
+책임지다,chaegimjida,Verantwortung übernehmen,B1,Verb,이번 프로젝트는 제가 책임지고 진행할게요.,Ich übernehme die Verantwortung für diese Aufgabe.,Beruf,b1_work,2,false,to take responsibility,Verb,I'll take responsibility for this task.,vocab_b1_0068
+보고하다,bogohada,Bericht erstatten,B1,Verb,결과가 나오면 바로 보고드릴게요.,Ich berichte die Ergebnisse.,Beruf,b1_work,3,false,to report,Verb,I report the results.,vocab_b1_0069
+진행하다,jinhaenghada,durchführen / voranbringen,B1,Verb,일정대로 진행하고 있어요.,Wir führen das Projekt durch.,Beruf,b1_work,4,false,to carry out / to proceed with,Verb,We carry out the project.,vocab_b1_0070
+마감,magam,Deadline / Abgabefrist,B1,Nomen,마감이 이번 주 금요일이에요.,Die Deadline ist nächste Woche.,Beruf,b1_work,5,false,deadline,Noun,The deadline is next week.,vocab_b1_0071
+일정,iljeong,Terminplan / Zeitplan,B1,Nomen,다음 주 일정 좀 알려주세요.,Bitte überprüfen Sie den Terminplan.,Beruf,b1_work,6,false,schedule,Noun,Please check the schedule.,vocab_b1_0072
+회의록,hoeuirok,Sitzungsprotokoll,B1,Nomen,회의록 정리해서 공유해 드릴게요.,Ich schreibe das Sitzungsprotokoll.,Beruf,b1_work,7,false,meeting minutes,Noun,I write the meeting minutes.,vocab_b1_0073
+제안하다,jeanhada,vorschlagen,B1,Verb,괜찮은 아이디어가 있어서 제안드릴게요.,Ich schlage eine neue Idee vor.,Beruf,b1_work,8,false,to propose / to suggest,Verb,I propose a new idea.,vocab_b1_0074
+거절하다,geojeolhada,ablehnen,B1,Verb,정중하게 거절하는 게 쉽지 않네요.,Ich habe es höflich abgelehnt.,Beruf,b1_work,9,true,to refuse / to decline,Verb,I declined politely.,vocab_b1_0075
+동의하다,donguihada,zustimmen,B1,Verb,그 의견에 저도 동의해요.,Ich stimme dieser Meinung zu.,Kommunikation,b1_emotions_relations_2,7,true,to agree,Verb,I agree with that opinion.,vocab_b1_0076
+다이어트,daieoteu,Diät,B1,Nomen,요즘 다이어트 중이라 야식 안 먹어요.,Ich mache gerade eine Diät.,Gesundheit,b1_health_education,7,false,diet,Noun,I'm on a diet.,vocab_b1_0077
+명상,myeongsang,Meditation,B1,Nomen,매일 아침 10분씩 명상해요.,Ich meditiere jeden Morgen.,Gesundheit,b1_health_education,8,false,meditation,Noun,I meditate every morning.,vocab_b1_0078
+식단,sikdan,Ernährungsplan,B1,Nomen,요즘 식단 관리를 좀 하고 있어요.,Ich achte auf meine Ernährung.,Gesundheit,b1_health_education,9,false,meal plan / diet,Noun,I watch my diet.,vocab_b1_0079
+균형,gyunhyeong,Balance / Gleichgewicht,B1,Nomen,일과 삶의 균형이 정말 중요해요.,Work-Life-Balance ist wichtig.,Gesellschaft,b1_tech_society_2,7,true,balance,Noun,Work-life balance is important.,vocab_b1_0080
+휴식,hyusik,Erholung / Pause,B1,Nomen,잠깐이라도 휴식이 필요해요.,Ich mache eine kurze Pause.,Alltag,b1_daily_3,8,true,rest / break,Noun,I take a short break.,vocab_b1_0081
+취향,chwihyang,Vorliebe / Geschmack,B1,Nomen,사람마다 취향이 다르잖아요.,Jeder hat einen anderen Geschmack.,Beschreibung,b1_descriptions_1,7,true,preference / taste,Noun,Everyone has a different taste.,vocab_b1_0082
+의미,uimi,Bedeutung / Sinn,B1,Nomen,이 표현 정확한 의미가 뭐예요?,Was bedeutet dieses Wort?,Kommunikation,b1_emotions_relations_3,1,false,meaning,Noun,What does this word mean?,vocab_b1_0083
+변화,byeonhwa,Veränderung / Wandel,B1,Nomen,요즘 저한테 큰 변화가 좀 있었어요.,Es gab eine große Veränderung.,Alltag,b1_daily_3,9,true,change,Noun,There was a big change.,vocab_b1_0084
+영향,yeonghyang,Einfluss / Wirkung,B1,Nomen,이번 결정이 큰 영향을 줄 것 같아요.,Es hat einen guten Einfluss.,Gesellschaft,b1_tech_society_2,8,true,influence / effect,Noun,It has a good influence.,vocab_b1_0085
+차이,chai,Unterschied,B1,Nomen,한국이랑 독일 문화 차이가 진짜 커요.,Der Unterschied zwischen den beiden Ländern ist groß.,Beschreibung,b1_descriptions_1,8,true,difference,Noun,The difference between the two countries is big.,vocab_b1_0086
+공통점,gongtongjeom,Gemeinsamkeit,B1,Nomen,저희 둘 공통점이 의외로 많더라고요.,Wir haben viele Gemeinsamkeiten.,Beziehungen,b1_emotions_relations_3,2,false,common point / similarity,Noun,We have a lot in common.,vocab_b1_0087
+가능성,ganeungseong,Möglichkeit,B1,Nomen,성공 가능성이 없진 않아요.,Es gibt eine Möglichkeit.,Denken,b1_health_education,10,true,possibility,Noun,There is a possibility.,vocab_b1_0088
+한계,hangye,Grenze / Limit,B1,Nomen,이제 정말 제 한계인 것 같아요.,Ich kenne meine Grenzen.,Denken,b1_health_education,11,true,limit,Noun,I know my limits.,vocab_b1_0089
+책임,chaegim,Verantwortung,B1,Nomen,이번 일은 제 책임이에요.,Die Verantwortung ist groß.,Beruf,b1_work,10,true,responsibility,Noun,The responsibility is heavy.,vocab_b1_0090
+솔직하다,soljikhada,ehrlich / aufrichtig sein,B1,Adjektiv,저는 솔직한 사람이 좋아요.,Sagen Sie es bitte ehrlich.,Beschreibung,b1_descriptions_2,1,false,to be honest / frank,Adjective,Please tell me honestly.,vocab_b1_0091
+겸손하다,gyeomsonhada,bescheiden sein,B1,Adjektiv,그분 진짜 겸손하시더라고요.,Diese Person ist wirklich bescheiden.,Beschreibung,b1_descriptions_2,2,false,to be humble,Adjective,That person is really humble.,vocab_b1_0092
+친절하다,chinjeolhada,freundlich / hilfsbereit sein,B1,Adjektiv,여기 직원분들이 정말 친절하세요.,Der Verkäufer ist freundlich.,Beschreibung,b1_descriptions_2,3,false,to be kind / helpful,Adjective,The clerk is kind.,vocab_b1_0093
+게으르다,geeureuda,faul sein,B1,Adjektiv,저는 주말엔 좀 게을러져요.,Am Wochenende bin ich etwas faul.,Beschreibung,b1_descriptions_2,4,false,to be lazy,Adjective,I'm a bit lazy on weekends.,vocab_b1_0094
+부지런하다,bujireonhada,fleißig sein,B1,Adjektiv,저희 엄마는 진짜 부지런하세요.,Er ist ein fleißiger Mensch.,Beschreibung,b1_descriptions_2,5,false,to be diligent,Adjective,He is a diligent person.,vocab_b1_0095
+적극적이다,jeokgeukjeogida,aktiv / engagiert sein,B1,Adjektiv,회의 때 좀 더 적극적으로 참여해 주세요.,Ich beteilige mich aktiv.,Beschreibung,b1_descriptions_2,6,false,to be active / proactive,Adjective,I participate actively.,vocab_b1_0096
+소극적이다,sogeukjeogida,passiv / zurückhaltend sein,B1,Adjektiv,성격이 좀 소극적인 편이에요.,Am Anfang war ich zurückhaltend.,Beschreibung,b1_descriptions_2,7,true,to be passive / reserved,Adjective,At first I was reserved.,vocab_b1_0097
+책임감,chaegimgam,Verantwortungsbewusstsein,B1,Nomen,그 사람은 책임감이 정말 강해요.,Sie hat ein starkes Verantwortungsbewusstsein.,Beschreibung,b1_descriptions_2,8,true,sense of responsibility,Noun,She has a strong sense of responsibility.,vocab_b1_0098
+신경 쓰다,singyeong sseuda,sich Sorgen machen / sich kümmern,B1,Verb,너무 신경 쓰지 말고 편하게 하세요.,Mach dir nicht so viele Sorgen.,Gefühle,b1_emotions_relations_3,3,false,to worry / to care about,Verb,Don't worry about it too much.,vocab_b1_0099
+마음에 들다,maeume deulda,gefallen,B1,Verb,이 색깔 진짜 마음에 드네요.,Das gefällt mir sehr!,Gefühle,b1_emotions_relations_3,4,false,to be pleasing / to like,Verb,I really like it!,vocab_b1_0100
+약속하다,yaksokhada,versprechen,B1,Verb,다시는 안 그러겠다고 약속할게요.,"Ich verspreche, es einzuhalten.",Kommunikation,b1_emotions_relations_3,5,false,to promise,Verb,I promise I'll keep it.,vocab_b1_0101
+후회하다,huhoehada,bereuen,B1,Verb,결정한 거 후회 안 해요.,Ich bereue es nicht.,Gefühle,b1_emotions_relations_3,6,true,to regret,Verb,I don't regret it.,vocab_b1_0102
+기대하다,gidaehada,erwarten / sich freuen auf,B1,Verb,다음 편이 진짜 기대돼요.,Ich freue mich sehr darauf.,Gefühle,b1_emotions_relations_3,7,true,to expect / to look forward to,Verb,I'm really looking forward to it.,vocab_b1_0103
+협상,hyeopsang,Verhandlung,B2,Nomen,이번 협상이 생각보다 잘 풀렸어요.,Die Verhandlung lief gut.,Beruf,b2_work,1,false,negotiation,Noun,The negotiation went well.,vocab_b2_0033
+계약,gyeyak,Vertrag,B2,Nomen,계약서 다시 한번 확인해 주세요.,Wir haben den Vertrag abgeschlossen.,Beruf,b2_work,2,false,contract,Noun,We signed the contract.,vocab_b2_0034
+투자,tuja,Investition,B2,Nomen,이 분야는 투자 가치가 충분해요.,Eine Investition ist nötig.,Gesellschaft,b2_society_1,7,false,investment,Noun,An investment is needed.,vocab_b2_0035
+수익,suik,Gewinn / Ertrag,B2,Nomen,올해 수익이 작년보다 늘었어요.,Der Gewinn ist gestiegen.,Gesellschaft,b2_society_1,8,false,profit / revenue,Noun,Profits have risen.,vocab_b2_0036
+비용,biyong,Kosten,B2,Nomen,비용을 좀 줄일 수 있을까요?,Es kostet viel.,Gesellschaft,b2_society_1,9,true,cost,Noun,It costs a lot.,vocab_b2_0037
+생산성,saengsanseong,Produktivität,B2,Nomen,재택근무 이후로 생산성이 오히려 올랐어요.,Wir müssen die Produktivität steigern.,Beruf,b2_work,3,false,productivity,Noun,We need to raise productivity.,vocab_b2_0038
+경쟁력,gyeongjaengnyeok,Wettbewerbsfähigkeit,B2,Nomen,우리 팀은 경쟁력이 확실해요.,Die Wettbewerbsfähigkeit ist stark.,Gesellschaft,b2_society_1,10,true,competitiveness,Noun,Its competitiveness is strong.,vocab_b2_0039
+전략,jeollyak,Strategie,B2,Nomen,장기적인 전략을 세워야 해요.,Wir haben eine neue Strategie entwickelt.,Beruf,b2_work,4,false,strategy,Noun,We developed a new strategy.,vocab_b2_0040
+위기,wigi,Krise,B2,Nomen,위기를 기회로 삼아야죠.,Wir haben die Krise überwunden.,Gesellschaft,b2_society_2,1,false,crisis,Noun,We overcame the crisis.,vocab_b2_0041
+협업,hyeobeop,Zusammenarbeit (formell),B2,Nomen,다른 회사와의 협업도 검토 중이에요.,Die Zusammenarbeit der beiden Firmen begann.,Beruf,b2_work,5,false,collaboration (formal),Noun,The collaboration between the two companies began.,vocab_b2_0042
+법,beop,Gesetz,B2,Nomen,법적으로 문제가 없는지 확인해 봐야 해요.,Wir müssen das Gesetz einhalten.,Gesellschaft,b2_society_2,2,false,law,Noun,We must obey the law.,vocab_b2_0043
+정책,jeongchaek,Politik / Strategie (staatlich),B2,Nomen,새 정책이 다음 달부터 시행돼요.,Eine neue Politik wurde angekündigt.,Gesellschaft,b2_society_2,3,false,policy (governmental),Noun,A new policy was announced.,vocab_b2_0044
+제도,jedo,System / Institution,B2,Nomen,이 제도는 개선이 필요하다고 봐요.,Das Bildungssystem ändert sich.,Gesellschaft,b2_society_2,4,false,system / institution,Noun,The education system is changing.,vocab_b2_0045
+의무,uimu,Pflicht / Verpflichtung,B2,Nomen,국민으로서의 의무를 다해야죠.,Ich erfülle meine Pflicht.,Gesellschaft,b2_society_2,5,false,duty / obligation,Noun,I fulfill my duty.,vocab_b2_0046
+평등,pyeongdeung,Gleichheit / Gleichberechtigung,B2,Nomen,성 평등이 아직 갈 길이 멀어요.,Gleichberechtigung ist wichtig.,Gesellschaft,b2_society_2,6,false,equality,Noun,Equality is important.,vocab_b2_0047
+차별,chabyeol,Diskriminierung,B2,Nomen,직장 내 차별은 없어야 해요.,Diskriminierung muss verschwinden.,Gesellschaft,b2_society_2,7,false,discrimination,Noun,Discrimination must disappear.,vocab_b2_0048
+인권,ingwon,Menschenrechte,B2,Nomen,인권은 절대 양보할 수 없는 가치예요.,Wir schützen die Menschenrechte.,Gesellschaft,b2_society_2,8,true,human rights,Noun,We protect human rights.,vocab_b2_0049
+양극화,yanggeukhwa,Polarisierung / Spaltung,B2,Nomen,빈부 양극화가 점점 심해지고 있어요.,Die gesellschaftliche Spaltung verschärft sich.,Gesellschaft,b2_society_2,9,true,polarization,Noun,Social polarization is worsening.,vocab_b2_0050
+강점,gangjeom,Stärke,B2,Nomen,본인의 강점이 뭐라고 생각하세요?,Meine Stärke ist Ausdauer.,Beruf,b2_work,6,false,strength,Noun,My strength is perseverance.,vocab_b2_0051
+약점,yakjeom,Schwäche,B2,Nomen,약점은 오히려 인정하는 게 나아요.,Man muss auch seine Schwächen anerkennen.,Beruf,b2_work,7,false,weakness,Noun,You have to acknowledge your weaknesses too.,vocab_b2_0052
+경력,gyeongnyeok,Berufserfahrung / Werdegang,B2,Nomen,관련 경력이 어느 정도 되세요?,Ich habe zehn Jahre Berufserfahrung.,Beruf,b2_work,8,true,career / work experience,Noun,I have ten years of work experience.,vocab_b2_0053
+자격증,jagyeokjeung,Zertifikat / Qualifikation,B2,Nomen,이 분야는 자격증이 꼭 필요해요.,Welche Zertifikate haben Sie?,Beruf,b2_work,9,true,certificate / qualification,Noun,What certificates do you have?,vocab_b2_0054
+자신감,jasingam,Selbstvertrauen,B2,Nomen,요즘 조금씩 자신감이 붙고 있어요.,Ich habe Selbstvertrauen gewonnen.,Gefühle,b2_misc,7,false,self-confidence,Noun,I've gained self-confidence.,vocab_b2_0055
+끈기,kkeungi,Ausdauer / Beharrlichkeit,B2,Nomen,끈기가 결국 실력이 되더라고요.,Ich strenge mich beharrlich an.,Beschreibung,b2_misc,8,false,perseverance,Noun,I work with perseverance.,vocab_b2_0056
+잠재력,jamjaeryeok,Potenzial,B2,Nomen,이 팀의 잠재력이 무궁무진해요.,Sie entfaltet ihr Potenzial.,Beschreibung,b2_misc,9,false,potential,Noun,She brings out her potential.,vocab_b2_0057
+동기,donggi,Motivation / Anreiz,B2,Nomen,요즘 동기 부여가 잘 안 돼요.,Mir fehlt die Motivation.,Motivation,b2_misc,10,true,motivation / incentive,Noun,I lack motivation.,vocab_b2_0058
+분야,bunya,Bereich / Fach / Gebiet,B2,Nomen,저는 마케팅 분야에서 일하고 있어요.,Sie ist Expertin auf diesem Gebiet.,Bildung,b2_education,2,false,field / area,Noun,She is an expert in this field.,vocab_b2_0059
+전공,jeongong,Hauptfach / Studienfach,B2,Nomen,대학교 때 무슨 전공이셨어요?,Was studierst du?,Bildung,b2_education,3,false,major / field of study,Noun,What's your major?,vocab_b2_0060
+학위,hagwi,akademischer Grad,B2,Nomen,석사 학위까지 마치셨더라고요.,Sie hat den Doktortitel erworben.,Bildung,b2_education,4,false,academic degree,Noun,She earned a doctoral degree.,vocab_b2_0061
+논문,nonmun,wissenschaftlicher Aufsatz / Arbeit,B2,Nomen,논문 마감 때문에 요즘 정신없어요.,Ich habe einen Aufsatz veröffentlicht.,Bildung,b2_education,5,true,academic paper / thesis,Noun,I published a paper.,vocab_b2_0062
+발표하다,balpyohada,präsentieren / vortragen,B2,Verb,다음 주에 학회에서 발표하기로 했어요.,Nächste Woche halte ich eine Präsentation.,Kommunikation,b2_communication,7,false,to present / to give a talk,Verb,I give a presentation next week.,vocab_b2_0063
+인용하다,inyonghada,zitieren,B2,Verb,출처를 정확히 인용해 주세요.,Ich zitiere die Quelle.,Bildung,b2_education,6,true,to quote / to cite,Verb,I cite the source.,vocab_b2_0064
+통계,tonggye,Statistik,B2,Nomen,이 통계는 좀 오래된 자료예요.,Die Statistik ist genau.,Denken,b2_thinking_2,5,false,statistics,Noun,The statistics are accurate.,vocab_b2_0065
+가설,gaseol,Hypothese,B2,Nomen,우선 가설부터 세워 봅시다.,Ich habe eine Hypothese aufgestellt.,Denken,b2_thinking_2,6,false,hypothesis,Noun,I set up a hypothesis.,vocab_b2_0066
+진정한,jinjeonghan,wahr / echt,B2,Adjektiv,진정한 친구는 힘들 때 알아봐요.,Ich suche einen echten Freund.,Beschreibung,b2_misc,11,true,true / genuine,Adjective,I'm looking for a true friend.,vocab_b2_0067
+본질적이다,bonjiljeogida,wesentlich / essenziell sein,B2,Adjektiv,본질적인 원인부터 짚어야 해요.,Das ist ein wesentliches Problem.,Denken,b2_thinking_2,7,true,to be essential,Adjective,It's an essential problem.,vocab_b2_0068
+적절하다,jeokjeolhada,angemessen / passend sein,B2,Adjektiv,타이밍이 아주 적절했어요.,Das ist eine angemessene Reaktion.,Beschreibung,b2_misc,12,true,to be appropriate / suitable,Adjective,That's an appropriate reaction.,vocab_b2_0069
+명확하다,myeonghwakhada,eindeutig / klar sein,B2,Adjektiv,입장을 좀 명확하게 밝혀 주세요.,Bitte geben Sie eine klare Antwort.,Kommunikation,b2_communication,8,true,to be clear / unambiguous,Adjective,Please give a clear answer.,vocab_b2_0070
+모호하다,mohohada,vage / unklar sein,B2,Adjektiv,답변이 좀 모호하시네요.,Die Antwort ist vage.,Kommunikation,b2_communication,9,true,to be vague / unclear,Adjective,The answer is vague.,vocab_b2_0071
+합리적이다,hamnijeogida,rational / vernünftig sein,B2,Adjektiv,합리적인 가격이라 결정했어요.,Wir entscheiden vernünftig.,Denken,b2_thinking_2,8,true,to be rational / reasonable,Adjective,We decide reasonably.,vocab_b2_0072
+거실,geosil,Wohnzimmer,A2,Nomen,저희 집 거실이 좀 좁아요.,Das Wohnzimmer ist geräumig.,Wohnen,a2_home_1,1,false,living room,Noun,The living room is spacious.,vocab_a2_0141
+부엌,bueok,Küche,A2,Nomen,저희 부엌에서 요리 자주 해요.,Ich koche in der Küche.,Wohnen,a2_home_1,2,false,kitchen,Noun,I cook in the kitchen.,vocab_a2_0142
+냉장고,naengjanggo,Kühlschrank,A2,Nomen,냉장고에 뭐 먹을 거 있어요?,Im Kühlschrank ist Milch.,Wohnen,a2_home_1,3,false,refrigerator,Noun,There is milk in the fridge.,vocab_a2_0143
+세탁기,setakgi,Waschmaschine,A2,Nomen,세탁기 좀 고장 났어요.,Ich lasse die Waschmaschine laufen.,Wohnen,a2_home_1,4,false,washing machine,Noun,I run the washing machine.,vocab_a2_0144
+청소기,cheongsogi,Staubsauger,A2,Nomen,청소기 좀 돌리고 나갈게요.,Ich sauge mit dem Staubsauger.,Wohnen,a2_home_1,5,false,vacuum cleaner,Noun,I vacuum the floor.,vocab_a2_0145
+가구,gagu,Möbel,A2,Nomen,이번에 가구를 좀 새로 샀어요.,Ich habe neue Möbel gekauft.,Wohnen,a2_home_1,6,false,furniture,Noun,I bought new furniture.,vocab_a2_0146
+이사하다,isahada,umziehen,A2,Verb,다음 달에 이사 갈 예정이에요.,Ich ziehe nächsten Monat um.,Wohnen,a2_home_1,7,false,to move (house),Verb,I'm moving next month.,vocab_a2_0147
+월세,wolse,Monatsmiete,A2,Nomen,이 동네 월세가 좀 비싸요.,Die Monatsmiete ist teuer.,Wohnen,a2_home_1,8,false,monthly rent,Noun,The monthly rent is expensive.,vocab_a2_0148
+보증금,bojeunggeum,Kaution,A2,Nomen,보증금은 얼마 정도예요?,Ich habe die Kaution bezahlt.,Wohnen,a2_home_1,9,true,deposit,Noun,I paid the deposit.,vocab_a2_0149
+집주인,jipjuin,Vermieter,A2,Nomen,집주인 아저씨한테 연락해 볼게요.,Ich habe den Vermieter angerufen.,Wohnen,a2_home_1,10,true,landlord,Noun,I called the landlord.,vocab_a2_0150
+현금,hyeongeum,Bargeld,A2,Nomen,현금 없는데 카드 돼요?,Ich zahle bar.,Geld,a2_money_1,1,false,cash,Noun,I'll pay in cash.,vocab_a2_0151
+통장,tongjang,Bankbuch,A2,Nomen,새 통장을 만들려고 왔어요.,Ich habe ein Konto eröffnet.,Geld,a2_money_1,2,false,bankbook,Noun,I opened a bank account.,vocab_a2_0152
+입금하다,ipgeumhada,einzahlen,A2,Verb,방금 입금해 드렸어요.,Das Gehalt wurde eingezahlt.,Geld,a2_money_1,3,false,to deposit,Verb,The salary was deposited.,vocab_a2_0153
+출금하다,chulgeumhada,abheben,A2,Verb,만 원만 출금할게요.,Ich habe Bargeld abgehoben.,Geld,a2_money_1,4,false,to withdraw,Verb,I withdrew cash.,vocab_a2_0154
+송금하다,songgeumhada,überweisen,A2,Verb,친구한테 십만 원 송금했어요.,Ich habe einem Freund Geld überwiesen.,Geld,a2_money_1,5,false,to transfer money,Verb,I transferred money to a friend.,vocab_a2_0155
+잔액,janaek,Kontostand,A2,Nomen,잔액이 얼마나 남았어요?,Der Kontostand reicht nicht.,Geld,a2_money_1,6,false,balance,Noun,The balance is insufficient.,vocab_a2_0156
+수수료,susuryo,Gebühr,A2,Nomen,송금 수수료 얼마예요?,Gibt es eine Gebühr?,Geld,a2_money_1,7,false,fee,Noun,Is there a fee?,vocab_a2_0157
+환전하다,hwanjeonhada,Geld wechseln,A2,Verb,공항에서 유로로 환전했어요.,Ich habe am Flughafen Geld gewechselt.,Geld,a2_money_1,8,false,to exchange money,Verb,I exchanged money at the airport.,vocab_a2_0158
+통화,tonghwa,Währung,A2,Nomen,유로로 계산해도 될까요?,In welcher Währung soll ich zahlen?,Geld,a2_money_1,9,true,currency,Noun,Which currency should I pay in?,vocab_a2_0159
+저축하다,jeochukhada,sparen,A2,Verb,매달 조금씩이라도 저축하려고 해요.,Ich spare jeden Monat.,Geld,a2_money_1,10,true,to save money,Verb,I save every month.,vocab_a2_0160
+온난화,onnanhwa,Erwärmung,B2,Nomen,지구 온난화가 생각보다 심각해요.,Die globale Erwärmung ist ernst.,Umwelt,b2_environment_1,1,false,global warming,Noun,Global warming is serious.,vocab_b2_0073
+오염,oyeom,Verschmutzung,B2,Nomen,미세먼지 오염이 갈수록 심해지네요.,Die Luftverschmutzung wird immer schlimmer.,Umwelt,b2_environment_1,2,false,pollution,Noun,Air pollution is getting worse.,vocab_b2_0074
+배출,baechul,Ausstoß,B2,Nomen,탄소 배출을 줄여야 할 때예요.,Wir müssen den CO2-Ausstoß senken.,Umwelt,b2_environment_1,3,false,emission,Noun,We must reduce carbon emissions.,vocab_b2_0075
+재활용,jaehwaryong,Recycling,B2,Nomen,저희 집에서는 재활용 철저히 해요.,Ich recycle immer.,Umwelt,b2_environment_1,4,false,recycling,Noun,I always recycle.,vocab_b2_0076
+멸종,myeoljong,Aussterben,B2,Nomen,멸종 위기에 처한 동물이 너무 많아요.,Viele Tiere sind vom Aussterben bedroht.,Umwelt,b2_environment_1,5,false,extinction,Noun,Many animals face extinction.,vocab_b2_0077
+생태계,saengtaegye,Ökosystem,B2,Nomen,생태계 보호는 우리 모두의 몫이에요.,Wir müssen das Ökosystem schützen.,Umwelt,b2_environment_1,6,false,ecosystem,Noun,We must protect the ecosystem.,vocab_b2_0078
+자원,jawon,Ressource,B2,Nomen,자원은 무한하지 않으니까 아껴 써야죠.,Wir müssen sparsam mit Ressourcen umgehen.,Umwelt,b2_environment_1,7,false,resource,Noun,We must use resources sparingly.,vocab_b2_0079
+폐기물,pyegimul,Abfall,B2,Nomen,산업 폐기물 처리가 큰 문제예요.,Abfall zu reduzieren ist wichtig.,Umwelt,b2_environment_1,8,false,waste,Noun,Reducing waste is important.,vocab_b2_0080
+태양광,taeyanggwang,Solarenergie,B2,Nomen,태양광 에너지가 점점 늘고 있어요.,Solarenergie nimmt zu.,Umwelt,b2_environment_1,9,false,solar power,Noun,Solar energy is increasing.,vocab_b2_0081
+온실가스,onsilgaseu,Treibhausgas,B2,Nomen,온실가스 배출량을 줄여야 해요.,Treibhausgase erwärmen die Erde.,Umwelt,b2_environment_1,10,true,greenhouse gas,Noun,Greenhouse gases warm the earth.,vocab_b2_0082
+친환경,chinhwangyeong,umweltfreundlich,B2,Adjektiv,요즘은 친환경 제품이 많이 나와요.,Ich kaufe oft umweltfreundliche Produkte.,Umwelt,b2_environment_1,11,true,eco-friendly,Adjective,I often buy eco-friendly products.,vocab_b2_0083
+지속 가능성,jisok ganeungseong,Nachhaltigkeit,B2,Nomen,지속 가능성을 고려한 결정이 필요해요.,Nachhaltigkeit ist sehr wichtig.,Umwelt,b2_environment_1,12,true,sustainability,Noun,Sustainability is very important.,vocab_b2_0084

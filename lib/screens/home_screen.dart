@@ -14,7 +14,6 @@ import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
 import '../services/smalltalk_loader.dart';
 import '../services/hanok_stage_service.dart';
-import '../services/lesson_recommender_service.dart';
 import '../services/review_deck_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/notification_service.dart';
@@ -85,9 +84,6 @@ class _HomeScreenState extends State<HomeScreen> {
   // E1a. Lernpfad 홈 임베드 — 현재 레벨 단어팩 노드 리스트.
   List<({VocabPack pack, PackProgress progress})> _pathNodes = [];
   String? _nowPackId;
-
-  // Phase E — 호랑이 hero의 "다음 한 가지" 추천(경로 now 노드와 동일 팩).
-  LessonPath? _recommendation;
 
   // Phase 3 (stately-rising-jongga) — Hanok-Cinematic gating.
   HanokStage? _pendingCinematicStage;
@@ -204,16 +200,12 @@ class _HomeScreenState extends State<HomeScreen> {
         nodes = view; // 계속 갱신 — 다 클리어 시 마지막 레벨로 남음
       }
 
-      // Phase E — hero CTA용 추천(경로 now 노드와 동일 알고리즘).
-      final rec = await LessonRecommenderService.getNextLesson();
-
       if (!mounted) {
         return;
       }
       setState(() {
         _pathNodes = nodes;
         _nowPackId = nowId;
-        _recommendation = rec;
       });
     } catch (_) {
       // best-effort — 로드 실패 시 _pathNodes 빈 상태 유지 → _PathCard fallback
@@ -364,33 +356,23 @@ class _HomeScreenState extends State<HomeScreen> {
     kind: kind,
   );
 
-  /// Phase E — hero subline. 추천이 있으면 "{행동} · {팩 이름}",
-  /// 없으면(전부 클리어/로드 전) 기본 학습 카피.
+  /// The hero always points to the sequential course mission. Vocabulary-pack
+  /// recommendations remain available in its practice room instead of being
+  /// a competing first action on Home.
   ///
   /// 재생 삼각형은 **문자열에 넣지 않는다** — U+25B6 은 안드로이드에서
   /// Noto Color Emoji 가 가져가 문장 한가운데 주황 사각형이 박힌다
   /// (test/no_emoji_glyph_test.dart). 아이콘은 [_TigerHero] 가
   /// `Icons.play_arrow_rounded` WidgetSpan 으로 그린다.
   String _heroSubline(AppL10n t, String lang) {
-    final rec = _recommendation;
-    if (rec == null) {
-      return t.homeGreetingLearn;
-    }
-    final action = rec.kind == LessonKind.continueLearning
-        ? t.homeHeroActionContinue
-        : t.homeHeroActionStart;
-    final label = VocabPackService.displayLabel(rec.packId, lang: lang);
-    return '$action · $label';
+    return lang == 'en'
+        ? 'Your next real-life mission is ready.'
+        : 'Deine nächste Alltagsmission ist bereit.';
   }
 
-  /// Phase E — hero 탭. 추천 팩으로 직행(없으면 단어팩 그리드).
+  /// Hero tap opens the course-first mission rather than a free library pack.
   Future<void> _onHeroTap() async {
-    final rec = _recommendation;
-    if (rec != null) {
-      await Navigator.pushNamed(context, '/vocab/pack', arguments: rec.packId);
-    } else {
-      await Navigator.pushNamed(context, '/vocab');
-    }
+    await Navigator.pushNamed(context, '/course/mission');
     if (mounted) {
       await _loadToday();
       await _loadPath();
@@ -540,8 +522,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: Spacing.md),
 
-                      // ── D. 주 CTA — 듀오링고식 단일 행동: "열면 바로 뭘 할지"
-                      //    현재 진행 팩으로 직행 (없으면 학습 경로로) ──
+                      // ── D. 주 CTA — 앱의 첫 행동은 항상 현재 코스 미션.
                       SoriEntrance(
                         delay: const Duration(milliseconds: 100),
                         slideY: 14,
@@ -551,15 +532,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           accent: SoriColors.tiger,
                           fullWidth: true,
                           onTap: () async {
-                            if (_nowPackId != null) {
-                              await Navigator.pushNamed(
-                                context,
-                                '/vocab/pack',
-                                arguments: _nowPackId,
-                              );
-                            } else {
-                              await Navigator.pushNamed(context, '/path');
-                            }
+                            await Navigator.pushNamed(
+                              context,
+                              '/course/mission',
+                            );
                             if (mounted) {
                               await _loadToday();
                               await _loadPath();
