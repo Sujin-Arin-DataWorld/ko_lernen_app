@@ -371,6 +371,14 @@ flutter run -d <android-id>   # 안드로이드
 - **검증**: analyze 0 · **신규 `test/character_selection_screen_test.dart` 3**(렌더·308px×1.3 오버플로 0·탭→choose→greet→Consent 체인) · 전체 스위트 **1353 통과** · ARB parity 1060=1060. ⚠️ 실기기 시각 = Jin (ADB offline로 재배포 대기).
 - 변경: `character_selection_screen.dart` · `app_de/en.arb`(+generated) · 신규 테스트 1.
 
+**후속(같은 날, Jin 영상 지정):** 히어로 정지 이미지 → **welcome-hero.mp4 무음 루프**(1280×720 실측 → 박스 16:9·maxWidth 280, 이 화면의 유일한 라이브 영상 — 단일 디코더 lease 때문에 카드 상시 클립은 불가·마지막 등록만 살게 됨), 카드 마스코트 호흡 제거(`animate:false`, "까딱이는 이미지 삭제"), greet 클립을 Jin 지정으로 교체: **태고=tiger_roar.mp4(산군 포효)·조이=magpie_perched.mp4**(pawflash/chirp 대체, 이 화면 한정 — greet SFX는 기존 유지). 탭 시 greet 가 lease 를 가져가 히어로는 포스터로 강등(이벤트성 핸드오프 1회 = 타이머 교대 아님). 검증: analyze 0·화면 테스트 3/3. ⚠️ 포스터 png(정사각)는 16:9 crop — 영상 로드 전/reduce-motion 폴백에서만 노출.
+
+**같은 날 — 구글 연동·계정삭제/초기화 진단(Jin: "구글 연동 안 되는 거, 데이터 삭제·초기화 안 되는 거 개선해줘"):**
+- 🔴 **구글 연동 근본 원인 확정**: Firebase 등록 Android SHA-1은 `927593a4…` **1개뿐** — 디버그 keystore(`6E94E73B…`)·업로드 keystore(`AB6118FE…`) 모두 미등록(등록본은 Play App Signing 키로 추정). → **로컬 설치 빌드(디버그·업로드 서명)에선 Google Sign-In 이 구조적으로 실패**(ApiException 10). CLI `apps:android:sha:create` 는 403(계정 권한 부족) → **Jin 액션**: Firebase Console → 프로젝트 설정 → Android 앱 → 지문 추가 2건: `6E:94:E7:3B:7C:19:B1:F8:D9:59:E6:2E:7E:9B:1F:E5:88:4A:D8:07`(디버그) + `AB:61:18:FE:34:C9:48:AB:22:1F:1C:2E:5E:86:48:58:EF:CC:14:53`(업로드). google-services.json 재다운로드는 불필요(웹 클라이언트 ID 는 이미 있음).
+- 🔴 **계정삭제/초기화 근본 원인 확정 → 해소**: 클라 `AccountOperationClient` 가 europe-west3 callable 호출 — 코드는 `functions/gye`(account_operations_runtime)에 있으나 **미배포** → 삭제 첫 호출부터 실패, journal 잔존 → `_readPendingState()` = blocked → **설정의 "Alle Daten zurücksetzen"·"계정 삭제" 버튼이 `onTap:null` 로 완전 비활성**(Jin 제보 "버튼이 아예 안 눌려"의 정체). **배포 완료 체인**: ① discovery 10s 타임아웃 → `FUNCTIONS_DISCOVERY_TIMEOUT=120` ② Secret Manager API 활성화(`gcloud services enable`) ③ `DELETION_PROOF_HMAC_KEY` 시크릿 생성(random 256bit) ④ **Apple 해지 시크릿 4종은 placeholder**(`APPLE_REVOKE_CLIENT_ID/KEY_ID/TEAM_ID/PRIVATE_KEY` — ⚠️ iOS 출시 전 실값 교체 필수) ⑤ **`Deploy complete!` — 신규 callable 18종 생성**(requestAccountDeletion·getAccountOperation·completeAppleRevocation·issueDeletionProof·requestDeletionByProof·replacement 계열 등) + 기존 4종 업데이트.
+- 🔴 **App Check 이중 갭 발견 → 해소**: 계정 callable 은 `enforceAppCheck:true` 인데 **Firebase App Check API 자체가 프로젝트에서 비활성**(= 어떤 빌드도 attestation 불가) → `gcloud services enable firebaseappcheck.googleapis.com` + **Jin 폰 디버그 토큰 `4b4a8f6c-3637-4daa-acba-4bda5210abf0` REST 등록 완료**(logcat 실측값). ⚠️ 릴리스 빌드는 App Check 콘솔에서 **Play Integrity provider 등록** 필요(Jin 1회 확인).
+- **예상 복구 경로**: 앱 재시작 → startup 이 잔존 deletion journal resume → 이제 live 인 CF 로 완료 → journal 소거 → 리셋/삭제 버튼 재활성. 미검증(Jin 실기기).
+
 ### 2026-08-02 (Cowork) — 앰비언스 배선: SoriPosterLoop → AudioPolicy — 커밋 미요청
 
 **문제:** `AudioPolicy` 구현(`3e4a058`) 후에도 설정의 `Hintergrundklänge`(ambience) 토글이
