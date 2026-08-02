@@ -342,6 +342,7 @@ flutter run -d <android-id>   # 안드로이드
 - **내 정정 1건**: §6-ⓐ Storage 키를 임의명이 아닌 **ADR-002 §3-4 스킴(`kl_snd_*`)**으로 (그쪽 지적이 옳음).
 - **CRLF 정규화(Jin 선택)**: `.gitattributes`에 `* text=auto` 추가 — 인덱스는 이미 전부 LF(i/crlf 0)라 **renormalize 델타 0**, 파일 추가만으로 디바이스 VM·CI에서도 status 일관. 기존 csv/json/arb 규칙 보존.
 - index.lock 재발 건: 파일 이미 부재(정상) — 원인 = 디바이스 세션의 `--no-optional-locks` 없는 git 읽기. Windows 조치 불요.
+- **후속(같은 날 오후, HANDOFF_CORRECTION.md 반영 — SSoT §8-4)**: P0 정산 — versionCode 닫힘(Play 최신 4 → **pubspec 2.0.1+6 그대로**, 릴리스 노트 +6 기준 기갱신) · CRLF 픽스가 디바이스 VM에서도 543→1로 실측 확인 · **P0-5 release.ps1은 재반증**(전수 재검색: 레포·히스토리·Downloads 부재 — 메모가 낡은 전제 반복) → **실질 P0 잔여 0, 다음 세션은 바로 P1 진입 가능**. 메모의 "26곳" stale 수치 재반복 주의(실호출 17+4).
 
 ### 2026-08-02 (오디오·영상·릴리스 전수 검수 — 다음 세션 인수인계 SSoT) — 커밋·푸시
 

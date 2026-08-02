@@ -154,7 +154,7 @@ CF는 계약을 `tts_contract.js` 단일 모듈로 공유(index.js:24 require) �
 1. **Redmi 설치 승인** — MIUI `INSTALL_FAILED_USER_RESTRICTED` 2회. 잠금 해제 + USB 설치 승인 후 기존 APK(`FDCAE3E1…D2AF1C`)로 재개.
 2. **스모크 10항목**(DEPLOY_CHECKLIST §5) — 인트로 영상+소리·온보딩 대비·캐릭터 선택 2종·프로필 핑크 사각형 부재·Lernpfad 전 노드 탭·게임 결과 마스코트·TTS·로그인/클라우드·알림 권한·재실행 진행도.
 3. **디코더 logcat** — `adb logcat | findstr "ExoPlayerImpl reclaim CodecException"` (ADR-001).
-4. Play Console versionCode 6 소비 확인(소비 시 +7) · 태그 `v2.0.1` 생성(현재 v1.0.1뿐) · 내부 테스트 트랙 먼저 · data-safety 권한 4종 재확인 · 배포 후 24h Crashlytics 감시 + 롤백 레버(ADR-001 §7).
+4. ~~Play Console versionCode 확인~~ → ✅ **닫힘(2026-08-02 오후)**: Play 최신 업로드 = **versionCode 4** → 6은 미사용·4보다 큼 → **pubspec `2.0.1+6` 그대로 사용, +7 불필요**. `docs/store/release-notes-v2.md`도 이미 +6 기준(1행 제목·70행 Build tag — 병렬 세션 갱신 확인). 남은 것: 태그 `v2.0.1` 생성(현재 v1.0.1뿐) · 내부 테스트 트랙 먼저 · data-safety 권한 재확인 · 배포 후 24h Crashlytics 감시 + 롤백 레버(ADR-001 §7).
 5. TTS 배포측 확인 3종(§4-4).
 
 ### §5-3. 재빌드 불필요 판정 근거 (중요 정정)
@@ -225,3 +225,18 @@ flutter test --reporter compact                        →  +1293: All tests pas
 - **그쪽에 없는 내 발견**: listening voice 미지정(male 캐시 미스, §4-3/§6-ⓓ — 그쪽 §5-B TTS 배선표가 미작성이라 놓침).
 - **내게 없던 그쪽 자산**: §5-A 화면→위젯→에셋→소리 전수 배선맵 · §4 AudioPolicy 단계별 구현 지침(ADR 키 스킴·기본값 함정·테스트 7종) · §7 Jin 질문 17개(차단 5: Q1 versionCode·Q2 TTS서버[닫힘]·Q5 범위·Q12 CRLF[닫힘: renormalize 선택]·Q13 lock[닫힘]).
 - **그쪽 문서의 환경 제약(§1)은 디바이스 VM 전용** — 다음 세션이 Jin의 Windows에서 돌면 Flutter/네트워크/rm 전부 가능하므로 해당 제약·우회책은 무시할 것.
+
+### §8-4. HANDOFF_CORRECTION.md 반영 (2026-08-02 오후 — P0 최종 정산)
+
+병렬 세션이 정정 메모(`~/Downloads/HANDOFF_CORRECTION.md`)로 P0 5개 중 4개 닫힘을 선언. 본 클론 재검증 결과:
+
+| P0 | 메모 판정 | 본 검증 |
+|---|---|---|
+| P0-1 versionCode | ✅ Play 최신 = **4** → 6 그대로 사용, 릴리스 노트도 +6 기준 | 채택 → §5-2-4 갱신 |
+| P0-2 index.lock | ✅ 없음 | 일치 (본 세션이 기제거) |
+| P0-3 CRLF | ✅ `657c134`로 해제 — **디바이스 VM 실측 543 → 1건** | 본 세션의 `.gitattributes` 픽스가 그쪽 환경에서도 유효함을 상호 확인. "lib/ 수정 금지" 게이트 해제 |
+| P0-4 TTS v3 | ✅ 1,314/1,314 | 일치 (§4-4) |
+| P0-5 release.ps1 | 🔴 "레포 루트의 release.ps1 무력화 필요" | **반증 — 사실상 닫힘.** 본 클론 전수 재검색(find 전체 + git 히스토리 + Downloads): 해당 파일 **부재**(히트는 node_modules 셸 심·.venv Activate뿐). 메모가 프롬프트의 낡은 전제를 재검증 없이 반복. **무력화할 대상이 없음** — 만약 Jin이 레포 밖 다른 위치에 사본을 갖고 있다면 그때 프롬프트 §3-P0-5의 수정(명시 스테이징·versionCode 파라미터화·--check)을 적용할 것 |
+
+→ **실질 P0 잔여 0. 다음 세션은 바로 P1(래칫 여유 → blendColor → AudioPolicy 범위 결정)로 진입 가능.**
+⚠️ 정정 메모도 "호출부 26곳(21+5)" stale 수치를 재반복 — 실호출은 **17+4**(§7-1). 래칫 여유 0(w800 193/193·SoriButton 74/74·글리프 2/2)은 여전히 사실이며 lib/ 수정 후 `flutter analyze`+`test` 재실행 필수.
