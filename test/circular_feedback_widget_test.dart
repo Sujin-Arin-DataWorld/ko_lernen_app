@@ -638,6 +638,7 @@ Widget _wrap(Widget child) {
     submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
       status: ContentFeedbackSubmitStatus.accepted,
     ),
+    resumePending: () async => const ContentFeedbackResumeResult(),
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,

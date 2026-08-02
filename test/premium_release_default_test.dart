@@ -8,7 +8,11 @@ void main() {
 
     expect(
       source,
-      contains("bool.fromEnvironment('BETA_UNLOCK_ALL', defaultValue: false)"),
+      contains(
+        RegExp(
+          r"bool\.fromEnvironment\(\s*'BETA_UNLOCK_ALL'\s*,\s*defaultValue:\s*false,?\s*\)",
+        ),
+      ),
     );
   });
 }

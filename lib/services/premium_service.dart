@@ -11,8 +11,9 @@ import 'storage_service.dart';
 /// Globaler Premium-Status. Wie [paletteVariantNotifier] ein Top-Level
 /// [ValueNotifier] — Screens können per [ValueListenableBuilder] live darauf
 /// reagieren (Lock-Badges ein-/ausblenden, Paywall-Sperren etc.).
-final ValueNotifier<bool> premiumNotifier =
-    ValueNotifier<bool>(PremiumService.betaUnlockAll);
+final ValueNotifier<bool> premiumNotifier = ValueNotifier<bool>(
+  PremiumService.betaUnlockAll,
+);
 
 abstract interface class RevenueCatIdentityClient {
   Future<void> logIn(String uid);
@@ -163,11 +164,12 @@ class PremiumService {
   /// Entitlement-ID aus dem RevenueCat-Dashboard.
   static const String entitlementId = 'premium';
 
-  /// 🧪 베타 기간: 모든 프리미엄 콘텐츠를 전 사용자에게 무료 해제.
-  /// 출시(유료화) 시 반드시 `false`로 되돌릴 것.
-  /// (빌드 시 `--dart-define=BETA_UNLOCK_ALL=false`로도 끌 수 있음.)
-  static const bool betaUnlockAll =
-      bool.fromEnvironment('BETA_UNLOCK_ALL', defaultValue: false);
+  /// Tester-only build override. `BETA_UNLOCK_ALL=true` unlocks premium
+  /// content; without it, normal entitlement gating remains active.
+  static const bool betaUnlockAll = bool.fromEnvironment(
+    'BETA_UNLOCK_ALL',
+    defaultValue: false,
+  );
 
   static const String _androidKey = String.fromEnvironment('RC_ANDROID_KEY');
   static const String _iosKey = String.fromEnvironment('RC_IOS_KEY');

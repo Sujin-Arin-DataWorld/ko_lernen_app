@@ -1,8 +1,9 @@
-# 🚀 Hangul Sori 베타 설치 가이드
+# 🚀 Hangul Sori 내부 테스터 설치 가이드
 
-> **현재 버전**: 1.0.0 (베타) · 빌드일 2026-05-20
+> 새 APK를 만들기 전에는 `pubspec.yaml`의 `version:`을 확인하고, 이미 배포한
+> Android 빌드보다 높은 build number를 사용하세요.
 >
-> 친구/남친에게 보낼 때 이 파일과 APK 함께 공유.
+> 테스터에게 보낼 때 이 파일과 APK를 함께 공유하세요.
 
 ---
 
@@ -18,7 +19,7 @@
 
 파일 위치:
 ```
-/Users/sujinpark/Developer/ko_lernen_app/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
 ```
 
 ---
@@ -33,9 +34,9 @@
 1. 드라이브에 APK 업로드 → 공유 링크 복사
 2. 친구에게 링크 전송 → 다운로드 후 설치
 
-**옵션 C — USB 직접 연결** (남친 폰)
-1. 폰 USB로 Mac 연결 → "파일 전송" 모드
-2. APK 폰의 Downloads/로 복사
+**옵션 C — USB 직접 연결**
+1. 폰을 Windows PC에 USB로 연결 → 휴대폰에서 "파일 전송"(MTP) 모드 선택
+2. 파일 탐색기에서 휴대폰의 Downloads/ 폴더로 APK 복사
 3. 폰에서 파일 매니저 → Downloads → APK 탭 → 설치
 
 ---
@@ -95,13 +96,17 @@
 
 ---
 
-## 🔄 새 버전 보낼 때
+## Internal tester APK (feedback enabled)
+
+Run this command from the repository root for internal Android testers. It
+explicitly enables tester feedback and beta premium access. `--split-per-abi`
+creates separate APKs; send `app-arm64-v8a-release.apk` to almost all modern
+Android phones.
 
 코드 업데이트 후:
 ```bash
-cd /Users/sujinpark/Developer/ko_lernen_app
-flutter build apk --release --split-per-abi --dart-define=BETA_UNLOCK_ALL=true
-# → 새 APK 생성 (1-2분)
+flutter build apk --release --split-per-abi --dart-define=ENABLE_TESTER_FEEDBACK=true --dart-define=BETA_UNLOCK_ALL=true
+# → ABI별 APK 생성 (1-2분)
 # → 친구에게 새 파일 다시 보내기
 ```
 

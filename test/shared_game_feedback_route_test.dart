@@ -283,6 +283,7 @@ Widget _wrap(Widget child) {
     home: ContentFeedbackControllerScope(
       featureGate: const TesterFeedbackFeatureGate(enabled: true),
       submitFeedback: _inertFeedbackSubmitter,
+      resumePending: () async => const ContentFeedbackResumeResult(),
       child: child,
     ),
   );

@@ -1177,6 +1177,120 @@ void main() {
   });
 
   group('SecureFeedbackOutboxStore', () {
+    test('round-trips structured and legacy feedback payloads', () async {
+      final structuredBug = ContentFeedbackOutboxItem.pending(
+        submission: ContentFeedbackSubmission(
+          feedbackId: 'structured-bug',
+          context: context,
+          draft: const ContentFeedbackDraft(
+            category: FeedbackCategory.bug,
+            issueArea: FeedbackIssueArea.audio,
+            expectedOutcome: 'The next line should play.',
+            actualOutcome: 'Playback stopped after one line.',
+            bugFrequency: FeedbackBugFrequency.everyTime,
+            bugImpact: FeedbackBugImpact.slowsLearning,
+          ),
+          appVersion: '2.0.1+6',
+          platform: 'android',
+          locale: 'de',
+        ),
+        createdAt: DateTime.utc(2026, 8, 2),
+        ownerUid: 'current-uid',
+      );
+      final experience = ContentFeedbackOutboxItem.pending(
+        submission: ContentFeedbackSubmission(
+          feedbackId: 'experience-pulse',
+          context: context,
+          draft: const ContentFeedbackDraft(
+            category: FeedbackCategory.content,
+            experienceSignal: FeedbackExperienceSignal.mixed,
+            experienceFocus: FeedbackExperienceFocus.translation,
+          ),
+          appVersion: '2.0.1+6',
+          platform: 'android',
+          locale: 'de',
+        ),
+        createdAt: DateTime.utc(2026, 8, 2),
+        ownerUid: 'current-uid',
+      );
+      final legacy = pendingItem('legacy-feedback');
+      final secureStorage = MemoryFeedbackSecureStorage()
+        ..values[SecureFeedbackOutboxStore.storageKey] = jsonEncode([
+          structuredBug.toJson(),
+          experience.toJson(),
+          legacy.toJson(),
+        ]);
+      final store = SecureFeedbackOutboxStore(storage: secureStorage);
+
+      final items = await store.read();
+
+      expect(items, hasLength(3));
+      expect(
+        items[0].submission.draft.expectedOutcome,
+        'The next line should play.',
+      );
+      expect(
+        items[0].submission.draft.actualOutcome,
+        'Playback stopped after one line.',
+      );
+      expect(
+        items[0].submission.draft.bugFrequency,
+        FeedbackBugFrequency.everyTime,
+      );
+      expect(
+        items[0].submission.draft.bugImpact,
+        FeedbackBugImpact.slowsLearning,
+      );
+      expect(
+        items[1].submission.draft.experienceSignal,
+        FeedbackExperienceSignal.mixed,
+      );
+      expect(
+        items[1].submission.draft.experienceFocus,
+        FeedbackExperienceFocus.translation,
+      );
+      expect(items[2].submission.draft.expectedOutcome, isNull);
+      expect(items[2].submission.draft.experienceSignal, isNull);
+    });
+
+    test(
+      'resumes a persisted max-attempt item without exceeding the retry ceiling',
+      () async {
+        final persisted = pendingItem('saturated-feedback').toJson();
+        persisted['retry'] = <String, Object?>{
+          'attemptCount': feedbackOutboxMaxAttemptCount,
+          'lastFailure': ContentFeedbackFailureCategory.unavailable.name,
+        };
+        final secureStorage = MemoryFeedbackSecureStorage()
+          ..values[SecureFeedbackOutboxStore.storageKey] = jsonEncode([
+            persisted,
+          ]);
+        final store = SecureFeedbackOutboxStore(storage: secureStorage);
+        final client = FakeFeedbackClient(
+          responses: const [
+            ContentFeedbackClientFailure(
+              ContentFeedbackFailureCategory.unavailable,
+              retryable: true,
+            ),
+          ],
+        );
+        final service = buildService(store: store, client: client);
+
+        final resumed = await service.resumePending();
+        final retained = await store.read();
+
+        expect(resumed.delivered, 0);
+        expect(client.feedbackIds, <String>['saturated-feedback']);
+        expect(client.expectedOwnerUids, <String>['current-uid']);
+        expect(retained, hasLength(1));
+        expect(
+          retained.single.retry.attemptCount,
+          feedbackOutboxMaxAttemptCount,
+        );
+        expect(retained.single.status, FeedbackOutboxLocalStatus.pending);
+      },
+    );
+
     test(
       'discards malformed records and rewrites only validated items',
       () async {

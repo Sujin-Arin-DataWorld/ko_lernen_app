@@ -117,14 +117,31 @@ git push origin main
 
 ## 5. AAB 빌드
 
-```bash
-cd /Users/sujinpark/Developer/ko_lernen_app
-# pubspec.yaml 의 version 을 2.0.0-alpha+3 또는 비슷하게 bump
-# (현재 1.0.1+2 → 2.0.0+3)
+### Internal closed-testing AAB (feedback enabled)
 
-flutter build appbundle --release \
-  --obfuscate \
-  --split-debug-info=build/app/outputs/symbols
+Run this exact command from the repository root for Play Console internal and
+closed testers.
+
+```bash
+# Check pubspec.yaml before building. Its build number must be higher than the
+# highest build number already uploaded to Play Console; never reset it to an
+# older value.
+
+flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=ENABLE_TESTER_FEEDBACK=true --dart-define=BETA_UNLOCK_ALL=true
+```
+
+### Production AAB (feedback disabled)
+
+Run this separate PowerShell command from the repository root for an Android
+production release with payments. Set `RC_ANDROID_KEY` to the live public
+Android SDK key from the production RevenueCat project; the guard stops before
+building when it is absent or malformed. Do not add an
+`ENABLE_TESTER_FEEDBACK` define.
+
+```powershell
+$env:RC_ANDROID_KEY = '<paste-live-RevenueCat-Android-SDK-key>'
+if ([string]::IsNullOrWhiteSpace($env:RC_ANDROID_KEY) -or $env:RC_ANDROID_KEY -notmatch '^goog_[A-Za-z0-9_-]{8,}$') { throw 'Set RC_ANDROID_KEY to the live RevenueCat Android SDK key before building.' }
+flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=RC_ANDROID_KEY=$env:RC_ANDROID_KEY --dart-define=BETA_UNLOCK_ALL=false
 ```
 
 **산출물**:
@@ -133,7 +150,7 @@ flutter build appbundle --release \
 
 빌드 검증:
 ```bash
-ls -lh build/app/outputs/bundle/release/app-release.aab
+Get-Item build/app/outputs/bundle/release/app-release.aab | Select-Object Name, Length
 # < 100MB 기대 (Play Store limit 200MB AAB)
 ```
 

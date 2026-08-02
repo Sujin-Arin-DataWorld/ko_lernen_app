@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../data/quest_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/content_feedback.dart';
+import '../models/feedback_completion.dart';
 import '../models/quest.dart';
 import '../services/quest_tracker.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/decoration_layer.dart' show kAvailableDecorations;
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -28,7 +32,10 @@ import '../widgets/sori/tokens.dart';
 ///   3. **Completed** — 클리어 (Storage.questCompletions 기반)
 ///   4. **Seasonal Locked** — 시즌 윈도우 밖 (active == false, !completed)
 class QuestsScreen extends StatefulWidget {
-  const QuestsScreen({super.key});
+  const QuestsScreen({super.key, this.loadQuests, this.persistNewCompletions});
+
+  final Future<List<QuestProgress>> Function()? loadQuests;
+  final Future<void> Function(List<QuestProgress>)? persistNewCompletions;
 
   @override
   State<QuestsScreen> createState() => _QuestsScreenState();
@@ -81,8 +88,9 @@ class _QuestsScreenState extends State<QuestsScreen>
         Storage.questCompletions,
       );
 
-      final list = await QuestTracker.computeAll();
-      await QuestTracker.persistNewCompletions(list);
+      final list = await (widget.loadQuests ?? QuestTracker.computeAll)();
+      await (widget.persistNewCompletions ??
+          QuestTracker.persistNewCompletions)(list);
       if (!mounted) return;
 
       // 새로 완료된 퀘스트 감지
@@ -123,6 +131,11 @@ class _QuestsScreenState extends State<QuestsScreen>
     final lang = Localizations.localeOf(context).languageCode;
     final isEn = lang == 'en';
     final questName = isEn ? def.name.en : def.name.de;
+    final feedbackContext = FeedbackCompletion.questReward(
+      questId: def.id,
+      questType: def.type.name,
+      target: def.target,
+    ).context;
 
     return showDialog(
       context: context,
@@ -131,6 +144,7 @@ class _QuestsScreenState extends State<QuestsScreen>
         questName: questName,
         decorationSlug: def.decorationSlug,
         quest: quest,
+        feedbackContext: feedbackContext,
       ),
     );
   }
@@ -462,16 +476,18 @@ class _RewardThumb extends StatelessWidget {
 }
 
 /// 퀘스트 완료 축하 다이얼로그 — 3단 시퀀스.
-/// (1) 까치 박수 (2) 마당 장식 이미지 + 반짝임 (3) 자동 닫기
+/// (1) 까치 박수 (2) 마당 장식 이미지 + 반짝임 (3) 선택형 Pulse + Continue
 class _QuestCompletionCelebration extends StatefulWidget {
   final String questName;
   final String decorationSlug;
   final QuestProgress quest;
+  final ContentFeedbackContext feedbackContext;
 
   const _QuestCompletionCelebration({
     required this.questName,
     required this.decorationSlug,
     required this.quest,
+    required this.feedbackContext,
   });
 
   @override
@@ -483,7 +499,7 @@ class _QuestCompletionCelebrationState
     extends State<_QuestCompletionCelebration>
     with SingleTickerProviderStateMixin {
   late AnimationController _ctrl;
-  int _phase = 0; // 0=마스코트, 1=장식 + 반짝임, 2=끝
+  int _phase = 0; // 0=마스코트, 1=장식 + 반짝임, 2=Pulse + Continue
 
   @override
   void initState() {
@@ -505,8 +521,8 @@ class _QuestCompletionCelebrationState
     await Future.delayed(const Duration(milliseconds: 1500));
     if (!mounted) return;
 
-    // Phase 3: 자동 닫기
-    Navigator.of(context).pop();
+    // Phase 3: 선택형 Pulse를 읽은 뒤 사용자가 Continue로 닫는다.
+    setState(() => _phase = 2);
   }
 
   @override
@@ -518,6 +534,8 @@ class _QuestCompletionCelebrationState
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final giftIcon = Icon(
       Icons.card_giftcard_rounded,
       size: 48,
@@ -529,59 +547,85 @@ class _QuestCompletionCelebrationState
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(SoriRadius.lg),
       ),
-      child: Container(
-        padding: const EdgeInsets.all(Spacing.lg),
-        constraints: const BoxConstraints(maxWidth: 300),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Phase 1: 마스코트 박수
-            AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300),
-              child: _phase == 0
-                  ? SizedBox(
-                      height: 100,
-                      key: const ValueKey(0),
-                      child: Center(
-                        child: Mascot(
-                          kind: MascotKind.magpie,
-                          emotion: MascotEmotion.celebrate,
-                          size: 80,
-                          animate: true,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 340,
+          maxHeight: MediaQuery.sizeOf(context).height * 0.85,
+        ),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(Spacing.lg),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Phase 1: 마스코트 박수
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: _phase == 0
+                    ? SizedBox(
+                        height: 100,
+                        key: const ValueKey(0),
+                        child: Center(
+                          child: Mascot(
+                            kind: MascotKind.magpie,
+                            emotion: MascotEmotion.celebrate,
+                            size: 80,
+                            animate: true,
+                          ),
+                        ),
+                      )
+                    : SizedBox(
+                        height: 100,
+                        key: const ValueKey(1),
+                        child: Center(
+                          child:
+                              kAvailableDecorations.contains(
+                                widget.decorationSlug,
+                              )
+                              ? Image.asset(
+                                  'assets/illustrations/decorations/${widget.decorationSlug}.png',
+                                  fit: BoxFit.contain,
+                                  width: 80,
+                                  errorBuilder: (_, __, ___) => giftIcon,
+                                )
+                              : giftIcon,
                         ),
                       ),
-                    )
-                  : SizedBox(
-                      height: 100,
-                      key: const ValueKey(1),
-                      child: Center(
-                        child:
-                            kAvailableDecorations.contains(
-                              widget.decorationSlug,
-                            )
-                            ? Image.asset(
-                                'assets/illustrations/decorations/${widget.decorationSlug}.png',
-                                fit: BoxFit.contain,
-                                width: 80,
-                                errorBuilder: (_, __, ___) => giftIcon,
-                              )
-                            : giftIcon,
-                      ),
-                    ),
-            ),
-            const SizedBox(height: Spacing.md),
-            Text(
-              widget.questName,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
-            ),
-            const SizedBox(height: Spacing.sm),
-            Text(
-              AppL10n.of(context).questsCompletionCelebration,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 13, color: s.textMuted),
-            ),
-          ],
+              ),
+              const SizedBox(height: Spacing.md),
+              Text(
+                widget.questName,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(
+                t.questsCompletionCelebration,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 13, color: s.textMuted),
+              ),
+              if (_phase >= 2) ...[
+                if (feedbackScope != null &&
+                    feedbackScope.featureGate.isEnabled) ...[
+                  const SizedBox(height: Spacing.lg),
+                  ContentFeedbackCard(
+                    feedbackContext: widget.feedbackContext,
+                    featureGate: feedbackScope.featureGate,
+                    submitFeedback: feedbackScope.submitFeedback,
+                  ),
+                ],
+                const SizedBox(height: Spacing.lg),
+                SoriButton.filled(
+                  key: const Key('quest-completion-continue'),
+                  label: t.feedbackCompletionContinue,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ],
+          ),
         ),
       ),
     );

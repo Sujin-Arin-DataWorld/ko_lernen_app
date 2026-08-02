@@ -6,6 +6,16 @@ typedef FeedbackCompletionIdFactory = String Function();
 
 enum WordleRoundKind { daily, random }
 
+enum BookAnalysisFeedbackSource { online, offline, rateLimited }
+
+extension BookAnalysisFeedbackSourceWire on BookAnalysisFeedbackSource {
+  String get wireName => switch (this) {
+    BookAnalysisFeedbackSource.online => 'online',
+    BookAnalysisFeedbackSource.offline => 'offline',
+    BookAnalysisFeedbackSource.rateLimited => 'rate_limited',
+  };
+}
+
 /// State-owned lifecycle for one immutable completion per game round.
 class FeedbackCompletionSlot {
   FeedbackCompletion? _current;
@@ -396,6 +406,54 @@ class FeedbackCompletion {
       contentLabel: contentLabel,
       level: _level(level),
       scoreSummary: 'processed:$processed; known:$known; retry:$retry',
+    ),
+  );
+
+  factory FeedbackCompletion.bookAnalysis({
+    FeedbackCompletionIdFactory? createId,
+    required int words,
+    required int grammar,
+    required int sentences,
+    required BookAnalysisFeedbackSource source,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'book_analysis',
+      contentId: 'book_analysis',
+      contentLabel: 'book_analysis',
+      scoreSummary:
+          'words:$words; grammar:$grammar; sentences:$sentences; '
+          'source:${source.wireName}',
+    ),
+  );
+
+  factory FeedbackCompletion.questReward({
+    FeedbackCompletionIdFactory? createId,
+    required String questId,
+    required String questType,
+    required int target,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'quest_reward',
+      contentId: questId,
+      contentLabel: 'quest_reward',
+      scoreSummary: 'type:$questType; target:$target',
+    ),
+  );
+
+  factory FeedbackCompletion.milestone({
+    FeedbackCompletionIdFactory? createId,
+    required String milestoneId,
+    required String milestoneType,
+    required int value,
+  }) => FeedbackCompletion._(
+    _context(
+      createId: createId,
+      contentType: 'milestone',
+      contentId: milestoneId,
+      contentLabel: 'milestone',
+      scoreSummary: 'type:$milestoneType; value:$value',
     ),
   );
 }

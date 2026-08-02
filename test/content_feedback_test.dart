@@ -15,6 +15,38 @@ void main() {
   );
 
   group('ContentFeedbackDraft', () {
+    test('accepts a complete structured bug report', () {
+      final draft = ContentFeedbackDraft(
+        category: FeedbackCategory.bug,
+        issueArea: FeedbackIssueArea.audio,
+        expectedOutcome: 'The next line should play.',
+        actualOutcome: 'Playback stopped after one line.',
+        bugFrequency: FeedbackBugFrequency.everyTime,
+        bugImpact: FeedbackBugImpact.slowsLearning,
+      );
+
+      expect(draft.validate().isValid, isTrue);
+      expect(draft.toWire()['bugFrequency'], 'every_time');
+    });
+
+    test('rejects a partial structured bug report', () {
+      final draft = ContentFeedbackDraft(
+        category: FeedbackCategory.bug,
+        expectedOutcome: 'The next line should play.',
+      );
+
+      expect(draft.validate().isValid, isFalse);
+    });
+
+    test('keeps a legacy message-only bug draft valid', () {
+      const draft = ContentFeedbackDraft(
+        category: FeedbackCategory.bug,
+        message: 'The audio stopped.',
+      );
+
+      expect(draft.validate().isValid, isTrue);
+    });
+
     test('rejects a bug report without a message', () {
       const draft = ContentFeedbackDraft(category: FeedbackCategory.bug);
 
@@ -30,6 +62,28 @@ void main() {
 
       expect(draft.validate().isValid, isTrue);
       expect(draft.toWire()['message'], '');
+    });
+
+    test('serializes paired experience feedback for a Book Result', () {
+      const draft = ContentFeedbackDraft(
+        category: FeedbackCategory.content,
+        experienceSignal: FeedbackExperienceSignal.mixed,
+        experienceFocus: FeedbackExperienceFocus.translation,
+      );
+
+      expect(draft.validate().isValid, isTrue);
+      expect(draft.toWire()['experienceSignal'], 'mixed');
+      expect(draft.toWire()['experienceFocus'], 'translation');
+    });
+
+    test('serializes audio as a learning content focus', () {
+      const draft = ContentFeedbackDraft(
+        category: FeedbackCategory.content,
+        contentFocus: FeedbackContentFocus.audio,
+      );
+
+      expect(draft.validate().isValid, isTrue);
+      expect(draft.toWire()['contentFocus'], 'audio');
     });
 
     test('accepts exactly 1,000 characters and rejects 1,001', () {

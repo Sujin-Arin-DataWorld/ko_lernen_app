@@ -99,22 +99,6 @@ class AccountDeletionCleanupAdapter
     resetMemory: DataLoader.reset,
   );
 
-  factory AccountDeletionCleanupAdapter.completedStartupRecovery({
-    required FeedbackOutbox feedbackOutbox,
-  }) => AccountDeletionCleanupAdapter(
-    deleteRemote: () => AuthService.recoverCompletedAccountDeletion(
-      closeFeedback: feedbackOutbox.closeAndDiscard,
-    ),
-    resetStorage: () => Storage.resetAllStrict(
-      canonicalizeAccountDeletionCheckpoint:
-          AuthService.canonicalizeCompletedDeletionCheckpoint,
-    ),
-    disablePush: pushService.disableStrict,
-    deleteImages: WordImageService.deleteAllStrict,
-    clearTts: TtsService.clearCacheStrict,
-    resetMemory: DataLoader.reset,
-  );
-
   final Future<void> Function() _deleteRemote;
   final Future<void> Function() _resetStorage;
   final Future<void> Function() _disablePush;
@@ -141,6 +125,28 @@ class AccountDeletionCleanupAdapter
   Future<void> resetLocalStorage() => _resetStorage();
 }
 
+/// Joins account-deletion actions across every Settings route in this process.
+/// The gate clears after settlement, so a later deliberate deletion remains
+/// possible for the then-current account.
+class AccountDeletionWorkflowGate {
+  Future<void>? _inFlight;
+
+  Future<void> run(Future<void> Function() operation) {
+    final existing = _inFlight;
+    if (existing != null) {
+      return existing;
+    }
+    late final Future<void> guarded;
+    guarded = operation().whenComplete(() {
+      if (identical(_inFlight, guarded)) {
+        _inFlight = null;
+      }
+    });
+    _inFlight = guarded;
+    return guarded;
+  }
+}
+
 /// Stops before local destruction when remote deletion fails. Once the remote
 /// identity is gone, every independent privacy cleanup is attempted and all
 /// failures are reported together.
@@ -150,34 +156,42 @@ class AccountDeletionWorkflow {
     AccountDeletionFeedbackActivator? activateFeedback,
   }) => AccountDeletionWorkflow(
     AccountDeletionCleanupAdapter.production(feedbackOutbox: feedbackOutbox),
+    finalizePendingFeedbackActivation: () =>
+        AuthService.finalizePendingAccountDeletionFeedback(
+          closeFeedback: feedbackOutbox.closeAndDiscard,
+          activateFeedback: activateFeedback ?? (_) async => true,
+        ),
     completeCheckpoint: () => AuthService.completeLocalAccountDeletionCleanup(
       activateFeedback: activateFeedback,
     ),
   );
 
-  factory AccountDeletionWorkflow.completedStartupRecovery({
-    required FeedbackOutbox feedbackOutbox,
-    AccountDeletionFeedbackActivator? activateFeedback,
-  }) => AccountDeletionWorkflow(
-    AccountDeletionCleanupAdapter.completedStartupRecovery(
-      feedbackOutbox: feedbackOutbox,
-    ),
-    completeCheckpoint: () => AuthService.completeLocalAccountDeletionCleanup(
-      activateFeedback: activateFeedback,
-    ),
-  );
-
-  const AccountDeletionWorkflow(
+  AccountDeletionWorkflow(
     this.operations, {
     Future<void> Function()? completeCheckpoint,
-  }) : _completeCheckpoint = completeCheckpoint ?? _noop;
+    Future<bool> Function()? finalizePendingFeedbackActivation,
+    AccountDeletionWorkflowGate? gate,
+  }) : _completeCheckpoint = completeCheckpoint ?? _noop,
+       _finalizePendingFeedbackActivation =
+           finalizePendingFeedbackActivation ?? _nothingToFinalize,
+       _gate = gate ?? _sharedGate;
 
+  static final AccountDeletionWorkflowGate _sharedGate =
+      AccountDeletionWorkflowGate();
   final AccountDeletionCleanupOperations operations;
   final Future<void> Function() _completeCheckpoint;
+  final Future<bool> Function() _finalizePendingFeedbackActivation;
+  final AccountDeletionWorkflowGate _gate;
 
   static Future<void> _noop() async {}
+  static Future<bool> _nothingToFinalize() async => false;
 
-  Future<void> run() async {
+  Future<void> run() => _gate.run(_run);
+
+  Future<void> _run() async {
+    if (await _finalizePendingFeedbackActivation()) {
+      return;
+    }
     final failures = <Object>[];
     var identityRecoveryPending = false;
     try {
@@ -194,7 +208,9 @@ class AccountDeletionWorkflow {
   }
 
   Future<void> retryLocalCleanup() {
-    return _runLocalCleanup(<Object>[], identityRecoveryPending: false);
+    return _gate.run(
+      () => _runLocalCleanup(<Object>[], identityRecoveryPending: false),
+    );
   }
 
   Future<void> _runLocalCleanup(

@@ -5323,6 +5323,12 @@ abstract class AppL10n {
   /// **'Weiter'**
   String get milestoneCta;
 
+  /// No description provided for @feedbackCompletionContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get feedbackCompletionContinue;
+
   /// No description provided for @practiceSecLearn.
   ///
   /// In de, this message translates to:
@@ -6208,19 +6214,19 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackCardTitle.
   ///
   /// In de, this message translates to:
-  /// **'Hilf uns beim Verbessern'**
+  /// **'Tiger-Check'**
   String get testerFeedbackCardTitle;
 
   /// No description provided for @testerFeedbackCardBody.
   ///
   /// In de, this message translates to:
-  /// **'Dein kurzer Hinweis hilft uns, diese Lernaktivität besser zu machen.'**
+  /// **'Zwei kurze Auswahlen helfen uns, Hangul Sori besser zu machen.'**
   String get testerFeedbackCardBody;
 
   /// No description provided for @testerFeedbackCardCta.
   ///
   /// In de, this message translates to:
-  /// **'Dem Tiger eine Notiz schicken'**
+  /// **'Gib dem Tiger einen Hinweis'**
   String get testerFeedbackCardCta;
 
   /// No description provided for @testerFeedbackCategoryBug.
@@ -6250,19 +6256,19 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackIssueAreaUi.
   ///
   /// In de, this message translates to:
-  /// **'Bedienung und Anzeige'**
+  /// **'Anzeige'**
   String get testerFeedbackIssueAreaUi;
 
   /// No description provided for @testerFeedbackIssueAreaAnswer.
   ///
   /// In de, this message translates to:
-  /// **'Antwort oder Bewertung'**
+  /// **'Antwort'**
   String get testerFeedbackIssueAreaAnswer;
 
   /// No description provided for @testerFeedbackIssueAreaAudio.
   ///
   /// In de, this message translates to:
-  /// **'Audio oder Aussprache'**
+  /// **'Audio'**
   String get testerFeedbackIssueAreaAudio;
 
   /// No description provided for @testerFeedbackIssueAreaTranslation.
@@ -6286,7 +6292,7 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackContentSignalLabel.
   ///
   /// In de, this message translates to:
-  /// **'Wie war die Schwierigkeit?'**
+  /// **'Wie war diese Übung für dich?'**
   String get testerFeedbackContentSignalLabel;
 
   /// No description provided for @testerFeedbackContentSignalTooEasy.
@@ -6316,7 +6322,7 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackContentFocusLabel.
   ///
   /// In de, this message translates to:
-  /// **'Worauf bezieht sich dein Hinweis?'**
+  /// **'Woran lag es?'**
   String get testerFeedbackContentFocusLabel;
 
   /// No description provided for @testerFeedbackContentFocusExplanation.
@@ -6334,7 +6340,7 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackContentFocusQuestions.
   ///
   /// In de, this message translates to:
-  /// **'Fragen'**
+  /// **'Aufgaben'**
   String get testerFeedbackContentFocusQuestions;
 
   /// No description provided for @testerFeedbackContentFocusPace.
@@ -6342,6 +6348,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Tempo'**
   String get testerFeedbackContentFocusPace;
+
+  /// No description provided for @testerFeedbackContentFocusAudio.
+  ///
+  /// In de, this message translates to:
+  /// **'Audio'**
+  String get testerFeedbackContentFocusAudio;
 
   /// No description provided for @testerFeedbackContentFocusTranslation.
   ///
@@ -6355,17 +6367,311 @@ abstract class AppL10n {
   /// **'Etwas anderes'**
   String get testerFeedbackContentFocusOther;
 
+  /// No description provided for @testerFeedbackPulseLearningPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie war diese Übung für dich?'**
+  String get testerFeedbackPulseLearningPrompt;
+
+  /// No description provided for @testerFeedbackPulseBookPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie zuverlässig wirkte dieses Ergebnis?'**
+  String get testerFeedbackPulseBookPrompt;
+
+  /// No description provided for @testerFeedbackPulseQuestPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Hat sich diese Quest gelohnt?'**
+  String get testerFeedbackPulseQuestPrompt;
+
+  /// No description provided for @testerFeedbackPulseMilestonePrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Hat dich diese Feier motiviert?'**
+  String get testerFeedbackPulseMilestonePrompt;
+
+  /// No description provided for @testerFeedbackPulseReasonPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Woran lag es?'**
+  String get testerFeedbackPulseReasonPrompt;
+
+  /// No description provided for @testerFeedbackPulsePositiveReasonPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Was hat gut funktioniert?'**
+  String get testerFeedbackPulsePositiveReasonPrompt;
+
+  /// No description provided for @testerFeedbackExperienceReasonPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Was hat deine Einschätzung beeinflusst?'**
+  String get testerFeedbackExperienceReasonPrompt;
+
+  /// No description provided for @testerFeedbackBookSignalPositive.
+  ///
+  /// In de, this message translates to:
+  /// **'Wirkt richtig'**
+  String get testerFeedbackBookSignalPositive;
+
+  /// No description provided for @testerFeedbackBookSignalMixed.
+  ///
+  /// In de, this message translates to:
+  /// **'Teilweise richtig'**
+  String get testerFeedbackBookSignalMixed;
+
+  /// No description provided for @testerFeedbackBookSignalNegative.
+  ///
+  /// In de, this message translates to:
+  /// **'Wirkt nicht richtig'**
+  String get testerFeedbackBookSignalNegative;
+
+  /// No description provided for @testerFeedbackBookSignalUnsure.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht sicher'**
+  String get testerFeedbackBookSignalUnsure;
+
+  /// No description provided for @testerFeedbackQuestSignalPositive.
+  ///
+  /// In de, this message translates to:
+  /// **'Sehr motivierend'**
+  String get testerFeedbackQuestSignalPositive;
+
+  /// No description provided for @testerFeedbackQuestSignalMixed.
+  ///
+  /// In de, this message translates to:
+  /// **'Nettes Extra'**
+  String get testerFeedbackQuestSignalMixed;
+
+  /// No description provided for @testerFeedbackQuestSignalNegative.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht motivierend'**
+  String get testerFeedbackQuestSignalNegative;
+
+  /// No description provided for @testerFeedbackQuestSignalUnsure.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht verstanden'**
+  String get testerFeedbackQuestSignalUnsure;
+
+  /// No description provided for @testerFeedbackMilestoneSignalPositive.
+  ///
+  /// In de, this message translates to:
+  /// **'Hat mich gefreut'**
+  String get testerFeedbackMilestoneSignalPositive;
+
+  /// No description provided for @testerFeedbackMilestoneSignalMixed.
+  ///
+  /// In de, this message translates to:
+  /// **'Schön'**
+  String get testerFeedbackMilestoneSignalMixed;
+
+  /// No description provided for @testerFeedbackMilestoneSignalNegative.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu viel'**
+  String get testerFeedbackMilestoneSignalNegative;
+
+  /// No description provided for @testerFeedbackMilestoneSignalUnsure.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht bedeutsam'**
+  String get testerFeedbackMilestoneSignalUnsure;
+
+  /// No description provided for @testerFeedbackExperienceFocusKoreanText.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanischer Text'**
+  String get testerFeedbackExperienceFocusKoreanText;
+
+  /// No description provided for @testerFeedbackExperienceFocusWordMeanings.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortbedeutungen'**
+  String get testerFeedbackExperienceFocusWordMeanings;
+
+  /// No description provided for @testerFeedbackExperienceFocusGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik'**
+  String get testerFeedbackExperienceFocusGrammar;
+
+  /// No description provided for @testerFeedbackExperienceFocusTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung'**
+  String get testerFeedbackExperienceFocusTranslation;
+
+  /// No description provided for @testerFeedbackExperienceFocusResultMissing.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis fehlt'**
+  String get testerFeedbackExperienceFocusResultMissing;
+
+  /// No description provided for @testerFeedbackExperienceFocusGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziel'**
+  String get testerFeedbackExperienceFocusGoal;
+
+  /// No description provided for @testerFeedbackExperienceFocusDifficulty.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierigkeit'**
+  String get testerFeedbackExperienceFocusDifficulty;
+
+  /// No description provided for @testerFeedbackExperienceFocusReward.
+  ///
+  /// In de, this message translates to:
+  /// **'Belohnung'**
+  String get testerFeedbackExperienceFocusReward;
+
+  /// No description provided for @testerFeedbackExperienceFocusInstructions.
+  ///
+  /// In de, this message translates to:
+  /// **'Anleitung'**
+  String get testerFeedbackExperienceFocusInstructions;
+
+  /// No description provided for @testerFeedbackExperienceFocusLength.
+  ///
+  /// In de, this message translates to:
+  /// **'Dauer'**
+  String get testerFeedbackExperienceFocusLength;
+
+  /// No description provided for @testerFeedbackExperienceFocusTiming.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeitpunkt'**
+  String get testerFeedbackExperienceFocusTiming;
+
+  /// No description provided for @testerFeedbackExperienceFocusVisuals.
+  ///
+  /// In de, this message translates to:
+  /// **'Optik'**
+  String get testerFeedbackExperienceFocusVisuals;
+
+  /// No description provided for @testerFeedbackExperienceFocusMessage.
+  ///
+  /// In de, this message translates to:
+  /// **'Text'**
+  String get testerFeedbackExperienceFocusMessage;
+
+  /// No description provided for @testerFeedbackExperienceFocusFrequency.
+  ///
+  /// In de, this message translates to:
+  /// **'Häufigkeit'**
+  String get testerFeedbackExperienceFocusFrequency;
+
+  /// No description provided for @testerFeedbackExperienceFocusOther.
+  ///
+  /// In de, this message translates to:
+  /// **'Etwas anderes'**
+  String get testerFeedbackExperienceFocusOther;
+
+  /// No description provided for @testerFeedbackBugExpectedLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Was sollte passieren?'**
+  String get testerFeedbackBugExpectedLabel;
+
+  /// No description provided for @testerFeedbackBugExpectedHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Beschreibe kurz das erwartete Verhalten.'**
+  String get testerFeedbackBugExpectedHint;
+
+  /// No description provided for @testerFeedbackBugActualLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ist stattdessen passiert?'**
+  String get testerFeedbackBugActualLabel;
+
+  /// No description provided for @testerFeedbackBugActualHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Beschreibe kurz das tatsächliche Verhalten.'**
+  String get testerFeedbackBugActualHint;
+
+  /// No description provided for @testerFeedbackBugFrequencyLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie oft ist das passiert?'**
+  String get testerFeedbackBugFrequencyLabel;
+
+  /// No description provided for @testerFeedbackBugFrequencyEveryTime.
+  ///
+  /// In de, this message translates to:
+  /// **'Jedes Mal'**
+  String get testerFeedbackBugFrequencyEveryTime;
+
+  /// No description provided for @testerFeedbackBugFrequencySometimes.
+  ///
+  /// In de, this message translates to:
+  /// **'Manchmal'**
+  String get testerFeedbackBugFrequencySometimes;
+
+  /// No description provided for @testerFeedbackBugFrequencyOnce.
+  ///
+  /// In de, this message translates to:
+  /// **'Einmal'**
+  String get testerFeedbackBugFrequencyOnce;
+
+  /// No description provided for @testerFeedbackBugImpactLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie stark hat es dich beeinträchtigt?'**
+  String get testerFeedbackBugImpactLabel;
+
+  /// No description provided for @testerFeedbackBugImpactCanContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich konnte weitermachen'**
+  String get testerFeedbackBugImpactCanContinue;
+
+  /// No description provided for @testerFeedbackBugImpactSlowsLearning.
+  ///
+  /// In de, this message translates to:
+  /// **'Es hat mich aufgehalten'**
+  String get testerFeedbackBugImpactSlowsLearning;
+
+  /// No description provided for @testerFeedbackBugImpactBlocksLearning.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich konnte nicht weitermachen'**
+  String get testerFeedbackBugImpactBlocksLearning;
+
+  /// No description provided for @testerFeedbackBugRequired.
+  ///
+  /// In de, this message translates to:
+  /// **'Fülle bitte alle Pflichtfelder des Fehlerberichts aus.'**
+  String get testerFeedbackBugRequired;
+
   /// No description provided for @testerFeedbackMessageLabel.
   ///
   /// In de, this message translates to:
-  /// **'Deine Nachricht'**
+  /// **'Optionaler Hinweis'**
   String get testerFeedbackMessageLabel;
 
   /// No description provided for @testerFeedbackMessageHint.
   ///
   /// In de, this message translates to:
-  /// **'Beschreibe kurz, was passiert ist.'**
+  /// **'Möchtest du noch etwas ergänzen?'**
   String get testerFeedbackMessageHint;
+
+  /// No description provided for @testerFeedbackOtherMessageLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hinweis'**
+  String get testerFeedbackOtherMessageLabel;
+
+  /// No description provided for @testerFeedbackOtherMessageHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Was möchtest du uns noch sagen?'**
+  String get testerFeedbackOtherMessageHint;
 
   /// No description provided for @testerFeedbackMessageRequired.
   ///
@@ -6376,7 +6682,7 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackContentFeedbackRequired.
   ///
   /// In de, this message translates to:
-  /// **'Wähle mindestens eine Einschätzung aus oder schreibe eine Nachricht.'**
+  /// **'Wähle bitte ein Signal und einen Schwerpunkt aus.'**
   String get testerFeedbackContentFeedbackRequired;
 
   /// No description provided for @testerFeedbackMessageTooLong.
@@ -6388,7 +6694,7 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackSubmit.
   ///
   /// In de, this message translates to:
-  /// **'Feedback senden'**
+  /// **'Check senden'**
   String get testerFeedbackSubmit;
 
   /// No description provided for @testerFeedbackCancel.
@@ -6396,6 +6702,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Abbrechen'**
   String get testerFeedbackCancel;
+
+  /// No description provided for @testerFeedbackBack.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück'**
+  String get testerFeedbackBack;
 
   /// No description provided for @testerFeedbackSubmitting.
   ///
@@ -6406,13 +6718,19 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackSubmitted.
   ///
   /// In de, this message translates to:
-  /// **'Danke, dein Feedback ist angekommen.'**
+  /// **'Danke — dein Check hilft uns, besser zu werden.'**
   String get testerFeedbackSubmitted;
+
+  /// No description provided for @testerFeedbackStampAccepted.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel gesammelt!'**
+  String get testerFeedbackStampAccepted;
 
   /// No description provided for @testerFeedbackPending.
   ///
   /// In de, this message translates to:
-  /// **'Dein Feedback wartet auf eine Verbindung.'**
+  /// **'Auf diesem Gerät gespeichert. Wir senden es, sobald du wieder online bist.'**
   String get testerFeedbackPending;
 
   /// No description provided for @testerFeedbackSubmitFailed.
@@ -6430,7 +6748,7 @@ abstract class AppL10n {
   /// No description provided for @testerFeedbackPrivacyReminder.
   ///
   /// In de, this message translates to:
-  /// **'Sende bitte keine persönlichen Daten, Antworten oder Screenshots.'**
+  /// **'Nenne bitte keine Kontaktdaten, Antworten, persönlichen Daten oder Screenshots.'**
   String get testerFeedbackPrivacyReminder;
 
   /// No description provided for @testerFeedbackMissionScenario.

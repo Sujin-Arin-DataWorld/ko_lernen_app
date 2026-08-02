@@ -47,7 +47,8 @@ const VALID_PAYLOAD_V2 = Object.freeze({
 });
 
 function payload(overrides = {}) {
-  return { ...BASE_PAYLOAD, ...overrides };
+  return Object.fromEntries(Object.entries({ ...BASE_PAYLOAD, ...overrides })
+    .filter(([, value]) => value !== undefined));
 }
 
 function callableRequest(data = BASE_PAYLOAD, {
@@ -355,6 +356,24 @@ test("rejects invalid enums, bounds, and category-specific combinations", async 
       contentSignal: "right",
       contentFocus: "colors",
     }],
+    ["long expected outcome", {
+      expectedOutcome: "e".repeat(501),
+    }],
+    ["long actual outcome", {
+      actualOutcome: "a".repeat(501),
+    }],
+    ["invalid bug frequency", {
+      expectedOutcome: "Expected result.",
+      actualOutcome: "Actual result.",
+      bugFrequency: "daily",
+      bugImpact: "can_continue",
+    }],
+    ["invalid bug impact", {
+      expectedOutcome: "Expected result.",
+      actualOutcome: "Actual result.",
+      bugFrequency: "once",
+      bugImpact: "minor",
+    }],
     ["blank app version", { appVersion: "" }],
     ["long app version", { appVersion: "v".repeat(65) }],
     ["invalid platform", { platform: "web" }],
@@ -424,6 +443,259 @@ test("accepts the 1000-character message boundary and structured content feedbac
     callableRequest(structured),
   );
   assert.equal(contentResult.accepted, true);
+});
+
+test("accepts Book Result experience feedback without a passport mission", async () => {
+  const { handlers, firestore } = createHarness();
+  const result = await handlers.submitTesterFeedback(callableRequest(payload({
+    completionId: "book-1",
+    feedbackId: "book-feedback-1",
+    contentType: "book_analysis",
+    contentId: "book_analysis",
+    contentLabel: "book_analysis",
+    scoreSummary: "words:4; grammar:1; source:offline",
+    category: "content",
+    message: "",
+    issueArea: undefined,
+    betaMissionId: undefined,
+    experienceSignal: "mixed",
+    experienceFocus: "translation",
+  })));
+
+  assert.equal(result.stampAccepted, false);
+  assert.equal(
+    firestore.value("users/anonymous-user/tester_feedback/book-1")
+      .experienceFocus,
+    "translation",
+  );
+});
+
+test("accepts and persists a complete structured bug", async () => {
+  const { handlers, firestore } = createHarness();
+  await handlers.submitTesterFeedback(callableRequest(payload({
+    completionId: "structured-bug-1",
+    feedbackId: "structured-bug-feedback-1",
+    category: "bug",
+    message: "",
+    issueArea: "audio",
+    expectedOutcome: "The next line should play.",
+    actualOutcome: "Playback stopped after one line.",
+    bugFrequency: "every_time",
+    bugImpact: "slows_learning",
+  })));
+
+  const stored = firestore.value(
+    "users/anonymous-user/tester_feedback/structured-bug-1",
+  );
+  assert.deepEqual({
+    issueArea: stored.issueArea,
+    expectedOutcome: stored.expectedOutcome,
+    actualOutcome: stored.actualOutcome,
+    bugFrequency: stored.bugFrequency,
+    bugImpact: stored.bugImpact,
+  }, {
+    issueArea: "audio",
+    expectedOutcome: "The next line should play.",
+    actualOutcome: "Playback stopped after one line.",
+    bugFrequency: "every_time",
+    bugImpact: "slows_learning",
+  });
+});
+
+test("rejects Book Result and learning experience family mismatches", async (t) => {
+  for (const [name, overrides] of [
+    ["Book Result with content signal", {
+      contentType: "book_analysis",
+      contentId: "book_analysis",
+      contentLabel: "book_analysis",
+      category: "content",
+      message: "",
+      issueArea: undefined,
+      betaMissionId: undefined,
+      contentSignal: "right",
+      contentFocus: "translation",
+    }],
+    ["scenario with experience signal", {
+      category: "content",
+      message: "",
+      issueArea: undefined,
+      contentSignal: undefined,
+      contentFocus: undefined,
+      experienceSignal: "mixed",
+      experienceFocus: "translation",
+    }],
+  ]) {
+    await t.test(name, async () => {
+      const { handlers } = createHarness();
+      await rejectsWithSafeCode(
+        handlers.submitTesterFeedback(callableRequest(payload(overrides))),
+        "invalid-argument",
+        "invalid-feedback-payload",
+      );
+    });
+  }
+});
+
+test("rejects a partial experience pair", async (t) => {
+  for (const [name, overrides] of [
+    ["signal only", { experienceSignal: "mixed" }],
+    ["focus only", { experienceFocus: "translation" }],
+  ]) {
+    await t.test(name, async () => {
+      const { handlers } = createHarness();
+      await rejectsWithSafeCode(
+        handlers.submitTesterFeedback(callableRequest(payload({
+          contentType: "book_analysis",
+          contentId: "book_analysis",
+          contentLabel: "book_analysis",
+          category: "content",
+          message: "",
+          issueArea: undefined,
+          betaMissionId: undefined,
+          ...overrides,
+        }))),
+        "invalid-argument",
+        "invalid-feedback-payload",
+      );
+    });
+  }
+});
+
+test("rejects invalid experience signals and cross-type focuses for feedback-only results", async (t) => {
+  for (const [name, overrides] of [
+    ["Book Result rejects an invalid signal", {
+      contentType: "book_analysis",
+      contentId: "book_analysis",
+      contentLabel: "book_analysis",
+      scoreSummary: "words:4; grammar:1; source:offline",
+      experienceSignal: "celebrating",
+      experienceFocus: "translation",
+    }],
+    ["Book Result rejects a Quest focus", {
+      contentType: "book_analysis",
+      contentId: "book_analysis",
+      contentLabel: "book_analysis",
+      scoreSummary: "words:4; grammar:1; source:offline",
+      experienceSignal: "mixed",
+      experienceFocus: "goal",
+    }],
+    ["Quest completion rejects an invalid signal", {
+      contentType: "quest_reward",
+      contentId: "quest:daily-1",
+      contentLabel: "quest_reward",
+      scoreSummary: "type:daily; target:1",
+      experienceSignal: "celebrating",
+      experienceFocus: "goal",
+    }],
+    ["Quest completion rejects a Book Result focus", {
+      contentType: "quest_reward",
+      contentId: "quest:daily-1",
+      contentLabel: "quest_reward",
+      scoreSummary: "type:daily; target:1",
+      experienceSignal: "mixed",
+      experienceFocus: "translation",
+    }],
+    ["Home Milestone rejects an invalid signal", {
+      contentType: "milestone",
+      contentId: "milestone:streak-7",
+      contentLabel: "milestone",
+      scoreSummary: "type:streak; value:7",
+      experienceSignal: "celebrating",
+      experienceFocus: "timing",
+    }],
+    ["Home Milestone rejects a Book Result focus", {
+      contentType: "milestone",
+      contentId: "milestone:streak-7",
+      contentLabel: "milestone",
+      scoreSummary: "type:streak; value:7",
+      experienceSignal: "mixed",
+      experienceFocus: "grammar",
+    }],
+  ]) {
+    await t.test(name, async () => {
+      const { handlers } = createHarness();
+      await rejectsWithSafeCode(
+        handlers.submitTesterFeedback(callableRequest(payload({
+          category: "content",
+          message: "",
+          issueArea: undefined,
+          betaMissionId: undefined,
+          ...overrides,
+        }))),
+        "invalid-argument",
+        "invalid-feedback-payload",
+      );
+    });
+  }
+});
+
+test("rejects a structured bug missing a required field", async (t) => {
+  const completeBug = {
+    category: "bug",
+    message: "",
+    issueArea: "audio",
+    expectedOutcome: "The next line should play.",
+    actualOutcome: "Playback stopped after one line.",
+    bugFrequency: "every_time",
+    bugImpact: "slows_learning",
+  };
+  for (const missingKey of [
+    "issueArea",
+    "expectedOutcome",
+    "actualOutcome",
+    "bugFrequency",
+    "bugImpact",
+  ]) {
+    await t.test(missingKey, async () => {
+      const { handlers } = createHarness();
+      const data = payload({ ...completeBug, [missingKey]: undefined });
+      await rejectsWithSafeCode(
+        handlers.submitTesterFeedback(callableRequest(data)),
+        "invalid-argument",
+        "invalid-feedback-payload",
+      );
+    });
+  }
+});
+
+test("rejects new feedback fields on other", async (t) => {
+  for (const [name, overrides] of [
+    ["structured bug field", { expectedOutcome: "Expected result." }],
+    ["experience field", { experienceSignal: "mixed" }],
+  ]) {
+    await t.test(name, async () => {
+      const { handlers } = createHarness();
+      await rejectsWithSafeCode(
+        handlers.submitTesterFeedback(callableRequest(payload({
+          category: "other",
+          message: "A general note.",
+          issueArea: undefined,
+          betaMissionId: undefined,
+          ...overrides,
+        }))),
+        "invalid-argument",
+        "invalid-feedback-payload",
+      );
+    });
+  }
+});
+
+test("rejects feedback-only content paired with a beta mission", async () => {
+  const { handlers } = createHarness();
+  await rejectsWithSafeCode(
+    handlers.submitTesterFeedback(callableRequest(payload({
+      contentType: "book_analysis",
+      contentId: "book_analysis",
+      contentLabel: "book_analysis",
+      category: "content",
+      message: "",
+      issueArea: undefined,
+      experienceSignal: "mixed",
+      experienceFocus: "translation",
+    }))),
+    "invalid-argument",
+    "invalid-feedback-payload",
+  );
 });
 
 test("never returns free text, UID, or token detail in validation errors", async () => {
@@ -743,26 +1015,14 @@ test("same completion with a different feedback ID is a safe duplicate", async (
   assert.equal(firestore.paths().length, 3);
 });
 
-test("mission mismatch records feedback but never writes a passport stamp", async () => {
+test("rejects a beta mission that does not allow the content type", async () => {
   const { firestore, handlers } = createHarness();
-  const result = await handlers.submitTesterFeedback(callableRequest(payload({
+  await rejectsWithSafeCode(handlers.submitTesterFeedback(callableRequest(payload({
     contentType: "listening",
     betaMissionId: "beta_scenario",
-  })));
-
-  assert.deepEqual(result, {
-    accepted: true,
-    duplicate: false,
-    stampAccepted: false,
-    passportCompletedMissionIds: [],
-    nextMissionId: "beta_scenario",
-    nextMissionLabelKey: "testerFeedbackMissionScenario",
-  });
-  assert.deepEqual(firestore.paths(), [
-    "users/anonymous-user/tester_feedback/completion-1",
-    DEFAULT_RATE_LIMIT_PATH,
-  ].sort());
-  assert.equal(firestore.writeHistory.length, 2);
+  }))), "invalid-argument", "invalid-feedback-payload");
+  assert.equal(firestore.transactionCount, 0);
+  assert.deepEqual(firestore.writeHistory, []);
 });
 
 test("a mission can stamp only once across different completions", async () => {

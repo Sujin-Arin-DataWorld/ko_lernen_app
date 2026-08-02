@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../data/hangul_strokes.dart';
+import '../models/feedback_completion.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
 import '../models/pack_progress.dart';
@@ -134,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   bool _celebrating = false;
 
-  /// 새로 달성한 마일스톤이 있으면 우선순위 1개 축하(나머지도 마킹 — 스팸 방지).
+  /// 새로 달성한 마일스톤 중 실제로 표시할 우선순위 1개만 축하·마킹한다.
   /// 홈 투어(오리엔테이션) 완료 후 + 재진입 가드(시트 중복 방지).
   Future<void> _maybeCelebrateMilestone() async {
     if (!mounted || _celebrating || !Storage.tutHomeTourSeen) {
@@ -150,7 +151,6 @@ class _HomeScreenState extends State<HomeScreen> {
     if (newly.isEmpty) {
       return;
     }
-    await Storage.markMilestonesCelebrated(newly.map((m) => m.id).toList());
     // 타입 우선순위(스트릭>레벨>단어) 후 값 최대 1개만 축하.
     const priority = {
       MilestoneType.streak: 3,
@@ -170,7 +170,18 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     _celebrating = true;
     try {
-      await showMilestoneCelebration(context, top);
+      await Storage.markMilestonesCelebrated([top.id]);
+      if (!mounted) return;
+      final feedbackContext = FeedbackCompletion.milestone(
+        milestoneId: top.id,
+        milestoneType: top.type.name,
+        value: top.value,
+      ).context;
+      await showMilestoneCelebration(
+        context,
+        top,
+        feedbackContext: feedbackContext,
+      );
     } finally {
       _celebrating = false;
     }

@@ -130,6 +130,91 @@ void main() {
     });
   });
 
+  test('book analysis factory emits only bounded aggregate metadata', () {
+    const sensitiveOcr = 'OCR_PRIVATE_TEXT_DO_NOT_TRANSMIT';
+    const sensitiveImageLease = 'file:///private/camera/lease.jpg';
+
+    final completion = FeedbackCompletion.bookAnalysis(
+      createId: () => 'book-analysis-completion',
+      words: 4,
+      grammar: 1,
+      sentences: 2,
+      source: BookAnalysisFeedbackSource.offline,
+    );
+    final wire = completion.context.toWire();
+
+    expect(completion.context.validate().isValid, isTrue);
+    expect(wire, {
+      'completionId': 'book-analysis-completion',
+      'contentType': 'book_analysis',
+      'contentId': 'book_analysis',
+      'contentLabel': 'book_analysis',
+      'scoreSummary': 'words:4; grammar:1; sentences:2; source:offline',
+    });
+    expect(wire.values.whereType<String>(), isNot(contains(sensitiveOcr)));
+    expect(
+      wire.values.whereType<String>(),
+      isNot(contains(sensitiveImageLease)),
+    );
+  });
+
+  test('quest reward factory emits only fixed aggregate metadata', () {
+    const sensitiveDisplayName = 'private-tester@example.invalid';
+    const sensitiveActivityHistory = 'finished scenario-99 at 10:14';
+
+    final completion = FeedbackCompletion.questReward(
+      createId: () => 'quest-reward-completion',
+      questId: 'q_jangdokdae',
+      questType: 'standing',
+      target: 50,
+    );
+    final wire = completion.context.toWire();
+
+    expect(completion.context.validate().isValid, isTrue);
+    expect(wire, {
+      'completionId': 'quest-reward-completion',
+      'contentType': 'quest_reward',
+      'contentId': 'q_jangdokdae',
+      'contentLabel': 'quest_reward',
+      'scoreSummary': 'type:standing; target:50',
+    });
+    expect(
+      wire.values.whereType<String>(),
+      isNot(contains(sensitiveDisplayName)),
+    );
+    expect(
+      wire.values.whereType<String>(),
+      isNot(contains(sensitiveActivityHistory)),
+    );
+  });
+
+  test('milestone factory emits only fixed aggregate metadata', () {
+    const sensitiveVocabularyId = 'private-vocabulary-id-42';
+    const sensitiveHistory = 'streak: 1, 2, 3, 4, 5, 6, 7';
+
+    final completion = FeedbackCompletion.milestone(
+      createId: () => 'milestone-completion',
+      milestoneId: 'streak_7',
+      milestoneType: 'streak',
+      value: 7,
+    );
+    final wire = completion.context.toWire();
+
+    expect(completion.context.validate().isValid, isTrue);
+    expect(wire, {
+      'completionId': 'milestone-completion',
+      'contentType': 'milestone',
+      'contentId': 'streak_7',
+      'contentLabel': 'milestone',
+      'scoreSummary': 'type:streak; value:7',
+    });
+    expect(
+      wire.values.whereType<String>(),
+      isNot(contains(sensitiveVocabularyId)),
+    );
+    expect(wire.values.whereType<String>(), isNot(contains(sensitiveHistory)));
+  });
+
   test('completion slot keeps one result ID and resets it for replay', () {
     var allocations = 0;
     String createId() => 'completion-${++allocations}';
@@ -196,5 +281,8 @@ void expectPrivateCustomPackContext(
     'contentLabel': 'custom_wordbook',
     'scoreSummary': scoreSummary,
   });
-  expect(wire.values.whereType<String>(), isNot(contains(userAuthoredPackName)));
+  expect(
+    wire.values.whereType<String>(),
+    isNot(contains(userAuthoredPackName)),
+  );
 }

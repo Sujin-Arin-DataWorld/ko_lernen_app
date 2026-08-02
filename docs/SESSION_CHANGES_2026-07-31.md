@@ -111,6 +111,8 @@ Rollenspiel 완료 카드에 **캐릭터별 축하 영상** 도입.
 
 ## 빌드 절차 (VS Code 터미널)
 
+### Internal closed-testing AAB (feedback enabled)
+
 l10n 키가 바뀌었으므로 `gen-l10n`을 반드시 먼저 돌릴 것.
 
 ```bash
@@ -122,14 +124,15 @@ flutter gen-l10n
 ```
 
 ```bash
-flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols
+flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=ENABLE_TESTER_FEEDBACK=true --dart-define=BETA_UNLOCK_ALL=true
 ```
 
 산출물: `build/app/outputs/bundle/release/app-release.aab`
 심볼: `build/app/outputs/symbols/` → Play Console "Native debug symbols"에 별도 업로드
 
-> **버전 주의**: `2.0.1+5`. `+5`를 이미 Play Console에 올렸다면 `pubspec.yaml`의
-> `version:` 뒤 빌드번호를 `+6`으로 올려야 업로드가 거부된다.
+> **버전 주의**: 빌드 전 `pubspec.yaml`의 `version:`을 확인하세요. build number must
+> be higher than the highest build number already uploaded to Play Console;
+> 과거 숫자로 되돌리면 업로드가 거부됩니다.
 
 > **⚠️ 음성(TTS) 관문 — 빌드 후 음성이 이상하면 앱 버그가 아니다.** 이번 리팩터가
 > Storage 경로를 `tts/{voice}/…` → `tts/v2/{voice}/…`로 바꿨다(revision 캐시버스트,
@@ -181,3 +184,18 @@ flutter run -d 9053622f
 6. **애니메이션 줄이기 ON** → 영상 대신 정지 마스코트. 단 그 마스코트가 계속
    숨쉰다(기존 결함 — `Mascot._startMotion()`에 `reduceMotion` 가드 없음,
    기존 8곳 전부 해당. 3줄이면 고치지만 모든 마스코트 화면이 바뀌므로 별도 커밋 권장).
+
+---
+
+## 2026-08-02 — Tiger Pulse Task 7 최종 커버리지·보안·회귀 검증
+
+- 공개 `FeedbackCompletion` factory와 `BetaMissionCatalog`을 직접 대조하는 정적 인벤토리 테스트를 추가했다. 학습 완료 20개(Cloze, Daily Challenge, Satz Arcade, Speed Match, Custom Pack Quiz/Matching/Typing, Chosung, Wordle, Kkeunmari, Daily Hangul, Grammar, Hangul Cards/Writing, Scenario, Listening, Review, Legacy Due, Custom Pack Play, Vocab Pack Result)와 피드백 전용 3개(Book Result, Quest completion, Home Milestone)를 모두 포함한다.
+- 학습 완료는 기대 mission group과 일치하고, Book/Quest/Milestone은 유효한 피드백 완료이지만 `missionFor`와 `nextMission`이 `null`임을 확인한다. 경로를 흉내 내는 테스트는 추가하지 않았다.
+- 피드백 의미론은 유지했다. 학습 결과는 `contentSignal`/`focus`를, 결과 전용 화면은 experience signal/focus를 보낸다. Functions 직접 호출 테스트는 결과 전용 유형의 잘못된 experience signal과 교차 focus를 거부함을 확인한다.
+- Android에서는 기존 내부 테스터 전용 gate를 그대로 유지했다. 공개 배포 또는 Android 외 플랫폼의 기능 활성화를 주장하지 않는다.
+- 회귀에서 Bug 또는 Other 화면에서 Tiger Pulse로 되돌아올 때 숨은 message/bug 필드가 재제출되던 실제 누수를 발견했다. 복귀 시 controller와 bug 상태를 초기화하도록 수정했고, 해당 테스트는 먼저 RED였고 수정 후 GREEN이 되었다.
+- 큰 글씨는 `TextScaler.linear(2)` 위젯 테스트에서 feedback-only sheet의 1.3 clamp, 사용 가능한 experience 선택, overflow 예외 부재를 확인했다. 이는 테스트 전용 근거이며 실제 기기 접근성 완료를 의미하지 않는다.
+- 축하 효과 테스트는 기존 private `_ConfettiPainter` 런타임 이름을 찾는 방식이라 리팩터 시 유지보수 주의가 필요하다. 사용자 동작 결함은 아니며, 이를 위해 새 공개 위젯 계약을 추가하는 범위 확장은 이번 릴리스에서 하지 않았다.
+- 검증 결과: `flutter gen-l10n` 성공, 지정 Flutter feedback 묶음 161개 성공(exit 0), `flutter analyze --no-pub` 0 issues(exit 0), 전체 `flutter test --no-pub` 1,451개 성공(exit 0), `npm.cmd --prefix functions/gye test` 281/281 성공, 규칙 42/42 성공(exit 0)이다. Functions diff가 있으므로 Functions와 규칙은 이번 최종 검증에서 다시 실행했다. 이전 규칙 첫 시도는 외부 8080 포트 점유로 실패했으나 타 프로세스를 종료하지 않고 재시도해 통과했고, 최종 재실행은 포트 충돌 없이 통과했다.
+- 전체 Flutter suite의 이전 typography guard 실패(아이콘 있는 `SoriButton` 75개 vs 제한 74개)는 Task 6의 Quest Continue 아이콘이 원인이었고, Task 6이 그 비필수 아이콘만 제거한 뒤 guard와 전체 suite가 통과했다. Task 7은 `quests_screen.dart`를 수정하지 않았다.
+- 수동 Android/iOS 기기 smoke, 배포, AAB/서명, merge, commit, push는 이 작업에서 수행하지 않았다.

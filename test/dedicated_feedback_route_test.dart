@@ -496,6 +496,7 @@ Widget _app(Widget home) => MaterialApp(
   builder: (context, child) => ContentFeedbackControllerScope(
     featureGate: const TesterFeedbackFeatureGate(enabled: true),
     submitFeedback: (_, __) async => throw UnimplementedError(),
+    resumePending: () async => throw UnimplementedError(),
     child: child!,
   ),
   onGenerateRoute: (settings) {

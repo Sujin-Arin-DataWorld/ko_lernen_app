@@ -66,9 +66,16 @@ const MISSION_CATALOG = Object.freeze([
 const MISSION_BY_ID = new Map(
   MISSION_CATALOG.map((mission) => [mission.id, mission]),
 );
-const ALLOWED_CONTENT_TYPES = new Set(
+const LEARNING_CONTENT_TYPES = new Set(
   MISSION_CATALOG.flatMap((mission) => mission.allowedContentTypes),
 );
+const FEEDBACK_ONLY_CONTENT_TYPES = new Set([
+  "book_analysis", "quest_reward", "milestone",
+]);
+const ALLOWED_CONTENT_TYPES = new Set([
+  ...LEARNING_CONTENT_TYPES,
+  ...FEEDBACK_ONLY_CONTENT_TYPES,
+]);
 const ALLOWED_FIELDS = new Set([
   "schemaVersion",
   "expectedOwnerUid",
@@ -84,6 +91,12 @@ const ALLOWED_FIELDS = new Set([
   "issueArea",
   "contentSignal",
   "contentFocus",
+  "expectedOutcome",
+  "actualOutcome",
+  "bugFrequency",
+  "bugImpact",
+  "experienceSignal",
+  "experienceFocus",
   "appVersion",
   "platform",
   "locale",
@@ -109,8 +122,28 @@ const CONTENT_FOCUSES = new Set([
   "examples",
   "questions",
   "pace",
+  "audio",
   "translation",
   "other",
+]);
+const BUG_FREQUENCIES = new Set(["every_time", "sometimes", "once"]);
+const BUG_IMPACTS = new Set([
+  "can_continue",
+  "slows_learning",
+  "blocks_learning",
+]);
+const EXPERIENCE_SIGNALS = new Set(["positive", "mixed", "negative", "unsure"]);
+const EXPERIENCE_FOCUSES_BY_TYPE = new Map([
+  ["book_analysis", new Set([
+    "korean_text", "word_meanings", "grammar", "translation",
+    "result_missing", "other",
+  ])],
+  ["quest_reward", new Set([
+    "goal", "difficulty", "reward", "instructions", "length", "other",
+  ])],
+  ["milestone", new Set([
+    "timing", "visuals", "reward", "message", "frequency", "other",
+  ])],
 ]);
 const LEVELS = new Set(["A1", "A2", "B1", "B2"]);
 const PLATFORMS = new Set(["android", "ios"]);
@@ -164,6 +197,11 @@ function optionalEnum(data, key, allowedValues) {
   return requireString(data, key, { maxLength: 64, allowedValues });
 }
 
+function optionalString(data, key, { minLength = 0, maxLength } = {}) {
+  if (!Object.hasOwn(data, key)) return undefined;
+  return requireString(data, key, { minLength, maxLength });
+}
+
 function validatePayload(raw) {
   if (!isPlainObject(raw)) invalidPayload();
   for (const key of Object.keys(raw)) {
@@ -205,6 +243,25 @@ function validatePayload(raw) {
   const issueArea = optionalEnum(raw, "issueArea", ISSUE_AREAS);
   const contentSignal = optionalEnum(raw, "contentSignal", CONTENT_SIGNALS);
   const contentFocus = optionalEnum(raw, "contentFocus", CONTENT_FOCUSES);
+  const expectedOutcome = optionalString(raw, "expectedOutcome", {
+    minLength: 1,
+    maxLength: 500,
+  });
+  const actualOutcome = optionalString(raw, "actualOutcome", {
+    minLength: 1,
+    maxLength: 500,
+  });
+  const bugFrequency = optionalEnum(raw, "bugFrequency", BUG_FREQUENCIES);
+  const bugImpact = optionalEnum(raw, "bugImpact", BUG_IMPACTS);
+  const experienceSignal = optionalEnum(
+    raw,
+    "experienceSignal",
+    EXPERIENCE_SIGNALS,
+  );
+  const experienceFocus = optionalString(raw, "experienceFocus", {
+    minLength: 1,
+    maxLength: 64,
+  });
   const appVersion = requireString(raw, "appVersion", {
     minLength: 1,
     maxLength: 64,
@@ -224,24 +281,55 @@ function validatePayload(raw) {
   );
 
   const hasMessage = message.trim().length > 0;
+  const hasStructuredBugFields = expectedOutcome !== undefined ||
+    actualOutcome !== undefined ||
+    bugFrequency !== undefined ||
+    bugImpact !== undefined;
+  const hasLearningFields = contentSignal !== undefined ||
+    contentFocus !== undefined;
+  const hasExperienceFields = experienceSignal !== undefined ||
+    experienceFocus !== undefined;
+  if (betaMissionId !== undefined && !missionMatches(betaMissionId, contentType)) {
+    invalidPayload();
+  }
   if (category === "bug") {
-    if (!hasMessage || contentSignal !== undefined || contentFocus !== undefined) {
+    if (hasLearningFields || hasExperienceFields) {
       invalidPayload();
     }
+    if (hasStructuredBugFields) {
+      if (
+        issueArea === undefined ||
+        expectedOutcome === undefined ||
+        actualOutcome === undefined ||
+        bugFrequency === undefined ||
+        bugImpact === undefined
+      ) invalidPayload();
+    } else if (!hasMessage) invalidPayload();
   } else if (category === "other") {
     if (
       !hasMessage ||
       issueArea !== undefined ||
-      contentSignal !== undefined ||
-      contentFocus !== undefined
+      hasLearningFields ||
+      hasStructuredBugFields ||
+      hasExperienceFields
     ) {
       invalidPayload();
     }
-  } else if (
-    issueArea !== undefined ||
-    (!hasMessage && contentSignal === undefined && contentFocus === undefined)
-  ) {
-    invalidPayload();
+  } else {
+    if (issueArea !== undefined || hasStructuredBugFields) invalidPayload();
+    if (LEARNING_CONTENT_TYPES.has(contentType)) {
+      if (hasExperienceFields || (!hasMessage && !hasLearningFields)) {
+        invalidPayload();
+      }
+    } else {
+      if (hasLearningFields ||
+          (experienceSignal === undefined) !== (experienceFocus === undefined) ||
+          (!hasMessage && !hasExperienceFields) ||
+          (experienceFocus !== undefined &&
+            !EXPERIENCE_FOCUSES_BY_TYPE.get(contentType)?.has(experienceFocus))) {
+        invalidPayload();
+      }
+    }
   }
 
   return {
@@ -259,6 +347,12 @@ function validatePayload(raw) {
     ...(issueArea === undefined ? {} : { issueArea }),
     ...(contentSignal === undefined ? {} : { contentSignal }),
     ...(contentFocus === undefined ? {} : { contentFocus }),
+    ...(expectedOutcome === undefined ? {} : { expectedOutcome }),
+    ...(actualOutcome === undefined ? {} : { actualOutcome }),
+    ...(bugFrequency === undefined ? {} : { bugFrequency }),
+    ...(bugImpact === undefined ? {} : { bugImpact }),
+    ...(experienceSignal === undefined ? {} : { experienceSignal }),
+    ...(experienceFocus === undefined ? {} : { experienceFocus }),
     appVersion,
     platform,
     locale,
@@ -555,6 +649,7 @@ function createTesterFeedbackCallable({ handler, onCall } = {}) {
 
 module.exports = {
   CALLABLE_OPTIONS,
+  FEEDBACK_ONLY_CONTENT_TYPES,
   MISSION_CATALOG,
   createTesterFeedbackCallable,
   createTesterFeedbackRuntime,

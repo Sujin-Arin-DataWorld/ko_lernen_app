@@ -2886,6 +2886,9 @@ class AppL10nEn extends AppL10n {
   String get milestoneCta => 'Keep going';
 
   @override
+  String get feedbackCompletionContinue => 'Continue';
+
+  @override
   String get practiceSecLearn => 'Learn';
 
   @override
@@ -3385,14 +3388,14 @@ class AppL10nEn extends AppL10n {
       'You carried the conversation yourself.';
 
   @override
-  String get testerFeedbackCardTitle => 'Help us improve';
+  String get testerFeedbackCardTitle => 'Tiger Pulse';
 
   @override
   String get testerFeedbackCardBody =>
-      'Your short note helps us make this learning activity better.';
+      'Two quick choices help us make Hangul Sori better.';
 
   @override
-  String get testerFeedbackCardCta => 'Send the tiger a note';
+  String get testerFeedbackCardCta => 'Give the tiger a clue';
 
   @override
   String get testerFeedbackCategoryBug => 'Report a problem';
@@ -3407,13 +3410,13 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackIssueAreaLabel => 'What is affected?';
 
   @override
-  String get testerFeedbackIssueAreaUi => 'Controls and display';
+  String get testerFeedbackIssueAreaUi => 'Display';
 
   @override
-  String get testerFeedbackIssueAreaAnswer => 'Answer or scoring';
+  String get testerFeedbackIssueAreaAnswer => 'Answer';
 
   @override
-  String get testerFeedbackIssueAreaAudio => 'Audio or pronunciation';
+  String get testerFeedbackIssueAreaAudio => 'Audio';
 
   @override
   String get testerFeedbackIssueAreaTranslation => 'Translation';
@@ -3425,7 +3428,7 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackIssueAreaOther => 'Something else';
 
   @override
-  String get testerFeedbackContentSignalLabel => 'How was the difficulty?';
+  String get testerFeedbackContentSignalLabel => 'How did this activity feel?';
 
   @override
   String get testerFeedbackContentSignalTooEasy => 'Too easy';
@@ -3440,7 +3443,7 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackContentSignalUnclear => 'Unclear';
 
   @override
-  String get testerFeedbackContentFocusLabel => 'What is your note about?';
+  String get testerFeedbackContentFocusLabel => 'What made it feel that way?';
 
   @override
   String get testerFeedbackContentFocusExplanation => 'Explanation';
@@ -3449,10 +3452,13 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackContentFocusExamples => 'Examples';
 
   @override
-  String get testerFeedbackContentFocusQuestions => 'Questions';
+  String get testerFeedbackContentFocusQuestions => 'Tasks';
 
   @override
   String get testerFeedbackContentFocusPace => 'Pace';
+
+  @override
+  String get testerFeedbackContentFocusAudio => 'Audio';
 
   @override
   String get testerFeedbackContentFocusTranslation => 'Translation';
@@ -3461,37 +3467,198 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackContentFocusOther => 'Something else';
 
   @override
-  String get testerFeedbackMessageLabel => 'Your message';
+  String get testerFeedbackPulseLearningPrompt => 'How did this activity feel?';
 
   @override
-  String get testerFeedbackMessageHint => 'Briefly describe what happened.';
+  String get testerFeedbackPulseBookPrompt =>
+      'How reliable did this result feel?';
+
+  @override
+  String get testerFeedbackPulseQuestPrompt =>
+      'Did this quest feel worth completing?';
+
+  @override
+  String get testerFeedbackPulseMilestonePrompt =>
+      'Did this celebration motivate you?';
+
+  @override
+  String get testerFeedbackPulseReasonPrompt => 'What made it feel that way?';
+
+  @override
+  String get testerFeedbackPulsePositiveReasonPrompt => 'What worked well?';
+
+  @override
+  String get testerFeedbackExperienceReasonPrompt =>
+      'What influenced your answer?';
+
+  @override
+  String get testerFeedbackBookSignalPositive => 'Looks right';
+
+  @override
+  String get testerFeedbackBookSignalMixed => 'Partly right';
+
+  @override
+  String get testerFeedbackBookSignalNegative => 'Doesn\'t look right';
+
+  @override
+  String get testerFeedbackBookSignalUnsure => 'Not sure';
+
+  @override
+  String get testerFeedbackQuestSignalPositive => 'Very motivating';
+
+  @override
+  String get testerFeedbackQuestSignalMixed => 'A nice extra';
+
+  @override
+  String get testerFeedbackQuestSignalNegative => 'Not motivating';
+
+  @override
+  String get testerFeedbackQuestSignalUnsure => 'I didn\'t understand it';
+
+  @override
+  String get testerFeedbackMilestoneSignalPositive => 'Loved it';
+
+  @override
+  String get testerFeedbackMilestoneSignalMixed => 'Nice';
+
+  @override
+  String get testerFeedbackMilestoneSignalNegative => 'Too much';
+
+  @override
+  String get testerFeedbackMilestoneSignalUnsure => 'Not meaningful';
+
+  @override
+  String get testerFeedbackExperienceFocusKoreanText => 'Korean text';
+
+  @override
+  String get testerFeedbackExperienceFocusWordMeanings => 'Word meanings';
+
+  @override
+  String get testerFeedbackExperienceFocusGrammar => 'Grammar';
+
+  @override
+  String get testerFeedbackExperienceFocusTranslation => 'Translation';
+
+  @override
+  String get testerFeedbackExperienceFocusResultMissing => 'Missing result';
+
+  @override
+  String get testerFeedbackExperienceFocusGoal => 'Goal';
+
+  @override
+  String get testerFeedbackExperienceFocusDifficulty => 'Difficulty';
+
+  @override
+  String get testerFeedbackExperienceFocusReward => 'Reward';
+
+  @override
+  String get testerFeedbackExperienceFocusInstructions => 'Instructions';
+
+  @override
+  String get testerFeedbackExperienceFocusLength => 'Length';
+
+  @override
+  String get testerFeedbackExperienceFocusTiming => 'Timing';
+
+  @override
+  String get testerFeedbackExperienceFocusVisuals => 'Visuals';
+
+  @override
+  String get testerFeedbackExperienceFocusMessage => 'Message';
+
+  @override
+  String get testerFeedbackExperienceFocusFrequency => 'Frequency';
+
+  @override
+  String get testerFeedbackExperienceFocusOther => 'Something else';
+
+  @override
+  String get testerFeedbackBugExpectedLabel => 'What should have happened?';
+
+  @override
+  String get testerFeedbackBugExpectedHint =>
+      'Briefly describe the expected behavior.';
+
+  @override
+  String get testerFeedbackBugActualLabel => 'What happened instead?';
+
+  @override
+  String get testerFeedbackBugActualHint =>
+      'Briefly describe the actual behavior.';
+
+  @override
+  String get testerFeedbackBugFrequencyLabel => 'How often did this happen?';
+
+  @override
+  String get testerFeedbackBugFrequencyEveryTime => 'Every time';
+
+  @override
+  String get testerFeedbackBugFrequencySometimes => 'Sometimes';
+
+  @override
+  String get testerFeedbackBugFrequencyOnce => 'Once';
+
+  @override
+  String get testerFeedbackBugImpactLabel => 'How much did this affect you?';
+
+  @override
+  String get testerFeedbackBugImpactCanContinue => 'I could continue';
+
+  @override
+  String get testerFeedbackBugImpactSlowsLearning => 'It slowed me down';
+
+  @override
+  String get testerFeedbackBugImpactBlocksLearning => 'I couldn\'t continue';
+
+  @override
+  String get testerFeedbackBugRequired =>
+      'Please complete every required bug report field.';
+
+  @override
+  String get testerFeedbackMessageLabel => 'Optional note';
+
+  @override
+  String get testerFeedbackMessageHint => 'Would you like to add anything?';
+
+  @override
+  String get testerFeedbackOtherMessageLabel => 'Your note';
+
+  @override
+  String get testerFeedbackOtherMessageHint =>
+      'What else would you like to tell us?';
 
   @override
   String get testerFeedbackMessageRequired => 'Please write a short message.';
 
   @override
   String get testerFeedbackContentFeedbackRequired =>
-      'Choose at least one rating or write a message.';
+      'Please choose both a signal and a focus.';
 
   @override
   String get testerFeedbackMessageTooLong =>
       'Your message can be at most 1,000 characters.';
 
   @override
-  String get testerFeedbackSubmit => 'Send feedback';
+  String get testerFeedbackSubmit => 'Send pulse';
 
   @override
   String get testerFeedbackCancel => 'Cancel';
 
   @override
+  String get testerFeedbackBack => 'Back';
+
+  @override
   String get testerFeedbackSubmitting => 'Sending feedback …';
 
   @override
-  String get testerFeedbackSubmitted => 'Thanks, your feedback has arrived.';
+  String get testerFeedbackSubmitted => 'Thanks — your pulse helps us improve.';
+
+  @override
+  String get testerFeedbackStampAccepted => 'Stamp earned!';
 
   @override
   String get testerFeedbackPending =>
-      'Your feedback is waiting for a connection.';
+      'Saved on this device. We\'ll send it when you\'re online.';
 
   @override
   String get testerFeedbackSubmitFailed =>
@@ -3502,7 +3669,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get testerFeedbackPrivacyReminder =>
-      'Please do not send personal data, answers, or screenshots.';
+      'Do not include contact details, answers, personal data, or screenshots.';
 
   @override
   String get testerFeedbackMissionScenario => 'Complete a scenario';

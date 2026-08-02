@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/feedback_completion.dart';
 import '../services/book_analysis_service.dart';
 import '../services/book_image_service.dart';
 import '../services/bookshelf_service.dart';
@@ -15,6 +16,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -32,6 +34,16 @@ typedef BookAnalyzer =
     });
 
 enum _BookResultSaveState { idle, saving, saved, unresolved }
+
+BookAnalysisFeedbackSource _feedbackSourceFor(BookAnalysisResult result) {
+  if (result.warnings.contains('offline_stub')) {
+    return BookAnalysisFeedbackSource.offline;
+  }
+  if (result.warnings.contains('server_rate_limited')) {
+    return BookAnalysisFeedbackSource.rateLimited;
+  }
+  return BookAnalysisFeedbackSource.online;
+}
 
 class BookResultSaveIntent {
   BookResultSaveIntent({required this.pageId, required this.capturedAtIso});
@@ -84,6 +96,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
   late final BookResultSaveIntent _saveIntent;
   String? _analysisLanguage;
   int _analysisGeneration = 0;
+  final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   bool get _saved => _saveIntent.isSaved;
   bool get _saving => _saveIntent.isSaving;
@@ -123,6 +136,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
   }
 
   Future<void> _analyze(String targetLang) async {
+    _feedbackCompletion.reset();
     final generation = ++_analysisGeneration;
     setState(() {
       _loading = true;
@@ -143,6 +157,14 @@ class _BookResultScreenState extends State<BookResultScreen> {
       setState(() {
         _result = res;
         _loading = false;
+        _feedbackCompletion.complete(
+          () => FeedbackCompletion.bookAnalysis(
+            words: res.words.length,
+            grammar: res.grammar.length,
+            sentences: res.sentences.length,
+            source: _feedbackSourceFor(res),
+          ),
+        );
       });
     } catch (_) {
       if (!mounted || generation != _analysisGeneration) {
@@ -246,6 +268,8 @@ class _BookResultScreenState extends State<BookResultScreen> {
     }
 
     final r = _result!;
+    final feedbackCompletion = _feedbackCompletion.current;
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final s = SoriSurfaces.of(context);
     final offlineStub = r.warnings.contains('offline_stub');
     final rateLimited = r.warnings.contains('server_rate_limited');
@@ -342,6 +366,16 @@ class _BookResultScreenState extends State<BookResultScreen> {
                         .take(8)
                         .map((s) => _SentenceCard(sentence: s)),
                     const SizedBox(height: Spacing.lg),
+                  ],
+                  if (feedbackCompletion != null &&
+                      feedbackScope != null &&
+                      feedbackScope.featureGate.isEnabled) ...[
+                    ContentFeedbackCard(
+                      feedbackContext: feedbackCompletion.context,
+                      featureGate: feedbackScope.featureGate,
+                      submitFeedback: feedbackScope.submitFeedback,
+                    ),
+                    const SizedBox(height: Spacing.md),
                   ],
                   const SizedBox(height: Spacing.md),
                   if (!_saved)

@@ -13,11 +13,27 @@ import 'mascot.dart';
 import 'progress.dart';
 import 'tokens.dart';
 
+class ContentFeedbackResumeDeliveryNotifier extends ChangeNotifier {
+  final Set<String> _deliveredFeedbackIds = <String>{};
+
+  Set<String> get deliveredFeedbackIds =>
+      Set<String>.unmodifiable(_deliveredFeedbackIds);
+
+  void report(ContentFeedbackResumeResult result) {
+    if (result.deliveredFeedbackIds.isEmpty) return;
+    final before = _deliveredFeedbackIds.length;
+    _deliveredFeedbackIds.addAll(result.deliveredFeedbackIds);
+    if (_deliveredFeedbackIds.length != before) notifyListeners();
+  }
+}
+
 class ContentFeedbackControllerScope extends InheritedWidget {
   const ContentFeedbackControllerScope({
     super.key,
     required this.featureGate,
     required this.submitFeedback,
+    required this.resumePending,
+    this.resumeDeliveryNotifier,
     this.readPassportState = _emptyPassportState,
     this.completedMissionIds = const <String>{},
     required super.child,
@@ -25,6 +41,8 @@ class ContentFeedbackControllerScope extends InheritedWidget {
 
   final TesterFeedbackFeatureGate featureGate;
   final ContentFeedbackSubmitter submitFeedback;
+  final Future<ContentFeedbackResumeResult> Function() resumePending;
+  final ContentFeedbackResumeDeliveryNotifier? resumeDeliveryNotifier;
   final ContentFeedbackPassportStateReader readPassportState;
   final Set<String> completedMissionIds;
 
@@ -36,6 +54,8 @@ class ContentFeedbackControllerScope extends InheritedWidget {
   bool updateShouldNotify(ContentFeedbackControllerScope oldWidget) =>
       featureGate.isEnabled != oldWidget.featureGate.isEnabled ||
       submitFeedback != oldWidget.submitFeedback ||
+      resumePending != oldWidget.resumePending ||
+      resumeDeliveryNotifier != oldWidget.resumeDeliveryNotifier ||
       readPassportState != oldWidget.readPassportState ||
       completedMissionIds != oldWidget.completedMissionIds;
 }
@@ -72,6 +92,10 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
   int _passportReadGeneration = 0;
   int _completionGeneration = 0;
   bool _hasAuthoritativeSubmissionState = false;
+  Future<ContentFeedbackResumeResult> Function()? _resumePendingCallback;
+  ContentFeedbackResumeDeliveryNotifier? _resumeDeliveryNotifier;
+  String? _pendingFeedbackId;
+  bool _retryingPending = false;
 
   @override
   void initState() {
@@ -83,6 +107,8 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     final scope = ContentFeedbackControllerScope.maybeOf(context);
+    _resumePendingCallback = scope?.resumePending;
+    _updateResumeDeliveryNotifier(scope?.resumeDeliveryNotifier);
     _startPassportRestore(scope?.readPassportState);
   }
 
@@ -97,6 +123,8 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
       _nextMissionId = null;
       _completedMissionIds = widget.completedMissionIds.toSet();
       _hasAuthoritativeSubmissionState = false;
+      _pendingFeedbackId = null;
+      _retryingPending = false;
       _passportReadCompletionId = null;
       _passportReadGeneration += 1;
       _startPassportRestore(_passportStateReader);
@@ -108,7 +136,11 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
   void _startPassportRestore(
     ContentFeedbackPassportStateReader? readPassportState,
   ) {
-    if (!widget.featureGate.isEnabled || readPassportState == null) return;
+    if (!widget.featureGate.isEnabled ||
+        readPassportState == null ||
+        missionFor(widget.feedbackContext) == null) {
+      return;
+    }
     final completionId = widget.feedbackContext.completionId;
     if (_passportReadCompletionId == completionId &&
         identical(_passportStateReader, readPassportState)) {
@@ -159,6 +191,11 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
     final delivered =
         result.status == ContentFeedbackSubmitStatus.accepted ||
         result.status == ContentFeedbackSubmitStatus.duplicateCompletion;
+    final acceptedStamp =
+        delivered &&
+        result.passportStateAuthoritative &&
+        result.stampAccepted &&
+        missionFor(feedbackContext) != null;
     if (delivered && result.passportStateAuthoritative) {
       _hasAuthoritativeSubmissionState = true;
       _passportReadGeneration += 1;
@@ -166,10 +203,77 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
     }
     setState(() {
       _status = result.status;
-      _acceptedStamp = result.stampAccepted;
+      _pendingFeedbackId = result.status == ContentFeedbackSubmitStatus.pending
+          ? result.feedbackId
+          : null;
+      _retryingPending = false;
+      _acceptedStamp = acceptedStamp;
       _nextMissionId = result.nextMissionId;
     });
-    if (result.stampAccepted) SoriCelebration.burst(context, particles: 18);
+    if (acceptedStamp) {
+      SoriCelebration.burst(context, particles: 18);
+    }
+    _reconcilePendingDelivery();
+  }
+
+  void _updateResumeDeliveryNotifier(
+    ContentFeedbackResumeDeliveryNotifier? notifier,
+  ) {
+    if (identical(_resumeDeliveryNotifier, notifier)) return;
+    _resumeDeliveryNotifier?.removeListener(_reconcilePendingDelivery);
+    _resumeDeliveryNotifier = notifier;
+    _resumeDeliveryNotifier?.addListener(_reconcilePendingDelivery);
+    _reconcilePendingDelivery();
+  }
+
+  void _reconcilePendingDelivery() {
+    final feedbackId = _pendingFeedbackId;
+    if (!mounted ||
+        _status != ContentFeedbackSubmitStatus.pending ||
+        feedbackId == null ||
+        !(_resumeDeliveryNotifier?.deliveredFeedbackIds.contains(feedbackId) ??
+            false)) {
+      return;
+    }
+    setState(_markPendingDelivered);
+  }
+
+  void _markPendingDelivered() {
+    _status = ContentFeedbackSubmitStatus.accepted;
+    _pendingFeedbackId = null;
+    _retryingPending = false;
+    _acceptedStamp = false;
+    _nextMissionId = null;
+  }
+
+  Future<void> _retryPending() async {
+    final resumePending = _resumePendingCallback;
+    final feedbackId = _pendingFeedbackId;
+    if (_retryingPending || resumePending == null || feedbackId == null) return;
+
+    final completionGeneration = _completionGeneration;
+    setState(() => _retryingPending = true);
+    ContentFeedbackResumeResult? result;
+    try {
+      result = await resumePending();
+    } catch (_) {
+      // The durable item remains queued and the pending copy stays visible.
+    }
+    if (!mounted || completionGeneration != _completionGeneration) return;
+
+    final delivered = result?.deliveredFeedbackIds.contains(feedbackId) ?? false;
+    setState(() {
+      _retryingPending = false;
+      if (delivered) {
+        _markPendingDelivered();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _resumeDeliveryNotifier?.removeListener(_reconcilePendingDelivery);
+    super.dispose();
   }
 
   @override
@@ -183,7 +287,8 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
         _status == ContentFeedbackSubmitStatus.duplicateCompletion;
     final pending = _status == ContentFeedbackSubmitStatus.pending;
     final failed = _status != null && !delivered && !pending;
-    final next = _acceptedStamp ? _nextMission : null;
+    final hasPassportMission = missionFor(widget.feedbackContext) != null;
+    final next = _acceptedStamp && hasPassportMission ? _nextMission : null;
     final completed = _completedMissionIds.length.clamp(
       0,
       betaMissionCatalog.length,
@@ -198,7 +303,9 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
         children: [
           Mascot(
             kind: widget.mascotKind,
-            emotion: delivered ? MascotEmotion.celebrate : MascotEmotion.smile,
+            emotion: _acceptedStamp
+                ? MascotEmotion.celebrate
+                : MascotEmotion.smile,
             size: 56,
             animate: false,
           ),
@@ -217,7 +324,9 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
                 const SizedBox(height: Spacing.xs),
                 Text(
                   delivered
-                      ? l10n.testerFeedbackSubmitted
+                      ? _acceptedStamp
+                            ? l10n.testerFeedbackStampAccepted
+                            : l10n.testerFeedbackSubmitted
                       : pending
                       ? l10n.testerFeedbackPending
                       : failed
@@ -232,25 +341,27 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
                       : null,
                   style: TextStyle(fontSize: 13, color: surfaces.textMuted),
                 ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  l10n.testerFeedbackPassportProgress(
-                    completed,
-                    betaMissionCatalog.length,
+                if (hasPassportMission) ...[
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    l10n.testerFeedbackPassportProgress(
+                      completed,
+                      betaMissionCatalog.length,
+                    ),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
+                  const SizedBox(height: Spacing.xs),
+                  SoriProgressBar(
+                    value: betaMissionCatalog.isEmpty
+                        ? 0
+                        : completed / betaMissionCatalog.length,
+                    thickness: 6,
+                    animated: false,
                   ),
-                ),
-                const SizedBox(height: Spacing.xs),
-                SoriProgressBar(
-                  value: betaMissionCatalog.isEmpty
-                      ? 0
-                      : completed / betaMissionCatalog.length,
-                  thickness: 6,
-                  animated: false,
-                ),
+                ],
                 if (next != null) ...[
                   const SizedBox(height: Spacing.sm),
                   Text(
@@ -271,6 +382,17 @@ class _ContentFeedbackCardState extends State<ContentFeedbackCard> {
                         : l10n.testerFeedbackCardCta,
                     size: SoriButtonSize.sm,
                     onTap: _openFeedback,
+                  ),
+                ],
+                if (pending) ...[
+                  const SizedBox(height: Spacing.sm),
+                  SoriButton.outlined(
+                    key: const Key('content-feedback-retry-pending'),
+                    label: l10n.testerFeedbackRetry,
+                    size: SoriButtonSize.sm,
+                    onTap: _retryingPending || _pendingFeedbackId == null
+                        ? null
+                        : _retryPending,
                   ),
                 ],
               ],

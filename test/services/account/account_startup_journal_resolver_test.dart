@@ -105,6 +105,82 @@ void main() {
     },
   );
 
+  test(
+    'feedback handoff alone is activation pending, not local cleanup pending',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final checkpoint = _deletionJournal(AccountOperationPhase.completed);
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        readReplacement: () async => null,
+        readDeletion: () async => null,
+        readFeedbackActivation: () async => checkpoint,
+      );
+
+      final restored = await resolver.restore('new-anonymous');
+
+      expect(
+        restored.kind,
+        AccountStartupRestorationKind.feedbackActivationPending,
+      );
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test(
+    'matching completed and handoff journals are activation pending',
+    () async {
+      final sessions = CloudWriteSessionController();
+      final checkpoint = _deletionJournal(AccountOperationPhase.completed);
+      final resolver = AccountStartupJournalResolver(
+        sessions: sessions,
+        readReplacement: () async => null,
+        readDeletion: () async => checkpoint,
+        readFeedbackActivation: () async => checkpoint,
+      );
+
+      final restored = await resolver.restore('new-anonymous');
+
+      expect(
+        restored.kind,
+        AccountStartupRestorationKind.feedbackActivationPending,
+      );
+      expect(sessions.current, isNull);
+    },
+  );
+
+  test('mismatched completed and handoff journals fail closed', () async {
+    final sessions = CloudWriteSessionController();
+    final resolver = AccountStartupJournalResolver(
+      sessions: sessions,
+      readReplacement: () async => null,
+      readDeletion: () async =>
+          _deletionJournal(AccountOperationPhase.completed),
+      readFeedbackActivation: () async => AccountDeletionJournal(
+        version: AccountDeletionJournal.currentVersion,
+        session: const CloudWriteSession(
+          uid: 'another-source',
+          epoch: 7,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'different-request',
+        operation: const AccountOperationResult(
+          operationId: 'different-operation',
+          kind: AccountOperationKind.deletion,
+          phase: AccountOperationPhase.completed,
+          version: 5,
+          attemptCount: 1,
+          retryable: false,
+        ),
+      ),
+    );
+
+    final restored = await resolver.restore('new-anonymous');
+
+    expect(restored.kind, AccountStartupRestorationKind.blocked);
+    expect(sessions.current, isNull);
+  });
+
   test('pending deletion resumes only for the exact live source', () async {
     final sessions = CloudWriteSessionController();
     final journal = _deletionJournal(AccountOperationPhase.deletionRequested);

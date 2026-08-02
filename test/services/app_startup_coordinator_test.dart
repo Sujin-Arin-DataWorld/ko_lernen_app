@@ -161,54 +161,7 @@ void main() {
   });
 
   test(
-    'remote-complete local-cleanup state runs its dedicated recovery workflow',
-    () async {
-      final events = <String>[];
-      var cleanupPending = true;
-      final coordinator = AppStartupCoordinator(
-        initializeFirebase: () async => true,
-        initializeAppCheck: () async => events.add('app-check'),
-        ensureSignedIn: () async => events.add('auth-create'),
-        currentUserId: () => 'new-anonymous',
-        restorePendingAccountState: (_) async {
-          events.add('restore');
-          return cleanupPending
-              ? const AccountStartupRestoration.localCleanupPending()
-              : const AccountStartupRestoration.none();
-        },
-        synchronizeReadySession: (uid) => events.add('ready:$uid'),
-        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
-        resumeMediaCleanup: () async => events.add('media'),
-        resumeBookshelfSync: () async => events.add('bookshelf'),
-        resumeAccountOperation: () async => events.add('remote-delete-resume'),
-        resumeCompletedAccountCleanup: () async {
-          events.add('completed-cleanup-recovery');
-          cleanupPending = false;
-        },
-        initializePremium: () async => events.add('premium'),
-        enablePush: () async => events.add('push'),
-        notificationsEnabled: () => true,
-      );
-
-      expect(await coordinator.start(), isTrue);
-      expect(events, <String>[
-        'app-check',
-        'restore',
-        'completed-cleanup-recovery',
-        'restore',
-        'auth-create',
-        'ready:new-anonymous',
-        'feedback-resume',
-        'media',
-        'bookshelf',
-        'premium',
-        'push',
-      ]);
-    },
-  );
-
-  test(
-    'remaining journal after completed cleanup keeps startup fenced',
+    'remote-complete local cleanup stays fenced for manual recovery',
     () async {
       final events = <String>[];
       final coordinator = AppStartupCoordinator(
@@ -220,12 +173,45 @@ void main() {
           events.add('restore');
           return const AccountStartupRestoration.localCleanupPending();
         },
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('remote-delete-resume'),
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>['app-check', 'restore']);
+    },
+  );
+
+  test(
+    'feedback activation finalization rechecks then continues normal startup',
+    () async {
+      final events = <String>[];
+      var activationPending = true;
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth-create'),
+        currentUserId: () => 'new-anonymous',
+        restorePendingAccountState: (_) async {
+          events.add('restore');
+          return activationPending
+              ? const AccountStartupRestoration.feedbackActivationPending()
+              : const AccountStartupRestoration.none();
+        },
         synchronizeReadySession: (_) => events.add('ready'),
         resumeMediaCleanup: () async => events.add('media'),
         resumeBookshelfSync: () async => events.add('bookshelf'),
         resumeAccountOperation: () async => events.add('pending-remote'),
-        resumeCompletedAccountCleanup: () async =>
-            events.add('cleanup-attempt'),
+        resumeCompletedFeedbackActivation: () async {
+          events.add('activation-finalize');
+          activationPending = false;
+        },
         initializePremium: () async => events.add('premium'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
@@ -235,8 +221,64 @@ void main() {
       expect(events, <String>[
         'app-check',
         'restore',
-        'cleanup-attempt',
+        'activation-finalize',
         'restore',
+        'auth-create',
+        'ready',
+        'media',
+        'bookshelf',
+        'premium',
+        'push',
+      ]);
+    },
+  );
+
+  test(
+    'marker activation creates an anonymous identity before finalization',
+    () async {
+      final events = <String>[];
+      String? liveUid;
+      var activationPending = true;
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async {
+          events.add('auth-create');
+          liveUid = 'new-anonymous';
+        },
+        currentUserId: () => liveUid,
+        restorePendingAccountState: (uid) async {
+          events.add('restore:${uid ?? 'none'}');
+          return activationPending
+              ? const AccountStartupRestoration.feedbackActivationPending()
+              : const AccountStartupRestoration.none();
+        },
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('pending-remote'),
+        resumeCompletedFeedbackActivation: () async {
+          events.add('activation-finalize:$liveUid');
+          activationPending = false;
+        },
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>[
+        'app-check',
+        'restore:none',
+        'auth-create',
+        'activation-finalize:new-anonymous',
+        'restore:new-anonymous',
+        'auth-create',
+        'ready:new-anonymous',
+        'media',
+        'bookshelf',
+        'premium',
+        'push',
       ]);
     },
   );
@@ -261,8 +303,6 @@ void main() {
         resumeMediaCleanup: () async {},
         resumeBookshelfSync: () async {},
         resumeAccountOperation: () async => events.add('remote-delete-resume'),
-        resumeCompletedAccountCleanup: () async =>
-            events.add('completed-cleanup-recovery'),
         initializePremium: () async {},
         enablePush: () async {},
         notificationsEnabled: () => false,

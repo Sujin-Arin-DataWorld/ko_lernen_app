@@ -123,6 +123,12 @@ void main() {
               retryable: false,
             );
           },
+          preflight: (_) {
+            throw const AccountOperationFailure(
+              AccountOperationFailureCode.blocked,
+              retryable: false,
+            );
+          },
           closeFeedback: () async => feedbackCloses += 1,
         );
 
@@ -141,6 +147,7 @@ void main() {
         var feedbackCloses = 0;
         final gate = CompletedAccountDeletionRecoveryGate(
           readCheckpoint: () async => null,
+          preflight: (_) {},
           recoverCompleted: (_) async => recoveryCalls += 1,
           closeFeedback: () async => feedbackCloses += 1,
         );
@@ -161,23 +168,28 @@ void main() {
       },
     );
 
-    test('identity recovery succeeds before feedback is closed', () async {
+    test('identity preflight precedes feedback close and recovery', () async {
       final events = <String>[];
       final gate = CompletedAccountDeletionRecoveryGate(
         readCheckpoint: () async => _completedDeletionJournal(),
+        preflight: (_) => events.add('identity-preflight'),
         recoverCompleted: (_) async => events.add('identity-recovery'),
         closeFeedback: () async => events.add('feedback-close'),
       );
 
       await gate.run();
 
-      expect(events, <String>['identity-recovery', 'feedback-close']);
+      expect(events, <String>[
+        'identity-preflight',
+        'feedback-close',
+        'identity-recovery',
+      ]);
     });
   });
 
   group('completed deletion feedback activation', () {
     test(
-      'false activation restores the checkpoint and a retry succeeds',
+      'false activation retains only the handoff and a retry succeeds',
       () async {
         final checkpoint = _completedDeletionJournal();
         final completed = _DeletionJournalStore(checkpoint);
@@ -205,8 +217,8 @@ void main() {
                 ),
           ),
         );
-        expect(completed.journal?.toJson(), checkpoint.toJson());
-        expect(activation.journal, isNull);
+        expect(completed.journal, isNull);
+        expect(activation.journal?.toJson(), checkpoint.toJson());
 
         await coordinator.run();
 
@@ -216,34 +228,30 @@ void main() {
       },
     );
 
-    test(
-      'failed checkpoint restoration retains the activation journal',
-      () async {
-        final checkpoint = _completedDeletionJournal();
-        final completed = _DeletionJournalStore(checkpoint)
-          ..failNextWrite = true;
-        final activation = _DeletionJournalStore(null);
-        final coordinator = CompletedDeletionFeedbackActivationCoordinator(
-          completedStore: completed,
-          activationStore: activation,
-          activateFeedback: (_) async => false,
-        );
+    test('activation failure retains the handoff journal', () async {
+      final checkpoint = _completedDeletionJournal();
+      final completed = _DeletionJournalStore(checkpoint);
+      final activation = _DeletionJournalStore(null);
+      final coordinator = CompletedDeletionFeedbackActivationCoordinator(
+        completedStore: completed,
+        activationStore: activation,
+        activateFeedback: (_) async => false,
+      );
 
-        await expectLater(
-          coordinator.run(),
-          throwsA(
-            isA<AccountOperationFailure>().having(
-              (failure) => failure.retryable,
-              'retryable',
-              isTrue,
-            ),
+      await expectLater(
+        coordinator.run(),
+        throwsA(
+          isA<AccountOperationFailure>().having(
+            (failure) => failure.retryable,
+            'retryable',
+            isTrue,
           ),
-        );
+        ),
+      );
 
-        expect(completed.journal, isNull);
-        expect(activation.journal?.toJson(), checkpoint.toJson());
-      },
-    );
+      expect(completed.journal, isNull);
+      expect(activation.journal?.toJson(), checkpoint.toJson());
+    });
   });
 
   group('anonymous credential linking', () {
@@ -1097,6 +1105,96 @@ void main() {
         containsAllInOrder(<String>['identity-recover', 'local-reset']),
       );
       expect(operations.recoveryCalls, 1);
+    },
+  );
+
+  test(
+    'pending feedback activation manual retry skips every destructive cleanup',
+    () async {
+      final events = <String>[];
+      var remoteDeletionCalls = 0;
+      final workflow = AccountDeletionWorkflow(
+        _CleanupOperations(events, () async => remoteDeletionCalls += 1),
+        finalizePendingFeedbackActivation: () async {
+          events.add('activation-finalize');
+          return true;
+        },
+      );
+
+      await workflow.run();
+
+      expect(events, <String>['activation-finalize']);
+      expect(remoteDeletionCalls, 0);
+    },
+  );
+
+  test(
+    'overlapping Settings instances share one destructive workflow',
+    () async {
+      final events = <String>[];
+      final completionStarted = Completer<void>();
+      final allowCompletion = Completer<void>();
+      var remoteDeletionCalls = 0;
+      var completionCalls = 0;
+      final firstWorkflow = AccountDeletionWorkflow(
+        _CleanupOperations(events, () async => remoteDeletionCalls += 1),
+        finalizePendingFeedbackActivation: () async => false,
+        completeCheckpoint: () async {
+          completionCalls += 1;
+          if (completionCalls == 1) {
+            completionStarted.complete();
+            await allowCompletion.future;
+          }
+        },
+      );
+      final secondWorkflow = AccountDeletionWorkflow(
+        _CleanupOperations(events, () async => remoteDeletionCalls += 1),
+        finalizePendingFeedbackActivation: () async => false,
+        completeCheckpoint: () async => completionCalls += 1,
+      );
+
+      final first = firstWorkflow.run();
+      await completionStarted.future;
+      final overlappingRetry = secondWorkflow.run();
+      allowCompletion.complete();
+      await Future.wait([first, overlappingRetry]);
+
+      expect(remoteDeletionCalls, 1);
+      expect(completionCalls, 1);
+      expect(events.where((event) => event == 'local-reset'), hasLength(1));
+      expect(events.where((event) => event == 'push-disable'), hasLength(1));
+      expect(events.where((event) => event == 'image-delete'), hasLength(1));
+      expect(events.where((event) => event == 'tts-clear'), hasLength(1));
+      expect(events.where((event) => event == 'memory-reset'), hasLength(1));
+
+      await secondWorkflow.run();
+      expect(remoteDeletionCalls, 2);
+      expect(completionCalls, 2);
+    },
+  );
+
+  test(
+    'invalid feedback activation marker cannot fall through to remote deletion',
+    () async {
+      final events = <String>[];
+      var remoteDeletionCalls = 0;
+      final workflow = AccountDeletionWorkflow(
+        _CleanupOperations(events, () async => remoteDeletionCalls += 1),
+        finalizePendingFeedbackActivation: () async {
+          throw const AccountOperationFailure(
+            AccountOperationFailureCode.blocked,
+            retryable: false,
+          );
+        },
+      );
+
+      await expectLater(
+        workflow.run(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+
+      expect(events, isEmpty);
+      expect(remoteDeletionCalls, 0);
     },
   );
 

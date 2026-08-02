@@ -28,322 +28,228 @@ void main() {
   );
 
   test(
-    'marker-only startup recovers and clears cleanup before feedback resumes',
-    () async {
-      const deletedUid = 'deleted-source';
-      const replacementUid = 'new-anonymous';
-      final checkpoint = _completedJournal(deletedUid);
-      final completed = _JournalStore(null);
-      final handoff = _JournalStore(checkpoint);
-      final events = <String>[];
-      var pendingRemoteResumes = 0;
-      var recoveryCalls = 0;
-      final client = _Client();
-      bool journalActive() =>
-          completed.journal != null || handoff.journal != null;
-      Future<bool> activationBlocked(String candidateDeletedUid) async {
-        final marker = handoff.journal;
-        return completed.journal != null ||
-            marker?.operation?.phase != AccountOperationPhase.completed ||
-            marker?.session.uid != candidateDeletedUid;
-      }
-
-      late final ContentFeedbackLifecycle lifecycle;
-      lifecycle = ContentFeedbackLifecycle(
-        initialService: _service(
-          currentUid: () => replacementUid,
-          deletionActive: () async => journalActive(),
-          client: _Client(),
-        ),
-        createService: () => _service(
-          currentUid: () => replacementUid,
-          deletionActive: () async => journalActive(),
-          client: client,
-        ),
-        currentIdentity: () => (uid: replacementUid, isAnonymous: true),
-        durableJournalActive: activationBlocked,
-      );
-      final recoveryGate = CompletedAccountDeletionRecoveryGate(
-        readCheckpoint: () async =>
-            await completed.read() ?? await handoff.read(),
-        recoverCompleted: (_) async {
-          recoveryCalls += 1;
-          events.add('identity-recovery');
-        },
-        closeFeedback: lifecycle.closeAndDiscard,
-      );
-      final operations = _CleanupOperations(
-        events: events,
-        deleteRemote: recoveryGate.run,
-      );
-      final workflow = AccountDeletionWorkflow(
-        operations,
-        completeCheckpoint: () =>
-            CompletedDeletionFeedbackActivationCoordinator(
-              completedStore: completed,
-              activationStore: handoff,
-              activateFeedback: lifecycle.activateAfterCompletedDeletion,
-            ).run(),
-      );
-      final startup = _startup(
-        restoration: () => journalActive()
-            ? const AccountStartupRestoration.localCleanupPending()
-            : const AccountStartupRestoration.none(),
-        resumePendingRemote: () async => pendingRemoteResumes += 1,
-        resumeCompletedCleanup: workflow.run,
-      );
-
-      expect(await startup.start(), isTrue);
-      final submitted = await lifecycle.submit(context, draft);
-
-      expect(recoveryCalls, 1);
-      expect(pendingRemoteResumes, 0);
-      expect(events, <String>[
-        'identity-recovery',
-        'local-reset',
-        'push-disable',
-        'image-delete',
-        'tts-clear',
-        'memory-reset',
-      ]);
-      expect(completed.journal, isNull);
-      expect(handoff.journal, isNull);
-      expect(submitted.status, ContentFeedbackSubmitStatus.accepted);
-      expect(client.expectedOwnerUids, [replacementUid]);
-    },
-  );
-
-  test(
-    'primary completed startup retries identity recovery before local cleanup',
-    () async {
-      const deletedUid = 'deleted-source';
-      final completed = _JournalStore(_completedJournal(deletedUid));
-      final handoff = _JournalStore(null);
-      final events = <String>[];
-      var currentUid = deletedUid;
-      var pendingRemoteResumes = 0;
-      final lifecycle = ContentFeedbackLifecycle(
-        initialService: _service(
-          currentUid: () => currentUid,
-          deletionActive: () async =>
-              completed.journal != null || handoff.journal != null,
-          client: _Client(),
-        ),
-        createService: () => _service(
-          currentUid: () => currentUid,
-          deletionActive: () async =>
-              completed.journal != null || handoff.journal != null,
-          client: _Client(),
-        ),
-        currentIdentity: () => (uid: currentUid, isAnonymous: true),
-        durableJournalActive: (candidateDeletedUid) async {
-          final marker = handoff.journal;
-          return completed.journal != null ||
-              marker?.session.uid != candidateDeletedUid;
-        },
-      );
-      final recoveryGate = CompletedAccountDeletionRecoveryGate(
-        readCheckpoint: completed.read,
-        recoverCompleted: (_) async {
-          events.add('identity-recovery');
-          currentUid = 'recovered-anonymous';
-        },
-        closeFeedback: lifecycle.closeAndDiscard,
-      );
-      final workflow = AccountDeletionWorkflow(
-        _CleanupOperations(events: events, deleteRemote: recoveryGate.run),
-        completeCheckpoint: () =>
-            CompletedDeletionFeedbackActivationCoordinator(
-              completedStore: completed,
-              activationStore: handoff,
-              activateFeedback: lifecycle.activateAfterCompletedDeletion,
-            ).run(),
-      );
-
-      expect(
-        await _startup(
-          restoration: () =>
-              completed.journal != null || handoff.journal != null
-              ? const AccountStartupRestoration.localCleanupPending()
-              : const AccountStartupRestoration.none(),
-          resumePendingRemote: () async => pendingRemoteResumes += 1,
-          resumeCompletedCleanup: workflow.run,
-        ).start(),
-        isTrue,
-      );
-
-      expect(pendingRemoteResumes, 0);
-      expect(events.first, 'identity-recovery');
-      expect(
-        events.indexOf('identity-recovery'),
-        lessThan(events.indexOf('local-reset')),
-      );
-      expect(currentUid, 'recovered-anonymous');
-      expect(completed.journal, isNull);
-      expect(handoff.journal, isNull);
-    },
-  );
-
-  test(
-    'failed startup identity recovery retains marker and blocks feedback',
+    'marker-only startup finalizes activation without local cleanup',
     () async {
       const deletedUid = 'deleted-source';
       const replacementUid = 'new-anonymous';
       final completed = _JournalStore(null);
       final handoff = _JournalStore(_completedJournal(deletedUid));
-      var pendingRemoteResumes = 0;
-      final client = _Client();
-      final lifecycle = ContentFeedbackLifecycle(
-        initialService: _service(
-          currentUid: () => replacementUid,
-          deletionActive: () async => handoff.journal != null,
-          client: client,
-        ),
+      final oldStore = _Store()..items = [_pending('old', deletedUid)];
+      final oldService = _service(
+        store: oldStore,
+        currentUid: () => replacementUid,
+        deletionActive: () async => handoff.journal != null,
+        client: _Client(),
+      );
+      final newClient = _Client();
+      late final ContentFeedbackLifecycle lifecycle;
+      lifecycle = ContentFeedbackLifecycle(
+        initialService: oldService,
         createService: () => _service(
           currentUid: () => replacementUid,
           deletionActive: () async => handoff.journal != null,
-          client: client,
+          client: newClient,
         ),
         currentIdentity: () => (uid: replacementUid, isAnonymous: true),
         durableJournalActive: (_) async => false,
       );
-      final recoveryGate = CompletedAccountDeletionRecoveryGate(
-        readCheckpoint: handoff.read,
-        recoverCompleted: (_) async {
-          throw AccountDeletionRecoveryException(<Object>[
-            StateError('identity recovery unavailable'),
-          ]);
-        },
-        closeFeedback: lifecycle.closeAndDiscard,
-      );
-      final workflow = AccountDeletionWorkflow(
-        _CleanupOperations(events: <String>[], deleteRemote: recoveryGate.run),
-        completeCheckpoint: () =>
-            CompletedDeletionFeedbackActivationCoordinator(
-              completedStore: completed,
-              activationStore: handoff,
-              activateFeedback: lifecycle.activateAfterCompletedDeletion,
-            ).run(),
+      Future<void> finalize() async {
+        assertCompletedDeletionFeedbackActivationIdentitySafe(
+          checkpoint: handoff.journal!,
+          currentUid: replacementUid,
+          currentIsAnonymous: true,
+        );
+        await lifecycle.closeAndDiscard();
+        await CompletedDeletionFeedbackActivationCoordinator(
+          completedStore: completed,
+          activationStore: handoff,
+          activateFeedback: lifecycle.activateAfterCompletedDeletion,
+        ).run();
+      }
+
+      final startup = _startup(
+        restoration: () => handoff.journal == null
+            ? const AccountStartupRestoration.none()
+            : const AccountStartupRestoration.feedbackActivationPending(),
+        resumePendingRemote: () async =>
+            fail('must not resume remote deletion'),
+        resumeFeedbackActivation: finalize,
       );
 
-      await expectLater(
-        _startup(
-          restoration: () =>
-              const AccountStartupRestoration.localCleanupPending(),
-          resumePendingRemote: () async => pendingRemoteResumes += 1,
-          resumeCompletedCleanup: workflow.run,
-        ).start(),
-        throwsA(
-          isA<AccountDeletionFailure>().having(
-            (failure) => failure.identityRecoveryPending,
-            'identityRecoveryPending',
-            isTrue,
-          ),
-        ),
-      );
+      expect(await startup.start(), isTrue);
       final submitted = await lifecycle.submit(context, draft);
 
-      expect(pendingRemoteResumes, 0);
-      expect(completed.journal, isNull);
-      expect(handoff.journal?.session.uid, deletedUid);
-      expect(submitted.status, ContentFeedbackSubmitStatus.blockedByDeletion);
-      expect(client.expectedOwnerUids, isEmpty);
+      expect(oldStore.items, isEmpty);
+      expect((await oldService.resumePending()).closed, isTrue);
+      expect(handoff.journal, isNull);
+      expect(submitted.status, ContentFeedbackSubmitStatus.accepted);
+      expect(newClient.expectedOwnerUids, [replacementUid]);
     },
   );
 
   test(
-    'wrong durable identity leaves marker and all local account data untouched',
+    'primary completed startup stays fenced without automatic cleanup',
     () async {
-      const deletedUid = 'deleted-source';
-      final completed = _JournalStore(_completedJournal(deletedUid));
       final events = <String>[];
-      var pendingRemoteResumes = 0;
-      var googleCleanupCalls = 0;
-      var feedbackCloses = 0;
-      final recoveryGate = CompletedAccountDeletionRecoveryGate(
-        readCheckpoint: completed.read,
-        recoverCompleted: (checkpoint) => recoverCompletedDeletionIdentity(
-          checkpoint: checkpoint,
-          currentUid: 'different-durable-account',
-          currentIsAnonymous: false,
-          cleanupGoogleProvider: () async => googleCleanupCalls += 1,
-          recoverFirebaseIdentity: () async {
-            fail('wrong durable identity must not be replaced');
-          },
-        ),
-        closeFeedback: () async => feedbackCloses += 1,
+      final startup = _startup(
+        restoration: () =>
+            const AccountStartupRestoration.localCleanupPending(),
+        resumePendingRemote: () async => events.add('remote'),
+        resumeFeedbackActivation: () async => events.add('activation'),
       );
+
+      expect(await startup.start(), isTrue);
+      expect(events, isEmpty);
+    },
+  );
+
+  test(
+    'failed activation keeps marker and retry never repeats cleanup',
+    () async {
+      final completed = _JournalStore(_completedJournal('deleted-source'));
+      final handoff = _JournalStore(null);
+      final results = <bool>[false, true];
+      final coordinator = CompletedDeletionFeedbackActivationCoordinator(
+        completedStore: completed,
+        activationStore: handoff,
+        activateFeedback: (_) async => results.removeAt(0),
+      );
+      AccountStartupRestoration restoration() => handoff.journal == null
+          ? const AccountStartupRestoration.none()
+          : const AccountStartupRestoration.feedbackActivationPending();
+
+      await expectLater(
+        coordinator.run(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+      expect(completed.journal, isNull);
+      expect(handoff.journal, isNotNull);
+
+      expect(
+        await _startup(
+          restoration: restoration,
+          resumePendingRemote: () async => fail('must not resume remote'),
+          resumeFeedbackActivation: coordinator.run,
+        ).start(),
+        isTrue,
+      );
+      expect(handoff.journal, isNull);
+    },
+  );
+
+  test(
+    'wrong durable identity blocks before feedback close or cleanup',
+    () async {
+      final checkpoint = _completedJournal('deleted-source');
+      final cleanupEvents = <String>[];
+      var feedbackCloses = 0;
       final workflow = AccountDeletionWorkflow(
-        _CleanupOperations(events: events, deleteRemote: recoveryGate.run),
-        completeCheckpoint: () async {
-          fail('wrong durable identity must not complete cleanup');
+        _CleanupOperations(
+          events: cleanupEvents,
+          deleteRemote: () async => fail('remote must not run'),
+        ),
+        finalizePendingFeedbackActivation: () async {
+          assertCompletedDeletionFeedbackActivationIdentitySafe(
+            checkpoint: checkpoint,
+            currentUid: 'different-durable-account',
+            currentIsAnonymous: false,
+          );
+          feedbackCloses += 1;
+          return true;
         },
       );
 
       await expectLater(
-        _startup(
-          restoration: () =>
-              const AccountStartupRestoration.localCleanupPending(),
-          resumePendingRemote: () async => pendingRemoteResumes += 1,
-          resumeCompletedCleanup: workflow.run,
-        ).start(),
-        throwsA(
-          isA<AccountOperationFailure>().having(
-            (failure) => failure.code,
-            'code',
-            AccountOperationFailureCode.blocked,
-          ),
-        ),
-      );
-
-      expect(pendingRemoteResumes, 0);
-      expect(googleCleanupCalls, 0);
-      expect(feedbackCloses, 0);
-      expect(events, isEmpty);
-      expect(completed.journal?.session.uid, deletedUid);
-    },
-  );
-
-  test(
-    'checkpoint vanishing before recovery aborts without remote or local work',
-    () async {
-      final events = <String>[];
-      var pendingRemoteResumes = 0;
-      var recoveryCalls = 0;
-      var feedbackCloses = 0;
-      final recoveryGate = CompletedAccountDeletionRecoveryGate(
-        readCheckpoint: () async => null,
-        recoverCompleted: (_) async => recoveryCalls += 1,
-        closeFeedback: () async => feedbackCloses += 1,
-      );
-      final workflow = AccountDeletionWorkflow(
-        _CleanupOperations(events: events, deleteRemote: recoveryGate.run),
-      );
-
-      await expectLater(
-        _startup(
-          // The first startup read observed a completed checkpoint, but the
-          // recovery-only gate must authoritatively reread it.
-          restoration: () =>
-              const AccountStartupRestoration.localCleanupPending(),
-          resumePendingRemote: () async => pendingRemoteResumes += 1,
-          resumeCompletedCleanup: workflow.run,
-        ).start(),
+        workflow.run(),
         throwsA(isA<AccountOperationFailure>()),
       );
-
-      expect(pendingRemoteResumes, 0);
-      expect(recoveryCalls, 0);
       expect(feedbackCloses, 0);
-      expect(events, isEmpty);
+      expect(cleanupEvents, isEmpty);
     },
   );
+
+  for (final recoveryFailure in <String>['google', 'firebase']) {
+    test(
+      '$recoveryFailure recovery failure closes and erases old feedback',
+      () async {
+        const deletedUid = 'deleted-source';
+        final checkpoint = AccountDeletionJournal(
+          version: AccountDeletionJournal.currentVersion,
+          session: const CloudWriteSession(
+            uid: deletedUid,
+            epoch: 9,
+            mode: CloudWriteMode.cleanupPending,
+          ),
+          requestKey: 'completed-startup-request',
+          sourceProviders: recoveryFailure == 'google'
+              ? const {'google'}
+              : const {},
+          operation: _completedJournal(deletedUid).operation,
+        );
+        final completed = _JournalStore(checkpoint);
+        final oldStore = _Store()
+          ..items = [_pending('private-old', deletedUid)];
+        final currentUid = recoveryFailure == 'google'
+            ? 'recovered-anonymous'
+            : deletedUid;
+        final oldService = _service(
+          store: oldStore,
+          currentUid: () => currentUid,
+          deletionActive: () async => true,
+          client: _Client(),
+        );
+        final lifecycle = ContentFeedbackLifecycle(
+          initialService: oldService,
+          createService: () => _service(
+            currentUid: () => currentUid,
+            deletionActive: () async => true,
+            client: _Client(),
+          ),
+          currentIdentity: () => (uid: currentUid, isAnonymous: true),
+          durableJournalActive: (_) async => true,
+        );
+        final gate = CompletedAccountDeletionRecoveryGate(
+          readCheckpoint: completed.read,
+          preflight: (journal) => assertCompletedDeletionRecoveryIdentitySafe(
+            checkpoint: journal,
+            currentUid: currentUid,
+            currentIsAnonymous: true,
+          ),
+          closeFeedback: lifecycle.closeAndDiscard,
+          recoverCompleted: (journal) => recoverCompletedDeletionIdentity(
+            checkpoint: journal,
+            currentUid: currentUid,
+            currentIsAnonymous: true,
+            cleanupGoogleProvider: () async {
+              throw StateError('google unavailable');
+            },
+            recoverFirebaseIdentity: () async {
+              throw StateError('firebase unavailable');
+            },
+          ),
+        );
+        final cleanupEvents = <String>[];
+
+        await expectLater(
+          AccountDeletionWorkflow(
+            _CleanupOperations(events: cleanupEvents, deleteRemote: gate.run),
+          ).run(),
+          throwsA(isA<AccountDeletionFailure>()),
+        );
+
+        expect(oldStore.items, isEmpty);
+        expect((await oldService.resumePending()).closed, isTrue);
+        expect(completed.journal?.toJson(), checkpoint.toJson());
+        expect(cleanupEvents, contains('local-reset'));
+      },
+    );
+  }
 }
 
 AppStartupCoordinator _startup({
   required AccountStartupRestoration Function() restoration,
   required Future<void> Function() resumePendingRemote,
-  required Future<void> Function() resumeCompletedCleanup,
+  Future<void> Function()? resumeFeedbackActivation,
 }) {
   return AppStartupCoordinator(
     initializeFirebase: () async => true,
@@ -355,7 +261,7 @@ AppStartupCoordinator _startup({
     resumeMediaCleanup: () async {},
     resumeBookshelfSync: () async {},
     resumeAccountOperation: resumePendingRemote,
-    resumeCompletedAccountCleanup: resumeCompletedCleanup,
+    resumeCompletedFeedbackActivation: resumeFeedbackActivation ?? () async {},
     initializePremium: () async {},
     enablePush: () async {},
     notificationsEnabled: () => false,
@@ -383,13 +289,14 @@ AccountDeletionJournal _completedJournal(String uid) {
 }
 
 ContentFeedbackService _service({
+  FeedbackOutboxStore? store,
   required String? Function() currentUid,
   required Future<bool> Function() deletionActive,
   required ContentFeedbackClient client,
 }) {
   return ContentFeedbackService(
     featureGate: const TesterFeedbackFeatureGate(enabled: true),
-    outboxStore: _Store(),
+    outboxStore: store ?? _Store(),
     client: client,
     currentUid: currentUid,
     versionProvider: const _Version(),
@@ -398,6 +305,31 @@ ContentFeedbackService _service({
     platform: () => 'android',
     locale: () => 'de',
     deletionActive: deletionActive,
+  );
+}
+
+ContentFeedbackOutboxItem _pending(String id, String ownerUid) {
+  return ContentFeedbackOutboxItem.pending(
+    submission: ContentFeedbackSubmission(
+      feedbackId: id,
+      context: const ContentFeedbackContext(
+        completionId: 'old-completion',
+        contentType: 'scenario',
+        contentId: 'old-content',
+        contentLabel: 'Old content',
+        level: 'A1',
+        scoreSummary: '1/1',
+      ),
+      draft: const ContentFeedbackDraft(
+        category: FeedbackCategory.bug,
+        message: 'Old private queue item.',
+      ),
+      appVersion: '2.0.1+6',
+      platform: 'android',
+      locale: 'de',
+    ),
+    createdAt: DateTime.utc(2026, 8, 2),
+    ownerUid: ownerUid,
   );
 }
 

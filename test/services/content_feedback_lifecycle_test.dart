@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/models/content_feedback.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/content_feedback_client.dart';
@@ -74,6 +77,111 @@ void main() {
       expect(oldResume.closed, isTrue);
       expect(oldClient.expectedOwnerUids, isEmpty);
       expect(oldStore.items, isEmpty);
+    },
+  );
+
+  test(
+    'durable admission activation completes without reentering its auth gate',
+    () async {
+      final authGate = CloudBackupDeletionAuthGate();
+      var durableReads = 0;
+      late _JournalStore handoff;
+      final lifecycle = ContentFeedbackLifecycle(
+        initialService: _service(
+          store: _Store(),
+          client: _Client(),
+          currentUid: () => 'new-anonymous-uid',
+          deletionActive: () async => false,
+        ),
+        createService: () => _service(
+          store: _Store(),
+          client: _Client(),
+          currentUid: () => 'new-anonymous-uid',
+          deletionActive: () async => false,
+        ),
+        currentIdentity: () => (uid: 'new-anonymous-uid', isAnonymous: true),
+        durableJournalActive: (_) => authGate.run(() async {
+          durableReads += 1;
+          return handoff.journal?.session.uid != 'deleted-uid';
+        }),
+      );
+
+      final checkpoint = AccountDeletionJournal(
+        version: AccountDeletionJournal.currentVersion,
+        session: const CloudWriteSession(
+          uid: 'deleted-uid',
+          epoch: 5,
+          mode: CloudWriteMode.cleanupPending,
+        ),
+        requestKey: 'feedback-finalization-request',
+        operation: const AccountOperationResult(
+          operationId: 'feedback-finalization-operation',
+          kind: AccountOperationKind.deletion,
+          phase: AccountOperationPhase.completed,
+          version: 1,
+          attemptCount: 1,
+          retryable: false,
+        ),
+      );
+      final completed = _JournalStore(null);
+      handoff = _JournalStore(checkpoint);
+      final finalizer = CompletedDeletionFeedbackFinalizer(
+        prepareWithinAdmission: () => authGate.run(() async => true),
+        closeAfterAdmission: lifecycle.closeAndDiscard,
+        finalizeAfterAdmission: () async {
+          await CompletedDeletionFeedbackActivationCoordinator(
+            completedStore: completed,
+            activationStore: handoff,
+            activateFeedback: lifecycle.activateAfterCompletedDeletion,
+          ).run();
+        },
+      );
+
+      final activated = await finalizer.run().timeout(
+        const Duration(seconds: 1),
+      );
+
+      expect(activated, isTrue);
+      expect(durableReads, 2);
+      expect(handoff.journal, isNull);
+    },
+  );
+
+  test(
+    'normal completion and marker retry share one finalization lane',
+    () async {
+      final serialGate = CompletedDeletionFeedbackSerialGate();
+      final normalStarted = Completer<void>();
+      final allowNormalCompletion = Completer<void>();
+      var retryPreparationCalls = 0;
+
+      final normalCompletion = serialGate.run(() async {
+        normalStarted.complete();
+        await allowNormalCompletion.future;
+      });
+      await normalStarted.future;
+
+      final markerRetry = serialGate.run(
+        () => CompletedDeletionFeedbackFinalizer(
+          prepareWithinAdmission: () async {
+            retryPreparationCalls += 1;
+            return false;
+          },
+          closeAfterAdmission: () async {
+            fail('a vanished marker must not close feedback');
+          },
+          finalizeAfterAdmission: () async {
+            fail('a vanished marker must not activate feedback');
+          },
+        ).run(),
+      );
+      await Future<void>.delayed(Duration.zero);
+
+      expect(retryPreparationCalls, 0);
+      allowNormalCompletion.complete();
+      await normalCompletion;
+      expect(await markerRetry, isFalse);
+      expect(retryPreparationCalls, 1);
     },
   );
 

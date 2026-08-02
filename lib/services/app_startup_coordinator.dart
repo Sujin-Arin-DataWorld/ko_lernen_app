@@ -17,6 +17,7 @@ enum AccountStartupRestorationKind {
   deletion,
   cloudBackupDeletion,
   localCleanupPending,
+  feedbackActivationPending,
   blocked,
 }
 
@@ -36,6 +37,10 @@ class AccountStartupRestoration {
 
   const AccountStartupRestoration.localCleanupPending()
     : kind = AccountStartupRestorationKind.localCleanupPending,
+      session = null;
+
+  const AccountStartupRestoration.feedbackActivationPending()
+    : kind = AccountStartupRestorationKind.feedbackActivationPending,
       session = null;
 
   const AccountStartupRestoration.blocked()
@@ -58,7 +63,7 @@ class AppStartupCoordinator {
     required this.synchronizeReadySession,
     this.resumeFeedbackOutbox = _noopStartupStep,
     this.resumeFirstDurableLinkBackfill = _noopStartupStep,
-    this.resumeCompletedAccountCleanup = _noopStartupStep,
+    this.resumeCompletedFeedbackActivation = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
@@ -76,7 +81,7 @@ class AppStartupCoordinator {
   final ReadySessionSynchronizer synchronizeReadySession;
   final StartupStep resumeFeedbackOutbox;
   final StartupStep resumeFirstDurableLinkBackfill;
-  final StartupStep resumeCompletedAccountCleanup;
+  final StartupStep resumeCompletedFeedbackActivation;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
@@ -101,13 +106,23 @@ class AppStartupCoordinator {
         case AccountStartupRestorationKind.blocked:
           return true;
         case AccountStartupRestorationKind.localCleanupPending:
-          // A completed server deletion still owns startup until identity
-          // recovery, privacy cleanup, and feedback activation all finish.
-          // This callback re-enters through the completed-checkpoint gate and
-          // therefore cannot issue a new remote deletion.
-          await resumeCompletedAccountCleanup();
-          final afterCleanup = await restore(currentUserId()?.trim());
-          if (afterCleanup.kind != AccountStartupRestorationKind.none) {
+          // The server deletion is complete, but destructive local cleanup is
+          // not durably proven. Keep startup fenced for an explicit retry;
+          // automatic cleanup could erase data created after an earlier crash.
+          return true;
+        case AccountStartupRestorationKind.feedbackActivationPending:
+          // The handoff marker is written only after local cleanup finishes.
+          // Finalizing it is non-destructive and may safely resume at startup.
+          // A cold start can have no Firebase identity yet; create the fresh
+          // anonymous replacement before the finalizer verifies it. Other
+          // journal kinds stay fenced before authentication is touched.
+          final currentUid = currentUserId()?.trim();
+          if (currentUid == null || currentUid.isEmpty) {
+            await ensureSignedIn();
+          }
+          await resumeCompletedFeedbackActivation();
+          final afterActivation = await restore(currentUserId()?.trim());
+          if (afterActivation.kind != AccountStartupRestorationKind.none) {
             return true;
           }
           break;

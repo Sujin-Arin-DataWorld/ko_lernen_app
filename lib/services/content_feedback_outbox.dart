@@ -6,6 +6,7 @@ import '../models/content_feedback.dart';
 import 'content_feedback_client.dart';
 
 const int feedbackOutboxMaxItems = 20;
+const int feedbackOutboxMaxAttemptCount = 1000000;
 
 enum FeedbackOutboxLocalStatus { pending, blocked }
 
@@ -96,7 +97,9 @@ class ContentFeedbackOutboxItem {
 
   ContentFeedbackOutboxItem recordAttempt() => _copyWith(
     retry: ContentFeedbackRetryMetadata(
-      attemptCount: retry.attemptCount + 1,
+      attemptCount: retry.attemptCount < feedbackOutboxMaxAttemptCount
+          ? retry.attemptCount + 1
+          : feedbackOutboxMaxAttemptCount,
       lastFailure: retry.lastFailure,
     ),
     status: FeedbackOutboxLocalStatus.pending,
@@ -147,7 +150,7 @@ class ContentFeedbackOutboxItem {
         ownerUid.length > 128 ||
         !createdAt.isUtc ||
         retry.attemptCount < 0 ||
-        retry.attemptCount > 1000000) {
+        retry.attemptCount > feedbackOutboxMaxAttemptCount) {
       throw const FormatException('Invalid feedback outbox item.');
     }
   }
@@ -274,6 +277,12 @@ ContentFeedbackSubmission _submissionFromWire(Map<String, Object?> wire) {
       'issueArea',
       'contentSignal',
       'contentFocus',
+      'expectedOutcome',
+      'actualOutcome',
+      'bugFrequency',
+      'bugImpact',
+      'experienceSignal',
+      'experienceFocus',
       'appVersion',
       'platform',
       'locale',
@@ -284,6 +293,12 @@ ContentFeedbackSubmission _submissionFromWire(Map<String, Object?> wire) {
       'issueArea',
       'contentSignal',
       'contentFocus',
+      'expectedOutcome',
+      'actualOutcome',
+      'bugFrequency',
+      'bugImpact',
+      'experienceSignal',
+      'experienceFocus',
       'betaMissionId',
     },
   );
@@ -304,6 +319,40 @@ ContentFeedbackSubmission _submissionFromWire(Map<String, Object?> wire) {
   final contentFocus = wire.containsKey('contentFocus')
       ? _enumByName(FeedbackContentFocus.values, wire['contentFocus'])
       : null;
+  final expectedOutcome = wire.containsKey('expectedOutcome')
+      ? _requiredString(wire['expectedOutcome'])
+      : null;
+  final actualOutcome = wire.containsKey('actualOutcome')
+      ? _requiredString(wire['actualOutcome'])
+      : null;
+  final bugFrequency = wire.containsKey('bugFrequency')
+      ? _enumByWireName(
+          FeedbackBugFrequency.values,
+          wire['bugFrequency'],
+          (value) => value.wireName,
+        )
+      : null;
+  final bugImpact = wire.containsKey('bugImpact')
+      ? _enumByWireName(
+          FeedbackBugImpact.values,
+          wire['bugImpact'],
+          (value) => value.wireName,
+        )
+      : null;
+  final experienceSignal = wire.containsKey('experienceSignal')
+      ? _enumByWireName(
+          FeedbackExperienceSignal.values,
+          wire['experienceSignal'],
+          (value) => value.wireName,
+        )
+      : null;
+  final experienceFocus = wire.containsKey('experienceFocus')
+      ? _enumByWireName(
+          FeedbackExperienceFocus.values,
+          wire['experienceFocus'],
+          (value) => value.wireName,
+        )
+      : null;
   final submission = ContentFeedbackSubmission(
     feedbackId: _requiredString(wire['feedbackId']),
     context: ContentFeedbackContext(
@@ -320,6 +369,12 @@ ContentFeedbackSubmission _submissionFromWire(Map<String, Object?> wire) {
       issueArea: issueArea,
       contentSignal: contentSignal,
       contentFocus: contentFocus,
+      expectedOutcome: expectedOutcome,
+      actualOutcome: actualOutcome,
+      bugFrequency: bugFrequency,
+      bugImpact: bugImpact,
+      experienceSignal: experienceSignal,
+      experienceFocus: experienceFocus,
     ),
     appVersion: _requiredString(wire['appVersion']),
     platform: _requiredString(wire['platform']),

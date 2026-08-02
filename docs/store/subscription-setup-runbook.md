@@ -72,12 +72,16 @@ RevenueCat이 구매 상태를 서버에서 검증하려면 Play Developer API �
 
 ## STEP 3 — 키 주입 + 빌드
 
-공개 SDK 키는 repo에 커밋하지 말고 빌드 시 주입:
+### Production subscription AAB (feedback disabled)
 
-```bash
-flutter build appbundle --release \
-  --obfuscate --split-debug-info=build/app/outputs/symbols \
-  --dart-define=RC_ANDROID_KEY=goog_xxxxxxxxxxxxxxxx
+공개 SDK 키는 repo에 커밋하지 말고 저장소 루트의 PowerShell 세션에만 주입한다.
+아래 guard는 키가 없거나 형식이 틀리면 빌드 전에 중단한다. 이 production 명령에는
+테스터 피드백 define을 넣지 않는다.
+
+```powershell
+$env:RC_ANDROID_KEY = '<paste-live-RevenueCat-Android-SDK-key>'
+if ([string]::IsNullOrWhiteSpace($env:RC_ANDROID_KEY) -or $env:RC_ANDROID_KEY -notmatch '^goog_[A-Za-z0-9_-]{8,}$') { throw 'Set RC_ANDROID_KEY to the live RevenueCat Android SDK key before building.' }
+flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=RC_ANDROID_KEY=$env:RC_ANDROID_KEY --dart-define=BETA_UNLOCK_ALL=false
 # iOS 추가 시: --dart-define=RC_IOS_KEY=appl_xxxxxxxxxxxx
 ```
 

@@ -51,6 +51,7 @@ class ContentFeedbackSubmitResult {
 class ContentFeedbackResumeResult {
   const ContentFeedbackResumeResult({
     this.delivered = 0,
+    this.deliveredFeedbackIds = const <String>{},
     this.discarded = 0,
     this.remaining = 0,
     this.disabled = false,
@@ -59,6 +60,7 @@ class ContentFeedbackResumeResult {
   });
 
   final int delivered;
+  final Set<String> deliveredFeedbackIds;
   final int discarded;
   final int remaining;
   final bool disabled;
@@ -485,6 +487,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     }
 
     var delivered = 0;
+    final deliveredFeedbackIds = <String>{};
     final candidates = queue
         .where((item) => item.status == FeedbackOutboxLocalStatus.pending)
         .toList(growable: false);
@@ -495,6 +498,7 @@ class ContentFeedbackService implements FeedbackOutbox {
       if (deletionActiveBeforeWrite) {
         return ContentFeedbackResumeResult(
           delivered: delivered,
+          deliveredFeedbackIds: deliveredFeedbackIds,
           discarded: discarded,
           remaining: queue.length,
           blockedByDeletion: true,
@@ -516,6 +520,7 @@ class ContentFeedbackService implements FeedbackOutbox {
       if (deletionActiveAfterWrite) {
         return ContentFeedbackResumeResult(
           delivered: delivered,
+          deliveredFeedbackIds: deliveredFeedbackIds,
           discarded: discarded,
           remaining: queue.length,
           blockedByDeletion: true,
@@ -554,6 +559,7 @@ class ContentFeedbackService implements FeedbackOutbox {
           break;
         }
         await _discardById(queue, attempted.submission.feedbackId);
+        deliveredFeedbackIds.add(attempted.submission.feedbackId);
         if (_closed) break;
         delivered += 1;
       } on ContentFeedbackClientFailure catch (failure) {
@@ -598,12 +604,14 @@ class ContentFeedbackService implements FeedbackOutbox {
     if (_closed) {
       return ContentFeedbackResumeResult(
         delivered: delivered,
+        deliveredFeedbackIds: deliveredFeedbackIds,
         discarded: discarded,
         closed: true,
       );
     }
     return ContentFeedbackResumeResult(
       delivered: delivered,
+      deliveredFeedbackIds: deliveredFeedbackIds,
       discarded: discarded,
       remaining: queue.length,
       closed: _closed,

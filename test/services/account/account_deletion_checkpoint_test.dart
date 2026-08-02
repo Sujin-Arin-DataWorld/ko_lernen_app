@@ -14,6 +14,7 @@ void main() {
       final events = <String>[];
       final gate = AccountDeletionRemoteGate(
         readCheckpoint: () async => checkpoint,
+        preflight: (_) {},
         startOrResumeRemote: () async {
           remoteStarts += 1;
           checkpoint = _completedCheckpoint();
@@ -36,7 +37,7 @@ void main() {
 
       expect(remoteStarts, 1);
       expect(recoveryCalls, 1);
-      expect(events, <String>['recover', 'close-feedback']);
+      expect(events, <String>['close-feedback', 'recover']);
     },
   );
 
@@ -50,6 +51,7 @@ void main() {
       var recoveryCalls = 0;
       final gate = AccountDeletionRemoteGate(
         readCheckpoint: () async => checkpoint,
+        preflight: (_) {},
         startOrResumeRemote: () async {
           remoteStarts += 1;
         },
@@ -127,6 +129,7 @@ void main() {
       var remoteStarts = 0;
       await AccountDeletionRemoteGate(
         readCheckpoint: () async => pending,
+        preflight: (_) {},
         startOrResumeRemote: () async => remoteStarts += 1,
         recoverCompleted: (_) async => fail('must not recover'),
       ).run();
@@ -150,6 +153,7 @@ void main() {
         AccountOperationFailureCode.invalidResponse,
         retryable: false,
       ),
+      preflight: (_) {},
       startOrResumeRemote: () async => remoteStarts += 1,
       recoverCompleted: (_) async => recoveryCalls += 1,
     );

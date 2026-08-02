@@ -12,7 +12,32 @@ enum FeedbackContentFocus {
   examples,
   questions,
   pace,
+  audio,
   translation,
+  other,
+}
+
+enum FeedbackBugFrequency { everyTime, sometimes, once }
+
+enum FeedbackBugImpact { canContinue, slowsLearning, blocksLearning }
+
+enum FeedbackExperienceSignal { positive, mixed, negative, unsure }
+
+enum FeedbackExperienceFocus {
+  koreanText,
+  wordMeanings,
+  grammar,
+  translation,
+  resultMissing,
+  goal,
+  difficulty,
+  reward,
+  instructions,
+  length,
+  timing,
+  visuals,
+  message,
+  frequency,
   other,
 }
 
@@ -35,6 +60,46 @@ extension FeedbackContentSignalWire on FeedbackContentSignal {
 
 extension FeedbackContentFocusWire on FeedbackContentFocus {
   String get wireName => name;
+}
+
+extension FeedbackBugFrequencyWire on FeedbackBugFrequency {
+  String get wireName => switch (this) {
+    FeedbackBugFrequency.everyTime => 'every_time',
+    FeedbackBugFrequency.sometimes => 'sometimes',
+    FeedbackBugFrequency.once => 'once',
+  };
+}
+
+extension FeedbackBugImpactWire on FeedbackBugImpact {
+  String get wireName => switch (this) {
+    FeedbackBugImpact.canContinue => 'can_continue',
+    FeedbackBugImpact.slowsLearning => 'slows_learning',
+    FeedbackBugImpact.blocksLearning => 'blocks_learning',
+  };
+}
+
+extension FeedbackExperienceSignalWire on FeedbackExperienceSignal {
+  String get wireName => name;
+}
+
+extension FeedbackExperienceFocusWire on FeedbackExperienceFocus {
+  String get wireName => switch (this) {
+    FeedbackExperienceFocus.koreanText => 'korean_text',
+    FeedbackExperienceFocus.wordMeanings => 'word_meanings',
+    FeedbackExperienceFocus.grammar => 'grammar',
+    FeedbackExperienceFocus.translation => 'translation',
+    FeedbackExperienceFocus.resultMissing => 'result_missing',
+    FeedbackExperienceFocus.goal => 'goal',
+    FeedbackExperienceFocus.difficulty => 'difficulty',
+    FeedbackExperienceFocus.reward => 'reward',
+    FeedbackExperienceFocus.instructions => 'instructions',
+    FeedbackExperienceFocus.length => 'length',
+    FeedbackExperienceFocus.timing => 'timing',
+    FeedbackExperienceFocus.visuals => 'visuals',
+    FeedbackExperienceFocus.message => 'message',
+    FeedbackExperienceFocus.frequency => 'frequency',
+    FeedbackExperienceFocus.other => 'other',
+  };
 }
 
 class ContentFeedbackValidationResult {
@@ -102,6 +167,12 @@ class ContentFeedbackDraft {
     this.issueArea,
     this.contentSignal,
     this.contentFocus,
+    this.expectedOutcome,
+    this.actualOutcome,
+    this.bugFrequency,
+    this.bugImpact,
+    this.experienceSignal,
+    this.experienceFocus,
   });
 
   final FeedbackCategory category;
@@ -109,6 +180,12 @@ class ContentFeedbackDraft {
   final FeedbackIssueArea? issueArea;
   final FeedbackContentSignal? contentSignal;
   final FeedbackContentFocus? contentFocus;
+  final String? expectedOutcome;
+  final String? actualOutcome;
+  final FeedbackBugFrequency? bugFrequency;
+  final FeedbackBugImpact? bugImpact;
+  final FeedbackExperienceSignal? experienceSignal;
+  final FeedbackExperienceFocus? experienceFocus;
 
   ContentFeedbackValidationResult validate() {
     final errors = <String>[];
@@ -116,23 +193,62 @@ class ContentFeedbackDraft {
       errors.add('message');
     }
 
+    final hasStructuredBugField =
+        (expectedOutcome?.isNotEmpty ?? false) ||
+        (actualOutcome?.isNotEmpty ?? false) ||
+        bugFrequency != null ||
+        bugImpact != null;
+    final hasLearningField = contentSignal != null || contentFocus != null;
+    final hasExperienceField =
+        experienceSignal != null || experienceFocus != null;
+
     switch (category) {
       case FeedbackCategory.bug:
+        if (!hasStructuredBugField && _isBlank(message)) {
+          errors.add('messageRequired');
+        }
+        if (hasStructuredBugField &&
+            (issueArea == null ||
+                expectedOutcome == null ||
+                _isBlank(expectedOutcome!) ||
+                actualOutcome == null ||
+                _isBlank(actualOutcome!) ||
+                bugFrequency == null ||
+                bugImpact == null ||
+                expectedOutcome!.length > 500 ||
+                actualOutcome!.length > 500)) {
+          errors.add('structuredBug');
+        }
+        if (hasLearningField) errors.add('contentFields');
+        if (hasExperienceField) errors.add('experienceFields');
       case FeedbackCategory.other:
         if (_isBlank(message)) errors.add('messageRequired');
-        if (category == FeedbackCategory.other && issueArea != null) {
-          errors.add('issueArea');
+        if (issueArea != null ||
+            expectedOutcome != null ||
+            actualOutcome != null ||
+            bugFrequency != null ||
+            bugImpact != null) {
+          errors.add('bugFields');
         }
-        if (contentSignal != null || contentFocus != null) {
-          errors.add('contentFields');
-        }
+        if (hasLearningField) errors.add('contentFields');
+        if (hasExperienceField) errors.add('experienceFields');
       case FeedbackCategory.content:
         if (issueArea != null) {
           errors.add('issueArea');
         }
-        if (contentSignal == null &&
-            contentFocus == null &&
-            _isBlank(message)) {
+        if (expectedOutcome != null ||
+            actualOutcome != null ||
+            bugFrequency != null ||
+            bugImpact != null) {
+          errors.add('bugFields');
+        }
+        if (hasLearningField && hasExperienceField) {
+          errors.add('mixedFeedbackFields');
+        }
+        if ((experienceSignal == null) != (experienceFocus == null)) {
+          errors.add('experienceFields');
+        }
+        if (!hasLearningField && !hasExperienceField && _isBlank(message)) {
           errors.add('contentFeedbackRequired');
         }
     }
@@ -146,6 +262,13 @@ class ContentFeedbackDraft {
     if (issueArea != null) 'issueArea': issueArea!.wireName,
     if (contentSignal != null) 'contentSignal': contentSignal!.wireName,
     if (contentFocus != null) 'contentFocus': contentFocus!.wireName,
+    if (expectedOutcome != null) 'expectedOutcome': expectedOutcome,
+    if (actualOutcome != null) 'actualOutcome': actualOutcome,
+    if (bugFrequency != null) 'bugFrequency': bugFrequency!.wireName,
+    if (bugImpact != null) 'bugImpact': bugImpact!.wireName,
+    if (experienceSignal != null)
+      'experienceSignal': experienceSignal!.wireName,
+    if (experienceFocus != null) 'experienceFocus': experienceFocus!.wireName,
   };
 }
 

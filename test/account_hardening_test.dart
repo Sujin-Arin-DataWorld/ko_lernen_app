@@ -258,7 +258,7 @@ void main() {
     );
 
     test(
-      'failed feedback activation restores the checkpoint for a later retry',
+      'failed feedback activation retains the handoff for a later retry',
       () async {
         final checkpoint = _completedDeletionCheckpoint();
         SharedPreferences.setMockInitialValues(<String, Object>{
@@ -295,8 +295,15 @@ void main() {
           ),
         );
         expect(
-          preferences.getString(
+          preferences.containsKey(
             AuthService.accountDeletionCheckpointPreferenceKey,
+          ),
+          isFalse,
+        );
+        expect(
+          preferences.getString(
+            AuthService
+                .accountDeletionFeedbackActivationCheckpointPreferenceKey,
           ),
           jsonEncode(checkpoint.toJson()),
         );
@@ -322,31 +329,20 @@ void main() {
     );
 
     test(
-      'handoff-only restart recovers completed deletion and never starts remote',
+      'handoff-only restart is activation pending and never starts remote',
       () async {
         final checkpoint = _completedDeletionCheckpoint();
         SharedPreferences.setMockInitialValues(<String, Object>{
           AuthService.accountDeletionFeedbackActivationCheckpointPreferenceKey:
               jsonEncode(checkpoint.toJson()),
         });
-        var remoteStarts = 0;
-        var recoveries = 0;
-        final gate = AccountDeletionRemoteGate(
-          readCheckpoint: AuthService.readAccountDeletionCheckpoint,
-          startOrResumeRemote: () async => remoteStarts += 1,
-          recoverCompleted: (_) async => recoveries += 1,
-        );
-
-        await gate.run();
         final restoration = await AuthService.restorePendingAccountState(
           'new-anonymous-uid',
         );
 
-        expect(remoteStarts, 0);
-        expect(recoveries, 1);
         expect(
           restoration.kind,
-          AccountStartupRestorationKind.localCleanupPending,
+          AccountStartupRestorationKind.feedbackActivationPending,
         );
       },
     );
@@ -378,6 +374,7 @@ void main() {
         Future<void> remoteDelete() {
           return AccountDeletionRemoteGate(
             readCheckpoint: () async => readCheckpoint(),
+            preflight: (_) {},
             startOrResumeRemote: () async {
               remoteCalls += 1;
               await preferences.setString(

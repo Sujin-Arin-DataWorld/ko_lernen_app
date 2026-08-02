@@ -26,6 +26,7 @@ import 'services/push_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'services/account/firebase_app_check_initializer.dart';
+import 'services/account/account_operation_client.dart';
 import 'services/app_startup_coordinator.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'screens/splash_screen.dart';
@@ -190,8 +191,20 @@ Future<void> _startCloudServices() async {
     resumeAccountOperation: () => AuthService.resumePendingAccountDeletion(
       closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
     ),
-    resumeCompletedAccountCleanup: () =>
-        _createCompletedAccountDeletionWorkflow().run(),
+    resumeCompletedFeedbackActivation: () async {
+      final finalized =
+          await AuthService.finalizePendingAccountDeletionFeedback(
+            closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
+            activateFeedback:
+                _contentFeedbackLifecycle.activateAfterCompletedDeletion,
+          );
+      if (!finalized) {
+        throw const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        );
+      }
+    },
     initializePremium: () async {
       await PaletteService.fetchAndApply();
       await PremiumService.init();
@@ -253,13 +266,6 @@ AccountDeletionWorkflow _createAccountDeletionWorkflow() =>
           _contentFeedbackLifecycle.activateAfterCompletedDeletion,
     );
 
-AccountDeletionWorkflow _createCompletedAccountDeletionWorkflow() =>
-    AccountDeletionWorkflow.completedStartupRecovery(
-      feedbackOutbox: _contentFeedbackLifecycle,
-      activateFeedback:
-          _contentFeedbackLifecycle.activateAfterCompletedDeletion,
-    );
-
 Future<bool> _initFirebase() async {
   try {
     await Firebase.initializeApp(
@@ -289,8 +295,74 @@ Future<void> _initAds() async {
   }
 }
 
-class KoLernenApp extends StatelessWidget {
+class ContentFeedbackLifecycleObserver extends StatefulWidget {
+  const ContentFeedbackLifecycleObserver({
+    super.key,
+    required this.resumePending,
+    required this.onResumeResult,
+    required this.child,
+  });
+
+  final Future<ContentFeedbackResumeResult> Function() resumePending;
+  final ValueChanged<ContentFeedbackResumeResult> onResumeResult;
+  final Widget child;
+
+  @override
+  State<ContentFeedbackLifecycleObserver> createState() =>
+      _ContentFeedbackLifecycleObserverState();
+}
+
+class _ContentFeedbackLifecycleObserverState
+    extends State<ContentFeedbackLifecycleObserver>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      unawaited(_resumePending());
+    }
+  }
+
+  Future<void> _resumePending() async {
+    try {
+      final result = await widget.resumePending();
+      if (!mounted) return;
+      widget.onResumeResult(result);
+    } catch (_) {
+      debugPrint('Feedback outbox resume skipped.');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
+}
+
+class KoLernenApp extends StatefulWidget {
   const KoLernenApp({super.key});
+
+  @override
+  State<KoLernenApp> createState() => _KoLernenAppState();
+}
+
+class _KoLernenAppState extends State<KoLernenApp> {
+  final _resumeDeliveryNotifier = ContentFeedbackResumeDeliveryNotifier();
+
+  @override
+  void dispose() {
+    _resumeDeliveryNotifier.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -311,11 +383,17 @@ class KoLernenApp extends StatelessWidget {
         builder: (context, child) => ContentFeedbackControllerScope(
           featureGate: _contentFeedbackLifecycle.featureGate,
           submitFeedback: _contentFeedbackLifecycle.submit,
+          resumePending: _contentFeedbackLifecycle.resumePending,
+          resumeDeliveryNotifier: _resumeDeliveryNotifier,
           readPassportState: _contentFeedbackLifecycle.readPassportState,
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-            child: child,
+          child: ContentFeedbackLifecycleObserver(
+            resumePending: _contentFeedbackLifecycle.resumePending,
+            onResumeResult: _resumeDeliveryNotifier.report,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+              child: child,
+            ),
           ),
         ),
         // 로고 스플래시(2초) → 솟을대문 인트로 → 온보딩/홈
