@@ -1,4 +1,4 @@
-# Release Notes — v2.0.1 (Closed Testing, Build 2.0.1+6)
+# Release Notes — v2.0.1 (Closed Testing, Build 2.0.1+7)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -53,26 +53,26 @@ Enjoy building your hanok!
 
 ---
 
-## 이번 내부 테스트 릴리스 노트 — Build 2.0.1+6, 2026-08-02 재빌드 (3e4a058)
+## 이번 내부 테스트 릴리스 노트 — Build 2.0.1+7 (2026-08-02)
 
-> Play Console 내부 테스트 "새 릴리스"의 릴리스 노트 필드에 붙여넣기 (릴리스별 노트).
+> Play Console 내부 테스트 "새 릴리스" 노트 필드에 **언어 태그 포함 통째로** 붙여넣기.
+> (규칙: em-dash·마크다운·한국어 혼입 금지 — memory jin-no-em-dash-copy)
 
-### DE
-
-```
+```text
+<de-DE>
 Neu in diesem Build:
-• Ton-Einstellungen — Master-Schalter + 5 Kategorien (Spiel-Feedback, Lernfreunde, Hintergrundklänge, Intro, Aussprache) mit Lautstärke-Reglern und Vorhören
-• Hören-Screen: NPC-Zeilen jetzt mit männlicher Stimme (wie in den Szenarien)
-• Feinschliff: Charakter-Videos passen jetzt exakt zur Kartenfarbe
-```
-
-### EN
-
-```
+• Ton-Einstellungen: Master-Schalter und 5 Kategorien (Spiel-Feedback, Lernfreunde, Hintergrundklänge, Intro, Aussprache) mit Lautstärke-Reglern und Vorhören
+• Lernpfad jetzt auch auf dem Startbildschirm im neuen Zickzack-Design mit Stempel-Stationen
+• Hören-Screen: NPC-Zeilen jetzt mit männlicher Stimme, wie in den Szenarien
+• Feinschliff: Charakter-Videos passen exakt zur Kartenfarbe
+</de-DE>
+<en-US>
 New in this build:
-• Sound settings — master switch + 5 categories (game feedback, study buddies, background ambience, intro, pronunciation) with volume sliders and preview
-• Listening screen: NPC lines now use the male voice (matching scenarios)
-• Polish: character videos now blend exactly with card colors
+• Sound settings: master switch and 5 categories (game feedback, study buddies, background ambience, intro, pronunciation) with volume sliders and preview
+• The learning path now uses the new zigzag design with stamp stations on the home screen too
+• Listening screen: NPC lines now use the male voice, matching the scenarios
+• Polish: character videos blend exactly with card colors
+</en-US>
 ```
 
 ---
@@ -91,7 +91,7 @@ New in this build:
 
 ### Release prep
 
-- Build tag: **v2.0.1+6** — matches `pubspec.yaml` `version: 2.0.1+6` (2026-08-01)
+- Build tag: **v2.0.1+7** — matches `pubspec.yaml` `version: 2.0.1+7` (2026-08-02)
 - Branch: `main` after Phase 5.2 verification
 - Track: **Closed Testing** (5-10 testers from v1.0 user pool)
 - Rollout: 100% to Closed track, monitor 1 week before considering Production

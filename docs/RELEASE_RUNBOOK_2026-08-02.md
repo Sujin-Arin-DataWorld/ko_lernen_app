@@ -30,6 +30,17 @@
 
 번들 계약 스팟체크(zipfile 실측): **growl_tiger.mp3 포함 ✓ · magpie_moon.mp4 부재 ✓ · mp4 30개 ✓**. 빌드: `flutter clean` → `pub get` → `build appbundle --release`(582s) → `build apk --release`(871s), 2026-08-02 16:22/16:37.
 
+### §2-B. ⚠️ 최신 — versionCode 7 재빌드 (2026-08-02 저녁, HEAD 9f2576a+) — **이게 업로드 대상**
+
++6 업로드 직후 코드가 더 들어가(홈 지그재그 등) **+7 로 범프 후 재빌드**. +6 매니페스트는 폐기.
+
+| 산출물 | 크기 | SHA-256 |
+|---|---|---|
+| `app-release.aab` (versionCode **7**) | **246,925,338 B (235.5 MB)** | `4a4046af4ff2a2492bef67d3b6b823ededa549ee6320c89490668fbc20604cef` |
+| `app-release.apk` (스모크용) | **268,280,481 B (255.9 MB)** | `0cd05d32228dd73b1933d0a10f5867c8dd2928c63bc38d3a20aa857d874daf5b` |
+
+번들 계약: growl ✓ · magpie_moon 부재 ✓ · mp4 30 ✓ (18:38/18:43). **+7 포함 델타**: 사운드 카테고리 설정 전체(+6과 동일) + **홈 Lernpfad 지그재그**(liveNowNode 정적 강등). 1:1 검수 21/21 IMPLEMENTED(코드 13·문서 8, `wf_a9400976-636`).
+
 ## §3. 유저(테스터)에게 도달하기까지 — Jin 실행 절차 (순서대로)
 
 ### 3-1. 실기기 스모크 (업로드 전 최종 관문)
