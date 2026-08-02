@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/generated/app_localizations.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../services/course_mastery_service.dart';
@@ -92,9 +93,6 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
 
   bool get _isCurrent => _unit?.id == _snapshot?.currentCourseUnitId;
 
-  String _copy(String de, String en) =>
-      Localizations.localeOf(context).languageCode == 'en' ? en : de;
-
   Future<void> _openLink(ContentLink link) async {
     final unit = _unit;
     final destination = destinationForCourseLink(link);
@@ -109,24 +107,17 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     if (_loading) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text(_copy('Deine nächste Mission', 'Your next mission')),
-        ),
+        appBar: AppBar(title: Text(t.courseMissionTitle)),
         body: const AppLoading(),
       );
     }
     if (_error != null || _unit == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(_copy('Kursmission', 'Course mission'))),
-        body: AppError(
-          message: _copy(
-            'Die Kursdaten konnten nicht geladen werden.',
-            'The course data could not be loaded.',
-          ),
-          onRetry: _load,
-        ),
+        appBar: AppBar(title: Text(t.courseMissionTitleShort)),
+        body: AppError(message: t.courseMissionLoadError, onRetry: _load),
       );
     }
 
@@ -152,9 +143,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
         .toList(growable: false);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_copy('Deine nächste Mission', 'Your next mission')),
-      ),
+      appBar: AppBar(title: Text(t.courseMissionTitle)),
       body: SoriScreenBackground(
         child: RefreshIndicator(
           onRefresh: _load,
@@ -173,7 +162,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${unit.level.toUpperCase()} · ${_isCurrent ? _copy('jetzt', 'now') : _copy('Vorschau', 'preview')}',
+                      '${unit.level.toUpperCase()} · ${_isCurrent ? t.courseMissionNow : t.courseMissionPreviewTag}',
                       style: SoriTextTheme.of(context).label.copyWith(
                         color: SoriColors.primary,
                         fontWeight: FontWeight.w700,
@@ -194,23 +183,20 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
                     const SizedBox(height: Spacing.lg),
                     if (_isCurrent && actions.isNotEmpty)
                       SoriButton.filled(
-                        label: _copy('Übung starten', 'Start practice'),
+                        label: t.courseMissionStartPractice,
                         fullWidth: true,
                         onTap: () => _openLink(actions.first),
                       )
                     else if (!_isCurrent)
                       Text(
-                        _copy(
-                          'Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.',
-                          'You can preview this mission. Scores and progress count only when it is active.',
-                        ),
+                        t.courseMissionPreviewNotice,
                         style: SoriTextTheme.of(context).bodySmall,
                       ),
                   ],
                 ),
               ),
               const SizedBox(height: Spacing.xl),
-              _SectionTitle(_copy('Was heute zählt', 'What counts today')),
+              _SectionTitle(t.courseSectionToday),
               const SizedBox(height: Spacing.sm),
               ...unit.requiredConceptIds.map(
                 (conceptId) => _ConceptRow(
@@ -222,9 +208,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
               ),
               if (families.isNotEmpty) ...[
                 const SizedBox(height: Spacing.xl),
-                _SectionTitle(
-                  _copy('Ausdrucksfamilien', 'Expression families'),
-                ),
+                _SectionTitle(t.courseSectionFamilies),
                 const SizedBox(height: Spacing.sm),
                 ...families.map(
                   (family) => _FormFamilyCard(family: family, lang: lang),
@@ -232,9 +216,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
               ],
               if (surfaces.isNotEmpty) ...[
                 const SizedBox(height: Spacing.xl),
-                _SectionTitle(
-                  _copy('Karten aus dem echten Alltag', 'Real-life cards'),
-                ),
+                _SectionTitle(t.courseSectionSurfaces),
                 const SizedBox(height: Spacing.sm),
                 ...surfaces.map(
                   (surface) => _SurfaceFormCard(surface: surface, lang: lang),
@@ -242,7 +224,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
               ],
               if (_reviewQueue.isNotEmpty) ...[
                 const SizedBox(height: Spacing.xl),
-                _SectionTitle(_copy('Kurz korrigieren', 'Quick repair')),
+                _SectionTitle(t.courseSectionRepair),
                 const SizedBox(height: Spacing.sm),
                 ..._reviewQueue.map(
                   (item) => _ReviewCard(
@@ -257,13 +239,13 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
               ],
               if (actions.isNotEmpty) ...[
                 const SizedBox(height: Spacing.xl),
-                _SectionTitle(_copy('Missionsübungen', 'Mission practice')),
+                _SectionTitle(t.courseSectionPractice),
                 const SizedBox(height: Spacing.sm),
                 ...actions.map(
                   (link) => _PracticeCard(
                     link: link,
                     onTap: () => _openLink(link),
-                    label: _practiceLabel(link.contentKind, lang),
+                    label: _practiceLabel(link.contentKind, t),
                   ),
                 ),
               ],
@@ -314,20 +296,15 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     CurriculumContentKind.smalltalk => 5,
   };
 
-  String _practiceLabel(CurriculumContentKind kind, String lang) {
-    final english = lang == 'en';
-    return switch (kind) {
-      CurriculumContentKind.vocab =>
-        english ? 'Vocabulary practice' : 'Wortschatz üben',
-      CurriculumContentKind.grammar =>
-        english ? 'Grammar cards' : 'Grammatikkarten',
-      CurriculumContentKind.cloze => english ? 'Fill the gap' : 'Lückentext',
-      CurriculumContentKind.satz => english ? 'Build a sentence' : 'Satz bauen',
-      CurriculumContentKind.scenario =>
-        english ? 'Scenario checkpoint' : 'Szenario-Checkpoint',
-      CurriculumContentKind.smalltalk => english ? 'Small talk' : 'Small Talk',
-    };
-  }
+  String _practiceLabel(CurriculumContentKind kind, AppL10n t) =>
+      switch (kind) {
+        CurriculumContentKind.vocab => t.coursePracticeVocab,
+        CurriculumContentKind.grammar => t.coursePracticeGrammar,
+        CurriculumContentKind.cloze => t.coursePracticeCloze,
+        CurriculumContentKind.satz => t.coursePracticeSatz,
+        CurriculumContentKind.scenario => t.coursePracticeScenario,
+        CurriculumContentKind.smalltalk => t.coursePracticeSmalltalk,
+      };
 }
 
 class _SectionTitle extends StatelessWidget {
@@ -352,36 +329,37 @@ class _ConceptRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final (icon, color, status) = switch (state) {
       CourseContentState.preview => (
         Icons.visibility_outlined,
         SoriColors.info,
-        lang == 'en' ? 'Preview' : 'Vorschau',
+        t.courseStatePreview,
       ),
       CourseContentState.introduced => (
         Icons.menu_book_outlined,
         SoriColors.primary,
-        lang == 'en' ? 'Introduced' : 'Eingeführt',
+        t.courseStateIntroduced,
       ),
       CourseContentState.practiceAvailable => (
         Icons.edit_outlined,
         SoriColors.warning,
-        lang == 'en' ? 'Practice' : 'Üben',
+        t.courseStatePractice,
       ),
       CourseContentState.checkpointPassed => (
         Icons.check_circle_outline,
         SoriColors.success,
-        lang == 'en' ? 'Checkpoint passed' : 'Checkpoint geschafft',
+        t.courseStateCheckpointPassed,
       ),
       CourseContentState.reviewDue => (
         Icons.refresh_rounded,
         SoriColors.danger,
-        lang == 'en' ? 'Quick repair' : 'Kurz korrigieren',
+        t.courseStateReviewDue,
       ),
       CourseContentState.stableMastery => (
         Icons.workspace_premium_outlined,
         SoriColors.primary,
-        lang == 'en' ? 'Stable' : 'Sicher',
+        t.courseStateStable,
       ),
     };
     return Padding(
@@ -426,39 +404,40 @@ class _FormFamilyCard extends StatelessWidget {
   final FormFamily family;
   final String lang;
 
-  String _axisLabel(String axis) {
-    final english = lang == 'en';
-    return switch (axis) {
-      'batchim' => english ? 'final consonant (받침)' : 'Endkonsonant (받침)',
-      'sentence_role' => english ? 'sentence role' : 'Satzrolle',
-      'relationship_context' =>
-        english ? 'relationship and situation' : 'Beziehung und Situation',
-      'setting' => english ? 'place and purpose' : 'Ort und Anlass',
-      _ => axis,
-    };
-  }
+  String _axisLabel(AppL10n t, String axis) => switch (axis) {
+    'batchim' => t.courseAxisBatchim,
+    'sentence_role' => t.courseAxisSentenceRole,
+    'relationship_context' => t.courseAxisRelationship,
+    'setting' => t.courseAxisSetting,
+    _ => axis,
+  };
 
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.only(bottom: Spacing.sm),
-    child: SoriCard(
-      variant: SoriCardVariant.base,
-      accent: SoriColors.hangul,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(family.title.pick(lang), style: SoriTextTheme.of(context).h3),
-          if (family.changeAxes.isNotEmpty) ...[
-            const SizedBox(height: Spacing.xs),
-            Text(
-              family.changeAxes.map(_axisLabel).join(' · '),
-              style: SoriTextTheme.of(context).bodySmall,
-            ),
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.base,
+        accent: SoriColors.hangul,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(family.title.pick(lang), style: SoriTextTheme.of(context).h3),
+            if (family.changeAxes.isNotEmpty) ...[
+              const SizedBox(height: Spacing.xs),
+              Text(
+                family.changeAxes
+                    .map((axis) => _axisLabel(t, axis))
+                    .join(' · '),
+                style: SoriTextTheme.of(context).bodySmall,
+              ),
+            ],
           ],
-        ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 class _SurfaceFormCard extends StatelessWidget {
@@ -466,52 +445,48 @@ class _SurfaceFormCard extends StatelessWidget {
   final SurfaceForm surface;
   final String lang;
 
-  String _usageLabel(String context) {
-    final english = lang == 'en';
-    return switch (context) {
-      'official' => english ? 'official setting' : 'offizieller Rahmen',
-      'polite' => english ? 'polite everyday speech' : 'höflicher Alltag',
-      'close_relationship_only' =>
-        english ? 'only with a close relationship' : 'nur bei enger Beziehung',
-      'official_or_service' =>
-        english ? 'official or service setting' : 'offiziell oder im Service',
-      'everyday_polite' =>
-        english ? 'polite everyday speech' : 'höflicher Alltag',
-      'friendly_polite' =>
-        english ? 'friendly, polite speech' : 'freundlich und höflich',
-      'sentence_role' => english ? 'sentence role' : 'Satzrolle',
-      'service_request' => english ? 'service request' : 'Service-Anfrage',
-      'payment_notice' => english ? 'payment notice' : 'Zahlungshinweis',
-      _ => context,
-    };
-  }
+  String _usageLabel(AppL10n t, String usage) => switch (usage) {
+    'official' => t.courseUsageOfficial,
+    'polite' => t.courseUsageEverydayPolite,
+    'close_relationship_only' => t.courseUsageCloseOnly,
+    'official_or_service' => t.courseUsageOfficialOrService,
+    'everyday_polite' => t.courseUsageEverydayPolite,
+    'friendly_polite' => t.courseUsageFriendlyPolite,
+    'sentence_role' => t.courseAxisSentenceRole,
+    'service_request' => t.courseUsageServiceRequest,
+    'payment_notice' => t.courseUsagePaymentNotice,
+    _ => usage,
+  };
 
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.only(bottom: Spacing.sm),
-    child: SoriCard(
-      variant: SoriCardVariant.compact,
-      accent: SoriColors.primary,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(surface.ko, style: SoriTextTheme.of(context).h3),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            surface.meaning.pick(lang),
-            style: SoriTextTheme.of(context).body,
-          ),
-          if (surface.usageContext.trim().isNotEmpty) ...[
-            const SizedBox(height: 2),
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.primary,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(surface.ko, style: SoriTextTheme.of(context).h3),
+            const SizedBox(height: Spacing.xs),
             Text(
-              _usageLabel(surface.usageContext),
-              style: SoriTextTheme.of(context).bodySmall,
+              surface.meaning.pick(lang),
+              style: SoriTextTheme.of(context).body,
             ),
+            if (surface.usageContext.trim().isNotEmpty) ...[
+              const SizedBox(height: 2),
+              Text(
+                _usageLabel(t, surface.usageContext),
+                style: SoriTextTheme.of(context).bodySmall,
+              ),
+            ],
           ],
-        ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 class _ReviewCard extends StatelessWidget {

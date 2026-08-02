@@ -109,24 +109,33 @@ class AppL10nDe extends AppL10n {
   String get homeFirstWeekTitle => 'Deine erste Woche';
 
   @override
-  String get characterNameTiger => '든든이';
+  String get characterNameTiger => '태고';
+
+  @override
+  String get characterRomanTiger => 'Taego';
 
   @override
   String get characterTraitTiger => 'Verlässlich & mutig';
 
   @override
   String get characterDescTiger =>
-      'Ein ruhiger, treuer Tiger, der dich Schritt für Schritt begleitet und dir Mut macht, wenn es mal schwer wird.';
+      'In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für uralte, ruhige Kraft — er begleitet dich Schritt für Schritt und macht dir Mut, wenn es schwer wird.';
 
   @override
-  String get characterNameMagpie => '쌤쌤이';
+  String get characterNameMagpie => '조이';
+
+  @override
+  String get characterRomanMagpie => 'Joy';
 
   @override
   String get characterTraitMagpie => 'Fröhlich & lebendig';
 
   @override
   String get characterDescMagpie =>
-      'Eine quirlige Elster mit Hut, die jeden Erfolg lautstark feiert und gute Laune in jede Lektion bringt.';
+      'In Korea gilt die Elster als Glücksbotin, die gute Nachrichten bringt. Joy feiert jeden Erfolg mit dir und bringt gute Laune in jede Lektion.';
+
+  @override
+  String get characterSelectionHint => 'Tipp deinen Lernfreund an';
 
   @override
   String get reviewTitle => 'Heute wiederholen';
@@ -3536,4 +3545,145 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get scenarioRoleplayDoneBody => 'Du hast das Gespräch selbst geführt.';
+
+  @override
+  String get onboardingDiagnosticCta => 'Unsicher? 8 Fragen beantworten';
+
+  @override
+  String get placementTitle => 'Kurzer Einstufungscheck';
+
+  @override
+  String placementProgress(Object current, Object total) {
+    return 'Frage $current von $total';
+  }
+
+  @override
+  String get placementNoRecording =>
+      'Keine Aufnahme. Wähle einfach die beste Antwort.';
+
+  @override
+  String get placementSeeRecommendation => 'Empfehlung ansehen';
+
+  @override
+  String get placementRecommendedStart => 'Empfohlener Start';
+
+  @override
+  String placementScoreSummary(Object correct, Object total) {
+    return 'Du hattest $correct von $total richtig. Das ist nur eine Empfehlung: Du kannst jede Stufe wählen.';
+  }
+
+  @override
+  String placementStartAt(Object level) {
+    return 'Mit $level starten';
+  }
+
+  @override
+  String get placementChooseYourself => 'Oder selbst wählen';
+
+  @override
+  String get courseMissionTitle => 'Deine nächste Mission';
+
+  @override
+  String get courseMissionTitleShort => 'Kursmission';
+
+  @override
+  String get courseMissionLoadError =>
+      'Die Kursdaten konnten nicht geladen werden.';
+
+  @override
+  String get courseMissionNow => 'jetzt';
+
+  @override
+  String get courseMissionPreviewTag => 'Vorschau';
+
+  @override
+  String get courseMissionStartPractice => 'Übung starten';
+
+  @override
+  String get courseMissionPreviewNotice =>
+      'Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.';
+
+  @override
+  String get courseSectionToday => 'Was heute zählt';
+
+  @override
+  String get courseSectionFamilies => 'Ausdrucksfamilien';
+
+  @override
+  String get courseSectionSurfaces => 'Karten aus dem echten Alltag';
+
+  @override
+  String get courseSectionRepair => 'Kurz korrigieren';
+
+  @override
+  String get courseSectionPractice => 'Missionsübungen';
+
+  @override
+  String get coursePracticeVocab => 'Wortschatz üben';
+
+  @override
+  String get coursePracticeGrammar => 'Grammatikkarten';
+
+  @override
+  String get coursePracticeCloze => 'Lückentext';
+
+  @override
+  String get coursePracticeSatz => 'Satz bauen';
+
+  @override
+  String get coursePracticeScenario => 'Szenario-Checkpoint';
+
+  @override
+  String get coursePracticeSmalltalk => 'Small Talk';
+
+  @override
+  String get courseStatePreview => 'Vorschau';
+
+  @override
+  String get courseStateIntroduced => 'Eingeführt';
+
+  @override
+  String get courseStatePractice => 'Üben';
+
+  @override
+  String get courseStateCheckpointPassed => 'Checkpoint geschafft';
+
+  @override
+  String get courseStateReviewDue => 'Kurz korrigieren';
+
+  @override
+  String get courseStateStable => 'Sicher';
+
+  @override
+  String get courseAxisBatchim => 'Endkonsonant (받침)';
+
+  @override
+  String get courseAxisSentenceRole => 'Satzrolle';
+
+  @override
+  String get courseAxisRelationship => 'Beziehung und Situation';
+
+  @override
+  String get courseAxisSetting => 'Ort und Anlass';
+
+  @override
+  String get courseUsageOfficial => 'offizieller Rahmen';
+
+  @override
+  String get courseUsageEverydayPolite => 'höflicher Alltag';
+
+  @override
+  String get courseUsageCloseOnly => 'nur bei enger Beziehung';
+
+  @override
+  String get courseUsageOfficialOrService => 'offiziell oder im Service';
+
+  @override
+  String get courseUsageFriendlyPolite => 'freundlich und höflich';
+
+  @override
+  String get courseUsageServiceRequest => 'Service-Anfrage';
+
+  @override
+  String get courseUsagePaymentNotice => 'Zahlungshinweis';
 }

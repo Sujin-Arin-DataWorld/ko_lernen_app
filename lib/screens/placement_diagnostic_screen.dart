@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/generated/app_localizations.dart';
 import '../services/placement_diagnostic.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -24,9 +25,6 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
   final List<int> _answers = [];
   int? _selected;
   bool _saving = false;
-
-  String _copy(String de, String en) =>
-      Localizations.localeOf(context).languageCode == 'en' ? en : de;
 
   String get _lang => Localizations.localeOf(context).languageCode;
   bool get _done => _index >= placementDiagnosticQuestions.length;
@@ -59,16 +57,15 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_copy('Kurzer Einstufungscheck', 'Quick placement check')),
-      ),
+      appBar: AppBar(title: Text(t.placementTitle)),
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriCenterClamp(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 36),
-              child: _done ? _result() : _question(),
+              child: _done ? _result(t) : _question(t),
             ),
           ),
         ),
@@ -76,16 +73,16 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
     );
   }
 
-  Widget _question() {
+  Widget _question(AppL10n t) {
     final question = placementDiagnosticQuestions[_index];
     final choices = question.choices(_lang);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          _copy(
-            'Frage ${_index + 1} von ${placementDiagnosticQuestions.length}',
-            'Question ${_index + 1} of ${placementDiagnosticQuestions.length}',
+          t.placementProgress(
+            _index + 1,
+            placementDiagnosticQuestions.length,
           ),
           style: SoriTextTheme.of(
             context,
@@ -93,10 +90,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
         ),
         const SizedBox(height: Spacing.sm),
         Text(
-          _copy(
-            'Keine Aufnahme. Wähle einfach die beste Antwort.',
-            'No recording. Just choose the best answer.',
-          ),
+          t.placementNoRecording,
           style: SoriTextTheme.of(context).bodySmall,
         ),
         const SizedBox(height: Spacing.xl),
@@ -148,8 +142,8 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
         const Spacer(),
         SoriButton.filled(
           label: _index + 1 == placementDiagnosticQuestions.length
-              ? _copy('Empfehlung ansehen', 'See recommendation')
-              : _copy('Weiter', 'Next'),
+              ? t.placementSeeRecommendation
+              : t.btnNext,
           fullWidth: true,
           onTap: _selected == null ? null : _next,
         ),
@@ -157,7 +151,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
     );
   }
 
-  Widget _result() {
+  Widget _result(AppL10n t) {
     final recommendation = recommendPlacement(_correct);
     return ListView(
       children: [
@@ -170,7 +164,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                _copy('Empfohlener Start', 'Recommended start'),
+                t.placementRecommendedStart,
                 style: SoriTextTheme.of(
                   context,
                 ).label.copyWith(color: SoriColors.success),
@@ -182,18 +176,15 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
               ),
               const SizedBox(height: Spacing.sm),
               Text(
-                _copy(
-                  'Du hattest $_correct von ${placementDiagnosticQuestions.length} richtig. Das ist nur eine Empfehlung: Du kannst jede Stufe wählen.',
-                  'You got $_correct of ${placementDiagnosticQuestions.length} right. This is only a recommendation: you can choose any level.',
+                t.placementScoreSummary(
+                  _correct,
+                  placementDiagnosticQuestions.length,
                 ),
                 style: SoriTextTheme.of(context).body,
               ),
               const SizedBox(height: Spacing.lg),
               SoriButton.filled(
-                label: _copy(
-                  'Mit ${recommendation.toUpperCase()} starten',
-                  'Start at ${recommendation.toUpperCase()}',
-                ),
+                label: t.placementStartAt(recommendation.toUpperCase()),
                 fullWidth: true,
                 onTap: _saving ? null : () => _choose(recommendation),
               ),
@@ -202,7 +193,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
         ),
         const SizedBox(height: Spacing.xl),
         Text(
-          _copy('Oder selbst wählen', 'Or choose yourself'),
+          t.placementChooseYourself,
           style: SoriTextTheme.of(context).h3,
         ),
         const SizedBox(height: Spacing.sm),
