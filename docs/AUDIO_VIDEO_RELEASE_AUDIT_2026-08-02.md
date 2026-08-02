@@ -11,7 +11,7 @@
 | 질문 | 판정 |
 |---|---|
 | 핑크(마젠타) 화면 배경 정리됐나? | ✅ **완료** — 매트 검사 16/16 ok, tiger_sitting2 순백 재출력, magpie_moon 번들 완전 제거 (§3) |
-| 오디오 v3 전부 적용됐나? | ✅ **TTS v3 코드 4자 일치 + 캐릭터 SFX mp3 4종 v3(모델 생성)** — 단 갭 2건(§4-3)과 배포측 미검증(§4-4) |
+| 오디오 v3 전부 적용됐나? | ✅ **TTS v3 코드 4자 일치 + 캐릭터 SFX mp3 4종 v3(모델 생성)** — 갭 2건(§4-3)만 남음. **서버 업로드도 완결 실측**: female 1,211 + male 103 = 1,314/1,314 (Jin gsutil, §4-4) |
 | AAB 재빌드 필요한가? | ❌ **불필요** — 마지막 빌드 이후 델타가 문서뿐, growl_tiger.mp3도 이미 기존 AAB에 포함(§5-3). 기존 AAB(246,845,826B, SHA `BB20DC29…6A8D019`) 유효 |
 | AAB 업로드 전 남은 것? | 코드측 신규 차단 항목 **0** (게이트 실측 §5-4: analyze 0 · test 1,293 통과) — 남은 건 전부 Jin/기기·콘솔측(§5-2) |
 | 사운드 끌 수 있나? | ❌ **불가능** — `SoundService.enabled` 대입 0곳, 인트로가 0.8로 소리 내는데 끌 방법 없음. **다음 세션 1순위**(§6-ⓐ) |
@@ -126,10 +126,12 @@ CF는 계약을 `tts_contract.js` 단일 모듈로 공유(index.js:24 require) �
 
 ### §4-4. 코드로 검증 불가 — Jin/배포측 확인 명령
 
+> **2026-08-02 갱신: Storage 업로드는 닫힘.** Jin이 gsutil로 실측 — **female 1,211 + male 103 = 1,314/1,314 전부 업로드됨**(기대값은 `generate_tts.py collect()` 재현으로 교차 확인, 병렬 세션 HANDOFF §0-A). 사전생성 TTS 커버리지 100%, CF 폴백은 설계대로 동적 콘텐츠(사용자 입력·책 OCR)에만. 아래 표의 나머지 항목은 여전히 미확인.
+
 | 항목 | 확인 방법 |
 |---|---|
 | CF `synthesize_tts` 배포본이 v3인지 | `gcloud functions describe synthesize_tts --region=europe-west3 --project=ko-lernen-app --gen2 --format="value(updateTime,serviceConfig.revision)"` — updateTime이 fc1d865(2026-07-31 18:03) 이후인지 |
-| Storage `tts/v3/` 업로드 여부 | `gcloud storage ls "gs://ko-lernen-app.firebasestorage.app/tts/v3/female/**" \| wc -l` (기대 ~1211) + male(~103) |
+| ~~Storage `tts/v3/` 업로드 여부~~ | ✅ **완결** — 1,314/1,314 실측 (위 갱신 참조) |
 | 구 `tts/v2/`·무리비전 잔존 객체 | `gcloud storage ls gs://ko-lernen-app.firebasestorage.app/tts/` — 남아 있어도 클라는 v3만 읽어 무해, 비용만. 삭제는 Jin 판단 |
 | App Check enforce 콘솔 상태 · 실기기 Zephyr 청감 | Firebase 콘솔 / 실기기 |
 
@@ -172,12 +174,13 @@ flutter test --reporter compact                        →  +1293: All tests pas
 
 > 공통 주의: ① 래칫 여유 0(§5-1) — 새 위젯에 w800·`▶◀` 금지 ② arb 키 추가 시 `flutter gen-l10n` 필수(DE/EN parity) ③ 영상 코드는 lease 경유 강제(§1 불변식) ④ Dart 수정 후 `flutter analyze` + `flutter test` (기준 1,293개).
 
-- **ⓐ 사운드 마스터 토글 (가장 싸고 가장 급함)** — `Storage`에 `soundEnabled` getter/setter(기본 true) + `SoundService.enabled`를 Storage 읽는 getter로 전환(또는 앱 시작 시 1회 로드) + settings_screen에 SwitchListTile 1개 + arb 2키(DE/EN). **기존 게이트 읽기 4곳이 이미 배선돼 있어 이 작업만으로 3채널(게임 SFX·캐릭터 SFX·인트로) 동시 커버.** TTS는 게이트 없음(사용자 명시 탭이라 의도적 — 정책 판단은 Jin).
+- **ⓐ 사운드 마스터 토글 (가장 싸고 가장 급함)** — ⚠️ **Storage 키는 임의 이름(`soundEnabled` 등)을 만들지 말고 ADR-002 §3-4의 확정 스킴을 그대로 쓸 것**: `kl_snd_master`(+ 이후 `kl_snd_master_vol`/`kl_snd_$id`/`kl_snd_${id}_vol`/`kl_snd_duck`/`kl_snd_respect_silent`). `SoundService.enabled`는 ADR §3-6대로 **읽기 전용 getter**(`@Deprecated` + `AudioPolicy.instance.masterOn` 위임)로 전환 — 컴파일러가 대입을 막는 구조가 정답. **저장값 없을 때 기본 true 필수**(false로 떨어지면 신규 사용자가 무음 앱을 받음). settings_screen에 SwitchListTile 1개 + arb 2키(DE/EN, gen-l10n). **기존 게이트 읽기 4곳이 이미 배선돼 있어 이 작업만으로 3채널(게임 SFX·캐릭터 SFX·인트로) 동시 커버.** TTS는 ADR §8이 "마스터 밖" 안을 기각(speech 채널로 마스터 안에 + 음소거 시 되돌리기 스낵바 설계 §7-1) — 최소안 단계에서는 현상 유지 가능, AudioPolicy 단계에서 speech 편입.
 - **ⓑ AudioPolicy + 게인 정규화 테이블** — `lib/services/audio_policy.dart` 신설(설계 완성본: `docs/ADR-002-audio-policy.md`). 산재한 볼륨 리터럴(0.55/0.6/0.65 sound_service · 0.7 character_clip:270 · 0.8 intro_gate:384)을 `AudioPolicy.volumeFor(channel)`로 이관. 앰비언스 루프 게인표(ADR-002 §1-4: hanok_construction 0.095 ~ porch 1.0, 목표 −40dB)를 에셋별 테이블로. 앰비언스를 실제로 켜려면 **HanokHeader에 volume 파라미터 신설**(현재 없음, §1) 후 SoriPosterLoop로 전달 — 17곳 호출부는 기본값으로 두고 정책 테이블이 결정.
 - **ⓒ growl_tiger.mp3 배선** — Jin 의도(2026-08-02 원문): "sound만든거 배선해서 유저가 사운드 설정에서 사운드 세밀하게 조정하게 가능하게하려고 만든거야." 사운드 설정 화면의 카테고리(캐릭터 SFX) 미리듣기 또는 호랑이 roar/스트레치 계열 SFX로 배선. `CharacterClips.sfxFor()`에 추가하는 경우 celebrate_tiger와의 역할 분담을 Jin에게 확인.
 - **ⓓ listening voice 갭** — listening_screen.dart:136에 scenario_player:600-602의 화자→voice 규칙 이식(user→female, 그 외→male). 1줄급, 사전생성 캐시 적중 복구.
 - **ⓔ TTS 더킹 (선행조건 있음)** — 더킹 훅은 `soriVideoLease` 코디네이터(활성 핸들 1개를 이미 알고 있음)에 볼륨 콜백을 넣는 것이 자연스러운 자리. AudioPolicy(ⓑ)가 선행. 현재 실질 리스크는 낮음(소리 나는 영상 = 인트로 1개 경로, 루프 전부 무음).
-- **ⓕ 소소한 정리(묶음)** — `SoundService.levelUp()` 호출 0(레벨업 지점에 배선 or 제거) · `tiger_greet.mp3` 죽은 경로(재활성 여부 Jin 확인, 아니면 번들 제외) · sound_service.dart:6 doc 주석 ".mp3"→".wav" · intro_gate:21 "무음" 주석 정정 · P2 래칫 189 복구(§5-1).
+- **ⓕ 소소한 정리(묶음)** — `SoundService.levelUp()` 호출 0(레벨업 지점에 배선 or 제거) · `tiger_greet.mp3` 죽은 경로(재활성 여부 Jin 확인, 아니면 번들 제외) · sound_service.dart:6 doc 주석 ".mp3"→".wav" · intro_gate:21 "무음" 주석 정정 · tts_service 폴백 주석 "526 단어+526 예문" → 실제 558/558 · P2 래칫 189 복구(§5-1).
+- **ⓖ blendColor 불일치 2건 (핑크 계열 잔여 — 병렬 세션 발견, 본 검수 코드 확인)** — `CharacterClipPlayer`는 자체 배경 없이 multiply만 걸어 blendColor가 실제 카드 배경과 다르면 흰 영상 배경이 그 색으로 수렴: ① kkeunmari_screen(~:425) — blendColor base가 `s.surface`인데 카드 실제 공식(card.dart:108-115)은 라이트에서 `SoriColors.lightSurfaceRaised` base(tinted면 accent@0.08 alphaBlend) → delta RGB (13,16,25) ② listening_screen(~:595) — `const CharacterClipPlayer`가 blendColor 미전달(기본 lightBg) vs 부모 tinted 카드 실배경 → delta (13,3,−1). **산술 delta라 실기기 시인성 미확인 — 성과 부풀리지 말 것.** 근본 픽스 = 카드 배경 공식을 노출하는 헬퍼(예: `SoriCard.resolvedBackground(context, accent:, tinted:)`)를 만들어 양쪽이 같은 함수를 쓰게(재발 방지). 나머지 multiply 호출부는 병렬 세션이 전수 대조해 일치 확인(profile·path_trail·character_selection·scenario_player·milestone·home 전부 ✓).
 
 ## §7. 낡은 정보 정정 목록 (구 문서 대비)
 
@@ -188,3 +191,37 @@ flutter test --reporter compact                        →  +1293: All tests pas
 5. **AGENTS.md:90 파일맵의 TTS 줄(Aoede/Neural2·무리비전 경로)** → stale이었음. 본 검수에서 v3/Zephyr/Enceladus/`tts/v3/`로 정정 완료.
 6. **"release.ps1 신규 작성"** (AGENTS.md 2026-08-01 로그) → 워크트리·git 히스토리 어디에도 없음. 유실 추정 — 게이트 SSoT는 DEPLOY_CHECKLIST §1.
 7. growl_tiger.mp3 "배선하거나 지울 것"(ADR-002:551) → Jin 결정 반영: **지우지 않는다. 사운드 설정 세밀 조정용으로 배선한다**(§6-ⓒ).
+
+## §8. 병렬 세션 교차 검증 (2026-08-02 오후 추가)
+
+병렬 fable5 세션(디바이스 VM, 에이전트 10)이 같은 검수를 수행해 `~/Downloads/HANDOFF_PROMPT_hangulsori.md`(1,026줄)를 산출했다. 본 세션이 이 Windows 클론(진실 원천)에서 그쪽 주장을 독립 재검증한 결과다. **그 문서를 쓸 다음 세션은 아래 반증 목록을 먼저 읽을 것.**
+
+### §8-1. 그쪽 신규 발견 — 본 클론에서 CONFIRMED (내 §1~§7이 놓쳤던 것)
+
+| 발견 | 상태 |
+|---|---|
+| blendColor 불일치 2건 (kkeunmari·listening) | ✅ 코드 확인 → §6-ⓖ에 편입 |
+| **AudioContext 미설정** — lib grep 0건. SFX가 타 앱 음악을 끊거나 기기 무음 스위치를 무시할 수 있음. ADR-002 §5-3 설계(mixWithOthers/duckOthers/respectSilence) 미구현 | ✅ grep 확인 → AudioPolicy 단계 2로 |
+| growl_tiger가 `assets/sfx/README.md` 표에 미등재 (README 자체 규칙: 추가 시 같은 커밋에 표+출처 갱신) | ✅ grep 확인 |
+| TTS v3 서버 업로드 완결 1,314/1,314 (Jin gsutil) | ✅ → §4-4 닫힘 |
+| 캐릭터선택 호랑이 카드 ~6.4초 주기 인사음 반복 · 프로필 진입 랜덤 축하음(호랑이 1/5·까치 1/3) — "루프 클립엔 소리 안 붙인다"(character_clip:128-130) 설계 주석 위반 | 그쪽 코드 경로 논증 탄탄(미교차검증) — 실기기 확인 항목 |
+| magpie_worry.mp4 런타임 도달 불가(GameOverCard 7곳 kind↔emotion 커플링으로 worry는 항상 tiger 짝 → feedbackFor(tiger,worry)=null) + tigerRoarSeatedBonus 동일 | 그쪽 논증(미교차검증) — Jin 결정 필요 |
+| TigerStageVideo가 CharacterClips 상수 대신 경로 하드코딩 + 홈 히어로에 SFX 배선 자체가 없음(홈 인사 클립도 캐릭터선택과 다름: tiger_rise vs tiger_greet_pawflash) | 그쪽 실측(미교차검증) — Jin 결정 필요 |
+| 단일 lease라 헤더 루프+캐릭터 클립 공존 화면(listening·kkeunmari·wordle·GameOver)에서 루프가 포스터로 폴백 | 구조상 타당(§1 불변식의 귀결) — 실기기 확인 |
+| SoriButton 아이콘 래칫 **74/74 여유 0** (내 §5-1 래칫 표에 누락돼 있던 항목) · tiger_greet.mp3 라우드니스 −33 LUFS(기준 −16 대비 17 LU 낮음, 코덱도 구본 89k 2ch) | 그쪽 python 재현/ffmpeg 실측 — 채택 |
+
+### §8-2. 그쪽 주장 — 본 클론 실측으로 반증 (다음 세션은 믿지 말 것)
+
+| 그쪽 주장 | 실측 반증 |
+|---|---|
+| "l10n de 1181/en 1170, 11키 어긋남 — 델타를 늘리지 마라" | **번역키 1036 = 1036, 델타 0** (그쪽은 `@`메타데이터 항목까지 센 카운트 오류 — DE 템플릿 전용 placeholder 메타 11개는 정상) |
+| "assets/rive/ 빈 폴더 → 클론/CI에 없어 빌드 실패 위험 (Q17)" | `.gitkeep`이 **git tracked** — 모든 클론에 폴더 존재. 우려 불성립 |
+| "543 dirty + index.lock = 코드 편집 차단 게이트 (P0-2·P0-3)" | **Windows에선 git status 0 clean.** autocrlf가 Windows(시스템 gitconfig)=true / 디바이스 VM=unset이라 같은 디스크가 다르게 보였을 뿐. lock은 그쪽 세션의 `--no-optional-locks` 없는 git 읽기가 남긴 것 — 본 세션이 제거, Windows 조치 불요. **본 커밋에서 `.gitattributes`에 `* text=auto`를 추가해 환경 무관 일관화**(인덱스는 이미 전부 LF — i/crlf 0건이라 renormalize 델타 0) |
+| "release.ps1을 무력화·수정하라 (P0-5)" | **이 머신 어디에도 실존 안 함**(레포 루트·Downloads·git 히스토리 전부 0). 그쪽이 인용한 스크립트 내용은 소멸한 컨테이너 산출물로 추정 — 재작성한다면 §5-1 P2대로 신규 작성이며 "수정"이 아님 |
+| "git push 남아 있음 (2edbdb3 미푸시)" | 해소 — origin/main은 이미 그 뒤 커밋들까지 반영 |
+
+### §8-3. 상호 보완 (둘 다 읽어야 완전)
+
+- **그쪽에 없는 내 발견**: listening voice 미지정(male 캐시 미스, §4-3/§6-ⓓ — 그쪽 §5-B TTS 배선표가 미작성이라 놓침).
+- **내게 없던 그쪽 자산**: §5-A 화면→위젯→에셋→소리 전수 배선맵 · §4 AudioPolicy 단계별 구현 지침(ADR 키 스킴·기본값 함정·테스트 7종) · §7 Jin 질문 17개(차단 5: Q1 versionCode·Q2 TTS서버[닫힘]·Q5 범위·Q12 CRLF[닫힘: renormalize 선택]·Q13 lock[닫힘]).
+- **그쪽 문서의 환경 제약(§1)은 디바이스 VM 전용** — 다음 세션이 Jin의 Windows에서 돌면 Flutter/네트워크/rm 전부 가능하므로 해당 제약·우회책은 무시할 것.

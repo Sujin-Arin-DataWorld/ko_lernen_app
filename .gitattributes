@@ -1,3 +1,7 @@
+# 전 텍스트 파일 LF 정규화 (2026-08-02) — autocrlf 가 없는 환경(디바이스 VM·CI·리눅스)에서
+# 워킹트리 CRLF 가 대량 dirty 로 잡히던 문제 해소. 인덱스는 이미 전부 LF(i/crlf 0건)라
+# renormalize 델타 0 — 이 파일 추가만으로 환경 무관 status 일관.
+* text=auto
 *.csv text eol=lf
 *.json text eol=lf
 *.arb text eol=lf

@@ -333,6 +333,16 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-02 (병렬 세션 교차 검증 + CRLF 정규화) — 커밋·푸시
+
+**범위:** 병렬 fable5 세션(디바이스 VM)이 산출한 `~/Downloads/HANDOFF_PROMPT_hangulsori.md`(1,026줄)를 본 검수 SSoT와 교차 대조 — 이 Windows 클론(진실 원천)에서 전 주장 독립 재검증. 상세 = **`docs/AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md` §8**(그쪽 문서를 쓸 세션은 §8-2 반증 목록 필독).
+
+- **CONFIRMED 채택(내 검수가 놓친 것)**: blendColor 불일치 2건(kkeunmari·listening → §6-ⓖ 신설) · **AudioContext 미설정**(무음 스위치/타 앱 음악 미존중) · growl README 표 미등재 · SoriButton 아이콘 래칫 74/74 · **TTS v3 서버 업로드 완결 1,314/1,314**(Jin gsutil → §4-4 닫힘).
+- **반증(그쪽이 틀림)**: l10n "11키 어긋남" → 번역키 1036=1036 델타 0(@메타 카운트 오류) · rive 폴더 유실 위험 → `.gitkeep` tracked · "543 dirty·lock=편집 차단" → Windows는 clean 0(autocrlf 시스템 설정 차이, lock은 그쪽 세션 잔재로 본 세션이 기제거) · release.ps1 "무력화" → 이 머신에 실존 안 함 · "2edbdb3 미푸시" → 기해소.
+- **내 정정 1건**: §6-ⓐ Storage 키를 임의명이 아닌 **ADR-002 §3-4 스킴(`kl_snd_*`)**으로 (그쪽 지적이 옳음).
+- **CRLF 정규화(Jin 선택)**: `.gitattributes`에 `* text=auto` 추가 — 인덱스는 이미 전부 LF(i/crlf 0)라 **renormalize 델타 0**, 파일 추가만으로 디바이스 VM·CI에서도 status 일관. 기존 csv/json/arb 규칙 보존.
+- index.lock 재발 건: 파일 이미 부재(정상) — 원인 = 디바이스 세션의 `--no-optional-locks` 없는 git 읽기. Windows 조치 불요.
+
 ### 2026-08-02 (오디오·영상·릴리스 전수 검수 — 다음 세션 인수인계 SSoT) — 커밋·푸시
 
 **Jin 지시:** 사운드 후속(AudioPolicy·게인테이블·growl 배선)은 다른 fable5 ultracode 세션에서 실행 예정 — 그 세션이 정확히 이해하도록 현재 상황·AAB 전 완성 목록·핑크화면 정리 여부·audio v3 적용 여부·배선된 영상/음성 리스트를 워크플로우로 상세 검수.
