@@ -161,7 +161,54 @@ void main() {
   });
 
   test(
-    'remote-complete local-cleanup state never resumes remote deletion',
+    'remote-complete local-cleanup state runs its dedicated recovery workflow',
+    () async {
+      final events = <String>[];
+      var cleanupPending = true;
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth-create'),
+        currentUserId: () => 'new-anonymous',
+        restorePendingAccountState: (_) async {
+          events.add('restore');
+          return cleanupPending
+              ? const AccountStartupRestoration.localCleanupPending()
+              : const AccountStartupRestoration.none();
+        },
+        synchronizeReadySession: (uid) => events.add('ready:$uid'),
+        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
+        resumeMediaCleanup: () async => events.add('media'),
+        resumeBookshelfSync: () async => events.add('bookshelf'),
+        resumeAccountOperation: () async => events.add('remote-delete-resume'),
+        resumeCompletedAccountCleanup: () async {
+          events.add('completed-cleanup-recovery');
+          cleanupPending = false;
+        },
+        initializePremium: () async => events.add('premium'),
+        enablePush: () async => events.add('push'),
+        notificationsEnabled: () => true,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>[
+        'app-check',
+        'restore',
+        'completed-cleanup-recovery',
+        'restore',
+        'auth-create',
+        'ready:new-anonymous',
+        'feedback-resume',
+        'media',
+        'bookshelf',
+        'premium',
+        'push',
+      ]);
+    },
+  );
+
+  test(
+    'remaining journal after completed cleanup keeps startup fenced',
     () async {
       final events = <String>[];
       final coordinator = AppStartupCoordinator(
@@ -169,20 +216,60 @@ void main() {
         initializeAppCheck: () async => events.add('app-check'),
         ensureSignedIn: () async => events.add('auth-create'),
         currentUserId: () => 'new-anonymous',
-        restorePendingAccountState: (_) async =>
-            const AccountStartupRestoration.localCleanupPending(),
-        synchronizeReadySession: (uid) => events.add('ready:$uid'),
-        resumeFeedbackOutbox: () async => events.add('feedback-resume'),
+        restorePendingAccountState: (_) async {
+          events.add('restore');
+          return const AccountStartupRestoration.localCleanupPending();
+        },
+        synchronizeReadySession: (_) => events.add('ready'),
         resumeMediaCleanup: () async => events.add('media'),
         resumeBookshelfSync: () async => events.add('bookshelf'),
-        resumeAccountOperation: () async => events.add('remote-delete-resume'),
+        resumeAccountOperation: () async => events.add('pending-remote'),
+        resumeCompletedAccountCleanup: () async =>
+            events.add('cleanup-attempt'),
         initializePremium: () async => events.add('premium'),
         enablePush: () async => events.add('push'),
         notificationsEnabled: () => true,
       );
 
       expect(await coordinator.start(), isTrue);
-      expect(events, <String>['app-check']);
+      expect(events, <String>[
+        'app-check',
+        'restore',
+        'cleanup-attempt',
+        'restore',
+      ]);
+    },
+  );
+
+  test(
+    'pending remote deletion never runs completed cleanup recovery',
+    () async {
+      final events = <String>[];
+      const restored = CloudWriteSession(
+        uid: 'deleted-source',
+        epoch: 13,
+        mode: CloudWriteMode.cleanupPending,
+      );
+      final coordinator = AppStartupCoordinator(
+        initializeFirebase: () async => true,
+        initializeAppCheck: () async => events.add('app-check'),
+        ensureSignedIn: () async => events.add('auth-create'),
+        currentUserId: () => 'deleted-source',
+        restorePendingAccountState: (_) async =>
+            const AccountStartupRestoration.deletion(restored),
+        synchronizeReadySession: (_) {},
+        resumeMediaCleanup: () async {},
+        resumeBookshelfSync: () async {},
+        resumeAccountOperation: () async => events.add('remote-delete-resume'),
+        resumeCompletedAccountCleanup: () async =>
+            events.add('completed-cleanup-recovery'),
+        initializePremium: () async {},
+        enablePush: () async {},
+        notificationsEnabled: () => false,
+      );
+
+      expect(await coordinator.start(), isTrue);
+      expect(events, <String>['app-check', 'remote-delete-resume']);
     },
   );
 }

@@ -190,6 +190,8 @@ Future<void> _startCloudServices() async {
     resumeAccountOperation: () => AuthService.resumePendingAccountDeletion(
       closeFeedback: _contentFeedbackLifecycle.closeAndDiscard,
     ),
+    resumeCompletedAccountCleanup: () =>
+        _createCompletedAccountDeletionWorkflow().run(),
     initializePremium: () async {
       await PaletteService.fetchAndApply();
       await PremiumService.init();
@@ -242,6 +244,20 @@ final ContentFeedbackLifecycle _contentFeedbackLifecycle =
         isAnonymous: AuthService.current?.isAnonymous ?? false,
       ),
       durableJournalActive: _contentFeedbackActivationBlocked,
+    );
+
+AccountDeletionWorkflow _createAccountDeletionWorkflow() =>
+    AccountDeletionWorkflow.production(
+      feedbackOutbox: _contentFeedbackLifecycle,
+      activateFeedback:
+          _contentFeedbackLifecycle.activateAfterCompletedDeletion,
+    );
+
+AccountDeletionWorkflow _createCompletedAccountDeletionWorkflow() =>
+    AccountDeletionWorkflow.completedStartupRecovery(
+      feedbackOutbox: _contentFeedbackLifecycle,
+      activateFeedback:
+          _contentFeedbackLifecycle.activateAfterCompletedDeletion,
     );
 
 Future<bool> _initFirebase() async {
@@ -416,11 +432,7 @@ class KoLernenApp extends StatelessWidget {
             case '/settings':
               return SoriTransitions.fadeScale(
                 (_) => SettingsScreen(
-                  accountDeletionWorkflow: AccountDeletionWorkflow.production(
-                    feedbackOutbox: _contentFeedbackLifecycle,
-                    activateFeedback: _contentFeedbackLifecycle
-                        .activateAfterCompletedDeletion,
-                  ),
+                  accountDeletionWorkflow: _createAccountDeletionWorkflow(),
                 ),
                 settings: settings,
               );

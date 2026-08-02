@@ -310,6 +310,17 @@ Future<void> recoverCompletedDeletionIdentity({
   CompletedDeletionProviderCleanup? cleanupGoogleProvider,
   required CompletedDeletionFirebaseRecovery recoverFirebaseIdentity,
 }) async {
+  final normalizedCurrent = currentUid?.trim();
+  if (normalizedCurrent != null &&
+      normalizedCurrent.isNotEmpty &&
+      normalizedCurrent != checkpoint.session.uid &&
+      !currentIsAnonymous) {
+    throw const AccountOperationFailure(
+      AccountOperationFailureCode.blocked,
+      retryable: false,
+    );
+  }
+
   final failures = <Object>[];
   if (checkpoint.sourceProviders.contains('google')) {
     try {
@@ -331,7 +342,6 @@ Future<void> recoverCompletedDeletionIdentity({
     currentUid: currentUid,
     currentIsAnonymous: currentIsAnonymous,
   );
-  final normalizedCurrent = currentUid?.trim();
   if (!alreadyRecovered) {
     if (normalizedCurrent == null ||
         normalizedCurrent.isEmpty ||
@@ -482,11 +492,40 @@ class AccountDeletionRemoteGate {
   Future<void> run() async {
     final checkpoint = await readCheckpoint();
     if (checkpoint?.operation?.phase == AccountOperationPhase.completed) {
-      await closeFeedback();
       await recoverCompleted(checkpoint!);
+      await closeFeedback();
       return;
     }
     await startOrResumeRemote();
+  }
+}
+
+/// Recovers only an already-completed account deletion.
+///
+/// Unlike [AccountDeletionRemoteGate], absence or mutation of the completed
+/// checkpoint is a hard block and can never fall through to a new request.
+class CompletedAccountDeletionRecoveryGate {
+  const CompletedAccountDeletionRecoveryGate({
+    required this.readCheckpoint,
+    required this.recoverCompleted,
+    required this.closeFeedback,
+  });
+
+  final CompletedDeletionCheckpointReader readCheckpoint;
+  final CompletedDeletionRecovery recoverCompleted;
+  final AccountDeletionFeedbackCloser closeFeedback;
+
+  Future<void> run() async {
+    final checkpoint = await readCheckpoint();
+    if (checkpoint?.operation?.phase != AccountOperationPhase.completed ||
+        checkpoint?.operationId == null) {
+      throw const AccountOperationFailure(
+        AccountOperationFailureCode.blocked,
+        retryable: false,
+      );
+    }
+    await recoverCompleted(checkpoint!);
+    await closeFeedback();
   }
 }
 
@@ -2084,6 +2123,31 @@ class AuthService {
       allowFeedbackActivationCheckpoint: true,
       onAdmitted: () =>
           _deleteAccountAfterCloudBackupAdmission(closeFeedback: closeFeedback),
+      onBlocked: () => Future<void>.error(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.blocked,
+          retryable: false,
+        ),
+      ),
+    );
+  }
+
+  /// Startup-only recovery for an authoritative completed deletion marker.
+  ///
+  /// The marker is reread inside the durable admission lane. If it vanished,
+  /// changed phase, or became malformed, this fails closed and cannot issue a
+  /// new remote deletion against the current identity.
+  static Future<void> recoverCompletedAccountDeletion({
+    required AccountDeletionFeedbackCloser closeFeedback,
+  }) {
+    return runDurableAccountAdmission<void>(
+      allowAccountDeletionCheckpoint: true,
+      allowFeedbackActivationCheckpoint: true,
+      onAdmitted: () => CompletedAccountDeletionRecoveryGate(
+        readCheckpoint: readAccountDeletionCheckpoint,
+        recoverCompleted: _recoverCompletedAccountDeletion,
+        closeFeedback: closeFeedback,
+      ).run(),
       onBlocked: () => Future<void>.error(
         const AccountOperationFailure(
           AccountOperationFailureCode.blocked,

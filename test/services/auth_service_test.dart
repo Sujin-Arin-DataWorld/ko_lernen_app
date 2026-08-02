@@ -77,6 +77,102 @@ void main() {
         expect(firebaseRecoveryCalls, 0);
       },
     );
+
+    test(
+      'wrong durable identity is blocked before Google provider cleanup',
+      () async {
+        var googleCleanupCalls = 0;
+        var firebaseRecoveryCalls = 0;
+
+        await expectLater(
+          recoverCompletedDeletionIdentity(
+            checkpoint: _completedDeletionJournal(
+              sourceProviders: const {'google'},
+            ),
+            currentUid: 'different-durable-uid',
+            currentIsAnonymous: false,
+            cleanupGoogleProvider: () async => googleCleanupCalls += 1,
+            recoverFirebaseIdentity: () async => firebaseRecoveryCalls += 1,
+          ),
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.code,
+              'code',
+              AccountOperationFailureCode.blocked,
+            ),
+          ),
+        );
+
+        expect(googleCleanupCalls, 0);
+        expect(firebaseRecoveryCalls, 0);
+      },
+    );
+
+    test(
+      'failed completed recovery cannot clear another account feedback',
+      () async {
+        var feedbackCloses = 0;
+        final gate = AccountDeletionRemoteGate(
+          readCheckpoint: () async => _completedDeletionJournal(),
+          startOrResumeRemote: () async {
+            fail('completed deletion must not start another remote request');
+          },
+          recoverCompleted: (_) async {
+            throw const AccountOperationFailure(
+              AccountOperationFailureCode.blocked,
+              retryable: false,
+            );
+          },
+          closeFeedback: () async => feedbackCloses += 1,
+        );
+
+        await expectLater(gate.run(), throwsA(isA<AccountOperationFailure>()));
+
+        expect(feedbackCloses, 0);
+      },
+    );
+  });
+
+  group('completed deletion recovery-only gate', () {
+    test(
+      'missing completed checkpoint fails closed without fallback',
+      () async {
+        var recoveryCalls = 0;
+        var feedbackCloses = 0;
+        final gate = CompletedAccountDeletionRecoveryGate(
+          readCheckpoint: () async => null,
+          recoverCompleted: (_) async => recoveryCalls += 1,
+          closeFeedback: () async => feedbackCloses += 1,
+        );
+
+        await expectLater(
+          gate.run(),
+          throwsA(
+            isA<AccountOperationFailure>().having(
+              (failure) => failure.code,
+              'code',
+              AccountOperationFailureCode.blocked,
+            ),
+          ),
+        );
+
+        expect(recoveryCalls, 0);
+        expect(feedbackCloses, 0);
+      },
+    );
+
+    test('identity recovery succeeds before feedback is closed', () async {
+      final events = <String>[];
+      final gate = CompletedAccountDeletionRecoveryGate(
+        readCheckpoint: () async => _completedDeletionJournal(),
+        recoverCompleted: (_) async => events.add('identity-recovery'),
+        closeFeedback: () async => events.add('feedback-close'),
+      );
+
+      await gate.run();
+
+      expect(events, <String>['identity-recovery', 'feedback-close']);
+    });
   });
 
   group('completed deletion feedback activation', () {

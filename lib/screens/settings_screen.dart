@@ -99,6 +99,22 @@ class AccountDeletionCleanupAdapter
     resetMemory: DataLoader.reset,
   );
 
+  factory AccountDeletionCleanupAdapter.completedStartupRecovery({
+    required FeedbackOutbox feedbackOutbox,
+  }) => AccountDeletionCleanupAdapter(
+    deleteRemote: () => AuthService.recoverCompletedAccountDeletion(
+      closeFeedback: feedbackOutbox.closeAndDiscard,
+    ),
+    resetStorage: () => Storage.resetAllStrict(
+      canonicalizeAccountDeletionCheckpoint:
+          AuthService.canonicalizeCompletedDeletionCheckpoint,
+    ),
+    disablePush: pushService.disableStrict,
+    deleteImages: WordImageService.deleteAllStrict,
+    clearTts: TtsService.clearCacheStrict,
+    resetMemory: DataLoader.reset,
+  );
+
   final Future<void> Function() _deleteRemote;
   final Future<void> Function() _resetStorage;
   final Future<void> Function() _disablePush;
@@ -134,6 +150,18 @@ class AccountDeletionWorkflow {
     AccountDeletionFeedbackActivator? activateFeedback,
   }) => AccountDeletionWorkflow(
     AccountDeletionCleanupAdapter.production(feedbackOutbox: feedbackOutbox),
+    completeCheckpoint: () => AuthService.completeLocalAccountDeletionCleanup(
+      activateFeedback: activateFeedback,
+    ),
+  );
+
+  factory AccountDeletionWorkflow.completedStartupRecovery({
+    required FeedbackOutbox feedbackOutbox,
+    AccountDeletionFeedbackActivator? activateFeedback,
+  }) => AccountDeletionWorkflow(
+    AccountDeletionCleanupAdapter.completedStartupRecovery(
+      feedbackOutbox: feedbackOutbox,
+    ),
     completeCheckpoint: () => AuthService.completeLocalAccountDeletionCleanup(
       activateFeedback: activateFeedback,
     ),

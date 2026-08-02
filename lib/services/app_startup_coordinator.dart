@@ -58,6 +58,7 @@ class AppStartupCoordinator {
     required this.synchronizeReadySession,
     this.resumeFeedbackOutbox = _noopStartupStep,
     this.resumeFirstDurableLinkBackfill = _noopStartupStep,
+    this.resumeCompletedAccountCleanup = _noopStartupStep,
     required this.resumeMediaCleanup,
     required this.resumeBookshelfSync,
     required this.resumeAccountOperation,
@@ -75,6 +76,7 @@ class AppStartupCoordinator {
   final ReadySessionSynchronizer synchronizeReadySession;
   final StartupStep resumeFeedbackOutbox;
   final StartupStep resumeFirstDurableLinkBackfill;
+  final StartupStep resumeCompletedAccountCleanup;
   final StartupStep resumeMediaCleanup;
   final StartupStep resumeBookshelfSync;
   final StartupStep resumeAccountOperation;
@@ -96,9 +98,19 @@ class AppStartupCoordinator {
       switch (restoration.kind) {
         case AccountStartupRestorationKind.replacement:
         case AccountStartupRestorationKind.cloudBackupDeletion:
-        case AccountStartupRestorationKind.localCleanupPending:
         case AccountStartupRestorationKind.blocked:
           return true;
+        case AccountStartupRestorationKind.localCleanupPending:
+          // A completed server deletion still owns startup until identity
+          // recovery, privacy cleanup, and feedback activation all finish.
+          // This callback re-enters through the completed-checkpoint gate and
+          // therefore cannot issue a new remote deletion.
+          await resumeCompletedAccountCleanup();
+          final afterCleanup = await restore(currentUserId()?.trim());
+          if (afterCleanup.kind != AccountStartupRestorationKind.none) {
+            return true;
+          }
+          break;
         case AccountStartupRestorationKind.deletion:
           // A deletion checkpoint owns startup until its exact operation is
           // resumed. In particular, do not admit the feedback outbox while

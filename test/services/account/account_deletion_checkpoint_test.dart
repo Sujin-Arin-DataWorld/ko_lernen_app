@@ -36,7 +36,7 @@ void main() {
 
       expect(remoteStarts, 1);
       expect(recoveryCalls, 1);
-      expect(events, <String>['close-feedback', 'recover']);
+      expect(events, <String>['recover', 'close-feedback']);
     },
   );
 
