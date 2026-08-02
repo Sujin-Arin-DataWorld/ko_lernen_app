@@ -263,6 +263,7 @@ class Storage {
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static final Set<String> _unknownStrictKeys = <String>{};
+  static String? _courseMasteryCache;
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
@@ -279,6 +280,7 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _unknownStrictKeys.clear();
+    _courseMasteryCache = null;
   }
 
   // ───────── Generic helpers ─────────
@@ -1150,6 +1152,83 @@ class Storage {
 
   static Future<void> setUserLevelCode(String code) =>
       _ss('kl_user_level', code);
+
+  // ───────── Kursplatzierung und Kursgraph (v1) ─────────
+  // These keys intentionally do not reuse `kl_user_level`: that legacy key
+  // still drives old library filters and must remain readable while screens
+  // migrate to the course graph. Only an explicit placement mirrors it.
+  static const String placementLevelPreferenceKey = 'kl_placement_level_v1';
+  static const String browseLevelPreferenceKey = 'kl_browse_level_v1';
+  static const String courseUnitPreferenceKey = 'kl_course_unit_v1';
+  static const String courseMasteryPreferenceKey = 'kl_course_mastery_v1';
+
+  static String? _optionalString(String key) {
+    final value = _s(key).trim();
+    return value.isEmpty ? null : value;
+  }
+
+  /// Placement comes from the diagnostic or direct start-level selection.
+  /// Fallback keeps users of the pre-course app on their existing level until
+  /// a new placement has been saved.
+  static String? get placementLevelCode =>
+      _optionalString(placementLevelPreferenceKey) ?? userLevelCode;
+
+  /// The library filter never changes the actual course placement or legacy
+  /// user level. It is deliberately independent from sequential progress.
+  static String? get browseLevelCode =>
+      _optionalString(browseLevelPreferenceKey);
+
+  /// The one active sequential course mission, independent from a library
+  /// level filter and from vocabulary-pack progress.
+  static String? get courseUnitId => _optionalString(courseUnitPreferenceKey);
+
+  /// JSON owned by [CourseMasteryService]. Storage does not parse it so the
+  /// service can reject malformed or catalog-incompatible evidence strictly.
+  static String get courseMasteryRawJson =>
+      _courseMasteryCache ?? _s(courseMasteryPreferenceKey);
+
+  static Future<void> setPlacementLevelCode(String code) async {
+    final normalized = code.trim().toLowerCase();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(code, 'code', 'must not be empty');
+    }
+    await _ss(placementLevelPreferenceKey, normalized);
+    // Compatibility mirror only. Browse-level writes must not do this.
+    await setUserLevelCode(normalized);
+  }
+
+  static Future<void> setBrowseLevelCode(String code) async {
+    final normalized = code.trim().toLowerCase();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(code, 'code', 'must not be empty');
+    }
+    await _ss(browseLevelPreferenceKey, normalized);
+  }
+
+  static Future<void> setCourseUnitId(String unitId) async {
+    final normalized = unitId.trim();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(unitId, 'unitId', 'must not be empty');
+    }
+    await _ss(courseUnitPreferenceKey, normalized);
+  }
+
+  static Future<void> setCourseMasteryRawJson(
+    String json, {
+    PreferenceStringStore? preferences,
+  }) async {
+    // Course unlock state must not get ahead of durable storage. The strict
+    // path also resolves a platform call that reported failure after commit.
+    await _ssStrict(courseMasteryPreferenceKey, json, preferences: preferences);
+    _courseMasteryCache = json;
+  }
+
+  /// Test-only: forgets the in-memory mirror; mocked preferences remain the
+  /// persistence boundary so a subsequent [Storage.init] can exercise reload.
+  @visibleForTesting
+  static void resetCourseMasteryForTesting() {
+    _courseMasteryCache = null;
+  }
 
   /// XP-Gesamtpunkte. Level = (xp / 100) + 1.
   static int get xp => _i('kl_xp');

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/curriculum.dart';
 import '../models/scenario.dart';
+import '../services/course_activity_reporter.dart';
 import '../services/premium_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
@@ -225,6 +227,30 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   void _onQuestComplete(QuestResult result) {
+    final scenario = _scenario;
+    if (scenario != null &&
+        _currentQuestIndex >= 0 &&
+        _currentQuestIndex < scenario.quests.length) {
+      final quest = scenario.quests[_currentQuestIndex];
+      // Only audited pilot quest metadata writes concept evidence. Untagged
+      // legacy quests still feed the scenario checkpoint at completion, which
+      // avoids pretending that a single particle mistake affected every form
+      // used elsewhere in the dialogue.
+      if (quest.hasExplicitId && quest.conceptIds.isNotEmpty) {
+        for (final conceptId in quest.conceptIds) {
+          // ignore: discarded_futures
+          CourseActivityReporter.recordContentAttempt(
+            CurriculumContentKind.scenario,
+            scenario.id,
+            result.passed,
+            conceptId: conceptId,
+            errorReason: result.passed
+                ? null
+                : masteryErrorForQuestType(quest.type),
+          );
+        }
+      }
+    }
     if (result.passed) _passedCount++;
     if (result.firstTry && result.passed) _firstTryPassedCount++;
     if (!result.passed) _failedQuestIndices.add(_currentQuestIndex);
@@ -264,6 +290,16 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       Storage.setScenarioStars(s.id, stars),
       Storage.addCompletedScenario(s.id),
     ]);
+
+    // Scenario completion is a checkpoint alongside, not a replacement for,
+    // the concept-level evidence collected by vocabulary and game activities.
+    // A replayed future scenario is retained by the engine as browse history
+    // and never unlocks the current mission retroactively.
+    await CourseActivityReporter.recordScenarioCheckpoint(
+      s.id,
+      passed: _passedCount,
+      total: s.quests.length,
+    );
 
     // Erster Abschluss → Badge
     if (!Storage.earnedBadges.contains('cafe_starter')) {
@@ -627,7 +663,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                     // 힌트만 담당(별도 GestureDetector 불필요).
                                     Icon(
                                       Icons.volume_up_rounded,
-                                      color: bubbleAccent.withValues(alpha: 0.7),
+                                      color: bubbleAccent.withValues(
+                                        alpha: 0.7,
+                                      ),
                                       size: 18,
                                     ),
                                   ],

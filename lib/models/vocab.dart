@@ -1,4 +1,8 @@
+import 'content_id.dart';
+
 class Vocab {
+  /// Immutable source ID from the final `id` CSV column.
+  final String _sourceId;
   final String korean;
   final String romanization;
   final String german;
@@ -25,6 +29,7 @@ class Vocab {
   final String exampleEnglish;
 
   const Vocab({
+    String id = '',
     required this.korean,
     required this.romanization,
     required this.german,
@@ -39,27 +44,44 @@ class Vocab {
     this.english = '',
     this.posEn = '',
     this.exampleEnglish = '',
-  });
+  }) : _sourceId = id;
+
+  /// Stable graph key from the source data. The current corpus must always
+  /// use this explicit ID; the semantic fallback exists only for old fixtures.
+  ///
+  /// Legacy fallback intentionally excludes translated copy and pack ordering.
+  String get id => hasExplicitId
+      ? _sourceId.trim()
+      : stableContentId('vocab_legacy', [
+          korean,
+          romanization,
+          level,
+          topic,
+          packId,
+        ]);
+
+  bool get hasExplicitId => _sourceId.trim().isNotEmpty;
 
   /// 안정한 row → Vocab. 구 8-컬럼 / 신 11-컬럼 / 신 14-컬럼 모두 처리.
   /// row 가 짧아도 IndexError 없이 빈 값/기본값으로 채운다.
   factory Vocab.fromRow(List<dynamic> row) {
     String s(int i) => i < row.length ? row[i].toString() : '';
     return Vocab(
-      korean:        s(0),
-      romanization:  s(1),
-      german:        s(2),
-      level:         s(3),
-      posDe:         s(4),
+      korean: s(0),
+      romanization: s(1),
+      german: s(2),
+      level: s(3),
+      posDe: s(4),
       exampleKorean: s(5),
       exampleGerman: s(6),
-      topic:         s(7),
-      packId:        s(8),
-      packOrder:     int.tryParse(s(9)) ?? 0,
-      isReviewBoss:  s(10).toLowerCase() == 'true',
-      english:       s(11),
-      posEn:         s(12),
+      topic: s(7),
+      packId: s(8),
+      packOrder: int.tryParse(s(9)) ?? 0,
+      isReviewBoss: s(10).toLowerCase() == 'true',
+      english: s(11),
+      posEn: s(12),
       exampleEnglish: s(13),
+      id: s(14),
     );
   }
 
@@ -75,6 +97,6 @@ class Vocab {
   /// 예문 번역.
   String exampleFor(String lang) =>
       (lang == 'en' && exampleEnglish.trim().isNotEmpty)
-          ? exampleEnglish
-          : exampleGerman;
+      ? exampleEnglish
+      : exampleGerman;
 }

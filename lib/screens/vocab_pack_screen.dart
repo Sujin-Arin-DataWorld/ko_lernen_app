@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/curriculum.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
+import '../services/course_activity_reporter.dart';
 import '../services/pack_progress_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -292,6 +294,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _selectedChoice = i;
       _choiceLocked = true;
     });
+    // Only scored recall stages become course evidence. The earlier card
+    // self-rating stays in SRS only, so a tap cannot unlock a mission.
+    // ignore: discarded_futures
+    CourseActivityReporter.recordContentAttempt(
+      CurriculumContentKind.vocab,
+      cur.id,
+      isCorrect,
+      errorReason: isCorrect ? null : MasteryErrorReason.vocabularyRecall,
+    );
     if (isCorrect) {
       // 정답 순간 보상 — 햅틱 + 효과음 + 색종이 burst + 콤보.
       HapticFeedback.lightImpact();
