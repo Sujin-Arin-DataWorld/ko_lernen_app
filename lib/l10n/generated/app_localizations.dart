@@ -280,8 +280,14 @@ abstract class AppL10n {
   /// No description provided for @characterNameTiger.
   ///
   /// In de, this message translates to:
-  /// **'든든이'**
+  /// **'태고'**
   String get characterNameTiger;
+
+  /// No description provided for @characterRomanTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego'**
+  String get characterRomanTiger;
 
   /// No description provided for @characterTraitTiger.
   ///
@@ -292,14 +298,20 @@ abstract class AppL10n {
   /// No description provided for @characterDescTiger.
   ///
   /// In de, this message translates to:
-  /// **'Ein ruhiger, treuer Tiger, der dich Schritt für Schritt begleitet und dir Mut macht, wenn es mal schwer wird.'**
+  /// **'In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für uralte, ruhige Kraft — er begleitet dich Schritt für Schritt und macht dir Mut, wenn es schwer wird.'**
   String get characterDescTiger;
 
   /// No description provided for @characterNameMagpie.
   ///
   /// In de, this message translates to:
-  /// **'쌤쌤이'**
+  /// **'조이'**
   String get characterNameMagpie;
+
+  /// No description provided for @characterRomanMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'Joy'**
+  String get characterRomanMagpie;
 
   /// No description provided for @characterTraitMagpie.
   ///
@@ -310,8 +322,14 @@ abstract class AppL10n {
   /// No description provided for @characterDescMagpie.
   ///
   /// In de, this message translates to:
-  /// **'Eine quirlige Elster mit Hut, die jeden Erfolg lautstark feiert und gute Laune in jede Lektion bringt.'**
+  /// **'In Korea gilt die Elster als Glücksbotin, die gute Nachrichten bringt. Joy feiert jeden Erfolg mit dir und bringt gute Laune in jede Lektion.'**
   String get characterDescMagpie;
+
+  /// No description provided for @characterSelectionHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tipp deinen Lernfreund an'**
+  String get characterSelectionHint;
 
   /// No description provided for @reviewTitle.
   ///
@@ -7098,6 +7116,270 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Nächste Beta-Mission: {mission}'**
   String testerFeedbackNextMission(String mission);
+
+  /// No description provided for @onboardingDiagnosticCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsicher? 8 Fragen beantworten'**
+  String get onboardingDiagnosticCta;
+
+  /// No description provided for @placementTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurzer Einstufungscheck'**
+  String get placementTitle;
+
+  /// No description provided for @placementProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Frage {current} von {total}'**
+  String placementProgress(Object current, Object total);
+
+  /// No description provided for @placementNoRecording.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Aufnahme. Wähle einfach die beste Antwort.'**
+  String get placementNoRecording;
+
+  /// No description provided for @placementSeeRecommendation.
+  ///
+  /// In de, this message translates to:
+  /// **'Empfehlung ansehen'**
+  String get placementSeeRecommendation;
+
+  /// No description provided for @placementRecommendedStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Empfohlener Start'**
+  String get placementRecommendedStart;
+
+  /// No description provided for @placementScoreSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hattest {correct} von {total} richtig. Das ist nur eine Empfehlung: Du kannst jede Stufe wählen.'**
+  String placementScoreSummary(Object correct, Object total);
+
+  /// No description provided for @placementStartAt.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit {level} starten'**
+  String placementStartAt(Object level);
+
+  /// No description provided for @placementChooseYourself.
+  ///
+  /// In de, this message translates to:
+  /// **'Oder selbst wählen'**
+  String get placementChooseYourself;
+
+  /// No description provided for @courseMissionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine nächste Mission'**
+  String get courseMissionTitle;
+
+  /// No description provided for @courseMissionTitleShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Kursmission'**
+  String get courseMissionTitleShort;
+
+  /// No description provided for @courseMissionLoadError.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Kursdaten konnten nicht geladen werden.'**
+  String get courseMissionLoadError;
+
+  /// No description provided for @courseMissionNow.
+  ///
+  /// In de, this message translates to:
+  /// **'jetzt'**
+  String get courseMissionNow;
+
+  /// No description provided for @courseMissionPreviewTag.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau'**
+  String get courseMissionPreviewTag;
+
+  /// No description provided for @courseMissionStartPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung starten'**
+  String get courseMissionStartPractice;
+
+  /// No description provided for @courseMissionPreviewNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst diese Mission ansehen. Punkte und Fortschritt zählen erst, wenn sie aktiv ist.'**
+  String get courseMissionPreviewNotice;
+
+  /// No description provided for @courseSectionToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Was heute zählt'**
+  String get courseSectionToday;
+
+  /// No description provided for @courseSectionFamilies.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausdrucksfamilien'**
+  String get courseSectionFamilies;
+
+  /// No description provided for @courseSectionSurfaces.
+  ///
+  /// In de, this message translates to:
+  /// **'Karten aus dem echten Alltag'**
+  String get courseSectionSurfaces;
+
+  /// No description provided for @courseSectionRepair.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz korrigieren'**
+  String get courseSectionRepair;
+
+  /// No description provided for @courseSectionPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Missionsübungen'**
+  String get courseSectionPractice;
+
+  /// No description provided for @coursePracticeVocab.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortschatz üben'**
+  String get coursePracticeVocab;
+
+  /// No description provided for @coursePracticeGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatikkarten'**
+  String get coursePracticeGrammar;
+
+  /// No description provided for @coursePracticeCloze.
+  ///
+  /// In de, this message translates to:
+  /// **'Lückentext'**
+  String get coursePracticeCloze;
+
+  /// No description provided for @coursePracticeSatz.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz bauen'**
+  String get coursePracticeSatz;
+
+  /// No description provided for @coursePracticeScenario.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenario-Checkpoint'**
+  String get coursePracticeScenario;
+
+  /// No description provided for @coursePracticeSmalltalk.
+  ///
+  /// In de, this message translates to:
+  /// **'Small Talk'**
+  String get coursePracticeSmalltalk;
+
+  /// No description provided for @courseStatePreview.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau'**
+  String get courseStatePreview;
+
+  /// No description provided for @courseStateIntroduced.
+  ///
+  /// In de, this message translates to:
+  /// **'Eingeführt'**
+  String get courseStateIntroduced;
+
+  /// No description provided for @courseStatePractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get courseStatePractice;
+
+  /// No description provided for @courseStateCheckpointPassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Checkpoint geschafft'**
+  String get courseStateCheckpointPassed;
+
+  /// No description provided for @courseStateReviewDue.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz korrigieren'**
+  String get courseStateReviewDue;
+
+  /// No description provided for @courseStateStable.
+  ///
+  /// In de, this message translates to:
+  /// **'Sicher'**
+  String get courseStateStable;
+
+  /// No description provided for @courseAxisBatchim.
+  ///
+  /// In de, this message translates to:
+  /// **'Endkonsonant (받침)'**
+  String get courseAxisBatchim;
+
+  /// No description provided for @courseAxisSentenceRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Satzrolle'**
+  String get courseAxisSentenceRole;
+
+  /// No description provided for @courseAxisRelationship.
+  ///
+  /// In de, this message translates to:
+  /// **'Beziehung und Situation'**
+  String get courseAxisRelationship;
+
+  /// No description provided for @courseAxisSetting.
+  ///
+  /// In de, this message translates to:
+  /// **'Ort und Anlass'**
+  String get courseAxisSetting;
+
+  /// No description provided for @courseUsageOfficial.
+  ///
+  /// In de, this message translates to:
+  /// **'offizieller Rahmen'**
+  String get courseUsageOfficial;
+
+  /// No description provided for @courseUsageEverydayPolite.
+  ///
+  /// In de, this message translates to:
+  /// **'höflicher Alltag'**
+  String get courseUsageEverydayPolite;
+
+  /// No description provided for @courseUsageCloseOnly.
+  ///
+  /// In de, this message translates to:
+  /// **'nur bei enger Beziehung'**
+  String get courseUsageCloseOnly;
+
+  /// No description provided for @courseUsageOfficialOrService.
+  ///
+  /// In de, this message translates to:
+  /// **'offiziell oder im Service'**
+  String get courseUsageOfficialOrService;
+
+  /// No description provided for @courseUsageFriendlyPolite.
+  ///
+  /// In de, this message translates to:
+  /// **'freundlich und höflich'**
+  String get courseUsageFriendlyPolite;
+
+  /// No description provided for @courseUsageServiceRequest.
+  ///
+  /// In de, this message translates to:
+  /// **'Service-Anfrage'**
+  String get courseUsageServiceRequest;
+
+  /// No description provided for @courseUsagePaymentNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Zahlungshinweis'**
+  String get courseUsagePaymentNotice;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

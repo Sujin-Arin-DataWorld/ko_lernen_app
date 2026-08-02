@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../services/sound_service.dart';
+import '../../services/audio_policy.dart';
 import 'hanok_tokens.dart';
 import 'tiger_video.dart' show TigerStageVideo;
 import 'tokens.dart' show SoriMotion;
@@ -138,17 +138,16 @@ class SoriPosterLoop extends StatefulWidget {
   final String videoAsset;
   final Widget poster;
 
-  /// 루프 음량. **기본 0(무음)이 의도된 값**이다 — 이 위젯은 화면 상단에
-  /// 상시 떠 있는 배경 루프라, 소리를 켜면 발음 TTS와 계속 겹치고 한 화면에
-  /// 여러 개가 뜨면 소리도 겹친다. 일회성 연출(대문 인트로 등)만 소리를 쓴다.
-  /// 특정 콜사이트에서 앰비언스를 원하면 0.15~0.3 정도를 넘길 것.
-  final double volume;
-
+  /// 루프 음량은 **파라미터로 받지 않는다.** [AudioPolicy] 가 단일 진실원천이다
+  /// (ADR-002 §3-2) — `SoundChannel.ambience` 의 on/off·볼륨·에셋별 정규화
+  /// 게인·TTS 더킹이 전부 `volumeFor()` 한 곳에서 결정된다.
+  ///
+  /// 채널 기본값이 off 라, 사용자가 설정에서 켜기 전까지는 종전과 동일하게 무음이다.
+  /// 콜사이트가 볼륨을 넘겨 정책을 우회하던 구조를 제거한 것이다(2026-08-02).
   const SoriPosterLoop({
     super.key,
     required this.videoAsset,
     required this.poster,
-    this.volume = 0,
   });
 
   @override
@@ -165,11 +164,14 @@ class _SoriPosterLoopState extends State<SoriPosterLoop> {
   void initState() {
     super.initState();
     _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
+    // 설정에서 앰비언스를 켜고 끄거나 볼륨을 움직이면 살아 있는 컨트롤러에
+    // 즉시 반영된다. TTS 더킹도 같은 통지를 타고 온다.
+    AudioPolicy.instance.addListener(_applyVolume);
     _lease = soriVideoLease.register(
       asset: widget.videoAsset,
       eligible: false,
       prepare: (video) async {
-        await video.setVolume(SoundService.enabled ? widget.volume : 0);
+        await video.setVolume(_ambienceVolume());
         await video.setLooping(true);
       },
       onGranted: _onGranted,
@@ -194,8 +196,24 @@ class _SoriPosterLoopState extends State<SoriPosterLoop> {
     );
   }
 
+  /// 이 루프의 최종 음량 — 마스터·채널 on/off, 채널 볼륨, 에셋별 정규화 게인,
+  /// TTS 더킹이 전부 반영된 값. 꺼져 있으면 정확히 0.0 이다.
+  double _ambienceVolume() => AudioPolicy.instance
+      .volumeFor(SoundChannel.ambience, asset: widget.videoAsset);
+
+  /// [AudioPolicy] 통지 → 재생 중인 컨트롤러에 즉시 반영.
+  void _applyVolume() {
+    final video = _video;
+    if (video == null) {
+      return;
+    }
+    unawaited(video.setVolume(_ambienceVolume()));
+  }
+
   void _onGranted(VideoPlayerController video) {
     _video = video;
+    // prepare 이후 lease 승인 사이에 설정이 바뀌었을 수 있다.
+    unawaited(video.setVolume(_ambienceVolume()));
     if (mounted) {
       setState(() => _ready = true);
     }
@@ -220,6 +238,7 @@ class _SoriPosterLoopState extends State<SoriPosterLoop> {
 
   @override
   void dispose() {
+    AudioPolicy.instance.removeListener(_applyVolume);
     _eligibility.disposeBinding();
     final lease = _lease;
     _lease = null;

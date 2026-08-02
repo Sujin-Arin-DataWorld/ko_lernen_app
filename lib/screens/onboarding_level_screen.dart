@@ -58,28 +58,32 @@ class OnboardingLevelScreen extends StatefulWidget {
 }
 
 class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
-  /// 히어로 루프 영상 — `welcome-hero.mp4` 채택 (기존 underscore 파일 대신).
+  /// 히어로 루프 영상 — 현재 `welcome-hero.mp4`의 내용은 **구 `welcome_hero2`
+  /// (1280×720, 24fps 121f)**다. `eda4c37`(Jin)에서 hero2를 하이픈명으로
+  /// rename하고 960×960 `welcome_hero.mp4`는 삭제했다(복원 필요 시 `eda4c37^`).
   ///
   /// 전 121프레임 픽셀 스캔 비교 (2026-07-31):
-  /// | 항목 | welcome_hero | welcome_hero2 |
+  /// | 항목 | welcome_hero(삭제됨) | welcome_hero2(=현재 파일) |
   /// |------|--------------|---------------|
-  /// | 해상도 | **960×960** (프로젝트 규격) | 1280×720 (16:9) |
-  /// | 피사체 점유 면적 | **44.6%** | 25.7% |
+  /// | 해상도 | 960×960 (프로젝트 규격) | **1280×720 (16:9)** |
+  /// | 피사체 점유 면적 | 44.6% | 25.7% |
   /// | 루프 이음새 diff | 14.5 (인접의 11.9배) | 5.3 (인접의 10.4배) |
   ///
-  /// 세로 폰 히어로는 정사각이 맞다 — 16:9를 정사각 슬롯에 넣으면 좌우 40%가
-  /// 잘려 어깨 위 까치가 화면 밖으로 나간다. 같은 슬롯 크기에서 호랑이 얼굴이
-  /// 약 1.7배 커서 마스코트 첫 대면 인상도 우세. 둘 다 이음새가 있으나
-  /// (최적 루프 구간 f12~f110, 양쪽 공통) 정제는 원본 에셋 보존을 위해
-  /// 별도 작업으로 남긴다.
+  /// ⚠️ 16:9를 정사각 슬롯에 cover로 넣으면 가로 1280 중 720만 보인다
+  /// (x280–1000). 피사체 bbox는 x131–1159라 좌우 끝(어깨 위 까치 포함)이
+  /// 잘릴 수 있다 — 실기기 확인 항목. 잘리면 한 줄 처방 둘 중 하나:
+  /// ① SoriPosterLoop fit을 contain으로(레터박스가 _heroBackdrop과 같은
+  /// 색이라 안 보임, 대신 피사체 축소) ② `eda4c37^`의 정사각 원본 복원.
   static const String _heroVideo = 'assets/video/loops/welcome-hero.mp4';
   static const String _heroPoster =
       'assets/illustrations/hanok/welcome-hero.png';
 
-  /// 히어로 영상 배경의 실측 가장자리 색(#ECDDCD) — 페이지 상단을 이 색으로
-  /// 깔아 영상 사각형의 이음매를 눈에 보이지 않게 한다. 값을 바꾸면 히어로
-  /// 주변에 옅은 사각 테두리가 드러나므로 영상 교체 시 재측정할 것.
-  static const Color _heroBackdrop = Color(0xFFECDDCD);
+  /// 히어로 영상 배경의 실측 가장자리 색 — 페이지 상단을 이 색으로 깔아 영상
+  /// 사각형의 이음매를 눈에 보이지 않게 한다. 현재 파일(구 hero2) 실측
+  /// #EBD9C6(전 프레임 스캔; ffmpeg 4점 표본 #EBDAC5~#ECDFCD와 일치,
+  /// 2026-08-03). 구 값 #ECDDCD는 삭제된 960×960 파일의 실측이었다.
+  /// 영상 교체 시 재측정할 것.
+  static const Color _heroBackdrop = Color(0xFFEBD9C6);
 
   /// 학습 예문은 언어 무관(한국어 콘텐츠)이라 하드코딩.
   ///
@@ -147,11 +151,6 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
       ),
     );
   }
-
-  String _diagnosticLabel(BuildContext context) =>
-      Localizations.localeOf(context).languageCode == 'en'
-      ? 'Not sure? Take 8 questions'
-      : 'Unsicher? 8 Fragen beantworten';
 
   Future<void> _openCompare(BuildContext context) async {
     HapticFeedback.selectionClick();
@@ -360,7 +359,7 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                           delay: const Duration(milliseconds: 850),
                           slideY: 6,
                           child: _CompareCta(
-                            label: _diagnosticLabel(context),
+                            label: t.onboardingDiagnosticCta,
                             onTap: () => _openDiagnostic(context),
                           ),
                         ),

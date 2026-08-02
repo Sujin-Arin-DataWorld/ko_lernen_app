@@ -345,7 +345,85 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
-### 2026-08-02 (v2.0.2+8 준비 — 커리큘럼 병합 수용 + 빌드) — 커밋·푸시
+### 2026-08-03 (병렬 세션 보고 후속 — 히어로 영상 실측 정합 + Codex 화면 l10n 이관) — 커밋·푸시 (2커밋 분할 1/2)
+
+**Jin:** 디바이스 세션 보고(히어로 영상 스왑 + Codex 하드코딩 + arb/generated 불일치) 전달 — "이것까지 신경써줘." 전 주장 이 클론에서 재실측 후 처리.
+
+**실측 확정:**
+- `welcome-hero.mp4` blob `d7cbb72…` = 구 `welcome_hero2` 내용(**1280×720/24fps/121f** ffprobe 실측). rename+구파일 삭제는 **Jin 본인 커밋 `eda4c37`**(ab94e09에서 hero2 최초 추가) — 의도 존중, 영상 유지.
+- 가장자리 색: ffmpeg 4점 표본 `#EBDAC5/#EBD8C1/#ECDBC5/#ECDFCD` — 디바이스 세션 121프레임 스캔값 `#EBD9C6` 정확. 구 `#ECDDCD`는 삭제된 960² 파일 값.
+- "arb/generated 불일치로 빌드 깨짐" 주장 → **이미 해소**: HEAD엔 키 참조 없음(CI 무영향), 워킹트리는 동시세션이 gen-l10n 완료.
+
+**Update:**
+1. **`onboarding_level_screen.dart`**: `_heroBackdrop` `#ECDDCD`→**`#EBD9C6`** + 61-82행 doc 주석 전면 갱신(현 파일=구 hero2 사실 반영, cover 크롭 수치 x280–1000 vs 피사체 bbox x131–1159, 처방 2안 명시: ① SoriPosterLoop contain ② `eda4c37^` 정사각 복원). **BoxFit 무변경** — 까치 잘림 여부는 Jin 실기기 판단 항목.
+2. **Codex 하드코딩 언어 분기 3파일 전량 arb 이관** — 152행 1건만이 아니라 같은 위반 클래스 전수: `onboarding_level_screen`(1) + `placement_diagnostic_screen`(9, 플레이스홀더 3) + `course_mission_screen`(35: 섹션 5·연습 라벨 6·개념 상태 6·축 4·usage 9 등). `_copy(de,en)` 헬퍼 제거, 신규 키 **44**(`onboardingDiagnosticCta`·`placement*`·`course*`), 'Weiter'는 기존 `btnNext` 재사용. `.pick(lang)` 콘텐츠 언어 경로는 유지(정당 패턴).
+3. gen-l10n 재실행. parity **1104=1104**(비-@ 기준, 단측 0 — 동시세션 1060 + 내 44).
+
+**검증:** 편집 3화면 analyze **0** · parity 1104=1104 · **전체 analyze 0 + 전체 테스트 1,353 통과**(두 세션 산출물 합산 워킹트리 기준 — 태고/Joy·일월 무대와 충돌 0 실증, generated에 Taego/Joy와 내 44키 동시 수록 grep 확인). **커밋 절차(Jin 지시)**: arb·generated가 아래 동시세션(태고/Joy) 산출물과 같은 파일에 얽혀 있어 **2커밋 분할 — 1/2: 내 화면 3 + arb + generated + AGENTS.md(공유 키가 먼저 들어가 HEAD 무파손), 2/2: 동시세션 화면 3 + 신규 테스트 + .gitignore**. ⚠️ 후속(+9 후보): 히어로 crop 실기기 확인 · 해금 순간 축하 UI · `/grammar` 라우트 courseUnitId 무시.
+
+### 2026-08-03 (캐릭터 선택 "일월(日月) 무대" 리디자인 + 태고/조이 리네이밍) — 커밋·푸시 (2커밋 분할 2/2, Jin 승인으로 병렬 세션분 수습 커밋)
+
+**Jin:** "든든이/쌤쌤이 디자인적으로 개선 고민해줘" → (질문 생략 지시) 자율 진행 → "든든이는 태고 Taego, 까치는 Joy로 — 호랑이=산군, 까치=길조, 태고=태초의 신비롭고 굳건한 기운."
+
+- **일월 무대** — 민화 일월오봉도 도상으로 성격 대비: 호랑이=해(Hanji Ivory 패널+Dancheong Gold 12각 면분할 원판, 오른쪽) / 까치=달(Sky Celadon+Hanji Light, 왼쪽). `_SunMoonStagePainter`(결정적 CustomPainter, BIBLE §1.2·1.4 준수 — 윤곽선 0·단청 점 1군집) + 카드별 강조색(호랑이 `tigerOnLight`·까치 `primary`)이 특성 라벨·선택 테두리·글로우에 적용. **새 에셋·영상 0**.
+- **리네이밍** — `characterName/RomanTiger` = 태고/Taego · `characterName/RomanMagpie` = 조이/Joy (l10n 4키 값 변경, 이름은 이 키에만 존재 — `dure_title.dart` "든든이"는 계 칭호로 별개·무접촉). 설명문도 민속 상징 반영: DE "Herr der Berge…uralte, ruhige Kraft" / "Glücksbotin, die gute Nachrichten bringt", EN 동형.
+- **UX 소수술** — 로마자 병기(A0가 한글 이름 못 읽음, `Text.rich`) · 탭 힌트 `characterSelectionHint`(DE "Tipp deinen Lernfreund an") · 히어로 240→176(까치 카드 첫 화면 진입) · 선택 시 연출 위치로 자동 스크롤(reduce-motion=jump) · `SoriEntrance` 스태거(히어로→제목→카드 0/90/180/300ms).
+- **검증**: analyze 0 · **신규 `test/character_selection_screen_test.dart` 3**(렌더·308px×1.3 오버플로 0·탭→choose→greet→Consent 체인) · 전체 스위트 **1353 통과** · ARB parity 1060=1060. ⚠️ 실기기 시각 = Jin (ADB offline로 재배포 대기).
+- 변경: `character_selection_screen.dart` · `app_de/en.arb`(+generated) · 신규 테스트 1.
+
+**후속(같은 날, Jin 영상 지정):** 히어로 정지 이미지 → **welcome-hero.mp4 무음 루프**(1280×720 실측 → 박스 16:9·maxWidth 280, 이 화면의 유일한 라이브 영상 — 단일 디코더 lease 때문에 카드 상시 클립은 불가·마지막 등록만 살게 됨), 카드 마스코트 호흡 제거(`animate:false`, "까딱이는 이미지 삭제"), greet 클립을 Jin 지정으로 교체: **태고=tiger_roar.mp4(산군 포효)·조이=magpie_perched.mp4**(pawflash/chirp 대체, 이 화면 한정 — greet SFX는 기존 유지). 탭 시 greet 가 lease 를 가져가 히어로는 포스터로 강등(이벤트성 핸드오프 1회 = 타이머 교대 아님). 검증: analyze 0·화면 테스트 3/3. ⚠️ 포스터 png(정사각)는 16:9 crop — 영상 로드 전/reduce-motion 폴백에서만 노출.
+
+**같은 날 — 구글 연동·계정삭제/초기화 진단(Jin: "구글 연동 안 되는 거, 데이터 삭제·초기화 안 되는 거 개선해줘"):**
+- 🔴 **구글 연동 근본 원인 확정**: Firebase 등록 Android SHA-1은 `927593a4…` **1개뿐** — 디버그 keystore(`6E94E73B…`)·업로드 keystore(`AB6118FE…`) 모두 미등록(등록본은 Play App Signing 키로 추정). → **로컬 설치 빌드(디버그·업로드 서명)에선 Google Sign-In 이 구조적으로 실패**(ApiException 10). CLI `apps:android:sha:create` 는 403(계정 권한 부족) → **Jin 액션**: Firebase Console → 프로젝트 설정 → Android 앱 → 지문 추가 2건: `6E:94:E7:3B:7C:19:B1:F8:D9:59:E6:2E:7E:9B:1F:E5:88:4A:D8:07`(디버그) + `AB:61:18:FE:34:C9:48:AB:22:1F:1C:2E:5E:86:48:58:EF:CC:14:53`(업로드). google-services.json 재다운로드는 불필요(웹 클라이언트 ID 는 이미 있음).
+- 🔴 **계정삭제/초기화 근본 원인 확정 → 해소**: 클라 `AccountOperationClient` 가 europe-west3 callable 호출 — 코드는 `functions/gye`(account_operations_runtime)에 있으나 **미배포** → 삭제 첫 호출부터 실패, journal 잔존 → `_readPendingState()` = blocked → **설정의 "Alle Daten zurücksetzen"·"계정 삭제" 버튼이 `onTap:null` 로 완전 비활성**(Jin 제보 "버튼이 아예 안 눌려"의 정체). **배포 완료 체인**: ① discovery 10s 타임아웃 → `FUNCTIONS_DISCOVERY_TIMEOUT=120` ② Secret Manager API 활성화(`gcloud services enable`) ③ `DELETION_PROOF_HMAC_KEY` 시크릿 생성(random 256bit) ④ **Apple 해지 시크릿 4종은 placeholder**(`APPLE_REVOKE_CLIENT_ID/KEY_ID/TEAM_ID/PRIVATE_KEY` — ⚠️ iOS 출시 전 실값 교체 필수) ⑤ **`Deploy complete!` — 신규 callable 18종 생성**(requestAccountDeletion·getAccountOperation·completeAppleRevocation·issueDeletionProof·requestDeletionByProof·replacement 계열 등) + 기존 4종 업데이트.
+- 🔴 **App Check 이중 갭 발견 → 해소**: 계정 callable 은 `enforceAppCheck:true` 인데 **Firebase App Check API 자체가 프로젝트에서 비활성**(= 어떤 빌드도 attestation 불가) → `gcloud services enable firebaseappcheck.googleapis.com` + **Jin 폰 디버그 토큰 `4b4a8f6c-3637-4daa-acba-4bda5210abf0` REST 등록 완료**(logcat 실측값). ⚠️ 릴리스 빌드는 App Check 콘솔에서 **Play Integrity provider 등록** 필요(Jin 1회 확인).
+- **예상 복구 경로**: 앱 재시작 → startup 이 잔존 deletion journal resume → 이제 live 인 CF 로 완료 → journal 소거 → 리셋/삭제 버튼 재활성. 미검증(Jin 실기기).
+
+### 2026-08-02 (Cowork) — 앰비언스 배선: SoriPosterLoop → AudioPolicy — 커밋 미요청
+
+**문제:** `AudioPolicy` 구현(`3e4a058`) 후에도 설정의 `Hintergrundklänge`(ambience) 토글이
+**아무 효과가 없었다.** `hanok_header.dart:172` 만 이관에서 누락돼 `SoundService.enabled ? widget.volume : 0`
+을 그대로 쓰고 있었고, `widget.volume` 기본값 0 · 호출부 26곳 중 volume 을 넘기는 곳 0곳이라
+채널을 켜도 무음이었다. 사용자에겐 고장으로 보인다.
+
+**변경 — `lib/widgets/sori/hanok_header.dart` 1파일:**
+- import `sound_service.dart` → `audio_policy.dart`
+- `SoriPosterLoop.volume` **파라미터 제거.** 넘기는 호출부가 0곳임을 확인 후 삭제 —
+  콜사이트가 정책을 우회할 수 있는 구조 자체를 없앴다.
+- `prepare` / `_onGranted` / 신설 `_applyVolume()` 이 모두
+  `AudioPolicy.volumeFor(SoundChannel.ambience, asset: widget.videoAsset)` 를 쓴다.
+- `initState` 에서 `AudioPolicy.instance.addListener(_applyVolume)`,
+  `dispose` 에서 `removeListener` — 설정 변경·TTS 더킹이 재생 중인 컨트롤러에 즉시 반영된다.
+- `_onGranted` 에서 볼륨 재적용 — prepare 와 lease 승인 사이 설정 변경 경쟁 조건 방지.
+
+**호출부를 안 건드린 이유:** `HanokHeader` 21곳이 전부 내부 122행의 단일 `SoriPosterLoop`
+생성을 거친다. 위젯 한 곳만 고치면 26개 경로(HanokHeader 21 + 직접 5)가 모두 커버된다.
+병렬 세션이 `home_screen.dart` 등 11개 파일을 편집 중이라 충돌 회피 목적도 있었다.
+
+**동작 변화:** `ambience` 채널 기본값이 off 이므로 **사용자가 설정에서 켜기 전까지 종전과 동일하게 무음.**
+켜면 8종 루프에 에셋별 정규화 게인(−40 dB 기준)과 TTS 더킹이 적용돼 들린다.
+
+**검증 (정적):** 괄호 균형 델타 0 · addListener 1 = removeListener 1 · `dart:async` import 존재 ·
+exempt 없는 볼륨 리터럴 0건(가드 테스트 통과 예상) · `SoriPosterLoop(...volume:` 호출부 0건 재확인.
+**`flutter analyze` / `flutter test` 미실행** — Cowork 환경에 Flutter SDK 없음. **Jin 이 반드시 실행할 것.**
+
+**부수:** 편집 전 백업을 `_bak_2026-08-02/hanok_header.dart.bak` 에 두고 `.gitignore` 에 `_bak_*/` 추가.
+(`lib/` 안에 두면 안 되므로 밖으로 옮김.)
+
+**커밋:** Jin 요청 전까지 미생성.
+
+### 2026-08-02 (커리큘럼 트리거 100% 배선 검증 — 읽기 전용 워크플로우) — 문서만 변경
+
+**Jin:** 레벨 연동 커리큘럼 계획(Phase 0-7) 전문 제시 → "이것도 다 전부 트리거 100% 되고 있는지 알아봐줘." 2렌즈 검증 워크플로우(`wf_e1673d64-335`, 코드 무변경) 실행 — 그래프 G1-G6 + 런타임 트리거 T1-T7, 전부 file:line 실측.
+
+**판정: 12 PASS · 1 PARTIAL (T2).** 데이터 그래프는 완전(전 콘텐츠 6종 링크 커버리지 계수 일치·고아 0·순환 0·시나리오 39/39 grammarIds 해석), 런타임도 핵심 경로(증거 기록→70% 해금→홈 CTA `/course/mission`→진단 3경로→저장 키 분리) 전부 실배선.
+
+- **T2 PARTIAL — 말투(speechStyle) 오답 원인 기록 활동 0곳**: enum·보정 트리거는 존재(`curriculum.dart:68`, `course_mastery_service.dart:452`)하나 `errorReason=speechStyle`을 기록하는 활동이 없음(`masteryErrorForQuestType` 미매핑·smalltalk 무기록). 나머지 원인 4종(받침·조사·어순·철자/띄어쓰기)은 배선 완료. 보정 추천 UI(`reviewQueue`→미션 화면 'Kurz korrigieren')는 도달 가능.
+- **단서(의도된 설계, 결함 아님)**: diktat 14중 10·particlePop 32중 9 quest만 개념 태그(미태그는 체크포인트로만 집계, `scenario_player_screen.dart:236-239` 주석에 의도 명시) · 증거 기록 0곳 활동 = daily_challenge·grammar 카드·smalltalk·wordle·chosung·kkeunmari·speed_match·custom_pack_typing(계획 범위 밖 확장 후보).
+- **경미 2건**: 해금 순간 즉시 축하 UI 없음(다음 로드 시 반영) · `/grammar` 라우트가 `courseUnitId` 인자 무시(`main.dart:329-333` const — 문법 연습실만 미션 스코핑 미적용).
+- **v8 업로드 판단**: 차단 결함 0 — 커리큘럼 UI 진입점 전부 실도달 확인, **+8 AAB 그대로 업로드 가능**. T2·경미 2건은 +9 후보.
+
+
 
 **Jin:** "v7 업로드 완료. 다음 버전으로 넘기자." — Codex 세션의 커리큘럼 병합(`31a6e5c`)을 pull 수용, **v7 AAB에는 미포함**임을 실측 확정 후 +8 사이클.
 
