@@ -135,8 +135,10 @@ class CharacterClips {
         return 'sfx/greet_tiger.mp3';
       case magpieGreetChirp:
         return 'sfx/greet_magpie.mp3';
+      // tigerRoar 는 의도적으로 매핑 제외 — 전용 포효 오디오가 없어
+      // celebrate/greet 합성음을 차용했더니 품질 미달(2026-08-03 Jin:
+      // "허접해서 지워줘"). 좋은 포효 음원이 생기면 케이스를 되살린다.
       case tigerCelebrateHifive:
-      case tigerRoar:
       case tigerStretch:
         return 'sfx/celebrate_tiger.mp3';
       case magpieCelebrate:

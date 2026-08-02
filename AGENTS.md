@@ -345,6 +345,24 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-03 (실기기 피드백 — 캐릭터 선택 연출 위치 + 포효음 제거) — 커밋·푸시(Jin "푸쉬해주고 메인 최신으로")
+
+**Jin 실기기 2건:** ① "choose.mp4가 너무 하단에 있어서 오류난 것 같아" ② "tiger_roar.mp4 포효소리 너무 허접해서 지워줘. 파일명이 뭐야?"
+
+- **연출 위치**: 기존 배치는 choose/greet 클립을 카드 **아래에 append** + maxScrollExtent 자동 스크롤 — 실기기에선 화면 최하단에 붙어 오류처럼 보임. → **선택 즉시 카드·힌트를 걷고 그 자리(제목 아래 중앙)에서 클립 재생**(160→200px). 자동 스크롤 블록 삭제. 체인(choose→greet→Consent) 불변 — 전용 테스트 3/3 통과.
+- **포효음 사실관계**: **전용 포효 음원 파일은 없음** — `tiger_roar.mp4`는 선택 화면에서 `greet_tiger.mp3`(명시 지정), 신기록 축하 등에선 `celebrate_tiger.mp3`(sfxFor 자동 유도)를 차용. → **포효 클립 전 경로 무음화**: 선택 화면 tiger `sfxAsset`=null + `sfxFor`에서 `tigerRoar` 케이스 제거(이중 보장). 까치 짹짹·인사·하이파이브 등 타 연출은 그 파일들을 계속 쓰므로 **mp3 파일 자체는 유지**. `assets/sfx/README.md` 표·정정 각주 갱신(같은 커밋 규칙).
+- 변경: `character_selection_screen.dart` · `character_clip.dart` · `assets/sfx/README.md`. 검증: analyze 0 · character_selection 테스트 3/3. ⚠️ 이 항목은 클라우드 세션의 AGENTS.md 덮어쓰기로 1회 유실 → 재삽입(둘 다 보존됨).
+
+### 2026-08-02 — 디자인 전면 세련화 계획서 (Cowork 클라우드 세션 · 문서만, 코드 0)
+
+**Jin:** 실기기 스크린샷 16장과 함께 "튜토리얼~앱 전체가 촌스럽다(글씨체·크기·독일어 표현·베이지 답답함), 홈 Lernpfad 전체 노출이 너무 길고 지저분, 홈/Practice IA·미션 중심 화면·번역 누수·로딩/오류/접근성 통일 — 조이·태고 일관성 최우선으로 세련화 계획서" 요청.
+
+**산출:** `docs/DESIGN_OVERHAUL_PLAN_2026-08-02.md` **신규** — ① 16장 전수 크리틱(온보딩 화풍 이질·그림 속 영어 UI·"1 Tage in Folge" plural 버그·홈 경로 2중 등 30+건) ② 촌스러움 원인 6(1위: 크림-on-크림 1.09:1 + 전부-테두리 표면 문법) ③ 표면 v2(테두리→그림자, SoriCard 34파일 회귀면) ④ 홈 12→5블록(미션 히어로 + 경로 미리보기 3노드, `/path`는 전량·100% 트리거 유지) ⑤ 캐릭터 캐논(Faceted Minhwa) 위반 인벤토리 4건: `book_scan.png`·`gye_gate_grand.png`/`hanok_construction.mp4`·`tiger_crystal.png`·`tiger_sleepy/thinking` — **재제작은 Jin 몫, 이 세션 생성 0** ⑥ ARB plural 스트릭 7키(+`{n} Wörter`/`{packs} Packs` 계열은 감사 스크립트 전수)+요일 2자(Mo Di Mi…)+용어 표준(Pack→Paket 등 결정 대기) ⑦ 로드맵 R0~R7(실작업 ~7.5일) ⑧ Jin 결정 8건.
+
+**⚠️ 요구 반전 기록:** 07-31 세션 지시 "모든 pfad 100% 트리거·접지 않기" ↔ 08-02 Jin "전체가 다 보여서 너무 길다" — 계획서 §1·Q1(홈=미리보기 3노드 / `/path`=전량)로 명시. **Q1 확정 전 홈 임베드 제거 착수 금지.**
+
+**검증:** 인용 파일·행번호 전부 이 시점 워킹트리 실측(`home_screen.dart` :552/:584/:692 · `app_de.arb` :27/:544/:795/:959/:1035/:1126/:1171 · `onboarding_preview_screen.dart` :97–117 등). 코드·에셋·테스트 무변경. 커밋: 없음(Jin 요청 시).
+
 ### 2026-08-03 (병렬 세션 보고 후속 — 히어로 영상 실측 정합 + Codex 화면 l10n 이관) — 커밋·푸시 (2커밋 분할 1/2)
 
 **Jin:** 디바이스 세션 보고(히어로 영상 스왑 + Codex 하드코딩 + arb/generated 불일치) 전달 — "이것까지 신경써줘." 전 주장 이 클론에서 재실측 후 처리.
