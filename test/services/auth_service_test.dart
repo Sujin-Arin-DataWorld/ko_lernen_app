@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
+import 'package:ko_lernen_app/models/content_feedback.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/first_link_backfill.dart';
@@ -9,6 +11,10 @@ import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart'
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
+import 'package:ko_lernen_app/services/content_feedback_client.dart';
+import 'package:ko_lernen_app/services/content_feedback_outbox.dart';
+import 'package:ko_lernen_app/services/content_feedback_service.dart';
+import 'package:ko_lernen_app/services/content_feedback_version_provider.dart';
 import 'package:ko_lernen_app/services/push_service.dart';
 
 void main() {
@@ -436,6 +442,102 @@ void main() {
         events.sublist(events.indexOf('feedback-close-failed') + 1),
         containsAllInOrder(<String>['feedback-close', 'status:operation-1']),
       );
+    },
+  );
+
+  test(
+    'final feedback clear failure retains deletion for a text-safe retry',
+    () async {
+      final events = <String>[];
+      final store = _DeletionFeedbackOutboxStore();
+      final feedbackClient = _DeletionFeedbackClient();
+      final feedback = _deletionFeedbackService(store, feedbackClient);
+      final operations = _FakeDeletionOperations(events)
+        ..requestResults.add(
+          _operation(AccountOperationPhase.deletionRequested),
+        )
+        ..statusResults.add(
+          _operation(AccountOperationPhase.completed, version: 8),
+        );
+      final firstSessions = _readySessions();
+      final firstCoordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, firstSessions),
+        sessions: firstSessions,
+        closeFeedback: feedback.closeAndDiscard,
+        pollDelay: (_) async {},
+      );
+
+      final submission = feedback.submit(
+        const ContentFeedbackContext(
+          completionId: 'completion-before-delete',
+          contentType: 'scenario',
+          contentId: 'airport',
+          contentLabel: 'Airport',
+          level: 'A1',
+          scoreSummary: 'completed',
+        ),
+        const ContentFeedbackDraft(
+          category: FeedbackCategory.other,
+          message: 'Private tester text before deletion.',
+        ),
+      );
+      await store.writeStarted.future;
+
+      final deletion = firstCoordinator.deleteAccount();
+      await store.firstClearStarted.future;
+      expect(store.clearCount, 1);
+      store.releaseWrite.complete();
+
+      await expectLater(deletion, throwsA(isA<AccountOperationFailure>()));
+      final submissionResult = await submission;
+
+      expect(submissionResult.status, ContentFeedbackSubmitStatus.closed);
+      expect(store.clearCount, 2);
+      expect(store.items, hasLength(1));
+      expect(operations.statusCalls, 0);
+      expect(operations.recoveryCalls, 0);
+      expect(operations.journal?.operationId, 'operation-1');
+      expect(
+        operations.journal?.operation?.phase,
+        AccountOperationPhase.deletionRequested,
+      );
+
+      final closedSubmit = await feedback.submit(
+        const ContentFeedbackContext(
+          completionId: 'completion-after-delete',
+          contentType: 'scenario',
+          contentId: 'airport',
+          contentLabel: 'Airport',
+          level: 'A1',
+          scoreSummary: 'completed',
+        ),
+        const ContentFeedbackDraft(
+          category: FeedbackCategory.other,
+          message: 'Must never leave the closed outbox.',
+        ),
+      );
+      final closedResume = await feedback.resumePending();
+      expect(closedSubmit.status, ContentFeedbackSubmitStatus.closed);
+      expect(closedResume.closed, isTrue);
+      expect(feedbackClient.feedbackIds, isEmpty);
+
+      final restartedSessions = CloudWriteSessionController()
+        ..resume(operations.journal!.session, expectedUid: operations.userId);
+      final restartedCoordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, restartedSessions),
+        sessions: restartedSessions,
+        closeFeedback: feedback.closeAndDiscard,
+        pollDelay: (_) async {},
+      );
+
+      await restartedCoordinator.resumePendingDeletion();
+
+      expect(operations.statusCalls, 1);
+      expect(operations.recoveryCalls, 1);
+      expect(store.items, isEmpty);
+      expect(feedbackClient.feedbackIds, isEmpty);
     },
   );
 
@@ -1168,6 +1270,79 @@ PushOwnershipTransitionCoordinator _ownership(
     notificationsEnabled: () => false,
     sessions: sessions,
   );
+}
+
+ContentFeedbackService _deletionFeedbackService(
+  FeedbackOutboxStore store,
+  ContentFeedbackClient client,
+) {
+  return ContentFeedbackService(
+    featureGate: const TesterFeedbackFeatureGate(enabled: true),
+    outboxStore: store,
+    client: client,
+    currentUid: () => 'user-1',
+    versionProvider: _DeletionFeedbackVersionProvider(),
+    createFeedbackId: () => 'feedback-before-delete',
+    now: () => DateTime.utc(2026, 8, 2),
+    platform: () => 'android',
+    locale: () => 'de',
+    deletionActive: () async => false,
+  );
+}
+
+class _DeletionFeedbackOutboxStore implements FeedbackOutboxStore {
+  final List<ContentFeedbackOutboxItem> items = [];
+  final Completer<void> writeStarted = Completer<void>();
+  final Completer<void> releaseWrite = Completer<void>();
+  final Completer<void> firstClearStarted = Completer<void>();
+  int writeCount = 0;
+  int clearCount = 0;
+
+  @override
+  Future<List<ContentFeedbackOutboxItem>> read() async => List.of(items);
+
+  @override
+  Future<void> write(List<ContentFeedbackOutboxItem> value) async {
+    writeCount += 1;
+    if (writeCount == 1) {
+      writeStarted.complete();
+      await releaseWrite.future;
+    }
+    items
+      ..clear()
+      ..addAll(value);
+  }
+
+  @override
+  Future<void> clear() async {
+    clearCount += 1;
+    if (clearCount == 1) firstClearStarted.complete();
+    if (clearCount == 2) {
+      throw StateError('final secure outbox clear failed');
+    }
+    items.clear();
+  }
+}
+
+class _DeletionFeedbackClient implements ContentFeedbackClient {
+  final List<String> feedbackIds = [];
+
+  @override
+  Future<ContentFeedbackDelivery> submit(
+    ContentFeedbackSubmission submission, {
+    required String expectedOwnerUid,
+  }) async {
+    feedbackIds.add(submission.feedbackId);
+    return const ContentFeedbackDelivery(
+      acknowledgement: ContentFeedbackAcknowledgement.accepted,
+    );
+  }
+}
+
+class _DeletionFeedbackVersionProvider
+    implements ContentFeedbackVersionProvider {
+  @override
+  Future<String> readVersion() async => '2.0.1+6';
 }
 
 class _FakeDeletionOperations implements AccountDeletionOperations {

@@ -122,6 +122,7 @@ class ContentFeedbackService implements FeedbackOutbox {
   final ContentFeedbackPassportReader? passportReader;
 
   Future<void> _tail = Future<void>.value();
+  final Set<Future<dynamic>> _activeStorageOperations = <Future<dynamic>>{};
   bool _closed = false;
 
   Future<ContentFeedbackSubmitResult> submit(
@@ -135,14 +136,14 @@ class ContentFeedbackService implements FeedbackOutbox {
         ),
       );
     }
-    return _runExclusiveWithClosedCleanup(() => _submit(context, draft));
+    return _runExclusive(() => _submit(context, draft));
   }
 
   Future<ContentFeedbackResumeResult> resumePending() {
     if (!featureGate.isEnabled) {
       return Future.value(const ContentFeedbackResumeResult(disabled: true));
     }
-    return _runExclusiveWithClosedCleanup(_resumePending);
+    return _runExclusive(_resumePending);
   }
 
   Future<Set<String>> readPassportState() async {
@@ -157,13 +158,27 @@ class ContentFeedbackService implements FeedbackOutbox {
   }
 
   @override
-  Future<void> closeAndDiscard() {
+  Future<void> closeAndDiscard() async {
     _closed = true;
-    // Deletion invokes this while holding the same durable admission lane
-    // that an already queued feedback operation may be waiting to enter.
-    // Clear immediately; the operation wrapper performs a final sweep if a
-    // previously admitted storage write finishes after this clear.
-    return outboxStore.clear();
+    // Deletion can hold the durable admission lane while feedback execution
+    // is waiting to enter it, so close must never wait on [_tail]. Storage
+    // operations have their own barrier and cannot depend on that lane.
+    final alreadyStarted = List<Future<dynamic>>.of(_activeStorageOperations);
+    final initialClear = _startStorageOperation<void>(
+      outboxStore.clear,
+      allowWhenClosed: true,
+    );
+    await Future.wait<void>(<Future<void>>[
+      for (final operation in alreadyStarted) _settleStorage(operation),
+      _settleStorage(initialClear),
+    ]);
+    // A pre-close write may have restored data after the initial clear. This
+    // final clear is authoritative and its failure must reach deletion so its
+    // durable journal remains resumable and polling cannot begin.
+    await _startStorageOperation<void>(
+      outboxStore.clear,
+      allowWhenClosed: true,
+    );
   }
 
   Future<ContentFeedbackSubmitResult> _submit(
@@ -245,7 +260,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     );
     List<ContentFeedbackOutboxItem> queue;
     try {
-      queue = List.of(await outboxStore.read());
+      queue = List.of(await _readOutbox());
       if (_closed) return _closedSubmission(feedbackId);
       queue.removeWhere((queued) => queued.ownerUid != uid);
       if (queue.length >= feedbackOutboxMaxItems) {
@@ -255,7 +270,7 @@ class ContentFeedbackService implements FeedbackOutbox {
         );
       }
       queue.add(item);
-      await outboxStore.write(queue);
+      await _writeOutbox(queue);
     } catch (_) {
       if (_closed) return _closedSubmission(feedbackId);
       return ContentFeedbackSubmitResult(
@@ -307,7 +322,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     final attempted = original.recordAttempt();
     _replaceById(queue, attempted);
     try {
-      await outboxStore.write(queue);
+      await _writeOutbox(queue);
     } catch (_) {
       if (_closed) return _closedSubmission(original.submission.feedbackId);
       return ContentFeedbackSubmitResult(
@@ -427,7 +442,7 @@ class ContentFeedbackService implements FeedbackOutbox {
 
     List<ContentFeedbackOutboxItem> queue;
     try {
-      queue = List.of(await outboxStore.read());
+      queue = List.of(await _readOutbox());
     } catch (_) {
       if (_closed) return const ContentFeedbackResumeResult(closed: true);
       return const ContentFeedbackResumeResult();
@@ -470,7 +485,7 @@ class ContentFeedbackService implements FeedbackOutbox {
       final attempted = original.recordAttempt();
       _replaceById(queue, attempted);
       try {
-        await outboxStore.write(queue);
+        await _writeOutbox(queue);
       } catch (_) {
         if (_closed) break;
         break;
@@ -588,7 +603,7 @@ class ContentFeedbackService implements FeedbackOutbox {
     _replaceById(queue, attempted.recordFailure(failure));
     if (_closed) return;
     try {
-      await outboxStore.write(queue);
+      await _writeOutbox(queue);
     } catch (_) {
       // The previously persisted attempted item remains safe and retryable.
     }
@@ -648,7 +663,7 @@ class ContentFeedbackService implements FeedbackOutbox {
   }
 
   Future<void> _writeQueue(List<ContentFeedbackOutboxItem> queue) {
-    return queue.isEmpty ? outboxStore.clear() : outboxStore.write(queue);
+    return queue.isEmpty ? _clearOutbox() : _writeOutbox(queue);
   }
 
   void _replaceById(
@@ -668,22 +683,43 @@ class ContentFeedbackService implements FeedbackOutbox {
     return operation;
   }
 
-  Future<T> _runExclusiveWithClosedCleanup<T>(Future<T> Function() action) {
-    final mayNeedCloseSweep = !_closed;
-    return _runExclusive(() async {
-      try {
-        return await action();
-      } finally {
-        if (mayNeedCloseSweep && _closed) {
-          try {
-            await outboxStore.clear();
-          } catch (_) {
-            // closeAndDiscard reports its own authoritative clear failure.
-            // This sweep only prevents a previously admitted write from
-            // restoring data after that close attempt.
-          }
-        }
-      }
-    });
+  Future<List<ContentFeedbackOutboxItem>> _readOutbox() {
+    return _startStorageOperation(outboxStore.read);
+  }
+
+  Future<void> _writeOutbox(List<ContentFeedbackOutboxItem> queue) {
+    final snapshot = List<ContentFeedbackOutboxItem>.unmodifiable(queue);
+    return _startStorageOperation(() => outboxStore.write(snapshot));
+  }
+
+  Future<void> _clearOutbox() {
+    return _startStorageOperation(outboxStore.clear);
+  }
+
+  Future<T> _startStorageOperation<T>(
+    Future<T> Function() action, {
+    bool allowWhenClosed = false,
+  }) {
+    if (_closed && !allowWhenClosed) {
+      return Future<T>.error(StateError('Feedback outbox is closed.'));
+    }
+    final operation = Future<T>.sync(action);
+    _activeStorageOperations.add(operation);
+    operation.then<void>(
+      (_) => _activeStorageOperations.remove(operation),
+      onError: (Object _, StackTrace __) {
+        _activeStorageOperations.remove(operation);
+      },
+    );
+    return operation;
+  }
+
+  Future<void> _settleStorage(Future<dynamic> operation) async {
+    try {
+      await operation;
+    } catch (_) {
+      // An admitted feedback operation owns its own storage error result.
+      // Close still advances to the final authoritative clear.
+    }
   }
 }

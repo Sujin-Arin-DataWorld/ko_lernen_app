@@ -583,7 +583,7 @@ void main() {
     });
 
     test(
-      'close during an admitted outbox write clears it without network work',
+      'close waits for a delayed write then authoritatively clears it',
       () async {
         final writeStarted = Completer<void>();
         final releaseWrite = Completer<void>();
@@ -601,6 +601,15 @@ void main() {
         final submit = service.submit(context, draft);
         await writeStarted.future;
         final discard = service.closeAndDiscard();
+        var discardCompleted = false;
+        unawaited(discard.then((_) => discardCompleted = true));
+
+        await Future<void>.delayed(Duration.zero);
+
+        expect(store.clearCount, 1);
+        expect(discardCompleted, isFalse);
+        expect(store.items, isEmpty);
+
         releaseWrite.complete();
 
         final result = await submit;
@@ -608,8 +617,44 @@ void main() {
 
         expect(result.status, ContentFeedbackSubmitStatus.closed);
         expect(store.writeCount, 1);
-        expect(store.clearCount, greaterThanOrEqualTo(1));
+        expect(store.clearCount, 2);
         expect(store.items, isEmpty);
+        expect(client.feedbackIds, isEmpty);
+      },
+    );
+
+    test(
+      'close propagates a failed final clear after a delayed write',
+      () async {
+        final writeStarted = Completer<void>();
+        final releaseWrite = Completer<void>();
+        final store = MemoryFeedbackOutboxStore(
+          failClearCounts: const <int>{2},
+          onWriteAsync: (writeCount) async {
+            if (writeCount == 1) {
+              writeStarted.complete();
+              await releaseWrite.future;
+            }
+          },
+        );
+        final client = FakeFeedbackClient();
+        final service = buildService(store: store, client: client);
+
+        final submit = service.submit(context, draft);
+        await writeStarted.future;
+        final discard = service.closeAndDiscard();
+
+        await Future<void>.delayed(Duration.zero);
+        expect(store.clearCount, 1);
+
+        releaseWrite.complete();
+
+        final result = await submit;
+        await expectLater(discard, throwsStateError);
+
+        expect(result.status, ContentFeedbackSubmitStatus.closed);
+        expect(store.clearCount, 2);
+        expect(store.items.single.submission.feedbackId, 'new-feedback');
         expect(client.feedbackIds, isEmpty);
       },
     );
@@ -1316,6 +1361,7 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
     this.failNextWrite = false,
     this.failNextClear = false,
     this.failEveryClear = false,
+    this.failClearCounts = const <int>{},
     this.onWrite,
     this.onReadAsync,
     this.onWriteAsync,
@@ -1326,6 +1372,7 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
   bool failNextWrite;
   bool failNextClear;
   final bool failEveryClear;
+  final Set<int> failClearCounts;
   final void Function(int writeCount)? onWrite;
   final Future<void> Function(int readCount)? onReadAsync;
   final Future<void> Function(int writeCount)? onWriteAsync;
@@ -1336,7 +1383,9 @@ class MemoryFeedbackOutboxStore implements FeedbackOutboxStore {
   @override
   Future<void> clear() async {
     clearCount += 1;
-    if (failEveryClear || failNextClear) {
+    if (failEveryClear ||
+        failNextClear ||
+        failClearCounts.contains(clearCount)) {
       failNextClear = false;
       throw StateError('clear failed');
     }
