@@ -22,25 +22,35 @@ class FeedbackCompletionSlot {
 class ListeningFeedbackCompletionState {
   final FeedbackCompletionSlot _completion = FeedbackCompletionSlot();
   int _generation = 0;
+  Future<FeedbackCompletion?>? _finishResult;
 
   FeedbackCompletion? get current => _completion.current;
 
   Future<FeedbackCompletion?> finish({
     required Future<void> Function() persistXp,
     required FeedbackCompletion Function() create,
-  }) async {
+  }) {
+    final existingResult = _finishResult;
+    if (existingResult != null) return existingResult;
+
     final generation = _generation;
     final completion = _completion.complete(create);
-    await persistXp();
-    if (generation != _generation ||
-        !identical(_completion.current, completion)) {
-      return null;
-    }
-    return completion;
+    final result = Future<void>.sync(persistXp).then<FeedbackCompletion?>(
+      (_) {
+        if (generation != _generation ||
+            !identical(_completion.current, completion)) {
+          return null;
+        }
+        return completion;
+      },
+    );
+    _finishResult = result;
+    return result;
   }
 
   void reset() {
     _generation++;
+    _finishResult = null;
     _completion.reset();
   }
 }

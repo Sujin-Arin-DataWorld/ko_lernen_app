@@ -142,6 +142,114 @@ void main() {
     expect(lifecycle.current, isNull);
   });
 
+  test(
+    'listening coalesces concurrent and completed finishes for one session',
+    () async {
+      final persistence = Completer<void>();
+      final lifecycle = ListeningFeedbackCompletionState();
+      var persistCalls = 0;
+      var allocations = 0;
+
+      Future<void> persistXp() {
+        persistCalls++;
+        return persistence.future;
+      }
+
+      FeedbackCompletion create() => FeedbackCompletion.listening(
+        createId: () => 'listening-${++allocations}',
+        scenarioId: 'station',
+        contentLabel: 'Am Bahnhof',
+        level: 'A2',
+        lines: 6,
+        rate: 1,
+      );
+
+      final first = lifecycle.finish(persistXp: persistXp, create: create);
+      final second = lifecycle.finish(persistXp: persistXp, create: create);
+
+      expect(second, same(first));
+      expect(persistCalls, 1);
+      expect(allocations, 1);
+
+      persistence.complete();
+      final firstResult = await first;
+      final secondResult = await second;
+      expect(firstResult, same(secondResult));
+
+      final afterCompletion = lifecycle.finish(
+        persistXp: () {
+          fail('a completed listening session must not persist XP again');
+        },
+        create: () {
+          fail('a completed listening session must not allocate feedback again');
+        },
+      );
+
+      expect(afterCompletion, same(first));
+      expect(await afterCompletion, same(firstResult));
+      expect(persistCalls, 1);
+      expect(allocations, 1);
+    },
+  );
+
+  test('listening reset keeps a new finish safe from an old future', () async {
+    final oldPersistence = Completer<void>();
+    final newPersistence = Completer<void>();
+    final lifecycle = ListeningFeedbackCompletionState();
+    var persistCalls = 0;
+
+    final oldFinish = lifecycle.finish(
+      persistXp: () {
+        persistCalls++;
+        return oldPersistence.future;
+      },
+      create: () => FeedbackCompletion.listening(
+        createId: () => 'old-completion',
+        scenarioId: 'station',
+        contentLabel: 'Am Bahnhof',
+        level: 'A2',
+        lines: 6,
+        rate: 1,
+      ),
+    );
+
+    lifecycle.reset();
+    final newFinish = lifecycle.finish(
+      persistXp: () {
+        persistCalls++;
+        return newPersistence.future;
+      },
+      create: () => FeedbackCompletion.listening(
+        createId: () => 'new-completion',
+        scenarioId: 'station',
+        contentLabel: 'Am Bahnhof',
+        level: 'A2',
+        lines: 6,
+        rate: 1,
+      ),
+    );
+    expect(persistCalls, 2);
+
+    oldPersistence.complete();
+    expect(await oldFinish, isNull);
+
+    final repeatedNewFinish = lifecycle.finish(
+      persistXp: () {
+        fail('the current session must retain its in-flight reward');
+      },
+      create: () {
+        fail('the current session must retain its feedback completion');
+      },
+    );
+    expect(repeatedNewFinish, same(newFinish));
+    expect(persistCalls, 2);
+
+    newPersistence.complete();
+    expect(await newFinish, isNotNull);
+    expect(await repeatedNewFinish, same(lifecycle.current));
+    expect(lifecycle.current?.context.completionId, 'new-completion');
+  });
+
   test('review callers remain distinguishable without word-list data', () {
     const today = ReviewSessionScreen();
     const hardWords = ReviewSessionScreen(
