@@ -35,13 +35,20 @@ class ListeningFeedbackCompletionState {
 
     final generation = _generation;
     final completion = _completion.complete(create);
-    final result = Future<void>.sync(persistXp).then<FeedbackCompletion?>(
+    late final Future<FeedbackCompletion?> result;
+    result = Future<void>.sync(persistXp).then<FeedbackCompletion?>(
       (_) {
         if (generation != _generation ||
             !identical(_completion.current, completion)) {
           return null;
         }
         return completion;
+      },
+      onError: (Object error, StackTrace stackTrace) {
+        if (generation == _generation && identical(_finishResult, result)) {
+          _finishResult = null;
+        }
+        return Future<FeedbackCompletion?>.error(error, stackTrace);
       },
     );
     _finishResult = result;

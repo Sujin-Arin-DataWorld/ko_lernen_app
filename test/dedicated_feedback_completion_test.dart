@@ -181,13 +181,56 @@ void main() {
           fail('a completed listening session must not persist XP again');
         },
         create: () {
-          fail('a completed listening session must not allocate feedback again');
+          fail(
+            'a completed listening session must not allocate feedback again',
+          );
         },
       );
 
       expect(afterCompletion, same(first));
       expect(await afterCompletion, same(firstResult));
       expect(persistCalls, 1);
+      expect(allocations, 1);
+    },
+  );
+
+  test(
+    'listening retries after failed XP persistence in the same session',
+    () async {
+      final lifecycle = ListeningFeedbackCompletionState();
+      var persistCalls = 0;
+      var allocations = 0;
+
+      Future<void> persistXp() {
+        persistCalls++;
+        if (persistCalls == 1) {
+          return Future<void>.error(StateError('temporary XP failure'));
+        }
+        return Future<void>.value();
+      }
+
+      FeedbackCompletion create() => FeedbackCompletion.listening(
+        createId: () => 'retry-${++allocations}',
+        scenarioId: 'station',
+        contentLabel: 'Am Bahnhof',
+        level: 'A2',
+        lines: 6,
+        rate: 1,
+      );
+
+      final failedFinish = lifecycle.finish(
+        persistXp: persistXp,
+        create: create,
+      );
+      await expectLater(failedFinish, throwsStateError);
+
+      final retry = lifecycle.finish(persistXp: persistXp, create: create);
+      expect(persistCalls, 2);
+
+      final completion = await retry;
+      expect(completion, isNotNull);
+      expect(completion, same(lifecycle.current));
+      expect(completion?.context.completionId, 'retry-1');
       expect(allocations, 1);
     },
   );
@@ -248,6 +291,62 @@ void main() {
     expect(await newFinish, isNotNull);
     expect(await repeatedNewFinish, same(lifecycle.current));
     expect(lifecycle.current?.context.completionId, 'new-completion');
+  });
+
+  test('a stale listening failure cannot clear a new session result', () async {
+    final oldPersistence = Completer<void>();
+    final newPersistence = Completer<void>();
+    final lifecycle = ListeningFeedbackCompletionState();
+    var persistCalls = 0;
+
+    final oldFinish = lifecycle.finish(
+      persistXp: () {
+        persistCalls++;
+        return oldPersistence.future;
+      },
+      create: () => FeedbackCompletion.listening(
+        createId: () => 'old-completion',
+        scenarioId: 'station',
+        contentLabel: 'Am Bahnhof',
+        level: 'A2',
+        lines: 6,
+        rate: 1,
+      ),
+    );
+
+    lifecycle.reset();
+    final newFinish = lifecycle.finish(
+      persistXp: () {
+        persistCalls++;
+        return newPersistence.future;
+      },
+      create: () => FeedbackCompletion.listening(
+        createId: () => 'new-completion',
+        scenarioId: 'station',
+        contentLabel: 'Am Bahnhof',
+        level: 'A2',
+        lines: 6,
+        rate: 1,
+      ),
+    );
+    expect(persistCalls, 2);
+
+    oldPersistence.completeError(StateError('old XP failure'));
+    await expectLater(oldFinish, throwsStateError);
+
+    final repeatedNewFinish = lifecycle.finish(
+      persistXp: () {
+        fail('a stale failure must not restart the new session reward');
+      },
+      create: () {
+        fail('a stale failure must not replace new session feedback');
+      },
+    );
+    expect(repeatedNewFinish, same(newFinish));
+    expect(persistCalls, 2);
+
+    newPersistence.complete();
+    expect(await newFinish, same(lifecycle.current));
   });
 
   test('review callers remain distinguishable without word-list data', () {
