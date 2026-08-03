@@ -1,4 +1,4 @@
-# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.3+9)
+# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.4+10)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -53,7 +53,27 @@ Enjoy building your hanok!
 
 ---
 
-## 이번 내부 테스트 릴리스 노트 — Build 2.0.3+9 (2026-08-03)
+## 이번 내부 테스트 릴리스 노트 — Build 2.0.4+10 (2026-08-03)
+
+> Play Console 내부 테스트 "출시 노트"에는 아래 **독일어·영어 태그 포함 텍스트만** 붙여넣기.
+> 출시 이름: `10 · 진행도 가드 + 동기화 안정화` (규칙: em-dash·마크다운·한국어 혼입 금지)
+
+```text
+<de-DE>
+Neu in diesem Build:
+• Zuverlässiger Kursfortschritt: Missionen schalten sich exakt nach deinen echten Ergebnissen frei
+• Sichere Synchronisierung: Lokale und Cloud-Daten werden geprüft und ohne Überschreiben zusammengeführt
+• Gerätewechsel: Dein Kursstand wird beim Wiederherstellen validiert und korrekt übernommen
+</de-DE>
+<en-US>
+New in this build:
+• Reliable course progress: missions unlock exactly based on your real results
+• Safe sync: local and cloud data are validated and merged without overwriting anything
+• Device switch: your course state is checked and restored correctly
+</en-US>
+```
+
+### (기록) Build 2.0.3+9 — 2026-08-03 빌드·검증 완료
 
 > Play Console 내부 테스트 "출시 노트"에는 아래 **독일어·영어 태그 포함 텍스트만** 붙여넣기.
 > 출시 이름: `9 · Testerfeedback + Ergebnisstabilität`
