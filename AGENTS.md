@@ -370,6 +370,13 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-03 (후속) — 에셋 생성 프롬프트 복붙본 파일화 — 커밋·푸시
+
+**Jin:** "생성기/외주에 그대로 넘기기 좋게 파일로 — 둘 다(파일+커밋)."
+
+- **신규 `docs/ASSET_PROMPTS_2026-08-03.md`** — 4소스(BIBLE·GAP·PRODUCTION_PLAN·DESIGN_OVERHAUL §5·§6.5·§7.4) 정합 **복붙 프롬프트 세트**: 시나리오 배경 7종(1086×1448·조립 완성)·Joy 클립 P0~P4(**i2v, 기존 magpie PNG 첫 프레임=재생성 아님**)·온보딩 3종(book_scan·hanok_growing·tiger_crystal→부적 황 오브제; **비캐릭터/오브제=프롬프트 + 캐릭터=기존 PNG 합성**)·생성담당 매트릭스·납품 검수. 캐릭터 AI 재생성·다크 한옥 금지 상속.
+- **변경:** 문서 1개 신규. 코드·에셋 무변경. 검증 불요(순수 md). **내 2파일만 커밋**(동시 유입 `l10n generated` 재생성·Jin 추가 `mascot/magpie_right_walking_flying.mp4`·`_to_delete/` 스크래치는 미포함).
+
 ### 2026-08-03 (Cowork) — 호랑이 클립 3종 + 빈/오류 마스코트 전수 배선 + 에셋 생산 계획 — 커밋 미요청
 
 **Jin:** 첨부한 `tiger_roar.mp4`로 생각하는 호랑이 클립 생성 → 정면 보행·호랑이＋까치 추가 → 빈/오류 상태 배선 → 에셋 생산 계획.
