@@ -17,13 +17,21 @@ release operator has generated the iOS Firebase configuration locally, kept
 membership. Do not weaken or bypass this failure on Windows or by committing
 the generated plist.
 
+Web Firebase, Auth-domain, and Web App Check provisioning is a separate
+operator step in [the Web Firebase external setup runbook](web-firebase-external-setup.md).
+Configure Android, iOS, and Web from the same authorized Firebase project with
+FlutterFire; do not hand-copy identifiers between platform configurations.
+
 ## 1. Register the Firebase iOS app
 
 Use the existing Firebase project and register the exact case-sensitive bundle
 ID above before generating local configuration. If the Firebase iOS app is not
 yet registered, create it in the Firebase Console or with the Firebase CLI; if
 it already exists, select that existing app. Then, from a macOS release
-workstation, use FlutterFire to generate the local iOS option:
+workstation, use FlutterFire to generate the local iOS option. When the Web
+registration is also ready, use the companion Web runbook's `android,ios,web`
+FlutterFire selection so all generated options are reviewed together; do not
+manually add an iOS app ID:
 
 ```bash
 set -euo pipefail

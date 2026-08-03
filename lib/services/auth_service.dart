@@ -18,6 +18,7 @@ import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
 import 'account/cloud_backup_deletion.dart';
 import 'account/cloud_write_session.dart';
+import 'account/firebase_app_check_initializer.dart';
 import 'account/first_link_backfill.dart';
 import 'account/first_link_backfill_journal.dart';
 import 'app_startup_coordinator.dart';
@@ -1259,18 +1260,45 @@ class FirebaseIsolatedTargetVerifier implements IsolatedTargetVerifier {
       name: 'account-transition-$suffix',
       options: primary.options,
     );
+    return initializeTemporaryContextWithCleanup(
+      initializeContext: () => initializeTemporaryAppCheckThen(
+        initializerFactory: FirebaseAppCheckInitializer.productionWithActivator,
+        activate:
+            ({webProvider, required androidProvider, required appleProvider}) {
+              return FirebaseAppCheck.instanceFor(app: app).activate(
+                webProvider: webProvider,
+                androidProvider: androidProvider,
+                appleProvider: appleProvider,
+              );
+            },
+        afterActivation: () async => _PluginTemporaryFirebaseAuthContext(app),
+      ),
+      deleteApp: app.delete,
+    );
+  }
+
+  /// Activates App Check before a temporary target context can expose an auth
+  /// or callable client. The factory seam proves that secondary Firebase apps
+  /// use the same Web key/provider policy as the primary app.
+  static Future<T> initializeTemporaryAppCheckThen<T>({
+    required FirebaseAppCheckInitializerFactory initializerFactory,
+    required FirebaseAppCheckActivator activate,
+    required Future<T> Function() afterActivation,
+  }) async {
+    await initializerFactory(activate: activate).initialize();
+    return afterActivation();
+  }
+
+  /// Ensures a failed asynchronous secondary-App Check activation cannot leak
+  /// the isolated Firebase app that was just created for reconciliation.
+  static Future<T> initializeTemporaryContextWithCleanup<T>({
+    required Future<T> Function() initializeContext,
+    required Future<void> Function() deleteApp,
+  }) async {
     try {
-      await FirebaseAppCheck.instanceFor(app: app).activate(
-        androidProvider: kDebugMode
-            ? AndroidProvider.debug
-            : AndroidProvider.playIntegrity,
-        appleProvider: kDebugMode
-            ? AppleProvider.debug
-            : AppleProvider.appAttestWithDeviceCheckFallback,
-      );
-      return _PluginTemporaryFirebaseAuthContext(app);
+      return await initializeContext();
     } catch (_) {
-      await app.delete();
+      await deleteApp();
       rethrow;
     }
   }

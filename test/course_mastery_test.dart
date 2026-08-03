@@ -51,6 +51,41 @@ class _RejectedCourseMasteryWriteStore implements PreferenceStringStore {
   }
 }
 
+class _RejectedCanonicalSnapshotWriteStore implements PreferenceStringStore {
+  _RejectedCanonicalSnapshotWriteStore(Map<String, String> initial)
+    : _cache = Map<String, String>.from(initial),
+      _durable = Map<String, String>.from(initial);
+
+  final Map<String, String> _cache;
+  final Map<String, String> _durable;
+
+  @override
+  bool containsKey(String key) => _cache.containsKey(key);
+
+  @override
+  String? getString(String key) => _cache[key];
+
+  @override
+  Future<void> reload() async {
+    _cache
+      ..clear()
+      ..addAll(_durable);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    _cache.remove(key);
+    _durable.remove(key);
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    _cache[key] = value;
+    return false;
+  }
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -98,6 +133,205 @@ void main() {
 
       expect(Storage.courseMasteryRawJson, durable);
       expect(store.getString(Storage.courseMasteryPreferenceKey), durable);
+    },
+  );
+
+  test('refresh migrates a v1 snapshot into the canonical v2 key', () async {
+    const legacy =
+        '{"version":1,"placementLevel":"a1",'
+        '"currentCourseUnitId":"a1_01_greetings_hangul"}';
+    await _seedCoursePreferences({
+      Storage.legacyCourseMasteryPreferenceKey: legacy,
+    });
+
+    final snapshot = await CourseMasteryService(_catalog()).refresh();
+
+    expect(snapshot.version, 2);
+    expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+    expect(Storage.legacyCourseMasteryRawJson, legacy);
+  });
+
+  test(
+    'refresh creates a canonical v2 snapshot from legacy scalar mirrors',
+    () async {
+      await _seedCoursePreferences({
+        Storage.placementLevelPreferenceKey: 'a1',
+        Storage.courseUnitPreferenceKey: 'a1_01_greetings_hangul',
+      });
+
+      final snapshot = await CourseMasteryService(_catalog()).refresh();
+
+      expect(snapshot.version, 2);
+      expect(snapshot.placementLevel, 'a1');
+      expect(snapshot.currentCourseUnitId, 'a1_01_greetings_hangul');
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+    },
+  );
+
+  test(
+    'refresh rejects a future v2 snapshot without overwriting stored data',
+    () async {
+      const canonical = '{"version":3}';
+      const legacy =
+          '{"version":1,"placementLevel":"a1",'
+          '"currentCourseUnitId":"a1_01_greetings_hangul"}';
+      await _seedCoursePreferences({
+        Storage.courseMasterySnapshotPreferenceKey: canonical,
+        Storage.legacyCourseMasteryPreferenceKey: legacy,
+      });
+
+      await expectLater(
+        CourseMasteryService(_catalog()).refresh(),
+        throwsA(isA<FormatException>()),
+      );
+
+      expect(Storage.courseMasterySnapshotRawJson, canonical);
+      expect(Storage.legacyCourseMasteryRawJson, legacy);
+    },
+  );
+
+  test(
+    'refresh rejects fractional canonical versions without overwriting either snapshot',
+    () async {
+      const legacy =
+          '{"version":1,"placementLevel":"a1",'
+          '"currentCourseUnitId":"a1_01_greetings_hangul"}';
+      for (final canonical in const ['{"version":1.5}', '{"version":2.5}']) {
+        await _seedCoursePreferences({
+          Storage.courseMasterySnapshotPreferenceKey: canonical,
+          Storage.legacyCourseMasteryPreferenceKey: legacy,
+        });
+
+        await expectLater(
+          CourseMasteryService(_catalog()).refresh(),
+          throwsA(isA<FormatException>()),
+        );
+
+        expect(Storage.courseMasterySnapshotRawJson, canonical);
+        expect(Storage.legacyCourseMasteryRawJson, legacy);
+      }
+    },
+  );
+
+  test('codec rejects non-finite schema versions', () {
+    for (final version in [
+      double.nan,
+      double.infinity,
+      double.negativeInfinity,
+    ]) {
+      expect(
+        () => CourseMasterySnapshot.decodeAndMigrate({'version': version}),
+        throwsA(isA<FormatException>()),
+      );
+    }
+  });
+
+  test('v2 codec reports a nonnumeric checkpoint score as format data', () {
+    expect(
+      () => CourseMasterySnapshot.decodeAndMigrate({
+        'version': 2,
+        'completedUnitIds': <String>[],
+        'bypassedPrerequisiteUnitIds': <String>[],
+        'evidence': <Object>[],
+        'scenarioCheckpoints': <Map<String, dynamic>>[
+          <String, dynamic>{
+            'id': 'bad-checkpoint',
+            'scenarioId': 'airport_arrival',
+            'score': 'bad',
+            'occurredAt': '2026-08-03T09:00:00.000Z',
+            'courseEligible': false,
+          },
+        ],
+      }),
+      throwsA(isA<FormatException>()),
+    );
+  });
+
+  test(
+    'rejected canonical write leaves compatibility mirrors unchanged',
+    () async {
+      const oldCanonical = '{"version":2,"marker":"durable"}';
+      const oldPlacement = 'a2';
+      const oldCurrentUnit = 'a2_01_polite_daily';
+      await Storage.setPlacementLevelCode(oldPlacement);
+      await Storage.setCourseUnitId(oldCurrentUnit);
+      await Storage.setCourseMasterySnapshotRawJson(oldCanonical);
+      final store = _RejectedCanonicalSnapshotWriteStore({
+        Storage.courseMasterySnapshotPreferenceKey: oldCanonical,
+      });
+
+      await expectLater(
+        CourseMasteryService(
+          _catalog(),
+          snapshotPreferences: store,
+        ).initializeForPlacement('a1'),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+
+      expect(Storage.placementLevelCode, oldPlacement);
+      expect(Storage.courseUnitId, oldCurrentUnit);
+      expect(Storage.courseMasterySnapshotRawJson, oldCanonical);
+    },
+  );
+
+  test(
+    'completed reconciled snapshot clears its dedicated course-unit mirror',
+    () async {
+      await Storage.setCourseUnitId('b2_01_official');
+      final progress = CourseProgressService(
+        () async => CourseMasteryService(_catalog()),
+      );
+      final completed = CourseMasterySnapshot(
+        placementLevel: 'a1',
+        completedUnitIds: const [
+          'a1_01_greetings_hangul',
+          'a1_02_self_intro_identity',
+          'a1_03_topic_subject_particles',
+          'a1_04_order_request_object',
+          'a2_01_polite_daily',
+          'b1_01_workplace',
+          'b2_01_official',
+        ],
+      );
+
+      await progress.applyReconciledSnapshot(
+        completed,
+        expectedGeneration: null,
+      );
+
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+      expect(Storage.courseUnitId, isNull);
+    },
+  );
+
+  test(
+    'failed canonical completed write does not clear course or unrelated mirrors',
+    () async {
+      const oldCanonical = '{"version":2,"marker":"durable"}';
+      const oldCurrentUnit = 'b2_01_official';
+      await Storage.setBrowseLevelCode('b1');
+      await Storage.setUserLevelCode('b2');
+      await Storage.setCourseUnitId(oldCurrentUnit);
+      await Storage.setCourseMasterySnapshotRawJson(oldCanonical);
+      final store = _RejectedCanonicalSnapshotWriteStore({
+        Storage.courseMasterySnapshotPreferenceKey: oldCanonical,
+      });
+
+      await expectLater(
+        CourseMasteryService(
+          _catalog(),
+          snapshotPreferences: store,
+        ).applyReconciledSnapshot(
+          _completedSnapshot(),
+          expectedGeneration: null,
+        ),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+
+      expect(Storage.courseUnitId, oldCurrentUnit);
+      expect(Storage.browseLevelCode, 'b1');
+      expect(Storage.userLevelCode, 'b2');
+      expect(Storage.courseMasterySnapshotRawJson, oldCanonical);
     },
   );
 
@@ -1191,6 +1425,18 @@ void main() {
   );
 }
 
+CourseMasterySnapshot _completedSnapshot() => const CourseMasterySnapshot(
+  completedUnitIds: [
+    'a1_01_greetings_hangul',
+    'a1_02_self_intro_identity',
+    'a1_03_topic_subject_particles',
+    'a1_04_order_request_object',
+    'a2_01_polite_daily',
+    'b1_01_workplace',
+    'b2_01_official',
+  ],
+);
+
 DateTime _time(int second) => DateTime.utc(2026, 8, 2, 12, 0, second);
 
 CoursePracticeContext _assessContext(
@@ -1202,6 +1448,13 @@ CoursePracticeContext _assessContext(
       .linksForContent(kind, contentId)
       .singleWhere((item) => item.role == ContentLinkRole.assess);
   return CoursePracticeContext.fromLink(link);
+}
+
+Future<void> _seedCoursePreferences(Map<String, Object> values) async {
+  Storage.resetForTesting();
+  Storage.resetCourseMasteryForTesting();
+  SharedPreferences.setMockInitialValues(values);
+  await Storage.init();
 }
 
 Future<void> _advanceToObjectParticleUnit(CourseMasteryService service) async {

@@ -240,7 +240,7 @@ flutter run -d <android-id>   # 안드로이드
 - [~] 새 원문을 추가/배포하기 전에는 자동 검수와 별도로 한국어 화자가 자연스러움·관계 적절성·문화 맥락·받침/활용 정확성을 최종 검수한다.
 - 기능 커밋: `49ce0a3`; 로컬 `main` 병합, 원격 푸시 없음.
 
-### 학습 진도 흐름 안정화 (2026-08-03) — 별도 브랜치, 커밋·푸시 미요청
+### 학습 진도 흐름 안정화 (2026-08-03) — main 통합·원격 푸시 승인
 
 - [x] `CoursePracticeContext`로 코스 미션에서 연 문법·스몰토크 화면의 원본 `ContentLink`·미션·콘텐츠 종류를 끝까지 전달하고, 위조·종류 불일치·이미 지난 미션 맥락은 fail-closed 처리한다.
 - [x] 문법은 예문→패턴의 실제 선택 후에만, 스몰토크는 관계 선택 후에만 정확히 하나의 `assess` 개념 증거를 남긴다. 화면 방문·카드 뒤집기·TTS·답변/가이드 열람·자유 라이브러리 진입은 해금 증거가 될 수 없다.
@@ -248,6 +248,15 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 70%는 현재 계약대로 같은 미션의 코스 적격 개념 시도 정확도이며, 직접 채점된 정답 1회는 그 표본의 100%다. 시나리오 체크포인트도 각각 70% 이상이어야 다음 미션이 열린다.
 - [x] 핵심 회귀 48개, `dart analyze --fatal-infos`, `git diff --check` 통과. 전체 직렬 `flutter test`는 기존 account 구간 뒤 Flutter 컴파일러 무진행으로 중지했으므로 통과로 주장하지 않으며, 깨끗하고 비동시적인 릴리스 세션에서 재실행한다.
 - [ ] 새 스몰토크 문구를 평가로 승격하거나 단일 문법 카드에 선택지를 추가하기 전 한국어 화자 콘텐츠 검수.
+### 데이터 안정성·동기화 (2026-08-03) — CourseMastery v2 정본·계정/클라우드 병합·iOS/Web Firebase 코드 준비, main 통합·원격 푸시 승인
+
+- [x] `kl_course_mastery_v2`/`version: 2`를 카탈로그 검증 정본으로 두고, v1·placement/current-unit mirror는 읽기 전용 마이그레이션 입력으로만 처리한다. canonical-first 기록 실패 시 mirror·browse 상태를 바꾸지 않는다.
+- [x] 완료·우회·증거·시나리오 체크포인트는 stable ID 기반의 typed·결정론적 병합을 사용한다. placement 충돌은 자동 선택하지 않고 typed conflict로 멈추며, 현재 유닛은 카탈로그에서 재계산한다.
+- [x] 정상 CloudSync 백업과 계정 교체 캡처도 UI 진입 전 v1/scalar 코스 상태를 카탈로그 검증·v2 승격 후 `course_mastery_json`으로 다룬다. malformed/future/catalog-invalid 입력은 원본을 덮어쓰지 않고 fail-closed 한다.
+- [x] 계정/클라우드 적용은 기존 CAS·CloudWriteSession·로컬 canonical generation fence를 유지하고, 계정 삭제 Cloud Function allowlist에 `course_mastery_json`을 포함한다.
+- [x] Web App Check는 빌드 환경 `FIREBASE_WEB_APP_CHECK_SITE_KEY` 주입 seam만 사용하며, 키가 없으면 주·임시 Firebase 앱 모두 보호된 호출 전 fail-closed 한다. Android/Apple provider 동작은 변경하지 않았다. iOS/Web 실제 Firebase·Apple 설정은 운영 런북으로 분리했다.
+- [~] Firebase Console의 iOS/Web 앱 등록·FlutterFire 생성값·`GoogleService-Info.plist`·Auth 도메인·reCAPTCHA/App Check·Apple 서명/Sign in with Apple/APNs 및 macOS/실기기 검증은 운영 권한이 필요해 별도 수행한다.
+- [x] **현재 main 통합 검증:** `dart analyze --fatal-infos` 오류 0, 직렬 `flutter test --no-pub --concurrency=1` **1,662 passed**, `node --test functions/gye/cloud_backup_deletion_runtime.test.js` **17/17**, `flutter build web --release` 성공 및 `git diff --check` 통과. Web Wasm dry-run의 `flutter_tts` 경고는 빌드 실패가 아니며, 실제 Web 배포에는 `FIREBASE_WEB_APP_CHECK_SITE_KEY` 주입이 필수다.
 
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
@@ -397,7 +406,7 @@ flutter run -d <android-id>   # 안드로이드
 
 **의도된 콘텐츠 경계:** 145개 스몰토크를 기계적으로 평가화하지 않는다. 평가의 관계·말투 판단이 안전하다고 콘텐츠 검수된 문구만 증거로 승격하며, 나머지는 실전 안내/연습으로 유지한다. 한 미션에 문법 카드가 하나뿐이면 선택형 정답 증거를 만들지 않는다. 이 두 확장은 한국어 화자 검수 뒤 별도 콘텐츠 작업으로 한다.
 
-**커밋/병합:** Jin 요청으로 기능 커밋 `cb66d4f`를 최신 `main`에 병합한다. 원격 푸시는 이번 요청 범위에 포함하지 않는다.
+**커밋/병합:** Jin 요청으로 기능 커밋 `cb66d4f`를 최신 `main`에 병합했고, 후속 전체 통합 요청으로 데이터 안정성 기능 커밋 `84537c2`/로그 커밋 `87c214f`와 함께 현재 `main` 원격 푸시를 진행한다.
 
 ### 2026-08-03 (병렬 세션 보고 후속 — 히어로 영상 실측 정합 + Codex 화면 l10n 이관) — 커밋·푸시 (2커밋 분할 1/2)
 
@@ -478,6 +487,19 @@ exempt 없는 볼륨 리터럴 0건(가드 테스트 통과 예상) · `SoriPost
 - **v8 업로드 판단**: 차단 결함 0 — 커리큘럼 UI 진입점 전부 실도달 확인, **+8 AAB 그대로 업로드 가능**. T2·경미 2건은 +9 후보.
 
 
+### 2026-08-03 (Codex) — CourseMastery v2 정본·결정론적 병합·계정/클라우드 안전성 및 iOS/Web Firebase 준비 — main 통합·원격 푸시
+
+**Jin 지시:** 데이터 안정성·동기화 범위를 독립 worktree/브랜치 `codex/data-stability-sync-2026-08-03`에서 구현. UI·시각 디자인·커리큘럼·browse 흐름은 변경하지 않고, 사용자 명시 요청 후에만 커밋·푸시한다.
+
+- **정본·마이그레이션:** `kl_course_mastery_v2`/`version: 2`를 유일한 기록 정본으로 승격했다. v1와 dedicated placement/current-unit은 검증용 입력이며 canonical-first 성공 뒤에만 compatibility mirror를 갱신한다. 미래 버전·손상 JSON·미지 카탈로그 ID는 durable bytes를 덮어쓰지 않는다.
+- **병합·동시성:** `CourseMasteryService.mergeForReconciliation()`가 stable ID별 완료/우회/증거/checkpoint 합집합, 충돌 typed result, UTC+ID 정렬/300개 보존, 카탈로그 기반 현재 유닛 재계산을 제공한다. 비어 있지 않은 상충 placement는 자동 해결하지 않는다. Cloud restore와 account replacement는 raw Storage write가 아니라 decode→migrate→catalog validation→typed merge→serialized canonical apply를 사용하며 CAS·CloudWriteSession·generation fence를 유지한다.
+- **백업 경계 P1 보완:** UI가 코스 상태를 열기 전에도 normal CloudSync backup과 LocalAccountReconciliationStore capture가 같은 catalog-validated migration을 거쳐 v1/scalar 상태를 canonical v2 `course_mastery_json`으로 포함한다. invalid legacy/canonical 상태는 동기화 대상에서 제외하고 원본·browse를 보존한다. 이 보완은 독립 재감사에서 승인됐다.
+- **Firebase·삭제:** Firestore root의 `course_mastery_json`은 generic field merge와 분리했고 account-deletion runtime allowlist에도 추가했다. Web App Check는 `FIREBASE_WEB_APP_CHECK_SITE_KEY`만 주입받으며 키 부재 시 primary와 temporary Firebase app 모두 protected call 전에 fail-closed 한다. Android/Apple provider 경로는 유지하고 실제 iOS/Web 등록값은 런북으로 분리했다.
+- **최종 게이트 (이 worktree, P1 보완 후):** `flutter analyze --no-fatal-warnings --no-fatal-infos` → exit 0, `No issues found! (ran in 32.6s)`; `flutter test --no-pub --concurrency=1` → exit 0, **1,412 통과**, `All tests passed!` (3m46s); `node --test functions/gye/cloud_backup_deletion_runtime.test.js` → exit 0, **17/17 통과** (344.9774ms); `flutter build web --release` → exit 0, `Built build\web` (131.6s); `git diff --check` → exit 0 (CRLF working-copy advisory만 출력). Web build의 Wasm dry-run은 의존성 `flutter_tts`의 호환성 lint 안내였고 build 실패가 아니었다.
+- **외부 증거 경계:** 이 Windows 코드 검증은 Firebase Console iOS/Web 앱 등록, 실제 FlutterFire iOS/Web 옵션/`GoogleService-Info.plist`, Auth authorized domain, reCAPTCHA/App Check enforcement, Apple signing·Sign in with Apple·APNs, macOS archive 및 실기기 동작을 증명하지 않는다. 운영자가 각 Console/Apple 설정 후 별도로 검증해야 한다.
+- **Git:** base `5486183adc9707246b258840d140c56c6ea8e4c4`; 기능 커밋 `84537c2`와 로그 커밋 `87c214f`는 별도 worktree/브랜치 `codex/data-stability-sync-2026-08-03`에 보존되어 있으며, Jin의 전체 통합 요청으로 현재 `main` 병합 커밋에 포함한다.
+
+### 2026-08-02 (v2.0.2+8 준비 — 커리큘럼 병합 수용 + 빌드) — 커밋·푸시
 
 **Jin:** "v7 업로드 완료. 다음 버전으로 넘기자." — Codex 세션의 커리큘럼 병합(`31a6e5c`)을 pull 수용, **v7 AAB에는 미포함**임을 실측 확정 후 +8 사이클.
 

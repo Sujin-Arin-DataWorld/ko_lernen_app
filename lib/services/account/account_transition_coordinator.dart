@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../models/course_mastery.dart';
 import '../pack_progress_service.dart';
 import 'account_operation_client.dart';
 import 'account_reconciliation.dart';
@@ -138,6 +139,7 @@ class FirebaseTargetReconciliationFactory {
     required CloudWriteSession sourceSession,
     required CloudWriteSessionController sessions,
     required AccountTransitionJournalStore journalStore,
+    required CourseMasteryReconciliationMerger courseMasteryMerger,
     AccountLocalReader? loadLocal,
     AccountLocalWriter? writeLocal,
   }) {
@@ -157,6 +159,7 @@ class FirebaseTargetReconciliationFactory {
     );
     return adapter.coordinator(
       journalStore: journalStore,
+      courseMasteryMerger: courseMasteryMerger,
       loadLocal: loadLocal,
       writeLocal: writeLocal,
     );

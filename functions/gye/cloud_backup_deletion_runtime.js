@@ -21,6 +21,7 @@ const BACKUP_FIELDS = Object.freeze([
   "srs_json",
   "custom_packs_json",
   "bookshelf_json",
+  "course_mastery_json",
   "updated_at",
 ]);
 const CALLABLE_OPTIONS = Object.freeze({

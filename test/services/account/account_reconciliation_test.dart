@@ -5,6 +5,9 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/grammar.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/account/account_reconciliation.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
@@ -13,6 +16,9 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/book_image_service.dart';
 import 'package:ko_lernen_app/services/cloud_sync_service.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
+import 'package:ko_lernen_app/services/course_mastery_service.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/firestore_progress_service.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -214,6 +220,185 @@ void main() {
         {'value': 1},
       ]);
     });
+
+    test(
+      'merges disjoint typed course evidence with the curriculum merger',
+      () {
+        final courseService = CourseMasteryService(_courseCatalog());
+        final localEvidence = _courseEvidence(id: 'local-evidence', second: 1);
+        final remoteEvidence = _courseEvidence(
+          id: 'remote-evidence',
+          second: 2,
+        );
+
+        final result = AccountReconciliationMerger.merge(
+          local: _snapshot(
+            courseMastery: CourseMasterySnapshot(
+              placementLevel: 'a1',
+              currentCourseUnitId: 'unit-root',
+              evidence: [localEvidence],
+            ),
+          ),
+          remote: _snapshot(
+            courseMastery: CourseMasterySnapshot(
+              placementLevel: 'A1',
+              currentCourseUnitId: 'unit-root',
+              evidence: [remoteEvidence],
+            ),
+          ),
+          catalog: catalog,
+          courseMasteryMerger: courseService.mergeForReconciliation,
+        );
+
+        expect(result.conflicts, isEmpty);
+        expect(result.merged!.courseMastery!.evidence.map((item) => item.id), [
+          'local-evidence',
+          'remote-evidence',
+        ]);
+      },
+    );
+
+    test('maps course placement mismatch to a typed account conflict', () {
+      final result = AccountReconciliationMerger.merge(
+        local: _snapshot(
+          courseMastery: const CourseMasterySnapshot(placementLevel: 'a1'),
+        ),
+        remote: _snapshot(
+          courseMastery: const CourseMasterySnapshot(placementLevel: 'a2'),
+        ),
+        catalog: catalog,
+        courseMasteryMerger: CourseMasteryService(
+          _courseCatalog(),
+        ).mergeForReconciliation,
+      );
+
+      expect(result.merged, isNull);
+      expect(
+        result.conflicts,
+        contains(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.courseMasteryPlacement,
+            id: 'placementLevel',
+          ),
+        ),
+      );
+      expect(
+        result.conflicts.where(
+          (conflict) =>
+              conflict.kind == AccountReconciliationConflictKind.documentField,
+        ),
+        isEmpty,
+      );
+    });
+
+    test('maps every course conflict kind to its typed account kind', () {
+      const expectedKinds =
+          <CourseMasteryMergeConflictKind, AccountReconciliationConflictKind>{
+            CourseMasteryMergeConflictKind.placement:
+                AccountReconciliationConflictKind.courseMasteryPlacement,
+            CourseMasteryMergeConflictKind.version:
+                AccountReconciliationConflictKind.courseMasteryVersion,
+            CourseMasteryMergeConflictKind.evidence:
+                AccountReconciliationConflictKind.courseMasteryEvidence,
+            CourseMasteryMergeConflictKind.checkpoint:
+                AccountReconciliationConflictKind.courseMasteryCheckpoint,
+            CourseMasteryMergeConflictKind.progression:
+                AccountReconciliationConflictKind.courseMasteryProgression,
+          };
+
+      for (final entry in expectedKinds.entries) {
+        final result = AccountReconciliationMerger.merge(
+          local: _snapshot(courseMastery: const CourseMasterySnapshot()),
+          remote: AccountReconciliationSnapshot.empty,
+          catalog: catalog,
+          courseMasteryMerger: ({required local, required remote}) =>
+              CourseMasteryMergeResult.conflicted([
+                CourseMasteryMergeConflict(kind: entry.key, id: 'typed-id'),
+              ]),
+        );
+
+        expect(result.conflicts, [
+          AccountReconciliationConflict(kind: entry.value, id: 'typed-id'),
+        ], reason: entry.key.name);
+      }
+    });
+
+    test(
+      'blocks typed course data without a merger instead of raw fallback',
+      () {
+        final result = AccountReconciliationMerger.merge(
+          local: _snapshot(
+            courseMastery: const CourseMasterySnapshot(placementLevel: 'a1'),
+          ),
+          remote: AccountReconciliationSnapshot.empty,
+          catalog: catalog,
+        );
+
+        expect(result.merged, isNull);
+        expect(
+          result.conflicts,
+          contains(
+            const AccountReconciliationConflict(
+              kind: AccountReconciliationConflictKind.courseMasteryVersion,
+              id: 'merger',
+            ),
+          ),
+        );
+      },
+    );
+
+    test('strips manually injected raw course fields before generic merge', () {
+      final local = _snapshot(
+        fields: const {
+          'course_mastery_json': '{"version":1}',
+          'profile': {'xp': 4},
+        },
+      );
+      final remote = _snapshot(
+        fields: const {
+          'course_mastery_json': '{"version":2}',
+          'profile': {'xp': 4},
+        },
+      );
+
+      final result = AccountReconciliationMerger.merge(
+        local: local,
+        remote: remote,
+        catalog: catalog,
+      );
+
+      expect(local.fields, isNot(contains('course_mastery_json')));
+      expect(remote.fields, isNot(contains('course_mastery_json')));
+      expect(result.conflicts, isEmpty);
+      expect(
+        result.merged!.toCloudDocument(),
+        isNot(contains('course_mastery_json')),
+      );
+    });
+
+    test(
+      'raw field injection cannot dilute a missing typed course merger conflict',
+      () {
+        final result = AccountReconciliationMerger.merge(
+          local: _snapshot(
+            fields: const {'course_mastery_json': '{"version":1}'},
+            courseMastery: const CourseMasterySnapshot(placementLevel: 'a1'),
+          ),
+          remote: _snapshot(
+            fields: const {'course_mastery_json': '{"version":2}'},
+          ),
+          catalog: catalog,
+        );
+
+        expect(result.merged, isNull);
+        expect(result.conflicts, const [
+          AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.courseMasteryVersion,
+            id: 'merger',
+          ),
+        ]);
+      },
+    );
   });
 
   group('AccountReconciliationSnapshot decoding', () {
@@ -232,6 +417,70 @@ void main() {
       });
 
       expect(result.state, CloudReadState.invalid);
+    });
+
+    test(
+      'decodes course mastery separately and serializes canonical typed JSON',
+      () {
+        final result = AccountReconciliationSnapshot.decodeCloudDocument({
+          'course_mastery_json': jsonEncode({
+            'placementLevel': 'a1',
+            'currentCourseUnitId': 'unit-root',
+            'completedUnitIds': <String>[],
+            'bypassedPrerequisiteUnitIds': <String>[],
+            'evidence': <Object?>[],
+            'scenarioCheckpoints': <Object?>[],
+          }),
+          'profile': {'xp': 4},
+        });
+
+        expect(result.state, CloudReadState.present);
+        expect(result.value!.fields, {
+          'profile': {'xp': 4},
+        });
+        expect(result.value!.fields, isNot(contains('course_mastery_json')));
+        expect(result.value!.courseMastery!.version, 2);
+        expect(result.value!.courseMastery!.currentCourseUnitId, 'unit-root');
+        expect(
+          jsonDecode(
+            result.value!.toCloudDocument()['course_mastery_json'] as String,
+          ),
+          {
+            'version': 2,
+            'placementLevel': 'a1',
+            'currentCourseUnitId': 'unit-root',
+            'completedUnitIds': <Object?>[],
+            'bypassedPrerequisiteUnitIds': <Object?>[],
+            'evidence': <Object?>[],
+            'scenarioCheckpoints': <Object?>[],
+          },
+        );
+      },
+    );
+
+    test('rejects every unsupported course payload shape', () {
+      final malformedV2 = {
+        'version': 2,
+        'evidence': [
+          {'id': 42},
+        ],
+      };
+      final cases = <String, Object?>{
+        'non-string': 42,
+        'non-object': '[]',
+        'future-version': jsonEncode({'version': 3}),
+        'malformed-json': '{not-json',
+        'malformed-v2': jsonEncode(malformedV2),
+      };
+
+      for (final entry in cases.entries) {
+        final result = AccountReconciliationSnapshot.decodeCloudDocument({
+          'course_mastery_json': entry.value,
+        });
+
+        expect(result.state, CloudReadState.invalid, reason: entry.key);
+        expect(result.value, isNull, reason: entry.key);
+      }
     });
   });
 
@@ -339,6 +588,43 @@ void main() {
       expect(result.status, AccountReconciliationStatus.blocked);
       expect(reads, 0);
     });
+
+    test(
+      'session switch during async local capture prevents remote and local effects',
+      () async {
+        var remoteWrites = 0;
+        var localWrites = 0;
+        final coordinator = AccountReconciliationCoordinator(
+          sessions: sessions,
+          journalStore: journalStore,
+          readRemote: () async =>
+              const CloudReadResult<AccountReconciliationSnapshot>.absent(),
+          loadLocal: () async {
+            await Future<void>.value();
+            sessions.transition(CloudWriteMode.cleanupPending);
+            return _snapshot(fields: {'xp': 1});
+          },
+          writeRemote:
+              (_, {required expectedRevision, required operationId}) async {
+                remoteWrites += 1;
+                return const ReconciliationWriteResult.committed(revision: 1);
+              },
+          writeLocal: (_, {required session, required sessions}) async {
+            localWrites += 1;
+          },
+        );
+
+        final result = await coordinator.reconcile(
+          session: reconciling,
+          operationId: 'operation-async-local-capture',
+          catalog: const {},
+        );
+
+        expect(result.status, AccountReconciliationStatus.stale);
+        expect(remoteWrites, 0);
+        expect(localWrites, 0);
+      },
+    );
 
     test(
       'session switch during delayed local write prevents the stale effect',
@@ -956,7 +1242,7 @@ void main() {
       Storage.resetForTesting();
       Storage.resetPackProgressForTesting();
       await Storage.init();
-      final restored = LocalAccountReconciliationStore.load();
+      final restored = await LocalAccountReconciliationStore.load();
 
       expect(restored.srsCards, snapshot.srsCards);
       expect(restored.customPacks, snapshot.customPacks);
@@ -978,10 +1264,114 @@ void main() {
       Storage.resetPackProgressForTesting();
       await Storage.init();
 
-      expect(
-        LocalAccountReconciliationStore.load,
+      await expectLater(
+        LocalAccountReconciliationStore.load(),
         throwsA(isA<FormatException>()),
       );
+    },
+  );
+
+  test(
+    'local reconciliation capture migrates retained v1 course state before merge',
+    () async {
+      final legacy = jsonEncode({
+        ...CourseMasterySnapshot(
+          placementLevel: 'a1',
+          currentCourseUnitId: 'unit-root',
+        ).toJson(),
+        'version': 1,
+      });
+      await _initializeLocalReconciliationStorage({
+        Storage.legacyCourseMasteryPreferenceKey: legacy,
+        Storage.browseLevelPreferenceKey: 'b2',
+        'kl_user_level': 'a2',
+      });
+
+      final local = await LocalAccountReconciliationStore.load(
+        courseProgress: _courseProgressForLocalCapture(),
+      );
+
+      expect(local.courseMastery?.version, 2);
+      expect(local.courseMastery?.currentCourseUnitId, 'unit-root');
+      expect(
+        local.localCourseMasteryGeneration,
+        Storage.courseMasterySnapshotRawJson,
+      );
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+      expect(Storage.legacyCourseMasteryRawJson, legacy);
+      expect(Storage.browseLevelCode, 'b2');
+      expect(Storage.userLevelCode, 'a2');
+    },
+  );
+
+  test(
+    'local reconciliation capture migrates dedicated scalar course state',
+    () async {
+      await _initializeLocalReconciliationStorage({
+        Storage.placementLevelPreferenceKey: 'a1',
+        Storage.courseUnitPreferenceKey: 'unit-root',
+        Storage.browseLevelPreferenceKey: 'b2',
+        'kl_user_level': 'a2',
+      });
+
+      final local = await LocalAccountReconciliationStore.load(
+        courseProgress: _courseProgressForLocalCapture(),
+      );
+
+      expect(local.courseMastery?.version, 2);
+      expect(local.courseMastery?.placementLevel, 'a1');
+      expect(local.courseMastery?.currentCourseUnitId, 'unit-root');
+      expect(
+        local.localCourseMasteryGeneration,
+        Storage.courseMasterySnapshotRawJson,
+      );
+      expect(Storage.browseLevelCode, 'b2');
+      expect(Storage.userLevelCode, 'a2');
+    },
+  );
+
+  test(
+    'local reconciliation rejects invalid legacy and catalog-invalid canonical course state',
+    () async {
+      const malformedLegacy = '{not-json';
+      await _initializeLocalReconciliationStorage({
+        Storage.legacyCourseMasteryPreferenceKey: malformedLegacy,
+        Storage.placementLevelPreferenceKey: 'a1',
+        Storage.courseUnitPreferenceKey: 'unit-root',
+        Storage.browseLevelPreferenceKey: 'b2',
+      });
+
+      await expectLater(
+        LocalAccountReconciliationStore.load(
+          courseProgress: _courseProgressForLocalCapture(),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+      expect(Storage.courseMasterySnapshotRawJson, isEmpty);
+      expect(Storage.legacyCourseMasteryRawJson, malformedLegacy);
+      expect(Storage.dedicatedCoursePlacementLevelCode, 'a1');
+      expect(Storage.courseUnitId, 'unit-root');
+      expect(Storage.browseLevelCode, 'b2');
+
+      final invalidV2 = jsonEncode(
+        CourseMasterySnapshot(
+          placementLevel: 'a1',
+          currentCourseUnitId: 'unknown-course-unit',
+        ).toJson(),
+      );
+      await _initializeLocalReconciliationStorage({
+        Storage.courseMasterySnapshotPreferenceKey: invalidV2,
+        Storage.browseLevelPreferenceKey: 'b2',
+      });
+
+      await expectLater(
+        LocalAccountReconciliationStore.load(
+          courseProgress: _courseProgressForLocalCapture(),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+      expect(Storage.courseMasterySnapshotRawJson, invalidV2);
+      expect(Storage.browseLevelCode, 'b2');
     },
   );
 
@@ -1590,6 +1980,287 @@ void main() {
       expect(persistedProgress.wordsLearned, 2);
     },
   );
+
+  test(
+    'course write after local load retries instead of overwriting the learner action',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      Storage.resetCourseMasteryForTesting();
+      await Storage.init();
+      await Storage.setCustomPacksRawJsonStrict('{}');
+      final catalog = _courseCatalog();
+      final initial = CourseMasterySnapshot(
+        placementLevel: 'a1',
+        currentCourseUnitId: 'unit-root',
+        evidence: [_courseEvidence(id: 'initial', second: 1)],
+      );
+      await Storage.setCourseMasterySnapshotRawJson(
+        jsonEncode(initial.toJson()),
+      );
+      final courseProgress = CourseProgressService(
+        () async => CourseMasteryService(catalog),
+      );
+      var remote = _snapshot(
+        courseMastery: CourseMasterySnapshot(
+          placementLevel: 'a1',
+          currentCourseUnitId: 'unit-root',
+          evidence: [_courseEvidence(id: 'remote', second: 2)],
+        ),
+      );
+      var remoteRevision = 1;
+      var remoteWrites = 0;
+      var localReads = 0;
+      final remoteWriteStarted = Completer<void>();
+      final finishRemoteWrite = Completer<void>();
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async =>
+            CloudReadResult.present(remote, revision: remoteRevision),
+        loadLocal: () {
+          localReads += 1;
+          return LocalAccountReconciliationStore.load(
+            courseProgress: courseProgress,
+          );
+        },
+        writeRemote:
+            (
+              snapshot, {
+              required expectedRevision,
+              required operationId,
+            }) async {
+              remoteWrites += 1;
+              remote = snapshot;
+              remoteRevision += 1;
+              if (remoteWrites == 1) {
+                remoteWriteStarted.complete();
+                await finishRemoteWrite.future;
+              }
+              return ReconciliationWriteResult.committed(
+                revision: remoteRevision,
+              );
+            },
+        writeLocal: (snapshot, {required session, required sessions}) =>
+            LocalAccountReconciliationStore.write(
+              snapshot,
+              session: session,
+              sessions: sessions,
+              courseProgress: courseProgress,
+            ),
+        courseMasteryMerger: CourseMasteryService(
+          catalog,
+        ).mergeForReconciliation,
+      );
+
+      final reconciliation = coordinator.reconcile(
+        session: session,
+        operationId: 'operation-course',
+        catalog: const {},
+      );
+      await remoteWriteStarted.future;
+      final generation = Storage.courseMasterySnapshotRawJson;
+      final late = initial.copyWith(
+        evidence: [
+          ...initial.evidence,
+          _courseEvidence(id: 'late-learner-action', second: 3),
+        ],
+      );
+      await courseProgress.applyReconciledSnapshot(
+        late,
+        expectedGeneration: generation,
+      );
+      finishRemoteWrite.complete();
+
+      final result = await reconciliation;
+      final persisted = CourseMasterySnapshot.fromJson(
+        (jsonDecode(Storage.courseMasterySnapshotRawJson) as Map).map(
+          (key, value) => MapEntry(key.toString(), value),
+        ),
+      );
+
+      expect(result.status, AccountReconciliationStatus.completed);
+      expect(remoteWrites, 2);
+      expect(localReads, 2);
+      expect(persisted.evidence.map((item) => item.id), [
+        'initial',
+        'remote',
+        'late-learner-action',
+      ]);
+    },
+  );
+
+  test(
+    'queued production course write rechecks the session at canonical persistence',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      Storage.resetCourseMasteryForTesting();
+      await Storage.init();
+      await Storage.setCustomPacksRawJsonStrict('{}');
+      final catalog = _courseCatalog();
+      final initial = CourseMasterySnapshot(
+        placementLevel: 'a1',
+        currentCourseUnitId: 'unit-root',
+        evidence: [_courseEvidence(id: 'initial', second: 1)],
+      );
+      final initialRaw = jsonEncode(initial.toJson());
+      await Storage.setCourseMasterySnapshotRawJson(initialRaw);
+      final loaderStarted = Completer<void>();
+      final releaseLoader = Completer<void>();
+      final courseProgress = CourseProgressService(() async {
+        loaderStarted.complete();
+        await releaseLoader.future;
+        return CourseMasteryService(catalog);
+      });
+      final localCaptureProgress = CourseProgressService(
+        () async => CourseMasteryService(catalog),
+      );
+      final remote = _snapshot(
+        courseMastery: CourseMasterySnapshot(
+          placementLevel: 'a1',
+          currentCourseUnitId: 'unit-root',
+          evidence: [_courseEvidence(id: 'remote', second: 2)],
+        ),
+      );
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async => CloudReadResult.present(remote, revision: 1),
+        loadLocal: () => LocalAccountReconciliationStore.load(
+          courseProgress: localCaptureProgress,
+        ),
+        writeRemote:
+            (
+              snapshot, {
+              required expectedRevision,
+              required operationId,
+            }) async => const ReconciliationWriteResult.committed(revision: 2),
+        writeLocal: (snapshot, {required session, required sessions}) =>
+            LocalAccountReconciliationStore.write(
+              snapshot,
+              session: session,
+              sessions: sessions,
+              courseProgress: courseProgress,
+            ),
+        courseMasteryMerger: CourseMasteryService(
+          catalog,
+        ).mergeForReconciliation,
+      );
+
+      final reconciliation = coordinator.reconcile(
+        session: session,
+        operationId: 'operation-session-race',
+        catalog: const {},
+      );
+      await loaderStarted.future;
+      sessions.transition(CloudWriteMode.cleanupPending);
+      releaseLoader.complete();
+
+      final result = await reconciliation;
+
+      expect(result.status, AccountReconciliationStatus.stale);
+      expect(Storage.courseMasterySnapshotRawJson, initialRaw);
+    },
+  );
+
+  test(
+    'strict preparation session switch blocks the underlying canonical set',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      Storage.resetForTesting();
+      Storage.resetPackProgressForTesting();
+      Storage.resetCourseMasteryForTesting();
+      await Storage.init();
+      await Storage.setCustomPacksRawJsonStrict('{}');
+      await Storage.setDedicatedCoursePlacementLevelCode('a2');
+      await Storage.setCourseUnitId('old-unit');
+      final catalog = _courseCatalog();
+      final initial = CourseMasterySnapshot(
+        placementLevel: 'a1',
+        currentCourseUnitId: 'unit-root',
+        evidence: [_courseEvidence(id: 'initial', second: 1)],
+      );
+      final initialRaw = jsonEncode(initial.toJson());
+      await Storage.setCourseMasterySnapshotRawJson(initialRaw);
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      final canonicalStore = _SessionSwitchingCourseStore(
+        initialRaw: initialRaw,
+        onPreparationRead: () =>
+            sessions.transition(CloudWriteMode.cleanupPending),
+      );
+      final courseProgress = CourseProgressService(
+        () async =>
+            CourseMasteryService(catalog, snapshotPreferences: canonicalStore),
+      );
+      final localCaptureProgress = CourseProgressService(
+        () async => CourseMasteryService(catalog),
+      );
+      final remote = _snapshot(
+        courseMastery: CourseMasterySnapshot(
+          placementLevel: 'a1',
+          currentCourseUnitId: 'unit-root',
+          evidence: [_courseEvidence(id: 'remote', second: 2)],
+        ),
+      );
+      final coordinator = AccountReconciliationCoordinator(
+        sessions: sessions,
+        journalStore: _MemoryJournalStore(),
+        readRemote: () async => CloudReadResult.present(remote, revision: 1),
+        loadLocal: () => LocalAccountReconciliationStore.load(
+          courseProgress: localCaptureProgress,
+        ),
+        writeRemote:
+            (
+              snapshot, {
+              required expectedRevision,
+              required operationId,
+            }) async => const ReconciliationWriteResult.committed(revision: 2),
+        writeLocal: (snapshot, {required session, required sessions}) =>
+            LocalAccountReconciliationStore.write(
+              snapshot,
+              session: session,
+              sessions: sessions,
+              courseProgress: courseProgress,
+            ),
+        courseMasteryMerger: CourseMasteryService(
+          catalog,
+        ).mergeForReconciliation,
+      );
+
+      final result = await coordinator.reconcile(
+        session: session,
+        operationId: 'operation-storage-preparation-race',
+        catalog: const {},
+      );
+
+      expect(result.status, AccountReconciliationStatus.stale);
+      expect(canonicalStore.setStringCalls, 0);
+      expect(canonicalStore.canonicalRaw, initialRaw);
+      expect(Storage.courseMasterySnapshotRawJson, initialRaw);
+      expect(Storage.dedicatedCoursePlacementLevelCode, 'a2');
+      expect(Storage.courseUnitId, 'old-unit');
+    },
+  );
+}
+
+Future<void> _initializeLocalReconciliationStorage(
+  Map<String, Object> values,
+) async {
+  SharedPreferences.setMockInitialValues({
+    'kl_custom_packs_v1': '{}',
+    ...values,
+  });
+  Storage.resetForTesting();
+  Storage.resetPackProgressForTesting();
+  await Storage.init();
 }
 
 AccountReconciliationSnapshot _snapshot({
@@ -1599,6 +2270,7 @@ AccountReconciliationSnapshot _snapshot({
   Map<String, PackProgress> packs = const {},
   Map<String, int?> packRevisions = const {},
   int? packMembershipRevision,
+  CourseMasterySnapshot? courseMastery,
 }) {
   return AccountReconciliationSnapshot(
     fields: fields,
@@ -1607,8 +2279,79 @@ AccountReconciliationSnapshot _snapshot({
     packProgress: packs,
     packRevisions: packRevisions,
     packMembershipRevision: packMembershipRevision,
+    courseMastery: courseMastery,
   );
 }
+
+MasteryEvidence _courseEvidence({required String id, required int second}) =>
+    MasteryEvidence(
+      id: id,
+      conceptId: 'concept-greeting',
+      contentKind: CurriculumContentKind.grammar,
+      contentId: 'grammar-greeting',
+      courseUnitId: 'unit-root',
+      isCorrect: true,
+      occurredAt: DateTime.utc(2026, 8, 3, 0, 0, second),
+      courseEligible: true,
+    );
+
+CurriculumCatalog _courseCatalog() {
+  final grammar = Grammar(
+    id: 'grammar-greeting',
+    pattern: 'greeting',
+    level: 'a1',
+    typeDe: 'Test',
+    explanationDe: '',
+    exampleKorean: '',
+    exampleGerman: '',
+    note: '',
+  );
+  return CurriculumCatalog.fromDataForTesting(
+    manifestJson: const {
+      'version': 2,
+      'courseUnits': [
+        {
+          'id': 'unit-root',
+          'level': 'a1',
+          'order': 1,
+          'title': {'ko': 'root', 'de': 'root', 'en': 'root'},
+          'canDo': {'ko': 'root', 'de': 'root', 'en': 'root'},
+          'requiredConceptIds': ['concept-greeting'],
+        },
+      ],
+      'concepts': [
+        {
+          'id': 'concept-greeting',
+          'level': 'a1',
+          'kind': 'speechStyle',
+          'title': {'ko': 'greeting', 'de': 'greeting', 'en': 'greeting'},
+          'explanation': {'ko': 'greeting', 'de': 'greeting', 'en': 'greeting'},
+        },
+      ],
+      'surfaceForms': <Map<String, dynamic>>[],
+      'formFamilies': <Map<String, dynamic>>[],
+      'contentLinks': <Map<String, dynamic>>[],
+      'vocabPackUnitMap': <String, String>{},
+      'smalltalkCategoryUnitMap': <String, String>{},
+      'clozeTopicUnitMap': <String, String>{},
+      'grammarRuleMap': {
+        'grammar-greeting': {
+          'courseUnitId': 'unit-root',
+          'conceptIds': ['concept-greeting'],
+        },
+      },
+    },
+    vocab: const [],
+    grammar: [grammar],
+    smalltalk: const [],
+    cloze: const [],
+    satz: const [],
+    scenarios: const [],
+  );
+}
+
+CourseProgressService _courseProgressForLocalCapture() =>
+    CourseProgressService(() async => CourseMasteryService(_courseCatalog()));
 
 Map<String, Object?> _srs({required int reviewCount}) => {
   'e': 2.5,
@@ -1661,5 +2404,45 @@ class _MemoryJournalStore implements AccountTransitionJournalStore {
   @override
   Future<void> write(AccountTransitionJournal journal) async {
     value = journal;
+  }
+}
+
+class _SessionSwitchingCourseStore implements PreferenceStringStore {
+  _SessionSwitchingCourseStore({
+    required String initialRaw,
+    required this.onPreparationRead,
+  }) : _values = {Storage.courseMasterySnapshotPreferenceKey: initialRaw};
+
+  final Map<String, String> _values;
+  final void Function() onPreparationRead;
+  bool _switched = false;
+  int setStringCalls = 0;
+
+  String? get canonicalRaw =>
+      _values[Storage.courseMasterySnapshotPreferenceKey];
+
+  @override
+  bool containsKey(String key) => _values.containsKey(key);
+
+  @override
+  String? getString(String key) {
+    if (key == Storage.courseMasterySnapshotPreferenceKey && !_switched) {
+      _switched = true;
+      onPreparationRead();
+    }
+    return _values[key];
+  }
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async => _values.remove(key) != null;
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    setStringCalls += 1;
+    _values[key] = value;
+    return true;
   }
 }
