@@ -36,6 +36,10 @@ class SoriPressable extends StatefulWidget {
   /// scale animation을 child의 어느 alignment 기준으로 할지.
   final Alignment alignment;
 
+  /// 눌림 상태 통지 — 표면 v2 카드의 그림자 low→medium 전환용 (§10.3).
+  /// tap-down 직후 true, tap-up/cancel 시 false. 비활성이면 down 은 오지 않는다.
+  final ValueChanged<bool>? onPressedChanged;
+
   const SoriPressable({
     super.key,
     required this.child,
@@ -45,6 +49,7 @@ class SoriPressable extends StatefulWidget {
     this.haptic = SoriHaptic.selection,
     this.behavior = HitTestBehavior.opaque,
     this.alignment = Alignment.center,
+    this.onPressedChanged,
   });
 
   @override
@@ -74,11 +79,13 @@ class _SoriPressableState extends State<SoriPressable> with SingleTickerProvider
 
   void _down() {
     if (widget.onTap == null && widget.onLongPress == null) return;
+    widget.onPressedChanged?.call(true);
     _ctrl.animateTo(widget.pressScale,
         duration: SoriMotion.fast, curve: SoriMotion.press);
   }
 
   void _release() {
+    widget.onPressedChanged?.call(false);
     _ctrl.animateTo(1.0,
         duration: SoriMotion.medium, curve: SoriMotion.release);
   }
