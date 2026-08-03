@@ -26,6 +26,7 @@ import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_loading.dart';
 
 const List<String> _chosungTable = [
   'ㄱ',
@@ -432,7 +433,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   @override
   Widget build(BuildContext context) {
     if (_deck.isEmpty) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return const Scaffold(body: AppLoading());
     }
 
     final card = _card;

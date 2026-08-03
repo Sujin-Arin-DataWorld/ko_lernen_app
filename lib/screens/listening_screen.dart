@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_loading.dart';
 import '../models/content_feedback.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
@@ -207,7 +208,7 @@ class _ListeningScreenState extends State<ListeningScreen>
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return const Scaffold(body: AppLoading());
     }
     if (_scenarios.isEmpty) {
       return Scaffold(

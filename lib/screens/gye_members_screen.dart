@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/app_loading.dart';
 import 'package:flutter/foundation.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -62,9 +63,9 @@ class GyeMembersScreen extends StatelessWidget {
                         builder: (context, snap) {
                           final members = snap.data ?? const <GyeMember>[];
                           if (members.isEmpty) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
+                            // §8.1: 스피너 단독 금지 — 표준 로딩. (계는 항상
+                            // 소유자 1명 이상이라 empty ≈ 로딩 중.)
+                            return const AppLoading();
                           }
                           final width = MediaQuery.sizeOf(context).width;
                           return ListView.builder(

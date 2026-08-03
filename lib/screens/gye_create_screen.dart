@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_loading.dart';
 import '../l10n/gye_error_text.dart';
 import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
@@ -127,7 +128,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
         ),
         const SizedBox(height: Spacing.lg),
         if (_busy)
-          const Center(child: CircularProgressIndicator())
+          const AppLoading()
         else
           SoriButton(
             label: t.gyeCreateCta,

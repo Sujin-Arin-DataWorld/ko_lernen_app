@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/kkeunmari_engine.dart';
@@ -299,7 +300,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     final s = SoriSurfaces.of(context);
 
     if (_loading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return const Scaffold(body: AppLoading());
     }
 
     if (KkeunmariEngine.pool.isEmpty) {

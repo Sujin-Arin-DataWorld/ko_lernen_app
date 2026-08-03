@@ -252,7 +252,10 @@ class _TrailNode extends StatelessWidget {
                     ),
                     child: Text(
                       stop.label,
-                      maxLines: 1,
+                      // §4.3: 경로 라벨 말줄임 1줄 금지 — 2줄 허용
+                      // (라벨 영역 ≈36px: 12px×1.3 두 줄 수용, 1.3× 글씨는
+                      // 실기기 확인 항목).
+                      maxLines: 2,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(

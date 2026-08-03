@@ -1246,7 +1246,8 @@ class _TigerHero extends StatelessWidget {
                 letterSpacing: -0.7,
                 height: 1.05,
               ),
-              maxLines: 1,
+              // §4.3: 독일어 복합어 말줄임 방지 — 2줄 허용.
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
             // §6.1 블록 2 발화 단일화(H-4): 서브카피 폐지 — 발화는
@@ -1556,7 +1557,8 @@ class _DailyGoalCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   done ? t.homeDailyGoalDone : t.homeDailyGoalLabel,
-                  maxLines: 1,
+                  // §4.3: 2줄 허용.
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontFamily: 'Pretendard',
@@ -1925,7 +1927,8 @@ class _CourseCard extends StatelessWidget {
                           style: SoriTextTheme.of(
                             context,
                           ).h3.copyWith(fontWeight: FontWeight.w900),
-                          maxLines: 1,
+                          // §4.3: 2줄 허용.
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
