@@ -29,7 +29,9 @@ import 'firebase_options.dart';
 import 'services/account/firebase_app_check_initializer.dart';
 import 'services/account/account_operation_client.dart';
 import 'services/app_startup_coordinator.dart';
+import 'services/course_mission_navigation.dart';
 import 'l10n/generated/app_localizations.dart';
+import 'models/curriculum.dart';
 import 'screens/splash_screen.dart';
 import 'screens/quick_onboarding_screen.dart';
 import 'screens/character_selection_screen.dart';
@@ -472,8 +474,13 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/grammar':
+              final grammarCourseContext =
+                  coursePracticeContextFromRouteArguments(
+                    settings.arguments,
+                    CurriculumContentKind.grammar,
+                  );
               return SoriTransitions.fadeScale(
-                (_) => const GrammarScreen(),
+                (_) => GrammarScreen(courseContext: grammarCourseContext),
                 settings: settings,
               );
             case '/listening':
@@ -553,8 +560,13 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/smalltalk':
+              final smalltalkCourseContext =
+                  coursePracticeContextFromRouteArguments(
+                    settings.arguments,
+                    CurriculumContentKind.smalltalk,
+                  );
               return SoriTransitions.fadeScale(
-                (_) => const SmalltalkScreen(),
+                (_) => SmalltalkScreen(courseContext: smalltalkCourseContext),
                 settings: settings,
               );
             case '/scenarios':

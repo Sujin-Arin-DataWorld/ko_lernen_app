@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/models/course_practice_context.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/services/course_mission_navigation.dart';
 
@@ -34,4 +35,47 @@ void main() {
       'a1_01_greetings_hangul',
     );
   });
+
+  test(
+    'mission navigation preserves typed provenance for grammar and smalltalk',
+    () {
+      final grammarLink = link(CurriculumContentKind.grammar);
+      final smalltalkLink = link(CurriculumContentKind.smalltalk);
+
+      final grammarContext =
+          destinationForCourseLink(grammarLink)!.arguments
+              as CoursePracticeContext;
+      final smalltalkContext =
+          destinationForCourseLink(smalltalkLink)!.arguments
+              as CoursePracticeContext;
+
+      expect(grammarContext.courseUnitId, 'a1_01_greetings_hangul');
+      expect(grammarContext.contentKind, CurriculumContentKind.grammar);
+      expect(grammarContext.initialContentId, 'content_1');
+      expect(grammarContext.contentLinkId, grammarLink.id);
+      expect(smalltalkContext.contentKind, CurriculumContentKind.smalltalk);
+      expect(smalltalkContext.contentLinkId, smalltalkLink.id);
+      expect(
+        coursePracticeContextFromRouteArguments(
+          grammarContext,
+          CurriculumContentKind.grammar,
+        ),
+        same(grammarContext),
+      );
+      expect(
+        coursePracticeContextFromRouteArguments(
+          grammarContext,
+          CurriculumContentKind.smalltalk,
+        ),
+        isNull,
+      );
+      expect(
+        coursePracticeContextFromRouteArguments(
+          'a1_01_greetings_hangul',
+          CurriculumContentKind.grammar,
+        ),
+        isNull,
+      );
+    },
+  );
 }

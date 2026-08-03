@@ -7279,6 +7279,48 @@ abstract class AppL10n {
   /// **'Small Talk'**
   String get coursePracticeSmalltalk;
 
+  /// No description provided for @courseCheckpointCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz prüfen'**
+  String get courseCheckpointCheck;
+
+  /// No description provided for @courseCheckpointGrammarPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Welches Muster passt zu diesem Beispiel?'**
+  String get courseCheckpointGrammarPrompt;
+
+  /// No description provided for @courseCheckpointSmalltalkPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Für welche Beziehung ist dieser Satz sicher?'**
+  String get courseCheckpointSmalltalkPrompt;
+
+  /// No description provided for @courseCheckpointCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig. Diese Mission hat einen Nachweis erhalten.'**
+  String get courseCheckpointCorrect;
+
+  /// No description provided for @courseCheckpointIncorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal ansehen. Die sichere Wahl ist markiert.'**
+  String get courseCheckpointIncorrect;
+
+  /// No description provided for @courseCheckpointSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'In dieser Sitzung bereits gespeichert.'**
+  String get courseCheckpointSaved;
+
+  /// No description provided for @courseCheckpointSaveError.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es noch einmal.'**
+  String get courseCheckpointSaveError;
+
   /// No description provided for @courseStatePreview.
   ///
   /// In de, this message translates to:

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import '../models/scenario.dart';
 import 'course_mastery_service.dart';
@@ -35,6 +36,7 @@ class CourseActivityReporter {
     CurriculumContentKind kind,
     String contentId,
     bool isCorrect, {
+    CoursePracticeContext? courseContext,
     MasteryErrorReason? errorReason,
     String? conceptId,
   }) async {
@@ -43,6 +45,7 @@ class CourseActivityReporter {
         kind,
         contentId,
         isCorrect,
+        courseContext: courseContext,
         conceptId: conceptId,
         errorReason: errorReason,
       );

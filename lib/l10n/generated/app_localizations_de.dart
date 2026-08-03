@@ -4000,6 +4000,32 @@ class AppL10nDe extends AppL10n {
   String get coursePracticeSmalltalk => 'Small Talk';
 
   @override
+  String get courseCheckpointCheck => 'Kurz prüfen';
+
+  @override
+  String get courseCheckpointGrammarPrompt =>
+      'Welches Muster passt zu diesem Beispiel?';
+
+  @override
+  String get courseCheckpointSmalltalkPrompt =>
+      'Für welche Beziehung ist dieser Satz sicher?';
+
+  @override
+  String get courseCheckpointCorrect =>
+      'Richtig. Diese Mission hat einen Nachweis erhalten.';
+
+  @override
+  String get courseCheckpointIncorrect =>
+      'Noch einmal ansehen. Die sichere Wahl ist markiert.';
+
+  @override
+  String get courseCheckpointSaved => 'In dieser Sitzung bereits gespeichert.';
+
+  @override
+  String get courseCheckpointSaveError =>
+      'Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es noch einmal.';
+
+  @override
   String get courseStatePreview => 'Vorschau';
 
   @override

@@ -54,6 +54,130 @@ void main() {
     expect(satz.every((item) => item.hasExplicitId), isTrue);
   });
 
+  test(
+    'production grammar and smalltalk mappings declare their exact concept targets',
+    () async {
+      final raw =
+          jsonDecode(
+                File('assets/data/curriculum_manifest.json').readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final catalog = await CurriculumCatalog.load();
+      final grammar = await DataLoader.loadGrammar();
+      await SmalltalkLoader.load();
+      final units = {for (final unit in catalog.courseUnits) unit.id: unit};
+
+      void expectRuleTargets(
+        String label,
+        Object? rawRule,
+        Iterable<ContentLink> links,
+        ContentLinkRole role,
+      ) {
+        expect(rawRule, isA<Map>(), reason: '$label needs explicit targets');
+        if (rawRule is! Map) return;
+        final rule = rawRule.map(
+          (key, value) => MapEntry(key.toString(), value),
+        );
+        final unitId = rule['courseUnitId'];
+        final rawConceptIds = rule['conceptIds'];
+        expect(unitId, isA<String>(), reason: '$label needs a course unit');
+        expect(rawConceptIds, isA<List>(), reason: '$label needs concept IDs');
+        if (unitId is! String || rawConceptIds is! List) return;
+        final conceptIds = rawConceptIds.cast<String>();
+        expect(
+          conceptIds,
+          isNotEmpty,
+          reason: '$label needs one or more concepts',
+        );
+        final unit = units[unitId];
+        expect(unit, isNotNull, reason: '$label targets an existing unit');
+        if (unit == null) return;
+        expect(
+          unit.requiredConceptIds,
+          containsAll(conceptIds),
+          reason: '$label only credits concepts required by its unit',
+        );
+        final matching = links
+            .where((link) => link.courseUnitId == unitId && link.role == role)
+            .toList(growable: false);
+        expect(matching, hasLength(1), reason: '$label has one graph edge');
+        if (matching.length == 1) {
+          expect(
+            matching.single.conceptIds,
+            orderedEquals(conceptIds),
+            reason: '$label does not fan out to unrelated concepts',
+          );
+        }
+      }
+
+      final grammarRules = raw['grammarRuleMap'] as Map<String, dynamic>;
+      for (final entry in grammarRules.entries) {
+        expect(
+          grammar.map((item) => item.id),
+          contains(entry.key),
+          reason: 'grammar map only names a real source item',
+        );
+        expectRuleTargets(
+          'grammar:${entry.key}',
+          entry.value,
+          catalog.linksForContent(CurriculumContentKind.grammar, entry.key),
+          ContentLinkRole.assess,
+        );
+      }
+
+      final smalltalkRules =
+          raw['smalltalkCategoryUnitMap'] as Map<String, dynamic>;
+      for (final entry in smalltalkRules.entries) {
+        final parts = entry.key.split(':');
+        expect(parts, hasLength(2), reason: 'smalltalk key is level:category');
+        if (parts.length != 2) continue;
+        final phrases = SmalltalkLoader.phrases
+            .where(
+              (phrase) =>
+                  phrase.level == parts.first && phrase.category == parts.last,
+            )
+            .toList(growable: false);
+        expect(phrases, isNotEmpty, reason: 'smalltalk map has source phrases');
+        for (final phrase in phrases) {
+          expectRuleTargets(
+            'smalltalk:${entry.key}:${phrase.id}',
+            entry.value,
+            catalog.linksForContent(CurriculumContentKind.smalltalk, phrase.id),
+            ContentLinkRole.practice,
+          );
+        }
+      }
+
+      final checkpointRules =
+          raw['smalltalkCheckpointPhraseMap'] as Map<String, dynamic>;
+      expect(checkpointRules, isNotEmpty);
+      for (final entry in checkpointRules.entries) {
+        final phrase = SmalltalkLoader.phrases.singleWhere(
+          (item) => item.id == entry.key,
+        );
+        expectRuleTargets(
+          'smalltalk checkpoint:${entry.key}',
+          entry.value,
+          catalog.linksForContent(CurriculumContentKind.smalltalk, phrase.id),
+          ContentLinkRole.assess,
+        );
+        final rule = entry.value as Map<String, dynamic>;
+        final conceptId = (rule['conceptIds'] as List).single as String;
+        expect(
+          catalog.conceptFor(conceptId)?.kind,
+          ConceptKind.speechStyle,
+          reason:
+              'relationship checkpoint only measures a speech-style concept',
+        );
+        expect(
+          catalog.courseUnitFor(rule['courseUnitId'] as String)?.level,
+          phrase.level,
+          reason: 'checkpoint phrase and its mission stay in the same level',
+        );
+      }
+    },
+  );
+
   test('stable IDs ignore translated copy, examples, and distractors', () {
     const vocabSource = Vocab(
       korean: '커피',
@@ -318,16 +442,16 @@ void main() {
       for (final level in levels) {
         expectLevelLinks(
           CurriculumContentKind.vocab,
-          vocab.where((item) => item.level.toLowerCase() == level).map(
-                (item) => item.id,
-              ),
+          vocab
+              .where((item) => item.level.toLowerCase() == level)
+              .map((item) => item.id),
           level,
         );
         expectLevelLinks(
           CurriculumContentKind.grammar,
-          grammar.where((item) => item.level.toLowerCase() == level).map(
-                (item) => item.id,
-              ),
+          grammar
+              .where((item) => item.level.toLowerCase() == level)
+              .map((item) => item.id),
           level,
         );
         expectLevelLinks(
@@ -361,7 +485,11 @@ void main() {
       )) {
         for (final checkpoint in unit.checkpointContentIds) {
           final parts = checkpoint.split(':');
-          expect(parts, hasLength(2), reason: '$checkpoint must be a content key');
+          expect(
+            parts,
+            hasLength(2),
+            reason: '$checkpoint must be a content key',
+          );
           final kind = CurriculumContentKindX.tryFromCode(parts.first);
           expect(kind, isNotNull, reason: '$checkpoint has an unknown kind');
           final assessments = catalog
@@ -408,6 +536,161 @@ void main() {
     expect(issues, contains('missing link unit vocab:x'));
     expect(issues, contains('missing vocab map unit a1_test'));
   });
+
+  test('ambiguous generic checkpoint edges fail catalog validation closed', () {
+    final issues = CurriculumCatalog.validateManifestForTesting({
+      'courseUnits': [
+        {
+          'id': 'a1_test',
+          'level': 'a1',
+          'order': 1,
+          'title': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+          'canDo': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+          'requiredConceptIds': ['concept_one', 'concept_two'],
+          'checkpointContentIds': const <String>[],
+        },
+      ],
+      'concepts': [
+        {
+          'id': 'concept_one',
+          'level': 'a1',
+          'kind': 'particle',
+          'title': {'ko': '하나', 'de': 'Eins', 'en': 'One'},
+          'explanation': {'ko': '하나', 'de': 'Eins', 'en': 'One'},
+        },
+        {
+          'id': 'concept_two',
+          'level': 'a1',
+          'kind': 'particle',
+          'title': {'ko': '둘', 'de': 'Zwei', 'en': 'Two'},
+          'explanation': {'ko': '둘', 'de': 'Zwei', 'en': 'Two'},
+        },
+      ],
+      'surfaceForms': const [],
+      'formFamilies': const [],
+      'contentLinks': const [
+        {
+          'id': 'grammar_one',
+          'contentKind': 'grammar',
+          'contentId': 'grammar_test',
+          'courseUnitId': 'a1_test',
+          'conceptIds': ['concept_one'],
+          'role': 'assess',
+        },
+        {
+          'id': 'grammar_two',
+          'contentKind': 'grammar',
+          'contentId': 'grammar_test',
+          'courseUnitId': 'a1_test',
+          'conceptIds': ['concept_two'],
+          'role': 'assess',
+        },
+      ],
+      'vocabPackUnitMap': const {},
+      'smalltalkCategoryUnitMap': const {},
+      'smalltalkCheckpointPhraseMap': const {},
+      'clozeTopicUnitMap': const {},
+      'grammarRuleMap': const {},
+    });
+
+    expect(
+      issues,
+      contains('ambiguous checkpoint link a1_test grammar:grammar_test'),
+    );
+  });
+
+  test(
+    'a relationship checkpoint cannot credit a non-speech-style concept',
+    () {
+      final issues = CurriculumCatalog.validateManifestForTesting({
+        'courseUnits': [
+          {
+            'id': 'a1_test',
+            'level': 'a1',
+            'order': 1,
+            'title': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+            'canDo': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+            'requiredConceptIds': ['concept_particle'],
+            'checkpointContentIds': const <String>[],
+          },
+        ],
+        'concepts': [
+          {
+            'id': 'concept_particle',
+            'level': 'a1',
+            'kind': 'particle',
+            'title': {'ko': '조사', 'de': 'Partikel', 'en': 'Particle'},
+            'explanation': {'ko': '조사', 'de': 'Partikel', 'en': 'Particle'},
+          },
+        ],
+        'surfaceForms': const [],
+        'formFamilies': const [],
+        'contentLinks': const [
+          {
+            'id': 'unsafe_smalltalk_checkpoint',
+            'contentKind': 'smalltalk',
+            'contentId': 'smalltalk_test',
+            'courseUnitId': 'a1_test',
+            'conceptIds': ['concept_particle'],
+            'role': 'assess',
+          },
+        ],
+        'vocabPackUnitMap': const {},
+        'smalltalkCategoryUnitMap': const {},
+        'smalltalkCheckpointPhraseMap': const {},
+        'clozeTopicUnitMap': const {},
+        'grammarRuleMap': const {},
+      });
+
+      expect(
+        issues,
+        contains(
+          'invalid smalltalk checkpoint concept-kind smalltalk:smalltalk_test',
+        ),
+      );
+    },
+  );
+
+  test(
+    'legacy string dynamic maps remain usable in focused test manifests',
+    () {
+      final issues = CurriculumCatalog.validateManifestForTesting({
+        'courseUnits': [
+          {
+            'id': 'a1_test',
+            'level': 'a1',
+            'order': 1,
+            'title': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+            'canDo': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+            'requiredConceptIds': ['concept_test'],
+            'checkpointContentIds': const <String>[],
+          },
+        ],
+        'concepts': [
+          {
+            'id': 'concept_test',
+            'level': 'a1',
+            'kind': 'situation',
+            'title': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+            'explanation': {'ko': '시험', 'de': 'Test', 'en': 'Test'},
+          },
+        ],
+        'surfaceForms': const [],
+        'formFamilies': const [],
+        'contentLinks': const [],
+        'vocabPackUnitMap': const {},
+        'smalltalkCategoryUnitMap': const {'a1:test': 'a1_test'},
+        'clozeTopicUnitMap': const {},
+        'grammarRuleMap': const {'grammar_test': 'a1_test'},
+      });
+
+      expect(
+        issues,
+        isNot(contains('empty grammar map concepts grammar_test')),
+      );
+      expect(issues, isNot(contains('empty smalltalk map concepts a1:test')));
+    },
+  );
 
   test(
     'manifest creates a complete, acyclic level-linked content graph',

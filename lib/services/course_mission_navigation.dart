@@ -1,3 +1,4 @@
+import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 
 /// A route opened from a mission's practice list. The original libraries stay
@@ -8,6 +9,19 @@ class CourseMissionDestination {
 
   final String route;
   final Object? arguments;
+}
+
+/// Returns trusted-looking mission provenance only for the activity family
+/// expected by a route. Direct library arguments intentionally fall back to
+/// browse mode instead of becoming unlock evidence.
+CoursePracticeContext? coursePracticeContextFromRouteArguments(
+  Object? arguments,
+  CurriculumContentKind expectedKind,
+) {
+  if (arguments is! CoursePracticeContext || !arguments.isFor(expectedKind)) {
+    return null;
+  }
+  return arguments;
 }
 
 CourseMissionDestination? destinationForCourseLink(ContentLink link) {
@@ -25,10 +39,13 @@ CourseMissionDestination? destinationForCourseLink(ContentLink link) {
     case CurriculumContentKind.grammar:
       return CourseMissionDestination(
         route: '/grammar',
-        arguments: link.courseUnitId,
+        arguments: CoursePracticeContext.fromLink(link),
       );
     case CurriculumContentKind.smalltalk:
-      return const CourseMissionDestination(route: '/smalltalk');
+      return CourseMissionDestination(
+        route: '/smalltalk',
+        arguments: CoursePracticeContext.fromLink(link),
+      );
     case CurriculumContentKind.cloze:
       return CourseMissionDestination(
         route: '/cloze',
