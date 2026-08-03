@@ -54,7 +54,7 @@ void main() {
         'completionId': 'wordle-1',
         'contentType': 'game',
         'contentId': 'wordle_daily',
-        'contentLabel': 'Wordle',
+        'contentLabel': 'Silben-Rätsel',
         'level': 'A2',
         'scoreSummary': 'result:win; guesses:3',
       });

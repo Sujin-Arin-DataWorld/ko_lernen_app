@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:intl/intl.dart';
+
 import '../l10n/generated/app_localizations.dart';
 import '../data/hangul_strokes.dart';
 import '../models/feedback_completion.dart';
@@ -1403,6 +1405,14 @@ class _SteppingStonesRow extends StatelessWidget {
     final firstDayIdx = ml.firstDayOfWeekIndex; // 0 = 일요일
     final todayIdx = now.weekday % 7; // DateTime: 월=1..일=7 → 일=0
     final offset = (todayIdx - firstDayIdx + 7) % 7;
+    final locale = Localizations.localeOf(context).toString();
+    // §7.1: 요일 디딤돌은 2글자 축약(Mo Di Mi …) — narrow 1글자는 월/수(M/M)·
+    // 토/일(S/S)이 구분 불가. 스크린리더 라벨은 전체 요일명(EEEE).
+    DateTime dayOf(int slot) => now.add(Duration(days: slot - offset));
+    String short2(int slot) {
+      final abbr = DateFormat.E(locale).format(dayOf(slot)).replaceAll('.', '');
+      return abbr.length <= 2 ? abbr : abbr.substring(0, 2);
+    }
 
     return SoriCard(
       variant: SoriCardVariant.compact,
@@ -1420,7 +1430,8 @@ class _SteppingStonesRow extends StatelessWidget {
               for (var i = 0; i < 7; i++)
                 Expanded(
                   child: _Stone(
-                    label: ml.narrowWeekdays[(firstDayIdx + i) % 7],
+                    label: short2(i),
+                    fullDayName: DateFormat.EEEE(locale).format(dayOf(i)),
                     isToday: i == offset,
                     // 오늘 이전 칸 중 스트릭 안에 드는 날은 채운다.
                     isDone: i < offset && (offset - i) <= streak,
@@ -1443,10 +1454,14 @@ class _SteppingStonesRow extends StatelessWidget {
 
 class _Stone extends StatelessWidget {
   final String label;
+
+  /// 스크린리더용 전체 요일명 (§7.1 — 시각 라벨은 2글자 축약).
+  final String fullDayName;
   final bool isToday;
   final bool isDone;
   const _Stone({
     required this.label,
+    required this.fullDayName,
     required this.isToday,
     required this.isDone,
   });
@@ -1470,7 +1485,7 @@ class _Stone extends StatelessWidget {
       border = SoriColors.lightBorderStrong;
       fg = s.textMuted;
     }
-    return Padding(
+    final stone = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3),
       child: Column(
         children: [
@@ -1502,6 +1517,12 @@ class _Stone extends StatelessWidget {
           ),
         ],
       ),
+    );
+    // §7.1: 시각은 2글자, 스크린리더는 전체 요일명.
+    return Semantics(
+      label: fullDayName,
+      excludeSemantics: true,
+      child: stone,
     );
   }
 }

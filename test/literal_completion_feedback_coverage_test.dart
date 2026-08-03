@@ -117,7 +117,7 @@ void main() {
               missionId: 'beta_games',
             ),
             (
-              name: 'Wordle',
+              name: 'Silben-Rätsel',
               context: FeedbackCompletion.wordle(
                 createId: createId,
                 level: 'a2',
