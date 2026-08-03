@@ -30,7 +30,6 @@ import 'review_session_screen.dart';
 import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/ambient_particles.dart';
-import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
