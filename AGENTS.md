@@ -228,6 +228,12 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 소스 후보 범위 커밋: `eda4c375dd3a06ef422e90ae0ab4dba3c5f8dbaf`
 - [x] SSoT 기록·원격 푸시: `0e3ad8f7d8a1ab3c84bb5013e059b4f438055421`까지 완료 (최신 산출물 매니페스트는 아래 세션 로그에 기록)
 
+### 캐릭터 MP4 매트 정규화 (2026-08-03)
+
+- [x] 신규 미배선 클립 `tiger_magpie_play.mp4`의 near-white 매트(`#F7F7F7`, 5% 적격)를 프로젝트 표준 규격인 960²/24fps/H.264 High/yuv420p/CRF19/faststart/무음으로 재출력했다. `lutrgb`의 `>240 → #FFFFFF` 정규화 뒤 매트 검사 121프레임 모두 순백·100%로 통과했다.
+- [x] 원본은 번들 제외 백업 `assets_unused/clip_matte_backup_2026-08-01/tiger_magpie_play.near-white.original.2026-08-03.mp4`에 보존했다. 전용 Flutter 매트 테스트 5/5도 통과했다.
+- [x] 변환 과정의 바이트 동일 임시 중복 `_stage_play_v2.mp4`는 character 번들 디렉터리에서 제외하고 같은 백업 경로로 이동해 전수 리포트의 18개 클립 목록을 유지했다.
+
 ### 레벨 연동형 실전 한국어 커리큘럼 (2026-08-02) — 구조·트리거·전 레벨 재연결 및 A1 생활 시나리오 확장, main 병합
 
 - [x] `CourseUnit → Concept → ContentLink` 그래프와 `FormFamily`·`SurfaceForm`·`MasteryEvidence` 계약, 콘텐츠 기준선 매니페스트 및 명시적 안정 ID를 추가했다.
@@ -363,6 +369,27 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-03 — `tiger_magpie_play.mp4` 순백 매트 정규화 — 커밋 미요청
+
+**Jin:** `python tool\\check_clip_matte.py`가 `tiger_magpie_play.mp4`만 `#F7F7F7`/흰 비율 5%로 실패한 뒤, 이 클립의 배경을 순백으로 바꿀 수 있는지 요청.
+
+- **원인·비교:** 새 클립은 Git 미추적·코드 미배선이지만 `pubspec.yaml`의 character 디렉터리 번들 및 `character_clip_matte_test.dart` 전수 스캔 대상이라 매트 게이트를 막았다. 원본은 H.264 High/yuv420p, 1440², 24fps, 121프레임/5.041667s, 무음, 3,874,674B였고, 네 모서리 484개 표본은 채널 246~252의 near-white(대표 `#F7F7F7`)였다. 크로마키는 밝은 까치 깃과 그림자에 구멍을 내므로 기각했다.
+- **변경:** `docs/CLIP_REGEN_2026-08-03.md`의 확정 명령 계약을 적용했다: `scale=960:960:flags=lanczos,lutrgb`에서 각 RGB `>240`만 `255`로 고정하고 24fps/H.264 High/yuv420p/CRF19/faststart/무음으로 재출력했다. 밝은 깃·호랑이 크림 면과 첫/중간/마지막 프레임을 육안 점검했다. clip은 미배선 상태 그대로이며 코드/consumer 변경은 없다.
+- **보존:** 교체 전 원본을 번들 제외 경로 `assets_unused/clip_matte_backup_2026-08-01/tiger_magpie_play.near-white.original.2026-08-03.mp4`에 복사했다. 원본 SHA-256 `C8B7F28C40F97FB9580D44374942DA2DF1DA125A8450BB0C45EA4F5B55A358AB`; 교체본 SHA-256 `E936D9D7AA63B3794923987121194C6B287DCEE7B832F035CE50F3EBBA3C09B1`.
+- **정리:** 변환 뒤 character 디렉터리에 생긴 `_stage_play_v2.mp4`는 교체본과 SHA-256이 동일한 임시 중복임을 확인했다. 전수 스캔 대상에 남지 않도록 `assets_unused/clip_matte_backup_2026-08-01/_stage_play_v2.duplicate.2026-08-03.mp4`로 이동했다.
+- **검증:** `python tool\\check_clip_matte.py` → **18/18 OK**, 대상 `#FFFFFF`·100%·121프레임; `flutter test --no-pub test\\character_clip_matte_test.dart` → **5/5 passed**; ffprobe → 960²/24fps/121프레임/5.041667s/H.264 High/yuv420p/무음 확인.
+- **Git:** 커밋·푸시 미요청. 기존 작업 트리의 `tiger_bob.mp4`·`tiger_thinking.mp4`·`tiger_walk_front.mp4`·`_to_delete/` 등 병렬 작업은 미수정·미스테이징.
+
+### 2026-08-03 — R6 에셋 격차 확정 목록 문서화 (Joy 클립 + 비마스코트) — 문서만, 커밋 미수행
+
+**Jin:** "Joy(까치) 이미지·영상이 호랑이보다 적다 — 전수검사로 뭘 만들지 깊게 고민 + 목록 확정. **호랑이·까치 캐릭터 AI 재생성 무조건 금지**, 기존 에셋 재사용. 다크 한옥 12단계 만들지 말 것(동의)."
+
+- **진단(코드 소비처 전수 추적):** Joy 격차는 정지 PNG가 아니라 **영상 층**에만 있음(까치 정지 10 vs 호랑이 9로 오히려 앞섬 · 영상 6 vs 12). `character_clip.dart` 역할 함수가 까치 전용 클립 부재 시 `magpie_perched`/`magpie_celebrate` 재탕 or null→정지. 강등 7지점 확정(J1 `path_trail:468` · J2 `kkeunmari:438` · J3 `character_selection:248` · J4 `game_reward:166` · J5 `review_session:243` · J6 `profile:281` · J7 `mascot:187`).
+- **확정 산출물:** `docs/ASSET_GAP_R6_CONFIRMED_2026-08-03.md` — ① Joy 영상 P0~P4(magpie_bob→thinking→flourish→soar→프로필 2컷, **Jin 캐논 제작 전용·AI 금지**, 임시 완화=애니 Mascot 폴백) ② ⛔ 미배선 호랑이 클립 2종(`tiger_walk_front`·`tiger_magpie_play`)을 kind-분기에 넣지 말 것 경고 ③ 시나리오 배경 5→11~12(home·airport·taxi·convenience·clinic·office·station, 캐릭터 없음이라 생성 자유) ④ 빈/오류는 이미지 아님=기존 마스코트 PNG 배선 과제 ⑤ 다크 한옥 제작 금지 확정.
+- **캐논 앵커 갱신(Jin 지시, 후속):** 호랑이 정본 = 신규 `mascot/tiger_front.png` + `tiger_right_stand.png`(저폴리 룩 — `tiger_idle` 대체 앵커, 신규 클립 bob/thinking 재제작의 파생 기준) · 까치 신규 클립 참조 포즈 = `magpie_wave/sing/encourage`. 두 tiger PNG 실존 확인. 문서 §0·§2 참조표·§3-2 오류상태·§4 에셋표 반영.
+- **부록 A 추가(씬 배경 프롬프트):** 기존 씬 규격 실측(`cafe/hotel.png` = 1086×1448, 3:4) + BIBLE §1 준거로 **7종 시나리오 배경(home·airport·taxi·convenience·clinic·office·station) 상세 프롬프트** 작성 — 공통 스타일 블록 + 씬별 LAYER 1/2/3 + PALETTE hex. **캐릭터·인물·글자 0**(순수 장소라 생성 자유), 중앙 비움·muted(0.08 백드롭). `home` 최우선(캐주얼 7개 해소).
+- **변경:** 문서 1개(`docs/ASSET_GAP_R6_CONFIRMED_2026-08-03.md`) 신규+갱신(부록 A 포함). 코드·에셋 무변경(tiger PNG 2장은 Jin이 추가). 검증 불요(순수 md). **커밋 미수행.**
 
 ### 2026-08-03 (밤) — 디자인 계획 R1 표면 수술 구현 완료 (Cowork 클라우드 세션)
 
