@@ -371,7 +371,7 @@ flutter run -d <android-id>   # 안드로이드
 - **정본 검증**: 보고된 커밋 6개(cde9509·cb66d4f·f209290·84537c2·87c214f·23b8089) 전부 origin/main 실재 + 23b8089은 main의 조상(YES) — **보고 내용 전량 main 반영 확정**. OneDrive 클론(`~\OneDrive\Desktop\hangulsori\ko_lernen_app`)도 동일 origin·cde9509·clean.
 - **흡수 병합 `297d9f4`**: 브랜치 단독 커밋은 `ec762c7` 하나(계획 v1.2 + `sfx/roar_tiger.mp3` 배선(미존재 시 무음 폴백) + `greetSfxFor` + CLIP_REGEN 인계 문서). 충돌은 AGENTS.md 로그 1곳 — 양측 항목 모두 보존으로 해소. 코드 4파일 자동 병합. ⚠️ 복구 기록: 스테일 `.git/HEAD.lock`(11:37, 크래시 잔재)으로 `git switch`가 반작용(HEAD=브랜치/인덱스=main) — git 프로세스 0 확인 후 락 제거 + `reset --hard ec762c7`로 무손실 복구.
 - **v2.0.4+10 준비**: pubspec `2.0.3+9`→`2.0.4+10`. +9 빌드 소스(6893293)에는 이후 병합된 코스 가드·동기화 안정화(cb66d4f·84537c2·f209290)가 미포함 → **+10이 최초 포함 빌드**. 릴리스 노트 +10 블록(DE/EN, 출시 이름 `10 · 진행도 가드 + 동기화 안정화`) + 헤더 갱신. `tester_build_release_contract_test`는 버전 미고정 확인.
-- **게이트·빌드**: analyze + 전체 테스트 → green 후 푸시·AAB(결과는 런북 §최신 항목).
+- **게이트·빌드(확정)**: analyze **0** · 전체 테스트 **1,662 통과**(병합 후) → main 푸시(`cde9509..9d1a019`) → **AAB 247,940,384B(236.5MB) SHA-256 `361612fe…8d53af3`**, 번들 계약 스팟체크 전부 ✓(manifest·mp4 30·magpie_moon 부재·roar_tiger.mp3 부재=무음 폴백 정상). 상세·업로드 절차 = 런북 **§0-A**. 업로드 = Jin(출시 이름 `10 · 진행도 가드 + 동기화 안정화`).
 
 ### 2026-08-03 (v2.0.3+9 Tiger Pulse 릴리스 증거 — 최종 Android 빌드 및 iOS 게이트 감사)
 

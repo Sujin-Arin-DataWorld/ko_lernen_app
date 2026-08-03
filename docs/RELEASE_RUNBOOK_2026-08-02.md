@@ -1,12 +1,22 @@
-# 배포 런북 — v2.0.3+9 내부 테스트 (2026-08-03, final Android build source `6893293`)
+# 배포 런북 — v2.0.4+10 내부 테스트 (2026-08-03, final Android build source `9d1a019`)
 
 > **목적:** "로컬·깃 최신화 이외에, 앱이 진짜 유저(내부 테스터)에게 보이기까지 해야 하는 일" 전수 리스트 + 상태 + 실행 절차.
 > 게이트 상세는 [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md), 코드 상태는 [`AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md`](AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md).
-> 아래의 v2.0.1~v2.0.2 섹션은 과거 기록이다. 새 업로드에는 이 문서의 **§0** 산출물과 `docs/store/release-notes-v2.md`의 Build 2.0.3+9 블록만 사용한다.
+> 아래의 v2.0.1~v2.0.3 섹션은 과거 기록이다. 새 업로드에는 이 문서의 **§0-A** 산출물과 `docs/store/release-notes-v2.md`의 Build 2.0.4+10 블록만 사용한다.
 
 ---
 
-## §0. 현재 업로드 대상 — v2.0.3+9 (versionCode 9)
+## §0-A. 현재 업로드 대상 — v2.0.4+10 (versionCode 10, 2026-08-03 18:26)
+
+**빌드 소스:** `9d1a019` (`pubspec.yaml` `2.0.4+10`, main == origin/main, 워킹트리 clean 실측 후 빌드). 정본 `cde9509`(3세션 통합: Tiger Pulse + 코스 진도 가드 + CourseMastery v2/typed 동기화) + design-refresh 흡수 병합 `297d9f4`(계획 v1.2·roar SFX 배선·클립 인계) + 릴리스 준비 `9d1a019`. **+9 빌드(6893293)에 없던 cb66d4f·84537c2·f209290 하드닝이 이 빌드에 최초 포함된다.**
+
+- **게이트:** `flutter analyze` 0 · 전체 직렬 테스트 **1,662 통과**(병합 후 상태에서 실측).
+- **산출물:** `build\app\outputs\bundle\release\app-release.aab` — **247,940,384 B (236.5MB)**, SHA-256 `361612fe1515f414a295a2b40822191d0317f8de285b666501e7660eb8d53af3`.
+- **번들 계약 스팟체크:** asset 엔트리 953 · `curriculum_manifest.json` ✓ · `welcome-hero.mp4` ✓ · mp4 **30** ✓ · `magpie_moon` 부재 ✓ · `growl_tiger.mp3` ✓ · `roar_tiger.mp3` 부재(배선만 존재, 파일은 Jin 선별 대기 — 무음 폴백 정상).
+- **업로드:** Play Console 내부 테스트 → 새 릴리스 → 이 AAB. 출시 이름 `10 · 진행도 가드 + 동기화 안정화`, 노트는 release-notes-v2.md의 +10 블록(`<de-DE>/<en-US>` 태그 포함 통째로).
+- **스모크 추가 항목(+10 신규분):** 미션 체크포인트 해금이 실제 결과로만 풀리는지 · 구글 백업/복원 왕복 후 코스 상태 보존 · (기존) 진단 8문항·캐릭터 선택 연출.
+
+### (기록) §0. v2.0.3+9 (versionCode 9) — 업로드 대체됨
 
 **빌드 소스:** `6893293a97f68ed42cf30c01399471c8daa79081` (`pubspec.yaml` `2.0.3+9`). 이 소스에는 `6ff708a` Android OAuth/Firebase 설정과 `8fd8b1f` 캐릭터 선택/무음 포효 수정이 포함된다.
 
