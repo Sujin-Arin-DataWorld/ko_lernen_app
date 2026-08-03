@@ -7,6 +7,7 @@ import 'button.dart';
 import 'card.dart';
 import 'hanok_tokens.dart';
 import 'mascot.dart';
+import 'pressable.dart';
 import 'tokens.dart';
 
 /// 미션 히어로가 추천하는 콘텐츠 출처 (§6.1 블록 3 추천 엔진 우선순위 순).
@@ -58,11 +59,16 @@ class MissionHeroCard extends StatelessWidget {
   final MissionHeroContent? content;
   final VoidCallback? onAnotherRound;
 
+  /// Q2 "배지 통합": 프리미엄 Tageskurs 소형 진입점 — null이면 숨김.
+  /// (전용 카드는 주 1회만 — 홈 E1c 가드.)
+  final VoidCallback? onPremiumCourse;
+
   const MissionHeroCard({
     super.key,
     required this.loading,
     required this.content,
     this.onAnotherRound,
+    this.onPremiumCourse,
   });
 
   @override
@@ -95,8 +101,16 @@ class MissionHeroCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (c.levelCode != null) ...[
-                      _LevelChip(code: c.levelCode!),
+                    if (c.levelCode != null || onPremiumCourse != null) ...[
+                      Row(
+                        children: [
+                          if (c.levelCode != null)
+                            _LevelChip(code: c.levelCode!),
+                          const Spacer(),
+                          if (onPremiumCourse != null)
+                            _CourseBadge(onTap: onPremiumCourse!),
+                        ],
+                      ),
                       const SizedBox(height: 6),
                     ],
                     Text(
@@ -321,6 +335,47 @@ class _AllDoneCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// Q2 "배지 통합" — 프리미엄 Tageskurs 소형 진입점. 전용 카드는 주 1회만
+/// 노출되므로 상시 발견 가능한 자리는 이 배지다.
+class _CourseBadge extends StatelessWidget {
+  final VoidCallback onTap;
+  const _CourseBadge({required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Semantics(
+      button: true,
+      label: t.homeCourseTitle,
+      child: SoriPressable(
+        onTap: onTap,
+        behavior: HitTestBehavior.opaque,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 2),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.auto_awesome_rounded,
+                size: 13,
+                color: SoriColors.goldOnLight,
+              ),
+              const SizedBox(width: 3),
+              Text(
+                t.homeCourseTitle,
+                style: SoriTextTheme.of(context).label.copyWith(
+                  fontSize: 11.5,
+                  color: SoriColors.goldOnLight,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

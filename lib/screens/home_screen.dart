@@ -96,6 +96,9 @@ class _HomeScreenState extends State<HomeScreen> {
   CourseMasterySnapshot? _courseSnapshot;
   bool _loadingCourse = true;
 
+  /// Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 true(주 1회 노출).
+  bool _courseCardThisWeek = false;
+
   // Phase 3 (stately-rising-jongga) — Hanok-Cinematic gating.
   HanokStage? _pendingCinematicStage;
   bool _cinematicShown = false;
@@ -302,11 +305,21 @@ class _HomeScreenState extends State<HomeScreen> {
       /* best-effort; ohne Vokabeln einfach 0 */
     }
 
+    // Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 노출(이후 배지만).
+    final week = _isoWeek(DateTime.now());
+    final showCourseCard =
+        _courseCardThisWeek || Storage.courseCardWeekShown != week;
+    if (!_courseCardThisWeek && showCourseCard) {
+      // ignore: discarded_futures
+      Storage.setCourseCardWeekShown(week);
+    }
+
     setState(() {
       _today = pick;
       _completed = completed;
       _dueCount = dueCount;
       _hardCount = hardCount;
+      _courseCardThisWeek = showCourseCard;
       _loadingScenario = false;
     });
 
@@ -405,6 +418,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
     if (mounted) _loadToday();
+  }
+
+  /// ISO 8601 주차 문자열('2026-W32') — Tageskurs 전용 카드 주 1회 가드(Q2).
+  String _isoWeek(DateTime d) {
+    final thursday = d.add(Duration(days: 3 - ((d.weekday + 6) % 7)));
+    final firstDay = DateTime(thursday.year, 1, 1);
+    final week = 1 + thursday.difference(firstDay).inDays ~/ 7;
+    return '${thursday.year}-W$week';
   }
 
   /// 시간대 — 인사 + 호랑이 emotion 결정.
@@ -764,6 +785,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           content: (_loadingScenario || _loadingCourse)
                               ? null
                               : _missionHeroContent(t, lang),
+                          onPremiumCourse: _openCourse,
                           onAnotherRound: () async {
                             await Navigator.pushNamed(context, '/path');
                             if (mounted) {
@@ -868,18 +890,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: Spacing.sm),
                       ],
-                      // ── E1b. Heute lernen (M2) — fällige SRS-Karten ──
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 220),
-                        slideY: 14,
-                        child: _ReviewCard(
-                          dueCount: _dueCount,
-                          onTap: () async {
-                            await Navigator.pushNamed(context, '/review');
-                            if (mounted) await _loadToday();
-                          },
+                      // ── E1b. Heute lernen — due 0건이면 블록 숨김(§6.1 블록 5) ──
+                      if (_dueCount > 0)
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 220),
+                          slideY: 14,
+                          child: _ReviewCard(
+                            dueCount: _dueCount,
+                            onTap: () async {
+                              await Navigator.pushNamed(context, '/review');
+                              if (mounted) await _loadToday();
+                            },
+                          ),
                         ),
-                      ),
                       // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
                       if (_hardCount > 0) ...[
                         const SizedBox(height: Spacing.sm),
@@ -897,28 +920,34 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                       const SizedBox(height: Spacing.md),
 
-                      // ── E1c. Dein Tageskurs (M5) — personalisiert · Premium ──
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 260),
-                        slideY: 14,
-                        child: _CourseCard(onTap: _openCourse),
-                      ),
-                      const SizedBox(height: Spacing.md),
-
-                      // ── D. Daily char (compact, 부차 요소로 강등) ──
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 300),
-                        slideY: 12,
-                        child: _DailyCharCard(
-                          char:
-                              widget.dailyCharacter ?? DailyCharService.today(),
-                          doneToday: Storage.calligraphyDoneToday,
-                          onTap: () => showDailyCharSheet(context).then((_) {
-                            if (mounted) setState(() {});
-                          }),
+                      // ── E1c. Dein Tageskurs — Q2: 전용 카드는 주 1회,
+                      // 상시 진입점은 미션 히어로 배지 ──
+                      if (_courseCardThisWeek) ...[
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 260),
+                          slideY: 14,
+                          child: _CourseCard(onTap: _openCourse),
                         ),
-                      ),
-                      const SizedBox(height: Spacing.xl),
+                        const SizedBox(height: Spacing.md),
+                      ],
+
+                      // ── D2. 오늘의 글자 — 완료(0건)면 블록 숨김(§6.1 블록 5) ──
+                      if (!Storage.calligraphyDoneToday) ...[
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 300),
+                          slideY: 12,
+                          child: _DailyCharCard(
+                            char:
+                                widget.dailyCharacter ??
+                                DailyCharService.today(),
+                            doneToday: Storage.calligraphyDoneToday,
+                            onTap: () => showDailyCharSheet(context).then((_) {
+                              if (mounted) setState(() {});
+                            }),
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.xl),
+                      ],
 
                       const SizedBox(height: Spacing.xxxl),
                       Center(

@@ -685,6 +685,13 @@ class Storage {
   static bool get motivationAsked => _b('kl_motivation_asked');
   static Future<void> setMotivationAsked() => _sb('kl_motivation_asked', true);
 
+  // ───────── Tageskurs 전용 카드 주 1회 가드 (디자인 Q2) ─────────
+  /// 전용 카드를 노출한 ISO 주('2026-W32'). 같은 주엔 홈 카드 숨김 —
+  /// 미션 히어로의 Tageskurs 배지 진입점은 항상 남는다.
+  static String get courseCardWeekShown => _s('kl_course_card_week');
+  static Future<void> setCourseCardWeekShown(String week) =>
+      _ss('kl_course_card_week', week);
+
   // ───────── Meilensteine (달성 축하 1회 가드) ─────────
   /// 이미 축하한 마일스톤 id 목록(중복 축하 방지).
   static List<String> get celebratedMilestones => _l('kl_milestones');
