@@ -36,6 +36,7 @@ import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_hero_card.dart';
+import '../widgets/sori/path_preview_row.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/pressable.dart';
@@ -84,8 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
   int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
 
-  // E2. Skill-path — 사용자 레벨 시나리오 진행 레일.
-  List<Scenario> _levelPath = const [];
+  // 시나리오 추천(소스 ④) 가드용 — 완료 시나리오 집합.
   Set<String> _completed = const {};
 
   // E1a. Lernpfad 홈 임베드 — 현재 레벨 단어팩 노드 리스트.
@@ -289,10 +289,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     pick ??= list.isEmpty ? null : list.first;
 
-    final levelPath = list
-        .where((s) => s.level == userLevel)
-        .toList(growable: false);
-
     // M2/A1: "Heute lernen" — fällige + neue SRS-Karten. A1: CSV + 나만의 단어장
     // + 책 한 컷 단어 모두 포함. A2: "어려운 단어"(leech) 개수도 함께 계산.
     int dueCount = 0;
@@ -309,7 +305,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     setState(() {
       _today = pick;
-      _levelPath = levelPath;
       _completed = completed;
       _dueCount = dueCount;
       _hardCount = hardCount;
@@ -568,6 +563,66 @@ class _HomeScreenState extends State<HomeScreen> {
     return null;
   }
 
+  /// §10.2 블록 4 — 현재 노드 ±1 = 3노드 슬라이스.
+  /// 탭 규칙: 현재 노드 = 팩 진입(프리미엄 게이트 승계), 그 외 = `/path`
+  /// (해당 노드 id를 스크롤 파라미터로 — R3에서 소비).
+  List<SoriPathStop> _previewStops(String lang) {
+    if (_pathNodes.isEmpty) {
+      return const [];
+    }
+    var i = _nowPackId == null
+        ? _pathNodes.length - 1
+        : _pathNodes.indexWhere((e) => e.pack.id == _nowPackId);
+    if (i < 0) {
+      i = _pathNodes.length - 1;
+    }
+    var start = i - 1 < 0 ? 0 : i - 1;
+    var end = start + 3;
+    if (end > _pathNodes.length) {
+      end = _pathNodes.length;
+      start = end - 3 < 0 ? 0 : end - 3;
+    }
+    final slice = _pathNodes.sublist(start, end);
+    return [
+      for (final e in slice)
+        SoriPathStop(
+          id: e.pack.id,
+          label: VocabPackService.displayLabel(e.pack.id, lang: lang),
+          status: e.progress.status,
+          fraction: e.progress.progressFraction,
+          isNow: e.pack.id == _nowPackId,
+          onTap: () async {
+            if (e.pack.id != _nowPackId) {
+              await Navigator.pushNamed(context, '/path', arguments: e.pack.id);
+              if (mounted) {
+                await _loadPath();
+              }
+              return;
+            }
+            if (e.pack.level.toUpperCase() != 'A1' &&
+                !PremiumService.isPremium) {
+              final ok = await PremiumService.gate(context);
+              if (!ok) {
+                return;
+              }
+            }
+            if (!mounted) {
+              return;
+            }
+            await Navigator.pushNamed(
+              context,
+              '/vocab/pack',
+              arguments: e.pack.id,
+            );
+            if (mounted) {
+              await _loadToday();
+              await _loadPath();
+            }
+          },
+        ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -732,7 +787,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: Spacing.lg),
 
-                      // ── E1a. Lernpfad — 학습 경로(홈 중심·F1, Today 위로 승격) ──
+                      // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
                       widget.pathTourKey != null
                           ? KeyedSubtree(
                               key: widget.pathTourKey!,
@@ -757,115 +812,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         SoriEntrance(
                           delay: const Duration(milliseconds: 120),
                           slideY: 14,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              // 지그재그 트레일 — /path 전용 화면과 같은 시각
-                              // 언어(도장 노드·황금 링·사인파 경로)를 홈에도.
-                              // 홈 히어로 영상과 단일 lease 경합을 막기 위해
-                              // "지금" 노드는 정적 마스코트(liveNowNode:false).
-                              SoriPathTrail(
-                                liveNowNode: false,
-                                stops: [
-                                  for (final e in _pathNodes)
-                                    SoriPathStop(
-                                      id: e.pack.id,
-                                      label: VocabPackService.displayLabel(
-                                        e.pack.id,
-                                        lang: lang,
-                                      ),
-                                      status: e.progress.status,
-                                      fraction: e.progress.progressFraction,
-                                      isNow: e.pack.id == _nowPackId,
-                                      onTap: () async {
-                                        if (e.progress.status ==
-                                            PackStatus.locked) {
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            SnackBar(
-                                              content: Text(t.pathLockedHint),
-                                            ),
-                                          );
-                                          return;
-                                        }
-                                        if (e.pack.level.toUpperCase() !=
-                                                'A1' &&
-                                            !PremiumService.isPremium) {
-                                          final ok = await PremiumService.gate(
-                                            context,
-                                          );
-                                          if (!ok) return;
-                                        }
-                                        if (!context.mounted) return;
-                                        await Navigator.pushNamed(
-                                          context,
-                                          '/vocab/pack',
-                                          arguments: e.pack.id,
-                                        );
-                                        if (mounted) {
-                                          await _loadToday();
-                                          await _loadPath();
-                                        }
-                                      },
-                                    ),
-                                ],
-                              ),
-                              const SizedBox(height: Spacing.xs),
-                              TextButton(
-                                onPressed: () async {
-                                  await Navigator.pushNamed(context, '/path');
-                                  if (mounted) {
-                                    await _loadPath();
-                                  }
-                                },
-                                style: TextButton.styleFrom(
-                                  foregroundColor: SoriColors.primary,
-                                  padding: EdgeInsets.zero,
-                                  alignment: Alignment.centerLeft,
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      t.pathSeeAll,
-                                      style: SoriTextTheme.of(context).label
-                                          .copyWith(color: SoriColors.primary),
-                                    ),
-                                    const SizedBox(width: 2),
-                                    const Icon(Icons.chevron_right, size: 14),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      const SizedBox(height: Spacing.xl),
-
-                      // ── E2. Skill path — 진행 레일(홈 중심 메타포로 승격) ──
-                      if (_levelPath.isNotEmpty) ...[
-                        _SectionLabel(label: t.scenariosPathTitle),
-                        const SizedBox(height: Spacing.sm),
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 180),
-                          slideY: 14,
-                          child: _SkillPathRail(
-                            scenarios: _levelPath,
-                            completed: _completed,
-                            currentId: _today?.id,
-                            lang: lang,
-                            onTapScenario: (id) async {
-                              await Navigator.pushNamed(
-                                context,
-                                '/scenario',
-                                arguments: id,
-                              );
-                              if (mounted) await _loadToday();
+                          // §10.2: 현재 ±1 = 3노드 미리보기. 전량 경로와
+                          // 100% 트리거는 /path 전용 화면이 유지(§6.2).
+                          // 히어로(블록 2)가 클립이라 미리보기는 정적 —
+                          // 동시 디코더 ≤1 계약.
+                          child: PathPreviewRow(
+                            stops: _previewStops(lang),
+                            onSeeAll: () async {
+                              await Navigator.pushNamed(context, '/path');
+                              if (mounted) {
+                                await _loadPath();
+                              }
                             },
                           ),
                         ),
-                        const SizedBox(height: Spacing.xl),
-                      ],
+                      const SizedBox(height: Spacing.xl),
 
                       // ── P0-G7. Streak 0 회복 메시지 ──
                       // ⚠️ 이 카드는 "스트릭이 **끊긴**" 사용자를 되돌리는 복구
@@ -2122,183 +2083,6 @@ Future<void> showGyeChooser(BuildContext context) async {
       },
     ),
   );
-}
-
-// ════════════════════════════════════════════════════════════════════════
-// E2. Skill-path rail — 레벨 시나리오 진행 (완료 ● / 현재 ◉ / 예정 ○)
-// ════════════════════════════════════════════════════════════════════════
-class _SkillPathRail extends StatelessWidget {
-  final List<Scenario> scenarios;
-  final Set<String> completed;
-  final String? currentId;
-  final String lang;
-  final void Function(String id) onTapScenario;
-
-  const _SkillPathRail({
-    required this.scenarios,
-    required this.completed,
-    required this.currentId,
-    required this.lang,
-    required this.onTapScenario,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final doneCount = scenarios.where((sc) => completed.contains(sc.id)).length;
-
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      padding: const EdgeInsets.fromLTRB(14, 12, 8, 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            t.scenariosPathProgress(doneCount, scenarios.length),
-            style: SoriTextTheme.of(context).label.copyWith(color: s.textMuted),
-          ),
-          const SizedBox(height: 10),
-          SizedBox(
-            height: 80,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.zero,
-              itemCount: scenarios.length,
-              itemBuilder: (context, i) {
-                final sc = scenarios[i];
-                return _PathNode(
-                  index: i,
-                  total: scenarios.length,
-                  label: sc.title.pick(lang),
-                  done: completed.contains(sc.id),
-                  current: sc.id == currentId,
-                  onTap: () => onTapScenario(sc.id),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _PathNode extends StatelessWidget {
-  final int index;
-  final int total;
-  final String label;
-  final bool done;
-  final bool current;
-  final VoidCallback onTap;
-  const _PathNode({
-    required this.index,
-    required this.total,
-    required this.label,
-    required this.done,
-    required this.current,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final Color ring = done
-        ? SoriColors.primary
-        : current
-        ? SoriColors.tiger
-        : s.border;
-    final Color fill = done
-        ? SoriColors.primary
-        : current
-        ? SoriColors.tiger.withValues(alpha: 0.18)
-        : s.surface;
-
-    return SoriPressable(
-      onTap: onTap,
-      haptic: SoriHaptic.selection,
-      child: SizedBox(
-        width: 82,
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: index == 0
-                      ? const SizedBox.shrink()
-                      : _Connector(active: done || current),
-                ),
-                Container(
-                  width: 34,
-                  height: 34,
-                  decoration: BoxDecoration(
-                    color: fill,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: ring, width: 2),
-                  ),
-                  alignment: Alignment.center,
-                  child: done
-                      ? const Icon(
-                          Icons.check_rounded,
-                          color: Colors.white,
-                          size: 18,
-                        )
-                      : Text(
-                          '${index + 1}',
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w900,
-                            fontSize: 13,
-                            color: current ? SoriColors.tiger : s.textMuted,
-                          ),
-                        ),
-                ),
-                Expanded(
-                  child: index == total - 1
-                      ? const SizedBox.shrink()
-                      : _Connector(active: done),
-                ),
-              ],
-            ),
-            const SizedBox(height: 6),
-            Expanded(
-              child: Text(
-                label,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 10,
-                  height: 1.15,
-                  fontWeight: current ? FontWeight.w800 : FontWeight.w500,
-                  color: current ? s.text : s.textMuted,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _Connector extends StatelessWidget {
-  final bool active;
-  const _Connector({required this.active});
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    return Container(
-      height: 3,
-      margin: const EdgeInsets.symmetric(horizontal: 1),
-      decoration: BoxDecoration(
-        color: active ? SoriColors.primary.withValues(alpha: 0.5) : s.border,
-        borderRadius: BorderRadius.circular(2),
-      ),
-    );
-  }
 }
 
 // ════════════════════════════════════════════════════════════════════════

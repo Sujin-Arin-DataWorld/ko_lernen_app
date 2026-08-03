@@ -641,3 +641,22 @@ class _ProgressRingPainter extends CustomPainter {
   bool shouldRepaint(covariant _ProgressRingPainter old) =>
       old.fraction != fraction;
 }
+
+/// 홈 미리보기(`PathPreviewRow`)용 공개 노드 디스크 — 내부 [_Disc] 문법
+/// (도장·황금 링·잠금 회색조 프리뷰)을 그대로 재사용한다 (§10.2).
+/// [liveNow]=false면 "지금" 노드도 정적 — 홈 히어로 클립과의 동시 재생을
+/// 막는 디코더 ≤1 계약.
+class SoriPathNodeDisc extends StatelessWidget {
+  final SoriPathStop stop;
+  final bool liveNow;
+
+  const SoriPathNodeDisc({super.key, required this.stop, this.liveNow = false});
+
+  @override
+  Widget build(BuildContext context) => _Disc(
+    stop: stop,
+    cleared: stop.status == PackStatus.cleared,
+    locked: stop.status == PackStatus.locked,
+    liveNow: liveNow,
+  );
+}
