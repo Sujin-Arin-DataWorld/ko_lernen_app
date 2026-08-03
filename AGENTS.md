@@ -364,7 +364,7 @@ flutter run -d <android-id>   # 안드로이드
 - **Firebase·삭제:** Firestore root의 `course_mastery_json`은 generic field merge와 분리했고 account-deletion runtime allowlist에도 추가했다. Web App Check는 `FIREBASE_WEB_APP_CHECK_SITE_KEY`만 주입받으며 키 부재 시 primary와 temporary Firebase app 모두 protected call 전에 fail-closed 한다. Android/Apple provider 경로는 유지하고 실제 iOS/Web 등록값은 런북으로 분리했다.
 - **최종 게이트 (이 worktree, P1 보완 후):** `flutter analyze --no-fatal-warnings --no-fatal-infos` → exit 0, `No issues found! (ran in 32.6s)`; `flutter test --no-pub --concurrency=1` → exit 0, **1,412 통과**, `All tests passed!` (3m46s); `node --test functions/gye/cloud_backup_deletion_runtime.test.js` → exit 0, **17/17 통과** (344.9774ms); `flutter build web --release` → exit 0, `Built build\web` (131.6s); `git diff --check` → exit 0 (CRLF working-copy advisory만 출력). Web build의 Wasm dry-run은 의존성 `flutter_tts`의 호환성 lint 안내였고 build 실패가 아니었다.
 - **외부 증거 경계:** 이 Windows 코드 검증은 Firebase Console iOS/Web 앱 등록, 실제 FlutterFire iOS/Web 옵션/`GoogleService-Info.plist`, Auth authorized domain, reCAPTCHA/App Check enforcement, Apple signing·Sign in with Apple·APNs, macOS archive 및 실기기 동작을 증명하지 않는다. 운영자가 각 Console/Apple 설정 후 별도로 검증해야 한다.
-- **Git:** base `5486183adc9707246b258840d140c56c6ea8e4c4`; 본 작업은 별도 worktree에서 수행했으며, main에 병합하지 않고 해당 브랜치로만 커밋·푸시한다.
+- **Git:** base `5486183adc9707246b258840d140c56c6ea8e4c4`; 기능 커밋 `84537c2`를 별도 worktree/브랜치 `codex/data-stability-sync-2026-08-03`에 푸시했으며, main에는 병합하지 않았다.
 
 ### 2026-08-02 (v2.0.2+8 준비 — 커리큘럼 병합 수용 + 빌드) — 커밋·푸시
 
