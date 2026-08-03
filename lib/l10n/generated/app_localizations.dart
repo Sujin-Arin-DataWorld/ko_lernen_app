@@ -3925,6 +3925,72 @@ abstract class AppL10n {
   /// **'Heute'**
   String get homeTodaySection;
 
+  /// No description provided for @missionHeroCtaStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht\'s'**
+  String get missionHeroCtaStart;
+
+  /// No description provided for @missionHeroCtaContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitermachen'**
+  String get missionHeroCtaContinue;
+
+  /// No description provided for @missionHeroCourseMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'Mission {n} von {total}'**
+  String missionHeroCourseMeta(int n, int total);
+
+  /// No description provided for @missionHeroPackMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortschatz-Pack · Level {level}'**
+  String missionHeroPackMeta(Object level);
+
+  /// No description provided for @missionHeroReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'{n, plural, one{1 Wort wiederholen} other{{n} Wörter wiederholen}}'**
+  String missionHeroReviewTitle(int n);
+
+  /// No description provided for @missionHeroReviewMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutige Wiederholung'**
+  String get missionHeroReviewMeta;
+
+  /// No description provided for @missionHeroScenarioMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenario · Level {level}'**
+  String missionHeroScenarioMeta(Object level);
+
+  /// No description provided for @missionHeroAllDoneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Für heute geschafft'**
+  String get missionHeroAllDoneTitle;
+
+  /// No description provided for @missionHeroAllDoneBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Stark! Morgen warten neue Missionen auf dich.'**
+  String get missionHeroAllDoneBody;
+
+  /// No description provided for @missionHeroAnotherRound.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch eine Runde'**
+  String get missionHeroAnotherRound;
+
+  /// No description provided for @missionHeroSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Mission: {title}, Level {level}'**
+  String missionHeroSemantics(Object title, Object level);
+
   /// No description provided for @settingsThemeTitle.
   ///
   /// In de, this message translates to:

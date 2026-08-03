@@ -172,6 +172,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
               Expanded(
                 child: Center(
                   child: SoriEmptyState(
+                    asset: 'assets/illustrations/mascot/magpie_encourage.png',
                     icon: Icons.reorder_rounded,
                     title: t.satzArcadeTitle,
                     body: t.clozeEmptyBody,

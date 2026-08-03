@@ -93,6 +93,15 @@
       "reason": ""
     },
     {
+      "path": "tiger_magpie_play.mp4",
+      "bytes": 1146541,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 121,
+      "reason": ""
+    },
+    {
       "path": "tiger_rest.mp4",
       "bytes": 859191,
       "ok": true,
@@ -139,7 +148,16 @@
     },
     {
       "path": "tiger_thinking.mp4",
-      "bytes": 1908285,
+      "bytes": 759255,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 240,
+      "reason": ""
+    },
+    {
+      "path": "tiger_walking_front.mp4",
+      "bytes": 876920,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,

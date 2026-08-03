@@ -110,6 +110,7 @@ class _GyeScreenState extends State<GyeScreen>
                 appBar: AppBar(title: Text(t.gyeTitle)),
                 body: Center(
                   child: SoriEmptyState(
+                    asset: 'assets/illustrations/mascot/magpie_perched.png',
                     icon: Icons.groups_2_outlined,
                     title: t.gyeNotFoundTitle,
                     body: t.gyeNotFoundBody,

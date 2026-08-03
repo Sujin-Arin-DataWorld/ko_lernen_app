@@ -222,6 +222,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Widget _buildEmpty(AppL10n t) => SoriEmptyState(
+    asset: 'assets/illustrations/mascot/magpie_celebrate.png',
     icon: Icons.task_alt_rounded,
     title: t.reviewEmptyTitle,
     body: t.reviewEmptyBody,

@@ -35,6 +35,13 @@ class CharacterClips {
   static const String tigerGreetPawflash =
       '$_base/tiger_greet_pawflash.mp4'; // 첫 인사 — 앞발 번쩍
 
+  /// 정면 보행 — 원샷 전용.
+  ///
+  /// 걸어오며 피사체가 38% 커지고 루프 이음새가 인접프레임 대비 8.3배라
+  /// `loop: true` 로 쓰면 5초마다 크기가 튄다. 반드시 `loop: false`.
+  static const String tigerWalkingFront =
+      '$_base/tiger_walking_front.mp4'; // 정면 보행(원샷)
+
   /// 신기록 보너스 포효.
   ///
   /// 전용 클립 `tiger_roar_seated_bonus.mp4` 는 에셋 폴더에 존재한 적이 없다

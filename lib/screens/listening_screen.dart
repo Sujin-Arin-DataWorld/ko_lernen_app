@@ -213,6 +213,7 @@ class _ListeningScreenState extends State<ListeningScreen>
       return Scaffold(
         appBar: AppBar(title: Text(t.listeningTitle)),
         body: SoriEmptyState(
+          asset: 'assets/illustrations/mascot/magpie_encourage.png',
           icon: Icons.headphones_outlined,
           title: t.listeningEmptyTitle,
           body: t.listeningEmptyBody,

@@ -195,6 +195,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               ? AppError(message: t.courseMissionLoadError, onRetry: _retryLoad)
               : _visibleCategories.isEmpty
               ? SoriEmptyState(
+                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
                   icon: Icons.chat_bubble_outline_rounded,
                   title: t.smalltalkTitle,
                   body: SmalltalkLoader.lastError ?? '',

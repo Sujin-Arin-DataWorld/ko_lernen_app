@@ -230,6 +230,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                   SliverFillRemaining(
                     hasScrollBody: false,
                     child: SoriEmptyState(
+                      asset: 'assets/illustrations/mascot/magpie_wave.png',
                       icon: Icons.menu_book_outlined,
                       title: t.vocabPacksEmptyTitle,
                       body: t.vocabPacksEmptyBody,

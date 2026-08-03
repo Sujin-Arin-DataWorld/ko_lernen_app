@@ -15,6 +15,7 @@ import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
@@ -457,10 +458,12 @@ class _GrammarScreenState extends State<GrammarScreen>
     if (g == null) {
       return Scaffold(
         appBar: AppBar(title: Text(t.screenGrammarTitle)),
-        body: AppEmpty(
-          message: t.emptyGrammar,
-          actionLabel: _isCoursePractice ? null : t.filterOpenBtn,
-          onAction: _isCoursePractice ? null : _showFilterSheet,
+        body: SoriEmptyState(
+          asset: 'assets/illustrations/mascot/magpie_wave.png',
+          icon: Icons.menu_book_outlined,
+          title: t.emptyGrammar,
+          ctaLabel: _isCoursePractice ? null : t.filterOpenBtn,
+          onCta: _isCoursePractice ? null : _showFilterSheet,
         ),
       );
     }

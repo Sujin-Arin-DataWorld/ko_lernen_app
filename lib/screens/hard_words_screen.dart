@@ -99,6 +99,7 @@ class _HardWordsScreenState extends State<HardWordsScreen>
               : _hard.isEmpty
               ? Center(
                   child: SoriEmptyState(
+                    asset: 'assets/illustrations/mascot/magpie_celebrate.png',
                     icon: Icons.emoji_events_outlined,
                     title: t.hardWordsEmptyTitle,
                     body: t.hardWordsEmptyBody,

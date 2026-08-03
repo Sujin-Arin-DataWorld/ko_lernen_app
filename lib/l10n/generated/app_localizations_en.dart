@@ -2105,6 +2105,56 @@ class AppL10nEn extends AppL10n {
   String get homeTodaySection => 'Today';
 
   @override
+  String get missionHeroCtaStart => 'Let\'s go';
+
+  @override
+  String get missionHeroCtaContinue => 'Continue';
+
+  @override
+  String missionHeroCourseMeta(int n, int total) {
+    return 'Mission $n of $total';
+  }
+
+  @override
+  String missionHeroPackMeta(Object level) {
+    return 'Vocabulary pack · Level $level';
+  }
+
+  @override
+  String missionHeroReviewTitle(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'Review $n words',
+      one: 'Review 1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get missionHeroReviewMeta => 'Today\'s review';
+
+  @override
+  String missionHeroScenarioMeta(Object level) {
+    return 'Scenario · Level $level';
+  }
+
+  @override
+  String get missionHeroAllDoneTitle => 'Done for today';
+
+  @override
+  String get missionHeroAllDoneBody =>
+      'Great work! New missions arrive tomorrow.';
+
+  @override
+  String get missionHeroAnotherRound => 'One more round';
+
+  @override
+  String missionHeroSemantics(Object title, Object level) {
+    return 'Next mission: $title, level $level';
+  }
+
+  @override
   String get settingsThemeTitle => 'Appearance';
 
   @override

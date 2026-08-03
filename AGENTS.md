@@ -370,6 +370,25 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-03 (Cowork) — 호랑이 클립 3종 + 빈/오류 마스코트 전수 배선 + 에셋 생산 계획 — 커밋 미요청
+
+**Jin:** 첨부한 `tiger_roar.mp4`로 생각하는 호랑이 클립 생성 → 정면 보행·호랑이＋까치 추가 → 빈/오류 상태 배선 → 에셋 생산 계획.
+
+- **클립 3종 (bbanana2 / Seedance 2.0 Pro 1080p 1:1).** 레퍼런스는 `tiger_roar.mp4` 프레임 20(입 다문 전신)을 흰 여백 86%로 패딩해 업로드. 셋 다 1440²로 도착 → `tool/clip_normalize.py`로 960²/24fps/CRF19/faststart/무음 변환.
+  - `tiger_thinking.mp4` — 배경 93.7% 오염 → **0.00%**. 루프 이음새가 인접프레임 대비 **16.4배**(`kkeunmari` 생각 중 인디케이터가 `loop: true`라 5초마다 튐). 크로스페이드는 꼬리·귀에 잔상이 남아 캐논 위반 → **핑퐁**(정방향+역방향, 240프레임/10초)으로 0.1배. 모든 프레임이 실제 생성 프레임.
+  - `tiger_walking_front.mp4` — `tiger_bob` 자리에 들어와 있던 것을 이 이름으로 이동, `tiger_bob`은 `git show HEAD:` 로 원복(`.git/index.lock` 잔존으로 `git restore` 실패). 피사체 면적 38% 증가·이음새 8.3배 → **`loop: false` 원샷 전용**. ⚠️ 121프레임 중 **36프레임에서 앞발이 하단에 잘림** — 재생성본은 모션이 부자연스러워 Jin이 현재 파일 유지 결정.
+  - `tiger_magpie_play.mp4` — 바닥 그림자를 테두리 flood-fill로 제거(중성회색 6.00% → 0.14%). 까치 흰 가슴·회색 날개는 검은 깃털에 둘러싸여 배경과 끊겨 있어 무손상.
+  - `tool/check_clip_matte.py --check`: **18개 중 0개 실패**(전부 `#FFFFFF` 100%).
+- **함정 기록.** Seedance 2.0은 네이티브 오디오를 같이 만들고 **그 오디오가 정책에 걸리면 영상까지 실패**한다(크레딧은 환불). `options.audio=false, generate_audio=false` + 프롬프트 무음 명시로 통과. 또한 클라우드 Cowork 샌드박스는 `*.supabase.co`(bbanana 결과물 호스트)로 못 나가 생성물을 직접 못 받는다 — Jin이 브라우저로 받아 연결 폴더에 넣어야 검수·변환이 가능하다.
+- **빈/오류 마스코트 전수 배선 (신규 이미지 0 — GAP §3-2).**
+  - `AppError`: 호출부 8곳 전부 빨간 `error_outline`이었다 → **위젯 기본값** `kTaegoErrorAsset = mascot/tiger_front.png`. 호출부 수정 0건으로 8화면 동시 적용, 향후 추가분도 자동 캐논 준수.
+  - `SoriEmptyState`: 32 호출부 중 6곳만 일러스트였다 → **32/32**. 완료=`magpie_celebrate` · 초대=`magpie_wave` · 격려=`magpie_encourage` · 대기=`magpie_perched` · `*NotFound*`는 오류로 보아 `tiger_front`.
+  - `AppEmpty`: 일러스트 슬롯이 없어 표준을 못 맞춘다 → 마지막 사용처(`grammar_screen`)를 `SoriEmptyState`로 옮기고 `@Deprecated`. 빈 상태 표준이 하나로 수렴.
+  - `CharacterClips.tigerWalkingFront` 상수 추가. **역할 함수에는 미배선** — GAP §2-2대로 kind-분기에 넣으면 짝 `magpie_*_forward`가 없어 조이가 정지로 떨어진다.
+- **문서·도구.** `docs/ASSET_PRODUCTION_PLAN_2026-08-03.md` 신규(담당별 3계층 분리 · 배경 7종 프롬프트 골격 · 검수 합격선 · 실행 순서). `tool/clip_normalize.py` 신규 — `check_clip_matte.py`(게이트)와 역할이 겹치지 않게 변환·모션 진단만 담당.
+
+**검증:** 매트 게이트 18/18 통과 · 참조 마스코트 PNG 5종 존재 확인 · 클립 3종 전 프레임 스캔. **미검증:** `flutter analyze`·`flutter test`(샌드박스에 dart 없음) · 실기기 시각 확인.
+
 ### 2026-08-03 — `tiger_magpie_play.mp4` 순백 매트 정규화 — 커밋 미요청
 
 **Jin:** `python tool\\check_clip_matte.py`가 `tiger_magpie_play.mp4`만 `#F7F7F7`/흰 비율 5%로 실패한 뒤, 이 클립의 배경을 순백으로 바꿀 수 있는지 요청.
@@ -389,7 +408,8 @@ flutter run -d <android-id>   # 안드로이드
 - **확정 산출물:** `docs/ASSET_GAP_R6_CONFIRMED_2026-08-03.md` — ① Joy 영상 P0~P4(magpie_bob→thinking→flourish→soar→프로필 2컷, **Jin 캐논 제작 전용·AI 금지**, 임시 완화=애니 Mascot 폴백) ② ⛔ 미배선 호랑이 클립 2종(`tiger_walk_front`·`tiger_magpie_play`)을 kind-분기에 넣지 말 것 경고 ③ 시나리오 배경 5→11~12(home·airport·taxi·convenience·clinic·office·station, 캐릭터 없음이라 생성 자유) ④ 빈/오류는 이미지 아님=기존 마스코트 PNG 배선 과제 ⑤ 다크 한옥 제작 금지 확정.
 - **캐논 앵커 갱신(Jin 지시, 후속):** 호랑이 정본 = 신규 `mascot/tiger_front.png` + `tiger_right_stand.png`(저폴리 룩 — `tiger_idle` 대체 앵커, 신규 클립 bob/thinking 재제작의 파생 기준) · 까치 신규 클립 참조 포즈 = `magpie_wave/sing/encourage`. 두 tiger PNG 실존 확인. 문서 §0·§2 참조표·§3-2 오류상태·§4 에셋표 반영.
 - **부록 A 추가(씬 배경 프롬프트):** 기존 씬 규격 실측(`cafe/hotel.png` = 1086×1448, 3:4) + BIBLE §1 준거로 **7종 시나리오 배경(home·airport·taxi·convenience·clinic·office·station) 상세 프롬프트** 작성 — 공통 스타일 블록 + 씬별 LAYER 1/2/3 + PALETTE hex. **캐릭터·인물·글자 0**(순수 장소라 생성 자유), 중앙 비움·muted(0.08 백드롭). `home` 최우선(캐주얼 7개 해소).
-- **변경:** 문서 1개(`docs/ASSET_GAP_R6_CONFIRMED_2026-08-03.md`) 신규+갱신(부록 A 포함). 코드·에셋 무변경(tiger PNG 2장은 Jin이 추가). 검증 불요(순수 md). **커밋 미수행.**
+- **변경:** 문서 1개(`docs/ASSET_GAP_R6_CONFIRMED_2026-08-03.md`) 신규+갱신(부록 A 포함). 검증 불요(순수 md). **커밋·푸시 `ccef6da`** — 내 2파일만; 앞서 있던 동시세션 R1~R2 커밋 10개 동반 상승 → origin/main 동기화.
+- **후속(Jin 지시):** 태고 저폴리 **캐논 앵커 PNG 3장 커밋·푸시** — `mascot/tiger_front.png`(1440²)·`tiger_front2.png`(1440²)·`tiger_right_stand.png`(1024²). **Jin 제작 에셋을 버전관리에 편입(AI 재생성 아님).** 코드 소비처는 아직 0(pubspec 디렉터리 등록으로 자동 번들). `toger_front2` 오타는 Jin이 `tiger_front2`로 수정.
 
 ### 2026-08-03 (밤) — 디자인 계획 R2 홈 재편 구현 완료 (Cowork 클라우드 세션, R1에 이어)
 

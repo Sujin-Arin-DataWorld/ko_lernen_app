@@ -72,6 +72,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
           child: got == 0
               ? Center(
                   child: SoriEmptyState(
+                    asset: 'assets/illustrations/mascot/magpie_encourage.png',
                     icon: Icons.workspace_premium_outlined,
                     title: t.dojangEmptyTitle,
                     body: t.dojangEmptyBody,

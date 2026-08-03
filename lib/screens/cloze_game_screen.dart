@@ -192,6 +192,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                 Expanded(
                   child: Center(
                     child: SoriEmptyState(
+                      asset: 'assets/illustrations/mascot/magpie_encourage.png',
                       icon: Icons.menu_book_outlined,
                       title: t.clozeTitle,
                       body: t.clozeEmptyBody,

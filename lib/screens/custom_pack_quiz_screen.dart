@@ -169,6 +169,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         appBar: AppBar(title: Text(t.wbQuiz)),
         body: Center(
           child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/tiger_front.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -182,6 +183,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         appBar: AppBar(title: Text(t.wbQuiz)),
         body: Center(
           child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.quiz_outlined,
             title: t.wbQuiz,
             body: t.quizNeedMore,

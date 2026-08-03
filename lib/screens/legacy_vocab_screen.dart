@@ -328,6 +328,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         return Scaffold(
           appBar: AppBar(title: Text(t.screenVocabTitle)),
           body: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/magpie_wave.png',
             icon: Icons.star_outline_rounded,
             title: t.vocabEmptyFavorites,
             ctaLabel: t.vocabModeAll,
@@ -339,6 +340,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       return Scaffold(
         appBar: AppBar(title: Text(t.screenVocabTitle)),
         body: SoriEmptyState(
+          asset: 'assets/illustrations/mascot/magpie_wave.png',
           icon: Icons.tune_rounded,
           title: t.emptyVocab,
           ctaLabel: t.filterOpenBtn,

@@ -306,6 +306,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
         appBar: AppBar(title: Text(t.wbEditTitle)),
         body: Center(
           child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/tiger_front.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -451,6 +452,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                 child: words.isEmpty
                     ? Center(
                         child: SoriEmptyState(
+                          asset: 'assets/illustrations/mascot/magpie_wave.png',
                           icon: Icons.playlist_add,
                           title: t.wbEmptyTitle,
                           body: t.wbEmptyBody,

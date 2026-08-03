@@ -219,6 +219,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
         appBar: AppBar(title: Text(t.speedMatchTitle)),
         body: Center(
           child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.bolt_rounded,
             title: t.speedMatchTitle,
             body: t.clozeEmptyBody,

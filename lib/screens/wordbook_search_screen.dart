@@ -87,6 +87,7 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
       body: SafeArea(
         child: _all.isEmpty
             ? SoriEmptyState(
+                asset: 'assets/illustrations/mascot/magpie_wave.png',
                 icon: Icons.bookmark_border_rounded,
                 title: t.wbSearchTitle,
                 body: t.wbSearchNoWords,

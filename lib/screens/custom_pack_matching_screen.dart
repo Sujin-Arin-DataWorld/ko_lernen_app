@@ -169,6 +169,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         appBar: AppBar(title: Text(t.wbMatching)),
         body: Center(
           child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/tiger_front.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -181,6 +182,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         appBar: AppBar(title: Text(t.wbMatching)),
         body: Center(
           child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.grid_view_rounded,
             title: t.wbMatching,
             body: t.wbMatchingNeedMore,

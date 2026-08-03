@@ -4,7 +4,15 @@ import '../l10n/generated/app_localizations.dart';
 import 'sori/motion.dart';
 import 'sori/tokens.dart';
 
-/// 오류 상태 — 부드럽게 등장하고, 아이콘이 잔잔히 호흡한다.
+/// 오류 상태 기본 일러스트 — 태고(호랑이) 정면 정본.
+///
+/// 계획 §8.1(오류 = 태고 정적) · ASSET_GAP §3-2(신규 이미지 0, 배선만).
+/// 정지 PNG 다. 캐릭터 **클립**(`tiger_walking_front.mp4` 등)은 오류·로딩에
+/// 쓰지 않는다 — 디코더 예산 규정.
+const String kTaegoErrorAsset =
+    'assets/illustrations/mascot/tiger_front.png';
+
+/// 오류 상태 — 부드럽게 등장하고, 일러스트가 잔잔히 호흡한다.
 class AppError extends StatelessWidget {
   final String message;
   final VoidCallback? onRetry;
@@ -20,7 +28,7 @@ class AppError extends StatelessWidget {
     this.onRetry,
     this.icon = Icons.error_outline,
     this.retryLabel,
-    this.asset,
+    this.asset = kTaegoErrorAsset,
   });
 
   @override
@@ -71,7 +79,12 @@ class AppError extends StatelessWidget {
   }
 }
 
-/// 빈 상태 — 부드럽게 등장하고, 아이콘이 천천히 떠다닌다.
+/// 빈 상태 — **폐기 예정**. 신규 코드는 `SoriEmptyState`를 쓴다.
+///
+/// 계획 §8.1이 빈 상태 표준을 `SoriEmptyState`(조이 + 출구 CTA) 하나로
+/// 정했는데 이 위젯은 일러스트 슬롯이 없어 아이콘까지밖에 못 간다.
+/// 마지막 사용처(`grammar_screen`)를 옮겼으므로 호출부는 0.
+@Deprecated('SoriEmptyState 를 사용하세요 (계획 §8.1 빈 상태 표준)')
 class AppEmpty extends StatelessWidget {
   final String message;
   final IconData icon;

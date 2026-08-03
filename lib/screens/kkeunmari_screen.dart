@@ -306,6 +306,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       return Scaffold(
         appBar: AppBar(title: Text(t.kkeunmariTitle)),
         body: SoriEmptyState(
+          asset: 'assets/illustrations/mascot/magpie_encourage.png',
           icon: Icons.link_off_rounded,
           title: t.kkeunmariTitle,
           body: KkeunmariEngine.lastError ?? 'Pool leer.',
