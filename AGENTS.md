@@ -370,6 +370,38 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 — 디자인 계획 R5 문구 구현 완료 (Cowork 클라우드, feat/design-r3-r7-2026-08)
+
+**Jin:** R4 게이트 전부 통과 확인 → R5 진행 지시. §7 전체 + §11 확정 4건(Q3·Q5·Q6·Q8)을 일괄 반영, 커밋 `0ab9314`(ARB·시나리오) + `249884f`(요일·래칫·라벨).
+
+- **ICU plural 23키 (DE/EN 대칭)**: 스트릭 8키(§7.1 목록 그대로: streakDisplay·streakDialogCurrent·gyeProfileStreak·dailyCharStreak·dailyStreak·notifDailyStreakBody·milestoneStreakTitle·hubPracticeStreak) + Wörter/Pakete 15키(감사 스크립트 전수 검출분 — homeReviewDue·sharePackBody·hardWordsSubtitle·gyeMvpCard 등). placeholder int 타입 보증(@메타 신설·무타입 승격) — **generated 시그니처가 Object→int 로 바뀌는 키 있음, gen-l10n 필수**.
+- **Q3 Paket**: DE 문안 38키(스윕 36 + plural 재작성분 2), 키명 불변. §7.2 특례 "Custom-Packs"→"Eigene Pakete". sharePackBody 는 성 전환 문법 동반 수정(den→das·ihn→es).
+- **Q5 Silben-Rätsel**: DE 5키 + EN "Syllable Puzzle" 5키 + Dart 하드코딩 feedback contentLabel 1곳(+테스트 3곳 동기, contentId 'wordle_*'는 데이터 연속성 위해 불변).
+- **Q6 Café**: scenarios.json 라틴 6곳 + 한국어 대사 "스타벅스"→"카페" 1곳, 잔여 0.
+- **Q8 Taego**: "Der Tiger…" 4키 DE/EN (settingsNotifSubtitle·notificationBody·onboardingPage1Subtitle·previewPage3Body). characterDescTiger 는 민화 일반명사라 유지. 소문자 "der Tiger" 코치 2키는 마스코트 조건부 카피 문제라 별도 이슈로 이관.
+- **§7.3 시스템 문구**: accountOperationBlocked 제목·본문을 사용자 언어로 재작성(무엇이 보호됐고 다음 행동 1문장).
+- **§7.1 요일**: 디딤돌 narrow 1글자(M/M·S/S 충돌) → `DateFormat.E` 2글자(Mo Di Mi…) + `_Stone` 전체 요일명 Semantics.
+- **§7.4 래칫 신설**: `test/arb_l10n_guard_test.dart` — plural 미처리 0(x/y 분수 예외)·DE/EN 키 완전 대칭·Starbucks/Wordle 금지어. 기준선 전부 0.
+- 게이트(로컬 몫): **gen-l10n 필수** → analyze → 전체 테스트(신규 가드 4 + 갱신 피드백 테스트 3 포함) → 실기기(streak=1 "1 Tag in Folge"·Paket 표기·Silben-Rätsel·Café 시나리오·디딤돌 Mo Di Mi). 남은 페이즈 = **R7 마감**.
+
+
+### 2026-08-03 (Cowork) — 캐논 듀오 배너 + Joy 클립 4종(원본 컷) + 시나리오 배경 home — 커밋 미요청
+
+**Jin:** `tiger_magpie_play`를 welcome 자리와 나눠 쓰기 · `magpie_full10` Joy 배치 · 비마스코트 에셋을 bbanana2로 생성. "세 개 오류없이 완벽하게".
+
+- **캐논 듀오 배너 (신규).** `assets/video/loops/taego-joy-duo.mp4`(1280×720·24fps·10초 핑퐁·무음·CRF19) + 포스터 `assets/illustrations/hanok/taego-joy-duo.png`. 배경판은 `welcome-hero.png`에서 크림 `#F4E2CB`·원 `#F9EDD1`·청록 `#688C82`을 실측 샘플링해 **캐릭터 없이 재구성**했고, 그 위에 `tiger_magpie_play`를 multiply 로 구웠다. AI 생성이 아니라 합성이라 §0 캐릭터 재생성 금지에 걸리지 않는다. 루프 이음새 **0.74배**(인접 평균 대비).
+  - 배선: `hanok_header.dart` `kLoopAssets`에 `taego-joy-duo` 등록, `character_selection_screen.dart` 배너를 이걸로 교체. 이 화면은 캐릭터 선택과 무관해 중립 듀오 클립 사용 조건(ASSET_GAP §2-2) 충족.
+  - 구 `welcome-hero`는 `onboarding_level_screen` 히어로 자리에 그대로 유지. **구 배너의 호랑이는 저폴리 캐논 밖 렌더였고 6개 샘플이 거의 동일할 만큼 정지에 가까웠다** — Jin의 "play가 훨씬 좋아보인다"는 판단이 캐논과 일치.
+- **Joy 클립 4종 — `magpie_full10.mp4` 구간 컷.** Jin 캐논 원본을 자른 것이라 AI 재생성이 아니며, GAP §2가 "Jin 제작 전용"으로 묶어둔 **P0·P2·P3를 규칙 위반 없이 닫았다**. P1 `magpie_thinking`(고개 갸웃)은 원본에 없어 여전히 공백.
+  - `magpie_bob`(0.0–2.3s, 핑퐁 4.5초, 이음새 **0.0배**) · `magpie_flourish`(2.3–4.3s 원샷) · `magpie_sing`(4.3–6.2s 원샷) · `magpie_soar`(6.2–10s 원샷).
+  - **프레이밍 정규화가 핵심이었다.** 원본은 피사체 높이비 44.0%·중심 x554 로, 기존 `magpie_perched` 74.3%·`tiger_bob` 69.3% 대비 조이가 40% 작고 우측으로 치우쳐 보였다. 네 구간 union bbox 를 모두 담는 최대 배율 **1.47**로 단일 크롭창(653px @ 205.5,133.8)을 적용 → 높이비 63~65%, 발바닥 y 134px 로 `magpie_perched`와 정확히 일치. 1.47배 업스케일이라 소프트해짐 — 원본 1280×720 Veo 출력이 남아 있으면 거기서 재유도하는 편이 화질상 유리.
+  - `character_clip.dart`에 `magpieBob/Flourish/Sing/Soar` 상수 등록(역할 함수 배선은 Jin 확인 후).
+- **시나리오 배경 `home` 생성 (계층 A · 인물 0).** bbanana2 Nano Banana 2, `cafe.png`를 384×512 WebP 로 압축·업로드해 스타일 레퍼런스로 사용. 평면 기하·크림 `#F5EDDC`·청록 패널+산·소반/청자잔/주전자·창호 격자·단청 2군집. 인물·동물·문자 0. **규격 1086×1448 PNG 로의 변환은 미완** — 클라우드 샌드박스가 `*.supabase.co`로 못 나가 결과물을 못 받는다.
+- **세션 중 유입된 Joy 클립 2종 정규화.** `magpie_walking_forward`(배경 `#F7F7F7`, 흰비율 7%로 **매트 게이트 실패**)와 `magpie_right_walking_flying` 둘 다 **오디오 트랙이 있었다**(§0 무음 계약 위반). flood-fill 배경 정리 + `-an` 재인코딩으로 둘 다 복구.
+  - ⚠️ `magpie_walking_forward` 등장으로 **`tiger_walking_front`의 kind-분기 차단(GAP §2-2)이 해소 가능**해졌다. 다만 walking_front 는 여전히 루프 이음새 8.3배·피사체 면적 38% 증가·36프레임 앞발 잘림이라 **`loop: false` 원샷 전용**이고, walking_forward 도 이음새 12.1배·높이비 82.2%(태고 69.3%와 불일치)라 짝으로 쓰려면 양쪽 다 손봐야 한다.
+
+**검증:** `tool/check_clip_matte.py` **24개 중 0개 실패**(리포트 갱신) · 신규 클립 전 프레임 스캔 · 배너 240프레임 이음새 0.74배. 잔여: `magpie_perched`·`tiger_greet_pawflash` 두 기존 클립에 오디오 트랙 잔존(§0 위반, 이번 범위 밖). **미검증:** `flutter analyze`·`flutter test`(샌드박스에 dart 없음) · 실기기 시각 확인.
+
 ### 2026-08-04 — 디자인 계획 R3·R4 구현 완료 (Cowork 클라우드, 브랜치 feat/design-r3-r7-2026-08)
 
 **Jin:** R2 게이트 전부 통과 확인 후 "브랜치 파서 작업" 지시 → main 보호용 브랜치 생성, R3부터 속행. 락 재발 원인 규명 요청 → **원인 = 클라우드 VM(device_bash) git 명령 + 마운트 unlink 금지**(git이 작업 후 락을 못 지움). 대응: `maintenance.auto=false`·`gc.auto=0` 설정 + 모든 호출을 락 mv 청소로 종료(git 명령을 마지막에 두는 실수 금지 규율화).
