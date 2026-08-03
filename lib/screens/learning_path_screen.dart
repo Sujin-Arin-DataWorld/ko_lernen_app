@@ -16,7 +16,6 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/level_chip.dart';
-import '../widgets/sori/motion.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/progress.dart';
