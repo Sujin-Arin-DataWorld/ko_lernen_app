@@ -3618,6 +3618,32 @@ class AppL10nEn extends AppL10n {
   String get coursePracticeSmalltalk => 'Small talk';
 
   @override
+  String get courseCheckpointCheck => 'Quick check';
+
+  @override
+  String get courseCheckpointGrammarPrompt =>
+      'Which pattern fits this example?';
+
+  @override
+  String get courseCheckpointSmalltalkPrompt =>
+      'Which relationship is this line safe for?';
+
+  @override
+  String get courseCheckpointCorrect =>
+      'Correct. This mission has recorded evidence.';
+
+  @override
+  String get courseCheckpointIncorrect =>
+      'Review it once more. The safe choice is marked.';
+
+  @override
+  String get courseCheckpointSaved => 'Already saved in this session.';
+
+  @override
+  String get courseCheckpointSaveError =>
+      'Your progress could not be saved. Please try again.';
+
+  @override
   String get courseStatePreview => 'Preview';
 
   @override

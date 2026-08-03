@@ -198,9 +198,10 @@ class _Manifest {
   final List<FormFamily> formFamilies;
   final List<ContentLink> explicitLinks;
   final Map<String, String> vocabPackUnitMap;
-  final Map<String, String> smalltalkCategoryUnitMap;
+  final Map<String, _ContentRule> smalltalkCategoryUnitMap;
+  final Map<String, _ContentRule> smalltalkCheckpointPhraseMap;
   final Map<String, String> clozeTopicUnitMap;
-  final Map<String, _GrammarRule> grammarRuleMap;
+  final Map<String, _ContentRule> grammarRuleMap;
   final List<String> parseIssues;
 
   const _Manifest({
@@ -211,6 +212,7 @@ class _Manifest {
     required this.explicitLinks,
     required this.vocabPackUnitMap,
     required this.smalltalkCategoryUnitMap,
+    required this.smalltalkCheckpointPhraseMap,
     required this.clozeTopicUnitMap,
     required this.grammarRuleMap,
     required this.parseIssues,
@@ -268,31 +270,38 @@ class _Manifest {
       ).map(FormFamily.fromJson).toList(),
       explicitLinks: links,
       vocabPackUnitMap: _normalizedMap(json['vocabPackUnitMap']),
-      smalltalkCategoryUnitMap: _normalizedMap(
-        json['smalltalkCategoryUnitMap'],
+      smalltalkCategoryUnitMap: _contentRules(json['smalltalkCategoryUnitMap']),
+      smalltalkCheckpointPhraseMap: _contentRules(
+        json['smalltalkCheckpointPhraseMap'],
       ),
       clozeTopicUnitMap: _normalizedMap(json['clozeTopicUnitMap']),
-      grammarRuleMap: _grammarRules(json['grammarRuleMap']),
+      grammarRuleMap: _contentRules(json['grammarRuleMap']),
       parseIssues: issues,
     );
   }
 }
 
-class _GrammarRule {
+class _ContentRule {
   final String courseUnitId;
   final List<String> conceptIds;
+  final bool declaresConceptIds;
 
-  const _GrammarRule({required this.courseUnitId, this.conceptIds = const []});
+  const _ContentRule({
+    required this.courseUnitId,
+    this.conceptIds = const [],
+    this.declaresConceptIds = false,
+  });
 
-  factory _GrammarRule.fromRaw(dynamic raw) {
-    if (raw is String) return _GrammarRule(courseUnitId: raw.trim());
+  factory _ContentRule.fromRaw(dynamic raw) {
+    if (raw is String) return _ContentRule(courseUnitId: raw.trim());
     if (raw is Map) {
-      return _GrammarRule(
+      return _ContentRule(
         courseUnitId: raw['courseUnitId']?.toString().trim() ?? '',
         conceptIds: _stringList(raw['conceptIds']),
+        declaresConceptIds: true,
       );
     }
-    return const _GrammarRule(courseUnitId: '');
+    return const _ContentRule(courseUnitId: '');
   }
 }
 
@@ -383,20 +392,38 @@ _LinkBuild _buildLinks({
       contentId: item.id,
       courseUnitId: rule?.courseUnitId,
       ruleLabel: ['grammar', 'rule', item.id].join(' '),
-      role: _roleForUnit(units[rule?.courseUnitId]),
+      // A grammar card contributes course evidence only through its explicit
+      // checkpoint question. Keeping these edges as `assess` lets the mastery
+      // service reject a passive library visit or a forged practice context.
+      role: ContentLinkRole.assess,
       conceptIds: rule?.conceptIds ?? const [],
     );
   }
   for (final item in smalltalk) {
     final key = _semanticKey(item.level, item.category);
-    final unitId = manifest.smalltalkCategoryUnitMap[key];
+    final rule = manifest.smalltalkCategoryUnitMap[key];
     addMapped(
       kind: CurriculumContentKind.smalltalk,
       contentId: item.id,
-      courseUnitId: unitId,
+      courseUnitId: rule?.courseUnitId,
       ruleLabel: ['smalltalk', 'category', key].join(' '),
       role: ContentLinkRole.practice,
+      conceptIds: rule?.conceptIds ?? const [],
     );
+    final checkpointRule = manifest.smalltalkCheckpointPhraseMap[item.id];
+    if (checkpointRule != null) {
+      // Category links keep the legacy discussion/topic browse scope. Only
+      // manually reviewed phrases with a relationship/style question that
+      // directly measures a speech-style concept become assessment edges.
+      addMapped(
+        kind: CurriculumContentKind.smalltalk,
+        contentId: item.id,
+        courseUnitId: checkpointRule.courseUnitId,
+        ruleLabel: ['smalltalk', 'checkpoint', 'phrase', item.id].join(' '),
+        role: ContentLinkRole.assess,
+        conceptIds: checkpointRule.conceptIds,
+      );
+    }
   }
   for (final item in cloze) {
     final key = _semanticKey(item.level, item.topic);
@@ -554,7 +581,11 @@ List<String> _validateDefinitions(
 ) {
   final issues = <String>[...manifest.parseIssues];
   final unitIds = manifest.courseUnits.map((item) => item.id).toSet();
+  final units = {for (final unit in manifest.courseUnits) unit.id: unit};
   final conceptIds = manifest.concepts.map((item) => item.id).toSet();
+  final conceptsById = {
+    for (final concept in manifest.concepts) concept.id: concept,
+  };
   final surfaceIds = manifest.surfaceForms.map((item) => item.id).toSet();
 
   void unique(String label, Iterable<String> ids) {
@@ -618,21 +649,51 @@ List<String> _validateDefinitions(
     }
   }
 
-  validateMap(manifest.vocabPackUnitMap, 'vocab');
-  validateMap(manifest.smalltalkCategoryUnitMap, 'smalltalk');
-  validateMap(manifest.clozeTopicUnitMap, 'cloze');
-  for (final entry in manifest.grammarRuleMap.entries) {
-    if (!unitIds.contains(entry.value.courseUnitId)) {
-      issues.add(['missing', 'grammar', 'map', 'unit', entry.key].join(' '));
-    }
-    for (final conceptId in entry.value.conceptIds) {
-      if (!conceptIds.contains(conceptId)) {
-        issues.add(
-          ['missing', 'grammar', 'map', 'concept', conceptId].join(' '),
-        );
+  void validateContentRules(
+    Map<String, _ContentRule> rules,
+    String label, {
+    bool requireSpeechStyle = false,
+    bool requireSingleConcept = false,
+  }) {
+    for (final entry in rules.entries) {
+      final unit = units[entry.value.courseUnitId];
+      if (unit == null) {
+        issues.add(['missing', label, 'map', 'unit', entry.key].join(' '));
+        continue;
+      }
+      if (entry.value.declaresConceptIds && entry.value.conceptIds.isEmpty) {
+        issues.add(['empty', label, 'map', 'concepts', entry.key].join(' '));
+      }
+      if (requireSingleConcept && entry.value.conceptIds.length != 1) {
+        issues.add(['invalid', label, 'map', 'concepts', entry.key].join(' '));
+      }
+      for (final conceptId in entry.value.conceptIds) {
+        if (!conceptIds.contains(conceptId)) {
+          issues.add(['missing', label, 'map', 'concept', conceptId].join(' '));
+        } else if (!unit.requiredConceptIds.contains(conceptId)) {
+          issues.add(
+            ['unrelated', label, 'map', 'concept', conceptId].join(' '),
+          );
+        } else if (requireSpeechStyle &&
+            conceptsById[conceptId]?.kind != ConceptKind.speechStyle) {
+          issues.add(
+            ['invalid', label, 'map', 'concept-kind', conceptId].join(' '),
+          );
+        }
       }
     }
   }
+
+  validateMap(manifest.vocabPackUnitMap, 'vocab');
+  validateContentRules(manifest.smalltalkCategoryUnitMap, 'smalltalk');
+  validateContentRules(
+    manifest.smalltalkCheckpointPhraseMap,
+    'smalltalk checkpoint phrase',
+    requireSpeechStyle: true,
+    requireSingleConcept: true,
+  );
+  validateMap(manifest.clozeTopicUnitMap, 'cloze');
+  validateContentRules(manifest.grammarRuleMap, 'grammar');
   for (final link in links) {
     if (!unitIds.contains(link.courseUnitId)) {
       issues.add(['missing', 'link', 'unit', link.contentKey].join(' '));
@@ -644,6 +705,46 @@ List<String> _validateDefinitions(
       if (!conceptIds.contains(conceptId)) {
         issues.add(['missing', 'link', 'concept', conceptId].join(' '));
       }
+    }
+  }
+
+  // Grammar and small-talk screens have generic checkpoint widgets. Their
+  // answer can only be trusted when each assessed source item maps to exactly
+  // one concept in that mission. Do not leave a future duplicate edge to be
+  // resolved by UI ordering or an arbitrary caller-supplied concept ID.
+  final assessmentGroups = <String, List<ContentLink>>{};
+  for (final link in links) {
+    if ((link.contentKind != CurriculumContentKind.grammar &&
+            link.contentKind != CurriculumContentKind.smalltalk) ||
+        link.role != ContentLinkRole.assess) {
+      continue;
+    }
+    final key = [link.courseUnitId, link.contentKey].join(' ');
+    assessmentGroups.putIfAbsent(key, () => <ContentLink>[]).add(link);
+  }
+  for (final entry in assessmentGroups.entries) {
+    if (entry.value.length != 1 || entry.value.single.conceptIds.length != 1) {
+      issues.add(['ambiguous', 'checkpoint', 'link', entry.key].join(' '));
+    }
+  }
+  for (final link in links.where(
+    (link) =>
+        link.contentKind == CurriculumContentKind.smalltalk &&
+        link.role == ContentLinkRole.assess,
+  )) {
+    final concept = link.conceptIds.length == 1
+        ? conceptsById[link.conceptIds.single]
+        : null;
+    if (concept?.kind != ConceptKind.speechStyle) {
+      issues.add(
+        [
+          'invalid',
+          'smalltalk',
+          'checkpoint',
+          'concept-kind',
+          link.contentKey,
+        ].join(' '),
+      );
     }
   }
   return issues;
@@ -726,6 +827,8 @@ List<String> _validateContent({
   }
 
   final grammarIds = known[CurriculumContentKind.grammar] ?? const <String>{};
+  final smalltalkIds =
+      known[CurriculumContentKind.smalltalk] ?? const <String>{};
   for (final item in grammar) {
     if (!manifest.grammarRuleMap.containsKey(item.id)) {
       issues.add(['missing', 'grammar', 'rule', item.id].join(' '));
@@ -736,18 +839,37 @@ List<String> _validateContent({
       issues.add(['unknown', 'grammar', 'rule', id].join(' '));
     }
   }
+  final smalltalkById = {for (final item in smalltalk) item.id: item};
+  final unitsById = {for (final unit in manifest.courseUnits) unit.id: unit};
+  for (final entry in manifest.smalltalkCheckpointPhraseMap.entries) {
+    final phrase = smalltalkById[entry.key];
+    if (phrase == null || !smalltalkIds.contains(entry.key)) {
+      issues.add(
+        ['unknown', 'smalltalk', 'checkpoint', 'phrase', entry.key].join(' '),
+      );
+      continue;
+    }
+    final unit = unitsById[entry.value.courseUnitId];
+    if (unit != null &&
+        phrase.level.trim().toLowerCase() != unit.level.trim().toLowerCase()) {
+      issues.add(
+        ['unrelated', 'smalltalk', 'checkpoint', 'level', entry.key].join(' '),
+      );
+    }
+  }
 
   void validateSemanticKeys(
     Set<String> actual,
-    Map<String, String> mapped,
+    Iterable<String> mappedKeys,
     String label,
   ) {
+    final mapped = mappedKeys.toSet();
     for (final key in actual) {
-      if (!mapped.containsKey(key)) {
+      if (!mapped.contains(key)) {
         issues.add(['missing', label, 'map', key].join(' '));
       }
     }
-    for (final key in mapped.keys) {
+    for (final key in mapped) {
       if (!actual.contains(key)) {
         issues.add(['unknown', label, 'map', key].join(' '));
       }
@@ -756,17 +878,17 @@ List<String> _validateContent({
 
   validateSemanticKeys(
     smalltalk.map((item) => _semanticKey(item.level, item.category)).toSet(),
-    manifest.smalltalkCategoryUnitMap,
+    manifest.smalltalkCategoryUnitMap.keys,
     'smalltalk category',
   );
   validateSemanticKeys(
     cloze.map((item) => _semanticKey(item.level, item.topic)).toSet(),
-    manifest.clozeTopicUnitMap,
+    manifest.clozeTopicUnitMap.keys,
     'cloze topic',
   );
   validateSemanticKeys(
     vocab.map((item) => _packBase(item.packId)).toSet(),
-    manifest.vocabPackUnitMap,
+    manifest.vocabPackUnitMap.keys,
     'vocab pack',
   );
 
@@ -869,11 +991,11 @@ Map<String, List<ContentLink>> _groupByUnitId(Iterable<ContentLink> links) {
   };
 }
 
-Map<String, _GrammarRule> _grammarRules(dynamic raw) {
+Map<String, _ContentRule> _contentRules(dynamic raw) {
   if (raw is! Map) return const {};
   return {
     for (final entry in raw.entries)
-      entry.key.toString().trim(): _GrammarRule.fromRaw(entry.value),
+      entry.key.toString().trim(): _ContentRule.fromRaw(entry.value),
   };
 }
 

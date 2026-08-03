@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import '../models/course_mastery.dart';
+import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import 'curriculum_catalog.dart';
 import 'storage_service.dart';
@@ -131,10 +132,13 @@ class CourseMasteryService {
   /// Records a result from a game, grammar card, vocabulary card, small-talk
   /// activity, cloze, sentence builder, or scenario subtask. If [conceptId]
   /// is omitted, all concepts linked to this content receive the same result.
+  /// Course-routed grammar and small-talk checkpoints are stricter: they
+  /// require a declared `assess` graph link and exactly one explicit concept.
   Future<CourseUpdate> recordContentAttempt(
     CurriculumContentKind kind,
     String contentId,
     bool isCorrect, {
+    CoursePracticeContext? courseContext,
     String? conceptId,
     MasteryErrorReason? errorReason,
     DateTime? occurredAt,
@@ -153,14 +157,70 @@ class CourseMasteryService {
         'Unknown linked content: ${kind.code}:$normalizedContentId',
       );
     }
+    final contextEntry = courseContext == null
+        ? null
+        : _contextEntryLink(courseContext, kind);
+    final isCourseCheckpointKind = _isCheckpointEvidenceKind(kind);
+    final requiresExactAssessment =
+        courseContext != null && isCourseCheckpointKind;
     final requestedConceptId = conceptId?.trim();
     if (requestedConceptId != null && requestedConceptId.isEmpty) {
       throw const FormatException(
         'Content attempt conceptId must not be empty.',
       );
     }
+    if (requiresExactAssessment) {
+      if (contextEntry!.role != ContentLinkRole.assess) {
+        throw FormatException(
+          'Course context ${contextEntry.id} is not an assessment link.',
+        );
+      }
+      if (requestedConceptId == null) {
+        throw FormatException(
+          'Course checkpoint evidence requires an explicit concept ID.',
+        );
+      }
+      if (kind == CurriculumContentKind.smalltalk &&
+          catalog.conceptFor(requestedConceptId)?.kind !=
+              ConceptKind.speechStyle) {
+        throw FormatException(
+          'Small-talk relationship checkpoints require a speech-style concept.',
+        );
+      }
+    }
+    final eligibleLinks = contextEntry == null
+        ? allLinks
+        : allLinks
+              .where(
+                (link) =>
+                    link.courseUnitId == contextEntry.courseUnitId &&
+                    (!requiresExactAssessment ||
+                        link.role == ContentLinkRole.assess),
+              )
+              .toList(growable: false);
+    if (eligibleLinks.isEmpty) {
+      throw FormatException(
+        'Course context ${courseContext!.courseUnitId} does not link '
+        '${kind.code}:$normalizedContentId.',
+      );
+    }
+    if (requiresExactAssessment) {
+      // A generic course card may move through other content in the same
+      // mission, but each submitted answer still needs exactly one, explicit
+      // assess edge. Otherwise a later data edit could make a caller choose
+      // which of several concepts the same check should credit.
+      if (eligibleLinks.length != 1 ||
+          eligibleLinks.single.conceptIds.length != 1 ||
+          !eligibleLinks.single.conceptIds.contains(requestedConceptId)) {
+        throw FormatException(
+          'Course checkpoint ${kind.code}:$normalizedContentId must have '
+          'one exact assessment concept for ${contextEntry!.courseUnitId}.',
+        );
+      }
+    }
     final conceptIds = requestedConceptId == null
-        ? (allLinks.expand((link) => link.conceptIds).toSet().toList()..sort())
+        ? (eligibleLinks.expand((link) => link.conceptIds).toSet().toList()
+            ..sort())
         : <String>[requestedConceptId];
     if (conceptIds.isEmpty) {
       throw const FormatException('Content attempt has no linked concept.');
@@ -169,7 +229,7 @@ class CourseMasteryService {
     final entries = <MasteryEvidence>[..._snapshot.evidence];
     for (final id in conceptIds) {
       _requireKnownConcept(id);
-      final matchingLinks = allLinks
+      final matchingLinks = eligibleLinks
           .where((link) => link.conceptIds.contains(id))
           .toList(growable: false);
       if (matchingLinks.isEmpty) {
@@ -177,7 +237,18 @@ class CourseMasteryService {
           'Content ${kind.code}:$normalizedContentId is not linked to concept $id.',
         );
       }
-      final activeLink = _activeLinkFor(matchingLinks);
+      final ContentLink? activeLink;
+      if (contextEntry == null) {
+        // Direct grammar/small-talk library visits remain useful history, but
+        // only a typed mission context may make their check course-eligible.
+        activeLink = isCourseCheckpointKind
+            ? null
+            : _activeLinkFor(matchingLinks);
+      } else {
+        activeLink = currentUnit?.id == contextEntry.courseUnitId
+            ? _preferredLink(matchingLinks)
+            : null;
+      }
       final sourceLink = activeLink ?? _preferredLink(matchingLinks);
       entries.add(
         MasteryEvidence(
@@ -227,6 +298,7 @@ class CourseMasteryService {
               .where(
                 (link) =>
                     link.courseUnitId == activeUnit.id &&
+                    link.role == ContentLinkRole.assess &&
                     activeUnit.checkpointContentIds.contains(link.contentKey),
               )
               .cast<ContentLink?>()
@@ -402,6 +474,36 @@ class CourseMasteryService {
       if (link.courseUnitId == currentId) return link;
     }
     return null;
+  }
+
+  bool _isCheckpointEvidenceKind(CurriculumContentKind kind) =>
+      kind == CurriculumContentKind.grammar ||
+      kind == CurriculumContentKind.smalltalk;
+
+  ContentLink _contextEntryLink(
+    CoursePracticeContext context,
+    CurriculumContentKind kind,
+  ) {
+    if (!context.isFor(kind)) {
+      throw FormatException('Course context does not match ${kind.code}.');
+    }
+    final matches = catalog.contentLinks
+        .where((link) => link.id == context.contentLinkId)
+        .toList(growable: false);
+    if (matches.length != 1) {
+      throw FormatException(
+        'Unknown course context link: ${context.contentLinkId}',
+      );
+    }
+    final link = matches.single;
+    if (link.courseUnitId != context.courseUnitId ||
+        link.contentKind != context.contentKind ||
+        link.contentId != context.initialContentId) {
+      throw const FormatException(
+        'Course context link does not match its source.',
+      );
+    }
+    return link;
   }
 
   ContentLink _preferredLink(List<ContentLink> links) {
@@ -700,6 +802,28 @@ class CourseMasteryService {
     if (evidence.courseEligible && evidence.courseUnitId == null) {
       throw const FormatException('Eligible evidence requires a course unit.');
     }
+    if (evidence.courseEligible &&
+        _isCheckpointEvidenceKind(evidence.contentKind)) {
+      final eligibleAssessLinks = links
+          .where(
+            (link) =>
+                link.courseUnitId == evidence.courseUnitId &&
+                link.role == ContentLinkRole.assess &&
+                link.conceptIds.length == 1 &&
+                link.conceptIds.single == evidence.conceptId,
+          )
+          .toList(growable: false);
+      final isSpeechStyle =
+          evidence.contentKind != CurriculumContentKind.smalltalk ||
+          catalog.conceptFor(evidence.conceptId)?.kind ==
+              ConceptKind.speechStyle;
+      if (eligibleAssessLinks.length != 1 || !isSpeechStyle) {
+        throw FormatException(
+          'Eligible ${evidence.contentKind.code} evidence must reference one '
+          'exact assessment concept.',
+        );
+      }
+    }
   }
 
   void _validateCheckpoint(ScenarioCheckpointEvidence checkpoint) {
@@ -726,6 +850,24 @@ class CourseMasteryService {
       throw const FormatException(
         'Eligible checkpoint requires a course unit.',
       );
+    }
+    if (checkpoint.courseEligible) {
+      final unit = catalog.courseUnitFor(checkpoint.courseUnitId!);
+      final hasExactAssessment =
+          unit != null &&
+          unit.checkpointContentIds.contains(
+            '${CurriculumContentKind.scenario.code}:${checkpoint.scenarioId}',
+          ) &&
+          links.any(
+            (link) =>
+                link.courseUnitId == unit.id &&
+                link.role == ContentLinkRole.assess,
+          );
+      if (!hasExactAssessment) {
+        throw FormatException(
+          'Eligible checkpoint must reference its mission assessment link.',
+        );
+      }
     }
   }
 

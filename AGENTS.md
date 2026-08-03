@@ -240,6 +240,15 @@ flutter run -d <android-id>   # 안드로이드
 - [~] 새 원문을 추가/배포하기 전에는 자동 검수와 별도로 한국어 화자가 자연스러움·관계 적절성·문화 맥락·받침/활용 정확성을 최종 검수한다.
 - 기능 커밋: `49ce0a3`; 로컬 `main` 병합, 원격 푸시 없음.
 
+### 학습 진도 흐름 안정화 (2026-08-03) — 별도 브랜치, 커밋·푸시 미요청
+
+- [x] `CoursePracticeContext`로 코스 미션에서 연 문법·스몰토크 화면의 원본 `ContentLink`·미션·콘텐츠 종류를 끝까지 전달하고, 위조·종류 불일치·이미 지난 미션 맥락은 fail-closed 처리한다.
+- [x] 문법은 예문→패턴의 실제 선택 후에만, 스몰토크는 관계 선택 후에만 정확히 하나의 `assess` 개념 증거를 남긴다. 화면 방문·카드 뒤집기·TTS·답변/가이드 열람·자유 라이브러리 진입은 해금 증거가 될 수 없다.
+- [x] 동적 문법 매핑 88개는 명시적 단일 개념 `assess`로 정규화했다. 스몰토크 카테고리 72개는 범위 안내 `practice`로만 두고, 관계 정답을 신뢰할 수 있는 `smalltalk_a2_0015`·`smalltalk_a2_0022`만 `speechStyle` 평가로 등록했다. 단일 문법 카드 미션은 오답 선택지 추가 전까지 학습 전용이다.
+- [x] 70%는 현재 계약대로 같은 미션의 코스 적격 개념 시도 정확도이며, 직접 채점된 정답 1회는 그 표본의 100%다. 시나리오 체크포인트도 각각 70% 이상이어야 다음 미션이 열린다.
+- [x] 핵심 회귀 48개, `dart analyze --fatal-infos`, `git diff --check` 통과. 전체 직렬 `flutter test`는 기존 account 구간 뒤 Flutter 컴파일러 무진행으로 중지했으므로 통과로 주장하지 않으며, 깨끗하고 비동시적인 릴리스 세션에서 재실행한다.
+- [ ] 새 스몰토크 문구를 평가로 승격하거나 단일 문법 카드에 선택지를 추가하기 전 한국어 화자 콘텐츠 검수.
+
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
 ### ★ "살아있는 한옥" UI/UX 대개편 (승인된 계획)
@@ -344,6 +353,23 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-03 (학습 진도 흐름 — CourseContext·체크포인트 증거·70% 잠금) — 별도 브랜치, 커밋·푸시 미요청
+
+**Jin 정정 범위:** 데이터 안정성/클라우드 동기화/Firebase 또는 홈 UX가 아니라, `CourseContext → 문법·스몰토크 체크포인트 → Concept 증거 → 70% 해금`의 교육적 흐름만 구현·검수한다. 브랜치 `codex/course-progress-flow-2026-08-03`, worktree `C:\Users\vjinn\AppData\Local\Temp\hangulsori-course-progress-flow-20260803`는 최신 `origin/main` `d8d11a5`에서 생성했다.
+
+**구현:**
+
+- `CoursePracticeContext`(미션 ID·콘텐츠 종류·첫 콘텐츠 ID·그래프 링크 ID)를 미션 라우팅, `/grammar`·`/smalltalk`, `CourseActivityReporter`, `CourseProgressService`, `CourseMasteryService`까지 전달했다. 컨텍스트가 없거나 위조/종류 불일치/이미 지난 미션이면 문법·스몰토크 시도는 이력으로만 남고 코스 적격 증거가 되지 않는다.
+- `curriculum_manifest.json`의 문법 88개를 단일 명시 개념 `assess`로 바꾸고, `smalltalkCategoryUnitMap` 72개는 문맥 범위용 `practice`로 유지했다. 관계 선택 자체가 말투 개념을 평가하는 두 검수 후보(`smalltalk_a2_0015`, `smalltalk_a2_0022`)만 별도 phrase→`speechStyle` `assess` 맵에 넣었다. 카탈로그는 중복/모호한 평가 링크와 non-speech-style 스몰토크 평가를 검증 오류로 만든다.
+- 미션 모드 문법은 같은 미션에 연결된 카드만 보여주고 대상 패턴을 답 전에는 숨긴다. 스몰토크도 같은 미션 콘텐츠만 보여주며, 평가 카드만 관계 선택 `Quick check`을 노출한다. 카드 보기·뒤집기·TTS·답변/안전한 대안 보기에는 증거 기록 호출이 없다.
+- 문법·스몰토크 증거는 정확한 단일 `assess` 링크와 현재 미션일 때만 `courseEligible=true`가 된다. 저장된 과거 증거도 같은 그래프 조건으로 재검증한다. 70%는 현재 `CourseMasteryService` 계약의 적격 시도 정확도이며, 개별 시나리오 체크포인트는 최신 점수 70% 이상을 별도로 요구한다.
+
+**테스트/검수:** 새 route/provenance, 위조 context, 자유 탐색 차단, 동일 미션 스코프, 모호 링크 fail-closed, 관계 말투 개념, 69%/70% 경계, 저장 후 재검증, 카드 정답 사전 노출 방지를 추가했다. `flutter test --no-pub --concurrency=1`로 핵심 5파일 **48 passed**; `dart analyze --fatal-infos` → **No issues found**; `git diff --check` → 통과. `test/account_hardening_test.dart` 단독 **21 passed**. 전체 직렬 `flutter test --no-pub --concurrency=1`는 unrelated account 테스트 뒤 Flutter compiler가 진행하지 않아 실행만 중지했다. 따라서 전체 스위트 green 또는 실기기/디버그 내비게이션은 주장하지 않는다.
+
+**의도된 콘텐츠 경계:** 145개 스몰토크를 기계적으로 평가화하지 않는다. 평가의 관계·말투 판단이 안전하다고 콘텐츠 검수된 문구만 증거로 승격하며, 나머지는 실전 안내/연습으로 유지한다. 한 미션에 문법 카드가 하나뿐이면 선택형 정답 증거를 만들지 않는다. 이 두 확장은 한국어 화자 검수 뒤 별도 콘텐츠 작업으로 한다.
+
+**커밋/푸시:** Jin 요청 전까지 미생성.
 
 ### 2026-08-03 (병렬 세션 보고 후속 — 히어로 영상 실측 정합 + Codex 화면 l10n 이관) — 커밋·푸시 (2커밋 분할 1/2)
 

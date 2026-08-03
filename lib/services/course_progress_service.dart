@@ -1,4 +1,5 @@
 import '../models/course_mastery.dart';
+import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import 'course_mastery_service.dart';
 import 'curriculum_catalog.dart';
@@ -60,6 +61,7 @@ class CourseProgressService {
     CurriculumContentKind kind,
     String contentId,
     bool isCorrect, {
+    CoursePracticeContext? courseContext,
     String? conceptId,
     MasteryErrorReason? errorReason,
     DateTime? occurredAt,
@@ -69,6 +71,7 @@ class CourseProgressService {
       kind,
       contentId,
       isCorrect,
+      courseContext: courseContext,
       conceptId: conceptId,
       errorReason: errorReason,
       occurredAt: occurredAt,

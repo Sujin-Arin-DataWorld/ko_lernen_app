@@ -2,7 +2,12 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../models/course_practice_context.dart';
+import '../models/curriculum.dart';
 import '../models/grammar.dart';
+import '../services/course_activity_reporter.dart';
+import '../services/course_checkpoint_questions.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
 import '../services/storage_service.dart';
@@ -25,7 +30,9 @@ import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class GrammarScreen extends StatefulWidget {
-  const GrammarScreen({super.key});
+  const GrammarScreen({super.key, this.courseContext});
+
+  final CoursePracticeContext? courseContext;
 
   @override
   State<GrammarScreen> createState() => _GrammarScreenState();
@@ -42,6 +49,13 @@ class _GrammarScreenState extends State<GrammarScreen>
   String _difficulty = 'Alle'; // Alle / Leicht / Schwer
   bool _loading = true;
   bool _loadFailed = false;
+  String? _loadError;
+  Set<String>? _courseContentIds;
+  Map<String, ContentLink> _courseAssessmentLinks =
+      const <String, ContentLink>{};
+  final Map<String, String> _submittedAnswers = <String, String>{};
+
+  bool get _isCoursePractice => widget.courseContext != null;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
@@ -56,20 +70,25 @@ class _GrammarScreenState extends State<GrammarScreen>
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
     final t = AppL10n.of(context);
-    return [
+    final steps = <SpotlightStep>[
       SpotlightStep(
         targetKey: _cardKey,
         title: t.coachGrammarStep1Title,
         body: t.coachGrammarStep1Body,
         icon: Icons.flip_rounded,
       ),
-      SpotlightStep(
-        targetKey: _filterRowKey,
-        title: t.coachGrammarStep2Title,
-        body: t.coachGrammarStep2Body,
-        icon: Icons.tune_rounded,
-      ),
     ];
+    if (!_isCoursePractice) {
+      steps.add(
+        SpotlightStep(
+          targetKey: _filterRowKey,
+          title: t.coachGrammarStep2Title,
+          body: t.coachGrammarStep2Body,
+          icon: Icons.tune_rounded,
+        ),
+      );
+    }
+    return steps;
   }
 
   @override
@@ -80,34 +99,72 @@ class _GrammarScreenState extends State<GrammarScreen>
     scheduleCoach();
   }
 
-  void _load() {
+  Future<void> _load() async {
     setState(() {
       _loading = true;
       _loadFailed = false;
+      _loadError = null;
     });
-    DataLoader.loadGrammar().then((g) {
+    try {
+      final g = await DataLoader.loadGrammar();
+      final catalog = _isCoursePractice ? await CurriculumCatalog.load() : null;
+      final courseContentIds = catalog == null
+          ? null
+          : courseContentIdsForContext(
+              catalog: catalog,
+              courseContext: widget.courseContext,
+              kind: CurriculumContentKind.grammar,
+            );
+      final courseAssessmentLinks = catalog == null
+          ? const <String, ContentLink>{}
+          : courseAssessmentLinksForContext(
+              catalog: catalog,
+              courseContext: widget.courseContext,
+              kind: CurriculumContentKind.grammar,
+            );
       if (!mounted) return;
       // 80+ 패턴을 한 번에 보여주지 않도록, 첫 진입 시 사용자 레벨로 스코프.
       // (CSV 레벨 표기와 일치할 때만 — 아니면 'Alle' 유지, 안전.)
       final userLvl = (Storage.userLevelCode ?? '').toUpperCase();
-      final useLevel = g.any((x) => x.level == userLvl) ? userLvl : 'Alle';
+      final available = courseContentIds == null
+          ? g
+          : g
+                .where((item) => courseContentIds.contains(item.id))
+                .toList(growable: false);
+      final useLevel = _isCoursePractice
+          ? 'Alle'
+          : (available.any((x) => x.level == userLvl) ? userLvl : 'Alle');
       setState(() {
         _all = g;
+        _courseContentIds = courseContentIds;
+        _courseAssessmentLinks = courseAssessmentLinks;
         _level = useLevel;
         _filtered = useLevel == 'Alle'
-            ? g
-            : g.where((x) => x.level == useLevel).toList();
+            ? available
+            : available.where((x) => x.level == useLevel).toList();
         _loading = false;
         _loadFailed = g.isEmpty && DataLoader.lastError != null;
         if (_idx >= _filtered.length) _idx = 0;
       });
-    });
+    } catch (error) {
+      if (!mounted) return;
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+        _loadError = error.toString();
+      });
+    }
   }
 
   void _applyFilters() {
     setState(() {
       final hardPatterns = Storage.grammarHard;
-      _filtered = _all.where((g) {
+      final scoped = _courseContentIds == null
+          ? _all
+          : _all
+                .where((item) => _courseContentIds!.contains(item.id))
+                .toList(growable: false);
+      _filtered = scoped.where((g) {
         if (_level != 'Alle' && g.level != _level) return false;
         if (_type != 'Alle' && g.typeDe != _type) return false;
         if (_difficulty == 'Schwer' && !hardPatterns.contains(g.pattern)) {
@@ -125,6 +182,30 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   Grammar? get _current =>
       _filtered.isEmpty ? null : _filtered[_idx % _filtered.length];
+
+  List<Grammar> get _courseGrammarCandidates => _courseContentIds == null
+      ? _all
+      : _all
+            .where((grammar) => _courseContentIds!.contains(grammar.id))
+            .toList(growable: false);
+
+  GrammarCheckpointQuestion _checkpointQuestionFor(Grammar grammar) =>
+      GrammarCheckpointQuestion.forGrammar(
+        target: grammar,
+        candidates: _courseGrammarCandidates,
+      );
+
+  bool _hasSavedCheckpoint(Grammar grammar) =>
+      _submittedAnswers.containsKey(grammar.id);
+
+  ContentLink? _assessmentLinkFor(Grammar grammar) =>
+      _courseAssessmentLinks[grammar.id];
+
+  bool _canRecordCheckpoint(Grammar grammar) {
+    if (!_isCoursePractice || _hasSavedCheckpoint(grammar)) return false;
+    return _assessmentLinkFor(grammar) != null &&
+        _checkpointQuestionFor(grammar).canRecordEvidence;
+  }
 
   void _persistIdx() => Storage.setGrammarLastIdx(_idx);
 
@@ -155,6 +236,123 @@ class _GrammarScreenState extends State<GrammarScreen>
     _persistIdx();
   }
 
+  Future<void> _showCheckpoint(
+    Grammar target,
+    ContentLink assessmentLink,
+  ) async {
+    final question = _checkpointQuestionFor(target);
+    if (!question.canRecordEvidence || assessmentLink.conceptIds.length != 1) {
+      return;
+    }
+    final grammarById = {for (final grammar in _all) grammar.id: grammar};
+    final savedAnswer = _submittedAnswers[target.id];
+    final t = AppL10n.of(context);
+
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) {
+        String? selectedAnswer = savedAnswer;
+        var isSaving = false;
+
+        return StatefulBuilder(
+          builder: (sheetContext, setLocal) {
+            final isComplete = selectedAnswer != null;
+            final isCorrect = isComplete && question.isCorrect(selectedAnswer!);
+
+            Future<void> submit(String answerId) async {
+              if (isComplete || isSaving) return;
+              setLocal(() => isSaving = true);
+              final update = await CourseActivityReporter.recordContentAttempt(
+                CurriculumContentKind.grammar,
+                target.id,
+                question.isCorrect(answerId),
+                courseContext: widget.courseContext,
+                conceptId: assessmentLink.conceptIds.single,
+                errorReason: question.isCorrect(answerId)
+                    ? null
+                    : MasteryErrorReason.unknown,
+              );
+              if (!mounted) return;
+              setLocal(() => isSaving = false);
+              if (update != null) {
+                setState(() => _submittedAnswers[target.id] = answerId);
+                setLocal(() => selectedAnswer = answerId);
+              } else {
+                _showCheckpointSaveError();
+              }
+            }
+
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  t.courseCheckpointGrammarPrompt,
+                  style: SoriTextTheme.of(sheetContext).h3,
+                ),
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  target.exampleKorean,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: SoriSurfaces.of(sheetContext).text,
+                  ),
+                ),
+                const SizedBox(height: Spacing.lg),
+                for (final optionId in question.optionIds)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: Spacing.sm),
+                    child: SoriButton.outlined(
+                      label: grammarById[optionId]?.pattern ?? optionId,
+                      fullWidth: true,
+                      accent: isComplete && optionId == target.id
+                          ? SoriColors.success
+                          : null,
+                      destructive:
+                          isComplete &&
+                          !isCorrect &&
+                          optionId == selectedAnswer,
+                      onTap: isComplete || isSaving
+                          ? null
+                          : () => submit(optionId),
+                    ),
+                  ),
+                if (isComplete) ...[
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    isCorrect
+                        ? t.courseCheckpointCorrect
+                        : t.courseCheckpointIncorrect,
+                    style: TextStyle(
+                      color: isCorrect ? SoriColors.success : SoriColors.danger,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  if (savedAnswer != null) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      t.courseCheckpointSaved,
+                      style: TextStyle(
+                        color: SoriSurfaces.of(sheetContext).textMuted,
+                      ),
+                    ),
+                  ],
+                ],
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _showCheckpointSaveError() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(AppL10n.of(context).courseCheckpointSaveError)),
+    );
+  }
+
   void _onFlip() {
     HapticFeedback.selectionClick();
     setState(() => _flipped = !_flipped);
@@ -181,7 +379,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       return Scaffold(
         appBar: AppBar(title: Text(t.screenGrammarTitle)),
         body: AppError(
-          message: DataLoader.lastError ?? 'Unbekannter Fehler',
+          message: _loadError ?? DataLoader.lastError ?? 'Unbekannter Fehler',
           onRetry: () {
             DataLoader.reset();
             _load();
@@ -195,12 +393,14 @@ class _GrammarScreenState extends State<GrammarScreen>
         appBar: AppBar(title: Text(t.screenGrammarTitle)),
         body: AppEmpty(
           message: t.emptyGrammar,
-          actionLabel: t.filterOpenBtn,
-          onAction: _showFilterSheet,
+          actionLabel: _isCoursePractice ? null : t.filterOpenBtn,
+          onAction: _isCoursePractice ? null : _showFilterSheet,
         ),
       );
     }
 
+    final assessmentLink = _assessmentLinkFor(g);
+    final canRecordCheckpoint = _canRecordCheckpoint(g);
     final s = SoriSurfaces.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -330,8 +530,10 @@ class _GrammarScreenState extends State<GrammarScreen>
                               child: FlipCard(
                                 key: _cardKey,
                                 flipped: _flipped,
-                                onTap: _onFlip,
-                                front: _Front(g: g),
+                                onTap: canRecordCheckpoint ? null : _onFlip,
+                                front: canRecordCheckpoint
+                                    ? _CourseCheckpointFront(g: g)
+                                    : _Front(g: g),
                                 back: _Back(g: g),
                               ),
                             ),
@@ -388,9 +590,15 @@ class _GrammarScreenState extends State<GrammarScreen>
                         ),
                       ],
                       primary: StudyAction(
-                        label: t.btnNext,
-                        icon: Icons.arrow_forward,
-                        onTap: _next,
+                        label: canRecordCheckpoint
+                            ? t.courseCheckpointCheck
+                            : t.btnNext,
+                        icon: canRecordCheckpoint
+                            ? Icons.fact_check_outlined
+                            : Icons.arrow_forward,
+                        onTap: canRecordCheckpoint
+                            ? () => _showCheckpoint(g, assessmentLink!)
+                            : _next,
                       ),
                       tertiary: StudyAction(
                         label: t.btnRandom,
@@ -475,6 +683,72 @@ class _GrammarScreenState extends State<GrammarScreen>
             .toList(),
         onChanged: onChanged,
       ),
+    );
+  }
+}
+
+/// A scored mission card deliberately withholds the target pattern until the
+/// learner has answered. The normal flip card remains available in browse
+/// mode and after the attempt, but the evidence-producing choice is not a
+/// copy-the-text action.
+class _CourseCheckpointFront extends StatelessWidget {
+  const _CourseCheckpointFront({required this.g});
+
+  final Grammar g;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
+    return StudyCardFace(
+      accent: SoriColors.warning,
+      children: [
+        SoriChip(
+          label: g.level,
+          accent: SoriColors.warning,
+          variant: SoriChipVariant.filled,
+        ),
+        const SizedBox(height: Spacing.lg),
+        const Icon(
+          Icons.fact_check_outlined,
+          size: 34,
+          color: SoriColors.warning,
+        ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          t.courseCheckpointGrammarPrompt,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: s.text,
+          ),
+        ),
+        const SizedBox(height: Spacing.lg),
+        Text(
+          g.exampleKorean,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 21,
+            fontWeight: FontWeight.w700,
+            color: SoriColors.warning,
+            height: 1.35,
+          ),
+        ),
+        if (g.exampleGerman.isNotEmpty) ...[
+          const SizedBox(height: Spacing.sm),
+          Text(
+            g.exampleFor(lang),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 13,
+              color: s.textMuted,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        ],
+      ],
     );
   }
 }

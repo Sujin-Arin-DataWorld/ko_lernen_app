@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/course_practice_context.dart';
+import '../models/curriculum.dart';
 import '../models/smalltalk.dart';
+import '../services/course_activity_reporter.dart';
+import '../services/course_checkpoint_questions.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/personalized_lesson_service.dart';
 import '../services/smalltalk_loader.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
@@ -22,7 +29,9 @@ import '../widgets/sori/wordbook_add.dart';
 /// Liest `assets/data/smalltalk.json` (via [SmalltalkLoader]). Tippen auf eine
 /// Karte spricht den koreanischen Satz (TTS).
 class SmalltalkScreen extends StatefulWidget {
-  const SmalltalkScreen({super.key});
+  const SmalltalkScreen({super.key, this.courseContext});
+
+  final CoursePracticeContext? courseContext;
 
   @override
   State<SmalltalkScreen> createState() => _SmalltalkScreenState();
@@ -33,6 +42,12 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   bool _loading = true;
   String _cat = '';
   String? _level; // null = alle Level
+  Set<String>? _courseContentIds;
+  Map<String, ContentLink> _courseAssessmentLinks =
+      const <String, ContentLink>{};
+  bool _loadFailed = false;
+
+  bool get _isCoursePractice => widget.courseContext != null;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _categoryKey = GlobalKey();
@@ -42,7 +57,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   String get coachId => 'smalltalk';
 
   @override
-  bool get coachReady => !_loading && SmalltalkLoader.categories.isNotEmpty;
+  bool get coachReady =>
+      !_loading && !_loadFailed && _visibleCategories.isNotEmpty;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
@@ -71,20 +87,75 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   }
 
   Future<void> _load() async {
-    await SmalltalkLoader.load();
-    if (!mounted) return;
-    final cats = SmalltalkLoader.categories;
-    final catIds = cats.map((c) => c.id).toSet();
-    // M5: zuerst eine Kategorie passend zu den Interessen öffnen (관심사 우선).
-    final preferred = PersonalizedLessonService.smalltalkCategoriesFor(
-      Storage.interests,
-    ).firstWhere(catIds.contains, orElse: () => '');
     setState(() {
-      _cat = preferred.isNotEmpty
-          ? preferred
-          : (cats.isNotEmpty ? cats.first.id : '');
-      _loading = false;
+      _loading = true;
+      _loadFailed = false;
     });
+    try {
+      await SmalltalkLoader.load();
+      // The legacy loader contains its own asset errors to keep direct browse
+      // mode resilient. A mission screen needs a retryable failure instead of
+      // silently presenting an empty practice list with raw loader copy.
+      final loadError = SmalltalkLoader.lastError;
+      if (loadError != null) {
+        throw StateError(loadError);
+      }
+      final catalog = _isCoursePractice ? await CurriculumCatalog.load() : null;
+      final courseContentIds = catalog == null
+          ? null
+          : courseContentIdsForContext(
+              catalog: catalog,
+              courseContext: widget.courseContext,
+              kind: CurriculumContentKind.smalltalk,
+            );
+      final courseAssessmentLinks = catalog == null
+          ? const <String, ContentLink>{}
+          : courseAssessmentLinksForContext(
+              catalog: catalog,
+              courseContext: widget.courseContext,
+              kind: CurriculumContentKind.smalltalk,
+            );
+      if (!mounted) return;
+      final cats = _categoriesFor(courseContentIds);
+      final catIds = cats.map((c) => c.id).toSet();
+      // M5: zuerst eine Kategorie passend zu den Interessen öffnen (관심사 우선).
+      final preferred = PersonalizedLessonService.smalltalkCategoriesFor(
+        Storage.interests,
+      ).firstWhere(catIds.contains, orElse: () => '');
+      setState(() {
+        _courseContentIds = courseContentIds;
+        _courseAssessmentLinks = courseAssessmentLinks;
+        _cat = preferred.isNotEmpty
+            ? preferred
+            : (cats.isNotEmpty ? cats.first.id : '');
+        _loading = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+    }
+  }
+
+  List<SmalltalkCategory> get _visibleCategories =>
+      _categoriesFor(_courseContentIds);
+
+  List<SmalltalkCategory> _categoriesFor(Set<String>? contentIds) {
+    if (contentIds == null) return SmalltalkLoader.categories;
+    final visibleCategoryIds = SmalltalkLoader.phrases
+        .where((phrase) => contentIds.contains(phrase.id))
+        .map((phrase) => phrase.category)
+        .toSet();
+    return SmalltalkLoader.categories
+        .where((category) => visibleCategoryIds.contains(category.id))
+        .toList(growable: false);
+  }
+
+  void _retryLoad() {
+    SmalltalkLoader.reset();
+    _load();
   }
 
   static Color _levelColor(String lvl) {
@@ -120,7 +191,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         child: SafeArea(
           child: _loading
               ? const AppLoading()
-              : SmalltalkLoader.categories.isEmpty
+              : _loadFailed
+              ? AppError(message: t.courseMissionLoadError, onRetry: _retryLoad)
+              : _visibleCategories.isEmpty
               ? SoriEmptyState(
                   icon: Icons.chat_bubble_outline_rounded,
                   title: t.smalltalkTitle,
@@ -133,12 +206,18 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   }
 
   Widget _buildBody(AppL10n t, SoriSurfaces s, String lang) {
-    final cats = SmalltalkLoader.categories;
+    final cats = _visibleCategories;
     final current = cats.firstWhere(
       (c) => c.id == _cat,
       orElse: () => cats.first,
     );
-    final phrases = SmalltalkLoader.filter(category: _cat, level: _level);
+    final phrases = SmalltalkLoader.filter(category: _cat, level: _level)
+        .where(
+          (phrase) =>
+              _courseContentIds == null ||
+              _courseContentIds!.contains(phrase.id),
+        )
+        .toList(growable: false);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -228,6 +307,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                         p: phrases[i],
                         lang: lang,
                         levelColor: _levelColor(phrases[i].level),
+                        courseContext: widget.courseContext,
+                        assessmentLink: _courseAssessmentLinks[phrases[i].id],
                       );
                       if (i == 0) {
                         return KeyedSubtree(key: _firstCardKey, child: card);
@@ -252,7 +333,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   /// 카테고리 18개 선택 바텀시트 — Wrap 그리드로 한눈에(가로 스크롤 제거).
   void _showCategorySheet(AppL10n t, String lang) {
     final s = SoriSurfaces.of(context);
-    final cats = SmalltalkLoader.categories;
+    final cats = _visibleCategories;
     showSoriSheet<void>(
       context: context,
       builder: (ctx) => Column(
@@ -296,10 +377,14 @@ class _PhraseCard extends StatefulWidget {
   final SmalltalkPhrase p;
   final String lang;
   final Color levelColor;
+  final CoursePracticeContext? courseContext;
+  final ContentLink? assessmentLink;
   const _PhraseCard({
     required this.p,
     required this.lang,
     required this.levelColor,
+    this.courseContext,
+    this.assessmentLink,
   });
 
   @override
@@ -309,6 +394,49 @@ class _PhraseCard extends StatefulWidget {
 class _PhraseCardState extends State<_PhraseCard> {
   bool _showReply = false;
   bool _showConversationGuide = false;
+  bool _showRelationshipCheck = false;
+  bool _savingRelationshipCheck = false;
+  SmalltalkRelationshipContext? _submittedRelationshipContext;
+
+  bool get _isCoursePractice => widget.courseContext != null;
+  bool get _canRecordRelationshipCheckpoint =>
+      _isCoursePractice &&
+      widget.assessmentLink?.role == ContentLinkRole.assess &&
+      widget.assessmentLink?.conceptIds.length == 1;
+
+  Future<void> _submitRelationshipCheck(
+    SmalltalkRelationshipContext selectedContext,
+  ) async {
+    if (_submittedRelationshipContext != null || _savingRelationshipCheck) {
+      return;
+    }
+    final assessmentLink = widget.assessmentLink;
+    if (assessmentLink == null || !_canRecordRelationshipCheckpoint) return;
+    final question = SmalltalkRelationshipCheckpoint.forPhrase(widget.p);
+    setState(() => _savingRelationshipCheck = true);
+    final update = await CourseActivityReporter.recordContentAttempt(
+      CurriculumContentKind.smalltalk,
+      widget.p.id,
+      question.isCorrect(selectedContext),
+      courseContext: widget.courseContext,
+      conceptId: assessmentLink.conceptIds.single,
+      errorReason: question.isCorrect(selectedContext)
+          ? null
+          : MasteryErrorReason.speechStyle,
+    );
+    if (!mounted) return;
+    setState(() {
+      _savingRelationshipCheck = false;
+      if (update != null) {
+        _submittedRelationshipContext = selectedContext;
+      }
+    });
+    if (update == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppL10n.of(context).courseCheckpointSaveError)),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -317,6 +445,7 @@ class _PhraseCardState extends State<_PhraseCard> {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final hasReply = p.reply != null;
+    final relationshipQuestion = SmalltalkRelationshipCheckpoint.forPhrase(p);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.md),
@@ -407,24 +536,88 @@ class _PhraseCardState extends State<_PhraseCard> {
               ),
             ),
             const SizedBox(height: Spacing.sm),
-            Text(
-              lang == 'de'
-                  ? 'Passend für: ${p.relationshipContext.labelFor(lang)}'
-                  : 'Use with: ${p.relationshipContext.labelFor(lang)}',
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 12.5,
-                color: s.textMuted,
-                height: 1.3,
+            if (!_canRecordRelationshipCheckpoint ||
+                _submittedRelationshipContext != null)
+              Text(
+                lang == 'de'
+                    ? 'Passend für: ${p.relationshipContext.labelFor(lang)}'
+                    : 'Use with: ${p.relationshipContext.labelFor(lang)}',
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 12.5,
+                  color: s.textMuted,
+                  height: 1.3,
+                ),
               ),
-            ),
+            if (_canRecordRelationshipCheckpoint &&
+                _submittedRelationshipContext == null)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  onPressed: _savingRelationshipCheck
+                      ? null
+                      : () => setState(() => _showRelationshipCheck = true),
+                  icon: const Icon(Icons.fact_check_outlined, size: 16),
+                  label: Text(t.courseCheckpointCheck),
+                ),
+              ),
+            if (_canRecordRelationshipCheckpoint && _showRelationshipCheck) ...[
+              Text(
+                t.courseCheckpointSmalltalkPrompt,
+                style: TextStyle(
+                  fontFamily: 'Pretendard',
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                  color: s.text,
+                ),
+              ),
+              const SizedBox(height: Spacing.sm),
+              for (final option in relationshipQuestion.options)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: Spacing.xs),
+                  child: SoriButton.outlined(
+                    label: option.labelFor(lang),
+                    fullWidth: true,
+                    accent:
+                        _submittedRelationshipContext != null &&
+                            option == p.relationshipContext
+                        ? SoriColors.success
+                        : null,
+                    destructive:
+                        _submittedRelationshipContext != null &&
+                        option == _submittedRelationshipContext &&
+                        option != p.relationshipContext,
+                    onTap:
+                        _savingRelationshipCheck ||
+                            _submittedRelationshipContext != null
+                        ? null
+                        : () => _submitRelationshipCheck(option),
+                  ),
+                ),
+            ],
+            if (_canRecordRelationshipCheckpoint &&
+                _submittedRelationshipContext != null)
+              Padding(
+                padding: const EdgeInsets.only(top: Spacing.xs),
+                child: Text(
+                  _submittedRelationshipContext == p.relationshipContext
+                      ? t.courseCheckpointCorrect
+                      : t.courseCheckpointIncorrect,
+                  style: TextStyle(
+                    color:
+                        _submittedRelationshipContext == p.relationshipContext
+                        ? SoriColors.success
+                        : SoriColors.danger,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
             if (!_showConversationGuide)
               Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton.icon(
-                  onPressed: () => setState(
-                    () => _showConversationGuide = true,
-                  ),
+                  onPressed: () =>
+                      setState(() => _showConversationGuide = true),
                   icon: const Icon(Icons.alt_route_rounded, size: 16),
                   label: Text(
                     lang == 'de'

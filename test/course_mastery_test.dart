@@ -4,9 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/course_practice_context.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/grammar.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
@@ -109,6 +111,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_greetings',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(1),
       );
@@ -138,8 +145,9 @@ void main() {
   test(
     'app-scoped progress service serializes concurrent activity writes',
     () async {
+      final catalog = _catalog();
       final progress = CourseProgressService(
-        () async => CourseMasteryService(_catalog()),
+        () async => CourseMasteryService(catalog),
       );
       await progress.initializeForPlacement('a1');
 
@@ -148,6 +156,11 @@ void main() {
           CurriculumContentKind.grammar,
           'grammar_greetings',
           true,
+          courseContext: _assessContext(
+            catalog,
+            CurriculumContentKind.grammar,
+            'grammar_greetings',
+          ),
           conceptId: 'concept_greeting_politeness',
           occurredAt: _time(1),
         ),
@@ -174,6 +187,11 @@ void main() {
           CurriculumContentKind.grammar,
           'grammar_greetings',
           index < 7,
+          courseContext: _assessContext(
+            service.catalog,
+            CurriculumContentKind.grammar,
+            'grammar_greetings',
+          ),
           conceptId: 'concept_greeting_politeness',
           occurredAt: _time(index + 1),
         );
@@ -230,6 +248,11 @@ void main() {
           CurriculumContentKind.grammar,
           grammarIds[index],
           true,
+          courseContext: _assessContext(
+            service.catalog,
+            CurriculumContentKind.grammar,
+            grammarIds[index],
+          ),
           conceptId: conceptIds[index],
           occurredAt: _time(index * 2 + 1),
         );
@@ -273,6 +296,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_greetings',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(3),
       );
@@ -284,6 +312,362 @@ void main() {
       expect(
         currentCheckpoint.newlyUnlockedUnit?.id,
         'a1_02_self_intro_identity',
+      );
+    },
+  );
+
+  test(
+    'a checked course context only unlocks while its source mission remains active',
+    () async {
+      final catalog = _catalog();
+      final service = CourseMasteryService(catalog);
+      await service.initializeForPlacement('a1');
+      final activeLink = catalog
+          .linksForContent(CurriculumContentKind.grammar, 'grammar_greetings')
+          .single;
+      final staleLink = catalog
+          .linksForContent(CurriculumContentKind.grammar, 'grammar_identity')
+          .single;
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        staleLink.contentId,
+        true,
+        conceptId: 'concept_identity_formal',
+        courseContext: CoursePracticeContext.fromLink(staleLink),
+        occurredAt: _time(1),
+      );
+      expect(service.snapshot.evidence.single.courseEligible, isFalse);
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        activeLink.contentId,
+        true,
+        conceptId: 'concept_greeting_politeness',
+        courseContext: CoursePracticeContext.fromLink(activeLink),
+        occurredAt: _time(2),
+      );
+      final unlocked = await service.recordScenarioCheckpoint(
+        'airport_arrival',
+        .70,
+        occurredAt: _time(3),
+      );
+
+      expect(unlocked.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
+      expect(service.snapshot.evidence.last.courseEligible, isTrue);
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        activeLink.contentId,
+        true,
+        conceptId: 'concept_greeting_politeness',
+        courseContext: CoursePracticeContext.fromLink(activeLink),
+        occurredAt: _time(4),
+      );
+      expect(service.snapshot.evidence.last.courseEligible, isFalse);
+      expect(service.currentUnit?.id, 'a1_02_self_intro_identity');
+    },
+  );
+
+  test(
+    'contextual grammar and smalltalk evidence stay locked at 69 and unlock at 70',
+    () async {
+      final catalog = _catalog(withSmalltalk: true);
+      final service = CourseMasteryService(catalog);
+      await service.initializeForPlacement('a1');
+      final grammarLink = catalog
+          .linksForContent(CurriculumContentKind.grammar, 'grammar_greetings')
+          .single;
+      final smalltalkLink = catalog
+          .linksForContent(
+            CurriculumContentKind.smalltalk,
+            'smalltalk_greeting',
+          )
+          .singleWhere((link) => link.role == ContentLinkRole.assess);
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        grammarLink.contentId,
+        true,
+        conceptId: 'concept_greeting_politeness',
+        courseContext: CoursePracticeContext.fromLink(grammarLink),
+        occurredAt: _time(1),
+      );
+      await service.recordContentAttempt(
+        CurriculumContentKind.smalltalk,
+        smalltalkLink.contentId,
+        true,
+        conceptId: 'concept_greeting_politeness',
+        courseContext: CoursePracticeContext.fromLink(smalltalkLink),
+        occurredAt: _time(2),
+      );
+
+      final below = await service.recordScenarioCheckpoint(
+        'airport_arrival',
+        .69,
+        occurredAt: _time(3),
+      );
+      expect(below.currentUnit?.id, 'a1_01_greetings_hangul');
+      expect(
+        service.snapshot.evidence.map((item) => item.contentKind),
+        containsAll(<CurriculumContentKind>[
+          CurriculumContentKind.grammar,
+          CurriculumContentKind.smalltalk,
+        ]),
+      );
+      expect(
+        service.snapshot.evidence.every((item) => item.courseEligible),
+        isTrue,
+      );
+
+      final boundary = await service.recordScenarioCheckpoint(
+        'airport_arrival',
+        .70,
+        occurredAt: _time(4),
+      );
+      expect(boundary.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
+    },
+  );
+
+  test(
+    'serialized contextual evidence reaches the exact 70 percent concept boundary',
+    () async {
+      final catalog = _catalog(withSmalltalk: true);
+      final progress = CourseProgressService(
+        () async => CourseMasteryService(catalog),
+      );
+      await progress.initializeForPlacement('a1');
+      final grammarLink = catalog
+          .linksForContent(CurriculumContentKind.grammar, 'grammar_greetings')
+          .singleWhere((link) => link.role == ContentLinkRole.assess);
+      final smalltalkLink = catalog
+          .linksForContent(
+            CurriculumContentKind.smalltalk,
+            'smalltalk_greeting',
+          )
+          .singleWhere((link) => link.role == ContentLinkRole.assess);
+
+      // The scenario check is submitted only after the first nine attempts:
+      // at 6/9 it must remain locked even though the scenario itself reaches
+      // its threshold. The tenth correct attempt then crosses 7/10.
+      for (var index = 0; index < 9; index++) {
+        final useSmalltalk = index.isOdd;
+        final link = useSmalltalk ? smalltalkLink : grammarLink;
+        await progress.recordContentAttempt(
+          link.contentKind,
+          link.contentId,
+          index < 6,
+          courseContext: CoursePracticeContext.fromLink(link),
+          conceptId: 'concept_greeting_politeness',
+          errorReason: useSmalltalk && index >= 6
+              ? MasteryErrorReason.speechStyle
+              : null,
+          occurredAt: _time(index + 2),
+        );
+      }
+      await progress.recordScenarioCheckpoint(
+        'airport_arrival',
+        .70,
+        occurredAt: _time(1),
+      );
+
+      final below = await progress.refresh();
+      expect(below.currentCourseUnitId, 'a1_01_greetings_hangul');
+
+      final boundary = await progress.recordContentAttempt(
+        grammarLink.contentKind,
+        grammarLink.contentId,
+        true,
+        courseContext: CoursePracticeContext.fromLink(grammarLink),
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(11),
+      );
+      expect(boundary.newlyUnlockedUnit?.id, 'a1_02_self_intro_identity');
+      expect(boundary.snapshot.evidence, hasLength(10));
+      expect(
+        boundary.snapshot.evidence.every((item) => item.courseEligible),
+        isTrue,
+      );
+      expect(
+        boundary.snapshot.evidence
+            .where(
+              (item) => item.contentKind == CurriculumContentKind.smalltalk,
+            )
+            .any((item) => item.errorReason == MasteryErrorReason.speechStyle),
+        isTrue,
+      );
+    },
+  );
+
+  test(
+    'rejects a course context whose graph link does not match the attempt',
+    () async {
+      final catalog = _catalog();
+      final service = CourseMasteryService(catalog);
+      await service.initializeForPlacement('a1');
+      final link = catalog
+          .linksForContent(CurriculumContentKind.grammar, 'grammar_greetings')
+          .single;
+      final forged = CoursePracticeContext(
+        courseUnitId: link.courseUnitId,
+        contentKind: link.contentKind,
+        initialContentId: link.contentId,
+        contentLinkId: 'not_a_real_link',
+      );
+
+      await expectLater(
+        service.recordContentAttempt(
+          CurriculumContentKind.grammar,
+          link.contentId,
+          true,
+          conceptId: 'concept_greeting_politeness',
+          courseContext: forged,
+          occurredAt: _time(1),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+      expect(service.snapshot.evidence, isEmpty);
+    },
+  );
+
+  test(
+    'contextual grammar and smalltalk require an exact assess link and concept',
+    () async {
+      final catalog = _catalog(withSmalltalk: true);
+      final service = CourseMasteryService(catalog);
+      await service.initializeForPlacement('a1');
+      final grammarLink = catalog
+          .linksForContent(CurriculumContentKind.grammar, 'grammar_greetings')
+          .singleWhere((link) => link.role == ContentLinkRole.assess);
+      final smalltalkLinks = catalog.linksForContent(
+        CurriculumContentKind.smalltalk,
+        'smalltalk_greeting',
+      );
+      final smalltalkPractice = smalltalkLinks.singleWhere(
+        (link) => link.role == ContentLinkRole.practice,
+      );
+      final smalltalkAssess = smalltalkLinks.singleWhere(
+        (link) => link.role == ContentLinkRole.assess,
+      );
+
+      await expectLater(
+        service.recordContentAttempt(
+          CurriculumContentKind.grammar,
+          grammarLink.contentId,
+          true,
+          courseContext: CoursePracticeContext.fromLink(grammarLink),
+          occurredAt: _time(1),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+      await expectLater(
+        service.recordContentAttempt(
+          CurriculumContentKind.smalltalk,
+          smalltalkPractice.contentId,
+          true,
+          courseContext: CoursePracticeContext.fromLink(smalltalkPractice),
+          conceptId: 'concept_greeting_politeness',
+          occurredAt: _time(2),
+        ),
+        throwsA(isA<FormatException>()),
+      );
+      expect(service.snapshot.evidence, isEmpty);
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        grammarLink.contentId,
+        true,
+        courseContext: CoursePracticeContext.fromLink(grammarLink),
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(3),
+      );
+      await service.recordContentAttempt(
+        CurriculumContentKind.smalltalk,
+        smalltalkAssess.contentId,
+        false,
+        courseContext: CoursePracticeContext.fromLink(smalltalkAssess),
+        conceptId: 'concept_greeting_politeness',
+        errorReason: MasteryErrorReason.speechStyle,
+        occurredAt: _time(4),
+      );
+
+      expect(service.snapshot.evidence, hasLength(2));
+      expect(
+        service.snapshot.evidence.every(
+          (evidence) =>
+              evidence.courseEligible &&
+              evidence.conceptId == 'concept_greeting_politeness',
+        ),
+        isTrue,
+      );
+      expect(
+        service.reviewQueue.single.errorReason,
+        MasteryErrorReason.speechStyle,
+      );
+    },
+  );
+
+  test(
+    'persisted practice-only smalltalk evidence cannot impersonate a checkpoint',
+    () async {
+      final service = CourseMasteryService(
+        _catalog(withSmalltalk: true, withSmalltalkAssessment: false),
+      );
+      await Storage.setCourseMasteryRawJson(
+        jsonEncode({
+          'version': 1,
+          'placementLevel': 'a1',
+          'currentCourseUnitId': 'a1_01_greetings_hangul',
+          'evidence': [
+            {
+              'conceptId': 'concept_greeting_politeness',
+              'contentKind': 'smalltalk',
+              'contentId': 'smalltalk_greeting',
+              'courseUnitId': 'a1_01_greetings_hangul',
+              'isCorrect': true,
+              'occurredAt': _time(1).toIso8601String(),
+              'courseEligible': true,
+            },
+          ],
+          'scenarioCheckpoints': const <Object>[],
+        }),
+      );
+
+      await expectLater(service.refresh(), throwsA(isA<FormatException>()));
+    },
+  );
+
+  test(
+    'active grammar and smalltalk library history never unlocks without context',
+    () async {
+      final service = CourseMasteryService(_catalog(withSmalltalk: true));
+      await service.initializeForPlacement('a1');
+
+      await service.recordContentAttempt(
+        CurriculumContentKind.grammar,
+        'grammar_greetings',
+        true,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(1),
+      );
+      await service.recordContentAttempt(
+        CurriculumContentKind.smalltalk,
+        'smalltalk_greeting',
+        true,
+        conceptId: 'concept_greeting_politeness',
+        occurredAt: _time(2),
+      );
+      final update = await service.recordScenarioCheckpoint(
+        'airport_arrival',
+        .70,
+        occurredAt: _time(3),
+      );
+
+      expect(update.newlyUnlockedUnit, isNull);
+      expect(update.currentUnit?.id, 'a1_01_greetings_hangul');
+      expect(
+        service.snapshot.evidence.every((item) => !item.courseEligible),
+        isTrue,
       );
     },
   );
@@ -321,6 +705,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_greetings',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(20),
       );
@@ -349,6 +738,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_greetings',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(1),
       );
@@ -379,6 +773,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_greetings',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(1),
       );
@@ -505,6 +904,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_greetings',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(802),
       );
@@ -512,6 +916,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_greetings',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_greetings',
+        ),
         conceptId: 'concept_greeting_politeness',
         occurredAt: _time(803),
       );
@@ -531,6 +940,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_object_particle',
         false,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_object_particle',
+        ),
         conceptId: 'concept_object_particle',
         errorReason: MasteryErrorReason.particleRole,
         occurredAt: _time(7),
@@ -556,6 +970,11 @@ void main() {
         CurriculumContentKind.grammar,
         'grammar_object_particle',
         true,
+        courseContext: _assessContext(
+          service.catalog,
+          CurriculumContentKind.grammar,
+          'grammar_object_particle',
+        ),
         conceptId: 'concept_object_particle',
         occurredAt: _time(8),
       );
@@ -774,6 +1193,17 @@ void main() {
 
 DateTime _time(int second) => DateTime.utc(2026, 8, 2, 12, 0, second);
 
+CoursePracticeContext _assessContext(
+  CurriculumCatalog catalog,
+  CurriculumContentKind kind,
+  String contentId,
+) {
+  final link = catalog
+      .linksForContent(kind, contentId)
+      .singleWhere((item) => item.role == ContentLinkRole.assess);
+  return CoursePracticeContext.fromLink(link);
+}
+
 Future<void> _advanceToObjectParticleUnit(CourseMasteryService service) async {
   const grammarIds = <String>[
     'grammar_greetings',
@@ -795,6 +1225,11 @@ Future<void> _advanceToObjectParticleUnit(CourseMasteryService service) async {
       CurriculumContentKind.grammar,
       grammarIds[index],
       true,
+      courseContext: _assessContext(
+        service.catalog,
+        CurriculumContentKind.grammar,
+        grammarIds[index],
+      ),
       conceptId: conceptIds[index],
       occurredAt: _time(index * 2 + 1),
     );
@@ -810,6 +1245,8 @@ Future<void> _advanceToObjectParticleUnit(CourseMasteryService service) async {
 CurriculumCatalog _catalog({
   bool withInvalidLink = false,
   bool firstUnitHasTwoCheckpoints = false,
+  bool withSmalltalk = false,
+  bool withSmalltalkAssessment = true,
 }) {
   final units = <Map<String, dynamic>>[
     {
@@ -942,6 +1379,20 @@ CurriculumCatalog _catalog({
         note: '',
       ),
   ];
+  final smalltalk = withSmalltalk
+      ? const <SmalltalkPhrase>[
+          SmalltalkPhrase(
+            id: 'smalltalk_greeting',
+            category: 'greeting',
+            level: 'a1',
+            kind: 'opener',
+            ko: '안녕하세요.',
+            de: 'Hallo.',
+            en: 'Hello.',
+            relationshipContext: SmalltalkRelationshipContext.peer,
+          ),
+        ]
+      : const <SmalltalkPhrase>[];
   final scenarios = <Scenario>[
     for (var index = 0; index < scenarioIds.length; index++)
       Scenario(
@@ -1004,7 +1455,22 @@ CurriculumCatalog _catalog({
         },
     ],
     'vocabPackUnitMap': const {},
-    'smalltalkCategoryUnitMap': const {},
+    'smalltalkCategoryUnitMap': withSmalltalk
+        ? {
+            'a1:greeting': {
+              'courseUnitId': 'a1_01_greetings_hangul',
+              'conceptIds': ['concept_greeting_politeness'],
+            },
+          }
+        : const {},
+    'smalltalkCheckpointPhraseMap': withSmalltalk && withSmalltalkAssessment
+        ? {
+            'smalltalk_greeting': {
+              'courseUnitId': 'a1_01_greetings_hangul',
+              'conceptIds': ['concept_greeting_politeness'],
+            },
+          }
+        : const {},
     'clozeTopicUnitMap': const {},
     'grammarRuleMap': grammarRuleMap,
   };
@@ -1012,7 +1478,7 @@ CurriculumCatalog _catalog({
     manifestJson: manifest,
     vocab: const [],
     grammar: grammar,
-    smalltalk: const [],
+    smalltalk: smalltalk,
     cloze: const [],
     satz: const [],
     scenarios: scenarios,
