@@ -75,23 +75,6 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
     MascotPreference.set(kind);
 
-    // 선택 연출(choose→greet 클립)은 카드 아래에 붙는다 — 작은 화면에선
-    // 스크롤 밖이라 연출을 통째로 못 보는 경우가 있어(2026-08-03 디자인
-    // 검수), 다음 프레임에 연출 위치까지 스크롤을 내려 준다.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted || !_scroll.hasClients) return;
-      final target = _scroll.position.maxScrollExtent;
-      if (SoriMotion.reduceMotion(context)) {
-        _scroll.jumpTo(target);
-      } else {
-        _scroll.animateTo(
-          target,
-          duration: const Duration(milliseconds: 420),
-          curve: Curves.easeOutCubic,
-        );
-      }
-    });
-
     // 첫 인사는 말이 아니라 몸짓 — 선택된 캐릭터의 인사 클립이 재생되고,
     // 클립이 끝나면(폴백 경로 포함) _proceed가 정확히 1회 호출된다.
     // 사운드는 동물 SFX 훅만(best-effort) — 사람 목소리 TTS 없음.
@@ -167,17 +150,20 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                                 height: 1.3,
                               ),
                             ),
-                            const SizedBox(height: 8),
                             // 탭 유도 한 줄 — 카드가 눌리는 것임을 말로 알려
                             // 준다 (배지/필 금지 원칙 → 본문 인라인 힌트).
-                            Text(
-                              t.characterSelectionHint,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 13.5,
-                                color: SoriColors.lightTextMuted,
+                            // 선택 후엔 카드가 사라지므로 힌트도 함께 걷는다.
+                            if (_selected == null) ...[
+                              const SizedBox(height: 8),
+                              Text(
+                                t.characterSelectionHint,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 13.5,
+                                  color: SoriColors.lightTextMuted,
+                                ),
                               ),
-                            ),
+                            ],
                           ],
                         ),
                       ),
@@ -186,57 +172,61 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       // 마스코트 (영상 미리보기는 화이트 플래시·반복음 때문에
                       // 폐기 — State 상단 주석 참조). 성격 대비는 일월(日月)
                       // 무대로: 호랑이=해(금빛 아침)·까치=달(청자빛 저녁).
-                      Column(
-                        children: [
-                          SoriEntrance(
-                            delay: const Duration(milliseconds: 180),
-                            child: _CharacterCard(
-                              kind: MascotKind.tiger,
-                              name: t.characterNameTiger,
-                              roman: t.characterRomanTiger,
-                              trait: t.characterTraitTiger,
-                              description: t.characterDescTiger,
-                              accent: SoriColors.tigerOnLight,
-                              panelColor: _kTigerStagePanel,
-                              discColor: _kTigerStageSun,
-                              discAtRight: true,
-                              isSelected: _selected == MascotKind.tiger,
-                              onTap: _isLoading
-                                  ? null
-                                  : () => _handleSelection(MascotKind.tiger),
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          SoriEntrance(
-                            delay: const Duration(milliseconds: 300),
-                            child: _CharacterCard(
-                              kind: MascotKind.magpie,
-                              name: t.characterNameMagpie,
-                              roman: t.characterRomanMagpie,
-                              trait: t.characterTraitMagpie,
-                              description: t.characterDescMagpie,
-                              accent: SoriColors.primary,
-                              panelColor: _kMagpieStagePanel,
-                              discColor: _kMagpieStageMoon,
-                              discAtRight: false,
-                              isSelected: _selected == MascotKind.magpie,
-                              onTap: _isLoading
-                                  ? null
-                                  : () => _handleSelection(MascotKind.magpie),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 28),
-                      // 선택 직후 2단 연출: ① 확정 목례/착지(choose 클립) →
-                      // ② 무언(無言) 인사(greet 클립) → 다음 화면.
+                      //
+                      // 선택 후엔 **카드 자리에서** 2단 연출이 무대를 이어받는다:
+                      // ① 확정 목례/착지(choose) → ② 무언(無言) 인사(greet)
+                      // → 다음 화면. 이전 배치(카드 아래 append + 자동 스크롤)는
+                      // 연출이 화면 최하단에 붙어 오류처럼 보였다(2026-08-03
+                      // Jin 실기기) — 카드를 걷고 그 자리를 쓰는 방식으로 교체.
                       // videoReady=false(테스트)·reduce-motion 경로에서도
                       // fallbackCompleteAfter 타이머가 체인 진행을 보장한다.
-                      if (_selected != null && _phase == _GreetPhase.choosing)
+                      if (_selected == null)
+                        Column(
+                          children: [
+                            SoriEntrance(
+                              delay: const Duration(milliseconds: 180),
+                              child: _CharacterCard(
+                                kind: MascotKind.tiger,
+                                name: t.characterNameTiger,
+                                roman: t.characterRomanTiger,
+                                trait: t.characterTraitTiger,
+                                description: t.characterDescTiger,
+                                accent: SoriColors.tigerOnLight,
+                                panelColor: _kTigerStagePanel,
+                                discColor: _kTigerStageSun,
+                                discAtRight: true,
+                                isSelected: _selected == MascotKind.tiger,
+                                onTap: _isLoading
+                                    ? null
+                                    : () => _handleSelection(MascotKind.tiger),
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            SoriEntrance(
+                              delay: const Duration(milliseconds: 300),
+                              child: _CharacterCard(
+                                kind: MascotKind.magpie,
+                                name: t.characterNameMagpie,
+                                roman: t.characterRomanMagpie,
+                                trait: t.characterTraitMagpie,
+                                description: t.characterDescMagpie,
+                                accent: SoriColors.primary,
+                                panelColor: _kMagpieStagePanel,
+                                discColor: _kMagpieStageMoon,
+                                discAtRight: false,
+                                isSelected: _selected == MascotKind.magpie,
+                                onTap: _isLoading
+                                    ? null
+                                    : () => _handleSelection(MascotKind.magpie),
+                              ),
+                            ),
+                          ],
+                        )
+                      else if (_phase == _GreetPhase.choosing)
                         CharacterClipPlayer(
                           key: ValueKey<String>('choose_${_selected!.name}'),
                           asset: CharacterClips.chooseFor(_selected!),
-                          size: 160,
+                          size: 200,
                           fallbackKind: _selected!,
                           fallbackEmotion: MascotEmotion.smile,
                           fallbackCompleteAfter: const Duration(
@@ -248,7 +238,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                             }
                           },
                         )
-                      else if (_selected != null)
+                      else
                         CharacterClipPlayer(
                           key: ValueKey<String>('greet_${_selected!.name}'),
                           // Jin 지정 클립(2026-08-03): 태고=산군의 포효,
@@ -257,22 +247,20 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                           asset: _selected == MascotKind.magpie
                               ? CharacterClips.magpiePerched
                               : CharacterClips.tigerRoar,
-                          size: 160,
+                          size: 200,
                           fallbackKind: _selected!,
                           fallbackEmotion: MascotEmotion.celebrate,
+                          // 호랑이는 무음 — 포효에 쓰던 합성음이 품질 미달
+                          // (2026-08-03 Jin: "허접해서 지워줘"). null이면
+                          // sfxFor 자동 유도인데 tigerRoar 매핑도 제거돼
+                          // 완전 무음이 보장된다. 까치 짹짹은 유지.
                           sfxAsset: _selected == MascotKind.magpie
                               ? 'sfx/greet_magpie.mp3'
-                              : 'sfx/greet_tiger.mp3',
+                              : null,
                           fallbackCompleteAfter: const Duration(
                             milliseconds: 1600,
                           ),
                           onCompleted: _proceed,
-                        )
-                      else if (_isLoading)
-                        const SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: CircularProgressIndicator(strokeWidth: 2),
                         ),
                     ],
                   ),

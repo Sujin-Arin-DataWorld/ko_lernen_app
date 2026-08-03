@@ -28,7 +28,7 @@
 | 파일 | 길이 | 출처 | 매핑된 클립 |
 |---|---|---|---|
 | `greet_tiger.mp3` | 1.31s | **모델 생성 오디오에서 잘라냄** (2026-07-31) | `tiger_greet_pawflash`, `tiger_rise` |
-| `celebrate_tiger.mp3` | 1.04s | 〃 | `tiger_celebrate_hifive`, `tiger_roar`, `tiger_roar_seated_bonus`, `tiger_stretch` |
+| `celebrate_tiger.mp3` | 1.04s | 〃 | `tiger_celebrate_hifive`, `tiger_stretch` |
 | `greet_magpie.mp3` | 1.44s | 〃 | `magpie_greet_chirp` |
 | `celebrate_magpie.mp3` | 0.94s | 〃 | `magpie_celebrate`, `magpie_flight` |
 | `growl_tiger.mp3` | 1.28s | 〃 (모델 생성 오디오에서 잘라냄) | 설정 → Ton → Lernbegleiter 미리듣기(호랑이 선택 시, `settings_screen._previewCompanion`) |
@@ -38,6 +38,12 @@
 
 > **2026-07-31 정정:** 이전에 들어 있던 DSP 합성 포효는 "소 같다"는 이유로 폐기되고
 > 위 모델 생성 오디오로 대체됐다.
+>
+> **2026-08-03 정정:** `tiger_roar`(·`tiger_roar_seated_bonus`) 클립은 **무음**이 됐다 —
+> 전용 포효 음원이 없어 celebrate/greet 합성음을 차용했는데 Jin이 품질 미달로 제거 지시
+> ("허접해서 지워줘"). 캐릭터 선택 화면의 명시 지정(`greet_tiger.mp3`)도 함께 해제.
+> 진짜 포효 음원이 들어오면 `sfxFor` 의 케이스와 이 표를 되살린다.
+> (`greet_tiger.mp3`·`celebrate_tiger.mp3` 파일 자체는 인사·하이파이브가 계속 쓰므로 유지.)
 
 ---
 
