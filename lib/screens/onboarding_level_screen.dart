@@ -289,14 +289,9 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                           child: Text(
                             t.onboardingTitle,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontFamily: SoriFonts.sans,
-                              fontSize: 26,
-                              fontWeight: FontWeight.w800,
-                              color: SoriColors.lightText,
-                              letterSpacing: -0.4,
-                              height: 1.2,
-                            ),
+                            style: SoriTextTheme.of(
+                              context,
+                            ).h1.copyWith(fontSize: 26, height: 1.2),
                           ),
                         ),
                         const SizedBox(height: Spacing.sm),
@@ -306,13 +301,7 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                           child: Text(
                             t.onboardingSubtitle,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontFamily: SoriFonts.sans,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: SoriColors.lightTextMuted,
-                              height: 1.45,
-                            ),
+                            style: SoriTextTheme.of(context).bodySmall,
                           ),
                         ),
                         const SizedBox(height: Spacing.xl),
@@ -375,13 +364,7 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                               Text(
                                 t.onboardingPrompt,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontFamily: SoriFonts.sans,
-                                  fontSize: 12.5,
-                                  fontWeight: FontWeight.w500,
-                                  color: SoriColors.lightTextMuted,
-                                  height: 1.4,
-                                ),
+                                style: SoriTextTheme.of(context).caption,
                               ),
                               const SizedBox(height: Spacing.xs),
                               // 최소 터치 타깃 48dp 보장.
@@ -394,12 +377,8 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                                 child: Text(
                                   t.onboardingSkip,
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontFamily: SoriFonts.sans,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w700,
-                                    color: SoriColors.primary,
-                                  ),
+                                  style: SoriTextTheme.of(context).label
+                                      .copyWith(color: SoriColors.primary),
                                 ),
                               ),
                             ],
@@ -509,13 +488,11 @@ class _SpeechBubble extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: const TextStyle(
-            fontFamily: SoriFonts.sans,
+          style: SoriTextTheme.of(context).h3.copyWith(
             fontSize: 15,
-            fontWeight: FontWeight.w700,
-            color: HanokColors.hanjiInk, // #2C2419 on #F5F0E6 → 13.6:1
             height: 1.35,
             letterSpacing: -0.1,
+            color: HanokColors.hanjiInk, // #2C2419 on #F5F0E6 → 13.6:1
           ),
         ),
       ),
@@ -632,14 +609,10 @@ class _LevelCard extends StatelessWidget {
                           Expanded(
                             child: Text(
                               title,
-                              style: const TextStyle(
-                                fontFamily: SoriFonts.sans,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w800,
-                                color: SoriColors.lightText,
-                                letterSpacing: -0.2,
-                                height: 1.2,
-                              ),
+                              // §4.3: 카드 제목 w800 금지 → h3(w700).
+                              style: SoriTextTheme.of(
+                                context,
+                              ).h3.copyWith(height: 1.2),
                             ),
                           ),
                           const SizedBox(width: Spacing.sm),
@@ -656,13 +629,8 @@ class _LevelCard extends StatelessWidget {
                       // 설명 — 잘리지 않는다.
                       Text(
                         desc,
-                        style: const TextStyle(
-                          fontFamily: SoriFonts.sans,
-                          fontSize: 13.5,
-                          fontWeight: FontWeight.w500,
-                          color: SoriColors.lightTextMuted,
-                          height: 1.35,
-                        ),
+                        style: SoriTextTheme.of(context).bodySmall
+                            .copyWith(fontSize: 13.5, height: 1.35),
                       ),
                       const SizedBox(height: 10),
                       // 이 레벨에서 다루는 한국어 + 모국어 뜻.
@@ -699,10 +667,8 @@ class _LevelBadge extends StatelessWidget {
       decoration: BoxDecoration(color: color, borderRadius: SoriRadius.brSm),
       child: Text(
         text,
-        style: const TextStyle(
-          fontFamily: SoriFonts.sans,
-          fontSize: 13,
-          fontWeight: FontWeight.w900,
+        // w900 은 번들에 없어 조용히 800 으로 렌더 → label(w700) 정규화.
+        style: SoriTextTheme.of(context).label.copyWith(
           color: Colors.white, // 네 색 모두 흰 글씨 4.86:1 이상
           letterSpacing: 0.6,
           height: 1.1,
@@ -783,24 +749,12 @@ class _ExampleRow extends StatelessWidget {
         children: [
           Text(
             ko,
-            style: const TextStyle(
-              fontFamily: SoriFonts.sans,
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              color: SoriColors.lightText,
-              height: 1.3,
-            ),
+            style: SoriTextTheme.of(context).h3.copyWith(fontSize: 16),
           ),
           const SizedBox(height: 2),
           Text(
             gloss,
-            style: const TextStyle(
-              fontFamily: SoriFonts.sans,
-              fontSize: 12.5,
-              fontWeight: FontWeight.w500,
-              color: SoriColors.lightTextMuted,
-              height: 1.35,
-            ),
+            style: SoriTextTheme.of(context).caption,
           ),
         ],
       ),
@@ -849,12 +803,10 @@ class _CompareCta extends StatelessWidget {
               child: Text(
                 label,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: SoriFonts.sans,
+                style: SoriTextTheme.of(context).label.copyWith(
                   fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: SoriColors.primaryDark, // #0E443B on #DCEEE8 → 9.9:1
                   height: 1.3,
+                  color: SoriColors.primaryDark, // #0E443B on #DCEEE8 → 9.9:1
                 ),
               ),
             ),
@@ -910,25 +862,14 @@ class _LevelCompareSheet extends StatelessWidget {
       children: [
         Text(
           t.onboardingCompareTitle,
-          style: const TextStyle(
-            fontFamily: SoriFonts.sans,
-            fontSize: 20,
-            fontWeight: FontWeight.w800,
-            color: SoriColors.lightText,
-            letterSpacing: -0.3,
-            height: 1.25,
-          ),
+          style: SoriTextTheme.of(context).h2,
         ),
         const SizedBox(height: Spacing.sm),
         Text(
           t.onboardingCompareIntro,
-          style: const TextStyle(
-            fontFamily: SoriFonts.sans,
-            fontSize: 13,
-            fontWeight: FontWeight.w500,
-            color: SoriColors.lightTextMuted,
-            height: 1.45,
-          ),
+          style: SoriTextTheme.of(
+            context,
+          ).caption.copyWith(fontSize: 13, height: 1.45),
         ),
         const SizedBox(height: Spacing.lg),
         for (final lvl in LearnerLevel.values) ...[
@@ -954,11 +895,8 @@ class _LevelCompareSheet extends StatelessWidget {
             style: TextButton.styleFrom(foregroundColor: SoriColors.primary),
             child: Text(
               t.onboardingCompareClose,
-              style: const TextStyle(
-                fontFamily: SoriFonts.sans,
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-              ),
+              style: SoriTextTheme.of(context).label
+                  .copyWith(fontSize: 14, color: SoriColors.primary),
             ),
           ),
         ),
@@ -1034,13 +972,10 @@ class _CompareRow extends StatelessWidget {
                           Expanded(
                             child: Text(
                               title,
-                              style: const TextStyle(
-                                fontFamily: SoriFonts.sans,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w800,
-                                color: SoriColors.lightText,
-                                height: 1.2,
-                              ),
+                              // §4.3: 카드 제목 w800 금지 → h3(w700).
+                              style: SoriTextTheme.of(
+                                context,
+                              ).h3.copyWith(fontSize: 15, height: 1.2),
                             ),
                           ),
                           _RankDots(rank: rank, color: color),
@@ -1086,12 +1021,11 @@ class _CompareLine extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          label.toUpperCase(),
-          style: TextStyle(
-            fontFamily: SoriFonts.sans,
+          // §4.3: 독일어 대문자 변환 금지 — 원문 케이스 유지.
+          label,
+          style: SoriTextTheme.of(context).label.copyWith(
             fontSize: 10.5,
-            fontWeight: FontWeight.w800,
-            color: accent ?? SoriColors.lightTextMuted,
+            color: accent ?? SoriSurfaces.of(context).textMuted,
             letterSpacing: 0.7,
             height: 1.2,
           ),
@@ -1099,13 +1033,9 @@ class _CompareLine extends StatelessWidget {
         const SizedBox(height: 2),
         Text(
           value,
-          style: const TextStyle(
-            fontFamily: SoriFonts.sans,
-            fontSize: 13,
-            fontWeight: FontWeight.w500,
-            color: SoriColors.lightText,
-            height: 1.4,
-          ),
+          style: SoriTextTheme.of(
+            context,
+          ).body.copyWith(fontSize: 13, height: 1.4),
         ),
       ],
     );
