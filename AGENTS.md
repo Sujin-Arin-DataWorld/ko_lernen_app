@@ -391,6 +391,16 @@ flutter run -d <android-id>   # 안드로이드
 - **부록 A 추가(씬 배경 프롬프트):** 기존 씬 규격 실측(`cafe/hotel.png` = 1086×1448, 3:4) + BIBLE §1 준거로 **7종 시나리오 배경(home·airport·taxi·convenience·clinic·office·station) 상세 프롬프트** 작성 — 공통 스타일 블록 + 씬별 LAYER 1/2/3 + PALETTE hex. **캐릭터·인물·글자 0**(순수 장소라 생성 자유), 중앙 비움·muted(0.08 백드롭). `home` 최우선(캐주얼 7개 해소).
 - **변경:** 문서 1개(`docs/ASSET_GAP_R6_CONFIRMED_2026-08-03.md`) 신규+갱신(부록 A 포함). 코드·에셋 무변경(tiger PNG 2장은 Jin이 추가). 검증 불요(순수 md). **커밋 미수행.**
 
+### 2026-08-03 (밤) — 디자인 계획 R2 홈 재편 구현 완료 (Cowork 클라우드 세션, R1에 이어)
+
+**Jin:** R1을 매트 리포트 확인과 함께 승인 후 속행 지시 → R2 §6.1 "12블록 → 5블록" 전체 구현. "커밋 메인·깃 최신 반영" 지시 → VM 네트워크 차단(프록시 403)으로 푸시 불가, 로컬 세션이 `339f64d..ccef6da` 푸시 완료.
+
+- **R2-a `45edfc4`** — `MissionHeroCard` 신규(§10.1): 진행 링 56dp + HanokLevelPalette 레벨 칩 + h3 2줄 + tiger filled CTA 52 + 스켈레톤/allDone(조이 축하). 추천 엔진 = 현재 코스 미션 > 진행 중 팩 > due 복습 ≥10 > 시나리오(**R-REC 레벨 가드 H-6**). 구 주 CTA + `_TodayScenarioCard`(170줄) 흡수 삭제. ARB `mission*` DE/EN — 복습 타이틀 **앱 첫 ICU plural**. 메타는 실데이터만(유닛별 분·XP 부재 → §10.1 예시 수치 미채택).
+- **R2-b `16adaf2`** — `PathPreviewRow` 신규(§10.2): 현재 ±1 = 3노드 + "Ganzer Pfad →", `SoriPathNodeDisc` 공개 래퍼로 도장 문법 재사용, 클립 정적(디코더 ≤1). 비현재 탭 = `/path`+노드 id 인자(R3 소비). 홈 임베드·`_SkillPathRail` 일가(177줄)·`_levelPath` 제거.
+- **R2-c `9c5209a`+`3705e42`** — 헤더 통합(블록 1): 스트릭 칩(탭=주간 시트) + 레벨 칩(탭=/stats) + 설정 48dp, `_StatChipRow` 일가(139줄)·C2 블록 삭제(시트로 이동). **발화 단일화(H-4)**: 서브카피·하드코딩 `_heroSubline` 삭제(번역 누수 −1), 밴드 168→160dp.
+- **R2-d `529c48e`** — 블록 5 0건 숨김(복습·오늘의 글자) + **Q2**: Tageskurs 전용 카드 ISO 주 1회(`Storage.courseCardWeekShown` 신설) + 히어로 배지(goldOnLight) 상시 진입점.
+- 게이트: gen-l10n 로컬 실행 확인 → `flutter analyze` 1건(unnecessary_null_comparison, path_preview_row:73) **즉시 수정**. 전체 테스트·실기기 잔여 — **green 전 +11 빌드 금지**, generated 3파일은 게이트 후 커밋.
+
 ### 2026-08-03 (밤) — 디자인 계획 R1 표면 수술 구현 완료 (Cowork 클라우드 세션)
 
 **Jin:** "R6는 됐으니 R1부터 R7까지 STEP BY STEP, 거짓·환각 없이 계획 100% 구현" 지시. 직전 결정("로컬 R1 단독")을 뒤집는 최신 지시로 클라우드가 구현 — 착수 전 로컬 세션의 R1 흔적 없음을 git으로 확인(HEAD 339f64d, card.dart 무변경). Flutter 게이트(analyze·test·실기기)는 로컬 몫.
