@@ -119,7 +119,11 @@ class SoriButton extends StatelessWidget {
 
     final (Color bg, Color fg, BoxBorder? border) = switch (variant) {
       SoriButtonVariant.filled => (
-        disabled ? s.surfaceAlt : color,
+        // §4.4-3: 비활성은 "죽은 회색 벽"이 아니라 저채도 한지톤 —
+        // surfaceAlt 채움 + 모티프 색 15% 알파로 색상 정체성을 남긴다.
+        disabled
+            ? Color.alphaBlend(color.withValues(alpha: 0.15), s.surfaceAlt)
+            : color,
         // 흰 글씨 고정 금지 — 밝은 채움(tiger/gold/warning)에선 먹색으로 자동 전환.
         disabled ? s.textDim    : SoriColors.onFill(color),
         fillEdge == null ? null : Border.all(color: fillEdge, width: 1.5),

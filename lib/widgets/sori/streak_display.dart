@@ -109,7 +109,7 @@ class _StreakDisplayState extends State<StreakDisplay>
             Text(t.streakDialogCurrent(widget.days)),
             Text(
               t.streakDialogLastActivity(_formatTime(widget.lastActivity)),
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+              style: TextStyle(fontSize: 12, color: SoriSurfaces.of(ctx).textMuted),
             ),
           ],
         ),
