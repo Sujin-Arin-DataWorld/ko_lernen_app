@@ -3,10 +3,14 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../models/course_mastery.dart';
 import '../auth_service.dart';
+import '../course_mastery_service.dart';
+import '../curriculum_catalog.dart';
 import '../pack_progress_service.dart';
 import '../vocab_pack_service.dart';
 import 'account_operation_client.dart';
+import 'account_reconciliation.dart';
 import 'account_transition_coordinator.dart';
 import 'account_transition_journal.dart';
 import 'cloud_backup_deletion.dart';
@@ -64,6 +68,19 @@ typedef AccountUiProviderLinker =
 
 typedef AccountUiPendingStateReader = Future<AccountUiPendingState> Function();
 
+@visibleForTesting
+typedef AccountUiCurriculumCatalogLoader = Future<CurriculumCatalog> Function();
+
+@visibleForTesting
+typedef AccountUiTargetReconciliationFactory =
+    AccountReconciliationCoordinator Function({
+      required VerifiedTargetContext target,
+      required CloudWriteSession sourceSession,
+      required CloudWriteSessionController sessions,
+      required AccountTransitionJournalStore journalStore,
+      required CourseMasteryReconciliationMerger courseMasteryMerger,
+    });
+
 /// Test seam for exercising the UI-owned replacement route without Firebase.
 ///
 /// Production always builds the coordinator-backed implementation below.
@@ -84,11 +101,17 @@ class ProductionAccountUiOperations
     this.providerLinker,
     @visibleForTesting this.pendingStateReader,
     @visibleForTesting this.replacementFlowFactory,
+    @visibleForTesting this.curriculumCatalogLoader,
+    @visibleForTesting this.targetReconciliationFactory,
+    @visibleForTesting this.replacementAccountOperations,
   });
 
   final AccountUiProviderLinker? providerLinker;
   final AccountUiPendingStateReader? pendingStateReader;
   final AccountUiReplacementFlowFactory? replacementFlowFactory;
+  final AccountUiCurriculumCatalogLoader? curriculumCatalogLoader;
+  final AccountUiTargetReconciliationFactory? targetReconciliationFactory;
+  final ReplacementAccountOperations? replacementAccountOperations;
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.loading);
@@ -249,16 +272,20 @@ class ProductionAccountUiOperations
   Future<AccountUiReplacementFlow> _createReplacementFlow() async {
     final factory = replacementFlowFactory;
     if (factory != null) return factory();
-    final bundle = await _createCoordinator();
+    final bundle = await createReplacementComposition();
     return _CoordinatorAccountUiReplacementFlow(bundle);
   }
 
-  Future<_AccountTransitionBundle> _createCoordinator() async {
+  @visibleForTesting
+  Future<AccountUiReplacementComposition> createReplacementComposition() async {
     final preferences = await SharedPreferences.getInstance();
     final journalStore = SharedPreferencesReplacementTransitionJournalStore(
       preferences,
     );
-    final packs = await VocabPackService.loadAll();
+    final packsFuture = VocabPackService.loadAll();
+    final courseMasteryMergerFuture = loadCourseMasteryMergerForTesting();
+    final packs = await packsFuture;
+    final courseMasteryMerger = await courseMasteryMergerFuture;
     final catalog = <String, PackCatalogEntry>{
       for (final pack in packs)
         pack.id: PackCatalogEntry(
@@ -273,7 +300,9 @@ class ProductionAccountUiOperations
       verifier: FirebaseIsolatedTargetVerifier(),
       // The authenticated source gateway must always come from this factory:
       // it force-refreshes and fences the anonymous source token.
-      operations: AuthService.replacementAccountOperations(),
+      operations:
+          replacementAccountOperations ??
+          AuthService.replacementAccountOperations(),
       journalStore: journalStore,
       createRequestKey: _newRequestKey,
       reconcile:
@@ -283,12 +312,21 @@ class ProductionAccountUiOperations
             required operationId,
             required catalog,
           }) {
-            final reconciliation = FirebaseTargetReconciliationFactory.create(
-              target: target,
-              sourceSession: session,
-              sessions: cloudWriteSessionController,
-              journalStore: journalStore,
-            );
+            final reconciliation = targetReconciliationFactory != null
+                ? targetReconciliationFactory!(
+                    target: target,
+                    sourceSession: session,
+                    sessions: cloudWriteSessionController,
+                    journalStore: journalStore,
+                    courseMasteryMerger: courseMasteryMerger,
+                  )
+                : FirebaseTargetReconciliationFactory.create(
+                    target: target,
+                    sourceSession: session,
+                    sessions: cloudWriteSessionController,
+                    journalStore: journalStore,
+                    courseMasteryMerger: courseMasteryMerger,
+                  );
             return reconciliation.reconcile(
               session: session,
               operationId: operationId,
@@ -296,7 +334,18 @@ class ProductionAccountUiOperations
             );
           },
     );
-    return _AccountTransitionBundle(coordinator: coordinator, catalog: catalog);
+    return AccountUiReplacementComposition(
+      coordinator: coordinator,
+      catalog: catalog,
+    );
+  }
+
+  @visibleForTesting
+  Future<CourseMasteryReconciliationMerger>
+  loadCourseMasteryMergerForTesting() async {
+    final curriculum =
+        await (curriculumCatalogLoader?.call() ?? CurriculumCatalog.load());
+    return CourseMasteryService(curriculum).mergeForReconciliation;
   }
 
   static String _newRequestKey() {
@@ -310,8 +359,9 @@ class ProductionAccountUiOperations
   }
 }
 
-class _AccountTransitionBundle {
-  const _AccountTransitionBundle({
+@visibleForTesting
+class AccountUiReplacementComposition {
+  const AccountUiReplacementComposition({
     required this.coordinator,
     required this.catalog,
   });
@@ -323,7 +373,7 @@ class _AccountTransitionBundle {
 class _CoordinatorAccountUiReplacementFlow implements AccountUiReplacementFlow {
   const _CoordinatorAccountUiReplacementFlow(this._bundle);
 
-  final _AccountTransitionBundle _bundle;
+  final AccountUiReplacementComposition _bundle;
 
   @override
   Future<bool> cancel() => _bundle.coordinator.cancel();

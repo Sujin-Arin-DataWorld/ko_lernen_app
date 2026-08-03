@@ -200,7 +200,7 @@ void main() {
         }),
       );
 
-      final backup = CloudSync.buildBackupPayload();
+      final backup = await CloudSync.buildBackupPayload();
       expect(backup['custom_packs_json'], isNot(contains('word:photo.jpg')));
       expect(backup['bookshelf_json'], isNot(contains('book:page.jpg')));
 
@@ -367,7 +367,7 @@ void main() {
     await Storage.setBookshelfRawJson('{broken');
     await Storage.setCustomPacksRawJson('[]');
 
-    final payload = CloudSync.buildBackupPayload();
+    final payload = await CloudSync.buildBackupPayload();
 
     expect(payload, isNot(contains('bookshelf_json')));
     expect(payload, isNot(contains('custom_packs_json')));

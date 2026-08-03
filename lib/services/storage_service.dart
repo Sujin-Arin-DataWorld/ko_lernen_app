@@ -295,6 +295,7 @@ class Storage {
     String key,
     String value, {
     PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
   }) async {
     final store =
         preferences ??
@@ -303,6 +304,7 @@ class Storage {
       throw PreferenceWriteException(key);
     }
     final before = await _prepareStringMutation(store, key);
+    assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
     try {
@@ -1180,7 +1182,14 @@ class Storage {
   static const String placementLevelPreferenceKey = 'kl_placement_level_v1';
   static const String browseLevelPreferenceKey = 'kl_browse_level_v1';
   static const String courseUnitPreferenceKey = 'kl_course_unit_v1';
-  static const String courseMasteryPreferenceKey = 'kl_course_mastery_v1';
+  static const String legacyCourseMasteryPreferenceKey = 'kl_course_mastery_v1';
+  static const String courseMasterySnapshotPreferenceKey =
+      'kl_course_mastery_v2';
+
+  /// Backward-compatible spelling for callers that already write the
+  /// canonical snapshot. The v1 key is migration input only.
+  static const String courseMasteryPreferenceKey =
+      courseMasterySnapshotPreferenceKey;
 
   static String? _optionalString(String key) {
     final value = _s(key).trim();
@@ -1193,6 +1202,12 @@ class Storage {
   static String? get placementLevelCode =>
       _optionalString(placementLevelPreferenceKey) ?? userLevelCode;
 
+  /// Explicit sequential-course placement only. Cloud reconciliation must use
+  /// this instead of [placementLevelCode], whose legacy user-level fallback is
+  /// library/account state rather than proof that a course has been started.
+  static String? get dedicatedCoursePlacementLevelCode =>
+      _optionalString(placementLevelPreferenceKey);
+
   /// The library filter never changes the actual course placement or legacy
   /// user level. It is deliberately independent from sequential progress.
   static String? get browseLevelCode =>
@@ -1202,10 +1217,18 @@ class Storage {
   /// level filter and from vocabulary-pack progress.
   static String? get courseUnitId => _optionalString(courseUnitPreferenceKey);
 
-  /// JSON owned by [CourseMasteryService]. Storage does not parse it so the
-  /// service can reject malformed or catalog-incompatible evidence strictly.
-  static String get courseMasteryRawJson =>
-      _courseMasteryCache ?? _s(courseMasteryPreferenceKey);
+  /// Canonical v2 JSON owned by [CourseMasteryService]. Storage does not parse
+  /// it so the service can reject malformed or catalog-incompatible evidence.
+  static String get courseMasterySnapshotRawJson =>
+      _courseMasteryCache ?? _s(courseMasterySnapshotPreferenceKey);
+
+  /// Retained as a read-only migration source. No production code writes it.
+  static String get legacyCourseMasteryRawJson =>
+      _s(legacyCourseMasteryPreferenceKey);
+
+  /// Compatibility alias for callers that previously read the single snapshot
+  /// value. It now returns only the canonical v2 state.
+  static String get courseMasteryRawJson => courseMasterySnapshotRawJson;
 
   static Future<void> setPlacementLevelCode(String code) async {
     final normalized = code.trim().toLowerCase();
@@ -1215,6 +1238,16 @@ class Storage {
     await _ss(placementLevelPreferenceKey, normalized);
     // Compatibility mirror only. Browse-level writes must not do this.
     await setUserLevelCode(normalized);
+  }
+
+  /// Reconciliation-only course mirror write. The root account/library level
+  /// has its own merge semantics and must not be overwritten by course restore.
+  static Future<void> setDedicatedCoursePlacementLevelCode(String code) async {
+    final normalized = code.trim().toLowerCase();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(code, 'code', 'must not be empty');
+    }
+    await _ss(placementLevelPreferenceKey, normalized);
   }
 
   static Future<void> setBrowseLevelCode(String code) async {
@@ -1233,14 +1266,38 @@ class Storage {
     await _ss(courseUnitPreferenceKey, normalized);
   }
 
+  /// Clears only the course placement mirror; the legacy library level stays
+  /// untouched because it has independent browse semantics.
+  static Future<void> clearPlacementLevelCode() =>
+      _removeStringStrict(placementLevelPreferenceKey);
+
+  /// Clears only the active-course mirror after a canonical snapshot records
+  /// that no mission is active.
+  static Future<void> clearCourseUnitId() =>
+      _removeStringStrict(courseUnitPreferenceKey);
+
+  static Future<void> setCourseMasterySnapshotRawJson(
+    String json, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) async {
+    // The cache changes only after strict storage confirms the requested value.
+    await _ssStrict(
+      courseMasterySnapshotPreferenceKey,
+      json,
+      preferences: preferences,
+      assertCurrentWrite: assertCurrentWrite,
+    );
+    _courseMasteryCache = json;
+  }
+
+  /// Compatibility writer for existing callers. It writes v2, never the
+  /// read-only v1 migration key.
   static Future<void> setCourseMasteryRawJson(
     String json, {
     PreferenceStringStore? preferences,
   }) async {
-    // Course unlock state must not get ahead of durable storage. The strict
-    // path also resolves a platform call that reported failure after commit.
-    await _ssStrict(courseMasteryPreferenceKey, json, preferences: preferences);
-    _courseMasteryCache = json;
+    await setCourseMasterySnapshotRawJson(json, preferences: preferences);
   }
 
   /// Test-only: forgets the in-memory mirror; mocked preferences remain the

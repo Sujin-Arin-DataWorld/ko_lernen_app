@@ -7,8 +7,12 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/book_image_service.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/gye_service.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   test('a stale prepared write cannot reach the irreversible action', () async {
     final sessions = CloudWriteSessionController();
     sessions.acquire('uid-a');
@@ -155,6 +159,66 @@ void main() {
     expect(await result, CloudWriteResult.stale);
     expect(writes, 0);
   });
+
+  test(
+    'stale CloudWriteSession stops before course restore persistence',
+    () async {
+      const local =
+          '{"version":2,"placementLevel":"a1",'
+          '"currentCourseUnitId":"a1_01_greetings_hangul",'
+          '"completedUnitIds":[],"bypassedPrerequisiteUnitIds":[],'
+          '"evidence":[],"scenarioCheckpoints":[]}';
+      SharedPreferences.setMockInitialValues({
+        Storage.courseMasterySnapshotPreferenceKey: local,
+      });
+      Storage.resetForTesting();
+      Storage.resetCourseMasteryForTesting();
+      await Storage.init();
+      final sessions = CloudWriteSessionController();
+      final stale = sessions.acquire('uid-a');
+      sessions.acquire('uid-b');
+      var sessionChecks = 0;
+      var generationReads = 0;
+      var courseMerges = 0;
+
+      await expectLater(
+        CloudSync.applyRestorePayload(
+          const {
+            'course_mastery_json':
+                '{"version":2,"placementLevel":"a1",'
+                '"currentCourseUnitId":"a1_01_greetings_hangul",'
+                '"completedUnitIds":[],"bypassedPrerequisiteUnitIds":[],'
+                '"evidence":[],"scenarioCheckpoints":[]}',
+          },
+          beforeWrite: () {
+            sessionChecks++;
+            sessions.assertCurrent(stale);
+          },
+          courseGenerationReader: () {
+            generationReads++;
+            return Storage.courseMasterySnapshotRawJson;
+          },
+          courseSnapshotMerger:
+              (
+                raw, {
+                required expectedGeneration,
+                beforeRead,
+                beforeWrite,
+              }) async {
+                courseMerges++;
+                beforeRead?.call();
+                beforeWrite?.call();
+              },
+        ),
+        throwsStateError,
+      );
+
+      expect(sessionChecks, 1);
+      expect(generationReads, 0);
+      expect(courseMerges, 0);
+      expect(Storage.courseMasterySnapshotRawJson, local);
+    },
+  );
 
   test('a stale media collection pass cannot garbage-collect', () async {
     final sessions = CloudWriteSessionController();

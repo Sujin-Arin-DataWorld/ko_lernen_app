@@ -1,10 +1,15 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/bookshelf_service.dart';
+import 'package:ko_lernen_app/services/course_mastery_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -37,6 +42,29 @@ Future<void> _initializeStorage([Map<String, Object> values = const {}]) async {
   Storage.resetForTesting();
   await Storage.init();
 }
+
+String _courseSnapshotJson({
+  String evidenceId = 'cloud-evidence',
+  bool isCorrect = true,
+  String currentCourseUnitId = 'a1_01_greetings_hangul',
+}) => jsonEncode(
+  CourseMasterySnapshot(
+    placementLevel: 'a1',
+    currentCourseUnitId: currentCourseUnitId,
+    evidence: [
+      MasteryEvidence(
+        id: evidenceId,
+        conceptId: 'concept_greeting_politeness',
+        contentKind: CurriculumContentKind.scenario,
+        contentId: 'airport_arrival',
+        courseUnitId: 'a1_01_greetings_hangul',
+        isCorrect: isCorrect,
+        occurredAt: DateTime.utc(2026, 8, 3, 9),
+        courseEligible: true,
+      ),
+    ],
+  ).toJson(),
+);
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -328,9 +356,12 @@ void main() {
         'kl_srs_v1': '{"srs":1}',
         'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
         'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
+        Storage.courseMasterySnapshotPreferenceKey: _courseSnapshotJson(),
+        Storage.browseLevelPreferenceKey: 'b2',
       });
 
-      expect(CloudSync.buildBackupPayload(), {
+      final payload = await CloudSync.buildBackupPayload();
+      expect(payload, {
         'vok': {
           'correct': 11,
           'wrong': 12,
@@ -357,7 +388,135 @@ void main() {
         },
         'srs_json': '{"srs":1}',
         'custom_packs_json': '{"pack1":{"name":"Pack 1"}}',
+        'course_mastery_json': _courseSnapshotJson(),
       });
+      expect(
+        jsonDecode(payload['course_mastery_json'] as String)['version'],
+        2,
+      );
+      expect(payload, isNot(contains('browse_level')));
+    },
+  );
+
+  test('backup omits non-canonical course snapshots', () async {
+    final malformedCheckpoint =
+        jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>;
+    malformedCheckpoint['scenarioCheckpoints'] = <Map<String, dynamic>>[
+      <String, dynamic>{
+        'id': 'bad-checkpoint',
+        'scenarioId': 'airport_arrival',
+        'courseUnitId': 'a1_01_greetings_hangul',
+        'score': 'bad',
+        'occurredAt': '2026-08-03T09:00:00.000Z',
+        'courseEligible': true,
+      },
+    ];
+    for (final raw in <String>[
+      'not-json',
+      '{"version":3}',
+      '{"version":1}',
+      jsonEncode(malformedCheckpoint),
+    ]) {
+      await _initializeStorage({
+        Storage.courseMasterySnapshotPreferenceKey: raw,
+      });
+
+      expect(
+        await CloudSync.buildBackupPayload(),
+        isNot(contains('course_mastery_json')),
+      );
+    }
+  });
+
+  test(
+    'backup migrates retained v1 course state before emitting canonical v2',
+    () async {
+      final legacy = jsonEncode({
+        ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
+        'version': 1,
+      });
+      await _initializeStorage({
+        Storage.legacyCourseMasteryPreferenceKey: legacy,
+        Storage.browseLevelPreferenceKey: 'b2',
+        'kl_user_level': 'a2',
+      });
+
+      final payload = await CloudSync.buildBackupPayload();
+
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":2'));
+      expect(Storage.legacyCourseMasteryRawJson, legacy);
+      expect(Storage.browseLevelCode, 'b2');
+      expect(Storage.userLevelCode, 'a2');
+      expect(payload['course_mastery_json'], isA<String>());
+      expect(
+        jsonDecode(payload['course_mastery_json'] as String)['version'],
+        2,
+      );
+    },
+  );
+
+  test(
+    'backup migrates dedicated scalar course state without using browse or user level',
+    () async {
+      await _initializeStorage({
+        Storage.placementLevelPreferenceKey: 'a1',
+        Storage.courseUnitPreferenceKey: 'a1_01_greetings_hangul',
+        Storage.browseLevelPreferenceKey: 'b2',
+        'kl_user_level': 'a2',
+      });
+
+      final payload = await CloudSync.buildBackupPayload();
+
+      final canonical =
+          jsonDecode(Storage.courseMasterySnapshotRawJson)
+              as Map<String, dynamic>;
+      expect(canonical['version'], 2);
+      expect(canonical['placementLevel'], 'a1');
+      expect(canonical['currentCourseUnitId'], 'a1_01_greetings_hangul');
+      expect(Storage.browseLevelCode, 'b2');
+      expect(Storage.userLevelCode, 'a2');
+      expect(
+        payload['course_mastery_json'],
+        Storage.courseMasterySnapshotRawJson,
+      );
+    },
+  );
+
+  test(
+    'backup omits invalid local course inputs without overwriting course or browse state',
+    () async {
+      const malformedLegacy = '{not-json';
+      await _initializeStorage({
+        Storage.legacyCourseMasteryPreferenceKey: malformedLegacy,
+        Storage.placementLevelPreferenceKey: 'a1',
+        Storage.courseUnitPreferenceKey: 'a1_01_greetings_hangul',
+        Storage.browseLevelPreferenceKey: 'b2',
+        'kl_user_level': 'a2',
+      });
+
+      final malformedPayload = await CloudSync.buildBackupPayload();
+
+      expect(malformedPayload, isNot(contains('course_mastery_json')));
+      expect(Storage.courseMasterySnapshotRawJson, isEmpty);
+      expect(Storage.legacyCourseMasteryRawJson, malformedLegacy);
+      expect(Storage.dedicatedCoursePlacementLevelCode, 'a1');
+      expect(Storage.courseUnitId, 'a1_01_greetings_hangul');
+      expect(Storage.browseLevelCode, 'b2');
+      expect(Storage.userLevelCode, 'a2');
+
+      final invalidV2 = _courseSnapshotJson(
+        currentCourseUnitId: 'unknown-course-unit',
+      );
+      await _initializeStorage({
+        Storage.courseMasterySnapshotPreferenceKey: invalidV2,
+        Storage.browseLevelPreferenceKey: 'b2',
+      });
+
+      final invalidPayload = await CloudSync.buildBackupPayload();
+
+      expect(invalidPayload, isNot(contains('course_mastery_json')));
+      expect(Storage.courseMasterySnapshotRawJson, invalidV2);
+      expect(Storage.browseLevelCode, 'b2');
     },
   );
 
@@ -484,8 +643,9 @@ void main() {
       'kl_srs_v1': '{"srs":1}',
       'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
       'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
+      Storage.courseMasterySnapshotPreferenceKey: _courseSnapshotJson(),
     });
-    final backup = CloudSync.buildBackupPayload();
+    final backup = await CloudSync.buildBackupPayload();
 
     await _initializeStorage();
     await CloudSync.applyRestorePayload(backup);
@@ -513,7 +673,155 @@ void main() {
     expect(Storage.srsRawJson, '{"srs":1}');
     expect(Storage.customPacksRawJson, '{"pack1":{"name":"Pack 1"}}');
     expect(Storage.bookshelfRawJson, isEmpty);
+    Storage.resetCourseMasteryForTesting();
+    final restored = await CourseMasteryService(
+      await CurriculumCatalog.load(),
+    ).refresh();
+    expect(restored.placementLevel, 'a1');
+    expect(restored.currentCourseUnitId, 'a1_01_greetings_hangul');
+    expect(restored.evidence.single.id, 'cloud-evidence');
   });
+
+  test(
+    'course restore additively preserves local and remote evidence',
+    () async {
+      await Storage.setCourseMasterySnapshotRawJson(
+        _courseSnapshotJson(evidenceId: 'local-evidence'),
+      );
+
+      await CloudSync.applyRestorePayload({
+        'course_mastery_json': _courseSnapshotJson(
+          evidenceId: 'remote-evidence',
+        ),
+      });
+
+      Storage.resetCourseMasteryForTesting();
+      final restored = await CourseMasteryService(
+        await CurriculumCatalog.load(),
+      ).refresh();
+      expect(
+        restored.evidence.map((item) => item.id),
+        containsAll(<String>['local-evidence', 'remote-evidence']),
+      );
+    },
+  );
+
+  test(
+    'invalid remote course JSON never clobbers local canonical bytes',
+    () async {
+      final local = _courseSnapshotJson(evidenceId: 'local-evidence');
+      final future = jsonEncode({
+        ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
+        'version': 3,
+      });
+      final unknownUnit = _courseSnapshotJson(
+        currentCourseUnitId: 'unknown-course-unit',
+      );
+      final conflicting = _courseSnapshotJson(
+        evidenceId: 'local-evidence',
+        isCorrect: false,
+      );
+
+      for (final remote in <String>[
+        'not-json',
+        future,
+        unknownUnit,
+        conflicting,
+      ]) {
+        await Storage.setCourseMasterySnapshotRawJson(local);
+        final before = Storage.courseMasterySnapshotRawJson;
+
+        await expectLater(
+          CloudSync.applyRestorePayload({'course_mastery_json': remote}),
+          throwsA(isA<FormatException>()),
+        );
+        expect(Storage.courseMasterySnapshotRawJson, before);
+      }
+    },
+  );
+
+  test(
+    'invalid remote course JSON leaves an empty canonical store untouched',
+    () async {
+      final duplicateIdentity =
+          jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>;
+      duplicateIdentity['evidence'] = <Map<String, dynamic>>[
+        ...((duplicateIdentity['evidence'] as List<dynamic>)
+            .cast<Map<String, dynamic>>()),
+        <String, dynamic>{
+          ...((duplicateIdentity['evidence'] as List<dynamic>).single
+              as Map<String, dynamic>),
+          'isCorrect': false,
+        },
+      ];
+
+      for (final remote in <String>[
+        _courseSnapshotJson(currentCourseUnitId: 'unknown-course-unit'),
+        jsonEncode(duplicateIdentity),
+      ]) {
+        await _initializeStorage();
+        expect(Storage.courseMasterySnapshotRawJson, isEmpty);
+
+        await expectLater(
+          CloudSync.applyRestorePayload({'course_mastery_json': remote}),
+          throwsA(isA<FormatException>()),
+        );
+        expect(Storage.courseMasterySnapshotRawJson, isEmpty);
+      }
+    },
+  );
+
+  test(
+    'dedicated local course placement is preserved without canonical synthesis',
+    () async {
+      await _initializeStorage({Storage.placementLevelPreferenceKey: 'a2'});
+
+      await expectLater(
+        CloudSync.applyRestorePayload({
+          'course_mastery_json': _courseSnapshotJson(),
+        }),
+        throwsA(isA<FormatException>()),
+      );
+
+      expect(Storage.courseMasterySnapshotRawJson, isEmpty);
+      expect(Storage.placementLevelCode, 'a2');
+    },
+  );
+
+  test(
+    'retained v1 course history participates in normal cloud merge',
+    () async {
+      final legacy =
+          jsonDecode(_courseSnapshotJson(evidenceId: 'legacy-evidence'))
+              as Map<String, dynamic>;
+      legacy['version'] = 1;
+      (legacy['evidence'] as List<dynamic>).single.remove('id');
+      final legacyRaw = jsonEncode(legacy);
+      await _initializeStorage({
+        Storage.legacyCourseMasteryPreferenceKey: legacyRaw,
+        'kl_user_level': 'b2',
+      });
+
+      await CloudSync.applyRestorePayload({
+        'course_mastery_json': _courseSnapshotJson(
+          evidenceId: 'remote-evidence',
+        ),
+      });
+
+      Storage.resetCourseMasteryForTesting();
+      final restored = await CourseMasteryService(
+        await CurriculumCatalog.load(),
+      ).refresh();
+      expect(restored.placementLevel, 'a1');
+      expect(restored.evidence, hasLength(2));
+      expect(
+        restored.evidence.map((item) => item.id),
+        contains('remote-evidence'),
+      );
+      expect(Storage.legacyCourseMasteryRawJson, legacyRaw);
+      expect(Storage.userLevelCode, 'b2');
+    },
+  );
 
   test(
     'root backup round-trips custom packs but not canonical bookshelf data',
@@ -531,7 +839,7 @@ void main() {
         customPackId: pack.id,
       );
       await BookshelfService.save(page);
-      final backup = CloudSync.buildBackupPayload();
+      final backup = await CloudSync.buildBackupPayload();
 
       await _initializeStorage();
       await CloudSync.applyRestorePayload(backup);

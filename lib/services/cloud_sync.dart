@@ -9,6 +9,7 @@ import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'bookshelf_service.dart';
 import 'cloud_sync_service.dart';
+import 'course_progress_service.dart';
 import 'firestore_progress_service.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
@@ -38,6 +39,7 @@ class CloudSync {
     'srs_json',
     'custom_packs_json',
     'bookshelf_json',
+    'course_mastery_json',
   };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
   static Future<CloudRestoreResult> Function()? _restoreWithResultForTesting;
@@ -50,7 +52,11 @@ class CloudSync {
   }
 
   /// Reines Backup-Payload (ohne Firestore-I/O, ohne `updated_at`) — testbar.
-  static Map<String, dynamic> buildBackupPayload() {
+  /// A course snapshot is included only after the serialized capture path has
+  /// catalog-validated canonical v2 state (and completed any safe migration).
+  static Future<Map<String, dynamic>> buildBackupPayload({
+    CourseMasteryLocalCapture? courseMasteryCapture,
+  }) async {
     final payload = <String, dynamic>{
       'vok': {
         'correct': Storage.vokCorrect,
@@ -94,6 +100,11 @@ class CloudSync {
     if (customPacks != null) {
       payload['custom_packs_json'] = customPacks;
     }
+    final courseCapture =
+        courseMasteryCapture ?? await _captureCourseMasteryForBackup();
+    if (courseCapture?.snapshot case final courseMastery?) {
+      payload['course_mastery_json'] = jsonEncode(courseMastery.toJson());
+    }
     return payload;
   }
 
@@ -124,7 +135,7 @@ class CloudSync {
       uid: uid,
       prepare: () async {
         ref = _db.collection('users').doc(uid);
-        payload = buildBackupPayload()
+        payload = (await buildBackupPayload())
           ..['updated_at'] = FieldValue.serverTimestamp()
           ..['sync_revision'] = FieldValue.increment(1)
           ..['reconciliation_operation_id'] = FieldValue.delete()
@@ -150,8 +161,21 @@ class CloudSync {
   static Future<void> applyRestorePayload(
     Map<String, dynamic> data, {
     void Function()? beforeWrite,
+    String Function()? courseGenerationReader,
+    Future<void> Function(
+      String raw, {
+      required String? expectedGeneration,
+      void Function()? beforeRead,
+      void Function()? beforeWrite,
+    })?
+    courseSnapshotMerger,
   }) {
-    return _applyRestorePayload(data, beforeWrite: beforeWrite);
+    return _applyRestorePayload(
+      data,
+      beforeWrite: beforeWrite,
+      courseGenerationReader: courseGenerationReader,
+      courseSnapshotMerger: courseSnapshotMerger,
+    );
   }
 
   static Future<void> applyReconciledRestorePayload(
@@ -195,6 +219,14 @@ class CloudSync {
     void Function(String restoredJson)? validateLegacyBookshelfRestore,
     Future<void> Function(String restoredJson)?
     onValidatedLegacyBookshelfRestored,
+    String Function()? courseGenerationReader,
+    Future<void> Function(
+      String raw, {
+      required String? expectedGeneration,
+      void Function()? beforeRead,
+      void Function()? beforeWrite,
+    })?
+    courseSnapshotMerger,
   }) async {
     final vok = _map(data['vok']);
     final vocabularyWasUninitialized =
@@ -411,6 +443,35 @@ class CloudSync {
       validateLegacyBookshelfRestore?.call(bookshelfJson);
       await onValidatedLegacyBookshelfRestored(bookshelfJson);
     }
+
+    if (data.containsKey('course_mastery_json')) {
+      final rawCourseMastery = data['course_mastery_json'];
+      if (rawCourseMastery is! String || rawCourseMastery.trim().isEmpty) {
+        throw const FormatException(
+          'Course mastery cloud data must be nonempty JSON.',
+        );
+      }
+      beforeWrite?.call();
+      final generation =
+          (courseGenerationReader ??
+          () => Storage.courseMasterySnapshotRawJson)();
+      final merger = courseSnapshotMerger;
+      if (merger != null) {
+        await merger(
+          rawCourseMastery,
+          expectedGeneration: generation.isEmpty ? null : generation,
+          beforeRead: beforeWrite,
+          beforeWrite: beforeWrite,
+        );
+      } else {
+        await CourseProgressService.shared.mergeCloudSnapshotJson(
+          rawCourseMastery,
+          expectedGeneration: generation.isEmpty ? null : generation,
+          beforeRead: beforeWrite,
+          beforeWrite: beforeWrite,
+        );
+      }
+    }
   }
 
   static Map<dynamic, dynamic> _map(Object? value) {
@@ -466,6 +527,18 @@ class CloudSync {
       final decoded = jsonDecode(json);
       return hasExpectedShape(decoded) ? json : null;
     } on FormatException {
+      return null;
+    }
+  }
+
+  static Future<CourseMasteryLocalCapture?>
+  _captureCourseMasteryForBackup() async {
+    try {
+      return await CourseProgressService.shared.captureForCloudReconciliation();
+    } catch (_) {
+      // Course data is optional in the root payload. A malformed, unsupported,
+      // catalog-invalid, or unpersistable local course state must not be sent
+      // and must not prevent non-course backup fields from remaining durable.
       return null;
     }
   }

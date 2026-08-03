@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
+import 'account/reconciliation_errors.dart';
 import 'curriculum_catalog.dart';
 import 'storage_service.dart';
 
@@ -37,7 +38,7 @@ class CourseUpdate {
 /// style and scenario checkpoints. It never writes vocabulary SRS or pack
 /// progress; those systems retain their existing semantics.
 class CourseMasteryService {
-  CourseMasteryService(this.catalog);
+  CourseMasteryService(this.catalog, {this.snapshotPreferences});
 
   /// Retain enough detail for local remediation while preventing unbounded
   /// SharedPreferences growth. When trimming, unresolved corrections and
@@ -45,6 +46,7 @@ class CourseMasteryService {
   static const int evidenceCap = 300;
 
   final CurriculumCatalog catalog;
+  final PreferenceStringStore? snapshotPreferences;
   CourseMasterySnapshot _snapshot = const CourseMasterySnapshot.empty();
   bool _loaded = false;
 
@@ -52,6 +54,128 @@ class CourseMasteryService {
   CourseUnit? get currentUnit => _snapshot.currentCourseUnitId == null
       ? null
       : catalog.courseUnitFor(_snapshot.currentCourseUnitId!);
+
+  /// Combines two catalog-compatible snapshots without favoring either side.
+  /// Stable identity collisions and progression contradictions fail closed as
+  /// sorted typed conflicts; a successful result is canonical and bounded.
+  CourseMasteryMergeResult mergeForReconciliation({
+    required CourseMasterySnapshot? local,
+    required CourseMasterySnapshot? remote,
+  }) {
+    final conflicts = <CourseMasteryMergeConflict>[];
+    if (catalog.validationIssues.isNotEmpty) {
+      for (final issue in catalog.validationIssues) {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.progression,
+            id: 'catalog:$issue',
+          ),
+        );
+      }
+      return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
+    }
+
+    if (local != null) _collectSnapshotConflicts(local, conflicts);
+    if (remote != null) _collectSnapshotConflicts(remote, conflicts);
+
+    final localPlacement = _normalizedPlacement(local?.placementLevel);
+    final remotePlacement = _normalizedPlacement(remote?.placementLevel);
+    if (localPlacement != null &&
+        remotePlacement != null &&
+        localPlacement != remotePlacement) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.placement,
+          id: 'placementLevel',
+        ),
+      );
+    }
+
+    final evidence = _mergeIdentityHistory<MasteryEvidence>(
+      local?.evidence ?? const [],
+      remote?.evidence ?? const [],
+      kind: CourseMasteryMergeConflictKind.evidence,
+      idOf: (entry) => entry.id,
+      bodyOf: (entry) => jsonEncode(entry.toJson()),
+      conflicts: conflicts,
+    );
+    final checkpoints = _mergeIdentityHistory<ScenarioCheckpointEvidence>(
+      local?.scenarioCheckpoints ?? const [],
+      remote?.scenarioCheckpoints ?? const [],
+      kind: CourseMasteryMergeConflictKind.checkpoint,
+      idOf: (entry) => entry.id,
+      bodyOf: (entry) => jsonEncode(entry.toJson()),
+      conflicts: conflicts,
+    );
+
+    final completed = <String>{
+      ...?local?.completedUnitIds,
+      ...?remote?.completedUnitIds,
+    };
+    final bypassed = <String>{
+      ...?local?.bypassedPrerequisiteUnitIds,
+      ...?remote?.bypassedPrerequisiteUnitIds,
+    };
+    for (final id in completed.intersection(bypassed)) {
+      conflicts.add(
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.progression,
+          id: id,
+        ),
+      );
+    }
+    if (conflicts.isNotEmpty) {
+      return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
+    }
+
+    final completedIds = completed.toList()..sort(_compareUnitIds);
+    final bypassedIds = bypassed.toList()..sort(_compareUnitIds);
+    final resolved = <String>{...completedIds, ...bypassedIds};
+    final placement = localPlacement ?? remotePlacement;
+    final courseStarted =
+        _hasSequentialCourseState(local) || _hasSequentialCourseState(remote);
+    final current = courseStarted
+        ? _orderedUnits
+              .where(
+                (unit) =>
+                    !resolved.contains(unit.id) &&
+                    (placement == null ||
+                        _levelRank(unit.level) >= _levelRank(placement)) &&
+                    unit.prerequisiteUnitIds.every(resolved.contains),
+              )
+              .cast<CourseUnit?>()
+              .firstWhere((unit) => unit != null, orElse: () => null)
+        : null;
+
+    evidence.sort(_compareEvidence);
+    checkpoints.sort(_compareCheckpoints);
+    var merged = CourseMasterySnapshot(
+      placementLevel: placement,
+      currentCourseUnitId: current?.id,
+      completedUnitIds: completedIds,
+      bypassedPrerequisiteUnitIds: bypassedIds,
+      evidence: evidence,
+      scenarioCheckpoints: checkpoints,
+    );
+    merged = merged.copyWith(
+      evidence: _boundedEvidenceFor(merged.evidence, current),
+      scenarioCheckpoints: _boundedCheckpointsFor(
+        merged.scenarioCheckpoints,
+        current,
+      ),
+    );
+    try {
+      _validateSnapshot(merged);
+    } on FormatException {
+      return const CourseMasteryMergeResult.conflicted([
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.progression,
+          id: 'mergedSnapshot',
+        ),
+      ]);
+    }
+    return CourseMasteryMergeResult.merged(merged);
+  }
 
   /// Starts the sequential path at the first unit of a chosen CEFR level.
   /// Earlier units are explicitly listed as bypassed prerequisites; they are
@@ -88,7 +212,10 @@ class CourseMasteryService {
   /// evidence is rejected before it can be aggregated into mastery/unlocks.
   Future<CourseMasterySnapshot> refresh() async {
     _ensureCatalogUsable();
-    final raw = Storage.courseMasteryRawJson.trim();
+    final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
+    final raw = canonicalRaw.isNotEmpty
+        ? canonicalRaw
+        : Storage.legacyCourseMasteryRawJson.trim();
     if (raw.isEmpty) {
       _snapshot = CourseMasterySnapshot(
         placementLevel: Storage.placementLevelCode,
@@ -96,16 +223,124 @@ class CourseMasteryService {
       );
       _validateSnapshot(_snapshot);
       _loaded = true;
+      await _persist();
       return _snapshot;
     }
     final decoded = jsonDecode(raw);
     if (decoded is! Map) {
       throw const FormatException('Course mastery storage must be an object.');
     }
-    _snapshot = CourseMasterySnapshot.fromJson(
-      decoded.map((key, value) => MapEntry(key.toString(), value)),
+    final snapshotJson = decoded.map(
+      (key, value) => MapEntry(key.toString(), value),
     );
+    _snapshot = CourseMasterySnapshot.decodeAndMigrate(snapshotJson);
     _validateSnapshot(_snapshot);
+    _loaded = true;
+    if (canonicalRaw.isEmpty ||
+        CourseMasterySnapshot.sourceVersionFor(snapshotJson) !=
+            CourseMasterySnapshot.currentVersion) {
+      await _persist();
+    }
+    return _snapshot;
+  }
+
+  /// Reads only durable state that belongs to the sequential course without
+  /// migrating, synthesizing, or persisting a canonical snapshot. In
+  /// particular, the unrelated legacy user-level fallback is not course state.
+  CourseMasterySnapshot? readForReconciliation() {
+    _ensureCatalogUsable();
+    final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
+    final legacyRaw = Storage.legacyCourseMasteryRawJson.trim();
+    final raw = canonicalRaw.isNotEmpty ? canonicalRaw : legacyRaw;
+    if (raw.isNotEmpty) {
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map) {
+        throw const FormatException(
+          'Course mastery storage must be an object.',
+        );
+      }
+      final snapshot = CourseMasterySnapshot.decodeAndMigrate(
+        decoded.map((key, value) => MapEntry(key.toString(), value)),
+      );
+      _validateSnapshot(snapshot);
+      return snapshot;
+    }
+
+    final placement = Storage.dedicatedCoursePlacementLevelCode;
+    final currentUnit = Storage.courseUnitId;
+    if (placement == null && currentUnit == null) return null;
+    final snapshot = CourseMasterySnapshot(
+      placementLevel: placement,
+      currentCourseUnitId: currentUnit,
+    );
+    _validateSnapshot(snapshot);
+    return snapshot;
+  }
+
+  /// Produces the only course state eligible to leave this device. Existing
+  /// canonical v2 bytes are catalog-validated without mutation. When v2 is
+  /// absent, a retained v1 record or dedicated course mirrors are migrated
+  /// through canonical-first persistence before the caller can serialize
+  /// them. Browse and legacy account-level state are never inputs here.
+  Future<CourseMasterySnapshot?> migrateForCloudCapture() async {
+    _ensureCatalogUsable();
+    final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
+    if (canonicalRaw.isNotEmpty) {
+      final snapshotJson = _decodeStoredSnapshotJson(canonicalRaw);
+      if (CourseMasterySnapshot.sourceVersionFor(snapshotJson) !=
+          CourseMasterySnapshot.currentVersion) {
+        throw const FormatException(
+          'Canonical course mastery storage must use schema version 2.',
+        );
+      }
+      final snapshot = CourseMasterySnapshot.decodeAndMigrate(snapshotJson);
+      _validateSnapshot(snapshot);
+      return snapshot;
+    }
+
+    final legacyRaw = Storage.legacyCourseMasteryRawJson.trim();
+    final CourseMasterySnapshot snapshot;
+    if (legacyRaw.isNotEmpty) {
+      snapshot = CourseMasterySnapshot.decodeAndMigrate(
+        _decodeStoredSnapshotJson(legacyRaw),
+      );
+    } else {
+      final placement = Storage.dedicatedCoursePlacementLevelCode;
+      final currentUnit = Storage.courseUnitId;
+      if (placement == null && currentUnit == null) return null;
+      snapshot = CourseMasterySnapshot(
+        placementLevel: placement,
+        currentCourseUnitId: currentUnit,
+      );
+    }
+
+    _validateSnapshot(snapshot);
+    await _persistSnapshot(snapshot, mirrorLegacyUserLevel: false);
+    _snapshot = snapshot;
+    _loaded = true;
+    return snapshot;
+  }
+
+  /// Installs a validated snapshot produced by a later reconciliation layer.
+  /// The optional generation is an optimistic raw-snapshot fence: callers that
+  /// supply one cannot replace a newer local canonical value accidentally.
+  Future<CourseMasterySnapshot> applyReconciledSnapshot(
+    CourseMasterySnapshot snapshot, {
+    required String? expectedGeneration,
+    void Function()? assertCurrentWrite,
+  }) async {
+    _ensureCatalogUsable();
+    if (expectedGeneration != null &&
+        Storage.courseMasterySnapshotRawJson != expectedGeneration) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+    _validateSnapshot(snapshot);
+    await _persistSnapshot(
+      snapshot,
+      mirrorLegacyUserLevel: false,
+      assertCurrentWrite: assertCurrentWrite,
+    );
+    _snapshot = snapshot;
     _loaded = true;
     return _snapshot;
   }
@@ -491,7 +726,13 @@ class CourseMasteryService {
   }
 
   List<MasteryEvidence> _boundedEvidence(List<MasteryEvidence> entries) {
-    final active = currentUnit;
+    return _boundedEvidenceFor(entries, currentUnit);
+  }
+
+  List<MasteryEvidence> _boundedEvidenceFor(
+    List<MasteryEvidence> entries,
+    CourseUnit? active,
+  ) {
     final unresolved = _pendingRemediationsFor(entries).values.toSet();
     return _boundedByPriority(
       entries,
@@ -507,7 +748,13 @@ class CourseMasteryService {
   List<ScenarioCheckpointEvidence> _boundedCheckpoints(
     List<ScenarioCheckpointEvidence> entries,
   ) {
-    final active = currentUnit;
+    return _boundedCheckpointsFor(entries, currentUnit);
+  }
+
+  List<ScenarioCheckpointEvidence> _boundedCheckpointsFor(
+    List<ScenarioCheckpointEvidence> entries,
+    CourseUnit? active,
+  ) {
     if (active == null || active.checkpointContentIds.isEmpty) {
       return _boundedByPriority(entries, (_) => false);
     }
@@ -556,16 +803,43 @@ class CourseMasteryService {
     return List.unmodifiable([for (final index in ordered) entries[index]]);
   }
 
-  Future<void> _persist() async {
+  Future<void> _persist({
+    bool mirrorLegacyUserLevel = true,
+    void Function()? assertCurrentWrite,
+  }) => _persistSnapshot(
+    _snapshot,
+    mirrorLegacyUserLevel: mirrorLegacyUserLevel,
+    assertCurrentWrite: assertCurrentWrite,
+  );
+
+  Future<void> _persistSnapshot(
+    CourseMasterySnapshot snapshot, {
+    required bool mirrorLegacyUserLevel,
+    void Function()? assertCurrentWrite,
+  }) async {
     _ensureCatalogUsable();
-    _validateSnapshot(_snapshot);
-    if (_snapshot.placementLevel != null) {
-      await Storage.setPlacementLevelCode(_snapshot.placementLevel!);
+    _validateSnapshot(snapshot);
+    await Storage.setCourseMasterySnapshotRawJson(
+      jsonEncode(snapshot.toJson()),
+      preferences: snapshotPreferences,
+      assertCurrentWrite: assertCurrentWrite,
+    );
+    if (snapshot.placementLevel != null) {
+      if (mirrorLegacyUserLevel) {
+        await Storage.setPlacementLevelCode(snapshot.placementLevel!);
+      } else {
+        await Storage.setDedicatedCoursePlacementLevelCode(
+          snapshot.placementLevel!,
+        );
+      }
+    } else {
+      await Storage.clearPlacementLevelCode();
     }
-    if (_snapshot.currentCourseUnitId != null) {
-      await Storage.setCourseUnitId(_snapshot.currentCourseUnitId!);
+    if (snapshot.currentCourseUnitId != null) {
+      await Storage.setCourseUnitId(snapshot.currentCourseUnitId!);
+    } else {
+      await Storage.clearCourseUnitId();
     }
-    await Storage.setCourseMasteryRawJson(jsonEncode(_snapshot.toJson()));
   }
 
   void _ensureCatalogUsable() {
@@ -575,6 +849,14 @@ class CourseMasteryService {
         '${catalog.validationIssues.join('; ')}',
       );
     }
+  }
+
+  Map<String, dynamic> _decodeStoredSnapshotJson(String raw) {
+    final decoded = jsonDecode(raw);
+    if (decoded is! Map) {
+      throw const FormatException('Course mastery storage must be an object.');
+    }
+    return decoded.map((key, value) => MapEntry(key.toString(), value));
   }
 
   void _validateSnapshot(CourseMasterySnapshot snapshot) {
@@ -811,5 +1093,187 @@ class CourseMasteryService {
     final leftIndex = _orderedUnits.indexWhere((unit) => unit.id == left);
     final rightIndex = _orderedUnits.indexWhere((unit) => unit.id == right);
     return leftIndex.compareTo(rightIndex);
+  }
+
+  void _collectSnapshotConflicts(
+    CourseMasterySnapshot snapshot,
+    List<CourseMasteryMergeConflict> conflicts,
+  ) {
+    if (snapshot.version != CourseMasterySnapshot.currentVersion) {
+      conflicts.add(
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.version,
+          id: snapshot.version.toString(),
+        ),
+      );
+    }
+
+    var placementValid = true;
+    if (snapshot.placementLevel != null) {
+      try {
+        _normalizeLevel(snapshot.placementLevel!);
+      } on FormatException {
+        placementValid = false;
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.placement,
+            id: snapshot.placementLevel!,
+          ),
+        );
+      }
+    }
+
+    var progressionReferencesValid = true;
+    final currentId = snapshot.currentCourseUnitId;
+    if (currentId != null && catalog.courseUnitFor(currentId) == null) {
+      progressionReferencesValid = false;
+      conflicts.add(
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.progression,
+          id: currentId,
+        ),
+      );
+    }
+    progressionReferencesValid =
+        _collectUnitListConflicts(snapshot.completedUnitIds, conflicts) &&
+        progressionReferencesValid;
+    progressionReferencesValid =
+        _collectUnitListConflicts(
+          snapshot.bypassedPrerequisiteUnitIds,
+          conflicts,
+        ) &&
+        progressionReferencesValid;
+    final overlap = snapshot.completedUnitIds.toSet().intersection(
+      snapshot.bypassedPrerequisiteUnitIds.toSet(),
+    );
+    for (final id in overlap) {
+      conflicts.add(
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.progression,
+          id: id,
+        ),
+      );
+    }
+    if (progressionReferencesValid && placementValid && overlap.isEmpty) {
+      try {
+        _validateProgressionCoherence(snapshot);
+      } on FormatException {
+        conflicts.add(
+          const CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.progression,
+            id: 'snapshot',
+          ),
+        );
+      }
+    }
+
+    for (final entry in snapshot.evidence) {
+      try {
+        if (entry.id.trim().isEmpty) {
+          throw const FormatException('Evidence ID must not be empty.');
+        }
+        _validateEvidence(entry);
+      } on FormatException {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.evidence,
+            id: entry.id,
+          ),
+        );
+      }
+    }
+    for (final entry in snapshot.scenarioCheckpoints) {
+      try {
+        if (entry.id.trim().isEmpty) {
+          throw const FormatException('Checkpoint ID must not be empty.');
+        }
+        _validateCheckpoint(entry);
+      } on FormatException {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.checkpoint,
+            id: entry.id,
+          ),
+        );
+      }
+    }
+  }
+
+  bool _collectUnitListConflicts(
+    List<String> ids,
+    List<CourseMasteryMergeConflict> conflicts,
+  ) {
+    var valid = true;
+    final seen = <String>{};
+    for (final id in ids) {
+      if (!seen.add(id) || catalog.courseUnitFor(id) == null) {
+        valid = false;
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.progression,
+            id: id,
+          ),
+        );
+      }
+    }
+    return valid;
+  }
+
+  List<T> _mergeIdentityHistory<T>(
+    List<T> local,
+    List<T> remote, {
+    required CourseMasteryMergeConflictKind kind,
+    required String Function(T entry) idOf,
+    required String Function(T entry) bodyOf,
+    required List<CourseMasteryMergeConflict> conflicts,
+  }) {
+    final merged = <String, T>{};
+    final bodies = <String, String>{};
+    for (final entry in [...local, ...remote]) {
+      final id = idOf(entry);
+      final body = bodyOf(entry);
+      final previous = bodies[id];
+      if (previous != null && previous != body) {
+        conflicts.add(CourseMasteryMergeConflict(kind: kind, id: id));
+        continue;
+      }
+      bodies[id] = body;
+      merged[id] = entry;
+    }
+    return merged.values.toList();
+  }
+
+  List<CourseMasteryMergeConflict> _sortedConflicts(
+    Iterable<CourseMasteryMergeConflict> conflicts,
+  ) {
+    final sorted = conflicts.toSet().toList()
+      ..sort((left, right) {
+        final kind = left.kind.index.compareTo(right.kind.index);
+        return kind != 0 ? kind : left.id.compareTo(right.id);
+      });
+    return List.unmodifiable(sorted);
+  }
+
+  String? _normalizedPlacement(String? value) => value?.trim().toLowerCase();
+
+  bool _hasSequentialCourseState(CourseMasterySnapshot? snapshot) {
+    if (snapshot == null) return false;
+    return snapshot.placementLevel != null ||
+        snapshot.currentCourseUnitId != null ||
+        snapshot.completedUnitIds.isNotEmpty ||
+        snapshot.bypassedPrerequisiteUnitIds.isNotEmpty;
+  }
+
+  int _compareEvidence(MasteryEvidence left, MasteryEvidence right) {
+    final time = left.occurredAt.compareTo(right.occurredAt);
+    return time != 0 ? time : left.id.compareTo(right.id);
+  }
+
+  int _compareCheckpoints(
+    ScenarioCheckpointEvidence left,
+    ScenarioCheckpointEvidence right,
+  ) {
+    final time = left.occurredAt.compareTo(right.occurredAt);
+    return time != 0 ? time : left.id.compareTo(right.id);
   }
 }

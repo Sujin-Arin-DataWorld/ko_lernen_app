@@ -1,7 +1,22 @@
+import 'dart:convert';
+
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import 'course_mastery_service.dart';
 import 'curriculum_catalog.dart';
+import 'storage_service.dart';
+
+/// A validated local course snapshot together with the canonical generation
+/// captured after any required legacy migration has durably completed.
+class CourseMasteryLocalCapture {
+  const CourseMasteryLocalCapture({
+    required this.snapshot,
+    required this.canonicalGeneration,
+  });
+
+  final CourseMasterySnapshot? snapshot;
+  final String canonicalGeneration;
+}
 
 /// App-scoped, serialized access to the local course-mastery graph.
 ///
@@ -36,11 +51,67 @@ class CourseProgressService {
   Future<CourseMasterySnapshot> refresh() =>
       _serialized((service) => service.refresh());
 
+  /// Serializes capture with learner actions so a backup or account
+  /// reconciliation sees either the preexisting validated v2 state or the
+  /// generation written by a completed legacy migration, never an in-between
+  /// set of mirrors.
+  Future<CourseMasteryLocalCapture> captureForCloudReconciliation() =>
+      _serialized((service) async {
+        final snapshot = await service.migrateForCloudCapture();
+        return CourseMasteryLocalCapture(
+          snapshot: snapshot,
+          canonicalGeneration: Storage.courseMasterySnapshotRawJson,
+        );
+      });
+
   Future<CourseMasterySnapshot> initializeForPlacement(String levelCode) =>
       _serialized((service) => service.initializeForPlacement(levelCode));
 
   Future<CourseMasterySnapshot> selectCourseUnit(String courseUnitId) =>
       _serialized((service) => service.selectCourseUnit(courseUnitId));
+
+  Future<CourseMasterySnapshot> applyReconciledSnapshot(
+    CourseMasterySnapshot snapshot, {
+    required String? expectedGeneration,
+    void Function()? assertCurrentWrite,
+  }) => _serialized(
+    (service) => service.applyReconciledSnapshot(
+      snapshot,
+      expectedGeneration: expectedGeneration,
+      assertCurrentWrite: assertCurrentWrite,
+    ),
+  );
+
+  Future<CourseMasterySnapshot> mergeCloudSnapshotJson(
+    String raw, {
+    required String? expectedGeneration,
+    void Function()? beforeRead,
+    void Function()? beforeWrite,
+  }) => _serialized((service) async {
+    final decoded = jsonDecode(raw);
+    if (decoded is! Map) {
+      throw const FormatException(
+        'Course mastery cloud data must be an object.',
+      );
+    }
+    final remote = CourseMasterySnapshot.decodeAndMigrate(
+      decoded.map((key, value) => MapEntry(key.toString(), value)),
+    );
+    beforeRead?.call();
+    final local = service.readForReconciliation();
+    final result = service.mergeForReconciliation(local: local, remote: remote);
+    if (!result.isValid) {
+      final details = result.conflicts
+          .map((conflict) => '${conflict.kind.name}:${conflict.id}')
+          .join(',');
+      throw FormatException('Course mastery merge conflicts: $details');
+    }
+    beforeWrite?.call();
+    return service.applyReconciledSnapshot(
+      result.snapshot!,
+      expectedGeneration: expectedGeneration,
+    );
+  });
 
   Future<Map<String, CourseContentState>> conceptStates(
     Iterable<String> conceptIds,

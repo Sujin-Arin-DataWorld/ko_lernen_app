@@ -1,12 +1,15 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../models/course_mastery.dart';
 import '../../models/pack_progress.dart';
 import '../cloud_sync.dart';
 import '../cloud_sync_service.dart';
+import '../course_progress_service.dart';
 import '../custom_pack_service.dart';
 import '../firestore_progress_service.dart';
 import '../pack_progress_service.dart';
@@ -14,43 +17,52 @@ import '../storage_service.dart';
 import 'account_transition_journal.dart';
 import 'cloud_read_result.dart';
 import 'cloud_write_session.dart';
+import 'reconciliation_errors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+export 'reconciliation_errors.dart';
 
 @immutable
 class AccountReconciliationSnapshot {
-  const AccountReconciliationSnapshot({
-    required this.fields,
+  AccountReconciliationSnapshot({
+    required Map<String, Object?> fields,
     required this.srsCards,
     required this.customPacks,
     required this.packProgress,
+    this.courseMastery,
     this.packRevisions = const {},
     this.packMembershipRevision,
     this.localSrsGeneration,
     this.localCustomPackGeneration,
     this.localPackProgressGeneration,
-  });
+    this.localCourseMasteryGeneration,
+  }) : fields = _withoutReservedCourseFields(fields);
 
-  static const empty = AccountReconciliationSnapshot(
+  static final empty = AccountReconciliationSnapshot(
     fields: {},
     srsCards: {},
     customPacks: {},
     packProgress: {},
+    courseMastery: null,
     packRevisions: {},
     packMembershipRevision: null,
     localSrsGeneration: null,
     localCustomPackGeneration: null,
     localPackProgressGeneration: null,
+    localCourseMasteryGeneration: null,
   );
 
   final Map<String, Object?> fields;
   final Map<String, Map<String, Object?>> srsCards;
   final Map<String, Map<String, Object?>> customPacks;
   final Map<String, PackProgress> packProgress;
+  final CourseMasterySnapshot? courseMastery;
   final Map<String, int?> packRevisions;
   final int? packMembershipRevision;
   final String? localSrsGeneration;
   final String? localCustomPackGeneration;
   final String? localPackProgressGeneration;
+  final String? localCourseMasteryGeneration;
 
   static CloudReadResult<AccountReconciliationSnapshot> decodeCloudDocument(
     Map<String, dynamic> document, {
@@ -58,6 +70,10 @@ class AccountReconciliationSnapshot {
     Map<String, int?> packRevisions = const {},
     int? packMembershipRevision,
   }) {
+    final courseResult = _decodeCourseMastery(document['course_mastery_json']);
+    if (!courseResult.isPresent) {
+      return const CloudReadResult.invalid();
+    }
     final srsResult = _decodeSrs(document['srs_json']);
     if (!srsResult.isPresent) {
       return switch (srsResult.state) {
@@ -67,6 +83,7 @@ class AccountReconciliationSnapshot {
             srsCards: const {},
             customPacks: const {},
             packProgress: packProgress,
+            courseMastery: courseResult.value,
             packRevisions: packRevisions,
             packMembershipRevision: packMembershipRevision,
           ),
@@ -90,6 +107,7 @@ class AccountReconciliationSnapshot {
         srsCards: srsResult.value!,
         customPacks: customResult.value ?? const {},
         packProgress: packProgress,
+        courseMastery: courseResult.value,
         packRevisions: packRevisions,
         packMembershipRevision: packMembershipRevision,
       ),
@@ -97,10 +115,34 @@ class AccountReconciliationSnapshot {
   }
 
   Map<String, dynamic> toCloudDocument() => {
-    ...fields,
+    ..._withoutReservedCourseFields(fields),
     'srs_json': jsonEncode(srsCards),
     'custom_packs_json': jsonEncode(customPacks),
+    if (courseMastery != null)
+      'course_mastery_json': jsonEncode(courseMastery!.toJson()),
   };
+
+  static CloudReadResult<CourseMasterySnapshot?> _decodeCourseMastery(
+    Object? value,
+  ) {
+    if (value == null || value == '') {
+      return const CloudReadResult.present(null);
+    }
+    if (value is! String) {
+      return const CloudReadResult.invalid();
+    }
+    try {
+      final decoded = jsonDecode(value);
+      if (decoded is! Map) return const CloudReadResult.invalid();
+      return CloudReadResult.present(
+        CourseMasterySnapshot.decodeAndMigrate(
+          decoded.map((key, item) => MapEntry(key.toString(), item)),
+        ),
+      );
+    } catch (_) {
+      return const CloudReadResult.invalid();
+    }
+  }
 
   static CloudReadResult<Map<String, Map<String, Object?>>> _decodeSrs(
     Object? value,
@@ -152,6 +194,7 @@ class AccountReconciliationSnapshot {
     final result = Map<String, Object?>.from(document)
       ..remove('srs_json')
       ..remove('custom_packs_json')
+      ..remove('course_mastery_json')
       ..remove('sync_revision')
       ..remove('reconciliation_operation_id')
       ..remove('reconciliation_payload_hash')
@@ -163,7 +206,8 @@ class AccountReconciliationSnapshot {
       fields.isEmpty &&
       srsCards.isEmpty &&
       customPacks.isEmpty &&
-      packProgress.isEmpty;
+      packProgress.isEmpty &&
+      courseMastery == null;
 
   @override
   bool operator ==(Object other) =>
@@ -171,7 +215,8 @@ class AccountReconciliationSnapshot {
       _deepEquals(fields, other.fields) &&
       _deepEquals(srsCards, other.srsCards) &&
       _deepEquals(customPacks, other.customPacks) &&
-      _packMapsEqual(packProgress, other.packProgress);
+      _packMapsEqual(packProgress, other.packProgress) &&
+      _deepEquals(courseMastery?.toJson(), other.courseMastery?.toJson());
 
   @override
   int get hashCode => Object.hash(
@@ -181,6 +226,7 @@ class AccountReconciliationSnapshot {
     _stableHash({
       for (final entry in packProgress.entries) entry.key: entry.value.toJson(),
     }),
+    _stableHash(courseMastery?.toJson()),
   );
 }
 
@@ -188,6 +234,11 @@ enum AccountReconciliationConflictKind {
   srsCardHistory,
   customPackId,
   packProgress,
+  courseMasteryPlacement,
+  courseMasteryVersion,
+  courseMasteryEvidence,
+  courseMasteryCheckpoint,
+  courseMasteryProgression,
   documentField,
 }
 
@@ -225,9 +276,14 @@ class AccountReconciliationMerger {
     required AccountReconciliationSnapshot local,
     required AccountReconciliationSnapshot remote,
     required Map<String, PackCatalogEntry> catalog,
+    CourseMasteryReconciliationMerger? courseMasteryMerger,
   }) {
     final conflicts = <AccountReconciliationConflict>[];
-    final fields = _mergeFields(local.fields, remote.fields, conflicts);
+    final fields = _mergeFields(
+      _withoutReservedCourseFields(local.fields),
+      _withoutReservedCourseFields(remote.fields),
+      conflicts,
+    );
     final srs = _mergeIdentityMaps(
       local.srsCards,
       remote.srsCards,
@@ -253,6 +309,31 @@ class AccountReconciliationMerger {
         ),
       );
     }
+    CourseMasterySnapshot? courseMastery;
+    if (local.courseMastery != null || remote.courseMastery != null) {
+      if (courseMasteryMerger == null) {
+        conflicts.add(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.courseMasteryVersion,
+            id: 'merger',
+          ),
+        );
+      } else {
+        final courseResult = courseMasteryMerger(
+          local: local.courseMastery,
+          remote: remote.courseMastery,
+        );
+        courseMastery = courseResult.snapshot;
+        for (final conflict in courseResult.conflicts) {
+          conflicts.add(
+            AccountReconciliationConflict(
+              kind: _accountCourseConflictKind(conflict.kind),
+              id: conflict.id,
+            ),
+          );
+        }
+      }
+    }
     conflicts.sort((left, right) {
       final kind = left.kind.index.compareTo(right.kind.index);
       return kind != 0 ? kind : left.id.compareTo(right.id);
@@ -269,15 +350,32 @@ class AccountReconciliationMerger {
         srsCards: srs,
         customPacks: customPacks,
         packProgress: packResult.merged!,
+        courseMastery: courseMastery,
         packRevisions: remote.packRevisions,
         packMembershipRevision: remote.packMembershipRevision,
         localSrsGeneration: local.localSrsGeneration,
         localCustomPackGeneration: local.localCustomPackGeneration,
         localPackProgressGeneration: local.localPackProgressGeneration,
+        localCourseMasteryGeneration: local.localCourseMasteryGeneration,
       ),
       conflicts: const [],
     );
   }
+
+  static AccountReconciliationConflictKind _accountCourseConflictKind(
+    CourseMasteryMergeConflictKind kind,
+  ) => switch (kind) {
+    CourseMasteryMergeConflictKind.placement =>
+      AccountReconciliationConflictKind.courseMasteryPlacement,
+    CourseMasteryMergeConflictKind.version =>
+      AccountReconciliationConflictKind.courseMasteryVersion,
+    CourseMasteryMergeConflictKind.evidence =>
+      AccountReconciliationConflictKind.courseMasteryEvidence,
+    CourseMasteryMergeConflictKind.checkpoint =>
+      AccountReconciliationConflictKind.courseMasteryCheckpoint,
+    CourseMasteryMergeConflictKind.progression =>
+      AccountReconciliationConflictKind.courseMasteryProgression,
+  };
 
   static Map<String, Map<String, Object?>> _mergeIdentityMaps(
     Map<String, Map<String, Object?>> local,
@@ -480,7 +578,9 @@ class SharedPreferencesAccountTransitionJournalStore
 class LocalAccountReconciliationStore {
   const LocalAccountReconciliationStore._();
 
-  static AccountReconciliationSnapshot load() {
+  static Future<AccountReconciliationSnapshot> load({
+    CourseProgressService? courseProgress,
+  }) async {
     final srsGeneration = _hashText(Storage.srsRawJson);
     final customPackGeneration =
         CustomPackService.localReconciliationGeneration;
@@ -490,8 +590,23 @@ class LocalAccountReconciliationStore {
     }
     final packProgress = PackProgressService.getAll();
     final packProgressGeneration = _packProgressGeneration(packProgress);
+    final hasLocalCourseInput =
+        Storage.courseMasterySnapshotRawJson.trim().isNotEmpty ||
+        Storage.legacyCourseMasteryRawJson.trim().isNotEmpty ||
+        Storage.dedicatedCoursePlacementLevelCode != null ||
+        Storage.courseUnitId != null;
+    final courseCapture = hasLocalCourseInput
+        ? await (courseProgress ?? CourseProgressService.shared)
+              .captureForCloudReconciliation()
+        : const CourseMasteryLocalCapture(
+            snapshot: null,
+            canonicalGeneration: '',
+          );
+    final payload = await CloudSync.buildBackupPayload(
+      courseMasteryCapture: courseCapture,
+    );
     final result = AccountReconciliationSnapshot.decodeCloudDocument(
-      CloudSync.buildBackupPayload(),
+      payload,
       packProgress: packProgress,
     );
     if (!result.isPresent || result.value == null) {
@@ -503,11 +618,13 @@ class LocalAccountReconciliationStore {
       srsCards: snapshot.srsCards,
       customPacks: customPacks.value!,
       packProgress: snapshot.packProgress,
+      courseMastery: snapshot.courseMastery,
       packRevisions: snapshot.packRevisions,
       packMembershipRevision: snapshot.packMembershipRevision,
       localSrsGeneration: srsGeneration,
       localCustomPackGeneration: customPackGeneration,
       localPackProgressGeneration: packProgressGeneration,
+      localCourseMasteryGeneration: courseCapture.canonicalGeneration,
     );
   }
 
@@ -515,6 +632,7 @@ class LocalAccountReconciliationStore {
     AccountReconciliationSnapshot snapshot, {
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
+    CourseProgressService? courseProgress,
   }) async {
     await CustomPackService.writeReconciledPortable(
       snapshot.customPacks,
@@ -526,7 +644,8 @@ class LocalAccountReconciliationStore {
     );
     final ordinaryFields = snapshot.toCloudDocument()
       ..remove('srs_json')
-      ..remove('custom_packs_json');
+      ..remove('custom_packs_json')
+      ..remove('course_mastery_json');
     await CloudSync.applyReconciledRestorePayload(
       ordinaryFields,
       uid: session.uid,
@@ -536,6 +655,15 @@ class LocalAccountReconciliationStore {
     _assertCurrent(session, sessions);
     _assertSrsGeneration(snapshot);
     await Storage.setSrsRawJsonStrict(jsonEncode(snapshot.srsCards));
+    if (snapshot.courseMastery case final courseMastery?) {
+      _assertCurrent(session, sessions);
+      await (courseProgress ?? CourseProgressService.shared)
+          .applyReconciledSnapshot(
+            courseMastery,
+            expectedGeneration: snapshot.localCourseMasteryGeneration,
+            assertCurrentWrite: () => _assertCurrent(session, sessions),
+          );
+    }
     _assertCurrent(session, sessions);
     _assertPackProgressGeneration(snapshot);
     await Storage.setAllPackProgressJsonStrict({
@@ -555,6 +683,7 @@ class LocalAccountReconciliationStore {
       throw const LocalReconciliationGenerationConflict();
     }
     _assertPackProgressGeneration(snapshot);
+    _assertCourseMasteryGeneration(snapshot);
   }
 
   static void _assertSrsGeneration(AccountReconciliationSnapshot snapshot) {
@@ -574,6 +703,16 @@ class LocalAccountReconciliationStore {
     }
   }
 
+  static void _assertCourseMasteryGeneration(
+    AccountReconciliationSnapshot snapshot,
+  ) {
+    if (snapshot.localCourseMasteryGeneration != null &&
+        Storage.courseMasterySnapshotRawJson !=
+            snapshot.localCourseMasteryGeneration) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+  }
+
   static void _assertCurrent(
     CloudWriteSession session,
     CloudWriteSessionController sessions,
@@ -589,9 +728,11 @@ class LocalAccountReconciliationStore {
   }
 }
 
-class LocalReconciliationGenerationConflict implements Exception {
-  const LocalReconciliationGenerationConflict();
-}
+Map<String, Object?> _withoutReservedCourseFields(
+  Map<String, Object?> fields,
+) => Map.unmodifiable(
+  Map<String, Object?>.from(fields)..remove('course_mastery_json'),
+);
 
 class LocalReconciliationSessionConflict implements Exception {
   const LocalReconciliationSessionConflict();
@@ -613,7 +754,7 @@ class ReconciliationWriteResult {
 
 typedef AccountRemoteReader =
     Future<CloudReadResult<AccountReconciliationSnapshot>> Function();
-typedef AccountLocalReader = AccountReconciliationSnapshot Function();
+typedef AccountLocalReader = FutureOr<AccountReconciliationSnapshot> Function();
 typedef AccountRemoteWriter =
     Future<ReconciliationWriteResult> Function(
       AccountReconciliationSnapshot snapshot, {
@@ -658,6 +799,7 @@ class AccountReconciliationCoordinator {
     required this.loadLocal,
     required this.writeRemote,
     required this.writeLocal,
+    this.courseMasteryMerger,
     this.maxCasAttempts = 3,
   }) : assert(maxCasAttempts > 0);
 
@@ -667,6 +809,7 @@ class AccountReconciliationCoordinator {
   final AccountLocalReader loadLocal;
   final AccountRemoteWriter writeRemote;
   final AccountLocalWriter writeLocal;
+  final CourseMasteryReconciliationMerger? courseMasteryMerger;
   final int maxCasAttempts;
 
   Future<AccountReconciliationResult> reconcile({
@@ -759,7 +902,7 @@ class AccountReconciliationCoordinator {
 
       late AccountReconciliationSnapshot local;
       try {
-        local = loadLocal();
+        local = await loadLocal();
       } on FormatException {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.invalid,
@@ -767,6 +910,11 @@ class AccountReconciliationCoordinator {
       } catch (_) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.unavailable,
+        );
+      }
+      if (!_isCurrent(session)) {
+        return const AccountReconciliationResult(
+          AccountReconciliationStatus.stale,
         );
       }
       final currentLocalCustomPackIds = local.customPacks.keys.toSet();
@@ -825,6 +973,7 @@ class AccountReconciliationCoordinator {
         local: local,
         remote: remote,
         catalog: catalog,
+        courseMasteryMerger: courseMasteryMerger,
       );
       if (merge.merged == null) {
         return AccountReconciliationResult(
@@ -1189,6 +1338,7 @@ class FirebaseAccountReconciliationAdapter {
 
   AccountReconciliationCoordinator coordinator({
     required AccountTransitionJournalStore journalStore,
+    CourseMasteryReconciliationMerger? courseMasteryMerger,
     AccountLocalReader? loadLocal,
     AccountLocalWriter? writeLocal,
   }) {
@@ -1199,6 +1349,7 @@ class FirebaseAccountReconciliationAdapter {
       loadLocal: loadLocal ?? LocalAccountReconciliationStore.load,
       writeRemote: writeRemote,
       writeLocal: writeLocal ?? LocalAccountReconciliationStore.write,
+      courseMasteryMerger: courseMasteryMerger,
     );
   }
 }

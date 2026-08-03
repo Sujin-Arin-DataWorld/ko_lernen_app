@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/first_link_backfill.dart';
 import 'package:ko_lernen_app/services/account/first_link_backfill_journal.dart';
+import 'package:ko_lernen_app/services/account/firebase_app_check_initializer.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
@@ -105,6 +107,114 @@ void main() {
         );
         await target.dispose();
         expect(context.disposeCalls, 1);
+      },
+    );
+
+    test(
+      'temporary auth context uses Web App Check before creating its context',
+      () async {
+        Object? capturedWebProvider;
+        var contextCreated = false;
+
+        final result =
+            await FirebaseIsolatedTargetVerifier.initializeTemporaryAppCheckThen<
+              String
+            >(
+              initializerFactory: ({required activate}) =>
+                  FirebaseAppCheckInitializer.productionWithActivator(
+                    activate: activate,
+                    isDebug: false,
+                    isWeb: true,
+                    webAppCheckSiteKey: 'temporary-context-site-key',
+                  ),
+              activate:
+                  ({
+                    webProvider,
+                    required androidProvider,
+                    required appleProvider,
+                  }) async {
+                    capturedWebProvider = webProvider;
+                    expect(androidProvider, AndroidProvider.playIntegrity);
+                    expect(
+                      appleProvider,
+                      AppleProvider.appAttestWithDeviceCheckFallback,
+                    );
+                  },
+              afterActivation: () async {
+                contextCreated = true;
+                return 'temporary-context';
+              },
+            );
+
+        expect(result, 'temporary-context');
+        expect(contextCreated, isTrue);
+        expect(capturedWebProvider, isA<ReCaptchaV3Provider>());
+        expect(
+          (capturedWebProvider as ReCaptchaV3Provider).siteKey,
+          'temporary-context-site-key',
+        );
+      },
+    );
+
+    test(
+      'temporary auth context blocks context creation without Web key',
+      () async {
+        var appCheckActivations = 0;
+        var contextCreated = false;
+
+        await expectLater(
+          FirebaseIsolatedTargetVerifier.initializeTemporaryAppCheckThen<
+            String
+          >(
+            initializerFactory: ({required activate}) =>
+                FirebaseAppCheckInitializer.productionWithActivator(
+                  activate: activate,
+                  isDebug: false,
+                  isWeb: true,
+                  webAppCheckSiteKey: '',
+                ),
+            activate:
+                ({
+                  webProvider,
+                  required androidProvider,
+                  required appleProvider,
+                }) async {
+                  appCheckActivations += 1;
+                },
+            afterActivation: () async {
+              contextCreated = true;
+              return 'wrong';
+            },
+          ),
+          throwsA(isA<FirebaseAppCheckConfigurationException>()),
+        );
+
+        expect(appCheckActivations, 0);
+        expect(contextCreated, isFalse);
+      },
+    );
+
+    test(
+      'temporary auth context deletes its app after async App Check failure',
+      () async {
+        var deleteCalls = 0;
+
+        await expectLater(
+          FirebaseIsolatedTargetVerifier.initializeTemporaryContextWithCleanup<
+            String
+          >(
+            initializeContext: () async {
+              await Future<void>.value();
+              throw StateError('app-check activation failed');
+            },
+            deleteApp: () async {
+              deleteCalls += 1;
+            },
+          ),
+          throwsStateError,
+        );
+
+        expect(deleteCalls, 1);
       },
     );
 

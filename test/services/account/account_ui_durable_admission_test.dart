@@ -3,10 +3,15 @@ import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/services/account/account_reconciliation.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
+import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 
@@ -175,7 +180,123 @@ void main() {
       expect(flow.cancelCalls, 1);
     },
   );
+
+  test(
+    'replacement composition uses the injected curriculum catalog',
+    () async {
+      final operations = ProductionAccountUiOperations(
+        curriculumCatalogLoader: () async => _minimalCourseCatalog(),
+      );
+
+      final merger = await operations.loadCourseMasteryMergerForTesting();
+      final result = merger(
+        local: const CourseMasterySnapshot(
+          placementLevel: 'a1',
+          currentCourseUnitId: 'unit-root',
+        ),
+        remote: null,
+      );
+
+      expect(result.conflicts, isEmpty);
+      expect(result.snapshot!.currentCourseUnitId, 'unit-root');
+    },
+  );
+
+  test(
+    'replacement composition forwards the loaded merger to target reconciliation',
+    () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      cloudWriteSessionController.clear();
+      cloudWriteSessionController.acquire('anonymous-source');
+      final session = cloudWriteSessionController.transition(
+        CloudWriteMode.reconciling,
+      );
+      AccountReconciliationSnapshot? writtenRemote;
+      final operations = ProductionAccountUiOperations(
+        curriculumCatalogLoader: () async => _minimalCourseCatalog(),
+        replacementAccountOperations: const _UnusedReplacementOperations(),
+        targetReconciliationFactory:
+            ({
+              required target,
+              required sourceSession,
+              required sessions,
+              required journalStore,
+              required courseMasteryMerger,
+            }) => AccountReconciliationCoordinator(
+              sessions: sessions,
+              journalStore: journalStore,
+              readRemote: () async =>
+                  CloudReadResult<AccountReconciliationSnapshot>.absent(),
+              loadLocal: () => AccountReconciliationSnapshot(
+                fields: const {},
+                srsCards: const {},
+                customPacks: const {},
+                packProgress: const {},
+                courseMastery: const CourseMasterySnapshot(
+                  placementLevel: 'a1',
+                  currentCourseUnitId: 'unit-root',
+                ),
+              ),
+              writeRemote:
+                  (
+                    snapshot, {
+                    required expectedRevision,
+                    required operationId,
+                  }) async {
+                    writtenRemote = snapshot;
+                    return const ReconciliationWriteResult.committed(
+                      revision: 1,
+                    );
+                  },
+              writeLocal:
+                  (snapshot, {required session, required sessions}) async {},
+              courseMasteryMerger: courseMasteryMerger,
+            ),
+      );
+
+      final composition = await operations.createReplacementComposition();
+      final result = await composition.coordinator.reconcile(
+        target: const _VerifiedTarget(),
+        session: session,
+        operationId: 'composition-operation',
+        catalog: const {},
+      );
+
+      expect(result.status, AccountReconciliationStatus.completed);
+      expect(writtenRemote!.courseMastery!.currentCourseUnitId, 'unit-root');
+    },
+  );
 }
+
+CurriculumCatalog _minimalCourseCatalog() =>
+    CurriculumCatalog.fromDataForTesting(
+      manifestJson: const {
+        'version': 2,
+        'courseUnits': [
+          {
+            'id': 'unit-root',
+            'level': 'a1',
+            'order': 1,
+            'title': {'ko': 'root', 'de': 'root', 'en': 'root'},
+            'canDo': {'ko': 'root', 'de': 'root', 'en': 'root'},
+          },
+        ],
+        'concepts': <Map<String, dynamic>>[],
+        'surfaceForms': <Map<String, dynamic>>[],
+        'formFamilies': <Map<String, dynamic>>[],
+        'contentLinks': <Map<String, dynamic>>[],
+        'vocabPackUnitMap': <String, String>{},
+        'smalltalkCategoryUnitMap': <String, String>{},
+        'clozeTopicUnitMap': <String, String>{},
+        'grammarRuleMap': <String, Map<String, dynamic>>{},
+      },
+      vocab: const [],
+      grammar: const [],
+      smalltalk: const [],
+      cloze: const [],
+      satz: const [],
+      scenarios: const [],
+    );
 
 enum _DurableBarrier { replacement, deletion, cloudDeletion }
 
@@ -318,6 +439,66 @@ class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
   }) async {
     throw UnimplementedError();
   }
+}
+
+class _VerifiedTarget implements VerifiedTargetContext {
+  const _VerifiedTarget();
+
+  @override
+  bool get isAnonymous => false;
+
+  @override
+  String get uid => 'durable-target';
+
+  @override
+  Future<void> dispose() async {}
+}
+
+class _UnusedReplacementOperations implements ReplacementAccountOperations {
+  const _UnusedReplacementOperations();
+
+  Never _unused() => throw UnimplementedError();
+
+  @override
+  Future<AccountOperationResult> attachTarget({
+    required VerifiedTargetContext target,
+    required String operationId,
+    required int expectedVersion,
+  }) async => _unused();
+
+  @override
+  Future<AccountOperationResult> cancel({
+    required CloudWriteSession sourceSession,
+    required String operationId,
+    required int expectedVersion,
+  }) async => _unused();
+
+  @override
+  Future<AccountOperationResult> commitReconciliation({
+    required VerifiedTargetContext target,
+    required String operationId,
+    required int expectedVersion,
+  }) async => _unused();
+
+  @override
+  Future<AccountOperationResult> getStatus({
+    required VerifiedTargetContext target,
+    required String operationId,
+  }) async => _unused();
+
+  @override
+  Future<AccountOperationResult> prepare({
+    required CloudWriteSession sourceSession,
+    required String targetUid,
+    required String requestKey,
+  }) async => _unused();
+
+  @override
+  Future<AccountOperationResult> startSourceCleanup({
+    required VerifiedTargetContext target,
+    required String operationId,
+    required int expectedVersion,
+  }) async => _unused();
 }
 
 AccountTransitionJournal _replacementJournal() {

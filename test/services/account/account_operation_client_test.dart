@@ -12,10 +12,16 @@ void main() {
       AppleProvider? apple;
       final initializer = FirebaseAppCheckInitializer(
         isDebug: true,
-        activate: ({required androidProvider, required appleProvider}) async {
-          android = androidProvider;
-          apple = appleProvider;
-        },
+        isWeb: false,
+        activate:
+            ({
+              webProvider,
+              required androidProvider,
+              required appleProvider,
+            }) async {
+              android = androidProvider;
+              apple = appleProvider;
+            },
       );
 
       await initializer.initialize();
@@ -29,10 +35,16 @@ void main() {
       AppleProvider? apple;
       final initializer = FirebaseAppCheckInitializer(
         isDebug: false,
-        activate: ({required androidProvider, required appleProvider}) async {
-          android = androidProvider;
-          apple = appleProvider;
-        },
+        isWeb: false,
+        activate:
+            ({
+              webProvider,
+              required androidProvider,
+              required appleProvider,
+            }) async {
+              android = androidProvider;
+              apple = appleProvider;
+            },
       );
 
       await initializer.initialize();

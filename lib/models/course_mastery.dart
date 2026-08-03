@@ -35,12 +35,15 @@ class ScenarioCheckpointEvidence {
     final scenarioId = json['scenarioId']?.toString().trim() ?? '';
     final courseUnitId = json['courseUnitId']?.toString().trim();
     final rawScore = json['score'];
-    final score = (rawScore as num?)?.toDouble();
+    if (rawScore is! num) {
+      throw const FormatException(
+        'Scenario checkpoint evidence score must be numeric.',
+      );
+    }
+    final score = rawScore.toDouble();
     final occurredAt = DateTime.tryParse(json['occurredAt']?.toString() ?? '');
     final rawEligible = json['courseEligible'];
     if (scenarioId.isEmpty ||
-        rawScore is! num ||
-        score == null ||
         !score.isFinite ||
         score < 0 ||
         score > 1 ||
@@ -77,7 +80,7 @@ class ScenarioCheckpointEvidence {
 /// Durable local snapshot for the sequential course only. Vocabulary SRS,
 /// pack progress, and browse filters intentionally live in their own stores.
 class CourseMasterySnapshot {
-  static const int currentVersion = 1;
+  static const int currentVersion = 2;
 
   final int version;
   final String? placementLevel;
@@ -106,10 +109,16 @@ class CourseMasterySnapshot {
       evidence = const [],
       scenarioCheckpoints = const [];
 
-  factory CourseMasterySnapshot.fromJson(Map<String, dynamic> json) {
-    final rawVersion = json['version'];
-    if (rawVersion != null && rawVersion is! num) {
-      throw const FormatException('Course mastery version must be numeric.');
+  factory CourseMasterySnapshot.fromJson(Map<String, dynamic> json) =>
+      CourseMasterySnapshot.decodeAndMigrate(json);
+
+  /// Accepts the retained v1 local shape and returns the canonical v2 shape.
+  /// Future schemas are deliberately rejected so a newer installation's state
+  /// can never be silently overwritten by this version of the app.
+  factory CourseMasterySnapshot.decodeAndMigrate(Map<String, dynamic> json) {
+    final sourceVersion = CourseMasterySnapshot.sourceVersionFor(json);
+    if (sourceVersion == currentVersion) {
+      _validateCanonicalV2Shape(json);
     }
     final rawEvidence = json['evidence'];
     final rawCheckpoints = json['scenarioCheckpoints'];
@@ -122,7 +131,7 @@ class CourseMasterySnapshot {
       );
     }
     return CourseMasterySnapshot(
-      version: (rawVersion as num?)?.toInt() ?? currentVersion,
+      version: currentVersion,
       placementLevel: _nullableString(json['placementLevel']),
       currentCourseUnitId: _nullableString(json['currentCourseUnitId']),
       completedUnitIds: _stringList(json['completedUnitIds']),
@@ -140,6 +149,26 @@ class CourseMasterySnapshot {
           )
           .toList(growable: false),
     );
+  }
+
+  /// Validates a source schema number before any migration or range logic.
+  static int sourceVersionFor(Map<String, dynamic> json) {
+    final rawVersion = json['version'];
+    if (rawVersion == null) {
+      return 1;
+    }
+    if (rawVersion is! num ||
+        !rawVersion.isFinite ||
+        rawVersion != rawVersion.toInt()) {
+      throw const FormatException('Course mastery version must be numeric.');
+    }
+    final sourceVersion = rawVersion.toInt();
+    if (sourceVersion < 1 || sourceVersion > currentVersion) {
+      throw FormatException(
+        'Unsupported course mastery version $sourceVersion.',
+      );
+    }
+    return sourceVersion;
   }
 
   CourseMasterySnapshot copyWith({
@@ -179,6 +208,52 @@ class CourseMasterySnapshot {
   };
 }
 
+enum CourseMasteryMergeConflictKind {
+  placement,
+  version,
+  evidence,
+  checkpoint,
+  progression,
+}
+
+class CourseMasteryMergeConflict {
+  const CourseMasteryMergeConflict({required this.kind, required this.id});
+
+  final CourseMasteryMergeConflictKind kind;
+  final String id;
+
+  @override
+  bool operator ==(Object other) =>
+      other is CourseMasteryMergeConflict &&
+      other.kind == kind &&
+      other.id == id;
+
+  @override
+  int get hashCode => Object.hash(kind, id);
+}
+
+class CourseMasteryMergeResult {
+  const CourseMasteryMergeResult._({this.snapshot, required this.conflicts});
+
+  const CourseMasteryMergeResult.merged(CourseMasterySnapshot snapshot)
+    : this._(snapshot: snapshot, conflicts: const []);
+
+  const CourseMasteryMergeResult.conflicted(
+    List<CourseMasteryMergeConflict> conflicts,
+  ) : this._(conflicts: conflicts);
+
+  final CourseMasterySnapshot? snapshot;
+  final List<CourseMasteryMergeConflict> conflicts;
+
+  bool get isValid => snapshot != null && conflicts.isEmpty;
+}
+
+typedef CourseMasteryReconciliationMerger =
+    CourseMasteryMergeResult Function({
+      required CourseMasterySnapshot? local,
+      required CourseMasterySnapshot? remote,
+    });
+
 String? _nullableString(Object? value) {
   final string = value?.toString().trim() ?? '';
   return string.isEmpty ? null : string;
@@ -206,4 +281,67 @@ Map<String, dynamic> _map(Object? value, String label) {
     throw FormatException('Course mastery $label entry must be an object.');
   }
   return value.map((key, item) => MapEntry(key.toString(), item));
+}
+
+void _validateCanonicalV2Shape(Map<String, dynamic> json) {
+  _requireOptionalNonemptyString(json, 'placementLevel');
+  _requireOptionalNonemptyString(json, 'currentCourseUnitId');
+  _validateCanonicalEntries(
+    json['evidence'],
+    label: 'evidence',
+    requiredStringFields: const ['id', 'conceptId', 'contentKind', 'contentId'],
+    optionalStringFields: const ['courseUnitId', 'errorReason'],
+  );
+  _validateCanonicalEntries(
+    json['scenarioCheckpoints'],
+    label: 'scenario checkpoint',
+    requiredStringFields: const ['id', 'scenarioId'],
+    optionalStringFields: const ['courseUnitId'],
+  );
+}
+
+void _validateCanonicalEntries(
+  Object? raw, {
+  required String label,
+  required List<String> requiredStringFields,
+  required List<String> optionalStringFields,
+}) {
+  if (raw == null) return;
+  if (raw is! List) {
+    throw FormatException('Course mastery $label must be a list.');
+  }
+  for (final item in raw) {
+    if (item is! Map) {
+      throw FormatException('Course mastery $label entry must be an object.');
+    }
+    final entry = item.map((key, value) => MapEntry(key.toString(), value));
+    for (final field in requiredStringFields) {
+      _requireNonemptyString(entry, field, label: label);
+    }
+    for (final field in optionalStringFields) {
+      _requireOptionalNonemptyString(entry, field, label: label);
+    }
+  }
+}
+
+void _requireNonemptyString(
+  Map<String, dynamic> json,
+  String field, {
+  String label = 'snapshot',
+}) {
+  final value = json[field];
+  if (value is! String || value.trim().isEmpty) {
+    throw FormatException(
+      'Canonical v2 course mastery $label $field must be a nonempty string.',
+    );
+  }
+}
+
+void _requireOptionalNonemptyString(
+  Map<String, dynamic> json,
+  String field, {
+  String label = 'snapshot',
+}) {
+  if (!json.containsKey(field)) return;
+  _requireNonemptyString(json, field, label: label);
 }

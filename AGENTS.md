@@ -240,6 +240,15 @@ flutter run -d <android-id>   # 안드로이드
 - [~] 새 원문을 추가/배포하기 전에는 자동 검수와 별도로 한국어 화자가 자연스러움·관계 적절성·문화 맥락·받침/활용 정확성을 최종 검수한다.
 - 기능 커밋: `49ce0a3`; 로컬 `main` 병합, 원격 푸시 없음.
 
+### 데이터 안정성·동기화 (2026-08-03) — CourseMastery v2 정본·계정/클라우드 병합·iOS/Web Firebase 코드 준비, 별도 브랜치 커밋·푸시
+
+- [x] `kl_course_mastery_v2`/`version: 2`를 카탈로그 검증 정본으로 두고, v1·placement/current-unit mirror는 읽기 전용 마이그레이션 입력으로만 처리한다. canonical-first 기록 실패 시 mirror·browse 상태를 바꾸지 않는다.
+- [x] 완료·우회·증거·시나리오 체크포인트는 stable ID 기반의 typed·결정론적 병합을 사용한다. placement 충돌은 자동 선택하지 않고 typed conflict로 멈추며, 현재 유닛은 카탈로그에서 재계산한다.
+- [x] 정상 CloudSync 백업과 계정 교체 캡처도 UI 진입 전 v1/scalar 코스 상태를 카탈로그 검증·v2 승격 후 `course_mastery_json`으로 다룬다. malformed/future/catalog-invalid 입력은 원본을 덮어쓰지 않고 fail-closed 한다.
+- [x] 계정/클라우드 적용은 기존 CAS·CloudWriteSession·로컬 canonical generation fence를 유지하고, 계정 삭제 Cloud Function allowlist에 `course_mastery_json`을 포함한다.
+- [x] Web App Check는 빌드 환경 `FIREBASE_WEB_APP_CHECK_SITE_KEY` 주입 seam만 사용하며, 키가 없으면 주·임시 Firebase 앱 모두 보호된 호출 전 fail-closed 한다. Android/Apple provider 동작은 변경하지 않았다. iOS/Web 실제 Firebase·Apple 설정은 운영 런북으로 분리했다.
+- [~] Firebase Console의 iOS/Web 앱 등록·FlutterFire 생성값·`GoogleService-Info.plist`·Auth 도메인·reCAPTCHA/App Check·Apple 서명/Sign in with Apple/APNs 및 macOS/실기기 검증은 운영 권한이 필요해 별도 수행한다.
+
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
 ### ★ "살아있는 한옥" UI/UX 대개편 (승인된 계획)
@@ -344,6 +353,18 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-03 (Codex) — CourseMastery v2 정본·결정론적 병합·계정/클라우드 안전성 및 iOS/Web Firebase 준비 — 별도 브랜치 커밋·푸시
+
+**Jin 지시:** 데이터 안정성·동기화 범위를 독립 worktree/브랜치 `codex/data-stability-sync-2026-08-03`에서 구현. UI·시각 디자인·커리큘럼·browse 흐름은 변경하지 않고, 사용자 명시 요청 후에만 커밋·푸시한다.
+
+- **정본·마이그레이션:** `kl_course_mastery_v2`/`version: 2`를 유일한 기록 정본으로 승격했다. v1와 dedicated placement/current-unit은 검증용 입력이며 canonical-first 성공 뒤에만 compatibility mirror를 갱신한다. 미래 버전·손상 JSON·미지 카탈로그 ID는 durable bytes를 덮어쓰지 않는다.
+- **병합·동시성:** `CourseMasteryService.mergeForReconciliation()`가 stable ID별 완료/우회/증거/checkpoint 합집합, 충돌 typed result, UTC+ID 정렬/300개 보존, 카탈로그 기반 현재 유닛 재계산을 제공한다. 비어 있지 않은 상충 placement는 자동 해결하지 않는다. Cloud restore와 account replacement는 raw Storage write가 아니라 decode→migrate→catalog validation→typed merge→serialized canonical apply를 사용하며 CAS·CloudWriteSession·generation fence를 유지한다.
+- **백업 경계 P1 보완:** UI가 코스 상태를 열기 전에도 normal CloudSync backup과 LocalAccountReconciliationStore capture가 같은 catalog-validated migration을 거쳐 v1/scalar 상태를 canonical v2 `course_mastery_json`으로 포함한다. invalid legacy/canonical 상태는 동기화 대상에서 제외하고 원본·browse를 보존한다. 이 보완은 독립 재감사에서 승인됐다.
+- **Firebase·삭제:** Firestore root의 `course_mastery_json`은 generic field merge와 분리했고 account-deletion runtime allowlist에도 추가했다. Web App Check는 `FIREBASE_WEB_APP_CHECK_SITE_KEY`만 주입받으며 키 부재 시 primary와 temporary Firebase app 모두 protected call 전에 fail-closed 한다. Android/Apple provider 경로는 유지하고 실제 iOS/Web 등록값은 런북으로 분리했다.
+- **최종 게이트 (이 worktree, P1 보완 후):** `flutter analyze --no-fatal-warnings --no-fatal-infos` → exit 0, `No issues found! (ran in 32.6s)`; `flutter test --no-pub --concurrency=1` → exit 0, **1,412 통과**, `All tests passed!` (3m46s); `node --test functions/gye/cloud_backup_deletion_runtime.test.js` → exit 0, **17/17 통과** (344.9774ms); `flutter build web --release` → exit 0, `Built build\web` (131.6s); `git diff --check` → exit 0 (CRLF working-copy advisory만 출력). Web build의 Wasm dry-run은 의존성 `flutter_tts`의 호환성 lint 안내였고 build 실패가 아니었다.
+- **외부 증거 경계:** 이 Windows 코드 검증은 Firebase Console iOS/Web 앱 등록, 실제 FlutterFire iOS/Web 옵션/`GoogleService-Info.plist`, Auth authorized domain, reCAPTCHA/App Check enforcement, Apple signing·Sign in with Apple·APNs, macOS archive 및 실기기 동작을 증명하지 않는다. 운영자가 각 Console/Apple 설정 후 별도로 검증해야 한다.
+- **Git:** base `5486183adc9707246b258840d140c56c6ea8e4c4`; 본 작업은 별도 worktree에서 수행했으며, main에 병합하지 않고 해당 브랜치로만 커밋·푸시한다.
 
 ### 2026-08-02 (v2.0.2+8 준비 — 커리큘럼 병합 수용 + 빌드) — 커밋·푸시
 

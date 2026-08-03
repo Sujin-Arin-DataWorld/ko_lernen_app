@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
 import 'package:ko_lernen_app/services/account/account_reconciliation.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
@@ -286,6 +287,10 @@ void main() {
         sourceSession: sourceSession,
         sessions: sessions,
         journalStore: _MemoryJournal(),
+        courseMasteryMerger: ({required local, required remote}) =>
+            CourseMasteryMergeResult.merged(
+              local ?? remote ?? const CourseMasterySnapshot.empty(),
+            ),
         loadLocal: () => AccountReconciliationSnapshot.empty,
         writeLocal: (_, {required session, required sessions}) async {},
       );
