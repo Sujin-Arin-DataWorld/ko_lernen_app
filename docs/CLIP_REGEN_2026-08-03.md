@@ -6,7 +6,7 @@
 |---|---|---|
 | `tiger_bob.mp4` | **영상 후보 완성** — Jin 재생 컨펌 대기 | §1 승인 시 명령 실행 |
 | `tiger_roar.mp4` | 시각 불변 · `sfx/roar_tiger.mp3` **코드 배선 완료**(파일 없으면 무음=현행) | §2 소리 파일 확보 |
-| `tiger_thinking.mp4` | 키프레임 후보 확보 — **컨펌 대기, 영상화 보류** | §3 |
+| `tiger_thinking.mp4` | **Jin 자체 제작본 배치 완료**(2026-08-03) — 리포트 갱신·매트 검증만 | §3 |
 
 ---
 
@@ -23,6 +23,7 @@
 copy assets\video\character\tiger_bob.mp4 _bak_2026-08-02\tiger_bob_old_2026-08-03.mp4
 curl -L -o _bak_2026-08-02\tiger_bob_new_raw.mp4 "https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1785749624795.mp4"
 ffmpeg -y -i _bak_2026-08-02\tiger_bob_new_raw.mp4 -vf "scale=960:960:flags=lanczos,lutrgb=r='if(gt(val,240),255,val)':g='if(gt(val,240),255,val)':b='if(gt(val,240),255,val)'" -r 24 -an -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 19 -movflags +faststart assets\video\character\tiger_bob.mp4
+python tool\check_clip_matte.py
 ```
 
 (규격 계약 충족: 960×960 · 24fps · CRF19 · faststart · 무음. `lutrgb`는 240 초과 근백색만 순백 #FFFFFF로 클램프 — multiply 블렌드 이음매 방지. 캐릭터 색은 불변.)
@@ -42,15 +43,17 @@ python -c "import subprocess,glob,os; os.makedirs('_bak_2026-08-02/_bobcheck',ex
 - **즉시 임시 소리**(원하면): `copy assets\sfx\growl_tiger.mp3 assets\sfx\roar_tiger.mp3`
 - 직접 소스 기준: 2~3초 · 시작 즉발(선지연 ≤80ms) · 끝 자연 감쇠 · mp3 44.1kHz. 규칙: 사람 목소리·TTS 금지, 동물 소리만.
 
-## 3. tiger_thinking (보류)
+## 3. tiger_thinking — Jin 자체 제작본 배치 완료 (2026-08-03)
 
-키프레임 후보(파셋 45–80 규칙 통과분, **컨펌 대기**):
-`https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1785748862045.png`
-
-컨펌되면 다음 세션에서 i2v(멈춘 걸음·코 킁킁 루프)로 진행. **roar 시각 교체 산출물은 전량 폐기**(반영 금지 — 지시 오해분).
+Jin이 구본을 삭제하고 직접 만든 mp4를 배치함(737,979B → 1,683,184B). 이 드리프트로 `flutter test` 1건 실패
+("report byte sizes match bundled character clips") — **코드 버그 아님, 바이트 매니페스트 미갱신**.
+해결: `python tool\check_clip_matte.py` 실행 후 `flutter test test\character_clip_matte_test.dart` 재실행.
+리포트 갱신 시 신작 클립의 흰 매트(multiply 계약)도 자동 검증됨. 에이전트 측 키프레임 후보(1785748862045.png)·i2v 계획은 폐기.
+**roar 시각 교체 산출물은 전량 폐기**(반영 금지 — 지시 오해분).
 
 ## 4. 이 세션 커밋분 / Jin 필수 로컬 단계
 
-- 브랜치 `feat/design-refresh-2026-08` (메인 무접촉): `character_selection_screen.dart`(SFX 배선) · `tiger_video.dart`(죽은 가드 정리 + `greetSfxFor`) · `DESIGN_OVERHAUL_PLAN_2026-08-02.md` v1.2 · `AGENTS.md` 로그.
+- 브랜치 `feat/design-refresh-2026-08` — **2026-08-03 다른 세션이 main 흡수 병합 완료(`297d9f4`, 푸시됨)**. 이 세션 커밋분: `character_selection_screen.dart`(SFX 배선) · `tiger_video.dart`(죽은 가드 정리 + `greetSfxFor`) · `DESIGN_OVERHAUL_PLAN_2026-08-02.md` v1.2 · `AGENTS.md` 로그.
 - **필수**: `flutter analyze && flutter test` — 특히 `character_selection_screen_test`(3) · `audio_policy_guard_test` · `no_emoji_glyph_test`.
 - ⚠️ 계획서에 08:54경 다른 세션의 미커밋 +329B 편집이 있었는데 v1.2 강제 반영으로 유실됨(커밋 이력엔 없음) — 짚이는 내용 있으면 알려줘.
+- 2026-08-03 `flutter test` 결과 +1661/-1 — 실패 1건은 §3 바이트 드리프트(예상된 매니페스트 미갱신, 코드 회귀 아님). 리포트 갱신 후 재실행이면 충분.

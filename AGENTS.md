@@ -396,6 +396,7 @@ flutter run -d <android-id>   # 안드로이드
 - Git: `feat/design-refresh-2026-08` 전용(메인 무접촉). bbanana 크레딧 약 37 사용(폐기분 약 28 — 지시 오해 비용, 세션 로그에 명기).
 
 **검증:** 계획서 인용·수치는 검증 에이전트 전수 재확인. dart 패치는 앵커 유일성+괄호 균형 확인 — **flutter analyze/test 는 Jin 로컬 필수**(클라우드에 SDK 없음).
+- **(08-03 추가) tiger_thinking 드리프트 triage**: Jin이 구본 삭제 후 자체 제작본 배치(737,979B→1,683,184B) → `flutter test` +1661/-1("report byte sizes match bundled character clips") = **매니페스트 미갱신이지 코드 회귀 아님**(직전 병합 세션 1,662 통과와 정확히 실패 1건 차이). 처방: `python tool/check_clip_matte.py` → 재실행(신작 흰 매트 자동 검증 포함). CLIP_REGEN §1에 bob 적용 후 리포트 갱신 명령 추가, §3·§4 현행화.
 
 ### 2026-08-03 (실기기 피드백 — 캐릭터 선택 연출 위치 + 포효음 제거) — 커밋·푸시(Jin "푸쉬해주고 메인 최신으로")
 
