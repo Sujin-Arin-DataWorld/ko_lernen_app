@@ -83,6 +83,13 @@ class TigerStageVideo extends StatefulWidget {
   static const String greetAsset = 'assets/video/character/tiger_rise.mp4';
   static const String paceAsset = 'assets/video/character/tiger_rest.mp4';
 
+  /// 첫 인사 동반 효과음 (`assets/sfx/` — AssetSource 경로라 'assets/' 생략).
+  /// 까치 `greet_magpie.mp3` 는 2026-07-31 제작·실재. 호랑이는 기존 정본
+  /// `tiger_greet.mp3` 유지 (`greet_tiger.mp3` 와 이중 존재 — 정리는 Jin 판단).
+  static String greetSfxFor(MascotKind kind) => kind == MascotKind.magpie
+      ? 'sfx/greet_magpie.mp3'
+      : 'sfx/tiger_greet.mp3';
+
   @override
   State<TigerStageVideo> createState() => _TigerStageVideoState();
 }
@@ -360,7 +367,8 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
 
 /// 온보딩 첫 만남용 — 인사 영상 1회 + (옵션) 풀 오디오 mp3 동시 재생.
 ///
-/// 영상 자체는 muted, 음성은 Jin 제공 `assets/sfx/tiger_greet.mp3`가 정본.
+/// 영상 자체는 muted, 음성은 캐릭터별 [TigerStageVideo.greetSfxFor]
+/// (호랑이 `tiger_greet.mp3` · 까치 `greet_magpie.mp3`).
 /// init 전·실패·!videoReady·reduce-motion → 정적 [Mascot.tiger] 폴백.
 class TigerGreetClip extends StatefulWidget {
   final double size;
@@ -506,10 +514,10 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
   }
 
   Future<void> _playAudioOnce() async {
-    // ⚠️ 까치용 인사 SFX 파일이 아직 없다 (assets/sfx/ 에 tiger_greet.mp3 하나).
-    // 호랑이 소리를 까치에 붙이면 캐릭터가 깨지므로, 파일이 생길 때까지
-    // 까치는 무음으로 둔다 — 인사는 몸짓 클립만으로도 성립한다.
-    if (!_audioStarted && widget.playAudio && _kind == MascotKind.tiger) {
+    // 캐릭터별 인사 SFX — 까치 `greet_magpie.mp3` 는 07-31 제작·배선 완료라
+    // 구 "까치용 파일 없음" 호랑이 전용 가드를 정리했다 (2026-08-03).
+    // 소리 규칙(사람 목소리·TTS 금지, 동물 소리만)은 파일 차원에서 유지.
+    if (!_audioStarted && widget.playAudio) {
       // companion 채널 게이트 — 현재 유일 호출부가 playAudio:false 라 죽은
       // 경로지만, 되살아나는 순간 설정을 뚫는 유일한 소리가 되는 걸 막는다.
       final volume = AudioPolicy.instance.volumeFor(SoundChannel.companion);
@@ -521,7 +529,10 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
       try {
         final audio = AudioPlayer();
         _audio = audio;
-        await audio.play(AssetSource('sfx/tiger_greet.mp3'), volume: volume);
+        await audio.play(
+          AssetSource(TigerStageVideo.greetSfxFor(_kind)),
+          volume: volume,
+        );
       } catch (_) {
         // 음성 실패해도 영상은 계속.
       }

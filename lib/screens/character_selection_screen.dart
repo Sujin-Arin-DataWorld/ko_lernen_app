@@ -250,13 +250,15 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                           size: 200,
                           fallbackKind: _selected!,
                           fallbackEmotion: MascotEmotion.celebrate,
-                          // 호랑이는 무음 — 포효에 쓰던 합성음이 품질 미달
-                          // (2026-08-03 Jin: "허접해서 지워줘"). null이면
-                          // sfxFor 자동 유도인데 tigerRoar 매핑도 제거돼
-                          // 완전 무음이 보장된다. 까치 짹짹은 유지.
+                          // 호랑이 = 산군의 포효 소리 (2026-08-03 Jin:
+                          // "이미지·영상은 그대로, 소리만 넣어" — 구 합성음은
+                          // 품질 미달로 삭제된 상태). 파일이 아직 없으면
+                          // CharacterClipPlayer 가 조용히 무음이므로 회귀 0 —
+                          // 선별된 포효 오디오를 assets/sfx/roar_tiger.mp3 로
+                          // 넣는 순간 이 화면부터 소리가 난다. 까치 짹짹 유지.
                           sfxAsset: _selected == MascotKind.magpie
                               ? 'sfx/greet_magpie.mp3'
-                              : null,
+                              : 'sfx/roar_tiger.mp3',
                           fallbackCompleteAfter: const Duration(
                             milliseconds: 1600,
                           ),

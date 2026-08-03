@@ -374,6 +374,19 @@ flutter run -d <android-id>   # 안드로이드
 - **산출물:** release AAB `242,400,178 B`, SHA-256 `e1b2c745…e2868e39`; release APK `263,680,468 B`, SHA-256 `29ddfee5…f49c23f3`. AAB `jarsigner -verify -certs`와 APK Signature Scheme v2를 모두 검증했고, APK package `com.sujinarin.ko_lernen_app` versionCode 9/versionName 2.0.3 및 upload signer SHA-256 `f5afe836…b4faad3`를 확인했다. 번들은 asset payload 241개, MP4 30개, `curriculum_manifest.json`과 `welcome-hero.mp4`를 포함하며 `magpie_moon.mp4`는 포함하지 않는다. 상세 매니페스트는 `docs/RELEASE_RUNBOOK_2026-08-02.md` §0.
 - **Android 물리 스모크:** Redmi M2101K6G / Android 12에서 기존 앱 데이터 삭제 없이 이 최종 APK를 `adb install -r`로 재설치했다. `force-stop` 뒤 cold launch·MainActivity 포커스·홈 → Üben → Grammatik 진입을 확인했고, 실제 캡처와 접근성 트리에서 A2 카드/한국어 예문/독일어 뜻/코치마크가 온전하게 노출됐다. 최신 로그 2,000줄에 `FATAL EXCEPTION`, `E/flutter`, `Unhandled Exception`, 앱 오류는 0건이었다. 데이터 변경을 피하려고 결과 완료·피드백 전송은 하지 않았다.
 - **경계:** iOS는 단순 미검증이 아니라 현재 출시 준비가 끝나지 않았다. `firebase_options.dart`의 iOS 분기가 `UnsupportedError`이고, 로컬 `GoogleService-Info.plist`·Runner target membership·Google URL scheme·Apple Team/프로파일이 없다. 앱은 로컬 UI를 계속 띄울 수 있지만 Firebase/Auth/App Check/동기화/피드백/프리미엄/푸시 초기화가 비활성화되므로 iOS 배포 전 [`docs/store/ios-external-setup.md`](docs/store/ios-external-setup.md)의 macOS 게이트를 완료해야 한다. Firebase Functions/Rules 배포도 이 세션에서는 실행하지 않았으므로 실제 피드백 수집은 별도 승인 배포 뒤에만 주장한다. 확인하지 않은 온보딩 히어로 영상 크롭과 피드백 카드 전 경로의 픽셀 단위 시각 검증은 별도 육안 확인 항목이다.
+### 2026-08-02~03 — 디자인 세련화 계획 v1.2 · Jin 결정 8건 · 포효 SFX 배선 · tiger_bob 재생성 (Cowork 클라우드 세션)
+
+**Jin:** ① 스크린샷 16장 "촌스러움" 진단·계획서(조이·태고 일관성 최우선) ② 요약 전부 반영+완벽성 재점검 ③ tiger_bob 교체("기준은 무조건 tiger_idle.png") ④ **tiger_roar 는 이미지·영상 불변경, 소리만**(세션 중 정정 지시 — 초기의 시각 교체 시도는 지시 오해로 폐기) ⑤ 깃은 브랜치로 메인 보호.
+
+**산출/변경:**
+- `docs/DESIGN_OVERHAUL_PLAN_2026-08-02.md` **v1.2** — 독립 검증(소스 전수 판독·대비 33쌍 재계산) 15건 반영: 🔴 코스 미션(36) 시스템 누락 보완(H-1·§6.1 소스 1순위·§6.2 챕터0) · 🔴 Q7 구식 정정(까치 SFX 5종 07-31 기제작) · CTA 실측(먹 7.22+fillOutline 4.08) · w800 래칫 193/193 · plural 스트릭 8키(streakDisplay :23) · Üben 19카드/hex 8종 · 온보딩 흐름 캐릭터선택·진단 삽입 · EavesCorner 경고 · ±1=3노드 · 임베드=현재 레벨 ≤19노드. **Jin 결정 8건 확정(§11)**: Q1 홈 축약 / Q2 히어로 통합+주1회 / Q3 Pack→Paket·Streak 유지 / Q4 부적(단청 황) / Q5 Wordle→Silben-Rätsel / Q6 Im Café bestellen / Q7 재정의 / Q8 Der Tiger→Taego.
+- `lib/screens/character_selection_screen.dart` — 일월 무대 포효(무음 상태)에 **`sfx/roar_tiger.mp3` 배선**. 파일 미존재 시 CharacterClipPlayer 무음 폴백이라 회귀 0, 선별 오디오가 들어오는 순간 소리 남.
+- `lib/widgets/sori/tiger_video.dart` — TigerGreetClip 죽은 경로의 호랑이 전용 가드·"까치 SFX 없음" 구식 주석 정리, `TigerStageVideo.greetSfxFor(kind)` 도입(tiger: tiger_greet.mp3 유지 / magpie: greet_magpie.mp3). 런타임 동작 변화 0(유일 호출부 playAudio:false). ⚠️ tiger_greet vs greet_tiger 이중 존재는 Jin 정리 후보.
+- **tiger_bob 재생성(Jin 위임)**: tiger_idle.png 순백 합성 레퍼런스 → Nano Banana 2 무변경 복제 키프레임(내 업로드본을 Wan 검증기가 거부해 우회) → Wan 2.7 i2v(1:1·720p·5s) 숨쉬기 바운스 루프. **키프레임·사운드는 Jin 컨펌 후에만 반영 게이트** 신설(1차 thinking 키프레임 평면 벡터풍 캐논 위반 → Jin 질책 → 절차화). thinking 재생성 키프레임(파셋 규칙 통과)은 **컨펌 대기·영상화 보류**, roar 시각 교체분은 **전량 폐기**.
+- 포효 오디오 후보: bbanana 오디오 계열 3회 연속 서버 오류로 생성 보류 — 다운로드·후처리·후보 재시도 절차는 `docs/CLIP_REGEN_2026-08-03.md`(붙여넣기 스크립트, Jin 로컬 수행 — 클라우드 컨테이너는 외부 URL 403).
+- Git: `feat/design-refresh-2026-08` 전용(메인 무접촉). bbanana 크레딧 약 37 사용(폐기분 약 28 — 지시 오해 비용, 세션 로그에 명기).
+
+**검증:** 계획서 인용·수치는 검증 에이전트 전수 재확인. dart 패치는 앵커 유일성+괄호 균형 확인 — **flutter analyze/test 는 Jin 로컬 필수**(클라우드에 SDK 없음).
 
 ### 2026-08-03 (실기기 피드백 — 캐릭터 선택 연출 위치 + 포효음 제거) — 커밋·푸시(Jin "푸쉬해주고 메인 최신으로")
 
