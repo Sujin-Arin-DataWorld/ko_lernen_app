@@ -115,7 +115,10 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
             padding: const EdgeInsets.only(bottom: Spacing.sm),
             child: SoriCard(
               variant: SoriCardVariant.base,
-              accent: _selected == index ? SoriColors.primary : null,
+              // 표면 v2 (§10.3): 선택지는 경계=정보 → selectable 테두리 문법.
+              // 선택 상태 = primary 2px + 옅은 primary 채움(tinted).
+              selectable: true,
+              selected: _selected == index,
               tinted: _selected == index,
               onTap: () => setState(() => _selected = index),
               child: Row(
