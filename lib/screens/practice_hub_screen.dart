@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hub_progress_header.dart';
@@ -17,8 +18,37 @@ import '../widgets/sori/tokens.dart';
 ///   📝 단어:   bookshelf·wordbook-search·hard_words·review
 ///
 /// 단어팩 `/vocab`은 "홈(길)"의 학습 경로 핵심이라 여기서 제외(중복 방지).
-class PracticeHubScreen extends StatelessWidget {
+class PracticeHubScreen extends StatefulWidget {
   const PracticeHubScreen({super.key});
+
+  @override
+  State<PracticeHubScreen> createState() => _PracticeHubScreenState();
+}
+
+class _PracticeHubScreenState extends State<PracticeHubScreen> {
+  /// "이어하기" 상태 — 홈 블록 5와 같은 서비스 소스(§6.3 단일 소스 규정).
+  int _dueCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadDue();
+  }
+
+  Future<void> _loadDue() async {
+    try {
+      final all = await ReviewDeckService.allReviewable();
+      if (!mounted) {
+        return;
+      }
+      setState(
+        () =>
+            _dueCount = Storage.todayGoalIds(all.map((v) => v.korean)).length,
+      );
+    } catch (_) {
+      // best-effort — 소스 실패 시 이어하기 섹션만 조용히 숨는다.
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +83,35 @@ class PracticeHubScreen extends StatelessWidget {
                 progress: streak > 0 ? (streak % 7) / 7.0 : 0.0,
               ),
               const SizedBox(height: Spacing.lg),
+              // §6.3 순서: 이어하기(있을 때만) → Lernen → Wörter → Spiele —
+              // "연습하러 왔다가 게임에 갇히는" 동선 역전 방지.
+              if (_dueCount > 0) ...[
+                FeaturedModuleCard(
+                  icon: Icons.refresh_rounded,
+                  title: t.reviewTitle,
+                  // 홈 블록 5와 같은 상태 문자열 — 단일 소스(§6.3).
+                  subtitle: t.homeReviewDue(_dueCount),
+                  accent: SoriColors.tiger,
+                  onTap: () async {
+                    await Navigator.pushNamed(context, '/review');
+                    if (mounted) {
+                      await _loadDue();
+                    }
+                  },
+                ),
+                const SizedBox(height: Spacing.lg),
+              ],
               _section(context, t.practiceSecLearn, _learnItems(t)),
               const SizedBox(height: Spacing.lg),
-              _section(context, t.practiceSecGames, _gameItems(t)),
+              _section(
+                context,
+                t.practiceSecWords,
+                // 이어하기 카드가 떠 있으면 /review 진입점은 화면당 1회 규칙에
+                // 따라 목록에서 뺀다(§6.3).
+                _wordItems(t, includeReview: _dueCount == 0),
+              ),
               const SizedBox(height: Spacing.lg),
-              _section(context, t.practiceSecWords, _wordItems(t)),
+              _section(context, t.practiceSecGames, _gameItems(t)),
               const SizedBox(height: Spacing.xxxl),
             ],
           ),
@@ -119,44 +173,46 @@ class PracticeHubScreen extends StatelessWidget {
     );
   }
 
+  // §4.4-2 색 수렴: Lernen 섹션 = primary 단일 액센트.
   List<_HubItem> _learnItems(AppL10n t) => [
     _HubItem(
       icon: Icons.text_fields_rounded,
       title: t.moduleHangulTitle,
       subtitle: t.moduleHangulDesc,
-      accent: SoriColors.hangul,
+      accent: SoriColors.primary,
       route: '/hangul',
     ),
     _HubItem(
       icon: Icons.edit_note_rounded,
       title: t.moduleGrammarTitle,
       subtitle: t.moduleGrammarDesc,
-      accent: SoriColors.warning,
+      accent: SoriColors.primary,
       route: '/grammar',
     ),
     _HubItem(
       icon: Icons.forum_rounded,
       title: t.moduleScenariosTitle,
       subtitle: t.moduleScenariosDesc,
-      accent: SoriColors.accent,
+      accent: SoriColors.primary,
       route: '/scenarios',
     ),
     _HubItem(
       icon: Icons.photo_camera_outlined,
       title: t.homeBookCardTitle,
       subtitle: t.homeBookCardDesc,
-      accent: SoriColors.info,
+      accent: SoriColors.primary,
       route: '/book',
       ribbonType: 'new',
     ),
   ];
 
+  // §4.4-2 색 수렴: Spiele 섹션 = goldOnLight 단일 액센트(라이트 대비 확보).
   List<_HubItem> _gameItems(AppL10n t) => [
     _HubItem(
       icon: Icons.local_fire_department_rounded,
       title: t.dailyTitle,
       subtitle: t.dailyDesc,
-      accent: SoriColors.gold,
+      accent: SoriColors.goldOnLight,
       route: '/daily',
       ribbonType: 'new',
     ),
@@ -164,21 +220,21 @@ class PracticeHubScreen extends StatelessWidget {
       icon: Icons.sort_by_alpha_rounded,
       title: t.gameChosungTitle,
       subtitle: t.gameChosungDesc,
-      accent: SoriColors.primary,
+      accent: SoriColors.goldOnLight,
       route: '/chosung',
     ),
     _HubItem(
       icon: Icons.grid_4x4_rounded,
       title: t.gameWordleTitle,
       subtitle: t.gameWordleDesc,
-      accent: SoriColors.success,
+      accent: SoriColors.goldOnLight,
       route: '/wordle',
     ),
     _HubItem(
       icon: Icons.short_text_rounded,
       title: t.clozeTitle,
       subtitle: t.clozeDesc,
-      accent: SoriColors.highlight,
+      accent: SoriColors.goldOnLight,
       route: '/cloze',
       ribbonType: 'new',
     ),
@@ -186,7 +242,7 @@ class PracticeHubScreen extends StatelessWidget {
       icon: Icons.bolt_rounded,
       title: t.speedMatchTitle,
       subtitle: t.speedMatchDesc,
-      accent: SoriColors.tiger,
+      accent: SoriColors.goldOnLight,
       route: '/speed_match',
       ribbonType: 'new',
     ),
@@ -194,7 +250,7 @@ class PracticeHubScreen extends StatelessWidget {
       icon: Icons.reorder_rounded,
       title: t.satzArcadeTitle,
       subtitle: t.satzArcadeDesc,
-      accent: SoriColors.accent,
+      accent: SoriColors.goldOnLight,
       route: '/satz_arcade',
       ribbonType: 'new',
     ),
@@ -202,68 +258,70 @@ class PracticeHubScreen extends StatelessWidget {
       icon: Icons.link_rounded,
       title: t.gameKkeunmariTitle,
       subtitle: t.gameKkeunmariDesc,
-      accent: SoriColors.accent,
+      accent: SoriColors.goldOnLight,
       route: '/kkeunmari',
     ),
     _HubItem(
       icon: Icons.headphones_rounded,
       title: t.moduleListenTitle,
       subtitle: t.listeningSubtitle,
-      accent: SoriColors.info,
+      accent: SoriColors.goldOnLight,
       route: '/listening',
     ),
     _HubItem(
       icon: Icons.chat_bubble_outline_rounded,
       title: t.homeSmalltalkCardTitle,
       subtitle: t.homeSmalltalkCardDesc,
-      accent: SoriColors.highlight,
+      accent: SoriColors.goldOnLight,
       route: '/smalltalk',
     ),
     _HubItem(
       icon: Icons.workspace_premium_outlined,
       title: t.homeQuestsCardTitle,
       subtitle: t.homeQuestsCardDesc,
-      accent: SoriColors.gold,
+      accent: SoriColors.goldOnLight,
       route: '/quests',
     ),
     _HubItem(
       icon: Icons.collections_outlined,
       title: t.dojangTitle,
       subtitle: t.dojangEmptyBody,
-      accent: SoriColors.accent,
+      accent: SoriColors.goldOnLight,
       route: '/dojangcheop',
     ),
   ];
 
-  List<_HubItem> _wordItems(AppL10n t) => [
+  // §4.4-2 색 수렴: Wörter 섹션 = accent 단일 액센트.
+  List<_HubItem> _wordItems(AppL10n t, {required bool includeReview}) => [
     _HubItem(
       icon: Icons.collections_bookmark_outlined,
       title: t.homeBookshelfCardTitle,
       subtitle: t.homeBookshelfCardDesc,
-      accent: SoriColors.primary,
+      accent: SoriColors.accent,
       route: '/bookshelf',
     ),
     _HubItem(
       icon: Icons.search_rounded,
       title: t.wbSearchTitle,
       subtitle: t.wbSearchCta,
-      accent: SoriColors.info,
+      accent: SoriColors.accent,
       route: '/wordbook/search',
     ),
     _HubItem(
       icon: Icons.bolt_rounded,
       title: t.hardWordsTitle,
       subtitle: t.hardWordsEmptyTitle,
-      accent: SoriColors.danger,
+      accent: SoriColors.accent,
       route: '/hard_words',
     ),
-    _HubItem(
-      icon: Icons.refresh_rounded,
-      title: t.reviewTitle,
-      subtitle: t.reviewEmptyTitle,
-      accent: SoriColors.gold,
-      route: '/review',
-    ),
+    if (includeReview)
+      _HubItem(
+        icon: Icons.refresh_rounded,
+        title: t.reviewTitle,
+        subtitle: t.reviewEmptyTitle,
+        accent: SoriColors.accent,
+        route: '/review',
+      ),
   ];
 }
 
