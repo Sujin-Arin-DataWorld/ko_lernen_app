@@ -1,7 +1,51 @@
-# 배포 런북 — v2.0.1+6 내부 테스트 (2026-08-02, HEAD `3e4a058`)
+# 배포 런북 — v2.0.3+9 내부 테스트 (2026-08-03, build source `8cb8519`)
 
 > **목적:** "로컬·깃 최신화 이외에, 앱이 진짜 유저(내부 테스터)에게 보이기까지 해야 하는 일" 전수 리스트 + 상태 + 실행 절차.
 > 게이트 상세는 [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md), 코드 상태는 [`AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md`](AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md).
+> 아래의 v2.0.1~v2.0.2 섹션은 과거 기록이다. 새 업로드에는 이 문서의 **§0** 산출물과 `docs/store/release-notes-v2.md`의 Build 2.0.3+9 블록만 사용한다.
+
+---
+
+## §0. 현재 업로드 대상 — v2.0.3+9 (versionCode 9)
+
+**빌드 소스:** `8cb85192f3cb7be6e942db19c5507b278a0182cb` (`pubspec.yaml` `2.0.3+9`).
+
+### 검증 게이트
+
+| 게이트 | 결과 |
+|---|---|
+| `flutter clean` → `pub get` → `gen-l10n` | ✅ 생성 번역 변경 없음 |
+| `flutter analyze --no-pub` | ✅ 0 issues |
+| `flutter test --no-pub --concurrency=1` | ✅ **1,579 통과** |
+| `npm --prefix functions/gye test` | ✅ **281 통과** |
+| `npm --prefix functions/gye run test:rules` | ✅ **42 통과** |
+| `python tool/check_clip_matte.py` | ✅ **16/16**, 실패 0 |
+
+### 서명 산출물
+
+빌드 플래그: `--release --obfuscate --split-debug-info=build/app/outputs/symbols --dart-define=ENABLE_TESTER_FEEDBACK=true --dart-define=BETA_UNLOCK_ALL=true`.
+
+| 산출물 | 크기 | SHA-256 |
+|---|---:|---|
+| `build/app/outputs/bundle/release/app-release.aab` | **242,400,955 B (231.2 MB)** | `ab1a8dc62dae3318f03709149456037360ed1f4cd1943ee4cdeefcde4758ecca` |
+| `build/app/outputs/flutter-apk/app-release.apk` | **263,680,232 B (251.5 MB)** | `5bdaf6f070b4eb78755597a0eaa7ffdf1fb6a4fb1236b2a1ea4049832a92c262` |
+
+- AAB: `jarsigner -verify -certs` → `jar verified` (upload key는 자체서명이며 업로드 키 체인 경고는 예상됨).
+- APK: package `com.sujinarin.ko_lernen_app`, versionName `2.0.3`, versionCode `9`; APK Signature Scheme v2 확인. signer SHA-256 `f5afe836…b4faad3`.
+- 번들 계약: assets 279개, MP4 30개, `curriculum_manifest.json` 및 `welcome-hero.mp4` 포함, `magpie_moon.mp4` 부재.
+
+### Android 실기기 스모크
+
+- 기기: Redmi M2101K6G / Android 12 / adb `9053622f`.
+- 기존 release `2.0.2`에서 데이터 삭제 없이 `adb install -r` 성공 → `2.0.3` / versionCode 9 확인.
+- `force-stop` 후 cold launch 성공, `MainActivity` 포커스·프로세스 재기동 확인.
+- 홈 → `Üben` → `Grammatik` 진입, 필터·카드·코치마크가 접근성 트리에 정상 노출. 홈 복귀 뒤에도 fatal/Flutter 예외 미관찰.
+- 경계: 이 PC에는 기기 미러링 창이 없어 히어로 영상의 픽셀 단위 크롭과 피드백 카드의 실제 시각 배치는 별도 육안 확인이 필요하다. 피드백 전송은 수행하지 않았다.
+
+### iOS 및 서버 배포 경계
+
+- Windows에는 iOS 기기·Xcode가 없어 iOS 물리 설치/서명/스모크는 **미검증**이다. Mac/Xcode에서 Apple 팀 프로비저닝 후 별도 검증한다.
+- Functions와 Firestore 규칙의 로컬 테스트는 통과했지만, 이 세션은 Firebase 배포를 실행하지 않았다. 내부 테스터의 피드백을 실제 수신하려면 별도 승인 하에 Functions/Rules 배포를 완료해야 한다.
 
 ---
 
@@ -63,7 +107,7 @@
 
 ### 3-1. 실기기 스모크 (업로드 전 최종 관문)
 
-**전제: 반드시 앱 데이터 삭제 후 신규 설치.** MIUI `INSTALL_FAILED_USER_RESTRICTED` 시: 개발자 옵션 → "USB를 통한 설치" 허용 + MIUI 최적화 끄기(+ Mi 계정 로그인). 다른 안드로이드 기기가 있으면 그쪽이 빠름.
+**전제: 기존 데이터는 보존한다.** 서명이 같은 경우 먼저 `adb install -r`로 업데이트한다. 앱 제거·데이터 삭제는 사용자가 명시적으로 승인한 경우에만 수행한다. MIUI `INSTALL_FAILED_USER_RESTRICTED` 시: 개발자 옵션 → "USB를 통한 설치" 허용 + MIUI 최적화 끄기(+ Mi 계정 로그인). 다른 안드로이드 기기가 있으면 그쪽이 빠름.
 
 ```powershell
 # adb 는 PATH 에 없음 — SDK 전체 경로로 실행 (sdk.dir = %LOCALAPPDATA%\Android\Sdk)
@@ -95,11 +139,11 @@
 2. **참여 링크(웹 옵트인 URL) 복사** → 테스터에게 전송
 3. 테스터: 링크 열기 → "테스터 되기" 수락 → Play 스토어에서 설치 (반영까지 몇 분 걸릴 수 있음)
 
-### 3-4. 마무리
+### 3-4. Git 태그 (선택, Jin의 명시 요청 시에만)
 
 ```
-git tag -a v2.0.1 -m "v2.0.1 (versionCode 6) — internal testing 2026-08-02"
-git push origin v2.0.1
+git tag -a v2.0.3 -m "v2.0.3 (versionCode 9) — internal testing 2026-08-03"
+git push origin v2.0.3
 ```
 
 ### 3-5. 첫 24시간 감시 (DEPLOY_CHECKLIST §7)

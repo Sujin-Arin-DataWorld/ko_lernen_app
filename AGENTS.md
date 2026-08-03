@@ -345,6 +345,17 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-03 (v2.0.3+9 Tiger Pulse 릴리스 증거 — main 병합 전 검증)
+
+**범위:** 결과 화면 피드백(Tiger Pulse)·작은 화면 custom quiz 스크롤·최신 main의 l10n/캐릭터 변경을 포함한 통합 브랜치에서 내부 테스트 산출물을 재생성. 빌드 소스 커밋은 `8cb85192f3cb7be6e942db19c5507b278a0182cb` (`2.0.3+9`)이다.
+
+- **통합/번역:** 최신 `origin/main` (`201abf3`)을 피드백 브랜치에 병합하고, 충돌한 DE/EN ARB와 generated l10n을 재생성해 Tiger Pulse 키와 배치고사·코스 키를 모두 보존했다.
+- **회귀 수정:** fixture 경로의 불필요한 vocab asset 대기를 제거하고, 짧은 화면에서 custom quiz 선택지를 스크롤하게 해 result-route 테스트와 실제 800×600 overflow를 해소했다. 선택 마스코트가 피드백 카드로 전달되는 테스트도 추가했다.
+- **게이트:** `flutter analyze --no-pub` 0 issues · 전체 직렬 Flutter 테스트 **1,579 통과** · Functions **281 통과** · Firestore rules **42 통과** · clip matte **16/16**.
+- **산출물:** release AAB `242,400,955 B`, SHA-256 `ab1a8dc62…ecca`; release APK `263,680,232 B`, SHA-256 `5bdaf6f0…c262`. AAB `jar verified`, APK package `com.sujinarin.ko_lernen_app` versionCode 9/versionName 2.0.3 및 v2 서명 확인. 상세 매니페스트는 `docs/RELEASE_RUNBOOK_2026-08-02.md` §0.
+- **Android 물리 스모크:** Redmi M2101K6G / Android 12에서 기존 release를 삭제하지 않고 `adb install -r`로 2.0.2→2.0.3 업데이트, cold launch·홈→Üben→Grammatik·홈 복귀 및 fatal/Flutter 예외 부재를 확인했다. 데이터 변경을 피하려고 결과 완료·피드백 전송은 하지 않았다.
+- **경계:** Windows에는 iOS 기기/Xcode가 없어 iOS 물리 검증은 남아 있다. Firebase Functions/Rules 배포도 이 세션에서는 실행하지 않았으므로 실제 피드백 수집은 별도 승인 배포 뒤에만 주장한다. 기기 미러가 없어 히어로 영상/피드백 카드의 픽셀 단위 시각 검증도 별도 육안 확인 항목이다.
+
 ### 2026-08-03 (병렬 세션 보고 후속 — 히어로 영상 실측 정합 + Codex 화면 l10n 이관) — 커밋·푸시 (2커밋 분할 1/2)
 
 **Jin:** 디바이스 세션 보고(히어로 영상 스왑 + Codex 하드코딩 + arb/generated 불일치) 전달 — "이것까지 신경써줘." 전 주장 이 클론에서 재실측 후 처리.
