@@ -299,7 +299,7 @@ void main() {
           'Custom Pack Matching',
           'Custom Pack Typing',
           'Chosung',
-          'Wordle',
+          'Silben-Rätsel',
           'Kkeunmari',
           'Daily Hangul',
           'Grammar',
