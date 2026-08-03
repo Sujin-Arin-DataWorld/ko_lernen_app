@@ -257,6 +257,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] Web App Check는 빌드 환경 `FIREBASE_WEB_APP_CHECK_SITE_KEY` 주입 seam만 사용하며, 키가 없으면 주·임시 Firebase 앱 모두 보호된 호출 전 fail-closed 한다. Android/Apple provider 동작은 변경하지 않았다. iOS/Web 실제 Firebase·Apple 설정은 운영 런북으로 분리했다.
 - [~] Firebase Console의 iOS/Web 앱 등록·FlutterFire 생성값·`GoogleService-Info.plist`·Auth 도메인·reCAPTCHA/App Check·Apple 서명/Sign in with Apple/APNs 및 macOS/실기기 검증은 운영 권한이 필요해 별도 수행한다.
 - [x] **현재 main 통합 검증:** `dart analyze --fatal-infos` 오류 0, 직렬 `flutter test --no-pub --concurrency=1` **1,662 passed**, `node --test functions/gye/cloud_backup_deletion_runtime.test.js` **17/17**, `flutter build web --release` 성공 및 `git diff --check` 통과. Web Wasm dry-run의 `flutter_tts` 경고는 빌드 실패가 아니며, 실제 Web 배포에는 `FIREBASE_WEB_APP_CHECK_SITE_KEY` 주입이 필수다.
+- [x] **통합 게시:** 병합 커밋 `f209290`이 코스 체크포인트 흐름(`cb66d4f`)과 데이터 안정성·동기화(`84537c2`/`87c214f`)를 함께 보존해 원격 `main`에 게시됐다. 게시 직후 `main == origin/main`, ahead/behind `0/0`, 작업 트리 clean을 확인했다.
 
 ### (이하 2026-05 히스토리 — 대부분 완료/대체됨)
 
