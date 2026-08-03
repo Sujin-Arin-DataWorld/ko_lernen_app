@@ -5,10 +5,14 @@ import '../data/hangul_strokes.dart';
 import '../models/feedback_completion.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
+import '../models/course_mastery.dart';
+import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
 import '../models/scenario.dart';
 import '../models/vocab_pack.dart';
 import '../services/data_loader.dart';
+import '../services/course_progress_service.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/gye_service.dart';
 import '../services/daily_char_service.dart';
 import '../services/pack_progress_service.dart';
@@ -21,7 +25,6 @@ import '../services/scenario_loader.dart';
 import '../services/notification_service.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
-import '../widgets/app_loading.dart';
 import 'daily_char_sheet.dart';
 import 'review_session_screen.dart';
 import '../widgets/sori/age_gate_prompt.dart';
@@ -32,6 +35,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mission_hero_card.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/pressable.dart';
@@ -88,6 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
   List<({VocabPack pack, PackProgress progress})> _pathNodes = [];
   String? _nowPackId;
 
+  // 블록 3(§6.1) 추천 엔진 소스 ① — 코스 커리큘럼 카탈로그·진행 스냅샷.
+  CurriculumCatalog? _courseCatalog;
+  CourseMasterySnapshot? _courseSnapshot;
+  bool _loadingCourse = true;
+
   // Phase 3 (stately-rising-jongga) — Hanok-Cinematic gating.
   HanokStage? _pendingCinematicStage;
   bool _cinematicShown = false;
@@ -97,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadToday();
     _loadPath();
+    _loadCourse();
     _checkHanokCinematic();
     WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
   }
@@ -225,6 +235,28 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  /// 블록 3 소스 ① — 코스 카탈로그·진행 스냅샷 로드.
+  /// 실패 시 오류 카드를 띄우지 않고 조용히 다음 소스로 폴백한다(§10.1).
+  Future<void> _loadCourse() async {
+    try {
+      final catalog = await CurriculumCatalog.load();
+      final snap = await CourseProgressService.shared.refresh();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _courseCatalog = catalog;
+        _courseSnapshot = snap;
+        _loadingCourse = false;
+      });
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() => _loadingCourse = false);
+    }
+  }
+
   Future<void> _checkHanokCinematic() async {
     final stage = await HanokStageService.currentStage();
     if (!mounted) return;
@@ -289,6 +321,9 @@ class _HomeScreenState extends State<HomeScreen> {
     // 팩 진행도 새로고침 (RefreshIndicator → pull-to-refresh 시 동기화).
     // ignore: discarded_futures
     _loadPath();
+    // 코스 스냅샷 새로고침 (미션 히어로 소스 ①).
+    // ignore: discarded_futures
+    _loadCourse();
   }
 
   /// 알림이 켜져 있으면 데일리 리마인더를 최신 스트릭 문구로 재예약한다
@@ -392,6 +427,145 @@ class _HomeScreenState extends State<HomeScreen> {
       await _loadToday();
       await _loadPath();
     }
+  }
+
+  /// §6.1 블록 3 추천 엔진 — "다음 것 1개"의 단일 소스.
+  /// 우선순위: ① 현재 코스 미션 > ② 진행 중 팩 > ③ due 복습(≥10) >
+  /// ④ 시나리오 추천. null = 오늘 할 것 없음(allDone).
+  /// 규칙 R-REC(H-6): 추천 레벨 ≤ 사용자 레벨 — 코스·팩은 순차 구조가
+  /// 레벨을 보장하므로 시나리오에만 명시 가드를 둔다.
+  MissionHeroContent? _missionHeroContent(AppL10n t, String lang) {
+    // ① 현재 코스 미션 — 구 주 CTA가 가던 /course/mission 커리큘럼.
+    final catalog = _courseCatalog;
+    final snap = _courseSnapshot;
+    if (catalog != null && snap != null && catalog.courseUnits.isNotEmpty) {
+      final total = catalog.courseUnits.length;
+      final completed = snap.completedUnitIds.toSet();
+      CourseUnit? unit = snap.currentCourseUnitId == null
+          ? null
+          : catalog.courseUnitFor(snap.currentCourseUnitId!);
+      if (unit == null && completed.length < total) {
+        // 진단 전(스냅샷 비어 있음) — order 순 첫 미완 미션.
+        final remaining =
+            catalog.courseUnits
+                .where((u) => !completed.contains(u.id))
+                .toList()
+              ..sort((a, b) => a.order.compareTo(b.order));
+        if (remaining.isNotEmpty) {
+          unit = remaining.first;
+        }
+      }
+      if (unit != null) {
+        // clamp()는 num을 돌려줘 int 파라미터와 안 맞는다 — 순수 int 연산.
+        final n = completed.length + 1 > total ? total : completed.length + 1;
+        return MissionHeroContent(
+          kind: MissionHeroKind.course,
+          title: unit.title.pick(lang),
+          levelCode: unit.level.toUpperCase(),
+          meta: t.missionHeroCourseMeta(n, total),
+          fraction: completed.length / total,
+          started: completed.isNotEmpty,
+          onStart: () async {
+            await Navigator.pushNamed(context, '/course/mission');
+            if (mounted) {
+              await _loadToday();
+              await _loadPath();
+            }
+            // 레슨 직후 달성한 마일스톤 즉시 축하 (구 주 CTA 동작 승계).
+            if (mounted) {
+              await _maybeCelebrateMilestone();
+            }
+          },
+        );
+      }
+    }
+    // ② 진행 중 팩 — 시작했고 아직 안 끝난 현재 노드.
+    final nowId = _nowPackId;
+    if (nowId != null) {
+      for (final e in _pathNodes) {
+        if (e.pack.id != nowId) {
+          continue;
+        }
+        if (e.progress.progressFraction > 0 &&
+            e.progress.status != PackStatus.cleared) {
+          final level = e.pack.level.toUpperCase();
+          return MissionHeroContent(
+            kind: MissionHeroKind.pack,
+            title: VocabPackService.displayLabel(e.pack.id, lang: lang),
+            levelCode: level,
+            meta: t.missionHeroPackMeta(level),
+            fraction: e.progress.progressFraction,
+            started: true,
+            onStart: () async {
+              if (level != 'A1' && !PremiumService.isPremium) {
+                final ok = await PremiumService.gate(context);
+                if (!ok) {
+                  return;
+                }
+              }
+              if (!mounted) {
+                return;
+              }
+              await Navigator.pushNamed(
+                context,
+                '/vocab/pack',
+                arguments: nowId,
+              );
+              if (mounted) {
+                await _loadToday();
+                await _loadPath();
+              }
+            },
+          );
+        }
+        break;
+      }
+    }
+    // ③ 오늘 복습 — due 카드가 10개 이상일 때만 미션으로 승격.
+    if (_dueCount >= 10) {
+      return MissionHeroContent(
+        kind: MissionHeroKind.review,
+        title: t.missionHeroReviewTitle(_dueCount),
+        levelCode: null,
+        meta: t.missionHeroReviewMeta,
+        fraction: 0,
+        started: false,
+        onStart: () async {
+          await Navigator.pushNamed(context, '/review');
+          if (mounted) {
+            await _loadToday();
+          }
+        },
+      );
+    }
+    // ④ 시나리오 추천 — R-REC: 레벨 초과 추천 금지(H-6).
+    final today = _today;
+    if (today != null && !_completed.contains(today.id)) {
+      final userLevel =
+          LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+      if (today.level.index <= userLevel.index) {
+        final level = today.level.code.toUpperCase();
+        return MissionHeroContent(
+          kind: MissionHeroKind.scenario,
+          title: today.title.pick(lang),
+          levelCode: level,
+          meta: t.missionHeroScenarioMeta(level),
+          fraction: 0,
+          started: false,
+          onStart: () async {
+            await Navigator.pushNamed(
+              context,
+              '/scenario',
+              arguments: today.id,
+            );
+            if (mounted) {
+              await _loadToday();
+            }
+          },
+        );
+      }
+    }
+    return null;
   }
 
   @override
@@ -537,27 +711,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: Spacing.md),
 
-                      // ── D. 주 CTA — 앱의 첫 행동은 항상 현재 코스 미션.
+                      // ── D. 오늘의 미션 히어로 — 단일 CTA (§6.1 블록 3·§10.1).
+                      // 구 "Jetzt lernen" 버튼 + Today 시나리오 카드를 흡수한
+                      // 추천 엔진: 코스 미션 > 진행 중 팩 > 복습 > 시나리오.
                       SoriEntrance(
                         delay: const Duration(milliseconds: 100),
                         slideY: 14,
-                        child: SoriButton.filled(
-                          label: t.homeLearnNowCta,
-                          icon: Icons.bolt_rounded,
-                          accent: SoriColors.tiger,
-                          fullWidth: true,
-                          onTap: () async {
-                            await Navigator.pushNamed(
-                              context,
-                              '/course/mission',
-                            );
+                        child: MissionHeroCard(
+                          loading: _loadingScenario || _loadingCourse,
+                          content: (_loadingScenario || _loadingCourse)
+                              ? null
+                              : _missionHeroContent(t, lang),
+                          onAnotherRound: () async {
+                            await Navigator.pushNamed(context, '/path');
                             if (mounted) {
                               await _loadToday();
-                              await _loadPath();
-                            }
-                            // 레슨 직후 달성한 마일스톤 즉시 축하.
-                            if (mounted) {
-                              await _maybeCelebrateMilestone();
                             }
                           },
                         ),
@@ -673,29 +841,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       const SizedBox(height: Spacing.xl),
-
-                      // ── E. Today CTA — 오늘의 단일 행동(경로 아래) ──
-                      _SectionLabel(label: t.homeTodaySection),
-                      const SizedBox(height: Spacing.sm),
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 150),
-                        child: _TodayScenarioCard(
-                          scenario: _today,
-                          loading: _loadingScenario,
-                          lang: lang,
-                          onTap: _today == null
-                              ? null
-                              : () async {
-                                  await Navigator.pushNamed(
-                                    context,
-                                    '/scenario',
-                                    arguments: _today!.id,
-                                  );
-                                  if (mounted) await _loadToday();
-                                },
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.md),
 
                       // ── E2. Skill path — 진행 레일(홈 중심 메타포로 승격) ──
                       if (_levelPath.isNotEmpty) ...[
@@ -1613,176 +1758,6 @@ class _DailyCharCard extends StatelessWidget {
               Icons.chevron_right_rounded,
               color: SoriColors.hangul.withValues(alpha: 0.7),
             ),
-        ],
-      ),
-    );
-  }
-}
-
-// ════════════════════════════════════════════════════════════════════════
-// E. Today scenario hero — primary CTA
-// ════════════════════════════════════════════════════════════════════════
-class _TodayScenarioCard extends StatelessWidget {
-  final Scenario? scenario;
-  final bool loading;
-  final String lang;
-  final VoidCallback? onTap;
-
-  const _TodayScenarioCard({
-    required this.scenario,
-    required this.loading,
-    required this.lang,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-
-    if (loading) {
-      return SoriCard(
-        variant: SoriCardVariant.hero,
-        accent: SoriColors.primary,
-        tinted: true,
-        child: const SizedBox(height: 120, child: AppLoading()),
-      );
-    }
-
-    if (scenario == null) {
-      return SoriCard(
-        variant: SoriCardVariant.hero,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-          child: Center(
-            child: Text(
-              t.homeNoScenario,
-              textAlign: TextAlign.center,
-              style: SoriTextTheme.of(context).bodySmall,
-            ),
-          ),
-        ),
-      );
-    }
-
-    final title = scenario!.title.pick(lang);
-
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.primary,
-      tinted: true,
-      onTap: onTap,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      t.homeRecommended,
-                      style: const TextStyle(
-                        fontFamily: 'Pretendard',
-                        color: SoriColors.primary,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.3,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      title,
-                      style: SoriTextTheme.of(
-                        context,
-                      ).h3.copyWith(fontWeight: FontWeight.w800, fontSize: 19),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: Spacing.xs),
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 3,
-                          ),
-                          decoration: BoxDecoration(
-                            color: SoriColors.primary.withValues(alpha: 0.18),
-                            borderRadius: BorderRadius.circular(
-                              SoriRadius.pill,
-                            ),
-                          ),
-                          child: Text(
-                            scenario!.level.display,
-                            style: const TextStyle(
-                              fontFamily: 'Pretendard',
-                              color: SoriColors.primary,
-                              fontSize: 11,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 0.4,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Flexible(
-                          child: Text(
-                            '5–7 min · +${scenario!.xpReward} XP',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: SoriTextTheme.of(context).cardSubtitle,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: Spacing.lg),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 9,
-                ),
-                decoration: BoxDecoration(
-                  color: SoriColors.primary,
-                  borderRadius: SoriRadius.brPill,
-                  boxShadow: [
-                    BoxShadow(
-                      color: SoriColors.primary.withValues(alpha: 0.30),
-                      blurRadius: 8,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      t.scenarioStartBtn,
-                      style: const TextStyle(
-                        fontFamily: 'Pretendard',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 15,
-                      ),
-                    ),
-                    const SizedBox(width: 4),
-                    const Icon(
-                      Icons.arrow_forward_rounded,
-                      size: 16,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );
