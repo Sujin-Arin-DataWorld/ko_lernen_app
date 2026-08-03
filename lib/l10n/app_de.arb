@@ -1044,6 +1044,7 @@
   "pathNodeNow": "Jetzt",
   "pathLockedHint": "Schließe zuerst das vorherige Pack ab.",
   "pathSeeAll": "Ganzer Pfad",
+  "pathJumpToNow": "Zum aktuellen Schritt",
   "homePathCardTitle": "Lernpfad",
   "homePathCardSub": "Sieh, wo du stehst",
   "homeBrowseTitle": "Alles entdecken",

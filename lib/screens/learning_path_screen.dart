@@ -14,6 +14,9 @@ import '../services/premium_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
+import '../widgets/sori/hanok_tokens.dart';
+import '../widgets/sori/level_chip.dart';
+import '../widgets/sori/motion.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/progress.dart';
@@ -59,6 +62,12 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   // ── 코치마크 타겟 ──
   final GlobalKey _nowNodeKey = GlobalKey();
 
+  // ── §6.2-① 자동 스크롤 ──
+  /// 홈 미리보기가 넘긴 스크롤 타깃 팩 id (`/path` route arguments).
+  String? _focusPackId;
+  final GlobalKey _focusNodeKey = GlobalKey();
+  bool _autoScrolled = false;
+
   @override
   String get coachId => 'learningPath';
 
@@ -83,6 +92,40 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     super.initState();
     _load();
     scheduleCoach();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // 홈 미리보기(PathPreviewRow §10.2)가 넘긴 노드 id — 1회만 채택.
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (_focusPackId == null && args is String) {
+      _focusPackId = args;
+    }
+  }
+
+  /// §6.2-①: 진입(및 점프 버튼) 시 현재 — 또는 홈이 지정한 — 노드로 스크롤.
+  /// ListView가 children 전량을 즉시 빌드하므로 ensureVisible이 안전하다.
+  void _autoScrollToTarget({bool force = false}) {
+    if (!mounted || (_autoScrolled && !force)) {
+      return;
+    }
+    final focusCtx =
+        _focusPackId != null && _focusPackId != _nowPackId
+        ? _focusNodeKey.currentContext
+        : null;
+    final ctx = focusCtx ?? _nowNodeKey.currentContext;
+    if (ctx == null) {
+      return; // 타깃 없음(예: 전부 클리어) — 상단 유지.
+    }
+    _autoScrolled = true;
+    final reduce = SoriMotion.reduceMotion(context);
+    Scrollable.ensureVisible(
+      ctx,
+      alignment: 0.35,
+      duration: reduce ? Duration.zero : const Duration(milliseconds: 450),
+      curve: Curves.easeOutCubic,
+    );
   }
 
   Future<void> _load() async {
@@ -134,6 +177,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       _courseSnapshot = courseSnapshot;
       _loading = false;
     });
+    WidgetsBinding.instance.addPostFrameCallback((_) => _autoScrollToTarget());
   }
 
   Future<void> _openPack(VocabPack pack, PackStatus status) async {
@@ -165,6 +209,15 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         title: Text(t.pathTitle),
         backgroundColor: s.bg,
         surfaceTintColor: Colors.transparent,
+        actions: [
+          // §6.2-①: 현재 노드로 점프 (자동 스크롤과 병행).
+          IconButton(
+            tooltip: t.pathJumpToNow,
+            icon: const Icon(Icons.my_location_rounded),
+            onPressed: () => _autoScrollToTarget(force: true),
+          ),
+          const SizedBox(width: Spacing.xs),
+        ],
       ),
       body: SafeArea(
         child: _loading
@@ -216,15 +269,20 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     return [
       Padding(
         padding: const EdgeInsets.only(top: Spacing.sm, bottom: Spacing.sm),
+        // §6.2-②: 레벨 챕터 헤더 — 사계 단청 팔레트로 장(章) 리듬.
         child: Row(
           children: [
-            Text(
-              g.level,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
-                color: s.text,
-                letterSpacing: 0.5,
+            SoriLevelChip(code: g.level),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Container(
+                height: 1.5,
+                decoration: BoxDecoration(
+                  color: HanokLevelPalette.of(
+                    g.level,
+                  ).withValues(alpha: 0.28),
+                  borderRadius: BorderRadius.circular(1),
+                ),
               ),
             ),
             const SizedBox(width: Spacing.sm),
@@ -250,7 +308,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
               status: e.progress.status,
               fraction: e.progress.progressFraction,
               isNow: e.pack.id == _nowPackId,
-              nodeKey: e.pack.id == _nowPackId ? _nowNodeKey : null,
+              nodeKey: e.pack.id == _nowPackId
+                  ? _nowNodeKey
+                  : (e.pack.id == _focusPackId ? _focusNodeKey : null),
               onTap: () => _openPack(e.pack, e.progress.status),
             ),
         ],
@@ -290,9 +350,17 @@ class _CourseMissionPath extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          english ? 'Course missions' : 'Kursmissionen',
-          style: SoriTextTheme.of(context).h2,
+        // §6.2 v1.2: 코스(미션)와 팩(어휘 경로)의 이중 구조를 "챕터 0"으로
+        // 시각 구분 — 먹색 칩(레벨 챕터의 사계 칩과 같은 문법).
+        Row(
+          children: [
+            const SoriLevelChip(code: '0', color: HanokColors.hanjiInk),
+            const SizedBox(width: Spacing.sm),
+            Text(
+              english ? 'Course missions' : 'Kursmissionen',
+              style: SoriTextTheme.of(context).h2,
+            ),
+          ],
         ),
         const SizedBox(height: Spacing.xs),
         Text(

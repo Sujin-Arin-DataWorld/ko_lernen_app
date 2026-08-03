@@ -1023,6 +1023,7 @@
   "pathNodeNow": "Now",
   "pathLockedHint": "Clear the previous pack first.",
   "pathSeeAll": "Full path",
+  "pathJumpToNow": "To the current step",
   "homePathCardTitle": "Learning path",
   "homePathCardSub": "See where you are",
   "homeBrowseTitle": "Browse all",
