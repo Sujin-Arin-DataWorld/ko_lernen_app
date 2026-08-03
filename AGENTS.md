@@ -345,6 +345,20 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-02~03 — 디자인 세련화 계획 v1.2 · Jin 결정 8건 · 포효 SFX 배선 · tiger_bob 재생성 (Cowork 클라우드 세션)
+
+**Jin:** ① 스크린샷 16장 "촌스러움" 진단·계획서(조이·태고 일관성 최우선) ② 요약 전부 반영+완벽성 재점검 ③ tiger_bob 교체("기준은 무조건 tiger_idle.png") ④ **tiger_roar 는 이미지·영상 불변경, 소리만**(세션 중 정정 지시 — 초기의 시각 교체 시도는 지시 오해로 폐기) ⑤ 깃은 브랜치로 메인 보호.
+
+**산출/변경:**
+- `docs/DESIGN_OVERHAUL_PLAN_2026-08-02.md` **v1.2** — 독립 검증(소스 전수 판독·대비 33쌍 재계산) 15건 반영: 🔴 코스 미션(36) 시스템 누락 보완(H-1·§6.1 소스 1순위·§6.2 챕터0) · 🔴 Q7 구식 정정(까치 SFX 5종 07-31 기제작) · CTA 실측(먹 7.22+fillOutline 4.08) · w800 래칫 193/193 · plural 스트릭 8키(streakDisplay :23) · Üben 19카드/hex 8종 · 온보딩 흐름 캐릭터선택·진단 삽입 · EavesCorner 경고 · ±1=3노드 · 임베드=현재 레벨 ≤19노드. **Jin 결정 8건 확정(§11)**: Q1 홈 축약 / Q2 히어로 통합+주1회 / Q3 Pack→Paket·Streak 유지 / Q4 부적(단청 황) / Q5 Wordle→Silben-Rätsel / Q6 Im Café bestellen / Q7 재정의 / Q8 Der Tiger→Taego.
+- `lib/screens/character_selection_screen.dart` — 일월 무대 포효(무음 상태)에 **`sfx/roar_tiger.mp3` 배선**. 파일 미존재 시 CharacterClipPlayer 무음 폴백이라 회귀 0, 선별 오디오가 들어오는 순간 소리 남.
+- `lib/widgets/sori/tiger_video.dart` — TigerGreetClip 죽은 경로의 호랑이 전용 가드·"까치 SFX 없음" 구식 주석 정리, `TigerStageVideo.greetSfxFor(kind)` 도입(tiger: tiger_greet.mp3 유지 / magpie: greet_magpie.mp3). 런타임 동작 변화 0(유일 호출부 playAudio:false). ⚠️ tiger_greet vs greet_tiger 이중 존재는 Jin 정리 후보.
+- **tiger_bob 재생성(Jin 위임)**: tiger_idle.png 순백 합성 레퍼런스 → Nano Banana 2 무변경 복제 키프레임(내 업로드본을 Wan 검증기가 거부해 우회) → Wan 2.7 i2v(1:1·720p·5s) 숨쉬기 바운스 루프. **키프레임·사운드는 Jin 컨펌 후에만 반영 게이트** 신설(1차 thinking 키프레임 평면 벡터풍 캐논 위반 → Jin 질책 → 절차화). thinking 재생성 키프레임(파셋 규칙 통과)은 **컨펌 대기·영상화 보류**, roar 시각 교체분은 **전량 폐기**.
+- 포효 오디오 후보: bbanana 오디오 계열 3회 연속 서버 오류로 생성 보류 — 다운로드·후처리·후보 재시도 절차는 `docs/CLIP_REGEN_2026-08-03.md`(붙여넣기 스크립트, Jin 로컬 수행 — 클라우드 컨테이너는 외부 URL 403).
+- Git: `feat/design-refresh-2026-08` 전용(메인 무접촉). bbanana 크레딧 약 37 사용(폐기분 약 28 — 지시 오해 비용, 세션 로그에 명기).
+
+**검증:** 계획서 인용·수치는 검증 에이전트 전수 재확인. dart 패치는 앵커 유일성+괄호 균형 확인 — **flutter analyze/test 는 Jin 로컬 필수**(클라우드에 SDK 없음).
+
 ### 2026-08-03 (실기기 피드백 — 캐릭터 선택 연출 위치 + 포효음 제거) — 커밋·푸시(Jin "푸쉬해주고 메인 최신으로")
 
 **Jin 실기기 2건:** ① "choose.mp4가 너무 하단에 있어서 오류난 것 같아" ② "tiger_roar.mp4 포효소리 너무 허접해서 지워줘. 파일명이 뭐야?"
