@@ -16,14 +16,14 @@
    "sidekick": "minsu",
    "xpReward": 140,
    "title": {
-    "ko": "스타벅스에서 주문하기",
-    "de": "Im Starbucks bestellen",
-    "en": "Ordering at Starbucks"
+    "ko": "카페에서 주문하기",
+    "de": "Im Café bestellen",
+    "en": "Ordering at a café"
    },
    "intro": {
     "ko": "",
-    "de": "32°C in Gangnam. Du gehst in einen Starbucks. Klimaanlage ✓. Du willst einen 아아 — Iced Americano, Tall. Aber wie sagt man 'for here or to go' auf Koreanisch?",
-    "en": "32°C in Gangnam. You walk into a Starbucks. AC ✓. You want an 아아 — Iced Americano, Tall. But how do you say 'for here or to go' in Korean?"
+    "de": "32°C in Gangnam. Du gehst in ein Café. Klimaanlage ✓. Du willst einen 아아 — Iced Americano, Tall. Aber wie sagt man 'for here or to go' auf Koreanisch?",
+    "en": "32°C in Gangnam. You walk into a café. AC ✓. You want an 아아 — Iced Americano, Tall. But how do you say 'for here or to go' in Korean?"
    },
    "vocab": [
     {
@@ -47,8 +47,8 @@
      ],
      "note": {
       "ko": "",
-      "de": "Starbucks-Größen: Short → Tall → Grande → Venti.",
-      "en": "Starbucks sizes: Short → Tall → Grande → Venti."
+      "de": "Typische Kaffeegrößen: Short → Tall → Grande → Venti.",
+      "en": "Typical café sizes: Short → Tall → Grande → Venti."
      }
     },
     {
