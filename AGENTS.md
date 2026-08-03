@@ -364,6 +364,18 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-03 (밤) — 디자인 계획 R1 표면 수술 구현 완료 (Cowork 클라우드 세션)
+
+**Jin:** "R6는 됐으니 R1부터 R7까지 STEP BY STEP, 거짓·환각 없이 계획 100% 구현" 지시. 직전 결정("로컬 R1 단독")을 뒤집는 최신 지시로 클라우드가 구현 — 착수 전 로컬 세션의 R1 흔적 없음을 git으로 확인(HEAD 339f64d, card.dart 무변경). Flutter 게이트(analyze·test·실기기)는 로컬 몫.
+
+- **R1-a `8b815ac`** — SoriCard 표면 v2(§4.1·§4.2·§10.3): 라이트 기본 = lightSurfaceRaised + SoriElevation.low **무테두리**, 눌림 시 medium(`SoriPressable.onPressedChanged` 신설, 기존 호출부 무영향). `selectable`/`selected` 신규(선택형 UI만 테두리, 선택=primary 2px). accent 색 코딩 = 전면 테두리 → **좌측 4px 바**(API 불변). 다크 darkBorderStrong 1.5px 유지. EavesCorner **존치**(§10.3 명시 결정). 탭 분기 ClipRRect 제거(그림자 클립 방지) → Container.clipBehavior 승계. 사용처 실측 **38파일**(계획서 34에서 증가).
+- **R1-b `e48b5b2`** — 전수 스캔 결과 선택형 SoriCard 사용처는 placement 진단 선택지 **1곳뿐** → selectable 문법 적용(구 accent 선택 신호 폐지). 나머지 37파일은 상태·색코딩 카드 = 액센트 바 대상이 맞음(무변경).
+- **R1-c/d `1c02ca6`** — §4.4-3 죽은 회색 제거: filled 버튼 비활성 = surfaceAlt + 모티프 색 15% 알파, streak_display `Colors.grey`→textMuted. path_trail 잠금(도장 회색조 45% 프리뷰·대비 유지)은 이미 충족 — 무변경.
+- **R1-e `a637e67`** — typography_guard 주석의 처방 그대로: onboarding_level_screen raw TextStyle 17개 → SoriTextTheme 프리셋, w800 193→**188**·w900 −1, 래칫 상한 **189 복원**·w900 45 하향. §4.3 카드 제목 w800 금지(2곳 h3 강등), 독일어 대문자 변환 1곳 제거(`label.toUpperCase()` 폐지).
+- ⚠️ **미검증(로컬 게이트 대기)**: `flutter analyze` · 전체 테스트 · 라이트 실기기(그림자 문법, 액센트 바 — 특히 한글 그리드 compact 셀·hanji 카드, 온보딩 타이포). 클립 테스트는 Jin의 병렬 에셋 작업(tiger_bob 교체, tiger_magpie_play·tiger_walk_front 신규) 때문에 `python tool/check_clip_matte.py` 선행 필수.
+- 운영: VM git 커밋마다 남는 락(`HEAD.lock`/`index.lock`)은 삭제 불가라 **`_to_delete/git-locks-2026-08-03/`로 mv 우회**(폴더째 삭제는 Jin). 에셋 파일은 무접촉.
+
+
 ### 2026-08-03 (정본 검증 + design-refresh 브랜치 흡수 병합 + v2.0.4+10 준비) — 커밋·푸시
 
 **Jin:** 통합 세션 보고(정본 main=`cde9509`, 3세션 산출물 통합) 전달 — "이 내용 다 메인에 들어왔는지 봐줘. 너것도 메인에 흡수시키고, aab new version 만들어줘."
