@@ -70,7 +70,9 @@ class _PreviewNode extends StatelessWidget {
     final locked = stop.status == PackStatus.locked;
     return Semantics(
       button: true,
-      enabled: stop.onTap != null,
+      // 미리보기 노드는 전부 탭 가능(비현재 노드도 /path로 이동) —
+      // SoriPathStop.onTap은 비-nullable이라 null 검사 불필요.
+      enabled: true,
       label: stop.label,
       child: SoriPressable(
         onTap: stop.onTap,
