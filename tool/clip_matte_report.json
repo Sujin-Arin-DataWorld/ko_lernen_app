@@ -139,11 +139,11 @@
     },
     {
       "path": "tiger_thinking.mp4",
-      "bytes": 737979,
+      "bytes": 1908285,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "frames_sampled": 97,
+      "frames_sampled": 121,
       "reason": ""
     }
   ]
