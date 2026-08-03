@@ -487,9 +487,11 @@ class SoriTextTheme {
   );
 
   // ── Card (앱 최빈 패턴 — 카드 제목/부제. B-2 타이포 통일 2026-06-12) ──
+  // §4.3 (2026-08-04): 카드 제목 = 15~17 w700 — w800 금지 규정에 맞춰
+  // 14/w800 → 15/w700. 위계는 크기 차(제목 15 vs 본문 12~13)로 낸다.
   TextStyle get cardTitle => _base(
-    fontSize: 14,
-    weight: FontWeight.w800,
+    fontSize: 15,
+    weight: FontWeight.w700,
     letterSpacing: -0.2,
     height: 1.3,
   );
