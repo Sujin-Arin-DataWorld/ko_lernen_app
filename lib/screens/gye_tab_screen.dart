@@ -6,6 +6,7 @@ import '../services/gye_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -108,7 +109,8 @@ class _GyeTabScreenState extends State<GyeTabScreen>
               future: GyeService.myGyeMetas(),
               builder: (context, snap) {
                 if (snap.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
+                  // §8.1 상태 표준: 로딩은 AppLoading 단일 위젯.
+                  return const AppLoading();
                 }
                 final gyeList = snap.data ?? const <GyeMeta>[];
                 if (gyeList.isEmpty) {

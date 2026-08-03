@@ -370,6 +370,17 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 — 디자인 계획 R3·R4 구현 완료 (Cowork 클라우드, 브랜치 feat/design-r3-r7-2026-08)
+
+**Jin:** R2 게이트 전부 통과 확인 후 "브랜치 파서 작업" 지시 → main 보호용 브랜치 생성, R3부터 속행. 락 재발 원인 규명 요청 → **원인 = 클라우드 VM(device_bash) git 명령 + 마운트 unlink 금지**(git이 작업 후 락을 못 지움). 대응: `maintenance.auto=false`·`gc.auto=0` 설정 + 모든 호출을 락 mv 청소로 종료(git 명령을 마지막에 두는 실수 금지 규율화).
+
+- **R3 `ddc8304`** — `/path` §6.2: ① 진입 시 현재 노드 자동 스크롤(홈 미리보기 인자 소비, reduce-motion 존중) + 앱바 점프 버튼(`pathJumpToNow` DE/EN) ② 레벨 챕터 헤더 = `SoriLevelChip` 신규 공용 위젯(히어로 사설 칩 승격) + 사계 디바이더, Kursmissionen = 먹색 "0" 칩 챕터 0 명시(w800 raw −1 = 187) ③ 잠금 톤 R1-c 기충족 무변경. path_trail_tap_test 무접촉.
+- **R4-a `625986f`** — Üben §6.3: 순서 이어하기(due>0)→Lernen→Wörter→Spiele, 이어하기 = 홈 블록 5와 동일 소스(ReviewDeckService+todayGoalIds)·동일 문구, /review 진입점 화면당 1회(이어하기 노출 시 Wörter 목록 제외). §4.4-2 색 수렴: 19카드 → Lernen=primary·Wörter=accent·Spiele=goldOnLight.
+- **R4-b `68d6a99`** — Lerngruppe 빈 상태 §6.4: 조이 일러스트(magpie_encourage) + "Zusammen gebaut hält länger"(신규 키) + 혜택 3줄 + filled/outline CTA + **GyeHanok 재사용 미리보기**(더미 메타 4요소+60% ramp, AspectRatio 393×280).
+- **R4-c(검증, 무변경)** — Profil: G-2는 `AccountPendingOperationPanel`의 source/state 기반 shrink로, G-3은 SoriButton.filled+R1-c 비활성 톤으로 **기충족 확인**. 게스트 유도 문구는 §7.3 = R5 이관. + gye 로딩 CircularProgressIndicator → `AppLoading` 표준화(§8.1).
+- 게이트(로컬 몫): `flutter gen-l10n`(신규 키 pathJumpToNow·gyeEmptyHeadline·gyeEmptyPreviewCaption) → analyze → test → 실기기(/path 자동 스크롤·허브 순서·계 빈 상태·한옥 미리보기). 남은 페이즈 = **R5 문구 → R7 마감**.
+
+
 ### 2026-08-03 (후속) — 에셋 생성 프롬프트 복붙본 파일화 — 커밋·푸시
 
 **Jin:** "생성기/외주에 그대로 넘기기 좋게 파일로 — 둘 다(파일+커밋)."
