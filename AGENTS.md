@@ -345,16 +345,16 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
-### 2026-08-03 (v2.0.3+9 Tiger Pulse 릴리스 증거 — main 병합 전 검증)
+### 2026-08-03 (v2.0.3+9 Tiger Pulse 릴리스 증거 — 최종 Android 빌드 및 iOS 게이트 감사)
 
-**범위:** 결과 화면 피드백(Tiger Pulse)·작은 화면 custom quiz 스크롤·최신 main의 l10n/캐릭터 변경을 포함한 통합 브랜치에서 내부 테스트 산출물을 재생성. 빌드 소스 커밋은 `8cb85192f3cb7be6e942db19c5507b278a0182cb` (`2.0.3+9`)이다.
+**범위:** 결과 화면 피드백(Tiger Pulse)·작은 화면 custom quiz 스크롤·최신 main의 l10n/캐릭터/Firebase 변경을 포함한 통합 브랜치에서 내부 테스트 산출물을 재생성. 최종 Android 산출물의 빌드 소스 커밋은 `6893293a97f68ed42cf30c01399471c8daa79081` (`2.0.3+9`)이다.
 
-- **통합/번역:** 최신 `origin/main` (`201abf3`)을 피드백 브랜치에 병합하고, 충돌한 DE/EN ARB와 generated l10n을 재생성해 Tiger Pulse 키와 배치고사·코스 키를 모두 보존했다.
+- **통합/번역:** `6ff708a`의 Android OAuth/Firebase 설정과 `8fd8b1f`의 캐릭터 선택·무음 포효 수정을 포함한 최신 `origin/main`을 피드백 브랜치에 병합하고, 충돌한 DE/EN ARB와 generated l10n을 재생성해 Tiger Pulse 키와 배치고사·코스 키를 모두 보존했다.
 - **회귀 수정:** fixture 경로의 불필요한 vocab asset 대기를 제거하고, 짧은 화면에서 custom quiz 선택지를 스크롤하게 해 result-route 테스트와 실제 800×600 overflow를 해소했다. 선택 마스코트가 피드백 카드로 전달되는 테스트도 추가했다.
 - **게이트:** `flutter analyze --no-pub` 0 issues · 전체 직렬 Flutter 테스트 **1,579 통과** · Functions **281 통과** · Firestore rules **42 통과** · clip matte **16/16**.
-- **산출물:** release AAB `242,400,955 B`, SHA-256 `ab1a8dc62…ecca`; release APK `263,680,232 B`, SHA-256 `5bdaf6f0…c262`. AAB `jar verified`, APK package `com.sujinarin.ko_lernen_app` versionCode 9/versionName 2.0.3 및 v2 서명 확인. 상세 매니페스트는 `docs/RELEASE_RUNBOOK_2026-08-02.md` §0.
-- **Android 물리 스모크:** Redmi M2101K6G / Android 12에서 기존 release를 삭제하지 않고 `adb install -r`로 2.0.2→2.0.3 업데이트, cold launch·홈→Üben→Grammatik·홈 복귀 및 fatal/Flutter 예외 부재를 확인했다. 데이터 변경을 피하려고 결과 완료·피드백 전송은 하지 않았다.
-- **경계:** Windows에는 iOS 기기/Xcode가 없어 iOS 물리 검증은 남아 있다. Firebase Functions/Rules 배포도 이 세션에서는 실행하지 않았으므로 실제 피드백 수집은 별도 승인 배포 뒤에만 주장한다. 기기 미러가 없어 히어로 영상/피드백 카드의 픽셀 단위 시각 검증도 별도 육안 확인 항목이다.
+- **산출물:** release AAB `242,400,178 B`, SHA-256 `e1b2c745…e2868e39`; release APK `263,680,468 B`, SHA-256 `29ddfee5…f49c23f3`. AAB `jarsigner -verify -certs`와 APK Signature Scheme v2를 모두 검증했고, APK package `com.sujinarin.ko_lernen_app` versionCode 9/versionName 2.0.3 및 upload signer SHA-256 `f5afe836…b4faad3`를 확인했다. 번들은 asset payload 241개, MP4 30개, `curriculum_manifest.json`과 `welcome-hero.mp4`를 포함하며 `magpie_moon.mp4`는 포함하지 않는다. 상세 매니페스트는 `docs/RELEASE_RUNBOOK_2026-08-02.md` §0.
+- **Android 물리 스모크:** Redmi M2101K6G / Android 12에서 기존 앱 데이터 삭제 없이 이 최종 APK를 `adb install -r`로 재설치했다. `force-stop` 뒤 cold launch·MainActivity 포커스·홈 → Üben → Grammatik 진입을 확인했고, 실제 캡처와 접근성 트리에서 A2 카드/한국어 예문/독일어 뜻/코치마크가 온전하게 노출됐다. 최신 로그 2,000줄에 `FATAL EXCEPTION`, `E/flutter`, `Unhandled Exception`, 앱 오류는 0건이었다. 데이터 변경을 피하려고 결과 완료·피드백 전송은 하지 않았다.
+- **경계:** iOS는 단순 미검증이 아니라 현재 출시 준비가 끝나지 않았다. `firebase_options.dart`의 iOS 분기가 `UnsupportedError`이고, 로컬 `GoogleService-Info.plist`·Runner target membership·Google URL scheme·Apple Team/프로파일이 없다. 앱은 로컬 UI를 계속 띄울 수 있지만 Firebase/Auth/App Check/동기화/피드백/프리미엄/푸시 초기화가 비활성화되므로 iOS 배포 전 [`docs/store/ios-external-setup.md`](docs/store/ios-external-setup.md)의 macOS 게이트를 완료해야 한다. Firebase Functions/Rules 배포도 이 세션에서는 실행하지 않았으므로 실제 피드백 수집은 별도 승인 배포 뒤에만 주장한다. 확인하지 않은 온보딩 히어로 영상 크롭과 피드백 카드 전 경로의 픽셀 단위 시각 검증은 별도 육안 확인 항목이다.
 
 ### 2026-08-03 (실기기 피드백 — 캐릭터 선택 연출 위치 + 포효음 제거) — 커밋·푸시(Jin "푸쉬해주고 메인 최신으로")
 

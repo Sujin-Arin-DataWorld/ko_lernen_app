@@ -1,4 +1,4 @@
-# 배포 런북 — v2.0.3+9 내부 테스트 (2026-08-03, build source `8cb8519`)
+# 배포 런북 — v2.0.3+9 내부 테스트 (2026-08-03, final Android build source `6893293`)
 
 > **목적:** "로컬·깃 최신화 이외에, 앱이 진짜 유저(내부 테스터)에게 보이기까지 해야 하는 일" 전수 리스트 + 상태 + 실행 절차.
 > 게이트 상세는 [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md), 코드 상태는 [`AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md`](AUDIO_VIDEO_RELEASE_AUDIT_2026-08-02.md).
@@ -8,7 +8,7 @@
 
 ## §0. 현재 업로드 대상 — v2.0.3+9 (versionCode 9)
 
-**빌드 소스:** `8cb85192f3cb7be6e942db19c5507b278a0182cb` (`pubspec.yaml` `2.0.3+9`).
+**빌드 소스:** `6893293a97f68ed42cf30c01399471c8daa79081` (`pubspec.yaml` `2.0.3+9`). 이 소스에는 `6ff708a` Android OAuth/Firebase 설정과 `8fd8b1f` 캐릭터 선택/무음 포효 수정이 포함된다.
 
 ### 검증 게이트
 
@@ -27,24 +27,24 @@
 
 | 산출물 | 크기 | SHA-256 |
 |---|---:|---|
-| `build/app/outputs/bundle/release/app-release.aab` | **242,400,955 B (231.2 MB)** | `ab1a8dc62dae3318f03709149456037360ed1f4cd1943ee4cdeefcde4758ecca` |
-| `build/app/outputs/flutter-apk/app-release.apk` | **263,680,232 B (251.5 MB)** | `5bdaf6f070b4eb78755597a0eaa7ffdf1fb6a4fb1236b2a1ea4049832a92c262` |
+| `build/app/outputs/bundle/release/app-release.aab` | **242,400,178 B (231.2 MB)** | `e1b2c7450228480b45553da0332705330899810534989b32b7bb29d0e2868e39` |
+| `build/app/outputs/flutter-apk/app-release.apk` | **263,680,468 B (251.5 MB)** | `29ddfee5936c465c8aab3cbfdb6eb9a7acafd2ba1e141bd5e24fd181f49c23f3` |
 
 - AAB: `jarsigner -verify -certs` → `jar verified` (upload key는 자체서명이며 업로드 키 체인 경고는 예상됨).
 - APK: package `com.sujinarin.ko_lernen_app`, versionName `2.0.3`, versionCode `9`; APK Signature Scheme v2 확인. signer SHA-256 `f5afe836…b4faad3`.
-- 번들 계약: assets 279개, MP4 30개, `curriculum_manifest.json` 및 `welcome-hero.mp4` 포함, `magpie_moon.mp4` 부재.
+- 번들 계약: asset payload 241개, MP4 30개, `curriculum_manifest.json` 및 `welcome-hero.mp4` 포함, `magpie_moon.mp4` 부재.
 
 ### Android 실기기 스모크
 
 - 기기: Redmi M2101K6G / Android 12 / adb `9053622f`.
-- 기존 release `2.0.2`에서 데이터 삭제 없이 `adb install -r` 성공 → `2.0.3` / versionCode 9 확인.
+- 기존 앱 데이터를 삭제하지 않고 위 최종 APK를 `adb install -r` 성공 → `2.0.3` / versionCode 9 / APK v2 서명 확인.
 - `force-stop` 후 cold launch 성공, `MainActivity` 포커스·프로세스 재기동 확인.
-- 홈 → `Üben` → `Grammatik` 진입, 필터·카드·코치마크가 접근성 트리에 정상 노출. 홈 복귀 뒤에도 fatal/Flutter 예외 미관찰.
-- 경계: 이 PC에는 기기 미러링 창이 없어 히어로 영상의 픽셀 단위 크롭과 피드백 카드의 실제 시각 배치는 별도 육안 확인이 필요하다. 피드백 전송은 수행하지 않았다.
+- 홈 → `Üben` → `Grammatik` 진입, 필터·A2 카드·한국어 예문·독일어 뜻·코치마크가 접근성 트리와 실기기 캡처에 정상 노출. 최신 logcat 2,000줄의 fatal/Flutter/app 오류는 0건이었다.
+- 경계: 이번에는 Grammatik 화면을 실기기 캡처로 확인했지만, 온보딩 히어로 영상의 16:9 크롭과 피드백 카드의 실제 시각 배치는 아직 별도 육안 확인이 필요하다. 피드백 전송은 수행하지 않았다.
 
 ### iOS 및 서버 배포 경계
 
-- Windows에는 iOS 기기·Xcode가 없어 iOS 물리 설치/서명/스모크는 **미검증**이다. Mac/Xcode에서 Apple 팀 프로비저닝 후 별도 검증한다.
+- iOS는 **출시 차단** 상태다. Windows에는 iOS 기기·Xcode가 없고, iOS Firebase options/`GoogleService-Info.plist`/Runner target membership/Google URL scheme/Apple Team·프로비저닝도 없다. `_initFirebase()`는 실패를 잡아 UI를 띄우지만 Firebase/Auth/App Check/동기화/피드백/프리미엄/푸시가 비활성화된다. macOS에서 [`store/ios-external-setup.md`](store/ios-external-setup.md)를 완료하고 `dart run tool/verify_ios_firebase_config.dart`, archive, 실기기 스모크를 모두 통과해야 한다.
 - Functions와 Firestore 규칙의 로컬 테스트는 통과했지만, 이 세션은 Firebase 배포를 실행하지 않았다. 내부 테스터의 피드백을 실제 수신하려면 별도 승인 하에 Functions/Rules 배포를 완료해야 한다.
 
 ---
