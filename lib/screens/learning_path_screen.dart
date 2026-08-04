@@ -9,8 +9,8 @@ import '../models/curriculum.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/pack_access.dart';
 import '../services/pack_progress_service.dart';
-import '../services/premium_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
@@ -187,11 +187,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       ).showSnackBar(SnackBar(content: Text(t.pathLockedHint)));
       return;
     }
-    // Premium-Gate: A1 frei, A2/B1/B2 erfordern ein Abo (wie vocab_packs_screen).
-    if (pack.level.toUpperCase() != 'A1' && !PremiumService.isPremium) {
-      final ok = await PremiumService.gate(context);
-      if (!ok || !mounted) return;
-    }
+    // Premium-Gate 단일화 — ensurePackAccess (A1 frei, A2/B1/B2 Abo).
+    final ok = await ensurePackAccess(context, level: pack.level);
+    if (!ok || !mounted) return;
     await Navigator.pushNamed(context, '/vocab/pack', arguments: pack.id);
     if (mounted) {
       await _load();

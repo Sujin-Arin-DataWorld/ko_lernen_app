@@ -15,6 +15,8 @@ import '../models/vocab_pack.dart';
 import '../services/data_loader.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/mission_recommender.dart';
+import '../services/pack_access.dart';
 import '../services/gye_service.dart';
 import '../services/daily_char_service.dart';
 import '../services/pack_progress_service.dart';
@@ -473,36 +475,38 @@ class _HomeScreenState extends State<HomeScreen> {
   /// 규칙 R-REC(H-6): 추천 레벨 ≤ 사용자 레벨 — 코스·팩은 순차 구조가
   /// 레벨을 보장하므로 시나리오에만 명시 가드를 둔다.
   MissionHeroContent? _missionHeroContent(AppL10n t, String lang) {
-    // ① 현재 코스 미션 — 구 주 CTA가 가던 /course/mission 커리큘럼.
-    final catalog = _courseCatalog;
-    final snap = _courseSnapshot;
-    if (catalog != null && snap != null && catalog.courseUnits.isNotEmpty) {
-      final total = catalog.courseUnits.length;
-      final completed = snap.completedUnitIds.toSet();
-      CourseUnit? unit = snap.currentCourseUnitId == null
-          ? null
-          : catalog.courseUnitFor(snap.currentCourseUnitId!);
-      if (unit == null && completed.length < total) {
-        // 진단 전(스냅샷 비어 있음) — order 순 첫 미완 미션.
-        final remaining =
-            catalog.courseUnits
-                .where((u) => !completed.contains(u.id))
-                .toList()
-              ..sort((a, b) => a.order.compareTo(b.order));
-        if (remaining.isNotEmpty) {
-          unit = remaining.first;
+    // 결정은 순수 recommendMission(§6.1)이, 문구·내비게이션은 여기가 담당.
+    ({VocabPack pack, PackProgress progress})? nowNode;
+    if (_nowPackId != null) {
+      for (final e in _pathNodes) {
+        if (e.pack.id == _nowPackId) {
+          nowNode = e;
+          break;
         }
       }
-      if (unit != null) {
-        // clamp()는 num을 돌려줘 int 파라미터와 안 맞는다 — 순수 int 연산.
-        final n = completed.length + 1 > total ? total : completed.length + 1;
+    }
+    final userLevel =
+        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final today = _today;
+    final pick = recommendMission(
+      courseUnits: _courseCatalog?.courseUnits ?? const [],
+      currentCourseUnitId: _courseSnapshot?.currentCourseUnitId,
+      completedUnitIds: _courseSnapshot?.completedUnitIds.toSet() ?? const {},
+      nowNode: nowNode,
+      dueCount: _dueCount,
+      scenario: today == null ? null : (id: today.id, level: today.level),
+      scenarioCompleted: today != null && _completed.contains(today.id),
+      userLevel: userLevel,
+    );
+    switch (pick) {
+      case CoursePick c:
         return MissionHeroContent(
           kind: MissionHeroKind.course,
-          title: unit.title.pick(lang),
-          levelCode: unit.level.toUpperCase(),
-          meta: t.missionHeroCourseMeta(n, total),
-          fraction: completed.length / total,
-          started: completed.isNotEmpty,
+          title: c.unit.title.pick(lang),
+          levelCode: c.unit.level.toUpperCase(),
+          meta: t.missionHeroCourseMeta(c.missionNumber, c.totalMissions),
+          fraction: c.fraction,
+          started: c.started,
           onStart: () async {
             await Navigator.pushNamed(context, '/course/mission');
             if (mounted) {
@@ -515,77 +519,53 @@ class _HomeScreenState extends State<HomeScreen> {
             }
           },
         );
-      }
-    }
-    // ② 진행 중 팩 — 시작했고 아직 안 끝난 현재 노드.
-    final nowId = _nowPackId;
-    if (nowId != null) {
-      for (final e in _pathNodes) {
-        if (e.pack.id != nowId) {
-          continue;
-        }
-        if (e.progress.progressFraction > 0 &&
-            e.progress.status != PackStatus.cleared) {
-          final level = e.pack.level.toUpperCase();
-          return MissionHeroContent(
-            kind: MissionHeroKind.pack,
-            title: VocabPackService.displayLabel(e.pack.id, lang: lang),
-            levelCode: level,
-            meta: t.missionHeroPackMeta(level),
-            fraction: e.progress.progressFraction,
-            started: true,
-            onStart: () async {
-              if (level != 'A1' && !PremiumService.isPremium) {
-                final ok = await PremiumService.gate(context);
-                if (!ok) {
-                  return;
-                }
-              }
-              if (!mounted) {
-                return;
-              }
-              await Navigator.pushNamed(
-                context,
-                '/vocab/pack',
-                arguments: nowId,
-              );
-              if (mounted) {
-                await _loadToday();
-                await _loadPath();
-              }
-            },
-          );
-        }
-        break;
-      }
-    }
-    // ③ 오늘 복습 — due 카드가 10개 이상일 때만 미션으로 승격.
-    if (_dueCount >= 10) {
-      return MissionHeroContent(
-        kind: MissionHeroKind.review,
-        title: t.missionHeroReviewTitle(_dueCount),
-        levelCode: null,
-        meta: t.missionHeroReviewMeta,
-        fraction: 0,
-        started: false,
-        onStart: () async {
-          await Navigator.pushNamed(context, '/review');
-          if (mounted) {
-            await _loadToday();
-          }
-        },
-      );
-    }
-    // ④ 시나리오 추천 — R-REC: 레벨 초과 추천 금지(H-6).
-    final today = _today;
-    if (today != null && !_completed.contains(today.id)) {
-      final userLevel =
-          LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-      if (today.level.index <= userLevel.index) {
-        final level = today.level.code.toUpperCase();
+      case PackPick p:
+        final level = p.pack.level.toUpperCase();
+        return MissionHeroContent(
+          kind: MissionHeroKind.pack,
+          title: VocabPackService.displayLabel(p.pack.id, lang: lang),
+          levelCode: level,
+          meta: t.missionHeroPackMeta(level),
+          fraction: p.fraction,
+          started: true,
+          onStart: () async {
+            if (!await ensurePackAccess(context, level: level)) {
+              return;
+            }
+            if (!mounted) {
+              return;
+            }
+            await Navigator.pushNamed(
+              context,
+              '/vocab/pack',
+              arguments: p.pack.id,
+            );
+            if (mounted) {
+              await _loadToday();
+              await _loadPath();
+            }
+          },
+        );
+      case ReviewPick r:
+        return MissionHeroContent(
+          kind: MissionHeroKind.review,
+          title: t.missionHeroReviewTitle(r.dueCount),
+          levelCode: null,
+          meta: t.missionHeroReviewMeta,
+          fraction: 0,
+          started: false,
+          onStart: () async {
+            await Navigator.pushNamed(context, '/review');
+            if (mounted) {
+              await _loadToday();
+            }
+          },
+        );
+      case ScenarioPick sc:
+        final level = sc.level.code.toUpperCase();
         return MissionHeroContent(
           kind: MissionHeroKind.scenario,
-          title: today.title.pick(lang),
+          title: today!.title.pick(lang),
           levelCode: level,
           meta: t.missionHeroScenarioMeta(level),
           fraction: 0,
@@ -594,38 +574,27 @@ class _HomeScreenState extends State<HomeScreen> {
             await Navigator.pushNamed(
               context,
               '/scenario',
-              arguments: today.id,
+              arguments: sc.scenarioId,
             );
             if (mounted) {
               await _loadToday();
             }
           },
         );
-      }
+      case null:
+        return null;
     }
-    return null;
   }
 
   /// §10.2 블록 4 — 현재 노드 ±1 = 3노드 슬라이스.
   /// 탭 규칙: 현재 노드 = 팩 진입(프리미엄 게이트 승계), 그 외 = `/path`
   /// (해당 노드 id를 스크롤 파라미터로 — R3에서 소비).
   List<SoriPathStop> _previewStops(String lang) {
-    if (_pathNodes.isEmpty) {
-      return const [];
-    }
-    var i = _nowPackId == null
-        ? _pathNodes.length - 1
+    final i = _nowPackId == null
+        ? -1
         : _pathNodes.indexWhere((e) => e.pack.id == _nowPackId);
-    if (i < 0) {
-      i = _pathNodes.length - 1;
-    }
-    var start = i - 1 < 0 ? 0 : i - 1;
-    var end = start + 3;
-    if (end > _pathNodes.length) {
-      end = _pathNodes.length;
-      start = end - 3 < 0 ? 0 : end - 3;
-    }
-    final slice = _pathNodes.sublist(start, end);
+    // 슬라이스 규칙은 순수 previewWindow(§10.2)가 담당 — 단위 테스트 고정.
+    final slice = previewWindow(_pathNodes, i);
     return [
       for (final e in slice)
         SoriPathStop(
@@ -642,12 +611,8 @@ class _HomeScreenState extends State<HomeScreen> {
               }
               return;
             }
-            if (e.pack.level.toUpperCase() != 'A1' &&
-                !PremiumService.isPremium) {
-              final ok = await PremiumService.gate(context);
-              if (!ok) {
-                return;
-              }
+            if (!await ensurePackAccess(context, level: e.pack.level)) {
+              return;
             }
             if (!mounted) {
               return;
