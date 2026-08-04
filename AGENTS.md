@@ -278,7 +278,8 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결했다. 사랑채는 기존 `recommendMission`의 결과만 실행하는 `/sarangbang` 학습 허브로, 꾸미기는 `/sarangbang/furnish`로 분리했다. 대청·행랑·안채·후원·사당은 기존 학습/기록 표면으로 연결하며 Gye 길은 비상호작용으로 남긴다 (`0e30709`).
 - [x] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정했고, 앱 시작 시 portrait-only 제한을 해제해 phone·foldable·tablet의 네 방향을 허용한다. 새 한옥 세계·사랑방 학습·꾸미기 화면도 같은 matrix와 smoke gate에 포함했다 (`73693a4`).
 - [x] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다 (`88c8564`).
-- [ ] P4: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
+- [x] P4a: 개인 한옥 지도에서 계를 개인 구조물로 섞지 않고 기존 공동 계 허브로 연결한다 (`d548032`).
+- [ ] P4b: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -2919,3 +2920,9 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **잠금 경계:** 직접 URL로 미완성 안채·대청에 가더라도 한옥 진도만 읽어 잠긴 안내를 보여 준다. RoomLayer·배치 후보·저장값을 읽거나 정규화하지 않으므로, 잠긴 방이 기존 사랑방 배치에 영향을 줄 수 없다.
 - **학습 동선:** 각 실내는 이미 있던 목적지로만 이어진다(사랑방은 기존 추천 학습 허브, 안채는 내 수집, 대청은 학습 경로). 새 추천·보상·진도·계 상태는 만들지 않았다.
 - **검증:** 구현 전 잠긴 안채 화면 import 부재 RED를 확인했다. GREEN: `flutter test test/personal_room_furnish_screen_test.dart test/hanok_world_screen_test.dart test/sarangbang_picker_test.dart test/room_layer_test.dart test/personal_room_placement_service_test.dart` **15 passed**, `flutter test test/screen_smoke_test.dart` **25 passed**, `flutter test test/responsive_test.dart` **386 passed**, targeted `dart analyze` **No issues found**, `git diff --check` 통과. 구현 커밋: `88c8564`.
+
+### 2026-08-04 (Codex) — P4a 개인 한옥·공동 계 마당 연결 — 커밋 완료
+
+- **경계:** 개인 한옥 지도는 개인 진도만 투영한다. 지도 속 `gyeRoad`는 계속 비상호작용이고, 개인 건물·수집 장식·배치 저장소에 계 요소를 넣지 않았다. 따라서 공동 공간을 개인 한옥의 다른 건물처럼 오해하거나 개인 장식을 공유 상태로 잘못 복제하지 않는다.
+- **변경:** 넓은 개인 지도 해금 뒤에만 “계 마당” 카드를 보여 주고 `/gye/hub`의 기존 `GyeTabScreen`으로 이동한다. 그 화면은 기존 멤버십·연령 게이트·Firestore·공동 한옥을 그대로 사용하며, 이 단계는 신규 계 데이터/보상/기부 write를 만들지 않는다.
+- **검증:** 카드가 구현 전 없다는 widget RED를 확인했다. GREEN: `flutter test test/hanok_world_screen_test.dart` **4 passed**, `dart analyze lib/main.dart lib/screens/hanok_world_screen.dart test/hanok_world_screen_test.dart` **No issues found**, ARB 대칭·세계/연기/반응형 회귀 `flutter test test/arb_l10n_guard_test.dart test/hanok_world_screen_test.dart test/screen_smoke_test.dart test/responsive_test.dart` **419 passed**, `git diff --check` 통과. 구현 커밋: `d548032`.
