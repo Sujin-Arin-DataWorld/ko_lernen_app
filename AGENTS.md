@@ -265,6 +265,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 사랑방 화면의 새 텍스트는 공통 `SoriTextTheme` 프리셋으로 수렴해 전역 `w800`·Pretendard 래칫을 늘리지 않는다 (`4f3e83`).
 - [x] 보상 꾸러미 개봉 UI: 묶인 보자기 → 후보 3개 → 선택 → 사랑방 CTA를 서비스 API만으로 연결했고, 연습 허브·사랑방에서 도달 가능하다 (`aec2846`). 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
 - [x] 전체 장식 수집 완료 보관 처리 UI: `collectionComplete` 상태를 DE/EN 안내와 명시적 보관 CTA로 연결하고, 마지막 장식 수령 뒤에도 다음 완주 꾸러미를 열 수 있게 했다 (`695e548`).
+- [ ] P1 실제 에셋 반영: 2026-08-04 다운로드 묶음은 배경의 색상 마커·보자기의 불투명 흰 캔버스·Faceted Minhwa와 다른 외곽선 렌더 때문에 반려했다. 원본은 로컬 격리본에 보존했으며, 규약을 통과한 교체본이 오면 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신한다 (`c70e459`).
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -2727,3 +2728,10 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **변경:** `BojagiScreen`이 전체 수집 상태를 “Sammlung vollständig / Collection complete” 안내와 명시적 `Bündel ablegen / Archive bundle` CTA로 표시하고, 성공 시 서비스가 읽은 다음 상자(또는 빈 큐)를 다시 렌더한다. 수령 직후의 다음 버튼은 선택 가능 상자와 전체 수집 보관 상자 모두에 노출한다. DE/EN ARB와 생성 `AppL10n` getter를 `flutter gen-l10n`으로 함께 갱신했다.
 - **테스트 안정성:** 보자기 화면은 전역 직렬 mutation queue를 쓰므로 화면이 await하지 못한 작업이 다음 widget test의 mock 저장소 경계를 넘지 않도록 test-only 동기 reset 훅을 추가했다. 또 indeterminate loader에는 `pumpAndSettle`을 쓰지 않고, 실제 이벤트 루프를 한 번 넘긴 뒤 최대 180ms stagger + 540ms entrance timer를 소진한다. 이로써 일반 실행과 전체 실행 모두 같은 결과를 확인한다.
 - **검증:** 새 상태가 빠진 switch 때문에 widget test가 RED 컴파일 실패한 뒤 green이 됐다. 서비스·보자기·data/scene/typography/ARB 가드 **54 passed**, 대상 `dart analyze` **0 issues**, 전체 `flutter test` **1,942 passed**, `git diff --check` 통과. 구현 커밋: `695e548`.
+
+### 2026-08-04 (Codex) — P1 사랑방 아트 인테이크 검수 — 커밋 완료
+
+- **판정:** 다운로드 URL은 이 환경에서 HTTP 206으로 실제 접근됐지만, 빈 사랑방에는 슬롯 확인용으로 보이는 색상 점 8개가 남았고 보자기 2종은 투명 알파가 아닌 흰 캔버스였다. 장식 6종은 컷아웃은 가능했어도 Asset Bible의 면분할·무윤곽 규약과 다른 수채화/외곽선 렌더라 프로덕션 반영을 막았다.
+- **보존·경계:** 원본과 정규화 결과는 로컬의 `assets/illustrations/.asset_intake_2026-08-04/`로 옮겨 보존하고 `.gitignore`로 제외했다. 따라서 앱 번들 경로에는 반려 에셋이 남지 않으며 `kAvailableDecorations`와 `data_integrity_test`의 `pending`도 의도적으로 바꾸지 않았다. 다운로드 시트에 이 판정을 기록해 다음 세션이 같은 URL을 다시 등록하지 않게 했다.
+- **도구:** `decoration_normalize.py`의 콘솔 출력 em dash를 ASCII hyphen으로 바꿔 Windows cp949 콘솔에서도 정규화가 성공 종료한다.
+- **검증:** 실제 6장 정규화 실행 exit 0, 시각 검수, `flutter test test/decoration_slot_test.dart test/data_integrity_test.dart test/bojagi_screen_test.dart test/sarangbang_picker_test.dart test/room_layer_test.dart` **30 passed**, `git diff --check` 통과. 구현 커밋: `c70e459`.
