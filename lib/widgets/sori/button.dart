@@ -4,7 +4,8 @@ import 'pressable.dart';
 import 'tokens.dart';
 
 enum SoriButtonVariant { filled, outlined, ghost }
-enum SoriButtonSize    { lg, md, sm }
+
+enum SoriButtonSize { lg, md, sm }
 
 /// **SoriButton** — 통통튀는 모션 포함 버튼.
 ///
@@ -17,14 +18,15 @@ enum SoriButtonSize    { lg, md, sm }
 /// SoriButton.ghost(label: 'Mehr', onTap: ...)
 /// ```
 class SoriButton extends StatelessWidget {
+  final int maxLines;
   final String label;
   final IconData? icon;
   final VoidCallback? onTap;
   final SoriButtonVariant variant;
   final SoriButtonSize size;
-  final Color? accent;       // primary 대신 다른 색 강조 가능
+  final Color? accent; // primary 대신 다른 색 강조 가능
   final bool fullWidth;
-  final bool destructive;    // danger color 강제
+  final bool destructive; // danger color 강제
 
   const SoriButton({
     super.key,
@@ -36,7 +38,8 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-  });
+    this.maxLines = 1,
+  }) : assert(maxLines > 0);
 
   const SoriButton.filled({
     super.key,
@@ -47,7 +50,9 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-  }) : variant = SoriButtonVariant.filled;
+    this.maxLines = 1,
+  }) : variant = SoriButtonVariant.filled,
+       assert(maxLines > 0);
 
   const SoriButton.outlined({
     super.key,
@@ -58,7 +63,9 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-  }) : variant = SoriButtonVariant.outlined;
+    this.maxLines = 1,
+  }) : variant = SoriButtonVariant.outlined,
+       assert(maxLines > 0);
 
   const SoriButton.ghost({
     super.key,
@@ -69,7 +76,9 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-  }) : variant = SoriButtonVariant.ghost;
+    this.maxLines = 1,
+  }) : variant = SoriButtonVariant.ghost,
+       assert(maxLines > 0);
 
   double get _height => switch (size) {
     SoriButtonSize.lg => 52,
@@ -109,7 +118,7 @@ class SoriButton extends StatelessWidget {
     final fgAccent = destructive
         ? SoriColors.danger
         : (accent ??
-            (isLight ? SoriColors.primaryOnLight : SoriColors.primaryOnDark));
+              (isLight ? SoriColors.primaryOnLight : SoriColors.primaryOnDark));
 
     // filled 채움이 배경에서 3:1로 안 떨어지면(예: tiger 2.14:1) 같은 색상의
     // 어두운 테두리를 자동으로 붙인다 — SC 1.4.11. 충분하면 null.
@@ -125,13 +134,16 @@ class SoriButton extends StatelessWidget {
             ? Color.alphaBlend(color.withValues(alpha: 0.15), s.surfaceAlt)
             : color,
         // 흰 글씨 고정 금지 — 밝은 채움(tiger/gold/warning)에선 먹색으로 자동 전환.
-        disabled ? s.textDim    : SoriColors.onFill(color),
+        disabled ? s.textDim : SoriColors.onFill(color),
         fillEdge == null ? null : Border.all(color: fillEdge, width: 1.5),
       ),
       SoriButtonVariant.outlined => (
         Colors.transparent,
         disabled ? s.textDim : fgAccent,
-        Border.all(color: disabled ? s.border : fgAccent.withValues(alpha: 0.7), width: 1.5),
+        Border.all(
+          color: disabled ? s.border : fgAccent.withValues(alpha: 0.7),
+          width: 1.5,
+        ),
       ),
       SoriButtonVariant.ghost => (
         Colors.transparent,
@@ -151,7 +163,7 @@ class SoriButton extends StatelessWidget {
         Flexible(
           child: Text(
             label,
-            maxLines: 1,
+            maxLines: maxLines,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontFamily: 'Pretendard',
@@ -167,8 +179,11 @@ class SoriButton extends StatelessWidget {
     );
 
     final box = Container(
-      height: _height,
-      padding: EdgeInsets.symmetric(horizontal: _hpad),
+      constraints: BoxConstraints(minHeight: _height),
+      padding: EdgeInsets.symmetric(
+        horizontal: _hpad,
+        vertical: maxLines > 1 ? Spacing.xs : 0,
+      ),
       decoration: BoxDecoration(
         color: bg,
         border: border,
@@ -178,7 +193,9 @@ class SoriButton extends StatelessWidget {
       child: content,
     );
 
-    final wrapped = fullWidth ? SizedBox(width: double.infinity, child: box) : box;
+    final wrapped = fullWidth
+        ? SizedBox(width: double.infinity, child: box)
+        : box;
 
     if (disabled) {
       return Semantics(
@@ -195,7 +212,9 @@ class SoriButton extends StatelessWidget {
       label: label,
       child: SoriPressable(
         onTap: onTap,
-        haptic: variant == SoriButtonVariant.filled ? SoriHaptic.light : SoriHaptic.selection,
+        haptic: variant == SoriButtonVariant.filled
+            ? SoriHaptic.light
+            : SoriHaptic.selection,
         child: wrapped,
       ),
     );
