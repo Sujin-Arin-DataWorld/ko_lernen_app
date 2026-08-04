@@ -4276,4 +4276,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get courseUsagePaymentNotice => 'Zahlungshinweis';
+
+  @override
+  String get moduleBadgeNew => 'NEU';
+
+  @override
+  String get moduleBadgeDue => 'FÄLLIG';
 }

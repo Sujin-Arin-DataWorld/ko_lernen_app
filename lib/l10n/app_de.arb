@@ -1531,5 +1531,7 @@
   "courseUsageOfficialOrService": "offiziell oder im Service",
   "courseUsageFriendlyPolite": "freundlich und höflich",
   "courseUsageServiceRequest": "Service-Anfrage",
-  "courseUsagePaymentNotice": "Zahlungshinweis"
+  "courseUsagePaymentNotice": "Zahlungshinweis",
+  "moduleBadgeNew": "NEU",
+  "moduleBadgeDue": "FÄLLIG"
 }

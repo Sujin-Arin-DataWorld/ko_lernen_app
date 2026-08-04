@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import 'card.dart';
 import 'tokens.dart';
 
@@ -42,6 +43,7 @@ class ModuleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     // passthrough: wenn die Karte im Grid eine feste (gestretchte) Höhe bekommt
     // (IntrinsicHeight + CrossAxisAlignment.stretch), füllt die SoriCard sie aus
     // → gleich hohe Karten pro Reihe. Ohne feste Höhe = Inhaltshöhe wie bisher.
@@ -109,10 +111,10 @@ class ModuleCard extends StatelessWidget {
               ),
               child: Text(
                 ribbonType == 'new'
-                    ? 'NEU'
+                    ? t.moduleBadgeNew
                     : ribbonValue != null
                     ? '$ribbonValue'
-                    : 'DUE',
+                    : t.moduleBadgeDue,
                 style: const TextStyle(
                   fontFamily: 'Pretendard',
                   fontSize: 9,
@@ -154,6 +156,7 @@ class FeaturedModuleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
+    final t = AppL10n.of(context);
     final card = SoriCard(
       variant: SoriCardVariant.hanji,
       accent: accent,
@@ -216,7 +219,7 @@ class FeaturedModuleCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
             ),
             child: Text(
-              ribbonType == 'new' ? 'NEU' : 'DUE',
+              ribbonType == 'new' ? t.moduleBadgeNew : t.moduleBadgeDue,
               style: const TextStyle(
                 fontFamily: 'Pretendard',
                 fontSize: 9,

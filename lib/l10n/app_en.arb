@@ -1509,5 +1509,7 @@
   "courseUsageOfficialOrService": "official or service setting",
   "courseUsageFriendlyPolite": "friendly, polite speech",
   "courseUsageServiceRequest": "service request",
-  "courseUsagePaymentNotice": "payment notice"
+  "courseUsagePaymentNotice": "payment notice",
+  "moduleBadgeNew": "NEW",
+  "moduleBadgeDue": "DUE"
 }

@@ -7512,6 +7512,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Zahlungshinweis'**
   String get courseUsagePaymentNotice;
+
+  /// No description provided for @moduleBadgeNew.
+  ///
+  /// In de, this message translates to:
+  /// **'NEU'**
+  String get moduleBadgeNew;
+
+  /// No description provided for @moduleBadgeDue.
+  ///
+  /// In de, this message translates to:
+  /// **'FÄLLIG'**
+  String get moduleBadgeDue;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

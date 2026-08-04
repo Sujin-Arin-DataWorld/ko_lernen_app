@@ -4249,4 +4249,10 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get courseUsagePaymentNotice => 'payment notice';
+
+  @override
+  String get moduleBadgeNew => 'NEW';
+
+  @override
+  String get moduleBadgeDue => 'DUE';
 }
