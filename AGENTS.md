@@ -240,6 +240,10 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] 새 특별 퀘스트 완료는 완료 marker 전에 출처 퀘스트 id를 가진 미개봉 꾸러미 하나를 저장한다. 중간 종료 뒤 재시도해도 기존 꾸러미를 재사용해 중복 지급하지 않는다 (`8a34f81`).
 
+### 사랑방 슬롯 렌더 무결성 (2026-08-04)
+
+- [x] 손상/구버전 저장값이 장식 카테고리와 맞지 않는 슬롯을 가리키면 RoomLayer가 해당 장식을 렌더하지 않도록 fail-closed 처리했다. 실제 위젯 회귀로 호환·비호환 경우를 고정했다 (`9a5f5e4`).
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -424,6 +428,12 @@ flutter run -d <android-id>   # 안드로이드
 - **문제:** ADR-002의 보상 흐름은 `퀘스트 완료 → 보자기 꾸러미 → 선택 → 보유 → 방 배치`로 정의돼 있었지만, 실제 `QuestTracker.persistNewCompletions`는 완료 marker와 계 피드만 저장해 미개봉 꾸러미가 한 번도 생기지 않았다.
 - **변경:** 새 완료는 completion marker보다 먼저 `pendingBoxes`에 퀘스트 id를 기록한다. 그 사이 앱이 종료돼도 다음 계산에서 marker가 없는 동일 퀘스트를 다시 보고, 이미 있는 꾸러미는 재사용해 marker만 마무리한다. 따라서 보상 유실과 중복 지급을 함께 피한다.
 - **검증:** RED(새 회귀가 `[]`을 관측) 후, 새 완료 1개·반복 호출 무중복·꾸러미만 먼저 저장된 종료 복구를 고정했다. `flutter test test/quest_tracker_test.dart test/room_placement_storage_test.dart test/decoration_slot_test.dart` **22 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `8a34f81`.
+
+### 2026-08-04 (Codex) — 사랑방 슬롯 렌더 무결성 — 커밋 완료
+
+- **문제:** `RoomLayer`는 저장된 슬롯 id만 보고 장식을 그려, 손상/구버전 데이터가 `floor` 장식을 `wall` 슬롯에 넣어도 그대로 표시했다. P1의 “슬롯은 카테고리를 받는다” 계약이 런타임 경계에서 빠져 있었다.
+- **변경:** 각 슬롯의 저장 슬러그를 렌더 직전에 `decorCategoryOf(slug) == slot.accepts`로 검증한다. 불일치면 빈 슬롯으로 취급해 해당 장식을 fail-closed 하고, 실제 보유 후보가 있을 때만 기존 빈 슬롯 표식 규칙을 적용한다.
+- **검증:** 새 위젯 테스트가 비호환 `decoration_soban → wall_back` 렌더를 RED로 재현한 뒤 green이 됐다. `flutter test test/room_layer_test.dart test/quest_tracker_test.dart test/room_placement_storage_test.dart test/decoration_slot_test.dart` **24 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `9a5f5e4`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
