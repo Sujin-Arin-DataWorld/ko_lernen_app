@@ -6,6 +6,17 @@ import 'package:ko_lernen_app/widgets/sori/module_card.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
+  testWidgets('module cards use the readable card type scale', (tester) async {
+    await tester.pumpWidget(_app(const Locale('en'), subtitle: 'Description'));
+
+    expect(tester.widget<Text>(find.text('Title').first).style!.fontSize, 15);
+    expect(
+      tester.widget<Text>(find.text('Description').first).style!.fontSize,
+      12,
+    );
+    expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 11);
+  });
+
   testWidgets('module badges use the active locale', (tester) async {
     await tester.pumpWidget(_app(const Locale('en')));
     expect(find.text('NEW'), findsOneWidget);
@@ -17,7 +28,7 @@ void main() {
   });
 }
 
-Widget _app(Locale locale) => MaterialApp(
+Widget _app(Locale locale, {String? subtitle}) => MaterialApp(
   locale: locale,
   localizationsDelegates: AppL10n.localizationsDelegates,
   supportedLocales: AppL10n.supportedLocales,
@@ -27,6 +38,7 @@ Widget _app(Locale locale) => MaterialApp(
         ModuleCard(
           icon: Icons.auto_awesome,
           title: 'Title',
+          subtitle: subtitle,
           accent: SoriColors.primary,
           onTap: () {},
           ribbonType: 'new',
@@ -34,6 +46,7 @@ Widget _app(Locale locale) => MaterialApp(
         FeaturedModuleCard(
           icon: Icons.refresh,
           title: 'Title',
+          subtitle: subtitle,
           accent: SoriColors.primary,
           onTap: () {},
           ribbonType: 'due',

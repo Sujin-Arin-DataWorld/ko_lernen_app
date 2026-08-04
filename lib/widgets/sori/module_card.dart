@@ -42,8 +42,8 @@ class ModuleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     // passthrough: wenn die Karte im Grid eine feste (gestretchte) Höhe bekommt
     // (IntrinsicHeight + CrossAxisAlignment.stretch), füllt die SoriCard sie aus
     // → gleich hohe Karten pro Reihe. Ohne feste Höhe = Inhaltshöhe wie bisher.
@@ -68,28 +68,12 @@ class ModuleCard extends StatelessWidget {
                 child: Icon(icon, size: 20, color: accent),
               ),
               const SizedBox(height: Spacing.sm),
-              Text(
-                title,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  color: s.text,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 13.5,
-                  letterSpacing: -0.2,
-                  height: 1.2,
-                ),
-              ),
+              Text(title, style: tt.cardTitle),
               if (subtitle != null) ...[
                 const SizedBox(height: 3),
                 Text(
                   subtitle!,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    color: s.textMuted,
-                    fontSize: 10.5,
-                    fontWeight: FontWeight.w500,
-                    height: 1.35,
-                  ),
+                  style: tt.cardSubtitle,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -115,12 +99,10 @@ class ModuleCard extends StatelessWidget {
                     : ribbonValue != null
                     ? '$ribbonValue'
                     : t.moduleBadgeDue,
-                style: const TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 9,
-                  fontWeight: FontWeight.w700,
+                style: tt.label.copyWith(
+                  fontSize: 11,
                   color: Colors.white,
-                  letterSpacing: -0.3,
+                  letterSpacing: -0.1,
                 ),
               ),
             ),
@@ -220,12 +202,10 @@ class FeaturedModuleCard extends StatelessWidget {
             ),
             child: Text(
               ribbonType == 'new' ? t.moduleBadgeNew : t.moduleBadgeDue,
-              style: const TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 9,
-                fontWeight: FontWeight.w700,
+              style: tt.label.copyWith(
+                fontSize: 11,
                 color: Colors.white,
-                letterSpacing: -0.3,
+                letterSpacing: -0.1,
               ),
             ),
           ),
