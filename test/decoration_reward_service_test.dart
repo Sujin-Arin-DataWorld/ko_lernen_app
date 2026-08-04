@@ -61,7 +61,7 @@ void main() {
     });
 
     test(
-      'keeps a known box pending when every offered decor is owned',
+      'rotates to the next deterministic unowned trio after the original offer is exhausted',
       () async {
         await Storage.addPendingBox('q_punggyeong');
         await Storage.addOwnedDecor('decoration_sagunja_guk');
@@ -70,7 +70,28 @@ void main() {
 
         final offer = await DecorationRewardService.loadNextOffer();
 
-        expect(offer.state, DecorationRewardOfferState.noEligibleCandidates);
+        expect(offer.state, DecorationRewardOfferState.ready);
+        expect(offer.sourceQuestId, 'q_punggyeong');
+        expect(offer.candidates, const [
+          'decoration_seoan',
+          'decoration_munbangsau',
+          'decoration_sagunja_maehwa',
+        ]);
+        expect(Storage.pendingBoxes, ['q_punggyeong']);
+      },
+    );
+
+    test(
+      'reports a complete collection only after every reward-pool decor is owned',
+      () async {
+        await Storage.addPendingBox('q_punggyeong');
+        for (final slug in kDecorationRewardPool) {
+          await Storage.addOwnedDecor(slug);
+        }
+
+        final offer = await DecorationRewardService.loadNextOffer();
+
+        expect(offer.state, DecorationRewardOfferState.collectionComplete);
         expect(offer.sourceQuestId, 'q_punggyeong');
         expect(offer.candidates, isEmpty);
         expect(Storage.pendingBoxes, ['q_punggyeong']);
@@ -107,6 +128,41 @@ void main() {
       expect(Storage.pendingBoxes, ['q_punggyeong']);
       expect(Storage.decorationRewardClaimJournalRawJson, isEmpty);
     });
+
+    test(
+      'archives exactly the first box after the full reward collection is complete',
+      () async {
+        await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+        for (final slug in kDecorationRewardPool) {
+          await Storage.addOwnedDecor(slug);
+        }
+
+        final result =
+            await DecorationRewardService.archiveCompleteCollectionBox();
+
+        expect(result, DecorationRewardClaimResult.collectionArchived);
+        expect(Storage.ownedDecor, containsAll(kDecorationRewardPool));
+        expect(Storage.pendingBoxes, ['q_kite']);
+        expect(Storage.decorationRewardClaimJournalRawJson, isEmpty);
+      },
+    );
+
+    test(
+      'does not archive a box while an unowned reward decor remains',
+      () async {
+        await Storage.addPendingBox('q_punggyeong');
+        for (final slug in kDecorationRewardPool.skip(1)) {
+          await Storage.addOwnedDecor(slug);
+        }
+
+        final result =
+            await DecorationRewardService.archiveCompleteCollectionBox();
+
+        expect(result, DecorationRewardClaimResult.noEligibleCandidates);
+        expect(Storage.pendingBoxes, ['q_punggyeong']);
+        expect(Storage.decorationRewardClaimJournalRawJson, isEmpty);
+      },
+    );
 
     test('serializes a rapid double claim for the same box', () async {
       await Storage.addPendingBox('q_punggyeong');
@@ -235,6 +291,51 @@ void main() {
       expect(Storage.decorationRewardClaimJournalRawJson, isEmpty);
     });
 
+    test(
+      'resumes a complete-collection archive without removing a later box',
+      () async {
+        await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+        for (final slug in kDecorationRewardPool) {
+          await Storage.addOwnedDecor(slug);
+        }
+        await Storage.setDecorationRewardClaimJournalRawJson(
+          _archiveJournalJson(),
+        );
+
+        final result = await DecorationRewardService.resumePendingClaim();
+
+        expect(result, DecorationRewardRecoveryResult.resumed);
+        expect(Storage.ownedDecor, containsAll(kDecorationRewardPool));
+        expect(Storage.pendingBoxes, ['q_kite']);
+        expect(Storage.decorationRewardClaimJournalRawJson, isEmpty);
+      },
+    );
+
+    test(
+      'resumes an alternate decor claim from its original ownership snapshot',
+      () async {
+        const originallyOwned = [
+          'decoration_sagunja_guk',
+          'decoration_sagunja_juk',
+          'decoration_chaekgado',
+        ];
+        await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+        for (final slug in originallyOwned) {
+          await Storage.addOwnedDecor(slug);
+        }
+        await Storage.setDecorationRewardClaimJournalRawJson(
+          _alternateDecorJournalJson(originallyOwned),
+        );
+
+        final result = await DecorationRewardService.resumePendingClaim();
+
+        expect(result, DecorationRewardRecoveryResult.resumed);
+        expect(Storage.ownedDecor, contains('decoration_seoan'));
+        expect(Storage.pendingBoxes, ['q_kite']);
+        expect(Storage.decorationRewardClaimJournalRawJson, isEmpty);
+      },
+    );
+
     test('fails closed instead of queueing an unknown quest source', () async {
       await DecorationRewardService.ensurePendingBoxForQuest('unknown_source');
 
@@ -251,3 +352,25 @@ String _journalJson({String stage = 'prepared'}) => jsonEncode({
   'pendingBefore': ['q_punggyeong'],
   'pendingAfter': <String>[],
 });
+
+String _archiveJournalJson({String stage = 'prepared'}) => jsonEncode({
+  'version': 2,
+  'kind': 'archive_complete_collection',
+  'stage': stage,
+  'sourceQuestId': 'q_punggyeong',
+  'ownedBefore': kDecorationRewardPool,
+  'pendingBefore': ['q_punggyeong', 'q_kite'],
+  'pendingAfter': ['q_kite'],
+});
+
+String _alternateDecorJournalJson(Iterable<String> originallyOwned) =>
+    jsonEncode({
+      'version': 2,
+      'kind': 'decoration',
+      'stage': 'prepared',
+      'sourceQuestId': 'q_punggyeong',
+      'decorationSlug': 'decoration_seoan',
+      'ownedBefore': originallyOwned.toList(),
+      'pendingBefore': ['q_punggyeong', 'q_kite'],
+      'pendingAfter': ['q_kite'],
+    });
