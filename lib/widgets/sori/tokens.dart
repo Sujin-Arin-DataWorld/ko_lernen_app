@@ -52,6 +52,26 @@ class SoriBreakpoints {
 
   /// 그리드 카드 1장 최소 목표 폭 — [soriGridColumns] 컬럼 수 산출의 분모.
   static const double gridCardMin = 150;
+
+  /// Tablet browsing surfaces retain a readable line length without looking
+  /// undersized on 8--13 inch Android tablets.
+  static const double tabletContent = 640;
+
+  /// Maximum visual enlargement for app-controlled type and touch targets.
+  /// Accessibility text scaling remains independent of this value.
+  static const double tabletComfortScale = 1.10;
+}
+
+/// Returns the small, device-width-driven visual enlargement used above the
+/// large-phone breakpoint. This deliberately does not read [TextScaler], so
+/// the operating system's accessibility text size remains fully additive.
+double soriComfortScale(double width) {
+  final progress =
+      ((width - SoriBreakpoints.grid) /
+              (SoriBreakpoints.tablet - SoriBreakpoints.grid))
+          .clamp(0.0, 1.0)
+          .toDouble();
+  return 1 + (SoriBreakpoints.tabletComfortScale - 1) * progress;
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -204,8 +224,8 @@ class SoriColors {
   /// `tiger`(7.22:1)·`gold`(6.48:1)·`warning`(7.16:1) → 먹색.
   static Color onFill(Color fill) =>
       contrastRatio(Colors.white, fill) >= contrastRatio(lightText, fill)
-          ? Colors.white
-          : lightText;
+      ? Colors.white
+      : lightText;
 
   /// [fill] 채움이 [bg] 배경에서 3:1로 분리되지 않을 때 필요한 보강 테두리 색.
   /// 이미 충분히 분리되면 `null`. SC 1.4.11.
@@ -406,11 +426,14 @@ class SoriFonts {
 /// 본문 w500, 라벨 w700. (구 명조 serif 혼용은 라틴/한글 분열 + 저품질로 폐기.)
 class SoriTextTheme {
   final SoriSurfaces _s;
+  final double _deviceScale;
 
-  const SoriTextTheme._(this._s);
+  const SoriTextTheme._(this._s, this._deviceScale);
 
-  static SoriTextTheme of(BuildContext context) =>
-      SoriTextTheme._(SoriSurfaces.of(context));
+  static SoriTextTheme of(BuildContext context) => SoriTextTheme._(
+    SoriSurfaces.of(context),
+    soriComfortScale(MediaQuery.sizeOf(context).width),
+  );
 
   // ── Display / Heading (Pretendard ExtraBold — 통일) ───────────────────
   // 위계는 크기·굵기로만. Pretendard w800 번들 → 합성볼드 아닌 진짜 ExtraBold.
@@ -515,9 +538,9 @@ class SoriTextTheme {
     fontFamily: serif ? SoriFonts.serif : SoriFonts.sans,
     // serif엔 한글 글리프가 없다 → 한국어는 Pretendard로 자동 폴백(두부 방지).
     fontFamilyFallback: serif ? SoriFonts.serifFallback : null,
-    fontSize: fontSize,
+    fontSize: fontSize * _deviceScale,
     fontWeight: weight,
-    letterSpacing: letterSpacing,
+    letterSpacing: letterSpacing * _deviceScale,
     height: height,
     color: color ?? _s.text,
     fontFeatures: tabular ? const [FontFeature.tabularFigures()] : null,

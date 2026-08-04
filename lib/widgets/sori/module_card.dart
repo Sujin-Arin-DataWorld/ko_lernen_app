@@ -44,6 +44,7 @@ class ModuleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
+    final comfortScale = soriComfortScale(MediaQuery.sizeOf(context).width);
     // passthrough: wenn die Karte im Grid eine feste (gestretchte) Höhe bekommt
     // (IntrinsicHeight + CrossAxisAlignment.stretch), füllt die SoriCard sie aus
     // → gleich hohe Karten pro Reihe. Ohne feste Höhe = Inhaltshöhe wie bisher.
@@ -58,16 +59,18 @@ class ModuleCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                width: 36,
-                height: 36,
+                width: 36 * comfortScale,
+                height: 36 * comfortScale,
                 decoration: BoxDecoration(
                   color: accent.withValues(alpha: 0.16),
-                  borderRadius: BorderRadius.circular(SoriRadius.sm),
+                  borderRadius: BorderRadius.circular(
+                    SoriRadius.sm * comfortScale,
+                  ),
                 ),
                 alignment: Alignment.center,
-                child: Icon(icon, size: 20, color: accent),
+                child: Icon(icon, size: 20 * comfortScale, color: accent),
               ),
-              const SizedBox(height: Spacing.sm),
+              SizedBox(height: Spacing.sm * comfortScale),
               Text(title, style: tt.cardTitle),
               if (subtitle != null) ...[
                 const SizedBox(height: 3),
@@ -86,12 +89,15 @@ class ModuleCard extends StatelessWidget {
             top: 8,
             right: 8,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+              padding: EdgeInsets.symmetric(
+                horizontal: 6 * comfortScale,
+                vertical: 3 * comfortScale,
+              ),
               decoration: BoxDecoration(
                 color: ribbonType == 'new'
                     ? SoriColors.success
                     : SoriColors.warning,
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(4 * comfortScale),
               ),
               child: Text(
                 ribbonType == 'new'
@@ -100,7 +106,7 @@ class ModuleCard extends StatelessWidget {
                     ? '$ribbonValue'
                     : t.moduleBadgeDue,
                 style: tt.label.copyWith(
-                  fontSize: 11,
+                  fontSize: 11 * comfortScale,
                   color: Colors.white,
                   letterSpacing: -0.1,
                 ),
@@ -139,6 +145,7 @@ class FeaturedModuleCard extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
     final t = AppL10n.of(context);
+    final comfortScale = soriComfortScale(MediaQuery.sizeOf(context).width);
     final card = SoriCard(
       variant: SoriCardVariant.hanji,
       accent: accent,
@@ -146,16 +153,16 @@ class FeaturedModuleCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 52,
-            height: 52,
+            width: 52 * comfortScale,
+            height: 52 * comfortScale,
             decoration: BoxDecoration(
               color: accent.withValues(alpha: 0.16),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
+              borderRadius: BorderRadius.circular(SoriRadius.md * comfortScale),
             ),
             alignment: Alignment.center,
-            child: Icon(icon, size: 28, color: accent),
+            child: Icon(icon, size: 28 * comfortScale, color: accent),
           ),
-          const SizedBox(width: Spacing.md),
+          SizedBox(width: Spacing.md * comfortScale),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +187,7 @@ class FeaturedModuleCard extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: Spacing.sm),
+          SizedBox(width: Spacing.sm * comfortScale),
           Icon(Icons.chevron_right_rounded, color: s.textDim),
         ],
       ),
@@ -193,17 +200,20 @@ class FeaturedModuleCard extends StatelessWidget {
           top: 8,
           right: 8,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+            padding: EdgeInsets.symmetric(
+              horizontal: 6 * comfortScale,
+              vertical: 3 * comfortScale,
+            ),
             decoration: BoxDecoration(
               color: ribbonType == 'new'
                   ? SoriColors.success
                   : SoriColors.warning,
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(4 * comfortScale),
             ),
             child: Text(
               ribbonType == 'new' ? t.moduleBadgeNew : t.moduleBadgeDue,
               style: tt.label.copyWith(
-                fontSize: 11,
+                fontSize: 11 * comfortScale,
                 color: Colors.white,
                 letterSpacing: -0.1,
               ),

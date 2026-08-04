@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import 'tokens.dart';
 
+/// Browsing surfaces can use more of a tablet without turning learning text
+/// into an overlong desktop line. The phone column remains unchanged through
+/// 600dp, then grows smoothly to a 640dp tablet column at 720dp.
+double soriAdaptiveContentMaxWidth(double availableWidth) {
+  final progress =
+      ((availableWidth - SoriBreakpoints.grid) /
+              (SoriBreakpoints.tablet - SoriBreakpoints.grid))
+          .clamp(0.0, 1.0)
+          .toDouble();
+  return SoriBreakpoints.content +
+      (SoriBreakpoints.tabletContent - SoriBreakpoints.content) * progress;
+}
+
 /// 콘텐츠를 [maxWidth]로 클램프하는 듀오링고식 반응형 수평 padding.
 ///
 /// 폰(availableWidth ≤ maxWidth)에선 [base]를 그대로 돌려줘 **시각 변화 0**,
@@ -41,21 +54,27 @@ EdgeInsets soriClampPadding(
 /// [soriClampPadding] 함수를 자체 `LayoutBuilder` 안에서 직접 호출한다.
 class SoriContentClamp extends StatelessWidget {
   final EdgeInsets base;
-  final double maxWidth;
+  final double? maxWidth;
   final Widget Function(BuildContext context, EdgeInsets padding) builder;
 
   const SoriContentClamp({
     super.key,
     required this.builder,
     this.base = const EdgeInsets.symmetric(horizontal: Spacing.lg),
-    this.maxWidth = SoriBreakpoints.content,
+    this.maxWidth,
   });
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, c) {
-        final pad = soriClampPadding(c.maxWidth, maxWidth: maxWidth, base: base);
+        final resolvedMaxWidth =
+            maxWidth ?? soriAdaptiveContentMaxWidth(c.maxWidth);
+        final pad = soriClampPadding(
+          c.maxWidth,
+          maxWidth: resolvedMaxWidth,
+          base: base,
+        );
         return builder(context, pad);
       },
     );

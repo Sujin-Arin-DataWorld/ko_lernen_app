@@ -7,6 +7,11 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   testWidgets('module cards use the readable card type scale', (tester) async {
+    tester.view.physicalSize = const Size(360, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
     await tester.pumpWidget(_app(const Locale('en'), subtitle: 'Description'));
 
     expect(tester.widget<Text>(find.text('Title').first).style!.fontSize, 15);
@@ -15,6 +20,28 @@ void main() {
       12,
     );
     expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 11);
+  });
+
+  testWidgets('module cards scale their type on tablets', (tester) async {
+    tester.view.physicalSize = const Size(800, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(_app(const Locale('en'), subtitle: 'Description'));
+
+    expect(
+      tester.widget<Text>(find.text('Title').first).style!.fontSize,
+      closeTo(16.5, 0.001),
+    );
+    expect(
+      tester.widget<Text>(find.text('Description').first).style!.fontSize,
+      closeTo(13.2, 0.001),
+    );
+    expect(
+      tester.widget<Text>(find.text('NEW')).style!.fontSize,
+      closeTo(12.1, 0.001),
+    );
   });
 
   testWidgets('module badges use the active locale', (tester) async {

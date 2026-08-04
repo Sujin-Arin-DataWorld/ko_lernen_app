@@ -109,6 +109,10 @@ class SoriButton extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final isLight = s.brightness == Brightness.light;
     final disabled = onTap == null;
+    final comfortScale = soriComfortScale(MediaQuery.sizeOf(context).width);
+    final visualHeight = _height * comfortScale;
+    final visualFontSize = _fontSize * comfortScale;
+    final visualHorizontalPadding = _hpad * comfortScale;
     final color = destructive
         ? SoriColors.danger
         : (accent ?? SoriColors.primary);
@@ -157,8 +161,8 @@ class SoriButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (icon != null) ...[
-          Icon(icon, size: _fontSize + 3, color: fg),
-          const SizedBox(width: Spacing.sm),
+          Icon(icon, size: visualFontSize + 3 * comfortScale, color: fg),
+          SizedBox(width: Spacing.sm * comfortScale),
         ],
         Flexible(
           child: Text(
@@ -169,7 +173,7 @@ class SoriButton extends StatelessWidget {
               fontFamily: 'Pretendard',
               color: fg,
               fontWeight: FontWeight.w700,
-              fontSize: _fontSize,
+              fontSize: visualFontSize,
               letterSpacing: -0.2,
               height: 1.2,
             ),
@@ -179,15 +183,15 @@ class SoriButton extends StatelessWidget {
     );
 
     final box = Container(
-      constraints: BoxConstraints(minHeight: _height),
+      constraints: BoxConstraints(minHeight: visualHeight),
       padding: EdgeInsets.symmetric(
-        horizontal: _hpad,
-        vertical: maxLines > 1 ? Spacing.xs : 0,
+        horizontal: visualHorizontalPadding,
+        vertical: maxLines > 1 ? Spacing.xs * comfortScale : 0,
       ),
       decoration: BoxDecoration(
         color: bg,
         border: border,
-        borderRadius: BorderRadius.circular(_radius),
+        borderRadius: BorderRadius.circular(_radius * comfortScale),
       ),
       alignment: Alignment.center,
       child: content,

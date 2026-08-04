@@ -118,8 +118,8 @@ void main() {
         ),
       );
 
-      expect(captured.left, 16 + 260); // (1000 - 480) / 2 = 260
-      expect(captured.right, 16 + 260);
+      expect(captured.left, 16 + 180); // (1000 - 640) / 2 = 180
+      expect(captured.right, 16 + 180);
     });
   });
 

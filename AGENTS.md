@@ -386,7 +386,8 @@ flutter run -d <android-id>   # 안드로이드
 - CTA hierarchy was raised to 18px/56dp (primary) and 16px/48dp (secondary); onboarding's full-width CTA opts into two lines. Widget coverage verifies the common size contract.
 - Re-selecting an active AppShell tab now scrolls its primary content to the top while preserving tab and route state; reduce-motion uses an immediate jump. Covered by `tab_reselect_test.dart` and targeted analyzer output.
 - ModuleCard now uses shared 15px card titles, 12px subtitles, and 11px status badges instead of the prior 13.5/10.5/9px manual styles; locale and type-scale regression tests pass.
-- Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_button_multiline_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, and `git diff --check` pass. No commit or push requested.
+- Tablet-responsive core: browsing columns now expand smoothly from 480dp to 640dp across 600--720dp; shared Sori type, CTA touch targets, and module-card visuals grow by at most 10% while OS accessibility text scaling remains independent. Core contract/widget tests and targeted analyzer pass. Commit: pending.
+- Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
