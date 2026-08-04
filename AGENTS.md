@@ -234,7 +234,7 @@ flutter run -d <android-id>   # 안드로이드
 
 ### 사랑방 배치 저장 복구 (2026-08-04)
 
-- [x] `roomPlacement`가 일부 잘못된 SharedPreferences 항목 때문에 유효한 방 배치까지 전부 비우지 않도록 고쳤다. 유효한 `String → String` 항목은 보존하고, 손상 JSON/항목은 fail-closed로 제외한다 (커밋 대기).
+- [x] `roomPlacement`가 일부 잘못된 SharedPreferences 항목 때문에 유효한 방 배치까지 전부 비우지 않도록 고쳤다. 유효한 `String → String` 항목은 보존하고, 손상 JSON/항목은 fail-closed로 제외한다 (`8e7dd88`).
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -2559,4 +2559,4 @@ bottom 앵커는 폭만 고정하는 마당 규약을 그대로 유지한다.
 보존하도록 변경했다. malformed JSON 자체는 기존처럼 빈 배치로 fail-closed 한다.
 
 검증: 실제 SharedPreferences 혼합 fixture 회귀 테스트, `decoration_slot_test` 포함
-Flutter 11개 통과 및 관련 Dart analyze 0 issues. 커밋: pending.
+Flutter 11개 통과 및 관련 Dart analyze 0 issues. 커밋: `8e7dd88`.
