@@ -2040,5 +2040,21 @@
   "bojagiNext": "Nächstes Bündel öffnen",
   "bojagiCollectionCompleteTitle": "Sammlung vollständig",
   "bojagiCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.",
-  "bojagiArchiveComplete": "Bündel ablegen"
+  "bojagiArchiveComplete": "Bündel ablegen",
+  "@_hanok_world": {
+    "description": "Persönliche Hanok-Welt — Karte und Ortsnavigation."
+  },
+  "hanokWorldTitle": "Meine Hanok-Welt",
+  "hanokWorldIntro": "Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.",
+  "hanokWorldLegacyTitle": "Dein Hof nimmt Gestalt an",
+  "hanokWorldLegacyBody": "Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.",
+  "hanokWorldMapHint": "Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.",
+  "hanokWorldOpenSarangbang": "Im Sarangbang lernen",
+  "hanokWorldProgress": "Baufortschritt deiner Hanok",
+  "hanokZoneSarangbang": "Sarangbang · heutiges Lernen",
+  "hanokZoneDaecheong": "Daecheongmaru · Lernpfad",
+  "hanokZoneHaengrang": "Haengrangchae · Üben",
+  "hanokZoneAnchae": "Anchae · meine Sammlung",
+  "hanokZoneHuwon": "Huwon · Tagesziel",
+  "hanokZoneSadang": "Sadang · Erfolge"
 }

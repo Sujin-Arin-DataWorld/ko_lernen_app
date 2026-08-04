@@ -1962,5 +1962,21 @@
   "bojagiNext": "Open the next bundle",
   "bojagiCollectionCompleteTitle": "Collection complete",
   "bojagiCollectionCompleteBody": "You already own every room piece. Archive this bundle to continue.",
-  "bojagiArchiveComplete": "Archive bundle"
+  "bojagiArchiveComplete": "Archive bundle",
+  "@_hanok_world": {
+    "description": "Personal Hanok world — map and place navigation."
+  },
+  "hanokWorldTitle": "My Hanok world",
+  "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
+  "hanokWorldLegacyTitle": "Your courtyard is taking shape",
+  "hanokWorldLegacyBody": "Finish your A1 and A2 path. Your first B1 progress opens the gate to the full Hanok map.",
+  "hanokWorldMapHint": "Tap a finished building to continue learning there.",
+  "hanokWorldOpenSarangbang": "Study in the Sarangbang",
+  "hanokWorldProgress": "Your Hanok construction progress",
+  "hanokZoneSarangbang": "Sarangbang · today's study",
+  "hanokZoneDaecheong": "Daecheongmaru · learning path",
+  "hanokZoneHaengrang": "Haengrangchae · practice",
+  "hanokZoneAnchae": "Anchae · my collection",
+  "hanokZoneHuwon": "Huwon · daily goal",
+  "hanokZoneSadang": "Sadang · achievements"
 }

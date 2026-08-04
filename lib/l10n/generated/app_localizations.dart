@@ -7662,6 +7662,84 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bündel ablegen'**
   String get bojagiArchiveComplete;
+
+  /// No description provided for @hanokWorldTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Hanok-Welt'**
+  String get hanokWorldTitle;
+
+  /// No description provided for @hanokWorldIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.'**
+  String get hanokWorldIntro;
+
+  /// No description provided for @hanokWorldLegacyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hof nimmt Gestalt an'**
+  String get hanokWorldLegacyTitle;
+
+  /// No description provided for @hanokWorldLegacyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.'**
+  String get hanokWorldLegacyBody;
+
+  /// No description provided for @hanokWorldMapHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.'**
+  String get hanokWorldMapHint;
+
+  /// No description provided for @hanokWorldOpenSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Sarangbang lernen'**
+  String get hanokWorldOpenSarangbang;
+
+  /// No description provided for @hanokWorldProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Baufortschritt deiner Hanok'**
+  String get hanokWorldProgress;
+
+  /// No description provided for @hanokZoneSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangbang · heutiges Lernen'**
+  String get hanokZoneSarangbang;
+
+  /// No description provided for @hanokZoneDaecheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Daecheongmaru · Lernpfad'**
+  String get hanokZoneDaecheong;
+
+  /// No description provided for @hanokZoneHaengrang.
+  ///
+  /// In de, this message translates to:
+  /// **'Haengrangchae · Üben'**
+  String get hanokZoneHaengrang;
+
+  /// No description provided for @hanokZoneAnchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Anchae · meine Sammlung'**
+  String get hanokZoneAnchae;
+
+  /// No description provided for @hanokZoneHuwon.
+  ///
+  /// In de, this message translates to:
+  /// **'Huwon · Tagesziel'**
+  String get hanokZoneHuwon;
+
+  /// No description provided for @hanokZoneSadang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sadang · Erfolge'**
+  String get hanokZoneSadang;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

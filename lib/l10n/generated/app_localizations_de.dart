@@ -4358,4 +4358,46 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bojagiArchiveComplete => 'Bündel ablegen';
+
+  @override
+  String get hanokWorldTitle => 'Meine Hanok-Welt';
+
+  @override
+  String get hanokWorldIntro =>
+      'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.';
+
+  @override
+  String get hanokWorldLegacyTitle => 'Dein Hof nimmt Gestalt an';
+
+  @override
+  String get hanokWorldLegacyBody =>
+      'Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.';
+
+  @override
+  String get hanokWorldMapHint =>
+      'Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.';
+
+  @override
+  String get hanokWorldOpenSarangbang => 'Im Sarangbang lernen';
+
+  @override
+  String get hanokWorldProgress => 'Baufortschritt deiner Hanok';
+
+  @override
+  String get hanokZoneSarangbang => 'Sarangbang · heutiges Lernen';
+
+  @override
+  String get hanokZoneDaecheong => 'Daecheongmaru · Lernpfad';
+
+  @override
+  String get hanokZoneHaengrang => 'Haengrangchae · Üben';
+
+  @override
+  String get hanokZoneAnchae => 'Anchae · meine Sammlung';
+
+  @override
+  String get hanokZoneHuwon => 'Huwon · Tagesziel';
+
+  @override
+  String get hanokZoneSadang => 'Sadang · Erfolge';
 }

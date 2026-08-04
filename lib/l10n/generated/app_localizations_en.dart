@@ -4330,4 +4330,46 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get bojagiArchiveComplete => 'Archive bundle';
+
+  @override
+  String get hanokWorldTitle => 'My Hanok world';
+
+  @override
+  String get hanokWorldIntro =>
+      'Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.';
+
+  @override
+  String get hanokWorldLegacyTitle => 'Your courtyard is taking shape';
+
+  @override
+  String get hanokWorldLegacyBody =>
+      'Finish your A1 and A2 path. Your first B1 progress opens the gate to the full Hanok map.';
+
+  @override
+  String get hanokWorldMapHint =>
+      'Tap a finished building to continue learning there.';
+
+  @override
+  String get hanokWorldOpenSarangbang => 'Study in the Sarangbang';
+
+  @override
+  String get hanokWorldProgress => 'Your Hanok construction progress';
+
+  @override
+  String get hanokZoneSarangbang => 'Sarangbang · today\'s study';
+
+  @override
+  String get hanokZoneDaecheong => 'Daecheongmaru · learning path';
+
+  @override
+  String get hanokZoneHaengrang => 'Haengrangchae · practice';
+
+  @override
+  String get hanokZoneAnchae => 'Anchae · my collection';
+
+  @override
+  String get hanokZoneHuwon => 'Huwon · daily goal';
+
+  @override
+  String get hanokZoneSadang => 'Sadang · achievements';
 }
