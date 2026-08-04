@@ -376,6 +376,16 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 — 감사 후속 P1~P9 + 3세션 통합 머지 → main (Cowork 클라우드 세션 마감)
+
+**Jin:** "미구현·부족 9건 phase 나눠 실행" → P1 온보딩 템플릿 v2(한지 라이트·§10.4) `12a2c73` · P2 cardTitle 15/w700(§4.3 전역) · P3 게스트 혜택 문구 · P4 errorOffline(§8.1) `614a26b` · P5 추천엔진/±1 슬라이스 순수함수 추출+테스트 18케이스 · P6 ensurePackAccess 게이트 수렴 `c7c136b` · P7 골든 기준선(3종 PNG `91dd549`) · P8 홈 다이어트(week_progress 분리, 1,821줄) · P9 래칫 실측 하향 w800 180·w900 40 `0cdad23`. 상세 = `docs/DESIGN_R7_CLOSEOUT_2026-08-04.md` §5.
+
+**통합 머지 `02d17fa`:** 임시 인덱스 플럼빙(워크트리 무접촉)으로 main(a84fcf5)+feat(f14e186) 병합 — 디자인 22커밋 + 계정삭제 `b372e2f`/`8fa0eac` + 백엔드 preflight·로그(`f14e186` 대행 커밋). AGENTS 충돌은 feat⊇main 기계 검증 후 feat 측 채택. 미커밋 WIP 25파일(Joy 배선·scenes/tiger 리워크) 무손실 보존. `.gitignore`에 `_to_delete/` 등 3항목 추가(락 무덤 숨김).
+
+**이관 5건(의도적 미포함, closeout §3):** 코치 소문자 "der Tiger" 2키(마스코트 조건부) · SoriButton 라벨 maxLines 정책 · bookshelf 공유시트 스피너(존치 확정) · Quests→Missionen(결정 대기) · 다크모드(§4.5 — multiply 계약이 블로커, 착수 시 별도 브랜치+합성 스파이크 선행).
+
+**잔여(각자 몫):** Jin push(main·feat 백업) → Joy 세션 WIP 커밋(+mascot unused_field·l10n generated 동반) → 실기기 한 바퀴(closeout §2, 온보딩 라이트·cardTitle 전역 포함) → gen-l10n → **+11 빌드 = 디자인 개편 최초 포함**.
+
 ### 2026-08-04 — AAB 버전별 감사 + 백엔드 실작동 검증·배포 (submitTesterFeedback 미배포 갭 해소) — 배포 완료, 커밋 미요청
 
 **범위:** Jin "AAB 버전별로 뭐가 업데이트됐는지, 실제로 코드가 그렇게 반영됐는지 철저 검수 + 방향 설립." 계획 `~/.claude/plans/aab-greedy-church.md`. 방향(Jin 확정)=백엔드 실작동 검증·배포, 산출=계획 작성 후 실행.
