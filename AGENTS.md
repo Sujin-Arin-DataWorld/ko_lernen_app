@@ -272,7 +272,7 @@ flutter run -d <android-id>   # 안드로이드
 
 ### 개인 한옥 채 짓기·내부 꾸미기 (P2–P4, 2026-08-04)
 
-- [x] P2 구조 설계: 전통 비대칭 배치를 따르는 전용 4:3 `/hanok` 완성 지도를 정본으로 두고, 학습 경로에는 미리보기·CTA만 남긴다. 개인 한옥과 계 한옥은 진행·저장소를 분리하며, 후원 연못·돌다리 그림만 개인 지도에서 재사용한다. 설계 정본은 `docs/superpowers/specs/2026-08-04-personal-hanok-compound-growth-design.md`다 (`9157e90`, master-map revision pending commit).
+- [x] P2 구조 설계: 전통 비대칭 배치를 따르는 전용 4:3 `/hanok` 완성 지도를 정본으로 두고, 학습 경로에는 미리보기·CTA만 남긴다. 개인 한옥과 계 한옥은 진행·저장소를 분리하며, 후원 연못·돌다리 그림만 개인 지도에서 재사용한다. 설계 정본은 `docs/superpowers/specs/2026-08-04-personal-hanok-compound-growth-design.md`다 (`9157e90`, `efcc86a`).
 - [ ] P2a: `site_base` + 전통 배치에 맞춘 6개 구조물의 7종 통일 지도 에셋을 승인한다. 기존 `gye_pond_large`·`gye_bridge`는 한 쌍으로 직접 재사용하고, 흰 캔버스가 남은 기존 외부 장식은 정규화 전까지 차단한다.
 - [ ] P2b: `PersonalHanokProgress`·구조/조경 카탈로그·개인 전용 `HanokCompoundLayer`를 테스트 우선으로 구현한다. 기존 12단계 성장/시네마틱과 계 해금 동작은 보존한다.
 - [ ] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결한다. 사랑채는 기존 `/sarangbang`으로만 진입하고, 사당은 장식 방이 아닌 문화·성취 기록으로 보류한다.
@@ -436,6 +436,14 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-04 (Codex) — 개인 한옥 완성 지도·후원 자산 계약 설계 커밋
+
+- **제품 결정:** 첨부한 전통 도면처럼 전면 솟을대문·사랑채, 안마당 안채·대청마루, 분리 사당, 오른쪽 아래 후원의 비대칭 4:3 지도를 개인 한옥의 최종 성장 목표로 고정했다. 필수 채 6개가 개인 한옥의 완성 조건이고, 연못·다리·등·조경·실내 꾸미기는 완성 뒤에도 이어지는 선택 수집 깊이다.
+- **기존 자산 검수:** `gye_pond_large`와 `gye_bridge`는 실제 `Format32bppArgb` 투명 PNG이고 함께 자연스럽게 합성되는 것을 확인했다. 개인 지도에서는 둘을 하나의 후원 milestone으로 직접 재사용하되, 개인 코스 진도만 읽고 계의 lifetime goal·storage·pulse는 절대 읽지 않는다. `gye_gate_grand`·`gye_haenglangchae`·`gye_byeoldang`은 카메라/footprint가 도면형 지도와 달라 계 화면에 남기고, 지도용 건물 6종은 동일 시점으로 새로 만든다.
+- **차단:** 기존 `decoration_pond`·`decoration_jangdokdae`·`decoration_sonamu`·`decoration_maehwa`는 중앙의 near-opaque 흰 캔버스가 다른 장면 위에서 보이므로 alpha/canvas 정규화 전에는 개인 지도 catalog에 넣지 않는다.
+- **명세:** `docs/superpowers/specs/2026-08-04-personal-hanok-compound-growth-design.md`를 7종 지도 아트 패키지, 기존 자산 재사용 표, 개인/계 경계, 완성 조건, P2a–P2d 순서로 개정했다. 문서 단계라 Flutter 소스·저장값·라우트·Gye UI는 변경하지 않았다.
+- **검증/커밋:** `git diff --check` 통과, staged 경로는 설계 문서와 AGENTS 체크리스트 2개뿐. 설계 커밋: `efcc86a` (`docs(hanok): define master map asset contract`).
 
 ### 2026-08-04 (Codex) — 개인 한옥 채 짓기 P2 설계 고정 — 구현 검토 대기
 
