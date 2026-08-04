@@ -122,6 +122,13 @@ typedef SlotDef = ({
   double leftFrac,
   double bottomFrac,
   double widthFrac,
+
+  /// [DecorAnchor.center] 슬롯에서만 쓴다. 0 이면 높이 자유(bottom 앵커).
+  ///
+  /// 왜 필요한가: 가운데 정렬은 아이템 높이를 알아야 하는데 `Image.asset` 은
+  /// 로드 전까지 크기를 모른다. 그래서 center 슬롯은 **박스를 먼저 정하고**
+  /// 그 안에서 `BoxFit.contain` 으로 맞춘다 — 큰 병풍도 슬롯 밖으로 안 넘친다.
+  double heightFrac,
   DecorCategory accepts,
   DecorAnchor anchor,
 });
@@ -139,6 +146,7 @@ const List<SlotDef> kSarangbangSlots = [
     leftFrac: 0.22,
     bottomFrac: 0.30,
     widthFrac: 0.56,
+    heightFrac: 0.42,
     accepts: DecorCategory.wall,
     anchor: DecorAnchor.center,
   ),
@@ -147,6 +155,7 @@ const List<SlotDef> kSarangbangSlots = [
     leftFrac: 0.28,
     bottomFrac: 0.08,
     widthFrac: 0.44,
+    heightFrac: 0.0,
     accepts: DecorCategory.floor,
     anchor: DecorAnchor.bottom,
   ),
@@ -155,6 +164,7 @@ const List<SlotDef> kSarangbangSlots = [
     leftFrac: 0.02,
     bottomFrac: 0.40,
     widthFrac: 0.14,
+    heightFrac: 0.0,
     accepts: DecorCategory.shelf,
     anchor: DecorAnchor.bottom,
   ),
@@ -163,6 +173,7 @@ const List<SlotDef> kSarangbangSlots = [
     leftFrac: 0.02,
     bottomFrac: 0.20,
     widthFrac: 0.14,
+    heightFrac: 0.0,
     accepts: DecorCategory.shelf,
     anchor: DecorAnchor.bottom,
   ),
@@ -171,6 +182,7 @@ const List<SlotDef> kSarangbangSlots = [
     leftFrac: 0.03,
     bottomFrac: 0.70,
     widthFrac: 0.13,
+    heightFrac: 0.16,
     accepts: DecorCategory.peg,
     anchor: DecorAnchor.center,
   ),

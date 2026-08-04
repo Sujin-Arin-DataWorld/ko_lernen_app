@@ -2526,3 +2526,24 @@ lernpfad 에서 도장이 중복돼 보인다는 지적. 원인이 셋이었고 
 - **검증·커밋:** Windows에서 `flutter test test/decoration_slot_test.dart` 9/9 통과,
   관련 Dart `analyze` 0 issues, 신규 도장 6종은 512² palette PNG·투명 25.7–26.9%를
   확인했다. 구현 커밋 `7fb2f96`.
+
+## 2026-08-04 · RoomLayer — 슬롯 렌더
+
+`RoomLayer` 추가. 빈 슬롯은 **그 카테고리에 놓을 보유 아이템이 있을 때만** 표식을 띄운다.
+없으면 아무것도 안 그리고 탭 영역도 만들지 않는다 — 할 수 없는 일을 광고하지 않는다.
+(보자기 개정으로 실루엣 미리보기는 폐기. 미리 보여줄 게 없는 게 설계 의도다.)
+
+### 짜면서 드러난 모델 구멍 — `heightFrac`
+
+center 앵커는 아이템 높이를 알아야 가운데를 맞출 수 있는데 `Image.asset` 은
+로드 전까지 크기를 모른다. 그래서 center 슬롯은 **박스를 먼저 정하고** 그 안에서
+`BoxFit.contain` 으로 맞춘다 → `SlotDef.heightFrac` 추가(bottom 앵커는 0).
+bottom 앵커는 폭만 고정하는 마당 규약을 그대로 유지한다.
+
+### 함정 — Positioned 는 Stack 직계 자식이어야 한다
+
+`IgnorePointer(child: Positioned(...))` 로 감쌌다가 발견. 이렇게 하면 좌표가
+통째로 무시되고 모든 슬롯이 좌상단에 겹친다. 분기마다 `Positioned` 를 최상위로
+반환하도록 재작성했다. 탭 처리는 `Positioned` **안쪽** content 를 감싸서 해결.
+
+가드 테스트 10개로 확장(center⇒heightFrac>0, bottom⇒0, 위로 넘침 검사 추가).

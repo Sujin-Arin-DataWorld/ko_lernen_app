@@ -72,6 +72,23 @@ void main() {
       }
     });
 
+    test('center 앵커 슬롯은 heightFrac 이 있고, bottom 앵커는 0 이다', () {
+      // center 정렬은 박스 높이를 알아야 성립한다. 0 이면 RoomLayer 가
+      // 바닥 앵커 경로로 떨어져 조용히 아래로 처진다.
+      for (final s in kSarangbangSlots) {
+        if (s.anchor == DecorAnchor.center) {
+          expect(s.heightFrac, greaterThan(0.0),
+              reason: '${s.id} 는 center 앵커인데 heightFrac 이 0 입니다');
+          expect(s.bottomFrac + s.heightFrac, lessThanOrEqualTo(1.0),
+              reason: '${s.id} 가 위로 넘칩니다');
+        } else {
+          expect(s.heightFrac, 0.0,
+              reason: '${s.id} 는 bottom 앵커라 높이를 고정하면 안 됩니다 '
+                  '(마당과 같은 규약: 폭만 고정)');
+        }
+      }
+    });
+
     test('벽 슬롯은 center, 바닥 슬롯은 bottom 앵커다', () {
       for (final s in kSarangbangSlots) {
         if (s.accepts == DecorCategory.wall || s.accepts == DecorCategory.peg) {
