@@ -201,15 +201,15 @@ git commit -m "feat(hanok): add front compound layers"
 - Consumes: the base and map anchors from Task 1; the visual language established by Task 3.
 - Produces: independently tappable inner-living and open-hall layers without modifying the existing Sarangbang surface.
 
-- [ ] **Step 1: Generate and validate `anchae`**
+- [x] **Step 1: Generate and validate `anchae`**
 
 Prompt for a single U-shaped Korean inner residence seen from the same elevated-plan camera. Its inner court must open toward the lower/south side, with the high roof line framing an open courtyard. Use a flat `#00ff00` chroma-key background; include no people, furniture, wall, gate, pond, or text. Remove chroma with the Task 3 command and rerun the checker.
 
-- [ ] **Step 2: Generate and validate `daecheongmaru`**
+- [x] **Step 2: Generate and validate `daecheongmaru`**
 
 Prompt for a compact, roofed but visibly open wooden great hall that reads as a connected open maru, not a closed dwelling. Preserve the map camera and upper-left light. Use the same `#00ff00` chroma-key background and exact removal/validation command.
 
-- [ ] **Step 3: Composite-review the inner court**
+- [x] **Step 3: Composite-review the inner court**
 
 Place both layers over the base with the Task 1 anchors. Confirm that the U-shaped anchae encloses the inner court without covering the east sadang enclosure or the future sarangchae route.
 
