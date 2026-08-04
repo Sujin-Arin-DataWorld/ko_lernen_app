@@ -47,7 +47,7 @@
 - Consumes: `assets/illustrations/hanok_compound/{site_base,sotdaeulmun,haengrangchae,sarangchae,anchae,daecheongmaru,sadang}.png`
 - Produces: exit code `0` only when the entire production package is present and mechanically valid; a one-line report per asset.
 
-- [ ] **Step 1: Write the missing-package assertion first**
+- [x] **Step 1: Write the missing-package assertion first**
 
 Create `tool/check_hanok_compound_assets.py` with the exact asset map below. A missing file must print `[missing] <path>` and make `main()` return `1`.
 
@@ -63,17 +63,17 @@ SPECS = {
 }
 ```
 
-- [ ] **Step 2: Run the checker before creating assets**
+- [x] **Step 2: Run the checker before creating assets**
 
 Run: `python tool/check_hanok_compound_assets.py`
 
 Expected: exit `1` and seven `[missing]` lines. This is the asset equivalent of the RED test.
 
-- [ ] **Step 3: Implement the full mechanical contract**
+- [x] **Step 3: Implement the full mechanical contract**
 
 Use Pillow `Image.open(...).convert('RGBA')`. For `site_base.png`, require exactly `1536×1152`, alpha `255` at all four corners, and no `#00ff00` pixel. For each structure, require alpha `0` at all four corners, alpha coverage between `2%` and `90%`, a nonempty opaque bounding box, and no pixel whose RGB is `(0, 255, 0)` with alpha above `8`. Print dimensions, alpha coverage, and pass/fail status.
 
-- [ ] **Step 4: Write the placement and generation sheet**
+- [x] **Step 4: Write the placement and generation sheet**
 
 Create `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` with this exact anchor table. Fractions use the 1536×1152 base and `bottom` is measured from the lower edge.
 
