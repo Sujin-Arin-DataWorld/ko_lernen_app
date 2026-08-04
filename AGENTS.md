@@ -228,6 +228,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 세로 태블릿 레일의 최소 폭을 96dp로 두고, 공통 Sori 라벨 크기(태블릿 14.3px)를 사용해 기본 Material 라벨보다 읽기 쉽게 했다 (`4108b5d`).
 - [x] 29개 핵심 화면의 전체 반응형 스모크를 308/360/600/720/800/1280dp 및 360/800dp × 시스템 글자 1.3배로 고정했다. `flutter test test/responsive_test.dart` 244개 통과 (커밋 대기).
 - [x] AppShell의 96dp 태블릿 레일 뒤 프로필 탭은 전체 창 폭이 아니라 실제 남은 폭을 쓰는 `SoriContentClamp`로 여백을 계산한다. 전용 800dp/96dp 레일 회귀와 전체 프로필 테스트, targeted analyzer 통과 (커밋 대기).
+- [x] 논리 태블릿 세로 800×1280·가로 1280×800 및 가로 글자 1.3배를 29개 화면 회귀에 넣었다. `flutter test test/responsive_test.dart` 331개 통과 (커밋 대기).
 - [ ] Jin 실기기: Galaxy Tab 및 Xiaomi Pad에서 세로/가로 회전, 시스템 글자 확대 1.0/1.3, 탭 전환·재선택·학습 진입을 확인한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -404,6 +405,7 @@ flutter run -d <android-id>   # 안드로이드
 - Tablet rail readability: the compact rail is now 96dp wide and uses the 14.3px tablet Sori label rather than the smaller framework default. Phone/portrait/wide-tablet/1.3x tests plus targeted analyzer pass. Commit: `4108b5d`.
 - Full responsive screen matrix: the 29 core screens are now protected at 308/360/600/720/800/1280dp plus 360dp and 800dp at 1.3x system text scaling. `flutter test test/responsive_test.dart` passed 244 tests; this closes the previously external `placed_decoration.dart` compile blocker. Commit: `9c73854`.
 - Tablet rail content measurement: ProfileScreen now uses `SoriContentClamp`, so its 800dp shell with a 96dp rail calculates padding from the remaining 704dp rather than the full viewport. The focused regression, all profile tests, and targeted analyzer pass. Commit: `e9290c3`.
+- Tablet orientation matrix: the 29 core screens now run at logical 800x1280 portrait and 1280x800 landscape sizes, with the landscape profile also checked at 1.3x system text. `flutter test test/responsive_test.dart` passed 331 tests. Commit: pending.
 - Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_adaptive_navigation_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
