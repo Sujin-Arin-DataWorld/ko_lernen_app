@@ -267,6 +267,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 전체 장식 수집 완료 보관 처리 UI: `collectionComplete` 상태를 DE/EN 안내와 명시적 보관 CTA로 연결하고, 마지막 장식 수령 뒤에도 다음 완주 꾸러미를 열 수 있게 했다 (`695e548`).
 - [x] 전역 analyzer의 잔여 `_magpiePerched` dead 상수를 제거했다. 런타임 자산 선택은 건드리지 않았으며 `dart analyze` 0 issues와 마스코트·반응형 회귀 332개를 통과했다 (`de7f615`).
 - [x] 색상 마커·흰 캔버스가 없는 3:4 불투명 사랑방 배경을 실제 경로에 반영했다. 기존 슬롯 좌표를 위한 좌측 2단 벽감·상단 횃대·빈 중앙 벽/바닥·우측 창 구성을 유지하며 관련 회귀 32개를 통과했다 (`78fc96d`).
+- [x] 닫힌/열린 보자기 짝을 실제 `Format32bppArgb` PNG로 반영했다. 기존 흰 캔버스·수채화 외곽선 대신 공통 조각보 패턴과 투명 여백을 쓰며 꾸러미·무결성 회귀 12개를 통과했다 (`d5e3ecc`).
 - [~] P1 실제 에셋 반영: 2026-08-04 다운로드 묶음은 배경의 색상 마커·보자기의 불투명 흰 캔버스·Faceted Minhwa와 다른 외곽선 렌더 때문에 반려했다. 원본은 로컬 격리본에 보존했다. Jin은 새 9종(배경 1·보자기 2·실내 장식 6) 생성·통합 명세를 승인했으며, 실제 생성·시각 검수 뒤 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신한다 (`c70e459`, `5d8da65`).
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -450,6 +451,12 @@ flutter run -d <android-id>   # 안드로이드
 - **변경:** `assets/illustrations/hanok/sarangbang_empty.png`에 새 1086×1448(3:4) 불투명 Faceted Minhwa 배경을 추가했다. 좌측 2단 벽감과 상단 횃대, 빈 중앙 벽/바닥, 우측 창을 그대로 두되 기존 반려본의 색상 마커·수채화 처리·흰 캔버스를 제거했다.
 - **검증:** 생성 결과를 직접 시각 검수하고 `Format24bppRgb`/1086×1448을 확인했다. `flutter test test/scene_asset_resolver_test.dart test/data_integrity_test.dart test/room_layer_test.dart test/sarangbang_picker_test.dart test/bojagi_screen_test.dart` 32개가 통과했다.
 - **커밋:** `78fc96d` (`feat(sarangbang): add empty room background`).
+
+### 2026-08-04 (Codex) — P1 보자기 실자산 반영 — 커밋 완료
+
+- **변경:** `reward_bojagi_closed.png`와 `reward_bojagi_open.png`을 같은 청록·비취·황금·석간주 조각보 계열의 Faceted Minhwa 짝으로 추가했다. 생성본은 초록 키를 soft matte/despill 처리해 프로젝트에는 투명 PNG만 넣었고, 기존 Claude 격리본은 건드리지 않았다.
+- **검증:** 두 파일 모두 1254×1254 `Format32bppArgb`이고, 투명 여백/키 색 잔재/열린 상태의 빈 중심을 시각 확인했다. `flutter test test/bojagi_screen_test.dart test/data_integrity_test.dart` 12개가 통과했다.
+- **커밋:** `d5e3ecc` (`feat(rewards): add Faceted Minhwa bojagi pair`).
 
 ### 2026-08-04 (Codex) — UI/UX completion implementation, in progress
 
