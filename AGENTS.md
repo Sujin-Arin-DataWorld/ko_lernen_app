@@ -275,8 +275,8 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P2 구조 설계: 한옥은 `오늘의 다음 학습`을 공간으로 여는 한 개의 개인 성장 세계다. Home → 사랑방 학습 허브 → 기존 학습 표면의 원래 진입 경로를 보존하고, `/sarangbang/furnish`는 P1 수집·배치를 맡는다. 정본은 `docs/superpowers/specs/2026-08-04-living-hanok-learning-world-design.md`다.
 - [x] P2a: 기존 `hanok_compound/` 프로토타입은 사용자 검수에서 반려되어 그대로 동결한다. 새 개인 전용 `personal_hanok_v2/`의 넓은 전통 종가 한 카메라(북쪽 위·동서 지붕 수평·상단 좌광)와 고밀도 Faceted Minhwa 에셋 9종을 반영했다. Gye 파일·진행·저장소는 직접 재사용하지 않으며, 개인 후원은 연못·다리·정자·장독대·등을 한 레이어로 보존해 다리가 물 위를 가로지르는 관계를 고정한다 (`bddc25a`).
 - [x] P2b: `LevelRatios`만 읽는 pure `PersonalHanokProjection`·구조/조경 카탈로그·개인 전용 맵 레이어의 데이터 계약을 테스트 우선으로 구현했다. 7개 건축 milestone과 개인 후원 레이어의 순서·자산 루트·Gye/구 프로토타입 차단을 고정했고, 레거시 마당도 스크롤 가능한 유한 4:3 viewport로 안전하게 렌더하는 개인 지도/세계 화면을 추가했다 (`4b411f3`, `bddc25a`, `caa1cbb`).
-- [ ] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결한다. 사랑채는 추천 엔진의 기존 우선순위를 그대로 쓰는 `/sarangbang`으로, 대청·행랑·안채·후원·사당은 기존 학습/기록 표면으로 연결한다.
-- [ ] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정하고 전체 게이트를 통과한다.
+- [x] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결했다. 사랑채는 기존 `recommendMission`의 결과만 실행하는 `/sarangbang` 학습 허브로, 꾸미기는 `/sarangbang/furnish`로 분리했다. 대청·행랑·안채·후원·사당은 기존 학습/기록 표면으로 연결하며 Gye 길은 비상호작용으로 남긴다 (`0e30709`).
+- [ ] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정하고 전체 게이트를 통과한다. 실제 태블릿 가로 회전 제한도 해제·검증한다.
 - [ ] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다.
 - [ ] P4: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
 
@@ -461,6 +461,12 @@ flutter run -d <android-id>   # 안드로이드
 - **화면 계약:** `HanokWorldScreen`은 `HanokStageService.levelRatios()`를 읽어 `PersonalHanokProjection`만 계산한다. 새 저장·보상·진도 판정은 하지 않으며, 완성된 구역은 사랑방/학습 경로/연습/책장/일일 도전/도장첩이라는 기존 화면의 주소로만 매핑한다. 실제 `/hanok` 라우팅은 사랑방을 추천 학습 허브로 전환하는 P2c 배선 커밋과 함께 연결한다.
 - **반응형/접근성:** 지도는 phone부터 넓은 tablet까지 실제 남은 폭 기준 최대 960dp로 넓어지며, 탭 대상은 map widget의 최소 44dp 계약을 그대로 쓴다. 레거시 세로형 `MadangBackground`가 ListView 안에서 무한 높이를 받아 실패하던 문제를 발견해, fallback 역시 4:3 유한 viewport로 고정했다. 지도에 별도의 핀치 래퍼를 두지 않아 세로 스크롤·탭·스크린리더의 일반 동작을 보존한다.
 - **검증:** 새 world screen RED 테스트부터 구현해 B1 gate 전 legacy fallback과 완성 사랑방의 실제 탭 전달을 고정했다. `hanok_world_screen`·map·catalog·ARB guard 회귀 **16/16**, 대상 `dart analyze` 0 issues, `git diff --check` 통과. 구현 커밋: `caa1cbb`.
+
+### 2026-08-04 (Codex) — 사랑방 추천 학습 허브·개인 한옥 라우팅 연결
+
+- **학습 동선:** Home의 주 추천 CTA와 호랑이 hero는 더 이상 코스·팩·복습·시나리오를 직접 열지 않는다. 사랑방은 Home과 동일한 입력을 읽어 기존 `recommendMission`을 변경 없이 실행하고, 그 결과의 원래 표면만 연다. 따라서 사랑방은 새 추천 엔진이나 콘텐츠가 아니라 오늘의 다음 학습에 장소감을 부여하는 맥락이다.
+- **경계/라우트:** 기존 방 배치는 `SarangbangFurnishScreen`과 `/sarangbang/furnish`로 보존했고, 보자기 수령 CTA도 그 경로로 고쳤다. `/hanok`·`/practice`·`/sarangbang/furnish`를 앱 라우터에 등록했으며, 학습 경로의 한옥 헤더와 사랑방 상단에서 개인 한옥 지도로 진입한다.
+- **검증:** `flutter gen-l10n`, 추천/사랑방/배치/한옥/ARB targeted 회귀 **23 passed**, 신규 세 화면을 포함한 `screen_smoke_test` **23 passed**, 308–1280dp와 세로/가로 tablet·1.3x 글자 매트릭스 `responsive_test` 통과, 대상 `dart analyze` 0 issues, `git diff --check` 통과. 구현 커밋: `0e30709`.
 
 ### 2026-08-04 (Codex) — 개인 한옥 대지 확장·연못 다리 R2 계약 커밋
 
