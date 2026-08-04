@@ -244,6 +244,10 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] 손상/구버전 저장값이 장식 카테고리와 맞지 않는 슬롯을 가리키면 RoomLayer가 해당 장식을 렌더하지 않도록 fail-closed 처리했다. 실제 위젯 회귀로 호환·비호환 경우를 고정했다 (`9a5f5e4`).
 
+### 사랑방 보유 장식 동기화 (2026-08-04)
+
+- [x] `ownedDecor`를 root backup의 `progress.owned_decor`로 저장·복원해 기기 교체/계정 병합에서 합집합으로 보존한다. 고유 보상 id와 충돌 정책이 없는 미개봉 꾸러미·슬롯 배치는 동기화 범위에 넣지 않았다 (`6d5d186`).
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -434,6 +438,12 @@ flutter run -d <android-id>   # 안드로이드
 - **문제:** `RoomLayer`는 저장된 슬롯 id만 보고 장식을 그려, 손상/구버전 데이터가 `floor` 장식을 `wall` 슬롯에 넣어도 그대로 표시했다. P1의 “슬롯은 카테고리를 받는다” 계약이 런타임 경계에서 빠져 있었다.
 - **변경:** 각 슬롯의 저장 슬러그를 렌더 직전에 `decorCategoryOf(slug) == slot.accepts`로 검증한다. 불일치면 빈 슬롯으로 취급해 해당 장식을 fail-closed 하고, 실제 보유 후보가 있을 때만 기존 빈 슬롯 표식 규칙을 적용한다.
 - **검증:** 새 위젯 테스트가 비호환 `decoration_soban → wall_back` 렌더를 RED로 재현한 뒤 green이 됐다. `flutter test test/room_layer_test.dart test/quest_tracker_test.dart test/room_placement_storage_test.dart test/decoration_slot_test.dart` **24 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `9a5f5e4`.
+
+### 2026-08-04 (Codex) — 사랑방 보유 장식 동기화 — 커밋 완료
+
+- **범위:** 선택을 마친 장식은 중복 없는 컬렉션이므로 클라우드 복원에서 안전하게 합집합 처리할 수 있다. 반면 미개봉 꾸러미는 같은 출처가 여러 번 올 수 있고, 슬롯 배치는 기기 간 서로 다른 선택이 충돌할 수 있어 둘은 고유 보상 id·충돌 정책이 생길 때까지 의도적으로 로컬에 남긴다.
+- **변경:** `CloudSync.buildBackupPayload()`의 `progress.owned_decor`에 보유 장식을 넣고, restore/reconciliation write에서는 nonempty string만 `Storage.addOwnedDecor`로 union했다. 이미 가진 장식은 Storage의 중복 방지 계약으로 다시 쓰지 않는다.
+- **검증:** payload 전수 기대값·로컬/원격 합집합(잘못된 원격 항목 무시)·계정 병합 local-store round-trip을 고정했다. 관련 5개 Flutter 스위트 **71 passed**, `test/services/account/account_reconciliation_test.dart` **46 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `6d5d186`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
