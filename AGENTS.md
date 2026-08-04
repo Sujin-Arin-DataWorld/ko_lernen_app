@@ -219,6 +219,12 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### 계정·전체 데이터 삭제 복구 (2026-08-04)
+
+- [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
+- [x] 회귀 검증: pending/비재시도 journal 분기, Settings 잠금, Retry callback을 테스트로 고정했다 (Flutter 153, Node runtime 81).
+- [ ] Jin 운영: 현재 Android 설치본의 App Check를 정상화한 뒤 재시도하고 Cloud Logging에서 `app=VALID` 및 삭제 작업 생성 여부를 확인한다. Debug면 새 기기 debug token 등록, release면 Play Integrity와 서명·배포 경로를 확인한다.
+
 ### v2.0.1 릴리스 후보 (2026-08-01)
 
 - [x] 정적·회귀 게이트: `flutter analyze` 0 issues, `flutter test` 1,293 통과, 캐릭터 MP4 매트 16/16 통과
@@ -369,6 +375,16 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-04 (Codex) — 계정·전체 데이터 삭제 복구 경로 및 App Check 진단 — 커밋 완료
+
+**문제/근거:** 운영 `requestAccountDeletion` 호출은 2026-08-03 23:46 UTC에 `auth=VALID`, `app=INVALID`인 App Check 401으로 종료됐다. 함수·리전은 `europe-west3`에서 ACTIVE였고 서버 삭제 작업은 생성되지 않았다. 호출 전 저장한 deletion journal이 `operation == null`으로 남자 기존 UI가 이를 일반 `blocked`로만 분류해 “Alle Daten zurücksetzen”과 “Konto und alle Daten löschen”을 모두 비활성화했고, 재시도 버튼도 없었다.
+
+**변경:** `AccountUiPendingState.deletionRemotePending`을 추가했다. 원격 작업이 아직 생성되지 않았거나 retryable이면 이 상태로 분리하고, `AccountPendingOperationPanel`은 기존의 동일 요청 재시도 callback을 노출한다. 완료 뒤 로컬 정리 대기는 기존 경로를 유지하며, 비재시도 서버 차단·복수 journal·cloud deletion journal은 계속 fail-closed `blocked`다. 따라서 Reset으로 recovery journal을 지워 우회하는 동작은 추가하지 않았다.
+
+**검증:** RED는 새 상태가 없어서 컴파일 실패하는 것으로 확인한 뒤, 관련 Flutter account/reset/App Check 묶음 `flutter test --no-pub --concurrency=1 …` **153 passed**, 변경 5경로 대상 `flutter analyze --fatal-infos` **0 issues**, `node --test functions/gye/account_operations_runtime.test.js functions/gye/cloud_backup_deletion_runtime.test.js` **81/81 passed**, `git diff --check` 통과. 전체 `flutter analyze --fatal-infos`는 이번 범위 밖의 동시 작업 트리 변경에서 나온 진단으로 비녹색이어서 전체 통과로 주장하지 않는다. 실제 Android/Console App Check 복구와 삭제 worker 완료는 기기·운영 권한이 없어 미검증이다.
+
+**운영 후속:** debug 빌드는 현재 설치 기기의 Firebase App Check debug token을 Console에 등록하고, release 빌드는 해당 Firebase Android 앱의 Play Integrity 및 실제 서명/배포 경로를 검증한다. App Check 강제 해제나 debug provider의 release 배포는 금지. **커밋:** `b372e2f` (`fix(account): recover pending deletion retry`).
 
 ### 2026-08-04 — 디자인 계획 R5 문구 구현 완료 (Cowork 클라우드, feat/design-r3-r7-2026-08)
 
