@@ -156,11 +156,11 @@ git commit -m "feat(hanok): add master map site base"
 - Consumes: the 1536×1152 base, anchor table, `gye_gate_grand.png` and `gye_byeoldang.png` as material references only.
 - Produces: three non-overlapping RGBA layers whose finished buildings can be tapped independently.
 
-- [ ] **Step 1: Generate `sotdaeulmun` on chroma key**
+- [x] **Step 1: Generate `sotdaeulmun` on chroma key**
 
 Prompt for a single raised Korean gate in the exact map camera: south-facing dark tiled roof, warm walnut doors, correct upturned eaves, no surrounding wall or terrain, no text, and a perfectly flat `#00ff00` background. Keep 8% transparent margin after removal and no green in the gate.
 
-- [ ] **Step 2: Remove chroma and validate `sotdaeulmun`**
+- [x] **Step 2: Remove chroma and validate `sotdaeulmun`**
 
 Run:
 
@@ -171,15 +171,15 @@ python tool/check_hanok_compound_assets.py
 
 Expected: gate is the only nontransparent object; all corners are alpha zero; no green fringe.
 
-- [ ] **Step 3: Generate and validate `haengrangchae`**
+- [x] **Step 3: Generate and validate `haengrangchae`**
 
 Prompt for a single low west-facing service wing, shorter than the sarangchae, same elevated-plan camera and upper-left light, with a `#00ff00` chroma-key background. Exclude people, jars, trees, walls, and adjacent buildings. Remove chroma with the exact command in Step 2, then rerun the checker.
 
-- [ ] **Step 4: Generate and validate `sarangchae`**
+- [x] **Step 4: Generate and validate `sarangchae`**
 
 Prompt for one long, south-facing guest/study wing with a visible wooden porch and center `daecheong` threshold, but no furniture, no people, no wall, and no surrounding terrain. Use the same `#00ff00` chroma-key contract, remove it with the Step 2 command, and rerun the checker.
 
-- [ ] **Step 5: Composite-review the three layers over `site_base`**
+- [x] **Step 5: Composite-review the three layers over `site_base`**
 
 Create a temporary, untracked local mockup using the anchor table. Reject any candidate whose roof overlaps another anchor, faces a different camera direction, or hides the lower-right pond zone.
 
