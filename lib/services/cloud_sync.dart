@@ -90,6 +90,10 @@ class CloudSync {
         'level': Storage.userLevelCode,
         'earned_stamps': Storage.earnedStamps,
         'quest_completions': Storage.questCompletions,
+        // 사랑방 장식은 중복 없는 보유 컬렉션이라 기기 간 합집합 복원이
+        // 가능하다. 미개봉 꾸러미/슬롯 배치는 고유 보상 id·충돌 정책이
+        // 확정될 때까지 의도적으로 이 스냅샷에 넣지 않는다.
+        'owned_decor': Storage.ownedDecor,
       },
       'srs_json': Storage.srsRawJson,
     };
@@ -386,6 +390,12 @@ class CloudSync {
         beforeWrite,
         () => Storage.addEarnedStamp(stamp),
       ); // Union
+    }
+    for (final slug in _stringValues(progress['owned_decor'])) {
+      await _guardedWrite(
+        beforeWrite,
+        () => Storage.addOwnedDecor(slug),
+      ); // Union — duplicate safe by Storage contract
     }
     final questCompletions = _map(progress['quest_completions']);
     for (final entry in questCompletions.entries) {

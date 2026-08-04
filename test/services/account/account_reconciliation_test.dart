@@ -1227,6 +1227,11 @@ void main() {
       Storage.resetPackProgressForTesting();
       await Storage.init();
       final snapshot = _snapshot(
+        fields: {
+          'progress': {
+            'owned_decor': ['decoration_soban', 'decoration_munbangsau'],
+          },
+        },
         srs: {'word-a': _srs(reviewCount: 1)},
         customPacks: {'cp-a': _pack(name: 'Local')},
         packs: {'pack-a': _progressForLocalStore()},
@@ -1249,6 +1254,10 @@ void main() {
       expect(
         restored.packProgress['pack-a']?.toJson(),
         snapshot.packProgress['pack-a']?.toJson(),
+      );
+      expect(
+        Storage.ownedDecor,
+        ['decoration_soban', 'decoration_munbangsau'],
       );
       expect(jsonDecode(Storage.srsRawJson), snapshot.srsCards);
     },

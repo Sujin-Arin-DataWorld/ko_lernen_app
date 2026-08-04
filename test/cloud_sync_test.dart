@@ -353,6 +353,7 @@ void main() {
         'kl_user_level': 'b1',
         'kl_stamps_earned': <String>['stamp1'],
         'kl_quests_completed_v1': '{"quest1":"2026-07-01T00:00:00.000Z"}',
+        'kl_owned_decor': <String>['decoration_soban'],
         'kl_srs_v1': '{"srs":1}',
         'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
         'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
@@ -385,6 +386,7 @@ void main() {
           'level': 'b1',
           'earned_stamps': ['stamp1'],
           'quest_completions': {'quest1': '2026-07-01T00:00:00.000Z'},
+          'owned_decor': ['decoration_soban'],
         },
         'srs_json': '{"srs":1}',
         'custom_packs_json': '{"pack1":{"name":"Pack 1"}}',
@@ -1160,6 +1162,7 @@ void main() {
       'kl_gram_seen': <String>['local-g'],
       'kl_stamps_earned': <String>['local-stamp'],
       'kl_quests_completed_v1': '{"local-quest":"2026-07-01T00:00:00.000Z"}',
+      'kl_owned_decor': <String>['decoration_soban'],
       'kl_srs_v1': '{"local":1}',
       'kl_custom_packs_v1': '{"local-pack":{}}',
       'kl_bookshelf_v1': '{"local-page":{}}',
@@ -1174,6 +1177,11 @@ void main() {
       'progress': {
         'earned_stamps': ['cloud-stamp'],
         'quest_completions': {'cloud-quest': '2026-07-02T00:00:00.000Z'},
+        'owned_decor': [
+          'decoration_soban',
+          'decoration_munbangsau',
+          7,
+        ],
       },
       'srs_json': '',
       'custom_packs_json': null,
@@ -1183,6 +1191,10 @@ void main() {
     expect(Storage.vokSeenIds, ['local-v', 'cloud-v']);
     expect(Storage.grammarSeen, ['local-g', 'cloud-g']);
     expect(Storage.earnedStamps, ['local-stamp', 'cloud-stamp']);
+    expect(
+      Storage.ownedDecor,
+      ['decoration_soban', 'decoration_munbangsau'],
+    );
     expect(
       Storage.questCompletions.keys,
       containsAll(['local-quest', 'cloud-quest']),
