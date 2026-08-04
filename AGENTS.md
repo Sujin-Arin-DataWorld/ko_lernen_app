@@ -437,6 +437,13 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 (Codex) — 개인 한옥 완성 지도 P2a 에셋 제작 계획 커밋
+
+- **범위:** 사용자 승인 뒤, 코드·라우트·저장값을 건드리지 않는 독립 P2a로 `site_base` 1장과 도면 시점의 `sotdaeulmun`·`haengrangchae`·`sarangchae`·`anchae`·`daecheongmaru`·`sadang` 투명 레이어 6장을 제작하기로 확정했다.
+- **계약:** `gye_pond_large`·`gye_bridge`는 파일을 복사하지 않고 개인 후원에서 같은 milestone으로 직접 참조한다. Gye의 model/storage/UI는 수정하지 않으며, 모든 신규 구조물은 4:3 base와 같은 카메라·상단 좌광·bottom ground anchor·투명 모서리·chroma-key 무잔류를 만족해야 한다.
+- **검수 도구/문서:** `tool/check_hanok_compound_assets.py`가 base 1536×1152/불투명 모서리, 여섯 레이어의 alpha 모서리·coverage·green-key 부재를 검사하고, `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`가 좌표와 최종 runtime path를 고정한다. 계획은 RED checker → base → 전면 채 → 안채/대청 → 사당 → 실제 연못/다리 합성 확인의 독립 커밋 단위다.
+- **검증/커밋:** 계획의 spec coverage·금지 placeholder 문자열·id/path 일치성을 직접 검토했고 `git diff --check`를 통과했다. 계획 커밋: `bce559e` (`docs(hanok): plan master map asset production`).
+
 ### 2026-08-04 (Codex) — 개인 한옥 완성 지도·후원 자산 계약 설계 커밋
 
 - **제품 결정:** 첨부한 전통 도면처럼 전면 솟을대문·사랑채, 안마당 안채·대청마루, 분리 사당, 오른쪽 아래 후원의 비대칭 4:3 지도를 개인 한옥의 최종 성장 목표로 고정했다. 필수 채 6개가 개인 한옥의 완성 조건이고, 연못·다리·등·조경·실내 꾸미기는 완성 뒤에도 이어지는 선택 수집 깊이다.
