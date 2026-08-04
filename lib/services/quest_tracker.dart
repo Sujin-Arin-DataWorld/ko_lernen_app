@@ -2,6 +2,7 @@ import '../data/quest_catalog.dart';
 import '../models/quest.dart';
 import '../models/gye.dart';
 import 'data_loader.dart';
+import 'decoration_reward_service.dart';
 import 'gye_service.dart';
 import 'storage_service.dart';
 
@@ -101,9 +102,7 @@ class QuestTracker {
         // 완료 marker 보다 보상 상자를 먼저 기록한다. 두 저장 사이에 앱이 꺼져도
         // 다음 실행에서 아직 완료되지 않은 퀘스트가 다시 계산되고, 이미 저장된
         // 상자를 확인한 뒤 marker 만 마무리한다. 같은 퀘스트의 보상 중복도 막는다.
-        if (!Storage.pendingBoxes.contains(p.questId)) {
-          await Storage.addPendingBox(p.questId);
-        }
+        await DecorationRewardService.ensurePendingBoxForQuest(p.questId);
         await Storage.markQuestCompleted(p.questId);
         // 2픽: 방금 완료한 퀘스트를 계 피드에 broadcast (축하 유도)
         await GyeService.broadcastFeed(

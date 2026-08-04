@@ -102,6 +102,24 @@ class DecorationRewardService {
   static Future<DecorationRewardOffer> loadNextOffer() =>
       _serialize(_loadNextOffer);
 
+  /// 새로 완료된 퀘스트의 보자기를 최대 한 개만 큐에 넣는다.
+  ///
+  /// 수령과 같은 직렬 체인을 쓰므로, 수령 중에 뒤늦게 지급된 보상 상자가
+  /// 첫 상자 소비 write와 경합해 유실되지 않는다. 새 생산 경로는 알 수 없는
+  /// 출처를 저장하지 않아 화면이 복구할 수 없는 pending box를 만들지 않는다.
+  static Future<void> ensurePendingBoxForQuest(String questId) =>
+      _serialize(() => _ensurePendingBoxForQuest(questId));
+
+  static Future<void> _ensurePendingBoxForQuest(String questId) async {
+    if (!kQuestById.containsKey(questId)) {
+      return;
+    }
+    if (Storage.pendingBoxes.contains(questId)) {
+      return;
+    }
+    await Storage.addPendingBox(questId);
+  }
+
   static Future<DecorationRewardOffer> _loadNextOffer() async {
     final recovery = await _resumePendingClaim();
     if (recovery == DecorationRewardRecoveryResult.conflict) {

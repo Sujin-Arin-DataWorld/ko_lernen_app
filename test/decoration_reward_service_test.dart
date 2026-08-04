@@ -215,6 +215,32 @@ void main() {
       expect(Storage.decorationRewardClaimJournalRawJson, '{');
     });
   });
+
+  group('DecorationRewardService queueing', () {
+    test('serializes a newly queued box behind an active claim', () async {
+      await Storage.addPendingBox('q_punggyeong');
+
+      final claim = DecorationRewardService.claimNextBox(
+        'decoration_sagunja_guk',
+      );
+      final enqueue = DecorationRewardService.ensurePendingBoxForQuest(
+        'q_kite',
+      );
+
+      expect(await claim, DecorationRewardClaimResult.claimed);
+      await enqueue;
+
+      expect(Storage.ownedDecor, ['decoration_sagunja_guk']);
+      expect(Storage.pendingBoxes, ['q_kite']);
+      expect(Storage.decorationRewardClaimJournalRawJson, isEmpty);
+    });
+
+    test('fails closed instead of queueing an unknown quest source', () async {
+      await DecorationRewardService.ensurePendingBoxForQuest('unknown_source');
+
+      expect(Storage.pendingBoxes, isEmpty);
+    });
+  });
 }
 
 String _journalJson({String stage = 'prepared'}) => jsonEncode({
