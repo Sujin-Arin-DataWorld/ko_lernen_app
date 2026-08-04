@@ -78,13 +78,14 @@ class _SarangbangScreenState extends State<SarangbangScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
     final owned = Storage.ownedDecor.toSet();
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
           t.sarangbangTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
+          style: text.h3,
         ),
       ),
       body: SoriScreenBackground(
@@ -154,7 +155,7 @@ class SlotPickerSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
+    final text = SoriTextTheme.of(context);
     // 퀘스트 이름과 같은 규칙 — en 이 아니면 독일어(앱 기본 언어).
     final german = Localizations.localeOf(context).languageCode != 'en';
 
@@ -166,14 +167,7 @@ class SlotPickerSheet extends StatelessWidget {
           header: true,
           child: Text(
             t.sarangbangPickTitle,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              color: s.text,
-              fontWeight: FontWeight.w800,
-              fontSize: 17,
-              height: 1.3,
-              letterSpacing: -0.2,
-            ),
+            style: text.h3,
           ),
         ),
         const SizedBox(height: Spacing.md),
@@ -214,6 +208,7 @@ class _PickRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final text = SoriTextTheme.of(context);
     final thumb = slug;
 
     return Semantics(
@@ -248,12 +243,8 @@ class _PickRow extends StatelessWidget {
                   label,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
+                  style: text.cardTitle.copyWith(
                     color: thumb == null ? s.textMuted : s.text,
-                    fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
-                    fontSize: 15,
-                    height: 1.3,
                   ),
                 ),
               ),
