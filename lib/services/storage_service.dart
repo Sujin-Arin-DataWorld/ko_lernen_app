@@ -837,6 +837,26 @@ class Storage {
   static Future<void> addPendingBox(String questId) async =>
       _sl('kl_reward_boxes', [...pendingBoxes, questId]);
 
+  /// 검증·복구 서비스가 사용하는 미개봉 꾸러미 전체 교체 경계.
+  ///
+  /// UI는 이 메서드를 직접 쓰지 않고 [DecorationRewardService]를 통해
+  /// 첫 상자를 소비한다. 새 퀘스트 보상이 수령 중 뒤에 추가됐을 때도 서비스가
+  /// 해당 suffix를 보존한 완성 목록만 넘긴다.
+  static Future<void> setPendingBoxes(List<String> boxes) async =>
+      _sl('kl_reward_boxes', List<String>.from(boxes));
+
+  /// 수령 중단 복구용 versioned raw journal. 해석·유효성 검증은
+  /// [DecorationRewardService]가 담당하고 Storage는 직렬화 경계만 맡는다.
+  static String get decorationRewardClaimJournalRawJson =>
+      _s('kl_reward_claim_v1');
+
+  static Future<void> setDecorationRewardClaimJournalRawJson(String json) =>
+      _ss('kl_reward_claim_v1', json);
+
+  static Future<void> clearDecorationRewardClaimJournal() async {
+    await _prefs?.remove('kl_reward_claim_v1');
+  }
+
   /// 꾸러미 하나를 소비한다. 없으면 false.
   static Future<bool> consumePendingBox() async {
     final list = pendingBoxes;
