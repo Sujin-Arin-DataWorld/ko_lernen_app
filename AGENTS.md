@@ -2892,3 +2892,10 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **보존·경계:** 원본과 정규화 결과는 로컬의 `assets/illustrations/.asset_intake_2026-08-04/`로 옮겨 보존하고 `.gitignore`로 제외했다. 따라서 앱 번들 경로에는 반려 에셋이 남지 않으며 `kAvailableDecorations`와 `data_integrity_test`의 `pending`도 의도적으로 바꾸지 않았다. 다운로드 시트에 이 판정을 기록해 다음 세션이 같은 URL을 다시 등록하지 않게 했다.
 - **도구:** `decoration_normalize.py`의 콘솔 출력 em dash를 ASCII hyphen으로 바꿔 Windows cp949 콘솔에서도 정규화가 성공 종료한다.
 - **검증:** 실제 6장 정규화 실행 exit 0, 시각 검수, `flutter test test/decoration_slot_test.dart test/data_integrity_test.dart test/bojagi_screen_test.dart test/sarangbang_picker_test.dart test/room_layer_test.dart` **30 passed**, `git diff --check` 통과. 구현 커밋: `c70e459`.
+
+### 2026-08-04 (Codex) — P3 개인 한옥 다중 실내 배치 모델 — 커밋 완료
+
+- **목적:** 사랑방에서 검증된 수집 장식 배치를 안채·대청마루로 확장하되, 한 물건이 여러 방에 복제되거나 기존 사랑방 유저 배치가 사라지지 않게 한다. 보상 꾸러미·소유 장식·한옥 진도·70% 학습 조건·cloud sync·계 데이터는 이 단계에서 전혀 바꾸지 않았다.
+- **저장 마이그레이션:** 새 `kl_room_placements_v2`는 `surface → slot → decoration` 중첩 JSON을 authoritative로 쓴다. v2 키가 없을 때만 기존 `kl_room_placement`를 사랑방으로 감싸 읽고, 유효한 빈 `{}`는 legacy를 되살리지 않는다. 손상된 v2 JSON은 읽을 수 있는 legacy 사랑방만 안전하게 fallback한다. v2 write는 사랑방을 legacy 키에도 mirror-write한다.
+- **불변식:** `PersonalRoomSurface.sarangbang → anbang → daecheongmaru` 순서로 손상/중복 저장값을 정규화한다. 새 배치는 한 슬러그를 모든 개인 방에서 먼저 제거한 뒤 대상 슬롯에 넣고, 서비스 직렬 write queue로 두 방 화면의 stale write 경합을 막는다. 기존 `Storage.roomPlacement`·`setRoomPlacement`·`RoomPlacementService.placeInSlot`은 사랑방 호환 별칭으로 유지한다.
+- **검증:** 신규 테스트 RED는 model/storage/API 부재 컴파일 실패를 확인했다. GREEN: `flutter test test/room_placement_storage_test.dart test/room_placement_service_test.dart test/personal_room_placement_service_test.dart` **9 passed**; `dart analyze lib/models/personal_room.dart lib/services/storage_service.dart lib/services/room_placement_service.dart lib/widgets/sori/placed_decoration.dart` **No issues found**; `git diff --check` 통과. 구현 커밋: `aef77ca`.
