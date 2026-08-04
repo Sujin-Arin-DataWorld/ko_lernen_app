@@ -226,7 +226,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] `soriClampPadding` 직접 사용 화면도 기본적으로 같은 태블릿 컬럼을 받고, 단어팩은 실제 부모 폭을 쓰는 `SoriContentClamp`로 옮겼다. 계약 테스트·targeted analyzer 통과 (`89ac3ae`).
 - [x] 태블릿 레일은 긴 독일어 `Lerngruppe` 라벨과 시스템 글자 확대 1.3배에서도 안정적으로 렌더링되는 회귀 테스트를 갖췄다 (`c75ffc6`).
 - [x] 세로 태블릿 레일의 최소 폭을 96dp로 두고, 공통 Sori 라벨 크기(태블릿 14.3px)를 사용해 기본 Material 라벨보다 읽기 쉽게 했다 (`4108b5d`).
-- [~] 전체 AppShell 반응형 스모크는 동시 세션의 미추적 `placed_decoration.dart` 컴파일 오류가 해소되면 재실행한다.
+- [x] 29개 핵심 화면의 전체 반응형 스모크를 308/360/600/720/800/1280dp 및 360/800dp × 시스템 글자 1.3배로 고정했다. `flutter test test/responsive_test.dart` 244개 통과 (커밋 대기).
 - [ ] Jin 실기기: Galaxy Tab 및 Xiaomi Pad에서 세로/가로 회전, 시스템 글자 확대 1.0/1.3, 탭 전환·재선택·학습 진입을 확인한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -401,6 +401,7 @@ flutter run -d <android-id>   # 안드로이드
 - Direct `soriClampPadding` callers now inherit the adaptive 480--640dp column by default, and VocabPacks uses `SoriContentClamp` so its grid measures the actual parent width after a tablet rail. The default-clamp contract, adaptive navigation tests, targeted VocabPacks analysis, all 26 direct-caller analyzer targets, and `git diff --check` pass. Commit: `89ac3ae`.
 - Tablet rail accessibility: the long German `Lerngruppe` label is now covered at 1.3x system text scaling, alongside phone, portrait-tablet, wide-tablet, and selection behavior. Widget test and `git diff --check` pass. Commit: `c75ffc6`.
 - Tablet rail readability: the compact rail is now 96dp wide and uses the 14.3px tablet Sori label rather than the smaller framework default. Phone/portrait/wide-tablet/1.3x tests plus targeted analyzer pass. Commit: `4108b5d`.
+- Full responsive screen matrix: the 29 core screens are now protected at 308/360/600/720/800/1280dp plus 360dp and 800dp at 1.3x system text scaling. `flutter test test/responsive_test.dart` passed 244 tests; this closes the previously external `placed_decoration.dart` compile blocker. Commit: pending.
 - Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_adaptive_navigation_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)

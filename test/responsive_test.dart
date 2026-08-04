@@ -229,7 +229,7 @@ void main() {
       'review': const ReviewSessionScreen(),
     };
 
-    for (final width in <double>[308, 360, 800, 1280]) {
+    for (final width in <double>[308, 360, 600, 720, 800, 1280]) {
       for (final entry in screens.entries) {
         testWidgets('${entry.key} @ ${width.toInt()}px 오버플로 없음', (
           tester,
@@ -255,23 +255,27 @@ void main() {
 
     // 접근성 큰 글씨(시스템 텍스트 스케일 1.3×) — 좁은 폰에서 오버플로 0.
     // WCAG 1.4.4 / Jin 실기기 "잘림" 계열 회귀 방어.
-    for (final entry in screens.entries) {
-      testWidgets('${entry.key} @ 360px ×1.3 글씨 오버플로 없음', (tester) async {
-        tester.view.physicalSize = const Size(360, 900);
-        tester.view.devicePixelRatio = 1;
-        addTearDown(tester.view.resetPhysicalSize);
-        addTearDown(tester.view.resetDevicePixelRatio);
+    for (final width in <double>[360, 800]) {
+      for (final entry in screens.entries) {
+        testWidgets('${entry.key} @ ${width.toInt()}px ×1.3 글씨 오버플로 없음', (
+          tester,
+        ) async {
+          tester.view.physicalSize = Size(width, 900);
+          tester.view.devicePixelRatio = 1;
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
 
-        await tester.pumpWidget(_wrap(entry.value, textScale: 1.3));
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 100));
-        await tester.pump(const Duration(milliseconds: 1200));
+          await tester.pumpWidget(_wrap(entry.value, textScale: 1.3));
+          await tester.pump();
+          await tester.pump(const Duration(milliseconds: 100));
+          await tester.pump(const Duration(milliseconds: 1200));
 
-        expect(tester.takeException(), isNull);
+          expect(tester.takeException(), isNull);
 
-        await tester.pumpWidget(const SizedBox.shrink());
-        await tester.pump();
-      });
+          await tester.pumpWidget(const SizedBox.shrink());
+          await tester.pump();
+        });
+      }
     }
   });
 }
