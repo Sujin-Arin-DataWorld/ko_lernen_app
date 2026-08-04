@@ -15,7 +15,7 @@ const items = [
     selectedIcon: Icons.sports_esports_rounded,
   ),
   SoriAdaptiveNavigationItem(
-    label: 'Group',
+    label: 'Lerngruppe',
     icon: Icons.groups_2_outlined,
     selectedIcon: Icons.groups_2_rounded,
   ),
@@ -66,27 +66,44 @@ void main() {
 
     expect(selected, 1);
   });
+
+  testWidgets('keeps long rail labels stable at large text scale', (
+    tester,
+  ) async {
+    await _pump(tester, width: 800, textScale: 1.3);
+
+    expect(find.text('Lerngruppe'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 Future<void> _pump(
   WidgetTester tester, {
   required double width,
   ValueChanged<int>? onDestinationSelected,
+  double textScale = 1,
 }) async {
   tester.view.physicalSize = Size(width, 900);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
 
+  final navigation = Scaffold(
+    body: SoriAdaptiveNavigation(
+      selectedIndex: 0,
+      onDestinationSelected: onDestinationSelected ?? (_) {},
+      items: items,
+    ),
+  );
   await tester.pumpWidget(
     MaterialApp(
-      home: Scaffold(
-        body: SoriAdaptiveNavigation(
-          selectedIndex: 0,
-          onDestinationSelected: onDestinationSelected ?? (_) {},
-          items: items,
-        ),
-      ),
+      home: textScale == 1
+          ? navigation
+          : MediaQuery.withClampedTextScaling(
+              minScaleFactor: textScale,
+              maxScaleFactor: textScale,
+              child: navigation,
+            ),
     ),
   );
 }
