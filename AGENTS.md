@@ -223,7 +223,7 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] 폰 폭은 유지하고 600--720dp에서 탐색 콘텐츠 폭을 480→640dp로 확장했으며, 공통 타이포·CTA·모듈 카드가 태블릿에서 최대 10% 커지게 했다 (`596ef4f`).
 - [x] AppShell은 폰 하단 탭·태블릿 세로 라벨 레일·넓은 태블릿 가로 확장 레일을 폭 기준으로 전환한다. 단위/상호작용 위젯 테스트와 targeted analyzer 통과 (`13c94e0`).
-- [x] `soriClampPadding` 직접 사용 화면도 기본적으로 같은 태블릿 컬럼을 받고, 단어팩은 실제 부모 폭을 쓰는 `SoriContentClamp`로 옮겼다. 계약 테스트·targeted analyzer 통과, 커밋 대기.
+- [x] `soriClampPadding` 직접 사용 화면도 기본적으로 같은 태블릿 컬럼을 받고, 단어팩은 실제 부모 폭을 쓰는 `SoriContentClamp`로 옮겼다. 계약 테스트·targeted analyzer 통과 (`89ac3ae`).
 - [~] 전체 AppShell 반응형 스모크는 동시 세션의 미추적 `placed_decoration.dart` 컴파일 오류가 해소되면 재실행한다.
 - [ ] Jin 실기기: Galaxy Tab 및 Xiaomi Pad에서 세로/가로 회전, 시스템 글자 확대 1.0/1.3, 탭 전환·재선택·학습 진입을 확인한다.
 
@@ -396,7 +396,7 @@ flutter run -d <android-id>   # 안드로이드
 - ModuleCard now uses shared 15px card titles, 12px subtitles, and 11px status badges instead of the prior 13.5/10.5/9px manual styles; locale and type-scale regression tests pass.
 - Tablet-responsive core: browsing columns now expand smoothly from 480dp to 640dp across 600--720dp; shared Sori type, CTA touch targets, and module-card visuals grow by at most 10% while OS accessibility text scaling remains independent. Core contract/widget tests and targeted analyzer pass. Commit: `596ef4f`.
 - Adaptive AppShell navigation: phones retain the bottom bar, portrait tablets use a labeled navigation rail, and wide tablets use an expanded rail. The tab content is keyed so resizing does not discard tab state; rail selection is covered by a widget test. Targeted analysis passes. The broader AppShell responsive smoke is temporarily blocked by another active session's untracked `placed_decoration.dart` with an invalid `library;` directive after imports; it was not changed or staged here. Commit: `13c94e0`.
-- Direct `soriClampPadding` callers now inherit the adaptive 480--640dp column by default, and VocabPacks uses `SoriContentClamp` so its grid measures the actual parent width after a tablet rail. The default-clamp contract, adaptive navigation tests, targeted VocabPacks analysis, and `git diff --check` pass. Commit: pending.
+- Direct `soriClampPadding` callers now inherit the adaptive 480--640dp column by default, and VocabPacks uses `SoriContentClamp` so its grid measures the actual parent width after a tablet rail. The default-clamp contract, adaptive navigation tests, targeted VocabPacks analysis, and `git diff --check` pass. Commit: `89ac3ae`.
 - Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_adaptive_navigation_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
