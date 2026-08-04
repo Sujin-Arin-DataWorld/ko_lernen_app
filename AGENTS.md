@@ -2899,3 +2899,9 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **저장 마이그레이션:** 새 `kl_room_placements_v2`는 `surface → slot → decoration` 중첩 JSON을 authoritative로 쓴다. v2 키가 없을 때만 기존 `kl_room_placement`를 사랑방으로 감싸 읽고, 유효한 빈 `{}`는 legacy를 되살리지 않는다. 손상된 v2 JSON은 읽을 수 있는 legacy 사랑방만 안전하게 fallback한다. v2 write는 사랑방을 legacy 키에도 mirror-write한다.
 - **불변식:** `PersonalRoomSurface.sarangbang → anbang → daecheongmaru` 순서로 손상/중복 저장값을 정규화한다. 새 배치는 한 슬러그를 모든 개인 방에서 먼저 제거한 뒤 대상 슬롯에 넣고, 서비스 직렬 write queue로 두 방 화면의 stale write 경합을 막는다. 기존 `Storage.roomPlacement`·`setRoomPlacement`·`RoomPlacementService.placeInSlot`은 사랑방 호환 별칭으로 유지한다.
 - **검증:** 신규 테스트 RED는 model/storage/API 부재 컴파일 실패를 확인했다. GREEN: `flutter test test/room_placement_storage_test.dart test/room_placement_service_test.dart test/personal_room_placement_service_test.dart` **9 passed**; `dart analyze lib/models/personal_room.dart lib/services/storage_service.dart lib/services/room_placement_service.dart lib/widgets/sori/placed_decoration.dart` **No issues found**; `git diff --check` 통과. 구현 커밋: `aef77ca`.
+
+### 2026-08-04 (Codex) — P3 방별 슬롯 카탈로그·전역 마커 규칙 — 커밋 완료
+
+- **변경:** `PersonalRoomDefinition` 카탈로그가 사랑방·안채·대청마루의 배경, 5개 슬롯, 해금 milestone, 기존 학습 목적지를 한 곳에 선언한다. 안채·대청은 벽·바닥·선반×2·걸이의 동일한 수집 규약과 이미지 안전 좌표를 사용해 장식의 크기/앵커 계약을 유지한다.
+- **마커 경계:** `RoomLayer`가 현재 surface와 전체 `RoomPlacements`를 함께 받아 후보를 계산한다. 안채에 놓은 유일 소반은 사랑방의 빈 바닥에 더 이상 눌러도 비어 있는 `⊕` 표식으로 나타나지 않는다. 기존 단일 `placement` 입력은 사랑방 호환성용으로 유지했다.
+- **검증:** 새 카탈로그·교차 방 dead-marker 테스트는 구현 전 import/parameter 부재로 RED를 확인했고, `flutter test test/personal_room_catalog_test.dart test/room_layer_test.dart test/room_placement_service_test.dart test/personal_room_placement_service_test.dart` **11 passed**, `dart analyze lib/data/personal_room_catalog.dart lib/widgets/sori/room_layer.dart` **No issues found**, `git diff --check` 통과. 구현 커밋: `b74e441`.
