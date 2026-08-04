@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/tab_reselect.dart';
 import 'home_screen.dart';
 import 'practice_hub_screen.dart';
 import 'gye_tab_screen.dart';
@@ -32,6 +33,10 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> {
   int _index = 0;
+  final List<ScrollController> _tabScrollControllers = List.generate(
+    4,
+    (_) => ScrollController(),
+  );
 
   // Stage A: 홈 투어 스포트라이트 키.
   // NavigationBar를 Stack으로 감싸고 각 탭 위치에 크기 0 앵커를 올린다.
@@ -57,7 +62,21 @@ class _AppShellState extends State<AppShell> {
   @override
   void dispose() {
     AppShell.replayHomeTour.removeListener(_onReplayRequested);
+    for (final controller in _tabScrollControllers) {
+      controller.dispose();
+    }
     super.dispose();
+  }
+
+  void _onDestinationSelected(int index) {
+    if (_index == index) {
+      reselectTabScroll(
+        _tabScrollControllers[index],
+        reduceMotion: MediaQuery.maybeOf(context)?.disableAnimations ?? false,
+      );
+      return;
+    }
+    setState(() => _index = index);
   }
 
   /// 설정에서 재생 요청 → 홈 탭으로 전환하고 한 프레임 뒤 투어를 다시 시작.
@@ -134,12 +153,7 @@ class _AppShellState extends State<AppShell> {
 
     final navBar = NavigationBar(
       selectedIndex: _index,
-      onDestinationSelected: (i) {
-        if (_index == i) {
-          return;
-        }
-        setState(() => _index = i);
-      },
+      onDestinationSelected: _onDestinationSelected,
       destinations: [
         NavigationDestination(
           icon: const Icon(Icons.home_outlined),
@@ -184,13 +198,34 @@ class _AppShellState extends State<AppShell> {
         index: _index,
         // TickerMode: 숨은 탭의 애니메이션·영상(TigerStageVideo) 정지 — 배터리.
         children: [
-          TickerMode(
-            enabled: _index == 0,
-            child: HomeScreen(pathTourKey: _pathTourKey),
+          PrimaryScrollController(
+            controller: _tabScrollControllers[0],
+            child: TickerMode(
+              enabled: _index == 0,
+              child: HomeScreen(pathTourKey: _pathTourKey),
+            ),
           ),
-          TickerMode(enabled: _index == 1, child: const PracticeHubScreen()),
-          TickerMode(enabled: _index == 2, child: const GyeTabScreen()),
-          TickerMode(enabled: _index == 3, child: const ProfileScreen()),
+          PrimaryScrollController(
+            controller: _tabScrollControllers[1],
+            child: TickerMode(
+              enabled: _index == 1,
+              child: const PracticeHubScreen(),
+            ),
+          ),
+          PrimaryScrollController(
+            controller: _tabScrollControllers[2],
+            child: TickerMode(
+              enabled: _index == 2,
+              child: const GyeTabScreen(),
+            ),
+          ),
+          PrimaryScrollController(
+            controller: _tabScrollControllers[3],
+            child: TickerMode(
+              enabled: _index == 3,
+              child: const ProfileScreen(),
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: Stack(
