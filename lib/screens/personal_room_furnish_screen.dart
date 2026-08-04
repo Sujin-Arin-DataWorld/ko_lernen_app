@@ -236,7 +236,6 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
                       const SizedBox(height: Spacing.lg),
                       SoriButton.outlined(
                         label: _studyLabel(t, widget.surface),
-                        icon: Icons.menu_book_rounded,
                         fullWidth: true,
                         maxLines: 2,
                         onTap: _openStudy,

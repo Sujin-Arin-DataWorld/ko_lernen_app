@@ -580,7 +580,6 @@ class _HanokHeader extends StatelessWidget {
                 const SizedBox(height: Spacing.md),
                 SoriButton.outlined(
                   label: t.hanokWorldTitle,
-                  icon: Icons.account_balance_outlined,
                   fullWidth: true,
                   onTap: () => Navigator.of(context).pushNamed('/hanok'),
                 ),

@@ -164,7 +164,6 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                         const SizedBox(height: Spacing.md),
                         SoriButton.outlined(
                           label: t.sarangbangStudyFurnish,
-                          icon: Icons.chair_outlined,
                           fullWidth: true,
                           onTap: _openFurnish,
                         ),

@@ -183,7 +183,6 @@ class _WorldIntroduction extends StatelessWidget {
           const SizedBox(height: Spacing.lg),
           SoriButton.outlined(
             label: t.hanokWorldOpenSarangbang,
-            icon: Icons.menu_book_rounded,
             fullWidth: true,
             onTap: onOpenSarangbang,
           ),
@@ -230,7 +229,6 @@ class _GyeBridge extends StatelessWidget {
           SoriButton.outlined(
             key: const ValueKey('hanok-world-gye-bridge'),
             label: t.hanokWorldGyeBridgeOpen,
-            icon: Icons.groups_2_rounded,
             accent: SoriColors.gold,
             fullWidth: true,
             maxLines: 2,
