@@ -102,6 +102,34 @@ void main() {
       expect(Storage.hasQuestCompleted('q_punggyeong'), isTrue);
     });
 
+    test('grants one pending reward box for a newly-completed quest', () async {
+      for (var i = 0; i < 10; i++) {
+        await Storage.incKkeunmariWins();
+      }
+
+      final list = await QuestTracker.computeAll();
+      await QuestTracker.persistNewCompletions(list);
+
+      expect(Storage.pendingBoxes, ['q_punggyeong']);
+
+      // A repeat call must not turn one quest completion into two rewards.
+      await QuestTracker.persistNewCompletions(list);
+      expect(Storage.pendingBoxes, ['q_punggyeong']);
+    });
+
+    test('finishes a completion with an already-persisted reward box', () async {
+      for (var i = 0; i < 10; i++) {
+        await Storage.incKkeunmariWins();
+      }
+      await Storage.addPendingBox('q_punggyeong');
+
+      final list = await QuestTracker.computeAll();
+      await QuestTracker.persistNewCompletions(list);
+
+      expect(Storage.hasQuestCompleted('q_punggyeong'), isTrue);
+      expect(Storage.pendingBoxes, ['q_punggyeong']);
+    });
+
     test('idempotent — second call no-op', () async {
       await Storage.markQuestCompleted('q_kkachi_nest');
       final firstMark = Storage.questCompletions['q_kkachi_nest'];

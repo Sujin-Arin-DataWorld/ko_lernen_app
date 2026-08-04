@@ -98,6 +98,12 @@ class QuestTracker {
     for (final p in progresses) {
       if (p.completed && p.completedAtIso == null) {
         // p.completedAtIso == null 은 "방금 도달" 의미 (computeAll 의 mark 참고)
+        // 완료 marker 보다 보상 상자를 먼저 기록한다. 두 저장 사이에 앱이 꺼져도
+        // 다음 실행에서 아직 완료되지 않은 퀘스트가 다시 계산되고, 이미 저장된
+        // 상자를 확인한 뒤 marker 만 마무리한다. 같은 퀘스트의 보상 중복도 막는다.
+        if (!Storage.pendingBoxes.contains(p.questId)) {
+          await Storage.addPendingBox(p.questId);
+        }
         await Storage.markQuestCompleted(p.questId);
         // 2픽: 방금 완료한 퀘스트를 계 피드에 broadcast (축하 유도)
         await GyeService.broadcastFeed(
