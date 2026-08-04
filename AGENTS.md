@@ -431,6 +431,12 @@ flutter run -d <android-id>   # 안드로이드
 - **가드:** 실제 파일 반영 때만 kAvailableDecorations 6줄과 data_integrity_test pending 3줄을 함께 갱신한다. 카테고리·슬롯·보상/저널 로직은 변경하지 않으며, 시각 검수·alpha 검사·analyze·사랑방 묶음 테스트를 모두 통과해야 한다.
 - **명세·검증:** docs/superpowers/specs/2026-08-04-sarangbang-production-assets-design.md를 placeholder/TODO/모순 없이 self-review하고 git diff --check로 확인했다. 명세 커밋: 5d8da65.
 
+### 2026-08-04 (Codex) — P1 사랑방 실제 에셋 구현 계획 — 커밋 완료
+
+- **기존 보자기/배경 판정:** Claude 생성본으로 보이는 격리 파일 세 장을 실제 픽셀로 확인했다. 보자기 2종은 흰 캔버스·수채화 음영·스티치 외곽선, 사랑방 배경은 8개 색상 마커·회화적 음영이 있어 모두 재사용 불가로 확정했다. 격리 경로는 그대로 보존한다.
+- **실행 순서:** warning 제거 → 3:4 빈 사랑방 배경 → 짝이 맞는 closed/open bojagi RGBA → 실내 장식 6종 정규화·화이트리스트·pending 해제 → focused 가드로 고정한다. 슬롯/저널/번역 API는 변경 금지다.
+- **명세·검증:** docs/superpowers/plans/2026-08-04-sarangbang-production-assets.md를 spec coverage·placeholder·interface 일치로 self-review하고 git diff --check로 확인했다. 계획 커밋: f63b517.
+
 ### 2026-08-04 (Codex) — UI/UX completion implementation, in progress
 
 - Added six missing Faceted Minhwa dancheong stamps: chilbo, gwigap, peony, taegeuk, vine, and wave. Generated sources are excluded under `stamps/_raw`; normalized 1254px RGBA assets are bundled.
