@@ -270,6 +270,15 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 닫힌/열린 보자기 짝을 실제 `Format32bppArgb` PNG로 반영했다. 기존 흰 캔버스·수채화 외곽선 대신 공통 조각보 패턴과 투명 여백을 쓰며 꾸러미·무결성 회귀 12개를 통과했다 (`d5e3ecc`).
 - [x] P1 실제 에셋 반영: 반려된 다운로드 묶음은 로컬 격리본으로 보존하고, 새 Faceted Minhwa 9종(3:4 빈 사랑방 1·RGBA 보자기 2·RGBA 실내 장식 6)을 실제 경로에 반영했다. 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신했으며, 갓·부채는 같은 횃대 보상 안에서 서로 닿지 않는 독립 전시로 수정했다 (`78fc96d`, `d5e3ecc`, `9b16bad`).
 
+### 개인 한옥 채 짓기·내부 꾸미기 (P2–P4, 2026-08-04)
+
+- [x] P2 구조 설계: 전통 배치에 맞춘 전용 `/hanok` 화면을 정본으로 두고, 학습 경로에는 미리보기·CTA만 남긴다. 개인 한옥과 계 한옥은 진행·저장소를 분리하고 data-only 합성 레이어만 공유한다 (`9157e90`).
+- [ ] P2a: `PersonalHanokProgress`·구조 카탈로그·공유 `HanokCompoundLayer`를 테스트 우선으로 구현한다. 기존 12단계 성장/시네마틱과 계 해금 동작은 보존한다.
+- [ ] P2b: 빈 마당·안채·대청마루·사당의 규격 에셋 4종, `/hanok` 화면·라우트·학습 경로 CTA를 연결한다. 사랑채는 기존 `/sarangbang`으로만 진입한다.
+- [ ] P2c: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정하고 전체 게이트를 통과한다.
+- [ ] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다.
+- [ ] P4: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -426,6 +435,14 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-04 (Codex) — 개인 한옥 채 짓기 P2 설계 고정 — 구현 검토 대기
+
+- **제품 결정:** 첨부된 전통 한옥 배치를 사용자 장기 성장 목표로 삼는다. 개인 한옥은 전용 `/hanok` 화면에서 채를 하나씩 세우고 완성 건물에 들어가는 정본 경험이며, `LearningPathScreen`은 작은 미리보기와 같은 경로의 CTA만 제공한다.
+- **호환성:** `HanokStageService`의 12단계·기존 시네마틱·P1 사랑방을 바꾸지 않는다. B1 25%부터 솟을대문→행랑채→사랑채, B2 25/50/75%에 안채·대청마루·사당을 추가로 해금한다. 이미 얻은 비율에서 매번 결정론적으로 계산하므로 별도 저장 마이그레이션·보상 재지급이 없다.
+- **경계:** 개인/계는 서로의 progress·storage·소유권을 읽지 않는다. 공통 `HanokCompoundLayer`는 좌표와 에셋을 그리는 data-only 렌더러이고, 계의 lifetime goal·pulse·사회 상태는 그대로 계 도메인에 남긴다. P3의 surface-aware 배치와 P4 계 헌납은 P2에 섞지 않는다.
+- **에셋 판단:** 기존 `gye_gate_grand`·`gye_haenglangchae`·`gye_byeoldang`는 초반 개인 구조에 경로 재사용한다. 종가 stage PNG 위에 건물을 덧그릴 수 없으므로 빈 마당·안채·대청마루·사당 네 종의 새 규격 에셋이 필요하다.
+- **명세·검증:** `docs/superpowers/specs/2026-08-04-personal-hanok-compound-growth-design.md`를 current model/renderer/screen/asset 실제 상태와 대조하고 TODO·TBD·placeholder·설계 모순 없이 self-review했다. 최종 staged `git diff --check` 통과. 설계 커밋: `9157e90`.
 
 ### 2026-08-04 (Codex) — P1 사랑방 실제 에셋 교체 명세 — 커밋 완료
 
