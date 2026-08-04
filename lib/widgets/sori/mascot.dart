@@ -108,8 +108,6 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   /// 같은 프레임이 반복되는 인상을 줄인다(캐논 앵커 `tiger_front` 계열).
   static const _tigerFront2 = 'assets/illustrations/mascot/tiger_front2.png';
 
-  static const _magpiePerched =
-      'assets/illustrations/mascot/magpie_perched.png';
   static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
   static const _magpieWingDown =
       'assets/illustrations/mascot/magpie_wingdown.png';
