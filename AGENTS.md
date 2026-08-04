@@ -484,6 +484,7 @@ flutter run -d <android-id>   # 안드로이드
 - **변경:** 알려진 퀘스트 ID는 안정 코드 유닛 해시와 append-only 실내 장식 풀로 항상 같은 세 후보를 얻고, 이미 보유한 항목은 제외한다. unknown source·후보 고갈·미제안 slug는 큐와 보유를 바꾸지 않는다. 유효 수령은 `pendingBefore`/`pendingAfter` 전체 스냅샷 journal을 먼저 쓰고 장식 지급 후 정확히 첫 상자만 소비한다.
 - **복구:** RED 테스트가 `pendingAfter=[]`이면 어떤 큐도 빈 접두사와 일치해 unrelated box를 소비할 수 있음을 잡았다. journal을 `prepared → queue_commit_started` 두 단계로 나눠, 준비 단계의 큐 불일치는 fail-closed 하고, 소비 시작 뒤에 붙은 suffix만 보존하도록 고정했다. 빠른 두 번 선택도 직렬 큐에서 두 번째가 빈 상자를 관측한다.
 - **검증:** offer API 부재 RED, claim/recovery API 부재 RED, 빈-after 충돌 RED를 차례로 확인한 뒤 `test/decoration_reward_service_test.dart` **15 passed**. 퀘스트 지급·저장·RoomLayer·picker·슬롯 가드까지 묶은 Flutter 테스트 **48 passed**, 대상 `dart analyze` **0 issues**, `git diff --check` 통과. 구현 커밋: `f60662c`.
+- **전체 게이트 경계:** 현재 `flutter test`는 `+1925 -3`으로 끝난다. 서비스 파일과 무관한 실패는 (1) `data_integrity_test`가 아직 없는 `sarangbang_empty.png`·`reward_bojagi_closed.png`를 감지한 것, (2) `scene_asset_resolver_test`가 CRLF인 `scenario.dart`에서 LF 전용 `\n  };\n` 종료 문자열을 찾아 두 가드가 실패한 것이다. Claude의 UI/에셋 범위에서 PNG 추가·화이트리스트 연결과 CRLF-안전 가드 보정 후 전체 게이트를 재실행한다. 이 서비스의 HEAD 검증은 이후에도 48 passed·analyze 0·clean이다.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
