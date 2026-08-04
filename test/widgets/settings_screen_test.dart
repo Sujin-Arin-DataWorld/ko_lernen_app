@@ -123,6 +123,36 @@ void main() {
     expect(operations.linkCalls, 0);
   });
 
+  testWidgets(
+    'pending remote deletion offers retry but keeps reset actions locked',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final operations = _SettingsAccountOperations()
+        ..pending.value = AccountUiPendingState.deletionRemotePending;
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: operations,
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final retry = find.text('Erneut versuchen');
+      await _ensureSettingsActionVisible(tester, retry);
+      expect(retry, findsOneWidget);
+      await _expectSettingsTileDisabled(tester, 'Alle Daten zurücksetzen');
+      await _expectSettingsTileDisabled(tester, 'Konto und alle Daten löschen');
+      expect(tester.takeException(), isNull);
+    },
+  );
+
   testWidgets('account transition pending locks durable backup and restore', (
     tester,
   ) async {

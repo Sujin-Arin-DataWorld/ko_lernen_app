@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/account_nudge.dart';
+import 'package:ko_lernen_app/widgets/sori/account_operation_ui.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 void main() {
@@ -329,6 +330,34 @@ void main() {
     Navigator.of(context).pop();
     await tester.pump(const Duration(milliseconds: 300));
     await shown;
+  });
+
+  testWidgets('pending remote deletion retries through its exact callback', (
+    tester,
+  ) async {
+    final operations = _FakeAccountUiOperations()
+      ..pending.value = AccountUiPendingState.deletionRemotePending;
+    var retryCalls = 0;
+
+    await tester.pumpWidget(
+      _wrap(
+        AccountPendingOperationPanel(
+          operations: operations,
+          retryLocalDeletion: () async {
+            retryCalls += 1;
+            operations.pending.value = AccountUiPendingState.none;
+          },
+        ),
+      ),
+    );
+    await tester.pump();
+
+    await tester.tap(find.text('Erneut versuchen'));
+    await tester.pump();
+
+    expect(retryCalls, 1);
+    expect(find.text('Erneut versuchen'), findsNothing);
+    expect(tester.takeException(), isNull);
   });
 }
 
