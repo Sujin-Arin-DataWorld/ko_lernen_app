@@ -437,6 +437,12 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 (Codex) — 개인 한옥 P2a 분리 사당 레이어 반영 커밋
+
+- **에셋:** 동쪽 별도 enclosure용 `sadang`을 추가했다. 닫힌 격자문, 절제된 단청, 낮은 돌 문턱만 가진 작은 독립 건물로 제작해 사랑방/안방처럼 장식 배치나 실내 입구를 암시하지 않고, 이후 문화·성취 기록 표면으로만 연결할 수 있다.
+- **합성·검수:** 지정 anchor `(left: .74, bottom: .52, width: .17)`에서 안채와 물리적으로 분리되고 동쪽 담장 안에 안정적으로 보임을 1536×1152 합성으로 확인했다. `python tool/check_hanok_compound_assets.py`는 이제 base와 여섯 구조 레이어 모두 PASS한다(사당 alpha 48.3%, chroma key 0). `git diff --check` 통과.
+- **커밋:** `ec87d8c` (`feat(hanok): add shrine map layer`).
+
 ### 2026-08-04 (Codex) — 개인 한옥 P2a 안마당 레이어 반영 커밋
 
 - **에셋:** `anchae`는 남쪽으로 열린 ㄷ자 내부 마당과 좌우 날개·후면 채가 작은 화면에서도 읽히도록 만들었고, `daecheongmaru`는 두 마당 사이를 잇는 닫힌 방이 아닌 바닥·기둥이 보이는 열린 대청으로 분리했다. 둘 다 지도에 독립적으로 탭 가능한 투명 레이어다.

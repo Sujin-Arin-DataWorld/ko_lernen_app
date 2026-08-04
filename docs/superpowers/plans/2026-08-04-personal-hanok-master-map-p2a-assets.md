@@ -238,7 +238,7 @@ Prompt for one compact, dignified Korean ancestral shrine in a separate east enc
 
 Use the Task 3 removal command. Then place the layer at `(left: .74, bottom: .52, width: .17)` over the base. Confirm it is visibly separate from the inner court and has no accidental interior-entry visual cue.
 
-- [ ] **Step 3: Commit the shrine**
+- [x] **Step 3: Commit the shrine**
 
 ```powershell
 git add assets/illustrations/hanok_compound/sadang.png AGENTS.md
