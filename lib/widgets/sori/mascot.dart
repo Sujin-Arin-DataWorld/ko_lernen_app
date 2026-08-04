@@ -104,6 +104,10 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   static const _tigerSurprised =
       'assets/illustrations/mascot/tiger_surprised.png';
 
+  /// 태고 정면 변형 — 중립 애니메이션에서 `tiger_idle`과 번갈아 써서
+  /// 같은 프레임이 반복되는 인상을 줄인다(캐논 앵커 `tiger_front` 계열).
+  static const _tigerFront2 = 'assets/illustrations/mascot/tiger_front2.png';
+
   static const _magpiePerched =
       'assets/illustrations/mascot/magpie_perched.png';
   static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
@@ -118,6 +122,11 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   static const _magpieSing = 'assets/illustrations/mascot/magpie_sing.png';
   static const _magpieSleep = 'assets/illustrations/mascot/magpie_sleep.png';
   static const _magpieWave = 'assets/illustrations/mascot/magpie_wave.png';
+
+  /// 조이 정면 — 태고의 `tiger_neutral`(정면)과 짝을 맞추는 중립 자세.
+  /// 기존 중립 정지는 `magpie_perched`(측면)이라 태고는 사용자를 보고
+  /// 조이는 옆을 보는 비대칭이 있었다.
+  static const _magpieFront = 'assets/illustrations/mascot/magpie_front.png';
 
   AnimationController? _motion;
 
@@ -193,7 +202,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
             final flap = math.sin(t * math.pi * 10);
             return flap >= 0 ? _magpieWingUp : _magpieWingDown;
           }
-          return _magpiePerched;
+          return _magpieFront;
         case MascotEmotion.smile:
           if (animating) {
             final flap = math.sin(t * math.pi * 10);
@@ -226,6 +235,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
         if (animating) {
           if (t > 0.82 && t < 0.90) return _tigerBlink;
           if (t > 0.40 && t < 0.46) return _tigerIdle;
+          if (t > 0.14 && t < 0.20) return _tigerFront2;
         }
         return _tigerNeutral;
     }

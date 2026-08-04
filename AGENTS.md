@@ -2383,3 +2383,46 @@ register(두꺼운 에어브러시 그라데이션 · 단청 국화문 · 구름
 평균오차 0.86~2.47 로 전부 임계값(4.0) 미만 → RGB 폴백 0건.
 원본 896x1200 은 `assets/illustrations/scenes/_raw/` 에 보관(하위 디렉터리라
 pubspec 의 `scenes/` 선언으로는 번들되지 않음). 배치 확정 후 삭제할 것.
+
+## 2026-08-04 · 단청 도장 8종 → 14종 + 매핑 구멍 수리
+
+lernpfad 에서 도장이 중복돼 보인다는 지적. 원인이 셋이었고 둘은 그림 문제가 아니었다.
+
+**A. 매핑 구멍(제일 큼)** — `motifForPackId` switch 에 13개 주제가 없어
+86팩 중 36팩이 `_ => lotus` 로 샜다. 매핑된 7까지 합쳐 **절반이 연꽃**.
+전부 명시하고 신규 6종에 나눠 담아 최대 비중을 plum 16% 로 낮췄다.
+
+**B. 실루엣 충돌** — lotus·chrysanthemum·octagon·plum 이 전부 "크림 바탕
+금색 방사형 꽃"이라 62dp 노드에선 한 개로 보였다. 8종이 아니라 사실상 5종.
+신규는 전부 축을 달리 잡았다(가로 띠·화환 링·겹친 고리·육각 그리드·3갈래
+소용돌이·덩어리꽃). lotus 는 측면 프로필로, octagon 은 순수 격자로 재작화.
+→ **도장을 늘리기 전에 겹치는 걸 갈라내는 게 먼저다. "또 다른 꽃"은 무의미.**
+
+**C. `swastika` 문자열** — 그림은 만자문(卍)이라 문제없지만
+`Storage.addEarnedStamp(motif.name)` 이 그 문자열을 저장하고 `cloud_sync` 로
+백업까지 태우고 있었다. 독일어권 앱에서 남길 이유가 없어 `manja` 로 개명,
+`Storage.earnedStamps` 게터에 옛 slug 별칭을 넣어 기존 저장값을 흡수한다.
+
+### 부수 정리
+
+- `_assetSlug` switch 제거 → `'stamp_${m.name}'`. `geometric_octagon` 만
+  예외였던 걸 `octagon` 으로 개명해서 성립. 덕분에 "모든 문양에 PNG 실재"를
+  enum 전수로 검사할 수 있게 됐다.
+- 가드 테스트 2개: manifest 주제 전수가 switch 에 명시됐는지 + 문양별 PNG 실재.
+  manifest(`vocabPackUnitMap`)만으로 13개 구멍이 전부 잡히는 걸 확인했으므로
+  CSV 는 파싱하지 않는다 — `korean_vocab.csv` 는 따옴표 필드가 있어
+  단순 split 이 컬럼을 어긋나게 만든다.
+- `tool/stamp_normalize.py` 추가: 1024 흰 배경 → 1254 RGBA, 테두리 플러드필.
+  **`Image.fromarray(...).copy()` 필수** — copy 없이는 numpy 버퍼를 공유해
+  `ImageDraw.floodfill` 이 조용히 0% 만 채운다(원인 못 찾고 한참 헤맴).
+  기기 VM 에 scipy 가 없고 네트워크도 없어서 PIL 4-연결 플러드필로 구현.
+- `.gitignore` 에 `assets/illustrations/{scenes,stamps}/_raw/` 추가.
+  정규화 입력이라 번들에 안 들어가고(디렉터리 선언은 재귀 안 함) 무겁다.
+
+### git 이 이 마운트에서 안 되는 이유 (중요)
+
+`device_bash` 마운트는 `.git` 안의 파일 **생성은 되는데 삭제가 안 된다**
+(`Operation not permitted`). git 은 인덱스를 쓸 때 `index.lock` 을 만들었다
+지워야 하므로 `git add` 가 임시 오브젝트만 남기고 실패한다.
+`GIT_INDEX_FILE` 을 /tmp 로 돌려도 ref 잠금에서 같은 벽에 부딪힌다.
+→ **커밋은 윈도우에서 직접 해야 한다.** 세션 작업물은 디스크에 멀쩡히 있다.

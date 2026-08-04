@@ -169,7 +169,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         appBar: AppBar(title: Text(t.wbMatching)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: 'assets/illustrations/mascot/tiger_right_stand.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,

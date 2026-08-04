@@ -80,6 +80,7 @@ class HanokHeader extends StatelessWidget {
     'scene_restaurant',
     'study_classroom',
     'study_scholar',
+    'taego-joy-duo',
     'welcome-hero',
   };
 

@@ -22,15 +22,32 @@ import 'package:flutter/material.dart';
 ///   animate: true,                     // 결과 화면에서 찍히는 애니메이션
 /// )
 /// ```
+/// 팩 주제를 나타내는 단청 문양. **실루엣이 서로 겹치지 않도록** 고른다 —
+/// 경로 노드는 62dp 라, 원본에서 구분되는 무늬도 그 크기에선 뭉개진다.
+///
+/// 2026-08-04: 8종 → 14종. 이유 두 가지.
+///  1. `motifForPackId` 의 switch 에 13개 주제가 빠져 있어 86팩 중 36팩이
+///     `_ => lotus` 로 떨어졌다. 매핑된 7개까지 합쳐 **절반이 연꽃**이었다.
+///  2. lotus·chrysanthemum·octagon·plum 이 전부 "크림 바탕 금색 방사형 꽃"
+///     이라 62dp 에선 한 개로 보였다. 그래서 신규 6종은 전부 실루엣 축을
+///     달리 잡았다 — 가로 띠, S자 덩굴, 겹친 고리, 육각 격자, 삼각 소용돌이,
+///     덩어리 꽃. lotus 는 측면 프로필로, octagon 은 순수 격자로 재작화.
 enum DancheongMotif {
-  lotus,         // 인사·자기소개·가족 (a1_greetings/family/self_intro)
-  chrysanthemum, // 시간·숫자 (a1_time/numbers)
-  plum,          // 감정·형용사 (a1/a2 feelings·descriptions)
-  bamboo,        // 학교·직장 (a2/b1 work/education)
-  cloud,         // 날씨·자연 (a2 weather, a2 health_misc)
+  lotus,         // 인사·자기소개·가족 (a1 greetings/family/self_intro)
+  chrysanthemum, // 시간·숫자 (a1 time/numbers)
+  plum,          // 감정·형용사 (a1/a2/b1 feelings·descriptions)
+  bamboo,        // 학교·직장 (a2/b1/b2 work/education)
+  cloud,         // 날씨·건강 (a2 weather, a2/b1 health)
   octagon,       // 음식·쇼핑 (a1/a2 food/shopping)
   mountain,      // 교통·여행 (a1/a2 transport)
-  swastika,      // 신체·건강 (a1 body / a2 health)
+  manja,         // 신체·색·위치 (a1 body/colors/position)
+  //  ── 2026-08-04 신설 ──
+  vine,          // 일상 (a1/a2/b1 daily) — 최대 그룹 13팩
+  chilbo,        // 사회·기술·소통 (b1 tech_society, b2 society/communication)
+  gwigap,        // 집·기타 (a2 home, a1/b2 misc)
+  wave,          // 환경 (b2 environment)
+  taegeuk,       // 사고·추상 (b2 thinking)
+  peony,         // 돈 (a2 money)
 }
 
 /// Pack-ID → Motif Mapping. Konsistent über alle Phasen.
@@ -41,6 +58,7 @@ DancheongMotif motifForPackId(String packId) {
     'a1_time' || 'a1_numbers' => DancheongMotif.chrysanthemum,
     'a1_descriptions' ||
     'a2_descriptions' ||
+    'b1_descriptions' ||
     'a2_feelings' ||
     'b1_emotions_relations' =>
       DancheongMotif.plum,
@@ -50,8 +68,18 @@ DancheongMotif motifForPackId(String packId) {
       DancheongMotif.cloud,
     'a1_food' || 'a2_food' || 'a2_shopping' => DancheongMotif.octagon,
     'a1_transport' || 'a2_transport' => DancheongMotif.mountain,
-    'a1_body' || 'a1_colors' || 'a1_position' => DancheongMotif.swastika,
-    _ => DancheongMotif.lotus, // fallback
+    'a1_body' || 'a1_colors' || 'a1_position' => DancheongMotif.manja,
+    // ── 2026-08-04: 여기부터가 예전에 통째로 fallback 으로 새던 주제들 ──
+    'a1_daily' || 'a2_daily' || 'b1_daily' => DancheongMotif.vine,
+    'b1_tech_society' || 'b2_society' || 'b2_communication' =>
+      DancheongMotif.chilbo,
+    'a2_home' || 'a1_misc' || 'b2_misc' => DancheongMotif.gwigap,
+    'b2_environment' => DancheongMotif.wave,
+    'b2_thinking' => DancheongMotif.taegeuk,
+    'a2_money' => DancheongMotif.peony,
+    // fallback — 여기 걸리면 새 주제가 생긴 것이다. 위에 추가할 것.
+    // `test/dancheong_stamp_test.dart` 의 전수 대조 테스트가 잡아준다.
+    _ => DancheongMotif.lotus,
   };
 }
 
@@ -128,16 +156,12 @@ class _DancheongStampState extends State<DancheongStamp>
   }
 
   /// Motif → `stamps/stamp_*.png` 파일 slug.
-  static String _assetSlug(DancheongMotif m) => switch (m) {
-        DancheongMotif.lotus => 'stamp_lotus',
-        DancheongMotif.chrysanthemum => 'stamp_chrysanthemum',
-        DancheongMotif.plum => 'stamp_plum',
-        DancheongMotif.bamboo => 'stamp_bamboo',
-        DancheongMotif.cloud => 'stamp_cloud',
-        DancheongMotif.octagon => 'stamp_geometric_octagon',
-        DancheongMotif.mountain => 'stamp_mountain',
-        DancheongMotif.swastika => 'stamp_swastika',
-      };
+  ///
+  /// 2026-08-04: enum 이름과 파일명을 1:1 로 맞추면서 switch 를 없앴다
+  /// (`geometric_octagon` → `octagon` 이 마지막 예외였다). 덕분에
+  /// `test/dancheong_stamp_test.dart` 가 "모든 문양에 PNG 가 있다" 를
+  /// enum 전수로 검사할 수 있다 — 새 문양을 추가하고 그림을 빠뜨리면 터진다.
+  static String _assetSlug(DancheongMotif m) => 'stamp_${m.name}';
 
   @override
   Widget build(BuildContext context) {
@@ -235,8 +259,23 @@ class _StampPainter extends CustomPainter {
       case DancheongMotif.mountain:
         _drawMountain(canvas, cx, cy, innerR, motifPaint, tealPaint);
         break;
-      case DancheongMotif.swastika:
-        _drawSwastika(canvas, cx, cy, innerR, motifPaint);
+      case DancheongMotif.manja:
+      // 신규 6종은 PNG 가 정본이고 이 painter 는 로드 실패 시 fallback 일 뿐이라,
+      // 실루엣이 가장 가까운 기존 도형을 재사용한다. 전용 painter 를 6개 더
+      // 쓰는 건 여기서 얻는 값에 비해 유지비가 크다.
+      case DancheongMotif.taegeuk: // 삼태극 ≈ 바람개비
+        _drawManja(canvas, cx, cy, innerR, motifPaint);
+        break;
+      case DancheongMotif.wave:
+      case DancheongMotif.vine: // 물결·덩굴 ≈ 소용돌이
+        _drawCloud(canvas, cx, cy, innerR, motifPaint);
+        break;
+      case DancheongMotif.chilbo:
+      case DancheongMotif.gwigap: // 칠보·귀갑 ≈ 기하 격자
+        _drawOctagon(canvas, cx, cy, innerR, motifPaint, accentPaint);
+        break;
+      case DancheongMotif.peony: // 모란 ≈ 겹꽃
+        _drawLotus(canvas, cx, cy, innerR, motifPaint, accentPaint);
         break;
     }
   }
@@ -419,10 +458,10 @@ class _StampPainter extends CustomPainter {
     c.drawPath(right, p);
   }
 
-  void _drawSwastika(Canvas c, double cx, double cy, double r, Paint p) {
+  void _drawManja(Canvas c, double cx, double cy, double r, Paint p) {
     // Korean traditional 卍 (manja) — geometric grid, NOT to be confused
     // with German nazi symbol (mirrored direction + 4 dots). For neutrality,
-    // we draw a 4-petal pinwheel instead of full swastika.
+    // we draw a 4-petal pinwheel instead of the full manja fret.
     final arm = r * 0.55;
     final w = r * 0.2;
     for (int i = 0; i < 4; i++) {

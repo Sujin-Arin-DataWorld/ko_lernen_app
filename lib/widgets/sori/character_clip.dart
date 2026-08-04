@@ -57,6 +57,15 @@ class CharacterClips {
   static const String magpieWorry = '$_base/magpie_worry.mp4'; // 오답 위로
   static const String magpiePerched = '$_base/magpie_perched.mp4'; // 듣기 대기
   static const String magpieChoose = '$_base/magpie_choose.mp4'; // 선택 확정 착지
+  /// magpie_full10.mp4(Jin 캐논 원본, 10초)에서 잘라낸 4구간.
+  /// AI 재생성이 아니라 기존 캐논 자산의 컷 — ASSET_GAP §0 준수.
+  /// 몸 높이 63~65%로 리프레이밍해 태고 클립과 스케일을 맞췄다.
+  static const String magpieBob = '$_base/magpie_bob.mp4'; // 대기 홉(루프)
+  static const String magpieFlourish =
+      '$_base/magpie_flourish.mp4'; // 날개 활짝(원샷)
+  static const String magpieSing = '$_base/magpie_sing.mp4'; // 짹짹(원샷)
+  static const String magpieSoar = '$_base/magpie_soar.mp4'; // 급상승(원샷)
+
   static const String magpieGreetChirp =
       '$_base/magpie_greet_chirp.mp4'; // 첫 인사 — 신나는 짹짹
 

@@ -112,7 +112,7 @@ abstract class AppL10n {
   /// No description provided for @paywallBenefit1.
   ///
   /// In de, this message translates to:
-  /// **'Alle Vokabel-Packs (A2 · B1 · B2)'**
+  /// **'Alle Vokabel-Pakete (A2 · B1 · B2)'**
   String get paywallBenefit1;
 
   /// No description provided for @paywallBenefit2.
@@ -208,8 +208,8 @@ abstract class AppL10n {
   /// No description provided for @streakDisplay.
   ///
   /// In de, this message translates to:
-  /// **'{days} Tage'**
-  String streakDisplay(Object days);
+  /// **'{days, plural, one{1 Tag} other{{days} Tage}}'**
+  String streakDisplay(int days);
 
   /// No description provided for @streakDialogTitle.
   ///
@@ -232,8 +232,8 @@ abstract class AppL10n {
   /// No description provided for @streakDialogCurrent.
   ///
   /// In de, this message translates to:
-  /// **'Aktueller Streak: {days} Tage'**
-  String streakDialogCurrent(Object days);
+  /// **'Aktueller Streak: {days, plural, one{1 Tag} other{{days} Tage}}'**
+  String streakDialogCurrent(int days);
 
   /// No description provided for @streakDialogLastActivity.
   ///
@@ -346,7 +346,7 @@ abstract class AppL10n {
   /// No description provided for @reviewEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.'**
+  /// **'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Paket — die Wörter tauchen hier zur Wiederholung auf.'**
   String get reviewEmptyBody;
 
   /// No description provided for @reviewDoneTitle.
@@ -376,7 +376,7 @@ abstract class AppL10n {
   /// No description provided for @homeReviewDue.
   ///
   /// In de, this message translates to:
-  /// **'{n} Wörter fällig'**
+  /// **'{n, plural, one{1 Wort fällig} other{{n} Wörter fällig}}'**
   String homeReviewDue(int n);
 
   /// No description provided for @homeReviewDone.
@@ -400,7 +400,7 @@ abstract class AppL10n {
   /// No description provided for @settingsNotifSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Der Tiger erinnert dich ans Lernen'**
+  /// **'Taego erinnert dich ans Lernen'**
   String get settingsNotifSubtitle;
 
   /// No description provided for @settingsNotifTime.
@@ -424,7 +424,7 @@ abstract class AppL10n {
   /// No description provided for @notificationBody.
   ///
   /// In de, this message translates to:
-  /// **'Der Tiger wartet — Zeit für Koreanisch! 🐯'**
+  /// **'Taego wartet — Zeit für Koreanisch! 🐯'**
   String get notificationBody;
 
   /// No description provided for @homeCourseTitle.
@@ -628,7 +628,7 @@ abstract class AppL10n {
   /// No description provided for @gameWordleTitle.
   ///
   /// In de, this message translates to:
-  /// **'Wordle'**
+  /// **'Silben-Rätsel'**
   String get gameWordleTitle;
 
   /// No description provided for @gameWordleDesc.
@@ -670,7 +670,7 @@ abstract class AppL10n {
   /// No description provided for @navWordle.
   ///
   /// In de, this message translates to:
-  /// **'Wordle'**
+  /// **'Silben-Rätsel'**
   String get navWordle;
 
   /// No description provided for @navSettings.
@@ -820,19 +820,19 @@ abstract class AppL10n {
   /// No description provided for @bookshelfSectionCustomPacks.
   ///
   /// In de, this message translates to:
-  /// **'Eigene Packs'**
+  /// **'Eigene Pakete'**
   String get bookshelfSectionCustomPacks;
 
   /// No description provided for @bookshelfTileMeta.
   ///
   /// In de, this message translates to:
-  /// **'{words} Wörter · {grammar} Grammatik · {date}'**
+  /// **'{words, plural, one{1 Wort} other{{words} Wörter}} · {grammar} Grammatik · {date}'**
   String bookshelfTileMeta(int words, int grammar, String date);
 
   /// No description provided for @bookshelfPackMeta.
   ///
   /// In de, this message translates to:
-  /// **'{n} Wörter'**
+  /// **'{n, plural, one{1 Wort} other{{n} Wörter}}'**
   String bookshelfPackMeta(int n);
 
   /// No description provided for @bookshelfPageTitle.
@@ -856,13 +856,13 @@ abstract class AppL10n {
   /// No description provided for @bookshelfCreatePackCta.
   ///
   /// In de, this message translates to:
-  /// **'Eigenes Pack aus dieser Seite'**
+  /// **'Eigenes Paket aus dieser Seite'**
   String get bookshelfCreatePackCta;
 
   /// No description provided for @bookshelfCreatePackTitle.
   ///
   /// In de, this message translates to:
-  /// **'Neues eigenes Pack'**
+  /// **'Neues eigenes Paket'**
   String get bookshelfCreatePackTitle;
 
   /// No description provided for @bookshelfCreatePackName.
@@ -874,7 +874,7 @@ abstract class AppL10n {
   /// No description provided for @bookshelfCreatePackSaved.
   ///
   /// In de, this message translates to:
-  /// **'Pack gespeichert.'**
+  /// **'Paket gespeichert.'**
   String get bookshelfCreatePackSaved;
 
   /// No description provided for @bookshelfDeletePageTitle.
@@ -892,7 +892,7 @@ abstract class AppL10n {
   /// No description provided for @bookshelfDeletePackTitle.
   ///
   /// In de, this message translates to:
-  /// **'Pack löschen?'**
+  /// **'Paket löschen?'**
   String get bookshelfDeletePackTitle;
 
   /// No description provided for @bookshelfDeletePackBody.
@@ -904,13 +904,13 @@ abstract class AppL10n {
   /// No description provided for @customPackPlayTitle.
   ///
   /// In de, this message translates to:
-  /// **'Eigenes Pack üben'**
+  /// **'Eigenes Paket üben'**
   String get customPackPlayTitle;
 
   /// No description provided for @customPackNotFoundTitle.
   ///
   /// In de, this message translates to:
-  /// **'Pack nicht gefunden'**
+  /// **'Paket nicht gefunden'**
   String get customPackNotFoundTitle;
 
   /// No description provided for @customPackNotFoundBody.
@@ -922,13 +922,13 @@ abstract class AppL10n {
   /// No description provided for @customPackEmptyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Pack ist leer'**
+  /// **'Paket ist leer'**
   String get customPackEmptyTitle;
 
   /// No description provided for @customPackEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Dieser Pack enthält noch keine Wörter.'**
+  /// **'Dieser Paket enthält noch keine Wörter.'**
   String get customPackEmptyBody;
 
   /// No description provided for @customPackResultTitle.
@@ -982,7 +982,7 @@ abstract class AppL10n {
   /// No description provided for @homeBookshelfCardDesc.
   ///
   /// In de, this message translates to:
-  /// **'Gespeicherte Seiten & Custom-Packs'**
+  /// **'Gespeicherte Seiten & Eigene Pakete'**
   String get homeBookshelfCardDesc;
 
   /// No description provided for @homeQuestsCardTitle.
@@ -1552,13 +1552,13 @@ abstract class AppL10n {
   /// No description provided for @statsWordleWins.
   ///
   /// In de, this message translates to:
-  /// **'Wordle-Siege'**
+  /// **'Silben-Rätsel-Siege'**
   String get statsWordleWins;
 
   /// No description provided for @statsWordleStreak.
   ///
   /// In de, this message translates to:
-  /// **'Wordle-Streak'**
+  /// **'Silben-Rätsel-Streak'**
   String get statsWordleStreak;
 
   /// No description provided for @screenVocabTitle.
@@ -1576,7 +1576,7 @@ abstract class AppL10n {
   /// No description provided for @screenWordleTitle.
   ///
   /// In de, this message translates to:
-  /// **'Wordle'**
+  /// **'Silben-Rätsel'**
   String get screenWordleTitle;
 
   /// No description provided for @screenHangulTitle.
@@ -1930,7 +1930,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPacksTitle.
   ///
   /// In de, this message translates to:
-  /// **'Vokabel-Packs'**
+  /// **'Vokabel-Pakete'**
   String get vocabPacksTitle;
 
   /// No description provided for @vocabPacksLevelMenu.
@@ -1942,13 +1942,13 @@ abstract class AppL10n {
   /// No description provided for @vocabPacksProgressLabel.
   ///
   /// In de, this message translates to:
-  /// **'{cleared}/{total} Packs geschafft'**
+  /// **'{cleared}/{total} Pakete geschafft'**
   String vocabPacksProgressLabel(int cleared, int total);
 
   /// No description provided for @vocabPacksEmptyTitle.
   ///
   /// In de, this message translates to:
-  /// **'Noch keine Packs'**
+  /// **'Noch keine Pakete'**
   String get vocabPacksEmptyTitle;
 
   /// No description provided for @vocabPacksEmptyBody.
@@ -1960,7 +1960,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPackLockedNoPrev.
   ///
   /// In de, this message translates to:
-  /// **'Dieses Pack ist noch gesperrt.'**
+  /// **'Dieses Paket ist noch gesperrt.'**
   String get vocabPackLockedNoPrev;
 
   /// No description provided for @vocabPackLockedHint.
@@ -2374,7 +2374,7 @@ abstract class AppL10n {
   /// No description provided for @gyeDureEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Noch leer — schließ ein Pack ab und mach den Anfang!'**
+  /// **'Noch leer — schließ ein Paket ab und mach den Anfang!'**
   String get gyeDureEmpty;
 
   /// No description provided for @gyeChallengeTitle.
@@ -2422,13 +2422,13 @@ abstract class AppL10n {
   /// No description provided for @gyeFeedEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Noch keine Aktivität — schließt gemeinsam Packs ab!'**
+  /// **'Noch keine Aktivität — schließt gemeinsam Pakete ab!'**
   String get gyeFeedEmpty;
 
   /// No description provided for @gyeFeedPackCleared.
   ///
   /// In de, this message translates to:
-  /// **'{name} hat ein Pack abgeschlossen'**
+  /// **'{name} hat ein Paket abgeschlossen'**
   String gyeFeedPackCleared(Object name);
 
   /// No description provided for @gyeFeedQuest.
@@ -2500,7 +2500,7 @@ abstract class AppL10n {
   /// No description provided for @gyeFeedGoalAchievedMvp.
   ///
   /// In de, this message translates to:
-  /// **'Wochenziel erreicht! {packs} Packs · MVP {mvp}'**
+  /// **'Wochenziel erreicht! {packs, plural, one{1 Paket} other{{packs} Pakete}} · MVP {mvp}'**
   String gyeFeedGoalAchievedMvp(int packs, Object mvp);
 
   /// No description provided for @gyeStickerSend.
@@ -2674,8 +2674,8 @@ abstract class AppL10n {
   /// No description provided for @gyeMvpCard.
   ///
   /// In de, this message translates to:
-  /// **'Applaus für {name} — {packs} Packs letzte Woche! 👏'**
-  String gyeMvpCard(Object name, Object packs);
+  /// **'Applaus für {name} — {packs, plural, one{1 Paket} other{{packs} Pakete}} letzte Woche! 👏'**
+  String gyeMvpCard(Object name, int packs);
 
   /// No description provided for @gyeProfileLevel.
   ///
@@ -2686,14 +2686,14 @@ abstract class AppL10n {
   /// No description provided for @gyeProfileStreak.
   ///
   /// In de, this message translates to:
-  /// **'{days} Tage Streak'**
-  String gyeProfileStreak(Object days);
+  /// **'{days, plural, one{1 Tag Streak} other{{days} Tage Streak}}'**
+  String gyeProfileStreak(int days);
 
   /// No description provided for @gyeProfileWeekly.
   ///
   /// In de, this message translates to:
-  /// **'{packs} Packs diese Woche'**
-  String gyeProfileWeekly(Object packs);
+  /// **'{packs, plural, one{1 Paket diese Woche} other{{packs} Pakete diese Woche}}'**
+  String gyeProfileWeekly(int packs);
 
   /// No description provided for @gyeAllInCelebrate.
   ///
@@ -2770,7 +2770,7 @@ abstract class AppL10n {
   /// No description provided for @questsEmptyBody.
   ///
   /// In de, this message translates to:
-  /// **'Beginne ein Pack — die ersten Quest-Fortschritte erscheinen hier.'**
+  /// **'Beginne ein Paket — die ersten Quest-Fortschritte erscheinen hier.'**
   String get questsEmptyBody;
 
   /// No description provided for @questsSectionInProgress.
@@ -2890,7 +2890,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPackPlayTitle.
   ///
   /// In de, this message translates to:
-  /// **'Pack-Übung'**
+  /// **'Paket-Übung'**
   String get vocabPackPlayTitle;
 
   /// No description provided for @vocabPackLearnHint.
@@ -2962,7 +2962,7 @@ abstract class AppL10n {
   /// No description provided for @vocabPackResultCleared.
   ///
   /// In de, this message translates to:
-  /// **'Pack geschafft!'**
+  /// **'Paket geschafft!'**
   String get vocabPackResultCleared;
 
   /// No description provided for @vocabPackResultClearedAgain.
@@ -3010,13 +3010,13 @@ abstract class AppL10n {
   /// No description provided for @vocabPackResultBackToGrid.
   ///
   /// In de, this message translates to:
-  /// **'Zurück zu den Packs'**
+  /// **'Zurück zu den Pakete'**
   String get vocabPackResultBackToGrid;
 
   /// No description provided for @vocabPackResultGeschafft.
   ///
   /// In de, this message translates to:
-  /// **'Geschafft! Du hast diesen Vokabel-Pack gemeistert.'**
+  /// **'Geschafft! Du hast diesen Vokabel-Paket gemeistert.'**
   String get vocabPackResultGeschafft;
 
   /// No description provided for @moduleStatsTitle.
@@ -3256,7 +3256,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingPage1Subtitle.
   ///
   /// In de, this message translates to:
-  /// **'Der Tiger begleitet dich durch dein Abenteuer'**
+  /// **'Taego begleitet dich durch dein Abenteuer'**
   String get onboardingPage1Subtitle;
 
   /// No description provided for @onboardingPage2Title.
@@ -3550,7 +3550,7 @@ abstract class AppL10n {
   /// No description provided for @homeHeroActionStart.
   ///
   /// In de, this message translates to:
-  /// **'Neues Pack'**
+  /// **'Neues Paket'**
   String get homeHeroActionStart;
 
   /// No description provided for @homeShieldLabel.
@@ -3772,7 +3772,7 @@ abstract class AppL10n {
   /// No description provided for @scenarioRecapWordsLine.
   ///
   /// In de, this message translates to:
-  /// **'{count} Wörter geübt'**
+  /// **'{count, plural, one{1 Wort geübt} other{{count} Wörter geübt}}'**
   String scenarioRecapWordsLine(int count);
 
   /// No description provided for @scenarioRecapAccuracyLine.
@@ -3946,7 +3946,7 @@ abstract class AppL10n {
   /// No description provided for @missionHeroPackMeta.
   ///
   /// In de, this message translates to:
-  /// **'Wortschatz-Pack · Level {level}'**
+  /// **'Wortschatz-Paket · Level {level}'**
   String missionHeroPackMeta(Object level);
 
   /// No description provided for @missionHeroReviewTitle.
@@ -4054,7 +4054,7 @@ abstract class AppL10n {
   /// No description provided for @dailyCharStreak.
   ///
   /// In de, this message translates to:
-  /// **'{n} Tage gesamt'**
+  /// **'{n, plural, one{1 Tag gesamt} other{{n} Tage gesamt}}'**
   String dailyCharStreak(int n);
 
   /// No description provided for @dailyCharGreatJob.
@@ -4324,7 +4324,7 @@ abstract class AppL10n {
   /// No description provided for @kkeunmariResultBody.
   ///
   /// In de, this message translates to:
-  /// **'Du hast {n} Wörter verkettet.'**
+  /// **'Du hast {n, plural, one{1 Wort} other{{n} Wörter}} verkettet.'**
   String kkeunmariResultBody(int n);
 
   /// No description provided for @gameKkeunmariTitle.
@@ -4408,7 +4408,7 @@ abstract class AppL10n {
   /// No description provided for @shareTitle.
   ///
   /// In de, this message translates to:
-  /// **'Pack teilen'**
+  /// **'Paket teilen'**
   String get shareTitle;
 
   /// No description provided for @shareGenerating.
@@ -4456,13 +4456,13 @@ abstract class AppL10n {
   /// No description provided for @shareEmpty.
   ///
   /// In de, this message translates to:
-  /// **'Dieser Pack hat keine Wörter.'**
+  /// **'Dieser Paket hat keine Wörter.'**
   String get shareEmpty;
 
   /// No description provided for @sharePackBody.
   ///
   /// In de, this message translates to:
-  /// **'Ich teile mit dir den Vokabel-Pack „{name}“ ({count} Wörter) aus Hangul Sori! Gib in der App den Code {code} ein, um ihn zu importieren. hangul-sori.com'**
+  /// **'Ich teile mit dir das Vokabel-Paket „{name}“ ({count, plural, one{1 Wort} other{{count} Wörter}}) aus Hangul Sori! Gib in der App den Code {code} ein, um es zu importieren. hangul-sori.com'**
   String sharePackBody(Object name, int count, Object code);
 
   /// No description provided for @redeemTooltip.
@@ -4474,7 +4474,7 @@ abstract class AppL10n {
   /// No description provided for @redeemTitle.
   ///
   /// In de, this message translates to:
-  /// **'Pack importieren'**
+  /// **'Paket importieren'**
   String get redeemTitle;
 
   /// No description provided for @redeemHint.
@@ -4492,7 +4492,7 @@ abstract class AppL10n {
   /// No description provided for @redeemSuccess.
   ///
   /// In de, this message translates to:
-  /// **'„{name}“ importiert ({count} Wörter)'**
+  /// **'„{name}“ importiert ({count, plural, one{1 Wort} other{{count} Wörter}})'**
   String redeemSuccess(Object name, int count);
 
   /// No description provided for @redeemNotFound.
@@ -4786,7 +4786,7 @@ abstract class AppL10n {
   /// No description provided for @dailyStreak.
   ///
   /// In de, this message translates to:
-  /// **'{count} Tage in Folge'**
+  /// **'{count, plural, one{1 Tag in Folge} other{{count} Tage in Folge}}'**
   String dailyStreak(int count);
 
   /// No description provided for @satzArcadeTitle.
@@ -4840,7 +4840,7 @@ abstract class AppL10n {
   /// No description provided for @csvImportResult.
   ///
   /// In de, this message translates to:
-  /// **'{count} Wörter importiert'**
+  /// **'{count, plural, one{1 Wort importiert} other{{count} Wörter importiert}}'**
   String csvImportResult(int count);
 
   /// No description provided for @wbPhotoCamera.
@@ -4870,7 +4870,7 @@ abstract class AppL10n {
   /// No description provided for @hardWordsSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'{count} Wörter, die einfach nicht sitzen wollen'**
+  /// **'{count, plural, one{1 Wort, das einfach nicht sitzen will} other{{count} Wörter, die einfach nicht sitzen wollen}}'**
   String hardWordsSubtitle(int count);
 
   /// No description provided for @hardWordsEmptyTitle.
@@ -5026,7 +5026,7 @@ abstract class AppL10n {
   /// No description provided for @wbSearchCount.
   ///
   /// In de, this message translates to:
-  /// **'{count} Wörter'**
+  /// **'{count, plural, one{1 Wort} other{{count} Wörter}}'**
   String wbSearchCount(int count);
 
   /// No description provided for @wbPosAll.
@@ -5062,13 +5062,13 @@ abstract class AppL10n {
   /// No description provided for @pathHanokSub.
   ///
   /// In de, this message translates to:
-  /// **'Dein Hof wächst mit jedem gemeisterten Pack.'**
+  /// **'Dein Hof wächst mit jedem gemeisterten Paket.'**
   String get pathHanokSub;
 
   /// No description provided for @pathLevelPacks.
   ///
   /// In de, this message translates to:
-  /// **'{done}/{total} Packs'**
+  /// **'{done}/{total} Pakete'**
   String pathLevelPacks(int done, int total);
 
   /// No description provided for @pathNodeNow.
@@ -5080,7 +5080,7 @@ abstract class AppL10n {
   /// No description provided for @pathLockedHint.
   ///
   /// In de, this message translates to:
-  /// **'Schließe zuerst das vorherige Pack ab.'**
+  /// **'Schließe zuerst das vorherige Paket ab.'**
   String get pathLockedHint;
 
   /// No description provided for @pathSeeAll.
@@ -5088,6 +5088,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Ganzer Pfad'**
   String get pathSeeAll;
+
+  /// No description provided for @pathJumpToNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum aktuellen Schritt'**
+  String get pathJumpToNow;
+
+  /// No description provided for @gyeEmptyHeadline.
+  ///
+  /// In de, this message translates to:
+  /// **'Zusammen gebaut hält länger'**
+  String get gyeEmptyHeadline;
+
+  /// No description provided for @gyeEmptyPreviewCaption.
+  ///
+  /// In de, this message translates to:
+  /// **'So wächst euer gemeinsames Hanok'**
+  String get gyeEmptyPreviewCaption;
 
   /// No description provided for @homePathCardTitle.
   ///
@@ -5128,7 +5146,7 @@ abstract class AppL10n {
   /// No description provided for @notifDailyStreakBody.
   ///
   /// In de, this message translates to:
-  /// **'🔥 {days} Tage am Stück — heute weiter?'**
+  /// **'🔥 {days, plural, one{1 Tag am Stück} other{{days} Tage am Stück}} — heute weiter?'**
   String notifDailyStreakBody(int days);
 
   /// No description provided for @ttsListen.
@@ -5158,13 +5176,13 @@ abstract class AppL10n {
   /// No description provided for @profileGuestBadge.
   ///
   /// In de, this message translates to:
-  /// **'Gast-Modus'**
+  /// **'Behalte Streak, XP & Hanok'**
   String get profileGuestBadge;
 
   /// No description provided for @profileGuestDesc.
   ///
   /// In de, this message translates to:
-  /// **'Dein Fortschritt ist nur auf diesem Gerät gespeichert. Sichere ihn mit Google — so bleibt er auch nach einem Handywechsel erhalten.'**
+  /// **'Dein Fortschritt ist bisher nur auf diesem Gerät. Mit Google gesichert bleibt er erhalten — auch auf einem neuen Handy.'**
   String get profileGuestDesc;
 
   /// No description provided for @profileConnectedBadge.
@@ -5245,6 +5263,12 @@ abstract class AppL10n {
   /// **'Konto sicher verbinden?'**
   String get accountSafeConnectTitle;
 
+  /// No description provided for @errorOffline.
+  ///
+  /// In de, this message translates to:
+  /// **'Kein Internet — dein Fortschritt ist lokal sicher.'**
+  String get errorOffline;
+
   /// No description provided for @accountSafeConnectExplain.
   ///
   /// In de, this message translates to:
@@ -5290,13 +5314,13 @@ abstract class AppL10n {
   /// No description provided for @accountOperationBlockedTitle.
   ///
   /// In de, this message translates to:
-  /// **'Kontowechsel pausiert'**
+  /// **'Dein Konto ist geschützt'**
   String get accountOperationBlockedTitle;
 
   /// No description provided for @accountOperationBlockedBody.
   ///
   /// In de, this message translates to:
-  /// **'Dieses Konto kann nicht automatisch gewechselt werden. Deine vorhandenen Daten wurden nicht überschrieben.'**
+  /// **'Der Wechsel wurde angehalten — deine bisherigen Daten bleiben unverändert. Du kannst es später erneut versuchen.'**
   String get accountOperationBlockedBody;
 
   /// No description provided for @accountOperationRetryTitle.
@@ -5614,7 +5638,7 @@ abstract class AppL10n {
   /// No description provided for @milestoneStreakTitle.
   ///
   /// In de, this message translates to:
-  /// **'{count} Tage in Folge!'**
+  /// **'{count, plural, one{1 Tag in Folge!} other{{count} Tage in Folge!}}'**
   String milestoneStreakTitle(int count);
 
   /// No description provided for @milestoneLevelTitle.
@@ -5626,7 +5650,7 @@ abstract class AppL10n {
   /// No description provided for @milestoneVocabTitle.
   ///
   /// In de, this message translates to:
-  /// **'{count} Wörter gelernt!'**
+  /// **'{count, plural, one{1 Wort gelernt!} other{{count} Wörter gelernt!}}'**
   String milestoneVocabTitle(int count);
 
   /// No description provided for @milestoneStreakBody.
@@ -5788,7 +5812,7 @@ abstract class AppL10n {
   /// No description provided for @previewPage2Body.
   ///
   /// In de, this message translates to:
-  /// **'Jedes gemeisterte Pack setzt einen Stein — vom Sockel über Säulen und Ziegeldach bis zum eigenen Jongga-Hof. 12 Stufen, die du wachsen siehst.'**
+  /// **'Jedes gemeisterte Paket setzt einen Stein — vom Sockel über Säulen und Ziegeldach bis zum eigenen Jongga-Hof. 12 Stufen, die du wachsen siehst.'**
   String get previewPage2Body;
 
   /// No description provided for @previewPage3Title.
@@ -5800,7 +5824,7 @@ abstract class AppL10n {
   /// No description provided for @previewPage3Body.
   ///
   /// In de, this message translates to:
-  /// **'Der Tiger meldet sich einmal täglich und hält deinen Streak am Laufen. Und wenn ein Tag mal untergeht, fängt ihn der Streak-Schutz ab.'**
+  /// **'Taego meldet sich einmal täglich und hält deinen Streak am Laufen. Und wenn ein Tag mal untergeht, fängt ihn der Streak-Schutz ab.'**
   String get previewPage3Body;
 
   /// No description provided for @hubLearnLevel.
@@ -5818,13 +5842,13 @@ abstract class AppL10n {
   /// No description provided for @hubLearnAllDone.
   ///
   /// In de, this message translates to:
-  /// **'Alle Packs abgeschlossen!'**
+  /// **'Alle Pakete abgeschlossen!'**
   String get hubLearnAllDone;
 
   /// No description provided for @hubPracticeStreak.
   ///
   /// In de, this message translates to:
-  /// **'{n} Tage in Folge'**
+  /// **'{n, plural, one{1 Tag in Folge} other{{n} Tage in Folge}}'**
   String hubPracticeStreak(int n);
 
   /// No description provided for @hubPracticeStreakZero.
@@ -5836,7 +5860,7 @@ abstract class AppL10n {
   /// No description provided for @hubWordbookSaved.
   ///
   /// In de, this message translates to:
-  /// **'{n} Wörter gespeichert'**
+  /// **'{n, plural, one{1 Wort gespeichert} other{{n} Wörter gespeichert}}'**
   String hubWordbookSaved(int n);
 
   /// No description provided for @hubWordbookEmpty.
@@ -5944,7 +5968,7 @@ abstract class AppL10n {
   /// No description provided for @coachHomePathBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließ Packs der Reihe nach ab — der Tiger wächst mit'**
+  /// **'Schließ Pakete der Reihe nach ab — der Tiger wächst mit'**
   String get coachHomePathBody;
 
   /// No description provided for @coachHomeBookTitle.

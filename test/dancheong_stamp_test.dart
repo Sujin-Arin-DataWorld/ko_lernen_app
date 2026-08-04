@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:io';
 // Phase 2 (stately-rising-jongga) — DancheongStamp motif mapping tests.
 
 import 'package:flutter/material.dart';
@@ -52,10 +54,10 @@ void main() {
       expect(motifForPackId('a2_transport'),  DancheongMotif.mountain);
     });
 
-    test('body/colors/position → swastika (pinwheel variant)', () {
-      expect(motifForPackId('a1_body'),       DancheongMotif.swastika);
-      expect(motifForPackId('a1_colors'),     DancheongMotif.swastika);
-      expect(motifForPackId('a1_position'),   DancheongMotif.swastika);
+    test('body/colors/position → manja (2026-08-04 swastika 에서 개명)', () {
+      expect(motifForPackId('a1_body'),       DancheongMotif.manja);
+      expect(motifForPackId('a1_colors'),     DancheongMotif.manja);
+      expect(motifForPackId('a1_position'),   DancheongMotif.manja);
     });
 
     test('unknown pack → fallback lotus', () {
@@ -97,4 +99,57 @@ class _Harness extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(home: Scaffold(body: Center(child: child)));
   }
+
+  group('팩 → 문양 매핑 무결성 가드 (2026-08-04)', () {
+    /// `motifForPackId` 의 switch 에 **명시된** base 주제들.
+    /// 함수를 호출해선 fallback(`_ => lotus`)으로 샌 것인지 알 수 없어서
+    /// 소스를 읽는다 — 이 앱의 다른 guard 테스트와 같은 방식.
+    Set<String> mappedBases() {
+      final src =
+          File('lib/widgets/sori/dancheong_stamp.dart').readAsStringSync();
+      final start = src.indexOf('DancheongMotif motifForPackId');
+      expect(start, greaterThanOrEqualTo(0), reason: 'motifForPackId 를 찾지 못함');
+      final end = src.indexOf('\n}', start);
+      expect(end, greaterThan(start));
+      return RegExp(r"'([a-z0-9_]+)'")
+          .allMatches(src.substring(start, end))
+          .map((m) => m.group(1)!)
+          .toSet();
+    }
+
+    String baseOf(String packId) {
+      final parts = packId.split('_');
+      return int.tryParse(parts.last) != null
+          ? parts.sublist(0, parts.length - 1).join('_')
+          : packId;
+    }
+
+    test('모든 팩 주제가 switch 에 명시돼 있다 — fallback 으로 새지 않는다', () {
+      final manifest = jsonDecode(
+        File('assets/data/curriculum_manifest.json').readAsStringSync(),
+      ) as Map<String, dynamic>;
+      final packs = manifest['vocabPackUnitMap'] as Map<String, dynamic>;
+      expect(packs, isNotEmpty);
+
+      final missing =
+          packs.keys.map(baseOf).toSet().difference(mappedBases());
+      expect(
+        missing,
+        isEmpty,
+        reason: '이 주제들은 `_ => lotus` 로 떨어져 도장이 전부 연꽃이 됩니다. '
+            'motifForPackId 의 switch 에 추가하세요',
+      );
+    });
+
+    test('모든 DancheongMotif 에 도장 PNG 가 실재한다', () {
+      for (final m in DancheongMotif.values) {
+        expect(
+          File('assets/illustrations/stamps/stamp_${m.name}.png').existsSync(),
+          isTrue,
+          reason: 'assets/illustrations/stamps/stamp_${m.name}.png 없음 — '
+              '문양만 추가하고 그림을 빠뜨렸습니다',
+        );
+      }
+    });
+  });
 }
