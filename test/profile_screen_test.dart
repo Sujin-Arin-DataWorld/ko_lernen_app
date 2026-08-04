@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
+import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 
 /// Smoke-Test für den Profil-Hub (Tier 1 — 2026-06-03).
 ///
@@ -51,6 +52,51 @@ void main() {
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
   });
+
+  testWidgets(
+    'ProfileScreen uses the remaining tablet content width beside a rail',
+    (tester) async {
+      tester.view.physicalSize = const Size(800, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final journalState = ValueNotifier<CloudBackupDeletionJournalState>(
+        CloudBackupDeletionJournalState.clear,
+      );
+      addTearDown(journalState.dispose);
+
+      await tester.pumpWidget(
+        _wrap(
+          Row(
+            children: [
+              const SizedBox(width: 96),
+              Expanded(
+                child: ProfileScreen(
+                  account: const AuthAccountSnapshot(
+                    providers: AuthProviderState(
+                      isGoogleLinked: false,
+                      isAppleLinked: false,
+                    ),
+                  ),
+                  cloudDataDeletionJournalState: journalState,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final list = tester.widget<ListView>(find.byType(ListView).first);
+      expect(
+        list.padding,
+        soriClampPadding(704, base: const EdgeInsets.fromLTRB(16, 16, 16, 32)),
+      );
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+    },
+  );
 
   testWidgets('selected magpie portrait overrides a linked account photo', (
     tester,

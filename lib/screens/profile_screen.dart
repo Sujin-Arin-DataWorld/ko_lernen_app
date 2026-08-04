@@ -157,102 +157,108 @@ class _ProfileScreenState extends State<ProfileScreen>
         ],
       ),
       body: SafeArea(
-        child: ListView(
-          padding: soriClampPadding(
-            MediaQuery.sizeOf(context).width,
-            base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
-          ),
-          children: [
-            // ── Avatar + Name ──
-            Center(child: const _Avatar()),
-            const SizedBox(height: 12),
-            Center(
-              child: Text(
-                linked ? (name ?? providerLabel) : t.profileGuestName,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                  color: s.text,
-                  letterSpacing: -0.3,
+        child: SoriContentClamp(
+          base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+          builder: (context, padding) => ListView(
+            padding: padding,
+            children: [
+              // ── Avatar + Name ──
+              Center(child: const _Avatar()),
+              const SizedBox(height: 12),
+              Center(
+                child: Text(
+                  linked ? (name ?? providerLabel) : t.profileGuestName,
+                  style: TextStyle(
+                    fontFamily: 'Pretendard',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: s.text,
+                    letterSpacing: -0.3,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 4),
-            Center(
-              child: Text(
-                linked
-                    ? t.profileConnectedProviderBadge(providerLabel)
-                    : t.profileGuestBadge,
-                style: TextStyle(fontSize: 13, color: s.textMuted),
+              const SizedBox(height: 4),
+              Center(
+                child: Text(
+                  linked
+                      ? t.profileConnectedProviderBadge(providerLabel)
+                      : t.profileGuestBadge,
+                  style: TextStyle(fontSize: 13, color: s.textMuted),
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // ── Konto-Status ──
-            AccountPendingOperationPanel(
-              operations: _accountOperations,
-              onCompleted: () async {
-                if (mounted) setState(() {});
-              },
-            ),
-            const SizedBox(height: 12),
-            KeyedSubtree(
-              key: _accountCardKey,
-              child: ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                valueListenable: _cloudDataDeletionJournalState,
-                builder: (context, cloudDeletionState, _) =>
-                    AccountNewLinkGuard(
-                      operations: _accountOperations,
-                      builder: (context, linkAvailable) => linked
-                          ? _ConnectedCard(
-                              name: name ?? providerLabel,
-                              onSignOut:
-                                  linkAvailable &&
-                                      cloudDeletionState ==
-                                          CloudBackupDeletionJournalState.clear
-                                  ? _signOut
-                                  : null,
-                            )
-                          : _GuestCard(
-                              busy: _busy,
-                              onConnect:
-                                  linkAvailable &&
-                                      cloudDeletionState ==
-                                          CloudBackupDeletionJournalState.clear
-                                  ? () =>
-                                        _connectWith(AccountLinkProvider.google)
-                                  : null,
-                              onConnectApple:
-                                  linkAvailable &&
-                                      _accountOperations.appleSignInAvailable &&
-                                      cloudDeletionState ==
-                                          CloudBackupDeletionJournalState.clear
-                                  ? () =>
-                                        _connectWith(AccountLinkProvider.apple)
-                                  : null,
-                            ),
-                    ),
+              // ── Konto-Status ──
+              AccountPendingOperationPanel(
+                operations: _accountOperations,
+                onCompleted: () async {
+                  if (mounted) setState(() {});
+                },
               ),
-            ),
-            const SizedBox(height: 20),
+              const SizedBox(height: 12),
+              KeyedSubtree(
+                key: _accountCardKey,
+                child: ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                  valueListenable: _cloudDataDeletionJournalState,
+                  builder: (context, cloudDeletionState, _) =>
+                      AccountNewLinkGuard(
+                        operations: _accountOperations,
+                        builder: (context, linkAvailable) => linked
+                            ? _ConnectedCard(
+                                name: name ?? providerLabel,
+                                onSignOut:
+                                    linkAvailable &&
+                                        cloudDeletionState ==
+                                            CloudBackupDeletionJournalState
+                                                .clear
+                                    ? _signOut
+                                    : null,
+                              )
+                            : _GuestCard(
+                                busy: _busy,
+                                onConnect:
+                                    linkAvailable &&
+                                        cloudDeletionState ==
+                                            CloudBackupDeletionJournalState
+                                                .clear
+                                    ? () => _connectWith(
+                                        AccountLinkProvider.google,
+                                      )
+                                    : null,
+                                onConnectApple:
+                                    linkAvailable &&
+                                        _accountOperations
+                                            .appleSignInAvailable &&
+                                        cloudDeletionState ==
+                                            CloudBackupDeletionJournalState
+                                                .clear
+                                    ? () => _connectWith(
+                                        AccountLinkProvider.apple,
+                                      )
+                                    : null,
+                              ),
+                      ),
+                ),
+              ),
+              const SizedBox(height: 20),
 
-            // ── Kurz-Übersicht ──
-            const _StatsRow(),
-            const SizedBox(height: 16),
-            // ── Lern-Motivation (왜 배우는가 — 정체성 강화) ──
-            if (learnerMotivationFromId(Storage.motivation)
-                case final mot?) ...[
-              _MotivationCard(motivation: mot, onTap: _changeMotivation),
+              // ── Kurz-Übersicht ──
+              const _StatsRow(),
               const SizedBox(height: 16),
+              // ── Lern-Motivation (왜 배우는가 — 정체성 강화) ──
+              if (learnerMotivationFromId(Storage.motivation)
+                  case final mot?) ...[
+                _MotivationCard(motivation: mot, onTap: _changeMotivation),
+                const SizedBox(height: 16),
+              ],
+              SoriButton.outlined(
+                label: t.profileViewStats,
+                icon: Icons.bar_chart_rounded,
+                fullWidth: true,
+                onTap: () => Navigator.pushNamed(context, '/stats'),
+              ),
             ],
-            SoriButton.outlined(
-              label: t.profileViewStats,
-              icon: Icons.bar_chart_rounded,
-              fullWidth: true,
-              onTap: () => Navigator.pushNamed(context, '/stats'),
-            ),
-          ],
+          ),
         ),
       ),
     );
