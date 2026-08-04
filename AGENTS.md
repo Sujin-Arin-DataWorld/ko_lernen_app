@@ -382,6 +382,7 @@ flutter run -d <android-id>   # 안드로이드
 - Added opt-in `SoriButton.maxLines`; existing buttons stay single-line while full-width primary CTAs can safely use two lines.
 - `AppLoading` now stops its ticker and renders a static visual when reduce-motion is enabled; the new widget regression test covers that behavior.
 - ModuleCard and FeaturedModuleCard badges now use DE/EN ARB keys (`NEU/FÄLLIG`, `NEW/DUE`) with a locale regression test.
+- AppError retry actions now use SoriButton instead of Material FilledButton, covered by a widget regression test.
 - Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_button_multiline_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, and `git diff --check` pass. No commit or push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)

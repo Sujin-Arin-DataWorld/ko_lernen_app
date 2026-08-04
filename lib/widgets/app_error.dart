@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import 'sori/button.dart';
 import 'sori/motion.dart';
 import 'sori/tokens.dart';
 
@@ -9,8 +10,7 @@ import 'sori/tokens.dart';
 /// 계획 §8.1(오류 = 태고 정적) · ASSET_GAP §3-2(신규 이미지 0, 배선만).
 /// 정지 PNG 다. 캐릭터 **클립**(`tiger_walking_front.mp4` 등)은 오류·로딩에
 /// 쓰지 않는다 — 디코더 예산 규정.
-const String kTaegoErrorAsset =
-    'assets/illustrations/mascot/tiger_front.png';
+const String kTaegoErrorAsset = 'assets/illustrations/mascot/tiger_front.png';
 
 /// 오류 상태 — 부드럽게 등장하고, 일러스트가 잔잔히 호흡한다.
 ///
@@ -69,10 +69,10 @@ class AppError extends StatelessWidget {
               ),
               if (onRetry != null) ...[
                 const SizedBox(height: 18),
-                FilledButton.icon(
-                  onPressed: onRetry,
-                  icon: const Icon(Icons.refresh),
-                  label: Text(retryLabel ?? t.btnRetry),
+                SoriButton.filled(
+                  onTap: onRetry,
+                  icon: Icons.refresh,
+                  label: retryLabel ?? t.btnRetry,
                 ),
               ],
             ],
