@@ -2523,3 +2523,6 @@ lernpfad 에서 도장이 중복돼 보인다는 지적. 원인이 셋이었고 
 - `test/decoration_slot_test.dart` 가드 9개. 특히
   `kAvailableDecorations` ↔ 실제 파일 **양방향** 대조 — 파일만 넣고 화이트리스트에
   안 넣으면 `Image.asset` 시도조차 없이 조용히 placeholder 가 뜬다(눈으로 못 잡음).
+- **검증·커밋:** Windows에서 `flutter test test/decoration_slot_test.dart` 9/9 통과,
+  관련 Dart `analyze` 0 issues, 신규 도장 6종은 512² palette PNG·투명 25.7–26.9%를
+  확인했다. 구현 커밋 `7fb2f96`.
