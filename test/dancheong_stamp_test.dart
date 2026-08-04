@@ -89,16 +89,6 @@ void main() {
       expect(find.byType(DancheongStamp), findsOneWidget);
     });
   });
-}
-
-class _Harness extends StatelessWidget {
-  final Widget child;
-  const _Harness({required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffold(body: Center(child: child)));
-  }
 
   group('팩 → 문양 매핑 무결성 가드 (2026-08-04)', () {
     /// `motifForPackId` 의 switch 에 **명시된** base 주제들.
@@ -152,4 +142,15 @@ class _Harness extends StatelessWidget {
       }
     });
   });
+}
+
+class _Harness extends StatelessWidget {
+  final Widget child;
+  const _Harness({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Scaffold(body: Center(child: child)));
+  }
+
 }
