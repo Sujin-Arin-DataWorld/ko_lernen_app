@@ -2905,3 +2905,10 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **변경:** `PersonalRoomDefinition` 카탈로그가 사랑방·안채·대청마루의 배경, 5개 슬롯, 해금 milestone, 기존 학습 목적지를 한 곳에 선언한다. 안채·대청은 벽·바닥·선반×2·걸이의 동일한 수집 규약과 이미지 안전 좌표를 사용해 장식의 크기/앵커 계약을 유지한다.
 - **마커 경계:** `RoomLayer`가 현재 surface와 전체 `RoomPlacements`를 함께 받아 후보를 계산한다. 안채에 놓은 유일 소반은 사랑방의 빈 바닥에 더 이상 눌러도 비어 있는 `⊕` 표식으로 나타나지 않는다. 기존 단일 `placement` 입력은 사랑방 호환성용으로 유지했다.
 - **검증:** 새 카탈로그·교차 방 dead-marker 테스트는 구현 전 import/parameter 부재로 RED를 확인했고, `flutter test test/personal_room_catalog_test.dart test/room_layer_test.dart test/room_placement_service_test.dart test/personal_room_placement_service_test.dart` **11 passed**, `dart analyze lib/data/personal_room_catalog.dart lib/widgets/sori/room_layer.dart` **No issues found**, `git diff --check` 통과. 구현 커밋: `b74e441`.
+
+### 2026-08-04 (Codex) — P3 안채·대청마루 실내 쉘 에셋 — 커밋 완료
+
+- **에셋:** 새 개인 루트 `personal_hanok_v2/interiors/`에 `anbang_empty.png`와 `daecheong_empty.png`를 추가했다. 둘 다 사랑방과 같은 세로 3:4, 정면 얕은 3/4 실내 카메라, 고밀도 Faceted Minhwa·한지 결·단청/호두목 팔레트를 따르며, 중앙 한지 벽과 마루 바닥은 수집 장식을 위한 여백으로 유지한다. 계 에셋은 참조·재사용하지 않았다.
+- **계약:** 안채는 보호된 내실의 따뜻한 창호 빛과 섬세한 결구, 대청은 높은 서까래·넓은 마루·오른쪽 뜰 개구부로 구분한다. 사람·텍스트·책/책가도·책상·문갑·소반·갓/부채 등 유저가 놓을 수집품은 배경에 baked-in 하지 않았다. 생성 안채가 1086×1449였던 한 줄 여백은 소스 하단 1px만 안전하게 crop해 두 방 모두 1086×1448로 정규화했다.
+- **가드:** `tool/check_personal_room_assets.py`가 파일 존재, 1086×1448, RGB/RGBA 불투명 알파, `#00ff00` chroma-key 부재를 fail-closed로 검사한다. 카탈로그 테스트도 모든 room surface가 실제 쉘 파일을 가리키는지 고정한다.
+- **검증:** 쉘 부재 테스트는 구현 전 실제 `false` RED를 확인했다. GREEN: `dart analyze lib/data/personal_room_catalog.dart test/personal_room_catalog_test.dart` **No issues found**, `flutter test test/personal_room_catalog_test.dart` **2 passed**, `python tool/check_personal_room_assets.py` **2 passed**, `git diff --check` 통과. 구현 커밋: `7ea9f85`.
