@@ -40,6 +40,11 @@ void main() {
     final rail = tester.widget<NavigationRail>(find.byType(NavigationRail));
     expect(rail.extended, isFalse);
     expect(rail.labelType, NavigationRailLabelType.all);
+    expect(rail.minWidth, 96);
+    expect(
+      tester.widget<Text>(find.text('Practice')).style!.fontSize,
+      closeTo(14.3, 0.001),
+    );
     expect(find.text('Practice'), findsOneWidget);
   });
 

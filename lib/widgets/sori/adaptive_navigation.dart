@@ -22,6 +22,9 @@ class SoriAdaptiveNavigationItem {
 /// landscape layouts. This is based on logical viewport width, not a device
 /// manufacturer or model name.
 class SoriAdaptiveNavigation extends StatelessWidget {
+  static const double _compactRailWidth = 96;
+  static const double _expandedRailWidth = 216;
+
   final int selectedIndex;
   final ValueChanged<int> onDestinationSelected;
   final List<SoriAdaptiveNavigationItem> items;
@@ -39,7 +42,7 @@ class SoriAdaptiveNavigation extends StatelessWidget {
       width >= SoriBreakpoints.wideTablet;
 
   static double railWidthForWidth(double width) =>
-      usesExtendedRailForWidth(width) ? 216 : 88;
+      usesExtendedRailForWidth(width) ? _expandedRailWidth : _compactRailWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +63,15 @@ class SoriAdaptiveNavigation extends StatelessWidget {
     }
 
     final extended = usesExtendedRailForWidth(width);
+    final railLabelStyle = SoriTextTheme.of(
+      context,
+    ).label.copyWith(letterSpacing: 0);
     return NavigationRail(
       selectedIndex: selectedIndex,
       onDestinationSelected: onDestinationSelected,
       extended: extended,
-      minWidth: 88,
-      minExtendedWidth: 216,
+      minWidth: _compactRailWidth,
+      minExtendedWidth: _expandedRailWidth,
       labelType: extended
           ? NavigationRailLabelType.none
           : NavigationRailLabelType.all,
@@ -78,6 +84,7 @@ class SoriAdaptiveNavigation extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Text(
                 item.label,
+                style: railLabelStyle,
                 textAlign: TextAlign.center,
                 maxLines: extended ? 1 : 2,
                 overflow: TextOverflow.ellipsis,
