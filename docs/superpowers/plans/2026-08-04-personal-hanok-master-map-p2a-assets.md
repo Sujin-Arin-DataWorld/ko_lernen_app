@@ -183,7 +183,7 @@ Prompt for one long, south-facing guest/study wing with a visible wooden porch a
 
 Create a temporary, untracked local mockup using the anchor table. Reject any candidate whose roof overlaps another anchor, faces a different camera direction, or hides the lower-right pond zone.
 
-- [ ] **Step 6: Commit south-front layers**
+- [x] **Step 6: Commit south-front layers**
 
 ```powershell
 git add assets/illustrations/hanok_compound/sotdaeulmun.png assets/illustrations/hanok_compound/haengrangchae.png assets/illustrations/hanok_compound/sarangchae.png AGENTS.md

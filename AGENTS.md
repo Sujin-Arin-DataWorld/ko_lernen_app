@@ -437,6 +437,13 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 (Codex) — 개인 한옥 P2a 남쪽 전면 3개 레이어 반영 커밋
+
+- **에셋:** `sotdaeulmun`·`haengrangchae`·`sarangchae`를 같은 고정 지도 카메라와 상단 좌광으로 만든 투명 PNG로 추가했다. 남쪽 문은 낮은 담장 opening에 독립적으로 서고, 행랑채는 왼쪽 전면을 받치며, 긴 사랑채는 대청의 열린 중앙과 온돌방 양쪽을 읽게 해 이후 `/sarangbang` 진입 건물로 쓸 수 있다.
+- **합성 검수:** 1536×1152 `site_base` 위에 sheet의 `(left, bottom, width)` anchor 그대로 겹쳐 1280×960과 360×270에서 확인했다. 세 요소가 담장·진입·전면 마당을 침범하지 않고 서로의 우선순위를 유지하며, 작은 폭에서도 사랑채/문/행랑채가 구별된다.
+- **기계 검증:** `python tool/check_hanok_compound_assets.py`에서 base와 세 레이어가 모두 PASS했다(각 RGBA, 투명 모서리, alpha 32.7–36.0%, chroma key 0). 아직 제작 전인 안채·대청마루·사당 3개 missing은 의도된 P2a 진행 red다. `git diff --check` 통과.
+- **커밋:** `3ec9b92` (`feat(hanok): add front compound layers`).
+
 ### 2026-08-04 (Codex) — 개인 한옥 P2a 빈 한옥 지도 바탕 반영 커밋
 
 - **에셋:** `assets/illustrations/hanok_compound/site_base.png`을 추가했다. 전통 도면의 비대칭 담장·남쪽 진입·상단 안마당·동쪽 사당 enclosure·하단 후원으로 읽히되, 어떤 완성 건물·문·연못 물·다리·원형/사각 marker도 바탕에 굽지 않았다. 따라서 여섯 채와 기존 연못/다리를 나중에 독립적으로 올릴 수 있다.
