@@ -1,6 +1,6 @@
 # Living Hanok Learning World — Design Contract
 
-**Status:** approved for implementation on 2026-08-04  
+**Status:** approved for implementation on 2026-08-04
 **Scope:** P2 personal Hanok world + Sarangbang learning-context entry. P3 interiors and P4 Gye donation remain explicitly out of scope.
 
 ## Product decision
