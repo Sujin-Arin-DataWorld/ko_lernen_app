@@ -7554,6 +7554,96 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Platz frei lassen'**
   String get sarangbangClear;
+
+  /// No description provided for @sarangbangHubDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Richte deine Stube mit gesammelten Stücken ein.'**
+  String get sarangbangHubDesc;
+
+  /// No description provided for @bojagiTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi-Bündel'**
+  String get bojagiTitle;
+
+  /// No description provided for @bojagiOpenHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf den Knoten, um das Bündel zu öffnen.'**
+  String get bojagiOpenHint;
+
+  /// No description provided for @bojagiPickTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Such dir eins aus'**
+  String get bojagiPickTitle;
+
+  /// No description provided for @bojagiPickBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.'**
+  String get bojagiPickBody;
+
+  /// No description provided for @bojagiEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kein Bündel wartet'**
+  String get bojagiEmptyTitle;
+
+  /// No description provided for @bojagiEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe eine Quest ab — dafür bekommst du ein Bündel.'**
+  String get bojagiEmptyBody;
+
+  /// No description provided for @bojagiAllOwnedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nichts Neues drin'**
+  String get bojagiAllOwnedTitle;
+
+  /// No description provided for @bojagiAllOwnedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle drei Stücke aus diesem Bündel hast du schon.'**
+  String get bojagiAllOwnedBody;
+
+  /// No description provided for @bojagiProblemTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Bündel lässt sich gerade nicht öffnen'**
+  String get bojagiProblemTitle;
+
+  /// No description provided for @bojagiProblemBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuch es gleich noch einmal — dein Bündel geht dabei nicht verloren.'**
+  String get bojagiProblemBody;
+
+  /// No description provided for @bojagiRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Nochmal versuchen'**
+  String get bojagiRetry;
+
+  /// No description provided for @bojagiClaimedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bekommen!'**
+  String get bojagiClaimedTitle;
+
+  /// No description provided for @bojagiGoToRoom.
+  ///
+  /// In de, this message translates to:
+  /// **'In der Stube aufstellen'**
+  String get bojagiGoToRoom;
+
+  /// No description provided for @bojagiNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächstes Bündel öffnen'**
+  String get bojagiNext;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

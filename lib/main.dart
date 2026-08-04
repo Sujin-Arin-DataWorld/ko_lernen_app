@@ -52,6 +52,7 @@ import 'screens/custom_pack_matching_screen.dart';
 import 'screens/custom_pack_typing_screen.dart';
 import 'screens/wordbook_search_screen.dart';
 import 'screens/hard_words_screen.dart';
+import 'screens/bojagi_screen.dart';
 import 'screens/dojangcheop_screen.dart';
 import 'screens/gye_create_screen.dart';
 import 'screens/gye_join_screen.dart';
@@ -72,6 +73,7 @@ import 'screens/daily_challenge_screen.dart';
 import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/wordle_screen.dart';
+import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
@@ -656,6 +658,16 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/dojangcheop':
               return SoriTransitions.fadeScale(
                 (_) => const DojangcheopScreen(),
+                settings: settings,
+              );
+            case '/sarangbang':
+              return SoriTransitions.fadeScale(
+                (_) => const SarangbangScreen(),
+                settings: settings,
+              );
+            case '/bojagi':
+              return SoriTransitions.fadeScale(
+                (_) => const BojagiScreen(),
                 settings: settings,
               );
             case '/gye/create':

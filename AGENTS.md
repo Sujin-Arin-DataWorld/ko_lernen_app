@@ -2672,3 +2672,42 @@ Flutter 11개 통과 및 관련 Dart analyze 0 issues. 커밋: `8e7dd88`.
 `lib` 265파일 전체가 이 검사를 통과하는 것까지 확인했다(`surfaceAlt` 로 수정).
 괄호 균형·지시자 순서는 `lib`+`test` 438파일 전체 통과. 각 검사기는 일부러
 심어 둔 오류를 실제로 잡는지 확인한 뒤에 사용했다.
+
+## 2026-08-04 · 보자기 개봉 화면 + 진입점 + 게이트 2건
+
+`BojagiScreen` 추가. 화면은 `DecorationRewardService` 3개 API 만 부른다 —
+`loadNextOffer` · `claimNextBox` · (진입 복구는 `loadNextOffer` 안에 포함).
+`Storage.addOwnedDecor`/`consumePendingBox`/journal 은 화면에서 한 번도 안 부른다.
+
+흐름: 매듭 묶인 보자기 → 탭 → 후보 3장 → 선택 → 받은 것 크게 + 사랑방 CTA.
+후보를 매듭 풀기 전에 안 보여주는 게 요점이다 — 싸여 있다는 것 자체가 물음표다.
+"안 고른 건 풀에 남는다"를 본문에 명시했다. 선택이 벌처럼 느껴지면 수집이 꺾인다.
+
+### 진입점 — 이제 실제로 도달 가능하다
+
+- `main.dart` 라우트 `/sarangbang` · `/bojagi` (기존 `SoriTransitions.fadeScale` 규약)
+- 연습 허브에 사랑방 카드 (도장첩 옆 — 둘 다 "모은 것을 보는 곳")
+- 사랑방 AppBar → 꾸러미. 돌아오면 `_reload()` 로 새 장식 반영
+- 미개봉 **개수 배지는 일부러 안 달았다.** 개수를 알려면 화면이 저장소를 직접
+  읽어야 하는데 그 경계는 서비스가 갖고 있어야 한다
+
+### 타이포 래칫에 걸렸다 — 토큰으로 수렴
+
+처음엔 `TextStyle(fontFamily: 'Pretendard', …)` 를 직접 썼는데
+`FontWeight.w800` 이 **182/180 으로 상한 초과**였다(`typography_guard_test`).
+전부 `SoriTextTheme`(h2·h3·body·bodySmall·cardTitle)로 바꿔 **179** 로 복귀.
+Pretendard 리터럴도 106 → 100. 다른 세션이 사랑방을 토큰으로 옮긴 것과 같은 방향.
+
+### 게이트 2건
+
+- `scene_asset_resolver_test`: `'\n  };\n'` 로 맵 끝을 찾는데 `scenario.dart` 가
+  **CRLF(459줄 전부)** 라 못 찾았다. 읽은 뒤 `replaceAll('\r\n','\n')` 만 추가.
+  파이썬으로 재현해 39항목·11카테고리·포스터 전부 존재까지 확인.
+- `data_integrity_test`: 사랑방 배경·보자기 2종을 `pending` 집합에 넣었다.
+  셋 다 런타임 폴백이 있고, 그 집합이 정확히 그 용도다. **PNG 가 들어오면 지운다.**
+
+### 남은 구멍 — `noEligibleCandidates` 는 큐에서 안 빠진다
+
+후보 3개를 전부 이미 보유하면 그 꾸러미는 **영원히 안 열린다.** 서비스에 폐기
+API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 · 퀘스트 17개라
+후반에 실제로 발생한다. XP 대체 지급이든 폐기든 서비스 쪽 결정이 필요하다.

@@ -1941,5 +1941,23 @@
   "sarangbangEmptyTitle": "Nothing to arrange yet",
   "sarangbangEmptyBody": "Finish quests and open your bojagi bundle — then you can furnish the room.",
   "sarangbangPickTitle": "What goes here?",
-  "sarangbangClear": "Leave this spot empty"
+  "sarangbangClear": "Leave this spot empty",
+  "@_p1_bojagi": {
+    "description": "ADR-002 P1 — 보자기 꾸러미 개봉 화면."
+  },
+  "sarangbangHubDesc": "Furnish your room with the pieces you collect.",
+  "bojagiTitle": "Bojagi bundle",
+  "bojagiOpenHint": "Tap the knot to open the bundle.",
+  "bojagiPickTitle": "Pick one",
+  "bojagiPickBody": "Whatever you leave stays in the pool and can turn up in a later bundle.",
+  "bojagiEmptyTitle": "No bundle waiting",
+  "bojagiEmptyBody": "Finish a quest and you get a bundle for it.",
+  "bojagiAllOwnedTitle": "Nothing new inside",
+  "bojagiAllOwnedBody": "You already own all three pieces from this bundle.",
+  "bojagiProblemTitle": "This bundle will not open right now",
+  "bojagiProblemBody": "Try again in a moment — your bundle is not lost.",
+  "bojagiRetry": "Try again",
+  "bojagiClaimedTitle": "Got it!",
+  "bojagiGoToRoom": "Place it in the room",
+  "bojagiNext": "Open the next bundle"
 }

@@ -83,10 +83,22 @@ class _SarangbangScreenState extends State<SarangbangScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          t.sarangbangTitle,
-          style: text.h3,
-        ),
+        title: Text(t.sarangbangTitle, style: text.h3),
+        actions: [
+          // 꾸러미로 가는 유일한 진입점. 미개봉 개수 배지는 아직 안 단다 —
+          // 개수를 알려면 저장소를 직접 읽어야 하는데, 그 경계는
+          // `DecorationRewardService` 가 갖고 있어야 한다.
+          IconButton(
+            tooltip: t.bojagiTitle,
+            icon: const Icon(Icons.card_giftcard_rounded),
+            onPressed: () async {
+              await Navigator.of(context).pushNamed('/bojagi');
+              if (!mounted) return;
+              // 꾸러미에서 새 장식을 받았을 수 있다 — 보유 목록을 다시 읽는다.
+              setState(_reload);
+            },
+          ),
+        ],
       ),
       body: SoriScreenBackground(
         child: SafeArea(

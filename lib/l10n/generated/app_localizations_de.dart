@@ -4298,4 +4298,54 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangbangClear => 'Platz frei lassen';
+
+  @override
+  String get sarangbangHubDesc =>
+      'Richte deine Stube mit gesammelten Stücken ein.';
+
+  @override
+  String get bojagiTitle => 'Bojagi-Bündel';
+
+  @override
+  String get bojagiOpenHint => 'Tippe auf den Knoten, um das Bündel zu öffnen.';
+
+  @override
+  String get bojagiPickTitle => 'Such dir eins aus';
+
+  @override
+  String get bojagiPickBody =>
+      'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.';
+
+  @override
+  String get bojagiEmptyTitle => 'Kein Bündel wartet';
+
+  @override
+  String get bojagiEmptyBody =>
+      'Schließe eine Quest ab — dafür bekommst du ein Bündel.';
+
+  @override
+  String get bojagiAllOwnedTitle => 'Nichts Neues drin';
+
+  @override
+  String get bojagiAllOwnedBody =>
+      'Alle drei Stücke aus diesem Bündel hast du schon.';
+
+  @override
+  String get bojagiProblemTitle => 'Das Bündel lässt sich gerade nicht öffnen';
+
+  @override
+  String get bojagiProblemBody =>
+      'Versuch es gleich noch einmal — dein Bündel geht dabei nicht verloren.';
+
+  @override
+  String get bojagiRetry => 'Nochmal versuchen';
+
+  @override
+  String get bojagiClaimedTitle => 'Bekommen!';
+
+  @override
+  String get bojagiGoToRoom => 'In der Stube aufstellen';
+
+  @override
+  String get bojagiNext => 'Nächstes Bündel öffnen';
 }

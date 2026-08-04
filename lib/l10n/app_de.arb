@@ -2019,5 +2019,23 @@
   "sarangbangEmptyTitle": "Noch nichts zum Einrichten",
   "sarangbangEmptyBody": "Schließe Quests ab und öffne dein Bojagi-Bündel — dann kannst du die Stube einrichten.",
   "sarangbangPickTitle": "Was soll hierhin?",
-  "sarangbangClear": "Platz frei lassen"
+  "sarangbangClear": "Platz frei lassen",
+  "@_p1_bojagi": {
+    "description": "ADR-002 P1 — 보자기 꾸러미 개봉 화면."
+  },
+  "sarangbangHubDesc": "Richte deine Stube mit gesammelten Stücken ein.",
+  "bojagiTitle": "Bojagi-Bündel",
+  "bojagiOpenHint": "Tippe auf den Knoten, um das Bündel zu öffnen.",
+  "bojagiPickTitle": "Such dir eins aus",
+  "bojagiPickBody": "Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.",
+  "bojagiEmptyTitle": "Kein Bündel wartet",
+  "bojagiEmptyBody": "Schließe eine Quest ab — dafür bekommst du ein Bündel.",
+  "bojagiAllOwnedTitle": "Nichts Neues drin",
+  "bojagiAllOwnedBody": "Alle drei Stücke aus diesem Bündel hast du schon.",
+  "bojagiProblemTitle": "Das Bündel lässt sich gerade nicht öffnen",
+  "bojagiProblemBody": "Versuch es gleich noch einmal — dein Bündel geht dabei nicht verloren.",
+  "bojagiRetry": "Nochmal versuchen",
+  "bojagiClaimedTitle": "Bekommen!",
+  "bojagiGoToRoom": "In der Stube aufstellen",
+  "bojagiNext": "Nächstes Bündel öffnen"
 }

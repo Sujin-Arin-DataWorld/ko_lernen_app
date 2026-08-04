@@ -4271,4 +4271,53 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get sarangbangClear => 'Leave this spot empty';
+
+  @override
+  String get sarangbangHubDesc =>
+      'Furnish your room with the pieces you collect.';
+
+  @override
+  String get bojagiTitle => 'Bojagi bundle';
+
+  @override
+  String get bojagiOpenHint => 'Tap the knot to open the bundle.';
+
+  @override
+  String get bojagiPickTitle => 'Pick one';
+
+  @override
+  String get bojagiPickBody =>
+      'Whatever you leave stays in the pool and can turn up in a later bundle.';
+
+  @override
+  String get bojagiEmptyTitle => 'No bundle waiting';
+
+  @override
+  String get bojagiEmptyBody => 'Finish a quest and you get a bundle for it.';
+
+  @override
+  String get bojagiAllOwnedTitle => 'Nothing new inside';
+
+  @override
+  String get bojagiAllOwnedBody =>
+      'You already own all three pieces from this bundle.';
+
+  @override
+  String get bojagiProblemTitle => 'This bundle will not open right now';
+
+  @override
+  String get bojagiProblemBody =>
+      'Try again in a moment — your bundle is not lost.';
+
+  @override
+  String get bojagiRetry => 'Try again';
+
+  @override
+  String get bojagiClaimedTitle => 'Got it!';
+
+  @override
+  String get bojagiGoToRoom => 'Place it in the room';
+
+  @override
+  String get bojagiNext => 'Open the next bundle';
 }

@@ -289,6 +289,14 @@ class _PracticeHubScreenState extends State<PracticeHubScreen> {
       accent: SoriColors.goldOnLight,
       route: '/dojangcheop',
     ),
+    // 도장첩 옆에 둔다 — 둘 다 "모은 것을 보는 곳"이다 (ADR-002).
+    _HubItem(
+      icon: Icons.chair_outlined,
+      title: t.sarangbangTitle,
+      subtitle: t.sarangbangHubDesc,
+      accent: SoriColors.goldOnLight,
+      route: '/sarangbang',
+    ),
   ];
 
   // §4.4-2 색 수렴: Wörter 섹션 = accent 단일 액센트.

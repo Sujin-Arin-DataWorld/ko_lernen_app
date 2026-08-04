@@ -140,7 +140,11 @@ void main() {
     /// `_categoryById` 의 (시나리오 id → 카테고리 키) 쌍을 소스에서 뽑는다.
     /// 맵이 private 이라 리플렉션 대신 소스를 읽는다 — 다른 guard 테스트와 동일 패턴.
     List<MapEntry<String, String>> mapEntries() {
-      final src = File('lib/models/scenario.dart').readAsStringSync();
+      // Windows 체크아웃은 CRLF 라 '\n  };\n' 로 끝을 못 찾는다. 줄바꿈만
+      // 정규화하고 나머지 검색은 그대로 둔다 (2026-08-04 실패 원인).
+      final src = File(
+        'lib/models/scenario.dart',
+      ).readAsStringSync().replaceAll('\r\n', '\n');
       final start = src.indexOf('static const _categoryById');
       expect(start, greaterThanOrEqualTo(0), reason: '_categoryById 를 찾지 못했습니다');
       final end = src.indexOf('\n  };\n', start);
