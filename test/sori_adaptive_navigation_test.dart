@@ -34,6 +34,13 @@ void main() {
     expect(find.byType(NavigationRail), findsNothing);
   });
 
+  testWidgets('uses a labeled rail from medium tablet widths', (tester) async {
+    await _pump(tester, width: 600);
+
+    expect(find.byType(NavigationBar), findsNothing);
+    expect(find.byType(NavigationRail), findsOneWidget);
+  });
+
   testWidgets('uses a labeled rail on portrait tablets', (tester) async {
     await _pump(tester, width: 800);
 

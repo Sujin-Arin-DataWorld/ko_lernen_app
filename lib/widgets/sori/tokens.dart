@@ -47,6 +47,11 @@ class SoriBreakpoints {
   /// 2열 그리드(단어팩) 전용 — 카드가 너무 좁아지지 않게 여유.
   static const double grid = 600;
 
+  /// Medium Android tablets and unfolded devices use a navigation rail from
+  /// 600dp. The browsing column and comfort scale can continue to grow until
+  /// [tablet], so compact tablets do not suddenly look oversized.
+  static const double navigationRail = 600;
+
   /// 태블릿 시작점 — grid 컬럼 수 증가 등 레이아웃 분기 기준.
   static const double tablet = 720;
 

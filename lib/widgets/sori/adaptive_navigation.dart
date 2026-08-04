@@ -36,7 +36,8 @@ class SoriAdaptiveNavigation extends StatelessWidget {
     required this.items,
   }) : assert(items.length >= 2);
 
-  static bool usesRailForWidth(double width) => width >= SoriBreakpoints.tablet;
+  static bool usesRailForWidth(double width) =>
+      width >= SoriBreakpoints.navigationRail;
 
   static bool usesExtendedRailForWidth(double width) =>
       width >= SoriBreakpoints.wideTablet;

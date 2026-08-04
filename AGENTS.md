@@ -100,7 +100,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - **계(契) (Phase 6·7·8 — 클라 완성 / CF 부분배포)**: `lib/services/gye_service.dart` (CRUD·6자리 코드·한도 3계/계10명·욕설·`sendSticker`·신고·나가기) + `lib/models/gye.dart` + `lib/data/profanity_denylist.dart` (`containsProfanity`) + `lib/services/age_gate_service.dart` (GDPR-K 16세). **UI 6화면 전부 구현**: create/join/gye(마당+공동한옥)/members + 홈 chooser, 스티커(catalog 30·`StickerPicker`·feed 렌더), `weekly_goal_bar`·`gye_hanok`·`gye_feed`. `firestore.rules` `gye/{gyeId}` 활성(멤버/계장/active/admin 게이트·reports collectionGroup·append-only). **CF `functions/gye/index.js`(v2/2nd gen, europe-west3) 3함수 코드 완성** — `on_pack_cleared`·`weekly_goal_rollover`·`on_report_created`. ✅ **배포(2026-06-05): CF 4종 전부 europe-west3·2nd gen·nodejs22·ACTIVE** — 계 자동집계(`on_pack_cleared`)·자동정지(`on_report_created`)·주간롤오버 프로덕션 작동. 미검증(Jin): 2계정 실동작 E2E·FCM 실도달·rules 재배포·admin claim. 상세 = 2026-06-05 세션로그.
 
 ### Sori 디자인 시스템 (`lib/widgets/sori/`)
-- `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`, **`SoriBreakpoints`(phone content=480·grid=600·tablet=720·wideTablet=1024)** 및 `soriComfortScale`(태블릿에서 앱 제어 글자/터치 영역 최대 10%, OS 접근성 글자 확대와 독립)
+- `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`, **`SoriBreakpoints`(phone content=480·navigationRail=600·grid=600·tablet=720·wideTablet=1024)** 및 `soriComfortScale`(태블릿에서 앱 제어 글자/터치 영역 최대 10%, OS 접근성 글자 확대와 독립)
 - `responsive.dart` — **반응형 콘텐츠 폭 클램프**. `soriClampPadding(width, {maxWidth, base})` + `SoriContentClamp`(LayoutBuilder 래퍼)는 폰에서 기존 480dp 컬럼을 보존하고 600--720dp 구간에서 탐색 화면을 640dp 컬럼까지 부드럽게 확장한다. 배경은 풀블리드, 집중형 학습 화면의 명시적 480dp 클램프는 유지한다.
 - `hanok_tokens.dart` — 한옥 전용 색상 (단청 4색)
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
@@ -229,6 +229,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 29개 핵심 화면의 전체 반응형 스모크를 308/360/600/720/800/1280dp 및 360/800dp × 시스템 글자 1.3배로 고정했다. `flutter test test/responsive_test.dart` 244개 통과 (커밋 대기).
 - [x] AppShell의 96dp 태블릿 레일 뒤 프로필 탭은 전체 창 폭이 아니라 실제 남은 폭을 쓰는 `SoriContentClamp`로 여백을 계산한다. 전용 800dp/96dp 레일 회귀와 전체 프로필 테스트, targeted analyzer 통과 (커밋 대기).
 - [x] 논리 태블릿 세로 800×1280·가로 1280×800 및 가로 글자 1.3배를 29개 화면 회귀에 넣었다. `flutter test test/responsive_test.dart` 331개 통과 (커밋 대기).
+- [x] 600dp 이상 중형 안드로이드 태블릿·폴더블은 96dp 라벨 레일을 쓰고, 720dp까지는 콘텐츠/CTA 확대를 점진 적용한다. 레일 단위 테스트와 331개 화면 매트릭스 통과 (커밋 대기).
 - [ ] Jin 실기기: Galaxy Tab 및 Xiaomi Pad에서 세로/가로 회전, 시스템 글자 확대 1.0/1.3, 탭 전환·재선택·학습 진입을 확인한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -406,6 +407,7 @@ flutter run -d <android-id>   # 안드로이드
 - Full responsive screen matrix: the 29 core screens are now protected at 308/360/600/720/800/1280dp plus 360dp and 800dp at 1.3x system text scaling. `flutter test test/responsive_test.dart` passed 244 tests; this closes the previously external `placed_decoration.dart` compile blocker. Commit: `9c73854`.
 - Tablet rail content measurement: ProfileScreen now uses `SoriContentClamp`, so its 800dp shell with a 96dp rail calculates padding from the remaining 704dp rather than the full viewport. The focused regression, all profile tests, and targeted analyzer pass. Commit: `e9290c3`.
 - Tablet orientation matrix: the 29 core screens now run at logical 800x1280 portrait and 1280x800 landscape sizes, with the landscape profile also checked at 1.3x system text. `flutter test test/responsive_test.dart` passed 331 tests. Commit: `4478ded`.
+- Medium tablet navigation: navigation rail now starts at 600dp for Android tablets and unfolded devices, while content width and comfort scale still grow through 720dp. Focused navigation/contract tests and the 331-screen responsive matrix pass. Commit: pending.
 - Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_adaptive_navigation_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
