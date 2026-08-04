@@ -272,10 +272,10 @@ flutter run -d <android-id>   # 안드로이드
 
 ### 개인 한옥 채 짓기·내부 꾸미기 (P2–P4, 2026-08-04)
 
-- [x] P2 구조 설계: 전통 비대칭 배치를 따르는 전용 4:3 `/hanok` 완성 지도를 정본으로 두고, 학습 경로에는 미리보기·CTA만 남긴다. 개인 한옥과 계 한옥은 진행·저장소를 분리하며, 후원 연못·돌다리 그림만 개인 지도에서 재사용한다. 설계 정본은 `docs/superpowers/specs/2026-08-04-personal-hanok-compound-growth-design.md`다 (`9157e90`, `efcc86a`).
-- [~] P2a: `site_base` + 전통 배치에 맞춘 6개 구조물의 7종 통일 지도 에셋을 제작 중이다. 첫 6개 레이어는 기계 투명도 검사에는 통과했지만 개별 3/4 소실점 때문에 하나의 전통 배치도로 읽히지 않는다는 사용자 피드백으로 반려했다. R1에서 **north-up plan-locked oblique**의 한 카메라를 잡았고, 이어서 사용자 피드백대로 대지 자체를 더 넓은 종가 마당으로 다시 그리며 구조 footprint를 줄여 외부 수집 공간을 확보한다. 기존 `gye_pond_large`·`gye_bridge`는 한 쌍으로 직접 재사용하되, 다리는 연못 물 중앙을 가로지르도록 위쪽 anchor로 보정한다. 흰 캔버스가 남은 기존 외부 장식은 정규화 전까지 차단한다.
-- [ ] P2b: `PersonalHanokProgress`·구조/조경 카탈로그·개인 전용 `HanokCompoundLayer`를 테스트 우선으로 구현한다. 기존 12단계 성장/시네마틱과 계 해금 동작은 보존한다.
-- [ ] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결한다. 사랑채는 기존 `/sarangbang`으로만 진입하고, 사당은 장식 방이 아닌 문화·성취 기록으로 보류한다.
+- [x] P2 구조 설계: 한옥은 `오늘의 다음 학습`을 공간으로 여는 한 개의 개인 성장 세계다. Home → 사랑방 학습 허브 → 기존 학습 표면의 원래 진입 경로를 보존하고, `/sarangbang/furnish`는 P1 수집·배치를 맡는다. 정본은 `docs/superpowers/specs/2026-08-04-living-hanok-learning-world-design.md`다.
+- [~] P2a: 기존 `hanok_compound/` 프로토타입은 사용자 검수에서 반려되어 그대로 동결한다. 새 개인 전용 `personal_hanok_v2/`는 넓은 전통 종가의 한 카메라(북쪽 위·동서 지붕 수평·상단 좌광)와 고밀도 Faceted Minhwa로 다시 만든다. Gye 파일·진행·저장소는 직접 재사용하지 않으며 연못·다리도 개인 지도용으로 새로 그린다.
+- [ ] P2b: `LevelRatios`만 읽는 pure `PersonalHanokProjection`·구조/조경 카탈로그·개인 전용 맵 레이어를 테스트 우선으로 구현한다. 기존 12단계 성장/시네마틱과 계 해금 동작은 보존한다.
+- [ ] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결한다. 사랑채는 추천 엔진의 기존 우선순위를 그대로 쓰는 `/sarangbang`으로, 대청·행랑·안채·후원·사당은 기존 학습/기록 표면으로 연결한다.
 - [ ] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정하고 전체 게이트를 통과한다.
 - [ ] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다.
 - [ ] P4: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
@@ -436,6 +436,13 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-04 (Codex) — 살아있는 한옥 학습 세계 정본 재정의 · 구현 착수
+
+- **사용자 결정:** 한옥은 단순한 완성 배경이 아니라 기존 학습을 장소감 있게 여는 장기 게임이다. Home의 주 학습 CTA는 사랑방으로 들어가고, 사랑방은 임의의 새 콘텐츠가 아니라 기존 `recommendMission`이 고른 오늘의 다음 학습을 원래 학습 화면으로 연결한다.
+- **경계 재정의:** P1 사랑방 수집·보자기·방 배치는 `/sarangbang/furnish`로 분리하고 데이터/서비스를 건드리지 않는다. 개인 한옥은 `LevelRatios`의 순수 투영만 읽으며 CourseMastery 70% 판정·계 진행·공유 에셋을 대체하거나 추론하지 않는다.
+- **아트 재시작:** 사용자 피드백으로 기존 `hanok_compound/`의 서로 다른 카메라 프로토타입은 동결한다. 새 `personal_hanok_v2/`만 참조하며, 개인 연못·다리도 Gye 파일을 직접 재사용하지 않고 같은 넓은 전통 종가 카메라에서 다시 제작한다.
+- **문서:** 설계 계약 `docs/superpowers/specs/2026-08-04-living-hanok-learning-world-design.md`와 테스트 우선 실행 계획 `docs/superpowers/plans/2026-08-04-living-hanok-learning-world.md`를 추가했다. 검증 및 구현 커밋 해시는 후속 항목에 기록한다.
 
 ### 2026-08-04 (Codex) — 개인 한옥 대지 확장·연못 다리 R2 계약 커밋
 
