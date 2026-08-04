@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/cloze_loader.dart';
@@ -149,7 +150,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
     if (_loading) {
       return Scaffold(
         appBar: AppBar(title: Text(t.dailyTitle)),
-        body: const Center(child: CircularProgressIndicator()),
+        body: const AppLoading(),
       );
     }
     // Index-only Guard (wie cloze/satz_arcade): _outcome wird erst nach den

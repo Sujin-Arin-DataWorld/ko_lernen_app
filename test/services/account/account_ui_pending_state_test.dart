@@ -45,6 +45,40 @@ void main() {
   );
 
   test(
+    'a pending remote account deletion stays resumable from settings',
+    () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString(
+        AuthService.accountDeletionCheckpointPreferenceKey,
+        jsonEncode(_remoteDeletionPending().toJson()),
+      );
+
+      const operations = ProductionAccountUiOperations();
+      final state = await operations.refreshPendingState();
+
+      expect(state, AccountUiPendingState.deletionRemotePending);
+      expect(operations.pendingState.value, state);
+    },
+  );
+
+  test('a nonretryable remote deletion remains blocked', () async {
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setString(
+      AuthService.accountDeletionCheckpointPreferenceKey,
+      jsonEncode(_blockedRemoteDeletion().toJson()),
+    );
+
+    const operations = ProductionAccountUiOperations();
+
+    expect(
+      await operations.refreshPendingState(),
+      AccountUiPendingState.blocked,
+    );
+  });
+
+  test(
     'a late failed durable read cannot overwrite a newer clear admission',
     () async {
       final lateResult = Completer<AccountUiPendingState>();
@@ -188,6 +222,38 @@ AccountDeletionJournal _completedDeletion() {
       version: 3,
       attemptCount: 1,
       retryable: false,
+    ),
+  );
+}
+
+AccountDeletionJournal _remoteDeletionPending() {
+  return AccountDeletionJournal.pending(
+    session: const CloudWriteSession(
+      uid: 'anonymous-source',
+      epoch: 5,
+      mode: CloudWriteMode.quiesced,
+    ),
+    requestKey: 'deletion-request-pending',
+  );
+}
+
+AccountDeletionJournal _blockedRemoteDeletion() {
+  return AccountDeletionJournal(
+    version: AccountDeletionJournal.currentVersion,
+    session: const CloudWriteSession(
+      uid: 'anonymous-source',
+      epoch: 5,
+      mode: CloudWriteMode.quiesced,
+    ),
+    requestKey: 'deletion-request-blocked',
+    operation: const AccountOperationResult(
+      operationId: 'deletion-operation-blocked',
+      kind: AccountOperationKind.deletion,
+      phase: AccountOperationPhase.blocked,
+      version: 1,
+      attemptCount: 1,
+      retryable: false,
+      blockedReason: AccountOperationBlockedReason.operationBlocked,
     ),
   );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_loading.dart';
 import '../l10n/gye_error_text.dart';
 import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
@@ -117,7 +118,7 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
                   ),
                   const SizedBox(height: Spacing.lg),
                   if (_busy)
-                    const Center(child: CircularProgressIndicator())
+                    const AppLoading()
                   else
                     SoriButton(
                       label: t.gyeJoinCta,

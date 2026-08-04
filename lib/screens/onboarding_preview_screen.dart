@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/hanok/hanji_texture.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
@@ -14,13 +15,17 @@ import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'character_selection_screen.dart';
 
-/// **온보딩 3장 캐러셀** — Consent→레벨 선택 사이 핵심 기능 미리보기.
+/// **온보딩 3장 캐러셀** — Consent→캐릭터 선택 사이 핵심 기능 미리보기.
 ///
-/// 레이아웃(2026-07-31 개편, "풀블리드 상단 히어로"): 각 페이지는 화면 위쪽
-/// ~56%를 이미지/영상이 **가장자리까지 가득**(BoxFit.cover) 채우고, 밑변은
-/// 어둠(#0E1A18)으로 그라데이션 스크림 처리 → 그 아래 제목·본문. 비주얼이
-/// 주인공이 되도록 카드형 배치를 폐지했다. 투명 PNG(호랑이)는 잘림 방지로
-/// contain+글로우. Skip / dot·버튼은 히어로 위 오버레이(항상 노출·비차단).
+/// 템플릿 v2 (2026-08-04, 계획 §6.5·§10.4): 구 다크 풀블리드(#0E1A18)를
+/// 폐지하고 **전 장 한지 라이트**로 통일 — 첫 60초의 화풍 분열(§3-3) 종료.
+/// - 배경: `lightBg` + 은은한 한지 텍스처 + 입자(reduce-motion 게이트는
+///   AmbientParticles 내부 처리)
+/// - 일러스트 슬롯: 상단 55%, **정사각 프레임**(캐논 에셋 자리 — 현 에셋은
+///   Jin 제작 4종 도착 시 교체, ASSET_GAP 문서 참조)
+/// - 헤드라인 26 w800 (먹) / 본문 15 w500 (O-5 "2줄 이내"는 문구 검수 항목)
+/// - 도트+CTA 고정 하단, 본문과 `Spacing.xl` 이상 이격(O-3)
+/// - 상태바 다크 아이콘 고정 (§6.5)
 /// `Storage.introPreviewSeen` 플래그로 1회성.
 class OnboardingPreviewScreen extends StatefulWidget {
   const OnboardingPreviewScreen({super.key});
@@ -34,8 +39,6 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
   final PageController _controller = PageController();
   int _page = 0;
   static const int _total = 3;
-
-  static const Color _bg = Color(0xFF0E1A18);
 
   @override
   void dispose() {
@@ -70,157 +73,172 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
     final isLast = _page == _total - 1;
 
-    return Scaffold(
-      backgroundColor: _bg,
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          // ── Ambient 입자(배경) ──
-          const Positioned.fill(
-            child: IgnorePointer(child: AmbientParticles(count: 10)),
-          ),
-
-          // ── 풀스크린 PageView (각 페이지: 상단 풀블리드 히어로 + 하단 텍스트) ──
-          Positioned.fill(
-            child: SafeArea(
-              bottom: false,
-              child: PageView(
-                controller: _controller,
-                onPageChanged: (i) => setState(() => _page = i),
-                children: [
-                  _PreviewPage(
-                    index: 0,
-                    // 책 한 컷 전용 세로 일러스트. cover 로 풀블리드.
-                    imageAsset:
-                        'assets/illustrations/onboarding/book_scan.png',
-                    accentColor: SoriColors.info,
-                    title: t.previewPage1Title,
-                    body: t.previewPage1Body,
-                  ),
-                  _PreviewPage(
-                    index: 1,
-                    imageAsset:
-                        'assets/illustrations/gye/gye_gate_grand.png',
-                    // 한옥이 지어지는 앰비언트 루프 — 풀블리드 히어로로 재생.
-                    videoAsset:
-                        'assets/video/loops/hanok_construction.mp4',
-                    accentColor: SoriColors.primary,
-                    title: t.previewPage2Title,
-                    body: t.previewPage2Body,
-                  ),
-                  _PreviewPage(
-                    index: 2,
-                    // 마법 크리스탈 호랑이(투명 PNG) → 잘림 방지 contain+글로우.
-                    imageAsset:
-                        'assets/illustrations/onboarding/tiger_crystal.png',
-                    accentColor: SoriColors.tiger,
-                    title: t.previewPage3Title,
-                    body: t.previewPage3Body,
-                    heroFullBleed: false,
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // ── 상단 Skip (히어로 위 오버레이 — 대비용 반투명 pill) ──
-          SafeArea(
-            child: Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(8, 6, 12, 0),
-                child: TextButton(
-                  onPressed: _done,
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.black.withValues(alpha: 0.24),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 14,
-                      vertical: 6,
-                    ),
-                  ),
-                  child: Text(
-                    t.previewSkip,
-                    style: const TextStyle(
-                      fontFamily: 'Pretendard',
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.5,
-                    ),
-                  ),
+    // §6.5: 전 구간 상태바 다크 아이콘(라이트 배경).
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: Colors.transparent,
+      ),
+      child: Scaffold(
+        backgroundColor: SoriColors.lightBg,
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            // ── 한지 텍스처 배경 (은은하게) ──
+            Positioned.fill(
+              child: IgnorePointer(
+                child: HanjiTexture(
+                  noiseAlpha: 0.05,
+                  child: const SizedBox.expand(),
                 ),
               ),
             ),
-          ),
+            // ── Ambient 입자 ──
+            const Positioned.fill(
+              child: IgnorePointer(child: AmbientParticles(count: 10)),
+            ),
 
-          // ── 하단 dot + 버튼(오버레이, 위로 어둠 그라데이션으로 텍스트와 분리) ──
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0x000E1A18), Color(0xFF0E1A18)],
-                ),
-              ),
+            // ── 풀스크린 PageView ──
+            Positioned.fill(
               child: SafeArea(
-                top: false,
+                bottom: false,
+                child: PageView(
+                  controller: _controller,
+                  onPageChanged: (i) => setState(() => _page = i),
+                  children: [
+                    _PreviewPage(
+                      index: 0,
+                      imageAsset:
+                          'assets/illustrations/onboarding/book_scan.png',
+                      accentColor: SoriColors.info,
+                      title: t.previewPage1Title,
+                      body: t.previewPage1Body,
+                    ),
+                    _PreviewPage(
+                      index: 1,
+                      imageAsset:
+                          'assets/illustrations/gye/gye_gate_grand.png',
+                      // 한옥이 지어지는 앰비언트 루프 — 슬롯 안에서 재생.
+                      videoAsset:
+                          'assets/video/loops/hanok_construction.mp4',
+                      accentColor: SoriColors.primary,
+                      title: t.previewPage2Title,
+                      body: t.previewPage2Body,
+                    ),
+                    _PreviewPage(
+                      index: 2,
+                      // 투명 PNG → contain 중앙 + 글로우 (잘림 없음).
+                      imageAsset:
+                          'assets/illustrations/onboarding/tiger_crystal.png',
+                      accentColor: SoriColors.tiger,
+                      title: t.previewPage3Title,
+                      body: t.previewPage3Body,
+                      transparentHero: true,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // ── 상단 Skip — 표면 v2 pill (라이트 무테두리 + low 그림자) ──
+            SafeArea(
+              child: Align(
+                alignment: Alignment.topRight,
                 child: Padding(
-                  padding: soriClampPadding(
-                    MediaQuery.sizeOf(context).width,
-                    base: const EdgeInsets.fromLTRB(24, 28, 24, 20),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      _DotIndicator(current: _page, total: _total),
-                      const SizedBox(height: 18),
-                      SoriButton.filled(
-                        label: isLast ? t.previewStart : t.previewNext,
-                        icon: isLast
-                            ? Icons.arrow_forward_rounded
-                            : Icons.navigate_next_rounded,
-                        fullWidth: true,
-                        onTap: _advance,
+                  padding: const EdgeInsets.fromLTRB(8, 6, 12, 0),
+                  child: TextButton(
+                    onPressed: _done,
+                    style: TextButton.styleFrom(
+                      backgroundColor: SoriColors.lightSurfaceRaised,
+                      foregroundColor: s.text,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                    ],
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 6,
+                      ),
+                    ),
+                    child: Text(
+                      t.previewSkip,
+                      style: SoriTextTheme.of(context).label.copyWith(
+                        fontSize: 14,
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+
+            // ── 하단 dot + CTA 고정 (§10.4 — 위로 한지 페이드로 본문과 분리) ──
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0x00FAF6EC), Color(0xFFFAF6EC)],
+                    stops: [0.0, 0.45],
+                  ),
+                ),
+                child: SafeArea(
+                  top: false,
+                  child: Padding(
+                    padding: soriClampPadding(
+                      MediaQuery.sizeOf(context).width,
+                      base: const EdgeInsets.fromLTRB(24, 28, 24, 20),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        _DotIndicator(current: _page, total: _total),
+                        const SizedBox(height: 18),
+                        SoriButton.filled(
+                          label: isLast ? t.previewStart : t.previewNext,
+                          icon: isLast
+                              ? Icons.arrow_forward_rounded
+                              : Icons.navigate_next_rounded,
+                          accent: SoriColors.tiger,
+                          fullWidth: true,
+                          onTap: _advance,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// 개별 프리뷰 페이지 — 상단 풀블리드 히어로 + 하단 텍스트
+// 개별 프리뷰 페이지 — 상단 정사각 일러스트 슬롯(55%) + 하단 텍스트 (§10.4)
 // ─────────────────────────────────────────────────────────────────────────
 
 class _PreviewPage extends StatelessWidget {
   final int index;
 
-  /// 히어로에 렌더할 이미지(포스터). 로드 실패 시 호랑이 마스코트 폴백.
+  /// 슬롯에 렌더할 이미지. 로드 실패 시 호랑이 마스코트 폴백.
   final String imageAsset;
 
-  /// != null → [imageAsset] 포스터 위에 풀프레임 무음 루프 영상 승격
-  /// (videoReady && !reduce-motion일 때만; 그 외/실패 시 정지 이미지 유지).
+  /// != null → 포스터 위에 무음 루프 영상 승격
+  /// (videoReady && !reduce-motion일 때만; 그 외/실패 시 정지 이미지).
   final String? videoAsset;
 
   final Color accentColor;
   final String title;
   final String body;
 
-  /// true(기본) → 이미지/영상을 히어로에 cover 로 가득(풀블리드). false →
-  /// 투명 PNG 등을 contain 중앙 배치(글로우 포함)해 잘리지 않게 한다.
-  final bool heroFullBleed;
+  /// true → 투명 PNG를 contain 중앙 배치(글로우 포함, 프레임 없음).
+  final bool transparentHero;
 
   const _PreviewPage({
     required this.index,
@@ -229,7 +247,7 @@ class _PreviewPage extends StatelessWidget {
     required this.accentColor,
     required this.title,
     required this.body,
-    this.heroFullBleed = true,
+    this.transparentHero = false,
   });
 
   static Widget _heroFallback(BuildContext _, Object __, StackTrace? ___) =>
@@ -243,20 +261,80 @@ class _PreviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tt = SoriTextTheme.of(context);
     final delay = Duration(milliseconds: 80 + index * 40);
     return LayoutBuilder(
       builder: (context, c) {
-        // 히어로 = 페이지 높이의 56%(상·하한 클램프). 비주얼이 주인공.
-        final heroH = (c.maxHeight * 0.56).clamp(280.0, 520.0);
+        // §10.4: 일러스트 슬롯 = 상단 55%.
+        final heroH = (c.maxHeight * 0.55).clamp(260.0, 500.0);
         final useVideo =
             videoAsset != null &&
             TigerStageVideo.videoReady &&
             !SoriMotion.reduceMotion(context);
+        // 정사각 프레임 변 — 슬롯과 가로 여백의 최솟값.
+        final side = (c.maxWidth - Spacing.xl * 2)
+            .clamp(0.0, heroH - Spacing.lg * 2)
+            .toDouble();
+
+        Widget slotChild;
+        if (transparentHero) {
+          slotChild = Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                width: 240,
+                height: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(130),
+                  gradient: RadialGradient(
+                    colors: [
+                      accentColor.withValues(alpha: 0.26),
+                      accentColor.withValues(alpha: 0.0),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Image.asset(
+                  imageAsset,
+                  height: heroH * 0.86,
+                  fit: BoxFit.contain,
+                  filterQuality: FilterQuality.high,
+                  errorBuilder: _heroFallback,
+                ),
+              ),
+            ],
+          );
+        } else {
+          // §10.4: 정사각 캐논 에셋 슬롯 — 표면 v2 프레임(그림자, 무테두리).
+          final image = Image.asset(
+            imageAsset,
+            fit: BoxFit.cover,
+            alignment: Alignment.center,
+            filterQuality: FilterQuality.high,
+            errorBuilder: _heroFallback,
+          );
+          slotChild = Center(
+            child: Container(
+              width: side,
+              height: side,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                color: SoriColors.lightSurfaceRaised,
+                borderRadius: SoriRadius.brLg,
+                boxShadow: SoriElevation.medium,
+              ),
+              child: useVideo
+                  ? SoriPosterLoop(videoAsset: videoAsset!, poster: image)
+                  : image,
+            ),
+          );
+        }
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // ── 상단 풀블리드 히어로 ──
             SizedBox(
               height: heroH,
               width: double.infinity,
@@ -265,85 +343,16 @@ class _PreviewPage extends StatelessWidget {
                 duration: const Duration(milliseconds: 700),
                 slideY: 0,
                 startScale: 0.98,
-                child: heroFullBleed
-                    ? Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          if (useVideo)
-                            SoriPosterLoop(
-                              videoAsset: videoAsset!,
-                              poster: Image.asset(
-                                imageAsset,
-                                fit: BoxFit.cover,
-                                filterQuality: FilterQuality.high,
-                                errorBuilder: _heroFallback,
-                              ),
-                            )
-                          else
-                            Image.asset(
-                              imageAsset,
-                              fit: BoxFit.cover,
-                              alignment: Alignment.center,
-                              filterQuality: FilterQuality.high,
-                              errorBuilder: _heroFallback,
-                            ),
-                          // 밑변 스크림 — 히어로를 어둠 배경으로 자연스레 연결.
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                              height: heroH * 0.42,
-                              decoration: const BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0x000E1A18),
-                                    Color(0xFF0E1A18),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    // 투명 PNG(호랑이) → contain 중앙 + 글로우 (잘림 없음).
-                    : Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            width: 240,
-                            height: 130,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(130),
-                              gradient: RadialGradient(
-                                colors: [
-                                  accentColor.withValues(alpha: 0.32),
-                                  accentColor.withValues(alpha: 0.0),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 24),
-                            child: Image.asset(
-                              imageAsset,
-                              height: heroH * 0.88,
-                              fit: BoxFit.contain,
-                              filterQuality: FilterQuality.high,
-                              errorBuilder: _heroFallback,
-                            ),
-                          ),
-                        ],
-                      ),
+                child: slotChild,
               ),
             ),
 
-            // ── 하단 텍스트(제목 + 본문) ──
+            // ── 하단 텍스트 — 헤드라인 26 w800 + 본문 15 w500 (§10.4) ──
             Expanded(
               child: SingleChildScrollView(
                 padding: soriClampPadding(
                   c.maxWidth,
-                  // bottom 150 = 하단 dot·버튼 오버레이 여유.
+                  // bottom 150 = 하단 dot·CTA 오버레이와 O-3 이격 확보.
                   base: const EdgeInsets.fromLTRB(28, 22, 28, 150),
                 ),
                 child: Column(
@@ -357,17 +366,10 @@ class _PreviewPage extends StatelessWidget {
                       child: Text(
                         title,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontFamily: 'Pretendard',
-                          fontSize: 30,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.white,
-                          letterSpacing: -0.4,
-                          height: 1.18,
-                        ),
+                        style: tt.h1.copyWith(fontSize: 26, height: 1.2),
                       ),
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 12),
                     SoriEntrance(
                       delay: Duration(
                         milliseconds: delay.inMilliseconds + 240,
@@ -376,13 +378,9 @@ class _PreviewPage extends StatelessWidget {
                       child: Text(
                         body,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          fontSize: 17.5,
-                          height: 1.55,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white.withValues(alpha: 0.94),
-                        ),
+                        // O-5 "본문 ≤2줄"은 문구 길이 검수 항목 — 말줄임
+                        // 금지 원칙(§4.3)에 따라 잘라내지 않는다.
+                        style: tt.body.copyWith(height: 1.5),
                       ),
                     ),
                   ],
@@ -408,6 +406,7 @@ class _DotIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(total, (i) {
@@ -421,7 +420,7 @@ class _DotIndicator extends StatelessWidget {
           decoration: BoxDecoration(
             color: isActive
                 ? SoriColors.primary
-                : Colors.white.withValues(alpha: 0.30),
+                : s.textDim.withValues(alpha: 0.45),
             borderRadius: BorderRadius.circular(4),
           ),
         );

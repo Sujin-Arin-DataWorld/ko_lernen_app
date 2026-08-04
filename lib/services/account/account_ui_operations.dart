@@ -43,6 +43,7 @@ enum AccountUiPendingState {
   none,
   replacementCancellable,
   replacementResumable,
+  deletionRemotePending,
   deletionLocalCleanup,
   blocked,
 }
@@ -162,9 +163,17 @@ class ProductionAccountUiOperations
       return AccountUiPendingState.blocked;
     }
     if (deletion != null) {
-      return deletion.operation?.phase == AccountOperationPhase.completed
-          ? AccountUiPendingState.deletionLocalCleanup
-          : AccountUiPendingState.blocked;
+      final operation = deletion.operation;
+      if (operation?.phase == AccountOperationPhase.completed) {
+        return AccountUiPendingState.deletionLocalCleanup;
+      }
+      // A request that has not reached the server yet, or a retryable
+      // in-progress server operation, must remain recoverable. Resetting local
+      // state here would discard the exact journal needed to resume it.
+      if (operation == null || operation.retryable) {
+        return AccountUiPendingState.deletionRemotePending;
+      }
+      return AccountUiPendingState.blocked;
     }
     if (replacement?.replacementPhase case final phase?) {
       return switch (phase) {

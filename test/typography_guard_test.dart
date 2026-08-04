@@ -33,7 +33,7 @@ void main() {
   test('FontWeight.w900 은 더 늘지 않는다 (번들에 900 페이스가 없다)', () {
     // 기준선 2026-07-31: 46곳 / 28파일. 목표 0.
     // 2026-08-03 R1-e: 온보딩 레벨 배지 w900 1곳 제거 → 45 로 래칫 하향.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 45, 'FontWeight.w900');
+    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 40, 'FontWeight.w900');
   });
 
   test('FontWeight.w800 은 더 늘지 않는다', () {
@@ -43,7 +43,7 @@ void main() {
     // raw TextStyle 17개를 `SoriTextTheme` 프리셋으로 교체(실측 188) —
     // 08-01 임시 상향(193)을 **189 로 복원**. §4.3 "카드 제목 w800 금지"에 따라
     // 카드·행 제목 2곳은 h3(w700) 로 강등했다.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 189, 'FontWeight.w800');
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 180, 'FontWeight.w800');
   });
 
   test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {

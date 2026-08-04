@@ -13,6 +13,10 @@ const String kTaegoErrorAsset =
     'assets/illustrations/mascot/tiger_front.png';
 
 /// 오류 상태 — 부드럽게 등장하고, 일러스트가 잔잔히 호흡한다.
+///
+/// §8.1: 기술 문구 금지 — 원인 1줄 + "Erneut versuchen" 1버튼.
+/// **오프라인은 별도 카피**: `t.errorOffline`
+/// ("Kein Internet — dein Fortschritt ist lokal sicher.")를 message 로 넘길 것.
 class AppError extends StatelessWidget {
   final String message;
   final VoidCallback? onRetry;

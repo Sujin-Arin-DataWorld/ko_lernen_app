@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import 'button.dart';
 import 'card.dart';
-import 'hanok_tokens.dart';
+import 'level_chip.dart';
 import 'mascot.dart';
 import 'pressable.dart';
 import 'tokens.dart';
@@ -105,7 +105,7 @@ class MissionHeroCard extends StatelessWidget {
                       Row(
                         children: [
                           if (c.levelCode != null)
-                            _LevelChip(code: c.levelCode!),
+                            SoriLevelChip(code: c.levelCode!),
                           const Spacer(),
                           if (onPremiumCourse != null)
                             _CourseBadge(onTap: onPremiumCourse!),
@@ -215,30 +215,6 @@ class _RingPainter extends CustomPainter {
       oldDelegate.value != value ||
       oldDelegate.track != track ||
       oldDelegate.fill != fill;
-}
-
-/// 레벨 칩 — 사계 단청 4색 채움 + 흰 라벨(팔레트 4색 전부 흰 글씨 AA 확보).
-class _LevelChip extends StatelessWidget {
-  final String code;
-  const _LevelChip({required this.code});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(
-        color: HanokLevelPalette.of(code),
-        borderRadius: SoriRadius.brSm,
-      ),
-      child: Text(
-        code,
-        style: SoriTextTheme.of(context).label.copyWith(
-          fontSize: 11,
-          color: Colors.white,
-        ),
-      ),
-    );
-  }
 }
 
 /// 로딩 스켈레톤 — 스피너 대신 조용한 자리 표시(§10.1 loading).

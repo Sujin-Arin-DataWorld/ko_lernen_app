@@ -6,6 +6,8 @@ import '../services/gye_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/app_loading.dart';
+import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -107,7 +109,8 @@ class _GyeTabScreenState extends State<GyeTabScreen>
               future: GyeService.myGyeMetas(),
               builder: (context, snap) {
                 if (snap.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
+                  // §8.1 상태 표준: 로딩은 AppLoading 단일 위젯.
+                  return const AppLoading();
                 }
                 final gyeList = snap.data ?? const <GyeMeta>[];
                 if (gyeList.isEmpty) {
@@ -131,55 +134,49 @@ class _IntroEmpty extends StatelessWidget {
 
   const _IntroEmpty({required this.introKey, required this.padding});
 
+  /// §6.4 미리보기용 더미 메타 — 요소 4개 실체화 + 다음 요소 60% ramp.
+  /// "함께 지으면 자란다"를 실물 성장 중간 단계로 시연한다.
+  static const GyeMeta _previewMeta = GyeMeta(
+    id: 'preview',
+    name: '',
+    code: '',
+    ownerId: '',
+    lifetimeGoalsAchieved: 3,
+    weeklyGoalPacks: 5,
+    weeklyGoalProgress: 3,
+  );
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+    // §6.4: SoriEmptyState 문법 — 조이 일러스트 + 헤드라인 + 혜택 3줄 +
+    // filled/outline CTA + 공동 한옥 미리보기 1장(gye_hanok 재사용).
     return ListView(
       padding: padding,
       children: [
         const SizedBox(height: Spacing.md),
+        Center(
+          child: Image.asset(
+            'assets/illustrations/mascot/magpie_encourage.png',
+            height: 110,
+            errorBuilder: (_, __, ___) => const Icon(
+              Icons.groups_2_outlined,
+              size: 64,
+              color: SoriColors.primary,
+            ),
+          ),
+        ),
+        const SizedBox(height: Spacing.md),
+        Text(t.gyeEmptyHeadline, textAlign: TextAlign.center, style: tt.h2),
+        const SizedBox(height: Spacing.lg),
         KeyedSubtree(
           key: introKey,
           child: SoriCard(
-            variant: SoriCardVariant.hero,
-            tinted: true,
-            accent: SoriColors.gold,
+            variant: SoriCardVariant.base,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 44,
-                      height: 44,
-                      decoration: BoxDecoration(
-                        color: SoriColors.gold.withValues(alpha: 0.16),
-                        borderRadius: BorderRadius.circular(SoriRadius.md),
-                      ),
-                      alignment: Alignment.center,
-                      child: const Icon(
-                        Icons.cottage_rounded,
-                        color: SoriColors.gold,
-                        size: 24,
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.md),
-                    Expanded(
-                      child: Text(
-                        t.navGye,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
-                          color: s.text,
-                          letterSpacing: -0.3,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: Spacing.md),
                 _Point(icon: Icons.groups_2_outlined, text: t.gyeExplainWhat),
                 const SizedBox(height: 10),
                 _Point(icon: Icons.spa_outlined, text: t.gyeExplainWhy),
@@ -202,6 +199,26 @@ class _IntroEmpty extends StatelessWidget {
           icon: Icons.login_rounded,
           fullWidth: true,
           onTap: () => showGyeChooser(context),
+        ),
+        const SizedBox(height: Spacing.xl),
+        SoriCard(
+          variant: SoriCardVariant.base,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(t.gyeEmptyPreviewCaption, style: tt.cardSubtitle),
+              const SizedBox(height: Spacing.sm),
+              ClipRRect(
+                borderRadius: SoriRadius.brMd,
+                // GyeHanok은 bounded height 필요(LayoutBuilder maxHeight 사용)
+                // — 시안 비율 393×280 고정.
+                child: AspectRatio(
+                  aspectRatio: 393 / 280,
+                  child: GyeHanok(meta: _previewMeta),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

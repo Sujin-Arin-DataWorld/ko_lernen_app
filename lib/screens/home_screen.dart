@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
+
 import '../l10n/generated/app_localizations.dart';
 import '../data/hangul_strokes.dart';
 import '../models/feedback_completion.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
 import '../models/course_mastery.dart';
-import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
 import '../models/scenario.dart';
 import '../models/vocab_pack.dart';
 import '../services/data_loader.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/mission_recommender.dart';
+import '../services/pack_access.dart';
 import '../services/gye_service.dart';
 import '../services/daily_char_service.dart';
 import '../services/pack_progress_service.dart';
@@ -35,11 +37,11 @@ import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_hero_card.dart';
+import '../widgets/sori/week_progress.dart';
 import '../widgets/sori/path_preview_row.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/progress.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/motivation_sheet.dart';
 import '../widgets/sori/milestone_celebration.dart';
@@ -369,12 +371,12 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _DailyGoalCard(
+            DailyGoalCard(
               xpToday: Storage.xpToday,
               goal: Storage.dailyGoalXp,
             ),
             const SizedBox(height: Spacing.md),
-            _SteppingStonesRow(
+            WeekSteppingStonesRow(
               streak: Storage.streakDays,
               xpToday: Storage.xpToday,
               goal: Storage.dailyGoalXp,
@@ -471,36 +473,38 @@ class _HomeScreenState extends State<HomeScreen> {
   /// 규칙 R-REC(H-6): 추천 레벨 ≤ 사용자 레벨 — 코스·팩은 순차 구조가
   /// 레벨을 보장하므로 시나리오에만 명시 가드를 둔다.
   MissionHeroContent? _missionHeroContent(AppL10n t, String lang) {
-    // ① 현재 코스 미션 — 구 주 CTA가 가던 /course/mission 커리큘럼.
-    final catalog = _courseCatalog;
-    final snap = _courseSnapshot;
-    if (catalog != null && snap != null && catalog.courseUnits.isNotEmpty) {
-      final total = catalog.courseUnits.length;
-      final completed = snap.completedUnitIds.toSet();
-      CourseUnit? unit = snap.currentCourseUnitId == null
-          ? null
-          : catalog.courseUnitFor(snap.currentCourseUnitId!);
-      if (unit == null && completed.length < total) {
-        // 진단 전(스냅샷 비어 있음) — order 순 첫 미완 미션.
-        final remaining =
-            catalog.courseUnits
-                .where((u) => !completed.contains(u.id))
-                .toList()
-              ..sort((a, b) => a.order.compareTo(b.order));
-        if (remaining.isNotEmpty) {
-          unit = remaining.first;
+    // 결정은 순수 recommendMission(§6.1)이, 문구·내비게이션은 여기가 담당.
+    ({VocabPack pack, PackProgress progress})? nowNode;
+    if (_nowPackId != null) {
+      for (final e in _pathNodes) {
+        if (e.pack.id == _nowPackId) {
+          nowNode = e;
+          break;
         }
       }
-      if (unit != null) {
-        // clamp()는 num을 돌려줘 int 파라미터와 안 맞는다 — 순수 int 연산.
-        final n = completed.length + 1 > total ? total : completed.length + 1;
+    }
+    final userLevel =
+        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final today = _today;
+    final pick = recommendMission(
+      courseUnits: _courseCatalog?.courseUnits ?? const [],
+      currentCourseUnitId: _courseSnapshot?.currentCourseUnitId,
+      completedUnitIds: _courseSnapshot?.completedUnitIds.toSet() ?? const {},
+      nowNode: nowNode,
+      dueCount: _dueCount,
+      scenario: today == null ? null : (id: today.id, level: today.level),
+      scenarioCompleted: today != null && _completed.contains(today.id),
+      userLevel: userLevel,
+    );
+    switch (pick) {
+      case CoursePick c:
         return MissionHeroContent(
           kind: MissionHeroKind.course,
-          title: unit.title.pick(lang),
-          levelCode: unit.level.toUpperCase(),
-          meta: t.missionHeroCourseMeta(n, total),
-          fraction: completed.length / total,
-          started: completed.isNotEmpty,
+          title: c.unit.title.pick(lang),
+          levelCode: c.unit.level.toUpperCase(),
+          meta: t.missionHeroCourseMeta(c.missionNumber, c.totalMissions),
+          fraction: c.fraction,
+          started: c.started,
           onStart: () async {
             await Navigator.pushNamed(context, '/course/mission');
             if (mounted) {
@@ -513,77 +517,53 @@ class _HomeScreenState extends State<HomeScreen> {
             }
           },
         );
-      }
-    }
-    // ② 진행 중 팩 — 시작했고 아직 안 끝난 현재 노드.
-    final nowId = _nowPackId;
-    if (nowId != null) {
-      for (final e in _pathNodes) {
-        if (e.pack.id != nowId) {
-          continue;
-        }
-        if (e.progress.progressFraction > 0 &&
-            e.progress.status != PackStatus.cleared) {
-          final level = e.pack.level.toUpperCase();
-          return MissionHeroContent(
-            kind: MissionHeroKind.pack,
-            title: VocabPackService.displayLabel(e.pack.id, lang: lang),
-            levelCode: level,
-            meta: t.missionHeroPackMeta(level),
-            fraction: e.progress.progressFraction,
-            started: true,
-            onStart: () async {
-              if (level != 'A1' && !PremiumService.isPremium) {
-                final ok = await PremiumService.gate(context);
-                if (!ok) {
-                  return;
-                }
-              }
-              if (!mounted) {
-                return;
-              }
-              await Navigator.pushNamed(
-                context,
-                '/vocab/pack',
-                arguments: nowId,
-              );
-              if (mounted) {
-                await _loadToday();
-                await _loadPath();
-              }
-            },
-          );
-        }
-        break;
-      }
-    }
-    // ③ 오늘 복습 — due 카드가 10개 이상일 때만 미션으로 승격.
-    if (_dueCount >= 10) {
-      return MissionHeroContent(
-        kind: MissionHeroKind.review,
-        title: t.missionHeroReviewTitle(_dueCount),
-        levelCode: null,
-        meta: t.missionHeroReviewMeta,
-        fraction: 0,
-        started: false,
-        onStart: () async {
-          await Navigator.pushNamed(context, '/review');
-          if (mounted) {
-            await _loadToday();
-          }
-        },
-      );
-    }
-    // ④ 시나리오 추천 — R-REC: 레벨 초과 추천 금지(H-6).
-    final today = _today;
-    if (today != null && !_completed.contains(today.id)) {
-      final userLevel =
-          LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-      if (today.level.index <= userLevel.index) {
-        final level = today.level.code.toUpperCase();
+      case PackPick p:
+        final level = p.pack.level.toUpperCase();
+        return MissionHeroContent(
+          kind: MissionHeroKind.pack,
+          title: VocabPackService.displayLabel(p.pack.id, lang: lang),
+          levelCode: level,
+          meta: t.missionHeroPackMeta(level),
+          fraction: p.fraction,
+          started: true,
+          onStart: () async {
+            if (!await ensurePackAccess(context, level: level)) {
+              return;
+            }
+            if (!mounted) {
+              return;
+            }
+            await Navigator.pushNamed(
+              context,
+              '/vocab/pack',
+              arguments: p.pack.id,
+            );
+            if (mounted) {
+              await _loadToday();
+              await _loadPath();
+            }
+          },
+        );
+      case ReviewPick r:
+        return MissionHeroContent(
+          kind: MissionHeroKind.review,
+          title: t.missionHeroReviewTitle(r.dueCount),
+          levelCode: null,
+          meta: t.missionHeroReviewMeta,
+          fraction: 0,
+          started: false,
+          onStart: () async {
+            await Navigator.pushNamed(context, '/review');
+            if (mounted) {
+              await _loadToday();
+            }
+          },
+        );
+      case ScenarioPick sc:
+        final level = sc.level.code.toUpperCase();
         return MissionHeroContent(
           kind: MissionHeroKind.scenario,
-          title: today.title.pick(lang),
+          title: today!.title.pick(lang),
           levelCode: level,
           meta: t.missionHeroScenarioMeta(level),
           fraction: 0,
@@ -592,38 +572,27 @@ class _HomeScreenState extends State<HomeScreen> {
             await Navigator.pushNamed(
               context,
               '/scenario',
-              arguments: today.id,
+              arguments: sc.scenarioId,
             );
             if (mounted) {
               await _loadToday();
             }
           },
         );
-      }
+      case null:
+        return null;
     }
-    return null;
   }
 
   /// §10.2 블록 4 — 현재 노드 ±1 = 3노드 슬라이스.
   /// 탭 규칙: 현재 노드 = 팩 진입(프리미엄 게이트 승계), 그 외 = `/path`
   /// (해당 노드 id를 스크롤 파라미터로 — R3에서 소비).
   List<SoriPathStop> _previewStops(String lang) {
-    if (_pathNodes.isEmpty) {
-      return const [];
-    }
-    var i = _nowPackId == null
-        ? _pathNodes.length - 1
+    final i = _nowPackId == null
+        ? -1
         : _pathNodes.indexWhere((e) => e.pack.id == _nowPackId);
-    if (i < 0) {
-      i = _pathNodes.length - 1;
-    }
-    var start = i - 1 < 0 ? 0 : i - 1;
-    var end = start + 3;
-    if (end > _pathNodes.length) {
-      end = _pathNodes.length;
-      start = end - 3 < 0 ? 0 : end - 3;
-    }
-    final slice = _pathNodes.sublist(start, end);
+    // 슬라이스 규칙은 순수 previewWindow(§10.2)가 담당 — 단위 테스트 고정.
+    final slice = previewWindow(_pathNodes, i);
     return [
       for (final e in slice)
         SoriPathStop(
@@ -640,12 +609,8 @@ class _HomeScreenState extends State<HomeScreen> {
               }
               return;
             }
-            if (e.pack.level.toUpperCase() != 'A1' &&
-                !PremiumService.isPremium) {
-              final ok = await PremiumService.gate(context);
-              if (!ok) {
-                return;
-              }
+            if (!await ensurePackAccess(context, level: e.pack.level)) {
+              return;
             }
             if (!mounted) {
               return;
@@ -1244,7 +1209,8 @@ class _TigerHero extends StatelessWidget {
                 letterSpacing: -0.7,
                 height: 1.05,
               ),
-              maxLines: 1,
+              // §4.3: 독일어 복합어 말줄임 방지 — 2줄 허용.
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
             // §6.1 블록 2 발화 단일화(H-4): 서브카피 폐지 — 발화는
@@ -1370,201 +1336,6 @@ class _BubbleTailPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_BubbleTailPainter old) => old.color != color;
-}
-
-// ════════════════════════════════════════════════════════════════════════
-// C. Inline stat chip row — streak · XP · shield
-// ════════════════════════════════════════════════════════════════════════
-// ════════════════════════════════════════════════════════════════════════
-// C2. Daily goal progress — 오늘 XP / 목표 (모멘텀·리텐션)
-// ════════════════════════════════════════════════════════════════════════
-/// **디딤돌** — 첫 주(또는 스트릭이 끊긴 뒤)의 진행 표시.
-///
-/// 0%짜리 진행바 두 개로 첫 화면을 시작하지 않기 위한 대체물.
-/// 이번 주 7칸 중 오늘 칸을 밝히고, 스트릭에 해당하는 지난 칸을 채운다.
-/// 주 시작(월/일)과 요일 약칭은 [MaterialLocalizations] 를 따라 로케일별로
-/// 자동 정렬된다 — 독일어는 월요일 시작, 영어는 일요일 시작.
-class _SteppingStonesRow extends StatelessWidget {
-  final int streak;
-  final int xpToday;
-  final int goal;
-  const _SteppingStonesRow({
-    required this.streak,
-    required this.xpToday,
-    required this.goal,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final ml = MaterialLocalizations.of(context);
-    final now = DateTime.now();
-    // 이번 주 첫 날 (로케일의 주 시작 요일 기준).
-    final firstDayIdx = ml.firstDayOfWeekIndex; // 0 = 일요일
-    final todayIdx = now.weekday % 7; // DateTime: 월=1..일=7 → 일=0
-    final offset = (todayIdx - firstDayIdx + 7) % 7;
-
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      semanticLabel: t.homeFirstWeekTitle,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            t.homeFirstWeekTitle,
-            style: SoriTextTheme.of(context).cardTitle,
-          ),
-          const SizedBox(height: Spacing.md),
-          Row(
-            children: [
-              for (var i = 0; i < 7; i++)
-                Expanded(
-                  child: _Stone(
-                    label: ml.narrowWeekdays[(firstDayIdx + i) % 7],
-                    isToday: i == offset,
-                    // 오늘 이전 칸 중 스트릭 안에 드는 날은 채운다.
-                    isDone: i < offset && (offset - i) <= streak,
-                  ),
-                ),
-            ],
-          ),
-          if (goal > 0) ...[
-            const SizedBox(height: Spacing.sm),
-            Text(
-              '$xpToday / $goal XP',
-              style: SoriTextTheme.of(context).caption,
-            ),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-class _Stone extends StatelessWidget {
-  final String label;
-  final bool isToday;
-  final bool isDone;
-  const _Stone({
-    required this.label,
-    required this.isToday,
-    required this.isDone,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final Color fill;
-    final Color border;
-    final Color fg;
-    if (isToday) {
-      fill = SoriColors.gold.withValues(alpha: 0.18);
-      border = SoriColors.goldOnLight;
-      fg = SoriColors.goldOnLight;
-    } else if (isDone) {
-      fill = SoriColors.primarySoft;
-      border = SoriColors.primary;
-      fg = SoriColors.primaryOnLight;
-    } else {
-      fill = Colors.transparent;
-      border = SoriColors.lightBorderStrong;
-      fg = s.textMuted;
-    }
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 3),
-      child: Column(
-        children: [
-          Container(
-            height: 30,
-            decoration: BoxDecoration(
-              color: fill,
-              borderRadius: BorderRadius.circular(SoriRadius.xs),
-              border: Border.all(color: border, width: 1.5),
-            ),
-            alignment: Alignment.center,
-            child: Icon(
-              isDone
-                  ? Icons.check_rounded
-                  : (isToday ? Icons.circle : Icons.remove),
-              size: isToday ? 9 : 13,
-              color: fg,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(
-              fontFamily: 'Pretendard',
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-              color: isToday ? SoriColors.goldOnLight : s.textMuted,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DailyGoalCard extends StatelessWidget {
-  final int xpToday;
-  final int goal;
-  const _DailyGoalCard({required this.xpToday, required this.goal});
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final today = xpToday;
-    final done = goal > 0 && today >= goal;
-    final ratio = goal > 0 ? (today / goal).clamp(0.0, 1.0) : 0.0;
-    final accent = done ? SoriColors.success : SoriColors.tiger;
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(
-                done ? Icons.check_circle_rounded : Icons.flag_outlined,
-                size: 18,
-                color: accent,
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  done ? t.homeDailyGoalDone : t.homeDailyGoalLabel,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 13,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                    letterSpacing: -0.2,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                '$today/$goal XP',
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                  color: s.textMuted,
-                  fontFeatures: const [FontFeature.tabularFigures()],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          SoriProgressBar(value: ratio, color: accent),
-        ],
-      ),
-    );
-  }
 }
 
 // ════════════════════════════════════════════════════════════════════════
@@ -1904,7 +1675,8 @@ class _CourseCard extends StatelessWidget {
                           style: SoriTextTheme.of(
                             context,
                           ).h3.copyWith(fontWeight: FontWeight.w900),
-                          maxLines: 1,
+                          // §4.3: 2줄 허용.
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),

@@ -158,7 +158,7 @@ class FeedbackCompletion {
         WordleRoundKind.daily => 'wordle_daily',
         WordleRoundKind.random => 'wordle_random',
       },
-      contentLabel: 'Wordle',
+      contentLabel: 'Silben-Rätsel',
       level: _level(level),
       scoreSummary: 'result:${won ? 'win' : 'loss'}; guesses:$guessCount',
     ),

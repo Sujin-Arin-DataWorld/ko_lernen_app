@@ -245,7 +245,7 @@ void main() {
       );
     }
     expect(first.feedbackContext.contentId, 'wordle_daily');
-    expect(first.feedbackContext.contentLabel, 'Wordle');
+    expect(first.feedbackContext.contentLabel, 'Silben-Rätsel');
     expect(first.feedbackContext.scoreSummary, 'result:loss; guesses:6');
 
     await tester.tap(find.text('New word').first);

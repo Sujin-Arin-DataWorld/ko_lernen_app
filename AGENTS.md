@@ -219,6 +219,12 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### 계정·전체 데이터 삭제 복구 (2026-08-04)
+
+- [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
+- [x] 회귀 검증: pending/비재시도 journal 분기, Settings 잠금, Retry callback을 테스트로 고정했다 (Flutter 153, Node runtime 81).
+- [ ] Jin 운영: 현재 Android 설치본의 App Check를 정상화한 뒤 재시도하고 Cloud Logging에서 `app=VALID` 및 삭제 작업 생성 여부를 확인한다. Debug면 새 기기 debug token 등록, release면 Play Integrity와 서명·배포 경로를 확인한다.
+
 ### v2.0.1 릴리스 후보 (2026-08-01)
 
 - [x] 정적·회귀 게이트: `flutter analyze` 0 issues, `flutter test` 1,293 통과, 캐릭터 MP4 매트 16/16 통과
@@ -369,6 +375,90 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-04 — AAB 버전별 감사 + 백엔드 실작동 검증·배포 (submitTesterFeedback 미배포 갭 해소) — 배포 완료, 커밋 미요청
+
+**범위:** Jin "AAB 버전별로 뭐가 업데이트됐는지, 실제로 코드가 그렇게 반영됐는지 철저 검수 + 방향 설립." 계획 `~/.claude/plans/aab-greedy-church.md`. 방향(Jin 확정)=백엔드 실작동 검증·배포, 산출=계획 작성 후 실행.
+
+**감사(Part 1·2):** 버전맵 `git log -p -- pubspec.yaml` → +1~+10. 문서 대비 코드 3-에이전트 교차검증. **결론: 코드는 버전별 문서 변경을 충실히 반영.** 물질적 불일치 1건 = **+5 AD_ID 활성화(`c395dd7`)가 이후 `b65ef88`에서 되돌려짐** → 현재 AdMob 비활성·AD_ID `tools:node=remove` (Play Console 광고ID 선언 "아니요" 유지). +8 커리큘럼(manifest 36유닛/a1 16)·+10 CourseMastery v2 typed 동기화·courseEligible 가드·+6 AudioPolicy·+7 지그재그/캐릭터선택 전부 실재·배선 확인. 경미 caveat: `roar_tiger.mp3` 부재(무음폴백, 문서화됨)·ADR-002 gain 자동화 도구 미제작(하드코딩 맵). **디자인 R3–R7(브랜치 `feat/design-r3-r7-2026-08`)은 커밋 10 + 미커밋 49파일로 어떤 AAB에도 미포함** — 커밋 ARB가 커밋 생성 l10n보다 앞섬(빌드 전 gen-l10n 필요).
+
+**로컬 readiness 검증(전부 green):** preflight PASS · gye **281/281** · tts **6/6** · firestore.rules 에뮬(JBR Java) **42/42** · analyze_korean_text py_compile + unittest **6/6** · `.env` DeepL 키 존재.
+- **`functions/preflight.sh` 버그 수정(1줄):** JSON 검증이 bare `python3 open()` → Windows 로케일 **cp949**로 `functions/gye/package.json`의 한국어 UTF-8 바이트 디코드 실패 → 거짓 "JSON 깨짐". `open(..., encoding='utf-8')` 명시로 수정 → PASS. (node·`json.tool`·utf-8 open 모두 유효 JSON 확인.)
+
+**🔴 발견·해소한 배포 갭:** `firebase functions:list`/`gcloud functions list` 실측 → 백엔드는 ~95% 배포·ACTIVE(analyze_korean_text·synthesize_tts·on_pack_cleared·weekly_goal_rollover·on_report_created·계정삭제/복원 스위트 전부)였으나 **`submitTesterFeedback`(Tiger Pulse 피드백 callable, `functions/gye/index.js:252`, 클라 `content_feedback_client.dart:158`)만 미배포** → 테스터 피드백이 서버에 안 닿고 outbox 무한재시도. Jin 승인(전체 재배포).
+- **배포:** ① `firebase deploy --only firestore:rules,firestore:indexes,storage` ✓ ② `firebase deploy --only functions:gye-firebase-functions,functions:tts-firebase-functions` — 1차 discovery 타임아웃(10s, 로컬 로드는 gye 735ms/tts 937ms=정상 → 콜드 discovery 일시 지연) → **`FUNCTIONS_DISCOVERY_TIMEOUT=120`으로 재시도 성공**. `submitTesterFeedback` **Successful create**, 나머지 update, `synthesize_tts` update. 배포함수 23→**24**, `gcloud describe` = ACTIVE/GEN_2 확인.
+
+**검증:** 위 로컬 게이트 + 배포 후 `functions:list`/`describe` 실출력. ⚠️ **미검증(Jin/실기기/외부):** 실기기 Tiger Pulse 피드백 실제 왕복·2계정 Gye E2E·책한컷 실 엔드포인트 왕복(`smoke_test.py`는 서명 앱 토큰 필요)·iOS(Mac 부재로 차단). analyze_korean_text·rules는 이미 ACTIVE라 재배포 시 idempotent.
+
+**변경 파일:** `functions/preflight.sh`(1줄 encoding fix) + `AGENTS.md`(본 로그). 백엔드 배포는 코드 변경 아님(기존 소스 배포). **커밋 미수행(Jin 확인 후).**
+
+### 2026-08-04 (Codex) — 계정·전체 데이터 삭제 복구 경로 및 App Check 진단 — 커밋 완료
+
+**문제/근거:** 운영 `requestAccountDeletion` 호출은 2026-08-03 23:46 UTC에 `auth=VALID`, `app=INVALID`인 App Check 401으로 종료됐다. 함수·리전은 `europe-west3`에서 ACTIVE였고 서버 삭제 작업은 생성되지 않았다. 호출 전 저장한 deletion journal이 `operation == null`으로 남자 기존 UI가 이를 일반 `blocked`로만 분류해 “Alle Daten zurücksetzen”과 “Konto und alle Daten löschen”을 모두 비활성화했고, 재시도 버튼도 없었다.
+
+**변경:** `AccountUiPendingState.deletionRemotePending`을 추가했다. 원격 작업이 아직 생성되지 않았거나 retryable이면 이 상태로 분리하고, `AccountPendingOperationPanel`은 기존의 동일 요청 재시도 callback을 노출한다. 완료 뒤 로컬 정리 대기는 기존 경로를 유지하며, 비재시도 서버 차단·복수 journal·cloud deletion journal은 계속 fail-closed `blocked`다. 따라서 Reset으로 recovery journal을 지워 우회하는 동작은 추가하지 않았다.
+
+**검증:** RED는 새 상태가 없어서 컴파일 실패하는 것으로 확인한 뒤, 관련 Flutter account/reset/App Check 묶음 `flutter test --no-pub --concurrency=1 …` **153 passed**, 변경 5경로 대상 `flutter analyze --fatal-infos` **0 issues**, `node --test functions/gye/account_operations_runtime.test.js functions/gye/cloud_backup_deletion_runtime.test.js` **81/81 passed**, `git diff --check` 통과. 전체 `flutter analyze --fatal-infos`는 이번 범위 밖의 동시 작업 트리 변경에서 나온 진단으로 비녹색이어서 전체 통과로 주장하지 않는다. 실제 Android/Console App Check 복구와 삭제 worker 완료는 기기·운영 권한이 없어 미검증이다.
+
+**운영 후속:** debug 빌드는 현재 설치 기기의 Firebase App Check debug token을 Console에 등록하고, release 빌드는 해당 Firebase Android 앱의 Play Integrity 및 실제 서명/배포 경로를 검증한다. App Check 강제 해제나 debug provider의 release 배포는 금지. **커밋:** `b372e2f` (`fix(account): recover pending deletion retry`).
+
+### 2026-08-03 (Cowork) — 시나리오 배경 전수 매핑 + 배경 7종 생성 — 커밋 미요청
+
+**Jin:** "시나리오별 에셋 더 만들어야되지 않아?" → 1~5단계 순차 진행, 크레딧 제한 없음.
+
+- **🔴 실측으로 드러난 진짜 구멍: 배경 부족이 아니라 배선 누락.** `_categoryById`에 33개만 등록돼 있어 **6개 시나리오가 `backdropKey` null → `posterAsset()` null → 배경 없이 마스코트로 떨어지고 있었다**(`first_class_meeting`·`phone_messenger_reply`·`delivery_address_confirmation`·`clarify_repeat`·`titles_relationship_distance`·`clinic_safety`). 에셋 0장, 코드만으로 해소.
+- **`home` 카테고리 신설 + 전수 재매핑.** 39/39 등록, 미등록 0. 부하 **cafe 13 → 10**, home 8 신설(통화·메신저·사적 대화는 카페가 아니라 집). 최종: cafe 10 · market 9 · directions 8 · home 8 · restaurant 3 · hotel 1.
+  - ⚠️ 코드 주석에 못 박음: **카테고리를 새로 추가하려면 `scenes/{key}.png`가 번들에 실제로 있어야 한다.** 없으면 그 카테고리 시나리오가 전부 깨진다.
+- **`home.png` 死자산 복구.** 896×1200이었고 `home`이 id도 카테고리도 아니라 리졸버가 영원히 못 집는 상태였다 → 1086×1448 팔레트 PNG(482KB)로 변환 + 카테고리 신설로 활성화.
+- **배경 7종 생성 (bbanana2 · 인물 0 · 계층 A).** 1차 6종은 `cafe.png`를 레퍼런스로 넣었더니 **화풍이 아니라 내용까지 복사**됐다 — office/taxi/convenience에 에스프레소 머신이 그대로 들어오고, 명시적 금지에도 **학(鶴) 2마리·토끼 실루엣·한자 「茶」「药」**가 생성됐다. **레퍼런스를 제거하고 Nano Banana Pro + 텍스트 전용 스펙(BIBLE §1.5)으로 재생성하니 3종 모두 한 번에 통과.** 금지어 나열보다 "every surface is blank / no living creature of any kind"처럼 **긍정 서술**이 효과적이었다.
+  - 채용: `home`(반영 완료) · `airport` · `station` · `office`(재생성) · `convenience`(재생성) · `taxi`(재생성)
+  - 보류: `clinic` — 화풍은 좋으나 안내판에 한자 「药」. 국소 인페인트 예정.
+  - **미완**: 6종의 1086×1448 PNG 변환·반영 — 클라우드 샌드박스가 `*.supabase.co`로 못 나가 Jin이 받아 폴더에 넣어야 한다. 반영 후 office/clinic/station/convenience/airport/taxi 카테고리를 추가 등록하면 cafe 10→7, market 9→3, directions 8→2 로 더 분산된다.
+
+**검증:** 39/39 매핑 스크립트 확인 · 배경 6종 육안 전수(문자·인물·동물 혼입 0) · `home.png` 규격 확인. **미검증:** `flutter analyze`·`flutter test`(dart 없음).
+
+### 2026-08-04 — 디자인 계획 R5 문구 구현 완료 (Cowork 클라우드, feat/design-r3-r7-2026-08)
+
+**Jin:** R4 게이트 전부 통과 확인 → R5 진행 지시. §7 전체 + §11 확정 4건(Q3·Q5·Q6·Q8)을 일괄 반영, 커밋 `0ab9314`(ARB·시나리오) + `249884f`(요일·래칫·라벨).
+
+- **ICU plural 23키 (DE/EN 대칭)**: 스트릭 8키(§7.1 목록 그대로: streakDisplay·streakDialogCurrent·gyeProfileStreak·dailyCharStreak·dailyStreak·notifDailyStreakBody·milestoneStreakTitle·hubPracticeStreak) + Wörter/Pakete 15키(감사 스크립트 전수 검출분 — homeReviewDue·sharePackBody·hardWordsSubtitle·gyeMvpCard 등). placeholder int 타입 보증(@메타 신설·무타입 승격) — **generated 시그니처가 Object→int 로 바뀌는 키 있음, gen-l10n 필수**.
+- **Q3 Paket**: DE 문안 38키(스윕 36 + plural 재작성분 2), 키명 불변. §7.2 특례 "Custom-Packs"→"Eigene Pakete". sharePackBody 는 성 전환 문법 동반 수정(den→das·ihn→es).
+- **Q5 Silben-Rätsel**: DE 5키 + EN "Syllable Puzzle" 5키 + Dart 하드코딩 feedback contentLabel 1곳(+테스트 3곳 동기, contentId 'wordle_*'는 데이터 연속성 위해 불변).
+- **Q6 Café**: scenarios.json 라틴 6곳 + 한국어 대사 "스타벅스"→"카페" 1곳, 잔여 0.
+- **Q8 Taego**: "Der Tiger…" 4키 DE/EN (settingsNotifSubtitle·notificationBody·onboardingPage1Subtitle·previewPage3Body). characterDescTiger 는 민화 일반명사라 유지. 소문자 "der Tiger" 코치 2키는 마스코트 조건부 카피 문제라 별도 이슈로 이관.
+- **§7.3 시스템 문구**: accountOperationBlocked 제목·본문을 사용자 언어로 재작성(무엇이 보호됐고 다음 행동 1문장).
+- **§7.1 요일**: 디딤돌 narrow 1글자(M/M·S/S 충돌) → `DateFormat.E` 2글자(Mo Di Mi…) + `_Stone` 전체 요일명 Semantics.
+- **§7.4 래칫 신설**: `test/arb_l10n_guard_test.dart` — plural 미처리 0(x/y 분수 예외)·DE/EN 키 완전 대칭·Starbucks/Wordle 금지어. 기준선 전부 0.
+- 게이트(로컬 몫): **gen-l10n 필수** → analyze → 전체 테스트(신규 가드 4 + 갱신 피드백 테스트 3 포함) → 실기기(streak=1 "1 Tag in Folge"·Paket 표기·Silben-Rätsel·Café 시나리오·디딤돌 Mo Di Mi). 남은 페이즈 = **R7 마감**.
+
+
+### 2026-08-03 (Cowork) — 캐논 듀오 배너 + Joy 클립 4종(원본 컷) + 시나리오 배경 home — 커밋 미요청
+
+**Jin:** `tiger_magpie_play`를 welcome 자리와 나눠 쓰기 · `magpie_full10` Joy 배치 · 비마스코트 에셋을 bbanana2로 생성. "세 개 오류없이 완벽하게".
+
+- **캐논 듀오 배너 (신규).** `assets/video/loops/taego-joy-duo.mp4`(1280×720·24fps·10초 핑퐁·무음·CRF19) + 포스터 `assets/illustrations/hanok/taego-joy-duo.png`. 배경판은 `welcome-hero.png`에서 크림 `#F4E2CB`·원 `#F9EDD1`·청록 `#688C82`을 실측 샘플링해 **캐릭터 없이 재구성**했고, 그 위에 `tiger_magpie_play`를 multiply 로 구웠다. AI 생성이 아니라 합성이라 §0 캐릭터 재생성 금지에 걸리지 않는다. 루프 이음새 **0.74배**(인접 평균 대비).
+  - 배선: `hanok_header.dart` `kLoopAssets`에 `taego-joy-duo` 등록, `character_selection_screen.dart` 배너를 이걸로 교체. 이 화면은 캐릭터 선택과 무관해 중립 듀오 클립 사용 조건(ASSET_GAP §2-2) 충족.
+  - 구 `welcome-hero`는 `onboarding_level_screen` 히어로 자리에 그대로 유지. **구 배너의 호랑이는 저폴리 캐논 밖 렌더였고 6개 샘플이 거의 동일할 만큼 정지에 가까웠다** — Jin의 "play가 훨씬 좋아보인다"는 판단이 캐논과 일치.
+- **Joy 클립 4종 — `magpie_full10.mp4` 구간 컷.** Jin 캐논 원본을 자른 것이라 AI 재생성이 아니며, GAP §2가 "Jin 제작 전용"으로 묶어둔 **P0·P2·P3를 규칙 위반 없이 닫았다**. P1 `magpie_thinking`(고개 갸웃)은 원본에 없어 여전히 공백.
+  - `magpie_bob`(0.0–2.3s, 핑퐁 4.5초, 이음새 **0.0배**) · `magpie_flourish`(2.3–4.3s 원샷) · `magpie_sing`(4.3–6.2s 원샷) · `magpie_soar`(6.2–10s 원샷).
+  - **프레이밍 정규화가 핵심이었다.** 원본은 피사체 높이비 44.0%·중심 x554 로, 기존 `magpie_perched` 74.3%·`tiger_bob` 69.3% 대비 조이가 40% 작고 우측으로 치우쳐 보였다. 네 구간 union bbox 를 모두 담는 최대 배율 **1.47**로 단일 크롭창(653px @ 205.5,133.8)을 적용 → 높이비 63~65%, 발바닥 y 134px 로 `magpie_perched`와 정확히 일치. 1.47배 업스케일이라 소프트해짐 — 원본 1280×720 Veo 출력이 남아 있으면 거기서 재유도하는 편이 화질상 유리.
+  - `character_clip.dart`에 `magpieBob/Flourish/Sing/Soar` 상수 등록(역할 함수 배선은 Jin 확인 후).
+- **시나리오 배경 `home` 생성 (계층 A · 인물 0).** bbanana2 Nano Banana 2, `cafe.png`를 384×512 WebP 로 압축·업로드해 스타일 레퍼런스로 사용. 평면 기하·크림 `#F5EDDC`·청록 패널+산·소반/청자잔/주전자·창호 격자·단청 2군집. 인물·동물·문자 0. **규격 1086×1448 PNG 로의 변환은 미완** — 클라우드 샌드박스가 `*.supabase.co`로 못 나가 결과물을 못 받는다.
+- **세션 중 유입된 Joy 클립 2종 정규화.** `magpie_walking_forward`(배경 `#F7F7F7`, 흰비율 7%로 **매트 게이트 실패**)와 `magpie_right_walking_flying` 둘 다 **오디오 트랙이 있었다**(§0 무음 계약 위반). flood-fill 배경 정리 + `-an` 재인코딩으로 둘 다 복구.
+  - ⚠️ `magpie_walking_forward` 등장으로 **`tiger_walking_front`의 kind-분기 차단(GAP §2-2)이 해소 가능**해졌다. 다만 walking_front 는 여전히 루프 이음새 8.3배·피사체 면적 38% 증가·36프레임 앞발 잘림이라 **`loop: false` 원샷 전용**이고, walking_forward 도 이음새 12.1배·높이비 82.2%(태고 69.3%와 불일치)라 짝으로 쓰려면 양쪽 다 손봐야 한다.
+
+**검증:** `tool/check_clip_matte.py` **24개 중 0개 실패**(리포트 갱신) · 신규 클립 전 프레임 스캔 · 배너 240프레임 이음새 0.74배. 잔여: `magpie_perched`·`tiger_greet_pawflash` 두 기존 클립에 오디오 트랙 잔존(§0 위반, 이번 범위 밖). **미검증:** `flutter analyze`·`flutter test`(샌드박스에 dart 없음) · 실기기 시각 확인.
+
+### 2026-08-04 — 디자인 계획 R3·R4 구현 완료 (Cowork 클라우드, 브랜치 feat/design-r3-r7-2026-08)
+
+**Jin:** R2 게이트 전부 통과 확인 후 "브랜치 파서 작업" 지시 → main 보호용 브랜치 생성, R3부터 속행. 락 재발 원인 규명 요청 → **원인 = 클라우드 VM(device_bash) git 명령 + 마운트 unlink 금지**(git이 작업 후 락을 못 지움). 대응: `maintenance.auto=false`·`gc.auto=0` 설정 + 모든 호출을 락 mv 청소로 종료(git 명령을 마지막에 두는 실수 금지 규율화).
+
+- **R3 `ddc8304`** — `/path` §6.2: ① 진입 시 현재 노드 자동 스크롤(홈 미리보기 인자 소비, reduce-motion 존중) + 앱바 점프 버튼(`pathJumpToNow` DE/EN) ② 레벨 챕터 헤더 = `SoriLevelChip` 신규 공용 위젯(히어로 사설 칩 승격) + 사계 디바이더, Kursmissionen = 먹색 "0" 칩 챕터 0 명시(w800 raw −1 = 187) ③ 잠금 톤 R1-c 기충족 무변경. path_trail_tap_test 무접촉.
+- **R4-a `625986f`** — Üben §6.3: 순서 이어하기(due>0)→Lernen→Wörter→Spiele, 이어하기 = 홈 블록 5와 동일 소스(ReviewDeckService+todayGoalIds)·동일 문구, /review 진입점 화면당 1회(이어하기 노출 시 Wörter 목록 제외). §4.4-2 색 수렴: 19카드 → Lernen=primary·Wörter=accent·Spiele=goldOnLight.
+- **R4-b `68d6a99`** — Lerngruppe 빈 상태 §6.4: 조이 일러스트(magpie_encourage) + "Zusammen gebaut hält länger"(신규 키) + 혜택 3줄 + filled/outline CTA + **GyeHanok 재사용 미리보기**(더미 메타 4요소+60% ramp, AspectRatio 393×280).
+- **R4-c(검증, 무변경)** — Profil: G-2는 `AccountPendingOperationPanel`의 source/state 기반 shrink로, G-3은 SoriButton.filled+R1-c 비활성 톤으로 **기충족 확인**. 게스트 유도 문구는 §7.3 = R5 이관. + gye 로딩 CircularProgressIndicator → `AppLoading` 표준화(§8.1).
+- 게이트(로컬 몫): `flutter gen-l10n`(신규 키 pathJumpToNow·gyeEmptyHeadline·gyeEmptyPreviewCaption) → analyze → test → 실기기(/path 자동 스크롤·허브 순서·계 빈 상태·한옥 미리보기). 남은 페이즈 = **R5 문구 → R7 마감**.
+
 
 ### 2026-08-03 (후속) — 에셋 생성 프롬프트 복붙본 파일화 — 커밋·푸시
 
@@ -2234,3 +2324,62 @@ Jin은 iPhone풍 배지/필(둥근 pill 라벨, "칩" 강조 요소) UI를 싫�
 **Why:** 앱 화풍은 "Faceted Minhwa" 한옥/단청 정체성이고, Jin은 iOS 시스템풍 요소가 이질적이라고 느낀다. 강조는 별도 UI 크롬을 얹기보다 콘텐츠(텍스트) 자체에서 하는 걸 선호.
 
 **How to apply:** 무언가를 강조/안내할 때 배지·필·칩을 새로 얹기 전에 **기존 텍스트/콘텐츠 내 인라인 강조**(fontWeight, 색, `Text.rich`)로 해결 가능한지 먼저 고려. 배지형 UI가 꼭 필요하면 제안 전 Jin에게 확인. 관련 작업: [[cloze-shared-prompt-widget]].
+
+## 2026-08-03 · 장면 포스터 8종 단청 회화체 재작화
+
+플랫 벡터체 포스터가 "그림판" 느낌이라는 지적 → `listening_hero.png`/`porch.png`
+register(두꺼운 에어브러시 그라데이션 · 단청 국화문 · 구름문양 · 겹산)로 전량 재생성.
+대상 8종: home, convenience, directions, hotel, market, office, restaurant, taxi.
+
+- 모델: Nano Banana Pro, 3:4, 스타일 레퍼런스 = `listening_hero.png` 상단 크롭
+  (까치 위쪽 1254x330 → 512x135 webp, 8218 B). **생물이 없는 크롭**을 쓴 것이 핵심 —
+  이전 라운드에서 `cafe.png` 를 레퍼런스로 넣었다가 학·토끼·「药」가 혼입됐다.
+- 프롬프트 3원칙: (1) "style swatch 로만 쓰고 건물·배치·사물은 복사하지 마라"
+  (2) 금지를 긍정문으로 — "every surface is blank", "no living creature of any kind"
+  (3) 상단 1/3 여백 명시(텍스트 오버레이용)
+- 함정: "upper 40% is calm open space" 를 그대로 쓰면 모델이 **상단에 별도 띠를
+  붙여** 두 장 합성처럼 만든다(restaurant 1차). "ONE room in one shot,
+  no horizontal divider" 로 바꿔야 한다.
+- 함정: 상품·집기가 플랫 벡터로 떨어지면 "rounded three-dimensional form,
+  soft rim light, cast shadow" + "FORBIDDEN: flat single-tone rectangles" 를 추가.
+
+### 포스터 인코딩
+
+`lib/services/scene_asset_resolver.dart:51` 이 `scenes/{id}.png` 로 확장자를
+하드코딩 → WebP 불가, PNG 고정. 회화체라 팔레트가 밴딩날 줄 알았으나
+`listening_hero.png` A/B 검증 결과 256색+Floyd-Steinberg 는 2배 확대에서도
+밴딩이 안 보인다(평균오차 2.12, RGB 대비 1/3 용량). 규격 유지.
+→ `tool/scene_poster_normalize.py` 추가: `_raw/*.{png,jpg,webp}` →
+1086x1448 PNG-8. 평균오차 4.0 초과분만 RGB 폴백.
+
+## 2026-08-04 · 장면 포스터 11종 완성 + 카테고리 하중 재분배
+
+`airport` · `cafe` · `station` 도 같은 단청 register 로 재작화(플랫 벡터체 잔재 제거).
+포스터 11종이 모두 실재하게 되어 `_categoryById` 를 재분배:
+
+| 카테고리 | 전 | 후 |
+|---|---|---|
+| cafe | 10 | 7 (업무 3건 → office) |
+| directions | 8 | 2 (station 3 · taxi 2 · airport 1 분리) |
+| market | 9 | 8 (convenience 1 분리) |
+| home / restaurant / hotel | 8 / 3 / 1 | 그대로 |
+
+39개 시나리오 전수 유지. `clinic` 포스터는 아직 없어 진료 2건은 market 에 남김.
+
+### 가드 테스트 추가
+
+`test/scene_asset_resolver_test.dart` 에 두 개 추가 — 이제 ⚠️ 주석이 **강제된다**:
+
+1. `assets/data/scenarios.json` 의 id 집합 == `_categoryById` 의 id 집합
+   (양방향 diff — 미등록도, 삭제 잔재도 잡힌다)
+2. 맵에 쓰인 모든 카테고리 키에 `assets/illustrations/scenes/{key}.png` 실재
+
+맵이 private 이라 소스를 정규식으로 읽는다 — `arb_l10n_guard_test` 등과 같은 패턴.
+`airport_arrival` 기대값이 `directions` → `airport` 로 바뀌어 기존 4개 케이스도 갱신.
+
+### 포스터 정규화 결과
+
+11종 전량 1086x1448 PNG-8(256색). 12.4MB → 6.3MB.
+평균오차 0.86~2.47 로 전부 임계값(4.0) 미만 → RGB 폴백 0건.
+원본 896x1200 은 `assets/illustrations/scenes/_raw/` 에 보관(하위 디렉터리라
+pubspec 의 `scenes/` 선언으로는 번들되지 않음). 배치 확정 후 삭제할 것.

@@ -117,7 +117,7 @@ void main() {
               missionId: 'beta_games',
             ),
             (
-              name: 'Wordle',
+              name: 'Silben-Rätsel',
               context: FeedbackCompletion.wordle(
                 createId: createId,
                 level: 'a2',
@@ -299,7 +299,7 @@ void main() {
           'Custom Pack Matching',
           'Custom Pack Typing',
           'Chosung',
-          'Wordle',
+          'Silben-Rätsel',
           'Kkeunmari',
           'Daily Hangul',
           'Grammar',
