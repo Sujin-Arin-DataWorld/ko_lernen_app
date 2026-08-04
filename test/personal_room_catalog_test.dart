@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/data/personal_room_catalog.dart';
@@ -24,4 +26,13 @@ void main() {
       }
     },
   );
+
+  test('each personal room points to an available opaque room shell', () {
+    for (final surface in PersonalRoomSurface.values) {
+      expect(
+        File(personalRoomFor(surface).backgroundAsset).existsSync(),
+        isTrue,
+      );
+    }
+  });
 }
