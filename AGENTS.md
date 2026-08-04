@@ -256,6 +256,7 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] `SarangbangScreen`과 `SlotPickerSheet`가 `RoomPlacementService`를 통해 슬롯 선택·배치·명시적 비우기를 제공한다. 닫힘(`null`)과 비우기 sentinel을 분리하고, 빈 슬롯 표식도 실제 후보 계산과 같은 규칙을 쓴다 (`9678510`).
 - [x] 사랑방 UI의 ARB 키는 `flutter gen-l10n`으로 재생성해 공통 `AppL10n` 인터페이스 안에 선언되도록 복구했다 (`4391f80`).
+- [x] 사랑방 화면의 새 텍스트는 공통 `SoriTextTheme` 프리셋으로 수렴해 전역 `w800`·Pretendard 래칫을 늘리지 않는다 (`4f3e83`).
 - [ ] 보상 꾸러미 개봉: 후보 3개 선택을 내구성 있게 보유 장식으로 전환하고, 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -466,6 +467,12 @@ flutter run -d <android-id>   # 안드로이드
 - **문제:** `9678510`의 `lib/l10n/generated/app_localizations.dart`는 새 사랑방 getter 5개를 `lookupAppL10n()`의 닫는 중괄호 뒤에 넣어, `sarangbang_picker_test.dart` 로드 시 Dart 컴파일 오류가 났다.
 - **원인·변경:** ARB와 언어별 구현은 올바른데 공통 생성 파일만 수동 편집된 상태였다. `flutter gen-l10n`을 다시 실행해 모든 getter를 추상 `AppL10n` 클래스 안에 생성했고, 언어별 줄바꿈도 생성기 출력으로 일치시켰다.
 - **검증:** `flutter test test/room_layer_test.dart test/sarangbang_picker_test.dart test/decoration_slot_test.dart` **18 passed**, `dart analyze lib/screens/sarangbang_screen.dart lib/widgets/sori/room_layer.dart` **0 issues**, `git diff --check` 통과. 구현 커밋: `4391f80`.
+
+### 2026-08-04 (Codex) — 사랑방 UI 타이포 래칫 복구 — 커밋 완료
+
+- **문제:** 새 사랑방 화면이 raw `TextStyle`과 `FontWeight.w800`을 추가해 전역 타이포 래칫이 `w800 182/180`으로 실패했다.
+- **변경:** AppBar·시트 제목은 `SoriTextTheme.h3`, 선택 행은 `cardTitle`로 수렴했다. 기존 `SoriTextTheme`가 태블릿 comfort scale·표면 색·Pretendard 설정을 한 곳에서 유지하므로, 화면별 수동 폰트 선언을 남기지 않는다.
+- **검증:** RED로 `flutter test test/typography_guard_test.dart`의 `182 > 180` 실패를 확인한 뒤, `flutter test test/typography_guard_test.dart test/room_layer_test.dart test/sarangbang_picker_test.dart test/decoration_slot_test.dart` **22 passed**, 대상 `dart analyze` **0 issues**, `git diff --check` 통과. 구현 커밋: `4f3e83`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
