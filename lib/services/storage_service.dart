@@ -816,6 +816,7 @@ class Storage {
     }
     return out.toList();
   }
+
   static Future<void> addEarnedStamp(String motif) async {
     final list = earnedStamps;
     if (!list.contains(motif)) {
@@ -855,13 +856,21 @@ class Storage {
   }
 
   /// 방 배치 — 슬롯 id → 장식 슬러그. 슬롯당 하나.
-  /// 깨진 JSON 은 빈 배치로 떨어뜨린다(배치는 소실돼도 보유는 남는다).
+  /// 깨진 JSON 은 빈 배치로 떨어뜨리되, 일부 항목만 손상됐으면 유효한
+  /// 배치는 보존한다(배치는 소실돼도 보유는 남는다).
   static Map<String, String> get roomPlacement {
     final raw = _s('kl_room_placement');
     if (raw.isEmpty) return const {};
     try {
-      final m = jsonDecode(raw) as Map<String, dynamic>;
-      return {for (final e in m.entries) e.key: e.value as String};
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map) return const {};
+      final placement = <String, String>{};
+      for (final entry in decoded.entries) {
+        if (entry.key is String && entry.value is String) {
+          placement[entry.key as String] = entry.value as String;
+        }
+      }
+      return placement;
     } catch (_) {
       return const {};
     }

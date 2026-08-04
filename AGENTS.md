@@ -232,6 +232,10 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 600dp 이상 중형 안드로이드 태블릿·폴더블은 96dp 라벨 레일을 쓰고, 720dp까지는 콘텐츠/CTA 확대를 점진 적용한다. 레일 단위 테스트와 331개 화면 매트릭스 통과 (`7cb426b`).
 - [ ] Jin 실기기: Galaxy Tab 및 Xiaomi Pad에서 세로/가로 회전, 시스템 글자 확대 1.0/1.3, 탭 전환·재선택·학습 진입을 확인한다.
 
+### 사랑방 배치 저장 복구 (2026-08-04)
+
+- [x] `roomPlacement`가 일부 잘못된 SharedPreferences 항목 때문에 유효한 방 배치까지 전부 비우지 않도록 고쳤다. 유효한 `String → String` 항목은 보존하고, 손상 JSON/항목은 fail-closed로 제외한다 (커밋 대기).
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -2547,3 +2551,12 @@ bottom 앵커는 폭만 고정하는 마당 규약을 그대로 유지한다.
 반환하도록 재작성했다. 탭 처리는 `Positioned` **안쪽** content 를 감싸서 해결.
 
 가드 테스트 10개로 확장(center⇒heightFrac>0, bottom⇒0, 위로 넘침 검사 추가).
+
+### 2026-08-04 · 사랑방 배치 저장 복구
+
+`kl_room_placement`의 한 항목이 손상되면 기존 구현은 전체 Map 캐스트가 실패해
+나머지 유효한 배치까지 `{}`로 잃었다. 항목 단위로 `String → String`만 선별해
+보존하도록 변경했다. malformed JSON 자체는 기존처럼 빈 배치로 fail-closed 한다.
+
+검증: 실제 SharedPreferences 혼합 fixture 회귀 테스트, `decoration_slot_test` 포함
+Flutter 11개 통과 및 관련 Dart analyze 0 issues. 커밋: pending.
