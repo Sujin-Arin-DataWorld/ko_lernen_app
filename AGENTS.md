@@ -248,6 +248,10 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] `ownedDecor`를 root backup의 `progress.owned_decor`로 저장·복원해 기기 교체/계정 병합에서 합집합으로 보존한다. 고유 보상 id와 충돌 정책이 없는 미개봉 꾸러미·슬롯 배치는 동기화 범위에 넣지 않았다 (`6d5d186`).
 
+### 사랑방 배치 동작 서비스 (2026-08-04)
+
+- [x] UI와 분리된 `RoomPlacementService`가 손상된 배치 정규화, 슬롯별 후보 계산, 보유·카테고리·중복 검증, 저장을 맡는다. 이후 어떤 화면도 raw Storage API를 직접 조합할 필요가 없다 (`1d5a754`).
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -444,6 +448,12 @@ flutter run -d <android-id>   # 안드로이드
 - **범위:** 선택을 마친 장식은 중복 없는 컬렉션이므로 클라우드 복원에서 안전하게 합집합 처리할 수 있다. 반면 미개봉 꾸러미는 같은 출처가 여러 번 올 수 있고, 슬롯 배치는 기기 간 서로 다른 선택이 충돌할 수 있어 둘은 고유 보상 id·충돌 정책이 생길 때까지 의도적으로 로컬에 남긴다.
 - **변경:** `CloudSync.buildBackupPayload()`의 `progress.owned_decor`에 보유 장식을 넣고, restore/reconciliation write에서는 nonempty string만 `Storage.addOwnedDecor`로 union했다. 이미 가진 장식은 Storage의 중복 방지 계약으로 다시 쓰지 않는다.
 - **검증:** payload 전수 기대값·로컬/원격 합집합(잘못된 원격 항목 무시)·계정 병합 local-store round-trip을 고정했다. 관련 5개 Flutter 스위트 **71 passed**, `test/services/account/account_reconciliation_test.dart` **46 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `6d5d186`.
+
+### 2026-08-04 (Codex) — 사랑방 배치 동작 서비스 — 커밋 완료
+
+- **변경:** `RoomPlacementService`를 추가했다. 저장 배치는 슬롯 순서로 정규화해 unknown slot·카테고리 불일치·중복 장식만 제거하고, 후보 목록은 보유·카테고리·다른 슬롯의 사용 여부를 함께 확인한다. 새 배치는 반드시 보유·호환을 통과해야 하며, 같은 장식은 이동 처리로 한 슬롯에만 남는다.
+- **데이터 안전:** 기존 배치를 정규화할 때 소유 목록을 삭제 근거로 사용하지 않는다. 동기화/복원 순서 때문에 소유 목록이 일시적으로 늦어도 유효한 기존 방 배치를 지우지 않기 위해서다. 다만 새 배치 요청은 소유권을 필수로 확인한다.
+- **검증:** 서비스 계약(정규화 우선순위·후보 필터·보유/비보유·호환/비호환·없는 슬롯·비우기), 저장 손상 복구, RoomLayer 카테고리 가드, 슬롯 불변식 묶음이 **16 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `1d5a754`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
