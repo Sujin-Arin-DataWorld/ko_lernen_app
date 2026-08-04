@@ -4255,4 +4255,20 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get moduleBadgeDue => 'DUE';
+
+  @override
+  String get sarangbangTitle => 'Study room';
+
+  @override
+  String get sarangbangEmptyTitle => 'Nothing to arrange yet';
+
+  @override
+  String get sarangbangEmptyBody => 'Finish quests and open your bojagi bundle — then you can furnish the room.';
+
+  @override
+  String get sarangbangPickTitle => 'What goes here?';
+
+  @override
+  String get sarangbangClear => 'Leave this spot empty';
+
 }

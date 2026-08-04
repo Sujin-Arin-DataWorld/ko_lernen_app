@@ -1,6 +1,5 @@
 {
   "@@locale": "de",
-
   "paywallTitle": "Hangul Sori Premium",
   "paywallSubtitle": "Koreanisch lernen — ohne Grenzen.",
   "paywallBenefit1": "Alle Vokabel-Pakete (A2 · B1 · B2)",
@@ -19,17 +18,27 @@
   "paywallSuccess": "Premium ist aktiv. Viel Spaß!",
   "paywallFailed": "Kauf nicht abgeschlossen.",
   "paywallRestoreNone": "Keine früheren Käufe gefunden.",
-
   "streakDisplay": "{days, plural, one{1 Tag} other{{days} Tage}}",
-  "@streakDisplay": { "placeholders": { "days": { "type": "int" } } },
+  "@streakDisplay": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
   "streakDialogTitle": "Deinen Streak halten",
   "streakDialogSubtitle": "Lern jeden Tag — dein Streak wächst!",
   "streakDialogEarned": "Dranbleiben lohnt sich",
   "streakDialogCurrent": "Aktueller Streak: {days, plural, one{1 Tag} other{{days} Tage}}",
-  "@streakDialogCurrent": { "placeholders": { "days": { "type": "int" } } },
+  "@streakDialogCurrent": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
   "streakDialogLastActivity": "Zuletzt aktiv: {time}",
   "streakDialogLearnNow": "Jetzt lernen",
-
   "characterSelectionTitle": "Wer ist dein Lernfreund?",
   "homeMagpieBubbleStart": "Fangen wir in Ruhe an – Zeichen für Zeichen.",
   "homeMagpieBubbleResume": "Schön, dich zu sehen. Sollen wir kurz wiederholen?",
@@ -44,7 +53,6 @@
   "characterTraitMagpie": "Fröhlich & lebendig",
   "characterDescMagpie": "In Korea gilt die Elster als Glücksbotin, die gute Nachrichten bringt. Joy feiert jeden Erfolg mit dir und bringt gute Laune in jede Lektion.",
   "characterSelectionHint": "Tipp deinen Lernfreund an",
-
   "reviewTitle": "Heute wiederholen",
   "reviewEmptyTitle": "Alles erledigt!",
   "reviewEmptyBody": "Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Paket — die Wörter tauchen hier zur Wiederholung auf.",
@@ -53,9 +61,14 @@
   "reviewBonusLabel": "Satz des Tages",
   "homeReviewTitle": "Heute wiederholen",
   "homeReviewDue": "{n, plural, one{1 Wort fällig} other{{n} Wörter fällig}}",
-  "@homeReviewDue": { "placeholders": { "n": { "type": "int" } } },
+  "@homeReviewDue": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "homeReviewDone": "Heute alles wiederholt",
-
   "settingsNotifSection": "Erinnerung",
   "settingsNotifTitle": "Tägliche Erinnerung",
   "settingsNotifSubtitle": "Taego erinnert dich ans Lernen",
@@ -63,7 +76,6 @@
   "settingsNotifDenied": "Benachrichtigungen sind deaktiviert. Erlaube sie in den Systemeinstellungen.",
   "notificationTitle": "Hangul Sori",
   "notificationBody": "Taego wartet — Zeit für Koreanisch! 🐯",
-
   "homeCourseTitle": "Dein Tageskurs",
   "homeCourseDesc": "Auf deine Schwächen & Interessen zugeschnitten",
   "settingsInterestsTitle": "Interessen",
@@ -75,22 +87,18 @@
   "interestTravel": "Reisen & Verkehr",
   "interestFeelingsPeople": "Gefühle & Menschen",
   "interestHealthBody": "Gesundheit & Körper",
-
   "smalltalkTitle": "Small Talk",
   "smalltalkEmpty": "Keine Sätze für diese Auswahl.",
   "smalltalkReply": "Beispielantwort",
   "smalltalkPickCategory": "Thema wählen",
   "homeSmalltalkCardTitle": "Small Talk",
   "homeSmalltalkCardDesc": "Gesprächseinstiege nach Thema",
-
   "appTitle": "Koreanisch lernen",
   "welcomeMsg": "Hallo! Du schaffst das heute 💪",
   "footerCheer": "Bleib dran, läuft super! 🌟",
-
   "sectionModules": "Lernmodule",
   "sectionGames": "Spiele",
   "sectionStats": "Statistik",
-
   "moduleHangulTitle": "Hangul",
   "moduleHangulDesc": "14 Konsonanten + 10 Vokale",
   "moduleVocabTitle": "Vokabeln",
@@ -103,7 +111,6 @@
   "gameChosungDesc": "Errate das Wort anhand der Anfangsbuchstaben",
   "gameWordleTitle": "Silben-Rätsel",
   "gameWordleDesc": "2–3 Silben · 6 Versuche",
-
   "navVocab": "Vokabeln",
   "navGrammar": "Grammatik",
   "navListen": "Hören",
@@ -112,7 +119,6 @@
   "navWordle": "Silben-Rätsel",
   "navSettings": "Einstellungen",
   "navStats": "Statistik",
-
   "btnHoeren": "Hören",
   "btnSkip": "Überspringen",
   "btnSubmit": "Prüfen",
@@ -129,71 +135,84 @@
   "btnApply": "Übernehmen",
   "btnPlay": "Üben",
   "btnDelete": "Löschen",
-
-  "@_phase5_1_bookshelf": { "description": "Phase 5.1 (stately-rising-jongga) — Bookshelf + Custom Pack UI." },
-  "bookshelfTitle":              "Mein Bücherregal",
-  "bookshelfAddPage":            "Seite hinzufügen",
-  "bookshelfEmptyTitle":         "Noch keine Seite",
-  "bookshelfEmptyBody":          "Fotografiere deine erste Lehrbuchseite — die erkannten Wörter landen hier.",
-  "bookshelfEmptyCta":           "Seite einlesen",
-  "bookshelfSectionPages":       "Seiten",
+  "@_phase5_1_bookshelf": {
+    "description": "Phase 5.1 (stately-rising-jongga) — Bookshelf + Custom Pack UI."
+  },
+  "bookshelfTitle": "Mein Bücherregal",
+  "bookshelfAddPage": "Seite hinzufügen",
+  "bookshelfEmptyTitle": "Noch keine Seite",
+  "bookshelfEmptyBody": "Fotografiere deine erste Lehrbuchseite — die erkannten Wörter landen hier.",
+  "bookshelfEmptyCta": "Seite einlesen",
+  "bookshelfSectionPages": "Seiten",
   "bookshelfSectionCustomPacks": "Eigene Pakete",
-  "bookshelfTileMeta":           "{words, plural, one{1 Wort} other{{words} Wörter}} · {grammar} Grammatik · {date}",
+  "bookshelfTileMeta": "{words, plural, one{1 Wort} other{{words} Wörter}} · {grammar} Grammatik · {date}",
   "@bookshelfTileMeta": {
     "placeholders": {
-      "words":   { "type": "int" },
-      "grammar": { "type": "int" },
-      "date":    { "type": "String" }
+      "words": {
+        "type": "int"
+      },
+      "grammar": {
+        "type": "int"
+      },
+      "date": {
+        "type": "String"
+      }
     }
   },
-  "bookshelfPackMeta":           "{n, plural, one{1 Wort} other{{n} Wörter}}",
+  "bookshelfPackMeta": "{n, plural, one{1 Wort} other{{n} Wörter}}",
   "@bookshelfPackMeta": {
-    "placeholders": { "n": { "type": "int" } }
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
   },
-  "bookshelfPageTitle":          "Seite",
-  "bookshelfPageNotFoundTitle":  "Seite nicht gefunden",
-  "bookshelfPageNotFoundBody":   "Möglicherweise wurde sie gelöscht.",
-  "bookshelfCreatePackCta":      "Eigenes Paket aus dieser Seite",
-  "bookshelfCreatePackTitle":    "Neues eigenes Paket",
-  "bookshelfCreatePackName":     "Name",
-  "bookshelfCreatePackSaved":    "Paket gespeichert.",
-  "bookshelfDeletePageTitle":    "Seite löschen?",
-  "bookshelfDeletePageBody":     "Die Seite wird endgültig entfernt.",
-  "bookshelfDeletePackTitle":    "Paket löschen?",
-  "bookshelfDeletePackBody":     "Soll \"{name}\" gelöscht werden?",
+  "bookshelfPageTitle": "Seite",
+  "bookshelfPageNotFoundTitle": "Seite nicht gefunden",
+  "bookshelfPageNotFoundBody": "Möglicherweise wurde sie gelöscht.",
+  "bookshelfCreatePackCta": "Eigenes Paket aus dieser Seite",
+  "bookshelfCreatePackTitle": "Neues eigenes Paket",
+  "bookshelfCreatePackName": "Name",
+  "bookshelfCreatePackSaved": "Paket gespeichert.",
+  "bookshelfDeletePageTitle": "Seite löschen?",
+  "bookshelfDeletePageBody": "Die Seite wird endgültig entfernt.",
+  "bookshelfDeletePackTitle": "Paket löschen?",
+  "bookshelfDeletePackBody": "Soll \"{name}\" gelöscht werden?",
   "@bookshelfDeletePackBody": {
-    "placeholders": { "name": {} }
+    "placeholders": {
+      "name": {}
+    }
   },
-
-  "customPackPlayTitle":         "Eigenes Paket üben",
-  "customPackNotFoundTitle":     "Paket nicht gefunden",
-  "customPackNotFoundBody":      "Möglicherweise wurde es gelöscht.",
-  "customPackEmptyTitle":        "Paket ist leer",
-  "customPackEmptyBody":         "Dieser Paket enthält noch keine Wörter.",
-  "customPackResultTitle":       "Geschafft!",
-  "customPackResultDone":        "Alle Karten durchgegangen!",
-  "customPackResultStats":       "{learned} von {total} als gewusst markiert",
+  "customPackPlayTitle": "Eigenes Paket üben",
+  "customPackNotFoundTitle": "Paket nicht gefunden",
+  "customPackNotFoundBody": "Möglicherweise wurde es gelöscht.",
+  "customPackEmptyTitle": "Paket ist leer",
+  "customPackEmptyBody": "Dieser Paket enthält noch keine Wörter.",
+  "customPackResultTitle": "Geschafft!",
+  "customPackResultDone": "Alle Karten durchgegangen!",
+  "customPackResultStats": "{learned} von {total} als gewusst markiert",
   "@customPackResultStats": {
     "placeholders": {
-      "learned": { "type": "int" },
-      "total":   { "type": "int" }
+      "learned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
-  "customPackResultAgain":       "Nochmal durchgehen",
-  "customPackResultBack":        "Zurück zum Bücherregal",
-
-  "homeBookCardTitle":           "Buchseite",
-  "homeBookCardDesc":            "Foto machen → Wörter & Grammatik",
-  "homeBookshelfCardTitle":      "Mein Bücherregal",
-  "homeBookshelfCardDesc":       "Gespeicherte Seiten & Eigene Pakete",
-  "homeQuestsCardTitle":         "Quests",
-  "homeQuestsCardDesc":          "Schalte mehr Hanok-Dekoration frei",
-
+  "customPackResultAgain": "Nochmal durchgehen",
+  "customPackResultBack": "Zurück zum Bücherregal",
+  "homeBookCardTitle": "Buchseite",
+  "homeBookCardDesc": "Foto machen → Wörter & Grammatik",
+  "homeBookshelfCardTitle": "Mein Bücherregal",
+  "homeBookshelfCardDesc": "Gespeicherte Seiten & Eigene Pakete",
+  "homeQuestsCardTitle": "Quests",
+  "homeQuestsCardDesc": "Schalte mehr Hanok-Dekoration frei",
   "settingsBookEndpointSection": "Cloud-Analyse-Endpoint",
-  "settingsBookEndpointHint":    "URL der Cloud Function (DeepL + OKT). Leer = nur Offline-Grammatik.",
-  "settingsBookEndpointSave":    "Speichern",
-  "settingsBookEndpointSaved":   "Endpoint gespeichert.",
-
+  "settingsBookEndpointHint": "URL der Cloud Function (DeepL + OKT). Leer = nur Offline-Grammatik.",
+  "settingsBookEndpointSave": "Speichern",
+  "settingsBookEndpointSaved": "Endpoint gespeichert.",
   "filterTitle": "Filter",
   "filterLevel": "Level",
   "filterTheme": "Thema",
@@ -202,21 +221,17 @@
   "filterAll": "Alle",
   "filterDirKoDe": "🇰🇷 Koreanisch → 🇩🇪 Deutsch",
   "filterDirDeKo": "🇩🇪 Deutsch → 🇰🇷 Koreanisch",
-
   "emptyVocab": "Keine Vokabeln für diesen Filter.\nPasse die Auswahl an.",
   "emptyGrammar": "Keine Muster für diesen Filter.",
   "loadingVocab": "Vokabeln laden …",
   "loadingGrammar": "Grammatik laden …",
-
   "hintTapToFlip": "Tippen zum Umdrehen",
   "hintTapForExplanation": "Tippen für Erklärung",
-
   "chosungQuestion": "Welches Wort?",
   "chosungInputHint": "Koreanisch eingeben …",
   "chosungShowHint": "Hören (Tipp)",
   "chosungCorrect": "✓ Richtig!",
   "chosungAnswer": "Antwort",
-
   "wordleHowTitle": "Spielanleitung",
   "wordleHowIntro": "Errate das koreanische Wort in 6 Versuchen. Die Farben geben Hinweise.",
   "wordleHowExact": "Richtig",
@@ -228,12 +243,15 @@
   "wordleHowOutro": "Jeden Tag ein neues Wort.\nShuffle für ein zufälliges Wort.",
   "wordleErrorLength": "Bitte {n} Silben eingeben",
   "@wordleErrorLength": {
-    "placeholders": { "n": { "type": "int" } }
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
   },
   "wordleErrorHangul": "Bitte nur Hangul eingeben",
   "wordleResultWin": "Geschafft!",
   "wordleResultLose": "😢 Leider daneben",
-
   "settingsTitle": "Einstellungen",
   "settingsLanguage": "Sprache",
   "settingsLanguageSystem": "Systemsprache",
@@ -266,11 +284,19 @@
   "settingsResetConfirm": "Wirklich alle Lernfortschritte löschen? Das lässt sich nicht rückgängig machen.",
   "settingsAbout": "Über die App",
   "settingsVersion": "Version {v}",
-  "@settingsVersion": { "placeholders": { "v": {} } },
+  "@settingsVersion": {
+    "placeholders": {
+      "v": {}
+    }
+  },
   "settingsPrivacyTitle": "Datenschutzerklärung",
   "settingsPrivacySubtitle": "Link kopieren",
   "settingsPrivacyCopied": "Link kopiert: {url}",
-  "@settingsPrivacyCopied": { "placeholders": { "url": {} } },
+  "@settingsPrivacyCopied": {
+    "placeholders": {
+      "url": {}
+    }
+  },
   "settingsPrivacySection": "Datenschutz",
   "settingsAnalyticsTitle": "Nutzungsstatistiken",
   "settingsAnalyticsDesc": "Anonyme App-Nutzung teilen (Firebase Analytics)",
@@ -285,7 +311,6 @@
   "settingsDataSourcesIntro": "Die Inhalte dieser App bauen auf öffentlich zugänglichen Sprachdaten auf. Jede Quelle ist hier mit Lizenz und Attribution genannt.",
   "settingsDataLicenseNote": "CC BY-SA 2.0 KR Hinweis",
   "settingsDataLicenseBody": "Korea-Wörterbuchdaten (Definitionen, Übersetzungen) stammen aus 우리말샘 (National Institute of Korean Language) und stehen unter CC BY-SA 2.0 KR. Abgeleitete Inhalte (z. B. die in dieser App enthaltenen JSON-Dateien) werden unter derselben Lizenz weitergegeben.",
-
   "statsHeader": "Dein Fortschritt",
   "statsCardsLearned": "Karten gelernt",
   "statsAccuracy": "Genauigkeit",
@@ -295,14 +320,11 @@
   "statsStreakShieldHint": "Schützt einen verpassten Tag.",
   "statsWordleWins": "Silben-Rätsel-Siege",
   "statsWordleStreak": "Silben-Rätsel-Streak",
-
   "screenVocabTitle": "Vokabeln",
   "screenGrammarTitle": "Grammatik",
   "screenWordleTitle": "Silben-Rätsel",
   "screenHangulTitle": "Hangul",
-
   "filterOpenBtn": "Filter öffnen",
-
   "hangulTabOverview": "Übersicht",
   "hangulTabCards": "Karten",
   "hangulTabWrite": "Schreiben",
@@ -316,16 +338,39 @@
   "hangulTraceTitle": "Mit dem Finger nachzeichnen",
   "hangulClearBtn": "Löschen",
   "hangulPronounceLetter": "{letter} aussprechen",
-  "@hangulPronounceLetter": { "placeholders": { "letter": {} } },
-
+  "@hangulPronounceLetter": {
+    "placeholders": {
+      "letter": {}
+    }
+  },
   "wordleSyllableCount": "{n}-Silben-Wort · 6 Versuche",
-  "@wordleSyllableCount": { "placeholders": { "n": { "type": "int" } } },
+  "@wordleSyllableCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "wordleMeaning": "Bedeutung: {german}",
-  "@wordleMeaning": { "placeholders": { "german": {} } },
+  "@wordleMeaning": {
+    "placeholders": {
+      "german": {}
+    }
+  },
   "wordleAnswerLabel": "Antwort: {target}",
-  "@wordleAnswerLabel": { "placeholders": { "target": {} } },
+  "@wordleAnswerLabel": {
+    "placeholders": {
+      "target": {}
+    }
+  },
   "wordleInputHint": "{n} Silben eingeben …",
-  "@wordleInputHint": { "placeholders": { "n": { "type": "int" } } },
+  "@wordleInputHint": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "wordleLegendCorrect": "Richtige Stelle",
   "wordleLegendPresent": "Falsche Stelle",
   "wordleLegendAbsent": "Nicht enthalten",
@@ -333,30 +378,52 @@
   "wordleNewWordBtn": "Neues Wort",
   "wordleHelpTooltip": "Spielanleitung",
   "wordleShuffleTooltip": "Neues Wort",
-
   "settingsAdsSection": "Anzeigen",
   "settingsShowAds": "Werbung anzeigen",
   "settingsShowAdsDesc": "Hilft beim Erhalten der App",
-
   "placeholderComingSoon": "Bald verfügbar 🚧",
-
   "chosungSubmitBtn": "Bestätigen",
   "chosungHintBtn": "Hinweis",
   "chosungAnswerLabel": "Antwort: {word}",
-  "@chosungAnswerLabel": { "placeholders": { "word": {} } },
+  "@chosungAnswerLabel": {
+    "placeholders": {
+      "word": {}
+    }
+  },
   "chosungRoundDoneTitle": "Runde abgeschlossen!",
   "chosungRoundAccuracy": "{percent}% richtig",
-  "@chosungRoundAccuracy": { "placeholders": { "percent": { "type": "int" } } },
+  "@chosungRoundAccuracy": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
   "chosungRoundAvgTime": "Ø {seconds}s pro Frage",
-  "@chosungRoundAvgTime": { "placeholders": { "seconds": {} } },
+  "@chosungRoundAvgTime": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
   "chosungRoundContinue": "Weitermachen",
   "chosungRoundLevelUp": "Stark! Probier Stufe {level} aus.",
-  "@chosungRoundLevelUp": { "placeholders": { "level": {} } },
+  "@chosungRoundLevelUp": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "chosungRoundKeepLevel": "Gut gemacht — bleib noch bei Stufe {level}.",
-  "@chosungRoundKeepLevel": { "placeholders": { "level": {} } },
+  "@chosungRoundKeepLevel": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "chosungRoundReview": "Kein Problem — üb Stufe {level} noch mal.",
-  "@chosungRoundReview": { "placeholders": { "level": {} } },
-
+  "@chosungRoundReview": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "statsTitle": "Statistik",
   "statsSubtitle": "Dein Lernfortschritt",
   "statsDays": "Tage",
@@ -369,31 +436,51 @@
   "statsGamesSection": "Spiele",
   "statsStreakSection": "Streak",
   "statsBestLabel": "Bester: {n}",
-  "@statsBestLabel": { "placeholders": { "n": { "type": "int" } } },
-
+  "@statsBestLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "vocabModeAll": "Alle",
   "vocabModeDue": "Heute fällig",
   "vocabDueBadge": "{n} fällig",
-  "@vocabDueBadge": { "placeholders": { "n": { "type": "int" } } },
+  "@vocabDueBadge": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "vocabTodayBadge": "Heute ({newCount} neu · {reviewCount} Wdh.)",
   "@vocabTodayBadge": {
     "description": "Tagesziel Chip — N neue Karten + M Wiederholungen (Phase 1 SRS-UX-Patch, stately-rising-jongga).",
     "placeholders": {
-      "newCount":    { "type": "int" },
-      "reviewCount": { "type": "int" }
+      "newCount": {
+        "type": "int"
+      },
+      "reviewCount": {
+        "type": "int"
+      }
     }
   },
   "vocabDueEmpty": "Heute alles erledigt!\nKomm morgen wieder.",
   "vocabDueEmptyAction": "Trotzdem üben",
-
-  "@_phase2_vocab_packs": { "description": "Phase 2 (stately-rising-jongga) — Pack-UX Texte." },
+  "@_phase2_vocab_packs": {
+    "description": "Phase 2 (stately-rising-jongga) — Pack-UX Texte."
+  },
   "vocabPacksTitle": "Vokabel-Pakete",
   "vocabPacksLevelMenu": "Level wechseln",
   "vocabPacksProgressLabel": "{cleared}/{total} Pakete geschafft",
   "@vocabPacksProgressLabel": {
     "placeholders": {
-      "cleared": { "type": "int" },
-      "total":   { "type": "int" }
+      "cleared": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "vocabPacksEmptyTitle": "Noch keine Pakete",
@@ -401,221 +488,301 @@
   "vocabPackLockedNoPrev": "Dieses Paket ist noch gesperrt.",
   "vocabPackLockedHint": "Schließe zuerst „{prev}“ mit ≥ 70 % ab.",
   "@vocabPackLockedHint": {
-    "placeholders": { "prev": {} }
+    "placeholders": {
+      "prev": {}
+    }
   },
-
-  "@_phase5_book": { "description": "Phase 5 (stately-rising-jongga) — \"책 한 컷\" Snap-and-Learn." },
-  "bookCaptureTitle":            "Buchseite einlesen",
-  "bookCaptureHero":             "Fotografiere eine Lehrbuchseite",
-  "bookCaptureSubtitle":         "Das Bild bleibt auf deinem Gerät. Nur erkannter Text wird analysiert.",
-  "bookCaptureCamera":           "Kamera",
-  "bookCaptureGallery":          "Aus Galerie",
-  "bookCaptureLoading":          "Texterkennung läuft …",
-  "bookCaptureErrorNoKorean":    "Kein Koreanisch erkannt — bitte mach ein schärferes Foto.",
-  "bookCaptureErrorPermission":  "Berechtigung verweigert. Du kannst es in den Einstellungen erlauben.",
-  "bookCaptureErrorQuota":       "Tägliches Limit erreicht (20 Seiten). Komm morgen wieder.",
-  "bookCaptureErrorOcr":         "Texterkennung fehlgeschlagen.",
-  "bookCaptureErrorUnknown":     "Unerwarteter Fehler.",
-  "bookCropTitle":               "Bereich zuschneiden",
-  "bookPreviewTitle":            "Text prüfen",
-  "bookPreviewHint":             "{count} Textblöcke erkannt — bei Bedarf korrigieren.",
+  "@_phase5_book": {
+    "description": "Phase 5 (stately-rising-jongga) — \"책 한 컷\" Snap-and-Learn."
+  },
+  "bookCaptureTitle": "Buchseite einlesen",
+  "bookCaptureHero": "Fotografiere eine Lehrbuchseite",
+  "bookCaptureSubtitle": "Das Bild bleibt auf deinem Gerät. Nur erkannter Text wird analysiert.",
+  "bookCaptureCamera": "Kamera",
+  "bookCaptureGallery": "Aus Galerie",
+  "bookCaptureLoading": "Texterkennung läuft …",
+  "bookCaptureErrorNoKorean": "Kein Koreanisch erkannt — bitte mach ein schärferes Foto.",
+  "bookCaptureErrorPermission": "Berechtigung verweigert. Du kannst es in den Einstellungen erlauben.",
+  "bookCaptureErrorQuota": "Tägliches Limit erreicht (20 Seiten). Komm morgen wieder.",
+  "bookCaptureErrorOcr": "Texterkennung fehlgeschlagen.",
+  "bookCaptureErrorUnknown": "Unerwarteter Fehler.",
+  "bookCropTitle": "Bereich zuschneiden",
+  "bookPreviewTitle": "Text prüfen",
+  "bookPreviewHint": "{count} Textblöcke erkannt — bei Bedarf korrigieren.",
   "@bookPreviewHint": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
-  "bookPreviewAnalyze":          "Analysieren",
-  "bookPreviewRetake":           "Neu aufnehmen",
-  "bookResultTitle":             "Ergebnis",
-  "loadErrorTryAgain":           "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-  "bookResultAnalyzing":         "Wörter & Grammatik werden analysiert …",
-  "bookResultFoundN":            "{n} neue Wörter gefunden",
+  "bookPreviewAnalyze": "Analysieren",
+  "bookPreviewRetake": "Neu aufnehmen",
+  "bookResultTitle": "Ergebnis",
+  "loadErrorTryAgain": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+  "bookResultAnalyzing": "Wörter & Grammatik werden analysiert …",
+  "bookResultFoundN": "{n} neue Wörter gefunden",
   "@bookResultFoundN": {
-    "placeholders": { "n": { "type": "int" } }
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
   },
-  "dojangTitle":                 "Stempelbuch",
-  "dojangEmptyTitle":            "Noch keine Stempel",
-  "dojangEmptyBody":             "Schließ Vokabelpakete ab und sammle Dancheong-Stempel.",
-  "dojangProgress":              "{earned} von {total} Stempeln gesammelt",
+  "dojangTitle": "Stempelbuch",
+  "dojangEmptyTitle": "Noch keine Stempel",
+  "dojangEmptyBody": "Schließ Vokabelpakete ab und sammle Dancheong-Stempel.",
+  "dojangProgress": "{earned} von {total} Stempeln gesammelt",
   "@dojangProgress": {
-    "placeholders": { "earned": { "type": "int" }, "total": { "type": "int" } }
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   },
-  "gyeEntryTitle":               "Lern-Gye",
-  "gyeEntryDesc":                "Gemeinsam ein Hanok bauen",
-  "gyeChooserTitle":             "Gye (Lerngruppe)",
-  "gyeChooserCreate":            "Gye erstellen",
-  "gyeChooserJoin":              "Mit Code beitreten",
-  "gyeCreateTitle":              "Gye erstellen",
-  "gyeJoinTitle":                "Gye beitreten",
-  "gyeNameLabel":                "Gye-Name",
-  "gyeNameHint":                 "z. B. Morgentiger",
-  "gyeNicknameLabel":            "Dein Spitzname",
-  "gyeNicknameHint":             "Für alle im Gye sichtbar",
-  "gyeCodeLabel":                "Beitrittscode",
-  "gyeCodeInputLabel":           "6-stelliger Code",
-  "gyeCreateCta":                "Erstellen",
-  "gyeJoinCta":                  "Beitreten",
-  "gyeCreatedTitle":             "Gye erstellt!",
-  "gyeShareCode":                "Code teilen",
-  "gyeInviteTitle":              "Lade Freunde ein",
-  "gyeInviteBody":               "Ein Gye lebt von seinen Mitgliedern — teile den Code mit Freunden.",
-  "gyeCopyCode":                 "Code kopieren",
-  "gyeCodeCopied":               "Code kopiert",
-  "gyeShareMessage":             "Tritt meinem Hangul-Sori-Gye bei! Code: {code}",
-  "@gyeShareMessage": { "placeholders": { "code": {} } },
-  "gyeJoinedSnack":              "{name} beigetreten!",
-  "@gyeJoinedSnack": { "placeholders": { "name": {} } },
-  "gyeErrNetwork":               "Netzwerkfehler. Bitte erneut versuchen.",
-  "gyeErrNotFound":              "Kein Gye für diesen Code gefunden.",
-  "gyeErrFull":                  "Dieses Gye ist voll (max. 10).",
-  "gyeErrTooMany":               "Du kannst höchstens 3 Gye beitreten.",
-  "gyeErrName":                  "Bitte gib einen gültigen Gye-Namen ein.",
-  "gyeErrNickname":              "Bitte gib einen gültigen Spitznamen ein.",
-  "gyeErrProfanity":             "Bitte wähle ein anderes Wort.",
-  "gyeErrAgeRestricted":         "Gye ist ab 16 Jahren nutzbar. Da nur dein lokal selbst angegebenes Geburtsjahr gespeichert wird, prüft die App konservativ und schaltet erst bei mindestens 17 Jahren Jahresdifferenz frei.",
-  "gyeAgeYearTitle":             "Geburtsjahr",
-  "gyeAgeYearBody":              "Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.",
-  "gyeAgeYearHint":              "z. B. 2005",
-  "gyeOpenCta":                  "Gye öffnen",
-  "gyeTitle":                    "Gye",
-  "gyeNotFoundTitle":            "Gye nicht gefunden",
-  "gyeNotFoundBody":             "Dieses Gye wurde möglicherweise entfernt.",
-  "gyeMembersN":                 "{count} Mitglieder",
-  "@gyeMembersN": { "placeholders": { "count": { "type": "int" } } },
-  "gyeWeeklyGoal":               "Wochenziel",
-  "gyeNoGoal":                   "Noch kein Wochenziel",
-  "gyeDureTitle":                "Diese Woche zusammen",
-  "gyeDureMe":                   "Ich",
-  "gyeDureEmpty":                "Noch leer — schließ ein Paket ab und mach den Anfang!",
-  "gyeChallengeTitle":           "Alle dabei?",
+  "gyeEntryTitle": "Lern-Gye",
+  "gyeEntryDesc": "Gemeinsam ein Hanok bauen",
+  "gyeChooserTitle": "Gye (Lerngruppe)",
+  "gyeChooserCreate": "Gye erstellen",
+  "gyeChooserJoin": "Mit Code beitreten",
+  "gyeCreateTitle": "Gye erstellen",
+  "gyeJoinTitle": "Gye beitreten",
+  "gyeNameLabel": "Gye-Name",
+  "gyeNameHint": "z. B. Morgentiger",
+  "gyeNicknameLabel": "Dein Spitzname",
+  "gyeNicknameHint": "Für alle im Gye sichtbar",
+  "gyeCodeLabel": "Beitrittscode",
+  "gyeCodeInputLabel": "6-stelliger Code",
+  "gyeCreateCta": "Erstellen",
+  "gyeJoinCta": "Beitreten",
+  "gyeCreatedTitle": "Gye erstellt!",
+  "gyeShareCode": "Code teilen",
+  "gyeInviteTitle": "Lade Freunde ein",
+  "gyeInviteBody": "Ein Gye lebt von seinen Mitgliedern — teile den Code mit Freunden.",
+  "gyeCopyCode": "Code kopieren",
+  "gyeCodeCopied": "Code kopiert",
+  "gyeShareMessage": "Tritt meinem Hangul-Sori-Gye bei! Code: {code}",
+  "@gyeShareMessage": {
+    "placeholders": {
+      "code": {}
+    }
+  },
+  "gyeJoinedSnack": "{name} beigetreten!",
+  "@gyeJoinedSnack": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "gyeErrNetwork": "Netzwerkfehler. Bitte erneut versuchen.",
+  "gyeErrNotFound": "Kein Gye für diesen Code gefunden.",
+  "gyeErrFull": "Dieses Gye ist voll (max. 10).",
+  "gyeErrTooMany": "Du kannst höchstens 3 Gye beitreten.",
+  "gyeErrName": "Bitte gib einen gültigen Gye-Namen ein.",
+  "gyeErrNickname": "Bitte gib einen gültigen Spitznamen ein.",
+  "gyeErrProfanity": "Bitte wähle ein anderes Wort.",
+  "gyeErrAgeRestricted": "Gye ist ab 16 Jahren nutzbar. Da nur dein lokal selbst angegebenes Geburtsjahr gespeichert wird, prüft die App konservativ und schaltet erst bei mindestens 17 Jahren Jahresdifferenz frei.",
+  "gyeAgeYearTitle": "Geburtsjahr",
+  "gyeAgeYearBody": "Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.",
+  "gyeAgeYearHint": "z. B. 2005",
+  "gyeOpenCta": "Gye öffnen",
+  "gyeTitle": "Gye",
+  "gyeNotFoundTitle": "Gye nicht gefunden",
+  "gyeNotFoundBody": "Dieses Gye wurde möglicherweise entfernt.",
+  "gyeMembersN": "{count} Mitglieder",
+  "@gyeMembersN": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "gyeWeeklyGoal": "Wochenziel",
+  "gyeNoGoal": "Noch kein Wochenziel",
+  "gyeDureTitle": "Diese Woche zusammen",
+  "gyeDureMe": "Ich",
+  "gyeDureEmpty": "Noch leer — schließ ein Paket ab und mach den Anfang!",
+  "gyeChallengeTitle": "Alle dabei?",
   "gyeChallengeDone": "Alle dabei!",
-  "dureTitleDuru":              "Stütze",
-  "dureTitleNewcomer":          "Neu dabei",
-  "dureTitleSprout":            "Spross",
-  "dureTitleHelper":            "Mit dabei",
-  "gyeFeedTitle":                "Aktivität",
-  "gyeFeedEmpty":                "Noch keine Aktivität — schließt gemeinsam Pakete ab!",
-  "gyeFeedPackCleared":          "{name} hat ein Paket abgeschlossen",
-  "@gyeFeedPackCleared": { "placeholders": { "name": {} } },
-  "gyeFeedQuest":                "{name} hat eine Quest abgeschlossen",
-  "@gyeFeedQuest": { "placeholders": { "name": {} } },
-  "gyeFeedLevelUp":              "{name} ist aufgestiegen",
-  "@gyeFeedLevelUp": { "placeholders": { "name": {} } },
-  "gyeFeedSticker":              "{name} hat einen Sticker gesendet",
-  "@gyeFeedSticker": { "placeholders": { "name": {} } },
-  "gyeCheer1":                   "Zusammen!",
-  "gyeCheer2":                   "Du schaffst das!",
-  "gyeCheer3":                   "Du fehlst uns!",
-  "gyeCheer4":                   "Fast geschafft!",
-  "gyeCheer5":                   "Auf geht's!",
-  "gyeCheerTitle":               "Anfeuern",
+  "dureTitleDuru": "Stütze",
+  "dureTitleNewcomer": "Neu dabei",
+  "dureTitleSprout": "Spross",
+  "dureTitleHelper": "Mit dabei",
+  "gyeFeedTitle": "Aktivität",
+  "gyeFeedEmpty": "Noch keine Aktivität — schließt gemeinsam Pakete ab!",
+  "gyeFeedPackCleared": "{name} hat ein Paket abgeschlossen",
+  "@gyeFeedPackCleared": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "gyeFeedQuest": "{name} hat eine Quest abgeschlossen",
+  "@gyeFeedQuest": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "gyeFeedLevelUp": "{name} ist aufgestiegen",
+  "@gyeFeedLevelUp": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "gyeFeedSticker": "{name} hat einen Sticker gesendet",
+  "@gyeFeedSticker": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "gyeCheer1": "Zusammen!",
+  "gyeCheer2": "Du schaffst das!",
+  "gyeCheer3": "Du fehlst uns!",
+  "gyeCheer4": "Fast geschafft!",
+  "gyeCheer5": "Auf geht's!",
+  "gyeCheerTitle": "Anfeuern",
   "gyeFeedGoalAchieved": "Wochenziel erreicht! Euer Hanok wächst.",
   "gyeFeedAllIn": "Alle haben diese Woche beigetragen!",
   "gyeFeedGoalAchievedMvp": "Wochenziel erreicht! {packs, plural, one{1 Paket} other{{packs} Pakete}} · MVP {mvp}",
-  "@gyeFeedGoalAchievedMvp": { "placeholders": { "packs": {"type":"int"}, "mvp": {} } },
-  "gyeStickerSend":              "Sticker senden",
-  "gyeStickerRateLimited":       "Zu viele Sticker auf einmal — kurz durchatmen!",
-  "gyeStickerCatTiger":          "Tiger",
-  "gyeStickerCatMagpie":         "Elster",
-  "gyeStickerCatDancheong":      "Dancheong",
-  "gyeStickerCatHangul":         "Hangul",
-  "gyeStickerCatFood":           "Essen",
-  "gyeStickerCatStamp":          "Stempel",
-  "gyeLeave":                    "Gye verlassen",
-  "gyeLeaveConfirm":             "Dieses Gye verlassen?",
-  "gyeOwnerLeaveUnavailable":    "Als Leitung kannst du das Gye erst nach einer Übertragung oder Löschung verlassen.",
-  "gyeMembersTitle":             "Mitglieder",
-  "gyeMemberSelf":               "Du",
-  "gyeRoleOwner":                "Leiter",
-  "gyeReportTitle":              "Mitglied melden",
-  "gyeReportReasonSpam":         "Spam",
-  "gyeReportReasonInappropriate":"Unangemessener Inhalt",
-  "gyeReportReasonHarassment":   "Belästigung",
-  "gyeReportReasonOther":        "Sonstiges",
-  "gyeReportNoteHint":           "Notiz (optional)",
-  "gyeReportSubmit":             "Melden",
-  "gyeReportSent":               "Meldung gesendet. Danke.",
-  "gyeBlockTitle":               "Mitglied blockieren?",
-  "gyeBlockBody":                "Du siehst keine Sticker, Anfeuerungen oder Beiträge dieser Person mehr. Du kannst die Blockierung jederzeit in der Mitgliederliste aufheben.",
-  "gyeBlockConfirm":             "Blockieren",
-  "gyeUnblock":                  "Blockierung aufheben",
-  "gyeBlockedLabel":             "Blockiert",
-  "gyeBlockedSnack":             "Mitglied blockiert. Beiträge werden ausgeblendet.",
-  "gyeMvpCard":                  "Applaus für {name} — {packs, plural, one{1 Paket} other{{packs} Pakete}} letzte Woche! 👏",
-  "@gyeMvpCard":                 { "placeholders": { "name": {}, "packs": { "type": "int" } } },
-  "gyeProfileLevel":             "Level {level}",
-  "@gyeProfileLevel":            { "placeholders": { "level": {} } },
-  "gyeProfileStreak":            "{days, plural, one{1 Tag Streak} other{{days} Tage Streak}}",
-  "@gyeProfileStreak":           { "placeholders": { "days": { "type": "int" } } },
-  "gyeProfileWeekly":            "{packs, plural, one{1 Paket diese Woche} other{{packs} Pakete diese Woche}}",
-  "@gyeProfileWeekly":           { "placeholders": { "packs": { "type": "int" } } },
-  "gyeAllInCelebrate": "Alle haben diese Woche beigetragen!",
-  "gyeReactTooltip":             "Reagieren",
-  "bookResultOfflineNotice":     "Server nicht erreichbar — nur Grammatikmuster offline erkannt.",
-  "bookResultRateLimited":       "Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.",
-  "bookResultSectionWords":      "Wörter",
-  "bookResultSectionGrammar":    "Grammatik",
-  "bookResultSectionSentences":  "Sätze",
-  "bookResultSave":              "In meinem Bücherregal speichern",
-  "bookResultSaved":             "Seite gespeichert.",
-  "bookResultBackToCapture":     "Weitere Seite einlesen",
-
-  "@_phase4_quests": { "description": "Phase 4 (stately-rising-jongga) — Special Quests UI." },
-  "questsTitle":                "Spezial-Quests",
-  "questsEmptyTitle":           "Noch keine Quests",
-  "questsEmptyBody":            "Beginne ein Paket — die ersten Quest-Fortschritte erscheinen hier.",
-  "questsSectionInProgress":    "Läuft",
-  "questsSectionAvailable":     "Verfügbar",
-  "questsSectionCompleted":     "Abgeschlossen",
-  "questsSectionSeasonalLocked":"Saisonal (gesperrt)",
-  "questsSeasonalBadge":        "Saison",
-  "questsCompletionCelebration":"Neue Hof-Dekoration freigeschaltet!",
-
-  "hanokCinematicIntro":     "Dein Hanok wächst —",
-  "hanokStageEmpty":         "Bauplatz vorbereiten",
-  "hanokStageFoundation":    "Sockel legen",
-  "hanokStagePillars":       "Säulen aufstellen",
-  "hanokStageBeams":         "Dachstuhl bauen",
-  "hanokStageThatch":        "Strohdach gedeckt",
-  "hanokStageTilePartial":   "Ziegel auflegen",
-  "hanokStageTileComplete":  "Ziegeldach fertig",
-  "hanokStageDancheong":     "Dancheong gemalt",
-  "hanokStageGate":          "Tor errichtet",
-  "hanokStageWindows":       "Gitterfenster eingebaut",
-  "hanokStageSideBuilding":  "Nebengebäude angebaut",
-  "hanokStageJongga":        "Jongga vollendet",
-
-  "vocabPackPlayTitle":      "Paket-Übung",
-  "vocabPackLearnHint":      "Tippen zum Umdrehen",
-  "vocabPackDontKnow":       "Weiß ich nicht",
-  "vocabPackGotIt":          "Gewusst",
-  "vocabPackStageLearn":     "Lernen",
-  "vocabPackStageQuiz":      "Quiz",
-  "vocabPackStageBoss":      "Boss",
-  "vocabPackQuizHint":       "Wähle die richtige Übersetzung",
-  "vocabPackBossHint":       "Hör zu und wähle",
-  "vocabPackBossReplayAudio":"Erneut anhören",
-  "vocabPackTapToFlip":      "Tippen zum Umdrehen",
-
-  "vocabPackResultTitle":         "Ergebnis",
-  "vocabPackResultCleared": "Paket geschafft!",
-  "vocabPackResultClearedAgain":  "Bereits gemeistert — gut wiederholt!",
-  "vocabPackResultRetry":         "Fast geschafft — nochmal probieren!",
-  "vocabPackResultBossLabel":     "Boss-Genauigkeit",
-  "vocabPackResultQuizLabel":     "Quiz",
-  "vocabPackResultXpLabel":       "Belohnung",
-  "vocabPackResultNextPack":      "Weiter zu \"{next}\"",
-  "@vocabPackResultNextPack": {
-    "placeholders": { "next": {} }
+  "@gyeFeedGoalAchievedMvp": {
+    "placeholders": {
+      "packs": {
+        "type": "int"
+      },
+      "mvp": {}
+    }
   },
-  "vocabPackResultRetryCta":      "Nochmal versuchen",
-  "vocabPackResultBackToGrid":    "Zurück zu den Pakete",
-  "vocabPackResultGeschafft":     "Geschafft! Du hast diesen Vokabel-Paket gemeistert.",
-
+  "gyeStickerSend": "Sticker senden",
+  "gyeStickerRateLimited": "Zu viele Sticker auf einmal — kurz durchatmen!",
+  "gyeStickerCatTiger": "Tiger",
+  "gyeStickerCatMagpie": "Elster",
+  "gyeStickerCatDancheong": "Dancheong",
+  "gyeStickerCatHangul": "Hangul",
+  "gyeStickerCatFood": "Essen",
+  "gyeStickerCatStamp": "Stempel",
+  "gyeLeave": "Gye verlassen",
+  "gyeLeaveConfirm": "Dieses Gye verlassen?",
+  "gyeOwnerLeaveUnavailable": "Als Leitung kannst du das Gye erst nach einer Übertragung oder Löschung verlassen.",
+  "gyeMembersTitle": "Mitglieder",
+  "gyeMemberSelf": "Du",
+  "gyeRoleOwner": "Leiter",
+  "gyeReportTitle": "Mitglied melden",
+  "gyeReportReasonSpam": "Spam",
+  "gyeReportReasonInappropriate": "Unangemessener Inhalt",
+  "gyeReportReasonHarassment": "Belästigung",
+  "gyeReportReasonOther": "Sonstiges",
+  "gyeReportNoteHint": "Notiz (optional)",
+  "gyeReportSubmit": "Melden",
+  "gyeReportSent": "Meldung gesendet. Danke.",
+  "gyeBlockTitle": "Mitglied blockieren?",
+  "gyeBlockBody": "Du siehst keine Sticker, Anfeuerungen oder Beiträge dieser Person mehr. Du kannst die Blockierung jederzeit in der Mitgliederliste aufheben.",
+  "gyeBlockConfirm": "Blockieren",
+  "gyeUnblock": "Blockierung aufheben",
+  "gyeBlockedLabel": "Blockiert",
+  "gyeBlockedSnack": "Mitglied blockiert. Beiträge werden ausgeblendet.",
+  "gyeMvpCard": "Applaus für {name} — {packs, plural, one{1 Paket} other{{packs} Pakete}} letzte Woche! 👏",
+  "@gyeMvpCard": {
+    "placeholders": {
+      "name": {},
+      "packs": {
+        "type": "int"
+      }
+    }
+  },
+  "gyeProfileLevel": "Level {level}",
+  "@gyeProfileLevel": {
+    "placeholders": {
+      "level": {}
+    }
+  },
+  "gyeProfileStreak": "{days, plural, one{1 Tag Streak} other{{days} Tage Streak}}",
+  "@gyeProfileStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "gyeProfileWeekly": "{packs, plural, one{1 Paket diese Woche} other{{packs} Pakete diese Woche}}",
+  "@gyeProfileWeekly": {
+    "placeholders": {
+      "packs": {
+        "type": "int"
+      }
+    }
+  },
+  "gyeAllInCelebrate": "Alle haben diese Woche beigetragen!",
+  "gyeReactTooltip": "Reagieren",
+  "bookResultOfflineNotice": "Server nicht erreichbar — nur Grammatikmuster offline erkannt.",
+  "bookResultRateLimited": "Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.",
+  "bookResultSectionWords": "Wörter",
+  "bookResultSectionGrammar": "Grammatik",
+  "bookResultSectionSentences": "Sätze",
+  "bookResultSave": "In meinem Bücherregal speichern",
+  "bookResultSaved": "Seite gespeichert.",
+  "bookResultBackToCapture": "Weitere Seite einlesen",
+  "@_phase4_quests": {
+    "description": "Phase 4 (stately-rising-jongga) — Special Quests UI."
+  },
+  "questsTitle": "Spezial-Quests",
+  "questsEmptyTitle": "Noch keine Quests",
+  "questsEmptyBody": "Beginne ein Paket — die ersten Quest-Fortschritte erscheinen hier.",
+  "questsSectionInProgress": "Läuft",
+  "questsSectionAvailable": "Verfügbar",
+  "questsSectionCompleted": "Abgeschlossen",
+  "questsSectionSeasonalLocked": "Saisonal (gesperrt)",
+  "questsSeasonalBadge": "Saison",
+  "questsCompletionCelebration": "Neue Hof-Dekoration freigeschaltet!",
+  "hanokCinematicIntro": "Dein Hanok wächst —",
+  "hanokStageEmpty": "Bauplatz vorbereiten",
+  "hanokStageFoundation": "Sockel legen",
+  "hanokStagePillars": "Säulen aufstellen",
+  "hanokStageBeams": "Dachstuhl bauen",
+  "hanokStageThatch": "Strohdach gedeckt",
+  "hanokStageTilePartial": "Ziegel auflegen",
+  "hanokStageTileComplete": "Ziegeldach fertig",
+  "hanokStageDancheong": "Dancheong gemalt",
+  "hanokStageGate": "Tor errichtet",
+  "hanokStageWindows": "Gitterfenster eingebaut",
+  "hanokStageSideBuilding": "Nebengebäude angebaut",
+  "hanokStageJongga": "Jongga vollendet",
+  "vocabPackPlayTitle": "Paket-Übung",
+  "vocabPackLearnHint": "Tippen zum Umdrehen",
+  "vocabPackDontKnow": "Weiß ich nicht",
+  "vocabPackGotIt": "Gewusst",
+  "vocabPackStageLearn": "Lernen",
+  "vocabPackStageQuiz": "Quiz",
+  "vocabPackStageBoss": "Boss",
+  "vocabPackQuizHint": "Wähle die richtige Übersetzung",
+  "vocabPackBossHint": "Hör zu und wähle",
+  "vocabPackBossReplayAudio": "Erneut anhören",
+  "vocabPackTapToFlip": "Tippen zum Umdrehen",
+  "vocabPackResultTitle": "Ergebnis",
+  "vocabPackResultCleared": "Paket geschafft!",
+  "vocabPackResultClearedAgain": "Bereits gemeistert — gut wiederholt!",
+  "vocabPackResultRetry": "Fast geschafft — nochmal probieren!",
+  "vocabPackResultBossLabel": "Boss-Genauigkeit",
+  "vocabPackResultQuizLabel": "Quiz",
+  "vocabPackResultXpLabel": "Belohnung",
+  "vocabPackResultNextPack": "Weiter zu \"{next}\"",
+  "@vocabPackResultNextPack": {
+    "placeholders": {
+      "next": {}
+    }
+  },
+  "vocabPackResultRetryCta": "Nochmal versuchen",
+  "vocabPackResultBackToGrid": "Zurück zu den Pakete",
+  "vocabPackResultGeschafft": "Geschafft! Du hast diesen Vokabel-Paket gemeistert.",
   "moduleStatsTitle": "Statistik",
   "moduleStatsDesc": "Streak, Karten, Genauigkeit",
-
   "settingsCloudSection": "Cloud-Backup",
   "settingsCloudSignedIn": "Angemeldet: {name}",
-  "@settingsCloudSignedIn": { "placeholders": { "name": {} } },
+  "@settingsCloudSignedIn": {
+    "placeholders": {
+      "name": {}
+    }
+  },
   "settingsCloudSignInPrompt": "Mit Google sichern",
   "settingsCloudSignedInDesc": "Daten werden in der Cloud gesichert",
   "settingsCloudSignInDesc": "Damit überlebt dein Fortschritt einen Handywechsel",
@@ -625,7 +792,11 @@
   "settingsCloudRestoreSuccess": "Wiederhergestellt ✓",
   "settingsCloudRestoreEmpty": "Keine Cloud-Daten",
   "settingsCloudAuthFailed": "Anmeldung fehlgeschlagen: {error}",
-  "@settingsCloudAuthFailed": { "placeholders": { "error": {} } },
+  "@settingsCloudAuthFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
   "settingsCloudDeleteData": "Cloud-Daten löschen",
   "settingsCloudDeleteDataDesc": "Löscht dein Firestore-Backup. Lokale Fortschritte auf diesem Gerät bleiben erhalten.",
   "settingsCloudDeleteDataConfirmTitle": "Cloud-Daten löschen?",
@@ -641,10 +812,13 @@
   "settingsManageSubscriptionFailed": "Die Aboverwaltung konnte nicht geöffnet werden.",
   "settingsAccountDeleteSuccess": "Konto und Daten gelöscht",
   "settingsAccountDeleteFailed": "Löschung fehlgeschlagen: {error}",
-  "@settingsAccountDeleteFailed": { "placeholders": { "error": {} } },
+  "@settingsAccountDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
   "settingsAccountDeletionTitle": "Konto- und Datenlöschung",
   "settingsAccountDeletionSubtitle": "Link zur Kontolöschung kopieren",
-
   "statsGotIt": "Gewusst",
   "statsNotGotIt": "Nicht gewusst",
   "statsSkipped": "Übersprungen",
@@ -653,7 +827,6 @@
   "statsLosses": "Verloren",
   "statsBestShort": "Beste",
   "statsWinRate": "Quote",
-
   "onboardingPage1Title": "Treffe deinen Lernfreund",
   "onboardingPage1Subtitle": "Taego begleitet dich durch dein Abenteuer",
   "onboardingPage2Title": "5 Minuten pro Tag",
@@ -664,7 +837,6 @@
   "onboardingGoal5min": "5 Minuten",
   "onboardingGoal10min": "10 Minuten",
   "onboardingGoal15min": "15 Minuten",
-
   "onboardingTitle": "Was ist dein Level?",
   "onboardingSubtitle": "Wir fangen dort an, wo du stehst. Frühere Level bleiben offen, spätere schaltest du frei.",
   "onboardingLevelA1": "Anfänger",
@@ -713,13 +885,20 @@
   "homeLearnNowCta": "Jetzt lernen",
   "homeTigerBubbleResumeSub": "5 Minuten reichen schon!",
   "homePathDone": "Erledigt",
-
   "scenariosListTitle": "Szenarien",
   "scenariosListSubtitle": "Lerne durch echte Situationen",
   "scenariosLocked": "Erreiche {level}, um freizuschalten",
-  "@scenariosLocked": { "placeholders": { "level": {} } },
+  "@scenariosLocked": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "scenariosLevelBadge": "Stufe {level}",
-  "@scenariosLevelBadge": { "placeholders": { "level": {} } },
+  "@scenariosLevelBadge": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "scenariosEmpty": "Bald verfügbar 🚧",
   "scenariosEmptyTitle": "Bald verfügbar",
   "scenariosEmptyBody": "Wir arbeiten fleißig an neuen Szenarien.",
@@ -733,7 +912,6 @@
   "vocabDueEmptyBody": "Du hast deine fälligen Karten geschafft. Komm morgen wieder oder lerne neue Wörter.",
   "moduleScenariosTitle": "Szenarien",
   "moduleScenariosDesc": "Lerne, wie Koreaner leben — Café, Flughafen, Vorstellung …",
-
   "scenarioIntroTitle": "Einleitung",
   "scenarioVocabTitle": "Wortschatz",
   "scenarioDialogTitle": "Dialog",
@@ -744,41 +922,91 @@
   "scenarioNextBtn": "Weiter",
   "scenarioCompleteBtn": "Abschließen",
   "scenarioXpEarned": "+{xp} XP",
-  "@scenarioXpEarned": { "placeholders": { "xp": { "type": "int" } } },
+  "@scenarioXpEarned": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
   "scenarioStarsLabel": "{stars} von 3 Sternen",
-  "@scenarioStarsLabel": { "placeholders": { "stars": { "type": "int" } } },
+  "@scenarioStarsLabel": {
+    "placeholders": {
+      "stars": {
+        "type": "int"
+      }
+    }
+  },
   "scenarioRecapTitle": "Das hast du gelernt",
   "scenarioRecapWordsLine": "{count, plural, one{1 Wort geübt} other{{count} Wörter geübt}}",
-  "@scenarioRecapWordsLine": { "placeholders": { "count": { "type": "int" } } },
+  "@scenarioRecapWordsLine": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "scenarioRecapAccuracyLine": "{passed} von {total} Quests im ersten Versuch",
-  "@scenarioRecapAccuracyLine": { "placeholders": { "passed": { "type": "int" }, "total": { "type": "int" } } },
+  "@scenarioRecapAccuracyLine": {
+    "placeholders": {
+      "passed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "scenarioRecapGrammarLine": "Grammatik-Fokus: {pattern}",
-  "@scenarioRecapGrammarLine": { "placeholders": { "pattern": { "type": "String" } } },
+  "@scenarioRecapGrammarLine": {
+    "placeholders": {
+      "pattern": {
+        "type": "String"
+      }
+    }
+  },
   "scenarioNextRecommendedTitle": "Als Nächstes empfohlen",
   "scenarioNextRecommendedCta": "Öffnen",
   "scenarioNextRecommendedAllDone": "Alle {level}-Szenarien abgeschlossen.",
-  "@scenarioNextRecommendedAllDone": { "placeholders": { "level": { "type": "String" } } },
-
+  "@scenarioNextRecommendedAllDone": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
   "questCorrect": "Richtig!",
   "questWrong": "Nicht ganz",
   "questNext": "Weiter",
   "questRetry": "Nochmal",
   "particlePopHint": "Zieh die richtige Partikel in den Slot.",
   "particlePopExplanation": "Nach Konsonant: 은/이/을 · Nach Vokal: 는/가/를",
-
   "settingsUserLevel": "Mein Level",
   "settingsUserLevelChange": "Level ändern",
-
   "statsXpTitle": "Szenario-Fortschritt",
   "statsXp": "XP",
   "statsLevelLabel": "Level {n}",
-  "@statsLevelLabel": { "placeholders": { "n": { "type": "int" } } },
+  "@statsLevelLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "statsToNextLevel": "{n} XP bis Level {next}",
-  "@statsToNextLevel": { "placeholders": { "n": { "type": "int" }, "next": { "type": "int" } } },
+  "@statsToNextLevel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "next": {
+        "type": "int"
+      }
+    }
+  },
   "statsScenariosCompleted": "Szenarien geschafft",
   "statsBadgesTitle": "Auszeichnungen",
   "statsNoBadges": "Noch keine — schließ ein Szenario ab und hol dir die erste! 🚀",
-
   "homeRecommended": "Heute empfohlen",
   "homeAllDone": "Alle Szenarien geschafft!",
   "homeNoScenario": "Bald gibt es Szenarien für dein Level",
@@ -787,25 +1015,51 @@
   "missionHeroCtaStart": "Los geht's",
   "missionHeroCtaContinue": "Weitermachen",
   "missionHeroCourseMeta": "Mission {n} von {total}",
-  "@missionHeroCourseMeta": { "placeholders": { "n": { "type": "int" }, "total": { "type": "int" } } },
+  "@missionHeroCourseMeta": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "missionHeroPackMeta": "Wortschatz-Paket · Level {level}",
-  "@missionHeroPackMeta": { "placeholders": { "level": {} } },
+  "@missionHeroPackMeta": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "missionHeroReviewTitle": "{n, plural, one{1 Wort wiederholen} other{{n} Wörter wiederholen}}",
-  "@missionHeroReviewTitle": { "placeholders": { "n": { "type": "int" } } },
+  "@missionHeroReviewTitle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "missionHeroReviewMeta": "Heutige Wiederholung",
   "missionHeroScenarioMeta": "Szenario · Level {level}",
-  "@missionHeroScenarioMeta": { "placeholders": { "level": {} } },
+  "@missionHeroScenarioMeta": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "missionHeroAllDoneTitle": "Für heute geschafft",
   "missionHeroAllDoneBody": "Stark! Morgen warten neue Missionen auf dich.",
   "missionHeroAnotherRound": "Noch eine Runde",
   "missionHeroSemantics": "Nächste Mission: {title}, Level {level}",
-  "@missionHeroSemantics": { "placeholders": { "title": {}, "level": {} } },
-
+  "@missionHeroSemantics": {
+    "placeholders": {
+      "title": {},
+      "level": {}
+    }
+  },
   "settingsThemeTitle": "Erscheinungsbild",
   "settingsThemeSystem": "Systemvorgabe",
   "settingsThemeLight": "Hell",
   "settingsThemeDark": "Dunkel",
-
   "dailyCharTitle": "Buchstabe des Tages",
   "dailyCharSubtitle": "Strichfolge ansehen",
   "dailyCharFallbackSubtitle": "Buchstaben des Tages ansehen",
@@ -813,16 +1067,26 @@
   "dailyCharDoneToday": "Heute geschafft ✓",
   "dailyCharFinish": "Fertig",
   "dailyCharStreak": "{n, plural, one{1 Tag gesamt} other{{n} Tage gesamt}}",
-  "@dailyCharStreak": { "placeholders": { "n": { "type": "int" } } },
+  "@dailyCharStreak": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "dailyCharGreatJob": "Super!",
-
   "vocabModeFavorites": "Favoriten",
   "vocabFavoritesBadge": "{n}",
-  "@vocabFavoritesBadge": { "placeholders": { "n": { "type": "int" } } },
+  "@vocabFavoritesBadge": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "vocabHearExample": "Beispiel hören",
   "vocabSlowHint": "Lang drücken: langsam",
   "vocabEmptyFavorites": "Noch keine Favoriten\nMarkiere schwierige Wörter mit dem Stern",
-
   "listeningTitle": "Hören",
   "listeningSubtitle": "Hör ein Szenario in natürlichem Tempo",
   "listeningSelectScenario": "Szenario wählen",
@@ -837,58 +1101,125 @@
   "listeningPrev": "Zurück",
   "listeningNext": "Weiter",
   "listeningProgress": "{i}/{n}",
-  "@listeningProgress": { "placeholders": { "i": { "type": "int" }, "n": { "type": "int" } } },
+  "@listeningProgress": {
+    "placeholders": {
+      "i": {
+        "type": "int"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "listeningCompleteTitle": "Geschafft!",
   "listeningCompleteBody": "{n} Zeilen gehört · +{xp} XP",
-  "@listeningCompleteBody": { "placeholders": { "n": { "type": "int" }, "xp": { "type": "int" } } },
+  "@listeningCompleteBody": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
   "listeningPickFirst": "Wähl oben ein Szenario, um zu starten.",
   "listeningEmptyTitle": "Noch keine Szenarien",
   "listeningEmptyBody": "Sobald Szenarien verfügbar sind, kannst du sie hier anhören.",
-
   "kkeunmariTitle": "Wortkette",
   "kkeunmariSubtitle": "Letzte Silbe → nächstes Wort",
   "kkeunmariYourTurn": "Du bist dran",
   "kkeunmariTigerTurn": "Tiger denkt …",
   "kkeunmariStartHint": "Beginne mit »{syl}«",
-  "@kkeunmariStartHint": { "placeholders": { "syl": {} } },
+  "@kkeunmariStartHint": {
+    "placeholders": {
+      "syl": {}
+    }
+  },
   "kkeunmariInputHint": "Wort auf Koreanisch …",
   "kkeunmariSubmit": "Senden",
   "kkeunmariNotInPool": "Kenn ich noch nicht — versuch ein anderes 🐯",
   "kkeunmariNotKorean": "Nur Hangul-Wörter, bitte",
   "kkeunmariWrongStart": "Muss mit »{syl}« anfangen",
-  "@kkeunmariWrongStart": { "placeholders": { "syl": {} } },
+  "@kkeunmariWrongStart": {
+    "placeholders": {
+      "syl": {}
+    }
+  },
   "kkeunmariAlreadyUsed": "Bereits genutzt",
   "kkeunmariTimeUp": "Zeit abgelaufen!",
   "kkeunmariDeadEnd": "한방단어 (Sackgasse) — die Kette endet hier",
   "kkeunmariChainLength": "Kette: {n}",
-  "@kkeunmariChainLength": { "placeholders": { "n": { "type": "int" } } },
+  "@kkeunmariChainLength": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "kkeunmariFinalScore": "+{xp} XP",
-  "@kkeunmariFinalScore": { "placeholders": { "xp": { "type": "int" } } },
+  "@kkeunmariFinalScore": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
   "kkeunmariPlayAgain": "Nochmal",
   "kkeunmariBackHome": "Startseite",
   "kkeunmariTimerSeconds": "{n}s",
-  "@kkeunmariTimerSeconds": { "placeholders": { "n": { "type": "int" } } },
+  "@kkeunmariTimerSeconds": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "kkeunmariResultTitle": "Spiel vorbei",
   "kkeunmariResultBody": "Du hast {n, plural, one{1 Wort} other{{n} Wörter}} verkettet.",
-  "@kkeunmariResultBody": { "placeholders": { "n": { "type": "int" } } },
+  "@kkeunmariResultBody": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "gameKkeunmariTitle": "Wortkette",
   "gameKkeunmariDesc": "Letzte Silbe → nächstes Wort",
-
   "vocabMasteryFresh": "Neu",
   "vocabMasteryLearning": "Im Aufbau",
   "vocabMasteryReviewDue": "Fällig",
   "vocabMasteryStrong": "Gefestigt",
-
   "scenariosPathTitle": "Dein Pfad",
   "scenariosPathProgress": "{done}/{total} freigeschaltet",
-  "@scenariosPathProgress": { "placeholders": { "done": { "type": "int" }, "total": { "type": "int" } } },
+  "@scenariosPathProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "scenariosPathNextLabel": "Als Nächstes",
   "scenariosPathStartCta": "Starten",
   "scenariosPathAllDone": "Alle Szenarien abgeschlossen",
   "scenariosPathLevelProgress": "{level}: {done}/{total} ★",
-  "@scenariosPathLevelProgress": { "placeholders": { "level": {}, "done": { "type": "int" }, "total": { "type": "int" } } },
-
-  "@_phase5_2_share": { "description": "Phase 5.2 (2026-06-02) — Custom-Pack Freunde-Sharing." },
+  "@scenariosPathLevelProgress": {
+    "placeholders": {
+      "level": {},
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@_phase5_2_share": {
+    "description": "Phase 5.2 (2026-06-02) — Custom-Pack Freunde-Sharing."
+  },
   "shareTooltip": "Teilen",
   "shareTitle": "Paket teilen",
   "shareGenerating": "Code wird erstellt …",
@@ -901,7 +1232,13 @@
   "shareEmpty": "Dieser Paket hat keine Wörter.",
   "sharePackBody": "Ich teile mit dir das Vokabel-Paket „{name}“ ({count, plural, one{1 Wort} other{{count} Wörter}}) aus Hangul Sori! Gib in der App den Code {code} ein, um es zu importieren. hangul-sori.com",
   "@sharePackBody": {
-    "placeholders": { "name": {}, "count": { "type": "int" }, "code": {} }
+    "placeholders": {
+      "name": {},
+      "count": {
+        "type": "int"
+      },
+      "code": {}
+    }
   },
   "redeemTooltip": "Mit Code importieren",
   "redeemTitle": "Paket importieren",
@@ -909,13 +1246,19 @@
   "redeemAction": "Importieren",
   "redeemSuccess": "„{name}“ importiert ({count, plural, one{1 Wort} other{{count} Wörter}})",
   "@redeemSuccess": {
-    "placeholders": { "name": {}, "count": { "type": "int" } }
+    "placeholders": {
+      "name": {},
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "redeemNotFound": "Code nicht gefunden.",
   "redeemExpired": "Dieser Code ist abgelaufen.",
   "redeemError": "Import fehlgeschlagen. Bist du online?",
-
-  "@_wordbook": { "description": "Eigene Wortliste — manuell erstellte Wortliste (v2.0)." },
+  "@_wordbook": {
+    "description": "Eigene Wortliste — manuell erstellte Wortliste (v2.0)."
+  },
   "createWordbookCta": "Eigene Wortliste",
   "createWordbookTitle": "Neue Wortliste",
   "createWordbookHint": "Gib deiner Wortliste einen Namen.",
@@ -943,7 +1286,14 @@
   "quizQuestion": "Was bedeutet dieses Wort?",
   "quizScore": "{correct} / {total} richtig",
   "@quizScore": {
-    "placeholders": { "correct": { "type": "int" }, "total": { "type": "int" } }
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   },
   "quizResultTitle": "Quiz beendet",
   "quizResultBody": "Gut gemacht! Wiederhole die Liste, um dich zu verbessern.",
@@ -951,11 +1301,19 @@
   "gameNewBest": "Neuer Rekord!",
   "gameBestAccuracy": "Beste Genauigkeit: {percent}%",
   "@gameBestAccuracy": {
-    "placeholders": { "percent": { "type": "int" } }
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
   },
   "gameBestTries": "Bester: {count} Versuche",
   "@gameBestTries": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "clozeTitle": "Lückentext",
   "clozeDesc": "Das fehlende Wort im Satz",
@@ -967,22 +1325,33 @@
   "speedMatchInstruction": "Tippe ein koreanisches Wort, dann die passende Bedeutung.",
   "speedMatchScore": "{count} Paare",
   "@speedMatchScore": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "speedMatchBest": "Bester: {count} Paare",
   "@speedMatchBest": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "dailyTitle": "Tages-Challenge",
   "dailyDesc": "Tägliches Rätsel · Streak",
   "dailyAlreadyDone": "Heute schon erledigt — Übungsmodus",
   "dailyStreak": "{count, plural, one{1 Tag in Folge} other{{count} Tage in Folge}}",
   "@dailyStreak": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "satzArcadeTitle": "Satz bauen",
   "satzArcadeDesc": "Wörter zum Satz ordnen",
-
   "homeWordbookCardTitle": "Eigene Wortliste",
   "homeWordbookCardDesc": "Selbst erstellen & üben",
   "csvImportTitle": "CSV importieren",
@@ -991,16 +1360,27 @@
   "csvImportEmpty": "Keine gültigen Zeilen gefunden.",
   "csvImportResult": "{count, plural, one{1 Wort importiert} other{{count} Wörter importiert}}",
   "@csvImportResult": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "wbPhotoCamera": "Kamera",
   "wbPhotoGallery": "Galerie",
   "wbPhotoRemove": "Foto entfernen",
-
-  "@_a2_a3_memory_engine": { "description": "A2 schwierige Wörter + A3 Lernmodi (v2.0)." },
+  "@_a2_a3_memory_engine": {
+    "description": "A2 schwierige Wörter + A3 Lernmodi (v2.0)."
+  },
   "hardWordsTitle": "Knifflige Wörter",
   "hardWordsSubtitle": "{count, plural, one{1 Wort, das einfach nicht sitzen will} other{{count} Wörter, die einfach nicht sitzen wollen}}",
-  "@hardWordsSubtitle": { "placeholders": { "count": { "type": "int" } } },
+  "@hardWordsSubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "hardWordsEmptyTitle": "Keine Sorgenkinder",
   "hardWordsEmptyBody": "Im Moment gibt es keine besonders schwierigen Wörter. Lern weiter — falls eins hakt, taucht es hier auf.",
   "hardWordsStudyCta": "Gezielt wiederholen",
@@ -1014,17 +1394,30 @@
   "wbTypingPrompt": "Schreib das koreanische Wort:",
   "wbTypingHint": "Auf Koreanisch …",
   "wbTypingAnswer": "Richtig: {answer}",
-  "@wbTypingAnswer": { "placeholders": { "answer": {} } },
-
-  "@_wordbook_global": { "description": "Globales Zur-Wortliste-hinzufuegen + Woerter-Suche (v2.0)." },
+  "@wbTypingAnswer": {
+    "placeholders": {
+      "answer": {}
+    }
+  },
+  "@_wordbook_global": {
+    "description": "Globales Zur-Wortliste-hinzufuegen + Woerter-Suche (v2.0)."
+  },
   "wbQuickPackName": "⭐ Schnellspeicher",
   "wbAddTooltip": "Zur Wortliste hinzufügen",
   "wbCoachTitle": "Wörter hier speichern",
   "wbCoachBody": "Tippe aufs Lesezeichen, um ein Wort zu speichern und täglich zu wiederholen — aus deiner Wortliste kannst du sogar eigene Lernkarten erstellen!",
   "wbAdded": "{word} zur Wortliste hinzugefügt",
-  "@wbAdded": { "placeholders": { "word": {} } },
+  "@wbAdded": {
+    "placeholders": {
+      "word": {}
+    }
+  },
   "wbAlreadyAdded": "{word} ist schon in deiner Wortliste",
-  "@wbAlreadyAdded": { "placeholders": { "word": {} } },
+  "@wbAlreadyAdded": {
+    "placeholders": {
+      "word": {}
+    }
+  },
   "wbAddFailed": "Konnte nicht hinzugefügt werden",
   "wbViewAction": "Ansehen",
   "wbSearchTitle": "Meine Wörter",
@@ -1032,17 +1425,44 @@
   "wbSearchEmpty": "Keine Treffer",
   "wbSearchNoWords": "Noch keine gespeicherten Wörter. Tippe beim Lernen auf das Lesezeichen-Symbol.",
   "wbSearchCount": "{count, plural, one{1 Wort} other{{count} Wörter}}",
-  "@wbSearchCount": { "placeholders": { "count": { "type": "int" } } },
+  "@wbSearchCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wbPosAll": "Alle",
   "wbSearchCta": "Meine Wörter durchsuchen",
   "comboPop": "{count}er-Combo!",
-  "@comboPop": { "placeholders": { "count": { "type": "int" } } },
+  "@comboPop": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "pathTitle": "Lernpfad",
   "pathHanokStage": "Hanok · Stufe {n}/12",
-  "@pathHanokStage": { "placeholders": { "n": { "type": "int" } } },
+  "@pathHanokStage": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "pathHanokSub": "Dein Hof wächst mit jedem gemeisterten Paket.",
   "pathLevelPacks": "{done}/{total} Pakete",
-  "@pathLevelPacks": { "placeholders": { "done": { "type": "int" }, "total": { "type": "int" } } },
+  "@pathLevelPacks": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "pathNodeNow": "Jetzt",
   "pathLockedHint": "Schließe zuerst das vorherige Paket ab.",
   "pathSeeAll": "Ganzer Pfad",
@@ -1056,10 +1476,17 @@
   "notifStreakSaverTitle": "🔥 Streak nicht verlieren!",
   "notifStreakSaverBody": "Eine kurze Runde reicht, um dranzubleiben.",
   "notifDailyStreakBody": "🔥 {days, plural, one{1 Tag am Stück} other{{days} Tage am Stück}} — heute weiter?",
-  "@notifDailyStreakBody": { "placeholders": { "days": { "type": "int" } } },
+  "@notifDailyStreakBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
   "ttsListen": "Aussprache",
-
-  "@_profile": { "description": "Profil-Hub + Konto-Nudge (Tier 1 — 2026-06-03)." },
+  "@_profile": {
+    "description": "Profil-Hub + Konto-Nudge (Tier 1 — 2026-06-03)."
+  },
   "navProfile": "Profil",
   "profileTitle": "Profil",
   "profileGuestName": "Gast",
@@ -1067,7 +1494,11 @@
   "profileGuestDesc": "Dein Fortschritt ist bisher nur auf diesem Gerät. Mit Google gesichert bleibt er erhalten — auch auf einem neuen Handy.",
   "profileConnectedBadge": "Konto verbunden",
   "profileConnectedProviderBadge": "Mit {provider} verbunden",
-  "@profileConnectedProviderBadge": { "placeholders": { "provider": {} } },
+  "@profileConnectedProviderBadge": {
+    "placeholders": {
+      "provider": {}
+    }
+  },
   "profileConnectedDesc": "Dein Fortschritt kann jetzt in der Cloud gesichert werden.",
   "profileStatStreak": "Tage-Streak",
   "profileStatLevel": "Level",
@@ -1099,8 +1530,9 @@
   "authProviderGoogle": "Google",
   "authProviderApple": "Apple",
   "authProviderGoogleAndApple": "Google und Apple",
-
-  "@_consent": { "description": "Consent-Gate beim ersten Start (Tier 0 — 2026-06-03)." },
+  "@_consent": {
+    "description": "Consent-Gate beim ersten Start (Tier 0 — 2026-06-03)."
+  },
   "consentTitle": "Willkommen bei Hangul Sori",
   "consentBody": "Dein Lernfortschritt bleibt zunächst nur auf deinem Gerät. Optionale Funktionen (Cloud-Backup, Lerngruppen, Foto-Worterkennung, Aussprache-Audio) verarbeiten einzelne Daten auf EU-Servern — Details in der Datenschutzerklärung.",
   "consentPrivacyCta": "Datenschutzerklärung",
@@ -1110,12 +1542,14 @@
   "consentAnalyticsOptIn": "Anonyme Nutzungsstatistiken teilen (optional)",
   "consentCrashOptIn": "Anonyme Absturzberichte teilen (optional)",
   "consentOptionalHint": "Beides ist freiwillig und jederzeit in den Einstellungen änderbar.",
-
-  "@_grammar_difficulty": { "description": "Grammatik-Schwierigkeit Filter (Tier 2 — 2026-06-05)." },
+  "@_grammar_difficulty": {
+    "description": "Grammatik-Schwierigkeit Filter (Tier 2 — 2026-06-05)."
+  },
   "grammarEasy": "Verstanden",
   "grammarHard": "Schwierig",
-
-  "@_bottom_nav": { "description": "BottomNav 4-Tabs (Stage 1 IA — 2026-06-05)." },
+  "@_bottom_nav": {
+    "description": "BottomNav 4-Tabs (Stage 1 IA — 2026-06-05)."
+  },
   "navHome": "Start",
   "navLearn": "Lernen",
   "navPractice": "Üben",
@@ -1148,11 +1582,29 @@
   "homeDailyGoalDone": "Tagesziel erreicht!",
   "cultureNoteTitle": "K-Kultur",
   "milestoneStreakTitle": "{count, plural, one{1 Tag in Folge!} other{{count} Tage in Folge!}}",
-  "@milestoneStreakTitle": { "placeholders": { "count": { "type": "int" } } },
+  "@milestoneStreakTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "milestoneLevelTitle": "Level {count} erreicht!",
-  "@milestoneLevelTitle": { "placeholders": { "count": { "type": "int" } } },
+  "@milestoneLevelTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "milestoneVocabTitle": "{count, plural, one{1 Wort gelernt!} other{{count} Wörter gelernt!}}",
-  "@milestoneVocabTitle": { "placeholders": { "count": { "type": "int" } } },
+  "@milestoneVocabTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "milestoneStreakBody": "Dranbleiben zahlt sich aus — weiter so!",
   "milestoneLevelBody": "Dein Koreanisch wächst mit jedem Tag.",
   "milestoneVocabBody": "Wort für Wort kommst du ans Ziel!",
@@ -1161,8 +1613,9 @@
   "practiceSecLearn": "Lernen",
   "practiceSecGames": "Spiele",
   "practiceSecWords": "Wörter",
-
-  "@_feature_coach": { "description": "Onboarding-Coachmarks — Mascot-Bottomsheet (Stage 1 — 2026-06-05)." },
+  "@_feature_coach": {
+    "description": "Onboarding-Coachmarks — Mascot-Bottomsheet (Stage 1 — 2026-06-05)."
+  },
   "coachBookTitle": "Buchseite einlesen",
   "coachBookStep1": "📸 Mach ein Foto von deinem Lehrbuch oder einer Speisekarte",
   "coachBookStep2": "🔍 Der Text wird automatisch erkannt und analysiert",
@@ -1175,8 +1628,9 @@
   "coachPackStageQuiz": "Jetzt das Quiz! Wähle die richtige Übersetzung.",
   "coachPackStageBoss": "Der Boss wartet — hör genau hin!",
   "coachBtnGotIt": "Alles klar!",
-
-  "@_onboarding_preview": { "description": "Onboarding 3-Seiten-Karussell (Stage 2 — Consent→Level-Wahl)." },
+  "@_onboarding_preview": {
+    "description": "Onboarding 3-Seiten-Karussell (Stage 2 — Consent→Level-Wahl)."
+  },
   "previewSkip": "Überspringen",
   "previewNext": "Weiter",
   "previewStart": "Loslegen",
@@ -1186,27 +1640,54 @@
   "previewPage2Body": "Jedes gemeisterte Paket setzt einen Stein — vom Sockel über Säulen und Ziegeldach bis zum eigenen Jongga-Hof. 12 Stufen, die du wachsen siehst.",
   "previewPage3Title": "5 Minuten am Tag genügen",
   "previewPage3Body": "Taego meldet sich einmal täglich und hält deinen Streak am Laufen. Und wenn ein Tag mal untergeht, fängt ihn der Streak-Schutz ab.",
-
-  "@_hub_headers": { "description": "Fortschritts-Header in den Lern-Hubs (Stage 2)." },
+  "@_hub_headers": {
+    "description": "Fortschritts-Header in den Lern-Hubs (Stage 2)."
+  },
   "hubLearnLevel": "Level {level}",
-  "@hubLearnLevel": { "placeholders": { "level": { "type": "int" } } },
+  "@hubLearnLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
   "hubLearnNextPack": "Weiter: {name}",
-  "@hubLearnNextPack": { "placeholders": { "name": { "type": "String" } } },
+  "@hubLearnNextPack": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "hubLearnAllDone": "Alle Pakete abgeschlossen!",
   "hubPracticeStreak": "{n, plural, one{1 Tag in Folge} other{{n} Tage in Folge}}",
-  "@hubPracticeStreak": { "placeholders": { "n": { "type": "int" } } },
+  "@hubPracticeStreak": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "hubPracticeStreakZero": "Fang noch heute an!",
   "hubWordbookSaved": "{n, plural, one{1 Wort gespeichert} other{{n} Wörter gespeichert}}",
-  "@hubWordbookSaved": { "placeholders": { "n": { "type": "int" } } },
+  "@hubWordbookSaved": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
   "hubWordbookEmpty": "Noch keine Wörter gespeichert",
-
-  "@_settings_tutorial_reset": { "description": "Settings — Einführung zurücksetzen (Stage 2)." },
+  "@_settings_tutorial_reset": {
+    "description": "Settings — Einführung zurücksetzen (Stage 2)."
+  },
   "settingsTutorialResetSection": "Einführung",
   "settingsTutorialResetTitle": "Einführung zurücksetzen",
   "settingsTutorialResetSubtitle": "Karussell & Tipp-Hinweise beim nächsten Start neu anzeigen",
   "settingsTutorialResetDone": "Einführung zurückgesetzt",
-
-  "@_spotlight_coach": { "description": "Stage A — Spotlight-Coach-Marken (홈 투어 + BottomNav)." },
+  "@_spotlight_coach": {
+    "description": "Stage A — Spotlight-Coach-Marken (홈 투어 + BottomNav)."
+  },
   "navTourNext": "Weiter",
   "navTourSkip": "Überspringen",
   "navTourDone": "Fertig",
@@ -1222,126 +1703,105 @@
   "coachHomePathBody": "Schließ Pakete der Reihe nach ab — der Tiger wächst mit",
   "coachHomeBookTitle": "Buchschnappschuss",
   "coachHomeBookBody": "Foto von deinem Lehrbuch — direkt in die Wortliste",
-
-  "@_l10n_gaps": { "description": "Hardcoded → l10n (2026-06-09 DE/EN Deep-Dive)." },
+  "@_l10n_gaps": {
+    "description": "Hardcoded → l10n (2026-06-09 DE/EN Deep-Dive)."
+  },
   "introSkipHint": "Zum Überspringen tippen",
   "bookCaptureWebNotice": "📱 „Buchseite einlesen“ funktioniert nur in der mobilen App (Kamera + Texterkennung auf dem Gerät).",
   "bookshelfCreatePackNameHint": "z. B. Schritt 1 — Lektion 5",
   "settingsMadeWith": "Mit ❤ in Deutschland gemacht",
-
-  "@_coach_c1": { "description": "Stage C-1 게임 4화면 코치마크 키 (2026-06-09)" },
-
+  "@_coach_c1": {
+    "description": "Stage C-1 게임 4화면 코치마크 키 (2026-06-09)"
+  },
   "coachChosungStep1Title": "Silben-Puzzle",
   "coachChosungStep1Body": "Füll die gepunkteten Felder aus und vervollständige das Wort",
   "coachChosungStep2Title": "Niveau & Schwierigkeit",
   "coachChosungStep2Body": "Wähle dein Level (A1–B2) und ob Vokale angezeigt werden",
   "coachChosungStep3Title": "Antwort eingeben",
   "coachChosungStep3Body": "Gib das vollständige koreanische Wort ein und bestätige",
-
   "coachWordleStep1Title": "6 Versuche",
   "coachWordleStep1Body": "Rate das gesuchte Wort — du hast 6 Versuche",
   "coachWordleStep2Title": "Hinweise nutzen",
   "coachWordleStep2Body": "Silbenzahl, Wortart und Bedeutung helfen dir beim Raten",
   "coachWordleStep3Title": "Eingabe & Farben",
   "coachWordleStep3Body": "Eingabe → Enter · 🟩 richtig · 🟨 falsche Position · ⬜ nicht enthalten",
-
   "coachKkeunmariStep1Title": "Letzter Buchstabe zählt",
   "coachKkeunmariStep1Body": "Fang dein Wort mit der hervorgehobenen Endsilbe an",
   "coachKkeunmariStep2Title": "Zug & Timer",
   "coachKkeunmariStep2Body": "Du hast 30 Sekunden pro Zug — bringst du den Tiger zum Schweigen?",
   "coachKkeunmariStep3Title": "Wort eingeben",
   "coachKkeunmariStep3Body": "Gib ein gültiges koreanisches Wort ein — der Tiger antwortet automatisch",
-
   "coachListeningStep1Title": "Situation wählen",
   "coachListeningStep1Body": "Tippe auf eine Karte, um die passende Situation auszuwählen",
   "coachListeningStep2Title": "Tempo & Untertitel",
   "coachListeningStep2Body": "Stelle Geschwindigkeit (0,75×–1,25×) und Untertitel-Modus ein",
   "coachListeningStep3Title": "Zeile für Zeile",
   "coachListeningStep3Body": "Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile",
-
-  "@_coach_c2": { "description": "Stage C-2 학습 7화면 코치마크 키 (2026-06-09)" },
-
+  "@_coach_c2": {
+    "description": "Stage C-2 학습 7화면 코치마크 키 (2026-06-09)"
+  },
   "coachHangulTitle": "3 Tabs — 3 Wege zum Hangul",
   "coachHangulBody": "Übersicht zeigt alle Zeichen · Karten helfen beim Üben · Schreiben trainiert den Strich",
-
   "coachGrammarStep1Title": "Karte umdrehen",
   "coachGrammarStep1Body": "Tippe auf die Karte, um Erklärung und Beispiele zu sehen",
   "coachGrammarStep2Title": "Filtern & markieren",
   "coachGrammarStep2Body": "Wähle Niveau oder Typ — schwierige Karten mit 🤔 als Schwer markieren",
-
   "coachSmalltalkStep1Title": "Thema auswählen",
   "coachSmalltalkStep1Body": "Tippe auf das Themenfeld, um aus 18 Kategorien zu wählen",
   "coachSmalltalkStep2Title": "Aussprache & Wörterbuch",
   "coachSmalltalkStep2Body": "Tippe auf eine Karte zum Vorlesen — ＋ speichert den Ausdruck im Wörterbuch",
-
   "coachScenarioStep1Title": "Schritt für Schritt",
   "coachScenarioStep1Body": "Vokabeln → Dialog → Grammatik → Quests → Ergebnis — alles in dieser Reihenfolge",
   "coachScenarioStep2Title": "Weiter & Fortschritt",
   "coachScenarioStep2Body": "Tippe Weiter zum nächsten Schritt · der Balken oben zeigt deinen Fortschritt",
-
   "coachReviewStep1Title": "Karte aufdecken",
   "coachReviewStep1Body": "Denk an die Bedeutung — dann Karte antippen, um die Antwort zu sehen",
   "coachReviewStep2Title": "Gewusst oder nicht?",
   "coachReviewStep2Body": "\"Gewusst\" verlängert das Intervall · \"Nicht gewusst\" bringt die Karte früher zurück",
-
   "coachLegacyVocabTitle": "Karteikarte",
   "coachLegacyVocabBody": "Antippen = umdrehen · lang halten = langsam vorlesen lassen",
-
   "coachLearningPathTitle": "Dein Lernpfad",
   "coachLearningPathBody": "Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor",
-
-  "@_coach_c3": { "description": "Stage C-3 데이터/단어장 9화면 코치마크 키 (2026-06-09)" },
-
+  "@_coach_c3": {
+    "description": "Stage C-3 데이터/단어장 9화면 코치마크 키 (2026-06-09)"
+  },
   "coachBookshelfStep1Title": "Wörterbuch erstellen",
   "coachBookshelfStep1Body": "Tippe auf ＋ oben rechts, um ein eigenes Wörterbuch anzulegen",
   "coachBookshelfStep2Title": "Gespeicherte Wörter suchen",
   "coachBookshelfStep2Body": "Tippe auf 🔍, um alle gespeicherten Wörter zu durchsuchen und nach Wortart zu filtern",
-
   "coachCpEditStep1Title": "Wörter hinzufügen",
   "coachCpEditStep1Body": "Tippe auf ＋ Wort hinzufügen · oder importiere per CSV · Foto · Auto-Ausfüllen",
   "coachCpEditStep2Title": "4 Lernmodi",
   "coachCpEditStep2Body": "Karten · Zuordnen · Schreiben · Quiz — wähle den Modus, der am besten passt",
-
   "coachCpPlayTitle": "Karteikarten lernen",
   "coachCpPlayBody": "Antippen = Karte umdrehen · \"Gewusst\" = Wort zum SRS-System hinzufügen",
-
   "coachCpQuizTitle": "Bedeutung erraten",
   "coachCpQuizBody": "Wähle die richtige Bedeutung — dein Ergebnis fließt ins Wiederholungssystem ein",
-
   "coachCpMatchingTitle": "Paare zuordnen",
   "coachCpMatchingBody": "Tippe links ein koreanisches Wort an, dann rechts die passende Bedeutung",
-
   "coachCpTypingTitle": "Wort eintippen",
   "coachCpTypingBody": "Sieh die Bedeutung — und tippe das koreanische Wort ein. Stärker als reines Wiedererkennen",
-
   "coachHardWordsTitle": "Hartnäckige Wörter",
   "coachHardWordsBody": "Hier sammelst du Wörter, die du dir noch nicht gemerkt hast — gezieltes Üben hilft",
-
   "coachDojangTitle": "Dancheong-Stempel sammeln",
   "coachDojangBody": "Schließe Vokabelpacks ab, um alle 8 Dancheong-Muster freizuschalten",
-
-  "@_coach_c4": { "description": "Stage C-4 사회/기타 5화면 코치마크 키 (2026-06-09)" },
-
+  "@_coach_c4": {
+    "description": "Stage C-4 사회/기타 5화면 코치마크 키 (2026-06-09)"
+  },
   "coachGyeStep1Title": "Wochenziel",
   "coachGyeStep1Body": "Hier seht ihr euren gemeinsamen Fortschritt — zusammen mehr schaffen als allein",
   "coachGyeStep2Title": "Sticker senden",
   "coachGyeStep2Body": "Tippe auf den Smiley-Button, um ein Sticker zur Motivation zu senden",
-
   "coachProfileTitle": "Dein Konto",
   "coachProfileBody": "Verbinde dich mit Google — so bleiben Streak und Vokabeln bei einem Handywechsel erhalten",
-
   "coachStatsTitle": "Lernstatistiken",
   "coachStatsBody": "Streak, XP und Trefferquote zeigen, wie weit du schon gekommen bist",
-
   "coachQuestsTitle": "Quests & Belohnungen",
   "coachQuestsBody": "Erledige Quests, um Dekorationen für deinen Hanok-Hof freizuschalten",
-
   "coachScenariosTitle": "Situationsgespräche",
   "coachScenariosBody": "Tippe auf ein Szenario und übe echte Alltagssituationen — ab A2 freischaltbar",
-
   "questSatzBauenInstruction": "Tippe die Wörter in der richtigen Reihenfolge an",
   "questCheckAnswer": "Überprüfen",
-
   "diktatInstruction": "Hör zu und tippe, was du hörst",
   "diktatSpacingHint": "Fast! Achte auf die Wortabstände",
   "diktatShowMeaning": "Bedeutung zeigen",
@@ -1350,14 +1810,14 @@
   "questDiagParticle": "Fast! Achte auf die Partikel (조사)",
   "questDiagCount": "Achte auf die Anzahl der Wörter",
   "questDiagWord": "Ein Wort passt nicht — schau dir das markierte an",
-
   "scenarioRoleplayTitle": "Rollenspiel",
   "scenarioRoleplayHint": "Jetzt bist du dran — bau deine Antworten selbst",
   "scenarioRoleplayTurn": "Deine Antwort",
   "scenarioRoleplayDoneTitle": "Rollenspiel geschafft!",
   "scenarioRoleplayDoneBody": "Du hast das Gespräch selbst geführt.",
-
-  "@_tester_feedback": { "description": "Optionaler Tiger-Check und Testerpass-Missionen." },
+  "@_tester_feedback": {
+    "description": "Optionaler Tiger-Check und Testerpass-Missionen."
+  },
   "testerFeedbackCardTitle": "Tiger-Check",
   "testerFeedbackCardBody": "Zwei kurze Auswahlen helfen uns, Hangul Sori besser zu machen.",
   "testerFeedbackCardCta": "Gib dem Tiger einen Hinweis",
@@ -1466,30 +1926,48 @@
   "testerFeedbackPassportProgress": "Testerpass {completed} / {total}",
   "@testerFeedbackPassportProgress": {
     "placeholders": {
-      "completed": { "type": "int" },
-      "total": { "type": "int" }
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "testerFeedbackNextMission": "Nächste Beta-Mission: {mission}",
   "@testerFeedbackNextMission": {
     "placeholders": {
-      "mission": { "type": "String" }
+      "mission": {
+        "type": "String"
+      }
     }
   },
   "onboardingDiagnosticCta": "Unsicher? 8 Fragen beantworten",
-
   "placementTitle": "Kurzer Einstufungscheck",
   "placementProgress": "Frage {current} von {total}",
-  "@placementProgress": { "placeholders": { "current": {}, "total": {} } },
+  "@placementProgress": {
+    "placeholders": {
+      "current": {},
+      "total": {}
+    }
+  },
   "placementNoRecording": "Keine Aufnahme. Wähle einfach die beste Antwort.",
   "placementSeeRecommendation": "Empfehlung ansehen",
   "placementRecommendedStart": "Empfohlener Start",
   "placementScoreSummary": "Du hattest {correct} von {total} richtig. Das ist nur eine Empfehlung: Du kannst jede Stufe wählen.",
-  "@placementScoreSummary": { "placeholders": { "correct": {}, "total": {} } },
+  "@placementScoreSummary": {
+    "placeholders": {
+      "correct": {},
+      "total": {}
+    }
+  },
   "placementStartAt": "Mit {level} starten",
-  "@placementStartAt": { "placeholders": { "level": {} } },
+  "@placementStartAt": {
+    "placeholders": {
+      "level": {}
+    }
+  },
   "placementChooseYourself": "Oder selbst wählen",
-
   "courseMissionTitle": "Deine nächste Mission",
   "courseMissionTitleShort": "Kursmission",
   "courseMissionLoadError": "Die Kursdaten konnten nicht geladen werden.",
@@ -1533,5 +2011,13 @@
   "courseUsageServiceRequest": "Service-Anfrage",
   "courseUsagePaymentNotice": "Zahlungshinweis",
   "moduleBadgeNew": "NEU",
-  "moduleBadgeDue": "FÄLLIG"
+  "moduleBadgeDue": "FÄLLIG",
+  "@_p1_sarangbang": {
+    "description": "ADR-002 P1 — 사랑방 슬롯 배치 화면."
+  },
+  "sarangbangTitle": "Studierstube",
+  "sarangbangEmptyTitle": "Noch nichts zum Einrichten",
+  "sarangbangEmptyBody": "Schließe Quests ab und öffne dein Bojagi-Bündel — dann kannst du die Stube einrichten.",
+  "sarangbangPickTitle": "Was soll hierhin?",
+  "sarangbangClear": "Platz frei lassen"
 }

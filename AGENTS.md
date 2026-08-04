@@ -2600,3 +2600,37 @@ bottom 앵커는 폭만 고정하는 마당 규약을 그대로 유지한다.
 
 검증: 실제 SharedPreferences 혼합 fixture 회귀 테스트, `decoration_slot_test` 포함
 Flutter 11개 통과 및 관련 Dart analyze 0 issues. 커밋: `8e7dd88`.
+
+## 2026-08-04 · SarangbangScreen — 슬롯 배치 UI 연결
+
+`RoomPlacementService`(다른 세션 작성)를 화면에 붙였다. 슬롯 탭 → 보유 목록 시트
+→ 선택. 규칙 판단은 전부 서비스에 맡기고 화면은 "어느 슬롯에 무엇을"만 전달한다.
+
+### null 을 "비우기"로 쓰면 안 된다
+
+시트를 스와이프로 닫으면 Flutter 가 `null` 을 돌려준다. 비우기를 `null` 로
+표현하면 **시트를 닫을 때마다 슬롯이 비워진다.** `kSlotPickClear` sentinel 을
+따로 뒀다. 가드 테스트로 이 값이 실제 슬러그와 겹치지 않는 것도 고정했다.
+
+### 죽은 마커 — 마커와 시트가 다른 규칙을 쓰고 있었다
+
+`RoomLayer` 는 "그 카테고리의 보유 아이템이 있는가"만 봤는데, 시트는 **다른
+슬롯에 이미 놓인 것을 후보에서 뺀다.** shelf 슬롯은 둘(벽감 상·하)인데 shelf
+장식은 문방사우 하나뿐이라, 한쪽에 놓으면 다른 쪽에 **눌러도 빈 목록만 뜨는
+마커**가 남았다. `RoomLayer._hasCandidate` 를 `RoomPlacementService
+.candidatesForSlot` 위임으로 바꿔 규칙을 한 곳에 모았다. 양방향 가드 2개 추가.
+
+### 기존 컴포넌트로 수렴
+
+- 시트는 `showSoriSheet`(전 화면 공통 셸) 사용 — 자체 `showModalBottomSheet` 금지
+- 이름은 `kQuestCatalog` 와 같은 인라인 `(de:, en:)` 레코드(`decorName`)
+- 선택 상태 표현은 `quiz_choice.dart` 와 같은 `Semantics(button:, selected:)`
+- 썸네일은 `FittedBox` 로 담는다 — 장식은 세로 비율이 제각각이라 폭만 주면 넘친다
+
+### 검증 (flutter 실행 불가 환경 — 정적 검사로 대체)
+
+`SoriSurfaces.of(ctx).card` 를 썼는데 **그 필드가 없다.** 심볼 검사기는 최상위
+이름만 봐서 못 잡았다 → 토큰 클래스 멤버 대조기를 따로 만들어 잡았고,
+`lib` 265파일 전체가 이 검사를 통과하는 것까지 확인했다(`surfaceAlt` 로 수정).
+괄호 균형·지시자 순서는 `lib`+`test` 438파일 전체 통과. 각 검사기는 일부러
+심어 둔 오류를 실제로 잡는지 확인한 뒤에 사용했다.

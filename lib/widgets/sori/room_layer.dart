@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../services/room_placement_service.dart';
 import 'placed_decoration.dart';
 import 'tokens.dart';
 
@@ -32,9 +33,17 @@ class RoomLayer extends StatelessWidget {
     this.onTapSlot,
   });
 
-  /// [slot] 에 놓을 수 있는 보유 장식이 하나라도 있는가.
-  bool _hasCandidate(SlotDef slot) =>
-      owned.any((s) => decorCategoryOf(s) == slot.accepts);
+  /// [slot] 에 지금 놓을 수 있는 보유 장식이 하나라도 있는가.
+  ///
+  /// 판단을 [RoomPlacementService] 에 맡긴다. 카테고리만 보면 다른 슬롯에
+  /// 이미 놓인 장식까지 세어 **누르면 빈 목록이 뜨는 죽은 마커** 가 생긴다.
+  /// 마커와 시트가 같은 규칙을 써야 하므로 규칙은 한 곳에만 둔다.
+  bool _hasCandidate(SlotDef slot) => RoomPlacementService.candidatesForSlot(
+        slot,
+        owned: owned,
+        placement: placement,
+        slots: slots,
+      ).isNotEmpty;
 
   @override
   Widget build(BuildContext context) {
