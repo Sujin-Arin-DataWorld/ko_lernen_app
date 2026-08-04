@@ -4348,4 +4348,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bojagiNext => 'Nächstes Bündel öffnen';
+
+  @override
+  String get bojagiCollectionCompleteTitle => 'Sammlung vollständig';
+
+  @override
+  String get bojagiCollectionCompleteBody =>
+      'Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.';
+
+  @override
+  String get bojagiArchiveComplete => 'Bündel ablegen';
 }

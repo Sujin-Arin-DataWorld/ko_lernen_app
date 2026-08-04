@@ -2037,5 +2037,8 @@
   "bojagiRetry": "Nochmal versuchen",
   "bojagiClaimedTitle": "Bekommen!",
   "bojagiGoToRoom": "In der Stube aufstellen",
-  "bojagiNext": "Nächstes Bündel öffnen"
+  "bojagiNext": "Nächstes Bündel öffnen",
+  "bojagiCollectionCompleteTitle": "Sammlung vollständig",
+  "bojagiCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.",
+  "bojagiArchiveComplete": "Bündel ablegen"
 }

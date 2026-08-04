@@ -1959,5 +1959,8 @@
   "bojagiRetry": "Try again",
   "bojagiClaimedTitle": "Got it!",
   "bojagiGoToRoom": "Place it in the room",
-  "bojagiNext": "Open the next bundle"
+  "bojagiNext": "Open the next bundle",
+  "bojagiCollectionCompleteTitle": "Collection complete",
+  "bojagiCollectionCompleteBody": "You already own every room piece. Archive this bundle to continue.",
+  "bojagiArchiveComplete": "Archive bundle"
 }

@@ -37,7 +37,8 @@ class _BojagiScreenState extends State<BojagiScreen> {
   /// 방금 수령한 장식. 있으면 축하 화면.
   String? _claimed;
 
-  /// 수령 직후 확인한 다음 꾸러미 — ready 일 때만 "다음 꾸러미" 를 띄운다.
+  /// 수령 직후 확인한 다음 꾸러미. 선택 가능하거나 전체 수집 보관이 필요한 경우에만
+  /// "다음 꾸러미"를 띄운다.
   bool _hasNext = false;
 
   @override
@@ -79,9 +80,24 @@ class _BojagiScreenState extends State<BojagiScreen> {
     setState(() {
       _claimed = slug;
       _offer = next;
-      _hasNext = next.state == DecorationRewardOfferState.ready;
+      _hasNext =
+          next.state == DecorationRewardOfferState.ready ||
+          next.state == DecorationRewardOfferState.collectionComplete;
       _loading = false;
     });
+  }
+
+  Future<void> _archiveCompleteCollection() async {
+    setState(() => _loading = true);
+    final result = await DecorationRewardService.archiveCompleteCollectionBox();
+    if (!mounted) return;
+    if (result != DecorationRewardClaimResult.collectionArchived) {
+      // 큐나 보유 목록이 다른 경로에서 바뀌었을 수 있으므로, 성공 외에는 화면이
+      // 상태를 추측하지 않는다.
+      await _load();
+      return;
+    }
+    await _load();
   }
 
   @override
@@ -107,9 +123,10 @@ class _BojagiScreenState extends State<BojagiScreen> {
     if (offer == null) return const SizedBox.shrink();
 
     return switch (offer.state) {
-      DecorationRewardOfferState.ready => _untied
-          ? _PickView(candidates: offer.candidates, onPick: _claim)
-          : _KnotView(onUntie: () => setState(() => _untied = true)),
+      DecorationRewardOfferState.ready =>
+        _untied
+            ? _PickView(candidates: offer.candidates, onPick: _claim)
+            : _KnotView(onUntie: () => setState(() => _untied = true)),
       DecorationRewardOfferState.noPendingBox => SoriEmptyState(
         asset: kBojagiClosed,
         icon: Icons.card_giftcard_rounded,
@@ -121,6 +138,14 @@ class _BojagiScreenState extends State<BojagiScreen> {
         icon: Icons.inventory_2_outlined,
         title: t.bojagiAllOwnedTitle,
         body: t.bojagiAllOwnedBody,
+      ),
+      DecorationRewardOfferState.collectionComplete => SoriEmptyState(
+        asset: kBojagiOpen,
+        icon: Icons.collections_bookmark_outlined,
+        title: t.bojagiCollectionCompleteTitle,
+        body: t.bojagiCollectionCompleteBody,
+        ctaLabel: t.bojagiArchiveComplete,
+        onCta: _archiveCompleteCollection,
       ),
       DecorationRewardOfferState.unknownQuest ||
       DecorationRewardOfferState.recoveryConflict => SoriEmptyState(

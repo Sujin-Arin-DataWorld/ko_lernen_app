@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/bojagi_screen.dart';
+import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 /// `q_punggyeong` 의 고정 후보 3종 — 서비스의 stable index 계약 그대로.
@@ -17,10 +18,26 @@ Future<void> _pump(WidgetTester tester) async {
       localizationsDelegates: AppL10n.localizationsDelegates,
       supportedLocales: AppL10n.supportedLocales,
       locale: const Locale('de'),
-      home: const BojagiScreen(),
+      home: const MediaQuery(
+        data: MediaQueryData(disableAnimations: true),
+        child: BojagiScreen(),
+      ),
     ),
   );
-  await tester.pumpAndSettle();
+  await _pumpBojagiMotion(tester);
+}
+
+Future<void> _pumpBojagiMotion(WidgetTester tester) async {
+  // 초기/수령 중에는 indeterminate CircularProgressIndicator가 계속 프레임을
+  // 예약하므로 pumpAndSettle을 쓰면 안 된다. 서비스 Future가 실제 이벤트 루프를
+  // 한 번 넘겨 완료될 기회를 준 뒤, 다음 fake-time frame에 상태를 반영한다.
+  await tester.pump();
+  await tester.runAsync(() => Future<void>.delayed(Duration.zero));
+  // 후보 카드의 SoriEntrance는 reduce-motion에서도 initState에서 최대 180ms
+  // stagger timer를 만든다. 540ms entrance까지 끝나는 800ms를 진행해 test
+  // 종료 시 남는 FakeTimer가 없게 한다.
+  await tester.pump(const Duration(milliseconds: 800));
+  await tester.pump();
 }
 
 void main() {
@@ -28,6 +45,7 @@ void main() {
 
   setUp(() async {
     Storage.resetForTesting();
+    DecorationRewardService.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
   });
@@ -44,8 +62,10 @@ void main() {
     await _pump(tester);
 
     // 싸여 있다는 것 자체가 물음표다 — 미리 보여주면 개봉이 보상이 아니게 된다.
-    expect(find.text('Tippe auf den Knoten, um das Bündel zu öffnen.'),
-        findsOneWidget);
+    expect(
+      find.text('Tippe auf den Knoten, um das Bündel zu öffnen.'),
+      findsOneWidget,
+    );
     expect(find.text(_guk), findsNothing);
     expect(find.text(_juk), findsNothing);
     expect(find.text(_chaekgado), findsNothing);
@@ -56,7 +76,7 @@ void main() {
     await _pump(tester);
 
     await tester.tap(find.byKey(const Key('bojagi_knot')));
-    await tester.pumpAndSettle();
+    await _pumpBojagiMotion(tester);
 
     expect(find.text('Such dir eins aus'), findsOneWidget);
     for (final name in [_guk, _juk, _chaekgado]) {
@@ -65,9 +85,9 @@ void main() {
 
     // 후보 3장이면 마지막 장이 화면 밖일 수 있다 — 스크롤해서 누른다.
     await tester.ensureVisible(find.text(_juk));
-    await tester.pumpAndSettle();
+    await _pumpBojagiMotion(tester);
     await tester.tap(find.text(_juk));
-    await tester.pumpAndSettle();
+    await _pumpBojagiMotion(tester);
 
     // 화면은 서비스만 부른다 — 결과는 저장소에서 확인한다.
     expect(Storage.ownedDecor, contains('decoration_sagunja_juk'));
@@ -83,18 +103,18 @@ void main() {
     await _pump(tester);
 
     await tester.tap(find.byKey(const Key('bojagi_knot')));
-    await tester.pumpAndSettle();
+    await _pumpBojagiMotion(tester);
     // 후보 3장이면 마지막 장이 화면 밖일 수 있다 — 스크롤해서 누른다.
     await tester.ensureVisible(find.text(_chaekgado));
-    await tester.pumpAndSettle();
+    await _pumpBojagiMotion(tester);
     await tester.tap(find.text(_chaekgado));
-    await tester.pumpAndSettle();
+    await _pumpBojagiMotion(tester);
 
     expect(find.text('Bekommen!'), findsOneWidget);
     expect(find.text('Nächstes Bündel öffnen'), findsNothing);
   });
 
-  testWidgets('후보를 이미 다 갖고 있으면 그렇게 말한다', (tester) async {
+  testWidgets('원래 후보를 모두 가졌으면 다음 결정적 후보를 고르게 한다', (tester) async {
     await Storage.setPendingBoxes(['q_punggyeong']);
     for (final slug in [
       'decoration_sagunja_guk',
@@ -105,7 +125,47 @@ void main() {
     }
     await _pump(tester);
 
-    expect(find.text('Nichts Neues drin'), findsOneWidget);
-    expect(find.text('Such dir eins aus'), findsNothing);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+
+    expect(find.text('Such dir eins aus'), findsOneWidget);
+    expect(find.text('Schreibpult (서안)'), findsOneWidget);
+    expect(find.text('Schreibzeug (문방사우)'), findsOneWidget);
+    expect(find.text('Pflaumenblüten-Bild (매화)'), findsOneWidget);
+  });
+
+  testWidgets('전체 수집 후에는 꾸러미를 명시적으로 보관 처리한다', (tester) async {
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    for (final slug in kDecorationRewardPool) {
+      await Storage.addOwnedDecor(slug);
+    }
+    await _pump(tester);
+
+    expect(find.text('Sammlung vollständig'), findsOneWidget);
+    expect(find.text('Bündel ablegen'), findsOneWidget);
+
+    await tester.tap(find.text('Bündel ablegen'));
+    await _pumpBojagiMotion(tester);
+
+    expect(Storage.pendingBoxes, isEmpty);
+    expect(find.text('Kein Bündel wartet'), findsOneWidget);
+  });
+
+  testWidgets('마지막 장식을 받고도 다음 완주 꾸러미를 이어서 열 수 있다', (tester) async {
+    await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+    for (final slug in kDecorationRewardPool) {
+      if (slug != 'decoration_sagunja_guk') {
+        await Storage.addOwnedDecor(slug);
+      }
+    }
+    await _pump(tester);
+
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    await tester.tap(find.text(_guk));
+    await _pumpBojagiMotion(tester);
+
+    expect(find.text('Bekommen!'), findsOneWidget);
+    expect(find.text('Nächstes Bündel öffnen'), findsOneWidget);
   });
 }

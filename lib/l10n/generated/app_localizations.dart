@@ -7644,6 +7644,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Nächstes Bündel öffnen'**
   String get bojagiNext;
+
+  /// No description provided for @bojagiCollectionCompleteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammlung vollständig'**
+  String get bojagiCollectionCompleteTitle;
+
+  /// No description provided for @bojagiCollectionCompleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.'**
+  String get bojagiCollectionCompleteBody;
+
+  /// No description provided for @bojagiArchiveComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Bündel ablegen'**
+  String get bojagiArchiveComplete;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart'
+    show SynchronousFuture, visibleForTesting;
+
 import '../data/quest_catalog.dart';
 import '../widgets/sori/placed_decoration.dart';
 import 'storage_service.dart';
@@ -70,6 +73,15 @@ class DecorationRewardService {
   /// 모든 공개 요청을 한 줄로 처리한다. 같은 보자기를 빠르게 두 번 눌러도
   /// 두 번째 요청은 첫 번째의 journal 정리 뒤 현재 큐를 다시 읽는다.
   static Future<void> _mutation = Future<void>.value();
+
+  /// 화면 테스트 사이의 전역 직렬 큐를 격리한다.
+  ///
+  /// [SynchronousFuture]를 써서 다음 테스트의 fake-async frame에서 즉시 새
+  /// operation을 시작할 수 있게 한다. 앱 런타임에서는 호출하지 않는다.
+  @visibleForTesting
+  static void resetForTesting() {
+    _mutation = SynchronousFuture<void>(null);
+  }
 
   /// 한 퀘스트가 항상 같은 세 후보를 주되, 이미 보유한 것은 제외한다.
   ///

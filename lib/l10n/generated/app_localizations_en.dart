@@ -4320,4 +4320,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get bojagiNext => 'Open the next bundle';
+
+  @override
+  String get bojagiCollectionCompleteTitle => 'Collection complete';
+
+  @override
+  String get bojagiCollectionCompleteBody =>
+      'You already own every room piece. Archive this bundle to continue.';
+
+  @override
+  String get bojagiArchiveComplete => 'Archive bundle';
 }
