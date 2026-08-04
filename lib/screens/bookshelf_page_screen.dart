@@ -122,7 +122,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
         appBar: AppBar(title: Text(t.bookshelfPageTitle)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: 'assets/illustrations/mascot/tiger_right_stand.png',
             icon: Icons.help_outline,
             title: t.bookshelfPageNotFoundTitle,
             body: t.bookshelfPageNotFoundBody,

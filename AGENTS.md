@@ -376,6 +376,16 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 — e1247a5 통합 머지 완결 → main ff (Cowork 통합 세션)
+
+**Jin:** "이미지 바꾼 커밋 풀렸나? 다시 커밋할 43개 생겼어. 다크모드 안할거야." → 커밋 안 풀림. feat/stamps-14-2026-08 위에 중단돼 있던 머지(main `d9c8325` × feat/design `e1247a5`)의 staged 43개가 "재커밋 필요"처럼 보인 것 — 본 머지 커밋이 전부 흡수(장면 포스터 11종·도장 14종·배선 재분배 포함, 별도 재커밋 불필요).
+
+**충돌 3건 해소:** ① magpie_front.png ② magpie_tiger_together.png — **e1247a5 배경 제거판 채택**(64,198 / 146,284B; ours 515,285 / 1,463,122B 폐기). 마운트 unlink 금지로 `checkout --theirs`가 워크트리를 못 바꿔 "배경판 회귀"로 보였음 → `cat-file blob` 덮어쓰기로 워크트리 복원 + 인덱스 재확정. ③ AGENTS.md — `git merge-file --union` 3-way 유니온(P1~P9 마감 항목·도장 14종 항목 모두 보존, 손실 0).
+
+**결정:** 다크모드 도입 안 함(Jin, 2026-08-04) — closeout §3 이관 5건 중 다크모드 취소 주석, 잔여 이관 4건.
+
+**refs:** 본 커밋으로 feat/stamps-14-2026-08 전진, main fast-forward 동기화. feat/design-r3-r7-2026-08 삭제(e1247a5는 본 커밋 2번째 부모로 도달 가능). 커밋·refs는 본 세션 플럼빙으로 처리(이 마운트에서 index.lock은 rename으로 해소됨 — "커밋은 윈도우에서만" 아님), push만 Jin 로컬: `git push origin main feat/stamps-14-2026-08`.
+
 ### 2026-08-04 — 감사 후속 P1~P9 + 3세션 통합 머지 → main (Cowork 클라우드 세션 마감)
 
 **Jin:** "미구현·부족 9건 phase 나눠 실행" → P1 온보딩 템플릿 v2(한지 라이트·§10.4) `12a2c73` · P2 cardTitle 15/w700(§4.3 전역) · P3 게스트 혜택 문구 · P4 errorOffline(§8.1) `614a26b` · P5 추천엔진/±1 슬라이스 순수함수 추출+테스트 18케이스 · P6 ensurePackAccess 게이트 수렴 `c7c136b` · P7 골든 기준선(3종 PNG `91dd549`) · P8 홈 다이어트(week_progress 분리, 1,821줄) · P9 래칫 실측 하향 w800 180·w900 40 `0cdad23`. 상세 = `docs/DESIGN_R7_CLOSEOUT_2026-08-04.md` §5.
@@ -2393,3 +2403,47 @@ register(두꺼운 에어브러시 그라데이션 · 단청 국화문 · 구름
 평균오차 0.86~2.47 로 전부 임계값(4.0) 미만 → RGB 폴백 0건.
 원본 896x1200 은 `assets/illustrations/scenes/_raw/` 에 보관(하위 디렉터리라
 pubspec 의 `scenes/` 선언으로는 번들되지 않음). 배치 확정 후 삭제할 것.
+pubspec 의 `scenes/` 선언으로는 번들되지 않음). 배치 확정 후 삭제할 것.
+
+## 2026-08-04 · 단청 도장 8종 → 14종 + 매핑 구멍 수리
+
+lernpfad 에서 도장이 중복돼 보인다는 지적. 원인이 셋이었고 둘은 그림 문제가 아니었다.
+
+**A. 매핑 구멍(제일 큼)** — `motifForPackId` switch 에 13개 주제가 없어
+86팩 중 36팩이 `_ => lotus` 로 샜다. 매핑된 7까지 합쳐 **절반이 연꽃**.
+전부 명시하고 신규 6종에 나눠 담아 최대 비중을 plum 16% 로 낮췄다.
+
+**B. 실루엣 충돌** — lotus·chrysanthemum·octagon·plum 이 전부 "크림 바탕
+금색 방사형 꽃"이라 62dp 노드에선 한 개로 보였다. 8종이 아니라 사실상 5종.
+신규는 전부 축을 달리 잡았다(가로 띠·화환 링·겹친 고리·육각 그리드·3갈래
+소용돌이·덩어리꽃). lotus 는 측면 프로필로, octagon 은 순수 격자로 재작화.
+→ **도장을 늘리기 전에 겹치는 걸 갈라내는 게 먼저다. "또 다른 꽃"은 무의미.**
+
+**C. `swastika` 문자열** — 그림은 만자문(卍)이라 문제없지만
+`Storage.addEarnedStamp(motif.name)` 이 그 문자열을 저장하고 `cloud_sync` 로
+백업까지 태우고 있었다. 독일어권 앱에서 남길 이유가 없어 `manja` 로 개명,
+`Storage.earnedStamps` 게터에 옛 slug 별칭을 넣어 기존 저장값을 흡수한다.
+
+### 부수 정리
+
+- `_assetSlug` switch 제거 → `'stamp_${m.name}'`. `geometric_octagon` 만
+  예외였던 걸 `octagon` 으로 개명해서 성립. 덕분에 "모든 문양에 PNG 실재"를
+  enum 전수로 검사할 수 있게 됐다.
+- 가드 테스트 2개: manifest 주제 전수가 switch 에 명시됐는지 + 문양별 PNG 실재.
+  manifest(`vocabPackUnitMap`)만으로 13개 구멍이 전부 잡히는 걸 확인했으므로
+  CSV 는 파싱하지 않는다 — `korean_vocab.csv` 는 따옴표 필드가 있어
+  단순 split 이 컬럼을 어긋나게 만든다.
+- `tool/stamp_normalize.py` 추가: 1024 흰 배경 → 1254 RGBA, 테두리 플러드필.
+  **`Image.fromarray(...).copy()` 필수** — copy 없이는 numpy 버퍼를 공유해
+  `ImageDraw.floodfill` 이 조용히 0% 만 채운다(원인 못 찾고 한참 헤맴).
+  기기 VM 에 scipy 가 없고 네트워크도 없어서 PIL 4-연결 플러드필로 구현.
+- `.gitignore` 에 `assets/illustrations/{scenes,stamps}/_raw/` 추가.
+  정규화 입력이라 번들에 안 들어가고(디렉터리 선언은 재귀 안 함) 무겁다.
+
+### git 이 이 마운트에서 안 되는 이유 (중요)
+
+`device_bash` 마운트는 `.git` 안의 파일 **생성은 되는데 삭제가 안 된다**
+(`Operation not permitted`). git 은 인덱스를 쓸 때 `index.lock` 을 만들었다
+지워야 하므로 `git add` 가 임시 오브젝트만 남기고 실패한다.
+`GIT_INDEX_FILE` 을 /tmp 로 돌려도 ref 잠금에서 같은 벽에 부딪힌다.
+→ **커밋은 윈도우에서 직접 해야 한다.** 세션 작업물은 디스크에 멀쩡히 있다.

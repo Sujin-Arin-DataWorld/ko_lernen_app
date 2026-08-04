@@ -169,7 +169,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         appBar: AppBar(title: Text(t.wbQuiz)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: 'assets/illustrations/mascot/tiger_right_stand.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,

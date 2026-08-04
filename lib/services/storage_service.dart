@@ -799,8 +799,23 @@ class Storage {
   static bool get calligraphyDoneToday => calligraphyDates.contains(_today());
   static int get calligraphyTotalDays => calligraphyDates.length;
 
+  /// 옛 도장 slug → 현행 slug. 읽는 시점에만 갈아끼운다(쓰기는 이미 새 이름).
+  ///
+  /// 2026-08-04: `swastika` → `manja`. 그림은 만자문(卍) 격자라 문제없지만,
+  /// 이 문자열이 저장값에 남고 `cloud_sync` 로 백업까지 타고 있었다.
+  /// 독일어권 대상 앱에서 굳이 남길 이유가 없다.
+  static const Map<String, String> _legacyStampSlugs = {'swastika': 'manja'};
+
   /// 도장첩 — 획득한 단청 도장 motif slug 목록 (DancheongMotif.name).
-  static List<String> get earnedStamps => _l('kl_stamps_earned');
+  /// 옛 slug 는 현행 이름으로 바꿔서 돌려주고, 그 과정에서 생길 수 있는
+  /// 중복(옛·새 이름이 둘 다 저장된 경우)은 순서를 지키며 합친다.
+  static List<String> get earnedStamps {
+    final out = <String>{};
+    for (final s in _l('kl_stamps_earned')) {
+      out.add(_legacyStampSlugs[s] ?? s);
+    }
+    return out.toList();
+  }
   static Future<void> addEarnedStamp(String motif) async {
     final list = earnedStamps;
     if (!list.contains(motif)) {

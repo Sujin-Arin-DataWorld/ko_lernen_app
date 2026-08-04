@@ -111,3 +111,19 @@ assets_unused/clip_matte_backup_2026-08-01/
 
 # 세션 편집 백업 (커밋 대상 아님)
 _bak_*/
+
+# VM 락 우회 무덤 (Cowork 클라우드 세션 — 폴더째 삭제해도 됨)
+_to_delete/
+# 세션 로컬 설정
+.claude/settings.local.json
+# 테스트 출력 스크래치
+test_out.txt
+
+# 에셋 정규화 원본 (`tool/scene_poster_normalize.py` · `tool/stamp_normalize.py` 의 입력)
+# 커밋하지 않는 이유 3가지:
+#  1. 번들에 안 들어간다 — pubspec 의 디렉터리 선언은 하위 폴더를 재귀하지 않는다
+#  2. 무겁다 — 장면 원본 896x1200 이 11장에 13MB
+#  3. 결과물(1086x1448 / 1254 RGBA)이 커밋되므로 빌드에 필요 없다
+# 원본을 남기고 싶으면 레포 밖에 보관할 것.
+assets/illustrations/scenes/_raw/
+assets/illustrations/stamps/_raw/

@@ -128,8 +128,13 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                         child: ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 280),
                           child: const HanokHeader(
+                            // 캐논 듀오 배너 — 태고+조이가 실제로 상호작용하는
+                            // 클립을 한옥 배경판에 multiply 로 구운 16:9 루프.
+                            // 구 welcome-hero 는 저폴리 캐논 밖 렌더였고 사실상
+                            // 정지였다. 이 화면은 캐릭터 선택과 무관한 자리라
+                            // 중립 듀오 클립을 쓸 수 있다(ASSET_GAP §2-2).
                             asset:
-                                'assets/illustrations/hanok/welcome-hero.png',
+                                'assets/illustrations/mascot/magpie_tiger_together.png',
                             aspectRatio: 16 / 9,
                             radius: 16,
                             fallbackIcon: Icons.pets,

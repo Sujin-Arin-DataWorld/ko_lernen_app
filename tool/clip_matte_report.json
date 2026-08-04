@@ -3,6 +3,15 @@
   "white_min": 248,
   "clips": [
     {
+      "path": "magpie_bob.mp4",
+      "bytes": 506042,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 108,
+      "reason": ""
+    },
+    {
       "path": "magpie_celebrate.mp4",
       "bytes": 1239996,
       "ok": true,
@@ -30,6 +39,15 @@
       "reason": ""
     },
     {
+      "path": "magpie_flourish.mp4",
+      "bytes": 504050,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 48,
+      "reason": ""
+    },
+    {
       "path": "magpie_greet_chirp.mp4",
       "bytes": 1512369,
       "ok": true,
@@ -45,6 +63,42 @@
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
       "frames_sampled": 97,
+      "reason": ""
+    },
+    {
+      "path": "magpie_right_walking_flying.mp4",
+      "bytes": 2030125,
+      "ok": true,
+      "matte": "#000508",
+      "white_ratio": 0.974,
+      "frames_sampled": 217,
+      "reason": ""
+    },
+    {
+      "path": "magpie_sing.mp4",
+      "bytes": 321494,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 46,
+      "reason": ""
+    },
+    {
+      "path": "magpie_soar.mp4",
+      "bytes": 947372,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 91,
+      "reason": ""
+    },
+    {
+      "path": "magpie_walking_forward.mp4",
+      "bytes": 691108,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 121,
       "reason": ""
     },
     {

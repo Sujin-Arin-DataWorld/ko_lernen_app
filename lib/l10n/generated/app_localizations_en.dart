@@ -65,8 +65,14 @@ class AppL10nEn extends AppL10n {
   String get paywallRestoreNone => 'No previous purchases found.';
 
   @override
-  String streakDisplay(Object days) {
-    return '$days days';
+  String streakDisplay(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days',
+      one: '1 day',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -80,8 +86,14 @@ class AppL10nEn extends AppL10n {
   String get streakDialogEarned => 'Streaks unlock rewards';
 
   @override
-  String streakDialogCurrent(Object days) {
-    return 'Current streak: $days days';
+  String streakDialogCurrent(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days',
+      one: '1 day',
+    );
+    return 'Current streak: $_temp0';
   }
 
   @override
@@ -162,7 +174,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String homeReviewDue(int n) {
-    return '$n words due';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n words due',
+      one: '1 word due',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -175,7 +193,7 @@ class AppL10nEn extends AppL10n {
   String get settingsNotifTitle => 'Daily reminder';
 
   @override
-  String get settingsNotifSubtitle => 'The tiger reminds you to study';
+  String get settingsNotifSubtitle => 'Taego reminds you to study';
 
   @override
   String get settingsNotifTime => 'Time';
@@ -188,7 +206,7 @@ class AppL10nEn extends AppL10n {
   String get notificationTitle => 'Hangul Sori';
 
   @override
-  String get notificationBody => 'The tiger\'s waiting — time for Korean! 🐯';
+  String get notificationBody => 'Taego\'s waiting — time for Korean! 🐯';
 
   @override
   String get homeCourseTitle => 'Your daily course';
@@ -290,7 +308,7 @@ class AppL10nEn extends AppL10n {
   String get gameChosungDesc => 'Guess the word from its initial consonants';
 
   @override
-  String get gameWordleTitle => 'Wordle';
+  String get gameWordleTitle => 'Syllable Puzzle';
 
   @override
   String get gameWordleDesc => '2–3 syllables · 6 tries';
@@ -311,7 +329,7 @@ class AppL10nEn extends AppL10n {
   String get navChosung => 'Initial Quiz';
 
   @override
-  String get navWordle => 'Wordle';
+  String get navWordle => 'Syllable Puzzle';
 
   @override
   String get navSettings => 'Settings';
@@ -391,12 +409,24 @@ class AppL10nEn extends AppL10n {
 
   @override
   String bookshelfTileMeta(int words, int grammar, String date) {
-    return '$words words · $grammar grammar · $date';
+    String _temp0 = intl.Intl.pluralLogic(
+      words,
+      locale: localeName,
+      other: '$words words',
+      one: '1 word',
+    );
+    return '$_temp0 · $grammar grammar · $date';
   }
 
   @override
   String bookshelfPackMeta(int n) {
-    return '$n words';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n words',
+      one: '1 word',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -782,10 +812,10 @@ class AppL10nEn extends AppL10n {
   String get statsStreakShieldHint => 'Shields one missed day.';
 
   @override
-  String get statsWordleWins => 'Wordle wins';
+  String get statsWordleWins => 'Syllable Puzzle wins';
 
   @override
-  String get statsWordleStreak => 'Wordle streak';
+  String get statsWordleStreak => 'Syllable Puzzle streak';
 
   @override
   String get screenVocabTitle => 'Vocabulary';
@@ -794,7 +824,7 @@ class AppL10nEn extends AppL10n {
   String get screenGrammarTitle => 'Grammar';
 
   @override
-  String get screenWordleTitle => 'Wordle';
+  String get screenWordleTitle => 'Syllable Puzzle';
 
   @override
   String get screenHangulTitle => 'Hangul';
@@ -1320,7 +1350,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String gyeFeedGoalAchievedMvp(int packs, Object mvp) {
-    return 'Weekly goal reached! $packs packs · MVP $mvp';
+    String _temp0 = intl.Intl.pluralLogic(
+      packs,
+      locale: localeName,
+      other: '$packs packs',
+      one: '1 pack',
+    );
+    return 'Weekly goal reached! $_temp0 · MVP $mvp';
   }
 
   @override
@@ -1410,8 +1446,14 @@ class AppL10nEn extends AppL10n {
   String get gyeBlockedSnack => 'Member blocked. Their posts are now hidden.';
 
   @override
-  String gyeMvpCard(Object name, Object packs) {
-    return 'A round of applause for $name — $packs packs last week! 👏';
+  String gyeMvpCard(Object name, int packs) {
+    String _temp0 = intl.Intl.pluralLogic(
+      packs,
+      locale: localeName,
+      other: '$packs packs',
+      one: '1 pack',
+    );
+    return 'A round of applause for $name — $_temp0 last week! 👏';
   }
 
   @override
@@ -1420,13 +1462,25 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String gyeProfileStreak(Object days) {
-    return '$days-day streak';
+  String gyeProfileStreak(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days-day streak',
+      one: '1-day streak',
+    );
+    return '$_temp0';
   }
 
   @override
-  String gyeProfileWeekly(Object packs) {
-    return '$packs packs this week';
+  String gyeProfileWeekly(int packs) {
+    String _temp0 = intl.Intl.pluralLogic(
+      packs,
+      locale: localeName,
+      other: '$packs packs this week',
+      one: '1 pack this week',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1731,7 +1785,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingPage1Subtitle =>
-      'The tiger joins you on your learning journey';
+      'Taego joins you on your learning journey';
 
   @override
   String get onboardingPage2Title => '5 minutes a day';
@@ -2014,7 +2068,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String scenarioRecapWordsLine(int count) {
-    return '$count words practiced';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words practiced',
+      one: '1 word practiced',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2186,7 +2246,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String dailyCharStreak(int n) {
-    return '$n days total';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n days total',
+      one: '1 day total',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2342,7 +2408,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String kkeunmariResultBody(int n) {
-    return 'You chained $n words.';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n words',
+      one: '1 word',
+    );
+    return 'You chained $_temp0.';
   }
 
   @override
@@ -2417,7 +2489,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String sharePackBody(Object name, int count, Object code) {
-    return 'I\'m sharing the vocabulary pack “$name” ($count words) from Hangul Sori with you! Enter code $code in the app to import it. hangul-sori.com';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words',
+      one: '1 word',
+    );
+    return 'I’m sharing the vocabulary pack “$name” ($_temp0) from Hangul Sori with you! Enter code $code in the app to import it. hangul-sori.com';
   }
 
   @override
@@ -2434,7 +2512,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String redeemSuccess(Object name, int count) {
-    return 'Imported “$name” ($count words)';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words',
+      one: '1 word',
+    );
+    return 'Imported “$name” ($_temp0)';
   }
 
   @override
@@ -2596,7 +2680,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String dailyStreak(int count) {
-    return '$count-day streak';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-day streak',
+      one: '1-day streak',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2626,7 +2716,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String csvImportResult(int count) {
-    return '$count words imported';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words imported',
+      one: '1 word imported',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2643,7 +2739,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String hardWordsSubtitle(int count) {
-    return '$count words just won\'t stick';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words just won’t stick',
+      one: '1 word just won’t stick',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2732,7 +2834,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String wbSearchCount(int count) {
-    return '$count words';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words',
+      one: '1 word',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2772,6 +2880,15 @@ class AppL10nEn extends AppL10n {
   String get pathSeeAll => 'Full path';
 
   @override
+  String get pathJumpToNow => 'To the current step';
+
+  @override
+  String get gyeEmptyHeadline => 'Built together, it lasts longer';
+
+  @override
+  String get gyeEmptyPreviewCaption => 'This is how your shared hanok grows';
+
+  @override
   String get homePathCardTitle => 'Learning path';
 
   @override
@@ -2791,7 +2908,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String notifDailyStreakBody(int days) {
-    return '🔥 $days days in a row — keep going today?';
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days days in a row',
+      one: '1 day in a row',
+    );
+    return '🔥 $_temp0 — keep going today?';
   }
 
   @override
@@ -2807,11 +2930,11 @@ class AppL10nEn extends AppL10n {
   String get profileGuestName => 'Guest';
 
   @override
-  String get profileGuestBadge => 'Guest mode';
+  String get profileGuestBadge => 'Keep your streak, XP & hanok';
 
   @override
   String get profileGuestDesc =>
-      'Your progress lives only on this device. Save it with Google so it survives a phone change.';
+      'Right now your progress lives only on this device. Backed up with Google, it stays with you — even on a new phone.';
 
   @override
   String get profileConnectedBadge => 'Account connected';
@@ -2857,6 +2980,10 @@ class AppL10nEn extends AppL10n {
   String get accountSafeConnectTitle => 'Connect this account safely?';
 
   @override
+  String get errorOffline =>
+      'No internet — your progress is safe on this device.';
+
+  @override
   String get accountSafeConnectExplain =>
       'Your local and cloud data are reviewed before anything is replaced. An existing account is never overwritten automatically.';
 
@@ -2881,11 +3008,11 @@ class AppL10nEn extends AppL10n {
   String get accountOperationCancel => 'Cancel switch';
 
   @override
-  String get accountOperationBlockedTitle => 'Account switch paused';
+  String get accountOperationBlockedTitle => 'Your account is protected';
 
   @override
   String get accountOperationBlockedBody =>
-      'This account cannot be switched automatically. Your existing data was not overwritten.';
+      'The switch was paused — your existing data is untouched. You can try again later.';
 
   @override
   String get accountOperationRetryTitle => 'Connection not completed';
@@ -3060,7 +3187,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String milestoneStreakTitle(int count) {
-    return '$count-day streak!';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-day streak!',
+      one: '1-day streak!',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -3070,7 +3203,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String milestoneVocabTitle(int count) {
-    return '$count words learned!';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words learned!',
+      one: '1 word learned!',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -3164,7 +3303,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get previewPage3Body =>
-      'The Tiger checks in once a day and keeps your streak alive. Miss one? Streak Shield catches it for you.';
+      'Taego checks in once a day and keeps your streak alive. Miss one? Streak Shield catches it for you.';
 
   @override
   String hubLearnLevel(int level) {
@@ -3181,7 +3320,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String hubPracticeStreak(int n) {
-    return '$n days in a row';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n days in a row',
+      one: '1 day in a row',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -3189,7 +3334,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String hubWordbookSaved(int n) {
-    return '$n words saved';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n words saved',
+      one: '1 word saved',
+    );
+    return '$_temp0';
   }
 
   @override

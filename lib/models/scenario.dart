@@ -378,49 +378,75 @@ class Scenario {
   bool get hasExplicitId => id.trim().isNotEmpty;
 }
 
-/// Scenario ID -> category scene key (one of cafe/directions/market/restaurant/
-/// hotel). This is the **fallback** backdrop used when a scenario has no
+/// Scenario ID -> category scene key (cafe/office/home/directions/station/
+/// taxi/airport/convenience/market/restaurant/hotel). This is the **fallback** backdrop used when a scenario has no
 /// dedicated per-scenario asset; `SceneAssetResolver` overrides it automatically
 /// when `scenes/{id}.png` / `video/loops/scene_{id}.mp4` are present.
 ///
 /// Exact-id keys (not substring) so ids like `mart_grocery` map correctly and
-/// order no longer matters. All 33 scenarios are listed → every scenario always
-/// resolves to an existing category backdrop. Add new scenarios here.
+/// order no longer matters. **All 39 scenarios are listed** → every scenario
+/// always resolves to an existing category backdrop. Add new scenarios here.
+///
+/// 2026-08-03: 6개 시나리오가 미등록이라 `backdropKey`가 null → `posterAsset()`이
+/// null을 반환해 배경 없이 마스코트로 떨어지고 있었다. 전수 등록하면서 `home`
+/// 카테고리를 신설해 cafe 과부하(33개 중 13개)를 10개로 낮췄다 — 통화·메신저·
+/// 사적 대화는 카페가 아니라 집이 맞다.
+///
+/// ⚠️ 카테고리를 새로 추가할 땐 `assets/illustrations/scenes/{key}.png`가
+/// **번들에 실제로 있어야** 한다. 없으면 그 카테고리의 시나리오가 전부 깨진다.
+/// 현재 실재(11): airport · cafe · convenience · directions · home · hotel ·
+/// market · office · restaurant · station · taxi. 전부 단청 회화체 포스터.
+///
+/// 2026-08-04: 포스터 11종이 모두 실재하게 되어 하중을 재분배했다 —
+/// directions 8→2(station 3·taxi 2·airport 1 분리), cafe 10→7(office 3 분리),
+/// market 9→8(convenience 1 분리). clinic 은 아직 없어 market 유지.
 extension ScenarioBackdrop on Scenario {
   static const _categoryById = <String, String>{
-    // cafe — indoor / casual meetups / formal-indoor (office, bank, interview)
+    // cafe — 카페 · 캐주얼한 만남 (2026-08-04: 10→7, 업무 3건은 office 로)
     'cafe_starbucks_basic': 'cafe',
     'introduce_yourself': 'cafe',
-    'warm_encouragement': 'cafe',
-    'couple_argument': 'cafe',
-    'plans_with_friend': 'cafe',
-    'postpone_plans': 'cafe',
-    'cancel_plans': 'cafe',
     'cafe_study': 'cafe',
     'love_confession': 'cafe',
     'friend_birthday': 'cafe',
-    'business_meeting_intro': 'cafe',
-    'bank_account': 'cafe',
-    'job_interview': 'cafe',
-    // directions — transit / travel / out-and-about
-    'airport_arrival': 'directions',
-    'taxi_kakao': 'directions',
-    'subway_transfer': 'directions',
-    'taxi_street': 'directions',
+    'first_class_meeting': 'cafe', // 첫 수업 — 교실 배경이 생기면 이동
+    'titles_relationship_distance': 'cafe', // 처음 만난 사람 호칭
+    // office — 업무 · 격식 있는 실내 (2026-08-04 신설)
+    'business_meeting_intro': 'office',
+    'bank_account': 'office',
+    'job_interview': 'office',
+    // home — 통화 / 메신저 / 사적인 대화 (2026-08-03 신설)
+    'warm_encouragement': 'home',
+    'couple_argument': 'home',
+    'plans_with_friend': 'home',
+    'postpone_plans': 'home',
+    'cancel_plans': 'home',
+    'phone_messenger_reply': 'home',
+    'delivery_address_confirmation': 'home',
+    'clarify_repeat': 'home',
+    // directions — 길 위 (2026-08-04: 8→2, 역·공항·택시로 분리)
     'running_late': 'directions',
-    'subway_directions': 'directions',
-    'ktx_ticket': 'directions',
     'lost_phone': 'directions',
-    // market — shops / errands / health counter
-    'convenience_store': 'market',
+    // station — 지하철 · 기차 (2026-08-04 신설)
+    'subway_transfer': 'station',
+    'subway_directions': 'station',
+    'ktx_ticket': 'station',
+    // taxi (2026-08-04 신설)
+    'taxi_kakao': 'taxi',
+    'taxi_street': 'taxi',
+    // airport (2026-08-04 신설)
+    'airport_arrival': 'airport',
+    // convenience (2026-08-04 신설)
+    'convenience_store': 'convenience',
+    // market — 상점 · 심부름 · 건강 창구 (2026-08-04: 9→8)
     'pharmacy_headache': 'market',
     'myeongdong_shopping': 'market',
     'mart_grocery': 'market',
     'complaint_delivery': 'market',
-    'doctor_consultation': 'market',
+    'doctor_consultation': 'market', // 진료 상담 — clinic 배경이 생기면 이동
     'feeling_sick': 'market',
     'gym_signup': 'market',
-    // restaurant — food service
+    'clinic_safety': 'market', // 병원 접수 — clinic 배경이 생기면 이동
+    // restaurant — 식사
     'bunshik_tteokbokki': 'restaurant',
     'company_dinner_hoeshik': 'restaurant',
     'food_delivery': 'restaurant',

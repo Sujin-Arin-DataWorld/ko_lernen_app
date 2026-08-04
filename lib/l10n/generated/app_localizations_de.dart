@@ -15,7 +15,7 @@ class AppL10nDe extends AppL10n {
   String get paywallSubtitle => 'Koreanisch lernen — ohne Grenzen.';
 
   @override
-  String get paywallBenefit1 => 'Alle Vokabel-Packs (A2 · B1 · B2)';
+  String get paywallBenefit1 => 'Alle Vokabel-Pakete (A2 · B1 · B2)';
 
   @override
   String get paywallBenefit2 => 'Alle Gesprächs-Szenarien';
@@ -65,8 +65,14 @@ class AppL10nDe extends AppL10n {
   String get paywallRestoreNone => 'Keine früheren Käufe gefunden.';
 
   @override
-  String streakDisplay(Object days) {
-    return '$days Tage';
+  String streakDisplay(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days Tage',
+      one: '1 Tag',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -79,8 +85,14 @@ class AppL10nDe extends AppL10n {
   String get streakDialogEarned => 'Dranbleiben lohnt sich';
 
   @override
-  String streakDialogCurrent(Object days) {
-    return 'Aktueller Streak: $days Tage';
+  String streakDialogCurrent(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days Tage',
+      one: '1 Tag',
+    );
+    return 'Aktueller Streak: $_temp0';
   }
 
   @override
@@ -145,7 +157,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get reviewEmptyBody =>
-      'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Pack — die Wörter tauchen hier zur Wiederholung auf.';
+      'Für heute sind keine Karten fällig. Spiel eine Runde oder lern ein neues Paket — die Wörter tauchen hier zur Wiederholung auf.';
 
   @override
   String get reviewDoneTitle => 'Stark!';
@@ -161,7 +173,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String homeReviewDue(int n) {
-    return '$n Wörter fällig';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wörter fällig',
+      one: '1 Wort fällig',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -174,7 +192,7 @@ class AppL10nDe extends AppL10n {
   String get settingsNotifTitle => 'Tägliche Erinnerung';
 
   @override
-  String get settingsNotifSubtitle => 'Der Tiger erinnert dich ans Lernen';
+  String get settingsNotifSubtitle => 'Taego erinnert dich ans Lernen';
 
   @override
   String get settingsNotifTime => 'Uhrzeit';
@@ -187,7 +205,7 @@ class AppL10nDe extends AppL10n {
   String get notificationTitle => 'Hangul Sori';
 
   @override
-  String get notificationBody => 'Der Tiger wartet — Zeit für Koreanisch! 🐯';
+  String get notificationBody => 'Taego wartet — Zeit für Koreanisch! 🐯';
 
   @override
   String get homeCourseTitle => 'Dein Tageskurs';
@@ -289,7 +307,7 @@ class AppL10nDe extends AppL10n {
   String get gameChosungDesc => 'Errate das Wort anhand der Anfangsbuchstaben';
 
   @override
-  String get gameWordleTitle => 'Wordle';
+  String get gameWordleTitle => 'Silben-Rätsel';
 
   @override
   String get gameWordleDesc => '2–3 Silben · 6 Versuche';
@@ -310,7 +328,7 @@ class AppL10nDe extends AppL10n {
   String get navChosung => 'Anlaut-Quiz';
 
   @override
-  String get navWordle => 'Wordle';
+  String get navWordle => 'Silben-Rätsel';
 
   @override
   String get navSettings => 'Einstellungen';
@@ -386,16 +404,28 @@ class AppL10nDe extends AppL10n {
   String get bookshelfSectionPages => 'Seiten';
 
   @override
-  String get bookshelfSectionCustomPacks => 'Eigene Packs';
+  String get bookshelfSectionCustomPacks => 'Eigene Pakete';
 
   @override
   String bookshelfTileMeta(int words, int grammar, String date) {
-    return '$words Wörter · $grammar Grammatik · $date';
+    String _temp0 = intl.Intl.pluralLogic(
+      words,
+      locale: localeName,
+      other: '$words Wörter',
+      one: '1 Wort',
+    );
+    return '$_temp0 · $grammar Grammatik · $date';
   }
 
   @override
   String bookshelfPackMeta(int n) {
-    return '$n Wörter';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wörter',
+      one: '1 Wort',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -408,16 +438,16 @@ class AppL10nDe extends AppL10n {
   String get bookshelfPageNotFoundBody => 'Möglicherweise wurde sie gelöscht.';
 
   @override
-  String get bookshelfCreatePackCta => 'Eigenes Pack aus dieser Seite';
+  String get bookshelfCreatePackCta => 'Eigenes Paket aus dieser Seite';
 
   @override
-  String get bookshelfCreatePackTitle => 'Neues eigenes Pack';
+  String get bookshelfCreatePackTitle => 'Neues eigenes Paket';
 
   @override
   String get bookshelfCreatePackName => 'Name';
 
   @override
-  String get bookshelfCreatePackSaved => 'Pack gespeichert.';
+  String get bookshelfCreatePackSaved => 'Paket gespeichert.';
 
   @override
   String get bookshelfDeletePageTitle => 'Seite löschen?';
@@ -426,7 +456,7 @@ class AppL10nDe extends AppL10n {
   String get bookshelfDeletePageBody => 'Die Seite wird endgültig entfernt.';
 
   @override
-  String get bookshelfDeletePackTitle => 'Pack löschen?';
+  String get bookshelfDeletePackTitle => 'Paket löschen?';
 
   @override
   String bookshelfDeletePackBody(Object name) {
@@ -434,19 +464,19 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get customPackPlayTitle => 'Eigenes Pack üben';
+  String get customPackPlayTitle => 'Eigenes Paket üben';
 
   @override
-  String get customPackNotFoundTitle => 'Pack nicht gefunden';
+  String get customPackNotFoundTitle => 'Paket nicht gefunden';
 
   @override
   String get customPackNotFoundBody => 'Möglicherweise wurde es gelöscht.';
 
   @override
-  String get customPackEmptyTitle => 'Pack ist leer';
+  String get customPackEmptyTitle => 'Paket ist leer';
 
   @override
-  String get customPackEmptyBody => 'Dieser Pack enthält noch keine Wörter.';
+  String get customPackEmptyBody => 'Dieser Paket enthält noch keine Wörter.';
 
   @override
   String get customPackResultTitle => 'Geschafft!';
@@ -475,7 +505,7 @@ class AppL10nDe extends AppL10n {
   String get homeBookshelfCardTitle => 'Mein Bücherregal';
 
   @override
-  String get homeBookshelfCardDesc => 'Gespeicherte Seiten & Custom-Packs';
+  String get homeBookshelfCardDesc => 'Gespeicherte Seiten & Eigene Pakete';
 
   @override
   String get homeQuestsCardTitle => 'Quests';
@@ -784,10 +814,10 @@ class AppL10nDe extends AppL10n {
   String get statsStreakShieldHint => 'Schützt einen verpassten Tag.';
 
   @override
-  String get statsWordleWins => 'Wordle-Siege';
+  String get statsWordleWins => 'Silben-Rätsel-Siege';
 
   @override
-  String get statsWordleStreak => 'Wordle-Streak';
+  String get statsWordleStreak => 'Silben-Rätsel-Streak';
 
   @override
   String get screenVocabTitle => 'Vokabeln';
@@ -796,7 +826,7 @@ class AppL10nDe extends AppL10n {
   String get screenGrammarTitle => 'Grammatik';
 
   @override
-  String get screenWordleTitle => 'Wordle';
+  String get screenWordleTitle => 'Silben-Rätsel';
 
   @override
   String get screenHangulTitle => 'Hangul';
@@ -1002,25 +1032,25 @@ class AppL10nDe extends AppL10n {
   String get vocabDueEmptyAction => 'Trotzdem üben';
 
   @override
-  String get vocabPacksTitle => 'Vokabel-Packs';
+  String get vocabPacksTitle => 'Vokabel-Pakete';
 
   @override
   String get vocabPacksLevelMenu => 'Level wechseln';
 
   @override
   String vocabPacksProgressLabel(int cleared, int total) {
-    return '$cleared/$total Packs geschafft';
+    return '$cleared/$total Pakete geschafft';
   }
 
   @override
-  String get vocabPacksEmptyTitle => 'Noch keine Packs';
+  String get vocabPacksEmptyTitle => 'Noch keine Pakete';
 
   @override
   String get vocabPacksEmptyBody =>
       'Für dieses Level sind noch keine Vokabeln vorbereitet.';
 
   @override
-  String get vocabPackLockedNoPrev => 'Dieses Pack ist noch gesperrt.';
+  String get vocabPackLockedNoPrev => 'Dieses Paket ist noch gesperrt.';
 
   @override
   String vocabPackLockedHint(Object prev) {
@@ -1251,7 +1281,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeDureEmpty =>
-      'Noch leer — schließ ein Pack ab und mach den Anfang!';
+      'Noch leer — schließ ein Paket ab und mach den Anfang!';
 
   @override
   String get gyeChallengeTitle => 'Alle dabei?';
@@ -1276,11 +1306,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeFeedEmpty =>
-      'Noch keine Aktivität — schließt gemeinsam Packs ab!';
+      'Noch keine Aktivität — schließt gemeinsam Pakete ab!';
 
   @override
   String gyeFeedPackCleared(Object name) {
-    return '$name hat ein Pack abgeschlossen';
+    return '$name hat ein Paket abgeschlossen';
   }
 
   @override
@@ -1324,7 +1354,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String gyeFeedGoalAchievedMvp(int packs, Object mvp) {
-    return 'Wochenziel erreicht! $packs Packs · MVP $mvp';
+    String _temp0 = intl.Intl.pluralLogic(
+      packs,
+      locale: localeName,
+      other: '$packs Pakete',
+      one: '1 Paket',
+    );
+    return 'Wochenziel erreicht! $_temp0 · MVP $mvp';
   }
 
   @override
@@ -1416,8 +1452,14 @@ class AppL10nDe extends AppL10n {
       'Mitglied blockiert. Beiträge werden ausgeblendet.';
 
   @override
-  String gyeMvpCard(Object name, Object packs) {
-    return 'Applaus für $name — $packs Packs letzte Woche! 👏';
+  String gyeMvpCard(Object name, int packs) {
+    String _temp0 = intl.Intl.pluralLogic(
+      packs,
+      locale: localeName,
+      other: '$packs Pakete',
+      one: '1 Paket',
+    );
+    return 'Applaus für $name — $_temp0 letzte Woche! 👏';
   }
 
   @override
@@ -1426,13 +1468,25 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String gyeProfileStreak(Object days) {
-    return '$days Tage Streak';
+  String gyeProfileStreak(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days Tage Streak',
+      one: '1 Tag Streak',
+    );
+    return '$_temp0';
   }
 
   @override
-  String gyeProfileWeekly(Object packs) {
-    return '$packs Packs diese Woche';
+  String gyeProfileWeekly(int packs) {
+    String _temp0 = intl.Intl.pluralLogic(
+      packs,
+      locale: localeName,
+      other: '$packs Pakete diese Woche',
+      one: '1 Paket diese Woche',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1475,7 +1529,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get questsEmptyBody =>
-      'Beginne ein Pack — die ersten Quest-Fortschritte erscheinen hier.';
+      'Beginne ein Paket — die ersten Quest-Fortschritte erscheinen hier.';
 
   @override
   String get questsSectionInProgress => 'Läuft';
@@ -1536,7 +1590,7 @@ class AppL10nDe extends AppL10n {
   String get hanokStageJongga => 'Jongga vollendet';
 
   @override
-  String get vocabPackPlayTitle => 'Pack-Übung';
+  String get vocabPackPlayTitle => 'Paket-Übung';
 
   @override
   String get vocabPackLearnHint => 'Tippen zum Umdrehen';
@@ -1572,7 +1626,7 @@ class AppL10nDe extends AppL10n {
   String get vocabPackResultTitle => 'Ergebnis';
 
   @override
-  String get vocabPackResultCleared => 'Pack geschafft!';
+  String get vocabPackResultCleared => 'Paket geschafft!';
 
   @override
   String get vocabPackResultClearedAgain =>
@@ -1599,11 +1653,11 @@ class AppL10nDe extends AppL10n {
   String get vocabPackResultRetryCta => 'Nochmal versuchen';
 
   @override
-  String get vocabPackResultBackToGrid => 'Zurück zu den Packs';
+  String get vocabPackResultBackToGrid => 'Zurück zu den Pakete';
 
   @override
   String get vocabPackResultGeschafft =>
-      'Geschafft! Du hast diesen Vokabel-Pack gemeistert.';
+      'Geschafft! Du hast diesen Vokabel-Paket gemeistert.';
 
   @override
   String get moduleStatsTitle => 'Statistik';
@@ -1739,7 +1793,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingPage1Subtitle =>
-      'Der Tiger begleitet dich durch dein Abenteuer';
+      'Taego begleitet dich durch dein Abenteuer';
 
   @override
   String get onboardingPage2Title => '5 Minuten pro Tag';
@@ -1899,7 +1953,7 @@ class AppL10nDe extends AppL10n {
   String get homeHeroActionContinue => 'Weiterlernen';
 
   @override
-  String get homeHeroActionStart => 'Neues Pack';
+  String get homeHeroActionStart => 'Neues Paket';
 
   @override
   String get homeShieldLabel => 'Schild';
@@ -2023,7 +2077,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String scenarioRecapWordsLine(int count) {
-    return '$count Wörter geübt';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter geübt',
+      one: '1 Wort geübt',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2126,7 +2186,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String missionHeroPackMeta(Object level) {
-    return 'Wortschatz-Pack · Level $level';
+    return 'Wortschatz-Paket · Level $level';
   }
 
   @override
@@ -2196,7 +2256,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String dailyCharStreak(int n) {
-    return '$n Tage gesamt';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Tage gesamt',
+      one: '1 Tag gesamt',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2352,7 +2418,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String kkeunmariResultBody(int n) {
-    return 'Du hast $n Wörter verkettet.';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wörter',
+      one: '1 Wort',
+    );
+    return 'Du hast $_temp0 verkettet.';
   }
 
   @override
@@ -2399,7 +2471,7 @@ class AppL10nDe extends AppL10n {
   String get shareTooltip => 'Teilen';
 
   @override
-  String get shareTitle => 'Pack teilen';
+  String get shareTitle => 'Paket teilen';
 
   @override
   String get shareGenerating => 'Code wird erstellt …';
@@ -2423,18 +2495,24 @@ class AppL10nDe extends AppL10n {
   String get shareError => 'Teilen fehlgeschlagen. Bist du online?';
 
   @override
-  String get shareEmpty => 'Dieser Pack hat keine Wörter.';
+  String get shareEmpty => 'Dieser Paket hat keine Wörter.';
 
   @override
   String sharePackBody(Object name, int count, Object code) {
-    return 'Ich teile mit dir den Vokabel-Pack „$name“ ($count Wörter) aus Hangul Sori! Gib in der App den Code $code ein, um ihn zu importieren. hangul-sori.com';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter',
+      one: '1 Wort',
+    );
+    return 'Ich teile mit dir das Vokabel-Paket „$name“ ($_temp0) aus Hangul Sori! Gib in der App den Code $code ein, um es zu importieren. hangul-sori.com';
   }
 
   @override
   String get redeemTooltip => 'Mit Code importieren';
 
   @override
-  String get redeemTitle => 'Pack importieren';
+  String get redeemTitle => 'Paket importieren';
 
   @override
   String get redeemHint => '6-stelligen Code eingeben';
@@ -2444,7 +2522,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String redeemSuccess(Object name, int count) {
-    return '„$name“ importiert ($count Wörter)';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter',
+      one: '1 Wort',
+    );
+    return '„$name“ importiert ($_temp0)';
   }
 
   @override
@@ -2608,7 +2692,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String dailyStreak(int count) {
-    return '$count Tage in Folge';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tage in Folge',
+      one: '1 Tag in Folge',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2638,7 +2728,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String csvImportResult(int count) {
-    return '$count Wörter importiert';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter importiert',
+      one: '1 Wort importiert',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2655,7 +2751,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String hardWordsSubtitle(int count) {
-    return '$count Wörter, die einfach nicht sitzen wollen';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter, die einfach nicht sitzen wollen',
+      one: '1 Wort, das einfach nicht sitzen will',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2745,7 +2847,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String wbSearchCount(int count) {
-    return '$count Wörter';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter',
+      one: '1 Wort',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2768,21 +2876,30 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get pathHanokSub => 'Dein Hof wächst mit jedem gemeisterten Pack.';
+  String get pathHanokSub => 'Dein Hof wächst mit jedem gemeisterten Paket.';
 
   @override
   String pathLevelPacks(int done, int total) {
-    return '$done/$total Packs';
+    return '$done/$total Pakete';
   }
 
   @override
   String get pathNodeNow => 'Jetzt';
 
   @override
-  String get pathLockedHint => 'Schließe zuerst das vorherige Pack ab.';
+  String get pathLockedHint => 'Schließe zuerst das vorherige Paket ab.';
 
   @override
   String get pathSeeAll => 'Ganzer Pfad';
+
+  @override
+  String get pathJumpToNow => 'Zum aktuellen Schritt';
+
+  @override
+  String get gyeEmptyHeadline => 'Zusammen gebaut hält länger';
+
+  @override
+  String get gyeEmptyPreviewCaption => 'So wächst euer gemeinsames Hanok';
 
   @override
   String get homePathCardTitle => 'Lernpfad';
@@ -2805,7 +2922,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String notifDailyStreakBody(int days) {
-    return '🔥 $days Tage am Stück — heute weiter?';
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: '$days Tage am Stück',
+      one: '1 Tag am Stück',
+    );
+    return '🔥 $_temp0 — heute weiter?';
   }
 
   @override
@@ -2821,11 +2944,11 @@ class AppL10nDe extends AppL10n {
   String get profileGuestName => 'Gast';
 
   @override
-  String get profileGuestBadge => 'Gast-Modus';
+  String get profileGuestBadge => 'Behalte Streak, XP & Hanok';
 
   @override
   String get profileGuestDesc =>
-      'Dein Fortschritt ist nur auf diesem Gerät gespeichert. Sichere ihn mit Google — so bleibt er auch nach einem Handywechsel erhalten.';
+      'Dein Fortschritt ist bisher nur auf diesem Gerät. Mit Google gesichert bleibt er erhalten — auch auf einem neuen Handy.';
 
   @override
   String get profileConnectedBadge => 'Konto verbunden';
@@ -2871,6 +2994,10 @@ class AppL10nDe extends AppL10n {
   String get accountSafeConnectTitle => 'Konto sicher verbinden?';
 
   @override
+  String get errorOffline =>
+      'Kein Internet — dein Fortschritt ist lokal sicher.';
+
+  @override
   String get accountSafeConnectExplain =>
       'Deine lokalen und Cloud-Daten werden geprüft, bevor etwas ersetzt wird. Ein bestehendes Konto wird nie automatisch überschrieben.';
 
@@ -2895,11 +3022,11 @@ class AppL10nDe extends AppL10n {
   String get accountOperationCancel => 'Wechsel abbrechen';
 
   @override
-  String get accountOperationBlockedTitle => 'Kontowechsel pausiert';
+  String get accountOperationBlockedTitle => 'Dein Konto ist geschützt';
 
   @override
   String get accountOperationBlockedBody =>
-      'Dieses Konto kann nicht automatisch gewechselt werden. Deine vorhandenen Daten wurden nicht überschrieben.';
+      'Der Wechsel wurde angehalten — deine bisherigen Daten bleiben unverändert. Du kannst es später erneut versuchen.';
 
   @override
   String get accountOperationRetryTitle => 'Verbindung nicht abgeschlossen';
@@ -3073,7 +3200,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String milestoneStreakTitle(int count) {
-    return '$count Tage in Folge!';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tage in Folge!',
+      one: '1 Tag in Folge!',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -3083,7 +3216,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String milestoneVocabTitle(int count) {
-    return '$count Wörter gelernt!';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter gelernt!',
+      one: '1 Wort gelernt!',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -3173,14 +3312,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get previewPage2Body =>
-      'Jedes gemeisterte Pack setzt einen Stein — vom Sockel über Säulen und Ziegeldach bis zum eigenen Jongga-Hof. 12 Stufen, die du wachsen siehst.';
+      'Jedes gemeisterte Paket setzt einen Stein — vom Sockel über Säulen und Ziegeldach bis zum eigenen Jongga-Hof. 12 Stufen, die du wachsen siehst.';
 
   @override
   String get previewPage3Title => '5 Minuten am Tag genügen';
 
   @override
   String get previewPage3Body =>
-      'Der Tiger meldet sich einmal täglich und hält deinen Streak am Laufen. Und wenn ein Tag mal untergeht, fängt ihn der Streak-Schutz ab.';
+      'Taego meldet sich einmal täglich und hält deinen Streak am Laufen. Und wenn ein Tag mal untergeht, fängt ihn der Streak-Schutz ab.';
 
   @override
   String hubLearnLevel(int level) {
@@ -3193,11 +3332,17 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get hubLearnAllDone => 'Alle Packs abgeschlossen!';
+  String get hubLearnAllDone => 'Alle Pakete abgeschlossen!';
 
   @override
   String hubPracticeStreak(int n) {
-    return '$n Tage in Folge';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Tage in Folge',
+      one: '1 Tag in Folge',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -3205,7 +3350,13 @@ class AppL10nDe extends AppL10n {
 
   @override
   String hubWordbookSaved(int n) {
-    return '$n Wörter gespeichert';
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wörter gespeichert',
+      one: '1 Wort gespeichert',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -3262,7 +3413,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachHomePathBody =>
-      'Schließ Packs der Reihe nach ab — der Tiger wächst mit';
+      'Schließ Pakete der Reihe nach ab — der Tiger wächst mit';
 
   @override
   String get coachHomeBookTitle => 'Buchschnappschuss';
