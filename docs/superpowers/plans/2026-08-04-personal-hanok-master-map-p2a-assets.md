@@ -32,6 +32,7 @@
 | `assets/illustrations/hanok_compound/anchae.png` | Transparent U-shaped inner-residence layer. |
 | `assets/illustrations/hanok_compound/daecheongmaru.png` | Transparent open-hall layer. |
 | `assets/illustrations/hanok_compound/sadang.png` | Transparent, separately enclosed shrine layer. |
+| `pubspec.yaml` | Bundles the `hanok_compound/` directory into every Flutter target. |
 | `tool/check_hanok_compound_assets.py` | Deterministic asset-format guard: required paths, base dimensions/opacity, layer alpha corners, alpha coverage, and chroma-key absence. |
 | `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` | Production placement sheet: normalized map anchors, exact reuse paths, generation prompts, and visual acceptance criteria. |
 | `AGENTS.md` | P2a state and the implementation/verification/commit record. |
@@ -41,6 +42,7 @@
 **Files:**
 - Create: `tool/check_hanok_compound_assets.py`
 - Create: `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`
+- Modify: `pubspec.yaml`
 - Modify: `AGENTS.md`
 
 **Interfaces:**
@@ -72,6 +74,8 @@ Expected: exit `1` and seven `[missing]` lines. This is the asset equivalent of 
 - [x] **Step 3: Implement the full mechanical contract**
 
 Use Pillow `Image.open(...).convert('RGBA')`. For `site_base.png`, require exactly `1536×1152`, alpha `255` at all four corners, and no `#00ff00` pixel. For each structure, require alpha `0` at all four corners, alpha coverage between `2%` and `90%`, a nonempty opaque bounding box, and no pixel whose RGB is `(0, 255, 0)` with alpha above `8`. Print dimensions, alpha coverage, and pass/fail status.
+
+Add `- assets/illustrations/hanok_compound/` immediately after the existing `hanok/` asset directory in `pubspec.yaml` so a later `/hanok` renderer is not silently missing its bundled PNGs.
 
 - [x] **Step 4: Write the placement and generation sheet**
 
@@ -107,7 +111,7 @@ git commit -m "chore(hanok): add master map asset contract"
 - Consumes: `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` and the user-approved traditional-plan reference.
 - Produces: a 1536×1152 opaque foundation for all building coordinates in Task 1.
 
-- [ ] **Step 1: Generate a single 4:3 base candidate**
+- [x] **Step 1: Generate a single 4:3 base candidate**
 
 Use the built-in image generator with the following prompt. Reference the approved traditional-plan mockup only for layout, and `gye_pond_large.png` only for the Faceted Minhwa material/palette.
 
@@ -123,17 +127,17 @@ Constraints: no completed building, no roof, no gate, no pond water, no bridge, 
 Avoid: outlines, isometric game tiles, Chinese/Japanese architecture, random cranes, photorealism, 3D render, watermark, text.
 ```
 
-- [ ] **Step 2: Normalize to the fixed base size**
+- [x] **Step 2: Normalize to the fixed base size**
 
 Select the candidate that keeps all eight anchors unobstructed. Crop or resample with high-quality Lanczos only if required, then save exactly to `assets/illustrations/hanok_compound/site_base.png`. Do not add transparency.
 
-- [ ] **Step 3: Run the checker and inspect it at map scale**
+- [x] **Step 3: Run the checker and inspect it at map scale**
 
 Run: `python tool/check_hanok_compound_assets.py`
 
 Expected: `site_base.png` reports `PASS`; six layers remain missing. Inspect the base at 360dp and 1280dp-equivalent scale; reject it if any future footprint is ambiguous.
 
-- [ ] **Step 4: Commit the base**
+- [x] **Step 4: Commit the base**
 
 ```powershell
 git add assets/illustrations/hanok_compound/site_base.png AGENTS.md
