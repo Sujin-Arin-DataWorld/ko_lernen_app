@@ -876,6 +876,14 @@ class Storage {
     }
   }
 
+  /// 검증된 방 배치 전체를 저장한다.
+  ///
+  /// 슬롯·카테고리·소유권 규칙은 [RoomPlacementService]가 담당한다. 이 메서드는
+  /// SharedPreferences 직렬화 경계만 맡아 UI와 저장 구현을 분리한다.
+  static Future<void> setRoomPlacement(Map<String, String> placement) async {
+    await _ss('kl_room_placement', jsonEncode(placement));
+  }
+
   /// 슬롯에 장식을 놓는다. [slug] 가 null 이면 비운다.
   /// **같은 장식은 한 번에 한 슬롯에만** — 다른 슬롯에 있었다면 거기서 빠진다.
   static Future<void> placeInSlot(String slotId, String? slug) async {
@@ -886,7 +894,7 @@ class Storage {
       m.removeWhere((_, v) => v == slug);
       m[slotId] = slug;
     }
-    await _ss('kl_room_placement', jsonEncode(m));
+    await setRoomPlacement(m);
   }
 
   static double get ttsRate => _d('kl_tts_rate', 0.42);
