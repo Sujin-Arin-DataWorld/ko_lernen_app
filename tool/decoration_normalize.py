@@ -88,7 +88,7 @@ def main() -> int:
         print(f"  {p.name:30s} -> {rgba.width}x{rgba.height}  "
               f"{out.stat().st_size / 1024:6.0f} KB  투명 {100*(a==0).mean():4.0f}%")
 
-    print("\n배치 후 `kAvailableDecorations` 에 슬러그를 추가할 것 —"
+    print("\n배치 후 `kAvailableDecorations` 에 슬러그를 추가할 것 -"
           " test/decoration_slot_test.dart 가 대조한다.")
     return 0
 

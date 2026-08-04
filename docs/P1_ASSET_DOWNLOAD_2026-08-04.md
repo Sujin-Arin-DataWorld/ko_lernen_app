@@ -4,6 +4,22 @@
 그래서 이 9장은 Jin 이 브라우저로 받아 넣어야 한다. 아래 URL 은 방금
 `list_my_generations` 로 **다시 뽑은 현재 값**이다.
 
+## 검수 결과 (Codex, 2026-08-04)
+
+이 문서의 URL은 현재 이 환경에서도 응답하지만, 내려받은 결과물은 아직 앱에
+반영하지 않는다.
+
+- `sarangbang_empty.png`에는 슬롯 확인용으로 보이는 색상 점 8개가 남아 있다.
+- `reward_bojagi_closed.png`와 `reward_bojagi_open.png`는 투명 알파가 아닌 흰
+  캔버스다.
+- 실내 장식 6종은 투명화할 수 있었지만, 면분할·무윤곽이라는
+  `ASSET_GENERATION_BIBLE.md` 규약과 다른 수채화/외곽선 렌더다.
+
+원본과 정규화 결과는 로컬의
+`assets/illustrations/.asset_intake_2026-08-04/`에 보존했다(커밋 제외).
+마커 없는 배경, 진짜 RGBA 보자기, 같은 Faceted Minhwa 세트의 장식이 제공된
+뒤에만 아래 화이트리스트와 `pending` 변경을 진행한다.
+
 > ⚠️ 이전 `P1-SARANGBANG` 메모의 서안·책가도·자개문갑 링크 3개는 **틀렸다.**
 > 그대로 눌렀으면 404 였다. 아래 표를 쓸 것.
 
