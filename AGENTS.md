@@ -240,6 +240,10 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] 새 특별 퀘스트 완료는 완료 marker 전에 출처 퀘스트 id를 가진 미개봉 꾸러미 하나를 저장한다. 중간 종료 뒤 재시도해도 기존 꾸러미를 재사용해 중복 지급하지 않는다 (`8a34f81`).
 
+### 사랑방 보상 수령 서비스 (2026-08-04)
+
+- [x] `DecorationRewardService`가 퀘스트별 결정적 세 후보, 이미 보유한 장식 제외, journal-first 수령·복구, 더블 탭 직렬화를 맡는다. `pendingBefore` 전체 스냅샷과 `prepared → queue_commit_started` 단계로 중간 종료 뒤에도 첫 상자 하나만 소비하고 뒤에 추가된 상자를 보존한다 (`f60662c`).
+
 ### 사랑방 슬롯 렌더 무결성 (2026-08-04)
 
 - [x] 손상/구버전 저장값이 장식 카테고리와 맞지 않는 슬롯을 가리키면 RoomLayer가 해당 장식을 렌더하지 않도록 fail-closed 처리했다. 실제 위젯 회귀로 호환·비호환 경우를 고정했다 (`9a5f5e4`).
@@ -257,7 +261,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] `SarangbangScreen`과 `SlotPickerSheet`가 `RoomPlacementService`를 통해 슬롯 선택·배치·명시적 비우기를 제공한다. 닫힘(`null`)과 비우기 sentinel을 분리하고, 빈 슬롯 표식도 실제 후보 계산과 같은 규칙을 쓴다 (`9678510`).
 - [x] 사랑방 UI의 ARB 키는 `flutter gen-l10n`으로 재생성해 공통 `AppL10n` 인터페이스 안에 선언되도록 복구했다 (`4391f80`).
 - [x] 사랑방 화면의 새 텍스트는 공통 `SoriTextTheme` 프리셋으로 수렴해 전역 `w800`·Pretendard 래칫을 늘리지 않는다 (`4f3e83`).
-- [ ] 보상 꾸러미 개봉: 후보 3개 선택을 내구성 있게 보유 장식으로 전환하고, 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
+- [ ] 보상 꾸러미 개봉 UI: `DecorationRewardService.loadNextOffer`/`claimNextBox`만 사용해 후보 3개 선택을 연결하고, 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -473,6 +477,13 @@ flutter run -d <android-id>   # 안드로이드
 - **문제:** 새 사랑방 화면이 raw `TextStyle`과 `FontWeight.w800`을 추가해 전역 타이포 래칫이 `w800 182/180`으로 실패했다.
 - **변경:** AppBar·시트 제목은 `SoriTextTheme.h3`, 선택 행은 `cardTitle`로 수렴했다. 기존 `SoriTextTheme`가 태블릿 comfort scale·표면 색·Pretendard 설정을 한 곳에서 유지하므로, 화면별 수동 폰트 선언을 남기지 않는다.
 - **검증:** RED로 `flutter test test/typography_guard_test.dart`의 `182 > 180` 실패를 확인한 뒤, `flutter test test/typography_guard_test.dart test/room_layer_test.dart test/sarangbang_picker_test.dart test/decoration_slot_test.dart` **22 passed**, 대상 `dart analyze` **0 issues**, `git diff --check` 통과. 구현 커밋: `4f3e83`.
+
+### 2026-08-04 (Codex) — 사랑방 보상 수령 내구성 — 커밋 완료
+
+- **범위:** 시각 UI·ARB·에셋·CloudSync는 건드리지 않고, 보상 선택이 `Storage.addOwnedDecor`와 `consumePendingBox`를 화면마다 직접 조합하지 않도록 `DecorationRewardService`를 새 경계로 만들었다.
+- **변경:** 알려진 퀘스트 ID는 안정 코드 유닛 해시와 append-only 실내 장식 풀로 항상 같은 세 후보를 얻고, 이미 보유한 항목은 제외한다. unknown source·후보 고갈·미제안 slug는 큐와 보유를 바꾸지 않는다. 유효 수령은 `pendingBefore`/`pendingAfter` 전체 스냅샷 journal을 먼저 쓰고 장식 지급 후 정확히 첫 상자만 소비한다.
+- **복구:** RED 테스트가 `pendingAfter=[]`이면 어떤 큐도 빈 접두사와 일치해 unrelated box를 소비할 수 있음을 잡았다. journal을 `prepared → queue_commit_started` 두 단계로 나눠, 준비 단계의 큐 불일치는 fail-closed 하고, 소비 시작 뒤에 붙은 suffix만 보존하도록 고정했다. 빠른 두 번 선택도 직렬 큐에서 두 번째가 빈 상자를 관측한다.
+- **검증:** offer API 부재 RED, claim/recovery API 부재 RED, 빈-after 충돌 RED를 차례로 확인한 뒤 `test/decoration_reward_service_test.dart` **15 passed**. 퀘스트 지급·저장·RoomLayer·picker·슬롯 가드까지 묶은 Flutter 테스트 **48 passed**, 대상 `dart analyze` **0 issues**, `git diff --check` 통과. 구현 커밋: `f60662c`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 

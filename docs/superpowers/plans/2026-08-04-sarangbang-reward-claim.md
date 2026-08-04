@@ -221,11 +221,11 @@ git diff --check
 
 Expected: no analyzer issues and no whitespace errors.
 
-- [ ] **Step 3: Update the SSoT log and checklist**
+- [x] **Step 3: Update the SSoT log and checklist**
 
 Record the journal ordering, prefix/suffix preservation, focused test count, analyzer result, and commit hash in the current Sarangbang work section of `AGENTS.md`. Mark the service layer complete but leave reward-opening UI/assets pending for Claude.
 
-- [ ] **Step 4: Commit only this phase**
+- [x] **Step 4: Commit only this phase**
 
 Stage exactly:
 
