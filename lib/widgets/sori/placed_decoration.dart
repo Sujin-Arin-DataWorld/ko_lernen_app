@@ -7,6 +7,7 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../../models/personal_room.dart';
 import 'tokens.dart';
 
 /// 장식의 쓰임새 분류. 슬롯은 **개별 아이템이 아니라 이 카테고리를 받는다** —
@@ -195,9 +196,6 @@ typedef SlotDef = ({
   DecorAnchor anchor,
 });
 
-/// 유저 배치 — 슬롯 id → 장식 슬러그. 슬롯당 하나.
-typedef RoomPlacement = Map<String, String>;
-
 /// 사랑방 슬롯. 배경 `hanok/sarangbang_empty.png` (3/4 시점, 좌측 벽감) 기준.
 ///
 /// 좌표는 그림의 건축 요소에 맞춘 것이라 배경을 바꾸면 같이 바꿔야 한다.
@@ -249,6 +247,116 @@ const List<SlotDef> kSarangbangSlots = [
     anchor: DecorAnchor.center,
   ),
 ];
+
+/// 안채 슬롯. P3의 빈 안방 배경은 사랑방과 같은 3:4 전면 얕은 3/4 카메라와
+/// 다섯 개의 비워 둔 건축 영역을 공유한다. 같은 좌표 계약으로 시작하면
+/// 수집한 장식이 방마다 놀라운 크기 변화 없이 이동한다.
+const List<SlotDef> kAnbangSlots = [
+  (
+    id: 'wall_back',
+    leftFrac: 0.22,
+    bottomFrac: 0.30,
+    widthFrac: 0.56,
+    heightFrac: 0.42,
+    accepts: DecorCategory.wall,
+    anchor: DecorAnchor.center,
+  ),
+  (
+    id: 'floor_center',
+    leftFrac: 0.28,
+    bottomFrac: 0.08,
+    widthFrac: 0.44,
+    heightFrac: 0.0,
+    accepts: DecorCategory.floor,
+    anchor: DecorAnchor.bottom,
+  ),
+  (
+    id: 'alcove_top',
+    leftFrac: 0.02,
+    bottomFrac: 0.40,
+    widthFrac: 0.14,
+    heightFrac: 0.0,
+    accepts: DecorCategory.shelf,
+    anchor: DecorAnchor.bottom,
+  ),
+  (
+    id: 'alcove_bottom',
+    leftFrac: 0.02,
+    bottomFrac: 0.20,
+    widthFrac: 0.14,
+    heightFrac: 0.0,
+    accepts: DecorCategory.shelf,
+    anchor: DecorAnchor.bottom,
+  ),
+  (
+    id: 'peg_rail',
+    leftFrac: 0.03,
+    bottomFrac: 0.70,
+    widthFrac: 0.13,
+    heightFrac: 0.16,
+    accepts: DecorCategory.peg,
+    anchor: DecorAnchor.center,
+  ),
+];
+
+/// 대청마루 슬롯. 넓은 마루에도 수집 규칙은 사랑방·안채와 동일하다. 배경이
+/// 이 공통 좌표에 맞춰 비워진 영역을 제공하므로, 슬롯마다 별도 UI를 만들지
+/// 않아도 된다.
+const List<SlotDef> kDaecheongmaruSlots = [
+  (
+    id: 'wall_back',
+    leftFrac: 0.22,
+    bottomFrac: 0.30,
+    widthFrac: 0.56,
+    heightFrac: 0.42,
+    accepts: DecorCategory.wall,
+    anchor: DecorAnchor.center,
+  ),
+  (
+    id: 'floor_center',
+    leftFrac: 0.28,
+    bottomFrac: 0.08,
+    widthFrac: 0.44,
+    heightFrac: 0.0,
+    accepts: DecorCategory.floor,
+    anchor: DecorAnchor.bottom,
+  ),
+  (
+    id: 'alcove_top',
+    leftFrac: 0.02,
+    bottomFrac: 0.40,
+    widthFrac: 0.14,
+    heightFrac: 0.0,
+    accepts: DecorCategory.shelf,
+    anchor: DecorAnchor.bottom,
+  ),
+  (
+    id: 'alcove_bottom',
+    leftFrac: 0.02,
+    bottomFrac: 0.20,
+    widthFrac: 0.14,
+    heightFrac: 0.0,
+    accepts: DecorCategory.shelf,
+    anchor: DecorAnchor.bottom,
+  ),
+  (
+    id: 'peg_rail',
+    leftFrac: 0.03,
+    bottomFrac: 0.70,
+    widthFrac: 0.13,
+    heightFrac: 0.16,
+    accepts: DecorCategory.peg,
+    anchor: DecorAnchor.center,
+  ),
+];
+
+/// The stable slot contract for each private interior surface.
+List<SlotDef> slotsForPersonalRoom(PersonalRoomSurface surface) =>
+    switch (surface) {
+      PersonalRoomSurface.sarangbang => kSarangbangSlots,
+      PersonalRoomSurface.anbang => kAnbangSlots,
+      PersonalRoomSurface.daecheongmaru => kDaecheongmaruSlots,
+    };
 
 /// 장식 PNG 한 장 — 자산이 없으면 식별 가능한 placeholder.
 class SoriDecorationImage extends StatelessWidget {

@@ -1,3 +1,4 @@
+import '../models/personal_room.dart';
 import '../widgets/sori/placed_decoration.dart';
 import 'storage_service.dart';
 
@@ -21,6 +22,17 @@ enum RoomPlacementWriteResult {
 class RoomPlacementService {
   RoomPlacementService._();
 
+  /// One serialized mutation lane for every private room. Without this, two
+  /// open room screens could both read an old snapshot and write it back after
+  /// the other room has moved the same decoration.
+  static Future<void> _writeTail = Future<void>.value();
+
+  static Future<T> _serializeWrite<T>(Future<T> Function() action) {
+    final next = _writeTail.then<T>((_) => action());
+    _writeTail = next.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    return next;
+  }
+
   /// 손상·구버전 저장값을 현재 슬롯 계약으로 정규화한다.
   ///
   /// 슬롯 목록 순서가 중복 장식의 결정론적 우선순위다. 소유 목록은 장치 간
@@ -41,6 +53,32 @@ class RoomPlacementService {
         continue;
       }
       result[slot.id] = slug;
+    }
+    return result;
+  }
+
+  /// Normalizes every personal-room placement under one global uniqueness
+  /// rule. Surface and slot ordering makes recovery deterministic when old or
+  /// damaged data says one physical decoration is in more than one place.
+  static RoomPlacements sanitizeAll(RoomPlacements placements) {
+    final result = <PersonalRoomSurface, RoomPlacement>{};
+    final usedSlugs = <String>{};
+    for (final surface in PersonalRoomSurface.values) {
+      final normalized = sanitize(
+        placements[surface] ?? const <String, String>{},
+        slots: slotsForPersonalRoom(surface),
+      );
+      final kept = <String, String>{};
+      for (final slot in slotsForPersonalRoom(surface)) {
+        final slug = normalized[slot.id];
+        if (slug == null || !usedSlugs.add(slug)) {
+          continue;
+        }
+        kept[slot.id] = slug;
+      }
+      if (kept.isNotEmpty) {
+        result[surface] = kept;
+      }
     }
     return result;
   }
@@ -74,6 +112,41 @@ class RoomPlacementService {
     return result;
   }
 
+  /// Candidate decorations for one slot in a named personal room.
+  ///
+  /// A decoration already shown in another room cannot appear here as a
+  /// clickable-but-empty marker. The current slot remains selectable so users
+  /// can keep their existing choice or move it deliberately.
+  static List<String> candidatesForSurfaceSlot(
+    PersonalRoomSurface surface,
+    SlotDef slot, {
+    required Iterable<String> owned,
+    required RoomPlacements placements,
+  }) {
+    final canonicalSlot = _slotForId(slot.id, slotsForPersonalRoom(surface));
+    if (canonicalSlot == null) {
+      return const <String>[];
+    }
+    final normalized = sanitizeAll(placements);
+    final usedElsewhere = <String>{
+      for (final entry in normalized.entries)
+        for (final slotEntry in entry.value.entries)
+          if (entry.key != surface || slotEntry.key != canonicalSlot.id)
+            slotEntry.value,
+    };
+    final result = <String>[];
+    final seen = <String>{};
+    for (final slug in owned) {
+      if (!seen.add(slug) ||
+          decorCategoryOf(slug) != canonicalSlot.accepts ||
+          usedElsewhere.contains(slug)) {
+        continue;
+      }
+      result.add(slug);
+    }
+    return result;
+  }
+
   /// [slotId]에 [slug]를 놓거나([slug]가 null이면) 비운다.
   ///
   /// 저장 전에 현재 배치도 정규화하므로, 유효한 기존 배치는 보존하면서
@@ -83,6 +156,9 @@ class RoomPlacementService {
     String? slug, {
     Iterable<SlotDef> slots = kSarangbangSlots,
   }) async {
+    if (identical(slots, kSarangbangSlots)) {
+      return placeInSurfaceSlot(PersonalRoomSurface.sarangbang, slotId, slug);
+    }
     final slot = _slotForId(slotId, slots);
     if (slot == null) {
       return RoomPlacementWriteResult.unknownSlot;
@@ -109,6 +185,57 @@ class RoomPlacementService {
     await Storage.setRoomPlacement(current);
     return RoomPlacementWriteResult.placed;
   }
+
+  /// Places [slug] in [surface]/[slotId], or clears the slot when [slug] is
+  /// null. New writes validate ownership and category; recovered placements
+  /// are only checked for slot/category compatibility so a temporary ownership
+  /// read cannot destroy valid local arrangement.
+  static Future<RoomPlacementWriteResult> placeInSurfaceSlot(
+    PersonalRoomSurface surface,
+    String slotId,
+    String? slug,
+  ) => _serializeWrite(() async {
+    final slot = _slotForId(slotId, slotsForPersonalRoom(surface));
+    if (slot == null) {
+      return RoomPlacementWriteResult.unknownSlot;
+    }
+
+    final placements = sanitizeAll(Storage.roomPlacements);
+    final current = Map<String, String>.from(
+      placements[surface] ?? const <String, String>{},
+    );
+    if (slug == null) {
+      current.remove(slot.id);
+      if (current.isEmpty) {
+        placements.remove(surface);
+      } else {
+        placements[surface] = current;
+      }
+      await Storage.setRoomPlacements(placements);
+      return RoomPlacementWriteResult.cleared;
+    }
+
+    if (!Storage.ownedDecor.contains(slug)) {
+      return RoomPlacementWriteResult.notOwned;
+    }
+    if (decorCategoryOf(slug) != slot.accepts) {
+      return RoomPlacementWriteResult.incompatible;
+    }
+
+    // A physical collectible belongs in one private room at a time. Remove it
+    // globally before assigning the target slot, including a previous slot in
+    // the same room.
+    for (final placement in placements.values) {
+      placement.removeWhere((_, value) => value == slug);
+    }
+    final target = Map<String, String>.from(
+      placements[surface] ?? const <String, String>{},
+    );
+    target[slot.id] = slug;
+    placements[surface] = target;
+    await Storage.setRoomPlacements(placements);
+    return RoomPlacementWriteResult.placed;
+  });
 
   static SlotDef? _slotForId(String id, Iterable<SlotDef> slots) {
     for (final slot in slots) {
