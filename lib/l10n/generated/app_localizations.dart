@@ -7764,6 +7764,66 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Studierstube einrichten'**
   String get sarangbangStudyFurnish;
+
+  /// No description provided for @personalRoomAnbangTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Anbang'**
+  String get personalRoomAnbangTitle;
+
+  /// No description provided for @personalRoomDaecheongTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Daecheongmaru'**
+  String get personalRoomDaecheongTitle;
+
+  /// No description provided for @personalRoomAnbangBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein ruhiger Innenraum für die Wörter und Momente, die du bewahrst.'**
+  String get personalRoomAnbangBody;
+
+  /// No description provided for @personalRoomDaecheongBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine offene Halle, in der dein Lernweg weitergeht.'**
+  String get personalRoomDaecheongBody;
+
+  /// No description provided for @personalRoomEmptyHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.'**
+  String get personalRoomEmptyHint;
+
+  /// No description provided for @personalRoomLockedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Raum wird noch gebaut'**
+  String get personalRoomLockedTitle;
+
+  /// No description provided for @personalRoomLockedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.'**
+  String get personalRoomLockedBody;
+
+  /// No description provided for @personalRoomReturnToMap.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zur Hanok-Karte'**
+  String get personalRoomReturnToMap;
+
+  /// No description provided for @personalRoomAnbangStudy.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Sammlung entdecken'**
+  String get personalRoomAnbangStudy;
+
+  /// No description provided for @personalRoomDaecheongStudy.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernweg fortsetzen'**
+  String get personalRoomDaecheongStudy;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

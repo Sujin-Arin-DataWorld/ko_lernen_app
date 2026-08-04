@@ -20,11 +20,7 @@ class HanokWorldScreen extends StatefulWidget {
   final Future<LevelRatios> Function()? loadRatios;
   final ValueChanged<PersonalHanokZone>? onOpenZone;
 
-  const HanokWorldScreen({
-    super.key,
-    this.loadRatios,
-    this.onOpenZone,
-  });
+  const HanokWorldScreen({super.key, this.loadRatios, this.onOpenZone});
 
   @override
   State<HanokWorldScreen> createState() => _HanokWorldScreenState();
@@ -106,9 +102,8 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                       children: [
                         _WorldIntroduction(
                           projection: projection,
-                          onOpenSarangbang: () => _openZone(
-                            PersonalHanokZone.sarangbang,
-                          ),
+                          onOpenSarangbang: () =>
+                              _openZone(PersonalHanokZone.sarangbang),
                         ),
                         const SizedBox(height: Spacing.lg),
                         if (projection.usesCompoundMap) ...[
@@ -189,9 +184,9 @@ class _WorldIntroduction extends StatelessWidget {
 
 String? hanokRouteForZone(PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.sarangbang => '/sarangbang',
-  PersonalHanokZone.daecheongmaru => '/path',
+  PersonalHanokZone.daecheongmaru => '/hanok/daecheong',
   PersonalHanokZone.haengrangchae => '/practice',
-  PersonalHanokZone.anchae => '/bookshelf',
+  PersonalHanokZone.anchae => '/hanok/anbang',
   PersonalHanokZone.huwon => '/daily',
   PersonalHanokZone.sadang => '/dojangcheop',
   PersonalHanokZone.gyeRoad => null,

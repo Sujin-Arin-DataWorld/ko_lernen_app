@@ -32,6 +32,7 @@ import 'services/app_startup_coordinator.dart';
 import 'services/course_mission_navigation.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'models/curriculum.dart';
+import 'models/personal_room.dart';
 import 'screens/splash_screen.dart';
 import 'screens/quick_onboarding_screen.dart';
 import 'screens/character_selection_screen.dart';
@@ -74,6 +75,7 @@ import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/wordle_screen.dart';
 import 'screens/hanok_world_screen.dart';
+import 'screens/personal_room_furnish_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
 import 'screens/sarangbang_screen.dart';
@@ -678,6 +680,20 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/hanok':
               return SoriTransitions.fadeScale(
                 (_) => const HanokWorldScreen(),
+                settings: settings,
+              );
+            case '/hanok/anbang':
+              return SoriTransitions.fadeScale(
+                (_) => const PersonalRoomFurnishScreen(
+                  surface: PersonalRoomSurface.anbang,
+                ),
+                settings: settings,
+              );
+            case '/hanok/daecheong':
+              return SoriTransitions.fadeScale(
+                (_) => const PersonalRoomFurnishScreen(
+                  surface: PersonalRoomSurface.daecheongmaru,
+                ),
                 settings: settings,
               );
             case '/sarangbang':

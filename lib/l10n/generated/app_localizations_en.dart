@@ -4385,4 +4385,38 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get sarangbangStudyFurnish => 'Furnish the study room';
+
+  @override
+  String get personalRoomAnbangTitle => 'Anbang';
+
+  @override
+  String get personalRoomDaecheongTitle => 'Daecheongmaru';
+
+  @override
+  String get personalRoomAnbangBody =>
+      'A quiet inner room for the words and moments you keep.';
+
+  @override
+  String get personalRoomDaecheongBody =>
+      'An open hall where your learning path can continue.';
+
+  @override
+  String get personalRoomEmptyHint =>
+      'Open a Bojagi bundle to add your first room piece.';
+
+  @override
+  String get personalRoomLockedTitle => 'This room is still being built';
+
+  @override
+  String get personalRoomLockedBody =>
+      'Continue the learning path to open this part of your Hanok.';
+
+  @override
+  String get personalRoomReturnToMap => 'Back to the Hanok map';
+
+  @override
+  String get personalRoomAnbangStudy => 'Explore my collection';
+
+  @override
+  String get personalRoomDaecheongStudy => 'Continue the learning path';
 }

@@ -2063,5 +2063,18 @@
   "sarangbangStudyTitle": "Sarangbang",
   "sarangbangStudyIntroTitle": "Dein nächster Lernschritt wartet",
   "sarangbangStudyIntroBody": "Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.",
-  "sarangbangStudyFurnish": "Studierstube einrichten"
+  "sarangbangStudyFurnish": "Studierstube einrichten",
+  "@_personal_rooms": {
+    "description": "Private Hanok-Innenräume zum Einrichten."
+  },
+  "personalRoomAnbangTitle": "Anbang",
+  "personalRoomDaecheongTitle": "Daecheongmaru",
+  "personalRoomAnbangBody": "Ein ruhiger Innenraum für die Wörter und Momente, die du bewahrst.",
+  "personalRoomDaecheongBody": "Eine offene Halle, in der dein Lernweg weitergeht.",
+  "personalRoomEmptyHint": "Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.",
+  "personalRoomLockedTitle": "Dieser Raum wird noch gebaut",
+  "personalRoomLockedBody": "Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.",
+  "personalRoomReturnToMap": "Zurück zur Hanok-Karte",
+  "personalRoomAnbangStudy": "Meine Sammlung entdecken",
+  "personalRoomDaecheongStudy": "Lernweg fortsetzen"
 }

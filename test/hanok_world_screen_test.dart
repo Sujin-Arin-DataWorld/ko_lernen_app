@@ -8,18 +8,22 @@ import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 
 void main() {
+  test('canonical completed room zones open their own interiors', () {
+    expect(hanokRouteForZone(PersonalHanokZone.anchae), '/hanok/anbang');
+    expect(
+      hanokRouteForZone(PersonalHanokZone.daecheongmaru),
+      '/hanok/daecheong',
+    );
+  });
+
   testWidgets('keeps the legacy courtyard before the estate gate opens', (
     tester,
   ) async {
     await tester.pumpWidget(
       _host(
         HanokWorldScreen(
-          loadRatios: () async => const LevelRatios(
-            a1: 1,
-            a2: 1,
-            b1: .24,
-            b2: 1,
-          ),
+          loadRatios: () async =>
+              const LevelRatios(a1: 1, a2: 1, b1: .24, b2: 1),
         ),
       ),
     );
@@ -39,12 +43,7 @@ void main() {
     await tester.pumpWidget(
       _host(
         HanokWorldScreen(
-          loadRatios: () async => const LevelRatios(
-            a1: 1,
-            a2: 1,
-            b1: 1,
-            b2: 1,
-          ),
+          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
           onOpenZone: (zone) => opened = zone,
         ),
       ),

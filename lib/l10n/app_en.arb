@@ -1985,5 +1985,18 @@
   "sarangbangStudyTitle": "Sarangbang",
   "sarangbangStudyIntroTitle": "Your next study step is ready",
   "sarangbangStudyIntroBody": "The exercise that fits your progress today begins here.",
-  "sarangbangStudyFurnish": "Furnish the study room"
+  "sarangbangStudyFurnish": "Furnish the study room",
+  "@_personal_rooms": {
+    "description": "Private Hanok interior furnishing surfaces."
+  },
+  "personalRoomAnbangTitle": "Anbang",
+  "personalRoomDaecheongTitle": "Daecheongmaru",
+  "personalRoomAnbangBody": "A quiet inner room for the words and moments you keep.",
+  "personalRoomDaecheongBody": "An open hall where your learning path can continue.",
+  "personalRoomEmptyHint": "Open a Bojagi bundle to add your first room piece.",
+  "personalRoomLockedTitle": "This room is still being built",
+  "personalRoomLockedBody": "Continue the learning path to open this part of your Hanok.",
+  "personalRoomReturnToMap": "Back to the Hanok map",
+  "personalRoomAnbangStudy": "Explore my collection",
+  "personalRoomDaecheongStudy": "Continue the learning path"
 }
