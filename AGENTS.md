@@ -264,7 +264,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 사랑방 UI의 ARB 키는 `flutter gen-l10n`으로 재생성해 공통 `AppL10n` 인터페이스 안에 선언되도록 복구했다 (`4391f80`).
 - [x] 사랑방 화면의 새 텍스트는 공통 `SoriTextTheme` 프리셋으로 수렴해 전역 `w800`·Pretendard 래칫을 늘리지 않는다 (`4f3e83`).
 - [x] 보상 꾸러미 개봉 UI: 묶인 보자기 → 후보 3개 → 선택 → 사랑방 CTA를 서비스 API만으로 연결했고, 연습 허브·사랑방에서 도달 가능하다 (`aec2846`). 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
-- [ ] 전체 장식 수집 완료 보관 처리 UI: `collectionComplete` 상태를 명시적으로 알리고 서비스의 보관 API를 연결한다.
+- [x] 전체 장식 수집 완료 보관 처리 UI: `collectionComplete` 상태를 DE/EN 안내와 명시적 보관 CTA로 연결하고, 마지막 장식 수령 뒤에도 다음 완주 꾸러미를 열 수 있게 했다 (`695e548`).
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -2720,3 +2720,10 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **변경:** 원래 세 후보 중 하나라도 남으면 기존 순서 그대로 제시한다. 세 개가 전부 소진된 경우에만 같은 안정 순환의 바로 다음 위치부터 미보유 세 종을 결정적으로 찾는다. 풀 전체를 모은 경우에는 `collectionComplete`를 반환하고 `archiveCompleteCollectionBox()`가 journal-first로 사용자의 명시적 보관 처리를 수행한다.
 - **내구성:** 새 v2 journal은 후보 산출 당시 `ownedBefore`를 함께 기록하므로 대체 후보 수령도 재시작 뒤 같은 후보만 복구한다. v1 장식 journal 해석은 유지했고, 보관 journal은 소유 효과 없이 큐 소비만 멱등하게 복구한다. XP는 현재 단순 누적 정수라 중단 시 정확히 한 번을 보장하는 별도 원장·동기화 설계 없이는 안전하지 않아 이 단계에서 임의 대체 지급으로 만들지 않았다.
 - **검증:** RED는 새 상태·보관 API 부재 컴파일 실패로 확인했다. 대체 후보, 전체 수집 상태, 첫 상자 보관, 미완주 보관 거부, v2 대체 후보/보관 journal 복구를 고정한 `flutter test test/decoration_reward_service_test.dart` **22 passed**, 대상 `dart analyze` **0 issues**, `git diff --check` 통과. 구현 커밋: `2124dcb`.
+
+### 2026-08-04 (Codex) — 사랑방 전체 수집 보관 UI·테스트 격리 — 커밋 완료
+
+- **문제:** 서비스가 `collectionComplete`를 반환해도 보자기 화면은 그 상태를 처리하지 않아 컴파일이 막혔다. 마지막 미보유 장식을 받은 뒤 다음 상자가 전체 수집 완료라면 “다음 꾸러미”도 숨겨져 사용자가 다시 진입해야 했다.
+- **변경:** `BojagiScreen`이 전체 수집 상태를 “Sammlung vollständig / Collection complete” 안내와 명시적 `Bündel ablegen / Archive bundle` CTA로 표시하고, 성공 시 서비스가 읽은 다음 상자(또는 빈 큐)를 다시 렌더한다. 수령 직후의 다음 버튼은 선택 가능 상자와 전체 수집 보관 상자 모두에 노출한다. DE/EN ARB와 생성 `AppL10n` getter를 `flutter gen-l10n`으로 함께 갱신했다.
+- **테스트 안정성:** 보자기 화면은 전역 직렬 mutation queue를 쓰므로 화면이 await하지 못한 작업이 다음 widget test의 mock 저장소 경계를 넘지 않도록 test-only 동기 reset 훅을 추가했다. 또 indeterminate loader에는 `pumpAndSettle`을 쓰지 않고, 실제 이벤트 루프를 한 번 넘긴 뒤 최대 180ms stagger + 540ms entrance timer를 소진한다. 이로써 일반 실행과 전체 실행 모두 같은 결과를 확인한다.
+- **검증:** 새 상태가 빠진 switch 때문에 widget test가 RED 컴파일 실패한 뒤 green이 됐다. 서비스·보자기·data/scene/typography/ARB 가드 **54 passed**, 대상 `dart analyze` **0 issues**, 전체 `flutter test` **1,942 passed**, `git diff --check` 통과. 구현 커밋: `695e548`.
