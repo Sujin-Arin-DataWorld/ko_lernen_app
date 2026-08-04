@@ -277,7 +277,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P2b: `LevelRatios`만 읽는 pure `PersonalHanokProjection`·구조/조경 카탈로그·개인 전용 맵 레이어의 데이터 계약을 테스트 우선으로 구현했다. 7개 건축 milestone과 개인 후원 레이어의 순서·자산 루트·Gye/구 프로토타입 차단을 고정했고, 레거시 마당도 스크롤 가능한 유한 4:3 viewport로 안전하게 렌더하는 개인 지도/세계 화면을 추가했다 (`4b411f3`, `bddc25a`, `caa1cbb`).
 - [x] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결했다. 사랑채는 기존 `recommendMission`의 결과만 실행하는 `/sarangbang` 학습 허브로, 꾸미기는 `/sarangbang/furnish`로 분리했다. 대청·행랑·안채·후원·사당은 기존 학습/기록 표면으로 연결하며 Gye 길은 비상호작용으로 남긴다 (`0e30709`).
 - [x] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정했고, 앱 시작 시 portrait-only 제한을 해제해 phone·foldable·tablet의 네 방향을 허용한다. 새 한옥 세계·사랑방 학습·꾸미기 화면도 같은 matrix와 smoke gate에 포함했다 (`73693a4`).
-- [ ] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다.
+- [x] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다 (`88c8564`).
 - [ ] P4: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -2912,3 +2912,10 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **계약:** 안채는 보호된 내실의 따뜻한 창호 빛과 섬세한 결구, 대청은 높은 서까래·넓은 마루·오른쪽 뜰 개구부로 구분한다. 사람·텍스트·책/책가도·책상·문갑·소반·갓/부채 등 유저가 놓을 수집품은 배경에 baked-in 하지 않았다. 생성 안채가 1086×1449였던 한 줄 여백은 소스 하단 1px만 안전하게 crop해 두 방 모두 1086×1448로 정규화했다.
 - **가드:** `tool/check_personal_room_assets.py`가 파일 존재, 1086×1448, RGB/RGBA 불투명 알파, `#00ff00` chroma-key 부재를 fail-closed로 검사한다. 카탈로그 테스트도 모든 room surface가 실제 쉘 파일을 가리키는지 고정한다.
 - **검증:** 쉘 부재 테스트는 구현 전 실제 `false` RED를 확인했다. GREEN: `dart analyze lib/data/personal_room_catalog.dart test/personal_room_catalog_test.dart` **No issues found**, `flutter test test/personal_room_catalog_test.dart` **2 passed**, `python tool/check_personal_room_assets.py` **2 passed**, `git diff --check` 통과. 구현 커밋: `7ea9f85`.
+
+### 2026-08-04 (Codex) — P3 안채·대청마루 배치 화면·지도 진입 — 커밋 완료
+
+- **변경:** `PersonalRoomFurnishScreen` 하나로 사랑방·안채·대청마루의 배치 표면을 렌더한다. 사랑방은 기존 `/sarangbang/furnish` 진입과 해금 전 접근성을 그대로 보존하고, 안채·대청은 각각의 지도 건물에서 `/hanok/anbang`·`/hanok/daecheong`으로 연결했다. 공용 슬롯 피커는 화면마다 다른 `null`/비우기 해석이 생기지 않게 추출했다.
+- **잠금 경계:** 직접 URL로 미완성 안채·대청에 가더라도 한옥 진도만 읽어 잠긴 안내를 보여 준다. RoomLayer·배치 후보·저장값을 읽거나 정규화하지 않으므로, 잠긴 방이 기존 사랑방 배치에 영향을 줄 수 없다.
+- **학습 동선:** 각 실내는 이미 있던 목적지로만 이어진다(사랑방은 기존 추천 학습 허브, 안채는 내 수집, 대청은 학습 경로). 새 추천·보상·진도·계 상태는 만들지 않았다.
+- **검증:** 구현 전 잠긴 안채 화면 import 부재 RED를 확인했다. GREEN: `flutter test test/personal_room_furnish_screen_test.dart test/hanok_world_screen_test.dart test/sarangbang_picker_test.dart test/room_layer_test.dart test/personal_room_placement_service_test.dart` **15 passed**, `flutter test test/screen_smoke_test.dart` **25 passed**, `flutter test test/responsive_test.dart` **386 passed**, targeted `dart analyze` **No issues found**, `git diff --check` 통과. 구현 커밋: `88c8564`.
