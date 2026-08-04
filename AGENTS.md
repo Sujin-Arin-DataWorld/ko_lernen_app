@@ -376,6 +376,22 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 — AAB 버전별 감사 + 백엔드 실작동 검증·배포 (submitTesterFeedback 미배포 갭 해소) — 배포 완료, 커밋 미요청
+
+**범위:** Jin "AAB 버전별로 뭐가 업데이트됐는지, 실제로 코드가 그렇게 반영됐는지 철저 검수 + 방향 설립." 계획 `~/.claude/plans/aab-greedy-church.md`. 방향(Jin 확정)=백엔드 실작동 검증·배포, 산출=계획 작성 후 실행.
+
+**감사(Part 1·2):** 버전맵 `git log -p -- pubspec.yaml` → +1~+10. 문서 대비 코드 3-에이전트 교차검증. **결론: 코드는 버전별 문서 변경을 충실히 반영.** 물질적 불일치 1건 = **+5 AD_ID 활성화(`c395dd7`)가 이후 `b65ef88`에서 되돌려짐** → 현재 AdMob 비활성·AD_ID `tools:node=remove` (Play Console 광고ID 선언 "아니요" 유지). +8 커리큘럼(manifest 36유닛/a1 16)·+10 CourseMastery v2 typed 동기화·courseEligible 가드·+6 AudioPolicy·+7 지그재그/캐릭터선택 전부 실재·배선 확인. 경미 caveat: `roar_tiger.mp3` 부재(무음폴백, 문서화됨)·ADR-002 gain 자동화 도구 미제작(하드코딩 맵). **디자인 R3–R7(브랜치 `feat/design-r3-r7-2026-08`)은 커밋 10 + 미커밋 49파일로 어떤 AAB에도 미포함** — 커밋 ARB가 커밋 생성 l10n보다 앞섬(빌드 전 gen-l10n 필요).
+
+**로컬 readiness 검증(전부 green):** preflight PASS · gye **281/281** · tts **6/6** · firestore.rules 에뮬(JBR Java) **42/42** · analyze_korean_text py_compile + unittest **6/6** · `.env` DeepL 키 존재.
+- **`functions/preflight.sh` 버그 수정(1줄):** JSON 검증이 bare `python3 open()` → Windows 로케일 **cp949**로 `functions/gye/package.json`의 한국어 UTF-8 바이트 디코드 실패 → 거짓 "JSON 깨짐". `open(..., encoding='utf-8')` 명시로 수정 → PASS. (node·`json.tool`·utf-8 open 모두 유효 JSON 확인.)
+
+**🔴 발견·해소한 배포 갭:** `firebase functions:list`/`gcloud functions list` 실측 → 백엔드는 ~95% 배포·ACTIVE(analyze_korean_text·synthesize_tts·on_pack_cleared·weekly_goal_rollover·on_report_created·계정삭제/복원 스위트 전부)였으나 **`submitTesterFeedback`(Tiger Pulse 피드백 callable, `functions/gye/index.js:252`, 클라 `content_feedback_client.dart:158`)만 미배포** → 테스터 피드백이 서버에 안 닿고 outbox 무한재시도. Jin 승인(전체 재배포).
+- **배포:** ① `firebase deploy --only firestore:rules,firestore:indexes,storage` ✓ ② `firebase deploy --only functions:gye-firebase-functions,functions:tts-firebase-functions` — 1차 discovery 타임아웃(10s, 로컬 로드는 gye 735ms/tts 937ms=정상 → 콜드 discovery 일시 지연) → **`FUNCTIONS_DISCOVERY_TIMEOUT=120`으로 재시도 성공**. `submitTesterFeedback` **Successful create**, 나머지 update, `synthesize_tts` update. 배포함수 23→**24**, `gcloud describe` = ACTIVE/GEN_2 확인.
+
+**검증:** 위 로컬 게이트 + 배포 후 `functions:list`/`describe` 실출력. ⚠️ **미검증(Jin/실기기/외부):** 실기기 Tiger Pulse 피드백 실제 왕복·2계정 Gye E2E·책한컷 실 엔드포인트 왕복(`smoke_test.py`는 서명 앱 토큰 필요)·iOS(Mac 부재로 차단). analyze_korean_text·rules는 이미 ACTIVE라 재배포 시 idempotent.
+
+**변경 파일:** `functions/preflight.sh`(1줄 encoding fix) + `AGENTS.md`(본 로그). 백엔드 배포는 코드 변경 아님(기존 소스 배포). **커밋 미수행(Jin 확인 후).**
+
 ### 2026-08-04 (Codex) — 계정·전체 데이터 삭제 복구 경로 및 App Check 진단 — 커밋 완료
 
 **문제/근거:** 운영 `requestAccountDeletion` 호출은 2026-08-03 23:46 UTC에 `auth=VALID`, `app=INVALID`인 App Check 401으로 종료됐다. 함수·리전은 `europe-west3`에서 ACTIVE였고 서버 삭제 작업은 생성되지 않았다. 호출 전 저장한 deletion journal이 `operation == null`으로 남자 기존 UI가 이를 일반 `blocked`로만 분류해 “Alle Daten zurücksetzen”과 “Konto und alle Daten löschen”을 모두 비활성화했고, 재시도 버튼도 없었다.
@@ -385,6 +401,21 @@ flutter run -d <android-id>   # 안드로이드
 **검증:** RED는 새 상태가 없어서 컴파일 실패하는 것으로 확인한 뒤, 관련 Flutter account/reset/App Check 묶음 `flutter test --no-pub --concurrency=1 …` **153 passed**, 변경 5경로 대상 `flutter analyze --fatal-infos` **0 issues**, `node --test functions/gye/account_operations_runtime.test.js functions/gye/cloud_backup_deletion_runtime.test.js` **81/81 passed**, `git diff --check` 통과. 전체 `flutter analyze --fatal-infos`는 이번 범위 밖의 동시 작업 트리 변경에서 나온 진단으로 비녹색이어서 전체 통과로 주장하지 않는다. 실제 Android/Console App Check 복구와 삭제 worker 완료는 기기·운영 권한이 없어 미검증이다.
 
 **운영 후속:** debug 빌드는 현재 설치 기기의 Firebase App Check debug token을 Console에 등록하고, release 빌드는 해당 Firebase Android 앱의 Play Integrity 및 실제 서명/배포 경로를 검증한다. App Check 강제 해제나 debug provider의 release 배포는 금지. **커밋:** `b372e2f` (`fix(account): recover pending deletion retry`).
+
+### 2026-08-03 (Cowork) — 시나리오 배경 전수 매핑 + 배경 7종 생성 — 커밋 미요청
+
+**Jin:** "시나리오별 에셋 더 만들어야되지 않아?" → 1~5단계 순차 진행, 크레딧 제한 없음.
+
+- **🔴 실측으로 드러난 진짜 구멍: 배경 부족이 아니라 배선 누락.** `_categoryById`에 33개만 등록돼 있어 **6개 시나리오가 `backdropKey` null → `posterAsset()` null → 배경 없이 마스코트로 떨어지고 있었다**(`first_class_meeting`·`phone_messenger_reply`·`delivery_address_confirmation`·`clarify_repeat`·`titles_relationship_distance`·`clinic_safety`). 에셋 0장, 코드만으로 해소.
+- **`home` 카테고리 신설 + 전수 재매핑.** 39/39 등록, 미등록 0. 부하 **cafe 13 → 10**, home 8 신설(통화·메신저·사적 대화는 카페가 아니라 집). 최종: cafe 10 · market 9 · directions 8 · home 8 · restaurant 3 · hotel 1.
+  - ⚠️ 코드 주석에 못 박음: **카테고리를 새로 추가하려면 `scenes/{key}.png`가 번들에 실제로 있어야 한다.** 없으면 그 카테고리 시나리오가 전부 깨진다.
+- **`home.png` 死자산 복구.** 896×1200이었고 `home`이 id도 카테고리도 아니라 리졸버가 영원히 못 집는 상태였다 → 1086×1448 팔레트 PNG(482KB)로 변환 + 카테고리 신설로 활성화.
+- **배경 7종 생성 (bbanana2 · 인물 0 · 계층 A).** 1차 6종은 `cafe.png`를 레퍼런스로 넣었더니 **화풍이 아니라 내용까지 복사**됐다 — office/taxi/convenience에 에스프레소 머신이 그대로 들어오고, 명시적 금지에도 **학(鶴) 2마리·토끼 실루엣·한자 「茶」「药」**가 생성됐다. **레퍼런스를 제거하고 Nano Banana Pro + 텍스트 전용 스펙(BIBLE §1.5)으로 재생성하니 3종 모두 한 번에 통과.** 금지어 나열보다 "every surface is blank / no living creature of any kind"처럼 **긍정 서술**이 효과적이었다.
+  - 채용: `home`(반영 완료) · `airport` · `station` · `office`(재생성) · `convenience`(재생성) · `taxi`(재생성)
+  - 보류: `clinic` — 화풍은 좋으나 안내판에 한자 「药」. 국소 인페인트 예정.
+  - **미완**: 6종의 1086×1448 PNG 변환·반영 — 클라우드 샌드박스가 `*.supabase.co`로 못 나가 Jin이 받아 폴더에 넣어야 한다. 반영 후 office/clinic/station/convenience/airport/taxi 카테고리를 추가 등록하면 cafe 10→7, market 9→3, directions 8→2 로 더 분산된다.
+
+**검증:** 39/39 매핑 스크립트 확인 · 배경 6종 육안 전수(문자·인물·동물 혼입 0) · `home.png` 규격 확인. **미검증:** `flutter analyze`·`flutter test`(dart 없음).
 
 ### 2026-08-04 — 디자인 계획 R5 문구 구현 완료 (Cowork 클라우드, feat/design-r3-r7-2026-08)
 
@@ -2293,3 +2324,62 @@ Jin은 iPhone풍 배지/필(둥근 pill 라벨, "칩" 강조 요소) UI를 싫�
 **Why:** 앱 화풍은 "Faceted Minhwa" 한옥/단청 정체성이고, Jin은 iOS 시스템풍 요소가 이질적이라고 느낀다. 강조는 별도 UI 크롬을 얹기보다 콘텐츠(텍스트) 자체에서 하는 걸 선호.
 
 **How to apply:** 무언가를 강조/안내할 때 배지·필·칩을 새로 얹기 전에 **기존 텍스트/콘텐츠 내 인라인 강조**(fontWeight, 색, `Text.rich`)로 해결 가능한지 먼저 고려. 배지형 UI가 꼭 필요하면 제안 전 Jin에게 확인. 관련 작업: [[cloze-shared-prompt-widget]].
+
+## 2026-08-03 · 장면 포스터 8종 단청 회화체 재작화
+
+플랫 벡터체 포스터가 "그림판" 느낌이라는 지적 → `listening_hero.png`/`porch.png`
+register(두꺼운 에어브러시 그라데이션 · 단청 국화문 · 구름문양 · 겹산)로 전량 재생성.
+대상 8종: home, convenience, directions, hotel, market, office, restaurant, taxi.
+
+- 모델: Nano Banana Pro, 3:4, 스타일 레퍼런스 = `listening_hero.png` 상단 크롭
+  (까치 위쪽 1254x330 → 512x135 webp, 8218 B). **생물이 없는 크롭**을 쓴 것이 핵심 —
+  이전 라운드에서 `cafe.png` 를 레퍼런스로 넣었다가 학·토끼·「药」가 혼입됐다.
+- 프롬프트 3원칙: (1) "style swatch 로만 쓰고 건물·배치·사물은 복사하지 마라"
+  (2) 금지를 긍정문으로 — "every surface is blank", "no living creature of any kind"
+  (3) 상단 1/3 여백 명시(텍스트 오버레이용)
+- 함정: "upper 40% is calm open space" 를 그대로 쓰면 모델이 **상단에 별도 띠를
+  붙여** 두 장 합성처럼 만든다(restaurant 1차). "ONE room in one shot,
+  no horizontal divider" 로 바꿔야 한다.
+- 함정: 상품·집기가 플랫 벡터로 떨어지면 "rounded three-dimensional form,
+  soft rim light, cast shadow" + "FORBIDDEN: flat single-tone rectangles" 를 추가.
+
+### 포스터 인코딩
+
+`lib/services/scene_asset_resolver.dart:51` 이 `scenes/{id}.png` 로 확장자를
+하드코딩 → WebP 불가, PNG 고정. 회화체라 팔레트가 밴딩날 줄 알았으나
+`listening_hero.png` A/B 검증 결과 256색+Floyd-Steinberg 는 2배 확대에서도
+밴딩이 안 보인다(평균오차 2.12, RGB 대비 1/3 용량). 규격 유지.
+→ `tool/scene_poster_normalize.py` 추가: `_raw/*.{png,jpg,webp}` →
+1086x1448 PNG-8. 평균오차 4.0 초과분만 RGB 폴백.
+
+## 2026-08-04 · 장면 포스터 11종 완성 + 카테고리 하중 재분배
+
+`airport` · `cafe` · `station` 도 같은 단청 register 로 재작화(플랫 벡터체 잔재 제거).
+포스터 11종이 모두 실재하게 되어 `_categoryById` 를 재분배:
+
+| 카테고리 | 전 | 후 |
+|---|---|---|
+| cafe | 10 | 7 (업무 3건 → office) |
+| directions | 8 | 2 (station 3 · taxi 2 · airport 1 분리) |
+| market | 9 | 8 (convenience 1 분리) |
+| home / restaurant / hotel | 8 / 3 / 1 | 그대로 |
+
+39개 시나리오 전수 유지. `clinic` 포스터는 아직 없어 진료 2건은 market 에 남김.
+
+### 가드 테스트 추가
+
+`test/scene_asset_resolver_test.dart` 에 두 개 추가 — 이제 ⚠️ 주석이 **강제된다**:
+
+1. `assets/data/scenarios.json` 의 id 집합 == `_categoryById` 의 id 집합
+   (양방향 diff — 미등록도, 삭제 잔재도 잡힌다)
+2. 맵에 쓰인 모든 카테고리 키에 `assets/illustrations/scenes/{key}.png` 실재
+
+맵이 private 이라 소스를 정규식으로 읽는다 — `arb_l10n_guard_test` 등과 같은 패턴.
+`airport_arrival` 기대값이 `directions` → `airport` 로 바뀌어 기존 4개 케이스도 갱신.
+
+### 포스터 정규화 결과
+
+11종 전량 1086x1448 PNG-8(256색). 12.4MB → 6.3MB.
+평균오차 0.86~2.47 로 전부 임계값(4.0) 미만 → RGB 폴백 0건.
+원본 896x1200 은 `assets/illustrations/scenes/_raw/` 에 보관(하위 디렉터리라
+pubspec 의 `scenes/` 선언으로는 번들되지 않음). 배치 확정 후 삭제할 것.

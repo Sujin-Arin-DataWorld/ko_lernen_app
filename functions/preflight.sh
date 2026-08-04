@@ -53,7 +53,7 @@ for fn in isAdmin isActiveGyeMember; do
     ok "rules: $fn()" || bad "rules: $fn() 누락"
 done
 for f in firestore.indexes.json firebase.json functions/gye/package.json; do
-  python3 -c "import json;json.load(open('$f'))" 2>/dev/null &&
+  python3 -c "import json;json.load(open('$f', encoding='utf-8'))" 2>/dev/null &&
     ok "JSON valid: $f" || bad "JSON 깨짐: $f"
 done
 
