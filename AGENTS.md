@@ -226,10 +226,10 @@ flutter run -d <android-id>   # 안드로이드
 - [x] `soriClampPadding` 직접 사용 화면도 기본적으로 같은 태블릿 컬럼을 받고, 단어팩은 실제 부모 폭을 쓰는 `SoriContentClamp`로 옮겼다. 계약 테스트·targeted analyzer 통과 (`89ac3ae`).
 - [x] 태블릿 레일은 긴 독일어 `Lerngruppe` 라벨과 시스템 글자 확대 1.3배에서도 안정적으로 렌더링되는 회귀 테스트를 갖췄다 (`c75ffc6`).
 - [x] 세로 태블릿 레일의 최소 폭을 96dp로 두고, 공통 Sori 라벨 크기(태블릿 14.3px)를 사용해 기본 Material 라벨보다 읽기 쉽게 했다 (`4108b5d`).
-- [x] 29개 핵심 화면의 전체 반응형 스모크를 308/360/600/720/800/1280dp 및 360/800dp × 시스템 글자 1.3배로 고정했다. `flutter test test/responsive_test.dart` 244개 통과 (커밋 대기).
-- [x] AppShell의 96dp 태블릿 레일 뒤 프로필 탭은 전체 창 폭이 아니라 실제 남은 폭을 쓰는 `SoriContentClamp`로 여백을 계산한다. 전용 800dp/96dp 레일 회귀와 전체 프로필 테스트, targeted analyzer 통과 (커밋 대기).
-- [x] 논리 태블릿 세로 800×1280·가로 1280×800 및 가로 글자 1.3배를 29개 화면 회귀에 넣었다. `flutter test test/responsive_test.dart` 331개 통과 (커밋 대기).
-- [x] 600dp 이상 중형 안드로이드 태블릿·폴더블은 96dp 라벨 레일을 쓰고, 720dp까지는 콘텐츠/CTA 확대를 점진 적용한다. 레일 단위 테스트와 331개 화면 매트릭스 통과 (커밋 대기).
+- [x] 29개 핵심 화면의 전체 반응형 스모크를 308/360/600/720/800/1280dp 및 360/800dp × 시스템 글자 1.3배로 고정했다. `flutter test test/responsive_test.dart` 244개 통과 (`9c73854`).
+- [x] AppShell의 96dp 태블릿 레일 뒤 프로필 탭은 전체 창 폭이 아니라 실제 남은 폭을 쓰는 `SoriContentClamp`로 여백을 계산한다. 전용 800dp/96dp 레일 회귀와 전체 프로필 테스트, targeted analyzer 통과 (`e9290c3`).
+- [x] 논리 태블릿 세로 800×1280·가로 1280×800 및 가로 글자 1.3배를 29개 화면 회귀에 넣었다. `flutter test test/responsive_test.dart` 331개 통과 (`4478ded`).
+- [x] 600dp 이상 중형 안드로이드 태블릿·폴더블은 96dp 라벨 레일을 쓰고, 720dp까지는 콘텐츠/CTA 확대를 점진 적용한다. 레일 단위 테스트와 331개 화면 매트릭스 통과 (`7cb426b`).
 - [ ] Jin 실기기: Galaxy Tab 및 Xiaomi Pad에서 세로/가로 회전, 시스템 글자 확대 1.0/1.3, 탭 전환·재선택·학습 진입을 확인한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -408,6 +408,7 @@ flutter run -d <android-id>   # 안드로이드
 - Tablet rail content measurement: ProfileScreen now uses `SoriContentClamp`, so its 800dp shell with a 96dp rail calculates padding from the remaining 704dp rather than the full viewport. The focused regression, all profile tests, and targeted analyzer pass. Commit: `e9290c3`.
 - Tablet orientation matrix: the 29 core screens now run at logical 800x1280 portrait and 1280x800 landscape sizes, with the landscape profile also checked at 1.3x system text. `flutter test test/responsive_test.dart` passed 331 tests. Commit: `4478ded`.
 - Medium tablet navigation: navigation rail now starts at 600dp for Android tablets and unfolded devices, while content width and comfort scale still grow through 720dp. Focused navigation/contract tests and the 331-screen responsive matrix pass. Commit: `7cb426b`.
+- Final tablet-responsive verification: targeted analysis of all responsive production files returned 0 issues, and the focused suite (`responsive`, profile, adaptive navigation, tablet contract, CTA, and module-card tests) passed 355 tests. Concurrent Claude asset/design changes remained unstaged and untouched. Commit: pending.
 - Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_adaptive_navigation_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
