@@ -265,6 +265,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 사랑방 화면의 새 텍스트는 공통 `SoriTextTheme` 프리셋으로 수렴해 전역 `w800`·Pretendard 래칫을 늘리지 않는다 (`4f3e83`).
 - [x] 보상 꾸러미 개봉 UI: 묶인 보자기 → 후보 3개 → 선택 → 사랑방 CTA를 서비스 API만으로 연결했고, 연습 허브·사랑방에서 도달 가능하다 (`aec2846`). 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
 - [x] 전체 장식 수집 완료 보관 처리 UI: `collectionComplete` 상태를 DE/EN 안내와 명시적 보관 CTA로 연결하고, 마지막 장식 수령 뒤에도 다음 완주 꾸러미를 열 수 있게 했다 (`695e548`).
+- [x] 전역 analyzer의 잔여 `_magpiePerched` dead 상수를 제거했다. 런타임 자산 선택은 건드리지 않았으며 `dart analyze` 0 issues와 마스코트·반응형 회귀 332개를 통과했다 (`de7f615`).
 - [~] P1 실제 에셋 반영: 2026-08-04 다운로드 묶음은 배경의 색상 마커·보자기의 불투명 흰 캔버스·Faceted Minhwa와 다른 외곽선 렌더 때문에 반려했다. 원본은 로컬 격리본에 보존했다. Jin은 새 9종(배경 1·보자기 2·실내 장식 6) 생성·통합 명세를 승인했으며, 실제 생성·시각 검수 뒤 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신한다 (`c70e459`, `5d8da65`).
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -436,6 +437,12 @@ flutter run -d <android-id>   # 안드로이드
 - **기존 보자기/배경 판정:** Claude 생성본으로 보이는 격리 파일 세 장을 실제 픽셀로 확인했다. 보자기 2종은 흰 캔버스·수채화 음영·스티치 외곽선, 사랑방 배경은 8개 색상 마커·회화적 음영이 있어 모두 재사용 불가로 확정했다. 격리 경로는 그대로 보존한다.
 - **실행 순서:** warning 제거 → 3:4 빈 사랑방 배경 → 짝이 맞는 closed/open bojagi RGBA → 실내 장식 6종 정규화·화이트리스트·pending 해제 → focused 가드로 고정한다. 슬롯/저널/번역 API는 변경 금지다.
 - **명세·검증:** docs/superpowers/plans/2026-08-04-sarangbang-production-assets.md를 spec coverage·placeholder·interface 일치로 self-review하고 git diff --check로 확인했다. 계획 커밋: f63b517.
+
+### 2026-08-04 (Codex) — 전역 analyzer 경고 정리 — 커밋 완료
+
+- **변경:** `_MascotState`에서 실제 선택 경로가 없는 `_magpiePerched` 상수만 제거했다. 어떤 이미지 파일·emotion 매핑·fallback도 바꾸지 않아 런타임 동작은 불변이다.
+- **검증:** 변경 전 `flutter analyze --no-pub`의 유일한 경고가 이 상수였고, 변경 후 `dart analyze`는 0 issues였다. `flutter test test/mascot_ticker_test.dart test/responsive_test.dart`는 332개 전부 통과했다.
+- **커밋:** `de7f615` (`fix(mascot): remove unused perch asset constant`).
 
 ### 2026-08-04 (Codex) — UI/UX completion implementation, in progress
 
