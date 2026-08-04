@@ -90,7 +90,7 @@ Create `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` with this exact anchor table. Fr
 
 Also record the base prompt, all six layer prompts, and the visual acceptance criteria from this plan.
 
-- [ ] **Step 5: Commit the contract only**
+- [x] **Step 5: Commit the contract only**
 
 ```powershell
 git add tool/check_hanok_compound_assets.py docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md AGENTS.md

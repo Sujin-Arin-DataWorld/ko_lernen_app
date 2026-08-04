@@ -437,6 +437,12 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 (Codex) — 개인 한옥 완성 지도 P2a 에셋 검사기·제작 시트 커밋
+
+- **RED → guard:** 아직 어떤 지도 에셋도 없을 때 `python tool/check_hanok_compound_assets.py`가 정확히 7개 `[missing]`을 출력하고 non-zero로 끝나는 것을 확인했다. 이 상태가 P2a 제작 전의 의도된 red다.
+- **구현:** `tool/check_hanok_compound_assets.py`는 base의 1536×1152/불투명 모서리와 구조물 6종의 RGBA mode·투명 모서리·2–90% alpha coverage·opaque subject·`#00ff00` chroma 잔류를 전수 검사한다. `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`는 정규화 좌표, 개인/계 연못·다리 경계, 일곱 생산 프롬프트, 합격 기준, P2b가 참조할 path 목록을 고정했다.
+- **검증/커밋:** `python -m py_compile tool/check_hanok_compound_assets.py`, checker의 의도된 red, `git diff --check` 통과. 현재 단계는 파일 부재 때문에 checker red가 정상이며, 이미지 투입 뒤에만 green이 된다. 커밋: `c5f50ea` (`chore(hanok): add master map asset guard`).
+
 ### 2026-08-04 (Codex) — 개인 한옥 완성 지도 P2a 에셋 제작 계획 커밋
 
 - **범위:** 사용자 승인 뒤, 코드·라우트·저장값을 건드리지 않는 독립 P2a로 `site_base` 1장과 도면 시점의 `sotdaeulmun`·`haengrangchae`·`sarangchae`·`anchae`·`daecheongmaru`·`sadang` 투명 레이어 6장을 제작하기로 확정했다.
