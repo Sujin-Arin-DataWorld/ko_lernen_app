@@ -437,6 +437,13 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 (Codex) — 개인 한옥 P2a 안마당 레이어 반영 커밋
+
+- **에셋:** `anchae`는 남쪽으로 열린 ㄷ자 내부 마당과 좌우 날개·후면 채가 작은 화면에서도 읽히도록 만들었고, `daecheongmaru`는 두 마당 사이를 잇는 닫힌 방이 아닌 바닥·기둥이 보이는 열린 대청으로 분리했다. 둘 다 지도에 독립적으로 탭 가능한 투명 레이어다.
+- **합성 검수:** sheet의 고정 anchor로 base와 남쪽 전면 3종 위에 겹쳐 1280×960·800×600·600×450·360×270을 확인했다. 안채의 U가 윗 안마당을 남쪽으로 열고, 대청은 사랑채의 동쪽 끝과 접하지만 별도 열린 공간으로 구별되며, 동쪽 사당 enclosure는 비어 있다.
+- **기계 검증:** `python tool/check_hanok_compound_assets.py`에서 base와 5개 구조 레이어가 PASS했다(안채 alpha 39.9%, 대청 alpha 45.8%, chroma key 0). 사당 1개 missing은 마지막 P2a 제작 전의 의도된 red다. `git diff --check` 통과.
+- **커밋:** `68172f5` (`feat(hanok): add inner court layers`).
+
 ### 2026-08-04 (Codex) — 개인 한옥 P2a 남쪽 전면 3개 레이어 반영 커밋
 
 - **에셋:** `sotdaeulmun`·`haengrangchae`·`sarangchae`를 같은 고정 지도 카메라와 상단 좌광으로 만든 투명 PNG로 추가했다. 남쪽 문은 낮은 담장 opening에 독립적으로 서고, 행랑채는 왼쪽 전면을 받치며, 긴 사랑채는 대청의 열린 중앙과 온돌방 양쪽을 읽게 해 이후 `/sarangbang` 진입 건물로 쓸 수 있다.

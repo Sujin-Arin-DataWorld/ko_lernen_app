@@ -213,7 +213,7 @@ Prompt for a compact, roofed but visibly open wooden great hall that reads as a 
 
 Place both layers over the base with the Task 1 anchors. Confirm that the U-shaped anchae encloses the inner court without covering the east sadang enclosure or the future sarangchae route.
 
-- [ ] **Step 4: Commit inner-court layers**
+- [x] **Step 4: Commit inner-court layers**
 
 ```powershell
 git add assets/illustrations/hanok_compound/anchae.png assets/illustrations/hanok_compound/daecheongmaru.png AGENTS.md
