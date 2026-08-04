@@ -7705,6 +7705,24 @@ abstract class AppL10n {
   /// **'Baufortschritt deiner Hanok'**
   String get hanokWorldProgress;
 
+  /// No description provided for @hanokWorldGyeBridgeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Gye-Hof'**
+  String get hanokWorldGyeBridgeTitle;
+
+  /// No description provided for @hanokWorldGyeBridgeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine private Hanok und der gemeinsame Gye-Hof wachsen nebeneinander. Triff deine Lerngruppe dort.'**
+  String get hanokWorldGyeBridgeBody;
+
+  /// No description provided for @hanokWorldGyeBridgeOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye-Hof besuchen'**
+  String get hanokWorldGyeBridgeOpen;
+
   /// No description provided for @hanokZoneSarangbang.
   ///
   /// In de, this message translates to:

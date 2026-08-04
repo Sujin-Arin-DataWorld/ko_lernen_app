@@ -74,6 +74,13 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     }
   }
 
+  Future<void> _openGyeHub() async {
+    // The shared Gye courtyard is deliberately not a personal-map zone: it
+    // owns separate membership, age-gate, and Firestore boundaries. This is
+    // only a contextual doorway into the existing Gye hub.
+    await Navigator.pushNamed(context, '/gye/hub');
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -121,6 +128,10 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                             onTapZone: _openZone,
                           ),
                         ),
+                        if (projection.usesCompoundMap) ...[
+                          const SizedBox(height: Spacing.lg),
+                          _GyeBridge(onOpen: _openGyeHub),
+                        ],
                       ],
                     ),
                   ),
@@ -175,6 +186,55 @@ class _WorldIntroduction extends StatelessWidget {
             icon: Icons.menu_book_rounded,
             fullWidth: true,
             onTap: onOpenSarangbang,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A semantic connection to the collaborative courtyard, not a personal
+/// structure to be rendered or furnished on the estate map.
+class _GyeBridge extends StatelessWidget {
+  final VoidCallback onOpen;
+
+  const _GyeBridge({required this.onOpen});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      accent: SoriColors.gold,
+      tinted: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.groups_2_rounded, color: SoriColors.gold),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Text(t.hanokWorldGyeBridgeTitle, style: text.h3),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(
+            t.hanokWorldGyeBridgeBody,
+            style: text.bodySmall.copyWith(color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.md),
+          SoriButton.outlined(
+            key: const ValueKey('hanok-world-gye-bridge'),
+            label: t.hanokWorldGyeBridgeOpen,
+            icon: Icons.groups_2_rounded,
+            accent: SoriColors.gold,
+            fullWidth: true,
+            maxLines: 2,
+            onTap: onOpen,
           ),
         ],
       ),

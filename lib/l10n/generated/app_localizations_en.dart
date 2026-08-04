@@ -4356,6 +4356,16 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldProgress => 'Your Hanok construction progress';
 
   @override
+  String get hanokWorldGyeBridgeTitle => 'The Gye courtyard';
+
+  @override
+  String get hanokWorldGyeBridgeBody =>
+      'Your private Hanok and the shared Gye courtyard grow side by side. Meet your learning group there.';
+
+  @override
+  String get hanokWorldGyeBridgeOpen => 'Visit the Gye courtyard';
+
+  @override
   String get hanokZoneSarangbang => 'Sarangbang · today\'s study';
 
   @override

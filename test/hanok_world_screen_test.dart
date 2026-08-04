@@ -61,6 +61,46 @@ void main() {
 
     expect(opened, PersonalHanokZone.sarangbang);
   });
+
+  testWidgets(
+    'keeps the Gye road noninteractive and uses the separate shared-courtyard bridge',
+    (tester) async {
+      String? openedRoute;
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          onGenerateRoute: (settings) {
+            openedRoute = settings.name;
+            return MaterialPageRoute<void>(
+              builder: (_) => const Scaffold(body: SizedBox()),
+            );
+          },
+          home: MediaQuery(
+            data: const MediaQueryData(disableAnimations: true),
+            child: HanokWorldScreen(
+              loadRatios: () async =>
+                  const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+
+      expect(hanokRouteForZone(PersonalHanokZone.gyeRoad), isNull);
+      await tester.drag(find.byType(ListView), const Offset(0, -720));
+      await tester.pumpAndSettle();
+
+      final bridge = find.byKey(const ValueKey('hanok-world-gye-bridge'));
+      expect(bridge, findsOneWidget);
+
+      await tester.tap(bridge);
+      await tester.pumpAndSettle();
+
+      expect(openedRoute, '/gye/hub');
+    },
+  );
 }
 
 Widget _host(Widget child) => MaterialApp(

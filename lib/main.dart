@@ -59,6 +59,7 @@ import 'screens/gye_create_screen.dart';
 import 'screens/gye_join_screen.dart';
 import 'screens/gye_members_screen.dart';
 import 'screens/gye_screen.dart';
+import 'screens/gye_tab_screen.dart';
 import 'screens/learning_path_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
@@ -719,6 +720,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/gye/join':
               return SoriTransitions.fadeScale(
                 (_) => const GyeJoinScreen(),
+                settings: settings,
+              );
+            case '/gye/hub':
+              return SoriTransitions.fadeScale(
+                (_) => const GyeTabScreen(),
                 settings: settings,
               );
             case '/gye':
