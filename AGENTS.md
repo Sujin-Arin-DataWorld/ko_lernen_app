@@ -274,7 +274,7 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] P2 구조 설계: 한옥은 `오늘의 다음 학습`을 공간으로 여는 한 개의 개인 성장 세계다. Home → 사랑방 학습 허브 → 기존 학습 표면의 원래 진입 경로를 보존하고, `/sarangbang/furnish`는 P1 수집·배치를 맡는다. 정본은 `docs/superpowers/specs/2026-08-04-living-hanok-learning-world-design.md`다.
 - [~] P2a: 기존 `hanok_compound/` 프로토타입은 사용자 검수에서 반려되어 그대로 동결한다. 새 개인 전용 `personal_hanok_v2/`는 넓은 전통 종가의 한 카메라(북쪽 위·동서 지붕 수평·상단 좌광)와 고밀도 Faceted Minhwa로 다시 만든다. Gye 파일·진행·저장소는 직접 재사용하지 않으며 연못·다리도 개인 지도용으로 새로 그린다.
-- [ ] P2b: `LevelRatios`만 읽는 pure `PersonalHanokProjection`·구조/조경 카탈로그·개인 전용 맵 레이어를 테스트 우선으로 구현한다. 기존 12단계 성장/시네마틱과 계 해금 동작은 보존한다.
+- [~] P2b: `LevelRatios`만 읽는 pure `PersonalHanokProjection`·구조/조경 카탈로그·개인 전용 맵 레이어의 데이터 계약을 테스트 우선으로 구현했다. 7개 건축 milestone과 개인 후원 레이어의 순서·자산 루트·Gye/구 프로토타입 차단을 고정했으며, 실제 맵 렌더러는 P2c에서 연결한다 (`4b411f3`).
 - [ ] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결한다. 사랑채는 추천 엔진의 기존 우선순위를 그대로 쓰는 `/sarangbang`으로, 대청·행랑·안채·후원·사당은 기존 학습/기록 표면으로 연결한다.
 - [ ] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정하고 전체 게이트를 통과한다.
 - [ ] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다.
@@ -443,6 +443,12 @@ flutter run -d <android-id>   # 안드로이드
 - **경계 재정의:** P1 사랑방 수집·보자기·방 배치는 `/sarangbang/furnish`로 분리하고 데이터/서비스를 건드리지 않는다. 개인 한옥은 `LevelRatios`의 순수 투영만 읽으며 CourseMastery 70% 판정·계 진행·공유 에셋을 대체하거나 추론하지 않는다.
 - **아트 재시작:** 사용자 피드백으로 기존 `hanok_compound/`의 서로 다른 카메라 프로토타입은 동결한다. 새 `personal_hanok_v2/`만 참조하며, 개인 연못·다리도 Gye 파일을 직접 재사용하지 않고 같은 넓은 전통 종가 카메라에서 다시 제작한다.
 - **문서:** 설계 계약 `docs/superpowers/specs/2026-08-04-living-hanok-learning-world-design.md`와 테스트 우선 실행 계획 `docs/superpowers/plans/2026-08-04-living-hanok-learning-world.md`를 추가했다. 검증 및 구현 커밋 해시는 후속 항목에 기록한다.
+
+### 2026-08-04 (Codex) — 개인 한옥 순수 진도·카탈로그 계약 커밋
+
+- **변경:** `PersonalHanokProjection.from(LevelRatios)`를 새로 두어 B1 25%의 솟을대문부터 B2 100% 후원 완성까지를 기존 12단계 상태와 별개인 map layer 집합으로 순수 계산한다. 비정상적으로 뒤 레벨만 높은 입력은 기존 cascade처럼 초반 courtyard에 남고, 새 저장값·보상·코스 판정은 만들지 않는다.
+- **카탈로그/가드:** `personal_hanok_v2/`만을 가리키는 map layer·hit-zone 데이터와, 1536×1152/알파/코너/chroma-key를 fail-closed로 검사하는 `check_personal_hanok_assets.py`를 추가했다. 에셋 생성 전 checker의 14개 missing red는 의도된 상태다.
+- **검증:** 새 단위 테스트는 threshold·monotonicity·cascade·Gye/prototype path 차단·연못 아래 다리 z-order·비상호작용 Gye road를 **7/7** 고정했다. 대상 `dart analyze` 0 issues, `python -m py_compile` 통과, `git diff --check` 통과. 구현 커밋: `4b411f3`.
 
 ### 2026-08-04 (Codex) — 개인 한옥 대지 확장·연못 다리 R2 계약 커밋
 
