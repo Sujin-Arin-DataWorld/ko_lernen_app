@@ -437,6 +437,13 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 (Codex) — 개인 한옥 P2a 빈 한옥 지도 바탕 반영 커밋
+
+- **에셋:** `assets/illustrations/hanok_compound/site_base.png`을 추가했다. 전통 도면의 비대칭 담장·남쪽 진입·상단 안마당·동쪽 사당 enclosure·하단 후원으로 읽히되, 어떤 완성 건물·문·연못 물·다리·원형/사각 marker도 바탕에 굽지 않았다. 따라서 여섯 채와 기존 연못/다리를 나중에 독립적으로 올릴 수 있다.
+- **규격:** 선택한 후보를 Lanczos로 정확히 1536×1152 RGB로 맞췄고, `pubspec.yaml`에 `assets/illustrations/hanok_compound/`를 등록했다. 360×270 및 1280×960 시각 검수에서 담장/진입/후원 위치와 빈 anchor를 확인했다.
+- **검증:** `python tool/check_hanok_compound_assets.py`에서 base는 `PASS`(alpha 100%, green-key 0), 나머지 구조물 6개 `missing`은 아직 제작 전이라 의도된 red다. `flutter test test/data_integrity_test.dart` 5개 통과, `git diff --check` 통과.
+- **커밋:** `6fec54f` (`feat(hanok): add master map site base`).
+
 ### 2026-08-04 (Codex) — 개인 한옥 완성 지도 P2a 에셋 검사기·제작 시트 커밋
 
 - **RED → guard:** 아직 어떤 지도 에셋도 없을 때 `python tool/check_hanok_compound_assets.py`가 정확히 7개 `[missing]`을 출력하고 non-zero로 끝나는 것을 확인했다. 이 상태가 P2a 제작 전의 의도된 red다.
