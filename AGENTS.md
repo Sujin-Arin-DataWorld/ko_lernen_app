@@ -236,6 +236,10 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] `roomPlacement`가 일부 잘못된 SharedPreferences 항목 때문에 유효한 방 배치까지 전부 비우지 않도록 고쳤다. 유효한 `String → String` 항목은 보존하고, 손상 JSON/항목은 fail-closed로 제외한다 (`8e7dd88`).
 
+### 사랑방 보상 꾸러미 지급 연결 (2026-08-04)
+
+- [x] 새 특별 퀘스트 완료는 완료 marker 전에 출처 퀘스트 id를 가진 미개봉 꾸러미 하나를 저장한다. 중간 종료 뒤 재시도해도 기존 꾸러미를 재사용해 중복 지급하지 않는다 (`8a34f81`).
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -414,6 +418,12 @@ flutter run -d <android-id>   # 안드로이드
 - Medium tablet navigation: navigation rail now starts at 600dp for Android tablets and unfolded devices, while content width and comfort scale still grow through 720dp. Focused navigation/contract tests and the 331-screen responsive matrix pass. Commit: `7cb426b`.
 - Final tablet-responsive verification: targeted analysis of all responsive production files returned 0 issues, and the focused suite (`responsive`, profile, adaptive navigation, tablet contract, CTA, and module-card tests) passed 355 tests. Concurrent Claude asset/design changes remained unstaged and untouched. Commit: `e74e0c3`.
 - Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_adaptive_navigation_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
+
+### 2026-08-04 (Codex) — 사랑방 보상 꾸러미 지급 연결 — 커밋 완료
+
+- **문제:** ADR-002의 보상 흐름은 `퀘스트 완료 → 보자기 꾸러미 → 선택 → 보유 → 방 배치`로 정의돼 있었지만, 실제 `QuestTracker.persistNewCompletions`는 완료 marker와 계 피드만 저장해 미개봉 꾸러미가 한 번도 생기지 않았다.
+- **변경:** 새 완료는 completion marker보다 먼저 `pendingBoxes`에 퀘스트 id를 기록한다. 그 사이 앱이 종료돼도 다음 계산에서 marker가 없는 동일 퀘스트를 다시 보고, 이미 있는 꾸러미는 재사용해 marker만 마무리한다. 따라서 보상 유실과 중복 지급을 함께 피한다.
+- **검증:** RED(새 회귀가 `[]`을 관측) 후, 새 완료 1개·반복 호출 무중복·꾸러미만 먼저 저장된 종료 복구를 고정했다. `flutter test test/quest_tracker_test.dart test/room_placement_storage_test.dart test/decoration_slot_test.dart` **22 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `8a34f81`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
