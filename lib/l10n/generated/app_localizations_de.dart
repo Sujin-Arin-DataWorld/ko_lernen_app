@@ -4290,12 +4290,12 @@ class AppL10nDe extends AppL10n {
   String get sarangbangEmptyTitle => 'Noch nichts zum Einrichten';
 
   @override
-  String get sarangbangEmptyBody => 'Schließe Quests ab und öffne dein Bojagi-Bündel — dann kannst du die Stube einrichten.';
+  String get sarangbangEmptyBody =>
+      'Schließe Quests ab und öffne dein Bojagi-Bündel — dann kannst du die Stube einrichten.';
 
   @override
   String get sarangbangPickTitle => 'Was soll hierhin?';
 
   @override
   String get sarangbangClear => 'Platz frei lassen';
-
 }

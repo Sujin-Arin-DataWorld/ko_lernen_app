@@ -7524,6 +7524,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'FÄLLIG'**
   String get moduleBadgeDue;
+
+  /// No description provided for @sarangbangTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Studierstube'**
+  String get sarangbangTitle;
+
+  /// No description provided for @sarangbangEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nichts zum Einrichten'**
+  String get sarangbangEmptyTitle;
+
+  /// No description provided for @sarangbangEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe Quests ab und öffne dein Bojagi-Bündel — dann kannst du die Stube einrichten.'**
+  String get sarangbangEmptyBody;
+
+  /// No description provided for @sarangbangPickTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was soll hierhin?'**
+  String get sarangbangPickTitle;
+
+  /// No description provided for @sarangbangClear.
+  ///
+  /// In de, this message translates to:
+  /// **'Platz frei lassen'**
+  String get sarangbangClear;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {
@@ -7557,35 +7587,4 @@ AppL10n lookupAppL10n(Locale locale) {
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
     'that was used.',
   );
-
-  /// No description provided for @sarangbangTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Studierstube'**
-  String get sarangbangTitle;
-
-  /// No description provided for @sarangbangEmptyTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Noch nichts zum Einrichten'**
-  String get sarangbangEmptyTitle;
-
-  /// No description provided for @sarangbangEmptyBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe Quests ab und öffne dein Bojagi-Bündel — dann kannst du die Stube einrichten.'**
-  String get sarangbangEmptyBody;
-
-  /// No description provided for @sarangbangPickTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Was soll hierhin?'**
-  String get sarangbangPickTitle;
-
-  /// No description provided for @sarangbangClear.
-  ///
-  /// In de, this message translates to:
-  /// **'Platz frei lassen'**
-  String get sarangbangClear;
-
 }
