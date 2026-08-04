@@ -265,7 +265,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 사랑방 화면의 새 텍스트는 공통 `SoriTextTheme` 프리셋으로 수렴해 전역 `w800`·Pretendard 래칫을 늘리지 않는다 (`4f3e83`).
 - [x] 보상 꾸러미 개봉 UI: 묶인 보자기 → 후보 3개 → 선택 → 사랑방 CTA를 서비스 API만으로 연결했고, 연습 허브·사랑방에서 도달 가능하다 (`aec2846`). 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
 - [x] 전체 장식 수집 완료 보관 처리 UI: `collectionComplete` 상태를 DE/EN 안내와 명시적 보관 CTA로 연결하고, 마지막 장식 수령 뒤에도 다음 완주 꾸러미를 열 수 있게 했다 (`695e548`).
-- [ ] P1 실제 에셋 반영: 2026-08-04 다운로드 묶음은 배경의 색상 마커·보자기의 불투명 흰 캔버스·Faceted Minhwa와 다른 외곽선 렌더 때문에 반려했다. 원본은 로컬 격리본에 보존했으며, 규약을 통과한 교체본이 오면 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신한다 (`c70e459`).
+- [~] P1 실제 에셋 반영: 2026-08-04 다운로드 묶음은 배경의 색상 마커·보자기의 불투명 흰 캔버스·Faceted Minhwa와 다른 외곽선 렌더 때문에 반려했다. 원본은 로컬 격리본에 보존했다. Jin은 새 9종(배경 1·보자기 2·실내 장식 6) 생성·통합 명세를 승인했으며, 실제 생성·시각 검수 뒤 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신한다 (`c70e459`, `5d8da65`).
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -423,6 +423,13 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-04 (Codex) — P1 사랑방 실제 에셋 교체 명세 — 커밋 완료
+
+- **승인 범위:** analyzer의 dead _magpiePerched 상수 제거(동작 불변)와 사랑방 실자산 9종(3:4 배경 1·RGBA 보자기 2·RGBA 실내 장식 6)을 한 트랙으로 처리한다.
+- **시각 계약:** ASSET_GENERATION_BIBLE.md의 Faceted Minhwa(각진 면분할·무윤곽·한지 그레인·제한 팔레트)를 따르고, 배경은 기존 좌측 벽감·상단 횃대 슬롯 좌표를 보존하며 색상 마커를 절대 넣지 않는다. 보자기/장식은 #00FF00 chroma-key 생성 뒤 알파 검증·정규화를 거쳐 흰 캔버스와 키 색 잔재를 막는다.
+- **가드:** 실제 파일 반영 때만 kAvailableDecorations 6줄과 data_integrity_test pending 3줄을 함께 갱신한다. 카테고리·슬롯·보상/저널 로직은 변경하지 않으며, 시각 검수·alpha 검사·analyze·사랑방 묶음 테스트를 모두 통과해야 한다.
+- **명세·검증:** docs/superpowers/specs/2026-08-04-sarangbang-production-assets-design.md를 placeholder/TODO/모순 없이 self-review하고 git diff --check로 확인했다. 명세 커밋: 5d8da65.
 
 ### 2026-08-04 (Codex) — UI/UX completion implementation, in progress
 
