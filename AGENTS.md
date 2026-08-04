@@ -437,6 +437,13 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 (Codex) — 개인 한옥 대지 확장·연못 다리 R2 계약 커밋
+
+- **사용자 검수:** R1에서 건물의 방향은 통일됐지만 대지가 작아 향후 장독대·등·수목·정자·계 관련 목표를 담기에는 스케치북처럼 느껴진다는 피드백을 반영했다. R1 레이어 교체는 아직 커밋하지 않고, 더 넓은 대지와 축소된 footprint에 맞춰 다시 합성한다.
+- **공간 결정:** `site_base`는 1536×1152/4:3을 유지하되 대지·담장이 약 96%를 사용하고, 구조물 anchor는 줄여 안마당·전면·후원에 실제 빈 terrain을 남긴다. revised anchor table은 P2a sheet와 실행 계획에 함께 고정했다.
+- **후원 결정:** 기존 `gye_pond_large`·`gye_bridge`를 계속 직접 재사용하되, bridge anchor를 연못의 중앙 물 위로 올려 z-order상 water 위에서 가로지르게 한다. 다리를 foreground 장식처럼 놓는 기존 위치는 acceptance에서 제외한다.
+- **커밋:** `e6dde03` (`docs(hanok): expand compound spatial contract`).
+
 ### 2026-08-04 (Codex) — 개인 한옥 지도 카메라 R1 보정 계약 커밋
 
 - **사용자 검수:** 여섯 구조 레이어가 각각 독립 3/4 소실점·yaw를 가져 전통 배치도 위에 붙인 모형처럼 보인다는 피드백을 확인했다. alpha/크기 검사 통과만으로 시각적 완성을 선언하지 않고, 이 첫 합성은 P2a acceptance에서 제외한다.
