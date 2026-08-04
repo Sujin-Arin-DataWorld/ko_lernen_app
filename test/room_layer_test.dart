@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 import 'package:ko_lernen_app/widgets/sori/room_layer.dart';
 
@@ -83,5 +84,30 @@ void main() {
       expect(tester.takeException(), isNull);
       expect(find.byIcon(Icons.add_circle_outline), findsNWidgets(2));
     });
+
+    testWidgets(
+      'does not mark an empty room when its only decor is elsewhere',
+      (tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: SizedBox.expand(
+              child: RoomLayer(
+                surface: PersonalRoomSurface.sarangbang,
+                slots: kSarangbangSlots,
+                placements: {
+                  PersonalRoomSurface.anbang: {
+                    'floor_center': 'decoration_soban',
+                  },
+                },
+                owned: {'decoration_soban'},
+              ),
+            ),
+          ),
+        );
+
+        expect(tester.takeException(), isNull);
+        expect(find.byIcon(Icons.add_circle_outline), findsNothing);
+      },
+    );
   });
 }

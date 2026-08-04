@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../models/personal_room.dart';
 import '../../services/room_placement_service.dart';
 import 'placed_decoration.dart';
 import 'tokens.dart';
@@ -13,11 +14,19 @@ import 'tokens.dart';
 ///
 /// 마당(`DecorationLayer`)과 좌표 규약이 같아 렌더 부품을 공유한다.
 class RoomLayer extends StatelessWidget {
+  /// The private room that owns [slots].
+  final PersonalRoomSurface surface;
+
   /// 이 표면의 슬롯 정의.
   final List<SlotDef> slots;
 
-  /// 슬롯 id → 장식 슬러그.
-  final RoomPlacement placement;
+  /// Compatibility input for a single room. New callers pass [placements] so
+  /// candidates can see decorations displayed on every personal surface.
+  final RoomPlacement? placement;
+
+  /// All private room placements. A decoration in another room must count as
+  /// used here too, otherwise empty slots turn into dead markers.
+  final RoomPlacements placements;
 
   /// 유저가 보유한 장식 슬러그. 빈 슬롯 표식 여부를 여기서 판단한다.
   final Set<String> owned;
@@ -27,22 +36,33 @@ class RoomLayer extends StatelessWidget {
 
   const RoomLayer({
     super.key,
+    this.surface = PersonalRoomSurface.sarangbang,
     required this.slots,
-    required this.placement,
+    this.placement,
+    this.placements = const {},
     this.owned = const {},
     this.onTapSlot,
   });
+
+  RoomPlacement get _placement =>
+      placement ?? placements[surface] ?? const <String, String>{};
+
+  RoomPlacements get _placements => <PersonalRoomSurface, RoomPlacement>{
+    ...placements,
+    if (placement != null) surface: _placement,
+  };
 
   /// [slot] 에 지금 놓을 수 있는 보유 장식이 하나라도 있는가.
   ///
   /// 판단을 [RoomPlacementService] 에 맡긴다. 카테고리만 보면 다른 슬롯에
   /// 이미 놓인 장식까지 세어 **누르면 빈 목록이 뜨는 죽은 마커** 가 생긴다.
   /// 마커와 시트가 같은 규칙을 써야 하므로 규칙은 한 곳에만 둔다.
-  bool _hasCandidate(SlotDef slot) => RoomPlacementService.candidatesForSlot(
+  bool _hasCandidate(SlotDef slot) =>
+      RoomPlacementService.candidatesForSurfaceSlot(
+        surface,
         slot,
         owned: owned,
-        placement: placement,
-        slots: slots,
+        placements: _placements,
       ).isNotEmpty;
 
   @override
@@ -55,11 +75,12 @@ class RoomLayer extends StatelessWidget {
           children: [
             for (final slot in slots)
               () {
-                final storedSlug = placement[slot.id];
+                final storedSlug = _placement[slot.id];
                 // SharedPreferences 는 신뢰 경계가 아니다. 예전 버전/손상된
                 // 저장값이 다른 카테고리의 장식을 가리켜도 그 슬롯에 그리지
                 // 않는다 — 슬롯 카테고리 계약을 화면에서도 fail-closed 한다.
-                final slug = storedSlug != null &&
+                final slug =
+                    storedSlug != null &&
                         decorCategoryOf(storedSlug) == slot.accepts
                     ? storedSlug
                     : null;
