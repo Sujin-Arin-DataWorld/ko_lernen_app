@@ -4274,7 +4274,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get sarangbangHubDesc =>
-      'Furnish your room with the pieces you collect.';
+      'Your next study step begins in the Sarangbang.';
 
   @override
   String get bojagiTitle => 'Bojagi bundle';
@@ -4372,4 +4372,17 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hanokZoneSadang => 'Sadang · achievements';
+
+  @override
+  String get sarangbangStudyTitle => 'Sarangbang';
+
+  @override
+  String get sarangbangStudyIntroTitle => 'Your next study step is ready';
+
+  @override
+  String get sarangbangStudyIntroBody =>
+      'The exercise that fits your progress today begins here.';
+
+  @override
+  String get sarangbangStudyFurnish => 'Furnish the study room';
 }

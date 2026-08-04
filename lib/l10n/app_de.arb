@@ -2023,7 +2023,7 @@
   "@_p1_bojagi": {
     "description": "ADR-002 P1 — 보자기 꾸러미 개봉 화면."
   },
-  "sarangbangHubDesc": "Richte deine Stube mit gesammelten Stücken ein.",
+  "sarangbangHubDesc": "Dein nächster Lernschritt beginnt im Sarangbang.",
   "bojagiTitle": "Bojagi-Bündel",
   "bojagiOpenHint": "Tippe auf den Knoten, um das Bündel zu öffnen.",
   "bojagiPickTitle": "Such dir eins aus",
@@ -2056,5 +2056,12 @@
   "hanokZoneHaengrang": "Haengrangchae · Üben",
   "hanokZoneAnchae": "Anchae · meine Sammlung",
   "hanokZoneHuwon": "Huwon · Tagesziel",
-  "hanokZoneSadang": "Sadang · Erfolge"
+  "hanokZoneSadang": "Sadang · Erfolge",
+  "@_sarangbang_study": {
+    "description": "Sarangbang als Kontext für die bestehende Tagesempfehlung."
+  },
+  "sarangbangStudyTitle": "Sarangbang",
+  "sarangbangStudyIntroTitle": "Dein nächster Lernschritt wartet",
+  "sarangbangStudyIntroBody": "Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.",
+  "sarangbangStudyFurnish": "Studierstube einrichten"
 }

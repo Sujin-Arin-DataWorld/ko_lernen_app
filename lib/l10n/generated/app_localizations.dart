@@ -7558,7 +7558,7 @@ abstract class AppL10n {
   /// No description provided for @sarangbangHubDesc.
   ///
   /// In de, this message translates to:
-  /// **'Richte deine Stube mit gesammelten Stücken ein.'**
+  /// **'Dein nächster Lernschritt beginnt im Sarangbang.'**
   String get sarangbangHubDesc;
 
   /// No description provided for @bojagiTitle.
@@ -7740,6 +7740,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Sadang · Erfolge'**
   String get hanokZoneSadang;
+
+  /// No description provided for @sarangbangStudyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangbang'**
+  String get sarangbangStudyTitle;
+
+  /// No description provided for @sarangbangStudyIntroTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein nächster Lernschritt wartet'**
+  String get sarangbangStudyIntroTitle;
+
+  /// No description provided for @sarangbangStudyIntroBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.'**
+  String get sarangbangStudyIntroBody;
+
+  /// No description provided for @sarangbangStudyFurnish.
+  ///
+  /// In de, this message translates to:
+  /// **'Studierstube einrichten'**
+  String get sarangbangStudyFurnish;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

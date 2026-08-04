@@ -73,6 +73,9 @@ import 'screens/daily_challenge_screen.dart';
 import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/wordle_screen.dart';
+import 'screens/hanok_world_screen.dart';
+import 'screens/practice_hub_screen.dart';
+import 'screens/sarangbang_furnish_screen.dart';
 import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
@@ -526,6 +529,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => const DailyChallengeScreen(),
                 settings: settings,
               );
+            case '/practice':
+              return SoriTransitions.fadeScale(
+                (_) => const PracticeHubScreen(),
+                settings: settings,
+              );
             case '/satz_arcade':
               final satzCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
@@ -660,9 +668,19 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => const DojangcheopScreen(),
                 settings: settings,
               );
+            case '/hanok':
+              return SoriTransitions.fadeScale(
+                (_) => const HanokWorldScreen(),
+                settings: settings,
+              );
             case '/sarangbang':
               return SoriTransitions.fadeScale(
-                (_) => const SarangbangScreen(),
+                (_) => const SarangbangStudyScreen(),
+                settings: settings,
+              );
+            case '/sarangbang/furnish':
+              return SoriTransitions.fadeScale(
+                (_) => const SarangbangFurnishScreen(),
                 settings: settings,
               );
             case '/bojagi':
