@@ -279,6 +279,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정했고, 앱 시작 시 portrait-only 제한을 해제해 phone·foldable·tablet의 네 방향을 허용한다. 새 한옥 세계·사랑방 학습·꾸미기 화면도 같은 matrix와 smoke gate에 포함했다 (`73693a4`).
 - [x] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다 (`88c8564`).
 - [x] P4a: 개인 한옥 지도에서 계를 개인 구조물로 섞지 않고 기존 공동 계 허브로 연결한다 (`d548032`).
+- [x] P4c: 한옥·사랑방·실내·계 진입 CTA는 이미 있는 지도/카드 문맥을 유지하고 버튼 자체는 텍스트 우선으로 수렴했다. 중복 아이콘 다섯 개를 제거해 작은 폭의 라벨 가용 공간을 회복했고, 전체 Flutter 회귀 2,029개와 타이포그래피 가드를 통과했다 (`8d5ca97`).
 - [ ] P4b: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -2926,3 +2927,9 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **경계:** 개인 한옥 지도는 개인 진도만 투영한다. 지도 속 `gyeRoad`는 계속 비상호작용이고, 개인 건물·수집 장식·배치 저장소에 계 요소를 넣지 않았다. 따라서 공동 공간을 개인 한옥의 다른 건물처럼 오해하거나 개인 장식을 공유 상태로 잘못 복제하지 않는다.
 - **변경:** 넓은 개인 지도 해금 뒤에만 “계 마당” 카드를 보여 주고 `/gye/hub`의 기존 `GyeTabScreen`으로 이동한다. 그 화면은 기존 멤버십·연령 게이트·Firestore·공동 한옥을 그대로 사용하며, 이 단계는 신규 계 데이터/보상/기부 write를 만들지 않는다.
 - **검증:** 카드가 구현 전 없다는 widget RED를 확인했다. GREEN: `flutter test test/hanok_world_screen_test.dart` **4 passed**, `dart analyze lib/main.dart lib/screens/hanok_world_screen.dart test/hanok_world_screen_test.dart` **No issues found**, ARB 대칭·세계/연기/반응형 회귀 `flutter test test/arb_l10n_guard_test.dart test/hanok_world_screen_test.dart test/screen_smoke_test.dart test/responsive_test.dart` **419 passed**, `git diff --check` 통과. 구현 커밋: `d548032`.
+
+### 2026-08-04 (Codex) — 한옥 동선 CTA 텍스트 우선 가드 복구 — 커밋 완료
+
+- **원인:** 새 개인 한옥·사랑방·실내·계 진입 CTA 다섯 개가 이미 명확한 라벨에도 `SoriButton.icon`을 중복했다. `typography_guard_test`의 아이콘 CTA 상한 74를 79로 넘겨, 작은 화면에서 라벨 가용 폭을 불필요하게 줄이는 회귀였다.
+- **변경:** 지도·카드·AppBar가 제공하는 시각 문맥은 유지하고 버튼은 텍스트 우선으로 바꿨다. 라우트·추천 엔진·진도·보상·계의 상태 경계는 바꾸지 않았다.
+- **검증:** guard RED(`79 > 74`) 뒤 `flutter test --no-pub test/typography_guard_test.dart --reporter expanded` **4 passed**, `flutter analyze --no-pub` **No issues found**, 전체 `flutter test --no-pub --concurrency=1 --reporter compact` **2,029 passed**, 개인 한옥 지도 9종과 실내 2종의 에셋 계약 검사 전부 PASS, `git diff --check` 통과. 구현 커밋: `8d5ca97`.
