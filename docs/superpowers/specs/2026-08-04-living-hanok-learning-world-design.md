@@ -42,9 +42,9 @@ All new files live under `assets/illustrations/personal_hanok_v2/`. Existing dir
 - `map/site_base_light.png`: opaque 4:3 terrain, walls, paths, empty footprints, no buildings or pond water.
 - `map/reference_full_estate.png`: opaque visual-review reference only; never selected by runtime progress.
 - `map/structures/*.png`: six full-canvas RGBA overlays.
-- `map/landscape/*.png`: full-canvas RGBA pond, bridge, garden, pavilion, jars, and lantern overlays.
+- `map/landscape/rear_garden.png`: one full-canvas RGBA rear-garden composition containing pond, bridge, pavilion, jars, lanterns, and planting. P2 intentionally keeps it fused so the bridge cannot drift off the water; future collection-driven P3 may split it only with a new visual contract.
 - All overlays use exactly the base camera: north up, south down, east-west roof ridges horizontal, one shallow aerial 3/4 angle, upper-left light, Faceted Minhwa paint treatment.
-- The bridge is above pond water in z-order and physically spans its middle. No direct references to `assets/illustrations/gye/` are allowed.
+- The bridge physically spans the middle of its pond from bank to bank. No direct references to `assets/illustrations/gye/` are allowed.
 
 ## Routing contract
 

@@ -14,11 +14,6 @@ enum PersonalHanokMilestone {
   daecheongmaru,
   sadang,
   rearGarden,
-  rearPond,
-  rearBridge,
-  pavilion,
-  jangdokdae,
-  lanterns,
 }
 
 /// Semantic destinations on the personal estate map.
@@ -133,14 +128,10 @@ class PersonalHanokProjection {
       unlocked.add(PersonalHanokMilestone.sadang);
     }
     if (b2 >= 1) {
-      unlocked.addAll(const {
-        PersonalHanokMilestone.rearGarden,
-        PersonalHanokMilestone.rearPond,
-        PersonalHanokMilestone.rearBridge,
-        PersonalHanokMilestone.pavilion,
-        PersonalHanokMilestone.jangdokdae,
-        PersonalHanokMilestone.lanterns,
-      });
+      // Pond, bridge, pavilion, jars, and lanterns stay in one rear-garden
+      // composition for P2. Splitting them before P3 would allow the bridge
+      // to drift away from the water that it must physically span.
+      unlocked.add(PersonalHanokMilestone.rearGarden);
     }
     return PersonalHanokProjection._(
       legacyStage: legacyStage,

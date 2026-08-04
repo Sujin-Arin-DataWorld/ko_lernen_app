@@ -44,40 +44,10 @@ const kPersonalHanokLayers = <PersonalHanokMapLayer>[
     opaque: true,
   ),
   PersonalHanokMapLayer(
-    id: 'rear_pond',
-    assetPath: '${kPersonalHanokAssetRoot}map/landscape/rear_pond.png',
-    zIndex: 10,
-    milestone: PersonalHanokMilestone.rearPond,
-  ),
-  PersonalHanokMapLayer(
     id: 'rear_garden',
-    assetPath: '${kPersonalHanokAssetRoot}map/landscape/garden.png',
+    assetPath: '${kPersonalHanokAssetRoot}map/landscape/rear_garden.png',
     zIndex: 11,
     milestone: PersonalHanokMilestone.rearGarden,
-  ),
-  PersonalHanokMapLayer(
-    id: 'rear_bridge',
-    assetPath: '${kPersonalHanokAssetRoot}map/landscape/rear_bridge.png',
-    zIndex: 12,
-    milestone: PersonalHanokMilestone.rearBridge,
-  ),
-  PersonalHanokMapLayer(
-    id: 'pavilion',
-    assetPath: '${kPersonalHanokAssetRoot}map/landscape/pavilion.png',
-    zIndex: 13,
-    milestone: PersonalHanokMilestone.pavilion,
-  ),
-  PersonalHanokMapLayer(
-    id: 'jangdokdae',
-    assetPath: '${kPersonalHanokAssetRoot}map/landscape/jangdokdae.png',
-    zIndex: 14,
-    milestone: PersonalHanokMilestone.jangdokdae,
-  ),
-  PersonalHanokMapLayer(
-    id: 'lanterns',
-    assetPath: '${kPersonalHanokAssetRoot}map/landscape/lanterns.png',
-    zIndex: 15,
-    milestone: PersonalHanokMilestone.lanterns,
   ),
   PersonalHanokMapLayer(
     id: 'sotdaeulmun',

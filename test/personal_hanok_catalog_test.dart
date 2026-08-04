@@ -83,11 +83,11 @@ void main() {
       }
     });
 
-    test('renders pond below bridge in the canonical layer order', () {
-      final pond = layerForMilestone(PersonalHanokMilestone.rearPond);
-      final bridge = layerForMilestone(PersonalHanokMilestone.rearBridge);
+    test('keeps the pond and bridge in one final rear-garden composition', () {
+      final garden = layerForMilestone(PersonalHanokMilestone.rearGarden);
 
-      expect(pond.zIndex, lessThan(bridge.zIndex));
+      expect(garden.id, 'rear_garden');
+      expect(garden.assetPath, endsWith('landscape/rear_garden.png'));
     });
 
     test('defines a noninteractive Gye road without a personal milestone', () {

@@ -19,12 +19,7 @@ SPECS = {
     "structures/anchae.png": {"opaque": False},
     "structures/daecheongmaru.png": {"opaque": False},
     "structures/sadang.png": {"opaque": False},
-    "landscape/rear_pond.png": {"opaque": False},
-    "landscape/rear_bridge.png": {"opaque": False},
-    "landscape/garden.png": {"opaque": False},
-    "landscape/pavilion.png": {"opaque": False},
-    "landscape/jangdokdae.png": {"opaque": False},
-    "landscape/lanterns.png": {"opaque": False},
+    "landscape/rear_garden.png": {"opaque": False},
 }
 
 
