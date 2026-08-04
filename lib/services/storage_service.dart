@@ -824,6 +824,62 @@ class Storage {
     }
   }
 
+  // ── 사랑방 배치 (ADR-002) ────────────────────────────────────────────
+  //
+  // 보상 흐름: 퀘스트 완료 → 보자기 꾸러미 → 열어서 선택 → 보유 → 방에 배치.
+  // 셋 다 작은 컬렉션이라 SharedPreferences 로 충분하다.
+
+  /// 미개봉 꾸러미 — 값은 지급 출처 퀘스트 id (중복 가능: 같은 퀘스트가
+  /// 반복형이면 여러 개 쌓일 수 있으므로 Set 이 아니라 List).
+  static List<String> get pendingBoxes => _l('kl_reward_boxes');
+
+  static Future<void> addPendingBox(String questId) async =>
+      _sl('kl_reward_boxes', [...pendingBoxes, questId]);
+
+  /// 꾸러미 하나를 소비한다. 없으면 false.
+  static Future<bool> consumePendingBox() async {
+    final list = pendingBoxes;
+    if (list.isEmpty) return false;
+    list.removeAt(0);
+    await _sl('kl_reward_boxes', list);
+    return true;
+  }
+
+  /// 보유 장식 — 꾸러미에서 고른 것들. 순서 무의미, 중복 없음.
+  static List<String> get ownedDecor => _l('kl_owned_decor');
+
+  static Future<void> addOwnedDecor(String slug) async {
+    final list = ownedDecor;
+    if (list.contains(slug)) return;
+    await _sl('kl_owned_decor', [...list, slug]);
+  }
+
+  /// 방 배치 — 슬롯 id → 장식 슬러그. 슬롯당 하나.
+  /// 깨진 JSON 은 빈 배치로 떨어뜨린다(배치는 소실돼도 보유는 남는다).
+  static Map<String, String> get roomPlacement {
+    final raw = _s('kl_room_placement');
+    if (raw.isEmpty) return const {};
+    try {
+      final m = jsonDecode(raw) as Map<String, dynamic>;
+      return {for (final e in m.entries) e.key: e.value as String};
+    } catch (_) {
+      return const {};
+    }
+  }
+
+  /// 슬롯에 장식을 놓는다. [slug] 가 null 이면 비운다.
+  /// **같은 장식은 한 번에 한 슬롯에만** — 다른 슬롯에 있었다면 거기서 빠진다.
+  static Future<void> placeInSlot(String slotId, String? slug) async {
+    final m = Map<String, String>.from(roomPlacement);
+    if (slug == null) {
+      m.remove(slotId);
+    } else {
+      m.removeWhere((_, v) => v == slug);
+      m[slotId] = slug;
+    }
+    await _ss('kl_room_placement', jsonEncode(m));
+  }
+
   static double get ttsRate => _d('kl_tts_rate', 0.42);
   static Future<void> setTtsRate(double v) => _sd('kl_tts_rate', v);
 
