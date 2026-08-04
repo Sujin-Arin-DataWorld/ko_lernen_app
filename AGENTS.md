@@ -376,6 +376,10 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
+
+**Jin:** "다크모드 안 함 확정. §12 전 항목 더 해야 할 것 진행하고 마무리." → `72513e2` 머지 트리에서 정적 전수 선검증(Flutter 없이 소스·에셋 실측): 타이포 래칫 w800 180/180·w900 40/40·Pretendard 105/119 ✓ · 매트 리포트 24/24 드리프트 0·비순백 0 ✓ (tiger_magpie_play 해소 확인) · CharacterClips/kLoopAssets 참조 결손 0 ✓ · ARB DE/EN 대칭·값 내 금지어 0 ✓ ("Wordle"은 키명에만 잔존 — 가드 범위 밖). **유일 예상 red = dancheong_stamp_test PNG 실재 1건**: 신규 도장 6종(chilbo·gwigap·peony·taegeuk·vine·wave) 미착 → stamps 8장 다운로드·normalize 후 green. Q7 잔여(tiger_video 죽은 경로 가드)는 2026-08-03 기정리 확인. closeout §4 현행화(머지 완료·push 잔여·예상 red 명기) + §6 "3차 결산" 신설. 결산 도중 Jin 이 약국 포스터 `af9dec6`(pharmacy.png — 보고했던 미추적 parmacy.png 를 정명으로 커밋)를 먼저 실어, 결산 커밋을 그 위로 재작성해 refs 동기화. 후속 후보(stamps 세션 몫): `scenario.dart:441` `pharmacy_headache: market` 배선을 pharmacy 포스터로 갱신할지 결정. 클라우드 몫 종료 — 잔여는 Jin 트랙(push → 게이트 재실행 → §2 실기기 → 스크린샷 → +11 빌드).
+
 ### 2026-08-04 — e1247a5 통합 머지 완결 → main ff (Cowork 통합 세션)
 
 **Jin:** "이미지 바꾼 커밋 풀렸나? 다시 커밋할 43개 생겼어. 다크모드 안할거야." → 커밋 안 풀림. feat/stamps-14-2026-08 위에 중단돼 있던 머지(main `d9c8325` × feat/design `e1247a5`)의 staged 43개가 "재커밋 필요"처럼 보인 것 — 본 머지 커밋이 전부 흡수(장면 포스터 11종·도장 14종·배선 재분배 포함, 별도 재커밋 불필요).

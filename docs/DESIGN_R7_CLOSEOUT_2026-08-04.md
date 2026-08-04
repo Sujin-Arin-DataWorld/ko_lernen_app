@@ -46,12 +46,14 @@
 - Quests→Missionen(§7.2) — "검토" 단계, 미확정.
 - ~~다크모드~~ — **취소**(Jin 결정 2026-08-04, "다크모드 안할거야"). §4.5 보류였던 항목을 이관 목록에서 제외 — 잔여 이관 4건.
 
-## 4. 머지·릴리스 절차 (남은 것)
+## 4. 머지·릴리스 절차 (현행화 2026-08-04 3차)
 
-1. Jin 게이트: `flutter gen-l10n` → `flutter analyze --no-pub` → `flutter test`.
-2. §2 실기기 한 바퀴 → 이상 시 브랜치 위 수정.
-3. green 컨펌 → 브랜치 → main 머지(클라우드 세션이 수행) → `git push origin main`(Jin).
-4. 릴리스 스크린샷 재촬영(FPS OFF) → **+11 빌드 = 디자인 개편 최초 포함 빌드** (런북 절차).
+1. ~~브랜치 → main 머지~~ **완료**: 1차 통합 `02d17fa`(디자인 22커밋+계정삭제+백엔드) → 마감 로그 `d9c8325` → 2차 stamps 통합 `72513e2`(e1247a5: 장면 포스터 11종·도장 8→14종·배선 재분배). 현재 **main = feat/stamps-14-2026-08** — `72513e2` 이후 약국 포스터 `af9dec6`(Jin, pharmacy.png)·본 결산 커밋까지 동기화.
+2. Jin 게이트 **재실행**(통합 머지 후 필수): `flutter gen-l10n` → `flutter analyze --no-pub` → `flutter test`.
+   ⚠ 예상 red 1건: `dancheong_stamp_test` "모든 DancheongMotif 에 도장 PNG 실재" — 신규 6종(chilbo·gwigap·peony·taegeuk·vine·wave) PNG 미착. stamps 세션 8장 다운로드 → `python3 tool/stamp_normalize.py` 후 green. 그 외는 정적 선검증 all green(§6).
+3. `git push origin main feat/stamps-14-2026-08`(Jin) + 로컬 `git branch -d feat/design-r3-r7-2026-08`(VM은 ref 삭제 불가).
+4. §2 실기기 한 바퀴(+P 추가 2건: 온보딩 라이트 템플릿 3장·cardTitle 15/w700 전역 인상) → 이상 시 feat/stamps-14 위 수정.
+5. 릴리스 스크린샷 재촬영(FPS OFF) → **+11 빌드 = 디자인 개편 최초 포함 빌드** (런북 절차).
 
 ---
 
@@ -72,3 +74,18 @@ analyze·test 전부 green 후 자체 감사에서 나온 미구현·부족 9건
 | P9 | 타이포 래칫 실측 재하향: w800 189→**180**, w900 45→**40** | 〃 |
 
 게이트: `flutter gen-l10n`(P3·P4 키) → analyze → test → **골든 기준 1회 생성** → 실기기(§2 목록에 +2: 온보딩 라이트 템플릿 3장, 카드 제목 전역 15/w700 인상).
+---
+
+## 6. 최종 마감 — 통합 머지 후 정적 재검증 (2026-08-04 3차)
+
+`72513e2` 기준, 클라우드 세션이 Flutter 없이 소스·에셋을 정적 전수 측정한 결과:
+
+- 타이포 래칫: w800 **180/상한 180** · w900 **40/40** · 'Pretendard' 105/119 — w800·w900 여유 0 은 의도된 락(신규 추가 즉시 red).
+- 클립 매트: 리포트 **24/24** 커버리지 정확 · 바이트 드리프트 0 · 비순백 매트 0 (tiger_magpie_play 드리프트 해소 확인).
+- 참조 무결: `CharacterClips` mp4 참조 결손 0 · `HanokHeader.kLoopAssets` ↔ `video/loops/` 완전 대칭.
+- ARB: DE/EN 키 대칭 0차이 · 값 내 Starbucks/Wordle 0 — "Wordle"은 키 이름(`gameWordleTitle` 등)에만 잔존, 가드 범위 밖·사용자 노출 0.
+- 도장: enum 14종 중 PNG 8종 — 미착 6종은 §4-2의 유일한 예상 red.
+- Q7 잔여(계획 §11) 확인: `tiger_video.dart` 죽은 경로 구식 가드는 **2026-08-03 기정리**(소스 주석 근거) — 남은 건 실기기 소리 확인뿐.
+- 다크모드: §3 대로 **취소**(Jin 2026-08-04) — §12 "라이트/다크 시각 회귀"는 라이트 단독으로 종결.
+
+이로써 §12 전 항목의 세션(클라우드) 몫은 종료. 잔여는 전부 Jin 트랙 — push · 게이트 재실행 · §2 실기기 · 스크린샷 · +11 빌드.
