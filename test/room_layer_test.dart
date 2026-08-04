@@ -37,7 +37,9 @@ void main() {
       );
 
       expect(tester.takeException(), isNull);
-      expect(find.byType(DecorationFallback), findsOneWidget);
+      expect(find.byType(SoriDecorationImage), findsOneWidget);
+      expect(find.byType(DecorationFallback), findsNothing);
+      expect(find.byType(Image), findsOneWidget);
     });
     // 선반 슬롯은 둘(alcove_top·alcove_bottom)인데 shelf 장식은 문방사우
     // 하나뿐이다. 그걸 한쪽에 놓으면 다른 쪽에는 놓을 게 없다 —

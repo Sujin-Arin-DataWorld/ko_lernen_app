@@ -150,6 +150,14 @@ enum DecorAnchor {
 /// ⚠️ 새 장식 PNG를 넣으면 여기에도 슬러그를 추가할 것.
 /// `test/decoration_slot_test.dart` 가 이 셋과 실제 파일을 대조한다.
 const Set<String> kAvailableDecorations = {
+  // 사랑방 실내 장식 (P1, 2026-08-04)
+  'decoration_chaekgado',
+  'decoration_gat_buchae',
+  'decoration_jagae_mungap',
+  'decoration_munbangsau',
+  'decoration_seoan',
+  'decoration_soban',
+  // 기존 마당/벽 장식
   'decoration_jangdokdae',
   'decoration_kkachi_nest',
   'decoration_maehwa',

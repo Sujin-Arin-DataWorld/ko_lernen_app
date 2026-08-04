@@ -183,12 +183,6 @@ void main() {
       const pending = <String>{
         // Rive 리그 제작 대기. 없으면 TigerStageRive가 프레임 TigerStage로 폴백.
         'assets/rive/tiger.riv',
-        // 사랑방 P1 아트 대기 (2026-08-04). 셋 다 폴백 경로가 있다:
-        // 배경은 Image.asset errorBuilder → 빈 방 색, 보자기는 SoriEmptyState
-        // 아이콘 fallback. **PNG 가 들어오면 이 세 줄을 지운다.**
-        'assets/illustrations/hanok/sarangbang_empty.png',
-        'assets/illustrations/reward/reward_bojagi_closed.png',
-        'assets/illustrations/reward/reward_bojagi_open.png',
       };
 
       final missing = <String>[];
