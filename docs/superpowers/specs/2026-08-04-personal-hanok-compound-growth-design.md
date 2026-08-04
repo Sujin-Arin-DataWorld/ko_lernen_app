@@ -133,9 +133,14 @@ P2 needs seven new production assets under
 6. `daecheongmaru.png` — transparent open hall.
 7. `sadang.png` — transparent enclosed shrine building.
 
-Every structure uses exactly the same elevated-plan camera, lighting direction,
-ground-anchor, Faceted Minhwa palette, restrained hanji grain, and no text.
-They are structures, not room objects, so none belongs in `decorations/`.
+Every structure uses one **north-up, plan-locked oblique camera**: south is the
+lower edge of the map, main east--west ridges run horizontally, and entrances
+face the lower/south side unless the historical plan calls for a side wing.
+The assets may have a small, shared oblique elevation for roof depth, but no
+asset may choose its own yaw, front-facade camera, or vanishing point. They
+share upper-left light, ground-anchor, Faceted Minhwa palette, restrained hanji
+grain, and no text. They are structures, not room objects, so none belongs in
+`decorations/`.
 
 ### 4.2 Existing-art reuse matrix
 

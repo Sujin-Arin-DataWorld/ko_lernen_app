@@ -19,6 +19,24 @@
 - Keep all user-facing runtime text out of P2a. There are no ARB changes until P2c.
 - Stage and commit only files created by the current task. Do not push.
 
+### User-directed R1 camera correction (2026-08-04)
+
+The first six transparent layers passed the mechanical alpha guard but were
+rejected in composite review: each object used a slightly different freestanding
+three-quarter camera, so the result read as pasted models rather than one
+traditional plan. Keep `site_base.png`, anchors, the checker, and the direct
+pond/bridge reuse decision. Regenerate all six structures in a single
+**north-up, plan-locked oblique** system before P2a acceptance:
+
+- Map south is always the lower edge. Long east--west roof ridges are horizontal;
+  entrances face down/south unless a U-shaped wing demands the map-aligned
+  north--south axis.
+- Use a shallow, shared oblique roof depth only. No object may introduce an
+  individual yaw, front-facade camera, or distinct vanishing point.
+- First calibrate the long `sarangchae` over `site_base`, then regenerate the
+  other five against that accepted orientation. Re-run the existing checker,
+  inspect 360/600/800/1280 composites, and replace only the six layer files.
+
 ---
 
 ## File Structure
