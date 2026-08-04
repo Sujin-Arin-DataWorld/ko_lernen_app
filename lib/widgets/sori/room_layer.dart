@@ -45,14 +45,24 @@ class RoomLayer extends StatelessWidget {
         return Stack(
           children: [
             for (final slot in slots)
-              _SlotView(
-                slot: slot,
-                slug: placement[slot.id],
-                showMarker: placement[slot.id] == null && _hasCandidate(slot),
-                canvasWidth: w,
-                canvasHeight: h,
-                onTap: onTapSlot == null ? null : () => onTapSlot!(slot),
-              ),
+              () {
+                final storedSlug = placement[slot.id];
+                // SharedPreferences 는 신뢰 경계가 아니다. 예전 버전/손상된
+                // 저장값이 다른 카테고리의 장식을 가리켜도 그 슬롯에 그리지
+                // 않는다 — 슬롯 카테고리 계약을 화면에서도 fail-closed 한다.
+                final slug = storedSlug != null &&
+                        decorCategoryOf(storedSlug) == slot.accepts
+                    ? storedSlug
+                    : null;
+                return _SlotView(
+                  slot: slot,
+                  slug: slug,
+                  showMarker: slug == null && _hasCandidate(slot),
+                  canvasWidth: w,
+                  canvasHeight: h,
+                  onTap: onTapSlot == null ? null : () => onTapSlot!(slot),
+                );
+              }(),
           ],
         );
       },
