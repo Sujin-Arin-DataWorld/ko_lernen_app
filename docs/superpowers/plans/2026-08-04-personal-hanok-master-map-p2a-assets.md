@@ -37,6 +37,17 @@ pond/bridge reuse decision. Regenerate all six structures in a single
   other five against that accepted orientation. Re-run the existing checker,
   inspect 360/600/800/1280 composites, and replace only the six layer files.
 
+### User-directed R2 estate-scale and pond-bridge correction (2026-08-04)
+
+The R1 camera is map-aligned, but the user correctly noted that the underlying
+compound still feels like a small sketchbook despite future exterior content.
+Before acceptance, redraw the opaque base as a broader 4:3 jongga estate and
+reduce the six structural footprints using the revised anchor table in
+`docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`. Reuse the existing pond at the new
+anchor and move the existing bridge upward and above the water so it visibly
+crosses the pond's centre rather than sitting as a foreground ornament. Keep
+the R1 north-up orientation for every structure.
+
 ---
 
 ## File Structure
@@ -101,14 +112,14 @@ Create `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` with this exact anchor table. Fr
 
 | id | left | bottom | width | z | role |
 |---|---:|---:|---:|---:|---|
-| `anchae` | 0.18 | 0.50 | 0.43 | 20 | upper inner court, U-shaped family residence |
-| `sadang` | 0.74 | 0.52 | 0.17 | 21 | east enclosure, cultural archive destination |
-| `haengrangchae` | 0.11 | 0.24 | 0.25 | 30 | west/front service wing |
-| `sarangchae` | 0.22 | 0.18 | 0.42 | 31 | long south-facing study/guest wing |
-| `sotdaeulmun` | 0.46 | 0.02 | 0.16 | 40 | south entrance gate |
-| `daecheongmaru` | 0.57 | 0.38 | 0.15 | 41 | open hall between courts |
-| `gye_pond_large` | 0.62 | 0.09 | 0.27 | 50 | personal rear pond, direct asset reuse |
-| `gye_bridge` | 0.68 | 0.075 | 0.15 | 51 | personal rear-pond crossing, direct asset reuse |
+| `anchae` | 0.18 | 0.52 | 0.36 | 20 | upper inner court, U-shaped family residence |
+| `sadang` | 0.76 | 0.57 | 0.14 | 21 | east enclosure, cultural archive destination |
+| `haengrangchae` | 0.10 | 0.26 | 0.19 | 30 | west/front service wing |
+| `sarangchae` | 0.22 | 0.18 | 0.34 | 31 | long south-facing study/guest wing |
+| `sotdaeulmun` | 0.46 | 0.02 | 0.14 | 40 | south entrance gate |
+| `daecheongmaru` | 0.55 | 0.39 | 0.12 | 41 | open hall between courts |
+| `gye_pond_large` | 0.60 | 0.10 | 0.28 | 50 | personal rear pond, direct asset reuse |
+| `gye_bridge` | 0.65 | 0.20 | 0.18 | 51 | personal rear-pond crossing, direct asset reuse |
 
 Also record the base prompt, all six layer prompts, and the visual acceptance criteria from this plan.
 
@@ -309,6 +320,75 @@ Expected: seven `PASS` lines, exit `0`. Then run `git diff --check`.
 git add docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md AGENTS.md
 git commit -m "docs(hanok): approve master map asset assembly"
 ```
+
+### Task 7: Correct the map camera coherence (R1)
+
+**Reason:** User composite review rejected the first six structure layers:
+their individual three-quarter yaws made the compound read as pasted models,
+not one traditional plan. The opaque base, normalized anchors, and existing
+pond/bridge reuse remain approved.
+
+**Files:**
+- Modify: all six `assets/illustrations/hanok_compound/*.png` structure layers
+- Modify: `AGENTS.md`
+
+- [x] **Step 1: Lock the north-up camera contract**
+
+Document that map south is the lower edge, east--west ridges are horizontal,
+and no individual asset may use a distinct yaw or vanishing point.
+
+- [x] **Step 2: Calibrate the long `sarangchae` against `site_base`**
+
+Generate and compose a horizontal-ridge, high plan-oblique sarangchae over the
+actual base at its production anchor before using it as the shared camera
+reference.
+
+- [x] **Step 3: Regenerate the five remaining structure layers**
+
+Replace anchae, haengrangchae, daecheongmaru, sadang, and sotdaeulmun with the
+same north-up camera; retain only the real U-shape's vertical side wings.
+
+- [x] **Step 4: Validate the replacement package mechanically**
+
+`python tool/check_hanok_compound_assets.py` passes all seven required files:
+the base remains opaque and each replacement has transparent corners, a valid
+alpha coverage, and no green chroma residue.
+
+- [x] **Step 5: Reinspect the four responsive assembly scales**
+
+Confirm the R1 360×270, 600×450, 800×600, and 1280×960 assemblies preserve
+one plan axis and distinguish every required building and the reused pond /
+bridge pair.
+
+- [ ] **Step 6: Commit the camera-corrected replacement layers**
+
+### Task 8: Enlarge the estate and cross the pond with the bridge (R2)
+
+**Reason:** The map needs durable exterior collection capacity. The user asked
+for a larger compound ground plane and for the reused stone bridge to cross,
+rather than sit in front of, the pond.
+
+**Files:**
+- Modify: `assets/illustrations/hanok_compound/site_base.png`
+- Modify: `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`
+- Modify: `AGENTS.md`
+
+- [x] **Step 1: Lock the wider-estate spatial contract and revised anchors**
+
+The base fills about 96% of the 4:3 canvas, six footprints are reduced, and
+the bridge is raised above the pond along the shared rear-garden route.
+
+- [ ] **Step 2: Generate and normalize the broader 4:3 base**
+
+Keep the 1536×1152 opaque package contract but create generous building-free
+courts, a broader lower-right rear garden, and only a small outer hanji margin.
+
+- [ ] **Step 3: Compose R1 structures and direct Gye reuse at R2 anchors**
+
+Use the same north-up layer assets, directly reference the existing pond and
+bridge, and verify the bridge visibly crosses water.
+
+- [ ] **Step 4: Inspect responsive scales and commit the R2 correction**
 
 ## Self-Review
 

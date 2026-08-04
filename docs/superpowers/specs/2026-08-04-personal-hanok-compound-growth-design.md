@@ -117,6 +117,12 @@ The user-facing 4:3 map needs a single ground plane plus separately tappable
 building and landscape pieces. A cinematic final-stage PNG remains useful for
 celebration, but can never be the interactive map's source of truth.
 
+The compound must feel like a broad, growing **jongga estate**, not a small
+sketchbook board. Its opaque base reserves visibly breathable courts and a
+large rear-garden zone around the six completion structures. The buildings do
+not consume every clearing: future exterior collection (jars, lamps, planting,
+garden structures, and Gye-related goals) needs real unoccupied terrain.
+
 ### 4.1 New map-aligned art package
 
 P2 needs seven new production assets under
@@ -164,6 +170,9 @@ governed by Gye lifetime goals.
 - The rear pond/bridge, lamps, mature planting, jars, walls, and future room
   decoration are optional collection depth after completion, not progress
   blockers.
+- The paired bridge is not a foreground ornament: it renders above and crosses
+  the pond water along its centre line, so both sides of the rear garden remain
+  visually connected.
 - The exterior catalog is map-specific. It must not mutate the current
   `DecorationLayer` contract on `LearningPathScreen` in P2.
 - A map feature has at most one semantic owner: completed building, landscape

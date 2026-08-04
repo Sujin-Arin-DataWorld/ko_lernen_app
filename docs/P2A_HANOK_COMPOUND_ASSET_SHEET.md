@@ -6,26 +6,26 @@
 
 ## 공통 공간 계약
 
-- 캔버스 기준: `site_base.png`는 정확히 **1536×1152, 4:3**. 모든 좌표는 이 기준의 분수다.
+- 캔버스 기준: `site_base.png`는 정확히 **1536×1152, 4:3**. 모든 좌표는 이 기준의 분수다. 대지와 담장은 캔버스의 약 96%를 쓰고, 흰 한지 여백은 2% 안팎으로 제한해 넓은 종가 대지가 작은 스케치북처럼 보이지 않게 한다.
 - 카메라: 남쪽 솟을대문을 아래에 둔 **north-up plan-locked oblique**. 위에서 약 50° 내려다보되, 모두 같은 북쪽/남쪽 축과 같은 얕은 원근만 사용한다. 긴 동서 지붕마루는 화면의 가로축과 평행이고, 남향 출입면은 화면 아래를 향한다. 개별 채가 독자적인 3/4 정면 시점·yaw·소실점을 선택하면 안 된다.
 - 광원: 왼쪽 위. 모든 기와·기둥·돌의 그림자 방향은 오른쪽 아래.
 - 화풍: Faceted Minhwa. 각진 색면, 절제된 한지 결, `#FAF6EC #2A3340 #1A2028 #8E6646 #5C4028 #8B8478 #3D9A7F #C24A45 #DFA951` 중심 팔레트, 검은 외곽선·매끈한 그라데이션 금지.
 - base만 불투명이다. 건물 레이어는 PNG `RGBA`, 모서리 4곳 alpha 0, chroma `#00FF00` 잔류 0이어야 한다.
 - 구조물은 바닥 접점만 가진다. 벽·길·수목·다른 건물·사람·텍스트·아이콘·잠금 표식은 어떤 구조 레이어에도 넣지 않는다.
-- 구조 레이어는 한 채씩 떼어낸 **도면용 지붕 발자국**이다. 정면 파사드가 지붕보다 크게 보이거나, 한 채만 비스듬히 돌아가 보이거나, 서로 다른 소실점이 보이면 불합격이다.
+- 구조 레이어는 한 채씩 떼어낸 **도면용 지붕 발자국**이다. 정면 파사드가 지붕보다 크게 보이거나, 한 채만 비스듬히 돌아가 보이거나, 서로 다른 소실점이 보이면 불합격이다. 여섯 채의 anchor 바깥에는 이후 장독대·등·수목·정자·계 관련 목표를 놓을 충분한 빈 마당을 남긴다.
 
 ## 배치 좌표
 
 | id | left | bottom | width | z | 역할 |
 |---|---:|---:|---:|---:|---|
-| `anchae` | 0.18 | 0.50 | 0.43 | 20 | 윗 안마당을 남쪽으로 열어 둔 ㄷ자 안채 |
-| `sadang` | 0.74 | 0.52 | 0.17 | 동쪽 별도 담장 안의 사당 |
-| `haengrangchae` | 0.11 | 0.24 | 0.25 | 서쪽/전면의 행랑채 |
-| `sarangchae` | 0.22 | 0.18 | 0.42 | 긴 남향 사랑채, 기존 사랑방 진입점 |
-| `sotdaeulmun` | 0.46 | 0.02 | 0.16 | 남쪽 정문 |
-| `daecheongmaru` | 0.57 | 0.38 | 0.15 | 두 마당 사이의 열린 대청마루 |
-| `gye_pond_large` | 0.62 | 0.09 | 0.27 | 개인 후원 연못, 기존 파일 직접 재사용 |
-| `gye_bridge` | 0.68 | 0.075 | 0.15 | 개인 후원 돌다리, 기존 파일 직접 재사용 |
+| `anchae` | 0.18 | 0.52 | 0.36 | 20 | 윗 안마당을 남쪽으로 열어 둔 ㄷ자 안채 |
+| `sadang` | 0.76 | 0.57 | 0.14 | 21 | 동쪽 별도 담장 안의 사당 |
+| `haengrangchae` | 0.10 | 0.26 | 0.19 | 30 | 서쪽/전면의 행랑채 |
+| `sarangchae` | 0.22 | 0.18 | 0.34 | 31 | 긴 남향 사랑채, 기존 사랑방 진입점 |
+| `sotdaeulmun` | 0.46 | 0.02 | 0.14 | 40 | 남쪽 정문 |
+| `daecheongmaru` | 0.55 | 0.39 | 0.12 | 41 | 두 마당 사이의 열린 대청마루 |
+| `gye_pond_large` | 0.60 | 0.10 | 0.28 | 50 | 개인 후원 연못, 기존 파일 직접 재사용 |
+| `gye_bridge` | 0.65 | 0.20 | 0.18 | 51 | 물 위를 가로지르는 개인 후원 돌다리, 기존 파일 직접 재사용 |
 
 ## 기존 자산 재사용
 
@@ -57,7 +57,7 @@ Input images: traditional-plan mockup = layout reference; gye_pond_large.png = m
 Primary request: an empty, elevated-plan Joseon jongga compound ground plane, asymmetrical traditional layout. South/front outer wall has an open reserved footprint for a raised main gate. Lower-left and lower-center reserve a long sarangchae footprint; a smaller west service-wing footprint sits nearby. Upper inner court reserves a large U-shaped anchae footprint. A separated east shrine enclosure has an empty building footprint. A clear open-hall footprint connects the courts. In the lower-right rear garden leave an empty pond basin and a short curved path for a bridge.
 Scene/backdrop: warm hanji cream terrain, pale stone perimeter walls, sandy paths, restrained rocks and low planting only; no sky, no people, no text.
 Style/medium: Faceted Minhwa, angular color planes, subtle hanji grain, upper-left light, elevated three-quarter plan camera.
-Composition/framing: exactly 4:3 landscape, full compound visible with 4% outer hanji margin; all seven future elements have open, uncluttered ground anchors.
+Composition/framing: exactly 4:3 landscape, the broad compound estate uses almost the full canvas with about 2% outer hanji margin; create generous, uncluttered courts and a large rear-garden zone beyond the six structure anchors, leaving visible terrain for future collectible exterior elements.
 Constraints: no completed building, no roof, no gate, no pond water, no bridge, no colored circles, no labels, no placeholder pads, no white rectangle, no cast object shadow beyond terrain.
 Avoid: outlines, isometric game tiles, Chinese/Japanese architecture, random cranes, photorealism, 3D render, watermark, text.
 IMPORTANT: match the geometric faceted style, color palette, paper grain texture, and overall mood of the attached reference images exactly. This must look like part of the same illustrated set.
