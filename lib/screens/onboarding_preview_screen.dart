@@ -204,6 +204,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                               : Icons.navigate_next_rounded,
                           accent: SoriColors.tiger,
                           fullWidth: true,
+                          maxLines: 2,
                           onTap: _advance,
                         ),
                       ],

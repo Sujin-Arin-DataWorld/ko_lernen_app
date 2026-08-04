@@ -81,15 +81,15 @@ class SoriButton extends StatelessWidget {
        assert(maxLines > 0);
 
   double get _height => switch (size) {
-    SoriButtonSize.lg => 52,
-    SoriButtonSize.md => 44,
+    SoriButtonSize.lg => 56,
+    SoriButtonSize.md => 48,
     SoriButtonSize.sm => 40,
   };
 
   double get _fontSize => switch (size) {
-    SoriButtonSize.lg => 16,
-    SoriButtonSize.md => 15,
-    SoriButtonSize.sm => 13.5,
+    SoriButtonSize.lg => 18,
+    SoriButtonSize.md => 16,
+    SoriButtonSize.sm => 14,
   };
 
   double get _hpad => switch (size) {
