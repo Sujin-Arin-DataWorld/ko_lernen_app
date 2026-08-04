@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/storage_service.dart';
+import '../widgets/sori/adaptive_navigation.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tab_reselect.dart';
 import 'home_screen.dart';
@@ -151,28 +152,30 @@ class _AppShellState extends State<AppShell> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
-    final navBar = NavigationBar(
+    final width = MediaQuery.sizeOf(context).width;
+    final usesRail = SoriAdaptiveNavigation.usesRailForWidth(width);
+    final navigation = SoriAdaptiveNavigation(
       selectedIndex: _index,
       onDestinationSelected: _onDestinationSelected,
-      destinations: [
-        NavigationDestination(
-          icon: const Icon(Icons.home_outlined),
-          selectedIcon: const Icon(Icons.home_rounded),
+      items: [
+        SoriAdaptiveNavigationItem(
+          icon: Icons.home_outlined,
+          selectedIcon: Icons.home_rounded,
           label: t.navHome,
         ),
-        NavigationDestination(
-          icon: const Icon(Icons.sports_esports_outlined),
-          selectedIcon: const Icon(Icons.sports_esports_rounded),
+        SoriAdaptiveNavigationItem(
+          icon: Icons.sports_esports_outlined,
+          selectedIcon: Icons.sports_esports_rounded,
           label: t.navPractice,
         ),
-        NavigationDestination(
-          icon: const Icon(Icons.groups_2_outlined),
-          selectedIcon: const Icon(Icons.groups_2_rounded),
+        SoriAdaptiveNavigationItem(
+          icon: Icons.groups_2_outlined,
+          selectedIcon: Icons.groups_2_rounded,
           label: t.navGye,
         ),
-        NavigationDestination(
-          icon: const Icon(Icons.person_outline),
-          selectedIcon: const Icon(Icons.person_rounded),
+        SoriAdaptiveNavigationItem(
+          icon: Icons.person_outline,
+          selectedIcon: Icons.person_rounded,
           label: t.navProfile,
         ),
       ],
@@ -192,49 +195,82 @@ class _AppShellState extends State<AppShell> {
         }),
       ),
     );
+    final railAnchors = IgnorePointer(
+      child: Column(
+        children: List.generate(4, (i) {
+          return Expanded(
+            child: Align(
+              alignment: Alignment.center,
+              child: SizedBox.shrink(key: _tabKeys[i]),
+            ),
+          );
+        }),
+      ),
+    );
 
     return Scaffold(
-      body: IndexedStack(
-        index: _index,
-        // TickerMode: 숨은 탭의 애니메이션·영상(TigerStageVideo) 정지 — 배터리.
+      body: Row(
         children: [
-          PrimaryScrollController(
-            controller: _tabScrollControllers[0],
-            child: TickerMode(
-              enabled: _index == 0,
-              child: HomeScreen(pathTourKey: _pathTourKey),
+          if (usesRail)
+            SafeArea(
+              child: SizedBox(
+                width: SoriAdaptiveNavigation.railWidthForWidth(width),
+                child: Stack(
+                  children: [
+                    navigation,
+                    Positioned.fill(child: railAnchors),
+                  ],
+                ),
+              ),
             ),
-          ),
-          PrimaryScrollController(
-            controller: _tabScrollControllers[1],
-            child: TickerMode(
-              enabled: _index == 1,
-              child: const PracticeHubScreen(),
-            ),
-          ),
-          PrimaryScrollController(
-            controller: _tabScrollControllers[2],
-            child: TickerMode(
-              enabled: _index == 2,
-              child: const GyeTabScreen(),
-            ),
-          ),
-          PrimaryScrollController(
-            controller: _tabScrollControllers[3],
-            child: TickerMode(
-              enabled: _index == 3,
-              child: const ProfileScreen(),
+          Expanded(
+            key: const ValueKey('app-shell-content'),
+            child: IndexedStack(
+              index: _index,
+              // TickerMode: 숨은 탭의 애니메이션·영상(TigerStageVideo) 정지 — 배터리.
+              children: [
+                PrimaryScrollController(
+                  controller: _tabScrollControllers[0],
+                  child: TickerMode(
+                    enabled: _index == 0,
+                    child: HomeScreen(pathTourKey: _pathTourKey),
+                  ),
+                ),
+                PrimaryScrollController(
+                  controller: _tabScrollControllers[1],
+                  child: TickerMode(
+                    enabled: _index == 1,
+                    child: const PracticeHubScreen(),
+                  ),
+                ),
+                PrimaryScrollController(
+                  controller: _tabScrollControllers[2],
+                  child: TickerMode(
+                    enabled: _index == 2,
+                    child: const GyeTabScreen(),
+                  ),
+                ),
+                PrimaryScrollController(
+                  controller: _tabScrollControllers[3],
+                  child: TickerMode(
+                    enabled: _index == 3,
+                    child: const ProfileScreen(),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          navBar,
-          Positioned.fill(child: anchors),
-        ],
-      ),
+      bottomNavigationBar: usesRail
+          ? null
+          : Stack(
+              clipBehavior: Clip.none,
+              children: [
+                navigation,
+                Positioned.fill(child: anchors),
+              ],
+            ),
     );
   }
 }

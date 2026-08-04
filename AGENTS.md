@@ -100,8 +100,8 @@ Firebase 프로젝트: `ko-lernen-app`
 - **계(契) (Phase 6·7·8 — 클라 완성 / CF 부분배포)**: `lib/services/gye_service.dart` (CRUD·6자리 코드·한도 3계/계10명·욕설·`sendSticker`·신고·나가기) + `lib/models/gye.dart` + `lib/data/profanity_denylist.dart` (`containsProfanity`) + `lib/services/age_gate_service.dart` (GDPR-K 16세). **UI 6화면 전부 구현**: create/join/gye(마당+공동한옥)/members + 홈 chooser, 스티커(catalog 30·`StickerPicker`·feed 렌더), `weekly_goal_bar`·`gye_hanok`·`gye_feed`. `firestore.rules` `gye/{gyeId}` 활성(멤버/계장/active/admin 게이트·reports collectionGroup·append-only). **CF `functions/gye/index.js`(v2/2nd gen, europe-west3) 3함수 코드 완성** — `on_pack_cleared`·`weekly_goal_rollover`·`on_report_created`. ✅ **배포(2026-06-05): CF 4종 전부 europe-west3·2nd gen·nodejs22·ACTIVE** — 계 자동집계(`on_pack_cleared`)·자동정지(`on_report_created`)·주간롤오버 프로덕션 작동. 미검증(Jin): 2계정 실동작 E2E·FCM 실도달·rules 재배포·admin claim. 상세 = 2026-06-05 세션로그.
 
 ### Sori 디자인 시스템 (`lib/widgets/sori/`)
-- `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`, **`SoriBreakpoints`(content=480·grid=600 반응형 폭 클램프)**
-- `responsive.dart` — **반응형 콘텐츠 폭 클램프** (2026-06-03). `soriClampPadding(width, {maxWidth, base})` = 폰 무변화·넓은 화면만 잉여폭 좌우 분배 + `SoriContentClamp`(LayoutBuilder 래퍼). 배경 풀블리드 유지, 콘텐츠만 480 중앙 정렬. 홈·리스트 5화면 적용.
+- `tokens.dart` — **단일 색상 소스** (v6.0 단청 팔레트). `SoriColors`, `Spacing`, `SoriRadius`, `SoriElevation`, `SoriSurfaces`, **`SoriBreakpoints`(phone content=480·grid=600·tablet=720·wideTablet=1024)** 및 `soriComfortScale`(태블릿에서 앱 제어 글자/터치 영역 최대 10%, OS 접근성 글자 확대와 독립)
+- `responsive.dart` — **반응형 콘텐츠 폭 클램프**. `soriClampPadding(width, {maxWidth, base})` + `SoriContentClamp`(LayoutBuilder 래퍼)는 폰에서 기존 480dp 컬럼을 보존하고 600--720dp 구간에서 탐색 화면을 640dp 컬럼까지 부드럽게 확장한다. 배경은 풀블리드, 집중형 학습 화면의 명시적 480dp 클램프는 유지한다.
 - `hanok_tokens.dart` — 한옥 전용 색상 (단청 4색)
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` (v6). **자산은 `assets/illustrations/mascot/`에 분리된 포즈 PNG**: 호랑이 5(idle/blink/happy/celebrate/sad) + 까치 4(perched/wingup/wingdown/celebrate). emotion → 포즈 매핑 (celebrate/worry/sleepy/surprised/thinking/neutral/smile). `tiger_thinking`/`tiger_sleepy`/`tiger_neutral`/`magpie_worry`는 Jin이 추후 추가하면 자동 사용, 미존재 시 errorBuilder fallback.
@@ -218,6 +218,13 @@ flutter run -d <android-id>   # 안드로이드
 > - ✅ **2026-06-05: BottomNav IA 재설계 + 첫 사용자 온보딩 코치마크 (Stage 1)** — AppShell(4탭) + 허브 3종 + feature_coach.dart + Storage kl_tut_* 플래그 + P0 배선(책한컷·단어팩). 미커밋(Jin 확인 후).
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
+
+### Android·태블릿 유동 레이아웃 (2026-08-04)
+
+- [x] 폰 폭은 유지하고 600--720dp에서 탐색 콘텐츠 폭을 480→640dp로 확장했으며, 공통 타이포·CTA·모듈 카드가 태블릿에서 최대 10% 커지게 했다 (`596ef4f`).
+- [x] AppShell은 폰 하단 탭·태블릿 세로 라벨 레일·넓은 태블릿 가로 확장 레일을 폭 기준으로 전환한다. 단위/상호작용 위젯 테스트와 targeted analyzer 통과, 커밋 대기.
+- [~] 전체 AppShell 반응형 스모크는 동시 세션의 미추적 `placed_decoration.dart` 컴파일 오류가 해소되면 재실행한다.
+- [ ] Jin 실기기: Galaxy Tab 및 Xiaomi Pad에서 세로/가로 회전, 시스템 글자 확대 1.0/1.3, 탭 전환·재선택·학습 진입을 확인한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -387,7 +394,8 @@ flutter run -d <android-id>   # 안드로이드
 - Re-selecting an active AppShell tab now scrolls its primary content to the top while preserving tab and route state; reduce-motion uses an immediate jump. Covered by `tab_reselect_test.dart` and targeted analyzer output.
 - ModuleCard now uses shared 15px card titles, 12px subtitles, and 11px status badges instead of the prior 13.5/10.5/9px manual styles; locale and type-scale regression tests pass.
 - Tablet-responsive core: browsing columns now expand smoothly from 480dp to 640dp across 600--720dp; shared Sori type, CTA touch targets, and module-card visuals grow by at most 10% while OS accessibility text scaling remains independent. Core contract/widget tests and targeted analyzer pass. Commit: `596ef4f`.
-- Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
+- Adaptive AppShell navigation: phones retain the bottom bar, portrait tablets use a labeled navigation rail, and wide tablets use an expanded rail. The tab content is keyed so resizing does not discard tab state; rail selection is covered by a widget test. Targeted analysis passes. The broader AppShell responsive smoke is temporarily blocked by another active session's untracked `placed_decoration.dart` with an invalid `library;` directive after imports; it was not changed or staged here. Commit: pending.
+- Verification so far: `flutter test test/dancheong_stamp_test.dart`, `flutter test test/sori_tablet_responsive_contract_test.dart test/sori_adaptive_navigation_test.dart test/sori_button_multiline_test.dart test/module_card_l10n_test.dart`, `flutter test test/app_loading_reduced_motion_test.dart`, targeted `dart analyze`, and `git diff --check` pass. Phase commits are user-authorized; no push requested.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
@@ -2464,3 +2472,40 @@ lernpfad 에서 도장이 중복돼 보인다는 지적. 원인이 셋이었고 
 지워야 하므로 `git add` 가 임시 오브젝트만 남기고 실패한다.
 `GIT_INDEX_FILE` 을 /tmp 로 돌려도 ref 잠금에서 같은 벽에 부딪힌다.
 → **커밋은 윈도우에서 직접 해야 한다.** 세션 작업물은 디스크에 멀쩡히 있다.
+
+## 2026-08-04 · P1 사랑방 — 슬롯 배치 모델 (ADR-002)
+
+수집 아이템을 다루는 표면이 이미 셋인데 배치 모델이 셋 다 달랐다
+(도장첩=격자 · 마당=퀘스트별 하드코딩 좌표 · 계 한옥=하드코딩 좌표).
+전부 `Placement = (surface, slot, item)` 으로 묶고, 차이는 **슬롯을 누가 채우느냐**만 남긴다.
+마당=퀘스트, 사랑방=유저, 계=누적 달성.
+
+### 통일감 확보 — 데이터로 잡은 두 구멍
+
+기존 장식을 전수 측정해보니 `widthFrac` 이 아이템마다 **0.08~1.00 으로 손튜닝**돼 있었다.
+마당은 퀘스트마다 좌표를 따로 잡으니 문제가 없지만, 방은 **한 슬롯에 여러 아이템이
+번갈아 들어가므로** 슬롯 폭 하나로는 소반과 문갑이 같은 크기로 그려진다.
+
+→ `kDecorScale` (슬롯 폭 대비 상대 크기) 도입. 렌더 폭 = `slot.widthFrac * decorScale(slug)`.
+   floor 슬롯 0.44 기준 문갑 44% · 서안 40% · 소반 20% 로 벌어진다.
+
+같은 이유로 앵커도 갈랐다. 마당은 전부 `bottom` 앵커인데, 벽에 **걸리는** 것은
+높이가 제각각이라 바닥을 맞추면 작은 액자가 벽 아래로 처진다.
+→ `DecorAnchor { bottom, center }`. 벽·횃대 슬롯은 center, 바닥·선반은 bottom.
+
+### 그 외
+
+- 내용비율 측정: 기존 장식은 캔버스의 96%(중앙값)를 내용이 채운다.
+  `tool/decoration_normalize.py` 를 트림+3% 여백으로 맞춰 같은 비율이 나오게 했다.
+  **정사각으로 맞추지 않는다** — 기존이 1254², 1254x836, 1200x200 처럼 제각각이고
+  `DecorationLayer` 는 폭만 맞추기 때문이다.
+- 사군자 액자 4종과 편액은 본래 실내 그림이라 `wall` 카테고리로 잡아
+  마당과 방 양쪽에서 쓴다. 덕분에 방 출시 시점에 이미 놓을 게 5종 있다.
+- 보자기 꾸러미는 장식이 아니라 **보상 UI 오브젝트**다. `decorations/` 에 넣으면
+  슬롯 후보로 새고 가드 테스트가 잡는다 → `assets/illustrations/reward/` 신설(pubspec 등록).
+- `placed_decoration.dart` 로 공통부 분리. 옮긴 심볼을 `decoration_layer.dart` 에서
+  `export` 로 재수출해 `quests_screen.dart` 의 기존 import 를 안 건드렸다.
+  **마당 렌더 동작은 한 줄도 안 바뀐다.**
+- `test/decoration_slot_test.dart` 가드 9개. 특히
+  `kAvailableDecorations` ↔ 실제 파일 **양방향** 대조 — 파일만 넣고 화이트리스트에
+  안 넣으면 `Image.asset` 시도조차 없이 조용히 placeholder 가 뜬다(눈으로 못 잡음).

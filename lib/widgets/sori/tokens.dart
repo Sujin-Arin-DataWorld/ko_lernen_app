@@ -60,6 +60,9 @@ class SoriBreakpoints {
   /// Maximum visual enlargement for app-controlled type and touch targets.
   /// Accessibility text scaling remains independent of this value.
   static const double tabletComfortScale = 1.10;
+
+  /// A wide tablet in landscape can afford an expanded navigation rail.
+  static const double wideTablet = 1024;
 }
 
 /// Returns the small, device-width-driven visual enlargement used above the
