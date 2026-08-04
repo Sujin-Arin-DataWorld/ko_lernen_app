@@ -252,6 +252,12 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] UI와 분리된 `RoomPlacementService`가 손상된 배치 정규화, 슬롯별 후보 계산, 보유·카테고리·중복 검증, 저장을 맡는다. 이후 어떤 화면도 raw Storage API를 직접 조합할 필요가 없다 (`1d5a754`).
 
+### 사랑방 슬롯 배치 UI (2026-08-04)
+
+- [x] `SarangbangScreen`과 `SlotPickerSheet`가 `RoomPlacementService`를 통해 슬롯 선택·배치·명시적 비우기를 제공한다. 닫힘(`null`)과 비우기 sentinel을 분리하고, 빈 슬롯 표식도 실제 후보 계산과 같은 규칙을 쓴다 (`9678510`).
+- [x] 사랑방 UI의 ARB 키는 `flutter gen-l10n`으로 재생성해 공통 `AppL10n` 인터페이스 안에 선언되도록 복구했다 (`4391f80`).
+- [ ] 보상 꾸러미 개봉: 후보 3개 선택을 내구성 있게 보유 장식으로 전환하고, 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -454,6 +460,12 @@ flutter run -d <android-id>   # 안드로이드
 - **변경:** `RoomPlacementService`를 추가했다. 저장 배치는 슬롯 순서로 정규화해 unknown slot·카테고리 불일치·중복 장식만 제거하고, 후보 목록은 보유·카테고리·다른 슬롯의 사용 여부를 함께 확인한다. 새 배치는 반드시 보유·호환을 통과해야 하며, 같은 장식은 이동 처리로 한 슬롯에만 남는다.
 - **데이터 안전:** 기존 배치를 정규화할 때 소유 목록을 삭제 근거로 사용하지 않는다. 동기화/복원 순서 때문에 소유 목록이 일시적으로 늦어도 유효한 기존 방 배치를 지우지 않기 위해서다. 다만 새 배치 요청은 소유권을 필수로 확인한다.
 - **검증:** 서비스 계약(정규화 우선순위·후보 필터·보유/비보유·호환/비호환·없는 슬롯·비우기), 저장 손상 복구, RoomLayer 카테고리 가드, 슬롯 불변식 묶음이 **16 passed**, 관련 `dart analyze` **0 issues**. 구현 커밋: `1d5a754`.
+
+### 2026-08-04 (Codex) — 사랑방 UI 로컬라이제이션 생성 복구 — 커밋 완료
+
+- **문제:** `9678510`의 `lib/l10n/generated/app_localizations.dart`는 새 사랑방 getter 5개를 `lookupAppL10n()`의 닫는 중괄호 뒤에 넣어, `sarangbang_picker_test.dart` 로드 시 Dart 컴파일 오류가 났다.
+- **원인·변경:** ARB와 언어별 구현은 올바른데 공통 생성 파일만 수동 편집된 상태였다. `flutter gen-l10n`을 다시 실행해 모든 getter를 추상 `AppL10n` 클래스 안에 생성했고, 언어별 줄바꿈도 생성기 출력으로 일치시켰다.
+- **검증:** `flutter test test/room_layer_test.dart test/sarangbang_picker_test.dart test/decoration_slot_test.dart` **18 passed**, `dart analyze lib/screens/sarangbang_screen.dart lib/widgets/sori/room_layer.dart` **0 issues**, `git diff --check` 통과. 구현 커밋: `4391f80`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
