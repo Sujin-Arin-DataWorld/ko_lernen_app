@@ -27,6 +27,7 @@ class WeekSteppingStonesRow extends StatelessWidget {
   final int xpToday;
   final int goal;
   const WeekSteppingStonesRow({
+    super.key,
     required this.streak,
     required this.xpToday,
     required this.goal,
@@ -166,7 +167,7 @@ class _Stone extends StatelessWidget {
 class DailyGoalCard extends StatelessWidget {
   final int xpToday;
   final int goal;
-  const DailyGoalCard({required this.xpToday, required this.goal});
+  const DailyGoalCard({super.key, required this.xpToday, required this.goal});
 
   @override
   Widget build(BuildContext context) {

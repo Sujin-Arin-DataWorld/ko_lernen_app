@@ -109,7 +109,7 @@ void main() {
     });
 
     test('미시작 팩(fraction 0)은 팩으로 추천하지 않는다', () {
-      final pick = _run(nowNode: _node('p1', status: PackStatus.unlocked));
+      final pick = _run(nowNode: _node('p1', status: PackStatus.available));
       expect(pick, isNull);
     });
   });
