@@ -93,6 +93,16 @@ import 'widgets/sori/tiger_video.dart';
 import 'widgets/sori/mascot_preference.dart';
 import 'widgets/sori/route_observer.dart';
 
+/// The app adapts its navigation and content to both tablet orientations.
+/// Keeping this explicit prevents a portrait-only startup lock from silently
+/// invalidating the landscape layout contract.
+const List<DeviceOrientation> kAppSupportedOrientations = <DeviceOrientation>[
+  DeviceOrientation.portraitUp,
+  DeviceOrientation.portraitDown,
+  DeviceOrientation.landscapeLeft,
+  DeviceOrientation.landscapeRight,
+];
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -164,11 +174,8 @@ Future<void> main() async {
   // ignore: discarded_futures, unawaited_futures
   DancheongBurst.preload();
 
-  // Portrait sperren
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+  // Allow phones, foldables, and tablets to use their natural orientation.
+  await SystemChrome.setPreferredOrientations(kAppSupportedOrientations);
 
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
   // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
