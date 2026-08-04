@@ -22,6 +22,16 @@ void main() {
       expect(soriComfortScale(1280), 1.1);
     });
 
+    test('default clamp uses the tablet content column', () {
+      final padding = soriClampPadding(
+        1000,
+        base: const EdgeInsets.symmetric(horizontal: 16),
+      );
+
+      expect(padding.left, 16 + 180); // (1000 - 640) / 2 = 180
+      expect(padding.right, 16 + 180);
+    });
+
     testWidgets('content clamp uses the tablet column by default', (
       tester,
     ) async {

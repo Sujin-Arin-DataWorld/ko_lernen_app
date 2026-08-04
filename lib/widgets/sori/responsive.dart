@@ -14,6 +14,8 @@ double soriAdaptiveContentMaxWidth(double availableWidth) {
       (SoriBreakpoints.tabletContent - SoriBreakpoints.content) * progress;
 }
 
+/// When [maxWidth] is omitted, the same adaptive phone-to-tablet column is
+/// used. Pass an explicit value for intentionally fixed-focus learning views.
 /// 콘텐츠를 [maxWidth]로 클램프하는 듀오링고식 반응형 수평 padding.
 ///
 /// 폰(availableWidth ≤ maxWidth)에선 [base]를 그대로 돌려줘 **시각 변화 0**,
@@ -23,10 +25,15 @@ double soriAdaptiveContentMaxWidth(double availableWidth) {
 /// 예) `soriClampPadding(1200, maxWidth: 480)` → 좌우 각 +360, 가운데 480 컬럼.
 EdgeInsets soriClampPadding(
   double availableWidth, {
-  double maxWidth = SoriBreakpoints.content,
+  double? maxWidth,
   EdgeInsets base = const EdgeInsets.symmetric(horizontal: Spacing.lg),
 }) {
-  final extra = ((availableWidth - maxWidth) / 2).clamp(0.0, double.infinity);
+  final resolvedMaxWidth =
+      maxWidth ?? soriAdaptiveContentMaxWidth(availableWidth);
+  final extra = ((availableWidth - resolvedMaxWidth) / 2).clamp(
+    0.0,
+    double.infinity,
+  );
   return EdgeInsets.fromLTRB(
     base.left + extra,
     base.top,
