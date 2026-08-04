@@ -230,11 +230,11 @@ git commit -m "feat(hanok): add inner court layers"
 - Consumes: base, map anchors, and Task 3 camera/light contract.
 - Produces: an unambiguous shrine building with no furniture/decor placement semantics.
 
-- [ ] **Step 1: Generate `sadang` on chroma key**
+- [x] **Step 1: Generate `sadang` on chroma key**
 
 Prompt for one compact, dignified Korean ancestral shrine in a separate east enclosure: traditional tiled roof, restrained dancheong under eaves, closed lattice doors, stone threshold, and the same elevated-plan camera. The asset is a building only: no ancestor portraits, incense, people, text, shrine tablets, garden, wall, or neighboring roof. Use a perfectly flat `#00ff00` chroma-key background.
 
-- [ ] **Step 2: Remove chroma, run the checker, and compose-review**
+- [x] **Step 2: Remove chroma, run the checker, and compose-review**
 
 Use the Task 3 removal command. Then place the layer at `(left: .74, bottom: .52, width: .17)` over the base. Confirm it is visibly separate from the inner court and has no accidental interior-entry visual cue.
 
