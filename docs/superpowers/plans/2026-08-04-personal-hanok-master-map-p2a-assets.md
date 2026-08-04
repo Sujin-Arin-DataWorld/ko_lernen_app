@@ -1,0 +1,295 @@
+# Personal Hanok Master Map P2a Assets Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Produce a coherent, production-ready 4:3 personal Hanok master-map art package: one site base and six tappable building components, while directly reusing the proven Gye pond-and-bridge pair without coupling personal and Gye state.
+
+**Architecture:** `site_base.png` is the opaque, unbuilt 4:3 ground plane. Six map-perspective RGBA structures are independent layers with the same camera, north/south orientation, light direction, and ground anchors. The future personal catalog references `gye_pond_large.png` and `gye_bridge.png` by their existing paths as one rear-garden milestone; no Gye model, storage key, or widget changes in P2a.
+
+**Tech Stack:** Flutter bundled PNG assets, built-in image generation, the installed chroma-key removal helper, Pillow asset audit, and Flutter/Dart asset-reference tests in the later P2b integration.
+
+## Global Constraints
+
+- Keep the supplied asymmetric traditional-plan relationship: south gate and long sarangchae; upper inner court with U-shaped anchae; separate east sadang; lower-right rear garden.
+- Follow `docs/ASSET_GENERATION_BIBLE.md` exactly: Faceted Minhwa, no black outlines, restricted palette, subtle hanji grain, no text, no markers, no white rectangle, and no gradient except the opaque base sky/atmosphere if used.
+- `site_base.png` is exactly 1536×1152 (4:3), opaque RGB/RGBA with fully opaque corners; six structures are RGBA with fully transparent corners and no chroma-key pixels.
+- Every transparent structure uses the same elevated-plan camera, upper-left light, and a ground contact at its bottom edge. No baked terrain or neighboring building belongs in a structure asset.
+- Reuse only artwork, never personal/Gye progress, storage, unlock, ownership, or UI state. Do not edit `lib/widgets/sori/gye_hanok.dart` in P2a.
+- Do not modify the existing `DecorationLayer` or put structures into `assets/illustrations/decorations/`.
+- Keep all user-facing runtime text out of P2a. There are no ARB changes until P2c.
+- Stage and commit only files created by the current task. Do not push.
+
+---
+
+## File Structure
+
+| Path | Responsibility |
+|---|---|
+| `assets/illustrations/hanok_compound/site_base.png` | Opaque 4:3 unbuilt compound terrain, perimeter walls, paths, empty rear-garden basin, and no buildings. |
+| `assets/illustrations/hanok_compound/sotdaeulmun.png` | Transparent front/south raised gate layer. |
+| `assets/illustrations/hanok_compound/haengrangchae.png` | Transparent outer/service-wing layer. |
+| `assets/illustrations/hanok_compound/sarangchae.png` | Transparent long front-wing layer aligned with `/sarangbang`. |
+| `assets/illustrations/hanok_compound/anchae.png` | Transparent U-shaped inner-residence layer. |
+| `assets/illustrations/hanok_compound/daecheongmaru.png` | Transparent open-hall layer. |
+| `assets/illustrations/hanok_compound/sadang.png` | Transparent, separately enclosed shrine layer. |
+| `tool/check_hanok_compound_assets.py` | Deterministic asset-format guard: required paths, base dimensions/opacity, layer alpha corners, alpha coverage, and chroma-key absence. |
+| `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` | Production placement sheet: normalized map anchors, exact reuse paths, generation prompts, and visual acceptance criteria. |
+| `AGENTS.md` | P2a state and the implementation/verification/commit record. |
+
+## Task 1: Establish the asset contract and deterministic checker
+
+**Files:**
+- Create: `tool/check_hanok_compound_assets.py`
+- Create: `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`
+- Modify: `AGENTS.md`
+
+**Interfaces:**
+- Consumes: `assets/illustrations/hanok_compound/{site_base,sotdaeulmun,haengrangchae,sarangchae,anchae,daecheongmaru,sadang}.png`
+- Produces: exit code `0` only when the entire production package is present and mechanically valid; a one-line report per asset.
+
+- [ ] **Step 1: Write the missing-package assertion first**
+
+Create `tool/check_hanok_compound_assets.py` with the exact asset map below. A missing file must print `[missing] <path>` and make `main()` return `1`.
+
+```python
+SPECS = {
+    'site_base.png': {'size': (1536, 1152), 'transparent': False},
+    'sotdaeulmun.png': {'transparent': True},
+    'haengrangchae.png': {'transparent': True},
+    'sarangchae.png': {'transparent': True},
+    'anchae.png': {'transparent': True},
+    'daecheongmaru.png': {'transparent': True},
+    'sadang.png': {'transparent': True},
+}
+```
+
+- [ ] **Step 2: Run the checker before creating assets**
+
+Run: `python tool/check_hanok_compound_assets.py`
+
+Expected: exit `1` and seven `[missing]` lines. This is the asset equivalent of the RED test.
+
+- [ ] **Step 3: Implement the full mechanical contract**
+
+Use Pillow `Image.open(...).convert('RGBA')`. For `site_base.png`, require exactly `1536×1152`, alpha `255` at all four corners, and no `#00ff00` pixel. For each structure, require alpha `0` at all four corners, alpha coverage between `2%` and `90%`, a nonempty opaque bounding box, and no pixel whose RGB is `(0, 255, 0)` with alpha above `8`. Print dimensions, alpha coverage, and pass/fail status.
+
+- [ ] **Step 4: Write the placement and generation sheet**
+
+Create `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` with this exact anchor table. Fractions use the 1536×1152 base and `bottom` is measured from the lower edge.
+
+| id | left | bottom | width | z | role |
+|---|---:|---:|---:|---:|---|
+| `anchae` | 0.18 | 0.50 | 0.43 | 20 | upper inner court, U-shaped family residence |
+| `sadang` | 0.74 | 0.52 | 0.17 | 21 | east enclosure, cultural archive destination |
+| `haengrangchae` | 0.11 | 0.24 | 0.25 | 30 | west/front service wing |
+| `sarangchae` | 0.22 | 0.18 | 0.42 | 31 | long south-facing study/guest wing |
+| `sotdaeulmun` | 0.46 | 0.02 | 0.16 | 40 | south entrance gate |
+| `daecheongmaru` | 0.57 | 0.38 | 0.15 | 41 | open hall between courts |
+| `gye_pond_large` | 0.62 | 0.09 | 0.27 | 50 | personal rear pond, direct asset reuse |
+| `gye_bridge` | 0.68 | 0.075 | 0.15 | 51 | personal rear-pond crossing, direct asset reuse |
+
+Also record the base prompt, all six layer prompts, and the visual acceptance criteria from this plan.
+
+- [ ] **Step 5: Commit the contract only**
+
+```powershell
+git add tool/check_hanok_compound_assets.py docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md AGENTS.md
+git commit -m "chore(hanok): add master map asset contract"
+```
+
+### Task 2: Generate and validate the opaque site base
+
+**Files:**
+- Create: `assets/illustrations/hanok_compound/site_base.png`
+- Modify: `AGENTS.md`
+
+**Interfaces:**
+- Consumes: `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md` and the user-approved traditional-plan reference.
+- Produces: a 1536×1152 opaque foundation for all building coordinates in Task 1.
+
+- [ ] **Step 1: Generate a single 4:3 base candidate**
+
+Use the built-in image generator with the following prompt. Reference the approved traditional-plan mockup only for layout, and `gye_pond_large.png` only for the Faceted Minhwa material/palette.
+
+```text
+Use case: historical-scene
+Asset type: opaque 4:3 ground layer for an interactive Korean Hanok compound map
+Input images: traditional-plan mockup = layout reference; gye_pond_large.png = material and Faceted Minhwa reference
+Primary request: an empty, elevated-plan Joseon jongga compound ground plane, asymmetrical traditional layout. South/front outer wall has an open reserved footprint for a raised main gate. Lower-left and lower-center reserve a long sarangchae footprint; a smaller west service-wing footprint sits nearby. Upper inner court reserves a large U-shaped anchae footprint. A separated east shrine enclosure has an empty building footprint. A clear open-hall footprint connects the courts. In the lower-right rear garden leave an empty pond basin and a short curved path for a bridge.
+Scene/backdrop: warm hanji cream terrain, pale stone perimeter walls, sandy paths, restrained rocks and low planting only; no sky, no people, no text.
+Style/medium: Faceted Minhwa, angular color planes, subtle hanji grain, upper-left light, elevated three-quarter plan camera.
+Composition/framing: exactly 4:3 landscape, full compound visible with 4% outer hanji margin; all seven future elements have open, uncluttered ground anchors.
+Constraints: no completed building, no roof, no gate, no pond water, no bridge, no colored circles, no labels, no placeholder pads, no white rectangle, no cast object shadow beyond terrain.
+Avoid: outlines, isometric game tiles, Chinese/Japanese architecture, random cranes, photorealism, 3D render, watermark, text.
+```
+
+- [ ] **Step 2: Normalize to the fixed base size**
+
+Select the candidate that keeps all eight anchors unobstructed. Crop or resample with high-quality Lanczos only if required, then save exactly to `assets/illustrations/hanok_compound/site_base.png`. Do not add transparency.
+
+- [ ] **Step 3: Run the checker and inspect it at map scale**
+
+Run: `python tool/check_hanok_compound_assets.py`
+
+Expected: `site_base.png` reports `PASS`; six layers remain missing. Inspect the base at 360dp and 1280dp-equivalent scale; reject it if any future footprint is ambiguous.
+
+- [ ] **Step 4: Commit the base**
+
+```powershell
+git add assets/illustrations/hanok_compound/site_base.png AGENTS.md
+git commit -m "feat(hanok): add master map site base"
+```
+
+### Task 3: Generate the south-front construction layers
+
+**Files:**
+- Create: `assets/illustrations/hanok_compound/sotdaeulmun.png`
+- Create: `assets/illustrations/hanok_compound/haengrangchae.png`
+- Create: `assets/illustrations/hanok_compound/sarangchae.png`
+- Modify: `AGENTS.md`
+
+**Interfaces:**
+- Consumes: the 1536×1152 base, anchor table, `gye_gate_grand.png` and `gye_byeoldang.png` as material references only.
+- Produces: three non-overlapping RGBA layers whose finished buildings can be tapped independently.
+
+- [ ] **Step 1: Generate `sotdaeulmun` on chroma key**
+
+Prompt for a single raised Korean gate in the exact map camera: south-facing dark tiled roof, warm walnut doors, correct upturned eaves, no surrounding wall or terrain, no text, and a perfectly flat `#00ff00` background. Keep 8% transparent margin after removal and no green in the gate.
+
+- [ ] **Step 2: Remove chroma and validate `sotdaeulmun`**
+
+Run:
+
+```powershell
+python C:\Users\vjinn\.codex\skills\.system\imagegen\scripts\remove_chroma_key.py --input <generated-source> --out assets/illustrations/hanok_compound/sotdaeulmun.png --auto-key border --soft-matte --transparent-threshold 12 --opaque-threshold 220 --despill
+python tool/check_hanok_compound_assets.py
+```
+
+Expected: gate is the only nontransparent object; all corners are alpha zero; no green fringe.
+
+- [ ] **Step 3: Generate and validate `haengrangchae`**
+
+Prompt for a single low west-facing service wing, shorter than the sarangchae, same elevated-plan camera and upper-left light, with a `#00ff00` chroma-key background. Exclude people, jars, trees, walls, and adjacent buildings. Remove chroma with the exact command in Step 2, then rerun the checker.
+
+- [ ] **Step 4: Generate and validate `sarangchae`**
+
+Prompt for one long, south-facing guest/study wing with a visible wooden porch and center `daecheong` threshold, but no furniture, no people, no wall, and no surrounding terrain. Use the same `#00ff00` chroma-key contract, remove it with the Step 2 command, and rerun the checker.
+
+- [ ] **Step 5: Composite-review the three layers over `site_base`**
+
+Create a temporary, untracked local mockup using the anchor table. Reject any candidate whose roof overlaps another anchor, faces a different camera direction, or hides the lower-right pond zone.
+
+- [ ] **Step 6: Commit south-front layers**
+
+```powershell
+git add assets/illustrations/hanok_compound/sotdaeulmun.png assets/illustrations/hanok_compound/haengrangchae.png assets/illustrations/hanok_compound/sarangchae.png AGENTS.md
+git commit -m "feat(hanok): add front compound layers"
+```
+
+### Task 4: Generate the inner-court construction layers
+
+**Files:**
+- Create: `assets/illustrations/hanok_compound/anchae.png`
+- Create: `assets/illustrations/hanok_compound/daecheongmaru.png`
+- Modify: `AGENTS.md`
+
+**Interfaces:**
+- Consumes: the base and map anchors from Task 1; the visual language established by Task 3.
+- Produces: independently tappable inner-living and open-hall layers without modifying the existing Sarangbang surface.
+
+- [ ] **Step 1: Generate and validate `anchae`**
+
+Prompt for a single U-shaped Korean inner residence seen from the same elevated-plan camera. Its inner court must open toward the lower/south side, with the high roof line framing an open courtyard. Use a flat `#00ff00` chroma-key background; include no people, furniture, wall, gate, pond, or text. Remove chroma with the Task 3 command and rerun the checker.
+
+- [ ] **Step 2: Generate and validate `daecheongmaru`**
+
+Prompt for a compact, roofed but visibly open wooden great hall that reads as a connected open maru, not a closed dwelling. Preserve the map camera and upper-left light. Use the same `#00ff00` chroma-key background and exact removal/validation command.
+
+- [ ] **Step 3: Composite-review the inner court**
+
+Place both layers over the base with the Task 1 anchors. Confirm that the U-shaped anchae encloses the inner court without covering the east sadang enclosure or the future sarangchae route.
+
+- [ ] **Step 4: Commit inner-court layers**
+
+```powershell
+git add assets/illustrations/hanok_compound/anchae.png assets/illustrations/hanok_compound/daecheongmaru.png AGENTS.md
+git commit -m "feat(hanok): add inner court layers"
+```
+
+### Task 5: Generate the separated shrine layer
+
+**Files:**
+- Create: `assets/illustrations/hanok_compound/sadang.png`
+- Modify: `AGENTS.md`
+
+**Interfaces:**
+- Consumes: base, map anchors, and Task 3 camera/light contract.
+- Produces: an unambiguous shrine building with no furniture/decor placement semantics.
+
+- [ ] **Step 1: Generate `sadang` on chroma key**
+
+Prompt for one compact, dignified Korean ancestral shrine in a separate east enclosure: traditional tiled roof, restrained dancheong under eaves, closed lattice doors, stone threshold, and the same elevated-plan camera. The asset is a building only: no ancestor portraits, incense, people, text, shrine tablets, garden, wall, or neighboring roof. Use a perfectly flat `#00ff00` chroma-key background.
+
+- [ ] **Step 2: Remove chroma, run the checker, and compose-review**
+
+Use the Task 3 removal command. Then place the layer at `(left: .74, bottom: .52, width: .17)` over the base. Confirm it is visibly separate from the inner court and has no accidental interior-entry visual cue.
+
+- [ ] **Step 3: Commit the shrine**
+
+```powershell
+git add assets/illustrations/hanok_compound/sadang.png AGENTS.md
+git commit -m "feat(hanok): add shrine map layer"
+```
+
+### Task 6: Verify direct pond-and-bridge reuse and full asset assembly
+
+**Files:**
+- Modify: `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`
+- Modify: `AGENTS.md`
+
+**Interfaces:**
+- Consumes: seven P2a assets plus existing `assets/illustrations/gye/gye_pond_large.png` and `gye_bridge.png`.
+- Produces: one reviewed, untracked visual assembly and an approved list of runtime asset paths for P2b.
+
+- [ ] **Step 1: Make the full visual assembly**
+
+Use the exact anchor table from Task 1 to composite `site_base`, all six structures, `gye_pond_large.png`, and `gye_bridge.png`. The pond/bridge render above terrain but below no building. Do not copy the Gye files into `hanok_compound/`.
+
+- [ ] **Step 2: Inspect four target sizes**
+
+Inspect the assembly at 360×270, 600×450, 800×600, and 1280×960. Confirm: all six structures read as separate targets; pond and bridge remain a pair; gate has a visible south approach; no alpha box/chroma fringe appears; no layer masks another route.
+
+- [ ] **Step 3: Freeze the accepted runtime path list**
+
+Append this exact list to `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`:
+
+```text
+assets/illustrations/hanok_compound/site_base.png
+assets/illustrations/hanok_compound/sotdaeulmun.png
+assets/illustrations/hanok_compound/haengrangchae.png
+assets/illustrations/hanok_compound/sarangchae.png
+assets/illustrations/hanok_compound/anchae.png
+assets/illustrations/hanok_compound/daecheongmaru.png
+assets/illustrations/hanok_compound/sadang.png
+assets/illustrations/gye/gye_pond_large.png
+assets/illustrations/gye/gye_bridge.png
+```
+
+- [ ] **Step 4: Run final mechanical validation**
+
+Run: `python tool/check_hanok_compound_assets.py`
+
+Expected: seven `PASS` lines, exit `0`. Then run `git diff --check`.
+
+- [ ] **Step 5: Commit P2a acceptance evidence**
+
+```powershell
+git add docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md AGENTS.md
+git commit -m "docs(hanok): approve master map asset assembly"
+```
+
+## Self-Review
+
+- **Spec coverage:** Task 1 locks the asset format, all eight map anchors, and the personal/Gye boundary. Task 2 creates the sole opaque base. Tasks 3–5 create all six required structure layers. Task 6 proves direct pond/bridge reuse, separates completion structures from optional landscape, and records the paths P2b must use.
+- **No placeholders:** Every required asset has a path, camera rule, anchor, production technique, validation command, and commit boundary. P3 interiors, Gye donation, runtime catalog, and ARB are explicitly outside this P2a plan.
+- **Type/path consistency:** The seven `hanok_compound` filenames match the master-map design; the direct reuse paths exactly match `GyeHanok`'s bundled paths; the Task 1 anchor ids match later task output names.
