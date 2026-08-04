@@ -243,6 +243,7 @@ flutter run -d <android-id>   # 안드로이드
 ### 사랑방 보상 수령 서비스 (2026-08-04)
 
 - [x] `DecorationRewardService`가 퀘스트별 결정적 세 후보, 이미 보유한 장식 제외, journal-first 수령·복구, 더블 탭 직렬화를 맡는다. `pendingBefore` 전체 스냅샷과 `prepared → queue_commit_started` 단계로 중간 종료 뒤에도 첫 상자 하나만 소비하고 뒤에 추가된 상자를 보존한다 (`f60662c`).
+- [x] 새 퀘스트 완료가 보자기 상자를 넣는 생산 경로도 `DecorationRewardService.ensurePendingBoxForQuest`를 거쳐 수령과 같은 직렬 큐를 사용한다. 따라서 수령 중 뒤늦게 완료된 퀘스트의 상자가 소비 write와 경합해 유실되지 않으며 unknown source는 새로 저장하지 않는다 (`ee688e1`).
 
 ### 사랑방 슬롯 렌더 무결성 (2026-08-04)
 
@@ -485,6 +486,12 @@ flutter run -d <android-id>   # 안드로이드
 - **복구:** RED 테스트가 `pendingAfter=[]`이면 어떤 큐도 빈 접두사와 일치해 unrelated box를 소비할 수 있음을 잡았다. journal을 `prepared → queue_commit_started` 두 단계로 나눠, 준비 단계의 큐 불일치는 fail-closed 하고, 소비 시작 뒤에 붙은 suffix만 보존하도록 고정했다. 빠른 두 번 선택도 직렬 큐에서 두 번째가 빈 상자를 관측한다.
 - **검증:** offer API 부재 RED, claim/recovery API 부재 RED, 빈-after 충돌 RED를 차례로 확인한 뒤 `test/decoration_reward_service_test.dart` **15 passed**. 퀘스트 지급·저장·RoomLayer·picker·슬롯 가드까지 묶은 Flutter 테스트 **48 passed**, 대상 `dart analyze` **0 issues**, `git diff --check` 통과. 구현 커밋: `f60662c`.
 - **전체 게이트 경계:** 현재 `flutter test`는 `+1925 -3`으로 끝난다. 서비스 파일과 무관한 실패는 (1) `data_integrity_test`가 아직 없는 `sarangbang_empty.png`·`reward_bojagi_closed.png`를 감지한 것, (2) `scene_asset_resolver_test`가 CRLF인 `scenario.dart`에서 LF 전용 `\n  };\n` 종료 문자열을 찾아 두 가드가 실패한 것이다. Claude의 UI/에셋 범위에서 PNG 추가·화이트리스트 연결과 CRLF-안전 가드 보정 후 전체 게이트를 재실행한다. 이 서비스의 HEAD 검증은 이후에도 48 passed·analyze 0·clean이다.
+
+### 2026-08-04 (Codex) — 사랑방 보상 생산·수령 직렬화 — 커밋 완료
+
+- **문제:** `QuestTracker.persistNewCompletions`가 `Storage.addPendingBox`를 직접 호출해, journal-first 수령의 직렬 체인 밖에서 새 상자를 썼다. 수령이 첫 상자를 소비하는 write와 새 완료의 append가 같은 시점에 겹치면 뒤늦은 상자를 잃을 수 있었다.
+- **변경:** `DecorationRewardService.ensurePendingBoxForQuest`를 추가했다. known quest만 최대 하나를 넣고, 수령·복구와 같은 mutation queue에서 실행한다. QuestTracker의 유일한 생산 경로를 이 API로 바꿨으며 raw Storage append는 서비스 내부에만 남겼다.
+- **검증:** RED는 새 API 부재로 `decoration_reward_service_test.dart`가 컴파일 실패하는 것으로 확인했다. 이후 active claim 뒤 신규 지급·unknown source fail-closed 회귀를 추가했고, 사랑방 관련 Flutter 7스위트 **50 passed**, 대상 `dart analyze` **0 issues**, `git diff --check` 통과. 구현 커밋: `ee688e1`.
 
 ### 2026-08-04 — R7 마감 결산 §12 최종 마무리 (Cowork 통합 세션)
 
