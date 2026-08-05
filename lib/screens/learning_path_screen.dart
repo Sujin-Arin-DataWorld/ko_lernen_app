@@ -11,6 +11,7 @@ import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/pack_access.dart';
 import '../services/pack_progress_service.dart';
+import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
@@ -25,6 +26,16 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
+/// 경로가 렌더할 단일 CEFR 레벨을 정한다. 학습자의 온보딩 선택
+/// ([Storage.userLevelCode], 소문자 'a1'..'b2')이 진실의 출처이며, 온보딩 전
+/// (null·빈값·알 수 없는 값)에는 A1으로 폴백해 경로가 절대 비지 않게 한다.
+/// 반환은 팩/표시용 대문자 코드('A1'..'B2').
+String pathVisibleLevel(String? userLevelCode) {
+  final code = (userLevelCode ?? '').trim().toLowerCase();
+  const known = {'a1', 'a2', 'b1', 'b2'};
+  return (known.contains(code) ? code : 'a1').toUpperCase();
+}
+
 /// **Lernpfad (학습 경로)** — Duolingo식 진척 시각화.
 ///
 /// "내가 어디 있고, 다음 한 걸음이 무엇인지"를 한 화면에 보여준다:
@@ -33,6 +44,11 @@ import '../widgets/sori/tokens.dart';
 ///
 /// 데이터: [HanokStageService.currentStage] + [PackProgressService.loadLevelView]
 /// (둘 다 기존 서비스 — 새 저장소 없음). 노드 탭 → `/vocab/pack`.
+///
+/// **레벨 스코프**: 경로 본문(코스 미션 + 단어팩 노드)은 학습자가 온보딩에서
+/// 고른 **한 레벨만** 보여준다([pathVisibleLevel]). 전체 A1~B2 나열은 초보자에게
+/// 압도적이라 선택 레벨로 좁힌다. 상단 한옥 헤더의 진행도는 "집 전체"를 뜻하므로
+/// 여전히 전 레벨 합산.
 class LearningPathScreen extends StatefulWidget {
   const LearningPathScreen({super.key});
 
@@ -54,6 +70,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   int _clearedTotal = 0;
   int _packTotal = 0;
   String? _nowPackId; // 첫 미완 + 잠금해제 팩 = "지금 할 것"
+  String _selectedLevel = 'A1'; // 렌더할 단일 레벨 (온보딩 선택, 대문자)
   CurriculumCatalog? _courseCatalog;
   CourseMasterySnapshot? _courseSnapshot;
 
@@ -129,10 +146,11 @@ class _LearningPathScreenState extends State<LearningPathScreen>
 
   Future<void> _load() async {
     final stage = await HanokStageService.currentStage();
+    final selectedLevel = pathVisibleLevel(Storage.userLevelCode);
     final groups = <_LevelGroup>[];
     int cleared = 0;
     int total = 0;
-    String? now;
+    // 헤더의 "집 전체" 진행도는 전 레벨 합산 — 팩 뷰는 전부 로드한다.
     for (final lv in _levels) {
       final view = await PackProgressService.loadLevelView(lv);
       groups.add(_LevelGroup(lv, view));
@@ -141,12 +159,23 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         if (e.progress.status == PackStatus.cleared) {
           cleared++;
         }
-        if (now == null &&
-            e.progress.status != PackStatus.cleared &&
+      }
+    }
+    // "Jetzt" 노드는 렌더되는(선택한) 레벨 안에서만 고른다 — 낮은 레벨의 미완
+    // 팩이 선택 레벨 뷰에서 하이라이트/자동스크롤을 훔치지 않도록.
+    String? now;
+    for (final g in groups) {
+      if (g.level != selectedLevel) {
+        continue;
+      }
+      for (final e in g.packs) {
+        if (e.progress.status != PackStatus.cleared &&
             e.progress.status != PackStatus.locked) {
           now = e.pack.id;
+          break;
         }
       }
+      break;
     }
     CurriculumCatalog? courseCatalog;
     CourseMasterySnapshot? courseSnapshot;
@@ -172,6 +201,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       _clearedTotal = cleared;
       _packTotal = total;
       _nowPackId = now;
+      _selectedLevel = selectedLevel;
       _courseCatalog = courseCatalog;
       _courseSnapshot = courseSnapshot;
       _loading = false;
@@ -232,6 +262,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                         catalog: _courseCatalog!,
                         snapshot: _courseSnapshot!,
                         lang: Localizations.localeOf(context).languageCode,
+                        filterLevel: _selectedLevel.toLowerCase(),
                         onTapUnit: (unit) async {
                           await Navigator.pushNamed(
                             context,
@@ -249,7 +280,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                       total: _packTotal,
                     ),
                     const SizedBox(height: Spacing.xl),
-                    for (final g in _groups) ..._levelSection(t, g),
+                    // 선택한 레벨만 렌더 — 전체 A1~B2 나열 대신.
+                    for (final g in _groups)
+                      if (g.level == _selectedLevel) ..._levelSection(t, g),
                   ],
                 ),
               ),
@@ -322,12 +355,16 @@ class _CourseMissionPath extends StatelessWidget {
     required this.catalog,
     required this.snapshot,
     required this.lang,
+    required this.filterLevel,
     required this.onTapUnit,
   });
 
   final CurriculumCatalog catalog;
   final CourseMasterySnapshot snapshot;
   final String lang;
+
+  /// 소문자 CEFR 코드('a1'..'b2') — 이 레벨의 미션만 렌더한다.
+  final String filterLevel;
   final ValueChanged<CourseUnit> onTapUnit;
 
   @override
@@ -336,6 +373,9 @@ class _CourseMissionPath extends StatelessWidget {
       for (final level in const ['a1', 'a2', 'b1', 'b2']) level: <CourseUnit>[],
     };
     for (final unit in catalog.courseUnits) {
+      if (unit.level != filterLevel) {
+        continue; // 선택 레벨만 — 나머지는 렌더하지 않음.
+      }
       grouped.putIfAbsent(unit.level, () => <CourseUnit>[]).add(unit);
     }
     for (final units in grouped.values) {
