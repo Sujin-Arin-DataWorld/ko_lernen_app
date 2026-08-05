@@ -1,3 +1,4 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/gye_dedication.dart';
@@ -115,6 +116,54 @@ void main() {
       throwsA(isA<GyeDedicationClientFailure>()),
     );
   });
+
+  test(
+    'production gateway targets the regional dedication callable with a limited-use App Check token',
+    () async {
+      String? selectedRegion;
+      String? invokedCallable;
+      Map<String, Object?>? invokedPayload;
+      HttpsCallableOptions? invokedOptions;
+
+      final gateway = FirebaseGyeDedicationGateway.production(
+        invokerForRegion: (region) {
+          selectedRegion = region;
+          return ({
+            required callableName,
+            required payload,
+            required callableOptions,
+          }) async {
+            invokedCallable = callableName;
+            invokedPayload = payload;
+            invokedOptions = callableOptions;
+            return <String, Object?>{
+              'state': 'dedicated',
+              'revision': 1,
+              'slotIndex': 2,
+              'decorationSlug': 'decoration_soban',
+            };
+          };
+        },
+      );
+
+      await gateway.setDedication(
+        gyeId: 'ABC234',
+        decorationSlug: 'decoration_soban',
+        expectedRevision: 0,
+        operationId: 'dedication-abc234-0005',
+      );
+
+      expect(selectedRegion, 'europe-west3');
+      expect(invokedCallable, 'setGyeDecorationDedication');
+      expect(invokedPayload, <String, Object?>{
+        'gyeId': 'ABC234',
+        'decorationSlug': 'decoration_soban',
+        'expectedRevision': 0,
+        'operationId': 'dedication-abc234-0005',
+      });
+      expect(invokedOptions?.limitedUseAppCheckToken, isTrue);
+    },
+  );
 }
 
 class _RecordingGateway implements GyeDedicationGateway {

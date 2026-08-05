@@ -96,18 +96,28 @@ typedef GyeDedicationCallableInvoker =
 class FirebaseGyeDedicationGateway implements GyeDedicationGateway {
   FirebaseGyeDedicationGateway(this._invoke);
 
-  factory FirebaseGyeDedicationGateway.production() {
-    return FirebaseGyeDedicationGateway(({
+  factory FirebaseGyeDedicationGateway.production({
+    GyeDedicationCallableInvoker Function(String region)? invokerForRegion,
+  }) {
+    return FirebaseGyeDedicationGateway(
+      (invokerForRegion ?? _firebaseCallableInvokerForRegion)(_functionRegion),
+    );
+  }
+
+  static GyeDedicationCallableInvoker _firebaseCallableInvokerForRegion(
+    String region,
+  ) {
+    return ({
       required callableName,
       required payload,
       required callableOptions,
     }) async {
-      final functions = FirebaseFunctions.instanceFor(region: _functionRegion);
+      final functions = FirebaseFunctions.instanceFor(region: region);
       final result = await functions
           .httpsCallable(callableName, options: callableOptions)
           .call<Object?>(payload);
       return result.data;
-    });
+    };
   }
 
   static const String _functionRegion = 'europe-west3';

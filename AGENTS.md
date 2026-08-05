@@ -473,6 +473,11 @@ flutter run -d <android-id>   # 안드로이드
 - **수정:** transient callable 오류의 SnackBar 재시도 action이 화면 트리에서 사라진 전시 CTA를 다시 호출하지 않게 했다. 따라서 계 화면 이탈·stream 갱신 뒤 남아 있는 SnackBar가 disposed State에 `setState`를 시도하지 않는다.
 - **검증:** CTA 제거 후 SnackBar 재시도를 누르는 RED/GREEN widget 회귀와 dedication action/service targeted **10 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋은 이 로그와 함께 기록한다.
 
+### 2026-08-05 (Codex) — P4b-b regional callable 경계 고정
+
+- **수정:** production 전시 gateway의 callable invoker factory를 주입 가능하게 분리하되 기본 경로는 그대로 `europe-west3` Firebase Functions를 사용한다. 이로써 Firebase 초기화 없이도 callable 이름·region·정확한 payload·limited-use App Check token 옵션을 회귀로 고정한다.
+- **검증:** factory seam 부재 RED 뒤 service 회귀 **6 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋은 이 로그와 함께 기록한다.
+
 ### 2026-08-05 (Codex) — P4b-a 계 공동 전시 읽기 전용 계층 완료
 
 - **변경:** `GyeDedication`은 현재 스키마·문서 uid·안전한 membership/operation id·보상 장식 allowlist·10개 슬롯·활성 revision을 모두 통과한 Firestore 문서만 파싱한다. `GyeDedicationLayer`는 정규화한 전시를 공동 한옥 위에 수동으로 그리며, 동일 슬롯의 손상 스냅샷은 uid 순서로 하나만 렌더한다.
