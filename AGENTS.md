@@ -291,6 +291,7 @@ flutter run -d <android-id>   # 안드로이드
   - [x] P2a: Home의 추천 CTA를 사랑방 맥락 하나로 수렴하고, 숨은 호랑이 탭을 제거했다. Home은 순수 한옥 투영을 읽기 전용으로 미리보며 308–1280dp·태블릿·1.3x 글자 회귀를 통과했다 (`a4b3411`).
   - [x] P2b: 지도는 실제 phone 화면폭에서 full-bleed viewport와 선택 후 상세 패널을 제공하고, 작은 화면의 최소 44dp target이 서로 겹치지 않게 고정했다 (`11cdd69`).
   - [x] P2c: 사랑방 학습 화면에서 배치된 실내를 읽기 전용 scene으로 보여주고, 꾸미기 화면의 write 경계를 유지한다 (`47edaa1`).
+- [x] P4b-a: 공동 계 마당의 전시 장식을 서버 문서만으로 fail-closed 파싱·정규화·수동 렌더링한다. 개인 소유·방 배치·보상에는 접근하지 않는다 (`7e9aa60`).
 - [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -449,6 +450,12 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 (Codex) — P4b-a 계 공동 전시 읽기 전용 계층 완료
+
+- **변경:** `GyeDedication`은 현재 스키마·문서 uid·안전한 membership/operation id·보상 장식 allowlist·10개 슬롯·활성 revision을 모두 통과한 Firestore 문서만 파싱한다. `GyeDedicationLayer`는 정규화한 전시를 공동 한옥 위에 수동으로 그리며, 동일 슬롯의 손상 스냅샷은 uid 순서로 하나만 렌더한다.
+- **경계:** 전시 계층은 `Storage.ownedDecor`, 보상, 개인 방 배치, 라우팅, 쓰기 API를 전혀 읽거나 호출하지 않는다. revision `0`은 철회 뒤의 compare-and-set 부재 상태로 예약되어 있어 활성 전시로 보이지 않는다.
+- **검증:** revision 0 문서가 렌더 모델로 진입하는 RED를 확인한 뒤 model/layer targeted **4 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `7e9aa60`.
 
 ### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P2c 읽기 전용 사랑방 장면 완료
 
