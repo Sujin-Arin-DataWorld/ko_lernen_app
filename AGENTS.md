@@ -292,6 +292,7 @@ flutter run -d <android-id>   # 안드로이드
   - [x] P2b: 지도는 실제 phone 화면폭에서 full-bleed viewport와 선택 후 상세 패널을 제공하고, 작은 화면의 최소 44dp target이 서로 겹치지 않게 고정했다 (`11cdd69`).
   - [x] P2c: 사랑방 학습 화면에서 배치된 실내를 읽기 전용 scene으로 보여주고, 꾸미기 화면의 write 경계를 유지한다 (`47edaa1`).
 - [x] P4b-a: 공동 계 마당의 전시 장식을 서버 문서만으로 fail-closed 파싱·정규화·수동 렌더링한다. 개인 소유·방 배치·보상에는 접근하지 않는다 (`7e9aa60`).
+- [x] P4b-b: 공동 전시 선택·확인 UI는 개인 보유 장식을 편의상 필터링하되, callable + 서버 stream만 사용한다. 개인 소유·방 배치·보상 journal에는 쓰지 않는다 (`3325d53`).
 - [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -450,6 +451,12 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 (Codex) — P4b-b 계 공동 전시 선택·확인 UI 완료
+
+- **변경:** `GyeScreen`은 공동 한옥 주변의 compact 48dp “전시” CTA에서만 전시 흐름을 연다. 선택지는 로컬 `ownedDecor ∩ reward allowlist`로 사용성을 위해 필터링하지만, 확정은 App Check 제한 callable로만 보내고 성공 뒤에는 optimistic update 없이 Firestore 전시 stream만 렌더한다.
+- **안전성:** 명시적 withdraw sentinel과 시트 dismissal `null`을 분리했다. active 공개 문서 revision을 compare-and-set 값으로 사용하고, pending 중에는 중복 버튼을 막으며 transient retry는 동일 operation id를 보존한다. 모든 확인 문구는 “개인 수집·방 배치는 변하지 않는다”를 명시한다.
+- **검증:** 잘못된 Gye code·비보상 slug·revision 선택을 RED/GREEN으로 고정했고, 보유 없음·확인·withdraw·pending 중복 억제·현재 사용자 전시 선택을 위젯/순수 테스트로 검증했다. ARB/typography + P4b Flutter targeted **23 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `3325d53`.
 
 ### 2026-08-05 (Codex) — P4b-a 계 공동 전시 읽기 전용 계층 완료
 
