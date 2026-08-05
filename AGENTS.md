@@ -469,6 +469,16 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-05 — 통계("Dein Fortschritt") 화면 상단 이미지 2개 → 듀오 컷 1개로 크게 — 미커밋
+
+**범위:** Jin 실기기 — 통계 화면 상단에 한옥 배너(`achievements.png`) + 별도 마스코트 2개 스택(호랑이 156 + 까치 86)이 따로 떠 있어 산만. "둘 다 지우고 `magpie_tiger_together.png` 하나로 크게."
+
+**Update(`lib/screens/stats_screen.dart`):** `HanokHeader(achievements.png)` + 친구들 hero `Stack`(Mascot.tiger+magpie) 제거 → **단일 `Image.asset('…/mascot/magpie_tiger_together.png')`**, 폭 `(width-32).clamp(240,420)` `BoxFit.contain`(투명 PNG=1254² alpha 확인, 크림 위 크롭 0), errorBuilder→`Mascot.tiger` 폴백. 미사용된 `hanok_header.dart` import 제거.
+
+**검증:** `flutter analyze lib/screens/stats_screen.dart` **No issues** · 통계 화면 전용 테스트 없음. ⚠️ 실기기 육안(크기·중앙·폴백)=Jin.
+
+**Git:** 미커밋 (Jin 확인 후).
+
 ### 2026-08-05 — 캐릭터 선택 화면 실기기 결함 3종(상단 크롭·확정 영상 소형·깜빡임/멈춤) — 커밋 `2854a04`
 
 **범위:** Jin 실기기(Xiaomi 태블릿/MIUI) 스크린샷 피드백 — ① 상단 호랑이+까치 이미지가 잘림 ② 화면이 계속 바뀌고 선택 전 화면과 번갈아 나옴 ③ 선택 후 캐릭터가 화면 가득 안 차고 너무 작음 ④ 구글 로그인 안 됨. Q&A 확정 방향: **"선택 전엔 정지, 선택되면 만든 영상을 크게."** systematic-debugging 으로 근본 원인 추적(추측 없이 파일·에셋·설정 실측).

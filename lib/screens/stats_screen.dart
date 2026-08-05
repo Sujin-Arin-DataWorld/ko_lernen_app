@@ -5,7 +5,6 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_background.dart';
@@ -127,33 +126,19 @@ class _StatsScreenState extends State<StatsScreen>
               base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
             ),
             children: [
-              // ── 한옥 마당 헤더 (성취 / 황혼 톤) ──
-              const HanokHeader(
-                asset: 'assets/illustrations/hanok/achievements.png',
-                fallbackIcon: Icons.emoji_events_outlined,
-              ),
-              const SizedBox(height: 12),
-
-              // ── 친구들 hero (호랑이 + 갓 쓴 까치 — 함께 학습) ──
-              const Center(
-                child: SizedBox(
-                  width: 220,
-                  height: 180,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Positioned(
-                        left: 20,
-                        bottom: 0,
-                        child: Mascot.tiger(size: 156, animate: false),
-                      ),
-                      Positioned(
-                        right: 18,
-                        top: 10,
-                        child: Mascot.magpie(size: 86, animate: false),
-                      ),
-                    ],
-                  ),
+              // ── 친구들 hero — 호랑이+갓 쓴 까치 듀오 컷 (투명 PNG, 크게) ──
+              // 구 한옥 배너(achievements.png) + 별도 마스코트 2개 스택을
+              // 단일 듀오 컷 하나로 통합(2026-08-05 Jin: "이미지 둘 다 지우고
+              // 이걸로 크게"). 투명 배경이라 한지 크림 위에 그대로 얹힌다.
+              Center(
+                child: Image.asset(
+                  'assets/illustrations/mascot/magpie_tiger_together.png',
+                  width: (MediaQuery.sizeOf(context).width - 32)
+                      .clamp(240.0, 420.0),
+                  fit: BoxFit.contain,
+                  filterQuality: FilterQuality.high,
+                  errorBuilder: (_, __, ___) =>
+                      const Mascot.tiger(size: 156, animate: false),
                 ),
               ),
               const SizedBox(height: 12),
