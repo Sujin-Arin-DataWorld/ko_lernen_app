@@ -295,6 +295,12 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P4b-b: 공동 전시 선택·확인 UI는 개인 보유 장식을 편의상 필터링하되, callable + 서버 stream만 사용한다. 개인 소유·방 배치·보상 journal에는 쓰지 않는다 (`3325d53`).
 - [x] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현했다. `uid + membershipId + joinedAt(seconds,nanoseconds)` 세대, active/withdrawn tombstone, bounded receipt ledger, leave/ban/account/Gye cleanup을 포함한다 (`7061ab9`). 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
+### 플러그인·Android 배포 호환성 (2026-08-05)
+
+- [x] 안전한 일괄 업데이트: FlutterFire 4/6 세대, App Check 0.4, 공유·미디어·구매·Rive·패키지 메타데이터와 Google Services/Crashlytics Gradle 플러그인을 함께 올렸다. App Check provider API와 Share Plus 13 호출도 새 계약으로 옮겼다. Google Sign-In은 계정 링크·삭제·복구의 인증 흐름 자체가 바뀌는 7.x 대신 최신 호환 6.3.x로 유지했다.
+- [x] 검증: App Check/계정 경계 targeted 79개, 전체 Flutter 2,087개, `dart analyze --fatal-infos`, Web release, 서명 AAB(`2.0.4+10`)까지 통과했다. 플러그인 변경은 `0324642`로 커밋했으며, `merkmal/plugin-kotlin-compat`에서 main 병합·원격 푸시를 진행한다.
+- [ ] 외부 플러그인의 Built-in Kotlin 이행: 최신 버전에도 `cloud_functions` 등 10개가 Flutter 미래 호환 경고를 남긴다. 앱 Gradle/Kotlin 설정을 임의로 우회하지 말고 각 upstream release에서 이행되면 별도 유지보수 묶음으로 재검토한다.
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -451,6 +457,15 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 (Codex) — Flutter 플러그인 일괄 호환성 업데이트·서명 AAB 재생성 (커밋 완료)
+
+- **범위:** `audioplayers`, FlutterFire 핵심·Auth·Firestore·Remote Config·Analytics·Crashlytics·Messaging·Storage·Functions, App Check, image picker, Share Plus, RevenueCat, Rive, package info와 안전한 transitive patch를 함께 갱신했다. Android Google Services `4.4.4`, Crashlytics Gradle `3.0.7`도 같은 FlutterFire 세대에 맞췄다.
+- **마이그레이션:** App Check는 deprecated `webProvider/androidProvider/appleProvider` 계약에서 `providerWeb/providerAndroid/providerApple`과 typed provider 객체로 옮겨 primary/secondary Firebase app 모두 같은 fail-closed Web 키 정책을 유지한다. Share Plus 13의 세 공유 진입점은 `SharePlus.instance.share(ShareParams(...))`로 교체했다.
+- **의도적 보존:** Google Sign-In은 최신 호환 6.3.0까지만 올렸다. 7.x는 singleton 초기화·native authenticate·Web SDK button/alternate flow가 필요한 별도 인증 UX 마이그레이션이므로, account link·재인증·target verification·삭제 복구를 이번 일반 의존성 묶음에서 위험하게 변경하지 않았다.
+- **검증:** App Check·AccountOperation·Auth targeted **79 passed**, `dart analyze --fatal-infos` **No issues found**, 전체 Flutter serial suite **2,087 passed**, `flutter build web --release --no-pub` 성공(일반 release), `flutter build appbundle --release --no-pub` 성공. AAB: `2.0.4+10`, 293,174,890 bytes, SHA-256 `9BF8DE2A864B1FA0397051C3032CBB1363385B2EB0478BDDB957DEFBCBB05A84`; `jarsigner -verify -certs` exit 0, base manifest 존재 확인.
+- **남은 경고:** 최신 package에서도 Built-in Kotlin 미이행 외부 플러그인 10개(`cloud_functions` 등)의 Flutter 미래 호환 경고와 upstream Java 8/source SDK 메타 경고는 남는다. 현재 release AAB를 막지 않으며, app 수준의 억지 우회 대신 upstream 이행을 추적한다.
+- **커밋:** `0324642` (`build(deps): update Flutter plugin compatibility`). 변경은 격리 브랜치 `merkmal/plugin-kotlin-compat`에서 main 병합·원격 푸시를 진행한다.
 
 ### 2026-08-05 (Codex) — P4b-MVP callable-only 공동 전시 헌정 보강 완료
 
