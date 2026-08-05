@@ -71,13 +71,8 @@ class CharacterClips {
 
   /// 프로필 초상에 사용할 포즈. 프로필 화면은 생성 시 하나를 골라 해당
   /// 화면이 살아 있는 동안 유지한다.
-  static const List<String> _tigerProfileClips = [
-    tigerStretch,
-    tigerSitting2,
-    tigerRest,
-    tigerBob,
-    tigerChoose,
-  ];
+  // Jin 2026-08-05: 프로필 호랑이는 tiger_bob 고정(랜덤 포즈 폐지).
+  static const List<String> _tigerProfileClips = [tigerBob];
   static const List<String> _magpieProfileClips = [
     magpiePerched,
     magpieChoose,

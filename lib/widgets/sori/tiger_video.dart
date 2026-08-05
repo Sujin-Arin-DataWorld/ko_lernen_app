@@ -70,13 +70,15 @@ class TigerStageVideo extends StatefulWidget {
   // 2026-07-31: 캐릭터 대응. 이전에는 호랑이 상수 2개로 고정돼 있어서
   // 까치를 골라도 홈 히어로가 100% 호랑이였다. 4종 모두 실재 파일이다.
   /// 진입 인사 클립 (1회 재생).
+  /// 까치는 Jin 지시(2026-08-05)로 `magpie_greet_chirp` → 걸어오며 날아드는
+  /// `magpie_right_walking_flying`(원샷)로 교체.
   static String greetFor(MascotKind kind) => kind == MascotKind.magpie
-      ? 'assets/video/character/magpie_greet_chirp.mp4'
+      ? 'assets/video/character/magpie_right_walking_flying.mp4'
       : 'assets/video/character/tiger_rise.mp4';
 
-  /// 인사 후 아이들 루프.
+  /// 인사 후 아이들 루프. 까치는 캐논 풀샷 `magpie_full10`(10초)로 루프.
   static String paceFor(MascotKind kind) => kind == MascotKind.magpie
-      ? 'assets/video/character/magpie_perched.mp4'
+      ? 'assets/video/character/magpie_full10.mp4'
       : 'assets/video/character/tiger_rest.mp4';
 
   /// 호랑이 기본값 — 하위호환용. 신규 코드는 [greetFor]/[paceFor]를 쓸 것.
@@ -323,12 +325,11 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
   /// - 알파 O: multiply·액자 없이 raw → 배경 투명, 홈 크림과 edge-to-edge(#2).
   /// - 알파 X: 흰→크림 multiply 후 초상 액자로 감싸 "의도된 초상"으로(#3).
   Widget _tigerView(VideoPlayerController active) {
-    // 액자(테두리 2px + 여백)일 때 밴드 높이를 넘지 않게 정사각을 줄인다.
-    final double dim = TigerStageVideo.hasAlpha
-        ? widget.height
-        : widget.height - 8;
-    final sized = SizedBox.square(
-      dimension: dim,
+    // Jin 2026-08-05: 캐릭터를 액자/박스에 가두지 않는다. 흰 배경 mp4를
+    // multiply로 홈 크림 배경에 그대로 녹여 캐릭터만 떠 보이게 한다(테두리·여백
+    // 없이 밴드 높이 그대로 정사각). 알파 영상이면 raw 그대로.
+    return SizedBox.square(
+      dimension: widget.height,
       child: TigerStageVideo.hasAlpha
           ? VideoPlayer(active)
           : ColorFiltered(
@@ -338,29 +339,6 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
               ),
               child: VideoPlayer(active),
             ),
-    );
-    if (TigerStageVideo.hasAlpha) {
-      return sized; // 투명 = 액자 없이 그대로 배경에 녹임.
-    }
-    // 초상 액자(#3): 은은한 한지 창 + 호랑이색 테두리 → 회색 박스를 의도된 요소로.
-    return Container(
-      decoration: BoxDecoration(
-        color: widget.blendColor,
-        borderRadius: BorderRadius.circular(SoriRadius.lg),
-        border: Border.all(
-          color:
-              (_kind == MascotKind.magpie
-                      ? SoriColors.highlight
-                      : SoriColors.tiger)
-                  .withValues(alpha: 0.28),
-          width: 2,
-        ),
-        boxShadow: SoriElevation.low,
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(SoriRadius.lg - 2),
-        child: sized,
-      ),
     );
   }
 }

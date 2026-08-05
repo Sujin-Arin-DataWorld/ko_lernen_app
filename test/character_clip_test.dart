@@ -4,23 +4,11 @@ import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 
 void main() {
-  test('tiger profile picker uses every requested portrait clip', () {
-    expect(CharacterClips.profileClipCountFor(MascotKind.tiger), 5);
+  test('tiger profile picker is fixed to tiger_bob (Jin 2026-08-05)', () {
+    expect(CharacterClips.profileClipCountFor(MascotKind.tiger), 1);
     expect(
-      [
-        CharacterClips.profileClipFor(MascotKind.tiger, 0),
-        CharacterClips.profileClipFor(MascotKind.tiger, 1),
-        CharacterClips.profileClipFor(MascotKind.tiger, 2),
-        CharacterClips.profileClipFor(MascotKind.tiger, 3),
-        CharacterClips.profileClipFor(MascotKind.tiger, 4),
-      ],
-      [
-        CharacterClips.tigerStretch,
-        CharacterClips.tigerSitting2,
-        CharacterClips.tigerRest,
-        CharacterClips.tigerBob,
-        CharacterClips.tigerChoose,
-      ],
+      CharacterClips.profileClipFor(MascotKind.tiger, 0),
+      CharacterClips.tigerBob,
     );
   });
 
