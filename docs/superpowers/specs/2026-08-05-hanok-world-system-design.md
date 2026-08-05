@@ -135,27 +135,56 @@ notification; it is social atmosphere, not competition.
 ~~~
 gye/{gyeId}/decor_dedications/{uid}
   schemaVersion: 1
+  state: "active" | "withdrawn"
   uid: string
   membershipId: string
-  decorationSlug: string
-  slotIndex: 0..9
-  revision: int
+  joinedAtSeconds: int
+  joinedAtNanos: int
+  decorationSlug: allowlisted string | null
+  slotIndex: 0..9 | null
+  revision: int >= 1
   lastOperationId: string
   createdAt: server timestamp
   updatedAt: server timestamp
+
+gye/{gyeId}/decor_dedication_mutations/{uid}
+  schemaVersion: 3
+  uid, membershipId, joinedAtSeconds, joinedAtNanos
+  operationReceipts: ordered, validated ring of at most 16 receipts
+  lastAcceptedAtMillis: server clock value
 ~~~
 
-Clients may read active dedications, but Firestore rules deny every direct
-write. The App-Check-protected callable accepts only gyeId,
-decorationSlug|null, expectedRevision, and operationId and runs an Admin
-transaction. It validates active membership, ban/suspension/deletion state,
-Gye lifecycle, slug allowlist, operation id, and expected revision.
+Active members may read the public projection (including a non-rendering
+withdrawal tombstone), but Firestore rules deny every direct client write.
+The App-Check-protected callable accepts exactly `gyeId`,
+`decorationSlug|null`, `expectedRevision`, `expectedMembershipId`,
+`expectedJoinedAtSeconds`, `expectedJoinedAtNanos`, and `operationId`; it runs
+an Admin transaction. It validates active membership, ban/suspension/deletion
+state, Gye lifecycle, slug allowlist, operation id, and the exact current
+membership generation before looking at any receipt.
 
-The callable is idempotent for the same operation and returns a conflict for a
-stale revision. It retains an existing slot on replacement, then chooses the
-first free slot. A server throttle prevents visual spam. Leave, ban, account
-deletion, and Gye deletion clean only documents with matching membershipId,
-preventing an old leave cleanup from deleting a later rejoin.
+An active dedication starts at revision 1. Withdrawal leaves a public
+`state: "withdrawn"` tombstone with a greater revision rather than deleting
+the document; only a genuinely absent document means revision 0. This prevents
+the ABA case where an old request becomes valid again after a withdrawal. The
+private receipt ledger stores a verified fingerprint that includes the same
+membership generation and retains only its latest sixteen entries. A retained
+duplicate returns its recorded outcome; an evicted stale request conflicts
+against the monotonic revision instead of being replayed.
+
+The generation identity is `uid + membershipId + joinedAt(seconds,nanoseconds)`.
+`membershipId` is client-generated and may theoretically be reused, while the
+member document's `joinedAt == request.time` is immutable server-time evidence.
+Public documents, receipts, client requests, and leave/ban/account-deletion
+cleanup all compare all three values. A stale generation can be rebased by the
+current callable transaction; a legacy record without the immutable timestamp
+is preserved by delayed cleanup and never becomes a current member's CAS
+record. Replacement retains an active member's slot, then chooses the first
+free slot. A server throttle prevents visual spam.
+
+Production deployment order is indexes (wait until READY), rules, then the
+callable. This source branch proves emulator behavior only; a production
+deployment still requires the normal Firebase/App Check operational evidence.
 
 ### Deferred true transfer
 

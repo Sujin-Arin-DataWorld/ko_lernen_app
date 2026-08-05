@@ -32,7 +32,7 @@
 - Add personalHanokAccessibleZones(projection) in catalog order with the same unlock/route behavior as painted places.
 - PersonalHanokMap takes selectedZone and reports selection without overlapping gesture layers.
 
-- [ ] **Step 1: Write failing target tests.**
+- [x] **Step 1: Write failing target tests.**
 
 ~~~dart
 test('interactive map hit bounds are pairwise disjoint', () {
@@ -52,12 +52,12 @@ testWidgets('Daecheong selection is never intercepted by Anchae', (tester) async
 });
 ~~~
 
-- [ ] **Step 2: Run the catalog/map tests and confirm RED** because hitBounds and accessible zone APIs do not exist.
-- [ ] **Step 3: Implement the catalog and semantic controls.** Define exact non-overlapping targets from the canonical map, retain visual artwork coordinates, give every interaction an ARB semantic label, and render an accessible localized place list.
-- [ ] **Step 4: Add selected-place state to HanokWorldScreen.** A locked selected zone shows a milestone explanation; an unlocked selected zone exposes one text-first route CTA.
-- [ ] **Step 5: Verify and commit.** Run flutter gen-l10n, dart format, targeted analyzer, catalog/map/world tests, responsive tests, update AGENTS.md, and commit:
+- [x] **Step 2: Run the catalog/map tests and confirm RED** because hitBounds and accessible zone APIs do not exist.
+- [x] **Step 3: Implement the catalog and semantic controls.** Define exact non-overlapping targets from the canonical map, retain visual artwork coordinates, give every interaction an ARB semantic label, and render an accessible localized place list.
+- [x] **Step 4: Add selected-place state to HanokWorldScreen.** A locked selected zone shows a milestone explanation; an unlocked selected zone exposes one text-first route CTA.
+- [x] **Step 5: Verify and commit.** Flutter gen-l10n, target/world/responsive verification, and AGENTS logging completed; implementation commit:
 ~~~text
-fix(hanok): separate map hit targets from art
+69dfe65 fix(hanok): make map destinations reliably tappable
 ~~~
 
 ### Task 2: Establish one TodayLearningSnapshot facade
@@ -74,7 +74,7 @@ fix(hanok): separate map hit targets from art
 - TodayLearningSnapshotLoader.load() is the only production loader used by Home and Sarangbang.
 - todayLearningDestinationFor(snapshot) preserves all existing pack-access and route argument behavior.
 
-- [ ] **Step 1: Write a failing pure agreement test.**
+- [x] **Step 1: Write a failing pure agreement test.**
 
 ~~~dart
 test('home and Sarangbang receive the same snapshot for equal inputs', () async {
@@ -86,12 +86,12 @@ test('home and Sarangbang receive the same snapshot for equal inputs', () async 
 });
 ~~~
 
-- [ ] **Step 2: Run snapshot/Sarangbang tests and confirm RED.**
-- [ ] **Step 3: Extract existing loader assembly into the facade.** Keep recommendation priority inside recommendMission. Keep SarangbangStudyRecommendation as a compatibility adapter until its callers migrate.
-- [ ] **Step 4: Replace Home's duplicate hero assembly and Sarangbang's direct loader.** Both refresh after a launched route returns. Verify all-done, review, scenario, pack, and course cases retain existing route behavior.
-- [ ] **Step 5: Verify and commit.** Format/analyze, run snapshot/Home/Sarangbang targeted suites, update AGENTS.md, and commit:
+- [x] **Step 2: Run snapshot/Sarangbang tests and confirm RED.**
+- [x] **Step 3: Extract existing loader assembly into the facade.** Keep recommendation priority inside recommendMission. Keep SarangbangStudyRecommendation as a compatibility adapter until its callers migrate.
+- [x] **Step 4: Replace Home's duplicate hero assembly and Sarangbang's direct loader.** Both refresh after a launched route returns. Verify all-done, review, scenario, pack, and course cases retain existing route behavior.
+- [x] **Step 5: Verify and commit.** Targeted snapshot/Home/Sarangbang checks and AGENTS logging completed; implementation commit:
 ~~~text
-refactor(study): share today's learning snapshot
+0c8a564 feat(hanok): unify today learning snapshot
 ~~~
 
 ### Task 3: Recompose Home as today's Madang
@@ -106,7 +106,7 @@ refactor(study): share today's learning snapshot
 - Home ordering is Sarangbang primary, Hanok preview, then secondary routines.
 - Exactly one primary study CTA goes through /sarangbang. Discovery cards remain secondary.
 
-- [ ] **Step 1: Write failing widget expectations.**
+- [x] **Step 1: Write failing widget expectations.**
 
 ~~~dart
 expect(find.byKey(const ValueKey('home-primary-sarangbang')), findsOneWidget);
@@ -114,12 +114,12 @@ expect(find.byKey(const ValueKey('home-hanok-preview')), findsOneWidget);
 expect(widgetTop('home-primary-sarangbang'), lessThan(widgetTop('home-hanok-preview')));
 ~~~
 
-- [ ] **Step 2: Run Home tests and confirm RED.**
-- [ ] **Step 3: Recompose Home presentation only.** Retain tiger feedback but remove hidden whole-hero study taps. Move review, difficult words, and daily modules below the first two sections. Give the Hanok preview an explicit localized text-first route action.
-- [ ] **Step 4: Run flutter gen-l10n and verify no new raw text/style/icon-button regression.**
-- [ ] **Step 5: Verify and commit.** Run Home, smoke, responsive (phone/tablet/landscape/1.3×), typography, analyzer; update AGENTS.md; commit:
+- [x] **Step 2: Run Home tests and confirm RED.**
+- [x] **Step 3: Recompose Home presentation only.** Retain tiger feedback but remove hidden whole-hero study taps. Move review, difficult words, and daily modules below the first two sections. Give the Hanok preview an explicit localized text-first route action.
+- [x] **Step 4: Run flutter gen-l10n and verify no new raw text/style/icon-button regression.**
+- [x] **Step 5: Verify and commit.** Home, smoke, responsive, typography, analyzer, and AGENTS logging completed; implementation commit:
 ~~~text
-feat(home): focus the Madang on today's study
+a4b3411 feat(home): make the Sarangbang today's study context
 ~~~
 
 ### Task 4: Build WorldMapViewport and the place panel
@@ -137,12 +137,12 @@ feat(home): focus the Madang on today's study
 - Phone puts detail below the map; width >= 720dp uses a persistent trailing panel.
 - The map returns a semantic PersonalHanokZone only and remains read-only.
 
-- [ ] **Step 1: Write failing viewport tests** for phone detail, tablet panel, today's-Sarangbang marker, locked place explanation, and accessible list action.
-- [ ] **Step 2: Run the new viewport tests and confirm RED.**
-- [ ] **Step 3: Implement with LayoutBuilder and existing Sori clamp/token components.** All visual zones, hit targets, accessible list entries, labels, milestone text, and route actions come from one catalog entry.
-- [ ] **Step 4: Verify and commit.** Run analyzer, viewport/world/responsive suites, personal Hanok asset checker, update AGENTS.md, and commit:
+- [x] **Step 1: Write failing viewport tests** for phone detail, tablet panel, today's-Sarangbang marker, locked place explanation, and accessible list action.
+- [x] **Step 2: Run the new viewport tests and confirm RED.**
+- [x] **Step 3: Implement with LayoutBuilder and existing Sori clamp/token components.** All visual zones, hit targets, accessible list entries, labels, milestone text, and route actions come from one catalog entry.
+- [x] **Step 4: Verify and commit.** Viewport/world/responsive tests, asset check, analyzer, and AGENTS logging completed; implementation commit:
 ~~~text
-feat(hanok): add responsive world map viewport
+11cdd69 feat(hanok): add responsive world map viewport
 ~~~
 
 ### Task 5: Add read-only venue study context
@@ -159,11 +159,11 @@ feat(hanok): add responsive world map viewport
 - interactive false is semantic/read-only and cannot open a picker or write storage.
 - Furnish screens keep current interactive contracts.
 
-- [ ] **Step 1: Write failing tests that prove Sarangbang study reads placed decor but exposes no picker write action.**
-- [ ] **Step 2: Implement the shared scene.** Preserve the separate furnishing route and Bojagi action. Keep locked Anbang/Daecheong from placement reads/writes.
-- [ ] **Step 3: Verify and commit.** Run targeted scene/room/Sarangbang tests, smoke, responsive, analyzer; update AGENTS.md; commit:
+- [x] **Step 1: Write failing tests that prove Sarangbang study reads placed decor but exposes no picker write action.**
+- [x] **Step 2: Implement the shared scene.** Preserve the separate furnishing route and Bojagi action. Keep locked Anbang/Daecheong from placement reads/writes.
+- [x] **Step 3: Verify and commit.** Scene/room/Sarangbang, smoke, responsive, analyzer, and AGENTS checks completed; implementation commit:
 ~~~text
-feat(venues): show study in personal rooms
+47edaa1 feat(sarangbang): show a read-only study room scene
 ~~~
 
 ### Task 6: Add P4b model, catalog, and read-only exhibition layer
@@ -176,15 +176,15 @@ feat(venues): show study in personal rooms
 - Test: test/gye_dedication_model_test.dart, test/widgets/gye_dedication_layer_test.dart
 
 **Interfaces:**
-- GyeDedication parses server documents fail-closed and stores uid, membershipId, allowlisted slug, slot, revision, and timestamps.
+- GyeDedication parses server documents fail-closed and stores uid, membershipId, exact joined-at epoch, state, allowlisted slug, nullable slot, and monotonic revision.
 - Catalog declares ten map-relative exhibit slots using shipped decoration assets.
 - Layer renders server data only and never touches Storage.ownedDecor.
 
-- [ ] **Step 1: Write failing model/layer tests** for malformed documents, allowlist rejection, duplicate slots, stable ordering, and at most ten semantic items.
-- [ ] **Step 2: Implement model/catalog/layer and compose above GyeHanok.** Do not change weekly-goal construction layers.
-- [ ] **Step 3: Verify and commit.** Run targeted analyzer/tests, update AGENTS.md, and commit:
+- [x] **Step 1: Write failing model/layer tests** for malformed documents, allowlist rejection, duplicate slots, stable ordering, tombstones, and at most ten semantic items.
+- [x] **Step 2: Implement model/catalog/layer and compose above GyeHanok.** Do not change weekly-goal construction layers.
+- [x] **Step 3: Verify and commit.** Targeted analyzer/tests and AGENTS logging completed; implementation commit:
 ~~~text
-feat(gye): render shared decoration exhibition
+7e9aa60 feat(gye): render shared decoration exhibition
 ~~~
 
 ### Task 7: Add callable-only P4b write path and cleanup
@@ -198,17 +198,17 @@ feat(gye): render shared decoration exhibition
 - Modify: firestore.rules, functions/gye/firestore.rules.test.js, functions/gye/package.json
 
 **Interfaces:**
-- Export callable setGyeDecorationDedication(gyeId, decorationSlug, expectedRevision, operationId).
-- decorationSlug null withdraws; direct Firestore writes are denied.
-- Transaction is idempotent by operation id and conflict-aware by revision.
+- Export callable setGyeDecorationDedication(gyeId, decorationSlug, expectedRevision, expectedMembershipId, expectedJoinedAtSeconds, expectedJoinedAtNanos, operationId).
+- decorationSlug null writes a monotonic withdrawal tombstone; direct Firestore writes are denied.
+- Transaction is idempotent by an epoch-bound operation id, conflict-aware by revision, and keeps a bounded sixteen-entry receipt ledger.
 
-- [ ] **Step 1: Write runtime tests** for success, duplicate operation, stale revision, first-free-slot assignment, replacement retention, withdrawal, throttle, banned/suspended/deleting rejection, and membership generation mismatch.
-- [ ] **Step 2: Implement a pure runtime with repository adapters, then bind a callable in index.js.** Use App Check, authenticated user id, and an Admin transaction.
-- [ ] **Step 3: Add rules tests** proving active members can read but cannot create, update, or delete dedication documents directly.
-- [ ] **Step 4: Extend leave/account/Gye deletion cleanup** with membershipId matching and decor_dedications enumeration.
-- [ ] **Step 5: Verify and commit.** Run Node syntax/runtime/rules tests and git diff --check; update AGENTS.md; commit:
+- [x] **Step 1: Write runtime tests** for success, duplicate operation, stale revision, first-free-slot assignment, replacement retention, withdrawal, ABA replay, bounded receipts, throttle, banned/suspended/deleting rejection, and membership-generation mismatch.
+- [x] **Step 2: Implement a pure runtime with repository adapters, then bind a callable in index.js.** Use App Check, authenticated user id, and an Admin transaction.
+- [x] **Step 3: Add rules tests** proving active members can read but cannot create, update, or delete dedication documents directly.
+- [x] **Step 4: Extend leave/account/Gye deletion cleanup** with uid + membershipId + joined-at epoch matching and dedication enumeration.
+- [x] **Step 5: Verify and commit.** Node `315/315`, Firestore emulator rules `43/43`, targeted Flutter `46/46`, and diff checks passed; implementation commit:
 ~~~text
-feat(gye): add safe exhibition dedication callable
+7061ab9 feat(gye): harden shared exhibition dedication
 ~~~
 
 ### Task 8: Add P4b client service and confirmation UI
@@ -221,15 +221,16 @@ feat(gye): add safe exhibition dedication callable
 - Test: test/gye_dedication_service_test.dart, test/gye_screen_test.dart, test/responsive_test.dart
 
 **Interfaces:**
-- Service streams validated server documents and invokes callable with generated operation id/revision.
+- Service streams validated server documents, preserves tombstones for CAS, and invokes the callable with generated operation id/revision plus the exact active membership epoch.
 - Picker filters Storage.ownedDecor locally for usability; server remains authoritative.
-- UI is pessimistic until stream confirmation. A stale revision reloads the stream; it never overwrites blindly.
+- UI is pessimistic until stream confirmation. A stale revision reloads the stream; it never overwrites blindly, and a changed membership epoch cancels confirmation and retry.
 
-- [ ] **Step 1: Write failing tests** for no-owned-decor state, confirmation copy, duplicate button suppression, stream-confirmed render, conflict reload, and withdrawal.
-- [ ] **Step 2: Implement service, picker, and GyeScreen integration** using showSoriSheet and semantic labels. Do not write a social feed or mutate personal ownership.
-- [ ] **Step 3: Verify and commit.** Run Flutter targeted, smoke, responsive, typography, analyzer, Node/rules tests; update AGENTS.md; commit:
+- [x] **Step 1: Write failing tests** for no-owned-decor state, confirmation copy, duplicate button suppression, stream-confirmed render, conflict reload, withdrawal, tombstone visibility, and a reused membership id with a different join epoch.
+- [x] **Step 2: Implement service, picker, and GyeScreen integration** using showSoriSheet and semantic labels. Do not write a social feed or mutate personal ownership.
+- [x] **Step 3: Verify and commit.** Run Flutter targeted, smoke, responsive, typography, analyzer, Node/rules tests; implementation and client-hardening commits:
 ~~~text
-feat(gye): let members dedicate a shared exhibit
+3325d53 feat(gye): let members dedicate a shared exhibit
+7061ab9 feat(gye): harden shared exhibition dedication
 ~~~
 
 ### Task 9: Whole-system regression and release handoff
@@ -238,7 +239,7 @@ feat(gye): let members dedicate a shared exhibit
 - Modify: AGENTS.md
 - Modify: handoff/runbook only if statements become stale
 
-- [ ] **Step 1: Run full validation.**
+- [x] **Step 1: Run full validation.** `flutter gen-l10n` produced no drift; `flutter analyze --no-pub --fatal-infos` reported no issues; the complete serial Flutter suite passed **2,087** tests after the room-slot touch fix; both personal-Hanok/room asset checkers passed; Node Gye **315/315** and Firestore emulator rules **43/43** passed; `flutter build web --release --no-pub` exited 0. The only web output was the existing `flutter_tts` WebAssembly dry-run warning from pub cache, not a Dart application failure.
 
 ~~~text
 flutter gen-l10n
@@ -246,12 +247,14 @@ flutter analyze --no-pub
 flutter test --no-pub --concurrency=1
 python tool/check_personal_hanok_assets.py
 python tool/check_personal_room_assets.py
-node --test functions/gye/gye_dedication_runtime.test.js
+node --test functions/gye/gye_dedication_runtime.test.js functions/gye/gye_dedication_cleanup.test.js
+npm.cmd --prefix functions/gye test
+npm.cmd --prefix functions/gye run test:rules
 git diff --check
 ~~~
 
-- [ ] **Step 2: Review git diff main...HEAD twice.** First for state-boundary violations; second for localization, responsive, and visual-system regressions.
-- [ ] **Step 3: Update AGENTS.md** with actual command results, exact commits, P4b-MVP versus real-transfer distinction, and remaining live deployment evidence; commit:
+- [x] **Step 2: Review git diff main...HEAD twice.** First for state-boundary violations; second for localization, responsive, and visual-system regressions.
+- [x] **Step 3: Update AGENTS.md** with actual command results, exact commits, P4b-MVP versus real-transfer distinction, and remaining live deployment evidence; commit:
 ~~~text
 docs(hanok): record world system verification
 ~~~

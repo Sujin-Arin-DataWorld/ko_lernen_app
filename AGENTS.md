@@ -280,7 +280,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다 (`88c8564`).
 - [x] P4a: 개인 한옥 지도에서 계를 개인 구조물로 섞지 않고 기존 공동 계 허브로 연결한다 (`d548032`).
 - [x] P4c: 한옥·사랑방·실내·계 진입 CTA는 이미 있는 지도/카드 문맥을 유지하고 버튼 자체는 텍스트 우선으로 수렴했다. 중복 아이콘 다섯 개를 제거해 작은 폭의 라벨 가용 공간을 회복했고, 전체 Flutter 회귀 2,029개와 타이포그래피 가드를 통과했다 (`8d5ca97`).
-- [ ] P4b: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
+- [x] P4b: 개인 장식의 계 헌납은 **소유권 이전이 아닌 공동 전시 헌정**으로 구현했다. 서버 callable·App Check·Firestore direct-write 차단·단조 tombstone·membership epoch·정리 경로를 갖추고, 개인 `ownedDecor`·방 배치·보상 journal은 전혀 옮기거나 수정하지 않는다 (`7061ab9`). 실물 이전은 서버 정본 inventory와 통합 journal을 선행하는 별도 P4b-II다.
 
 ### 한옥 세계 UX 정본 재구성 (2026-08-05)
 
@@ -293,7 +293,7 @@ flutter run -d <android-id>   # 안드로이드
   - [x] P2c: 사랑방 학습 화면에서 배치된 실내를 읽기 전용 scene으로 보여주고, 꾸미기 화면의 write 경계를 유지한다 (`47edaa1`).
 - [x] P4b-a: 공동 계 마당의 전시 장식을 서버 문서만으로 fail-closed 파싱·정규화·수동 렌더링한다. 개인 소유·방 배치·보상에는 접근하지 않는다 (`7e9aa60`).
 - [x] P4b-b: 공동 전시 선택·확인 UI는 개인 보유 장식을 편의상 필터링하되, callable + 서버 stream만 사용한다. 개인 소유·방 배치·보상 journal에는 쓰지 않는다 (`3325d53`).
-- [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
+- [x] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현했다. `uid + membershipId + joinedAt(seconds,nanoseconds)` 세대, active/withdrawn tombstone, bounded receipt ledger, leave/ban/account/Gye cleanup을 포함한다 (`7061ab9`). 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -452,6 +452,25 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-05 (Codex) — P4b-MVP callable-only 공동 전시 헌정 보강 완료
+
+- **범위:** 공동 전시는 개인 장식의 물리적 이전이 아닌 Gye 마당의 공개 표현이다. 클라이언트는 `Storage.ownedDecor ∩ allowlist`를 선택 편의로만 읽고, callable·서버 stream 밖의 Firestore write는 없다. 개인 보유 장식, 개인 방 배치, 보상 꾸러미, CloudSync union 계약은 읽거나 바꾸지 않았다.
+- **서버 정합성:** `setGyeDecorationDedication`은 europe-west3·App Check enforced/limited-use 토큰으로 동작한다. 공개 문서는 active 또는 withdrawn tombstone이며, 철회가 revision을 삭제하지 않아 ABA stale replay를 막는다. private mutation 문서는 최대 16개의 membership-epoch fingerprint receipt만 보존한다. 현재 member와 요청·공개문서·cleanup은 모두 `uid + membershipId + joinedAt(seconds,nanoseconds)`를 비교한다. client-generated membershipId 재사용과 leave→rejoin 세대 교체도 server-time immutable epoch으로 차단한다.
+- **정리/운영:** leave·ban·account deletion·Gye deletion은 동일 세대가 다시 확인될 때만 dedication/mutation을 지운다. rules는 active member read만 허용하고 모든 direct create/update/delete를 거부한다. 배포는 **indexes READY → rules → callable** 순서이며, 이 브랜치는 emulator 검증만 했으므로 production App Check/Cloud Logging 증거는 아직 별도 운영 작업이다.
+- **검증:** P4b Flutter targeted **46 passed**, 대상 `dart analyze` **0 issues**, Node Gye suite **315 passed**, Firestore emulator rules **43 passed**, 개인 한옥 9종·실내 2종 asset checker PASS, `git diff --check` 통과. 구현 커밋: `7061ab9`.
+
+### 2026-08-05 (Codex) — 개인 실내 슬롯 초기 렌더 탭 안정화
+
+- **원인/수정:** 전체 회귀 중 장식 PNG가 처음 decode되기 전 floor slot의 `GestureDetector`가 image intrinsic height를 물려받아 0dp가 될 수 있음을 재현했다. 기다리기나 테스트 완화 대신, interactive room은 visual을 원래 bottom-left에 유지하면서 logical slot 전체를 누르게 하고 최소 48dp touch height를 보장한다. read-only scene의 시각 배치는 바꾸지 않았다.
+- **검증:** 기존 forwarding test에 decode 전 최소 높이 RED(41.58dp)를 먼저 고정한 뒤, personal-room/RoomLayer/furnish/Sarangbang targeted **13 passed**, 대상 analyzer **0 issues**. 구현 커밋: `34edf87`.
+
+### 2026-08-05 (Codex) — 한옥 세계·P4b-MVP 최종 회귀 및 운영 인수인계
+
+- **완료 범위:** 지도 target/오늘의 학습 snapshot/Home 사랑방 문맥/반응형 world viewport/읽기 전용 실내 scene/P4b 공동 전시까지 계획의 코드 작업을 마쳤다. P4b는 계속 개인 보유권을 옮기지 않는 cosmetic shared exhibition일 뿐이며, 서버 정본 inventory·실물 이전·통합 journal은 P4b-II 전제 없이 시작하지 않는다.
+- **최종 검증:** `flutter gen-l10n` clean, `flutter analyze --no-pub --fatal-infos` **No issues found**, `flutter test --no-pub --concurrency=1 --reporter compact` **2,087 passed**, 개인 한옥 9종·실내 2종 asset checker PASS, Node Gye suite **315 passed**, Firestore emulator rules **43 passed**, `git diff --check` PASS, `flutter build web --release --no-pub` exit **0**. Web 출력의 Wasm dry-run 세 건은 pub-cache `flutter_tts`의 JS interop 경고이며 일반 web release 산출물은 성공했다.
+- **이중 검토:** `main...HEAD`를 상태 경계(개인 소유·방 배치·보상 경로 비침범, callable-only write, direct-write rules)와 UI/l10n/responsive 계약(생성 ARB·Sori token/semantic control·phone/tablet matrix) 두 관점으로 재검토했다. 첫 전체 회귀에서 찾은 초기 PNG decode 탭 결함은 `34edf87`로 수정한 뒤 전체 suite를 다시 통과했다.
+- **운영 경계:** 이 브랜치는 remote `main`의 `a626908` 위에 있고 production deploy/push는 하지 않았다. 실제 배포는 Firestore index READY 확인 → rules → `setGyeDecorationDedication` callable 순서로 하며, production App Check와 Cloud Logging callable evidence는 Jin 운영 검증이 필요하다.
+
 ### 2026-08-05 (Codex) — P4b-b 계 공동 전시 선택·확인 UI 완료
 
 - **변경:** `GyeScreen`은 공동 한옥 주변의 compact 48dp “전시” CTA에서만 전시 흐름을 연다. 선택지는 로컬 `ownedDecor ∩ reward allowlist`로 사용성을 위해 필터링하지만, 확정은 App Check 제한 callable로만 보내고 성공 뒤에는 optimistic update 없이 Firestore 전시 stream만 렌더한다.
@@ -471,12 +490,12 @@ flutter run -d <android-id>   # 안드로이드
 ### 2026-08-05 (Codex) — P4b-b 전시 재시도 수명주기 안전성
 
 - **수정:** transient callable 오류의 SnackBar 재시도 action이 화면 트리에서 사라진 전시 CTA를 다시 호출하지 않게 했다. 따라서 계 화면 이탈·stream 갱신 뒤 남아 있는 SnackBar가 disposed State에 `setState`를 시도하지 않는다.
-- **검증:** CTA 제거 후 SnackBar 재시도를 누르는 RED/GREEN widget 회귀와 dedication action/service targeted **10 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋은 이 로그와 함께 기록한다.
+- **검증:** CTA 제거 후 SnackBar 재시도를 누르는 RED/GREEN widget 회귀와 dedication action/service targeted **10 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `1c95f9d`.
 
 ### 2026-08-05 (Codex) — P4b-b regional callable 경계 고정
 
 - **수정:** production 전시 gateway의 callable invoker factory를 주입 가능하게 분리하되 기본 경로는 그대로 `europe-west3` Firebase Functions를 사용한다. 이로써 Firebase 초기화 없이도 callable 이름·region·정확한 payload·limited-use App Check token 옵션을 회귀로 고정한다.
-- **검증:** factory seam 부재 RED 뒤 service 회귀 **6 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋은 이 로그와 함께 기록한다.
+- **검증:** factory seam 부재 RED 뒤 service 회귀 **6 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `1834771`.
 
 ### 2026-08-05 (Codex) — P4b-a 계 공동 전시 읽기 전용 계층 완료
 
