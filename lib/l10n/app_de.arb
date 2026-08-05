@@ -2078,6 +2078,25 @@
   "hanokZoneAnchae": "Anchae · meine Sammlung",
   "hanokZoneHuwon": "Huwon · Tagesziel",
   "hanokZoneSadang": "Sadang · Erfolge",
+  "hanokWorldSelectPlaceTitle": "Einen fertigen Ort wählen",
+  "hanokWorldSelectPlaceBody": "Tippe auf ein Gebäude in der Karte oder wähle es aus der zugänglichen Liste.",
+  "hanokWorldPlaceReadyBody": "{place} ist bereit für deinen nächsten Lernschritt.",
+  "@hanokWorldPlaceReadyBody": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "hanokWorldOpenPlace": "Nach {place} gehen",
+  "@hanokWorldOpenPlace": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "hanokWorldTodayMarker": "Heutiges Lernen",
   "@_sarangbang_study": {
     "description": "Sarangbang als Kontext für die bestehende Tagesempfehlung."
   },

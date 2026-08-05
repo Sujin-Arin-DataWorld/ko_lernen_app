@@ -4412,6 +4412,26 @@ class AppL10nEn extends AppL10n {
   String get hanokZoneSadang => 'Sadang · achievements';
 
   @override
+  String get hanokWorldSelectPlaceTitle => 'Choose a finished place';
+
+  @override
+  String get hanokWorldSelectPlaceBody =>
+      'Tap a building on the map or choose one from the accessible list.';
+
+  @override
+  String hanokWorldPlaceReadyBody(String place) {
+    return '$place is ready to welcome your next study step.';
+  }
+
+  @override
+  String hanokWorldOpenPlace(String place) {
+    return 'Enter $place';
+  }
+
+  @override
+  String get hanokWorldTodayMarker => 'Today\'s study';
+
+  @override
   String get sarangbangStudyTitle => 'Sarangbang';
 
   @override

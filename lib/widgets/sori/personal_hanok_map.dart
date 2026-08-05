@@ -15,6 +15,9 @@ class PersonalHanokMap extends StatelessWidget {
   final String Function(PersonalHanokZone zone) zoneLabel;
   final ValueChanged<PersonalHanokZone>? onTapZone;
   final bool showTargets;
+  final PersonalHanokZone? selectedZone;
+  final PersonalHanokZone? todayZone;
+  final String? todayMarkerLabel;
 
   const PersonalHanokMap({
     super.key,
@@ -22,6 +25,9 @@ class PersonalHanokMap extends StatelessWidget {
     required this.zoneLabel,
     this.onTapZone,
     this.showTargets = true,
+    this.selectedZone,
+    this.todayZone,
+    this.todayMarkerLabel,
   });
 
   @override
@@ -66,6 +72,24 @@ class PersonalHanokMap extends StatelessWidget {
                         ? ColoredBox(color: SoriSurfaces.of(ctx).surfaceAlt)
                         : const SizedBox.expand(),
                   ),
+                if (selectedZone != null &&
+                    visiblePersonalHanokZones(
+                      projection,
+                    ).any((definition) => definition.zone == selectedZone))
+                  _ZoneFocus(
+                    rect: zoneFor(selectedZone!).bounds,
+                    canvasSize: constraints.biggest,
+                  ),
+                if (todayZone != null &&
+                    todayMarkerLabel != null &&
+                    visiblePersonalHanokZones(
+                      projection,
+                    ).any((definition) => definition.zone == todayZone))
+                  _TodayStudyMarker(
+                    rect: zoneFor(todayZone!).bounds,
+                    canvasSize: constraints.biggest,
+                    label: todayMarkerLabel!,
+                  ),
                 if (showTargets)
                   for (final definition in visiblePersonalHanokZones(
                     projection,
@@ -89,6 +113,93 @@ class PersonalHanokMap extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class _ZoneFocus extends StatelessWidget {
+  final PersonalHanokRect rect;
+  final Size canvasSize;
+
+  const _ZoneFocus({required this.rect, required this.canvasSize});
+
+  @override
+  Widget build(BuildContext context) {
+    final left = canvasSize.width * rect.left;
+    final top = canvasSize.height * rect.top;
+    final width = canvasSize.width * rect.width;
+    final height = canvasSize.height * rect.height;
+    return Positioned(
+      left: left,
+      top: top,
+      width: width,
+      height: height,
+      child: IgnorePointer(
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: SoriColors.primary.withValues(alpha: 0.05),
+            border: Border.all(
+              color: SoriColors.primary.withValues(alpha: 0.84),
+              width: 2,
+            ),
+            borderRadius: SoriRadius.brSm,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _TodayStudyMarker extends StatelessWidget {
+  final PersonalHanokRect rect;
+  final Size canvasSize;
+  final String label;
+
+  const _TodayStudyMarker({
+    required this.rect,
+    required this.canvasSize,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    const markerSize = 24.0;
+    final left = (canvasSize.width * (rect.left + rect.width) - markerSize / 2)
+        .clamp(0.0, canvasSize.width - markerSize)
+        .toDouble();
+    final top = (canvasSize.height * rect.top - markerSize / 2)
+        .clamp(0.0, canvasSize.height - markerSize)
+        .toDouble();
+    return Positioned(
+      left: left,
+      top: top,
+      width: markerSize,
+      height: markerSize,
+      child: IgnorePointer(
+        child: Semantics(
+          label: label,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: SoriColors.primary,
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white, width: 2),
+              boxShadow: SoriElevation.low,
+            ),
+            child: const Center(
+              child: SizedBox(
+                width: 7,
+                height: 7,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

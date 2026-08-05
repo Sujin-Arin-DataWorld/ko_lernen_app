@@ -7807,6 +7807,36 @@ abstract class AppL10n {
   /// **'Sadang · Erfolge'**
   String get hanokZoneSadang;
 
+  /// No description provided for @hanokWorldSelectPlaceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einen fertigen Ort wählen'**
+  String get hanokWorldSelectPlaceTitle;
+
+  /// No description provided for @hanokWorldSelectPlaceBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf ein Gebäude in der Karte oder wähle es aus der zugänglichen Liste.'**
+  String get hanokWorldSelectPlaceBody;
+
+  /// No description provided for @hanokWorldPlaceReadyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{place} ist bereit für deinen nächsten Lernschritt.'**
+  String hanokWorldPlaceReadyBody(String place);
+
+  /// No description provided for @hanokWorldOpenPlace.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach {place} gehen'**
+  String hanokWorldOpenPlace(String place);
+
+  /// No description provided for @hanokWorldTodayMarker.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutiges Lernen'**
+  String get hanokWorldTodayMarker;
+
   /// No description provided for @sarangbangStudyTitle.
   ///
   /// In de, this message translates to:

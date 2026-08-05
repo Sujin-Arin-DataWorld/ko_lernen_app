@@ -2000,6 +2000,25 @@
   "hanokZoneAnchae": "Anchae · my collection",
   "hanokZoneHuwon": "Huwon · daily goal",
   "hanokZoneSadang": "Sadang · achievements",
+  "hanokWorldSelectPlaceTitle": "Choose a finished place",
+  "hanokWorldSelectPlaceBody": "Tap a building on the map or choose one from the accessible list.",
+  "hanokWorldPlaceReadyBody": "{place} is ready to welcome your next study step.",
+  "@hanokWorldPlaceReadyBody": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "hanokWorldOpenPlace": "Enter {place}",
+  "@hanokWorldOpenPlace": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "hanokWorldTodayMarker": "Today's study",
   "@_sarangbang_study": {
     "description": "Sarangbang as the context for the existing daily recommendation."
   },

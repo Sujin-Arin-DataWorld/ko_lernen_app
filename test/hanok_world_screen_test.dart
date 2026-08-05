@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
+import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
 
 void main() {
   test('canonical completed room zones open their own interiors', () {
@@ -36,9 +37,14 @@ void main() {
     );
   });
 
-  testWidgets('opens the exact completed estate zone supplied by the map', (
+  testWidgets('selects a map place before its detail action opens it', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(308, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
     PersonalHanokZone? opened;
     await tester.pumpWidget(
       _host(
@@ -54,10 +60,63 @@ void main() {
       const ValueKey('personal-hanok-zone-sarangbang'),
     );
     expect(sarangbang, findsOneWidget);
+    expect(tester.getSize(find.byType(PersonalHanokMap)).width, 308);
+    final targets = <({PersonalHanokZone zone, Finder finder})>[
+      (zone: PersonalHanokZone.sarangbang, finder: sarangbang),
+      (
+        zone: PersonalHanokZone.daecheongmaru,
+        finder: find.byKey(const ValueKey('personal-hanok-zone-daecheongmaru')),
+      ),
+      (
+        zone: PersonalHanokZone.haengrangchae,
+        finder: find.byKey(const ValueKey('personal-hanok-zone-haengrangchae')),
+      ),
+      (
+        zone: PersonalHanokZone.anchae,
+        finder: find.byKey(const ValueKey('personal-hanok-zone-anchae')),
+      ),
+      (
+        zone: PersonalHanokZone.anchae,
+        finder: find.byKey(const ValueKey('personal-hanok-zone-anchae-1')),
+      ),
+      (
+        zone: PersonalHanokZone.huwon,
+        finder: find.byKey(const ValueKey('personal-hanok-zone-huwon')),
+      ),
+      (
+        zone: PersonalHanokZone.huwon,
+        finder: find.byKey(const ValueKey('personal-hanok-zone-huwon-1')),
+      ),
+      (
+        zone: PersonalHanokZone.sadang,
+        finder: find.byKey(const ValueKey('personal-hanok-zone-sadang')),
+      ),
+    ];
+    for (var first = 0; first < targets.length; first++) {
+      for (var second = first + 1; second < targets.length; second++) {
+        if (targets[first].zone == targets[second].zone) {
+          continue;
+        }
+        expect(
+          tester
+              .getRect(targets[first].finder)
+              .overlaps(tester.getRect(targets[second].finder)),
+          isFalse,
+          reason: 'screen target $first overlaps $second at 308dp',
+        );
+      }
+    }
 
-    await tester.drag(find.byType(ListView), const Offset(0, -360));
-    await tester.pumpAndSettle();
     await tester.tap(sarangbang);
+    await tester.pump();
+
+    expect(opened, isNull);
+    final openSelected = find.byKey(
+      const ValueKey('hanok-world-open-selected'),
+    );
+    await tester.ensureVisible(openSelected);
+    expect(openSelected, findsOneWidget);
+    await tester.tap(openSelected);
 
     expect(opened, PersonalHanokZone.sarangbang);
   });
@@ -102,7 +161,7 @@ void main() {
     },
   );
 
-  testWidgets('offers every finished place through an accessible place list', (
+  testWidgets('uses the accessible place list to select before opening', (
     tester,
   ) async {
     PersonalHanokZone? opened;
@@ -123,6 +182,17 @@ void main() {
     expect(daecheong, findsOneWidget);
 
     await tester.tap(daecheong);
+    await tester.pump();
+
+    expect(opened, isNull);
+    await tester.drag(find.byType(ListView), const Offset(0, 1200));
+    await tester.pumpAndSettle();
+    final openSelected = find.byKey(
+      const ValueKey('hanok-world-open-selected'),
+    );
+    expect(openSelected, findsOneWidget);
+    await tester.ensureVisible(openSelected);
+    await tester.tap(openSelected);
 
     expect(opened, PersonalHanokZone.daecheongmaru);
   });

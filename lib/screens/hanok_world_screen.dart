@@ -12,6 +12,7 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/world_map_viewport.dart';
 
 /// The personal estate is a read-only projection of existing course progress.
 ///
@@ -29,6 +30,7 @@ class HanokWorldScreen extends StatefulWidget {
 
 class _HanokWorldScreenState extends State<HanokWorldScreen> {
   PersonalHanokProjection? _projection;
+  PersonalHanokZone? _selectedZone;
 
   @override
   void initState() {
@@ -43,7 +45,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
       if (!mounted) {
         return;
       }
-      setState(() => _projection = PersonalHanokProjection.from(ratios));
+      _showProjection(PersonalHanokProjection.from(ratios));
     } catch (_) {
       // The world is an enhancement of the learning route. If its local
       // progress read fails, show the existing empty courtyard rather than
@@ -51,12 +53,49 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
       if (!mounted) {
         return;
       }
-      setState(
-        () => _projection = PersonalHanokProjection.from(
+      _showProjection(
+        PersonalHanokProjection.from(
           const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
         ),
       );
     }
+  }
+
+  void _showProjection(PersonalHanokProjection projection) {
+    final available = visiblePersonalHanokZones(
+      projection,
+    ).map((definition) => definition.zone).toList(growable: false);
+    final retained = _selectedZone;
+    final nextSelection = available.contains(retained)
+        ? retained
+        : available.contains(PersonalHanokZone.sarangbang)
+        ? PersonalHanokZone.sarangbang
+        : available.isEmpty
+        ? null
+        : available.first;
+    setState(() {
+      _projection = projection;
+      _selectedZone = nextSelection;
+    });
+  }
+
+  void _selectZone(PersonalHanokZone zone) {
+    final projection = _projection;
+    if (projection == null ||
+        !visiblePersonalHanokZones(
+          projection,
+        ).any((definition) => definition.zone == zone)) {
+      return;
+    }
+    setState(() => _selectedZone = zone);
+  }
+
+  Future<void> _openSelectedZone() async {
+    final zone = _selectedZone;
+    if (zone == null) {
+      return;
+    }
+    await _openZone(zone);
   }
 
   Future<void> _openZone(PersonalHanokZone zone) async {
@@ -94,53 +133,76 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
         child: SafeArea(
           child: projection == null
               ? const AppLoading()
-              : SoriContentClamp(
-                  maxWidth: 960,
-                  base: const EdgeInsets.fromLTRB(
-                    Spacing.lg,
-                    Spacing.md,
-                    Spacing.lg,
-                    Spacing.xxxl,
-                  ),
-                  builder: (context, padding) => RefreshIndicator(
-                    onRefresh: _load,
-                    child: ListView(
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      padding: padding,
-                      children: [
-                        _WorldIntroduction(
-                          projection: projection,
-                          onOpenSarangbang: () =>
-                              _openZone(PersonalHanokZone.sarangbang),
+              : LayoutBuilder(
+                  builder: (context, constraints) {
+                    final padding = soriClampPadding(
+                      constraints.maxWidth,
+                      maxWidth: 960,
+                      base: const EdgeInsets.fromLTRB(
+                        Spacing.lg,
+                        Spacing.md,
+                        Spacing.lg,
+                        Spacing.xxxl,
+                      ),
+                    );
+                    final sidePadding = EdgeInsets.symmetric(
+                      horizontal: padding.left,
+                    );
+                    return RefreshIndicator(
+                      onRefresh: _load,
+                      child: ListView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        padding: EdgeInsets.only(
+                          top: padding.top,
+                          bottom: padding.bottom,
                         ),
-                        const SizedBox(height: Spacing.lg),
-                        if (projection.usesCompoundMap) ...[
-                          Text(
-                            t.hanokWorldMapHint,
-                            style: SoriTextTheme.of(context).bodySmall,
-                          ),
-                          const SizedBox(height: Spacing.md),
-                        ],
-                        Semantics(
-                          label: t.hanokWorldTitle,
-                          child: PersonalHanokMap(
-                            projection: projection,
-                            zoneLabel: (zone) => _zoneLabel(t, zone),
-                            onTapZone: _openZone,
-                          ),
-                        ),
-                        if (projection.usesCompoundMap) ...[
-                          const SizedBox(height: Spacing.lg),
-                          _WorldPlaceList(
-                            projection: projection,
-                            onOpenZone: _openZone,
+                        children: [
+                          Padding(
+                            padding: sidePadding,
+                            child: _WorldIntroduction(
+                              projection: projection,
+                              onOpenSarangbang: () =>
+                                  _openZone(PersonalHanokZone.sarangbang),
+                            ),
                           ),
                           const SizedBox(height: Spacing.lg),
-                          _GyeBridge(onOpen: _openGyeHub),
+                          if (projection.usesCompoundMap) ...[
+                            Semantics(
+                              label: t.hanokWorldTitle,
+                              child: WorldMapViewport(
+                                projection: projection,
+                                selectedZone: _selectedZone,
+                                onSelectZone: _selectZone,
+                                onOpenSelectedZone: _openSelectedZone,
+                                zoneLabel: (zone) => _zoneLabel(t, zone),
+                                contentPadding: sidePadding,
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.lg),
+                            Padding(
+                              padding: sidePadding,
+                              child: _WorldPlaceList(
+                                projection: projection,
+                                onSelectZone: _selectZone,
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.lg),
+                            Padding(
+                              padding: sidePadding,
+                              child: _GyeBridge(onOpen: _openGyeHub),
+                            ),
+                          ] else
+                            Padding(
+                              padding: sidePadding,
+                              child: PersonalHanokMap(
+                                projection: projection,
+                                zoneLabel: (zone) => _zoneLabel(t, zone),
+                              ),
+                            ),
                         ],
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 ),
         ),
       ),
@@ -154,16 +216,15 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
 /// a learner prefers an explicit destination over a visual target.
 class _WorldPlaceList extends StatelessWidget {
   final PersonalHanokProjection projection;
-  final ValueChanged<PersonalHanokZone> onOpenZone;
+  final ValueChanged<PersonalHanokZone> onSelectZone;
 
-  const _WorldPlaceList({
-    required this.projection,
-    required this.onOpenZone,
-  });
+  const _WorldPlaceList({required this.projection, required this.onSelectZone});
 
   @override
   Widget build(BuildContext context) {
-    final places = visiblePersonalHanokZones(projection).toList(growable: false);
+    final places = visiblePersonalHanokZones(
+      projection,
+    ).toList(growable: false);
     if (places.isEmpty) {
       return const SizedBox.shrink();
     }
@@ -193,7 +254,7 @@ class _WorldPlaceList extends StatelessWidget {
                 label: _zoneLabel(t, place.zone),
                 fullWidth: true,
                 maxLines: 2,
-                onTap: () => onOpenZone(place.zone),
+                onTap: () => onSelectZone(place.zone),
               ),
               if (place != places.last) const SizedBox(height: Spacing.sm),
             ],
@@ -277,9 +338,7 @@ class _GyeBridge extends StatelessWidget {
             children: [
               Icon(Icons.groups_2_rounded, color: SoriColors.gold),
               const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: Text(t.hanokWorldGyeBridgeTitle, style: text.h3),
-              ),
+              Expanded(child: Text(t.hanokWorldGyeBridgeTitle, style: text.h3)),
             ],
           ),
           const SizedBox(height: Spacing.sm),
