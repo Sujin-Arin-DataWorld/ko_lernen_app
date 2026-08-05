@@ -54,7 +54,9 @@ class _MilestoneBody extends StatelessWidget {
           asset: kind == MascotKind.magpie
               ? CharacterClips.magpieFlight
               : CharacterClips.tigerRoar,
-          size: 96,
+          // Jin 실기기 피드백: 포효 영상이 너무 작다 → 히어로급으로 키운다.
+          // 시트는 88% maxHeight 클램프 + 자동 스크롤이라 커져도 안전.
+          size: 160,
           blendColor: s.surface,
           fallbackKind: kind,
           fallbackEmotion: MascotEmotion.celebrate,

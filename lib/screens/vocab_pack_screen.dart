@@ -241,6 +241,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
+    // 퀴즈도 "듣고 고르기"로 통일 — 첫 단어 자동 발음 재생.
+    _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만 (모달보다 학습 흐름 덜 끊음).
     if (!Storage.tutPackQuizSeen && mounted) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
@@ -274,12 +276,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
-    // Boss 첫 단어 자동 TTS
-    final cur = _currentQuiz;
-    if (cur != null) {
-      // ignore: discarded_futures
-      TtsService.speak(cur.korean);
-    }
+    // Boss 첫 단어 자동 발음 재생.
+    _speakCurrent();
     // 스테이지 전환 인라인 배너 — 최초 1회만.
     if (!Storage.tutPackBossSeen && mounted) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
@@ -321,6 +319,20 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _selectedChoice = -1;
       _choiceLocked = false;
     });
+  }
+
+  /// 현재 문제(퀴즈/보스)의 한국어를 자동 발음 재생.
+  ///
+  /// 퀴즈·보스는 둘 다 "큰 한국어 단어를 보고 뜻 고르기" — 예전엔 노란 보스만
+  /// 소리가 나고 파란 퀴즈는 무음이라 "듣고 고르기"가 뒤섞여 보였다. 두 단계를
+  /// 모두 자동 재생으로 통일한다.
+  void _speakCurrent() {
+    final cur = _currentQuiz;
+    if (cur == null) {
+      return;
+    }
+    // ignore: discarded_futures
+    TtsService.speak(cur.korean);
   }
 
   void _selectChoice(int i) {
@@ -405,13 +417,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choices = null;
     });
     _prepareNextQuestion();
-    if (_stage == _Stage.boss) {
-      final cur = _currentQuiz;
-      if (cur != null) {
-        // ignore: discarded_futures
-        TtsService.speak(cur.korean);
-      }
-    }
+    // 퀴즈·보스 모두 다음 단어 자동 발음(듣고 고르기 통일).
+    _speakCurrent();
   }
 
   // ── Finish ─────────────────────────────────────────────────────────
@@ -612,6 +619,50 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         ? _normalWords.length
         : _bossWords.length;
     final s = SoriSurfaces.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
+
+    final promptCard = SoriCard(
+      variant: SoriCardVariant.hero,
+      accent: _stage == _Stage.boss ? SoriColors.warning : SoriColors.info,
+      tinted: true,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            cur.korean,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.w800,
+              letterSpacing: -0.5,
+            ),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            '[${cur.romanization}]',
+            style: TextStyle(
+              fontSize: 14,
+              color: s.textMuted,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          // "Erneut anhören" — 퀴즈·보스 둘 다 노출(둘 다 자동 재생 통일).
+          const SizedBox(height: Spacing.md),
+          SoriButton(
+            label: t.vocabPackBossReplayAudio,
+            icon: Icons.volume_up_rounded,
+            variant: SoriButtonVariant.outlined,
+            accent: _stage == _Stage.boss
+                ? SoriColors.warning
+                : SoriColors.info,
+            onTap: () {
+              // ignore: discarded_futures
+              TtsService.speak(cur.korean);
+            },
+          ),
+        ],
+      ),
+    );
 
     return Column(
       children: [
@@ -626,78 +677,45 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ],
         ),
         const SizedBox(height: Spacing.md),
-        // Korean prompt + (boss only) TTS replay button
-        SoriCard(
-          variant: SoriCardVariant.hero,
-          accent: _stage == _Stage.boss ? SoriColors.warning : SoriColors.info,
-          tinted: true,
-          child: Column(
-            children: [
-              Text(
-                cur.korean,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: -0.5,
-                ),
-              ),
-              const SizedBox(height: Spacing.xs),
-              Text(
-                '[${cur.romanization}]',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: s.textMuted,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-              if (_stage == _Stage.boss) ...[
-                const SizedBox(height: Spacing.md),
-                SoriButton(
-                  label: t.vocabPackBossReplayAudio,
-                  icon: Icons.volume_up_rounded,
-                  variant: SoriButtonVariant.outlined,
-                  accent: SoriColors.warning,
-                  onTap: () {
-                    // ignore: discarded_futures
-                    TtsService.speak(cur.korean);
-                  },
-                ),
-              ],
-            ],
-          ),
-        ),
-        const SizedBox(height: Spacing.lg),
-        // 4 choices — 프롬프트 카드 **바로 아래**(상단 정렬) + 스크롤 안전.
-        // 이전엔 Center 로 남은 공간에 세로 중앙 정렬해 단어와 보기가 크게
-        // 벌어져 보였음. topCenter 로 붙여 간격을 없앤다.
+        // 단어 카드 + 4지선다를 남는 세로 공간에 **여유롭게 분산**한다.
+        // 이전엔 카드 바로 밑에 보기를 붙이고(topCenter) 하단이 텅 비었음
+        // (Jin 실기기 반복 지적). cloze/데일리챌린지의 검증된 패턴 재사용 —
+        // spaceEvenly 로 화면을 채우되, 큰 글자에선 스크롤로 안전.
         Expanded(
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: List.generate(choices.length, (i) {
-                  final text = choices[i];
-                  final isCorrect =
-                      text ==
-                      cur.translationFor(
-                        Localizations.localeOf(context).languageCode,
-                      );
-
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: Spacing.sm),
-                    child: QuizChoice(
-                      text: text,
-                      isCorrect: isCorrect,
-                      isSelected: i == _selectedChoice,
-                      revealed: _choiceLocked,
-                      onSelected: _choiceLocked ? null : () => _selectChoice(i),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: IntrinsicHeight(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        promptCard,
+                        for (var i = 0; i < choices.length; i++)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Spacing.xs,
+                            ),
+                            child: QuizChoice(
+                              text: choices[i],
+                              isCorrect:
+                                  choices[i] == cur.translationFor(lang),
+                              isSelected: i == _selectedChoice,
+                              revealed: _choiceLocked,
+                              // 넉넉한 화면을 채우도록 보기 박스를 더 크게.
+                              minHeight: 60,
+                              onSelected: _choiceLocked
+                                  ? null
+                                  : () => _selectChoice(i),
+                            ),
+                          ),
+                      ],
                     ),
-                  );
-                }),
-              ),
-            ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ],

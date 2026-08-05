@@ -304,9 +304,11 @@ class _StatLine extends StatelessWidget {
   }
 }
 
-// 클리어 축하 hero — 호랑이·까치가 단청 도장(보상)을 함께 둘러싸며 등장.
-// 단일 컨트롤러가 글로우→도장→호랑이→까치를 한 박자로 구동하고,
-// 도장 착지 순간 confetti 1회. reduce-motion / 재클리어 시 최종 정지 프레임.
+// 클리어 축하 hero — **선택된 캐릭터 하나**가 획득한 단청 도장(보상) 옆에서
+// 축하한다. (구버전은 호랑이+까치를 둘 다 띄워 "캐릭터가 난립"했다 — Jin
+// 실기기 피드백. 이제 MascotPreference 의 선택 캐릭터 + 도장만 보인다.)
+// 단일 컨트롤러가 도장→캐릭터를 한 박자로 구동하고, 도장 착지 순간
+// confetti 1회. reduce-motion / 재클리어 시 최종 정지 프레임.
 class _CelebrationSequence extends StatefulWidget {
   final DancheongMotif motif;
   final bool justCleared;
@@ -319,10 +321,8 @@ class _CelebrationSequence extends StatefulWidget {
 class _CelebrationSequenceState extends State<_CelebrationSequence>
     with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl;
-  late final Animation<double> _glow;
   late final Animation<double> _stampIn;
-  late final Animation<double> _tigerIn;
-  late final Animation<double> _magpieIn;
+  late final Animation<double> _mascotIn;
   bool _burstFired = false;
   bool _kicked = false;
 
@@ -331,21 +331,13 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
     super.initState();
     _ctrl = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1100),
-    );
-    _glow = CurvedAnimation(
-      parent: _ctrl,
-      curve: const Interval(0.0, 0.30, curve: Curves.easeOut),
+      duration: const Duration(milliseconds: 1000),
     );
     _stampIn = CurvedAnimation(
       parent: _ctrl,
-      curve: const Interval(0.20, 0.80, curve: Curves.elasticOut),
+      curve: const Interval(0.15, 0.80, curve: Curves.elasticOut),
     );
-    _tigerIn = CurvedAnimation(
-      parent: _ctrl,
-      curve: const Interval(0.12, 0.85, curve: Curves.elasticOut),
-    );
-    _magpieIn = CurvedAnimation(
+    _mascotIn = CurvedAnimation(
       parent: _ctrl,
       curve: const Interval(0.30, 1.0, curve: Curves.elasticOut),
     );
@@ -394,84 +386,40 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
 
   @override
   Widget build(BuildContext context) {
-    // ⚠️ 명시적 width 필수 — Stack 은 non-positioned 자식(도장)에만 맞춰
-    // 크기가 잡혀 폭이 도장 크기(~118)로 쪼그라든다. 그러면 left/right 로
-    // 배치한 호랑이·까치가 도장 위로 뭉쳐 겹쳐 보인다(보상 스티커 중복).
-    // 넉넉한 폭을 줘 좌우로 벌려 도장을 감싸게 한다.
+    // 선택된 캐릭터 하나 + 획득한 도장만. 도장이 보상의 주인공이라 크게,
+    // 선택 캐릭터가 그 옆에서 축하한다. Row 로 가운데 정렬해 두 요소가
+    // 겹치거나 한쪽으로 쏠리지 않게 한다.
     return SizedBox(
-      width: 280,
       height: 160,
       child: AnimatedBuilder(
         animation: _ctrl,
         builder: (context, _) {
-          return Stack(
-            alignment: Alignment.center,
-            clipBehavior: Clip.none,
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // (1) 바닥 글로우 — 마스코트가 떠 있지 않게 그라운딩.
-              Positioned(
-                bottom: 14,
-                child: Opacity(
-                  opacity: (_glow.value * 0.9).clamp(0.0, 1.0),
-                  child: Container(
-                    width: 190,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      gradient: RadialGradient(
-                        colors: [
-                          SoriColors.gold.withValues(alpha: 0.32),
-                          SoriColors.gold.withValues(alpha: 0.0),
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(999),
-                    ),
+              // 선택된 캐릭터 — MascotPreference 기준(호랑이/까치). 하드코딩 금지.
+              Opacity(
+                opacity: _mascotIn.value.clamp(0.0, 1.0),
+                child: Transform.scale(
+                  scale: (0.5 + 0.5 * _mascotIn.value).clamp(0.0, 1.2),
+                  child: Mascot(
+                    kind: MascotPreference.kind.value,
+                    emotion: MascotEmotion.celebrate,
+                    size: 92,
+                    animate: true,
                   ),
                 ),
               ),
-              // (3) 호랑이 — 왼쪽 바깥, 도장을 향해, 바닥에 grounding. (더 옆으로)
-              Positioned(
-                left: -8,
-                bottom: 8,
-                child: Opacity(
-                  opacity: _tigerIn.value.clamp(0.0, 1.0),
-                  child: Transform.scale(
-                    scale: (0.5 + 0.5 * _tigerIn.value).clamp(0.0, 1.2),
-                    alignment: Alignment.bottomCenter,
-                    child: Mascot(
-                      kind: MascotPreference.kind.value,
-                      emotion: MascotEmotion.celebrate,
-                      size: 96,
-                      animate: true,
-                    ),
-                  ),
-                ),
-              ),
-              // (4) 까치 — 오른쪽 바깥, 살짝 띄워서, 약간 늦게. (더 옆으로)
-              Positioned(
-                right: -8,
-                top: 6,
-                child: Opacity(
-                  opacity: _magpieIn.value.clamp(0.0, 1.0),
-                  child: Transform.scale(
-                    scale: (0.5 + 0.5 * _magpieIn.value).clamp(0.0, 1.2),
-                    alignment: Alignment.bottomCenter,
-                    child: const Mascot(
-                      kind: MascotKind.magpie,
-                      emotion: MascotEmotion.celebrate,
-                      size: 72,
-                      animate: true,
-                    ),
-                  ),
-                ),
-              ),
-              // (2) 단청 도장 = 중앙 주인공(보상), 마스코트 위에 앞에 배치.
+              const SizedBox(width: Spacing.md),
+              // 획득한 단청 도장 = 보상의 주인공.
               Opacity(
                 opacity: _stampIn.value.clamp(0.0, 1.0),
                 child: Transform.scale(
                   scale: (0.6 + 0.4 * _stampIn.value).clamp(0.0, 1.3),
                   child: DancheongStamp(
                     motif: widget.motif,
-                    size: 118,
+                    size: 120,
                     animate: false,
                     stamped: true,
                   ),
@@ -568,6 +516,9 @@ class _CtaButton extends StatelessWidget {
         variant: variant,
         accent: accent,
         fullWidth: true,
+        // 다음 팩 이름이 길면("Weiter zu 'Familie & Beziehungen (1)'") 한 줄로
+        // 잘리던 문제 — 2줄까지 줄바꿈 허용(버튼이 minHeight+세로 패딩으로 늘어남).
+        maxLines: 2,
         onTap: onTap,
       ),
     );

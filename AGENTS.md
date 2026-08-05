@@ -219,6 +219,17 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### v2.0.5+11 내부 테스트 AAB (2026-08-05)
+
+- [x] Play Console에 이미 등록된 `2.0.4+10`보다 높은 `2.0.5+11`로 버전을 올리고 새 signed AAB를 만들었다. `flutter analyze --fatal-infos`는 0 issues, 전체 직렬 `flutter test --no-pub --concurrency=1 --reporter compact`는 2,109 passed, AAB의 package/version·업로드 서명 검증도 통과했다. 정확한 SHA-256·인증서 지문은 아래 세션 로그에 기록한다.
+- [ ] Jin 운영: Play Console internal track에 `2.0.5` (`versionCode 11`) AAB를 업로드하고 pre-launch report 및 테스터 설치를 확인한다.
+
+### iOS·iPad App Store 로컬 준비 (2026-08-05)
+
+- [x] iOS/iPad 정적 준비팩을 만들었다. Settings는 `PackageInfo`의 실제 `version (build)`를 표시하고, DE/EN 카메라·사진 권한 문자열은 Runner 리소스로 등록했다. 정적 iOS 계약 검사, DE/EN 스토어 문구·지원 페이지·App Store Connect 인수인계, 실제 iOS 캡처용 무알파 PNG 검사기를 함께 추가했다.
+- [x] 로컬 통합: 포맷 게이트는 6파일 변경 없이 통과했고, iOS/Settings/태블릿 반응형 묶음 `flutter test`는 421 passed, 정적 iOS 계약 CLI와 범위 분석은 통과했으며 PNG 검사기 회귀는 18 passed다. 전역 `dart analyze --fatal-infos`는 동시 작업 범위 밖 `lib/screens/vocab_pack_screen.dart:331:8`의 unused `_speakCurrent` 하나 때문에 현재 green으로 기록하지 않는다.
+- [ ] macOS 릴리스 담당: `docs/store/ios-external-setup.md`에 따라 iOS Firebase를 구성하고, Apple 팀/서명·공개 RevenueCat iOS dart-define로 Xcode archive를 만든 뒤 최종 privacy report를 검토한다. 그 다음 실제 iPhone·13-inch iPad(TestFlight 포함) 검증·실제 무알파 캡처·App Store Connect 메타데이터/연령 등급/App Privacy 입력·지원/개인정보/계정삭제 URL의 실제 호스팅·메일함을 확인한다. Windows에서는 IPA·TestFlight·실기기 완료를 주장하지 않는다.
+
 ### Android·태블릿 유동 레이아웃 (2026-08-04)
 
 - [x] 폰 폭은 유지하고 600--720dp에서 탐색 콘텐츠 폭을 480→640dp로 확장했으며, 공통 타이포·CTA·모듈 카드가 태블릿에서 최대 10% 커지게 했다 (`596ef4f`).
@@ -468,6 +479,48 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 — "Hör zu und wähle" 자동재생 앱 전체 통일 + 단어팩 보기 박스 확대 — 미커밋
+
+**범위:** Jin 실기기(Zahlen & Menge 보스) — "듣고 고르기" 화면에서 어떤 건 소리가 자동재생(노란 보스)되고 어떤 건 안 나옴 → 자동재생으로 통일 + 문제/보기 박스를 화면 꽉 차게. Q&A로 **앱 전체 통일** 확정.
+
+**진단(§0):** `vocabPackBossHint`("Hör zu und wähle")는 보스 스테이지 전용이지만, "큰 한국어 단어 보고 뜻 고르기"는 **퀴즈(파랑·무음)**·**보스(노랑·자동재생)** 쌍둥이라 소리가 뒤섞여 보임. 추가로 시나리오 **Hörverstehen 퀘스트**("▶ Tap to play" 탭 대기)·온보딩 **배치테스트 청취문항**("Hör zu und wähle die Bedeutung" 무음)도 같은 패턴인데 자동재생 안 됨.
+
+**Update:**
+- `vocab_pack_screen.dart`: 공유 헬퍼 `_speakCurrent()` → `_enterQuiz`·`_enterBoss`·`_advanceQuiz` 모두 현재 단어 자동발음(퀴즈·보스 통일, 보스 인라인 speak DRY화). "Erneut anhören" 버튼을 **퀴즈에도** 노출(accent=스테이지색). 보기 `minHeight: 60`.
+- `quiz_choice.dart`: 옵션 `minHeight`(nullable, 기본 null=무변경) 추가 — 단어팩만 박스 확대, 타 호출부 무영향.
+- `hoerverstehen_quest.dart`: `initState` 포스트프레임 자동재생 + 하드코딩 영문 "▶ Tap to play" → l10n `vocabPackBossReplayAudio`(▶ 글리프 제거).
+- `placement_diagnostic_screen.dart`: `TtsService` import + `_maybeSpeakPrompt()`(**청취 스킬 문항만** 자동재생, 문법·어순·읽기 문항은 무음 유지) + `initState`/`_next` 호출 + 청취 문항 다시듣기 버튼.
+- **문제/보기 세로 분산(spaceEvenly)은 동시세션이 이미 처리**(아래 08-05 "단어팩 결과/퀴즈" 항목) — 그 위에 자동재생+박스확대만 얹음.
+
+**검증:** `flutter analyze`(4파일) **0** · 관련 테스트(vocab_pack·placement_diagnostic·no_emoji_glyph·dedicated_feedback×2) 35 통과. ⚠️ **미검증(Jin 실기기)**: 퀴즈 자동발음·Hörverstehen 자동재생·배치테스트 청취 자동재생·보기 박스 크기·다크. ⚠️ `satz_bauen_quest.dart:348` 오버플로는 **동시세션 WIP**(아래 08-05 "Satz bauen" 항목) — 내 변경 무관·미접촉.
+
+**Git:** 미커밋(Jin 확인 후). 변경 4파일: vocab_pack_screen·quiz_choice·hoerverstehen_quest·placement_diagnostic_screen.
+
+### 2026-08-05 — 단어팩 결과/퀴즈 실기기 피드백 5종(CTA 줄바꿈·축하 캐릭터 단일화·퀴즈 화면 채움·포효 영상 확대) — 미커밋
+
+**범위:** Jin 실기기 스크린샷(Vokabel-Pakete 결과·Familie 퀴즈·Stempelbuch) 다수. 코드 3파일 수정 + 질문 2개 답변(코드 변경 없음).
+
+- **CTA 잘림**(`vocab_pack_result_screen.dart` `_CtaButton`): 다음 팩 이름이 길면("Weiter zu \"Familie & Beziehungen (1)\"") 1줄 ellipsis로 잘림 → `SoriButton(maxLines: 2)`. 버튼은 이미 `minHeight`+`maxLines>1` 세로 패딩 지원.
+- **축하 캐릭터 난립 → 선택 캐릭터 하나만**(`_CelebrationSequence`): 구버전은 왼쪽=`MascotPreference.kind.value` + **오른쪽=하드코딩 `MascotKind.magpie`** → 까치 선택 시 까치 2마리, 호랑이 선택 시 호랑이+까치. **하드코딩 까치 제거**, `Stack(Positioned 좌우)` → **`Row(center)` 선택 캐릭터(92) + 도장(120)**. `_glow`/`_magpieIn`/`_tigerIn` 정리 → `_stampIn`/`_mascotIn`. burst 유지. ⚠️ `mascot_wiring_test` 소스가드(vocab_pack_result에 `MascotKind.tiger` 리터럴 금지) — `MascotPreference.kind.value`만 써서 통과.
+- **퀴즈 하단 텅 빔**(`vocab_pack_screen.dart` `_buildQuiz`): 프롬프트 카드 밑에 보기를 `Align(topCenter)`로 붙여 하단 40% 공백(Jin 반복 지적) → **cloze/데일리챌린지 검증 패턴**(`LayoutBuilder`+`ConstrainedBox(minHeight)`+`IntrinsicHeight`+`Column(spaceEvenly)`)으로 단어카드+4지선다를 세로 균등 분산. 큰 글자 스크롤 폴백. `dedicated_feedback_route_test`가 이 화면을 퀴즈·보스까지 실주행 → 오버플로 예외 0 확인.
+- **포효 호랑이 영상 확대**(`milestone_celebration.dart`): 마일스톤("N Wörter gelernt!") 시트 `CharacterClipPlayer` size 96→160. 시트 88% 클램프+스크롤이라 안전.
+- **답변만(코드 무변)**: ① **Boss-Genauigkeit** = 보스 스테이지(팩 마지막, 발음 듣고 뜻 고르기) 정확도. ≥70%면 팩 클리어. ② **스탬프 반복 = 의도된 설계**(버그 아님). 도장 14종을 **주제군별**로 배정(`motifForPackId`) — a1_greetings/self_intro/family 3주제가 전부 `lotus`라 초반 4팩이 같은 도장, a1_numbers부터 `chrysanthemum`으로 바뀜. 61팩·14문양이라 반복 불가피. Jin이 원하면 초반 A1 팩을 서로 다른 기존 문양으로 재배정 가능(신규 아트 0)은 후속 제안으로 남김.
+- **"Wörter gelernt 두개떠"**: 마일스톤 시트는 `markMilestonesCelebrated`(표시 前 마킹)+`_celebrating` 가드라 **코드상 이중발화 없음**. 결과화면 "Geschafft!" 축하 + 홈복귀 "Wörter gelernt!" 시트 = 두 서피스 중복으로 판단 → 결과화면을 캐릭터 1+도장으로 정리해 중복감 완화. 진짜 같은 시트가 연속 2번이면 별도 재현 필요(Jin 확인).
+- **검증:** `flutter analyze`(3파일) **0** · 관련 테스트 스위트 통과(mascot_wiring·milestone·dancheong_stamp·dedicated_feedback ×2 = 56, responsive 387). ⚠️ **미검증(Jin 실기기)**: 퀴즈 화면 세로 분산 시각·긴 CTA 2줄·축하 캐릭터 단일화·포효 영상 크기.
+
+### 2026-08-05 — Satz bauen 화면 레이아웃 재배치(캐릭터 문제 위·문제/입력/타일 확대) — 커밋 `3ee6ec1`
+
+**범위:** Jin 실기기 스크린샷(Tages-Challenge "Satz bauen") — 까치 캐릭터가 문제 카드 우상단에 겹쳐 떠 있고 문제·입력칸이 작아 "위치가 다 잘못됨". `lib/screens/quest_engines/satz_bauen_quest.dart` `build()`만 수정(순수 로직·public API 무변경).
+
+- **캐릭터 재배치**: `Stack` + `Positioned(top:-12,right:12)` 겹침 → **`Column` 최상단 `Center(MascotPartner)`**(문제 박스 위 중앙). size 56→80. Stack/Positioned 제거.
+- **문제 카드 확대**: padding 18/16→22/24, 폰트 16→20(w600 추가), radius md→lg.
+- **입력(답) 박스 확대**: minHeight 64→96, padding 12→16, radius md→lg, placeholder '…' 18→22.
+- **타일(정답 선택 카드)**: 폰트 17→18, padding 16/11→18/13, 뱅크 spacing 10→12. **Prüfen 버튼**: vertical 16→18, 폰트 16→17. instruction 13→14.
+- 🔑 **불변식**: 위젯을 **content-sized 유지**(Expanded/Spacer 금지) — 두 소비처 중 `satz_arcade_screen`은 `Expanded`(bounded), `scenario_player_screen`은 `_StageScroll`(unbounded 스크롤). Spacer 넣으면 스크롤 컨텍스트에서 크래시. arcade 하단 여백은 top-정렬 특성상 남지만 요소 확대로 완화.
+- **검증:** `flutter analyze lib/screens/quest_engines/satz_bauen_quest.dart` **0**. 위젯 테스트는 정적 로직만 검사라 무영향. ⚠️ **미검증(Jin 실기기)**: 캐릭터 위치·박스 확대 시각, 긴 프롬프트 줄바꿈, 큰 글자 스케일.
+
+**Git:** 커밋 `3ee6ec1` — **내 파일 `satz_bauen_quest.dart` 하나만** 명시 pathspec 커밋(동시세션의 vocab_pack·milestone·iOS·AAB 파일과 AGENTS.md 타 세션 로그 항목은 미포함). 이 AGENTS.md 기록은 동시세션 공동 편집 중이라 미커밋 워킹트리로 남김. 푸시 미요청.
 
 ### 2026-08-05 — 통계("Dein Fortschritt") 화면 상단 이미지 2개 → 듀오 컷 1개로 크게 — 미커밋
 
@@ -3098,3 +3151,18 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **해금/반응형:** 별도 local-only reveal ledger는 첫 방문의 과거 진도를 조용히 baseline하고, 이후 새 layer만 지도 위에서 짧게 reveal한다. 이는 학습·XP·보상·장식·계 write와 분리되어 있다. reduce-motion은 정적 확인 CTA로 대체한다. 768×576 초기/중간/완성 goldens, asset-bundle, storage, target geometry, compact-phone/태블릿 venue-sheet 회귀를 추가했다. Galaxy Tab/Xiaomi Pad 물리 수용 검사는 `docs/HANOK_MAP_DEVICE_QA_2026-08-05.md`에 명시적으로 남았으며 아직 완료로 주장하지 않는다.
 - **RED→GREEN:** 후원이 잘못된 legacy daily challenge로 빠지는 것을 `hanokRouteForZone(huwon) == null` RED로 재현한 뒤 장소 시트만 통과하도록 고쳤다. 독립 리뷰에서 새 장소 버튼의 아이콘 한 개가 typography ratchet(74→75)을 깨는 것을 확인했고, 텍스트 우선 CTA로 되돌린 뒤 관련 회귀를 통과시켰다. 구현 커밋: `b8b5ae8`.
 - **최종 검증:** `flutter gen-l10n` 재생성, `python tool/check_personal_hanok_assets.py`의 9장 canvas·alpha·chroma-key·정본 합성 일치, `dart analyze --fatal-infos`의 **No issues found**, `flutter test --no-pub --concurrency=1 --reporter compact`의 **2,109 passed**, `git diff --check`를 모두 통과했다. Galaxy Tab/Xiaomi Pad 실기기 수용 검사는 자동화와 별개로 아직 운영 확인 대기다.
+
+### 2026-08-05 (Codex) — v2.0.5+11 signed Android AAB 재생성 — 커밋 대기
+
+- **버전/의도:** Play Console에 `10 (2.0.4)`이 이미 등록되어 있으므로, 업로드 가능한 다음 빌드를 `2.0.5+11`로 올렸다. `docs/store/release-notes-v2.md`에는 개인 한옥 지도·실내 꾸미기·보자기 보상·태블릿 대응을 독일어/영어 내부 테스트 노트로 기록했다.
+- **빌드:** `flutter clean`, `flutter pub get`, `flutter analyze --fatal-infos`, `flutter build appbundle --release`를 순서대로 실행했다. 산출물은 `build/app/outputs/bundle/release/app-release.aab`이며, 최종 크기 `306,826,418 bytes`, SHA-256 `A51FD0C123DB113E00BD7F4445698A69320729FC2060EBB354CA127FDF1A6293`다.
+- **번들/서명 검증:** 내장 base manifest는 package `com.sujinarin.ko_lernen_app`, `versionCode 11`, `versionName 2.0.5`를 가진다. `jarsigner -verify -certs`는 exit 0/`jar verified`였고, 업로드 인증서 SHA-256 지문은 `F5:AF:E8:36:B0:ED:23:FE:B5:2A:16:F5:02:CE:22:6D:D4:DA:A7:4C:FB:C0:CD:E3:0B:9A:4B:CE:DB:4F:AA:D3`다. AAB에는 `personal_hanok_v2` 지도·실내 에셋 11개가 포함됨을 함께 확인했다.
+- **회귀:** 빌드 뒤 전체 직렬 `flutter test --no-pub --concurrency=1 --reporter compact`를 새로 실행하여 **2,109 passed**를 확인했다. Android Gradle Plugin migration·Java 8 관련 경고는 있었지만 빌드/서명/테스트 실패는 없었다. Play Console 업로드·pre-launch·물리 기기 설치는 별도 운영 확인이다.
+- **커밋:** 없음 — 이번 요청은 새 AAB 생성이므로 `pubspec.yaml`·릴리스 노트·이 기록은 의도적으로 미커밋 상태다. 커밋/푸시는 Jin의 명시 요청 후 본인이 바꾼 파일만 골라 진행한다.
+
+### 2026-08-05 (Codex) — iOS·iPad App Store 로컬 준비팩 — 커밋 대기
+
+- **변경 파일:** `lib/services/app_version_service.dart`, `lib/screens/settings_screen.dart`, `test/app_version_service_test.dart`, `test/widgets/settings_screen_test.dart`로 런타임 버전 표시를 `PackageInfo` 단일 정본으로 바꿨다. `ios/Runner/de.lproj/InfoPlist.strings`, `ios/Runner/en.lproj/InfoPlist.strings`, `ios/Runner.xcodeproj/project.pbxproj`, `tool/verify_ios_store_contract.dart`, `test/ios_store_contract_test.dart`에는 로컬화된 권한 설명과 iPhone/iPad 정적 계약을 추가했다. `docs/store/listing-de.md`, `docs/store/listing-en.md`, `docs/store/app-store-connect-v2.0.5.md`, `docs/store/screenshot-shotlist.md`, `docs/store/README.md`, `docs/support.html`, `test/store_submission_material_test.dart`에는 현재 콘텐츠 수치·복사 가능한 Store 문구·운영 인수인계를 기록했다. `tool/check_app_store_screenshots.py`, `tool/test_check_app_store_screenshots.py`는 실제 캡처 전용 무알파 PNG를 검사한다. 이 계획·명세·현재 항목도 함께 갱신했다.
+- **검증:** `dart format --output=none --set-exit-if-changed`는 대상 6파일을 변경하지 않고 통과했다. 지정 통합 `flutter test`는 **421 passed**, `dart run tool/verify_ios_store_contract.dart`는 통과, 범위 `dart analyze --fatal-infos lib/services/app_version_service.dart lib/screens/settings_screen.dart tool/verify_ios_store_contract.dart test/app_version_service_test.dart test/ios_store_contract_test.dart test/store_submission_material_test.dart test/widgets/settings_screen_test.dart`는 **No issues found**, `python tool/test_check_app_store_screenshots.py`는 **18 passed**, `git diff --check`도 통과했다. 전역 `dart analyze --fatal-infos`는 iOS 변경과 무관한 동시 수정 `lib/screens/vocab_pack_screen.dart:331:8`의 unused `_speakCurrent` 하나로 exit 1이어서 통과로 기록하지 않는다.
+- **의도된 외부 게이트:** `dart run tool/verify_ios_firebase_config.dart`는 credential-free Windows checkout에서 예상대로 exit 1이며 `firebase_options iOS`, `ios/Runner/GoogleService-Info.plist`, 해당 Runner target membership 누락을 보고한다. 승인된 macOS 릴리스 담당이 Firebase 구성·서명/archive·Xcode privacy report·실제 iPhone/iPad TestFlight·실캡처·App Store Connect/App Privacy/호스팅 URL 검증을 수행하기 전에는 iOS 제출 완료가 아니다. 정확한 순서는 `docs/store/app-store-connect-v2.0.5.md`를 따른다.
+- **커밋:** not created (not requested). 스테이징·푸시·Apple/Firebase 외부 호출은 하지 않았다.
