@@ -480,6 +480,19 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-05 — 사랑방 보자기 배너(P1-b 완성) + 공용 `PendingRewardCard` 추출 — 미커밋
+
+**범위:** Jin "phase2 랑 사랑방 배너 넘어가줘". 승인된 보상루프 spec 의 **P1-b**는 발견 배너를 **홈·사랑방 둘 다** 요구했으나 동시세션 `dcb58b4`는 홈만(`_BojagiBanner` private) 구현 → 사랑방 절반이 빠져 있었음. 그 절반을 채우고, 중복을 없애려 홈의 private 배너를 공용 위젯으로 승격.
+
+- **신규 `lib/widgets/sori/pending_reward_card.dart`** — `PendingRewardCard({count, onOpen})`. 홈 `_BojagiBanner` 를 그대로 추출(비주얼 동일: gold 10%/35% 카드·선물 아이콘·`homeBojagi*` 재사용). Jin 선호대로 숫자 배지 아님(인라인 콘텐츠 카드).
+- **`home_screen.dart`**: `_BojagiBanner` class 삭제 → `PendingRewardCard` 사용(사용처 1줄·import 1). 딸려 있던 estate-glimpse 독 코멘트가 실은 `_HomeHanokPreview` 것 → 삭제로 자동 재결합.
+- **`sarangbang_screen.dart`**: `_openableBoxes` 필드 + `_load` setState 에서 `DecorationRewardService.openableBoxCount()` 계산 + fire-and-forget `syncEarnedRewards().then` 완료 시 개수만 재독(방금 획득한 보자기 즉시 노출, 렌더는 안 막음). 환영 카드 아래 `_openableBoxes>0` 일 때 `PendingRewardCard` 렌더 + `_openBojagi`(→`/bojagi`, 복귀 시 방·개수 재독).
+- **l10n 무변경** — `homeBojagi*` 카피가 표면-중립("선물이 기다려요 / 열어서 방을 꾸며요") → 사랑방 재사용.
+
+**검증:** `flutter analyze`(home·sarangbang·pending_reward_card) **0** · `flutter test`: reward/사랑방/스모크/bojagi 62 통과 + `sarangbang_study_screen_test` **5**(신규 배너 가시성 2: 상자 없으면 숨김·있으면 노출). ⚠️ 미검증(Jin 실기기): 사랑방 배너 시각·팩 클리어 후 노출.
+
+**Phase 2(P2-a 팩클리어=보자기 · P2-b 연속 한옥 성장 · P2-c 레벨업 축하)는 미착수** — spec 이 "별도 spec/plan 후 구현" 명시 → 설계안 Jin 승인 대기(코드 0).
+
 ### 2026-08-05 — 학습→보상 루프 Phase 1(P1-a) 구현: 공부만으로 보자기 생산 — 커밋·푸시
 
 **범위:** 위 "학습→보상 루프 수리 계획" 실행. 동시 세션이 그새 `dcb58b4`로 **홈 보자기 배너(P1-b, `_BojagiBanner`·`homeBojagi*`)**를 이미 구현·커밋 → 내 계획의 배너/신규 위젯·ARB는 **중복이라 스킵**. 단 **근본 결함(P1-a)은 여전히 미구현**이었음(보자기 생산자 `persistNewCompletions`가 오직 `QuestsScreen`에서만 실행) → 그 코어만 구현.

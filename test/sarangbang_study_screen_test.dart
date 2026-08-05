@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/pending_reward_card.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 
 void main() {
@@ -103,6 +105,45 @@ void main() {
       tester.getTopLeft(room).dy,
       closeTo(tester.getTopLeft(mission).dy, 0.1),
     );
+  });
+
+  testWidgets('hides the reward banner when no bojagi is openable', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        SarangbangStudyScreen(
+          loadTodaySnapshot: () async =>
+              TodayLearningSnapshot(pick: const ReviewPick(dueCount: 12)),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byType(PendingRewardCard), findsNothing);
+  });
+
+  testWidgets('surfaces the reward banner when a bojagi is openable', (
+    tester,
+  ) async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({'kl_user_level': 'a1'});
+    await Storage.init();
+    // Seed one openable box from a real quest so the discovery banner shows
+    // at the study surface without ever opening the Quests screen.
+    await Storage.addPendingBox(kQuestById.keys.first);
+
+    await tester.pumpWidget(
+      _host(
+        SarangbangStudyScreen(
+          loadTodaySnapshot: () async =>
+              TodayLearningSnapshot(pick: const ReviewPick(dueCount: 12)),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byType(PendingRewardCard), findsOneWidget);
   });
 }
 

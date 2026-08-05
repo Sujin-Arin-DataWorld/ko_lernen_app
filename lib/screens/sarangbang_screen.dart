@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/personal_room.dart';
+import '../services/decoration_reward_service.dart';
 import '../services/mission_recommender.dart';
 import '../services/pack_access.dart';
 import '../services/quest_tracker.dart';
@@ -15,6 +16,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_hero_card.dart';
+import '../widgets/sori/pending_reward_card.dart';
 import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -44,6 +46,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   TodayLearningSnapshot? _snapshot;
   RoomPlacements _placements = const {};
   Set<String> _ownedDecor = const {};
+  int _openableBoxes = 0; // 지금 열 수 있는 보자기 — 사랑방 발견 배너 게이트
   bool _loading = true;
   bool _loadFailed = false;
 
@@ -91,13 +94,23 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
         _snapshot = snapshot;
         _placements = room.placements;
         _ownedDecor = room.owned;
+        _openableBoxes = DecorationRewardService.openableBoxCount();
         _loading = false;
       });
       // 방금 학습 루트가 돌아왔다 — 그새 획득한 보자기를 생산한다(퀘스트 화면
-      // 안 열어도). 사랑방은 보상 배너가 없으므로(보상은 홈 배너에 뜸) 렌더를
-      // 막지 않도록 fire-and-forget. best-effort 라 자체 오류를 삼킨다.
+      // 안 열어도). 렌더를 막지 않도록 fire-and-forget(best-effort 라 자체 오류를
+      // 삼킨다). 동기화가 끝나면 새로 생긴 보자기가 배너에 바로 뜨도록 개수만 다시
+      // 읽는다.
       // ignore: discarded_futures
-      QuestTracker.syncEarnedRewards();
+      QuestTracker.syncEarnedRewards().then((_) {
+        if (!mounted) {
+          return;
+        }
+        final boxes = DecorationRewardService.openableBoxCount();
+        if (boxes != _openableBoxes) {
+          setState(() => _openableBoxes = boxes);
+        }
+      });
     } catch (_) {
       if (!mounted) {
         return;
@@ -146,6 +159,20 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     }
   }
 
+  Future<void> _openBojagi() async {
+    await Navigator.of(context).pushNamed('/bojagi');
+    if (!mounted) {
+      return;
+    }
+    // 보자기를 열고 돌아왔다 — 방 장식과 남은 상자 수를 다시 읽는다.
+    final room = _readRoomSnapshot();
+    setState(() {
+      _placements = room.placements;
+      _ownedDecor = room.owned;
+      _openableBoxes = DecorationRewardService.openableBoxCount();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -192,6 +219,15 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                       children: [
                         const _SarangbangWelcome(),
                         const SizedBox(height: Spacing.lg),
+                        // 발견 배너 — 열 수 있는 보자기가 있으면 학습하는 자리에서
+                        // 바로 보인다(홈과 동일 카드). 없으면 렌더하지 않는다.
+                        if (_openableBoxes > 0) ...[
+                          PendingRewardCard(
+                            count: _openableBoxes,
+                            onOpen: _openBojagi,
+                          ),
+                          const SizedBox(height: Spacing.lg),
+                        ],
                         LayoutBuilder(
                           builder: (context, constraints) {
                             final mission = KeyedSubtree(

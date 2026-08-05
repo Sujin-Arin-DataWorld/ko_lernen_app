@@ -40,6 +40,7 @@ import '../widgets/sori/path_preview_row.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/personal_hanok_map.dart';
 import '../widgets/sori/path_trail.dart';
+import '../widgets/sori/pending_reward_card.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/motivation_sheet.dart';
@@ -728,7 +729,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         SoriEntrance(
                           delay: const Duration(milliseconds: 110),
                           slideY: 14,
-                          child: _BojagiBanner(
+                          child: PendingRewardCard(
                             count: _openableBoxes,
                             onOpen: () async {
                               await Navigator.pushNamed(context, '/bojagi');
@@ -954,64 +955,6 @@ enum _DayPhase { morning, afternoon, evening }
 
 /// A read-only glimpse of the learner's estate. The main Hanok screen owns
 /// place selection and navigation; Home only provides one deliberate doorway.
-/// 홈 — 지금 열 수 있는 보자기(퀘스트 보상) 안내 배너.
-///
-/// [count] 는 [DecorationRewardService.openableBoxCount] 로 이미 0 초과일 때만
-/// 렌더된다. 탭하면 `/bojagi` 로 이동해 상자를 연다.
-class _BojagiBanner extends StatelessWidget {
-  final int count;
-  final VoidCallback onOpen;
-
-  const _BojagiBanner({required this.count, required this.onOpen});
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
-    final s = SoriSurfaces.of(context);
-    return Semantics(
-      button: true,
-      label: t.homeBojagiTitle,
-      child: SoriPressable(
-        onTap: onOpen,
-        haptic: SoriHaptic.selection,
-        child: Container(
-          padding: const EdgeInsets.all(Spacing.md),
-          decoration: BoxDecoration(
-            color: SoriColors.gold.withValues(alpha: 0.10),
-            borderRadius: SoriRadius.brMd,
-            border: Border.all(color: SoriColors.gold.withValues(alpha: 0.35)),
-          ),
-          child: Row(
-            children: [
-              const Icon(
-                Icons.card_giftcard_rounded,
-                color: SoriColors.gold,
-                size: 28,
-              ),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(t.homeBojagiTitle, style: text.cardTitle),
-                    const SizedBox(height: 2),
-                    Text(
-                      t.homeBojagiBody(count),
-                      style: text.bodySmall.copyWith(color: s.textMuted),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(Icons.chevron_right_rounded, color: s.textDim),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class _HomeHanokPreview extends StatelessWidget {
   final PersonalHanokProjection? projection;
   final VoidCallback onOpen;
