@@ -7,6 +7,29 @@
 
 ---
 
+### 2026-08-06 — 캐릭터 영상 **전 기기 활성화**(Impeller off 근본수정) — 아래 sdkInt≥33 게이트 되돌림, 커밋·푸시
+
+**범위:** Jin 실기기(M2101K6G/Android 12=API31)에서 홈·프로필·캐릭터선택 캐릭터가 **전부 정적 폴백**으로만 떠 "영상 만들었는데 안 쓴다" 불만. 원인: **바로 아래 🥉 엔트리**의 `characterVideoSupported()=sdkInt>=33` 게이트가 이 폰(API31)에서 `videoReady=false` → 전역 정적 폴백. 그 게이트는 Android<33 Impeller 영상텍스처 fence 버그 대응이었으나, **동일 버그를 AndroidManifest `EnableImpeller=false`(Skia)로 이미 근본 해소** → 게이트 불필요·중복이라 되돌림(Skia=SurfaceTexture 경로, fence 문제 없음, 구형기기도 영상 정상).
+
+- **main.dart:** `characterVideoSupported() async => true`(fail-open) — sdkInt 게이트 삭제, 미사용 `device_info_plus` import 제거. ⚠️ Impeller 재활성화 시 게이트 복원 필요(주석·메모리 `character-video-gate-impeller`).
+- **AndroidManifest.xml:** `EnableImpeller=false` 유지(근본 수정).
+- **home_screen.dart:** 히어로 까치=`magpie_bob2↔magpie_bob3` 교대(신규 `_AlternatingClips`, 각 원샷·완료 시 다음), 호랑이=`tiger_rise` 루프. `FlyingMagpie`(비영상) 제거.
+- **profile_screen.dart:** 아바타 영상 복원(까치 `magpie_bob3` 루프 / 호랑이 `tiger_walking_front` 원샷 — loop:true 금지: 크기 튐). `character_clip` import 추가.
+- **assets:** `magpie_bob3.mp4` 정면 트림, `tiger_walking_front.mp4` 트림, `joy_magpie_full_960_1.mp4` 추가.
+- **pubspec:** `device_info_plus`는 게이트 되돌림으로 **현재 미사용**(제거 후보 — Jin "다른 세션 것도 커밋" 지시로 유지).
+- **검증:** `flutter analyze`(main/home/profile/character_clip) **No issues**. ⚠️ 미검증(Jin 실기기 재빌드): 홈·프로필 영상 실제 재생.
+- **주의:** **바로 아래 🥇+🥉 엔트리는 이 엔트리로 대체됨** — 그 프로필 정적화·sdkInt 게이트 코드는 이 세션(나중)이 덮어써 디스크에 남지 않음. 남은 것은 device_info_plus 의존성뿐.
+
+### 2026-08-06 — 프로필 아바타 정적화(🥇) + 구형기기(Android<33) 캐릭터 영상 자동 정적 폴백(🥉) — 미커밋
+
+**범위:** Jin 실기기(Xiaomi M2101K6G, Android 12) logcat — profile 화면에서 캐릭터 영상·이미지가 "지저분하게 엉킴". 진단: ① 로그에 `ImageTextureEntry can't wait on the fence on Android < 33`(Impeller 영상텍스처 fence 버그) 반복 + ExoPlayer Init/Release 폭주. ② profile `_Avatar` 의 까치 `bob2↔bob3` 교대가 `key:ValueKey(asset)` 로 **클립마다 CharacterClipPlayer(=video controller) 파괴·재생성** → lease 핸드오프마다 흰 프레임 번쩍. `soriVideoLease` 는 이미 앱 전역 1-디코더라 "2개 경쟁"은 아니고, **핸드오프 빈도 + fence 버그**가 깜빡임 원인.
+
+- **🥇 Profile 아바타 정적화** (`profile_screen.dart`): `_Avatar` 의 `CharacterClipPlayer` → 정적 `Mascot`(선택 캐릭터·smile). 프로필은 정체성/계정 허브지 영상 히어로가 아니라 영상 실익 < 리스크. 결과: 프로필에서 영상 디코더 0개 → 깜빡임 소멸. `MascotPreference.kind` 리스너로 캐릭터 변경 즉시 반영은 유지. 미사용 `dart:math`·`character_clip` import 제거.
+- **🥉 구형기기 자동 정적 폴백** (`main.dart`): `TigerStageVideo.videoReady` 를 무조건 true → **`kIsWeb || 비Android || Android SDK≥33` 일 때만 true**(로컬 함수 `characterVideoSupported`, `device_info_plus` 로 sdkInt 조회, 감지 실패 시 fail-open=영상 허용). videoReady=false 면 CharacterClipPlayer·TigerStageVideo 가 **전부 정적 폴백**하는 기존 게이트를 재사용 → 위젯 수정 0. ⚠️ **이 폰(Android 12)에선 앱 전체 캐릭터 영상이 정적이 됨**(캐릭터 선택·홈 히어로 포함) — 깜빡임 대신 정지 마스코트. SDK≥33 기기에서만 영상 재생.
+- **의존성:** `pubspec.yaml` `device_info_plus: ^13.2.0` 추가(^10 은 win32<6 요구라 package_info_plus 10.2.1 과 충돌 → 13.2.0 으로 해결).
+- **검증:** `flutter pub get` OK · `flutter analyze lib/main.dart lib/screens/profile_screen.dart` **No issues** · `flutter test test/profile_screen_test.dart` **8/8**(까치 초상 테스트 포함). ⚠️ 미검증(Jin 실기기 재빌드): 실제 깜빡임 소거·정적 아바타 시각. **네이티브 의존성 추가라 반드시 재빌드**(`flutter install`).
+- **변경 파일:** `pubspec.yaml` · `lib/main.dart` · `lib/screens/profile_screen.dart`.
+
 ### 2026-08-06 — 보상 루프 Phase 2 P2-b(연속 한옥 성장) + P2-c(마일스톤 보자기) — 로컬 커밋(푸시 보류)
 
 **범위:** Jin "continue to P2-b and P2-c". 계획 `docs/superpowers/plans/2026-08-06-hanok-growth-and-milestone-bojagi-P2bc.md`. 둘 다 기존 심(seam) 재사용 — 새 아키텍처·이벤트 시스템 0.

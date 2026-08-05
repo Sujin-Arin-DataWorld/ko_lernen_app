@@ -159,9 +159,19 @@ Future<void> main() async {
     }
   }
 
-  // 호랑이 영상(홈 밴드·온보딩 인사) 활성화. 별도 init 불필요 — 플래그만.
-  // 테스트는 false 유지 → 프레임/마스코트 폴백(플러그인 채널 미호출).
-  TigerStageVideo.videoReady = true;
+  // 캐릭터/호랑이 영상 전역 게이트. 별도 init 불필요 — 플래그만.
+  // 테스트는 videoReady 기본 false 유지 → 프레임/마스코트 폴백(이 줄은 main).
+  // ⚠️ Android <33 Impeller 영상 텍스처 fence 버그("ImageTextureEntry can't
+  // wait on the fence on Android < 33")는 AndroidManifest 에서 Impeller 를 끄고
+  // (Skia 렌더러) 근본 해소했다. Skia 는 SurfaceTexture 경로라 fence 문제가 없어
+  // 모든 Android 버전에서 캐릭터 영상이 정상 렌더된다 → 영상 허용(fail-open).
+  // 동시 디코더는 video_lease 가 1개로 직렬화한다(구형 기기 decoder reclaim 대응).
+  // ⚠️ Impeller 를 다시 켜면(매니페스트) 여기 sdkInt>=33 게이트를 되살려야 한다.
+  //   (Jin 실기기 M2101K6G/Android 12=API31: 이전 sdkInt>=33 게이트가 영상을
+  //    통째로 막아 홈·프로필이 전부 정적 폴백으로 떨어졌다 — 2026-08-06.)
+  Future<bool> characterVideoSupported() async => true;
+
+  TigerStageVideo.videoReady = await characterVideoSupported();
 
   // 선택된 캐릭터를 전역 notifier 로 올린다. Storage 초기화 뒤여야 한다.
   // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).

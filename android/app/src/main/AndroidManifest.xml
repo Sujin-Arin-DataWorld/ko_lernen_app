@@ -36,6 +36,18 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
+        <!-- Impeller deaktiviert → Skia-Renderer. GRUND (2026-08-06 실기기
+             M2101K6G/Android 12): Impeller kann auf Android < 33 die Video-
+             Textur-Fence nicht abwarten ("ImageReaderSurfaceProducer:
+             ImageTextureEntry can't wait on the fence on Android < 33") →
+             veraltete/überlagerte Frames bleiben stehen, Onboarding/Home zeigen
+             Video+Bild+Seiten übereinander, dazu "Handler on a dead thread"-
+             Absturz. Skia rendert Video-Texturen korrekt und behält alle Clips.
+             Rückgängig: dieses meta-data entfernen (Impeller ist Flutter-Default). -->
+        <meta-data
+            android:name="io.flutter.embedding.android.EnableImpeller"
+            android:value="false" />
+
         <!-- DSGVO/TTDSG §25: Analytics + Crashlytics sind OPT-IN. Erhebung ist
              hier ab Werk deaktiviert und wird erst nach expliziter
              Einwilligung zur Laufzeit aktiviert

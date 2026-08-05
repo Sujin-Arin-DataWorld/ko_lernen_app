@@ -31,7 +31,7 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/flying_magpie.dart';
+import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/hanok_cinematic.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_hero_card.dart';
@@ -48,7 +48,6 @@ import '../widgets/sori/motivation_sheet.dart';
 import '../widgets/sori/milestone_celebration.dart';
 import '../data/learner_motivation.dart';
 import '../data/milestone.dart';
-import '../widgets/sori/tiger_video.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -938,8 +937,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             ),
           ),
 
-          // ── 5. Flying magpie overlay ──
-          const Positioned.fill(child: IgnorePointer(child: FlyingMagpie())),
+          // ── 5. (Flying-Magpie-Overlay entfernt — Jin 2026-08-06:
+          //        nicht-Video-Elster raus, Charakter nur als Video-Hero) ──
 
           // ── 6. Hanok-Cinematic — Phase 3 stage transition ──
           // Wird einmalig pro neuem Stage gezeigt (Storage gating).
@@ -1313,10 +1312,31 @@ class _TigerHero extends StatelessWidget {
             SizedBox(
               height: bandHeight,
               width: double.infinity,
-              child: TigerStageVideo(
-                height: bandHeight,
-                fallbackEmotion: _emotion,
-                kind: kind,
+              // Jin 2026-08-06: 홈 히어로. 호랑이(태고)=tiger_rise 단일 루프.
+              // 까치=magpie_bob2↔magpie_bob3 교대(각 원샷, 완료 시 다음 클립).
+              // CharacterClipPlayer 가 videoReady·reduce-motion·lease·multiply·
+              // 정적 폴백을 처리하고, _AlternatingClips 가 완료마다 다음 포즈로
+              // 넘긴다. (Impeller off 로 디코더 핸드오프 안정 — AndroidManifest.)
+              child: Center(
+                child: kind == MascotKind.magpie
+                    ? _AlternatingClips(
+                        key: const ValueKey('home_hero_magpie'),
+                        assets: const [
+                          CharacterClips.magpieBob2,
+                          CharacterClips.magpieBob3,
+                        ],
+                        size: bandHeight,
+                        fallbackKind: kind,
+                        fallbackEmotion: _emotion,
+                      )
+                    : CharacterClipPlayer(
+                        key: const ValueKey('home_hero_tiger'),
+                        asset: CharacterClips.tigerRise,
+                        size: bandHeight,
+                        loop: true,
+                        fallbackKind: kind,
+                        fallbackEmotion: _emotion,
+                      ),
               ),
             ),
           ],
@@ -1324,6 +1344,50 @@ class _TigerHero extends StatelessWidget {
 
         return hero;
         // hero 전체를 추천 팩으로 가는 탭 타깃으로(Duo식 "큰 캐릭터 + 한 행동").
+      },
+    );
+  }
+}
+
+/// 원샷 클립 여러 개를 번갈아 재생한다 (예: magpie_bob2 → magpie_bob3 →
+/// magpie_bob2 …). 각 클립은 `loop:false` 로 한 번 재생되고, 완료되면 다음
+/// 인덱스로 넘어가며 [CharacterClipPlayer] 를 새 키로 다시 만든다. 영상
+/// lease·multiply·정적 폴백은 [CharacterClipPlayer] 가 그대로 담당하므로,
+/// 이 위젯은 순번만 관리한다. (한 번에 디코더 하나 — lease 가 직렬화.)
+class _AlternatingClips extends StatefulWidget {
+  final List<String> assets;
+  final double size;
+  final MascotKind fallbackKind;
+  final MascotEmotion fallbackEmotion;
+  const _AlternatingClips({
+    super.key,
+    required this.assets,
+    required this.size,
+    required this.fallbackKind,
+    this.fallbackEmotion = MascotEmotion.smile,
+  });
+
+  @override
+  State<_AlternatingClips> createState() => _AlternatingClipsState();
+}
+
+class _AlternatingClipsState extends State<_AlternatingClips> {
+  int _i = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    final asset = widget.assets[_i % widget.assets.length];
+    return CharacterClipPlayer(
+      key: ValueKey('alt_${asset}_$_i'),
+      asset: asset,
+      size: widget.size,
+      loop: false,
+      fallbackKind: widget.fallbackKind,
+      fallbackEmotion: widget.fallbackEmotion,
+      onCompleted: () {
+        if (mounted) {
+          setState(() => _i = (_i + 1) % widget.assets.length);
+        }
       },
     );
   }

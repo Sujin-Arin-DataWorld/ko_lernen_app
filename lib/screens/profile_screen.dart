@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
@@ -291,57 +289,18 @@ class _Avatar extends StatefulWidget {
 
 class _AvatarState extends State<_Avatar> {
   static const double _d = 168;
-  MascotKind? _kind;
-
-  // Joy(까치)는 bob2↔bob3 교대(Jin 지정, 2026-08-05). 그 외(호랑이)는 기존
-  // 프로필 포즈를 루프.
-  static const List<String> _magpieClips = [
-    CharacterClips.magpieBob2,
-    CharacterClips.magpieBob3,
-  ];
-  int _magpieIdx = 0;
-  String? _otherAsset;
 
   @override
   void initState() {
     super.initState();
-    _syncKind();
-    // 설정에서 캐릭터를 바꾸면(예: 태고→조이) 프로필 아바타도 즉시 반영.
-    // 이전엔 initState 에서 kind 를 한 번만 읽어, 프로필 탭이 살아있는 채로
-    // 캐릭터를 바꾸면 옛 캐릭터가 그대로 남아 있었다(Jin 실기기 버그).
+    // 설정에서 캐릭터를 바꾸면(태고↔조이) 프로필 아바타도 즉시 반영.
     MascotPreference.kind.addListener(_onKindChanged);
   }
 
   void _onKindChanged() {
-    if (!mounted) {
-      return;
+    if (mounted) {
+      setState(() {});
     }
-    setState(_syncKind);
-  }
-
-  // kind 가 실제로 바뀔 때만 새 포즈를 뽑는다 — 무관한 리빌드에 포즈가
-  // 깜빡이지 않게(같은 캐릭터면 asset 유지).
-  void _syncKind() {
-    final k = MascotPreference.kind.value;
-    if (k == _kind) {
-      return;
-    }
-    _kind = k;
-    _magpieIdx = 0;
-    if (k != MascotKind.magpie) {
-      _otherAsset = CharacterClips.profileClipFor(
-        k,
-        Random().nextInt(CharacterClips.profileClipCountFor(k)),
-      );
-    }
-  }
-
-  // 까치 원샷 클립이 끝나면 다음 클립으로 교대(bob2↔bob3).
-  void _advanceMagpie() {
-    if (!mounted || _kind != MascotKind.magpie) {
-      return;
-    }
-    setState(() => _magpieIdx = (_magpieIdx + 1) % _magpieClips.length);
   }
 
   @override
@@ -352,28 +311,27 @@ class _AvatarState extends State<_Avatar> {
 
   @override
   Widget build(BuildContext context) {
-    final kind = _kind!;
+    // Jin 2026-08-06: 프로필 아바타 = 캐릭터 영상 복원. Impeller 를 끈 뒤
+    // (AndroidManifest) Android<33 fence 버그가 사라져, 홈 히어로와 디코더를
+    // 영상 lease 로 직렬화하면 깜빡임 없이 재생된다(탭 전환 시 보이는 쪽만
+    // lease 획득). 까치=magpie_bob3 대기 홉(루프), 호랑이(태고)=
+    // tiger_walking_front 정면 보행(원샷 — loop:true 면 5초마다 크기 튐,
+    // character_clip.dart 경고). 재생/폴백은 CharacterClipPlayer 가 처리.
+    final kind = MascotPreference.kind.value;
     final isMagpie = kind == MascotKind.magpie;
-    final asset = isMagpie ? _magpieClips[_magpieIdx] : _otherAsset!;
-    // ⚠️ 캐릭터 영상은 원/박스에 절대 가두지 않는다(Jin 규칙 — AGENTS.md ·
-    // memory `never-cage-character-video` 기록). 클립·테두리·프레임 없이,
-    // 흰 배경 mp4를 화면 배경색과 multiply로만 흡수한다(앱은 라이트 전용이라
-    // s.bg 로 충분). 캐릭터가 배경 위에 자유롭게 뜬다.
-    return SizedBox(
-      width: _d,
-      height: _d,
-      child: CharacterClipPlayer(
-        // asset 이 바뀌면 새 State 강제 — CharacterClipPlayer 는
-        // didUpdateWidget 이 없어 key 없이 asset 만 바꾸면 옛 비디오 컨트롤러를
-        // 유지한다(교대·캐릭터 변경이 반영 안 됨).
-        key: ValueKey(asset),
-        asset: asset,
-        size: _d,
-        loop: !isMagpie, // 까치는 원샷 후 교대, 그 외는 루프.
-        blendColor: SoriSurfaces.of(context).bg,
-        fallbackKind: kind,
-        fallbackEmotion: MascotEmotion.smile,
-        onCompleted: isMagpie ? _advanceMagpie : null,
+    return SizedBox.square(
+      dimension: _d,
+      child: Center(
+        child: CharacterClipPlayer(
+          key: ValueKey('profile_avatar_${kind.name}'),
+          asset: isMagpie
+              ? CharacterClips.magpieBob3
+              : CharacterClips.tigerWalkingFront,
+          size: _d,
+          loop: isMagpie,
+          fallbackKind: kind,
+          fallbackEmotion: MascotEmotion.smile,
+        ),
       ),
     );
   }
