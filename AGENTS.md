@@ -458,6 +458,11 @@ flutter run -d <android-id>   # 안드로이드
 - **안전성:** 명시적 withdraw sentinel과 시트 dismissal `null`을 분리했다. active 공개 문서 revision을 compare-and-set 값으로 사용하고, pending 중에는 중복 버튼을 막으며 transient retry는 동일 operation id를 보존한다. 모든 확인 문구는 “개인 수집·방 배치는 변하지 않는다”를 명시한다.
 - **검증:** 잘못된 Gye code·비보상 slug·revision 선택을 RED/GREEN으로 고정했고, 보유 없음·확인·withdraw·pending 중복 억제·현재 사용자 전시 선택을 위젯/순수 테스트로 검증했다. ARB/typography + P4b Flutter targeted **23 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `3325d53`.
 
+### 2026-08-05 (Codex) — P4b-b stale 전시 conflict 재시도 방지
+
+- **수정:** 같은 compare-and-set revision으로 재시도해도 해결되지 않는 `aborted` conflict에 “다시 시도” 동작을 제공하지 않는다. 최신 Firestore stream이 전시를 다시 그릴 때까지 기다리므로, stale 화면이 blind overwrite처럼 보이는 UX를 만들지 않는다.
+- **검증:** conflict를 의도적으로 반환하는 UI harness에서 최신 상태 안내만 보이고 retry action이 없는 RED/GREEN 회귀 **4 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `e944f28`.
+
 ### 2026-08-05 (Codex) — P4b-a 계 공동 전시 읽기 전용 계층 완료
 
 - **변경:** `GyeDedication`은 현재 스키마·문서 uid·안전한 membership/operation id·보상 장식 allowlist·10개 슬롯·활성 revision을 모두 통과한 Firestore 문서만 파싱한다. `GyeDedicationLayer`는 정규화한 전시를 공동 한옥 위에 수동으로 그리며, 동일 슬롯의 손상 스냅샷은 uid 순서로 하나만 렌더한다.
