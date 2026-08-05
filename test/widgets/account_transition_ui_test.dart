@@ -359,7 +359,52 @@ void main() {
     expect(find.text('Erneut versuchen'), findsNothing);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'mounting the pending panel next to a guard never notifies during build',
+    (tester) async {
+      // The real operations synchronously clear the *shared static* notifier to
+      // `loading` at the top of refreshPendingState(). The fake never did, so it
+      // could not reproduce the Settings-screen crash. Use production here.
+      const operations = ProductionAccountUiOperations(
+        pendingStateReader: _readsNone,
+      );
+      final children = <Widget>[
+        AccountNewLinkGuard(
+          operations: operations,
+          builder: (_, __) => const SizedBox(height: 40),
+        ),
+      ];
+      late StateSetter rebuild;
+      await tester.pumpWidget(
+        _wrap(
+          StatefulBuilder(
+            builder: (context, setState) {
+              rebuild = setState;
+              return ListView(children: List<Widget>.of(children));
+            },
+          ),
+        ),
+      );
+      // Let the guard's initial refresh drive the shared notifier to `none`.
+      await tester.pumpAndSettle();
+
+      // Adding the panel makes a lazy SliverList create it during layout. Its
+      // initState flips the shared notifier none -> loading; before the fix that
+      // fired notifyListeners() while the sibling guard was mid-build, throwing
+      // "setState() called during build".
+      children.add(const AccountPendingOperationPanel(operations: operations));
+      rebuild(() {});
+      await tester.pump();
+
+      expect(tester.takeException(), isNull);
+      await tester.pumpAndSettle();
+    },
+  );
 }
+
+Future<AccountUiPendingState> _readsNone() async =>
+    AccountUiPendingState.none;
 
 const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),

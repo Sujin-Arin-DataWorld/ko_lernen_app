@@ -49,7 +49,15 @@ class _AccountNewLinkGuardState extends State<AccountNewLinkGuard> {
     if (source == null) return;
     _initialRefreshComplete = false;
     final generation = ++_refreshGeneration;
-    unawaited(_completeInitialRefresh(source, generation));
+    // refreshPendingState() synchronously flips the shared static admission
+    // notifier to `loading`. _beginInitialRefresh runs from initState and
+    // didUpdateWidget — both build-phase — so notifying now would call setState
+    // on sibling guards/panels mid-build. Defer to after the frame so the
+    // shared notifier is only mutated between frames.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || generation != _refreshGeneration) return;
+      unawaited(_completeInitialRefresh(source, generation));
+    });
   }
 
   Future<void> _completeInitialRefresh(
@@ -108,7 +116,14 @@ class _AccountPendingOperationPanelState
   @override
   void initState() {
     super.initState();
-    _source?.refreshPendingState();
+    // This panel mounts inside the Settings screen's lazy ListView layout, so
+    // calling refreshPendingState() here would synchronously flip the shared
+    // static notifier and mark sibling ValueListenableBuilders dirty mid-build.
+    // Defer to after the frame. (See _beginInitialRefresh above.)
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _source?.refreshPendingState();
+    });
   }
 
   Future<void> _cancelPersisted(AccountUiPendingStateSource source) async {

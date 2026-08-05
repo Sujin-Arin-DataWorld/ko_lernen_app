@@ -26,19 +26,25 @@ void main() {
       await tester.pumpWidget(
         _TwoGuardHarness(first: first, second: second, showSecond: showSecond),
       );
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(_button(tester, 'first').onPressed, isNotNull);
 
       showSecond.value = true;
-      await tester.pump();
+      // The sibling guard defers its admission read to a post-frame callback so
+      // mounting never notifies the shared notifier mid-build (that would throw
+      // "setState() called during build" inside a lazy list). The lock lands on
+      // the frame after mount — settle before asserting it. The action layer
+      // (link() re-reads pending state) is the real block, so this frame of lag
+      // never admits an unsafe action.
+      await tester.pumpAndSettle();
 
       expect(first.pendingState.value, AccountUiPendingState.loading);
       expect(_button(tester, 'first').onPressed, isNull);
       expect(_button(tester, 'second').onPressed, isNull);
 
       delayedState.complete(AccountUiPendingState.none);
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(_button(tester, 'first').onPressed, isNotNull);
       expect(_button(tester, 'second').onPressed, isNotNull);
