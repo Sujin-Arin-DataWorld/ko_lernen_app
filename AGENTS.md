@@ -487,7 +487,7 @@ flutter run -d <android-id>   # 안드로이드
 
 **검증:** `flutter analyze` (변경 2파일) **No issues** · `flutter test test/character_selection_screen_test.dart` **3/3 통과**. ⚠️ **미검증(Jin 실기기 필수)**: 상단 크롭 해소·확정 영상 크게·깜빡임/멈춤 소거는 실제 기기에서 육안 확인 필요(헤드리스 test 는 videoReady=false 폴백 경로만 탐). ⑤ 구글 로그인은 코드 무변 — `cd android && ./gradlew signingReport` 로 현재 SHA-1 확인 → Firebase 콘솔에 추가 → `google-services.json` 교체(Jin).
 
-**Git:** 미커밋 (Jin 확인 후).
+**Git:** 커밋 `2854a04` (main, 내 3파일만 스테이징 — 동시 Codex 세션의 v2.0.5+11 AAB 작업분은 미포함). 실기기 육안·구글 로그인 SHA-1 등록은 Jin.
 
 ### 2026-08-05 (Codex) — Flutter 플러그인 일괄 호환성 업데이트·서명 AAB 재생성 (커밋 완료)
 
