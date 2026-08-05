@@ -170,4 +170,38 @@ void main() {
 
     expect(requests, equals([(slug: null, revision: 2)]));
   });
+
+  testWidgets(
+    'a stale revision conflict waits for the stream instead of retrying',
+    (tester) async {
+      await tester.pumpWidget(
+        _host(
+          ownedDecor: const <String>['decoration_soban'],
+          onCommit:
+              ({
+                required gyeId,
+                required decorationSlug,
+                required expectedRevision,
+                required operationId,
+              }) async {
+                throw const GyeDedicationClientFailure(
+                  GyeDedicationFailureCategory.conflict,
+                  retryable: true,
+                );
+              },
+        ),
+      );
+
+      await _openAndConfirmFirstCandidate(tester);
+      await tester.pump();
+
+      expect(
+        find.text(
+          'The exhibition changed elsewhere. The latest view is shown.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Try again'), findsNothing);
+    },
+  );
 }

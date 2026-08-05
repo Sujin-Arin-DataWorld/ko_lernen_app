@@ -175,7 +175,12 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
       ..showSnackBar(
         SnackBar(
           content: Text(message),
-          action: failure.retryable
+          // A revision conflict must be resolved by the live stream. Retrying
+          // the same compare-and-set request would only repeat the stale
+          // revision and makes a blind overwrite look possible.
+          action:
+              failure.retryable &&
+                  failure.category != GyeDedicationFailureCategory.conflict
               ? SnackBarAction(
                   label: t.gyeDedicationRetry,
                   onPressed: () {
