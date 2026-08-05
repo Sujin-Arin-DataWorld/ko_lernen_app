@@ -489,7 +489,7 @@ flutter run -d <android-id>   # 안드로이드
 - 불변식: `DecorationRewardService` 직렬큐·수령저널 무변경. 멱등(처음 도달 퀘스트만·`ensurePendingBoxForQuest` 중복 거부) → 홈·사랑방·퀘스트 어디서 불러도 이중지급 0.
 - 신규 테스트 `test/quest_tracker_sync_test.dart`(2): 완료 퀘스트 1개 보자기 지급·멱등 / seam 무예외·멱등. (setUp=`resetForTesting`+mock+`init`.)
 
-**남은 Phase 1(선택):** 사랑방 자체 배너(현재 홈만)·홈 resume 새로고침(P1-c). **Phase 2**(팩클리어=보자기·연속 성장·레벨업 축하)는 별도. ⚠️ 미검증(Jin 실기기): 실제 팩 클리어→홈 배너 노출.
+**Phase 1 마무리:** P1-a(`14bc0a2`) + 사랑방 렌더 차단 회귀 수정(`53e4362`, syncEarnedRewards 를 setState 뒤 fire-and-forget 로 — 내가 처음 await 앞에 둬서 sarangbang_study_screen_test 3개 깨진 걸 수리·푸시) + **P1-c(`9e482f0`)**: 홈 `WidgetsBindingObserver` resume 새로고침(공부→백그라운드→재개 시 보자기 반영). `_BojagiBanner` 는 이미 /bojagi 복귀 후 `_refreshHome`. **남은(선택):** 사랑방 자체 배너(현재 홈만). **Phase 2**(팩클리어=보자기·연속 성장·레벨업 축하)는 별도. ⚠️ 미검증(Jin 실기기): 실제 팩 클리어→홈 배너 노출·재개 새로고침.
 
 **검증:** `flutter analyze`(4파일) **0** · `flutter test quest_tracker_sync+screen_smoke` **27 통과**(seam 2 + 스모크 25, 홈·사랑방 빌드 무예외). **Git:** 이 커밋(quest_tracker·home·sarangbang·신규 test·본 로그) + origin/main 푸시.
 
