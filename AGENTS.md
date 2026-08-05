@@ -603,7 +603,7 @@ flutter run -d <android-id>   # 안드로이드
 - `profile_screen._Avatar` de-cage는 **동시세션**이 이미 완료(디스크 실측 확인). ⚠️ 그 profile은 두 세션이 각자 버전으로 편집 중 — Jin 조율 필요(둘 다 de-cage 달성, 차이=까치 클립 bob2/bob3 vs 2영상·호랑이 pose·크기). 나는 미접촉(3중 충돌 회피).
 - **검증:** `dart format` · `flutter analyze`(2파일) 0 · `path_trail_tap_test` 9/9. 커밋 `f5ed8a3`(내 2파일만 pathspec). ⚠️ 미검증(Jin 실기기): 노드 캐릭터 안 잘림·welcome-hero 레터박스 이음매.
 
-### 2026-08-05 — 캐릭터 선택 화면: 확정 영상 정적화(깜빡임 제거)·크게·녹청 캡션 + 설명 em-dash 제거 — 미커밋
+### 2026-08-05 — 캐릭터 선택 화면: 확정 영상 정적화(깜빡임 제거)·크게·녹청 캡션 + 설명 em-dash 제거 — 커밋 `67541aa`
 
 **범위:** Jin 실기기 피드백 3연발(선택 후 깜빡임·화면 2개 겹쳐 에러같음·확정 캐릭터 작음·설명 어색). `character_selection_screen.dart` + `app_de/en.arb` + 테스트.
 - **깜빡임/"두 화면 겹쳐 에러"**: 확정 시 `CharacterClipPlayer`(영상)가 이 기기(Impeller, Android<33 텍스처 fence 버그)에서 라우트 전환과 겹쳐 흰 프레임 번쩍 → **정적 `Mascot(celebrate)` + 캡션**으로 교체(비디오 디코더 0 = 깜빡임 0). `character_clip` import 제거. `_advanceGuard` 4500→2400ms(딱 한 번, `_navigated` 가드로 2중 이동 방지).
@@ -614,7 +614,7 @@ flutter run -d <android-id>   # 안드로이드
 - **온보딩 체인 분석(msg3)**: CharacterSelection→확정→OnboardingLevelScreen→(레벨선택)accountNudge 시트→home→450ms 후 motivation 시트("Warum lernst du Koreanisch?"). "이전 페이지·겹쳐 에러"의 정체 = 확정 영상 번쩍 → 정적화로 해소.
 - **검증:** `flutter gen-l10n` OK · `flutter analyze`(화면) 0 · `character_selection_screen_test` 3/3. ⚠️ 미검증(Jin 실기기). **⚠️ 빌드 경로**: Jin이 stale `OneDrive\Desktop` 사본에서 빌드 중 — `ELibrary\Downloads\DataSet` 사본에서 실행해야 반영.
 
-**Git:** 미커밋.
+**Git:** 커밋 `67541aa`(내 8파일: character_selection·hanok_header·app_de/en.arb+생성 l10n·테스트, pathspec). 이 AGENTS.md 로그는 동시세션 docs 커밋에 함께 실려 반영됨.
 
 ### 2026-08-05 — Satz bauen 화면 레이아웃 재배치(캐릭터 문제 위·문제/입력/타일 확대) — 커밋 `3ee6ec1`
 
