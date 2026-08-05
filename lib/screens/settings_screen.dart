@@ -26,6 +26,7 @@ import '../services/tts_service.dart';
 import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
+import '../services/app_version_service.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
@@ -311,6 +312,7 @@ class SettingsScreen extends StatefulWidget {
     this.cloudDataDeletion,
     this.cloudDataDeletionJournalState,
     this.resetAllData,
+    this.appVersionReader,
   });
 
   final AuthAccountSnapshot? account;
@@ -321,6 +323,7 @@ class SettingsScreen extends StatefulWidget {
   final ValueListenable<CloudBackupDeletionJournalState>?
   cloudDataDeletionJournalState;
   final Future<void> Function()? resetAllData;
+  final AppVersionReader? appVersionReader;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -328,6 +331,10 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   late double _ttsRate;
+  String _appVersion = '—';
+
+  AppVersionReader get _appVersionReader =>
+      widget.appVersionReader ?? const PackageAppVersionReader();
 
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
@@ -354,6 +361,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void initState() {
     super.initState();
     _ttsRate = Storage.ttsRate;
+    _loadAppVersion();
     // 계정 pending 저널 admission 을 **화면 진입 즉시** 시작한다.
     // 계정 섹션은 lazy ListView 하단이라 위젯 마운트(AccountNewLinkGuard
     // initState)에만 맡기면 위쪽 콘텐츠가 길어질수록 admission 이 스크롤
@@ -375,6 +383,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await AuthService.refreshCloudBackupDeletionJournalState();
       });
+    }
+  }
+
+  Future<void> _loadAppVersion() async {
+    try {
+      final version = await _appVersionReader.readVersion();
+      if (mounted) {
+        setState(() => _appVersion = version);
+      }
+    } catch (_) {
+      // Keep the neutral placeholder when native package metadata is absent.
     }
   }
 
@@ -996,7 +1015,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _Section(label: t.settingsAbout),
             ListTile(
               leading: const Icon(Icons.info_outline),
-              title: Text(t.settingsVersion(_appVersion())),
+              title: Text(t.settingsVersion(_appVersion)),
               subtitle: Text(t.settingsMadeWith),
             ),
             ListTile(
@@ -1033,7 +1052,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onTap: () => showLicensePage(
                 context: context,
                 applicationName: 'Hangul Sori',
-                applicationVersion: _appVersion(),
+                applicationVersion: _appVersion,
                 applicationLegalese: '© 2026 Hangul Sori',
               ),
             ),
@@ -1190,9 +1209,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const String _impressumUrl = 'https://hangul-sori.com/impressum.html';
   static const String _deletionUrl =
       'https://hangul-sori.com/account-deletion.html';
-
-  // pubspec.yaml `version:`과 동기 — 버전 범프 시 함께 갱신할 것.
-  String _appVersion() => '2.0.3';
 
   Future<void> _copyPrivacyUrl() async {
     await _copyUrl(_privacyUrl);

@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/account/account_transition_coordinator.da
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
+import 'package:ko_lernen_app/services/app_version_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -31,7 +32,9 @@ void main() {
 
   tearDown(() => cloudJournalState.dispose());
 
-  testWidgets('settings shows the current release version', (tester) async {
+  testWidgets('settings shows the injected runtime release version', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(400, 1000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -43,15 +46,43 @@ void main() {
           account: _guest,
           accountOperations: _SettingsAccountOperations(),
           cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
         ),
       ),
     );
     await tester.pump();
 
-    final version = find.text('Version 2.0.3');
+    final version = find.text('Version 2.0.5 (11)');
     await _ensureSettingsActionVisible(tester, version);
 
     expect(version, findsOneWidget);
+  });
+
+  testWidgets('settings retains a neutral version when the reader fails', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _ThrowingAppVersionReader(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final version = find.text('Version —');
+    await _ensureSettingsActionVisible(tester, version);
+
+    expect(version, findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('settings link entry confirms before safe operation starts', (
@@ -786,6 +817,24 @@ void main() {
 const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
 );
+
+class _FixedAppVersionReader implements AppVersionReader {
+  const _FixedAppVersionReader(this.version);
+
+  final String version;
+
+  @override
+  Future<String> readVersion() async => version;
+}
+
+class _ThrowingAppVersionReader implements AppVersionReader {
+  const _ThrowingAppVersionReader();
+
+  @override
+  Future<String> readVersion() async {
+    throw StateError('native package metadata unavailable');
+  }
+}
 
 class _SettingsAccountOperations
     implements AccountUiOperations, AccountUiPendingStateSource {

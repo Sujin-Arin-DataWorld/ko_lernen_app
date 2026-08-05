@@ -55,6 +55,12 @@ class _ConsentScreenState extends State<ConsentScreen> {
     } else {
       next = const AppShell();
     }
+    debugPrint(
+      '[ONBOARD] Consent.accept -> ${next.runtimeType} '
+      '(userLevelCode=${Storage.userLevelCode} '
+      'browseLevelCode=${Storage.browseLevelCode} '
+      'introPreviewSeen=${Storage.introPreviewSeen})',
+    );
     Navigator.of(
       context,
     ).pushReplacement(SoriTransitions.fadeScale((_) => next));

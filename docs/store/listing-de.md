@@ -1,97 +1,74 @@
-# Store Listing — Deutsch
+# App-Store-Listing — Deutsch
 
-> Eintrag-Texte für Google Play (DE) und App Store Connect (DE).
-> **v2.0 update** (2026-06-01): Snap-and-Learn + Hanok-System + Vokabel-Packs.
+Die folgenden Texte sind die deutschsprachige Quelle zum Einfügen in App Store
+Connect. Sie können auch als deutsche Quelle für Google Play dienen. Vor der
+Einreichung immer den final signierten Build prüfen; dieses Dokument ersetzt
+weder die Apple-Datenschutzangaben noch echte Screenshots.
 
----
+## App-Name
 
-## App-Name (Title)
+`Hangul Sori: Koreanisch`
 
-**Hangul Sori — Koreanisch lernen**
+23 Zeichen. Der Name liegt innerhalb der Apple-Grenze von 30 Zeichen.
 
-(30 Zeichen — passt in Play Store-Limit von 30)
+## Untertitel
 
----
+`Koreanisch im eigenen Hanok`
 
-## Kurze Beschreibung (Play Store, max. 80 Zeichen)
+27 Zeichen. Der Untertitel liegt innerhalb der Apple-Grenze von 30 Zeichen.
 
-**Koreanisch lernen — Vokabel-Packs, Hanok-System & Lehrbuchseite knipsen.**
+## Werbetext
 
-(76 Zeichen)
+Lerne Koreanisch in deinem eigenen Hanok. Folge der heutigen Lerneinheit,
+baue deine Karte aus und richte Räume mit Bojagi-Belohnungen ein.
 
----
+## Beschreibung
 
-## Promotional Text (App Store, max. 170 Zeichen)
+Hangul Sori ist eine Koreanisch-Lern-App für deutsch- und englischsprachige
+Menschen, die vom Alphabet zu brauchbarem Koreanisch im Alltag kommen möchten.
 
-**526 Wörter in 61 Packs (A1–B2), dein Hanok wächst mit dir, fotografiere eine Lehrbuchseite und erhalte sofort Wörter, Grammatik und Übersetzung.**
+Du lernst in einem persönlichen Hanok: Dein traditionelles koreanisches Haus
+ist zugleich deine Karte. Mit deinem Lernen wachsen seine Orte. Fortschritt
+fühlt sich dadurch wie das Gestalten eines Ortes an, nicht wie eine endlose
+Liste von Lektionen. Im Sarangbang öffnet die App genau die heute empfohlene
+nächste Lerneinheit aus deinem Lernplan; sie erfindet keinen zweiten
+Lernstrom. Erledige Spezial-Quests, öffne Bojagi-Belohnungen und richte Räume
+deines Hanok mit den gesammelten Dekorationen ein.
 
-(155 Zeichen)
+WAS DU LERNST
 
----
+• Hangul von Grund auf: Konsonanten, Vokale und Endkonsonanten.
+• 558 Vokabeleinträge in 64 Themenpacks, von A1 bis B2.
+• 39 Alltagsszenarien für Orte wie Café, Markt, Hotel, U-Bahn und Apotheke.
+• Grammatik im Kontext, Hörverstehen, Übersetzung und Wiederholung.
+• 17 Spezial-Quests mit Zielen und Belohnungen für deine Lernreise.
+• Minispiele wie Anlaut-Quiz, Hangul Wordle und Kkeunmari, das koreanische
+  Wortkettenspiel.
+• Optional Snap-and-Learn: Fotografiere oder wähle eine Lehrbuchseite aus,
+  um mit koreanischem Text auf deinem Gerät zu arbeiten.
 
-## Vollständige Beschreibung (max. 4000 Zeichen)
+WARUM HANGUL SORI ANDERS IST
 
-**한글소리 — Lerne Koreanisch wie ein Lied.**
+• Eine persönliche Hanok-Karte gibt deinem Lernen einen sichtbaren Ort.
+• Der Sarangbang gibt der heute empfohlenen Lerneinheit einen sinnvollen
+  Ausgangspunkt.
+• Bojagi-Belohnungen verwandeln abgeschlossene Quests in Entscheidungen für
+  deine Raumausstattung.
+• Von koreanischer Volksmalerei inspirierte Bilder sowie Tiger und Elster
+  machen die App zu einem Ort, zu dem du zurückkehren möchtest.
+• Das responsive Layout ist für Smartphones und Tablets gestaltet.
 
-Hangul Sori ist eine sorgfältig gestaltete Lern-App für deutschsprachige Anfänger und Fortgeschrittene, die Koreanisch wirklich verstehen wollen — von der Schrift bis zum echten Gespräch.
+Wähle ein Einstiegsniveau von A1 bis B2 und lerne Koreanisch Schritt für
+Schritt weiter.
 
-Statt sturer Vokabellisten lebst du im Hanok: einem traditionellen koreanischen Haus, das sich mit dir entwickelt. Tiger und Elster begleiten dich von der ersten Silbe bis zum ersten Smalltalk im Café in Seoul.
+## Schlüsselwörter
 
-▌ **Was du lernst (v2.0)**
+`koreanisch,hangul,koreanisch lernen,sprache,hanok,vokabeln,grammatik,seoul`
 
-• **Hangul von Grund auf** — Konsonanten, Vokale, Endlaute (Batchim). Erkennen, schreiben, hören.
-• **526 Vokabeln in 61 Packs** — A1 bis B2, nach Themen geordnet (Begrüßung, Familie, Zahlen, Essen, Verkehr …). Jeder Pack endet mit Boss-Wörtern; ≥ 70 % freischalten den nächsten.
-• **Lebensechte Szenarien** — Café, Markt, Hotel, U-Bahn, Apotheke: keine Schulbuch-Sätze, sondern wie es wirklich klingt.
-• **Grammatik im Kontext** — keine endlosen Tabellen. Du siehst die Form, hörst sie, benutzt sie.
-• **🆕 Snap-and-Learn ("책 한 컷")** — Lehrbuchseite knipsen, Wörter und Grammatik werden automatisch erkannt und übersetzt. Bilder bleiben auf deinem Gerät.
-• **🆕 Hanok-System** — dein virtueller Innenhof wächst Stage für Stage mit dem Lernfortschritt: Bauplatz → Säulen → Ziegeldach → Dancheong → Jongga.
-• **🆕 17 Spezial-Quests** — Pflaumenbaum, Steinmauer, Steinlaterne, Kalligraphie-Tafel, saisonale Events (Seollal, Chuseok, Hangeul-Tag).
-• **Mini-Spiele**:
-  – **Anlaut-Quiz** — Errate das Wort an seinen Anfangs-Konsonanten (ㅂ_ㅂ_ → 밥)
-  – **Hangul-Wordle** — 6 Versuche, eine koreanische Silbe pro Tag
-  – **Kkeunmari (끝말잇기)** — das Wortketten-Spiel gegen den Tiger
-  – **Lückentexte, Hörverstehen, Übersetzung** — als Quests in den Szenarien
+## Neu in 2.0.5
 
-▌ **Was Hangul Sori anders macht**
-
-• **Deutsch als Lernsprache** — alle Erklärungen, Tipps und Übersetzungen sind in echtem Deutsch geschrieben, nicht automatisch übersetzt.
-• **Designed in Berlin, illustriert im Stil koreanischer Volksmalerei (민화 / Minhwa)** — kein generisches App-Design, sondern eine eigene visuelle Sprache mit Dancheong-Farben und Hanji-Papier-Textur.
-• **Eine App, die wie ein Ort wirkt** — der Hanok-Innenhof öffnet sich am Anfang wie ein echtes Tor. Eine Elster fliegt über das Dach. Pflaumenblüten treiben im Hintergrund.
-• **Offline-fähig** — der Großteil der Inhalte funktioniert ohne Internet. Cloud-Backup ist optional (Google-Login).
-• **Werbefrei während der Lern-Sessions** — wir respektieren deine Aufmerksamkeit.
-
-▌ **Für wen ist das?**
-
-• Du fängst gerade mit Koreanisch an und willst nicht in einer Endlos-Lektion verloren gehen.
-• Du hast schon Grundlagen, aber dir fehlt der Sprung zur echten Sprache.
-• Du planst eine Reise, einen Austausch oder hast koreanische Freunde — und willst mehr als nur „annyeonghaseyo".
-
-▌ **Stufen**
-
-A1 → A2 → B1 → B2. Du wählst beim ersten Start dein Niveau (kann jederzeit gewechselt werden).
-
-▌ **Datenschutz**
-
-Wir sammeln keine personenbezogenen Daten ohne deine Zustimmung. Anonyme Nutzung ist vollständig möglich. Optional: Google-Login für Cloud-Backup deines Fortschritts. Details: https://hangul-sori.com/privacy.html
-
-▌ **Feedback**
-
-Hangul Sori ist ein junges Projekt eines koreanisch-deutschen Teams. Wir freuen uns über jede Rückmeldung — schreib uns über die App oder per E-Mail.
-
-**즐겁게 한국어를 — Viel Freude beim Koreanisch-Lernen.**
-
-(ca. 2950 Zeichen — passt mit Puffer in 4000)
-
----
-
-## Was ist neu (Release Notes, max. 500 Zeichen)
-
-**Hangul Sori v1.0 — der erste Wurf.**
-
-• Hangul-Schreibübungen mit Schritt-für-Schritt-Anleitung
-• Vokabel-Trainer mit SRS (Spaced Repetition)
-• 13+ Szenarien für echtes Leben (Café, Markt, Hotel, U-Bahn …)
-• Anlaut-Quiz mit Runden-Statistik
-• Koreanisches Wordle (täglich + Shuffle-Modus)
-• Tiger & Elster als Lernbegleiter — illustriert im Stil von 민화 (Minhwa)
-• Tag/Nacht-Modus, DE/EN-Oberfläche
+Erkunde deinen persönlichen Hanok als Lernwelt. Besuche den Sarangbang, um
+die heute empfohlene Lerneinheit zu öffnen, sieh deinen Fortschritt auf der
+wachsenden Hanok-Karte und erledige Quests für Bojagi-Belohnungen, mit denen
+du deine Räume einrichten kannst. Das Layout wurde außerdem für Tablets
+verfeinert.

@@ -1,4 +1,4 @@
-# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.4+10)
+# Release Notes — v2.0.x (Closed Testing, 최신 Build 2.0.5+11)
 
 > Closed-Testing Notes für Play Console + App Store Connect.
 > Sprache: DE + EN — beide in die Console eintragen.
@@ -50,6 +50,30 @@ Enjoy building your hanok!
 ```
 
 (ca. 470 chars)
+
+---
+
+## 이번 내부 테스트 릴리스 노트 — Build 2.0.5+11 (2026-08-05)
+
+> Play Console 내부 테스트 "출시 노트"에는 아래 **독일어·영어 태그 포함 텍스트만** 붙여넣기.
+> 출시 이름: `11 · Dein lebendiges Hanok` (규칙: em-dash·마크다운·한국어 혼입 금지)
+
+```text
+<de-DE>
+Neu in diesem Build:
+• Dein persönliches Hanok wächst jetzt als interaktive Karte mit deinem Lernfortschritt
+• Neue Räume: Lerne im Sarangbang und richte deinen Sarangbang, dein Anbang und den Daecheong ein
+• Belohnungen aus Spezial-Quests kommen als Bojagi-Bündel mit einer eigenen Auswahl
+• Besser auf Tablets: Die Hanok-Karte und Navigation passen sich an Hoch- und Querformat an
+</de-DE>
+<en-US>
+New in this build:
+• Your personal Hanok now grows as an interactive map with your learning progress
+• New spaces: study in the Sarangbang and furnish your Sarangbang, Anbang, and Daecheong
+• Special-quest rewards now arrive as Bojagi bundles with a choice of collectibles
+• Better tablet support: the Hanok map and navigation adapt to portrait and landscape layouts
+</en-US>
+```
 
 ---
 

@@ -1,53 +1,60 @@
-# Screenshot Shot List
+# iOS and iPad Screenshot Shot List
 
-> Jin macht echte Geräte-Captures. Diese Liste sagt **welcher State** für **welchen Slot**.
+Use this as the capture brief for the final signed iOS build. Screenshot
+directories are reserved as
+`docs/store/captures/app-store-ios/<locale>/<device>/`; they become valid
+submission material only when populated with actual iOS captures.
 
----
+## Non-negotiable capture rules
 
-## Reihenfolge (alle 8 Slots, Android + iOS gleich)
+- Use a real iOS simulator or device capture from the final candidate build.
+- Screenshots captured from non-iOS app builds, web pages, or AI mockups cannot be submitted to App Store Connect.
+- Submit 1–10 PNGs per device family, with no alpha channel.
+- Capture English and German states separately when both localizations are
+  submitted.
+- Do not burn marketing copy into the app image. Any optional framing must
+  preserve the original alpha-free iOS screenshot and comply with the current
+  App Store Connect rules.
 
-| # | Screen | State (was muss zu sehen sein) | Caption-Vorschlag (DE / EN) |
-|---|---|---|---|
-| 1 | `/intro` Solsong-Tor | Tor halb geöffnet, Spalt sichtbar, Hintergrund Hanok schimmert | "Willkommen im Hanok" / "Step into the hanok" |
-| 2 | `/` Home | Madang-Hintergrund mit Pflaumenblüten + Elster in Flug + heutige Karte sichtbar (Streak ≥ 1) | "Dein Lerngarten" / "Your learning courtyard" |
-| 3 | `/hangul` Schreibcanvas | ㄱ wird gerade nachgezeichnet, Geist-Buchstabe sichtbar | "Hangul Schritt für Schritt" / "Hangul, stroke by stroke" |
-| 4 | `/vocab` Karten-Flip | Karte mitten im 3D-Flip, koreanische Seite zur Hälfte sichtbar, SRS-Badge sichtbar | "Vokabeln mit SRS" / "Vocab with SRS" |
-| 5 | `/wordle` | Reihe 2 abgeschlossen mit 1× richtig (grün), 2× falsche Position (gelb), 1× falsch (grau) + deutsche Hint-Karte sichtbar | "Hangul Wordle" / "Korean Wordle" |
-| 6 | `/chosung` Anlaut-Quiz | A2-Level, direkt **nach** richtiger Antwort (grüne ✅ + Wort sichtbar) | "Anlaut-Quiz mit Runden" / "Anlaut quiz with rounds" |
-| 7 | `/scenarios` Liste | A1 entsperrt (Sterne sichtbar) + B2 gesperrt (Sleeping-Tiger Empty-State) | "13+ echte Szenarien" / "13+ real scenarios" |
-| 8 | `/stats` | XP ≥ 100, Streak ≥ 3 Tage, 3 Badges, Tiger+Magpie-Duo + Hanok-Header sichtbar | "Dein Fortschritt" / "Your progress" |
+## Required 13-inch iPad set
 
----
+Capture the landscape map first. It is the clearest proof that Hangul Sori is
+a learning world rather than a static course list.
 
-## Capture-Spezifikation
+| Order | Required size | App state | Suggested caption (DE / EN) |
+|---|---:|---|---|
+| 1 | 2752 × 2064 landscape | Interactive personal Hanok map; several places visible and a place can be opened | `Dein Hanok wächst mit dir` / `Your hanok grows with you` |
+| 2 | 2064 × 2752 portrait | Sarangbang with today's recommended study and a clear start action | `Heute im Sarangbang lernen` / `Study in the Sarangbang today` |
+| 3 | 2752 × 2064 landscape | Room furnishing with a real owned decoration and picker state | `Richte deinen Lernort ein` / `Furnish your learning place` |
+| 4 | 2064 × 2752 portrait | A themed vocabulary pack or real-life scenario in progress | `Koreanisch für den Alltag` / `Korean for everyday life` |
+| 5 | 2752 × 2064 landscape | Progress surface with Hanok growth and a completed quest reward | `Lernen wird sichtbar` / `Make learning visible` |
 
-| Plattform | Auflösung | Format | Quelle |
-|---|---|---|---|
-| Android | 1080×1920 | PNG | `adb shell screencap -p /sdcard/sc.png && adb pull /sdcard/sc.png` |
-| iOS 6.7" | 1290×2796 | PNG | Xcode Simulator iPhone 14 Pro Max → ⌘S |
-| iOS 5.5" (optional) | 1242×2208 | PNG | Simulator iPhone 8 Plus → ⌘S |
+The first iPad capture is therefore the interactive personal Hanok map in
+landscape at 2752 × 2064. Capture both orientations before choosing the final
+set, even if App Store Connect ultimately needs fewer images.
 
----
+## Required 6.9-inch iPhone set
 
-## Capture-Vorbereitung (Reproduzierbare States)
+Use the current 6.9-inch iPhone simulator size, `1290 × 2796` portrait or
+`2796 × 1290` landscape, from the same final build. Prepare 4–6 distinct
+screens from this set:
 
-Bevor du Screenshots machst, einmal in den App-Storage diese Werte schreiben:
+1. Personal Hanok map, with a clearly reachable place.
+2. Sarangbang, showing today's recommended study.
+3. Hangul learning or a themed vocabulary pack.
+4. A real-life scenario in progress.
+5. Bojagi reward or room furnishing.
+6. Progress or a completed special quest.
 
-1. **Streak ≥ 3 Tage** für Slot 2 + 8: in `StorageService` manuell setzen oder 3 Tage in Folge eine Übung machen.
-2. **XP ≥ 100** für Slot 8: ein Szenario komplett mit 3 Sternen abschließen.
-3. **3 Badges** für Slot 8: `cafe_starter`, weitere 2 (Settings → DevTools falls vorhanden, sonst durch Spielen).
-4. **A1 abgeschlossen** für Slot 7: alle A1-Szenarien einmal durchspielen.
+## Before you capture
 
-Alternativ: ein "Demo-User"-State in `StorageService.setDemoState()` vorab vorbereiten (Code-Snippet für später).
-
----
-
-## Caption-Komposition (außerhalb des Frames)
-
-Captions werden **nicht** im App-Screenshot eingebrannt, sondern oberhalb in einem Marketing-Frame zusammengesetzt:
-
-- Schriftart: Pretendard Bold 64px (DE/EN)
-- Farbe: `#0E1A18` auf `#FAF6EC` (Light) oder `#FAF6EC` auf `#0E1A18` (Dark)
-- Tool: ChatGPT / Figma / Photopea — Original-Screenshot in Hanji-Cream-Rahmen einbetten, Caption oben drüber
-
-Empfehlung: 4 Light + 4 Dark Slots abwechseln, damit beide Modi sichtbar sind.
+1. Use a review-safe guest account or a freshly reset simulator state.
+2. Verify that the chosen state contains no private test data, placeholder
+   images, debug labels, or unfinished translations.
+3. Capture only an appearance supported by the final candidate; do not add
+   near-duplicate screenshots simply to fill slots.
+4. Validate the finished folders with
+   `python tool/check_app_store_screenshots.py --target ipad-13 <folder>` or
+   `python tool/check_app_store_screenshots.py --target iphone-6.9 <folder>`.
+5. Recheck the current Apple screenshot rules in App Store Connect immediately
+   before upload.

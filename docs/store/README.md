@@ -1,68 +1,50 @@
 # Store Submission Pack — Hangul Sori
 
-Materials for Google Play Console and Apple App Store Connect.
+This folder separates copy-ready store material from external proof that must
+be completed by the release owner.
 
-Status: **pre-launch**. Target: Android and iOS.
+## Apple App Store Connect: start here
 
-Privacy answers in this repository are release-owner review worksheets, not
-verified console exports. Google Play Data Safety and Apple App Privacy use
-different categories and must be reviewed separately in `data-safety.md`
-against the final signed builds and live service configuration.
+Read [app-store-connect-v2.0.5.md](app-store-connect-v2.0.5.md) for the single
+handoff for `2.0.5 (11)`: identifiers, review path, iPad screenshots, and the
+Mac-only archive/TestFlight gates.
+
+### Copy-ready source
+
+| File | Use it for |
+|---|---|
+| [listing-de.md](listing-de.md) | German name, subtitle, description, keywords, and What's New copy |
+| [listing-en.md](listing-en.md) | English name, subtitle, description, keywords, and What's New copy |
+| [screenshot-shotlist.md](screenshot-shotlist.md) | Exact real-iOS capture brief and screenshot folder contract |
+
+### External proof required before submission
+
+| File | Owner action |
+|---|---|
+| [data-safety.md](data-safety.md) | Complete the separate Apple App Privacy worksheet from the final archive and live services |
+| [ios-external-setup.md](ios-external-setup.md) | Configure Apple signing, Firebase, APNs, URL scheme, and any approved purchase configuration on macOS |
+| [screenshot-shotlist.md](screenshot-shotlist.md) | Capture real iPhone and iPad screenshots; no web or AI substitutes |
+
+Privacy, support, deletion, signing, device testing, TestFlight, and App
+Review completion are external evidence, not claims made true by these source
+files.
 
 ## Google Play Console
 
-- [ ] Privacy Policy URL entered:
-  `https://hangul-sori.com/privacy.html`
-- [ ] Account-deletion URL entered:
-  `https://hangul-sori.com/account-deletion.html`
-- [ ] App category and content-rating questionnaire completed from the actual
-  release features; do not rely on a guessed rating.
-- [ ] Google Play matrix in `data-safety.md` reconciled with the final signed
-  Android manifest, current Firebase/RevenueCat disclosures, and live console.
-- [ ] Closed-testing eligibility, required tester count, opt-in continuity, and
-  testing duration verified in the Play Console under the current Google rule.
-- [ ] Feature graphic and screenshots checked against the current app UI.
-- [ ] Play App Signing and the intended upload key confirmed.
+Use the localized listing files above with the Android-specific documents:
 
-## Apple App Store Connect
+- [data-safety.md](data-safety.md) for the Play Data Safety worksheet.
+- [closed-testing-checklist-v2.md](closed-testing-checklist-v2.md) for internal
+  or closed-testing operational proof.
+- [release-notes-v1.md](release-notes-v1.md) and
+  [release-notes-v2.md](release-notes-v2.md) for release-note history.
 
-- [ ] Privacy Policy URL entered:
-  `https://hangul-sori.com/privacy.html`
-- [ ] Apple App Privacy worksheet in `data-safety.md` reviewed separately; do
-  not copy Play answers field-for-field.
-- [ ] In-app account deletion, Apple reauthentication/revocation, subscription
-  management, and purchase restore verified on a signed iOS build.
-- [ ] App category, age-rating questionnaire, screenshots, keywords, and
-  description reviewed in App Store Connect.
-- [ ] Apple team, signing, entitlements, APNs, Firebase plist, and RevenueCat
-  iOS configuration verified on the release archive.
+## Public pages to verify live before either submission
 
-## Both stores
+- [Privacy page](../privacy.html)
+- [Account-deletion page](../account-deletion.html)
+- [Support page](../support.html)
+- Support contact: `hello@hangul-sori.com`
 
-- [ ] Android and iOS release candidates exercised on real devices.
-- [ ] Public English, German, and Korean tabs in `privacy.html` and
-  `account-deletion.html` reviewed.
-- [ ] Legal controller/address, live service regions, retention settings, and
-  RevenueCat integration blockers in `data-safety.md` resolved by the owner.
-- [ ] Subscriptions are described as requiring separate store cancellation;
-  account deletion is not described as cancelling billing.
-- [ ] Release notes and support contact
-  `hello@hangul-sori.com` verified.
-
-## Files
-
-| File | Purpose |
-|---|---|
-| `listing-de.md` | German store copy |
-| `listing-en.md` | English store copy and keywords |
-| `data-safety.md` | Separate Play and Apple privacy worksheets plus external blockers |
-| `closed-testing-checklist-v2.md` | Android closed-testing operational checklist |
-| `ios-external-setup.md` | iOS external signing/configuration checklist |
-| `subscription-setup-runbook.md` | Store and RevenueCat setup |
-| `screenshot-shotlist.md` | Required screenshot scenes and sizes |
-| `release-notes-v1.md`, `release-notes-v2.md` | Release-note drafts |
-
-Public pages:
-
-- `../privacy.html`
-- `../account-deletion.html`
+The repository copies do not prove that these pages are publicly hosted or
+legally complete. The release owner must verify their live URLs and contents.
