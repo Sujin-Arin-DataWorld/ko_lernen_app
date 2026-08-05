@@ -132,7 +132,7 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
   }
 
   Future<void> _submit(_GyeDedicationRequest request) async {
-    if (_submitting || !widget.actionsAvailable) {
+    if (!mounted || _submitting || !widget.actionsAvailable) {
       return;
     }
     setState(() => _submitting = true);

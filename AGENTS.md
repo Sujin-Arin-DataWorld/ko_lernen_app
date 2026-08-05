@@ -463,6 +463,16 @@ flutter run -d <android-id>   # 안드로이드
 - **수정:** 같은 compare-and-set revision으로 재시도해도 해결되지 않는 `aborted` conflict에 “다시 시도” 동작을 제공하지 않는다. 최신 Firestore stream이 전시를 다시 그릴 때까지 기다리므로, stale 화면이 blind overwrite처럼 보이는 UX를 만들지 않는다.
 - **검증:** conflict를 의도적으로 반환하는 UI harness에서 최신 상태 안내만 보이고 retry action이 없는 RED/GREEN 회귀 **4 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `e944f28`.
 
+### 2026-08-05 (Codex) — P4b-b callable 응답 형상 fail-closed
+
+- **수정:** client가 callable의 `dedicated`/`withdrawn`/`unchanged` 응답을 실제 active 전시 형상 또는 빈 전시 형상으로만 파싱한다. 철회 응답에 slot·slug가 섞이는 등 모순된 데이터는 pending을 끝내는 근거로도 쓰지 않는다.
+- **검증:** 모순된 withdraw payload를 주입한 RED 뒤 service 회귀 **5 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋: `31b1e1c`.
+
+### 2026-08-05 (Codex) — P4b-b 전시 재시도 수명주기 안전성
+
+- **수정:** transient callable 오류의 SnackBar 재시도 action이 화면 트리에서 사라진 전시 CTA를 다시 호출하지 않게 했다. 따라서 계 화면 이탈·stream 갱신 뒤 남아 있는 SnackBar가 disposed State에 `setState`를 시도하지 않는다.
+- **검증:** CTA 제거 후 SnackBar 재시도를 누르는 RED/GREEN widget 회귀와 dedication action/service targeted **10 passed**, 대상 analyzer **0 issues**, `git diff --check` 통과. 구현 커밋은 이 로그와 함께 기록한다.
+
 ### 2026-08-05 (Codex) — P4b-a 계 공동 전시 읽기 전용 계층 완료
 
 - **변경:** `GyeDedication`은 현재 스키마·문서 uid·안전한 membership/operation id·보상 장식 allowlist·10개 슬롯·활성 revision을 모두 통과한 Firestore 문서만 파싱한다. `GyeDedicationLayer`는 정규화한 전시를 공동 한옥 위에 수동으로 그리며, 동일 슬롯의 손상 스냅샷은 uid 순서로 하나만 렌더한다.

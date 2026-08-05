@@ -204,4 +204,64 @@ void main() {
       expect(find.text('Try again'), findsNothing);
     },
   );
+
+  testWidgets('a transient retry is inert after its action leaves the tree', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final visible = ValueNotifier(true);
+    addTearDown(visible.dispose);
+    var calls = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        locale: const Locale('en'),
+        home: Scaffold(
+          body: Center(
+            child: ValueListenableBuilder<bool>(
+              valueListenable: visible,
+              builder: (context, isVisible, _) => isVisible
+                  ? GyeDedicationAction(
+                      gyeId: 'ABC234',
+                      ownedDecor: const <String>['decoration_soban'],
+                      current: null,
+                      actionsAvailable: true,
+                      onCommit:
+                          ({
+                            required gyeId,
+                            required decorationSlug,
+                            required expectedRevision,
+                            required operationId,
+                          }) async {
+                            calls += 1;
+                            throw const GyeDedicationClientFailure(
+                              GyeDedicationFailureCategory.unavailable,
+                              retryable: true,
+                            );
+                          },
+                    )
+                  : const SizedBox.shrink(),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await _openAndConfirmFirstCandidate(tester);
+    await tester.pumpAndSettle();
+    expect(find.text('Try again'), findsOneWidget);
+    expect(calls, 1);
+
+    visible.value = false;
+    await tester.pump();
+    await tester.tap(find.text('Try again'), warnIfMissed: false);
+    await tester.pump();
+
+    expect(calls, 1);
+    expect(tester.takeException(), isNull);
+  });
 }
