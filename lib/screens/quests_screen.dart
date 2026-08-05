@@ -106,12 +106,25 @@ class _QuestsScreenState extends State<QuestsScreen>
         _loading = false;
       });
 
-      // 새로 완료된 퀘스트마다 축하 연출
+      // 새로 완료된 퀘스트마다 축하 연출.
+      // 사용자가 "선물 열기"를 누르면 곧장 보자기 화면으로 넘기고 나머지 축하는
+      // 멈춘다 — 상자 위에 다음 축하 다이얼로그가 겹치지 않게.
       for (final quest in newlyCompleted) {
-        if (mounted) {
-          await _showQuestCompletionCelebration(quest);
-          await Future.delayed(const Duration(milliseconds: 600));
+        if (!mounted) {
+          break;
         }
+        final openGift = await _showQuestCompletionCelebration(quest);
+        if (openGift) {
+          if (!mounted) {
+            break;
+          }
+          await Navigator.of(context).pushNamed('/bojagi');
+          if (mounted) {
+            await _load();
+          }
+          break;
+        }
+        await Future.delayed(const Duration(milliseconds: 600));
       }
     } catch (_) {
       if (!mounted) return;
@@ -122,11 +135,11 @@ class _QuestsScreenState extends State<QuestsScreen>
     }
   }
 
-  Future<void> _showQuestCompletionCelebration(QuestProgress quest) async {
-    if (!mounted) return;
+  Future<bool> _showQuestCompletionCelebration(QuestProgress quest) async {
+    if (!mounted) return false;
 
     final def = kQuestById[quest.questId];
-    if (def == null) return;
+    if (def == null) return false;
 
     final lang = Localizations.localeOf(context).languageCode;
     final isEn = lang == 'en';
@@ -137,7 +150,7 @@ class _QuestsScreenState extends State<QuestsScreen>
       target: def.target,
     ).context;
 
-    return showDialog(
+    final openGift = await showDialog<bool>(
       context: context,
       barrierDismissible: false,
       builder: (ctx) => _QuestCompletionCelebration(
@@ -147,6 +160,7 @@ class _QuestsScreenState extends State<QuestsScreen>
         feedbackContext: feedbackContext,
       ),
     );
+    return openGift ?? false;
   }
 
   @override
@@ -619,10 +633,17 @@ class _QuestCompletionCelebrationState
                 ],
                 const SizedBox(height: Spacing.lg),
                 SoriButton.filled(
+                  key: const Key('quest-completion-open-gift'),
+                  label: t.questsOpenGiftCta,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).pop(true),
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriButton.outlined(
                   key: const Key('quest-completion-continue'),
                   label: t.feedbackCompletionContinue,
                   fullWidth: true,
-                  onTap: () => Navigator.of(context).pop(),
+                  onTap: () => Navigator.of(context).pop(false),
                 ),
               ],
             ],

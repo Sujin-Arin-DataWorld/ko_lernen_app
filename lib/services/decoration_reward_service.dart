@@ -131,6 +131,17 @@ class DecorationRewardService {
     return candidates;
   }
 
+  /// 홈·진입점 배지용 — 지금 열 수 있는 보자기 개수.
+  ///
+  /// 손상된(알 수 없는 퀘스트) pending box 는 제외한다. 그런 상자는 bojagi
+  /// 화면이 "문제" 상태로 안내하고 큐에서 정리하므로, 사용자에게 "선물 N개"로
+  /// 세어 보이면 존재하지 않는 보상을 약속하는 셈이 된다. 후보 소진·전체 수집
+  /// 상자는 여전히 여는 동작(교체·보관)이 필요하므로 센다.
+  static int openableBoxCount({Iterable<String>? pending}) {
+    final boxes = pending ?? Storage.pendingBoxes;
+    return boxes.where(kQuestById.containsKey).length;
+  }
+
   /// 먼저 중단된 수령을 회복한 뒤 첫 미개봉 꾸러미의 표시 상태를 만든다.
   static Future<DecorationRewardOffer> loadNextOffer() =>
       _serialize(_loadNextOffer);

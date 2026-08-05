@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/storage_service.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
@@ -93,6 +95,33 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                           color: s.textMuted,
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+                      // 스탬프는 트로피 — 꾸미기는 퀘스트 보상(보자기)에서 온다.
+                      // 이 구분을 몰라 "스탬프로 한옥을 못 꾸민다"는 혼란을 없앤다.
+                      SoriCard(
+                        variant: SoriCardVariant.base,
+                        accent: SoriColors.info,
+                        tinted: true,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              t.dojangDecorHintBody,
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: s.textMuted,
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.md),
+                            SoriButton.outlined(
+                              label: t.dojangDecorHintCta,
+                              fullWidth: true,
+                              onTap: () =>
+                                  Navigator.of(context).pushNamed('/quests'),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: Spacing.lg),

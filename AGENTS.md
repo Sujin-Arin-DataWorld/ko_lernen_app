@@ -480,6 +480,32 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-05 — 프로필 캐릭터 영상 액자/클립 완전 제거 + 까치 bob2↔bob3 교대 — 미커밋
+
+**범위:** Jin — "캐릭터 video mp4를 절대 원이나 박스에 가두지 마(네모든 원이든). 이거 어디에 써놔. Joy(까치)일 때 magpie_bob3·bob2 두 개를 번갈아, 기존거 쓰지 말고." `profile_screen.dart` `_Avatar` + `character_clip.dart` 카탈로그 + 테스트/메모리.
+
+- **규칙 영구 기록**: `~/.claude/.../memory/never-cage-character-video.md`(type feedback) + MEMORY.md 인덱스. **캐릭터 mp4는 `ClipOval`/박스/프레임 금지** — 흰 배경을 화면 배경색 `blendColor` multiply로만 흡수, 자유롭게.
+- **`_Avatar` 재작성**: 기존 `Container(shape:circle)+ClipOval`(액자) 제거 → **`SizedBox(168)` + `CharacterClipPlayer` 직접**, `blendColor: SoriSurfaces.of(context).bg`(앱 라이트 전용이라 화면 크림과 일치, 사각 이음매 X). `_medallionFill` 삭제.
+- **까치 교대**: `_magpieClips=[magpieBob2, magpieBob3]`, magpie 는 `loop:false`+`onCompleted→_advanceMagpie`(idx 순환)로 bob2↔bob3 번갈아 재생. 호랑이 등은 기존 프로필 포즈 루프 유지. `character_clip.dart` 에 `magpieBob2/3` 상수 추가(에셋 실재: `assets/video/character/magpie_bob2·3.mp4`).
+- **테스트**: magpie 는 이제 `loop:false`(교대 타이머) → `addTearDown(kind=tiger)` 로 후속 테스트 타이머 누수 방지. 기존 `Mascot.kind==magpie` 검증 유지.
+- **검증:** `flutter analyze`(3파일) **0** · 프로필 2종+character_clip+data_integrity **16 통과**(pending timer 0) · responsive **386 통과**. ⚠️ 미검증(Jin 실기기): 액자 없는 자유 배치 시각·흰 배경 흡수 이음매·bob2/bob3 교대 재생.
+- ⚠️ **동시세션 중복**: 바로 아래 "캐릭터 영상 액자 제거·확대 + 까치 2영상·프로필 호랑이 tiger_bob" 항목이 같은 요청을 다른 방식(호랑이 tiger_bob 등)으로 작업 중. 내 `_Avatar` 가 그 세션의 온디스크 버전(168·원형 유지)을 대체함 — **커밋 전 Jin 조율 필요**(둘 중 하나 선택).
+
+### 2026-08-05 — 캐릭터 영상 액자 제거·확대 + 까치 2영상·프로필 호랑이 tiger_bob — 미커밋
+
+**범위:** Jin 실기기(홈) — 선택 캐릭터 영상이 작은 액자에 갇혀 있고 말풍선도 좁음(짧은 대사인데 2줄). Q&A로 **앱 전체 언박싱+확대** 확정 + 까치 영상 교체·프로필 호랑이 클립 지정.
+
+**Update:**
+- `tiger_video.dart`: (1) `_tigerView` 초상 액자(테두리·글로우 Container) 제거 → 흰 배경 mp4를 multiply로 배경에 그대로 녹여 캐릭터만 뜨게(edge-to-edge), 정사각을 밴드 높이 그대로(−8 폐지). (2) 까치 홈 히어로 교체: greet `magpie_greet_chirp`→`magpie_right_walking_flying`(원샷), pace `magpie_perched`→`magpie_full10`(루프). greet→pace 핸드오프·단일 디코더 lease 그대로.
+- `home_screen.dart`: `_TigerHero` 밴드 높이 144/160→200/244, 말풍선 폭 `w*0.62 clamp140–260`→`w*0.92 clamp240–360`, 말풍선 폰트 12.5→14.5.
+- `character_clip.dart`: `_tigerProfileClips`→`[tigerBob]`(프로필 호랑이 tiger_bob 고정).
+- `profile_screen.dart`: `_Avatar` 메달리온 테두리·글로우 링·안쪽 패딩 제거, `_d` 128→168, 클립 size `_d−10`→`_d`(원 가득).
+- `character_clip_test.dart`: 호랑이 프로필 count 5→1·tigerBob 단정으로 갱신.
+
+**검증:** `flutter analyze`(4 lib) **0** · `character_clip_test`(갱신)·`mascot_wiring`(까치 greet/pace)·`sori_video_lease` 통과. ⚠️ **미검증(Jin 실기기)**: 언박싱 영상 배경 이음매(보이면 `blendColor` 튜닝)·밴드 244·까치 walking→full10 전환·프로필 메달리온·말풍선 한 줄·다크. ⚠️ **내 변경 아님**: `character_clip_matte_test` 2건(`tool/clip_matte_report.json` 스테일 — 신규 mp4 미반영, `python tool/check_clip_matte.py` 필요) + `mascot_wiring` textDim 소스가드(home_screen:983 동시세션 미커밋 편집).
+
+**Git:** 미커밋. 안전 파일(tiger_video·character_clip·character_clip_test)은 독립. `home_screen`·`profile_screen`은 **동시세션 미커밋 편집과 뒤섞임** — 커밋 시 내 hunk만 분리 필요.
+
 ### 2026-08-05 — 학습→보상 루프 수리 계획 수립 + Lernpfad 선택 레벨만 표시 — 미커밋
 
 **범위:** Jin — ① "사랑방에서 오늘 4개나 공부했는데 기록이 안돼"(한옥/사랑방 안 자람·보자기 없음·레벨업 무반응, XP·주간칸은 작동) → systematic-debugging→brainstorming 으로 근본원인 규명·설계 승인("지금 설계대로 하자")→**writing-plans 로 구현 계획 문서화**. ② "Lernpfad 전체레벨 다 보이지 않게, 선택한 레벨만" → **바로 구현·검증**.
@@ -556,6 +582,14 @@ flutter run -d <android-id>   # 안드로이드
 - **"Wörter gelernt 두개떠"**: 마일스톤 시트는 `markMilestonesCelebrated`(표시 前 마킹)+`_celebrating` 가드라 **코드상 이중발화 없음**. 결과화면 "Geschafft!" 축하 + 홈복귀 "Wörter gelernt!" 시트 = 두 서피스 중복으로 판단 → 결과화면을 캐릭터 1+도장으로 정리해 중복감 완화. 진짜 같은 시트가 연속 2번이면 별도 재현 필요(Jin 확인).
 - **검증:** `flutter analyze`(3파일) **0** · 관련 테스트 스위트 통과(mascot_wiring·milestone·dancheong_stamp·dedicated_feedback ×2 = 56, responsive 387). ⚠️ **미검증(Jin 실기기)**: 퀴즈 화면 세로 분산 시각·긴 CTA 2줄·축하 캐릭터 단일화·포효 영상 크기.
 
+### 2026-08-05 — 캐릭터 미디어 원/사각 갇힘 전수감사 → 실제 cage 2곳 제거 — 커밋 `f5ed8a3`
+
+**범위:** Jin "정사각/원형에 캐릭터 영상·이미지 갇힌 곳 100% 전수검사". 병렬 Explore 2체(원형 / 사각) + Opus 합성. **실제 cage 정확히 2곳**, 나머지는 전부 OK(장식 링=clip 아님·`Mascot`은 contain·`CharacterClipPlayer`는 square-in-square·신규 캐릭터선택 히어로는 contain).
+- `path_trail.dart` 현재-레슨 노드: `ClipOval`이 진짜 clip(귀·발·날개 잘림) → **제거**(원판=장식 배경, 캐릭터는 그 위 자유 배치). 홈은 `live=false`라 정적 `Mascot`(투명=이음매 0).
+- `onboarding_level_screen.dart` `_WelcomeHero`: 16:9 `welcome-hero.mp4`를 정사각 slot에 cover → 어깨 까치 잘림 → `SoriPosterLoop fit:contain`(포스터와 동일, 레터박스는 `_heroBackdrop` 색이라 안 보임). 해당 파일 문서의 처방 ① 그대로.
+- `profile_screen._Avatar` de-cage는 **동시세션**이 이미 완료(디스크 실측 확인). ⚠️ 그 profile은 두 세션이 각자 버전으로 편집 중 — Jin 조율 필요(둘 다 de-cage 달성, 차이=까치 클립 bob2/bob3 vs 2영상·호랑이 pose·크기). 나는 미접촉(3중 충돌 회피).
+- **검증:** `dart format` · `flutter analyze`(2파일) 0 · `path_trail_tap_test` 9/9. 커밋 `f5ed8a3`(내 2파일만 pathspec). ⚠️ 미검증(Jin 실기기): 노드 캐릭터 안 잘림·welcome-hero 레터박스 이음매.
+
 ### 2026-08-05 — 캐릭터 선택 화면: 확정 영상 정적화(깜빡임 제거)·크게·녹청 캡션 + 설명 em-dash 제거 — 미커밋
 
 **범위:** Jin 실기기 피드백 3연발(선택 후 깜빡임·화면 2개 겹쳐 에러같음·확정 캐릭터 작음·설명 어색). `character_selection_screen.dart` + `app_de/en.arb` + 테스트.
@@ -563,7 +597,7 @@ flutter run -d <android-id>   # 안드로이드
 - **크기**: 영상은 프레임 내 캐릭터가 작았음 → Mascot이 프레임을 캐릭터로 가득 채워 체감 확대(폭=화면폭-48, 260~480 클램프).
 - **녹청 캡션**: 확정 캐릭터 아래 "태고가 선택되었습니다 / 조이가 선택되었습니다"(볼드 w800 · `SoriColors.primary`). l10n 신규 키 `characterSelectedTiger/Magpie`(DE·EN 동일 한국어값).
 - **설명 em-dash 제거·자연화**: `characterDescTiger` DE/EN에서 " — " → 문장 분리. 설명 본문 `TextAlign.center`→`start`.
-- **상단 히어로**: 이미 정사각 원본 `magpie_tiger_together.png` `aspectRatio:1`(크롭 0) — Jin 크롭 스샷은 stale OneDrive 빌드 탓.
+- **상단 히어로 → 듀오 영상**(Jin 후속 요청): `magpie_tiger_together.png`(정적) → **`taego-joy-duo.mp4`(1280×720/16:9) 루프**로 교체. `HanokHeader`/`SoriPosterLoop`에 옵션 `fit`(기본 `cover`, 하위호환) 추가 → `BoxFit.contain`+16:9 박스로 **크롭 0**(전부 보임). 포스터 `assets/illustrations/hanok/taego-joy-duo.png`, `videoReady=false`(테스트)·reduce-motion·다크 시 포스터 폴백. `taego-joy-duo.mp4`는 이전엔 `kLoopAssets` 등록만 된 고아였고 이번에 첫 소비처 배선. ⚠️ 단일 정속 루프라 확정 텍스처 교대 번쩍보다 안정적이나 이 기기 디코더 버그상 잔깜빡 여지.
 - **온보딩 체인 분석(msg3)**: CharacterSelection→확정→OnboardingLevelScreen→(레벨선택)accountNudge 시트→home→450ms 후 motivation 시트("Warum lernst du Koreanisch?"). "이전 페이지·겹쳐 에러"의 정체 = 확정 영상 번쩍 → 정적화로 해소.
 - **검증:** `flutter gen-l10n` OK · `flutter analyze`(화면) 0 · `character_selection_screen_test` 3/3. ⚠️ 미검증(Jin 실기기). **⚠️ 빌드 경로**: Jin이 stale `OneDrive\Desktop` 사본에서 빌드 중 — `ELibrary\Downloads\DataSet` 사본에서 실행해야 반영.
 

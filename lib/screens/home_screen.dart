@@ -9,6 +9,7 @@ import '../models/hanok_stage.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
 import '../services/data_loader.dart';
+import '../services/decoration_reward_service.dart';
 import '../services/mission_recommender.dart';
 import '../services/pack_access.dart';
 import '../services/gye_service.dart';
@@ -91,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _loadingTodaySnapshot = true;
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
   int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
+  int _openableBoxes = 0; // 열 수 있는 보자기(퀘스트 보상) 개수 — 홈 배너 게이트
 
   // E1a. Lernpfad 홈 임베드 — 현재 레벨 단어팩 노드 리스트.
   List<({VocabPack pack, PackProgress progress})> _pathNodes = [];
@@ -292,6 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _todaySnapshot = snapshot;
         _dueCount = snapshot.dueCount;
         _hardCount = snapshot.hardCount;
+        _openableBoxes = DecorationRewardService.openableBoxCount();
         _courseCardThisWeek = showCourseCard;
         _loadingTodaySnapshot = false;
       });
@@ -696,6 +699,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: Spacing.lg),
 
+                      // ── 보상 안내 — 열 수 있는 보자기가 있으면 발견 배너 ──
+                      // 이게 없으면 퀘스트로 상자가 생겨도 사용자가 알 길이 없다.
+                      if (_openableBoxes > 0) ...[
+                        SoriEntrance(
+                          delay: const Duration(milliseconds: 110),
+                          slideY: 14,
+                          child: _BojagiBanner(
+                            count: _openableBoxes,
+                            onOpen: () async {
+                              await Navigator.pushNamed(context, '/bojagi');
+                              if (mounted) {
+                                await _refreshHome();
+                              }
+                            },
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.lg),
+                      ],
+
                       // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
                       SoriEntrance(
                         delay: const Duration(milliseconds: 120),
@@ -909,6 +931,64 @@ enum _DayPhase { morning, afternoon, evening }
 
 /// A read-only glimpse of the learner's estate. The main Hanok screen owns
 /// place selection and navigation; Home only provides one deliberate doorway.
+/// 홈 — 지금 열 수 있는 보자기(퀘스트 보상) 안내 배너.
+///
+/// [count] 는 [DecorationRewardService.openableBoxCount] 로 이미 0 초과일 때만
+/// 렌더된다. 탭하면 `/bojagi` 로 이동해 상자를 연다.
+class _BojagiBanner extends StatelessWidget {
+  final int count;
+  final VoidCallback onOpen;
+
+  const _BojagiBanner({required this.count, required this.onOpen});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
+    return Semantics(
+      button: true,
+      label: t.homeBojagiTitle,
+      child: SoriPressable(
+        onTap: onOpen,
+        haptic: SoriHaptic.selection,
+        child: Container(
+          padding: const EdgeInsets.all(Spacing.md),
+          decoration: BoxDecoration(
+            color: SoriColors.gold.withValues(alpha: 0.10),
+            borderRadius: SoriRadius.brMd,
+            border: Border.all(color: SoriColors.gold.withValues(alpha: 0.35)),
+          ),
+          child: Row(
+            children: [
+              const Icon(
+                Icons.card_giftcard_rounded,
+                color: SoriColors.gold,
+                size: 28,
+              ),
+              const SizedBox(width: Spacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(t.homeBojagiTitle, style: text.cardTitle),
+                    const SizedBox(height: 2),
+                    Text(
+                      t.homeBojagiBody(count),
+                      style: text.bodySmall.copyWith(color: s.textMuted),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded, color: s.textDim),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _HomeHanokPreview extends StatelessWidget {
   final PersonalHanokProjection? projection;
   final VoidCallback onOpen;
@@ -1207,9 +1287,10 @@ class _TigerHero extends StatelessWidget {
         final w = c.maxWidth;
         final bool veryNarrow = w < 330;
         final double greetingSize = veryNarrow ? 21.0 : 24.0;
-        // §6.1 블록 2: 클립 밴드 높이 축소 ~160dp.
-        final double bandHeight = veryNarrow ? 144.0 : 160.0;
-        final double bubbleMax = (w * 0.62).clamp(140.0, 260.0);
+        // Jin 2026-08-05: 캐릭터 영상을 액자 없이 크게 — 밴드 높이 대폭 확대.
+        final double bandHeight = veryNarrow ? 200.0 : 244.0;
+        // 짧은 대사(예: "Jedes Wort…")는 한 줄에 들어가게 말풍선 폭을 넓힌다.
+        final double bubbleMax = (w * 0.92).clamp(240.0, 360.0);
 
         final hero = Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1305,7 +1386,7 @@ class _SpeechBubble extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'Pretendard',
-              fontSize: 12.5,
+              fontSize: 14.5,
               fontWeight: FontWeight.w700,
               color: isDark ? const Color(0xFF1F1A14) : s.text,
               height: 1.35,
