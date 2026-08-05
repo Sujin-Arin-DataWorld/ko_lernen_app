@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/personal_room.dart';
 import '../services/mission_recommender.dart';
 import '../services/pack_access.dart';
+import '../services/quest_tracker.dart';
 import '../services/room_placement_service.dart';
 import '../services/storage_service.dart';
 import '../services/today_learning_snapshot.dart';
@@ -82,6 +83,9 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
       final snapshot = await load();
+      // 방금 학습 루트가 돌아왔다 — 그새 획득한 보자기를 생산한다(퀘스트 화면
+      // 안 열어도). best-effort 라 실패해도 추천 로드를 막지 않는다.
+      await QuestTracker.syncEarnedRewards();
       final room = _readRoomSnapshot();
       if (!mounted) {
         return;

@@ -104,15 +104,40 @@ class QuestTracker {
         // 상자를 확인한 뒤 marker 만 마무리한다. 같은 퀘스트의 보상 중복도 막는다.
         await DecorationRewardService.ensurePendingBoxForQuest(p.questId);
         await Storage.markQuestCompleted(p.questId);
-        // 2픽: 방금 완료한 퀘스트를 계 피드에 broadcast (축하 유도)
-        await GyeService.broadcastFeed(
-          GyeFeedType.questCompleted,
-          {'questId': p.questId},
-        );
+        // 2픽: 방금 완료한 퀘스트를 계 피드에 broadcast (축하 유도) — best-effort.
+        // 보상 상자·완료 마커는 위에서 이미 로컬에 기록됐으므로, 소셜 계층이
+        // 없거나(오프라인·미로그인) 실패해도 학습 보상은 유실되지 않는다.
+        try {
+          await GyeService.broadcastFeed(
+            GyeFeedType.questCompleted,
+            {'questId': p.questId},
+          );
+        } catch (_) {
+          // 보상은 이미 지급됨 — 소셜 broadcast 실패는 무시.
+        }
       }
     }
-    // 2픽: 레벨업도 계 피드에 동기화 (순환 회피 — 여기서 pull)
-    await GyeService.syncLevelUp();
+    // 2픽: 레벨업도 계 피드에 동기화 (순환 회피 — 여기서 pull) — best-effort.
+    try {
+      await GyeService.syncLevelUp();
+    } catch (_) {
+      // 소셜 동기화는 로컬 보상 루프에 필수가 아님.
+    }
+  }
+
+  /// 화면-비의존 보상 동기화: 퀘스트를 재계산하고 처음 target 도달한 완료만
+  /// persist 한다. 공부만으로도(퀘스트 화면 안 열어도) 학습자가 획득한 보자기가
+  /// 생산된다. best-effort — 자체 오류를 삼켜 UI 호출자(홈·사랑방)가 무조건
+  /// await 할 수 있다. 멱등: [persistNewCompletions] 는 처음 도달한 퀘스트만
+  /// 처리하고 [DecorationRewardService.ensurePendingBoxForQuest] 는 중복을
+  /// 거부하므로 여러 화면에서 불러도 이중 지급 없음.
+  static Future<void> syncEarnedRewards() async {
+    try {
+      final progresses = await computeAll();
+      await persistNewCompletions(progresses);
+    } catch (_) {
+      // 비차단: 보상 동기화 실패는 절대 UI 로 전파하지 않는다.
+    }
   }
 
   // ── Helfer ──────────────────────────────────────────────────────────

@@ -17,6 +17,7 @@ import '../services/daily_char_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
+import '../services/quest_tracker.dart';
 import '../services/smalltalk_loader.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/notification_service.dart';
@@ -308,8 +309,13 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Future<void> _refreshHome() =>
-      Future.wait<void>([_loadToday(), _loadPath(), _loadHanokPreview()]);
+  Future<void> _refreshHome() async {
+    // 공부하고 돌아오면 그새 target 도달한 퀘스트의 보자기를 생산한다(퀘스트
+    // 화면을 안 열어도 — 실제 근본 수리). 이후 _loadToday 가 openableBoxCount 를
+    // 다시 읽어 보자기 배너에 반영한다.
+    await QuestTracker.syncEarnedRewards();
+    await Future.wait<void>([_loadToday(), _loadPath(), _loadHanokPreview()]);
+  }
 
   /// 알림이 켜져 있으면 데일리 리마인더를 최신 스트릭 문구로 재예약한다
   /// (홈 진입마다). 스트릭이 있으면 "🔥 N일 연속" 넛지로 강화.

@@ -480,6 +480,19 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-05 — 학습→보상 루프 Phase 1(P1-a) 구현: 공부만으로 보자기 생산 — 커밋·푸시
+
+**범위:** 위 "학습→보상 루프 수리 계획" 실행. 동시 세션이 그새 `dcb58b4`로 **홈 보자기 배너(P1-b, `_BojagiBanner`·`homeBojagi*`)**를 이미 구현·커밋 → 내 계획의 배너/신규 위젯·ARB는 **중복이라 스킵**. 단 **근본 결함(P1-a)은 여전히 미구현**이었음(보자기 생산자 `persistNewCompletions`가 오직 `QuestsScreen`에서만 실행) → 그 코어만 구현.
+
+- **`quest_tracker.dart`**: 신규 `QuestTracker.syncEarnedRewards()` = `computeAll()`+`persistNewCompletions()`를 자체 try/catch로 감싼 **화면-비의존·멱등 seam**. + `persistNewCompletions`의 `GyeService.broadcastFeed`·`syncLevelUp`을 **best-effort(try/catch)** 화 — 보상 상자·완료 마커는 그 앞에서 이미 로컬 기록되므로 오프라인/미로그인이어도 학습 보상 유실 0.
+- **배선**: 홈 `_refreshHome`(→ 이후 `_loadToday`가 `openableBoxCount` 재독 → 기존 배너 반영)·사랑방 `_load`(추천 로드 직후) 시작에 `syncEarnedRewards()`. **이제 퀘스트 화면을 안 열어도 공부(홈/사랑방 복귀)만으로 획득 보자기가 생산돼 홈 배너에 뜬다** = Jin 신고 버그("공부했는데 기록이 안돼")의 실제 수리.
+- 불변식: `DecorationRewardService` 직렬큐·수령저널 무변경. 멱등(처음 도달 퀘스트만·`ensurePendingBoxForQuest` 중복 거부) → 홈·사랑방·퀘스트 어디서 불러도 이중지급 0.
+- 신규 테스트 `test/quest_tracker_sync_test.dart`(2): 완료 퀘스트 1개 보자기 지급·멱등 / seam 무예외·멱등. (setUp=`resetForTesting`+mock+`init`.)
+
+**남은 Phase 1(선택):** 사랑방 자체 배너(현재 홈만)·홈 resume 새로고침(P1-c). **Phase 2**(팩클리어=보자기·연속 성장·레벨업 축하)는 별도. ⚠️ 미검증(Jin 실기기): 실제 팩 클리어→홈 배너 노출.
+
+**검증:** `flutter analyze`(4파일) **0** · `flutter test quest_tracker_sync+screen_smoke` **27 통과**(seam 2 + 스모크 25, 홈·사랑방 빌드 무예외). **Git:** 이 커밋(quest_tracker·home·sarangbang·신규 test·본 로그) + origin/main 푸시.
+
 ### 2026-08-05 — 프로필 캐릭터 영상 액자/클립 완전 제거 + 까치 bob2↔bob3 교대 — 미커밋
 
 **범위:** Jin — "캐릭터 video mp4를 절대 원이나 박스에 가두지 마(네모든 원이든). 이거 어디에 써놔. Joy(까치)일 때 magpie_bob3·bob2 두 개를 번갈아, 기존거 쓰지 말고." `profile_screen.dart` `_Avatar` + `character_clip.dart` 카탈로그 + 테스트/메모리.
