@@ -102,6 +102,50 @@ void main() {
       expect(Storage.pendingBoxes, isEmpty);
     });
 
+    // P2-c: a level-up (or any) milestone celebration enqueues a
+    // `milestone:<id>` source. It reuses the same queue/journal/candidate path.
+    test('milestone source (milestone:<id>) is a first-class, claimable reward',
+        () async {
+      final source =
+          '${DecorationRewardService.kMilestoneSourcePrefix}level_5';
+      await DecorationRewardService.ensurePendingBox(source);
+      expect(DecorationRewardService.openableBoxCount(), 1);
+
+      final offer = await DecorationRewardService.loadNextOffer();
+      expect(offer.state, DecorationRewardOfferState.ready);
+      expect(offer.sourceQuestId, source);
+      expect(offer.candidates, hasLength(3));
+
+      final pick = offer.candidates.first;
+      final result = await DecorationRewardService.claimNextBox(pick);
+      expect(result, DecorationRewardClaimResult.claimed);
+      expect(Storage.ownedDecor, contains(pick));
+      expect(Storage.pendingBoxes, isEmpty);
+    });
+
+    test('re-enqueuing the same milestone source is a no-op (one per milestone)',
+        () async {
+      final source =
+          '${DecorationRewardService.kMilestoneSourcePrefix}level_5';
+      await DecorationRewardService.ensurePendingBox(source);
+      await DecorationRewardService.ensurePendingBox(source);
+      expect(Storage.pendingBoxes, [source]);
+    });
+
+    test('a malformed milestone token (prefix only) is not a reward source',
+        () async {
+      expect(
+        DecorationRewardService.isRewardSource(
+          DecorationRewardService.kMilestoneSourcePrefix,
+        ),
+        isFalse,
+      );
+      await DecorationRewardService.ensurePendingBox(
+        DecorationRewardService.kMilestoneSourcePrefix,
+      );
+      expect(Storage.pendingBoxes, isEmpty);
+    });
+
     test(
       'rotates to the next deterministic unowned trio after the original offer is exhausted',
       () async {

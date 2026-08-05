@@ -47,4 +47,19 @@ void main() {
       2,
     );
   });
+
+  test('올바른 마일스톤 출처(milestone:<id>)는 세고, 접두사만은 세지 않는다', () {
+    final prefix = DecorationRewardService.kMilestoneSourcePrefix;
+    expect(
+      DecorationRewardService.openableBoxCount(
+        pending: <String>[
+          '${prefix}level_5', // 유효한 마일스톤 출처 → 센다
+          '${prefix}streak_7', // 유효한 마일스톤 출처 → 센다
+          prefix, // 접두사만 = 무효
+          'level_5', // 접두사 없음 = 무효
+        ],
+      ),
+      2,
+    );
+  });
 }

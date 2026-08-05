@@ -65,9 +65,18 @@ class PersonalHanokProjection {
   final HanokStage legacyStage;
   final Set<PersonalHanokMilestone> unlocked;
 
+  /// Continuous overall study completion (0..1), averaged across the four CEFR
+  /// levels. Unlike [constructionFraction] — which steps discretely as each of
+  /// the seven construction milestones unlocks — this advances as soon as any
+  /// single pack clears, so the Home preview can grow smoothly with study
+  /// instead of only jumping at milestone boundaries. Reaches 1.0 exactly when
+  /// construction is complete.
+  final double studyFraction;
+
   const PersonalHanokProjection._({
     required this.legacyStage,
     required this.unlocked,
+    required this.studyFraction,
   });
 
   static const Set<PersonalHanokMilestone> constructionMilestones = {
@@ -99,6 +108,7 @@ class PersonalHanokProjection {
     final a2 = _unit(ratios.a2);
     final b1 = _unit(ratios.b1);
     final b2 = _unit(ratios.b2);
+    final studyFraction = _unit((a1 + a2 + b1 + b2) / 4);
     final legacyStage = computeStage(
       a1Ratio: a1,
       a2Ratio: a2,
@@ -113,6 +123,7 @@ class PersonalHanokProjection {
       return PersonalHanokProjection._(
         legacyStage: legacyStage,
         unlocked: Set.unmodifiable(unlocked),
+        studyFraction: studyFraction,
       );
     }
     if (b1 >= .25) {
@@ -125,6 +136,7 @@ class PersonalHanokProjection {
       return PersonalHanokProjection._(
         legacyStage: legacyStage,
         unlocked: Set.unmodifiable(unlocked),
+        studyFraction: studyFraction,
       );
     }
 
@@ -147,6 +159,7 @@ class PersonalHanokProjection {
     return PersonalHanokProjection._(
       legacyStage: legacyStage,
       unlocked: Set.unmodifiable(unlocked),
+      studyFraction: studyFraction,
     );
   }
 }

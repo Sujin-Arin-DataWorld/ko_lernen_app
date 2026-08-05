@@ -42,6 +42,7 @@ import '../widgets/sori/personal_hanok_map.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/pending_reward_card.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/progress.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/motivation_sheet.dart';
 import '../widgets/sori/milestone_celebration.dart';
@@ -200,6 +201,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     }
     _celebrating = true;
     try {
+      // P2-c: 마일스톤 축하와 함께 보자기 한 개를 떨군다. 출처는 마일스톤 id
+      // (`milestone:level_5` 등). ensurePendingBox 는 출처별 멱등이라 마킹 전에
+      // 떨어뜨려도(또는 재축하 시) 중복 생산되지 않는다. 크래시 안전을 위해
+      // 마킹보다 먼저 생산한다 — 마킹만 되고 보자기를 잃는 창을 없앤다.
+      await DecorationRewardService.ensurePendingBox(
+        '${DecorationRewardService.kMilestoneSourcePrefix}${top.id}',
+      );
       await Storage.markMilestonesCelebrated([top.id]);
       if (!mounted) return;
       final feedbackContext = FeedbackCompletion.milestone(
@@ -216,7 +224,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       _celebrating = false;
     }
     if (mounted) {
-      setState(() {});
+      // 방금 떨어뜨린 마일스톤 보자기를 배너에 즉시 반영한다.
+      setState(
+        () => _openableBoxes = DecorationRewardService.openableBoxCount(),
+      );
     }
   }
 
@@ -970,7 +981,9 @@ class _HomeHanokPreview extends StatelessWidget {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     final surfaces = SoriSurfaces.of(context);
-    final progress = projection?.constructionFraction ?? 0;
+    // 연속(fractional) 학습 진행 — 한 팩만 클리어해도 즉시 올라가 홈에서
+    // 한옥 성장이 매끄럽게 보인다(마일스톤 단위 계단식 constructionFraction 대신).
+    final progress = projection?.studyFraction ?? 0;
 
     return SoriCard(
       variant: SoriCardVariant.hanji,
@@ -1006,6 +1019,13 @@ class _HomeHanokPreview extends StatelessWidget {
               ),
             ),
           const SizedBox(height: Spacing.md),
+          SoriProgressBar(
+            value: progress,
+            thickness: 10,
+            color: SoriColors.primary,
+            animated: true,
+          ),
+          const SizedBox(height: Spacing.xs),
           Text(
             t.homeHanokPreviewProgress((progress * 100).round()),
             style: text.caption.copyWith(color: SoriColors.primary),

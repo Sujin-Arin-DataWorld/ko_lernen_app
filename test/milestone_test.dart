@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/data/milestone.dart';
+import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
@@ -71,6 +72,26 @@ void main() {
         'streak_7',
         'level_5',
       });
+    });
+  });
+
+  // P2-c 배선 계약: 홈이 축하하는 모든 마일스톤은 유효한 `milestone:` 보상
+  // 출처가 돼야 한다 — 홈은 `milestone:<id>` 로 보자기를 생산하고, 서비스는
+  // 이를 수용·수령 가능해야 한다. id 형식·접두사가 어긋나면 여기서 잡힌다.
+  group('milestone reward-source contract', () {
+    test('every milestone threshold maps to a valid milestone: source', () {
+      for (final entry in milestoneThresholds.entries) {
+        for (final th in entry.value) {
+          final id = Milestone(entry.key, th).id;
+          final source =
+              '${DecorationRewardService.kMilestoneSourcePrefix}$id';
+          expect(
+            DecorationRewardService.isRewardSource(source),
+            isTrue,
+            reason: '$source must be a claimable reward source',
+          );
+        }
+      }
     });
   });
 }

@@ -7,6 +7,18 @@
 
 ---
 
+### 2026-08-06 — 보상 루프 Phase 2 P2-b(연속 한옥 성장) + P2-c(마일스톤 보자기) — 로컬 커밋(푸시 보류)
+
+**범위:** Jin "continue to P2-b and P2-c". 계획 `docs/superpowers/plans/2026-08-06-hanok-growth-and-milestone-bojagi-P2bc.md`. 둘 다 기존 심(seam) 재사용 — 새 아키텍처·이벤트 시스템 0.
+
+- **P2-b 연속 한옥 성장(홈):** 홈 프리뷰가 쓰던 `constructionFraction`(마일스톤 7단계 계단식)은 팩 하나 클리어로는 안 움직였음. `PersonalHanokProjection` 에 **연속** 필드 `studyFraction = clamp01((a1+a2+b1+b2)/4)` 추가(`.from` 팩토리에서 같은 `LevelRatios` 로 파생, zero-write, 완성 시 정확히 1.0). `_HomeHanokPreview` 가 이를 디자인시스템 `SoriProgressBar(animated:true)`(한지톤 바 — iOS식 배지/필 아님) + 기존 `homeHanokPreviewProgress %` 로 렌더 → 공부 후 복귀하면 바가 차오름. `constructionFraction` 무변경.
+- **P2-c 마일스톤 보자기(기존 축하에 배선):** 발견 — 레벨/스트릭/단어 **마일스톤 축하가 이미 존재**(`milestoneThresholds` level[5,10], `newlyReachedMilestones`, `celebratedMilestones` dedup, `showMilestoneCelebration` 버스트+캐릭터 클립 시트). 빠진 건 **보상**뿐. → `DecorationRewardService.isRewardSource` 가 `milestone:<id>` 토큰도 수용(`pack:` 패턴 그대로, `kMilestoneSourcePrefix`). `home_screen._maybeCelebrateMilestone` 이 축하 시 **마킹보다 먼저**(크래시 안전) `ensurePendingBox('milestone:${top.id}')` 후 `_openableBoxes` 재독 → P1 배너가 홈·사랑방에서 즉시 노출. 후보는 여전히 `_stableStartIndex` 해시 파생(출처-무관).
+- **스코프 메모(Jin 확인 요망):** 축하 경로가 streak/level/vocab 공통이라 보자기는 **모든 마일스톤**에 떨어짐(레벨 전용 아님). 한 코드 경로 — 원하면 `top.type == MilestoneType.level` 한 줄로 축소 가능.
+
+**검증:** `flutter analyze`(touched 7개) **0**. `flutter test`: `personal_hanok_study_fraction`(신규 — 평균·0/1·단조·클램프·"레벨 내 studyFraction↑ 동안 constructionFraction 평탄") + reward service/openable(+milestone 케이스) + `milestone_test`(신규 배선 계약: 모든 임계값→유효 `milestone:` 출처) + 한옥 catalog/map/world/home-snapshot **회귀 0**(62+7 통과). ⚠️ 미검증(Jin 실기기): 팩 클리어/레벨5 도달→홈 복귀 시 성장 바 애니 + 축하 직후 보자기 배너.
+
+**커밋/푸시:** AGENTS.md 규칙(명시 요청 시만) 준수 — 본인 파일만 스테이징해 **로컬 커밋**, **푸시는 Jin 승인 대기**. Phase 2 잔여 없음(P2-a/b/c 완료).
+
 ### 2026-08-05 — 보상 루프 Phase 2 P2-a: 팩 클리어 = 보자기 1개 (통합 보상 출처) — 커밋·푸시
 
 **범위:** Jin "phase2 넘어가줘" → 승인(**P2-a만 우선**). 계획 `docs/superpowers/plans/2026-08-05-pack-clear-bojagi-P2a.md`. **팩을 처음 클리어하면 보자기 1개**가 떨어지도록 — 퀘스트 타깃과 무관하게 공부가 곧 보상. 기존 보자기 수령 UI·직렬큐·크래시세이프 저널 **무변경**, "유효한 보상 출처" 정의만 확장.

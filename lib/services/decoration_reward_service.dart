@@ -87,16 +87,24 @@ class DecorationRewardService {
   /// 콜론을 포함하지 않는 퀘스트 id 와 충돌하지 않는다.
   static const String kPackSourcePrefix = 'pack:';
 
+  /// 마일스톤 달성 보상 출처의 접두사. 출처 id 는 `milestone:<milestoneId>`
+  /// (예 `milestone:level_5`). 콜론 없는 퀘스트 id·`pack:` 출처와 충돌하지 않는다.
+  static const String kMilestoneSourcePrefix = 'milestone:';
+
+  static bool _hasPrefixedBody(String id, String prefix) =>
+      id.startsWith(prefix) && id.length > prefix.length;
+
   /// 보자기를 낼 수 있는 유효한 보상 출처인가.
   ///
-  /// 등록된 퀘스트이거나, 형식이 올바른 팩 출처(`pack:` + 비어있지 않은 id)면
-  /// true. 팩 출처의 후보는 [_stableStartIndex] 해시로만 결정돼 출처 종류와
-  /// 무관하게 항상 결정적·수령 가능하므로 별도 팩 목록 검증이 필요 없다. 오직
-  /// pack-clear 경로가 실제 pack.id 로 생산하므로 잘못된 팩 출처는 생기지 않는다.
+  /// 등록된 퀘스트이거나, 형식이 올바른 팩 출처(`pack:` + 비어있지 않은 id),
+  /// 또는 마일스톤 출처(`milestone:` + 비어있지 않은 id)면 true. 모든 출처의
+  /// 후보는 [_stableStartIndex] 해시로만 결정돼 출처 종류와 무관하게 항상
+  /// 결정적·수령 가능하므로 별도 목록 검증이 필요 없다. 각 경로(pack-clear,
+  /// 마일스톤 축하)가 실제 id 로만 생산하므로 잘못된 출처는 생기지 않는다.
   static bool isRewardSource(String id) =>
       kQuestById.containsKey(id) ||
-      (id.startsWith(kPackSourcePrefix) &&
-          id.length > kPackSourcePrefix.length);
+      _hasPrefixedBody(id, kPackSourcePrefix) ||
+      _hasPrefixedBody(id, kMilestoneSourcePrefix);
 
   /// 한 퀘스트가 항상 같은 세 후보를 주되, 이미 보유한 것은 제외한다.
   ///
