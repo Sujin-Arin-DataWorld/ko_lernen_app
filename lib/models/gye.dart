@@ -46,6 +46,73 @@ extension GyeFeedTypeWire on GyeFeedType {
 DateTime? _ts(Object? v) =>
     v is Timestamp ? v.toDate() : (v is String ? DateTime.tryParse(v) : null);
 
+/// The immutable identity of one membership generation.
+///
+/// A [DateTime] cannot carry Firestore's nanosecond component, so mutations
+/// that must distinguish a leave/rejoin generation keep the authoritative
+/// timestamp as its original seconds/nanoseconds pair instead.
+class GyeMembershipEpoch {
+  factory GyeMembershipEpoch({required int seconds, required int nanoseconds}) {
+    if (!isValidParts(seconds, nanoseconds)) {
+      throw ArgumentError.value(
+        (seconds: seconds, nanoseconds: nanoseconds),
+        'GyeMembershipEpoch',
+        'must be a server-compatible Firestore timestamp pair',
+      );
+    }
+    return GyeMembershipEpoch._(seconds, nanoseconds);
+  }
+
+  const GyeMembershipEpoch._(this.seconds, this.nanoseconds);
+
+  /// JavaScript callable payloads require exact safe integers. The Firestore
+  /// [Timestamp] parser below is stricter still, but this protects each
+  /// primitive-payload boundary too.
+  static const int _maxSafeInteger = 9007199254740991;
+
+  final int seconds;
+  final int nanoseconds;
+
+  static bool isValidParts(int seconds, int nanoseconds) =>
+      seconds >= 0 &&
+      seconds <= _maxSafeInteger &&
+      nanoseconds >= 0 &&
+      nanoseconds < 1000000000;
+
+  /// Accepts only a Firestore [Timestamp], never a lossy [DateTime] or wire
+  /// string. Missing/legacy timestamps deliberately have no usable epoch.
+  static GyeMembershipEpoch? tryParse(Object? value) {
+    if (value is! Timestamp ||
+        !isValidParts(value.seconds, value.nanoseconds)) {
+      return null;
+    }
+    return GyeMembershipEpoch._(value.seconds, value.nanoseconds);
+  }
+
+  /// Rehydrates the exact primitive representation used in callable payloads
+  /// and public dedication documents without accepting numeric coercion.
+  static GyeMembershipEpoch? tryFromParts(
+    Object? seconds,
+    Object? nanoseconds,
+  ) {
+    if (seconds is! int ||
+        nanoseconds is! int ||
+        !isValidParts(seconds, nanoseconds)) {
+      return null;
+    }
+    return GyeMembershipEpoch._(seconds, nanoseconds);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is GyeMembershipEpoch &&
+      other.seconds == seconds &&
+      other.nanoseconds == nanoseconds;
+
+  @override
+  int get hashCode => Object.hash(seconds, nanoseconds);
+}
+
 T _enumByName<T extends Enum>(List<T> values, Object? name, T fallback) {
   for (final e in values) {
     if (e.name == name) {
@@ -137,6 +204,11 @@ class GyeMember {
   final String membershipId;
   final String nickname;
   final DateTime? joinedAt;
+
+  /// Exact Firestore join instant used to bind mutation requests to one
+  /// membership generation. A missing value means the member is legacy and
+  /// cannot authorize generation-sensitive actions.
+  final GyeMembershipEpoch? joinedAtEpoch;
   final GyeRole role;
   final int weeklyPacksContributed;
   final GyeMemberStatus status;
@@ -150,6 +222,7 @@ class GyeMember {
     required this.nickname,
     this.membershipId = 'legacy',
     this.joinedAt,
+    this.joinedAtEpoch,
     this.role = GyeRole.member,
     this.weeklyPacksContributed = 0,
     this.status = GyeMemberStatus.active,
@@ -162,6 +235,7 @@ class GyeMember {
     membershipId: d['membershipId'] as String? ?? 'legacy',
     nickname: d['nickname'] as String? ?? '',
     joinedAt: _ts(d['joinedAt']),
+    joinedAtEpoch: GyeMembershipEpoch.tryParse(d['joinedAt']),
     role: _enumByName(GyeRole.values, d['role'], GyeRole.member),
     weeklyPacksContributed: (d['weeklyPacksContributed'] as num?)?.toInt() ?? 0,
     status: _enumByName(

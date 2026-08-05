@@ -38,14 +38,16 @@ Set<String> eligibleGyeDedicationSlugs(Iterable<String> owned) =>
 List<GyeDedication> normalizeGyeDedications(
   Iterable<GyeDedication> dedications,
 ) {
-  final sorted = List<GyeDedication>.from(dedications)
+  // Tombstones remain available to the screen for compare-and-set, but cannot
+  // occupy a visual slot or be rendered by the shared courtyard layer.
+  final sorted = dedications.where((dedication) => dedication.isActive).toList()
     ..sort((left, right) {
-      final slot = left.slotIndex.compareTo(right.slotIndex);
+      final slot = left.slotIndex!.compareTo(right.slotIndex!);
       return slot != 0 ? slot : left.uid.compareTo(right.uid);
     });
   final bySlot = <int, GyeDedication>{};
   for (final dedication in sorted) {
-    bySlot.putIfAbsent(dedication.slotIndex, () => dedication);
+    bySlot.putIfAbsent(dedication.slotIndex!, () => dedication);
   }
   return List<GyeDedication>.unmodifiable(bySlot.values);
 }

@@ -12,7 +12,7 @@ void main() {
     final dedication = GyeDedication.tryParse('member-a', {
       'schemaVersion': 1,
       'uid': 'member-a',
-      'membershipId': 'membership-a',
+      'membershipId': 'membership-a-0123456789',
       'decorationSlug': 'decoration_soban',
       'slotIndex': 1,
       'revision': 1,
@@ -37,5 +37,35 @@ void main() {
       ),
       findsOneWidget,
     );
+  });
+
+  testWidgets('keeps a withdrawn tombstone out of the visual layer', (
+    tester,
+  ) async {
+    final tombstone = GyeDedication.tryParse('member-a', {
+      'schemaVersion': 1,
+      'uid': 'member-a',
+      'membershipId': 'membership-a-0123456789',
+      'state': 'withdrawn',
+      'joinedAtSeconds': 1754355200,
+      'joinedAtNanos': 123000000,
+      'decorationSlug': null,
+      'slotIndex': null,
+      'revision': 4,
+      'lastOperationId': 'dedication-a-4',
+    })!;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: SizedBox(
+            width: 400,
+            height: 300,
+            child: GyeDedicationLayer(dedications: [tombstone]),
+          ),
+        ),
+      ),
+    );
+
+    expect(find.byType(SoriDecorationImage), findsNothing);
   });
 }

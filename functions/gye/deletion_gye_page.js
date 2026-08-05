@@ -1,9 +1,16 @@
 "use strict";
 
+const {
+  deleteGyeDedicationForMembership,
+  joinEpochFrom,
+} = require("./gye_dedication_cleanup");
+
 const DELETE_COLLECTIONS = Object.freeze([
   "members",
   "departures",
   "bans",
+  "decor_dedications",
+  "decor_dedication_mutations",
   "feed",
   "reports",
   "stickers",
@@ -268,6 +275,14 @@ function createGyeDeletionPageCleaner({
         const data = meta.data() || {};
         if (data.ownerId !== uid) {
           if (departing.exists) {
+            const departingData = departing.data() || {};
+            await deleteGyeDedicationForMembership(
+              transaction,
+              gref,
+              uid,
+              departingData.membershipId,
+              joinEpochFrom(departingData.joinedAt),
+            );
             transaction.delete(departingRef);
             if (Number.isInteger(data.memberCount)) {
               transaction.update(gref, {
@@ -470,7 +485,16 @@ function createGyeDeletionPageCleaner({
         if (successorIsValid) {
           const departingRef = gref.collection("members").doc(uid);
           const departing = await transaction.get(departingRef);
-          if (departing.exists) transaction.delete(departingRef);
+          if (departing.exists) {
+            await deleteGyeDedicationForMembership(
+              transaction,
+              gref,
+              uid,
+              (departing.data() || {}).membershipId,
+              joinEpochFrom((departing.data() || {}).joinedAt),
+            );
+            transaction.delete(departingRef);
+          }
           transaction.update(gref, {
             ownerId: successorUid,
             memberCount: Number.isInteger(state.remainingCount)

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../data/gye_dedication_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/gye.dart';
 import '../../models/gye_dedication.dart';
 import '../../services/gye_dedication_service.dart';
+import '../../services/gye_service.dart';
 import 'button.dart';
 import 'gye_dedication_picker.dart';
 import 'placed_decoration.dart';
@@ -20,6 +22,9 @@ typedef GyeDedicationCommit =
       required String gyeId,
       required String? decorationSlug,
       required int expectedRevision,
+      required String expectedMembershipId,
+      required int expectedJoinedAtSeconds,
+      required int expectedJoinedAtNanos,
       required String operationId,
     });
 
@@ -33,6 +38,8 @@ class GyeDedicationAction extends StatefulWidget {
     required this.gyeId,
     required this.ownedDecor,
     required this.current,
+    required this.expectedMembershipId,
+    required this.expectedMembershipEpoch,
     required this.actionsAvailable,
     required this.onCommit,
   });
@@ -40,6 +47,8 @@ class GyeDedicationAction extends StatefulWidget {
   final String gyeId;
   final Iterable<String> ownedDecor;
   final GyeDedication? current;
+  final String expectedMembershipId;
+  final GyeMembershipEpoch expectedMembershipEpoch;
   final bool actionsAvailable;
   final GyeDedicationCommit onCommit;
 
@@ -50,37 +59,67 @@ class GyeDedicationAction extends StatefulWidget {
 class _GyeDedicationActionState extends State<GyeDedicationAction> {
   bool _submitting = false;
 
+  bool get _actionsEnabled =>
+      widget.actionsAvailable &&
+      GyeService.isValidMembershipId(widget.expectedMembershipId) &&
+      GyeMembershipEpoch.isValidParts(
+        widget.expectedMembershipEpoch.seconds,
+        widget.expectedMembershipEpoch.nanoseconds,
+      );
+
+  GyeDedication? _currentForMembership(
+    String membershipId,
+    GyeMembershipEpoch membershipEpoch,
+  ) {
+    final current = widget.current;
+    if (current == null ||
+        current.membershipId != membershipId ||
+        current.joinedAtEpoch != membershipEpoch) {
+      return null;
+    }
+    return current;
+  }
+
   Future<void> _openPicker() async {
-    if (_submitting || !widget.actionsAvailable) {
+    if (_submitting || !_actionsEnabled) {
       return;
     }
+    final expectedMembershipId = widget.expectedMembershipId;
+    final expectedMembershipEpoch = widget.expectedMembershipEpoch;
+    final current = _currentForMembership(
+      expectedMembershipId,
+      expectedMembershipEpoch,
+    );
     final candidates = eligibleGyeDedicationSlugs(widget.ownedDecor).toList()
       ..sort();
     final picked = await showSoriSheet<String>(
       context: context,
-      builder: (_) => GyeDedicationPickerSheet(
-        candidates: candidates,
-        current: widget.current,
-      ),
+      builder: (_) =>
+          GyeDedicationPickerSheet(candidates: candidates, current: current),
     );
     if (!mounted || picked == null) {
       return;
     }
     final decorationSlug = picked == kGyeDedicationWithdraw ? null : picked;
-    if (decorationSlug == widget.current?.decorationSlug) {
+    if (decorationSlug == current?.decorationSlug) {
       return;
     }
     final change = GyeDedicationChange.fromCurrent(
-      current: widget.current,
+      current: current,
       decorationSlug: decorationSlug,
     );
     final confirmed = await _confirm(change.decorationSlug);
-    if (!mounted || !confirmed) {
+    if (!mounted ||
+        !confirmed ||
+        widget.expectedMembershipId != expectedMembershipId ||
+        widget.expectedMembershipEpoch != expectedMembershipEpoch) {
       return;
     }
     await _submit(
       _GyeDedicationRequest(
         change: change,
+        expectedMembershipId: expectedMembershipId,
+        expectedMembershipEpoch: expectedMembershipEpoch,
         operationId: GyeDedicationService.newOperationId(),
       ),
     );
@@ -132,7 +171,11 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
   }
 
   Future<void> _submit(_GyeDedicationRequest request) async {
-    if (!mounted || _submitting || !widget.actionsAvailable) {
+    if (!mounted ||
+        _submitting ||
+        !_actionsEnabled ||
+        widget.expectedMembershipId != request.expectedMembershipId ||
+        widget.expectedMembershipEpoch != request.expectedMembershipEpoch) {
       return;
     }
     setState(() => _submitting = true);
@@ -142,6 +185,9 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
         gyeId: widget.gyeId,
         decorationSlug: request.change.decorationSlug,
         expectedRevision: request.change.expectedRevision,
+        expectedMembershipId: request.expectedMembershipId,
+        expectedJoinedAtSeconds: request.expectedMembershipEpoch.seconds,
+        expectedJoinedAtNanos: request.expectedMembershipEpoch.nanoseconds,
         operationId: request.operationId,
       );
     } on GyeDedicationClientFailure catch (error) {
@@ -200,7 +246,7 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
       child: SoriButton.outlined(
         label: t.gyeDedicationAction,
         size: SoriButtonSize.md,
-        onTap: widget.actionsAvailable && !_submitting ? _openPicker : null,
+        onTap: _actionsEnabled && !_submitting ? _openPicker : null,
       ),
     );
   }
@@ -209,9 +255,13 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
 class _GyeDedicationRequest {
   const _GyeDedicationRequest({
     required this.change,
+    required this.expectedMembershipId,
+    required this.expectedMembershipEpoch,
     required this.operationId,
   });
 
   final GyeDedicationChange change;
+  final String expectedMembershipId;
+  final GyeMembershipEpoch expectedMembershipEpoch;
   final String operationId;
 }

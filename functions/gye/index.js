@@ -120,6 +120,14 @@ const {
   createTesterFeedbackCallable,
   createTesterFeedbackRuntime,
 } = require("./tester_feedback_runtime");
+const {
+  createGyeDedicationCallable,
+  createGyeDedicationRuntime,
+} = require("./gye_dedication_runtime");
+const {
+  deleteGyeDedicationForMembership,
+  joinEpochFrom,
+} = require("./gye_dedication_cleanup");
 
 initializeApp();
 const db = getFirestore();
@@ -251,6 +259,19 @@ const testerFeedbackHandlers = createTesterFeedbackRuntime({
 });
 exports.submitTesterFeedback = createTesterFeedbackCallable({
   handler: testerFeedbackHandlers.submitTesterFeedback,
+  onCall,
+});
+const gyeDedicationHandlers = createGyeDedicationRuntime({
+  firestore: db,
+  serverTimestamp: () => FieldValue.serverTimestamp(),
+  makeError: (status, safeCode) => new HttpsError(
+    status,
+    "Gye dedication request failed.",
+    { code: safeCode },
+  ),
+});
+exports.setGyeDecorationDedication = createGyeDedicationCallable({
+  handler: gyeDedicationHandlers.setGyeDecorationDedication,
   onCall,
 });
 const deletionCleanupAdapters = createDeletionCleanupAdapters({
@@ -743,6 +764,13 @@ exports.on_report_created = onDocumentCreated(
           ...affectedUids.map((uid) => db.collection("users").doc(uid)),
         );
       }
+      await deleteGyeDedicationForMembership(
+        transaction,
+        gref,
+        targetUid,
+        (member.data() || {}).membershipId,
+        joinEpochFrom((member.data() || {}).joinedAt),
+      );
 
       transaction.set(banRef, {
         uid: targetUid,
@@ -805,13 +833,19 @@ exports.on_gye_member_deleted = onDocumentDeleted(
   },
   async (event) => {
     const before = event.data?.data() || {};
-    const markerRef = db
-      .collection("gye")
-      .doc(event.params.gyeId)
-      .collection("departures")
-      .doc(event.params.uid);
+    const gref = db.collection("gye").doc(event.params.gyeId);
+    const markerRef = gref.collection("departures").doc(event.params.uid);
     const marker = await markerRef.get();
     const deletedMembershipId = before.membershipId || "legacy";
+    await db.runTransaction(async (transaction) => {
+      await deleteGyeDedicationForMembership(
+        transaction,
+        gref,
+        event.params.uid,
+        deletedMembershipId,
+        joinEpochFrom(before.joinedAt),
+      );
+    });
     const plan = memberDeleteTriggerPlan(
       marker.exists ? marker.data() || {} : null,
       deletedMembershipId,

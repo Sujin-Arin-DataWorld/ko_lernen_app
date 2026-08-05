@@ -11,8 +11,14 @@ const COMMUNITY_COLLECTIONS = Object.freeze([
   "members",
   "departures",
   "bans",
+  "decor_dedications",
+  "decor_dedication_mutations",
   "processed_packs",
   "notification_outbox",
+]);
+const DEDICATION_COLLECTIONS = new Set([
+  "decor_dedications",
+  "decor_dedication_mutations",
 ]);
 const LEGACY_INVOCATION_STEP_BUDGET = 32;
 
@@ -69,6 +75,24 @@ function gyeIdFromDocument(document, collectionId) {
   } catch {
     return null;
   }
+}
+
+function dedicationIdentity(data) {
+  if (!data || typeof data.membershipId !== "string" ||
+      data.membershipId.length < 16 || data.membershipId.length > 64 ||
+      data.membershipId !== data.membershipId.trim() ||
+      data.membershipId.includes("/") ||
+      !Number.isSafeInteger(data.joinedAtSeconds) ||
+      data.joinedAtSeconds < 0 ||
+      !Number.isSafeInteger(data.joinedAtNanos) ||
+      data.joinedAtNanos < 0 || data.joinedAtNanos >= 1000000000) {
+    return null;
+  }
+  return {
+    membershipId: data.membershipId,
+    joinedAtSeconds: data.joinedAtSeconds,
+    joinedAtNanos: data.joinedAtNanos,
+  };
 }
 
 function validWorkerFence(value) {
@@ -280,6 +304,19 @@ function createDeletionCleanupAdapters({
           throw cleanupFailure("cleanup-progress-changed");
         }
 
+        const dedicationDocuments = page.docs.filter((document) =>
+          DEDICATION_COLLECTIONS.has(collectionId) &&
+          dedicationIdentity(document.data() || {}) !== null,
+        );
+        const currentDedications = dedicationDocuments.length === 0
+          ? []
+          : await transaction.getAll(
+            ...dedicationDocuments.map((document) => document.ref),
+          );
+        const currentDedicationByPath = new Map(currentDedications.map(
+          (document) => [document.ref.path, document],
+        ));
+
         for (const document of page.docs) {
           const data = document.data() || {};
           if (data.uid !== uid ||
@@ -301,6 +338,16 @@ function createDeletionCleanupAdapters({
             },
             { merge: true },
           );
+          if (!DEDICATION_COLLECTIONS.has(collectionId)) continue;
+          const expectedIdentity = dedicationIdentity(data);
+          const current = currentDedicationByPath.get(document.ref.path);
+          const currentData = current?.exists ? current.data() || {} : null;
+          if (expectedIdentity !== null && currentData?.uid === uid &&
+              currentData.membershipId === expectedIdentity.membershipId &&
+              currentData.joinedAtSeconds === expectedIdentity.joinedAtSeconds &&
+              currentData.joinedAtNanos === expectedIdentity.joinedAtNanos) {
+            transaction.delete(document.ref);
+          }
         }
 
         const pageComplete = page.docs.length < limit;

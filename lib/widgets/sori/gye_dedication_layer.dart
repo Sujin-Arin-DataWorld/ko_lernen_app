@@ -25,7 +25,7 @@ class GyeDedicationLayer extends StatelessWidget {
             for (final dedication in normalized)
               _exhibit(
                 dedication,
-                kGyeDedicationSlots[dedication.slotIndex],
+                kGyeDedicationSlots[dedication.slotIndex!],
                 width,
                 height,
               ),
@@ -52,7 +52,7 @@ class GyeDedicationLayer extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.contain,
             child: SoriDecorationImage(
-              slug: dedication.decorationSlug,
+              slug: dedication.decorationSlug!,
               size: size,
             ),
           ),

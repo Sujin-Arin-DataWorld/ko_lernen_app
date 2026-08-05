@@ -44,11 +44,24 @@ Future<void> _openSheet(
 GyeDedication _currentExhibit() => GyeDedication.tryParse('member-a', {
   'schemaVersion': 1,
   'uid': 'member-a',
-  'membershipId': 'membership-a',
+  'membershipId': 'membership-a-0123456789',
   'decorationSlug': 'decoration_soban',
   'slotIndex': 1,
   'revision': 2,
   'lastOperationId': 'dedication-a-2',
+})!;
+
+GyeDedication _withdrawnTombstone() => GyeDedication.tryParse('member-a', {
+  'schemaVersion': 1,
+  'uid': 'member-a',
+  'membershipId': 'membership-a-0123456789',
+  'state': 'withdrawn',
+  'joinedAtSeconds': 1754355200,
+  'joinedAtNanos': 123000000,
+  'decorationSlug': null,
+  'slotIndex': null,
+  'revision': 4,
+  'lastOperationId': 'dedication-a-4',
 })!;
 
 void main() {
@@ -86,5 +99,24 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(result, kGyeDedicationWithdraw);
+  });
+
+  testWidgets('a withdrawn tombstone does not offer withdrawal again', (
+    tester,
+  ) async {
+    await _openSheet(
+      tester,
+      candidates: const [],
+      current: _withdrawnTombstone(),
+      onResult: (_) {},
+    );
+
+    expect(
+      find.text(
+        'Open a Bojagi bundle to add a room decoration before showing one here.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Remove from exhibition'), findsNothing);
   });
 }

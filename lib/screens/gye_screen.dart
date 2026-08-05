@@ -263,38 +263,57 @@ class _GyeScreenState extends State<GyeScreen>
                           final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
                           return SizedBox(
                             height: h,
-                            child: StreamBuilder<List<GyeDedication>>(
-                              stream: GyeDedicationService.streamForGye(
+                            child: StreamBuilder<GyeMember?>(
+                              stream: GyeService.currentMemberStream(
                                 widget.gyeId,
                               ),
-                              builder: (context, dedicationSnapshot) {
-                                final dedications =
-                                    dedicationSnapshot.data ??
-                                    const <GyeDedication>[];
-                                return Stack(
-                                  children: [
-                                    Positioned.fill(
-                                      child: GyeHanok(
-                                        meta: meta,
-                                        dedications: dedications,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: Spacing.sm,
-                                      right: Spacing.sm,
-                                      child: GyeDedicationAction(
-                                        gyeId: widget.gyeId,
-                                        ownedDecor: Storage.ownedDecor,
-                                        current: currentGyeDedicationFor(
-                                          dedications,
-                                          GyeService.currentUid,
+                              builder: (context, memberSnapshot) {
+                                final currentMember = memberSnapshot.data;
+                                final currentMembershipEpoch =
+                                    currentMember?.joinedAtEpoch;
+                                return StreamBuilder<List<GyeDedication>>(
+                                  stream: GyeDedicationService.streamForGye(
+                                    widget.gyeId,
+                                  ),
+                                  builder: (context, dedicationSnapshot) {
+                                    final dedications =
+                                        dedicationSnapshot.data ??
+                                        const <GyeDedication>[];
+                                    return Stack(
+                                      children: [
+                                        Positioned.fill(
+                                          child: GyeHanok(
+                                            meta: meta,
+                                            dedications: dedications,
+                                          ),
                                         ),
-                                        actionsAvailable: actionsAvailable,
-                                        onCommit: _dedicationService
-                                            .setForCurrentSession,
-                                      ),
-                                    ),
-                                  ],
+                                        if (currentMember != null &&
+                                            currentMembershipEpoch != null)
+                                          Positioned(
+                                            top: Spacing.sm,
+                                            right: Spacing.sm,
+                                            child: GyeDedicationAction(
+                                              gyeId: widget.gyeId,
+                                              ownedDecor: Storage.ownedDecor,
+                                              current: currentGyeDedicationFor(
+                                                dedications,
+                                                GyeService.currentUid,
+                                                currentMember.membershipId,
+                                                currentMembershipEpoch,
+                                              ),
+                                              expectedMembershipId:
+                                                  currentMember.membershipId,
+                                              expectedMembershipEpoch:
+                                                  currentMembershipEpoch,
+                                              actionsAvailable:
+                                                  actionsAvailable,
+                                              onCommit: _dedicationService
+                                                  .setForCurrentSession,
+                                            ),
+                                          ),
+                                      ],
+                                    );
+                                  },
                                 );
                               },
                             ),
@@ -370,12 +389,20 @@ class _GyeScreenState extends State<GyeScreen>
 GyeDedication? currentGyeDedicationFor(
   Iterable<GyeDedication> dedications,
   String? uid,
+  String? membershipId,
+  GyeMembershipEpoch? joinedAtEpoch,
 ) {
-  if (uid == null || uid.isEmpty) {
+  if (uid == null ||
+      uid.isEmpty ||
+      membershipId == null ||
+      membershipId.isEmpty ||
+      joinedAtEpoch == null) {
     return null;
   }
   for (final dedication in dedications) {
-    if (dedication.uid == uid) {
+    if (dedication.uid == uid &&
+        dedication.membershipId == membershipId &&
+        dedication.joinedAtEpoch == joinedAtEpoch) {
       return dedication;
     }
   }

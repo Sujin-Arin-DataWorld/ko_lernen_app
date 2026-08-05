@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
-import '../data/gye_dedication_catalog.dart';
+import '../models/gye.dart';
 import '../models/gye_dedication.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
@@ -82,6 +82,9 @@ abstract interface class GyeDedicationGateway {
     required String gyeId,
     required String? decorationSlug,
     required int expectedRevision,
+    required String expectedMembershipId,
+    required int expectedJoinedAtSeconds,
+    required int expectedJoinedAtNanos,
     required String operationId,
   });
 }
@@ -92,6 +95,21 @@ typedef GyeDedicationCallableInvoker =
       required Map<String, Object?> payload,
       required HttpsCallableOptions callableOptions,
     });
+
+/// Parses public exhibit records without applying visual slot normalization.
+/// Withdrawn tombstones must survive this boundary because the current member
+/// uses their revision for the next compare-and-set request.
+List<GyeDedication> parseGyeDedicationRecords(
+  Iterable<({String documentId, Map<dynamic, dynamic> source})> records,
+) {
+  return List<GyeDedication>.unmodifiable(
+    records
+        .map(
+          (record) => GyeDedication.tryParse(record.documentId, record.source),
+        )
+        .whereType<GyeDedication>(),
+  );
+}
 
 class FirebaseGyeDedicationGateway implements GyeDedicationGateway {
   FirebaseGyeDedicationGateway(this._invoke);
@@ -130,6 +148,9 @@ class FirebaseGyeDedicationGateway implements GyeDedicationGateway {
     required String gyeId,
     required String? decorationSlug,
     required int expectedRevision,
+    required String expectedMembershipId,
+    required int expectedJoinedAtSeconds,
+    required int expectedJoinedAtNanos,
     required String operationId,
   }) async {
     Object? raw;
@@ -140,6 +161,9 @@ class FirebaseGyeDedicationGateway implements GyeDedicationGateway {
           'gyeId': gyeId,
           'decorationSlug': decorationSlug,
           'expectedRevision': expectedRevision,
+          'expectedMembershipId': expectedMembershipId,
+          'expectedJoinedAtSeconds': expectedJoinedAtSeconds,
+          'expectedJoinedAtNanos': expectedJoinedAtNanos,
           'operationId': operationId,
         },
         callableOptions: HttpsCallableOptions(limitedUseAppCheckToken: true),
@@ -172,6 +196,9 @@ class GyeDedicationService {
     required String gyeId,
     required String? decorationSlug,
     required int expectedRevision,
+    required String expectedMembershipId,
+    required int expectedJoinedAtSeconds,
+    required int expectedJoinedAtNanos,
     required String operationId,
   }) {
     if (!_validGyeId(gyeId) ||
@@ -179,6 +206,11 @@ class GyeDedicationService {
             !kGyeDedicationSlugs.contains(decorationSlug)) ||
         expectedRevision < 0 ||
         expectedRevision > 1000000000 ||
+        !GyeService.isValidMembershipId(expectedMembershipId) ||
+        !GyeMembershipEpoch.isValidParts(
+          expectedJoinedAtSeconds,
+          expectedJoinedAtNanos,
+        ) ||
         !_validOperationId(operationId)) {
       return Future<GyeDedicationMutation>.error(
         const GyeDedicationClientFailure(
@@ -191,6 +223,9 @@ class GyeDedicationService {
       gyeId: gyeId,
       decorationSlug: decorationSlug,
       expectedRevision: expectedRevision,
+      expectedMembershipId: expectedMembershipId,
+      expectedJoinedAtSeconds: expectedJoinedAtSeconds,
+      expectedJoinedAtNanos: expectedJoinedAtNanos,
       operationId: operationId,
     );
   }
@@ -202,6 +237,9 @@ class GyeDedicationService {
     required String gyeId,
     required String? decorationSlug,
     required int expectedRevision,
+    required String expectedMembershipId,
+    required int expectedJoinedAtSeconds,
+    required int expectedJoinedAtNanos,
     required String operationId,
   }) async {
     final uid = AuthService.current?.uid;
@@ -230,6 +268,9 @@ class GyeDedicationService {
           gyeId: gyeId,
           decorationSlug: decorationSlug,
           expectedRevision: expectedRevision,
+          expectedMembershipId: expectedMembershipId,
+          expectedJoinedAtSeconds: expectedJoinedAtSeconds,
+          expectedJoinedAtNanos: expectedJoinedAtNanos,
           operationId: operationId,
         );
       },
@@ -274,13 +315,11 @@ class GyeDedicationService {
           .collection('decor_dedications')
           .snapshots()
           .map(
-            (snapshot) => normalizeGyeDedications(
-              snapshot.docs
-                  .map(
-                    (document) =>
-                        GyeDedication.tryParse(document.id, document.data()),
-                  )
-                  .whereType<GyeDedication>(),
+            (snapshot) => parseGyeDedicationRecords(
+              snapshot.docs.map(
+                (document) =>
+                    (documentId: document.id, source: document.data()),
+              ),
             ),
           ),
     );
@@ -311,8 +350,11 @@ GyeDedicationMutation _parseMutation(Object? raw) {
       decorationSlug is String &&
       kGyeDedicationSlugs.contains(decorationSlug) &&
       revision >= 1;
-  final noExhibit =
-      slotIndex == null && decorationSlug == null && revision == 0;
+  final noExhibit = slotIndex == null && decorationSlug == null;
+  // Revision zero names an absent document only. A withdrawal keeps a public
+  // tombstone, so its no-exhibit response must retain the later revision.
+  final absentExhibit = noExhibit && revision == 0;
+  final withdrawnExhibit = noExhibit && revision >= 2;
   return switch (state) {
     'dedicated' when activeExhibit => GyeDedicationMutation(
       state: GyeDedicationMutationState.dedicated,
@@ -320,16 +362,17 @@ GyeDedicationMutation _parseMutation(Object? raw) {
       slotIndex: slotIndex,
       decorationSlug: decorationSlug,
     ),
-    'withdrawn' when noExhibit => GyeDedicationMutation(
+    'withdrawn' when withdrawnExhibit => GyeDedicationMutation(
       state: GyeDedicationMutationState.withdrawn,
       revision: revision,
     ),
-    'unchanged' when activeExhibit || noExhibit => GyeDedicationMutation(
-      state: GyeDedicationMutationState.unchanged,
-      revision: revision,
-      slotIndex: activeExhibit ? slotIndex : null,
-      decorationSlug: activeExhibit ? decorationSlug : null,
-    ),
+    'unchanged' when activeExhibit || absentExhibit || withdrawnExhibit =>
+      GyeDedicationMutation(
+        state: GyeDedicationMutationState.unchanged,
+        revision: revision,
+        slotIndex: activeExhibit ? slotIndex : null,
+        decorationSlug: activeExhibit ? decorationSlug : null,
+      ),
     _ => throw const GyeDedicationClientFailure(
       GyeDedicationFailureCategory.unknown,
       retryable: true,

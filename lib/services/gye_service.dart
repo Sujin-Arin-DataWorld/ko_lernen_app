@@ -196,6 +196,16 @@ class GyeService {
     return true;
   }
 
+  /// A client-generated membership id identifies a join generation, but is
+  /// not sufficient by itself because a malformed or retried client could
+  /// reuse it. Generation-sensitive mutations pair it with the immutable
+  /// server-time [GyeMembershipEpoch] from the member document.
+  static bool isValidMembershipId(String value) =>
+      value.length >= 16 &&
+      value.length <= 64 &&
+      value.trim() == value &&
+      !value.contains('/');
+
   /// 이름/닉네임 검증(길이 + 욕설). 통과 시 trim 문자열, 실패 시 throw.
   static String validatedName(String raw, int maxLen, GyeError tooLong) {
     final v = raw.trim();
@@ -620,6 +630,55 @@ class GyeService {
             (q) =>
                 q.docs.map((d) => GyeMember.fromDoc(d.id, d.data())).toList(),
           ),
+    );
+  }
+
+  /// Watches only the signed-in member document for [id]. A missing,
+  /// inactive, or legacy member is deliberately surfaced as null so callers
+  /// cannot issue a membership-epoch-bound mutation until the authoritative
+  /// current document arrives.
+  static Stream<GyeMember?> currentMemberStream(String id) {
+    final uid = AuthService.current?.uid;
+    final db = _db;
+    if (uid == null || db == null || !isValidCodeFormat(id)) {
+      return Stream<GyeMember?>.value(null);
+    }
+    return currentMemberStreamForSession(
+      sessions: cloudWriteSessionController,
+      uid: uid,
+      source: db
+          .collection(_collection)
+          .doc(id)
+          .collection('members')
+          .doc(uid)
+          .snapshots()
+          .map(
+            (document) => document.exists
+                ? GyeMember.fromDoc(document.id, document.data()!)
+                : null,
+          ),
+    );
+  }
+
+  @visibleForTesting
+  static Stream<GyeMember?> currentMemberStreamForSession({
+    required CloudWriteSessionController sessions,
+    required String uid,
+    required Stream<GyeMember?> source,
+  }) {
+    return streamWithSession(
+      sessions: sessions,
+      uid: uid,
+      source: source.map((member) {
+        if (member == null ||
+            member.uid != uid ||
+            member.status != GyeMemberStatus.active ||
+            !isValidMembershipId(member.membershipId) ||
+            member.joinedAtEpoch == null) {
+          return null;
+        }
+        return member;
+      }),
     );
   }
 

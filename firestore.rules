@@ -742,6 +742,19 @@ service cloud.firestore {
         allow create, update, delete: if false;
       }
 
+      // A dedication is a server-issued public exhibit. Members may see the
+      // shared courtyard, but the callable is the only mutation path.
+      match /decor_dedications/{dedicatingUid} {
+        allow get, list: if isActiveGyeMember(gyeId);
+        allow create, update, delete: if false;
+      }
+
+      // The mutation receipt carries operation ids and throttle state and is
+      // intentionally never a client-readable data surface.
+      match /decor_dedication_mutations/{dedicatingUid} {
+        allow read, write: if false;
+      }
+
       match /notification_outbox/{messageId} {
         allow read, write: if false;
       }

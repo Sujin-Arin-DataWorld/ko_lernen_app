@@ -26,6 +26,14 @@ const WORKER_FENCE = Object.freeze({
   operationVersion: 1,
   leaseVersion: 1,
 });
+const OLD_DEDICATION_EPOCH = Object.freeze({
+  joinedAtSeconds: 1_754_355_200,
+  joinedAtNanos: 123_000_000,
+});
+const REJOINED_DEDICATION_EPOCH = Object.freeze({
+  joinedAtSeconds: 1_754_355_260,
+  joinedAtNanos: 456_000_000,
+});
 
 function clone(value) {
   return value === undefined
@@ -231,6 +239,7 @@ class FakeFirestore {
     this.documents = new Map();
     this.queryCalls = [];
     this.failProcessedCommitOnce = false;
+    this.beforeTransactionGetAll = null;
   }
 
   seed(path, data) {
@@ -264,7 +273,12 @@ class FakeFirestore {
   async runTransaction(callback) {
     const transaction = {
       get: (ref) => ref.get(),
-      getAll: (...refs) => Promise.all(refs.map((ref) => ref.get())),
+      getAll: async (...refs) => {
+        if (typeof this.beforeTransactionGetAll === "function") {
+          await this.beforeTransactionGetAll(refs);
+        }
+        return Promise.all(refs.map((ref) => ref.get()));
+      },
       set: (ref, fields, options) => this.write(ref.path, fields, options),
       update: (ref, fields) => this.write(ref.path, fields, { merge: true }),
       delete: (ref) => {
@@ -438,6 +452,308 @@ test("community cleanup retains a pre-root legacy Gye target and discovers "
       .every((call) => call.limit <= 2 && call.ordered),
   );
 });
+
+test("community cleanup discovers a member's public exhibit and private receipt", async () => {
+  const { firestore, makeAdapters, reconciled } = createHarness();
+  firestore.seed("gye/exhibition-gye/decor_dedications/source", {
+    uid: "source",
+    membershipId: "membership-source-0123456789abcdef",
+    ...OLD_DEDICATION_EPOCH,
+    decorationSlug: "decoration_chaekgado",
+    slotIndex: 0,
+    revision: 1,
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedication_mutations/source", {
+    uid: "source",
+    membershipId: "membership-source-0123456789abcdef",
+    ...OLD_DEDICATION_EPOCH,
+    lastOperationId: "dedication-op-0001",
+  });
+
+  let result = { done: false };
+  let invocations = 0;
+  while (!result.done && invocations < 40) {
+    result = await makeAdapters().cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+  }
+
+  assert.equal(result.done, true);
+  assert.ok(reconciled.includes("exhibition-gye"));
+});
+
+test("community account cleanup removes an orphaned exhibit only when its discovered membership matches", async () => {
+  const { firestore } = createHarness();
+  firestore.seed("gye/exhibition-gye", {
+    ownerId: "other",
+    memberCount: 1,
+    lifecycleState: "active",
+  });
+  firestore.seed("gye/exhibition-gye/members/other", {
+    uid: "other",
+    nickname: "Other",
+    status: "active",
+    membershipId: "membership-other-0123456789abcdef",
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedications/source", {
+    uid: "source",
+    membershipId: "membership-source-0123456789abcdef",
+    ...OLD_DEDICATION_EPOCH,
+    decorationSlug: "decoration_chaekgado",
+    slotIndex: 0,
+    revision: 1,
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedication_mutations/source", {
+    uid: "source",
+    membershipId: "membership-source-0123456789abcdef",
+    ...OLD_DEDICATION_EPOCH,
+    lastOperationId: "dedication-op-0001",
+  });
+  const adapters = createRealAdapters(firestore);
+  let result = { done: false };
+  let invocations = 0;
+  while (!result.done && invocations < 120) {
+    result = await adapters.cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+  }
+
+  assert.equal(result.done, true);
+  assert.equal(
+    firestore.documents.has("gye/exhibition-gye/decor_dedications/source"),
+    false,
+  );
+  assert.equal(
+    firestore.documents.has(
+      "gye/exhibition-gye/decor_dedication_mutations/source",
+    ),
+    false,
+  );
+  assert.equal(firestore.documents.has("gye/exhibition-gye"), true);
+  assert.equal(
+    firestore.documents.has("gye/exhibition-gye/members/other"),
+    true,
+  );
+});
+
+test("community cleanup preserves an exhibit reacquired after discovery by a rejoined membership", async () => {
+  const oldMembershipId = "membership-source-old-0123456789abcdef";
+  const rejoinedMembershipId = "membership-source-new-0123456789abcdef";
+  const { firestore, makeAdapters } = createHarness();
+  firestore.seed("gye/exhibition-gye", {
+    ownerId: "other",
+    memberCount: 1,
+    lifecycleState: "active",
+  });
+  firestore.seed("gye/exhibition-gye/members/other", {
+    uid: "other",
+    nickname: "Other",
+    status: "active",
+    membershipId: "membership-other-0123456789abcdef",
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedications/source", {
+    uid: "source",
+    membershipId: oldMembershipId,
+    ...OLD_DEDICATION_EPOCH,
+    decorationSlug: "decoration_chaekgado",
+    slotIndex: 0,
+    revision: 1,
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedication_mutations/source", {
+    uid: "source",
+    membershipId: oldMembershipId,
+    ...OLD_DEDICATION_EPOCH,
+    lastOperationId: "dedication-op-0001",
+  });
+  let replacedExhibit = false;
+  let replacedReceipt = false;
+  firestore.beforeTransactionGetAll = async (refs) => {
+    if (!replacedExhibit && refs.some((ref) =>
+      ref.path === "gye/exhibition-gye/decor_dedications/source")) {
+      replacedExhibit = true;
+      firestore.seed("gye/exhibition-gye/decor_dedications/source", {
+        uid: "source",
+        membershipId: rejoinedMembershipId,
+        ...REJOINED_DEDICATION_EPOCH,
+        decorationSlug: "decoration_seoan",
+        slotIndex: 1,
+        revision: 1,
+      });
+    }
+    if (!replacedReceipt && refs.some((ref) =>
+      ref.path === "gye/exhibition-gye/decor_dedication_mutations/source")) {
+      replacedReceipt = true;
+      firestore.seed("gye/exhibition-gye/decor_dedication_mutations/source", {
+        uid: "source",
+        membershipId: rejoinedMembershipId,
+        ...REJOINED_DEDICATION_EPOCH,
+        lastOperationId: "dedication-op-rejoined-0001",
+      });
+    }
+  };
+  let result = { done: false };
+  let invocations = 0;
+  while (!result.done && invocations < 120) {
+    result = await makeAdapters().cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+  }
+
+  assert.equal(result.done, true);
+  assert.equal(replacedExhibit, true);
+  assert.equal(replacedReceipt, true);
+  assert.equal(
+    firestore.value("gye/exhibition-gye/decor_dedications/source")
+      .membershipId,
+    rejoinedMembershipId,
+  );
+  assert.equal(
+    firestore.value("gye/exhibition-gye/decor_dedication_mutations/source")
+      .membershipId,
+    rejoinedMembershipId,
+  );
+});
+
+test("community cleanup preserves a delayed M1 rejoin with the same membership id but a new join epoch", async () => {
+  const membershipId = "membership-source-reused-0123456789abcdef";
+  const { firestore, makeAdapters } = createHarness();
+  firestore.seed("gye/exhibition-gye/decor_dedications/source", {
+    uid: "source",
+    membershipId,
+    ...OLD_DEDICATION_EPOCH,
+    decorationSlug: "decoration_chaekgado",
+    slotIndex: 0,
+    revision: 1,
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedication_mutations/source", {
+    uid: "source",
+    membershipId,
+    ...OLD_DEDICATION_EPOCH,
+    lastOperationId: "dedication-op-old-0001",
+  });
+  let replacedExhibit = false;
+  let replacedReceipt = false;
+  firestore.beforeTransactionGetAll = async (refs) => {
+    if (!replacedExhibit && refs.some((ref) =>
+      ref.path === "gye/exhibition-gye/decor_dedications/source")) {
+      replacedExhibit = true;
+      firestore.seed("gye/exhibition-gye/decor_dedications/source", {
+        uid: "source",
+        membershipId,
+        ...REJOINED_DEDICATION_EPOCH,
+        decorationSlug: "decoration_seoan",
+        slotIndex: 1,
+        revision: 1,
+      });
+    }
+    if (!replacedReceipt && refs.some((ref) =>
+      ref.path === "gye/exhibition-gye/decor_dedication_mutations/source")) {
+      replacedReceipt = true;
+      firestore.seed("gye/exhibition-gye/decor_dedication_mutations/source", {
+        uid: "source",
+        membershipId,
+        ...REJOINED_DEDICATION_EPOCH,
+        lastOperationId: "dedication-op-rejoined-0001",
+      });
+    }
+  };
+
+  let result = { done: false };
+  let invocations = 0;
+  while (!result.done && invocations < 120) {
+    result = await makeAdapters().cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+  }
+
+  assert.equal(result.done, true);
+  assert.equal(replacedExhibit, true);
+  assert.equal(replacedReceipt, true);
+  assert.deepEqual(
+    firestore.value("gye/exhibition-gye/decor_dedications/source"),
+    {
+      uid: "source",
+      membershipId,
+      ...REJOINED_DEDICATION_EPOCH,
+      decorationSlug: "decoration_seoan",
+      slotIndex: 1,
+      revision: 1,
+    },
+  );
+  assert.deepEqual(
+    firestore.value("gye/exhibition-gye/decor_dedication_mutations/source"),
+    {
+      uid: "source",
+      membershipId,
+      ...REJOINED_DEDICATION_EPOCH,
+      lastOperationId: "dedication-op-rejoined-0001",
+    },
+  );
+});
+
+test("community cleanup leaves legacy dedication records without a join epoch intact", async () => {
+  const { firestore } = createHarness();
+  firestore.seed("gye/exhibition-gye", {
+    ownerId: "other",
+    memberCount: 1,
+    lifecycleState: "active",
+  });
+  firestore.seed("gye/exhibition-gye/members/other", {
+    uid: "other",
+    nickname: "Other",
+    status: "active",
+    membershipId: "membership-other-0123456789abcdef",
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedications/source", {
+    uid: "source",
+    membershipId: "membership-source-legacy-0123456789abcdef",
+    decorationSlug: "decoration_chaekgado",
+    slotIndex: 0,
+    revision: 1,
+  });
+  firestore.seed("gye/exhibition-gye/decor_dedication_mutations/source", {
+    uid: "source",
+    membershipId: "membership-source-legacy-0123456789abcdef",
+    lastOperationId: "dedication-op-legacy-0001",
+  });
+  const adapters = createRealAdapters(firestore);
+
+  let result = { done: false };
+  let invocations = 0;
+  while (!result.done && invocations < 120) {
+    result = await adapters.cleanupCommunity({
+      uid: "source",
+      operationId: "op",
+      workerFence: WORKER_FENCE,
+    });
+    invocations += 1;
+  }
+
+  assert.equal(result.done, true);
+  assert.equal(
+    firestore.documents.has("gye/exhibition-gye/decor_dedications/source"),
+    true,
+  );
+  assert.equal(
+    firestore.documents.has(
+      "gye/exhibition-gye/decor_dedication_mutations/source",
+    ),
+    true,
+  );
+});
+
 test("processor cleanup is idempotent and deletes only source-owned "
     + "documents", async () => {
   const { adapters, firestore } = createHarness();
@@ -676,6 +992,20 @@ async () => {
       payload: {},
     });
   }
+  firestore.seed("gye/fanout-gye/decor_dedications/source", {
+    uid: "source",
+    membershipId: "membership-source-0123456789abcdef",
+    ...OLD_DEDICATION_EPOCH,
+    decorationSlug: "decoration_chaekgado",
+    slotIndex: 0,
+    revision: 1,
+  });
+  firestore.seed("gye/fanout-gye/decor_dedication_mutations/source", {
+    uid: "source",
+    membershipId: "membership-source-0123456789abcdef",
+    ...OLD_DEDICATION_EPOCH,
+    lastOperationId: "dedication-op-0001",
+  });
   const adapters = createRealAdapters(firestore);
 
   let result = { done: false };

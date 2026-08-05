@@ -1764,6 +1764,88 @@ test("notification outbox and delivery receipts are server-only", async () => {
   await assertFails(deleteDoc(outboxRef));
 });
 
+test("shared exhibits are active-member readable but all exhibition writes are callable-only", async () => {
+  await seedGye("ABC234", ["owner", "member", "suspended"], {
+    statuses: { suspended: "suspended" },
+  });
+  await environment.withSecurityRulesDisabled(async (context) => {
+    const db = context.firestore();
+    await setDoc(
+      doc(db, "gye", "ABC234", "decor_dedications", "owner"),
+      {
+        schemaVersion: 1,
+        uid: "owner",
+        membershipId: membershipIdFor("owner"),
+        decorationSlug: "decoration_chaekgado",
+        slotIndex: 0,
+        revision: 1,
+      },
+    );
+    await setDoc(
+      doc(db, "gye", "ABC234", "decor_dedication_mutations", "member"),
+      {
+        schemaVersion: 1,
+        uid: "member",
+        membershipId: membershipIdFor("member"),
+        lastOperationId: "dedication-op-0001",
+      },
+    );
+  });
+
+  const memberDb = client("member");
+  const exhibitRef = doc(
+    memberDb,
+    "gye",
+    "ABC234",
+    "decor_dedications",
+    "owner",
+  );
+  await assertSucceeds(getDoc(exhibitRef));
+  await assertSucceeds(getDocs(
+    collection(memberDb, "gye", "ABC234", "decor_dedications"),
+  ));
+  await assertFails(setDoc(doc(
+    memberDb,
+    "gye",
+    "ABC234",
+    "decor_dedications",
+    "member",
+  ), {
+    schemaVersion: 1,
+    uid: "member",
+    membershipId: membershipIdFor("member"),
+    decorationSlug: "decoration_seoan",
+    slotIndex: 1,
+    revision: 1,
+  }));
+  await assertFails(setDoc(exhibitRef, { decorationSlug: "decoration_seoan" }, {
+    merge: true,
+  }));
+  await assertFails(deleteDoc(exhibitRef));
+  await assertFails(getDoc(doc(
+    memberDb,
+    "gye",
+    "ABC234",
+    "decor_dedication_mutations",
+    "member",
+  )));
+
+  await assertFails(getDoc(doc(
+    client("suspended"),
+    "gye",
+    "ABC234",
+    "decor_dedications",
+    "owner",
+  )));
+  await assertFails(getDoc(doc(
+    client("outsider"),
+    "gye",
+    "ABC234",
+    "decor_dedications",
+    "owner",
+  )));
+});
+
 test("only one of concurrent tenth and eleventh joins can succeed", async () => {
   const existing = Array.from({ length: 9 }, (_, index) => `u${index}`);
   await seedGye("ABC234", existing);

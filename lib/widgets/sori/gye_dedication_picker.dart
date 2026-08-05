@@ -35,7 +35,7 @@ class GyeDedicationPickerSheet extends StatelessWidget {
         const SizedBox(height: Spacing.xs),
         Text(t.gyeDedicationPickerBody, style: text.bodySmall),
         const SizedBox(height: Spacing.md),
-        if (candidates.isEmpty && current == null)
+        if (candidates.isEmpty && current?.isActive != true)
           Text(t.gyeDedicationEmpty, style: text.bodySmall),
         for (final slug in candidates)
           _GyeDedicationPickRow(
@@ -44,7 +44,7 @@ class GyeDedicationPickerSheet extends StatelessWidget {
             selected: slug == current?.decorationSlug,
             onTap: () => Navigator.of(context).pop(slug),
           ),
-        if (current != null)
+        if (current?.isActive == true)
           _GyeDedicationPickRow(
             label: t.gyeDedicationWithdraw,
             selected: false,

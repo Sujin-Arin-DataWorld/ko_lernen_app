@@ -1,5 +1,9 @@
 import 'package:flutter/foundation.dart';
 
+import 'gye.dart';
+
+enum GyeDedicationState { active, withdrawn }
+
 /// A member's read-only exhibit in a shared Gye courtyard.
 ///
 /// This is deliberately not an ownership record. The server only persists a
@@ -13,6 +17,8 @@ class GyeDedication {
   const GyeDedication({
     required this.uid,
     required this.membershipId,
+    required this.joinedAtEpoch,
+    required this.state,
     required this.decorationSlug,
     required this.slotIndex,
     required this.revision,
@@ -21,13 +27,25 @@ class GyeDedication {
 
   final String uid;
   final String membershipId;
-  final String decorationSlug;
-  final int slotIndex;
+
+  /// The immutable member-document timestamp copied by the callable into the
+  /// public exhibit. Legacy active documents intentionally have no epoch and
+  /// may render for compatibility, but can never become the current user's
+  /// compare-and-set record.
+  final GyeMembershipEpoch? joinedAtEpoch;
+  final GyeDedicationState state;
+  final String? decorationSlug;
+  final int? slotIndex;
   final int revision;
   final String lastOperationId;
 
-  /// Parses only a complete, current wire shape. Bad remote data never makes
-  /// its way into a shared visual layer.
+  bool get isActive => state == GyeDedicationState.active;
+  bool get isWithdrawn => state == GyeDedicationState.withdrawn;
+
+  /// Parses a complete public record without treating a tombstone as a visual
+  /// exhibit. Legacy active documents had no [state]; current active records
+  /// may declare `state: 'active'`, while a withdrawn document retains only
+  /// its monotonic compare-and-set revision.
   static GyeDedication? tryParse(
     String documentId,
     Map<dynamic, dynamic> source,
@@ -42,26 +60,68 @@ class GyeDedication {
     if (schemaVersion != currentSchemaVersion ||
         uid is! String ||
         membershipId is! String ||
-        decorationSlug is! String ||
-        slotIndex is! int ||
         revision is! int ||
         lastOperationId is! String ||
         uid != documentId ||
         !_isSafeIdentifier(uid) ||
-        !_isSafeIdentifier(membershipId) ||
+        !_isSafeMembershipId(membershipId) ||
         !_isSafeIdentifier(lastOperationId) ||
-        !kGyeDedicationSlugs.contains(decorationSlug) ||
-        slotIndex < 0 ||
-        slotIndex >= maxSlots ||
-        // A public document exists only for an active exhibit. Revision zero
-        // is reserved for the absent-document compare-and-set state used
-        // after withdrawal, so accepting it here would fabricate an exhibit.
-        revision < 1) {
+        revision < 0) {
+      return null;
+    }
+
+    final legacyActive = !source.containsKey('state');
+    final declaredActive = source['state'] == 'active';
+    if (legacyActive || declaredActive) {
+      if (decorationSlug is! String ||
+          slotIndex is! int ||
+          !kGyeDedicationSlugs.contains(decorationSlug) ||
+          slotIndex < 0 ||
+          slotIndex >= maxSlots ||
+          revision < 1) {
+        return null;
+      }
+      final joinedAtEpoch = legacyActive
+          ? null
+          : GyeMembershipEpoch.tryFromParts(
+              source['joinedAtSeconds'],
+              source['joinedAtNanos'],
+            );
+      if (!legacyActive && joinedAtEpoch == null) {
+        return null;
+      }
+      return GyeDedication(
+        uid: uid,
+        membershipId: membershipId,
+        joinedAtEpoch: joinedAtEpoch,
+        state: GyeDedicationState.active,
+        decorationSlug: decorationSlug,
+        slotIndex: slotIndex,
+        revision: revision,
+        lastOperationId: lastOperationId,
+      );
+    }
+
+    final joinedAtEpoch = GyeMembershipEpoch.tryFromParts(
+      source['joinedAtSeconds'],
+      source['joinedAtNanos'],
+    );
+    if (source['state'] != 'withdrawn' ||
+        !source.containsKey('decorationSlug') ||
+        !source.containsKey('slotIndex') ||
+        decorationSlug != null ||
+        slotIndex != null ||
+        joinedAtEpoch == null ||
+        // A first active exhibit begins at revision one, so a public
+        // withdrawal tombstone must advance it at least once more.
+        revision < 2) {
       return null;
     }
     return GyeDedication(
       uid: uid,
       membershipId: membershipId,
+      joinedAtEpoch: joinedAtEpoch,
+      state: GyeDedicationState.withdrawn,
       decorationSlug: decorationSlug,
       slotIndex: slotIndex,
       revision: revision,
@@ -75,11 +135,19 @@ class GyeDedication {
       value.trim() == value &&
       !value.contains('/');
 
+  static bool _isSafeMembershipId(String value) =>
+      value.length >= 16 &&
+      value.length <= 64 &&
+      value.trim() == value &&
+      !value.contains('/');
+
   @override
   bool operator ==(Object other) =>
       other is GyeDedication &&
       other.uid == uid &&
       other.membershipId == membershipId &&
+      other.joinedAtEpoch == joinedAtEpoch &&
+      other.state == state &&
       other.decorationSlug == decorationSlug &&
       other.slotIndex == slotIndex &&
       other.revision == revision &&
@@ -89,6 +157,8 @@ class GyeDedication {
   int get hashCode => Object.hash(
     uid,
     membershipId,
+    joinedAtEpoch,
+    state,
     decorationSlug,
     slotIndex,
     revision,
