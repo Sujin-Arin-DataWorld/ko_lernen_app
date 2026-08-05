@@ -290,10 +290,17 @@ class _Avatar extends StatefulWidget {
 }
 
 class _AvatarState extends State<_Avatar> {
-  static const double _d = 128;
-  static const Color _medallionFill = SoriColors.lightSurface;
+  static const double _d = 168;
   MascotKind? _kind;
-  late String _asset;
+
+  // Joy(까치)는 bob2↔bob3 교대(Jin 지정, 2026-08-05). 그 외(호랑이)는 기존
+  // 프로필 포즈를 루프.
+  static const List<String> _magpieClips = [
+    CharacterClips.magpieBob2,
+    CharacterClips.magpieBob3,
+  ];
+  int _magpieIdx = 0;
+  String? _otherAsset;
 
   @override
   void initState() {
@@ -320,10 +327,21 @@ class _AvatarState extends State<_Avatar> {
       return;
     }
     _kind = k;
-    _asset = CharacterClips.profileClipFor(
-      k,
-      Random().nextInt(CharacterClips.profileClipCountFor(k)),
-    );
+    _magpieIdx = 0;
+    if (k != MascotKind.magpie) {
+      _otherAsset = CharacterClips.profileClipFor(
+        k,
+        Random().nextInt(CharacterClips.profileClipCountFor(k)),
+      );
+    }
+  }
+
+  // 까치 원샷 클립이 끝나면 다음 클립으로 교대(bob2↔bob3).
+  void _advanceMagpie() {
+    if (!mounted || _kind != MascotKind.magpie) {
+      return;
+    }
+    setState(() => _magpieIdx = (_magpieIdx + 1) % _magpieClips.length);
   }
 
   @override
@@ -335,44 +353,27 @@ class _AvatarState extends State<_Avatar> {
   @override
   Widget build(BuildContext context) {
     final kind = _kind!;
-    // 선택한 마스코트가 계정 사진보다 우선하는 원형 메달리온.
-    return Container(
+    final isMagpie = kind == MascotKind.magpie;
+    final asset = isMagpie ? _magpieClips[_magpieIdx] : _otherAsset!;
+    // ⚠️ 캐릭터 영상은 원/박스에 절대 가두지 않는다(Jin 규칙 — AGENTS.md ·
+    // memory `never-cage-character-video` 기록). 클립·테두리·프레임 없이,
+    // 흰 배경 mp4를 화면 배경색과 multiply로만 흡수한다(앱은 라이트 전용이라
+    // s.bg 로 충분). 캐릭터가 배경 위에 자유롭게 뜬다.
+    return SizedBox(
       width: _d,
       height: _d,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        // 평면 fill — 클립은 흰 배경 mp4를 multiply로 녹이므로 뒤가 그라데이션
-        // 이면 이음매가 드러난다. 주황 글로우는 그라데이션 대신 바깥 그림자로.
-        color: _medallionFill,
-        border: Border.all(
-          color: SoriColors.tiger.withValues(alpha: 0.55),
-          width: 2.5,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: SoriColors.tiger.withValues(alpha: 0.22),
-            blurRadius: 18,
-            spreadRadius: 1,
-          ),
-          ...SoriElevation.low,
-        ],
-      ),
-      child: ClipOval(
-        child: Padding(
-          padding: const EdgeInsets.all(5),
-          child: CharacterClipPlayer(
-            // asset 이 바뀌면 새 State 를 강제 — CharacterClipPlayer 는
-            // didUpdateWidget 이 없어 key 없이 asset 만 바꾸면 옛 비디오
-            // 컨트롤러를 유지한다(캐릭터가 안 바뀜).
-            key: ValueKey(_asset),
-            asset: _asset,
-            size: _d - 10,
-            loop: true,
-            blendColor: _medallionFill,
-            fallbackKind: kind,
-            fallbackEmotion: MascotEmotion.smile,
-          ),
-        ),
+      child: CharacterClipPlayer(
+        // asset 이 바뀌면 새 State 강제 — CharacterClipPlayer 는
+        // didUpdateWidget 이 없어 key 없이 asset 만 바꾸면 옛 비디오 컨트롤러를
+        // 유지한다(교대·캐릭터 변경이 반영 안 됨).
+        key: ValueKey(asset),
+        asset: asset,
+        size: _d,
+        loop: !isMagpie, // 까치는 원샷 후 교대, 그 외는 루프.
+        blendColor: SoriSurfaces.of(context).bg,
+        fallbackKind: kind,
+        fallbackEmotion: MascotEmotion.smile,
+        onCompleted: isMagpie ? _advanceMagpie : null,
       ),
     );
   }

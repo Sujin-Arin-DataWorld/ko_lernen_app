@@ -104,6 +104,9 @@ void main() {
   ) async {
     await Storage.setPreferredMascot('magpie');
     MascotPreference.load();
+    // Magpie-Avatar alterniert bob2/bob3 (loop:false) — statischen Standard
+    // (Tiger, loop:true) für Folgetests wiederherstellen, damit kein Timer leckt.
+    addTearDown(() => MascotPreference.kind.value = MascotKind.tiger);
 
     await tester.pumpWidget(
       _wrap(

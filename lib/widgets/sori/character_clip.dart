@@ -61,6 +61,9 @@ class CharacterClips {
   /// AI 재생성이 아니라 기존 캐논 자산의 컷 — ASSET_GAP §0 준수.
   /// 몸 높이 63~65%로 리프레이밍해 태고 클립과 스케일을 맞췄다.
   static const String magpieBob = '$_base/magpie_bob.mp4'; // 대기 홉(루프)
+  // 프로필 초상 교대용(Jin 지정, 2026-08-05) — bob2↔bob3 번갈아 재생.
+  static const String magpieBob2 = '$_base/magpie_bob2.mp4';
+  static const String magpieBob3 = '$_base/magpie_bob3.mp4';
   static const String magpieFlourish =
       '$_base/magpie_flourish.mp4'; // 날개 활짝(원샷)
   static const String magpieSing = '$_base/magpie_sing.mp4'; // 짹짹(원샷)
