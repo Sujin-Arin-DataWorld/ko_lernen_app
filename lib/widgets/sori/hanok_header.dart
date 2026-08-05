@@ -45,6 +45,10 @@ class HanokHeader extends StatelessWidget {
   /// 루프 영상 경로 명시 오버라이드. null이면 png 파일명에서 유도.
   final String? loopAsset;
 
+  /// 포스터·영상 BoxFit. 기본 cover(꽉 채움·크롭 가능). contain 이면 크롭 없이
+  /// 전부 보인다(듀오 히어로처럼 잘리면 안 되는 자산용).
+  final BoxFit fit;
+
   const HanokHeader({
     super.key,
     required this.asset,
@@ -54,6 +58,7 @@ class HanokHeader extends StatelessWidget {
     this.radius = 16,
     this.animate = true,
     this.loopAsset,
+    this.fit = BoxFit.cover,
   });
 
   /// `assets/video/loops/` 에 **실제로 존재하는** 루프 파일 이름.
@@ -104,7 +109,7 @@ class HanokHeader extends StatelessWidget {
     final tint = fallbackTint ?? HanokColors.cheong;
     final poster = Image.asset(
       asset,
-      fit: BoxFit.cover,
+      fit: fit,
       filterQuality: FilterQuality.medium,
       errorBuilder: (_, __, ___) => _Fallback(icon: fallbackIcon, tint: tint),
     );
@@ -120,7 +125,9 @@ class HanokHeader extends StatelessWidget {
       borderRadius: BorderRadius.circular(radius),
       child: AspectRatio(
         aspectRatio: aspectRatio,
-        child: live ? SoriPosterLoop(videoAsset: loop, poster: poster) : poster,
+        child: live
+            ? SoriPosterLoop(videoAsset: loop, poster: poster, fit: fit)
+            : poster,
       ),
     );
   }
@@ -139,6 +146,9 @@ class SoriPosterLoop extends StatefulWidget {
   final String videoAsset;
   final Widget poster;
 
+  /// 포스터·영상 BoxFit — [HanokHeader.fit] 을 그대로 전달받는다(기본 cover).
+  final BoxFit fit;
+
   /// 루프 음량은 **파라미터로 받지 않는다.** [AudioPolicy] 가 단일 진실원천이다
   /// (ADR-002 §3-2) — `SoundChannel.ambience` 의 on/off·볼륨·에셋별 정규화
   /// 게인·TTS 더킹이 전부 `volumeFor()` 한 곳에서 결정된다.
@@ -149,6 +159,7 @@ class SoriPosterLoop extends StatefulWidget {
     super.key,
     required this.videoAsset,
     required this.poster,
+    this.fit = BoxFit.cover,
   });
 
   @override
@@ -261,7 +272,7 @@ class _SoriPosterLoopState extends State<SoriPosterLoop> {
             opacity: 1,
             duration: const Duration(milliseconds: 400),
             child: FittedBox(
-              fit: BoxFit.cover,
+              fit: widget.fit,
               clipBehavior: Clip.hardEdge,
               child: SizedBox(
                 width: video.value.size.width,

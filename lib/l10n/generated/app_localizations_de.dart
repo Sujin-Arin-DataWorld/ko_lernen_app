@@ -131,7 +131,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get characterDescTiger =>
-      'In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für uralte, ruhige Kraft — er begleitet dich Schritt für Schritt und macht dir Mut, wenn es schwer wird.';
+      'In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für ruhige, uralte Kraft. Er begleitet dich Schritt für Schritt und macht dir Mut, wenn es schwer wird.';
 
   @override
   String get characterNameMagpie => '조이';
@@ -145,6 +145,12 @@ class AppL10nDe extends AppL10n {
   @override
   String get characterDescMagpie =>
       'In Korea gilt die Elster als Glücksbotin, die gute Nachrichten bringt. Joy feiert jeden Erfolg mit dir und bringt gute Laune in jede Lektion.';
+
+  @override
+  String get characterSelectedTiger => '태고가 선택되었습니다.';
+
+  @override
+  String get characterSelectedMagpie => '조이가 선택되었습니다.';
 
   @override
   String get characterSelectionHint => 'Tipp deinen Lernfreund an';
@@ -1548,7 +1554,31 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get questsCompletionCelebration =>
-      'Neue Hof-Dekoration freigeschaltet!';
+      'Neue Dekoration für deine Stube freigeschaltet!';
+
+  @override
+  String get questsOpenGiftCta => 'Bündel öffnen';
+
+  @override
+  String get homeBojagiTitle => 'Ein Geschenk wartet';
+
+  @override
+  String homeBojagiBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Bündel warten. Öffne sie und richte deine Stube ein.',
+      one: 'Ein Bündel wartet. Öffne es und richte deine Stube ein.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dojangDecorHintBody =>
+      'Diese Stempel sind Andenken an geschaffte Wortpakete. Um deine Hanok-Stuben einzurichten, schließe Quests ab und öffne die Bündel, die du dabei bekommst.';
+
+  @override
+  String get dojangDecorHintCta => 'Zu den Quests';
 
   @override
   String get hanokCinematicIntro => 'Dein Hanok wächst —';
@@ -3699,7 +3729,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachQuestsBody =>
-      'Erledige Quests, um Dekorationen für deinen Hanok-Hof freizuschalten';
+      'Erledige Quests und erhalte Dekorationen für deine Hanok-Stuben';
 
   @override
   String get coachScenariosTitle => 'Situationsgespräche';

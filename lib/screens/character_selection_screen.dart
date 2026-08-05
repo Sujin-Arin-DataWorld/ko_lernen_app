@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
-import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
@@ -75,17 +74,22 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
     MascotPreference.set(kind);
 
-    // 확정 영상이 (이 기기의 디코더 버그로) 완료를 못 알려도 화면이 멈추지
-    // 않도록 절대 백스톱 — 영상이 자연 종료하면 onCompleted 가 먼저 _proceed 를
-    // 부르고 이 타이머는 _navigated 가드로 무해해진다. reduce-motion·
-    // videoReady=false 경로는 클립의 fallbackCompleteAfter 가 더 빨리 넘긴다.
+    // 확정 화면은 정적 마스코트 + 캡션(영상 없음 → 깜빡임 0)이라 영상 완료
+    // 콜백이 없다. "선택되었습니다"를 잠깐 보여준 뒤 이 타이머가 **딱 한 번**
+    // 다음 단계로 넘긴다. _navigated 가드로 라우트 겹침·2중 이동을 막는다.
     _advanceGuard?.cancel();
-    _advanceGuard = Timer(const Duration(milliseconds: 4500), _proceed);
+    _advanceGuard = Timer(const Duration(milliseconds: 2400), _proceed);
   }
 
   void _proceed() {
     if (!mounted || _navigated) return;
     _navigated = true;
+    debugPrint(
+      '[ONBOARD] Character.proceed -> '
+      '${Storage.consentAccepted ? "OnboardingLevelScreen" : "ConsentScreen"} '
+      '(consentAccepted=${Storage.consentAccepted} '
+      'userLevelCode=${Storage.userLevelCode})',
+    );
     // DSGVO Consent-Gate: 퀵 온보딩(첫 실행) 경로는 인트로를 거치지 않아
     // 동의 화면이 한 번도 안 뜨던 갭(2026-06-12 웹 검증에서 발견).
     // 미동의면 동의 화면으로 — 이후 단계(프리뷰/레벨/홈)는 ConsentScreen이 분기.
@@ -122,20 +126,25 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                     // 채운다 (2026-08-05 Jin: "선택되면 video 만든거 크게").
                     children: _selected == null
                         ? [
-                            // 상단 듀오 배너 — 정사각 원본(magpie_tiger_together
-                            // .png, 1254²)이라 aspectRatio:1 로 크롭 0. 구
-                            // 16:9 cover 는 위·아래 ~44% 를 잘라먹었다(실기기
-                            // "이미지가 잘린다"). 이 화면 선택 전은 정지이므로
-                            // animate:false — png 포스터만.
+                            // 상단 듀오 히어로 — 태고·조이 루프 영상(taego-joy-duo
+                            // .mp4, 1280×720/16:9). contain + 16:9 박스라 **크롭 0**
+                            // (전부 보임, Jin 2026-08-05). videoReady=false(테스트)·
+                            // reduce-motion·다크면 taego-joy-duo.png 포스터로 폴백.
+                            // 단일 정속 루프라 확정 화면의 텍스처 교대 번쩍과는
+                            // 달리 비교적 안정적이나, 이 기기 디코더 버그상 잔깜빡
+                            // 여지는 남는다(폴백 체인이 방어).
                             SoriEntrance(
                               child: ConstrainedBox(
-                                constraints: const BoxConstraints(maxWidth: 280),
+                                constraints: const BoxConstraints(maxWidth: 400),
                                 child: const HanokHeader(
                                   asset:
-                                      'assets/illustrations/mascot/magpie_tiger_together.png',
-                                  aspectRatio: 1,
+                                      'assets/illustrations/hanok/taego-joy-duo.png',
+                                  loopAsset:
+                                      'assets/video/loops/taego-joy-duo.mp4',
+                                  aspectRatio: 16 / 9,
                                   radius: 16,
-                                  animate: false,
+                                  animate: true,
+                                  fit: BoxFit.contain,
                                   fallbackIcon: Icons.pets,
                                 ),
                               ),
@@ -210,34 +219,40 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                             ),
                           ]
                         : [
-                            // 선택 확정 — Jin 제작 영상을 **화면 폭 가득** 크게.
-                            // 구 2단 choose→greet 체인(핸드오프 2회 = 흰 프레임
-                            // 번쩍 + 완료 미보고 시 멈춤)을 단일 시그니처 클립
-                            // 하나로 축약. 완료 시 _proceed, 못 알리면
-                            // _handleSelection 의 절대 백스톱 타이머가 진행 보장.
-                            // 크기는 콘텐츠 폭(패딩 48 제외)에 맞춰 220~460 클램프.
-                            CharacterClipPlayer(
+                            // 선택 확정 — 이 기기(Impeller, Android<33)에서 영상
+                            // 텍스처 교대는 흰 프레임 번쩍("왔다갔다")을 유발하는
+                            // OS 레벨 버그라 소프트웨어로 못 막는다(State 상단 주석:
+                            // "ImageTextureEntry can't wait on the fence"). 확정
+                            // 화면에서 영상이 라우트 전환과 겹쳐 번쩍이면 "두 화면이
+                            // 동시에 뜬 에러"처럼 보였다(Jin 실기기). 그래서 확정은
+                            // **정적 대형 마스코트 + 캡션**으로 고정 — 디코더 0 →
+                            // 깜빡임 0. 정적 이미지는 프레임을 캐릭터로 가득 채워
+                            // 이전 영상보다 커 보인다. 진행은 _handleSelection 의
+                            // 타이머가 딱 한 번, 캡션을 읽을 만큼 보여준 뒤 넘긴다.
+                            Mascot(
                               key: ValueKey<String>(
                                 'confirm_${_selected!.name}',
                               ),
-                              // Jin 지정: 태고=산군의 포효, 조이=사뿐히 앉은 길조.
-                              asset: _selected == MascotKind.magpie
-                                  ? CharacterClips.magpiePerched
-                                  : CharacterClips.tigerRoar,
+                              kind: _selected!,
+                              emotion: MascotEmotion.celebrate,
                               size: (constraints.maxWidth - 48)
-                                  .clamp(220.0, 460.0)
+                                  .clamp(260.0, 480.0)
                                   .toDouble(),
-                              fallbackKind: _selected!,
-                              fallbackEmotion: MascotEmotion.celebrate,
-                              // 포효 오디오(assets/sfx/roar_tiger.mp3)가 들어오면
-                              // 자동 재생, 없으면 조용히 무음(회귀 0). 까치 짹짹 유지.
-                              sfxAsset: _selected == MascotKind.magpie
-                                  ? 'sfx/greet_magpie.mp3'
-                                  : 'sfx/roar_tiger.mp3',
-                              fallbackCompleteAfter: const Duration(
-                                milliseconds: 1600,
+                              animate: false,
+                            ),
+                            const SizedBox(height: 20),
+                            // "태고가 선택되었습니다 / 조이가 선택되었습니다" —
+                            // 볼드 + 브랜드 녹청(SoriColors.primary).
+                            Text(
+                              _selected == MascotKind.magpie
+                                  ? t.characterSelectedMagpie
+                                  : t.characterSelectedTiger,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800,
+                                color: SoriColors.primary,
                               ),
-                              onCompleted: _proceed,
                             ),
                           ],
                   ),
@@ -393,7 +408,7 @@ class _CharacterCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 description,
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
                 style: const TextStyle(
                   fontSize: 12.5,
                   height: 1.45,

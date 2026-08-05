@@ -132,7 +132,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get characterDescTiger =>
-      'In Korean folk art the tiger is the lord of the mountains. Taego stands for ancient, calm strength — he walks with you step by step and gives you courage when things get tough.';
+      'In Korean folk art the tiger is the lord of the mountains. Taego stands for ancient, calm strength. He walks with you step by step and gives you courage when things get tough.';
 
   @override
   String get characterNameMagpie => '조이';
@@ -146,6 +146,12 @@ class AppL10nEn extends AppL10n {
   @override
   String get characterDescMagpie =>
       'In Korea the magpie is a bird of good luck that brings happy news. Joy celebrates every win with you and brings good energy to every lesson.';
+
+  @override
+  String get characterSelectedTiger => '태고가 선택되었습니다.';
+
+  @override
+  String get characterSelectedMagpie => '조이가 선택되었습니다.';
 
   @override
   String get characterSelectionHint => 'Tap your study buddy';
@@ -1542,7 +1548,31 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get questsCompletionCelebration =>
-      'New courtyard decoration unlocked!';
+      'New decoration for your room unlocked!';
+
+  @override
+  String get questsOpenGiftCta => 'Open the bundle';
+
+  @override
+  String get homeBojagiTitle => 'A gift is waiting';
+
+  @override
+  String homeBojagiBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bundles are waiting. Open them and furnish your room.',
+      one: 'One bundle is waiting. Open it and furnish your room.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get dojangDecorHintBody =>
+      'These stamps are keepsakes for the word packs you clear. To furnish your Hanok rooms, finish quests and open the bundles you earn.';
+
+  @override
+  String get dojangDecorHintCta => 'Go to Quests';
 
   @override
   String get hanokCinematicIntro => 'Your hanok is growing —';
@@ -3682,7 +3712,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachQuestsBody =>
-      'Complete quests to unlock decorations for your Hanok courtyard';
+      'Complete quests to earn decorations for your Hanok rooms';
 
   @override
   String get coachScenariosTitle => 'Situational dialogues';

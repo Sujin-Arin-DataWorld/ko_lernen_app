@@ -6,7 +6,6 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 /// 캐릭터 선택 화면 (2026-08-03 일월 무대 리디자인) 스모크.
@@ -68,7 +67,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('호랑이 탭 → 단일 확정 클립 → 동의 화면으로 진행', (tester) async {
+  testWidgets('호랑이 탭 → 정적 확정 화면 → 동의 화면으로 진행', (tester) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -79,14 +78,13 @@ void main() {
     await tester.tap(find.textContaining('태고', findRichText: true));
     await tester.pump();
 
-    // 선택 확정 — 단일 클립 플레이어(테스트는 videoReady=false → 정적 폴백).
+    // 선택 확정 — 영상 대신 정적 대형 마스코트 + 볼드 녹청 캡션.
     // 카드/제목은 걷히고 확정 연출만 남는다.
-    expect(find.byType(CharacterClipPlayer), findsOneWidget);
+    expect(find.text('태고가 선택되었습니다.'), findsOneWidget);
     expect(find.text('Tipp deinen Lernfreund an'), findsNothing);
 
-    // 클립 fallbackCompleteAfter 1600ms 워치독 → 미동의라 ConsentScreen 으로.
-    // (그 전에 화면이 멈추지 않도록 4500ms 절대 백스톱도 존재.)
-    await tester.pump(const Duration(milliseconds: 1700));
+    // _advanceGuard 2400ms 타이머 → 미동의라 ConsentScreen 으로.
+    await tester.pump(const Duration(milliseconds: 2500));
     await tester.pump(const Duration(milliseconds: 400));
     expect(find.byType(ConsentScreen), findsOneWidget);
 

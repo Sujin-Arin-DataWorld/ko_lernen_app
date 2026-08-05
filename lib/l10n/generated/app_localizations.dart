@@ -298,7 +298,7 @@ abstract class AppL10n {
   /// No description provided for @characterDescTiger.
   ///
   /// In de, this message translates to:
-  /// **'In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für uralte, ruhige Kraft — er begleitet dich Schritt für Schritt und macht dir Mut, wenn es schwer wird.'**
+  /// **'In der koreanischen Volkskunst ist der Tiger der Herr der Berge. Taego steht für ruhige, uralte Kraft. Er begleitet dich Schritt für Schritt und macht dir Mut, wenn es schwer wird.'**
   String get characterDescTiger;
 
   /// No description provided for @characterNameMagpie.
@@ -324,6 +324,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'In Korea gilt die Elster als Glücksbotin, die gute Nachrichten bringt. Joy feiert jeden Erfolg mit dir und bringt gute Laune in jede Lektion.'**
   String get characterDescMagpie;
+
+  /// No description provided for @characterSelectedTiger.
+  ///
+  /// In de, this message translates to:
+  /// **'태고가 선택되었습니다.'**
+  String get characterSelectedTiger;
+
+  /// No description provided for @characterSelectedMagpie.
+  ///
+  /// In de, this message translates to:
+  /// **'조이가 선택되었습니다.'**
+  String get characterSelectedMagpie;
 
   /// No description provided for @characterSelectionHint.
   ///
@@ -2806,8 +2818,38 @@ abstract class AppL10n {
   /// No description provided for @questsCompletionCelebration.
   ///
   /// In de, this message translates to:
-  /// **'Neue Hof-Dekoration freigeschaltet!'**
+  /// **'Neue Dekoration für deine Stube freigeschaltet!'**
   String get questsCompletionCelebration;
+
+  /// No description provided for @questsOpenGiftCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Bündel öffnen'**
+  String get questsOpenGiftCta;
+
+  /// No description provided for @homeBojagiTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Geschenk wartet'**
+  String get homeBojagiTitle;
+
+  /// No description provided for @homeBojagiBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Ein Bündel wartet. Öffne es und richte deine Stube ein.} other{{count} Bündel warten. Öffne sie und richte deine Stube ein.}}'**
+  String homeBojagiBody(int count);
+
+  /// No description provided for @dojangDecorHintBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Stempel sind Andenken an geschaffte Wortpakete. Um deine Hanok-Stuben einzurichten, schließe Quests ab und öffne die Bündel, die du dabei bekommst.'**
+  String get dojangDecorHintBody;
+
+  /// No description provided for @dojangDecorHintCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu den Quests'**
+  String get dojangDecorHintCta;
 
   /// No description provided for @hanokCinematicIntro.
   ///
@@ -6460,7 +6502,7 @@ abstract class AppL10n {
   /// No description provided for @coachQuestsBody.
   ///
   /// In de, this message translates to:
-  /// **'Erledige Quests, um Dekorationen für deinen Hanok-Hof freizuschalten'**
+  /// **'Erledige Quests und erhalte Dekorationen für deine Hanok-Stuben'**
   String get coachQuestsBody;
 
   /// No description provided for @coachScenariosTitle.
