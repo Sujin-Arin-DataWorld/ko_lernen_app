@@ -480,6 +480,53 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-05 — 학습→보상 루프 수리 계획 수립 + Lernpfad 선택 레벨만 표시 — 미커밋
+
+**범위:** Jin — ① "사랑방에서 오늘 4개나 공부했는데 기록이 안돼"(한옥/사랑방 안 자람·보자기 없음·레벨업 무반응, XP·주간칸은 작동) → systematic-debugging→brainstorming 으로 근본원인 규명·설계 승인("지금 설계대로 하자")→**writing-plans 로 구현 계획 문서화**. ② "Lernpfad 전체레벨 다 보이지 않게, 선택한 레벨만" → **바로 구현·검증**.
+
+**① 보상 루프 (설계·계획만 — 코드 미구현):**
+- 근본원인(코드 확인): 보자기 생산자 `DecorationRewardService.ensurePendingBoxForQuest` 의 유일 호출자가 `QuestTracker.persistNewCompletions`, 그건 오직 `QuestsScreen`(quests_screen.dart:92)에서만 실행 → **퀘스트 화면을 안 열면 공부해도 보상이 생산 안 됨.** `/bojagi` 도 furnish 안에 묻혀 발견 불가. 한옥 성장은 팩 **클리어 비율**의 coarse 12단계라 1~2팩으론 시각 변화 없음. 레벨업은 한옥/보상에 미배선.
+- 산출: 설계 `docs/superpowers/specs/2026-08-05-study-reward-loop-repair-design.md`(기존) + **구현 계획 `docs/superpowers/plans/2026-08-05-study-reward-loop-repair.md`(신규)** — Phase 1 5개 태스크(TDD): `QuestTracker.syncEarnedRewards()` 멱등 seam + GyeService 호출 best-effort화 → 홈 `_refreshHome`·사랑방 `_load` 배선 → `PendingRewardCard`(배지 아닌 콘텐츠 카드, `openableBoxCount` 게이트) → 홈·사랑방 배치 → 홈 `WidgetsBindingObserver` resume 새로고침. **`DecorationRewardService` 직렬큐·수령저널 불변식 무변경.** Phase 2(팩클리어=보자기·연속성장·레벨업축하)는 별도 spec/plan 로드맵. **아직 미구현 — 실행은 후속.**
+
+**② Lernpfad 선택 레벨 스코프 (구현·검증 완료):**
+- `lib/screens/learning_path_screen.dart`: 신규 top-level 순수함수 **`pathVisibleLevel(String?)`**(`Storage.userLevelCode` 'a1'..'b2'→대문자, null/무효→'A1' 폴백). `_load` 가 전 레벨을 여전히 로드(헤더의 "집 전체" 진행도 유지)하되 **`_selectedLevel` 만 렌더** — `build` 의 단어팩 섹션 `if (g.level == _selectedLevel)`, `_CourseMissionPath` 에 `filterLevel` 추가해 그 레벨 미션만. **"Jetzt" 노드는 선택 레벨 안에서 계산**(낮은 레벨 미완팩이 하이라이트/자동스크롤 훔치지 않게). 상단 한옥 헤더(단계 이미지·진행바·"한옥 마을" 버튼)는 전 레벨 합산 유지 = 의도적(집 전체 요약). **디자인 선택**: 헤더까지 레벨 스코프로 좁히려면 Jin 확인 후 후속.
+- 신규 테스트 `test/learning_path_level_test.dart`(3) — 폴백·대문자화·공백/대문자 입력.
+
+**검증:** `flutter analyze`(learning_path+test) **0** · `flutter test learning_path_level+screen_smoke` **28 통과** · `responsive_test` **386 통과**(learning path 308~1280px·태블릿·×1.3 오버플로 0). ⚠️ 미검증(Jin 실기기): A2/B1/B2 선택 시 그 레벨만 노출·헤더 전체합산 체감.
+
+**Git:** 미커밋(Jin 확인 후). 변경: learning_path_screen.dart + 신규 test + 계획 md 2종(design 기존·plan 신규) + 본 로그.
+
+### 2026-08-05 — 프로필 캐릭터 미반영 버그 + 헤더 레이아웃(비디오 좌·이름/배지 우) — 미커밋
+
+**범위:** Jin 실기기 — "설정에서 조이(까치)로 바꿨는데 프로필은 아직 태고(호랑이)" + "캐릭터 비디오 크게 왼쪽에, Gast·Behalte Streak/XP는 오른쪽으로". `lib/screens/profile_screen.dart` 만 수정(+ 테스트 1).
+
+- **버그 근본**: `_AvatarState` 가 `_kind = MascotPreference.kind.value` 를 **initState 에서 한 번만** 읽음. 프로필은 AppShell "Ich" 탭이라 IndexedStack 으로 **살아있는 채 유지** → 설정에서 캐릭터를 바꿔도 리빌드 안 돼 옛 캐릭터 고정. (`mascot_preference.dart` 문서가 "ValueListenableBuilder 로 구독하라" 명시한 걸 이 위젯만 안 지켰음.)
+- **수정**: `MascotPreference.kind` 에 리스너 추가(`_onKindChanged→setState(_syncKind)`), dispose 에서 해제. `_syncKind` 는 kind 가 **실제로 바뀔 때만** 새 포즈 뽑음(무관 리빌드에 깜빡임 0). 설정은 `MascotPreference.set`(notifier+persist)라 리스너가 즉시 잡음. **CharacterClipPlayer 에 `key: ValueKey(_asset)`** — 이 위젯은 `didUpdateWidget` 이 없어 key 없이 asset 만 바꾸면 옛 비디오 컨트롤러를 유지(캐릭터 안 바뀜).
+- **레이아웃**: 헤더를 세로 중앙 스택(아바타→이름→배지) → **`Row`**[아바타(104→128, 왼쪽) · `Expanded`(이름 w900 22 + `profileGuestBadge`="Behalte Streak, XP & Hanok")]. 하단 계정카드·통계·동기카드 무변경.
+- **테스트**: `test/profile_screen_test.dart` "selected magpie portrait" 의 자산 검증을 **의미(캐릭터=까치)** 기준으로 교체 — `find.bySemanticsLabel('마스코트 까치, 미소')` → `tester.widget<Mascot>(...).kind == magpie`. 이유: Row(플렉스) 헤더에서 애니메이팅 폴백 Mascot 의 **a11y 라벨이 테스트 하네스 시맨틱스 트리에 안 뜸**(Mascot 위젯·이미지는 실재=1, VideoPlayer=0으로 확인 — 시각 렌더는 정상, 라벨만 미검출). 캐릭터 kind 직접 검증이 의도에 더 정확·견고.
+- **검증:** `flutter analyze`(profile+test) **0** · 프로필 스위트 2종 **9 통과**. ⚠️ 미검증(Jin 실기기): 설정→프로필 캐릭터 라이브 갱신·헤더 비디오 크기/좌우 배치·긴 이름 ellipsis. ⚠️ 데코 마스코트 a11y 라벨이 플렉스 헤더에서 스크린리더에 안 읽힐 여지(장식 이미지라 영향 경미) — 필요 시 후속.
+- **동시세션 주의**: 도중 `character_selection_screen.dart` 가 `characterSelectedMagpie/Tiger` l10n getter 를 쓰는데 generated 가 stale(동시세션 ARB 편집 중)이라 전체 컴파일 실패 → `flutter gen-l10n` 재생성으로 해소(ARB엔 이미 존재, 그들 작업 미변경).
+
+### 2026-08-05 — 한옥 꾸미기 안내 부재 해소(홈 보자기 배너·퀘스트 완료 핸드오프·용어 통일·도장첩 안내) — 미커밋
+
+**범위:** Jin "Hanok 빌드하려면 뭘 해야 하는지 안내가 안 됨. 스탬프는 모으는데 한옥을 못 꾸밈. 안내하는 부분 있어?" → 진단 후 `"아니 진행해"`로 연결 UX 구현.
+
+**진단(실측, §0):** "한옥 관련"이 **3개 시스템으로 분리**돼 있고 잇는 안내가 사실상 0.
+- **스탬프(도장)** = 팩 클리어 트로피 → `/dojangcheop` 갤러리. **꾸미기와 무관**(사용자 오해의 핵심).
+- **한옥 세계**(`/hanok` [hanok_world_screen.dart](lib/screens/hanok_world_screen.dart)) = 진도 read-only projection → **자동 성장, 할 일 없음**.
+- **사랑방 실내 꾸미기**(`/sarangbang/furnish`) = 유일한 "꾸미기". 장식은 **특별 퀘스트 보상(보자기)**에서 옴: 퀘스트 완료→`ensurePendingBoxForQuest`로 pendingBox 큐잉→`/bojagi` 개봉→후보 선택→슬롯 배치.
+- **결정적 갭:** `pendingBoxes`(`kl_reward_boxes`)를 읽는 화면이 [bojagi_screen.dart](lib/screens/bojagi_screen.dart) **단 하나** → 상자가 생겨도 발견 신호 0. 퀘스트 완료 팝업은 "계속"만 있고 상자로 핸드오프 안 함. 축하·코치 문구는 "courtyard/Hof(마당)"라는데 실제 배치는 사랑방 실내 → 용어 불일치.
+
+**Update:**
+- **`DecorationRewardService.openableBoxCount({pending})`** 신규(순수) — pendingBox 중 **알려진 퀘스트 출처만** 카운트(손상 상자는 "선물 N개" 오약속 방지). 홈 배지 게이트용. 테스트 3([decoration_reward_openable_count_test.dart](test/decoration_reward_openable_count_test.dart)).
+- **홈 보자기 배너**([home_screen.dart](lib/screens/home_screen.dart)) — `_openableBoxes>0`일 때만 미션 히어로 아래 gold `_BojagiBanner`(gift 아이콘+제목+복수형 본문+chevron) 렌더→`/bojagi`. `_loadToday`에서 count 세팅(초기+`_refreshHome` 사이클), 복귀 시 새로고침. **이게 없던 발견 신호.**
+- **퀘스트 완료 핸드오프**([quests_screen.dart](lib/screens/quests_screen.dart)) — `_showQuestCompletionCelebration` 반환 void→bool. 다이얼로그에 주 버튼 "선물 열기"(`pop(true)`) 추가 + 기존 "계속"은 outlined `pop(false)`로 강등. `_load` 루프가 openGift 시 `/bojagi` push 후 break(상자 위 다이얼로그 겹침 방지). 기존 `quest_completion_feedback_route_test`(continue 키·onTap)와 호환 확인.
+- **용어 통일(ARB DE+EN)** — `questsCompletionCelebration`·`coachQuestsBody`의 "courtyard/Hof(마당)"→"room/Stube(사랑방 실내)". (Gye 공동마당 "Hof"는 별개라 무접촉.)
+- **도장첩 안내**([dojangcheop_screen.dart](lib/screens/dojangcheop_screen.dart)) — 진도줄 아래 info 카드: "스탬프는 트로피, 꾸미기는 퀘스트 보상 보자기에서" + `/quests` CTA.
+- **l10n 신규 5키**(DE 템플릿+EN parity): `questsOpenGiftCta`·`homeBojagiTitle`·`homeBojagiBody`(복수형 ICU plural)·`dojangDecorHintBody`·`dojangDecorHintCta`. em-dash·마크다운 배제(메모리 준수), "bundle/Bündel"로 기존 bojagi 카피와 용어 일치.
+
+**검증:** `flutter gen-l10n` OK · `flutter analyze lib test` **0** · 관련 테스트 33/33(신규 3 포함) · `responsive_test` 386/386(홈·퀘스트·도장첩 오버플로 0). **⚠️ 미검증(Jin 실기기):** ① 홈 보자기 배너 시각(테스트는 Storage 빈 상태라 배너 미렌더 = 배너 자체 오버플로 미검증, 단 표준 Row+Expanded 패턴) ② 퀘스트 완료→"선물 열기"→bojagi 실동선 ③ 도장첩 안내 카드 ④ DE/EN 새 문구 시각. **미커밋**(Jin 확인 후).
+
 ### 2026-08-05 — "Hör zu und wähle" 자동재생 앱 전체 통일 + 단어팩 보기 박스 확대 — 미커밋
 
 **범위:** Jin 실기기(Zahlen & Menge 보스) — "듣고 고르기" 화면에서 어떤 건 소리가 자동재생(노란 보스)되고 어떤 건 안 나옴 → 자동재생으로 통일 + 문제/보기 박스를 화면 꽉 차게. Q&A로 **앱 전체 통일** 확정.
@@ -508,6 +555,19 @@ flutter run -d <android-id>   # 안드로이드
 - **답변만(코드 무변)**: ① **Boss-Genauigkeit** = 보스 스테이지(팩 마지막, 발음 듣고 뜻 고르기) 정확도. ≥70%면 팩 클리어. ② **스탬프 반복 = 의도된 설계**(버그 아님). 도장 14종을 **주제군별**로 배정(`motifForPackId`) — a1_greetings/self_intro/family 3주제가 전부 `lotus`라 초반 4팩이 같은 도장, a1_numbers부터 `chrysanthemum`으로 바뀜. 61팩·14문양이라 반복 불가피. Jin이 원하면 초반 A1 팩을 서로 다른 기존 문양으로 재배정 가능(신규 아트 0)은 후속 제안으로 남김.
 - **"Wörter gelernt 두개떠"**: 마일스톤 시트는 `markMilestonesCelebrated`(표시 前 마킹)+`_celebrating` 가드라 **코드상 이중발화 없음**. 결과화면 "Geschafft!" 축하 + 홈복귀 "Wörter gelernt!" 시트 = 두 서피스 중복으로 판단 → 결과화면을 캐릭터 1+도장으로 정리해 중복감 완화. 진짜 같은 시트가 연속 2번이면 별도 재현 필요(Jin 확인).
 - **검증:** `flutter analyze`(3파일) **0** · 관련 테스트 스위트 통과(mascot_wiring·milestone·dancheong_stamp·dedicated_feedback ×2 = 56, responsive 387). ⚠️ **미검증(Jin 실기기)**: 퀴즈 화면 세로 분산 시각·긴 CTA 2줄·축하 캐릭터 단일화·포효 영상 크기.
+
+### 2026-08-05 — 캐릭터 선택 화면: 확정 영상 정적화(깜빡임 제거)·크게·녹청 캡션 + 설명 em-dash 제거 — 미커밋
+
+**범위:** Jin 실기기 피드백 3연발(선택 후 깜빡임·화면 2개 겹쳐 에러같음·확정 캐릭터 작음·설명 어색). `character_selection_screen.dart` + `app_de/en.arb` + 테스트.
+- **깜빡임/"두 화면 겹쳐 에러"**: 확정 시 `CharacterClipPlayer`(영상)가 이 기기(Impeller, Android<33 텍스처 fence 버그)에서 라우트 전환과 겹쳐 흰 프레임 번쩍 → **정적 `Mascot(celebrate)` + 캡션**으로 교체(비디오 디코더 0 = 깜빡임 0). `character_clip` import 제거. `_advanceGuard` 4500→2400ms(딱 한 번, `_navigated` 가드로 2중 이동 방지).
+- **크기**: 영상은 프레임 내 캐릭터가 작았음 → Mascot이 프레임을 캐릭터로 가득 채워 체감 확대(폭=화면폭-48, 260~480 클램프).
+- **녹청 캡션**: 확정 캐릭터 아래 "태고가 선택되었습니다 / 조이가 선택되었습니다"(볼드 w800 · `SoriColors.primary`). l10n 신규 키 `characterSelectedTiger/Magpie`(DE·EN 동일 한국어값).
+- **설명 em-dash 제거·자연화**: `characterDescTiger` DE/EN에서 " — " → 문장 분리. 설명 본문 `TextAlign.center`→`start`.
+- **상단 히어로**: 이미 정사각 원본 `magpie_tiger_together.png` `aspectRatio:1`(크롭 0) — Jin 크롭 스샷은 stale OneDrive 빌드 탓.
+- **온보딩 체인 분석(msg3)**: CharacterSelection→확정→OnboardingLevelScreen→(레벨선택)accountNudge 시트→home→450ms 후 motivation 시트("Warum lernst du Koreanisch?"). "이전 페이지·겹쳐 에러"의 정체 = 확정 영상 번쩍 → 정적화로 해소.
+- **검증:** `flutter gen-l10n` OK · `flutter analyze`(화면) 0 · `character_selection_screen_test` 3/3. ⚠️ 미검증(Jin 실기기). **⚠️ 빌드 경로**: Jin이 stale `OneDrive\Desktop` 사본에서 빌드 중 — `ELibrary\Downloads\DataSet` 사본에서 실행해야 반영.
+
+**Git:** 미커밋.
 
 ### 2026-08-05 — Satz bauen 화면 레이아웃 재배치(캐릭터 문제 위·문제/입력/타일 확대) — 커밋 `3ee6ec1`
 

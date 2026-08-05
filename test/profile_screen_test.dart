@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 
@@ -124,7 +125,13 @@ void main() {
         .widgetList<Image>(find.byType(Image))
         .where((image) => image.image is NetworkImage);
     expect(networkImages, isEmpty);
-    expect(find.bySemanticsLabel('마스코트 까치, 미소'), findsOneWidget);
+    // Der gewählte Charakter (Elster/조이) ersetzt das Konto-Foto. Direkt am
+    // Widget geprüft statt am Semantik-Label: das Kopf-Layout (Video links /
+    // Name rechts) ist ein Flex, in dem die animierte Fallback-Semantik im
+    // Testharnisch nicht zuverlässig als a11y-Label erscheint — der Charakter
+    // selbst (das gerenderte Mascot) schon.
+    final mascot = tester.widget<Mascot>(find.byType(Mascot));
+    expect(mascot.kind, MascotKind.magpie);
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();

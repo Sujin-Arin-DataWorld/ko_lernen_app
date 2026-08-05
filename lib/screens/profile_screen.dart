@@ -162,29 +162,44 @@ class _ProfileScreenState extends State<ProfileScreen>
           builder: (context, padding) => ListView(
             padding: padding,
             children: [
-              // ── Avatar + Name ──
-              Center(child: const _Avatar()),
-              const SizedBox(height: 12),
-              Center(
-                child: Text(
-                  linked ? (name ?? providerLabel) : t.profileGuestName,
-                  style: TextStyle(
-                    fontFamily: 'Pretendard',
-                    fontSize: 20,
-                    fontWeight: FontWeight.w900,
-                    color: s.text,
-                    letterSpacing: -0.3,
+              // ── Charakter (Video groß, links) + Name/Badge (rechts) ──
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const _Avatar(),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          linked ? (name ?? providerLabel) : t.profileGuestName,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontFamily: 'Pretendard',
+                            fontSize: 22,
+                            fontWeight: FontWeight.w900,
+                            color: s.text,
+                            letterSpacing: -0.3,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          linked
+                              ? t.profileConnectedProviderBadge(providerLabel)
+                              : t.profileGuestBadge,
+                          style: TextStyle(
+                            fontSize: 13.5,
+                            height: 1.35,
+                            color: s.textMuted,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 4),
-              Center(
-                child: Text(
-                  linked
-                      ? t.profileConnectedProviderBadge(providerLabel)
-                      : t.profileGuestBadge,
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
-                ),
+                ],
               ),
               const SizedBox(height: 20),
 
@@ -275,23 +290,51 @@ class _Avatar extends StatefulWidget {
 }
 
 class _AvatarState extends State<_Avatar> {
-  static const double _d = 104;
+  static const double _d = 128;
   static const Color _medallionFill = SoriColors.lightSurface;
-  late final MascotKind _kind;
-  late final String _asset;
+  MascotKind? _kind;
+  late String _asset;
 
   @override
   void initState() {
     super.initState();
-    _kind = MascotPreference.kind.value;
+    _syncKind();
+    // 설정에서 캐릭터를 바꾸면(예: 태고→조이) 프로필 아바타도 즉시 반영.
+    // 이전엔 initState 에서 kind 를 한 번만 읽어, 프로필 탭이 살아있는 채로
+    // 캐릭터를 바꾸면 옛 캐릭터가 그대로 남아 있었다(Jin 실기기 버그).
+    MascotPreference.kind.addListener(_onKindChanged);
+  }
+
+  void _onKindChanged() {
+    if (!mounted) {
+      return;
+    }
+    setState(_syncKind);
+  }
+
+  // kind 가 실제로 바뀔 때만 새 포즈를 뽑는다 — 무관한 리빌드에 포즈가
+  // 깜빡이지 않게(같은 캐릭터면 asset 유지).
+  void _syncKind() {
+    final k = MascotPreference.kind.value;
+    if (k == _kind) {
+      return;
+    }
+    _kind = k;
     _asset = CharacterClips.profileClipFor(
-      _kind,
-      Random().nextInt(CharacterClips.profileClipCountFor(_kind)),
+      k,
+      Random().nextInt(CharacterClips.profileClipCountFor(k)),
     );
   }
 
   @override
+  void dispose() {
+    MascotPreference.kind.removeListener(_onKindChanged);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final kind = _kind!;
     // 선택한 마스코트가 계정 사진보다 우선하는 원형 메달리온.
     return Container(
       width: _d,
@@ -318,11 +361,15 @@ class _AvatarState extends State<_Avatar> {
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: CharacterClipPlayer(
+            // asset 이 바뀌면 새 State 를 강제 — CharacterClipPlayer 는
+            // didUpdateWidget 이 없어 key 없이 asset 만 바꾸면 옛 비디오
+            // 컨트롤러를 유지한다(캐릭터가 안 바뀜).
+            key: ValueKey(_asset),
             asset: _asset,
             size: _d - 10,
             loop: true,
             blendColor: _medallionFill,
-            fallbackKind: _kind,
+            fallbackKind: kind,
             fallbackEmotion: MascotEmotion.smile,
           ),
         ),
