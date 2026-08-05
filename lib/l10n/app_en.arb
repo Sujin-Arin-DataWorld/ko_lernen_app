@@ -1945,7 +1945,7 @@
   "@_p1_bojagi": {
     "description": "ADR-002 P1 — 보자기 꾸러미 개봉 화면."
   },
-  "sarangbangHubDesc": "Furnish your room with the pieces you collect.",
+  "sarangbangHubDesc": "Your next study step begins in the Sarangbang.",
   "bojagiTitle": "Bojagi bundle",
   "bojagiOpenHint": "Tap the knot to open the bundle.",
   "bojagiPickTitle": "Pick one",
@@ -1962,5 +1962,44 @@
   "bojagiNext": "Open the next bundle",
   "bojagiCollectionCompleteTitle": "Collection complete",
   "bojagiCollectionCompleteBody": "You already own every room piece. Archive this bundle to continue.",
-  "bojagiArchiveComplete": "Archive bundle"
+  "bojagiArchiveComplete": "Archive bundle",
+  "@_hanok_world": {
+    "description": "Personal Hanok world — map and place navigation."
+  },
+  "hanokWorldTitle": "My Hanok world",
+  "hanokWorldIntro": "Keep learning where your Hanok grows. Each finished place leads to a familiar part of Hangul Sori.",
+  "hanokWorldLegacyTitle": "Your courtyard is taking shape",
+  "hanokWorldLegacyBody": "Finish your A1 and A2 path. Your first B1 progress opens the gate to the full Hanok map.",
+  "hanokWorldMapHint": "Tap a finished building to continue learning there.",
+  "hanokWorldOpenSarangbang": "Study in the Sarangbang",
+  "hanokWorldProgress": "Your Hanok construction progress",
+  "hanokWorldGyeBridgeTitle": "The Gye courtyard",
+  "hanokWorldGyeBridgeBody": "Your private Hanok and the shared Gye courtyard grow side by side. Meet your learning group there.",
+  "hanokWorldGyeBridgeOpen": "Visit the Gye courtyard",
+  "hanokZoneSarangbang": "Sarangbang · today's study",
+  "hanokZoneDaecheong": "Daecheongmaru · learning path",
+  "hanokZoneHaengrang": "Haengrangchae · practice",
+  "hanokZoneAnchae": "Anchae · my collection",
+  "hanokZoneHuwon": "Huwon · daily goal",
+  "hanokZoneSadang": "Sadang · achievements",
+  "@_sarangbang_study": {
+    "description": "Sarangbang as the context for the existing daily recommendation."
+  },
+  "sarangbangStudyTitle": "Sarangbang",
+  "sarangbangStudyIntroTitle": "Your next study step is ready",
+  "sarangbangStudyIntroBody": "The exercise that fits your progress today begins here.",
+  "sarangbangStudyFurnish": "Furnish the study room",
+  "@_personal_rooms": {
+    "description": "Private Hanok interior furnishing surfaces."
+  },
+  "personalRoomAnbangTitle": "Anbang",
+  "personalRoomDaecheongTitle": "Daecheongmaru",
+  "personalRoomAnbangBody": "A quiet inner room for the words and moments you keep.",
+  "personalRoomDaecheongBody": "An open hall where your learning path can continue.",
+  "personalRoomEmptyHint": "Open a Bojagi bundle to add your first room piece.",
+  "personalRoomLockedTitle": "This room is still being built",
+  "personalRoomLockedBody": "Continue the learning path to open this part of your Hanok.",
+  "personalRoomReturnToMap": "Back to the Hanok map",
+  "personalRoomAnbangStudy": "Explore my collection",
+  "personalRoomDaecheongStudy": "Continue the learning path"
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../l10n/generated/app_localizations.dart';
 import '../data/hangul_strokes.dart';
 import '../models/feedback_completion.dart';
@@ -371,10 +370,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            DailyGoalCard(
-              xpToday: Storage.xpToday,
-              goal: Storage.dailyGoalXp,
-            ),
+            DailyGoalCard(xpToday: Storage.xpToday, goal: Storage.dailyGoalXp),
             const SizedBox(height: Spacing.md),
             WeekSteppingStonesRow(
               streak: Storage.streakDays,
@@ -459,13 +455,21 @@ class _HomeScreenState extends State<HomeScreen> {
   );
 
   /// Hero tap opens the course-first mission rather than a free library pack.
-  Future<void> _onHeroTap() async {
-    await Navigator.pushNamed(context, '/course/mission');
-    if (mounted) {
-      await _loadToday();
-      await _loadPath();
+  /// The living Hanok is the study context. The existing recommendation
+  /// engine remains the single source of the actual learning destination.
+  Future<void> _openSarangbang({bool celebrateAfter = false}) async {
+    await Navigator.pushNamed(context, '/sarangbang');
+    if (!mounted) {
+      return;
+    }
+    await _loadToday();
+    await _loadPath();
+    if (celebrateAfter && mounted) {
+      await _maybeCelebrateMilestone();
     }
   }
+
+  Future<void> _onHeroTap() => _openSarangbang(celebrateAfter: true);
 
   /// §6.1 블록 3 추천 엔진 — "다음 것 1개"의 단일 소스.
   /// 우선순위: ① 현재 코스 미션 > ② 진행 중 팩 > ③ due 복습(≥10) >
@@ -506,7 +510,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fraction: c.fraction,
           started: c.started,
           onStart: () async {
-            await Navigator.pushNamed(context, '/course/mission');
+            await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
               await _loadToday();
               await _loadPath();
@@ -527,17 +531,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fraction: p.fraction,
           started: true,
           onStart: () async {
-            if (!await ensurePackAccess(context, level: level)) {
-              return;
-            }
-            if (!mounted) {
-              return;
-            }
-            await Navigator.pushNamed(
-              context,
-              '/vocab/pack',
-              arguments: p.pack.id,
-            );
+            await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
               await _loadToday();
               await _loadPath();
@@ -553,7 +547,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fraction: 0,
           started: false,
           onStart: () async {
-            await Navigator.pushNamed(context, '/review');
+            await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
               await _loadToday();
             }
@@ -569,11 +563,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fraction: 0,
           started: false,
           onStart: () async {
-            await Navigator.pushNamed(
-              context,
-              '/scenario',
-              arguments: sc.scenarioId,
-            );
+            await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
               await _loadToday();
             }
@@ -1080,10 +1070,7 @@ class _HeaderChip extends StatelessWidget {
               boxShadow: isLight ? SoriElevation.low : null,
               border: isLight
                   ? null
-                  : Border.all(
-                      color: SoriColors.darkBorderStrong,
-                      width: 1.5,
-                    ),
+                  : Border.all(color: SoriColors.darkBorderStrong, width: 1.5),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,

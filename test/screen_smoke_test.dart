@@ -3,11 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/home_screen.dart';
+import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
@@ -15,6 +17,9 @@ import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
+import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
+import 'package:ko_lernen_app/screens/sarangbang_furnish_screen.dart';
+import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
@@ -48,8 +53,17 @@ void main() {
     'app shell': const AppShell(),
     'intro gate': const IntroGateScreen(),
     'home': const HomeScreen(),
+    'personal hanok world': const HanokWorldScreen(),
     'learn hub': const LearnHubScreen(),
     'practice hub': const PracticeHubScreen(),
+    'sarangbang study': const SarangbangStudyScreen(),
+    'sarangbang furnish': const SarangbangFurnishScreen(),
+    'anbang furnish': const PersonalRoomFurnishScreen(
+      surface: PersonalRoomSurface.anbang,
+    ),
+    'daecheong furnish': const PersonalRoomFurnishScreen(
+      surface: PersonalRoomSurface.daecheongmaru,
+    ),
     'wordbook hub': const WordbookHubScreen(),
     'learning path': const LearningPathScreen(),
     'vocab (packs grid)': const VocabPacksScreen(),

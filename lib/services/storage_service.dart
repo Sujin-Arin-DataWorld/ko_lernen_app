@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'account/account_transition_journal.dart';
+import '../models/personal_room.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
@@ -875,11 +876,13 @@ class Storage {
     await _sl('kl_owned_decor', [...list, slug]);
   }
 
-  /// 방 배치 — 슬롯 id → 장식 슬러그. 슬롯당 하나.
-  /// 깨진 JSON 은 빈 배치로 떨어뜨리되, 일부 항목만 손상됐으면 유효한
-  /// 배치는 보존한다(배치는 소실돼도 보유는 남는다).
-  static Map<String, String> get roomPlacement {
-    final raw = _s('kl_room_placement');
+  static const String _roomPlacementKey = 'kl_room_placement';
+  static const String _roomPlacementsV2Key = 'kl_room_placements_v2';
+
+  /// 구버전 사랑방 배치만 읽는다. v2가 없거나 손상됐을 때의 안전한 복구
+  /// 재료이므로 삭제하지 않는다.
+  static RoomPlacement get _legacyRoomPlacement {
+    final raw = _s(_roomPlacementKey);
     if (raw.isEmpty) return const {};
     try {
       final decoded = jsonDecode(raw);
@@ -896,12 +899,96 @@ class Storage {
     }
   }
 
-  /// 검증된 방 배치 전체를 저장한다.
+  /// 모든 개인 방의 배치. v2가 한 번도 저장되지 않았을 때만 구 사랑방
+  /// 평면 배치를 사랑방 표면으로 감싸 복구한다. 유효한 빈 v2 `{}`는
+  /// 의도적인 "전부 비움" 이므로 legacy를 되살리지 않는다.
   ///
-  /// 슬롯·카테고리·소유권 규칙은 [RoomPlacementService]가 담당한다. 이 메서드는
-  /// SharedPreferences 직렬화 경계만 맡아 UI와 저장 구현을 분리한다.
+  /// 손상된 v2 JSON은 새 상태를 추측하지 않고 마지막으로 읽을 수 있는
+  /// 사랑방 legacy 값만 안전하게 보여 준다. 각 표면 안에서 손상된 항목은
+  /// 제외하고 유효한 문자열 쌍을 보존한다.
+  static RoomPlacements get roomPlacements {
+    final raw = _prefs?.getString(_roomPlacementsV2Key);
+    if (raw != null) {
+      final decoded = _decodeRoomPlacementsV2(raw);
+      if (decoded != null) {
+        return decoded;
+      }
+    }
+
+    final legacy = _legacyRoomPlacement;
+    return legacy.isEmpty
+        ? const {}
+        : <PersonalRoomSurface, RoomPlacement>{
+            PersonalRoomSurface.sarangbang: legacy,
+          };
+  }
+
+  static RoomPlacements? _decodeRoomPlacementsV2(String raw) {
+    try {
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map) return null;
+      final placements = <PersonalRoomSurface, RoomPlacement>{};
+      for (final entry in decoded.entries) {
+        if (entry.key is! String || entry.value is! Map) {
+          continue;
+        }
+        final surface = PersonalRoomSurface.fromStorageKey(entry.key as String);
+        if (surface == null) {
+          continue;
+        }
+        final placement = <String, String>{};
+        for (final slot in (entry.value as Map).entries) {
+          if (slot.key is String && slot.value is String) {
+            placement[slot.key as String] = slot.value as String;
+          }
+        }
+        if (placement.isNotEmpty) {
+          placements[surface] = placement;
+        }
+      }
+      return placements;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// 사랑방 하위 호환 별칭. 새 코드에서는 [roomPlacements]를 사용한다.
+  static RoomPlacement get roomPlacement => Map<String, String>.from(
+    roomPlacements[PersonalRoomSurface.sarangbang] ?? const {},
+  );
+
+  /// 검증된 개인 방 배치 전체를 v2로 저장하고 사랑방은 legacy 키에도
+  /// mirror-write한다. 구버전 앱이 사랑방을 가능한 한 정확하게 보여 주면서,
+  /// 신버전은 독립 표면의 위치를 잃지 않는다.
+  ///
+  /// 슬롯·카테고리·소유권 규칙은 [RoomPlacementService]가 담당한다. 이
+  /// 메서드는 SharedPreferences 직렬화 경계만 맡는다.
+  static Future<void> setRoomPlacements(RoomPlacements placements) async {
+    final serializable = <String, Object>{
+      for (final entry in placements.entries)
+        if (entry.value.isNotEmpty)
+          entry.key.storageKey: Map<String, String>.from(entry.value),
+    };
+    await _ss(_roomPlacementsV2Key, jsonEncode(serializable));
+    final sarangbang =
+        placements[PersonalRoomSurface.sarangbang] ?? const <String, String>{};
+    await _ss(_roomPlacementKey, jsonEncode(sarangbang));
+  }
+
+  /// 사랑방 배치 전체 저장의 하위 호환 별칭.
+  ///
+  /// 모든 다른 표면을 보존하면서 사랑방만 바꾸고, 그 결과를 v2와 legacy에
+  /// 동시에 쓴다.
   static Future<void> setRoomPlacement(Map<String, String> placement) async {
-    await _ss('kl_room_placement', jsonEncode(placement));
+    final placements = roomPlacements;
+    if (placement.isEmpty) {
+      placements.remove(PersonalRoomSurface.sarangbang);
+    } else {
+      placements[PersonalRoomSurface.sarangbang] = Map<String, String>.from(
+        placement,
+      );
+    }
+    await setRoomPlacements(placements);
   }
 
   /// 슬롯에 장식을 놓는다. [slug] 가 null 이면 비운다.

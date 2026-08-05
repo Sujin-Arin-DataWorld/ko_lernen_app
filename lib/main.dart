@@ -32,6 +32,7 @@ import 'services/app_startup_coordinator.dart';
 import 'services/course_mission_navigation.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'models/curriculum.dart';
+import 'models/personal_room.dart';
 import 'screens/splash_screen.dart';
 import 'screens/quick_onboarding_screen.dart';
 import 'screens/character_selection_screen.dart';
@@ -58,6 +59,7 @@ import 'screens/gye_create_screen.dart';
 import 'screens/gye_join_screen.dart';
 import 'screens/gye_members_screen.dart';
 import 'screens/gye_screen.dart';
+import 'screens/gye_tab_screen.dart';
 import 'screens/learning_path_screen.dart';
 import 'screens/legacy_vocab_screen.dart';
 import 'screens/quests_screen.dart';
@@ -73,6 +75,10 @@ import 'screens/daily_challenge_screen.dart';
 import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/wordle_screen.dart';
+import 'screens/hanok_world_screen.dart';
+import 'screens/personal_room_furnish_screen.dart';
+import 'screens/practice_hub_screen.dart';
+import 'screens/sarangbang_furnish_screen.dart';
 import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
@@ -89,6 +95,16 @@ import 'widgets/sori/tiger_stage_rive.dart';
 import 'widgets/sori/tiger_video.dart';
 import 'widgets/sori/mascot_preference.dart';
 import 'widgets/sori/route_observer.dart';
+
+/// The app adapts its navigation and content to both tablet orientations.
+/// Keeping this explicit prevents a portrait-only startup lock from silently
+/// invalidating the landscape layout contract.
+const List<DeviceOrientation> kAppSupportedOrientations = <DeviceOrientation>[
+  DeviceOrientation.portraitUp,
+  DeviceOrientation.portraitDown,
+  DeviceOrientation.landscapeLeft,
+  DeviceOrientation.landscapeRight,
+];
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -161,11 +177,8 @@ Future<void> main() async {
   // ignore: discarded_futures, unawaited_futures
   DancheongBurst.preload();
 
-  // Portrait sperren
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+  // Allow phones, foldables, and tablets to use their natural orientation.
+  await SystemChrome.setPreferredOrientations(kAppSupportedOrientations);
 
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
   // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
@@ -526,6 +539,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => const DailyChallengeScreen(),
                 settings: settings,
               );
+            case '/practice':
+              return SoriTransitions.fadeScale(
+                (_) => const PracticeHubScreen(),
+                settings: settings,
+              );
             case '/satz_arcade':
               final satzCourseUnitId = settings.arguments as String?;
               return SoriTransitions.fadeScale(
@@ -660,9 +678,33 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => const DojangcheopScreen(),
                 settings: settings,
               );
+            case '/hanok':
+              return SoriTransitions.fadeScale(
+                (_) => const HanokWorldScreen(),
+                settings: settings,
+              );
+            case '/hanok/anbang':
+              return SoriTransitions.fadeScale(
+                (_) => const PersonalRoomFurnishScreen(
+                  surface: PersonalRoomSurface.anbang,
+                ),
+                settings: settings,
+              );
+            case '/hanok/daecheong':
+              return SoriTransitions.fadeScale(
+                (_) => const PersonalRoomFurnishScreen(
+                  surface: PersonalRoomSurface.daecheongmaru,
+                ),
+                settings: settings,
+              );
             case '/sarangbang':
               return SoriTransitions.fadeScale(
-                (_) => const SarangbangScreen(),
+                (_) => const SarangbangStudyScreen(),
+                settings: settings,
+              );
+            case '/sarangbang/furnish':
+              return SoriTransitions.fadeScale(
+                (_) => const SarangbangFurnishScreen(),
                 settings: settings,
               );
             case '/bojagi':
@@ -678,6 +720,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/gye/join':
               return SoriTransitions.fadeScale(
                 (_) => const GyeJoinScreen(),
+                settings: settings,
+              );
+            case '/gye/hub':
+              return SoriTransitions.fadeScale(
+                (_) => const GyeTabScreen(),
                 settings: settings,
               );
             case '/gye':

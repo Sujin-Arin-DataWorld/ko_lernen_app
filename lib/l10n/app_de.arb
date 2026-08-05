@@ -2023,7 +2023,7 @@
   "@_p1_bojagi": {
     "description": "ADR-002 P1 — 보자기 꾸러미 개봉 화면."
   },
-  "sarangbangHubDesc": "Richte deine Stube mit gesammelten Stücken ein.",
+  "sarangbangHubDesc": "Dein nächster Lernschritt beginnt im Sarangbang.",
   "bojagiTitle": "Bojagi-Bündel",
   "bojagiOpenHint": "Tippe auf den Knoten, um das Bündel zu öffnen.",
   "bojagiPickTitle": "Such dir eins aus",
@@ -2040,5 +2040,44 @@
   "bojagiNext": "Nächstes Bündel öffnen",
   "bojagiCollectionCompleteTitle": "Sammlung vollständig",
   "bojagiCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.",
-  "bojagiArchiveComplete": "Bündel ablegen"
+  "bojagiArchiveComplete": "Bündel ablegen",
+  "@_hanok_world": {
+    "description": "Persönliche Hanok-Welt — Karte und Ortsnavigation."
+  },
+  "hanokWorldTitle": "Meine Hanok-Welt",
+  "hanokWorldIntro": "Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.",
+  "hanokWorldLegacyTitle": "Dein Hof nimmt Gestalt an",
+  "hanokWorldLegacyBody": "Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.",
+  "hanokWorldMapHint": "Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.",
+  "hanokWorldOpenSarangbang": "Im Sarangbang lernen",
+  "hanokWorldProgress": "Baufortschritt deiner Hanok",
+  "hanokWorldGyeBridgeTitle": "Der Gye-Hof",
+  "hanokWorldGyeBridgeBody": "Deine private Hanok und der gemeinsame Gye-Hof wachsen nebeneinander. Triff deine Lerngruppe dort.",
+  "hanokWorldGyeBridgeOpen": "Gye-Hof besuchen",
+  "hanokZoneSarangbang": "Sarangbang · heutiges Lernen",
+  "hanokZoneDaecheong": "Daecheongmaru · Lernpfad",
+  "hanokZoneHaengrang": "Haengrangchae · Üben",
+  "hanokZoneAnchae": "Anchae · meine Sammlung",
+  "hanokZoneHuwon": "Huwon · Tagesziel",
+  "hanokZoneSadang": "Sadang · Erfolge",
+  "@_sarangbang_study": {
+    "description": "Sarangbang als Kontext für die bestehende Tagesempfehlung."
+  },
+  "sarangbangStudyTitle": "Sarangbang",
+  "sarangbangStudyIntroTitle": "Dein nächster Lernschritt wartet",
+  "sarangbangStudyIntroBody": "Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.",
+  "sarangbangStudyFurnish": "Studierstube einrichten",
+  "@_personal_rooms": {
+    "description": "Private Hanok-Innenräume zum Einrichten."
+  },
+  "personalRoomAnbangTitle": "Anbang",
+  "personalRoomDaecheongTitle": "Daecheongmaru",
+  "personalRoomAnbangBody": "Ein ruhiger Innenraum für die Wörter und Momente, die du bewahrst.",
+  "personalRoomDaecheongBody": "Eine offene Halle, in der dein Lernweg weitergeht.",
+  "personalRoomEmptyHint": "Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.",
+  "personalRoomLockedTitle": "Dieser Raum wird noch gebaut",
+  "personalRoomLockedBody": "Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.",
+  "personalRoomReturnToMap": "Zurück zur Hanok-Karte",
+  "personalRoomAnbangStudy": "Meine Sammlung entdecken",
+  "personalRoomDaecheongStudy": "Lernweg fortsetzen"
 }

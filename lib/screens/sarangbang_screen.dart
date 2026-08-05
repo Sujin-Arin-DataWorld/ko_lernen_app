@@ -1,138 +1,171 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
-import '../services/room_placement_service.dart';
-import '../services/storage_service.dart';
-import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/placed_decoration.dart';
-import '../widgets/sori/room_layer.dart';
+import '../services/mission_recommender.dart';
+import '../services/pack_access.dart';
+import '../services/sarangbang_study_recommendation.dart';
+import '../services/vocab_pack_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mission_hero_card.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
-import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
 
-/// "이 자리를 비운다" 를 나타내는 sentinel.
+/// The study-facing Sarangbang. It presents the one recommendation selected
+/// by the existing engine, then launches the exact original learning surface.
 ///
-/// 시트를 스와이프로 닫으면 Flutter 가 `null` 을 돌려준다. 그래서 비우기를
-/// `null` 로 표현하면 **그냥 닫은 것과 구분되지 않아** 시트를 닫을 때마다
-/// 슬롯이 비워진다. 비우기는 반드시 별도 값이어야 한다.
-const String kSlotPickClear = ' clear';
+/// Decorating remains intentionally separate at `/sarangbang/furnish` so a
+/// learner never has to enter a placement UI before studying.
+class SarangbangStudyScreen extends StatefulWidget {
+  final Future<SarangbangStudyRecommendation> Function()? loadRecommendation;
+  final Future<void> Function(SarangbangStudyRecommendation recommendation)?
+  onOpenRecommendation;
 
-/// 사랑방 — 보유 장식을 슬롯에 배치하는 화면 (ADR-002 P1).
-///
-/// 배치 규칙은 전부 [RoomPlacementService] 에 있다. 이 화면은 "어느 슬롯에
-/// 무엇을" 만 전달하고 소유권·카테고리·중복 검증은 하지 않는다 —
-/// 화면마다 다른 규칙이 생기는 걸 막기 위해서다.
-class SarangbangScreen extends StatefulWidget {
-  const SarangbangScreen({super.key});
+  const SarangbangStudyScreen({
+    super.key,
+    this.loadRecommendation,
+    this.onOpenRecommendation,
+  });
 
   @override
-  State<SarangbangScreen> createState() => _SarangbangScreenState();
+  State<SarangbangStudyScreen> createState() => _SarangbangStudyScreenState();
 }
 
-class _SarangbangScreenState extends State<SarangbangScreen> {
-  /// 배경. 아직 없으면 `errorBuilder` 로 조용히 단색이 된다 —
-  /// 에셋 배치 전에도 슬롯 동작을 확인할 수 있어야 한다.
-  static const String _bg = 'assets/illustrations/hanok/sarangbang_empty.png';
-
-  late RoomPlacement _placement;
+class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
+  SarangbangStudyRecommendation? _recommendation;
+  bool _loading = true;
+  bool _loadFailed = false;
 
   @override
   void initState() {
     super.initState();
-    _reload();
+    _load();
   }
 
-  void _reload() {
-    // 저장값은 손상·구버전일 수 있으므로 항상 정규화해서 읽는다.
-    _placement = RoomPlacementService.sanitize(Storage.roomPlacement);
+  Future<void> _load() async {
+    setState(() {
+      _loading = true;
+      _loadFailed = false;
+    });
+    try {
+      final load =
+          widget.loadRecommendation ?? SarangbangStudyRecommendationLoader.load;
+      final recommendation = await load();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _recommendation = recommendation;
+        _loading = false;
+      });
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+    }
   }
 
-  Future<void> _onTapSlot(SlotDef slot) async {
-    final current = _placement[slot.id];
-    final candidates = RoomPlacementService.candidatesForSlot(
-      slot,
-      owned: Storage.ownedDecor,
-      placement: _placement,
-    );
-    // 놓을 것도 뺄 것도 없으면 시트를 열지 않는다 — 빈 목록을 띄우는 건
-    // 할 수 없는 일을 광고하는 셈이다 ([RoomLayer] 마커 규칙과 같은 근거).
-    if (candidates.isEmpty && current == null) return;
+  Future<void> _openRecommendation() async {
+    final recommendation = _recommendation;
+    if (recommendation == null) {
+      return;
+    }
+    final override = widget.onOpenRecommendation;
+    if (override != null) {
+      await override(recommendation);
+      return;
+    }
 
-    final picked = await showSoriSheet<String>(
-      context: context,
-      builder: (ctx) => SlotPickerSheet(
-        candidates: candidates,
-        current: current,
-      ),
-    );
-    if (!mounted || picked == null) return; // 그냥 닫음 → 변경 없음
+    final destination = sarangbangDestinationFor(recommendation.pick);
+    if (destination == null) {
+      return;
+    }
+    final level = destination.packAccessLevel;
+    if (level != null) {
+      final allowed = await ensurePackAccess(context, level: level);
+      if (!allowed || !mounted) {
+        return;
+      }
+    }
+    await Navigator.of(
+      context,
+    ).pushNamed(destination.route, arguments: destination.arguments);
+    if (mounted) {
+      await _load();
+    }
+  }
 
-    await RoomPlacementService.placeInSlot(
-      slot.id,
-      picked == kSlotPickClear ? null : picked,
-    );
-    if (!mounted) return;
-    setState(_reload);
+  Future<void> _openFurnish() async {
+    await Navigator.of(context).pushNamed('/sarangbang/furnish');
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
-    final owned = Storage.ownedDecor.toSet();
-
+    final s = SoriSurfaces.of(context);
     return Scaffold(
+      backgroundColor: s.bg,
       appBar: AppBar(
-        title: Text(t.sarangbangTitle, style: text.h3),
+        title: Text(t.sarangbangStudyTitle),
         actions: [
-          // 꾸러미로 가는 유일한 진입점. 미개봉 개수 배지는 아직 안 단다 —
-          // 개수를 알려면 저장소를 직접 읽어야 하는데, 그 경계는
-          // `DecorationRewardService` 가 갖고 있어야 한다.
           IconButton(
-            tooltip: t.bojagiTitle,
-            icon: const Icon(Icons.card_giftcard_rounded),
-            onPressed: () async {
-              await Navigator.of(context).pushNamed('/bojagi');
-              if (!mounted) return;
-              // 꾸러미에서 새 장식을 받았을 수 있다 — 보유 목록을 다시 읽는다.
-              setState(_reload);
-            },
+            tooltip: t.hanokWorldTitle,
+            icon: const Icon(Icons.account_balance_outlined),
+            onPressed: () => Navigator.of(context).pushNamed('/hanok'),
+          ),
+          IconButton(
+            tooltip: t.sarangbangStudyFurnish,
+            icon: const Icon(Icons.chair_outlined),
+            onPressed: _openFurnish,
           ),
         ],
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: owned.isEmpty && _placement.isEmpty
-              ? Center(
-                  child: SoriEmptyState(
-                    asset:
-                        'assets/illustrations/reward/reward_bojagi_closed.png',
-                    icon: Icons.card_giftcard_rounded,
-                    title: t.sarangbangEmptyTitle,
-                    body: t.sarangbangEmptyBody,
+          child: _loading
+              ? const AppLoading()
+              : _loadFailed
+              ? AppError(message: t.courseMissionLoadError, onRetry: _load)
+              : SoriContentClamp(
+                  base: const EdgeInsets.fromLTRB(
+                    Spacing.lg,
+                    Spacing.md,
+                    Spacing.lg,
+                    Spacing.xxxl,
                   ),
-                )
-              : Center(
-                  child: AspectRatio(
-                    // 배경이 3:4 세로 — 슬롯 좌표가 이 비율 기준이라 고정한다.
-                    aspectRatio: 3 / 4,
-                    child: Stack(
-                      fit: StackFit.expand,
+                  builder: (context, padding) => RefreshIndicator(
+                    onRefresh: _load,
+                    child: ListView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: padding,
                       children: [
-                        // 배경 PNG 가 아직 없어도 슬롯 동작은 확인할 수
-                        // 있어야 한다 — 없으면 조용히 빈 방 색으로 대체.
-                        Image.asset(
-                          _bg,
-                          fit: BoxFit.cover,
-                          errorBuilder: (ctx, _, __) => ColoredBox(
-                            color: SoriSurfaces.of(ctx).surfaceAlt,
+                        const _SarangbangWelcome(),
+                        const SizedBox(height: Spacing.lg),
+                        KeyedSubtree(
+                          key: const ValueKey('sarangbang-study-mission'),
+                          child: MissionHeroCard(
+                            loading: false,
+                            content: _missionContent(t),
+                            onAnotherRound: () =>
+                                Navigator.of(context).pushNamed('/path'),
                           ),
                         ),
-                        RoomLayer(
-                          slots: kSarangbangSlots,
-                          placement: _placement,
-                          owned: owned,
-                          onTapSlot: _onTapSlot,
+                        const SizedBox(height: Spacing.md),
+                        SoriButton.outlined(
+                          label: t.sarangbangStudyFurnish,
+                          fullWidth: true,
+                          onTap: _openFurnish,
                         ),
                       ],
                     ),
@@ -142,133 +175,91 @@ class _SarangbangScreenState extends State<SarangbangScreen> {
       ),
     );
   }
+
+  MissionHeroContent? _missionContent(AppL10n t) {
+    final recommendation = _recommendation;
+    final pick = recommendation?.pick;
+    final language = Localizations.localeOf(context).languageCode;
+    return switch (pick) {
+      CoursePick(
+        :final unit,
+        :final missionNumber,
+        :final totalMissions,
+        :final fraction,
+        :final started,
+      ) =>
+        MissionHeroContent(
+          kind: MissionHeroKind.course,
+          title: unit.title.pick(language),
+          levelCode: unit.level.toUpperCase(),
+          meta: t.missionHeroCourseMeta(missionNumber, totalMissions),
+          fraction: fraction,
+          started: started,
+          onStart: _openRecommendation,
+        ),
+      PackPick(:final pack, :final fraction) => MissionHeroContent(
+        kind: MissionHeroKind.pack,
+        title: VocabPackService.displayLabel(pack.id, lang: language),
+        levelCode: pack.level.toUpperCase(),
+        meta: t.missionHeroPackMeta(pack.level.toUpperCase()),
+        fraction: fraction,
+        started: true,
+        onStart: _openRecommendation,
+      ),
+      ReviewPick(:final dueCount) => MissionHeroContent(
+        kind: MissionHeroKind.review,
+        title: t.missionHeroReviewTitle(dueCount),
+        levelCode: null,
+        meta: t.missionHeroReviewMeta,
+        fraction: 0,
+        started: false,
+        onStart: _openRecommendation,
+      ),
+      ScenarioPick(:final scenarioId, :final level) => MissionHeroContent(
+        kind: MissionHeroKind.scenario,
+        title: recommendation?.scenario?.title.pick(language) ?? scenarioId,
+        levelCode: level.code.toUpperCase(),
+        meta: t.missionHeroScenarioMeta(level.code.toUpperCase()),
+        fraction: 0,
+        started: false,
+        onStart: _openRecommendation,
+      ),
+      null => null,
+    };
+  }
 }
 
-/// 슬롯 하나에 무엇을 놓을지 고르는 시트.
-///
-/// [showSoriSheet] 셸이 핸들·패딩·최대높이·스크롤을 이미 준다. 그래서 여기서
-/// 자체 스크롤러를 만들지 않는다 — 중첩하면 unbounded 제약으로 붕괴한다.
-///
-/// 고른 결과는 `Navigator.pop` 으로 돌려준다:
-/// 슬러그 = 그걸 놓는다 · [kSlotPickClear] = 비운다 · null(그냥 닫음) = 변경 없음.
-class SlotPickerSheet extends StatelessWidget {
-  /// 이 슬롯에 놓을 수 있는 보유 장식. 순서는 호출자가 정한다.
-  final List<String> candidates;
-
-  /// 지금 이 슬롯에 놓여 있는 것 — 체크 표시와 "비우기" 노출 여부를 결정한다.
-  final String? current;
-
-  const SlotPickerSheet({
-    super.key,
-    required this.candidates,
-    this.current,
-  });
+class _SarangbangWelcome extends StatelessWidget {
+  const _SarangbangWelcome();
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
-    // 퀘스트 이름과 같은 규칙 — en 이 아니면 독일어(앱 기본 언어).
-    final german = Localizations.localeOf(context).languageCode != 'en';
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Semantics(
-          header: true,
-          child: Text(
-            t.sarangbangPickTitle,
-            style: text.h3,
+    return SoriCard(
+      variant: SoriCardVariant.hanji,
+      accent: SoriColors.primary,
+      tinted: true,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(t.sarangbangStudyIntroTitle, style: text.h3),
+                const SizedBox(height: Spacing.xs),
+                Text(t.sarangbangStudyIntroBody, style: text.bodySmall),
+              ],
+            ),
           ),
-        ),
-        const SizedBox(height: Spacing.md),
-        for (final slug in candidates)
-          _PickRow(
-            slug: slug,
-            label: decorName(slug, german: german),
-            selected: slug == current,
-            onTap: () => Navigator.of(context).pop(slug),
+          const SizedBox(width: Spacing.md),
+          const Mascot.tiger(
+            emotion: MascotEmotion.thinking,
+            size: 76,
+            animate: false,
           ),
-        if (current != null)
-          _PickRow(
-            label: t.sarangbangClear,
-            selected: false,
-            onTap: () => Navigator.of(context).pop(kSlotPickClear),
-          ),
-      ],
-    );
-  }
-}
-
-/// 시트의 한 줄 — 썸네일 + 이름 (+ 현재 선택 체크).
-///
-/// [slug] 가 null 이면 "비우기" 행이다.
-class _PickRow extends StatelessWidget {
-  final String? slug;
-  final String label;
-  final bool selected;
-  final VoidCallback onTap;
-
-  const _PickRow({
-    this.slug,
-    required this.label,
-    required this.selected,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final text = SoriTextTheme.of(context);
-    final thumb = slug;
-
-    return Semantics(
-      button: true,
-      selected: selected,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: SoriRadius.brMd,
-        child: Padding(
-          padding: const EdgeInsets.all(Spacing.sm),
-          child: Row(
-            children: [
-              SizedBox(
-                width: 52,
-                height: 52,
-                // 장식마다 세로 비율이 제각각(병풍은 세로로 길다). 폭만 주면
-                // 52 박스를 넘쳐 오버플로가 난다 — FittedBox 로 담는다.
-                child: thumb == null
-                    ? Icon(
-                        Icons.remove_circle_outline,
-                        size: 26,
-                        color: s.textMuted,
-                      )
-                    : FittedBox(
-                        fit: BoxFit.contain,
-                        child: SoriDecorationImage(slug: thumb, size: 46),
-                      ),
-              ),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: Text(
-                  label,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: text.cardTitle.copyWith(
-                    color: thumb == null ? s.textMuted : s.text,
-                  ),
-                ),
-              ),
-              if (selected)
-                const Icon(
-                  Icons.check_circle_rounded,
-                  size: 22,
-                  color: SoriColors.primary,
-                ),
-            ],
-          ),
-        ),
+        ],
       ),
     );
   }

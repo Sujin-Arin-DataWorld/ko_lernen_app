@@ -14,6 +14,7 @@ import '../services/pack_progress_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/decoration_layer.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/level_chip.dart';
 import '../widgets/sori/card.dart';
@@ -109,8 +110,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     if (!mounted || (_autoScrolled && !force)) {
       return;
     }
-    final focusCtx =
-        _focusPackId != null && _focusPackId != _nowPackId
+    final focusCtx = _focusPackId != null && _focusPackId != _nowPackId
         ? _focusNodeKey.currentContext
         : null;
     final ctx = focusCtx ?? _nowNodeKey.currentContext;
@@ -275,9 +275,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
               child: Container(
                 height: 1.5,
                 decoration: BoxDecoration(
-                  color: HanokLevelPalette.of(
-                    g.level,
-                  ).withValues(alpha: 0.28),
+                  color: HanokLevelPalette.of(g.level).withValues(alpha: 0.28),
                   borderRadius: BorderRadius.circular(1),
                 ),
               ),
@@ -578,6 +576,12 @@ class _HanokHeader extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     color: s.textMuted,
                   ),
+                ),
+                const SizedBox(height: Spacing.md),
+                SoriButton.outlined(
+                  label: t.hanokWorldTitle,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).pushNamed('/hanok'),
                 ),
               ],
             ),

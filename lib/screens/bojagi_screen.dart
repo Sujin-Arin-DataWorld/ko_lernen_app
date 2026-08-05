@@ -386,7 +386,8 @@ class _ClaimedView extends StatelessWidget {
             const SizedBox(height: Spacing.xl),
             SoriButton(
               label: t.bojagiGoToRoom,
-              onTap: () => Navigator.of(context).pushNamed('/sarangbang'),
+              onTap: () =>
+                  Navigator.of(context).pushNamed('/sarangbang/furnish'),
             ),
             if (hasNext) ...[
               const SizedBox(height: Spacing.sm),

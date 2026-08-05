@@ -265,7 +265,22 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 사랑방 화면의 새 텍스트는 공통 `SoriTextTheme` 프리셋으로 수렴해 전역 `w800`·Pretendard 래칫을 늘리지 않는다 (`4f3e83`).
 - [x] 보상 꾸러미 개봉 UI: 묶인 보자기 → 후보 3개 → 선택 → 사랑방 CTA를 서비스 API만으로 연결했고, 연습 허브·사랑방에서 도달 가능하다 (`aec2846`). 실제 장식·보자기·빈 사랑방 에셋이 제공되면 화이트리스트와 함께 연결한다.
 - [x] 전체 장식 수집 완료 보관 처리 UI: `collectionComplete` 상태를 DE/EN 안내와 명시적 보관 CTA로 연결하고, 마지막 장식 수령 뒤에도 다음 완주 꾸러미를 열 수 있게 했다 (`695e548`).
-- [ ] P1 실제 에셋 반영: 2026-08-04 다운로드 묶음은 배경의 색상 마커·보자기의 불투명 흰 캔버스·Faceted Minhwa와 다른 외곽선 렌더 때문에 반려했다. 원본은 로컬 격리본에 보존했으며, 규약을 통과한 교체본이 오면 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신한다 (`c70e459`).
+- [x] 전역 analyzer의 잔여 `_magpiePerched` dead 상수를 제거했다. 런타임 자산 선택은 건드리지 않았으며 `dart analyze` 0 issues와 마스코트·반응형 회귀 332개를 통과했다 (`de7f615`).
+- [x] 색상 마커·흰 캔버스가 없는 3:4 불투명 사랑방 배경을 실제 경로에 반영했다. 기존 슬롯 좌표를 위한 좌측 2단 벽감·상단 횃대·빈 중앙 벽/바닥·우측 창 구성을 유지하며 관련 회귀 32개를 통과했다 (`78fc96d`).
+- [x] 닫힌/열린 보자기 짝을 실제 `Format32bppArgb` PNG로 반영했다. 기존 흰 캔버스·수채화 외곽선 대신 공통 조각보 패턴과 투명 여백을 쓰며 꾸러미·무결성 회귀 12개를 통과했다 (`d5e3ecc`).
+- [x] P1 실제 에셋 반영: 반려된 다운로드 묶음은 로컬 격리본으로 보존하고, 새 Faceted Minhwa 9종(3:4 빈 사랑방 1·RGBA 보자기 2·RGBA 실내 장식 6)을 실제 경로에 반영했다. 화이트리스트 6줄과 asset `pending` 3줄을 함께 갱신했으며, 갓·부채는 같은 횃대 보상 안에서 서로 닿지 않는 독립 전시로 수정했다 (`78fc96d`, `d5e3ecc`, `9b16bad`).
+
+### 개인 한옥 채 짓기·내부 꾸미기 (P2–P4, 2026-08-04)
+
+- [x] P2 구조 설계: 한옥은 `오늘의 다음 학습`을 공간으로 여는 한 개의 개인 성장 세계다. Home → 사랑방 학습 허브 → 기존 학습 표면의 원래 진입 경로를 보존하고, `/sarangbang/furnish`는 P1 수집·배치를 맡는다. 정본은 `docs/superpowers/specs/2026-08-04-living-hanok-learning-world-design.md`다.
+- [x] P2a: 기존 `hanok_compound/` 프로토타입은 사용자 검수에서 반려되어 그대로 동결한다. 새 개인 전용 `personal_hanok_v2/`의 넓은 전통 종가 한 카메라(북쪽 위·동서 지붕 수평·상단 좌광)와 고밀도 Faceted Minhwa 에셋 9종을 반영했다. Gye 파일·진행·저장소는 직접 재사용하지 않으며, 개인 후원은 연못·다리·정자·장독대·등을 한 레이어로 보존해 다리가 물 위를 가로지르는 관계를 고정한다 (`bddc25a`).
+- [x] P2b: `LevelRatios`만 읽는 pure `PersonalHanokProjection`·구조/조경 카탈로그·개인 전용 맵 레이어의 데이터 계약을 테스트 우선으로 구현했다. 7개 건축 milestone과 개인 후원 레이어의 순서·자산 루트·Gye/구 프로토타입 차단을 고정했고, 레거시 마당도 스크롤 가능한 유한 4:3 viewport로 안전하게 렌더하는 개인 지도/세계 화면을 추가했다 (`4b411f3`, `bddc25a`, `caa1cbb`).
+- [x] P2c: `/hanok` 화면·라우트·학습 경로 CTA를 연결했다. 사랑채는 기존 `recommendMission`의 결과만 실행하는 `/sarangbang` 학습 허브로, 꾸미기는 `/sarangbang/furnish`로 분리했다. 대청·행랑·안채·후원·사당은 기존 학습/기록 표면으로 연결하며 Gye 길은 비상호작용으로 남긴다 (`0e30709`).
+- [x] P2d: 308–1280dp 및 시스템 글자 1.3x의 반응형·접근성·상호작용 회귀를 고정했고, 앱 시작 시 portrait-only 제한을 해제해 phone·foldable·tablet의 네 방향을 허용한다. 새 한옥 세계·사랑방 학습·꾸미기 화면도 같은 matrix와 smoke gate에 포함했다 (`73693a4`).
+- [x] P3: 배치를 `surfaceId + slotId → decorationSlug`로 확장해 안방·대청마루 내부를 추가한다. 현재 사랑방 배치는 안전하게 보존/읽기 마이그레이션한다 (`88c8564`).
+- [x] P4a: 개인 한옥 지도에서 계를 개인 구조물로 섞지 않고 기존 공동 계 허브로 연결한다 (`d548032`).
+- [x] P4c: 한옥·사랑방·실내·계 진입 CTA는 이미 있는 지도/카드 문맥을 유지하고 버튼 자체는 텍스트 우선으로 수렴했다. 중복 아이콘 다섯 개를 제거해 작은 폭의 라벨 가용 공간을 회복했고, 전체 Flutter 회귀 2,029개와 타이포그래피 가드를 통과했다 (`8d5ca97`).
+- [ ] P4b: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
@@ -423,6 +438,150 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-04 (Codex) — 살아있는 한옥 학습 세계 정본 재정의 · 구현 착수
+
+- **사용자 결정:** 한옥은 단순한 완성 배경이 아니라 기존 학습을 장소감 있게 여는 장기 게임이다. Home의 주 학습 CTA는 사랑방으로 들어가고, 사랑방은 임의의 새 콘텐츠가 아니라 기존 `recommendMission`이 고른 오늘의 다음 학습을 원래 학습 화면으로 연결한다.
+- **경계 재정의:** P1 사랑방 수집·보자기·방 배치는 `/sarangbang/furnish`로 분리하고 데이터/서비스를 건드리지 않는다. 개인 한옥은 `LevelRatios`의 순수 투영만 읽으며 CourseMastery 70% 판정·계 진행·공유 에셋을 대체하거나 추론하지 않는다.
+- **아트 재시작:** 사용자 피드백으로 기존 `hanok_compound/`의 서로 다른 카메라 프로토타입은 동결한다. 새 `personal_hanok_v2/`만 참조하며, 개인 연못·다리도 Gye 파일을 직접 재사용하지 않고 같은 넓은 전통 종가 카메라에서 다시 제작한다.
+- **문서:** 설계 계약 `docs/superpowers/specs/2026-08-04-living-hanok-learning-world-design.md`와 테스트 우선 실행 계획 `docs/superpowers/plans/2026-08-04-living-hanok-learning-world.md`를 추가했다. 검증 및 구현 커밋 해시는 후속 항목에 기록한다.
+
+### 2026-08-04 (Codex) — 개인 한옥 순수 진도·카탈로그 계약 커밋
+
+- **변경:** `PersonalHanokProjection.from(LevelRatios)`를 새로 두어 B1 25%의 솟을대문부터 B2 100% 후원 완성까지를 기존 12단계 상태와 별개인 map layer 집합으로 순수 계산한다. 비정상적으로 뒤 레벨만 높은 입력은 기존 cascade처럼 초반 courtyard에 남고, 새 저장값·보상·코스 판정은 만들지 않는다.
+- **카탈로그/가드:** `personal_hanok_v2/`만을 가리키는 map layer·hit-zone 데이터와, 1536×1152/알파/코너/chroma-key를 fail-closed로 검사하는 `check_personal_hanok_assets.py`를 추가했다. 에셋 생성 전 checker의 14개 missing red는 의도된 상태다.
+- **검증:** 새 단위 테스트는 threshold·monotonicity·cascade·Gye/prototype path 차단·연못 아래 다리 z-order·비상호작용 Gye road를 **7/7** 고정했다. 대상 `dart analyze` 0 issues, `python -m py_compile` 통과, `git diff --check` 통과. 구현 커밋: `4b411f3`.
+
+### 2026-08-04 (Codex) — 개인 한옥 정본 레이어 에셋 반영
+
+- **에셋:** 사용자 승인한 넓은 전통 종가 배치를 `personal_hanok_v2/`에 독립 반영했다. 빈 대지·참조 전경·솟을대문·행랑채·사랑채·안채·대청마루·사당·후원 9종은 모두 1536×1152의 같은 북쪽 위 카메라를 쓴다. 기존 `hanok_compound/`와 Gye 에셋은 건드리지 않았다.
+- **후원 관계:** 연못·다리·정자·장독대·등·식재를 `rear_garden` 한 장의 투명 합성 레이어로 유지했다. 따라서 다리는 지도 카메라가 달라질 수 있는 별도 자산이 아니라 연못 물 위를 실제로 가로지르는 완결된 풍경으로 보존된다. 미래 P3에서 수집 단위로 나눌 때만 새 시각 계약으로 분리한다.
+- **검증:** 에셋 검사기는 9/9 PASS(동일 canvas·투명 모서리·alpha coverage·chroma 잔류 없음)였고, 순수 카탈로그/지도 위젯 회귀 **10/10**, 대상 `dart analyze` 0 issues, `git diff --check`를 통과했다. 구현 커밋: `bddc25a`.
+
+### 2026-08-04 (Codex) — 개인 한옥 세계 화면·반응형 지도 렌더러 반영
+
+- **화면 계약:** `HanokWorldScreen`은 `HanokStageService.levelRatios()`를 읽어 `PersonalHanokProjection`만 계산한다. 새 저장·보상·진도 판정은 하지 않으며, 완성된 구역은 사랑방/학습 경로/연습/책장/일일 도전/도장첩이라는 기존 화면의 주소로만 매핑한다. 실제 `/hanok` 라우팅은 사랑방을 추천 학습 허브로 전환하는 P2c 배선 커밋과 함께 연결한다.
+- **반응형/접근성:** 지도는 phone부터 넓은 tablet까지 실제 남은 폭 기준 최대 960dp로 넓어지며, 탭 대상은 map widget의 최소 44dp 계약을 그대로 쓴다. 레거시 세로형 `MadangBackground`가 ListView 안에서 무한 높이를 받아 실패하던 문제를 발견해, fallback 역시 4:3 유한 viewport로 고정했다. 지도에 별도의 핀치 래퍼를 두지 않아 세로 스크롤·탭·스크린리더의 일반 동작을 보존한다.
+- **검증:** 새 world screen RED 테스트부터 구현해 B1 gate 전 legacy fallback과 완성 사랑방의 실제 탭 전달을 고정했다. `hanok_world_screen`·map·catalog·ARB guard 회귀 **16/16**, 대상 `dart analyze` 0 issues, `git diff --check` 통과. 구현 커밋: `caa1cbb`.
+
+### 2026-08-04 (Codex) — 사랑방 추천 학습 허브·개인 한옥 라우팅 연결
+
+- **학습 동선:** Home의 주 추천 CTA와 호랑이 hero는 더 이상 코스·팩·복습·시나리오를 직접 열지 않는다. 사랑방은 Home과 동일한 입력을 읽어 기존 `recommendMission`을 변경 없이 실행하고, 그 결과의 원래 표면만 연다. 따라서 사랑방은 새 추천 엔진이나 콘텐츠가 아니라 오늘의 다음 학습에 장소감을 부여하는 맥락이다.
+- **경계/라우트:** 기존 방 배치는 `SarangbangFurnishScreen`과 `/sarangbang/furnish`로 보존했고, 보자기 수령 CTA도 그 경로로 고쳤다. `/hanok`·`/practice`·`/sarangbang/furnish`를 앱 라우터에 등록했으며, 학습 경로의 한옥 헤더와 사랑방 상단에서 개인 한옥 지도로 진입한다.
+- **검증:** `flutter gen-l10n`, 추천/사랑방/배치/한옥/ARB targeted 회귀 **23 passed**, 신규 세 화면을 포함한 `screen_smoke_test` **23 passed**, 308–1280dp와 세로/가로 tablet·1.3x 글자 매트릭스 `responsive_test` 통과, 대상 `dart analyze` 0 issues, `git diff --check` 통과. 구현 커밋: `0e30709`.
+
+### 2026-08-04 (Codex) — 태블릿·폴더블 회전 허용 및 P2 반응형 마감
+
+- **실기기 제약 제거:** 앱 startup이 `portraitUp`/`portraitDown`만 강제하던 제한을 네 방향의 `kAppSupportedOrientations`으로 바꿨다. 따라서 Galaxy Tab·Xiaomi Pad·foldable은 OS가 허용하는 가로/세로 회전을 그대로 쓴다. Android manifest의 유일한 portrait attribute는 앱 셸이 아닌 외부 사진 cropper `UCropActivity` 전용이므로, 이미지 자르기 안정성을 위해 건드리지 않았다.
+- **회귀:** 새 orientation contract test는 네 방향을 고정한다. 개인 한옥 세계·사랑방 학습·사랑방 꾸미기를 기존 308–1280dp, 800×1280/1280×800, 1.3x 글자 matrix 및 screen smoke에 포함해 다시 통과시켰고, 대상 `dart analyze` 0 issues와 `git diff --check`도 통과했다. 전체 `flutter test --no-pub --concurrency=1 --reporter silent`과 `flutter analyze --no-pub`도 exit 0으로 마쳤다. 구현 커밋: `73693a4`.
+
+### 2026-08-04 (Codex) — 개인 한옥 대지 확장·연못 다리 R2 계약 커밋
+
+- **사용자 검수:** R1에서 건물의 방향은 통일됐지만 대지가 작아 향후 장독대·등·수목·정자·계 관련 목표를 담기에는 스케치북처럼 느껴진다는 피드백을 반영했다. R1 레이어 교체는 아직 커밋하지 않고, 더 넓은 대지와 축소된 footprint에 맞춰 다시 합성한다.
+- **공간 결정:** `site_base`는 1536×1152/4:3을 유지하되 대지·담장이 약 96%를 사용하고, 구조물 anchor는 줄여 안마당·전면·후원에 실제 빈 terrain을 남긴다. revised anchor table은 P2a sheet와 실행 계획에 함께 고정했다.
+- **후원 결정:** 기존 `gye_pond_large`·`gye_bridge`를 계속 직접 재사용하되, bridge anchor를 연못의 중앙 물 위로 올려 z-order상 water 위에서 가로지르게 한다. 다리를 foreground 장식처럼 놓는 기존 위치는 acceptance에서 제외한다.
+- **커밋:** `e6dde03` (`docs(hanok): expand compound spatial contract`).
+
+### 2026-08-04 (Codex) — 개인 한옥 지도 카메라 R1 보정 계약 커밋
+
+- **사용자 검수:** 여섯 구조 레이어가 각각 독립 3/4 소실점·yaw를 가져 전통 배치도 위에 붙인 모형처럼 보인다는 피드백을 확인했다. alpha/크기 검사 통과만으로 시각적 완성을 선언하지 않고, 이 첫 합성은 P2a acceptance에서 제외한다.
+- **결정:** 바탕·정규화 anchor·연못/다리 직접 재사용은 유지한다. 여섯 구조물만 `north-up plan-locked oblique`로 재제작한다. 남쪽은 항상 화면 아래, 동서 지붕마루는 화면 가로축과 평행, 출입면은 기본적으로 남향이며 건물별 독자 소실점/정면 파사드 렌더는 금지한다.
+- **문서화:** 정본 설계·에셋 시트·P2a 실행 계획에 R1 보정 규칙과 "사랑채 기준 보정 → 나머지 다섯 채 → 4개 화면폭 합성" 순서를 기록했다. 이후 이미지 검수는 이 계약과 base overlay를 기준으로 한다.
+- **커밋:** `fee3bf3` (`docs(hanok): lock map camera orientation`).
+
+### 2026-08-04 (Codex) — 개인 한옥 P2a 분리 사당 레이어 반영 커밋
+
+- **에셋:** 동쪽 별도 enclosure용 `sadang`을 추가했다. 닫힌 격자문, 절제된 단청, 낮은 돌 문턱만 가진 작은 독립 건물로 제작해 사랑방/안방처럼 장식 배치나 실내 입구를 암시하지 않고, 이후 문화·성취 기록 표면으로만 연결할 수 있다.
+- **합성·검수:** 지정 anchor `(left: .74, bottom: .52, width: .17)`에서 안채와 물리적으로 분리되고 동쪽 담장 안에 안정적으로 보임을 1536×1152 합성으로 확인했다. `python tool/check_hanok_compound_assets.py`는 이제 base와 여섯 구조 레이어 모두 PASS한다(사당 alpha 48.3%, chroma key 0). `git diff --check` 통과.
+- **커밋:** `ec87d8c` (`feat(hanok): add shrine map layer`).
+
+### 2026-08-04 (Codex) — 개인 한옥 P2a 안마당 레이어 반영 커밋
+
+- **에셋:** `anchae`는 남쪽으로 열린 ㄷ자 내부 마당과 좌우 날개·후면 채가 작은 화면에서도 읽히도록 만들었고, `daecheongmaru`는 두 마당 사이를 잇는 닫힌 방이 아닌 바닥·기둥이 보이는 열린 대청으로 분리했다. 둘 다 지도에 독립적으로 탭 가능한 투명 레이어다.
+- **합성 검수:** sheet의 고정 anchor로 base와 남쪽 전면 3종 위에 겹쳐 1280×960·800×600·600×450·360×270을 확인했다. 안채의 U가 윗 안마당을 남쪽으로 열고, 대청은 사랑채의 동쪽 끝과 접하지만 별도 열린 공간으로 구별되며, 동쪽 사당 enclosure는 비어 있다.
+- **기계 검증:** `python tool/check_hanok_compound_assets.py`에서 base와 5개 구조 레이어가 PASS했다(안채 alpha 39.9%, 대청 alpha 45.8%, chroma key 0). 사당 1개 missing은 마지막 P2a 제작 전의 의도된 red다. `git diff --check` 통과.
+- **커밋:** `68172f5` (`feat(hanok): add inner court layers`).
+
+### 2026-08-04 (Codex) — 개인 한옥 P2a 남쪽 전면 3개 레이어 반영 커밋
+
+- **에셋:** `sotdaeulmun`·`haengrangchae`·`sarangchae`를 같은 고정 지도 카메라와 상단 좌광으로 만든 투명 PNG로 추가했다. 남쪽 문은 낮은 담장 opening에 독립적으로 서고, 행랑채는 왼쪽 전면을 받치며, 긴 사랑채는 대청의 열린 중앙과 온돌방 양쪽을 읽게 해 이후 `/sarangbang` 진입 건물로 쓸 수 있다.
+- **합성 검수:** 1536×1152 `site_base` 위에 sheet의 `(left, bottom, width)` anchor 그대로 겹쳐 1280×960과 360×270에서 확인했다. 세 요소가 담장·진입·전면 마당을 침범하지 않고 서로의 우선순위를 유지하며, 작은 폭에서도 사랑채/문/행랑채가 구별된다.
+- **기계 검증:** `python tool/check_hanok_compound_assets.py`에서 base와 세 레이어가 모두 PASS했다(각 RGBA, 투명 모서리, alpha 32.7–36.0%, chroma key 0). 아직 제작 전인 안채·대청마루·사당 3개 missing은 의도된 P2a 진행 red다. `git diff --check` 통과.
+- **커밋:** `3ec9b92` (`feat(hanok): add front compound layers`).
+
+### 2026-08-04 (Codex) — 개인 한옥 P2a 빈 한옥 지도 바탕 반영 커밋
+
+- **에셋:** `assets/illustrations/hanok_compound/site_base.png`을 추가했다. 전통 도면의 비대칭 담장·남쪽 진입·상단 안마당·동쪽 사당 enclosure·하단 후원으로 읽히되, 어떤 완성 건물·문·연못 물·다리·원형/사각 marker도 바탕에 굽지 않았다. 따라서 여섯 채와 기존 연못/다리를 나중에 독립적으로 올릴 수 있다.
+- **규격:** 선택한 후보를 Lanczos로 정확히 1536×1152 RGB로 맞췄고, `pubspec.yaml`에 `assets/illustrations/hanok_compound/`를 등록했다. 360×270 및 1280×960 시각 검수에서 담장/진입/후원 위치와 빈 anchor를 확인했다.
+- **검증:** `python tool/check_hanok_compound_assets.py`에서 base는 `PASS`(alpha 100%, green-key 0), 나머지 구조물 6개 `missing`은 아직 제작 전이라 의도된 red다. `flutter test test/data_integrity_test.dart` 5개 통과, `git diff --check` 통과.
+- **커밋:** `6fec54f` (`feat(hanok): add master map site base`).
+
+### 2026-08-04 (Codex) — 개인 한옥 완성 지도 P2a 에셋 검사기·제작 시트 커밋
+
+- **RED → guard:** 아직 어떤 지도 에셋도 없을 때 `python tool/check_hanok_compound_assets.py`가 정확히 7개 `[missing]`을 출력하고 non-zero로 끝나는 것을 확인했다. 이 상태가 P2a 제작 전의 의도된 red다.
+- **구현:** `tool/check_hanok_compound_assets.py`는 base의 1536×1152/불투명 모서리와 구조물 6종의 RGBA mode·투명 모서리·2–90% alpha coverage·opaque subject·`#00ff00` chroma 잔류를 전수 검사한다. `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`는 정규화 좌표, 개인/계 연못·다리 경계, 일곱 생산 프롬프트, 합격 기준, P2b가 참조할 path 목록을 고정했다.
+- **검증/커밋:** `python -m py_compile tool/check_hanok_compound_assets.py`, checker의 의도된 red, `git diff --check` 통과. 현재 단계는 파일 부재 때문에 checker red가 정상이며, 이미지 투입 뒤에만 green이 된다. 커밋: `c5f50ea` (`chore(hanok): add master map asset guard`).
+
+### 2026-08-04 (Codex) — 개인 한옥 완성 지도 P2a 에셋 제작 계획 커밋
+
+- **범위:** 사용자 승인 뒤, 코드·라우트·저장값을 건드리지 않는 독립 P2a로 `site_base` 1장과 도면 시점의 `sotdaeulmun`·`haengrangchae`·`sarangchae`·`anchae`·`daecheongmaru`·`sadang` 투명 레이어 6장을 제작하기로 확정했다.
+- **계약:** `gye_pond_large`·`gye_bridge`는 파일을 복사하지 않고 개인 후원에서 같은 milestone으로 직접 참조한다. Gye의 model/storage/UI는 수정하지 않으며, 모든 신규 구조물은 4:3 base와 같은 카메라·상단 좌광·bottom ground anchor·투명 모서리·chroma-key 무잔류를 만족해야 한다.
+- **검수 도구/문서:** `tool/check_hanok_compound_assets.py`가 base 1536×1152/불투명 모서리, 여섯 레이어의 alpha 모서리·coverage·green-key 부재를 검사하고, `docs/P2A_HANOK_COMPOUND_ASSET_SHEET.md`가 좌표와 최종 runtime path를 고정한다. 계획은 RED checker → base → 전면 채 → 안채/대청 → 사당 → 실제 연못/다리 합성 확인의 독립 커밋 단위다.
+- **검증/커밋:** 계획의 spec coverage·금지 placeholder 문자열·id/path 일치성을 직접 검토했고 `git diff --check`를 통과했다. 계획 커밋: `bce559e` (`docs(hanok): plan master map asset production`).
+
+### 2026-08-04 (Codex) — 개인 한옥 완성 지도·후원 자산 계약 설계 커밋
+
+- **제품 결정:** 첨부한 전통 도면처럼 전면 솟을대문·사랑채, 안마당 안채·대청마루, 분리 사당, 오른쪽 아래 후원의 비대칭 4:3 지도를 개인 한옥의 최종 성장 목표로 고정했다. 필수 채 6개가 개인 한옥의 완성 조건이고, 연못·다리·등·조경·실내 꾸미기는 완성 뒤에도 이어지는 선택 수집 깊이다.
+- **기존 자산 검수:** `gye_pond_large`와 `gye_bridge`는 실제 `Format32bppArgb` 투명 PNG이고 함께 자연스럽게 합성되는 것을 확인했다. 개인 지도에서는 둘을 하나의 후원 milestone으로 직접 재사용하되, 개인 코스 진도만 읽고 계의 lifetime goal·storage·pulse는 절대 읽지 않는다. `gye_gate_grand`·`gye_haenglangchae`·`gye_byeoldang`은 카메라/footprint가 도면형 지도와 달라 계 화면에 남기고, 지도용 건물 6종은 동일 시점으로 새로 만든다.
+- **차단:** 기존 `decoration_pond`·`decoration_jangdokdae`·`decoration_sonamu`·`decoration_maehwa`는 중앙의 near-opaque 흰 캔버스가 다른 장면 위에서 보이므로 alpha/canvas 정규화 전에는 개인 지도 catalog에 넣지 않는다.
+- **명세:** `docs/superpowers/specs/2026-08-04-personal-hanok-compound-growth-design.md`를 7종 지도 아트 패키지, 기존 자산 재사용 표, 개인/계 경계, 완성 조건, P2a–P2d 순서로 개정했다. 문서 단계라 Flutter 소스·저장값·라우트·Gye UI는 변경하지 않았다.
+- **검증/커밋:** `git diff --check` 통과, staged 경로는 설계 문서와 AGENTS 체크리스트 2개뿐. 설계 커밋: `efcc86a` (`docs(hanok): define master map asset contract`).
+
+### 2026-08-04 (Codex) — 개인 한옥 채 짓기 P2 설계 고정 — 구현 검토 대기
+
+- **제품 결정:** 첨부된 전통 한옥 배치를 사용자 장기 성장 목표로 삼는다. 개인 한옥은 전용 `/hanok` 화면에서 채를 하나씩 세우고 완성 건물에 들어가는 정본 경험이며, `LearningPathScreen`은 작은 미리보기와 같은 경로의 CTA만 제공한다.
+- **호환성:** `HanokStageService`의 12단계·기존 시네마틱·P1 사랑방을 바꾸지 않는다. B1 25%부터 솟을대문→행랑채→사랑채, B2 25/50/75%에 안채·대청마루·사당을 추가로 해금한다. 이미 얻은 비율에서 매번 결정론적으로 계산하므로 별도 저장 마이그레이션·보상 재지급이 없다.
+- **경계:** 개인/계는 서로의 progress·storage·소유권을 읽지 않는다. 공통 `HanokCompoundLayer`는 좌표와 에셋을 그리는 data-only 렌더러이고, 계의 lifetime goal·pulse·사회 상태는 그대로 계 도메인에 남긴다. P3의 surface-aware 배치와 P4 계 헌납은 P2에 섞지 않는다.
+- **에셋 판단:** 기존 `gye_gate_grand`·`gye_haenglangchae`·`gye_byeoldang`는 초반 개인 구조에 경로 재사용한다. 종가 stage PNG 위에 건물을 덧그릴 수 없으므로 빈 마당·안채·대청마루·사당 네 종의 새 규격 에셋이 필요하다.
+- **명세·검증:** `docs/superpowers/specs/2026-08-04-personal-hanok-compound-growth-design.md`를 current model/renderer/screen/asset 실제 상태와 대조하고 TODO·TBD·placeholder·설계 모순 없이 self-review했다. 최종 staged `git diff --check` 통과. 설계 커밋: `9157e90`.
+
+### 2026-08-04 (Codex) — P1 사랑방 실제 에셋 교체 명세 — 커밋 완료
+
+- **승인 범위:** analyzer의 dead _magpiePerched 상수 제거(동작 불변)와 사랑방 실자산 9종(3:4 배경 1·RGBA 보자기 2·RGBA 실내 장식 6)을 한 트랙으로 처리한다.
+- **시각 계약:** ASSET_GENERATION_BIBLE.md의 Faceted Minhwa(각진 면분할·무윤곽·한지 그레인·제한 팔레트)를 따르고, 배경은 기존 좌측 벽감·상단 횃대 슬롯 좌표를 보존하며 색상 마커를 절대 넣지 않는다. 보자기/장식은 #00FF00 chroma-key 생성 뒤 알파 검증·정규화를 거쳐 흰 캔버스와 키 색 잔재를 막는다.
+- **가드:** 실제 파일 반영 때만 kAvailableDecorations 6줄과 data_integrity_test pending 3줄을 함께 갱신한다. 카테고리·슬롯·보상/저널 로직은 변경하지 않으며, 시각 검수·alpha 검사·analyze·사랑방 묶음 테스트를 모두 통과해야 한다.
+- **명세·검증:** docs/superpowers/specs/2026-08-04-sarangbang-production-assets-design.md를 placeholder/TODO/모순 없이 self-review하고 git diff --check로 확인했다. 명세 커밋: 5d8da65.
+
+### 2026-08-04 (Codex) — P1 사랑방 실제 에셋 구현 계획 — 커밋 완료
+
+- **기존 보자기/배경 판정:** Claude 생성본으로 보이는 격리 파일 세 장을 실제 픽셀로 확인했다. 보자기 2종은 흰 캔버스·수채화 음영·스티치 외곽선, 사랑방 배경은 8개 색상 마커·회화적 음영이 있어 모두 재사용 불가로 확정했다. 격리 경로는 그대로 보존한다.
+- **실행 순서:** warning 제거 → 3:4 빈 사랑방 배경 → 짝이 맞는 closed/open bojagi RGBA → 실내 장식 6종 정규화·화이트리스트·pending 해제 → focused 가드로 고정한다. 슬롯/저널/번역 API는 변경 금지다.
+- **명세·검증:** docs/superpowers/plans/2026-08-04-sarangbang-production-assets.md를 spec coverage·placeholder·interface 일치로 self-review하고 git diff --check로 확인했다. 계획 커밋: f63b517.
+
+### 2026-08-04 (Codex) — 전역 analyzer 경고 정리 — 커밋 완료
+
+- **변경:** `_MascotState`에서 실제 선택 경로가 없는 `_magpiePerched` 상수만 제거했다. 어떤 이미지 파일·emotion 매핑·fallback도 바꾸지 않아 런타임 동작은 불변이다.
+- **검증:** 변경 전 `flutter analyze --no-pub`의 유일한 경고가 이 상수였고, 변경 후 `dart analyze`는 0 issues였다. `flutter test test/mascot_ticker_test.dart test/responsive_test.dart`는 332개 전부 통과했다.
+- **커밋:** `de7f615` (`fix(mascot): remove unused perch asset constant`).
+
+### 2026-08-04 (Codex) — P1 빈 사랑방 배경 반영 — 커밋 완료
+
+- **변경:** `assets/illustrations/hanok/sarangbang_empty.png`에 새 1086×1448(3:4) 불투명 Faceted Minhwa 배경을 추가했다. 좌측 2단 벽감과 상단 횃대, 빈 중앙 벽/바닥, 우측 창을 그대로 두되 기존 반려본의 색상 마커·수채화 처리·흰 캔버스를 제거했다.
+- **검증:** 생성 결과를 직접 시각 검수하고 `Format24bppRgb`/1086×1448을 확인했다. `flutter test test/scene_asset_resolver_test.dart test/data_integrity_test.dart test/room_layer_test.dart test/sarangbang_picker_test.dart test/bojagi_screen_test.dart` 32개가 통과했다.
+- **커밋:** `78fc96d` (`feat(sarangbang): add empty room background`).
+
+### 2026-08-04 (Codex) — P1 보자기 실자산 반영 — 커밋 완료
+
+- **변경:** `reward_bojagi_closed.png`와 `reward_bojagi_open.png`을 같은 청록·비취·황금·석간주 조각보 계열의 Faceted Minhwa 짝으로 추가했다. 생성본은 초록 키를 soft matte/despill 처리해 프로젝트에는 투명 PNG만 넣었고, 기존 Claude 격리본은 건드리지 않았다.
+- **검증:** 두 파일 모두 1254×1254 `Format32bppArgb`이고, 투명 여백/키 색 잔재/열린 상태의 빈 중심을 시각 확인했다. `flutter test test/bojagi_screen_test.dart test/data_integrity_test.dart` 12개가 통과했다.
+- **커밋:** `d5e3ecc` (`feat(rewards): add Faceted Minhwa bojagi pair`).
+
+### 2026-08-04 (Codex) — P1 사랑방 실내 장식 통합 — 커밋 완료
+
+- **변경:** `decoration_chaekgado`·`decoration_jagae_mungap`·`decoration_seoan`·`decoration_soban`·`decoration_munbangsau`·`decoration_gat_buchae`의 실내 PNG 6종을 추가하고 `kAvailableDecorations`에 함께 등록했다. 갓과 부채는 한 횃대 보상 slug를 유지하되, 서로 닿지 않는 두 독립 전시물로 재생성했다.
+- **활성화/가드:** 실제 PNG가 존재하므로 asset integrity의 사랑방 배경·보자기 임시 `pending` 3줄을 제거했다. 호환 슬롯 회귀는 이제 실제 `SoriDecorationImage`/`Image.asset` 렌더와 fallback 부재를 확인한다. 정규화 원본 `_raw`는 장면·도장과 같은 로컬 재생성 정책으로 `.gitignore`에 넣어 번들에 포함되지 않는다.
+- **검증:** 각 PNG의 투명 배경과 슬롯 비율을 직접 시각 검수했다. `dart analyze` 0 issues, focused 사랑방 가드 50개, 전체 `flutter test` 1,942개가 모두 통과했다.
+- **커밋:** `9b16bad` (`feat(sarangbang): activate production interior assets`).
 
 ### 2026-08-04 (Codex) — UI/UX completion implementation, in progress
 
@@ -2735,3 +2894,42 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **보존·경계:** 원본과 정규화 결과는 로컬의 `assets/illustrations/.asset_intake_2026-08-04/`로 옮겨 보존하고 `.gitignore`로 제외했다. 따라서 앱 번들 경로에는 반려 에셋이 남지 않으며 `kAvailableDecorations`와 `data_integrity_test`의 `pending`도 의도적으로 바꾸지 않았다. 다운로드 시트에 이 판정을 기록해 다음 세션이 같은 URL을 다시 등록하지 않게 했다.
 - **도구:** `decoration_normalize.py`의 콘솔 출력 em dash를 ASCII hyphen으로 바꿔 Windows cp949 콘솔에서도 정규화가 성공 종료한다.
 - **검증:** 실제 6장 정규화 실행 exit 0, 시각 검수, `flutter test test/decoration_slot_test.dart test/data_integrity_test.dart test/bojagi_screen_test.dart test/sarangbang_picker_test.dart test/room_layer_test.dart` **30 passed**, `git diff --check` 통과. 구현 커밋: `c70e459`.
+
+### 2026-08-04 (Codex) — P3 개인 한옥 다중 실내 배치 모델 — 커밋 완료
+
+- **목적:** 사랑방에서 검증된 수집 장식 배치를 안채·대청마루로 확장하되, 한 물건이 여러 방에 복제되거나 기존 사랑방 유저 배치가 사라지지 않게 한다. 보상 꾸러미·소유 장식·한옥 진도·70% 학습 조건·cloud sync·계 데이터는 이 단계에서 전혀 바꾸지 않았다.
+- **저장 마이그레이션:** 새 `kl_room_placements_v2`는 `surface → slot → decoration` 중첩 JSON을 authoritative로 쓴다. v2 키가 없을 때만 기존 `kl_room_placement`를 사랑방으로 감싸 읽고, 유효한 빈 `{}`는 legacy를 되살리지 않는다. 손상된 v2 JSON은 읽을 수 있는 legacy 사랑방만 안전하게 fallback한다. v2 write는 사랑방을 legacy 키에도 mirror-write한다.
+- **불변식:** `PersonalRoomSurface.sarangbang → anbang → daecheongmaru` 순서로 손상/중복 저장값을 정규화한다. 새 배치는 한 슬러그를 모든 개인 방에서 먼저 제거한 뒤 대상 슬롯에 넣고, 서비스 직렬 write queue로 두 방 화면의 stale write 경합을 막는다. 기존 `Storage.roomPlacement`·`setRoomPlacement`·`RoomPlacementService.placeInSlot`은 사랑방 호환 별칭으로 유지한다.
+- **검증:** 신규 테스트 RED는 model/storage/API 부재 컴파일 실패를 확인했다. GREEN: `flutter test test/room_placement_storage_test.dart test/room_placement_service_test.dart test/personal_room_placement_service_test.dart` **9 passed**; `dart analyze lib/models/personal_room.dart lib/services/storage_service.dart lib/services/room_placement_service.dart lib/widgets/sori/placed_decoration.dart` **No issues found**; `git diff --check` 통과. 구현 커밋: `aef77ca`.
+
+### 2026-08-04 (Codex) — P3 방별 슬롯 카탈로그·전역 마커 규칙 — 커밋 완료
+
+- **변경:** `PersonalRoomDefinition` 카탈로그가 사랑방·안채·대청마루의 배경, 5개 슬롯, 해금 milestone, 기존 학습 목적지를 한 곳에 선언한다. 안채·대청은 벽·바닥·선반×2·걸이의 동일한 수집 규약과 이미지 안전 좌표를 사용해 장식의 크기/앵커 계약을 유지한다.
+- **마커 경계:** `RoomLayer`가 현재 surface와 전체 `RoomPlacements`를 함께 받아 후보를 계산한다. 안채에 놓은 유일 소반은 사랑방의 빈 바닥에 더 이상 눌러도 비어 있는 `⊕` 표식으로 나타나지 않는다. 기존 단일 `placement` 입력은 사랑방 호환성용으로 유지했다.
+- **검증:** 새 카탈로그·교차 방 dead-marker 테스트는 구현 전 import/parameter 부재로 RED를 확인했고, `flutter test test/personal_room_catalog_test.dart test/room_layer_test.dart test/room_placement_service_test.dart test/personal_room_placement_service_test.dart` **11 passed**, `dart analyze lib/data/personal_room_catalog.dart lib/widgets/sori/room_layer.dart` **No issues found**, `git diff --check` 통과. 구현 커밋: `b74e441`.
+
+### 2026-08-04 (Codex) — P3 안채·대청마루 실내 쉘 에셋 — 커밋 완료
+
+- **에셋:** 새 개인 루트 `personal_hanok_v2/interiors/`에 `anbang_empty.png`와 `daecheong_empty.png`를 추가했다. 둘 다 사랑방과 같은 세로 3:4, 정면 얕은 3/4 실내 카메라, 고밀도 Faceted Minhwa·한지 결·단청/호두목 팔레트를 따르며, 중앙 한지 벽과 마루 바닥은 수집 장식을 위한 여백으로 유지한다. 계 에셋은 참조·재사용하지 않았다.
+- **계약:** 안채는 보호된 내실의 따뜻한 창호 빛과 섬세한 결구, 대청은 높은 서까래·넓은 마루·오른쪽 뜰 개구부로 구분한다. 사람·텍스트·책/책가도·책상·문갑·소반·갓/부채 등 유저가 놓을 수집품은 배경에 baked-in 하지 않았다. 생성 안채가 1086×1449였던 한 줄 여백은 소스 하단 1px만 안전하게 crop해 두 방 모두 1086×1448로 정규화했다.
+- **가드:** `tool/check_personal_room_assets.py`가 파일 존재, 1086×1448, RGB/RGBA 불투명 알파, `#00ff00` chroma-key 부재를 fail-closed로 검사한다. 카탈로그 테스트도 모든 room surface가 실제 쉘 파일을 가리키는지 고정한다.
+- **검증:** 쉘 부재 테스트는 구현 전 실제 `false` RED를 확인했다. GREEN: `dart analyze lib/data/personal_room_catalog.dart test/personal_room_catalog_test.dart` **No issues found**, `flutter test test/personal_room_catalog_test.dart` **2 passed**, `python tool/check_personal_room_assets.py` **2 passed**, `git diff --check` 통과. 구현 커밋: `7ea9f85`.
+
+### 2026-08-04 (Codex) — P3 안채·대청마루 배치 화면·지도 진입 — 커밋 완료
+
+- **변경:** `PersonalRoomFurnishScreen` 하나로 사랑방·안채·대청마루의 배치 표면을 렌더한다. 사랑방은 기존 `/sarangbang/furnish` 진입과 해금 전 접근성을 그대로 보존하고, 안채·대청은 각각의 지도 건물에서 `/hanok/anbang`·`/hanok/daecheong`으로 연결했다. 공용 슬롯 피커는 화면마다 다른 `null`/비우기 해석이 생기지 않게 추출했다.
+- **잠금 경계:** 직접 URL로 미완성 안채·대청에 가더라도 한옥 진도만 읽어 잠긴 안내를 보여 준다. RoomLayer·배치 후보·저장값을 읽거나 정규화하지 않으므로, 잠긴 방이 기존 사랑방 배치에 영향을 줄 수 없다.
+- **학습 동선:** 각 실내는 이미 있던 목적지로만 이어진다(사랑방은 기존 추천 학습 허브, 안채는 내 수집, 대청은 학습 경로). 새 추천·보상·진도·계 상태는 만들지 않았다.
+- **검증:** 구현 전 잠긴 안채 화면 import 부재 RED를 확인했다. GREEN: `flutter test test/personal_room_furnish_screen_test.dart test/hanok_world_screen_test.dart test/sarangbang_picker_test.dart test/room_layer_test.dart test/personal_room_placement_service_test.dart` **15 passed**, `flutter test test/screen_smoke_test.dart` **25 passed**, `flutter test test/responsive_test.dart` **386 passed**, targeted `dart analyze` **No issues found**, `git diff --check` 통과. 구현 커밋: `88c8564`.
+
+### 2026-08-04 (Codex) — P4a 개인 한옥·공동 계 마당 연결 — 커밋 완료
+
+- **경계:** 개인 한옥 지도는 개인 진도만 투영한다. 지도 속 `gyeRoad`는 계속 비상호작용이고, 개인 건물·수집 장식·배치 저장소에 계 요소를 넣지 않았다. 따라서 공동 공간을 개인 한옥의 다른 건물처럼 오해하거나 개인 장식을 공유 상태로 잘못 복제하지 않는다.
+- **변경:** 넓은 개인 지도 해금 뒤에만 “계 마당” 카드를 보여 주고 `/gye/hub`의 기존 `GyeTabScreen`으로 이동한다. 그 화면은 기존 멤버십·연령 게이트·Firestore·공동 한옥을 그대로 사용하며, 이 단계는 신규 계 데이터/보상/기부 write를 만들지 않는다.
+- **검증:** 카드가 구현 전 없다는 widget RED를 확인했다. GREEN: `flutter test test/hanok_world_screen_test.dart` **4 passed**, `dart analyze lib/main.dart lib/screens/hanok_world_screen.dart test/hanok_world_screen_test.dart` **No issues found**, ARB 대칭·세계/연기/반응형 회귀 `flutter test test/arb_l10n_guard_test.dart test/hanok_world_screen_test.dart test/screen_smoke_test.dart test/responsive_test.dart` **419 passed**, `git diff --check` 통과. 구현 커밋: `d548032`.
+
+### 2026-08-04 (Codex) — 한옥 동선 CTA 텍스트 우선 가드 복구 — 커밋 완료
+
+- **원인:** 새 개인 한옥·사랑방·실내·계 진입 CTA 다섯 개가 이미 명확한 라벨에도 `SoriButton.icon`을 중복했다. `typography_guard_test`의 아이콘 CTA 상한 74를 79로 넘겨, 작은 화면에서 라벨 가용 폭을 불필요하게 줄이는 회귀였다.
+- **변경:** 지도·카드·AppBar가 제공하는 시각 문맥은 유지하고 버튼은 텍스트 우선으로 바꿨다. 라우트·추천 엔진·진도·보상·계의 상태 경계는 바꾸지 않았다.
+- **검증:** guard RED(`79 > 74`) 뒤 `flutter test --no-pub test/typography_guard_test.dart --reporter expanded` **4 passed**, `flutter analyze --no-pub` **No issues found**, 전체 `flutter test --no-pub --concurrency=1 --reporter compact` **2,029 passed**, 개인 한옥 지도 9종과 실내 2종의 에셋 계약 검사 전부 PASS, `git diff --check` 통과. 구현 커밋: `8d5ca97`.

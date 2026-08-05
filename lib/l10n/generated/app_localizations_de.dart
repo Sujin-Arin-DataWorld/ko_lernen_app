@@ -4301,7 +4301,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangbangHubDesc =>
-      'Richte deine Stube mit gesammelten Stücken ein.';
+      'Dein nächster Lernschritt beginnt im Sarangbang.';
 
   @override
   String get bojagiTitle => 'Bojagi-Bündel';
@@ -4358,4 +4358,103 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bojagiArchiveComplete => 'Bündel ablegen';
+
+  @override
+  String get hanokWorldTitle => 'Meine Hanok-Welt';
+
+  @override
+  String get hanokWorldIntro =>
+      'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.';
+
+  @override
+  String get hanokWorldLegacyTitle => 'Dein Hof nimmt Gestalt an';
+
+  @override
+  String get hanokWorldLegacyBody =>
+      'Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.';
+
+  @override
+  String get hanokWorldMapHint =>
+      'Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.';
+
+  @override
+  String get hanokWorldOpenSarangbang => 'Im Sarangbang lernen';
+
+  @override
+  String get hanokWorldProgress => 'Baufortschritt deiner Hanok';
+
+  @override
+  String get hanokWorldGyeBridgeTitle => 'Der Gye-Hof';
+
+  @override
+  String get hanokWorldGyeBridgeBody =>
+      'Deine private Hanok und der gemeinsame Gye-Hof wachsen nebeneinander. Triff deine Lerngruppe dort.';
+
+  @override
+  String get hanokWorldGyeBridgeOpen => 'Gye-Hof besuchen';
+
+  @override
+  String get hanokZoneSarangbang => 'Sarangbang · heutiges Lernen';
+
+  @override
+  String get hanokZoneDaecheong => 'Daecheongmaru · Lernpfad';
+
+  @override
+  String get hanokZoneHaengrang => 'Haengrangchae · Üben';
+
+  @override
+  String get hanokZoneAnchae => 'Anchae · meine Sammlung';
+
+  @override
+  String get hanokZoneHuwon => 'Huwon · Tagesziel';
+
+  @override
+  String get hanokZoneSadang => 'Sadang · Erfolge';
+
+  @override
+  String get sarangbangStudyTitle => 'Sarangbang';
+
+  @override
+  String get sarangbangStudyIntroTitle => 'Dein nächster Lernschritt wartet';
+
+  @override
+  String get sarangbangStudyIntroBody =>
+      'Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.';
+
+  @override
+  String get sarangbangStudyFurnish => 'Studierstube einrichten';
+
+  @override
+  String get personalRoomAnbangTitle => 'Anbang';
+
+  @override
+  String get personalRoomDaecheongTitle => 'Daecheongmaru';
+
+  @override
+  String get personalRoomAnbangBody =>
+      'Ein ruhiger Innenraum für die Wörter und Momente, die du bewahrst.';
+
+  @override
+  String get personalRoomDaecheongBody =>
+      'Eine offene Halle, in der dein Lernweg weitergeht.';
+
+  @override
+  String get personalRoomEmptyHint =>
+      'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.';
+
+  @override
+  String get personalRoomLockedTitle => 'Dieser Raum wird noch gebaut';
+
+  @override
+  String get personalRoomLockedBody =>
+      'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.';
+
+  @override
+  String get personalRoomReturnToMap => 'Zurück zur Hanok-Karte';
+
+  @override
+  String get personalRoomAnbangStudy => 'Meine Sammlung entdecken';
+
+  @override
+  String get personalRoomDaecheongStudy => 'Lernweg fortsetzen';
 }

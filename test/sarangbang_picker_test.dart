@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
+import 'package:ko_lernen_app/widgets/sori/room_slot_picker.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 
 /// 시트를 열고 결과를 받아 두는 최소 하네스.
@@ -26,10 +26,8 @@ Future<void> _openSheet(
               onResult(
                 await showSoriSheet<String>(
                   context: ctx,
-                  builder: (_) => SlotPickerSheet(
-                    candidates: candidates,
-                    current: current,
-                  ),
+                  builder: (_) =>
+                      SlotPickerSheet(candidates: candidates, current: current),
                 ),
               );
             },

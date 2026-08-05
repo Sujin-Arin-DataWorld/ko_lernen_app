@@ -7558,7 +7558,7 @@ abstract class AppL10n {
   /// No description provided for @sarangbangHubDesc.
   ///
   /// In de, this message translates to:
-  /// **'Richte deine Stube mit gesammelten Stücken ein.'**
+  /// **'Dein nächster Lernschritt beginnt im Sarangbang.'**
   String get sarangbangHubDesc;
 
   /// No description provided for @bojagiTitle.
@@ -7662,6 +7662,186 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bündel ablegen'**
   String get bojagiArchiveComplete;
+
+  /// No description provided for @hanokWorldTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Hanok-Welt'**
+  String get hanokWorldTitle;
+
+  /// No description provided for @hanokWorldIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne dort weiter, wo deine Hanok wächst. Jeder fertige Ort führt zu einem vertrauten Teil von Hangul Sori.'**
+  String get hanokWorldIntro;
+
+  /// No description provided for @hanokWorldLegacyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hof nimmt Gestalt an'**
+  String get hanokWorldLegacyTitle;
+
+  /// No description provided for @hanokWorldLegacyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe deinen A1- und A2-Weg ab. Mit deinem ersten B1-Fortschritt öffnet sich das Tor zur großen Hanok-Karte.'**
+  String get hanokWorldLegacyBody;
+
+  /// No description provided for @hanokWorldMapHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf ein fertig gebautes Gebäude, um dort weiterzulernen.'**
+  String get hanokWorldMapHint;
+
+  /// No description provided for @hanokWorldOpenSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Sarangbang lernen'**
+  String get hanokWorldOpenSarangbang;
+
+  /// No description provided for @hanokWorldProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Baufortschritt deiner Hanok'**
+  String get hanokWorldProgress;
+
+  /// No description provided for @hanokWorldGyeBridgeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Gye-Hof'**
+  String get hanokWorldGyeBridgeTitle;
+
+  /// No description provided for @hanokWorldGyeBridgeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine private Hanok und der gemeinsame Gye-Hof wachsen nebeneinander. Triff deine Lerngruppe dort.'**
+  String get hanokWorldGyeBridgeBody;
+
+  /// No description provided for @hanokWorldGyeBridgeOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye-Hof besuchen'**
+  String get hanokWorldGyeBridgeOpen;
+
+  /// No description provided for @hanokZoneSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangbang · heutiges Lernen'**
+  String get hanokZoneSarangbang;
+
+  /// No description provided for @hanokZoneDaecheong.
+  ///
+  /// In de, this message translates to:
+  /// **'Daecheongmaru · Lernpfad'**
+  String get hanokZoneDaecheong;
+
+  /// No description provided for @hanokZoneHaengrang.
+  ///
+  /// In de, this message translates to:
+  /// **'Haengrangchae · Üben'**
+  String get hanokZoneHaengrang;
+
+  /// No description provided for @hanokZoneAnchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Anchae · meine Sammlung'**
+  String get hanokZoneAnchae;
+
+  /// No description provided for @hanokZoneHuwon.
+  ///
+  /// In de, this message translates to:
+  /// **'Huwon · Tagesziel'**
+  String get hanokZoneHuwon;
+
+  /// No description provided for @hanokZoneSadang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sadang · Erfolge'**
+  String get hanokZoneSadang;
+
+  /// No description provided for @sarangbangStudyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangbang'**
+  String get sarangbangStudyTitle;
+
+  /// No description provided for @sarangbangStudyIntroTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein nächster Lernschritt wartet'**
+  String get sarangbangStudyIntroTitle;
+
+  /// No description provided for @sarangbangStudyIntroBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.'**
+  String get sarangbangStudyIntroBody;
+
+  /// No description provided for @sarangbangStudyFurnish.
+  ///
+  /// In de, this message translates to:
+  /// **'Studierstube einrichten'**
+  String get sarangbangStudyFurnish;
+
+  /// No description provided for @personalRoomAnbangTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Anbang'**
+  String get personalRoomAnbangTitle;
+
+  /// No description provided for @personalRoomDaecheongTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Daecheongmaru'**
+  String get personalRoomDaecheongTitle;
+
+  /// No description provided for @personalRoomAnbangBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein ruhiger Innenraum für die Wörter und Momente, die du bewahrst.'**
+  String get personalRoomAnbangBody;
+
+  /// No description provided for @personalRoomDaecheongBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine offene Halle, in der dein Lernweg weitergeht.'**
+  String get personalRoomDaecheongBody;
+
+  /// No description provided for @personalRoomEmptyHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.'**
+  String get personalRoomEmptyHint;
+
+  /// No description provided for @personalRoomLockedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Raum wird noch gebaut'**
+  String get personalRoomLockedTitle;
+
+  /// No description provided for @personalRoomLockedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.'**
+  String get personalRoomLockedBody;
+
+  /// No description provided for @personalRoomReturnToMap.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zur Hanok-Karte'**
+  String get personalRoomReturnToMap;
+
+  /// No description provided for @personalRoomAnbangStudy.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Sammlung entdecken'**
+  String get personalRoomAnbangStudy;
+
+  /// No description provided for @personalRoomDaecheongStudy.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernweg fortsetzen'**
+  String get personalRoomDaecheongStudy;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

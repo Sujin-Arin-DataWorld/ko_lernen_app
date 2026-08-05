@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 import 'package:ko_lernen_app/widgets/sori/room_layer.dart';
 
@@ -37,7 +38,9 @@ void main() {
       );
 
       expect(tester.takeException(), isNull);
-      expect(find.byType(DecorationFallback), findsOneWidget);
+      expect(find.byType(SoriDecorationImage), findsOneWidget);
+      expect(find.byType(DecorationFallback), findsNothing);
+      expect(find.byType(Image), findsOneWidget);
     });
     // 선반 슬롯은 둘(alcove_top·alcove_bottom)인데 shelf 장식은 문방사우
     // 하나뿐이다. 그걸 한쪽에 놓으면 다른 쪽에는 놓을 게 없다 —
@@ -81,5 +84,30 @@ void main() {
       expect(tester.takeException(), isNull);
       expect(find.byIcon(Icons.add_circle_outline), findsNWidgets(2));
     });
+
+    testWidgets(
+      'does not mark an empty room when its only decor is elsewhere',
+      (tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: SizedBox.expand(
+              child: RoomLayer(
+                surface: PersonalRoomSurface.sarangbang,
+                slots: kSarangbangSlots,
+                placements: {
+                  PersonalRoomSurface.anbang: {
+                    'floor_center': 'decoration_soban',
+                  },
+                },
+                owned: {'decoration_soban'},
+              ),
+            ),
+          ),
+        );
+
+        expect(tester.takeException(), isNull);
+        expect(find.byIcon(Icons.add_circle_outline), findsNothing);
+      },
+    );
   });
 }
