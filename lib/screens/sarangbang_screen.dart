@@ -83,9 +83,6 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
       final snapshot = await load();
-      // 방금 학습 루트가 돌아왔다 — 그새 획득한 보자기를 생산한다(퀘스트 화면
-      // 안 열어도). best-effort 라 실패해도 추천 로드를 막지 않는다.
-      await QuestTracker.syncEarnedRewards();
       final room = _readRoomSnapshot();
       if (!mounted) {
         return;
@@ -96,6 +93,11 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
         _ownedDecor = room.owned;
         _loading = false;
       });
+      // 방금 학습 루트가 돌아왔다 — 그새 획득한 보자기를 생산한다(퀘스트 화면
+      // 안 열어도). 사랑방은 보상 배너가 없으므로(보상은 홈 배너에 뜸) 렌더를
+      // 막지 않도록 fire-and-forget. best-effort 라 자체 오류를 삼킨다.
+      // ignore: discarded_futures
+      QuestTracker.syncEarnedRewards();
     } catch (_) {
       if (!mounted) {
         return;
