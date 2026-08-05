@@ -43,6 +43,17 @@ class PersonalHanokRect {
     required this.width,
     required this.height,
   });
+
+  double get right => left + width;
+  double get bottom => top + height;
+
+  /// Returns whether two touch targets overlap by area.
+  ///
+  /// Shared edges are allowed: adjacent locations may touch visually, but
+  /// their hit targets must never have an area where one place can steal a
+  /// tap intended for another.
+  bool overlaps(PersonalHanokRect other) =>
+      left < other.right && right > other.left && top < other.bottom && bottom > other.top;
 }
 
 /// Derived, zero-write state for the personal Hanok map.

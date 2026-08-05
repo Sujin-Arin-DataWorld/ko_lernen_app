@@ -7723,6 +7723,18 @@ abstract class AppL10n {
   /// **'Gye-Hof besuchen'**
   String get hanokWorldGyeBridgeOpen;
 
+  /// No description provided for @hanokWorldPlacesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Orte in deiner Hanok'**
+  String get hanokWorldPlacesTitle;
+
+  /// No description provided for @hanokWorldPlacesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle hier einen fertig gebauten Ort aus.'**
+  String get hanokWorldPlacesBody;
+
   /// No description provided for @hanokZoneSarangbang.
   ///
   /// In de, this message translates to:

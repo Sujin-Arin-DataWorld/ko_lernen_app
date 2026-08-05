@@ -24,13 +24,21 @@ class PersonalHanokMapLayer {
 /// Semantic interaction area, intentionally independent from paint bounds.
 class PersonalHanokZoneDefinition {
   final PersonalHanokZone zone;
+  /// Broad visual bounds used by a future selected-place viewport.
   final PersonalHanokRect bounds;
+  /// One or more precise, non-overlapping hit regions on the fixed map.
+  ///
+  /// A Hanok can have separated wings, so a single large rectangular target
+  /// would make one place intercept another. These regions intentionally
+  /// follow the physical building/landscape pieces instead.
+  final List<PersonalHanokRect> hitRegions;
   final PersonalHanokMilestone? requires;
   final bool isInteractive;
 
   const PersonalHanokZoneDefinition({
     required this.zone,
     required this.bounds,
+    required this.hitRegions,
     this.requires,
     this.isInteractive = true,
   });
@@ -91,39 +99,76 @@ const kPersonalHanokZones = <PersonalHanokZoneDefinition>[
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.sarangbang,
     bounds: PersonalHanokRect(left: .14, top: .61, width: .52, height: .21),
+    hitRegions: <PersonalHanokRect>[
+      // Leave room for the 44dp haengrang target at compact map heights.
+      PersonalHanokRect(left: .15, top: .60, width: .49, height: .14),
+    ],
     requires: PersonalHanokMilestone.sarangchae,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.daecheongmaru,
     bounds: PersonalHanokRect(left: .44, top: .27, width: .17, height: .14),
+    hitRegions: <PersonalHanokRect>[
+      PersonalHanokRect(left: .42, top: .28, width: .19, height: .11),
+    ],
     requires: PersonalHanokMilestone.daecheongmaru,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.haengrangchae,
     bounds: PersonalHanokRect(left: .39, top: .81, width: .42, height: .12),
+    hitRegions: <PersonalHanokRect>[
+      PersonalHanokRect(left: .39, top: .83, width: .42, height: .09),
+    ],
     requires: PersonalHanokMilestone.haengrangchae,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.anchae,
     bounds: PersonalHanokRect(left: .28, top: .24, width: .42, height: .33),
+    hitRegions: <PersonalHanokRect>[
+      PersonalHanokRect(left: .27, top: .32, width: .11, height: .20),
+      PersonalHanokRect(left: .63, top: .32, width: .09, height: .20),
+    ],
     requires: PersonalHanokMilestone.anchae,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.huwon,
     bounds: PersonalHanokRect(left: .07, top: .05, width: .55, height: .48),
+    hitRegions: <PersonalHanokRect>[
+      PersonalHanokRect(left: .20, top: .12, width: .18, height: .16),
+      PersonalHanokRect(left: .08, top: .28, width: .16, height: .28),
+    ],
     requires: PersonalHanokMilestone.rearGarden,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.sadang,
     bounds: PersonalHanokRect(left: .76, top: .29, width: .19, height: .31),
+    hitRegions: <PersonalHanokRect>[
+      PersonalHanokRect(left: .78, top: .34, width: .14, height: .19),
+    ],
     requires: PersonalHanokMilestone.sadang,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.gyeRoad,
     bounds: PersonalHanokRect(left: .86, top: .70, width: .14, height: .25),
+    hitRegions: <PersonalHanokRect>[
+      PersonalHanokRect(left: .86, top: .70, width: .14, height: .25),
+    ],
     isInteractive: false,
   ),
 ];
+
+/// Returns only the personal places that are built and can be opened now.
+///
+/// The map, accessible place list, and future focused viewport share this
+/// predicate so their affordances cannot drift apart.
+Iterable<PersonalHanokZoneDefinition> visiblePersonalHanokZones(
+  PersonalHanokProjection projection,
+) => kPersonalHanokZones.where((definition) {
+  final required = definition.requires;
+  return definition.isInteractive &&
+      required != null &&
+      projection.isUnlocked(required);
+});
 
 PersonalHanokMapLayer layerForMilestone(PersonalHanokMilestone milestone) {
   return kPersonalHanokLayers.firstWhere((layer) => layer.milestone == milestone);

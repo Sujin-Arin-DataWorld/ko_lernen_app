@@ -89,10 +89,10 @@ void main() {
       await tester.pump();
 
       expect(hanokRouteForZone(PersonalHanokZone.gyeRoad), isNull);
-      await tester.drag(find.byType(ListView), const Offset(0, -720));
-      await tester.pumpAndSettle();
-
       final bridge = find.byKey(const ValueKey('hanok-world-gye-bridge'));
+      await tester.scrollUntilVisible(bridge, 280);
+      await tester.ensureVisible(bridge);
+      await tester.pumpAndSettle();
       expect(bridge, findsOneWidget);
 
       await tester.tap(bridge);
@@ -101,6 +101,31 @@ void main() {
       expect(openedRoute, '/gye/hub');
     },
   );
+
+  testWidgets('offers every finished place through an accessible place list', (
+    tester,
+  ) async {
+    PersonalHanokZone? opened;
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen(
+          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+          onOpenZone: (zone) => opened = zone,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final daecheong = find.byKey(
+      const ValueKey('hanok-world-place-daecheongmaru'),
+    );
+    await tester.scrollUntilVisible(daecheong, 280);
+    expect(daecheong, findsOneWidget);
+
+    await tester.tap(daecheong);
+
+    expect(opened, PersonalHanokZone.daecheongmaru);
+  });
 }
 
 Widget _host(Widget child) => MaterialApp(

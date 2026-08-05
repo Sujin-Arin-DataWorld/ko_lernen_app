@@ -62,10 +62,14 @@ class PersonalHanokMap extends StatelessWidget {
                         ? ColoredBox(color: SoriSurfaces.of(ctx).surfaceAlt)
                         : const SizedBox.expand(),
                   ),
-                for (final definition in kPersonalHanokZones)
-                  if (_isVisible(definition))
+                for (final definition in visiblePersonalHanokZones(projection))
+                  for (var targetIndex = 0;
+                      targetIndex < definition.hitRegions.length;
+                      targetIndex++)
                     _ZoneTarget(
                       definition: definition,
+                      rect: definition.hitRegions[targetIndex],
+                      targetIndex: targetIndex,
                       canvasSize: constraints.biggest,
                       label: zoneLabel(definition.zone),
                       onTap: onTapZone == null
@@ -80,22 +84,20 @@ class PersonalHanokMap extends StatelessWidget {
     );
   }
 
-  bool _isVisible(PersonalHanokZoneDefinition definition) {
-    final required = definition.requires;
-    return definition.isInteractive &&
-        required != null &&
-        projection.isUnlocked(required);
-  }
 }
 
 class _ZoneTarget extends StatelessWidget {
   final PersonalHanokZoneDefinition definition;
+  final PersonalHanokRect rect;
+  final int targetIndex;
   final Size canvasSize;
   final String label;
   final VoidCallback? onTap;
 
   const _ZoneTarget({
     required this.definition,
+    required this.rect,
+    required this.targetIndex,
     required this.canvasSize,
     required this.label,
     required this.onTap,
@@ -103,7 +105,6 @@ class _ZoneTarget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final rect = definition.bounds;
     final width =
         (canvasSize.width * rect.width).clamp(44.0, canvasSize.width).toDouble();
     final height =
@@ -115,21 +116,30 @@ class _ZoneTarget extends StatelessWidget {
         .clamp(0.0, canvasSize.height - height)
         .toDouble();
 
+    final target = GestureDetector(
+      key: ValueKey(
+        targetIndex == 0
+            ? 'personal-hanok-zone-${definition.zone.name}'
+            : 'personal-hanok-zone-${definition.zone.name}-$targetIndex',
+      ),
+      behavior: HitTestBehavior.translucent,
+      onTap: onTap,
+      child: const SizedBox.expand(),
+    );
+
     return Positioned(
       left: left,
       top: top,
       width: width,
       height: height,
-      child: Semantics(
-        button: onTap != null,
-        label: label,
-        child: GestureDetector(
-          key: ValueKey('personal-hanok-zone-${definition.zone.name}'),
-          behavior: HitTestBehavior.translucent,
-          onTap: onTap,
-          child: const SizedBox.expand(),
-        ),
-      ),
+      child: targetIndex == 0
+          ? Semantics(
+              button: onTap != null,
+              label: label,
+              onTap: onTap,
+              child: target,
+            )
+          : ExcludeSemantics(child: target),
     );
   }
 }

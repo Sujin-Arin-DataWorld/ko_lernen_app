@@ -285,7 +285,7 @@ flutter run -d <android-id>   # 안드로이드
 ### 한옥 세계 UX 정본 재구성 (2026-08-05)
 
 - [x] 개인 한옥을 새 학습 엔진이 아니라 기존 추천·70% 성취·보상·계 도메인을 장소감 있게 여는 정본 경험으로 재설계했다. 최신 `main`에서 독립 브랜치 `merkmal/hanok-world-system-design`을 열었고, 명세와 테스트 우선 실행 계획을 추가했다.
-- [ ] P0: 지도 그림과 hit target을 분리해 안채/대청 겹침을 제거하고 접근성 장소 목록을 추가한다.
+- [x] P0: 지도 그림과 hit target을 분리해 안채/대청 겹침을 제거하고 접근성 장소 목록을 추가했다. 308dp에서 44dp 최소 터치 영역까지 실제 렌더 사각형을 전수 대조한다.
 - [ ] P1: Home과 사랑방이 동일한 read-only TodayLearningSnapshot을 사용하게 한다.
 - [ ] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
 - [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
@@ -2948,3 +2948,9 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **제품 정본:** Home은 “오늘의 마당”, 사랑방은 기존 추천 엔진이 고른 다음 학습의 장소, 개인 한옥은 장기 성장/장소 선택, 계는 별도 공동 공간으로 고정했다. 지도 탭·방 입장·장면 렌더는 진도·보상·소유권을 절대 쓰지 않는다.
 - **P4b 결정:** 현재 local union sync와 방 배치 계약에서는 실물 이전이 안전하지 않다. MVP는 개인 장식을 유지하는 callable-only 공동 전시 헌정으로 한정하고, 실물 헌납은 서버 정본 inventory·tombstone·통합 journal을 갖춘 별도 단계로 미뤘다.
 - **문서:** `docs/superpowers/specs/2026-08-05-hanok-world-system-design.md`, `docs/superpowers/plans/2026-08-05-hanok-world-system-implementation.md`에 수용 기준·파일 경계·RED/GREEN/커밋 순서를 기록했다. 구현/검증 커밋은 후속 항목에 기록한다.
+
+### 2026-08-05 (Codex) — 한옥 세계 P0 지도 상호작용·접근성 완료
+
+- **변경:** 개인 한옥 카탈로그의 넓은 시각 bounds와 실제 누름 영역을 분리했다. 안채는 양쪽 날개, 대청은 중앙 본채, 후원은 연못·정원으로 각각의 hit region을 가지며, 서로 다른 장소의 target은 겹칠 수 없다. 지도와 텍스트 기반 장소 목록은 같은 `visiblePersonalHanokZones` 정본을 사용한다.
+- **접근성:** 완성된 장소는 지도 아래 `Places in your Hanok`/`Orte in deiner Hanok` 목록에서도 열 수 있다. 추가 hit region은 스크린리더 탐색을 중복시키지 않고, 장소당 한 개의 명확한 semantics와 목록 CTA를 제공한다.
+- **회귀/검증:** 대청 직접 탭, 장소 목록 진입, 카탈로그 상 교차 장소 비중첩을 고정했다. 특히 308dp × 231dp 맵에서 런타임 44dp 최소 터치 크기와 가장자리 clamp까지 적용한 모든 서로 다른 장소의 실제 사각형이 겹치지 않는지 검증했다. `flutter test test/personal_hanok_catalog_test.dart test/personal_hanok_map_test.dart test/hanok_world_screen_test.dart test/arb_l10n_guard_test.dart test/typography_guard_test.dart` 26 passed, targeted `dart analyze` 및 `git diff --check` 통과. 구현 커밋 해시는 다음 기록에서 확정한다.

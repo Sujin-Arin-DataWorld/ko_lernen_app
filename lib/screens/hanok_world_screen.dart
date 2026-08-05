@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../data/personal_hanok_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/personal_hanok.dart';
 import '../services/hanok_stage_service.dart';
@@ -130,12 +131,73 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                         ),
                         if (projection.usesCompoundMap) ...[
                           const SizedBox(height: Spacing.lg),
+                          _WorldPlaceList(
+                            projection: projection,
+                            onOpenZone: _openZone,
+                          ),
+                          const SizedBox(height: Spacing.lg),
                           _GyeBridge(onOpen: _openGyeHub),
                         ],
                       ],
                     ),
                   ),
                 ),
+        ),
+      ),
+    );
+  }
+}
+
+/// A text-first alternative to tapping the art map.
+///
+/// This remains useful on compact phones, with assistive technology, and when
+/// a learner prefers an explicit destination over a visual target.
+class _WorldPlaceList extends StatelessWidget {
+  final PersonalHanokProjection projection;
+  final ValueChanged<PersonalHanokZone> onOpenZone;
+
+  const _WorldPlaceList({
+    required this.projection,
+    required this.onOpenZone,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final places = visiblePersonalHanokZones(projection).toList(growable: false);
+    if (places.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final s = SoriSurfaces.of(context);
+    return Semantics(
+      container: true,
+      label: t.hanokWorldPlacesTitle,
+      child: SoriCard(
+        variant: SoriCardVariant.base,
+        accent: SoriColors.primary,
+        tinted: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(t.hanokWorldPlacesTitle, style: text.h3),
+            const SizedBox(height: Spacing.xs),
+            Text(
+              t.hanokWorldPlacesBody,
+              style: text.bodySmall.copyWith(color: s.textMuted),
+            ),
+            const SizedBox(height: Spacing.md),
+            for (final place in places) ...[
+              SoriButton.outlined(
+                key: ValueKey('hanok-world-place-${place.zone.name}'),
+                label: _zoneLabel(t, place.zone),
+                fullWidth: true,
+                maxLines: 2,
+                onTap: () => onOpenZone(place.zone),
+              ),
+              if (place != places.last) const SizedBox(height: Spacing.sm),
+            ],
+          ],
         ),
       ),
     );

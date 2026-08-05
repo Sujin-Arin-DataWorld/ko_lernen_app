@@ -96,6 +96,31 @@ void main() {
       expect(road.isInteractive, isFalse);
       expect(road.requires, isNull);
     });
+
+    test('keeps interactive hit regions disjoint across places', () {
+      final interactive = kPersonalHanokZones
+          .where((definition) => definition.isInteractive)
+          .toList(growable: false);
+
+      for (var firstIndex = 0; firstIndex < interactive.length; firstIndex++) {
+        for (var secondIndex = firstIndex + 1;
+            secondIndex < interactive.length;
+            secondIndex++) {
+          final first = interactive[firstIndex];
+          final second = interactive[secondIndex];
+          for (final firstRegion in first.hitRegions) {
+            for (final secondRegion in second.hitRegions) {
+              expect(
+                firstRegion.overlaps(secondRegion),
+                isFalse,
+                reason: '${first.zone.name} must not steal taps from '
+                    '${second.zone.name}',
+              );
+            }
+          }
+        }
+      }
+    });
   });
 }
 
