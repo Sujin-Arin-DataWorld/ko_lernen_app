@@ -87,7 +87,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   TodayLearningSnapshot? _todaySnapshot;
   PersonalHanokProjection? _hanokProjection;
   bool _loadingTodaySnapshot = true;
@@ -109,11 +109,28 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _loadToday();
     _loadPath();
     _loadHanokPreview();
     _checkHanokCinematic();
     WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    // 공부→백그라운드→재개 시 그새 생산된 보자기·성장을 끌어온다. _refreshHome
+    // 이 syncEarnedRewards 를 돌리고 openableBoxCount 를 재독해 배너에 반영한다.
+    if (state == AppLifecycleState.resumed && mounted) {
+      _refreshHome();
+    }
   }
 
   /// 첫 프레임 뒤 순차: 동기 시트(1회) → 없으면 마일스톤 축하(있으면). 겹침 방지.
