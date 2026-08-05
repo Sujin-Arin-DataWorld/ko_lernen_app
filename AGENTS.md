@@ -287,10 +287,10 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 개인 한옥을 새 학습 엔진이 아니라 기존 추천·70% 성취·보상·계 도메인을 장소감 있게 여는 정본 경험으로 재설계했다. 최신 `main`에서 독립 브랜치 `merkmal/hanok-world-system-design`을 열었고, 명세와 테스트 우선 실행 계획을 추가했다.
 - [x] P0: 지도 그림과 hit target을 분리해 안채/대청 겹침을 제거하고 접근성 장소 목록을 추가했다. 308dp에서 44dp 최소 터치 영역까지 실제 렌더 사각형을 전수 대조한다.
 - [x] P1: Home과 사랑방이 동일한 read-only TodayLearningSnapshot을 사용하게 한다. 추천 우선순위와 원래 학습 목적지는 바꾸지 않고, Home은 사랑방 진입만 제공한다 (`0c8a564`).
-- [~] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
+- [x] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
   - [x] P2a: Home의 추천 CTA를 사랑방 맥락 하나로 수렴하고, 숨은 호랑이 탭을 제거했다. Home은 순수 한옥 투영을 읽기 전용으로 미리보며 308–1280dp·태블릿·1.3x 글자 회귀를 통과했다 (`a4b3411`).
   - [x] P2b: 지도는 실제 phone 화면폭에서 full-bleed viewport와 선택 후 상세 패널을 제공하고, 작은 화면의 최소 44dp target이 서로 겹치지 않게 고정했다 (`11cdd69`).
-  - [ ] P2c: 사랑방 학습 화면에서 배치된 실내를 읽기 전용 scene으로 보여주고, 꾸미기 화면의 write 경계를 유지한다.
+  - [x] P2c: 사랑방 학습 화면에서 배치된 실내를 읽기 전용 scene으로 보여주고, 꾸미기 화면의 write 경계를 유지한다 (`47edaa1`).
 - [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -449,6 +449,12 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P2c 읽기 전용 사랑방 장면 완료
+
+- **변경:** `PersonalRoomScene`을 배경·배치 장식만 받는 공유 시각 투영으로 추출했다. 사랑방 학습은 같은 장면을 읽기 전용으로 보여 주고, 폰에서는 오늘의 추천 뒤에, 실제 남은 폭 640dp 이상인 태블릿/레일 환경에서는 추천과 나란히 둔다. 꾸미기 화면도 같은 scene을 interactive 모드로 재사용한다.
+- **경계:** scene 자체는 Storage·라우팅·쓰기 API를 모른다. 사랑방은 저장값을 메모리에서 fail-closed 정규화해 스냅샷으로만 전달하고, 꾸미기 화면만 기존 `RoomPlacementService.placeInSurfaceSlot` write 경로를 유지한다. 읽기 전용 `RoomLayer`는 배치된 장식은 계속 그리되, 수행할 수 없는 빈 슬롯 `+` 표식은 숨긴다.
+- **검증:** 새 API/컴포넌트 부재 상태를 RED로 확인한 뒤, 저장된 중복/비정규 raw JSON도 사랑방 로드 후 바뀌지 않는 회귀, read-only marker 억제, interactive slot forwarding, 잠긴/열린 furnish 경계, 720dp 2열 배치를 고정했다. room/scene/furnish/sarangbang/ARB/typography targeted **21 passed**, 대상 analyzer 0 issues, screen smoke·308–1280dp·세로/가로 태블릿 matrix 통과, `git diff --check` 통과. 구현 커밋: `47edaa1`.
 
 ### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P2b 반응형 세계 지도 viewport 구현 완료
 
