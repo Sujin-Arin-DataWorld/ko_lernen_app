@@ -371,15 +371,18 @@ void main() {
                   ),
               activate:
                   ({
-                    webProvider,
-                    required androidProvider,
-                    required appleProvider,
+                    providerWeb,
+                    required providerAndroid,
+                    required providerApple,
                   }) async {
-                    capturedWebProvider = webProvider;
-                    expect(androidProvider, AndroidProvider.playIntegrity);
+                    capturedWebProvider = providerWeb;
                     expect(
-                      appleProvider,
-                      AppleProvider.appAttestWithDeviceCheckFallback,
+                      providerAndroid,
+                      isA<AndroidPlayIntegrityProvider>(),
+                    );
+                    expect(
+                      providerApple,
+                      isA<AppleAppAttestWithDeviceCheckFallbackProvider>(),
                     );
                   },
               afterActivation: () async {
@@ -417,9 +420,9 @@ void main() {
                 ),
             activate:
                 ({
-                  webProvider,
-                  required androidProvider,
-                  required appleProvider,
+                  providerWeb,
+                  required providerAndroid,
+                  required providerApple,
                 }) async {
                   appCheckActivations += 1;
                 },

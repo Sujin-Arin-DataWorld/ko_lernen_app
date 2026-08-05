@@ -627,11 +627,13 @@ class _SharePackSheetState extends State<_SharePackSheet> {
                   label: t.shareViaApp,
                   accent: SoriColors.primary,
                   onTap: () async {
-                    await Share.share(
-                      t.sharePackBody(
-                        widget.pack.displayName(),
-                        widget.pack.totalWords,
-                        code,
+                    await SharePlus.instance.share(
+                      ShareParams(
+                        text: t.sharePackBody(
+                          widget.pack.displayName(),
+                          widget.pack.totalWords,
+                          code,
+                        ),
                       ),
                     );
                   },

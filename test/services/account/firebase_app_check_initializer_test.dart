@@ -7,21 +7,21 @@ void main() {
   group('FirebaseAppCheckInitializer', () {
     test('uses the configured reCAPTCHA v3 provider on the web', () async {
       Object? capturedWebProvider;
-      AndroidProvider? capturedAndroidProvider;
-      AppleProvider? capturedAppleProvider;
+      AndroidAppCheckProvider? capturedAndroidProvider;
+      AppleAppCheckProvider? capturedAppleProvider;
       final initializer = FirebaseAppCheckInitializer(
         isDebug: false,
         isWeb: true,
         webAppCheckSiteKey: 'test-site-key',
         activate:
             ({
-              webProvider,
-              required androidProvider,
-              required appleProvider,
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
             }) async {
-              capturedWebProvider = webProvider;
-              capturedAndroidProvider = androidProvider;
-              capturedAppleProvider = appleProvider;
+              capturedWebProvider = providerWeb;
+              capturedAndroidProvider = providerAndroid;
+              capturedAppleProvider = providerApple;
             },
       );
 
@@ -32,10 +32,10 @@ void main() {
         (capturedWebProvider as ReCaptchaV3Provider).siteKey,
         'test-site-key',
       );
-      expect(capturedAndroidProvider, AndroidProvider.playIntegrity);
+      expect(capturedAndroidProvider, isA<AndroidPlayIntegrityProvider>());
       expect(
         capturedAppleProvider,
-        AppleProvider.appAttestWithDeviceCheckFallback,
+        isA<AppleAppAttestWithDeviceCheckFallbackProvider>(),
       );
     });
 
@@ -47,9 +47,9 @@ void main() {
         webAppCheckSiteKey: '  ',
         activate:
             ({
-              webProvider,
-              required androidProvider,
-              required appleProvider,
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
             }) async {
               activationCount += 1;
             },
@@ -72,9 +72,9 @@ void main() {
           webAppCheckSiteKey: '',
           activate:
               ({
-                webProvider,
-                required androidProvider,
-                required appleProvider,
+                providerWeb,
+                required providerAndroid,
+                required providerApple,
               }) async {
                 events.add('activate');
               },
@@ -113,13 +113,13 @@ void main() {
         webAppCheckSiteKey: 'not-used-on-native',
         activate:
             ({
-              webProvider,
-              required androidProvider,
-              required appleProvider,
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
             }) async {
-              capturedWebProvider = webProvider;
-              expect(androidProvider, AndroidProvider.debug);
-              expect(appleProvider, AppleProvider.debug);
+              capturedWebProvider = providerWeb;
+              expect(providerAndroid, isA<AndroidDebugProvider>());
+              expect(providerApple, isA<AppleDebugProvider>());
             },
       );
 
@@ -138,15 +138,15 @@ void main() {
           webAppCheckSiteKey: 'secondary-test-site-key',
           activate:
               ({
-                webProvider,
-                required androidProvider,
-                required appleProvider,
+                providerWeb,
+                required providerAndroid,
+                required providerApple,
               }) async {
-                capturedWebProvider = webProvider;
-                expect(androidProvider, AndroidProvider.playIntegrity);
+                capturedWebProvider = providerWeb;
+                expect(providerAndroid, isA<AndroidPlayIntegrityProvider>());
                 expect(
-                  appleProvider,
-                  AppleProvider.appAttestWithDeviceCheckFallback,
+                  providerApple,
+                  isA<AppleAppAttestWithDeviceCheckFallbackProvider>(),
                 );
               },
         );
@@ -169,9 +169,9 @@ void main() {
         webAppCheckSiteKey: '',
         activate:
             ({
-              webProvider,
-              required androidProvider,
-              required appleProvider,
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
             }) async {
               activationCount += 1;
             },

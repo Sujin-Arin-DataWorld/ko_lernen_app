@@ -1264,11 +1264,11 @@ class FirebaseIsolatedTargetVerifier implements IsolatedTargetVerifier {
       initializeContext: () => initializeTemporaryAppCheckThen(
         initializerFactory: FirebaseAppCheckInitializer.productionWithActivator,
         activate:
-            ({webProvider, required androidProvider, required appleProvider}) {
+            ({providerWeb, required providerAndroid, required providerApple}) {
               return FirebaseAppCheck.instanceFor(app: app).activate(
-                webProvider: webProvider,
-                androidProvider: androidProvider,
-                appleProvider: appleProvider,
+                providerWeb: providerWeb,
+                providerAndroid: providerAndroid,
+                providerApple: providerApple,
               );
             },
         afterActivation: () async => _PluginTemporaryFirebaseAuthContext(app),

@@ -1,13 +1,11 @@
 import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_app_check_platform_interface/firebase_app_check_platform_interface.dart'
-    show WebProvider;
 import 'package:flutter/foundation.dart';
 
 typedef FirebaseAppCheckActivator =
     Future<void> Function({
-      WebProvider? webProvider,
-      required AndroidProvider androidProvider,
-      required AppleProvider appleProvider,
+      WebProvider? providerWeb,
+      required AndroidAppCheckProvider providerAndroid,
+      required AppleAppCheckProvider providerApple,
     });
 
 typedef FirebaseAppCheckInitializerFactory =
@@ -37,11 +35,11 @@ class FirebaseAppCheckInitializer {
   factory FirebaseAppCheckInitializer.production() {
     return FirebaseAppCheckInitializer.productionWithActivator(
       activate:
-          ({webProvider, required androidProvider, required appleProvider}) {
+          ({providerWeb, required providerAndroid, required providerApple}) {
             return FirebaseAppCheck.instance.activate(
-              webProvider: webProvider,
-              androidProvider: androidProvider,
-              appleProvider: appleProvider,
+              providerWeb: providerWeb,
+              providerAndroid: providerAndroid,
+              providerApple: providerApple,
             );
           },
     );
@@ -71,7 +69,7 @@ class FirebaseAppCheckInitializer {
   final FirebaseAppCheckActivator activate;
 
   Future<void> initialize() {
-    final WebProvider? webProvider;
+    final WebProvider? providerWeb;
     if (isWeb) {
       final siteKey = webAppCheckSiteKey.trim();
       if (siteKey.isEmpty) {
@@ -79,19 +77,19 @@ class FirebaseAppCheckInitializer {
           'Web Firebase is configured but FIREBASE_WEB_APP_CHECK_SITE_KEY is missing.',
         );
       }
-      webProvider = ReCaptchaV3Provider(siteKey);
+      providerWeb = ReCaptchaV3Provider(siteKey);
     } else {
-      webProvider = null;
+      providerWeb = null;
     }
 
     return activate(
-      webProvider: webProvider,
-      androidProvider: isDebug
-          ? AndroidProvider.debug
-          : AndroidProvider.playIntegrity,
-      appleProvider: isDebug
-          ? AppleProvider.debug
-          : AppleProvider.appAttestWithDeviceCheckFallback,
+      providerWeb: providerWeb,
+      providerAndroid: isDebug
+          ? const AndroidDebugProvider()
+          : const AndroidPlayIntegrityProvider(),
+      providerApple: isDebug
+          ? const AppleDebugProvider()
+          : const AppleAppAttestWithDeviceCheckFallbackProvider(),
     );
   }
 }

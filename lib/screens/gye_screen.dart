@@ -506,8 +506,10 @@ void _openReactionPicker(
 
 /// 초대 코드 공유 — OS 공유 시트로 6자리 코드 전파. 계(契)는 멤버가 있어야 산다.
 /// ⋮ 메뉴와 솔로 초대 카드 양쪽의 공통 진입점.
-void _shareGyeCode(BuildContext context, String code) {
-  Share.share(AppL10n.of(context).gyeShareMessage(code));
+Future<void> _shareGyeCode(BuildContext context, String code) {
+  return SharePlus.instance.share(
+    ShareParams(text: AppL10n.of(context).gyeShareMessage(code)),
+  );
 }
 
 /// 솔로 계(멤버 1명) 초대 카드 — 빈 두레판을 "행동 가능한" 상태로 전환.

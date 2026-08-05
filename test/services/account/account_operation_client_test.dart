@@ -8,49 +8,49 @@ import 'package:ko_lernen_app/services/account/firebase_app_check_initializer.da
 void main() {
   group('FirebaseAppCheckInitializer', () {
     test('uses debug providers only in debug builds', () async {
-      AndroidProvider? android;
-      AppleProvider? apple;
+      AndroidAppCheckProvider? android;
+      AppleAppCheckProvider? apple;
       final initializer = FirebaseAppCheckInitializer(
         isDebug: true,
         isWeb: false,
         activate:
             ({
-              webProvider,
-              required androidProvider,
-              required appleProvider,
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
             }) async {
-              android = androidProvider;
-              apple = appleProvider;
+              android = providerAndroid;
+              apple = providerApple;
             },
       );
 
       await initializer.initialize();
 
-      expect(android, AndroidProvider.debug);
-      expect(apple, AppleProvider.debug);
+      expect(android, isA<AndroidDebugProvider>());
+      expect(apple, isA<AppleDebugProvider>());
     });
 
     test('uses attestation providers in release builds', () async {
-      AndroidProvider? android;
-      AppleProvider? apple;
+      AndroidAppCheckProvider? android;
+      AppleAppCheckProvider? apple;
       final initializer = FirebaseAppCheckInitializer(
         isDebug: false,
         isWeb: false,
         activate:
             ({
-              webProvider,
-              required androidProvider,
-              required appleProvider,
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
             }) async {
-              android = androidProvider;
-              apple = appleProvider;
+              android = providerAndroid;
+              apple = providerApple;
             },
       );
 
       await initializer.initialize();
 
-      expect(android, AndroidProvider.playIntegrity);
-      expect(apple, AppleProvider.appAttestWithDeviceCheckFallback);
+      expect(android, isA<AndroidPlayIntegrityProvider>());
+      expect(apple, isA<AppleAppAttestWithDeviceCheckFallbackProvider>());
     });
   });
 

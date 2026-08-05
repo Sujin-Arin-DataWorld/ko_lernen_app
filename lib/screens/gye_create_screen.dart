@@ -189,7 +189,11 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
           icon: Icons.ios_share,
           accent: SoriColors.primary,
           fullWidth: true,
-          onTap: () => Share.share(t.gyeShareMessage(code)),
+          onTap: () async {
+            await SharePlus.instance.share(
+              ShareParams(text: t.gyeShareMessage(code)),
+            );
+          },
         ),
         const SizedBox(height: Spacing.sm),
         SoriButton(
