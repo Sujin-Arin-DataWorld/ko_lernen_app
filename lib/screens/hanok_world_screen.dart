@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../data/personal_hanok_catalog.dart';
+import '../data/personal_hanok_venue_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/personal_hanok.dart';
 import '../services/hanok_stage_service.dart';
+import '../services/personal_hanok_reveal_service.dart';
+import 'daily_char_sheet.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/personal_hanok_map.dart';
+import '../widgets/sori/personal_hanok_unlock_reveal.dart';
+import '../widgets/sori/personal_hanok_venue_sheet.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
@@ -21,8 +26,17 @@ import '../widgets/sori/world_map_viewport.dart';
 class HanokWorldScreen extends StatefulWidget {
   final Future<LevelRatios> Function()? loadRatios;
   final ValueChanged<PersonalHanokZone>? onOpenZone;
+  final PersonalHanokRevealStore revealStore;
+  final Future<void> Function(PersonalHanokVenueAction action)?
+  onOpenVenueAction;
 
-  const HanokWorldScreen({super.key, this.loadRatios, this.onOpenZone});
+  const HanokWorldScreen({
+    super.key,
+    this.loadRatios,
+    this.onOpenZone,
+    this.revealStore = const StoragePersonalHanokRevealStore(),
+    this.onOpenVenueAction,
+  });
 
   @override
   State<HanokWorldScreen> createState() => _HanokWorldScreenState();
@@ -31,6 +45,10 @@ class HanokWorldScreen extends StatefulWidget {
 class _HanokWorldScreenState extends State<HanokWorldScreen> {
   PersonalHanokProjection? _projection;
   PersonalHanokZone? _selectedZone;
+  PersonalHanokMilestone? _activeReveal;
+  List<PersonalHanokMilestone> _queuedReveals =
+      const <PersonalHanokMilestone>[];
+  var _loadGeneration = 0;
 
   @override
   void initState() {
@@ -39,13 +57,17 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
   }
 
   Future<void> _load() async {
+    final generation = ++_loadGeneration;
     final loadRatios = widget.loadRatios ?? HanokStageService.levelRatios;
     try {
       final ratios = await loadRatios();
       if (!mounted) {
         return;
       }
-      _showProjection(PersonalHanokProjection.from(ratios));
+      await _showProjection(
+        PersonalHanokProjection.from(ratios),
+        generation: generation,
+      );
     } catch (_) {
       // The world is an enhancement of the learning route. If its local
       // progress read fails, show the existing empty courtyard rather than
@@ -53,15 +75,19 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
       if (!mounted) {
         return;
       }
-      _showProjection(
+      await _showProjection(
         PersonalHanokProjection.from(
           const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
         ),
+        generation: generation,
       );
     }
   }
 
-  void _showProjection(PersonalHanokProjection projection) {
+  Future<void> _showProjection(
+    PersonalHanokProjection projection, {
+    required int generation,
+  }) async {
     final available = visiblePersonalHanokZones(
       projection,
     ).map((definition) => definition.zone).toList(growable: false);
@@ -76,6 +102,67 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     setState(() {
       _projection = projection;
       _selectedZone = nextSelection;
+    });
+    await _scheduleReveal(projection, generation: generation);
+  }
+
+  Future<void> _scheduleReveal(
+    PersonalHanokProjection projection, {
+    required int generation,
+  }) async {
+    PersonalHanokRevealSnapshot snapshot;
+    try {
+      snapshot = await widget.revealStore.load();
+    } catch (_) {
+      // A reveal is a progressive enhancement. A local preference error must
+      // never block the map or invent a new learning-state write.
+      return;
+    }
+    if (!mounted || generation != _loadGeneration) {
+      return;
+    }
+    final plan = PersonalHanokRevealPlan.forProjection(
+      projection: projection,
+      snapshot: snapshot,
+    );
+    if (plan.shouldInitialize) {
+      try {
+        await widget.revealStore.initialize(plan.milestonesToPersist);
+      } catch (_) {
+        // Keep the current map visible. A later visit can safely retry the
+        // local visual baseline without affecting progress or rewards.
+      }
+      return;
+    }
+    if (plan.reveals.isEmpty || _activeReveal != null) {
+      return;
+    }
+    setState(() {
+      _activeReveal = plan.reveals.first;
+      _queuedReveals = plan.reveals.skip(1).toList(growable: false);
+    });
+  }
+
+  Future<void> _completeActiveReveal() async {
+    final milestone = _activeReveal;
+    if (milestone == null) {
+      return;
+    }
+    try {
+      await widget.revealStore.markSeen(milestone);
+    } catch (_) {
+      // Recording the celebration is best effort. The building itself was
+      // already derived from established progress and remains visible.
+    }
+    if (!mounted) {
+      return;
+    }
+    final next = _queuedReveals;
+    setState(() {
+      _activeReveal = next.isEmpty ? null : next.first;
+      _queuedReveals = next.isEmpty
+          ? const <PersonalHanokMilestone>[]
+          : next.skip(1).toList(growable: false);
     });
   }
 
@@ -104,11 +191,47 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
       onOpenZone(zone);
       return;
     }
+    final projection = _projection;
+    final venueActions = personalHanokVenueActionsFor(zone);
+    if (projection != null && venueActions.isNotEmpty) {
+      final t = AppL10n.of(context);
+      final action = await showPersonalHanokVenueSheet(
+        context: context,
+        projection: projection,
+        zone: zone,
+        zoneLabel: _zoneLabel(t, zone),
+      );
+      if (!mounted || action == null) {
+        return;
+      }
+      await _openVenueAction(action);
+      return;
+    }
     final route = hanokRouteForZone(zone);
     if (route == null) {
       return;
     }
     await Navigator.pushNamed(context, route);
+    if (mounted) {
+      await _load();
+    }
+  }
+
+  Future<void> _openVenueAction(PersonalHanokVenueAction action) async {
+    final override = widget.onOpenVenueAction;
+    if (override != null) {
+      await override(action);
+      return;
+    }
+    if (action == PersonalHanokVenueAction.openDailyCharacter) {
+      await showDailyCharSheet(context);
+      return;
+    }
+    final route = personalHanokVenueRoute(action);
+    if (route == null) {
+      return;
+    }
+    await Navigator.of(context).pushNamed(route);
     if (mounted) {
       await _load();
     }
@@ -126,85 +249,105 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final projection = _projection;
+    final activeReveal = _activeReveal;
     return Scaffold(
       backgroundColor: s.bg,
       appBar: AppBar(title: Text(t.hanokWorldTitle)),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: projection == null
-              ? const AppLoading()
-              : LayoutBuilder(
-                  builder: (context, constraints) {
-                    final padding = soriClampPadding(
-                      constraints.maxWidth,
-                      maxWidth: 960,
-                      base: const EdgeInsets.fromLTRB(
-                        Spacing.lg,
-                        Spacing.md,
-                        Spacing.lg,
-                        Spacing.xxxl,
-                      ),
-                    );
-                    final sidePadding = EdgeInsets.symmetric(
-                      horizontal: padding.left,
-                    );
-                    return RefreshIndicator(
-                      onRefresh: _load,
-                      child: ListView(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        padding: EdgeInsets.only(
-                          top: padding.top,
-                          bottom: padding.bottom,
-                        ),
-                        children: [
-                          Padding(
-                            padding: sidePadding,
-                            child: _WorldIntroduction(
-                              projection: projection,
-                              onOpenSarangbang: () =>
-                                  _openZone(PersonalHanokZone.sarangbang),
-                            ),
+      body: Stack(
+        children: [
+          SoriScreenBackground(
+            child: SafeArea(
+              child: projection == null
+                  ? const AppLoading()
+                  : LayoutBuilder(
+                      builder: (context, constraints) {
+                        final padding = soriClampPadding(
+                          constraints.maxWidth,
+                          maxWidth: 960,
+                          base: const EdgeInsets.fromLTRB(
+                            Spacing.lg,
+                            Spacing.md,
+                            Spacing.lg,
+                            Spacing.xxxl,
                           ),
-                          const SizedBox(height: Spacing.lg),
-                          if (projection.usesCompoundMap) ...[
-                            Semantics(
-                              label: t.hanokWorldTitle,
-                              child: WorldMapViewport(
-                                projection: projection,
-                                selectedZone: _selectedZone,
-                                onSelectZone: _selectZone,
-                                onOpenSelectedZone: _openSelectedZone,
-                                zoneLabel: (zone) => _zoneLabel(t, zone),
-                                contentPadding: sidePadding,
+                        );
+                        final sidePadding = EdgeInsets.symmetric(
+                          horizontal: padding.left,
+                        );
+                        return RefreshIndicator(
+                          onRefresh: _load,
+                          child: ListView(
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            padding: EdgeInsets.only(
+                              top: padding.top,
+                              bottom: padding.bottom,
+                            ),
+                            children: [
+                              Padding(
+                                padding: sidePadding,
+                                child: _WorldIntroduction(
+                                  projection: projection,
+                                  onOpenSarangbang: () =>
+                                      _openZone(PersonalHanokZone.sarangbang),
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: Spacing.lg),
-                            Padding(
-                              padding: sidePadding,
-                              child: _WorldPlaceList(
-                                projection: projection,
-                                onSelectZone: _selectZone,
-                              ),
-                            ),
-                            const SizedBox(height: Spacing.lg),
-                            Padding(
-                              padding: sidePadding,
-                              child: _GyeBridge(onOpen: _openGyeHub),
-                            ),
-                          ] else
-                            Padding(
-                              padding: sidePadding,
-                              child: PersonalHanokMap(
-                                projection: projection,
-                                zoneLabel: (zone) => _zoneLabel(t, zone),
-                              ),
-                            ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-        ),
+                              const SizedBox(height: Spacing.lg),
+                              if (projection.usesCompoundMap) ...[
+                                Semantics(
+                                  label: t.hanokWorldTitle,
+                                  child: WorldMapViewport(
+                                    projection: projection,
+                                    selectedZone: _selectedZone,
+                                    suppressedMilestones: activeReveal == null
+                                        ? const <PersonalHanokMilestone>{}
+                                        : <PersonalHanokMilestone>{
+                                            activeReveal,
+                                          },
+                                    onSelectZone: _selectZone,
+                                    onOpenSelectedZone: _openSelectedZone,
+                                    zoneLabel: (zone) => _zoneLabel(t, zone),
+                                    contentPadding: sidePadding,
+                                  ),
+                                ),
+                                const SizedBox(height: Spacing.lg),
+                                Padding(
+                                  padding: sidePadding,
+                                  child: _WorldPlaceList(
+                                    projection: projection,
+                                    onSelectZone: _selectZone,
+                                  ),
+                                ),
+                                const SizedBox(height: Spacing.lg),
+                                Padding(
+                                  padding: sidePadding,
+                                  child: _GyeBridge(onOpen: _openGyeHub),
+                                ),
+                              ] else
+                                Padding(
+                                  padding: sidePadding,
+                                  child: PersonalHanokMap(
+                                    projection: projection,
+                                    zoneLabel: (zone) => _zoneLabel(t, zone),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+            ),
+          ),
+          if (projection != null && activeReveal != null)
+            Positioned.fill(
+              child: PersonalHanokUnlockReveal(
+                key: ValueKey('personal-hanok-unlock-${activeReveal.name}'),
+                projection: projection,
+                milestone: activeReveal,
+                milestoneLabel: _milestoneLabel(t, activeReveal),
+                onDone: _completeActiveReveal,
+              ),
+            ),
+        ],
       ),
     );
   }
@@ -366,7 +509,9 @@ String? hanokRouteForZone(PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.daecheongmaru => '/hanok/daecheong',
   PersonalHanokZone.haengrangchae => '/practice',
   PersonalHanokZone.anchae => '/hanok/anbang',
-  PersonalHanokZone.huwon => '/daily',
+  // Huwon has two established destinations, so it must pass through its
+  // context sheet instead of silently opening the unrelated daily challenge.
+  PersonalHanokZone.huwon => null,
   PersonalHanokZone.sadang => '/dojangcheop',
   PersonalHanokZone.gyeRoad => null,
 };
@@ -380,3 +525,14 @@ String _zoneLabel(AppL10n t, PersonalHanokZone zone) => switch (zone) {
   PersonalHanokZone.sadang => t.hanokZoneSadang,
   PersonalHanokZone.gyeRoad => '',
 };
+
+String _milestoneLabel(AppL10n t, PersonalHanokMilestone milestone) =>
+    switch (milestone) {
+      PersonalHanokMilestone.sotdaeulmun => t.hanokStageGate,
+      PersonalHanokMilestone.haengrangchae => t.hanokZoneHaengrang,
+      PersonalHanokMilestone.sarangchae => t.hanokZoneSarangbang,
+      PersonalHanokMilestone.anchae => t.hanokZoneAnchae,
+      PersonalHanokMilestone.daecheongmaru => t.hanokZoneDaecheong,
+      PersonalHanokMilestone.sadang => t.hanokZoneSadang,
+      PersonalHanokMilestone.rearGarden => t.hanokZoneHuwon,
+    };

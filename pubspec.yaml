@@ -116,7 +116,13 @@ flutter:
     - assets/icons/
     - assets/illustrations/hanok/
     - assets/illustrations/hanok_compound/
-    - assets/illustrations/personal_hanok_v2/
+    # Flutter only includes files immediately inside a declared directory.
+    # The canonical estate deliberately has nested map/interior folders, so
+    # each runtime leaf directory must be listed explicitly.
+    - assets/illustrations/personal_hanok_v2/map/
+    - assets/illustrations/personal_hanok_v2/map/structures/
+    - assets/illustrations/personal_hanok_v2/map/landscape/
+    - assets/illustrations/personal_hanok_v2/interiors/
     - assets/illustrations/hanok_stages/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/

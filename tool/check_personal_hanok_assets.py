@@ -2,8 +2,9 @@
 """Fail-closed image contract for the canonical personal Hanok map family."""
 
 from pathlib import Path
+import sys
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -21,6 +22,21 @@ SPECS = {
     "structures/sadang.png": {"opaque": False},
     "landscape/rear_garden.png": {"opaque": False},
 }
+
+# This is the exact paint order in `kPersonalHanokLayers`.  The reference
+# image is not another, loosely similar illustration: it is the visible
+# completed estate after these runtime layers have been alpha-composited.
+RUNTIME_LAYER_ORDER = (
+    "site_base_light.png",
+    "landscape/rear_garden.png",
+    "structures/sotdaeulmun.png",
+    "structures/haengrangchae.png",
+    "structures/sarangchae.png",
+    "structures/anchae.png",
+    "structures/daecheongmaru.png",
+    "structures/sadang.png",
+)
+REFERENCE = "reference_full_estate.png"
 
 
 def _chroma_key_count(image: Image.Image) -> int:
@@ -76,7 +92,46 @@ def _check(path: Path, opaque: bool) -> list[str]:
     return [f"[pass] {relative} {detail}"]
 
 
+def _compose_runtime_estate() -> Image.Image:
+    """Returns the same complete image the Flutter map paints at B2 100%."""
+    base_path = ASSET_ROOT / RUNTIME_LAYER_ORDER[0]
+    with Image.open(base_path) as source:
+        composed = source.convert("RGBA")
+    for relative in RUNTIME_LAYER_ORDER[1:]:
+        with Image.open(ASSET_ROOT / relative) as source:
+            composed.alpha_composite(source.convert("RGBA"))
+    return composed
+
+
+def _check_reference() -> list[str]:
+    reference_path = ASSET_ROOT / REFERENCE
+    with Image.open(reference_path) as source:
+        reference = source.convert("RGB")
+    composed = _compose_runtime_estate().convert("RGB")
+    difference = ImageChops.difference(reference, composed)
+    if difference.getbbox() is not None:
+        return [
+            "[fail] "
+            f"{reference_path.relative_to(ROOT)} does not exactly match "
+            "the complete runtime layer composition"
+        ]
+    return [
+        "[pass] "
+        f"{reference_path.relative_to(ROOT)} matches runtime composition"
+    ]
+
+
+def _write_reference() -> None:
+    """Intentionally refreshes the QA reference from the approved layers."""
+    output = ASSET_ROOT / REFERENCE
+    _compose_runtime_estate().convert("RGB").save(output)
+    print(f"[write] {output.relative_to(ROOT)} from runtime composition")
+
+
 def main() -> int:
+    if "--write-reference" in sys.argv[1:]:
+        _write_reference()
+        return 0
     problems = 0
     for relative, spec in SPECS.items():
         path = ASSET_ROOT / relative
@@ -85,6 +140,12 @@ def main() -> int:
             problems += 1
             continue
         for line in _check(path, bool(spec["opaque"])):
+            print(line)
+            if line.startswith("[fail]"):
+                problems += 1
+    required = (*RUNTIME_LAYER_ORDER, REFERENCE)
+    if problems == 0 and all((ASSET_ROOT / relative).is_file() for relative in required):
+        for line in _check_reference():
             print(line)
             if line.startswith("[fail]"):
                 problems += 1

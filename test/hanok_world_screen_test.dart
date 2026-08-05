@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/data/personal_hanok_venue_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/personal_hanok_reveal_service.dart';
 import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
 
@@ -15,6 +17,13 @@ void main() {
       hanokRouteForZone(PersonalHanokZone.daecheongmaru),
       '/hanok/daecheong',
     );
+  });
+
+  test('does not leak the legacy daily challenge from the Huwon', () {
+    // Huwon has a venue sheet because it offers the calligraphy sheet and
+    // quests. A bare route here would bypass that choice and open the wrong
+    // daily surface.
+    expect(hanokRouteForZone(PersonalHanokZone.huwon), isNull);
   });
 
   testWidgets('keeps the legacy courtyard before the estate gate opens', (
@@ -196,6 +205,86 @@ void main() {
 
     expect(opened, PersonalHanokZone.daecheongmaru);
   });
+
+  testWidgets('opens a Huwon context surface before dispatching its action', (
+    tester,
+  ) async {
+    final actions = <PersonalHanokVenueAction>[];
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen(
+          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+          revealStore: _MemoryRevealStore.initialized(
+            Set<PersonalHanokMilestone>.from(PersonalHanokMilestone.values),
+          ),
+          onOpenVenueAction: (action) async => actions.add(action),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final huwon = find.byKey(const ValueKey('hanok-world-place-huwon'));
+    // ListView lazily creates the lower accessibility alternatives. First
+    // scroll it into the tree, then bring it fully on-screen before a real
+    // pointer tap.
+    await tester.scrollUntilVisible(huwon, 280);
+    await tester.ensureVisible(huwon);
+    await tester.pumpAndSettle();
+    await tester.tap(huwon);
+    await tester.pump();
+    // The map viewport is lazily recycled while the place list is in view.
+    // Return to its top section before resolving the selected-place action.
+    await tester.drag(find.byType(ListView), const Offset(0, 1200));
+    await tester.pumpAndSettle();
+    final openSelected = find.byKey(
+      const ValueKey('hanok-world-open-selected'),
+    );
+    await tester.ensureVisible(openSelected);
+    await tester.tap(openSelected);
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('personal-hanok-venue-huwon')),
+      findsOneWidget,
+    );
+    final dailyCharacterAction = find.byKey(
+      const ValueKey('personal-hanok-venue-action-openDailyCharacter'),
+    );
+    await tester.ensureVisible(dailyCharacterAction);
+    await tester.tap(dailyCharacterAction);
+    await tester.pump();
+
+    expect(actions, [PersonalHanokVenueAction.openDailyCharacter]);
+  });
+
+  testWidgets('shows and records a newly unlocked map layer once', (
+    tester,
+  ) async {
+    final revealStore = _MemoryRevealStore.initialized(const {
+      PersonalHanokMilestone.sotdaeulmun,
+    });
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen(
+          loadRatios: () async =>
+              const LevelRatios(a1: 1, a2: 1, b1: .5, b2: 0),
+          revealStore: revealStore,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(
+      find.byKey(const ValueKey('personal-hanok-unlock-reveal')),
+      findsOneWidget,
+    );
+    await tester.tap(
+      find.byKey(const ValueKey('personal-hanok-unlock-reveal-continue')),
+    );
+    await tester.pump();
+
+    expect(revealStore.marked, [PersonalHanokMilestone.haengrangchae]);
+  });
 }
 
 Widget _host(Widget child) => MaterialApp(
@@ -207,3 +296,30 @@ Widget _host(Widget child) => MaterialApp(
     child: child,
   ),
 );
+
+class _MemoryRevealStore implements PersonalHanokRevealStore {
+  final Set<PersonalHanokMilestone> _seen;
+  final bool _initialized;
+  final List<PersonalHanokMilestone> marked = <PersonalHanokMilestone>[];
+
+  _MemoryRevealStore.initialized([
+    Set<PersonalHanokMilestone> seen = const <PersonalHanokMilestone>{},
+  ]) : _seen = Set<PersonalHanokMilestone>.from(seen),
+       _initialized = true;
+
+  @override
+  Future<PersonalHanokRevealSnapshot> load() async => _initialized
+      ? PersonalHanokRevealSnapshot.initialized(Set.unmodifiable(_seen))
+      : const PersonalHanokRevealSnapshot.uninitialized();
+
+  @override
+  Future<void> initialize(Iterable<PersonalHanokMilestone> milestones) async {
+    _seen.addAll(milestones);
+  }
+
+  @override
+  Future<void> markSeen(PersonalHanokMilestone milestone) async {
+    marked.add(milestone);
+    _seen.add(milestone);
+  }
+}

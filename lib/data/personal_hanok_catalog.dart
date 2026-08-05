@@ -10,6 +10,13 @@ class PersonalHanokMapLayer {
   final String assetPath;
   final int zIndex;
   final PersonalHanokMilestone? milestone;
+
+  /// Painted alpha bounds on the fixed 1536 × 1152 master canvas.
+  ///
+  /// These are intentionally independent from a place's tap target. They
+  /// make the art-coordinate contract explicit for focus/reveal work while
+  /// allowing accessibility targets to remain a comfortable 44dp minimum.
+  final PersonalHanokRect? visualBounds;
   final bool opaque;
 
   const PersonalHanokMapLayer({
@@ -17,6 +24,7 @@ class PersonalHanokMapLayer {
     required this.assetPath,
     required this.zIndex,
     this.milestone,
+    this.visualBounds,
     this.opaque = false,
   });
 }
@@ -24,8 +32,10 @@ class PersonalHanokMapLayer {
 /// Semantic interaction area, intentionally independent from paint bounds.
 class PersonalHanokZoneDefinition {
   final PersonalHanokZone zone;
+
   /// Broad visual bounds used by a future selected-place viewport.
   final PersonalHanokRect bounds;
+
   /// One or more precise, non-overlapping hit regions on the fixed map.
   ///
   /// A Hanok can have separated wings, so a single large rectangular target
@@ -56,49 +66,91 @@ const kPersonalHanokLayers = <PersonalHanokMapLayer>[
     assetPath: '${kPersonalHanokAssetRoot}map/landscape/rear_garden.png',
     zIndex: 11,
     milestone: PersonalHanokMilestone.rearGarden,
+    visualBounds: PersonalHanokRect(
+      left: .013,
+      top: .091,
+      width: .973,
+      height: .454,
+    ),
   ),
   PersonalHanokMapLayer(
     id: 'sotdaeulmun',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/sotdaeulmun.png',
     zIndex: 20,
     milestone: PersonalHanokMilestone.sotdaeulmun,
+    visualBounds: PersonalHanokRect(
+      left: .389,
+      top: .759,
+      width: .223,
+      height: .180,
+    ),
   ),
   PersonalHanokMapLayer(
     id: 'haengrangchae',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/haengrangchae.png',
     zIndex: 21,
     milestone: PersonalHanokMilestone.haengrangchae,
+    visualBounds: PersonalHanokRect(
+      left: .163,
+      top: .743,
+      width: .278,
+      height: .155,
+    ),
   ),
   PersonalHanokMapLayer(
     id: 'sarangchae',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/sarangchae.png',
     zIndex: 22,
     milestone: PersonalHanokMilestone.sarangchae,
+    visualBounds: PersonalHanokRect(
+      left: .104,
+      top: .533,
+      width: .556,
+      height: .268,
+    ),
   ),
   PersonalHanokMapLayer(
     id: 'anchae',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/anchae.png',
     zIndex: 23,
     milestone: PersonalHanokMilestone.anchae,
+    visualBounds: PersonalHanokRect(
+      left: .262,
+      top: .258,
+      width: .455,
+      height: .294,
+    ),
   ),
   PersonalHanokMapLayer(
     id: 'daecheongmaru',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/daecheongmaru.png',
     zIndex: 24,
     milestone: PersonalHanokMilestone.daecheongmaru,
+    visualBounds: PersonalHanokRect(
+      left: .449,
+      top: .303,
+      width: .113,
+      height: .125,
+    ),
   ),
   PersonalHanokMapLayer(
     id: 'sadang',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/sadang.png',
     zIndex: 25,
     milestone: PersonalHanokMilestone.sadang,
+    visualBounds: PersonalHanokRect(
+      left: .779,
+      top: .298,
+      width: .131,
+      height: .203,
+    ),
   ),
 ];
 
 const kPersonalHanokZones = <PersonalHanokZoneDefinition>[
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.sarangbang,
-    bounds: PersonalHanokRect(left: .14, top: .61, width: .52, height: .21),
+    bounds: PersonalHanokRect(left: .10, top: .53, width: .56, height: .27),
     hitRegions: <PersonalHanokRect>[
       // Leave room for the 44dp haengrang target at compact map heights.
       PersonalHanokRect(left: .15, top: .60, width: .49, height: .14),
@@ -107,43 +159,46 @@ const kPersonalHanokZones = <PersonalHanokZoneDefinition>[
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.daecheongmaru,
-    bounds: PersonalHanokRect(left: .44, top: .27, width: .17, height: .14),
+    bounds: PersonalHanokRect(left: .44, top: .30, width: .13, height: .13),
     hitRegions: <PersonalHanokRect>[
-      PersonalHanokRect(left: .42, top: .28, width: .19, height: .11),
+      PersonalHanokRect(left: .43, top: .31, width: .14, height: .11),
     ],
     requires: PersonalHanokMilestone.daecheongmaru,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.haengrangchae,
-    bounds: PersonalHanokRect(left: .39, top: .81, width: .42, height: .12),
+    bounds: PersonalHanokRect(left: .16, top: .74, width: .28, height: .16),
     hitRegions: <PersonalHanokRect>[
-      PersonalHanokRect(left: .39, top: .83, width: .42, height: .09),
+      // The building begins directly below the Sarangchae facade. This keeps
+      // its compact 44dp target below that facade instead of intercepting a
+      // Sarangbang tap near the center of the map.
+      PersonalHanokRect(left: .17, top: .80, width: .26, height: .09),
     ],
     requires: PersonalHanokMilestone.haengrangchae,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.anchae,
-    bounds: PersonalHanokRect(left: .28, top: .24, width: .42, height: .33),
+    bounds: PersonalHanokRect(left: .26, top: .25, width: .46, height: .30),
     hitRegions: <PersonalHanokRect>[
-      PersonalHanokRect(left: .27, top: .32, width: .11, height: .20),
-      PersonalHanokRect(left: .63, top: .32, width: .09, height: .20),
+      PersonalHanokRect(left: .26, top: .32, width: .13, height: .20),
+      PersonalHanokRect(left: .64, top: .32, width: .09, height: .20),
     ],
     requires: PersonalHanokMilestone.anchae,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.huwon,
-    bounds: PersonalHanokRect(left: .07, top: .05, width: .55, height: .48),
+    bounds: PersonalHanokRect(left: .01, top: .09, width: .98, height: .46),
     hitRegions: <PersonalHanokRect>[
-      PersonalHanokRect(left: .20, top: .12, width: .18, height: .16),
-      PersonalHanokRect(left: .08, top: .28, width: .16, height: .28),
+      PersonalHanokRect(left: .20, top: .12, width: .21, height: .16),
+      PersonalHanokRect(left: .08, top: .31, width: .17, height: .20),
     ],
     requires: PersonalHanokMilestone.rearGarden,
   ),
   PersonalHanokZoneDefinition(
     zone: PersonalHanokZone.sadang,
-    bounds: PersonalHanokRect(left: .76, top: .29, width: .19, height: .31),
+    bounds: PersonalHanokRect(left: .78, top: .30, width: .13, height: .20),
     hitRegions: <PersonalHanokRect>[
-      PersonalHanokRect(left: .78, top: .34, width: .14, height: .19),
+      PersonalHanokRect(left: .79, top: .32, width: .12, height: .18),
     ],
     requires: PersonalHanokMilestone.sadang,
   ),
@@ -171,9 +226,13 @@ Iterable<PersonalHanokZoneDefinition> visiblePersonalHanokZones(
 });
 
 PersonalHanokMapLayer layerForMilestone(PersonalHanokMilestone milestone) {
-  return kPersonalHanokLayers.firstWhere((layer) => layer.milestone == milestone);
+  return kPersonalHanokLayers.firstWhere(
+    (layer) => layer.milestone == milestone,
+  );
 }
 
 PersonalHanokZoneDefinition zoneFor(PersonalHanokZone zone) {
-  return kPersonalHanokZones.firstWhere((definition) => definition.zone == zone);
+  return kPersonalHanokZones.firstWhere(
+    (definition) => definition.zone == zone,
+  );
 }

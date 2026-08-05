@@ -2099,6 +2099,49 @@ class Storage {
     await _sl('kl_hanok_stages_seen_v1', list);
   }
 
+  // ── Personal Hanok map construction-reveal ledger ──────────────────────
+  //
+  // This is deliberately a local UX ledger, never a learning-progress or
+  // reward source. A missing key is meaningful: the first map visit quietly
+  // baselines existing construction so an upgraded learner is not shown a
+  // backlog of historic building animations.
+  static const String _personalHanokMilestonesSeenKey =
+      'kl_personal_hanok_milestones_seen_v1';
+
+  static ({bool isInitialized, List<String> seen})
+  get personalHanokMilestoneRevealSnapshot => (
+    isInitialized: _prefs?.containsKey(_personalHanokMilestonesSeenKey) ??
+        false,
+    seen: _l(_personalHanokMilestonesSeenKey),
+  );
+
+  static Future<void> initializePersonalHanokMilestoneReveals(
+    Iterable<String> milestones,
+  ) async {
+    if (_prefs?.containsKey(_personalHanokMilestonesSeenKey) ?? false) {
+      return;
+    }
+    final seen = <String>[];
+    for (final milestone in milestones) {
+      if (!seen.contains(milestone)) {
+        seen.add(milestone);
+      }
+    }
+    await _sl(_personalHanokMilestonesSeenKey, seen);
+  }
+
+  static Future<void> markPersonalHanokMilestoneRevealSeen(
+    String milestone,
+  ) async {
+    final snapshot = personalHanokMilestoneRevealSnapshot;
+    final seen = List<String>.from(snapshot.seen);
+    if (seen.contains(milestone)) {
+      return;
+    }
+    seen.add(milestone);
+    await _sl(_personalHanokMilestonesSeenKey, seen);
+  }
+
   // ───────── Reset ─────────
   static Future<void> resetAll({PreferenceRemovalStore? preferences}) async {
     final store =

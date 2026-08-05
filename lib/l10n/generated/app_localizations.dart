@@ -7837,6 +7837,60 @@ abstract class AppL10n {
   /// **'Heutiges Lernen'**
   String get hanokWorldTodayMarker;
 
+  /// No description provided for @hanokWorldRevealTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'{place} ist fertig'**
+  String hanokWorldRevealTitle(String place);
+
+  /// No description provided for @hanokWorldRevealBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Holz, Staub und Dancheong: Ein neuer Teil deiner Hanok ist entstanden.'**
+  String get hanokWorldRevealBody;
+
+  /// No description provided for @hanokWorldRevealContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter zur Karte'**
+  String get hanokWorldRevealContinue;
+
+  /// No description provided for @hanokVenueFurnishRoom.
+  ///
+  /// In de, this message translates to:
+  /// **'Diesen Raum einrichten'**
+  String get hanokVenueFurnishRoom;
+
+  /// No description provided for @hanokVenueAnbangBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Im ruhigen inneren Raum bewahrst du Wörter, Seiten und eigene Lernsammlungen.'**
+  String get hanokVenueAnbangBody;
+
+  /// No description provided for @hanokVenueDaecheongBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf dem offenen Maru setzt du deinen Lernweg fort oder richtest den Raum ein.'**
+  String get hanokVenueDaecheongBody;
+
+  /// No description provided for @hanokVenueHaengrangBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Eingangsflügel wartet dein Übungsatelier auf eine weitere Runde.'**
+  String get hanokVenueHaengrangBody;
+
+  /// No description provided for @hanokVenueHuwonBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Im hinteren Garten wartet ein ruhiger Moment für dein Zeichen des Tages oder eine neue Quest.'**
+  String get hanokVenueHuwonBody;
+
+  /// No description provided for @hanokVenueSadangBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Ahnenschrein sammelst du sichtbare Spuren deines Lernwegs.'**
+  String get hanokVenueSadangBody;
+
   /// No description provided for @sarangbangStudyTitle.
   ///
   /// In de, this message translates to:

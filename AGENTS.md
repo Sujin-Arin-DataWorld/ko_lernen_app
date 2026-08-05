@@ -295,6 +295,17 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P4b-b: 공동 전시 선택·확인 UI는 개인 보유 장식을 편의상 필터링하되, callable + 서버 stream만 사용한다. 개인 소유·방 배치·보상 journal에는 쓰지 않는다 (`3325d53`).
 - [x] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현했다. `uid + membershipId + joinedAt(seconds,nanoseconds)` 세대, active/withdrawn tombstone, bounded receipt ledger, leave/ban/account/Gye cleanup을 포함한다 (`7061ab9`). 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
+### 사선형 개인 한옥 정본·장소 맥락·해금 연출 (2026-08-05)
+
+- [x] 개인 지도 런타임 정본을 `personal_hanok_v2/map` 9장(바탕·구조 6·후원·완성 QA 참조)으로 고정했다. `hanok_compound/`와 `gye/` 파일은 카메라/캔버스가 달라 개인 지도에 섞지 않으며, 후원은 연못·다리 관계를 보존하는 단일 레이어로 남긴다.
+- [x] Flutter의 비재귀 asset 등록 문제를 해결해 중첩 `map/structures`·`map/landscape`와 실내 폴더를 실제 번들에 포함했다. 완성 참조 이미지는 런타임 paint 순서의 exact composite로 재생성하고, canvas·alpha·chroma-key·픽셀 일치 검사기로 고정했다.
+- [x] 구조물 alpha bounds를 카탈로그에 기록하고, 실제 보이는 행랑채/후원 기준으로 탭 영역을 보정했다. 308dp에서 44dp 확장 뒤 서로 다른 장소 target이 겹치지 않는 회귀를 추가했다.
+- [x] 안채·대청·행랑채·후원·사당은 새 콘텐츠/저장 write 없이 기존 목적지를 고르는 장소 맥락 시트로 연결했다. 사랑방은 여전히 기존 추천 엔진이 고른 다음 학습으로 직접 진입하며, 후원은 과거 `/daily` fallback 대신 오늘의 글자 시트/퀘스트 선택을 통과한다.
+- [x] `kl_personal_hanok_milestones_seen_v1`은 local visual ledger로만 사용한다. 기존 학습자는 첫 지도 방문에서 현재 건물을 조용히 baseline하고, 그 뒤 새 milestone만 목재·먼지·단청 reveal로 한 번 보여 준다. reduce-motion에서는 정적 확인 CTA로 대체한다.
+- [x] 768×576 초기/중간/완성 golden 3장과 asset-bundle·reveal-store·venue-sheet 회귀를 추가했다. 정본 계약은 `docs/PERSONAL_HANOK_CANONICAL_ASSET_CONTRACT.md`, 실기기 수용 절차는 `docs/HANOK_MAP_DEVICE_QA_2026-08-05.md`에 기록했다.
+- [ ] Jin 실기기: Galaxy Tab·Xiaomi Pad에서 세로/가로·글자 1.0/1.3·초기/중간/완성 지도 탭·후원 다리·reduce-motion reveal을 확인한다. 자동 테스트가 이 수용 검사를 대체하지 않는다.
+- [~] 작업 브랜치 `merkmal/hanok-oblique-world`에 구현을 보관 중이며, Jin의 명시적 커밋 요청 전에는 커밋/푸시하지 않는다.
+
 ### 플러그인·Android 배포 호환성 (2026-08-05)
 
 - [x] 안전한 일괄 업데이트: FlutterFire 4/6 세대, App Check 0.4, 공유·미디어·구매·Rive·패키지 메타데이터와 Google Services/Crashlytics Gradle 플러그인을 함께 올렸다. App Check provider API와 Share Plus 13 호출도 새 계약으로 옮겼다. Google Sign-In은 계정 링크·삭제·복구의 인증 흐름 자체가 바뀌는 7.x 대신 최신 호환 6.3.x로 유지했다.
@@ -3049,3 +3060,11 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **변경:** 개인 한옥 카탈로그의 넓은 시각 bounds와 실제 누름 영역을 분리했다. 안채는 양쪽 날개, 대청은 중앙 본채, 후원은 연못·정원으로 각각의 hit region을 가지며, 서로 다른 장소의 target은 겹칠 수 없다. 지도와 텍스트 기반 장소 목록은 같은 `visiblePersonalHanokZones` 정본을 사용한다.
 - **접근성:** 완성된 장소는 지도 아래 `Places in your Hanok`/`Orte in deiner Hanok` 목록에서도 열 수 있다. 추가 hit region은 스크린리더 탐색을 중복시키지 않고, 장소당 한 개의 명확한 semantics와 목록 CTA를 제공한다.
 - **회귀/검증:** 대청 직접 탭, 장소 목록 진입, 카탈로그 상 교차 장소 비중첩을 고정했다. 특히 308dp × 231dp 맵에서 런타임 44dp 최소 터치 크기와 가장자리 clamp까지 적용한 모든 서로 다른 장소의 실제 사각형이 겹치지 않는지 검증했다. `flutter test test/personal_hanok_catalog_test.dart test/personal_hanok_map_test.dart test/hanok_world_screen_test.dart test/arb_l10n_guard_test.dart test/typography_guard_test.dart` 26 passed, targeted `dart analyze` 및 `git diff --check` 통과. 구현 커밋: `69dfe65`.
+
+### 2026-08-05 (Codex) — 사선형 개인 한옥 정본·장소 맥락·해금 연출 구현 — 커밋 대기
+
+- **정본 아트/번들:** `personal_hanok_v2/map`의 1536×1152 바탕·구조 6·후원·완성 QA 참조 9장을 개인 지도의 유일한 런타임 아트로 고정했다. Flutter asset 등록은 하위 폴더를 재귀 포함하지 않으므로 `map/structures`·`map/landscape`·`interiors` leaf 디렉터리를 명시했다. `reference_full_estate.png`는 현재 승인된 런타임 레이어 paint 순서로 exact composite 재생성했으며, checker가 canvas·alpha·chroma-key와 픽셀 단위 합성 일치를 함께 실패-폐쇄로 검사한다. `hanok_compound`·`gye`는 런타임에 섞지 않는다.
+- **지도/장소:** 실제 alpha footprint를 `visualBounds`로 기록해 행랑채 hit region을 보이는 건물로 옮기고, 308dp 44dp 확장 뒤 다른 장소와 겹치지 않게 후원/대청 target을 재보정했다. 안채·대청·행랑채·후원·사당은 established destination만 반환하는 장소 시트를 거친다. 사랑방은 기존 추천 학습으로 직접 간다. 후원의 이전 `/daily` fallback은 제거해 오늘의 글자 시트 또는 퀘스트 선택을 우회하지 못하게 했다.
+- **해금/반응형:** 별도 local-only reveal ledger는 첫 방문의 과거 진도를 조용히 baseline하고, 이후 새 layer만 지도 위에서 짧게 reveal한다. 이는 학습·XP·보상·장식·계 write와 분리되어 있다. reduce-motion은 정적 확인 CTA로 대체한다. 768×576 초기/중간/완성 goldens, asset-bundle, storage, target geometry, compact-phone/태블릿 venue-sheet 회귀를 추가했다. Galaxy Tab/Xiaomi Pad 물리 수용 검사는 `docs/HANOK_MAP_DEVICE_QA_2026-08-05.md`에 명시적으로 남았으며 아직 완료로 주장하지 않는다.
+- **RED→GREEN:** 후원이 잘못된 legacy daily challenge로 빠지는 것을 `hanokRouteForZone(huwon) == null` RED로 재현한 뒤 장소 시트만 통과하도록 고쳤다. 독립 리뷰에서 새 장소 버튼의 아이콘 한 개가 typography ratchet(74→75)을 깨는 것을 확인했고, 텍스트 우선 CTA로 되돌린 뒤 관련 회귀를 통과시켰다. 커밋/푸시는 Jin의 명시 요청 전 대기한다.
+- **최종 검증:** `flutter gen-l10n` 재생성, `python tool/check_personal_hanok_assets.py`의 9장 canvas·alpha·chroma-key·정본 합성 일치, `dart analyze --fatal-infos`의 **No issues found**, `flutter test --no-pub --concurrency=1 --reporter compact`의 **2,109 passed**, `git diff --check`를 모두 통과했다. Galaxy Tab/Xiaomi Pad 실기기 수용 검사는 자동화와 별개로 아직 운영 확인 대기다.

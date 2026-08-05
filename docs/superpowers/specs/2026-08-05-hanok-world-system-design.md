@@ -51,10 +51,10 @@ writes course progress, rewards, ownership, or social state.
 |---|---|---|
 | Sarangchae / Sarangbang | Today's recommended study | /sarangbang |
 | Daecheongmaru | Structured course journey | /path |
-| Anchae | Personal collection and books | /bookshelf |
-| Haengrangchae | Free practice library | /practice |
-| Sadang | Stamps and achievements | /dojangcheop |
-| Rear garden | Daily challenge and quests | /daily, /quests |
+| Anchae | Personal collection and books | context sheet → /hanok/anbang, /bookshelf, wordbook, book capture |
+| Haengrangchae | Free practice library | context sheet → /practice |
+| Sadang | Stamps and achievements | context sheet → /dojangcheop, /stats |
+| Rear garden | Today's Hangul character and quests | context sheet → daily-character sheet, /quests |
 | Gye bridge | Contextual doorway only | /gye/hub |
 
 Painted bounds and interactive hit bounds are independent catalog data. No two
@@ -64,6 +64,26 @@ localized accessible place list, so a learner never has to target a roof pixel.
 Phone UI shows the 4:3 map plus one selected-place card and a full-map state.
 Tablet UI uses the same map plus a persistent side panel. The only active status
 marker is today's Sarangbang; completed buildings stay calm and legible.
+
+### Canonical art and construction reveal
+
+`personal_hanok_v2/map` is the only personal-map art family: one opaque base,
+six full-canvas structure layers, one complete rear-garden layer, and one
+inspection-only completed reference. All are fixed 1536×1152, north-up, shallow
+3/4, upper-left-lit Faceted Minhwa. The rear garden owns its pond and bridge
+together so that spatial relationship cannot drift.
+
+The completed reference is generated from the exact runtime alpha composition,
+not treated as a separate scene. An asset checker and early/mid/complete map
+goldens protect this contract. `hanok_compound` and `gye` images are not valid
+runtime inputs for the personal map.
+
+When a learner returns after one new milestone, that layer receives a short
+local construction reveal (timber build, settling dust, Dancheong glint). A
+separate local viewed-milestone ledger prevents replay. A first visit quietly
+baselines an already-progressed learner so an upgrade never queues historic
+celebrations. Reduced motion uses a static confirmation instead. The reveal
+never affects progress, rewards, ownership, placement, or Gye state.
 
 ### Study venues and furnishing
 

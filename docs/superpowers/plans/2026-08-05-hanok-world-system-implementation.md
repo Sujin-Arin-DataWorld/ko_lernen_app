@@ -166,6 +166,41 @@ a4b3411 feat(home): make the Sarangbang today's study context
 47edaa1 feat(sarangbang): show a read-only study room scene
 ~~~
 
+### Task 5a: Lock the oblique personal-map art and venue context
+
+**Files:**
+- Modify: `pubspec.yaml`, `lib/data/personal_hanok_catalog.dart`,
+  `lib/screens/hanok_world_screen.dart`, `lib/services/storage_service.dart`
+- Create: personal-Hanok reveal service, venue catalog/sheet, map goldens,
+  asset/device QA documentation
+- Test: map asset bundle, target geometry, construction reveal, venue sheet,
+  storage ledger, early/mid/complete golden states
+
+**Interfaces:**
+- The personal estate accepts only `personal_hanok_v2/map` full-canvas layers.
+  The completed reference must exactly equal the runtime paint composition.
+- A venue sheet returns a declarative existing-destination action; it does not
+  own navigation, recommendation, progress, rewards, room placement, or Gye.
+- `PersonalHanokRevealStore` owns only an idempotent local visual ledger.
+  First visit baselines existing milestones; later milestones reveal once.
+
+- [x] **Step 1: Reproduce runtime asset and compact-target failures.** The
+  nested assets were absent from Flutter's bundle, and Daecheong/Huwon could
+  overlap after 44dp expansion at 308dp.
+- [x] **Step 2: Register each leaf asset folder, add rendered-alpha bounds,
+  recalibrate hit regions, and prove the actual asset bundle can load every
+  runtime layer.**
+- [x] **Step 3: Add short construction reveal, reduced-motion fallback, and a
+  first-visit local baseline without touching learning or reward state.**
+- [x] **Step 4: Add Anchae/Daecheong/Haengrangchae/Sadang/Huwon context sheets
+  that only dispatch established destinations. Keep Sarangbang direct to its
+  existing recommended-next-learning surface.**
+- [x] **Step 5: Add exact composite QA plus 768×576 early/mid/complete map
+  goldens and compact-phone/tablet venue-sheet regression coverage.**
+- [ ] **Step 6: Execute the Galaxy Tab and Xiaomi Pad matrix in
+  `docs/HANOK_MAP_DEVICE_QA_2026-08-05.md`; this is a physical-device
+  acceptance step, not implied by widget tests.**
+
 ### Task 6: Add P4b model, catalog, and read-only exhibition layer
 
 **Files:**

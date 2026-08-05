@@ -19,6 +19,10 @@ class PersonalHanokMap extends StatelessWidget {
   final PersonalHanokZone? todayZone;
   final String? todayMarkerLabel;
 
+  /// Allows a one-off construction reveal to paint its active layer itself.
+  /// The map remains a pure projection and performs no persistence or timing.
+  final Set<PersonalHanokMilestone> suppressedMilestones;
+
   const PersonalHanokMap({
     super.key,
     required this.projection,
@@ -28,6 +32,7 @@ class PersonalHanokMap extends StatelessWidget {
     this.selectedZone,
     this.todayZone,
     this.todayMarkerLabel,
+    this.suppressedMilestones = const <PersonalHanokMilestone>{},
   });
 
   @override
@@ -49,7 +54,8 @@ class PersonalHanokMap extends StatelessWidget {
               (layer) =>
                   layer.opaque ||
                   (layer.milestone != null &&
-                      projection.isUnlocked(layer.milestone!)),
+                      projection.isUnlocked(layer.milestone!) &&
+                      !suppressedMilestones.contains(layer.milestone!)),
             )
             .toList()
           ..sort((a, b) => a.zIndex.compareTo(b.zIndex));
@@ -65,6 +71,7 @@ class PersonalHanokMap extends StatelessWidget {
               children: [
                 for (final layer in layers)
                   Image.asset(
+                    key: ValueKey('personal-hanok-layer-${layer.id}'),
                     layer.assetPath,
                     fit: BoxFit.cover,
                     gaplessPlayback: true,

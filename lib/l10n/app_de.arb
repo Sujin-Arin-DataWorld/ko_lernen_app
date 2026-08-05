@@ -2097,6 +2097,22 @@
     }
   },
   "hanokWorldTodayMarker": "Heutiges Lernen",
+  "hanokWorldRevealTitle": "{place} ist fertig",
+  "@hanokWorldRevealTitle": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "hanokWorldRevealBody": "Holz, Staub und Dancheong: Ein neuer Teil deiner Hanok ist entstanden.",
+  "hanokWorldRevealContinue": "Weiter zur Karte",
+  "hanokVenueFurnishRoom": "Diesen Raum einrichten",
+  "hanokVenueAnbangBody": "Im ruhigen inneren Raum bewahrst du Wörter, Seiten und eigene Lernsammlungen.",
+  "hanokVenueDaecheongBody": "Auf dem offenen Maru setzt du deinen Lernweg fort oder richtest den Raum ein.",
+  "hanokVenueHaengrangBody": "Im Eingangsflügel wartet dein Übungsatelier auf eine weitere Runde.",
+  "hanokVenueHuwonBody": "Im hinteren Garten wartet ein ruhiger Moment für dein Zeichen des Tages oder eine neue Quest.",
+  "hanokVenueSadangBody": "Im Ahnenschrein sammelst du sichtbare Spuren deines Lernwegs.",
   "@_sarangbang_study": {
     "description": "Sarangbang als Kontext für die bestehende Tagesempfehlung."
   },

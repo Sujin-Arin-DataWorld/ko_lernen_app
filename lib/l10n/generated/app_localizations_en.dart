@@ -4432,6 +4432,41 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldTodayMarker => 'Today\'s study';
 
   @override
+  String hanokWorldRevealTitle(String place) {
+    return '$place is complete';
+  }
+
+  @override
+  String get hanokWorldRevealBody =>
+      'Wood, dust, and dancheong: a new part of your Hanok has taken shape.';
+
+  @override
+  String get hanokWorldRevealContinue => 'Continue to the map';
+
+  @override
+  String get hanokVenueFurnishRoom => 'Furnish this room';
+
+  @override
+  String get hanokVenueAnbangBody =>
+      'This quiet inner room keeps the words, pages, and learning collections that matter to you.';
+
+  @override
+  String get hanokVenueDaecheongBody =>
+      'On the open maru, continue your learning path or make the room your own.';
+
+  @override
+  String get hanokVenueHaengrangBody =>
+      'Your practice atelier is waiting in the entrance wing for another round.';
+
+  @override
+  String get hanokVenueHuwonBody =>
+      'The rear garden holds a quiet moment for today’s letter or a new quest.';
+
+  @override
+  String get hanokVenueSadangBody =>
+      'The shrine keeps the visible traces of everything you have learned.';
+
+  @override
   String get sarangbangStudyTitle => 'Sarangbang';
 
   @override

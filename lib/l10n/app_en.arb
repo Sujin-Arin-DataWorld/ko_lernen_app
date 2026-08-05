@@ -2019,6 +2019,22 @@
     }
   },
   "hanokWorldTodayMarker": "Today's study",
+  "hanokWorldRevealTitle": "{place} is complete",
+  "@hanokWorldRevealTitle": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "hanokWorldRevealBody": "Wood, dust, and dancheong: a new part of your Hanok has taken shape.",
+  "hanokWorldRevealContinue": "Continue to the map",
+  "hanokVenueFurnishRoom": "Furnish this room",
+  "hanokVenueAnbangBody": "This quiet inner room keeps the words, pages, and learning collections that matter to you.",
+  "hanokVenueDaecheongBody": "On the open maru, continue your learning path or make the room your own.",
+  "hanokVenueHaengrangBody": "Your practice atelier is waiting in the entrance wing for another round.",
+  "hanokVenueHuwonBody": "The rear garden holds a quiet moment for today’s letter or a new quest.",
+  "hanokVenueSadangBody": "The shrine keeps the visible traces of everything you have learned.",
   "@_sarangbang_study": {
     "description": "Sarangbang as the context for the existing daily recommendation."
   },

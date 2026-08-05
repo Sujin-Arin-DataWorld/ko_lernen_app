@@ -19,6 +19,7 @@ class WorldMapViewport extends StatelessWidget {
   final VoidCallback? onOpenSelectedZone;
   final String Function(PersonalHanokZone zone) zoneLabel;
   final EdgeInsets contentPadding;
+  final Set<PersonalHanokMilestone> suppressedMilestones;
 
   const WorldMapViewport({
     super.key,
@@ -28,6 +29,7 @@ class WorldMapViewport extends StatelessWidget {
     required this.onOpenSelectedZone,
     required this.zoneLabel,
     required this.contentPadding,
+    this.suppressedMilestones = const <PersonalHanokMilestone>{},
   });
 
   @override
@@ -39,6 +41,7 @@ class WorldMapViewport extends StatelessWidget {
       todayZone: PersonalHanokZone.sarangbang,
       todayMarkerLabel: AppL10n.of(context).hanokWorldTodayMarker,
       onTapZone: onSelectZone,
+      suppressedMilestones: suppressedMilestones,
     );
     final detail = _SelectedPlacePanel(
       selectedZone: selectedZone,
