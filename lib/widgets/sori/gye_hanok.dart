@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../models/gye_dedication.dart';
 import '../../models/gye.dart';
 import '../../models/hanok_stage.dart';
+import 'gye_dedication_layer.dart';
 import 'madang_background.dart';
 import 'tokens.dart';
 
@@ -16,8 +18,13 @@ import 'tokens.dart';
 /// 좌표는 시안값 — 실기기 육안 튜닝 필요(Jin).
 class GyeHanok extends StatefulWidget {
   final GyeMeta meta;
+  final Iterable<GyeDedication> dedications;
 
-  const GyeHanok({super.key, required this.meta});
+  const GyeHanok({
+    super.key,
+    required this.meta,
+    this.dedications = const <GyeDedication>[],
+  });
 
   @override
   State<GyeHanok> createState() => _GyeHanokState();
@@ -94,6 +101,7 @@ class _GyeHanokState extends State<GyeHanok>
                 children: [
                   for (var i = 0; i < _elements.length; i++)
                     _element(i, unlocked, w, h, reduce),
+                  GyeDedicationLayer(dedications: widget.dedications),
                 ],
               );
             },
