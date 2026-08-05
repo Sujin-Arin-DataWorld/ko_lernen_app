@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -13,9 +14,6 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot.dart';
 import 'consent_screen.dart';
 import 'onboarding_level_screen.dart';
-
-/// 선택 확정 후 연출 단계 — 확정 목례/착지(choose) → 무언 인사(greet).
-enum _GreetPhase { choosing, greeting }
 
 // 일월(日月) 무대 팔레트 — ASSET_GENERATION_BIBLE §1.3 의 일러스트 전용 hex.
 // (UI 토큰과 의도적으로 분리 — 카드 안 "무대"는 일러스트 세계의 색을 쓴다.)
@@ -46,7 +44,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   MascotKind? _selected;
   bool _isLoading = false;
   bool _navigated = false;
-  _GreetPhase _phase = _GreetPhase.choosing;
+  Timer? _advanceGuard;
   final ScrollController _scroll = ScrollController();
 
   // 선택 전 미리보기는 **정적 호흡 마스코트만** 쓴다 (2026-08-02 실기기 검수).
@@ -54,11 +52,14 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   // Android 12)는 Impeller가 새 비디오 텍스처의 fence 를 기다리지 못해
   // ("ImageTextureEntry can't wait on the fence on Android < 33") 디코더가
   // 교대될 때마다 흰 프레임이 번쩍였고, tiger_rise 루프에 매핑된 인사
-  // 효과음이 교대 주기마다 반복 재생됐다. 영상 연출은 선택 확정 후
-  // choose→greet 체인(디코더 1개, 일회성)에만 남긴다.
+  // 효과음이 교대 주기마다 반복 재생됐다. 영상 연출은 선택 확정 후 **단일
+  // 시그니처 클립**(디코더 1개·일회성·핸드오프 0)으로만 남긴다 — 구
+  // choose→greet 2단 체인은 이 기기에서 텍스처 교대 시 흰 프레임 번쩍 +
+  // 완료 미보고 시 멈춤을 유발해 하나로 축약했다(2026-08-05 Jin 실기기).
 
   @override
   void dispose() {
+    _advanceGuard?.cancel();
     _scroll.dispose();
     super.dispose();
   }
@@ -69,15 +70,17 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     setState(() {
       _selected = kind;
       _isLoading = true;
-      _phase = _GreetPhase.choosing;
     });
 
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
     MascotPreference.set(kind);
 
-    // 첫 인사는 말이 아니라 몸짓 — 선택된 캐릭터의 인사 클립이 재생되고,
-    // 클립이 끝나면(폴백 경로 포함) _proceed가 정확히 1회 호출된다.
-    // 사운드는 동물 SFX 훅만(best-effort) — 사람 목소리 TTS 없음.
+    // 확정 영상이 (이 기기의 디코더 버그로) 완료를 못 알려도 화면이 멈추지
+    // 않도록 절대 백스톱 — 영상이 자연 종료하면 onCompleted 가 먼저 _proceed 를
+    // 부르고 이 타이머는 _navigated 가드로 무해해진다. reduce-motion·
+    // videoReady=false 경로는 클립의 fallbackCompleteAfter 가 더 빨리 넘긴다.
+    _advanceGuard?.cancel();
+    _advanceGuard = Timer(const Duration(milliseconds: 4500), _proceed);
   }
 
   void _proceed() {
@@ -113,81 +116,61 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                   padding: const EdgeInsets.all(24),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // 종가 마당 배너 — **welcome-hero.mp4 무음 루프** (Jin
-                      // 2026-08-03: "같이 있는 이미지 대신 비디오"). 영상은
-                      // 1280×720(16:9)·5.1s — 박스도 16:9 로 맞춰 크롭 0.
-                      // 이 화면의 라이브 영상은 이 하나 — 카드까지 영상을 걸면
-                      // 단일 디코더 lease(ADR-001) 때문에 마지막 등록만 살고
-                      // 나머지는 정지된다. 캐릭터 클립(roar/perched)은 선택
-                      // 순간(greet)에 재생. 탭 후엔 greet 클립이 lease 를
-                      // 가져가고 히어로는 포스터로 자연 강등된다.
-                      // (poster png 는 정사각이라 16:9 cover 시 상하 크롭 —
-                      // 영상 로드 전/reduce-motion 폴백에서만 잠깐 보인다.)
-                      SoriEntrance(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 280),
-                          child: const HanokHeader(
-                            // 캐논 듀오 배너 — 태고+조이가 실제로 상호작용하는
-                            // 클립을 한옥 배경판에 multiply 로 구운 16:9 루프.
-                            // 구 welcome-hero 는 저폴리 캐논 밖 렌더였고 사실상
-                            // 정지였다. 이 화면은 캐릭터 선택과 무관한 자리라
-                            // 중립 듀오 클립을 쓸 수 있다(ASSET_GAP §2-2).
-                            asset:
-                                'assets/illustrations/mascot/magpie_tiger_together.png',
-                            aspectRatio: 16 / 9,
-                            radius: 16,
-                            fallbackIcon: Icons.pets,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 90),
-                        child: Column(
-                          children: [
-                            Text(
-                              t.characterSelectionTitle,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.w800,
-                                height: 1.3,
-                              ),
-                            ),
-                            // 탭 유도 한 줄 — 카드가 눌리는 것임을 말로 알려
-                            // 준다 (배지/필 금지 원칙 → 본문 인라인 힌트).
-                            // 선택 후엔 카드가 사라지므로 힌트도 함께 걷는다.
-                            if (_selected == null) ...[
-                              const SizedBox(height: 8),
-                              Text(
-                                t.characterSelectionHint,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 13.5,
-                                  color: SoriColors.lightTextMuted,
+                    // 선택 전엔 **전부 정지** (이 기기 디코더 버그로 영상 교대 시
+                    // 흰 프레임 번쩍 — State 상단 주석). 선택하면 카드/제목을
+                    // 걷고 **고른 캐릭터의 단일 확정 영상**이 화면 폭을 가득
+                    // 채운다 (2026-08-05 Jin: "선택되면 video 만든거 크게").
+                    children: _selected == null
+                        ? [
+                            // 상단 듀오 배너 — 정사각 원본(magpie_tiger_together
+                            // .png, 1254²)이라 aspectRatio:1 로 크롭 0. 구
+                            // 16:9 cover 는 위·아래 ~44% 를 잘라먹었다(실기기
+                            // "이미지가 잘린다"). 이 화면 선택 전은 정지이므로
+                            // animate:false — png 포스터만.
+                            SoriEntrance(
+                              child: ConstrainedBox(
+                                constraints: const BoxConstraints(maxWidth: 280),
+                                child: const HanokHeader(
+                                  asset:
+                                      'assets/illustrations/mascot/magpie_tiger_together.png',
+                                  aspectRatio: 1,
+                                  radius: 16,
+                                  animate: false,
+                                  fallbackIcon: Icons.pets,
                                 ),
                               ),
-                            ],
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      // 세로 배열 — 위 호랑이 / 아래 까치. 둘 다 정적 호흡
-                      // 마스코트 (영상 미리보기는 화이트 플래시·반복음 때문에
-                      // 폐기 — State 상단 주석 참조). 성격 대비는 일월(日月)
-                      // 무대로: 호랑이=해(금빛 아침)·까치=달(청자빛 저녁).
-                      //
-                      // 선택 후엔 **카드 자리에서** 2단 연출이 무대를 이어받는다:
-                      // ① 확정 목례/착지(choose) → ② 무언(無言) 인사(greet)
-                      // → 다음 화면. 이전 배치(카드 아래 append + 자동 스크롤)는
-                      // 연출이 화면 최하단에 붙어 오류처럼 보였다(2026-08-03
-                      // Jin 실기기) — 카드를 걷고 그 자리를 쓰는 방식으로 교체.
-                      // videoReady=false(테스트)·reduce-motion 경로에서도
-                      // fallbackCompleteAfter 타이머가 체인 진행을 보장한다.
-                      if (_selected == null)
-                        Column(
-                          children: [
+                            ),
+                            const SizedBox(height: 24),
+                            SoriEntrance(
+                              delay: const Duration(milliseconds: 90),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    t.characterSelectionTitle,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w800,
+                                      height: 1.3,
+                                    ),
+                                  ),
+                                  // 탭 유도 한 줄 (배지/필 금지 → 본문 인라인).
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    t.characterSelectionHint,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 13.5,
+                                      color: SoriColors.lightTextMuted,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+                            // 세로 배열 — 위 호랑이 / 아래 까치. 둘 다 정적 호흡
+                            // 마스코트. 성격 대비는 일월(日月) 무대로:
+                            // 호랑이=해(금빛 아침)·까치=달(청자빛 저녁).
                             SoriEntrance(
                               delay: const Duration(milliseconds: 180),
                               child: _CharacterCard(
@@ -200,7 +183,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                                 panelColor: _kTigerStagePanel,
                                 discColor: _kTigerStageSun,
                                 discAtRight: true,
-                                isSelected: _selected == MascotKind.tiger,
+                                isSelected: false,
                                 onTap: _isLoading
                                     ? null
                                     : () => _handleSelection(MascotKind.tiger),
@@ -219,57 +202,44 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                                 panelColor: _kMagpieStagePanel,
                                 discColor: _kMagpieStageMoon,
                                 discAtRight: false,
-                                isSelected: _selected == MascotKind.magpie,
+                                isSelected: false,
                                 onTap: _isLoading
                                     ? null
                                     : () => _handleSelection(MascotKind.magpie),
                               ),
                             ),
+                          ]
+                        : [
+                            // 선택 확정 — Jin 제작 영상을 **화면 폭 가득** 크게.
+                            // 구 2단 choose→greet 체인(핸드오프 2회 = 흰 프레임
+                            // 번쩍 + 완료 미보고 시 멈춤)을 단일 시그니처 클립
+                            // 하나로 축약. 완료 시 _proceed, 못 알리면
+                            // _handleSelection 의 절대 백스톱 타이머가 진행 보장.
+                            // 크기는 콘텐츠 폭(패딩 48 제외)에 맞춰 220~460 클램프.
+                            CharacterClipPlayer(
+                              key: ValueKey<String>(
+                                'confirm_${_selected!.name}',
+                              ),
+                              // Jin 지정: 태고=산군의 포효, 조이=사뿐히 앉은 길조.
+                              asset: _selected == MascotKind.magpie
+                                  ? CharacterClips.magpiePerched
+                                  : CharacterClips.tigerRoar,
+                              size: (constraints.maxWidth - 48)
+                                  .clamp(220.0, 460.0)
+                                  .toDouble(),
+                              fallbackKind: _selected!,
+                              fallbackEmotion: MascotEmotion.celebrate,
+                              // 포효 오디오(assets/sfx/roar_tiger.mp3)가 들어오면
+                              // 자동 재생, 없으면 조용히 무음(회귀 0). 까치 짹짹 유지.
+                              sfxAsset: _selected == MascotKind.magpie
+                                  ? 'sfx/greet_magpie.mp3'
+                                  : 'sfx/roar_tiger.mp3',
+                              fallbackCompleteAfter: const Duration(
+                                milliseconds: 1600,
+                              ),
+                              onCompleted: _proceed,
+                            ),
                           ],
-                        )
-                      else if (_phase == _GreetPhase.choosing)
-                        CharacterClipPlayer(
-                          key: ValueKey<String>('choose_${_selected!.name}'),
-                          asset: CharacterClips.chooseFor(_selected!),
-                          size: 200,
-                          fallbackKind: _selected!,
-                          fallbackEmotion: MascotEmotion.smile,
-                          fallbackCompleteAfter: const Duration(
-                            milliseconds: 900,
-                          ),
-                          onCompleted: () {
-                            if (mounted) {
-                              setState(() => _phase = _GreetPhase.greeting);
-                            }
-                          },
-                        )
-                      else
-                        CharacterClipPlayer(
-                          key: ValueKey<String>('greet_${_selected!.name}'),
-                          // Jin 지정 클립(2026-08-03): 태고=산군의 포효,
-                          // 조이=사뿐히 앉은 길조. (기본 greetFor 의
-                          // pawflash/chirp 대체 — 이 화면 한정.)
-                          asset: _selected == MascotKind.magpie
-                              ? CharacterClips.magpiePerched
-                              : CharacterClips.tigerRoar,
-                          size: 200,
-                          fallbackKind: _selected!,
-                          fallbackEmotion: MascotEmotion.celebrate,
-                          // 호랑이 = 산군의 포효 소리 (2026-08-03 Jin:
-                          // "이미지·영상은 그대로, 소리만 넣어" — 구 합성음은
-                          // 품질 미달로 삭제된 상태). 파일이 아직 없으면
-                          // CharacterClipPlayer 가 조용히 무음이므로 회귀 0 —
-                          // 선별된 포효 오디오를 assets/sfx/roar_tiger.mp3 로
-                          // 넣는 순간 이 화면부터 소리가 난다. 까치 짹짹 유지.
-                          sfxAsset: _selected == MascotKind.magpie
-                              ? 'sfx/greet_magpie.mp3'
-                              : 'sfx/roar_tiger.mp3',
-                          fallbackCompleteAfter: const Duration(
-                            milliseconds: 1600,
-                          ),
-                          onCompleted: _proceed,
-                        ),
-                    ],
                   ),
                 ),
               ),

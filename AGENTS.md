@@ -469,6 +469,26 @@ flutter run -d <android-id>   # 안드로이드
 
 ## 세션 로그 (Audit · Review · Update · Push)
 
+### 2026-08-05 — 캐릭터 선택 화면 실기기 결함 3종(상단 크롭·확정 영상 소형·깜빡임/멈춤) — 미커밋
+
+**범위:** Jin 실기기(Xiaomi 태블릿/MIUI) 스크린샷 피드백 — ① 상단 호랑이+까치 이미지가 잘림 ② 화면이 계속 바뀌고 선택 전 화면과 번갈아 나옴 ③ 선택 후 캐릭터가 화면 가득 안 차고 너무 작음 ④ 구글 로그인 안 됨. Q&A 확정 방향: **"선택 전엔 정지, 선택되면 만든 영상을 크게."** systematic-debugging 으로 근본 원인 추적(추측 없이 파일·에셋·설정 실측).
+
+**진단(근본 원인):**
+- ① **상단 크롭**: `magpie_tiger_together.png` 는 정사각(1254²)인데 `character_selection_screen.dart` 가 `AspectRatio(16/9)`+`BoxFit.cover` 로 강제 → 위·아래 ~44% 잘림. (의도했던 16:9 듀오 영상 `taego-joy-duo.mp4` 는 존재하나 미배선.)
+- ②④(화면) **깜빡임/멈춤**: `main.dart:164` `videoReady=true` 무조건 → 선택 후 `tiger_choose → tiger_roar` **2단 영상 체인**이 이 기기의 Impeller fence 버그("ImageTextureEntry can't wait on the fence on Android <33")를 그대로 맞음. 텍스처 교대마다 흰 프레임 번쩍(선택 전 미리보기는 이미 이 이유로 정지화). 클립이 granted 후 완료를 못 알리면 `_proceed` 미발화 → 멈춤 → 사용자에겐 "번갈아/안 넘어감".
+- ③ **소형**: 확정 `CharacterClipPlayer(size: 200)` 하드코딩.
+- ⑤ **구글 로그인**: 코드 정상(google_sign_in 6.3.0 API 맞음, applicationId=`com.sujinarin.ko_lernen_app` 일치, SHA-1 3개 등록). **코드 아님 — Firebase 콘솔 설정**(현 빌드 서명키 SHA-1 미등록 유력). Jin 도메인.
+
+**Update(`lib/screens/character_selection_screen.dart` + 테스트):**
+- 상단 배너 `aspectRatio: 16/9 → 1` + `animate:false` → 정사각 원본 크롭 0.
+- 선택 전 = 배너+제목+힌트+카드(전부 정지). 선택 후 = **카드/제목 걷고 단일 시그니처 클립**(태고=`tigerRoar`, 조이=`magpiePerched`)을 **콘텐츠 폭 가득**(`(maxWidth-48).clamp(220,460)`) 표시. 구 2단 choose→greet 체인 폐지(핸드오프 2→1, 흰 프레임/멈춤 원인 제거).
+- `_GreetPhase` enum·`_phase` 제거. `_handleSelection` 에 **절대 백스톱 `Timer(4500ms, _proceed)`** 추가(영상이 완료를 못 알려도 진행 보장, `_navigated` 가드로 1회) + `dispose` 에서 취소.
+- 테스트: choose→greet 2단 가정 케이스를 단일 확정 클립으로 갱신(제목 사라짐 검증 추가).
+
+**검증:** `flutter analyze` (변경 2파일) **No issues** · `flutter test test/character_selection_screen_test.dart` **3/3 통과**. ⚠️ **미검증(Jin 실기기 필수)**: 상단 크롭 해소·확정 영상 크게·깜빡임/멈춤 소거는 실제 기기에서 육안 확인 필요(헤드리스 test 는 videoReady=false 폴백 경로만 탐). ⑤ 구글 로그인은 코드 무변 — `cd android && ./gradlew signingReport` 로 현재 SHA-1 확인 → Firebase 콘솔에 추가 → `google-services.json` 교체(Jin).
+
+**Git:** 미커밋 (Jin 확인 후).
+
 ### 2026-08-05 (Codex) — Flutter 플러그인 일괄 호환성 업데이트·서명 AAB 재생성 (커밋 완료)
 
 - **범위:** `audioplayers`, FlutterFire 핵심·Auth·Firestore·Remote Config·Analytics·Crashlytics·Messaging·Storage·Functions, App Check, image picker, Share Plus, RevenueCat, Rive, package info와 안전한 transitive patch를 함께 갱신했다. Android Google Services `4.4.4`, Crashlytics Gradle `3.0.7`도 같은 FlutterFire 세대에 맞췄다.

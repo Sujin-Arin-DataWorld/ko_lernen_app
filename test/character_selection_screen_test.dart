@@ -68,7 +68,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('호랑이 탭 → choose→greet 체인 → 동의 화면으로 진행', (tester) async {
+  testWidgets('호랑이 탭 → 단일 확정 클립 → 동의 화면으로 진행', (tester) async {
     tester.view.physicalSize = const Size(400, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -79,14 +79,13 @@ void main() {
     await tester.tap(find.textContaining('태고', findRichText: true));
     await tester.pump();
 
-    // choose 단계 — 클립 플레이어(폴백 마스코트) 등장.
+    // 선택 확정 — 단일 클립 플레이어(테스트는 videoReady=false → 정적 폴백).
+    // 카드/제목은 걷히고 확정 연출만 남는다.
     expect(find.byType(CharacterClipPlayer), findsOneWidget);
+    expect(find.text('Tipp deinen Lernfreund an'), findsNothing);
 
-    // choose 워치독 900ms → greet 단계로.
-    await tester.pump(const Duration(milliseconds: 1000));
-    expect(find.byType(CharacterClipPlayer), findsOneWidget);
-
-    // greet 워치독 1600ms → 미동의 상태이므로 ConsentScreen 으로 이동.
+    // 클립 fallbackCompleteAfter 1600ms 워치독 → 미동의라 ConsentScreen 으로.
+    // (그 전에 화면이 멈추지 않도록 4500ms 절대 백스톱도 존재.)
     await tester.pump(const Duration(milliseconds: 1700));
     await tester.pump(const Duration(milliseconds: 400));
     expect(find.byType(ConsentScreen), findsOneWidget);
