@@ -289,7 +289,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P1: Home과 사랑방이 동일한 read-only TodayLearningSnapshot을 사용하게 한다. 추천 우선순위와 원래 학습 목적지는 바꾸지 않고, Home은 사랑방 진입만 제공한다 (`0c8a564`).
 - [~] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
   - [x] P2a: Home의 추천 CTA를 사랑방 맥락 하나로 수렴하고, 숨은 호랑이 탭을 제거했다. Home은 순수 한옥 투영을 읽기 전용으로 미리보며 308–1280dp·태블릿·1.3x 글자 회귀를 통과했다 (`a4b3411`).
-  - [ ] P2b: 지도는 실제 phone 화면폭에서 full-bleed viewport와 선택 후 상세 패널을 제공하고, 작은 화면의 최소 44dp target이 서로 겹치지 않게 고정한다.
+  - [x] P2b: 지도는 실제 phone 화면폭에서 full-bleed viewport와 선택 후 상세 패널을 제공하고, 작은 화면의 최소 44dp target이 서로 겹치지 않게 고정했다 (`11cdd69`).
   - [ ] P2c: 사랑방 학습 화면에서 배치된 실내를 읽기 전용 scene으로 보여주고, 꾸미기 화면의 write 경계를 유지한다.
 - [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
@@ -449,6 +449,12 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P2b 반응형 세계 지도 viewport 구현 완료
+
+- **변경:** `WorldMapViewport`가 한옥 정본 지도를 phone에서는 화면 폭 전체로, 720dp 이상 tablet에서는 지도와 장소 상세 패널의 2열로 배치한다. 지도와 접근성 장소 목록은 이제 선택만 하고, “장소로 들어가기” 버튼이 기존 라우트를 여는 유일한 행동이다. 오늘의 사랑방에는 조용한 단일 marker, 선택한 장소에는 focus frame을 표시했다.
+- **경계:** viewport는 상태 저장·진도·보상·라우팅 규칙을 갖지 않는다. `HanokWorldScreen`만 선택 상태와 기존 목적지를 소유하며, legacy 마당 gate와 Gye bridge의 별도 경계는 유지한다. 지도 자체의 기본 target 동작은 다른 consumer를 위해 보존했다.
+- **검증:** 테스트가 기존 실제 화면폭 문제(308dp에서 276dp로 축소)를 RED로 재현한 뒤 full-bleed 308dp로 고정했다. 이 실제 화면에서 서로 다른 모든 장소의 유효 44dp target이 겹치지 않음, 지도/접근성 목록의 선택 후 명시적 입장, 720dp side panel을 고정했다. world/map/ARB/typography targeted **19 passed**, 대상 analyzer 0 issues, screen smoke·308–1280dp·태블릿·1.3x 글자 matrix를 다시 통과했다. 구현 커밋: `11cdd69`.
 
 ### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P2a 오늘의 마당 Home 구현 완료
 
