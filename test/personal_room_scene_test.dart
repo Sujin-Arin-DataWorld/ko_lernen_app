@@ -48,6 +48,11 @@ void main() {
 
     final slotGesture = find.byType(GestureDetector);
     expect(slotGesture, findsOneWidget);
+
+    // A decoration image may still be decoding when the room first appears.
+    // The logical slot must remain tappable during that short window rather
+    // than inheriting a zero-height image render box.
+    expect(tester.getSize(slotGesture).height, greaterThanOrEqualTo(48));
     await tester.tap(slotGesture);
     await tester.pump();
 

@@ -136,17 +136,9 @@ class _SlotView extends StatelessWidget {
     // 각자의 자연스러운 크기로 그려진다.
     final itemW = slug == null ? boxW : boxW * decorScale(slug!);
 
-    Widget content = slug != null
+    final content = slug != null
         ? SoriDecorationImage(slug: slug!, size: itemW)
         : _SlotMarker(width: boxW);
-
-    if (onTap != null) {
-      content = GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        child: content,
-      );
-    }
 
     // ⚠️ `Positioned` 는 Stack 의 **직계 자식**이어야 한다. 바깥을 다른 위젯으로
     // 감싸면 좌표가 통째로 무시되고 전부 좌상단에 겹친다 — 반드시 최상위로 반환.
@@ -154,20 +146,54 @@ class _SlotView extends StatelessWidget {
       // 박스를 먼저 정하고 그 안에서 가운데 정렬. 높이를 몰라도 안정적이고,
       // `BoxFit.contain` 이라 큰 병풍도 슬롯 밖으로 안 넘친다.
       final boxH = canvasHeight * slot.heightFrac;
+      final centeredContent = Align(
+        alignment: Alignment.center,
+        child: SizedBox(width: itemW, height: boxH, child: content),
+      );
       return Positioned(
         left: left,
         bottom: bottom,
         width: boxW,
         height: boxH,
-        child: Align(
-          alignment: Alignment.center,
-          child: SizedBox(width: itemW, height: boxH, child: content),
-        ),
+        child: onTap == null
+            ? centeredContent
+            : GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: onTap,
+                child: centeredContent,
+              ),
       );
     }
 
     // 바닥 앵커 — 마당(`DecorationLayer`)과 같은 규약: 폭만 고정, 높이는 비율대로.
-    return Positioned(left: left, bottom: bottom, width: itemW, child: content);
+    if (onTap == null) {
+      return Positioned(
+        left: left,
+        bottom: bottom,
+        width: itemW,
+        child: content,
+      );
+    }
+
+    // A PNG has no stable intrinsic height until its first decode completes.
+    // Bind the gesture to the logical slot instead: the visual stays aligned
+    // to its original bottom-left position while the whole intended placement
+    // region remains tappable (including a minimum 48dp touch height).
+    final tapHeight = boxW * 0.62 < 48.0 ? 48.0 : boxW * 0.62;
+    return Positioned(
+      left: left,
+      bottom: bottom,
+      width: boxW,
+      height: tapHeight,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: SizedBox(width: itemW, child: content),
+        ),
+      ),
+    );
   }
 }
 
