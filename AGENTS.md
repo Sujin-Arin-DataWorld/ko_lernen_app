@@ -287,7 +287,10 @@ flutter run -d <android-id>   # 안드로이드
 - [x] 개인 한옥을 새 학습 엔진이 아니라 기존 추천·70% 성취·보상·계 도메인을 장소감 있게 여는 정본 경험으로 재설계했다. 최신 `main`에서 독립 브랜치 `merkmal/hanok-world-system-design`을 열었고, 명세와 테스트 우선 실행 계획을 추가했다.
 - [x] P0: 지도 그림과 hit target을 분리해 안채/대청 겹침을 제거하고 접근성 장소 목록을 추가했다. 308dp에서 44dp 최소 터치 영역까지 실제 렌더 사각형을 전수 대조한다.
 - [x] P1: Home과 사랑방이 동일한 read-only TodayLearningSnapshot을 사용하게 한다. 추천 우선순위와 원래 학습 목적지는 바꾸지 않고, Home은 사랑방 진입만 제공한다 (`0c8a564`).
-- [ ] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
+- [~] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
+  - [x] P2a: Home의 추천 CTA를 사랑방 맥락 하나로 수렴하고, 숨은 호랑이 탭을 제거했다. Home은 순수 한옥 투영을 읽기 전용으로 미리보며 308–1280dp·태블릿·1.3x 글자 회귀를 통과했다 (`a4b3411`).
+  - [ ] P2b: 지도는 실제 phone 화면폭에서 full-bleed viewport와 선택 후 상세 패널을 제공하고, 작은 화면의 최소 44dp target이 서로 겹치지 않게 고정한다.
+  - [ ] P2c: 사랑방 학습 화면에서 배치된 실내를 읽기 전용 scene으로 보여주고, 꾸미기 화면의 write 경계를 유지한다.
 - [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
@@ -446,6 +449,12 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P2a 오늘의 마당 Home 구현 완료
+
+- **변경:** Home의 주 행동을 “사랑방에서 공부” 하나로 수렴했다. 추천 엔진이 이미 고른 course/pack/review/scenario와 원래 학습 목적지는 바꾸지 않고, Home은 먼저 사랑방으로 이동한다. 호랑이 hero의 넓은 숨은 탭은 제거해 마스코트가 CTA를 가로채지 않게 했고, Home 바로 아래에는 `LevelRatios → PersonalHanokProjection`만 읽는 한옥 미리보기와 명시적 지도 진입 버튼을 뒀다.
+- **경계:** 미리보기는 보상·해금·방 배치·학습 근거에 쓰지 않는다. `PersonalHanokMap.showTargets`는 read-only preview에서 타깃/죽은 tap 영역을 그리지 않으며, 기존 지도 기본 동작은 보존한다. 새 문구는 DE/EN ARB와 생성 l10n에 동기화했다.
+- **검증:** 새 Home 위젯 회귀는 하나의 사랑방 CTA가 한옥 미리보기보다 먼저 보이고 `/sarangbang`으로 이동함을 고정했다. targeted Home/ARB/typography 테스트 **10 passed**, 대상 analyzer 0 issues, Home·한옥 세계·사랑방을 포함한 screen smoke 및 308–1280dp·세로/가로 태블릿·1.3x 글자 responsive matrix **346 passed**, `git diff --check` 통과. 구현 커밋: `a4b3411`.
 
 ### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P1 오늘의 학습 스냅샷 구현 완료
 
