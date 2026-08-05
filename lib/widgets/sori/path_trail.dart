@@ -459,32 +459,34 @@ class _NowDiscState extends State<_NowDisc>
                   ),
                 ],
               ),
-              child: ClipOval(
-                child: Center(
-                  // live=false(홈 임베드): 디코더 lease 를 아예 요청하지 않는
-                  // 정적 마스코트 — 홈 히어로 영상과의 경합 원천 차단.
-                  child: widget.live
-                      ? CharacterClipPlayer(
-                          // 호랑이는 게임 대기 바운스, 까치는 앉아 대기 —
-                          // 둘 다 "네 차례야" 를 몸짓으로 말하는 아이들 루프.
-                          asset: isMagpie
-                              ? CharacterClips.magpiePerched
-                              : CharacterClips.tigerBob,
-                          size: d - 14,
-                          loop: true,
-                          blendColor: _clipBlend,
-                          fallbackKind: isMagpie
-                              ? MascotKind.magpie
-                              : MascotKind.tiger,
-                          fallbackEmotion: MascotEmotion.smile,
-                        )
-                      : Mascot(
-                          kind: isMagpie ? MascotKind.magpie : MascotKind.tiger,
-                          emotion: MascotEmotion.smile,
-                          size: d - 14,
-                          animate: false,
-                        ),
-                ),
+              // never-cage 규칙: 캐릭터는 원판에 clip 하지 않는다. 원판은
+              // 장식 배경으로만 두고, 마스코트/영상은 그 위에 자유롭게 떠서
+              // 귀·발·날개·꼬리가 잘리지 않는다. 정적 PNG는 투명이라 이음매 0,
+              // 영상은 blendColor=_clipBlend 로 흰 배경이 원판색에 녹는다.
+              child: Center(
+                // live=false(홈 임베드): 디코더 lease 를 아예 요청하지 않는
+                // 정적 마스코트 — 홈 히어로 영상과의 경합 원천 차단.
+                child: widget.live
+                    ? CharacterClipPlayer(
+                        // 호랑이는 게임 대기 바운스, 까치는 앉아 대기 —
+                        // 둘 다 "네 차례야" 를 몸짓으로 말하는 아이들 루프.
+                        asset: isMagpie
+                            ? CharacterClips.magpiePerched
+                            : CharacterClips.tigerBob,
+                        size: d - 14,
+                        loop: true,
+                        blendColor: _clipBlend,
+                        fallbackKind: isMagpie
+                            ? MascotKind.magpie
+                            : MascotKind.tiger,
+                        fallbackEmotion: MascotEmotion.smile,
+                      )
+                    : Mascot(
+                        kind: isMagpie ? MascotKind.magpie : MascotKind.tiger,
+                        emotion: MascotEmotion.smile,
+                        size: d - 14,
+                        animate: false,
+                      ),
               ),
             ),
             // 진행 링 — 몇 % 남았는지 원 자체가 말해준다.

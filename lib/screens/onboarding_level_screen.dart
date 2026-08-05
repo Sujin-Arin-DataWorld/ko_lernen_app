@@ -377,8 +377,9 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                                 child: Text(
                                   t.onboardingSkip,
                                   textAlign: TextAlign.center,
-                                  style: SoriTextTheme.of(context).label
-                                      .copyWith(color: SoriColors.primary),
+                                  style: SoriTextTheme.of(
+                                    context,
+                                  ).label.copyWith(color: SoriColors.primary),
                                 ),
                               ),
                             ],
@@ -448,7 +449,14 @@ class _WelcomeHero extends StatelessWidget {
             SizedBox.square(
               dimension: side,
               child: live
-                  ? SoriPosterLoop(videoAsset: videoAsset, poster: poster)
+                  // 16:9 welcome-hero(호랑이+어깨 까치)를 정사각 슬롯에 cover 로
+                  // 넣으면 어깨 까치가 잘린다 → contain 으로 전부 보이게(포스터와
+                  // 동일). never-cage 규칙.
+                  ? SoriPosterLoop(
+                      videoAsset: videoAsset,
+                      poster: poster,
+                      fit: BoxFit.contain,
+                    )
                   : poster,
             ),
             const SizedBox(width: Spacing.md),
@@ -629,8 +637,9 @@ class _LevelCard extends StatelessWidget {
                       // 설명 — 잘리지 않는다.
                       Text(
                         desc,
-                        style: SoriTextTheme.of(context).bodySmall
-                            .copyWith(fontSize: 13.5, height: 1.35),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).bodySmall.copyWith(fontSize: 13.5, height: 1.35),
                       ),
                       const SizedBox(height: 10),
                       // 이 레벨에서 다루는 한국어 + 모국어 뜻.
@@ -747,15 +756,9 @@ class _ExampleRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            ko,
-            style: SoriTextTheme.of(context).h3.copyWith(fontSize: 16),
-          ),
+          Text(ko, style: SoriTextTheme.of(context).h3.copyWith(fontSize: 16)),
           const SizedBox(height: 2),
-          Text(
-            gloss,
-            style: SoriTextTheme.of(context).caption,
-          ),
+          Text(gloss, style: SoriTextTheme.of(context).caption),
         ],
       ),
     );
@@ -860,10 +863,7 @@ class _LevelCompareSheet extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          t.onboardingCompareTitle,
-          style: SoriTextTheme.of(context).h2,
-        ),
+        Text(t.onboardingCompareTitle, style: SoriTextTheme.of(context).h2),
         const SizedBox(height: Spacing.sm),
         Text(
           t.onboardingCompareIntro,
@@ -895,8 +895,9 @@ class _LevelCompareSheet extends StatelessWidget {
             style: TextButton.styleFrom(foregroundColor: SoriColors.primary),
             child: Text(
               t.onboardingCompareClose,
-              style: SoriTextTheme.of(context).label
-                  .copyWith(fontSize: 14, color: SoriColors.primary),
+              style: SoriTextTheme.of(
+                context,
+              ).label.copyWith(fontSize: 14, color: SoriColors.primary),
             ),
           ),
         ),
