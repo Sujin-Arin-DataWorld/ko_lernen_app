@@ -282,6 +282,14 @@ flutter run -d <android-id>   # 안드로이드
 - [x] P4c: 한옥·사랑방·실내·계 진입 CTA는 이미 있는 지도/카드 문맥을 유지하고 버튼 자체는 텍스트 우선으로 수렴했다. 중복 아이콘 다섯 개를 제거해 작은 폭의 라벨 가용 공간을 회복했고, 전체 Flutter 회귀 2,029개와 타이포그래피 가드를 통과했다 (`8d5ca97`).
 - [ ] P4b: 개인 장식의 계 헌납은 소유권 이전·공동 배치·Firestore 규칙·journal을 별도 설계한 뒤 구현한다.
 
+### 한옥 세계 UX 정본 재구성 (2026-08-05)
+
+- [x] 개인 한옥을 새 학습 엔진이 아니라 기존 추천·70% 성취·보상·계 도메인을 장소감 있게 여는 정본 경험으로 재설계했다. 최신 `main`에서 독립 브랜치 `merkmal/hanok-world-system-design`을 열었고, 명세와 테스트 우선 실행 계획을 추가했다.
+- [ ] P0: 지도 그림과 hit target을 분리해 안채/대청 겹침을 제거하고 접근성 장소 목록을 추가한다.
+- [ ] P1: Home과 사랑방이 동일한 read-only TodayLearningSnapshot을 사용하게 한다.
+- [ ] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
+- [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
+
 ### 계정·전체 데이터 삭제 복구 (2026-08-04)
 
 - [x] 실패한 원격 계정 삭제 journal(`operation == null` 또는 retryable)을 `deletionRemotePending`으로 분리하고, Settings에서 같은 요청을 재시도할 수 있게 했다. Reset과 새 삭제 시작은 journal이 끝날 때까지 계속 잠긴다.
@@ -2933,3 +2941,10 @@ API 가 없어서 화면은 "이미 다 갖고 있다"만 말한다. 풀 11개 �
 - **원인:** 새 개인 한옥·사랑방·실내·계 진입 CTA 다섯 개가 이미 명확한 라벨에도 `SoriButton.icon`을 중복했다. `typography_guard_test`의 아이콘 CTA 상한 74를 79로 넘겨, 작은 화면에서 라벨 가용 폭을 불필요하게 줄이는 회귀였다.
 - **변경:** 지도·카드·AppBar가 제공하는 시각 문맥은 유지하고 버튼은 텍스트 우선으로 바꿨다. 라우트·추천 엔진·진도·보상·계의 상태 경계는 바꾸지 않았다.
 - **검증:** guard RED(`79 > 74`) 뒤 `flutter test --no-pub test/typography_guard_test.dart --reporter expanded` **4 passed**, `flutter analyze --no-pub` **No issues found**, 전체 `flutter test --no-pub --concurrency=1 --reporter compact` **2,029 passed**, 개인 한옥 지도 9종과 실내 2종의 에셋 계약 검사 전부 PASS, `git diff --check` 통과. 구현 커밋: `8d5ca97`.
+
+### 2026-08-05 (Codex) — 한옥 세계 UX 정본·P4b-MVP 설계 착수
+
+- **분기/기준:** `main == origin/main == a626908`을 재확인한 뒤, 기존 한옥 작업 브랜치의 미커밋 에셋을 보존하기 위해 `merkmal/hanok-world-system-design`을 별도 worktree에서 만들었다.
+- **제품 정본:** Home은 “오늘의 마당”, 사랑방은 기존 추천 엔진이 고른 다음 학습의 장소, 개인 한옥은 장기 성장/장소 선택, 계는 별도 공동 공간으로 고정했다. 지도 탭·방 입장·장면 렌더는 진도·보상·소유권을 절대 쓰지 않는다.
+- **P4b 결정:** 현재 local union sync와 방 배치 계약에서는 실물 이전이 안전하지 않다. MVP는 개인 장식을 유지하는 callable-only 공동 전시 헌정으로 한정하고, 실물 헌납은 서버 정본 inventory·tombstone·통합 journal을 갖춘 별도 단계로 미뤘다.
+- **문서:** `docs/superpowers/specs/2026-08-05-hanok-world-system-design.md`, `docs/superpowers/plans/2026-08-05-hanok-world-system-implementation.md`에 수용 기준·파일 경계·RED/GREEN/커밋 순서를 기록했다. 구현/검증 커밋은 후속 항목에 기록한다.
