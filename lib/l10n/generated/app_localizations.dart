@@ -7926,6 +7926,84 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Lernweg fortsetzen'**
   String get personalRoomDaecheongStudy;
+
+  /// No description provided for @gyeDedicationTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemeinsame Ausstellung'**
+  String get gyeDedicationTitle;
+
+  /// No description provided for @gyeDedicationAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausstellen'**
+  String get gyeDedicationAction;
+
+  /// No description provided for @gyeDedicationPickerBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle eine Zimmerdekoration für den gemeinsamen Hof. Sie bleibt in deiner privaten Sammlung.'**
+  String get gyeDedicationPickerBody;
+
+  /// No description provided for @gyeDedicationEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne zuerst ein Bojagi-Bündel, um eine Zimmerdekoration zu erhalten.'**
+  String get gyeDedicationEmpty;
+
+  /// No description provided for @gyeDedicationWithdraw.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus der Ausstellung nehmen'**
+  String get gyeDedicationWithdraw;
+
+  /// No description provided for @gyeDedicationKeepOwned.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Dekoration bleibt in deinem privaten Raum.'**
+  String get gyeDedicationKeepOwned;
+
+  /// No description provided for @gyeDedicationConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Dekoration im Hof zeigen?'**
+  String get gyeDedicationConfirmTitle;
+
+  /// No description provided for @gyeDedicationConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle in diesem Gye können {decoration} im gemeinsamen Hof sehen. Deine private Sammlung und dein Raum bleiben unverändert.'**
+  String gyeDedicationConfirmBody(String decoration);
+
+  /// No description provided for @gyeDedicationWithdrawConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Ausstellungsstück aus dem gemeinsamen Hof nehmen? Deine private Dekoration bleibt dir erhalten.'**
+  String get gyeDedicationWithdrawConfirmBody;
+
+  /// No description provided for @gyeDedicationConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Hof zeigen'**
+  String get gyeDedicationConfirm;
+
+  /// No description provided for @gyeDedicationUpdateFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Ausstellung konnte nicht aktualisiert werden. Versuche es gleich noch einmal.'**
+  String get gyeDedicationUpdateFailed;
+
+  /// No description provided for @gyeDedicationConflict.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Ausstellung wurde an anderer Stelle geändert. Hier ist der aktuelle Stand.'**
+  String get gyeDedicationConflict;
+
+  /// No description provided for @gyeDedicationRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get gyeDedicationRetry;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

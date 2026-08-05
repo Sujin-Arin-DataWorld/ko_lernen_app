@@ -2039,5 +2039,28 @@
   "personalRoomLockedBody": "Continue the learning path to open this part of your Hanok.",
   "personalRoomReturnToMap": "Back to the Hanok map",
   "personalRoomAnbangStudy": "Explore my collection",
-  "personalRoomDaecheongStudy": "Continue the learning path"
+  "personalRoomDaecheongStudy": "Continue the learning path",
+  "@_gye_dedication": {
+    "description": "P4b shared Gye exhibition. This is a cosmetic display only; personal ownership remains unchanged."
+  },
+  "gyeDedicationTitle": "Shared exhibition",
+  "gyeDedicationAction": "Exhibit",
+  "gyeDedicationPickerBody": "Choose a room decoration to show in the shared courtyard. It stays in your private collection.",
+  "gyeDedicationEmpty": "Open a Bojagi bundle to add a room decoration before showing one here.",
+  "gyeDedicationWithdraw": "Remove from exhibition",
+  "gyeDedicationKeepOwned": "Your decoration stays in your private room.",
+  "gyeDedicationConfirmTitle": "Show this in the courtyard?",
+  "gyeDedicationConfirmBody": "Everyone in this Gye can see {decoration}. Your private collection and room stay unchanged.",
+  "@gyeDedicationConfirmBody": {
+    "placeholders": {
+      "decoration": {
+        "type": "String"
+      }
+    }
+  },
+  "gyeDedicationWithdrawConfirmBody": "Remove this exhibit from the shared courtyard? Your private decoration stays yours.",
+  "gyeDedicationConfirm": "Show in courtyard",
+  "gyeDedicationUpdateFailed": "The exhibition could not be updated. Try again.",
+  "gyeDedicationConflict": "The exhibition changed elsewhere. The latest view is shown.",
+  "gyeDedicationRetry": "Try again"
 }

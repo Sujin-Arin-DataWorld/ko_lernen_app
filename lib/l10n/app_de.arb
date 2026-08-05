@@ -2117,5 +2117,28 @@
   "personalRoomLockedBody": "Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.",
   "personalRoomReturnToMap": "Zurück zur Hanok-Karte",
   "personalRoomAnbangStudy": "Meine Sammlung entdecken",
-  "personalRoomDaecheongStudy": "Lernweg fortsetzen"
+  "personalRoomDaecheongStudy": "Lernweg fortsetzen",
+  "@_gye_dedication": {
+    "description": "P4b gemeinsame Gye-Ausstellung. Nur eine kosmetische Anzeige; privates Eigentum bleibt unverändert."
+  },
+  "gyeDedicationTitle": "Gemeinsame Ausstellung",
+  "gyeDedicationAction": "Ausstellen",
+  "gyeDedicationPickerBody": "Wähle eine Zimmerdekoration für den gemeinsamen Hof. Sie bleibt in deiner privaten Sammlung.",
+  "gyeDedicationEmpty": "Öffne zuerst ein Bojagi-Bündel, um eine Zimmerdekoration zu erhalten.",
+  "gyeDedicationWithdraw": "Aus der Ausstellung nehmen",
+  "gyeDedicationKeepOwned": "Deine Dekoration bleibt in deinem privaten Raum.",
+  "gyeDedicationConfirmTitle": "Diese Dekoration im Hof zeigen?",
+  "gyeDedicationConfirmBody": "Alle in diesem Gye können {decoration} im gemeinsamen Hof sehen. Deine private Sammlung und dein Raum bleiben unverändert.",
+  "@gyeDedicationConfirmBody": {
+    "placeholders": {
+      "decoration": {
+        "type": "String"
+      }
+    }
+  },
+  "gyeDedicationWithdrawConfirmBody": "Dieses Ausstellungsstück aus dem gemeinsamen Hof nehmen? Deine private Dekoration bleibt dir erhalten.",
+  "gyeDedicationConfirm": "Im Hof zeigen",
+  "gyeDedicationUpdateFailed": "Die Ausstellung konnte nicht aktualisiert werden. Versuche es gleich noch einmal.",
+  "gyeDedicationConflict": "Die Ausstellung wurde an anderer Stelle geändert. Hier ist der aktuelle Stand.",
+  "gyeDedicationRetry": "Erneut versuchen"
 }

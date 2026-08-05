@@ -4508,4 +4508,51 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get personalRoomDaecheongStudy => 'Lernweg fortsetzen';
+
+  @override
+  String get gyeDedicationTitle => 'Gemeinsame Ausstellung';
+
+  @override
+  String get gyeDedicationAction => 'Ausstellen';
+
+  @override
+  String get gyeDedicationPickerBody =>
+      'Wähle eine Zimmerdekoration für den gemeinsamen Hof. Sie bleibt in deiner privaten Sammlung.';
+
+  @override
+  String get gyeDedicationEmpty =>
+      'Öffne zuerst ein Bojagi-Bündel, um eine Zimmerdekoration zu erhalten.';
+
+  @override
+  String get gyeDedicationWithdraw => 'Aus der Ausstellung nehmen';
+
+  @override
+  String get gyeDedicationKeepOwned =>
+      'Deine Dekoration bleibt in deinem privaten Raum.';
+
+  @override
+  String get gyeDedicationConfirmTitle => 'Diese Dekoration im Hof zeigen?';
+
+  @override
+  String gyeDedicationConfirmBody(String decoration) {
+    return 'Alle in diesem Gye können $decoration im gemeinsamen Hof sehen. Deine private Sammlung und dein Raum bleiben unverändert.';
+  }
+
+  @override
+  String get gyeDedicationWithdrawConfirmBody =>
+      'Dieses Ausstellungsstück aus dem gemeinsamen Hof nehmen? Deine private Dekoration bleibt dir erhalten.';
+
+  @override
+  String get gyeDedicationConfirm => 'Im Hof zeigen';
+
+  @override
+  String get gyeDedicationUpdateFailed =>
+      'Die Ausstellung konnte nicht aktualisiert werden. Versuche es gleich noch einmal.';
+
+  @override
+  String get gyeDedicationConflict =>
+      'Die Ausstellung wurde an anderer Stelle geändert. Hier ist der aktuelle Stand.';
+
+  @override
+  String get gyeDedicationRetry => 'Erneut versuchen';
 }

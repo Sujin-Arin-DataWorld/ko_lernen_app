@@ -1,16 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../models/gye_dedication.dart';
 import '../l10n/gye_error_text.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
 import '../services/account/cloud_write_session.dart';
+import '../services/gye_dedication_service.dart';
 import '../services/gye_service.dart';
+import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/dure_board.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/gye_dedication_action.dart';
 import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/responsive.dart';
@@ -19,7 +24,6 @@ import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sticker_picker.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/dure_board.dart';
 
 bool gyeActionsAvailable(CloudWriteSession? session) =>
     session != null && session.mode == CloudWriteMode.ready;
@@ -46,6 +50,7 @@ class _GyeScreenState extends State<GyeScreen>
   // 계 데이터 로드 여부 — StreamBuilder가 첫 데이터를 받으면 true.
   bool _metaLoaded = false;
   bool _statsSynced = false;
+  late final GyeDedicationService _dedicationService;
 
   @override
   String get coachId => 'gye';
@@ -75,6 +80,7 @@ class _GyeScreenState extends State<GyeScreen>
   @override
   void initState() {
     super.initState();
+    _dedicationService = GyeDedicationService.production();
     scheduleCoach();
     // 프로필 카드용 level/streak denormalize (best-effort, 진입 시 1회).
     // ignore: discarded_futures, unawaited_futures
@@ -257,7 +263,41 @@ class _GyeScreenState extends State<GyeScreen>
                           final h = (c.maxWidth * 0.72).clamp(280.0, 380.0);
                           return SizedBox(
                             height: h,
-                            child: GyeHanok(meta: meta),
+                            child: StreamBuilder<List<GyeDedication>>(
+                              stream: GyeDedicationService.streamForGye(
+                                widget.gyeId,
+                              ),
+                              builder: (context, dedicationSnapshot) {
+                                final dedications =
+                                    dedicationSnapshot.data ??
+                                    const <GyeDedication>[];
+                                return Stack(
+                                  children: [
+                                    Positioned.fill(
+                                      child: GyeHanok(
+                                        meta: meta,
+                                        dedications: dedications,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: Spacing.sm,
+                                      right: Spacing.sm,
+                                      child: GyeDedicationAction(
+                                        gyeId: widget.gyeId,
+                                        ownedDecor: Storage.ownedDecor,
+                                        current: currentGyeDedicationFor(
+                                          dedications,
+                                          GyeService.currentUid,
+                                        ),
+                                        actionsAvailable: actionsAvailable,
+                                        onCommit: _dedicationService
+                                            .setForCurrentSession,
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
                           );
                         },
                       ),
@@ -321,6 +361,25 @@ class _GyeScreenState extends State<GyeScreen>
       },
     );
   }
+}
+
+/// Returns the current user's active exhibit from an already validated stream.
+///
+/// The Gye screen does not infer ownership from this data: it is purely the
+/// visible server snapshot used to form a compare-and-set request.
+GyeDedication? currentGyeDedicationFor(
+  Iterable<GyeDedication> dedications,
+  String? uid,
+) {
+  if (uid == null || uid.isEmpty) {
+    return null;
+  }
+  for (final dedication in dedications) {
+    if (dedication.uid == uid) {
+      return dedication;
+    }
+  }
+  return null;
 }
 
 /// 계 나가기 — 확인 후 탈퇴 + 홈 복귀. plan §7/9.

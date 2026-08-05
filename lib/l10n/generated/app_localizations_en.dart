@@ -4480,4 +4480,51 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get personalRoomDaecheongStudy => 'Continue the learning path';
+
+  @override
+  String get gyeDedicationTitle => 'Shared exhibition';
+
+  @override
+  String get gyeDedicationAction => 'Exhibit';
+
+  @override
+  String get gyeDedicationPickerBody =>
+      'Choose a room decoration to show in the shared courtyard. It stays in your private collection.';
+
+  @override
+  String get gyeDedicationEmpty =>
+      'Open a Bojagi bundle to add a room decoration before showing one here.';
+
+  @override
+  String get gyeDedicationWithdraw => 'Remove from exhibition';
+
+  @override
+  String get gyeDedicationKeepOwned =>
+      'Your decoration stays in your private room.';
+
+  @override
+  String get gyeDedicationConfirmTitle => 'Show this in the courtyard?';
+
+  @override
+  String gyeDedicationConfirmBody(String decoration) {
+    return 'Everyone in this Gye can see $decoration. Your private collection and room stay unchanged.';
+  }
+
+  @override
+  String get gyeDedicationWithdrawConfirmBody =>
+      'Remove this exhibit from the shared courtyard? Your private decoration stays yours.';
+
+  @override
+  String get gyeDedicationConfirm => 'Show in courtyard';
+
+  @override
+  String get gyeDedicationUpdateFailed =>
+      'The exhibition could not be updated. Try again.';
+
+  @override
+  String get gyeDedicationConflict =>
+      'The exhibition changed elsewhere. The latest view is shown.';
+
+  @override
+  String get gyeDedicationRetry => 'Try again';
 }
