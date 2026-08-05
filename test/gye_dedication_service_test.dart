@@ -89,6 +89,32 @@ void main() {
       ),
     );
   });
+
+  test('rejects a malformed withdrawal response from the callable', () async {
+    final gateway = FirebaseGyeDedicationGateway(
+      ({
+        required callableName,
+        required payload,
+        required callableOptions,
+      }) async => <String, Object?>{
+        'state': 'withdrawn',
+        'revision': 0,
+        // An active slot/slug conflicts with a withdrawal wire shape.
+        'slotIndex': 2,
+        'decorationSlug': 'decoration_soban',
+      },
+    );
+
+    await expectLater(
+      gateway.setDedication(
+        gyeId: 'ABC234',
+        decorationSlug: null,
+        expectedRevision: 1,
+        operationId: 'dedication-abc234-0004',
+      ),
+      throwsA(isA<GyeDedicationClientFailure>()),
+    );
+  });
 }
 
 class _RecordingGateway implements GyeDedicationGateway {

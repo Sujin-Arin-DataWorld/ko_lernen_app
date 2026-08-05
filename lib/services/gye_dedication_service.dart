@@ -294,26 +294,31 @@ GyeDedicationMutation _parseMutation(Object? raw) {
       retryable: true,
     );
   }
+  final activeExhibit =
+      slotIndex is int &&
+      slotIndex >= 0 &&
+      slotIndex < GyeDedication.maxSlots &&
+      decorationSlug is String &&
+      kGyeDedicationSlugs.contains(decorationSlug) &&
+      revision >= 1;
+  final noExhibit =
+      slotIndex == null && decorationSlug == null && revision == 0;
   return switch (state) {
-    'dedicated'
-        when slotIndex is int &&
-            slotIndex >= 0 &&
-            slotIndex < GyeDedication.maxSlots &&
-            decorationSlug is String &&
-            kGyeDedicationSlugs.contains(decorationSlug) =>
-      GyeDedicationMutation(
-        state: GyeDedicationMutationState.dedicated,
-        revision: revision,
-        slotIndex: slotIndex,
-        decorationSlug: decorationSlug,
-      ),
-    'withdrawn' => GyeDedicationMutation(
+    'dedicated' when activeExhibit => GyeDedicationMutation(
+      state: GyeDedicationMutationState.dedicated,
+      revision: revision,
+      slotIndex: slotIndex,
+      decorationSlug: decorationSlug,
+    ),
+    'withdrawn' when noExhibit => GyeDedicationMutation(
       state: GyeDedicationMutationState.withdrawn,
       revision: revision,
     ),
-    'unchanged' => GyeDedicationMutation(
+    'unchanged' when activeExhibit || noExhibit => GyeDedicationMutation(
       state: GyeDedicationMutationState.unchanged,
       revision: revision,
+      slotIndex: activeExhibit ? slotIndex : null,
+      decorationSlug: activeExhibit ? decorationSlug : null,
     ),
     _ => throw const GyeDedicationClientFailure(
       GyeDedicationFailureCategory.unknown,
