@@ -4442,6 +4442,9 @@ class AppL10nEn extends AppL10n {
       'The exercise that fits your progress today begins here.';
 
   @override
+  String get sarangbangStudySceneLabel => 'Your study room';
+
+  @override
   String get sarangbangStudyFurnish => 'Furnish the study room';
 
   @override

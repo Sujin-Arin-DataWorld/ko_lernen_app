@@ -11,9 +11,9 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/placed_decoration.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/room_layer.dart';
 import '../widgets/sori/room_slot_picker.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/sheet.dart';
@@ -208,30 +208,12 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
                         ),
                       ),
                       const SizedBox(height: Spacing.lg),
-                      AspectRatio(
-                        aspectRatio: 3 / 4,
-                        child: ClipRRect(
-                          borderRadius: SoriRadius.brLg,
-                          child: Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              Image.asset(
-                                _room.backgroundAsset,
-                                fit: BoxFit.cover,
-                                errorBuilder: (ctx, _, __) => ColoredBox(
-                                  color: SoriSurfaces.of(ctx).surfaceAlt,
-                                ),
-                              ),
-                              RoomLayer(
-                                surface: widget.surface,
-                                slots: _room.slots,
-                                placements: _placements,
-                                owned: Storage.ownedDecor.toSet(),
-                                onTapSlot: _onTapSlot,
-                              ),
-                            ],
-                          ),
-                        ),
+                      PersonalRoomScene(
+                        surface: widget.surface,
+                        placements: _placements,
+                        owned: Storage.ownedDecor.toSet(),
+                        interactive: true,
+                        onTapSlot: _onTapSlot,
                       ),
                       const SizedBox(height: Spacing.lg),
                       SoriButton.outlined(

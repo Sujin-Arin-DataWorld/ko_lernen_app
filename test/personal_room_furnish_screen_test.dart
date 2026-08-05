@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/personal_room_scene.dart';
 import 'package:ko_lernen_app/widgets/sori/room_layer.dart';
 
 void main() {
+  setUp(() async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({'kl_user_level': 'a1'});
+    await Storage.init();
+  });
+
   testWidgets('locked anbang never exposes a placement write surface', (
     tester,
   ) async {
@@ -24,6 +33,23 @@ void main() {
 
     expect(find.byType(RoomLayer), findsNothing);
     expect(find.text('This room is still being built'), findsOneWidget);
+  });
+
+  testWidgets('keeps the unlocked room interactive through the shared scene', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        PersonalRoomFurnishScreen(
+          surface: PersonalRoomSurface.sarangbang,
+          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byType(PersonalRoomScene), findsOneWidget);
+    expect(find.byType(RoomLayer), findsOneWidget);
   });
 }
 

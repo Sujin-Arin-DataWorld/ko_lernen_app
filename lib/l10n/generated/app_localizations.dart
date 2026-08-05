@@ -7855,6 +7855,12 @@ abstract class AppL10n {
   /// **'Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.'**
   String get sarangbangStudyIntroBody;
 
+  /// No description provided for @sarangbangStudySceneLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Studierstube'**
+  String get sarangbangStudySceneLabel;
+
   /// No description provided for @sarangbangStudyFurnish.
   ///
   /// In de, this message translates to:

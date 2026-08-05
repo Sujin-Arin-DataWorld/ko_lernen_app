@@ -34,6 +34,10 @@ class RoomLayer extends StatelessWidget {
   /// 슬롯을 탭했을 때. null 이면 보기 전용(탭 불가).
   final void Function(SlotDef slot)? onTapSlot;
 
+  /// Furnishing screens show available empty slots. Read-only scenes keep the
+  /// placed decor but hide those affordances because they cannot be acted on.
+  final bool showEmptyMarkers;
+
   const RoomLayer({
     super.key,
     this.surface = PersonalRoomSurface.sarangbang,
@@ -42,6 +46,7 @@ class RoomLayer extends StatelessWidget {
     this.placements = const {},
     this.owned = const {},
     this.onTapSlot,
+    this.showEmptyMarkers = true,
   });
 
   RoomPlacement get _placement =>
@@ -87,7 +92,8 @@ class RoomLayer extends StatelessWidget {
                 return _SlotView(
                   slot: slot,
                   slug: slug,
-                  showMarker: slug == null && _hasCandidate(slot),
+                  showMarker:
+                      showEmptyMarkers && slug == null && _hasCandidate(slot),
                   canvasWidth: w,
                   canvasHeight: h,
                   onTap: onTapSlot == null ? null : () => onTapSlot!(slot),

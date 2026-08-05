@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/personal_room.dart';
 import '../services/mission_recommender.dart';
 import '../services/pack_access.dart';
+import '../services/room_placement_service.dart';
+import '../services/storage_service.dart';
 import '../services/today_learning_snapshot.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
@@ -11,6 +14,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_hero_card.dart';
+import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
@@ -37,6 +41,8 @@ class SarangbangStudyScreen extends StatefulWidget {
 
 class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   TodayLearningSnapshot? _snapshot;
+  RoomPlacements _placements = const {};
+  Set<String> _ownedDecor = const {};
   bool _loading = true;
   bool _loadFailed = false;
 
@@ -44,6 +50,28 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   void initState() {
     super.initState();
     _load();
+  }
+
+  ({RoomPlacements placements, Set<String> owned}) _readRoomSnapshot() {
+    try {
+      return (
+        placements: RoomPlacementService.sanitizeAll(Storage.roomPlacements),
+        owned: Storage.ownedDecor.toSet(),
+      );
+    } catch (_) {
+      return (placements: const {}, owned: const {});
+    }
+  }
+
+  void _reloadRoomScene() {
+    final room = _readRoomSnapshot();
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _placements = room.placements;
+      _ownedDecor = room.owned;
+    });
   }
 
   Future<void> _load() async {
@@ -54,11 +82,14 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
       final snapshot = await load();
+      final room = _readRoomSnapshot();
       if (!mounted) {
         return;
       }
       setState(() {
         _snapshot = snapshot;
+        _placements = room.placements;
+        _ownedDecor = room.owned;
         _loading = false;
       });
     } catch (_) {
@@ -105,7 +136,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   Future<void> _openFurnish() async {
     await Navigator.of(context).pushNamed('/sarangbang/furnish');
     if (mounted) {
-      setState(() {});
+      _reloadRoomScene();
     }
   }
 
@@ -137,6 +168,10 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
               : _loadFailed
               ? AppError(message: t.courseMissionLoadError, onRetry: _load)
               : SoriContentClamp(
+                  // A room scene and the learning CTA share a tablet row.
+                  // This is deliberately wider than the default reading clamp;
+                  // the decision below still uses the *actual* post-rail width.
+                  maxWidth: 960,
                   base: const EdgeInsets.fromLTRB(
                     Spacing.lg,
                     Spacing.md,
@@ -151,20 +186,45 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                       children: [
                         const _SarangbangWelcome(),
                         const SizedBox(height: Spacing.lg),
-                        KeyedSubtree(
-                          key: const ValueKey('sarangbang-study-mission'),
-                          child: MissionHeroCard(
-                            loading: false,
-                            content: _missionContent(t),
-                            onAnotherRound: () =>
-                                Navigator.of(context).pushNamed('/path'),
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.md),
-                        SoriButton.outlined(
-                          label: t.sarangbangStudyFurnish,
-                          fullWidth: true,
-                          onTap: _openFurnish,
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            final mission = KeyedSubtree(
+                              key: const ValueKey('sarangbang-study-mission'),
+                              child: MissionHeroCard(
+                                loading: false,
+                                content: _missionContent(t),
+                                onAnotherRound: () =>
+                                    Navigator.of(context).pushNamed('/path'),
+                              ),
+                            );
+                            final room = _SarangbangStudyScene(
+                              placements: _placements,
+                              owned: _ownedDecor,
+                              onFurnish: _openFurnish,
+                            );
+
+                            // This is an available-content threshold rather
+                            // than a screen-width threshold: an AppShell rail
+                            // consumes width on tablets.
+                            if (constraints.maxWidth >= 640) {
+                              return Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(flex: 11, child: mission),
+                                  const SizedBox(width: Spacing.lg),
+                                  Expanded(flex: 9, child: room),
+                                ],
+                              );
+                            }
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                mission,
+                                const SizedBox(height: Spacing.lg),
+                                room,
+                              ],
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -225,6 +285,44 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       ),
       null => null,
     };
+  }
+}
+
+class _SarangbangStudyScene extends StatelessWidget {
+  final RoomPlacements placements;
+  final Set<String> owned;
+  final VoidCallback onFurnish;
+
+  const _SarangbangStudyScene({
+    required this.placements,
+    required this.owned,
+    required this.onFurnish,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    return Column(
+      key: const ValueKey('sarangbang-study-room'),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(t.sarangbangStudySceneLabel, style: text.h3),
+        const SizedBox(height: Spacing.sm),
+        PersonalRoomScene(
+          surface: PersonalRoomSurface.sarangbang,
+          placements: placements,
+          owned: owned,
+          interactive: false,
+        ),
+        const SizedBox(height: Spacing.md),
+        SoriButton.outlined(
+          label: t.sarangbangStudyFurnish,
+          fullWidth: true,
+          onTap: onFurnish,
+        ),
+      ],
+    );
   }
 }
 

@@ -2103,6 +2103,7 @@
   "sarangbangStudyTitle": "Sarangbang",
   "sarangbangStudyIntroTitle": "Dein nächster Lernschritt wartet",
   "sarangbangStudyIntroBody": "Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.",
+  "sarangbangStudySceneLabel": "Deine Studierstube",
   "sarangbangStudyFurnish": "Studierstube einrichten",
   "@_personal_rooms": {
     "description": "Private Hanok-Innenräume zum Einrichten."

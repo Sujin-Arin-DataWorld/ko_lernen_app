@@ -85,6 +85,26 @@ void main() {
       expect(find.byIcon(Icons.add_circle_outline), findsNWidgets(2));
     });
 
+    testWidgets('can suppress empty markers for a read-only room scene', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: SizedBox.expand(
+            child: RoomLayer(
+              slots: kSarangbangSlots,
+              placement: {},
+              owned: {'decoration_munbangsau'},
+              showEmptyMarkers: false,
+            ),
+          ),
+        ),
+      );
+
+      expect(tester.takeException(), isNull);
+      expect(find.byIcon(Icons.add_circle_outline), findsNothing);
+    });
+
     testWidgets(
       'does not mark an empty room when its only decor is elsewhere',
       (tester) async {

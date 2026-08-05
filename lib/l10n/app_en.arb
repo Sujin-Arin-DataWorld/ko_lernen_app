@@ -2025,6 +2025,7 @@
   "sarangbangStudyTitle": "Sarangbang",
   "sarangbangStudyIntroTitle": "Your next study step is ready",
   "sarangbangStudyIntroBody": "The exercise that fits your progress today begins here.",
+  "sarangbangStudySceneLabel": "Your study room",
   "sarangbangStudyFurnish": "Furnish the study room",
   "@_personal_rooms": {
     "description": "Private Hanok interior furnishing surfaces."

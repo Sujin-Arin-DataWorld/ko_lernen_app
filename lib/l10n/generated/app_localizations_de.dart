@@ -4470,6 +4470,9 @@ class AppL10nDe extends AppL10n {
       'Hier beginnt genau die Übung, die heute zu deinem Fortschritt passt.';
 
   @override
+  String get sarangbangStudySceneLabel => 'Deine Studierstube';
+
+  @override
   String get sarangbangStudyFurnish => 'Studierstube einrichten';
 
   @override
