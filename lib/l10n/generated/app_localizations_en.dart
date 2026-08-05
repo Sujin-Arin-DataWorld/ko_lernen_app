@@ -4257,6 +4257,27 @@ class AppL10nEn extends AppL10n {
   String get moduleBadgeDue => 'DUE';
 
   @override
+  String get homeMadangEyebrow => 'Today in the Sarangbang';
+
+  @override
+  String get homeSarangbangCta => 'Study in the Sarangbang';
+
+  @override
+  String get homeHanokPreviewTitle => 'My Hanok today';
+
+  @override
+  String get homeHanokPreviewBody =>
+      'Your learning path slowly turns this courtyard into a place where you can live and learn.';
+
+  @override
+  String homeHanokPreviewProgress(int percent) {
+    return '$percent% of your Hanok is built';
+  }
+
+  @override
+  String get homeHanokPreviewCta => 'Open my Hanok';
+
+  @override
   String get sarangbangTitle => 'Study room';
 
   @override

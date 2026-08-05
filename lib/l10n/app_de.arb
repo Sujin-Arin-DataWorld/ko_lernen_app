@@ -2012,6 +2012,22 @@
   "courseUsagePaymentNotice": "Zahlungshinweis",
   "moduleBadgeNew": "NEU",
   "moduleBadgeDue": "FÄLLIG",
+  "@_home_hanok_preview": {
+    "description": "Startseite als heutiger Madang: Lernkontext Sarangbang und schreibgeschuetzte Hanok-Vorschau."
+  },
+  "homeMadangEyebrow": "Heute im Sarangbang",
+  "homeSarangbangCta": "Im Sarangbang lernen",
+  "homeHanokPreviewTitle": "Meine Hanok heute",
+  "homeHanokPreviewBody": "Dein Lernweg macht aus diesem Hof Schritt für Schritt einen Ort zum Leben und Lernen.",
+  "homeHanokPreviewProgress": "{percent} % deiner Hanok sind gebaut",
+  "@homeHanokPreviewProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "homeHanokPreviewCta": "Meine Hanok öffnen",
   "@_p1_sarangbang": {
     "description": "ADR-002 P1 — 사랑방 슬롯 배치 화면."
   },

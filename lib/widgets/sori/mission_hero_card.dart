@@ -17,6 +17,7 @@ enum MissionHeroKind { course, pack, review, scenario }
 class MissionHeroContent {
   final MissionHeroKind kind;
   final String title;
+  final String? contextLabel;
 
   /// 'A1'… 표기용. null이면 레벨 칩 생략(복습처럼 레벨 무관 소스).
   final String? levelCode;
@@ -29,16 +30,19 @@ class MissionHeroContent {
 
   /// true = CTA "Weitermachen" / false = "Los geht's".
   final bool started;
+  final String? ctaLabel;
 
   final VoidCallback onStart;
 
   const MissionHeroContent({
     required this.kind,
     required this.title,
+    this.contextLabel,
     required this.levelCode,
     required this.meta,
     required this.fraction,
     required this.started,
+    this.ctaLabel,
     required this.onStart,
   });
 }
@@ -58,6 +62,7 @@ class MissionHeroCard extends StatelessWidget {
   final bool loading;
   final MissionHeroContent? content;
   final VoidCallback? onAnotherRound;
+  final String? allDoneCtaLabel;
 
   /// Q2 "배지 통합": 프리미엄 Tageskurs 소형 진입점 — null이면 숨김.
   /// (전용 카드는 주 1회만 — 홈 E1c 가드.)
@@ -68,6 +73,7 @@ class MissionHeroCard extends StatelessWidget {
     required this.loading,
     required this.content,
     this.onAnotherRound,
+    this.allDoneCtaLabel,
     this.onPremiumCourse,
   });
 
@@ -78,7 +84,10 @@ class MissionHeroCard extends StatelessWidget {
     }
     final c = content;
     if (c == null) {
-      return _AllDoneCard(onAnotherRound: onAnotherRound);
+      return _AllDoneCard(
+        onAnotherRound: onAnotherRound,
+        ctaLabel: allDoneCtaLabel,
+      );
     }
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
@@ -113,6 +122,13 @@ class MissionHeroCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 6),
                     ],
+                    if (c.contextLabel != null) ...[
+                      Text(
+                        c.contextLabel!,
+                        style: tt.label.copyWith(color: SoriColors.primary),
+                      ),
+                      const SizedBox(height: 4),
+                    ],
                     Text(
                       c.title,
                       // §4.3: maxLines 1 + ellipsis 금지 — 2줄 허용.
@@ -129,9 +145,9 @@ class MissionHeroCard extends StatelessWidget {
           ),
           const SizedBox(height: Spacing.md),
           SoriButton.filled(
-            label: c.started
-                ? t.missionHeroCtaContinue
-                : t.missionHeroCtaStart,
+            label:
+                c.ctaLabel ??
+                (c.started ? t.missionHeroCtaContinue : t.missionHeroCtaStart),
             accent: SoriColors.tiger,
             fullWidth: true,
             onTap: c.onStart,
@@ -266,7 +282,9 @@ class _HeroSkeleton extends StatelessWidget {
 /// 오늘 다 함 — 승패 연출 규칙(≥50% = 조이)에 맞춰 축하는 항상 조이.
 class _AllDoneCard extends StatelessWidget {
   final VoidCallback? onAnotherRound;
-  const _AllDoneCard({required this.onAnotherRound});
+  final String? ctaLabel;
+
+  const _AllDoneCard({required this.onAnotherRound, this.ctaLabel});
 
   @override
   Widget build(BuildContext context) {
@@ -303,7 +321,7 @@ class _AllDoneCard extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                     ),
                     child: Text(
-                      t.missionHeroAnotherRound,
+                      ctaLabel ?? t.missionHeroAnotherRound,
                       style: tt.label.copyWith(color: SoriColors.primary),
                     ),
                   ),
@@ -344,10 +362,9 @@ class _CourseBadge extends StatelessWidget {
               const SizedBox(width: 3),
               Text(
                 t.homeCourseTitle,
-                style: SoriTextTheme.of(context).label.copyWith(
-                  fontSize: 11.5,
-                  color: SoriColors.goldOnLight,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).label.copyWith(fontSize: 11.5, color: SoriColors.goldOnLight),
               ),
             ],
           ),

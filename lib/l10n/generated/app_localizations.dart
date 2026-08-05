@@ -7525,6 +7525,42 @@ abstract class AppL10n {
   /// **'FÄLLIG'**
   String get moduleBadgeDue;
 
+  /// No description provided for @homeMadangEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute im Sarangbang'**
+  String get homeMadangEyebrow;
+
+  /// No description provided for @homeSarangbangCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Sarangbang lernen'**
+  String get homeSarangbangCta;
+
+  /// No description provided for @homeHanokPreviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Hanok heute'**
+  String get homeHanokPreviewTitle;
+
+  /// No description provided for @homeHanokPreviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernweg macht aus diesem Hof Schritt für Schritt einen Ort zum Leben und Lernen.'**
+  String get homeHanokPreviewBody;
+
+  /// No description provided for @homeHanokPreviewProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{percent} % deiner Hanok sind gebaut'**
+  String homeHanokPreviewProgress(int percent);
+
+  /// No description provided for @homeHanokPreviewCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Hanok öffnen'**
+  String get homeHanokPreviewCta;
+
   /// No description provided for @sarangbangTitle.
   ///
   /// In de, this message translates to:

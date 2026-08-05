@@ -1934,6 +1934,22 @@
   "courseUsagePaymentNotice": "payment notice",
   "moduleBadgeNew": "NEW",
   "moduleBadgeDue": "DUE",
+  "@_home_hanok_preview": {
+    "description": "Home as today's Madang: Sarangbang learning context and a read-only Hanok preview."
+  },
+  "homeMadangEyebrow": "Today in the Sarangbang",
+  "homeSarangbangCta": "Study in the Sarangbang",
+  "homeHanokPreviewTitle": "My Hanok today",
+  "homeHanokPreviewBody": "Your learning path slowly turns this courtyard into a place where you can live and learn.",
+  "homeHanokPreviewProgress": "{percent}% of your Hanok is built",
+  "@homeHanokPreviewProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "homeHanokPreviewCta": "Open my Hanok",
   "@_p1_sarangbang": {
     "description": "ADR-002 P1 — 사랑방 슬롯 배치 화면."
   },

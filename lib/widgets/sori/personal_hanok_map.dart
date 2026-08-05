@@ -14,12 +14,14 @@ class PersonalHanokMap extends StatelessWidget {
   final PersonalHanokProjection projection;
   final String Function(PersonalHanokZone zone) zoneLabel;
   final ValueChanged<PersonalHanokZone>? onTapZone;
+  final bool showTargets;
 
   const PersonalHanokMap({
     super.key,
     required this.projection,
     required this.zoneLabel,
     this.onTapZone,
+    this.showTargets = true,
   });
 
   @override
@@ -35,14 +37,16 @@ class PersonalHanokMap extends StatelessWidget {
       );
     }
 
-    final layers = kPersonalHanokLayers
-        .where(
-          (layer) =>
-              layer.opaque ||
-              (layer.milestone != null && projection.isUnlocked(layer.milestone!)),
-        )
-        .toList()
-      ..sort((a, b) => a.zIndex.compareTo(b.zIndex));
+    final layers =
+        kPersonalHanokLayers
+            .where(
+              (layer) =>
+                  layer.opaque ||
+                  (layer.milestone != null &&
+                      projection.isUnlocked(layer.milestone!)),
+            )
+            .toList()
+          ..sort((a, b) => a.zIndex.compareTo(b.zIndex));
 
     return AspectRatio(
       aspectRatio: 4 / 3,
@@ -62,20 +66,25 @@ class PersonalHanokMap extends StatelessWidget {
                         ? ColoredBox(color: SoriSurfaces.of(ctx).surfaceAlt)
                         : const SizedBox.expand(),
                   ),
-                for (final definition in visiblePersonalHanokZones(projection))
-                  for (var targetIndex = 0;
+                if (showTargets)
+                  for (final definition in visiblePersonalHanokZones(
+                    projection,
+                  ))
+                    for (
+                      var targetIndex = 0;
                       targetIndex < definition.hitRegions.length;
-                      targetIndex++)
-                    _ZoneTarget(
-                      definition: definition,
-                      rect: definition.hitRegions[targetIndex],
-                      targetIndex: targetIndex,
-                      canvasSize: constraints.biggest,
-                      label: zoneLabel(definition.zone),
-                      onTap: onTapZone == null
-                          ? null
-                          : () => onTapZone!(definition.zone),
-                    ),
+                      targetIndex++
+                    )
+                      _ZoneTarget(
+                        definition: definition,
+                        rect: definition.hitRegions[targetIndex],
+                        targetIndex: targetIndex,
+                        canvasSize: constraints.biggest,
+                        label: zoneLabel(definition.zone),
+                        onTap: onTapZone == null
+                            ? null
+                            : () => onTapZone!(definition.zone),
+                      ),
               ],
             ),
           );
@@ -83,7 +92,6 @@ class PersonalHanokMap extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class _ZoneTarget extends StatelessWidget {
@@ -105,10 +113,12 @@ class _ZoneTarget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width =
-        (canvasSize.width * rect.width).clamp(44.0, canvasSize.width).toDouble();
-    final height =
-        (canvasSize.height * rect.height).clamp(44.0, canvasSize.height).toDouble();
+    final width = (canvasSize.width * rect.width)
+        .clamp(44.0, canvasSize.width)
+        .toDouble();
+    final height = (canvasSize.height * rect.height)
+        .clamp(44.0, canvasSize.height)
+        .toDouble();
     final left = (canvasSize.width * rect.left)
         .clamp(0.0, canvasSize.width - width)
         .toDouble();

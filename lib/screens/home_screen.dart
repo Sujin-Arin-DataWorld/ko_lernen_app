@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../data/hangul_strokes.dart';
+import '../models/personal_hanok.dart';
 import '../models/feedback_completion.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
@@ -26,6 +27,7 @@ import 'review_session_screen.dart';
 import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/ambient_particles.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/flying_magpie.dart';
 import '../widgets/sori/hanok_cinematic.dart';
@@ -34,6 +36,7 @@ import '../widgets/sori/mission_hero_card.dart';
 import '../widgets/sori/week_progress.dart';
 import '../widgets/sori/path_preview_row.dart';
 import '../widgets/sori/motion.dart';
+import '../widgets/sori/personal_hanok_map.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/sheet.dart';
@@ -66,6 +69,7 @@ class HomeScreen extends StatefulWidget {
   final GlobalKey? pathTourKey;
   final String? dailyCharacter;
   final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
+  final Future<LevelRatios> Function()? loadHanokRatios;
 
   // Stage B 예약: final GlobalKey? bookTourKey;
 
@@ -74,6 +78,7 @@ class HomeScreen extends StatefulWidget {
     this.pathTourKey,
     this.dailyCharacter,
     this.loadTodaySnapshot,
+    this.loadHanokRatios,
   });
 
   @override
@@ -82,6 +87,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TodayLearningSnapshot? _todaySnapshot;
+  PersonalHanokProjection? _hanokProjection;
   bool _loadingTodaySnapshot = true;
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
   int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
@@ -102,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadToday();
     _loadPath();
+    _loadHanokPreview();
     _checkHanokCinematic();
     WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
   }
@@ -238,6 +245,25 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() => _pendingCinematicStage = stage);
   }
 
+  /// Reads the same deterministic construction projection shown by the map.
+  ///
+  /// This preview is deliberately read-only: it never awards, unlocks, or
+  /// mutates the learner's rooms, decor, or course evidence.
+  Future<void> _loadHanokPreview() async {
+    final loadRatios = widget.loadHanokRatios ?? HanokStageService.levelRatios;
+    PersonalHanokProjection projection;
+    try {
+      projection = PersonalHanokProjection.from(await loadRatios());
+    } catch (_) {
+      projection = PersonalHanokProjection.from(
+        const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+      );
+    }
+    if (mounted) {
+      setState(() => _hanokProjection = projection);
+    }
+  }
+
   /// Loads the same read-only recommendation snapshot as the Sarangbang.
   ///
   /// Home only previews the selected mission and keeps its CTA pointed at the
@@ -279,7 +305,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Future<void> _refreshHome() => Future.wait<void>([_loadToday(), _loadPath()]);
+  Future<void> _refreshHome() =>
+      Future.wait<void>([_loadToday(), _loadPath(), _loadHanokPreview()]);
 
   /// 알림이 켜져 있으면 데일리 리마인더를 최신 스트릭 문구로 재예약한다
   /// (홈 진입마다). 스트릭이 있으면 "🔥 N일 연속" 넛지로 강화.
@@ -401,22 +428,6 @@ class _HomeScreenState extends State<HomeScreen> {
     kind: kind,
   );
 
-  /// Hero tap opens the course-first mission rather than a free library pack.
-  /// The living Hanok is the study context. The existing recommendation
-  /// engine remains the single source of the actual learning destination.
-  Future<void> _openSarangbang({bool celebrateAfter = false}) async {
-    await Navigator.pushNamed(context, '/sarangbang');
-    if (!mounted) {
-      return;
-    }
-    await _refreshHome();
-    if (celebrateAfter && mounted) {
-      await _maybeCelebrateMilestone();
-    }
-  }
-
-  Future<void> _onHeroTap() => _openSarangbang(celebrateAfter: true);
-
   /// §6.1 블록 3 추천 엔진 — "다음 것 1개"의 단일 소스.
   /// 우선순위: ① 현재 코스 미션 > ② 진행 중 팩 > ③ due 복습(≥10) >
   /// ④ 시나리오 추천. null = 오늘 할 것 없음(allDone).
@@ -432,10 +443,12 @@ class _HomeScreenState extends State<HomeScreen> {
         return MissionHeroContent(
           kind: MissionHeroKind.course,
           title: c.unit.title.pick(lang),
+          contextLabel: t.homeMadangEyebrow,
           levelCode: c.unit.level.toUpperCase(),
           meta: t.missionHeroCourseMeta(c.missionNumber, c.totalMissions),
           fraction: c.fraction,
           started: c.started,
+          ctaLabel: t.homeSarangbangCta,
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
@@ -452,10 +465,12 @@ class _HomeScreenState extends State<HomeScreen> {
         return MissionHeroContent(
           kind: MissionHeroKind.pack,
           title: VocabPackService.displayLabel(p.pack.id, lang: lang),
+          contextLabel: t.homeMadangEyebrow,
           levelCode: level,
           meta: t.missionHeroPackMeta(level),
           fraction: p.fraction,
           started: true,
+          ctaLabel: t.homeSarangbangCta,
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
@@ -467,10 +482,12 @@ class _HomeScreenState extends State<HomeScreen> {
         return MissionHeroContent(
           kind: MissionHeroKind.review,
           title: t.missionHeroReviewTitle(r.dueCount),
+          contextLabel: t.homeMadangEyebrow,
           levelCode: null,
           meta: t.missionHeroReviewMeta,
           fraction: 0,
           started: false,
+          ctaLabel: t.homeSarangbangCta,
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
@@ -483,10 +500,12 @@ class _HomeScreenState extends State<HomeScreen> {
         return MissionHeroContent(
           kind: MissionHeroKind.scenario,
           title: snapshot?.scenario?.title.pick(lang) ?? sc.scenarioId,
+          contextLabel: t.homeMadangEyebrow,
           levelCode: level,
           meta: t.missionHeroScenarioMeta(level),
           fraction: 0,
           started: false,
+          ctaLabel: t.homeSarangbangCta,
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
@@ -606,7 +625,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // ── 4. Content ──
           SafeArea(
             child: RefreshIndicator(
-              onRefresh: _loadToday,
+              onRefresh: _refreshHome,
               color: SoriColors.primary,
               child: SoriContentClamp(
                 base: const EdgeInsets.fromLTRB(
@@ -643,7 +662,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             greeting: _greeting(t),
                             bubble: _tigerBubble(t, kind),
                             phase: _phase,
-                            onTap: _onHeroTap,
                             kind: kind,
                           ),
                         ),
@@ -659,23 +677,42 @@ class _HomeScreenState extends State<HomeScreen> {
                       SoriEntrance(
                         delay: const Duration(milliseconds: 100),
                         slideY: 14,
-                        child: MissionHeroCard(
-                          loading: _loadingTodaySnapshot,
-                          content: _loadingTodaySnapshot
-                              ? null
-                              : _missionHeroContent(t, lang),
-                          onPremiumCourse: _openCourse,
-                          onAnotherRound: () async {
-                            await Navigator.pushNamed(context, '/path');
+                        child: KeyedSubtree(
+                          key: const ValueKey('home-primary-sarangbang'),
+                          child: MissionHeroCard(
+                            loading: _loadingTodaySnapshot,
+                            content: _loadingTodaySnapshot
+                                ? null
+                                : _missionHeroContent(t, lang),
+                            allDoneCtaLabel: t.homeSarangbangCta,
+                            onAnotherRound: () async {
+                              await Navigator.pushNamed(context, '/sarangbang');
+                              if (mounted) {
+                                await _refreshHome();
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+
+                      // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
+                      SoriEntrance(
+                        delay: const Duration(milliseconds: 120),
+                        slideY: 14,
+                        child: _HomeHanokPreview(
+                          key: const ValueKey('home-hanok-preview'),
+                          projection: _hanokProjection,
+                          onOpen: () async {
+                            await Navigator.pushNamed(context, '/hanok');
                             if (mounted) {
                               await _refreshHome();
                             }
                           },
                         ),
                       ),
-                      const SizedBox(height: Spacing.lg),
+                      const SizedBox(height: Spacing.xl),
 
-                      // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
                       widget.pathTourKey != null
                           ? KeyedSubtree(
                               key: widget.pathTourKey!,
@@ -869,6 +906,75 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 enum _DayPhase { morning, afternoon, evening }
+
+/// A read-only glimpse of the learner's estate. The main Hanok screen owns
+/// place selection and navigation; Home only provides one deliberate doorway.
+class _HomeHanokPreview extends StatelessWidget {
+  final PersonalHanokProjection? projection;
+  final VoidCallback onOpen;
+
+  const _HomeHanokPreview({
+    super.key,
+    required this.projection,
+    required this.onOpen,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final surfaces = SoriSurfaces.of(context);
+    final progress = projection?.constructionFraction ?? 0;
+
+    return SoriCard(
+      variant: SoriCardVariant.hanji,
+      accent: SoriColors.primary,
+      tinted: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(t.homeHanokPreviewTitle, style: text.h3),
+          const SizedBox(height: 4),
+          Text(t.homeHanokPreviewBody, style: text.bodySmall),
+          const SizedBox(height: Spacing.md),
+          if (projection == null)
+            AspectRatio(
+              aspectRatio: 4 / 3,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: surfaces.surfaceAlt,
+                  borderRadius: SoriRadius.brLg,
+                ),
+              ),
+            )
+          else
+            Semantics(
+              image: true,
+              label: t.homeHanokPreviewTitle,
+              child: ExcludeSemantics(
+                child: PersonalHanokMap(
+                  projection: projection!,
+                  zoneLabel: (_) => '',
+                  showTargets: false,
+                ),
+              ),
+            ),
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.homeHanokPreviewProgress((progress * 100).round()),
+            style: text.caption.copyWith(color: SoriColors.primary),
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.homeHanokPreviewCta,
+            fullWidth: true,
+            onTap: onOpen,
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 // ════════════════════════════════════════════════════════════════════════
 // A. Top bar — compact, no big stats
@@ -1071,14 +1177,12 @@ class _TigerHero extends StatelessWidget {
   final MascotKind kind;
 
   /// Phase E — hero 탭 시 추천 팩으로 직행(있으면). null = 비탭.
-  final VoidCallback? onTap;
 
   const _TigerHero({
     required this.greeting,
     required this.bubble,
     required this.phase,
     required this.kind,
-    this.onTap,
   });
 
   MascotEmotion get _emotion {
@@ -1151,19 +1255,8 @@ class _TigerHero extends StatelessWidget {
           ],
         );
 
-        if (onTap == null) {
-          return hero;
-        }
+        return hero;
         // hero 전체를 추천 팩으로 가는 탭 타깃으로(Duo식 "큰 캐릭터 + 한 행동").
-        return Semantics(
-          button: true,
-          label: bubble,
-          child: GestureDetector(
-            onTap: onTap,
-            behavior: HitTestBehavior.opaque,
-            child: hero,
-          ),
-        );
       },
     );
   }
