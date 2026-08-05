@@ -345,166 +345,163 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
     final revealedOk = _completed && !_wrong;
 
-    return Stack(
-      clipBehavior: Clip.none,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Prompt (Bedeutung) + optionaler TTS-Button.
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-              decoration: BoxDecoration(
-                color: s.surface,
-                borderRadius: BorderRadius.circular(SoriRadius.md),
-                border: Border.all(color: s.surfaceAlt, width: 1.5),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      _prompt(langCode),
-                      style: TextStyle(
-                        color: s.text,
-                        fontSize: 16,
-                        height: 1.4,
-                      ),
-                    ),
-                  ),
-                  if (_audioKo.isNotEmpty) ...[
-                    const SizedBox(width: 12),
-                    InkWell(
-                      borderRadius: BorderRadius.circular(SoriRadius.pill),
-                      onTap: _playTts,
-                      child: Container(
-                        width: 44,
-                        height: 44,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: SoriColors.info.withAlpha(26),
-                          border: Border.all(
-                            color: SoriColors.info,
-                            width: 1.5,
-                          ),
-                        ),
-                        child: const Icon(
-                          Icons.volume_up_rounded,
-                          color: SoriColors.info,
-                          size: 22,
-                        ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-            const SizedBox(height: Spacing.md),
-            Text(
-              t.questSatzBauenInstruction,
-              style: TextStyle(color: s.textMuted, fontSize: 13),
-            ),
-            const SizedBox(height: Spacing.md),
-
-            // Antwort-Bereich (gebaute Reihenfolge).
-            Container(
-              constraints: const BoxConstraints(minHeight: 64),
-              width: double.infinity,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: s.surface,
-                borderRadius: BorderRadius.circular(SoriRadius.md),
-                border: Border(
-                  bottom: BorderSide(
-                    color: revealedOk
-                        ? SoriColors.success
-                        : (_wrong ? SoriColors.danger : SoriColors.primary),
-                    width: 2.5,
-                  ),
-                ),
-              ),
-              child: _answer.isEmpty
-                  ? Center(
-                      child: Text(
-                        '…',
-                        style: TextStyle(color: s.textDim, fontSize: 18),
-                      ),
-                    )
-                  : Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: [
-                        for (var i = 0; i < _answer.length; i++)
-                          _buildTile(
-                            _answer[i],
-                            s,
-                            inAnswer: true,
-                            highlightWrong: _wrong && i == _mismatchIdx,
-                            highlightOk: revealedOk,
-                          ),
-                      ],
-                    ),
-            ),
-            // Diagnose-Feedback (warum falsch).
-            SizedBox(
-              height: 22,
-              child: (_wrong && !_completed && _diag != SatzError.none)
-                  ? Text(
-                      _diagText(t),
-                      style: const TextStyle(
-                        color: SoriColors.danger,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    )
-                  : const SizedBox.shrink(),
-            ),
-            const SizedBox(height: Spacing.md),
-
-            // Wort-Bank.
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              alignment: WrapAlignment.center,
-              children: [
-                for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
-              ],
-            ),
-            const SizedBox(height: Spacing.xl),
-
-            // Prüfen-Button.
-            Opacity(
-              opacity: (_answer.isEmpty || _completed) ? 0.5 : 1.0,
-              child: Material(
-                color: SoriColors.primary,
-                borderRadius: BorderRadius.circular(SoriRadius.lg),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(SoriRadius.lg),
-                  onTap: (_answer.isEmpty || _completed) ? null : _check,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Center(
-                      child: Text(
-                        t.questCheckAnswer,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Positioned(
-          top: -12,
-          right: 12,
+        // Charakter — sitzt über der Frage, mittig (nicht mehr überlappend).
+        Center(
           child: MascotPartner(
             celebrating: _celebrated,
-            size: 56,
+            size: 80,
             kind: MascotKind.magpie,
+          ),
+        ),
+        const SizedBox(height: Spacing.lg),
+
+        // Prompt (Bedeutung) + optionaler TTS-Button.
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
+          decoration: BoxDecoration(
+            color: s.surface,
+            borderRadius: BorderRadius.circular(SoriRadius.lg),
+            border: Border.all(color: s.surfaceAlt, width: 1.5),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  _prompt(langCode),
+                  style: TextStyle(
+                    color: s.text,
+                    fontSize: 20,
+                    height: 1.45,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              if (_audioKo.isNotEmpty) ...[
+                const SizedBox(width: 14),
+                InkWell(
+                  borderRadius: BorderRadius.circular(SoriRadius.pill),
+                  onTap: _playTts,
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: SoriColors.info.withAlpha(26),
+                      border: Border.all(
+                        color: SoriColors.info,
+                        width: 1.5,
+                      ),
+                    ),
+                    child: const Icon(
+                      Icons.volume_up_rounded,
+                      color: SoriColors.info,
+                      size: 24,
+                    ),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+        const SizedBox(height: Spacing.lg),
+        Text(
+          t.questSatzBauenInstruction,
+          style: TextStyle(color: s.textMuted, fontSize: 14),
+        ),
+        const SizedBox(height: Spacing.md),
+
+        // Antwort-Bereich (gebaute Reihenfolge).
+        Container(
+          constraints: const BoxConstraints(minHeight: 96),
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: s.surface,
+            borderRadius: BorderRadius.circular(SoriRadius.lg),
+            border: Border(
+              bottom: BorderSide(
+                color: revealedOk
+                    ? SoriColors.success
+                    : (_wrong ? SoriColors.danger : SoriColors.primary),
+                width: 2.5,
+              ),
+            ),
+          ),
+          child: _answer.isEmpty
+              ? Center(
+                  child: Text(
+                    '…',
+                    style: TextStyle(color: s.textDim, fontSize: 22),
+                  ),
+                )
+              : Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  children: [
+                    for (var i = 0; i < _answer.length; i++)
+                      _buildTile(
+                        _answer[i],
+                        s,
+                        inAnswer: true,
+                        highlightWrong: _wrong && i == _mismatchIdx,
+                        highlightOk: revealedOk,
+                      ),
+                  ],
+                ),
+        ),
+        // Diagnose-Feedback (warum falsch).
+        SizedBox(
+          height: 24,
+          child: (_wrong && !_completed && _diag != SatzError.none)
+              ? Text(
+                  _diagText(t),
+                  style: const TextStyle(
+                    color: SoriColors.danger,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )
+              : const SizedBox.shrink(),
+        ),
+        const SizedBox(height: Spacing.lg),
+
+        // Wort-Bank.
+        Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          alignment: WrapAlignment.center,
+          children: [
+            for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
+          ],
+        ),
+        const SizedBox(height: Spacing.xl),
+
+        // Prüfen-Button.
+        Opacity(
+          opacity: (_answer.isEmpty || _completed) ? 0.5 : 1.0,
+          child: Material(
+            color: SoriColors.primary,
+            borderRadius: BorderRadius.circular(SoriRadius.lg),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(SoriRadius.lg),
+              onTap: (_answer.isEmpty || _completed) ? null : _check,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 18),
+                child: Center(
+                  child: Text(
+                    t.questCheckAnswer,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       ],
@@ -547,12 +544,12 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
             borderRadius: BorderRadius.circular(SoriRadius.sm),
             border: Border.all(color: border, width: 1.5),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 13),
           child: Text(
             tile.text,
             style: TextStyle(
               color: s.text,
-              fontSize: 17,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
           ),
