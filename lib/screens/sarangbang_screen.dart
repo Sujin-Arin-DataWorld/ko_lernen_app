@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/mission_recommender.dart';
 import '../services/pack_access.dart';
-import '../services/sarangbang_study_recommendation.dart';
+import '../services/today_learning_snapshot.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
@@ -21,13 +21,13 @@ import '../widgets/sori/tokens.dart';
 /// Decorating remains intentionally separate at `/sarangbang/furnish` so a
 /// learner never has to enter a placement UI before studying.
 class SarangbangStudyScreen extends StatefulWidget {
-  final Future<SarangbangStudyRecommendation> Function()? loadRecommendation;
-  final Future<void> Function(SarangbangStudyRecommendation recommendation)?
+  final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
+  final Future<void> Function(TodayLearningSnapshot recommendation)?
   onOpenRecommendation;
 
   const SarangbangStudyScreen({
     super.key,
-    this.loadRecommendation,
+    this.loadTodaySnapshot,
     this.onOpenRecommendation,
   });
 
@@ -36,7 +36,7 @@ class SarangbangStudyScreen extends StatefulWidget {
 }
 
 class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
-  SarangbangStudyRecommendation? _recommendation;
+  TodayLearningSnapshot? _snapshot;
   bool _loading = true;
   bool _loadFailed = false;
 
@@ -52,14 +52,13 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       _loadFailed = false;
     });
     try {
-      final load =
-          widget.loadRecommendation ?? SarangbangStudyRecommendationLoader.load;
-      final recommendation = await load();
+      final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
+      final snapshot = await load();
       if (!mounted) {
         return;
       }
       setState(() {
-        _recommendation = recommendation;
+        _snapshot = snapshot;
         _loading = false;
       });
     } catch (_) {
@@ -74,17 +73,17 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   }
 
   Future<void> _openRecommendation() async {
-    final recommendation = _recommendation;
-    if (recommendation == null) {
+    final snapshot = _snapshot;
+    if (snapshot == null) {
       return;
     }
     final override = widget.onOpenRecommendation;
     if (override != null) {
-      await override(recommendation);
+      await override(snapshot);
       return;
     }
 
-    final destination = sarangbangDestinationFor(recommendation.pick);
+    final destination = snapshot.destination;
     if (destination == null) {
       return;
     }
@@ -177,8 +176,8 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
   }
 
   MissionHeroContent? _missionContent(AppL10n t) {
-    final recommendation = _recommendation;
-    final pick = recommendation?.pick;
+    final snapshot = _snapshot;
+    final pick = snapshot?.pick;
     final language = Localizations.localeOf(context).languageCode;
     return switch (pick) {
       CoursePick(
@@ -217,7 +216,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       ),
       ScenarioPick(:final scenarioId, :final level) => MissionHeroContent(
         kind: MissionHeroKind.scenario,
-        title: recommendation?.scenario?.title.pick(language) ?? scenarioId,
+        title: snapshot?.scenario?.title.pick(language) ?? scenarioId,
         levelCode: level.code.toUpperCase(),
         meta: t.missionHeroScenarioMeta(level.code.toUpperCase()),
         fraction: 0,

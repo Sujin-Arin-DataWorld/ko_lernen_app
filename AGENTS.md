@@ -286,7 +286,7 @@ flutter run -d <android-id>   # 안드로이드
 
 - [x] 개인 한옥을 새 학습 엔진이 아니라 기존 추천·70% 성취·보상·계 도메인을 장소감 있게 여는 정본 경험으로 재설계했다. 최신 `main`에서 독립 브랜치 `merkmal/hanok-world-system-design`을 열었고, 명세와 테스트 우선 실행 계획을 추가했다.
 - [x] P0: 지도 그림과 hit target을 분리해 안채/대청 겹침을 제거하고 접근성 장소 목록을 추가했다. 308dp에서 44dp 최소 터치 영역까지 실제 렌더 사각형을 전수 대조한다.
-- [ ] P1: Home과 사랑방이 동일한 read-only TodayLearningSnapshot을 사용하게 한다.
+- [x] P1: Home과 사랑방이 동일한 read-only TodayLearningSnapshot을 사용하게 한다. 추천 우선순위와 원래 학습 목적지는 바꾸지 않고, Home은 사랑방 진입만 제공한다 (implementation commit pending).
 - [ ] P2: Home을 “오늘의 마당”으로 정리하고 WorldMapViewport·읽기 전용 venue scene을 반영한다.
 - [ ] P4b-MVP: 개인 소유권을 옮기지 않는 callable-only 공동 전시 헌정을 구현한다. 실물 헌납은 서버 정본 inventory/tombstone으로 별도 단계다.
 
@@ -446,6 +446,12 @@ flutter run -d <android-id>   # 안드로이드
 ---
 
 ## 세션 로그 (Audit · Review · Update · Push)
+
+### 2026-08-05 (Codex) — 한옥 세계 UX 정본 P1 오늘의 학습 스냅샷 구현 완료
+
+- **변경:** `TodayLearningSnapshot`이 기존 `recommendMission`의 정확한 입력 조립, 현재 시나리오 메타데이터, 원래 학습 화면 목적지, Home이 이미 표시하던 오늘 복습/어려운 단어 수를 읽기 전용으로 한 번에 제공한다. Home은 그 결과를 미리보기로만 표시하고 언제나 사랑방으로 이동하며, 사랑방은 고정된 원래 목적지를 연다. 구 Sarangbang recommendation API는 입력을 다시 조립하지 않는 호환 forwarding adapter로 축소했다.
+- **보존:** CourseProgressService의 70% 근거/해금 경로, pack access gate, 코스 > 진행 중 팩 > 복습 > 시나리오 우선순위, 시나리오 후보 순서와 각 데이터 계열의 독립 fail-closed 동작을 변경하지 않았다. 장식/보상/배치/진도에 쓰기를 추가하지 않았다.
+- **검증:** 순수 snapshot은 course/pack/review/scenario/all-done 및 결정성 계약을 고정했고, Home과 사랑방 주입 위젯 회귀 및 기존 recommendation 회귀를 통과했다. targeted analyzer, Home·사랑방 포함 screen smoke, 308–1280dp 및 태블릿 responsive matrix, ARB/typography guards, `git diff --check`를 통과했다. 구현 커밋: pending.
 
 ### 2026-08-04 (Codex) — 살아있는 한옥 학습 세계 정본 재정의 · 구현 착수
 

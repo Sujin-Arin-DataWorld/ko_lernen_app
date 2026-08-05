@@ -5,13 +5,9 @@ import '../data/hangul_strokes.dart';
 import '../models/feedback_completion.dart';
 import '../models/gye.dart';
 import '../models/hanok_stage.dart';
-import '../models/course_mastery.dart';
 import '../models/pack_progress.dart';
-import '../models/scenario.dart';
 import '../models/vocab_pack.dart';
 import '../services/data_loader.dart';
-import '../services/course_progress_service.dart';
-import '../services/curriculum_catalog.dart';
 import '../services/mission_recommender.dart';
 import '../services/pack_access.dart';
 import '../services/gye_service.dart';
@@ -21,10 +17,9 @@ import '../services/personalized_lesson_service.dart';
 import '../services/premium_service.dart';
 import '../services/smalltalk_loader.dart';
 import '../services/hanok_stage_service.dart';
-import '../services/review_deck_service.dart';
-import '../services/scenario_loader.dart';
 import '../services/notification_service.dart';
 import '../services/storage_service.dart';
+import '../services/today_learning_snapshot.dart';
 import '../services/vocab_pack_service.dart';
 import 'daily_char_sheet.dart';
 import 'review_session_screen.dart';
@@ -70,32 +65,30 @@ class HomeScreen extends StatefulWidget {
   /// null이면 KeyedSubtree 래핑 없이 그냥 렌더 (독립 실행 등).
   final GlobalKey? pathTourKey;
   final String? dailyCharacter;
+  final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
 
   // Stage B 예약: final GlobalKey? bookTourKey;
 
-  const HomeScreen({super.key, this.pathTourKey, this.dailyCharacter});
+  const HomeScreen({
+    super.key,
+    this.pathTourKey,
+    this.dailyCharacter,
+    this.loadTodaySnapshot,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Scenario? _today;
-  bool _loadingScenario = true;
+  TodayLearningSnapshot? _todaySnapshot;
+  bool _loadingTodaySnapshot = true;
   int _dueCount = 0; // M2: heute fällige + neue SRS-Karten ("Heute lernen")
   int _hardCount = 0; // A2: "어려운 단어"(leech) 개수
-
-  // 시나리오 추천(소스 ④) 가드용 — 완료 시나리오 집합.
-  Set<String> _completed = const {};
 
   // E1a. Lernpfad 홈 임베드 — 현재 레벨 단어팩 노드 리스트.
   List<({VocabPack pack, PackProgress progress})> _pathNodes = [];
   String? _nowPackId;
-
-  // 블록 3(§6.1) 추천 엔진 소스 ① — 코스 커리큘럼 카탈로그·진행 스냅샷.
-  CurriculumCatalog? _courseCatalog;
-  CourseMasterySnapshot? _courseSnapshot;
-  bool _loadingCourse = true;
 
   /// Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 true(주 1회 노출).
   bool _courseCardThisWeek = false;
@@ -109,7 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadToday();
     _loadPath();
-    _loadCourse();
     _checkHanokCinematic();
     WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowIntroFlows());
   }
@@ -238,28 +230,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  /// 블록 3 소스 ① — 코스 카탈로그·진행 스냅샷 로드.
-  /// 실패 시 오류 카드를 띄우지 않고 조용히 다음 소스로 폴백한다(§10.1).
-  Future<void> _loadCourse() async {
-    try {
-      final catalog = await CurriculumCatalog.load();
-      final snap = await CourseProgressService.shared.refresh();
-      if (!mounted) {
-        return;
-      }
-      setState(() {
-        _courseCatalog = catalog;
-        _courseSnapshot = snap;
-        _loadingCourse = false;
-      });
-    } catch (_) {
-      if (!mounted) {
-        return;
-      }
-      setState(() => _loadingCourse = false);
-    }
-  }
-
   Future<void> _checkHanokCinematic() async {
     final stage = await HanokStageService.currentStage();
     if (!mounted) return;
@@ -268,71 +238,48 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() => _pendingCinematicStage = stage);
   }
 
+  /// Loads the same read-only recommendation snapshot as the Sarangbang.
+  ///
+  /// Home only previews the selected mission and keeps its CTA pointed at the
+  /// Sarangbang; the snapshot does not turn Home into a second route chooser.
   Future<void> _loadToday() async {
-    final list = await ScenarioLoader.load();
-    if (!mounted) return;
-    final userLevel =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-    final completed = Storage.completedScenarios.toSet();
-
-    Scenario? pick;
-    for (final s in list.where((s) => s.level == userLevel)) {
-      if (!completed.contains(s.id)) {
-        pick = s;
-        break;
-      }
+    if (mounted) {
+      setState(() => _loadingTodaySnapshot = true);
     }
-    if (pick == null) {
-      for (final s in list) {
-        if (!completed.contains(s.id)) {
-          pick = s;
-          break;
-        }
-      }
-    }
-    pick ??= list.isEmpty ? null : list.first;
-
-    // M2/A1: "Heute lernen" — fällige + neue SRS-Karten. A1: CSV + 나만의 단어장
-    // + 책 한 컷 단어 모두 포함. A2: "어려운 단어"(leech) 개수도 함께 계산.
-    int dueCount = 0;
-    int hardCount = 0;
     try {
-      final all = await ReviewDeckService.allReviewable();
-      if (!mounted) return;
-      final koreans = all.map((v) => v.korean);
-      dueCount = Storage.todayGoalIds(koreans).length;
-      hardCount = Storage.hardIds(koreans).length;
+      final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
+      final snapshot = await load();
+      if (!mounted) {
+        return;
+      }
+
+      // Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 노출(이후 배지만).
+      final week = _isoWeek(DateTime.now());
+      final showCourseCard =
+          _courseCardThisWeek || Storage.courseCardWeekShown != week;
+      if (!_courseCardThisWeek && showCourseCard) {
+        // ignore: discarded_futures
+        Storage.setCourseCardWeekShown(week);
+      }
+
+      setState(() {
+        _todaySnapshot = snapshot;
+        _dueCount = snapshot.dueCount;
+        _hardCount = snapshot.hardCount;
+        _courseCardThisWeek = showCourseCard;
+        _loadingTodaySnapshot = false;
+      });
+      // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
+      _refreshDailyReminder();
     } catch (_) {
-      /* best-effort; ohne Vokabeln einfach 0 */
+      if (!mounted) {
+        return;
+      }
+      setState(() => _loadingTodaySnapshot = false);
     }
-
-    // Q2: Tageskurs 전용 카드 — 이번 주 첫 홈 세션에만 노출(이후 배지만).
-    final week = _isoWeek(DateTime.now());
-    final showCourseCard =
-        _courseCardThisWeek || Storage.courseCardWeekShown != week;
-    if (!_courseCardThisWeek && showCourseCard) {
-      // ignore: discarded_futures
-      Storage.setCourseCardWeekShown(week);
-    }
-
-    setState(() {
-      _today = pick;
-      _completed = completed;
-      _dueCount = dueCount;
-      _hardCount = hardCount;
-      _courseCardThisWeek = showCourseCard;
-      _loadingScenario = false;
-    });
-
-    // 푸시 리텐션: 데일리 리마인더 body를 최신 스트릭으로 갱신해 재예약.
-    _refreshDailyReminder();
-    // 팩 진행도 새로고침 (RefreshIndicator → pull-to-refresh 시 동기화).
-    // ignore: discarded_futures
-    _loadPath();
-    // 코스 스냅샷 새로고침 (미션 히어로 소스 ①).
-    // ignore: discarded_futures
-    _loadCourse();
   }
+
+  Future<void> _refreshHome() => Future.wait<void>([_loadToday(), _loadPath()]);
 
   /// 알림이 켜져 있으면 데일리 리마인더를 최신 스트릭 문구로 재예약한다
   /// (홈 진입마다). 스트릭이 있으면 "🔥 N일 연속" 넛지로 강화.
@@ -462,8 +409,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (!mounted) {
       return;
     }
-    await _loadToday();
-    await _loadPath();
+    await _refreshHome();
     if (celebrateAfter && mounted) {
       await _maybeCelebrateMilestone();
     }
@@ -477,29 +423,10 @@ class _HomeScreenState extends State<HomeScreen> {
   /// 규칙 R-REC(H-6): 추천 레벨 ≤ 사용자 레벨 — 코스·팩은 순차 구조가
   /// 레벨을 보장하므로 시나리오에만 명시 가드를 둔다.
   MissionHeroContent? _missionHeroContent(AppL10n t, String lang) {
-    // 결정은 순수 recommendMission(§6.1)이, 문구·내비게이션은 여기가 담당.
-    ({VocabPack pack, PackProgress progress})? nowNode;
-    if (_nowPackId != null) {
-      for (final e in _pathNodes) {
-        if (e.pack.id == _nowPackId) {
-          nowNode = e;
-          break;
-        }
-      }
-    }
-    final userLevel =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-    final today = _today;
-    final pick = recommendMission(
-      courseUnits: _courseCatalog?.courseUnits ?? const [],
-      currentCourseUnitId: _courseSnapshot?.currentCourseUnitId,
-      completedUnitIds: _courseSnapshot?.completedUnitIds.toSet() ?? const {},
-      nowNode: nowNode,
-      dueCount: _dueCount,
-      scenario: today == null ? null : (id: today.id, level: today.level),
-      scenarioCompleted: today != null && _completed.contains(today.id),
-      userLevel: userLevel,
-    );
+    // The shared snapshot is the only input-assembly owner. Home only turns
+    // its already selected pick into presentation copy and opens Sarangbang.
+    final snapshot = _todaySnapshot;
+    final pick = snapshot?.pick;
     switch (pick) {
       case CoursePick c:
         return MissionHeroContent(
@@ -512,8 +439,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
-              await _loadToday();
-              await _loadPath();
+              await _refreshHome();
             }
             // 레슨 직후 달성한 마일스톤 즉시 축하 (구 주 CTA 동작 승계).
             if (mounted) {
@@ -533,8 +459,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
-              await _loadToday();
-              await _loadPath();
+              await _refreshHome();
             }
           },
         );
@@ -549,7 +474,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
-              await _loadToday();
+              await _refreshHome();
             }
           },
         );
@@ -557,7 +482,7 @@ class _HomeScreenState extends State<HomeScreen> {
         final level = sc.level.code.toUpperCase();
         return MissionHeroContent(
           kind: MissionHeroKind.scenario,
-          title: today!.title.pick(lang),
+          title: snapshot?.scenario?.title.pick(lang) ?? sc.scenarioId,
           levelCode: level,
           meta: t.missionHeroScenarioMeta(level),
           fraction: 0,
@@ -565,7 +490,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onStart: () async {
             await Navigator.pushNamed(context, '/sarangbang');
             if (mounted) {
-              await _loadToday();
+              await _refreshHome();
             }
           },
         );
@@ -611,8 +536,7 @@ class _HomeScreenState extends State<HomeScreen> {
               arguments: e.pack.id,
             );
             if (mounted) {
-              await _loadToday();
-              await _loadPath();
+              await _refreshHome();
             }
           },
         ),
@@ -736,15 +660,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         delay: const Duration(milliseconds: 100),
                         slideY: 14,
                         child: MissionHeroCard(
-                          loading: _loadingScenario || _loadingCourse,
-                          content: (_loadingScenario || _loadingCourse)
+                          loading: _loadingTodaySnapshot,
+                          content: _loadingTodaySnapshot
                               ? null
                               : _missionHeroContent(t, lang),
                           onPremiumCourse: _openCourse,
                           onAnotherRound: () async {
                             await Navigator.pushNamed(context, '/path');
                             if (mounted) {
-                              await _loadToday();
+                              await _refreshHome();
                             }
                           },
                         ),
@@ -767,7 +691,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () async {
                               await Navigator.pushNamed(context, '/path');
                               if (mounted) {
-                                await _loadToday();
+                                await _refreshHome();
                               }
                             },
                           ),
