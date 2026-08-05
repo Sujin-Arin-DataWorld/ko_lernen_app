@@ -83,6 +83,21 @@ class DecorationRewardService {
     _mutation = SynchronousFuture<void>(null);
   }
 
+  /// 팩 클리어 보상 출처의 접두사. 출처 id 는 `pack:<packId>`(예 `pack:food_a1`).
+  /// 콜론을 포함하지 않는 퀘스트 id 와 충돌하지 않는다.
+  static const String kPackSourcePrefix = 'pack:';
+
+  /// 보자기를 낼 수 있는 유효한 보상 출처인가.
+  ///
+  /// 등록된 퀘스트이거나, 형식이 올바른 팩 출처(`pack:` + 비어있지 않은 id)면
+  /// true. 팩 출처의 후보는 [_stableStartIndex] 해시로만 결정돼 출처 종류와
+  /// 무관하게 항상 결정적·수령 가능하므로 별도 팩 목록 검증이 필요 없다. 오직
+  /// pack-clear 경로가 실제 pack.id 로 생산하므로 잘못된 팩 출처는 생기지 않는다.
+  static bool isRewardSource(String id) =>
+      kQuestById.containsKey(id) ||
+      (id.startsWith(kPackSourcePrefix) &&
+          id.length > kPackSourcePrefix.length);
+
   /// 한 퀘스트가 항상 같은 세 후보를 주되, 이미 보유한 것은 제외한다.
   ///
   /// 원래 세 종을 전부 보유했을 때만 바로 다음 순환 위치에서 미보유 세 종을
@@ -98,7 +113,7 @@ class DecorationRewardService {
       kDecorationRewardPool.every(kDecorCategory.containsKey),
       'Reward pool may contain only registered interior decorations.',
     );
-    if (!kQuestById.containsKey(questId)) {
+    if (!isRewardSource(questId)) {
       return const <String>[];
     }
 
@@ -139,29 +154,34 @@ class DecorationRewardService {
   /// 상자는 여전히 여는 동작(교체·보관)이 필요하므로 센다.
   static int openableBoxCount({Iterable<String>? pending}) {
     final boxes = pending ?? Storage.pendingBoxes;
-    return boxes.where(kQuestById.containsKey).length;
+    return boxes.where(isRewardSource).length;
   }
 
   /// 먼저 중단된 수령을 회복한 뒤 첫 미개봉 꾸러미의 표시 상태를 만든다.
   static Future<DecorationRewardOffer> loadNextOffer() =>
       _serialize(_loadNextOffer);
 
-  /// 새로 완료된 퀘스트의 보자기를 최대 한 개만 큐에 넣는다.
+  /// 새로 완료된 보상 출처(퀘스트 또는 팩 클리어)의 보자기를 최대 한 개만
+  /// 큐에 넣는다.
   ///
   /// 수령과 같은 직렬 체인을 쓰므로, 수령 중에 뒤늦게 지급된 보상 상자가
-  /// 첫 상자 소비 write와 경합해 유실되지 않는다. 새 생산 경로는 알 수 없는
-  /// 출처를 저장하지 않아 화면이 복구할 수 없는 pending box를 만들지 않는다.
-  static Future<void> ensurePendingBoxForQuest(String questId) =>
-      _serialize(() => _ensurePendingBoxForQuest(questId));
+  /// 첫 상자 소비 write와 경합해 유실되지 않는다. 유효하지 않은(알 수 없는)
+  /// 출처는 저장하지 않아 화면이 복구할 수 없는 pending box를 만들지 않는다.
+  static Future<void> ensurePendingBox(String sourceId) =>
+      _serialize(() => _ensurePendingBox(sourceId));
 
-  static Future<void> _ensurePendingBoxForQuest(String questId) async {
-    if (!kQuestById.containsKey(questId)) {
+  /// 하위호환 별칭 — 퀘스트 완료 경로([QuestTracker.persistNewCompletions]).
+  static Future<void> ensurePendingBoxForQuest(String questId) =>
+      ensurePendingBox(questId);
+
+  static Future<void> _ensurePendingBox(String sourceId) async {
+    if (!isRewardSource(sourceId)) {
       return;
     }
-    if (Storage.pendingBoxes.contains(questId)) {
+    if (Storage.pendingBoxes.contains(sourceId)) {
       return;
     }
-    await Storage.addPendingBox(questId);
+    await Storage.addPendingBox(sourceId);
   }
 
   static Future<DecorationRewardOffer> _loadNextOffer() async {
@@ -180,7 +200,7 @@ class DecorationRewardService {
     }
 
     final sourceQuestId = pending.first;
-    if (!kQuestById.containsKey(sourceQuestId)) {
+    if (!isRewardSource(sourceQuestId)) {
       return DecorationRewardOffer(
         state: DecorationRewardOfferState.unknownQuest,
         sourceQuestId: sourceQuestId,
@@ -222,7 +242,7 @@ class DecorationRewardService {
     }
 
     final sourceQuestId = pendingBefore.first;
-    if (!kQuestById.containsKey(sourceQuestId)) {
+    if (!isRewardSource(sourceQuestId)) {
       return DecorationRewardClaimResult.unknownQuest;
     }
 
@@ -272,7 +292,7 @@ class DecorationRewardService {
     }
 
     final sourceQuestId = pendingBefore.first;
-    if (!kQuestById.containsKey(sourceQuestId)) {
+    if (!isRewardSource(sourceQuestId)) {
       return DecorationRewardClaimResult.unknownQuest;
     }
     if (!_hasCompleteRewardCollection(Storage.ownedDecor)) {
@@ -342,7 +362,7 @@ class DecorationRewardService {
   }
 
   static bool _isClaimableJournal(_RewardClaimJournal journal) {
-    if (!kQuestById.containsKey(journal.sourceQuestId)) {
+    if (!isRewardSource(journal.sourceQuestId)) {
       return false;
     }
     return switch (journal.kind) {

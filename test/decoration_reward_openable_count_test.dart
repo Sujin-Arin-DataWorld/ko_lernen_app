@@ -31,4 +31,20 @@ void main() {
       2,
     );
   });
+
+  test('올바른 팩 출처(pack:<id>)는 세고, 접두사만/무접두는 세지 않는다', () {
+    final known = kQuestById.keys.first;
+    final prefix = DecorationRewardService.kPackSourcePrefix;
+    expect(
+      DecorationRewardService.openableBoxCount(
+        pending: <String>[
+          '${prefix}food_a1', // 유효한 팩 출처 → 센다
+          known, // 유효한 퀘스트 → 센다
+          prefix, // 접두사만 = 무효
+          'raw_pack_without_prefix', // 접두사 없음 = 무효
+        ],
+      ),
+      2,
+    );
+  });
 }

@@ -9,6 +9,7 @@ import '../models/curriculum.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import '../services/course_activity_reporter.dart';
+import '../services/decoration_reward_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -451,6 +452,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     // 도장 획득 — 첫 클리어 시 토픽군 motif 도장을 도장첩에 추가.
     if (result.justCleared) {
       await Storage.addEarnedStamp(motifForPackId(pack.id).name);
+      // 첫 클리어 = 보자기 하나. 팩 출처(`pack:<id>`)로 큐에 넣으면 홈·사랑방
+      // 발견 배너가 바로 집어 든다(퀘스트 화면 불필요). justCleared + 큐 dedup
+      // 으로 팩당 정확히 1개.
+      await DecorationRewardService.ensurePendingBox(
+        '${DecorationRewardService.kPackSourcePrefix}${pack.id}',
+      );
     }
 
     if (!mounted) return;
