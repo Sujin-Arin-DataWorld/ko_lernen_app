@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/placement_diagnostic.dart';
+import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/responsive.dart';
@@ -26,6 +27,27 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
   int? _selected;
   bool _saving = false;
 
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeSpeakPrompt());
+  }
+
+  /// 청취 유형 문제("Hör zu und wähle die Bedeutung")는 등장 시 자동 발음 재생 —
+  /// 앱 전체 "듣고 고르기"와 통일. 다른 유형(문법·어순·의미 읽기)은 읽기
+  /// 문제라 무음을 유지한다.
+  void _maybeSpeakPrompt() {
+    if (!mounted || _done) {
+      return;
+    }
+    final question = placementDiagnosticQuestions[_index];
+    if (question.skill == PlacementDiagnosticSkill.listening &&
+        question.korean.isNotEmpty) {
+      // ignore: discarded_futures
+      TtsService.speak(question.korean);
+    }
+  }
+
   String get _lang => Localizations.localeOf(context).languageCode;
   bool get _done => _index >= placementDiagnosticQuestions.length;
   int get _correct => List<int>.generate(_answers.length, (index) => index)
@@ -43,6 +65,8 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
       _selected = null;
       _index++;
     });
+    // 다음 문제가 청취 유형이면 자동 발음 재생.
+    _maybeSpeakPrompt();
   }
 
   Future<void> _choose(String levelCode) async {
@@ -105,6 +129,19 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
               if (question.korean.isNotEmpty) ...[
                 const SizedBox(height: Spacing.lg),
                 Text(question.korean, style: SoriTextTheme.of(context).display),
+              ],
+              // 청취 문제는 다시 듣기 버튼 제공(등장 시 자동 재생 + 재생 반복).
+              if (question.skill == PlacementDiagnosticSkill.listening &&
+                  question.korean.isNotEmpty) ...[
+                const SizedBox(height: Spacing.md),
+                SoriButton.outlined(
+                  label: t.vocabPackBossReplayAudio,
+                  icon: Icons.volume_up_rounded,
+                  onTap: () {
+                    // ignore: discarded_futures
+                    TtsService.speak(question.korean);
+                  },
+                ),
               ],
             ],
           ),

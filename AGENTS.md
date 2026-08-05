@@ -495,7 +495,7 @@ flutter run -d <android-id>   # 안드로이드
 
 **검증:** `flutter analyze`(4파일) **0** · 관련 테스트(vocab_pack·placement_diagnostic·no_emoji_glyph·dedicated_feedback×2) 35 통과. ⚠️ **미검증(Jin 실기기)**: 퀴즈 자동발음·Hörverstehen 자동재생·배치테스트 청취 자동재생·보기 박스 크기·다크. ⚠️ `satz_bauen_quest.dart:348` 오버플로는 **동시세션 WIP**(아래 08-05 "Satz bauen" 항목) — 내 변경 무관·미접촉.
 
-**Git:** 미커밋(Jin 확인 후). 변경 4파일: vocab_pack_screen·quiz_choice·hoerverstehen_quest·placement_diagnostic_screen.
+**Git:** `vocab_pack_screen.dart` + 본 로그는 동시세션 커밋 `f2b665d`(vocab_pack_result 번들)에 함께 반영됨. 나머지 3파일(`quiz_choice`·`hoerverstehen_quest`·`placement_diagnostic_screen`)은 별도 커밋(이 항목 아래 커밋). 동시세션 파일(arb·home·dojangcheop·quests·settings·decoration_reward·pubspec·docs/store·ios)은 미포함.
 
 ### 2026-08-05 — 단어팩 결과/퀴즈 실기기 피드백 5종(CTA 줄바꿈·축하 캐릭터 단일화·퀴즈 화면 채움·포효 영상 확대) — 미커밋
 

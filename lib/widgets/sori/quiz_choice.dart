@@ -33,6 +33,10 @@ class QuizChoice extends StatefulWidget {
   /// 선택 보조 설명(로마자·품사 등). 없으면 미표시.
   final String? subtitle;
 
+  /// 최소 높이(dp). null이면 콘텐츠 높이. 넉넉한 화면을 채워야 하는 화면
+  /// (단어팩 등)에서 보기 박스를 더 크게·탭하기 쉽게 만들 때만 지정.
+  final double? minHeight;
+
   const QuizChoice({
     super.key,
     required this.text,
@@ -41,6 +45,7 @@ class QuizChoice extends StatefulWidget {
     this.revealed = false,
     this.onSelected,
     this.subtitle,
+    this.minHeight,
   });
 
   @override
@@ -116,6 +121,9 @@ class _QuizChoiceState extends State<QuizChoice>
       duration: SoriAnimation.quick,
       curve: Curves.easeOut,
       width: double.infinity,
+      constraints: widget.minHeight != null
+          ? BoxConstraints(minHeight: widget.minHeight!)
+          : null,
       decoration: BoxDecoration(
         color: bg,
         border: Border.all(color: border, width: 1.6),

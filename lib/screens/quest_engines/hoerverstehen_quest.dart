@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
@@ -37,6 +38,19 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
 
   int get _correctIndex => (widget.data['correctIndex'] as num?)?.toInt() ?? 0;
   String get _audioKo => (widget.data['audioKo'] as String?) ?? '';
+
+  @override
+  void initState() {
+    super.initState();
+    // 첫 등장 시 자동 재생 — "듣고 고르기"를 앱 전체와 통일(탭 대기 없이).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) {
+        return;
+      }
+      // ignore: discarded_futures
+      TtsService.speak(_audioKo);
+    });
+  }
 
   Future<void> _playTts() async {
     HapticFeedback.selectionClick();
@@ -137,7 +151,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          '▶ Tap to play',
+                          AppL10n.of(context).vocabPackBossReplayAudio,
                           style: TextStyle(color: s.textMuted, fontSize: 13),
                         ),
                       ],
