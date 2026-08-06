@@ -17,7 +17,12 @@ import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
+import 'package:ko_lernen_app/models/course_practice_context.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
+import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/wordle_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
@@ -356,6 +361,107 @@ void main() {
           await tester.pumpWidget(const SizedBox.shrink());
           await tester.pump();
         });
+      }
+    }
+  });
+
+  // ── 상태 변형: 같은 화면, 인자에 따라 달라지는 렌더 구조 ─────────────────
+  //
+  // 위 매트릭스의 `screens` 맵은 **무인자 생성자만** 담는다. 그래서 같은
+  // Screen 이라도 인자로 레이아웃이 달라지는 변형(코스 모드·팩 인자)은 어떤
+  // 폭·높이에서도 검사되지 않았다. 실제로 `GrammarScreen(courseContext: …)`
+  // 는 800×600 에서 넘치는데 무인자 `GrammarScreen()` 은 같은 폭에서 멀쩡하다.
+  //
+  // 기준은 "생성자에 인자가 있느냐" 가 아니라 **"그 인자가 렌더 구조를
+  // 바꾸느냐"** 다. 코스 모드는 체크포인트 헤더와 다른 액션 바를 얹고,
+  // 팩 화면은 학습 카드·스테이지 바를 얹는다 — 둘 다 구조가 달라진다.
+  group('상태 변형 반응형 (인자가 렌더 구조를 바꾸는 화면)', () {
+    setUp(() async {
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_user_level': 'a1',
+        'kl_streak_days': 3,
+        'kl_xp': 40,
+        // 코스 화면의 첫 실행 코치마크가 레이아웃을 덮지 않게 한다.
+        'kl_tut_grammar': true,
+        'kl_tut_smalltalk': true,
+      });
+      await Storage.init();
+      DataLoader.reset();
+      ScenarioLoader.reset();
+      SmalltalkLoader.reset();
+      CurriculumCatalog.reset();
+    });
+
+    /// 코스 미션이 연 학습 화면의 문맥. 카탈로그 로드가 필요해 화면 생성이
+    /// 비동기다 — 그래서 이 그룹은 `screens` 맵이 아니라 빌더를 쓴다.
+    Future<CoursePracticeContext> courseContext(
+      WidgetTester tester, {
+      required CurriculumContentKind kind,
+      required String unitId,
+    }) async {
+      final catalog = (await tester.runAsync(CurriculumCatalog.load))!;
+      final link = catalog.contentLinks.firstWhere(
+        (item) =>
+            item.contentKind == kind &&
+            item.courseUnitId == unitId &&
+            item.role == ContentLinkRole.assess,
+      );
+      return CoursePracticeContext.fromLink(link);
+    }
+
+    final variants = <String, Future<Widget> Function(WidgetTester)>{
+      'grammar (course mode)': (tester) async => GrammarScreen(
+        courseContext: await courseContext(
+          tester,
+          kind: CurriculumContentKind.grammar,
+          unitId: 'a1_03_topic_subject_particles',
+        ),
+      ),
+      'smalltalk (course mode)': (tester) async => SmalltalkScreen(
+        courseContext: await courseContext(
+          tester,
+          kind: CurriculumContentKind.smalltalk,
+          unitId: 'a2_02_plans_proposals',
+        ),
+      ),
+      // pack 인자로 열리는 학습 화면 — 무인자가 아니라 매트릭스에 없었다.
+      'vocab pack (pack arg)': (tester) async =>
+          const VocabPackScreen(packId: 'a1_greetings_1'),
+    };
+
+    // 낮은 높이 4조건 + 폰/태블릿 기준 2조건.
+    for (final size in <Size>[
+      const Size(360, 400),
+      const Size(800, 360),
+      const Size(800, 600),
+      const Size(1280, 500),
+      const Size(360, 900),
+      const Size(800, 1280),
+    ]) {
+      for (final entry in variants.entries) {
+        testWidgets(
+          '${entry.key} @ ${size.width.toInt()}x${size.height.toInt()} 오버플로 없음',
+          (tester) async {
+            tester.view.physicalSize = size;
+            tester.view.devicePixelRatio = 1;
+            addTearDown(tester.view.resetPhysicalSize);
+            addTearDown(tester.view.resetDevicePixelRatio);
+
+            final screen = await entry.value(tester);
+            await tester.pumpWidget(_wrap(screen));
+            await tester.pump();
+            await tester.pump(const Duration(milliseconds: 100));
+            await tester.pump(const Duration(milliseconds: 1200));
+
+            expect(tester.takeException(), isNull);
+
+            // 코스 화면은 TTS·진입 애니메이션 타이머를 들고 있어 명시적 해제가
+            // 필요하다(다음 테스트로 새지 않게).
+            await tester.pumpWidget(const SizedBox.shrink());
+            await tester.pump(const Duration(seconds: 1));
+          },
+        );
       }
     }
   });
