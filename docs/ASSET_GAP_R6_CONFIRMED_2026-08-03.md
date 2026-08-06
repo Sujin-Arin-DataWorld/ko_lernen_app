@@ -25,7 +25,7 @@
 
 | # | 등장 상황 | 화면(코드) | 호랑이 | Joy 현재 | 심각도 |
 |---|---|---|---|---|---|
-| J1 | Lernpfad "지금" 노드 | `path_trail.dart:468` | `tiger_bob` 전용 바운스 | `magpie_perched` 재탕(정지 대기) | 🔴 최다 노출 |
+| J1 | Lernpfad "지금" 노드 | `path_trail.dart:468` | `tiger_walking_front` 전용 바운스 | `magpie_perched` 재탕(정지 대기) | 🔴 최다 노출 |
 | J2 | 퀴즈/끝말잇기 "생각 중" | `kkeunmari_screen.dart:438` · `thinkingFor()` | `tiger_thinking` 전용 | `magpie_perched` 재탕 | 🔴 |
 | J3 | 캐릭터 선택 무대 인사 | `character_selection_screen.dart:248` | `tiger_roar` 드라마틱 | `magpie_perched` 밋밋 | 🟡 Joy 첫인상 |
 | J4 | 신기록/보너스 | `game_reward.dart:166` · `feedbackFor(newBest)` | `tiger_roar` escalation | `magpie_celebrate` 재탕(승급감 없음) | 🟡 |
@@ -43,7 +43,7 @@
 
 | 우선 | 파일(제안명) | 상황 | 무엇을(동작) | 왜 | 현재 대체 |
 |---|---|---|---|---|---|
-| **P0** | `magpie_bob.mp4` | Lernpfad "지금" 노드(J1) · 게임 대기 | 앉은 자세에서 **가벼운 상하 홉 + 꼬리 까딱** 루프 | `tiger_bob`과 동등. 가장 자주 보는 화면이 지금 정지라 경로가 죽어 보임 | `magpie_perched`(정지 대기) |
+| **P0** | `magpie_bob.mp4` | Lernpfad "지금" 노드(J1) · 게임 대기 | 앉은 자세에서 **가벼운 상하 홉 + 꼬리 까딱** 루프 | `tiger_walking_front`과 동등. 가장 자주 보는 화면이 지금 정지라 경로가 죽어 보임 | `magpie_perched`(정지 대기) |
 | **P1** | `magpie_thinking.mp4` | 퀴즈·끝말잇기 생각 루프(J2) | **고개 갸웃 + 부리 톡톡** 루프 | `tiger_thinking` 대응. "생각한다"는 몸짓 자체가 없음 | `magpie_perched` 재탕 |
 | **P2** | `magpie_flourish.mp4` | 캐릭터 선택 무대(J3) | **날개 활짝 펼침 + 꼬리 부채** 1회 원샷 | `tiger_roar`의 드라마에 대응 = **Joy를 고르는 순간의 첫인상**. 지금은 "Joy는 심심하다" 인상 | `magpie_perched` |
 | **P3** | `magpie_soar.mp4` | 신기록·레벨업(J4) | **급상승 비행 + 반짝임** 원샷 | 일반 celebrate보다 한 단계 위 = 승급감 | `magpie_celebrate` 재탕 |

@@ -62,7 +62,7 @@ plist 2 종 `plistlib` 파싱 통과.
    (부수: `AGENTS.md`의 `merkmal/hanok-oblique-world` 항목이 병합 후에도 `[~] 미커밋`으로 남아 오해를 키웠다 → 정정.)
 
 **수정:**
-- **clip matte 2건** — `tool/clip_matte_report.json`이 신규 3클립 누락·2클립 바이트 드리프트. 재생성 과정에서 **실버그 발견**: 교체된 `magpie_bob`·`bob2`·`bob3`·`choose` 4개의 매트가 `#F2F2F2`(순백 아님). `BlendMode.multiply`는 255에서만 항등원이라 크림 배경을 ~5% 눌러 **회색 박스**로 보인다(하필 `magpie_bob3`이 새 홈 히어로). ffmpeg `lutrgb`로 ≥236을 255로 스냅해 재인코딩 → 24클립 전부 `ok`. 번들에 섞여 있던 `magpie_choose - 복사본.mp4`도 제거.
+- **clip matte 2건** — `tool/clip_matte_report.json`이 신규 3클립 누락·2클립 바이트 드리프트. 재생성 과정에서 **실버그 발견**: 교체된 `magpie_bob`·`bob2`·`bob3`·`choose` 4개의 매트가 `#F2F2F2`(순백 아님). `BlendMode.multiply`는 255에서만 항등원이라 크림 배경을 ~5% 눌러 **회색 박스**로 보인다(하필 `magpie_walking_front`이 새 홈 히어로). ffmpeg `lutrgb`로 ≥236을 255로 스냅해 재인코딩 → 24클립 전부 `ok`. 번들에 섞여 있던 `magpie_choose - 복사본.mp4`도 제거.
 - **satz 2건 (진짜 레이아웃 회귀)** — `3ee6ec1`이 마스코트를 `Stack(Clip.none)` 오버레이에서 flow로 옮기며 `MascotPartner(92px)+Spacing.lg(16)`=108px를 세로 예산에 얹었다. 이 퀘스트는 스크롤 없는 `Expanded` 안이라 800×600에서 411px 자리에 533.5px → **122.5px 오버플로**. 단어 타일이 hit-test 밖으로 밀려 탭이 배경으로 새고 `Prüfen`은 뷰포트 밖(y=676)으로 나갔다. 오버레이 복원 + 스피커를 leading 슬롯으로 이동(3ee6ec1이 고쳤던 겹침 재발 방지) + `minHeight 96→72`·`padV 24→18`. **가드 테스트는 손대지 않았다** — 정당한 회귀 검출이었다.
 - **typography 1건** — `468facf`가 배치테스트에 다시듣기 버튼을 추가해 아이콘 `SoriButton` 74→75. 가드가 명시한 유지 대상(**미디어 컨트롤**)이라 아이콘을 떼는 대신 래칫을 75로 올리고 사유를 주석에 남겼다.
 - **goldens 3건 — 환경 드리프트(코드 회귀 아님).** 로컬(Windows/Flutter 3.44.8) 통과, CI(ubuntu/**3.44.0** 핀) 실패. 기준선은 `91dd549`(8/4)이고 이후 위젯 변경은 폭 400에서 no-op(`soriComfortScale`가 정확히 1.0)임을 확인. CI에 ① 실패 시 golden diff 아티팩트 업로드 ② `workflow_dispatch`로 **CI와 동일 환경에서 기준선 재생성**하는 잡을 추가했다. ⚠️ 기준선은 **Linux 정본** — 로컬에서 `--update-goldens` 금지.
@@ -72,6 +72,24 @@ plist 2 종 `plistlib` 파싱 통과.
 **검증:** `flutter test` 전체 · `flutter analyze` · `python tool/check_clip_matte.py`(24/24 ok).
 
 ---
+
+### 2026-08-06 — "호랑이가 안나와": `staticFallback:false` 의 깨진 전제 수리 — 미커밋
+
+**범위:** Jin 웹 스크린샷 — 헤더·인사·말풍선·꽃잎은 다 나오는데(= 앞선 수정은 먹었다) **캐릭터 자리만 빈칸**. 에셋은 정상(`tiger_rise.mp4` 실재, `pubspec` 에 `assets/video/character/` 등록됨).
+
+**근본 원인:** `staticFallback:false` 는 "영상이 곧 뜬다"는 **가정**인데, 이 가정이 깨지는 경로가 문서화된 2가지(기기 미지원·reduce-motion)보다 많다 — ① 로드 실패 ② lease 미승인(웹 디코더·다른 화면이 점유) ③ **원샷 종료 후 텍스처 회수**. 그 경우 `SizedBox.shrink()` 로 떨어져 자리가 통째로 비었다. ③ 은 프로필 호랑이가 "걸어 들어온 뒤 사라지던" 경로와 동일하다.
+
+**수정 (`character_clip.dart`):**
+- `_failed` 이거나 워치독(900ms) 만료면 `staticFallback` 설정과 **무관하게** 정적 마스코트를 그린다. 영상이 뒤늦게 오면 기존 200ms `AnimatedSwitcher` 가 크로스페이드로 넘긴다.
+- `_onRevoked` 에서 `_fallbackDue = true` — 텍스처가 회수되면(원샷 종료·lease 양보) 정적이 자리를 이어받는다.
+- 워치독은 `staticFallback:false` 인 호출부에서만 생성 → 테스트 환경(`videoReady=false` → 전부 `staticFallback:true`)에는 타이머가 아예 안 생겨 pending-timer 회귀 0.
+- `_onGranted`·`dispose` 에서 타이머 취소.
+
+**동시 세션 정렬(Jin 지시 "상수 재지정은 바뀐대로 그대로 써줘"):** 다른 세션이 `_tigerProfileClips` 를 `[tigerSitting2]`(앉은 루프)로 바꿨는데 `profile_screen` 은 아직 보행 원샷을 직접 쓰고 있었다 → 카탈로그에 맞춰 `loop: true` 로 정렬하고 stale 주석 정리.
+
+**검증:** `flutter analyze --fatal-infos lib/ test/` **No issues**. `screen_smoke`(25)·`sori_video_lease`·`profile_screen`·`home_hero_layout`·`path_trail_tap`·`responsive`(386 단독) **전부 통과**.
+⚠️ **다른 세션 몫의 실패 3건** — `character_clip_test`("tiger profile picker is fixed to tiger_walking_front")는 그 세션이 방금 `tigerSitting2` 로 바꾸며 stale 해졌고, `character_clip_matte_test` 2건은 mp4 추가·개명(`magpie_walking_front` 등) 뒤 `tool/clip_matte_report.json` 미갱신 때문이다. 내 변경과 무관하며, 같은 파일을 동시 편집 중이라 손대지 않았다.
+**커밋 안 함** — `character_clip.dart` 에 그 세션의 카탈로그 변경이 섞여 있어 hunk 분리가 불가하다. Jin 조율 필요.
 
 ### 2026-08-06 — 캐릭터 영상·오버레이 전수 검사 후속: 결함 12건 수정
 
@@ -98,7 +116,7 @@ plist 2 종 `plistlib` 파싱 통과.
 **검증:** `dart format` 후 `flutter analyze --fatal-infos lib/ test/` **No issues found!** · 전체 직렬 `flutter test` **2,159 통과 / 3 실패**. 실패 3건은 `test/goldens/design_components_golden_test.dart`(SoriCard·SoriLevelChip·MissionHeroCard)로 **사전 존재 확정** — 내 변경만 `git stash` 로 뺀 깨끗한 HEAD 에서 동일하게 3건 실패함을 실측했고, 기준선은 `5995011` 에서 **CI(Linux/3.44.0) 정본으로 재생성**된 것이라 Windows 로컬에서는 폰트 래스터화 차이로 어긋난다. 내 변경과 겹치는 위젯도 없다(해당 골든 파일에 CharacterClipPlayer/path_trail/TigerStage/game_reward/Mascot 참조 0건).
 ⚠️ `dart format lib/` 가 미변경 파일 59개까지 재포맷해 **전부 `git checkout` 으로 되돌렸다** — 커밋에는 실제로 만진 12개만 들어간다.
 
-**미검증(Jin 실기기):** ClipRect 완화책이 헤더 소실을 실제로 막는지. **막지 못하면** 원인이 Skia clip 바깥의 GL 상태 오염이라는 뜻이므로 ClipRect 를 되돌리고 mp4 매트를 크림으로 재출력해 `ColorFiltered` 자체를 없애는 확정 수순으로 간다. 그 외 시각 확인 필요: 학습경로 노드 캐릭터가 62→48 로 작아진 것(원판을 키우는 대안 있음), 프로필 호랑이 tiger_bob 프레이밍, 꽃잎이 캐릭터 앞을 지나는 연출.
+**미검증(Jin 실기기):** ClipRect 완화책이 헤더 소실을 실제로 막는지. **막지 못하면** 원인이 Skia clip 바깥의 GL 상태 오염이라는 뜻이므로 ClipRect 를 되돌리고 mp4 매트를 크림으로 재출력해 `ColorFiltered` 자체를 없애는 확정 수순으로 간다. 그 외 시각 확인 필요: 학습경로 노드 캐릭터가 62→48 로 작아진 것(원판을 키우는 대안 있음), 프로필 호랑이 tiger_walking_front 프레이밍, 꽃잎이 캐릭터 앞을 지나는 연출.
 
 ### 2026-08-06 — 4개 세션 병합 감사 + 누락된 홈 히어로 회귀 테스트 커밋
 
@@ -124,7 +142,7 @@ plist 2 종 `plistlib` 파싱 통과.
 
 **진단 (스크린샷 실측 + 색 계산):**
 - **① 헤더 소실 = paint 순서.** 사라진 것은 정확히 **영상보다 먼저 그려지는 형제들**(TopBar·인사·말풍선·매화 입자)이고, 영상 **뒤에** 그려지는 미션 카드·한옥 프리뷰·하단 탭은 정상이다. 두 스크린샷의 미션 카드 시작 y 차이(+92dp)가 밴드 확대분(153→244dp)과 정확히 일치 → **레이아웃은 정상, 렌더만 안 됨**. 바로 아래 엔트리(Impeller off + sdkInt 게이트 제거)로 이 폰에서 **처음으로 영상이 실제 재생**되기 시작한 시점과 일치한다(구 스크린샷은 액자 안 정적 마스코트 = 영상 미재생, 헤더 정상).
-- **② 밝은 사각형 = 매트 vs 배경 불일치.** `multiply(#FFFFFF, blendColor)` 결과는 **언제나 정확히 `blendColor` 단색**이다(`magpie_bob3`·`tiger_rise` 매트는 `tool/clip_matte_report.json` 실측 `#FFFFFF`/white_ratio 1.0, 바이트 크기 일치로 최신 확인). 그런데 홈 배경은 그 자리에서 ⓐ 세로 그라데이션(#FAF6EC→#F4ECDA) ⓑ `top:60,h:360` 주황 radial glow(alpha .10) 두 겹이라 **주변만 더 따뜻/어둡고 영상 사각형만 순수 `lightBg`** → 액자처럼 뜬다.
+- **② 밝은 사각형 = 매트 vs 배경 불일치.** `multiply(#FFFFFF, blendColor)` 결과는 **언제나 정확히 `blendColor` 단색**이다(`magpie_walking_front`·`tiger_rise` 매트는 `tool/clip_matte_report.json` 실측 `#FFFFFF`/white_ratio 1.0, 바이트 크기 일치로 최신 확인). 그런데 홈 배경은 그 자리에서 ⓐ 세로 그라데이션(#FAF6EC→#F4ECDA) ⓑ `top:60,h:360` 주황 radial glow(alpha .10) 두 겹이라 **주변만 더 따뜻/어둡고 영상 사각형만 순수 `lightBg`** → 액자처럼 뜬다.
 
 **수정 (`lib/screens/home_screen.dart`):**
 - **배경 평탄화**: 그라데이션 stop 3→4개, 상단 `_kHeroFlatBackdropFraction`(0.60)까지 `SoriColors.lightBg` **평면 단색** 유지 후 아래부터 기존 그라데이션. radial glow 는 `top:60` → `_kHeroBandBottomDp`(400) 로 내려 히어로 밴드와 겹치지 않게. → 영상 매트가 배경과 **픽셀 동일**해져 이음매 소멸.
@@ -143,9 +161,9 @@ plist 2 종 `plistlib` 파싱 통과.
 
 - **main.dart:** `characterVideoSupported() async => true`(fail-open) — sdkInt 게이트 삭제, 미사용 `device_info_plus` import 제거. ⚠️ Impeller 재활성화 시 게이트 복원 필요(주석·메모리 `character-video-gate-impeller`).
 - **AndroidManifest.xml:** `EnableImpeller=false` 유지(근본 수정).
-- **home_screen.dart:** 히어로 까치=`magpie_bob2↔magpie_bob3` 교대(신규 `_AlternatingClips`, 각 원샷·완료 시 다음), 호랑이=`tiger_rise` 루프. `FlyingMagpie`(비영상) 제거.
-- **profile_screen.dart:** 아바타 영상 복원(까치 `magpie_bob3` 루프 / 호랑이 `tiger_walking_front` 원샷 — loop:true 금지: 크기 튐). `character_clip` import 추가.
-- **assets:** `magpie_bob3.mp4` 정면 트림, `tiger_walking_front.mp4` 트림, `joy_magpie_full_960_1.mp4` 추가.
+- **home_screen.dart:** 히어로 까치=`magpie_bob2↔magpie_walking_front` 교대(신규 `_AlternatingClips`, 각 원샷·완료 시 다음), 호랑이=`tiger_rise` 루프. `FlyingMagpie`(비영상) 제거.
+- **profile_screen.dart:** 아바타 영상 복원(까치 `magpie_walking_front` 루프 / 호랑이 `tiger_walking_front` 원샷 — loop:true 금지: 크기 튐). `character_clip` import 추가.
+- **assets:** `magpie_walking_front.mp4` 정면 트림, `tiger_walking_front.mp4` 트림, `joy_magpie_full_960_1.mp4` 추가.
 - **pubspec:** `device_info_plus`는 게이트 되돌림으로 **현재 미사용**(제거 후보 — Jin "다른 세션 것도 커밋" 지시로 유지).
 - **검증:** `flutter analyze`(main/home/profile/character_clip) **No issues**. ⚠️ 미검증(Jin 실기기 재빌드): 홈·프로필 영상 실제 재생.
 - **주의:** **바로 아래 🥇+🥉 엔트리는 이 엔트리로 대체됨** — 그 프로필 정적화·sdkInt 게이트 코드는 이 세션(나중)이 덮어써 디스크에 남지 않음. 남은 것은 device_info_plus 의존성뿐.
@@ -211,23 +229,23 @@ plist 2 종 `plistlib` 파싱 통과.
 
 ### 2026-08-05 — 프로필 캐릭터 영상 액자/클립 완전 제거 + 까치 bob2↔bob3 교대 — 미커밋
 
-**범위:** Jin — "캐릭터 video mp4를 절대 원이나 박스에 가두지 마(네모든 원이든). 이거 어디에 써놔. Joy(까치)일 때 magpie_bob3·bob2 두 개를 번갈아, 기존거 쓰지 말고." `profile_screen.dart` `_Avatar` + `character_clip.dart` 카탈로그 + 테스트/메모리.
+**범위:** Jin — "캐릭터 video mp4를 절대 원이나 박스에 가두지 마(네모든 원이든). 이거 어디에 써놔. Joy(까치)일 때 magpie_walking_front·bob2 두 개를 번갈아, 기존거 쓰지 말고." `profile_screen.dart` `_Avatar` + `character_clip.dart` 카탈로그 + 테스트/메모리.
 
 - **규칙 영구 기록**: `~/.claude/.../memory/never-cage-character-video.md`(type feedback) + MEMORY.md 인덱스. **캐릭터 mp4는 `ClipOval`/박스/프레임 금지** — 흰 배경을 화면 배경색 `blendColor` multiply로만 흡수, 자유롭게.
 - **`_Avatar` 재작성**: 기존 `Container(shape:circle)+ClipOval`(액자) 제거 → **`SizedBox(168)` + `CharacterClipPlayer` 직접**, `blendColor: SoriSurfaces.of(context).bg`(앱 라이트 전용이라 화면 크림과 일치, 사각 이음매 X). `_medallionFill` 삭제.
 - **까치 교대**: `_magpieClips=[magpieBob2, magpieBob3]`, magpie 는 `loop:false`+`onCompleted→_advanceMagpie`(idx 순환)로 bob2↔bob3 번갈아 재생. 호랑이 등은 기존 프로필 포즈 루프 유지. `character_clip.dart` 에 `magpieBob2/3` 상수 추가(에셋 실재: `assets/video/character/magpie_bob2·3.mp4`).
 - **테스트**: magpie 는 이제 `loop:false`(교대 타이머) → `addTearDown(kind=tiger)` 로 후속 테스트 타이머 누수 방지. 기존 `Mascot.kind==magpie` 검증 유지.
 - **검증:** `flutter analyze`(3파일) **0** · 프로필 2종+character_clip+data_integrity **16 통과**(pending timer 0) · responsive **386 통과**. ⚠️ 미검증(Jin 실기기): 액자 없는 자유 배치 시각·흰 배경 흡수 이음매·bob2/bob3 교대 재생.
-- ⚠️ **동시세션 중복**: 바로 아래 "캐릭터 영상 액자 제거·확대 + 까치 2영상·프로필 호랑이 tiger_bob" 항목이 같은 요청을 다른 방식(호랑이 tiger_bob 등)으로 작업 중. 내 `_Avatar` 가 그 세션의 온디스크 버전(168·원형 유지)을 대체함 — **커밋 전 Jin 조율 필요**(둘 중 하나 선택).
+- ⚠️ **동시세션 중복**: 바로 아래 "캐릭터 영상 액자 제거·확대 + 까치 2영상·프로필 호랑이 tiger_walking_front" 항목이 같은 요청을 다른 방식(호랑이 tiger_walking_front 등)으로 작업 중. 내 `_Avatar` 가 그 세션의 온디스크 버전(168·원형 유지)을 대체함 — **커밋 전 Jin 조율 필요**(둘 중 하나 선택).
 
-### 2026-08-05 — 캐릭터 영상 액자 제거·확대 + 까치 2영상·프로필 호랑이 tiger_bob — 미커밋
+### 2026-08-05 — 캐릭터 영상 액자 제거·확대 + 까치 2영상·프로필 호랑이 tiger_walking_front — 미커밋
 
 **범위:** Jin 실기기(홈) — 선택 캐릭터 영상이 작은 액자에 갇혀 있고 말풍선도 좁음(짧은 대사인데 2줄). Q&A로 **앱 전체 언박싱+확대** 확정 + 까치 영상 교체·프로필 호랑이 클립 지정.
 
 **Update:**
-- `tiger_video.dart`: (1) `_tigerView` 초상 액자(테두리·글로우 Container) 제거 → 흰 배경 mp4를 multiply로 배경에 그대로 녹여 캐릭터만 뜨게(edge-to-edge), 정사각을 밴드 높이 그대로(−8 폐지). (2) 까치 홈 히어로 교체: greet `magpie_greet_chirp`→`magpie_right_walking_flying`(원샷), pace `magpie_perched`→`magpie_full10`(루프). greet→pace 핸드오프·단일 디코더 lease 그대로.
+- `tiger_video.dart`: (1) `_tigerView` 초상 액자(테두리·글로우 Container) 제거 → 흰 배경 mp4를 multiply로 배경에 그대로 녹여 캐릭터만 뜨게(edge-to-edge), 정사각을 밴드 높이 그대로(−8 폐지). (2) 까치 홈 히어로 교체: greet `magpie_choose`→`magpie_right_walking_flying`(원샷), pace `magpie_perched`→`magpie_full10`(루프). greet→pace 핸드오프·단일 디코더 lease 그대로.
 - `home_screen.dart`: `_TigerHero` 밴드 높이 144/160→200/244, 말풍선 폭 `w*0.62 clamp140–260`→`w*0.92 clamp240–360`, 말풍선 폰트 12.5→14.5.
-- `character_clip.dart`: `_tigerProfileClips`→`[tigerBob]`(프로필 호랑이 tiger_bob 고정).
+- `character_clip.dart`: `_tigerProfileClips`→`[tigerBob]`(프로필 호랑이 tiger_walking_front 고정).
 - `profile_screen.dart`: `_Avatar` 메달리온 테두리·글로우 링·안쪽 패딩 제거, `_d` 128→168, 클립 size `_d−10`→`_d`(원 가득).
 - `character_clip_test.dart`: 호랑이 프로필 count 5→1·tigerBob 단정으로 갱신.
 
@@ -764,7 +782,7 @@ plist 2 종 `plistlib` 파싱 통과.
   - 구 `welcome-hero`는 `onboarding_level_screen` 히어로 자리에 그대로 유지. **구 배너의 호랑이는 저폴리 캐논 밖 렌더였고 6개 샘플이 거의 동일할 만큼 정지에 가까웠다** — Jin의 "play가 훨씬 좋아보인다"는 판단이 캐논과 일치.
 - **Joy 클립 4종 — `magpie_full10.mp4` 구간 컷.** Jin 캐논 원본을 자른 것이라 AI 재생성이 아니며, GAP §2가 "Jin 제작 전용"으로 묶어둔 **P0·P2·P3를 규칙 위반 없이 닫았다**. P1 `magpie_thinking`(고개 갸웃)은 원본에 없어 여전히 공백.
   - `magpie_bob`(0.0–2.3s, 핑퐁 4.5초, 이음새 **0.0배**) · `magpie_flourish`(2.3–4.3s 원샷) · `magpie_sing`(4.3–6.2s 원샷) · `magpie_soar`(6.2–10s 원샷).
-  - **프레이밍 정규화가 핵심이었다.** 원본은 피사체 높이비 44.0%·중심 x554 로, 기존 `magpie_perched` 74.3%·`tiger_bob` 69.3% 대비 조이가 40% 작고 우측으로 치우쳐 보였다. 네 구간 union bbox 를 모두 담는 최대 배율 **1.47**로 단일 크롭창(653px @ 205.5,133.8)을 적용 → 높이비 63~65%, 발바닥 y 134px 로 `magpie_perched`와 정확히 일치. 1.47배 업스케일이라 소프트해짐 — 원본 1280×720 Veo 출력이 남아 있으면 거기서 재유도하는 편이 화질상 유리.
+  - **프레이밍 정규화가 핵심이었다.** 원본은 피사체 높이비 44.0%·중심 x554 로, 기존 `magpie_perched` 74.3%·`tiger_walking_front` 69.3% 대비 조이가 40% 작고 우측으로 치우쳐 보였다. 네 구간 union bbox 를 모두 담는 최대 배율 **1.47**로 단일 크롭창(653px @ 205.5,133.8)을 적용 → 높이비 63~65%, 발바닥 y 134px 로 `magpie_perched`와 정확히 일치. 1.47배 업스케일이라 소프트해짐 — 원본 1280×720 Veo 출력이 남아 있으면 거기서 재유도하는 편이 화질상 유리.
   - `character_clip.dart`에 `magpieBob/Flourish/Sing/Soar` 상수 등록(역할 함수 배선은 Jin 확인 후).
 - **시나리오 배경 `home` 생성 (계층 A · 인물 0).** bbanana2 Nano Banana 2, `cafe.png`를 384×512 WebP 로 압축·업로드해 스타일 레퍼런스로 사용. 평면 기하·크림 `#F5EDDC`·청록 패널+산·소반/청자잔/주전자·창호 격자·단청 2군집. 인물·동물·문자 0. **규격 1086×1448 PNG 로의 변환은 미완** — 클라우드 샌드박스가 `*.supabase.co`로 못 나가 결과물을 못 받는다.
 - **세션 중 유입된 Joy 클립 2종 정규화.** `magpie_walking_forward`(배경 `#F7F7F7`, 흰비율 7%로 **매트 게이트 실패**)와 `magpie_right_walking_flying` 둘 다 **오디오 트랙이 있었다**(§0 무음 계약 위반). flood-fill 배경 정리 + `-an` 재인코딩으로 둘 다 복구.
@@ -796,7 +814,7 @@ plist 2 종 `plistlib` 파싱 통과.
 
 - **클립 3종 (bbanana2 / Seedance 2.0 Pro 1080p 1:1).** 레퍼런스는 `tiger_roar.mp4` 프레임 20(입 다문 전신)을 흰 여백 86%로 패딩해 업로드. 셋 다 1440²로 도착 → `tool/clip_normalize.py`로 960²/24fps/CRF19/faststart/무음 변환.
   - `tiger_thinking.mp4` — 배경 93.7% 오염 → **0.00%**. 루프 이음새가 인접프레임 대비 **16.4배**(`kkeunmari` 생각 중 인디케이터가 `loop: true`라 5초마다 튐). 크로스페이드는 꼬리·귀에 잔상이 남아 캐논 위반 → **핑퐁**(정방향+역방향, 240프레임/10초)으로 0.1배. 모든 프레임이 실제 생성 프레임.
-  - `tiger_walking_front.mp4` — `tiger_bob` 자리에 들어와 있던 것을 이 이름으로 이동, `tiger_bob`은 `git show HEAD:` 로 원복(`.git/index.lock` 잔존으로 `git restore` 실패). 피사체 면적 38% 증가·이음새 8.3배 → **`loop: false` 원샷 전용**. ⚠️ 121프레임 중 **36프레임에서 앞발이 하단에 잘림** — 재생성본은 모션이 부자연스러워 Jin이 현재 파일 유지 결정.
+  - `tiger_walking_front.mp4` — `tiger_walking_front` 자리에 들어와 있던 것을 이 이름으로 이동, `tiger_walking_front`은 `git show HEAD:` 로 원복(`.git/index.lock` 잔존으로 `git restore` 실패). 피사체 면적 38% 증가·이음새 8.3배 → **`loop: false` 원샷 전용**. ⚠️ 121프레임 중 **36프레임에서 앞발이 하단에 잘림** — 재생성본은 모션이 부자연스러워 Jin이 현재 파일 유지 결정.
   - `tiger_magpie_play.mp4` — 바닥 그림자를 테두리 flood-fill로 제거(중성회색 6.00% → 0.14%). 까치 흰 가슴·회색 날개는 검은 깃털에 둘러싸여 배경과 끊겨 있어 무손상.
   - `tool/check_clip_matte.py --check`: **18개 중 0개 실패**(전부 `#FFFFFF` 100%).
 - **함정 기록.** Seedance 2.0은 네이티브 오디오를 같이 만들고 **그 오디오가 정책에 걸리면 영상까지 실패**한다(크레딧은 환불). `options.audio=false, generate_audio=false` + 프롬프트 무음 명시로 통과. 또한 클라우드 Cowork 샌드박스는 `*.supabase.co`(bbanana 결과물 호스트)로 못 나가 생성물을 직접 못 받는다 — Jin이 브라우저로 받아 연결 폴더에 넣어야 검수·변환이 가능하다.
@@ -818,7 +836,7 @@ plist 2 종 `plistlib` 파싱 통과.
 - **보존:** 교체 전 원본을 번들 제외 경로 `assets_unused/clip_matte_backup_2026-08-01/tiger_magpie_play.near-white.original.2026-08-03.mp4`에 복사했다. 원본 SHA-256 `C8B7F28C40F97FB9580D44374942DA2DF1DA125A8450BB0C45EA4F5B55A358AB`; 교체본 SHA-256 `E936D9D7AA63B3794923987121194C6B287DCEE7B832F035CE50F3EBBA3C09B1`.
 - **정리:** 변환 뒤 character 디렉터리에 생긴 `_stage_play_v2.mp4`는 교체본과 SHA-256이 동일한 임시 중복임을 확인했다. 전수 스캔 대상에 남지 않도록 `assets_unused/clip_matte_backup_2026-08-01/_stage_play_v2.duplicate.2026-08-03.mp4`로 이동했다.
 - **검증:** `python tool\\check_clip_matte.py` → **18/18 OK**, 대상 `#FFFFFF`·100%·121프레임; `flutter test --no-pub test\\character_clip_matte_test.dart` → **5/5 passed**; ffprobe → 960²/24fps/121프레임/5.041667s/H.264 High/yuv420p/무음 확인.
-- **Git:** 커밋·푸시 미요청. 기존 작업 트리의 `tiger_bob.mp4`·`tiger_thinking.mp4`·`tiger_walk_front.mp4`·`_to_delete/` 등 병렬 작업은 미수정·미스테이징.
+- **Git:** 커밋·푸시 미요청. 기존 작업 트리의 `tiger_walking_front.mp4`·`tiger_thinking.mp4`·`tiger_walk_front.mp4`·`_to_delete/` 등 병렬 작업은 미수정·미스테이징.
 
 ### 2026-08-03 — R6 에셋 격차 확정 목록 문서화 (Joy 클립 + 비마스코트) — 문서만, 커밋 미수행
 
@@ -849,7 +867,7 @@ plist 2 종 `plistlib` 파싱 통과.
 - **R1-b `e48b5b2`** — 전수 스캔 결과 선택형 SoriCard 사용처는 placement 진단 선택지 **1곳뿐** → selectable 문법 적용(구 accent 선택 신호 폐지). 나머지 37파일은 상태·색코딩 카드 = 액센트 바 대상이 맞음(무변경).
 - **R1-c/d `1c02ca6`** — §4.4-3 죽은 회색 제거: filled 버튼 비활성 = surfaceAlt + 모티프 색 15% 알파, streak_display `Colors.grey`→textMuted. path_trail 잠금(도장 회색조 45% 프리뷰·대비 유지)은 이미 충족 — 무변경.
 - **R1-e `a637e67`** — typography_guard 주석의 처방 그대로: onboarding_level_screen raw TextStyle 17개 → SoriTextTheme 프리셋, w800 193→**188**·w900 −1, 래칫 상한 **189 복원**·w900 45 하향. §4.3 카드 제목 w800 금지(2곳 h3 강등), 독일어 대문자 변환 1곳 제거(`label.toUpperCase()` 폐지).
-- ⚠️ **미검증(로컬 게이트 대기)**: `flutter analyze` · 전체 테스트 · 라이트 실기기(그림자 문법, 액센트 바 — 특히 한글 그리드 compact 셀·hanji 카드, 온보딩 타이포). 클립 테스트는 Jin의 병렬 에셋 작업(tiger_bob 교체, tiger_magpie_play·tiger_walk_front 신규) 때문에 `python tool/check_clip_matte.py` 선행 필수.
+- ⚠️ **미검증(로컬 게이트 대기)**: `flutter analyze` · 전체 테스트 · 라이트 실기기(그림자 문법, 액센트 바 — 특히 한글 그리드 compact 셀·hanji 카드, 온보딩 타이포). 클립 테스트는 Jin의 병렬 에셋 작업(tiger_walking_front 교체, tiger_magpie_play·tiger_walk_front 신규) 때문에 `python tool/check_clip_matte.py` 선행 필수.
 - 운영: VM git 커밋마다 남는 락(`HEAD.lock`/`index.lock`)은 삭제 불가라 **`_to_delete/git-locks-2026-08-03/`로 mv 우회**(폴더째 삭제는 Jin). 에셋 파일은 무접촉.
 
 
@@ -872,15 +890,15 @@ plist 2 종 `plistlib` 파싱 통과.
 - **산출물:** release AAB `242,400,178 B`, SHA-256 `e1b2c745…e2868e39`; release APK `263,680,468 B`, SHA-256 `29ddfee5…f49c23f3`. AAB `jarsigner -verify -certs`와 APK Signature Scheme v2를 모두 검증했고, APK package `com.sujinarin.ko_lernen_app` versionCode 9/versionName 2.0.3 및 upload signer SHA-256 `f5afe836…b4faad3`를 확인했다. 번들은 asset payload 241개, MP4 30개, `curriculum_manifest.json`과 `welcome-hero.mp4`를 포함하며 `magpie_moon.mp4`는 포함하지 않는다. 상세 매니페스트는 `docs/RELEASE_RUNBOOK_2026-08-02.md` §0.
 - **Android 물리 스모크:** Redmi M2101K6G / Android 12에서 기존 앱 데이터 삭제 없이 이 최종 APK를 `adb install -r`로 재설치했다. `force-stop` 뒤 cold launch·MainActivity 포커스·홈 → Üben → Grammatik 진입을 확인했고, 실제 캡처와 접근성 트리에서 A2 카드/한국어 예문/독일어 뜻/코치마크가 온전하게 노출됐다. 최신 로그 2,000줄에 `FATAL EXCEPTION`, `E/flutter`, `Unhandled Exception`, 앱 오류는 0건이었다. 데이터 변경을 피하려고 결과 완료·피드백 전송은 하지 않았다.
 - **경계:** iOS는 단순 미검증이 아니라 현재 출시 준비가 끝나지 않았다. `firebase_options.dart`의 iOS 분기가 `UnsupportedError`이고, 로컬 `GoogleService-Info.plist`·Runner target membership·Google URL scheme·Apple Team/프로파일이 없다. 앱은 로컬 UI를 계속 띄울 수 있지만 Firebase/Auth/App Check/동기화/피드백/프리미엄/푸시 초기화가 비활성화되므로 iOS 배포 전 [`docs/store/ios-external-setup.md`](docs/store/ios-external-setup.md)의 macOS 게이트를 완료해야 한다. Firebase Functions/Rules 배포도 이 세션에서는 실행하지 않았으므로 실제 피드백 수집은 별도 승인 배포 뒤에만 주장한다. 확인하지 않은 온보딩 히어로 영상 크롭과 피드백 카드 전 경로의 픽셀 단위 시각 검증은 별도 육안 확인 항목이다.
-### 2026-08-02~03 — 디자인 세련화 계획 v1.2 · Jin 결정 8건 · 포효 SFX 배선 · tiger_bob 재생성 (Cowork 클라우드 세션)
+### 2026-08-02~03 — 디자인 세련화 계획 v1.2 · Jin 결정 8건 · 포효 SFX 배선 · tiger_walking_front 재생성 (Cowork 클라우드 세션)
 
-**Jin:** ① 스크린샷 16장 "촌스러움" 진단·계획서(조이·태고 일관성 최우선) ② 요약 전부 반영+완벽성 재점검 ③ tiger_bob 교체("기준은 무조건 tiger_idle.png") ④ **tiger_roar 는 이미지·영상 불변경, 소리만**(세션 중 정정 지시 — 초기의 시각 교체 시도는 지시 오해로 폐기) ⑤ 깃은 브랜치로 메인 보호.
+**Jin:** ① 스크린샷 16장 "촌스러움" 진단·계획서(조이·태고 일관성 최우선) ② 요약 전부 반영+완벽성 재점검 ③ tiger_walking_front 교체("기준은 무조건 tiger_idle.png") ④ **tiger_roar 는 이미지·영상 불변경, 소리만**(세션 중 정정 지시 — 초기의 시각 교체 시도는 지시 오해로 폐기) ⑤ 깃은 브랜치로 메인 보호.
 
 **산출/변경:**
 - `docs/DESIGN_OVERHAUL_PLAN_2026-08-02.md` **v1.2** — 독립 검증(소스 전수 판독·대비 33쌍 재계산) 15건 반영: 🔴 코스 미션(36) 시스템 누락 보완(H-1·§6.1 소스 1순위·§6.2 챕터0) · 🔴 Q7 구식 정정(까치 SFX 5종 07-31 기제작) · CTA 실측(먹 7.22+fillOutline 4.08) · w800 래칫 193/193 · plural 스트릭 8키(streakDisplay :23) · Üben 19카드/hex 8종 · 온보딩 흐름 캐릭터선택·진단 삽입 · EavesCorner 경고 · ±1=3노드 · 임베드=현재 레벨 ≤19노드. **Jin 결정 8건 확정(§11)**: Q1 홈 축약 / Q2 히어로 통합+주1회 / Q3 Pack→Paket·Streak 유지 / Q4 부적(단청 황) / Q5 Wordle→Silben-Rätsel / Q6 Im Café bestellen / Q7 재정의 / Q8 Der Tiger→Taego.
 - `lib/screens/character_selection_screen.dart` — 일월 무대 포효(무음 상태)에 **`sfx/roar_tiger.mp3` 배선**. 파일 미존재 시 CharacterClipPlayer 무음 폴백이라 회귀 0, 선별 오디오가 들어오는 순간 소리 남.
 - `lib/widgets/sori/tiger_video.dart` — TigerGreetClip 죽은 경로의 호랑이 전용 가드·"까치 SFX 없음" 구식 주석 정리, `TigerStageVideo.greetSfxFor(kind)` 도입(tiger: tiger_greet.mp3 유지 / magpie: greet_magpie.mp3). 런타임 동작 변화 0(유일 호출부 playAudio:false). ⚠️ tiger_greet vs greet_tiger 이중 존재는 Jin 정리 후보.
-- **tiger_bob 재생성(Jin 위임)**: tiger_idle.png 순백 합성 레퍼런스 → Nano Banana 2 무변경 복제 키프레임(내 업로드본을 Wan 검증기가 거부해 우회) → Wan 2.7 i2v(1:1·720p·5s) 숨쉬기 바운스 루프. **키프레임·사운드는 Jin 컨펌 후에만 반영 게이트** 신설(1차 thinking 키프레임 평면 벡터풍 캐논 위반 → Jin 질책 → 절차화). thinking 재생성 키프레임(파셋 규칙 통과)은 **컨펌 대기·영상화 보류**, roar 시각 교체분은 **전량 폐기**.
+- **tiger_walking_front 재생성(Jin 위임)**: tiger_idle.png 순백 합성 레퍼런스 → Nano Banana 2 무변경 복제 키프레임(내 업로드본을 Wan 검증기가 거부해 우회) → Wan 2.7 i2v(1:1·720p·5s) 숨쉬기 바운스 루프. **키프레임·사운드는 Jin 컨펌 후에만 반영 게이트** 신설(1차 thinking 키프레임 평면 벡터풍 캐논 위반 → Jin 질책 → 절차화). thinking 재생성 키프레임(파셋 규칙 통과)은 **컨펌 대기·영상화 보류**, roar 시각 교체분은 **전량 폐기**.
 - 포효 오디오 후보: bbanana 오디오 계열 3회 연속 서버 오류로 생성 보류 — 다운로드·후처리·후보 재시도 절차는 `docs/CLIP_REGEN_2026-08-03.md`(붙여넣기 스크립트, Jin 로컬 수행 — 클라우드 컨테이너는 외부 URL 403).
 - Git: `feat/design-refresh-2026-08` 전용(메인 무접촉). bbanana 크레딧 약 37 사용(폐기분 약 28 — 지시 오해 비용, 세션 로그에 명기).
 
@@ -1351,7 +1369,7 @@ SoriColors.fillOutline(fill, bg)    // 채움이 배경과 3:1 미만이면 같�
 |---|---|
 | P1-0 | **설정에 캐릭터 변경 추가** (`_showMascotDialog`). 진입점 0개 → 1개. 이게 없으면 P1 검증 자체가 불가능했다 |
 | P1-1 | `lib/widgets/sori/mascot_preference.dart` **신규** — `MascotPreference.kind`(`ValueNotifier<MascotKind>`). static getter만 두면 설정에서 바꿔도 리빌드가 안 온다 |
-| P1-2 | `TigerStageVideo` 캐릭터 대응: `greetFor(kind)`/`paceFor(kind)`. 까치는 `magpie_greet_chirp`/`magpie_perched`. 폴백도 캐릭터별(까치는 Rive가 없어 정적 `Mascot`) |
+| P1-2 | `TigerStageVideo` 캐릭터 대응: `greetFor(kind)`/`paceFor(kind)`. 까치는 `magpie_choose`/`magpie_perched`. 폴백도 캐릭터별(까치는 Rive가 없어 정적 `Mascot`) |
 | P1-3 | 홈 상단바 아이콘 **4 → 1**(설정만). 학습그룹·프로필은 하단 탭 중복(SC 3.2.3), 통계는 프로필 안. 터치 타깃 **36 → 48dp** + `Semantics` |
 | P1-4 | `MascotKind.tiger` 리터럴 — **①진짜 하드코딩 9곳만 교체**. ②승패 연출 7곳·③선택 화면은 **유지** |
 | P1-5 | 캐릭터가 바꾸는 것 **4가지**: 말풍선 액센트 색 / 1일차 인사 / 재방문 인사 / 히어로 밴드·폴백 |
@@ -1479,7 +1497,7 @@ SDK를 못 받아 `gen-l10n` 을 못 돌린다. ARB 4키 추가 후 **생성 파
 **범위:** Jin 요청 — 프로필이 사용자가 선택한 호랑이/까치를 표시하고, 지정된 기존 MP4 포즈 중 하나를 랜덤으로 표시. 프로필의 자홍색 영상 배경 원인도 코드·에셋 계약으로 진단.
 
 **Update:**
-- `CharacterClips`에 순수 프로필 포즈 카탈로그를 추가: 호랑이=`tiger_stretch`·`tiger_sitting2`·`tiger_rest`·`tiger_bob`·`tiger_choose`, 까치=`magpie_perched`·`magpie_choose`·`magpie_flight`. 테스트 가능한 `profileClipCountFor`/`profileClipFor` API로 경로를 단일화.
+- `CharacterClips`에 순수 프로필 포즈 카탈로그를 추가: 호랑이=`tiger_stretch`·`tiger_sitting2`·`tiger_rest`·`tiger_walking_front`·`tiger_choose`, 까치=`magpie_perched`·`magpie_choose`·`magpie_flight`. 테스트 가능한 `profileClipCountFor`/`profileClipFor` API로 경로를 단일화.
 - `ProfileScreen._Avatar`를 StatefulWidget으로 전환. `Storage.preferredMascot`을 화면 생성 때 읽어 해당 캐릭터의 포즈 한 개를 랜덤 선택하고 `late final`로 보존한다. 따라서 일반 rebuild 중에는 포즈가 바뀌지 않으며, 선택 마스코트는 연결된 Google/Apple 계정 사진보다 항상 우선한다.
 - 자홍색은 Flutter/MediaCodec 고장이 아니라 **불투명 자홍색 매트가 들어간 H.264 MP4**와 `CharacterClipPlayer`의 `BlendMode.multiply` 계약 불일치다. multiply는 흰 배경만 크림으로 흡수하며 크로마키가 아니다. H.264에는 알파가 없으므로 안전한 코드 색필터로는 제거 불가 — 해당 클립은 같은 경로로 **순백(#FFFFFF) 매트 버전으로 재출력**해야 한다. 색 행렬/가짜 키잉은 호랑이·까치 색을 함께 훼손하므로 미적용.
 - 계획: `docs/superpowers/plans/2026-07-31-profile-character-randomization.md`.
@@ -1503,7 +1521,7 @@ SDK를 못 받아 `gen-l10n` 을 못 돌린다. ARB 4키 추가 후 **생성 파
 - **`SoriPathTrail` 신규(`widgets/sori/path_trail.dart`)**: 76행 리스트 → 사인파 지그재그. 데이터·서비스 무변경. 기존 `PathNode` 는 `home_screen.dart:582` 가 쓰므로 **삭제 안 함**.
   - 🔒 **불변식 3개** (깨면 조용히 망가짐): ① `swayAt`/`centerXFor` 는 노드 배치와 연결선 painter의 단일 진실 — `Align` 식 `W/2 + fx*(W-w)/2` 와 정확히 일치해야 선이 원을 통과 ② 노드는 전용 슬롯 안 `Align` 으로만 배치 — 절대좌표 `Positioned` 로 바꾸면 clip·겹침으로 **탭이 조용히 죽음** ③ `CharacterClipPlayer.blendColor` == 바로 뒤 배경색(multiply라 다르면 사각 이음매).
   - 탭 보장: 타깃 = 슬롯 전체(132×136dp, 큰글자 161dp) · `IgnorePointer` 연결선 · `HitTestBehavior.opaque` · **잠금 노드도 동일 타깃**(잠금 힌트 떠야 함) · 접기/숨김 없음.
-- **노드 에셋 (Material 아이콘 0개)**: 완료=`stamps/stamp_*.png`(기존 `motifForPackId()` 매핑, 도장이 이미 원형+테두리라 별도 원·체크 불필요) · 지금=`tiger_bob.mp4`/까치 `magpie_perched.mp4`(`Storage.preferredMascot` 분기) · 열림=도장+황금링 · 잠금=**도장 회색조 45%**(자물쇠 아니라 "받게 될 도장 미리보기"). **신규 에셋 파일 0개.**
+- **노드 에셋 (Material 아이콘 0개)**: 완료=`stamps/stamp_*.png`(기존 `motifForPackId()` 매핑, 도장이 이미 원형+테두리라 별도 원·체크 불필요) · 지금=`tiger_walking_front.mp4`/까치 `magpie_perched.mp4`(`Storage.preferredMascot` 분기) · 열림=도장+황금링 · 잠금=**도장 회색조 45%**(자물쇠 아니라 "받게 될 도장 미리보기"). **신규 에셋 파일 0개.**
 - **`DancheongStamp` 에 `cacheWidth` 추가**: 도장 원본 1254×1254 → 62dp 노드에 그대로 디코드 시 **장당 6.3MB**. 경로에 수십 개 깔리면 이미지 캐시 폭발. 전 호출부에 이득.
 - **깨진 참조 수정(`character_clip.dart`)**: `tiger_roar_seated_bonus.mp4` 는 **에셋 폴더에 존재한 적 없음** → 신기록 시 로드 실패·정적 폴백으로 연출이 통째로 사라져 있었음. Jin 지시로 `tigerRoarSeatedBonus = tigerRoar` 별칭(전용 클립 오면 한 줄만 되돌림). **수정 후 카탈로그 전수 대조: 깨진 참조 0 · 미참조 파일 0.**
 - **검증**: 기하 시뮬(폭 100~600dp × 글자배율 0.85~2.5 → 오버플로 0·중심오차 0·슬롯겹침 0) · 대비 계산 · 레포 가드(신규 파일 `w700` 이하만 써 `typography_guard_test` 래칫 회피, 금지 글리프 0). **`flutter analyze`/실기기 미검증.** `path_trail_tap_test.dart` 는 내 원본이 `_NowDisc` 무한 펄스로 `pumpAndSettle` 타임아웃하는 결함이 있었고 **동시 세션이 `FakeAccessibilityFeatures` 로 고쳐 9/9 통과(`90a1713`)**.

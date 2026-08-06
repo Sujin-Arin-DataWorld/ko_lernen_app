@@ -18,9 +18,9 @@
 | 배경 | **순백 #FFFFFF** — 앱의 `ColorFiltered(BlendMode.multiply)` 전제 |
 | 총량 | 18 MB (webm 원본 38MB 대비 −20MB) |
 
-파일: `tiger_rise` `tiger_rest` `tiger_greet_pawflash` `tiger_choose` `tiger_bob`
+파일: `tiger_rise` `tiger_rest` `tiger_greet_pawflash` `tiger_choose` `tiger_walking_front`
 `tiger_celebrate_hifive` `tiger_roar` `tiger_roar_seated_bonus` `tiger_stretch` `tiger_thinking`
-`magpie_greet_chirp` `magpie_choose` `magpie_perched` `magpie_celebrate` `magpie_worry` `magpie_flight`
+`magpie_choose` `magpie_choose` `magpie_perched` `magpie_celebrate` `magpie_worry` `magpie_flight`
 
 ### 1-2. 코드 배선 5파일
 
@@ -46,7 +46,7 @@
 
 | 클립 | 최악 프레임 오염 픽셀 | 화면 비율 |
 |---|---:|---:|
-| `magpie_greet_chirp` | 178,573 | **19.4 %** |
+| `magpie_choose` | 178,573 | **19.4 %** |
 | `tiger_greet_pawflash` | 64,158 | 7.0 % |
 | `tiger_roar` | 10,003 | 1.1 % |
 | `magpie_celebrate` | 9,084 | 1.0 % |

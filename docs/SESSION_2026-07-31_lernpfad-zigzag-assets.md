@@ -67,7 +67,7 @@
 | 상태 | 에셋 | 비고 |
 |---|---|---|
 | 완료 | `assets/illustrations/stamps/stamp_*.png` | `motifForPackId(packId)` 가 팩 주제로 8종 중 선택. 도장 PNG가 이미 원형+붉은 테두리라 별도 원/체크가 필요 없다 |
-| 지금 | `assets/video/character/tiger_bob.mp4`<br>까치: `magpie_perched.mp4` | `Storage.preferredMascot` 분기. 저모션/로드실패 시 정적 `Mascot` 폴백 |
+| 지금 | `assets/video/character/tiger_walking_front.mp4`<br>까치: `magpie_perched.mp4` | `Storage.preferredMascot` 분기. 저모션/로드실패 시 정적 `Mascot` 폴백 |
 | 열림 | 같은 도장 + 황금 링 | `available`/`inProgress` 중 "지금"이 아닌 팩 |
 | 잠금 | 같은 도장 회색조(`ColorFilter.matrix`) + 45% | **자물쇠(벽)가 아니라 "받게 될 도장 미리보기"** |
 
@@ -128,7 +128,7 @@ static const String tigerRoarSeatedBonus = tigerRoar;   // → tiger_roar.mp4
 **이번 변경이 정확히 그런 지점을 하나 만들었다:**
 
 - `home_screen.dart:1011` 의 `TigerStageVideo`(살아있는 호랑이 밴드)는 `/path` 를 `pushNamed` 해도 라우트 스택에 남아 **컨트롤러가 살아 있다.**
-- 그 위에 Lernpfad `_NowDisc` 의 `tiger_bob.mp4` 루프가 올라간다 → **동시 디코더 2개.**
+- 그 위에 Lernpfad `_NowDisc` 의 `tiger_walking_front.mp4` 루프가 올라간다 → **동시 디코더 2개.**
 
 Lernpfad 화면 **자체**는 영상 1개뿐이다(한옥 헤더는 정적 PNG). 문제는 **홈에서 진입했을 때**다.
 

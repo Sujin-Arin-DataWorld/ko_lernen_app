@@ -65,16 +65,16 @@ class TigerStageVideo extends StatefulWidget {
   // 롤백하려면 git mv로 assets/video/에 복원 후 아래 상수만 되돌리면 된다.
   // 2026-07-31: 캐릭터 대응. 이전에는 호랑이 상수 2개로 고정돼 있어서
   // 까치를 골라도 홈 히어로가 100% 호랑이였다. 4종 모두 실재 파일이다.
-  /// 진입 인사 클립 (1회 재생).
-  /// 까치는 Jin 지시(2026-08-05)로 `magpie_greet_chirp` → 걸어오며 날아드는
-  /// `magpie_right_walking_flying`(원샷)로 교체.
+  /// 진입 인사 클립 (1회 재생) — Jin 2026-08-06: 온보딩 첫 만남도 선택 확정과
+  /// 같은 `_choose` 클립을 쓴다(까치 magpie_choose, 호랑이 tiger_choose).
   static String greetFor(MascotKind kind) => kind == MascotKind.magpie
-      ? 'assets/video/character/magpie_right_walking_flying.mp4'
-      : 'assets/video/character/tiger_rise.mp4';
+      ? 'assets/video/character/magpie_choose.mp4'
+      : 'assets/video/character/tiger_choose.mp4';
 
-  /// 인사 후 아이들 루프. 까치는 캐논 풀샷 `magpie_full10`(10초)로 루프.
+  /// 인사 후 아이들 루프. (현재 TigerStageVideo 위젯이 미인스턴스화라 휴면 —
+  /// magpie_full10 폐지 후 까치는 magpie_perched 로 대체.)
   static String paceFor(MascotKind kind) => kind == MascotKind.magpie
-      ? 'assets/video/character/magpie_full10.mp4'
+      ? 'assets/video/character/magpie_perched.mp4'
       : 'assets/video/character/tiger_rest.mp4';
 
   /// 호랑이 기본값 — 하위호환용. 신규 코드는 [greetFor]/[paceFor]를 쓸 것.

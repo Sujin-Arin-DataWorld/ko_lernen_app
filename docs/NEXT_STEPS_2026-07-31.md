@@ -53,7 +53,7 @@ copy docs\_backup_2026-07-31\lib__widgets__sori__tiger_video.dart lib\widgets\so
 
 ### 4-1. 캐릭터 배선
 1. 설정 → **새로 생긴 캐릭터 항목**에서 까치 선택
-2. 홈 → 히어로 밴드가 까치 영상(`magpie_greet_chirp` → `magpie_perched`)인지
+2. 홈 → 히어로 밴드가 까치 영상(`magpie_choose` → `magpie_perched`)인지
 3. 말풍선 테두리가 남색(`highlight`)인지, 문구가 까치 어조인지
 4. 게임 하나 완료 → 결과 카드 마스코트가 까치인지
 5. 복습 세션 완료 → `magpie_celebrate` 클립인지

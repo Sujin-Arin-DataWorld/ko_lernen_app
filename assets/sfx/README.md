@@ -29,7 +29,7 @@
 |---|---|---|---|
 | `greet_tiger.mp3` | 1.31s | **모델 생성 오디오에서 잘라냄** (2026-07-31) | `tiger_greet_pawflash`, `tiger_rise` |
 | `celebrate_tiger.mp3` | 1.04s | 〃 | `tiger_celebrate_hifive`, `tiger_stretch` |
-| `greet_magpie.mp3` | 1.44s | 〃 | `magpie_greet_chirp` |
+| `greet_magpie.mp3` | 1.44s | 〃 | `magpie_choose` |
 | `celebrate_magpie.mp3` | 0.94s | 〃 | `magpie_celebrate`, `magpie_flight` |
 | `growl_tiger.mp3` | 1.28s | 〃 (모델 생성 오디오에서 잘라냄) | 설정 → Ton → Lernbegleiter 미리듣기(호랑이 선택 시, `settings_screen._previewCompanion`) |
 | `tiger_greet.mp3` | — | 구본 | `tiger_video.dart` 2곳 |

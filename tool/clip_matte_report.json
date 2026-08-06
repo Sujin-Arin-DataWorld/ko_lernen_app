@@ -21,7 +21,7 @@
       "reason": ""
     },
     {
-      "path": "magpie_bob3.mp4",
+      "path": "magpie_walking_front.mp4",
       "bytes": 740708,
       "ok": true,
       "matte": "#FFFFFF",
@@ -66,7 +66,7 @@
       "reason": ""
     },
     {
-      "path": "magpie_greet_chirp.mp4",
+      "path": "magpie_choose.mp4",
       "bytes": 1239996,
       "ok": true,
       "matte": "#FFFFFF",
@@ -111,7 +111,7 @@
       "reason": ""
     },
     {
-      "path": "tiger_bob.mp4",
+      "path": "tiger_walking_front.mp4",
       "bytes": 2997552,
       "ok": true,
       "matte": "#FFFFFF",

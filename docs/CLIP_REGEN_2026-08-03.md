@@ -4,13 +4,13 @@
 
 | 항목 | 상태 | 다음 단계 |
 |---|---|---|
-| `tiger_bob.mp4` | **영상 후보 완성** — Jin 재생 컨펌 대기 | §1 승인 시 명령 실행 |
+| `tiger_walking_front.mp4` | **영상 후보 완성** — Jin 재생 컨펌 대기 | §1 승인 시 명령 실행 |
 | `tiger_roar.mp4` | 시각 불변 · `sfx/roar_tiger.mp3` **코드 배선 완료**(파일 없으면 무음=현행) | §2 소리 파일 확보 |
 | `tiger_thinking.mp4` | **Jin 자체 제작본 배치 완료**(2026-08-03) — 리포트 갱신·매트 검증만 | §3 |
 
 ---
 
-## 1. tiger_bob 교체 (컨펌 후)
+## 1. tiger_walking_front 교체 (컨펌 후)
 
 **후보 영상(브라우저로 재생해 확인):**
 `https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1785749624795.mp4`
@@ -20,9 +20,9 @@
 **승인 시 (cmd, 레포 루트에서):**
 
 ```bat
-copy assets\video\character\tiger_bob.mp4 _bak_2026-08-02\tiger_bob_old_2026-08-03.mp4
-curl -L -o _bak_2026-08-02\tiger_bob_new_raw.mp4 "https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1785749624795.mp4"
-ffmpeg -y -i _bak_2026-08-02\tiger_bob_new_raw.mp4 -vf "scale=960:960:flags=lanczos,lutrgb=r='if(gt(val,240),255,val)':g='if(gt(val,240),255,val)':b='if(gt(val,240),255,val)'" -r 24 -an -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 19 -movflags +faststart assets\video\character\tiger_bob.mp4
+copy assets\video\character\tiger_walking_front.mp4 _bak_2026-08-02\tiger_walking_front_old_2026-08-03.mp4
+curl -L -o _bak_2026-08-02\tiger_walking_front_new_raw.mp4 "https://uyncfjzfumputmyodmlr.supabase.co/storage/v1/object/public/public-assets/user-e15b6641-5d77-480c-85aa-0c1061b9c2cd/bbanana/1785749624795.mp4"
+ffmpeg -y -i _bak_2026-08-02\tiger_walking_front_new_raw.mp4 -vf "scale=960:960:flags=lanczos,lutrgb=r='if(gt(val,240),255,val)':g='if(gt(val,240),255,val)':b='if(gt(val,240),255,val)'" -r 24 -an -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 19 -movflags +faststart assets\video\character\tiger_walking_front.mp4
 python tool\check_clip_matte.py
 ```
 
@@ -31,7 +31,7 @@ python tool\check_clip_matte.py
 **전 프레임 검증(선택, 레포 파이썬):**
 
 ```bat
-python -c "import subprocess,glob,os; os.makedirs('_bak_2026-08-02/_bobcheck',exist_ok=True); subprocess.run(['ffmpeg','-y','-v','error','-i','assets/video/character/tiger_bob.mp4','_bak_2026-08-02/_bobcheck/f%%04d.png']); from PIL import Image; bad=[f for f in sorted(glob.glob('_bak_2026-08-02/_bobcheck/*.png')) if min(Image.open(f).convert('RGB').getpixel(p)) < 250 for p in [(5,5),(954,5),(5,954),(954,954)]]; print('corner fail:', bad or 0)"
+python -c "import subprocess,glob,os; os.makedirs('_bak_2026-08-02/_bobcheck',exist_ok=True); subprocess.run(['ffmpeg','-y','-v','error','-i','assets/video/character/tiger_walking_front.mp4','_bak_2026-08-02/_bobcheck/f%%04d.png']); from PIL import Image; bad=[f for f in sorted(glob.glob('_bak_2026-08-02/_bobcheck/*.png')) if min(Image.open(f).convert('RGB').getpixel(p)) < 250 for p in [(5,5),(954,5),(5,954),(954,954)]]; print('corner fail:', bad or 0)"
 ```
 
 (코너 4점이 전 프레임 ≥250인지 — 실패 목록이 나오면 알려줘.)

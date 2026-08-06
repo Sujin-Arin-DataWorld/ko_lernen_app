@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Use only existing assets under `assets/video/character/`; do not create or rename media.
-- Tiger profile candidates are `tiger_stretch`, `tiger_sitting2`, `tiger_rest`, `tiger_bob`, and `tiger_choose`.
+- Tiger profile candidates are `tiger_stretch`, `tiger_sitting2`, `tiger_rest`, `tiger_walking_front`, and `tiger_choose`.
 - Magpie profile candidates are `magpie_perched`, `magpie_choose`, and `magpie_flight`.
 - A profile pose is random on screen creation, not every widget rebuild.
 - The chosen mascot overrides a Google/Apple profile photo on this screen.

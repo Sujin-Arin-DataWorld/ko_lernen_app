@@ -1374,7 +1374,7 @@ class _TigerHero extends StatelessWidget {
         );
 
         // 캐릭터 밴드 — Jin 2026-08-06: 홈 히어로 = 캐릭터별 **단일 클립 루프**.
-        // 까치=magpie_bob3, 호랑이(태고)=tiger_rise. bob2↔bob3 교대는 클립 사이
+        // 까치=magpie_walking_front, 호랑이(태고)=tiger_rise. bob2↔bob3 교대는 클립 사이
         // 디코더 핸드오프마다 정적 폴백이 번쩍여 폐지 → 루프는 핸드오프가 없다.
         // staticFallback:false → 로드 전/실패에도 흰 박스 대신 투명(배경 그대로).
         // ⚠️ 단 reduce-motion 에서는 켠다. 영상 lease 가 `!reduceMotion` 을 요구해
@@ -1397,7 +1397,7 @@ class _TigerHero extends StatelessWidget {
                 : CharacterClipPlayer(
                     key: ValueKey('home_hero_${kind.name}'),
                     asset: kind == MascotKind.magpie
-                        ? CharacterClips.magpieBob3
+                        ? CharacterClips.magpieWalkingFront
                         : CharacterClips.tigerRise,
                     size: bandHeight,
                     loop: true,

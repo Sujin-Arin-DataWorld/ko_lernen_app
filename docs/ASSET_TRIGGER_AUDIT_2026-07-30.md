@@ -23,7 +23,7 @@
 
 | 자산 | 새 트리거 위치 |
 |---|---|
-| `tiger_bob` · `magpie_perched` (mp4) | 캐릭터 선택 후보 카드 살아있는 루프 (`character_selection`) |
+| `tiger_walking_front` · `magpie_perched` (mp4) | 캐릭터 선택 후보 카드 살아있는 루프 (`character_selection`) |
 | `tiger_choose` · `magpie_choose` | 선택 확정 목례/착지 → greet 체인 1단계 (`character_selection`) |
 | `tiger_roar` / `magpie_flight` | 밀스톤 축하 시트 — 선택 캐릭터별 (`milestone_celebration`) |
 | `tiger_thinking` | 끝말잇기 호랑이 턴 "생각 중" 루프 (`kkeunmari_screen`) |
@@ -44,10 +44,10 @@
 | `tiger_rise.mp4` | ✅ | 홈 히어로 인사(`TigerStageVideo.greetAsset`, launch당 1회) + 온보딩 첫만남(`TigerGreetClip`) |
 | `tiger_rest.mp4` | ✅ | 홈 히어로 아이들 루프(`TigerStageVideo.paceAsset`) |
 | `tiger_greet_pawflash.mp4` | ✅ | 캐릭터 선택 첫 인사 체인 2단계 (`CharacterClips.greetFor(tiger)`) |
-| `magpie_greet_chirp.mp4` | ✅ | 캐릭터 선택 첫 인사 체인 2단계 (`greetFor(magpie)`) |
+| `magpie_choose.mp4` | ✅ | 캐릭터 선택 첫 인사 체인 2단계 (`greetFor(magpie)`) |
 | `tiger_choose.mp4` | ✅ | **선택 확정 목례** — 체인 1단계 (`chooseFor`, 2026-07-30 배선) |
 | `magpie_choose.mp4` | ✅ | **선택 확정 착지** — 체인 1단계 (〃) |
-| `tiger_bob.mp4` | ✅ | **후보 카드 루프** — 선택 화면 호랑이 카드 (2026-07-30) |
+| `tiger_walking_front.mp4` | ✅ | **후보 카드 루프** — 선택 화면 호랑이 카드 (2026-07-30) |
 | `magpie_perched.mp4` | ✅ | **후보 카드 루프** — 선택 화면 까치 카드 (2026-07-30) |
 | `tiger_roar.mp4` | ⚠️ | **밀스톤 축하** — 호랑이 선택 사용자 (2026-07-30) |
 | `magpie_flight.mp4` | ⚠️ | **밀스톤 축하** — 까치 선택 사용자 (2026-07-30) |

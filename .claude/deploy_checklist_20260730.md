@@ -7,7 +7,7 @@
 
 - ⚠️ **결함 발견 → 전량 재생성**: character 알파 webm 16종을 전 프레임 스캔한 결과,
   다수 프레임에 **마젠타 잔광(halo)** 이 남아 있었음 (크로마키가 배경의 밝기 변화를
-  못 걸러냄 — 특히 `magpie_greet_chirp` 최악 프레임은 화면의 19%가 마젠타).
+  못 걸러냄 — 특히 `magpie_choose` 최악 프레임은 화면의 19%가 마젠타).
   → 디스필(despill) + 잔광 제거 파이프라인으로 **16종 전부 흰배경 mp4로 재생성**,
   전 프레임 재검증 **잔여 마젠타 0px** 확인 후 `assets/video/character/`에 배치 완료.
   **예전에 보낸 part10 zip은 같은 결함이 있으니 사용하지 마세요 — 오늘 레포에 들어간 것이 최종본입니다.**
@@ -41,7 +41,7 @@ git push
 | `character/tiger_rise.mp4` | **홈 히어로 인사**(launch당 1회) + **퀵 온보딩 첫 만남** (`tiger_video.dart` 상수 교체 — 캐논 엎드림→기상) |
 | `character/tiger_rest.mp4` | 홈 히어로 아이들 루프 (인사 후 150ms 크로스페이드) |
 | `character/tiger_greet_pawflash.mp4` | 캐릭터 선택 → 호랑이 첫 인사 (앞발 번쩍, 무언, 끝나면 자동 진행) |
-| `character/magpie_greet_chirp.mp4` | 캐릭터 선택 → 까치 첫 인사 (짹짹 몸짓) |
+| `character/magpie_choose.mp4` | 캐릭터 선택 → 까치 첫 인사 (짹짹 몸짓) |
 | `character/tiger_celebrate_hifive.mp4` | 게임 종료 카드(GameOverCard) 기본 축하 |
 | `character/tiger_roar_seated_bonus.mp4` | 게임 종료 카드 — **신기록(isNewBest)** 일 때 포효로 승격 |
 | `character/magpie_celebrate.mp4` | **듣기 완료 카드** + GameOverCard에 까치 지정 시 |
@@ -75,7 +75,7 @@ git push
 | `loops/hanok_construction.mp4` | 학습 경로 헤더는 "현재 단계별 한옥"이라 완공 영상과 충돌 → 보류. 권장: 한옥 **단계 상승 축하** 오버레이 |
 | `character/magpie_flight.mp4` | 인트로는 이미 대문 영상이 대체. 권장: 코드 씬 폴백의 까치 위젯 업그레이드 |
 | `character/magpie_perched.mp4` | 듣기 화면 재생 중 대기 슬롯이 현재 없음 (완료 카드는 celebrate 사용) |
-| `character/tiger_bob.mp4` | 게임 대기 화면 슬롯 미정 |
+| `character/tiger_walking_front.mp4` | 게임 대기 화면 슬롯 미정 |
 | `character/tiger_stretch.mp4` | 세션 완료 화면(복습/단어팩 결과) 배선 후보 |
 | `character/tiger_roar.mp4` | 레벨업 연출 지점 확정 필요 (`levelup.wav` 재생 위치와 함께 배선 권장) |
 

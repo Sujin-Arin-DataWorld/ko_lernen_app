@@ -480,11 +480,12 @@ class _NowDiscState extends State<_NowDisc>
                 // 정적 마스코트 — 홈 히어로 영상과의 경합 원천 차단.
                 child: widget.live
                     ? CharacterClipPlayer(
-                        // 호랑이는 게임 대기 바운스, 까치는 앉아 대기 —
-                        // 둘 다 "네 차례야" 를 몸짓으로 말하는 아이들 루프.
+                        // 호랑이·까치 모두 앉아 대기 — "네 차례야" 를 몸짓으로
+                        // 말하는 루프. 호랑이는 tiger_sitting2(앉은 루프): 원샷
+                        // 보행 tiger_walking_front 을 loop:true 로 쓰면 튄다.
                         asset: isMagpie
                             ? CharacterClips.magpiePerched
-                            : CharacterClips.tigerBob,
+                            : CharacterClips.tigerSitting2,
                         size: _clipSize,
                         loop: true,
                         blendColor: _clipBlend,

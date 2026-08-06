@@ -223,7 +223,7 @@ Phase 3  에셋 (있으면)             0.5일
 |---|---|
 | **P1-0** ★신규 | **설정에 캐릭터 변경 진입점 추가.** 현재 진입점 0개 → P1 검증 불가. **선행 조건** |
 | **P1-1** | `Storage.mascotKind` getter + **`ValueNotifier<MascotKind>`**. static getter만으로는 변경 시 리빌드가 안 된다(검수 C6). `TigerStageVideo._greetPlayedThisLaunch`도 static이라 함께 처리 |
-| **P1-2** | `TigerStageVideo` → `CharacterClips.stageFor(kind)`. 호랑이 `tiger_rise`/`tiger_rest` · 까치 `magpie_greet_chirp`/`magpie_perched` (전부 실재).<br>**범위 추가**: `TigerGreetClip`(tiger_video.dart:313) + **SFX 336행** — `sfx/tiger_greet.mp3`가 하드코딩돼 있고 **까치용 SFX가 없다**(§9 Q3) |
+| **P1-2** | `TigerStageVideo` → `CharacterClips.stageFor(kind)`. 호랑이 `tiger_rise`/`tiger_rest` · 까치 `magpie_choose`/`magpie_perched` (전부 실재).<br>**범위 추가**: `TigerGreetClip`(tiger_video.dart:313) + **SFX 336행** — `sfx/tiger_greet.mp3`가 하드코딩돼 있고 **까치용 SFX가 없다**(§9 Q3) |
 | **P1-3** | 홈 상단바 4개 → 2개(스트릭 + 설정), 48dp. 워드마크 겹침 동시 해결 |
 | **P1-4** | §5.3의 **①분류 12곳만** 교체. ②③은 유지 |
 | **P1-5** | 캐릭터가 바꾸는 것 — **v1에서 축소**(§6.1) |

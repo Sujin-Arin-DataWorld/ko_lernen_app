@@ -164,7 +164,7 @@ bool _shouldHoldPlayer(BuildContext c) =>
 `CharacterClipPlayer` · `TigerStageVideo` · `SoriPosterLoop` 셋에 공통 카운터:
 
 ```
-[clip] +init  tiger_bob.mp4        CharacterClipPlayer  활성 3
+[clip] +init  tiger_walking_front.mp4        CharacterClipPlayer  활성 3
 [clip] -disp  calligraphy.mp4      SoriPosterLoop       활성 2  (실패)
 ```
 

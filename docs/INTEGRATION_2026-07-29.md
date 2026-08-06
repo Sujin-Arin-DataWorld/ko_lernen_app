@@ -38,13 +38,13 @@ ko_lernen_app/
 | # | 화면 / 순간 | 에셋 | 형식 |
 |---|---|---|---|
 | 1 | 앱 실행 인트로 | intro_gate_to_madang.mp4 (풀스크린, 탭=skip, reduce-motion시 madang 정지) | mp4 |
-| 2 | 캐릭터 선택 | 헤더: loops/welcome_hero.mp4 · 후보 카드: character/tiger_bob + magpie_perched · 확정: tiger_choose / magpie_choose | mp4+webm |
-| 3 | 첫 인사 (말 없이) | tiger_greet_pawflash / magpie_greet_chirp (+ 추후 동물 SFX 별도 재생) | webm |
+| 2 | 캐릭터 선택 | 헤더: loops/welcome_hero.mp4 · 후보 카드: character/tiger_walking_front + magpie_perched · 확정: tiger_choose / magpie_choose | mp4+webm |
+| 3 | 첫 인사 (말 없이) | tiger_greet_pawflash / magpie_choose (+ 추후 동물 SFX 별도 재생) | webm |
 | 4 | 온보딩 설명 3카드 | ①hanok_construction ②scene_cafe ③tiger_celebrate_hifive+magpie_worry | mp4+webm |
 | 5 | 홈(마당) | 배경: loops/hanok_jongga.mp4 · 마스코트 아이들: tiger_rest | mp4+webm |
 | 6 | 시나리오 챕터 헤더 | scene_{key}.mp4 (poster = 기존 scenes/{key}.png) | mp4 |
 | 7 | 학습 헤더 | Hangul: study_classroom · Grammar: study_scholar · Chosung/Wordle: porch · Listening: listening_hero · Kkeunmari: kkeunmari_hero | mp4 |
-| 8 | 퀴즈 진행 | 생각: tiger_thinking · 대기: tiger_bob · 듣기: magpie_perched | webm |
+| 8 | 퀴즈 진행 | 생각: tiger_thinking · 대기: tiger_walking_front · 듣기: magpie_perched | webm |
 | 9 | 정답 / 오답 | tiger_celebrate_hifive + magpie_celebrate / magpie_worry (+정지 tiger_sad) | webm |
 | 10 | 레벨업·뱃지·스트릭 | tiger_roar (대안: roar_seated_bonus) · 한옥 성장 트랜지션: hanok_construction | webm+mp4 |
 | 11 | 세션 완료 | tiger_stretch | webm |

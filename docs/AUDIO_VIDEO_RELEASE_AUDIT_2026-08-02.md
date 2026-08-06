@@ -25,7 +25,7 @@ pubspec 등록: `pubspec.yaml:127-129` (`assets/video/` · `loops/` · `characte
 | 에셋 | 사용처 (파일:라인) | 내장 오디오 | 재생 볼륨 |
 |---|---|---|---|
 | `intro_gate_to_madang.mp4` | intro_gate_screen:24, 381-387 | ✅ | **0.8** — `setVolume(SoundService.enabled ? 0.8 : 0)` (:384). **앱에서 유일하게 소리 켜진 영상** |
-| character 16종 (아래) | `character_clip.dart:25-54` `CharacterClips` 카탈로그 → 소비처 9파일 + 홈 히어로(tiger_video.dart:72-83 — tiger_rise/rest·magpie_greet_chirp/perched) + quick_onboarding:161(TigerGreetClip) | 14종 ❌ / `tiger_greet_pawflash`·`magpie_perched` ✅(재출력본) | **전부 0** (character_clip:218, tiger_video:173·421) — 소리는 별도 SFX mp3 0.7이 담당 |
+| character 16종 (아래) | `character_clip.dart:25-54` `CharacterClips` 카탈로그 → 소비처 9파일 + 홈 히어로(tiger_video.dart:72-83 — tiger_rise/rest·magpie_choose/perched) + quick_onboarding:161(TigerGreetClip) | 14종 ❌ / `tiger_greet_pawflash`·`magpie_perched` ✅(재출력본) | **전부 0** (character_clip:218, tiger_video:173·421) — 소리는 별도 SFX mp3 0.7이 담당 |
 | `loops/porch` | practice_hub:45(명시) · wordle:407(png 이름 유도) | ✅ | 0 |
 | `loops/hanok_jongga` | scenarios_list:161 | ✅ | 0 |
 | `loops/hanok_construction` | onboarding_preview:108 | ✅ | 0 |

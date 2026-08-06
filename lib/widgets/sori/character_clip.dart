@@ -28,7 +28,7 @@ class CharacterClips {
       '$_base/tiger_celebrate_hifive.mp4'; // 정답 하이파이브
   static const String tigerRest = '$_base/tiger_rest.mp4'; // 아이들(귀·깜빡임)
   static const String tigerSitting2 = '$_base/tiger_sitting2.mp4'; // 프로필 초상
-  static const String tigerBob = '$_base/tiger_bob.mp4'; // 게임 대기 바운스
+  static const String tigerBob = '$_base/tiger_walking_front.mp4'; // 게임 대기 바운스
   static const String tigerStretch = '$_base/tiger_stretch.mp4'; // 세션 완료
   static const String tigerThinking = '$_base/tiger_thinking.mp4'; // 퀴즈 생각
   static const String tigerChoose = '$_base/tiger_choose.mp4'; // 선택 확정 목례
@@ -57,23 +57,21 @@ class CharacterClips {
   static const String magpieWorry = '$_base/magpie_worry.mp4'; // 오답 위로
   static const String magpiePerched = '$_base/magpie_perched.mp4'; // 듣기 대기
   static const String magpieChoose = '$_base/magpie_choose.mp4'; // 선택 확정 착지
-  /// magpie_full10.mp4(Jin 캐논 원본, 10초)에서 잘라낸 4구간.
-  /// AI 재생성이 아니라 기존 캐논 자산의 컷 — ASSET_GAP §0 준수.
-  /// 몸 높이 63~65%로 리프레이밍해 태고 클립과 스케일을 맞췄다.
-  static const String magpieBob = '$_base/magpie_bob.mp4'; // 대기 홉(루프)
-  // 프로필 초상 교대용(Jin 지정, 2026-08-05) — bob2↔bob3 번갈아 재생.
-  static const String magpieBob2 = '$_base/magpie_bob2.mp4';
-  static const String magpieBob3 = '$_base/magpie_bob3.mp4';
-  // magpie_flourish·magpie_sing·magpie_soar 는 Jin 이 에셋에서 삭제(2026-08-06)
-  // → 상수 제거(코드 참조 0건 확인). 파일 복원 시 이 줄만 되살리면 된다.
-
-  static const String magpieGreetChirp =
-      '$_base/magpie_greet_chirp.mp4'; // 첫 인사 — 신나는 짹짹
+  static const String magpieBob = '$_base/magpie_bob.mp4'; // 대기 홉(루프, 현재 미사용)
+  static const String magpieBob2 = '$_base/magpie_bob2.mp4'; // 프로필 아바타(까치)
+  /// 홈 히어로(까치) 대기 루프. 파일명 magpie_walking_front.mp4 로 통일 —
+  /// 구 magpie_bob3 / magpie_walking_forward 와 동일 클립이라 하나로 합쳤다
+  /// (Jin 2026-08-06).
+  static const String magpieWalkingFront = '$_base/magpie_walking_front.mp4';
+  // magpie_flourish·magpie_sing·magpie_soar·magpie_greet_chirp 는 Jin 이 에셋에서
+  // 삭제 → 상수 제거(코드 참조 0건 확인). magpie_greet_chirp 은 magpie_celebrate 와
+  // 사실상 동일해 폐지(2026-08-06). 파일 복원 시 상수만 되살리면 된다.
 
   /// 프로필 초상에 사용할 포즈. 프로필 화면은 생성 시 하나를 골라 해당
   /// 화면이 살아 있는 동안 유지한다.
-  // Jin 2026-08-05: 프로필 호랑이는 tiger_bob 고정(랜덤 포즈 폐지).
-  static const List<String> _tigerProfileClips = [tigerBob];
+  // Jin 2026-08-06: 프로필 호랑이는 tiger_sitting2(앉은 루프) 고정 — 원샷 보행
+  // tiger_walking_front 는 루프 시 사라지거나 튀어서 교체.
+  static const List<String> _tigerProfileClips = [tigerSitting2];
   static const List<String> _magpieProfileClips = [
     magpiePerched,
     magpieChoose,
@@ -93,12 +91,14 @@ class CharacterClips {
       kind == MascotKind.magpie ? _magpieProfileClips : _tigerProfileClips;
 
   /// 첫 인사 클립 (말 없이 — 동물 몸짓만; 소리는 별도 SFX 훅).
+  /// 까치 전용 인사(magpie_greet_chirp)는 celebrate 와 중복이라 폐지 →
+  /// magpie_choose 로 대체(Jin 2026-08-06).
   static String greetFor(MascotKind kind) =>
-      kind == MascotKind.magpie ? magpieGreetChirp : tigerGreetPawflash;
+      kind == MascotKind.magpie ? magpieChoose : tigerGreetPawflash;
 
-  /// 세션/레슨 완료 클립 — 캐릭터별. 호랑이는 기지개, 까치는 축하 날갯짓.
+  /// 세션/레슨 완료 클립 — 캐릭터별. 호랑이는 포효, 까치는 축하 날갯짓.
   static String sessionCompleteFor(MascotKind kind) =>
-      kind == MascotKind.magpie ? magpieCelebrate : tigerStretch;
+      kind == MascotKind.magpie ? magpieCelebrate : tigerRoar;
 
   /// "생각 중" 루프 — 호랑이만 전용 클립이 있고 까치는 대기 자세를 쓴다.
   static String thinkingFor(MascotKind kind) =>
@@ -145,11 +145,11 @@ class CharacterClips {
       case tigerGreetPawflash:
       case tigerRise:
         return 'sfx/greet_tiger.mp3';
-      case magpieGreetChirp:
-        return 'sfx/greet_magpie.mp3';
-      // tigerRoar 는 의도적으로 매핑 제외 — 전용 포효 오디오가 없어
-      // celebrate/greet 합성음을 차용했더니 품질 미달(2026-08-03 Jin:
-      // "허접해서 지워줘"). 좋은 포효 음원이 생기면 케이스를 되살린다.
+      // Jin 2026-08-06: 전용 포효 음원 growl_tiger.mp3 도착 → 매핑 부활.
+      // 레벨업·마일스톤·세션완료(호랑이) 포효에 붙는다. tigerRoarSeatedBonus 는
+      // tigerRoar 와 동일 상수라 이 케이스가 함께 커버한다.
+      case tigerRoar:
+        return 'sfx/growl_tiger.mp3';
       case tigerCelebrateHifive:
       case tigerStretch:
         return 'sfx/celebrate_tiger.mp3';
@@ -244,6 +244,15 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   bool _failed = false;
   bool _sfxStarted = false;
 
+  /// `staticFallback:false` 전용 워치독. 영상이 이 시간 안에 안 뜨면 정적
+  /// 마스코트로 메운다 — 자리가 빈칸으로 남는 것보다 낫다. 200ms 크로스페이드
+  /// 라 영상이 뒤늦게 와도 자연스럽게 넘어간다. `staticFallback:true` 인
+  /// 호출부는 이미 정적이 떠 있으므로 타이머를 아예 만들지 않는다(테스트 환경은
+  /// `videoReady=false` → 전부 이쪽이라 pending timer 가 생기지 않는다).
+  static const Duration _kFallbackWatchdog = Duration(milliseconds: 900);
+  bool _fallbackDue = false;
+  Timer? _fallbackWatchdog;
+
   @override
   void initState() {
     super.initState();
@@ -269,6 +278,13 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
       onRevoked: _onRevoked,
       onFailed: _onFailed,
     );
+    if (!widget.staticFallback) {
+      _fallbackWatchdog = Timer(_kFallbackWatchdog, () {
+        if (mounted && !_ready) {
+          setState(() => _fallbackDue = true);
+        }
+      });
+    }
   }
 
   @override
@@ -341,6 +357,11 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   void _onGranted(VideoPlayerController video) {
     _video = video;
+    // 영상이 왔으니 워치독은 필요 없다. 이미 정적으로 메워 뒀다면
+    // AnimatedSwitcher 가 크로스페이드로 영상에 넘긴다.
+    _fallbackWatchdog?.cancel();
+    _fallbackWatchdog = null;
+    _fallbackDue = false;
     _completion?.leaseGranted();
     if (!widget.loop) {
       video.addListener(_onTick);
@@ -359,6 +380,10 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     _video?.removeListener(_onTick);
     _video = null;
     _ready = false;
+    // 텍스처가 회수됐다(원샷 종료·다른 화면에 lease 양보 등). 여기서 폴백을
+    // 켜 두지 않으면 `staticFallback:false` 인 곳은 자리가 빈칸으로 남는다
+    // — 프로필 호랑이가 걸어 들어온 뒤 사라지던 경로가 정확히 이거였다.
+    _fallbackDue = true;
     _completion?.leaseRevoked();
     if (mounted) {
       setState(() {});
@@ -402,6 +427,8 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   @override
   void dispose() {
+    _fallbackWatchdog?.cancel();
+    _fallbackWatchdog = null;
     _completion?.dispose();
     _video?.removeListener(_onTick);
     _eligibility.disposeBinding();
@@ -427,7 +454,12 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
         child: blocked || _failed || !_ready || video == null
-            ? (widget.staticFallback
+            // `staticFallback:false` 는 "영상이 곧 뜬다"는 **가정**이다. 그
+            // 가정이 깨지면(로드 실패·lease 미승인/회수·웹 디코더 지연)
+            // 캐릭터 자리가 통째로 빈칸이 됐다 — Jin "호랑이가 안나와".
+            // 실패했거나 워치독이 만료됐으면 폴백 설정과 무관하게 정적
+            // 마스코트를 그리고, 영상이 뒤늦게 오면 크로스페이드로 넘긴다.
+            ? (widget.staticFallback || _failed || _fallbackDue
                   ? Mascot(
                       kind: widget.fallbackKind ?? MascotPreference.kind.value,
                       emotion: widget.fallbackEmotion,

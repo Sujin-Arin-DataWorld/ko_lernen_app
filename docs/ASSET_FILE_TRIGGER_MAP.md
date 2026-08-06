@@ -222,10 +222,10 @@
 | `tiger_rise.mp4` | ✅ 홈 히어로 인사(launch당 1회) + 온보딩 첫만남 |
 | `tiger_rest.mp4` | ✅ 홈 히어로 아이들 루프 |
 | `tiger_greet_pawflash.mp4` | ✅ 캐릭터 선택 인사 — 체인 2단계(호랑이) |
-| `magpie_greet_chirp.mp4` | ✅ 캐릭터 선택 인사 — 체인 2단계(까치) |
+| `magpie_choose.mp4` | ✅ 캐릭터 선택 인사 — 체인 2단계(까치) |
 | `tiger_choose.mp4` | ✅ 캐릭터 선택 확정 목례 — 체인 1단계 (2026-07-30) |
 | `magpie_choose.mp4` | ✅ 캐릭터 선택 확정 착지 — 체인 1단계 (2026-07-30) |
-| `tiger_bob.mp4` | ✅ 캐릭터 선택 호랑이 카드 루프 (2026-07-30) |
+| `tiger_walking_front.mp4` | ✅ 캐릭터 선택 호랑이 카드 루프 (2026-07-30) |
 | `magpie_perched.mp4` | ✅ 캐릭터 선택 까치 카드 루프 (2026-07-30) |
 | `tiger_roar.mp4` | ⚠️ 밀스톤 축하 시트 — 호랑이 선택자 (2026-07-30) |
 | `magpie_flight.mp4` | ⚠️ 밀스톤 축하 시트 — 까치 선택자 (2026-07-30) |

@@ -314,10 +314,10 @@ class _AvatarState extends State<_Avatar> {
     // Jin 2026-08-06: 프로필 아바타 = 캐릭터 영상 복원. Impeller 를 끈 뒤
     // (AndroidManifest) Android<33 fence 버그가 사라져, 홈 히어로와 디코더를
     // 영상 lease 로 직렬화하면 깜빡임 없이 재생된다(탭 전환 시 보이는 쪽만
-    // lease 획득). 까치=magpie_bob3 대기 홉, 호랑이(태고)=tiger_bob 대기
-    // 바운스 — 둘 다 루프. tiger_walking_front 는 쓰지 않는다: 원샷이라
-    // 끝나면 아바타가 빈칸이 되고, loop:true 는 피사체가 38% 커지며 이음새가
-    // 튀어 금지다(character_clip.dart 경고). 재생/폴백은 CharacterClipPlayer 담당.
+    // lease 획득). 클립은 카탈로그(`_tigerProfileClips`)가 정한 프로필 포즈를
+    // 따른다 — 까치=magpie_bob2 대기 홉, 호랑이(태고)=tiger_sitting2 앉은 자세.
+    // 둘 다 **루프 가능**해야 한다: 원샷을 쓰면 재생이 끝나며 텍스처가 회수돼
+    // 아바타가 비어 버린다(tiger_walking_front 가 그랬다).
     final kind = MascotPreference.kind.value;
     final isMagpie = kind == MascotKind.magpie;
     return SizedBox.square(
@@ -325,8 +325,12 @@ class _AvatarState extends State<_Avatar> {
       child: Center(
         child: CharacterClipPlayer(
           key: ValueKey('profile_avatar_${kind.name}'),
-          asset: isMagpie ? CharacterClips.magpieBob3 : CharacterClips.tigerBob,
+          asset: isMagpie
+              ? CharacterClips.magpieBob2
+              : CharacterClips.tigerSitting2,
           size: _d,
+          // 둘 다 루프 가능한 클립이라 loop:true. 원샷 클립을 쓰면 재생이
+          // 끝나는 순간 lease 가 반납돼 아바타가 비므로 금지(아래 ⚠️ 참고).
           loop: true,
           // 뒤에 칠해지는 건 이 화면의 plain Scaffold 색이다. 기본값
           // (SoriColors.lightBg 상수)로 두면 teal 팔레트 kill-switch에서

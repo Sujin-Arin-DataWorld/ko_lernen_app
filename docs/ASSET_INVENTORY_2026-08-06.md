@@ -50,7 +50,7 @@
 
 ### 영상 40편 상세 (번들 기준)
 
-**호랑이 12** — `tiger_rise`(홈 히어로 루프)·`tiger_rest`·`tiger_bob`·`tiger_choose`·
+**호랑이 12** — `tiger_rise`(홈 히어로 루프)·`tiger_rest`·`tiger_walking_front`·`tiger_choose`·
 `tiger_greet_pawflash`·`tiger_celebrate_hifive`·`tiger_roar`·`tiger_sitting2`·
 `tiger_stretch`·`tiger_thinking`·`tiger_walking_front`(프로필) — **전부 사용**.
 ※ 2026-08-06 폐지한 `tiger_anim` 프레임 44장의 역할을 이 12편이 그대로 흡수한다.
