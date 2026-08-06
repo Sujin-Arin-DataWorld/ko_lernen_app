@@ -28,7 +28,25 @@
 
 ---
 
-### 2026-08-06 — 홈 히어로 재구현: 헤더 소실(영상 paint 순서) + 영상 사각형 이음매 + 밴드 크기 — 미커밋
+### 2026-08-06 — 4개 세션 병합 감사 + 누락된 홈 히어로 회귀 테스트 커밋
+
+**범위:** Jin — "4개 세션이 각각 따로 작업한 건데 코드 손실 없이 main 에 잘 병합됐는지 확인, 네 작업도 커밋."
+
+**감사 결과 — 코드 손실 0.** `main == origin/main == 5995011`, `git log --all --graph` **완전 선형**(머지 커밋·분기 브랜치 0, ahead/behind 0-0).
+- **시나리오 썸네일 호랑이 제거**(`8d4632c`) IN main — `scenarios_list_screen.dart` 에 `Mascot(` 위젯 호출 0건.
+- **git 감사 세션**이 열거한 커밋 8개(`a626908`·`cde9509`·`8d5ca97`·`582ca71`·`f209290`·`cb66d4f`·`84537c2`·`87c214f`) + `c292bec`·`b67f350` **전부 HEAD 조상**.
+- **프로필 폴백/까치 상수 정리** — `magpieFlourish`·`magpieSing`·`magpieSoar` 참조 0건, 실수 사본 `magpie_choose - 복사본.mp4` 는 **트래킹 안 됨**(커밋에 안 들어감).
+- **내 홈 히어로 수정** — 다른 세션의 일괄 커밋 `1f4e5f9`("비디오 교체 및 삭제")에 코드가, `93b8e48` 에 SESSION_LOG·AGENTS 기록이 함께 실려 들어갔다. `_kHeroFlatBackdropFraction`·`_kHeroBandBottomDp`·`verticalDirection.up` 2곳·`blendColor: SoriColors.lightBg` 전부 HEAD 에 그대로 있음.
+
+**손실이 아니라 의도적 상위 수정 1건:** `staticFallback: false`(홈 히어로·프로필 아바타)는 `4a7958e` 가 `CharacterClipPlayer.videoUnavailable(context)` 로 교체했다. reduce-motion 사용자는 `video_lease` 가 `!reduceMotion` 을 요구해 lease 를 못 받는데 폴백까지 꺼 두면 자리가 통째로 빈칸이 되기 때문 — 되돌리면 접근성 회귀다.
+
+**이번에 커밋한 것:** `test/home_hero_layout_test.dart` — 위 일괄 커밋이 **추적 안 된 신규 파일이라 빠뜨린** 유일한 산출물. 4캐릭터 × 4계약(헤더가 밴드 위 배치 / 클립 감싼 두 Column 이 `verticalDirection.up` / `blendColor == SoriColors.lightBg` / 밴드 ≤216dp·정사각·첫 화면 안).
+
+**검증(현재 HEAD 기준 재실행):** `flutter analyze --fatal-infos`(home_screen·신규 테스트) **No issues** · `flutter test` home_hero_layout+screen_smoke+mascot_wiring+profile_screen+character_clip_matte **71 통과**(신규 16 포함 — `4a7958e` 의 폴백 변경 뒤에도 계약 유효).
+
+**후속(미조치, 남의 파일이라 안 건드림):** `scenarios_list_screen.dart:897-899` 헤더 주석이 아직 "+ sidekick mascot overlay" 를 설명 — 오버레이는 `8d4632c` 로 제거됐으므로 stale.
+
+### 2026-08-06 — 홈 히어로 재구현: 헤더 소실(영상 paint 순서) + 영상 사각형 이음매 + 밴드 크기 — `1f4e5f9`·`93b8e48` 에 포함
 
 **범위:** Jin 실기기 스크린샷 2장 — 캐릭터/레벨 선택 후 홈에서 **로고·스트릭/레벨 칩·설정 아이콘·인사말·말풍선이 통째로 사라졌고**(자리는 그대로 비어 있음), 캐릭터 영상만 밝은 사각형으로 떠 보임. Jin: "화면 조정이랑 영상 배경색상 잘 조정해서 메인화면 다시 잘 구현해줘. 호랑이도 마찬가지."
 
