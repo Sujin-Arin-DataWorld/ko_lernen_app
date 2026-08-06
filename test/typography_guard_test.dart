@@ -64,6 +64,10 @@ void main() {
     // 기준선 2026-07-31: 114 span 중 74곳.
     // (114 = 실제 콜사이트 110 + button.dart 안의 생성자 선언 4)
     // 목표 ~14 — 미디어 컨트롤·플랫폼 마크·아이콘 단독 버튼만 남긴다.
+    // 2026-08-06: 74 → 75. `468facf`(청취 자동재생 통일)가 배치테스트 문항에
+    // 다시듣기 버튼을 추가했다(placement_diagnostic_screen.dart, volume_up).
+    // 이건 위 "목표"가 명시적으로 남기기로 한 **미디어 컨트롤**이라 아이콘을
+    // 떼는 대신 래칫을 한 칸 올린다. 그 외 사유로는 올리지 말 것.
     var total = 0;
     final perFile = <String, int>{};
     for (final s in sources) {
@@ -77,8 +81,8 @@ void main() {
     }
     expect(
       total,
-      lessThanOrEqualTo(74),
-      reason: '아이콘 달린 SoriButton 이 74개를 넘었다 (실제 $total).\n${_report(perFile)}',
+      lessThanOrEqualTo(75),
+      reason: '아이콘 달린 SoriButton 이 75개를 넘었다 (실제 $total).\n${_report(perFile)}',
     );
   });
 }

@@ -131,3 +131,6 @@ assets/illustrations/.asset_intake_2026-08-04/
 assets/illustrations/scenes/_raw/
 assets/illustrations/decorations/_raw/
 assets/illustrations/stamps/_raw/
+
+# 골든 실패 산출물 (LocalFileComparator) — 커밋 대상 아님
+test/**/failures/

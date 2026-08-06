@@ -9,6 +9,11 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  # 골든 기준선 재생성(수동). 골든은 렌더러 고정이 전제라 **CI 환경(Linux +
+  # 아래 flutter-version 핀)이 정본**이다. Windows/macOS 에서
+  # `--update-goldens` 를 돌리면 그 머신 래스터라이즈가 박혀 CI 가 빨간불이
+  # 된다 — 반드시 이 잡으로 만들고, 산출물을 내려받아 커밋할 것.
+  workflow_dispatch:
 
 jobs:
   build:
@@ -37,6 +42,16 @@ jobs:
       - name: Test
         run: flutter test
 
+      # 골든이 깨지면 실제 렌더 이미지를 받아봐야 "진짜 회귀"인지 "환경 차이"인지
+      # 구분할 수 있다. LocalFileComparator 가 test/goldens/failures/ 에
+      # _masterImage/_testImage/_isolatedDiff/_maskedDiff 를 남긴다.
+      - name: Upload golden failure diffs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: test/goldens/failures/**
+
       - name: Build web (release)
         run: flutter build web --release
 
@@ -60,3 +75,33 @@ jobs:
       - name: Test function security boundary
         working-directory: functions/analyze_korean_text
         run: python -m unittest discover -p "test_*.py"
+
+  # 골든 기준선 재생성 — 수동 실행 전용(workflow_dispatch).
+  # 위 build 잡과 **같은 OS·같은 flutter-version** 이어야 의미가 있다. 산출물
+  # (test/goldens/baselines/**)을 내려받아 커밋하면 CI 골든이 초록이 된다.
+  regenerate-goldens:
+    name: Regenerate goldens (manual)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.44.0
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Update goldens
+        run: flutter test --update-goldens test/goldens
+
+      - name: Upload regenerated baselines
+        uses: actions/upload-artifact@v4
+        with:
+          name: goldens-linux-3-44-0
+          path: test/goldens/baselines/**

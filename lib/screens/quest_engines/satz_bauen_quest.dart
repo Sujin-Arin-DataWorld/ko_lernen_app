@@ -345,163 +345,179 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
 
     final revealedOk = _completed && !_wrong;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    // 2026-08-06: 마스코트를 다시 Stack(Clip.none) 오버레이로 뺐다.
+    // 3ee6ec1 이 마스코트를 flow 로 옮기면서 MascotPartner(92px) + Spacing.lg(16)
+    // = 108px 가 세로 예산에 얹혔고, 이 퀘스트는 스크롤 없는 Expanded 안에 살아서
+    // 800x600 기준 411px 자리에 533.5px 가 들어가 122.5px 오버플로가 났다. 그
+    // 결과 단어 타일이 hit-test 밖으로 밀려 탭이 배경으로 새고, Prüfen 버튼은
+    // 뷰포트 밖(y=676)으로 나갔다. 오버레이는 세로 예산을 0 으로 되돌린다.
+    // 스피커 버튼은 아래에서 leading 슬롯으로 옮겨 3ee6ec1 이 고쳤던 겹침이
+    // 재발하지 않게 했다(마스코트는 카드 우상단을 쓴다).
+    return Stack(
+      clipBehavior: Clip.none,
       children: [
-        // Charakter — sitzt über der Frage, mittig (nicht mehr überlappend).
-        Center(
-          child: MascotPartner(
-            celebrating: _celebrated,
-            size: 80,
-            kind: MascotKind.magpie,
-          ),
-        ),
-        const SizedBox(height: Spacing.lg),
-
-        // Prompt (Bedeutung) + optionaler TTS-Button.
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
-          decoration: BoxDecoration(
-            color: s.surface,
-            borderRadius: BorderRadius.circular(SoriRadius.lg),
-            border: Border.all(color: s.surfaceAlt, width: 1.5),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  _prompt(langCode),
-                  style: TextStyle(
-                    color: s.text,
-                    fontSize: 20,
-                    height: 1.45,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Prompt (Bedeutung) + optionaler TTS-Button.
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
+              decoration: BoxDecoration(
+                color: s.surface,
+                borderRadius: BorderRadius.circular(SoriRadius.lg),
+                border: Border.all(color: s.surfaceAlt, width: 1.5),
               ),
-              if (_audioKo.isNotEmpty) ...[
-                const SizedBox(width: 14),
-                InkWell(
-                  borderRadius: BorderRadius.circular(SoriRadius.pill),
-                  onTap: _playTts,
-                  child: Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: SoriColors.info.withAlpha(26),
-                      border: Border.all(
-                        color: SoriColors.info,
-                        width: 1.5,
+              child: Row(
+                children: [
+                  // 스피커는 leading 슬롯 — trailing 에 두면 우상단 마스코트
+                  // 오버레이와 겹친다(3ee6ec1 이 고쳤던 그 문제).
+                  if (_audioKo.isNotEmpty) ...[
+                    InkWell(
+                      borderRadius: BorderRadius.circular(SoriRadius.pill),
+                      onTap: _playTts,
+                      child: Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: SoriColors.info.withAlpha(26),
+                          border: Border.all(
+                            color: SoriColors.info,
+                            width: 1.5,
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.volume_up_rounded,
+                          color: SoriColors.info,
+                          size: 24,
+                        ),
                       ),
                     ),
-                    child: const Icon(
-                      Icons.volume_up_rounded,
-                      color: SoriColors.info,
-                      size: 24,
+                    const SizedBox(width: 14),
+                  ],
+                  Expanded(
+                    child: Text(
+                      _prompt(langCode),
+                      style: TextStyle(
+                        color: s.text,
+                        fontSize: 20,
+                        height: 1.45,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ],
-          ),
-        ),
-        const SizedBox(height: Spacing.lg),
-        Text(
-          t.questSatzBauenInstruction,
-          style: TextStyle(color: s.textMuted, fontSize: 14),
-        ),
-        const SizedBox(height: Spacing.md),
-
-        // Antwort-Bereich (gebaute Reihenfolge).
-        Container(
-          constraints: const BoxConstraints(minHeight: 96),
-          width: double.infinity,
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: s.surface,
-            borderRadius: BorderRadius.circular(SoriRadius.lg),
-            border: Border(
-              bottom: BorderSide(
-                color: revealedOk
-                    ? SoriColors.success
-                    : (_wrong ? SoriColors.danger : SoriColors.primary),
-                width: 2.5,
+                ],
               ),
             ),
-          ),
-          child: _answer.isEmpty
-              ? Center(
-                  child: Text(
-                    '…',
-                    style: TextStyle(color: s.textDim, fontSize: 22),
-                  ),
-                )
-              : Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    for (var i = 0; i < _answer.length; i++)
-                      _buildTile(
-                        _answer[i],
-                        s,
-                        inAnswer: true,
-                        highlightWrong: _wrong && i == _mismatchIdx,
-                        highlightOk: revealedOk,
-                      ),
-                  ],
-                ),
-        ),
-        // Diagnose-Feedback (warum falsch).
-        SizedBox(
-          height: 24,
-          child: (_wrong && !_completed && _diag != SatzError.none)
-              ? Text(
-                  _diagText(t),
-                  style: const TextStyle(
-                    color: SoriColors.danger,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                  ),
-                )
-              : const SizedBox.shrink(),
-        ),
-        const SizedBox(height: Spacing.lg),
+            const SizedBox(height: Spacing.lg),
+            Text(
+              t.questSatzBauenInstruction,
+              style: TextStyle(color: s.textMuted, fontSize: 14),
+            ),
+            const SizedBox(height: Spacing.md),
 
-        // Wort-Bank.
-        Wrap(
-          spacing: 12,
-          runSpacing: 12,
-          alignment: WrapAlignment.center,
-          children: [
-            for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
+            // Antwort-Bereich (gebaute Reihenfolge).
+            Container(
+              constraints: const BoxConstraints(minHeight: 72),
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: s.surface,
+                borderRadius: BorderRadius.circular(SoriRadius.lg),
+                border: Border(
+                  bottom: BorderSide(
+                    color: revealedOk
+                        ? SoriColors.success
+                        : (_wrong ? SoriColors.danger : SoriColors.primary),
+                    width: 2.5,
+                  ),
+                ),
+              ),
+              child: _answer.isEmpty
+                  ? Center(
+                      child: Text(
+                        '…',
+                        style: TextStyle(color: s.textDim, fontSize: 22),
+                      ),
+                    )
+                  : Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: [
+                        for (var i = 0; i < _answer.length; i++)
+                          _buildTile(
+                            _answer[i],
+                            s,
+                            inAnswer: true,
+                            highlightWrong: _wrong && i == _mismatchIdx,
+                            highlightOk: revealedOk,
+                          ),
+                      ],
+                    ),
+            ),
+            // Diagnose-Feedback (warum falsch).
+            SizedBox(
+              height: 24,
+              child: (_wrong && !_completed && _diag != SatzError.none)
+                  ? Text(
+                      _diagText(t),
+                      style: const TextStyle(
+                        color: SoriColors.danger,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+            ),
+            const SizedBox(height: Spacing.lg),
+
+            // Wort-Bank.
+            Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              alignment: WrapAlignment.center,
+              children: [
+                for (final tile in _bank) _buildTile(tile, s, inAnswer: false),
+              ],
+            ),
+            const SizedBox(height: Spacing.xl),
+
+            // Prüfen-Button.
+            Opacity(
+              opacity: (_answer.isEmpty || _completed) ? 0.5 : 1.0,
+              child: Material(
+                color: SoriColors.primary,
+                borderRadius: BorderRadius.circular(SoriRadius.lg),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(SoriRadius.lg),
+                  onTap: (_answer.isEmpty || _completed) ? null : _check,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    child: Center(
+                      child: Text(
+                        t.questCheckAnswer,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
-        const SizedBox(height: Spacing.xl),
-
-        // Prüfen-Button.
-        Opacity(
-          opacity: (_answer.isEmpty || _completed) ? 0.5 : 1.0,
-          child: Material(
-            color: SoriColors.primary,
-            borderRadius: BorderRadius.circular(SoriRadius.lg),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(SoriRadius.lg),
-              onTap: (_answer.isEmpty || _completed) ? null : _check,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 18),
-                child: Center(
-                  child: Text(
-                    t.questCheckAnswer,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+        // Charakter — Overlay außerhalb des Flows (Clip.none), damit die
+        // Spaltenhöhe im höhenbeschränkten Host unverändert bleibt.
+        Positioned(
+          top: -12,
+          right: 12,
+          child: MascotPartner(
+            celebrating: _celebrated,
+            size: 56,
+            kind: MascotKind.magpie,
           ),
         ),
       ],
