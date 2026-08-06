@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Hangul Sori — App privacy manifest (Apple, App Store 제출 필수).
+
+  근거: docs/store/data-safety.md 의 수집 항목 표를 그대로 옮긴 것이다. 그 문서와
+  이 파일과 App Store Connect 의 App Privacy 답변 **셋이 일치해야 한다** — 하나만
+  달라도 심사에서 걸린다.
+
+  ⚠️ macOS 담당자 필수 확인 (Windows 에서는 검증 불가):
+   1. Xcode 에서 이 파일이 Runner 타깃 "Copy Bundle Resources" 에 들어가 있는지.
+      파일을 만들어 두기만 하면 번들에 안 들어간다.
+   2. 서드파티 SDK(Firebase·RevenueCat·ML Kit·Flutter 플러그인)는 각자
+      PrivacyInfo.xcprivacy 를 함께 배포한다. 아래 목록은 **앱 자체 코드**의
+      선언이며, Xcode Organizer 의 "Generate Privacy Report" 로 최종 합본을
+      뽑아 App Store Connect 답변과 대조할 것.
+   3. 옵트인으로 꺼져 있어도 **수집 가능하면 선언해야 한다**. Analytics/Crashlytics
+      기본값이 off 인 것은 "미수집"이 아니다.
+
+  NSPrivacyTracking=false 근거: 광고 식별자를 쓰지 않고(Android 는 AD_ID 권한을
+  명시 제거), 데이터 브로커·서드파티 광고 네트워크로 내보내는 경로가 없다.
+-->
+<plist version="1.0">
+<dict>
+  <key>NSPrivacyTracking</key>
+  <false/>
+
+  <key>NSPrivacyTrackingDomains</key>
+  <array/>
+
+  <!-- ── Required Reason API ────────────────────────────────────────────
+       앱 코드가 직접 쓰는 것만 선언한다. 플러그인이 자체 매니페스트를
+       제공하면 그쪽에서 중복 선언되며, 그건 정상이다. -->
+  <key>NSPrivacyAccessedAPITypes</key>
+  <array>
+    <dict>
+      <!-- shared_preferences — 학습 진도·설정·튜토리얼 플래그. 앱 전용 저장소. -->
+      <key>NSPrivacyAccessedAPIType</key>
+      <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+      <key>NSPrivacyAccessedAPITypeReasons</key>
+      <array>
+        <string>CA92.1</string>
+      </array>
+    </dict>
+    <dict>
+      <!-- path_provider 기반 앱 전용 디렉터리 — TTS mp3 캐시, OCR 임시 이미지,
+           백업/복원 파일. 앱 컨테이너 밖 파일은 다루지 않는다. -->
+      <key>NSPrivacyAccessedAPIType</key>
+      <string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+      <key>NSPrivacyAccessedAPITypeReasons</key>
+      <array>
+        <string>C617.1</string>
+      </array>
+    </dict>
+    <dict>
+      <!-- 캐시 정리 판단(TTS mp3·이미지 캐시)에 필요한 여유 공간 확인. -->
+      <key>NSPrivacyAccessedAPIType</key>
+      <string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+      <key>NSPrivacyAccessedAPITypeReasons</key>
+      <array>
+        <string>E174.1</string>
+      </array>
+    </dict>
+  </array>
+
+  <!-- ── 수집 데이터 ─────────────────────────────────────────────────────
+       Linked = Firebase UID 로 사용자와 연결됨.  Tracking = 전부 false. -->
+  <key>NSPrivacyCollectedDataTypes</key>
+  <array>
+
+    <!-- Google/Apple 로그인으로 계정을 연결한 경우에만 -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypeEmailAddress</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
+    </dict>
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypeName</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
+    </dict>
+
+    <!-- 익명 Firebase UID 는 클라우드 시작 시 자동 생성된다(계정 연동과 무관). -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypeUserID</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
+    </dict>
+
+    <!-- 구독 구매/복원 상태 (RevenueCat + App Store) -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypePurchaseHistory</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
+    </dict>
+
+    <!-- 학습 진도·SRS·스트릭 (계정 연동 시 클라우드 백업), 계 커뮤니티 활동 -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypeProductInteraction</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array>
+        <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+        <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+      </array>
+    </dict>
+
+    <!-- OCR 로 뽑았거나 사용자가 입력한 한국어 텍스트, 공유 단어팩,
+         계 닉네임·응원·신고 내용 -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypeOtherUserContent</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
+    </dict>
+
+    <!-- 사진: 교재 페이지 촬영/선택. OCR 은 온디바이스 ML Kit,
+         이미지는 앱 전용 저장소에 남고 업로드하지 않는다. -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypePhotosorVideos</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
+    </dict>
+
+    <!-- Crashlytics — 기본 off, 명시적 동의 후에만 전송 -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypeCrashData</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><false/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string></array>
+    </dict>
+
+    <!-- Firebase Analytics — 기본 off, 명시적 동의 후에만 전송 -->
+    <dict>
+      <key>NSPrivacyCollectedDataType</key>
+      <string>NSPrivacyCollectedDataTypeOtherUsageData</string>
+      <key>NSPrivacyCollectedDataTypeLinked</key><true/>
+      <key>NSPrivacyCollectedDataTypeTracking</key><false/>
+      <key>NSPrivacyCollectedDataTypePurposes</key>
+      <array><string>NSPrivacyCollectedDataTypePurposeAnalytics</string></array>
+    </dict>
+
+  </array>
+</dict>
+</plist>
