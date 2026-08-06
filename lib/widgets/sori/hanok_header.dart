@@ -121,16 +121,46 @@ class HanokHeader extends StatelessWidget {
         TigerStageVideo.videoReady &&
         !SoriMotion.reduceMotion(context);
 
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(radius),
-      child: AspectRatio(
-        aspectRatio: aspectRatio,
-        child: live
-            ? SoriPosterLoop(videoAsset: loop, poster: poster, fit: fit)
-            : poster,
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // 이 배너는 **장식**이다. 10:3 이라 높이가 폭을 따라가는데, 세로가 짧은
+        // 뷰포트(가로 폰·분할 화면·넓고 낮은 창)에서는 그 높이가 화면의 30~40%
+        // 를 먹고 학습 카드·정답 버튼을 밀어내 오버플로를 만든다.
+        //
+        // 판단을 **절대 높이**로 하지 않는 게 중요하다. `높이 < 640` 같은 규칙은
+        // 360×640 짜리 흔한 세로 폰에서도 배너를 지워 실기기 디자인을 바꾼다.
+        // 대신 **자기 높이가 화면에서 차지하는 비율**로 본다:
+        //
+        //   360×640 세로 폰   108/640 = 17%  → 유지
+        //   360×400 분할 화면 108/400 = 27%  → 접음
+        //   800×600 낮은 창   193/600 = 32%  → 접음
+        //   800×1280 태블릿   193/1280 = 15% → 유지
+        //
+        // 정보가 없는 요소부터 버리는 게 순서다 — 콘텐츠는 건드리지 않는다.
+        final viewportHeight = MediaQuery.sizeOf(context).height;
+        final width = constraints.maxWidth;
+        if (width.isFinite && viewportHeight > 0) {
+          final bannerHeight = width / aspectRatio;
+          if (bannerHeight > viewportHeight * _maxViewportShare) {
+            return const SizedBox.shrink();
+          }
+        }
+
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(radius),
+          child: AspectRatio(
+            aspectRatio: aspectRatio,
+            child: live
+                ? SoriPosterLoop(videoAsset: loop, poster: poster, fit: fit)
+                : poster,
+          ),
+        );
+      },
     );
   }
+
+  /// 장식 배너가 차지해도 되는 화면 높이의 최대 비율.
+  static const double _maxViewportShare = 0.22;
 }
 
 /// **SoriPosterLoop** — png 포스터 → (영상 준비되면) 무음 루프 크로스페이드.

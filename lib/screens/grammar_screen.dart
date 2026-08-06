@@ -489,6 +489,10 @@ class _GrammarScreenState extends State<GrammarScreen>
               child: Column(
                 children: [
                   // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+                  //
+                  // 짧은 뷰포트에서 배너가 스스로 접히는 규칙은 HanokHeader 안에
+                  // 있다(자기 높이가 화면의 22% 를 넘으면 SizedBox.shrink).
+                  // 배너를 쓰는 모든 화면이 같은 규칙을 받는다.
                   const HanokHeader(
                     asset: 'assets/illustrations/hanok/study_scholar.png',
                     fallbackIcon: Icons.auto_stories_outlined,

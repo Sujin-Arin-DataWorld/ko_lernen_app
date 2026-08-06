@@ -97,6 +97,25 @@ AppWindowClass windowClassFor(double width) {
 AppWindowClass appWindowClassOf(BuildContext context) =>
     windowClassFor(MediaQuery.sizeOf(context).width);
 
+/// 세로가 짧은 뷰포트로 보는 기준 높이.
+///
+/// 가로로 든 폰(≈360–430dp), 분할 화면, 자유 형식 창이 여기 들어온다.
+/// 값 자체보다 **왜 필요한지**가 중요하다 — 화면 상단 배너와 하단 액션 블록은
+/// 대개 고정 높이라 뷰포트가 짧아져도 줄지 않고, 가운데를 `Expanded` 로 준
+/// 화면은 그 가운데가 0까지 줄어도 고정 블록 합이 뷰포트를 넘으면 넘친다.
+const double kShortViewportMaxHeight = 560;
+
+/// 짧은 뷰포트에서는 **장식**을 먼저 접는다.
+///
+/// 콘텐츠(문제·정답 버튼·CTA)가 아니라 배너·일러스트처럼 정보가 없는 요소를
+/// 대상으로 한다. 기능이나 데이터 흐름을 바꾸는 판단에 쓰지 말 것.
+///
+/// ```dart
+/// if (!isShortViewport(context)) const HanokHeader(...),
+/// ```
+bool isShortViewport(BuildContext context) =>
+    MediaQuery.sizeOf(context).height < kShortViewportMaxHeight;
+
 /// 화면 종류별 콘텐츠 최대 너비.
 ///
 /// 태블릿에서 가장 흔한 문제는 UI 가 깨지는 것보다 **내용이 지나치게 길게

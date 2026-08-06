@@ -70,8 +70,16 @@ class SoriEmptyState extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final accentColor = accent ?? SoriColors.primary;
 
+    // 세로가 짧은 뷰포트(가로 폰·분할 화면)에서는 200dp 일러스트가 화면의
+    // 절반을 먹고 제목·본문·CTA 를 밀어낸다. 사용 가능한 높이의 35% 로 묶어
+    // 텍스트와 버튼이 먼저 자리를 갖게 한다. 넉넉한 화면에서는 값이 그대로다.
+    final available = MediaQuery.sizeOf(context).height;
+    final illustrationHeight = available > 0
+        ? illustrationMaxHeight.clamp(0.0, available * 0.35)
+        : illustrationMaxHeight;
+
     final illustration = SizedBox(
-      height: illustrationMaxHeight,
+      height: illustrationHeight,
       child: Center(
         child: asset != null
             ? Image.asset(
@@ -85,12 +93,11 @@ class SoriEmptyState extends StatelessWidget {
       ),
     );
 
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: Spacing.xl,
-          vertical: Spacing.lg,
-        ),
+    final content = Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.xl,
+        vertical: Spacing.lg,
+      ),
         child: SoriEntrance(
           duration: const Duration(milliseconds: 380),
           slideY: 16,
@@ -152,7 +159,24 @@ class SoriEmptyState extends StatelessWidget {
             ],
           ),
         ),
-      ),
+    );
+
+    // 그래도 안 들어가면 잘라내지 말고 스크롤한다. 빈/오류 상태는 보통 CTA 가
+    // 유일한 다음 행동이라, 넘쳐서 버튼이 잘리면 사용자가 막힌다.
+    // 높이가 무한한 자리(ListView 안 등)에서는 스크롤을 얹지 않는다 — 그러면
+    // viewport 가 unbounded 라 터진다.
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (!constraints.maxHeight.isFinite) {
+          return Center(child: content);
+        }
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: Center(child: content),
+          ),
+        );
+      },
     );
   }
 }
