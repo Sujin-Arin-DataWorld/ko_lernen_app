@@ -44,6 +44,7 @@ APK에 들어간 적조차 없음. 코드 참조도 0. 순수 레포 보관물.
 | `illustrations/tiger_anim_archive/` walk 15 | `assets/illustrations/tiger_anim_archive/` | **구세대 호랑이 보행 프레임** — `walk_left_a~f`·`walk_right_a~f`(6프레임 보행)·`walk_start_right`·`walk_stop_left/right`. 신형 8프레임(`tiger_anim/walk_*_01~08`)으로 대체된 아카이브 | ❌ 삭제됨 |
 | `illustrations/tiger_anim_archive/thinking.png` | 〃 | 구 호랑이 "생각 중" 정지 프레임 | 📦 잔존 |
 | `illustrations/hanok/backup/` (6) | `assets/illustrations/hanok/backup/` | **인트로 대문 아트 원본 백업** — `gate_door_left.orig2`·`gate_door_right.orig`/`orig2`·`gate_final.orig`·`gate_final.with_gate`·`gate_frame.orig2`. 2026-06-01 대문 knockout(문/프레임 분리 투명화) 작업 전 원본들 | ❌ 삭제됨 |
+| `illustrations/tiger_anim/` (44) | `assets/illustrations/tiger_anim/` | **풀바디 호랑이 프레임 44장** (구 `TigerStage`). 2026-08-06 `TigerStage`/`TigerStageRive` 폐지와 함께 이동 — 홈이 `CharacterClipPlayer` 로 옮겨간 뒤 어떤 화면도 `TigerStageVideo` 를 만들지 않아 체인 전체가 데드코드였다. 전부 `assets/video/character/` 상위 호환 클립으로 대체(인트로 9→`tiger_rise`, idle 4→`tiger_rest`·`tiger_sitting2`, 보행 22→`tiger_walking_front`, stretch 3→`tiger_stretch`, roar 6→`tiger_roar`, `stand_greet`→`mascot/tiger_*.png`) | 📦 잔존 |
 
 ---
 

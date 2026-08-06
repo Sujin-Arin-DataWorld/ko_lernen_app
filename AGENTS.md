@@ -105,7 +105,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `hanok_tokens.dart` — 한옥 전용 색상 (단청 4색)
 - `card.dart`, `button.dart`, `chip.dart`, `progress.dart`, `badge.dart`, `pressable.dart` — UI 컴포넌트
 - `mascot.dart` — `Mascot.tiger` / `Mascot.magpie` (v6). **자산은 `assets/illustrations/mascot/`에 분리된 포즈 PNG**: 호랑이 5(idle/blink/happy/celebrate/sad) + 까치 4(perched/wingup/wingdown/celebrate). emotion → 포즈 매핑 (celebrate/worry/sleepy/surprised/thinking/neutral/smile). `tiger_thinking`/`tiger_sleepy`/`tiger_neutral`/`magpie_worry`는 Jin이 추후 추가하면 자동 사용, 미존재 시 errorBuilder fallback.
-- `tiger_stage.dart` — **살아있는 호랑이 프레임 애니메이션** (홈 상단 밴드, 2026-06-03). 상태머신 INTRO(launch당 1회)→FRONT_IDLE↔PACING(좌우 there-and-back, 중앙 복귀)/SIT + ambient 스케줄러(5–10s). 토큰 가드 재귀 Future 시퀀서 + 150ms 크로스디졸브(걷기는 하드컷) + reduce-motion 정지 프레임 + 프레임 누락 시 `Mascot.tiger` fallback + 백그라운드 일시정지. 자산 `assets/illustrations/tiger_anim/`(풀바디 44장). **기존 `mascot.dart`(흉상 아바타)와 별개 시스템**. 전체 스펙(생성 프롬프트·상태머신·타이밍·4다리 보행·프레임↔코드 통합): `docs/TIGER_FULL_REMAKE_MASTER.md`. **홈은 직접 쓰지 않고 `tiger_stage_rive.dart`를 통해 폴백으로만 사용.**
+- ~~`tiger_stage.dart` / `tiger_stage_rive.dart`~~ — **2026-08-06 폐지**. 프레임 44장 애니메이션과 Rive 폴백을 함께 삭제했다. 홈이 `CharacterClipPlayer` 로 옮겨간 뒤 어떤 화면도 `TigerStageVideo` 를 만들지 않아 체인 전체가 데드코드였다. 프레임은 `assets_unused/illustrations/tiger_anim/` 으로 이동. 현재 정본은 `character_clip.dart` + `assets/video/character/`(호랑이 12클립), 영상 불가 시 `mascot.dart` 정지 PNG.
 - `tiger_stage_rive.dart` — **Rive 리깅 호랑이 래퍼**(부드러운 sit→인사→pacing 목표). `assets/rive/tiger.riv` + `RiveNative.init()` 성공(`riveReady`) 시 Rive 재생, 그 외(미초기화·파일 없음·로드 실패·reduce-motion) `TigerStage`(프레임)로 자동 폴백. rive 0.14 API(`RiveWidgetBuilder`/`FileLoader.fromAsset`/`Factory.flutter`/`RiveWidget(fit:contain)`). **`tiger.riv` 리그는 미제작(Rive 경로 보류) — 프레임 폴백으로 동작.** 호랑이 전체 스펙은 `docs/TIGER_FULL_REMAKE_MASTER.md`. **홈은 2026-06-12부터 `tiger_video.dart`를 쓰고, 이건 그 폴백 체인의 중간 단계.**
 - `tiger_video.dart` — **호랑이 영상 위젯 2종** (Jin 제작 mp4, 2026-06-12). ① `TigerStageVideo`(홈 밴드): 인사 `tiger_greet.mp4` launch당 1회 → 150ms 크로스페이드 → `tiger_pace.mp4` 무한루프, 항상 무음. ② `TigerGreetClip`(온보딩 첫 만남): 인사 영상 + `sfx/tiger_greet.mp3` 음성 1회. 영상이 H.264(알파 없음, 흰 배경)라 **`ColorFiltered`+`BlendMode.multiply`로 흰 배경을 크림에 흡수**(⚠️ 캔버스 saveLayer 블렌드는 비디오 Texture 레이어에 안 먹힘 — 반드시 ColorFiltered). multiply 특성상 **밝은 배경 전용** → 다크/reduce-motion/`videoReady=false`(테스트)/로드 실패 시 `TigerStageRive`→프레임 폴백. `videoReady`는 main.dart에서만 true. 탭 비가시(`TickerMode.getValuesNotifier`)·앱 백그라운드 시 pause. 홈 `_TigerHero`가 이걸 사용(rive·프레임은 폴백으로 강등).
 - `mascot_pop.dart` — 퀘스트 피드백용 팝업 마스코트
@@ -147,7 +147,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/illustrations/mascot/` — 분리 포즈 PNG (Mascot 위젯 소스, 11종):
   - 호랑이 7: `idle`, `blink`, `happy`, `celebrate`, `sad`, `neutral` (← tigerbasic1 복원), `smile` (← tiger_smile 복원)
   - 까치 5: `perched`, `wingup`, `wingdown`, `celebrate`, `perched_alt` (← v2 복원, fallback 다양성용)
-- `assets/illustrations/tiger_anim/` — **풀바디 호랑이 애니메이션 프레임 44장** (`TigerStage` 소스). intro 9 + idle 4 + 좌 pacing 10 + 우 pacing 11 + thinking 1 + **ambient special 9(stretch 3·roar 6, 2026-06-03 "누락이미지" 드롭)**. 1254² 정사각·투명·Faceted Minhwa. 매핑·시퀀스·타이밍·생성 프롬프트·4다리 보행은 `docs/TIGER_FULL_REMAKE_MASTER.md`.
+- ~~`assets/illustrations/tiger_anim/`~~ — 프레임 44장. **2026-08-06 `assets_unused/illustrations/tiger_anim/` 로 이동**(pubspec 등록 해제 → 번들에서 제외). 44장 전부 `assets/video/character/` 의 상위 호환 클립으로 대체된다: 인트로 9→`tiger_rise`, idle 4→`tiger_rest`·`tiger_sitting2`, 좌우 보행 22→`tiger_walking_front`, stretch 3→`tiger_stretch`, roar 6→`tiger_roar`, 정적 폴백 `stand_greet`→`mascot/tiger_*.png`.
 - `assets/illustrations/gye/` — **계(공동 한옥) 요소 8** (haenglangchae·byeoldang·jeongja·pond_large·garden·bridge·jangmyeongdeung_pair·gate_grand). 2026-06-03 드롭. **현재 코드 consumer 없음** — "계" 공동 마당 기능 제작 시 합성용. 명세 jongga-assets §6.
 - `assets/illustrations/book/` — **책 한 컷 UI 일러스트 5, 전부 연결**(2026-06-03): empty_shelf→책장 빈 상태, camera_guide→book_capture idle, analyzing→book_result 로딩(`AppLoading.asset`), success→book_result 성공, error→book_result 에러(`AppError.asset`). 모두 errorBuilder→마스코트 fallback. 명세 §7.
 - `assets/illustrations/scenes/` — 시나리오 backdrop 5종 (Jin 작업)
@@ -218,6 +218,12 @@ flutter run -d <android-id>   # 안드로이드
 > - ✅ **2026-06-05: BottomNav IA 재설계 + 첫 사용자 온보딩 코치마크 (Stage 1)** — AppShell(4탭) + 허브 3종 + feature_coach.dart + Storage kl_tut_* 플래그 + P0 배선(책한컷·단어팩). 미커밋(Jin 확인 후).
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
+
+### 홈 히어로 — 헤더 소실·영상 이음매 수리 (2026-08-06)
+
+- [x] 홈 배경 상단 60%를 `SoriColors.lightBg` 평면 단색으로 두고 radial glow 를 히어로 밴드 아래로 내려, 캐릭터 mp4 흰 매트의 `multiply` 결과가 배경과 픽셀 동일해지게 했다(영상 사각형 "액자" 소멸).
+- [x] 헤더(로고·스트릭/레벨 칩·설정)와 인사·말풍선이 캐릭터 영상보다 **나중에 paint** 되도록 `Column(verticalDirection: up)` 로 순서만 역전했다(배치는 동일). 밴드 높이는 화면 높이·폭·글자배율 반응형(≤216dp)으로 바꿨다. 회귀는 `test/home_hero_layout_test.dart` 16개가 고정한다.
+- [ ] Jin 실기기 재빌드 검증: 헤더 복귀 · 영상 이음매 소멸 · 밴드 체감 크기(까치·호랑이 둘 다). 그래도 헤더가 안 보이면 원인은 `ColorFiltered`(saveLayer)+외부 텍스처 → mp4 매트를 크림으로 재출력해 `ColorFiltered` 제거가 다음 수(SESSION_LOG 2026-08-06 항목 참고).
 
 ### v2.0.5+11 내부 테스트 AAB (2026-08-05)
 
@@ -315,7 +321,7 @@ flutter run -d <android-id>   # 안드로이드
 - [x] `kl_personal_hanok_milestones_seen_v1`은 local visual ledger로만 사용한다. 기존 학습자는 첫 지도 방문에서 현재 건물을 조용히 baseline하고, 그 뒤 새 milestone만 목재·먼지·단청 reveal로 한 번 보여 준다. reduce-motion에서는 정적 확인 CTA로 대체한다.
 - [x] 768×576 초기/중간/완성 golden 3장과 asset-bundle·reveal-store·venue-sheet 회귀를 추가했다. 정본 계약은 `docs/PERSONAL_HANOK_CANONICAL_ASSET_CONTRACT.md`, 실기기 수용 절차는 `docs/HANOK_MAP_DEVICE_QA_2026-08-05.md`에 기록했다.
 - [ ] Jin 실기기: Galaxy Tab·Xiaomi Pad에서 세로/가로·글자 1.0/1.3·초기/중간/완성 지도 탭·후원 다리·reduce-motion reveal을 확인한다. 자동 테스트가 이 수용 검사를 대체하지 않는다.
-- [~] 작업 브랜치 `merkmal/hanok-oblique-world`에 구현을 보관 중이며, Jin의 명시적 커밋 요청 전에는 커밋/푸시하지 않는다.
+- [x] 구현은 `main`에 반영 완료다 (`b8b5ae8 feat(hanok): add oblique estate world`). 작업 브랜치 `merkmal/hanok-oblique-world`는 병합 후 삭제됐다 — 이 항목이 `[~] 미커밋`으로 남아 있어 "한옥 작업이 사라졌다"는 오해를 만들었다(2026-08-06 정정).
 
 ### 플러그인·Android 배포 호환성 (2026-08-05)
 

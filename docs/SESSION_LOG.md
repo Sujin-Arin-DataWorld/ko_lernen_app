@@ -7,6 +7,46 @@
 
 ---
 
+### 2026-08-06 — main CI 초록 복구: 테스트 8건 실패 해소 + 캐릭터 매트 수리 + tiger_anim 폐지
+
+**계기:** Jin — "한옥 작업이 아예 없는데 왜 그런지 찾아서 메인에 넣어줘."
+
+**진단 (오해 정정 포함):** 한옥 작업은 **전부 `main`에 있었다**. `b8b5ae8 feat(hanok): add oblique estate world`가 `main` 조상이고, `/hanok` 라우트는 홈·학습경로·사랑방에서 도달 가능하며, 버전 `2.0.4+10 → 2.0.5+11`도 `5382e23`로 푸시돼 있었다. "없어 보인" 실제 원인은 둘:
+1. **main CI가 빨간불** — run 31056758885 `Test` 스텝에서 8건 실패 → `Build web (release)` 스텝이 **아예 실행되지 않아** 릴리스 산출물이 없었다.
+2. **2026-08-06 캐릭터 작업이 로컬 미커밋** — `home_screen`/`profile_screen`/`character_clip` + 영상 교체분이 GitHub에 없었다.
+   (부수: `AGENTS.md`의 `merkmal/hanok-oblique-world` 항목이 병합 후에도 `[~] 미커밋`으로 남아 오해를 키웠다 → 정정.)
+
+**수정:**
+- **clip matte 2건** — `tool/clip_matte_report.json`이 신규 3클립 누락·2클립 바이트 드리프트. 재생성 과정에서 **실버그 발견**: 교체된 `magpie_bob`·`bob2`·`bob3`·`choose` 4개의 매트가 `#F2F2F2`(순백 아님). `BlendMode.multiply`는 255에서만 항등원이라 크림 배경을 ~5% 눌러 **회색 박스**로 보인다(하필 `magpie_bob3`이 새 홈 히어로). ffmpeg `lutrgb`로 ≥236을 255로 스냅해 재인코딩 → 24클립 전부 `ok`. 번들에 섞여 있던 `magpie_choose - 복사본.mp4`도 제거.
+- **satz 2건 (진짜 레이아웃 회귀)** — `3ee6ec1`이 마스코트를 `Stack(Clip.none)` 오버레이에서 flow로 옮기며 `MascotPartner(92px)+Spacing.lg(16)`=108px를 세로 예산에 얹었다. 이 퀘스트는 스크롤 없는 `Expanded` 안이라 800×600에서 411px 자리에 533.5px → **122.5px 오버플로**. 단어 타일이 hit-test 밖으로 밀려 탭이 배경으로 새고 `Prüfen`은 뷰포트 밖(y=676)으로 나갔다. 오버레이 복원 + 스피커를 leading 슬롯으로 이동(3ee6ec1이 고쳤던 겹침 재발 방지) + `minHeight 96→72`·`padV 24→18`. **가드 테스트는 손대지 않았다** — 정당한 회귀 검출이었다.
+- **typography 1건** — `468facf`가 배치테스트에 다시듣기 버튼을 추가해 아이콘 `SoriButton` 74→75. 가드가 명시한 유지 대상(**미디어 컨트롤**)이라 아이콘을 떼는 대신 래칫을 75로 올리고 사유를 주석에 남겼다.
+- **goldens 3건 — 환경 드리프트(코드 회귀 아님).** 로컬(Windows/Flutter 3.44.8) 통과, CI(ubuntu/**3.44.0** 핀) 실패. 기준선은 `91dd549`(8/4)이고 이후 위젯 변경은 폭 400에서 no-op(`soriComfortScale`가 정확히 1.0)임을 확인. CI에 ① 실패 시 golden diff 아티팩트 업로드 ② `workflow_dispatch`로 **CI와 동일 환경에서 기준선 재생성**하는 잡을 추가했다. ⚠️ 기준선은 **Linux 정본** — 로컬에서 `--update-goldens` 금지.
+- **접근성 회귀(별건, 미커밋 작업이 유발)** — `staticFallback:false`인데 영상 lease가 `!reduceMotion`을 요구해(`video_lease.dart`) reduce-motion 사용자는 홈 히어로·프로필 아바타가 **통째로 빈칸**이었다. `staticFallback: SoriMotion.reduceMotion(context)`로 일반 사용자는 의도대로 투명, 접근성 사용자만 정적 마스코트.
+- **tiger_anim 44장 폐지 (Jin 지시)** — `TigerStageVideo`를 만드는 화면이 하나도 없어 `TigerStageVideo→TigerStageRive→TigerStage` 체인이 데드코드였다. `tiger_stage.dart`·`tiger_stage_rive.dart`·`test/tiger_stage_test.dart` 삭제, 프레임은 `assets_unused/illustrations/tiger_anim/`으로 이동, `pubspec` 등록 해제(**같은 커밋이어야 빌드가 안 깨진다**), `main.dart`의 `RiveNative` 초기화 제거, `tiger_video.dart` 폴백을 정적 `Mascot`으로. 44장 전부 `assets/video/character/` 상위 호환 클립으로 대체된다.
+
+**검증:** `flutter test` 전체 · `flutter analyze` · `python tool/check_clip_matte.py`(24/24 ok).
+
+---
+
+### 2026-08-06 — 홈 히어로 재구현: 헤더 소실(영상 paint 순서) + 영상 사각형 이음매 + 밴드 크기 — 미커밋
+
+**범위:** Jin 실기기 스크린샷 2장 — 캐릭터/레벨 선택 후 홈에서 **로고·스트릭/레벨 칩·설정 아이콘·인사말·말풍선이 통째로 사라졌고**(자리는 그대로 비어 있음), 캐릭터 영상만 밝은 사각형으로 떠 보임. Jin: "화면 조정이랑 영상 배경색상 잘 조정해서 메인화면 다시 잘 구현해줘. 호랑이도 마찬가지."
+
+**진단 (스크린샷 실측 + 색 계산):**
+- **① 헤더 소실 = paint 순서.** 사라진 것은 정확히 **영상보다 먼저 그려지는 형제들**(TopBar·인사·말풍선·매화 입자)이고, 영상 **뒤에** 그려지는 미션 카드·한옥 프리뷰·하단 탭은 정상이다. 두 스크린샷의 미션 카드 시작 y 차이(+92dp)가 밴드 확대분(153→244dp)과 정확히 일치 → **레이아웃은 정상, 렌더만 안 됨**. 바로 아래 엔트리(Impeller off + sdkInt 게이트 제거)로 이 폰에서 **처음으로 영상이 실제 재생**되기 시작한 시점과 일치한다(구 스크린샷은 액자 안 정적 마스코트 = 영상 미재생, 헤더 정상).
+- **② 밝은 사각형 = 매트 vs 배경 불일치.** `multiply(#FFFFFF, blendColor)` 결과는 **언제나 정확히 `blendColor` 단색**이다(`magpie_bob3`·`tiger_rise` 매트는 `tool/clip_matte_report.json` 실측 `#FFFFFF`/white_ratio 1.0, 바이트 크기 일치로 최신 확인). 그런데 홈 배경은 그 자리에서 ⓐ 세로 그라데이션(#FAF6EC→#F4ECDA) ⓑ `top:60,h:360` 주황 radial glow(alpha .10) 두 겹이라 **주변만 더 따뜻/어둡고 영상 사각형만 순수 `lightBg`** → 액자처럼 뜬다.
+
+**수정 (`lib/screens/home_screen.dart`):**
+- **배경 평탄화**: 그라데이션 stop 3→4개, 상단 `_kHeroFlatBackdropFraction`(0.60)까지 `SoriColors.lightBg` **평면 단색** 유지 후 아래부터 기존 그라데이션. radial glow 는 `top:60` → `_kHeroBandBottomDp`(400) 로 내려 히어로 밴드와 겹치지 않게. → 영상 매트가 배경과 **픽셀 동일**해져 이음매 소멸.
+- **paint 순서 역전**: 헤더+히어로를 `Column(verticalDirection: up)` 한 블록으로 묶고, `_TigerHero` 내부도 동일. **배치는 그대로**(헤더→인사→말풍선→영상), **그리는 순서만** 영상→말풍선→인사→헤더. Dart 쪽에서 안드로이드 영상 텍스처 합성 문제에 대응할 수 있는 건 순서뿐이고, 시각 결과가 동일해 원인이 다르더라도 부작용이 없다. TopBar 뒤 중복 `SizedBox(lg)` 제거(TopBar 자체 하단 여백과 이중) → 16dp 회수.
+- **밴드 크기 반응형**: 고정 `200/244` → `min(화면높이×0.24, 폭×0.60)` 을 `[148·164 .. 188(글자확대)·216]` 로 clamp. 짧은 화면·시스템 글자 1.3배에서도 헤더+인사+말풍선+캐릭터가 첫 화면에 들어온다.
+- **다크 처리**: multiply 는 밝은 배경 전용(AGENTS·`tiger_video.dart`)인데 `CharacterClipPlayer` 에는 그 게이트가 없어 다크에서 크림 사각형이 그대로 떴다 → 홈 히어로는 다크에서 정적 `Mascot`. 라이트에서는 `blendColor: SoriColors.lightBg` 를 **명시**(배경 상수와 같은 값이어야 한다는 계약을 호출부에 고정).
+- 까치/호랑이(및 jieun·minsu) 모두 같은 코드 경로 — 캐릭터별 분기 없음.
+
+**신규 테스트 `test/home_hero_layout_test.dart` (16 통과, 4 캐릭터 × 4):** 헤더 3요소가 밴드 위에 배치 / 클립을 감싸는 두 Column 이 `verticalDirection.up`(회귀 방지) / `blendColor == SoriColors.lightBg` / 밴드 ≤216dp·정사각·첫 화면 안.
+
+**검증:** `flutter analyze lib/screens/home_screen.dart lib/widgets/sori/character_clip.dart` **No issues** · `flutter test` screen_smoke+responsive+mascot_wiring+home_today_snapshot+milestone/circular_feedback **445 통과** · character_clip_matte + character_clip **7 통과** · 신규 홈 히어로 **16 통과**. ⚠️ **미검증(Jin 실기기 재빌드 필요)**: 헤더 실제 복귀 · 영상 사각형 이음매 소멸 · 밴드 크기 체감. **헤더가 그래도 안 보이면** 원인이 paint 순서가 아니라 `ColorFiltered`(saveLayer)+외부 텍스처 조합이라는 뜻 → 다음 수는 mp4 매트를 흰색 대신 크림(#FAF6EC)으로 재출력해 `ColorFiltered` 자체를 없애는 것(18개 클립 재인코딩 + 매트 검사기·테스트 기준 변경 동반).
+
 ### 2026-08-06 — 캐릭터 영상 **전 기기 활성화**(Impeller off 근본수정) — 아래 sdkInt≥33 게이트 되돌림, 커밋·푸시
 
 **범위:** Jin 실기기(M2101K6G/Android 12=API31)에서 홈·프로필·캐릭터선택 캐릭터가 **전부 정적 폴백**으로만 떠 "영상 만들었는데 안 쓴다" 불만. 원인: **바로 아래 🥉 엔트리**의 `characterVideoSupported()=sdkInt>=33` 게이트가 이 폰(API31)에서 `videoReady=false` → 전역 정적 폴백. 그 게이트는 Android<33 Impeller 영상텍스처 fence 버그 대응이었으나, **동일 버그를 AndroidManifest `EnableImpeller=false`(Skia)로 이미 근본 해소** → 게이트 불필요·중복이라 되돌림(Skia=SurfaceTexture 경로, fence 문제 없음, 구형기기도 영상 정상).
