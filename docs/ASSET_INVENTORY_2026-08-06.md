@@ -12,10 +12,18 @@
 
 | 구분 | 개수 | 용량 |
 |---|---:|---:|
-| 번들 O · 사용 O | 230 | 158.4MB |
-| **번들 O · 사용 X** (앱에 들어가지만 안 씀) | **6** | **6.3MB** |
+| 번들 O · 사용 O | 229 | 156.5MB |
+| **번들 O · 사용 X** (앱에 들어가지만 안 씀) | **7** | **8.6MB** |
 | 번들 X (원본·작업 파일, 앱에 안 들어감) | 39 | 47.4MB |
-| **합계** | **275** | **212.1MB** |
+| **합계** | **275** | **212.5MB** |
+
+> **판정 방법 (2026-08-06 2차 개정).** 1차는 파일명 문자열 매칭이라 오탐이 났다.
+> 지금 수치는 **각 폴더를 실제로 결정하는 카탈로그를 파싱해** 판정한 것이다:
+> `kAvailableDecorations` · `DancheongMotif` · `HanokStage.assetSlug` ·
+> `sticker_catalog.dart` · `CharacterClips`+`TigerStageVideo.greetFor/paceFor` ·
+> `HanokHeader.kLoopAssets` · `lib/models/scenario.dart` 의 씬 카테고리 맵 11종.
+> 카탈로그가 없는 폴더만 경로/파일명 매칭으로 본다(sfx 는 `assets/` 접두사 없이
+> `AssetSource('sfx/x.mp3')` 로 참조되므로 부분경로도 함께 본다).
 
 ---
 
@@ -27,10 +35,10 @@
 | `video/loops/` | 14 | 26.3MB | 시나리오 인트로·헤더 루프 — `HanokHeader.kLoopAssets` |
 | `illustrations/decorations/` | 23 | 14.0MB | 마당·사랑방 장식 — `kAvailableDecorations` |
 | `illustrations/hanok/` | 15 | 12.4MB | 인트로 대문·마당·학습 히어로 |
-| `illustrations/hanok_stages/` | 12 | 10.6MB | 학습경로 12단계 — 동적 |
+| `illustrations/hanok_stages/` | 12 | 10.4MB | 학습경로 12단계 — 동적 |
 | `illustrations/hanok_compound/` | 7 | 10.3MB | 공동 한옥(계) |
 | `stickers/` | 30 | 9.0MB | 스티커 — `sticker_catalog.dart` |
-| `illustrations/scenes/` | 12 | 8.1MB | 시나리오 배경 — 동적 |
+| `illustrations/scenes/` | 11 | 6.6MB | 시나리오 배경 — `scenario.dart` 카테고리 맵 11종 (`pharmacy` 제외) |
 | `illustrations/stamps/` | 14 | 3.7MB | 단청 도장 14문양 — 동적 |
 | `video/intro_gate_to_madang.mp4` | 1 | 5.9MB | 인트로 전환 |
 | `illustrations/mascot/` | 26 | 3.4MB | 호랑이·까치 정지컷 (영상 폴백 포함) |
@@ -62,28 +70,45 @@
 |---|---|---|
 | `stamps/${_assetSlug(motif)}.png` | `stamp_*` 14장 | `DancheongMotif` 14값, `dancheong_stamp_test` 전수 검사 |
 | `hanok_stages/stage_${assetSlug}_light.png` | `stage_*_light` 12장 | `HanokStage` 12값 |
-| `decorations/$slug.png` | `kAvailableDecorations` 23종 | `decoration_slot_test` 양방향 대조 |
-| `stickers/$slug.png` | 30장 | `sticker_catalog.dart` |
-| `scenes/$key.png` · `scenes/${s.id}.png` | 12장 | `assets/data/curriculum_manifest.json` |
+| `decorations/$slug.png` | `kAvailableDecorations` 23종 | `decoration_slot_test` 양방향 대조(단, 접두사 필터 구멍 있음) |
+| `stickers/$slug.png` | 30장 | `sticker_catalog.dart` 의 `StickerDef` |
+| `scenes/$key.png` · `scenes/${s.id}.png` | **11장** | `lib/models/scenario.dart` 의 시나리오→카테고리 맵. `scenarios.json` 이 아니다 — 씬 키는 코드가 정한다 |
+| `video/character/*.mp4` | 22편 | `CharacterClips` 상수 + `TigerStageVideo.greetFor/paceFor` |
+| `video/loops/*.mp4` | 14편 | `HanokHeader.kLoopAssets` (양방향 검사) |
+| `sfx/*` | 11개 | `AssetSource('sfx/x.mp3')` — **`assets/` 접두사 없이** 참조된다 |
 
 ---
 
-## 2. 안 쓰이는데 앱에 들어가는 것 — 번들 O · 사용 X (6개 / 6.3MB)
+## 2. 안 쓰이는데 앱에 들어가는 것 — 번들 O · 사용 X (7개 / 8.6MB)
 
 **여기가 실제 정리 대상이다.** APK/AAB 용량만 먹고 코드가 부르지 않는다.
 
 | 파일 | 용량 | 왜 안 쓰이나 |
 |---|---:|---|
 | `illustrations/personal_hanok_v2/map/reference_full_estate.png` | 3.1MB | **완성 QA 대조용 참조 이미지.** 런타임 렌더 경로 아님 — `docs/` 나 `assets_unused/` 로 빼야 한다 |
+| `illustrations/scenes/pharmacy.png` | 1.6MB | `lib/models/scenario.dart` 의 씬 카테고리 맵은 11종(airport·cafe·convenience·directions·home·hotel·market·office·restaurant·station·taxi)이고 **pharmacy 는 없다**. 파일만 있고 어떤 시나리오도 이 배경을 고르지 않는다 |
 | `illustrations/mascot/joy_magpie_full_960_1.mp4` | 1.3MB | `9ee22ac` 에서 추가됐지만 **배선된 곳이 없다**. `mascot/` 은 정지컷 폴더라 위치도 어긋남 |
-| `video/character/tiger_magpie_play.mp4` | 1.1MB | 참조 0건 |
-| `video/character/magpie_walking_forward.mp4` | 675KB | 참조 0건. 홈 인사는 `magpie_right_walking_flying` 을 쓴다 |
-| `illustrations/decorations/dokkaebi_fire.png` | 149KB | `kAvailableDecorations` 화이트리스트에 **없다** → 보상으로 나와도 placeholder 로 렌더된다 |
+| `video/character/tiger_magpie_play.mp4` | 1.1MB | `CharacterClips` 상수에 없음 |
+| `illustrations/decorations/dokkaebi_fire.png` | 786KB | `kAvailableDecorations` 화이트리스트에 **없다**. `013ddd9` 가 파일만 추가하고 `placed_decoration.dart` 는 건드리지 않았다 — 추가된 날부터 한 번도 렌더된 적이 없다 |
+| `video/character/magpie_walking_forward.mp4` | 675KB | `CharacterClips` 상수에 없음. 홈 인사는 `magpie_right_walking_flying` 을 쓴다 |
 | `data/content_audit_manifest.json` | 1KB | 참조 0건 (과거 감사 산출물로 보임) |
 
-> 정리하면 AAB 에서 **약 6.3MB** 가 빠진다. `dokkaebi_fire` 는 둘 중 하나를 골라야
-> 한다 — 화이트리스트에 넣어 살리거나, `assets_unused/` 로 빼거나. 지금은 파일만
-> 있고 못 쓰는 어중간한 상태다.
+> 정리하면 AAB 에서 **약 8.6MB** 가 빠진다. AAB 기기별 다운로드가 190MB/200MB 라
+> 여유가 10MB 뿐이므로 무시할 크기가 아니다.
+
+### 왜 이런 게 생기나 — 가드 사각지대
+
+에셋 폴더 22 개 중 **디렉터리를 스캔하는 테스트가 있는 것은 3 개뿐**이다.
+
+| 폴더 | 가드 | 방향 | 결과 |
+|---|---|---|---|
+| `video/loops` | `character_clip_matte_test.dart:88-89` | **양방향** | 고아 0 개 |
+| `video/character` | `character_clip_matte_test.dart:77` | **단방향**(참조→디스크) | 고아 2 개 통과 |
+| `illustrations/decorations` | `decoration_slot_test.dart` | 양방향이나 `.startsWith('decoration_')` 필터 | `dokkaebi_fire` 검사 제외 |
+| 나머지 19 개 | 없음 | — | 무방비 |
+
+`video/loops` 가 유일하게 고아 0 개인 것은 우연이 아니다 — 양방향 검사가 있는
+유일한 폴더다. 이 형태를 전 폴더로 확장하는 것이 근본 대책이다.
 
 ---
 
