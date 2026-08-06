@@ -7,6 +7,24 @@
 
 ---
 
+### 2026-08-06 — 태블릿 후속: 결과 화면·한글 쓰기 탭 세로 중앙 정렬 (상단 쏠림 해소)
+
+**왜.** Jin 태블릿 실기(리빌드 전 예전 빌드) 재검 — 결과 화면(Ergebnis)과 한글 "쓰기(Schreiben)"
+탭이 콘텐츠가 상단에 쏠리고 아래가 텅 빔(온보딩과 동일 클래스: 짧은 콘텐츠 top-anchored).
+
+**무엇을.**
+- `vocab_pack_result_screen.dart`: `SoriCenterClamp`+`ListView`(상단 고정) → `SoriStudyClamp`(폭
+  480→760) + `SingleChildScrollView`+`ConstrainedBox(minHeight)`+`Column(center,stretch)` 세로
+  중앙 정렬.
+- `hangul_screen.dart` `_WriteTab`: `SingleChildScrollView`+`Column`(상단 고정) → 동일 세로 중앙
+  정렬 패턴. 캔버스는 `Expanded`라 폭은 그대로 둔다(넓히면 좌우 캔버스가 벌어져 역효과) — 세로
+  중앙만. (`_CardsTab`은 이미 `SoriStudyClamp`, `_OverviewTab`은 그리드라 자연히 참.)
+
+**검증.** `flutter analyze` 0 · `flutter test responsive_test.dart` **386 통과**(태블릿 1280×1.3
+오버플로 0). 커밋: 이 두 화면 + 로그만 별도 스테이징(다른 세션 파일 미포함).
+
+---
+
 ### 2026-08-06 — 태블릿 학습 카드 가시성 최적화(카드 폭·히어로 글씨 자동 확대) + 온보딩 세로 중앙 정렬
 
 **왜.** Jin 요청 — ① 모든 단어/문장/문법 카드 가운데 정렬, ② 아이패드·갤탭·샤오미패드에서

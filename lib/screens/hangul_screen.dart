@@ -871,217 +871,223 @@ class _WriteTabState extends State<_WriteTab> {
     final c = _current;
     final strokes = hangulStrokes[c.letter] ?? [];
 
-    return SingleChildScrollView(
-      padding: soriClampPadding(
-        MediaQuery.sizeOf(context).width,
-        base: const EdgeInsets.all(14),
-      ),
-      child: Column(
-        children: [
-          // 3 Regeln
-          SoriCard(
-            variant: SoriCardVariant.compact,
-            accent: SoriColors.warning,
-            tinted: true,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  t.hangulRulesTitle,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.warning,
-                    fontSize: 13,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  t.hangulRulesBody,
-                  style: const TextStyle(
-                    color: SoriColors.darkTextMuted,
-                    fontSize: 11.5,
-                    height: 1.5,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 12),
-
-          // Mode
-          Row(
+    return LayoutBuilder(
+      builder: (context, viewport) => SingleChildScrollView(
+        padding: soriClampPadding(
+          MediaQuery.sizeOf(context).width,
+          base: const EdgeInsets.all(14),
+        ),
+        // 태블릿 등 세로 여백이 남으면 내용을 세로 중앙 정렬(위 쏠림 해소).
+        // 콘텐츠가 뷰포트보다 길면 스크롤(폰·큰 글자 안전).
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: viewport.maxHeight),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SoriChip(
-                label: '자음',
-                accent: SoriColors.hangul,
-                selected: _mode == 0,
-                onTap: () => _setMode(0),
+              // 3 Regeln
+              SoriCard(
+                variant: SoriCardVariant.compact,
+                accent: SoriColors.warning,
+                tinted: true,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      t.hangulRulesTitle,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: SoriColors.warning,
+                        fontSize: 13,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      t.hangulRulesBody,
+                      style: const TextStyle(
+                        color: SoriColors.darkTextMuted,
+                        fontSize: 11.5,
+                        height: 1.5,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(width: 8),
-              SoriChip(
-                label: '모음',
-                accent: SoriColors.hangul,
-                selected: _mode == 1,
-                onTap: () => _setMode(1),
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
+              const SizedBox(height: 12),
 
-          // ── Demo (시범 stroke order) + Practice (사용자 따라쓰기) Side-by-Side ──
-          // 비교 학습 효과 ↑. AspectRatio 1:1로 폰 너비에 적응 (iPhone SE 320pt도 OK).
-          LayoutBuilder(
-            builder: (ctx, constraints) {
-              // 양쪽 canvas 사이 gap 10, 각 Expanded → AspectRatio 1
-              // 한쪽 canvas 실제 size: (width - 10) / 2 - inner SoriCard padding(~12)
-              final canvasSize = ((constraints.maxWidth - 10) / 2 - 12).clamp(
-                120.0,
-                220.0,
-              );
-
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              // Mode
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // ── 좌: 시범 stroke animation ──
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          t.hangulStrokeOrderTitle,
-                          style: const TextStyle(
-                            fontSize: 11.5,
-                            color: SoriColors.darkTextMuted,
-                            fontWeight: FontWeight.w700,
-                          ),
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          overflow: TextOverflow.visible,
-                        ),
-                        const SizedBox(height: 6),
-                        SoriCard(
-                          variant: SoriCardVariant.base,
-                          accent: SoriColors.info,
-                          padding: const EdgeInsets.all(6),
-                          child: AspectRatio(
-                            aspectRatio: 1,
-                            child: StrokeCanvas(
-                              letter: c.letter,
-                              strokes: strokes,
-                              size: canvasSize,
-                              color: SoriColors.hangul,
+                  SoriChip(
+                    label: '자음',
+                    accent: SoriColors.hangul,
+                    selected: _mode == 0,
+                    onTap: () => _setMode(0),
+                  ),
+                  const SizedBox(width: 8),
+                  SoriChip(
+                    label: '모음',
+                    accent: SoriColors.hangul,
+                    selected: _mode == 1,
+                    onTap: () => _setMode(1),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 14),
+
+              // ── Demo (시범 stroke order) + Practice (사용자 따라쓰기) Side-by-Side ──
+              // 비교 학습 효과 ↑. AspectRatio 1:1로 폰 너비에 적응 (iPhone SE 320pt도 OK).
+              LayoutBuilder(
+                builder: (ctx, constraints) {
+                  // 양쪽 canvas 사이 gap 10, 각 Expanded → AspectRatio 1
+                  // 한쪽 canvas 실제 size: (width - 10) / 2 - inner SoriCard padding(~12)
+                  final canvasSize = ((constraints.maxWidth - 10) / 2 - 12)
+                      .clamp(120.0, 220.0);
+
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // ── 좌: 시범 stroke animation ──
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              t.hangulStrokeOrderTitle,
+                              style: const TextStyle(
+                                fontSize: 11.5,
+                                color: SoriColors.darkTextMuted,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              overflow: TextOverflow.visible,
                             ),
-                          ),
+                            const SizedBox(height: 6),
+                            SoriCard(
+                              variant: SoriCardVariant.base,
+                              accent: SoriColors.info,
+                              padding: const EdgeInsets.all(6),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: StrokeCanvas(
+                                  letter: c.letter,
+                                  strokes: strokes,
+                                  size: canvasSize,
+                                  color: SoriColors.hangul,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
+                      const SizedBox(width: 10),
+                      // ── 우: Practice canvas (사용자 손가락) ──
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              t.hangulTraceTitle,
+                              style: const TextStyle(
+                                fontSize: 11.5,
+                                color: SoriColors.success,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              overflow: TextOverflow.visible,
+                            ),
+                            const SizedBox(height: 6),
+                            SoriCard(
+                              variant: SoriCardVariant.base,
+                              accent: SoriColors.success,
+                              padding: const EdgeInsets.all(6),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: _PracticeCanvas(
+                                  key: _practiceKey,
+                                  ghost: c.letter,
+                                  color: SoriColors.success,
+                                  onStrokeEnd: _onStrokeEnd,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+              const SizedBox(height: 10),
+              SoriButton.outlined(
+                label: t.hangulClearBtn,
+                icon: Icons.delete_outline,
+                onTap: () => _practiceKey.currentState?.clear(),
+                destructive: true,
+                fullWidth: true,
+              ),
+              const SizedBox(height: 12),
+
+              // Nav
+              Row(
+                children: [
+                  Expanded(
+                    child: SoriButton.outlined(
+                      label: t.btnPrev,
+                      icon: Icons.arrow_back,
+                      onTap: _prev,
+                      fullWidth: true,
                     ),
                   ),
-                  const SizedBox(width: 10),
-                  // ── 우: Practice canvas (사용자 손가락) ──
+                  const SizedBox(width: 8),
+                  SoriCard(
+                    variant: SoriCardVariant.compact,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 10,
+                    ),
+                    child: Builder(
+                      builder: (ctx) {
+                        final s = SoriSurfaces.of(ctx);
+                        return Text(
+                          '${_idx + 1} / ${_pool.length}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: s.text,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 8),
                   Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          t.hangulTraceTitle,
-                          style: const TextStyle(
-                            fontSize: 11.5,
-                            color: SoriColors.success,
-                            fontWeight: FontWeight.w700,
-                          ),
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          overflow: TextOverflow.visible,
-                        ),
-                        const SizedBox(height: 6),
-                        SoriCard(
-                          variant: SoriCardVariant.base,
-                          accent: SoriColors.success,
-                          padding: const EdgeInsets.all(6),
-                          child: AspectRatio(
-                            aspectRatio: 1,
-                            child: _PracticeCanvas(
-                              key: _practiceKey,
-                              ghost: c.letter,
-                              color: SoriColors.success,
-                              onStrokeEnd: _onStrokeEnd,
-                            ),
-                          ),
-                        ),
-                      ],
+                    child: SoriButton.outlined(
+                      label: t.btnNext,
+                      icon: Icons.arrow_forward,
+                      onTap: _next,
+                      fullWidth: true,
                     ),
                   ),
                 ],
-              );
-            },
-          ),
-          const SizedBox(height: 10),
-          SoriButton.outlined(
-            label: t.hangulClearBtn,
-            icon: Icons.delete_outline,
-            onTap: () => _practiceKey.currentState?.clear(),
-            destructive: true,
-            fullWidth: true,
-          ),
-          const SizedBox(height: 12),
-
-          // Nav
-          Row(
-            children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnPrev,
-                  icon: Icons.arrow_back,
-                  onTap: _prev,
-                  fullWidth: true,
-                ),
               ),
-              const SizedBox(width: 8),
-              SoriCard(
-                variant: SoriCardVariant.compact,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 10,
-                ),
-                child: Builder(
-                  builder: (ctx) {
-                    final s = SoriSurfaces.of(ctx);
-                    return Text(
-                      '${_idx + 1} / ${_pool.length}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800,
-                        color: s.text,
-                      ),
-                    );
-                  },
-                ),
+              const SizedBox(height: 14),
+              SoriButton.outlined(
+                label: t.hangulPronounceLetter(c.letter),
+                icon: Icons.volume_up,
+                onTap: () => TtsService.speak(c.letter),
+                fullWidth: true,
               ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnNext,
-                  icon: Icons.arrow_forward,
-                  onTap: _next,
-                  fullWidth: true,
-                ),
+              const SizedBox(height: 8),
+              SoriButton.filled(
+                key: const Key('hangul-writing-finish'),
+                label: t.testerFeedbackCompleteHangul,
+                accent: SoriColors.hangul,
+                onTap: _strokeCount == 0 ? null : _finish,
+                fullWidth: true,
               ),
             ],
           ),
-          const SizedBox(height: 14),
-          SoriButton.outlined(
-            label: t.hangulPronounceLetter(c.letter),
-            icon: Icons.volume_up,
-            onTap: () => TtsService.speak(c.letter),
-            fullWidth: true,
-          ),
-          const SizedBox(height: 8),
-          SoriButton.filled(
-            key: const Key('hangul-writing-finish'),
-            label: t.testerFeedbackCompleteHangul,
-            accent: SoriColors.hangul,
-            onTap: _strokeCount == 0 ? null : _finish,
-            fullWidth: true,
-          ),
-        ],
+        ),
       ),
     );
   }
