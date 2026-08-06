@@ -4,11 +4,29 @@
   "clips": [
     {
       "path": "magpie_bob.mp4",
-      "bytes": 506042,
+      "bytes": 3412735,
+      "ok": true,
+      "matte": "#E4E4E4",
+      "white_ratio": 0.95,
+      "frames_sampled": 169,
+      "reason": ""
+    },
+    {
+      "path": "magpie_bob2.mp4",
+      "bytes": 2682077,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "frames_sampled": 108,
+      "frames_sampled": 121,
+      "reason": ""
+    },
+    {
+      "path": "magpie_bob3.mp4",
+      "bytes": 740708,
+      "ok": true,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "frames_sampled": 113,
       "reason": ""
     },
     {
@@ -22,11 +40,11 @@
     },
     {
       "path": "magpie_choose.mp4",
-      "bytes": 1178659,
+      "bytes": 3015718,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "frames_sampled": 97,
+      "frames_sampled": 169,
       "reason": ""
     },
     {
@@ -39,17 +57,17 @@
       "reason": ""
     },
     {
-      "path": "magpie_flourish.mp4",
-      "bytes": 504050,
+      "path": "magpie_full10.mp4",
+      "bytes": 1393566,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "frames_sampled": 48,
+      "frames_sampled": 240,
       "reason": ""
     },
     {
       "path": "magpie_greet_chirp.mp4",
-      "bytes": 1512369,
+      "bytes": 1239996,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
@@ -75,24 +93,6 @@
       "reason": ""
     },
     {
-      "path": "magpie_sing.mp4",
-      "bytes": 321494,
-      "ok": true,
-      "matte": "#FFFFFF",
-      "white_ratio": 1.0,
-      "frames_sampled": 46,
-      "reason": ""
-    },
-    {
-      "path": "magpie_soar.mp4",
-      "bytes": 947372,
-      "ok": true,
-      "matte": "#FFFFFF",
-      "white_ratio": 1.0,
-      "frames_sampled": 91,
-      "reason": ""
-    },
-    {
       "path": "magpie_walking_forward.mp4",
       "bytes": 691108,
       "ok": true,
@@ -112,11 +112,11 @@
     },
     {
       "path": "tiger_bob.mp4",
-      "bytes": 1153236,
+      "bytes": 2997552,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "frames_sampled": 97,
+      "frames_sampled": 121,
       "reason": ""
     },
     {
@@ -211,11 +211,11 @@
     },
     {
       "path": "tiger_walking_front.mp4",
-      "bytes": 876920,
+      "bytes": 2259179,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "frames_sampled": 121,
+      "frames_sampled": 138,
       "reason": ""
     }
   ]

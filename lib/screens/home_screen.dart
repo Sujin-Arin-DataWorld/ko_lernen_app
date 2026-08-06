@@ -610,6 +610,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       body: Stack(
         children: [
           // ── 1. 추상 gradient base — baked-in mascot 없음 ──
+          // ⚠️ 상단 [_kHeroFlatBackdropFraction] 구간은 **평면 단색**이어야 한다.
+          // 캐릭터 mp4 는 순백(#FFFFFF) 매트를 `blendColor` multiply 로 흡수하는데
+          // (`CharacterClipPlayer`), multiply(흰색, C) 의 결과는 **언제나 정확히 C**
+          // 단색이다. 뒤 배경이 그라데이션이면 영상 사각형만 주변보다 밝게 떠서
+          // 액자처럼 보인다(2026-08-06 Jin 실기기: "영상 배경색"). 그래서 히어로가
+          // 놓이는 상단은 `SoriColors.lightBg` 로 평평하게 깔고 그라데이션은 아래부터.
           Positioned.fill(
             child: DecoratedBox(
               decoration: BoxDecoration(
@@ -619,23 +625,28 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   colors: isDark
                       ? const [
                           Color(0xFF14201E),
+                          Color(0xFF14201E),
                           Color(0xFF0E1815),
                           Color(0xFF0A1310),
                         ]
                       : const [
-                          Color(0xFFFAF6EC),
+                          SoriColors.lightBg,
+                          SoriColors.lightBg,
                           Color(0xFFF4ECDA),
                           Color(0xFFEEDFC2),
                         ],
-                  stops: const [0.0, 0.55, 1.0],
+                  stops: const [0.0, _kHeroFlatBackdropFraction, 0.8, 1.0],
                 ),
               ),
             ),
           ),
 
-          // ── 2. Subtle radial accent — 호랑이 뒤 따뜻한 빛 ──
+          // ── 2. Subtle radial accent — 따뜻한 빛 ──
+          // 히어로 영상 밴드와 **겹치면 안 된다**(위 1번의 매트 이유와 동일:
+          // 영상 사각형 안에는 이 glow 가 안 들어가고 주변에만 들어가 이음매가 생김).
+          // 캐릭터 뒤가 아니라 그 아래 미션 카드 뒤를 덥힌다.
           Positioned(
-            top: 60,
+            top: _kHeroBandBottomDp,
             left: -40,
             right: -40,
             height: 360,
@@ -677,31 +688,51 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // ── A. 헤더 — 워드마크 + 스트릭·레벨 칩 + 설정(§6.1 블록 1) ──
-                      _TopBar(
-                        streak: Storage.streakDays,
-                        level: Storage.xpLevel,
-                        xp: Storage.xp,
-                        onStreakTap: _showWeekSheet,
-                        onStatsTap: () =>
-                            Navigator.pushNamed(context, '/stats'),
-                      ),
-                      const SizedBox(height: Spacing.lg),
-
-                      // ── B. 캐릭터 히어로 — 인사 + 말풍선 + 큰 캐릭터 ──
-                      // 홈은 IndexedStack 안이라 설정에서 캐릭터를 바꿔도
-                      // setState 가 안 온다 → notifier 를 직접 구독한다.
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 40),
-                        child: ValueListenableBuilder<MascotKind>(
-                          valueListenable: MascotPreference.kind,
-                          builder: (context, kind, _) => _TigerHero(
-                            greeting: _greeting(t),
-                            bubble: _tigerBubble(t, kind),
-                            phase: _phase,
-                            kind: kind,
+                      // ── A + B. 헤더(워드마크·스트릭/레벨 칩·설정) + 캐릭터 히어로 ──
+                      //
+                      // `verticalDirection: up` = **배치는 그대로, paint 순서만 역전**.
+                      // children 은 목록 순서대로 그려지지만 배치는 아래→위라서,
+                      // 화면에는 여전히 [헤더 → 인사 → 말풍선 → 영상] 으로 보이고
+                      // 그리는 순서는 [영상 → 말풍선 → 인사 → 헤더] 가 된다.
+                      //
+                      // 이유(2026-08-06 Jin 실기기, M2101K6G/Android 12): 히어로에
+                      // 영상이 실제로 재생되기 시작하자 **그보다 먼저 그려지는**
+                      // 로고·스트릭·레벨 칩·설정 아이콘·인사말이 통째로 사라졌다
+                      // (자리는 그대로 비어 있고 미션 카드 등 뒤에 그려지는 것만 정상).
+                      // 안드로이드 영상 텍스처 합성 문제라 Dart 쪽에서 고칠 수 있는
+                      // 건 **순서뿐** — 헤더/텍스트를 영상보다 나중에 그리게 해서
+                      // 구조적으로 차단한다. 시각 결과는 동일하므로 원인이 다르더라도
+                      // 부작용이 없다.
+                      Column(
+                        verticalDirection: VerticalDirection.up,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // 홈은 IndexedStack 안이라 설정에서 캐릭터를 바꿔도
+                          // setState 가 안 온다 → notifier 를 직접 구독한다.
+                          SoriEntrance(
+                            delay: const Duration(milliseconds: 40),
+                            child: ValueListenableBuilder<MascotKind>(
+                              valueListenable: MascotPreference.kind,
+                              builder: (context, kind, _) => _TigerHero(
+                                greeting: _greeting(t),
+                                bubble: _tigerBubble(t, kind),
+                                phase: _phase,
+                                kind: kind,
+                              ),
+                            ),
                           ),
-                        ),
+                          // 화면상 맨 위 — 목록 마지막 = 가장 나중에 paint.
+                          // (`_TopBar` 는 자체 하단 여백 Spacing.lg 를 갖고 있어
+                          //  인사말과의 간격은 그대로 유지된다.)
+                          _TopBar(
+                            streak: Storage.streakDays,
+                            level: Storage.xpLevel,
+                            xp: Storage.xp,
+                            onStreakTap: _showWeekSheet,
+                            onStatsTap: () =>
+                                Navigator.pushNamed(context, '/stats'),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: Spacing.lg),
 
@@ -1231,8 +1262,22 @@ class _RoundIconButton extends StatelessWidget {
 }
 
 // ════════════════════════════════════════════════════════════════════════
-// B. Tiger hero — greeting + 큰 호랑이 + 말풍선
+// B. Character hero — greeting + 말풍선 + 캐릭터 클립 밴드
 // ════════════════════════════════════════════════════════════════════════
+
+/// 홈 배경 gradient 중 **평면 단색**으로 유지할 상단 비율.
+///
+/// 캐릭터 mp4 의 순백 매트는 `multiply(흰색, blendColor) = blendColor` 라
+/// 언제나 정확한 단색 사각형이 된다. 그 사각형이 놓이는 구간의 배경이
+/// 그라데이션이면 영상만 밝게 떠 액자처럼 보인다 → 히어로가 차지하는 상단은
+/// `SoriColors.lightBg` 로 평평하게 둔다. 짧은 화면(≈640dp)에서도 밴드 하단이
+/// 이 비율 안에 들어오도록 잡은 값.
+const double _kHeroFlatBackdropFraction = 0.60;
+
+/// 히어로 밴드가 끝나는 대략적인 위치(dp, 화면 최상단 기준).
+/// 따뜻한 radial glow 를 이 아래에만 깔아 영상 사각형 주변에 색차가 안 생기게 한다.
+const double _kHeroBandBottomDp = 400;
+
 class _TigerHero extends StatelessWidget {
   final String greeting;
   final String bubble;
@@ -1264,130 +1309,105 @@ class _TigerHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    // v6 (2026-06-03): 정적 아바타 → 살아있는 호랑이 "마당 밴드".
-    // greeting 텍스트 위 + TigerStage 밴드(진입 인사→idle→좌우 pacing) +
-    // 말풍선. 밴드는 콘텐츠 폭 전체를 차지(걷는 가로 공간 확보).
+    final media = MediaQuery.of(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    // v6 (2026-06-03): 정적 아바타 → 살아있는 캐릭터 "마당 밴드".
+    // greeting 텍스트 위 + 말풍선 + 캐릭터 클립 밴드.
     return LayoutBuilder(
       builder: (context, c) {
         final w = c.maxWidth;
         final bool veryNarrow = w < 330;
         final double greetingSize = veryNarrow ? 21.0 : 24.0;
-        // Jin 2026-08-05: 캐릭터 영상을 액자 없이 크게 — 밴드 높이 대폭 확대.
-        final double bandHeight = veryNarrow ? 200.0 : 244.0;
+
+        // Jin 2026-08-06: "크기 때문인지 위가 다 잘린다" → 밴드를 **화면 높이·폭·
+        // 글자배율에 비례**하게. 고정 244dp 는 짧은 화면이나 시스템 글자 확대에서
+        // 헤더·인사말을 첫 화면 밖으로 밀어냈다. 상한도 244 → 216 으로 낮춘다.
+        final double textScale = media.textScaler.scale(16) / 16;
+        final double byHeight = media.size.height * 0.24;
+        final double byWidth = w * 0.60;
+        final double bandHeight = (byHeight < byWidth ? byHeight : byWidth)
+            .clamp(veryNarrow ? 148.0 : 164.0, textScale > 1.15 ? 188.0 : 216.0);
+
         // 짧은 대사(예: "Jedes Wort…")는 한 줄에 들어가게 말풍선 폭을 넓힌다.
         final double bubbleMax = (w * 0.92).clamp(240.0, 360.0);
 
-        final hero = Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              greeting,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: greetingSize,
-                fontWeight: FontWeight.w900,
-                color: s.text,
-                letterSpacing: -0.7,
-                height: 1.05,
-              ),
-              // §4.3: 독일어 복합어 말줄임 방지 — 2줄 허용.
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            // §6.1 블록 2 발화 단일화(H-4): 서브카피 폐지 — 발화는
-            // 말풍선 1개만. CTA 문구는 블록 3 미션 히어로가 담당한다.
-            SizedBox(height: veryNarrow ? 6 : 8),
-            // 말풍선을 호랑이 *위*에 두고 아래로 꼬리를 내려 지시 — 얼굴을 덮지
-            // 않으면서 "호랑이가 말하는" 느낌 유지(기존 오버레이는 얼굴을 가림).
-            Center(
-              child: _SpeechBubble(
-                text: bubble,
-                maxWidth: bubbleMax,
-                accent: kind == MascotKind.magpie
-                    ? SoriColors.highlight
-                    : SoriColors.tigerOnLight,
-              ),
-            ),
-            // 살아있는 호랑이 밴드
-            SizedBox(
-              height: bandHeight,
-              width: double.infinity,
-              // Jin 2026-08-06: 홈 히어로. 호랑이(태고)=tiger_rise 단일 루프.
-              // 까치=magpie_bob2↔magpie_bob3 교대(각 원샷, 완료 시 다음 클립).
-              // CharacterClipPlayer 가 videoReady·reduce-motion·lease·multiply·
-              // 정적 폴백을 처리하고, _AlternatingClips 가 완료마다 다음 포즈로
-              // 넘긴다. (Impeller off 로 디코더 핸드오프 안정 — AndroidManifest.)
-              child: Center(
-                child: kind == MascotKind.magpie
-                    ? _AlternatingClips(
-                        key: const ValueKey('home_hero_magpie'),
-                        assets: const [
-                          CharacterClips.magpieBob2,
-                          CharacterClips.magpieBob3,
-                        ],
-                        size: bandHeight,
-                        fallbackKind: kind,
-                        fallbackEmotion: _emotion,
-                      )
-                    : CharacterClipPlayer(
-                        key: const ValueKey('home_hero_tiger'),
-                        asset: CharacterClips.tigerRise,
-                        size: bandHeight,
-                        loop: true,
-                        fallbackKind: kind,
-                        fallbackEmotion: _emotion,
-                      ),
-              ),
-            ),
-          ],
+        final greetingText = Text(
+          greeting,
+          style: TextStyle(
+            fontFamily: 'Pretendard',
+            fontSize: greetingSize,
+            fontWeight: FontWeight.w900,
+            color: s.text,
+            letterSpacing: -0.7,
+            height: 1.05,
+          ),
+          // §4.3: 독일어 복합어 말줄임 방지 — 2줄 허용.
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         );
 
-        return hero;
-        // hero 전체를 추천 팩으로 가는 탭 타깃으로(Duo식 "큰 캐릭터 + 한 행동").
-      },
-    );
-  }
-}
+        // §6.1 블록 2 발화 단일화(H-4): 서브카피 폐지 — 발화는 말풍선 1개만.
+        // 말풍선을 캐릭터 *위*에 두고 아래로 꼬리를 내려 지시한다(얼굴 안 가림).
+        final speechBubble = Center(
+          child: _SpeechBubble(
+            text: bubble,
+            maxWidth: bubbleMax,
+            accent: kind == MascotKind.magpie
+                ? SoriColors.highlight
+                : SoriColors.tigerOnLight,
+          ),
+        );
 
-/// 원샷 클립 여러 개를 번갈아 재생한다 (예: magpie_bob2 → magpie_bob3 →
-/// magpie_bob2 …). 각 클립은 `loop:false` 로 한 번 재생되고, 완료되면 다음
-/// 인덱스로 넘어가며 [CharacterClipPlayer] 를 새 키로 다시 만든다. 영상
-/// lease·multiply·정적 폴백은 [CharacterClipPlayer] 가 그대로 담당하므로,
-/// 이 위젯은 순번만 관리한다. (한 번에 디코더 하나 — lease 가 직렬화.)
-class _AlternatingClips extends StatefulWidget {
-  final List<String> assets;
-  final double size;
-  final MascotKind fallbackKind;
-  final MascotEmotion fallbackEmotion;
-  const _AlternatingClips({
-    super.key,
-    required this.assets,
-    required this.size,
-    required this.fallbackKind,
-    this.fallbackEmotion = MascotEmotion.smile,
-  });
+        // 캐릭터 밴드 — Jin 2026-08-06: 홈 히어로 = 캐릭터별 **단일 클립 루프**.
+        // 까치=magpie_bob3, 호랑이(태고)=tiger_rise. bob2↔bob3 교대는 클립 사이
+        // 디코더 핸드오프마다 정적 폴백이 번쩍여 폐지 → 루프는 핸드오프가 없다.
+        // staticFallback:false → 로드 전/실패에도 흰 박스 대신 투명(배경 그대로).
+        final band = SizedBox(
+          height: bandHeight,
+          width: double.infinity,
+          child: Center(
+            child: isDark
+                // multiply 블렌드는 **밝은 배경 전용**(AGENTS·tiger_video.dart).
+                // 다크에서 흰 매트를 크림으로 곱하면 어두운 배경 위에 밝은 사각형이
+                // 그대로 뜬다 → 다크는 정적 마스코트로 간다.
+                ? Mascot(
+                    kind: kind,
+                    emotion: _emotion,
+                    size: bandHeight * 0.92,
+                    animate: true,
+                  )
+                : CharacterClipPlayer(
+                    key: ValueKey('home_hero_${kind.name}'),
+                    asset: kind == MascotKind.magpie
+                        ? CharacterClips.magpieBob3
+                        : CharacterClips.tigerRise,
+                    size: bandHeight,
+                    loop: true,
+                    staticFallback: false,
+                    // 흰 매트 multiply 결과 = 정확히 이 색. 홈 배경 상단의
+                    // **평면 구간과 같은 상수**여야 이음매가 사라진다
+                    // (`build` 의 gradient 주석 참고). `s.bg` 가 아니라 상수인
+                    // 이유: 배경 gradient 도 팔레트 무관 상수이기 때문.
+                    blendColor: SoriColors.lightBg,
+                    fallbackKind: kind,
+                    fallbackEmotion: _emotion,
+                  ),
+          ),
+        );
 
-  @override
-  State<_AlternatingClips> createState() => _AlternatingClipsState();
-}
-
-class _AlternatingClipsState extends State<_AlternatingClips> {
-  int _i = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    final asset = widget.assets[_i % widget.assets.length];
-    return CharacterClipPlayer(
-      key: ValueKey('alt_${asset}_$_i'),
-      asset: asset,
-      size: widget.size,
-      loop: false,
-      fallbackKind: widget.fallbackKind,
-      fallbackEmotion: widget.fallbackEmotion,
-      onCompleted: () {
-        if (mounted) {
-          setState(() => _i = (_i + 1) % widget.assets.length);
-        }
+        // `verticalDirection: up` — 배치는 [인사 → 말풍선 → 밴드] 그대로,
+        // paint 순서만 [밴드 → 말풍선 → 인사] 로 역전. 이유는 홈 `build` 의
+        // 헤더+히어로 블록 주석 참고(영상 텍스처가 먼저 그린 형제를 가리는 건).
+        return Column(
+          verticalDirection: VerticalDirection.up,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            band,
+            speechBubble,
+            SizedBox(height: veryNarrow ? 6 : 8),
+            greetingText,
+          ],
+        );
       },
     );
   }

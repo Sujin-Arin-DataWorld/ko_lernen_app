@@ -64,10 +64,8 @@ class CharacterClips {
   // 프로필 초상 교대용(Jin 지정, 2026-08-05) — bob2↔bob3 번갈아 재생.
   static const String magpieBob2 = '$_base/magpie_bob2.mp4';
   static const String magpieBob3 = '$_base/magpie_bob3.mp4';
-  static const String magpieFlourish =
-      '$_base/magpie_flourish.mp4'; // 날개 활짝(원샷)
-  static const String magpieSing = '$_base/magpie_sing.mp4'; // 짹짹(원샷)
-  static const String magpieSoar = '$_base/magpie_soar.mp4'; // 급상승(원샷)
+  // magpie_flourish·magpie_sing·magpie_soar 는 Jin 이 에셋에서 삭제(2026-08-06)
+  // → 상수 제거(코드 참조 0건 확인). 파일 복원 시 이 줄만 되살리면 된다.
 
   static const String magpieGreetChirp =
       '$_base/magpie_greet_chirp.mp4'; // 첫 인사 — 신나는 짹짹
@@ -186,6 +184,12 @@ class CharacterClipPlayer extends StatefulWidget {
   /// 폴백 마스코트. `null`이면 [MascotPreference] 의 선택 캐릭터를 쓴다.
   final MascotKind? fallbackKind;
   final MascotEmotion fallbackEmotion;
+
+  /// 정적 [Mascot] 폴백을 그릴지. `false`면 영상 미준비/실패 시 정적 마스코트
+  /// 대신 **투명**(빈 SizedBox) — 흰 카드/박스가 안 생겨 배경이 그대로 비친다.
+  /// 상시 루프로 영상이 거의 항상 떠 있는 곳(홈 히어로 등)에서 폴백이 순간
+  /// 번쩍이며 "정적+영상 둘 다" 보이는 걸 막는다(Jin 2026-08-06).
+  final bool staticFallback;
   final VoidCallback? onCompleted;
   final Duration fallbackCompleteAfter;
   final String? sfxAsset;
@@ -198,6 +202,7 @@ class CharacterClipPlayer extends StatefulWidget {
     this.blendColor = SoriColors.lightBg,
     this.fallbackKind,
     this.fallbackEmotion = MascotEmotion.smile,
+    this.staticFallback = true,
     this.onCompleted,
     this.fallbackCompleteAfter = const Duration(milliseconds: 1200),
     this.sfxAsset,
@@ -389,12 +394,15 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
         child: _failed || !_ready || video == null
-            ? Mascot(
-                kind: widget.fallbackKind ?? MascotPreference.kind.value,
-                emotion: widget.fallbackEmotion,
-                size: widget.size * 0.85,
-                animate: true,
-              )
+            ? (widget.staticFallback
+                  ? Mascot(
+                      kind: widget.fallbackKind ?? MascotPreference.kind.value,
+                      emotion: widget.fallbackEmotion,
+                      size: widget.size * 0.85,
+                      animate: true,
+                    )
+                  // 정적 폴백 끔 → 투명. 흰 박스 대신 배경이 비친다.
+                  : const SizedBox.shrink())
             : ColorFiltered(
                 colorFilter: ColorFilter.mode(
                   widget.blendColor,

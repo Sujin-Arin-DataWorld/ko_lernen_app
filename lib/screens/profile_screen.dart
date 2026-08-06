@@ -329,6 +329,10 @@ class _AvatarState extends State<_Avatar> {
               : CharacterClips.tigerWalkingFront,
           size: _d,
           loop: isMagpie,
+          // Jin 2026-08-06: 프로필도 정적 폴백 완전 삭제 → 투명(배경 비침).
+          // ⚠️ 호랑이 tiger_walking_front 는 원샷이라 폴백을 끄면 걸어들어온 뒤
+          //    사라진다 — 호랑이 프로필을 상시 표시하려면 루프 클립으로 교체 필요.
+          staticFallback: false,
           fallbackKind: kind,
           fallbackEmotion: MascotEmotion.smile,
         ),
