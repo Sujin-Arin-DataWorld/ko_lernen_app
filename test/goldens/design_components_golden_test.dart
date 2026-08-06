@@ -14,10 +14,23 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 /// (2026-08-04 감사 #6). 표면 v2 문법(그림자·selectable·액센트 바)과
 /// 미션 히어로 상태가 픽셀 단위로 고정된다.
 ///
-/// **기준 생성(1회, Jin):**
-///   flutter test --update-goldens test/goldens
-/// 기준이 없으면 스위트는 skip 된다(빨간 게이트 방지). 폰트는 테스트 기본
-/// (Ahem)이라 렌더는 구조·색 회귀 검출용이다.
+/// ⚠️ **기준선은 Linux(CI) 정본이다.** `matchesGoldenFile` 의 기본
+/// `LocalFileComparator` 는 허용오차 0이라 OS·Flutter 패치 버전이 다르면
+/// 서브픽셀 AA 차이만으로 깨진다. 실제로 Windows 에서 만든 기준선이
+/// ubuntu + `flutter-version: 3.44.0` 핀인 CI 와 어긋나 main 이 빨간불이었다
+/// (2026-08-06). Ahem 폰트는 **글리프 기하**만 결정론적으로 만들 뿐,
+/// BoxShadow blur·그라데이션 디더링·둥근 모서리 커버리지까지 고정하지 않는다.
+///
+/// **기준 생성 — 로컬에서 `--update-goldens` 를 돌리지 말 것.**
+/// CI 와 같은 환경에서만 만든다:
+///   1. Actions → CI → "Run workflow" (workflow_dispatch)
+///   2. `Regenerate goldens (manual)` 잡의 `goldens-linux-3-44-0` 아티팩트 다운로드
+///   3. `test/goldens/baselines/` 에 덮어쓰고 커밋
+/// 그 결과 이 3개 테스트는 **로컬(Windows/macOS)에서는 실패하는 게 정상**이다.
+/// 판단이 필요하면 CI 실패 시 올라오는 `golden-failures` 아티팩트의
+/// `_testImage`/`_isolatedDiff` 를 보고 진짜 회귀인지 확인할 것.
+///
+/// 기준이 없으면 스위트는 skip 된다(빨간 게이트 방지).
 Widget _wrap(Widget child) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: AppTheme.light,
