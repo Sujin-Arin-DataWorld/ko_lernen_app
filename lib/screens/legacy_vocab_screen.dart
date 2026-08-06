@@ -360,7 +360,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         ],
       ),
       body: SafeArea(
-        child: SoriCenterClamp(
+        child: SoriStudyClamp(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
             child: Column(
@@ -447,12 +447,14 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                         heightFactor: 0.82,
                         child: Stack(
                           children: [
-                            FlipCard(
-                              key: _flashCardKey,
-                              flipped: _flipped,
-                              onTap: _onFlip,
-                              front: _Front(v: v, koFirst: _koFirst),
-                              back: _Back(v: v, koFirst: _koFirst),
+                            SoriStudyScale(
+                              child: FlipCard(
+                                key: _flashCardKey,
+                                flipped: _flipped,
+                                onTap: _onFlip,
+                                front: _Front(v: v, koFirst: _koFirst),
+                                back: _Back(v: v, koFirst: _koFirst),
+                              ),
                             ),
                             Positioned(
                               top: 12,

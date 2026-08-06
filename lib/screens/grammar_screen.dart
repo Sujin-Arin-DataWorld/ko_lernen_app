@@ -483,7 +483,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: SoriCenterClamp(
+          child: SoriStudyClamp(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
               child: Column(
@@ -596,14 +596,16 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   _prev();
                                 }
                               },
-                              child: FlipCard(
-                                key: _cardKey,
-                                flipped: _flipped,
-                                onTap: canRecordCheckpoint ? null : _onFlip,
-                                front: canRecordCheckpoint
-                                    ? _CourseCheckpointFront(g: g)
-                                    : _Front(g: g),
-                                back: _Back(g: g),
+                              child: SoriStudyScale(
+                                child: FlipCard(
+                                  key: _cardKey,
+                                  flipped: _flipped,
+                                  onTap: canRecordCheckpoint ? null : _onFlip,
+                                  front: canRecordCheckpoint
+                                      ? _CourseCheckpointFront(g: g)
+                                      : _Front(g: g),
+                                  back: _Back(g: g),
+                                ),
                               ),
                             ),
                           ),

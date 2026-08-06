@@ -526,7 +526,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: SoriCenterClamp(
+          child: SoriStudyClamp(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
               child: Column(
@@ -580,14 +580,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         ),
         const SizedBox(height: Spacing.md),
         Expanded(
-          child: FlipCard(
-            flipped: _flipped,
-            onTap: () {
-              HapticFeedback.selectionClick();
-              setState(() => _flipped = !_flipped);
-            },
-            front: _FlipFront(v: cur),
-            back: _FlipBack(v: cur),
+          child: SoriStudyScale(
+            child: FlipCard(
+              flipped: _flipped,
+              onTap: () {
+                HapticFeedback.selectionClick();
+                setState(() => _flipped = !_flipped);
+              },
+              front: _FlipFront(v: cur),
+              back: _FlipBack(v: cur),
+            ),
           ),
         ),
         const SizedBox(height: Spacing.md),
@@ -698,7 +700,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        promptCard,
+                        SoriStudyScale(child: promptCard),
                         for (var i = 0; i < choices.length; i++)
                           Padding(
                             padding: const EdgeInsets.symmetric(
@@ -706,8 +708,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                             ),
                             child: QuizChoice(
                               text: choices[i],
-                              isCorrect:
-                                  choices[i] == cur.translationFor(lang),
+                              isCorrect: choices[i] == cur.translationFor(lang),
                               isSelected: i == _selectedChoice,
                               revealed: _choiceLocked,
                               // 넉넉한 화면을 채우도록 보기 박스를 더 크게.

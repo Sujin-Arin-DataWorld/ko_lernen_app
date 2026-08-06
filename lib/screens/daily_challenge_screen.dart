@@ -192,7 +192,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: SoriCenterClamp(
+          child: SoriStudyClamp(
             child: Padding(
               padding: const EdgeInsets.all(Spacing.lg),
               child: Column(
@@ -225,10 +225,12 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
                     style: TextStyle(fontSize: 13, color: s.textMuted),
                   ),
                   const SizedBox(height: Spacing.md),
-                  ClozePromptCard(
-                    item: item,
-                    lang: lang,
-                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                  SoriStudyScale(
+                    child: ClozePromptCard(
+                      item: item,
+                      lang: lang,
+                      gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                    ),
                   ),
                   const SizedBox(height: Spacing.xl),
                   Expanded(

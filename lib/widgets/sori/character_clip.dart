@@ -208,9 +208,12 @@ class CharacterClipPlayer extends StatefulWidget {
   /// 뜨고, 어두운 blendColor 로 바꾸면 이번엔 캐릭터가 새까매진다. 즉 다크는
   /// 색 조정으로 못 고치고 영상 경로 자체가 불가 → 정적 [Mascot] 로 간다.
   /// (현재 `main.dart` 가 `themeMode.light` 고정이라 잠복 상태의 지뢰다.)
+  /// ⚠️ **reduce-motion 은 여기 포함하지 않는다** (Jin 2026-08-06, 샤오미 패드).
+  /// MIUI 배터리 절약·개발자 옵션 애니메이션 배율 0 이 접근성 의도와 같은
+  /// 플래그로 나와, 캐릭터가 통째로 정적 PNG 로 고정되는 사고가 났다.
+  /// 근거와 되돌리는 법은 `video_lease.dart` 의 `isEligible` 주석 참고.
   static bool videoUnavailable(BuildContext context) =>
       !TigerStageVideo.videoReady ||
-      SoriMotion.reduceMotion(context) ||
       Theme.of(context).brightness == Brightness.dark;
   final VoidCallback? onCompleted;
   final Duration fallbackCompleteAfter;

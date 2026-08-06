@@ -207,7 +207,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: SoriCenterClamp(
+          child: SoriStudyClamp(
             child: _loading
                 ? const AppLoading()
                 : _deck.isEmpty
@@ -402,21 +402,23 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     child: SizedBox(
                       width: double.infinity,
                       height: cardH,
-                      child: SoriCard(
-                        variant: SoriCardVariant.hero,
-                        accent: SoriColors.primary,
-                        tinted: !_flipped,
-                        child: LayoutBuilder(
-                          builder: (context, cc) => SingleChildScrollView(
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints(
-                                minHeight: cc.maxHeight,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: _flipped
-                                    ? _backList(card, s, tt, t)
-                                    : _frontList(card, s, tt, t),
+                      child: SoriStudyScale(
+                        child: SoriCard(
+                          variant: SoriCardVariant.hero,
+                          accent: SoriColors.primary,
+                          tinted: !_flipped,
+                          child: LayoutBuilder(
+                            builder: (context, cc) => SingleChildScrollView(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: cc.maxHeight,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: _flipped
+                                      ? _backList(card, s, tt, t)
+                                      : _frontList(card, s, tt, t),
+                                ),
                               ),
                             ),
                           ),

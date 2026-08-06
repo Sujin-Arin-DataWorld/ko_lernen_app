@@ -422,7 +422,21 @@ class VideoLeaseEligibilityBinding with WidgetsBindingObserver, RouteAware {
   bool isEligible(BuildContext context, {required bool videoReady}) {
     return VideoLeaseEligibility.isEligible(
       videoReady: videoReady,
-      reduceMotion: MediaQuery.maybeOf(context)?.disableAnimations ?? false,
+      // ⚠️ 캐릭터 영상은 **reduce-motion 으로 막지 않는다** (Jin 2026-08-06,
+      // 샤오미 패드에서 항상 정적 폴백).
+      //
+      // 이유: `MediaQuery.disableAnimations` 는 접근성 의도만 담지 않는다 —
+      // MIUI/HyperOS 는 **배터리 절약**을, 안드로이드 개발자 옵션은 애니메이션
+      // 배율 0 을 같은 플래그로 내보낸다. 그 상태에서 lease 가 영구히 승인되지
+      // 않아 앱의 핵심 정체성인 캐릭터가 통째로 정적 PNG 가 됐다.
+      // 클립 자체는 무음·짧은 루프이고 시차(parallax)·플래시가 없어 전정기관
+      // 위험이 낮은 부류다. 화면 전환·입자·진입 애니메이션 등 **나머지 모션은
+      // `SoriMotion.reduceMotion` 으로 계속 존중**한다.
+      //
+      // 되돌리려면 이 한 줄을 `MediaQuery.maybeOf(context)?.disableAnimations
+      // ?? false` 로 복구하면 된다. 더 나은 최종형은 설정 화면의 명시적
+      // "캐릭터 애니메이션" 토글이고, 그때 이 자리를 그 값으로 바꾼다.
+      reduceMotion: false,
       tickerModeEnabled: _tickerMode?.value.enabled ?? true,
       appLifecycleResumed: _lifecycleState == AppLifecycleState.resumed,
       routeCurrent: _route?.isCurrent ?? true,

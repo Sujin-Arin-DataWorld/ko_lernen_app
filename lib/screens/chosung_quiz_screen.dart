@@ -469,7 +469,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: SoriCenterClamp(
+          child: SoriStudyClamp(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(18, 8, 18, 16),
               child: Column(

@@ -16,6 +16,7 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -410,10 +411,7 @@ class _WordleScreenState extends State<WordleScreen>
         child: SafeArea(
           child: Align(
             alignment: Alignment.topCenter,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: SoriBreakpoints.content,
-              ),
+            child: SoriStudyClamp(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(18, 6, 18, 12),
                 child: Column(

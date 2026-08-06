@@ -128,7 +128,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         appBar: AppBar(title: Text(t.customPackPlayTitle)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_right_stand.png',
+            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -172,7 +172,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         ),
       ),
       body: SafeArea(
-        child: SoriCenterClamp(
+        child: SoriStudyClamp(
           child: Padding(
             padding: const EdgeInsets.all(Spacing.lg),
             child: Column(
@@ -197,15 +197,17 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                   child: Center(
                     child: FractionallySizedBox(
                       heightFactor: 0.82,
-                      child: FlipCard(
-                        key: _cardKey,
-                        flipped: _flipped,
-                        onTap: () {
-                          HapticFeedback.selectionClick();
-                          setState(() => _flipped = !_flipped);
-                        },
-                        front: _Front(word: w),
-                        back: _Back(word: w),
+                      child: SoriStudyScale(
+                        child: FlipCard(
+                          key: _cardKey,
+                          flipped: _flipped,
+                          onTap: () {
+                            HapticFeedback.selectionClick();
+                            setState(() => _flipped = !_flipped);
+                          },
+                          front: _Front(word: w),
+                          back: _Back(word: w),
+                        ),
                       ),
                     ),
                   ),

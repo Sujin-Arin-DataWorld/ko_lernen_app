@@ -14,6 +14,110 @@ double soriAdaptiveContentMaxWidth(double availableWidth) {
       (SoriBreakpoints.tabletContent - SoriBreakpoints.content) * progress;
 }
 
+// ── Immersive study cards: tablet width + hero text scale ─────────────────
+// Fixed-focus flashcard/quiz screens (grammar·vocab·cloze…) show a single
+// hero card, so — unlike browsing text — they can afford a wider card and
+// larger hero type on tablets without the line-length concern. The phone
+// experience (≤ [SoriBreakpoints.grid] = 600dp) is untouched; both ramps reach
+// full size by [_studyRampEnd] so 8--13" tablets read comfortably. This is
+// deliberately more generous than [soriComfortScale] (the app-wide +10% cap),
+// applied ONLY to immersive study surfaces via [SoriStudyScale]/[SoriStudyClamp].
+
+const double _studyRampStart = SoriBreakpoints.grid; // 600dp — phone baseline
+const double _studyRampEnd = 900; // full tablet enlargement reached here
+
+double _studyProgress(double width) =>
+    ((width - _studyRampStart) / (_studyRampEnd - _studyRampStart))
+        .clamp(0.0, 1.0)
+        .toDouble();
+
+/// Device-width-driven enlargement for immersive study-card **hero text**.
+/// 1.0 on phones, growing smoothly to 1.35 on tablets. Independent of the OS
+/// accessibility text scale — [SoriStudyScale] multiplies the two, so a user's
+/// large-text setting stays fully additive on top of this.
+double soriStudyScale(double width) => 1 + 0.35 * _studyProgress(width);
+
+/// Content column width for fixed-focus study screens. 480 on phones (visual
+/// change 0), growing to 760 on tablets so the card fills more of the screen.
+/// Applied via [SoriStudyClamp]; a drop-in wider sibling of the fixed 480
+/// [SoriCenterClamp] used by focus learning views.
+double soriStudyContentMaxWidth(double width) =>
+    SoriBreakpoints.content +
+    (760 - SoriBreakpoints.content) * _studyProgress(width);
+
+/// Center-clamps immersive study content to [soriStudyContentMaxWidth] so the
+/// card grows with the viewport on tablets. Drop-in replacement for
+/// [SoriCenterClamp] on fixed-focus flashcard/quiz screens — phones unchanged.
+class SoriStudyClamp extends StatelessWidget {
+  final Widget child;
+  final AlignmentGeometry alignment;
+
+  const SoriStudyClamp({
+    super.key,
+    required this.child,
+    this.alignment = Alignment.topCenter,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, c) => SoriCenterClamp(
+        maxWidth: soriStudyContentMaxWidth(c.maxWidth),
+        alignment: alignment,
+        child: child,
+      ),
+    );
+  }
+}
+
+/// Boosts hero text size for its subtree on tablets via [soriStudyScale],
+/// composing multiplicatively with the OS accessibility text scale. Wrap ONLY
+/// the hero card so surrounding buttons/chrome keep their tuned size. The
+/// enclosed layouts already scroll under the OS 1.3x path (regression-tested),
+/// so this rides the same proven mechanism. Phones (≤600dp): no-op.
+class SoriStudyScale extends StatelessWidget {
+  final Widget child;
+
+  const SoriStudyScale({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context);
+    final factor = soriStudyScale(mq.size.width);
+    if (factor <= 1.0) return child;
+    return MediaQuery(
+      data: mq.copyWith(textScaler: _StudyTextScaler(mq.textScaler, factor)),
+      child: child,
+    );
+  }
+}
+
+/// Multiplies an ambient [TextScaler] by a constant [_factor] so the tablet
+/// study boost composes with (rather than replaces) the user's OS text scale.
+class _StudyTextScaler extends TextScaler {
+  final TextScaler _base;
+  final double _factor;
+
+  const _StudyTextScaler(this._base, this._factor);
+
+  @override
+  double scale(double fontSize) => _base.scale(fontSize) * _factor;
+
+  // Canonical 14pt-anchored factor, derived via [scale] to avoid reading the
+  // deprecated getter on [_base].
+  @override
+  double get textScaleFactor => scale(14) / 14;
+
+  @override
+  bool operator ==(Object other) =>
+      other is _StudyTextScaler &&
+      other._base == _base &&
+      other._factor == _factor;
+
+  @override
+  int get hashCode => Object.hash(_base, _factor);
+}
+
 /// When [maxWidth] is omitted, the same adaptive phone-to-tablet column is
 /// used. Pass an explicit value for intentionally fixed-focus learning views.
 /// 콘텐츠를 [maxWidth]로 클램프하는 듀오링고식 반응형 수평 padding.

@@ -118,11 +118,9 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                     ),
                     _PreviewPage(
                       index: 1,
-                      imageAsset:
-                          'assets/illustrations/gye/gye_gate_grand.png',
+                      imageAsset: 'assets/illustrations/gye/gye_gate_grand.png',
                       // 한옥이 지어지는 앰비언트 루프 — 슬롯 안에서 재생.
-                      videoAsset:
-                          'assets/video/loops/hanok_construction.mp4',
+                      videoAsset: 'assets/video/loops/hanok_construction.mp4',
                       accentColor: SoriColors.primary,
                       title: t.previewPage2Title,
                       body: t.previewPage2Body,
@@ -164,9 +162,9 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                     ),
                     child: Text(
                       t.previewSkip,
-                      style: SoriTextTheme.of(context).label.copyWith(
-                        fontSize: 14,
-                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).label.copyWith(fontSize: 14),
                     ),
                   ),
                 ),
@@ -333,62 +331,70 @@ class _PreviewPage extends StatelessWidget {
           );
         }
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: heroH,
-              width: double.infinity,
-              child: SoriEntrance(
-                delay: delay,
-                duration: const Duration(milliseconds: 700),
-                slideY: 0,
-                startScale: 0.98,
-                child: slotChild,
-              ),
-            ),
+        // 세로로 긴 화면(태블릿)에서 히어로+텍스트가 상단에 붙어 아래가 텅 비는
+        // 문제를 없앤다: 그룹을 세로 중앙 정렬해 잉여 공간을 위아래로 분배한다.
+        // 콘텐츠가 화면보다 길면(작은 폰·큰 글자) SingleChildScrollView로 스크롤.
+        // 폰(콘텐츠≈화면 높이)에선 잉여가 0에 가까워 시각 변화가 거의 없다.
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: c.maxHeight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: heroH,
+                  width: double.infinity,
+                  child: SoriEntrance(
+                    delay: delay,
+                    duration: const Duration(milliseconds: 700),
+                    slideY: 0,
+                    startScale: 0.98,
+                    child: slotChild,
+                  ),
+                ),
 
-            // ── 하단 텍스트 — 헤드라인 26 w800 + 본문 15 w500 (§10.4) ──
-            Expanded(
-              child: SingleChildScrollView(
-                padding: soriClampPadding(
-                  c.maxWidth,
-                  // bottom 150 = 하단 dot·CTA 오버레이와 O-3 이격 확보.
-                  base: const EdgeInsets.fromLTRB(28, 22, 28, 150),
+                // ── 하단 텍스트 — 헤드라인 26 w800 + 본문 15 w500 (§10.4) ──
+                Padding(
+                  padding: soriClampPadding(
+                    c.maxWidth,
+                    // bottom 150 = 하단 dot·CTA 오버레이와 O-3 이격 확보.
+                    base: const EdgeInsets.fromLTRB(28, 22, 28, 150),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SoriEntrance(
+                        delay: Duration(
+                          milliseconds: delay.inMilliseconds + 160,
+                        ),
+                        slideY: 10,
+                        child: Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: tt.h1.copyWith(fontSize: 26, height: 1.2),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      SoriEntrance(
+                        delay: Duration(
+                          milliseconds: delay.inMilliseconds + 240,
+                        ),
+                        slideY: 6,
+                        child: Text(
+                          body,
+                          textAlign: TextAlign.center,
+                          // O-5 "본문 ≤2줄"은 문구 길이 검수 항목 — 말줄임
+                          // 금지 원칙(§4.3)에 따라 잘라내지 않는다.
+                          style: tt.body.copyWith(height: 1.5),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SoriEntrance(
-                      delay: Duration(
-                        milliseconds: delay.inMilliseconds + 160,
-                      ),
-                      slideY: 10,
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: tt.h1.copyWith(fontSize: 26, height: 1.2),
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    SoriEntrance(
-                      delay: Duration(
-                        milliseconds: delay.inMilliseconds + 240,
-                      ),
-                      slideY: 6,
-                      child: Text(
-                        body,
-                        textAlign: TextAlign.center,
-                        // O-5 "본문 ≤2줄"은 문구 길이 검수 항목 — 말줄임
-                        // 금지 원칙(§4.3)에 따라 잘라내지 않는다.
-                        style: tt.body.copyWith(height: 1.5),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              ],
             ),
-          ],
+          ),
         );
       },
     );

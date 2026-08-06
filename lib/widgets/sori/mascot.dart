@@ -91,22 +91,10 @@ class Mascot extends StatefulWidget {
 // TickerProviderStateMixin (nicht Single): _motion kann beim Umschalten von
 // widget.animate (true→false→true) mehrfach neu erstellt werden.
 class _MascotState extends State<Mascot> with TickerProviderStateMixin {
-  static const _tigerIdle = 'assets/illustrations/mascot/tiger_idle.png';
-  static const _tigerBlink = 'assets/illustrations/mascot/tiger_blink.png';
-  static const _tigerCelebrate =
-      'assets/illustrations/mascot/tiger_celebrate.png';
-  static const _tigerSad = 'assets/illustrations/mascot/tiger_sad.png';
-  static const _tigerThinking =
-      'assets/illustrations/mascot/tiger_thinking.png';
-  static const _tigerSleepy = 'assets/illustrations/mascot/tiger_sleepy.png';
-  static const _tigerSmile = 'assets/illustrations/mascot/tiger_smile.png';
-  static const _tigerNeutral = 'assets/illustrations/mascot/tiger_neutral.png';
-  static const _tigerSurprised =
-      'assets/illustrations/mascot/tiger_surprised.png';
-
-  /// 태고 정면 변형 — 중립 애니메이션에서 `tiger_idle`과 번갈아 써서
-  /// 같은 프레임이 반복되는 인상을 줄인다(캐논 앵커 `tiger_front` 계열).
-  static const _tigerFront2 = 'assets/illustrations/mascot/tiger_front2.png';
+  // Jin 2026-08-06: 호랑이는 감정·프레임 구분 없이 tiger_sitting2 정지 한 장으로
+  // 통일(옛 tiger_* 포즈 PNG 전량 폐지). 까치는 기존 포즈 시스템 유지.
+  static const _tigerSitting2 =
+      'assets/illustrations/mascot/tiger_sitting2.png';
 
   static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
   static const _magpieWingDown =
@@ -155,7 +143,9 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   /// no ticker → static pose. Called from didChangeDependencies + didUpdateWidget
   /// so both widget.animate flips and MediaQuery changes are honoured.
   void _syncMotion() {
-    final wantMotion = widget.animate && !SoriMotion.reduceMotion(context);
+    // 호랑이는 정지(tiger_sitting2 한 장) → 티커 불필요. 까치만 애니메이션.
+    final wantMotion =
+        widget.animate && _isMagpie && !SoriMotion.reduceMotion(context);
     if (wantMotion && _motion == null) {
       _startMotion();
     } else if (!wantMotion && _motion != null) {
@@ -210,33 +200,8 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
       }
     }
 
-    switch (widget.emotion) {
-      case MascotEmotion.celebrate:
-        return _tigerCelebrate;
-      case MascotEmotion.worry:
-        return _tigerSad;
-      case MascotEmotion.sleepy:
-        return _tigerSleepy;
-      case MascotEmotion.thinking:
-        return _tigerThinking;
-      case MascotEmotion.surprised:
-        return _tigerSurprised;
-      case MascotEmotion.smile:
-        // 부드러운 미소 — animate 시 깜빡임 + 가끔 idle 프레임으로 다양성.
-        if (animating) {
-          if (t > 0.82 && t < 0.90) return _tigerBlink;
-          if (t > 0.40 && t < 0.46) return _tigerIdle;
-        }
-        return _tigerSmile;
-      case MascotEmotion.neutral:
-        // 중립 정면 — animate 시 가끔 깜빡임 + idle 프레임 교차.
-        if (animating) {
-          if (t > 0.82 && t < 0.90) return _tigerBlink;
-          if (t > 0.40 && t < 0.46) return _tigerIdle;
-          if (t > 0.14 && t < 0.20) return _tigerFront2;
-        }
-        return _tigerNeutral;
-    }
+    // 호랑이는 감정·애니메이션 무관 정지 한 장(Jin 2026-08-06).
+    return _tigerSitting2;
   }
 
   String get _semanticsLabel {

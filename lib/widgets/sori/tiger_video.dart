@@ -197,8 +197,10 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
     );
   }
 
-  bool _shouldPlay(BuildContext context) =>
-      TigerStageVideo.videoReady && !SoriMotion.reduceMotion(context);
+  // reduce-motion 항 제거(Jin 2026-08-06, 샤오미 패드) — MIUI 배터리 절약이
+  // 같은 플래그를 켜서 캐릭터가 정적으로 고정됐다. 근거는 video_lease.dart
+  // `isEligible` 주석. `context` 는 호출부 시그니처 호환을 위해 남긴다.
+  bool _shouldPlay(BuildContext context) => TigerStageVideo.videoReady;
 
   void _onGranted(VideoPlayerController video, {required bool pacePhase}) {
     _video = video;
@@ -414,7 +416,10 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
       _completion.leaseRequested();
     }
     _lease?.setEligible(eligible);
-    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
+    // reduce-motion 은 더 이상 폴백 사유가 아니다(위 `_shouldPlay` 주석) —
+    // 온보딩 첫 인사(TigerGreetClip)는 신규 사용자가 처음 보는 화면이라
+    // 배터리 절약 상태에서 정적 PNG 로 떨어지면 첫인상이 통째로 바뀐다.
+    if (!TigerStageVideo.videoReady) {
       _completion.fallbackNeeded();
     }
   }

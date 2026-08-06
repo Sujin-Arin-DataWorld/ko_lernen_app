@@ -204,7 +204,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: SoriCenterClamp(
+          child: SoriStudyClamp(
             child: Padding(
               padding: const EdgeInsets.all(Spacing.lg),
               child: Column(

@@ -145,7 +145,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         appBar: AppBar(title: Text(t.wbTyping)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_right_stand.png',
+            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -186,7 +186,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         ),
       ),
       body: SafeArea(
-        child: SoriCenterClamp(
+        child: SoriStudyClamp(
           child: Padding(
             padding: const EdgeInsets.all(Spacing.lg),
             child: Column(
@@ -211,18 +211,20 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
                   style: TextStyle(fontSize: 13, color: s.textMuted),
                 ),
                 const SizedBox(height: Spacing.sm),
-                SoriCard(
-                  variant: SoriCardVariant.hero,
-                  accent: SoriColors.accent,
-                  tinted: true,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                    child: Text(
-                      word.translationDe,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w800,
+                SoriStudyScale(
+                  child: SoriCard(
+                    variant: SoriCardVariant.hero,
+                    accent: SoriColors.accent,
+                    tinted: true,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+                      child: Text(
+                        word.translationDe,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                   ),

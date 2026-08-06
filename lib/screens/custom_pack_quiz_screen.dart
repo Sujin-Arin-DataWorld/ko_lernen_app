@@ -169,7 +169,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         appBar: AppBar(title: Text(t.wbQuiz)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_right_stand.png',
+            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -212,7 +212,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         ),
       ),
       body: SafeArea(
-        child: SoriCenterClamp(
+        child: SoriStudyClamp(
           child: Padding(
             padding: const EdgeInsets.all(Spacing.lg),
             child: Column(
@@ -237,37 +237,41 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                   style: TextStyle(fontSize: 13, color: s.textMuted),
                 ),
                 const SizedBox(height: Spacing.sm),
-                SoriCard(
-                  variant: SoriCardVariant.hero,
-                  accent: SoriColors.primary,
-                  tinted: true,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                    child: Column(
-                      children: [
-                        if (word.imagePath.isNotEmpty) ...[
-                          ManagedMediaImage(
-                            reference: word.imagePath,
-                            width: 220,
-                            height: 110,
-                            borderRadius: BorderRadius.circular(SoriRadius.md),
+                SoriStudyScale(
+                  child: SoriCard(
+                    variant: SoriCardVariant.hero,
+                    accent: SoriColors.primary,
+                    tinted: true,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+                      child: Column(
+                        children: [
+                          if (word.imagePath.isNotEmpty) ...[
+                            ManagedMediaImage(
+                              reference: word.imagePath,
+                              width: 220,
+                              height: 110,
+                              borderRadius: BorderRadius.circular(
+                                SoriRadius.md,
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.md),
+                          ],
+                          Text(
+                            word.korean,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
-                          const SizedBox(height: Spacing.md),
+                          const SizedBox(height: Spacing.sm),
+                          IconButton(
+                            icon: const Icon(Icons.volume_up_rounded, size: 26),
+                            onPressed: () => TtsService.speak(word.korean),
+                          ),
                         ],
-                        Text(
-                          word.korean,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.sm),
-                        IconButton(
-                          icon: const Icon(Icons.volume_up_rounded, size: 26),
-                          onPressed: () => TtsService.speak(word.korean),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
