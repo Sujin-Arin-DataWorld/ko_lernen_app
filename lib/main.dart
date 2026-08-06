@@ -88,10 +88,8 @@ import 'screens/course_mission_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/scenario_player_screen.dart';
 import 'screens/scenarios_list_screen.dart';
-import 'package:rive/rive.dart' show RiveNative;
 import 'widgets/sori/dancheong_burst.dart';
 import 'widgets/sori/content_feedback_card.dart';
-import 'widgets/sori/tiger_stage_rive.dart';
 import 'widgets/sori/tiger_video.dart';
 import 'widgets/sori/mascot_preference.dart';
 import 'widgets/sori/route_observer.dart';
@@ -146,18 +144,10 @@ Future<void> main() async {
   // ignore: discarded_futures, unawaited_futures
   NotificationService.init();
 
-  // Rive(살아있는 호랑이) 런타임 best-effort. 실패해도 앱은 프레임 폴백으로 정상
-  // — TigerStageRive가 riveReady=false면 기존 TigerStage(프레임)를 쓴다.
-  // ⚠️ 웹은 비활성화 (.riv 파일 path resolution 이슈, 프레임으로 충분함)
-  if (!kIsWeb) {
-    try {
-      if (await RiveNative.init()) {
-        TigerStageRive.riveReady = true;
-      }
-    } catch (_) {
-      // 네이티브 미지원/초기화 실패 → 프레임 폴백 유지
-    }
-  }
+  // 2026-08-06: Rive 런타임 초기화 제거. 프레임 시퀀스(TigerStage)와 Rive 폴백
+  // (TigerStageRive)을 함께 폐지했다 — 어떤 화면도 TigerStageVideo 를 만들지
+  // 않고, 캐릭터는 CharacterClipPlayer + assets/video/character/ 가 정본이며
+  // 영상이 불가한 경우(reduce-motion 포함)엔 정적 Mascot PNG 로 떨어진다.
 
   // 캐릭터/호랑이 영상 전역 게이트. 별도 init 불필요 — 플래그만.
   // 테스트는 videoReady 기본 false 유지 → 프레임/마스코트 폴백(이 줄은 main).

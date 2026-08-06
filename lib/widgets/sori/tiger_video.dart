@@ -7,13 +7,14 @@ import 'package:video_player/video_player.dart';
 import '../../services/audio_policy.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
-import 'tiger_stage_rive.dart';
 import 'tokens.dart';
 import 'video_lease.dart';
 
 /// **살아있는 호랑이 — 영상 버전** (Jin 제작 mp4, 2026-06-12).
 ///
-/// 프레임 PNG 시퀀스([TigerStage])의 "전환 끊김"을 해소하는 부드러운 영상 경로.
+/// 부드러운 영상 경로. (구 프레임 PNG 시퀀스 `TigerStage`/`TigerStageRive` 는
+/// 2026-08-06 폐지 — 프레임 44장은 `assets_unused/` 로 옮겼고, 현재 정본은
+/// `CharacterClipPlayer` + `assets/video/character/` 다.)
 /// H.264라 알파가 없고 배경이 흰색(~#F0F4F2)으로 박혀 있다 → [ColorFiltered]
 /// `BlendMode.multiply`로 흰 배경을 크림 배경색에 흡수시킨다 (흰색×크림=크림,
 /// 호랑이는 미세하게 따뜻해짐). multiply 결과는 child×색 고정값이라 밝은 배경
@@ -23,14 +24,14 @@ import 'video_lease.dart';
 /// 적용되지 않음 — 반드시 컴포지터 레이어인 [ColorFiltered]를 쓸 것.
 ///
 /// 폴백 체인: !videoReady ‖ reduce-motion ‖ 로드 실패
-///   → [TigerStageRive] (→ .riv 미존재 시 프레임 [TigerStage]).
+///   → 정적 [Mascot] (캐릭터별 표정 PNG).
 
 /// 홈 히어로 밴드용 — 인사(launch당 1회) → 왔다갔다 루프. 항상 무음.
 class TigerStageVideo extends StatefulWidget {
   /// 밴드 높이(px). 영상(1:1)은 높이 기준 정사각으로 중앙 배치.
   final double height;
 
-  /// 폴백 [TigerStageRive]/[TigerStage]에 넘길 표정.
+  /// 폴백 [Mascot]에 넘길 표정.
   final MascotEmotion fallbackEmotion;
 
   /// multiply 블렌드 색 — 영상 흰 배경이 이 색이 된다. 밴드 뒤 실제 배경
@@ -51,7 +52,7 @@ class TigerStageVideo extends StatefulWidget {
   });
 
   /// main()에서만 true. 테스트/미배선 환경은 false → 프레임 폴백
-  /// ([TigerStageRive.riveReady] 패턴 — 테스트가 플러그인 채널에 의존 안 함).
+  /// (정적 플래그 패턴 — 테스트가 플러그인 채널에 의존 안 함).
   static bool videoReady = false;
 
   /// 영상 소스가 **알파(투명) 채널**을 가지는가.
@@ -97,7 +98,7 @@ class TigerStageVideo extends StatefulWidget {
 }
 
 class _TigerStageVideoState extends State<TigerStageVideo> {
-  /// 인사는 앱 launch당 1회 ([TigerStage]의 `_introPlayedThisLaunch` 패턴).
+  /// 인사는 앱 launch당 1회 (구 프레임 시퀀스의 `_introPlayedThisLaunch` 패턴).
   static bool _greetPlayedThisLaunch = false;
 
   VideoPlayerController? _video;
@@ -292,21 +293,17 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
     super.dispose();
   }
 
-  /// 폴백도 캐릭터를 따른다 — 호랑이만 Rive/프레임 시퀀스가 있고,
-  /// 까치는 정적 [Mascot] 이 정본이다.
-  Widget _fallback() => _kind == MascotKind.magpie
-      ? Center(
-          child: Mascot(
-            kind: MascotKind.magpie,
-            emotion: widget.fallbackEmotion,
-            size: widget.height * 0.82,
-            animate: true,
-          ),
-        )
-      : TigerStageRive(
-          height: widget.height,
-          fallbackEmotion: widget.fallbackEmotion,
-        );
+  /// 폴백은 캐릭터 무관하게 정적 [Mascot] 이다 — 2026-08-06 프레임 시퀀스
+  /// (`TigerStage`/`TigerStageRive`, tiger_anim 44장) 폐지 후 호랑이도 까치와
+  /// 같은 경로를 쓴다. 표정 PNG 는 `assets/illustrations/mascot/tiger_*.png`.
+  Widget _fallback() => Center(
+    child: Mascot(
+      kind: _kind,
+      emotion: widget.fallbackEmotion,
+      size: widget.height * 0.82,
+      animate: true,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {

@@ -180,10 +180,9 @@ void main() {
       final assetPattern = RegExp(r'''['"]((?:assets/)[^'"]+)['"]''');
 
       // 의도적으로 아직 없는 자산 — 런타임에서 폴백 처리됨. 생기면 여기서 제거.
-      const pending = <String>{
-        // Rive 리그 제작 대기. 없으면 TigerStageRive가 프레임 TigerStage로 폴백.
-        'assets/rive/tiger.riv',
-      };
+      // 2026-08-06: Rive 리그(tiger.riv) 대기 항목 제거 — TigerStageRive/
+      // TigerStage 프레임 경로를 통째로 폐지해 대기할 자산 자체가 없어졌다.
+      const pending = <String>{};
 
       final missing = <String>[];
       for (final file in dartFiles) {
