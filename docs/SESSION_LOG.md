@@ -68,6 +68,14 @@ CI 와 동일 환경이라 **골든 기준선을 여기서 생성**할 수 있�
 `video_lease_contract_test`(동시 1개 상한·회수/승계·실패 복구 11) · `e2e/app_flows_e2e_test` ·
 `integration_test/app_flows_test`(실기기 전용, CI 미실행 — `integration_test` dev 의존성 추가).
 
+**CI 자동 트리거 (같은 세션에서 추가 확인).** Claude GitHub App 으로 만든 PR #5 는
+`pull_request` 이벤트로 **CI run 이 생성되지 않았다.** `ci.yml` 트리거는 정상이고
+(`push:[main]`+`pull_request:[main]`+`workflow_dispatch`), Actions 도 정상이며
+(`workflow_dispatch` 는 즉시 큐), 2026-07-31 PR #4(사람 생성)는 자동 CI 가 돌았다 —
+**YAML·권한 문제가 아니라 PR 생성 경로의 차이.** Cloudflare 앱은 같은 이벤트로 체크를 붙여
+"체크가 있다"는 겉모습에 속기 쉽다. 대응은 `AGENTS.md` 의 새 "PR·CI 규칙" 6단계 —
+PR 뒤 `workflow_dispatch` 로 명시 실행하고 run 생성·결과를 확인할 때까지 완료로 보지 않는다.
+
 **남은 것 (Jin).** 실기기 QA 는 자동 테스트가 대체하지 않는다 — 체크리스트 §2 회전/멀티윈도우,
 §4 TalkBack/VoiceOver, §5 다크 충돌, §7 네트워크 9상태, §9 권한 6상태, §15 스토어 트랙.
 미결로 남긴 것: `textDim` 전역 대비 2.89(동의 화면만 수정), `TigerGreetClip`/`TigerStageVideo`

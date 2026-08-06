@@ -534,6 +534,37 @@ flutter run -d <android-id>   # 안드로이드
 
 ---
 
+## PR·CI 규칙 (AI 에이전트 필수)
+
+> **⛔ PR 을 만들거나 갱신하면, CI 실행을 직접 확인할 때까지 끝난 게 아니다.**
+
+**왜 이 규칙이 필요한가 (2026-08-06 실측).** Claude GitHub App 을 통해 만든 PR #5 는
+`pull_request` 이벤트로 **CI run 이 아예 생성되지 않았다**. `ci.yml` 의 트리거는 정상이고
+(`push:[main]` + `pull_request:[main]` + `workflow_dispatch`), Actions 도 정상이며
+(`workflow_dispatch` 는 즉시 큐에 잡혔다), 2026-07-31 PR #4(사람이 만든 PR)에서는 자동 CI 가
+정상 동작했다. 즉 **YAML 문제도 권한 문제도 아니고, PR 생성 경로(앱 vs 사람)의 차이**다.
+Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "체크가 하나 붙어 있다"는 겉모습에
+속기 쉽다 — 그건 CI 가 아니다.
+
+**따라서 PR 작업의 완료 조건은 다음 6단계다:**
+
+1. 브랜치 push 완료 확인
+2. PR 생성 또는 갱신
+3. `.github/workflows/ci.yml` 을 **PR head 브랜치에서 `workflow_dispatch` 로 명시 실행**
+   (`workflow_dispatch` 는 자동화가 워크플로를 시작할 수 있는 예외 이벤트다)
+4. run 이 **실제로 생성됐는지 확인** (run id 를 확보한다)
+5. run 의 결과를 확인 — Analyze · Test · Build web · Book analysis security
+6. **run 이 존재하고 결과를 확인하기 전까지 "PR 준비됨" 이라고 보고하지 않는다**
+
+자동 트리거를 기다리며 시간을 보내지 말 것. 안 붙으면 3번을 바로 실행한다.
+사람이 UI 에서 직접 만든 PR 은 원래대로 `pull_request` 트리거가 동작하므로 두 경로가 공존한다.
+
+**⚠️ `workflow_dispatch` 로 돌리면 `regenerate-goldens` 잡도 함께 실행된다** (그 잡이
+`if: github.event_name == 'workflow_dispatch'` 게이트라서). 아티팩트만 올리고 커밋하지 않으므로
+무해하지만, 골든 기준선을 교체할 때는 그 아티팩트가 정본이다.
+
+---
+
 ## 금지 사항
 
 - `dist/`, `build/` 내부 직접 편집 금지
