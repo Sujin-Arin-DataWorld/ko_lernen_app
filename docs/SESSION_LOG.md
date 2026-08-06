@@ -7,6 +7,51 @@
 
 ---
 
+### 2026-08-06 — 태블릿 학습 카드 가시성 최적화(카드 폭·히어로 글씨 자동 확대) + 온보딩 세로 중앙 정렬
+
+**왜.** Jin 요청 — ① 모든 단어/문장/문법 카드 가운데 정렬, ② 아이패드·갤탭·샤오미패드에서
+카드창·글씨가 화면비율 따라 자동으로 커져 가시성 좋게, ③ 온보딩이 태블릿에서 이미지·텍스트가
+상단에 쏠리는 것 해소.
+
+**감사 결과(가운데 정렬).** 전 학습 화면 전수 감사 결과 **플래시카드/프롬프트 히어로 텍스트는
+이미 전부 `TextAlign.center`** 였다(Jin 스크린샷은 예전 설치 빌드). 좌정렬로 남은 곳은
+리스트(hard_words·wordbook_search)·시나리오 채팅 말풍선·정답 버튼(quiz_choice)뿐이며 이는
+**의도적**(채팅=말풍선, 리스트=스캔, 버튼)이라 그대로 뒀다. 실제 공백은 태블릿 스케일이었다:
+히어로 글씨가 하드코딩 `fontSize`라 `soriComfortScale` 미적용 + 몰입 카드 폭 480 고정.
+
+**무엇을.**
+- 공용 기반 `lib/widgets/sori/responsive.dart`(순수 추가): `soriStudyScale(width)`(1.0→1.35,
+  600–900dp 램프), `soriStudyContentMaxWidth(width)`(480→760), `SoriStudyClamp`(폭 확장 클램프,
+  `SoriCenterClamp` 상위호환), `SoriStudyScale`(서브트리 `textScaler`를 OS 접근성 배율과 **곱셈**
+  합성 — `_StudyTextScaler`). **폰(≤600dp) 전부 no-op → 회귀 0.**
+- 플래시카드/프롬프트 10화면: 본문 클램프 `SoriCenterClamp`→`SoriStudyClamp` + **히어로 카드만**
+  `SoriStudyScale` 래핑(버튼·칩·보기리스트 제외): grammar, vocab_pack(히어로 2: 퀴즈/보스+러닝),
+  legacy_vocab, custom_pack_play, custom_pack_quiz, custom_pack_typing, review_session,
+  cloze_game, daily_challenge, hangul(Cards 탭만).
+- 게임/보드 5화면: **폭만** 확장(타일 오버플로 방지 위해 글씨 부스트 제외): wordle(raw
+  `ConstrainedBox`→`SoriStudyClamp`), speed_match, custom_pack_matching, chosung_quiz,
+  satz_arcade. 결과 오버레이(GameOverCard) 클램프는 480 유지.
+- `onboarding_preview_screen.dart` `_PreviewPage`: 상단 고정(`Column`+`Expanded`)→**세로 중앙
+  정렬**(`SingleChildScrollView`+`ConstrainedBox(minHeight)`+`Column(center)`). 태블릿에서
+  이미지+텍스트 상단 쏠림 해소, 콘텐츠가 길면 스크롤, 폰 무변화.
+
+**검증.** `flutter analyze --no-pub`(전체) **0 issues**. `flutter test study_scale_test.dart
+responsive_test.dart` → **395 통과** = 신규 유닛 9(스케일 값·클램프 폭·OS 배율 곱셈 합성) +
+반응형 스모크(변경 화면 다수를 **308–1280px · 시스템 글자 1.3배에서 오버플로 0** 확인 → 넓힌
+컬럼·확대 글씨가 태블릿에서 안 깨짐). 각 화면 per-file analyze도 0.
+
+**남은 것(Jin).** 실기기(갤탭·샤오미패드·아이패드) 세로/가로·글자 1.0/1.3에서 카드·글씨 확대
+체감 + 온보딩 중앙정렬 시각 확인. 전체 직렬 `flutter test`(2159) 릴리스 게이트. 리스트/채팅
+좌정렬 유지 방침 확인(원하면 특정 화면 지정).
+
+**커밋.** ⚠️ 코드 변경분(responsive.dart·study_scale_test.dart·화면 16개)은 **동시 세션의
+커밋 `80b2f6e`(refactor(mascot))에 의도치 않게 합류**됐다(그쪽 `git add -A` 가 내 미커밋
+작업을 함께 스테이징). 히스토리 재작성은 공유 브랜치라 하지 않는다 — 코드는 `80b2f6e` 에 온전히
+들어가 있고(검증: `git show HEAD:…/responsive.dart` 에 study 심볼 10개), 이 로그 항목만 별도
+커밋으로 남긴다.
+
+---
+
 ### 2026-08-06 — v2.0.5+11 AAB 재빌드 · iOS 제출 파일 · 에셋 전수 감사
 
 **AAB (`2.0.5+11`)** — `versionCode 11` 이 아직 Play Console 에 올라가지 않은 상태
