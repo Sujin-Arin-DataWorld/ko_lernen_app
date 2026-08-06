@@ -293,6 +293,44 @@ void main() {
       }
     }
 
+    // ── 낮은 높이: 가로 폰 · 분할 화면 ────────────────────────────────
+    // 이 위의 매트릭스는 **폭**만 308–1280dp 로 훑고 높이는 900/1280/800 뿐이라,
+    // 가로로 든 폰이나 분할 화면처럼 **세로가 짧은** 상태를 어느 테스트도 보지
+    // 않았다. 실제로 그 구멍에서 오버플로가 살아 있었다(2026-08-06).
+    //
+    // 짧은 높이가 특히 위험한 이유: 화면 상단 헤더와 하단 액션 블록은 대개
+    // **고정 높이**라 뷰포트가 짧아져도 줄지 않는다. 가운데를 `Expanded` 로
+    // 준 화면은 그 가운데가 0까지 줄어도 고정 블록의 합이 뷰포트를 넘으면
+    // 그대로 넘친다.
+    for (final size in <Size>[
+      const Size(360, 400), // 세로 분할 화면 (좁고 짧음)
+      const Size(800, 360), // 가로 폰
+      const Size(800, 600), // 작은 가로 / flutter 기본 뷰포트
+      const Size(1280, 500), // 가로 태블릿 분할
+    ]) {
+      for (final entry in screens.entries) {
+        testWidgets(
+          '${entry.key} @ ${size.width.toInt()}x${size.height.toInt()} 낮은 높이 오버플로 없음',
+          (tester) async {
+            tester.view.physicalSize = size;
+            tester.view.devicePixelRatio = 1;
+            addTearDown(tester.view.resetPhysicalSize);
+            addTearDown(tester.view.resetDevicePixelRatio);
+
+            await tester.pumpWidget(_wrap(entry.value));
+            await tester.pump();
+            await tester.pump(const Duration(milliseconds: 100));
+            await tester.pump(const Duration(milliseconds: 1200));
+
+            expect(tester.takeException(), isNull);
+
+            await tester.pumpWidget(const SizedBox.shrink());
+            await tester.pump();
+          },
+        );
+      }
+    }
+
     for (final size in <Size>[
       const Size(360, 900),
       const Size(800, 900),
