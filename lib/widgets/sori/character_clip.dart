@@ -201,8 +201,17 @@ class CharacterClipPlayer extends StatefulWidget {
   ///
   /// 이때는 [staticFallback] 을 켜야 한다. 반대로 "영상은 뜰 건데 아직 로드
   /// 중"인 짧은 순간은 여기 해당하지 않으므로 투명이 맞다.
+  ///
+  /// **다크도 여기 포함된다.** multiply 는 밝은 배경 전용이다 —
+  /// `multiply(#FFFFFF, C) == C` 라 흰 매트는 [blendColor] 단색 사각형으로
+  /// 칠해진다. 다크 배경 위에서는 밝은 blendColor 면 크림 사각형이 그대로
+  /// 뜨고, 어두운 blendColor 로 바꾸면 이번엔 캐릭터가 새까매진다. 즉 다크는
+  /// 색 조정으로 못 고치고 영상 경로 자체가 불가 → 정적 [Mascot] 로 간다.
+  /// (현재 `main.dart` 가 `themeMode.light` 고정이라 잠복 상태의 지뢰다.)
   static bool videoUnavailable(BuildContext context) =>
-      !TigerStageVideo.videoReady || SoriMotion.reduceMotion(context);
+      !TigerStageVideo.videoReady ||
+      SoriMotion.reduceMotion(context) ||
+      Theme.of(context).brightness == Brightness.dark;
   final VoidCallback? onCompleted;
   final Duration fallbackCompleteAfter;
   final String? sfxAsset;
@@ -275,7 +284,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     if (_eligibility.isVisible(context)) {
       _playSfxOnce();
     }
-    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
+    if (CharacterClipPlayer.videoUnavailable(context)) {
       _completion?.fallbackNeeded();
     }
   }
@@ -284,16 +293,22 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     if (!mounted) {
       return;
     }
+    // 영상 경로가 **범주적으로 불가**하면(기기 미지원·reduce-motion·다크)
+    // lease 를 아예 요청하지 않는다 — 다크에서 흰 매트를 multiply 하면 배경이
+    // blendColor 단색 사각형으로 그대로 칠해지기 때문(multiply(#FFFFFF,C)==C).
+    final unavailable = CharacterClipPlayer.videoUnavailable(context);
     _completion?.visibilityChanged(_eligibility.isVisible(context));
-    final eligible = _eligibility.isEligible(
-      context,
-      videoReady: TigerStageVideo.videoReady,
-    );
+    final eligible =
+        !unavailable &&
+        _eligibility.isEligible(
+          context,
+          videoReady: TigerStageVideo.videoReady,
+        );
     if (eligible) {
       _completion?.leaseRequested();
     }
     _lease?.setEligible(eligible);
-    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
+    if (unavailable) {
       _completion?.fallbackNeeded();
     }
   }
@@ -402,11 +417,16 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   @override
   Widget build(BuildContext context) {
     final video = _video;
+    // 렌더 단계 잠금 — 테마가 라이트→다크로 바뀌는 프레임에 이미 승인된
+    // 텍스처가 한 프레임 남아 크림 사각형이 번쩍이는 걸 막는다. 동시에 이
+    // 호출이 Theme 의존성을 등록해 테마 전환 시 didChangeDependencies →
+    // _syncEligibility 가 실제로 다시 돈다.
+    final blocked = CharacterClipPlayer.videoUnavailable(context);
     return SizedBox.square(
       dimension: widget.size,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
-        child: _failed || !_ready || video == null
+        child: blocked || _failed || !_ready || video == null
             ? (widget.staticFallback
                   ? Mascot(
                       kind: widget.fallbackKind ?? MascotPreference.kind.value,
@@ -416,12 +436,45 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
                     )
                   // 정적 폴백 끔 → 투명. 흰 박스 대신 배경이 비친다.
                   : const SizedBox.shrink())
-            : ColorFiltered(
-                colorFilter: ColorFilter.mode(
-                  widget.blendColor,
-                  BlendMode.multiply,
+            : ClipRect(
+                // Android(Skia + SurfaceTexture, Impeller off) 방어막 —
+                // 모든 호출부가 이 한 곳에서 혜택을 본다.
+                //
+                // [ColorFiltered] 는 `alwaysNeedsCompositing` 이라 캔버스
+                // saveLayer 가 아니라 **엔진 ColorFilterLayer** 를 만든다.
+                // 그 결과 부모의 페인트가 [먼저 그린 형제 PictureLayer] →
+                // [ColorFilterLayer(외부 텍스처)] → [나중 형제 PictureLayer]
+                // 로 쪼개지고, Skia GL 경로에서는 그 레이어가 saveLayer 를
+                // 열어 안드로이드 외부(OES) 텍스처를 그 안에 그린다.
+                //
+                // 실기기(M2101K6G/Android 12, 2026-08-06)에서 영상이 재생되는
+                // 순간 **먼저 그려진 형제**(로고·스트릭/레벨 칩·설정 아이콘·
+                // 인사말·말풍선)가 통째로 사라졌다. 나중에 그려지는 것은 멀쩡.
+                // = saveLayer 해소가 자기 사각형 밖까지 덮어쓴 모양새다.
+                // 홈은 paint 순서를 뒤집어(`verticalDirection: up`) 피했지만
+                // 그건 홈에서만 가능한 회피라 나머지 호출부는 무방비였다.
+                //
+                // hardEdge ClipRect 는 saveLayer 를 열지 않는 **GPU scissor**
+                // 라서 비용은 레이어 1개뿐이고, ColorFilterLayer 의 saveLayer
+                // 보다 **먼저** 적용돼 그 파괴 반경을 영상 사각형 안으로
+                // 묶어 둔다. 픽셀 변화는 0 — 자식은 이미 정확히 이 정사각
+                // 크기이고, 가장자리는 흰 매트라 multiply 결과가 배경색과
+                // 같은 `blendColor` 다.
+                //
+                // ⚠️ never-cage 규칙 위반 아님: 영상 자기 자신의 경계와
+                //    정확히 일치하는 사각 클립이라 원형·둥근 모서리·테두리·
+                //    여백을 전혀 만들지 않는다(ClipOval/ClipRRect 아님).
+                // ⚠️ 근본 원인 미확정 상태의 **완화책**이다. 다음 실기기
+                //    빌드에서도 헤더가 사라지면 원인은 Skia clip 바깥의 GL
+                //    상태 오염이라는 뜻 → mp4 매트를 크림으로 재출력해
+                //    [ColorFiltered] 자체를 없애는 게 확정 수순이다.
+                child: ColorFiltered(
+                  colorFilter: ColorFilter.mode(
+                    widget.blendColor,
+                    BlendMode.multiply,
+                  ),
+                  child: VideoPlayer(video),
                 ),
-                child: VideoPlayer(video),
               ),
       ),
     );

@@ -210,6 +210,13 @@ class _GameOverCardState extends State<GameOverCard>
                       CharacterClipPlayer(
                         asset: _feedbackClip!,
                         size: 116,
+                        // 흰 배경 mp4 는 multiply 로 흡수되므로 blendColor 는
+                        // **실제로 뒤에 칠해진 색**이어야 한다. GameOverCard 를
+                        // 쓰는 7개 결과 화면은 모두 배경 위젯 없는 plain
+                        // Scaffold → 그 색은 scaffoldBackgroundColor 다.
+                        // 상수(SoriColors.lightBg)로 두면 teal 팔레트
+                        // kill-switch(#FFFFFF)에서 크림 사각형이 뜬다.
+                        blendColor: Theme.of(context).scaffoldBackgroundColor,
                         fallbackKind: kindOrPreferred,
                         fallbackEmotion: widget.mascotEmotion,
                       ),

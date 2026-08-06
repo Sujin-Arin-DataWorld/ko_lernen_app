@@ -245,6 +245,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                 MascotPreference.kind.value,
               ),
               size: 120,
+              // 뒤에 깔린 건 Scaffold 색이 아니라 SoriScreenBackground 의
+              // HanjiTexture 베이스 워시(HanokColors.hanjiCream = #FAF6EC)다.
+              // 팔레트와 무관한 상수라 s.bg / scaffoldBackgroundColor 가 아니라
+              // 같은 상수(SoriColors.lightBg)로 맞춘다 — home_screen 히어로와
+              // 동일한 근거. (한지 결 자체는 평면이 아니라 완전 무이음은 불가.)
+              blendColor: SoriColors.lightBg,
               fallbackEmotion: MascotEmotion.celebrate,
             ),
             const SizedBox(height: Spacing.lg),

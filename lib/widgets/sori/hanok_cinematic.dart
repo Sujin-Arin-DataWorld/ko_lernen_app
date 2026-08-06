@@ -64,8 +64,10 @@ class _HanokCinematicState extends State<HanokCinematic>
     _ctrl = AnimationController(vsync: this, duration: widget.totalDuration);
     // 까치: 좌측 -10% → 우측 50% 위치 (1.0s 첫 phase)
     _magpieX = Tween<double>(begin: -0.1, end: 0.55).animate(
-      CurvedAnimation(parent: _ctrl, curve: const Interval(0.0, 0.3,
-          curve: Curves.easeOut)),
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.0, 0.3, curve: Curves.easeOut),
+      ),
     );
     // 배경 fade: 0.3 ~ 0.6 phase
     _fade = CurvedAnimation(
@@ -74,8 +76,10 @@ class _HanokCinematicState extends State<HanokCinematic>
     );
     // 토스트 슬라이드 인: 0.6 ~ 0.9 phase
     _toastY = Tween<double>(begin: 60, end: 0).animate(
-      CurvedAnimation(parent: _ctrl, curve: const Interval(0.6, 0.85,
-          curve: Curves.easeOutBack)),
+      CurvedAnimation(
+        parent: _ctrl,
+        curve: const Interval(0.6, 0.85, curve: Curves.easeOutBack),
+      ),
     );
 
     _ctrl.forward();
@@ -102,7 +106,22 @@ class _HanokCinematicState extends State<HanokCinematic>
         await HanokCinematic.markSeen(widget.current);
         if (mounted) widget.onDone();
       });
-      return _ToastBanner(stage: widget.current);
+      // ⚠️ Align/SafeArea/Padding 래퍼는 필수다. 이 위젯은 홈에서
+      // `Positioned.fill` 로 마운트돼 **꽉 찬 tight 제약**을 받는데,
+      // `_ToastBanner` 의 `Container(constraints: maxWidth 320)` 은
+      // ConstrainedBox → `enforce(incoming)` 라 tight 제약에 눌려 320 상한이
+      // 무시된다. 그대로 두면 알파 0.96 크림 패널이 홈 **전체를 덮는다**
+      // (애니메이션 끄기 사용자만 겪던 버그, 2026-08-06). 아래 래퍼는
+      // 애니메이션 경로(같은 build 하단)와 동일한 구성이다.
+      return Align(
+        alignment: Alignment.bottomCenter,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 48),
+            child: _ToastBanner(stage: widget.current),
+          ),
+        ),
+      );
     }
 
     final t = AppL10n.of(context);
@@ -246,17 +265,17 @@ class _ToastBanner extends StatelessWidget {
   }
 
   static String _stageLabel(AppL10n t, HanokStage st) => switch (st) {
-        HanokStage.empty            => t.hanokStageEmpty,
-        HanokStage.foundation       => t.hanokStageFoundation,
-        HanokStage.pillars          => t.hanokStagePillars,
-        HanokStage.beams            => t.hanokStageBeams,
-        HanokStage.thatchRoof       => t.hanokStageThatch,
-        HanokStage.tileRoofPartial  => t.hanokStageTilePartial,
-        HanokStage.tileRoofComplete => t.hanokStageTileComplete,
-        HanokStage.dancheong        => t.hanokStageDancheong,
-        HanokStage.gate             => t.hanokStageGate,
-        HanokStage.windows          => t.hanokStageWindows,
-        HanokStage.sideBuilding     => t.hanokStageSideBuilding,
-        HanokStage.jongga           => t.hanokStageJongga,
-      };
+    HanokStage.empty => t.hanokStageEmpty,
+    HanokStage.foundation => t.hanokStageFoundation,
+    HanokStage.pillars => t.hanokStagePillars,
+    HanokStage.beams => t.hanokStageBeams,
+    HanokStage.thatchRoof => t.hanokStageThatch,
+    HanokStage.tileRoofPartial => t.hanokStageTilePartial,
+    HanokStage.tileRoofComplete => t.hanokStageTileComplete,
+    HanokStage.dancheong => t.hanokStageDancheong,
+    HanokStage.gate => t.hanokStageGate,
+    HanokStage.windows => t.hanokStageWindows,
+    HanokStage.sideBuilding => t.hanokStageSideBuilding,
+    HanokStage.jongga => t.hanokStageJongga,
+  };
 }

@@ -219,6 +219,15 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### 캐릭터 영상·오버레이 결함 12건 수정 (2026-08-06)
+
+- [x] 전수 검사 6건 + 완성도 크리틱 6건을 모두 고쳤다. 규칙 3가지가 코드에 고정됐다: ① **불투명 매트 사각형은 자기가 놓인 도형 안에 들어가야 한다**(path_trail 클립 62→내접 48.1) ② **`blendColor` 는 실제로 뒤에 칠해진 색에서 파생**한다(Scaffold 위=`scaffoldBackgroundColor`, HanjiTexture 위=`SoriColors.lightBg` 상수. `s.bg` 는 팔레트 변종을 못 봐 항상 오답) ③ **never-cage 는 clip 뿐 아니라 테두리/프레임도 금지**(scenario_player 롤플레이 카드 border 제거).
+- [x] `CharacterClipPlayer` 에 다크 게이트를 넣고 위젯 내부 3개 지점을 `videoUnavailable()` 로 배선했다. `ColorFiltered` 는 `ClipRect`(hardEdge)로 감싸 텍스처 saveLayer 의 파괴 반경을 영상 사각형 안에 묶었다 — RepaintBoundary 는 no-op 이라 채택하지 않았다.
+- [x] 앰비언트 입자를 콘텐츠 **위**로 올려(홈·레벨선택) 꽃잎이 영상 사각형에 먹히지 않게 했고, `hanok_cinematic` 의 reduce-motion 토스트가 홈 전체를 덮던 버그를 래퍼 추가로 고쳤다.
+- [x] 검증: `flutter analyze --fatal-infos lib/ test/` 0 · 전체 `flutter test` 2,159 통과. 잔여 3건은 `design_components_golden_test` 로, 내 변경을 stash 한 깨끗한 HEAD 에서도 동일하게 실패하는 **CI(Linux) 기준선 vs Windows 로컬** 차이다.
+- [ ] Jin 실기기: ClipRect 가 헤더 소실을 막는지. **못 막으면 되돌리고** mp4 매트를 크림으로 재출력해 `ColorFiltered` 자체를 제거한다. 시각 확인: 학습경로 노드 캐릭터 축소(62→48), 프로필 호랑이 `tiger_bob` 프레이밍, 캐릭터 앞을 지나는 꽃잎.
+- [ ] 다크 모드를 켤 때: `TigerGreetClip`(quick_onboarding 라이브)·`TigerStageVideo` 에는 아직 다크 게이트가 없다. 다크 테스트 커버리지도 저장소 전체에 0건.
+
 ### 홈 히어로 — 헤더 소실·영상 이음매 수리 (2026-08-06)
 
 - [x] 홈 배경 상단 60%를 `SoriColors.lightBg` 평면 단색으로 두고 radial glow 를 히어로 밴드 아래로 내려, 캐릭터 mp4 흰 매트의 `multiply` 결과가 배경과 픽셀 동일해지게 했다(영상 사각형 "액자" 소멸).

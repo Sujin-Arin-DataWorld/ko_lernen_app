@@ -314,9 +314,10 @@ class _AvatarState extends State<_Avatar> {
     // Jin 2026-08-06: 프로필 아바타 = 캐릭터 영상 복원. Impeller 를 끈 뒤
     // (AndroidManifest) Android<33 fence 버그가 사라져, 홈 히어로와 디코더를
     // 영상 lease 로 직렬화하면 깜빡임 없이 재생된다(탭 전환 시 보이는 쪽만
-    // lease 획득). 까치=magpie_bob3 대기 홉(루프), 호랑이(태고)=
-    // tiger_walking_front 정면 보행(원샷 — loop:true 면 5초마다 크기 튐,
-    // character_clip.dart 경고). 재생/폴백은 CharacterClipPlayer 가 처리.
+    // lease 획득). 까치=magpie_bob3 대기 홉, 호랑이(태고)=tiger_bob 대기
+    // 바운스 — 둘 다 루프. tiger_walking_front 는 쓰지 않는다: 원샷이라
+    // 끝나면 아바타가 빈칸이 되고, loop:true 는 피사체가 38% 커지며 이음새가
+    // 튀어 금지다(character_clip.dart 경고). 재생/폴백은 CharacterClipPlayer 담당.
     final kind = MascotPreference.kind.value;
     final isMagpie = kind == MascotKind.magpie;
     return SizedBox.square(
@@ -324,17 +325,22 @@ class _AvatarState extends State<_Avatar> {
       child: Center(
         child: CharacterClipPlayer(
           key: ValueKey('profile_avatar_${kind.name}'),
-          asset: isMagpie
-              ? CharacterClips.magpieBob3
-              : CharacterClips.tigerWalkingFront,
+          asset: isMagpie ? CharacterClips.magpieBob3 : CharacterClips.tigerBob,
           size: _d,
-          loop: isMagpie,
+          loop: true,
+          // 뒤에 칠해지는 건 이 화면의 plain Scaffold 색이다. 기본값
+          // (SoriColors.lightBg 상수)로 두면 teal 팔레트 kill-switch에서
+          // 스캐폴드가 #FFFFFF 가 되면서 크림 사각형이 뜬다 — game_reward.dart
+          // 와 같은 근거. `s.bg` 는 SoriSurfaces 가 brightness 만 보고
+          // 팔레트 변종을 못 봐서 부적합.
+          blendColor: Theme.of(context).scaffoldBackgroundColor,
           // Jin 2026-08-06: 프로필 정적 폴백 끔 → 투명(배경 비침).
           // ⚠️ 단 reduce-motion 에서는 켠다. 영상 lease 는 `!reduceMotion` 을
           //    요구해서(video_lease.dart) 접근성 설정 사용자는 영상을 못 받는데,
           //    폴백까지 끄면 아바타 자리가 통째로 빈칸이 된다.
-          // ⚠️ 호랑이 tiger_walking_front 는 원샷이라 폴백을 끄면 걸어들어온 뒤
-          //    사라진다 — 호랑이 프로필을 상시 표시하려면 루프 클립으로 교체 필요.
+          // ⚠️ 폴백을 끈 상태에서는 **원샷 클립 금지** — 재생이 끝나면 플레이어가
+          //    lease 를 반납하고 투명 폴백으로 떨어져 아바타 자리가 통째로
+          //    빈칸이 된다. 프로필 클립은 반드시 루프 가능한 것만 쓴다.
           staticFallback: CharacterClipPlayer.videoUnavailable(context),
           fallbackKind: kind,
           fallbackEmotion: MascotEmotion.smile,

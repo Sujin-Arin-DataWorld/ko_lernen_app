@@ -665,12 +665,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             ),
           ),
 
-          // ── 3. Ambient particles ──
-          const Positioned.fill(
-            child: IgnorePointer(child: AmbientParticles(count: 14)),
-          ),
-
-          // ── 4. Content ──
+          // ── 3. Content ──
           SafeArea(
             child: RefreshIndicator(
               onRefresh: _refreshHome,
@@ -966,6 +961,16 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 ),
               ),
             ),
+          ),
+
+          // ── 4. 매화 입자 — **콘텐츠 위**에 그린다.
+          // 캐릭터 mp4 는 흰 매트를 multiply 로 흡수한 **불투명 사각형**이라,
+          // 입자를 아래 깔면 꽃잎이 히어로 영상 경계에서 사라졌다 반대편에서
+          // 다시 나타난다(2026-08-06). 위로 올리면 캐릭터 앞을 스치듯 지나가
+          // 의도한 앰비언트가 되고, IgnorePointer 라 탭도 안 가로챈다.
+          // 시네마틱(아래 6번)보다는 **먼저** 그려야 토스트가 위에 남는다.
+          const Positioned.fill(
+            child: IgnorePointer(child: AmbientParticles(count: 14)),
           ),
 
           // ── 5. (Flying-Magpie-Overlay entfernt — Jin 2026-08-06:
@@ -1274,9 +1279,16 @@ class _RoundIconButton extends StatelessWidget {
 /// 이 비율 안에 들어오도록 잡은 값.
 const double _kHeroFlatBackdropFraction = 0.60;
 
-/// 히어로 밴드가 끝나는 대략적인 위치(dp, 화면 최상단 기준).
-/// 따뜻한 radial glow 를 이 아래에만 깔아 영상 사각형 주변에 색차가 안 생기게 한다.
-const double _kHeroBandBottomDp = 400;
+/// 히어로 밴드가 끝날 수 있는 **최대** 위치(dp, 화면 최상단 기준).
+///
+/// 따뜻한 radial glow 를 이 아래에만 깔아 영상 사각형 주변에 색차가 안 생기게
+/// 한다. glow 는 바깥 Stack 의 **화면 고정 좌표**인데 밴드 바닥은 동적이므로
+/// (SafeArea + Spacing.md + TopBar 64 + 인사말 + 8 + 말풍선 + [bandHeight])
+/// **상한**을 잡아야 안전하다. 최악 조합 = 상태바 ~28 + 12 + 64 + 2줄 독일어
+/// 인사말 ~52 + 8 + 2줄 말풍선 ~70 + 밴드 상한 216 ≈ 450, 여기에 시스템 글자
+/// 1.3배 여유를 더해 500. 값이 크면 glow 가 더 아래에서 시작할 뿐 무해하지만,
+/// 작으면 밴드와 겹쳐 영상 사각형만 glow 를 못 받아 이음매가 생긴다.
+const double _kHeroBandBottomDp = 500;
 
 class _TigerHero extends StatelessWidget {
   final String greeting;

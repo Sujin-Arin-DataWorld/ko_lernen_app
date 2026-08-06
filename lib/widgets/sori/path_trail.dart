@@ -382,6 +382,18 @@ class _NowDiscState extends State<_NowDisc>
   /// 원판 색 = 클립 multiply blendColor. 둘이 다르면 원 안에 사각 이음매가 뜬다.
   static const Color _clipBlend = Colors.white;
 
+  /// 영상 클립 한 변 — 원판 **안쪽 원에 내접**하는 최대 정사각형.
+  ///
+  /// 클립 매트는 100% 순백이고 multiply(#FFFFFF, C) == C 이므로 영상은
+  /// [_clipBlend] 로 꽉 찬 **불투명 정사각형**으로 그려진다. never-cage 규칙상
+  /// 클립을 원/박스로 자를 수 없으니 대신 **크기로** 원 안에 넣는다.
+  /// 안쪽 반지름 r = (discNow - 테두리 4 x 2) / 2 = 34 → 내접 변 = 2r/√2 ≈ 48.1.
+  /// 이보다 크면 네 귀퉁이가 주황 테두리를 끊고 페이지 배경 위로 흰 사각형이
+  /// 튀어나온다 (ClipOval 제거(`f5ed8a3`, 2026-08-05) 후 62 로 남아 있던 회귀).
+  /// 투명 PNG 인 정적 [Mascot] 은 이 제약을 받지 않아 기존 크기를 유지한다.
+  /// ⚠️ 아래 `Border.all(width: 4)` 를 바꾸면 이 식도 같이 바꿔야 한다.
+  static const double _clipSize = (SoriPathTrail.discNow - 8) * math.sqrt1_2;
+
   late final AnimationController _pulse;
 
   @override
@@ -473,7 +485,7 @@ class _NowDiscState extends State<_NowDisc>
                         asset: isMagpie
                             ? CharacterClips.magpiePerched
                             : CharacterClips.tigerBob,
-                        size: d - 14,
+                        size: _clipSize,
                         loop: true,
                         blendColor: _clipBlend,
                         fallbackKind: isMagpie

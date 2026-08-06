@@ -895,9 +895,12 @@ class _EmptyLevelCard extends StatelessWidget {
 }
 
 // ─── Scenario Thumbnail (Phase 5) ─────────────────────────────────────────────
-// Replaces the per-tile emoji box with a backdrop scene (location identity)
-// + sidekick mascot overlay (character identity). Falls back to a tinted
-// accent gradient + emoji when no backdrop matches.
+// Replaces the per-tile emoji box with a backdrop scene (location identity).
+// Falls back to a tinted accent gradient + emoji when no backdrop matches.
+//
+// 마스코트 오버레이는 8d4632c 에서 제거됐다 — 화자가 매칭 안 되는 시나리오가
+// 전부 호랑이로 폴백돼 선택 캐릭터와 무관하게 작은 호랑이가 깔렸기 때문.
+// 사이드킥을 되살릴 땐 `?? Mascot.tiger(...)` 폴백 없이 붙일 것.
 
 class _ScenarioThumbnail extends StatelessWidget {
   final Scenario scenario;

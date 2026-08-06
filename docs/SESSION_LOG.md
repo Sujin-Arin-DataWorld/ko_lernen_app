@@ -73,6 +73,33 @@ plist 2 종 `plistlib` 파싱 통과.
 
 ---
 
+### 2026-08-06 — 캐릭터 영상·오버레이 전수 검사 후속: 결함 12건 수정
+
+**범위:** Jin — "2.삭제해주고, 모든 코드 전수 검사해서 오버레이 되거나 문제될것같은거 전부 찾아줘" → 리뷰 6건 보고 → "응 전부 고쳐줘". 리뷰 6건 + 완성도 크리틱이 추가 발견한 6건 = **12건 전부 수정**. 각 결함의 최소 패치·숨은 결합은 read-only 서브에이전트 8개(조사 6 + 충돌검사 + 완성도 크리틱)로 조사하고, 편집은 단일 작성자가 적용했다.
+
+**리뷰 6건**
+- **`path_trail.dart`** — `_NowDisc` 영상 클립이 `d-14`(62)라 지름 76 원의 내접 한계 53.7을 넘어 **네 귀퉁이가 원 밖으로**(5.84dp) 튀어나오고 주황 4dp 테두리를 끊고 있었다. `ClipOval` 제거(`f5ed8a3`) 때 크기를 안 줄여 생긴 회귀. `_clipSize = (discNow-8)*√½ ≈ 48.1` 신설. **정적 Mascot 은 투명 PNG 라 62 유지**(never-cage 취지대로 귀·꼬리가 원 밖으로 나가도 무해).
+- **`character_clip.dart`** — 다크 게이트. ⚠️ `videoUnavailable()` 은 **위젯 내부 게이트가 아니라** 9개 호출부 중 2곳만 읽던 헬퍼였고, 위젯은 인라인 중복식을 쓰고 있었다 → 함수에 `Brightness.dark` 항을 넣는 것만으로는 **아무 효과가 없다**. `didChangeDependencies`·`_syncEligibility`·`build` 3곳을 전부 이 함수로 배선해야 실제로 lease 를 안 잡는다.
+- **`profile_screen.dart`** — 호랑이 아바타가 `tiger_walking_front`(원샷) + `staticFallback:false` 조합이라 **걸어 들어온 뒤 아바타가 영구 빈칸**. 카탈로그가 이미 프로필용으로 지정한 `tigerBob` 루프로 교체(`loop:true` 는 walking 클립에 금지 — 피사체 38% 확대로 이음새가 튄다).
+- **`character_clip.dart` (paint 순서 중앙화)** — 조사 결과 **RepaintBoundary 는 no-op**으로 판명(`RenderColorFiltered.alwaysNeedsCompositing` 이라 텍스처는 이미 자기 레이어에 있고, OffsetLayer 하나 추가해봐야 paint 순서·saveLayer 가 그대로다). 대신 **`ClipRect`(hardEdge = saveLayer 안 여는 GPU scissor)** 를 `ColorFiltered` 바깥에 둬서 엔진 saveLayer 의 파괴 반경을 영상 사각형 안으로 묶었다. 픽셀 변화 0, 호출부 9곳 전부 혜택.
+- **`game_reward.dart` / `review_session_screen.dart`** — 암묵적 blendColor. **둘의 정답이 다르다**: game_reward 는 plain Scaffold 위라 `Theme.of(context).scaffoldBackgroundColor`(teal 킬스위치에서 #FFFFFF 추적), review_session 은 `SoriScreenBackground`→HanjiTexture 의 팔레트 무관 상수 위라 `SoriColors.lightBg`. `s.bg` 는 `SoriSurfaces.of` 가 brightness 만 보고 teal 변종을 못 봐서 **양쪽 다 오답**.
+- **`tiger_video.dart`** — `hasAlpha` 는 한 번도 true 로 설정된 적 없는 도달 불가 분기 → 필드·분기·stale 문서 제거(툼스톤 주석만 남김).
+
+**완성도 크리틱이 추가로 찾은 6건**
+- **`profile_screen.dart`** — 아바타에 `blendColor` **자체가 없어** 기본 상수 사용 → teal 팔레트에서 흰 스캐폴드 위 168² 크림 사각형. 위 `loop:true` 가 이걸 **영구화**할 뻔했다(원샷일 땐 3초 뒤 스스로 사라져 가려져 있었음). `scaffoldBackgroundColor` 명시.
+- **`scenario_player_screen.dart`** — 롤플레이 완료 카드가 mp4 를 `border` 있는 둥근 Container 로 감싸고, 주석이 스스로 "의도된 인셋 액자"라 표기. never-cage 규칙은 `ClipOval`뿐 아니라 **박스/프레임 금지**다 → `border` 제거(평면 색 채움은 multiply 가 요구하는 것이라 유지).
+- **`pack_card.dart`** — 저장소에서 **유일하게** 음수 `Positioned`(도장 top/right −4)를 `clipBehavior` 기본값 hardEdge Stack 에 둬서 클리어 도장 모서리가 깎이고 있었다(wordle·퀘스트 엔진 6종은 전부 `Clip.none`). → `Clip.none`.
+- **`home_screen.dart`** — 내가 넣었던 `_kHeroBandBottomDp = 400` 은 화면 고정 좌표인데 밴드 바닥은 동적이라, 독일어 2줄 인사말·글자확대 1.3배에서 glow 가 밴드와 겹쳐 이음매를 되살릴 수 있었다 → 최악 조합 도출해 **상한 500** 으로.
+- **`home_screen.dart` / `onboarding_level_screen.dart`** — `AmbientParticles` 가 콘텐츠 **뒤** 레이어라 매화 꽃잎이 불투명 영상 사각형 경계에서 사라졌다 반대편에서 다시 나타났다 → 콘텐츠 **위**로 이동(IgnorePointer 라 탭 영향 0, 홈은 시네마틱보다는 앞).
+- **`hanok_cinematic.dart`** — reduce-motion 경로가 `_ToastBanner` 를 래퍼 없이 반환하는데 홈이 `Positioned.fill` 로 마운트해 tight 제약을 주므로 `Container(maxWidth:320)` 이 `enforce` 에 눌려 무시 → **알파 0.96 크림 패널이 홈 전체를 덮었다**(애니메이션 끄기 사용자 한정). 애니메이션 경로와 동일한 `Align/SafeArea/Padding` 래퍼 추가.
+
+**내 이전 리뷰 정정 2건:** ⓐ "TigerStageVideo 는 다크를 게이트한다 → 비대칭" 은 **사실이 아니다**(`_shouldPlay` = `videoReady && !reduceMotion`, brightness 항 없음). 진짜 비대칭은 home_screen 의 호출부 `isDark` 분기와 나머지 사이였다. ⓑ 다크 게이트를 Critical 로 매겼으나 `main.dart:404-405` 가 `themeMode.light` + `darkTheme = lightFor(...)` 로 고정이라 **현재 사용자에게 도달 불가한 잠복 결함**이다. `TigerGreetClip`(quick_onboarding 라이브)·`TigerStageVideo` 는 여전히 다크 게이트가 없다 — 다크를 켤 때 같이 처리해야 한다.
+
+**검증:** `dart format` 후 `flutter analyze --fatal-infos lib/ test/` **No issues found!** · 전체 직렬 `flutter test` **2,159 통과 / 3 실패**. 실패 3건은 `test/goldens/design_components_golden_test.dart`(SoriCard·SoriLevelChip·MissionHeroCard)로 **사전 존재 확정** — 내 변경만 `git stash` 로 뺀 깨끗한 HEAD 에서 동일하게 3건 실패함을 실측했고, 기준선은 `5995011` 에서 **CI(Linux/3.44.0) 정본으로 재생성**된 것이라 Windows 로컬에서는 폰트 래스터화 차이로 어긋난다. 내 변경과 겹치는 위젯도 없다(해당 골든 파일에 CharacterClipPlayer/path_trail/TigerStage/game_reward/Mascot 참조 0건).
+⚠️ `dart format lib/` 가 미변경 파일 59개까지 재포맷해 **전부 `git checkout` 으로 되돌렸다** — 커밋에는 실제로 만진 12개만 들어간다.
+
+**미검증(Jin 실기기):** ClipRect 완화책이 헤더 소실을 실제로 막는지. **막지 못하면** 원인이 Skia clip 바깥의 GL 상태 오염이라는 뜻이므로 ClipRect 를 되돌리고 mp4 매트를 크림으로 재출력해 `ColorFiltered` 자체를 없애는 확정 수순으로 간다. 그 외 시각 확인 필요: 학습경로 노드 캐릭터가 62→48 로 작아진 것(원판을 키우는 대안 있음), 프로필 호랑이 tiger_bob 프레이밍, 꽃잎이 캐릭터 앞을 지나는 연출.
+
 ### 2026-08-06 — 4개 세션 병합 감사 + 누락된 홈 히어로 회귀 테스트 커밋
 
 **범위:** Jin — "4개 세션이 각각 따로 작업한 건데 코드 손실 없이 main 에 잘 병합됐는지 확인, 네 작업도 커밋."

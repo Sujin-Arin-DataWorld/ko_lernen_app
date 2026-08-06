@@ -220,12 +220,7 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
               ),
             ),
 
-            // ── 3. 벚꽃 입자 — 인트로에서 이어지는 유일한 연속성 장치 ──
-            const Positioned.fill(
-              child: IgnorePointer(child: AmbientParticles(count: 12)),
-            ),
-
-            // ── 4. Content ─────────────────────────────────────────────
+            // ── 3. Content ─────────────────────────────────────────────
             SafeArea(
               child: LayoutBuilder(
                 builder: (context, c) {
@@ -390,6 +385,15 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
                   );
                 },
               ),
+            ),
+
+            // ── 4. 벚꽃 입자 — 인트로에서 이어지는 유일한 연속성 장치.
+            // **콘텐츠 뒤가 아니라 위**에 그린다: 캐릭터 mp4 는 흰 매트를
+            // multiply 로 흡수한 **불투명 사각형**이라 입자를 아래에 깔면
+            // 꽃잎이 영상 사각형 경계에서 사라졌다 반대편에서 다시 나타난다
+            // (2026-08-06). IgnorePointer 라 위로 올려도 탭을 안 가로챈다.
+            const Positioned.fill(
+              child: IgnorePointer(child: AmbientParticles(count: 12)),
             ),
           ],
         ),

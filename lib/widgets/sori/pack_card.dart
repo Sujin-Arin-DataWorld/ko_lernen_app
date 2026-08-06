@@ -62,6 +62,11 @@ class PackCard extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(Spacing.md),
           child: Stack(
+            // 클리어 도장이 `Positioned(top: -4, right: -4)` 로 카드 밖까지
+            // 걸치는데, 기본값 Clip.hardEdge 면 RenderStack 이 음수 오프셋을
+            // overflow 로 보고 잘라내 도장 모서리가 깎인다. 저장소의 다른
+            // 음수 Positioned(wordle·퀘스트 엔진 6종)는 전부 Clip.none 이다.
+            clipBehavior: Clip.none,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

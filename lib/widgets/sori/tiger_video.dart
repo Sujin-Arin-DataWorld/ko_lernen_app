@@ -55,14 +55,9 @@ class TigerStageVideo extends StatefulWidget {
   /// (정적 플래그 패턴 — 테스트가 플러그인 채널에 의존 안 함).
   static bool videoReady = false;
 
-  /// 영상 소스가 **알파(투명) 채널**을 가지는가.
-  ///
-  /// - `false`(기본, 현재 H.264 mp4): 배경이 불투명 회색이라 흰→크림 multiply +
-  ///   초상 액자(#3)로 감싸 "의도된 초상"으로 보이게 한다.
-  /// - `true`(Jin이 알파 재출력 후 main.dart에서 세팅): multiply·액자 없이 raw
-  ///   렌더 → 배경이 그대로 투명해 홈 크림 배경과 edge-to-edge 블렌드(#2).
-  ///   ⚠️ Flutter `video_player`의 알파 합성은 기기/코덱별이라 실기기 검증 후 켤 것.
-  static bool hasAlpha = false;
+  // `hasAlpha` 는 2026-08-06 삭제 — 한 번도 true 로 설정된 적이 없어 raw 렌더
+  // 분기가 도달 불가였고, 설명하던 "초상 액자"도 never-cage 규칙으로 이미
+  // 제거된 상태였다. 알파 mp4 를 실제로 내보내게 되면 그때 되살린다.
 
   // 2026-07-29 배치: 캐논 호랑이(엎드린 휴식 모델) 클립으로 교체.
   // greet = 엎드림→기상 인사(1회), pace = 엎드려 쉬는 아이들 루프.
@@ -318,24 +313,19 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
     );
   }
 
-  /// 알파 여부에 따라 렌더 분기.
-  /// - 알파 O: multiply·액자 없이 raw → 배경 투명, 홈 크림과 edge-to-edge(#2).
-  /// - 알파 X: 흰→크림 multiply 후 초상 액자로 감싸 "의도된 초상"으로(#3).
+  /// 흰 매트(H.264라 알파 없음) mp4를 `BlendMode.multiply` 로 렌더한다.
+  /// multiply(흰색, blendColor) == blendColor 이므로 클립 배경은 blendColor
+  /// 단색이 되고, 뒤 표면이 같은 색일 때만 경계가 보이지 않는다.
   Widget _tigerView(VideoPlayerController active) {
     // Jin 2026-08-05: 캐릭터를 액자/박스에 가두지 않는다. 흰 배경 mp4를
     // multiply로 홈 크림 배경에 그대로 녹여 캐릭터만 떠 보이게 한다(테두리·여백
-    // 없이 밴드 높이 그대로 정사각). 알파 영상이면 raw 그대로.
+    // 없이 밴드 높이 그대로 정사각).
     return SizedBox.square(
       dimension: widget.height,
-      child: TigerStageVideo.hasAlpha
-          ? VideoPlayer(active)
-          : ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                widget.blendColor,
-                BlendMode.multiply,
-              ),
-              child: VideoPlayer(active),
-            ),
+      child: ColorFiltered(
+        colorFilter: ColorFilter.mode(widget.blendColor, BlendMode.multiply),
+        child: VideoPlayer(active),
+      ),
     );
   }
 }

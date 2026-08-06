@@ -1731,18 +1731,20 @@ class _RollenspielDoneCard extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // ── 한지 창(well) — 평면 substrate 보장 + 의도된 인셋 액자 ──
+              // ── 한지 창(well) — 캐릭터 뒤 **평면 substrate** 보장 전용 ──
+              // 2026-08-06: 테두리(Border.all) 제거. never-cage 규칙은
+              // "캐릭터 mp4는 ClipOval/박스/**프레임** 금지"라, clip 이 없어도
+              // 눈에 보이는 테두리 링은 액자다. 색 채움만 남기는 건 규칙이
+              // 허용하는 범위 — multiply 가 요구하는 평면 배경색을 주는 게
+              // 이 Container 의 유일한 목적이기 때문이다.
               Container(
                 padding: const EdgeInsets.all(Spacing.sm),
                 decoration: BoxDecoration(
                   color: wellColor,
                   borderRadius: BorderRadius.circular(SoriRadius.md),
-                  border: Border.all(
-                    color: SoriColors.success.withValues(alpha: 0.18),
-                  ),
                 ),
                 // ClipRRect 없음 — 영상 테두리 링이 100% 흰색이라 모서리가
-                // wellColor로 수렴한다. 클립은 saveLayer 낭비.
+                // wellColor로 수렴한다.
                 child: clip == null
                     ? Mascot(
                         kind: kind,
