@@ -1943,9 +1943,14 @@ class AuthService {
   static Future<User?> linkWithGoogle() {
     return _runDurableIdentityMutation(() async {
       final auth = _auth;
-      if (auth == null) return null;
+      // ⚠️ Firebase 미초기화는 **사용자 취소가 아니다**. 예전에는 둘 다 null 을
+      // 반환해 UI 가 조용히 취소로 처리했고, 사용자에겐 반응 없는 버튼만 남았다.
+      if (auth == null) {
+        throw const AccountLinkUnavailable();
+      }
 
       final googleUser = await GoogleSignIn().signIn();
+      // 여기 null 은 진짜 사용자 취소다 (계정 선택 시트를 닫음).
       if (googleUser == null) return null;
       final googleAuth = await googleUser.authentication;
       final credential = GoogleAuthProvider.credential(
@@ -1982,7 +1987,10 @@ class AuthService {
   static Future<User?> linkWithApple() {
     return _runDurableIdentityMutation(() async {
       final auth = _auth;
-      if (auth == null) return null;
+      // Google 과 같은 이유 — 시스템 불가와 사용자 취소를 구분한다.
+      if (auth == null) {
+        throw const AccountLinkUnavailable();
+      }
 
       final rawNonce = _generateNonce();
       final appleCredential = await SignInWithApple.getAppleIDCredential(

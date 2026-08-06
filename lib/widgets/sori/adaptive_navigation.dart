@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'tokens.dart';
+import 'window_class.dart';
 
 @immutable
 class SoriAdaptiveNavigationItem {
@@ -36,9 +37,18 @@ class SoriAdaptiveNavigation extends StatelessWidget {
     required this.items,
   }) : assert(items.length >= 2);
 
+  /// 하단 탭 대신 세로 레일을 쓰는지. [AppWindowClass.compact] 를 벗어나는
+  /// 순간이 곧 레일 전환점이다 — [kWindowClassMediumMin] 이
+  /// [SoriBreakpoints.navigationRail] 에서 파생되므로 값은 600dp 그대로다.
   static bool usesRailForWidth(double width) =>
-      width >= SoriBreakpoints.navigationRail;
+      windowClassFor(width).isAtLeastMedium;
 
+  /// 라벨만 있는 96dp 레일 대신 확장 레일을 쓰는지.
+  ///
+  /// ⚠️ 이건 [AppWindowClass.expanded](840dp)가 아니라
+  /// [SoriBreakpoints.wideTablet](1024dp) 기준이다. 840dp 는 *배치 구조를 바꿔도
+  /// 되는* 지점이고, 확장 레일은 216dp 를 내주고도 콘텐츠가 좁아지지 않는
+  /// 1024dp 부터라야 이득이다. 두 값을 합치지 말 것.
   static bool usesExtendedRailForWidth(double width) =>
       width >= SoriBreakpoints.wideTablet;
 

@@ -402,11 +402,15 @@ class _CoachTooltip extends StatelessWidget {
                   Flexible(
                     child: TextButton(
                       onPressed: onSkip,
+                      // ⚠️ 예전에는 padding 0 + minimumSize 0 + shrinkWrap 이라
+                      // 실제 터치 영역이 **13dp 높이**였다(접근성 가이드라인
+                      // 최소 48dp). 글자 크기는 그대로 두고 눌리는 영역만 넓힌다.
                       style: TextButton.styleFrom(
                         foregroundColor: const Color(0xFF7A9490),
-                        padding: EdgeInsets.zero,
-                        minimumSize: Size.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Spacing.sm,
+                        ),
+                        minimumSize: const Size(0, 48),
                       ),
                       child: Text(
                         t.navTourSkip,

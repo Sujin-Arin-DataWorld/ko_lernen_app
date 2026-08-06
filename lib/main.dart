@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 
 import 'theme.dart';
 import 'motion/transitions.dart';
+import 'services/data_migration_service.dart';
+import 'services/diagnostics_service.dart';
 import 'services/storage_service.dart';
 import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
@@ -25,6 +27,7 @@ import 'services/notification_service.dart';
 import 'services/privacy_consent_service.dart';
 import 'services/push_service.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'firebase_options.dart';
 import 'services/account/firebase_app_check_initializer.dart';
 import 'services/account/account_operation_client.dart';
@@ -92,6 +95,7 @@ import 'widgets/sori/dancheong_burst.dart';
 import 'widgets/sori/content_feedback_card.dart';
 import 'widgets/sori/tiger_video.dart';
 import 'widgets/sori/mascot_preference.dart';
+import 'widgets/sori/diagnostics_route_observer.dart';
 import 'widgets/sori/route_observer.dart';
 
 /// The app adapts its navigation and content to both tablet orientations.
@@ -109,6 +113,17 @@ Future<void> main() async {
 
   // Persistente Speicher initialisieren (vor runApp wichtig)
   await Storage.init();
+
+  // 로컬 스키마 점검 — Storage.init() 직후, 어떤 학습 데이터에 손대기 전에.
+  // 로컬 전용이라 빠르고 네트워크를 타지 않는다. 실패해도 앱은 뜨며, 그 경우
+  // 학습 데이터 쓰기만 잠긴다(DataMigrationService 가 처리).
+  DataMigrationResult? migration;
+  try {
+    migration = await DataMigrationService.run();
+  } catch (error) {
+    debugPrint('Data migration skipped: $error');
+  }
+
   await Storage.touchStreak();
   // SFX 전역 오디오 세션: 타 앱 음악과 mix + 무음 스위치 존중 (ADR-002 §5-3).
   await AudioPolicy.instance.applyPlatformAudioContext();
@@ -197,7 +212,34 @@ Future<void> main() async {
     ),
   );
 
+  // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이고, 어느 경우에도
+  // runApp 을 지연시키지 않는다.
+  // ignore: discarded_futures, unawaited_futures
+  _recordStartupDiagnostics(migration);
+
   runApp(const KoLernenApp());
+}
+
+/// 시작 시점에 확정되는 진단 키를 기록한다.
+///
+/// 값은 전부 짧은 식별자·enum 이름이라 PII 가 없다(DiagnosticsService 가 키를
+/// 봉인하고 값 길이도 자른다).
+Future<void> _recordStartupDiagnostics(DataMigrationResult? migration) async {
+  try {
+    final info = await PackageInfo.fromPlatform();
+    await DiagnosticsService.setKeys({
+      DiagnosticKey.appVersion: info.version,
+      DiagnosticKey.buildNumber: info.buildNumber,
+      DiagnosticKey.gitCommit: const String.fromEnvironment(
+        'GIT_COMMIT',
+        defaultValue: 'unknown',
+      ),
+      if (migration != null)
+        DiagnosticKey.schemaVersion: migration.diagnosticValue,
+    });
+  } catch (error) {
+    debugPrint('Startup diagnostics skipped: $error');
+  }
 }
 
 Future<void> _startCloudServices() async {
@@ -405,7 +447,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
         themeMode: ThemeMode.light,
         // 영상 위젯이 "내 화면 위에 다른 화면이 올라왔는지"를 알아야
         // 디코더를 놓을 수 있다 (route_observer.dart 주석 참조).
-        navigatorObservers: [soriRouteObserver],
+        navigatorObservers: [soriRouteObserver, DiagnosticsRouteObserver()],
         locale: localeNotifier.value,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
