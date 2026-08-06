@@ -7,6 +7,21 @@
 
 ---
 
+### 2026-08-06 — v2.0.5+12 서명 AAB (Jin 요청 versionCode bump)
+
+versionCode 11 중복 업로드 거부를 피하려고 pubspec `2.0.5+11`→**`2.0.5+12`**로 올리고 릴리스
+서명 AAB 재빌드(HEAD `b6f88c3`, 태블릿 최적화 전부 포함).
+
+- 산출물: `build/app/outputs/bundle/release/app-release.aab` — **255.7MB** (268,115,912 bytes)
+- **SHA-256**: `40590be9e471e406236f5306c4f49ee24abf051de172323ddff9b8fcfb8e3697`
+- `jarsigner -verify` → **jar verified**. 버전 **`2.0.5 (versionCode 12)`**.
+- 빌드 시 워킹트리에 타 세션의 `decoration_seoan.png` 이동(삭제)이 섞여 있었으나
+  `assets/illustrations/decorations/`는 **디렉터리 등록**이라 빌드 정상(누락 시 장식 fallback).
+  커밋에는 **pubspec 버전 변경만** 포함(타 세션 에셋 작업 미포함).
+- iOS `.ipa`는 여전히 Windows 불가(macOS/Xcode 필요).
+
+---
+
 ### 2026-08-06 — v2.0.5+11 서명 AAB 재빌드 (태블릿 최적화 포함)
 
 메인 최신(`9ada9c8`, 워킹트리 clean)에서 릴리스 서명 AAB 재빌드. 태블릿 카드 폭·히어로
