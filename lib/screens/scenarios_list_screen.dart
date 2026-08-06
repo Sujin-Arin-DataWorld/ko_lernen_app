@@ -11,7 +11,6 @@ import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
-import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -917,7 +916,6 @@ class _ScenarioThumbnail extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final poster = SceneAssetResolver.posterAsset(scenario);
-    final mascotSize = size * 0.62;
 
     final base = ClipRRect(
       borderRadius: SoriRadius.brSm,
@@ -936,7 +934,7 @@ class _ScenarioThumbnail extends StatelessWidget {
               )
             else
               _gradient(s),
-            // Subtle vignette so mascot reads regardless of backdrop brightness.
+            // Subtle vignette for a touch of depth over the backdrop.
             Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -944,26 +942,6 @@ class _ScenarioThumbnail extends StatelessWidget {
                   end: Alignment.bottomRight,
                   colors: [Colors.transparent, accent.withValues(alpha: 0.18)],
                 ),
-              ),
-            ),
-            // Sidekick mascot — fall back to tiger for unknown speakers so
-            // every tile shows a character.
-            Positioned(
-              right: -2,
-              bottom: -2,
-              child: SizedBox(
-                width: mascotSize,
-                height: mascotSize,
-                child:
-                    Mascot.forSpeaker(
-                      scenario.sidekick ?? '',
-                      size: mascotSize,
-                      emotion: MascotEmotion.smile,
-                    ) ??
-                    Mascot.tiger(
-                      emotion: MascotEmotion.smile,
-                      size: mascotSize,
-                    ),
               ),
             ),
             // No backdrop? show the emoji small in the top-left so the tile
