@@ -130,7 +130,33 @@ class VideoLeaseCoordinator<H> {
           }
           if (_requests[candidate._id] == candidate && !candidate._released) {
             candidate._failed = true;
+            candidate._failures += 1;
+            // 실기기 진단용 — 어떤 에셋이 몇 번째 시도에서 왜 죽었는지.
+            // release 빌드에서도 logcat 에 남아 원격 판별이 가능하다.
+            debugPrint(
+              'soriVideoLease: create/prepare FAILED asset=${candidate.asset} '
+              'attempt=${candidate._failures} error=$error',
+            );
             candidate._onFailed?.call(error, stackTrace);
+            // ⚠️ 여기서 재시도를 걸지 않으면 **세션 내내 정적 폴백**이 된다.
+            // `_winner()` 는 `_failed` 를 영구히 건너뛰고(위), 유일한 해제
+            // 경로인 `_setEligible` 의 `_failed = false` 는 eligibility 가
+            // **바뀔 때만** 실행되는데 홈 탭에 머무는 동안 홈의 eligibility 는
+            // 변하지 않는다 → 단방향 래치. 일회성 디코더 실패(콜드스타트
+            // 인트로 영상 → 홈 히어로 핸드오프)가 영구 증상이 됐다.
+            // 2회로 제한한 백오프 재시도라, 결정적으로 실패하는 코덱은
+            // 약 1.5초 뒤 기존 동작(정적 폴백)으로 조용히 수렴한다.
+            if (candidate._failures <= 2) {
+              Timer(Duration(milliseconds: 500 * candidate._failures), () {
+                if (_requests[candidate._id] == candidate &&
+                    !candidate._released &&
+                    candidate._eligible &&
+                    candidate._failed) {
+                  candidate._failed = false;
+                  _changed();
+                }
+              });
+            }
           }
           continue;
         }
@@ -213,6 +239,10 @@ class VideoLeaseRequest<H> {
   final VideoLeaseFailure? _onFailed;
   bool _eligible;
   bool _failed = false;
+
+  /// `create`/`prepare` 가 throw 한 누적 횟수. 코디네이터가 백오프 재시도
+  /// 횟수를 제한하는 데만 쓴다(무한 루프 방지).
+  int _failures = 0;
   bool _released = false;
   bool _published = false;
 

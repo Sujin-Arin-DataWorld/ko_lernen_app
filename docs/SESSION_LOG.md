@@ -118,6 +118,24 @@ plist 2 종 `plistlib` 파싱 통과.
 
 ---
 
+### 2026-08-06 — 영상 lease 의 **단방향 실패 래치** 수리 (일회성 디코더 실패 → 세션 내내 정적 폴백)
+
+**범위:** 샤오미 패드 폴백이 reduce-motion 때문이 아닐 가능성(Jin: 배터리 절약 꺼짐)에 대비해 read-only 서브에이전트 6개로 5가지 가설을 병렬 조사. A(태블릿 TickerMode)·B(라우트 isCurrent·코치마크)·E(리빌드 churn)는 **코드 근거로 기각**, C·D 는 하나의 메커니즘을 양방향에서 짚어 수렴했다.
+
+**코드로 증명된 결함 — 단방향 래치:**
+1. `_drain` 이 `create`/`prepare` throw 시 `candidate._failed = true` (`video_lease.dart:132`).
+2. `_winner()` 는 `_failed` 요청을 **영구히 건너뛴다** (`:85`).
+3. 유일한 해제 경로인 `_setEligible` 의 `request._failed = false` 는 **도달 불가** — 같은 메서드가 `request._eligible == eligible` 이면 먼저 return 하는데(`:173`), 홈 탭에 머무는 동안 홈의 eligibility 는 변하지 않는다.
+→ **일회성** 디코더 실패(콜드스타트 인트로 영상 → 홈 히어로 핸드오프)가 그 세션 내내 정적 PNG 로 고착된다. **앞선 두 번의 오진(paint order, reduce-motion)이 그럴듯해 보인 이유이기도 하다 — 래치된 증상은 관찰만으로 범주적 게이트와 구분되지 않는다.**
+
+**수정 (`video_lease.dart` 한 파일):** `VideoLeaseRequest._failures` 카운터 + 실패 시 **2회 제한 백오프 재시도**(500ms·1000ms) + `debugPrint` 진단 로그(에셋·시도 횟수·에러). `create` 가 throw 하지 않는 기기에서는 **단 한 줄도 실행되지 않아** 폰 회귀가 불가능하고, 결정적으로 실패하는 코덱은 ~1.5초 뒤 기존 동작으로 조용히 수렴한다. `_setEligible`·`_winner`·워치독·`character_clip.dart` 는 건드리지 않았다.
+
+**⚠️ 트리거는 여전히 미확정:** 왜 패드에서만 throw 하는지는 **logcat 없이는 알 수 없다**. 폭·밀도·breakpoint 의존 분기가 히어로 경로에 전혀 없고(app_shell 은 단일 body + keyed content Expanded, 히어로 key 는 `home_hero_${kind.name}`, bandHeight 는 모든 기기에서 216dp 클램프), 두 히어로 mp4 는 동일 H.264 High/3.1 960², Impeller 는 앱 전역 비활성이라 두 기기 모두 Skia/SurfaceTexture 다. 홈에 lease 클라이언트는 하나뿐이다(`path_preview_row` 는 영상 위젯 미보유).
+
+**재빌드 없이 가능한 진단(Jin):** 정적 마스코트가 뜬 상태에서 **프로필 탭 → 홈 탭** 왕복. `TickerMode` 변화가 `setEligible(false)→(true)` 를 일으켜 `_failed` 를 지우는 유일한 경로다. ⓐ 영상이 나오면 = 일회성 실패가 래치된 것(이번 수정으로 해결) ⓑ 홈은 계속 정적인데 프로필은 재생되면 = 홈 히어로가 결정적으로 실패(코덱 레벨) ⓒ 둘 다 정적이면 = 네이티브 영상 경로 자체가 그 기기에서 불가.
+
+**검증:** `flutter analyze --fatal-infos` (video_lease) **No issues** · `sori_video_lease`+`tiger_video`+`character_clip`+`home_hero_layout`+`profile_screen`+`screen_smoke` **77 통과**.
+
 ### 2026-08-06 — 캐릭터 영상이 reduce-motion 으로 통째로 막히던 문제 (샤오미 패드)
 
 **범위:** Jin — "샤오미패드로 열었는데 폴백이 나오더라. 폴백되는 이유 찾아서 폴백 안 되게 해줘."
