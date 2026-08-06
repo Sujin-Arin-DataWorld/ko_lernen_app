@@ -7,6 +7,27 @@
 
 ---
 
+### 2026-08-06 — v2.0.5+11 서명 AAB 재빌드 (태블릿 최적화 포함)
+
+메인 최신(`9ada9c8`, 워킹트리 clean)에서 릴리스 서명 AAB 재빌드. 태블릿 카드 폭·히어로
+글씨 자동 확대 + 온보딩·결과 화면·한글 쓰기 탭 세로 중앙정렬이 모두 포함된다.
+
+- 산출물: `build/app/outputs/bundle/release/app-release.aab` — **256.2MB** (268,630,928 bytes)
+- **SHA-256**: `95f4f4266d120b3cb55046768ab28b95f5d91c07607e41b585e7ecf1e706e1ce`
+- `jarsigner -verify` → **jar verified**. 버전 **`2.0.5 (versionCode 11)`**.
+- ⚠️ **versionCode 11 중복 주의**: Play Console에 11이 이미 올라가 있으면 업로드가 거부된다
+  (AGENTS.md상 11은 아직 미업로드로 기록 — 그대로면 OK, 거부되면 `+12`로 올려 재빌드).
+- ⚠️ **용량**: AAB 256MB, 영상 40편이 base에 통째로 들어가 기기별 다운로드가 Play 200MB
+  상한에 근접. 다음 릴리스에 에셋 조금만 늘어도 초과 → Play Asset Delivery 분리 검토.
+- **iOS**: `.ipa`는 Windows에서 생성 불가(macOS/Xcode 필요). `PrivacyInfo.xcprivacy`·
+  `ExportOptions.plist`(teamID 공란)·권한 문자열 등 정적 준비물만 존재. 실제 archive/제출은
+  `docs/store/ios-external-setup.md` 절차대로 macOS에서.
+
+**검증.** `flutter analyze` 0 issues · `flutter test responsive_test.dart` 386 통과. 전체 직렬
+`flutter test`(2159)는 이 세션에서 미실행(빌드 게이트로 별도 필요 시 실행).
+
+---
+
 ### 2026-08-06 — 태블릿 후속: 결과 화면·한글 쓰기 탭 세로 중앙 정렬 (상단 쏠림 해소)
 
 **왜.** Jin 태블릿 실기(리빌드 전 예전 빌드) 재검 — 결과 화면(Ergebnis)과 한글 "쓰기(Schreiben)"
