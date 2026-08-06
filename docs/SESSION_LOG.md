@@ -7,6 +7,51 @@
 
 ---
 
+### 2026-08-06 — v2.0.5+11 AAB 재빌드 · iOS 제출 파일 · 에셋 전수 감사
+
+**AAB (`2.0.5+11`)** — `versionCode 11` 이 아직 Play Console 에 올라가지 않은 상태
+(위 "v2.0.5+11 내부 테스트 AAB" 항목의 운영 체크박스 미완)라 버전을 올리지 않고
+재빌드했다. SHA-256 `D010F799D8A0726353101C77803017E2AF87B489559B044BD30467A2DAF4C637`,
+`jarsigner -verify` → `jar verified`(PKIX 경고는 자체 서명 업로드 키라 정상).
+
+> ⚠️ **용량 경고.** AAB 271.7MB, 압축 기준 `base/assets` 만 165.5MB. 기기별 다운로드
+> 추정 **190.0MB / Play 상한 200MB — 여유 10MB**. 영상 40편(59MB)이 base APK 에
+> 통째로 들어간다. 다음 릴리스에 에셋이 조금만 늘어도 넘는다 → Play Asset Delivery
+> 분리를 검토해야 한다.
+
+**iOS 제출 파일 (`fa35c93`)** — 저장소에 아예 없던 두 개를 추가했다.
+- `ios/Runner/PrivacyInfo.xcprivacy` — Apple 이 2024 년부터 필수로 요구한다. 내용은
+  `docs/store/data-safety.md` 의 수집 항목 표에서 파생. `NSPrivacyTracking=false`,
+  Required Reason API 는 UserDefaults `CA92.1` / FileTimestamp `C617.1` /
+  DiskSpace `E174.1`. ⚠️ Xcode 에서 Runner 타깃 "Copy Bundle Resources" 에 넣어야
+  실제로 번들된다 — 파일만 만들어 두면 안 들어간다.
+- `ios/ExportOptions.plist` — `teamID` 는 일부러 비워 뒀다(추측값을 넣으면 남의 팀으로
+  서명을 시도하게 된다). IPA·TestFlight·실기기는 Windows 에서 불가.
+
+**에셋 전수 감사 (`fa35c93` → `1bbb1f6` 정정)** — `docs/ASSET_INVENTORY_2026-08-06.md`.
+275 개를 "번들 여부 × 참조 여부"로 교차 분류했다. 번들+사용 229 / **번들+미사용 7
+(8.6MB)** / 비번들 원본 39.
+
+1 차는 파일명 문자열 매칭이라 동적 참조에서 오탐이 나 `1bbb1f6` 에서 정정했다. 2 차는
+각 폴더를 실제로 결정하는 카탈로그를 파싱한다 — `kAvailableDecorations` ·
+`DancheongMotif` · `HanokStage.assetSlug` · `sticker_catalog` · `CharacterClips` +
+`TigerStageVideo.greetFor/paceFor` · `HanokHeader.kLoopAssets` ·
+`lib/models/scenario.dart` 의 씬 카테고리 맵 11 종. 대표 오탐이 `scenes/pharmacy.png`
+로, `scenario.dart` **주석**에 pharmacy 문자열이 있어 사용 중으로 잘못 봤다.
+
+**왜 미사용 에셋이 생기나 (근본 원인).** 에셋 폴더 22 개 중 디렉터리를 스캔하는
+테스트가 **3 개뿐**이다. `video/loops` 만 양방향 검사라 고아가 0 개고,
+`video/character` 는 단방향(참조→디스크)이라 고아 2 개가 통과하며,
+`decorations` 는 `.startsWith('decoration_')` 필터 때문에 `dokkaebi_fire.png` 가
+검사에서 통째로 빠진다. `013ddd9` 는 커밋 제목이 "도깨비불 연결"인데 실제로는 파일만
+추가하고 `placed_decoration.dart` 를 건드리지 않아, 그 에셋은 추가된 날부터 한 번도
+렌더된 적이 없다.
+
+**검증:** `flutter build appbundle --release` exit 0 · `jarsigner -verify` ·
+plist 2 종 `plistlib` 파싱 통과.
+
+---
+
 ### 2026-08-06 — main CI 초록 복구: 테스트 8건 실패 해소 + 캐릭터 매트 수리 + tiger_anim 폐지
 
 **계기:** Jin — "한옥 작업이 아예 없는데 왜 그런지 찾아서 메인에 넣어줘."
