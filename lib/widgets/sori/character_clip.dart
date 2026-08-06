@@ -189,7 +189,20 @@ class CharacterClipPlayer extends StatefulWidget {
   /// 대신 **투명**(빈 SizedBox) — 흰 카드/박스가 안 생겨 배경이 그대로 비친다.
   /// 상시 루프로 영상이 거의 항상 떠 있는 곳(홈 히어로 등)에서 폴백이 순간
   /// 번쩍이며 "정적+영상 둘 다" 보이는 걸 막는다(Jin 2026-08-06).
+  ///
+  /// ⚠️ `false` 는 **영상이 실제로 뜰 곳에서만** 안전하다. 영상이 범주적으로
+  /// 불가한 상황(기기 미지원·reduce-motion)에서 끄면 자리가 통째로 빈칸이
+  /// 된다 — 그 판별은 [videoUnavailable] 을 쓸 것.
   final bool staticFallback;
+
+  /// 영상 경로가 **범주적으로 불가**한가 — 기기가 영상을 못 틀거나
+  /// (`TigerStageVideo.videoReady == false`) reduce-motion 이 켜져 있어
+  /// `VideoLeaseEligibility` 가 lease 를 절대 승인하지 않는 경우.
+  ///
+  /// 이때는 [staticFallback] 을 켜야 한다. 반대로 "영상은 뜰 건데 아직 로드
+  /// 중"인 짧은 순간은 여기 해당하지 않으므로 투명이 맞다.
+  static bool videoUnavailable(BuildContext context) =>
+      !TigerStageVideo.videoReady || SoriMotion.reduceMotion(context);
   final VoidCallback? onCompleted;
   final Duration fallbackCompleteAfter;
   final String? sfxAsset;

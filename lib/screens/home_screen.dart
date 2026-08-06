@@ -1326,7 +1326,10 @@ class _TigerHero extends StatelessWidget {
         final double byHeight = media.size.height * 0.24;
         final double byWidth = w * 0.60;
         final double bandHeight = (byHeight < byWidth ? byHeight : byWidth)
-            .clamp(veryNarrow ? 148.0 : 164.0, textScale > 1.15 ? 188.0 : 216.0);
+            .clamp(
+              veryNarrow ? 148.0 : 164.0,
+              textScale > 1.15 ? 188.0 : 216.0,
+            );
 
         // 짧은 대사(예: "Jedes Wort…")는 한 줄에 들어가게 말풍선 폭을 넓힌다.
         final double bubbleMax = (w * 0.92).clamp(240.0, 360.0);
@@ -1362,6 +1365,9 @@ class _TigerHero extends StatelessWidget {
         // 까치=magpie_bob3, 호랑이(태고)=tiger_rise. bob2↔bob3 교대는 클립 사이
         // 디코더 핸드오프마다 정적 폴백이 번쩍여 폐지 → 루프는 핸드오프가 없다.
         // staticFallback:false → 로드 전/실패에도 흰 박스 대신 투명(배경 그대로).
+        // ⚠️ 단 reduce-motion 에서는 켠다. 영상 lease 가 `!reduceMotion` 을 요구해
+        // (video_lease.dart) 접근성 설정 사용자는 영상을 아예 못 받는데, 폴백까지
+        // 꺼 두면 히어로 밴드가 통째로 빈칸이 된다.
         final band = SizedBox(
           height: bandHeight,
           width: double.infinity,
@@ -1383,7 +1389,9 @@ class _TigerHero extends StatelessWidget {
                         : CharacterClips.tigerRise,
                     size: bandHeight,
                     loop: true,
-                    staticFallback: false,
+                    staticFallback: CharacterClipPlayer.videoUnavailable(
+                      context,
+                    ),
                     // 흰 매트 multiply 결과 = 정확히 이 색. 홈 배경 상단의
                     // **평면 구간과 같은 상수**여야 이음매가 사라진다
                     // (`build` 의 gradient 주석 참고). `s.bg` 가 아니라 상수인
