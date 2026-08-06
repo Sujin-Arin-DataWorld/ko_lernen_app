@@ -5518,7 +5518,7 @@ abstract class AppL10n {
   /// No description provided for @navGye.
   ///
   /// In de, this message translates to:
-  /// **'Lerngruppe'**
+  /// **'Gruppe'**
   String get navGye;
 
   /// No description provided for @gyeTabSubtitle.
@@ -5952,6 +5952,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Fertig'**
   String get navTourDone;
+
+  /// No description provided for @coachHomeMissionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier beginnt deine erste Mission'**
+  String get coachHomeMissionTitle;
+
+  /// No description provided for @coachHomeMissionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tipp auf diese Karte — Hangul Sori sucht dir jeden Tag die passende Aufgabe heraus.'**
+  String get coachHomeMissionBody;
+
+  /// No description provided for @coachPracticeHubTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get coachPracticeHubTitle;
+
+  /// No description provided for @coachPracticeHubBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele, Wörter & Grammatik zum Wiederholen — hier vertiefst du, was du schon kennst.'**
+  String get coachPracticeHubBody;
 
   /// No description provided for @coachHomeTab0Title.
   ///
@@ -7582,25 +7606,25 @@ abstract class AppL10n {
   /// No description provided for @homeHanokPreviewTitle.
   ///
   /// In de, this message translates to:
-  /// **'Meine Hanok heute'**
+  /// **'Mein Hanok'**
   String get homeHanokPreviewTitle;
 
   /// No description provided for @homeHanokPreviewBody.
   ///
   /// In de, this message translates to:
-  /// **'Dein Lernweg macht aus diesem Hof Schritt für Schritt einen Ort zum Leben und Lernen.'**
+  /// **'Dein Lernen lässt deinen Hanok wachsen.'**
   String get homeHanokPreviewBody;
 
   /// No description provided for @homeHanokPreviewProgress.
   ///
   /// In de, this message translates to:
-  /// **'{percent} % deiner Hanok sind gebaut'**
+  /// **'Dein Hanok ist zu {percent} % gebaut'**
   String homeHanokPreviewProgress(int percent);
 
   /// No description provided for @homeHanokPreviewCta.
   ///
   /// In de, this message translates to:
-  /// **'Meine Hanok öffnen'**
+  /// **'Mein Hanok öffnen'**
   String get homeHanokPreviewCta;
 
   /// No description provided for @sarangbangTitle.

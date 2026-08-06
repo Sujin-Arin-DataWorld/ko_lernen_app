@@ -7,7 +7,9 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/hub_progress_header.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **연습 허브** — 탭 2 (R1 IA, 2026-06-06).
@@ -25,14 +27,38 @@ class PracticeHubScreen extends StatefulWidget {
   State<PracticeHubScreen> createState() => _PracticeHubScreenState();
 }
 
-class _PracticeHubScreenState extends State<PracticeHubScreen> {
+class _PracticeHubScreenState extends State<PracticeHubScreen>
+    with ScreenCoachMixin<PracticeHubScreen> {
   /// "이어하기" 상태 — 홈 블록 5와 같은 서비스 소스(§6.3 단일 소스 규정).
   int _dueCount = 0;
+
+  /// 첫 진입 코치마크가 가리키는 첫 섹션(= 이 탭이 뭘 하는 곳인지).
+  final GlobalKey _coachTargetKey = GlobalKey();
+
+  @override
+  String get coachId => 'practice_hub';
+
+  @override
+  List<SpotlightStep> buildCoachSteps(BuildContext context) {
+    final t = AppL10n.of(context);
+    return [
+      SpotlightStep(
+        targetKey: _coachTargetKey,
+        title: t.coachPracticeHubTitle,
+        body: t.coachPracticeHubBody,
+        icon: Icons.sports_esports_outlined,
+        cutoutPadding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+      ),
+    ];
+  }
 
   @override
   void initState() {
     super.initState();
     _loadDue();
+    // 홈의 5단계 강제 투어에서 빠진 자리를 여기서 맥락으로 갚는다 —
+    // 사용자가 실제로 `Üben` 을 눌렀을 때 한 번만 설명한다.
+    scheduleCoach();
   }
 
   Future<void> _loadDue() async {
@@ -101,7 +127,10 @@ class _PracticeHubScreenState extends State<PracticeHubScreen> {
                 ),
                 const SizedBox(height: Spacing.lg),
               ],
-              _section(context, t.practiceSecLearn, _learnItems(t)),
+              KeyedSubtree(
+                key: _coachTargetKey,
+                child: _section(context, t.practiceSecLearn, _learnItems(t)),
+              ),
               const SizedBox(height: Spacing.lg),
               _section(
                 context,

@@ -81,14 +81,23 @@ class SoriAdaptiveNavigation extends StatelessWidget {
           NavigationRailDestination(
             icon: Icon(item.icon),
             selectedIcon: Icon(item.selectedIcon),
+            // 라벨은 **한 줄 고정**이다. 예전엔 `maxLines: 2` 였는데, 독일어
+            // 합성어에는 줄바꿈 기회가 없어서 Flutter 가 글자 사이를 끊었다 —
+            // 96dp 레일에서 `Lerngruppe` 가 "Lerngrupp / e" 로 떨어져 UI 가
+            // 미완성처럼 보였다(2026-08-06 Jin 태블릿 실기기). 한 줄로 못을
+            // 박고, 그래도 넘치면 `FittedBox` 가 **줄바꿈 대신 축소**한다.
             label: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: Text(
-                item.label,
-                style: railLabelStyle,
-                textAlign: TextAlign.center,
-                maxLines: extended ? 1 : 2,
-                overflow: TextOverflow.ellipsis,
+              padding: const EdgeInsets.symmetric(horizontal: 2),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  item.label,
+                  style: railLabelStyle,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  softWrap: false,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           ),

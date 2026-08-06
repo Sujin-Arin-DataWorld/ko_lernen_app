@@ -267,6 +267,65 @@ void main() {
       }
     }
 
+    // ── 짧은 뷰포트(가로모드·분할화면·CI 기본 서피스) ────────────────────
+    //
+    // 2026-08-06 Jin 태블릿 실기기 + CI 가 같은 결함을 서로 다른 얼굴로 보여줬다:
+    // 실기기 가로모드에서는 온보딩 코치마크가 짜부라지고, CI 는 기본 800×600
+    // 서피스에서 `grammar_screen` 이 37px 오버플로로 터졌다. 원인은 하나 —
+    // **세로 예산이 없는 화면**을 아무도 회귀로 안 잡고 있었다.
+    //
+    // 위쪽 매트릭스는 전부 높이 900 이상이라 이 구간이 통째로 빈 구멍이었다.
+    //  · 800×600  = flutter test 기본 서피스(= CI 가 실제로 도는 크기)
+    //  · 740×360  = 폰 가로모드
+    //  · 640×480  = 좁고 짧은 분할화면
+    for (final size in <Size>[
+      const Size(800, 600),
+      const Size(740, 360),
+      const Size(640, 480),
+    ]) {
+      for (final entry in screens.entries) {
+        testWidgets(
+          '${entry.key} @ ${size.width.toInt()}x${size.height.toInt()} 짧은 뷰포트 오버플로 없음',
+          (tester) async {
+            tester.view.physicalSize = size;
+            tester.view.devicePixelRatio = 1;
+            addTearDown(tester.view.resetPhysicalSize);
+            addTearDown(tester.view.resetDevicePixelRatio);
+
+            await tester.pumpWidget(_wrap(entry.value));
+            await tester.pump();
+            await tester.pump(const Duration(milliseconds: 100));
+            await tester.pump(const Duration(milliseconds: 1200));
+
+            expect(tester.takeException(), isNull);
+
+            await tester.pumpWidget(const SizedBox.shrink());
+            await tester.pump();
+          },
+        );
+      }
+    }
+
+    // 짧은 뷰포트 × 시스템 글자 1.3배 — 둘이 겹치는 최악 조합.
+    for (final entry in screens.entries) {
+      testWidgets('${entry.key} @ 800x600 ×1.3 글씨 오버플로 없음', (tester) async {
+        tester.view.physicalSize = const Size(800, 600);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(_wrap(entry.value, textScale: 1.3));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        await tester.pump(const Duration(milliseconds: 1200));
+
+        expect(tester.takeException(), isNull);
+
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump();
+      });
+    }
+
     // 접근성 큰 글씨(시스템 텍스트 스케일 1.3×) — 좁은 폰에서 오버플로 0.
     // WCAG 1.4.4 / Jin 실기기 "잘림" 계열 회귀 방어.
     for (final size in <Size>[const Size(800, 1280), const Size(1280, 800)]) {

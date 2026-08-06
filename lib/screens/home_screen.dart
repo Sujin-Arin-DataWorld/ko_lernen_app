@@ -70,6 +70,10 @@ class HomeScreen extends StatefulWidget {
   /// AppShell이 스포트라이트 투어 타겟으로 전달하는 학습경로 섹션 키.
   /// null이면 KeyedSubtree 래핑 없이 그냥 렌더 (독립 실행 등).
   final GlobalKey? pathTourKey;
+
+  /// 첫 실행 코치마크가 가리키는 **오늘의 미션 카드** 키.
+  /// 신규 사용자가 배워야 할 단 하나 — "여기서 첫 미션이 시작된다".
+  final GlobalKey? missionTourKey;
   final String? dailyCharacter;
   final Future<TodayLearningSnapshot> Function()? loadTodaySnapshot;
   final Future<LevelRatios> Function()? loadHanokRatios;
@@ -79,6 +83,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
     this.pathTourKey,
+    this.missionTourKey,
     this.dailyCharacter,
     this.loadTodaySnapshot,
     this.loadHanokRatios,
@@ -740,20 +745,29 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       SoriEntrance(
                         delay: const Duration(milliseconds: 100),
                         slideY: 14,
-                        child: KeyedSubtree(
-                          key: const ValueKey('home-primary-sarangbang'),
-                          child: MissionHeroCard(
-                            loading: _loadingTodaySnapshot,
-                            content: _loadingTodaySnapshot
-                                ? null
-                                : _missionHeroContent(t, lang),
-                            allDoneCtaLabel: t.homeSarangbangCta,
-                            onAnotherRound: () async {
-                              await Navigator.pushNamed(context, '/sarangbang');
-                              if (mounted) {
-                                await _refreshHome();
-                              }
-                            },
+                        // 첫 실행 코치마크 타겟은 **바깥에** 덧씌운다 —
+                        // `home-primary-sarangbang` ValueKey 는 기존 테스트와
+                        // 위젯 정체성이 걸려 있어 건드리지 않는다.
+                        child: _MaybeKeyed(
+                          tourKey: widget.missionTourKey,
+                          child: KeyedSubtree(
+                            key: const ValueKey('home-primary-sarangbang'),
+                            child: MissionHeroCard(
+                              loading: _loadingTodaySnapshot,
+                              content: _loadingTodaySnapshot
+                                  ? null
+                                  : _missionHeroContent(t, lang),
+                              allDoneCtaLabel: t.homeSarangbangCta,
+                              onAnotherRound: () async {
+                                await Navigator.pushNamed(
+                                  context,
+                                  '/sarangbang',
+                                );
+                                if (mounted) {
+                                  await _refreshHome();
+                                }
+                              },
+                            ),
                           ),
                         ),
                       ),
@@ -999,6 +1013,33 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
 enum _DayPhase { morning, afternoon, evening }
 
+/// [tourKey] 가 있을 때만 [KeyedSubtree] 로 한 겹 감싼다.
+///
+/// 코치마크는 타겟을 측정할 GlobalKey 가 필요한데, 그 키를 기존 위젯에
+/// 직접 붙이면 위젯 정체성이 바뀌어 상태가 날아간다. 밖에 한 겹 씌우면
+/// 측정 위치는 같고 안쪽 트리는 그대로다.
+class _MaybeKeyed extends StatelessWidget {
+  final GlobalKey? tourKey;
+  final Widget child;
+
+  const _MaybeKeyed({required this.tourKey, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    if (tourKey == null) {
+      return child;
+    }
+    return KeyedSubtree(key: tourKey, child: child);
+  }
+}
+
+/// 홈 한옥 미리보기 지도의 **폭 상한**(dp).
+///
+/// 폰의 480dp 컬럼에서 카드 안쪽 폭은 480 − 좌우 여백(Spacing.lg×2 = 32)
+/// − 카드 패딩(Spacing.lg×2 = 32) ≈ 416dp 라 이 상한에 걸리지 않는다
+/// (= 폰 시각 변화 0). 640dp 태블릿 컬럼에서만 걸려 4:3 높이가 약 1/4 줄어든다.
+const double _kHanokPreviewMaxWidth = 440;
+
 /// A read-only glimpse of the learner's estate. The main Hanok screen owns
 /// place selection and navigation; Home only provides one deliberate doorway.
 class _HomeHanokPreview extends StatelessWidget {
@@ -1031,34 +1072,59 @@ class _HomeHanokPreview extends StatelessWidget {
           const SizedBox(height: 4),
           Text(t.homeHanokPreviewBody, style: text.bodySmall),
           const SizedBox(height: Spacing.md),
-          if (projection == null)
-            AspectRatio(
-              aspectRatio: 4 / 3,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: surfaces.surfaceAlt,
-                  borderRadius: SoriRadius.brLg,
-                ),
-              ),
-            )
-          else
-            Semantics(
-              image: true,
-              label: t.homeHanokPreviewTitle,
-              child: ExcludeSemantics(
-                child: PersonalHanokMap(
-                  projection: projection!,
-                  zoneLabel: (_) => '',
-                  showTargets: false,
-                ),
-              ),
+          // 4:3 지도는 카드 폭에 비례해 커진다 — 640dp 태블릿 컬럼에서는
+          // 홈 화면의 절반 이상을 그림 하나가 먹었다(2026-08-06 Jin 태블릿).
+          // 정보량 대비 면적이 과했고, 학습 콘텐츠를 스크롤 아래로 밀어냈다.
+          // 폭 상한을 두면 **폰은 그대로**(폰 카드 안쪽 폭 < 상한), 태블릿에서만
+          // 높이가 약 1/4 줄어든다. 그림을 자르지 않으므로 건물이 사라지지 않는다.
+          Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: _kHanokPreviewMaxWidth),
+              child: projection == null
+                  ? AspectRatio(
+                      aspectRatio: 4 / 3,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: surfaces.surfaceAlt,
+                          borderRadius: SoriRadius.brLg,
+                        ),
+                      ),
+                    )
+                  : Semantics(
+                      image: true,
+                      label: t.homeHanokPreviewTitle,
+                      child: ExcludeSemantics(
+                        child: PersonalHanokMap(
+                          projection: projection!,
+                          zoneLabel: (_) => '',
+                          showTargets: false,
+                        ),
+                      ),
+                    ),
             ),
+          ),
           const SizedBox(height: Spacing.md),
-          SoriProgressBar(
-            value: progress,
-            thickness: 10,
-            color: SoriColors.primary,
-            animated: true,
+          // 진행도가 이 블록의 본론이다 — 예쁜 그림이 아니라 "내가 키운 것".
+          // 퍼센트를 바 옆에 굵게 두어 한 줄 안에서 바로 읽히게 한다.
+          Row(
+            children: [
+              Expanded(
+                child: SoriProgressBar(
+                  value: progress,
+                  thickness: 10,
+                  color: SoriColors.primary,
+                  animated: true,
+                ),
+              ),
+              const SizedBox(width: Spacing.sm),
+              Text(
+                '${(progress * 100).round()} %',
+                style: text.label.copyWith(
+                  color: SoriColors.primary,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: Spacing.xs),
           Text(
@@ -1337,11 +1403,18 @@ class _TigerHero extends StatelessWidget {
         final double textScale = media.textScaler.scale(16) / 16;
         final double byHeight = media.size.height * 0.24;
         final double byWidth = w * 0.60;
+        // 태블릿 상한을 216 → 184 로 낮춘다. 캐릭터 클립은 **정사각** 프레임이라
+        // 밴드를 키우면 캐릭터가 아니라 그 주변 여백이 같이 커진다 — 태블릿에서
+        // 까치와 미션 카드 사이가 비어 보이던 원인(2026-08-06 Jin 실기기).
+        // 폰(<600dp)은 상한에 안 걸리는 구간이라 시각 변화 0.
+        final bool wideViewport =
+            media.size.width >= SoriBreakpoints.navigationRail;
+        double bandCap = wideViewport ? 184.0 : 216.0;
+        if (textScale > 1.15 && bandCap > 188.0) {
+          bandCap = 188.0;
+        }
         final double bandHeight = (byHeight < byWidth ? byHeight : byWidth)
-            .clamp(
-              veryNarrow ? 148.0 : 164.0,
-              textScale > 1.15 ? 188.0 : 216.0,
-            );
+            .clamp(veryNarrow ? 148.0 : 164.0, bandCap);
 
         // 짧은 대사(예: "Jedes Wort…")는 한 줄에 들어가게 말풍선 폭을 넓힌다.
         final double bubbleMax = (w * 0.92).clamp(240.0, 360.0);
