@@ -166,7 +166,9 @@ class CharacterClips {
 ///
 /// [TigerGreetClip]의 패턴을 모든 클립·양 캐릭터로 일반화한 것:
 /// - 흰 배경 mp4를 muted 재생, [blendColor] multiply로 배경에 흡수.
-/// - 게이트: `TigerStageVideo.videoReady && !SoriMotion.reduceMotion`.
+/// - 게이트: `TigerStageVideo.videoReady` 뿐. reduce-motion 은 **게이트가
+///   아니다** — 안드로이드에서 그 플래그는 배터리 절약·개발자 옵션 애니메이션
+///   배율 0 로도 켜져 캐릭터가 통째로 정적이 됐다([videoUnavailable] 주석).
 /// - 실패/게이트오프 → 정적 [Mascot] 폴백 (기존 UX 그대로 유지).
 /// - [loop]=false(원샷)일 때 종료되면 [onCompleted] 1회 호출 — 실패·폴백
 ///   경로에서도 [fallbackCompleteAfter] 뒤에 반드시 호출되므로 네비게이션

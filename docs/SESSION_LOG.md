@@ -118,7 +118,27 @@ plist 2 종 `plistlib` 파싱 통과.
 
 ---
 
-### 2026-08-06 — "호랑이가 안나와": `staticFallback:false` 의 깨진 전제 수리 — 미커밋
+### 2026-08-06 — 캐릭터 영상이 reduce-motion 으로 통째로 막히던 문제 (샤오미 패드)
+
+**범위:** Jin — "샤오미패드로 열었는데 폴백이 나오더라. 폴백되는 이유 찾아서 폴백 안 되게 해줘."
+
+**게이트 실측:** `isEligible = videoReady && !reduceMotion && isVisible(...)`. `videoReady` 는 `main.dart:162` 에서 무조건 `true`, 다크는 `themeMode.light` 고정이라 도달 불가 → **지속적으로** 폴백을 고정시킬 수 있는 항은 `reduceMotion`(= `MediaQuery.disableAnimations`) 하나뿐이었다.
+
+**수정 — 캐릭터 영상만 이 게이트에서 제외:**
+- `video_lease.dart` `VideoLeaseEligibilityBinding.isEligible` 이 `reduceMotion: false` 를 넘긴다. 순수 함수 `VideoLeaseEligibility.isEligible` 은 시그니처·의미 그대로 둬서 기존 단위 테스트가 유효하다.
+- `character_clip.dart` `videoUnavailable()` 에서 `reduceMotion` 항 제거(`!videoReady`·다크는 유지).
+- `tiger_video.dart` 2곳(`_shouldPlay`, `TigerGreetClip._syncEligibility`) 동일 제거. **`TigerGreetClip` 은 온보딩 첫 인사 화면에서 라이브**라 배터리 절약 상태면 신규 사용자의 첫인상이 통째로 정적 PNG 였다.
+- 화면 전환·매화 입자·진입 애니메이션 등 **나머지 모션은 `SoriMotion.reduceMotion` 을 계속 존중**한다. 영상 경로만 예외.
+
+**근거·트레이드오프:** 안드로이드에서 `disableAnimations` 는 접근성 의도만 담지 않는다 — MIUI/HyperOS 배터리 절약, 개발자 옵션 애니메이션 배율 0, 접근성 "애니메이션 제거" 가 모두 같은 플래그다. 캐릭터 클립은 무음·짧은 루프에 시차·플래시가 없어 전정기관 위험이 낮은 부류다. **더 나은 최종형은 설정 화면의 명시적 "캐릭터 애니메이션" 토글**이며, 되돌리는 법과 함께 `video_lease.dart` 주석에 남겼다.
+
+**⚠️ 미확정:** Jin 확인 결과 패드의 **배터리 절약은 꺼져 있었다**. `disableAnimations` 를 켜는 다른 경로(개발자 옵션 애니메이션 배율 0 / 접근성 "애니메이션 제거")가 있는지는 아직 미확인이고, 이 수정이 들어간 빌드로 패드를 재검증하지 않았다. 아니라면 원인은 lease 경합·TickerMode·라우트 isCurrent·디코더 쪽이며 별도 조사 중.
+
+**검증:** `flutter analyze --fatal-infos` 0(내 파일) · `sori_video_lease`+`tiger_video`+`path_trail_tap`+`profile_screen`+`home_hero_layout`+`screen_smoke`+`mascot_wiring` **101 통과**.
+
+**커밋:** 코드 변경은 동시 세션의 일괄 커밋 `5927ae6`("진행 중 작업 체크포인트")에 함께 실려 들어갔다. 이 로그와 stale 주석 1줄만 별도 커밋 — 다른 세션 변경과 겹치지 않는다.
+
+### 2026-08-06 — "호랑이가 안나와": `staticFallback:false` 의 깨진 전제 수리 (`5927ae6` 에 포함)
 
 **범위:** Jin 웹 스크린샷 — 헤더·인사·말풍선·꽃잎은 다 나오는데(= 앞선 수정은 먹었다) **캐릭터 자리만 빈칸**. 에셋은 정상(`tiger_rise.mp4` 실재, `pubspec` 에 `assets/video/character/` 등록됨).
 
