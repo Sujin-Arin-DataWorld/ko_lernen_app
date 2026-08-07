@@ -272,10 +272,7 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
     // 중 들어가는 자리를 골라 safe-area 안으로 클램프한다.
     return Positioned.fill(
       child: CustomSingleChildLayout(
-        delegate: _CoachTooltipLayout(
-          target: rect,
-          safeInsets: mq.padding,
-        ),
+        delegate: _CoachTooltipLayout(target: rect, safeInsets: mq.padding),
         child: _CoachTooltip(
           step: step,
           stepIndex: _i,
@@ -327,7 +324,10 @@ class _CoachTooltipLayout extends SingleChildLayoutDelegate {
     final availableWidth =
         constraints.maxWidth - safeInsets.left - safeInsets.right - kMargin * 2;
     final availableHeight =
-        constraints.maxHeight - safeInsets.top - safeInsets.bottom - kMargin * 2;
+        constraints.maxHeight -
+        safeInsets.top -
+        safeInsets.bottom -
+        kMargin * 2;
     // 짧은 가로모드에서도 절대 화면 밖으로 나가지 않게 maxHeight 를 준다.
     // 카드 내부가 스크롤 가능하므로 잘리지 않고 줄어든다.
     return BoxConstraints(
@@ -364,7 +364,14 @@ class _CoachTooltipLayout extends SingleChildLayoutDelegate {
 
     _CoachSide? chosen;
     for (final side in order) {
-      if (_fits(side, childSize, spaceLeft, spaceRight, spaceAbove, spaceBelow)) {
+      if (_fits(
+        side,
+        childSize,
+        spaceLeft,
+        spaceRight,
+        spaceAbove,
+        spaceBelow,
+      )) {
         chosen = side;
         break;
       }
@@ -580,7 +587,10 @@ class _CoachTooltip extends StatelessWidget {
                         fontFamily: 'Pretendard',
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xFF6B827D),
+                        // 구 #6B827D 은 흰 카드 위 4.11:1 로 WCAG AA(4.5) 미달이었다
+                        // (2026-08-07 접근성 게이트). 12px 는 large text 예외에도
+                        // 못 들어가므로 아래 Überspringen 과 같은 톤으로 맞춘다.
+                        color: Color(0xFF4A6560),
                         fontFeatures: [FontFeature.tabularFigures()],
                       ),
                     ),
@@ -599,9 +609,16 @@ class _CoachTooltip extends StatelessWidget {
                         onPressed: onSkip,
                         style: TextButton.styleFrom(
                           foregroundColor: const Color(0xFF4A6560),
-                          padding: EdgeInsets.zero,
-                          minimumSize: Size.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          // ⚠️ 가로 padding 만 0 이다. 예전에 `EdgeInsets.zero` +
+                          // `Size.zero` + `shrinkWrap` 으로 눌러 놨더니 탭 영역이
+                          // **13dp 높이**가 됐다(2026-08-07 접근성 게이트).
+                          // 폭은 여전히 자유롭게 줄어들어 짧은 가로모드 overflow
+                          // 방어는 그대로 유지되고, 높이만 48dp 를 보장한다.
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: Spacing.xs,
+                          ),
+                          minimumSize: const Size(0, kMinInteractiveDimension),
+                          tapTargetSize: MaterialTapTargetSize.padded,
                         ),
                         child: Text(
                           t.navTourSkip,

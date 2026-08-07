@@ -76,11 +76,7 @@ void main() {
   }
 
   testWidgets('세로 레일 타겟은 오른쪽 옆에 붙는다 (설명과 대상이 나란히)', (tester) async {
-    await _showCoach(
-      tester,
-      size: const Size(1280, 800),
-      target: railTarget,
-    );
+    await _showCoach(tester, size: const Size(1280, 800), target: railTarget);
 
     final card = tester.getRect(find.byKey(kSpotlightTooltipKey));
     expect(card.left, greaterThanOrEqualTo(railTarget.right));
@@ -120,6 +116,27 @@ void main() {
 
     expect(find.text('1 / 3'), findsOneWidget);
   });
+
+  // 말풍선은 온보딩에서 **처음이자 유일하게** 강제로 뜨는 UI다. 여기서 대비가
+  // 모자라거나 버튼이 손가락보다 작으면 첫인상이 그대로 접근성 실패가 된다.
+  // `Überspringen` 을 비활성처럼 보이던 회색에서 끌어올린 것도 이 게이트가 지킨다.
+  for (final size in <Size>[Size(360, 800), Size(740, 360), Size(1280, 800)]) {
+    final label = '${size.width.toInt()}x${size.height.toInt()}';
+
+    testWidgets('$label 말풍선 — 탭 타깃 최소 크기', (tester) async {
+      final handle = tester.ensureSemantics();
+      await _showCoach(tester, size: size, target: railTarget, steps: 3);
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      handle.dispose();
+    });
+
+    testWidgets('$label 말풍선 — 본문·버튼 대비', (tester) async {
+      final handle = tester.ensureSemantics();
+      await _showCoach(tester, size: size, target: railTarget, steps: 3);
+      await expectLater(tester, meetsGuideline(textContrastGuideline));
+      handle.dispose();
+    });
+  }
 }
 
 Future<void> _showCoach(

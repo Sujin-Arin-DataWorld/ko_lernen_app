@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -604,6 +606,122 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     ];
   }
 
+  /// 조건부 보조 카드 4종(복습·어려운 단어·코스·오늘의 글자).
+  ///
+  /// 서로 독립인 진입점이라 [twoColumn] 에서는 두 개씩 한 행에 넣는다.
+  /// 표시 조건이 제각각(due 0건·leech 0건·주 1회·완료 여부)이라 **먼저 목록을
+  /// 만들고 나서** 짝을 짓는다 — 조건문마다 행을 열면 한쪽이 비어 격자가
+  /// 어긋난다.
+  ///
+  /// 높이 정렬은 [CrossAxisAlignment.start] 다. `stretch` 는 스크롤 뷰 안에서
+  /// 세로가 무한이라 tight 제약을 만들 수 없고, `IntrinsicHeight` 는 자식이
+  /// intrinsic 을 지원해야 해서 카드 내용이 바뀌면 터질 위험이 있다.
+  List<Widget> _secondaryCards({required bool twoColumn}) {
+    // ── E1b. Heute lernen — due 0건이면 블록 숨김(§6.1 블록 5) ──
+    final Widget? review = _dueCount > 0
+        ? SoriEntrance(
+            delay: const Duration(milliseconds: 220),
+            slideY: 14,
+            child: _ReviewCard(
+              dueCount: _dueCount,
+              onTap: () async {
+                await Navigator.pushNamed(context, '/review');
+                if (mounted) await _loadToday();
+              },
+            ),
+          )
+        : null;
+    // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
+    final Widget? hardWords = _hardCount > 0
+        ? SoriEntrance(
+            delay: const Duration(milliseconds: 240),
+            slideY: 14,
+            child: _HardWordsCard(
+              count: _hardCount,
+              onTap: () async {
+                await Navigator.pushNamed(context, '/hard_words');
+                if (mounted) await _loadToday();
+              },
+            ),
+          )
+        : null;
+    // ── E1c. Dein Tageskurs — Q2: 전용 카드는 주 1회,
+    // 상시 진입점은 미션 히어로 배지 ──
+    final Widget? course = _courseCardThisWeek
+        ? SoriEntrance(
+            delay: const Duration(milliseconds: 260),
+            slideY: 14,
+            child: _CourseCard(onTap: _openCourse),
+          )
+        : null;
+    // ── D2. 오늘의 글자 — 완료(0건)면 블록 숨김(§6.1 블록 5) ──
+    final Widget? dailyChar = !Storage.calligraphyDoneToday
+        ? SoriEntrance(
+            delay: const Duration(milliseconds: 300),
+            slideY: 12,
+            child: _DailyCharCard(
+              char: widget.dailyCharacter ?? DailyCharService.today(),
+              doneToday: Storage.calligraphyDoneToday,
+              onTap: () => showDailyCharSheet(context).then((_) {
+                if (mounted) setState(() {});
+              }),
+            ),
+          )
+        : null;
+
+    if (!twoColumn) {
+      // ⚠️ 1열 간격은 2열 도입 **이전과 완전히 동일**해야 한다 — 폰에서
+      // 시각 변화 0 이 이 작업의 조건이다. sm/md/md/xl 의 비대칭은 원래
+      // 코드 그대로이며, 균일하게 고치면 스크롤 길이가 약 30dp 달라진다.
+      return [
+        if (review != null) review,
+        if (hardWords != null) ...[
+          const SizedBox(height: Spacing.sm),
+          hardWords,
+        ],
+        const SizedBox(height: Spacing.md),
+        if (course != null) ...[course, const SizedBox(height: Spacing.md)],
+        if (dailyChar != null) ...[
+          dailyChar,
+          const SizedBox(height: Spacing.xl),
+        ],
+      ];
+    }
+
+    final cards = <Widget>[
+      if (review != null) review,
+      if (hardWords != null) hardWords,
+      if (course != null) course,
+      if (dailyChar != null) dailyChar,
+    ];
+    if (cards.isEmpty) {
+      return const [];
+    }
+
+    final rows = <Widget>[];
+    for (var i = 0; i < cards.length; i += 2) {
+      final bool hasSecond = i + 1 < cards.length;
+      rows.add(
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(child: cards[i]),
+            const SizedBox(width: kHomeColumnGap),
+            // 홀수 개면 마지막 카드가 한 열 폭을 유지하도록 빈 칸을 채운다 —
+            // 혼자 두 열을 다 먹으면 옆 카드와 폭이 달라 격자가 깨진다.
+            Expanded(child: hasSecond ? cards[i + 1] : const SizedBox.shrink()),
+          ],
+        ),
+      );
+    }
+    return [
+      for (var i = 0; i < rows.length; i++) ...[
+        if (i > 0) const SizedBox(height: Spacing.md),
+        rows[i],
+      ],
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -675,302 +793,289 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: RefreshIndicator(
               onRefresh: _refreshHome,
               color: SoriColors.primary,
-              child: SoriContentClamp(
-                base: const EdgeInsets.fromLTRB(
-                  Spacing.lg,
-                  Spacing.md,
-                  Spacing.lg,
-                  Spacing.xl,
-                ),
-                builder: (context, padding) => SingleChildScrollView(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  padding: padding,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // ── A + B. 헤더(워드마크·스트릭/레벨 칩·설정) + 캐릭터 히어로 ──
-                      //
-                      // `verticalDirection: up` = **배치는 그대로, paint 순서만 역전**.
-                      // children 은 목록 순서대로 그려지지만 배치는 아래→위라서,
-                      // 화면에는 여전히 [헤더 → 인사 → 말풍선 → 영상] 으로 보이고
-                      // 그리는 순서는 [영상 → 말풍선 → 인사 → 헤더] 가 된다.
-                      //
-                      // 이유(2026-08-06 Jin 실기기, M2101K6G/Android 12): 히어로에
-                      // 영상이 실제로 재생되기 시작하자 **그보다 먼저 그려지는**
-                      // 로고·스트릭·레벨 칩·설정 아이콘·인사말이 통째로 사라졌다
-                      // (자리는 그대로 비어 있고 미션 카드 등 뒤에 그려지는 것만 정상).
-                      // 안드로이드 영상 텍스처 합성 문제라 Dart 쪽에서 고칠 수 있는
-                      // 건 **순서뿐** — 헤더/텍스트를 영상보다 나중에 그리게 해서
-                      // 구조적으로 차단한다. 시각 결과는 동일하므로 원인이 다르더라도
-                      // 부작용이 없다.
-                      Column(
-                        verticalDirection: VerticalDirection.up,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // 홈은 IndexedStack 안이라 설정에서 캐릭터를 바꿔도
-                          // setState 가 안 온다 → notifier 를 직접 구독한다.
-                          SoriEntrance(
-                            delay: const Duration(milliseconds: 40),
-                            child: ValueListenableBuilder<MascotKind>(
-                              valueListenable: MascotPreference.kind,
-                              builder: (context, kind, _) => _TigerHero(
-                                greeting: _greeting(t),
-                                bubble: _tigerBubble(t, kind),
-                                phase: _phase,
-                                kind: kind,
+              // 바깥 LayoutBuilder 는 clamp **상한**만 정한다(2열이 들어갈
+              // 폭에서만 640dp 고정 상한을 푼다). 실제 1열/2열 판정은 clamp
+              // padding 이 적용된 **안쪽** LayoutBuilder 가 콘텐츠 폭으로 한다.
+              child: LayoutBuilder(
+                builder: (context, outer) => SoriContentClamp(
+                  maxWidth: _homeContentMaxWidth(outer.maxWidth),
+                  base: const EdgeInsets.fromLTRB(
+                    Spacing.lg,
+                    Spacing.md,
+                    Spacing.lg,
+                    Spacing.xl,
+                  ),
+                  builder: (context, padding) => SingleChildScrollView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    padding: padding,
+                    child: LayoutBuilder(
+                      builder: (context, content) {
+                        final bool twoColumn =
+                            content.maxWidth >= kHomeTwoColumnMinWidth;
+
+                        // 홈은 IndexedStack 안이라 설정에서 캐릭터를 바꿔도
+                        // setState 가 안 온다 → notifier 를 직접 구독한다.
+                        final Widget heroBand = SoriEntrance(
+                          delay: const Duration(milliseconds: 40),
+                          child: ValueListenableBuilder<MascotKind>(
+                            valueListenable: MascotPreference.kind,
+                            builder: (context, kind, _) => _TigerHero(
+                              greeting: _greeting(t),
+                              bubble: _tigerBubble(t, kind),
+                              phase: _phase,
+                              kind: kind,
+                            ),
+                          ),
+                        );
+                        // 화면상 맨 위 — 목록 마지막 = 가장 나중에 paint.
+                        // (`_TopBar` 는 자체 하단 여백 Spacing.lg 를 갖고 있어
+                        //  인사말과의 간격은 그대로 유지된다.)
+                        final Widget topBar = _TopBar(
+                          streak: Storage.streakDays,
+                          level: Storage.xpLevel,
+                          xp: Storage.xp,
+                          onStreakTap: _showWeekSheet,
+                          onStatsTap: () =>
+                              Navigator.pushNamed(context, '/stats'),
+                        );
+                        // ── D. 오늘의 미션 히어로 — 단일 CTA (§6.1 블록 3·§10.1).
+                        // 구 "Jetzt lernen" 버튼 + Today 시나리오 카드를 흡수한
+                        // 추천 엔진: 코스 미션 > 진행 중 팩 > 복습 > 시나리오.
+                        final Widget missionCard = SoriEntrance(
+                          delay: const Duration(milliseconds: 100),
+                          slideY: 14,
+                          // 첫 실행 코치마크 타겟은 **바깥에** 덧씌운다 —
+                          // `home-primary-sarangbang` ValueKey 는 기존 테스트와
+                          // 위젯 정체성이 걸려 있어 건드리지 않는다.
+                          child: _MaybeKeyed(
+                            tourKey: widget.missionTourKey,
+                            child: KeyedSubtree(
+                              key: const ValueKey('home-primary-sarangbang'),
+                              child: MissionHeroCard(
+                                loading: _loadingTodaySnapshot,
+                                content: _loadingTodaySnapshot
+                                    ? null
+                                    : _missionHeroContent(t, lang),
+                                allDoneCtaLabel: t.homeSarangbangCta,
+                                onAnotherRound: () async {
+                                  await Navigator.pushNamed(
+                                    context,
+                                    '/sarangbang',
+                                  );
+                                  if (mounted) {
+                                    await _refreshHome();
+                                  }
+                                },
                               ),
                             ),
                           ),
-                          // 화면상 맨 위 — 목록 마지막 = 가장 나중에 paint.
-                          // (`_TopBar` 는 자체 하단 여백 Spacing.lg 를 갖고 있어
-                          //  인사말과의 간격은 그대로 유지된다.)
-                          _TopBar(
-                            streak: Storage.streakDays,
-                            level: Storage.xpLevel,
-                            xp: Storage.xp,
-                            onStreakTap: _showWeekSheet,
-                            onStatsTap: () =>
-                                Navigator.pushNamed(context, '/stats'),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: Spacing.lg),
+                        );
 
-                      // ── C. 스탯 5종은 헤더 칩 1줄로 압축(§6.1 블록 1) —
-                      // 주간 디딤돌·오늘 목표는 스트릭 칩 시트, 상세는 /stats.
-
-                      // ── D. 오늘의 미션 히어로 — 단일 CTA (§6.1 블록 3·§10.1).
-                      // 구 "Jetzt lernen" 버튼 + Today 시나리오 카드를 흡수한
-                      // 추천 엔진: 코스 미션 > 진행 중 팩 > 복습 > 시나리오.
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 100),
-                        slideY: 14,
-                        // 첫 실행 코치마크 타겟은 **바깥에** 덧씌운다 —
-                        // `home-primary-sarangbang` ValueKey 는 기존 테스트와
-                        // 위젯 정체성이 걸려 있어 건드리지 않는다.
-                        child: _MaybeKeyed(
-                          tourKey: widget.missionTourKey,
-                          child: KeyedSubtree(
-                            key: const ValueKey('home-primary-sarangbang'),
-                            child: MissionHeroCard(
-                              loading: _loadingTodaySnapshot,
-                              content: _loadingTodaySnapshot
-                                  ? null
-                                  : _missionHeroContent(t, lang),
-                              allDoneCtaLabel: t.homeSarangbangCta,
-                              onAnotherRound: () async {
-                                await Navigator.pushNamed(
-                                  context,
-                                  '/sarangbang',
-                                );
-                                if (mounted) {
-                                  await _refreshHome();
-                                }
-                              },
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.lg),
-
-                      // ── 보상 안내 — 열 수 있는 보자기가 있으면 발견 배너 ──
-                      // 이게 없으면 퀘스트로 상자가 생겨도 사용자가 알 길이 없다.
-                      if (_openableBoxes > 0) ...[
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 110),
-                          slideY: 14,
-                          child: PendingRewardCard(
-                            count: _openableBoxes,
-                            onOpen: () async {
-                              await Navigator.pushNamed(context, '/bojagi');
-                              if (mounted) {
-                                await _refreshHome();
-                              }
-                            },
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.lg),
-                      ],
-
-                      // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 120),
-                        slideY: 14,
-                        child: _HomeHanokPreview(
-                          key: const ValueKey('home-hanok-preview'),
-                          projection: _hanokProjection,
-                          onOpen: () async {
-                            await Navigator.pushNamed(context, '/hanok');
-                            if (mounted) {
-                              await _refreshHome();
-                            }
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.xl),
-
-                      widget.pathTourKey != null
-                          ? KeyedSubtree(
-                              key: widget.pathTourKey!,
-                              child: _SectionLabel(label: t.pathTitle),
-                            )
-                          : _SectionLabel(label: t.pathTitle),
-                      const SizedBox(height: Spacing.sm),
-                      if (_pathNodes.isEmpty)
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 120),
-                          slideY: 14,
-                          child: _PathCard(
-                            onTap: () async {
-                              await Navigator.pushNamed(context, '/path');
-                              if (mounted) {
-                                await _refreshHome();
-                              }
-                            },
-                          ),
-                        )
-                      else
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 120),
-                          slideY: 14,
-                          // §10.2: 현재 ±1 = 3노드 미리보기. 전량 경로와
-                          // 100% 트리거는 /path 전용 화면이 유지(§6.2).
-                          // 히어로(블록 2)가 클립이라 미리보기는 정적 —
-                          // 동시 디코더 ≤1 계약.
-                          child: PathPreviewRow(
-                            stops: _previewStops(lang),
-                            onSeeAll: () async {
-                              await Navigator.pushNamed(context, '/path');
-                              if (mounted) {
-                                await _loadPath();
-                              }
-                            },
-                          ),
-                        ),
-                      const SizedBox(height: Spacing.xl),
-
-                      // ── P0-G7. Streak 0 회복 메시지 ──
-                      // ⚠️ 이 카드는 "스트릭이 **끊긴**" 사용자를 되돌리는 복구
-                      // 카드다("Willkommen zurück!"). 스트릭 0 조건만 보면
-                      // 방금 온보딩을 끝낸 신규 사용자에게도 떠서, 첫 화면이
-                      // "다시 오신 걸 환영합니다"로 시작한다(2026-07-31 발견).
-                      // XP 가 쌓인 적이 있어야 "돌아온 것" — 그때만 보여준다.
-                      // (1일차 인사 자체는 learner_motivation.dart:83 이 이미 분기한다.)
-                      if (Storage.streakDays == 0 && Storage.xp > 0) ...[
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 200),
-                          slideY: 14,
-                          child: SoriCard(
-                            variant: SoriCardVariant.hero,
-                            accent: SoriColors.primary,
-                            tinted: true,
-                            child: Row(
-                              children: [
-                                ValueListenableBuilder<MascotKind>(
-                                  valueListenable: MascotPreference.kind,
-                                  builder: (context, kind, _) => Mascot(
-                                    kind: kind,
-                                    emotion: MascotEmotion.smile,
-                                    size: 60,
-                                  ),
-                                ),
-                                const SizedBox(width: Spacing.md),
-                                Expanded(
-                                  child: Column(
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // ── A + B. 헤더(워드마크·스트릭/레벨 칩·설정) + 캐릭터 히어로 ──
+                            //
+                            // `verticalDirection: up` = **배치는 그대로, paint 순서만 역전**.
+                            // children 은 목록 순서대로 그려지지만 배치는 아래→위라서,
+                            // 화면에는 여전히 [헤더 → 인사 → 말풍선 → 영상] 으로 보이고
+                            // 그리는 순서는 [영상 → 말풍선 → 인사 → 헤더] 가 된다.
+                            //
+                            // 이유(2026-08-06 Jin 실기기, M2101K6G/Android 12): 히어로에
+                            // 영상이 실제로 재생되기 시작하자 **그보다 먼저 그려지는**
+                            // 로고·스트릭·레벨 칩·설정 아이콘·인사말이 통째로 사라졌다
+                            // (자리는 그대로 비어 있고 미션 카드 등 뒤에 그려지는 것만 정상).
+                            // 안드로이드 영상 텍스처 합성 문제라 Dart 쪽에서 고칠 수 있는
+                            // 건 **순서뿐** — 헤더/텍스트를 영상보다 나중에 그리게 해서
+                            // 구조적으로 차단한다. 시각 결과는 동일하므로 원인이 다르더라도
+                            // 부작용이 없다.
+                            // 2열: 히어로와 미션을 같은 행에 둔다. `verticalDirection`
+                            // 은 **양쪽 분기 모두** 유지해야 한다 — 위 주석의 영상
+                            // 텍스처 문제는 열 개수와 무관하고, 행 안의 영상이
+                            // `_TopBar` 보다 먼저 그려져야 하는 조건은 그대로다.
+                            if (twoColumn)
+                              Column(
+                                verticalDirection: VerticalDirection.up,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        t.homeTigerBubbleResume,
-                                        style: SoriTextTheme.of(
-                                          context,
-                                        ).cardTitle,
+                                      Expanded(child: heroBand),
+                                      const SizedBox(width: kHomeColumnGap),
+                                      Expanded(child: missionCard),
+                                    ],
+                                  ),
+                                  topBar,
+                                ],
+                              )
+                            else ...[
+                              Column(
+                                verticalDirection: VerticalDirection.up,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [heroBand, topBar],
+                              ),
+                              const SizedBox(height: Spacing.lg),
+
+                              // ── C. 스탯 5종은 헤더 칩 1줄로 압축(§6.1 블록 1) —
+                              // 주간 디딤돌·오늘 목표는 스트릭 칩 시트, 상세는 /stats.
+                              missionCard,
+                            ],
+                            const SizedBox(height: Spacing.lg),
+
+                            // ── 보상 안내 — 열 수 있는 보자기가 있으면 발견 배너 ──
+                            // 이게 없으면 퀘스트로 상자가 생겨도 사용자가 알 길이 없다.
+                            if (_openableBoxes > 0) ...[
+                              SoriEntrance(
+                                delay: const Duration(milliseconds: 110),
+                                slideY: 14,
+                                child: PendingRewardCard(
+                                  count: _openableBoxes,
+                                  onOpen: () async {
+                                    await Navigator.pushNamed(
+                                      context,
+                                      '/bojagi',
+                                    );
+                                    if (mounted) {
+                                      await _refreshHome();
+                                    }
+                                  },
+                                ),
+                              ),
+                              const SizedBox(height: Spacing.lg),
+                            ],
+
+                            // ── E1a. 이어지는 길 — 현재 ±1 미리보기 (§6.1 블록 4·§10.2) ──
+                            SoriEntrance(
+                              delay: const Duration(milliseconds: 120),
+                              slideY: 14,
+                              child: _HomeHanokPreview(
+                                key: const ValueKey('home-hanok-preview'),
+                                twoColumn: twoColumn,
+                                projection: _hanokProjection,
+                                onOpen: () async {
+                                  await Navigator.pushNamed(context, '/hanok');
+                                  if (mounted) {
+                                    await _refreshHome();
+                                  }
+                                },
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.xl),
+
+                            widget.pathTourKey != null
+                                ? KeyedSubtree(
+                                    key: widget.pathTourKey!,
+                                    child: _SectionLabel(label: t.pathTitle),
+                                  )
+                                : _SectionLabel(label: t.pathTitle),
+                            const SizedBox(height: Spacing.sm),
+                            if (_pathNodes.isEmpty)
+                              SoriEntrance(
+                                delay: const Duration(milliseconds: 120),
+                                slideY: 14,
+                                child: _PathCard(
+                                  onTap: () async {
+                                    await Navigator.pushNamed(context, '/path');
+                                    if (mounted) {
+                                      await _refreshHome();
+                                    }
+                                  },
+                                ),
+                              )
+                            else
+                              SoriEntrance(
+                                delay: const Duration(milliseconds: 120),
+                                slideY: 14,
+                                // §10.2: 현재 ±1 = 3노드 미리보기. 전량 경로와
+                                // 100% 트리거는 /path 전용 화면이 유지(§6.2).
+                                // 히어로(블록 2)가 클립이라 미리보기는 정적 —
+                                // 동시 디코더 ≤1 계약.
+                                child: PathPreviewRow(
+                                  stops: _previewStops(lang),
+                                  onSeeAll: () async {
+                                    await Navigator.pushNamed(context, '/path');
+                                    if (mounted) {
+                                      await _loadPath();
+                                    }
+                                  },
+                                ),
+                              ),
+                            const SizedBox(height: Spacing.xl),
+
+                            // ── P0-G7. Streak 0 회복 메시지 ──
+                            // ⚠️ 이 카드는 "스트릭이 **끊긴**" 사용자를 되돌리는 복구
+                            // 카드다("Willkommen zurück!"). 스트릭 0 조건만 보면
+                            // 방금 온보딩을 끝낸 신규 사용자에게도 떠서, 첫 화면이
+                            // "다시 오신 걸 환영합니다"로 시작한다(2026-07-31 발견).
+                            // XP 가 쌓인 적이 있어야 "돌아온 것" — 그때만 보여준다.
+                            // (1일차 인사 자체는 learner_motivation.dart:83 이 이미 분기한다.)
+                            if (Storage.streakDays == 0 && Storage.xp > 0) ...[
+                              SoriEntrance(
+                                delay: const Duration(milliseconds: 200),
+                                slideY: 14,
+                                child: SoriCard(
+                                  variant: SoriCardVariant.hero,
+                                  accent: SoriColors.primary,
+                                  tinted: true,
+                                  child: Row(
+                                    children: [
+                                      ValueListenableBuilder<MascotKind>(
+                                        valueListenable: MascotPreference.kind,
+                                        builder: (context, kind, _) => Mascot(
+                                          kind: kind,
+                                          emotion: MascotEmotion.smile,
+                                          size: 60,
+                                        ),
                                       ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        t.homeTigerBubbleResumeSub,
-                                        style: SoriTextTheme.of(
-                                          context,
-                                        ).caption,
+                                      const SizedBox(width: Spacing.md),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              t.homeTigerBubbleResume,
+                                              style: SoriTextTheme.of(
+                                                context,
+                                              ).cardTitle,
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              t.homeTigerBubbleResumeSub,
+                                              style: SoriTextTheme.of(
+                                                context,
+                                              ).caption,
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              ],
+                              ),
+                              const SizedBox(height: Spacing.sm),
+                            ],
+                            // ── E1b·A2·E1c·D2. 조건부 카드 4종 ──
+                            // 전부 서로 독립인 진입점이라 2열에서 짝지어 배치한다.
+                            // 표시 조건이 제각각이라 목록을 먼저 만들고 나눈다 —
+                            // 그래야 빈 칸이 생기지 않는다.
+                            ..._secondaryCards(twoColumn: twoColumn),
+
+                            const SizedBox(height: Spacing.xxxl),
+                            Center(
+                              child: Text(
+                                t.footerCheer,
+                                style: SoriTextTheme.of(
+                                  context,
+                                ).caption.copyWith(color: s.textMuted),
+                              ),
                             ),
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.sm),
-                      ],
-                      // ── E1b. Heute lernen — due 0건이면 블록 숨김(§6.1 블록 5) ──
-                      if (_dueCount > 0)
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 220),
-                          slideY: 14,
-                          child: _ReviewCard(
-                            dueCount: _dueCount,
-                            onTap: () async {
-                              await Navigator.pushNamed(context, '/review');
-                              if (mounted) await _loadToday();
-                            },
-                          ),
-                        ),
-                      // ── A2. "어려운 단어"(leech) — 있을 때만 노출 ──
-                      if (_hardCount > 0) ...[
-                        const SizedBox(height: Spacing.sm),
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 240),
-                          slideY: 14,
-                          child: _HardWordsCard(
-                            count: _hardCount,
-                            onTap: () async {
-                              await Navigator.pushNamed(context, '/hard_words');
-                              if (mounted) await _loadToday();
-                            },
-                          ),
-                        ),
-                      ],
-                      const SizedBox(height: Spacing.md),
-
-                      // ── E1c. Dein Tageskurs — Q2: 전용 카드는 주 1회,
-                      // 상시 진입점은 미션 히어로 배지 ──
-                      if (_courseCardThisWeek) ...[
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 260),
-                          slideY: 14,
-                          child: _CourseCard(onTap: _openCourse),
-                        ),
-                        const SizedBox(height: Spacing.md),
-                      ],
-
-                      // ── D2. 오늘의 글자 — 완료(0건)면 블록 숨김(§6.1 블록 5) ──
-                      if (!Storage.calligraphyDoneToday) ...[
-                        SoriEntrance(
-                          delay: const Duration(milliseconds: 300),
-                          slideY: 12,
-                          child: _DailyCharCard(
-                            char:
-                                widget.dailyCharacter ??
-                                DailyCharService.today(),
-                            doneToday: Storage.calligraphyDoneToday,
-                            onTap: () => showDailyCharSheet(context).then((_) {
-                              if (mounted) setState(() {});
-                            }),
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.xl),
-                      ],
-
-                      const SizedBox(height: Spacing.xxxl),
-                      Center(
-                        child: Text(
-                          t.footerCheer,
-                          style: SoriTextTheme.of(
-                            context,
-                          ).caption.copyWith(color: s.textMuted),
-                        ),
-                      ),
-                    ],
+                          ],
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -1038,7 +1143,54 @@ class _MaybeKeyed extends StatelessWidget {
 /// 폰의 480dp 컬럼에서 카드 안쪽 폭은 480 − 좌우 여백(Spacing.lg×2 = 32)
 /// − 카드 패딩(Spacing.lg×2 = 32) ≈ 416dp 라 이 상한에 걸리지 않는다
 /// (= 폰 시각 변화 0). 640dp 태블릿 컬럼에서만 걸려 4:3 높이가 약 1/4 줄어든다.
-const double _kHanokPreviewMaxWidth = 440;
+const double kHanokPreviewMaxWidth = 440;
+
+// ── 홈 2열(expanded) 레이아웃 ─────────────────────────────────────────────
+//
+// 기준은 **화면 폭이 아니라 실제 콘텐츠 영역 폭**이다. 홈은 `AppShell` 안에서
+// NavigationRail(96dp) 오른쪽에 놓이고 좌우 clamp padding 도 먹으므로, 화면
+// 폭으로 분기하면 실제로 쓸 수 있는 폭과 어긋난다(1280dp 화면의 홈 콘텐츠는
+// 1184dp 가 아니라 clamp 후의 값). 그래서 `LayoutBuilder` 가 돌려주는
+// `constraints.maxWidth` 로만 판정한다.
+
+/// 두 열 사이 간격.
+const double kHomeColumnGap = Spacing.xl;
+
+/// 2열에서 오른쪽(보조) 열이 가져야 할 최소 폭.
+///
+/// 한옥 행의 진행률 열이 `"Dein Hanok ist zu 100 % gebaut"` 한 줄과 CTA 버튼을
+/// 담아야 해서, 이보다 좁아지면 독일어가 3줄로 접힌다.
+const double kHomeSideColumnMinWidth = 280;
+
+/// 2열로 전환할 **콘텐츠 영역** 최소 폭.
+///
+/// 가장 넓은 요구를 갖는 행이 한옥이다 — 지도 상한([kHanokPreviewMaxWidth])
+/// + 간격 + 보조 열 최소폭. 히어로+미션 행은 이 폭이면 각 열 360dp 로
+/// 폰 컬럼(328dp)보다 넓으므로 자동으로 충족된다.
+const double kHomeTwoColumnMinWidth =
+    kHanokPreviewMaxWidth + kHomeColumnGap + kHomeSideColumnMinWidth;
+
+/// 2열일 때 콘텐츠 컬럼 상한.
+///
+/// 공용 [soriAdaptiveContentMaxWidth] 는 720dp 이상에서 640dp 로 **고정**이라
+/// 1280dp 태블릿에서 화면의 52.5% 가 빈 여백이 됐다(2026-08-07 실측). 2열
+/// 경로에서만 이 상한을 올린다 — 열 하나가 480dp(= [SoriBreakpoints.content],
+/// 폰 컬럼 상한)를 넘지 않는 선이 기준이다: 480×2 + 간격 24 = 984.
+const double kHomeTwoColumnContentMaxWidth = 984;
+
+/// 홈 콘텐츠 컬럼 상한. [available] 은 clamp **바깥** 가용 폭.
+///
+/// 2열이 실제로 들어가지 않는 폭에서는 공용 적응 폭을 그대로 돌려주므로
+/// compact/medium 은 **시각 변화 0** 이다.
+double _homeContentMaxWidth(double available) {
+  const double horizontalPadding = Spacing.lg * 2;
+  final bool canTwoColumn =
+      available - horizontalPadding >= kHomeTwoColumnMinWidth;
+  if (!canTwoColumn) {
+    return soriAdaptiveContentMaxWidth(available);
+  }
+  return kHomeTwoColumnContentMaxWidth;
+}
 
 /// A read-only glimpse of the learner's estate. The main Hanok screen owns
 /// place selection and navigation; Home only provides one deliberate doorway.
@@ -1046,19 +1198,21 @@ class _HomeHanokPreview extends StatelessWidget {
   final PersonalHanokProjection? projection;
   final VoidCallback onOpen;
 
+  /// 지도와 진행률을 나란히 둘 만큼 콘텐츠 폭이 있는가
+  /// (판정은 홈 본문의 `LayoutBuilder` — [kHomeTwoColumnMinWidth]).
+  final bool twoColumn;
+
   const _HomeHanokPreview({
     super.key,
     required this.projection,
     required this.onOpen,
+    this.twoColumn = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
-    final surfaces = SoriSurfaces.of(context);
-    // 연속(fractional) 학습 진행 — 한 팩만 클리어해도 즉시 올라가 홈에서
-    // 한옥 성장이 매끄럽게 보인다(마일스톤 단위 계단식 constructionFraction 대신).
     final progress = projection?.studyFraction ?? 0;
 
     return SoriCard(
@@ -1072,75 +1226,119 @@ class _HomeHanokPreview extends StatelessWidget {
           const SizedBox(height: 4),
           Text(t.homeHanokPreviewBody, style: text.bodySmall),
           const SizedBox(height: Spacing.md),
-          // 4:3 지도는 카드 폭에 비례해 커진다 — 640dp 태블릿 컬럼에서는
-          // 홈 화면의 절반 이상을 그림 하나가 먹었다(2026-08-06 Jin 태블릿).
-          // 정보량 대비 면적이 과했고, 학습 콘텐츠를 스크롤 아래로 밀어냈다.
-          // 폭 상한을 두면 **폰은 그대로**(폰 카드 안쪽 폭 < 상한), 태블릿에서만
-          // 높이가 약 1/4 줄어든다. 그림을 자르지 않으므로 건물이 사라지지 않는다.
-          Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: _kHanokPreviewMaxWidth),
-              child: projection == null
-                  ? AspectRatio(
-                      aspectRatio: 4 / 3,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: surfaces.surfaceAlt,
-                          borderRadius: SoriRadius.brLg,
-                        ),
-                      ),
-                    )
-                  : Semantics(
-                      image: true,
-                      label: t.homeHanokPreviewTitle,
-                      child: ExcludeSemantics(
-                        child: PersonalHanokMap(
-                          projection: projection!,
-                          zoneLabel: (_) => '',
-                          showTargets: false,
-                        ),
+          if (twoColumn)
+            // 태블릿: 지도 옆에 진행률·CTA. 세로로 쌓으면 카드 하나가 홈에서
+            // 가장 큰 블록이 된다(2026-08-07 실측 559dp — 미션 카드의 2.9배).
+            LayoutBuilder(
+              builder: (context, c) {
+                final double mapWidth = math.min(
+                  kHanokPreviewMaxWidth,
+                  c.maxWidth - kHomeColumnGap - kHomeSideColumnMinWidth,
+                );
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(width: mapWidth, child: _map(context, t)),
+                    const SizedBox(width: kHomeColumnGap),
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: _progressBlock(context, text, t, progress),
                       ),
                     ),
+                  ],
+                );
+              },
+            )
+          else ...[
+            // 4:3 지도는 카드 폭에 비례해 커진다 — 640dp 태블릿 컬럼에서는
+            // 홈 화면의 절반 이상을 그림 하나가 먹었다(2026-08-06 Jin 태블릿).
+            // 정보량 대비 면적이 과했고, 학습 콘텐츠를 스크롤 아래로 밀어냈다.
+            // 폭 상한을 두면 **폰은 그대로**(폰 카드 안쪽 폭 < 상한), 태블릿에서만
+            // 높이가 약 1/4 줄어든다. 그림을 자르지 않으므로 건물이 사라지지 않는다.
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  maxWidth: kHanokPreviewMaxWidth,
+                ),
+                child: _map(context, t),
+              ),
             ),
-          ),
-          const SizedBox(height: Spacing.md),
-          // 진행도가 이 블록의 본론이다 — 예쁜 그림이 아니라 "내가 키운 것".
-          // 퍼센트를 바 옆에 굵게 두어 한 줄 안에서 바로 읽히게 한다.
-          Row(
-            children: [
-              Expanded(
-                child: SoriProgressBar(
-                  value: progress,
-                  thickness: 10,
-                  color: SoriColors.primary,
-                  animated: true,
-                ),
-              ),
-              const SizedBox(width: Spacing.sm),
-              Text(
-                '${(progress * 100).round()} %',
-                style: text.label.copyWith(
-                  color: SoriColors.primary,
-                  fontFeatures: const [FontFeature.tabularFigures()],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            t.homeHanokPreviewProgress((progress * 100).round()),
-            style: text.caption.copyWith(color: SoriColors.primary),
-          ),
-          const SizedBox(height: Spacing.sm),
-          SoriButton.outlined(
-            label: t.homeHanokPreviewCta,
-            fullWidth: true,
-            onTap: onOpen,
-          ),
+            const SizedBox(height: Spacing.md),
+            ..._progressBlock(context, text, t, progress),
+          ],
         ],
       ),
     );
   }
+
+  Widget _map(BuildContext context, AppL10n t) {
+    final surfaces = SoriSurfaces.of(context);
+    if (projection == null) {
+      return AspectRatio(
+        aspectRatio: 4 / 3,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: surfaces.surfaceAlt,
+            borderRadius: SoriRadius.brLg,
+          ),
+        ),
+      );
+    }
+    return Semantics(
+      image: true,
+      label: t.homeHanokPreviewTitle,
+      child: ExcludeSemantics(
+        child: PersonalHanokMap(
+          projection: projection!,
+          zoneLabel: (_) => '',
+          showTargets: false,
+        ),
+      ),
+    );
+  }
+
+  /// 진행도가 이 블록의 본론이다 — 예쁜 그림이 아니라 "내가 키운 것".
+  /// 퍼센트를 바 옆에 굵게 두어 한 줄 안에서 바로 읽히게 한다.
+  List<Widget> _progressBlock(
+    BuildContext context,
+    SoriTextTheme text,
+    AppL10n t,
+    double progress,
+  ) => [
+    Row(
+      children: [
+        Expanded(
+          child: SoriProgressBar(
+            value: progress,
+            thickness: 10,
+            color: SoriColors.primary,
+            animated: true,
+          ),
+        ),
+        const SizedBox(width: Spacing.sm),
+        Text(
+          '${(progress * 100).round()} %',
+          style: text.label.copyWith(
+            color: SoriColors.primary,
+            fontFeatures: const [FontFeature.tabularFigures()],
+          ),
+        ),
+      ],
+    ),
+    const SizedBox(height: Spacing.xs),
+    Text(
+      t.homeHanokPreviewProgress((progress * 100).round()),
+      style: text.caption.copyWith(color: SoriColors.primary),
+    ),
+    const SizedBox(height: Spacing.sm),
+    SoriButton.outlined(
+      label: t.homeHanokPreviewCta,
+      fullWidth: true,
+      onTap: onOpen,
+    ),
+  ];
 }
 
 // ════════════════════════════════════════════════════════════════════════
