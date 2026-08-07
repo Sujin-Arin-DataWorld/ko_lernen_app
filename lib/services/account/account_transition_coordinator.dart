@@ -652,6 +652,13 @@ class AccountTransitionCoordinator {
           targetUid: targetUid,
           requestKey: requestKey,
         );
+      } on AccountOperationFailure catch (failure) {
+        // The callable gateway decides these before the operation handler
+        // runs, so no server operation can exist for this request key and the
+        // journal is purely local state. Keeping it would leave linking and
+        // deletion permanently blocked with no in-app way back.
+        if (!_isRejectedBeforeServerOperation(failure.code)) return false;
+        return _discardUnpreparedJournal(expectedJournal);
       } catch (_) {
         return false;
       }
@@ -707,6 +714,43 @@ class AccountTransitionCoordinator {
         await journalStore.restoreIfAbsent(
           expected: expectedJournal,
           isCurrent: () => !_journalFence(expectedJournal),
+        );
+      } catch (_) {}
+      return false;
+    }
+    sessions.transition(CloudWriteMode.ready);
+    return true;
+  }
+
+  /// Drops a journal whose replacement never reached the server.
+  ///
+  /// Only a `targetVerified` journal that carries no operation id qualifies:
+  /// past that point the server owns state that a local delete would orphan.
+  /// The delete stays fenced exactly like the normal cancel path so a
+  /// concurrent transition cannot lose a journal it just wrote.
+  Future<bool> _discardUnpreparedJournal(
+    AccountTransitionJournal expected,
+  ) async {
+    if (expected.replacementPhase != AccountReplacementPhase.targetVerified ||
+        expected.replacementOperationId != null ||
+        expected.replacementOperationVersion != null) {
+      return false;
+    }
+    bool deleted;
+    try {
+      deleted = await journalStore.deleteIfCurrent(
+        expected: expected,
+        isCurrent: () => _journalFence(expected),
+      );
+    } catch (_) {
+      return false;
+    }
+    if (!deleted) return false;
+    if (!_journalFence(expected)) {
+      try {
+        await journalStore.restoreIfAbsent(
+          expected: expected,
+          isCurrent: () => !_journalFence(expected),
         );
       } catch (_) {}
       return false;
@@ -1254,6 +1298,14 @@ class AccountTransitionCoordinator {
       phase == AccountReplacementPhase.cleanupStarting ||
       phase == AccountReplacementPhase.cleanupPending ||
       phase == AccountReplacementPhase.activationPending;
+
+  /// Failures the callable gateway raises before the operation handler runs,
+  /// which proves no server-side operation was created for the request.
+  static bool _isRejectedBeforeServerOperation(
+    AccountOperationFailureCode code,
+  ) =>
+      code == AccountOperationFailureCode.appCheckRequired ||
+      code == AccountOperationFailureCode.authenticationRequired;
 
   static bool _isLocallyCancellablePhase(AccountReplacementPhase? phase) =>
       phase == AccountReplacementPhase.targetVerified ||

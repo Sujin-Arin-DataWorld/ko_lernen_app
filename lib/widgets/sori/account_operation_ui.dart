@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/account/account_failure_diagnostics.dart';
 import '../../services/account/account_transition_coordinator.dart';
 import '../../services/account/account_ui_operations.dart';
 import 'tokens.dart';
@@ -272,7 +273,13 @@ Future<void> runConfirmedAccountLink(
           onCompleted: onCompleted,
         );
     }
-  } catch (_) {
+  } catch (error) {
+    // ⚠️ 예전엔 `catch (_)` 였다. Google 연동이 실패해도 오류 객체를 통째로
+    // 버려서, 실기기에서는 로그인 화면이 뜬 뒤 조용히 sign-out 되는 것만 보이고
+    // **원인을 알 수 없었다**(2026-08-07: App Check 통과 후에도 연동 실패).
+    // 삭제 경로(`settings_screen._runAccountDeletion`)와 같은 처리 —
+    // 코드만 로그에 남기고 사용자 화면은 안전한 고정 문구 그대로.
+    AccountFailureDiagnostics.log('link.failed', error);
     if (!context.mounted) return;
     Navigator.of(context, rootNavigator: true).pop();
     await showSafeAccountFailure(

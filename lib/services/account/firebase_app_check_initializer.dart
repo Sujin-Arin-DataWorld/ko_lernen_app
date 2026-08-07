@@ -30,6 +30,7 @@ class FirebaseAppCheckInitializer {
     required this.activate,
     this.isWeb = kIsWeb,
     this.webAppCheckSiteKey = '',
+    this.debugAppCheckToken = '',
   });
 
   factory FirebaseAppCheckInitializer.production() {
@@ -54,11 +55,15 @@ class FirebaseAppCheckInitializer {
     String webAppCheckSiteKey = const String.fromEnvironment(
       'FIREBASE_WEB_APP_CHECK_SITE_KEY',
     ),
+    String debugAppCheckToken = const String.fromEnvironment(
+      'FIREBASE_APPCHECK_DEBUG_TOKEN',
+    ),
   }) {
     return FirebaseAppCheckInitializer(
       isDebug: isDebug,
       isWeb: isWeb,
       webAppCheckSiteKey: webAppCheckSiteKey,
+      debugAppCheckToken: debugAppCheckToken,
       activate: activate,
     );
   }
@@ -66,6 +71,13 @@ class FirebaseAppCheckInitializer {
   final bool isDebug;
   final bool isWeb;
   final String webAppCheckSiteKey;
+
+  /// Build-time debug secret shared by every Firebase app in the process.
+  ///
+  /// A debug provider otherwise mints a fresh secret per Firebase app, so the
+  /// isolated account-transition app would present a token that was never
+  /// added to the console allow list and fail App Check on every attempt.
+  final String debugAppCheckToken;
   final FirebaseAppCheckActivator activate;
 
   Future<void> initialize() {
@@ -82,13 +94,16 @@ class FirebaseAppCheckInitializer {
       providerWeb = null;
     }
 
+    final sharedDebugToken = debugAppCheckToken.trim();
+    final debugToken = sharedDebugToken.isEmpty ? null : sharedDebugToken;
+
     return activate(
       providerWeb: providerWeb,
       providerAndroid: isDebug
-          ? const AndroidDebugProvider()
+          ? AndroidDebugProvider(debugToken: debugToken)
           : const AndroidPlayIntegrityProvider(),
       providerApple: isDebug
-          ? const AppleDebugProvider()
+          ? AppleDebugProvider(debugToken: debugToken)
           : const AppleAppAttestWithDeviceCheckFallbackProvider(),
     );
   }
