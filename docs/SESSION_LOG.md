@@ -7,6 +7,93 @@
 
 ---
 
+### 2026-08-07 — 홈 히어로: mp4 앞에 PNG 플립북이 먼저 재생되던 폴백 워치독 수리 — 미커밋
+
+**범위:** Jin 실기기(샤오미 패드 6 / `23043RP34G`, Android 14, 라이트, font_scale 1.0) —
+"png가지고 움직이는것같이 만들어놓은거 그게 처음에 재생되고 계속 mp4이 재생돼.
+**이거 mp4만 재생되도록** 하고, 재생되는 비디오 배경도 전체 배경이랑 동떨어지지않게
+작업한건데 없어졌다고". ⚠️ 첫 보고는 "정지 이미지"로 읽혀 한 번 오진했다 —
+실제 증상은 **정지 PNG 가 아니라 PNG 플립북 애니메이션**이었다.
+
+**근본 원인 (`character_clip.dart` `_kFallbackWatchdog = 900ms`)**
+- 홈 히어로는 `staticFallback: videoUnavailable(context)` → 라이트에서 **false**(투명 대기).
+- 그런데 `staticFallback:false` 면 900ms 워치독이 걸리고, 만료 시 `staticFallback` 과
+  **무관하게** `_fallbackDue = true` 로 정적 `Mascot` 을 그린다.
+- 900ms 는 실기기 콜드 스타트(에셋 로드 + MediaCodec + SurfaceTexture 첫 프레임)보다
+  **짧다** → 홈 진입마다 폴백이 **먼저** 뜬다.
+- 까치 폴백은 정지가 아니라 `Mascot(animate:true)` = `magpie_wingup`↔`magpie_wingdown`
+  PNG 교대(`mascot.dart:190-198`, 5Hz) → 화면에는 "**PNG 애니메이션이 재생되다가
+  mp4 로 바뀐다**". Jin 이 본 게 정확히 이것.
+- 부수 경로: `_onRevoked` 가 무조건 `_fallbackDue = true` → 다른 화면에 lease 를 잠깐
+  양보했다 홈으로 돌아올 때마다 같은 플립북이 한 번 번쩍였다.
+
+**수정 (`lib/widgets/sori/character_clip.dart`) — 타이머 전면 삭제, 상태 기반 전환**
+
+⚠️ 중간에 `900ms → 3s` 로 늘리는 안을 먼저 냈다가 **Jin 이 반려**했다:
+"그러면 `900ms 잘못된 추측`을 `3000ms 조금 덜 잘못된 추측`으로 바꾸는 것뿐이거든.
+**좋은 설계는 시간보다 상태를 보는 거야.**" → 워치독을 **통째로 제거**했다.
+`character_clip.dart` 에 `Timer` 는 이제 0개다.
+
+- 신규 `CharacterClipFallbackPolicy.showStaticFallback({videoUnavailable, failed,
+  clipRetired, staticFallbackRequested})` — **시그니처에 시간·시도횟수 인자가 없다.**
+  넷 다 거짓 = 초기화 진행 중 → 투명 대기. (`VideoLeaseEligibility` 와 같은 관용구로
+  위젯에서 분리 — 플랫폼 채널 없이 단위 테스트하려고.)
+- **타이머 없이도 빈칸이 안 되는 근거**(워치독이 원래 막던 `4a7958e` 두 원인이
+  이미 상태로 판별됨):
+  - 기기 미지원 → `videoReady=false` → `videoUnavailable` → 즉시 정적
+  - 다크 → 같은 게이트 → 즉시 정적
+  - **reduce-motion → 더는 lease 를 막지 않는다.** `video_lease.dart:469` 가
+    `reduceMotion: false` **하드코딩**(Jin 2026-08-06 샤오미 패드 수정). 즉
+    `isEligible == videoReady && isVisible` 이라 "보이는데 eligible 아님" ⟺
+    `!videoReady` ⟺ 이미 `videoUnavailable`. 워치독이 덮던 구멍이 사라진 상태였다.
+  - 명시적 실패 → 코디네이터 백오프 2회 재시도 후 `onFailed` → `_failed`
+- **grant == first frame ready** 확인: 코디네이터 `_drain` 이 `await create(asset)`
+  (= `initialize()`) + `prepare` 를 끝낸 뒤에야 `_onGranted` 를 부른다
+  (`video_lease.dart:113-175`). 그래서 "준비되면 표시"가 grant 시점과 정확히 일치.
+- `_fallbackDue`(시간으로 서던 플래그) → `_clipRetired`(**원샷 종료 시에만** 세움)
+  로 교체. `_onRevoked` 가 루프/원샷을 구분한다: 원샷 종료는 마지막 포즈를 정적으로
+  이어받고(프로필 호랑이 회귀 방지), 루프는 lease 양보일 뿐이므로 그대로 대기 →
+  홈 복귀 시 PNG 번쩍임 소멸.
+- 공개 API 무변경 — 호출부 9곳(home/profile/kkeunmari/listening/review_session/
+  scenario_player/game_reward/milestone_celebration/path_trail) 그대로 컴파일.
+- **잔여(의도적)**: `OneShotVideoLeaseCompletion.fallbackCompleteAfter`(1200ms)는
+  그대로 둔다. 그건 렌더가 아니라 **원샷의 `onCompleted` 네비게이션 보장**이고
+  홈 히어로는 `loop:true` → `_completion == null` 이라 무관하다.
+
+**배경 이음매(Jin 지적 2) — 회귀 아님, 실측으로 확인**
+- `python tool/check_clip_matte.py --check` → **20클립 전부 OK**. 홈 히어로 2종
+  `magpie_walking_front`·`tiger_rise` 모두 `#FFFFFF` / white_ratio **100%**.
+  ffmpeg 로 네 모서리 raw luma 직접 재측정해도 255 (2026-08-06 `#F2F2F2` 회색박스
+  사고는 확실히 해소된 상태).
+- `_kHeroFlatBackdropFraction`(0.60) 평면 단색 구간 · `_kHeroBandBottomDp`(500) glow
+  회피 · `blendColor: SoriColors.lightBg` 계약 **전부 HEAD 에 그대로** 있고
+  `home_hero_layout_test.dart` 16건이 이를 강제하며 통과.
+- → 배경이 "동떨어져" 보인 건 십중팔구 **폴백 단계**다: 폴백 `Mascot` 은
+  `size*0.85` 투명 PNG(사각형 없음)인데 mp4 는 전체 크기 + blendColor 사각형이라,
+  교체 순간 **크기 점프 + 배경 전환**으로 읽힌다. 위 수정으로 폴백 단계 자체가
+  사라지므로 함께 해소될 것으로 본다. ⚠️ **미검증(Jin 실기기 재빌드 필요).**
+
+**부수 정리:** `tool/clip_matte_report.json` 재생성 — 리포트가 삭제된
+`magpie_full10.mp4`·`magpie_walking_forward.mp4` 를 아직 들고 있었고
+`magpie_choose.mp4` 바이트가 드리프트해 `character_clip_matte_test` 2건이 **이미
+red** 였다(내 변경 이전부터). 재생성만 했고 mp4 재인코딩은 없다.
+
+**신규 테스트 `test/character_clip_test.dart` +6** — 정상 초기화 중엔 정적을 안 켬
+(회귀 본체) / **경과 시간은 입력이 아님**(같은 입력 100회 반복해도 불변) /
+`videoUnavailable` 즉시 폴백 / 명시적 `failed` 폴백 / 원샷 종료 시 마지막 포즈 유지 /
+`staticFallback:true` 명시는 항상 우선.
+
+**검증:** `flutter analyze lib/widgets/sori/character_clip.dart
+test/character_clip_test.dart` **No issues** · `grep Timer|watchdog|_fallbackDue`
+→ character_clip.dart **0건** · character_clip + home_hero_layout +
+sori_video_lease + character_clip_matte + mascot_wiring **69 통과** ·
+screen_smoke + responsive **411 통과**.
+⚠️ **미검증(Jin 실기기)**: PNG 플립북 선재생 소멸 · 배경 이음매 · 초기화 동안
+밴드가 비어 보이는 체감(이제 상한 없음 — 영상이 준비될 때까지 투명).
+기기 설치본은 `versionCode=11`(2026-08-06 23:32) 이라 **재빌드 필요**.
+
+---
+
 ### 2026-08-06 — v2.0.5+12 서명 AAB (Jin 요청 versionCode bump)
 
 versionCode 11 중복 업로드 거부를 피하려고 pubspec `2.0.5+11`→**`2.0.5+12`**로 올리고 릴리스
