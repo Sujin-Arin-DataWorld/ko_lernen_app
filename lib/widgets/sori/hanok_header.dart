@@ -127,19 +127,31 @@ class HanokHeader extends StatelessWidget {
         // 뷰포트(가로 폰·분할 화면·넓고 낮은 창)에서는 그 높이가 화면의 30~40%
         // 를 먹고 학습 카드·정답 버튼을 밀어내 오버플로를 만든다.
         //
-        // 판단을 **절대 높이**로 하지 않는 게 중요하다. `높이 < 640` 같은 규칙은
-        // 360×640 짜리 흔한 세로 폰에서도 배너를 지워 실기기 디자인을 바꾼다.
-        // 대신 **자기 높이가 화면에서 차지하는 비율**로 본다:
+        // 접을지 말지는 **자기 높이가 화면에서 차지하는 비율**로 정한다.
+        // `높이 < 640` 같은 순수 절대 규칙은 360×640 짜리 흔한 세로 폰에서도
+        // 배너를 지워 실기기 디자인을 바꾼다.
         //
-        //   360×640 세로 폰   108/640 = 17%  → 유지
-        //   360×400 분할 화면 108/400 = 27%  → 접음
-        //   800×600 낮은 창   193/600 = 32%  → 접음
-        //   800×1280 태블릿   193/1280 = 15% → 유지
+        //   360×640 세로 폰    108/640  = 17%  → 유지
+        //   360×400 분할 화면  108/400  = 27%  → 접음
+        //   800×600 낮은 창    193/600  = 32%  → 접음
+        //   800×1280 태블릿    193/1280 = 15%  → 유지
+        //
+        // 다만 비율만으로는 **가로 태블릿(1280×800)** 까지 걸린다: 배너 182/800
+        // = 22.8% 로 임계값을 6px 차이로 넘겨 멀쩡한 화면의 배너가 사라졌다
+        // (골든 3장이 잡았다 — learn_hub·settings·vocab_packs @ expanded).
+        // 그래서 비율 판정은 **애초에 세로가 짧을 때만** 묻는다. 800dp 넘게
+        // 높은 창은 배너가 몇 %든 콘텐츠가 들어갈 자리가 남는다.
+        //
+        // [_askBelowHeight] 는 "짧다"의 정의가 아니라 **질문을 할 구간**이다.
+        // 실제 판정은 여전히 비율이 한다 — 그래서 360×640 세로 폰은 이 구간에
+        // 들어오고도(640 < 700) 17% 라서 배너를 지킨다.
         //
         // 정보가 없는 요소부터 버리는 게 순서다 — 콘텐츠는 건드리지 않는다.
         final viewportHeight = MediaQuery.sizeOf(context).height;
         final width = constraints.maxWidth;
-        if (width.isFinite && viewportHeight > 0) {
+        if (width.isFinite &&
+            viewportHeight > 0 &&
+            viewportHeight < _askBelowHeight) {
           final bannerHeight = width / aspectRatio;
           if (bannerHeight > viewportHeight * _maxViewportShare) {
             return const SizedBox.shrink();
@@ -161,6 +173,11 @@ class HanokHeader extends StatelessWidget {
 
   /// 장식 배너가 차지해도 되는 화면 높이의 최대 비율.
   static const double _maxViewportShare = 0.22;
+
+  /// 이 높이 **미만**일 때만 비율 판정을 한다. 가로로 든 폰(≈360–430)과 분할
+  /// 화면은 전부 아래, 세로 폰(640~)·세로 태블릿(1024~)·가로 태블릿(720~800)
+  /// 은 위다 — 즉 실기기 세로 화면의 배너는 이 게이트에서 이미 안전하다.
+  static const double _askBelowHeight = 700;
 }
 
 /// **SoriPosterLoop** — png 포스터 → (영상 준비되면) 무음 루프 크로스페이드.
@@ -240,8 +257,10 @@ class _SoriPosterLoopState extends State<SoriPosterLoop> {
 
   /// 이 루프의 최종 음량 — 마스터·채널 on/off, 채널 볼륨, 에셋별 정규화 게인,
   /// TTS 더킹이 전부 반영된 값. 꺼져 있으면 정확히 0.0 이다.
-  double _ambienceVolume() => AudioPolicy.instance
-      .volumeFor(SoundChannel.ambience, asset: widget.videoAsset);
+  double _ambienceVolume() => AudioPolicy.instance.volumeFor(
+    SoundChannel.ambience,
+    asset: widget.videoAsset,
+  );
 
   /// [AudioPolicy] 통지 → 재생 중인 컨트롤러에 즉시 반영.
   void _applyVolume() {

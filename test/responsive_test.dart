@@ -2,52 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_room.dart';
-import 'package:ko_lernen_app/screens/app_shell.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
-import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
-import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
-import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
-import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
-import 'package:ko_lernen_app/screens/sarangbang_furnish_screen.dart';
-import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
-import 'package:ko_lernen_app/screens/wordbook_hub_screen.dart';
-import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
-import 'package:ko_lernen_app/screens/settings_screen.dart';
-import 'package:ko_lernen_app/screens/stats_screen.dart';
-import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
-import 'package:ko_lernen_app/models/course_practice_context.dart';
-import 'package:ko_lernen_app/models/curriculum.dart';
-import 'package:ko_lernen_app/screens/grammar_screen.dart';
-import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
-import 'package:ko_lernen_app/services/curriculum_catalog.dart';
-import 'package:ko_lernen_app/services/smalltalk_loader.dart';
-import 'package:ko_lernen_app/screens/hangul_screen.dart';
-import 'package:ko_lernen_app/screens/wordle_screen.dart';
-import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
-import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
-import 'package:ko_lernen_app/screens/listening_screen.dart';
-import 'package:ko_lernen_app/screens/hard_words_screen.dart';
-import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
-import 'package:ko_lernen_app/screens/consent_screen.dart';
-import 'package:ko_lernen_app/screens/paywall_screen.dart';
-import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
-import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
-import 'package:ko_lernen_app/screens/speed_match_screen.dart';
-import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
-import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
-import 'package:ko_lernen_app/screens/learning_path_screen.dart';
-import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
-import 'package:ko_lernen_app/screens/quests_screen.dart';
-import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
-import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
+
+import 'support/responsive_screens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -205,48 +166,7 @@ void main() {
       ScenarioLoader.reset();
     });
 
-    final screens = <String, Widget>{
-      'app shell': const AppShell(),
-      'home': const HomeScreen(),
-      'personal hanok world': const HanokWorldScreen(),
-      'learn hub': const LearnHubScreen(),
-      'practice hub': const PracticeHubScreen(),
-      'sarangbang study': const SarangbangStudyScreen(),
-      'sarangbang furnish': const SarangbangFurnishScreen(),
-      'anbang furnish': const PersonalRoomFurnishScreen(
-        surface: PersonalRoomSurface.anbang,
-      ),
-      'daecheong furnish': const PersonalRoomFurnishScreen(
-        surface: PersonalRoomSurface.daecheongmaru,
-      ),
-      'wordbook hub': const WordbookHubScreen(),
-      'scenarios list': const ScenariosListScreen(),
-      'settings': const SettingsScreen(),
-      'stats': const StatsScreen(),
-      'vocab packs': const VocabPacksScreen(),
-      // 반응형 전파 + 핫스팟 동적화 화면 (무인자만)
-      'grammar': const GrammarScreen(),
-      'hangul': const HangulScreen(),
-      'wordle': const WordleScreen(),
-      'kkeunmari': const KkeunmariScreen(),
-      'dojangcheop': const DojangcheopScreen(),
-      'listening': const ListeningScreen(),
-      'hard words': const HardWordsScreen(),
-      'legacy vocab': const LegacyVocabScreen(),
-      'consent': const ConsentScreen(),
-      'paywall': const PaywallScreen(),
-      'chosung': const ChosungQuizScreen(),
-      'cloze': const ClozeGameScreen(),
-      'speed match': const SpeedMatchScreen(),
-      'daily challenge': const DailyChallengeScreen(),
-      'satz arcade': const SatzArcadeScreen(),
-      'learning path': const LearningPathScreen(),
-      // D5 신규 커버 (D4에서 변경된 미커버 화면, 무인자만).
-      'gye tab': const GyeTabScreen(),
-      'quests': const QuestsScreen(),
-      'smalltalk': const SmalltalkScreen(),
-      'review': const ReviewSessionScreen(),
-    };
+    final screens = responsiveScreens();
 
     for (final width in <double>[308, 360, 600, 720, 800, 1280]) {
       for (final entry in screens.entries) {
@@ -258,7 +178,7 @@ void main() {
           addTearDown(tester.view.resetPhysicalSize);
           addTearDown(tester.view.resetDevicePixelRatio);
 
-          await tester.pumpWidget(_wrap(entry.value));
+          await tester.pumpWidget(wrapResponsive(entry.value));
           await tester.pump(); // 첫 프레임 (로딩 상태)
           // 비동기 로드(시나리오·due 카운트) 해소 → Today 카드 등 실데이터 상태 렌더.
           await tester.pump(const Duration(milliseconds: 100));
@@ -284,45 +204,7 @@ void main() {
             addTearDown(tester.view.resetPhysicalSize);
             addTearDown(tester.view.resetDevicePixelRatio);
 
-            await tester.pumpWidget(_wrap(entry.value));
-            await tester.pump();
-            await tester.pump(const Duration(milliseconds: 100));
-            await tester.pump(const Duration(milliseconds: 1200));
-
-            expect(tester.takeException(), isNull);
-
-            await tester.pumpWidget(const SizedBox.shrink());
-            await tester.pump();
-          },
-        );
-      }
-    }
-
-    // ── 낮은 높이: 가로 폰 · 분할 화면 ────────────────────────────────
-    // 이 위의 매트릭스는 **폭**만 308–1280dp 로 훑고 높이는 900/1280/800 뿐이라,
-    // 가로로 든 폰이나 분할 화면처럼 **세로가 짧은** 상태를 어느 테스트도 보지
-    // 않았다. 실제로 그 구멍에서 오버플로가 살아 있었다(2026-08-06).
-    //
-    // 짧은 높이가 특히 위험한 이유: 화면 상단 헤더와 하단 액션 블록은 대개
-    // **고정 높이**라 뷰포트가 짧아져도 줄지 않는다. 가운데를 `Expanded` 로
-    // 준 화면은 그 가운데가 0까지 줄어도 고정 블록의 합이 뷰포트를 넘으면
-    // 그대로 넘친다.
-    for (final size in <Size>[
-      const Size(360, 400), // 세로 분할 화면 (좁고 짧음)
-      const Size(800, 360), // 가로 폰
-      const Size(800, 600), // 작은 가로 / flutter 기본 뷰포트
-      const Size(1280, 500), // 가로 태블릿 분할
-    ]) {
-      for (final entry in screens.entries) {
-        testWidgets(
-          '${entry.key} @ ${size.width.toInt()}x${size.height.toInt()} 낮은 높이 오버플로 없음',
-          (tester) async {
-            tester.view.physicalSize = size;
-            tester.view.devicePixelRatio = 1;
-            addTearDown(tester.view.resetPhysicalSize);
-            addTearDown(tester.view.resetDevicePixelRatio);
-
-            await tester.pumpWidget(_wrap(entry.value));
+            await tester.pumpWidget(wrapResponsive(entry.value));
             await tester.pump();
             await tester.pump(const Duration(milliseconds: 100));
             await tester.pump(const Duration(milliseconds: 1200));
@@ -351,7 +233,7 @@ void main() {
           addTearDown(tester.view.resetPhysicalSize);
           addTearDown(tester.view.resetDevicePixelRatio);
 
-          await tester.pumpWidget(_wrap(entry.value, textScale: 1.3));
+          await tester.pumpWidget(wrapResponsive(entry.value, textScale: 1.3));
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 100));
           await tester.pump(const Duration(milliseconds: 1200));
@@ -364,123 +246,4 @@ void main() {
       }
     }
   });
-
-  // ── 상태 변형: 같은 화면, 인자에 따라 달라지는 렌더 구조 ─────────────────
-  //
-  // 위 매트릭스의 `screens` 맵은 **무인자 생성자만** 담는다. 그래서 같은
-  // Screen 이라도 인자로 레이아웃이 달라지는 변형(코스 모드·팩 인자)은 어떤
-  // 폭·높이에서도 검사되지 않았다. 실제로 `GrammarScreen(courseContext: …)`
-  // 는 800×600 에서 넘치는데 무인자 `GrammarScreen()` 은 같은 폭에서 멀쩡하다.
-  //
-  // 기준은 "생성자에 인자가 있느냐" 가 아니라 **"그 인자가 렌더 구조를
-  // 바꾸느냐"** 다. 코스 모드는 체크포인트 헤더와 다른 액션 바를 얹고,
-  // 팩 화면은 학습 카드·스테이지 바를 얹는다 — 둘 다 구조가 달라진다.
-  group('상태 변형 반응형 (인자가 렌더 구조를 바꾸는 화면)', () {
-    setUp(() async {
-      Storage.resetForTesting();
-      SharedPreferences.setMockInitialValues({
-        'kl_user_level': 'a1',
-        'kl_streak_days': 3,
-        'kl_xp': 40,
-        // 코스 화면의 첫 실행 코치마크가 레이아웃을 덮지 않게 한다.
-        'kl_tut_grammar': true,
-        'kl_tut_smalltalk': true,
-      });
-      await Storage.init();
-      DataLoader.reset();
-      ScenarioLoader.reset();
-      SmalltalkLoader.reset();
-      CurriculumCatalog.reset();
-    });
-
-    /// 코스 미션이 연 학습 화면의 문맥. 카탈로그 로드가 필요해 화면 생성이
-    /// 비동기다 — 그래서 이 그룹은 `screens` 맵이 아니라 빌더를 쓴다.
-    Future<CoursePracticeContext> courseContext(
-      WidgetTester tester, {
-      required CurriculumContentKind kind,
-      required String unitId,
-    }) async {
-      final catalog = (await tester.runAsync(CurriculumCatalog.load))!;
-      final link = catalog.contentLinks.firstWhere(
-        (item) =>
-            item.contentKind == kind &&
-            item.courseUnitId == unitId &&
-            item.role == ContentLinkRole.assess,
-      );
-      return CoursePracticeContext.fromLink(link);
-    }
-
-    final variants = <String, Future<Widget> Function(WidgetTester)>{
-      'grammar (course mode)': (tester) async => GrammarScreen(
-        courseContext: await courseContext(
-          tester,
-          kind: CurriculumContentKind.grammar,
-          unitId: 'a1_03_topic_subject_particles',
-        ),
-      ),
-      'smalltalk (course mode)': (tester) async => SmalltalkScreen(
-        courseContext: await courseContext(
-          tester,
-          kind: CurriculumContentKind.smalltalk,
-          unitId: 'a2_02_plans_proposals',
-        ),
-      ),
-      // pack 인자로 열리는 학습 화면 — 무인자가 아니라 매트릭스에 없었다.
-      'vocab pack (pack arg)': (tester) async =>
-          const VocabPackScreen(packId: 'a1_greetings_1'),
-    };
-
-    // 낮은 높이 4조건 + 폰/태블릿 기준 2조건.
-    for (final size in <Size>[
-      const Size(360, 400),
-      const Size(800, 360),
-      const Size(800, 600),
-      const Size(1280, 500),
-      const Size(360, 900),
-      const Size(800, 1280),
-    ]) {
-      for (final entry in variants.entries) {
-        testWidgets(
-          '${entry.key} @ ${size.width.toInt()}x${size.height.toInt()} 오버플로 없음',
-          (tester) async {
-            tester.view.physicalSize = size;
-            tester.view.devicePixelRatio = 1;
-            addTearDown(tester.view.resetPhysicalSize);
-            addTearDown(tester.view.resetDevicePixelRatio);
-
-            final screen = await entry.value(tester);
-            await tester.pumpWidget(_wrap(screen));
-            await tester.pump();
-            await tester.pump(const Duration(milliseconds: 100));
-            await tester.pump(const Duration(milliseconds: 1200));
-
-            expect(tester.takeException(), isNull);
-
-            // 코스 화면은 TTS·진입 애니메이션 타이머를 들고 있어 명시적 해제가
-            // 필요하다(다음 테스트로 새지 않게).
-            await tester.pumpWidget(const SizedBox.shrink());
-            await tester.pump(const Duration(seconds: 1));
-          },
-        );
-      }
-    }
-  });
-}
-
-Widget _wrap(Widget child, {double textScale = 1.0}) {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: AppTheme.light,
-    locale: const Locale('de'),
-    supportedLocales: AppL10n.supportedLocales,
-    localizationsDelegates: AppL10n.localizationsDelegates,
-    home: textScale == 1.0
-        ? child
-        : MediaQuery.withClampedTextScaling(
-            minScaleFactor: textScale,
-            maxScaleFactor: textScale,
-            child: child,
-          ),
-    onGenerateRoute: (settings) => null,
-  );
 }

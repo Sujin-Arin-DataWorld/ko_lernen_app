@@ -32,6 +32,14 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_card_face.dart';
 import '../l10n/generated/app_localizations.dart';
 
+/// 문법 학습 본문이 넘치지 않고 들어가는 최소 높이. 이보다 짧은 뷰포트에서는
+/// [SoriMinHeightScroll] 이 이 높이의 본문을 스크롤시킨다.
+///
+/// 근거(360dp 폭, 실측): 고정 크롬이 필터 2줄 72 + 간격 32 + 진행바 24 +
+/// 안팎 패딩 16 ≈ 144, 하단 액션 블록 ≈ 150. 카드가 학습용으로 의미를 가지려면
+/// 최소 160 은 필요해 합이 ≈ 454 → 여유를 둬 460.
+const double _studyBodyMinHeight = 460;
+
 class GrammarScreen extends StatefulWidget {
   const GrammarScreen({super.key, this.courseContext});
 
@@ -484,161 +492,232 @@ class _GrammarScreenState extends State<GrammarScreen>
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-              child: Column(
-                children: [
-                  // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-                  //
-                  // 짧은 뷰포트에서 배너가 스스로 접히는 규칙은 HanokHeader 안에
-                  // 있다(자기 높이가 화면의 22% 를 넘으면 SizedBox.shrink).
-                  // 배너를 쓰는 모든 화면이 같은 규칙을 받는다.
-                  const HanokHeader(
-                    asset: 'assets/illustrations/hanok/study_scholar.png',
-                    fallbackIcon: Icons.auto_stories_outlined,
-                  ),
-                  const SizedBox(height: Spacing.md),
+            // 짧은 뷰포트에서 넘치는 대신 스크롤한다. 이 화면은 헤더·필터 2줄·
+            // 진행바가 고정 높이라, 세로가 짧아지면 가운데 `Expanded` 가 0이 돼도
+            // 카드 아래 난이도 버튼이 그대로 넘쳤다(360×400 에서 25px).
+            // 460 이상에서는 지금까지와 같은 flex 레이아웃이라 시각 변화 0.
+            child: SoriMinHeightScroll(
+              minHeight: _studyBodyMinHeight,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+                child: Column(
+                  children: [
+                    // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+                    //
+                    // 짧은 뷰포트에서 배너가 스스로 접히는 규칙은 HanokHeader 안에
+                    // 있다(자기 높이가 화면의 22% 를 넘으면 SizedBox.shrink).
+                    // 배너를 쓰는 모든 화면이 같은 규칙을 받는다.
+                    const HanokHeader(
+                      asset: 'assets/illustrations/hanok/study_scholar.png',
+                      fallbackIcon: Icons.auto_stories_outlined,
+                    ),
+                    const SizedBox(height: Spacing.md),
 
-                  // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.
-                  SizedBox(
-                    key: _filterRowKey,
-                    height: 36,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        for (final lvl in _levels)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 6),
-                            child: SoriChip(
-                              label: lvl == 'Alle' ? t.filterAll : lvl,
-                              accent: SoriColors.warning,
-                              selected: _level == lvl,
-                              variant: SoriChipVariant.soft,
-                              onTap: _level == lvl
-                                  ? null
-                                  : () {
-                                      setState(() => _level = lvl);
-                                      _applyFilters();
-                                    },
+                    // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.
+                    SizedBox(
+                      key: _filterRowKey,
+                      height: 36,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          for (final lvl in _levels)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: SoriChip(
+                                label: lvl == 'Alle' ? t.filterAll : lvl,
+                                accent: SoriColors.warning,
+                                selected: _level == lvl,
+                                variant: SoriChipVariant.soft,
+                                onTap: _level == lvl
+                                    ? null
+                                    : () {
+                                        setState(() => _level = lvl);
+                                        _applyFilters();
+                                      },
+                              ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: Spacing.sm),
+                    const SizedBox(height: Spacing.sm),
 
-                  // Difficulty Filter
-                  SizedBox(
-                    height: 36,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        for (final diff in ['Alle', 'Leicht', 'Schwer'])
-                          Padding(
-                            padding: const EdgeInsets.only(right: 6),
-                            child: SoriChip(
-                              label: diff,
-                              accent: SoriColors.info,
-                              selected: _difficulty == diff,
-                              variant: SoriChipVariant.soft,
-                              onTap: _difficulty == diff
-                                  ? null
-                                  : () {
-                                      setState(() => _difficulty = diff);
-                                      _applyFilters();
-                                    },
+                    // Difficulty Filter
+                    SizedBox(
+                      height: 36,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          for (final diff in ['Alle', 'Leicht', 'Schwer'])
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: SoriChip(
+                                label: diff,
+                                accent: SoriColors.info,
+                                selected: _difficulty == diff,
+                                variant: SoriChipVariant.soft,
+                                onTap: _difficulty == diff
+                                    ? null
+                                    : () {
+                                        setState(() => _difficulty = diff);
+                                        _applyFilters();
+                                      },
+                              ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: Spacing.sm),
+                    const SizedBox(height: Spacing.sm),
 
-                  // 진행도 — 슬림 바 + 위치 카운터 (3중 칩 정리, level·typeDe는 카드에 표시).
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: SoriProgressBar(
-                            value: _filtered.isEmpty
-                                ? 0
-                                : (_idx + 1) / _filtered.length,
-                            thickness: 6,
-                            color: SoriColors.warning,
-                            animated: true,
-                          ),
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                        Text(
-                          '${_idx + 1} / ${_filtered.length}',
-                          style: TextStyle(
-                            fontSize: 12.5,
-                            fontWeight: FontWeight.w700,
-                            color: s.textMuted,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-
-                  // Card + Difficulty Buttons
-                  Expanded(
-                    child: SoriEntrance(
-                      child: Column(
+                    // 진행도 — 슬림 바 + 위치 카운터 (3중 칩 정리, level·typeDe는 카드에 표시).
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Row(
                         children: [
                           Expanded(
-                            child: GestureDetector(
-                              onHorizontalDragEnd: (d) {
-                                if (d.primaryVelocity == null) {
-                                  return;
-                                }
-                                if (d.primaryVelocity! < -250) {
-                                  _next();
-                                } else if (d.primaryVelocity! > 250) {
-                                  _prev();
-                                }
-                              },
-                              child: SoriStudyScale(
-                                child: FlipCard(
-                                  key: _cardKey,
-                                  flipped: _flipped,
-                                  onTap: canRecordCheckpoint ? null : _onFlip,
-                                  front: canRecordCheckpoint
-                                      ? _CourseCheckpointFront(g: g)
-                                      : _Front(g: g),
-                                  back: _Back(g: g),
+                            child: SoriProgressBar(
+                              value: _filtered.isEmpty
+                                  ? 0
+                                  : (_idx + 1) / _filtered.length,
+                              thickness: 6,
+                              color: SoriColors.warning,
+                              animated: true,
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          Text(
+                            '${_idx + 1} / ${_filtered.length}',
+                            style: TextStyle(
+                              fontSize: 12.5,
+                              fontWeight: FontWeight.w700,
+                              color: s.textMuted,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+
+                    // Card + Difficulty Buttons
+                    Expanded(
+                      child: SoriEntrance(
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                onHorizontalDragEnd: (d) {
+                                  if (d.primaryVelocity == null) {
+                                    return;
+                                  }
+                                  if (d.primaryVelocity! < -250) {
+                                    _next();
+                                  } else if (d.primaryVelocity! > 250) {
+                                    _prev();
+                                  }
+                                },
+                                child: SoriStudyScale(
+                                  child: FlipCard(
+                                    key: _cardKey,
+                                    flipped: _flipped,
+                                    onTap: canRecordCheckpoint ? null : _onFlip,
+                                    front: canRecordCheckpoint
+                                        ? _CourseCheckpointFront(g: g)
+                                        : _Front(g: g),
+                                    back: _Back(g: g),
+                                  ),
                                 ),
                               ),
                             ),
+                            const SizedBox(height: 8),
+                            // SRS 마킹 (이 카드 난이도) — 네비게이션과 별개.
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: SoriButton.outlined(
+                                    label: t.grammarEasy,
+                                    icon: Icons.thumb_up_alt_outlined,
+                                    onTap: () async {
+                                      setState(
+                                        () => _sessionSeen.add(g.pattern),
+                                      );
+                                      await Storage.markGrammarEasy(g.pattern);
+                                      _next();
+                                    },
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: SoriButton.outlined(
+                                    label: t.grammarHard,
+                                    icon: Icons.psychology_outlined,
+                                    destructive: true,
+                                    onTap: () async {
+                                      setState(
+                                        () => _sessionSeen.add(g.pattern),
+                                      );
+                                      await Storage.markGrammarHard(g.pattern);
+                                      _next();
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+
+                    // 하단 액션 위계: Weiter(primary) > Hören·Zurück(secondary) > Zufällig(tertiary).
+                    SoriEntrance(
+                      delay: const Duration(milliseconds: 80),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          StudyActionBar(
+                            accent: SoriColors.warning,
+                            secondary: [
+                              StudyAction(
+                                label: t.btnHoeren,
+                                icon: Icons.volume_up,
+                                onTap: () => TtsService.speak(g.exampleKorean),
+                              ),
+                              StudyAction(
+                                label: t.btnPrev,
+                                icon: Icons.arrow_back,
+                                onTap: _prev,
+                              ),
+                            ],
+                            primary: StudyAction(
+                              label: canRecordCheckpoint
+                                  ? t.courseCheckpointCheck
+                                  : t.btnNext,
+                              icon: canRecordCheckpoint
+                                  ? Icons.fact_check_outlined
+                                  : Icons.arrow_forward,
+                              onTap: canRecordCheckpoint
+                                  ? () => _showCheckpoint(g, assessmentLink!)
+                                  : _next,
+                            ),
                           ),
-                          const SizedBox(height: 8),
-                          // SRS 마킹 (이 카드 난이도) — 네비게이션과 별개.
+                          const SizedBox(height: Spacing.xs),
                           Row(
                             children: [
                               Expanded(
-                                child: SoriButton.outlined(
-                                  label: t.grammarEasy,
-                                  icon: Icons.thumb_up_alt_outlined,
-                                  onTap: () async {
-                                    setState(() => _sessionSeen.add(g.pattern));
-                                    await Storage.markGrammarEasy(g.pattern);
-                                    _next();
-                                  },
+                                child: SoriButton.ghost(
+                                  label: t.btnRandom,
+                                  size: SoriButtonSize.sm,
+                                  onTap: _random,
                                 ),
                               ),
-                              const SizedBox(width: 8),
+                              const SizedBox(width: Spacing.sm),
                               Expanded(
-                                child: SoriButton.outlined(
-                                  label: t.grammarHard,
-                                  icon: Icons.psychology_outlined,
-                                  destructive: true,
-                                  onTap: () async {
-                                    setState(() => _sessionSeen.add(g.pattern));
-                                    await Storage.markGrammarHard(g.pattern);
-                                    _next();
-                                  },
+                                child: SoriButton.ghost(
+                                  key: const Key('grammar-finish-session'),
+                                  label: t.testerFeedbackCompleteGrammar,
+                                  size: SoriButtonSize.sm,
+                                  onTap: _sessionSeen.isEmpty
+                                      ? null
+                                      : _finishSession,
                                 ),
                               ),
                             ],
@@ -646,68 +725,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                         ],
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 12),
-
-                  // 하단 액션 위계: Weiter(primary) > Hören·Zurück(secondary) > Zufällig(tertiary).
-                  SoriEntrance(
-                    delay: const Duration(milliseconds: 80),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        StudyActionBar(
-                          accent: SoriColors.warning,
-                          secondary: [
-                            StudyAction(
-                              label: t.btnHoeren,
-                              icon: Icons.volume_up,
-                              onTap: () => TtsService.speak(g.exampleKorean),
-                            ),
-                            StudyAction(
-                              label: t.btnPrev,
-                              icon: Icons.arrow_back,
-                              onTap: _prev,
-                            ),
-                          ],
-                          primary: StudyAction(
-                            label: canRecordCheckpoint
-                                ? t.courseCheckpointCheck
-                                : t.btnNext,
-                            icon: canRecordCheckpoint
-                                ? Icons.fact_check_outlined
-                                : Icons.arrow_forward,
-                            onTap: canRecordCheckpoint
-                                ? () => _showCheckpoint(g, assessmentLink!)
-                                : _next,
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.xs),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: SoriButton.ghost(
-                                label: t.btnRandom,
-                                size: SoriButtonSize.sm,
-                                onTap: _random,
-                              ),
-                            ),
-                            const SizedBox(width: Spacing.sm),
-                            Expanded(
-                              child: SoriButton.ghost(
-                                key: const Key('grammar-finish-session'),
-                                label: t.testerFeedbackCompleteGrammar,
-                                size: SoriButtonSize.sm,
-                                onTap: _sessionSeen.isEmpty
-                                    ? null
-                                    : _finishSession,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

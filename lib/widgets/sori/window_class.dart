@@ -97,24 +97,14 @@ AppWindowClass windowClassFor(double width) {
 AppWindowClass appWindowClassOf(BuildContext context) =>
     windowClassFor(MediaQuery.sizeOf(context).width);
 
-/// 세로가 짧은 뷰포트로 보는 기준 높이.
-///
-/// 가로로 든 폰(≈360–430dp), 분할 화면, 자유 형식 창이 여기 들어온다.
-/// 값 자체보다 **왜 필요한지**가 중요하다 — 화면 상단 배너와 하단 액션 블록은
-/// 대개 고정 높이라 뷰포트가 짧아져도 줄지 않고, 가운데를 `Expanded` 로 준
-/// 화면은 그 가운데가 0까지 줄어도 고정 블록 합이 뷰포트를 넘으면 넘친다.
-const double kShortViewportMaxHeight = 560;
-
-/// 짧은 뷰포트에서는 **장식**을 먼저 접는다.
-///
-/// 콘텐츠(문제·정답 버튼·CTA)가 아니라 배너·일러스트처럼 정보가 없는 요소를
-/// 대상으로 한다. 기능이나 데이터 흐름을 바꾸는 판단에 쓰지 말 것.
-///
-/// ```dart
-/// if (!isShortViewport(context)) const HanokHeader(...),
-/// ```
-bool isShortViewport(BuildContext context) =>
-    MediaQuery.sizeOf(context).height < kShortViewportMaxHeight;
+// 짧은 뷰포트(가로로 든 폰·분할 화면) 판단은 **절대 높이 임계값으로 하지
+// 않는다**. 그렇게 하면 흔한 360×640 세로 폰까지 "짧다"로 걸려 실제 기기의
+// 디자인이 바뀐다. 대신 각 요소가 **자기 몫이 뷰포트에서 차지하는 비율**로
+// 스스로 판단한다:
+//   · 장식 배너 → `HanokHeader` 가 자기 높이가 뷰포트의 22% 를 넘으면 접는다.
+//   · 학습 본문 → `SoriMinHeightScroll` 이 상자가 최소 높이보다 짧으면
+//     넘치는 대신 스크롤한다.
+// (여기 있던 `kShortViewportMaxHeight`/`isShortViewport` 는 그 이유로 제거됐다.)
 
 /// 화면 종류별 콘텐츠 최대 너비.
 ///
