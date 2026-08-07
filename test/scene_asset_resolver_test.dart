@@ -21,6 +21,19 @@ void main() {
       expect(scn('airport_arrival').backdropKey, 'airport');
     });
 
+    test('pharmacy_headache maps to pharmacy (2026-08-07 신설)', () {
+      // scenes/pharmacy.png 는 번들에 들어가면서도 카테고리가 없어 한 번도
+      // 렌더된 적 없는 고아였다. 되돌리면 약국 장면이 다시 시장 배경을 쓴다.
+      expect(scn('pharmacy_headache').backdropKey, 'pharmacy');
+    });
+
+    test('clinic 계열은 전용 배경이 없어 market 을 유지한다 (의도적)', () {
+      // pharmacy 신설에 딸려 옮기고 싶어지는 자리다. scenes/clinic.png 가
+      // 생기기 전에 옮기면 이 시나리오들이 배경을 통째로 잃는다.
+      expect(scn('doctor_consultation').backdropKey, 'market');
+      expect(scn('clinic_safety').backdropKey, 'market');
+    });
+
     test('every previously-uncovered scenario now has a category', () {
       // These 13 returned null under the old substring map (→ mascot-only).
       const previouslyNull = <String>[
