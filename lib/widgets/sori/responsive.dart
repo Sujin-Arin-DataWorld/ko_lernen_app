@@ -14,23 +14,6 @@ double soriAdaptiveContentMaxWidth(double availableWidth) {
       (SoriBreakpoints.tabletContent - SoriBreakpoints.content) * progress;
 }
 
-/// True when the viewport is too short to spend height on decoration.
-///
-/// Deliberately keyed to **height only**: a 1280×800 tablet in landscape is
-/// wide but not short, while a 800×360 phone in landscape and the 800×600
-/// default test surface both are. See [SoriBreakpoints.shortViewport].
-bool soriIsShortViewport(double height) =>
-    height < SoriBreakpoints.shortViewport;
-
-/// [soriIsShortViewport] for the ambient window height.
-///
-/// Uses the window height rather than a local `LayoutBuilder` constraint on
-/// purpose — a decorative banner inside a scroll view sees an unbounded local
-/// height, but the user's problem ("everything important is off-screen") is a
-/// property of the window.
-bool soriHidesDecoration(BuildContext context) =>
-    soriIsShortViewport(MediaQuery.sizeOf(context).height);
-
 // ── Immersive study cards: tablet width + hero text scale ─────────────────
 // Fixed-focus flashcard/quiz screens (grammar·vocab·cloze…) show a single
 // hero card, so — unlike browsing text — they can afford a wider card and
@@ -231,6 +214,43 @@ int soriGridColumns(
   // n*target + (n-1)*spacing ≤ usable  →  n ≤ (usable + spacing)/(target + spacing)
   final raw = ((usable + spacing) / (target + spacing)).floor();
   return raw.clamp(min, max);
+}
+
+/// 세로가 짧은 뷰포트(가로로 든 폰·분할 화면)에서 **넘치는 대신 스크롤**시킨다.
+///
+/// 학습 화면은 대개 `Column(고정 헤더 … Expanded(카드) … 고정 액션 바)` 꼴이다.
+/// 이 구조는 뷰포트가 짧아지면 `Expanded` 가 0까지 줄어도 **고정 블록의 합**이
+/// 남아 그대로 넘친다 — `Expanded` 는 음수가 될 수 없기 때문이다. 문법 화면이
+/// 360×400 에서 25px 넘친 게 정확히 이 경우다(2026-08-07).
+///
+/// 규칙: 상자가 [minHeight] 이상이면 **지금까지와 완전히 같은 flex 레이아웃**
+/// (시각 변화 0). 그보다 짧을 때만 [minHeight] 높이의 상자를 만들어 스크롤한다
+/// — 자식은 그대로라 `Expanded` 도 정상 동작하고, 잘려 보이던 것이 스크롤로
+/// 도달 가능해진다.
+///
+/// [minHeight] 는 "이 화면이 쓸 만하게 보이는 최소 높이"다. 상자의 높이가
+/// 무한(부모가 이미 스크롤 중)이면 아무것도 하지 않고 [child] 를 그대로 준다.
+class SoriMinHeightScroll extends StatelessWidget {
+  final Widget child;
+  final double minHeight;
+
+  const SoriMinHeightScroll({
+    super.key,
+    required this.child,
+    required this.minHeight,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, c) {
+        if (!c.maxHeight.isFinite || c.maxHeight >= minHeight) return child;
+        return SingleChildScrollView(
+          child: SizedBox(height: minHeight, child: child),
+        );
+      },
+    );
+  }
 }
 
 /// 비스크롤 콘텐츠(Column/Expanded/Stack)를 [maxWidth]로 가운데 클램프한다.
