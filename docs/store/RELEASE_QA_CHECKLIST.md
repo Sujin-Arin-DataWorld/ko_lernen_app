@@ -19,7 +19,9 @@ CI(`.github/workflows/ci.yml`)가 push/PR마다 강제한다. **아래가 빨간
 | 정적 분석 | `flutter analyze` error 0 | CI |
 | 창 크기 분류 | 경계값·내비 전환·SoriBreakpoints 대응 | `test/window_class_test.dart` |
 | 분류 통일 | 플랫폼 분기 금지·숫자 리터럴 폭 비교 래칫 | `test/window_class_guard_test.dart` |
-| 오버플로 | 35화면 × 308–1280dp × 글자 1.3배 | `test/responsive_test.dart` |
+| 오버플로 (폭) | 35화면 × 308–1280dp × 글자 1.3배 | `test/responsive_test.dart` |
+| 오버플로 (낮은 높이) | 35화면 × 360×400·800×360·800×600·1280×500·740×360·640×480 + 800×600×1.3배 | `test/responsive_short_height_test.dart` |
+| 상태 변형 | 코스 모드(문법·스몰토크)·팩 인자 화면 × 6뷰포트 — 인자가 렌더 구조를 바꾸는 변형 | `test/responsive_short_height_test.dart` |
 | 배치 픽셀 | 4화면 × compact/medium/expanded 골든 | `test/goldens/screen_layout_golden_test.dart` |
 | 접근성 | 터치 영역·대비·라벨 (6화면 × 5조건) | `test/accessibility_guideline_test.dart` |
 | 핵심 흐름 | 시작 분기·재시작 진도 유지·손상 데이터·초기화 | `test/e2e/app_flows_e2e_test.dart` |
@@ -33,6 +35,12 @@ CI(`.github/workflows/ci.yml`)가 push/PR마다 강제한다. **아래가 빨간
 > ⚠️ **E2E 파일의 전체 앱 pump 는 6회로 묶여 있다.** 한 파일에서 `KoLernenApp` 을 ~12회 넘게
 > pump 하면 테스트 프로세스가 종료되지 않아 CI 잡이 통째로 타임아웃된다(2026-08-06 실측).
 > 새 E2E 를 더할 때 `test/e2e/app_flows_e2e_test.dart` 상단 주석을 먼저 읽을 것.
+>
+> 단 **원인을 "자원 누수"로 단정하지 말 것.** 반응형 쪽에서 같은 종류의 hang 을 쫓았더니
+> pump 횟수와 무관한 `rootBundle`(`CachingAssetBundle`) 의 Future 캐시 오염이었다 —
+> fake-async 존에서 시작돼 미완료로 남은 에셋 로드를 이후 `tester.runAsync` 가 그대로
+> 받아 영원히 기다린다. `setUp` 의 `rootBundle.clear()` 한 줄로 10분 타임아웃이 16초
+> 완주가 됐다. E2E 상한도 같은 원인인지 확인되지 않았다 — 이슈 #9 참조.
 
 **골든 기준선은 Linux(CI) 정본이다.** 로컬(Windows/macOS)에서 `--update-goldens` 금지 —
 Actions → CI → "Run workflow" → `Regenerate goldens (manual)` 아티팩트를 받아 커밋한다.
@@ -349,22 +357,18 @@ OS 버전:
 | 코스 문법 Quick check 가 **짧은 높이**(800×600)에서 37px 세로 오버플로 | 미결 (main 선행) | 아래 참조 |
 | 반응형 매트릭스에 **짧은 높이 뷰포트가 없다** | 미결 | 아래 참조 |
 
-### 짧은 높이(가로 폰) 뷰포트 — 아직 그물이 없다
+### 짧은 높이(가로 폰) 뷰포트 — ✅ 해결됨 (2026-08-07)
 
-`test/responsive_test.dart` 의 매트릭스는 폭을 308–1280dp 로 넓게 훑지만 **높이는 900/1280/800 뿐**이다.
-가로로 든 폰(예: 800×360)이나 분할 화면처럼 **세로가 짧은** 상태는 어느 자동 테스트도 보지 않는다.
+위에 적혀 있던 "아직 그물이 없다"는 해소됐다. `test/responsive_short_height_test.dart` 가
+낮은 높이 6조건 × 35화면 + 상태 변형(코스 모드·팩 인자) × 6뷰포트를 상설 회귀로 건다.
 
-실제로 `test/course_practice_screen_test.dart` 의 `course grammar hides the target pattern until the
-scored check` 가 flutter_test 기본 뷰포트(800×600)에서 **37px 세로 오버플로**로 실패한다. 이 실패는
-`main` 에서도 동일하게 재현되며 2026-08-06 작업보다 앞선다.
+그때 드러난 오버플로는 화면별 땜질이 아니라 **공유 위젯 4곳**에서 한 번씩 고쳤다 —
+`SoriEmptyState`(일러스트 상한 + 스크롤) · `HanokHeader`(배너가 뷰포트의 22% 를 넘고
+높이 700 미만일 때만 접힘) · `FlipCard`(카드 면이 상자보다 크면 스크롤) ·
+`SoriMinHeightScroll` 신규(고정 헤더 + `Expanded` + 고정 액션 바 구조가 짧은 화면에서
+넘치는 대신 스크롤).
 
-**원인**: `lib/screens/grammar_screen.dart` 의 코스 모드는 헤더 + `Expanded`(카드) + **고정 높이 하단
-액션 블록**(`StudyActionBar` + ghost 버튼 2줄) 구조다. 카드는 `Expanded` 라 0까지 줄지만 헤더와 하단
-블록의 **고정 높이 합이 600dp 를 넘는다.**
-
-**왜 여기서 안 고쳤나**: 고치려면 짧은 화면에서 어떤 컨트롤을 접거나 스크롤로 넘길지 정해야 하는데,
-그건 코스 학습 흐름의 어포던스를 바꾸는 **설계 결정**이고 이 PR(창 분류·데이터 복구·진단)의 범위 밖이다.
-추측으로 손대면 코스 플로우가 조용히 나빠질 수 있다.
-
-**다음 단계**: 짧은 높이(예: 800×360, 640×480)를 `responsive_test` 매트릭스에 추가하고, 그때 드러나는
-화면들을 한 묶음으로 고친다. 매트릭스를 먼저 넓히면 이 종류의 회귀가 자동으로 잡힌다.
+`course_practice_screen_test` 의 800×600 37px 오버플로도 해소됐다 — 다만 그건 main 의
+`if (!canRecordCheckpoint)` 가드(체크포인트에서 SRS 오기록 차단, 데이터 정합성)와
+`SoriMinHeightScroll`(일반 모드 포함 레이아웃) **둘이 각각** 맡는다. 가드만으로는 일반 문법
+모드 360×400 에서 70px 가 남는다(실측).
