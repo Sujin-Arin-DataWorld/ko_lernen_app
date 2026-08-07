@@ -321,6 +321,79 @@ versionCode 11 중복 업로드 거부를 피하려고 pubspec `2.0.5+11`→**`2
 
 **검증.** `flutter analyze` 0 issues · `flutter test responsive_test.dart` 386 통과. 전체 직렬
 `flutter test`(2159)는 이 세션에서 미실행(빌드 게이트로 별도 필요 시 실행).
+### 2026-08-06 — 출시 안정성 7대 과제 (창 분류·골든/접근성·E2E·영상 계약·진단/오류 UI·데이터 복구·QA 체크리스트)
+
+**왜.** Jin 요청 — "화면이 뜨는 앱"에서 "실제 사용자 기기에서 덜 깨지고 오류를 추적할 수 있는 앱"으로.
+20개 항목 중 **우선 7개는 코드+테스트**, 나머지 13개는 실행 가능한 QA 체크리스트로 흡수하기로 합의.
+
+**검증 환경.** 이 컨테이너에 Flutter 가 없어서 CI 핀과 같은 **3.44.0(Linux)** 을 설치하고 돌렸다.
+CI 와 동일 환경이라 **골든 기준선을 여기서 생성**할 수 있었다(기존 문서의 "Windows 로컬 생성 금지"
+제약이 해소되는 경우).
+
+**작업 전 기준선.** `flutter analyze --fatal-infos` 0 issues · 전체 `flutter test --concurrency=1`
+**2,168 passed / 3 failed**. 실패 3건은 전부 `character_clip_matte_test.dart`(stale 클립 리포트)로,
+내 변경을 stash 한 **깨끗한 HEAD 에서도 동일하게 실패**한다 — 이번 작업과 무관한 기존 부채.
+
+**무엇을 — 발견한 실제 결함(전부 수정 전 재현을 먼저 확인했다).**
+
+1. 🔴 **SRS 학습 이력 무음 소실.** `storage_service.dart` `_loadSrs()` 가 파싱 실패를
+   `catch (_) → {}` 로 삼키고 이어지는 `_persistSrs()` 가 그 빈 맵으로 `kl_srs_v1` 을 덮어썼다.
+   실증: 손상 blob + 복습 1회 → 원본이 `{"사과":{"e":2.55,...}}` 로 파괴됨. 이제 전체 손상은
+   `kl_srs_v1_corrupt_v1` 로 격리하고 write 를 잠근다(부분 손상은 유효 항목 보존).
+2. 🔴 **단어팩 진행도 동일 결함** + `setPackProgressJson` 이 **읽기 전에 쓰면** 기존 61팩 진행도를
+   전멸시켰다(`_packCache ?? {}` 로 시작). 같은 격리 정책 + write 전 load 로 고침.
+3. 🔴 **Firebase 실패가 "사용자 취소"로 둔갑.** `linkWithGoogle()` 이 Firebase 미초기화와 사용자
+   취소를 둘 다 `null` 로 반환하고 UI 가 `Cancelled` 로 뭉갰다 = Jin 이 본 "아무 일도 없는 버튼".
+   `AccountLinkUnavailable` 예외 + `AccountUiLinkUnavailable`/`AccountUiLinkFailed(reason)` 로
+   3갈래를 분리하고 DE/EN 문구 6키를 추가했다.
+4. 🔴 **손상된 SRS 덱이 클라우드 백업을 오염**시킬 수 있었다. `cloud_sync.dart` 가
+   `'srs_json': Storage.srsRawJson` 을 무조건 올려서, 기기 한 대의 로컬 손상이 클라우드의 멀쩡한
+   백업을 덮어쓰고 모든 기기로 번질 수 있었다. 격리 중이면 키를 빼도록 고쳤다 —
+   write 가 `SetOptions(merge: true)` 라 서버의 기존 값이 그대로 남아 복구 경로가 산다.
+5. **단어팩 헤더가 800dp 에서 51px 오버플로** — 새 골든이 잡았다. `Spacer`+고정 Text → `Expanded`+ellipsis.
+6. **접근성 위반 3건** — 코치마크 "건너뛰기" 터치 영역 **13dp**(최소 48), 동의 화면 체크박스
+   **32dp + 라벨 없음**(TalkBack 이 무엇에 동의하는지 못 읽음), 동의 문구 대비 **2.89**(AA 4.5).
+   전부 위젯을 고쳤다 — 테스트를 느슨하게 하지 않았다.
+7. `Storage.resetForTesting()` 이 팩 캐시를 안 버려 테스트 격리가 깨져 있었다(회귀에서 실측).
+
+**무엇을 — 신규 구조.**
+
+- `lib/widgets/sori/window_class.dart` — `AppWindowClass`(compact<600/medium<840/expanded) +
+  `windowClassFor` · `appWindowClassOf` · `SoriMaxWidth` 프리셋 · `AppContentFrame`(내부는 기존
+  `SoriCenterClamp` 에 위임 — 클램프 규칙 중복 구현 금지). **기존 `SoriBreakpoints` 픽셀값은 그대로**
+  두고 분류만 위에 얹었다(반응형 386개·골든 6장 회귀 0). `SoriAdaptiveNavigation.usesRailForWidth`
+  만 분류를 쓰도록 옮겼다(600dp 동일 → 동작 불변).
+- `lib/services/data_migration_service.dart` — `kl_schema_version` + 멱등 단계 러너 + journal +
+  백업/롤백 + **다운그레이드 fail-closed**(읽기 허용, 학습 쓰기 잠금). 프로덕션 단계는 **의도적으로
+  0개** — 없는 마이그레이션을 지어내는 게 더 위험하다. 러너는 주입 단계로 전수 테스트했다.
+- `lib/services/diagnostics_service.dart` + `widgets/sori/diagnostics_route_observer.dart` —
+  breadcrumb/custom key. **키를 `DiagnosticKey` enum 으로 봉인**하고 값 길이(64)·개행을 잘라 PII
+  유입을 타입 단계에서 막는다. 동의 off 면 전부 no-op. `main()` 에서 앱 버전/빌드/gitCommit/스키마를
+  기록하고 라우트 이동을 breadcrumb 으로 남긴다.
+- `docs/store/RELEASE_QA_CHECKLIST.md` — 나머지 13개 항목(회전·글자확대·보조기술·다크·현지화·
+  네트워크·권한·플랫폼 관례·영상/오디오·자산/성능·기기 매트릭스·스토어 트랙·버그 템플릿)의 정본.
+  구 `JIN_VERIFY_CHECKLIST.md`·`closed-testing-checklist-v2.md` 에서 이 문서를 가리키게 했다.
+
+**테스트 (신규 파일 8개).** `window_class_test`(36) · `window_class_guard_test`(플랫폼 분기 0 ·
+숫자 리터럴 폭 비교 래칫 1) · `goldens/screen_layout_golden_test`(4화면 × 3분류 = 12장, Linux/3.44.0
+에서 생성) · `accessibility_guideline_test`(6화면 × 터치영역/대비/라벨/1.3배/태블릿 = 30) ·
+`learning_data_recovery_test`(SRS·팩 손상/부분손상/복구) · `data_migration_test`(21) ·
+`diagnostics_service_test`(12) · `account_link_failure_visibility_test`(7) ·
+`video_lease_contract_test`(동시 1개 상한·회수/승계·실패 복구 11) · `e2e/app_flows_e2e_test` ·
+`integration_test/app_flows_test`(실기기 전용, CI 미실행 — `integration_test` dev 의존성 추가).
+
+**CI 자동 트리거 (같은 세션에서 추가 확인).** Claude GitHub App 으로 만든 PR #5 는
+`pull_request` 이벤트로 **CI run 이 생성되지 않았다.** `ci.yml` 트리거는 정상이고
+(`push:[main]`+`pull_request:[main]`+`workflow_dispatch`), Actions 도 정상이며
+(`workflow_dispatch` 는 즉시 큐), 2026-07-31 PR #4(사람 생성)는 자동 CI 가 돌았다 —
+**YAML·권한 문제가 아니라 PR 생성 경로의 차이.** Cloudflare 앱은 같은 이벤트로 체크를 붙여
+"체크가 있다"는 겉모습에 속기 쉽다. 대응은 `AGENTS.md` 의 새 "PR·CI 규칙" 6단계 —
+PR 뒤 `workflow_dispatch` 로 명시 실행하고 run 생성·결과를 확인할 때까지 완료로 보지 않는다.
+
+**남은 것 (Jin).** 실기기 QA 는 자동 테스트가 대체하지 않는다 — 체크리스트 §2 회전/멀티윈도우,
+§4 TalkBack/VoiceOver, §5 다크 충돌, §7 네트워크 9상태, §9 권한 6상태, §15 스토어 트랙.
+미결로 남긴 것: `textDim` 전역 대비 2.89(동의 화면만 수정), `TigerGreetClip`/`TigerStageVideo`
+다크 게이트 부재.
 
 ---
 

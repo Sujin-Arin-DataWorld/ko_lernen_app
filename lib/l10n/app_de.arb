@@ -2172,5 +2172,29 @@
   "gyeDedicationConfirm": "Im Hof zeigen",
   "gyeDedicationUpdateFailed": "Die Ausstellung konnte nicht aktualisiert werden. Versuche es gleich noch einmal.",
   "gyeDedicationConflict": "Die Ausstellung wurde an anderer Stelle geändert. Hier ist der aktuelle Stand.",
-  "gyeDedicationRetry": "Erneut versuchen"
+  "gyeDedicationRetry": "Erneut versuchen",
+  "accountLinkUnavailableTitle": "Verbindung derzeit nicht möglich",
+  "@accountLinkUnavailableTitle": {
+    "description": "Title when account linking cannot start because Firebase is unavailable"
+  },
+  "accountLinkUnavailableBody": "Die Cloud-Dienste sind auf diesem Gerät nicht verfügbar, deshalb konnte die Anmeldung nicht gestartet werden. Dein Lernfortschritt bleibt lokal gespeichert. Prüfe deine Internetverbindung und starte die App neu.",
+  "@accountLinkUnavailableBody": {
+    "description": "Body explaining that cloud services are unavailable and local progress is safe"
+  },
+  "accountLinkOfflineTitle": "Keine Internetverbindung",
+  "@accountLinkOfflineTitle": {
+    "description": "Title when account linking failed because the device is offline"
+  },
+  "accountLinkOfflineBody": "Für das Verbinden eines Kontos wird Internet benötigt. Dein Fortschritt bleibt auf diesem Gerät gespeichert.",
+  "@accountLinkOfflineBody": {
+    "description": "Body explaining that linking needs internet and local progress is safe"
+  },
+  "accountLinkFailedTitle": "Verbinden fehlgeschlagen",
+  "@accountLinkFailedTitle": {
+    "description": "Title when account linking failed for a transient reason"
+  },
+  "accountLinkFailedBody": "Der Vorgang konnte nicht abgeschlossen werden. Bitte versuche es in einem Moment erneut.",
+  "@accountLinkFailedBody": {
+    "description": "Body asking the user to retry the account link in a moment"
+  }
 }

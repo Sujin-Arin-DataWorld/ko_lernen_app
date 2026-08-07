@@ -2089,5 +2089,11 @@
   "gyeDedicationConfirm": "Show in courtyard",
   "gyeDedicationUpdateFailed": "The exhibition could not be updated. Try again.",
   "gyeDedicationConflict": "The exhibition changed elsewhere. The latest view is shown.",
-  "gyeDedicationRetry": "Try again"
+  "gyeDedicationRetry": "Try again",
+  "accountLinkUnavailableTitle": "Connecting is not possible right now",
+  "accountLinkUnavailableBody": "Cloud services are unavailable on this device, so sign-in could not be started. Your learning progress stays saved locally. Check your internet connection and restart the app.",
+  "accountLinkOfflineTitle": "No internet connection",
+  "accountLinkOfflineBody": "Connecting an account needs internet. Your progress stays saved on this device.",
+  "accountLinkFailedTitle": "Connecting failed",
+  "accountLinkFailedBody": "The operation could not be completed. Please try again in a moment."
 }

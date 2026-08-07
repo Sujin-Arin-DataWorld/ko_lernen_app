@@ -258,7 +258,33 @@ Future<void> runConfirmedAccountLink(
       case AccountUiLinkCompleted():
         await onCompleted?.call();
       case AccountUiLinkCancelled():
+        // 사용자가 직접 닫았다 — 이 경우에만 조용히 돌아간다.
         return;
+      case AccountUiLinkUnavailable():
+        // ⚠️ 예전에는 이 경로가 Cancelled 로 뭉개져 **아무 메시지도 없었다**.
+        await _showLinkProblem(
+          context,
+          title: t.accountLinkUnavailableTitle,
+          body: t.accountLinkUnavailableBody,
+        );
+      case AccountUiLinkFailed(:final reason):
+        await _showLinkProblem(
+          context,
+          title: switch (reason) {
+            AccountUiLinkFailureReason.offline => t.accountLinkOfflineTitle,
+            _ => t.accountLinkFailedTitle,
+          },
+          body: switch (reason) {
+            AccountUiLinkFailureReason.offline => t.accountLinkOfflineBody,
+            _ => t.accountLinkFailedBody,
+          },
+          retry: () => runConfirmedAccountLink(
+            context,
+            operations: operations,
+            provider: provider,
+            onCompleted: onCompleted,
+          ),
+        );
       case AccountUiLinkBlocked():
         await _showBlocked(context, operations);
       case AccountUiLinkConflict(:final conflict):
@@ -292,6 +318,47 @@ Future<void> runConfirmedAccountLink(
       ),
     );
   }
+}
+
+/// 연동이 취소가 **아닌** 이유로 끝났을 때 사용자에게 실제 원인을 알린다.
+///
+/// 새 UI 크롬(배지·필)을 만들지 않고 기존 AlertDialog 문법을 그대로 쓴다.
+/// [retry] 가 있으면 재시도 버튼을 붙이고, 없으면(= 구조적으로 불가한 상태)
+/// 확인만 제공한다 — 눌러도 같은 실패가 반복될 버튼을 주지 않는다.
+Future<void> _showLinkProblem(
+  BuildContext context, {
+  required String title,
+  required String body,
+  Future<void> Function()? retry,
+}) {
+  final t = AppL10n.of(context);
+  return showDialog<void>(
+    context: context,
+    builder: (dialogContext) => AlertDialog(
+      title: Text(title),
+      content: Text(body),
+      actions: [
+        if (retry == null)
+          FilledButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(t.btnClose),
+          )
+        else ...[
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(t.btnCancel),
+          ),
+          FilledButton(
+            onPressed: () {
+              Navigator.pop(dialogContext);
+              retry();
+            },
+            child: Text(t.btnRetry),
+          ),
+        ],
+      ],
+    ),
+  );
 }
 
 Future<void> showSafeAccountFailure(

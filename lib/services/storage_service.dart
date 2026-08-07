@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart' show visibleForTesting;
+import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'account/account_transition_journal.dart';
@@ -280,10 +280,25 @@ class Storage {
   @visibleForTesting
   static void resetForTesting() {
     _prefs = null;
-    _srsCache = null;
+    _invalidateSrsCache();
+    // 팩 캐시도 함께 버린다. 안 그러면 앞 테스트가 채운 `_packCache` 가
+    // 다음 테스트의 `setMockInitialValues` 를 덮어써 "새 Storage" 라는 이 함수의
+    // 계약이 깨진다(격리 회귀에서 실제로 잡혔다).
+    _invalidatePackCache();
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _unknownStrictKeys.clear();
+    _courseMasteryCache = null;
+    _learningWritesLockReason = null;
+  }
+
+  /// 이 클래스를 거치지 않고 `SharedPreferences` 가 직접 수정된 뒤 캐시를 버린다.
+  ///
+  /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
+  /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
+  static void resetCachesAfterExternalWrite() {
+    _invalidateSrsCache();
+    _invalidatePackCache();
     _courseMasteryCache = null;
   }
 
@@ -1164,22 +1179,138 @@ class Storage {
   // ───────── SRS (Spaced Repetition, SM-2 vereinfacht) ─────────
   static Map<String, SrsCard>? _srsCache;
 
+  /// 손상된 `kl_srs_v1` 원본을 옮겨 두는 격리 키.
+  ///
+  /// 앱은 이 값을 읽지 않는다. 사용자가 직접 손댈 수 없는 학습 이력이므로,
+  /// 지우는 대신 남겨 두고 [srsQuarantinedRawJson] 으로 진단·복구에 쓴다.
+  static const String srsQuarantinePreferenceKey = 'kl_srs_v1_corrupt_v1';
+
+  /// 이번 실행에서 `kl_srs_v1` 파싱이 실패했는지.
+  ///
+  /// 서 있는 동안 [_persistSrs] 는 원본을 덮어쓰지 않는다.
+  static bool _srsQuarantined = false;
+
+  /// 파싱은 됐지만 개별 항목이 깨져 버려진 개수. 진단용.
+  static int _srsDroppedEntries = 0;
+
+  /// 손상 blob 때문에 SRS 덱을 신뢰할 수 없는 상태인지.
+  static bool get srsIsQuarantined => _srsQuarantined;
+
+  /// 마지막 로드에서 버려진 개별 항목 수 (전체 손상이 아닌 부분 손상).
+  static int get srsDroppedEntryCount => _srsDroppedEntries;
+
+  /// 격리된 손상 원본. 없으면 빈 문자열.
+  static String get srsQuarantinedRawJson => _s(srsQuarantinePreferenceKey);
+
+  /// SRS 덱을 읽는다.
+  ///
+  /// ⚠️ **손상 시 빈 맵으로 덮어쓰지 않는다.** 예전에는 `catch (_) → {}` 로
+  /// 삼킨 뒤 다음 복습 한 번이 그 빈 맵을 `kl_srs_v1` 에 써 버려서, 깨진 blob
+  /// 하나로 학습 이력 전체가 조용히 사라졌다. 이제는:
+  ///
+  /// - **전체 손상**(JSON 자체가 깨짐, 최상위가 Map 이 아님) → 원본을
+  ///   [srsQuarantinePreferenceKey] 로 보존하고 [_srsQuarantined] 를 세운다.
+  ///   그 뒤 [_persistSrs] 는 write 를 건너뛴다(fail-closed).
+  /// - **부분 손상**(일부 항목만 깨짐) → 유효한 항목은 보존하고 깨진 항목만
+  ///   버린다. `roomPlacement` 정규화와 같은 정책이며, 이 경우는 정상 write 를
+  ///   허용해 남은 덱이 계속 갱신되게 한다.
   static Map<String, SrsCard> _loadSrs() {
     if (_srsCache != null) return _srsCache!;
+    _srsDroppedEntries = 0;
     final raw = _s('kl_srs_v1');
-    if (raw.isEmpty) return _srsCache = {};
-    try {
-      final decoded = jsonDecode(raw) as Map<String, dynamic>;
-      _srsCache = decoded.map(
-        (k, v) => MapEntry(k, SrsCard.fromJson(v as Map<String, dynamic>)),
-      );
-      return _srsCache!;
-    } catch (_) {
+    if (raw.isEmpty) {
+      _srsQuarantined = false;
       return _srsCache = {};
+    }
+
+    Object? decoded;
+    try {
+      decoded = jsonDecode(raw);
+    } catch (_) {
+      decoded = null;
+    }
+    if (decoded is! Map<String, dynamic>) {
+      _quarantineSrs(raw);
+      return _srsCache = {};
+    }
+
+    final cards = <String, SrsCard>{};
+    var dropped = 0;
+    decoded.forEach((key, value) {
+      if (value is! Map<String, dynamic>) {
+        dropped++;
+        return;
+      }
+      try {
+        cards[key] = SrsCard.fromJson(value);
+      } catch (_) {
+        dropped++;
+      }
+    });
+
+    // 항목이 하나도 안 살아남았는데 원본에는 내용이 있었다면 전체 손상과 같다.
+    if (cards.isEmpty && decoded.isNotEmpty) {
+      _quarantineSrs(raw);
+      return _srsCache = {};
+    }
+
+    _srsQuarantined = false;
+    _srsDroppedEntries = dropped;
+    if (dropped > 0) {
+      debugPrint('Storage: SRS 항목 $dropped개가 손상돼 제외됐다 (유효 ${cards.length}개)');
+    }
+    return _srsCache = cards;
+  }
+
+  /// 손상 원본을 격리 키로 옮기고 write 를 잠근다.
+  ///
+  /// 격리본이 이미 있으면 덮어쓰지 않는다 — 처음 관측한 손상이 원인 진단에
+  /// 가장 가깝고, 이후 실행이 그걸 밀어내면 안 된다.
+  static void _quarantineSrs(String raw) {
+    _srsQuarantined = true;
+    _srsDroppedEntries = 0;
+    debugPrint('Storage: kl_srs_v1 손상 — 격리 후 쓰기 잠금 (${raw.length} bytes)');
+    if (_s(srsQuarantinePreferenceKey).isEmpty) {
+      // best-effort. 실패해도 잠금(_srsQuarantined)은 유지된다.
+      // ignore: discarded_futures, unawaited_futures
+      _ss(srsQuarantinePreferenceKey, raw);
     }
   }
 
+  /// 캐시와 함께 격리 상태도 버린다.
+  ///
+  /// `kl_srs_v1` 의 **원본이 교체되거나 삭제된 뒤**에만 호출한다(CloudSync 복원,
+  /// 계정 교체, 전체 초기화). 다음 [_loadSrs] 가 새 원본을 처음부터 다시 판정한다.
+  /// 원본을 그대로 둔 채 이걸 부르면 잠금이 풀려 손상본을 덮어쓸 수 있다.
+  static void _invalidateSrsCache() {
+    _srsCache = null;
+    _srsQuarantined = false;
+    _srsDroppedEntries = 0;
+  }
+
+  /// 격리를 해제하고 SRS 덱을 빈 상태로 다시 시작한다.
+  ///
+  /// 사용자가 "복구 불가, 새로 시작"을 **명시적으로** 선택했을 때만 호출한다.
+  /// 격리본은 남겨 둔다.
+  static Future<void> resetQuarantinedSrs() async {
+    _srsQuarantined = false;
+    _srsDroppedEntries = 0;
+    _srsCache = {};
+    await _ss('kl_srs_v1', jsonEncode(const <String, dynamic>{}));
+  }
+
   static Future<void> _persistSrs() async {
+    if (_learningWritesLockReason != null) {
+      debugPrint(
+        'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_srs_v1 쓰기를 건너뛴다',
+      );
+      return;
+    }
+    if (_srsQuarantined) {
+      // 손상된 원본 위에 빈/부분 덱을 쓰면 복구 가능성이 사라진다.
+      debugPrint('Storage: SRS 격리 상태 — kl_srs_v1 쓰기를 건너뛴다');
+      return;
+    }
     final json =
         _srsCache?.map((k, v) => MapEntry(k, v.toJson())) ??
         const <String, dynamic>{};
@@ -1193,7 +1324,7 @@ class Storage {
   /// damit der nächste [_loadSrs] neu parst.
   static Future<void> setSrsRawJson(String json) async {
     await _ss('kl_srs_v1', json);
-    _srsCache = null;
+    _invalidateSrsCache();
   }
 
   static Future<void> setSrsRawJsonStrict(
@@ -1201,7 +1332,7 @@ class Storage {
     PreferenceStringStore? preferences,
   }) async {
     await _ssStrict('kl_srs_v1', json, preferences: preferences);
-    _srsCache = null;
+    _invalidateSrsCache();
   }
 
   static String _isoOf(DateTime d) {
@@ -1673,6 +1804,31 @@ class Storage {
   static const String _packProgressKey = 'kl_pack_progress_v1';
   static Map<String, dynamic>? _packCache;
 
+  /// 손상된 `kl_pack_progress_v1` 원본을 옮겨 두는 격리 키.
+  static const String packProgressQuarantinePreferenceKey =
+      'kl_pack_progress_v1_corrupt_v1';
+
+  /// 이번 실행에서 팩 진행도 파싱이 실패했는지. 서 있는 동안 write 를 막는다.
+  static bool _packQuarantined = false;
+
+  /// 손상 blob 때문에 팩 진행도를 신뢰할 수 없는 상태인지.
+  static bool get packProgressIsQuarantined => _packQuarantined;
+
+  /// 격리된 손상 원본. 없으면 빈 문자열.
+  static String get packProgressQuarantinedRawJson =>
+      _s(packProgressQuarantinePreferenceKey);
+
+  /// 저장된 팩 진행도 원본 JSON. 캐시를 거치지 않으므로 "실제로 디스크에 뭐가
+  /// 있는지"를 봐야 하는 회귀 테스트·진단에서 쓴다.
+  static String get packProgressJsonRaw => _s(_packProgressKey);
+
+  /// 팩 진행도를 읽는다.
+  ///
+  /// ⚠️ [_loadSrs] 와 **같은 무음 소실 버그**가 여기에도 있었다. `catch (_) → {}`
+  /// 로 삼킨 뒤 [setPackProgressJson] 한 번이 그 빈 캐시에 팩 하나만 얹어
+  /// 저장해서, 깨진 blob 하나로 61팩 진행도가 통째로 사라졌다.
+  /// 정책은 SRS 와 동일하다 — 전체 손상은 격리 후 write 잠금, 부분 손상은
+  /// 유효 항목 보존.
   static Map<String, Map<String, dynamic>> _loadPackJson() {
     if (_packCache != null) {
       return _packCache!.map(
@@ -1681,19 +1837,116 @@ class Storage {
     }
     final raw = _s(_packProgressKey);
     if (raw.isEmpty) {
+      _packQuarantined = false;
       _packCache = <String, dynamic>{};
       return const <String, Map<String, dynamic>>{};
     }
+
+    Object? decoded;
     try {
-      final decoded = jsonDecode(raw) as Map<String, dynamic>;
-      _packCache = decoded;
-      return decoded.map(
-        (k, v) => MapEntry(k, (v as Map).cast<String, dynamic>()),
-      );
+      decoded = jsonDecode(raw);
     } catch (_) {
+      decoded = null;
+    }
+    if (decoded is! Map<String, dynamic>) {
+      _quarantinePackProgress(raw);
       _packCache = <String, dynamic>{};
       return const <String, Map<String, dynamic>>{};
     }
+
+    final packs = <String, dynamic>{};
+    var dropped = 0;
+    decoded.forEach((key, value) {
+      if (value is Map) {
+        packs[key] = value;
+      } else {
+        dropped++;
+      }
+    });
+
+    if (packs.isEmpty && decoded.isNotEmpty) {
+      _quarantinePackProgress(raw);
+      _packCache = <String, dynamic>{};
+      return const <String, Map<String, dynamic>>{};
+    }
+
+    if (dropped > 0) {
+      debugPrint('Storage: 팩 진행도 $dropped개가 손상돼 제외됐다 (유효 ${packs.length}개)');
+    }
+    _packQuarantined = false;
+    _packCache = packs;
+    return packs.map((k, v) => MapEntry(k, (v as Map).cast<String, dynamic>()));
+  }
+
+  /// 손상 원본을 격리 키로 옮기고 write 를 잠근다. 격리본이 이미 있으면 유지.
+  static void _quarantinePackProgress(String raw) {
+    _packQuarantined = true;
+    debugPrint(
+      'Storage: $_packProgressKey 손상 — 격리 후 쓰기 잠금 (${raw.length} bytes)',
+    );
+    if (_s(packProgressQuarantinePreferenceKey).isEmpty) {
+      // ignore: discarded_futures, unawaited_futures
+      _ss(packProgressQuarantinePreferenceKey, raw);
+    }
+  }
+
+  /// 팩 진행도 캐시와 격리 상태를 함께 버린다.
+  ///
+  /// `kl_pack_progress_v1` 의 **원본이 교체되거나 삭제된 뒤**에만 호출한다.
+  static void _invalidatePackCache() {
+    _packCache = null;
+    _packQuarantined = false;
+  }
+
+  /// 격리를 해제하고 팩 진행도를 빈 상태로 다시 시작한다.
+  /// 사용자가 명시적으로 "새로 시작"을 택했을 때만. 격리본은 남긴다.
+  static Future<void> resetQuarantinedPackProgress() async {
+    _packQuarantined = false;
+    _packCache = <String, dynamic>{};
+    await _ss(_packProgressKey, jsonEncode(const <String, dynamic>{}));
+  }
+
+  /// 손상 격리 또는 스키마 다운그레이드 잠금 때문에 학습 진행도 write 를
+  /// 건너뛰어야 하는지.
+  static bool _packWritesBlocked() {
+    if (_learningWritesLockReason != null) {
+      debugPrint(
+        'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — '
+        '$_packProgressKey 쓰기를 건너뛴다',
+      );
+      return true;
+    }
+    if (_packQuarantined) {
+      debugPrint('Storage: 팩 진행도 격리 상태 — $_packProgressKey 쓰기를 건너뛴다');
+      return true;
+    }
+    return false;
+  }
+
+  // ───────── 학습 데이터 전역 쓰기 잠금 ─────────
+
+  static String? _learningWritesLockReason;
+
+  /// 학습 데이터 write 가 잠겨 있으면 그 사유, 아니면 null.
+  static String? get learningWritesLockReason => _learningWritesLockReason;
+
+  /// 학습 데이터(SRS 덱·단어팩 진행도) write 를 잠근다.
+  ///
+  /// 쓰임새는 **스키마 다운그레이드**다 — 사용자가 최신 버전을 쓴 뒤 옛 APK 를
+  /// 설치하면, 옛 코드가 자기가 이해하지 못하는 새 포맷 위에 옛 포맷을 써서
+  /// 데이터를 망가뜨릴 수 있다. 그때 읽기는 허용하되 쓰기만 막는다.
+  ///
+  /// ⚠️ **범위**: SRS 덱(`kl_srs_v1`)과 단어팩 진행도(`kl_pack_progress_v1`) 두
+  /// blob 만 막는다. 스트릭·XP 같은 스칼라 키와 클라우드 복원(`*Strict`) 경로는
+  /// 막지 않는다 — 복원은 원본을 통째로 교체하므로 오히려 회복 수단이다.
+  static void lockLearningWrites(String reason) {
+    _learningWritesLockReason = reason;
+    debugPrint('Storage: 학습 데이터 쓰기 잠금 — $reason');
+  }
+
+  /// 잠금을 해제한다. 마이그레이션이 정상 완료됐을 때만.
+  static void unlockLearningWrites() {
+    _learningWritesLockReason = null;
   }
 
   /// JSON-rohdaten eines Packs (null wenn nie gespeichert).
@@ -1713,9 +1966,16 @@ class Storage {
     String packId,
     Map<String, dynamic> json,
   ) async {
+    // ⚠️ 먼저 로드한다. 예전에는 `_packCache ?? {}` 로 시작해서, 캐시가 아직
+    // 비어 있는 콜드 스타트에 이 함수가 먼저 불리면 **저장된 나머지 팩 진행도를
+    // 통째로 덮어썼다**(읽기 전 쓰기 = 전면 손실). 로드는 캐시가 있으면 no-op 다.
+    _loadPackJson();
     final cache = _packCache ?? <String, dynamic>{};
     cache[packId] = json;
     _packCache = cache;
+    if (_packWritesBlocked()) {
+      return;
+    }
     await _ss(_packProgressKey, jsonEncode(cache));
   }
 
@@ -1723,9 +1983,14 @@ class Storage {
   static Future<void> setManyPackProgressJson(
     Map<String, Map<String, dynamic>> entries,
   ) async {
+    // 위와 같은 이유로 먼저 로드한다.
+    _loadPackJson();
     final cache = _packCache ?? <String, dynamic>{};
     cache.addAll(entries);
     _packCache = cache;
+    if (_packWritesBlocked()) {
+      return;
+    }
     await _ss(_packProgressKey, jsonEncode(cache));
   }
 
@@ -1735,6 +2000,8 @@ class Storage {
   }) async {
     final encoded = jsonEncode(entries);
     await _ssStrict(_packProgressKey, encoded, preferences: preferences);
+    // 원본을 통째로 교체하는 복원 경로다 — 손상 격리를 여기서 해제한다.
+    _packQuarantined = false;
     _packCache = {
       for (final entry in entries.entries)
         entry.key: Map<String, dynamic>.from(entry.value),
@@ -1744,7 +2011,7 @@ class Storage {
   /// Test-only: Pack-Cache invalidieren.
   @visibleForTesting
   static void resetPackProgressForTesting() {
-    _packCache = null;
+    _invalidatePackCache();
   }
 
   // ── Phase 5.1 (stately-rising-jongga) ── Custom Packs ───────────────
@@ -2157,8 +2424,8 @@ class Storage {
         await store.remove(k);
       }
     }
-    _srsCache = null;
-    _packCache = null;
+    _invalidateSrsCache();
+    _invalidatePackCache();
   }
 
   /// Account-deletion reset that verifies every app-owned preference removal.
@@ -2235,8 +2502,8 @@ class Storage {
         }
       }
     } finally {
-      _srsCache = null;
-      _packCache = null;
+      _invalidateSrsCache();
+      _invalidatePackCache();
     }
 
     if (failedKeys.isNotEmpty) {

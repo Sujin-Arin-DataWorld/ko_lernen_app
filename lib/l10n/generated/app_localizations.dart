@@ -8124,6 +8124,42 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Erneut versuchen'**
   String get gyeDedicationRetry;
+
+  /// Title when account linking cannot start because Firebase is unavailable
+  ///
+  /// In de, this message translates to:
+  /// **'Verbindung derzeit nicht möglich'**
+  String get accountLinkUnavailableTitle;
+
+  /// Body explaining that cloud services are unavailable and local progress is safe
+  ///
+  /// In de, this message translates to:
+  /// **'Die Cloud-Dienste sind auf diesem Gerät nicht verfügbar, deshalb konnte die Anmeldung nicht gestartet werden. Dein Lernfortschritt bleibt lokal gespeichert. Prüfe deine Internetverbindung und starte die App neu.'**
+  String get accountLinkUnavailableBody;
+
+  /// Title when account linking failed because the device is offline
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Internetverbindung'**
+  String get accountLinkOfflineTitle;
+
+  /// Body explaining that linking needs internet and local progress is safe
+  ///
+  /// In de, this message translates to:
+  /// **'Für das Verbinden eines Kontos wird Internet benötigt. Dein Fortschritt bleibt auf diesem Gerät gespeichert.'**
+  String get accountLinkOfflineBody;
+
+  /// Title when account linking failed for a transient reason
+  ///
+  /// In de, this message translates to:
+  /// **'Verbinden fehlgeschlagen'**
+  String get accountLinkFailedTitle;
+
+  /// Body asking the user to retry the account link in a moment
+  ///
+  /// In de, this message translates to:
+  /// **'Der Vorgang konnte nicht abgeschlossen werden. Bitte versuche es in einem Moment erneut.'**
+  String get accountLinkFailedBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

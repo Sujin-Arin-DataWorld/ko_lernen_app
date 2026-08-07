@@ -95,8 +95,14 @@ class CloudSync {
         // 확정될 때까지 의도적으로 이 스냅샷에 넣지 않는다.
         'owned_decor': Storage.ownedDecor,
       },
-      'srs_json': Storage.srsRawJson,
     };
+    // ⚠️ 손상 격리 중인 SRS 덱은 **업로드하지 않는다.** 올리면 로컬 한 대의
+    // 손상이 클라우드의 멀쩡한 백업을 덮어써서 모든 기기로 번진다.
+    // 이 write 는 `SetOptions(merge: true)` 라 키를 빼면 서버의 기존 값이
+    // 그대로 남는다 = 복구 경로가 살아 있다.
+    if (!Storage.srsIsQuarantined) {
+      payload['srs_json'] = Storage.srsRawJson;
+    }
     final customPacks = _portableStructuredJson(
       Storage.customPacksRawJson,
       stripBookshelfThumbnail: false,

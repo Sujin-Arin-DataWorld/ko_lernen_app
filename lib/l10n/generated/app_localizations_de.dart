@@ -4633,4 +4633,25 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyeDedicationRetry => 'Erneut versuchen';
+
+  @override
+  String get accountLinkUnavailableTitle => 'Verbindung derzeit nicht möglich';
+
+  @override
+  String get accountLinkUnavailableBody =>
+      'Die Cloud-Dienste sind auf diesem Gerät nicht verfügbar, deshalb konnte die Anmeldung nicht gestartet werden. Dein Lernfortschritt bleibt lokal gespeichert. Prüfe deine Internetverbindung und starte die App neu.';
+
+  @override
+  String get accountLinkOfflineTitle => 'Keine Internetverbindung';
+
+  @override
+  String get accountLinkOfflineBody =>
+      'Für das Verbinden eines Kontos wird Internet benötigt. Dein Fortschritt bleibt auf diesem Gerät gespeichert.';
+
+  @override
+  String get accountLinkFailedTitle => 'Verbinden fehlgeschlagen';
+
+  @override
+  String get accountLinkFailedBody =>
+      'Der Vorgang konnte nicht abgeschlossen werden. Bitte versuche es in einem Moment erneut.';
 }
