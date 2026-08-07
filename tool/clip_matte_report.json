@@ -111,15 +111,6 @@
       "reason": ""
     },
     {
-      "path": "tiger_magpie_play.mp4",
-      "bytes": 1146541,
-      "ok": true,
-      "matte": "#FFFFFF",
-      "white_ratio": 1.0,
-      "frames_sampled": 121,
-      "reason": ""
-    },
-    {
       "path": "tiger_rest.mp4",
       "bytes": 859191,
       "ok": true,
