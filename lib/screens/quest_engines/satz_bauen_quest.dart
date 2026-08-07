@@ -7,6 +7,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/mascot_pop.dart';
+import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_models.dart';
 
@@ -353,10 +354,15 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     // 뷰포트 밖(y=676)으로 나갔다. 오버레이는 세로 예산을 0 으로 되돌린다.
     // 스피커 버튼은 아래에서 leading 슬롯으로 옮겨 3ee6ec1 이 고쳤던 겹침이
     // 재발하지 않게 했다(마스코트는 카드 우상단을 쓴다).
+    // 2026-08-07 실측: 800×1280 에서 화면의 **57%** 가 빈 공간이었다(내용이
+    // 위에 몰림). 부모가 높이를 정해 주는 Expanded 안이라 가운데 정렬만으로
+    // 남는 공간이 위아래로 갈린다 — 스크롤을 새로 넣지 않으므로 위 주석의
+    // 800×600 오버플로 회귀 위험도 없다.
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Prompt (Bedeutung) + optionaler TTS-Button.
@@ -543,6 +549,10 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       border = SoriColors.primary;
     }
 
+    // 태블릿에서 단어 타일이 폰과 똑같이 18pt/18×13 고정이라 "게임창이 너무
+    // 작다"가 됐다. 학습 화면 전용 확대 램프를 그대로 쓴다(폰 ≤600dp = 1.0).
+    final scale = soriStudyScale(MediaQuery.sizeOf(context).width);
+
     return Material(
       color: bg,
       borderRadius: BorderRadius.circular(SoriRadius.sm),
@@ -560,12 +570,15 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
             borderRadius: BorderRadius.circular(SoriRadius.sm),
             border: Border.all(color: border, width: 1.5),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 13),
+          padding: EdgeInsets.symmetric(
+            horizontal: 18 * scale,
+            vertical: 13 * scale,
+          ),
           child: Text(
             tile.text,
             style: TextStyle(
               color: s.text,
-              fontSize: 18,
+              fontSize: 18 * scale,
               fontWeight: FontWeight.w600,
             ),
           ),
