@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/course_mastery.dart';
 import '../auth_service.dart';
+import 'account_failure_diagnostics.dart';
 import '../course_mastery_service.dart';
 import '../curriculum_catalog.dart';
 import '../pack_progress_service.dart';
@@ -243,17 +244,33 @@ class ProductionAccountUiOperations
   Future<AccountTransitionResult> confirmReplacement(
     ExistingAccountLinkConflict conflict,
   ) async {
+    // 진단 계측(2026-08-07) — 동작은 바꾸지 않는다. 이 경로는 실패해도
+    // 예외를 던지지 않고 `blocked` 를 **반환**하므로, UI 의 catch 기반
+    // `link.failed` 로는 잡히지 않는다.
+    AccountFailureDiagnostics.log('link.confirm.start', null);
     try {
-      return await AuthService.runDurableAccountAdmission<
+      final result = await AuthService.runDurableAccountAdmission<
         AccountTransitionResult
       >(
         onAdmitted: () async {
           final flow = await _createReplacementFlow();
           return flow.confirm(conflict);
         },
-        onBlocked: () async =>
-            const AccountTransitionResult(AccountTransitionStatus.blocked),
+        onBlocked: () async {
+          // 내구 저널이 이미 잡혀 있어 진입 자체가 거부된 경우.
+          AccountFailureDiagnostics.log('link.confirm.admissionBlocked', null);
+          return const AccountTransitionResult(AccountTransitionStatus.blocked);
+        },
       );
+      AccountFailureDiagnostics.log(
+        'link.confirm.result',
+        null,
+        detail: 'status=${result.status.name}',
+      );
+      return result;
+    } catch (error) {
+      AccountFailureDiagnostics.log('link.confirm.threw', error);
+      rethrow;
     } finally {
       await refreshPendingState();
     }
