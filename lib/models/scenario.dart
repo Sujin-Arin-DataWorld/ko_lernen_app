@@ -379,7 +379,7 @@ class Scenario {
 }
 
 /// Scenario ID -> category scene key (cafe/office/home/directions/station/
-/// taxi/airport/convenience/market/restaurant/hotel). This is the **fallback** backdrop used when a scenario has no
+/// taxi/airport/convenience/market/pharmacy/restaurant/hotel). This is the **fallback** backdrop used when a scenario has no
 /// dedicated per-scenario asset; `SceneAssetResolver` overrides it automatically
 /// when `scenes/{id}.png` / `video/loops/scene_{id}.mp4` are present.
 ///
@@ -394,12 +394,19 @@ class Scenario {
 ///
 /// ⚠️ 카테고리를 새로 추가할 땐 `assets/illustrations/scenes/{key}.png`가
 /// **번들에 실제로 있어야** 한다. 없으면 그 카테고리의 시나리오가 전부 깨진다.
-/// 현재 실재(11): airport · cafe · convenience · directions · home · hotel ·
-/// market · office · restaurant · station · taxi. 전부 단청 회화체 포스터.
+/// 현재 실재(12): airport · cafe · convenience · directions · home · hotel ·
+/// market · office · pharmacy · restaurant · station · taxi. 전부 단청 회화체 포스터.
 ///
 /// 2026-08-04: 포스터 11종이 모두 실재하게 되어 하중을 재분배했다 —
 /// directions 8→2(station 3·taxi 2·airport 1 분리), cafe 10→7(office 3 분리),
 /// market 9→8(convenience 1 분리). clinic 은 아직 없어 market 유지.
+///
+/// 2026-08-07: `scenes/pharmacy.png` 는 번들에 들어가면서도 이 맵에 카테고리가
+/// 없어 **한 번도 렌더된 적이 없는 고아**였다(1.6MB). `pharmacy_headache` 를
+/// 여기로 옮겨 market 8→7. 약국 장면이 시장 배경을 쓰던 것도 함께 고쳐진다.
+/// 대신 `loops/scene_pharmacy.mp4` 는 없어 이 카테고리는 정지 포스터만 나온다 —
+/// 틀린 배경이 움직이는 것보다 맞는 배경이 정지한 편이 낫다는 판단.
+/// clinic 계열(`doctor_consultation`·`clinic_safety`)은 배경이 없어 market 유지.
 extension ScenarioBackdrop on Scenario {
   static const _categoryById = <String, String>{
     // cafe — 카페 · 캐주얼한 만남 (2026-08-04: 10→7, 업무 3건은 office 로)
@@ -437,8 +444,9 @@ extension ScenarioBackdrop on Scenario {
     'airport_arrival': 'airport',
     // convenience (2026-08-04 신설)
     'convenience_store': 'convenience',
-    // market — 상점 · 심부름 · 건강 창구 (2026-08-04: 9→8)
-    'pharmacy_headache': 'market',
+    // pharmacy — 약국 창구 (2026-08-07 신설: 번들에만 있던 포스터를 배선)
+    'pharmacy_headache': 'pharmacy',
+    // market — 상점 · 심부름 · 건강 창구 (2026-08-04: 9→8, 2026-08-07: 8→7)
     'myeongdong_shopping': 'market',
     'mart_grocery': 'market',
     'complaint_delivery': 'market',

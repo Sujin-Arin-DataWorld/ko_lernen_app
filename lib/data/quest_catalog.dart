@@ -1,8 +1,9 @@
 import '../models/quest.dart';
 
-/// Phase 4 (stately-rising-jongga) — 17 특별 퀘스트 카탈로그.
+/// Phase 4 (stately-rising-jongga) — 18 특별 퀘스트 카탈로그.
 ///
-/// 출처: Plan §6.1 (10 상시) + §6.2 (4 계절) + §6.3 (사군자 4 sub).
+/// 출처: Plan §6.1 (10 상시) + §6.2 (4 계절) + §6.3 (사군자 4 sub)
+/// + 2026-08-07 `q_dokkaebi_fire` 1 상시(고아 장식 배선).
 ///
 /// **불변 규칙**:
 ///   - id 는 `q_` prefix + snake_case (Firestore key 안전).
@@ -160,6 +161,24 @@ const List<QuestDefinition> kQuestCatalog = [
     source: QuestSource.streakDays,
     decorationSlug: 'decoration_kkachi_nest',
     layout: (leftFrac: 0.72, bottomFrac: 0.62, widthFrac: 0.12),
+  ),
+
+  // 도깨비불 — 2026-08-07 신설. `QuestSource.workEducationWordsMastered` 는
+  // QuestTracker 가 세고 있으면서도(quest_tracker.dart:77) 카탈로그에 소비처가
+  // 없어 죽어 있던 유일한 소스였다. 어휘는 Beruf 32 + Bildung 22 = 54 개라
+  // 25 는 도달 가능하다.
+  QuestDefinition(
+    id: 'q_dokkaebi_fire',
+    type: QuestType.standing,
+    name: (de: 'Irrlicht (도깨비불)', en: 'Goblin fire (도깨비불)'),
+    description: (
+      de: 'Meistere 25 Wörter aus Beruf & Bildung — ein Irrlicht wacht über die Nachtstunden.',
+      en: 'Master 25 work & education words — a goblin fire keeps watch over late study hours.',
+    ),
+    target: 25,
+    source: QuestSource.workEducationWordsMastered,
+    decorationSlug: 'decoration_dokkaebi_fire',
+    layout: (leftFrac: 0.30, bottomFrac: 0.36, widthFrac: 0.09),
   ),
 
   // ── 사군자 4-Polyptychon (Plum-Orchid-Chrysanthemum-Bamboo) ────────

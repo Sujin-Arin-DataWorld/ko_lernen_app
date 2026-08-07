@@ -54,3 +54,25 @@ APK에 들어간 적조차 없음. 코드 참조도 0. 순수 레포 보관물.
 - `video/character/` 7클립(choose×2·flight·roar·bob·stretch·perched) → 선택 카드/확정 체인·밀스톤·끝말잇기·복습 완료 등에 배선
 - `video/loops/` 7편(scene_*×5·welcome_hero·hanok_construction) → 시나리오 인트로·선택 헤더·온보딩 page1에 배선
 - `hanok_stages/` 12장 → 원래부터 학습경로 헤더가 렌더 중이었음 (조사 §5 오판정 — 문서 정정됨)
+
+---
+
+## 5. 검토 대기 `pending_review/` (3) — 2026-08-07
+
+번들(pubspec 등록 폴더)에 들어가면서 코드 참조가 0 이던 것들. **삭제가 아니라
+격리**다 — 되살릴 근거가 나오면 원경로로 `git mv` 하면 그대로 복구된다.
+`assets_unused/` 는 pubspec 에 없으므로 여기 있는 동안은 AAB 에 안 들어간다.
+
+| 파일 | 원경로 | 용량 | 무엇 / 왜 격리 | 복원 조건 |
+|---|---|---:|---|---|
+| `pending_review/reference_full_estate.png` | `assets/illustrations/personal_hanok_v2/map/` | 3.1MB | 개인 한옥 **완성형 QA 대조용 참조 이미지**. 런타임 렌더 경로가 아니라 사람이 눈으로 비교하는 용도인데 번들 폴더에 있어 기기에 실려 나갔다 | 앱 안에서 "완성 예시 보기" 같은 화면을 실제로 만들 때 |
+| `pending_review/tiger_magpie_play.mp4` | `assets/video/character/` | 1.1MB | 호랑이·까치가 함께 노는 클립. `CharacterClips` 상수(전부 리터럴 문자열)에 없어 어떤 화면도 재생하지 않는다 | 이 클립을 쓸 자리를 정하고 `CharacterClips` 에 상수를 추가할 때 |
+| `pending_review/magpie_right_walking_flying.mp4` | `assets/video/character/` | 2.0MB | **새 양방향 가드가 첫 실행에서 찾아냈다.** 인벤토리는 "홈 인사가 이걸 쓴다"고 적었지만 `5927ae6`(클립 재배선·통합) 이후 `lib/` 참조가 0 이다 — 문서가 낡았던 것 | 홈 인사 연출을 되살릴 때. 같은 역할의 현행 클립을 먼저 확인할 것 |
+
+합계 **6.2MB** 가 AAB 에서 빠진다. AAB 기기별 다운로드가 190MB/200MB 라
+여유가 10MB 뿐이었으므로 무시할 크기가 아니다.
+
+> **이 폴더가 생긴 이유.** `assets/video/character/` 가 오래 단방향 가드였다 —
+> "상수가 가리키는 파일이 실재하는가"만 보고 그 반대(디스크에 있는데 상수에
+> 없는 것)는 안 봤다. 2026-08-07 에 양방향으로 바꾸자마자 위 2 개가 나왔다.
+> 전 폴더 검사는 `test/asset_orphan_guard_test.dart` 가 맡는다.

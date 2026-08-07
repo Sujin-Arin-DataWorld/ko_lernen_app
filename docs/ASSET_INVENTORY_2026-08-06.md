@@ -81,6 +81,24 @@
 
 ## 2. 안 쓰이는데 앱에 들어가는 것 — 번들 O · 사용 X (7개 / 8.6MB)
 
+> **2026-08-07 전량 처리 완료. 아래 표는 처리 전 기준이고, 처분은 다음과 같다.**
+> 확인 과정에서 이 표의 **판정 오류 3건**도 드러났다 — 원인은 grep 범위를
+> `lib/` 로만 잡은 것과, 그 사이 동시 세션이 정리한 것을 반영 못 한 것이다.
+>
+> | 파일 | 처분 | 근거 |
+> |---|---|---|
+> | `scenes/pharmacy.png` | ✅ **배선** (`736348b`) | `pharmacy` 씬 카테고리 신설, `pharmacy_headache` 이동 |
+> | `decorations/dokkaebi_fire.png` | ✅ **배선** (`5e48fa9`) | `decoration_dokkaebi_fire.png` 로 개명 + `q_dokkaebi_fire` 상시 퀘스트 |
+> | `personal_hanok_v2/map/reference_full_estate.png` | 📦 **격리** | `assets_unused/pending_review/` — QA 대조용, 런타임 경로 아님 |
+> | `video/character/tiger_magpie_play.mp4` | 📦 **격리** | `assets_unused/pending_review/` — `CharacterClips` 에 없음 |
+> | `mascot/joy_magpie_full_960_1.mp4` | ⚠️ **판정 오류 — 이미 없음** | 동시 세션 `5927ae6`(클립 에셋 재배선·통합)에서 정리됨 |
+> | `video/character/magpie_walking_forward.mp4` | ⚠️ **판정 오류 — 이미 없음** | 같은 커밋에서 통합. 현재 남은 건 `character_clip.dart:63` 의 설명 주석뿐 |
+> | `data/content_audit_manifest.json` | ⚠️ **판정 오류 — 고아 아님** | "참조 0건" 은 틀렸다. `test/content_audit_manifest_test.dart:20` 이 콘텐츠 수량 기준선으로 읽는 살아있는 가드다. 1KB 이므로 그대로 둔다 |
+>
+> **실제 AAB 절감은 8.6MB 가 아니라 4.2MB** 다(격리 2건). 배선된 2건(2.4MB)은
+> 용량이 줄어드는 게 아니라 이미 내던 값이 제 일을 하게 된 것이고, 나머지
+> 2MB 는 애초에 이 표가 만들어진 뒤 다른 세션이 이미 치웠다.
+
 **여기가 실제 정리 대상이다.** APK/AAB 용량만 먹고 코드가 부르지 않는다.
 
 | 파일 | 용량 | 왜 안 쓰이나 |

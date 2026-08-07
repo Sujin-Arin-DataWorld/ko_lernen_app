@@ -14,8 +14,8 @@ import '../models/scenario.dart';
 ///   • loop:   `assets/video/loops/scene_{id}.mp4`
 ///
 /// When a dedicated asset is absent, the scenario's category backdrop
-/// ([ScenarioBackdrop.backdropKey], one of cafe/directions/market/restaurant/
-/// hotel) is used instead, so every scenario always has *something*.
+/// ([ScenarioBackdrop.backdropKey], one of the 12 category keys listed on that
+/// getter) is used instead, so every scenario always has *something*.
 ///
 /// The manifest must be preloaded once via [load] (done in `main.dart`). If it
 /// never loaded (or failed), the resolver silently degrades to category paths.
@@ -76,8 +76,8 @@ class SceneAssetResolver {
       // 매니페스트를 실제로 읽은 상태에서 번들에 없다고 확인되면 null 을 준다.
       // 없는 파일 경로를 돌려주면 `SoriPosterLoop` 가 매번 디코더를 열었다
       // 실패하고 포스터로 되돌아온다 — 헛수고 + 첫 프레임 깜빡임.
-      // 포스터와 달리 루프는 카테고리 6종(home·office·station·taxi·airport·
-      // convenience)에 아직 파일이 없어서 이 경로가 실제로 밟힌다.
+      // 포스터와 달리 루프는 카테고리 7종(home·office·station·taxi·airport·
+      // convenience·pharmacy)에 아직 파일이 없어서 이 경로가 실제로 밟힌다.
       // 매니페스트가 없거나(초기화 전·테스트) 비면 기존처럼 낙관적으로 반환.
       if (!_loaded || _assets.isEmpty || _assets.contains(category)) {
         return category;
