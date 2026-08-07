@@ -183,5 +183,89 @@ void main() {
       );
       expect(activationCount, 0);
     });
+
+    test('debug builds share one build-time token across Firebase apps', () async {
+      AndroidAppCheckProvider? capturedAndroidProvider;
+      AppleAppCheckProvider? capturedAppleProvider;
+      final initializer = FirebaseAppCheckInitializer.productionWithActivator(
+        isDebug: true,
+        isWeb: false,
+        debugAppCheckToken: '  shared-debug-token  ',
+        activate:
+            ({
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
+            }) async {
+              capturedAndroidProvider = providerAndroid;
+              capturedAppleProvider = providerApple;
+            },
+      );
+
+      await initializer.initialize();
+
+      // The isolated account-transition app activates through this same
+      // factory, so the shared token keeps it on the one secret registered in
+      // the console instead of minting an unregistered secret per app.
+      expect(
+        (capturedAndroidProvider as AndroidDebugProvider).debugToken,
+        'shared-debug-token',
+      );
+      expect(
+        (capturedAppleProvider as AppleDebugProvider).debugToken,
+        'shared-debug-token',
+      );
+    });
+
+    test('debug builds keep the plugin secret when no token is built in', () async {
+      AndroidAppCheckProvider? capturedAndroidProvider;
+      final initializer = FirebaseAppCheckInitializer.productionWithActivator(
+        isDebug: true,
+        isWeb: false,
+        debugAppCheckToken: '',
+        activate:
+            ({
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
+            }) async {
+              capturedAndroidProvider = providerAndroid;
+            },
+      );
+
+      await initializer.initialize();
+
+      expect(
+        (capturedAndroidProvider as AndroidDebugProvider).debugToken,
+        isNull,
+      );
+    });
+
+    test('release builds never carry a debug token', () async {
+      AndroidAppCheckProvider? capturedAndroidProvider;
+      AppleAppCheckProvider? capturedAppleProvider;
+      final initializer = FirebaseAppCheckInitializer.productionWithActivator(
+        isDebug: false,
+        isWeb: false,
+        debugAppCheckToken: 'shared-debug-token',
+        activate:
+            ({
+              providerWeb,
+              required providerAndroid,
+              required providerApple,
+            }) async {
+              capturedAndroidProvider = providerAndroid;
+              capturedAppleProvider = providerApple;
+            },
+      );
+
+      await initializer.initialize();
+
+      expect(capturedAndroidProvider, isA<AndroidPlayIntegrityProvider>());
+      expect(
+        capturedAppleProvider,
+        isA<AppleAppAttestWithDeviceCheckFallbackProvider>(),
+      );
+    });
   });
 }

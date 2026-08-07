@@ -35,12 +35,17 @@ const _variantViewports = <Size>[
   Size(800, 1280), // 세로 태블릿 기준선
 ];
 
-/// 세로가 짧은 뷰포트 4종. 실제로 존재하는 상태만 넣는다.
+/// 세로가 짧은 뷰포트. 실제로 존재하는 상태만 넣는다.
+///
+/// 앞의 4종은 이 브랜치가 넣은 것이고, 뒤의 2종은 PR #6 이 `responsive_test`
+/// 에 넣었던 것을 여기로 합친 것이다 — 짧은 높이 커버리지는 한 파일에 모은다.
 const _shortViewports = <Size>[
   Size(360, 400), // 세로 분할 화면 (좁고 짧음)
   Size(800, 360), // 가로 폰
   Size(800, 600), // 작은 가로 창 / flutter 기본 뷰포트
   Size(1280, 500), // 가로 태블릿 분할
+  Size(740, 360), // 폰 가로모드 (PR #6)
+  Size(640, 480), // 좁고 짧은 분할화면 (PR #6)
 ];
 
 void main() {
@@ -90,6 +95,42 @@ void main() {
           },
         );
       }
+    }
+  });
+
+  // 짧은 뷰포트 × 시스템 글자 1.3배 — 둘이 겹치는 최악 조합.
+  // (PR #6 이 `responsive_test` 에 넣었던 검사를 여기로 옮겼다.)
+  group('낮은 높이 × 글자 1.3배', () {
+    setUp(() async {
+      SharedPreferences.setMockInitialValues({
+        'kl_user_level': 'a1',
+        'kl_streak_days': 3,
+        'kl_xp': 40,
+      });
+      await Storage.init();
+      DataLoader.reset();
+      ScenarioLoader.reset();
+    });
+
+    final screens = responsiveScreens();
+
+    for (final entry in screens.entries) {
+      testWidgets('${entry.key} @ 800x600 ×1.3 글씨 오버플로 없음', (tester) async {
+        tester.view.physicalSize = const Size(800, 600);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(wrapResponsive(entry.value, textScale: 1.3));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        await tester.pump(const Duration(milliseconds: 1200));
+
+        expect(tester.takeException(), isNull);
+
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump();
+      });
     }
   });
 

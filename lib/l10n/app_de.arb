@@ -1566,7 +1566,7 @@
   "navLearn": "Lernen",
   "navPractice": "Üben",
   "navWordbook": "Wörter",
-  "navGye": "Lerngruppe",
+  "navGye": "Gruppe",
   "gyeTabSubtitle": "Zusammen lernen · Gye",
   "gyeExplainWhat": "Eine Lerngruppe (Gye) ist eine kleine Gruppe, die gemeinsam Koreanisch lernt — ohne Wettbewerb.",
   "gyeExplainWhy": "Euer Fortschritt lässt ein gemeinsames Hanok wachsen — zusammen bleibt man dran.",
@@ -1703,6 +1703,10 @@
   "navTourNext": "Weiter",
   "navTourSkip": "Überspringen",
   "navTourDone": "Fertig",
+  "coachHomeMissionTitle": "Hier beginnt deine erste Mission",
+  "coachHomeMissionBody": "Tipp auf diese Karte — Hangul Sori sucht dir jeden Tag die passende Aufgabe heraus.",
+  "coachPracticeHubTitle": "Üben",
+  "coachPracticeHubBody": "Spiele, Wörter & Grammatik zum Wiederholen — hier vertiefst du, was du schon kennst.",
   "coachHomeTab0Title": "Start",
   "coachHomeTab0Body": "Lernpfad & heutige Aufgaben an einem Ort",
   "coachHomeTab1Title": "Üben",
@@ -2029,9 +2033,9 @@
   },
   "homeMadangEyebrow": "Heute im Sarangbang",
   "homeSarangbangCta": "Im Sarangbang lernen",
-  "homeHanokPreviewTitle": "Meine Hanok heute",
-  "homeHanokPreviewBody": "Dein Lernweg macht aus diesem Hof Schritt für Schritt einen Ort zum Leben und Lernen.",
-  "homeHanokPreviewProgress": "{percent} % deiner Hanok sind gebaut",
+  "homeHanokPreviewTitle": "Mein Hanok",
+  "homeHanokPreviewBody": "Dein Lernen lässt deinen Hanok wachsen.",
+  "homeHanokPreviewProgress": "Dein Hanok ist zu {percent} % gebaut",
   "@homeHanokPreviewProgress": {
     "placeholders": {
       "percent": {
@@ -2039,7 +2043,7 @@
       }
     }
   },
-  "homeHanokPreviewCta": "Meine Hanok öffnen",
+  "homeHanokPreviewCta": "Mein Hanok öffnen",
   "@_p1_sarangbang": {
     "description": "ADR-002 P1 — 사랑방 슬롯 배치 화면."
   },

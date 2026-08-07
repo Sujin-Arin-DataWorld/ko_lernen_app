@@ -3128,7 +3128,7 @@ class AppL10nEn extends AppL10n {
   String get navWordbook => 'Words';
 
   @override
-  String get navGye => 'Study group';
+  String get navGye => 'Group';
 
   @override
   String get gyeTabSubtitle => 'Learn together · Gye';
@@ -3397,6 +3397,20 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get navTourDone => 'Done';
+
+  @override
+  String get coachHomeMissionTitle => 'Your first mission starts here';
+
+  @override
+  String get coachHomeMissionBody =>
+      'Tap this card — Hangul Sori picks the right task for you every day.';
+
+  @override
+  String get coachPracticeHubTitle => 'Practice';
+
+  @override
+  String get coachPracticeHubBody =>
+      'Games, words & grammar to review — this is where you deepen what you already know.';
 
   @override
   String get coachHomeTab0Title => 'Home';
@@ -4293,11 +4307,10 @@ class AppL10nEn extends AppL10n {
   String get homeSarangbangCta => 'Study in the Sarangbang';
 
   @override
-  String get homeHanokPreviewTitle => 'My Hanok today';
+  String get homeHanokPreviewTitle => 'My Hanok';
 
   @override
-  String get homeHanokPreviewBody =>
-      'Your learning path slowly turns this courtyard into a place where you can live and learn.';
+  String get homeHanokPreviewBody => 'Your learning makes your Hanok grow.';
 
   @override
   String homeHanokPreviewProgress(int percent) {

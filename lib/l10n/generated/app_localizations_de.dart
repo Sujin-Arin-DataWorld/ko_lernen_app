@@ -3142,7 +3142,7 @@ class AppL10nDe extends AppL10n {
   String get navWordbook => 'Wörter';
 
   @override
-  String get navGye => 'Lerngruppe';
+  String get navGye => 'Gruppe';
 
   @override
   String get gyeTabSubtitle => 'Zusammen lernen · Gye';
@@ -3413,6 +3413,20 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get navTourDone => 'Fertig';
+
+  @override
+  String get coachHomeMissionTitle => 'Hier beginnt deine erste Mission';
+
+  @override
+  String get coachHomeMissionBody =>
+      'Tipp auf diese Karte — Hangul Sori sucht dir jeden Tag die passende Aufgabe heraus.';
+
+  @override
+  String get coachPracticeHubTitle => 'Üben';
+
+  @override
+  String get coachPracticeHubBody =>
+      'Spiele, Wörter & Grammatik zum Wiederholen — hier vertiefst du, was du schon kennst.';
 
   @override
   String get coachHomeTab0Title => 'Start';
@@ -4320,19 +4334,18 @@ class AppL10nDe extends AppL10n {
   String get homeSarangbangCta => 'Im Sarangbang lernen';
 
   @override
-  String get homeHanokPreviewTitle => 'Meine Hanok heute';
+  String get homeHanokPreviewTitle => 'Mein Hanok';
 
   @override
-  String get homeHanokPreviewBody =>
-      'Dein Lernweg macht aus diesem Hof Schritt für Schritt einen Ort zum Leben und Lernen.';
+  String get homeHanokPreviewBody => 'Dein Lernen lässt deinen Hanok wachsen.';
 
   @override
   String homeHanokPreviewProgress(int percent) {
-    return '$percent % deiner Hanok sind gebaut';
+    return 'Dein Hanok ist zu $percent % gebaut';
   }
 
   @override
-  String get homeHanokPreviewCta => 'Meine Hanok öffnen';
+  String get homeHanokPreviewCta => 'Mein Hanok öffnen';
 
   @override
   String get sarangbangTitle => 'Studierstube';

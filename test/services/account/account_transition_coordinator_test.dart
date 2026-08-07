@@ -439,6 +439,60 @@ void main() {
   );
 
   test(
+    'cancel discards an unprepared journal the gateway rejected outright',
+    () async {
+      final harness = _Harness()
+        ..operations.prepareFailures.add(
+          const AccountOperationFailure(
+            AccountOperationFailureCode.appCheckRequired,
+            retryable: false,
+          ),
+        );
+      final quiesced = harness.sessions.transition(CloudWriteMode.quiesced);
+      harness.journal.value = AccountTransitionJournal.fromSession(
+        quiesced,
+        replacementProvider: 'google',
+        replacementTargetUid: 'durable-target',
+        replacementRequestKey: 'request-key-1',
+        replacementPhase: AccountReplacementPhase.targetVerified,
+      );
+
+      // App Check is enforced ahead of the operation handler, so the request
+      // never created server state and the account must not stay locked out.
+      expect(await harness.coordinator.cancel(), isTrue);
+      expect(harness.operations.prepareCalls, 1);
+      expect(harness.operations.cancelCalls, 0);
+      expect(harness.journal.value, isNull);
+      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+    },
+  );
+
+  test('cancel keeps an unprepared journal when prepare is ambiguous', () async {
+    final harness = _Harness()
+      ..operations.prepareFailures.add(
+        const AccountOperationFailure(
+          AccountOperationFailureCode.unavailable,
+          retryable: true,
+        ),
+      );
+    final quiesced = harness.sessions.transition(CloudWriteMode.quiesced);
+    final journal = AccountTransitionJournal.fromSession(
+      quiesced,
+      replacementProvider: 'google',
+      replacementTargetUid: 'durable-target',
+      replacementRequestKey: 'request-key-1',
+      replacementPhase: AccountReplacementPhase.targetVerified,
+    );
+    harness.journal.value = journal;
+
+    // An unavailable response can hide a prepare that committed server-side,
+    // so the journal has to survive for a later resume or cancel.
+    expect(await harness.coordinator.cancel(), isFalse);
+    expect(harness.operations.cancelCalls, 0);
+    expect(harness.journal.value, same(journal));
+  });
+
+  test(
     'source session race after remote cancel preserves the exact journal',
     () async {
       final harness = _Harness()

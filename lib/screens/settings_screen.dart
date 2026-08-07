@@ -27,6 +27,7 @@ import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/app_version_service.dart';
+import '../services/account/account_failure_diagnostics.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
@@ -1436,6 +1437,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       );
       rootNav.pushNamedAndRemoveUntil('/intro', (route) => false);
     } on AccountDeletionFailure catch (failure) {
+      // 원인 리스트는 예외에 실려 오는데 지금까지 **한 번도 기록되지 않았다**.
+      // UI 문구는 그대로 두고 로그에만 남긴다(redaction 은 진단 유틸이 보장).
+      AccountFailureDiagnostics.logAll(
+        'deletion.cleanupFailed',
+        failure.causes,
+        detail: 'identityRecoveryPending=${failure.identityRecoveryPending}',
+      );
       if (!mounted) {
         return;
       }
@@ -1446,7 +1454,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ? _onDeleteAccount
             : _retryLocalAccountCleanup,
       );
-    } catch (_) {
+    } catch (error) {
+      // ⚠️ 예전엔 `catch (_)` 였다. 여기로 오는 대표 케이스가 원격 삭제 거부
+      // (`AccountOperationFailure` — appCheckRequired·authenticationRequired 등)
+      // 인데 오류 객체를 통째로 버려서, 실기기에서 `operation: null` 만 남고
+      // **거부 사유를 끝내 알 수 없었다**(2026-08-06). deletion journal 탈출구는
+      // 바로 이 코드로 "서버 operation 이 존재할 수 없음"을 판정해야 하므로
+      // 보존이 선행 조건이다. 사용자 화면 문구는 종전과 동일하게 안전한 고정
+      // 문구만 쓴다 — raw exception 은 로그에만, 그것도 redact 된 코드만.
+      AccountFailureDiagnostics.log('deletion.failed', error);
       if (!mounted) {
         return;
       }

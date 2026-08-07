@@ -5,6 +5,11 @@
 *.swp
 .DS_Store
 
+# App Check 디버그 시크릿 등 로컬 전용 --dart-define 값.
+# `flutter run --dart-define-from-file=dart_defines.local.json` 로 쓴다.
+# ⚠️ 절대 커밋 금지 — 시크릿을 명령줄에 직접 쓰면 셸 히스토리·로그에 남는다.
+dart_defines.local.json
+
 # Asset compression backup (untracked — for local rollback only)
 assets/illustrations/.backup_uncompressed/
 assets/illustrations/.backup_precompress_*/
