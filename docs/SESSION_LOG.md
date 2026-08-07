@@ -7,6 +7,76 @@
 
 ---
 
+### 2026-08-07 — 에셋 고아 정리 + 가드 3종: 문서가 아니라 테스트가 지키게
+
+**왜.** `docs/ASSET_INVENTORY_2026-08-06.md` §2 가 "번들에 들어가는데 코드가 안
+부르는 것 7개 / 8.6MB" 를 지목했지만, 문서는 다음에 또 낡는다. 에셋 폴더 22 개
+중 디렉터리를 스캔하는 테스트가 3 개뿐이었고 그마저 양방향은 `video/loops`
+하나였다 — 고아 0 인 폴더가 그 하나뿐이었던 건 우연이 아니다.
+
+**무엇을.** 7 건을 하나씩 실물로 확인해 처분하고, 재발 구조를 막았다.
+
+| 커밋 | 내용 |
+|---|---|
+| `736348b` | `pharmacy` 씬 카테고리 신설 — `pharmacy_headache` 를 market → pharmacy |
+| `5e48fa9` | 도깨비불 상시 퀘스트 `q_dokkaebi_fire` — 고아 장식 + 죽은 QuestSource 동시 해소 |
+| `0271796` | 확인된 고아 격리 `assets_unused/pending_review/` + 인벤토리 판정 오류 정정 |
+| `3b65659` | 에셋 고아 가드 3종 |
+
+- **pharmacy.**  `scenes/pharmacy.png`(1.6MB)는 번들에 들어가면서 카테고리 맵에
+  대응 키가 없어 한 번도 렌더된 적이 없었다. 카테고리 11 → 12. 용량이 주는 게
+  아니라 이미 내던 값이 제 일을 하게 된 것이고, 약국 장면이 시장 배경을 쓰던
+  것도 함께 고쳐졌다. `loops/scene_pharmacy.mp4` 가 없어 정지 포스터만 나온다 —
+  **틀린 배경이 움직이는 것보다 맞는 배경이 정지한 편이 낫다**는 판단.
+  clinic 계열은 배경이 없어 market 유지, 딸려 옮기지 않도록 테스트로 고정.
+- **도깨비불.**  같은 자리에 고아가 둘이었다. PNG 는 온보딩 뱃지였다가
+  크리스탈 호랑이 전환(`1a7dd39`/`2514a84`)으로 참조가 지워졌고,
+  `QuestSource.workEducationWordsMastered` 는 `QuestTracker` 가 매번 계산하면서도
+  (quest_tracker.dart:77) 소비처가 없어 결과가 통째로 버려지고 있었다 — 15 종 중
+  유일했다. **둘을 서로의 짝으로 묶었다.** 목표 25 는 Beruf 32 + Bildung 22 = 54
+  이라 도달 가능하다. 파일명도 `decoration_dokkaebi_fire.png` 로 규약에 맞췄다.
+
+**판정 오류 3 건이 드러났다.** 원인은 grep 범위를 `lib/` 로만 잡은 것과, 표를
+쓴 뒤 동시 세션이 치운 것을 반영 못 한 것이다.
+
+- `joy_magpie_full_960_1.mp4`·`magpie_walking_forward.mp4` → 이미 없다(`5927ae6`).
+- `content_audit_manifest.json` → **고아가 아니다.** "참조 0건" 은 틀렸고
+  `test/content_audit_manifest_test.dart:20` 이 읽는 살아있는 가드다.
+
+**가드가 문서보다 정확했다.**  `video/character` 를 양방향으로 바꾼 **첫 실행에서
+문서에 없던 고아 `magpie_right_walking_flying.mp4` 1.98MB** 가 나왔다. 인벤토리는
+"홈 인사가 이걸 쓴다" 며 목록에서 빼뒀지만 `5927ae6` 이후 참조가 0 이었다.
+최종 격리 3 건 / **AAB 6.2MB 절감**(문서가 적은 8.6MB 가 아니다).
+
+**가드 3종.**
+1. `character_clip_matte_test.dart` — `CharacterClips` ↔ 디스크 **양방향**.
+   기존엔 참조→디스크만 봤다.
+2. `decoration_slot_test.dart` — `.startsWith('decoration_')` 필터 제거.
+   **검사 대상을 이름 규약으로 좁히면 규약을 안 지킨 파일이 정확히 안 걸린다.**
+3. `test/asset_orphan_guard_test.dart` 신설 — pubspec `assets:` 를 읽어 나머지
+   19 폴더를 전수 검사. 면제는 둘뿐이고 값을 치른다: `dynamicDirs` 는 **조립
+   근거 문자열이 lib/ 에 살아 있는지 별도 테스트가 검사**하고, `testOnlyAssets`
+   는 사유를 값으로 적게 강제한다. 0 개를 훑고 통과하는 사고 방지용 자체 점검도 넣었다.
+
+**검증.**
+
+- `flutter analyze --no-fatal-warnings --no-fatal-infos lib/ test/` → **0 issues**
+- 가드·관련 테스트 **47 통과**, 병합(`e512ab7`, PR #5) **후 재실행에서도 47 통과**
+- **역회귀.** 가드 1 은 격리 전 두 클립으로 실제 실패했고, 가드 2 는 필터 제거
+  전 `dokkaebi_fire` 를 못 잡았다. 통과가 공짜로 나온 게 아니다.
+- 격리 중 `report covers exactly every bundled character clip` 가드가 즉시 걸려
+  지시대로 `python tool/check_clip_matte.py` 로 리포트를 재생성했다.
+
+**범위 밖(별건으로 넘김).** 퀘스트 목표가 어휘 수를 넘어 **도달 불가**인 건이
+있다 — `q_jangdokdae` 는 음식 단어 50 을 요구하는데 해당 토픽이 31 개뿐이라
+`decoration_jangdokdae` 가 영원히 안 뜬다(`q_pond` 는 23 중 20 으로 빠듯).
+target ↔ 어휘 수 가드가 필요하다.
+
+**범위 밖(안 건드림).** 작업 내내 동시 세션이 `character_clip.dart` 를 수정 중이라
+그 파일은 손대지 않았다.
+
+---
+
 ### 2026-08-07 — expanded 홈 2-column: 태블릿을 "가운데 세운 폰"에서 벗어나게
 
 **왜.** 실측이 먼저였다. 홈을 6개 뷰포트 × 글자배율 2종에서 렌더해 재 봤더니:
