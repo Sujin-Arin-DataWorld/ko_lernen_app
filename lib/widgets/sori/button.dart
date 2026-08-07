@@ -21,6 +21,10 @@ class SoriButton extends StatelessWidget {
   final int maxLines;
   final String label;
   final IconData? icon;
+
+  /// 라벨 **뒤**에 붙는 아이콘. 방향성이 있는 액션("Weiter →")에서 다음 단계로
+  /// 간다는 의미를 아이콘으로 한 번 더 준다. [icon]과 동시 사용 가능.
+  final IconData? trailingIcon;
   final VoidCallback? onTap;
   final SoriButtonVariant variant;
   final SoriButtonSize size;
@@ -32,6 +36,7 @@ class SoriButton extends StatelessWidget {
     super.key,
     required this.label,
     this.icon,
+    this.trailingIcon,
     this.onTap,
     this.variant = SoriButtonVariant.filled,
     this.size = SoriButtonSize.lg,
@@ -45,6 +50,7 @@ class SoriButton extends StatelessWidget {
     super.key,
     required this.label,
     this.icon,
+    this.trailingIcon,
     this.onTap,
     this.size = SoriButtonSize.lg,
     this.accent,
@@ -58,6 +64,7 @@ class SoriButton extends StatelessWidget {
     super.key,
     required this.label,
     this.icon,
+    this.trailingIcon,
     this.onTap,
     this.size = SoriButtonSize.md,
     this.accent,
@@ -71,6 +78,7 @@ class SoriButton extends StatelessWidget {
     super.key,
     required this.label,
     this.icon,
+    this.trailingIcon,
     this.onTap,
     this.size = SoriButtonSize.md,
     this.accent,
@@ -179,6 +187,14 @@ class SoriButton extends StatelessWidget {
             ),
           ),
         ),
+        if (trailingIcon != null) ...[
+          SizedBox(width: Spacing.sm * comfortScale),
+          Icon(
+            trailingIcon,
+            size: visualFontSize + 3 * comfortScale,
+            color: fg,
+          ),
+        ],
       ],
     );
 

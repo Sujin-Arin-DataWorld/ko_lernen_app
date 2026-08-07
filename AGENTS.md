@@ -219,6 +219,20 @@ flutter run -d <android-id>   # 안드로이드
 > - ⏳ Jin 운영: 함수 배포(gcloud gen2) · AAB 빌드 · Play Console 업로드 · 실기기 검증
 > - 🟡 후속: hanok_stages dark 12장 · 영어 학습 콘텐츠 · 수익화 · 허브 폴리시(진행도 헤더) · 탭 재선택 pop-to-root
 
+### 첫 화면 UX·온보딩 오버레이 + 짧은 뷰포트 반응형 (2026-08-06)
+
+- [x] **코치마크를 타겟 옆 작은 contextual tooltip 으로** 재작성했다. 옛 `Positioned(left/right: 16)` 은 tight constraint 로 `maxWidth: 320` 을 무력화해(`BoxConstraints.enforce`) 태블릿에서 700dp 흰 판이 되고 가로모드에서는 화면 밖으로 나갔다. `_CoachTooltipLayout`(SingleChildLayoutDelegate)이 자식의 측정 크기를 보고 옆/아래/위를 고르고 safe-area 로 클램프한다. 폭 상한 340dp, 내부 스크롤, `1 / 5` 카운터, `Überspringen` 대비 7.0:1, `Weiter →`.
+- [x] **레일 라벨 `Lerngrupp / e` 해소.** 라벨을 한 줄 고정 + `FittedBox(scaleDown)` 로 바꿔 줄바꿈 대신 축소하고, `navGye` 를 `Gruppe`/`Group` 으로 줄였다 (`Start · Üben · Gruppe · Profil`).
+- [x] **짧은 뷰포트 규칙 신설.** `SoriBreakpoints.shortViewport`(640) 미만 높이에서 `HanokHeader` 10:3 배너가 스스로 접힌다 — CI 800×600 `grammar_screen` 37px 오버플로의 실제 원인이었고 17개 화면이 함께 고쳐진다. `SoriEmptyState` 도 일러스트를 가용 높이 38% 로 제한 + 스크롤 폴백.
+- [x] **온보딩을 progressive 로.** 첫 실행 5단계 강제 투어 → 오늘의 미션 카드 1단계. 나머지는 각 탭 첫 진입에서 `ScreenCoachMixin` 이 설명한다(계 탭·프로필은 이미 있었고 = 투어와 중복, 연습 허브에 `practice_hub` 신설).
+- [x] **홈 위계.** 한옥 지도 폭 상한 440dp(폰 시각 변화 0, 태블릿 높이 −1/4) + 진행률 % 를 바 옆으로 승격, 히어로 밴드 태블릿 상한 216→184, 카피 단축 및 `Meine Hanok` → `Mein Hanok` 문법 교정.
+- [x] 검증: `flutter analyze` 0 issues · 전체 `flutter test` **2,337 통과 / 2 실패**. 잔여 2건은 baseline(2,168/3)에서도 같이 실패하는 `character_clip_matte_test` 드리프트다(`5927ae6` 이후 리포트 미재생성) — 내 범위 밖. 새 회귀는 옛 코드에 돌려 **실패하는 것까지 확인**했다(코치마크 12건 · 레일 4건).
+- [x] **expanded 홈 2-column (2026-08-07).** 콘텐츠 폭이 744dp 이상일 때 [히어로 | 미션] · [한옥 지도 | 진행률] · 보조 카드 2열로 간다. 판정 기준은 **화면 폭이 아니라 `LayoutBuilder` 가 준 실제 콘텐츠 폭** — 홈은 NavigationRail 오른쪽에 있어 둘이 다르다(800dp 화면은 레일이 붙으면 1열로 남는다). 640dp 로 고정돼 있던 clamp 상한도 2열 경로에서만 984dp 로 푼다. 1280×800 실측: 스크롤 1542→1102(−29%), 미사용 폭 672dp(52.5%)→328dp(25.6%), 한옥 559→424. 폰은 스크롤 길이까지 **완전히 동일**(1526/1621).
+- [x] **코치마크 접근성 결함 2건.** 새 a11y 게이트가 잡았다 — `Überspringen` 탭 영역이 152×**13dp**(`EdgeInsets.zero`+`Size.zero`+`shrinkWrap` 부작용), 단계 카운터 `1 / 3` 대비 4.11:1(AA 4.5 미달). 각각 높이 48dp 보장(가로 padding 은 0 유지 → 짧은 가로모드 방어 그대로)과 `#4A6560`(7.0:1)으로 수정.
+- [ ] **미착수(P3)**: 캐릭터 idle 애니메이션 폴리시, 미세 spacing/타이포. 공용 `responsive_test.dart` 에 `360×400`·`800×360`·`1280×500` 추가는 **PR #8 정리 후**(같은 파일 충돌 회피 — Jin 지시).
+- [ ] Jin 실기기: 갤탭·샤오미패드 세로/가로에서 코치마크가 `Üben` **옆에** 붙는지 · 폰 가로모드에서 카드 안 잘리는지 · 레일 `Gruppe` 한 줄(글자 1.0/1.3) · 첫 설치에서 투어 1단계 후 `Üben` 첫 진입 코치 1회 · 홈 한옥 카드 높이 체감(폰은 무변화여야 함).
+- [x] 별도 정리 완료(2026-08-07, PR #7 로 분리): `tool/check_clip_matte.py` 를 ffmpeg 로 실제 돌려 리포트 재생성. 번들 20개 **전부 통과** — `magpie_choose.mp4` 는 교체된 새 파일도 `#FFFFFF`/흰 100%/169프레임이라 에셋 문제가 아니라 인증서 drift 였다.
+
 ### 캐릭터 영상·오버레이 결함 12건 수정 (2026-08-06)
 
 - [x] 전수 검사 6건 + 완성도 크리틱 6건을 모두 고쳤다. 규칙 3가지가 코드에 고정됐다: ① **불투명 매트 사각형은 자기가 놓인 도형 안에 들어가야 한다**(path_trail 클립 62→내접 48.1) ② **`blendColor` 는 실제로 뒤에 칠해진 색에서 파생**한다(Scaffold 위=`scaffoldBackgroundColor`, HanjiTexture 위=`SoriColors.lightBg` 상수. `s.bg` 는 팔레트 변종을 못 봐 항상 오답) ③ **never-cage 는 clip 뿐 아니라 테두리/프레임도 금지**(scenario_player 롤플레이 카드 border 제거).
