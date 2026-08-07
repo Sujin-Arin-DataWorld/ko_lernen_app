@@ -609,36 +609,55 @@ class _GrammarScreenState extends State<GrammarScreen>
                               ),
                             ),
                           ),
-                          const SizedBox(height: 8),
                           // SRS 마킹 (이 카드 난이도) — 네비게이션과 별개.
-                          Row(
-                            children: [
-                              Expanded(
-                                child: SoriButton.outlined(
-                                  label: t.grammarEasy,
-                                  icon: Icons.thumb_up_alt_outlined,
-                                  onTap: () async {
-                                    setState(() => _sessionSeen.add(g.pattern));
-                                    await Storage.markGrammarEasy(g.pattern);
-                                    _next();
-                                  },
+                          //
+                          // ⚠️ 코스 체크포인트에서는 **숨긴다**. 두 가지 이유:
+                          // ① 의미 — 체크포인트 앞면([_CourseCheckpointFront])은
+                          //    채점 전까지 `g.pattern` 을 **일부러 가린다**.
+                          //    아직 보지도 않은 패턴에 "쉬움/어려움"을 매기면
+                          //    `Storage.markGrammarEasy/Hard` 가 엉뚱한 SRS
+                          //    스케줄을 기록한다.
+                          // ② 레이아웃 — 이 Row 는 줄어들지 못하는데 카드는
+                          //    `Expanded` 라 0 까지 눌린다. 코스 경로는 primary
+                          //    라벨이 `courseCheckpointCheck`("Quick check")로
+                          //    길어져 StudyActionBar 가 한 줄 더 높아지고, 짧은
+                          //    뷰포트(800×600)에서 이 Column 이 37px 넘쳤다
+                          //    (`course_practice_screen_test.dart` CI red).
+                          if (!canRecordCheckpoint) ...[
+                            const SizedBox(height: 8),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: SoriButton.outlined(
+                                    label: t.grammarEasy,
+                                    icon: Icons.thumb_up_alt_outlined,
+                                    onTap: () async {
+                                      setState(
+                                        () => _sessionSeen.add(g.pattern),
+                                      );
+                                      await Storage.markGrammarEasy(g.pattern);
+                                      _next();
+                                    },
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: SoriButton.outlined(
-                                  label: t.grammarHard,
-                                  icon: Icons.psychology_outlined,
-                                  destructive: true,
-                                  onTap: () async {
-                                    setState(() => _sessionSeen.add(g.pattern));
-                                    await Storage.markGrammarHard(g.pattern);
-                                    _next();
-                                  },
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: SoriButton.outlined(
+                                    label: t.grammarHard,
+                                    icon: Icons.psychology_outlined,
+                                    destructive: true,
+                                    onTap: () async {
+                                      setState(
+                                        () => _sessionSeen.add(g.pattern),
+                                      );
+                                      await Storage.markGrammarHard(g.pattern);
+                                      _next();
+                                    },
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
+                          ],
                         ],
                       ),
                     ),
