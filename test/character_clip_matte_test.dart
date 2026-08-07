@@ -65,7 +65,7 @@ void main() {
         reason: 'Non-white mattes remain visible through BlendMode.multiply.');
   });
 
-  test('CharacterClips references only bundled character clips', () {
+  test('CharacterClips ↔ 번들 클립이 양방향으로 일치한다', () {
     final source =
         File('lib/widgets/sori/character_clip.dart').readAsStringSync();
     final references = RegExp(r"\$_base/([a-zA-Z0-9_.-]+\.mp4)")
@@ -74,7 +74,24 @@ void main() {
         .toSet();
     expect(references, isNotEmpty);
     final onDisk = clips().map((file) => file.uri.pathSegments.last).toSet();
-    expect(references.difference(onDisk), isEmpty);
+
+    // 참조 → 디스크: 상수가 없는 파일을 가리키면 재생이 통째로 실패한다.
+    expect(
+      references.difference(onDisk),
+      isEmpty,
+      reason: 'CharacterClips 가 번들에 없는 파일을 가리킵니다',
+    );
+
+    // 디스크 → 참조 (2026-08-07 신설). 이 방향이 없어서 `tiger_magpie_play.mp4`
+    // 1.1MB 가 아무 화면도 재생하지 않은 채 AAB 에 실려 나갔다. `video/loops` 가
+    // 유일하게 고아 0 인 것은 우연이 아니라 아래 루프 테스트가 처음부터 양방향
+    // 이었기 때문이다 — 같은 형태로 맞춘다.
+    expect(
+      onDisk.difference(references),
+      isEmpty,
+      reason: '이 클립들은 번들에 들어가는데 CharacterClips 가 안 부릅니다 — '
+          '상수를 추가하거나 assets_unused/pending_review/ 로 격리하세요',
+    );
   });
 
   test('HanokHeader loop manifest matches bundled loop clips', () {

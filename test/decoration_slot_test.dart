@@ -139,8 +139,11 @@ void main() {
           .whereType<File>()
           .map((f) => f.uri.pathSegments.last)
           .where((n) => n.endsWith('.png'))
+          // 2026-08-07: `.where((n) => n.startsWith('decoration_'))` 필터를
+          // 제거했다. 이 필터 때문에 `dokkaebi_fire.png` 786KB 가 화이트리스트
+          // 밖에 있으면서도 이 가드를 그냥 통과했다 — 검사 대상을 이름 규약으로
+          // 좁히면 규약을 안 지킨 파일이 정확히 안 걸린다.
           .map((n) => n.substring(0, n.length - 4))
-          .where((n) => n.startsWith('decoration_'))
           .toSet();
 
       expect(

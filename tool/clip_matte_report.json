@@ -57,15 +57,6 @@
       "reason": ""
     },
     {
-      "path": "magpie_right_walking_flying.mp4",
-      "bytes": 2030125,
-      "ok": true,
-      "matte": "#000508",
-      "white_ratio": 0.974,
-      "frames_sampled": 217,
-      "reason": ""
-    },
-    {
       "path": "magpie_walking_front.mp4",
       "bytes": 740708,
       "ok": true,
