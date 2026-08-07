@@ -7,6 +7,39 @@
 
 ---
 
+### 2026-08-07 — CI red 해소: 코스 문법 체크포인트 37px 오버플로 (`794a9b8` 후속)
+
+**CI 결과 먼저.** `794a9b8` push → run `31180490137` **failure, 2176 통과 / 1 실패**.
+- **골든 3건은 CI 에서 통과했다.** `golden-failures` 아티팩트가 "No files were found"
+  로 비었다 = 픽셀 차이 0. 예상대로 기준선이 CI(Linux/3.44.0) 정본이라 Windows
+  로컬에서만 폰트 래스터화로 어긋난 것이었다(SESSION_LOG:254 와 동일 결론).
+- **매트 2건도 통과** — `clip_matte_report.json` 재생성이 실제로 red 를 걷어냈다.
+- 남은 **유일한 실패 = `course_practice_screen_test.dart`
+  "course grammar hides the target pattern until the scored check"**,
+  `A RenderFlex overflowed by 37 pixels on the bottom`. 사전 존재 버그(`cb66d4f`
+  유래)이고 `794a9b8` 과 무관하다.
+
+**원인 특정.** `takeException()` 이 요약만 남기고 진단을 삼켜서 임시 프로브
+(`FlutterError.onError` 캡처 후 `toDiagnosticsNode().toStringDeep()`)로 잡았다 —
+`grammar_screen.dart:585` 의 `Column`. 구조가
+`Expanded → SoriEntrance → Column[ Expanded(카드), SizedBox(8), Row(Leicht/Schwer) ]`
+인데 카드는 `Expanded` 라 0 까지 눌리는 반면 **SRS Row 는 줄어들지 못한다**.
+코스 경로는 primary 라벨이 `btnNext`("Next") 대신 `courseCheckpointCheck`
+("Quick check")라 `StudyActionBar` 가 한 줄 더 높아져 800×600 에서 37px 넘쳤다.
+프로브는 확인 후 삭제.
+
+**수정 (Jin 승인 — "니 추천대로"):** 코스 체크포인트에서 SRS Row 를 **숨긴다**
+(`if (!canRecordCheckpoint) ...[]`). 레이아웃뿐 아니라 **의미상으로도 맞다** —
+체크포인트 앞면(`_CourseCheckpointFront`)은 채점 전까지 `g.pattern` 을 일부러
+가리는데, 보지도 않은 패턴에 쉬움/어려움을 매기면 `Storage.markGrammarEasy/Hard`
+가 엉뚱한 SRS 스케줄을 기록한다. 비코스 경로는 위젯 트리 **무변경**.
+
+**검증:** `flutter analyze lib/screens/grammar_screen.dart` **No issues** ·
+`GrammarScreen` 소비자 5개 테스트 파일(course_practice·responsive·screen_smoke·
+circular_feedback·visual_layout_regression) **429 통과**.
+
+---
+
 ### 2026-08-07 — 홈 히어로: mp4 앞에 PNG 플립북이 먼저 재생되던 폴백 워치독 수리 — 미커밋
 
 **범위:** Jin 실기기(샤오미 패드 6 / `23043RP34G`, Android 14, 라이트, font_scale 1.0) —
