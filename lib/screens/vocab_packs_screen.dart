@@ -295,11 +295,18 @@ class _LevelProgressHeader extends StatelessWidget {
             children: [
               Text(level, style: SoriTextTheme.of(context).h2),
               const SizedBox(width: Spacing.sm),
-              Text(
-                t.vocabPacksProgressLabel(cleared, total),
-                style: SoriTextTheme.of(context).bodySmall,
+              // ⚠️ 예전에는 이 Text 가 고정 크기 + `Spacer` 였다. 독일어 진행도
+              // 문구와 태블릿 comfort scale 이 겹치면 Row 가 통째로 넘쳐
+              // (800dp 에서 51px) 노란 줄무늬가 떴다. Expanded 로 남는 폭을
+              // 주고 넘칠 때는 잘라 낸다 — 오른쪽 단계 라벨 위치는 그대로다.
+              Expanded(
+                child: Text(
+                  t.vocabPacksProgressLabel(cleared, total),
+                  style: SoriTextTheme.of(context).bodySmall,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-              const Spacer(),
+              const SizedBox(width: Spacing.sm),
               _StageLabel(level: level, pct: pct),
             ],
           ),

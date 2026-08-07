@@ -1,6 +1,8 @@
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuthException;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show PlatformException;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/course_mastery.dart';
@@ -37,6 +39,33 @@ class AccountUiLinkConflict extends AccountUiLinkResult {
   const AccountUiLinkConflict(this.conflict);
 
   final ExistingAccountLinkConflict conflict;
+}
+
+/// 연동을 시도조차 할 수 없었다 — Firebase 가 없거나 초기화되지 않았다.
+///
+/// [AccountUiLinkCancelled] 와 반드시 구분해야 한다. 예전에는 둘 다 `null` 에서
+/// 나와 취소로 뭉개졌고, 그래서 사용자는 "눌러도 아무 일이 없는 버튼"을 봤다.
+class AccountUiLinkUnavailable extends AccountUiLinkResult {
+  const AccountUiLinkUnavailable();
+}
+
+/// 연동이 실제로 실패했다 — 네트워크 끊김, 서버 오류, 권한 거부 등.
+class AccountUiLinkFailed extends AccountUiLinkResult {
+  const AccountUiLinkFailed(this.reason);
+
+  final AccountUiLinkFailureReason reason;
+}
+
+/// 사용자에게 **다른 안내**를 해야 하는 실패 갈래.
+enum AccountUiLinkFailureReason {
+  /// 인터넷 없음 / 요청 중 끊김.
+  offline,
+
+  /// 서버 일시 오류, timeout, App Check 실패 등 재시도로 풀릴 수 있는 것.
+  serverError,
+
+  /// 분류할 수 없는 나머지.
+  unknown,
 }
 
 enum AccountUiPendingState {
@@ -214,6 +243,8 @@ class ProductionAccountUiOperations
         AccountLinkProvider.google => await AuthService.linkWithGoogle(),
         AccountLinkProvider.apple => await AuthService.linkWithApple(),
       };
+      // 여기 도달한 null 은 **사용자가 계정 선택 시트를 닫은 것**뿐이다.
+      // 시스템 불가는 AccountLinkUnavailable 로, 나머지 실패는 아래 catch 로 온다.
       return user == null
           ? const AccountUiLinkCancelled()
           : const AccountUiLinkCompleted();
@@ -221,6 +252,12 @@ class ProductionAccountUiOperations
       return AccountUiLinkConflict(conflict);
     } on DurableAccountTransitionNotSupported {
       return const AccountUiLinkBlocked();
+    } on AccountLinkUnavailable {
+      return const AccountUiLinkUnavailable();
+    } on FirebaseAuthException catch (error) {
+      return AccountUiLinkFailed(_classifyAuthFailure(error.code));
+    } on PlatformException catch (error) {
+      return AccountUiLinkFailed(_classifyAuthFailure(error.code));
     }
   }
 
@@ -412,4 +449,26 @@ class _CoordinatorAccountUiReplacementFlow implements AccountUiReplacementFlow {
   @override
   Future<AccountTransitionResult> resume() =>
       _bundle.coordinator.resume(catalog: _bundle.catalog);
+}
+
+/// 인증 실패 코드를 사용자에게 다르게 안내해야 하는 갈래로 나눈다.
+///
+/// 코드 문자열은 FirebaseAuth 와 Google Sign-In 플러그인이 각각 쓰는 값이다.
+/// 분류가 애매하면 [AccountUiLinkFailureReason.unknown] 으로 두고 "잠시 후 다시"
+/// 안내를 한다 — 확실하지 않은 원인을 단정해 보여 주는 것보다 낫다.
+AccountUiLinkFailureReason _classifyAuthFailure(String code) {
+  switch (code) {
+    case 'network_error':
+    case 'network-request-failed':
+      return AccountUiLinkFailureReason.offline;
+    case 'internal-error':
+    case 'too-many-requests':
+    case 'unknown':
+    case 'sign_in_failed':
+    case 'firebaseAppCheckTokenInvalid':
+    case 'app-check-token-invalid':
+      return AccountUiLinkFailureReason.serverError;
+    default:
+      return AccountUiLinkFailureReason.unknown;
+  }
 }

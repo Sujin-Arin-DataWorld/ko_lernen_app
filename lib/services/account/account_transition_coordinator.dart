@@ -51,6 +51,22 @@ class AccountLinkSafetyFailure implements Exception {
   String toString() => 'The authenticated account changed unexpectedly.';
 }
 
+/// 계정 연동을 시도조차 할 수 없는 상태 — Firebase 가 초기화되지 않았다.
+///
+/// ⚠️ 이 타입이 존재하는 이유: 예전에는 이 경우와 **사용자가 직접 취소한 경우**가
+/// 둘 다 `null` 로 반환돼, UI 가 "취소"로 오인하고 **아무 메시지도 띄우지
+/// 않았다**. 사용자에게는 그냥 "아무 일도 일어나지 않는 버튼"이었고, 실제 원인
+/// (google-services 설정 누락, Firebase init 실패)은 어디에도 드러나지 않았다.
+///
+/// 사용자 취소는 계속 `null` 이고, 시스템 불가는 이 예외다.
+class AccountLinkUnavailable implements Exception {
+  const AccountLinkUnavailable();
+
+  @override
+  String toString() =>
+      'Account linking is unavailable because Firebase is not initialised.';
+}
+
 /// Attempts only a Firebase credential link. A collision is data, not a
 /// request to sign the primary FirebaseAuth instance into another account.
 Future<AnonymousCredentialLinkResult> attemptAnonymousCredentialLink<T>({

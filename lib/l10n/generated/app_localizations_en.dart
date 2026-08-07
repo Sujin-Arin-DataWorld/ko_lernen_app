@@ -4605,4 +4605,26 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyeDedicationRetry => 'Try again';
+
+  @override
+  String get accountLinkUnavailableTitle =>
+      'Connecting is not possible right now';
+
+  @override
+  String get accountLinkUnavailableBody =>
+      'Cloud services are unavailable on this device, so sign-in could not be started. Your learning progress stays saved locally. Check your internet connection and restart the app.';
+
+  @override
+  String get accountLinkOfflineTitle => 'No internet connection';
+
+  @override
+  String get accountLinkOfflineBody =>
+      'Connecting an account needs internet. Your progress stays saved on this device.';
+
+  @override
+  String get accountLinkFailedTitle => 'Connecting failed';
+
+  @override
+  String get accountLinkFailedBody =>
+      'The operation could not be completed. Please try again in a moment.';
 }

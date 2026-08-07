@@ -296,7 +296,12 @@ void main() {
     expect(tester.widget<Checkbox>(boxes.at(1)).value, isFalse);
 
     // Nur Analytics ankreuzen, dann zustimmen.
-    await tester.tap(boxes.at(0));
+    // ⚠️ Checkbox direkt antippen geht nicht mehr: Die Box ist bewusst kein
+    // eigenes Tap-Ziel (IgnorePointer + ExcludeSemantics), damit die ganze
+    // Zeile ein einziges, beschriftetes 48dp-Ziel ist — sonst blieben 32dp
+    // ohne Label für TalkBack/VoiceOver übrig. Getippt wird, was auch der
+    // Nutzer antippt: die Zeile mit ihrer Beschriftung.
+    await tester.tap(find.text('Anonyme Nutzungsstatistiken teilen (optional)'));
     await tester.pump();
     await tester.tap(find.text('Zustimmen & loslegen'));
     await tester.pump();

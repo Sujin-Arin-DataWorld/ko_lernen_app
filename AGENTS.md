@@ -233,6 +233,39 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] Jin 실기기: 갤탭·샤오미패드 세로/가로에서 코치마크가 `Üben` **옆에** 붙는지 · 폰 가로모드에서 카드 안 잘리는지 · 레일 `Gruppe` 한 줄(글자 1.0/1.3) · 첫 설치에서 투어 1단계 후 `Üben` 첫 진입 코치 1회 · 홈 한옥 카드 높이 체감(폰은 무변화여야 함).
 - [x] 별도 정리 완료(2026-08-07, PR #7 로 분리): `tool/check_clip_matte.py` 를 ffmpeg 로 실제 돌려 리포트 재생성. 번들 20개 **전부 통과** — `magpie_choose.mp4` 는 교체된 새 파일도 `#FFFFFF`/흰 100%/169프레임이라 에셋 문제가 아니라 인증서 drift 였다.
 
+### 출시 안정성 7대 과제 (2026-08-06)
+
+- [x] **공통 창 분류** `lib/widgets/sori/window_class.dart` — `AppWindowClass`(compact<600 /
+  medium<840 / expanded) + `windowClassFor` · `appWindowClassOf` · `SoriMaxWidth`(form 600 · prose
+  720 · dialog 520) · `AppContentFrame`(내부는 `SoriCenterClamp` 위임). **기존 `SoriBreakpoints`
+  픽셀값은 불변** — 분류만 위에 얹었다. `window_class_guard_test` 가 레이아웃 레이어의
+  `Platform.is*` 0건과 숫자 리터럴 폭 비교 래칫(1)을 강제한다.
+- [x] **골든·접근성** `test/goldens/screen_layout_golden_test.dart`(4화면 × compact/medium/expanded
+  12장, Linux+3.44.0 생성) · `test/accessibility_guideline_test.dart`(6화면 × 터치영역·대비·라벨·
+  1.3배·태블릿 = 30). 골든이 단어팩 헤더 800dp 51px 오버플로를, 접근성 검사가 코치마크 13dp 터치
+  영역·동의 체크박스 32dp/무라벨·대비 2.89 를 잡아 **전부 위젯을 고쳤다**.
+- [x] **핵심 흐름 E2E** `test/e2e/app_flows_e2e_test.dart`(CI 실행) + `integration_test/`(실기기 전용,
+  `integration_test` dev 의존성 추가). 시작 분기·오프라인 우선·재시작 진도 유지·손상 데이터 부팅·
+  초기화·다운그레이드·창 분류 일관성.
+- [x] **영상 디코더 계약** `test/video_lease_contract_test.dart` — **동시 네이티브 컨트롤러 최대 1개**를
+  못 박고(dispose 지연 중에도), 회수·승계·release 멱등·생성/dispose 예외 복구를 고정.
+- [x] **진단·오류 UI** `lib/services/diagnostics_service.dart`(키를 `DiagnosticKey` enum 으로 봉인,
+  값 64자·개행 절단, 동의 off 면 no-op) + `diagnostics_route_observer.dart`.
+  🔴 `linkWithGoogle()` 이 **Firebase 불가와 사용자 취소를 둘 다 null 로** 반환해 UI 가 "취소"로
+  뭉개던 결함을 3갈래(`Cancelled`/`Unavailable`/`Failed(reason)`)로 분리하고 DE/EN 6키를 추가했다.
+- [x] **데이터 복구·마이그레이션** 🔴 `kl_srs_v1`·`kl_pack_progress_v1` 손상 시 복습/저장 1회로
+  학습 이력이 **통째로 덮어써지던 무음 소실**을 격리(`*_corrupt_v1`)+write 잠금으로 막았다.
+  팩 진행도는 **읽기 전 쓰기**로도 전멸했었다(write 전 load). `data_migration_service.dart` 가
+  `kl_schema_version`·멱등 러너·journal·백업/롤백·**다운그레이드 fail-closed** 를 맡는다
+  (프로덕션 단계는 의도적으로 0개 — 러너만 주입 테스트).
+- [x] **출시 QA 정본** `docs/store/RELEASE_QA_CHECKLIST.md` — 나머지 13개 항목(회전·글자확대·
+  보조기술·다크·현지화·네트워크·권한·플랫폼 관례·영상/오디오·자산/성능·기기 매트릭스·스토어 트랙·
+  버그 템플릿) 흡수. 구 `JIN_VERIFY_CHECKLIST.md`·`closed-testing-checklist-v2.md` 가 이걸 가리킨다.
+- [ ] **Jin 실기기**: 체크리스트 §2 회전/멀티윈도우/폴더블, §4 TalkBack·VoiceOver, §5 다크 충돌,
+  §7 네트워크 9상태, §9 권한 6상태, §15 스토어 단계 배포. 자동 테스트가 이걸 대체하지 않는다.
+- [ ] **미결 부채**: `SoriColors.lightTextDim` 전역 대비 2.89(AA 미달 — 동의 화면 2곳만 `textMuted`
+  로 올림) · `TigerGreetClip`/`TigerStageVideo` 다크 게이트 부재.
+
 ### 캐릭터 영상·오버레이 결함 12건 수정 (2026-08-06)
 
 - [x] 전수 검사 6건 + 완성도 크리틱 6건을 모두 고쳤다. 규칙 3가지가 코드에 고정됐다: ① **불투명 매트 사각형은 자기가 놓인 도형 안에 들어가야 한다**(path_trail 클립 62→내접 48.1) ② **`blendColor` 는 실제로 뒤에 칠해진 색에서 파생**한다(Scaffold 위=`scaffoldBackgroundColor`, HanjiTexture 위=`SoriColors.lightBg` 상수. `s.bg` 는 팔레트 변종을 못 봐 항상 오답) ③ **never-cage 는 clip 뿐 아니라 테두리/프레임도 금지**(scenario_player 롤플레이 카드 border 제거).
@@ -512,6 +545,37 @@ flutter run -d <android-id>   # 안드로이드
 > 세션 히스토리(2,700+줄)는 컨텍스트 비용 절감을 위해 **`docs/SESSION_LOG.md`** 로 분리했다.
 > - 과거 맥락이 필요하면 그 파일만 **grep/Read**(자동 로드하지 않음).
 > - ⛔ **새 변경 기록은 이제 `docs/SESSION_LOG.md` 최상단(최신이 위)에 남긴다** — 무엇을·왜·검증·커밋해시.
+
+---
+
+## PR·CI 규칙 (AI 에이전트 필수)
+
+> **⛔ PR 을 만들거나 갱신하면, CI 실행을 직접 확인할 때까지 끝난 게 아니다.**
+
+**왜 이 규칙이 필요한가 (2026-08-06 실측).** Claude GitHub App 을 통해 만든 PR #5 는
+`pull_request` 이벤트로 **CI run 이 아예 생성되지 않았다**. `ci.yml` 의 트리거는 정상이고
+(`push:[main]` + `pull_request:[main]` + `workflow_dispatch`), Actions 도 정상이며
+(`workflow_dispatch` 는 즉시 큐에 잡혔다), 2026-07-31 PR #4(사람이 만든 PR)에서는 자동 CI 가
+정상 동작했다. 즉 **YAML 문제도 권한 문제도 아니고, PR 생성 경로(앱 vs 사람)의 차이**다.
+Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "체크가 하나 붙어 있다"는 겉모습에
+속기 쉽다 — 그건 CI 가 아니다.
+
+**따라서 PR 작업의 완료 조건은 다음 6단계다:**
+
+1. 브랜치 push 완료 확인
+2. PR 생성 또는 갱신
+3. `.github/workflows/ci.yml` 을 **PR head 브랜치에서 `workflow_dispatch` 로 명시 실행**
+   (`workflow_dispatch` 는 자동화가 워크플로를 시작할 수 있는 예외 이벤트다)
+4. run 이 **실제로 생성됐는지 확인** (run id 를 확보한다)
+5. run 의 결과를 확인 — Analyze · Test · Build web · Book analysis security
+6. **run 이 존재하고 결과를 확인하기 전까지 "PR 준비됨" 이라고 보고하지 않는다**
+
+자동 트리거를 기다리며 시간을 보내지 말 것. 안 붙으면 3번을 바로 실행한다.
+사람이 UI 에서 직접 만든 PR 은 원래대로 `pull_request` 트리거가 동작하므로 두 경로가 공존한다.
+
+**⚠️ `workflow_dispatch` 로 돌리면 `regenerate-goldens` 잡도 함께 실행된다** (그 잡이
+`if: github.event_name == 'workflow_dispatch'` 게이트라서). 아티팩트만 올리고 커밋하지 않으므로
+무해하지만, 골든 기준선을 교체할 때는 그 아티팩트가 정본이다.
 
 ---
 

@@ -1,7 +1,8 @@
 # ⚠️ ARCHIVED — Jin 검증 체크리스트 (2026-06-02)
 
 > **상태**: v2.0.0 내부 테스트용 체크리스트. 출시 후 갱신됨.  
-> **현행 기준**: `docs/store/closed-testing-checklist-v2.md` 참조
+> **현행 기준**: `docs/store/RELEASE_QA_CHECKLIST.md` (수동 QA 정본, 2026-08-06~)
+> 인프라 배포 절차는 `docs/store/closed-testing-checklist-v2.md` 참조
 >
 > 작성: 2026-06-02 · v2.0 내부 테스트 직전
 > 이 목록은 **이 세션(코드/이미지 작업)에서 할 수 없고, Jin의 로컬 PC·실기기·Firebase/Play Console에서만 가능한 것**만 모았습니다.

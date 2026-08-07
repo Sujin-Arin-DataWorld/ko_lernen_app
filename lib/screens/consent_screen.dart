@@ -136,7 +136,9 @@ class _ConsentScreenState extends State<ConsentScreen> {
                           style: TextStyle(
                             fontSize: 11.5,
                             height: 1.4,
-                            color: s.textDim,
+                            // 각주와 같은 이유 — textDim 은 이 배경에서 대비 2.89.
+                            // "둘 다 선택 사항"이라는 동의 조건 설명이다.
+                            color: s.textMuted,
                           ),
                         ),
                         const SizedBox(height: 10),
@@ -175,7 +177,10 @@ class _ConsentScreenState extends State<ConsentScreen> {
                           style: TextStyle(
                             fontSize: 11.5,
                             height: 1.4,
-                            color: s.textDim,
+                            // textDim 은 한지 배경 위에서 대비 2.89 로 WCAG AA
+                            // (4.5)에 못 미친다. 동의 조건을 설명하는 문장이라
+                            // 읽히지 않으면 안 된다 → textMuted(5.52).
+                            color: s.textMuted,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -206,33 +211,55 @@ class _ConsentToggle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return Semantics(
-      toggled: value,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        onTap: () => onChanged(!value),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Spacing.xs,
-            vertical: 2,
-          ),
-          child: Row(
-            children: [
-              Checkbox(
-                value: value,
-                onChanged: (v) => onChanged(v ?? false),
-                activeColor: SoriColors.primary,
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                visualDensity: VisualDensity.compact,
+    // ⚠️ 예전에는 Checkbox 가 **자기 몫의 tap target** 을 따로 만들어서
+    // ① 32×32 로 최소 48dp 를 못 채우고 ② 라벨이 없어 TalkBack/VoiceOver 가
+    // "무엇에 동의하는지" 읽어 주지 못했다. 동의 화면에서 특히 나쁜 결함이다.
+    //
+    // 이제 상호작용은 행(InkWell) 하나만 갖는다. 체크박스는 그림으로만 남기고
+    // (ExcludeSemantics + IgnorePointer), 라벨과 토글 상태는 병합된 하나의
+    // 시맨틱 노드가 들고 있는다.
+    return MergeSemantics(
+      child: Semantics(
+        label: label,
+        toggled: value,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(SoriRadius.md),
+          onTap: () => onChanged(!value),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 48),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: Spacing.xs,
+                vertical: Spacing.xs,
               ),
-              const SizedBox(width: Spacing.xs),
-              Expanded(
-                child: Text(
-                  label,
-                  style: TextStyle(fontSize: 13.5, height: 1.35, color: s.text),
-                ),
+              child: Row(
+                children: [
+                  ExcludeSemantics(
+                    child: IgnorePointer(
+                      child: Checkbox(
+                        value: value,
+                        onChanged: (v) => onChanged(v ?? false),
+                        activeColor: SoriColors.primary,
+                        materialTapTargetSize:
+                            MaterialTapTargetSize.shrinkWrap,
+                        visualDensity: VisualDensity.compact,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: Spacing.xs),
+                  Expanded(
+                    child: Text(
+                      label,
+                      style: TextStyle(
+                        fontSize: 13.5,
+                        height: 1.35,
+                        color: s.text,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

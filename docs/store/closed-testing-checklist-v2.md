@@ -1,5 +1,9 @@
 # Closed Testing Readiness Checklist — v2.0.0-alpha
 
+> ⚠️ **이 문서는 인프라 배포 절차(Firestore rules · Cloud Functions · AAB 업로드)의 정본이다.**
+> 기기·화면·접근성·네트워크·데이터 안전 등 **수동 QA 는
+> `docs/store/RELEASE_QA_CHECKLIST.md`** 로 옮겼다(2026-08-06). 두 문서를 함께 쓴다.
+
 > Phase 1-5.2 코드 작성 끝. 이 문서는 **Jin이 Closed Testing 출시까지 직접 실행할 작업** 전체 목록.
 > 작성: 2026-06-01
 
