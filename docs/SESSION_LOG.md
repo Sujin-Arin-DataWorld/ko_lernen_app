@@ -204,6 +204,20 @@ screen_smoke + responsive **411 통과**.
 
 ---
 
+### 2026-08-06 — 릴리스 정식 게이트 + 로컬 golden 3건 비-Linux skip
+
+**게이트.** `flutter analyze --fatal-infos` **0 issues**. 전체 직렬 `flutter test`
+(`--concurrency=1`): **2174 passed / 3 failed** — 3건 전부 `design_components_golden_test`
+(MissionHeroCard 등) golden 픽셀 비교. 앱 로직·위젯 테스트는 전부 그린.
+
+**로컬 golden 3건 해결(problem3).** 이 골든들은 파일 주석대로 **Linux(CI) 기준선 vs Windows
+로컬 서브픽셀 AA 차이**로 로컬에서 항상 실패(정상). `--update-goldens` 로컬 실행은 CI를 깨므로
+금지. 대신 그룹 `skip` 조건에 `!Platform.isLinux` 를 추가 → **비-Linux 로컬에선 skip**(빨간불
+제거), CI(Linux)는 그대로 실행·검증하고 기준 PNG는 무수정. 확인: 로컬 `All tests skipped`
+(`+0 ~3`), `flutter analyze` 0. 커밋: 이 테스트 파일 + 로그만(동시 세션 계정/설정 WIP 미포함).
+
+---
+
 ### 2026-08-06 — 첫 화면 UX·온보딩 오버레이 정리 + 짧은 뷰포트 반응형 매트릭스
 
 **왜.** Jin 태블릿 실기기 사진 5장 리뷰. 홈의 기본 구조·색·캐릭터는 유지할 가치가 있고, 문제는

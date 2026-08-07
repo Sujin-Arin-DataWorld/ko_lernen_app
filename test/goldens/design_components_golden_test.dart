@@ -40,106 +40,121 @@ Widget _wrap(Widget child) => MaterialApp(
   home: Scaffold(
     backgroundColor: SoriColors.lightBg,
     body: Center(
-      child: SizedBox(width: 360, child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: child,
-      )),
+      child: SizedBox(
+        width: 360,
+        child: Padding(padding: const EdgeInsets.all(16), child: child),
+      ),
     ),
   ),
 );
 
 void main() {
   final baselines = Directory('test/goldens/baselines');
-  final ready = autoUpdateGoldenFiles ||
+  final ready =
+      autoUpdateGoldenFiles ||
       (baselines.existsSync() && baselines.listSync().isNotEmpty);
+  // 기준선은 Linux(CI) 정본이라(위 주석) Windows/macOS 로컬에선 서브픽셀 AA
+  // 차이만으로 항상 깨진다 → 로컬 빨간불(3건)을 없애려 비-Linux 에선 skip 하고,
+  // 픽셀 검증은 CI(Linux)에서만 한다. `--update-goldens` 시엔 플랫폼 무관 실행.
+  final String? goldenSkip = !ready
+      ? '기준 없음 — CI 워크플로(Regenerate goldens)로 1회 생성'
+      : (!autoUpdateGoldenFiles && !Platform.isLinux)
+      ? 'golden 기준선은 Linux(CI) 정본 — 로컬(Windows/macOS)에선 skip'
+      : null;
 
-  group(
-    '디자인 컴포넌트 골든 (표면 v2 기준선)',
-    skip: ready
-        ? null
-        : '기준 없음 — flutter test --update-goldens test/goldens 로 1회 생성',
-    () {
-      testWidgets('SoriCard 표면 v2 4상태', (tester) async {
-        tester.view.physicalSize = const Size(400, 720);
-        tester.view.devicePixelRatio = 1;
-        addTearDown(tester.view.resetPhysicalSize);
-        addTearDown(tester.view.resetDevicePixelRatio);
-        await tester.pumpWidget(_wrap(Column(
-          mainAxisSize: MainAxisSize.min,
-          children: const [
-            SoriCard(child: Text('기본 — 무테두리 + low 그림자')),
-            SizedBox(height: 12),
-            SoriCard(selectable: true, child: Text('선택형 — 테두리')),
-            SizedBox(height: 12),
-            SoriCard(
-              selectable: true,
-              selected: true,
-              child: Text('선택됨 — primary 2px'),
-            ),
-            SizedBox(height: 12),
-            SoriCard(
-              accent: SoriColors.tiger,
-              tinted: true,
-              child: Text('액센트 — 좌측 4px 바'),
-            ),
-          ],
-        )));
-        await tester.pump(const Duration(milliseconds: 400));
-        await expectLater(
-          find.byType(Column).first,
-          matchesGoldenFile('baselines/sori_card_v2.png'),
-        );
-      });
+  group('디자인 컴포넌트 골든 (표면 v2 기준선)', skip: goldenSkip, () {
+    testWidgets('SoriCard 표면 v2 4상태', (tester) async {
+      tester.view.physicalSize = const Size(400, 720);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        _wrap(
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              SoriCard(child: Text('기본 — 무테두리 + low 그림자')),
+              SizedBox(height: 12),
+              SoriCard(selectable: true, child: Text('선택형 — 테두리')),
+              SizedBox(height: 12),
+              SoriCard(
+                selectable: true,
+                selected: true,
+                child: Text('선택됨 — primary 2px'),
+              ),
+              SizedBox(height: 12),
+              SoriCard(
+                accent: SoriColors.tiger,
+                tinted: true,
+                child: Text('액센트 — 좌측 4px 바'),
+              ),
+            ],
+          ),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 400));
+      await expectLater(
+        find.byType(Column).first,
+        matchesGoldenFile('baselines/sori_card_v2.png'),
+      );
+    });
 
-      testWidgets('SoriLevelChip 사계 + 챕터 0', (tester) async {
-        tester.view.physicalSize = const Size(400, 200);
-        tester.view.devicePixelRatio = 1;
-        addTearDown(tester.view.resetPhysicalSize);
-        addTearDown(tester.view.resetDevicePixelRatio);
-        await tester.pumpWidget(_wrap(Row(
-          mainAxisSize: MainAxisSize.min,
-          children: const [
-            SoriLevelChip(code: 'A1'),
-            SizedBox(width: 8),
-            SoriLevelChip(code: 'A2'),
-            SizedBox(width: 8),
-            SoriLevelChip(code: 'B1'),
-            SizedBox(width: 8),
-            SoriLevelChip(code: 'B2'),
-            SizedBox(width: 8),
-            SoriLevelChip(code: '0', color: HanokColors.hanjiInk),
-          ],
-        )));
-        await tester.pump(const Duration(milliseconds: 200));
-        await expectLater(
-          find.byType(Row).first,
-          matchesGoldenFile('baselines/level_chips.png'),
-        );
-      });
+    testWidgets('SoriLevelChip 사계 + 챕터 0', (tester) async {
+      tester.view.physicalSize = const Size(400, 200);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        _wrap(
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              SoriLevelChip(code: 'A1'),
+              SizedBox(width: 8),
+              SoriLevelChip(code: 'A2'),
+              SizedBox(width: 8),
+              SoriLevelChip(code: 'B1'),
+              SizedBox(width: 8),
+              SoriLevelChip(code: 'B2'),
+              SizedBox(width: 8),
+              SoriLevelChip(code: '0', color: HanokColors.hanjiInk),
+            ],
+          ),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 200));
+      await expectLater(
+        find.byType(Row).first,
+        matchesGoldenFile('baselines/level_chips.png'),
+      );
+    });
 
-      testWidgets('MissionHeroCard 스켈레톤·allDone', (tester) async {
-        tester.view.physicalSize = const Size(400, 720);
-        tester.view.devicePixelRatio = 1;
-        addTearDown(tester.view.resetPhysicalSize);
-        addTearDown(tester.view.resetDevicePixelRatio);
-        await tester.pumpWidget(_wrap(Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const MissionHeroCard(loading: true, content: null),
-            const SizedBox(height: 12),
-            MissionHeroCard(
-              loading: false,
-              content: null,
-              onAnotherRound: () {},
-            ),
-          ],
-        )));
-        await tester.pump(const Duration(milliseconds: 600));
-        await expectLater(
-          find.byType(Column).first,
-          matchesGoldenFile('baselines/mission_hero_states.png'),
-        );
-      });
-    },
-  );
+    testWidgets('MissionHeroCard 스켈레톤·allDone', (tester) async {
+      tester.view.physicalSize = const Size(400, 720);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        _wrap(
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const MissionHeroCard(loading: true, content: null),
+              const SizedBox(height: 12),
+              MissionHeroCard(
+                loading: false,
+                content: null,
+                onAnotherRound: () {},
+              ),
+            ],
+          ),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 600));
+      await expectLater(
+        find.byType(Column).first,
+        matchesGoldenFile('baselines/mission_hero_states.png'),
+      );
+    });
+  });
 }
