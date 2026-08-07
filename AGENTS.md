@@ -232,7 +232,18 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **게임 화면 카드 크기·빈칸 채우기 (2026-08-07).** 실측이 내 초기 진단을 뒤집었다 — 세로 낭비는 Blitz-Paare(63%)·Satz bauen(57%) **두 화면만**의 문제였고, 네 화면 공통 결함은 **탭 타깃이 화면 크기와 무관하게 고정**(폰·태블릿 모두 42~53dp)인 것이었다. `soriFairTileHeight()`(신설 `game_layout.dart`)로 남는 세로를 타일이 나눠 갖게 하고, 빈칸 채우기는 고른 단어를 문장에 실제로 끼워 넣는다(오답 빨강 → 700ms 뒤 복귀 → 재시도). ⚠️ `QuizChoice.revealCorrect` 로 **오답 순간 정답을 감춘다** — 안 그러면 재시도가 무의미. 점수·SRS 는 첫 시도만 반영.
 - [x] **Wortkette 히어로 크롭.** 동영상이 아니라 PNG 였다 — 1254×700(1.79)을 10/3 프레임에 cover 로 넣어 세로 46.3% 가 잘렸다. 프레임을 실제 비율로 교정(에셋 재작업 불필요).
 - [x] **`MascotPartner` 원형 케이지 제거** — never-cage 규칙 ③ 위반이 7개 퀘스트 엔진 전부에 있었다.
-- [ ] **후속: 히어로 크롭 5건 더.** `madang(light)`(86.3%) · `listening_hero`·`porch`(46.3%) · `study_scholar`(44.7%) · `achievements`(38.1%) · `study_classroom`(37.4%). **일괄 수정 금지** — `madang(light)` 는 세로 이미지(0.46)라 크롭이 의도된 배경일 수 있어 화면별 판단이 필요하다.
+- [ ] **후속(별도 visual audit): 히어로 크롭 5건.** ⛔ **숫자만 보고 일괄 수정 금지** (Jin 지시 2026-08-07) — 실제 화면을 눈으로 본 뒤 각각 유지/수정을 정한다. 인벤토리:
+
+  | 에셋 | 사용 화면 | 원본 비율 | 선언 | BoxFit | 세로 crop |
+  |---|---|---|---|---|---|
+  | `madang(light).png` | scenarios_list | 848×1854 = 0.46 | 10/3 (기본) | cover (기본) | **86.3%** |
+  | `listening_hero.png` | listening | 1254×700 = 1.79 | 10/3 (명시) | cover (기본) | **46.3%** |
+  | `porch.png` | practice_hub, wordle | 1254×700 = 1.79 | 10/3 (기본) | cover (기본) | **46.3%** |
+  | `study_scholar.png` | grammar, learn_hub, settings, hanok_header 기본값 | 1254×680 = 1.84 | 10/3 (기본) | cover (기본) | **44.7%** |
+  | `achievements.png` | quests | 1254×608 = 2.06 | 10/3 (기본) | cover (기본) | **38.1%** |
+  | `study_classroom.png` | legacy_vocab, vocab_packs, wordbook_hub | 1254×601 = 2.09 | 10/3 (기본) | cover (기본) | **37.4%** |
+
+  판단 포인트: ① `madang(light)` 는 **세로 이미지(0.46)** 라 배너 크롭이 의도된 배경일 가능성이 높다 — 실제 비율로 바꾸면 화면 높이가 통째로 망가진다. ② `study_scholar` 는 `HanokHeader` **기본 에셋**이라 한 곳만 고쳐도 4개 화면이 함께 움직인다. ③ 나머지는 대부분 10/3 을 **명시하지 않고 기본값에 기대고 있다** — 기본값을 바꾸는 선택지도 있다. 정상(crop 0%)인 것: `calligraphy`(3.37) · `kkeunmari_hero`(1.79, 이번에 교정) · `taego-joy-duo`(contain).
 - [ ] **미착수(P3)**: 캐릭터 idle 애니메이션 폴리시, 미세 spacing/타이포. 공용 `responsive_test.dart` 에 `360×400`·`800×360`·`1280×500` 추가는 **PR #8 정리 후**(같은 파일 충돌 회피 — Jin 지시).
 - [ ] Jin 실기기: 갤탭·샤오미패드 세로/가로에서 코치마크가 `Üben` **옆에** 붙는지 · 폰 가로모드에서 카드 안 잘리는지 · 레일 `Gruppe` 한 줄(글자 1.0/1.3) · 첫 설치에서 투어 1단계 후 `Üben` 첫 진입 코치 1회 · 홈 한옥 카드 높이 체감(폰은 무변화여야 함).
 - [x] 별도 정리 완료(2026-08-07, PR #7 로 분리): `tool/check_clip_matte.py` 를 ffmpeg 로 실제 돌려 리포트 재생성. 번들 20개 **전부 통과** — `magpie_choose.mp4` 는 교체된 새 파일도 `#FFFFFF`/흰 100%/169프레임이라 에셋 문제가 아니라 인증서 drift 였다.
