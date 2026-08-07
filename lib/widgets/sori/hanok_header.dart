@@ -5,6 +5,7 @@ import 'package:video_player/video_player.dart';
 
 import '../../services/audio_policy.dart';
 import 'hanok_tokens.dart';
+import 'responsive.dart' show soriHidesDecoration;
 import 'tiger_video.dart' show TigerStageVideo;
 import 'tokens.dart' show SoriMotion;
 import 'video_lease.dart';
@@ -45,6 +46,10 @@ class HanokHeader extends StatelessWidget {
   /// 루프 영상 경로 명시 오버라이드. null이면 png 파일명에서 유도.
   final String? loopAsset;
 
+  /// 짧은 뷰포트([SoriBreakpoints.shortViewport] 미만 높이)에서 배너를 접을지.
+  /// 배너 자체가 화면의 본론인 곳(온보딩 히어로 등)만 false 로 둔다.
+  final bool collapseOnShortViewport;
+
   /// 포스터·영상 BoxFit. 기본 cover(꽉 채움·크롭 가능). contain 이면 크롭 없이
   /// 전부 보인다(듀오 히어로처럼 잘리면 안 되는 자산용).
   final BoxFit fit;
@@ -59,6 +64,7 @@ class HanokHeader extends StatelessWidget {
     this.animate = true,
     this.loopAsset,
     this.fit = BoxFit.cover,
+    this.collapseOnShortViewport = true,
   });
 
   /// `assets/video/loops/` 에 **실제로 존재하는** 루프 파일 이름.
@@ -106,6 +112,13 @@ class HanokHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 짧은 뷰포트(폰 가로·분할화면·800×600)에서는 배너를 통째로 접는다.
+    // 10:3 배너는 그런 화면에서 세로의 1/3을 먹고, 그만큼을 아래 학습
+    // 콘텐츠에서 빼앗는다 — `grammar_screen` 이 800×600 에서 37px 오버플로로
+    // 터진 원인이 정확히 이거였다(2026-08-06). 장식은 접히지만 수업은 남는다.
+    if (collapseOnShortViewport && soriHidesDecoration(context)) {
+      return const SizedBox.shrink();
+    }
     final tint = fallbackTint ?? HanokColors.cheong;
     final poster = Image.asset(
       asset,

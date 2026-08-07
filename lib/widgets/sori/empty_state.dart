@@ -70,8 +70,40 @@ class SoriEmptyState extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final accentColor = accent ?? SoriColors.primary;
 
+    // 짧은 뷰포트(폰 가로모드·분할화면)에서는 200dp 일러스트가 제목·CTA 를
+    // 화면 밖으로 밀어냈다(2026-08-06: dojangcheop @740×360 에서 17px 오버플로).
+    // 장식인 일러스트가 먼저 양보하고, 그래도 모자라면 스크롤한다.
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final hasBoundedHeight = constraints.maxHeight.isFinite;
+        final illustrationHeight = hasBoundedHeight
+            ? illustrationMaxHeight.clamp(0.0, constraints.maxHeight * 0.38)
+            : illustrationMaxHeight;
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: hasBoundedHeight ? constraints.maxHeight : 0,
+            ),
+            child: _buildContent(
+              context,
+              s,
+              accentColor,
+              illustrationHeight.toDouble(),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildContent(
+    BuildContext context,
+    SoriSurfaces s,
+    Color accentColor,
+    double illustrationHeight,
+  ) {
     final illustration = SizedBox(
-      height: illustrationMaxHeight,
+      height: illustrationHeight,
       child: Center(
         child: asset != null
             ? Image.asset(

@@ -44,6 +44,7 @@ class _AppShellState extends State<AppShell> {
   // 이 방식은 NavigationBar 레이아웃에 전혀 영향을 주지 않는다.
   final List<GlobalKey> _tabKeys = List.generate(4, (_) => GlobalKey());
   final GlobalKey _pathTourKey = GlobalKey();
+  final GlobalKey _missionTourKey = GlobalKey();
   // Stage B 예약: final GlobalKey _bookTourKey = GlobalKey();
 
   @override
@@ -93,54 +94,28 @@ class _AppShellState extends State<AppShell> {
     });
   }
 
+  /// 첫 실행에서 가르치는 것은 **딱 하나** — 오늘의 미션이 어디서 시작되는지.
+  ///
+  /// 2026-08-06 이전에는 4개 탭 + 학습경로를 5단계로 강제 통과시켰다. 그런데
+  /// Start·Üben·Gruppe·Profil 은 아이콘+라벨만으로 이미 읽히고, `Üben` 을
+  /// 설명하는 카드가 화면 반대편에 떠서 오히려 "지금 뭘 가리키는 거지?"가 됐다
+  /// (Jin 태블릿 실기기). 교육보다 마찰이 컸다.
+  ///
+  /// 나머지는 **그 기능을 처음 쓸 때** 설명한다(progressive onboarding):
+  /// 연습 허브·계 탭·프로필은 각자 [ScreenCoachMixin] 으로 첫 진입 시 뜬다.
+  /// 학습경로는 `learningPath` 화면 코치가 이미 담당한다.
   void _startHomeTour() {
     final t = AppL10n.of(context);
     SpotlightCoach.show(
       context,
       steps: [
         SpotlightStep(
-          targetKey: _tabKeys[0],
-          title: t.coachHomeTab0Title,
-          body: t.coachHomeTab0Body,
-          icon: Icons.home_outlined,
-          cutoutPadding: const EdgeInsets.all(10),
-          cutoutRadius: 24,
-          shape: ShapeKind.circle,
-        ),
-        SpotlightStep(
-          targetKey: _tabKeys[1],
-          title: t.coachHomeTab1Title,
-          body: t.coachHomeTab1Body,
-          icon: Icons.sports_esports_outlined,
-          cutoutPadding: const EdgeInsets.all(10),
-          cutoutRadius: 24,
-          shape: ShapeKind.circle,
-        ),
-        SpotlightStep(
-          targetKey: _tabKeys[2],
-          title: t.coachHomeTab2Title,
-          body: t.coachHomeTab2Body,
-          icon: Icons.groups_2_outlined,
-          cutoutPadding: const EdgeInsets.all(10),
-          cutoutRadius: 24,
-          shape: ShapeKind.circle,
-        ),
-        SpotlightStep(
-          targetKey: _tabKeys[3],
-          title: t.coachHomeTab3Title,
-          body: t.coachHomeTab3Body,
-          icon: Icons.person_outline,
-          cutoutPadding: const EdgeInsets.all(10),
-          cutoutRadius: 24,
-          shape: ShapeKind.circle,
-        ),
-        SpotlightStep(
-          targetKey: _pathTourKey,
-          title: t.coachHomePathTitle,
-          body: t.coachHomePathBody,
-          icon: Icons.route_outlined,
+          targetKey: _missionTourKey,
+          title: t.coachHomeMissionTitle,
+          body: t.coachHomeMissionBody,
+          icon: Icons.play_circle_outline,
           cutoutPadding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
-          cutoutRadius: 16,
+          cutoutRadius: 20,
           shape: ShapeKind.rrect,
         ),
       ],
@@ -233,7 +208,10 @@ class _AppShellState extends State<AppShell> {
                   controller: _tabScrollControllers[0],
                   child: TickerMode(
                     enabled: _index == 0,
-                    child: HomeScreen(pathTourKey: _pathTourKey),
+                    child: HomeScreen(
+                      pathTourKey: _pathTourKey,
+                      missionTourKey: _missionTourKey,
+                    ),
                   ),
                 ),
                 PrimaryScrollController(

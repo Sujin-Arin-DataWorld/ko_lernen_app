@@ -14,6 +14,23 @@ double soriAdaptiveContentMaxWidth(double availableWidth) {
       (SoriBreakpoints.tabletContent - SoriBreakpoints.content) * progress;
 }
 
+/// True when the viewport is too short to spend height on decoration.
+///
+/// Deliberately keyed to **height only**: a 1280×800 tablet in landscape is
+/// wide but not short, while a 800×360 phone in landscape and the 800×600
+/// default test surface both are. See [SoriBreakpoints.shortViewport].
+bool soriIsShortViewport(double height) =>
+    height < SoriBreakpoints.shortViewport;
+
+/// [soriIsShortViewport] for the ambient window height.
+///
+/// Uses the window height rather than a local `LayoutBuilder` constraint on
+/// purpose — a decorative banner inside a scroll view sees an unbounded local
+/// height, but the user's problem ("everything important is off-screen") is a
+/// property of the window.
+bool soriHidesDecoration(BuildContext context) =>
+    soriIsShortViewport(MediaQuery.sizeOf(context).height);
+
 // ── Immersive study cards: tablet width + hero text scale ─────────────────
 // Fixed-focus flashcard/quiz screens (grammar·vocab·cloze…) show a single
 // hero card, so — unlike browsing text — they can afford a wider card and
