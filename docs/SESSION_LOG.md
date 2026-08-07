@@ -84,76 +84,6 @@ Jin 지시로 미뤘다. `character_clip.dart`·video lease·watchdog·mp4 재�
 
 ---
 
-### 2026-08-06 — 첫 화면 UX·온보딩 오버레이 정리 + 짧은 뷰포트 반응형 매트릭스
-
-**왜.** Jin 태블릿 실기기 사진 5장 리뷰. 홈의 기본 구조·색·캐릭터는 유지할 가치가 있고, 문제는
-"더 예쁘게"가 아니라 **반응형 · 위계 · 온보딩** 세 가지였다. 사진에서 보인 결함과 CI 의
-800×600 실패가 **같은 원인**(세로 예산이 없는 화면을 아무도 회귀로 안 잡음)이었다.
-
-**P0 — 깨진 것.**
-- **코치마크가 가로모드에서 화면 밖으로 나갔고 태블릿에선 700dp 흰 판이 됐다.**
-  `Positioned(left: 16, right: 16)` 이 tight constraint 를 주는 바람에
-  `Container(constraints: maxWidth 320)` 이 `BoxConstraints.enforce` 로 무력화되고 있었다
-  (320 이 부모 폭까지 끌어올려짐). 새 `_CoachTooltipLayout`(`SingleChildLayoutDelegate`)이
-  자식의 **측정된 크기**를 보고 타겟 옆/아래/위 중 들어가는 자리를 골라 safe-area 안으로
-  클램프한다. 가장자리 타겟(세로 레일 아이콘)은 **옆에** 붙어 설명과 대상이 나란히 보인다.
-  카드 내부는 `SingleChildScrollView` + `maxHeight` 라 짧은 화면에서 잘리는 대신 줄어든다.
-- **`Lerngruppe` 가 96dp 레일에서 "Lerngrupp / e" 로 글자 사이에서 끊겼다.** 독일어 합성어는
-  줄바꿈 기회가 없어 Flutter 가 임의 지점을 끊는다. 레일 라벨을 `maxLines: 1` +
-  `softWrap: false` + `FittedBox(scaleDown)` 로 바꿔 **줄바꿈 대신 축소**하게 했고, 라벨 자체도
-  `Start / Üben / Gruppe / Profil` 로 줄였다(`navGye`).
-- **CI 800×600 `grammar_screen` 37px 오버플로.** 원인은 10:3 `HanokHeader` 배너가 세로의 1/3 을
-  먹은 것. `SoriBreakpoints.shortViewport`(640) 미만 높이에서 배너가 스스로 접힌다 —
-  17개 화면이 한 번에 고쳐진다. `SoriEmptyState` 도 같은 계열이라(일러스트 200dp 고정)
-  일러스트를 가용 높이의 38% 로 제한하고 스크롤 폴백을 넣었다.
-
-**P1 — 위계.**
-- 코치마크 카드: 폭 상한 340dp, 아이콘+제목 한 줄, `1 / 5` 카운터 추가, `Überspringen` 대비
-  2.9:1 → 7.0:1(#7A9490 → #4A6560), `Weiter →` 트레일링 화살표(`SoriButton.trailingIcon` 신설).
-- 홈 한옥 미리보기: 4:3 지도 폭을 440dp 로 상한 → **폰은 시각 변화 0**(카드 안쪽 ≈416dp),
-  640dp 태블릿 컬럼에서만 높이 약 1/4 감소. 진행률 % 를 바 **옆에** 굵게 올려 "예쁜 그림"이
-  아니라 "내가 키운 것"이 본론이 되게 했다.
-- 홈 히어로 밴드 상한을 태블릿에서 216 → 184. 캐릭터 클립이 정사각 프레임이라 밴드를 키우면
-  캐릭터가 아니라 주변 여백이 커진다(사진에서 까치–미션 카드 사이가 비어 보이던 원인).
-
-**P2 — 온보딩을 progressive 로.**
-- 첫 실행 5단계 강제 투어(탭 4 + 학습경로) → **1단계**. 오늘의 미션 카드 하나만 짚는다
-  ("Hier beginnt deine erste Mission"). Start·Üben·Gruppe·Profil 은 아이콘+라벨로 이미 읽히고,
-  `Üben` 을 설명하는 카드가 화면 반대편에 뜨는 것이 교육보다 마찰이 컸다.
-- 나머지는 그 기능을 **처음 쓸 때** 설명한다. 계 탭·프로필은 이미 `ScreenCoachMixin` 을 갖고
-  있었고(= 5단계 투어와 중복이었다), 비어 있던 연습 허브에 `practice_hub` 코치를 추가했다.
-
-**독일어 카피.** `Meine Hanok` → `Mein Hanok`(Hanok 은 여성명사가 아니다. Jin 본인 스케치의
-`deinen Hanok` 과도 일치). 본문은 `Dein Lernen lässt deinen Hanok wachsen.` 으로 단축.
-
-**회귀 그물.** 이번 결함들은 **예외를 안 던지는** 종류라 기존 smoke 로는 못 잡았다.
-- `responsive_test.dart`: 짧은 뷰포트 3종(800×600 = CI 기본 서피스 · 740×360 폰 가로 ·
-  640×480 분할) × 33화면 + 800×600 ×1.3 글자. 402 → **522 통과**.
-- `spotlight_coach_layout_test.dart`(신규 28): 5개 화면 크기 × 레일/카드 타겟에서 말풍선이
-  화면 안에 들어오는지 · 폭 상한 · 타겟과의 거리 · 짧은 가로모드 버튼 탭 · 단계 카운터.
-- `sori_adaptive_navigation_test.dart`: 레일을 실제 `AppShell` 처럼 `SizedBox(width: 96)` 안에
-  넣어야 결함이 재현된다(`NavigationRail` 은 목적지에 **minWidth 만** 걸어서, 폭이 자유로운
-  기존 하니스에서는 라벨이 절대 안 좁아졌다 — 그래서 기존 "no exception" 회귀가 통과했다).
-  라벨 렌더 높이(줄 수)와 `FittedBox` 폭을 직접 본다.
-- **역회귀 확인**: 새 테스트를 옛 코드에 돌려 실패를 확인했다 — 코치마크 12건 실패(가로모드
-  화면 이탈 · 전 태블릿 크기에서 폭 상한 초과), 레일 4건 실패(라벨 높이 34.0 = 2줄).
-
-**검증.** `flutter analyze --no-fatal-warnings --no-fatal-infos lib/ test/` 0 issues ·
-전체 `flutter test` **2,337 통과 / 2 실패**. 잔여 2건은 `character_clip_matte_test` 로,
-**내 변경 이전 baseline(2,168 통과 / 3 실패)에서도 동일하게 실패**한다 — `5927ae6` 클립
-재배선 때 `tool/check_clip_matte.py` 리포트를 재생성하지 않아 생긴 드리프트다(사라진
-`magpie_full10.mp4`·`magpie_walking_forward.mp4` 가 리포트에 남아 있고 `magpie_choose.mp4`
-바이트 크기가 어긋남). 내 범위 밖이라 건드리지 않았다 — **별도로 재생성 필요**.
-
-**Jin 실기기 확인 필요.**
-- 갤탭/샤오미패드 세로·가로 양쪽에서 코치마크가 `Üben` 옆에 붙는지, 폰 가로모드에서도
-  카드가 안 잘리는지.
-- 레일 라벨 `Gruppe` 가 한 줄로 나오는지(글자 확대 1.0/1.3 둘 다).
-- 첫 설치 플로우: 투어가 1단계로 끝나고, 그 뒤 `Üben` 탭 첫 진입에서 코치가 한 번 뜨는지.
-- 홈 한옥 카드 높이 체감(태블릿) · 폰에서는 **변화가 없어야** 한다.
-
----
-
 ### 2026-08-07 — CI red 해소: 코스 문법 체크포인트 37px 오버플로 (`794a9b8` 후속)
 
 **CI 결과 먼저.** `794a9b8` push → run `31180490137` **failure, 2176 통과 / 1 실패**.
@@ -271,6 +201,76 @@ screen_smoke + responsive **411 통과**.
 ⚠️ **미검증(Jin 실기기)**: PNG 플립북 선재생 소멸 · 배경 이음매 · 초기화 동안
 밴드가 비어 보이는 체감(이제 상한 없음 — 영상이 준비될 때까지 투명).
 기기 설치본은 `versionCode=11`(2026-08-06 23:32) 이라 **재빌드 필요**.
+
+---
+
+### 2026-08-06 — 첫 화면 UX·온보딩 오버레이 정리 + 짧은 뷰포트 반응형 매트릭스
+
+**왜.** Jin 태블릿 실기기 사진 5장 리뷰. 홈의 기본 구조·색·캐릭터는 유지할 가치가 있고, 문제는
+"더 예쁘게"가 아니라 **반응형 · 위계 · 온보딩** 세 가지였다. 사진에서 보인 결함과 CI 의
+800×600 실패가 **같은 원인**(세로 예산이 없는 화면을 아무도 회귀로 안 잡음)이었다.
+
+**P0 — 깨진 것.**
+- **코치마크가 가로모드에서 화면 밖으로 나갔고 태블릿에선 700dp 흰 판이 됐다.**
+  `Positioned(left: 16, right: 16)` 이 tight constraint 를 주는 바람에
+  `Container(constraints: maxWidth 320)` 이 `BoxConstraints.enforce` 로 무력화되고 있었다
+  (320 이 부모 폭까지 끌어올려짐). 새 `_CoachTooltipLayout`(`SingleChildLayoutDelegate`)이
+  자식의 **측정된 크기**를 보고 타겟 옆/아래/위 중 들어가는 자리를 골라 safe-area 안으로
+  클램프한다. 가장자리 타겟(세로 레일 아이콘)은 **옆에** 붙어 설명과 대상이 나란히 보인다.
+  카드 내부는 `SingleChildScrollView` + `maxHeight` 라 짧은 화면에서 잘리는 대신 줄어든다.
+- **`Lerngruppe` 가 96dp 레일에서 "Lerngrupp / e" 로 글자 사이에서 끊겼다.** 독일어 합성어는
+  줄바꿈 기회가 없어 Flutter 가 임의 지점을 끊는다. 레일 라벨을 `maxLines: 1` +
+  `softWrap: false` + `FittedBox(scaleDown)` 로 바꿔 **줄바꿈 대신 축소**하게 했고, 라벨 자체도
+  `Start / Üben / Gruppe / Profil` 로 줄였다(`navGye`).
+- **CI 800×600 `grammar_screen` 37px 오버플로.** 원인은 10:3 `HanokHeader` 배너가 세로의 1/3 을
+  먹은 것. `SoriBreakpoints.shortViewport`(640) 미만 높이에서 배너가 스스로 접힌다 —
+  17개 화면이 한 번에 고쳐진다. `SoriEmptyState` 도 같은 계열이라(일러스트 200dp 고정)
+  일러스트를 가용 높이의 38% 로 제한하고 스크롤 폴백을 넣었다.
+
+**P1 — 위계.**
+- 코치마크 카드: 폭 상한 340dp, 아이콘+제목 한 줄, `1 / 5` 카운터 추가, `Überspringen` 대비
+  2.9:1 → 7.0:1(#7A9490 → #4A6560), `Weiter →` 트레일링 화살표(`SoriButton.trailingIcon` 신설).
+- 홈 한옥 미리보기: 4:3 지도 폭을 440dp 로 상한 → **폰은 시각 변화 0**(카드 안쪽 ≈416dp),
+  640dp 태블릿 컬럼에서만 높이 약 1/4 감소. 진행률 % 를 바 **옆에** 굵게 올려 "예쁜 그림"이
+  아니라 "내가 키운 것"이 본론이 되게 했다.
+- 홈 히어로 밴드 상한을 태블릿에서 216 → 184. 캐릭터 클립이 정사각 프레임이라 밴드를 키우면
+  캐릭터가 아니라 주변 여백이 커진다(사진에서 까치–미션 카드 사이가 비어 보이던 원인).
+
+**P2 — 온보딩을 progressive 로.**
+- 첫 실행 5단계 강제 투어(탭 4 + 학습경로) → **1단계**. 오늘의 미션 카드 하나만 짚는다
+  ("Hier beginnt deine erste Mission"). Start·Üben·Gruppe·Profil 은 아이콘+라벨로 이미 읽히고,
+  `Üben` 을 설명하는 카드가 화면 반대편에 뜨는 것이 교육보다 마찰이 컸다.
+- 나머지는 그 기능을 **처음 쓸 때** 설명한다. 계 탭·프로필은 이미 `ScreenCoachMixin` 을 갖고
+  있었고(= 5단계 투어와 중복이었다), 비어 있던 연습 허브에 `practice_hub` 코치를 추가했다.
+
+**독일어 카피.** `Meine Hanok` → `Mein Hanok`(Hanok 은 여성명사가 아니다. Jin 본인 스케치의
+`deinen Hanok` 과도 일치). 본문은 `Dein Lernen lässt deinen Hanok wachsen.` 으로 단축.
+
+**회귀 그물.** 이번 결함들은 **예외를 안 던지는** 종류라 기존 smoke 로는 못 잡았다.
+- `responsive_test.dart`: 짧은 뷰포트 3종(800×600 = CI 기본 서피스 · 740×360 폰 가로 ·
+  640×480 분할) × 33화면 + 800×600 ×1.3 글자. 402 → **522 통과**.
+- `spotlight_coach_layout_test.dart`(신규 28): 5개 화면 크기 × 레일/카드 타겟에서 말풍선이
+  화면 안에 들어오는지 · 폭 상한 · 타겟과의 거리 · 짧은 가로모드 버튼 탭 · 단계 카운터.
+- `sori_adaptive_navigation_test.dart`: 레일을 실제 `AppShell` 처럼 `SizedBox(width: 96)` 안에
+  넣어야 결함이 재현된다(`NavigationRail` 은 목적지에 **minWidth 만** 걸어서, 폭이 자유로운
+  기존 하니스에서는 라벨이 절대 안 좁아졌다 — 그래서 기존 "no exception" 회귀가 통과했다).
+  라벨 렌더 높이(줄 수)와 `FittedBox` 폭을 직접 본다.
+- **역회귀 확인**: 새 테스트를 옛 코드에 돌려 실패를 확인했다 — 코치마크 12건 실패(가로모드
+  화면 이탈 · 전 태블릿 크기에서 폭 상한 초과), 레일 4건 실패(라벨 높이 34.0 = 2줄).
+
+**검증.** `flutter analyze --no-fatal-warnings --no-fatal-infos lib/ test/` 0 issues ·
+전체 `flutter test` **2,337 통과 / 2 실패**. 잔여 2건은 `character_clip_matte_test` 로,
+**내 변경 이전 baseline(2,168 통과 / 3 실패)에서도 동일하게 실패**한다 — `5927ae6` 클립
+재배선 때 `tool/check_clip_matte.py` 리포트를 재생성하지 않아 생긴 드리프트다(사라진
+`magpie_full10.mp4`·`magpie_walking_forward.mp4` 가 리포트에 남아 있고 `magpie_choose.mp4`
+바이트 크기가 어긋남). 내 범위 밖이라 건드리지 않았다 — **별도로 재생성 필요**.
+
+**Jin 실기기 확인 필요.**
+- 갤탭/샤오미패드 세로·가로 양쪽에서 코치마크가 `Üben` 옆에 붙는지, 폰 가로모드에서도
+  카드가 안 잘리는지.
+- 레일 라벨 `Gruppe` 가 한 줄로 나오는지(글자 확대 1.0/1.3 둘 다).
+- 첫 설치 플로우: 투어가 1단계로 끝나고, 그 뒤 `Üben` 탭 첫 진입에서 코치가 한 번 뜨는지.
+- 홈 한옥 카드 높이 체감(태블릿) · 폰에서는 **변화가 없어야** 한다.
 
 ---
 
