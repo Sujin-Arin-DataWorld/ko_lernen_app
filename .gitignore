@@ -9,6 +9,8 @@
 # `flutter run --dart-define-from-file=dart_defines.local.json` 로 쓴다.
 # ⚠️ 절대 커밋 금지 — 시크릿을 명령줄에 직접 쓰면 셸 히스토리·로그에 남는다.
 dart_defines.local.json
+# 폴더형 변형(OneDrive 사본이 쓰는 `dart_defines/appcheck_debug.json`)도 함께.
+dart_defines/
 
 # Asset compression backup (untracked — for local rollback only)
 assets/illustrations/.backup_uncompressed/
