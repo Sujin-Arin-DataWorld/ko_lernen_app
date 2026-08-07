@@ -627,40 +627,59 @@ class _GrammarScreenState extends State<GrammarScreen>
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 8),
                             // SRS 마킹 (이 카드 난이도) — 네비게이션과 별개.
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: SoriButton.outlined(
-                                    label: t.grammarEasy,
-                                    icon: Icons.thumb_up_alt_outlined,
-                                    onTap: () async {
-                                      setState(
-                                        () => _sessionSeen.add(g.pattern),
-                                      );
-                                      await Storage.markGrammarEasy(g.pattern);
-                                      _next();
-                                    },
+                            //
+                            // ⚠️ 코스 체크포인트에서는 **숨긴다**. 체크포인트
+                            // 앞면([_CourseCheckpointFront])은 채점 전까지
+                            // `g.pattern` 을 일부러 가리는데, 아직 보지도 않은
+                            // 패턴에 "쉬움/어려움"을 매기면
+                            // `Storage.markGrammarEasy/Hard` 가 엉뚱한 SRS
+                            // 스케줄을 기록한다 — 레이아웃이 아니라 **데이터
+                            // 정합성** 문제라서 짧은 뷰포트와 무관하게 필요하다.
+                            //
+                            // 레이아웃(고정 높이 Row 가 짧은 화면에서 넘치는 것)은
+                            // 이 가드가 아니라 본문의 [SoriMinHeightScroll] 이
+                            // 맡는다 — 일반 문법 모드에는 가드가 걸리지 않으므로
+                            // 그쪽 오버플로는 스크롤로만 해결된다.
+                            if (!canRecordCheckpoint) ...[
+                              const SizedBox(height: 8),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: SoriButton.outlined(
+                                      label: t.grammarEasy,
+                                      icon: Icons.thumb_up_alt_outlined,
+                                      onTap: () async {
+                                        setState(
+                                          () => _sessionSeen.add(g.pattern),
+                                        );
+                                        await Storage.markGrammarEasy(
+                                          g.pattern,
+                                        );
+                                        _next();
+                                      },
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 8),
-                                Expanded(
-                                  child: SoriButton.outlined(
-                                    label: t.grammarHard,
-                                    icon: Icons.psychology_outlined,
-                                    destructive: true,
-                                    onTap: () async {
-                                      setState(
-                                        () => _sessionSeen.add(g.pattern),
-                                      );
-                                      await Storage.markGrammarHard(g.pattern);
-                                      _next();
-                                    },
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: SoriButton.outlined(
+                                      label: t.grammarHard,
+                                      icon: Icons.psychology_outlined,
+                                      destructive: true,
+                                      onTap: () async {
+                                        setState(
+                                          () => _sessionSeen.add(g.pattern),
+                                        );
+                                        await Storage.markGrammarHard(
+                                          g.pattern,
+                                        );
+                                        _next();
+                                      },
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              ),
+                            ],
                           ],
                         ),
                       ),
