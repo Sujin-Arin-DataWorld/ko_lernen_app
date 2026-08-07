@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/course_mastery.dart';
 import '../pack_progress_service.dart';
+import 'account_failure_diagnostics.dart';
 import 'account_operation_client.dart';
 import 'account_reconciliation.dart';
 import 'account_transition_journal.dart';
@@ -803,19 +804,54 @@ class AccountTransitionCoordinator {
     }
 
     if (phase == AccountReplacementPhase.targetVerified) {
+      // ⚠️ 실기기에서 여기서 막혔다(2026-08-07). journal 이 `targetVerified` +
+      // `replacementOperationId` 없음으로 고착됐는데, 이 블록의 세 갈래가
+      // **전부 예외 없이 조용히 `blocked` 를 반환**해서 어느 갈래인지 알 수
+      // 없었다. `runConfirmedAccountLink` 의 catch 는 예외만 보므로 여기 실패는
+      // 잡지 못한다. 로그만 남기고 제어 흐름은 그대로 둔다.
       final requestKey = journal.replacementRequestKey;
       if (requestKey == null || !_journalFence(journal)) {
+        AccountFailureDiagnostics.log(
+          'link.prepare.skipped',
+          null,
+          detail:
+              'requestKey=${requestKey == null ? 'null' : 'present'} '
+              'fence=${_journalFence(journal)}',
+        );
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
-      final prepared = await operations.prepare(
-        sourceSession: journal.session,
-        targetUid: target.uid,
-        requestKey: requestKey,
-      );
+      AccountFailureDiagnostics.log('link.prepare.start', null);
+      final AccountOperationResult prepared;
+      try {
+        prepared = await operations.prepare(
+          sourceSession: journal.session,
+          targetUid: target.uid,
+          requestKey: requestKey,
+        );
+      } catch (error) {
+        // 서버가 operation 을 만들기 전에 거부하면 여기로 온다
+        // (appCheckRequired·authenticationRequired·permissionDenied 등).
+        AccountFailureDiagnostics.log('link.prepare.threw', error);
+        rethrow;
+      }
       if (!_validOperation(prepared, AccountOperationPhase.prepared) ||
           !_journalFence(journal)) {
+        // 응답은 왔지만 기대한 phase 가 아니거나 fence 가 깨진 경우.
+        AccountFailureDiagnostics.log(
+          'link.prepare.rejected',
+          null,
+          detail:
+              'phase=${prepared.phase.name} retryable=${prepared.retryable} '
+              'blockedReason=${prepared.blockedReason?.name ?? 'none'} '
+              'fence=${_journalFence(journal)}',
+        );
         return const AccountTransitionResult(AccountTransitionStatus.blocked);
       }
+      AccountFailureDiagnostics.log(
+        'link.prepare.ok',
+        null,
+        detail: 'version=${prepared.version}',
+      );
       operationId = prepared.operationId;
       operationVersion = prepared.version;
       final reconciling = sessions.transition(CloudWriteMode.reconciling);
