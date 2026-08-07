@@ -21,15 +21,6 @@
       "reason": ""
     },
     {
-      "path": "magpie_walking_front.mp4",
-      "bytes": 740708,
-      "ok": true,
-      "matte": "#FFFFFF",
-      "white_ratio": 1.0,
-      "frames_sampled": 113,
-      "reason": ""
-    },
-    {
       "path": "magpie_celebrate.mp4",
       "bytes": 1239996,
       "ok": true,
@@ -57,24 +48,6 @@
       "reason": ""
     },
     {
-      "path": "magpie_full10.mp4",
-      "bytes": 1393566,
-      "ok": true,
-      "matte": "#FFFFFF",
-      "white_ratio": 1.0,
-      "frames_sampled": 240,
-      "reason": ""
-    },
-    {
-      "path": "magpie_choose.mp4",
-      "bytes": 1239996,
-      "ok": true,
-      "matte": "#FFFFFF",
-      "white_ratio": 1.0,
-      "frames_sampled": 97,
-      "reason": ""
-    },
-    {
       "path": "magpie_perched.mp4",
       "bytes": 711544,
       "ok": true,
@@ -93,12 +66,12 @@
       "reason": ""
     },
     {
-      "path": "magpie_walking_forward.mp4",
-      "bytes": 691108,
+      "path": "magpie_walking_front.mp4",
+      "bytes": 740708,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "frames_sampled": 121,
+      "frames_sampled": 113,
       "reason": ""
     },
     {
@@ -108,15 +81,6 @@
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
       "frames_sampled": 97,
-      "reason": ""
-    },
-    {
-      "path": "tiger_walking_front.mp4",
-      "bytes": 2997552,
-      "ok": true,
-      "matte": "#FFFFFF",
-      "white_ratio": 1.0,
-      "frames_sampled": 121,
       "reason": ""
     },
     {
