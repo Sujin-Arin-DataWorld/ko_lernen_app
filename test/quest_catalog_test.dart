@@ -7,8 +7,22 @@ import 'package:ko_lernen_app/models/quest.dart';
 
 void main() {
   group('kQuestCatalog integrity', () {
-    test('exactly 17 quests', () {
-      expect(kQuestCatalog.length, 17);
+    test('exactly 18 quests', () {
+      expect(kQuestCatalog.length, 18);
+    });
+
+    test('모든 QuestSource 가 최소 한 퀘스트에서 쓰인다', () {
+      // QuestTracker.computeAll 은 15 종 소스를 전부 계산해 counters 에 넣는다.
+      // 카탈로그에 소비처가 없는 소스는 그 계산이 통째로 버려진다는 뜻이고,
+      // 딸린 장식 PNG 도 영원히 렌더되지 않는다 — `workEducationWordsMastered`
+      // 가 실제로 그랬다(2026-08-07 `q_dokkaebi_fire` 로 해소).
+      final used = kQuestCatalog.map((q) => q.source).toSet();
+      expect(
+        QuestSource.values.toSet().difference(used),
+        isEmpty,
+        reason: '이 소스를 쓰는 퀘스트가 없습니다 — QuestTracker 의 계산이 버려지고 '
+            '장식도 도달 불가가 됩니다',
+      );
     });
 
     test('all ids unique + lookup map matches', () {
@@ -56,12 +70,12 @@ void main() {
       }
     });
 
-    test('expected counts: 13 standing + 4 seasonal', () {
+    test('expected counts: 14 standing + 4 seasonal', () {
       final standing =
           kQuestCatalog.where((q) => q.type == QuestType.standing).length;
       final seasonal =
           kQuestCatalog.where((q) => q.type == QuestType.seasonal).length;
-      expect(standing, 13);
+      expect(standing, 14);
       expect(seasonal, 4);
     });
 
