@@ -1117,6 +1117,7 @@ class Storage {
     'dojang',
     'gye',
     'gye_tab',
+    'practice_hub',
     'profile',
     'stats',
     'quests',

@@ -68,6 +68,14 @@ class SoriBreakpoints {
 
   /// A wide tablet in landscape can afford an expanded navigation rail.
   static const double wideTablet = 1024;
+
+  /// Below this viewport **height** a screen has no vertical budget for
+  /// decoration. Phone landscape (≈360--420dp tall), split-screen, and the
+  /// 800×600 default test surface all land here. Fixed-height study layouts
+  /// (grammar·hangul·chosung…) overflow at these heights precisely because a
+  /// 10:3 banner eats a third of the viewport — so decorative banners collapse
+  /// instead of squeezing the content that carries the lesson.
+  static const double shortViewport = 640;
 }
 
 /// Returns the small, device-width-driven visual enlargement used above the
