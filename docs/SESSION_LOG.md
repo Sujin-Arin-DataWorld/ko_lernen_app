@@ -83,7 +83,7 @@
 - **Phase 2a hanok_compound 등록해제**: 미참조(lib 참조 0건) 동결 프로토타입 7 PNG(11MB)를 `pubspec.yaml`에서 주석처리 → 번들 제외. **파일 삭제 아님**(디스크 보존, 줄 복구로 되살리기 가능). `personal_hanok_v2/`가 정본.
 - **Phase 2c 이미지 무손실 최적화**: oxipng 10.2.0 `-o4`(no `--strip` → 청크 보존, **픽셀 동일**)로 번들 PNG 164개 재압축 = **−6.5MB(−7.7%)**. illustrations 75→70·stickers 9.1→8.3·icons 496→244K. 앱 아이콘 치수·디코드 정상. git 히스토리가 원본. **누적 절감 약 −47.5MB.**
 
-**검증.** `flutter analyze` 기준선 = 이슈 0. `flutter pub get` 통과. 비디오 matte 코너 검사 18/18 순백 통과. 예상 AAB 253→약 212MB.
+**검증.** `flutter analyze` 기준선 = 이슈 0. `flutter pub get` 통과. 비디오 matte 코너 검사 18/18 순백 통과. **실측 AAB(전체 phase 반영): 253MB → 207.9MB (−45MB, −17.8%)** — `flutter build appbundle --release` 성공(첫 시도는 Gradle 증분 일시 오류, 클린 재빌드 성공). 전체 `flutter analyze` 0, 최종 회귀 배치 52 통과.
 
 **남음(미착수).** Phase 2c 이미지(75MB PNG, oxipng 등 무손실 최적화 — 도구 설치 동의 필요) · Phase 3 시작경로(main.dart 중복 init·불필요 await — 기기 부팅 검증 필요) · Phase 4 핫스팟(cacheWidth 등) · Phase 1 데드코드 20건(릴리스 트리셰이킹돼 **용량 무관**, 유지보수용). **미커밋**(Jin 확인 후). 변경: `assets/video/*`(재인코딩), `assets_unused/video_originals/*`(백업 신규), `pubspec.yaml`.
 
