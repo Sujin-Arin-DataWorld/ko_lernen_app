@@ -57,23 +57,21 @@ class CharacterClips {
   static const String magpieWorry = '$_base/magpie_worry.mp4'; // 오답 위로
   static const String magpiePerched = '$_base/magpie_perched.mp4'; // 듣기 대기
   static const String magpieChoose = '$_base/magpie_choose.mp4'; // 선택 확정 착지
-  /// magpie_full10.mp4(Jin 캐논 원본, 10초)에서 잘라낸 4구간.
-  /// AI 재생성이 아니라 기존 캐논 자산의 컷 — ASSET_GAP §0 준수.
-  /// 몸 높이 63~65%로 리프레이밍해 태고 클립과 스케일을 맞췄다.
-  static const String magpieBob = '$_base/magpie_bob.mp4'; // 대기 홉(루프)
-  // 프로필 초상 교대용(Jin 지정, 2026-08-05) — bob2↔bob3 번갈아 재생.
-  static const String magpieBob2 = '$_base/magpie_bob2.mp4';
-  static const String magpieBob3 = '$_base/magpie_walking_front.mp4';
-  // magpie_flourish·magpie_sing·magpie_soar 는 Jin 이 에셋에서 삭제(2026-08-06)
-  // → 상수 제거(코드 참조 0건 확인). 파일 복원 시 이 줄만 되살리면 된다.
-
-  static const String magpieGreetChirp =
-      '$_base/magpie_choose.mp4'; // 첫 인사 — 신나는 짹짹
+  static const String magpieBob = '$_base/magpie_bob.mp4'; // 대기 홉(루프, 현재 미사용)
+  static const String magpieBob2 = '$_base/magpie_bob2.mp4'; // 프로필 아바타(까치)
+  /// 홈 히어로(까치) 대기 루프. 파일명 magpie_walking_front.mp4 로 통일 —
+  /// 구 magpie_bob3 / magpie_walking_forward 와 동일 클립이라 하나로 합쳤다
+  /// (Jin 2026-08-06).
+  static const String magpieWalkingFront = '$_base/magpie_walking_front.mp4';
+  // magpie_flourish·magpie_sing·magpie_soar·magpie_greet_chirp 는 Jin 이 에셋에서
+  // 삭제 → 상수 제거(코드 참조 0건 확인). magpie_greet_chirp 은 magpie_celebrate 와
+  // 사실상 동일해 폐지(2026-08-06). 파일 복원 시 상수만 되살리면 된다.
 
   /// 프로필 초상에 사용할 포즈. 프로필 화면은 생성 시 하나를 골라 해당
   /// 화면이 살아 있는 동안 유지한다.
-  // Jin 2026-08-05: 프로필 호랑이는 tiger_walking_front 고정(랜덤 포즈 폐지).
-  static const List<String> _tigerProfileClips = [tigerBob];
+  // Jin 2026-08-06: 프로필 호랑이는 tiger_sitting2(앉은 루프) 고정 — 원샷 보행
+  // tiger_walking_front 는 루프 시 사라지거나 튀어서 교체.
+  static const List<String> _tigerProfileClips = [tigerSitting2];
   static const List<String> _magpieProfileClips = [
     magpiePerched,
     magpieChoose,
@@ -93,12 +91,14 @@ class CharacterClips {
       kind == MascotKind.magpie ? _magpieProfileClips : _tigerProfileClips;
 
   /// 첫 인사 클립 (말 없이 — 동물 몸짓만; 소리는 별도 SFX 훅).
+  /// 까치 전용 인사(magpie_greet_chirp)는 celebrate 와 중복이라 폐지 →
+  /// magpie_choose 로 대체(Jin 2026-08-06).
   static String greetFor(MascotKind kind) =>
-      kind == MascotKind.magpie ? magpieGreetChirp : tigerGreetPawflash;
+      kind == MascotKind.magpie ? magpieChoose : tigerGreetPawflash;
 
-  /// 세션/레슨 완료 클립 — 캐릭터별. 호랑이는 기지개, 까치는 축하 날갯짓.
+  /// 세션/레슨 완료 클립 — 캐릭터별. 호랑이는 포효, 까치는 축하 날갯짓.
   static String sessionCompleteFor(MascotKind kind) =>
-      kind == MascotKind.magpie ? magpieCelebrate : tigerStretch;
+      kind == MascotKind.magpie ? magpieCelebrate : tigerRoar;
 
   /// "생각 중" 루프 — 호랑이만 전용 클립이 있고 까치는 대기 자세를 쓴다.
   static String thinkingFor(MascotKind kind) =>
@@ -145,11 +145,11 @@ class CharacterClips {
       case tigerGreetPawflash:
       case tigerRise:
         return 'sfx/greet_tiger.mp3';
-      case magpieGreetChirp:
-        return 'sfx/greet_magpie.mp3';
-      // tigerRoar 는 의도적으로 매핑 제외 — 전용 포효 오디오가 없어
-      // celebrate/greet 합성음을 차용했더니 품질 미달(2026-08-03 Jin:
-      // "허접해서 지워줘"). 좋은 포효 음원이 생기면 케이스를 되살린다.
+      // Jin 2026-08-06: 전용 포효 음원 growl_tiger.mp3 도착 → 매핑 부활.
+      // 레벨업·마일스톤·세션완료(호랑이) 포효에 붙는다. tigerRoarSeatedBonus 는
+      // tigerRoar 와 동일 상수라 이 케이스가 함께 커버한다.
+      case tigerRoar:
+        return 'sfx/growl_tiger.mp3';
       case tigerCelebrateHifive:
       case tigerStretch:
         return 'sfx/celebrate_tiger.mp3';
@@ -162,11 +162,68 @@ class CharacterClips {
   }
 }
 
+/// **폴백 판정 정책** — 무엇을 그릴지는 **상태로만** 정한다. 경과 시간은
+/// 조건이 아니다. [VideoLeaseEligibility] 와 같은 이유로 위젯에서 떼어냈다:
+/// 플랫폼 채널 없이 단위 테스트하기 위해.
+///
+/// ## 왜 타이머를 없앴나
+///
+/// 예전엔 `staticFallback:false` 에 900ms 워치독이 걸려 있었다. 만료되면
+/// **lease 상태와 무관하게** 정적 [Mascot] 을 그렸다. 900ms 는 실기기 콜드
+/// 스타트(에셋 읽기 → `VideoPlayerController` 생성 → MediaCodec 초기화 →
+/// SurfaceTexture 준비 → 첫 프레임 decode)보다 짧아서, 홈 진입마다 폴백이
+/// **먼저** 떴다. 까치 폴백은 정지가 아니라 wingup↔wingdown PNG 플립북
+/// ([Mascot] `animate:true`, 5Hz)이라 화면에는 "PNG 애니메이션이 재생되다가
+/// mp4 로 바뀌는" 것으로 보였다.
+///
+/// Jin 2026-08-07 (샤오미 패드 6): "900ms는 Flutter나 Android가 요구하는
+/// 시간이 아니야 … 홈 히어로에서는 **elapsed time만으로 animated Mascot
+/// fallback을 활성화하지 마라.** MP4 초기화가 진행 중인 정상 상태와 실제
+/// 재생 불가능/실패 상태를 구분하고, 정상 loading에서는 배경 그대로 기다린 뒤
+/// MP4 first frame이 준비되면 표시하라."
+///
+/// 900ms 를 3s 로 늘리는 건 "틀린 추측"을 "덜 틀린 추측"으로 바꾸는 것일 뿐이라
+/// 채택하지 않았다.
+///
+/// ## 타이머 없이도 빈칸이 안 되는 이유
+///
+/// 워치독은 원래 `4a7958e`("reduce-motion·영상 미지원 기기에서 캐릭터 자리가
+/// 빈칸") 를 막으려고 들어왔다. 그 두 원인은 이제 **전부 상태로 판별된다**:
+/// - 기기 미지원 → `TigerStageVideo.videoReady == false`
+///   → [CharacterClipPlayer.videoUnavailable] → 즉시 정적.
+/// - 다크 → 같은 게이트(multiply 는 밝은 배경 전용) → 즉시 정적.
+/// - reduce-motion → `video_lease.dart` 가 `reduceMotion: false` 로 **고정**해
+///   더는 lease 를 막지 않는다(Jin 2026-08-06 샤오미 패드).
+/// - 명시적 실패 → 코디네이터가 백오프 2회 재시도 후 `onFailed`.
+///
+/// 남는 유일한 미도달 상태는 "lease 는 살아 있는데 디코더가 아직 준비 중" —
+/// 그건 **정상 로딩**이고, 정확히 기다려야 하는 상태다.
+abstract final class CharacterClipFallbackPolicy {
+  /// 정적 [Mascot] 을 그릴지. 영상 텍스처가 없을 때만 묻는다.
+  ///
+  /// - [videoUnavailable] `videoReady=false` 또는 다크 — 영상 경로가 범주적으로 불가.
+  /// - [failed] lease `onFailed` — 재시도까지 끝난 명시적 실패.
+  /// - [clipRetired] 원샷이 끝나 텍스처를 반납했다. 마지막 포즈를 정적으로
+  ///   유지하지 않으면 자리가 사라진다(프로필 호랑이 회귀, `_onRevoked` 주석).
+  /// - [staticFallbackRequested] 호출부가 `staticFallback:true` 로 명시.
+  ///
+  /// 넷 다 거짓 = **초기화 진행 중** → `false`(투명하게 대기). 여기에
+  /// "몇 초 지났나"는 들어오지 않는다.
+  static bool showStaticFallback({
+    required bool videoUnavailable,
+    required bool failed,
+    required bool clipRetired,
+    required bool staticFallbackRequested,
+  }) => videoUnavailable || failed || clipRetired || staticFallbackRequested;
+}
+
 /// **CharacterClipPlayer** — 캐릭터 클립 범용 재생 위젯.
 ///
 /// [TigerGreetClip]의 패턴을 모든 클립·양 캐릭터로 일반화한 것:
 /// - 흰 배경 mp4를 muted 재생, [blendColor] multiply로 배경에 흡수.
-/// - 게이트: `TigerStageVideo.videoReady && !SoriMotion.reduceMotion`.
+/// - 게이트: `TigerStageVideo.videoReady` 뿐. reduce-motion 은 **게이트가
+///   아니다** — 안드로이드에서 그 플래그는 배터리 절약·개발자 옵션 애니메이션
+///   배율 0 로도 켜져 캐릭터가 통째로 정적이 됐다([videoUnavailable] 주석).
 /// - 실패/게이트오프 → 정적 [Mascot] 폴백 (기존 UX 그대로 유지).
 /// - [loop]=false(원샷)일 때 종료되면 [onCompleted] 1회 호출 — 실패·폴백
 ///   경로에서도 [fallbackCompleteAfter] 뒤에 반드시 호출되므로 네비게이션
@@ -185,14 +242,17 @@ class CharacterClipPlayer extends StatefulWidget {
   final MascotKind? fallbackKind;
   final MascotEmotion fallbackEmotion;
 
-  /// 정적 [Mascot] 폴백을 그릴지. `false`면 영상 미준비/실패 시 정적 마스코트
-  /// 대신 **투명**(빈 SizedBox) — 흰 카드/박스가 안 생겨 배경이 그대로 비친다.
-  /// 상시 루프로 영상이 거의 항상 떠 있는 곳(홈 히어로 등)에서 폴백이 순간
-  /// 번쩍이며 "정적+영상 둘 다" 보이는 걸 막는다(Jin 2026-08-06).
+  /// 정적 [Mascot] 폴백을 그릴지. `false`면 **초기화가 진행 중인 동안**
+  /// 정적 마스코트 대신 **투명**(빈 SizedBox) — 흰 카드/박스가 안 생겨 배경이
+  /// 그대로 비친다. 상시 루프로 영상이 거의 항상 떠 있는 곳(홈 히어로 등)에서
+  /// 폴백이 번쩍이며 "정적+영상 둘 다" 보이는 걸 막는다(Jin 2026-08-06).
   ///
-  /// ⚠️ `false` 는 **영상이 실제로 뜰 곳에서만** 안전하다. 영상이 범주적으로
-  /// 불가한 상황(기기 미지원·reduce-motion)에서 끄면 자리가 통째로 빈칸이
-  /// 된다 — 그 판별은 [videoUnavailable] 을 쓸 것.
+  /// `false` 라도 **재생이 불가능하거나 실패한 상태**에서는 정적 마스코트가
+  /// 뜬다 — 판정은 [CharacterClipFallbackPolicy.showStaticFallback]. 즉
+  /// "빈칸으로 남는다"는 걱정 때문에 시간 기반 폴백을 넣을 필요가 없다.
+  ///
+  /// ⚠️ 그래도 영상이 범주적으로 불가한 상황은 호출부에서 [videoUnavailable]
+  /// 로 판별해 `true` 를 넘기는 게 명시적이라 낫다(홈 히어로가 그렇게 한다).
   final bool staticFallback;
 
   /// 영상 경로가 **범주적으로 불가**한가 — 기기가 영상을 못 틀거나
@@ -208,9 +268,12 @@ class CharacterClipPlayer extends StatefulWidget {
   /// 뜨고, 어두운 blendColor 로 바꾸면 이번엔 캐릭터가 새까매진다. 즉 다크는
   /// 색 조정으로 못 고치고 영상 경로 자체가 불가 → 정적 [Mascot] 로 간다.
   /// (현재 `main.dart` 가 `themeMode.light` 고정이라 잠복 상태의 지뢰다.)
+  /// ⚠️ **reduce-motion 은 여기 포함하지 않는다** (Jin 2026-08-06, 샤오미 패드).
+  /// MIUI 배터리 절약·개발자 옵션 애니메이션 배율 0 이 접근성 의도와 같은
+  /// 플래그로 나와, 캐릭터가 통째로 정적 PNG 로 고정되는 사고가 났다.
+  /// 근거와 되돌리는 법은 `video_lease.dart` 의 `isEligible` 주석 참고.
   static bool videoUnavailable(BuildContext context) =>
       !TigerStageVideo.videoReady ||
-      SoriMotion.reduceMotion(context) ||
       Theme.of(context).brightness == Brightness.dark;
   final VoidCallback? onCompleted;
   final Duration fallbackCompleteAfter;
@@ -243,6 +306,15 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   bool _ready = false;
   bool _failed = false;
   bool _sfxStarted = false;
+
+  /// **원샷 클립이 끝나 텍스처를 반납했다.** 마지막 포즈를 정적으로 이어받지
+  /// 않으면 자리가 통째로 사라진다(프로필 호랑이가 걸어 들어온 뒤 사라지던
+  /// 경로). 루프 클립은 "끝"이 없으므로 여기 해당하지 않는다.
+  ///
+  /// ⚠️ 이 플래그를 **시간 경과로 세우면 안 된다** — 그게 홈 히어로에서 PNG
+  /// 플립북이 mp4 앞에 재생되던 원인이었다. 근거는
+  /// [CharacterClipFallbackPolicy] 주석.
+  bool _clipRetired = false;
 
   @override
   void initState() {
@@ -341,6 +413,10 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   void _onGranted(VideoPlayerController video) {
     _video = video;
+    // 코디네이터는 `create`(= `initialize()` await) 와 `prepare` 가 모두 끝난
+    // 뒤에야 grant 한다 → **여기 도달 = first frame 준비 완료**. 정적으로
+    // 메워 뒀다면 AnimatedSwitcher 가 크로스페이드로 영상에 넘긴다.
+    _clipRetired = false;
     _completion?.leaseGranted();
     if (!widget.loop) {
       video.addListener(_onTick);
@@ -359,6 +435,18 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     _video?.removeListener(_onTick);
     _video = null;
     _ready = false;
+    // 텍스처가 회수됐다. 두 경우를 **구분**한다:
+    //
+    // ① 원샷 종료(`_releaseAfterCompletion`) — 클립이 끝난 것이므로 마지막
+    //    포즈를 정적으로 이어받지 않으면 자리가 사라진다. 프로필 호랑이가
+    //    걸어 들어온 뒤 사라지던 경로가 정확히 이거였다.
+    // ② 루프인데 다른 화면에 lease 를 양보 — **끝난 게 아니라 대기**다.
+    //    여기서 정적을 켜면 홈에 돌아올 때마다 PNG 플립북이 한 번 번쩍이고
+    //    mp4 로 되돌아간다(Jin 이 지적한 증상). 그대로 기다렸다가 재승인되면
+    //    영상으로 복귀한다.
+    if (!widget.loop) {
+      _clipRetired = true;
+    }
     _completion?.leaseRevoked();
     if (mounted) {
       setState(() {});
@@ -422,19 +510,30 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     // 호출이 Theme 의존성을 등록해 테마 전환 시 didChangeDependencies →
     // _syncEligibility 가 실제로 다시 돈다.
     final blocked = CharacterClipPlayer.videoUnavailable(context);
+    // 영상 텍스처가 없을 때 무엇을 그릴지는 **상태로만** 정한다 —
+    // "몇 초 기다렸나"는 조건이 아니다([CharacterClipFallbackPolicy]).
+    final showStatic = CharacterClipFallbackPolicy.showStaticFallback(
+      videoUnavailable: blocked,
+      failed: _failed,
+      clipRetired: _clipRetired,
+      staticFallbackRequested: widget.staticFallback,
+    );
     return SizedBox.square(
       dimension: widget.size,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
         child: blocked || _failed || !_ready || video == null
-            ? (widget.staticFallback
+            ? (showStatic
                   ? Mascot(
                       kind: widget.fallbackKind ?? MascotPreference.kind.value,
                       emotion: widget.fallbackEmotion,
                       size: widget.size * 0.85,
                       animate: true,
                     )
-                  // 정적 폴백 끔 → 투명. 흰 박스 대신 배경이 비친다.
+                  // 초기화 진행 중 + `staticFallback:false` → **투명**.
+                  // 배경이 그대로 비치고, first frame 이 준비되면 200ms
+                  // 크로스페이드로 mp4 가 들어온다. PNG 플립북은 이 경로에
+                  // 절대 개입하지 않는다(Jin 2026-08-07 "mp4만 재생되도록").
                   : const SizedBox.shrink())
             : ClipRect(
                 // Android(Skia + SurfaceTexture, Impeller off) 방어막 —
