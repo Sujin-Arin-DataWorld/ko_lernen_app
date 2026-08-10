@@ -1039,6 +1039,45 @@ PR 뒤 `workflow_dispatch` 로 명시 실행하고 run 생성·결과를 확인�
 §4 TalkBack/VoiceOver, §5 다크 충돌, §7 네트워크 9상태, §9 권한 6상태, §15 스토어 트랙.
 미결로 남긴 것: `textDim` 전역 대비 2.89(동의 화면만 수정), `TigerGreetClip`/`TigerStageVideo`
 다크 게이트 부재.
+### 2026-08-07 — CI 복구: `tool/clip_matte_report.json` 재생성 (에셋 교체 후 인증서 drift)
+
+**왜.** `test/character_clip_matte_test.dart` 3개 중 2개가 `main` 에서 실패 중이었다.
+`1f4e5f9`("비디오 교체 및 삭제") + `5927ae6`(클립 재배선) 로 에셋이 바뀌었는데 리포트를
+다시 안 돌렸다 → (1) 리포트에만 있는 유령 항목 `magpie_full10.mp4` ·
+`magpie_walking_forward.mp4`, (2) `magpie_choose.mp4` 의 `bytes` 가 실제 파일과 불일치
+(1,239,996 → 3,015,718). 즉 **에셋은 교체됐는데 매트 인증은 옛 파일 것**이었다.
+
+**무엇을.** 리포트 JSON 을 손으로 고치지 않고 정본 도구를 실제로 돌려서 재생성했다.
+
+```
+pip install imageio-ffmpeg          # ffmpeg 7.0.2 정적 바이너리
+python3 tool/check_clip_matte.py --check   # 검증만 (인증서 안 건드림)
+python3 tool/check_clip_matte.py           # 통과 확인 후 재생성
+```
+
+**검증.** 번들된 20개 클립 **전부 통과 (0 실패)**. 흰 매트 다수결 하한
+`MIN_WHITE_RATIO=0.75` 기준:
+
+- `magpie_choose.mp4` — `#FFFFFF` / 흰 100% / 169 프레임 → OK (교체된 새 파일도 순백)
+- 나머지 17개 — `#FFFFFF` / 100%
+- 경계값 3개(통과하지만 기록해 둔다):
+  - `magpie_right_walking_flying.mp4` — 비백 최빈값 `#000508`, 흰 97.4%
+  - `magpie_bob.mp4` — `#E4E4E4`, 흰 95.0%
+  - `tiger_choose.mp4` — `#E5E5E5`, 흰 98.5% (호랑이 몸통이 모서리에 닿는 기존 알려진 케이스)
+
+`flutter test test/character_clip_matte_test.dart` → **5/5 통과**.
+리포트 20개 항목의 파일명·바이트가 `assets/video/character/` 실제 파일과 완전 일치함을
+별도 스크립트로 재확인.
+
+**하지 않은 것.** 리포트를 "CI 초록"을 위해 손으로 맞추지 않았다 — 이 파일은 각 mp4 의
+매트가 순백임을 **인증**하는 증명서라, 통과를 확인하기 전에 고치면 인증 자체가 위조가 된다
+(2026-07-31 `tiger_sitting2.mp4` 자홍 배경 사고가 정확히 이걸 막으려던 장치).
+
+**참고(후속 후보, 이번엔 손대지 않음).** `magpie_right_walking_flying.mp4` ·
+`tiger_magpie_play.mp4` 는 번들되어 있으나 `lib/` 에서 참조 0건 — 앱 용량만 차지한다.
+
+**커밋.** `claude/clip-matte-report-regen` (PR #6 과 분리 — PR #6 은 responsive/short-height
+범위 유지). 변경 파일: `tool/clip_matte_report.json`, `docs/SESSION_LOG.md`.
 
 ---
 
