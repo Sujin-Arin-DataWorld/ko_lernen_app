@@ -37,6 +37,11 @@ class QuizChoice extends StatefulWidget {
   /// (단어팩 등)에서 보기 박스를 더 크게·탭하기 쉽게 만들 때만 지정.
   final double? minHeight;
 
+  /// 정답을 초록으로 **드러낼지**. 오답 재시도가 허용된 게임(Lückentext·
+  /// Tages-Challenge)에서는 틀린 순간 정답이 보이면 재시도가 무의미해지므로
+  /// `false` 로 넘겨 **고른 오답만 빨갛게** 표시한다.
+  final bool revealCorrect;
+
   const QuizChoice({
     super.key,
     required this.text,
@@ -46,6 +51,7 @@ class QuizChoice extends StatefulWidget {
     this.onSelected,
     this.subtitle,
     this.minHeight,
+    this.revealCorrect = true,
   });
 
   @override
@@ -101,17 +107,17 @@ class _QuizChoiceState extends State<QuizChoice>
     Color? trailingColor;
 
     if (widget.revealed) {
-      if (widget.isCorrect) {
+      if (widget.isCorrect && widget.revealCorrect) {
         bg = SoriColors.success.withValues(alpha: 0.14);
         border = SoriColors.success;
         trailing = Icons.check_circle_rounded;
         trailingColor = SoriColors.success;
-      } else if (widget.isSelected) {
+      } else if (widget.isSelected && !widget.isCorrect) {
         bg = SoriColors.danger.withValues(alpha: 0.14);
         border = SoriColors.danger;
         trailing = Icons.cancel_rounded;
         trailingColor = SoriColors.danger;
-      } else {
+      } else if (widget.revealCorrect) {
         // 선택 안 된 오답 — 흐리게.
         opacity = 0.55;
       }

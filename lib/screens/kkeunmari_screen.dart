@@ -338,11 +338,17 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // ── hero ──
+                  // ⚠️ aspectRatio 는 **에셋 실제 비율**이어야 한다.
+                  // kkeunmari_hero.png 는 1254×700(≈1.79)인데 10/3(≈3.33)
+                  // 프레임에 `BoxFit.cover` 로 넣고 있어 세로의 **46%** 가
+                  // 잘려 나갔다 — 호랑이와 까치가 위아래로 잘려 보이던 원인
+                  // (Jin 2026-08-07 실기기: "Wortkette에서 동영상이 잘려").
+                  // 에셋을 다시 만들 필요 없이 프레임만 맞추면 된다.
                   HanokHeader(
                     asset: 'assets/illustrations/hanok/kkeunmari_hero.png',
                     fallbackIcon: Icons.link_rounded,
                     fallbackTint: SoriColors.accent,
-                    aspectRatio: 10 / 3,
+                    aspectRatio: 1254 / 700,
                   ),
                   const SizedBox(height: Spacing.md),
 

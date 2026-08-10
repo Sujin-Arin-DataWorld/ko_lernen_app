@@ -61,6 +61,10 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   int _idx = 0;
   int _score = 0;
   String? _picked;
+
+  /// 현재 문제에서 이미 한 번 틀렸는가 — 재시도로 맞혀도 첫 시도 결과가
+  /// 점수·SRS 에 반영되도록 [_pick] 이 읽는다.
+  bool _retried = false;
   GameOutcome? _outcome;
   int _streak = 0;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -95,23 +99,42 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   void _pick(ClozeItem item, String option) {
     if (_picked != null) return;
     final ok = option == item.answer;
+    // 첫 시도 여부를 기록 전에 잡는다 — 재시도로 맞혀도 점수·SRS 는 첫 시도
+    // 결과를 따른다. 안 그러면 재시도 허용이 곧 전원 만점이 되어
+    // `n / 10 richtig` 카운터가 의미를 잃는다.
+    final firstTry = !_retried;
     setState(() => _picked = option);
-    Storage.srsReview(item.answer, gotIt: ok);
+
+    if (firstTry) {
+      Storage.srsReview(item.answer, gotIt: ok);
+      if (ok) _score++;
+    }
+
     if (ok) {
-      _score++;
       HapticFeedback.lightImpact();
       SoundService.correct();
-    } else {
-      HapticFeedback.mediumImpact();
-      SoundService.wrong();
+      Future.delayed(const Duration(milliseconds: 1100), () {
+        if (!mounted) return;
+        setState(() {
+          _idx++;
+          _picked = null;
+          _retried = false;
+        });
+        if (_idx >= _round.length) _finish();
+      });
+      return;
     }
-    Future.delayed(const Duration(milliseconds: 1100), () {
+
+    // 오답 — 빈칸에 빨갛게 들어갔다가 되돌아오고 계속 고를 수 있다
+    // (Jin 2026-08-07 지시: 재시도 허용).
+    HapticFeedback.mediumImpact();
+    SoundService.wrong();
+    Future.delayed(const Duration(milliseconds: 700), () {
       if (!mounted) return;
       setState(() {
-        _idx++;
         _picked = null;
+        _retried = true;
       });
-      if (_idx >= _round.length) _finish();
     });
   }
 
@@ -230,6 +253,8 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
                       item: item,
                       lang: lang,
                       gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                      picked: _picked,
+                      pickedWrong: _picked != null && _picked != item.answer,
                     ),
                   ),
                   const SizedBox(height: Spacing.xl),

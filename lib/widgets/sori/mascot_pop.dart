@@ -193,19 +193,16 @@ class _MascotPartnerState extends State<MascotPartner>
   }
 
   Widget _avatar() {
-    // 대기 중엔 링을 낮춰 조용히, 정답이면 success 풀컬러로 점등.
-    final ringAlpha = _celebratePose ? 1.0 : 0.35;
-    final fillAlpha = _celebratePose ? 0.15 : 0.06;
+    // ⚠️ never-cage — 캐릭터를 원·테두리·프레임에 가두지 않는다(AGENTS.md 규칙 ③,
+    // clip 뿐 아니라 **테두리도** 금지). 예전에는 대기 중에도 success 색 원형
+    // 채움 + 2px 테두리가 상시 둘러싸고 있어 까치가 갇혀 보였다
+    // (Jin 2026-08-07 Satz bauen: "파란색 원에 가두지 말아줘, 답답해보여").
+    //
+    // 정답 연출은 링 없이도 충분히 읽힌다 — 바깥 [_BurstFrame] 의 충격파 3개
+    // + 스케일 팝 + 표정 전환(neutral → celebrate)이 이미 붙어 있다. 상시
+    // 테두리는 그 연출에 아무것도 보태지 않으면서 답답함만 만들고 있었다.
     return AnimatedContainer(
       duration: SoriMotion.fast,
-      decoration: BoxDecoration(
-        color: SoriColors.success.withValues(alpha: fillAlpha),
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: SoriColors.success.withValues(alpha: ringAlpha),
-          width: 2,
-        ),
-      ),
       padding: const EdgeInsets.all(4),
       child: Mascot(
         kind: widget.kind,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../services/cloze_loader.dart';
 import '../../services/tts_service.dart';
 import 'card.dart';
+import 'game_layout.dart';
 import 'quiz_choice.dart';
 import 'tokens.dart';
 
@@ -51,7 +52,9 @@ List<TextSegment> splitEmphasis(String sentence, String? gloss) {
     final end = at + cand.length;
     final segs = <TextSegment>[];
     if (at > 0) segs.add(TextSegment(sentence.substring(0, at), false));
-    segs.add(TextSegment(sentence.substring(at, end), true)); // Original-Groß/Klein
+    segs.add(
+      TextSegment(sentence.substring(at, end), true),
+    ); // Original-Groß/Klein
     if (end < sentence.length) {
       segs.add(TextSegment(sentence.substring(end), false));
     }
@@ -60,17 +63,52 @@ List<TextSegment> splitEmphasis(String sentence, String? gloss) {
   return [TextSegment(sentence, false)];
 }
 
+/// 빈칸 표시 문자(전각 밑줄)의 연속 구간. `＿＿＿ 더워요.` 형태.
+final RegExp kClozeBlankPattern = RegExp('\u{FF3F}+');
+
+/// [sentenceKo] 의 빈칸을 [filled] 로 갈아 끼운 세 조각(앞·빈칸·뒤).
+///
+/// 빈칸 표시가 없으면 문장 전체가 앞 조각이고 가운데는 빈 문자열이다 —
+/// 호출측이 그대로 그리면 기존과 같은 모습이 된다.
+({String before, String slot, String after}) splitClozeSlot(
+  String sentenceKo, {
+  String? filled,
+}) {
+  final m = kClozeBlankPattern.firstMatch(sentenceKo);
+  if (m == null) {
+    return (before: sentenceKo, slot: '', after: '');
+  }
+  return (
+    before: sentenceKo.substring(0, m.start),
+    slot: filled ?? m.group(0)!,
+    after: sentenceKo.substring(m.end),
+  );
+}
+
 /// Frage-Karte für Lückentext/Tages-Challenge: koreanischer Satz mit Lücke,
 /// Übersetzung mit hervorgehobenem gesuchtem Wort, TTS.
 class ClozePromptCard extends StatelessWidget {
   final ClozeItem item;
   final String lang;
   final String? gloss;
+
+  /// 사용자가 방금 고른 보기. null 이면 빈칸 그대로.
+  ///
+  /// Jin 2026-08-07: "단어 선택하면 단어가 문제에도 표시가 되서 … 정답이면
+  /// 정답 누른게 문장에 들어가서 `너무 더워요.` 하고 표시되게 해줘."
+  /// 오답도 **빈칸에 들어간 뒤** 빨갛게 보였다가 되돌아온다(재시도 허용).
+  final String? picked;
+
+  /// [picked] 가 오답인가 — 빈칸을 danger 색으로 그린다.
+  final bool pickedWrong;
+
   const ClozePromptCard({
     super.key,
     required this.item,
     required this.lang,
     required this.gloss,
+    this.picked,
+    this.pickedWrong = false,
   });
 
   @override
@@ -84,6 +122,13 @@ class ClozePromptCard extends StatelessWidget {
       height: 1.4,
     );
     final segments = splitEmphasis(item.meaning(lang), gloss);
+    final slot = splitClozeSlot(item.sentenceKo, filled: picked);
+    const koStyle = TextStyle(fontSize: 26, fontWeight: FontWeight.w800);
+    // 빈칸이 비어 있을 때도 "여기가 문제다"가 보이도록 액센트를 준다 —
+    // 예전에는 밑줄이 본문과 같은 색이라 어디를 채우는지 눈에 안 들어왔다.
+    final Color slotColor = picked == null
+        ? SoriColors.primary
+        : (pickedWrong ? SoriColors.danger : SoriColors.success);
 
     return SoriCard(
       variant: SoriCardVariant.hero,
@@ -96,10 +141,18 @@ class ClozePromptCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(
-              item.sentenceKo,
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(text: slot.before, style: koStyle),
+                  TextSpan(
+                    text: slot.slot,
+                    style: koStyle.copyWith(color: slotColor),
+                  ),
+                  TextSpan(text: slot.after, style: koStyle),
+                ],
+              ),
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: Spacing.lg),
             Text.rich(
@@ -148,6 +201,18 @@ class ClozeOptionsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
+        // 예전에는 `spaceEvenly` 가 남는 세로를 **버튼 사이 간격**으로만 흘려
+        // 보내서, 태블릿에서 화면은 다 쓰는데 버튼은 폰과 똑같이 42~53dp 였다
+        // (2026-08-07 실측: 폰·태블릿 높이 동일). 남는 높이를 버튼 자체에
+        // 넣어야 "단어 카드가 너무 작아"가 풀린다.
+        final tileHeight = soriFairTileHeight(
+          available: constraints.maxHeight,
+          count: options.length,
+          gap: Spacing.xs * 2,
+        );
+        // 오답을 고른 순간에는 정답을 드러내지 않는다 — 재시도가 허용된
+        // 게임이라 정답이 보이면 다시 고를 이유가 사라진다.
+        final wrongPick = picked != null && picked != answer;
         return SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
@@ -160,6 +225,8 @@ class ClozeOptionsList extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
                       child: QuizChoice(
                         text: opt,
+                        minHeight: tileHeight,
+                        revealCorrect: !wrongPick,
                         isCorrect: opt == answer,
                         isSelected: picked == opt,
                         revealed: revealed,

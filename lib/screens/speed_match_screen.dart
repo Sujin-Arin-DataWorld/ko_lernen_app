@@ -18,6 +18,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/game_layout.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Speed-Match** — gegen die Uhr Koreanisch ↔ Bedeutung paaren.
@@ -295,41 +296,61 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
                     style: TextStyle(fontSize: 13, color: s.textMuted),
                   ),
                   const SizedBox(height: Spacing.md),
+                  // 카드가 남는 세로를 **나눠 갖는다**. 예전에는 타일이
+                  // `minHeight: 52` 고정이라 태블릿 세로에서 화면의 63% 가
+                  // 빈 공간이었다(2026-08-07 실측, 800×1280). 폰은 이미
+                  // 남는 높이가 없어 fair < 52 → 기존 52 그대로다(변화 0).
                   Expanded(
-                    child: SingleChildScrollView(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Column(
+                    child: LayoutBuilder(
+                      builder: (context, c) {
+                        final tileHeight = soriFairTileHeight(
+                          available: c.maxHeight,
+                          count: _active.length,
+                        );
+                        return SingleChildScrollView(
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minHeight: c.maxHeight.isFinite ? c.maxHeight : 0,
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                for (final v in _active)
-                                  _MatchTile(
-                                    label: v.korean,
-                                    selected: _selLeftKo == v.korean,
-                                    accent: SoriColors.primary,
-                                    onTap: () => _tapLeft(v.korean),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      for (final v in _active)
+                                        _MatchTile(
+                                          label: v.korean,
+                                          minHeight: tileHeight,
+                                          selected: _selLeftKo == v.korean,
+                                          accent: SoriColors.primary,
+                                          onTap: () => _tapLeft(v.korean),
+                                        ),
+                                    ],
                                   ),
+                                ),
+                                const SizedBox(width: Spacing.md),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      for (final v in _rightOrder)
+                                        _MatchTile(
+                                          label: v.translationFor(lang),
+                                          minHeight: tileHeight,
+                                          wrong:
+                                              _wrongRightKo ==
+                                              v.translationFor(lang),
+                                          accent: SoriColors.accent,
+                                          onTap: () => _tapRight(v),
+                                        ),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                          const SizedBox(width: Spacing.md),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                for (final v in _rightOrder)
-                                  _MatchTile(
-                                    label: v.translationFor(lang),
-                                    wrong:
-                                        _wrongRightKo == v.translationFor(lang),
-                                    accent: SoriColors.accent,
-                                    onTap: () => _tapRight(v),
-                                  ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -418,10 +439,16 @@ class _MatchTile extends StatelessWidget {
   final bool wrong;
   final Color accent;
   final VoidCallback onTap;
+
+  /// 남는 세로를 나눠 가진 결과 높이 — [soriFairTileHeight] 참조.
+  /// 폰에서는 항상 52 로 돌아와 기존 모습 그대로다.
+  final double minHeight;
+
   const _MatchTile({
     required this.label,
     required this.accent,
     required this.onTap,
+    this.minHeight = 52,
     this.selected = false,
     this.wrong = false,
   });
@@ -448,7 +475,7 @@ class _MatchTile extends StatelessWidget {
           onTap: onTap,
           child: Container(
             width: double.infinity,
-            constraints: const BoxConstraints(minHeight: 52),
+            constraints: BoxConstraints(minHeight: minHeight),
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(
               horizontal: Spacing.sm,
@@ -461,7 +488,10 @@ class _MatchTile extends StatelessWidget {
             child: Text(
               label,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontWeight: FontWeight.w700),
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: soriTileFontSize(tileHeight: minHeight),
+              ),
             ),
           ),
         ),

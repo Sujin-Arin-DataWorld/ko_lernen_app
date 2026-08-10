@@ -56,6 +56,10 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   int _idx = 0;
   int _score = 0;
   String? _picked;
+
+  /// 현재 문제에서 이미 한 번 틀렸는가 — 재시도로 맞혀도 첫 시도 결과가
+  /// 점수·SRS·코스 숙달도에 반영되도록 [_pick] 이 읽는다.
+  bool _retried = false;
   GameOutcome? _outcome;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
@@ -123,30 +127,50 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   void _pick(ClozeItem item, String option) {
     if (_picked != null) return;
     final ok = option == item.answer;
+    // 첫 시도 여부를 **기록 전에** 잡는다 — 재시도로 맞혀도 점수·SRS·코스
+    // 숙달도는 첫 시도 결과를 따른다. 안 그러면 재시도 허용이 곧 전원 만점이
+    // 되어 `n / 10 richtig` 카운터가 의미를 잃는다.
+    final firstTry = !_retried;
     setState(() => _picked = option);
-    Storage.srsReview(item.answer, gotIt: ok); // Kontext-Abruf → Haupt-SRS
-    // ignore: discarded_futures
-    CourseActivityReporter.recordContentAttempt(
-      CurriculumContentKind.cloze,
-      item.id,
-      ok,
-      errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
-    );
+
+    if (firstTry) {
+      Storage.srsReview(item.answer, gotIt: ok); // Kontext-Abruf → Haupt-SRS
+      // ignore: discarded_futures
+      CourseActivityReporter.recordContentAttempt(
+        CurriculumContentKind.cloze,
+        item.id,
+        ok,
+        errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
+      );
+      if (ok) _score++;
+    }
+
     if (ok) {
-      _score++;
       HapticFeedback.lightImpact();
       SoundService.correct();
-    } else {
-      HapticFeedback.mediumImpact();
-      SoundService.wrong();
+      Future.delayed(const Duration(milliseconds: 1100), () {
+        if (!mounted) return;
+        setState(() {
+          _idx++;
+          _picked = null;
+          _retried = false;
+        });
+        if (_idx >= _round.length) _finish();
+      });
+      return;
     }
-    Future.delayed(const Duration(milliseconds: 1100), () {
+
+    // 오답 — Jin 2026-08-07 지시: 빈칸에 빨갛게 들어갔다가 되돌아오고 계속
+    // 고를 수 있다(재시도 허용). 예전에는 오답도 그대로 다음 문제로 넘어가
+    // 무엇이 맞는 답이었는지 손으로 확인할 기회가 없었다.
+    HapticFeedback.mediumImpact();
+    SoundService.wrong();
+    Future.delayed(const Duration(milliseconds: 700), () {
       if (!mounted) return;
       setState(() {
-        _idx++;
         _picked = null;
+        _retried = true;
       });
-      if (_idx >= _round.length) _finish();
     });
   }
 
@@ -261,6 +285,8 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                       item: item,
                       lang: lang,
                       gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                      picked: _picked,
+                      pickedWrong: _picked != null && _picked != item.answer,
                     ),
                   ),
                   const SizedBox(height: Spacing.xl),
