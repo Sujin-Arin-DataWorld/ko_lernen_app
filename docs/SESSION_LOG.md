@@ -7,6 +7,52 @@
 
 ---
 
+### 2026-08-10 — iOS `.ipa` 빌드 자동화: 문서만 있고 실행기가 없던 구멍
+
+**왜.** Jin이 "애플스토어에 올릴 파일"을 요청. 확인해 보니 `ios/ExportOptions.plist`
+와 `docs/store/ios-external-setup.md`(영문 런북)는 완비돼 있는데, **그걸 실제로
+돌리는 실행기가 없었다.** 런북은 macOS 담당자가 명령을 하나씩 옮겨 치는 전제였고,
+그 명령들은 5개 문서 절에 흩어져 있었다. `.github/workflows/ci.yml` 도 ubuntu에서
+analyze/test/web만 돌 뿐 iOS 빌드 잡이 없다. 즉 "iOS 릴리스는 문서상으로만 가능"한
+상태였다.
+
+**무엇을.**
+
+| 커밋 | 내용 |
+|---|---|
+| `a506813` | `scripts/build_ios_ipa.sh`(신규) · `docs/store/APPSTORE_UPLOAD_KO.md`(신규) · `docs/store/README.md` 링크 |
+| `ed51a18` | 빌드번호 참조 `2.0.5+12` → `+13` 갱신 + Android `versionCode` 공유 사실 명시 (`bf58bd5` 반영) |
+| (이 커밋) | 위 두 해시 기록 + `AGENTS.md` "현재 진행 중인 작업" 체크리스트 갱신 — AGENTS.md L5(커밋해시)·L14(체크리스트) 이행. 자기 해시는 커밋 전에 알 수 없어 비워 둔다 |
+
+- **teamID 주입 방식.** `ios/ExportOptions.plist` 의 `teamID` 는 의도적으로 비어
+  있다(저장소 무자격증명 원칙). 스크립트는 커밋본을 고치지 않고 `mktemp` 복사본에
+  `PlistBuddy` 로 주입한 뒤 `--export-options-plist` 로 넘긴다. 빌드가 끝나면
+  `trap` 이 임시 디렉터리를 지운다 — **원칙을 우회하지 않으면서 자동화**한 지점.
+- **검증 게이트를 빌드 경로에 편입.** `verify_ios_firebase_config.dart` 와
+  `verify_ios_store_contract.dart` 는 존재만 하고 아무도 안 부르고 있었다. 이제
+  빌드 3단계에 들어가 `GoogleService-Info.plist` 누락·스토어 계약 위반이 있으면
+  빌드가 시작조차 안 한다. Podfile.lock 의 `GoogleMLKit/TextRecognitionKorean` 도
+  검사 — 이게 빠지면 책 OCR 이 죽은 채로 제출된다.
+- **업로드는 기본 미수행.** `ExportOptions` 의 `destination: export` 를 존중해
+  파일만 만들고 멈춘다. `ASC_KEY_ID`/`ASC_ISSUER_ID`/`ASC_KEY_PATH` 3종이 다
+  있을 때만 `altool validate-app → upload-app` 까지 이어진다. 실수 업로드 방지.
+- **문서의 오해 교정.** Jin이 "파일을 못 올려서 앱 등록을 못 했다"고 했는데 순서가
+  거꾸로다. App Store Connect 앱 레코드는 파일 없이 먼저 만들어야 하고, 없으면
+  업로드가 `No suitable application record was found` 로 거부된다. 한국어 순서표
+  §0 에 이 순서를 박아 뒀다.
+
+**검증.** `bash -n scripts/build_ios_ipa.sh` 통과. 스크립트 본체(빌드·서명·업로드)는
+macOS + Xcode + 실제 애플 자격증명이 있어야 실행 가능하므로 **이 리눅스 세션에서는
+실행 검증 불가** — Jin의 맥에서 첫 실행이 곧 검증이다.
+
+**남은 것 (Jin 확인 필요).**
+- `pubspec.yaml` 은 `2.0.5+13`(`bf58bd5` 에서 Play AAB 용으로 bump)인데
+  `docs/store/app-store-connect-v2.0.5.md` 는 `2.0.5 (11)` 기준으로 쓰여 있다.
+  문서 드리프트 — 어느 쪽이 정본인지 확정 필요. **빌드번호는 Android
+  `versionCode` 와 한 값을 공유**하므로 Play 로 소모한 번호는 iOS 에서 재사용
+  불가라는 점도 같이 정리해야 한다.
+- `ios/Runner/Info.plist` 에 `ITSAppUsesNonExemptEncryption` 키가 없어 업로드마다
+  수출규정 질문이 뜬다. 법적 신고 항목이라 임의로 넣지 않았다.
 ### 2026-08-10 — main red 해소: 요일 의존으로 깨지던 stats 골든 제거
 
 **왜.** `main` 에서 `screen_layout_golden_test` 의 `stats @ medium` · `stats @ expanded` 가 실패했다.

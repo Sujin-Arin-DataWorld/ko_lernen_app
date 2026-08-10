@@ -9,6 +9,11 @@ Read [app-store-connect-v2.0.5.md](app-store-connect-v2.0.5.md) for the single
 handoff for `2.0.5 (11)`: identifiers, review path, iPad screenshots, and the
 Mac-only archive/TestFlight gates.
 
+[APPSTORE_UPLOAD_KO.md](APPSTORE_UPLOAD_KO.md) (Korean) is the operator's
+running order for the same submission — Bundle ID registration, app-record
+creation, the one-command `.ipa` build (`scripts/build_ios_ipa.sh`), upload,
+and TestFlight. It sequences the documents below rather than replacing them.
+
 ### Copy-ready source
 
 | File | Use it for |
