@@ -2,47 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_room.dart';
-import 'package:ko_lernen_app/screens/app_shell.dart';
-import 'package:ko_lernen_app/screens/home_screen.dart';
-import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
-import 'package:ko_lernen_app/screens/learn_hub_screen.dart';
-import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
-import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
-import 'package:ko_lernen_app/screens/sarangbang_furnish_screen.dart';
-import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
-import 'package:ko_lernen_app/screens/wordbook_hub_screen.dart';
-import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
-import 'package:ko_lernen_app/screens/settings_screen.dart';
-import 'package:ko_lernen_app/screens/stats_screen.dart';
-import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
-import 'package:ko_lernen_app/screens/grammar_screen.dart';
-import 'package:ko_lernen_app/screens/hangul_screen.dart';
-import 'package:ko_lernen_app/screens/wordle_screen.dart';
-import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
-import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
-import 'package:ko_lernen_app/screens/listening_screen.dart';
-import 'package:ko_lernen_app/screens/hard_words_screen.dart';
-import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
-import 'package:ko_lernen_app/screens/consent_screen.dart';
-import 'package:ko_lernen_app/screens/paywall_screen.dart';
-import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
-import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
-import 'package:ko_lernen_app/screens/speed_match_screen.dart';
-import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
-import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
-import 'package:ko_lernen_app/screens/learning_path_screen.dart';
-import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
-import 'package:ko_lernen_app/screens/quests_screen.dart';
-import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
-import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
+
+import 'support/responsive_screens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -200,48 +166,7 @@ void main() {
       ScenarioLoader.reset();
     });
 
-    final screens = <String, Widget>{
-      'app shell': const AppShell(),
-      'home': const HomeScreen(),
-      'personal hanok world': const HanokWorldScreen(),
-      'learn hub': const LearnHubScreen(),
-      'practice hub': const PracticeHubScreen(),
-      'sarangbang study': const SarangbangStudyScreen(),
-      'sarangbang furnish': const SarangbangFurnishScreen(),
-      'anbang furnish': const PersonalRoomFurnishScreen(
-        surface: PersonalRoomSurface.anbang,
-      ),
-      'daecheong furnish': const PersonalRoomFurnishScreen(
-        surface: PersonalRoomSurface.daecheongmaru,
-      ),
-      'wordbook hub': const WordbookHubScreen(),
-      'scenarios list': const ScenariosListScreen(),
-      'settings': const SettingsScreen(),
-      'stats': const StatsScreen(),
-      'vocab packs': const VocabPacksScreen(),
-      // 반응형 전파 + 핫스팟 동적화 화면 (무인자만)
-      'grammar': const GrammarScreen(),
-      'hangul': const HangulScreen(),
-      'wordle': const WordleScreen(),
-      'kkeunmari': const KkeunmariScreen(),
-      'dojangcheop': const DojangcheopScreen(),
-      'listening': const ListeningScreen(),
-      'hard words': const HardWordsScreen(),
-      'legacy vocab': const LegacyVocabScreen(),
-      'consent': const ConsentScreen(),
-      'paywall': const PaywallScreen(),
-      'chosung': const ChosungQuizScreen(),
-      'cloze': const ClozeGameScreen(),
-      'speed match': const SpeedMatchScreen(),
-      'daily challenge': const DailyChallengeScreen(),
-      'satz arcade': const SatzArcadeScreen(),
-      'learning path': const LearningPathScreen(),
-      // D5 신규 커버 (D4에서 변경된 미커버 화면, 무인자만).
-      'gye tab': const GyeTabScreen(),
-      'quests': const QuestsScreen(),
-      'smalltalk': const SmalltalkScreen(),
-      'review': const ReviewSessionScreen(),
-    };
+    final screens = responsiveScreens();
 
     for (final width in <double>[308, 360, 600, 720, 800, 1280]) {
       for (final entry in screens.entries) {
@@ -253,7 +178,7 @@ void main() {
           addTearDown(tester.view.resetPhysicalSize);
           addTearDown(tester.view.resetDevicePixelRatio);
 
-          await tester.pumpWidget(_wrap(entry.value));
+          await tester.pumpWidget(wrapResponsive(entry.value));
           await tester.pump(); // 첫 프레임 (로딩 상태)
           // 비동기 로드(시나리오·due 카운트) 해소 → Today 카드 등 실데이터 상태 렌더.
           await tester.pump(const Duration(milliseconds: 100));
@@ -265,65 +190,6 @@ void main() {
           await tester.pump();
         });
       }
-    }
-
-    // ── 짧은 뷰포트(가로모드·분할화면·CI 기본 서피스) ────────────────────
-    //
-    // 2026-08-06 Jin 태블릿 실기기 + CI 가 같은 결함을 서로 다른 얼굴로 보여줬다:
-    // 실기기 가로모드에서는 온보딩 코치마크가 짜부라지고, CI 는 기본 800×600
-    // 서피스에서 `grammar_screen` 이 37px 오버플로로 터졌다. 원인은 하나 —
-    // **세로 예산이 없는 화면**을 아무도 회귀로 안 잡고 있었다.
-    //
-    // 위쪽 매트릭스는 전부 높이 900 이상이라 이 구간이 통째로 빈 구멍이었다.
-    //  · 800×600  = flutter test 기본 서피스(= CI 가 실제로 도는 크기)
-    //  · 740×360  = 폰 가로모드
-    //  · 640×480  = 좁고 짧은 분할화면
-    for (final size in <Size>[
-      const Size(800, 600),
-      const Size(740, 360),
-      const Size(640, 480),
-    ]) {
-      for (final entry in screens.entries) {
-        testWidgets(
-          '${entry.key} @ ${size.width.toInt()}x${size.height.toInt()} 짧은 뷰포트 오버플로 없음',
-          (tester) async {
-            tester.view.physicalSize = size;
-            tester.view.devicePixelRatio = 1;
-            addTearDown(tester.view.resetPhysicalSize);
-            addTearDown(tester.view.resetDevicePixelRatio);
-
-            await tester.pumpWidget(_wrap(entry.value));
-            await tester.pump();
-            await tester.pump(const Duration(milliseconds: 100));
-            await tester.pump(const Duration(milliseconds: 1200));
-
-            expect(tester.takeException(), isNull);
-
-            await tester.pumpWidget(const SizedBox.shrink());
-            await tester.pump();
-          },
-        );
-      }
-    }
-
-    // 짧은 뷰포트 × 시스템 글자 1.3배 — 둘이 겹치는 최악 조합.
-    for (final entry in screens.entries) {
-      testWidgets('${entry.key} @ 800x600 ×1.3 글씨 오버플로 없음', (tester) async {
-        tester.view.physicalSize = const Size(800, 600);
-        tester.view.devicePixelRatio = 1;
-        addTearDown(tester.view.resetPhysicalSize);
-        addTearDown(tester.view.resetDevicePixelRatio);
-
-        await tester.pumpWidget(_wrap(entry.value, textScale: 1.3));
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 100));
-        await tester.pump(const Duration(milliseconds: 1200));
-
-        expect(tester.takeException(), isNull);
-
-        await tester.pumpWidget(const SizedBox.shrink());
-        await tester.pump();
-      });
     }
 
     // 접근성 큰 글씨(시스템 텍스트 스케일 1.3×) — 좁은 폰에서 오버플로 0.
@@ -338,7 +204,7 @@ void main() {
             addTearDown(tester.view.resetPhysicalSize);
             addTearDown(tester.view.resetDevicePixelRatio);
 
-            await tester.pumpWidget(_wrap(entry.value));
+            await tester.pumpWidget(wrapResponsive(entry.value));
             await tester.pump();
             await tester.pump(const Duration(milliseconds: 100));
             await tester.pump(const Duration(milliseconds: 1200));
@@ -367,7 +233,7 @@ void main() {
           addTearDown(tester.view.resetPhysicalSize);
           addTearDown(tester.view.resetDevicePixelRatio);
 
-          await tester.pumpWidget(_wrap(entry.value, textScale: 1.3));
+          await tester.pumpWidget(wrapResponsive(entry.value, textScale: 1.3));
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 100));
           await tester.pump(const Duration(milliseconds: 1200));
@@ -380,22 +246,4 @@ void main() {
       }
     }
   });
-}
-
-Widget _wrap(Widget child, {double textScale = 1.0}) {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: AppTheme.light,
-    locale: const Locale('de'),
-    supportedLocales: AppL10n.supportedLocales,
-    localizationsDelegates: AppL10n.localizationsDelegates,
-    home: textScale == 1.0
-        ? child
-        : MediaQuery.withClampedTextScaling(
-            minScaleFactor: textScale,
-            maxScaleFactor: textScale,
-            child: child,
-          ),
-    onGenerateRoute: (settings) => null,
-  );
 }

@@ -97,6 +97,15 @@ AppWindowClass windowClassFor(double width) {
 AppWindowClass appWindowClassOf(BuildContext context) =>
     windowClassFor(MediaQuery.sizeOf(context).width);
 
+// 짧은 뷰포트(가로로 든 폰·분할 화면) 판단은 **절대 높이 임계값으로 하지
+// 않는다**. 그렇게 하면 흔한 360×640 세로 폰까지 "짧다"로 걸려 실제 기기의
+// 디자인이 바뀐다. 대신 각 요소가 **자기 몫이 뷰포트에서 차지하는 비율**로
+// 스스로 판단한다:
+//   · 장식 배너 → `HanokHeader` 가 자기 높이가 뷰포트의 22% 를 넘으면 접는다.
+//   · 학습 본문 → `SoriMinHeightScroll` 이 상자가 최소 높이보다 짧으면
+//     넘치는 대신 스크롤한다.
+// (여기 있던 `kShortViewportMaxHeight`/`isShortViewport` 는 그 이유로 제거됐다.)
+
 /// 화면 종류별 콘텐츠 최대 너비.
 ///
 /// 태블릿에서 가장 흔한 문제는 UI 가 깨지는 것보다 **내용이 지나치게 길게
