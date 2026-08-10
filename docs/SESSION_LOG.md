@@ -7,7 +7,7 @@
 
 ---
 
-### 2026-08-11 (Codex) — UX 목업 01–06 시각 패리티 재구현 완료 (미커밋)
+### 2026-08-11 (Codex) — UX 목업 01–06 시각 패리티 재구현 완료
 
 **왜.** Jin의 실제 화면 검토에서 기존 `01–06 완료` 표기가 문구·상태·라우팅 테스트를 목업 화면 구현으로 과대 해석한 사실이 확인됐다. 특히 01A/01C와 02A–02D는 목업의 실제 첫 화면 흐름으로 볼 수 없었고, 03–06도 화면 위계와 CTA가 다르게 남아 있었다.
 
@@ -16,6 +16,8 @@
 **무엇을.** 01A는 법적 동의 중심 화면으로 단순화하고, 첫 `courseEligible` 성공 뒤에만 열리는 01C `FirstVoiceSuccessScreen`을 추가했다. 02는 Today의 단일 다음 행동·미션 브리프·플레이어 맥락·저장된 can-do 결과를 연결했다. 03–06은 한옥/사랑방/목적별 연습/학습 경로/계/프로필/Today 예외 상태를 목업의 정보 위계와 CTA로 재구성했다. 모든 CTA는 기존 게임·OCR·사전·단어장·시나리오·코스 route를 유지해 연결하며, 새 이미지·영상 자산은 만들지 않았다.
 
 **검증.** `flutter gen-l10n`, 전체 `flutter analyze --fatal-infos`(No issues found), `git diff --check`를 통과했다. 골든을 제외한 Flutter 테스트 **257개 파일**을 13개 묶음으로 끝까지 통과시켰으며, 01A–06C의 기본/상태/CTA/반응형 계약을 포함한다. Linux CI 전용 골든 기준선 9개는 Windows 로컬 텍스트 래스터 차이로 별도이며, 기준선을 이 작업에서 수정하지 않았다. Android AAB 빌드와 OneDrive `build` 폴더 정리는 실행하지 않았다.
+
+**커밋 및 최신 main 재검증.** 기능 커밋은 `192f83e` (`feat(ux): rebuild mockup learning flow`)다. `origin/main`의 최신 `30d55e6` 위로 충돌 없이 rebase했고, main 쪽 추가 파일은 문서와 Xcode Cloud post-clone 스크립트뿐임을 확인했다. rebase 뒤 `flutter gen-l10n`, 전체 분석, 01C/02/03/04/05/06·계정·반응형 주요 회귀 묶음도 다시 통과했다. main 병합과 push는 이 기록 시점에 수행하지 않았다.
 
 ---
 
