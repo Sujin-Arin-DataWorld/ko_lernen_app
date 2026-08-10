@@ -15,6 +15,7 @@ import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mission_context_bar.dart';
@@ -206,6 +207,18 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     );
   }
 
+  /// 미션 경로로 진입해 팩이 미션 그래프 링크로 좁혀진 상태인지.
+  bool get _isScoped => _courseUnitId != null;
+
+  /// 스코프 뷰 → 전체 라이브러리. 같은 레벨을 보여주도록 browse 레벨을 맞춘 뒤
+  /// 인자 없이 `/vocab` 재진입(unrestricted). 뒤로가기 하면 미션 스코프로 복귀.
+  Future<void> _browseAllPacks() async {
+    HapticFeedback.selectionClick();
+    await Storage.setBrowseLevelCode(_level.toLowerCase());
+    if (!mounted) return;
+    await Navigator.of(context).pushNamed('/vocab');
+  }
+
   int get _clearedCount =>
       _packs.where((e) => e.progress.status == PackStatus.cleared).length;
 
@@ -294,6 +307,12 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                       total: _packs.length,
                     ),
                   ),
+                  if (_isScoped)
+                    SliverToBoxAdapter(
+                      child: _ScopedBrowseAllBanner(
+                        onBrowseAll: _browseAllPacks,
+                      ),
+                    ),
                   if (_packs.isEmpty)
                     SliverFillRemaining(
                       hasScrollBody: false,
@@ -335,6 +354,43 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// 미션 경로로 진입한 스코프 뷰에서 "이건 미션 팩만"임을 알리고, 전체 팩
+/// 라이브러리로 나가는 출구(CTA)를 준다. 일반 브라우즈에서는 렌더되지 않는다.
+class _ScopedBrowseAllBanner extends StatelessWidget {
+  final Future<void> Function() onBrowseAll;
+  const _ScopedBrowseAllBanner({required this.onBrowseAll});
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, Spacing.md, 4, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            t.vocabPacksScopedHint,
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: s.textMuted),
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.vocabPacksBrowseAllCta,
+            trailingIcon: Icons.arrow_forward_rounded,
+            fullWidth: true,
+            onTap: () {
+              // ignore: discarded_futures
+              onBrowseAll();
+            },
+          ),
+        ],
       ),
     );
   }

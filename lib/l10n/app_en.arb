@@ -474,6 +474,8 @@
   },
   "vocabPacksTitle": "Vocab packs",
   "vocabPacksLevelMenu": "Switch level",
+  "vocabPacksScopedHint": "Only packs for your current mission.",
+  "vocabPacksBrowseAllCta": "Browse all vocab packs",
   "vocabPacksProgressLabel": "{cleared}/{total} packs cleared",
   "@vocabPacksProgressLabel": {
     "placeholders": {

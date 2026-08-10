@@ -101,76 +101,87 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
               ),
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      t.onboardingStartEyebrow,
-                      style: text.label.copyWith(color: SoriColors.primary),
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    Text(t.onboardingStartTitle, style: text.h1),
-                    const SizedBox(height: Spacing.sm),
-                    Text(t.onboardingStartBody, style: text.bodySmall),
-                    const SizedBox(height: Spacing.lg),
-                    _ChoiceTile(
-                      icon: LearnerMotivation.travel.icon,
-                      title: t.onboardingStartTravelTitle,
-                      body: t.onboardingStartTravelBody,
-                      selected: _motivation == LearnerMotivation.travel,
-                      onTap: () => setState(
-                        () => _motivation = LearnerMotivation.travel,
+                // 기기마다 자동으로 화면을 꽉 채운다: 콘텐츠가 뷰포트보다 짧으면
+                // 남는 세로를 아래 Spacer(flex)들이 나눠 가져 버튼이 바닥에 붙고
+                // 그룹이 고르게 퍼진다. 콘텐츠가 길면 IntrinsicHeight = 콘텐츠
+                // 높이 → Spacer 0 → 기존처럼 스크롤(짧은 기기 무변화). Spacer 가
+                // 무한 높이 스크롤뷰 안에서 동작하려면 IntrinsicHeight 로 Column
+                // 높이를 확정해 줘야 한다.
+                child: IntrinsicHeight(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        t.onboardingStartEyebrow,
+                        style: text.label.copyWith(color: SoriColors.primary),
                       ),
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    _ChoiceTile(
-                      icon: LearnerMotivation.loved.icon,
-                      title: t.onboardingStartPeopleTitle,
-                      body: t.onboardingStartPeopleBody,
-                      selected: _motivation == LearnerMotivation.loved,
-                      onTap: () =>
-                          setState(() => _motivation = LearnerMotivation.loved),
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    _ChoiceTile(
-                      icon: LearnerMotivation.career.icon,
-                      title: t.onboardingStartWorkTitle,
-                      body: t.onboardingStartWorkBody,
-                      selected: _motivation == LearnerMotivation.career,
-                      onTap: () => setState(
-                        () => _motivation = LearnerMotivation.career,
+                      const SizedBox(height: Spacing.sm),
+                      Text(t.onboardingStartTitle, style: text.h1),
+                      const SizedBox(height: Spacing.sm),
+                      Text(t.onboardingStartBody, style: text.bodySmall),
+                      const SizedBox(height: Spacing.lg),
+                      _ChoiceTile(
+                        icon: LearnerMotivation.travel.icon,
+                        title: t.onboardingStartTravelTitle,
+                        body: t.onboardingStartTravelBody,
+                        selected: _motivation == LearnerMotivation.travel,
+                        onTap: () => setState(
+                          () => _motivation = LearnerMotivation.travel,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: Spacing.lg),
-                    Text(t.onboardingStartPoint, style: text.label),
-                    const SizedBox(height: Spacing.sm),
-                    _ChoiceTile(
-                      icon: Icons.hearing_rounded,
-                      title: t.onboardingStartNewTitle,
-                      body: t.onboardingStartNewBody,
-                      selected: _startsNew,
-                      onTap: () => setState(() => _startsNew = true),
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    _ChoiceTile(
-                      icon: Icons.route_outlined,
-                      title: t.onboardingStartExistingTitle,
-                      body: t.onboardingStartExistingBody,
-                      selected: !_startsNew,
-                      onTap: () => setState(() => _startsNew = false),
-                    ),
-                    const SizedBox(height: Spacing.xl),
-                    SoriButton.filled(
-                      label: _submitting
-                          ? t.onboardingStartLoading
-                          : (_startsNew
-                                ? t.onboardingStartPrimary
-                                : t.onboardingStartChooseLevel),
-                      trailingIcon: Icons.arrow_forward_rounded,
-                      fullWidth: true,
-                      onTap: _submitting ? null : _continue,
-                    ),
-                  ],
+                      const SizedBox(height: Spacing.sm),
+                      _ChoiceTile(
+                        icon: LearnerMotivation.loved.icon,
+                        title: t.onboardingStartPeopleTitle,
+                        body: t.onboardingStartPeopleBody,
+                        selected: _motivation == LearnerMotivation.loved,
+                        onTap: () => setState(
+                          () => _motivation = LearnerMotivation.loved,
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      _ChoiceTile(
+                        icon: LearnerMotivation.career.icon,
+                        title: t.onboardingStartWorkTitle,
+                        body: t.onboardingStartWorkBody,
+                        selected: _motivation == LearnerMotivation.career,
+                        onTap: () => setState(
+                          () => _motivation = LearnerMotivation.career,
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.lg),
+                      const Spacer(flex: 2),
+                      Text(t.onboardingStartPoint, style: text.label),
+                      const SizedBox(height: Spacing.sm),
+                      _ChoiceTile(
+                        icon: Icons.hearing_rounded,
+                        title: t.onboardingStartNewTitle,
+                        body: t.onboardingStartNewBody,
+                        selected: _startsNew,
+                        onTap: () => setState(() => _startsNew = true),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      _ChoiceTile(
+                        icon: Icons.route_outlined,
+                        title: t.onboardingStartExistingTitle,
+                        body: t.onboardingStartExistingBody,
+                        selected: !_startsNew,
+                        onTap: () => setState(() => _startsNew = false),
+                      ),
+                      const SizedBox(height: Spacing.xl),
+                      const Spacer(flex: 3),
+                      SoriButton.filled(
+                        label: _submitting
+                            ? t.onboardingStartLoading
+                            : (_startsNew
+                                  ? t.onboardingStartPrimary
+                                  : t.onboardingStartChooseLevel),
+                        trailingIcon: Icons.arrow_forward_rounded,
+                        fullWidth: true,
+                        onTap: _submitting ? null : _continue,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -57,6 +57,9 @@ void main() {
     expect(find.byType(MissionContextBar), findsOneWidget);
     expect(find.text('Current mission'), findsOneWidget);
     expect(find.textContaining('Step '), findsOneWidget);
+    // Scoped view explains the subset and offers an exit to the full library.
+    expect(find.text('Only packs for your current mission.'), findsOneWidget);
+    expect(find.text('Browse all vocab packs'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
@@ -79,6 +82,8 @@ void main() {
     await tester.pump(const Duration(milliseconds: 300));
 
     expect(find.byType(MissionContextBar), findsNothing);
+    // Direct browsing already shows the whole library — no scope banner.
+    expect(find.text('Browse all vocab packs'), findsNothing);
     expect(tester.takeException(), isNull);
   });
 }

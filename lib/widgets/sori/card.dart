@@ -185,8 +185,16 @@ class _SoriCardState extends State<SoriCard> {
 
     // accent 색 코딩: 좌측 4px 바 (콘텐츠 아래 레이어, 라운드 코너는 클리핑).
     // ⚠️ selectable+accent 동시 사용 시 바가 좌측 테두리 위에 얹힌다 — 조합 지양.
+    //
+    // ⚠️ `fit: StackFit.passthrough` 필수. 기본값 `StackFit.loose` 는 non-positioned
+    // 콘텐츠의 min 제약(높이·너비)을 0 으로 풀어 버린다 → 콘텐츠가 카드 높이를
+    // 채우지 못하고 `topStart` 로 쏠린다. hero 플립카드(`Center`/가운데정렬 Column)가
+    // 카드 상단·좌측으로 붕 뜨던 회귀의 실제 원인. passthrough 는 카드의 실제 제약을
+    // 그대로 넘겨 Center/가운데정렬이 정상 동작하게 한다(높이 여유 시 동일, 부족 시
+    // 스크롤 폴백 유지). start 정렬 카드는 좌측 정렬이라 시각 변화 없음.
     if (widget.accent != null) {
       content = Stack(
+        fit: StackFit.passthrough,
         children: [
           Positioned(
             left: 0,
