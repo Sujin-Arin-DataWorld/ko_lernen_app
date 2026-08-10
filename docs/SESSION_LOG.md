@@ -7,6 +7,14 @@
 
 ---
 
+### 2026-08-10 (Codex) — UX integration branch verification complete
+
+**Integration.** Rebased the complete UX 01–06 A/B/C implementation onto `origin/main` at `b368b1b` in the isolated `integrate/hangul-sori-ux-main` branch. All four rebase conflicts were in this session log only; current-main release records and UX records were both retained. `main` and `origin/main` were not modified or pushed.
+
+**Latest-main verification.** `flutter gen-l10n` completed without generated-file drift. All **256 non-golden Flutter test files** passed in 13 serial batches after the integration chain, including the new UX contracts. `flutter analyze --fatal-infos` reported **No issues found**. `functions/gye` `npm test` passed **320/320**. `git diff --check` passed.
+
+**Baseline repairs and boundaries.** Two failures reproduced on current `main`: stale metadata for two removed character clips, and an obsolete iOS negative-test message. The former was regenerated only with `tool/check_clip_matte.py` (18 existing clips, 0 failures; no asset file changed); the latter is a test-only expectation synchronization. Platform-dependent golden baselines, emulator-backed Firestore checks, device checks, and Android build packaging were not rerun here; no Android build was started in the OneDrive worktree.
+
 ### 2026-08-10 (Codex) — iOS static-contract expectation synchronized
 
 **What and why.** Updated the negative-case expectation in `test/ios_store_contract_test.dart` from an obsolete exact `iOS 13.0` message to the verifier's current `iOS 13.0 or later` contract. The verifier had already been generalized to accept deployment targets at or above 13.0, while this one assertion still expected its superseded wording.
