@@ -7,6 +7,12 @@
 
 ---
 
+### 2026-08-10 (Codex) — iOS static-contract expectation synchronized
+
+**What and why.** Updated the negative-case expectation in `test/ios_store_contract_test.dart` from an obsolete exact `iOS 13.0` message to the verifier's current `iOS 13.0 or later` contract. The verifier had already been generalized to accept deployment targets at or above 13.0, while this one assertion still expected its superseded wording.
+
+**Verification.** The same failing assertion reproduced on unmodified current `main`; the targeted static-contract suite passes after this test-only synchronization. No iOS project, Podfile, native source, asset, or build output was changed.
+
 ### 2026-08-10 (Codex) — Character clip matte report resynchronized
 
 **What.** Regenerated `tool/clip_matte_report.json` with the repository's existing `tool/check_clip_matte.py`. The report had two stale entries for clips that are no longer bundled: `magpie_right_walking_flying.mp4` and `tiger_magpie_play.mp4`.

@@ -169,7 +169,7 @@ void main() {
       result.violations,
       containsAll(<String>[
         'Runner bundle identifier is missing',
-        'iOS 13.0 deployment target is missing',
+        'iOS 13.0 or later deployment target is missing',
         'iPad target family is missing',
         'iPad orientations are incomplete',
         'camera permission key is missing',
